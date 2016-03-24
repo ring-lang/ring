@@ -1,4 +1,7 @@
 ![Ring](http://ring-lang.sourceforge.net/thering.jpg)
+=============
+Description
+=============
 
 The Ring is an Innovative and practical general-purpose multi-paradigm scripting language that
 can be embedded in C/C++ projects, extended using C/C++ code and/or used as standalone language.
@@ -15,7 +18,9 @@ January 25th, 2016.
 
 Ring Website : http://ring-lang.net/
 
+=============
 Why Ring?
+=============
 
 The language is simple, trying to be natural, encourage organization and comes with 
 transparent implementation. It comes with compact syntax and a group of features that
