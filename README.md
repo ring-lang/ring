@@ -13,4 +13,26 @@ Ring Compiler in one program.
 The first version of the language (around 100,000 lines of C/C++/Ring code) is released on
 January 25th, 2016.
 
-Website : Ring http://ring-lang.net/
+Ring Website : http://ring-lang.net/
+
+Why Ring?
+
+The language is simple, trying to be natural, encourage organization and comes with 
+transparent implementation. It comes with compact syntax and a group of features that
+enable the programmer to create natural interfaces and declarative domain-specific 
+languages in a fraction of time. It is very small, fast and comes with smart garbage
+collector that puts the memory under the programmer control. It supports many 
+programming paradigms, comes with useful and practical libraries. The language is
+designed for productivity and developing high quality solutions that can scale.
+
+(1) Designed for a Clear Goal
+
+Applications programming language.
+Productivity and developing high quality solutions that can scale.
+Small and fast language that can be embedded in C/C++ projects.
+Simple language that can be used in education and introducing Compiler/VM concepts.
+General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
+Practical language designed for creating the next version of the Programming Without Coding Technology software.
+
+
+ 
