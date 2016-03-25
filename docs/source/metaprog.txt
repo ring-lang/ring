@@ -1,0 +1,1069 @@
+===============================
+Reflection and Meta-programming
+===============================
+
+Since the Ring programming language is a dynamic language, we can get answers about
+the program code and we can modify our code during the runtime.
+
+In this chapter we will learn about this and the available functions to use.
+
+locals() Function
+=================
+
+We can get a list of variables names in the current scope using the locals() function.
+
+Syntax:
+
+.. code-block:: none
+
+	locals() --> a list contains the variables names in the current scope
+
+Example:
+
+.. code-block:: none
+
+	test("hello")
+
+	func test cMsg
+
+		see cMsg + nl
+
+		x = 10
+		y = 20
+		z = 30
+
+		see locals()
+
+Output:
+
+.. code-block:: none
+
+	hello
+	cmsg
+	x
+	y
+	z
+
+globals() Function
+==================
+
+We can get a list of variables names in the global scope using the globals() function.
+
+Syntax:
+
+.. code-block:: none
+	
+	globals() --> a list contains variables names in the global scope
+
+Example:
+
+.. code-block:: none
+
+	x=10 y=20 z=30
+	test()
+
+	func test
+		see "message from test()" + nl +
+		    "Global Variables:" + nl
+		see globals()
+
+Output:
+
+.. code-block:: none
+
+
+	message from test()
+	Global Variables:
+	x
+	y
+	z
+
+functions() Function
+====================
+
+We can get a list of functions names written in the Ring language using the functions() function.
+
+Syntax:
+
+.. code-block:: none
+
+	functions() --> a list contains functions names
+
+Example:
+
+.. code-block:: none
+
+	see functions()
+
+	func f1
+		see "f1" + nl
+
+	func f2
+		see "f2" + nl
+
+	func f3 
+		see "f3" + nl
+
+Output:
+
+.. code-block:: none
+
+	f1
+	f2
+	f3
+
+cfunctions() Function
+=====================
+
+We can get a list of functions names written in the C language using the cfunctions() function.
+
+Syntax:
+
+.. code-block:: none
+
+	cfunctions() --> a list contains functions names
+
+Example:
+
+.. code-block:: none
+
+	aList =  cfunctions()
+	See "Count : " + len(aList) + nl
+	for x in aList
+		see x + "()" + nl
+	next
+
+Output:
+
+.. code-block:: none
+
+	Count : 186
+	len() 
+	add() 
+	del() 
+	get() 
+	clock()
+	...
+
+.. note:: The complete list is removed from the previous output.
+
+islocal() Function
+==================
+
+We can check if a variable is defined in the local scope or not using the islocal() function.
+
+Syntax:
+
+.. code-block:: none
+
+	islocal(cVariableName) --> returns 1 if the variable is defined in the local scope
+				   returns 0 if the variable is not defined in the local scope
+
+Example:
+
+.. code-block:: none
+
+	test()
+
+	func test
+		x=10 y=20
+		see islocal("x") + nl + 
+		    islocal("y") + nl + 
+		    islocal("z") + nl
+
+Output:
+
+.. code-block:: none
+
+	1
+	1
+	0
+
+
+isglobal() Function
+===================
+
+We can check if a variable is defined in the global scope or not using the isglobal() function.
+
+Syntax:
+
+.. code-block:: none
+
+	isglobal(cVariableName) --> returns 1 if the variable is defined in the global scope
+				    returns 0 if the variable is not defined in the global scope
+
+Example:
+
+.. code-block:: none
+
+	x=10 y=20
+
+	test()
+
+	func test
+		see isglobal("x") + nl + 
+		    isglobal("y") + nl + 
+		    isglobal("z") + nl
+
+Output:
+
+.. code-block:: none
+
+	1
+	1
+	0
+
+isfunction() Function
+=====================
+
+We can check if a Ring function is defined or not using the isfunction() function.
+
+Syntax:
+
+.. code-block:: none
+
+	isfunction(cFunctionName) --> returns 1 if the Ring function is defined
+				      returns 0 if the Ring function is not defined
+
+Example:
+
+.. code-block:: none
+
+	see isfunction("f1") + nl + 
+	    isfunction("f2") + nl + 
+	    isfunction("f3") + nl
+
+	func f1
+		see "message from f1()" + nl
+
+	func f2
+		see "message from f2()" + nl
+
+Output:
+
+.. code-block:: none
+
+	1
+	1
+	0
+
+iscfunction() Function
+======================
+
+We can check if a C function is defined or not using the iscfunction() function.
+
+Syntax:
+
+.. code-block:: none
+
+	iscfunction(cFunctionName) --> returns 1 if the C function is defined
+				       returns 0 if the C function is not defined
+
+Example:
+
+.. code-block:: none
+
+	see iscfunction("len") + nl + 
+  	    iscfunction("add") + nl + 
+  	    iscfunction("test") + nl
+
+Output:
+
+.. code-block:: none
+
+	1
+	1
+	0
+
+
+packages() Function
+===================
+
+We can get a list of packages names using the packages() function.
+
+Syntax:
+
+.. code-block:: none
+
+	packages() --> a list contains packages names
+
+Example:
+
+.. code-block:: none
+
+	See packages()
+
+	Package Package1
+		Class class1
+			Func f1
+
+	Package Package2
+		Class class1
+			Func f1
+
+	Package Package3
+		Class class1
+			Func f1
+
+	Package Package4
+		Class class1
+			Func f1
+
+Output:
+
+.. code-block:: none
+
+	package1
+	package2
+	package3
+	package4
+
+
+ispackage() Function
+====================
+
+We can check if a package is defined or not using the ispackage() function.
+
+Syntax:
+
+.. code-block:: none
+
+	ispackage(cPackageName) --> returns 1 if the Package is defined
+				    returns 0 if the Package is not defined
+
+Example:
+
+.. code-block:: none
+
+	See ispackage("package1") + nl + 
+	    ispackage("package4") + nl + 
+	    ispackage("package5") + nl +
+	    ispackage("package3") + nl
+
+	Package Package1
+		Class class1
+			Func f1
+
+	Package Package2
+		Class class1
+			Func f1
+
+	Package Package3
+		Class class1
+			Func f1
+
+	Package Package4
+		Class class1
+			Func f1
+
+Output:
+
+.. code-block:: none
+
+	1
+	1
+	0
+	1
+
+
+classes() Function
+==================
+
+We can get a list of classes names using the classes() function.
+
+Syntax:
+
+.. code-block:: none
+
+	classes() --> a list contains classes names
+
+Example:
+
+.. code-block:: none
+
+	See classes()
+
+	Class class1
+		Func f1
+
+	Class class2
+		Func f1
+
+	Class class3
+		Func f1
+
+Output:
+
+.. code-block:: none
+
+	class1
+	class2
+	class3
+
+isclass() Function
+==================
+
+We can check if a class is defined or not using the isclass() function.
+
+Syntax:
+
+.. code-block:: none
+
+	isclass(cClassName) -->  returns 1 if the Class is defined
+				 returns 0 if the Class is not defined
+
+Example:
+
+.. code-block:: none
+
+	see isclass("class4") + nl + 
+	    isclass("class3") + nl +
+	    isclass("class2") + nl
+
+	Class class1
+		func f1
+
+	class class2
+		func f1
+
+	class class3
+		func f1
+
+Output:
+
+.. code-block:: none
+
+	0
+	1
+	1
+
+packageclasses() Function
+=========================
+
+We can get a list of classes names inside a package using the packageclasses() function.
+
+Syntax:
+
+.. code-block:: none
+
+	packageclasses(cPackageName) --> a list contains classes names inside the package
+
+Example:
+
+.. code-block:: none
+
+	see "classes in Package1" + nl
+	see packageclasses("Package1")
+	see "classes in Package2" + nl
+	see packageclasses("Package2")
+
+	Package Package1
+		Class class1
+			Func f1
+
+	Package Package2
+		Class class1
+			Func f1
+		Class class2
+			Func f1
+		Class class3
+			func f1
+
+
+Output:
+
+.. code-block:: none
+
+	classes in Package1
+	class1
+	classes in Package2
+	class1
+	class2
+	class3
+
+
+ispackageclass() Function
+=========================
+
+We can check if a class is defined inside package or not using the ispackageclass() function.
+
+Syntax:
+
+.. code-block:: none
+
+	ispackageclass(cPackageName,cClassName) -->  returns 1 if the Class is defined  
+		  				     returns 0 if the Class is not defined 
+
+Example:
+
+.. code-block:: none
+
+	see ispackageclass("package1","class1") + nl +
+	    ispackageclass("package1","class2") + nl +
+	    ispackageclass("package2","class1") + nl +
+	    ispackageclass("package2","class2") + nl
+
+	Package Package1
+		Class class1
+			Func f1
+
+	Package Package2
+		Class class1
+			Func f1
+		Class class2
+			Func f1
+		Class class3
+			func f1
+
+Output:
+
+.. code-block:: none
+
+	1
+	0
+	1
+	1
+
+classname() Function
+====================
+		
+We can know the class name of an object using the classname() function
+
+Syntax:
+
+.. code-block:: none
+
+	classname(object) --> Returns the object class name
+
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point
+	o2 = new rect
+
+	see classname(o1) + nl		# print point
+	see classname(o2) + nl		# print rect
+
+	class point
+	class rect
+
+objectid() Function
+===================
+
+We can know the object id using the objectid() function
+
+Syntax:
+
+.. code-block:: none
+
+	objectid(object) --> Returns the object id
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point
+	see objectid(o1) + nl
+	test(o1)
+
+	func test v
+		see objectid(v) + nl
+
+	Class point x y z
+
+Output:
+
+.. code-block:: none
+
+	021B5808
+	021B5808
+		
+isobject() Function
+===================
+
+We can check the variable to know if it's an object or not using the isobject() function
+
+Syntax:
+
+.. code-block:: none
+
+	isobject(variable) --> Returns True if it's an object, False if it's not
+
+		
+attributes() Function
+=====================
+
+We can get the object attributes using the attributes() function
+
+Syntax:
+
+.. code-block:: none
+
+	attributes(object) --> Returns a list contains the object attributes
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point
+	aList = attributes(o1)		# we can use see attributes(o1)
+	for t in aList see t next	# print xyz 
+	Class Point x y z
+		
+methods() Function
+==================
+
+We can get the object methods using the methods() function
+
+Syntax:
+
+.. code-block:: none
+
+	methods(object) --> Returns a list contains the object methods
+
+
+Example:
+
+.. code-block:: none
+
+	o1 = new test
+	aList = methods(o1)
+
+	for x in aList
+		cCode = "o1."+x+"()"
+		eval(cCode)
+	next
+
+	Class Test
+		func f1
+			see "hello from f1" + nl
+		func f2
+			see "hello from f2" + nl
+		func f3
+			see "hello from f3" + nl
+		func f4
+			see "hello from f4" + nl
+
+Output:
+
+.. code-block:: none
+
+	hello from f1
+	hello from f2
+	hello from f3
+	hello from f4
+
+
+isattribute() Function
+======================
+
+We can test if the object contains an attribute or not using the isattribute() function
+
+Syntax:
+
+.. code-block:: none
+
+	isattribute(object,cAttributeName) --> Returns True if the object contains the attribute
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point
+
+	see isattribute(o1,"x") + nl	# print 1
+	see isattribute(o1,"t") + nl	# print 0
+	see isattribute(o1,"y") + nl	# print 1
+	see isattribute(o1,"z") + nl	# print 1
+
+	class point x y z
+
+isprivateattribute() Function
+=============================
+
+We can test if the object contains a private attribute or not using the isprivateattribute() function
+
+Syntax:
+
+.. code-block:: none
+
+	isprivateattribute(object,cAttributeName) --> Returns True if the object 
+						      contains the private attribute
+
+Example:
+
+.. code-block:: none
+
+	o1 = new person
+
+	see isprivateattribute(o1,"name") + nl + 
+	    isprivateattribute(o1,"address") + nl + 
+	    isprivateattribute(o1,"phone") + nl + 
+	    isprivateattribute(o1,"job") + nl + 
+	    isprivateattribute(o1,"salary")
+
+	Class Person
+		name address phone
+		private
+			job salary
+
+Output:
+
+.. code-block:: none
+
+	0
+	0
+	0
+	1
+	1
+
+	
+ismethod() Function
+===================
+
+We can test if the object class contains a method or not using the ismethod() function
+
+Syntax:
+
+.. code-block:: none
+
+	ismethod(object,cMethodName) --> Returns True if the object class contains the method
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point
+
+	see ismethod(o1,"print") + nl		# print 1
+
+	mylist = []
+	mylist + new point
+
+	see ismethod(mylist[1],"print") + nl	# print 1
+
+	class point x y z
+		func print
+			see x + nl + y + nl + z + nl
+
+
+isprivatemethod() Function
+==========================
+
+We can test if the object class contains a private method or not using the isprivatemethod() function
+
+Syntax:
+
+.. code-block:: none
+
+	isprivatemethod(object,cMethodName) --> Returns True if the object class contains 
+						the private method
+
+Example:
+
+.. code-block:: none
+
+	o1 = new Test
+
+	see isprivatemethod(o1,"f1") + nl +
+	    isprivatemethod(o1,"f2") 
+
+	Class Test
+		func  f1
+			see "message from f1()" + nl
+		private
+			func f2
+				see "message from f2()" + nl
+
+Output:
+
+.. code-block:: none
+
+	0
+	1
+
+addattribute() Function
+=======================
+
+We can add an attribute (or a group of attributes) to the object state (not the class) using
+the addattribute() function
+
+Syntax:
+
+.. code-block:: none
+
+	AddAttribute(object,cAttributeName|aAttributesList)
+
+Example(1):
+
+.. code-block:: none
+
+	see new point {x=10 y=20 z=30}
+	Class Point 
+		AddAttribute(self,["x","y","z"])
+
+Example(2):
+
+.. code-block:: none
+
+	o1 = new point
+	addattribute(o1,"x")
+	addattribute(o1,"y")
+	addattribute(o1,"z")
+	see o1 {x=10 y=20 z=30}
+	class point
+
+
+Output:
+
+.. code-block:: none
+
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
+
+
+
+
+addmethod() Function
+====================
+
+We can add a method to the object class using the addmethod() function
+This method can be used with any object from the same class.
+
+Syntax:
+
+.. code-block:: none
+
+	AddMethod(Object,cNewMethodName,cMethodName|AnonymousFunction)
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point { x=10 y=20 z=30 }
+
+	addmethod(o1,"print", func { see x + nl + y + nl + z + nl } )
+
+	o1.print()
+
+	Class point
+		x y z
+	
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	30
+
+Instead of using anonymous function to add new method to the class, we can use the function name
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point { x=10 y=20 z=30 }
+
+	myfunc = func { see x + nl + y + nl + z + nl }
+
+	addmethod(o1,"print", myfunc )
+	addmethod(o1,"display", myfunc )
+	addmethod(o1,"show", myfunc )
+
+	o1.print()
+	o1.display()
+	o1.show()
+
+	Class point
+		x y z
+
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	30
+	10
+	20
+	30
+	10
+	20
+	30
+
+Since we add the method to the class, any object from that class can use this method
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point { x=10 y=20 z=30 }
+	o2 = new point { x=100 y=200 z=300 }
+	o3 = new point { x=50 y=150 z=250 }
+
+	addmethod(o1,"print", func { see x + nl + y + nl + z + nl } )
+
+	o1.print()
+	o2.print()
+	o3.print()
+
+	Class point
+		x y z
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	30
+	100
+	200
+	300
+	50
+	150
+	250
+
+getattribute() function
+=======================
+
+We can get the object attribute value using the getattribute() function
+
+Syntax:
+
+.. code-block:: none
+
+	GetAttribute(oObject,cAttributeName) ---> Attribute Value
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point
+
+	see getattribute(o1,"name") + nl +
+	    getattribute(o1,"x") + nl +
+	    getattribute(o1,"y") + nl + 
+	    getattribute(o1,"z") + nl
+
+	Class Point
+		x=10 y=20 z=30
+		name = "3D-Point"
+	
+Output:
+
+.. code-block:: none
+
+	3D-Point
+	10
+	20
+	30
+
+setattribute() function
+=======================
+
+We can set the object attribute value using the setattribute() function
+
+Syntax:
+
+.. code-block:: none
+
+	SetAttribute(oObject,cAttributeName,Value)
+
+Example:
+
+.. code-block:: none
+
+	o1 = new person
+	setattribute(o1,"cName","Mahmoud")
+	setattribute(o1,"nSalary",1000000)
+	setattribute(o1,"aColors",["white","blue","yellow"])
+
+	see o1
+	see o1.aColors
+
+	Class Person
+		cName
+		nSalary
+		aColors
+
+Output:
+
+.. code-block:: none
+
+	cname: Mahmoud
+	nsalary: 1000000.000000
+	acolors: List...
+	white
+	blue
+	yellow
+
+
+mergemethods() Function
+=======================
+
+We can share methods between classes without inheritance using the MergeMethods() function
+
+This function merge class methods to another class.
+
+Syntax:
+
+.. code-block:: none
+
+	MergeMethods(cClassNameDestination,cClassNameSource)
+
+Example:
+
+.. code-block:: none
+
+	mergemethods("count","share")
+	mergemethods("count2","share")
+
+	o1 = new count  { test() }
+	o1 = new count2 { test() }
+
+	Class Share
+		func one
+			see "one" + nl
+		func two
+			see "two" + nl
+		func three
+			see "three" + nl
+
+	Class Display
+		Func printline
+			see copy("*",20) + nl
+
+	Class Count from Display
+		Func test
+			printline()
+			one()
+			two()
+			three()
+			printline()
+
+	Class Count2 from Display
+		Func test
+			three()
+			two()
+			one()
+			printline()	
+
+Output:
+
+.. code-block:: none
+
+	********************
+	one
+	two
+	three
+	********************
+	three
+	two
+	one
+	********************
