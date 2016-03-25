@@ -1,0 +1,73 @@
+{ "name": "ring",
+"scopeName": ".ring",
+"fileTypes": ["ring"],
+"patterns": [
+{ "include": "#operators"},
+{ "include": "#string1"},
+{ "include": "#string2"},
+{ "include": "#string3"},
+{ "include": "#comment1"},
+{ "include": "#comment2"},
+{ "include": "#numericConstant"},
+{ "include": "#constant"},
+{ "include": "#controlKeywords"},
+{ "include": "#classDefinition" },
+{ "include": "#functionDefinition"},
+{ "match": "(?i:\\b(len|reverse|add|del|get|clock|lower|upper|input|asci|char|date|time)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(filename|getchar|system|isstring|isnumber|islist|type|isnull|read|write)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(hex|dec|number|string|str2hex|hex2str|left|write|trim|copy|substr|eval)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(raise|assert|ismethod)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|exp|log|log10)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(ceil|floor|fabs|pow|sqrt)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(fopen|fclose|fflush|freopen|tempfile|tempname|fseek|ftell)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(rewind|fgetpos|fsetpos|clearerr|feof|ferror|perror|rename|remove)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(fgetc|fgets|fputc|fputs|ungetc|fread|fwrite)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(odbc_init|odbc_drivers|odbc_datasources|odbc_close|odbc_connect|odbc_disconnect)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(odbc_execute|odbc_colcount|odbc_fetch|odbc_getdata|odbc_tables)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(odbc_columns|odbc_autocommit|odbc_commit|odbc_rollback|odbc_rowcount)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(mysql_info|mysql_init|mysql_error|mysql_connect|mysql_close)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(mysql_query|mysql_result|mysql_insert_id|mysql_columns|mysql_result2)\\b)", "name": "keyword.ring", "comment": "" },
+{ "match": "(?i:\\b(mysql_next_result|mysql_escapse_string|mysql_autocommit|mysql_commit|mysql_rollback)\\b)", "name": "keyword.ring", "comment": "" }
+],
+"repository": {
+"string1": { "match": "(\")(.*)(\")", "name": "string.ring" },
+"string2": { "match": "(')(.*)(')", "name": "string.ring" },
+"string3": { "match": "(\\[)(.*)(\\])", "name": "string.ring" },
+"numericConstant": { "match": "\\b(-?\\d+(\\.?\\d?)*)", "name": "constant.ring" },
+"operators": { "match": "\\b(\\+|\\-|\\^|\\*|\\=)\\b", "name": "keyword.operator.ring" },
+"constant": { "match": "(?i:(\\.t\\.|\\.f\\.|\\.null\\.))", "name": "constant.ring"},
+"comment1": { "match": "(#.*)", "name": "comment.ring"},
+"comment2": { "match": "(^\\s*\\*.*)", "name": "comment.ring"},
+"controlKeywords": {
+"name": "keyword.control.ring",
+"match": "(?i:\\b(see|nl|stdin|stdout|bye|true|false|and|or|not|if|but|else|ok|switch|on|off|while|end|for|next|to|in|do|again|return|load|import|new|try|catch|done)\\b)"},
+"functionDefinition": {
+"name": "meta.function.vbnet",
+"begin": "(?i:\\b(proc[e]?[d]?[u]?[r]?[e]?|func[t]?[i]?[o]?[n]?)\\s+([a-zA-Z_]\\w*)\\s*(\\()?)",
+"beginCaptures": {
+"1": { "name": "support.type.function.vbnet" },
+"2": { "name": "entity.name.function.vbnet" },
+"3": { "name": "meta.parameters.vbnet"},
+"4": { "name": "punctuation.definition.parameters.vbnet" }
+},
+"patterns": [
+{ "include": "#otherKeywords" },
+{ "include": "#supportTypes" }
+],
+"end": "(\\))?\\s*",
+"endCaptures": {
+"1": { "name": "punctuation.definition.parameters.vbnet" }
+}
+},
+"classDefinition":{
+"name": "meta.class.ring",
+"match": "(?i:\\b(class|package)\\s+([a-zA-Z_]\\w*)\\s*)",
+"captures": {
+"1": { "name": "storage.type.class.vbnet" },
+"2": { "name": "entity.name.type.class.vbnet" }
+}
+}
+},
+
+  "uuid": "720071d7-bf91-4540-a12a-b611f9c41729"
+}

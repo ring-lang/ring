@@ -1,0 +1,7 @@
+{
+    "windows":
+    {
+        "cmd": ["C:\\ring\\ring.exe","$file"],
+        "encoding": "cp1252"
+    }
+}

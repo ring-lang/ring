@@ -1,0 +1,21 @@
+========================================
+Sublime Text 2 Syntax Coloring for Ring
+http://ring-lang.net
+========================================
+
+In the folder Sublime_Text_2 you will find the next three file
+1 - ring.json-tmlanguage
+2 - ring.sublime-build
+3 - ring.tmlanguage
+
+Just Copy the files to the next path
+"C:\Users\{UserName}\AppData\Roaming\Sublime Text 2\Packages\User\"
+
+The file ring.sublime-build includes the next line
+"cmd": ["C:\\ring\\ring.exe","$file"],
+You can modify it according to the ring.exe path in your machine 
+
+Greetings,
+Mahmoud Fayed
+http://www.facebook.com/mahmoudfayed1986
+msfclipper@yahoo.com
