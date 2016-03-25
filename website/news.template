@@ -1,0 +1,25 @@
+﻿  <%  eval(read("news.data"))  %>
+  <div id="news" class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><h4>News <span class="badge"><%=len(aNews) %></span></h4></div>
+      <div class="panel-body">
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th width="20%">Date</th>
+					<th>Description</th>
+				  </tr>
+				</thead>
+				<tbody>
+				<% for x in aNews %>
+				  <tr>
+					<td><%= x[1] %></td>
+					<td><%= x[2] %></td>
+				  </tr>
+				<% next %>				 	  
+				</tbody>
+			</table>
+	  </div>
+     </div>  
+  </div>
+
