@@ -1,0 +1,577 @@
+=====
+Files
+=====
+
+In this chapter we are going to learn about files functions.
+
+* Read()
+* Write()
+* Dir()
+* Rename()
+* Remove()
+* fopen()
+* fclose()
+* fflush()
+* freopen()
+* tempfile()
+* tempname()
+* fseek()
+* ftell()
+* rewind()
+* fgetpos()
+* fsetpos()
+* clearerr()
+* feof()
+* ferror()
+* perror()
+* fgetc()
+* fgets()
+* fputc()
+* fputs()
+* ungetc()
+* fread()
+* fwrite()
+* fexists()
+
+.. index:: 
+	pair: Files; Read File using Read()
+
+Read() Function
+===============
+
+We can read the file content using the Read() function
+
+Syntax:
+
+.. code-block:: none
+
+	Read(cFileName) ---> String contains the file content
+
+Example:
+
+.. code-block:: none
+
+	see read("myfile.txt")
+
+The read function can read binary files too
+
+Example:
+
+.. code-block:: none
+
+	see read("myapp.exe")
+
+
+.. index:: 
+	pair: Files; Write file using Write()
+
+Write() Function
+================
+
+We can write string to file using the Write() function
+
+The write function can write binary data to binary files.
+
+Syntax:
+
+.. code-block:: none
+
+	Write(cFileName,cString)	# write string cString to file cFileName
+
+Example:
+
+.. code-block:: none
+
+	# copy file
+	cFile = read("ring.exe")
+	write("ring2.exe",cFile)
+
+.. index:: 
+	pair: Files; Dir()
+
+Dir() Function
+==============
+
+We can get the folder contents (files & sub folders) using the Dir() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Dir(cFolderPath) ---> List contains files & sub folders.
+
+This function returns a list and each list item is a list of two items
+
+* File/sub folder name
+
+* Type (0 = File , 1 = Folder/Directory)
+
+Example:
+
+.. code-block:: none
+
+	see "Testing DIR() " + nl
+	mylist = dir("C:\myfolder")
+	for x in mylist
+		if x[2] 
+			see "Directory : " + x[1] + nl
+		else
+			see "File : " + x[1] + nl
+		ok
+	next
+	see "Files count : " + len(mylist)
+
+
+Rename() Function
+=================
+
+We can rename files using the Rename() function
+
+Syntax:
+
+.. code-block:: none
+
+	Rename(cOldFileName,cNewFileName)
+
+Example:
+
+.. code-block:: none
+
+	rename("file.txt","help.txt")
+
+Remove() Function
+=================
+
+We can delete a file using the Remove() function
+
+
+Syntax:
+
+.. code-block:: none
+
+	Remove(cFileName)
+
+Example:
+
+.. code-block:: none
+
+	remove("test.txt")
+
+Fopen() Function
+================
+
+We can open a file using the Fopen() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fopen(cFileName,cMode) ---> File Handle
+
+=====	==========================================
+Mode	Description
+=====	==========================================
+"r"	Reading (The file must exist)
+"w"	Writing (create empty file / overwrite)
+"a"	Appends (create file if it doesn't exist)
+"r+"	update (reading/writing)
+"w+"	Create empty file (reading/writing)
+"a+"	reading & appending
+=====	==========================================
+
+
+Fclose() Function
+=================
+
+When we open a file using fopen() function, we can close it
+using the Fclose() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fclose(file handle)
+
+Fflush() Function
+=================
+
+We can flushes the output buffer of a stream using the Fflush() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fflush(file handle)
+
+Freopen() Function
+==================
+
+We can open another file using the same file handle and at the same file close
+the old file 
+
+Syntax:
+
+.. code-block:: none
+
+	Freopen(cFileName,cMode,file handle) ---> file handle
+
+Example:
+
+.. code-block:: none
+
+	freopen("myprogoutput.txt","w+",stdout)
+	see "welcome" + nl
+	for x = 1 to 10
+		see x + nl
+	next
+
+	/*
+	** Read : https://en.wikipedia.org/wiki/Device_file#Device_files
+	** The next code is not portable, we can use iswindows() before 
+	** using it and we can write special code for each operating system.
+	*/
+
+	freopen("CON","w",stdout)	# For Microsoft Windows
+	see "Done" + nl			# print to stdout again
+
+Output:
+
+.. code-block:: none
+
+	# Output to stdout
+	Done
+
+	# Output to file : myprogoutput.txt
+	welcome
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+	10
+
+Tempfile() Function
+===================
+
+The function Tempfile() creates a temp. file (binary).
+
+The file will be deleted automatically when the stream is closed
+
+Syntax:
+
+.. code-block:: none
+
+	TempFile() ---> file handle
+
+
+Tempname() Function
+===================
+
+We can generate temp. file name using the Tempname() function
+
+The generated name will be different from the name of any existing file
+
+Syntax:
+
+.. code-block:: none
+
+	Tempname() ---> generated file name as string
+
+Fseek() Function
+================
+
+We can set the file position of the stream using the Fseek() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fseek(file handle, nOffset, nWhence) ---> zero if successful
+
+The next table presents the nWhence values
+
+=====	===============================
+Value	Description
+=====	===============================
+0	Beginning of file
+1	Current position
+2	End of file
+=====	===============================
+
+Ftell() Function
+================
+
+We can know the current file position of a stream using the Ftell() function
+
+Syntax:
+
+.. code-block:: none
+
+	Ftell(file handle) ---> file position as number
+
+Rewind() Function
+=================
+
+We can set the file position to the beginning of the file using the Rewind() function
+
+Syntax:
+
+.. code-block:: none
+	
+	Rewind(file handle)
+
+Fgetpos() Function
+==================
+
+We can get handle to the current file position using the Fgetpos() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fgetpos(file handle) ---> position handle
+
+Fsetpos() Function
+==================
+
+We can set the current file position using the Fgetpos() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fsetpos(file handle,position handle)
+
+Clearerr() Function
+===================
+
+We can clear the EOF error and the error indicators of a stream using the clearerr()
+function
+
+Syntax:
+
+.. code-block:: none
+
+	Clearerr(file handle)
+
+Feof() Function
+===============
+
+We can test the end-of-file indicator using the Feof() function
+
+Syntax:
+
+.. code-block:: none
+
+	Feof(file handle) ---> returns 1 if EOF and 0 if not
+
+Ferror() Function
+=================
+
+We can test the error indicator of a given stream using the Ferror() function
+
+Syntax:
+
+.. code-block:: none
+
+	Ferror(file handle) ---> returns 1 if error and 0 if not
+
+Perror() Function
+=================
+
+We can print error message to the stderr using the Perror() function
+
+Syntax:
+
+.. code-block:: none
+
+	Perror(cErrorMessage)
+
+Fgetc() Function
+================
+
+We can get the next character from the stream using the Fgetc() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fgetc(file handle) ---> returns character or EOF
+
+
+Fgets() Function
+================
+
+We can read new line from the stream using the Fgets() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fgets(file handle,nSize) ---> string
+
+The function stop when nSize characters are read, new line character is read or EOF.
+
+Fputc() Function
+================
+
+We can write a character to the stream using the Fputc() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fputc(file handle,cChar)
+
+Fputs() Function
+================
+
+We can write a string to the stream using the Fputs() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fputs(file handle,cString)
+
+
+Ungetc() Function
+=================
+
+We can push a character to the stream using the Ungetc() function
+
+The character will be available for the next read
+
+Syntax:
+
+.. code-block:: none
+
+	Ungetc(file handle,character)
+
+
+Fread() Function
+================
+
+We can read data from a stream using the Fread() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fread(file handle,nSize)
+
+Fwrite() Function
+=================
+
+We can write data to a stream using the Fwrite() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fwrite(file handle,cString)
+
+
+Fexists() Function
+==================
+
+We can check if a file exists using the Fexists() function
+
+Syntax:
+
+.. code-block:: none
+
+	Fexists(cFileName) ---> returns 1 if the file exists
+
+Example:
+
+.. code-block:: none
+
+	see fexists("b:\mahmoud\apps\ring\ring.exe") + nl +
+	    fexists("b:\mahmoud\apps\ring\ring2.exe") + nl 
+
+Output:
+
+.. code-block:: none
+
+	1
+	0
+
+Example
+=======
+
+The next program test some of the file functions
+
+.. code-block:: none
+
+	See "Testing file functions" + nl
+
+	See "open file" + nl
+	fp = fopen("tests\s65.ring","r")
+
+	See "reopen" + nl
+	fp = freopen("tests\s78.ring","r",fp)
+	See "close file" + nl
+	fclose(fp)
+
+	see "temp file" + nl
+	fp = tempfile()
+	fclose(fp)
+
+	see "temp name" + nl
+	see tempname() + nl
+
+	remove("tests\mytest1.txt")
+	write("tests\test1.txt","hello")
+	rename("tests\test1.txt","tests\mytest2.txt")
+
+	see "print file" + nl
+	fp = fopen("tests\file.ring","r")
+	r = fgetc(fp)
+	while isstring(r)
+		see r
+		r = fgetc(fp)
+	end
+	fclose(fp)
+
+	see nl+"print line from the file" + nl
+	fp = fopen("tests\file.ring","r")
+	r = fgets(fp,100)
+	see r
+	fclose(fp)
+
+	fp = fopen("tests\myfile.txt","rw+")
+	fseek(fp,0,2) # goto end of file
+	fputc(fp,"t")
+	fputc(fp,"e")
+	fputc(fp,"s")
+	fputc(fp,"t")
+	fputs(fp,"test2")
+	fclose(fp)
+
+	see "print file" + nl
+	see read("tests\myfile.txt")
+
+	fp = fopen("tests\myfile.txt","r")
+	see "testing ungetc() " + nl
+	for x = 1 to 3
+		r = fgetc(fp)
+		see r + nl
+		ungetc(fp,r)
+	next
+	fclose(fp)
+
+	see "testing fread() " + nl
+	fp = fopen("ring.exe","r")
+	r = fread(fp,100)
+	see r + nl
+	fclose(fp)
+
+	see "testing fwrite() " + nl
+	fp = fopen("tests\myfile.txt","wb")
+	fwrite(fp,r)
+	fclose(fp)
