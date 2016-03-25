@@ -1,0 +1,45 @@
+.. Ring documentation master file, created by
+   sphinx-quickstart on Sun May 03 10:07:42 2015.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Ring's documentation!
+================================
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   Introduction <introduction>
+   Getting Started <getting_started>
+   Variables <variables>
+   Operators <operators>
+   Control Structures <controlstructures>
+   Getting Input <getinput>
+   Functions <functions>
+   Lists <lists>
+   Strings <strings>
+   Date and Time <dateandtime>
+   Check Data Type and Conversion <checkandconvert>
+   Mathematical Functions <mathfunc>
+   Files <files>
+   System Functions <systemfunc>
+   Eval() and Debugging <evaldebug>
+   Demo Programs <demo>
+   ODBC Functions <odbc>
+   MySQL Functions <mysql>
+   Security and Internet Functions <secfunc>
+   Object Oriented Programming (OOP) <oop>
+   Declarative Programming using Nested Structures <declarative>
+   Natural language programming	<natural>
+   Functional Programming (FP) <fp>
+   Reflection and Meta-programming <metaprog>
+   Extension using the C/C++ languages <extension>
+   Embedding Ring Interpreter in C/C++ Programs <embedding>
+   Command Line Options	<interpreter>
+   Web Development (CGI Library) <web>
+   Code Generator for wrapping C/C++ Libraries <codegenerator>
+   Graphics and 2D Games programming using RingAllegro <allegro>	
+   Desktop and Mobile development using RingQt <qt>
+   Resources <resources>
