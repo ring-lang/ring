@@ -1,0 +1,154 @@
+=============================================
+Embedding Ring Interpreter in C/C++ Programs
+=============================================
+
+We can call the Ring interpreter from C/C++ programs using the next functions
+
+.. code-block:: C
+
+	RingState *ring_state_init();
+	ring_state_runcode(RingState *pState,const char *cCode);
+	ring_state_delete(RingState *pState);
+
+.. index:: 
+	pair: Embedding Ring Interpreter in C/C++ Programs; Ring State
+
+Ring State
+==========
+
+The idea is to use the ring_state_init() to create new state for the Ring Interpreter
+then call the ring_state_runcode() function to execut Ring code using the same state.
+When we are done, we call the ring_state_delete() to free the memory.
+
+Example:
+
+.. code-block:: C
+
+	#include "ring.h"
+	#include "stdlib.h"
+	int main(int argc, char *argv[])
+	{	
+	  RingState *pState = ring_state_init();
+	  printf("welcome\n");
+	  ring_state_runcode(pState,"see 'hello world from the ring programming language'+nl");
+	  ring_state_delete(pState);
+	}
+
+Output:
+
+.. code-block:: C
+
+	welcome
+	hello world from the ring programming language
+
+.. index:: 
+	pair: Embedding Ring Interpreter in C/C++ Programs; Ring State Functions
+
+Ring State Functions
+====================
+
+The Ring API comes with the next functions to create and delete the state.
+Also we have functions to create new variables and get variables values.
+
+.. code-block:: C
+
+	RingState * ring_state_init ( void ) ;
+	RingState * ring_state_delete ( RingState *pRingState ) ;
+	void ring_state_runcode ( RingState *pRingState,const char *cStr ) ;
+	List * ring_state_findvar ( RingState *pRingState,const char *cStr ) ;
+	List * ring_state_newvar ( RingState *pRingState,const char *cStr ) ;
+	void ring_state_main ( int argc, char *argv[] ) ;
+	void ring_state_runfile ( RingState *pRingState,const char *cFileName ) ;
+
+.. index:: 
+	pair: Embedding Ring Interpreter in C/C++ Programs; Ring State Variables
+
+Ring State Variables
+====================
+
+We can create more than one ring state in the same program and we can create and modify variable values.
+
+To get the variable list we can use the ring_state_findvar() function.
+
+To create new variable we can use the ring_state_newvar() function.
+
+Example:
+
+.. code-block:: C
+
+	#include "ring.h"
+	#include "stdlib.h"
+	
+	int main(int argc, char *argv[])
+	{
+	  List *pList;
+
+  	  RingState *pState = ring_state_init();
+	  RingState *pState2 = ring_state_init();
+
+	  printf("welcome\n");
+	  ring_state_runcode(pState,"see 'hello world from the ring programming language'+nl");
+
+	  printf("Again from C we will call ring code\n");
+	  ring_state_runcode(pState,"for x = 1 to 10 see x + nl next");
+
+	  ring_state_runcode(pState2,"for x = 1 to 5 see x + nl next");
+
+	  printf("Now we will display the x variable value from ring code\n");
+	  ring_state_runcode(pState,"see 'x value : ' + x + nl ");
+	  ring_state_runcode(pState2,"see 'x value : ' + x + nl ");
+
+	  pList = ring_state_findvar(pState,"x");
+
+	  printf("Printing Ring variable value from C , %.0f\n",
+		  	ring_list_getdouble(pList,RING_VAR_VALUE));
+
+	  printf("now we will set the ring variable value from C\n");
+	  ring_list_setdouble(pList,RING_VAR_VALUE,20);
+
+	  ring_state_runcode(pState,"see 'x value after update : ' + x + nl ");
+
+	  pList = ring_state_newvar(pState,"v1");
+	  ring_list_setdouble(pList,RING_VAR_VALUE,10);	
+
+	  pList = ring_state_newvar(pState,"v2");
+	  ring_list_setdouble(pList,RING_VAR_VALUE,20);
+
+	  ring_state_runcode(pState,"see 'v1 + v2 = ' see v1+v2 see nl");
+
+	  ring_state_runcode(pState,"see 'end of test' + nl");
+
+	  ring_state_delete(pState);
+	  ring_state_delete(pState2);
+	}
+
+Output:
+
+.. code-block:: none
+
+	welcome
+	hello world from the ring programming language
+	Again from C we will call ring code
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+	10
+	1
+	2
+	3
+	4
+	5
+	Now we will display the x variable value from ring code
+	x value : 11
+	x value : 6
+	Printing Ring variable value from C , 11
+	now we will set the ring variable value from C
+	x value after update : 20
+	v1 + v2 = 30
+	end of test
