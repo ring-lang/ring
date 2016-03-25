@@ -1,0 +1,484 @@
+=====
+Lists
+=====
+
+In this chapter we are going to learn how to deal with lists.
+
+Create Lists
+============
+
+We can create new lists by defining the list items inside square bracts.
+
+Example:
+
+.. code-block:: none
+
+	aList = [1,2,3,4,5]
+
+Also we can create new lists using the : operator
+
+
+Example:
+
+.. code-block:: none
+
+	aList = 1:5
+	aList2 = "a":"z"
+
+Also we can create lists using the list() function
+
+Syntax:
+
+.. code-block:: none
+
+	list = list(size)
+
+Example
+
+.. code-block:: none
+
+	aList = list(10)	# aList contains 10 items
+
+.. note:: the list index start from 1 
+
+Add Items
+=========
+
+To add new items to the list, we can use the Add() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Add(List,Item)
+
+
+Example:
+
+.. code-block:: none
+
+	aList = ["one","two"]
+	add(aList,"three")
+
+Also we can do that using the + operator.
+
+Syntax:
+
+.. code-block:: none
+
+	List + item
+
+Example:
+
+.. code-block:: none
+
+	aList = 1:10	# create list contains numbers from 1 to 10
+	aList + 11	# add number 11 to the list
+	see aList	# print the list
+
+Get List Size
+=============
+
+We can get the list size using the len() function
+
+Syntax:
+
+.. code-block:: none
+
+	Len(List)
+
+Example:
+
+.. code-block:: none
+
+	aList = 1:20  see len(aList)  # print 20
+
+Delete Item From List
+=====================
+
+To delete an item from the list, we can use the del() function
+
+Syntax:
+
+.. code-block:: none
+
+	del(list,index)
+
+Example:
+
+.. code-block:: none
+
+	aList = ["one","two","other","three"]
+	Del(aList,3)	# delete item number three
+	see aList   	# print one two three
+
+	
+Get List Item
+=============
+
+To get an item from the list, we uses the next syntax
+
+.. code-block:: none
+
+	List[Index]
+
+Example:
+
+.. code-block:: none
+
+	aList = ["Cairo","Riyadh"]
+	see "Egypt : " + aList[1] + nl +
+	    "KSA   : " + aList[2] + nl
+
+Set List Item
+=============
+
+To set the value of an item inside the list, we can use the next syntax
+
+.. code-block:: none
+
+	List[Index] = Expression
+
+Example:
+
+.. code-block:: none
+
+	aList = list(3)	# create list contains three items
+	aList[1] = "one" aList[2] = "two" aList[3] = "three"
+	see aList
+
+Search
+======
+
+To find an item inside the list we can use the find() function
+
+Syntax:
+
+.. code-block:: none
+
+	Find(List,ItemValue) ---> Item Index
+	Find(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index 
+
+Example:
+
+.. code-block:: none
+
+	aList = ["one","two","three","four","five"]
+	see find(aList,"three")		# print 3
+
+Example:
+
+.. code-block:: none
+
+	mylist = [["one",1],
+		  ["two",2],
+		  ["three",3]]
+
+	see find(mylist,"two",1) + nl		# print 2
+	see find(mylist,2,2) + nl		# print 2
+
+Also we can use the binarysearch() function to search in sorted list.
+
+Syntax:
+
+.. code-block:: none
+
+	BinarySearch(List,ItemValue) ---> Item Index
+	BinarySearch(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index 
+
+Example:
+
+.. code-block:: none
+
+	aList = ["one","two","three","four","five"]
+	aList = sort(aList)
+	see binarysearch(aList,"three")
+
+Output:
+
+.. code-block:: none
+
+	five
+	four
+	one
+	three
+	two
+	4
+
+Sort
+====
+
+We can sort the list using the sort() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Sort(List) ---> Sorted List
+	Sort(List,nColumn) ---> Sorted List based on nColumn 
+
+Example:
+
+.. code-block:: none
+
+	aList = [10,12,3,5,31,15]
+	aList = sort(aList) see aList # print 3 5 10 12 15 31
+
+We can sort list of strings
+
+Example:
+
+.. code-block:: none
+
+	mylist = ["mahmoud","samir","ahmed","ibrahim","mohammed"]
+	see mylist	   	  # print list before sorting
+	mylist = sort(mylist)	  # sort list
+	see "list after sort"+nl
+	see mylist		  # print ahmed ibrahim mahmoud mohammed samir
+
+We can sort a list based on a specific column.
+
+Example:
+
+.. code-block:: none
+
+	aList = [ ["mahmoud",15000] ,
+		  ["ahmed", 14000 ] ,
+		  ["samir", 16000 ] ,
+		  ["mohammed", 12000 ] ,
+	 	  ["ibrahim",11000 ] ]
+
+	aList2 = sort(aList,1)
+	see aList2
+
+Output:
+
+.. code-block:: none
+
+	ahmed
+	14000
+	ibrahim
+	11000
+	mahmoud
+	15000
+	mohammed
+	12000
+	samir
+	16000
+
+
+Reverse
+=======
+
+We can reverse a list using the reverse() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Reverse(List) ---> Reversed List
+
+Example:
+
+.. code-block:: none
+
+	aList = [10,20,30,40,50]
+	aList = reverse(aList)
+	see aList 	# print 50 40 30 20 10
+
+Insert Items
+============
+
+To insert an item in the list we can use the insert() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Insert(List,Index,Item)
+
+The inserted item will be after the index
+
+Example:
+
+.. code-block:: none
+
+	aList = [1,2,4,5]
+	insert(aList,2,3)
+	see aList	  # print 1 2 3 4 5 
+
+Nested Lists
+============
+
+The list may contain other lists
+
+Example:
+
+.. code-block:: none
+
+	aList = [ 1 , [10,20,30] , 5 , [100,1000,5000] ]
+	aList2 = [
+	"one","two", 
+	[3,4],
+	[20,30], ["three",
+		  "four",
+		  "five",[100,200,300]
+                 ]
+	]
+	
+	see aList[2] 	 	# print 10 20 30
+	see aList[4][3] + nl 	# print 5000
+	see aList2[5][2] + nl 	# print four
+	see aList2[5][4][3]	# print 300
+
+Copy Lists
+==========
+
+We can copy lists (including nested lists) using the Assignment operator.
+
+Example:
+
+.. code-block:: none
+
+	aList = [
+	"one","two", 
+	[3,4],
+	[20,30], ["three",
+		  "four",
+		  "five",[100,200,300]
+                 ]
+	]
+
+	aList2 = aList		# Copy aList to aList2
+	aList2[5] = "other"	# modify item number five
+	see aList2[5] + nl	# print other
+	see aList[5]		# print three four five 100 200 300
+
+
+First-class lists
+=================
+
+Lists are `first-class citizens <http://en.wikipedia.org/wiki/First-class_citizen>`_ where we can store
+lists in varaibles, pass lists to functions, and return lists from functions.
+
+Example:
+
+.. code-block:: none
+
+	aList = duplicate( [1,2,3,4,5] )
+	see aList[10] + nl		  # print 5
+
+	see mylist()			  # print 10 20 30 40 50
+	
+	func duplicate list
+		nMax = len(list)
+		for x = 1 to nMax
+			list + list[x]
+		next
+		return list
+
+	func mylist return [10,20,30,40,50]
+		
+Using Lists during definition
+=============================
+
+We can use the list items while we are defining the list for the first time.
+
+Example:
+
+.. code-block:: none
+
+	aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
+	see aList	# print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+	
+	
+Passing Lists to Functions
+==========================
+
+Lists are passed to functions by reference, This means that the called
+function will work on the same list and can modify it.
+
+Example:
+
+.. code-block:: none
+
+	func main
+		aList = [1,2,3,4,5]	# create list, local in function main
+		myfunc(aList)		# call function, pass list by reference
+		see aList		# print 1 2 3 4 5 6 7 8 9 10
+
+	func myfunc list
+		list + [6,7,8,9,10]
+
+
+Access List Items by String Index
+=================================
+
+Instead of using numbers to determine the item index when we get item value or set item value,
+We can access items using string index if the item is a list contains two items and 
+the first item is a string.
+
+Example:
+
+.. code-block:: none
+
+	aList = [ ["one",1] , ["two",2] , ["three",3] ]
+	see aList["one"] + nl +
+	    aList["two"] + nl +
+	    aList["three"] 	# print 1 2 3
+
+This type of lists can be defined in a better syntax using the : and = operators.
+
+Example:
+
+.. code-block:: none
+
+	aList = [ :one = 1 , :two = 2 , :three = 3 ]
+	see aList["one"] + nl +
+	    aList["two"] + nl +
+	    aList["three"] + nl	# print 1 2 3
+	see aList[1]		# print one 1
+
+.. tip:: using : before identifier (one word) means literal
+
+.. note:: using = inside list definition create a list of two items where
+	  the first item is the left side and the second item is the right side.
+
+We can add new items to the list using the string index
+
+Example:
+
+.. code-block:: none
+	
+	aList = []
+	aList["Egypt"] = "Cairo"
+	aList["KSA"] = "Riyadh"
+	see aList["Egypt"] + nl + 	# print Cairo
+	    aList["KSA"] + nl		# print Riyadh
+
+Passing Parameters Using List
+=============================
+	
+This type of lists is very good for passing parameters to functions
+Where the order of parameters will not be important (we can change the order).
+
+Also some parameters maybe optional.
+
+Example:
+
+.. code-block:: none
+
+	myconnect (  [ :server = "myserver.com" , :port = 80 , 
+                       :username = "mahmoud" , :password = "password" ] ) 
+
+	func myconnect mypara
+	
+		# print connection details
+		see "User Name : " + mypara[:username] + nl +
+		    "Password  : " + mypara[:password] + nl +
+                    "Server    : " + mypara[:server] + nl +
+                    "Port      : " + mypara[:port]
+
+
+		
+
