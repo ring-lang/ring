@@ -1,0 +1,48 @@
+﻿  <%  eval(read("resources.data"))  %>
+
+  <div id="resources" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Resources <span class="badge"><%= len(aResources) %></span></h4></div>
+      <div class="panel-body">
+
+		<% for aGroup in aResources %>
+
+		<div class="panel panel-primary" id="samples">
+		      <div class="panel-heading"><%= aGroup[1] %> <span class="badge"><%= len(aGroup[2]) %></span></div>
+		      <div class="panel-body">
+
+			<table class="table table-striped">
+
+				<% if len(aGroup[2][1]) = 2  %>
+					<thead>
+				  		<tr>
+							<th width="80%">Description  </th>
+							<th width="20%">Photo </th>
+				  		</tr>
+					</thead>
+				<% ok %>
+
+				<tbody>
+				<% for aItem in aGroup[2] %>
+				  <tr>
+					<% for aData in aItem %>
+						 <th>
+							<%= aData %>
+						 </th>
+					<% next %>
+				  </tr>
+				<% next %>
+				</tbody>
+			</table>
+
+ 	       	      </div>
+	        </div>  
+
+		<% next %>
+
+       </div>
+     </div>  
+  </div>  
+
+
+
