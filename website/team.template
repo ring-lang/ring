@@ -1,0 +1,32 @@
+﻿  <% eval(read("team.data"))  %>
+  <div id="team" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Ring Team <span class="badge"><%= len(aTeam) %></span></h4></div>
+      <div class="panel-body">
+
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Role</th>
+					<th>Status</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <% for x in aTeam %>
+				  <tr>
+					<% for x2 in x %>
+						<th><%= x2 %></th>					
+					<% next %>
+				  </tr>
+				  <% next %>
+				</tbody>
+			</table>
+
+      </div>
+     </div>  
+  </div>  
+
+
