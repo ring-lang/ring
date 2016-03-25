@@ -1,0 +1,35 @@
+=========
+Resources
+=========
+
+In this section you will find resources about the language
+
+Ring Language Website 
+=====================
+
+For news about the language check the website
+
+	 http://ring-lang.net
+
+	 http://ring-lang.sf.net
+
+Ring Group
+==========
+
+For questions use the Ring Group (English)
+
+	https://groups.google.com/forum/#!forum/ring-lang
+
+
+Contact the Author
+==================
+
+Name       : Mahmoud Samir Fayed 
+
+Country    : Egypt
+
+Email      : msfclipper@yahoo.com
+
+Facebook   : https://facebook.com/mahmoudfayed1986
+
+Linkedin   : https://sa.linkedin.com/in/mahmoudfayed1986
