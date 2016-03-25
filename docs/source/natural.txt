@@ -1,0 +1,83 @@
+============================
+Natural Language Programming
+============================
+
+Using the Ring programming language, we can create Natural programming languages based
+on classes and objects.
+
+History
+=======
+
+In 2010, I developed a new programming language called Supernova (developed using PWCT).
+This language uses a code that looks similar to Natural Language statements to create simple GUI applications.
+Now after five years, In the Ring programming language, we can get similar results, but now we have the ability 
+to create/use code similar to Natural language statements in any domain that we like or need.
+
+The Ring programming language comes with the Supernova sprite, but with more generalization and with mix of other languages
+sprites.
+
+Example
+=======
+
+The next example presents how to create a class that define two instructions 
+
+The first instruction is : I want window
+
+The second instruction is : Window title = <expr>
+
+Also keywords that can be ignored like the 'the' keyword
+
+.. code-block:: none
+
+	New App 
+	{
+		I want window 	
+		The window title = "hello world"
+	}
+
+	Class App
+
+		func geti
+			if nIwantwindow = 0
+				nIwantwindow++
+			ok
+
+		func getwant
+			if nIwantwindow = 1
+				nIwantwindow++
+			ok
+
+		func getwindow
+			if nIwantwindow = 2
+				nIwantwindow= 0
+				see "Instruction : I want window" + nl
+			ok
+			if nWindowTitle = 0
+				nWindowTitle++
+			ok
+	
+		func settitle cValue
+			if nWindowTitle = 1
+				nWindowTitle=0
+				see "Instruction : Window Title = " + cValue + nl
+			ok
+		
+		private
+
+			# Attributes for the instruction I want window
+				i want window 
+				nIwantwindow = 0
+			# Attributes for the instruction Window title
+			# Here we don't define the window attribute again
+				title 
+				nWindowTitle = 0
+			# Keywords to ignore, just give them any value
+				the=0	
+
+
+Output:
+
+.. code-block:: none
+
+	Instruction : I want window
+	Instruction : Window Title = hello world
