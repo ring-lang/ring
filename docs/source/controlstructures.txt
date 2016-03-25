@@ -1,0 +1,442 @@
+==================
+Control Structures
+==================
+
+In this chapter we are going to learn about the control structures provided by
+the Ring programming language.
+
+.. index:: 
+	pair: Control Structures; Branching
+
+
+Branching
+=========
+
+* If Statement
+
+Syntax:
+
+.. code-block:: none
+
+	if Expression
+		Block of statements
+	but Expression
+		Block of statements
+	else
+		Block of statements
+	ok
+
+Example:
+
+.. code-block:: none
+
+	see " 
+		Main Menu
+		---------
+		(1) Say Hello
+		(2) About
+		(3) Exit
+
+	    " give nOption
+
+	if nOption = 1	see "Enter your name : " give name see "Hello " + name + nl
+	but nOption = 2 see "Sample : using if statement" + nl
+	but nOption = 3 bye
+	else see "bad option..." + nl
+	ok
+              
+
+* Switch Statement
+
+Syntax:
+
+.. code-block:: none
+
+	switch Expression
+	on Expression
+		Block of statements
+	other
+		Block of statements
+	off		
+
+Example:
+
+.. code-block:: none
+
+	See " 
+		Main Menu
+		---------
+		(1) Say Hello
+		(2) About
+		(3) Exit
+
+	    " Give nOption
+
+	Switch nOption
+	On 1 See "Enter your name : " Give name See "Hello " + name + nl
+	On 2 See "Sample : using switch statement" + nl
+	On 3 Bye
+	Other See "bad option..." + nl
+	Off
+
+
+.. index:: 
+	pair: Control Structures; Looping
+
+Looping
+=======
+
+* While Loop
+
+Syntax:
+
+.. code-block:: none
+
+	while Expression
+		Block of statements
+	end
+
+Example:
+
+.. code-block:: none
+
+	While True
+
+		See " 
+			Main Menu
+			---------
+			(1) Say Hello
+			(2) About
+			(3) Exit
+
+		    " Give nOption
+
+		Switch nOption
+		On 1 
+			See "Enter your name : " 
+			Give name 
+			See "Hello " + name + nl
+		On 2 
+			See "Sample : using while loop" + nl
+		On 3 
+			Bye
+		Other 
+			See "bad option..." + nl
+		Off
+	End
+
+* For Loop
+
+Syntax:
+
+.. code-block:: none
+
+	for identifier=expression to expression [step expression]
+		Block of statements
+	next
+
+Example:
+
+.. code-block:: none
+
+	# print numbers from 1 to 10
+	for x = 1 to 10	 see x + nl  next
+
+Example:
+
+.. code-block:: none
+
+	# Dynamic loop
+	See "Start : " give nStart       
+	See "End   : " give nEnd
+	See "Step  : " give nStep
+	For x = nStart to nEnd Step nStep
+		see x + nl
+	Next
+
+Example:
+
+.. code-block:: none
+
+	# print even numbers from 0 to 10
+	for x = 0 to 10 step 2
+		see x + nl
+	next
+
+Example:
+
+.. code-block:: none
+
+	# print even numbers from 10 to 0
+	for x = 10 to 0 step -2
+		see x + nl
+	next
+
+
+* For in Loop
+
+Syntax:
+
+.. code-block:: none
+
+	for identifier in List/String  [step expression]
+		Block of statements
+	next
+
+Example:
+
+.. code-block:: none
+
+	aList = 1:10	# create list contains numbers from 1 to 10
+	for x in aList  see x + nl  next  # print numbers from 1 to 10
+
+.. index:: 
+	pair: Control Structures; Step Option
+
+Using The Step option with For in
+=================================
+
+We can use the Step option with For in to skip number of items in each iteration
+
+Example:
+
+.. code-block:: none
+
+	aList = 1:10	# create list contains numbers from 1 to 10
+	# print odd items inside the list
+	for x in aList step 2
+		see x + nl  
+	next  
+
+
+.. index:: 
+	pair: Control Structures; for in to modify lists
+
+Using For in to modify lists
+=============================
+
+When we use (For in) we get items by reference.
+
+This means that we can read/edit items inside the loop.
+	
+Example:
+
+.. code-block:: none
+
+	aList = 1:5	# create list contains numbers from 1 to 5
+	# replace list numbers with strings
+	for x in aList  
+		switch x
+		on 1  x = "one"
+		on 2  x = "two"
+		on 3  x = "three"
+		on 4  x = "four"
+		on 5  x = "five"
+		off
+	next
+	see aList	# print the list items
+
+.. index:: 
+	pair: Control Structures; Do Again Loop
+
+Do Again Loop
+=============
+
+Syntax:
+
+.. code-block:: none
+	
+	do
+		Block of statements
+	again expression
+
+Example:
+
+.. code-block:: none
+
+	x = 1 
+	do 
+		see x + nl 
+		x++ 
+	again x <= 10
+
+.. index:: 
+	pair: Control Structures; Exit
+
+Exit Command
+============
+
+Used to go outside one or more of loops.
+
+
+Syntax:
+
+.. code-block:: none
+
+	exit [expression]	# inside loop
+
+
+Example:
+
+.. code-block:: none
+
+	for x = 1 to 10
+		see x + nl
+		if x = 5 exit ok
+	next
+
+Exit from two loops
+===================
+
+The next example presents how to use the exit command to exit from two loops in one jump.
+
+Example:
+
+.. code-block:: none
+
+	for x = 1 to 10
+		for y = 1 to 10
+			see "x=" + x + " y=" + y + nl
+			if x = 3 and y = 5
+				exit 2	   # exit from 2 loops 
+			ok
+		next
+	next			
+
+.. index:: 
+	pair: Control Structures; Loop
+
+* Loop Command
+
+Used to jump to the next iteration in the loop.
+
+Syntax:
+
+.. code-block:: none
+
+	loop [expression]	# inside loop
+
+Example:
+
+.. code-block:: none
+
+	for x = 1 to 10
+		if x = 3
+			see "Number Three" + nl
+			loop
+		ok
+		see x + nl
+	next
+
+Exit/Loop inside sub functions
+==============================
+
+While we are inside a loop, we can call a function then use the exit and/or loop command
+inside that function and the command will work on the outer loop.
+
+Example:
+
+.. code-block:: none
+
+	# print numbers from 1 to 10 except number 5.
+
+	for x = 1 to 10
+		ignore(x,5)
+		see x + nl
+	next
+
+	func ignore x,y
+		if x = y
+			loop
+		ok
+
+.. index:: 
+	pair: Control Structures; Short-circuit evaluation
+
+Short-circuit evaluation
+========================
+
+The logical operators and/or follow the `short-circuit evaluation <http://en.wikipedia.org/wiki/Short-circuit_evaluation>`_.
+
+If the first argument of the AND operator is zero, then there is no need to evaluate the second
+argument and the result will be zero.
+
+If the first arugment of the OR operator is one, then there is no need to evaluate the second
+argument and the result will be one.
+
+Example:
+
+.. code-block:: none
+
+	/* output
+	** nice 
+	** nice 
+	** great	
+	*/
+
+	x = 0 y = 10
+
+	if (x = 0 and nice()) and (y = 10 and nice())
+		see "great" + nl
+	ok
+
+	func nice  see "nice" + nl   return 1
+
+
+Example:
+
+.. code-block:: none
+
+	# No output
+
+	x = 0 y = 10
+
+	if (x = 1 and nice()) and (y = 10 and nice())
+		see "great" + nl
+	ok
+
+	func nice  see "nice" + nl   return 1
+
+
+Example:
+
+.. code-block:: none
+
+	/* output 
+	** nice
+	** great
+	*/
+ 
+	x = 0 y = 10
+
+	if (x = 0 and nice()) or (y = 10 and nice())
+		see "great" + nl
+	ok
+
+	func nice  see "nice" + nl  return 1			
+
+
+Comments about evaluation
+=========================
+
+* True, False, nl & NULL are variables defined by the language
+
+* True = 1
+
+* False = 0 
+
+* nl = new line
+
+* NULL = empty string = ""
+
+* Everything evaluates to true except 0 (False).
+
+Example:
+
+.. code-block:: none
+
+	# output = message from the if statement
+
+	if 5 	# 5 evaluates to true because it's not zero (0).
+		see "message from the if statement" + nl
+	ok
