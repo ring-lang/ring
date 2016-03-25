@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>The Ring Programming Language</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html#">Home</a></li>
+          <li><a href="download.html">Download</a></li>	
+          <li><a href="index.html#why">Why?</a></li>
+          <li><a href="doc/index.html" target="_blank">Documentation</a></li>
+	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Community<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+	          <li><a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Group</a></li>
+          	  <li><a href="resources.html">Resources</a></li>
+          	  <li><a href="team.html">Team</a></li>
+            </ul>
+          </li>
+    </ul>
+
+	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
+		<form class="search" action="doc/search.html" method="get" style="width:200px" >
+			<div class="input-group">
+				<input name="q" type="text" class="form-control" placeholder="Search for...">
+				<span class="input-group-btn">
+				<button class="btn btn-default" type="submit">Go!</button>
+				</span>
+			</div>
+			<input name="check_keywords" value="yes" type="hidden">
+			<input name="area" value="default" type="hidden">
+		</form>
+
+    </div>
+
+  </div>
+
+</nav>  
+  
+<div style="float:right; margin-top:4%">
+	<a href="https://github.com/ring-lang/ring" target="_blank">
+		<img src="forkme.png" alt="Fork me on GitHub" width="198" height="198">
+	</a>
+</div>
+
+<div class="container">
+ <div class="text-center">
+	<br><br><br> 
+	<br><br>
+	<div style="margin-left:9%">		
+		<img src="thering.jpg" width="297px" height="154px">
+	</div>
+
+	<div class="row">
+				<br> 
+				<div class="col-xs-2">
+				</div>
+				<div class="col-xs-4">
+					<a href="download.html" class="btn btn-primary btn-block" style="">Download Ring</a>
+				</div>
+				<div class="col-xs-4">
+					<a href="http://ring-lang.sf.net/cgi-bin/ringlang.cgi" class="btn btn-success btn-block" style="">Try Ring Online (Interactive Ring)</a>
+				</div>
+
+				<div class="col-xs-2">
+				</div>
+				<br>  
+	</div>
+
+
+
+		<h3>Innovative and practical general-purpose multi-paradigm language</h3>
+
+  </div>
+
+<br>
