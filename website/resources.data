@@ -1,0 +1,262 @@
+﻿aResources = [ ["Samples",[
+				[
+					'<a href="https://github.com/CalmoSoft/CalmoSoft-Fifteen-Puzzle-Game/blob/gh-pages/CalmoSoftPuzzle.ring" target="_blank">CalmoSoft Fifteen Puzzle Game</a>',
+					'<img src="fifteen.jpg" width="40%">'
+				],
+				[
+					'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/TecTacToe.ring" target="_blank">TicTacToe</a>',
+					'<img src="tictactoe.jpg" width="40%">'
+				],
+				[
+					'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
+					'<img src="numtostr.jpg" width="40%">'
+				]
+			    ]
+                 ],
+                 ["Posts from the 'Ring Documentation Walkthrough' blog",[
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/13/ring-programming-language-guide/" target="_blank">The Ring Programming Language Guide</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/01/28/ring-documentation-walkthrough-1/" target="_blank">Installation</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/01/28/ring-documentation-walkthrough-2-hello-world/" target="_blank">Hello, World!</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/01/29/ring-documentation-walkthrough-3-variables/" target="_blank">Variables & Comments</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/01/30/ring-documentation-walkthrough-4-operators/" target="_blank">Operators</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/01/30/ring-documentation-walkthrough-5-if-switch-statements/" target="_blank">If & Switch statements</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/01/31/ring-documentation-walkthrough-5-1-loops/" target="_blank">Loops</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/01/ring-documentation-walkthrough-5-2-short-circuit-evaluation/" target="_blank">Short-circuit evaluation</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/02/ring-documentation-walkthrough-5-3-inputs/" target="_blank">Inputs</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/03/ring-documentation-walkthrough-6-functions/" target="_blank">Functions</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/04/ring-documentation-walkthrough-7-lists/" target="_blank">Lists</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/09/ring-documentation-walkthrough-7-1-lists-2/" target="_blank">Lists (2)</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/11/ring-documentation-walkthrough-7-2-lists-3/" target="_blank">Lists (3)</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-8-strings/" target="_blank">Strings</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-8-1-str2list-list2str/" target="_blank">The str2list() & list2str() functions</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-8-2-strcmp/" target="_blank">The strcmp() function</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-8-3-substr/" target="_blank">The Substr() function</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-9-date-and-time/" target="_blank">Date and Time</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/18/ring-documentation-walkthrough-10-check-data-types-1/" target="_blank">Check Data Types 1</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/18/ring-documentation-walkthrough-10-1-check-data-types-2/" target="_blank">Check Data Types 2</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/18/ring-documentation-walkthrough-10-2-conversions/" target="_blank">Conversions</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/20/ring-documentation-walkthrough-11-math/" target="_blank">Math</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/02/25/ring-documentation-walkthrough-12-files/" target="_blank">Files</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/03/14/ring-documentation-walkthrough-12-1-advanced-read-write-files/" target="_blank">Advanced Read & Write - Files</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/03/14/ring-documentation-walkthrough-13-system-functions/" target="_blank">System Functions</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/03/14/ring-documentation-walkthrough-14-final-eval-error-handling/" target="_blank">Eval and Error handling</a>'
+				],
+				[
+					'<a href="https://ribdev.wordpress.com/2016/03/14/ring-documentation-walkthrough-what-now/" target="_blank">What now ?</a>'
+				]
+			]
+	      ],
+	      ["Posts from the 'Geeks Board' blog",[
+				[
+					'<a href="https://geeksboard.wordpress.com/2016/01/31/helloworld-with-ring-in-linux/" target="_blank">HelloWorld with Ring in Linux</a>'
+				],
+				[
+					'<a href="https://geeksboard.wordpress.com/2016/02/01/deep-into-ring/" target="_blank">Deep into Ring (full-fill your list with even numbers)</a>'
+				]
+			]
+	      ],
+	      ["Posts from the 'Thinking in the Ring programming language' blog",[
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/29/printing-new-lines-and-other-characters-in-the-ring-programming-language/" target="_blank">Printing New Lines and other characters</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/29/comparing-between-strings-in-ring/" target="_blank">Comparing between strings</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/29/writing-the-split-functionmethod-in-the-ring-programming-language/" target="_blank">Writing the Split() function/method</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/29/why-we-dont-use-after-the-qapp-class-name-in-the-ring-programming-language/" target="_blank">Why we don’t use () after the qApp class name</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/29/ringqt-the-window-title-bar-is-going-outside-the-screen-the-problem-and-the-solution/" target="_blank">RingQt: The window title bar is going outside the screen – The Problem and the solution</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/29/list-of-the-ring-programming-language-keywords-and-functions/" target="_blank">List of the Ring programming language Keywords and Functions</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/30/inserting-an-item-into-the-first-position-of-the-list-using-the-ring-programming-language/" target="_blank">Inserting an item into the first position of the list</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/30/how-to-update-the-gui-from-threads-in-the-ring-programming-language/" target="_blank">How to update the GUI from threads</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/30/array-of-buttons-using-the-ring-programming-language/" target="_blank">Array of buttons</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/30/printing-lists-contains-objects-using-the-ring-programming-language/" target="_blank">Printing Lists contains objects</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/30/null-isnull-and-uninitialized-variables-in-the-ring-programming-language/" target="_blank">NULL, ISNULL() and uninitialized variables</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/31/using-step-with-for-in-and-modifying-lists/" target="_blank">Using Step with “For In” and modifying lists</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/31/nl-and-writing-the-print-function/" target="_blank">NL and writing the Print() function</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/31/closing-a-window-then-displaying-another-one/" target="_blank">Closing a window then displaying another one!</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/01/31/creating-a-modal-window/" target="_blank">Creating a Modal Window</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/01/using-the-copy-function-to-replicate-strings/" target="_blank">Using the Copy() Function to replicate Strings</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/03/functions-with-optional-parameters-using-list-with-string-index-in-the-ring-programming-langauge/" target="_blank">Functions with optional parameters using list with string index</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/03/writing-string-literal-quickly-using-the-operator-in-the-ring-programming-language/" target="_blank">Writing string literal quickly using the ‘:’ operator</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/05/eval-and-secuirty-how-to-disable-and-change-the-behaviour-of-standard-ring-functions/" target="_blank">Eval() and Secuirty – how to disable and change the behaviour of standard Ring functions</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/09/the-main-function-in-the-ring-programming-language/" target="_blank">The Main Function</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/09/the-getchar-function-in-the-ring-programming-language/" target="_blank">The GetChar() function</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/09/using-many-source-files-in-the-ring-programming-language/" target="_blank">Using many source files </a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/12/why-the-list-index-start-from-1-in-the-ring-programming-language/" target="_blank">Why the list index start from 1</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/12/the-output-of-the-strcmp-function-in-the-ring-programming-language/" target="_blank">The output of the StrCmp() function</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/13/the-philosophy-behind-data-types-in-ring/" target="_blank">The philosophy behind data types in Ring</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/13/a-difference-between-printing-new-line-with-lists-than-the-normal-behavior/" target="_blank">A difference between printing new line with lists than the normal behavior</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/14/listdictionary-print-keys-only-or-values-only-in-the-ring-programming-language/" target="_blank">List/Dictionary – Print keys only or values only</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/02/14/functions-predefined-parameters-or-optional-parameters-in-the-ring-programming-language/" target="_blank">Functions – Predefined parameters or optional parameters</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/03/12/get-the-current-source-file-path/" target="_blank">Get the current source file path</a>'
+				],
+				[
+					'<a href="https://ringlang.wordpress.com/2016/03/24/boolean-values/" target="_blank">Question about the Boolean Values representation</a>'
+				]
+			]
+	     ],
+             ["Posts from the 'Watany Dev' blog",[
+				[
+					'<a href="http://watanydev.blogspot.com.eg/2016/02/tutorial-how-to-configure-xampp-to.html" target="_blank">Tutorial: How to configure Xampp / Apache to serve Ring language files</a>'
+				]
+			]
+	     ],
+	     ["Arabic Movies by Sofy Abbas (YouTube)",[
+				[
+					'<a href="https://www.youtube.com/watch?v=OWGaUQFrjAc" target="_blank">Download Ring and printing Hello, World!</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ncGW3zPoWME" target="_blank">Getting Started</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=JaMbe47oAr4" target="_blank">Using Variables</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=QhqB2A9H_f8" target="_blank">Using Variables (2) </a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=pjm6FfE6uuk" target="_blank">Arithmetic Operators</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ZSEbmNBkZuA" target="_blank">Relational Operators</a>'
+				]
+			]
+	      ],
+	      ["Arabic Movies by Ali Aliraqi (YouTube)",[
+				[
+					'<a href="https://www.youtube.com/watch?v=lCh-n90q_dM&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=1" target="_blank">Introduction</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=FOYgAp330Yo&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=2" target="_blank">About Ring Creator</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Fsvq9MtS7IM&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=3" target="_blank">What is Ring?</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=GdwL5kti8kQ&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=4" target="_blank">Run Your First Program</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ZyBxHTBKO28&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=5" target="_blank">Variables</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=O-sBpOTqhPI&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=6" target="_blank">Data Type</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=opoKtaif6qg&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=7" target="_blank">Strings</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ZGUrfHowGxc&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=8" target="_blank">Strings (2)</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=IQYDL29FiXg&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=9" target="_blank">Numbers</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=CbEmf-WtTDM&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=10" target="_blank">Numbers (2)</a>'
+				]
+			]
+	      ]
+]
