@@ -1,0 +1,639 @@
+===================================
+Extension using the C/C++ languages
+===================================
+
+We can extend the Ring Virtual Machine (RingVM) by adding new functions written in the C programming language or C++. 
+The RingVM comes with many functions written in C that we can call like any Ring function.
+
+We can extend the language by writing new functions then rebuilding the RingVM again, or we can create shared 
+library (DLL/So) file to extend the RingVM without the need to rebuild it.
+
+The Ring language source code comes with two files to add new modules to the RingVM, ring_ext.h and ring_ext.c
+
+.. index:: 
+	pair: Extension; ring_ext.h
+
+ring_ext.h
+==========
+
+The file ring_ext.h contains constants that we can change to include/exclude modules during the build process.
+
+.. code-block:: C
+
+	#ifndef ringext_h
+	#define ringext_h
+	/* Constants */
+	#define RING_VM_LISTFUNCS 	1
+	#define RING_VM_REFMETA 	1
+	#define RING_VM_MATH		1
+	#define RING_VM_FILE 		1
+	#define RING_VM_OS 		1
+	#define RING_VM_MYSQL 		1
+	#define RING_VM_ODBC 		1
+	#define RING_VM_OPENSSL		1
+	#define RING_VM_CURL 		1
+	#define RING_VM_DLL 		1
+	#endif
+
+
+.. index:: 
+	pair: Extension; ring_ext.c
+
+ring_ext.c
+==========
+
+The file ring_ext.c check constants defined in ring_ext.h before calling the start-up function in each module.
+
+Each module contains a function that register the module functions in the RingVM.
+
+.. code-block:: C
+
+	#include "ring.h"
+
+	void ring_vm_extension ( RingState *pRingState )
+	{
+		/* Reflection and Meta-programming */
+		#if RING_VM_REFMETA
+			ring_vm_refmeta_loadfunctions(pRingState);
+		#endif
+		/* List Functions */
+		#if RING_VM_LISTFUNCS
+			ring_vm_listfuncs_loadfunctions(pRingState);
+		#endif
+		/* Math */
+		#if RING_VM_MATH
+			ring_vm_math_loadfunctions(pRingState);
+		#endif
+		/* File */
+		#if RING_VM_FILE
+			ring_vm_file_loadfunctions(pRingState);
+		#endif
+		/* OS */
+		#if RING_VM_OS
+			ring_vm_os_loadfunctions(pRingState);
+		#endif
+		/* MySQL */
+		#if RING_VM_MYSQL
+			ring_vm_mysql_loadfunctions(pRingState);
+		#endif
+		/* ODBC */
+		#if RING_VM_ODBC
+			ring_vm_odbc_loadfunctions(pRingState);
+		#endif
+		/* OPENSSL */
+		#if RING_VM_OPENSSL
+			ring_vm_openssl_loadfunctions(pRingState);
+		#endif
+		/* CURL */
+		#if RING_VM_CURL
+			ring_vm_curl_loadfunctions(pRingState);
+		#endif
+		/* DLL */
+		#if RING_VM_DLL
+			ring_vm_dll_loadfunctions(pRingState);
+		#endif
+	}
+
+.. index:: 
+	pair: Extension; Module Organization
+
+Module Organization
+===================
+
+Each module starts by include the ring header file (ring.h).
+This files contains the Ring API that we can use to extend the RingVM.
+
+Each module comes with a function to register the module functions in the RingVM 
+The registration is done by using ring_vm_funcregister() function.
+
+
+The ring_vm_funcregister() function takes two parameters, the first is the function name
+that will be used by Ring programs to call the function. The second parameter is the 
+function pointer in the C program.
+
+for example, the ring_vmmath.c module contains the next code to register the module functions
+
+.. code-block:: C
+
+	#include "ring.h"
+
+	void ring_vm_math_loadfunctions ( RingState *pRingState )
+	{
+		ring_vm_funcregister("sin",ring_vm_math_sin);
+		ring_vm_funcregister("cos",ring_vm_math_cos);
+		ring_vm_funcregister("tan",ring_vm_math_tan);
+		ring_vm_funcregister("asin",ring_vm_math_asin);
+		ring_vm_funcregister("acos",ring_vm_math_acos);
+		ring_vm_funcregister("atan",ring_vm_math_atan);
+		ring_vm_funcregister("atan2",ring_vm_math_atan2);
+		ring_vm_funcregister("sinh",ring_vm_math_sinh);
+		ring_vm_funcregister("cosh",ring_vm_math_cosh);
+		ring_vm_funcregister("tanh",ring_vm_math_tanh);
+		ring_vm_funcregister("exp",ring_vm_math_exp);
+		ring_vm_funcregister("log",ring_vm_math_log);
+		ring_vm_funcregister("log10",ring_vm_math_log10);
+		ring_vm_funcregister("ceil",ring_vm_math_ceil);
+		ring_vm_funcregister("floor",ring_vm_math_floor);
+		ring_vm_funcregister("fabs",ring_vm_math_fabs);
+		ring_vm_funcregister("pow",ring_vm_math_pow);
+		ring_vm_funcregister("sqrt",ring_vm_math_sqrt);
+		ring_vm_funcregister("unsigned",ring_vm_math_unsigned);
+		ring_vm_funcregister("decimals",ring_vm_math_decimals);
+		ring_vm_funcregister("murmur3hash",ring_vm_math_murmur3hash);
+	}
+
+.. tip:: Remember that the function ring_vm_math_loadfunctions() will be called by the 
+		 ring_vm_extension() function (in the ring_ext.c file). 
+
+.. index:: 
+	pair: Extension; Function Structure
+
+Function Structure
+==================
+
+Each module function may contains the next steps
+
+1 - Check Parameters Count
+
+2 - Check Parameters Type
+
+3 - Get Parameters Values
+
+4 - Execute Code/Call Functions
+
+5 - Return Value
+
+The structure is very similar to any function (Input - Process - Output)
+But here we will use the Ring API for the steps 1,2,3 and 5.
+
+
+.. index:: 
+	pair: Extension; Check Parameters Count
+
+Check Parameters Count
+======================
+
+We can check the parameters count using the RING_API_PARACOUNT macro.
+
+We can compare RING_API_PARACOUNT with any numeric value using == or != operators.
+
+
+Example:
+
+.. code-block:: C
+
+	if ( RING_API_PARACOUNT != 1 ) {
+		/* code */
+	}
+
+	
+Example:
+
+.. code-block:: C
+
+	if ( RING_API_PARACOUNT == 1 ) {
+		/* code */
+	}
+
+.. index:: 
+	pair: Extension; Display Error Message
+
+Display Error Message
+=====================
+
+We can display error messages using the RING_API_ERROR() function.
+
+The function will display the error and end the execution of the program.
+
+.. note:: the behaviour of this function can be changed by the Ring code 
+		  using Try/Catch/Done statements, so in your C code, use Return after this function.
+		  
+
+Syntax:
+
+.. code-block:: C
+
+	RING_API_ERROR(const char *cErrorMsg);
+	
+
+The Ring API comes with some of predefined error messages that we can use
+
+.. code-block:: C
+
+	#define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
+	#define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"
+	#define RING_API_MISS3PARA "Bad parameters count, the function expect three parameters"
+	#define RING_API_MISS4PARA "Bad parameters count, the function expect four parameters"
+	#define RING_API_BADPARATYPE 	"Bad parameter type!"
+	#define RING_API_BADPARACOUNT 	"Bad parameters count!"
+	#define RING_API_BADPARARANGE 	"Bad parameters value, error in range!"
+	#define RING_API_NOTPOINTER 	"Error in parameter, not pointer!"
+	#define RING_API_NULLPOINTER	"Error in parameter, NULL pointer!"
+	#define RING_API_EMPTYLIST 	"Bad parameter, empty list!"
+
+.. index:: 
+	pair: Extension; Check Parameters Type
+
+Check Parameters Type
+=====================
+
+We can check the parameter type using the next functions
+
+.. code-block:: C
+
+	int RING_API_ISNUMBER(int nParameterNumber);
+	int RING_API_ISSTRING(int nParameterNumber);
+	int RING_API_ISLIST(int nParameterNumber);
+	int RING_API_ISPOINTER(int nParameterNumber);
+
+The output of these functions will be 1 (True) or 0 (False).	
+
+.. index:: 
+	pair: Extension; Get Parameters Values
+
+Get Parameters Values
+=====================
+
+We can get paramters values using the next functions
+
+.. code-block:: C
+
+	double RING_API_GETNUMBER(int nParameterNumber);
+	const char *RING_API_GETSTRING(int nParameterNumber);
+	int RING_API_GETSTRINGSIZE(int nParameterNumber);
+	List *RING_API_GETLIST(int nParameterNumber);
+	void *RING_API_GETCPOINTER(int nParameterNumber, const char *cPoinerType);
+	int RING_API_GETPOINTERTYPE(int nParameterNumber);
+
+	
+.. index:: 
+	pair: Extension; Return Value
+
+Return Value
+============
+
+We can return values from our function using the next functions.
+
+.. code-block:: C
+
+	RING_API_RETNUMBER(double nValue);
+	RING_API_RETSTRING(const char *cString);
+	RING_API_RETSTRING2(const char *cString,int nStringSize);
+	RING_API_RETLIST(List *pList);
+	RING_API_RETCPOINTER(void *pValue,const char *cPointerType);
+
+.. index:: 
+	pair: Extension; Function Prototype
+
+
+Function Prototype
+==================
+
+When we define new function to be used for RingVM extension, we use the next prototype
+
+.. code-block:: C
+
+	void my_function_name( void *pPointer );
+	
+or we can use the RING_FUNC() Macro
+
+.. code-block:: C
+
+	RING_FUNC(my_function_name);
+
+	
+.. index:: 
+	pair: Extension; Sin() Implementation
+
+Sin() Function Implementation
+=============================
+
+The next code represents the sin() function implementation using the Ring API and 
+the sin() C function.
+
+
+.. code-block:: C
+
+	void ring_vm_math_sin ( void *pPointer )
+	{
+		if ( RING_API_PARACOUNT != 1 ) {
+			RING_API_ERROR(RING_API_MISS1PARA);
+			return ;
+		}
+		if ( RING_API_ISNUMBER(1) ) {
+			RING_API_RETNUMBER(sin(RING_API_GETNUMBER(1)));
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
+
+
+.. index:: 
+	pair: Extension; Fopen() and Fclose() Implementation
+
+Fopen() and Fclose() Functions Implementation
+=============================================
+
+The next code represents the fopen() function implementation 
+using the Ring API and the fopen() C Function.
+
+The function takes two parameters, the first parameter is the file name as string.
+The second parameter is the mode as string.
+
+In the file ring_vmfile.h we have some constants to use as the pointer type like
+
+.. code-block:: C
+
+	#define RING_VM_POINTER_FILE 	"file"
+	#define RING_VM_POINTER_FILEPOS "filepos"
+
+The function implementation in ring_vmfile.c
+
+.. code-block:: C
+
+	void ring_vm_file_fopen ( void *pPointer )
+	{
+		FILE *fp  ;
+		if ( RING_API_PARACOUNT != 2 ) {
+			RING_API_ERROR(RING_API_MISS2PARA);
+			return ;
+		}
+		if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) {
+			fp = fopen(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+			RING_API_RETCPOINTER(fp,RING_VM_POINTER_FILE);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
+
+
+The next code represents the fclose() function implementation
+
+.. code-block:: C
+
+	void ring_vm_file_fclose ( void *pPointer )
+	{
+		FILE *fp  ;
+		if ( RING_API_PARACOUNT != 1 ) {
+			RING_API_ERROR(RING_API_MISS1PARA);
+			return ;
+		}
+		if ( RING_API_ISPOINTER(1) ) {
+			fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+			if ( fp != NULL ) {
+				RING_API_RETNUMBER(fclose(fp));
+				RING_API_SETNULLPOINTER(1);
+			}
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
+
+From fopen() and fclose() implementation we learned
+
+1 - how to return C pointer using RING_API_RETCPOINTER() function
+
+2 - how to check if the parameter is a pointer using the RING_API_ISPOINTER() function
+
+3 - how to get C pointer value using the RING_API_GETCPOINTER() function
+
+4 - how to set the C pointer variable (in RingVM) to NULL using the RING_API_SETNULLPOINTER() function
+
+.. index:: 
+	pair: Extension; RING API - list Functions
+
+Ring API - List Functions
+=========================
+
+In this section we will learn about the list functions provided by the Ring API to create new lists and 
+manipulate the list items.
+
+.. code-block:: C
+
+	List * ring_list_new ( int nSize ) ;
+	void ring_list_newitem ( List *pList ) ;
+	Item * ring_list_getitem ( List *pList,int index ) ;
+	List * ring_list_delete ( List *pList ) ;
+	void ring_list_deleteitem ( List *pList,int index ) ;
+	void ring_list_print ( List *pList ) ;
+	int ring_list_gettype ( List *pList, int index ) ;
+	void ring_list_setint ( List *pList, int index ,int number ) ;
+	void ring_list_addint ( List *pList,int x ) ;
+	void ring_list_setpointer ( List *pList, int index ,void *pValue ) ;
+	void ring_list_addpointer ( List *pList,void *pValue ) ;
+	void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) ) ;
+	void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) ) ;
+	int ring_list_isfuncpointer ( List *pList, int index ) ;
+	void ring_list_setdouble ( List *pList, int index ,double number ) ;
+	void ring_list_adddouble ( List *pList,double x ) ;
+	void ring_list_setstring ( List *pList, int index ,const char *str ) ;
+	void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize ) ;
+	void ring_list_addstring ( List *pList,const char *str ) ;
+	void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) ;
+	List * ring_list_newlist ( List *pList ) ;
+	List * ring_list_getlist ( List *pList, int index ) ;
+	void ring_list_setlist ( List *pList, int index ) ;
+	void ring_list_setactiveitem ( List *pList, Items *pItems, int index ) ;
+	void ring_list_copy ( List *pNewList, List *pList ) ;
+	int ring_list_isnumber ( List *pList, int index ) ;
+	int ring_list_isstring ( List *pList, int index ) ;
+	int ring_list_islist ( List *pList, int index ) ;
+	int ring_list_ispointer ( List *pList, int index ) ;
+	void ring_list_deleteallitems ( List *pList ) ;
+	void ring_list_insertitem ( List *pList,int x ) ;
+	void ring_list_insertint ( List *pList,int nPos,int x ) ;
+	void ring_list_insertdouble ( List *pList,int nPos,double x ) ;
+	void ring_list_insertpointer ( List *pList,int nPos,void *pValue ) ;
+	void ring_list_insertstring ( List *pList,int nPos,const char *str ) ;
+	void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize ) ;
+	void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) ) ;
+	List * ring_list_insertlist ( List *pList,int nPos ) ;
+	int ring_list_isiteminsidelist ( List *pList,Item *pItem ) ;
+	int ring_list_findstring ( List *pList,const char *str,int nColumn ) ;
+	int ring_list_finddouble ( List *pList,double nNum1,int nColumn ) ;
+	void ring_list_sortnum ( List *pList,int left,int right,int nColumn ) ;
+	void ring_list_sortstr ( List *pList,int left,int right,int nColumn ) ;
+	int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn ) ;
+	int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColumn ) ;
+	void ring_list_swap ( List *pList,int x,int y ) ;
+	double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn ) ;
+	char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn ) ;
+	void ring_list_genarray ( List *pList ) ;
+	void ring_list_deletearray ( List *pList ) ;
+	void ring_list_genhashtable ( List *pList ) ;
+	void ring_list_genhashtable2 ( List *pList ) ;
+	void ring_list_refcopy ( List *pNewList, List *pList ) ;
+	void ring_list_clear ( List *pList ) ;
+	/* Macro */
+	ring_list_isdouble(pList,index)
+	ring_list_isint(pList,index) 
+	ring_list_deletelastitem(x)
+	ring_list_gethashtable(x) 
+	ring_list_getint(pList,index)
+	ring_list_getpointer(pList,index)
+	ring_list_getfuncpointer(pList,index)
+	ring_list_callfuncpointer(pList,index,x)
+	ring_list_getdouble(pList,index) 
+	ring_list_getstring(pList,index) 
+	ring_list_getstringobject(pList,index) 
+	ring_list_getstringsize(pList,index)
+	ring_list_getsize(x) (x->nSize)
+
+.. index:: 
+	pair: Extension; RING API - String Functions
+
+Ring API - String Functions
+===========================
+
+In this section we will learn about the string functions provided by the Ring API to create new string and 
+manipulate the string content.
+
+.. code-block:: C
+
+	String * ring_string_new ( const char *str ) ;
+	String * ring_string_new2 ( const char *str,int nStrSize ) ;
+	String * ring_string_delete ( String *pString ) ;
+	int ring_string_size ( String *pString ) ;
+	void ring_string_set ( String *pString,const char *str ) ;
+	void ring_string_set2 ( String *pString,const char *str,int nStrSize ) ;
+	void ring_string_add ( String *pString,const char *str ) ;
+	void ring_string_add2 ( String *pString,const char *str,int nStrSize ) ;
+	void ring_string_print ( String *pString ) ;
+	void ring_string_setfromint ( String *pString,int x ) ;
+	char * ring_string_lower ( char *cStr ) ;
+	char * ring_string_upper ( char *cStr ) ;
+	char * ring_string_lower2 ( char *cStr,int nStrSize ) ;
+	char * ring_string_upper2 ( char *cStr,int nStrSize ) ;
+	char * ring_string_find ( char *cStr1,char *cStr2 ) ;
+	char * ring_string_find2 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 ) ;
+	/* Macro */
+	ring_string_tolower(x)
+	ring_string_toupper(x)
+	ring_string_get(x)
+
+
+.. index:: 
+	pair: Extension; MySQL_Columns() Implementation
+
+MySQL_Columns() Function Implementation
+=======================================
+
+The next code presents the MySQL_Columns() function implementation.
+
+This function returns table columns information.
+
+.. code-block:: C
+
+	void ring_vm_mysql_columns ( void *pPointer )
+	{
+		MYSQL *con  ;
+		MYSQL_RES *result  ;
+		int nColumns,x  ;
+		MYSQL_ROW row  ;
+		MYSQL_FIELD *field  ;
+		List *pList, *pList2  ;
+		if ( RING_API_PARACOUNT != 1 ) {
+			RING_API_ERROR(RING_API_MISS1PARA);
+			return ;
+		}
+		if ( RING_API_ISPOINTER(1) ) {
+			con = (MYSQL *) RING_API_GETCPOINTER(1,RING_VM_POINTER_MYSQL) ;
+			if ( con == NULL ) {
+				return ;
+			}
+			result = mysql_store_result(con);
+			if ( result == NULL ) {
+				RING_API_RETNUMBER(0);
+				return ;
+			}
+			pList = RING_API_NEWLIST ;
+			nColumns = mysql_num_fields(result);
+			if ( row = mysql_fetch_row(result) ) {
+				while ( field = mysql_fetch_field(result) ) {
+					pList2 = ring_list_newlist(pList);
+					ring_list_addstring(pList2,field->name);
+					ring_list_adddouble(pList2,field->length);
+					ring_list_adddouble(pList2,field->type);
+					ring_list_adddouble(pList2,field->flags);
+				}
+			}
+			mysql_free_result(result);
+			RING_API_RETLIST(pList);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
+
+Lists are of type List, in the previoud function we declared two pointers of type List
+using List *pList, *pList2;
+	
+.. note:: The function uses RING_API_NEWLIST to create new list instead of ring_list_new()
+		  to create the list in Temp. Memory related to the function scope. This way we can
+		  return the list from the function. Also we don't delete the list, if it's stored in 
+		  a variable by Ring Code it will be saved, if not it will be automatically deleted by RingVM.
+		  
+
+The list can contains sub lists, we used the function ring_list_newlist() to create a sublist.
+
+The function ring_list_addstring() is used to add string items to the list/sublist.
+
+The function ring_list_adddouble() is used to add numeric items to the list/sublist.
+
+.. note:: All numeric items in lists returned from RingVM extension functions must be of type double
+          and added to the list using ring_list_adddouble() function.
+		  
+
+We return the list from the extension function using the RING_API_RETLIST() function.
+
+.. index:: 
+	pair: Extension; Shared Libraries
+
+Dynamic/Shared Libraries (DLL/So) and LoadLib() function
+========================================================
+
+Instead of rebuilding the RingVM after writing new functions using C/C++ and the Ring API, we can create
+a DLL/So file and dynamically use the functions provided by this file in the runtime using the LoadLib() function.
+
+Dynamic library example in C
+
+.. code-block:: C
+
+	#include "ring.h"
+
+	RING_DLL __declspec(dllexport) 
+
+	RING_FUNC(ring_ringlib_dlfunc)
+	{
+		printf("Message from dlfunc");
+	}
+
+	RING_DLL void ringlib_init(RingState *pRingState)
+	{
+		ring_vm_funcregister("dlfunc",ring_ringlib_dlfunc); 
+	}
+
+the idea is to create the ringlib_init() function, this function will be called by the RingVM when we use the generated DLL 
+file though the LoadLib() function.
+
+Inside the ringlib_init() function we can register the module function or call a function that do the registration process
+for all of the module functions.
+
+The next Ring code demonstrates how to use the DLL library during the runtime.
+
+.. code-block:: none
+
+	See "Dynamic DLL" + NL
+	LoadLib("ringlib.dll")
+	dlfunc()
+
+Output:
+
+.. code-block:: none
+
+	Dynamic DLL
+	Message from dlfunc
+
+
+
+
+
