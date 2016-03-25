@@ -1,0 +1,302 @@
+================
+System Functions
+================
+
+In this chapter we are going to learn about the system functions
+
+* System()
+
+* Get()
+
+* IsMSDOS()
+
+* IsWindows()
+
+* IsWindows64()
+
+* IsUnix()
+
+* IsMacOSX()
+
+* IsLinux()
+
+* IsFreeBSD()
+
+* IsAndroid()
+
+* Windowsnl()
+
+* Get Command Line Arguments
+
+* Get Active Source File Name
+
+System() Function
+=================
+
+We can execute system commands using the system() function
+
+Syntax:
+
+.. code-block:: none
+
+	System(cCommand)
+
+Example:
+
+.. code-block:: none
+
+	System("myapp.exe") 	# Run myapp.exe
+	System("ls")		# print list of files
+
+Get() Function
+==============
+
+We can get environment variables using the Get() function
+
+Syntax:
+
+.. code-block:: none
+
+	Get(cVariable)
+
+Example:
+
+.. code-block:: none
+
+	see get("path")		# print system path information
+
+
+IsMSDOS()
+=========
+
+We can check if the operating system is MSDOS or not using the IsMSDOS() function
+
+Syntax:
+
+.. code-block:: none
+
+	IsMSDOS() ---> Returns 1 if the operating system is MS-DOS, Returns 0 if it's not
+		       
+
+IsWindows()
+===========
+
+We can check if the operating system is Windows or not using the IsWindows() function
+
+Syntax:
+
+.. code-block:: none
+
+	IsWindows() ---> Returns 1 if the operating system is Windows, Returns 0 if it's not
+
+
+IsWindows64()
+=============
+
+We can check if the operating system is Windows 64bit or not using the IsWindows64() function
+
+Syntax:
+
+.. code-block:: none
+
+	IsWindows64() ---> Returns 1 if the operating system is Windows64, Returns 0 if it's not
+
+
+IsUnix()
+========
+
+We can check if the operating system is Unix or not using the IsUnix() function
+
+Syntax:
+
+.. code-block:: none
+
+	IsUnix() ---> Returns 1 if the operating system is Unix, Returns 0 if it's not
+
+
+IsMacOSX()
+==========
+
+We can check if the operating system is Mac OS X or not using the IsMacOSX() function
+
+Syntax:
+
+.. code-block:: none
+
+	IsMacOSX() ---> Returns 1 if the operating system is Mac OS X, Returns 0 if it's not
+
+
+IsLinux()
+=========
+
+We can check if the operating system is Linux or not using the IsLinux() function
+
+Syntax:
+
+.. code-block:: none
+
+	IsLinux() ---> Returns 1 if the operating system is Linux, Returns 0 if it's not
+
+
+IsFreeBSD()
+===========
+
+We can check if the operating system is FreeBSD or not using the IsFreeBSD() function
+
+Syntax:
+
+.. code-block:: none
+
+	IsFreeBSD() ---> Returns 1 if the operating system is FreeBSD, Returns 0 if it's not
+
+
+IsAndroid()
+===========
+
+We can check if the operating system is Android or not using the IsAndroid() function
+
+Syntax:
+
+.. code-block:: none
+
+	IsAndroid() ---> Returns 1 if the operating system is Android, Returns 0 if it's not
+
+Example
+=======
+
+.. code-block:: none
+
+	see "IsMSDOS()     --> " + ismsdos()     + nl
+	see "IsWindows()   --> " + iswindows()   + nl
+	see "IsWindows64() --> " + iswindows64() + nl
+	see "IsUnix()      --> " + isunix()      + nl
+	see "IsMacOSX()    --> " + ismacosx()    + nl
+	see "IsLinux()     --> " + islinux()     + nl
+	see "IsFreeBSD()   --> " + isfreebsd()   + nl
+	see "IsAndroid()   --> " + isandroid()   + nl
+
+Output:
+
+.. code-block:: none
+
+	IsMSDOS()     --> 0
+	IsWindows()   --> 1
+	IsWindows64() --> 0
+	IsUnix()      --> 0
+	IsMacOSX()    --> 0
+	IsLinux()     --> 0
+	IsFreeBSD()   --> 0
+	IsAndroid()   --> 0
+
+Windowsnl()
+===========
+
+We can get the windows new line string using the Windowsnl() function.
+
+Syntax:
+
+.. code-block:: none
+
+	WindowsNL() ---> Returns a string contains CR+LF = CHAR(13) + CHAR(10)
+
+Example:
+
+.. code-block:: none
+
+	cStr = read("input.txt")
+
+	if iswindows()
+		cStr = substr(cStr,windowsnl(),nl)
+	ok
+
+	aList = str2list(cStr)
+	# to do - list items processing using "for in"
+	cStr = list2str(aList)
+
+	if iswindows()
+		cStr = substr(cStr,nl,windowsnl())
+	ok
+
+	write("ouput.txt",cStr)
+
+Get Command Line Arguments
+==========================
+
+We can get the command line arguments passed to the ring script using the sysargv variable.
+
+The sysargv variable is a list contains the command line parameters.
+
+Example
+
+.. code-block:: none
+
+	see copy("=",30) + nl
+	see "Command Line Parameters" + nl
+	see "Size : " + len(sysargv) + nl
+	see sysargv
+	see copy("=",30) + nl
+	nStart = sysargv[3]
+	nEnd = sysargv[4]
+	for x = nStart to nEnd
+		see x + nl
+	next
+
+Output
+
+.. code-block:: none
+
+	b:\mahmoud\apps\ring>ring tests\syspara.ring 1 10
+	==============================
+	Command Line Parameters
+	Size : 4
+	ring
+	tests\syspara.ring
+	1
+	10
+	==============================
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+	10
+
+Get Active Source File Name
+===========================
+
+We can get the active source file name (*.ring) using the filename() function
+
+Syntax:
+
+.. code-block:: none
+
+	filename() ---> String contains the active source file name.
+
+Example:
+
+.. code-block:: none
+
+	see "Active Source File Name : " + filename() + nl
+
+Output:
+
+.. code-block:: none
+
+	Active Source File Name : tests\filename.ring
+
+
+Example:
+
+.. code-block:: none
+
+	if sysargv[2] = filename()
+		see "I'm the main program file!" + nl
+		# we can run tests here!
+	else
+		see "I'm a sub file in a program" + nl
+	ok
+
