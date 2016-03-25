@@ -1,0 +1,358 @@
+=======
+Strings
+=======
+
+In this chapter we are going to learn about strings creation and manipulation.
+
+String Literals
+===============
+
+Syntax:
+
+.. code-block:: none
+
+	cStr = "This is a string"
+	cStr2 = 'Another string'
+	cStr3 = :JustAnotherString
+	cStr4 = `Yet "another" 'string' ! `
+
+Get String Length
+=================
+
+We can get the string length (letters count inside a string) using the len() function
+
+Syntax:
+
+.. code-block:: none
+
+	len(string) ---> string length
+
+Example:
+
+.. code-block:: none
+
+	cStr = "How are you?"
+	see cStr + nl
+	see "String size : " + len(cStr) + nl
+
+Convert Letters Case
+====================
+
+Syntax:
+
+.. code-block:: none
+
+	lower(string) ---> convert string letters to lower case
+	upper(string) ---> convert string letters to UPPER case
+
+Example:
+
+.. code-block:: none
+
+	cStr = "Welcome To The Ring Programming Language"
+	see cStr + nl + upper(cStr) + nl + lower(cStr) 		
+
+Access String Letters
+=====================
+
+We can access a letter inside a string by the letter index
+
+Syntax:	
+
+.. code-block:: none
+
+	string[index] ---> get string letter
+	string[index] = letter  # set string letter
+
+Example:
+
+.. code-block:: none
+
+	# print user name letter by letter (each letter in new line)
+
+	See "Hello, Enter your name : " give cName
+	for x = 1 to len(cName)
+		see nl + cName[x]
+	next
+
+We can use for in to get string letters.
+
+
+Example:
+
+.. code-block:: none
+
+	# print user name letter by letter (each letter in new line)
+
+	See "Hello, Enter your name : " give cName
+	for x in cName
+		see nl + x
+	next
+
+We can modify the string letters
+
+Example:
+
+.. code-block:: none
+
+	# convert the first letter to UPPER case
+
+	See "Enter your name : " give cName
+	cName[1] = upper(cName[1])
+	see "Hello " + cName
+
+Left() Function
+===============
+
+We can get a specified number of characters from a string using the Left() function.
+
+The starting position is 1.
+
+Syntax:
+
+.. code-block:: none
+
+	Left(string,count)
+
+Example:
+
+.. code-block:: none
+
+	see left("Hello World!",5) # print Hello
+
+Right() Function
+================
+
+We can get a specified number of characters from a string using the Right() function.
+
+The starting position is the last character on the right.
+
+Syntax:
+
+.. code-block:: none
+
+	Right(string,count)
+
+Example:
+
+.. code-block:: none
+
+	see Right("Hello World!",6) # print World!
+
+Trim() Function
+===============
+
+We can remove all leading and trailing spaces from a string using the Trim() function.
+
+Syntax:
+
+.. code-block:: none
+
+	trim(string)
+
+Example:
+
+.. code-block:: none
+
+	cMsg = "     Welcome      "
+	see trim(cMsg)			# print Welcome
+
+Copy() Function
+===============
+
+We can duplicate a string more than one time using the copy() function.
+
+Syntax:
+
+.. code-block:: none
+
+	copy(string,nCount) ---> string replicated nCount times
+
+Example
+
+.. code-block:: none
+
+	see copy("***hello***",3) # print ***hello******hello******hello***
+
+Lines() Function
+================
+
+We can count the number of lines inside a string using the Lines() function.
+
+Syntax:
+
+.. code-block:: none
+
+	lines(string) ---> Number of lines inside the string
+
+Example:
+
+.. code-block:: none
+
+	cStr = "Hello
+	How are you?
+	are you fine?"
+	see lines(cStr)		# print 3
+
+Substr() Function
+=================
+
+We can work on sub strings inside a string using the substr() function.
+Using Substr() we can 
+
+* Find substring
+
+* Get substring from position to end
+
+* Get Number of characters from position
+
+* Transform Substring To Another Substring 
+
+Find substring
+==============
+
+Syntax:
+
+.. code-block:: none
+
+	substr(string,substring)  ---> the starting position of substring in string
+
+Example:
+
+.. code-block:: none
+
+	cStr = "Welcome to the Ring programming language"
+	see substr(cStr,"Ring")		# print 16
+
+Get substring from position to end
+==================================
+
+Syntax:
+
+.. code-block:: none
+
+	substr(string,position)  ---> Get substring starting from position to end
+
+Example:
+
+.. code-block:: none
+
+	cStr = "Welcome to the Ring programming language"
+	nPos = substr(cStr,"Ring")	# nPos = 16
+	see substr(cStr,nPos)		# print Ring programming language
+
+Get Number of Characters From Position
+======================================
+
+Syntax:
+
+.. code-block:: none
+
+	substr(string,position,count)  ---> Get characters starting from position
+
+Example:
+
+.. code-block:: none
+
+	cStr = "Welcome to the Ring programming language"
+	nPos = substr(cStr,"Ring")	# nPos = 16
+	see substr(cStr,nPos,4)		# print Ring 
+
+Transform Substring To Another Substring
+========================================
+
+Syntax:
+
+.. code-block:: none
+
+	substr(string,substring,newsubstring)  ---> Transformed string (Match case)
+	substr(string,substring,newsubstring,1)  ---> Transformed string (Ignore case)
+
+Example:
+
+.. code-block:: none
+
+	cStr = "Welcome to the New programming language"
+	see substr(cStr,"New","Ring") + nl  # print Welcome to the Ring programming language 
+	see substr(cStr,"new","Ring",1)+ nl # print Welcome to the Ring programming language 
+
+strcmp() Function
+=================
+
+We can compare between two strings using the strcmp() function.
+
+Syntax:
+
+.. code-block:: none
+
+	strcmp(cString1,cString2) ---> value = 0 if cString1 = cString2
+				       value < 0 if cString1 < cString2
+				       value > 0 if cString1 > cString2
+
+Example:
+
+.. code-block:: none
+
+	see strcmp("hello","hello") + nl +
+  	    strcmp("abc","bcd") + nl + 
+  	    strcmp("bcd","abc") + nl
+
+Output:
+
+.. code-block:: none
+
+	0
+	-1
+	1
+
+str2list() and list2str() Functions
+===================================
+
+We can convert string lines to list items using the str2list() function.
+Also we can convert the list to a string using list2str() function.
+
+Syntax:
+
+.. code-block:: none
+
+	str2list(string) ---> list contains the string lines 
+	list2str(list)   ---> string contains the list items
+
+Example:
+
+.. code-block:: none
+
+	/* output:
+	** Items : 4
+	** Item : Hello
+	** Item : How are you ?
+	** Item : are you fine ?
+	** Item : ok
+	** list2Str result = Hello
+	** How are you ?
+	** are you fine ?
+	** ok
+	** Done
+	*/
+
+	mystr = "Hello
+	How are you ?
+	are you fine ?
+	ok"
+
+	mylist = str2list(mystr)
+	see "Items : " + len(mylist) + nl
+
+	for x in mylist
+		see "Item : " + x + nl
+	next
+
+	newstr = list2str(mylist)
+	see "list2Str result = " + newstr
+
+	if mystr = newstr
+		see nl + "Done"
+	else
+		see nl + "Error!"
+	ok
+		
