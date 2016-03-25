@@ -1,0 +1,1084 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>The Ring Programming Language</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html#">Home</a></li>
+          <li><a href="download.html">Download</a></li>	
+          <li><a href="index.html#why">Why?</a></li>
+          <li><a href="doc/index.html" target="_blank">Documentation</a></li>
+	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Community<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+	          <li><a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Group</a></li>
+          	  <li><a href="resources.html">Resources</a></li>
+          	  <li><a href="team.html">Team</a></li>
+            </ul>
+          </li>
+    </ul>
+
+	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
+		<form class="search" action="doc/search.html" method="get" style="width:200px" >
+			<div class="input-group">
+				<input name="q" type="text" class="form-control" placeholder="Search for...">
+				<span class="input-group-btn">
+				<button class="btn btn-default" type="submit">Go!</button>
+				</span>
+			</div>
+			<input name="check_keywords" value="yes" type="hidden">
+			<input name="area" value="default" type="hidden">
+		</form>
+
+    </div>
+
+  </div>
+
+</nav>  
+  
+<div style="float:right; margin-top:4%">
+	<a href="https://github.com/ring-lang/ring" target="_blank">
+		<img src="forkme.png" alt="Fork me on GitHub" width="198" height="198">
+	</a>
+</div>
+
+<div class="container">
+ <div class="text-center">
+	<br><br><br> 
+	<br><br>
+	<div style="margin-left:9%">		
+		<img src="thering.jpg" width="297px" height="154px">
+	</div>
+
+	<div class="row">
+				<br> 
+				<div class="col-xs-2">
+				</div>
+				<div class="col-xs-4">
+					<a href="download.html" class="btn btn-primary btn-block" style="">Download Ring</a>
+				</div>
+				<div class="col-xs-4">
+					<a href="http://ring-lang.sf.net/cgi-bin/ringlang.cgi" class="btn btn-success btn-block" style="">Try Ring Online (Interactive Ring)</a>
+				</div>
+
+				<div class="col-xs-2">
+				</div>
+				<br>  
+	</div>
+
+
+
+		<h3>Innovative and practical general-purpose multi-paradigm language</h3>
+
+  </div>
+
+<br>
+
+﻿
+<div class="row">
+
+  <div class="col-xs-7">
+
+  <div id="introduction" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Introduction</h4></div>
+      <div class="panel-body">
+		<p align="justify">
+			The Ring is an Innovative and practical general-purpose multi-paradigm scripting language that can be embedded in C/C++ projects, extended using C/C++ code and/or used as standalone language.
+
+			The supported programming paradigms are Imperative, Procedural, Object-Oriented, Functional, Meta programming, Declarative programming using nested structures, and Natural programming.
+			The language is portable (Windows, Linux, Mac OS X, Android, etc.) and can be used to create Console, GUI, Web, Games and Mobile applications.
+
+			The language is designed to be Simple, Small, Flexible and Fast. Its Dynamic Language (Dynamic Typing and Weakly Typed) that compile the source code to byte code then execute it by the Ring Virtual Machine, which is integrated with the Ring Compiler in one program.
+			The first version of the language (around 100,000 lines of C/C++/Ring code) is released on January 25th, 2016		
+		</p>
+	</div>
+     </div>  
+  </div>
+
+	</div>
+
+	  <div class="col-xs-5">
+
+  <div id="news" class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><h4>News</h4></div>
+      <div class="panel-body">
+
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th width="40%">Date</th>
+					<th>Description</th>
+				  </tr>
+				</thead>
+				<tbody>
+				
+				
+				  <tr>
+					<td>March 21, 2016</td>
+					<td><a href="https://en.wikibooks.org/wiki/Ring" target="_blank"> Ring in WIKIBOOKS</a></td>
+				  </tr>
+				
+				  <tr>
+					<td>March 16, 2016</td>
+					<td><a href="https://www.youtube.com/watch?v=QABSHg4zY6M" target="_blank"> Movie : Introducing the Ring Programming Language</a></td>
+				  </tr>
+				
+				  <tr>
+					<td>March 12, 2016</td>
+					<td><a href="download.html#libs"> Ring extension for Geany Editor</a></td>
+				  </tr>
+								 
+
+				</tbody>
+			</table>
+			<div style="text-align:right;">	  
+				  <a href="news.html">See more!</a>	  
+			</div>
+	  </div>
+     </div>  
+  </div>
+
+	</div>
+
+</div>
+
+<br><br><br>
+<a  id="why" href="#whyring" class="btn btn-default" data-toggle="collapse" style="width:100%">Why Ring?</a>
+<div id="whyring" class="panel-group collapse">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Why Ring?</h4></div>
+      <div class="panel-body">
+		<p align="justify">
+		The language is simple, trying to be natural, encourage organization and comes with transparent implementation. 
+		It comes with compact syntax and a group of features that enable the programmer to create natural interfaces and declarative 
+		domain-specific languages in a fraction of time. It is very small, fast and comes with smart
+		garbage collector that puts the memory under the programmer control. It supports many programming paradigms, comes with useful and practical libraries. 
+		The language is designed for productivity and developing high quality solutions that can scale.
+		</p>
+		<br> <br>
+
+        <div class="panel panel-primary" id="productivityscal">
+	      <div class="panel-heading"><h4> Designed for a Clear Goal</h4></div>
+	      <div class="panel-body">
+
+		<p>
+			<ul>
+			<li>Applications programming language.</li>
+			<li>Productivity and developing high quality solutions that can scale.</li>			
+			<li>Small and fast language that can be embedded in C/C++ projects.</li>
+			<li>Simple language that can be used in education and introducing Compiler/VM concepts.</li>
+			<li>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.</li>
+			<li>Practical language designed for creating the next version of the Programming Without Coding Technology software.</li>			
+			</ul>
+
+		</p>
+
+	</div>
+	</div>
+
+
+
+
+        <div class="panel panel-primary" id="simple">
+	      <div class="panel-heading"><h4> Simple </h4></div>
+	      <div class="panel-body">
+
+		Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code
+
+		<p>
+			<pre>
+<font color="purple">See</font> "Hello, World!" 
+			</pre>
+		</p>
+
+		The Main function is optional and will be executed after the statements, and is useful for using the local scope.
+		<p>
+			<pre>
+<font color="purple">Func</font> Main
+	<font color="purple">See</font> "Hello, World!" 
+			</pre>
+		</p>
+
+		Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name!
+		<br>
+		You can use the '+' operator for string concatenation and the language is 
+		weakly typed and will convert automatically between numbers and strings based on the context.
+		<p>
+			<pre>
+nCount = 10	<font color="green"># Global variable</font>
+<font color="purple">Func</font> Main
+	nID = 1	<font color="green"># Local variable</font>
+	<font color="purple">See</font> "Count = " + nCount + nl + " ID = " + nID
+			</pre>
+		</p>
+
+
+
+	</div>
+	</div>
+
+        <div class="panel panel-primary" id="natural">
+	      <div class="panel-heading"><h4> Trying to be natural </h4></div>
+	      <div class="panel-body">
+
+		Ring is not case-sensitive
+
+		<p>
+			<pre>
+<font color="purple">See</font> "Enter your name ? " 
+<font color="purple">Give</font> name
+<font color="purple">See</font> "Hello " + Name	<font color="green"># Name is the same as name </font>
+			</pre>
+		</p>
+
+		The list index starts from 1
+		<p>
+			<pre>
+aList = ["one","two","three"]
+<font color="purple">See</font> aList[1]	<font color="green"># print one</font>
+			</pre>
+		</p>
+
+		Call functions before definition
+		<p>
+			<pre>
+one() 
+two() 
+three()
+<font color="purple">Func</font> one 
+	<font color="purple">See</font> "One" + nl
+<font color="purple">Func</font> two 
+	<font color="purple">See</font> "two" + nl
+<font color="purple">Func</font> three 
+	<font color="purple">See</font> "three" + nl
+			</pre>
+		</p>
+
+		The assignment operator uses Deep copy (no references in this operation)
+		<p>
+			<pre>
+aList = ["one","two","three"]
+aList2 = aList
+aList[1] = 1
+<font color="purple">see</font> alist[1]	<font color="green"># print 1</font>
+<font color="purple">see</font> aList2[1]	<font color="green"># print one</font>
+			</pre>
+		</p>
+
+		Pass numbers and strings by value, but pass lists and objects by reference.
+		<br>
+		The for in loop can update the list items.
+		<p>
+			<pre>
+<font color="purple">Func</font> Main
+	aList = [1,2,3]
+	update(aList)
+	<font color="purple">see</font> aList	<font color="green"># print one two three</font>
+
+<font color="purple">Func</font> update aList
+	<font color="purple">for</font> x <font color="purple">in</font> aList
+		<font color="purple">switch</font> x
+		<font color="purple">on</font> 1 x = "one"
+		<font color="purple">on</font> 2 x = "two"
+		<font color="purple">on</font> 3 x = "three"
+		<font color="purple">off</font>
+	<font color="purple">next</font>
+			</pre>
+		</p>
+
+		Using Lists during definition
+		<p>
+			<pre>
+aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
+<font color="purple">see</font> aList       <font color="green"># print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</font>
+			</pre>
+		</p>
+		Exit from more than one loop
+		<p>
+			<pre>
+<font color="purple">for</font> x = 1 <font color="purple">to</font> 10
+        <font color="purple">for</font> y = 1 <font color="purple">to</font> 10
+                <font color="purple">see</font> "x=" + x + " y=" + y + nl
+                <font color="purple">if</font> x = 3 <font color="purple">and</font> y = 5
+                        <font color="purple">exit</font> 2     <font color="green"># exit from 2 loops</font>
+                <font color="purple">ok</font>
+        <font color="purple">next</font>
+<font color="purple">next</font>
+			</pre>
+		</p>
+
+
+	</div>
+	</div>
+
+
+        <div class="panel panel-primary" id="encourageorg">
+	      <div class="panel-heading"><h4> Encourage Organization </h4></div>
+	      <div class="panel-body">
+
+		The language encourage organization, Forget bad days using languages where the programmer start with
+		function then class then function and a strange mix between things!
+		<br><br>
+		Each source file follow the next structure
+		<br><br>
+		<ul>
+		<li>Load Files</li>
+		<li>Statements and Global Variables</li>
+		<li>Functions</li>
+		<li>Packages and Classes</li>
+		</ul>
+		This enable us to use Packages, Classes and Functions without the need to use a keyword to end
+		these components.
+		<br> <br>
+		We can write one line comments and multi-line comments
+		<br>
+		The comment starts with # or //
+		<br>
+		Multi-line comments are written between /* and */
+		<p>
+		<pre>
+<font color="green">/* 
+	Program Name : My first program using Ring
+	Date         : 2015.05.08
+*/</font>
+
+<font color="purple">See</font> "What is your name? " 	<font color="green"># print message on screen</font>
+<font color="purple">give</font> cName 			<font color="green"># get input from the user</font>
+<font color="purple">see</font> "Hello " + cName	<font color="green">	# say hello!</font>
+
+<font color="green">// See "Bye!"</font>
+			</pre>
+		</p>
+
+	</div>
+	</div>
+
+
+        <div class="panel panel-primary" id="transparentimplementation">
+	      <div class="panel-heading"><h4> Transparent Implementation </h4></div>
+	      <div class="panel-body">
+
+		Ring comes with transparent implementation. We can know what is happening in each compiler stage and
+		what is going on during the run-time by the Virtual Machine
+
+		Example : ring helloworld.ring -tokens -rules -ic
+
+		<p>
+			<pre>
+<font color="purple">See</font> "Hello, World!" 
+			</pre>
+		</p>
+
+		Output 
+
+		<p>
+			<pre>
+==================================================================
+Tokens - Generated by the Scanner
+==================================================================
+
+   Keyword : SEE
+   Literal : Hello, World!
+   EndLine
+
+==================================================================
+
+==================================================================
+Grammar Rules Used by The Parser
+==================================================================
+
+Rule : Program --> {Statement}
+
+Line 1
+Rule : Factor --> Literal
+Rule : Range --> Factor
+Rule : Term --> Range
+Rule : Arithmetic --> Term
+Rule : BitShift --> Arithmetic
+Rule : BitAnd --> BitShift
+Rule : BitOrXOR -->  BitAnd
+Rule : Compare --> BitOrXOR
+Rule : EqualOrNot --> Compare
+Rule : LogicNot -> EqualOrNot
+Rule : Expr --> LogicNot
+Rule : Statement  --> 'See' Expr
+
+==================================================================
+
+
+
+==================================================================
+Byte Code - Before Execution by the VM
+==================================================================
+
+     PC      OPCode        Data
+
+      1     FuncExE
+      2       PushC   Hello, World!
+      3       Print
+      4  ReturnNull
+
+==================================================================
+
+Hello, World!
+			</pre>
+		</p>
+
+	</div>
+	</div>
+
+
+
+
+	    <div class="panel panel-primary" id="libs">
+	      <div class="panel-heading"><h4> Compact Syntax </h4></div>
+	      <div class="panel-body">
+
+
+		
+		<p>
+			The language is <b>not line sensitive</b>, you don't need to write ; after statements, also you don't need
+			to press ENTER or TAB, so we can write the next code
+		</p>
+		<p>
+			<pre>
+<font color="purple">See</font> "The First Message"	<font color="purple">See</font> " Another message in the same line! " + <font color="red">nl</font>
+<font color="purple">See</font> "Enter your name?" <font color="purple">Give</font> <font color="red">Name</font> <font color="purple">See</font> "Hello " + <font color="red">Name</font>
+			</pre>
+		</p>
+		<p>
+			The next code create a class called Point contains three attributes X,Y and Z.
+			<b>No keywords is used to end the package/class/function definition</b>.
+			Also, we can <b>write the attributes names directly below the class name</b>.
+		</p>
+		<p>
+			<pre>
+<font color="purple">Class</font> Point X Y Z
+			</pre>
+		</p>
+		<p>
+			We can <b>use classes and functions before their definition</b>, In this example we will
+			create new object, set the object attributes then print the object values.
+		</p>
+		<p>
+			<pre>
+o1 = <font color="purple">New</font> point	o1.x=10    o1.y=20   o1.z=30	<font color="purple">See</font> O1	<font color="purple">Class</font> Point X Y Z
+			</pre>
+		</p>
+		<p>
+			Instead of using the dot '.' operator to access the object attributes and methods 
+			<b>we can use braces { } to access the object, then we can use the object attributes and methods</b>.
+		</p>
+		<p>
+			<pre> 
+o1 = <font color="purple">New</font> point { x=10 y=20 z=30 } <font color="purple">See</font> O1  <font color="purple">Class</font> Point X Y Z
+			 </pre>
+		</p>
+		<p>
+			Now we will <b>call a method after accessing the object using { }</b>
+		</p>
+		<p>
+<pre> 
+oPerson = <font color="purple">new</font> Person
+{
+	Name = "Somebody"
+	Address = "Somewhere"
+	Phone = "0000000"
+	Print()			<font color="green"># here we call the Print() method</font>
+}
+<font color="purple">Class</font> Person Name Address Phone
+	<font color="purple">Func</font> Print
+		<font color="purple">See</font> "Name :" + name + nl +
+		    "Address :" + Address + nl +
+		    "Phone : " + phone + nl
+</pre>
+		</p>
+
+		<p>
+			When we use { } to access the object then write any attribute name, <b>the language
+			will check the class for any setter/getter methods that will be called automatically</b>.
+		</p>
+		<p>
+<pre>
+<font color="purple">New</font> Number {
+		<font color="purple">See</font> one		<font color="green"># Execute GetOne()</font>
+		<font color="purple">See</font> two		<font color="green"># Execute GetTwo()</font>
+		<font color="purple">See</font> three	<font color="green"># Execute GetThree()</font>
+}
+<font color="purple">Class</font> Number one two three
+	<font color="purple">Func</font> GetOne
+		<font color="purple">See</font> "Number : One" + nl
+		<font color="purple">return</font> 1
+	<font color="purple">Func</font> GetTwo
+		<font color="purple">See</font> "Number : Two" + nl
+		<font color="purple">return</font> 2
+	<font color="purple">Func</font> GetThree
+		<font color="purple">See</font> "Number : Three" + nl
+		<font color="purple">return</font> 3	
+</pre>
+</p>
+
+		</div>
+		</div>
+
+	    <div class="panel panel-primary" id="libs">
+	      <div class="panel-heading"><h4> Define Natural Statements based on Object-Oriented </h4></div>
+	      <div class="panel-body">
+
+		
+
+		<p>
+		After the object access using { } if the class contains a method called BraceEnd() it will be executed!
+		</p>
+<p>
+<pre>
+TimeForFun = <font color="purple">new</font> journey
+<font color="green"># The first surprise!</font>
+<b>TimeForFun {
+	Hello it is me		<font color="green"># What a beatiful programming world!</font>
+}</b>
+<font color="green"># Our Class</font>
+<font color="purple">Class</font> journey
+	<font color="purple">func</font> GetHello
+		<font color="purple">See</font> "Hello" + nl
+	<font color="purple">func</font> braceEnd
+		<font color="purple">See</font> "Goodbye!" + nl
+	<font color="purple">private</font>
+		hello=0 it=0 is=0 me=0
+</pre>
+</p>
+
+		<p>
+		We can <b>execute code written in strings using the Eval() function</b>
+		</p>
+<p>
+<pre>
+cCode = "See 'Code that will be executed later!' "
+Eval(cCode)	<font color="green"># execute the code to print the message</font>
+</pre>
+</p>
+
+		<p>
+		<b>We can create a list then execute code generated from that list</b>
+		</p>
+<p>
+<pre>
+aWords = ["hello","it","is","me"]
+<font color="purple">for</font> word <font color="purple">in</font> aWords cCode=word+"=0" eval(cCode) <font color="purple">next</font>
+</pre>
+</p>
+
+		<p>
+		<b>We can read text files using the Read(cFileName) function</b> and we can write files using
+		the Write(cFileName,cString) function.
+		</p>
+<p>
+<pre>
+<font color="purple">See</font> "Enter File Name:" <font color="purple">Give</font> cFileName <font color="purple">See</font> Read(cFileName) <font color="green"># Print the file content</font>
+</pre>
+</p>
+
+		<p>
+		The next example presents how to create a class that defines two instructions<br>
+		The first instruction is : I want window<br>
+		The second instruction is : Window title = Expression <br>
+		Also keywords that can be ignored like the ‘the’ keyword <br>
+		</p>
+<p>
+<pre>
+<font color="purple">New</font> App
+{
+        I want window
+        The window title = "hello world"
+}
+
+<font color="purple">Class</font> App
+
+        <font color="purple">func</font> geti
+                <font color="purple">if</font> nIwantwindow = 0
+                        nIwantwindow++
+                <font color="purple">ok</font>
+
+        <font color="purple">func</font> getwant
+                <font color="purple">if</font> nIwantwindow = 1
+                        nIwantwindow++
+                <font color="purple">ok</font>
+
+        <font color="purple">func</font> getwindow
+                <font color="purple">if</font> nIwantwindow = 2
+                        nIwantwindow= 0
+                        <font color="purple">see</font> "Instruction : I want window" + nl
+                <font color="purple">ok</font>
+                <font color="purple">if</font> nWindowTitle = 0
+                        nWindowTitle++
+                <font color="purple">ok</font>
+
+        <font color="purple">func</font> settitle cValue
+                <font color="purple">if</font> nWindowTitle = 1
+                        nWindowTitle=0
+                        <font color="purple">see</font> "Instruction : Window Title = " + cValue + nl
+                <font color="purple">ok</font>
+
+        <font color="purple">private</font>
+
+                <font color="green"># Attributes for the instruction I want window</font>
+                        i want window
+                        nIwantwindow = 0
+                <font color="green"># Attributes for the instruction Window title</font>
+                <font color="green"># Here we don't define the window attribute again</font>
+                        title
+                        nWindowTitle = 0
+                <font color="green"># Keywords to ignore, just give them any value</font>
+                        the=0
+</pre>
+</p>
+
+		<p>
+		To complete the previous example, use read() to get the content of a file that contains
+<pre>
+        I want window
+        The window title = "hello world"
+</pre>
+		Then use eval() to execute the content of that file!.<br>
+		Also, you can update the methods GetWindow() and SetTitle() to create Real windows using the GUI Library<br>
+
+		</p>
+
+		</div>
+		</div>
+
+	    <div class="panel panel-primary" id="libs">
+	      <div class="panel-heading"><h4> Define Declarative Languages using Nested Structures based on Object-Oriented </h4></div>
+	      <div class="panel-body">
+
+
+		
+
+		<p>
+		<b>We learned how to use Natural statements to execute our code and using the same features
+		we can use nested structures to execute our code</b>.
+		</p>
+		<p>
+		The next example from the Web library, generate HTML document using the Bootstrap library.
+		No HTML code is written directly in this example, we created a similar language (just as example)
+		Then <b>using this declarative language that uses nested structures, we generated the HTML Document.</b>.
+		<br>
+		The idea in this example is that the <b>GetDiv() and GetH1() methods return an object that we can 
+		access using {} and after each object access the method BraceEnd() will be executed to send the 
+		generated HTML to the parent object until we reach to the root where BraceEnd() will print the output</b>.
+		</p>
+<p>
+<pre>
+<font color="purple">Load</font> "weblib.ring"
+<font color="purple">Import</font> System.Web
+
+<font color="purple">Func</font> Main
+
+  BootStrapWebPage()
+  {
+        div
+        {
+          classname = :container
+          div
+          {
+                classname = :jumbotron
+                H1 {   text("Bootstrap Page")   }
+          }
+          div
+          {
+                classname = :row
+                for x = 1 to 3
+                  div
+                  {
+                        classname = "col-sm-4"
+                        H3 { html("Welcome to the Ring programming language") }
+                        P  { html("Using a scripting language is very fun!") }
+                  }
+                next
+          }
+        }
+  }
+</pre>
+</p>
+
+		<p>
+		The classes that power the declarative interface looks like this
+		</p>
+<p>
+<pre>
+<xmp>
+	Class Link from ObjsBase
+		title  link
+		Func braceend			
+			cOutput = nl+GetTabs() + "<a href='" + 
+				  Link + "'> "+ Title + " </a> " + nl			
+
+	Class Div from ObjsBase 
+		Func braceend
+			cOutput += nl+'<div'
+			addattributes()
+			AddStyle()
+			getobjsdata()
+			cOutput += nl+"</div>" + nl
+			cOutput = TabMLString(cOutput)
+	 
+</xmp>
+</pre>
+</p>
+
+		</div>
+		</div>
+
+		<br> <br>
+
+        <div class="panel panel-primary" id="smartgc">
+	      <div class="panel-heading"><h4> Smart Garbage Collector </h4></div>
+	      <div class="panel-body">
+
+		Avoid memory problems :-
+		<br><br>
+		<ul>
+		 <li>Invalid Memory Access</li>
+		 <li>Memory leaks</li>
+		 <li>Uninitialized Memory Access</li>
+		 <li>Dangling pointer</li>
+		</ul>
+
+		Rules :-
+		<br><br>
+		<ul>
+ 		<li>Global variables always stay in the memory, until you delete these variables using the assignment statement.</li>
+		<li>Local variables always deleted after the end of the function.</li>
+		<li>The programmer have full control on when to delete the variable from the memory using the Assignment statement.</li>
+			<br>
+      			Example:
+			<pre>
+aList = [1,2,3,4,5]
+aList = "nice"
+			</pre>
+     After the second line directly, The list [1,2,3,4,5] will be deleted from the memory and we will have a string "nice"
+	<br><br>
+		<li>The programmer can call the function callgc() to force running the garbage collector.</li>
+		<li>If we have a reference to a variable (when we pass objects and lists to functions), then deleting variables will be based on reference counting, if no references everything will be deleted, but if we have a reference, the data will stay in memory.</li>
+		</ul>
+	</div>
+	</div>
+
+
+	</div>
+     </div>  
+  </div>
+  
+
+<a href="#features" class="btn btn-default" data-toggle="collapse" style="width:100%">Features</a>
+  <div id="features" class="panel-group collapse">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Features</h4></div>
+      <div class="panel-body">
+
+	  <div class="row">
+	  <div class="col-xs-4">
+
+	    <div class="panel panel-primary">
+	      <div class="panel-heading">Free and Innovative</div>
+	      <div class="panel-body">
+			<ul>
+				<li>Free Open Source (MIT License)</li>			
+				<li>Declarative programming on the top of Object-Oriented programming</li>
+				<li>No explicit end for statements (No ; or ENTER is required)</li>
+				<li>For in get item by reference not value, you can read/edit the item</li>
+				<li>Use exit to go outside from more than one loop</li>
+				<li>No keyword to end Functions, Classes and Packages</li>
+				<li>using { } to access objects and use attributes/methods as variables/functions</li>
+				<li>Clear program structure (Statements then functions then packages &amp; classes)</li>
+				<li>Optional Printing for Tokens/Grammar/Byte-Code during execution</li>		
+			</ul>
+	      </div>	      
+            </div>
+	 </div>
+
+	 <div class="col-xs-4">
+	    <div class="panel panel-primary">
+	      <div class="panel-heading">Powerful Implementation</div>
+	      <div class="panel-body">
+
+		<ul>
+		<li>Interpreter-Hybrid Implementation (Compiler+VM)</li>
+		<li>The compiler + The Virtual Machine are 15,000 lines of C code</li>
+		<li>The other 85,000 lines of code are related to libraries!</li>
+		<li>Written in ANSI C (The code is generated)</li>
+		<li>Developed using Visual Programming (PWCT)</li>
+		<li>Portable (Windows, Linux &amp; Mac OS X, Android, etc.)</li>
+		</ul>
+	       </div>
+           </div>
+    	</div>
+
+    	<div class="col-xs-4">
+
+	    <div class="panel panel-primary">
+	      <div class="panel-heading">Simple</div>
+	      <div class="panel-body">
+
+		<ul>
+		<li>Comments (One line &amp; Multi-line)</li>
+		<li>Not Case-Sensitive</li>
+		<li>Structure Programming</li>
+		<li>Rich control structures &amp; Operators</li>
+		<li>Procedures/Functions</li>
+		<li>Main Function (optional)</li>
+		<li>Call Function before the definition</li>
+		<li>Recursion</li>
+		<li>Multi-line literals</li>
+		<li>Access (read/write) string letter by index</li>
+		<li>The list index start from 1</li>
+		<li>Range operator ex: 1:10</li>
+		<li>First Class Variables, Lists, Objects and Functions</li>
+		<li>Store/Copy Lists/Objects by value (Deep Copy)</li>
+		<li>Pass Lists/Objects by reference</li>
+		<li>8-bit clean, work on binary data directly</li>
+		</ul>
+	      </div>
+           </div>
+
+    	</div>
+	</div>
+
+	<br> <br>
+
+  	<div class="row">
+
+	<div class="col-xs-4">
+
+	    <div class="panel panel-primary">
+	      <div class="panel-heading"> Dynamic</div>
+	      <div class="panel-body">
+
+		<ul>
+		<li>Dynamic Typing</li>
+		<li>Weakly typed</li>
+		<li>Lexical Scoping (Global, Local &amp; Object State)</li>
+		<li>Default scope for variables inside functions (Local)</li>
+		<li>Default scope for variables outside functions (global)</li>
+		<li>Garbage Collector - Automatic Memory Management (Escape Analysis and Reference Counting)</li>
+		<li>Exception Handling</li>
+		<li>Eval() to execute code during run-time</li>
+		</ul>
+	      
+	      </div>
+           </div>
+	</div>
+
+	<div class="col-xs-4">
+
+	    <div class="panel panel-primary">
+	      <div class="panel-heading"> Native Object-Oriented Support</div>
+	      <div class="panel-body">
+
+		<ul>
+		<li>Encapsulation</li>
+		<li>Setter/Getter (optional)</li>
+		<li>private state (optional)</li>
+		<li>Instantiation</li>
+		<li>Polymorphism</li>
+		<li>Composition</li>
+		<li>Inheritance (Single Inheritance)</li>
+		<li>Operator Overloading</li>
+		<li>Packages</li>
+		<li>Reflection and Meta-programming</li>
+		</ul>
+     
+	      </div>
+           </div>
+	</div>
+
+	<div class="col-xs-4">
+
+	    <div class="panel panel-primary">
+	      <div class="panel-heading"> Standard Library </div>
+	      <div class="panel-body">
+
+		<ul>
+		<li>I/O commands</li><li>Math functions</li>
+		<li>String functions</li>
+		<li>List functions</li>
+		<li>File processing functions</li>
+		<li>Database support (ODBC &amp; MySQL)</li>
+		<li>Security Functions (OpenSSL)</li>
+		<li>Internet Functions (LibCurl)</li>
+		</ul>
+	      
+	      </div>
+           </div>
+
+    	</div>
+  </div>
+
+	<br>
+	<br>
+
+  <div class="row">
+    <div class="col-xs-4">
+
+	    <div class="panel panel-primary">
+	      <div class="panel-heading"> CGI Library (Written in Ring)  </div>
+	      <div class="panel-body">
+
+		<ul>
+		<li>CGI LIbrary - HTTP Get</li>
+		<li>CGI LIbrary - HTTP Post</li>
+		<li>CGI LIbrary - File upload</li>
+		<li>CGI LIbrary - Cookies</li>
+		<li>CGI LIbrary - URL Encode</li>
+		<li>CGI LIbrary - Templates</li>
+		<li>CGI LIbrary - HTML Special Characters</li>
+		<li>CGI LIbrary - HTML Generation using Functions</li>
+		<li>CGI LIbrary - HTML Generation using Classes</li>
+		<li>CGI LIbrary - CRUD Example (using MVC)</li>
+		<li>CGI Library - Users Example (Register, Login and Check)</li>
+		</ul>
+
+	      
+	      </div>
+           </div>
+    </div>
+
+    <div class="col-xs-4">
+
+	    <div class="panel panel-primary">
+	      <div class="panel-heading"> Extension  </div>
+	      <div class="panel-body">
+
+		<ul>
+		<li>Extension using C/C++ (Simple API)</li>
+		<li>Embedding the language in C/C++ programs</li>
+		<li>Comes with code generator (Written in Ring) to quickly wrap C/C++ Libraries</li>
+		<li>Create 2D Games (Using the Allegro Library)</li>
+		<li>Create GUI Applications for Desktop and Mobile (Using the Qt Framework)</li>
+		</ul>
+	      
+	      </div>
+           </div>
+    </div>
+
+    <div class="col-xs-4">
+	    <div class="panel panel-primary">
+	      <div class="panel-heading"> More </div>
+	      <div class="panel-body">
+
+		<ul>
+		<li>Very Stable</li>
+		<li>Good Performance</li>
+		<li>Complete Documentation</li>
+		</ul>
+	      
+	      </div>
+           </div>
+    </div>
+ 
+  </div>
+
+      </div>
+    </div>  
+  </div>
+
+</div>
+
+﻿</div>
+<br> <br> <br>
+<div class="container-fluid" style="color:black ; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+<div class="container" style=" margin-bottom: 2%;">
+<br> <br>
+ 	<div style="float:left ; width: 33%;">
+ 	    Basic <br> <br>
+
+            <ul>
+              <li><a href="doc/introduction.html">Introduction</a></li>
+              <li><a href="doc/getting_started.html">Getting Started</a></li>
+              <li><a href="doc/variables.html">Variables</a></li>
+              <li><a href="doc/operators.html">Operators</a></li>
+              <li><a href="doc/controlstructures.html">Control Structures</a></li>
+              <li><a href="doc/getinput.html">Getting Input</a></li>
+              <li><a href="doc/functions.html">Functions</a></li>
+              <li><a href="doc/lists.html">Lists</a></li>
+              <li><a href="doc/strings.html">Strings</a></li>
+              <li><a href="doc/dateandtime.html">Date and Time</a></li>
+              <li><a href="doc/checkandconvert.html">Check Data Type and Conversion</a></li>
+              <li><a href="doc/mathfunc.html">Mathematical Functions</a></li>
+            </ul>
+	</div>
+
+	<div style="float:left ; width: 33%;">
+ 	    Intermediate <br> <br>
+
+            <ul>
+              <li><a href="doc/files.html">Files</a></li>
+              <li><a href="doc/systemfunc.html">System Functions</a></li>
+              <li><a href="doc/evaldebug.html">Eval() and Debugging</a></li>
+              <li><a href="doc/demo.html">Demo Programs</a></li>
+              <li><a href="doc/odbc.html">ODBC Functions</a></li>
+              <li><a href="doc/mysql.html">MYSQL Functions</a></li>
+              <li><a href="doc/secfunc.html">Security and Internet Functions</a></li>
+            </ul>
+	</div>
+
+	<div style="float:left ; width: 34%;">
+ 	    Advanced <br> <br>
+
+            <ul>
+              <li><a href="doc/oop.html">Object Oriented Programming</a></li>
+              <li><a href="doc/declarative.html">Declarative Programming using Nested Structures</a></li>
+              <li><a href="doc/natural.html">Natural language programming</a></li>
+              <li><a href="doc/fp.html">Functional Programming (FP)</a></li>
+              <li><a href="doc/metaprog.html">Reflection and Meta-programming</a></li>
+              <li><a href="doc/extension.html">Extension using the C/C++ languages</a></li>
+              <li><a href="doc/embedding.html">Embedding Ring Interpreter in C/C++ Programs</a></li>
+              <li><a href="doc/interpreter.html">Command Line Options</a></li>
+              <li><a href="doc/web.html">Web Development (CGI Library)</a></li>
+              <li><a href="doc/codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+	      <li><a href="doc/allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+	      <li><a href="doc/qt.html">Desktop and Mobile development using RingQt</a></li>
+            </ul>
+	</div>
+
+
+
+</div>
+</div>
+
+<div class="container-fluid" style="text-align:center;color:black; height: 25px; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+              <a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Group</a>
+              <a href="resources.html">Resources</a>
+              <a href="team.html">Team</a>
+</div>
+
+<div class="container-fluid" style="color:black ; height: 5px; background: transparent linear-gradient(to bottom, rgb(0, 183, 234) 0%, rgb(0, 158, 195) 100%) repeat scroll 0% 0% ; margin-bottom: 0%; text-align:center;">
+ <p>
+ 
+ </p>
+
+</div>
+
+</body>
+</html>
