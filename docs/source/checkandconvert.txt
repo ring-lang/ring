@@ -1,0 +1,528 @@
+==============================
+Check Data Type and Conversion
+==============================
+
+In this chapter we are going to learn about the functions that can be used for
+
+* Checking Data Type
+* Checking Character
+* Conversion
+
+.. index:: 
+	pair: Data Type; Check Data Type
+
+Check Data Type
+===============
+
+The next functions can be used to check the data type
+
+* isstring()
+* isnumber()
+* islist()
+* type()
+* isnull()
+
+.. index:: 
+	pair: Data Type; IsString()
+
+IsString() Function
+===================
+
+Using the IsString() function we can know if the value is a string or not
+
+Syntax:
+
+.. code-block:: none
+
+	IsString(value) ---> 1 if the value is a string or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isstring(5) + nl +		# print 0
+	    isstring("hello") + nl	# print 1
+
+.. index:: 
+	pair: Data Type; IsNumber()
+
+IsNumber() Function
+===================
+
+Using the IsNumber() function we can know if the value is a number or not
+
+Syntax:
+
+.. code-block:: none
+
+	IsNumber(value) ---> 1 if the value is a number or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isnumber(5) + nl +		# print 1
+	    isnumber("hello") + nl	# print 0
+
+.. index:: 
+	pair: Data Type; IsList()
+
+IsList() Function
+===================
+
+Using the IsList() function we can know if the value is a list or not
+
+Syntax:
+
+.. code-block:: none
+
+	IsList(value) ---> 1 if the value is a list or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see islist(5) + nl +		# print 0
+	    islist("hello") + nl +	# print 0
+	    islist([1,3,5]) 		# print 1
+	
+.. index:: 
+	pair: Data Type; Type()
+
+Type() Function
+===============
+
+We can know the type of a value using the Type() Function.
+
+
+Syntax:
+
+.. code-block:: none
+
+	Type(value) ---> The Type as String 
+
+Example:
+
+.. code-block:: none
+
+	    see Type(5) + nl +		# print NUMBER
+	    Type("hello") + nl +	# print STRING
+	    Type([1,3,5]) 		# print LIST
+
+.. index:: 
+	pair: Data Type; IsNULL()
+
+IsNULL() Function
+=================
+
+We can check the value to know if it's null or not using the IsNULL() function
+
+Syntax:
+
+.. code-block:: none
+
+	IsNULL(value) ---> 1 if the value is NULL or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	    see isnull(5) + nl +	# print 0
+	    isnull("hello") + nl +	# print 0
+	    isnull([1,3,5]) + nl +	# print 0
+	    isnull("") + nl +		# print 1
+	    isnull("NULL")		# print 1
+
+.. index:: 
+	pair: Data Type; Check Character
+
+Check Character
+===============
+
+The next functions can be used to check character
+
+* isalnum()
+* isalpha()
+* iscntrl()
+* isdigit()
+* isgraph()
+* islower()
+* isprint()
+* ispunct()
+* isspace()
+* isupper()
+* isxdigit()
+
+IsAlNum() Function
+==================
+
+We can test a character or a string using the IsAlNum() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsAlNum(value) ---> 1 if the value is digit/letter or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isalnum("Hello") + nl +	# print 1
+	    isalnum("123456") + nl +	# print 1
+	    isalnum("ABCabc123") + nl +	# print 1
+	    isalnum("How are you")  	# print 0 because of spaces
+
+IsAlpha() Function
+==================
+
+We can test a character or a string using the IsAlpha() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsAlpha(value) ---> 1 if the value is a letter or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isalpha("Hello") + nl +	# print 1
+	    isalpha("123456") + nl +	# print 0
+	    isalpha("ABCabc123") + nl +	# print 0
+	    isalpha("How are you")  	# print 0
+
+IsCntrl() Function
+==================
+
+We can test a character or a string using the IsCntrl() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsCntrl(value) ---> 1 if the value is a control character (no printing position) or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	See iscntrl("hello") + nl +	# print 0 
+	    iscntrl(nl)			# print 1
+
+IsDigit() Function
+==================
+
+We can test a character or a string using the IsDigit() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsDigit(value) ---> 1 if the value is a digit or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isdigit("0123456789") + nl +	# print 1
+	    isdigit("0123a") 			# print 0
+
+IsGraph() Function
+==================
+
+We can test a character or a string using the IsGraph() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsGraph(value) ---> 1 if the value can be printed (Except space) or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isgraph("abcdef") + nl +	# print 1
+	    isgraph("abc def") 		# print 0
+
+
+IsLower() Function 
+==================
+
+We can test a character or a string using the IsLower() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsLower(value) ---> 1 if the value is lowercase letter or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see islower("abcDEF") + nl + 	# print 0
+	    islower("ghi")		# print 1
+
+
+IsPrint() Function
+==================
+
+We can test a character or a string using the IsPrint() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsPrint(value) ---> 1 if the value occupies a printing position or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isprint("Hello") + nl + 		# print 1
+	    isprint("Nice to see you") + nl +   # print 1
+	    isprint(nl)				# print 0
+
+
+IsPunct() Function
+==================
+
+We can test a character or a string using the IsPunct() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsPunct(value) ---> 1 if the value is a punctuation character or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see ispunct("hello") + nl +	# print 0
+	    ispunct(",") 		# print 1
+
+
+IsSpace() Function
+==================
+
+We can test a character or a string using the IsSpace() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsSpace(value) ---> 1 if the value is a white-space or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isspace("   ") + nl +	# print 1
+	    isspace("test") 		# print 0
+
+
+IsUpper() Function
+==================
+
+We can test a character or a string using the IsUpper() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsUpper(value) ---> 1 if the value is an uppercase alphabetic letter or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isupper("welcome") + nl +	 # print 0 
+	    isupper("WELCOME") 		 # print 1
+
+
+IsXdigit() Function
+===================
+
+We can test a character or a string using the IsXdigit() Function
+
+Syntax:
+
+.. code-block:: none
+
+	IsXdigit(value) ---> 1 if the value is a hexdecimal digit character or 0 if not	
+
+Example:
+
+.. code-block:: none
+
+	see isxdigit("0123456789abcdef") + nl +  # print 1
+	    isxdigit("123z") 			 # print 0
+
+
+.. index:: 
+	pair: Data Type; Conversion
+
+Conversion
+==========
+
+The next functions can be used for conversion
+
+* number()
+* string()
+* ascii()
+* char()
+* hex()
+* dec()
+* str2hex()
+* hex2str()
+
+Number() Function
+=================
+
+We can convert strings to numbers using the Number() function or the + operator.
+
+Syntax:
+
+.. code-block:: none
+
+	Number(string) ---> Number
+	0 + string ---> Number
+
+Example:
+
+.. code-block:: none
+
+	see number("5") + 5 + nl 	# print 10
+	see 0 + "10" + 2		# print 12	
+
+String() Function
+=================
+
+We can convert numbers to strings using the String() function or the + operator.
+
+Syntax:
+
+.. code-block:: none
+
+	String(number) ---> String
+	"" + number ---> String
+
+Example:
+
+.. code-block:: none
+
+	see string(5) + 5 + nl 		# print 55
+	see "" + 10 + 2			# print 102	
+
+
+Ascii() Function
+================
+
+We can get the ASCII code for a letter using the Ascii() function
+
+Syntax:
+
+.. code-block:: none
+
+	Ascii(character) ---> ASCII Code
+
+Example:
+
+.. code-block:: none
+
+	See ascii("m") + nl + 	# print 109
+	    ascii("M") 		# print 77
+
+Char() Function
+===============
+
+We can convert the ASCII code to character using the Char() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Char(ASCII Code) ---> character
+
+Example:
+
+.. code-block:: none
+
+	See char(109) + nl + 	# print m
+	    char(77) 		# print M
+
+
+Hex() Function
+==============
+
+We can convert decimal to hexadecimal using the Hex() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Hex(decimal) ---> hexadecimal
+
+Example:
+
+.. code-block:: none
+
+	See hex(10) + nl + 	# print a
+	    hex(200)		# print c8
+
+Dec() Function
+==============
+
+We can convert hexadecimal to decimal using the Dec() function
+
+Syntax:
+
+.. code-block:: none
+
+	Dec(hexadecimal) ---> decimal
+
+Example:
+
+.. code-block:: none
+
+	See dec("a") + nl + 	# print 10
+	    dec("c8")		# print 200
+
+Str2hex() Function
+==================
+
+We can convert string characters to hexadecimal characters using the Str2hex() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Str2hex(string) ---> hexadecimal string
+
+Example:
+
+.. code-block:: none
+
+	See str2hex("hello")  	# print 68656c6c6f
+
+
+Hex2str() Function
+==================
+
+We can convert hexadecimal characters to string using the Hex2str() function
+
+Syntax:
+
+.. code-block:: none
+
+	Hex2Str(Hexadecimal string) ---> string
+
+Example:
+
+.. code-block:: none
+
+	See hex2str("68656c6c6f")  	# print hello
