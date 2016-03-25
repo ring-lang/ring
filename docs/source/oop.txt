@@ -1,0 +1,561 @@
+=================================
+Object Oriented Programming (OOP)
+=================================
+
+In this chapter we are going to learn how to use the Object-Oriented programming paradigm
+inside the Ring programming language.
+
+We will learn about
+
+* Classes and Objects
+* Access Objects Using Braces
+* Composition
+* Setter and Getter
+* Private Attributes and Methods
+* Operator Overloading
+* Inheritance
+* Dynamic Attributes
+* Packages
+
+.. index:: 
+	pair: Object Oriented Programming; Classes and Objects
+
+
+Classes and Objects
+===================
+
+We can define new classes using the next syntax
+
+Syntax:
+
+.. code-block:: none
+
+	Class <Class Name> [From <Parent Class Name>]
+		[Attributes]
+		[Methods]
+		[Private
+ 		  [Attributes]
+		  [Methods]
+                ]
+
+And we can create objects using the next syntax
+
+Syntax:
+
+.. code-block:: none
+
+	New <Object Name> [ (init method parameters) ] |
+			  [ { access object data and methods } ]   ---> Object
+
+Example:
+
+.. code-block:: none
+
+	New point { x=10  y=20  z=30  print() }
+	Class Point x y z func print see x + nl + y + nl + z + nl 
+
+.. note:: We can use { } to access object data and methods.
+
+.. tip:: we can declare the class attributes directly after the class name.
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	30
+
+We can rewrite the same program in another style
+
+.. code-block:: none
+
+	New point 			# create new object using the point class
+	{ 				# access the new object attributes and methods
+		x = 10 			# set the x attribute to 10
+		y = 20 			# set the y attribute to 20
+		z = 30 			# set the z attribute to 30
+		print() 		# call the print method
+	}				# end of object access 
+
+
+	Class Point 			# define the Point class
+		x y z 			# the class contains three attributes x, y & z
+		func print 		# define the print method
+			see x + nl +    # print the x attribute
+			    y + nl +    # print the y attribute
+			    z + nl 	# print the z attribute
+
+
+
+Also we can write the same program in another way
+
+.. code-block:: none
+
+	P1 = New Point
+	P1.x = 10
+	P1.y = 20
+	P1.z = 30
+	P1.Print()
+	Class Point x y z func print see x + nl + y + nl + z + nl 	
+
+.. note:: we can use the dot operator after the object name to access object members.
+
+Also we can write the same program in another way
+
+.. code-block:: none
+
+	new point { print() } 	
+	Class Point
+		x = 10  y = 20  z = 30
+		func print see x + nl + y + nl + z + nl
+
+.. note:: we can set the default values for the class attributes when we declare them.
+
+Also we can write the same program in another way
+
+.. code-block:: none
+
+	new point(10,20,30)
+	Class Point
+		x y z 
+		func init p1,p2,p3 x=p1 y=p2 z=p3 print()
+		func print see x + nl + y + nl + z + nl
+
+.. note:: we can call the init method directly using () when we create new objects 
+
+Also we can write the same program in another way
+
+.. code-block:: none
+
+	new point( [ :x = 10 , :y = 20 , :z = 30 ] )
+	Class Point x y z
+	      func init aPara x = aPara[:x] y = aPara[:y] z = aPara[:z] print()
+     	      func print see x + nl + y + nl + z + nl
+
+.. tip:: using Hash for passing method parameters enable us to create optional 
+         parameters and change the order of parameters when adding them to the Hash.
+
+Access Objects Using Braces
+===========================
+
+We can access the object at any time using braces { } 
+
+Inside the braces we can use the object attributes and methods directly
+
+This can be done when we create the object using the New keyword or at any time using the next syntax
+
+.. code-block:: none
+
+	ObjectName { access object data and methods }
+
+Example:
+
+.. code-block:: none
+
+	See "Creating the Object" + nl
+	o1 = new Point
+	See "Using the Object" + nl
+	o1 {
+		x=5 	
+		y=15
+		z=25	
+		print()
+	}
+	Class Point x y z func print see x + nl + y + nl + z 
+
+We can use braces to access objects when we call functions or methods
+
+Example:
+
+.. code-block:: none
+
+	o1 = new Point
+
+	print( o1 { x=10 y=20 z=30 } )
+	
+	func print object
+		see object.x + nl + 
+		    object.y + nl + 
+		    object.z 
+
+	Class Point x y z
+
+We can mix between using braces and the dot operator to access the object in the same expression.
+
+
+Example:
+
+.. code-block:: none
+
+	o1 = new Point
+
+	O1 { x=10 y=20 z=30 }.print()
+	
+	Class Point x y z
+		func print see x + nl + y + nl + z
+
+Composition
+===========
+
+The object may contains other objects as attributes.
+
+Using braces to access objects can be nested.
+
+Example:
+
+.. code-block:: none
+
+	R1 = New Rectangle 
+	{
+
+		Name = "Rectangle 1"
+
+		P1 
+		{
+			X = 10
+			Y = 20
+		}
+
+		P2 
+		{
+			X = 200
+			Y = 300
+		}	
+
+	        Color = "Blue"
+
+	}
+	
+	see "Name : " + R1.Name + nl +
+	    "Color: " + R1.Color + nl +
+	    "P1   : (" + R1.P1.X + "," + R1.P1.Y + ")" + nl + 
+	    "P2   : (" + R1.P2.X + "," + R1.P2.Y + ")"  
+
+	Class Rectangle
+		name  color
+		p1 = new Point
+		p2 = new Point
+
+	Class Point x y 
+
+Output:
+
+.. code-block:: none
+
+	Name : Rectangle 1
+	Color: Blue
+	P1   : (10,20)
+	P2   : (200,300)
+
+Setter and Getter
+=================
+
+We can define methods to be used when we set and get object attributes.
+
+Syntax:
+
+.. code-block:: none
+
+	Class ClassName
+
+		AttributeName
+		...
+
+		Func SetAttributeName
+			...
+
+		Func GetAttributeName
+			...
+
+Example:
+
+.. code-block:: none
+
+	o1 = new person
+
+	o1.name = "Mahmoud"  see o1.name + nl
+
+	o1 { name = "Ahmed"  see name }
+
+	Class Person
+
+		name family = "Fayed"
+
+		func setname value
+			see "Message from SetName() Function!" + nl
+			name = value + " " + family
+
+		func getname
+			see "Message from GetName() Function!" + nl
+			return "Mr. " + name
+
+Output:
+
+.. code-block:: none
+
+	Message from SetName() Function!
+	Message from GetName() Function!
+	Mr. Mahmoud Fayed
+	Message from SetName() Function!
+	Message from GetName() Function!
+	Mr. Ahmed Fayed
+
+Private Attributes and Methods
+==============================		
+
+We can define private attributes and methods after the keyword private inside the class body
+
+Example:
+
+.. code-block:: none
+
+	o1 = new person {
+		name = "Test"
+		age = 20
+		print()
+		o1.printsalary()
+	}
+
+	try
+		see o1.salary
+	catch
+		see cCatchError + nl
+	done
+
+	try
+		o1.increasesalary(1000)
+	catch
+		see cCatchError + nl
+	done
+
+	Class Person
+
+		name age 
+
+		func print
+			see "Name   : " + name + nl + 
+			    "Age    : " + age + nl 
+
+		func printsalary
+		  	see "Salary : " + salary + nl 
+
+		private
+
+		salary = 15000
+
+		func increasesalary x
+			salary += x
+
+Output:
+
+.. code-block:: none
+
+	Name   : Test
+	Age    : 20
+	Salary : 15000
+	Error (R27) : Using private attribute from outside the class : salary
+	Error (R26) : Calling private method from outside the class : increasesalary
+
+Operator Overloading
+====================
+
+We can add the operator method to our class to enable using operators with the class objects.
+
+Syntax:
+
+.. code-block:: none
+
+	Class ClassName
+
+		...
+
+		Func operator cOperator,Para
+
+			...
+
+The function operator takes two paramters, the first represent the operator
+and the second represent the second parameter after the operator.
+
+Example:
+
+.. code-block:: none
+
+	o1 = new point { x = 10 y = 10 print("P1    : ") }
+	o2 = new point { x = 20 y = 40 print("P2    : ") }
+
+	o3 = o1 + o2
+	o3.print("P1+P2 : ")
+
+	class point x y
+
+		func operator cOperator,Para
+			result = new point	
+			switch cOperator
+			on "+"
+				result.x = x + Para.x
+				result.y = y + Para.y
+			on "-"
+				result.x = x - Para.x
+				result.y = y - Para.y
+			off
+			return result
+
+		func print cPoint
+			see cPoint + "X : " + x + " Y : " + y + nl
+
+Output:
+
+.. code-block:: none
+
+	P1    : X : 10 Y : 10
+	P2    : X : 20 Y : 40
+	P1+P2 : X : 30 Y : 50
+
+Inheritance
+===========
+
+We can create class from another class in the class definition using the keyword from.
+
+Syntax:
+
+.. code-block:: none
+
+	Class <Class Name> [From <Parent Class Name>]
+
+We can call a method in the parent class from the child class using the super object.
+
+Syntax:
+
+.. code-block:: none
+
+	func methodname
+		...
+		super.methodname()
+		...
+
+Example:
+
+.. code-block:: none
+
+	Func main
+		e1 = new Employee {
+			Name = "test"
+			age = 20
+			job = "programmer"
+			salary = 20000000
+			print()
+		}
+	
+
+	Class Human 
+		Name Age
+		func print
+			see "Name : " + name + nl + "Age  : " + age + nl
+
+	Class Employee from Human
+		Job Salary
+		func print
+			super.print()
+			see "Job  : " + job + nl + "Salary : " + salary + nl
+
+Output:
+
+.. code-block:: none
+
+	Name : test
+	Age  : 20
+	Job  : programmer
+	Salary : 20000000
+
+Dynamic Attributes
+==================
+
+We can write instructions after the class name to be executed when we create new objects
+
+Example:
+
+.. code-block:: none
+
+	o1 = new dynamicClass
+	see o1.var5 + nl	# output 5
+
+	Class DynamicClass
+		for x = 1 to 10
+			cStr = "var" + x + " = " + x
+			eval(cStr)
+		next
+
+.. tip:: in the previous example var1, var2, ..., var10 will be defined as attributes.
+
+.. tip:: The problem with the previous example is that x and cStr will be defined as attributes too!
+
+.. note:: we can write class definitions inside a string then 
+          using eval() we can execute the string to define the classes
+
+Packages
+========
+
+We can create a package (a group of classes under a common name) using the next syntax
+
+.. code-block:: none
+
+	package PackageName
+		Class Class1
+			...
+		Class Class2
+			...
+		Class Class3
+			...
+		...
+
+Example
+
+.. code-block:: none
+
+	o1 = new System.output.console
+	o1.print("Hello World")
+	
+	Package System.Output
+		Class Console
+			Func Print cText
+				see cText + nl
+
+.. note:: we can use the dot operator as part of the package name
+
+Instead of typing the long name PackageName.ClassName we can use the import command
+
+When we import a package, we can use any class inside this package directly.
+
+Example
+
+.. code-block:: none
+
+	import system.output
+	o1 = new console {
+		print("Hello World")
+	}
+	Package System.Output
+		Class Console
+			Func Print cText
+				see cText + nl
+
+Printing Objects
+================
+
+We can print the object state (attributes and values) using the see command.
+
+Example:
+
+.. code-block:: none
+
+	see new point { x=10 y=20 z=30 }
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
