@@ -1,0 +1,2115 @@
+=============================
+Web Development (CGI Library)
+=============================
+
+In this chapter we will learn about developing Web applications using a CGI Library written in the Ring language.
+
+Ring CGI Hello World Program
+============================
+
+The next program is the Hello World program 
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+
+	See "content-type : text/html" +nl+nl+
+	    "Hello World!" + nl
+
+
+Hello World Program using the Web Library 
+=========================================
+
+We can use the web library to write CGI Web applications quickly
+
+Example (1) :
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+
+	Load "weblib.ring"
+
+	Import System.Web
+
+	New Page 
+	{
+		Text("Hello World!")
+	}
+
+
+Example (2) :
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+
+	Load "weblib.ring"
+
+	Import System.Web
+
+	WebPage() 
+	{
+		Text("Hello World!")
+	}
+
+.. tip:: the difference between ex. 1 and ex. 2 is using WebPage() function to
+	 return the page object instead of creating the object using new statement.
+
+Web Library Features
+====================
+
+The next features are provided by the Web library to quickly create web applications.
+
+* Generate HTML pages using functions
+* Generate HTML pages using objects
+* HTTP Get
+* HTTP Post
+* Files Upload
+* URL Encode
+* Templates
+* CRUD MVC Sample
+* Users Logic & Registration Sample
+
+HTTP Get Example
+================
+
+The Page User Interface
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+	New Page
+	{
+	  Title = "Test HTTP Get"
+	  divstart([ :style = StyleSizeFull() ] )
+	  boxstart()
+		text( "Test HTTP GET" )
+		newline()
+	  boxend()  
+	  divstart([ :style = Styledivcenter("600px","550px") + 
+			      StyleGradient(21) ])
+	  divstart([:style = stylefloatleft() + stylesize("100px","100%") + 
+			     stylecolor("black") + stylegradient(58)])
+	  formstart("ex5.ring")
+		tablestart([ :style = stylesize("65%","90%") + 
+				      stylemarginleft("35%") +
+				      stylemargintop("30%") ])
+		  rowstart([]) 
+			cellstart([])
+			  text ( "Name : "  )  
+			cellend() 
+			cellstart([])
+			  cTextboxStyle = StyleMarginLeft("5%") + 
+					  StyleWidth("250px") + 
+					  StyleColor("black") + 
+					  StyleBackColor("white")
+			  textbox([ :name = "Name", :style = cTextboxStyle ] )   
+			cellend()
+		  rowend()
+		  rowstart([]) 
+			cellstart([])
+			  text ( "Address : " )   
+			cellend()
+			cellstart([])
+			  textbox([ :name = "Address", :style = cTextboxStyle] )  
+			cellend()
+		  rowend()
+		  rowstart([]) 
+			cellstart([])
+			  text ( "Phone : " )  
+			cellend() 
+			cellstart([])
+			  textbox([ :name = "Phone", :style = cTextboxStyle ]) 
+			cellend()
+		  rowend()
+		  rowstart([]) 
+			cellstart([])
+			  text ( "Age : "  )    
+			cellend() 
+			cellstart([])
+			  textbox([ :name = "Age", :style = cTextboxStyle ]) 
+			cellend()
+		  rowend()
+		  rowstart([]) 
+			cellstart([])
+			  text ( "City: " )     
+			cellend() 
+			cellstart([])
+			  listbox([ :name = "City", :items = ["Cairo","Riyadh","Jeddah"],
+				 :style = stylemarginleft("5%") + stylewidth("400px") ] )
+			cellend()
+		  rowend()
+		  rowstart([]) 
+			cellstart([])
+			  text ( "Country : " )  
+			cellend() 
+			cellstart([])
+			  combobox([ :name = "Country",
+				 :items = ["Egypt","Saudi Arabia","USA"],
+				 :style = stylemarginleft("5%") + 
+					  stylewidth("400px")+
+					  stylecolor("black")+
+					  stylebackcolor("white")+
+					  stylefontsize("14px") ])
+			cellend()
+		  rowend()
+		  rowstart([]) 
+			cellstart([])
+			  text ( "Note : " )       
+			cellend() 
+			cellstart([])
+			  editbox([ :name = "Notes", 
+				:style = stylemarginleft("5%") + 
+					 stylesize("400px","100px")+
+					 stylecolor("black")+
+					 stylebackcolor("white") , 
+				:value = "write comments here..." ] ) 
+			cellend()
+		  rowend()
+		  rowstart([]) 
+			cellstart([])
+			cellend()
+			cellstart([])
+			  submit([ :value = "Send" , :Style = stylemarginleft("5%") ])
+			cellend()
+		  rowend()      
+		tableend()
+	  formend()
+	  divend()
+	  divend()
+	  divend()
+	}
+
+Screen Shot:
+
+.. image:: ex4.jpg
+	:alt: HTTP Get
+
+The Response
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+	New Page
+	{
+	 divstart([ :style = styledivcenter("800px","500px") ])
+	  boxstart()
+		text ( "HTTP GET Response" )  newline()
+	  boxend()
+	  divstart([ :style = stylefloatleft()+stylewidth("10%")+
+			      stylecolor("black")+stylegradient(58) ])
+		newline()
+		text ( "Name : "   )
+		newline() newline()
+		text ( "Address : "  )
+		newline() newline()
+		text ( "Phone : "   )
+		newline() newline()
+		text ( "Age : "   )
+		newline() newline()
+		text ( "City : "   )
+		newline() newline()
+		text ( "Country : "   )
+		newline() newline()
+		text ( "Note : "   )
+		newline() newline()
+	  divend()
+	  divstart([ :style = stylefloatleft()+stylewidth("90%")+
+			      stylecolor("black")+stylegradient(47) ])
+		divstart([ :style = stylefloatleft() + stylewidth("1%") ])
+		  newline()
+		divend()
+		divstart([ :style = stylefloatleft() + stylewidth("95%") ])
+		  newline()
+		  text ( aPageVars["Name"] )
+		  newline() newline()
+		  text ( aPageVars["Address"] )
+		  newline() newline()
+		  text ( aPageVars["Phone"] )
+		  newline() newline()
+		  text (  aPageVars["Age"] )
+		  newline() newline()
+		  text ( aPageVars["City"] )
+		  newline() newline()
+		  text (aPageVars["Country"] )
+		  newline() newline()
+		  text ( aPageVars["Notes"] )
+		  newline() newline()
+		divend()
+	  divend()
+	 divend()
+	}
+
+Screen Shot:
+
+.. image:: ex5.jpg
+	:alt: HTTP Get
+
+HTTP POST Example
+=================
+
+The Page User Interface
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+	New Page 
+	{
+		boxstart()
+			text( "Post Test")
+			newline()
+		boxend()
+		divstart([ :style=StyleFloatLeft()+StyleWidth("100px") ])
+			newline()
+			text( "Number1 : " )  	newline() newline()
+			text( "Number2 : " ) 	newline() newline()
+		divend()
+		formpost("ex7.ring")
+			divstart([ :style = styleFloatLeft()+StyleWidth("200px") ])
+				newline()
+				textbox([ :name = "Number1" ]) 	newline() newline()
+				textbox([ :name = "Number2" ]) 	newline() newline()
+				submit([ :value = "Send" ] )
+			divend()
+		formend()
+	}		
+
+
+Screen Shot:
+
+.. image:: ex6.jpg
+	:alt: HTTP Post
+
+The Response
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+	New Page 
+	{
+		boxstart()
+			text( "Post Result" )
+			newline()
+		boxend()
+		divstart([ :style = styleFloatLeft()+styleWidth("200px") ])
+			newline()
+			text( "Number1 : " + aPageVars["Number1"] )  	
+			newline() newline()
+			text( "Number2 : " + aPageVars["Number2"] )  	
+			newline() newline()
+			text( "Sum : " + (0 + aPageVars["Number1"] + aPageVars["Number2"] ) )
+			newline()
+		divend()		
+	}	
+
+Screen Shot:
+
+.. image:: ex7.jpg
+	:alt: HTTP Post
+
+Upload Files
+============
+
+The Page User Interface
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+	New page 
+	{
+		boxstart()
+			text( "Upload File" )
+			newline()
+		boxend()
+		for x = 1 to 3 newline() next
+		formupload("ex9.ring")		
+			text( "Customer Name : " )
+			textbox([ :name = "custname" ]) 	
+			newline() newline()		
+			divstart([ :style = styleFloatLeft() + styleWidth("90px") ])
+				uploadfile("file")  newline() newline()
+				uploadfile("file2") newline() newline()
+				submit([ :value = "Send" ])
+			divend()		
+		formend()
+	}
+
+Screen Shot:
+
+.. image:: ex8.jpg
+	:alt: Upload File
+
+The Response
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	cUploadPath = "C:/Apache2.2/htdocs/ringapp/upload/"
+	cUploadFolder = "/ringapp/upload/"
+
+	New page 
+	{
+		boxstart()
+			text( "Upload Result" )
+			newline()
+		boxend()			
+		newline() 
+		divstart([ :style=  styleFloatLeft() + styleWidth("100px") ])
+			text( "Name : " + aPageVars["custname"] )
+			newline()
+		divend()
+		if aPageVars["file"] != char(13)
+			getuploadedfile(self,"file")
+		ok
+		if aPageVars["file2"] != char(13)
+			getuploadedfile(self,"file2")
+		ok
+	}	
+
+	Func getuploadedfile oObj,cFile
+		# here we use object.property 
+		# instead of object { } to avoid executing braceend method
+		cFileName = cUploadPath + oObj.getfilename(aPageVars,cFile)
+		write(cFileName,aPageVars[cFile])
+		system("chmod a+x "+cFileName)
+		oObj.newline() 
+		oObj.text( "File "+cFileName+ " Uploaded ..." ) 
+		oObj.newline()
+		imageURL = cUploadFolder+oObj.getfilename(aPageVars,cFile)
+		oObj.link([ :url = imageURL, :title = "Download" ]) 
+		oObj.newline()
+		oObj.image( [ :url = imageURL , :alt = :image  ] )
+		oObj.newline()
+
+Screen Shot:
+
+.. image:: ex9.jpg
+	:alt: Upload File
+
+
+Cookies
+=======
+
+The Page User Interface
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	New page 
+	{
+		boxstart()
+			text( "Cookie Test" )
+			newline()
+		boxend()
+		newline()
+		link([ :url = "ex11.ring", :title = "Use Cookies" ]) 	
+		cookie("custname","Mahmoud Fayed")
+		cookie("custage",28)	
+	}
+
+Screen Shot:
+
+.. image:: ex10.jpg
+	:alt: Cookies
+
+The Response
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	New Page 
+	{
+		boxstart()
+			text( "Cookies Values" )
+			newline()
+		boxend()
+		link([ :url = "ex10.ring", :title = "back" ]) 			
+		newline() 
+		divstart([:style="float:left;width:200px"])
+			text( "Name : " + aPageVars["custname"] )
+			newline()
+			text( "Age : " + aPageVars["custage"] )
+			newline()
+		divend()
+	}	
+
+Screen Shot:
+
+.. image:: ex11.jpg
+	:alt: Cookies
+
+URL Encode
+==========
+
+The Page User Interface
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	New Page 
+	{
+		boxstart()
+			text( "URLEncode" )
+			newline()
+		boxend()
+		link([ :url = "ex5.ring?Name="+URLEncode("-*{Mahmoud}*-")+
+			      "&Address=Egypt&Phone=123456&Age=28&Notes=Programmer", 
+			      :title = "Test URL Encode" ])
+	}
+
+Screen Shot:
+
+.. image:: ex12.jpg
+	:alt: URL Encode
+
+Screen Shot:
+
+.. image:: ex12r.jpg
+	:alt: URL Encode
+
+
+Templates
+=========
+
+Using Templates we can write Ring code inside HTML files
+
+Syntax:
+
+.. code-block:: html
+
+	<%= Ring Expression %>
+	<%  Ring Statements %>
+
+The HTML Code
+
+.. code-block:: html
+
+	<h1>Listing Numbers</h1> 
+	<table>
+	  <tr>
+	    <th> <%= myheader.cColumn1 %> </th>
+	    <th> <%= myheader.cColumn2 %> </th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+	<% for x in aNumbers %> 
+	  <tr>
+	    <td> <%= x.nValue  %> </td>
+	    <td> <%= x.nSquare %> </td>
+	  </tr>
+	<% next %>
+	</table>
+
+The Ring Code
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	New NumbersController { start() }
+
+	Class NumbersController
+
+		MyHeader aNumbers		
+
+		Func Start
+
+			MyHeader = New Header
+			{
+				cColumn1 = "Number" cColumn2 = "Square"
+			}
+
+			aNumbers = list(20)
+
+			for x = 1 to len(aNumbers)
+				aNumbers[x] = new number
+				{
+					nValue  = x   nSquare = x*x
+				}
+			next	  
+
+			cTemp = Template("mynumbers.html",self)
+
+			New Page 
+			{ 			
+				boxstart()
+					text( "Test Templates" )  			
+					newline()
+				boxend()
+				html(cTemp)  
+			} 
+
+	Class Header cColumn1 cColumn2
+	Class Number nValue   nSquare
+
+Screen Shot:
+
+.. image:: ex13.jpg
+	:alt: Templates
+
+HTML Special Characters
+=======================
+
+The text() function display HTML special characters.
+
+If you want to write html code, use the html() function.
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	New Page
+	{
+		boxstart()
+			text("HTML Special Characters")
+			newline()
+		boxend()
+		text('
+			<html>
+				<body>
+					<p> "hello world" </p>
+				</body>
+			</html>
+		')
+	}
+
+Screen Shot:
+
+.. image:: ex14.jpg
+	:alt: HTML Special Characters
+
+
+Hash Functions
+==============
+
+The Page User Interface
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	New Page 
+	{
+		boxstart()
+			text( "Hash Test")
+			newline()
+		boxend()
+		divstart([ :style = StyleFloatLeft() + StyleWidth("100px") ])
+			newline()
+			text( "Value : " )  	
+			newline() newline()
+		divend()
+		formpost("ex16.ring")
+			divstart([ :style = StyleFloatLeft() + StyleWidth("300px") ])
+				newline()
+				textbox([ :name = "Value" ]) 	
+				newline() newline()
+				submit([ :value = "Send" ])
+			divend()
+		formend()
+	}
+
+Screen Shot:
+
+.. image:: ex15.jpg
+	:alt: Hash Functions
+
+The Response
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	New Page 
+	{
+		boxstart()
+			text( "Hash Result" )
+			newline()
+		boxend()
+		divstart([ :style = styleFloatLeft() + styleWidth("100%") ])
+			newline()
+			text( "Value : "  + aPageVars["Value"] )  	
+			newline()
+			text( "MD5 : "    + MD5(aPageVars["Value"]) )  	
+			newline()
+			text( "SHA1 : "   + SHA1(aPageVars["Value"]) )
+			newline()
+			text( "SHA256 : " + SHA256(aPageVars["Value"]) )
+			newline()
+			text( "SHA224 : " + SHA224(aPageVars["Value"]) )
+			newline()
+			text( "SHA384 : " + SHA384(aPageVars["Value"]) )
+			newline()
+			text( "SHA512 : " + SHA512(aPageVars["Value"]) )
+			newline()
+		divend()
+	}	
+
+Screen Shot:
+
+.. image:: ex16.jpg
+	:alt: Hash Functions
+
+Random Image
+============
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	cUploadPath = "C:/Apache2.2/htdocs/ringapp/upload/"
+
+	New Page 
+	{
+		boxstart()
+			text( "Random Test")
+			newline()
+		boxend()	
+		divstart([ :style = styleFloatLeft() + styleWidth("400px") ])
+			newline()
+			aList = dir(cUploadPath)
+			if len(aList) > 0
+				nIndex = random(len(aList)) 
+				if nindex = 0 nIndex = 1 ok
+				cItem = "upload/" + aList[nIndex][1]
+				newline()
+				image( [ :url = cItem , :alt = :image  ] )
+			else
+				text("No images!") newline()
+			ok
+		divend()
+	}
+
+Screen Shot:
+
+.. image:: ex17.jpg
+	:alt: Random Image
+
+HTML Lists
+==========
+
+The next example print a list contains numbers from 1 to 10
+
+Then print a list from Ring List.
+
+Finally we have a list of buttons and when we press on a button we get a message
+contains the clicked button number.
+
+To start the list we uses the ulstart() function.
+
+To end the list we uses the ulend() function.
+
+We uses listart() and liend() to determine the list item.
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	Func Main
+		New Page 
+		{	 
+			ulstart([])
+				for x = 1 to 10
+					listart([])
+						text(x)
+					liend()
+				next
+			ulend()	 
+			list2ul(["one","two","three","four","five"])
+			ulstart([])
+				for x = 1 to 10
+					listart([])
+						cFuncName = "btn"+x+"()"
+						button([ :onclick = cFuncName , :value = x])
+						script(scriptfuncalert(cFuncName,string(x)))
+					liend()
+				next
+			ulend()
+		}
+
+Screen Shot:
+
+.. image:: ex18.jpg
+	:alt: HTML Lists
+
+HTML Tables
+===========
+
+In this example we will learn how to generate HTML tables using the
+tablestart(), tableend(), rowstart(), rowend() ,headerstart(), headerend(), cellstart()
+and cellend() functions.
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	Func Main
+		New Page
+		{
+			divstart([ :style = styledivcenter("400px","500px") ] )
+				style(styletable() + styletablerows("t01"))
+				tablestart([ :id = :t01 , :style = stylewidth("100%") ])
+					rowstart([]) 
+						headerstart([]) text("Number") headerend()
+						headerstart([]) text("square") headerend()
+					rowend() 
+					for x = 1 to 10
+						rowstart([])
+							cellstart([]) text(x) 	cellend()
+							cellstart([]) text(x*x) cellend()
+						rowend()
+					next
+				tableend()
+			divend()
+		}
+
+Screen Shot:
+
+.. image:: ex19.jpg
+	:alt: HTML Tables
+
+
+Gradient
+========
+
+In this example we will learn how to use the StyleGradient() function.
+
+The function takes the style number as input (range from 1 to 60).
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	Func Main
+		New Page
+		{
+			boxstart()
+				text("StyleGradient() Function")
+			boxend()			 
+			for x = 1 to 60				
+				divstart([ :id = x , :align = "center" , 
+					   :style = stylefloatleft() +
+						    stylesize(string(100/60*6)+"%","50px") +
+						    stylegradient(x) ])
+					h3(x)
+				divend()					 
+			next
+		}
+
+Screen Shot:
+
+.. image:: ex20.jpg
+	:alt: Gradient
+
+Generating Pages using Objects
+==============================
+
+Instead of using functions/methods to generate HTML pages, we can use an object
+for each element in the page.
+
+This choice means more beautiful code but slower.
+
+The fastest method is to print HTML code directly, then using functions then using
+templates then using objects (slower).
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	Func Main
+
+	  WebPage() 
+	  {
+		Title = "Using objects to create the Web Page content"
+		h1 { text("welcome") }
+		link 
+		{ 
+		  Title = "Google" 
+		  Link  = "http://www.google.com"
+		}  
+		div 
+		{
+		  id = "div1"
+		  style = stylegradient(30) + stylesize("50%","50%")
+		  text("Outer Div")
+		  div 
+		  {
+			id = "div2"
+			color = "white"
+			backgroundcolor = "green"
+			width = "50%"
+			height = "50%"
+			marginleft = "5%"
+			margintop = "5%"
+			text("Inner Div")
+		  }
+		}
+		div
+		{
+		  id = "div3"
+		  color = "black"
+		  backgroundcolor = "silver"
+		  width = "100%"
+		  height = "100%"
+		  text("Form")
+		  form
+		  {
+			method = "POST"
+			Action = "helloworld.ring"
+			Table
+			{ 
+			  style = stylewidth("100%") + stylegradient(24)      
+			  TR 
+			  { 
+				TD { WIDTH="10%" text("Name : " )  }
+				TD { Input { type = "text" } }
+			  }
+			  TR
+			  {
+				TD { WIDTH="10%" text("Email : " ) }
+				TD { Input { type = "text" } }
+			  }
+			  TR 
+			  {
+				TD { WIDTH="10%" text("Password : " ) }
+				TD { Input { type = "password" } }
+			  }
+			  TR
+			  {
+			  
+				TD { WIDTH="10%" text("Notes") }
+				TD { TextArea { width="100%" rows = 10  cols = 10  
+				   		text("type text here...") } }
+			  }
+			  TR
+			  {
+				TD { WIDTH="10%" text("Gender") }
+				TD { 
+				  select
+				   {
+					 width = "100%"
+					 option { text("Male") } 
+					 option { text("Female") } 
+				   }
+				}
+			  }
+			  TR
+			  {
+				TD {   WIDTH="10%" text("Role") }
+				TD 
+				{
+				  select
+				  { 
+					 multiple = "multiple"
+					 width    = "100%"
+					 option { text("student") } 
+					 option { text("admin") } 
+				   }
+				}
+			  }
+			}
+			Input { type = "submit" value = "send" }
+			Image { src="upload/profile1.jpg" alt="profile"}
+			Input { type = "checkbox" value = "Old Member"} text("old member")
+			Input { type = "range" min=1 max=100}
+			Input { type = "number" min=1 max=100}
+			Input { type = "radio" color="black" name="one" 
+				value = "one"} text("one")
+		  }
+		}
+		div
+		{
+		  color = "white"
+		  backgroundcolor = "blue"
+		  width = "100%"      
+		  UL
+		  {
+			LI { TEXT("ONE") }
+			LI { TEXT("TWO") }
+			LI { TEXT("THREE") }
+		  }
+		}
+		div 
+		{
+		  audio
+		  {
+			src = "horse.ogg"
+			type = "audio/ogg"
+		  }
+
+		  video
+		  {
+			 width = 320
+			 height = 240
+			 src = "movie.mp4"
+			 type = "video/mp4" 
+		  }
+
+		  Input
+		  {
+			type = "color"
+			value = "#ff0000"
+			onchange = "clickColor(0, -1, -1, 5)"
+		  }
+		}
+	  }
+
+Screen Shot:
+
+.. image:: ex21.jpg
+	:alt: Using Objects
+
+.. image:: ex21_2.jpg
+	:alt: Using Objects - part 2
+
+
+Using Bootstrap Library using Functions
+=======================================
+
+The next example uses the Bootstrap JavaScript Library when generating the HTML page.
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	Func Main
+	  new BootstrapPage {
+		divstart([ :class = "container" ])
+		   divstart([ :class = "jumbotron"  ])
+			h1("Bootstrap Page")
+		  divend() 
+		  divstart([ :class = :row ])  
+			divstart([ :class = "col-sm-4" ])
+			  h3("Welcome to the Ring programming language")
+			  p([ :text = "Using a scripting language is very fun!" ])
+			divend()
+			divstart([ :class = "col-sm-4" ])
+			  h3("Welcome to the Ring programming language")
+			  p([ :text = "using a scripting language is very fun!" ])
+			divend()
+			divstart([ :class = "col-sm-4" ])
+			  h3("Welcome to the Ring programming language")
+			  p([ :text = "using a scripting language is very fun!" ])
+			divend()
+		  divend()   
+		divend()
+	  }
+
+
+Screen Shot:
+
+.. image:: ex22.jpg
+	:alt: Bootstrap
+
+Using Bootstrap Library using Objects
+=======================================
+
+The next example uses the Bootstrap JavaScript Library when generating the HTML page.
+
+Instead of using functions to generate the HTML elements, we will use objects.
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Import System.Web
+
+	Func Main
+	  BootStrapWebPage()
+	  {
+		div
+		{
+		  classname = :container
+		  div
+		  {
+			classname = :jumbotron
+			H1 {   text("Bootstrap Page")   }
+		  }
+		  div
+		  {
+			classname = :row
+			for x = 1 to 3
+			  div
+			  {
+				classname = "col-sm-4"
+				H3 { html("Welcome to the Ring programming language") }
+				P  { html("Using a scripting language is very fun!") }
+			  }
+			next 
+		  }
+		  div
+		  {
+			classname = :row
+			div
+			{
+			  classname = "col-sm-4"
+			  Button
+			  {            
+				classname = "btn btn-info btn-lg"
+				datatoggle= "modal"
+				datatarget = "#myModal"
+				text("Open Large Modal")
+			  }          
+			}
+			div
+			{
+			  classname = "col-sm-4"
+			  Button {  classname = "btn btn-default btn-lg" text("default") }
+			  Button {  classname = "btn btn-primary btn-md" text("primary") }
+			  Button {  classname = "btn btn-sucess btn-sm"  text("sucess") }
+			  Button {  classname = "btn btn-info btn-xs"    text("info") }
+			  Button {  classname = "btn btn-warning"        text("warning") }
+			  Button {  classname = "btn btn-danger"         text("danger") }
+			  Button {  classname = "btn btn-link"           text("link") }
+			}
+			div
+			{
+			  classname = "col-sm-4"
+			  Button {  classname = "btn btn-default btn-block" text("default") }
+			  Button {  classname = "btn btn-primary btn-block" text("primary") }
+			  Button {  classname = "btn btn-sucess btn-block"  text("sucess") }
+			  Button {  classname = "btn btn-info btn-block"    text("info") }
+			  Button {  classname = "btn btn-warning btn-block" text("warning") }
+			  Button {  classname = "btn btn-danger btn-block"  text("danger") }
+			  Button {  classname = "btn btn-link btn-block"    text("link") }
+			}
+			div
+			{
+			  classname = "col-sm-4"
+			  div { classname = "btn-group" 
+				button {  classname="btn btn-primary" text("one") }
+				button {  classname="btn btn-primary" text("two") }
+				button {  classname="btn btn-primary" text("three") }
+			  }
+			}
+			div
+			{
+			  classname = "col-sm-4"
+			  div { classname = "btn-group btn-group-lg" 
+				button {  classname="btn btn-primary" text("one") }
+				button {  classname="btn btn-primary" text("two") }
+				button {  classname="btn btn-primary" text("three") }
+			  }
+			}
+			div
+			{
+			  classname = "col-sm-4"
+			  div { 
+				classname = "btn-group-vertical btn-group-lg" 
+				button {  classname="btn btn-primary" text("one") }
+				button {  classname="btn btn-primary" text("two") }
+				button {  classname="btn btn-primary" text("three") }
+			  }
+			}
+		  }  
+		  div { classname="modal fade" id="myModal" role="dialog"      
+			div { classname = "modal-dialog modal-lg"
+			  div { classname="modal-content" 
+				div { classname="modal-header"
+				  button {  classname="close" datadismiss="modal"
+					html("&times")
+				  }
+				  h4 {  classname="modal-title"
+					text("Modal Header")
+				  }
+				}
+				div { classname = "modal-body" 
+				  p { text("This is a large model.") }
+				}
+				div { classname="modal-footer"
+				  button { classname = "btn btn-default" datadismiss="modal"
+					text("close")
+				  }
+				}
+			  }
+			}
+		  }
+		}  
+	  }
+
+Screen Shot:
+
+.. image:: ex23.jpg
+	:alt: Bootstrap Page using Objects
+
+CRUD Example using MVC
+======================
+
+The next example uses the weblib.ring & datalib.ring.
+
+The datalib.ring contains classes for creating database applications using MVC pattern.
+
+In this example we create an object from the SalaryController class then call the Routing 
+method.
+
+We define the website variable to contains the basic url of the page.
+
+When we create the SalaryModel class from the ModelBase class, the salary table
+will be opened and the columns data will be defined as attributes in the model class.
+
+The SalaryView class create an object from the SalaryLanguageEnglish class to be used
+for translation.
+
+The method AddFuncScript is used to call the form for adding/modifying record data.
+
+The method FormViewContent is used to determine the controls in the form when we add or
+modify a record.
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Load "datalib.ring"
+	Import System.Web
+
+	website = "ex24.ring"
+
+	New SalaryController { Routing() }
+
+	Class SalaryModel from ModelBase
+
+	Class SalaryController From ControllerBase
+
+	Class SalaryView From ViewBase
+
+	  oLanguage = new SalaryLanguageEnglish
+
+	  Func AddFuncScript oPage,oController
+		return   oPage.scriptfuncajax("myadd",oController.cMainURL+
+			 oController.cOperation+"=add","mysubpage")
+
+	  Func FormViewContent oController,oTranslation,oPage
+		return [
+				[ oTranslation.aColumnsTitles[2], "textbox", "name",
+				  oController.oModel.Name, oPage.stylewidth("100%")    ],
+				[ oTranslation.aColumnsTitles[3], "textbox", "salary",
+				  oController.oModel.Salary, oPage.stylewidth("50%") ]
+			   ]
+
+	Class SalaryLanguageEnglish
+	  cTitle = "Salary Table"
+	  cBack = "back"
+	  aColumnsTitles = ["ID","Name","Salary"]
+	  cOptions = "Options"
+	  cSearch = "Search"
+	  comboitems = ["Select Option...","Edit","Delete"]
+	  cAddRecord = "Add Record"
+	  cEditRecord = "Edit Record"
+	  cRecordDeleted = "Record Deleted!"
+	  aMovePages = ["First","Prev","Next","Last"]
+	  cPage = "Page"
+	  cOf = "of"
+	  cRecordsCount = "Records Count"
+	  cSave = "Save"
+	  temp = new page
+	  cTextAlign = temp.StyleTextRight()
+	  cNoRecords = "No records!"
+
+Screen Shot:
+
+.. image:: ex24.jpg
+	:alt: Salary Table
+	
+.. image:: ex24_2.jpg
+	:alt: Salary Table - Search
+
+Users registration and Login
+============================
+
+We have the users classes (Model, View & Controller) to deal with the users data
+like username & email.
+
+The next code is stored in ex25_users.ring
+
+.. code-block:: none
+
+	Class UsersModel from ModelBase
+	  cSearchColumn = "username"
+
+	Class UsersController From ControllerBase
+	  aColumnsNames = ["id","username","email"]
+
+	  Func UpdateRecord
+		oModel.id = aPageVars[cRecID]
+		oModel.updatecolumn("username", aPageVars[:username] )
+		oModel.updatecolumn("email", aPageVars[:email] )
+		oView.UpdateView(self)
+
+	Class UsersView from ViewBase
+
+	  oLanguage = new UsersLanguageEnglish
+
+	  Func AddFuncScript oPage,oController
+		return   oPage.scriptfunc("myadd",oPage.scriptredirection("ex26.ring"))
+
+	  Func FormViewContent oController,oTranslation,oPage
+		return [
+				[oTranslation.aColumnsTitles[2],"textbox","username",
+				oController.oModel.UserName,oPage.stylewidth("100%")],
+				[oTranslation.aColumnsTitles[3],"textbox","email",
+				oController.oModel.Email,oPage.stylewidth("50%")]
+			   ]
+
+	Class UsersLanguageEnglish
+	  cTitle = "Users Table"
+	  cBack = "back"
+	  aColumnsTitles = ["ID","User Name","Email"]
+	  cOptions = "Options"
+	  cSearch = "Search"
+	  comboitems = ["Select Option...","Edit","Delete"]
+	  cAddRecord = "Add Record"
+	  cEditRecord = "Edit Record"
+	  cRecordDeleted = "Record Deleted!"
+	  aMovePages = ["First","Prev","Next","Last"]
+	  cPage = "Page"
+	  cOf = "of"
+	  cRecordsCount = "Records Count"
+	  cSave = "Save"
+	  temp = new page
+	  cTextAlign = temp.StyleTextRight()
+	  cNoRecords = "No records!"
+
+In the file ex25.ring we load ex25_users.ring then create an object from UsersController class.
+
+Using the created object, we call the routing method.
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Load "datalib.ring"
+	Load "ex25_users.ring"
+
+	Import System.Web
+	website = "ex25.ring"
+	New UsersController { Routing() }
+
+Screen Shot:
+
+.. image:: ex25.jpg
+	:alt: Users Table
+	
+See the next code for the registration page
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Load "datalib.ring"
+	Import System.Web
+
+	website = "ex26.ring"
+
+	new page {
+	  boxstart()
+		text( "Register")
+		newline()
+	  boxend()
+	  divstart([:style = stylegradient(6) + stylesize("100%","95%") ])
+	  link([ :url = website, :title = "back" , :style = stylecolor("white")])   
+	  newline()
+	  divstart([ :style= styledivcenter("500","160") + stylegradient(52) ])   
+	  formpost("ex27.ring")
+		tablestart([ :Style =    stylemarginleft("2%") + stylemargintop("2%") +
+					 stylewidth("90%") ])
+		  rowstart([])
+			cellstart([:style = stylewidth("20%") + styleheight(30)])
+			  text("User Name")
+			cellend()
+			cellstart([ :style = stylewidth("80%")  ])
+			  textbox([:name = "username", :style = stylewidth("100%")])
+			cellend()
+		  rowend()
+		  rowstart([])
+			cellstart([ :Style = styleheight(30)])
+			  text("Password")
+			cellend()
+			cellstart([])
+			  textbox([:name = "password" , :type = "password"])
+			cellend()
+		  rowend()
+		  rowstart([])
+			cellstart([ :style = styleheight(30)])
+			  text("Email")
+			cellend()
+			cellstart([])
+			  textbox([:name = "email" , :style = stylewidth("100%")])
+			cellend()
+		  rowend()
+		  rowstart([])
+			cellstart([ :style = styleheight(30)])
+			cellend()
+			cellstart([ :style = styleheight(30)])
+			  submit([:value = "Register"  ])
+			cellend()
+		  rowend()
+		tableend()
+	  formend()
+	  divend()
+	  divend()
+	}
+
+Screen Shot:
+
+.. image:: ex26.jpg
+	:alt: Registration Page
+
+
+The Registration response
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Load "datalib.ring"
+	Load "ex25_users.ring"
+
+	Import System.Web
+
+	oUser = new UsersModel
+	oUser.Connect()
+	if oUser.findwith("username",aPageVars["username"])
+		new page {
+			text("The user name is already registered")
+		}
+		return
+	ok
+	if oUser.findwith("email",aPageVars["email"])
+		new page {
+			text("This email is already registered")
+		}
+		return
+	ok
+
+	aPageVars["salt"] = str2hex(RandBytes(32))
+	aPageVars["pwhash"] = sha256(aPagevars["password"]+aPageVars["salt"])
+	aPageVars["sessionid"] = str2hex(randbytes(32))
+	oUser.Insert()
+	new page {
+		cookie("sessionid",aPageVars["sessionid"])
+		text("New User Created!")
+		newline()
+		text("User Name : " + aPageVars["username"])
+		newline()
+	}
+	oUser.Disconnect()
+
+See the next code for the Login page
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Load "datalib.ring"
+
+	Import System.Web
+
+	website = "ex28.ring"
+
+	new page {
+	  boxstart()
+		text( "Login")
+		newline()
+	  boxend()
+	  divstart([:style = stylegradient(6) + stylesize("100%","95%") ])
+	  link([ :url = website, :title = "back" , :style = stylecolor("white")])   
+	  newline()
+	  divstart([ :style= styledivcenter("500","130") + stylegradient(52) ])   
+	  formpost("ex29.ring")
+		tablestart([ :Style =   stylemarginleft("2%") + stylemargintop("2%") +
+					stylewidth("90%") ])
+		  rowstart([])
+			cellstart([:style = stylewidth("20%") + styleheight(30)])
+			  text("User Name")
+			cellend()
+			cellstart([ :style = stylewidth("80%") ])
+			  textbox([:name = "username", :style = stylewidth("100%")])
+			cellend()
+		  rowend()
+		  rowstart([])
+			cellstart([ :style = styleheight(30)])
+			  text("Password")
+			cellend()
+			cellstart([])
+			  textbox([:name = "password" , :type = "password"])
+			cellend()
+		  rowend()
+		  rowstart([])
+			cellstart([ :style = styleheight(30) ])
+			cellend()
+			cellstart([])
+			  submit([:value = "Login"  ])
+			cellend()
+		  rowend()
+		tableend()
+	  formend()
+	  divend()
+	  divend()
+	}
+
+Screen Shot:
+
+.. image:: ex28.jpg
+	:alt: Login Page
+
+
+The response page
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Load "datalib.ring"
+	Load "ex25_users.ring"
+
+	Import System.Web
+
+	oUser = new UsersModel
+	oUser.Connect()
+	lResult = oUser.FindWith("username",aPageVars["username"])
+	new page {
+		if lResult
+			if sha256(aPagevars["password"]+oUser.Salt) = oUser.pwhash
+				text ("Correct Password!")
+				aPageVars["sessionid"] = str2hex(randbytes(32))
+				oUser.UpdateColumn("sessionid",aPageVars["sessionid"])
+				cookie("sessionid",aPageVars["sessionid"])
+			else
+				text ("Bad password!")
+			ok
+		else
+			text("Bad User Name!")
+		ok
+	}
+	oUser.Disconnect()
+
+The next code for checking if the user needs to login or not
+
+.. code-block:: none
+
+	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	Load "weblib.ring"
+	Load "datalib.ring"
+	Load "ex25_users.ring"
+
+	Import System.Web
+
+	oUser = new UsersModel
+	oUser.Connect()
+	lResult = oUser.FindWith("sessionid",aPageVars["sessionid"])
+	new page {
+		if lResult
+			text("User Name : " + oUser.username )
+		else
+			text("Please Login First!")
+		ok			
+	}
+	oUser.Disconnect()
+
+Database, ModelBase & ControllerBase classes
+============================================
+
+In this section we will see some code from datalib.ring
+
+The next code presents the Database, ModelBase & ControllerBase classes
+
+.. code-block:: none
+
+	Import System.Web
+
+	Class Database
+
+	  cServer = "localhost"
+	  cUserName = "root"
+	  cPassword = "root"
+	  cDatabase = "mahdb"
+
+	  Func Connect
+
+		con = mysql_init() 
+		mysql_connect(con, cServer, cUserName, cPassWord,cDatabase)
+
+	  Func Disconnect
+
+		mysql_close(con)
+
+	  Func Query cQuery
+
+		mysql_query(con,cQuery)
+
+	  Func QueryResult
+
+		return mysql_result(con)
+
+	  Func QueryResultWithColumns
+		# return columns names + query result
+		return mysql_result2(con)
+
+	  Func QueryValue
+		aResult = mysql_result(con)
+		if islist(aResult) and len(aResult) >= 1
+		  aResult = aResult[1]
+		  if len(aResult) >= 1
+			return aResult[1]
+		  ok
+		ok
+		return 0
+
+	  Func EscapeString x
+		if isstring(x)
+		  return MySQL_Escape_String(con,x)
+		else
+		  return MySQL_Escape_String(con,string(x))
+		ok
+
+	  Private
+		con = NULL
+
+	Class ModelBase from Database
+
+	  cTableName = ""
+	  cSearchColumn = "name"
+	  aColumns = []
+	  aQueryResult = []
+	  ID = 0
+
+	  # set table name from class name
+	  classname = lower(classname(self))
+	  if right(classname,5) = :model
+		cTablename = left(classname,len(classname)-5)
+	  ok
+
+	  Func Insert 
+
+		cValues = ""
+		for x in aColumns
+		  cValues += "'" + EscapeString(aPageVars[x]) + "',"
+		Next
+		cValues = left(cValues,len(cValues)-1)  # remove last comma    
+		cColumns = ""
+		for x in aColumns
+		  cColumns += x + ","
+		next
+		cColumns = left(cColumns,len(cColumns)-1)    
+		query("insert into " + cTableName + "("+cColumns+") values (" + 
+			 cValues + ")" )
+
+	  Func Update nID
+
+		cStr = ""
+		for x in aColumns
+		  cStr += x + " = '" + EscapeString(aPageVars[x]) + "' , " 
+		# the space after comma is necessary
+		Next
+		cStr = left(cStr,len(cStr)-2)      
+		query("update " + cTableName + " set " + cStr + " where id = " + nID )
+
+	  Func UpdateColumn cColumn,cValue
+		query("update " + cTableName + " set " + cColumn + " = '" + 
+	        EscapeString(cValue) + "' where id = " + self.ID )
+
+
+	  Func Count cValue
+
+		query("SELECT count(*) FROM " + cTableName +
+			 " where "+cSearchColumn+" like '" + EscapeString(cValue) + "%'")
+		return queryValue()
+
+	  Func Read nStart,nRecordsPerPage
+
+		query("SELECT * FROM "+ cTableName+" limit " + EscapeString(nStart) + "," +
+	        EscapeString(nRecordsPerPage) )
+		aQueryResult = queryResult()
+
+	  Func Search cValue,nStart,nRecordsPerPage
+
+		query("SELECT * FROM "+ cTableName+" where "+cSearchColumn+" like '" +
+	        EscapeString(cValue) + "%'" +
+		  " limit " + EscapeString(nStart) + "," + EscapeString(nRecordsPerPage) )
+		aQueryResult = queryResult()
+
+	  Func Find nID
+
+		query("select * from " + cTableName + " where id = " + EscapeString(nID) )
+		aResult = queryResult()[1]
+		# move the result from the array to the object attributes
+		ID = nID
+		cCode = ""
+		for x = 2 to len(aResult)
+		  cCode += aColumns[x-1] + " = hex2str('" + str2hex(aResult[x]) + "')" + nl
+		next
+		eval(cCode)
+
+	  Func FindWith cColumn,cValue
+
+		query("select * from " + cTableName + " where "+cColumn+" = '" + 
+	        EscapeString(cValue) + "'" )
+		aResult = queryResult()
+		if len(aResult) > 0
+		  aResult = aResult[1]
+		else
+		  return 0
+		ok
+		# move the result from the array to the object attributes
+		ID = aResult[1]
+		cCode = ""
+		for x = 2 to len(aResult)
+		  cCode += aColumns[x-1] + " = hex2str('" + str2hex(aResult[x]) + "')" + nl
+		next
+		eval(cCode)
+		return 1
+
+	  Func Delete ID
+
+		query("delete from " + cTableName + " where id = " + EscapeString(ID) )
+
+	  Func Clear
+
+		cCode = ""
+		for x in aColumns
+		  cCode += x + ' = ""' + nl
+		next
+		eval(cCode)
+
+	  Func LoadModel
+
+		# create the columns array
+		query("SELECT * FROM "+ cTableName + " limit 0,1")
+		aQueryResult = QueryResultWithColumns()[1]
+		for x = 2 to len(aQueryResult)
+		  aColumns + lower(trim(aQueryResult[x]))
+		next
+
+		# create attribute for each column
+		for x in aColumns
+		  addattribute(self,x)
+		next
+
+	  Func Connect
+
+		Super.Connect()
+		if nLoadModel = 0
+		  nLoadModel = 1
+		  LoadModel()
+		ok
+
+	  private
+
+		nLoadModel = 0
+
+
+	Class ControllerBase
+	  
+	  nRecordsPerPage = 5
+	  nRecordsCount = 0
+	  nPagesCount = 0
+	  nActivePage = 0
+
+	  # Dynamic creation of oView = new tablenameView and oModel = new tablename.Model
+	  classname = lower(classname(self))
+	  if right(classname,10)  = :controller
+		tablename = left(classname,len(classname)-10)
+		cCode = "oView = new " + tablename+"View" + nl
+		cCode += "oModel = new " + tablename+"Model" + nl
+		eval(cCode)
+		oModel.connect()
+	  ok
+
+	  cSearchName = "searchname"
+	  cPart = "part"
+	  cPageError = "The page number is not correct"
+	  cLast = "last"
+	  cOperation = "operation"
+	  cRecID = "recid"
+
+	  aColumnsNames = ["id"]
+	  for t in oModel.aColumns
+		aColumnsNames + t
+	  next
+
+	  cMainURL = website + "?"
+
+	  func Routing
+
+		switch      aPageVars[cOperation]
+		on NULL     showtable()
+		on :add     addrecord()
+		on :save    saverecord()
+		on :delete  deleterecord()
+		on :edit    editrecord()
+		on :update  updaterecord()
+		off
+
+	  func ShowTable
+
+		nRecordsCount = oModel.Count( aPageVars[cSearchName] )
+
+		nPagesCount = ceil(nRecordsCount / nRecordsPerPage)
+
+		if aPageVars[cPart] = cLast
+		  aPageVars[cPart] = string(nPagesCount)
+		ok
+
+		nActivePage = number(aPageVars[cPart])
+		if nActivePage = 0 nActivePage = 1 ok    
+
+		if ( nActivePage > nPagesCount ) and nRecordsCount > 0
+		  ErrorMsg(cPageError)
+		  return
+		ok
+
+		nStart = (nActivePage-1)*nRecordsPerPage
+
+		if aPageVars[cSearchName] = NULL
+		  oModel.Read( nStart,nRecordsPerPage )
+		else
+		  oModel.Search( aPageVars[cSearchName],nStart,nRecordsPerPage )
+		ok
+
+		oView.GridView(self)
+
+	  func AddRecord
+
+		oModel.clear()
+		oView.FormViewAdd(Self,:save,false) # false mean don't include record id
+
+	  func SaveRecord
+
+		oModel.Insert()
+		oView.SaveView(self)
+
+	  func EditRecord
+
+		oModel.Find( aPageVars[cRecID] )
+		oView.FormViewEdit(Self,:update,true) # true mean include record id
+
+	  func UpdateRecord
+
+		oModel.update( aPageVars[cRecID] )
+		oView.UpdateView(self)
+
+	  func DeleteRecord
+
+		oModel.Delete( aPageVars[cRecID] )
+		oView.DeleteView()
+
+	  func braceend
+
+		oModel.Disconnect()
+
+WebLib API
+==========
+
+In this section we will see the web library functions, classes and methods.
+
+=====================	=============	=====================================================================
+Function 		Parameters	Description
+=====================	=============	=====================================================================
+LoadVars		None		Save the request parameters and cookies to aPageVars List
+WebPage			None		Create new object from the WebPage Class
+BootStrapWebPage	None		Create new object from the BootStrapWebPage Class
+HTMLSpecialChars	cString		Encode Special characters to HTML equivalent
+Template		cFile,oObject	Execute Ring Code in cFile after accessing oObject using {}
+Alert 			cMessage	Generate HTML Web Page that display cMessage using JavaScript Alert()
+HTML2PDF		cString		Generate and Display PDF File from HTML String (cString)
+=====================	=============	=====================================================================
+
+The Package System.Web contains the next classes
+
+=====================	========================================================	
+	Class Name	Description
+=====================	========================================================	
+Application		Contains methods for Encoding, Decoding, Cookies & More.
+Page			Contains methods to generate HTML pages.
+ScriptFunctions		Contains methods to generate some JavaScript Functions.
+StyleFunctions		Contains methods to generate CSS.
+PageBuffer		Generate HTML Page in memory (don't print the output).
+HTML2PDF		Generate PDF File from HTML code.
+BootStrapPage		Using BootStrap Library.
+WebPage			Generate page using objects for each element.
+BootStrapWebPage	Generate page using objects, using BootStrap Library.
+ObjsBase		Parent Class for page objects.
+NewObjectsFunctions	Methods to create new objects in the page or element.
+H1			Wraps HTML H1.
+H2			Wraps HTML H2.
+H3			Wraps HTML H3.
+H4			Wraps HTML H4.	
+H5			Wraps HTML H5.
+H6			Wraps HTML H6.	
+P			Wraps HTML P.
+Link			Wraps HTML link.
+NewLine			Wraps HTML NewLine.
+Div			Wraps HTML Div.
+Form			Wraps HTML Form.
+Input			Wraps HTML Input.	
+TextArea		Wraps HTML TextArea.
+Select			Wraps HTML Select.
+Option			Wraps HTML Option.
+Image			Wraps HTML Image.
+UL			Wraps HTML UL.
+LI			Wraps HTML LI.
+Table			Wraps HTML Table.
+TR			Wraps HTML TR.
+TD			Wraps HTML TD.
+TH			Wraps HTML TH.
+Audio			Wraps HTML Audio.
+Video			Wraps HTML Video.
+Nav			Wraps HTML Nav.
+Span			Wraps HTML Span.
+Button			Wraps HTML Button.
+=====================	========================================================	
+
+Application Class
+=================
+
+=====================	=======================================	=====================================================================
+Method	 		Parameters				Description
+=====================	=======================================	=====================================================================
+DecodeString		cString					Decode request parameters
+Decode			cString					Decode multipart/form-data
+GetFileName  		aArray,cVar				Get File Name in aArray using cVar 
+SetCookie 		name,value,expires,path,domain,secure	Set Cookie 
+Cookie 			name,value				Set Cookie using name and value only
+GetCookies 		None					Get Cookies
+URLEncode 		cString					URL Encode 
+ScriptLibs 		None					Add JavaScript Libraries like BootStrap
+Print			None					Print Page Content
+Style 			cStyle					Add cStyle to page CSS content
+StartHTML		None					Add HTTP Header	to page content		
+=====================	=======================================	=====================================================================
+
+The method DecodeString is used to get HTTP request parameters.
+
+The methods Decode and GetFileName are used for uploading files.
+
+The methods SetCookie, Cookie & GetCookies are used for adding and reading cookies.
+
+The methods StartHTML, ScriptsLibs, Style & Print are used for page structure and JS/CSS support.
+
+The method URLEncode is used to encode a URL to be used in HTML pages.
+
+Page Class
+==========
+
+=====================	=======================================	=====================================================================
+Method	 		Parameters				Description
+=====================	=======================================	=====================================================================
+text			x					add HTMLSpecialChars(x) to page content (accept strings and numbers)
+html			cString					add html code to page content
+h1			x					add x to page content between <h1> and </h1>
+h2			x					add x to page content between <h2> and </h2>
+h3			x					add x to page content between <h3> and </h3>
+h4			x					add x to page content between <h4> and </h4>
+h5			x					add x to page content between <h5> and </h5>
+h6			x					add x to page content between <h6> and </h6>
+p			aPara					HTML <p> </p>, uses aPara List as Hash to get attributes
+NewLine			None					add <br /> to page content
+AddAttributes		aPara					Convert aPara list as hash to HTML element attributes
+Link			aPara					HTML <a href> and </a>, uses aPara List as Hash to get attributes
+Image			aPara					HTML <img>, uses aPara List as Hash to get attributes
+Button			aPara					HTML <input type="button">, uses aPara List as Hash to get attributes
+ButtonLink		aPara					HTML <input type="button">, uses link attribute to navigate to link 
+Textbox			aPara					HTML <input type="text">, uses aPara List as Hash to get attributes
+Editbox			aPara					HTML <textarea> and </textarea>, uses aPara to get attributes
+Combobox		aPara					HTML <select>, uses items attribute as list for <option>
+Listbox			aPara					HTML <select multiple='multiple'>, uses items attribute for <option>
+ulstart			aPara					HTML <ul>
+ulend			aPara					HTML </ul>
+listart			aPara					HTML <li>
+liend			aPara					HTML </li>
+List2UL 		aList					Generate HTML <ul> including items from Ring List items
+DivStart 		aPara					HTML <div>, uses aPara List as Hash to get attributes
+NavStart		aPara					HTML <nav>, uses aPara List as Hash to get attributes
+SpanStart		aPara					HTML <span>, uses aPara List as Hash to get attributes
+BoxStart		None					Generate Div with black background to be used as page header
+DivEnd			None					HTML </div>
+NavEnd			None					HTML </nav>
+SpanEnd			None					HTML </span>
+BoxEnd			None					HTML </div>, the same as divend()
+FormStart 		cAction					HTML <form>, with cAction as the action attribute or an empty value
+FormPost		cAction					HTML <form method="post"> , with cAction as the action attribute
+FormEnd			None					HTML </form>
+Submit			aPara					HTML <input type="submit">
+Hidden 			cName,cValue				HTML <input type="hidden">
+FormUpload 		x					HTML Form, method="post" enctype="multipart/form-data" and x = action				
+UploadFile 		x					HTML <input type="file"> and name = x
+Video			aPara					HTML <video>
+Audio			aPara					HTML <audio>
+GetColor 		aPara					Select Color
+Radio			aPara					HTML <input type="radio">
+Checkbox		aPara					HTML <input type="checkbox">
+Spinner			aPara					HTML <input type="number">
+Slider 			aPara					HTML <input type="range">
+TableStart		aPara					HTML <table>
+TableEnd		None					HTML </table>
+RowStart		aPara					HTML <tr>
+RowEnd			None					HTML </tr>
+CellStart		aPara					HTML <td>
+CellEnd			None					HTML </td>
+HeaderStart		aPara					HTML <th>
+HeaderEnd		None					HTML </th>
+=====================	=======================================	=====================================================================
+
+aPara in the page methods is a list contains attributes and values.
+Using aPara we can set values for the next attributes
+
+.. code-block:: none 
+
+	classname id name align style dir value onclick oncontextmenu ondblclick
+	onmousedown onmouseenter onmouseleave onmousemove onmouseover onmouseout
+	onmouseup onkeydown onkeypress onkeyup onabort onbeforeunload onerror
+	onhashchange onload onpageshow onpagehide onresize onscroll onunload
+	onblur onchange onfocus onfocusin onfocusout oninput oninvalid onreset
+	onsearch onselect onsubmit ondrag ondragend ondragenter ondragleave
+	ondragover ondragstart ondrop oncopy oncut onpaste onafterprint 
+	onbeforeprint oncanplay oncanplaythrough ondurationchange onemptied
+	onended onloadeddata onloadedmetadata onloadstart onpause onplay
+	onplaying onprogress onratechange onseeked onseeking onstalled onsuspend
+	ontimeupdate onvolumechange onwaiting animationend animationiteration
+	animationstart transitionend onmessage onopen onmousewheel ononline
+	onoffline onpostate onshow onstorage ontoggle onwheel ontouchcancel
+	ontouchend ontouchmove ontouchstart color opacity background backgroundattachment
+	backgroundcolor backgroundimage backgroundposition backgroundrepeat backgroundclip
+	backgroundorigin backgroundsize border borderbottom borderbottomcolor 
+	borderbottomleftradius borderbottomrightradius borderbottomstyle borderbottomwidth 
+	bordercolor borderimage borderimageoutset borderimagerepeat borderimageslice 
+	borderimagesource borderimagewidth borderleft borderleftcolor borderleftstyle
+	borderleftwidth borderradius borderright  borderrightcolor borderrightstyle
+	borderrightwidth borderstyle bordertop bordertopcolor bordertopleftradius
+	bordertoprightradius bordertopstyle bordertopwidth borderwidth boxdecorationbreak
+	boxshadow bottom clear clip display float height left margin marginbottom marginleft
+	marginright margintop maxheight maxwidth minheight minwidth overflow overflowx
+	overflowy padding paddingbottom paddingleft paddingright paddingtop position
+	right top visibility width verticalalign zindex aligncontent alignitems alignself
+	flex flexbasis flexdirection flexflow flexgrow flexshrink flexwrap justifycontent
+	order hangingpunctuation hyphens letterspacing linebreak lineheight overflowwrap
+	tabsize textalign textalignlast textcombineupright textindent textjustify
+	texttransform whitespace wordbreak wordspacing wordwrap textdecoration 
+	textdecorationcolor textdecorationline textdecorationstyle textshadow 
+	textunderlineposition @fontface @fontfeaturevalues font fontfamily fontfeaturesettings
+	fontkerning fontlanguageoverride fontsize fontsizeadjust fontstretch fontstyle
+	fontsynthesis fontvariant fontvariantalternates fontvariantcaps fontvarianteastasian
+	fontvariantligatures fontvariantnumeric fontvariantposition fontweight direction
+	textorientation unicodebidi writingmode bordercollapse borderspacing captionside
+	emptycells tablelayout counterincrement counterreset liststyle liststyleimage
+	liststyleposition liststyletype @keyframes animation animationdelay animationdirection
+	animationduration animationfillmode animationiterationcount animationname
+	animationplaystate animationtimingfunction backfacevisibility perspective
+	perspectiveorigin transform transformorigin transformstyle transition
+	transitionproperty transitionduration transitiontimingfunction transitiondelay
+	boxsizing content cursor imemode navdown navindex navleft navright navup
+	outline outlinecolor outlineoffset outlinestyle outlinewidth resize textoverflow
+	breakafter breakbefore breakinside columncount columnfill columngap columnrule
+	columnrulecolor columnrulestyle columnrulewidth columnspan columnwidth columns
+	widows orphans pagebreakafter pagebreakbefore pagebreakinside marks quotes
+	filter imageorientation imagerendering imageresolution objectfit objectposition
+	mask masktype mark markafter markbefore phonemes rest restafter restbefore
+	voicebalance voiceduration voicepitch voicepitchrange voicerate voicestress
+	voicevolume marqueedirection marqueeplaycount marqueespeed marqueestyle datatoggle
+	dataride datatarget dataslideto dataslide datadismiss dataplacement datacontent
+	datatrigger dataspy dataoffset dataoffsettop
+
+ScriptFunctions Class
+=====================
+
+This class contains methods for adding JavaScript code to the generated web page.
+
+The class methods are merged to the Page class, so we can use the next methods with
+page objects directly.
+
+==================	==============================================		============================================================
+Method			Parameters						Description
+==================	==============================================		============================================================
+Script			cCode							Add cCode string between <script> and </script>
+ScriptRedirection	cURL							set window.location to cURL
+ScriptFunc		cFuncName,cCode						Define function cFuncName that contains cCode
+ScriptFuncAlert		cFuncName,cMsg						Define function cFuncName that uses alert() to print cMsg
+ScriptFuncAjax		cFuncName,cLink,cDiv					Define function cFuncName that load cLink in cDiv
+ScriptFuncClean		cFuncName,cDiv						Define function cFuncName that clear the cDiv
+ScriptFuncSelect	cF,aL,cD,cR,cGR,cFC,nTO,cL1,cL2				Used to Edit/Delete Grid Record
+ScriptScrollFixed 	cDiv,nSize						Set cDiv as Fixed Div with Size = nSize
+==================	==============================================		============================================================
+
+StyleFunctions Class
+====================
+
+This class contains methods for adding CSS to the generated web page.
+
+Like ScriptFunctions Class, The StyleFunctions class methods are merged to the 
+Page class, so we can use the next methods with page objects directly.
+
+=====================	====================	=====================================================
+Method			Parameters		Description
+=====================	====================	=====================================================
+StyleFloatLeft		None			Return float: left ; 
+StyleFloatRight		None			Return float: right ; 
+StyleSizeFull		None			Return width: 100% ; height: 100% ;
+Stylecolor		x			Return " color: " + x + " ; "
+Stylebackcolor		x			Return " background-color: " + x + " ;"
+StyleTextCenter		None			Return "text-align: center ;"
+StyleTextRight		None			Return "text-align: right ;"
+StyleTextLeft		None			Return "text-align: left ;"
+StyleSize		x,y			Return " width: " + x + " ; height: " + y + " ;"
+StyleWidth		x			Return " width: " + x + " ;"
+StyleHeight		x			Return " height: " + x + " ;"
+StyleTop		x			Return " top: " + x + " ;"
+StyleLeft		x			Return " Left: " + x + " ;"
+StylePos		x,y			Return " top: " + x + " ;" + " Left: " + y + " ;"
+StyleHorizontalCenter	None			Return " margin-right:auto ; margin-left:auto; "
+StyleMarginTop		x			Return " margin-top: " + x + " ;"
+StyleMarginRight 	x			Return " margin-right: " + x + " ;"
+StyleMarginLeft		x			Return " margin-left: " + x + " ;"
+StyleDivCenter		nWidth,nHeight		Create Div in the center of the page
+StyleAbsolute		None			Return " position:absolute ;"
+StyleFixed		None			Return " position:fixed ;"
+StyleZIndex		x			Return " z-index: " + x + " ;"
+StyleFontSize		x			Return  " font-size: " + x + " ;"
+StyleGradient		x 			Generate Gradient (x values from 1 to 60)
+StyleTable		None			Set table properties
+StyleTableRows		id			Set different color to even and odd rows in the table
+StyleTableNoBorder	None			Return " border-style: none;"
+=====================	====================	=====================================================
