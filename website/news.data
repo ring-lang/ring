@@ -1,0 +1,37 @@
+  aNews = [
+  ["March 21, 2016",'<a href="https://en.wikibooks.org/wiki/Ring" target="_blank"> Ring in WIKIBOOKS</a>'],
+  ["March 16, 2016",'<a href="https://www.youtube.com/watch?v=QABSHg4zY6M" target="_blank"> Movie : Introducing the Ring Programming Language</a>'],
+  ["March 12, 2016",'<a href="download.html#libs"> Ring extension for Geany Editor</a>'],
+  ["March 5, 2016",'<a href="http://ring-lang.sf.net/cgi-bin/ringlang.cgi"> Try Ring Online (Interactive Ring)</a>'],
+  ["March 4, 2016",'<a href="download.html#libs"> Sublime Text 2 Syntax Coloring for Ring</a>'],
+  ["February 28, 2016",'<a href="download.html#binary"> Ring 1.0 for Ubuntu Linux Released!</a>'],
+  ["February 17, 2016",'<a href="https://github.com/ahmadomar/RingForVS" target="_blank">Ring extension for visual studio.</a>'],
+  ["February 5, 2016",'<a href="https://rosettacode.org/wiki/Category:Ring" target="_blank">Rosettacode page for the Ring programming language.</a>'],
+  ["January 30, 2016",'<a href="resources.html">New section called Resources</a> is added to the Ring website contains Samples & Blogs'],
+  ["January 27, 2016",'<a href="download.html#libs"> WebLib 1.0 Released!</a>'],
+  ["January 26, 2016",'<a href="https://www.facebook.com/photo.php?fbid=10153496611810345&set=a.10151555440725345.1073741841.640625344&type=3" target="_blank"> In this post</a> about the first release, we get over 1700 likes and <a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_win32_binary_release.zip/stats/map?dates=2016-01-25+to+2016-01-26" target="_blank">over 2000 downloads</a>'],
+  ["January 25, 2016",'<a href="download.html#binary"> Ring 1.0 Released!</a>'],
+  ["January 23, 2016",'The Ring Team! and the <a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Ring Group</a> '],
+  ["January 21, 2016",'This website started!'],
+  ["January 11, 2016",'Arabic Interview about the language in the "Youm7" : 
+						<a href="https://www.facebook.com/Youm7/posts/1331818946888764" target="_blank">Facebook</a>
+						<a href="http://www.youm7.com/story/2016/1/11/%D9%81%D9%89-25-%D9%8A%D9%86%D8%A7%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A8%D9%84-%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D9%85%D9%88%D8%A7%D8%B5%D9%81%D8%A7%D8%AA-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D9%85%D9%86-%D8%A5%D8%A8%D8%AA%D9%83%D8%A7%D8%B1/2532713#.VqNi6U-RZVV" target="_blank"> Website </a> '],
+  ["December 13, 2015",'Arabic Interview about the language in the "Muslim Researchers" : 
+							<a href="https://www.facebook.com/mahmoudfayed1986/posts/10153408447760345" target="_blank">Facebook</a>
+							<a href="http://muslims-res.com/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1.html" target="_blank">Website </a>'],
+  ["November 27, 2015",'<p>						
+						<a href="https://www.facebook.com/mahmoudfayed1986/posts/10153380320410345" target="_blank">In this post</a> 
+						I said that when the likes count reach 1000 we will see a new 
+						programming language. <b>Thanks to my friends!</b>
+						</p>'],
+  ["September, 2015",'Most of the Documentation was written!'],
+  ["August, 2015",'Most of the Testing was done!'],
+  ["May, 2015",'Most of the work in the Compiler and The Virtual Machine was done!'],
+  ["April, 2015",'The language name : Ring'],
+  ["December, 2014",'<a href="https://www.facebook.com/mahmoudfayed1986/posts/10152635115050345" target="_blank">The first Arabic post about the language in my Facebook profile page!</a>
+						In this post i said that after 
+						testing many programming languages, i decided to create a new one to use in
+						developing the new version of the <a href="http://doublesvsoop.sourceforge.net" target="_blank">PWCT software</a>.'],
+  ["September, 2013",'The design and the implementation of the language started!'],
+  ["November, 2011",'The ideas and the general goals behind the new programming language']
+  ]
