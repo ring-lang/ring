@@ -1,0 +1,316 @@
+===============================
+Security and Internet Functions
+===============================
+
+This chapter contains the security and internet functions provided by the Ring programming language
+for Hashing, Encryption & Decryption.
+
+* MD5()
+* SHA1()
+* SHA256()
+* SHA512()
+* SHA384()
+* SHA224()
+* Encrypt()
+* Decrypt()
+* Randbytes()
+* Download()
+* SendEmail()
+
+MD5() Function
+==============
+
+We can calculate the MD5 hash using the MD5() Function
+
+Syntax:
+
+.. code-block:: none
+
+	MD5(cString) ---> String contains the MD5 hash of the string cString 
+
+Example:
+
+.. code-block:: none
+
+	see "md5('happy') = " + md5("happy") + nl +
+	    "md5('Hello') = " + md5("Hello") + nl
+
+Output:
+
+.. code-block:: none
+
+	md5('happy') = 56ab24c15b72a457069c5ea42fcfc640
+	md5('Hello') = 8b1a9953c4611296a827abf8c47804d7
+
+SHA1() Function
+===============
+
+We can calculate the SHA1 hash using the SHA1() Function
+
+Syntax:
+
+.. code-block:: none
+
+	SHA1(cString) ---> String contains the SHA1 hash of the string cString 
+
+Example:
+
+.. code-block:: none
+
+	see "sha1('hello') : " + sha1("hello") + nl +
+	    "sha1('apple') : " + sha1("apple") + nl
+
+Output:
+
+.. code-block:: none
+
+	sha1('hello') : aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
+	sha1('apple') : d0be2dc421be4fcd0172e5afceea3970e2f3d940
+
+SHA256() Function
+=================
+
+We can calculate the SHA256 hash using the SHA256() Function
+
+Syntax:
+
+.. code-block:: none
+
+	SHA256(cString) ---> String contains the SHA256 hash of the string cString 
+
+
+Example:
+
+.. code-block:: none
+
+	see "sha256('hello') : " + sha256("hello") + nl +
+	    "sha256('apple') : " + sha256("apple") + nl
+
+Output:
+
+.. code-block:: none
+
+	sha256('hello') : 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+	sha256('apple') : 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b
+
+SHA512() Function
+=================
+
+We can calculate the SHA512 hash using the SHA512() Function
+
+Syntax:
+
+.. code-block:: none
+
+	SHA512(cString) ---> String contains the SHA512 hash of the string cString 
+
+Example:
+
+.. code-block:: none
+
+	see "sha512('hello') : " + sha512("hello") + nl +
+	    "sha512('apple') : " + sha512("apple") + nl +
+	    "sha512('hello world') : " + sha512("hello world") + nl
+
+Output:
+
+.. code-block:: none
+
+	sha512('hello') : 9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673c
+	a72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043
+	sha512('apple') : 844d8779103b94c18f4aa4cc0c3b4474058580a991fba85d3ca698a0bc9e52
+	c5940feb7a65a3a290e17e6b23ee943ecc4f73e7490327245b4fe5d5efb590feb2
+	sha512('hello world') : 309ecc489c12d6eb4cc40f50c902f2b4d0ed77ee511a7c7a9bcd3ca8
+	6d4cd86f989dd35bc5ff499670da34255b45b0cfd830e81f605dcf7dc5542e93ae9cd76f
+
+SHA384() Function
+=================
+
+
+We can calculate the SHA384 hash using the SHA384() Function
+
+Syntax:
+
+.. code-block:: none
+
+	SHA384(cString) ---> String contains the SHA384 hash of the string cString 
+
+Example:
+
+.. code-block:: none
+
+	see "sha384('hello') : " + sha384("hello") + nl +
+	    "sha384('apple') : " + sha384("apple") + nl +
+	    "sha384('hello world') : " + sha384("hello world") + nl
+
+Output:
+
+.. code-block:: none
+
+	sha384('hello') : 59e1748777448c69de6b800d7a33bbfb9ff1b463e44354c3553bcdb9c666fa
+	90125a3c79f90397bdf5f6a13de828684f
+	sha384('apple') : 3d8786fcb588c93348756c6429717dc6c374a14f7029362281a3b21dc10250
+	ddf0d0578052749822eb08bc0dc1e68b0f
+	sha384('hello world') : fdbd8e75a67f29f701a4e040385e2e23986303ea10239211af907fcb
+	b83578b3e417cb71ce646efd0819dd8c088de1bd
+
+SHA224() Function
+=================
+
+We can calculate the SHA224 hash using the SHA224() Function
+
+Syntax:
+
+.. code-block:: none
+
+	SHA224(cString) ---> String contains the SHA224 hash of the string cString 
+
+Example:
+
+.. code-block:: none
+
+	see "sha224('hello') : " + sha224("hello") + nl + 
+	    "sha224('apple') : " + sha224("apple") + nl +
+	    "sha224('hello world') : " + sha224("hello world") + nl
+
+Output:
+
+.. code-block:: none
+
+	sha224('hello') : ea09ae9cc6768c50fcee903ed054556e5bfc8347907f12598aa24193
+	sha224('apple') : b7bbfdf1a1012999b3c466fdeb906a629caa5e3e022428d1eb702281
+	sha224('hello world') : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522a563582b
+
+Encrypt() Function
+==================
+
+We can use the Encrypt() function to encrypts the data using the Blowfish algorithm.
+
+Syntax:
+
+.. code-block:: none
+
+	Encrypt(cString, cKey, cIV) ---> Encrypted string
+
+Decrypt() Function
+==================
+
+We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Decrypt(cCipher, cKey, cIV) ---> Decrypted string
+
+Encryption and Decryption Example
+=================================
+
+The next example demonstrates how to use the Encrypt() and Decrypt() functions.
+
+These functions use the Blowfish algorithm.
+
+.. code-block:: none
+
+	See "Enter a string : " give cStr
+	list = 0:15  cKey=""    for x in list cKey += char(x) next
+	list = 1:8   cIV = ""   for x in list cIV += char(x) next
+	cStr = Encrypt(cStr,cKey,cIV) 
+	See "Cipher Text    : " + cStr + nl +
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+
+File Hash
+=========
+
+The next example demonstrates how to calculate the hash functions for files
+
+.. code-block:: none
+
+	cStr = read("myapp.exe")
+	see "Size : " + len(cStr) + nl +
+	    "md5 : " + md5(cStr) + nl +
+	    "sha1 : " + sha1(cStr) + nl +
+	    "sha256 : " + sha256(cStr) + nl +
+	    "sha224 : " + sha224(cStr) + nl +
+	    "sha384 : " + sha384(cStr) + nl +
+	    "sha512 : " + sha512(cStr) + nl
+
+Output:
+
+.. code-block:: none
+
+	Size : 58079876
+	md5 : 762eee15d8d2fd73b71ea52538b28667
+	sha1 : 9212c0c7258bad89a62bd239e1358a9276a9d070
+	sha256 : 7d6724e69b6c553da749ba31b6185dddc965129b64d9e9bf3de88f67df3b1cdc
+	sha224 : 5a9c8a7d662bce4f880ba94f90a79362b672528b9efd5abc718c7a3d
+	sha384 : 18e23f973abedbeb3981c423f12aeadecf96f9c6fb28aeabe3be4c484f8540afcc3861b
+	b370ce2b59cf3c99c130b856b
+	sha512 : da3d5e997d06f8b2a7a9964b77f7d82eedb76b245c611082c1639f83f51d83880bcd08f
+	cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
+
+Randbytes() Function
+====================
+
+We can generate a string of pseudo-random bytes using the Randbytes() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Randbytes(nSize) ---> String contains random bytes (bytes count = nSize)
+
+Example:
+
+.. code-block:: none
+
+	salt =  randbytes(32) 
+	password = "SecretPassWord@$%123"
+	see salt + nl
+	see sha256("test" + salt) + nl
+
+Download() Function
+===================
+
+Syntax:
+
+.. code-block:: none
+
+	Download(cURL) ---> String contains the server response
+
+Example:
+
+.. code-block:: none
+
+	cStr= download("http://doublesvsoop.sourceforge.net/")
+	see cStr
+	write("download.txt",cStr)
+
+SendEmail() Function
+====================
+
+Syntax:
+
+.. code-block:: none
+
+	SendEmail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
+
+Example:
+
+.. code-block:: none
+
+	See "Send email..." + nl
+	sendemail("smtp://smtp.gmail.com:587",
+		"email@gmail.com",
+		"password",
+		"email@gmail.com",
+		"somebody@yahoo.com",
+		"somebodyelse@yahoo.com",
+		"Sending email from Ring",
+		"Hello
+		 How are you?
+		 Are you fine?
+		 Thank you!
+		 Greetings,
+		 Mahmoud")
+	see "Done.." + nl
