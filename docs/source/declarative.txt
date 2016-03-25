@@ -1,0 +1,349 @@
+===============================================
+Declarative Programming using Nested Structures
+===============================================
+
+.. index:: 
+	pair: Declarative Programming; Introduction
+
+In this chapter we are going to learn how to build declarative programming world using nested structures on the top
+of object oriented.
+
+We will learn about
+
+* Creating Objects inside Lists
+* Composition and Returning Objects and Lists by Reference
+* Executing code after the end of object access 
+* Declarative Programming on the top of Object-Oriented
+
+.. index:: 
+	pair: Declarative Programming; Objects inside lists
+
+Creating Objects inside Lists
+=============================
+
+We can create objects inside lists during list definition.
+Also we can add objects to the list at any time using the Add() function or the + operator.
+
+Example:
+
+.. code-block:: none
+
+	alist = [new point, new point, new point]	# create list contains three objects 
+
+	alist + [1,2,3]					# add another item to the list
+
+	see "Item 4 is a list contains 3 items" + nl
+	see alist[4] 
+
+	add(alist , new point)
+	alist + new point
+
+	alist[5] { x = 100 y = 200 z = 300 }
+	alist[6] { x = 50 y = 150 z = 250 }
+
+	see "Object inside item 5" + nl
+	see alist[5]
+	see "Object inside item 6" + nl
+	see alist[6]
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	Item 4 is a list contains 3 items
+	1
+	2
+	3
+	Object inside item 5
+	x: 100.000000
+	y: 200.000000
+	z: 300.000000
+	Object inside item 6
+	x: 50.000000
+	y: 150.000000
+	z: 250.000000
+
+.. index:: 
+	pair: Declarative Programming; Return object by reference
+
+Composition and Returning Objects and Lists by Reference
+========================================================
+
+When we use composition and have object as one of the class attributes, when we return that object it will be returned by reference.
+
+if the called used the assignment operator, another copy of the object will be created.
+
+The caller can avoid using the assignment operator and use the returned reference directly to access the object.
+
+The same is done also if the attribute is a list (not object).
+
+.. note:: Objects and Lists are treated using the same rules. When you pass them to function they are passed by reference, 
+when you return them from functions they are returned by value except if it's an object attribute where a return by reference 
+will be done.
+
+Example:
+
+.. code-block:: none
+
+	o1 = new Container
+	myobj = o1.addobj()	# the assignment will create another copy
+	myobj.x = 100
+	myobj.y = 200
+	myobj.z = 300
+	see o1.aobjs[1]		# print the object inside the container	
+	see myobj		# print the copy
+
+	Class Container
+		aObjs = []
+		func addobj
+			aobjs + new point
+			return aobjs[len(aobjs)]	# return object by reference
+
+	Class point 
+		x  = 10
+		y  = 20
+		z  = 30
+
+Output:
+
+.. code-block:: none
+
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
+	x: 100.000000
+	y: 200.000000
+	z: 300.000000
+
+Example(2):
+
+.. code-block:: none
+
+	func main
+		o1 = new screen  {
+			content[point()] { 
+				x = 100 
+				y = 200
+				z = 300		
+			}
+			content[point()] { 
+				x = 50 
+				y = 150
+				z = 250		
+			}
+		}
+		see o1.content[1]
+		see o1.content[2]
+
+	Class Screen
+		content = []
+		func point
+			content + new point
+			return len(content)
+
+	Class point 
+		x  = 10
+		y  = 20
+		z  = 30
+
+Output:
+
+.. code-block:: none
+
+	x: 100.000000
+	y: 200.000000
+	z: 300.000000
+	x: 50.000000
+	y: 150.000000
+	z: 250.000000
+
+Example(3):
+
+.. code-block:: none
+
+	func main
+		o1 = New Screen  {
+			point() { 		# access the object using reference 
+				x = 100 
+				y = 200
+				z = 300		
+			}
+			point() { 		# access the object using reference 
+				x = 50 
+				y = 150
+				z = 250		
+			}
+		}
+		see o1.content[1]		
+		see o1.content[2]
+
+	Class Screen
+		content = []
+		func point
+			content + new point
+			return content[len(content)]	# return the object by reference
+
+	Class point x=10 y=20 z=30
+
+Output:
+
+.. code-block:: none
+
+	x: 100.000000
+	y: 200.000000
+	z: 300.000000
+	x: 50.000000
+	y: 150.000000
+	z: 250.000000
+
+
+.. index:: 
+	pair: Declarative Programming; executing code after the end of object access
+
+Executing code after the end of object access 
+=============================================
+
+We can access an object using { } to use object attributes and methods.
+
+if the object contains a method called BraceEnd(), it will be executed before the end of the object access.
+
+Example: 
+
+.. code-block:: none
+
+	New Point { See "How are you?" + nl }
+
+	Class Point x y z
+		func braceend
+			see "I'm fine, Thank you!" + nl
+
+Output:
+
+.. code-block:: none
+
+	How are you?
+	I'm fine, Thank you!
+
+
+.. index:: 
+	pair: Declarative Programming; Declarative programming on the top of Object-Oriented
+
+Declarative Programming on the top of Object-Oriented
+=====================================================
+
+The next features enable us to build and use declartive programming environment using nested structures on the top of object oriented 
+
+* using {} to access the object attributes and methods
+* BraceEnd() Method
+* returning objects by reference
+* Setter/Getter Methods (optional)
+
+Example: 
+
+.. code-block:: none
+
+	# Declartive Programming (Nested Structures)
+
+	Screen() 
+	{
+
+		point() 
+		{ 			
+			x = 100 
+			y = 200
+			z = 300		
+		}
+
+		point() 
+		{ 			 
+			x = 50 
+			y = 150
+			z = 250		
+		}
+	}
+
+	# Functions and Classes
+
+	Func screen return new screen
+
+	Class Screen
+
+		content = []
+
+		func point
+			content + new point
+			return content[len(content)]	
+
+		func braceend
+			see "I have " + len(content) + " points!"
+
+	Class point 
+
+		x=10 y=20 z=30
+
+		func braceend		
+			see self	
+
+Output:
+
+.. code-block:: none
+
+	x: 100.000000
+	y: 200.000000
+	z: 300.000000
+	x: 50.000000
+	y: 150.000000
+	z: 250.000000
+	I have 2 points!
+
+.. index:: 
+	pair: Declarative Programming; More Beatiful Code
+
+More beautiful Code
+===================
+
+We can get better results and a more beautiful code when we can avoid writing () after the method name
+when the methods doesn't take parameters.
+This feature is not provided directly by the Ring language because there is a difference between object methods
+and object attributes. We can get a similar effect on the syntax of the code when we define a getter method for
+the object attribute. For example instead of defining the point() method. we will define the point attribute then
+the getpoint() method that will be executed once you try to get the value of the point attribute.
+since we write the variable name direcly without () we can write point instead of point() and the method getpoint()
+will create the object and return the object reference for us.
+
+Example:
+
+.. code-block:: none
+
+	new Container 
+	{
+		Point 
+		{ 
+			x=10 
+			y=20 
+			z=30 
+		}
+	}
+
+	Class Container
+		aObjs = []
+		point
+		func getpoint
+			aObjs + new Point
+			return aObjs[len(aObjs)]
+
+	Class Point x y z
+		func braceend
+			see "3D Point" + nl + x + nl + y + nl + z + nl
+
+Output
+
+.. code-block:: none
+
+	3D Point
+	10
+	20
+	30
+
