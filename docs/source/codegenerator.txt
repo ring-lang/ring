@@ -1,0 +1,1045 @@
+============================================
+Code Generator for wrapping C/C++ Libraries 
+============================================
+
+In this chapter we will learn how to use the code generator to wrap C/C++ Libraries 
+to use it in our Ring applications.
+
+.. index:: 
+	pair: Code Generator; Using the tool
+
+Using the tool
+==============
+
+The code generator program is parsec.ring that can be executed as any ring code using the
+ring interpreter.
+
+for example to read a configuration file called test.cf to generate the source code file test.c
+run parsec.ring as in the next command
+
+.. code-block:: none
+
+	ring parsec.ring test.cf test.c
+
+.. index:: 
+	pair: Code Generator; Configuration file
+
+Configuration file 
+==================
+
+The configuration file (*.cf) is the input file that we pass to the code generator. This file 
+determine the functions prototypes that we need to use from a C/C++ library.
+
+Writing configuration files is simple according to the next rules
+
+.. index:: 
+	pair: Code Generator; function prototype
+
+Using the function prototype
+============================
+
+* To generate code that wraps a C function, we just write the C function prototype
+
+Example:
+
+.. code-block:: none
+
+	ALLEGRO_DISPLAY *al_create_display(int w, int h)
+	void al_destroy_display(ALLEGRO_DISPLAY *display)
+	int al_get_new_display_flags(void)
+	void al_set_new_display_flags(int flags)
+	int al_get_new_display_option(int option, int *importance)
+
+The previous example will guide the code generator to generate 5 functions that wraps the 
+al_create_display(), al_destroy_display(), al_get_new_display_flags(), al_set_new_diplay_flas()
+and al_get_new_display_option() functions.
+
+The generated code will be as in the next example
+
+.. code-block:: none
+
+	RING_FUNC(ring_al_create_display)
+	{
+		if ( RING_API_PARACOUNT != 2 ) {
+			RING_API_ERROR(RING_API_MISS2PARA);
+			return ;
+		}
+		if ( ! RING_API_ISNUMBER(1) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		if ( ! RING_API_ISNUMBER(2) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		RING_API_RETCPOINTER(al_create_display( (int ) RING_API_GETNUMBER(1),
+					 (int ) RING_API_GETNUMBER(2)),"ALLEGRO_DISPLAY");
+	}
+
+
+	RING_FUNC(ring_al_destroy_display)
+	{
+	  if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	  }
+	  if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	  }
+	  al_destroy_display((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"));
+	}
+
+
+	RING_FUNC(ring_al_get_new_display_flags)
+	{
+		if ( RING_API_PARACOUNT != 0 ) {
+			RING_API_ERROR(RING_API_BADPARACOUNT);
+			return ;
+		}
+		RING_API_RETNUMBER(al_get_new_display_flags());
+	}
+
+
+	RING_FUNC(ring_al_set_new_display_flags)
+	{
+		if ( RING_API_PARACOUNT != 1 ) {
+			RING_API_ERROR(RING_API_MISS1PARA);
+			return ;
+		}
+		if ( ! RING_API_ISNUMBER(1) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		al_set_new_display_flags( (int ) RING_API_GETNUMBER(1));
+	}
+
+
+	RING_FUNC(ring_al_get_new_display_option)
+	{
+		if ( RING_API_PARACOUNT != 2 ) {
+			RING_API_ERROR(RING_API_MISS2PARA);
+			return ;
+		}
+		if ( ! RING_API_ISNUMBER(1) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		if ( ! RING_API_ISSTRING(2) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		RING_API_RETNUMBER(al_get_new_display_option( (int ) RING_API_GETNUMBER(1),
+					RING_API_GETINTPOINTER(2)));
+		RING_API_ACCEPTINTVALUE(2) ;
+	}
+
+from the previous example we can see how much of time and effort is saved using the Code Generator.
+
+.. index:: 
+	pair: Code Generator; Adding code to the generated code
+
+Adding code to the generated code
+=================================
+	
+* To generate code directly type it between <code> and </code>
+
+Example :
+
+.. code-block:: none
+
+	<code>
+		/* some C code will be written here */
+	</code>
+
+We use this feature when we need to do something without the help of the code generator. for
+example including header files and defining constants using Macro.
+
+.. index:: 
+	pair: Code Generator; Prefix for Functions Names
+
+Prefix for Functions Names 
+==========================
+
+* To determine a prefix in all of the functions names type it between <funcstart> and </funcstart>
+	for example when we wrap the Allegro game programming library and we need all of the library 
+	functions to start with "al" we type the next code in the configuration file
+
+.. code-block:: none
+
+	<funcstart>
+	al
+	</funcstart>
+
+.. index:: 
+	pair: Code Generator; Wrap structures
+
+Generate function to wrap structures
+====================================
+
+* To generate functions that wrap structures (create/delete/get structure members)
+just type the structures names between  <struct> and </struct> also after the structure name
+you can type the structure members between { } separated by comma.
+
+Example 
+
+.. code-block:: none
+
+	<struct>
+	ALLEGRO_COLOR
+	ALLEGRO_EVENT { type , keyboard.keycode , mouse.x , mouse.y }
+	</struct>
+
+from the previous example we will generate two function to create/delete the structure ALLEGRO_COLOR
+Also we will generate two functions to create/delete the structure ALLEGRO_EVENT and four functions
+to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mouse.y).
+
+.. index:: 
+	pair: Code Generator; Register New Functions
+
+Register New Functions
+======================
+
+We can register functions by typing the function prototype between <register> and </register>
+We need this feature only when we don't provide the function prototype as input directly where
+we need to write the code of this function.
+
+Example:
+
+.. code-block:: none
+
+	<register>
+	void al_exit(void)
+	</register>
+
+	<code>
+	RING_FUNC(ring_al_exit)
+	{
+		if ( RING_API_PARACOUNT != 0 ) {
+			RING_API_ERROR(RING_API_BADPARACOUNT);
+			return ;
+	}
+	exit(0);
+	}
+	</code>
+
+In the previous example we register the al_exit() function. This function is not part of the Allegro
+Library, it's just an extra function that we need to add. Then the code if this function is written
+inside <code> and </code>. This function call the exit() function from the C language library.
+
+.. index:: 
+	pair: Code Generator; Comments in configuration file
+
+Writing comments in the configuration file
+==========================================
+
+* To type comments just type it between <comment> and </comment>
+
+Example:
+
+.. code-block:: none
+
+	<comment>
+	configuration files
+	</comment>
+
+.. index:: 
+	pair: Code Generator; Executing code during code generation
+
+Executing code during code generation
+=====================================
+
+* To ask from the code generator to execute Ring code during reading the configuration file, just 
+write the code between <runcode> and </runcode>
+
+Example:
+
+.. code-block:: none
+
+	<runcode>
+	aNumberTypes + "al_fixed"
+	</runcode>
+
+The previoud line of code add the string "al_fixed" to the list aNumberTypes, This list contains 
+types that can be considered as numbers when the code generator find it in the function prototype.
+
+.. index:: 
+	pair: Code Generator; Allegro configuration file
+
+Configuration file for the Allegro Library
+==========================================
+
+The next configuration file enable us to use the Allegro library functions.
+The configuration file size is less than 1000 lines. when the code generator take this file as input
+the generated source code file in the C language will be 12000 lines of code!
+
+We can see this configuration file as a complete example about using the code generator
+Also we can use it to know the functions that can be used from RingAllegro when you use it
+to create 2D games!
+
+.. code-block:: none
+
+	<code>
+	#define ALLEGRO_NO_MAGIC_MAIN
+
+	#include <allegro5/allegro.h>
+	#include "allegro5/allegro_image.h"
+	#include <allegro5/allegro_font.h>
+	#include <allegro5/allegro_ttf.h>
+	#include <allegro5/allegro_audio.h>
+	#include <allegro5/allegro_acodec.h>
+	#include <allegro5/allegro_opengl.h>
+	#include <allegro5/allegro_direct3d.h>
+	#include <allegro5/allegro_color.h>
+	#include <allegro5/allegro_memfile.h>
+	#include "allegro5/allegro_native_dialog.h"
+	#include <allegro5/allegro_physfs.h>
+	#include <allegro5/allegro_primitives.h>
+	</code>
+
+	<funcstart>
+	al
+	</funcstart>
+
+	<struct>
+	ALLEGRO_EVENT { type , keyboard.keycode , mouse.x , mouse.y }
+	ALLEGRO_TIMEOUT
+	ALLEGRO_SAMPLE_ID
+	ALLEGRO_COLOR
+	</struct>
+
+	<register>
+	void al_exit(void)
+	</register>
+
+	<code>
+	RING_FUNC(ring_al_exit)
+	{
+		if ( RING_API_PARACOUNT != 0 ) {
+			RING_API_ERROR(RING_API_BADPARACOUNT);
+			return ;
+		}
+		exit(0);
+	}
+	</code>
+
+	int al_init(void)
+
+	<comment>
+	configuration files
+	</comment>
+
+	<runcode>
+	aNumberTypes + "al_fixed"
+	</runcode>
+
+	ALLEGRO_CONFIG *al_create_config(void)
+	void al_destroy_config(ALLEGRO_CONFIG *config)
+	ALLEGRO_CONFIG *al_load_config_file(const char *filename)
+	ALLEGRO_CONFIG *al_load_config_file_f(ALLEGRO_FILE *file)
+	bool al_save_config_file(const char *filename, const ALLEGRO_CONFIG *config)
+	bool al_save_config_file_f(ALLEGRO_FILE *file, const ALLEGRO_CONFIG *config)
+	void al_add_config_section(ALLEGRO_CONFIG *config, const char *name)
+
+.. note:: 
+	we just provided part of the configuration file, for complete copy check the Ring source
+ 	code distribution.
+
+.. index:: 
+	pair: Code Generator; Threads Support
+
+Threads Support
+===============
+
+Next, another part of the configutaiton file, it's important because we can learn from it how to add
+threads to our Ring applications by using a threads library.
+
+The idea is using ring_vm_mutexfunctions() and ring_vm_runcodefromthread() to execute Ring code.
+
+.. code-block:: none
+
+	<comment>
+	Threads
+	</comment>
+
+	<code>
+	void *al_func_thread(ALLEGRO_THREAD *thread, void *pPointer) 
+	{  
+		List *pList;
+		VM *pVM;
+		const char *cStr;
+		pList = (List *) pPointer ;
+		pVM = (VM *) ring_list_getpointer(pList,2);
+		cStr = ring_list_getstring(pList,1);
+		ring_vm_runcodefromthread(pVM,cStr);	
+		ring_list_delete(pList);
+		return NULL;
+	}
+
+	RING_FUNC(ring_al_create_thread)
+	{
+		ALLEGRO_THREAD *pThread;
+		List *pList;
+		if ( RING_API_PARACOUNT != 1 ) {
+			RING_API_ERROR(RING_API_MISS1PARA);
+			return ;
+		}
+		if ( ! RING_API_ISSTRING(1) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}	
+		pList = ring_list_new(0);
+		ring_list_addstring(pList,RING_API_GETSTRING(1));
+		ring_list_addpointer(pList,pPointer);
+		ring_vm_mutexfunctions((VM *) pPointer,al_create_mutex,
+			al_lock_mutex,al_unlock_mutex,al_destroy_mutex);
+		pThread = al_create_thread(al_func_thread, pList);
+		al_start_thread(pThread);
+		RING_API_RETCPOINTER(pThread,"ALLEGRO_THREAD");	
+	}
+
+	RING_FUNC(ring_al_run_detached_thread)
+	{
+		List *pList;
+		if ( RING_API_PARACOUNT != 1 ) {
+			RING_API_ERROR(RING_API_MISS1PARA);
+			return ;
+		}
+		if ( ! RING_API_ISSTRING(1) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}	
+		pList = ring_list_new(0);
+		ring_list_addstring(pList,RING_API_GETSTRING(1));
+		ring_list_addpointer(pList,pPointer);
+		ring_vm_mutexfunctions((VM *) pPointer,al_create_mutex,
+			al_lock_mutex,al_unlock_mutex,al_destroy_mutex);
+		al_run_detached_thread(al_func_thread, pList);
+	}
+	</code>
+
+	<register>
+	ALLEGRO_THREAD *al_create_thread(void)
+	void al_run_detached_thread(void)
+	</register>
+
+	void al_start_thread(ALLEGRO_THREAD *thread)
+	void al_join_thread(ALLEGRO_THREAD *thread, void **ret_value)
+	void al_set_thread_should_stop(ALLEGRO_THREAD *thread)
+	bool al_get_thread_should_stop(ALLEGRO_THREAD *thread)
+	void al_destroy_thread(ALLEGRO_THREAD *thread)
+	ALLEGRO_MUTEX *al_create_mutex(void)
+	ALLEGRO_MUTEX *al_create_mutex_recursive(void)
+	void al_lock_mutex(ALLEGRO_MUTEX *mutex)
+	void al_unlock_mutex(ALLEGRO_MUTEX *mutex)
+	void al_destroy_mutex(ALLEGRO_MUTEX *mutex)
+	ALLEGRO_COND *al_create_cond(void)
+	void al_destroy_cond(ALLEGRO_COND *cond)
+	void al_wait_cond(ALLEGRO_COND *cond, ALLEGRO_MUTEX *mutex)
+
+.. index:: 
+	pair: Code Generator; Wrapping C++ Classes
+
+Code Generator Rules for Wrapping C++ Classes
+==============================================
+
+* We can define classes between <class> and </class>
+* Between <class> and <class> we set attributes like 
+  "name, nonew, para, parent, codename, passvmpointer and abstract"
+* we set the attributes using the style attributename:value or attributename only if no values
+  are required
+* The "name" attribute determine the class name in C++ code and this name will be the default name
+  in the Ring code
+* The nonew instruction means that we don't need new/delete methods
+* The parent attribute determine the parent class name
+* The codename attribute determine another class name in C++ code 
+* The passvmpoint instruction means passing the Ring VM pointer to the class constructor when 
+  we create new objects, this happens when we set the codename attribute to a class the we will define
+  and this class need the Virtual Machine pointer (for example to use it to execute Ring code from C++
+  code).
+* The abstract instruction means that no new method is required for this class "no objects will be created".
+* Using <nodllstartup> we can avoid #include "ring.h", We need this to write our startup code. 
+* Using <libinitfunc> we can change the function name that register the library functions
+* Using <ignorecpointertype> we can ignore pointer type check   
+* Using the aStringTypes list when can defined new types that treated like const char *
+* Using the aBeforeReturn list when can define code that is inserted after the variable name when
+  we return that variable from a function
+* Using the aNewMethodName list we can define another method name to be used in Ring code when we
+  call the C++ method. this feature is required because some C++ method may be identical to Ring
+  Keywords like "load","next","end" and "done".
+
+Using configuration file that wrap C++ Library
+==============================================
+
+To run the code generator to generate code for using C++ library in the Ring application, we can do
+that as we did with using C libraries but here we will generate *.cpp file instead of *.c file. Also
+we will determine another file to be generated (*.ring). This file will contains classes in Ring code
+that wraps C++ functions for using C++ classes and objects.
+
+.. code-block:: none
+
+	ring parsec.ring qt.cf ring_qt.cpp ring_qt.ring
+
+
+.. index:: 
+	pair: Code Generator; Qt configuration file
+
+Configuration file for the Qt Framework
+=======================================
+
+The next configuration file is used to wrap many Qt classes 
+The configuration file is around 3500 lines and generate C++ code around 56000 lines and generate 
+also Ring code around 9000 lines.
+
+.. code-block:: none
+
+	<nodllstartup>
+
+	<libinitfunc> ring_qt_start
+
+	<ignorecpointertype>
+
+	<code>
+
+	extern "C" {
+		#include "ring.h"
+	}
+
+	#include "ring_qt.h"
+	#include "gpushbutton.h"
+	#include "gaction.h"
+	#include "glineedit.h"
+	#include "gtextedit.h"
+	#include "glistwidget.h"
+	#include "gtreeview.h"
+	#include "gtreewidget.h"
+	#include "gcombobox.h"
+	#include "gtabwidget.h"
+	#include "gtablewidget.h"
+	#include "gprogressbar.h"
+	#include "gspinbox.h"
+	#include "gslider.h"
+	#include "gdial.h"
+	#include "gwebview.h"
+	#include "gcheckbox.h"
+	#include "gradiobutton.h"
+	#include "gbuttongroup.h"
+	#include "gvideowidget.h"
+	#include "gtimer.h"
+	#include "gtcpserver.h"
+	#include "giodevice.h"
+	#include "gabstractsocket.h"
+	#include "gtcpsocket.h"
+	#include "gcolordialog.h"
+	#include "gallevents.h"
+	#include <QApplication>
+	#include <QObject>
+	#include <QWidget>
+	#include <QLabel>
+	#include <QPixmap>
+	#include <QIcon>
+	#include <QSize>
+	#include <QPushButton>
+	#include <QMainWindow>
+	#include <QVBoxLayout>
+	#include <QHBoxLayout>
+	#include <QLineEdit>
+	#include <QTextEdit>
+	#include <QListWidget>
+	#include <QTreeView>
+	#include <QDir>
+	#include <QFileSystemModel>
+	#include <QTreeWidget>
+	#include <QTreeWidgetItem>
+	#include <QComboBox>
+	#include <QVariant>
+	#include <QMenuBar>
+	#include <QMenu>
+	#include <QToolBar>
+	#include <QMainWindow>
+	#include <QStatusBar>
+	#include <QDockWidget>
+	#include <QTabWidget>
+	#include <QTableWidget>
+	#include <QTableWidgetItem>
+	#include <QSizePolicy>
+	#include <QFrame>
+	#include <QAbstractScrollArea>
+	#include <QAbstractItemView>
+	#include <QProgressBar>
+	#include <QSpinBox>
+	#include <QSlider>
+	#include <QAbstractSlider>
+	#include <QDateEdit>
+	#include <QDateTimeEdit>
+	#include <QAbstractSpinBox>
+	#include <QDial>
+	#include <QWebView>
+	#include <QUrl>
+	#include <QCheckBox>
+	#include <QRadioButton>
+	#include <QButtonGroup>
+	#include <QMediaPlayer>
+	#include <QMediaPlaylist>
+	#include <QVideoWidget>
+	#include <QPrinter>
+	#include <QAction>
+	#include <QEvent>
+	#include <QMessageBox>
+	#include <QTimer>
+	#include <QFileDialog>
+	#include <QPainter>
+	#include <QPicture>
+	#include <QPen>
+	#include <QColor>
+	#include <QPrinter>
+	#include <QFont>
+	#include <QWebSettings>
+	#include <QBrush>
+	#include <QByteArray>
+	#include <QIODevice>
+	#include <QAbstractSocket>
+	#include <QTcpSocket>
+	#include <QTcpServer>
+	#include <QNetworkProxy>
+	#include <QHostAddress>
+	#include <QHostInfo>
+	#include <QList>
+	#include <QFileInfo>
+	#include <QDirModel>
+	#include <QModelIndex>
+	#include <QFontDialog>
+	#include <QDialog>
+	#include <QTextCursor>
+	#include <QTextBlock>
+	#include <QTextDocumentFragment>
+	#include <QColorDialog>
+	#include <QHeaderView>
+	#include <QStringList>
+	#include <QKeySequence>
+	#include <QLCDNumber>
+	#include <QInputDialog>
+	#include <QDesktopWidget>
+	#include <QRect>
+	#include <QTextDocument>
+
+	extern "C" {
+
+		#define RING_DLL __declspec(dllexport)
+
+		RING_DLL void ringlib_init(RingState *pRingState)
+		{
+
+			new QApplication(pRingState->argc,pRingState->argv);
+			ring_qt_start(pRingState) ;
+		}
+
+	}
+	</code>
+
+
+	<runcode>
+	aStringTypes + "QString"
+	aBeforeReturn + ["QString",".toStdString().c_str()"]
+	aNewMethodName + ["QWebView","load","loadpage"]
+	aNewMethodName + ["QMediaPlaylist","load","loadfile"]
+	aNewMethodName + ["QMediaPlaylist","next","movenext"]
+	aNewMethodName + ["QPainter","end","endpaint"]
+	aNewMethodName + ["QPicture","load","loadfile"]
+	aNewMethodName + ["QLineEdit","end","endtext"]
+	aNewMethodName + ["QDialog","done","donedialog"]
+	aNewMethodName + ["QTextDocument","end","enddoc"]
+	aNewMethodName + ["QTextBlock","next","nextblock"]
+	</runcode>
+
+	<class>
+	name: qApp
+	nonew
+	</class>
+
+	<register>
+	void exec(void)
+	void quit(void)
+	void processEvents(void)
+	</register>
+
+	<code>
+
+	RING_FUNC(ring_qApp_quit)
+	{
+		qApp->quit();
+	}
+
+	RING_FUNC(ring_qApp_exec)
+	{
+		qApp->exec();
+	}
+
+	RING_FUNC(ring_qApp_processEvents)
+	{
+		qApp->processEvents();
+	}
+
+	</code>
+
+	<class>
+	name: QObject
+	para: void
+	</class>
+
+	bool blockSignals(bool block)
+	QObjectList children(void)
+	void dumpObjectInfo(void)
+	void dumpObjectTree(void)
+	bool inherits(const char *className)
+	void installEventFilter(QObject *filterObj)
+	bool isWidgetType(void)
+	void killTimer(int id)
+	void moveToThread(QThread *targetThread)
+	QString objectName(void)
+	QObject *parent(void)
+	QVariant property(const char *name)
+	void removeEventFilter(QObject *obj)
+	void setObjectName(QString)
+	void setParent(QObject *parent)
+	bool setProperty(const char *name, QVariant)
+	bool signalsBlocked(void)
+	int startTimer(int interval)
+	QThread *thread(void)
+	void deleteLater(void)
+
+	<class>
+	name: QWidget
+	para: void
+	parent: QObject
+	</class>
+
+	bool acceptDrops(void)
+	QString accessibleDescription(void)
+	QString accessibleName(void)
+	void activateWindow(void)
+	void addAction(QAction *action)
+	void adjustSize(void)
+	bool autoFillBackground(void)
+	int backgroundRole(void)
+	QSize baseSize(void)
+	QWidget *childAt(int x, int y)
+	QRect childrenRect(void)
+	QRegion childrenRegion(void)
+	void clearFocus(void)
+	void clearMask(void)
+	QMargins contentsMargins(void)
+	QRect contentsRect(void)
+	int contextMenuPolicy(void)
+	QCursor cursor(void)
+	int effectiveWinId(void)
+	void ensurePolished(void)
+	int focusPolicy(void)
+	QWidget *focusProxy(void)
+	QWidget *focusWidget(void)
+	QFont font(void)
+	QFontInfo fontInfo(void)
+	QFontMetrics fontMetrics(void)
+	int foregroundRole(void)
+	QRect frameGeometry(void)
+	QSize frameSize(void)
+	QRect geometry(void)
+	void getContentsMargins(int *left, int *top, int *right, int *bottom)
+	void grabGesture(int gesture, int flags)
+	void grabKeyboard(void)
+	void grabMouse(void)
+	int grabShortcut(QKeySequence , int context)
+	QGraphicsEffect *graphicsEffect(void)
+	QGraphicsProxyWidget *graphicsProxyWidget(void)
+	bool hasFocus(void)
+	bool hasMouseTracking(void)
+	int height(void)
+	int heightForWidth(int w)
+	int inputMethodHints(void)
+	QVariant inputMethodQuery(int query)
+	void insertAction(QAction *before, QAction *action)
+	bool isActiveWindow(void)
+	bool isAncestorOf(QWidget *child)
+	bool isEnabled(void)
+	bool isEnabledTo(QWidget *ancestor)
+	bool isFullScreen(void)
+	bool isHidden(void)
+	bool isMaximized(void)
+	bool isMinimized(void)
+	bool isModal(void)
+	bool isVisible(void)
+	bool isVisibleTo(QWidget *ancestor)
+	bool isWindow(void)
+	bool isWindowModified(void)
+	QLayout *layout(void)
+	int layoutDirection(void)
+	QLocale locale(void)
+	QPoint mapFrom(QWidget *parent, QPoint)
+	QPoint mapFromGlobal(QPoint)
+	QPoint mapFromParent(QPoint)
+	QPoint mapTo(QWidget *parent, QPoint)
+	QPoint mapToGlobal(QPoint pos)
+	QPoint mapToParent(QPoint pos)
+	QRegion mask(void)
+	int maximumHeight(void)
+	QSize maximumSize(void)
+	int maximumWidth(void)
+	int minimumHeight(void)
+	QSize minimumSize(void)
+	int minimumWidth(void)
+	void move(int x, int y)
+	QWidget *nativeParentWidget(void)
+	QWidget *nextInFocusChain(void)
+	QRect normalGeometry(void)
+	void overrideWindowFlags(int flags)
+	QPalette palette(void)
+	QWidget *parentWidget(void)
+	QPoint pos(void)
+	QWidget *previousInFocusChain(void)
+	QRect rect(void)
+	void releaseKeyboard(void)
+	void releaseMouse(void)
+	void releaseShortcut(int id)
+	void removeAction(QAction *action)
+	void render(QPaintDevice *target, QPoint,QRegion, int)
+	void repaint(int x, int y, int w, int h)
+	void resize(int w, int h)
+	bool restoreGeometry(QByteArray)
+	QByteArray saveGeometry(void)
+	void scroll(int dx, int dy)
+	void setAcceptDrops(bool on)
+	void setAccessibleDescription(QString)
+	void setAccessibleName(QString)
+	void setAttribute(int attribute, bool on)
+	void setAutoFillBackground(bool enabled)
+	void setBackgroundRole(int role)
+	void setBaseSize(int basew, int baseh)
+	void setContentsMargins(int left, int top, int right, int bottom)
+	void setContextMenuPolicy(int policy)
+	void setCursor(QCursor)
+	void setFixedHeight(int h)
+	void setFixedSize(int w, int h)
+	void setFixedWidth(int w)
+	void setFocus(int reason)
+	void setFocusPolicy(int policy)
+	void setFocusProxy(QWidget *w)
+	void setFont(QFont)
+	void setForegroundRole(int role)
+	void setGeometry(int x, int y, int w, int h)
+	void setGraphicsEffect(QGraphicsEffect *effect)
+	void setInputMethodHints(int hints)
+	void setLayout(QLayout *layout)
+	void setLayoutDirection(int direction)
+	void setLocale(QLocale)
+	void setMask(QBitmap)
+	void setMaximumHeight(int maxh)
+	void setMaximumSize(int maxw, int maxh)
+	void setMaximumWidth(int maxw)
+	void setMinimumHeight(int minh)
+	void setMinimumSize(int minw, int minh)
+	void setMinimumWidth(int minw)
+	void setMouseTracking(bool enable)
+	void setPalette(QPalette)
+	void setParent(QWidget *parent)
+	void setShortcutAutoRepeat(int id, bool enable)
+	void setShortcutEnabled(int id, bool enable)
+	void setSizeIncrement(int w, int h)
+	void setSizePolicy(int horizontal, int vertical)
+	void setStatusTip(QString)
+	void setStyle(QStyle *style)
+	void setToolTip(QString)
+	void setUpdatesEnabled(bool enable)
+	void setWhatsThis(QString)
+	void setWindowFilePath(QString)
+	void setWindowFlags(int type)
+	void setWindowIcon(QIcon)
+	void setWindowIconText(QString)
+	void setWindowModality(int windowModality)
+	void setWindowOpacity(double level)
+	void setWindowRole(QString)
+	void setWindowState(int windowState)
+	QSize size(void)
+	QSize sizeIncrement(void)
+	QSizePolicy sizePolicy(void)
+	void stackUnder(QWidget *w)
+	QString statusTip(void)
+	QStyle *style(void)
+	QString styleSheet(void)
+	bool testAttribute(int attribute)
+	QString toolTip(void)
+	bool underMouse(void)
+	void ungrabGesture(int gesture)
+	void unsetCursor(void)
+	void unsetLayoutDirection(void)
+	void unsetLocale(void)
+	void update(int x, int y, int w, int h)
+	void updateGeometry(void)
+	bool updatesEnabled(void)
+	QRegion visibleRegion(void)
+	QString whatsThis(void)
+	int width(void)
+	int winId(void)
+	QWidget *window(void)
+	QString windowFilePath(void)
+	int windowFlags(void)
+	QIcon windowIcon(void)
+	QString windowIconText(void)
+	int windowModality(void)
+	double windowOpacity(void)
+	QString windowRole(void)
+	int windowState(void)
+	QString windowTitle(void)
+	int windowType(void)
+	int x(void)
+	int y(void)
+	bool close(void)
+	void hide(void)
+	void lower(void)
+	void raise(void)
+	void setDisabled(bool disable)
+	void setEnabled(bool)
+	void setHidden(bool hidden)
+	void setStyleSheet(QString)
+	void setWindowModified(bool)
+	void setWindowTitle(QString)
+	void show(void)
+	void showFullScreen(void)
+	void showMaximized(void)
+	void showMinimized(void)
+	void showNormal(void)
+	QWidget *find(int id)
+	QWidget *keyboardGrabber(void)
+	QWidget *mouseGrabber(void)
+	void setTabOrder(QWidget *first, QWidget *second)
+
+	<class>
+	name: QLabel
+	para: QWidget *
+	parent: QWidget
+	</class>
+
+	int alignment(void)
+	QWidget *buddy(void)
+	bool hasScaledContents(void)
+	bool hasSelectedText(void)
+	int indent(void)
+	int margin(void)
+	QMovie *movie(void)
+	bool openExternalLinks(void)
+	QPicture *picture(void)
+	QPixmap *pixmap(void)
+	QString selectedText(void)
+	int selectionStart(void)
+	void setAlignment(int)
+	void setBuddy(QWidget *buddy)
+	void setIndent(int)
+	void setMargin(int)
+	void setOpenExternalLinks(bool open)
+	void setScaledContents(bool)
+	void setSelection(int start, int length)
+	void setTextFormat(int)
+	void setTextInteractionFlags(int flags)
+	void setWordWrap(bool on)
+	QString text(void)
+	int textFormat(void)
+	int textInteractionFlags(void)
+	bool wordWrap(void)
+	void clear(void)
+	void setMovie(QMovie *movie)
+	void setNum(double num)
+	void setPicture(QPicture)
+	void setPixmap(QPixmap)
+	void setText(QString)
+
+	<class>
+	name: QPushButton
+	para: QWidget *
+	parent: QWidget
+	codename: GPushButton
+	passvmpointer
+	</class>
+
+	void setText(const char *)
+	void setClickEvent(const char *)
+	void setIcon(QIcon)
+	void setIconSize(QSize)
+
+	<class>
+	name: QLineEdit
+	para: QWidget *
+	parent: QWidget
+	codename: GLineEdit
+	passvmpointer
+	</class>
+
+	int alignment(void)
+	void backspace(void)
+	QCompleter *completer(void)
+	QMenu *createStandardContextMenu(void)
+	void cursorBackward(bool mark, int steps)
+	void cursorForward(bool mark, int steps)
+	int cursorMoveStyle(void)
+	int cursorPosition(void)
+	int cursorPositionAt(QPoint)
+	void cursorWordBackward(bool mark)
+	void cursorWordForward(bool mark)
+	void del(void)
+	void deselect(void)
+	QString displayText(void)
+	bool dragEnabled(void)
+	int echoMode(void)
+	void end(bool mark)
+	void getTextMargins(int *left, int *top, int *right, int *bottom)
+	bool hasAcceptableInput(void)
+	bool hasFrame(void)
+	bool hasSelectedText(void)
+	void home(bool mark)
+	QString inputMask(void)
+	void insert(QString)
+	bool isModified(void)
+	bool isReadOnly(void)
+	bool isRedoAvailable(void)
+	bool isUndoAvailable(void)
+	int maxLength(void)
+	QString placeholderText(void)
+	QString selectedText(void)
+	int selectionStart(void)
+	void setAlignment(int flag)
+	void setCompleter(QCompleter *c)
+	void setCursorMoveStyle(int style)
+	void setCursorPosition(int)
+	void setDragEnabled(bool b)
+	void setEchoMode(int)
+	void setFrame(bool)
+	void setInputMask(QString)
+	void setMaxLength(int)
+	void setModified(bool)
+	void setPlaceholderText(QString)
+	void setReadOnly(bool)
+	void setSelection(int start, int length)
+	void setTextMargins(int left, int top, int right, int bottom)
+	void setValidator(QValidator *v)
+	QString text(void)
+	QMargins textMargins(void)
+	QValidator *validator(void)
+
+	void clear(void)
+	void copy(void) 
+	void cut(void)
+	void paste(void)
+	void redo(void)
+	void selectAll(void)
+	void setText(QString)
+	void undo(void)
+
+	void setTextChangedEvent(const char *)
+	void setcursorPositionChangedEvent(const char *)
+	void seteditingFinishedEvent(const char *)
+	void setreturnPressedEvent(const char *)
+	void setselectionChangedEvent(const char *)
+	void settextEditedEvent(const char *)
+
+.. note:: 
+
+	Most of the content of the previous configuration file is removed from this documentation, 
+        for a complete version see the Ring source code distribution.
