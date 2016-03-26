@@ -10,6 +10,10 @@
 				[
 					'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
 					'<img src="numtostr.jpg" width="40%">'
+				],
+				[
+					'<a href="https://github.com/MajdiSobain/RingAllegro_SquaresPuzzle" target="_blank">Squares Puzzle</a>',
+					'<img src="squarespuzzle.png" width="40%">'
 				]
 			    ]
                  ],
