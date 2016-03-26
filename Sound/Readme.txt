@@ -1,0 +1,1 @@
+In this folder we have the voices files for the Ring programming language.
