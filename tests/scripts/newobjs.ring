@@ -1,0 +1,324 @@
+aList = []
+for r = 1 to 300
+	aList + "test" + r
+next
+
+func main
+	t1 = clock()
+	o0 = new point {
+		for t = 1 to 50			
+			o1 = point() {x=t}
+			#o1 = new point {x=t}
+		next
+	}
+	see clock()-t1+nl
+	see o1.x + nl
+
+Class Base
+	x y z
+	myobjs = []
+	func point    	
+		myobjs + new point
+		return myobjs[len(myobjs)]
+
+Class Point from Base
+	addattribute(self,aList)
+	func print
+		see x + nl + y + z + nl
+	func f1
+	func f2
+	func f3
+	func f4
+	func f5
+	func f6
+	func f7
+	func f8
+	func f9
+	func f10
+	func f11
+	func f12
+	func f13 func f14 func f15 func f16
+	func f17 func f18 func f19 func f20
+	func f21
+	func f22
+	func f23
+	func f24
+	func f25
+	func f26
+	func f27
+	func f28
+	func f29
+	func f30
+	func f31
+	func f32
+	func f33
+func f34
+func f35
+func f36
+func f37
+func f38
+func f39
+func f40
+func f41
+func f42
+func f43
+func f44
+func f45
+func f46
+func f47
+func f48
+func f49
+func f50
+func f51
+func f52
+func f53
+func f54
+func f55
+func f56
+func f57
+func f58
+func f59
+func f60
+func f61
+func f62
+func f63
+func f64
+func f65
+func f66
+func f67
+func f68
+func f69
+func f70
+func f71
+func f72
+func f73
+func f74
+func f75
+func f76
+func f77
+func f78
+func f79
+func f80
+func f81
+func f82
+func f83
+func f84
+func f85
+func f86
+func f87
+func f88
+func f89
+func f90
+func f91
+func f92
+func f93
+func f94
+func f95
+func f96
+func f97
+func f98
+func f99
+func f100
+func f101
+func f102
+func f103
+func f104
+func f105
+func f106
+func f107
+func f108
+func f109
+func f110
+func f111
+func f112
+func f113
+func f114
+func f115
+func f116
+func f117
+func f118
+func f119
+func f120
+func f121
+func f122
+func f123
+func f124
+func f125
+func f126
+func f127
+func f128
+func f129
+func f130
+func f131
+func f132
+func f133
+func f134
+func f135
+func f136
+func f137
+func f138
+func f139
+func f140
+func f141
+func f142
+func f143
+func f144
+func f145
+func f146
+func f147
+func f148
+func f149
+func f150
+func f151
+func f152
+func f153
+func f154
+func f155
+func f156
+func f157
+func f158
+func f159
+func f160
+func f161
+func f162
+func f163
+func f164
+func f165
+func f166
+func f167
+func f168
+func f169
+func f170
+func f171
+func f172
+func f173
+func f174
+func f175
+func f176
+func f177
+func f178
+func f179
+func f180
+func f181
+func f182
+func f183
+func f184
+func f185
+func f186
+func f187
+func f188
+func f189
+func f190
+func f191
+func f192
+func f193
+func f194
+func f195
+func f196
+func f197
+func f198
+func f199
+func f200
+func f201
+func f202
+func f203
+func f204
+func f205
+func f206
+func f207
+func f208
+func f209
+func f210
+func f211
+func f212
+func f213
+func f214
+func f215
+func f216
+func f217
+func f218
+func f219
+func f220
+func f221
+func f222
+func f223
+func f224
+func f225
+func f226
+func f227
+func f228
+func f229
+func f230
+func f231
+func f232
+func f233
+func f234
+func f235
+func f236
+func f237
+func f238
+func f239
+func f240
+func f241
+func f242
+func f243
+func f244
+func f245
+func f246
+func f247
+func f248
+func f249
+func f250
+func f251
+func f252
+func f253
+func f254
+func f255
+func f256
+func f257
+func f258
+func f259
+func f260
+func f261
+func f262
+func f263
+func f264
+func f265
+func f266
+func f267
+func f268
+func f269
+func f270
+func f271
+func f272
+func f273
+func f274
+func f275
+func f276
+func f277
+func f278
+func f279
+func f280
+func f281
+func f282
+func f283
+func f284
+func f285
+func f286
+func f287
+func f288
+func f289
+func f290
+func f291
+func f292
+func f293
+func f294
+func f295
+func f296
+func f297
+func f298
+func f299
+func f300
+
+
+
