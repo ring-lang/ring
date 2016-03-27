@@ -1,0 +1,1 @@
+see hex2str("1b") + "[31m hello world"
