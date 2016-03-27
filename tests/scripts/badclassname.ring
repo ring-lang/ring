@@ -1,0 +1,1 @@
+o1 = new point
