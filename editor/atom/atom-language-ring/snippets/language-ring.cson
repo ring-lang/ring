@@ -1,0 +1,14 @@
+'.source.ring':
+  'if_else_end':
+    'prefix': 'ife'
+    'body': 'IF ${1:condition}\n\t$2\nELSE\n\t$3\nOK'
+  'if_end':
+    'prefix': 'if'
+    'body': 'IF ${1:condition}\n\t$0\nOK'
+  'case_end':
+    'prefix': 'on'
+    'body': 'SWITCH\nON ${1:condition}\n$0\nON ${2:condition}\n$1\nOTHER\n$3OFF'
+  'switch':
+    'prefix': 'switch'
+    'body': 'SWITCH ${1:condition}\n   ON ${2:value}\n   ${3:statement}\n   EXIT\nON ${4:value}\n   ${5:statement}\n   EXIT\nOFF\n'
+  

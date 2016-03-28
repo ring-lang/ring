@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable language-ring': 'language-ring:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'language-ring'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'language-ring:toggle' }
+      ]
+    ]
+  }
+]

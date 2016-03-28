@@ -1,0 +1,15 @@
+{
+  "name": "language-ring",
+  "main": "./lib/language-ring",
+  "version": "1.0.0",
+  "description": "ring programming language",
+  "activationEvents": [
+    "language-ring:toggle"
+  ],
+  "repository": "https://github.com/ring-lang/ring.git",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {}
+}

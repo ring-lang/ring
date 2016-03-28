@@ -1,0 +1,20 @@
+'.source.ring, .source.ring\\+\\+, .source.objc, .source.objc\\+\\+':
+  'editor':
+    'commentStart': '// '
+    'increaseIndentPattern': '(?x)
+       ^ .* \\{ [^}"\']* $
+      |^ \\s* (public|private|protected): \\s* $
+      |^ \\s* @(public|private|protected) \\s* $
+      |^ \\s* \\{ \\} $
+      |^ \\s* if \\s* \\( (?!.*?(\\belse\\b|;\\s*$))
+      |^ \\s* \\}? \\s* else \\s*$
+      |^ \\s* (for|while) \\s* \\(
+      '
+    'decreaseIndentPattern': '(?x)
+       ^ \\s* ( (?! \\S.* /[*] ) .* [*]/ \\s* )? \\}
+      |^ \\s* (public|private|protected): \\s* $
+      |^ \\s* @(public|private|protected) \\s* $
+      '
+'.source.ring, .source.ring\\+\\+':
+  'editor':
+    'foldEndPattern': '(?<!\\*)\\*\\*/|^\\s*\\}'
