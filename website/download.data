@@ -49,6 +49,11 @@
 					'Ring extension for Geany',
 					'<a href="https://github.com/magdy-ragab/Geany-support-for-Ring-programming-language" target="_blank">Download</a>',
 					'<img src="ringgeany.png" width="40%">'
+				 ],
+				 				 [
+					'Ring extension for Atom',
+					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_AtomEditor_Language_Ring.zip/download" target="_blank">Download</a>',
+					'<img src="ringatom.jpg" width="40%">'
 				 ]
 				]
 		]
