@@ -14,8 +14,3 @@ Just Copy the files to the next path
 The file ring.sublime-build includes the next line
 "cmd": ["C:\\ring\\ring.exe","$file"],
 You can modify it according to the ring.exe path in your machine 
-
-Greetings,
-Mahmoud Fayed
-http://www.facebook.com/mahmoudfayed1986
-msfclipper@yahoo.com
