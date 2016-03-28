@@ -1,0 +1,18 @@
+<h1>Listing Books</h1>
+ 
+<table>
+  <tr>
+    <th><%= mybook.title %> </th>
+    <th><%= mybook.content %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% for x in aBooks %> 
+  <tr>
+    <td> <%= x.title %> </td>
+    <td> <%= x.content %> </td>
+  </tr>
+<% next %>
+
+</table>
