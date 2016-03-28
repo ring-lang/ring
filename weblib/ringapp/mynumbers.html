@@ -1,0 +1,18 @@
+<h1>Listing Numbers</h1>
+ 
+<table>
+  <tr>
+    <th><%= myheader.cColumn1 %> </th>
+    <th><%= myheader.cColumn2 %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% for x in aNumbers %> 
+  <tr>
+    <td> <%= x.nValue %> </td>
+    <td> <%= x.nSquare %> </td>
+  </tr>
+<% next %>
+
+</table>
