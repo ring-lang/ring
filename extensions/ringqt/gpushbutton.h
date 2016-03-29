@@ -28,8 +28,8 @@ class GPushButton : public QPushButton
   public slots:
 
     void clickedSlot();
-	
+
 };
 
-#endif 
+#endif
 

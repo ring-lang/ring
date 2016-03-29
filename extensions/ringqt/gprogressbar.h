@@ -28,8 +28,8 @@ class GProgressBar : public QProgressBar
   public slots:
 
     void valueChangedSlot();
-	
+
 };
 
-#endif 
+#endif
 

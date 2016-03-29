@@ -28,8 +28,8 @@ class GSpinBox : public QSpinBox
   public slots:
 
     void valueChangedSlot();
-	
+
 };
 
-#endif 
+#endif
 

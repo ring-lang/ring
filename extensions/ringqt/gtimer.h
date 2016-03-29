@@ -28,8 +28,8 @@ class GTimer : public QTimer
   public slots:
 
     void timeoutSlot();
-	
+
 };
 
-#endif 
+#endif
 

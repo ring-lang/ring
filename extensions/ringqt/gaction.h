@@ -28,8 +28,8 @@ class GAction : public QAction
   public slots:
 
     void clickedSlot();
-	
+
 };
 
-#endif 
+#endif
 

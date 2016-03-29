@@ -18,21 +18,21 @@ class GTcpServer : public QTcpServer
     VM *pVM;
 
     char cacceptErrorEvent[100];
-char cnewConnectionEvent[100];
+    char cnewConnectionEvent[100];
 
 
     GTcpServer(QObject *parent,VM *pVM );
 
     void setacceptErrorEvent(const char *cStr);
-void setnewConnectionEvent(const char *cStr);
+    void setnewConnectionEvent(const char *cStr);
 
 
   public slots:
 
     void acceptErrorSlot();
-void newConnectionSlot();
-	
+    void newConnectionSlot();
+
 };
 
-#endif 
+#endif
 

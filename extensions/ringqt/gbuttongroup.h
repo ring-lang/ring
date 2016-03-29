@@ -18,24 +18,24 @@ class GButtonGroup : public QButtonGroup
     VM *pVM;
 
     char cbuttonClickedEvent[100];
-char cbuttonPressedEvent[100];
-char cbuttonReleasedEvent[100];
+    char cbuttonPressedEvent[100];
+    char cbuttonReleasedEvent[100];
 
 
     GButtonGroup(QObject *parent,VM *pVM );
 
     void setbuttonClickedEvent(const char *cStr);
-void setbuttonPressedEvent(const char *cStr);
-void setbuttonReleasedEvent(const char *cStr);
+    void setbuttonPressedEvent(const char *cStr);
+    void setbuttonReleasedEvent(const char *cStr);
 
 
   public slots:
 
     void buttonClickedSlot();
-void buttonPressedSlot();
-void buttonReleasedSlot();
-	
+    void buttonPressedSlot();
+    void buttonReleasedSlot();
+
 };
 
-#endif 
+#endif
 

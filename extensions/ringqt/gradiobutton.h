@@ -18,27 +18,27 @@ class GRadioButton : public QRadioButton
     VM *pVM;
 
     char cclickedEvent[100];
-char cpressedEvent[100];
-char creleasedEvent[100];
-char ctoggledEvent[100];
+    char cpressedEvent[100];
+    char creleasedEvent[100];
+    char ctoggledEvent[100];
 
 
     GRadioButton(QWidget *parent,VM *pVM );
 
     void setclickedEvent(const char *cStr);
-void setpressedEvent(const char *cStr);
-void setreleasedEvent(const char *cStr);
-void settoggledEvent(const char *cStr);
+    void setpressedEvent(const char *cStr);
+    void setreleasedEvent(const char *cStr);
+    void settoggledEvent(const char *cStr);
 
 
   public slots:
 
     void clickedSlot();
-void pressedSlot();
-void releasedSlot();
-void toggledSlot();
-	
+    void pressedSlot();
+    void releasedSlot();
+    void toggledSlot();
+
 };
 
-#endif 
+#endif
 
