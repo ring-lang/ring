@@ -1,3 +1,7 @@
+# Generate C++ Classes for RingQt Events
+# To execute : ring qtevents.ring
+# Author : Mahmoud Fayed <msfclipper@yahoo.com>
+
 aclasses = [
 		[	:name = "GPushButton" ,
 			:realname = "QPushButton" ,
