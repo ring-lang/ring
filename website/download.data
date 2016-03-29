@@ -1,16 +1,4 @@
-﻿aDownload = [["Documentation",[
-				 [
-					'Ring 1.0 Documentation (PDF)',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_RingDoc_1.0.pdf/download" target="_blank">Download</a>',
-					'<img src="book1.jpg" width="40%">'
-				 ],
-				 [
-					'Ring 1.0 Documentation (CHM)',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_RingDoc_1.0.chm/download" target="_blank">Download</a>',
-					'<img src="book2.jpg" width="40%">'
-				 ]
-			      ]
-		],
+﻿aDownload = [
 		["Binary Release",[
 				 [
 					'Ring 1.0 for Microsoft Windows',
@@ -23,6 +11,19 @@
 					'<img src="ringubuntu.jpg" width="40%">'
 				 ]
 				]
+		],
+		["Documentation",[
+						 [
+							'Ring 1.0 Documentation (PDF)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_RingDoc_1.0.pdf/download" target="_blank">Download</a>',
+							'<img src="book1.jpg" width="40%">'
+						 ],
+						 [
+							'Ring 1.0 Documentation (CHM)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_RingDoc_1.0.chm/download" target="_blank">Download</a>',
+							'<img src="book2.jpg" width="40%">'
+						 ]
+					      ]
 		],
 		["Libraries and Tools",[
 				 [
