@@ -6,10 +6,10 @@
   "activationEvents": [
     "language-ring:toggle"
   ],
-  "repository": "https://github.com/ring-lang/ring.git",
+  "repository": "https://github.com/MahmoudFayed/atom-language-ring.git",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {}
 }
