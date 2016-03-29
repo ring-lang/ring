@@ -1,0 +1,1 @@
+In this folder we store the binary files (Exeutable & DLL/So libraries).
