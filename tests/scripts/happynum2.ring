@@ -43,5 +43,3 @@ Func IsHappy n
    End
 
    Return True
-
-

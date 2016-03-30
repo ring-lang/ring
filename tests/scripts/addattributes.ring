@@ -13,7 +13,7 @@ o1.x = 22
 o1.y = 33
 o1.z = 33
 
-see o1  
+see o1
 
 package mytest
 

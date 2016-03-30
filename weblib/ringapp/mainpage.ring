@@ -8,14 +8,14 @@ Func MainPage
 		divstart([ :style = stylesizefull() + stylebackcolor("cyan") ])
 
 		boxstart()
-			text( "Main Menu" )
+			text( "Main Menu - Welcome!" )
 		boxend()
 
 		newline() newline()
 		text("Hello")	newline()
 		text( " Date : " + date() + " Time : " + Time())
 	 	newline() newline()
-		link([ :url = website+"?page=1", :title = "(1) HTTP GET" ]) 	
+		link([ :url = website+"?page=1", :title = "(1) HTTP GET" ])
 		newline()
 		link([ :url = website+"?page=3", :title = "(2) HTTP POST" ])
 	 	newline()
@@ -28,7 +28,7 @@ Func MainPage
 		link([ :url = website+"?page=10",:title = "(7) HTML Special Characters" ]) newline()
 		link([ :url = website+"?page=11",:title = "(8) Hash Functions"]) newline()
 		link([ :url = website+"?page=13",:title = "(9) Random Image" ]) newline()
-		link([ :url = website+"?page=14",:title = "(10) Web Page Content using Objects" ]) 
+		link([ :url = website+"?page=14",:title = "(10) Web Page Content using Objects" ])
 		newline()
 		link([ :url = website+"?page=15",:title = "(11) HTML Tables" ])
 		newline()
@@ -56,6 +56,5 @@ Func MainPage
 		newline()
 		newline()
 
-		divend()			
+		divend()
 	}
-	

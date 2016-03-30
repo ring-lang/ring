@@ -24,7 +24,7 @@ Class Message2 from Message
 		func sayhello2
 			see "before " + nl
 			for x in cName
-				see x + nl	
+				see x + nl
 			next
 			see "After" + nl
 
@@ -34,6 +34,6 @@ Class Message3 from Message2
 			sayhello()
 			sayhello2()
 		func print
-			see "Name : " + cName + nl 
-			see "Address : "  + cAddress + nl 
+			see "Name : " + cName + nl
+			see "Address : "  + cAddress + nl
 			see "Phone : " + cPhone + nl

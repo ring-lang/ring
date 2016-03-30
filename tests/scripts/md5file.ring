@@ -6,4 +6,3 @@ see "sha256 : " + sha256(cStr) + nl
 see "sha224 : " + sha224(cStr) + nl
 see "sha384 : " + sha384(cStr) + nl
 see "sha512 : " + sha512(cStr) + nl
-

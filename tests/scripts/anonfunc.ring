@@ -1,4 +1,4 @@
-test( func x,y { 
+test( func x,y {
 	see "hello" + nl
 	see "Sum : " + (x+y) + nl
 	} )
@@ -23,4 +23,3 @@ Class great
 
 	func f2 x
 		eval(x+"()")
-

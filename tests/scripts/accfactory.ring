@@ -1,6 +1,6 @@
 # AccumulatorFactory
 
-oGenerator = new Generator 
+oGenerator = new Generator
 
 Func main
 	oGenerator {
@@ -15,9 +15,9 @@ Class Generator
 	n = 0
 	func generator i
 		n += i
-		return func d { 	
-			oGenerator { 
-				n += d  
-				return n  
+		return func d {
+			oGenerator {
+				n += d
+				return n
 			}
 		}

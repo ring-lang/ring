@@ -17,12 +17,11 @@ Class Generator
 
     func generator i
 
-        n += i        
+        n += i
 
-	return eval(substr("return func d { 	
-			#objname# { 
-				n += d  
-				return n  
+	return eval(substr("return func d {
+			#objname# {
+				n += d
+				return n
 			}
-		}","#objname#",cObj)) 
- 
+		}","#objname#",cObj))

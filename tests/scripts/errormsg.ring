@@ -1,6 +1,6 @@
 x = 1
 
-try 
+try
 	test()
 catch
 	see "great catch!" +nl

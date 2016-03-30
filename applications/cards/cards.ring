@@ -43,7 +43,7 @@ func gui_setbtnpixmap pBtn,pPixmap
 	}
 
 Class Game
-    
+
     nCardsCount = 10
     win1 layout1 label1 label2 layout2 layout3 aBtns aBtns2
     aCards nRole=1 aStatus = list(nCardsCount) aStatus2 = aStatus
@@ -55,14 +55,14 @@ Class Game
 
     func start
 
-        win1 = new qWidget() { 
-		setwindowtitle("Five") 
+        win1 = new qWidget() {
+		setwindowtitle("Five")
         	setstylesheet("background-color: White")
 		showfullscreen()
 	}
-	
+
         layout1 = new qvboxlayout()
-	
+
         label1 = new qlabel(win1) {
         	settext("Player (1) - Score : " + nPlayer1Score)
 		setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
@@ -75,7 +75,7 @@ Class Game
 		setstylesheet("font-size: 18px ; color : white ; background-color: black ;")
 		setclickevent("Page1.win1.close()")
 	}
-	
+
         aCards = aMyCards
         aValues = aMyValues
 
@@ -84,7 +84,7 @@ Class Game
         aBtns = []
 
         for x = 1 to nCardsCount
-            aBtns + new qpushbutton(win1) 
+            aBtns + new qpushbutton(win1)
             aBtns[x].setfixedwidth(79*nScale)
             aBtns[x].setfixedheight(124*nScale)
             gui_setbtnpixmap(aBtns[x],mypic2)
@@ -92,7 +92,7 @@ Class Game
             aBtns[x].setclickevent("Page1.Player1click("+x+")")
         next
 
-	layout1.addwidget(label1)	
+	layout1.addwidget(label1)
 	layout1.addlayout(layout2)
 
         label2 = new qlabel(win1) {

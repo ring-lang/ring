@@ -7,9 +7,9 @@ func testregister
 		 	newline()
 		boxend()
 		divstart([:style = stylegradient(6) + stylesize("100%","95%") ])
-		link([ :url = website, :title = "back" , :style = stylecolor("white")]) 	
+		link([ :url = website, :title = "back" , :style = stylecolor("white")])
 		newline()
-		divstart([ :style= styledivcenter("500","160") + stylegradient(52) ]) 	
+		divstart([ :style= styledivcenter("500","160") + stylegradient(52) ])
 		formpost(website)
 			hidden("page",21)
 			tablestart([ :Style =  stylemarginleft("2%") + stylemargintop("2%") + stylewidth("90%") ])
@@ -86,9 +86,9 @@ func testlogin
 		 	newline()
 		boxend()
 		divstart([:style = stylegradient(6) + stylesize("100%","95%") ])
-		link([ :url = website, :title = "back" , :style = stylecolor("white")]) 	
+		link([ :url = website, :title = "back" , :style = stylecolor("white")])
 		newline()
-		divstart([ :style= styledivcenter("500","130") + stylegradient(52) ]) 	
+		divstart([ :style= styledivcenter("500","130") + stylegradient(52) ])
 		formpost(website)
 			hidden("page",22)
 			tablestart([ :Style =  stylemarginleft("2%") + stylemargintop("2%") + stylewidth("90%") ])
@@ -150,7 +150,7 @@ Func checkuser
 			text("User Name : " + oUser.username )
 		else
 			text("Please Login First!")
-		ok			
+		ok
 	}
 	oUser.Disconnect()
 
@@ -185,14 +185,14 @@ Class UsersLanguageEnglish
 	temp = new page
 	cTextAlign = temp.StyleTextRight()
 	cNoRecords = "No records!"
-	
+
 Class UsersView from ViewBase
 
 	oLanguage = new UsersLanguageEnglish
 
 	func HiddenVars oPage
 		oPage.hidden("page",24)
-		
+
 	func AddFuncScript oPage,oController
 		return 	oPage.scriptfunc("myadd",oPage.scriptredirection(website+"?page=19"))
 
@@ -201,4 +201,3 @@ Class UsersView from ViewBase
 			[oTranslation.aColumnsTitles[2],"textbox","username",oController.oModel.UserName,oPage.stylewidth("100%")],
 			[oTranslation.aColumnsTitles[3],"textbox","email",oController.oModel.Email,oPage.stylewidth("50%")]
 		       ]
-

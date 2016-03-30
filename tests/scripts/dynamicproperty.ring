@@ -3,7 +3,7 @@ o1 = new person {
 	phone = 123456		job = "programmer"
 }
 
-o2 = new person { name = "ahmed" address = "egypt" phone = 123456789 } 
+o2 = new person { name = "ahmed" address = "egypt" phone = 123456789 }
 
 o1.show()
 see o1.job + nl
@@ -27,6 +27,6 @@ class person
 
 	func show
 
-		see " name " + name + 
+		see " name " + name +
 		    " address " + address +
 	 	    " phone " + phone + nl

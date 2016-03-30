@@ -1,4 +1,4 @@
-﻿#!b:\mahmoud\apps\ring\ring.exe -cgi 
+﻿#!b:\ring\bin\ring.exe -cgi
 
 Load "weblib.ring"
 Load "datalib.ring"
@@ -23,46 +23,46 @@ Load "bootstrap.ring"
 Import System.Web
 
 website = "index.ring"
-cUploadPath = "C:/Apache2.2/htdocs/ringapp/upload/"
+cUploadPath = "b:/ring/weblib/ringapp/upload/"
 cUploadFolder = "/ringapp/upload/"
 
 
 
 Func Main
- 		
-		#if loadvars() = "" # main page 
+
+		#if loadvars() = "" # main page
 		if aPageVars["page"] = NULL
-			mainpage()	
+			mainpage()
 		else
-			switch aPageVars["page"] 
+			switch aPageVars["page"]
 			on 1
-				testget() 	
+				testget()
 			on 2
 				testgetresponse()
 			on 3
-				testpost()		
+				testpost()
 			on 4
-				testpostresponse()	
+				testpostresponse()
 			on 5
 				testupload()			
 			on 6
-				testuploadresponse()	
+				testuploadresponse()
 			on 7
-				testcookies()			
+				testcookies()
 			on 8
-				testcookiesresponse()	
+				testcookiesresponse()
 			on 9
-				testtemplate()	
+				testtemplate()
 			on 10
-				testhtmlsc()		
+				testhtmlsc()
 			on 11
 				testhash()
 			on 12
-				testhashresponse()	
+				testhashresponse()
 			on 13
 				testrandom()
 			on 14
-				testwebpage()	
+				testwebpage()
 			on 15
 				testtables()
 			on 16
@@ -74,13 +74,13 @@ Func Main
 			on 19
 				testregister()
 			on 20
-				testlogin()	
+				testlogin()
 			on 21
-				testregisternew()	
+				testregisternew()
 			on 22
 				testlogincheck()
 			on 23
-				checkuser()	
+				checkuser()
 			on 24
 				new usersController { Routing() }
 			on 25
@@ -96,7 +96,7 @@ Func Main
 				errormsg("Invalid Link!")
 			off
 		ok
-			
+
 
 Func ErrorMsg x
 

@@ -7,7 +7,7 @@ o1.name = "Mahmoud"
 o1.say()
 
 Class Point
-	x y z 
+	x y z
 	func print
 		see "x : " + x + nl +
 		    "y : " + y + nl +
