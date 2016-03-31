@@ -1,0 +1,68 @@
+ring_string_h
+Parent: String
+cStr
+nSize
+END:
+Type: String
+struct String
+Type: String
+Mark: ->
+struct String *
+Type: String
+Mark: ->
+String *
+ring_string_tolower(x)
+ring_string_toupper(x)
+ring_string_get(x)
+ring_string_new
+Type: int
+x
+ring_string_new2
+Type: String *
+pString
+Type: int
+x
+ring_string_delete
+ring_string_size
+ring_string_set
+Type: int
+x
+ring_string_set2
+Type: int
+x
+ring_string_add
+Type: int
+x
+ring_string_add2
+Type: int
+x
+Type: int
+x2
+Type: char *
+cStr
+ring_string_print
+ring_string_setfromint
+cStr[20]
+ring_string_lower
+Type: unsigned int
+x
+ring_string_lower2
+Type: int
+x
+ring_string_upper
+Type: unsigned int
+x
+ring_string_upper2
+Type: int
+x
+ring_string_find
+ring_string_find2
+Type: int
+nPos,x
+ring_string_test
+nMaxValue
+Type: String *
+mystr[nMaxValue]
+x
+Type: String *
+pString
