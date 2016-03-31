@@ -1,3 +1,6 @@
+# The Ring Notepad
+# Author : Mahmoud Fayed <msfclipper@yahoo.com>
+
 Load "guilib.ring"
 
 cActiveFileName = ""
