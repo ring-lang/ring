@@ -1,0 +1,67 @@
+ring_vm_pushv
+Type: List *
+pVar
+Type: List *
+pList
+ring_vm_loadaddress
+ring_vm_assignment
+Type: List *
+pVar,*pList
+Type: String *
+cStr1, *pString
+Type: double
+nNum1
+Type: Item *
+pItem
+ring_vm_inc
+Type: List *
+pVar
+ring_vm_loadapushv
+Type: List *
+pVar
+ring_vm_newline
+ring_vm_freestack
+Type: List *
+pList
+ring_vm_setreference
+Type: List *
+pList
+Type: int
+nType
+Type: void *
+pPointer
+ring_vm_list_copy
+Type: int
+x
+Type: List *
+pNewList2
+ring_vm_list_simpointercopy
+Type: int
+x
+ring_vm_beforeequallist
+Type: String *
+pString
+Type: char
+cStr[100]
+ring_vm_beforeequalitem
+Type: String *
+pString
+Type: char
+cStr[100]
+ring_vm_plusplus
+Type: List *
+pList
+Type: Item *
+pItem
+ring_vm_minusminus
+Type: List *
+pList
+Type: Item *
+pItem
+ring_vm_assignmentpointer
+Type: List *
+pList, *pList2
+Type: Item *
+pItem
+Type: int
+x
