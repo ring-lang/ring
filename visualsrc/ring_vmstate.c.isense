@@ -1,0 +1,17 @@
+ring_vm_savestate
+ring_vm_restorestate
+ring_vm_savestate2
+ring_vm_restorestate2
+ring_vm_backstate
+Type: int
+nLimit,y
+ring_vm_savestack
+Type: int
+nSP
+Type: List *
+pList, *pList2
+ring_vm_restorestack
+Type: int
+x
+Type: List *
+pList2
