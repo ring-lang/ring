@@ -60,7 +60,7 @@ then generate the C code.
 
 The next screen shot from the ring_vm.ssf file (Generate ring_vm.c and ring_vm.h)
 
-![Ring](http://ring-lang.sourceforge.net/ringvisualsrc.jpg)
+![Ring](http://ring-lang.sourceforge.net/ringvisualsrc1.jpg)
 
 The next screen shot from the ring_list.ssf file (Generate ring_list.c and ring_list.h)
 
