@@ -1,0 +1,51 @@
+ring_vm_pushp
+ring_vm_pushplocal
+ring_vm_incp
+Type: List *
+pVar
+ring_vm_pushpv
+Type: List *
+pVar
+ring_vm_incjump
+Type: List *
+pVar
+Type: double
+nNum1,nNum2
+ring_vm_incpjump
+Type: List *
+pVar
+Type: double
+nNum1,nNum2
+ring_vm_inclpjump
+Type: List *
+pVar
+Type: double
+nNum1,nNum2
+ring_vm_jumpvarlenum
+Type: List *
+pVar
+Type: double
+nNum1,nNum2
+ring_vm_jumpvarplenum
+Type: List *
+pVar
+Type: double
+nNum1,nNum2
+ring_vm_jumpvarlplenum
+Type: List *
+pVar
+Type: double
+nNum1,nNum2
+ring_vm_loadfuncp
+Type: List *
+pList
+ring_vm_incpjumpstep1
+Type: List *
+pVar
+Type: double
+nNum1
+ring_vm_jumpvarplenumstep1
+Type: List *
+pVar
+Type: double
+nNum1
