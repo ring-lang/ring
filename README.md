@@ -52,7 +52,8 @@ Visual Implementation
 
 The Ring programming language is designed using the PWCT visual programming tool (http://pwct.org)
 
-and you will find the visual source of the language in the folder "visualsrc" - *.ssf files
+and you will find the visual source of the language in the folder "visualsrc" - *.ssf files and 
+the generated source code (*.c & *.h) in the [src folder](https://github.com/ring-lang/ring/tree/master/src)
 
 The next screen shot demonstrates how to visually modify the Ring Compiler and Virtual Machine (VM)
 
