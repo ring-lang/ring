@@ -1,0 +1,101 @@
+ring_hashtable_h
+Parent: HashItem
+Type: char  *
+cKey
+Type: char
+nItemType
+Parent: HashValue
+Type: int
+nIndex
+Type: void *
+pValue
+END:
+Type: struct HashItem *
+pNext
+END:
+Type: HashItem
+struct HashItem
+Type: HashItem
+Mark: ->
+struct HashItem *
+Type: HashItem
+Mark: ->
+HashItem *
+Parent: HashTable
+Type: HashItem **
+pArray
+Type: int
+nItems
+Type: int
+nLinkedLists
+Type: int
+nRebuildSize
+END:
+Type: HashTable
+struct HashTable
+Type: HashTable
+Mark: ->
+struct HashTable *
+Type: HashTable
+Mark: ->
+HashTable *
+RING_HASHITEMTYPE_NOTYPE
+RING_HASHITEMTYPE_NUMBER
+RING_HASHITEMTYPE_POINTER
+ring_hashtable_new
+Type: HashTable *
+pHashTable
+ring_hashtable_hashkey
+Type: unsigned int
+nIndex
+ring_hashtable_newitem
+Type: unsigned int
+nIndex
+Type: HashItem *
+pItem
+ring_hashtable_newnumber
+Type: HashItem *
+pItem
+ring_hashtable_newpointer
+Type: HashItem *
+pItem
+ring_hashtable_finditem
+Type: int
+nIndex
+Type: HashItem *
+pItem
+ring_hashtable_findnumber
+Type: HashItem *
+pItem
+ring_hashtable_findpointer
+Type: HashItem *
+pItem
+ring_hashtable_deleteitem
+Type: int
+nIndex
+Type: HashItem *
+pItem, *pPrevItem
+ring_hashtable_delete
+Type: int
+x
+Type: HashItem *
+pItem,*pItem2
+ring_hashtable_rebuild
+Type: HashItem **
+pArray
+Type: int
+nLinkedLists,x
+Type: HashItem *
+pItem,*pItem2
+ring_hashtable_print
+Type: int
+x
+Type: HashItem *
+pItem
+ring_hashtable_test
+Type: HashTable *
+pHashTable
+Type: char
+cStr[20]
+Type: int
+x
