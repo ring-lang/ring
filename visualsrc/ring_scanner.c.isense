@@ -1,0 +1,156 @@
+ring_scanner_h
+Parent: Scanner
+state
+Type: List *
+Keywords
+Type: List *
+Operators
+Type: List *
+Tokens
+Type: String *
+ActiveToken
+LinesCount
+FloatMark
+Type: char
+cLiteral
+Type: char
+cMLComment
+Type: RingState *
+pRingState
+END:
+Type: Scanner
+struct Scanner
+Type: Scanner
+Mark: ->
+struct Scanner *
+Type: Scanner
+Mark: ->
+Scanner *
+Parent: SCANNER_KEYWORD
+K_IF=1
+K_TO
+K_OR
+K_AND
+K_NOT
+K_FOR
+K_NEW
+K_FUNC
+K_FROM
+K_NEXT
+K_LOAD
+K_ELSE
+K_SEE
+K_WHILE
+K_OK
+K_CLASS
+K_BREAK
+K_RETURN
+K_BUT
+K_END
+K_GIVE
+K_BYE
+K_EXIT
+K_TRY
+K_CATCH
+K_DONE
+K_SWITCH
+K_ON
+K_OTHER
+K_OFF
+K_IN
+K_LOOP
+K_PACKAGE
+K_IMPORT
+K_PRIVATE
+K_STEP
+K_DO
+K_AGAIN
+K_CALL
+END:
+Type: SCANNER_KEYWORD
+SCANNER_KEYWORD
+RING_SCANNER_DELETELASTTOKEN
+RING_SCANNER_TOKENTYPE
+RING_SCANNER_TOKENVALUE
+SCANNER_TOKEN_KEYWORD
+SCANNER_TOKEN_OPERATOR
+SCANNER_TOKEN_LITERAL
+SCANNER_TOKEN_NUMBER
+SCANNER_TOKEN_IDENTIFIER
+SCANNER_TOKEN_ENDLINE
+SCANNER_TOKEN_NOTOKEN
+SCANNER_STATE_GENERAL
+SCANNER_STATE_LITERAL
+SCANNER_STATE_COMMENT
+SCANNER_STATE_MLCOMMENT
+ring_scanner_new
+Type: Scanner *
+pScanner
+ring_scanner_delete
+ring_scanner_readfile
+fp
+c
+Type: Scanner *
+pScanner
+Type: VM *
+pVM
+nCont,nRunVM,nFreeFilesList
+cStartup
+Type: int
+x
+ring_scanner_readchar
+Type: char
+cStr[2]
+Type: List *
+pList
+Type: String *
+pString
+ring_scanner_keywords
+ring_scanner_addtoken
+Type: List *
+pList
+ring_scanner_checktoken
+Type: int
+nResult
+Type: char
+cStr[5]
+ring_scanner_isnumber
+Type: unsigned int
+x
+ring_scanner_checklasttoken
+ring_scanner_isoperator
+ring_scanner_operators
+ring_scanner_lasttokentype
+x
+Type: List *
+pList
+ring_scanner_lasttokenvalue
+x
+Type: List *
+pList
+ring_scanner_floatmark
+Type: List *
+pList
+Type: String *
+pString
+ring_scanner_endofline
+ring_scanner_addreturn
+Type: List *
+pList
+ring_scanner_addreturn2
+Type: List *
+pList
+ring_scanner_addreturn3
+Type: List *
+pList
+ring_scanner_printtokens
+Type: int
+x,nType,nPos
+Type: List *
+pList
+Type: char *
+cString
+ring_execute
+Type: RingState *
+pRingState
+ring_scanner_getkeywordtext
