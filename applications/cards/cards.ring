@@ -1,3 +1,6 @@
+# The Card Game
+# Author : Mahmoud Fayed <msfclipper@yahoo.com>
+
 Load "guilib.ring"
 
 nScale = 1
