@@ -64,7 +64,7 @@ The next screen shot from the ring_vm.ssf file (Generate ring_vm.c and ring_vm.h
 
 The next screen shot from the ring_list.ssf file (Generate ring_list.c and ring_list.h)
 
-![Ring](http://ring-lang.sourceforge.net/ringvisualsrc.jpg)
+![Ring](http://ring-lang.sourceforge.net/ringvisualsrc2.jpg)
 
 
  
