@@ -1,4 +1,4 @@
 cd ..
 cd src
-call buildvc.bat
+call buildvccomplete.bat
 pause
