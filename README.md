@@ -59,11 +59,11 @@ The next screen shot demonstrates how to visually modify the Ring Compiler and V
 
 then generate the C code.
 
-The next screen shot from the ring_vm.ssf file (Generate ring_vm.c and ring_vm.h)
+The next screen shot from the ring_vm.ssf file (Generate [ring_vm.c](https://github.com/ring-lang/ring/blob/master/src/ring_vm.c) and [ring_vm.h](https://github.com/ring-lang/ring/blob/master/src/ring_vm.h))
 
 ![Ring](http://ring-lang.sourceforge.net/ringvisualsrc1.jpg)
 
-The next screen shot from the ring_list.ssf file (Generate ring_list.c and ring_list.h)
+The next screen shot from the ring_list.ssf file (Generate [ring_list.c](https://github.com/ring-lang/ring/blob/master/src/ring_list.c) and [ring_list.h](https://github.com/ring-lang/ring/blob/master/src/ring_list.h))
 
 ![Ring](http://ring-lang.sourceforge.net/ringvisualsrc2.jpg)
 
