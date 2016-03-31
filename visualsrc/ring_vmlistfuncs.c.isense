@@ -1,0 +1,46 @@
+ring_vmlistfuncs_h
+ring_vm_listfuncs_loadfunctions
+ring_vmlib_list
+Type: List *
+pList
+Type: int
+x,nSize
+ring_vmlib_find
+Type: int
+nNum1,nColumn
+Type: List *
+pList
+ring_vmlib_min
+Type: double
+nNum1
+Type: List *
+pList
+Type: int
+x
+ring_vmlib_max
+Type: double
+nNum1
+Type: List *
+pList
+Type: int
+x
+ring_vmlib_insert
+Type: List *
+pList, *pList2
+Type: int
+nPos
+ring_vmlib_sort
+Type: List *
+pList, *pList2, *pList3
+Type: int
+x,nParaCount,nColumn
+ring_vmlib_binarysearch
+Type: List *
+pList, *pList2
+Type: int
+x,nParaCount,nColumn
+ring_vmlib_reverse
+Type: List *
+pList,*pList2,*pList3
+Type: int
+x
