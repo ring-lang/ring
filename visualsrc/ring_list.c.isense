@@ -1,0 +1,210 @@
+ring_list_h
+Parent: List
+Type: struct Items *
+pFirst
+Type: struct Items *
+pLast
+nSize
+Type: int
+nNextItemAfterLastAccess
+Type: struct Items *
+pLastItemLastAccess
+Type: struct Item **
+pItemsArray
+Type: struct HashTable *
+pHashTable
+END:
+Type: List
+struct List
+Type: List
+Mark: ->
+struct List *
+Type: List
+Mark: ->
+List *
+ring_list_isdouble(pList,index)
+ring_list_isint(pList,index)
+ring_list_deletelastitem(x)
+ring_list_gethashtable(x)
+ring_list_getint(pList,index)
+ring_list_getpointer(pList,index)
+ring_list_getfuncpointer(pList,index)
+ring_list_callfuncpointer(pList,index,x)
+ring_list_getdouble(pList,index)
+ring_list_getstring(pList,index)
+ring_list_getstringobject(pList,index)
+ring_list_getstringsize(pList,index)
+ring_list_getsize(x)
+ring_list_new
+x
+Type: List *
+pList
+Type: Items *
+pItems,*pItemsLast
+ring_list_delete
+Type: Items *
+pItems,*pItemsNext
+ring_list_copy
+Type: int
+x
+Type: List *
+pNewList2
+ring_list_print
+Type: int
+x,t,nSize
+Type: double
+y
+Type: const char *
+cStr
+Type: List *
+pList2
+ring_list_deleteallitems
+Type: Items *
+pItems,*pItemsNext
+ring_list_newitem
+Type: Items *
+pItems
+ring_list_getitem
+x
+Type: Items *
+pItems
+Type: Item *
+pItem
+ring_list_setactiveitem
+ring_list_deleteitem
+x
+Type: Items *
+pItems,*pItemsPrev
+ring_list_gettype
+Type: Item *
+pItem
+ring_list_isstring
+ring_list_isnumber
+ring_list_islist
+ring_list_ispointer
+ring_list_setint
+Type: Item *
+pItem
+ring_list_addint
+ring_list_setpointer
+Type: Item *
+pItem
+ring_list_addpointer
+ring_list_setdouble
+Type: Item *
+pItem
+ring_list_adddouble
+ring_list_setstring
+Type: Item *
+pItem
+Type: String *
+pString
+ring_list_setstring2
+Type: Item *
+pItem
+Type: String *
+pString
+ring_list_addstring
+ring_list_addstring2
+ring_list_newlist
+Type: Item *
+pItem
+Type: List *
+pList2
+ring_list_getlist
+Type: Item *
+pItem
+Type: List *
+pList2
+ring_list_setlist
+Type: Item *
+pItem
+ring_list_setfuncpointer
+Type: Item *
+pItem
+ring_list_addfuncpointer
+ring_list_isfuncpointer
+ring_list_testfuncpointer
+Type: List *
+pList
+ring_list_insertitem
+Type: Items *
+pItems
+ring_list_insertint
+ring_list_insertdouble
+ring_list_insertpointer
+ring_list_insertstring
+ring_list_insertstring2
+ring_list_insertfuncpointer
+ring_list_insertlist
+Type: Item *
+pItem
+Type: List *
+pList2
+ring_list_isiteminsidelist
+Type: int
+x
+Type: Item *
+pItem2
+Type: List *
+pList2
+ring_list_findstring
+Type: int
+x,nCount
+Type: List *
+pList2
+ring_list_finddouble
+Type: int
+x,nCount
+Type: List *
+pList2
+ring_list_sortnum
+Type: int
+x,y,mid
+Type: double
+midvalue
+ring_list_sortstr
+Type: int
+x,y,mid
+Type: String *
+midvalue
+ring_list_binarysearchnum
+Type: int
+nFirst,nMiddle,nLast
+ring_list_binarysearchstr
+Type: int
+nFirst,nMiddle,nLast,nRes
+ring_list_swap
+Type: Item *
+pItem
+Type: Items *
+pItems
+ring_list_getdoublecolumn
+ring_list_getstringcolumn
+ring_list_genarray
+Type: int
+x
+Type: Item **
+pArray
+ring_list_deletearray
+ring_list_genhashtable
+Type: int
+x
+ring_list_genhashtable2
+Type: int
+x
+Type: List *
+pList2
+ring_list_refcopy
+ring_list_clear
+ring_list_test
+Type: List *
+pList,*pList2
+Type: int
+x
+Type: Item *
+pItem
+Type: String *
+pString
+Type: char
+mystr[20]
