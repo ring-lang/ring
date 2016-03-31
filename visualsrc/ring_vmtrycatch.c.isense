@@ -1,0 +1,7 @@
+ring_vm_try
+Type: List *
+pList
+ring_vm_catch
+Type: List *
+pList
+ring_vm_done
