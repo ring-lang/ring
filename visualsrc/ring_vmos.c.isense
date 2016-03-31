@@ -1,0 +1,18 @@
+ring_vmos_h
+RING_VM_POINTER_LIBNAME
+ring_vm_os_loadfunctions
+ring_vm_os_ismsdos
+ring_vm_os_iswindows
+ring_vm_os_iswindows64
+ring_vm_os_isunix
+ring_vm_os_ismacosx
+ring_vm_os_islinux
+ring_vm_os_isfreebsd
+ring_vm_os_isandroid
+ring_vm_os_windowsnl
+ring_vm_os_currentdir
+Type: char
+cDirPath[200]
+ring_vm_os_exefilename
+Type: char
+cDirPath[200]
