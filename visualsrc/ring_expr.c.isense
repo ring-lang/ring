@@ -1,0 +1,48 @@
+ring_parser_expr
+Type: int
+x,nMark
+Type: List *
+pMark
+ring_parser_logicnot
+Type: int
+x
+ring_parser_equalornot
+Type: int
+x
+ring_parser_compare
+Type: int
+x,nEqual
+ring_parser_bitorxor
+Type: int
+x
+ring_parser_bitand
+Type: int
+x
+ring_parser_bitshift
+Type: int
+x
+ring_parser_arithmetic
+Type: int
+x
+ring_parser_term
+Type: int
+x
+ring_parser_range
+Type: int
+x,nFlag
+ring_parser_factor
+Type: int
+x,nLastOperation,nCount,nNOOP,nToken,nMark
+Type: List *
+pLoadAPos, *pList, *pMark
+Type: char
+lSetProperty,lequal,nBeforeEqual
+Type: char
+cFuncName[100]
+ring_parser_mixer
+Type: int
+x,nCallMethod,nStatus,nFlag,nMark1
+Type: List *
+pMark
+ring_parser_gencall
+ring_parser_ppmm
