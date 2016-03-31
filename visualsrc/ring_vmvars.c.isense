@@ -1,0 +1,41 @@
+ring_vm_newscope
+ring_vm_findvar
+Type: int
+x,nPos,nMax1
+Type: List *
+pList,*pList2
+ring_vm_findvar2
+Type: int
+nPC,nType
+Type: Item *
+pItem
+Type: List *
+pList
+ring_vm_newvar
+Type: List *
+pList
+ring_vm_newvar2
+Type: List *
+pList
+ring_vm_addnewnumbervar
+Type: List *
+pList
+ring_vm_addnewstringvar
+Type: List *
+pList
+ring_vm_addnewstringvar2
+Type: List *
+pList
+ring_vm_addnewpointervar
+Type: List *
+pList
+ring_vm_newtempvar
+Type: List *
+pList
+ring_vm_newtempvar2
+Type: List *
+pList,*pList2
+ring_vm_addnewcpointervar
+Type: List *
+pList, *pList2
+ring_vm_deletescope
