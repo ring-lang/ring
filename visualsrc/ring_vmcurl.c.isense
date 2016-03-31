@@ -1,0 +1,35 @@
+ring_vmcurl_h
+RING_VM_POINTER_CURL
+Parent: upload_status
+Type: int
+lines_read
+Type: List *
+pList
+END:
+ring_vm_curl_loadfunctions
+ring_getcurldata
+ring_vm_curl_download
+Type: CURL *
+curl
+Type: CURLcode
+res
+Type: String *
+pString
+ring_payload_source
+Type: const char *
+data
+Type: struct upload_status *
+upload_ctx
+Type: size_t
+len
+ring_vm_curl_sendemail
+Type: CURL *
+curl
+Type: CURLcode
+res
+Type: struct curl_slist *
+recipients
+Type: struct upload_status
+upload_ctx
+Type: String *
+pString
