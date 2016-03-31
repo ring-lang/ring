@@ -1,0 +1,110 @@
+ring_parser_h
+Parent: Parser
+Type: List *
+Tokens
+Type: int
+ActiveToken
+Type: int
+TokensCount
+Type: char
+TokenType
+Type: const char *
+TokenText
+Type: int
+nLineNumber
+Type: int
+nErrorLine
+Type: int
+nErrorsCount
+Type: List *
+GenCode
+Type: List *
+ActiveGenCodeList
+Type: char
+nAssignmentFlag
+Type: char
+nClassStart
+Type: List *
+FunctionsMap
+Type: List *
+ClassesMap
+Type: List *
+PackagesMap
+Type: int
+nClassMark
+Type: char
+nPrivateFlag
+Type: int
+nBraceFlag
+Type: char
+nInsertFlag
+Type: int
+nInsertCounter
+Type: char
+nNoAssignment
+Type: char
+nFuncCallOnly
+Type: RingState *
+pRingState
+END:
+Type: Parser
+struct Parser
+Type: Parser
+Mark: ->
+struct Parser *
+Type: Parser
+Mark: ->
+Parser *
+RING_PARSER_ERROR_PARALIST
+RING_PARSER_ERROR_CLASSNAME
+RING_PARSER_ERROR_OK
+RING_PARSER_ERROR_END
+RING_PARSER_ERROR_NEXT
+RING_PARSER_ERROR_FUNCNAME
+RING_PARSER_ERROR_LISTITEM
+RING_PARSER_ERROR_MISSPARENTHESES
+RING_PARSER_ERROR_MISSBRACKETS
+RING_PARSER_ERROR_PRENTCLASSNAME
+RING_PARSER_ERROR_EXPROPERATOR
+RING_PARSER_ERROR_NOCLASSDEFINED
+RING_PARSER_ERROR_VARNAME
+RING_PARSER_ERROR_NOCATCH
+RING_PARSER_ERROR_NODONE
+RING_PARSER_ERROR_SWITCHEXPR
+RING_PARSER_ERROR_SWITCHOFF
+RING_PARSER_ERROR_BRACESNOTCLOSED
+RING_PARSER_ERROR_NUMERICOVERFLOW
+RING_PARSER_ERROR_PACKAGENAME
+RING_PARSER_ERROR_AGAIN
+RING_PARSER_ERROR_FUNCREDEFINE
+RING_PARSER_ERROR_USINGBRACTAFTERNUM
+RING_PARSER_ERROR_PARENTLIKESUBCLASS
+RING_PARSER_ERROR_ACCESSSELFREF
+RING_PARSER_IGNORENEWLINE
+RING_PARSER_PASSNEWLINE
+RING_PARSER_CURRENTTOKEN
+RING_PARSER_OPERATIONID
+ring_parser_start
+Type: Parser *
+pParser
+Type: int
+nResult,RingActiveFile
+ring_parser_new
+Type: Parser *
+pParser
+ring_parser_delete
+ring_parser_loadtoken
+Type: List *
+pList
+ring_parser_nexttoken
+ring_parser_iskeyword
+ring_parser_isoperator
+ring_parser_isliteral
+ring_parser_isnumber
+ring_parser_isidentifier
+ring_parser_isendline
+ring_parser_settoken
+ring_parser_isanykeyword
+ring_parser_error
+Type: int
+RingActiveFile
