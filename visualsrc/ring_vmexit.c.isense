@@ -1,0 +1,14 @@
+ring_vm_bye
+ring_vm_exitmark
+Type: List *
+pList
+ring_vm_popexitmark
+ring_vm_exit
+Type: List *
+pList,*pActiveList
+Type: int
+x,y
+ring_vm_stepnumber
+Type: double
+nNum1
+ring_vm_popstep
