@@ -23,7 +23,7 @@ Why Ring?
 =============
 
 The language is simple, trying to be natural, encourage organization and comes with 
-transparent implementation. It comes with compact syntax and a group of features that
+transparent and visual implementation. It comes with compact syntax and a group of features that
 enable the programmer to create natural interfaces and declarative domain-specific 
 languages in a fraction of time. It is very small, fast and comes with smart garbage
 collector that puts the memory under the programmer control. It supports many 
@@ -45,6 +45,20 @@ Simple language that can be used in education and introducing Compiler/VM concep
 General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
 
 Practical language designed for creating the next version of the Programming Without Coding Technology software.
+
+=====================
+Visual Implementation
+=====================
+
+The Ring programming language is designed using the PWCT visual programming tool (http://pwct.org)
+
+and you will find the visual source of the language in the folder "visualsrc" - *.ssf files
+
+The next screen shot demonstrates how to visually modify the Ring Compiler and Virtual Machine (VM)
+
+then generate the C code.
+
+![Ring](http://ring-lang.sourceforge.net/ringvisualsrc.jpg)
 
 
 
