@@ -1,0 +1,45 @@
+ring_vm_loadfunc
+ring_vm_loadfunc2
+Type: List *
+pList,*pList2,*pList3
+Type: int
+y
+Type: String *
+pString
+Type: char
+cLine[30]
+ring_vm_call
+Type: List *
+pList, *pActiveMem
+Type: int
+x,nSP,nMax1,nFuncEx
+ring_vm_return
+Type: List *
+pList
+ring_vm_returnnull
+ring_vm_newfunc
+Type: int
+x,nSP
+Type: List *
+pList
+ring_vm_blockflag
+ring_vm_blockflag2
+Type: List *
+pList
+ring_vm_removeblockflag
+Type: List *
+pList
+ring_vm_movetoprevscope
+Type: Item *
+pItem
+Type: List *
+pList,*pList2,*pList3
+ring_vm_createtemplist
+Type: List *
+pList
+ring_vm_saveloadaddressscope
+ring_vm_restoreloadaddressscope
+ring_vm_anonymous
+Type: const char *
+cStr
+ring_vm_isstackpointertoobjstate
