@@ -1,0 +1,13 @@
+ring_vm_string_pushv
+Type: char *
+newstr
+Type: char
+cStr[2]
+ring_vm_string_assignment
+Type: String *
+cStr1
+Type: char *
+newstr
+ring_vm_string_index
+Type: char *
+newstr
