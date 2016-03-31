@@ -1,0 +1,84 @@
+ring_item_h
+Parent: Item
+Type: char
+nType
+Type: char
+NumberFlag
+Type: char
+nObjectType
+Parent: data
+Type: struct String *
+pString
+Type: double
+dNumber
+Type: int
+iNumber
+Type: void *
+pPointer
+Type: struct List *
+pList
+END:
+Type: GCData
+gc
+END:
+Type: Item
+struct Item
+Type: Item
+Mark: ->
+struct Item *
+Type: Item
+Mark: ->
+Item *
+ITEMTYPE_NOTHING
+ITEMTYPE_STRING
+ITEMTYPE_NUMBER
+ITEMTYPE_POINTER
+ITEMTYPE_LIST
+ITEMTYPE_FUNCPOINTER
+ITEM_NUMBERFLAG_NOTHING
+ITEM_NUMBERFLAG_INT
+ITEM_NUMBERFLAG_DOUBLE
+ring_item_getstring(x)
+ring_item_getnumber(x)
+ring_item_getdouble(x)
+ring_item_getint(x)
+ring_item_getlist(x)
+ring_item_getpointer(x)
+ring_item_gettype(x)
+ring_itemarray_getint(pList,index)
+ring_itemarray_getpointer(pList,index)
+ring_itemarray_getdouble(pList,index)
+ring_itemarray_getstring(pList,index)
+ring_itemarray_getstringsize(pList,index)
+ring_itemarray_isstring(pList,index)
+ring_itemarray_isnumber(pList,index)
+ring_itemarray_ispointer(pList,index)
+ring_item_isstring(x)
+ring_item_islist(x)
+ring_item_isdouble(x)
+ring_item_new
+Type: Item *
+pItem
+ring_item_delete
+ring_item_print
+ItemType
+ring_item_content_delete
+ring_item_settype
+ring_itemarray_setint
+ring_itemarray_setpointer
+ring_itemarray_setdouble
+ring_list_getint(pList,index)
+ring_list_getpointer(pList,index)
+ring_list_getfuncpointer(pList,index)
+ring_list_callfuncpointer(pList,index,x)
+ring_list_getdouble(pList,index)
+ring_list_getstring(pList,index)
+ring_list_getstringobject(pList,index)
+ring_list_getstringsize(pList,index)
+ring_itemarray_setstring
+ring_itemarray_setstring2
+ring_item_setstring
+ring_item_setstring2
+ring_item_setdouble
+ring_item_setpointer
+ring_item_setint
