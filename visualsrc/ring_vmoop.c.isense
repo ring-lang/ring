@@ -1,0 +1,156 @@
+ring_vm_oop_newobj
+Type: const char *
+cClassName,*cClassName2
+Type: int
+x,nLimit,nClassPC,nType,nCont
+Type: List *
+pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf
+Type: Item *
+pItem
+Type: const char *
+cTempName
+ring_vm_oop_parentinit
+Type: const char *
+cClassName,*cClassName2
+Type: int
+x,x2,nFound,nMark
+Type: List *
+pList2, *pClassesList
+Type: String *
+pString
+ring_vm_oop_newclass
+Type: List *
+pClass,*pList
+ring_vm_oop_setscope
+Type: List *
+pList
+ring_vm_oop_isobject
+ring_vm_oop_getobj
+Type: List *
+pVar
+Type: Item *
+pItem
+ring_vm_oop_property
+Type: List *
+pVar,*pScope
+ring_vm_oop_loadmethod
+Type: List *
+pVar,*pList,*pList2,*pList3,*pSuper
+ring_vm_oop_movetobeforeobjstate
+Type: List *
+pList, *pList2
+ring_vm_oop_parentmethods
+Type: const char *
+cClassName,*cClassName2
+Type: int
+x,nFound,nMark
+Type: List *
+pList3,*pList4
+ring_vm_oop_aftercallmethod
+ring_vm_oop_printobj
+Type: List *
+pList2,*pList3
+Type: int
+x
+ring_vm_oop_setbraceobj
+ring_vm_oop_bracestart
+Type: List *
+pList,*pClass
+ring_vm_oop_braceend
+Type: List *
+pList
+ring_vm_oop_bracestack
+ring_vm_oop_newsuperobj
+Type: List *
+pSuper,*pSuper2,*pMethods,*pList
+Type: const char *
+cParentClassName,*cClassName
+Type: int
+x
+ring_vm_oop_getsuperobj
+Type: List *
+pVar
+ring_vm_oop_loadsuperobjmethod
+Type: int
+x
+Type: List *
+pState,*pMethods,*pClass,*pVar,*pList
+ring_vm_oop_import
+ring_vm_oop_import2
+Type: int
+x
+Type: List *
+pList,*pList2
+Type: const char *
+cPackage2
+ring_vm_oop_import3
+Type: int
+x
+Type: List *
+pList2, *pList3
+ring_vm_oop_checkpointertoclassinpackage
+ring_vm_oop_visibleclassescount
+Type: List *
+pList
+ring_vm_oop_visibleclassitem
+Type: List *
+pList
+ring_vm_oop_pushclasspackage
+Type: List *
+pList2
+ring_vm_oop_popclasspackage
+ring_vm_oop_deletepackagesafter
+Type: int
+t
+ring_vm_oop_callmethodinsideclass
+Type: List *
+pList, *pList2
+Type: int
+x,nPos
+ring_vm_oop_setget
+Type: List *
+pList
+Type: Item *
+pItem
+Type: String *
+pString
+ring_vm_oop_setproperty
+Type: List *
+pList, *pList2
+Type: Item *
+pItem,*pItem2
+Type: String *
+pString
+ring_vm_oop_objvarfromobjlist
+Type: int
+nType
+Type: Item *
+pItem
+ring_vm_oop_objtypefromobjlist
+Type: int
+nType
+ring_vm_oop_objitemfromobjlist
+Type: Item *
+pItem
+ring_vm_oop_operatoroverloading
+Type: List *
+pList2
+Type: Item *
+pItem
+Type: String *
+pString
+Type: int
+nObjType
+ring_vm_oop_callmethodfrombrace
+Type: List *
+pList,*pList2
+Type: const char *
+cStr
+ring_vm_oop_ismethod
+Type: List *
+pList2,*pList3
+Type: int
+x
+ring_vm_oop_updateselfpointer
+Type: List *
+pList
