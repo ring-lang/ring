@@ -60,7 +60,7 @@
 
 <br><br><br>
 <a  id="why" href="#whyring" class="btn btn-default" data-toggle="collapse" style="width:100%">Why Ring?</a>
-<div id="whyring" class="panel-group collapse">
+<div id="whyring" class="panel-group collapse in">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Why Ring?</h4></div>
       <div class="panel-body">
@@ -706,7 +706,7 @@ aList = "nice"
   
 
 <a href="#features" class="btn btn-default" data-toggle="collapse" style="width:100%">Features</a>
-  <div id="features" class="panel-group collapse">
+  <div id="features" class="panel-group collapse in">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Features</h4></div>
       <div class="panel-body">
