@@ -30,11 +30,7 @@ collector that puts the memory under the programmer control. It supports many
 programming paradigms, comes with useful and practical libraries. The language is
 designed for productivity and developing high quality solutions that can scale.
 
-[Read more!](http://ring-lang.sourceforge.net/#why)
-
-==========================
-Designed for a Clear Goal
-==========================
+* Designed for a Clear Goal
 
 Applications programming language.
 
@@ -47,6 +43,8 @@ Simple language that can be used in education and introducing Compiler/VM concep
 General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
 
 Practical language designed for creating the next version of the Programming Without Coding Technology software.
+
+[Read more!](http://ring-lang.sourceforge.net/#why)
 
 =====================
 Visual Implementation
