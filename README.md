@@ -16,7 +16,7 @@ Ring Compiler in one program.
 The first version of the language (around 100,000 lines of C/C++/Ring code) is released on
 January 25th, 2016.
 
-Ring Website : http://ring-lang.net/
+[Ring Website](http://ring-lang.net/)
 
 =============
 Why Ring?
@@ -29,6 +29,8 @@ languages in a fraction of time. It is very small, fast and comes with smart gar
 collector that puts the memory under the programmer control. It supports many 
 programming paradigms, comes with useful and practical libraries. The language is
 designed for productivity and developing high quality solutions that can scale.
+
+[Read more!](http://ring-lang.sourceforge.net/#why)
 
 ==========================
 Designed for a Clear Goal
