@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 1
-51
-50
+54
+53
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3708
+Time 3496
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -833,12 +833,10 @@ tlist: List...
 4000
 
 B:\ring\tests>call ring scripts/oop23.ring 
-Can't open file tests\oop24.nova 
-  hello
+hello
 Hello Mahmoud
+nice
 
-Line 12 Error (R3) : Calling Function without definition !: nice 
-in file scripts/oop23.ring 
 B:\ring\tests>call ring scripts/oop24.ring 
 
 Line 1 Error (R25) : Error in package name, Package not found! : system.output 

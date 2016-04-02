@@ -1,5 +1,5 @@
 # The first method
-load "tests\oop24.nova"
+load "scripts\oop24.ring"
 
 import System.output
 x = new console
