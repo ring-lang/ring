@@ -6,4 +6,3 @@ o1.print()
 
 Class point
 	x y z
-	

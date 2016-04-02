@@ -1,10 +1,10 @@
 
-b:\ring\tests>call ring scripts/s28.ring 
-0
-46
-46
+B:\ring\tests>call ring scripts/s28.ring 
+1
+51
+50
 
-b:\ring\tests>call ring scripts/s60.ring 
+B:\ring\tests>call ring scripts/s60.ring 
 hello
 welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
 welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
@@ -47,7 +47,7 @@ Samir
 Ibrahim
 Mahmoud
 
-b:\ring\tests>call ring scripts/s61.ring 
+B:\ring\tests>call ring scripts/s61.ring 
 hello
 welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
 welcomeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwww
@@ -202,7 +202,7 @@ action
 19
 20
 
-b:\ring\tests>call ring scripts/s62.ring 
+B:\ring\tests>call ring scripts/s62.ring 
 hello world
 1
 2
@@ -223,7 +223,7 @@ Ahmed
 Samir
 Fayed
 
-b:\ring\tests>call ring scripts/s63.ring 
+B:\ring\tests>call ring scripts/s63.ring 
 Mahmoud
 Samir
 Fayed
@@ -247,7 +247,7 @@ wow
 Samir
 Fayed
 
-b:\ring\tests>call ring scripts/s64.ring 
+B:\ring\tests>call ring scripts/s64.ring 
 hello world
 1
 2
@@ -308,7 +308,7 @@ Fayed
 16
 25
 
-b:\ring\tests>call ring scripts/s65.ring 
+B:\ring\tests>call ring scripts/s65.ring 
 hello world
 1
 2
@@ -481,7 +481,7 @@ send function return list to function take list
 1
 2
 
-b:\ring\tests>call ring scripts/s78.ring  0<scripts/test78.txt 
+B:\ring\tests>call ring scripts/s78.ring  0<scripts/test78.txt 
 
 
 	Main Menu
@@ -549,7 +549,7 @@ Enter Number : Output : 120
 
 	
 
-b:\ring\tests>call ring scripts/oop.ring 
+B:\ring\tests>call ring scripts/oop.ring 
 Welcome
 Welcome
 Mahmoud
@@ -557,7 +557,7 @@ Programmer
 123456
 bye 
 
-b:\ring\tests>call ring scripts/oop2.ring 
+B:\ring\tests>call ring scripts/oop2.ring 
 good
 r value : 1
 I am here
@@ -575,7 +575,7 @@ caddress: Egypt
 cphone: 123456789
 r: 0.000000
 
-b:\ring\tests>call ring scripts/oop3.ring 
+B:\ring\tests>call ring scripts/oop3.ring 
 NICE
 Mahmoud
 Ahmed
@@ -586,7 +586,7 @@ one
 two
 three
 
-b:\ring\tests>call ring scripts/oop4.ring 
+B:\ring\tests>call ring scripts/oop4.ring 
 welcome 
 Name : Mahmoud
 Country : Egypt
@@ -613,7 +613,7 @@ Jobs : a
 a
 3.14
 
-b:\ring\tests>call ring scripts/oop5.ring 
+B:\ring\tests>call ring scripts/oop5.ring 
 one
 nice
  mahmoud fayed 
@@ -621,10 +621,10 @@ five
 e
 good
 
-b:\ring\tests>call ring scripts/oop6.ring 
+B:\ring\tests>call ring scripts/oop6.ring 
 Mahmoud
 
-b:\ring\tests>call ring scripts/oop7.ring 
+B:\ring\tests>call ring scripts/oop7.ring 
 Hello Mahmoud
 Hello Ahmed
 Hello 1
@@ -638,7 +638,7 @@ Hello 8
 Hello 9
 Hello 10
 
-b:\ring\tests>call ring scripts/oop8.ring 
+B:\ring\tests>call ring scripts/oop8.ring 
 Name : Mahmoud
 Address : Egypt
 Phone : 123456
@@ -654,12 +654,12 @@ Objects Count : 1
 test
 test2
 
-b:\ring\tests>call ring scripts/oop9.ring 
+B:\ring\tests>call ring scripts/oop9.ring 
 Name      Mahmoud
 Country   Egypt
 Phone     123456
 
-b:\ring\tests>call ring scripts/oop10.ring 
+B:\ring\tests>call ring scripts/oop10.ring 
 Top : 10
 Left : 10
 Width : 200
@@ -680,7 +680,7 @@ Object Width : 100
 object Height : 400
 object top : 500
 
-b:\ring\tests>call ring scripts/oop11.ring 
+B:\ring\tests>call ring scripts/oop11.ring 
 hello from class
 Hello Mahmoud
 name: Mahmoud
@@ -692,10 +692,10 @@ name: Mahmoud
 country: egypt
 phone: 1234567879
 
-b:\ring\tests>call ring scripts/oop12.ring 
-Time 3328
+B:\ring\tests>call ring scripts/oop12.ring 
+Time 3708
 
-b:\ring\tests>call ring scripts/oop13.ring 
+B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
 nice
 Great
@@ -709,7 +709,7 @@ one
 very nice 
 another one!
 
-b:\ring\tests>call ring scripts/oop14.ring 
+B:\ring\tests>call ring scripts/oop14.ring 
 Hello Mahmoud
 before 
 A
@@ -730,7 +730,7 @@ Name : Samir
 Address : Egypt
 Phone : 123456
 
-b:\ring\tests>call ring scripts/oop15.ring 
+B:\ring\tests>call ring scripts/oop15.ring 
 Welcome to my class Person
 Name : Mahmoud
 Age : 28
@@ -741,19 +741,19 @@ Name : Ahmed
 Age : 28
 Country : Egypt
 
-b:\ring\tests>call ring scripts/oop16.ring 
+B:\ring\tests>call ring scripts/oop16.ring 
 x : 10
 y : 20
 z : 30
 Hello Mahmoud
 
-b:\ring\tests>call ring scripts/oop17.ring 
+B:\ring\tests>call ring scripts/oop17.ring 
 x : 10
 y : 20
 z : 30
 Hello mahmoud
 
-b:\ring\tests>call ring scripts/oop18.ring 
+B:\ring\tests>call ring scripts/oop18.ring 
 X = 1
 Message : Welcome
 Hello Mahmoud Fayed
@@ -782,7 +782,7 @@ months: 6.000000
 daysperweek: 5.000000
 test: 4.000000
 
-b:\ring\tests>call ring scripts/oop19.ring 
+B:\ring\tests>call ring scripts/oop19.ring 
 Name    : Mahmoud
 Country : Egypt
 Job     : Programmer
@@ -794,14 +794,14 @@ two
 three
 Love
 Mahmoud from Egypt
-b:\ring\tests>call ring scripts/oop20.ring 
+B:\ring\tests>call ring scripts/oop20.ring 
  ID   : 2014
  name : Mahmoud
  address : Egypt
  phone : 123456789
  job  : programmer
  level : 120
-b:\ring\tests>call ring scripts/oop21.ring 
+B:\ring\tests>call ring scripts/oop21.ring 
 name: Mahmoud
 address: Egypt
 phone: 123456
@@ -819,7 +819,7 @@ tlist: List...
 3000
 4000
 
-b:\ring\tests>call ring scripts/oop22.ring 
+B:\ring\tests>call ring scripts/oop22.ring 
 name: Mahmoud
 address: Egypt
 phone: 123456
@@ -832,34 +832,34 @@ tlist: List...
 3000
 4000
 
-b:\ring\tests>call ring scripts/oop23.ring 
+B:\ring\tests>call ring scripts/oop23.ring 
 Can't open file tests\oop24.nova 
   hello
 Hello Mahmoud
 
 Line 12 Error (R3) : Calling Function without definition !: nice 
 in file scripts/oop23.ring 
-b:\ring\tests>call ring scripts/oop24.ring 
+B:\ring\tests>call ring scripts/oop24.ring 
 
 Line 1 Error (R25) : Error in package name, Package not found! : system.output 
 in file scripts/oop24.ring 
-b:\ring\tests>call ring scripts/oop25.ring 
+B:\ring\tests>call ring scripts/oop25.ring 
 Customers
 Invoices
 
-b:\ring\tests>call ring scripts/oop26.ring 
+B:\ring\tests>call ring scripts/oop26.ring 
 Customers
 Invoices
 welcome
 
-b:\ring\tests>call ring scripts/oop27.ring 
+B:\ring\tests>call ring scripts/oop27.ring 
 Customers
 welcome from world2
 Invoices from world2
 Invoices
 welcome
 
-b:\ring\tests>call ring scripts/oop28.ring 
+B:\ring\tests>call ring scripts/oop28.ring 
 hello from the customers class
 Customers
 hello from the sales.base class
@@ -879,7 +879,7 @@ Wow
 Invoices
 welcome
 
-b:\ring\tests>call ring scripts/oop29.ring 
+B:\ring\tests>call ring scripts/oop29.ring 
 can't call private mehtod
 name : mahmoud
 address : Egypt
@@ -894,7 +894,7 @@ can't use private attribute
 
 Line 28 Error (R26) : Calling private method from outside the class : getjob 
 in file scripts/oop29.ring 
-b:\ring\tests>call ring scripts/oop30.ring 
+B:\ring\tests>call ring scripts/oop30.ring 
 Message from GetName() Function!
 Mahmoud1Message from GetName() Function!
 Mahmoud2Message from GetName() Function!
@@ -995,7 +995,7 @@ Mahmoud96Message from GetName() Function!
 Mahmoud97Message from GetName() Function!
 Mahmoud98Message from GetName() Function!
 Mahmoud99
-b:\ring\tests>call ring scripts/oop31.ring 
+B:\ring\tests>call ring scripts/oop31.ring 
 Message from GetName() Function!
 Mahmoud1Message from GetName() Function!
 Mahmoud2Message from GetName() Function!
@@ -1097,11 +1097,11 @@ Mahmoud97Message from GetName() Function!
 Mahmoud98Message from GetName() Function!
 Mahmoud99Message from GetName() Function!
 Mahmoud100
-b:\ring\tests>call ring scripts/oop32.ring 
+B:\ring\tests>call ring scripts/oop32.ring 
 Message from SetName() Function!
 Message from GetName() Function!
 Mr. Mahmoud Fayed
-b:\ring\tests>call ring scripts/oop33.ring 
+B:\ring\tests>call ring scripts/oop33.ring 
 Message from SetName() Function!
 Message from GetName() Function!
 Mr. Mahmoud Fayed
@@ -1403,14 +1403,14 @@ Message from SetName() Function!
 Message from GetName() Function!
 Mr. Mahmoud Fayed
 
-b:\ring\tests>call ring scripts/oop34.ring 
+B:\ring\tests>call ring scripts/oop34.ring 
 Message from SetName() Function!
 Message from GetName() Function!
 Mr. Mahmoud Fayed
 Message from SetName() Function!
 Message from GetName() Function!
 Mr. Ahmed Fayed
-b:\ring\tests>call ring scripts/oop35.ring 
+B:\ring\tests>call ring scripts/oop35.ring 
 Message from SetName() Function!
 Message from GetName() Function!
 Mr. Mahmoud Fayed
@@ -1418,7 +1418,7 @@ Test :
 Message from SetName() Function!
 Message from GetName() Function!
 Mr. Ahmed Fayed
-b:\ring\tests>call ring scripts/oop36.ring 
+B:\ring\tests>call ring scripts/oop36.ring 
 name: Mahmoud
 address: NULL
 phone: NULL
@@ -1442,7 +1442,7 @@ tlist: List...
 4000
 5000
 
-b:\ring\tests>call ring scripts/oop37.ring 
+B:\ring\tests>call ring scripts/oop37.ring 
 nice 
 name: Mahmoud
 address: Egypt
@@ -1462,7 +1462,7 @@ tlist: List...
 4000
 5000
 
-b:\ring\tests>call ring scripts/oop38.ring 
+B:\ring\tests>call ring scripts/oop38.ring 
 nice 
 name: Mahmoud
 address: Egypt
@@ -1487,7 +1487,7 @@ tlist: List...
 4
 5
 
-b:\ring\tests>call ring scripts/oop39.ring 
+B:\ring\tests>call ring scripts/oop39.ring 
 Point 1: X : 10 Y : 10
 Point 2: X : 20 Y : 40
 operator overloading works fine
@@ -1672,7 +1672,7 @@ operator : %
 x: 10.000000
 y: 10.000000
 
-b:\ring\tests>call ring scripts/oop40.ring 
+B:\ring\tests>call ring scripts/oop40.ring 
 name mahmoud
 address ksa
 phone 12345
@@ -1686,19 +1686,19 @@ name ahmed
 address egypt
 phone 12345
 
-b:\ring\tests>call ring scripts/oop41.ring 
+B:\ring\tests>call ring scripts/oop41.ring 
 operator overloading
 operator : +
 parameter : test
 
-b:\ring\tests>call ring scripts/oop42.ring 
+B:\ring\tests>call ring scripts/oop42.ring 
 hello
 Welcome
 1
 0
 1
 
-b:\ring\tests>call ring scripts/oop43.ring 
+B:\ring\tests>call ring scripts/oop43.ring 
 operator overloading
 operator : +
 parameter : 1
@@ -1710,19 +1710,19 @@ R value:
 5
 6
 
-b:\ring\tests>call ring scripts/oop44.ring 
+B:\ring\tests>call ring scripts/oop44.ring 
 10
 20
 30
 40
 
-b:\ring\tests>call ring scripts/oop45.ring 
+B:\ring\tests>call ring scripts/oop45.ring 
 Welcome 
 1
 2
 3
 
-b:\ring\tests>call ring scripts/oop46.ring 
+B:\ring\tests>call ring scripts/oop46.ring 
 welcome to the application 
 name: Mahmoud
 address: NULL
@@ -1747,17 +1747,17 @@ tlist: List...
 4000
 5000
 
-b:\ring\tests>call ring scripts/selfbug.ring 
+B:\ring\tests>call ring scripts/selfbug.ring 
 welcome
 
 Line 15 Error (R31) : Trying to destory the object using the self reference  
 In method f1() in file scripts/selfbug.ring
 called from line 10  in file scripts/selfbug.ring 
-b:\ring\tests>call ring scripts/selfininit.ring 
+B:\ring\tests>call ring scripts/selfininit.ring 
 10
 20
 
-b:\ring\tests>call ring scripts/subobjs.ring 
+B:\ring\tests>call ring scripts/subobjs.ring 
 x: 10.000000
 y: 20.000000
 z: 30.000000
@@ -1765,7 +1765,7 @@ x: 100.000000
 y: 200.000000
 z: 300.000000
 
-b:\ring\tests>call ring scripts/subobjs2.ring 
+B:\ring\tests>call ring scripts/subobjs2.ring 
 x: 100.000000
 y: 200.000000
 z: 300.000000
@@ -1773,7 +1773,7 @@ x: 50.000000
 y: 150.000000
 z: 250.000000
 
-b:\ring\tests>call ring scripts/subobjs3.ring 
+B:\ring\tests>call ring scripts/subobjs3.ring 
 welcome
 Point :
 x : 100
@@ -1790,7 +1790,7 @@ x : 150
 y : 250
 z : 350
 
-b:\ring\tests>call ring scripts/subobjs4.ring 
+B:\ring\tests>call ring scripts/subobjs4.ring 
 x: 100.000000
 y: 200.000000
 z: 300.000000
@@ -1798,7 +1798,7 @@ x: 50.000000
 y: 150.000000
 z: 250.000000
 
-b:\ring\tests>call ring scripts/subobjs5.ring 
+B:\ring\tests>call ring scripts/subobjs5.ring 
 x: 100.000000
 y: 200.000000
 z: 300.000000
@@ -1806,7 +1806,7 @@ x: 50.000000
 y: 150.000000
 z: 250.000000
 I have 2 points!
-b:\ring\tests>call ring scripts/newinlist.ring 
+B:\ring\tests>call ring scripts/newinlist.ring 
 Item 4 is a list contains 3 items
 1
 2
@@ -1820,59 +1820,59 @@ x: 50.000000
 y: 150.000000
 z: 250.000000
 
-b:\ring\tests>call ring scripts/toop1.ring 
+B:\ring\tests>call ring scripts/toop1.ring 
 10
 20
 30
 
-b:\ring\tests>call ring scripts/toop2.ring 
+B:\ring\tests>call ring scripts/toop2.ring 
 10
 20
 30
-b:\ring\tests>call ring scripts/toop3.ring 
+B:\ring\tests>call ring scripts/toop3.ring 
 10
 20
 30
-b:\ring\tests>call ring scripts/toop4.ring 
+B:\ring\tests>call ring scripts/toop4.ring 
 Name : Rectangle 1
 Color: Blue
 P1   : (10,20)
 P2   : (200,300)
-b:\ring\tests>call ring scripts/toop5.ring 
+B:\ring\tests>call ring scripts/toop5.ring 
 Message from SetName() Function!
 Message from GetName() Function!
 Mr. Mahmoud Fayed
 Message from SetName() Function!
 Message from GetName() Function!
 Mr. Ahmed Fayed
-b:\ring\tests>call ring scripts/toop6.ring 
+B:\ring\tests>call ring scripts/toop6.ring 
 Name   : Test
 Age    : 20
 Salary : 15000
 Error (R27) : Using private attribute from outside the class : salary
 Error (R26) : Calling private method from outside the class : increasesalary
 
-b:\ring\tests>call ring scripts/toop7.ring 
+B:\ring\tests>call ring scripts/toop7.ring 
 P1    : X : 10 Y : 10
 P2    : X : 20 Y : 40
 P1+P2 : X : 30 Y : 50
 
-b:\ring\tests>call ring scripts/toop8.ring 
+B:\ring\tests>call ring scripts/toop8.ring 
 Name : test
 Age : 20
 Job : programmer
 Salary : 20000000
 
-b:\ring\tests>call ring scripts/toop9.ring 
+B:\ring\tests>call ring scripts/toop9.ring 
 5
 
-b:\ring\tests>call ring scripts/toop10.ring 
+B:\ring\tests>call ring scripts/toop10.ring 
 Hello World
 
-b:\ring\tests>call ring scripts/toop11.ring 
+B:\ring\tests>call ring scripts/toop11.ring 
 Hello World
 
-b:\ring\tests>call ring scripts/string2.ring 
+B:\ring\tests>call ring scripts/string2.ring 
 
 see "Hello" + nl
 for x = 1 to 10
@@ -1890,7 +1890,7 @@ Number 8
 Number 9
 Number 10
 
-b:\ring\tests>call ring scripts/comment.ring 
+B:\ring\tests>call ring scripts/comment.ring 
 Hello
 1
 2
@@ -1904,9 +1904,9 @@ Hello
 10
 done
 
-b:\ring\tests>call ring scripts/commenterror.ring 
+B:\ring\tests>call ring scripts/commenterror.ring 
 
-b:\ring\tests>call ring scripts/passbug.ring 
+B:\ring\tests>call ring scripts/passbug.ring 
 1
 2
 3
@@ -1917,12 +1917,12 @@ wwow
 wwow
 wwow
 
-b:\ring\tests>call ring scripts/passbug2.ring 
+B:\ring\tests>call ring scripts/passbug2.ring 
 102345
-b:\ring\tests>call ring scripts/passbug3.ring 
+B:\ring\tests>call ring scripts/passbug3.ring 
 test
 1
-b:\ring\tests>call ring scripts/retbug.ring 
+B:\ring\tests>call ring scripts/retbug.ring 
 welcome
 Content-type: text/html
 
@@ -1942,7 +1942,7 @@ Content-type: text/html
 	Wow
 </body>
 </html>
-b:\ring\tests>call ring scripts/privatebug.ring 
+B:\ring\tests>call ring scripts/privatebug.ring 
 hello
 f2
 mmm....
@@ -1959,7 +1959,7 @@ ntabs
 great
  iam here 5 
 
-b:\ring\tests>call ring scripts/privatebug2.ring 
+B:\ring\tests>call ring scripts/privatebug2.ring 
 	nice
 hello
 f2
@@ -1977,7 +1977,7 @@ ntabs
 great
  iam here 5 
 
-b:\ring\tests>call ring scripts/privatebug3.ring 
+B:\ring\tests>call ring scripts/privatebug3.ring 
 
 	nice
 hello
@@ -1996,7 +1996,7 @@ ntabs
 great
  iam here 5 
 
-b:\ring\tests>call ring scripts/sort.ring 
+B:\ring\tests>call ring scripts/sort.ring 
 1
 12
 5
@@ -2017,7 +2017,7 @@ List after sort
 14
 26
 
-b:\ring\tests>call ring scripts/sort2.ring 
+B:\ring\tests>call ring scripts/sort2.ring 
 mahmoud
 samir
 ahmed
@@ -2030,7 +2030,7 @@ mahmoud
 mohammed
 samir
 
-b:\ring\tests>call ring scripts/sort3.ring 
+B:\ring\tests>call ring scripts/sort3.ring 
 ahmed
 14000
 ibrahim
@@ -2042,15 +2042,15 @@ mohammed
 samir
 16000
 
-b:\ring\tests>call ring scripts/emptyfile.ring 
+B:\ring\tests>call ring scripts/emptyfile.ring 
 
-b:\ring\tests>call ring scripts/emptyfile2.ring 
+B:\ring\tests>call ring scripts/emptyfile2.ring 
 
-b:\ring\tests>call ring scripts/emptyfile3.ring 
+B:\ring\tests>call ring scripts/emptyfile3.ring 
 
-b:\ring\tests>call ring scripts/emptyfile4.ring 
+B:\ring\tests>call ring scripts/emptyfile4.ring 
 
-b:\ring\tests>call ring scripts/evaltest.ring 
+B:\ring\tests>call ring scripts/evaltest.ring 
 5+2*5 = 15
 1
 2
@@ -2063,22 +2063,22 @@ b:\ring\tests>call ring scripts/evaltest.ring
 9
 10
 message from test!
-b:\ring\tests>call ring scripts/evalclassbug.ring 
+B:\ring\tests>call ring scripts/evalclassbug.ring 
 new class
 new object
 end of test!
 
-b:\ring\tests>call ring scripts/evalmem2.ring 
+B:\ring\tests>call ring scripts/evalmem2.ring 
 hello world from test function!
-b:\ring\tests>call ring scripts/evalscope.ring 
+B:\ring\tests>call ring scripts/evalscope.ring 
 10
-b:\ring\tests>call ring scripts/braceend.ring 
+B:\ring\tests>call ring scripts/braceend.ring 
 How are you?
 I'm fine, Thank you!
 
-b:\ring\tests>call ring scripts/braceend2.ring 
+B:\ring\tests>call ring scripts/braceend2.ring 
 hello from brace end!hello from brace end!
-b:\ring\tests>call ring scripts/bitwise.ring 
+B:\ring\tests>call ring scripts/bitwise.ring 
 Testing bitwise operators : 
  X = 10 
  Y = 5 
@@ -2097,12 +2097,12 @@ x | y : 5
  8 << 1 16
  8 >> 1 4
 
-b:\ring\tests>call ring scripts/retineval.ring 
+B:\ring\tests>call ring scripts/retineval.ring 
 5
 x value = 10
 
 
-b:\ring\tests>call ring scripts/retfunc.ring 
+B:\ring\tests>call ring scripts/retfunc.ring 
 2
 1
 20
@@ -2115,7 +2115,7 @@ good
 good
 nice
 
-b:\ring\tests>call ring scripts/math.ring 
+B:\ring\tests>call ring scripts/math.ring 
 Mathematical Functions
 Sin(0) = 0
 Sin(90) radians = 0.89
@@ -2152,7 +2152,7 @@ fabs(1.72) = 1.72
 pow(2,3) = 8
 sqrt(16) = 4
 
-b:\ring\tests>call ring scripts/newinmethodpara.ring 
+B:\ring\tests>call ring scripts/newinmethodpara.ring 
 hello
 x: 10.000000
 y: 20.000000
@@ -2167,16 +2167,16 @@ x: 1000.000000
 y: 2000.000000
 z: 3000.000000
 
-b:\ring\tests>call ring scripts/newinpara.ring 
+B:\ring\tests>call ring scripts/newinpara.ring 
 x: 10.000000
 y: 20.000000
 z: 30.000000
 
-b:\ring\tests>call ring scripts/findcrash.ring 
+B:\ring\tests>call ring scripts/findcrash.ring 
 0
-b:\ring\tests>call ring scripts/initbrace.ring 
+B:\ring\tests>call ring scripts/initbrace.ring 
 nice
-b:\ring\tests>call ring scripts/callinitmethod.ring 
+B:\ring\tests>call ring scripts/callinitmethod.ring 
 wow
 wow3
 wow5
@@ -2185,26 +2185,26 @@ nice
 wow4
 wow2
 
-b:\ring\tests>call ring scripts/callinitmethod2.ring 
+B:\ring\tests>call ring scripts/callinitmethod2.ring 
 init
 good
 
-b:\ring\tests>call ring scripts/callinitmethod3.ring 
+B:\ring\tests>call ring scripts/callinitmethod3.ring 
 x: 10.000000
 y: 20.000000
 z: 30.000000
 
-b:\ring\tests>call ring scripts/callmethodfromobj.ring 
+B:\ring\tests>call ring scripts/callmethodfromobj.ring 
 test2
 para : 10
 
-b:\ring\tests>call ring scripts/braceerror2.ring 
+B:\ring\tests>call ring scripts/braceerror2.ring 
 base
 child
 
-b:\ring\tests>call ring scripts/parabracebug.ring 
+B:\ring\tests>call ring scripts/parabracebug.ring 
 
-b:\ring\tests>call ring scripts/dotbracebug.ring 
+B:\ring\tests>call ring scripts/dotbracebug.ring 
 1
 top
 left
@@ -2213,21 +2213,21 @@ height
 100
 print
 
-b:\ring\tests>call ring scripts/trybug.ring 
+B:\ring\tests>call ring scripts/trybug.ring 
  invalid path
 
-b:\ring\tests>call ring scripts/forincrash.ring 
+B:\ring\tests>call ring scripts/forincrash.ring 
 6
-b:\ring\tests>call ring scripts/forinlist.ring 
+B:\ring\tests>call ring scripts/forinlist.ring 
 1
 2
 3
 
-b:\ring\tests>call ring scripts/timeforfun.ring 
+B:\ring\tests>call ring scripts/timeforfun.ring 
 Hello
 Goodbye!
 
-b:\ring\tests>call ring scripts/printobj2.ring 
+B:\ring\tests>call ring scripts/printobj2.ring 
 print the list
 1
 2
@@ -2243,7 +2243,7 @@ x: 1.000000
 y: 2.000000
 z: 3.000000
 
-b:\ring\tests>call ring scripts/insertfirst.ring 
+B:\ring\tests>call ring scripts/insertfirst.ring 
 first
 1
 2
@@ -2258,13 +2258,13 @@ first
 5
 end
 
-b:\ring\tests>call ring scripts/ppcrash.ring 
+B:\ring\tests>call ring scripts/ppcrash.ring 
 11
 12
 
-b:\ring\tests>call ring scripts/ppcrash2.ring 
+B:\ring\tests>call ring scripts/ppcrash2.ring 
 11
-b:\ring\tests>call ring scripts/nestednew3.ring 
+B:\ring\tests>call ring scripts/nestednew3.ring 
 pobject: NULL
 x: 30.000000
 y: 40.000000
@@ -2273,7 +2273,7 @@ pobject: NULL
 x: 10.000000
 y: 20.000000
 
-b:\ring\tests>call ring scripts/each.ring 
+B:\ring\tests>call ring scripts/each.ring 
 1
 4
 9
@@ -2295,11 +2295,11 @@ b:\ring\tests>call ring scripts/each.ring
 9
 10
 
-b:\ring\tests>call ring scripts/retassign.ring 
+B:\ring\tests>call ring scripts/retassign.ring 
 0
 1
 
-b:\ring\tests>call ring scripts/forinstr.ring 
+B:\ring\tests>call ring scripts/forinstr.ring 
 1
 0
 1
@@ -2307,7 +2307,7 @@ b:\ring\tests>call ring scripts/forinstr.ring
 1
 0
 
-b:\ring\tests>call ring scripts/happynum.ring 
+B:\ring\tests>call ring scripts/happynum.ring 
 1 : 1
 2 : 7
 3 : 10
@@ -2317,7 +2317,7 @@ b:\ring\tests>call ring scripts/happynum.ring
 7 : 28
 8 : 31
 
-b:\ring\tests>call ring scripts/happynum2.ring 
+B:\ring\tests>call ring scripts/happynum2.ring 
 1 : 1
 2 : 7
 3 : 10
@@ -2326,3 +2326,19 @@ b:\ring\tests>call ring scripts/happynum2.ring
 6 : 23
 7 : 28
 8 : 31
+
+B:\ring\tests>call ring scripts/addmethod.ring 
+10
+20
+30
+
+B:\ring\tests>call ring scripts/addmethod2.ring 
+10
+20
+30
+10
+20
+30
+10
+20
+30

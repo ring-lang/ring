@@ -123,3 +123,5 @@ call ring scripts/retassign.ring
 call ring scripts/forinstr.ring
 call ring scripts/happynum.ring
 call ring scripts/happynum2.ring
+call ring scripts/addmethod.ring
+call ring scripts/addmethod2.ring

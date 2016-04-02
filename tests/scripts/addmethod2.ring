@@ -12,4 +12,3 @@ o1.show()
 
 Class point
 	x y z
-	
