@@ -2,12 +2,12 @@
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
 Load "guilib.ring"
+Load "stdlib.ring"
 
 nScale = 1
 
 app1 = new qApp
-
-mypic = new QPixmap("cards.jpg")
+mypic = new QPixmap(apppath()+"cards.jpg")
 
 mypic2 = mypic.copy(0,(124*4)+1,79,124)
 Player1EatPic = mypic.copy(80,(124*4)+1,79,124)

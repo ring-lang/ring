@@ -14,22 +14,22 @@ func main
 		country = "Egypt"
 		phone = "123456"
 		x = x + 1
-		test = x 
+		test = x
 		job = new Job {
 			name = "Programmer"
-			salary = "48000"	
+			salary = "48000"
 			x = x + 1
-			test = x 
-			time = new Time { 
-				months = 6 
-				Daysperweek = 5 
+			test = x
+			time = new Time {
+				months = 6
+				Daysperweek = 5
 				x = x + 1
-				test = x 
-		
+				test = x
+
 			}
 		}
 	}
-	
+
 	see "Before print " + nl
 	o1.print()
 	' # end of cCode
@@ -45,7 +45,7 @@ func main
 
 Class Human
 	test
-	func sayhello name 
+	func sayhello name
 		see "Hello " + name + nl
 
 Class Person from Human
