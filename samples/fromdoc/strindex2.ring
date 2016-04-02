@@ -1,0 +1,6 @@
+# print user name letter by letter (each letter in new line)
+
+See "Hello, Enter your name : " give cName
+for x in cName
+        see nl + x
+next
