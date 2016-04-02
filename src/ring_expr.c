@@ -950,7 +950,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		/* Define the Function - as public (not related to any class) */
 		pList = ring_list_newlist(pParser->pRingState->pRingFunctionsMap);
 		ring_list_addstring(pList,cFuncName);
-		/* Note +1 becaue instruction ICO_NEWFUNC will come next */
+		/* Note +1 because instruction ICO_NEWFUNC will come next */
 		ring_list_addint(pList,RING_PARSER_OPERATIONID+1);
 		ring_list_addstring(pList,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 		ring_list_addint(pList,0);

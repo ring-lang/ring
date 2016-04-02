@@ -169,7 +169,7 @@ Type: int
 x
 ring_vm_refmeta_addmethod
 Type: List *
-pList, *pList2
+pList, *pList2, *pList3
 Type: char *
 cStr
 Type: int

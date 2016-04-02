@@ -621,7 +621,7 @@ void ring_vm_refmeta_addattribute ( void *pPointer )
 
 void ring_vm_refmeta_addmethod ( void *pPointer )
 {
-	List *pList, *pList2  ;
+	List *pList, *pList2, *pList3  ;
 	char *cStr  ;
 	int x  ;
 	VM *pVM  ;
@@ -642,11 +642,13 @@ void ring_vm_refmeta_addmethod ( void *pPointer )
 				pList2 = ring_list_getlist(pVM->pFunctionsMap,x);
 				if ( strcmp(ring_list_getstring(pList2,RING_FUNCMAP_NAME),cStr) == 0 ) {
 					/* Add new list to the class methods list */
-					pList = ring_list_newlist(pList);
+					pList3 = ring_list_newlist(pList);
 					/* Copy function to class methods */
-					ring_list_copy(pList,pList2);
+					ring_list_copy(pList3,pList2);
 					/* Set the Function Name */
-					ring_list_setstring(pList,RING_FUNCMAP_NAME,ring_string_lower(RING_API_GETSTRING(2)));
+					ring_list_setstring(pList3,RING_FUNCMAP_NAME,ring_string_lower(RING_API_GETSTRING(2)));
+					/* Refresh the HashTable */
+					ring_list_genhashtable2(pList);
 					RING_API_RETNUMBER(1);
 					return ;
 				}
