@@ -1,0 +1,1 @@
+see read("myapp.exe")
