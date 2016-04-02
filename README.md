@@ -16,12 +16,6 @@ Ring Compiler in one program.
 The first version of the language (around 100,000 lines of C/C++/Ring code) is released on
 January 25th, 2016.
 
-[Ring Website](http://ring-lang.net/)
-
-=============
-Why Ring?
-=============
-
 The language is simple, trying to be natural, encourage organization and comes with 
 transparent and visual implementation. It comes with compact syntax and a group of features that
 enable the programmer to create natural interfaces and declarative domain-specific 
@@ -62,6 +56,3 @@ The next screen shot from the ring_vm.ssf file (Generate [ring_vm.c](https://git
 
 The next screen shot from the ring_list.ssf file (Generate [ring_list.c](https://github.com/ring-lang/ring/blob/master/src/ring_list.c) and [ring_list.h](https://github.com/ring-lang/ring/blob/master/include/ring_list.h))
 ![Ring](http://ring-lang.sourceforge.net/ringvisualsrc2.jpg)
-
-
- 
