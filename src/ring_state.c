@@ -312,3 +312,22 @@ void ring_chdir ( const char *cDir )
 {
 	chdir(cDir);
 }
+
+void ring_exefolder ( char *cDirPath )
+{
+	char cDir[200]  ;
+	char cDir2[200]  ;
+	int x,x2,nSize  ;
+	ring_exefilename(cDir);
+	nSize = strlen( cDir ) ;
+	for ( x = nSize-1 ; x >= 0 ; x-- ) {
+		if ( (cDir[x] == '\\') || (cDir[x] == '/') ) {
+			for ( x2 = x-1 ; x2 >= 0 ; x2-- ) {
+				cDir2[x2] = cDir[x2] ;
+			}
+			cDir2[x] = '\0' ;
+			break ;
+		}
+	}
+	strcpy(cDirPath,cDir2);
+}

@@ -67,4 +67,6 @@ int ring_currentdir ( char *cDirPath ) ;
 int ring_exefilename ( char *cDirPath ) ;
 
 void ring_chdir ( const char *cDir ) ;
+
+void ring_exefolder ( char *cDirPath ) ;
 #endif

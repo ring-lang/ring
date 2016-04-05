@@ -98,3 +98,10 @@ ring_exefilename
 Type: int
 nSize
 ring_chdir
+ring_exefolder
+Type: char
+cDir[200]
+Type: char
+cDir2[200]
+Type: int
+x,x2,nSize
