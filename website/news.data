@@ -1,6 +1,6 @@
   aNews = [
-  ["April 3, 2016",'<a href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language"> Ring Article (CodeProject)</a>'],
-  ["March 31, 2016",'<a href="https://github.com/ring-lang/ring"> Ring Source Code (GitHub)</a>'],
+  ["April 3, 2016",'<a href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank"> Ring Article (CodeProject)</a>'],
+  ["March 31, 2016",'<a href="http://github.com/ring-lang/ring" target="_blank"> Ring Source Code (GitHub)</a>'],
   ["March 28, 2016",'<a href="download.html#libs"> Ring extension for Atom Editor</a>'],
   ["March 21, 2016",'<a href="https://en.wikibooks.org/wiki/Ring" target="_blank"> Ring in WIKIBOOKS</a>'],
   ["March 16, 2016",'<a href="https://www.youtube.com/watch?v=QABSHg4zY6M" target="_blank"> Movie : Introducing the Ring Programming Language</a>'],
