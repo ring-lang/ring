@@ -307,3 +307,8 @@ int ring_exefilename ( char *cDirPath )
 	#endif
 	return 0 ;
 }
+
+void ring_chdir ( const char *cDir )
+{
+	chdir(cDir);
+}

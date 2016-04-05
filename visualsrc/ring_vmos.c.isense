@@ -16,3 +16,4 @@ cDirPath[200]
 ring_vm_os_exefilename
 Type: char
 cDirPath[200]
+ring_vm_os_chdir

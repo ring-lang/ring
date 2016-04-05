@@ -96,4 +96,5 @@ Type: int
 nSize
 ring_exefilename
 Type: int
-lRet,nSize
+nSize
+ring_chdir

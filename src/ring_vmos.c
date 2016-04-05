@@ -19,6 +19,7 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("windowsnl",ring_vm_os_windowsnl);
 	ring_vm_funcregister("currentdir",ring_vm_os_currentdir);
 	ring_vm_funcregister("exefilename",ring_vm_os_exefilename);
+	ring_vm_funcregister("chdir",ring_vm_os_chdir);
 }
 
 void ring_vm_os_ismsdos ( void *pPointer )
@@ -110,4 +111,9 @@ void ring_vm_os_exefilename ( void *pPointer )
 	char cDirPath[200]  ;
 	ring_exefilename(cDirPath);
 	RING_API_RETSTRING(cDirPath);
+}
+
+void ring_vm_os_chdir ( void *pPointer )
+{
+	ring_chdir(RING_API_GETSTRING(1));
 }

@@ -26,6 +26,8 @@ void ring_vm_os_windowsnl ( void *pPointer ) ;
 void ring_vm_os_currentdir ( void *pPointer ) ;
 
 void ring_vm_os_exefilename ( void *pPointer ) ;
+
+void ring_vm_os_chdir ( void *pPointer ) ;
 /* Constants */
 #define RING_VM_POINTER_LIBNAME "os"
 #endif
