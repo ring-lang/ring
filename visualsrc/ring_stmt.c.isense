@@ -15,6 +15,8 @@ pMark,*pMark2,*pMark3,*pList2
 Type: double
 nNum1
 cStr
+Type: char
+cFileName[200]
 ring_parser_paralist
 ring_parser_list
 ring_parser_epslion

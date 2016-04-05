@@ -222,6 +222,7 @@ int ring_parser_stmt ( Parser *pParser )
 	double nNum1  ;
 	char cStr[50]  ;
 	nPerformanceLocations = 0 ;
+	char cFileName[200]  ;
 	assert(pParser != NULL);
 	/* Statement --> Load Literal */
 	if ( ring_parser_iskeyword(pParser,K_LOAD) ) {
@@ -239,7 +240,15 @@ int ring_parser_stmt ( Parser *pParser )
 			#endif
 			/* No package at the start of the file */
 			pParser->ClassesMap = pParser->pRingState->pRingClassesMap ;
-			ring_scanner_readfile(pParser->TokenText,pParser->pRingState);
+			strcpy(cFileName,pParser->TokenText);
+			if ( ring_fexists(pParser->TokenText) == 0 ) {
+				ring_exefolder(cFileName);
+				strcat(cFileName,pParser->TokenText);
+				if ( ring_fexists(cFileName) == 0 ) {
+					strcpy(cFileName,pParser->TokenText);
+				}
+			}
+			ring_scanner_readfile(cFileName,pParser->pRingState);
 			/*
 			**  Generate Code 
 			**  Return NULL 
