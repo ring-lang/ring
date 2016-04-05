@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 1
-54
-53
+52
+51
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3820
+Time 3478
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
