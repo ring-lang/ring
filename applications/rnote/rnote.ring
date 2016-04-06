@@ -300,6 +300,7 @@ MyApp = New qApp {
 		tree1 = new qtreeview(win1) {
 			setclickedevent("pChangeFile()")
 			setGeometry(00,00,200,400)
+			setmaximumwidth(300)
 			chdir(cStartUpFolder)
 			oDir = new QDir()					
 			ofile = new QFileSystemModel() {
@@ -338,7 +339,7 @@ MyApp = New qApp {
 
 		oDock2 = new qdockwidget(win1,0) {
 			setwidget(textedit1)
-			setwindowtitle("Source Code")
+			setwindowtitle("Source Code")			
 		}
 
 		oWebBrowser = new qWidget() {	
@@ -383,10 +384,9 @@ MyApp = New qApp {
 		adddockwidget(1,oDock1,1)
 		adddockwidget(2,oDock2,2)
 		adddockwidget(2,oDock3,1)
-	
-		setwinicon(self,"image/notepad.png")
 
-		showmaximized()
+		setwinicon(self,"image/notepad.png")
+		showmaximized()	
 	}
 	RestoreSettings()
 	exec()
