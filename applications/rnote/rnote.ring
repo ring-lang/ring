@@ -94,6 +94,11 @@ MyApp = New qApp {
 					settooltip("Run the program")
 				} ,
 				new qpushbutton(win1) { 
+					setbtnimage(self,"image/rungui.bmp") 
+					setclickevent("pRunNoConsole()")
+					settooltip("Run GUI Application (No Console)")
+				} ,
+				new qpushbutton(win1) { 
 					setbtnimage(self,"image/close.png") 
 					setclickevent("pQuit()")
 					settooltip("Quit")
