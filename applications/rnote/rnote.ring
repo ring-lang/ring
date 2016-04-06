@@ -22,7 +22,9 @@ lAskToSave = false
 
 MyApp = New qApp {
 	win1 = new qMainWindow() {
-
+		oFilter = new qAllEvents(win1)
+		oFilter.setCloseEvent("pSaveSettingsToFile()")
+		installEventFilter(oFilter)
 		setwindowtitle("Ring Notepad")
 		setGeometry(100,100,400,400)
 		aBtns = [
@@ -783,7 +785,7 @@ Func pSaveCurrentFolder
 		cStartupFolder = cFile
 	ok	
 
-Func pSaveSettings
+Func pSaveSettingsToFile
 	pSaveCurrentFolder()
 	cSettings = "aTextColor = ["+aTextColor[1]+","+aTextColor[2]+","+aTextColor[3]+"]" + nl + 
 		    "aBackColor = ["+aBackColor[1]+","+aBackColor[2]+","+aBackColor[3]+"]" + nl +
@@ -795,6 +797,9 @@ Func pSaveSettings
 		    "lShowBrowser = " + oDock3.isvisible()
 	cSettings = substr(cSettings,nl,char(13)+char(10))
 	write("ringnotepad.ini",cSettings)
+
+Func pSaveSettings
+	pSaveSettingsToFile()
 	if lAsktoSave
 		new qmessagebox(win1)
 		{
