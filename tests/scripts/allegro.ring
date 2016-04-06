@@ -5,7 +5,7 @@ al_init_image_addon()
 
 display = al_create_display(640,480)
 
-al_show_native_message_box(display, "Hello", "Welcome", "Using Allegro from the Ring programming language", 
+al_show_native_message_box(display, "Hello", "Welcome", "Using Allegro from the Ring programming language",
                                  "", 0);
 
 al_clear_to_color(al_map_rgb(0,0,255))
@@ -18,7 +18,7 @@ al_set_target_bitmap(bouncer)
 al_clear_to_color(al_map_rgb(255,0,255))
 
 for x = 1 to 30
-	bouncer_x += x 
+	bouncer_x += x
 	bouncer_y += x
 	al_set_target_bitmap(al_get_backbuffer(display))
 	al_clear_to_color(al_map_rgb(0,0,0))
@@ -77,27 +77,27 @@ while true
 		if bouncer_x < 0 or bouncer_x > SCREEN_W - BOUNCER_SIZE
 	            	bouncer_dx = -bouncer_dx
          	ok
- 
+
          	if bouncer_y < 0 or bouncer_y > SCREEN_H - BOUNCER_SIZE
 	            bouncer_dy = -bouncer_dy
         	ok
- 
+
  	        bouncer_x += bouncer_dx
          	bouncer_y += bouncer_dy
 		# Keyboard
 		if key[KEY_UP] and bouncer_y >= 4.0
 	            bouncer_y -= 4.0
-        	ok 
+        	ok
  	        if key[KEY_DOWN] and bouncer_y <= SCREEN_H - BOUNCER_SIZE - 4.0
         	    bouncer_y += 4.0
-         	ok 
+         	ok
  	        if key[KEY_LEFT] and bouncer_x >= 4.0
         	    bouncer_x -= 4.0
-         	ok 
+         	ok
  	        if key[KEY_RIGHT] and bouncer_x <= SCREEN_W - BOUNCER_SIZE - 4.0
         	    bouncer_x += 4.0
          	ok
- 
+
  	        redraw = true
 	on ALLEGRO_EVENT_MOUSE_AXES
 		bouncer_x = al_get_allegro_event_mouse_x(ev)
@@ -133,7 +133,7 @@ while true
 		off
 	off
 	if redraw and al_is_event_queue_empty(event_queue)
-		redraw = false		
+		redraw = false
 		al_clear_to_color(al_map_rgb(0,0,0))
 		al_draw_bitmap(bouncer, bouncer_x, bouncer_y, 0)
 		al_flip_display()
@@ -147,6 +147,6 @@ al_destroy_allegro_timeout(timeout)
 al_destroy_event_queue(event_queue)
 al_destroy_bitmap(bouncer)
 al_destroy_bitmap(image)
-al_destroy_display(display)	
+al_destroy_display(display)
 
 al_exit()
