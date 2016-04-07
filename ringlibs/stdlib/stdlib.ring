@@ -44,6 +44,7 @@ Func Times nCount,F
 	Function Name	: Map
 	Usage		: Execute a function on each list item
 	Parameters	: The List and the function as string
+	Output		: New List after applying the function to each item
 */
 Func Map aList,cFunc
 	aList2 = aList
