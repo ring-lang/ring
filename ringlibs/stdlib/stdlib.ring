@@ -29,6 +29,15 @@ Func AppPath
 	if right(cPath,1) != "\" and right(cPath,1) != "/" cPath += "/" ok
 	return cPath
 
+/*
+	Function Name	: Value
+	Usage		: Create a copy from a list or object
+	Parameters	: The List or the object
+	Output		: The new copy of the List or the object
+*/
+Func Value vListOrObj
+	vListOrObj2 = vListOrObj
+	return vListOrObj2
 
 /*
 	Function Name	: Times
