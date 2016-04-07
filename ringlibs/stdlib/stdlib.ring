@@ -21,5 +21,5 @@ func apppath
 	else
 		cPath = currentdir()
 	ok
-	if right(cPath,1) != "\"  cPath += "\" ok
+	if right(cPath,1) != "\" and right(cPath,1) != "/" cPath += "/" ok
 	return cPath
