@@ -2,6 +2,11 @@
 # Common Functions and Classes for Applications
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
+/*
+	Function Name	: AppPath
+	Usage		: Get the path of the application folder
+	Parameters	: No Parameters
+*/
 func apppath
 	cFile = sysargv[2] # The Main File
 	update = false
@@ -23,3 +28,17 @@ func apppath
 	ok
 	if right(cPath,1) != "\" and right(cPath,1) != "/" cPath += "/" ok
 	return cPath
+
+
+/*
+	Function Name	: Times
+	Usage		: Execute a function nCount times
+	Parameters	: The nCount as Number and the Function Name as string
+*/
+Func Times nCount,F
+
+        for x = 1 to nCount
+                Call F()
+        next
+
+
