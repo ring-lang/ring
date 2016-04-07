@@ -3,6 +3,15 @@
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
 /*
+	Function Name	: Puts
+	Usage		: Print the value then print new line (NL)
+	Parameters	: The Value
+*/
+Func Puts vValue
+	See vValue
+	See nl
+
+/*
 	Function Name	: AppPath
 	Usage		: Get the path of the application folder
 	Parameters	: No Parameters
