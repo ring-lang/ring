@@ -8,5 +8,5 @@ Times ( 3 , func { see "Hello, World!" + nl } )
 
 # Execute a function on each list item
 aList = 1:10
-Map( aList, func x { return x*x } )
-see aList
+See Map( aList, func x { return x*x } )
+

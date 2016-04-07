@@ -36,10 +36,9 @@ func apppath
 	Parameters	: The nCount as Number and the Function Name as string
 */
 Func Times nCount,F
-
-        for x = 1 to nCount
-                Call F()
-        next
+	for x = 1 to nCount 
+		Call F()
+	next
 
 /*
 	Function Name	: Map
@@ -47,6 +46,8 @@ Func Times nCount,F
 	Parameters	: The List and the function as string
 */
 Func Map aList,cFunc
-        for x in aList
-                x = call cFunc(x)
-        next
+	for x in aList
+		x = call cFunc(x)
+	next
+	return aList
+
