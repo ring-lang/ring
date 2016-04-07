@@ -41,4 +41,12 @@ Func Times nCount,F
                 Call F()
         next
 
-
+/*
+	Function Name	: Map
+	Usage		: Execute a function on each list item
+	Parameters	: The List and the function as string
+*/
+Func Map aList,cFunc
+        for x in aList
+                x = call cFunc(x)
+        next
