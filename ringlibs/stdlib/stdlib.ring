@@ -62,3 +62,18 @@ Func Map aList,cFunc
 	next
 	return aList2
 
+
+/*
+	Function Name	: Filter
+	Usage		: Execute a function on each list item to filter items
+	Parameters	: The List and the function as string
+	Output		: New List after filtering the items using the function
+*/
+Func Filter aList,cFunc
+	aList2 = []
+	for x in aList
+		if call cFunc(x)
+			aList2 + x
+		ok
+	next
+	return aList2
