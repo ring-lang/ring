@@ -46,8 +46,9 @@ Func Times nCount,F
 	Parameters	: The List and the function as string
 */
 Func Map aList,cFunc
-	for x in aList
+	aList2 = aList
+	for x in aList2
 		x = call cFunc(x)
 	next
-	return aList
+	return aList2
 
