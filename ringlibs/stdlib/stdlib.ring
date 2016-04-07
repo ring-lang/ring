@@ -7,7 +7,7 @@
 	Usage		: Get the path of the application folder
 	Parameters	: No Parameters
 */
-func apppath
+Func AppPath
 	cFile = sysargv[2] # The Main File
 	update = false
 	for x = len(cFile) to 1 step -1
