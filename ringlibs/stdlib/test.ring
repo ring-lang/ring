@@ -7,6 +7,5 @@ see AppPath() + nl
 Times ( 3 , func { see "Hello, World!" + nl } )
 
 # Execute a function on each list item
-aList = 1:10
-See Map( aList, func x { return x*x } )
+See Map( 1:10, func x { return x*x } )
 
