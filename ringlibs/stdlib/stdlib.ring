@@ -97,3 +97,19 @@ Func Filter aList,cFunc
 
 Func Split cString
 	return str2list(substr(cString," ",nl))
+	
+/*
+	Function Name	: Newlist
+	Usage		: Create a two dimensional list
+	Parameters	: Number of dimensions
+	Output		: Two Dimensional List 
+*/
+
+Func Newlist x, y
+     if isstring(x) x=0+x ok
+     if isstring(y) y=0+y ok
+     aList = list(x)
+     for t in aList
+         t = list(y)
+     next
+     return aList	
