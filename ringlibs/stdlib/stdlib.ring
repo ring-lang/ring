@@ -86,3 +86,14 @@ Func Filter aList,cFunc
 		ok
 	next
 	return aList2
+
+
+/*
+	Function Name	: Split
+	Usage		: Convert String Words to List Items
+	Parameters	: The String to be converted
+	Output		: New List 
+*/
+
+Func Split cString
+	return str2list(substr(cString," ",nl))
