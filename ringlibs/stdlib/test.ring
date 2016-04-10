@@ -23,3 +23,14 @@ See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
 # Test the Split function
 Puts("Test Split()")
 See Split("one two three four five")
+
+# Test the Newlist function
+see "Enter array 1 greater than 0 : " give a1 see nl
+see "Enter array 2 greater than 0 : " give a2 see nl
+chrArray = newlist(a1,a2)
+numArray = newlist(a1,a2)
+chrArray[1][1] = "Hello"
+numArray[1][1]  = 987.2
+see chrArray[1][1] + nl
+see numArray[1][1] + nl
+
