@@ -1,6 +1,7 @@
 # The Ring Standard Library
 # Common Functions and Classes for Applications
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016, CalmoSoft <calmosoft@gmail.com>
 
 /*
 	Function Name	: Puts
