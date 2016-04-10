@@ -25,6 +25,7 @@ Puts("Test Split()")
 See Split("one two three four five")
 
 # Test the Newlist function
+Puts("Test Newlist()")
 a1 = 3
 a2 = 5
 chrArray = newlist(a1,a2)
