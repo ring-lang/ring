@@ -19,3 +19,7 @@ See value(1:10)
 # Test the Filter function
 Puts("Test Filter()")
 See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
+
+# Test the Split function
+Puts("Test Split()")
+See Split("one two three four five")
