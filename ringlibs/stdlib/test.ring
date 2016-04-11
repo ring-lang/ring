@@ -35,3 +35,7 @@ numArray[1][1]  = 987.2
 see chrArray[1][1] + nl
 see numArray[1][1] + nl
 
+# Return a copy with the first letter capitalized
+Puts("Test Capitalized()")
+see capitalized("welcome to the Ring Programming Language")
+
