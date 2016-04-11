@@ -123,5 +123,48 @@ Func Newlist x, y
 */
 
 func Capitalized str
-       return substr(str,left(str,1),upper(left(str,1))) 	
+       return substr(str,left(str,1),upper(left(str,1))) 
+       
+/*
+	Function Name	: Isspecial
+	Usage		: Test is the character is special
+	Parameters	: Character to test
+	Output		: Result of test (0,1)
+*/
 
+func Isspecial char
+       for c in "^'+-/\*~<>=@,%|&?!'"
+           if char = c return true ok
+       next
+       return false 
+
+/*
+	Function Name	: Isvowel
+	Usage		: Test is the character is vowel
+	Parameters	: Character to test
+	Output		: Result of test (0,1)
+*/
+
+func Isvowel char
+       for c in "AEIOU"
+           if upper(char) = c return true ok
+       next
+       return false 
+       
+/*
+	Function Name	: Linecount
+	Usage		: Return the number of line of the text
+	Parameters	: String to test
+	Output		: Number of line
+*/       
+       
+func Linecount text
+     number = 0
+     fp = fopen(text,"r")
+     r = fgetc(fp)
+     while isstring(r)
+           r = fgetc(fp)
+           if r = char(10) number += 1 ok
+     end
+     fclose(fp)
+     return number
