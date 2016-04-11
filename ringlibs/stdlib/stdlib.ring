@@ -177,3 +177,15 @@ func Linecount text
 */
 
 func Factorial n if n = 1 return 1 else return n * Factorial(n-1) ok
+
+/*
+	Function Name	: Fibonacci
+	Usage		: Return the Fibonacci number.
+	Parameters	: Number for Fibonacci.
+	Output		: Fibonacci number.
+*/
+
+func Fibonacci n
+    if n = 0 return 0 ok
+    if n = 1 return 1 ok 
+    if n > 1 return Fibonacci(n-1) + Fibonacci(n-2) ok
