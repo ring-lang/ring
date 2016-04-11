@@ -59,4 +59,9 @@ see "6 factorial is : " + Factorial(6)
 Puts("Test Fibonacci()")
 see "6 Fibonacci is : " + Fibonacci(6)
 
+# Check whether a number is prime or not
+Puts("Test Isprime()")
+flag = isPrime(16)
+if flag = 1 see "16 is a prime number" 
+else see "16 is not a prime number" ok
 
