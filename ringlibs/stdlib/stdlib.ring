@@ -113,4 +113,24 @@ Func Newlist x, y
      for t in aList
          t = list(y)
      next
-     return aList	
+     return aList
+
+/*
+	Function Name	: Linecount
+	Usage		: Answer the number of lines in a text file
+	Parameters	: The text file
+	Output		: Number of lines in a text file
+*/
+
+func Linecount text
+     number = 0
+     fp = fopen(text,"r")
+     r = fgetc(fp)
+     while isstring(r)
+           r = fgetc(fp)
+           if r = char(10) number += 1 ok
+     end
+     fclose(fp)
+     return number
+
+     
