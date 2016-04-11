@@ -113,4 +113,17 @@ Func Newlist x, y
      for t in aList
          t = list(y)
      next
-     return aList	
+     return aList
+     
+/*
+	Function Name	: Isspecial
+	Usage		: Test if the string containes special characters
+	Parameters	: String to test
+	Output		: Result of test 
+*/     
+
+func Isspecial char
+     for c in "^'+-/\*~<>=@,%|&?!'"
+         if char = c return true ok
+     next
+     return false 
