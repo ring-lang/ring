@@ -1,15 +1,15 @@
 Load "stdlib.ring"
 
 # Application Path
-puts("Test AppPath()")
+Puts("Test AppPath()")
 See AppPath() + nl
 
 # Execute a function nCount of times
-puts("Test Times()")
+Puts("Test Times()")
 Times ( 3 , func { see "Hello, World!" + nl } )
 
 # Execute a function on each list item
-puts("Test Map()")
+Puts("Test Map()")
 See Map( 1:10, func x { return x*x } )
 
 # Test the Value function to copy a list or object
@@ -32,24 +32,24 @@ chrArray = newlist(a1,a2)
 numArray = newlist(a1,a2)
 chrArray[1][1] = "Hello"
 numArray[1][1]  = 987.2
-see chrArray[1][1] + nl
-see numArray[1][1] + nl
+See chrArray[1][1] + nl
+See numArray[1][1] + nl
 
 # Return a copy with the first letter capitalized
 Puts("Test Capitalized()")
-see capitalized("welcome to the Ring Programming Language")
+See capitalized("welcome to the Ring Programming Language")
 
-# Test if the character is special
+# Test if the character is a special character?
 Puts("Test Isspecial()")
-see "Isspecial  = " + isSpecial("%") + nl
+See "Isspecial  = " + isSpecial("%") + nl
 
-# Test if the character is vowel
+# Test if the character is a vowel character?
 Puts("Test Isvowel()")
-see "Isvowel = " + isVowel("c") + n
+See "Isvowel = " + isVowel("c") + n
 
-# Return the number of the text file
+# Return the number of lines (lines count) in a text file
 Puts("Test Linecount()")
-see "the number of lines = " + lineCount("C:\Ring\ReadMe.txt")
+See "the number of lines = " + lineCount("C:\Ring\ReadMe.txt")
 
 
 
