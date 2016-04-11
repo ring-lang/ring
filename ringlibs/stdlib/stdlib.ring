@@ -127,9 +127,9 @@ func Capitalized str
        
 /*
 	Function Name	: Isspecial
-	Usage		: Test is the character is special
-	Parameters	: Character to test
-	Output		: Result of test (0,1)
+	Usage		: Check whether a character is special or not
+	Parameters	: The Character to be tested
+	Output		: The result of the test (0,1)
 */
 
 func Isspecial char
@@ -140,9 +140,9 @@ func Isspecial char
 
 /*
 	Function Name	: Isvowel
-	Usage		: Test is the character is vowel
-	Parameters	: Character to test
-	Output		: Result of test (0,1)
+	Usage		: Check whether a character is vowel or not
+	Parameters	: The Character to be tested
+	Output		: The result of the test (0,1)
 */
 
 func Isvowel char
@@ -153,9 +153,9 @@ func Isvowel char
        
 /*
 	Function Name	: Linecount
-	Usage		: Return the number of line of the text
-	Parameters	: String to test
-	Output		: Number of line
+	Usage		: Return the lines count in a text file.
+	Parameters	: String contains the file name
+	Output		: The number of lines (lines count).
 */       
        
 func Linecount text
