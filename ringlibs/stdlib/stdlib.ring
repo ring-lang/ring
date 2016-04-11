@@ -113,4 +113,17 @@ Func Newlist x, y
      for t in aList
          t = list(y)
      next
-     return aList	
+     return aList
+     
+/*
+	Function Name	: Isvowel
+	Usage		: Answer whether the receiver is one of the vowels, AEIOU, in upper or lower case."
+	Parameters	: Character to test
+	Output		: Is character vowel 
+*/     
+
+func Isvowel char
+     for c in "AEIOU"
+         if upper(char) = c return true ok
+     next
+     return false 
