@@ -120,7 +120,8 @@ Func Newlist x, y
 	Usage		: Return a copy with the first letter capitalized
 	Parameters	: String to capitalize
 	Output		: Capitalized string
-	
+*/
+
 func Capitalized str
        return substr(str,left(str,1),upper(left(str,1))) 	
-*/
+
