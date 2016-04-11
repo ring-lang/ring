@@ -39,3 +39,17 @@ see numArray[1][1] + nl
 Puts("Test Capitalized()")
 see capitalized("welcome to the Ring Programming Language")
 
+# Test if the character is special
+Puts("Test Isspecial()")
+see "Isspecial  = " + isSpecial("%") + nl
+
+# Test if the character is vowel
+Puts("Test Isvowel()")
+see "Isvowel = " + isVowel("c") + n
+
+# Return the number of the text file
+Puts("Test Linecount()")
+see "the number of lines = " + lineCount("C:\Ring\ReadMe.txt")
+
+
+
