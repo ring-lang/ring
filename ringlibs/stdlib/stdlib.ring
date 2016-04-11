@@ -189,3 +189,18 @@ func Fibonacci n
     if n = 0 return 0 ok
     if n = 1 return 1 ok 
     if n > 1 return Fibonacci(n-1) + Fibonacci(n-2) ok
+    
+/*
+	Function Name	: Isprime
+	Usage		: Check whether a number is prime or not
+	Parameters	: The number to be tested
+	Output		: The result of the test (0,1)
+*/ 
+
+func Isprime num
+     if (num <= 1) return 0 ok
+     if (num % 2 = 0) return 0 ok
+     for i = 3 to floor(num / 2) - 1 step 2
+         if (num % i = 0) return 0 ok
+     next
+     return 1
