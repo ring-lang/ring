@@ -35,3 +35,6 @@ numArray[1][1]  = 987.2
 see chrArray[1][1] + nl
 see numArray[1][1] + nl
 
+# Test the Isvowel function
+Puts("Test Isvowel()")
+see "Isvowel = " + Isvowel("a") + nl
