@@ -51,5 +51,8 @@ See "Isvowel = " + isVowel("c") + nl
 Puts("Test Linecount()")
 See "the number of lines = " + lineCount("C:\Ring\ReadMe.txt")
 
+# Return the factorial of number
+Puts("Test Factorial()")
+see "6 factorial is : " + Factorial(6)
 
 
