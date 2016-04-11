@@ -168,3 +168,12 @@ func Linecount text
      end
      fclose(fp)
      return number
+
+/*
+	Function Name	: Factorial
+	Usage		: Return the factorial of a number.
+	Parameters	: Number for factorial.
+	Output		: Factorial of a number.
+*/
+
+func Factorial n if n = 1 return 1 else return n * Factorial(n-1) ok
