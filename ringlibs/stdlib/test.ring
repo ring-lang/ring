@@ -55,4 +55,8 @@ See "the number of lines = " + lineCount("C:\Ring\ReadMe.txt")
 Puts("Test Factorial()")
 see "6 factorial is : " + Factorial(6)
 
+# Return the Fibonacci number
+Puts("Test Fibonacci()")
+see "6 Fibonacci is : " + Fibonacci(6)
+
 
