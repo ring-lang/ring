@@ -45,7 +45,7 @@ See "Isspecial  = " + isSpecial("%") + nl
 
 # Test if the character is a vowel character?
 Puts("Test Isvowel()")
-See "Isvowel = " + isVowel("c") + n
+See "Isvowel = " + isVowel("c") + nl
 
 # Return the number of lines (lines count) in a text file
 Puts("Test Linecount()")
