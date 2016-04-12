@@ -1,4 +1,4 @@
-# Application : Help2Wiki
+# Application  : Help2Wiki
 # Usage        : convert Sphinix source code style to Wikiboox style
 # Author       :  Mahmoud Fayed <msfclipper@yahoo.com>
 
@@ -17,7 +17,7 @@ New qApp
                        addwidget(lbl2)
                 }
   
-                layout2 = new qhboxlayout(win1) {
+               layout2 = new qhboxlayout(win1) {
                         textedit1 = new qtextedit(win1)
                         textedit2 = new qtextedit(win1)
                         addwidget(textedit1)
