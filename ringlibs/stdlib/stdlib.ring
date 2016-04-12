@@ -231,3 +231,15 @@ Func List2File aList,cFileName
 	cStr = list2str(aList)
 	if iswindows() cStr = substr(cStr,nl,windowsnl()) ok
 	write(cFileName,cStr)
+
+
+/*
+	Function Name	: File2List
+	Usage		: Read text file and convert lines to list items
+	Parameters	: The file name.
+	output		: The new list.
+*/	
+Func File2List cFileName
+	cStr = read(cFileName)
+	aList = str2list(cStr)
+	return aList
