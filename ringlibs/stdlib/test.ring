@@ -76,3 +76,7 @@ list2file(1:100,"myfile.txt")
 # Test File2List
 Puts("Test File2List()")
 see len(file2list("myfile.txt"))
+
+# Returns true if the given string ends with the specified substring. Trailing white spaces are ignored.
+Puts("Test Endswith()")
+see endsWith("CalmoSoft", "Soft") + nl
