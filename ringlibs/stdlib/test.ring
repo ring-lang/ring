@@ -80,3 +80,8 @@ see len(file2list("myfile.txt"))
 # Returns true if the given string ends with the specified substring. Trailing white spaces are ignored.
 Puts("Test Endswith()")
 see endsWith("CalmoSoft", "Soft") + nl
+
+# Returns true if the given string starts with the specified substring. Leading white spaces are ignored.
+Puts("Test Startswith()")
+see Startswith("CalmoSoft", "Calmo") + nl
+
