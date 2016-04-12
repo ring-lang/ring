@@ -1,5 +1,5 @@
 # Application : Students Progress (StuPro)
-# Usage       : Return statistics about the number of applications made PWCT Students!
+# Usage       : Return statistics about the number of applications made by PWCT Students!
 # Author      : Mahmoud Fayed <msfclipper@yahoo.com>
 
 Func Main
