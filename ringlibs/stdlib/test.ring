@@ -49,7 +49,7 @@ See "Isvowel = " + isVowel("c") + nl
 
 # Return the number of lines (lines count) in a text file
 Puts("Test Linecount()")
-See "the number of lines = " + lineCount("C:\Ring\ReadMe.txt")
+See "the number of lines = " + lineCount("test.ring")
 
 # Return the factorial of number
 Puts("Test Factorial()")

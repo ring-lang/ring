@@ -1,164 +1,164 @@
-# The Ring Standard Library
-# Common Functions and Classes for Applications
-# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
-# 2016, CalmoSoft <calmosoft@gmail.com>
+# the ring standard library
+# common functions and classes for applications
+# 2016, mahmoud fayed <msfclipper@yahoo.com>
+# 2016, calmosoft <calmosoft@gmail.com>
 
 /*
-	Function Name	: Puts
-	Usage		: Print the value then print new line (NL)
-	Parameters	: The Value
+	function name	: puts
+	usage		: print the value then print new line (nl)
+	parameters	: the value
 */
-Func Puts vValue
-	See vValue
-	See nl
+func puts vvalue
+	see vvalue
+	see nl
 
 /*
-	Function Name	: AppPath
-	Usage		: Get the path of the application folder
-	Parameters	: No Parameters
+	function name	: apppath
+	usage		: get the path of the application folder
+	parameters	: no parameters
 */
-Func AppPath
-	cFile = sysargv[2] # The Main File
+func apppath
+	cfile = sysargv[2] # the main file
 	update = false
-	for x = len(cFile) to 1 step -1
-		if cFile[x] = "\" or cFile[x] = "/"
-			cFile = left(cFile,x)
+	for x = len(cfile) to 1 step -1
+		if cfile[x] = "\" or cfile[x] = "/"
+			cfile = left(cfile,x)
 			update = true
 			exit
 		ok
 	next
 	if update = true
-		if cFile[1] != "/" and cFile[2] != ":"
-			cPath = currentdir() + "\" + cFile
+		if cfile[1] != "/" and cfile[2] != ":"
+			cpath = currentdir() + "\" + cfile
 		else
-			cPath = cFile
+			cpath = cfile
 		ok
 	else
-		cPath = currentdir()
+		cpath = currentdir()
 	ok
-	if right(cPath,1) != "\" and right(cPath,1) != "/" cPath += "/" ok
-	return cPath
+	if right(cpath,1) != "\" and right(cpath,1) != "/" cpath += "/" ok
+	return cpath
 
 /*
-	Function Name	: Value
-	Usage		: Create a copy from a list or object
-	Parameters	: The List or the object
-	Output		: The new copy of the List or the object
+	function name	: value
+	usage		: create a copy from a list or object
+	parameters	: the list or the object
+	output		: the new copy of the list or the object
 */
-Func Value vListOrObj
-	vListOrObj2 = vListOrObj
-	return vListOrObj2
+func value vlistorobj
+	vlistorobj2 = vlistorobj
+	return vlistorobj2
 
 /*
-	Function Name	: Times
-	Usage		: Execute a function nCount times
-	Parameters	: The nCount as Number and the Function Name as string
+	function name	: times
+	usage		: execute a function ncount times
+	parameters	: the ncount as number and the function name as string
 */
-Func Times nCount,F
-	for x = 1 to nCount 
-		Call F()
+func times ncount,f
+	for x = 1 to ncount 
+		call f()
 	next
 
 /*
-	Function Name	: Map
-	Usage		: Execute a function on each list item
-	Parameters	: The List and the function as string
-	Output		: New List after applying the function to each item
+	function name	: map
+	usage		: execute a function on each list item
+	parameters	: the list and the function as string
+	output		: new list after applying the function to each item
 */
-Func Map aList,cFunc
-	aList2 = aList
-	for x in aList2
-		x = call cFunc(x)
+func map alist,cfunc
+	alist2 = alist
+	for x in alist2
+		x = call cfunc(x)
 	next
-	return aList2
+	return alist2
 
 
 /*
-	Function Name	: Filter
-	Usage		: Execute a function on each list item to filter items
-	Parameters	: The List and the function as string
-	Output		: New List after filtering the items using the function
+	function name	: filter
+	usage		: execute a function on each list item to filter items
+	parameters	: the list and the function as string
+	output		: new list after filtering the items using the function
 */
-Func Filter aList,cFunc
-	aList2 = []
-	for x in aList
-		if call cFunc(x)
-			aList2 + x
+func filter alist,cfunc
+	alist2 = []
+	for x in alist
+		if call cfunc(x)
+			alist2 + x
 		ok
 	next
-	return aList2
+	return alist2
 
 
 /*
-	Function Name	: Split
-	Usage		: Convert String Words to List Items
-	Parameters	: The String to be converted
-	Output		: New List 
+	function name	: split
+	usage		: convert string words to list items
+	parameters	: the string to be converted
+	output		: new list 
 */
 
-Func Split cString
-	return str2list(substr(cString," ",nl))
+func split cstring
+	return str2list(substr(cstring," ",nl))
 	
 /*
-	Function Name	: Newlist
-	Usage		: Create a two dimensional list
-	Parameters	: Number of dimensions
-	Output		: Two dimensional list 
+	function name	: newlist
+	usage		: create a two dimensional list
+	parameters	: number of dimensions
+	output		: two dimensional list 
 */
 
-Func Newlist x, y
+func newlist x, y
      if isstring(x) x=0+x ok
      if isstring(y) y=0+y ok
-     aList = list(x)
-     for t in aList
+     alist = list(x)
+     for t in alist
          t = list(y)
      next
-     return aList	
+     return alist	
 
 /*
-	Function Name	: Capitalized
-	Usage		: Return a copy with the first letter capitalized
-	Parameters	: String to capitalize
-	Output		: Capitalized string
+	function name	: capitalized
+	usage		: return a copy with the first letter capitalized
+	parameters	: string to capitalize
+	output		: capitalized string
 */
 
-func Capitalized str
+func capitalized str
        return substr(str,left(str,1),upper(left(str,1))) 
        
 /*
-	Function Name	: Isspecial
-	Usage		: Check whether a character is special or not
-	Parameters	: The Character to be tested
-	Output		: The result of the test (0,1)
+	function name	: isspecial
+	usage		: check whether a character is special or not
+	parameters	: the character to be tested
+	output		: the result of the test (0,1)
 */
 
-func Isspecial char
+func isspecial char
        for c in "^'+-/\*~<>=@,%|&?!'"
            if char = c return true ok
        next
        return false 
 
 /*
-	Function Name	: Isvowel
-	Usage		: Check whether a character is vowel or not
-	Parameters	: The Character to be tested
-	Output		: The result of the test (0,1)
+	function name	: isvowel
+	usage		: check whether a character is vowel or not
+	parameters	: the character to be tested
+	output		: the result of the test (0,1)
 */
 
-func Isvowel char
-       for c in "AEIOU"
+func isvowel char
+       for c in "aeiou"
            if upper(char) = c return true ok
        next
        return false 
        
 /*
-	Function Name	: Linecount
-	Usage		: Return the lines count in a text file.
-	Parameters	: String contains the file name
-	Output		: The number of lines (lines count).
+	function name	: linecount
+	usage		: return the lines count in a text file.
+	parameters	: string contains the file name
+	output		: the number of lines (lines count).
 */       
        
-func Linecount text
+func linecount text
      number = 0
      fp = fopen(text,"r")
      r = fgetc(fp)
@@ -170,34 +170,34 @@ func Linecount text
      return number
 
 /*
-	Function Name	: Factorial
-	Usage		: Return the factorial of a number.
-	Parameters	: Number for factorial.
-	Output		: Factorial of a number.
+	function name	: factorial
+	usage		: return the factorial of a number.
+	parameters	: number for factorial.
+	output		: factorial of a number.
 */
 
-func Factorial n if n = 1 return 1 else return n * Factorial(n-1) ok
+func factorial n if n = 1 return 1 else return n * factorial(n-1) ok
 
 /*
-	Function Name	: Fibonacci
-	Usage		: Return the Fibonacci number.
-	Parameters	: Number for Fibonacci.
-	Output		: Fibonacci number.
+	function name	: fibonacci
+	usage		: return the fibonacci number.
+	parameters	: number for fibonacci.
+	output		: fibonacci number.
 */
 
-func Fibonacci n
+func fibonacci n
     if n = 0 return 0 ok
     if n = 1 return 1 ok 
-    if n > 1 return Fibonacci(n-1) + Fibonacci(n-2) ok
+    if n > 1 return fibonacci(n-1) + fibonacci(n-2) ok
     
 /*
-	Function Name	: Isprime
-	Usage		: Check whether a number is prime or not
-	Parameters	: The number to be tested
-	Output		: The result of the test (0,1)
+	function name	: isprime
+	usage		: check whether a number is prime or not
+	parameters	: the number to be tested
+	output		: the result of the test (0,1)
 */ 
 
-func Isprime num
+func isprime num
      if (num <= 1) return 0 ok
      if (num % 2 = 0) return 0 ok
      for i = 3 to floor(num / 2) - 1 step 2
@@ -206,13 +206,13 @@ func Isprime num
      return 1
      
 /*
-	Function Name	: Sign
-	Usage		: Returns an Integer value indicating the sign of a number.
-	Parameters	: The number to be tested.
-	Output		: The result of the test (-1,0,1).
+	function name	: sign
+	usage		: returns an integer value indicating the sign of a number.
+	parameters	: the number to be tested.
+	output		: the result of the test (-1,0,1).
 */	
 	
-func Sign n
+func sign n
      if n < 0 return -1 ok
      if n = 0 return 0 ok
      if n > 0 return 1 ok 
