@@ -204,3 +204,14 @@ func Isprime num
          if (num % i = 0) return 0 ok
      next
      return 1
+     
+/*
+	Function Name	: Endswith
+	Usage		: Returns true if the given string ends with the specified substring. Trailing white spaces are ignored.
+	Parameters	: The original string and the tested string.
+	Output		: The result of the test (0,1)
+*/ 
+
+func Endswith str, substr
+     str = trim(str)
+     if right(str, len(substr)) = substr return 1 else return 0 ok   
