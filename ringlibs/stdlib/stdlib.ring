@@ -217,8 +217,6 @@ Func Sign n
      if n = 0 return 0 ok
      if n > 0 return 1 ok 
 
-
-
 /*
 	Function Name	: List2File
 	Usage		: Write list items to text file (each item in new line).
@@ -231,7 +229,6 @@ Func List2File aList,cFileName
 	cStr = list2str(aList)
 	if iswindows() cStr = substr(cStr,nl,windowsnl()) ok
 	write(cFileName,cStr)
-
 
 /*
 	Function Name	: File2List
