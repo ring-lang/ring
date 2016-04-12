@@ -250,4 +250,17 @@ Func File2List cFileName
 
 func Endswith str, substr
      str = trim(str)
-     if right(str, len(substr)) = substr return 1 else return 0 ok   
+     if right(str, len(substr)) = substr return 1 else return 0 ok 
+     
+/*
+	Function Name	: Startwith
+	Usage		: Returns true if the given string starts with the specified substring. Leading white spaces are ignored.
+	Parameters	: The original and substring
+	output		: Returns the result of search (0,1)
+*/
+
+func Startswith str, substr
+     str = trim(str)
+     if left(str, len(substr)) = substr return 1 else return 0 ok   
+
+     
