@@ -65,3 +65,7 @@ flag = isPrime(16)
 if flag = 1 see "16 is a prime number" 
 else see "16 is not a prime number" ok
 
+# Returns true if the given string starts with the specified substring. Trailing white spaces are ignored.
+Puts("Test Startswith()")
+see Startswith("CalmoSoft", "Calmo") + nl
+
