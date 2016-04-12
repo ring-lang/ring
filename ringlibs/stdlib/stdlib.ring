@@ -240,3 +240,14 @@ Func File2List cFileName
 	cStr = read(cFileName)
 	aList = str2list(cStr)
 	return aList
+
+/*
+	Function Name	: Endswith
+	Usage		: Returns true if the given string ends with the specified substring. Trailing white spaces are ignored.
+	Parameters	: The original and substring
+	output		: Returns the result of search (0,1)
+*/
+
+func Endswith str, substr
+     str = trim(str)
+     if right(str, len(substr)) = substr return 1 else return 0 ok   
