@@ -1,23 +1,23 @@
-# the ring standard library
-# common functions and classes for applications
-# 2016, mahmoud fayed <msfclipper@yahoo.com>
+# the Ring standard library
+# common Functions and classes for applications
+# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 # 2016, calmosoft <calmosoft@gmail.com>
 
 /*
-	function name	: puts
-	usage		: print the value then print new line (nl)
-	parameters	: the value
+	Function Name	: puts
+	Usage		: print the value then print new line (nl)
+	Parameters	: the value
 */
-func puts vvalue
+Func puts vvalue
 	see vvalue
 	see nl
 
 /*
-	function name	: apppath
-	usage		: get the path of the application folder
-	parameters	: no parameters
+	Function Name	: apppath
+	Usage		: get the path of the application folder
+	Parameters	: no Parameters
 */
-func apppath
+Func apppath
 	cfile = sysargv[2] # the main file
 	update = false
 	for x = len(cfile) to 1 step -1
@@ -40,49 +40,49 @@ func apppath
 	return cpath
 
 /*
-	function name	: value
-	usage		: create a copy from a list or object
-	parameters	: the list or the object
+	Function Name	: value
+	Usage		: create a copy from a list or object
+	Parameters	: the list or the object
 	output		: the new copy of the list or the object
 */
-func value vlistorobj
+Func value vlistorobj
 	vlistorobj2 = vlistorobj
 	return vlistorobj2
 
 /*
-	function name	: times
-	usage		: execute a function ncount times
-	parameters	: the ncount as number and the function name as string
+	Function Name	: times
+	Usage		: execute a Function ncount times
+	Parameters	: the ncount as number and the Function Name as string
 */
-func times ncount,f
+Func times ncount,f
 	for x = 1 to ncount 
 		call f()
 	next
 
 /*
-	function name	: map
-	usage		: execute a function on each list item
-	parameters	: the list and the function as string
-	output		: new list after applying the function to each item
+	Function Name	: map
+	Usage		: execute a Function on each list item
+	Parameters	: the list and the Function as string
+	output		: new list after applying the Function to each item
 */
-func map alist,cfunc
+Func map alist,cFunc
 	alist2 = alist
 	for x in alist2
-		x = call cfunc(x)
+		x = call cFunc(x)
 	next
 	return alist2
 
 
 /*
-	function name	: filter
-	usage		: execute a function on each list item to filter items
-	parameters	: the list and the function as string
-	output		: new list after filtering the items using the function
+	Function Name	: filter
+	Usage		: execute a Function on each list item to filter items
+	Parameters	: the list and the Function as string
+	output		: new list after filtering the items using the Function
 */
-func filter alist,cfunc
+Func filter alist,cFunc
 	alist2 = []
 	for x in alist
-		if call cfunc(x)
+		if call cFunc(x)
 			alist2 + x
 		ok
 	next
@@ -90,23 +90,23 @@ func filter alist,cfunc
 
 
 /*
-	function name	: split
-	usage		: convert string words to list items
-	parameters	: the string to be converted
+	Function Name	: split
+	Usage		: convert string words to list items
+	Parameters	: the string to be converted
 	output		: new list 
 */
 
-func split cstring
+Func split cstring
 	return str2list(substr(cstring," ",nl))
 	
 /*
-	function name	: newlist
-	usage		: create a two dimensional list
-	parameters	: number of dimensions
+	Function Name	: newlist
+	Usage		: create a two dimensional list
+	Parameters	: number of dimensions
 	output		: two dimensional list 
 */
 
-func newlist x, y
+Func newlist x, y
      if isstring(x) x=0+x ok
      if isstring(y) y=0+y ok
      alist = list(x)
@@ -116,49 +116,49 @@ func newlist x, y
      return alist	
 
 /*
-	function name	: capitalized
-	usage		: return a copy with the first letter capitalized
-	parameters	: string to capitalize
+	Function Name	: capitalized
+	Usage		: return a copy with the first letter capitalized
+	Parameters	: string to capitalize
 	output		: capitalized string
 */
 
-func capitalized str
+Func capitalized str
        return substr(str,left(str,1),upper(left(str,1))) 
        
 /*
-	function name	: isspecial
-	usage		: check whether a character is special or not
-	parameters	: the character to be tested
+	Function Name	: isspecial
+	Usage		: check whether a character is special or not
+	Parameters	: the character to be tested
 	output		: the result of the test (0,1)
 */
 
-func isspecial char
+Func isspecial char
        for c in "^'+-/\*~<>=@,%|&?!'"
            if char = c return true ok
        next
        return false 
 
 /*
-	function name	: isvowel
-	usage		: check whether a character is vowel or not
-	parameters	: the character to be tested
+	Function Name	: isvowel
+	Usage		: check whether a character is vowel or not
+	Parameters	: the character to be tested
 	output		: the result of the test (0,1)
 */
 
-func isvowel char
+Func isvowel char
        for c in "aeiou"
            if upper(char) = c return true ok
        next
        return false 
        
 /*
-	function name	: linecount
-	usage		: return the lines count in a text file.
-	parameters	: string contains the file name
+	Function Name	: linecount
+	Usage		: return the lines count in a text file.
+	Parameters	: string contains the file name
 	output		: the number of lines (lines count).
 */       
        
-func linecount text
+Func linecount text
      number = 0
      fp = fopen(text,"r")
      r = fgetc(fp)
@@ -170,34 +170,34 @@ func linecount text
      return number
 
 /*
-	function name	: factorial
-	usage		: return the factorial of a number.
-	parameters	: number for factorial.
+	Function Name	: factorial
+	Usage		: return the factorial of a number.
+	Parameters	: number for factorial.
 	output		: factorial of a number.
 */
 
-func factorial n if n = 1 return 1 else return n * factorial(n-1) ok
+Func factorial n if n = 1 return 1 else return n * factorial(n-1) ok
 
 /*
-	function name	: fibonacci
-	usage		: return the fibonacci number.
-	parameters	: number for fibonacci.
+	Function Name	: fibonacci
+	Usage		: return the fibonacci number.
+	Parameters	: number for fibonacci.
 	output		: fibonacci number.
 */
 
-func fibonacci n
+Func fibonacci n
     if n = 0 return 0 ok
     if n = 1 return 1 ok 
     if n > 1 return fibonacci(n-1) + fibonacci(n-2) ok
     
 /*
-	function name	: isprime
-	usage		: check whether a number is prime or not
-	parameters	: the number to be tested
+	Function Name	: isprime
+	Usage		: check whether a number is prime or not
+	Parameters	: the number to be tested
 	output		: the result of the test (0,1)
 */ 
 
-func isprime num
+Func isprime num
      if (num <= 1) return 0 ok
      if (num % 2 = 0) return 0 ok
      for i = 3 to floor(num / 2) - 1 step 2
@@ -206,13 +206,13 @@ func isprime num
      return 1
      
 /*
-	function name	: sign
-	usage		: returns an integer value indicating the sign of a number.
-	parameters	: the number to be tested.
+	Function Name	: sign
+	Usage		: returns an integer value indicating the sign of a number.
+	Parameters	: the number to be tested.
 	output		: the result of the test (-1,0,1).
 */	
 	
-func sign n
+Func sign n
      if n < 0 return -1 ok
      if n = 0 return 0 ok
      if n > 0 return 1 ok 
