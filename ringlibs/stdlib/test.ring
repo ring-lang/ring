@@ -65,3 +65,6 @@ flag = isPrime(16)
 if flag = 1 see "16 is a prime number" 
 else see "16 is not a prime number" ok
 
+# Returns an Integer value indicating the sign of a number.
+Puts("Test Sign()")
+see "sign of 12 is = " + sign(12) + nl
