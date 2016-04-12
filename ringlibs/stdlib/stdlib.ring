@@ -204,3 +204,15 @@ func Isprime num
          if (num % i = 0) return 0 ok
      next
      return 1
+     
+/*
+	Function Name	: Sign
+	Usage		: Returns an Integer value indicating the sign of a number.
+	Parameters	: The number to be tested.
+	Output		: The result of the test (-1,0,1).
+*/	
+	
+func Sign n
+     if n < 0 return -1 ok
+     if n = 0 return 0 ok
+     if n > 0 return 1 ok 
