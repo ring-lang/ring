@@ -1,5 +1,5 @@
-# the Ring standard library
-# common Functions and classes for applications
+# The Ring Standard Library
+# Common functions and classes for applications
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 # 2016, calmosoft <calmosoft@gmail.com>
 
