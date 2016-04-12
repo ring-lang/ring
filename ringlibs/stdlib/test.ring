@@ -68,3 +68,7 @@ else see "16 is not a prime number" ok
 # Returns an Integer value indicating the sign of a number.
 Puts("Test Sign()")
 see "sign of 12 is = " + sign(12) + nl
+
+# Test List2File
+Puts("Test List2File()")
+list2file(1:100,"myfile.txt")
