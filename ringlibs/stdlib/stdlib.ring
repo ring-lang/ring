@@ -8,7 +8,7 @@
 	Usage		: print the value then print new line (nl)
 	Parameters	: the value
 */
-Func puts vvalue
+Func Puts vvalue
 	see vvalue
 	see nl
 
@@ -17,7 +17,7 @@ Func puts vvalue
 	Usage		: get the path of the application folder
 	Parameters	: no Parameters
 */
-Func apppath
+Func AppPath
 	cfile = sysargv[2] # the main file
 	update = false
 	for x = len(cfile) to 1 step -1
@@ -45,7 +45,7 @@ Func apppath
 	Parameters	: the list or the object
 	output		: the new copy of the list or the object
 */
-Func value vlistorobj
+Func Value vlistorobj
 	vlistorobj2 = vlistorobj
 	return vlistorobj2
 
@@ -54,7 +54,7 @@ Func value vlistorobj
 	Usage		: execute a Function ncount times
 	Parameters	: the ncount as number and the Function Name as string
 */
-Func times ncount,f
+Func Times ncount,f
 	for x = 1 to ncount 
 		call f()
 	next
@@ -65,7 +65,7 @@ Func times ncount,f
 	Parameters	: the list and the Function as string
 	output		: new list after applying the Function to each item
 */
-Func map alist,cFunc
+Func Map alist,cFunc
 	alist2 = alist
 	for x in alist2
 		x = call cFunc(x)
@@ -79,7 +79,7 @@ Func map alist,cFunc
 	Parameters	: the list and the Function as string
 	output		: new list after filtering the items using the Function
 */
-Func filter alist,cFunc
+Func Filter alist,cFunc
 	alist2 = []
 	for x in alist
 		if call cFunc(x)
@@ -96,7 +96,7 @@ Func filter alist,cFunc
 	output		: new list 
 */
 
-Func split cstring
+Func Split cstring
 	return str2list(substr(cstring," ",nl))
 	
 /*
@@ -106,7 +106,7 @@ Func split cstring
 	output		: two dimensional list 
 */
 
-Func newlist x, y
+Func NewList x, y
      if isstring(x) x=0+x ok
      if isstring(y) y=0+y ok
      alist = list(x)
@@ -122,7 +122,7 @@ Func newlist x, y
 	output		: capitalized string
 */
 
-Func capitalized str
+Func Capitalized str
        return substr(str,left(str,1),upper(left(str,1))) 
        
 /*
@@ -132,7 +132,7 @@ Func capitalized str
 	output		: the result of the test (0,1)
 */
 
-Func isspecial char
+Func IsSpecial char
        for c in "^'+-/\*~<>=@,%|&?!'"
            if char = c return true ok
        next
@@ -145,7 +145,7 @@ Func isspecial char
 	output		: the result of the test (0,1)
 */
 
-Func isvowel char
+Func IsVowel char
        for c in "aeiou"
            if upper(char) = c return true ok
        next
@@ -158,7 +158,7 @@ Func isvowel char
 	output		: the number of lines (lines count).
 */       
        
-Func linecount text
+Func LineCount text
      number = 0
      fp = fopen(text,"r")
      r = fgetc(fp)
@@ -176,7 +176,7 @@ Func linecount text
 	output		: factorial of a number.
 */
 
-Func factorial n if n = 1 return 1 else return n * factorial(n-1) ok
+Func Factorial n if n = 1 return 1 else return n * factorial(n-1) ok
 
 /*
 	Function Name	: fibonacci
@@ -185,7 +185,7 @@ Func factorial n if n = 1 return 1 else return n * factorial(n-1) ok
 	output		: fibonacci number.
 */
 
-Func fibonacci n
+Func Fibonacci n
     if n = 0 return 0 ok
     if n = 1 return 1 ok 
     if n > 1 return fibonacci(n-1) + fibonacci(n-2) ok
@@ -197,7 +197,7 @@ Func fibonacci n
 	output		: the result of the test (0,1)
 */ 
 
-Func isprime num
+Func IsPrime num
      if (num <= 1) return 0 ok
      if (num % 2 = 0) return 0 ok
      for i = 3 to floor(num / 2) - 1 step 2
@@ -212,7 +212,7 @@ Func isprime num
 	output		: the result of the test (-1,0,1).
 */	
 	
-Func sign n
+Func Sign n
      if n < 0 return -1 ok
      if n = 0 return 0 ok
      if n > 0 return 1 ok 
