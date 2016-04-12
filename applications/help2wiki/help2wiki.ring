@@ -1,6 +1,6 @@
 # Application  : Help2Wiki
 # Usage        : convert Sphinix source code style to Wikiboox style
-# Author       :  Mahmoud Fayed <msfclipper@yahoo.com>
+# Author       : Mahmoud Fayed <msfclipper@yahoo.com>
 
 Load "guilib.ring"
 
