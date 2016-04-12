@@ -204,3 +204,14 @@ func Isprime num
          if (num % i = 0) return 0 ok
      next
      return 1
+
+/*
+	Function Name	: Startswith
+	Usage		: Returns true if the given string starts with the specified substring. Leading white spaces are ignored.
+	Parameters	: Original string and string to be tested.
+	Output		: The result of the test (0,1). 
+*/
+
+func Startswith str, substr
+     str = trim(str)
+     if left(str, len(substr)) = substr return 1 else return 0 ok
