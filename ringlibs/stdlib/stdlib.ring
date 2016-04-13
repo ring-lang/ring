@@ -262,5 +262,21 @@ func Endswith str, substr
 func Startswith str, substr
      str = trim(str)
      if left(str, len(substr)) = substr return 1 else return 0 ok   
+     
+/*
+	Function Name	: Gcd
+	Usage		: Finding of the greatest common divisor of two integers.
+	Parameters	: Two integers for gcd.
+	output		: The greatest common divisor.
+*/
+
+func Gcd gcd, b
+       while b
+             c   = gcd
+             gcd = b
+             b   = c % b
+       end
+       return gcd
+
 
      
