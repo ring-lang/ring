@@ -148,6 +148,13 @@ Type: Item *
 pItem2
 Type: List *
 pList2
+ring_list_deliteminsidelist
+Type: int
+x
+Type: Item *
+pItem2
+Type: List *
+pList2
 ring_list_findstring
 Type: int
 x,nCount
