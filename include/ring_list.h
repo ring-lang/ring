@@ -136,6 +136,9 @@ RING_API void ring_list_genhashtable2 ( List *pList ) ;
 RING_API void ring_list_refcopy ( List *pNewList, List *pList ) ;
 
 RING_API void ring_list_clear ( List *pList ) ;
+/* Delete item from list using the item pointer */
+
+RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem ) ;
 /* Macro */
 #define ring_list_isdouble(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_DOUBLE)
 #define ring_list_isint(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_INT )
