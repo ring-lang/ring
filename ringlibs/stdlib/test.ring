@@ -85,3 +85,7 @@ see endsWith("CalmoSoft", "Soft") + nl
 Puts("Test Startswith()")
 see Startswith("CalmoSoft", "Calmo") + nl
 
+# Compute the least common multiple of two integers.
+Puts("Test Lcm()")
+see Lcm(24,36) + nl
+
