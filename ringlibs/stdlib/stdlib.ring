@@ -261,6 +261,17 @@ func Endswith str, substr
 
 func Startswith str, substr
      str = trim(str)
-     if left(str, len(substr)) = substr return 1 else return 0 ok   
+     if left(str, len(substr)) = substr return 1 else return 0 ok
+     
+/*
+	Function Name	: Lcm
+	Usage		: Compute the least common multiple of two integers.
+	Parameters	: Two integrs to compute.
+	output		: The least common multiple.
+*/     
+
+func Lcm m,n
+       lcm = m*n / gcd(m,n)
+       return lcm
 
      
