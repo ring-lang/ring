@@ -62,7 +62,7 @@ see "6 Fibonacci is : " + Fibonacci(6)
 # Check whether a number is prime or not
 Puts("Test Isprime()")
 flag = isPrime(16)
-if flag = 1 see "16 is a prime number" 
+if flag = 1 see "16 is a prime number"
 else see "16 is not a prime number" ok
 
 # Returns an Integer value indicating the sign of a number.
@@ -92,5 +92,3 @@ see gcd (24, 32) + nl
 # Compute the least common multiple of two integers.
 Puts("Test Lcm()")
 see Lcm(24,36) + nl
-
-

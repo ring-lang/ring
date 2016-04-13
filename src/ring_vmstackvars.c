@@ -105,6 +105,11 @@ void ring_vm_assignment ( VM *pVM )
 				ring_list_setint(pVar, RING_VAR_TYPE ,RING_VM_STRING);
 				ring_list_setstring2(pVar, RING_VAR_VALUE , ring_string_get(cStr1),ring_string_size(cStr1));
 			} else {
+				/* Check NULL Variable */
+				if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL ) {
+					ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
+					return ;
+				}
 				if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
 					pString = ring_list_getstringobject(pVar,RING_VAR_VALUE);
 					ring_string_add2(pString,ring_string_get(cStr1),ring_string_size(cStr1));
@@ -124,6 +129,11 @@ void ring_vm_assignment ( VM *pVM )
 				ring_list_setint(pVar, RING_VAR_TYPE ,RING_VM_NUMBER);
 				ring_list_setdouble(pVar, RING_VAR_VALUE , nNum1);
 			} else {
+				/* Check NULL Variable */
+				if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL ) {
+					ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
+					return ;
+				}
 				ring_vm_beforeequallist(pVM,pVar,nNum1);
 			}
 		}
