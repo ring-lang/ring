@@ -117,6 +117,8 @@ void ring_vm_inclpjump ( VM *pVM )
 	/* Check Scope Life Time */
 	if ( RING_VM_IR_READIVALUE(4) != pVM->nActiveScopeID ) {
 		RING_VM_IR_OPCODE = ICO_INCJUMP ;
+		ring_list_deliteminsidelist(pVM->aNewByteCodeItems,RING_VM_IR_ITEM(3));
+		ring_list_deliteminsidelist(pVM->aNewByteCodeItems,RING_VM_IR_ITEM(4));
 		#if RING_SHOWICFINAL
 		RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
 		ring_list_deleteitem(RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
