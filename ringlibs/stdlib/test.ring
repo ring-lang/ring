@@ -85,3 +85,7 @@ see endsWith("CalmoSoft", "Soft") + nl
 Puts("Test Startswith()")
 see Startswith("CalmoSoft", "Calmo") + nl
 
+# Finding of the greatest common divisor of two integers.
+Puts("Test Gcd()")
+see gcd (24, 32) + nl
+
