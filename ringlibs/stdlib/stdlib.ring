@@ -278,5 +278,16 @@ func Gcd gcd, b
        end
        return gcd
 
+/*
+	Function Name	: Lcm
+	Usage		: Compute the least common multiple of two integers.
+	Parameters	: Two integrs to compute.
+	output		: The least common multiple.
+*/     
+
+func Lcm m,n
+     lcm = m*n / gcd(m,n)
+     return lcm
+
 
      
