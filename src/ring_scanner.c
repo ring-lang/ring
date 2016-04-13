@@ -125,6 +125,7 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 		#endif
 	} else {
 		ring_list_deleteitem(pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
+		ring_scanner_delete(pScanner);
 		return ;
 	}
 	ring_scanner_delete(pScanner);
