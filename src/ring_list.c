@@ -602,6 +602,28 @@ RING_API int ring_list_isiteminsidelist ( List *pList,Item *pItem )
 	}
 	return 0 ;
 }
+/* Delete item from list using the item pointer */
+
+RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem )
+{
+	int x  ;
+	Item *pItem2  ;
+	List *pList2  ;
+	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+		pItem2 = ring_list_getitem(pList,x);
+		if ( pItem == pItem2 ) {
+			ring_list_deleteitem(pList,x);
+			return 1 ;
+		}
+		if ( ring_list_islist(pList,x) ) {
+			pList2 = ring_item_getlist(pItem2);
+			if ( ring_list_isiteminsidelist(pList2,pItem) ) {
+				return 1 ;
+			}
+		}
+	}
+	return 0 ;
+}
 /* Linear Search */
 
 RING_API int ring_list_findstring ( List *pList,const char *str,int nColumn )
