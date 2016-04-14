@@ -750,28 +750,7 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 	**  Also braces can be used inside class methods to access objects 
 	**  Inside class method you can access any object using { } , you can access the self object 
 	**  Braces & Methods calls can be nested 
-	**  Check Calling from function instead of method 
-	**  We uses -1 with nFuncExecute2 because LoadFunction increment done before checking private method 
-	**  And before adding the information to pFuncCallList 
 	*/
-	nPos = pVM->nFuncExecute2 - 1 ;
-	if ( (ring_list_getsize(pVM->pFuncCallList) > nPos) && (nPos > 0) ) {
-		/*
-		**  The function call (after function load) decrease pVM->nFuncExec2 
-		**  We go before nFuncExec2 to get the active function/method 
-		**  Because we can do nested function call   F1 ( F2 ( F3(parameters) ) ) 
-		*/
-		pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList) - nPos);
-		if ( ring_list_getsize(pList) >= RING_FUNCCL_METHODORFUNC ) {
-			if ( ring_list_getint(pList,RING_FUNCCL_METHODORFUNC) == 0 ) {
-				return 0 ;
-			}
-		}
-		else {
-			/* We are calling a C Function */
-			return 0 ;
-		}
-	}
 	/*
 	**  pObjState can know about method call if it's called using callmethod 
 	**  Or it's called from inside { } as function 
