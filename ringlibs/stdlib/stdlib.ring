@@ -288,3 +288,17 @@ func Gcd gcd, b
 func Lcm m,n
      lcm = m*n / gcd(m,n)
      return lcm
+     
+*
+	Function Name	: Prodlist
+	Usage		: Compute the product of a list of integers.
+	Parameters	: List to compute
+	output		: Product of a list.
+*/
+
+func Prodlist bList
+       prod = 1
+       for n = 1 to len(bList)
+            prod *= bList[n]
+       next
+       return prod
