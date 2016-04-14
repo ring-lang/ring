@@ -92,3 +92,8 @@ see gcd (24, 32) + nl
 # Compute the least common multiple of two integers.
 Puts("Test Lcm()")
 see Lcm(24,36) + nl
+
+# Compute the product of a list of integers.
+Puts("Test Prodlidt()")
+aList = [1,2,3,4,5]
+see Prodlist(aList)
