@@ -303,3 +303,18 @@ func Sumlist bList
      next
      return sum	
      
+*
+	Function Name	: Prodlist
+	Usage		: Compute the product of a list of integers.
+	Parameters	: List to compute
+	output		: Product of a list.
+*/
+
+func Prodlist bList
+     prod = 1
+     for n = 1 to len(bList)
+         prod *= bList[n]
+     next
+     return prod
+     
+     
