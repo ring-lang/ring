@@ -23,7 +23,7 @@ Load "bootstrap.ring"
 Import System.Web
 
 website = "index.ring"
-cUploadPath = "b:/ring/weblib/ringapp/upload/"
+cUploadPath = "b:/ring/ringlibs/weblib/ringapp/upload/"
 cUploadFolder = "/ringapp/upload/"
 
 
