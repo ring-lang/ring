@@ -288,3 +288,33 @@ func Gcd gcd, b
 func Lcm m,n
      lcm = m*n / gcd(m,n)
      return lcm
+     
+/*
+	Function Name	: Sumlist
+	Usage		: Compute the sum of a list of integers.
+	Parameters	: List to compute
+	output		: Sum of a list.
+*/ 
+
+func Sumlist bList
+     sum = 0
+     for n = 1 to len(bList)
+         sum += bList[n]
+     next
+     return sum	
+     
+*
+	Function Name	: Prodlist
+	Usage		: Compute the product of a list of integers.
+	Parameters	: List to compute
+	output		: Product of a list.
+*/
+
+func Prodlist bList
+     prod = 1
+     for n = 1 to len(bList)
+         prod *= bList[n]
+     next
+     return prod
+     
+     
