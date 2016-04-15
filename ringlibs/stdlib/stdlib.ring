@@ -303,7 +303,7 @@ func Sumlist bList
      next
      return sum	
      
-*
+/*
 	Function Name	: Prodlist
 	Usage		: Compute the product of a list of integers.
 	Parameters	: List to compute
