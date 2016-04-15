@@ -97,3 +97,8 @@ see Lcm(24,36) + nl
 Puts("Test Prodlidt()")
 aList = [1,2,3,4,5]
 see Prodlist(aList)
+
+# Test whether an integer is even or odd.
+Puts("Test Evenorodd()")
+nr = 17
+Evenorodd(nr)
