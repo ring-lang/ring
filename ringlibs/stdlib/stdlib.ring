@@ -317,4 +317,15 @@ func Prodlist bList
      next
      return prod
      
+*
+	Function Name	: Evenorodd
+	Usage		: Test whether an integer is even or odd.
+	Parameters	: Integer to test.
+	output		: Result of test.
+*/     
+
+func Evenorodd n 
+     if n % 2 = 1 see "" + n + " is odd" + nl
+     else see "" + n + " is even" + nl ok
+     
      
