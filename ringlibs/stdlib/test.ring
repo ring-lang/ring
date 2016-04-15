@@ -102,3 +102,8 @@ see Prodlist(aList)
 Puts("Test Sumlist()")
 aList = [1,2,3,4,5]
 see Sumlist(aList)
+
+# Compute the sum of a list of integers.
+Puts("Test Evenorodd()")
+nr = 17
+see Evenorodd(nr) + nl
