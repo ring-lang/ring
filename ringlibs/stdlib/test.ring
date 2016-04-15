@@ -94,6 +94,11 @@ Puts("Test Lcm()")
 see Lcm(24,36) + nl
 
 # Compute the product of a list of integers.
-Puts("Test Prodlidt()")
+Puts("Test Prodlist()")
 aList = [1,2,3,4,5]
 see Prodlist(aList)
+
+# Compute the sum of a list of integers.
+Puts("Test Sumlist()")
+aList = [1,2,3,4,5]
+see Sumlist(aList)
