@@ -1,5 +1,7 @@
 Load "gamelib.ring"
 
+oResources = new Resources
+
 Class GameBase
 	Title="My Game!"
 	SCREEN_W=800  SCREEN_H=600

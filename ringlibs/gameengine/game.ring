@@ -1,7 +1,5 @@
 Load "gameengine.ring"
 
-oResources = new Resources
-
 Func Main
 	New Game 
 	{
