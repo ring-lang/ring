@@ -1,4 +1,5 @@
 Load "gamelib.ring"
+Load "gameengine.rh"
 
 oResources = new Resources
 

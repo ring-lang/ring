@@ -9,7 +9,7 @@ Func Main
 			x = 0
 			y = 0
 			nPoint = -370
-			nDirection = 2
+			nDirection = GE_DIRECTION_DEC
 		}
 		Image 
 		{
@@ -23,7 +23,7 @@ Func Main
 				LoadFile("images\back3.jpg")
 				x = g y =g width=100 height=100
 				lAnimate=true lScaled=True
-				nDirection = 3	nStep=1
+				nDirection = GE_DIRECTION_RANDOM	nStep=1
 			}
 		next
 	}
