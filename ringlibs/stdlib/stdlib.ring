@@ -328,7 +328,7 @@ func Evenorodd n
      if n % 2 = 1 return 1 ok
      return 2
      
-*
+/*
 	Function Name	: Factors
 	Usage		: Compute the factors of a positive integer.
 	Parameters	: Integer to compute.
