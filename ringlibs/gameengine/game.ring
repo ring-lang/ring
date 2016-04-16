@@ -27,7 +27,7 @@ Func Main
 				LoadFile("images\back3.jpg")
 				x = g y =g width=100 height=100
 				lAnimate=true lScaled=True
-				nDirection = GE_DIRECTION_RANDOM	nStep=1
+				nDirection = GE_DIRECTION_RANDOM
 			}
 		next
 	}
