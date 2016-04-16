@@ -107,3 +107,12 @@ see Sumlist(aList) + nl
 Puts("Test Evenorodd()")
 nr = 17
 see Evenorodd(nr) + nl
+
+# Compute the factors of a positive integer.
+Puts("Test Factors()")
+n = 45
+aList = factors(n)
+see "Factors of " + n + " = "
+for i = 1 to len(aList)
+    see "" + aList[i] + " "
+next
