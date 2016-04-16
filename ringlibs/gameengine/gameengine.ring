@@ -1,3 +1,5 @@
+Load "gamelib.ring"
+
 Class GameBase
 	Title="My Game!"
 	SCREEN_W=800  SCREEN_H=600
