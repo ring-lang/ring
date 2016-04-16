@@ -116,3 +116,9 @@ see "Factors of " + n + " = "
 for i = 1 to len(aList)
     see "" + aList[i] + " "
 next
+
+# Check if a sequence of characters is a palindrome or not. 
+Puts("Test Palindrome()")
+cString = "radar"
+Palindrome(cString)
+
