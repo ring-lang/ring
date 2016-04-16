@@ -350,7 +350,7 @@ func Factors nArray
 	output		: Result of check.
 */  
 
-func palindrome aString
+func Palindrome aString
      bString = ""
      for i=len(aString) to 1 step -1
          bString = bString + aString[i]
