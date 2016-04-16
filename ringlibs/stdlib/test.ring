@@ -107,3 +107,8 @@ see Sumlist(aList) + nl
 Puts("Test Evenorodd()")
 nr = 17
 see Evenorodd(nr) + nl
+
+# Check if a sequence of characters is a palindrome or not
+Puts("Test Palindrome()")
+cString = "radar"
+Palindrome(cString)
