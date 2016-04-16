@@ -3117,7 +3117,6 @@ RING_FUNC(ring_al_get_bitmap_height)
 RING_FUNC(ring_al_get_bitmap_width)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
-		printf("parameters count : %d\n",RING_API_PARACOUNT);
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
