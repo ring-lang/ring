@@ -317,7 +317,7 @@ func Prodlist bList
      next
      return prod
      
-*
+/*
 	Function Name	: Evenorodd
 	Usage		: Test whether an integer is even or odd.
 	Parameters	: Integer to test.
@@ -327,5 +327,21 @@ func Prodlist bList
 func Evenorodd n 
      if n % 2 = 1 return 1 ok
      return 2
+     
+/*
+	Function Name	: Palindrome
+	Usage		: Check if a sequence of characters is a palindrome or not
+	Parameters	: Characters to check.
+	output		: Result of check.
+*/     
+     
+func palindrome aString
+     bString = ""
+     for i=len(aString) to 1 step -1
+         bString = bString + aString[i]
+     next
+     see aString
+     if aString = bString see " is a palindrome." + nl
+     else see " is not a palindrome" + nl ok
      
      
