@@ -343,4 +343,21 @@ func Factors nArray
      next
      return nArray
      
+/*
+	Function Name	: Palindrome
+	Usage		: Check if a sequence of characters is a palindrome or not. 
+	Parameters	: Characters to chech.
+	output		: Result of check.
+*/  
+
+func Palindrome aString
+     bString = ""
+     for i=len(aString) to 1 step -1
+         bString = bString + aString[i]
+     next
+     see aString
+     if aString = bString see " is a palindrome." + nl
+     else see " is not a palindrome" + nl ok
+     
+     
      
