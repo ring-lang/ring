@@ -441,6 +441,7 @@ func pCursorPositionChanged
 			    " Total Lines : " + textedit1.document().linecount() ,0)
 
 func pGoto
+	
 	oInput = New QInputDialog(win1)
 	{
 		setwindowtitle("Enter the line number?")
@@ -448,12 +449,24 @@ func pGoto
 		setlabeltext("Line")
 		settextvalue("1")
 		exec()
-		nLine = 0 + oInput.textvalue()
-		oBlock = textedit1.document().findBlockByLineNumber(nLine-1)
-		oCursor = textedit1.textcursor()
-		oCursor.setposition(oBlock.position(),0)
-		textedit1.settextcursor(oCursor)
 	}
+
+	nLine = 0 + oInput.textvalue()	
+	nLine--
+	cStr = textedit1.toPlainText()
+	nSize = len(cStr)
+	for t=1 to nSize
+		if cStr[t] = nl nLine-- ok
+		if nLine = 0
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(t,0)
+			textedit1.settextcursor(oCursor)
+		 	exit 
+		ok
+	next
+		
+		
+
 
 func pFind
 	if isobject(oSearch)
