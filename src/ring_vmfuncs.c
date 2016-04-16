@@ -441,7 +441,7 @@ void ring_vm_movetoprevscope ( VM *pVM )
 		return ;
 	}
 	pList2 = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
-	pList3 = ring_vm_newvar2("ring_sys_temp",pList2);
+	pList3 = ring_vm_newvar2(RING_TEMP_VARIABLE,pList2);
 	ring_list_setint(pList3,RING_VAR_TYPE,RING_VM_LIST);
 	ring_list_setlist(pList3,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
@@ -465,7 +465,7 @@ void ring_vm_createtemplist ( VM *pVM )
 	*/
 	pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 	pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
-	ring_vm_newtempvar(pVM, "ring_sys_temp",pList);
+	ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
 }
 
 void ring_vm_saveloadaddressscope ( VM *pVM )

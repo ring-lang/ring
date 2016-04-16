@@ -81,6 +81,7 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 	int x  ;
 	List *pScope,*pList  ;
 	/*
+	**  This function is called from Ring code by callgc() 
 	**  Function Goal 
 	**  When we return Lists/Pointers from functions we create variable called ring_sys_temp 
 	**  This variable is created in the previous scope instead of the active function scope 
@@ -92,6 +93,7 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 	**  But we have a loop and this will lead to a memory leak during loop execution 
 	**  When testing al_map_rgb() in Allegro Library this problem becomes critical 
 	**  This function solves this problem, by deleting temp lists/C Pointers in the current scope 
+	**  We use -1 to skip the currect scope of the Ring function (callgc()) 
 	*/
 	pScope = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
 	/* The function works only when we expect to have temp variables */
@@ -109,4 +111,5 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 	}
 	/* Delete The HashTable */
 	pScope->pHashTable = ring_hashtable_delete(pScope->pHashTable) ;
+	ring_list_genhashtable2(pScope);
 }
