@@ -281,7 +281,7 @@ func Gcd gcd, b
 /*
 	Function Name	: Lcm
 	Usage		: Compute the least common multiple of two integers.
-	Parameters	: Two integrs to compute.
+	Parameters	: Two integers to compute.
 	output		: The least common multiple.
 */     
 
@@ -327,5 +327,20 @@ func Prodlist bList
 func Evenorodd n 
      if n % 2 = 1 return 1 ok
      return 2
+     
+*
+	Function Name	: Factors
+	Usage		: Compute the factors of a positive integer.
+	Parameters	: Integer to compute.
+	output		: Result of compute.
+*/  
+
+func Factors nArray    
+     nArray = []
+     j = 0
+     for i = 1 to n
+         if n % i = 0 j = j + 1 add(nArray, i) ok
+     next
+     return nArray
      
      
