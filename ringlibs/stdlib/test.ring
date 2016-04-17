@@ -122,3 +122,11 @@ Puts("Test Palindrome()")
 cString = "radar"
 Palindrome(cString)
 
+# Check whether a given year is a leap year in the Gregorian calendar. 
+Puts("Test Isleapyear()")
+year = 2016
+leap = Isleapyear(year)
+if leap true see "" + year + " is a leap year."
+else see "" + year + " is not a leap year." ok
+
+
