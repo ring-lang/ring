@@ -186,7 +186,7 @@ Class GameImage from GameObject
 
 	Func Animate
 		if not lAnimate return ok
-		if nDirection = 1
+		if nDirection = GE_DIRECTION_INC
 			if x < nPoint
 				x++
 				y++
@@ -194,7 +194,7 @@ Class GameImage from GameObject
 				x = 0
 				y = 0
 			ok
-		but nDirection = 2
+		but nDirection = GE_DIRECTION_DEC
 			if x > nPoint
 				x--
 				y--
@@ -202,7 +202,7 @@ Class GameImage from GameObject
 				x = 0
 				y = 0
 			ok
-		but nDirection = 3
+		but nDirection = GE_DIRECTION_RANDOM
 			if nCounter = 0
 				r = random(7)
 				nCounter++
