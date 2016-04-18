@@ -10,7 +10,7 @@ oResources = new Resources
 Class GameBase
 	Title="My Game!"
 	SCREEN_W=800  SCREEN_H=600
-	KEY_UP = 1 	KEY_DOWN = 2  KEY_LEFT = 3 	KEY_RIGHT = 4
+	KEY_UP = 1 	KEY_DOWN = 2  KEY_LEFT = 3 	KEY_RIGHT = 4 KEY_OTHER = 5
 
 Class Resources
 
@@ -34,7 +34,9 @@ Class Resources
 Class Game from GameBase
 	display event_queue ev timeout timer
 	FPS = 60	redraw = true
-	Key = [false,false,false,false]
+	nID = 0
+	Key = [false,false,false,false,false]
+	nKeyCode=0
 	aObjects = []
 	startup()
 
@@ -42,7 +44,18 @@ Class Game from GameBase
 		start()
 
 	func add oObject
+		nID++
+		oObject.nIndex = nID
 		aObjects + oObject
+	
+	func remove nIndex
+		for x = 1 to len(aObjects)
+			if aObjects[x].nIndex = nIndex
+				del(aObjects,x)
+				exit
+			ok
+		next
+		
 
 	func startup
 
@@ -90,6 +103,10 @@ Class Game from GameBase
 						if key[KEY_RIGHT]
 							for t in aObjects  t.keyboard(KEY_RIGHT)  next
 						ok
+						if key[KEY_OTHER]
+							key[KEY_OTHER] = False
+							for t in aObjects  t.keyboard(nKeyCode)  next
+						ok		
 						redraw = true
 					on ALLEGRO_EVENT_MOUSE_AXES
 						bouncer_x = al_get_allegro_event_mouse_x(ev)
@@ -98,18 +115,18 @@ Class Game from GameBase
 						bouncer_x = al_get_allegro_event_mouse_x(ev)
 						bouncer_y = al_get_allegro_event_mouse_y(ev)
 					on ALLEGRO_EVENT_MOUSE_BUTTON_UP
-						exit
+						#exit
 					on ALLEGRO_EVENT_KEY_DOWN
-
-						switch al_get_allegro_event_keyboard_keycode(ev)
+						nKeyCode = al_get_allegro_event_keyboard_keycode(ev)
+						switch nKeyCode
 								on ALLEGRO_KEY_UP
-										key[KEY_UP] = true
+									key[KEY_UP] = true
 								on ALLEGRO_KEY_DOWN
-										key[KEY_DOWN] = true
+									key[KEY_DOWN] = true
 								on ALLEGRO_KEY_LEFT
-										key[KEY_LEFT] = true
+									key[KEY_LEFT] = true
 								on ALLEGRO_KEY_RIGHT
-										key[KEY_RIGHT] = true
+									key[KEY_RIGHT] = true									
 						off
 
 					on ALLEGRO_EVENT_KEY_UP
@@ -122,23 +139,27 @@ Class Game from GameBase
 										key[KEY_LEFT] = false
 								on ALLEGRO_KEY_RIGHT
 										key[KEY_RIGHT] = false
-								on ALLEGRO_KEY_ESCAPE
-										exit
+								other
+										key[KEY_OTHER] = true
 						off
 					off
 			if redraw and al_is_event_queue_empty(event_queue)
 				redraw = false
 				al_set_target_bitmap(al_get_backbuffer(display))
 				al_clear_to_color(al_map_rgb(255,255,255))
-				for t in aObjects t.Draw() next
+				for t in aObjects t.Draw(self) next
 				al_flip_display()
-				for t in aObjects t.Animate() next				
+				for t=len(aObjects) to 1 step -1 aObjects[t].Animate(self) next				
 			ok		
 			 
 			callgc()
 			
 		end
 		delete()
+
+	func shutdown
+		delete()
+		al_exit()
 
 	func delete
 		al_destroy_timer(timer)
@@ -157,7 +178,7 @@ Class Game from GameBase
 		
 
 Class GameObject from GameBase
-	x=0 y=0	 width=0 height=0
+	x=0 y=0	 width=0 height=0 nIndex = 0
 	lAnimate=True	lMove=False lScaled=False
 	func init
 	func draw
@@ -171,12 +192,13 @@ Class GameImage from GameObject
 	nCounter = 0
 	r = 0
 	cImageFile = ""
+	keypress = ""
 
 	Func loadfile cFileName
 		Image = oResources.LoadImage(cFileName)
 		cImageFile = cFileName
 
-	Func draw
+	Func draw oEngine
 		if lScaled
 			al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
 			al_get_bitmap_height(image),x,y,width,height,0)
@@ -184,23 +206,35 @@ Class GameImage from GameObject
 			al_draw_bitmap(image,x,y,0)
 		ok
 
-	Func Animate
+	Func Animate oEngine
 		if not lAnimate return ok
 		if nDirection = GE_DIRECTION_INC
 			if x < nPoint
-				x++
-				y++
+				x+=nStep
+				y+=nStep
 			else
 				x = 0
 				y = 0
 			ok
 		but nDirection = GE_DIRECTION_DEC
 			if x > nPoint
-				x--
-				y--
+				x-=nStep
+				y-=nStep
 			else
 				x = 0
 				y = 0
+			ok
+		but nDirection = GE_DIRECTION_INCVERTICAL
+			if y < nPoint				
+				y+=nStep
+			else
+				oEngine.remove(nIndex)
+			ok
+		but nDirection = GE_DIRECTION_DECVERTICAL
+			if y > nPoint				
+				y-=nStep
+			else
+				oEngine.remove(nIndex)
 			ok
 		but nDirection = GE_DIRECTION_RANDOM
 			if nCounter = 0
@@ -233,6 +267,9 @@ Class GameImage from GameObject
 		on KEY_LEFT	x-=10
 		on KEY_RIGHT	x+=10
 		off
+		if not keypress = ""			
+			call keypress(self,nKey)
+		ok
 
 	Func Delete
 		oResources.unloadImage(cImageFile)

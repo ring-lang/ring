@@ -4,8 +4,10 @@
 
 Load "gameengine.ring"
 
+oGame = New Game
+
 Func Main
-	New Game 
+	oGame
 	{
 		Image 
 		{
@@ -20,6 +22,23 @@ Func Main
 			LoadFile("images\back5.jpg")
 			x = 400 y =400 width=100 height=100
 			lAnimate=false lMove=True lScaled=True
+			keypress = func oSelf,nKey {
+				if nKey = KEY_SPACE
+					oGame {
+						Image {
+							LoadFile("images\back4.jpg")
+							x = oself.x + 30
+							y = oself.y - 30
+							width = 30
+							height = 30
+							nPoint = -30
+							nStep = 20
+							nDirection = GE_DIRECTION_DECVERTICAL
+						}
+					}
+				but nKey = KEY_ESC oGame.shutdown()
+				ok
+			}
 		}
 		for g = 1 to 100
 			Image 
