@@ -317,7 +317,7 @@ func Prodlist bList
      next
      return prod
      
-*
+/*
 	Function Name	: Evenorodd
 	Usage		: Test whether an integer is even or odd.
 	Parameters	: Integer to test.
@@ -364,12 +364,10 @@ func Palindrome aString
 	Usage		: Check whether a given year is a leap year in the Gregorian calendar. 
 	Parameters	: Year to check.
 	output		: Result of check.
-*
+*/
 
 Func Isleapyear year
      if (year % 400) = 0 return true 
         but (year % 100) = 0 return false
         but (year % 4) = 0 return true
-        else return false ok
-     
-     
+        else return false ok  
