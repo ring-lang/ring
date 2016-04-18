@@ -371,3 +371,22 @@ Func Isleapyear year
         but (year % 100) = 0 return false
         but (year % 4) = 0 return true
         else return false ok  
+        
+/*
+	Function Name	: Binarydigits
+	Usage		: Compute the sequence of binary digits for a given non-negative integer. 
+	Parameters	: Integer to compute.
+	output		: Result of compute.
+*/   
+
+func Binarydigits a
+     n = 0
+     while pow(2,n+1) < a
+           n = n + 1
+     end
+     for i = n to 0 step -1
+         x = pow(2,i)
+         if a >= x see 1 a = a - x
+         else see 0 ok
+     next
+
