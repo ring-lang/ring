@@ -346,7 +346,7 @@ func Factors nArray
 /*
 	Function Name	: Palindrome
 	Usage		: Check if a sequence of characters is a palindrome or not. 
-	Parameters	: Characters to chech.
+	Parameters	: Characters to check.
 	output		: Result of check.
 */  
 
@@ -359,5 +359,17 @@ func Palindrome aString
      if aString = bString see " is a palindrome." + nl
      else see " is not a palindrome" + nl ok
      
+/*
+	Function Name	: Isleapyear
+	Usage		: Check whether a given year is a leap year in the Gregorian calendar. 
+	Parameters	: Year to check.
+	output		: Result of check.
+*
+
+Func Isleapyear year
+     if (year % 400) = 0 return true 
+        but (year % 100) = 0 return false
+        but (year % 4) = 0 return true
+        else return false ok
      
      
