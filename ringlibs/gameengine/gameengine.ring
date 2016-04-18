@@ -38,10 +38,15 @@ Class Game from GameBase
 	Key = [false,false,false,false,false]
 	nKeyCode=0
 	aObjects = []
+	lbraceend = true
 	startup()
 
 	func braceend
-		start()
+		# We check to call start() one time during the program life time
+		if lbraceend = true
+			lbraceend = false
+			start()
+		ok
 
 	func add oObject
 		nID++
