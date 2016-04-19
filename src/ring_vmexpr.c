@@ -981,13 +981,8 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 	Item *pItem  ;
 	void *pPointer  ;
 	int nType  ;
-	int nTempObjFlag = 0 ;
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pList = (List *) RING_VM_STACK_READP ;
-		if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_OBJECT)==0 ) {
-			/* The variable is an object created in temp memory */
-			nTempObjFlag = 1 ;
-		}
 		pList = ring_list_getlist(pList,RING_VAR_VALUE);
 	}
 	else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
@@ -1016,13 +1011,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		if ( strcmp(cStr,"+") == 0 ) {
 			if ( (ring_vm_oop_isobject(pList2) == 0) ) {
 				pList3 = ring_list_newlist(pList2);
-				if ( nTempObjFlag == 0 ) {
-					ring_list_copy(pList3,pList);
-				}
-				else {
-					ring_list_refcopy(pList3,pList);
-					ring_list_clear(pList);
-				}
+				ring_list_copy(pList3,pList);
 				if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject == pList) ) {
 					pVM->pBraceObject = pList3 ;
 					/*
