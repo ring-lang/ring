@@ -128,3 +128,9 @@ year = 2016
 leap = Isleapyear(year)
 if leap true see "" + year + " is a leap year."
 else see "" + year + " is not a leap year." ok
+
+# Compute the sequence of binary digits for a given non-negative integer.
+Puts("Test Binarydigits()")
+b = 35
+see "Binary digits of " + b + " = "
+Binarydigits(b)
