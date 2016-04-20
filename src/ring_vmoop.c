@@ -751,6 +751,21 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 	**  Inside class method you can access any object using { } , you can access the self object 
 	**  Braces & Methods calls can be nested 
 	*/
+	/* Check Calling from function */
+	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
+			pList = ring_list_getlist(pVM->pFuncCallList,x);
+			/* Be sure that the function is already called using ICO_CALL */
+			if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
+				if ( ring_list_getint(pList,RING_FUNCCL_METHODORFUNC) == 0 ) {
+					return 0 ;
+				}
+				else {
+					break ;
+				}
+			}
+		}
+	}
 	/*
 	**  pObjState can know about method call if it's called using callmethod 
 	**  Or it's called from inside { } as function 
