@@ -44,7 +44,7 @@ func main
 										   oself.x <= x.x + x.width and  
 										   oself.y <= x.y + x.height
 										   ogame.remove(x.nindex)
-										   $score++
+										   $score+=100
 										   exit	
 										ok			
 									ok
@@ -96,7 +96,7 @@ func main
 			size = 30
 			file = "fonts\pirulen.ttf"
 			text = "Score : " + $score
-			x = 520	y=10
+			x = 500	y=10
 			state = func oGame,oSelf { oSelf { text = "Score : " + $score } }
 		}
 
