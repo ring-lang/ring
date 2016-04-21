@@ -53,7 +53,7 @@ func main
 				ok
 			}
 		}
-		for g = 1 to 10 
+		for g = 1 to 30 
 			sprite
 			{
 				type = ge_type_enemy
@@ -72,7 +72,7 @@ func main
 								width = 30
 								height = 30
 								point = ogame.screen_h+30
-								nstep = 20
+								nstep = 10
 								direction = ge_direction_incvertical
 							}
 						}

@@ -15,6 +15,7 @@ class gamebase
 class resources
 
 	aimages = []
+	afonts = []
 
 	func loadimage cfilename
 		npos = find(aimages,cfilename,1)
@@ -30,6 +31,26 @@ class resources
 			al_destroy_bitmap(aimages[npos][2])
 			del(aimages,npos)
 		ok
+
+	func loadfont cfilename,nSize
+		npos = find(afonts,cfilename,1)
+		if npos = 0
+			afonts + [cfilename,nSize,al_load_ttf_font(cfilename,nSize,0)]
+			npos = len(afonts)
+		ok
+		return afonts[npos][3]
+
+	func unloadfont cfilename,nsize
+		for x=1 to len(aFonts)
+			if aFonts[x][1] = cFileName and
+			aFont[x][2] = nSize
+				al_destroy_font(afonts[x][3])
+				del(afonts,x)
+				exit
+			ok
+		next
+
+
 
 class game from gamebase
 	display event_queue ev timeout timer
@@ -65,6 +86,8 @@ class game from gamebase
 	func startup
 
 		al_init()
+		al_init_font_addon()
+		al_init_ttf_addon()
 		al_init_image_addon()
 
 		display = al_create_display(screen_w,screen_h)
