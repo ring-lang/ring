@@ -5,6 +5,7 @@
 load "gameengine.ring"
 
 $score = 0
+$enemies = 5
 
 func main
 	New Game
@@ -45,6 +46,8 @@ func main
 										   oself.y <= x.y + x.height
 										   ogame.remove(x.nindex)
 										   $score+=100
+										   $enemies--
+										   checkwin(oGame)
 										   exit	
 										ok			
 									ok
@@ -56,7 +59,7 @@ func main
 				ok
 			}
 		}
-		for g = 1 to 30 
+		for g = 1 to $enemies
 			sprite
 			{
 				type = ge_type_enemy
@@ -101,3 +104,18 @@ func main
 		}
 
 	}
+
+func checkwin ogame
+	if $enemies = 0
+		oGame {
+
+			text {
+				point = 400
+				size = 30
+				file = "fonts\pirulen.ttf"
+				text = "You Win!!!!"
+				x = 500	y=10	
+			}
+			
+		}
+	ok
