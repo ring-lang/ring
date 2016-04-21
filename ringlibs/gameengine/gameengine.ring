@@ -174,12 +174,12 @@ class game from gamebase
 		for t in aobjects t.delete() next
 		al_destroy_display(display)
 
-	func getimage		
-		add(new gameimage)
+	func getsprite	
+		add(new sprite)
 		return aobjects[len(aobjects)]
 
 	private
-		image
+		sprite
 		
 
 class gameobject from gamebase
@@ -191,7 +191,7 @@ class gameobject from gamebase
 	func delete
 	func keyboard nkey
 
-class gameimage from gameobject
+class sprite from gameobject
 	image	point=400
 	direction = 1	nstep=1
 	ncounter = 0

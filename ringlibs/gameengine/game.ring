@@ -9,7 +9,7 @@ ogame = new game
 func main
 	ogame
 	{
-		image
+		sprite
 		{
 			file = "images\back3.jpg"
 			x = 0
@@ -18,7 +18,7 @@ func main
 			direction = ge_direction_dec
 			type = ge_type_background
 		}
-		image
+		sprite
 		{
 			file = "images\back5.jpg"
 			type = ge_type_player
@@ -27,7 +27,7 @@ func main
 			keypress = func oself,nkey {
 				if nkey = key_space
 					ogame {
-						image {
+						sprite {
 							type = ge_type_fire
 							file  = "images\back4.jpg"
 							x = oself.x + 30
@@ -44,7 +44,7 @@ func main
 			}
 		}
 		for g = 1 to 100
-			image
+			sprite
 			{
 				type = ge_type_enemy
 				file = "images\back3.jpg"
