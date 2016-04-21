@@ -8,7 +8,7 @@ load "gameengine.rh"
 oresources = new resources
 
 class gamebase
-	title="my game!"
+	title=""
 	screen_w=800  screen_h=600
 	key_up = 1 	key_down = 2  key_left = 3 	key_right = 4 key_other = 5
 
@@ -58,6 +58,10 @@ class game from gamebase
 	aobjects = []
 	lbraceend = true
 	startup()
+
+	func settitle cTitle
+		title = cTitle
+		al_set_window_title(display,title)
 
 	func braceend
 		# we check to call start() one time during the program life time

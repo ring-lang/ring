@@ -10,6 +10,7 @@ $enemies = 30
 func main
 	New Game
 	{
+		title = "Stars Fighter!"
 		sprite
 		{
 			file = "images\stars.jpg"
