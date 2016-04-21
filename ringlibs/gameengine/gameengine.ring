@@ -266,6 +266,9 @@ class gameimage from gameobject
 		ok
 
 	func keyboard nkey
+		if not keypress = ""			
+			call keypress(self,nkey)
+		ok
 		if not move return ok
 		switch nkey
 		on key_up	y-=10
@@ -273,9 +276,6 @@ class gameimage from gameobject
 		on key_left	x-=10
 		on key_right	x+=10
 		off
-		if not keypress = ""			
-			call keypress(self,nkey)
-		ok
 
 	func delete
 		oresources.unloadimage(cimagefile)
