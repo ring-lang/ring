@@ -1,56 +1,56 @@
-# The Ring Standard Library
-# Game Engine for 2D Games
-# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
+# the ring standard library
+# game engine for 2d games
+# 2016, mahmoud fayed <msfclipper@yahoo.com>
 
-Load "gameengine.ring"
+load "gameengine.ring"
 
-oGame = New Game
+ogame = new game
 
-Func Main
-	oGame
+func main
+	ogame
 	{
-		Image
+		image
 		{
 			file = "images\back3.jpg"
 			x = 0
 			y = 0
-			nPoint = -370
-			nDirection = GE_DIRECTION_DEC
-			nType = GE_TYPE_BACKGROUND
+			point = -370
+			direction = ge_direction_dec
+			type = ge_type_background
 		}
-		Image
+		image
 		{
 			file = "images\back5.jpg"
-			nType = GE_TYPE_PLAYER
+			type = ge_type_player
 			x = 400 y =400 width=100 height=100
-			lAnimate=false lMove=True lScaled=True
-			keypress = func oSelf,nKey {
-				if nKey = KEY_SPACE
-					oGame {
-						Image {
-							nType = GE_TYPE_FIRE
+			animate=false move=true Scaled=true
+			keypress = func oself,nkey {
+				if nkey = key_space
+					ogame {
+						image {
+							type = ge_type_fire
 							file  = "images\back4.jpg"
 							x = oself.x + 30
 							y = oself.y - 30
 							width = 30
 							height = 30
-							nPoint = -30
-							nStep = 20
-							nDirection = GE_DIRECTION_DECVERTICAL
+							point = -30
+							nstep = 20
+							direction = ge_direction_decvertical
 						}
 					}
-				but nKey = KEY_ESC oGame.shutdown()
+				but nkey = key_esc ogame.shutdown()
 				ok
 			}
 		}
 		for g = 1 to 100
-			Image
+			image
 			{
-				nType = GE_TYPE_ENEMY
+				type = ge_type_enemy
 				file = "images\back3.jpg"
 				x = g y =g width=100 height=100
-				lAnimate=true lScaled=True
-				nDirection = GE_DIRECTION_RANDOM
+				animate=true Scaled=true
+				direction = ge_direction_random
 			}
 		next
 	}

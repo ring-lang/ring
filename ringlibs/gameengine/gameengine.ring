@@ -1,62 +1,62 @@
-# The Ring Standard Library
-# Game Engine for 2D Games
-# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
+# the ring standard library
+# game engine for 2d games
+# 2016, mahmoud fayed <msfclipper@yahoo.com>
 
-Load "gamelib.ring"
-Load "gameengine.rh"
+load "gamelib.ring"
+load "gameengine.rh"
 
-oResources = new Resources
+oresources = new resources
 
-Class GameBase
-	Title="My Game!"
-	SCREEN_W=800  SCREEN_H=600
-	KEY_UP = 1 	KEY_DOWN = 2  KEY_LEFT = 3 	KEY_RIGHT = 4 KEY_OTHER = 5
+class gamebase
+	title="my game!"
+	screen_w=800  screen_h=600
+	key_up = 1 	key_down = 2  key_left = 3 	key_right = 4 key_other = 5
 
-Class Resources
+class resources
 
-	aImages = []
+	aimages = []
 
-	func loadimage cFileName
-		nPos = find(aImages,cFileName,1)
-		if nPos = 0
-			aImages + [cFileName,al_load_bitmap(cFileName)]
-			nPos = len(aImages)
+	func loadimage cfilename
+		npos = find(aimages,cfilename,1)
+		if npos = 0
+			aimages + [cfilename,al_load_bitmap(cfilename)]
+			npos = len(aimages)
 		ok
-		return aImages[nPos][2]
+		return aimages[npos][2]
 
-	func unloadimage cFileName
-		nPos = find(aImages,cFileName,1)
-		if not nPos = 0
-			al_destroy_bitmap(aImages[nPos][2])
-			del(aImages,nPos)
+	func unloadimage cfilename
+		npos = find(aimages,cfilename,1)
+		if not npos = 0
+			al_destroy_bitmap(aimages[npos][2])
+			del(aimages,npos)
 		ok
 
-Class Game from GameBase
+class game from gamebase
 	display event_queue ev timeout timer
-	FPS = 60	redraw = true
-	nID = 0
-	Key = [false,false,false,false,false]
-	nKeyCode=0
-	aObjects = []
+	fps = 60	redraw = true
+	nid = 0
+	key = [false,false,false,false,false]
+	nkeycode=0
+	aobjects = []
 	lbraceend = true
 	startup()
 
 	func braceend
-		# We check to call start() one time during the program life time
+		# we check to call start() one time during the program life time
 		if lbraceend = true
 			lbraceend = false
 			start()
 		ok
 
-	func add oObject
-		nID++
-		oObject.nIndex = nID
-		aObjects + oObject
+	func add oobject
+		nid++
+		oobject.nindex = nid
+		aobjects + oobject
 	
-	func remove nIndex
-		for x = 1 to len(aObjects)
-			if aObjects[x].nIndex = nIndex
-				del(aObjects,x)
+	func remove nindex
+		for x = 1 to len(aobjects)
+			if aobjects[x].nindex = nindex
+				del(aobjects,x)
 				exit
 			ok
 		next
@@ -67,8 +67,8 @@ Class Game from GameBase
 		al_init()
 		al_init_image_addon()
 
-		display = al_create_display(SCREEN_W,SCREEN_H)
-		al_set_window_title(display,Title)
+		display = al_create_display(screen_w,screen_h)
+		al_set_window_title(display,title)
 
 		event_queue = al_create_event_queue()
 		al_register_event_source(event_queue, al_get_display_event_source(display))
@@ -77,7 +77,7 @@ Class Game from GameBase
 		timeout = al_new_allegro_timeout()
 		al_init_timeout(timeout, 0.06)
 
-		timer = al_create_timer(1.0 / FPS)
+		timer = al_create_timer(1.0 / fps)
 		al_register_event_source(event_queue, al_get_timer_event_source(timer))
 		al_start_timer(timer)
 
@@ -92,69 +92,69 @@ Class Game from GameBase
 		while true
 			al_wait_for_event_until(event_queue, ev, timeout)
 			switch al_get_allegro_event_type(ev)
-					on ALLEGRO_EVENT_DISPLAY_CLOSE
+					on allegro_event_display_close
 						exit
-					on ALLEGRO_EVENT_TIMER
-						# Keyboard
-						if key[KEY_UP]
-							for t in aObjects  t.keyboard(KEY_UP)  next
+					on allegro_event_timer
+						# keyboard
+						if key[key_up]
+							for t in aobjects  t.keyboard(key_up)  next
 						ok
-						if key[KEY_DOWN]
-							for t in aObjects  t.keyboard(KEY_DOWN)  next
+						if key[key_down]
+							for t in aobjects  t.keyboard(key_down)  next
 						ok
-						if key[KEY_LEFT]
-							for t in aObjects  t.keyboard(KEY_LEFT)  next
+						if key[key_left]
+							for t in aobjects  t.keyboard(key_left)  next
 						ok
-						if key[KEY_RIGHT]
-							for t in aObjects  t.keyboard(KEY_RIGHT)  next
+						if key[key_right]
+							for t in aobjects  t.keyboard(key_right)  next
 						ok
-						if key[KEY_OTHER]
-							key[KEY_OTHER] = False
-							for t in aObjects  t.keyboard(nKeyCode)  next
+						if key[key_other]
+							key[key_other] = false
+							for t in aobjects  t.keyboard(nkeycode)  next
 						ok		
 						redraw = true
-					on ALLEGRO_EVENT_MOUSE_AXES
+					on allegro_event_mouse_axes
 						bouncer_x = al_get_allegro_event_mouse_x(ev)
 						bouncer_y = al_get_allegro_event_mouse_y(ev)
-					on ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY
+					on allegro_event_mouse_enter_display
 						bouncer_x = al_get_allegro_event_mouse_x(ev)
 						bouncer_y = al_get_allegro_event_mouse_y(ev)
-					on ALLEGRO_EVENT_MOUSE_BUTTON_UP
+					on allegro_event_mouse_button_up
 						#exit
-					on ALLEGRO_EVENT_KEY_DOWN
-						nKeyCode = al_get_allegro_event_keyboard_keycode(ev)
-						switch nKeyCode
-								on ALLEGRO_KEY_UP
-									key[KEY_UP] = true
-								on ALLEGRO_KEY_DOWN
-									key[KEY_DOWN] = true
-								on ALLEGRO_KEY_LEFT
-									key[KEY_LEFT] = true
-								on ALLEGRO_KEY_RIGHT
-									key[KEY_RIGHT] = true									
+					on allegro_event_key_down
+						nkeycode = al_get_allegro_event_keyboard_keycode(ev)
+						switch nkeycode
+								on allegro_key_up
+									key[key_up] = true
+								on allegro_key_down
+									key[key_down] = true
+								on allegro_key_left
+									key[key_left] = true
+								on allegro_key_right
+									key[key_right] = true									
 						off
 
-					on ALLEGRO_EVENT_KEY_UP
+					on allegro_event_key_up
 						switch al_get_allegro_event_keyboard_keycode(ev)
-								on ALLEGRO_KEY_UP
-										key[KEY_UP] = false
-								on ALLEGRO_KEY_DOWN
-										key[KEY_DOWN] = false
-								on ALLEGRO_KEY_LEFT
-										key[KEY_LEFT] = false
-								on ALLEGRO_KEY_RIGHT
-										key[KEY_RIGHT] = false
+								on allegro_key_up
+										key[key_up] = false
+								on allegro_key_down
+										key[key_down] = false
+								on allegro_key_left
+										key[key_left] = false
+								on allegro_key_right
+										key[key_right] = false
 								other
-										key[KEY_OTHER] = true
+										key[key_other] = true
 						off
 					off
 			if redraw and al_is_event_queue_empty(event_queue)
 				redraw = false
 				al_set_target_bitmap(al_get_backbuffer(display))
 				al_clear_to_color(al_map_rgb(255,255,255))
-				for t in aObjects t.Draw(self) next
+				for t in aobjects t.draw(self) next
 				al_flip_display()
-				for t=len(aObjects) to 1 step -1 aObjects[t].Animate(self) next				
+				for t=len(aobjects) to 1 step -1 aobjects[t].animate(self) next				
 			ok		
 			 
 			callgc()
@@ -171,114 +171,114 @@ Class Game from GameBase
 		al_destroy_allegro_event(ev)
 		al_destroy_allegro_timeout(timeout)
 		al_destroy_event_queue(event_queue)
-		for t in aObjects t.Delete() next
+		for t in aobjects t.delete() next
 		al_destroy_display(display)
 
 	func getimage		
-		add(new GameImage)
-		return aObjects[len(aObjects)]
+		add(new gameimage)
+		return aobjects[len(aobjects)]
 
-	Private
-		Image
+	private
+		image
 		
 
-Class GameObject from GameBase
-	x=0 y=0	 width=0 height=0 nIndex = 0
-	lAnimate=True	lMove=False lScaled=False
+class gameobject from gamebase
+	x=0 y=0	 width=0 height=0 nindex = 0
+	animate=true	move=false Scaled=false
 	func init
 	func draw
 	func animate
 	func delete
-	func keyboard nKey
+	func keyboard nkey
 
-Class GameImage from GameObject
-	Image	nPoint=400
-	nDirection = 1	nStep=1
-	nCounter = 0
+class gameimage from gameobject
+	image	point=400
+	direction = 1	nstep=1
+	ncounter = 0
 	r = 0
-	cImageFile = ""
+	cimagefile = ""
 	keypress = ""
-	nType = 0
+	type = 0
 
-	Func SetFile cFileName
-		Image = oResources.LoadImage(cFileName)
-		cImageFile = cFileName
+	func setfile cfilename
+		image = oresources.loadimage(cfilename)
+		cimagefile = cfilename
 
-	Func draw oEngine
-		if lScaled
+	func draw oengine
+		if Scaled
 			al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
 			al_get_bitmap_height(image),x,y,width,height,0)
 		else
 			al_draw_bitmap(image,x,y,0)
 		ok
 
-	Func Animate oEngine
-		if not lAnimate return ok
-		if nDirection = GE_DIRECTION_INC
-			if x < nPoint
-				x+=nStep
-				y+=nStep
+	func animate oengine
+		if not animate return ok
+		if direction = ge_direction_inc
+			if x < point
+				x+=nstep
+				y+=nstep
 			else
 				x = 0
 				y = 0
 			ok
-		but nDirection = GE_DIRECTION_DEC
-			if x > nPoint
-				x-=nStep
-				y-=nStep
+		but direction = ge_direction_dec
+			if x > point
+				x-=nstep
+				y-=nstep
 			else
 				x = 0
 				y = 0
 			ok
-		but nDirection = GE_DIRECTION_INCVERTICAL
-			if y < nPoint				
-				y+=nStep
+		but direction = ge_direction_incvertical
+			if y < point				
+				y+=nstep
 			else
-				oEngine.remove(nIndex)
+				oengine.remove(nindex)
 			ok
-		but nDirection = GE_DIRECTION_DECVERTICAL
-			if y > nPoint				
-				y-=nStep
+		but direction = ge_direction_decvertical
+			if y > point				
+				y-=nstep
 			else
-				oEngine.remove(nIndex)
+				oengine.remove(nindex)
 			ok
-		but nDirection = GE_DIRECTION_RANDOM
-			if nCounter = 0
+		but direction = ge_direction_random
+			if ncounter = 0
 				r = random(7)
-				nCounter++
+				ncounter++
 			else
-				if nCounter=10
-					nCounter=0
+				if ncounter=10
+					ncounter=0
 				else
-					nCounter++
+					ncounter++
 				ok
 			ok
 			switch r
-			on 0	x+=nStep
-			on 1	x-=nStep
-			on 2	y+=nStep
-			on 3	y-=nStep
-			on 4	x+=nStep y+=nStep
-			on 5	x-=nStep y-=nStep
-			on 6	x+=nStep y-=nStep
-			on 7	x-=nStep y+=nStep
+			on 0	x+=nstep
+			on 1	x-=nstep
+			on 2	y+=nstep
+			on 3	y-=nstep
+			on 4	x+=nstep y+=nstep
+			on 5	x-=nstep y-=nstep
+			on 6	x+=nstep y-=nstep
+			on 7	x-=nstep y+=nstep
 			off
 		ok
 
-	Func Keyboard nKey
-		if not lMove return ok
-		Switch nKey
-		on KEY_UP	y-=10
-		on KEY_DOWN	y+=10
-		on KEY_LEFT	x-=10
-		on KEY_RIGHT	x+=10
+	func keyboard nkey
+		if not move return ok
+		switch nkey
+		on key_up	y-=10
+		on key_down	y+=10
+		on key_left	x-=10
+		on key_right	x+=10
 		off
 		if not keypress = ""			
-			call keypress(self,nKey)
+			call keypress(self,nkey)
 		ok
 
-	Func Delete
-		oResources.unloadImage(cImageFile)
+	func delete
+		oresources.unloadimage(cimagefile)
 
 	private
 		file=0
