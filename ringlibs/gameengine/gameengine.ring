@@ -40,10 +40,9 @@ class resources
 		ok
 		return afonts[npos][3]
 
-	func unloadfont cfilename,nsize
+	func unloadfont cfilename,size
 		for x=1 to len(aFonts)
-			if aFonts[x][1] = cFileName and
-			aFont[x][2] = nSize
+			if aFonts[x][1] = cFileName and aFonts[x][2] = size
 				al_destroy_font(afonts[x][3])
 				del(afonts,x)
 				exit
@@ -328,4 +327,4 @@ class text from sprite
 		al_draw_text(font, color, x, y,ALLEGRO_ALIGN_LEFT,text)		
 
 	func delete
-		oresources.unloadfont(cfontfile)
+		oresources.unloadfont(cfontfile,size)
