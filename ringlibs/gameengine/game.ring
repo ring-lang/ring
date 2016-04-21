@@ -5,23 +5,35 @@
 load "gameengine.ring"
 
 $score = 0
-$enemies = 5
+$enemies = 30
 
 func main
 	New Game
 	{
 		sprite
 		{
-			file = "images\back3.jpg"
+			file = "images\stars.jpg"
 			x = 0
 			y = 0
-			point = -370
+			point = -370			
 			direction = ge_direction_dec
 			type = ge_type_background
+			state = func ogame,oself {
+					oself { 
+						if x < -350
+							direction = ge_direction_inc
+							point = 370			
+						but x = 0 and direction = ge_direction_inc
+							direction = ge_direction_dec
+							point = -370			
+						ok
+					}
+				} 
 		}
 		sprite
 		{
-			file = "images\back5.jpg"
+			file = "images\player.png"
+			transparent = true
 			type = ge_type_player
 			x = 400 y =400 width=100 height=100
 			animate=false move=true Scaled=true
@@ -63,7 +75,8 @@ func main
 			sprite
 			{
 				type = ge_type_enemy
-				file = "images\back3.jpg"
+				file = "images\enemy.png"
+				transparent = true
 				x = g*random(50) y =g width=100 height=100
 				animate=true Scaled=true
 				direction = ge_direction_random
