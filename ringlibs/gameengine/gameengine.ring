@@ -50,8 +50,6 @@ class resources
 			ok
 		next
 
-
-
 class game from gamebase
 	display event_queue ev timeout timer
 	fps = 60	redraw = true
@@ -221,7 +219,6 @@ class sprite from gameobject
 	r = 0
 	cimagefile = ""
 	keypress = ""
-	nStateClock = clock()
 	state = ""
 	type = 0
 
