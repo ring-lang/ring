@@ -198,6 +198,7 @@ Class GameImage from GameObject
 	r = 0
 	cImageFile = ""
 	keypress = ""
+	nType = 0
 
 	Func SetFile cFileName
 		Image = oResources.LoadImage(cFileName)

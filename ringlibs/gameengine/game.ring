@@ -16,16 +16,19 @@ Func Main
 			y = 0
 			nPoint = -370
 			nDirection = GE_DIRECTION_DEC
+			nType = GE_TYPE_BACKGROUND
 		}
 		Image
 		{
 			file = "images\back5.jpg"
+			nType = GE_TYPE_PLAYER
 			x = 400 y =400 width=100 height=100
 			lAnimate=false lMove=True lScaled=True
 			keypress = func oSelf,nKey {
 				if nKey = KEY_SPACE
 					oGame {
 						Image {
+							nType = GE_TYPE_FIRE
 							file  = "images\back4.jpg"
 							x = oself.x + 30
 							y = oself.y - 30
@@ -43,6 +46,7 @@ Func Main
 		for g = 1 to 100
 			Image
 			{
+				nType = GE_TYPE_ENEMY
 				file = "images\back3.jpg"
 				x = g y =g width=100 height=100
 				lAnimate=true lScaled=True
