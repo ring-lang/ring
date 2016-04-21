@@ -154,7 +154,7 @@ class game from gamebase
 				al_clear_to_color(al_map_rgb(255,255,255))
 				for t in aobjects t.draw(self) next
 				al_flip_display()
-				for t=len(aobjects) to 1 step -1 aobjects[t].animate(self) next				
+				for t=len(aobjects) to 1 step -1 aobjects[t].animate(self,aobjects[t]) next				
 			ok		
 			 
 			callgc()
@@ -198,6 +198,8 @@ class sprite from gameobject
 	r = 0
 	cimagefile = ""
 	keypress = ""
+	nStateClock = clock()
+	state = ""
 	type = 0
 
 	func setfile cfilename
@@ -212,7 +214,7 @@ class sprite from gameobject
 			al_draw_bitmap(image,x,y,0)
 		ok
 
-	func animate oengine
+	func animate oGame,oSelf
 		if not animate return ok
 		if direction = ge_direction_inc
 			if x < point
@@ -234,13 +236,13 @@ class sprite from gameobject
 			if y < point				
 				y+=nstep
 			else
-				oengine.remove(nindex)
+				oGame.remove(nindex)
 			ok
 		but direction = ge_direction_decvertical
 			if y > point				
 				y-=nstep
 			else
-				oengine.remove(nindex)
+				oGame.remove(nindex)
 			ok
 		but direction = ge_direction_random
 			if ncounter = 0
@@ -263,6 +265,9 @@ class sprite from gameobject
 			on 6	x+=nstep y-=nstep
 			on 7	x-=nstep y+=nstep
 			off
+		ok
+		if not state = ""				 		
+				call state(oGame,oSelf) 
 		ok
 
 	func keyboard oGame,nkey
