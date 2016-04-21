@@ -41,6 +41,9 @@ void ring_vm_curl_download ( void *pPointer )
 	if ( curl ) {
 		pString = ring_string_new("");
 		curl_easy_setopt(curl, CURLOPT_URL,RING_API_GETSTRING(1));
+		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION,1);
+		curl_easy_setopt(curl, CURLOPT_NOSIGNAL,1);
+		curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING,"");
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,ring_getcurldata);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA,pString);
 		res = curl_easy_perform(curl);
