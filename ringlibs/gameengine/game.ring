@@ -4,10 +4,8 @@
 
 load "gameengine.ring"
 
-ogame = new game
-
 func main
-	ogame
+	New Game
 	{
 		sprite
 		{
@@ -24,7 +22,7 @@ func main
 			type = ge_type_player
 			x = 400 y =400 width=100 height=100
 			animate=false move=true Scaled=true
-			keypress = func oself,nkey {
+			keypress = func oGame,oself,nkey {
 				if nkey = key_space
 					ogame {
 						sprite {

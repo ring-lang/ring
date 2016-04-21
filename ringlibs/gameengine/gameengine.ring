@@ -97,20 +97,20 @@ class game from gamebase
 					on allegro_event_timer
 						# keyboard
 						if key[key_up]
-							for t in aobjects  t.keyboard(key_up)  next
+							for t in aobjects  t.keyboard(self,key_up)  next
 						ok
 						if key[key_down]
-							for t in aobjects  t.keyboard(key_down)  next
+							for t in aobjects  t.keyboard(self,key_down)  next
 						ok
 						if key[key_left]
-							for t in aobjects  t.keyboard(key_left)  next
+							for t in aobjects  t.keyboard(self,key_left)  next
 						ok
 						if key[key_right]
-							for t in aobjects  t.keyboard(key_right)  next
+							for t in aobjects  t.keyboard(self,key_right)  next
 						ok
 						if key[key_other]
 							key[key_other] = false
-							for t in aobjects  t.keyboard(nkeycode)  next
+							for t in aobjects  t.keyboard(self,nkeycode)  next
 						ok		
 						redraw = true
 					on allegro_event_mouse_axes
@@ -265,9 +265,9 @@ class sprite from gameobject
 			off
 		ok
 
-	func keyboard nkey
+	func keyboard oGame,nkey
 		if not keypress = ""			
-			call keypress(self,nkey)
+			call keypress(oGame,self,nkey)
 		ok
 		if not move return ok
 		switch nkey
