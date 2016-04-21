@@ -9,24 +9,24 @@ oGame = New Game
 Func Main
 	oGame
 	{
-		Image 
+		Image
 		{
-			LoadFile("images\back3.jpg")
+			file = "images\back3.jpg"
 			x = 0
 			y = 0
 			nPoint = -370
 			nDirection = GE_DIRECTION_DEC
 		}
-		Image 
+		Image
 		{
-			LoadFile("images\back5.jpg")
+			file = "images\back5.jpg"
 			x = 400 y =400 width=100 height=100
 			lAnimate=false lMove=True lScaled=True
 			keypress = func oSelf,nKey {
 				if nKey = KEY_SPACE
 					oGame {
 						Image {
-							LoadFile("images\back4.jpg")
+							file  = "images\back4.jpg"
 							x = oself.x + 30
 							y = oself.y - 30
 							width = 30
@@ -41,9 +41,9 @@ Func Main
 			}
 		}
 		for g = 1 to 100
-			Image 
+			Image
 			{
-				LoadFile("images\back3.jpg")
+				file = "images\back3.jpg"
 				x = g y =g width=100 height=100
 				lAnimate=true lScaled=True
 				nDirection = GE_DIRECTION_RANDOM

@@ -199,7 +199,7 @@ Class GameImage from GameObject
 	cImageFile = ""
 	keypress = ""
 
-	Func loadfile cFileName
+	Func SetFile cFileName
 		Image = oResources.LoadImage(cFileName)
 		cImageFile = cFileName
 
@@ -278,3 +278,6 @@ Class GameImage from GameObject
 
 	Func Delete
 		oResources.unloadImage(cImageFile)
+
+	private
+		file=0
