@@ -1,5 +1,5 @@
 test = func {
-	#new mybase 
+	new mybase 
 }
 
 call test()
