@@ -4,6 +4,8 @@
 
 load "gameengine.ring"
 
+$score = 0
+
 func main
 	New Game
 	{
@@ -42,6 +44,7 @@ func main
 										   oself.x <= x.x + x.width and  
 										   oself.y <= x.y + x.height
 										   ogame.remove(x.nindex)
+										   $score++
 										   exit	
 										ok			
 									ok
@@ -80,4 +83,21 @@ func main
 				}
 			}
 		next
+		text {
+			size = 30
+			file = "fonts\pirulen.ttf"
+			text = "Destroy All Enemies!"
+			color = rgb(255,0,0)
+			x = 100	y=50
+		}
+		text {
+			animate = false
+			point = 400
+			size = 30
+			file = "fonts\pirulen.ttf"
+			text = "Score : " + $score
+			x = 520	y=10
+			state = func oGame,oSelf { oSelf { text = "Score : " + $score } }
+		}
+
 	}

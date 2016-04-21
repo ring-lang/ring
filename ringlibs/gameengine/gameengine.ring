@@ -199,8 +199,12 @@ class game from gamebase
 		add(new sprite)
 		return aobjects[len(aobjects)]
 
+	func gettext
+		add(new text)
+		return aobjects[len(aobjects)]
+
 	private
-		sprite
+		sprite text
 		
 
 class gameobject from gamebase
@@ -211,6 +215,8 @@ class gameobject from gamebase
 	func animate
 	func delete
 	func keyboard nkey
+	func rgb r,g,b
+		return al_map_rgb(r,g,b)
 
 class sprite from gameobject
 	image	point=400
@@ -235,6 +241,9 @@ class sprite from gameobject
 		ok
 
 	func animate oGame,oSelf
+		if not state = ""				 		
+				call state(oGame,oSelf) 
+		ok
 		if not animate return ok
 		if direction = ge_direction_inc
 			if x < point
@@ -286,9 +295,7 @@ class sprite from gameobject
 			on 7	x-=nstep y+=nstep
 			off
 		ok
-		if not state = ""				 		
-				call state(oGame,oSelf) 
-		ok
+
 
 	func keyboard oGame,nkey
 		if not keypress = ""			
@@ -307,3 +314,18 @@ class sprite from gameobject
 
 	private
 		file=0
+
+class text from sprite
+
+	size = 14
+	font  cfontfile  text="" color= al_map_rgb(255,255,255)
+	
+	func setfile cfilename
+		font = oresources.loadfont(cfilename,size)
+		cfontfile = cfilename
+
+	func draw oengine
+		al_draw_text(font, color, x, y,ALLEGRO_ALIGN_LEFT,text)		
+
+	func delete
+		oresources.unloadfont(cfontfile)
