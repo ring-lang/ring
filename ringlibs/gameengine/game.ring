@@ -6,7 +6,7 @@ load "gameengine.ring"
 
 $score = 0
 $enemies = 30
-$value = 90
+$value = 100
 $playerindex = 2
 $gameresult = false
 
