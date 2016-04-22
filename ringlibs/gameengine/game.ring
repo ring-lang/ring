@@ -6,6 +6,9 @@ load "gameengine.ring"
 
 $score = 0
 $enemies = 30
+$value = 90
+$playerindex = 2
+$gameresult = false
 
 func main
 	New Game
@@ -110,6 +113,17 @@ func main
 								point = ogame.screen_h+30
 								nstep = 10
 								direction = ge_direction_incvertical
+								state = func oGame,oSelf {
+									x =  oGame.aObjects[$playerindex]
+									if oself.x >= x.x and oself.y >= x.y and
+									   oself.x <= x.x + x.width and  
+									   oself.y <= x.y + x.height
+									   $value-=20
+									   ogame.remove(oself.nindex)
+									   checkgameover(oGame)
+									   exit	
+									ok								 
+								}
 							}
 						}
 					ok
@@ -122,6 +136,8 @@ func main
 			text = "Destroy All Enemies!"
 			color = rgb(255,0,0)
 			x = 100	y=50
+			direction = ge_direction_incvertical
+			point = 500
 		}
 		text {
 			animate = false
@@ -132,17 +148,44 @@ func main
 			x = 500	y=10
 			state = func oGame,oSelf { oSelf { text = "Score : " + $score } }
 		}
+		progress {
+			animate = false
+			point = 400
+			size = 30
+			file = "fonts\pirulen.ttf"
+			text = "Energy : " + $value
+			value = $value
+			x = 500	y=50
+			state = func oGame,oSelf { oSelf { text = "Energy : " + $value } }
+		}
 
 	}
 
 func checkwin ogame
+	if $gameresult  return ok
 	if $enemies = 0
+		$gameresult = true
 		oGame {
 			text {
 				point = 400
 				size = 30
 				file = "fonts\pirulen.ttf"
 				text = "You Win!!!!"
+				x = 500	y=10	
+			}			
+		}
+	ok
+
+func checkgameover ogame
+	if $gameresult  return ok
+	if $value <= 0
+		$gameresult = true
+		oGame {
+			text {
+				point = 400
+				size = 30
+				file = "fonts\pirulen.ttf"
+				text = "Game Over !!!"
 				x = 500	y=10	
 			}			
 		}

@@ -51,7 +51,7 @@ class resources
 
 class game from gamebase
 	display event_queue ev timeout timer
-	fps = 60	redraw = true
+	fps = 60 	redraw = true
 	nid = 0
 	key = [false,false,false,false,false]
 	nkeycode=0
@@ -206,8 +206,11 @@ class game from gamebase
 		add(new text)
 		return aobjects[len(aobjects)]
 
+	func getprogress
+		add(new progress)
+		return aobjects[len(aobjects)]
 	private
-		sprite text
+		sprite text progress
 		
 
 class gameobject from gamebase
@@ -335,8 +338,20 @@ class text from sprite
 		font = oresources.loadfont(cfilename,size)
 		cfontfile = cfilename
 
-	func draw oengine
+	func draw oGame
 		al_draw_text(font, color, x, y,ALLEGRO_ALIGN_LEFT,text)		
 
 	func delete
 		oresources.unloadfont(cfontfile,size)
+
+Class Progress from text
+
+	width = 100 height = 30
+	value = 100
+	backcolor = al_map_rgb(0,0,255)
+	valuecolor = al_map_rgb(0,255,0)
+
+	func draw oGame
+		#al_draw_rectangle(100,100,200,200,al_map_rgb(100,100,100),0)
+		#al_draw_filled_rectangle(x,y,x*value/(x+width),y+height,valuecolor)
+		super.draw(oGame)
