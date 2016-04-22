@@ -148,7 +148,7 @@ func main
 			x = 500	y=10
 			state = func oGame,oSelf { oSelf { text = "Score : " + $score } }
 		}
-		progress {
+		text {
 			animate = false
 			point = 400
 			size = 30

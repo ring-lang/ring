@@ -344,14 +344,3 @@ class text from sprite
 	func delete
 		oresources.unloadfont(cfontfile,size)
 
-Class Progress from text
-
-	width = 100 height = 30
-	value = 100
-	backcolor = al_map_rgb(0,0,255)
-	valuecolor = al_map_rgb(0,255,0)
-
-	func draw oGame
-		#al_draw_rectangle(100,100,200,200,al_map_rgb(100,100,100),0)
-		#al_draw_filled_rectangle(x,y,x*value/(x+width),y+height,valuecolor)
-		super.draw(oGame)
