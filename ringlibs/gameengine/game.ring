@@ -43,8 +43,9 @@ func main
 					ogame {
 						sprite {
 							type = ge_type_fire
-							file  = "images\back4.jpg"
-							x = oself.x + 30
+							file  = "images\back4.png"
+							transparent = true
+  							x = oself.x + 30
 							y = oself.y - 30
 							width = 30
 							height = 30
@@ -71,6 +72,14 @@ func main
 				but nkey = key_esc ogame.shutdown()
 				ok
 			}
+			state = func oGame,oSelf {
+				oself {
+					if x < 0 x = 0 ok
+					if y < 0 y = 0 ok
+					if x > ogame.screen_w-width  x= ogame.screen_w - width ok
+					if y > ogame.screen_h-height y=ogame.screen_h-height ok
+				}
+			}
 		}
 		for g = 1 to $enemies
 			sprite
@@ -81,12 +90,19 @@ func main
 				x = g*random(50) y =g width=100 height=100
 				animate=true Scaled=true
 				direction = ge_direction_random
-				state = func oGame,oSelf {
+				state = func oGame,oSelf {					
+					oself {
+						if x < 0 x = 0 ok
+						if y < 0 y = 0 ok
+						if x > ogame.screen_w-width  x= ogame.screen_w - width ok
+						if y > ogame.screen_h-height y=ogame.screen_h-height ok
+					}			
 					if random(100) = 1
 						ogame {
 							sprite {
 								type = ge_type_fire
-								file  = "images\back4.jpg"
+								file  = "images\back6.png"
+								transparent = true
 								x = oself.x + 30
 								y = oself.y + oself.height+ 30
 								width = 30
@@ -122,14 +138,12 @@ func main
 func checkwin ogame
 	if $enemies = 0
 		oGame {
-
 			text {
 				point = 400
 				size = 30
 				file = "fonts\pirulen.ttf"
 				text = "You Win!!!!"
 				x = 500	y=10	
-			}
-			
+			}			
 		}
 	ok
