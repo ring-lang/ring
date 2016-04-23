@@ -389,4 +389,28 @@ func Binarydigits a
          if a >= x see 1 a = a - x
          else see 0 ok
      next
+     
+/*
+	Function Name	: Matrixmulti
+	Usage		: Multiply two matrices together. 
+	Parameters	: Two matrices to multiply.
+	output		: Result of multiplay.
+*/     
+
+func Matrixmulti A, B
+     n = 3
+     C = newlist(n,n)
+     for i = 1 to n
+         for j = 1 to n
+             for k = 1 to n
+                 C[i][k] += A[i][j] * B[j][k]  
+             next
+         next
+     next
+     for i = 1 to n
+         for j = 1 to n
+             see C[i][j] + " "
+         next
+         see nl
+     next
 
