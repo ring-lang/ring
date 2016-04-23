@@ -5,13 +5,16 @@
 load "gameengine.ring"
 
 $score = 0
+$level = 30
 $enemies = 30
 $value = 100
 $playerindex = 2
 $gameresult = false
 
 func main
-	New Game
+	
+	while true	
+	oGame = New Game
 	{
 		title = "Stars Fighter!"
 		sprite
@@ -158,8 +161,22 @@ func main
 			x = 500	y=50
 			state = func oGame,oSelf { oSelf { text = "Energy : " + $value } }
 		}
+		text {
+			animate = false
+			point = 400
+			size = 30
+			file = "fonts\pirulen.ttf"
+			text = "Level : " + $level
+			value = $value
+			x = 500	y=90
+		}
+
 
 	}
+	if ogame.shutdown = false or $value <= 0
+		exit
+	ok
+	end
 
 func checkwin ogame
 	if $gameresult  return ok
@@ -172,6 +189,16 @@ func checkwin ogame
 				file = "fonts\pirulen.ttf"
 				text = "You Win!!!!"
 				x = 500	y=10	
+				state = func ogame,oself {
+					if oself.y >= 400
+						ogame.shutdown = true
+						$score = 0
+						$level++
+						$enemies = $level
+						$value = 100
+						$gameresult = false
+					ok
+				}
 			}			
 		}
 	ok
@@ -187,6 +214,11 @@ func checkgameover ogame
 				file = "fonts\pirulen.ttf"
 				text = "Game Over !!!"
 				x = 500	y=10	
+				state = func ogame,oself {
+					if oself.y >= 400
+						ogame.shutdown = true
+					ok
+				}
 			}			
 		}
 	ok

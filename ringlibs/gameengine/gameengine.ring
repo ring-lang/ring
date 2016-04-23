@@ -57,6 +57,7 @@ class game from gamebase
 	nkeycode=0
 	aobjects = []
 	lbraceend = true
+	shutdown = false
 	startup()
 
 	func settitle cTitle
@@ -113,7 +114,7 @@ class game from gamebase
 
 	func start
 
-		while true
+		while shutdown = false
 			al_wait_for_event_until(event_queue, ev, timeout)
 			switch al_get_allegro_event_type(ev)
 					on allegro_event_display_close
@@ -191,11 +192,11 @@ class game from gamebase
 		al_exit()
 
 	func delete
+		for t in aobjects t.delete() next
 		al_destroy_timer(timer)
 		al_destroy_allegro_event(ev)
 		al_destroy_allegro_timeout(timeout)
-		al_destroy_event_queue(event_queue)
-		for t in aobjects t.delete() next
+		al_destroy_event_queue(event_queue)		
 		al_destroy_display(display)
 
 	func getsprite	
