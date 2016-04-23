@@ -134,3 +134,11 @@ Puts("Test Binarydigits()")
 b = 35
 see "Binary digits of " + b + " = "
 Binarydigits(b)
+
+# Multiply two matrices together.
+Puts("Test Matrixmulti()")
+load "stdlib.ring"
+A = [[1,2,3], [4,5,6], [7,8,9]]
+B = [[1,0,0], [0,1,0], [0,0,1]]
+Matrixmulti(A, B)
+
