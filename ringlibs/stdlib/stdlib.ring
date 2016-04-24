@@ -433,7 +433,7 @@ func Matrixtrans matrix
      
 /*
 	Function Name	: Dayofweek
-	Usage		: Return the day of the week of given date.
+	Usage		: Return the day of the week of given date. (yyyy-mm-dd)
 	Parameters	: Date to compute.
 	output		: The day of the week.
 */
