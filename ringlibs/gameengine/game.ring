@@ -5,15 +5,15 @@
 load "gameengine.ring"
 
 $score = 0
-$level = 30
-$enemies = 30
+$level = 1
+$enemies = 1
 $value = 100
 $playerindex = 2
 $gameresult = false
 
 func main
-	
-	while true	
+
+	while true
 	oGame = New Game
 	{
 		title = "Stars Fighter!"
@@ -22,20 +22,20 @@ func main
 			file = "images\stars.jpg"
 			x = 0
 			y = 0
-			point = -370			
+			point = -370
 			direction = ge_direction_dec
 			type = ge_type_background
 			state = func ogame,oself {
-					oself { 
+					oself {
 						if x < -350
 							direction = ge_direction_inc
-							point = 370			
+							point = 370
 						but x = 0 and direction = ge_direction_inc
 							direction = ge_direction_dec
-							point = -370			
+							point = -370
 						ok
 					}
-				} 
+				}
 		}
 		sprite
 		{
@@ -62,14 +62,14 @@ func main
 								for x in oGame.aObjects
 									if x.type = ge_type_enemy
 										if oself.x >= x.x and oself.y >= x.y and
-										   oself.x <= x.x + x.width and  
+										   oself.x <= x.x + x.width and
 										   oself.y <= x.y + x.height
 										   ogame.remove(x.nindex)
 										   $score+=100
 										   $enemies--
 										   checkwin(oGame)
-										   exit	
-										ok			
+										   exit
+										ok
 									ok
 								next
 							}
@@ -96,13 +96,13 @@ func main
 				x = g*random(50) y =g width=100 height=100
 				animate=true Scaled=true
 				direction = ge_direction_random
-				state = func oGame,oSelf {					
+				state = func oGame,oSelf {
 					oself {
 						if x < 0 x = 0 ok
 						if y < 0 y = 0 ok
 						if x > ogame.screen_w-width  x= ogame.screen_w - width ok
 						if y > ogame.screen_h-height y=ogame.screen_h-height ok
-					}			
+					}
 					if random(100) = 1
 						ogame {
 							sprite {
@@ -119,13 +119,13 @@ func main
 								state = func oGame,oSelf {
 									x =  oGame.aObjects[$playerindex]
 									if oself.x >= x.x and oself.y >= x.y and
-									   oself.x <= x.x + x.width and  
+									   oself.x <= x.x + x.width and
 									   oself.y <= x.y + x.height
 									   $value-=20
 									   ogame.remove(oself.nindex)
 									   checkgameover(oGame)
-									   exit	
-									ok								 
+									   exit
+									ok
 								}
 							}
 						}
@@ -176,6 +176,7 @@ func main
 	if ogame.shutdown = false or $value <= 0
 		exit
 	ok
+	callgc()
 	end
 
 func checkwin ogame
@@ -188,7 +189,7 @@ func checkwin ogame
 				size = 30
 				file = "fonts\pirulen.ttf"
 				text = "You Win!!!!"
-				x = 500	y=10	
+				x = 500	y=10
 				state = func ogame,oself {
 					if oself.y >= 400
 						ogame.shutdown = true
@@ -199,7 +200,7 @@ func checkwin ogame
 						$gameresult = false
 					ok
 				}
-			}			
+			}
 		}
 	ok
 
@@ -213,12 +214,12 @@ func checkgameover ogame
 				size = 30
 				file = "fonts\pirulen.ttf"
 				text = "Game Over !!!"
-				x = 500	y=10	
+				x = 500	y=10
 				state = func ogame,oself {
 					if oself.y >= 400
 						ogame.shutdown = true
 					ok
 				}
-			}			
+			}
 		}
 	ok

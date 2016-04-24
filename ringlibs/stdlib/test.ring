@@ -137,14 +137,12 @@ Binarydigits(b)
 
 # Multiply two matrices together.
 Puts("Test Matrixmulti()")
-load "stdlib.ring"
 A = [[1,2,3], [4,5,6], [7,8,9]]
 B = [[1,0,0], [0,1,0], [0,0,1]]
 Matrixmulti(A, B)
 
 # Transpose an arbitrarily sized rectangular Matrix.
 Puts("Test Matrixtrans()")
-load "stdlib.ring"
 matrix = [[78,19,30,12,36], [49,10,65,42,50], [30,93,24,78,10], [39,68,27,64,29]]
 Matrixtrans(matrix)
 
