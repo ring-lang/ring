@@ -63,6 +63,7 @@ class game from gamebase
 
 	func refresh
 		aobjects = []
+		lbraceend = true
 		shutdown = false
 
 	func settitle cTitle
@@ -186,7 +187,6 @@ class game from gamebase
 				callgc()
 			ok	 			
 		end
-		#delete()
 
 	func shutdown
 		delete()

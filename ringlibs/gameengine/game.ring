@@ -17,11 +17,10 @@ func main
 
 	while true
 		play(oGame)
-		if ogame.shutdown = true
+		if ogame.shutdown = true and $value = 0
 			ogame.shutdown()
 			exit
 		ok
-		oGame.lbraceend = true
 		ogame.refresh()
 		callgc()
 	end
