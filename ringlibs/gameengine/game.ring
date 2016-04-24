@@ -13,8 +13,23 @@ $gameresult = false
 
 func main
 
-	while true
 	oGame = New Game
+
+	while true
+		play(oGame)
+		if ogame.shutdown = true
+			ogame.shutdown()
+			exit
+		ok
+		oGame.lbraceend = true
+		ogame.refresh()
+		callgc()
+	end
+
+func play oGame
+
+
+	oGame
 	{
 		title = "Stars Fighter!"
 		sprite
@@ -121,7 +136,9 @@ func main
 									if oself.x >= x.x and oself.y >= x.y and
 									   oself.x <= x.x + x.width and
 									   oself.y <= x.y + x.height
-									   $value-=20
+									   if $value > 0
+									   	$value-=20
+									   ok
 									   ogame.remove(oself.nindex)
 									   checkgameover(oGame)
 									   exit
@@ -137,7 +154,7 @@ func main
 			size = 30
 			file = "fonts\pirulen.ttf"
 			text = "Destroy All Enemies!"
-			color = rgb(255,0,0)
+			color = GE_COLOR_RED
 			x = 100	y=50
 			direction = ge_direction_incvertical
 			point = 500
@@ -171,11 +188,6 @@ func main
 
 
 	}
-	if ogame.shutdown = false or $value <= 0
-		exit
-	ok
-	callgc()
-	end
 
 func checkwin ogame
 	if $gameresult  return ok

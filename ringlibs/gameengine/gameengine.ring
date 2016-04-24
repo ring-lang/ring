@@ -50,6 +50,7 @@ class resources
 		next
 
 class game from gamebase
+
 	display event_queue ev timeout timer
 	fps = 60 	redraw = true
 	nid = 0
@@ -59,6 +60,10 @@ class game from gamebase
 	lbraceend = true
 	shutdown = false
 	startup()
+
+	func refresh
+		aobjects = []
+		shutdown = false
 
 	func settitle cTitle
 		title = cTitle
@@ -74,11 +79,11 @@ class game from gamebase
 	func add oobject
 		nid++
 		oobject.nindex = nid
-		aobjects + oobject
+		aobjects + oobject		
 	
 	func remove nindex
 		for x = 1 to len(aobjects)
-			if aobjects[x].nindex = nindex
+			if aobjects[x].nindex = nindex				
 				del(aobjects,x)
 				exit
 			ok
@@ -139,13 +144,11 @@ class game from gamebase
 						ok		
 						redraw = true
 					on allegro_event_mouse_axes
-						bouncer_x = al_get_allegro_event_mouse_x(ev)
-						bouncer_y = al_get_allegro_event_mouse_y(ev)
+						 
 					on allegro_event_mouse_enter_display
-						bouncer_x = al_get_allegro_event_mouse_x(ev)
-						bouncer_y = al_get_allegro_event_mouse_y(ev)
+ 
 					on allegro_event_mouse_button_up
-						#exit
+						 
 					on allegro_event_key_down
 						nkeycode = al_get_allegro_event_keyboard_keycode(ev)
 						switch nkeycode
@@ -176,16 +179,14 @@ class game from gamebase
 			if redraw and al_is_event_queue_empty(event_queue)
 				redraw = false
 				al_set_target_bitmap(al_get_backbuffer(display))
-				al_clear_to_color(al_map_rgb(255,255,255))
+				al_clear_to_color(GE_COLOR_WHITE)
 				for t in aobjects t.draw(self) next
 				al_flip_display()
 				for t=len(aobjects) to 1 step -1 aobjects[t].animate(self,aobjects[t]) next				
-			ok		
-			 
-			callgc()
-			
+				callgc()
+			ok	 			
 		end
-		delete()
+		#delete()
 
 	func shutdown
 		delete()
