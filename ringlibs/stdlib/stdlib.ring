@@ -394,7 +394,7 @@ func Binarydigits a
 	Function Name	: Matrixmulti
 	Usage		: Multiply two matrices together. 
 	Parameters	: Two matrices to multiply.
-	output		: Result of multiplay.
+	output		: Result of multiply.
 */     
 
 func Matrixmulti A, B
@@ -410,6 +410,23 @@ func Matrixmulti A, B
      for i = 1 to n
          for j = 1 to n
              see C[i][j] + " "
+         next
+         see nl
+     next
+     
+/*
+	Function Name	: Matrixtrans
+	Usage		: Transpose an arbitrarily sized rectangular Matrix. 
+	Parameters	: Two matrices to transpose.
+	output		: Result of transpose.
+*/     
+
+func Matrixtrans matrix
+     transpose = newlist(5,4)
+     for i = 1 to 5
+         for j = 1 to 4
+             transpose[i][j] = matrix[j][i]
+             see "" + transpose[i][j] + " "
          next
          see nl
      next
