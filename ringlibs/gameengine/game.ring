@@ -157,7 +157,6 @@ func main
 			size = 30
 			file = "fonts\pirulen.ttf"
 			text = "Energy : " + $value
-			value = $value
 			x = 500	y=50
 			state = func oGame,oSelf { oSelf { text = "Energy : " + $value } }
 		}
@@ -167,7 +166,6 @@ func main
 			size = 30
 			file = "fonts\pirulen.ttf"
 			text = "Level : " + $level
-			value = $value
 			x = 500	y=90
 		}
 
