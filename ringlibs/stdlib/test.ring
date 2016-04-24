@@ -151,5 +151,11 @@ Puts("Test Dayofweek()")
 date = "2016-04-24"
 Dayofweek(date)
 
+# Friday the 13th between start and end year.
+Puts("Test Fridays()")
+year1 = 2010
+year2 = 2020
+Fridays(year1, year2)
+
 
 
