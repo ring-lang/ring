@@ -146,4 +146,10 @@ Puts("Test Matrixtrans()")
 matrix = [[78,19,30,12,36], [49,10,65,42,50], [30,93,24,78,10], [39,68,27,64,29]]
 Matrixtrans(matrix)
 
+# Return the day of the week fo given date.
+Puts("Test Dayofweek()")
+date = "2016-04-24"
+Dayofweek(date)
+
+
 
