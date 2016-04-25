@@ -455,6 +455,27 @@ func Dayofweek date
             on 6 sday = days[2]
             on 0 sday = days[3]
      off
-     see "" + year + "-" + month + "-" + day + " is : " + sday + nl	
+     see "" + year + "-" + month + "-" + day + " is : " + sday + nl
+     
+/*
+	Function Name	: Fridays
+	Usage		: Fridays the 13th between start and end year.
+	Parameters	: Start and end year.
+	output		: Dates of Fridays od 13th.
+*/  
+
+func Fridays year1, year2
+     mo = [4,0,0,3,5,1,3,6,2,4,0,2]
+     for year = year1 to year2
+         if year < 2100 leap = year - 1900 else leap = year - 1904 ok
+         for month = 1 to 12
+             m = (((year-1900)%7) + floor(leap/4) + mo[month] + 13) % 7
+             if month < 10 smonth = "0" + month ok
+             if m = 2 see "" + year + "-" + smonth + "-" + "13 is friday" + nl ok
+         next
+     next	
+   
+     
+     
       
 
