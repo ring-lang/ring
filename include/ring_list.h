@@ -107,6 +107,8 @@ RING_API int ring_list_isiteminsidelist ( List *pList,Item *pItem ) ;
 RING_API int ring_list_findstring ( List *pList,const char *str,int nColumn ) ;
 
 RING_API int ring_list_finddouble ( List *pList,double nNum1,int nColumn ) ;
+
+RING_API int ring_list_findpointer ( List *pList,void *pPointer ) ;
 /* Sort and Binary Search */
 
 RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn ) ;

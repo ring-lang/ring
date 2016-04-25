@@ -77,10 +77,10 @@ class game from gamebase
 			start()
 		ok
 
-	func add oobject
+	func addobj oobject
 		nid++
 		oobject.nindex = nid
-		aobjects + oobject		
+		add(aobjects , oobject)
 	
 	func remove nindex
 		for x = 1 to len(aobjects)
@@ -201,15 +201,15 @@ class game from gamebase
 		al_destroy_display(display)
 
 	func getsprite	
-		add(new sprite)
+		addobj(new sprite)
 		return aobjects[len(aobjects)]
 
 	func gettext
-		add(new text)
+		addobj(new text)
 		return aobjects[len(aobjects)]
 
 	func getprogress
-		add(new progress)
+		addobj(new progress)
 		return aobjects[len(aobjects)]
 	private
 		sprite text progress

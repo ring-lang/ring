@@ -165,6 +165,9 @@ Type: int
 x,nCount
 Type: List *
 pList2
+ring_list_findpointer
+Type: int
+x
 ring_list_sortnum
 Type: int
 x,y,mid

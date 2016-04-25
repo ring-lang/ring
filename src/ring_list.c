@@ -693,6 +693,19 @@ RING_API int ring_list_finddouble ( List *pList,double nNum1,int nColumn )
 	}
 	return 0 ;
 }
+
+RING_API int ring_list_findpointer ( List *pList,void *pPointer )
+{
+	int x  ;
+	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+		if ( ring_list_ispointer(pList,x) ) {
+			if ( ring_list_getpointer(pList,x) == pPointer ) {
+				return x ;
+			}
+		}
+	}
+	return 0 ;
+}
 /* Sort (QuickSort) and Binary Search */
 
 RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn )

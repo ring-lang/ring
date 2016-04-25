@@ -24,7 +24,7 @@ void ring_vm_liststart ( VM *pVM )
 				ring_vm_createtemplist(pVM);
 			} else {
 				/* Create the list in the General Temp Memory */
-				ring_vm_newtempvar(pVM, "ring_sys_temp",pVM->pTempMem);
+				ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,pVM->pTempMem);
 			}
 			pVar = (List *) RING_VM_STACK_READP ;
 			nType = RING_VM_STACK_OBJTYPE ;

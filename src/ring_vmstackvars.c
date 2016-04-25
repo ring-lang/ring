@@ -314,7 +314,9 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 				ring_list_setint(pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
 				ring_list_setint(pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
 				/* Add the pointer to the C Poiners List */
-				ring_list_addpointer(pVM->aCPointers,ring_list_getpointer(pList,RING_CPOINTER_POINTER));
+				if ( ring_list_findpointer(pVM->aCPointers,ring_list_getpointer(pList,RING_CPOINTER_POINTER)) == 0 ) {
+					ring_list_addpointer(pVM->aCPointers,ring_list_getpointer(pList,RING_CPOINTER_POINTER));
+				}
 			}
 			else if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTASSIGNED ) {
 				/* Mark the C Pointer List as Not Copied */

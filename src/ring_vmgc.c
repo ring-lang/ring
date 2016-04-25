@@ -97,17 +97,28 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 	*/
 	pScope = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
 	/* The function works only when we expect to have temp variables */
-	if ( ring_list_getsize(pScope) < 1 ) {
-		return ;
+	if ( ring_list_getsize(pScope) >= 1 ) {
+		for ( x = ring_list_getsize(pScope) ; x >= 1 ; x-- ) {
+			pList = ring_list_getlist(pScope,x);
+			if ( ring_list_getsize(pList) != RING_VAR_LISTSIZE ) {
+				continue ;
+			}
+			if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_VARIABLE) == 0 ) {
+				ring_list_deleteitem(pScope,x);
+			}
+			else if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_OBJECT) == 0 ) {
+				ring_list_deleteitem(pScope,x);
+			}
+		}
 	}
-	for ( x = ring_list_getsize(pScope) ; x >= 1 ; x-- ) {
-		pList = ring_list_getlist(pScope,x);
-		if ( ring_list_getsize(pList) != RING_VAR_LISTSIZE ) {
-			continue ;
-		}
-		if ( strcmp(ring_list_getstring(pList,RING_VAR_NAME),RING_TEMP_VARIABLE) == 0 ) {
-			ring_list_deleteitem(pScope,x);
-		}
+	/* Remove Temp Variables in  Global Temp Memory */
+	ring_list_deleteallitems(pVM->pTempMem);
+	/* Remove Temp Variables in Local Temp Memory */
+	if ( ring_list_getsize(pVM->pFuncCallList) > 1 ) {
+		pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)-1);
+		pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
+		pScope = pList ;
+		ring_list_deleteallitems(pScope);
 	}
 	/* Delete The HashTable */
 	pScope->pHashTable = ring_hashtable_delete(pScope->pHashTable) ;
