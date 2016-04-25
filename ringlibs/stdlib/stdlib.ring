@@ -430,4 +430,31 @@ func Matrixtrans matrix
          next
          see nl
      next
+     
+/*
+	Function Name	: Dayofweek
+	Usage		: Return the day of the week of given date. (yyyy-mm-dd)
+	Parameters	: Date to compute.
+	output		: The day of the week.
+*/
+
+func Dayofweek date
+     year = number(substr(date,1,4))
+     month = number(substr(date,6,2))
+     day = number(substr(date,9,2))
+     mo = [4,0,0,3,5,1,3,6,2,4,0,2]
+     days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+     if year < 2100 leap = year - 1900 else leap = year - 1904 ok
+     m = (((year-1900)%7) + floor(leap/4) + mo[month] + day) % 7
+     switch m
+            on 1 sday = days[4]
+            on 2 sday = days[5]
+            on 3 sday = days[6]
+            on 4 sday = days[7]
+            on 5 sday = days[1]
+            on 6 sday = days[2]
+            on 0 sday = days[3]
+     off
+     see "" + year + "-" + month + "-" + day + " is : " + sday + nl	
+      
 
