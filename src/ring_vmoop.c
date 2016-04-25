@@ -831,7 +831,11 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	}
 	else {
 		RING_VM_IR_UNLOAD ;
-		/* Set Property */
+		/*
+		**  Set Property 
+		**  Delete All Items to avoid a memory leak in real time applications 
+		*/
+		ring_list_deleteallitems(pVM->aSetProperty);
 		pList = ring_list_newlist(pVM->aSetProperty);
 		/* Add object pointer & Type */
 		ring_list_addpointer(pList,pVM->pGetSetObject);
