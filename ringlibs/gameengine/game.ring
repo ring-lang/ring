@@ -20,7 +20,7 @@ func main
 		if ogame.shutdown = true and $value = 0
 			ogame.shutdown()
 			exit
-		ok
+		ok		
 		ogame.refresh()
 		callgc()
 	end
@@ -136,7 +136,7 @@ func play oGame
 									   oself.x <= x.x + x.width and
 									   oself.y <= x.y + x.height
 									   if $value > 0
-									   	$value-=20
+									   	$value-=10
 									   ok
 									   ogame.remove(oself.nindex)
 									   checkgameover(oGame)
@@ -188,6 +188,7 @@ func play oGame
 
 	}
 
+
 func checkwin ogame
 	if $gameresult  return ok
 	if $enemies = 0
@@ -197,7 +198,7 @@ func checkwin ogame
 				point = 400
 				size = 30
 				file = "fonts\pirulen.ttf"
-				text = "You Win!!!!"
+				text = "Level Completed!"
 				x = 500	y=10
 				state = func ogame,oself {
 					if oself.y >= 400
@@ -213,7 +214,7 @@ func checkwin ogame
 		}
 	ok
 
-func checkgameover ogame
+func checkgameover ogame	
 	if $gameresult  return ok
 	if $value <= 0
 		$gameresult = true

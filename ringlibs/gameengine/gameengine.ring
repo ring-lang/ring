@@ -162,7 +162,6 @@ class game from gamebase
 								on allegro_key_right
 									key[key_right] = true									
 						off
-
 					on allegro_event_key_up
 						switch al_get_allegro_event_keyboard_keycode(ev)
 								on allegro_key_up
@@ -190,14 +189,15 @@ class game from gamebase
 
 	func shutdown
 		delete()
-		al_exit()
+		#al_exit()
+		bye
 
 	func delete
 		for t in aobjects t.delete() next
 		al_destroy_timer(timer)
 		al_destroy_allegro_event(ev)
 		al_destroy_allegro_timeout(timeout)
-		al_destroy_event_queue(event_queue)		
+		al_destroy_event_queue(event_queue)	
 		al_destroy_display(display)
 
 	func getsprite	
