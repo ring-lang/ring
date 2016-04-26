@@ -153,7 +153,7 @@ func play oGame
 			size = 30
 			file = "fonts\pirulen.ttf"
 			text = "Destroy All Enemies!"
-			color = GE_COLOR_RED
+			color = al_map_rgb(255,0,0)
 			x = 100	y=50
 			direction = ge_direction_incvertical
 			point = 500
