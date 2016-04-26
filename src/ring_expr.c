@@ -714,7 +714,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			return 1 ;
 		}
 		/* Generate Code */
-		if ( ring_parser_icg_getlastoperation(pParser) != ICO_CALL ) {
+		if ( (ring_parser_icg_getlastoperation(pParser) != ICO_CALL) && (ring_parser_icg_getlastoperation(pParser) != ICO_BRACEEND) ) {
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 		}
 		return 1 ;
