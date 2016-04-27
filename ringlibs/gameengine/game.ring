@@ -140,7 +140,6 @@ func play oGame
 									   ok
 									   ogame.remove(oself.nindex)
 									   checkgameover(oGame)
-									   exit
 									ok
 								}
 							}
