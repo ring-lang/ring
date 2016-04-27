@@ -203,10 +203,8 @@ func checkwin ogame
 				state = func ogame,oself {
 					if oself.y >= 400
 						ogame.shutdown = true
-						$score = 0
 						$level++
 						$enemies = $level
-						$value = 100
 						$gameresult = false
 					ok
 				}
