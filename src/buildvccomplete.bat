@@ -12,7 +12,7 @@ ring_vmtrycatch.c ring_vmstrindex.c ring_vmjump.c ring_vmduprange.c ^
 ring_vmperformance.c ring_vmexit.c ring_vmstackvars.c ring_vmstate.c ring_vmmath.c ring_vmfile.c ring_vmos.c ring_vmlistfuncs.c ring_vmrefmeta.c ^
 ring_vmodbc.c ring_vmmysql.c ring_vmopenssl.c ring_vmcurl.c ring_ext.c ring_vmdll.c -I"..\include" -I"C:\curlBIN\include" -I"C:\OPENSSLBIN\include" -I"C:\Program Files\MySQL\MySQL Connector.C 6.1\include" 
 
-link /DLL /OUT:..\lib\ring.dll /SUBSYSTEM:CONSOLE,"5.01"  ring_string.obj ^
+link /DLL /DEBUG /OUT:..\lib\ring.dll /SUBSYSTEM:CONSOLE,"5.01"  ring_string.obj ^
 ring_list.obj ring_item.obj ring_items.obj ring_hashtable.obj ring_state.obj ring_scanner.obj ring_parser.obj ring_hashlib.obj ring_vmgc.obj ^
 ring_stmt.obj ring_expr.obj ring_codegen.obj ring_vm.obj ring_vmexpr.obj ring_vmvars.obj ^
 ring_vmlists.obj ring_vmfuncs.obj ring_api.obj ring_vmoop.obj ring_vmcui.obj ^

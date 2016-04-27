@@ -732,7 +732,12 @@ int ring_parser_stmt ( Parser *pParser )
 			pParser->nAssignmentFlag = 1 ;
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_ENDFUNCEXE);
-			ring_parser_icg_newoperation(pParser,ICO_RETURN);
+			if ( x ) {
+				ring_parser_icg_newoperation(pParser,ICO_RETURN);
+			}
+			else {
+				ring_parser_icg_newoperation(pParser,ICO_RETNULL);
+			}
 		} else {
 			/*
 			**  Generate Code 
