@@ -114,12 +114,4 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 	/* Delete The HashTable */
 	pScope->pHashTable = ring_hashtable_delete(pScope->pHashTable) ;
 	ring_list_genhashtable2(pScope);
-	/* Remove Temp Variables in  Global Temp Memory */
-	ring_list_deleteallitems(pVM->pTempMem);
-	/* Remove Temp Variables in Local Temp Memory */
-	if ( ring_list_getsize(pVM->pFuncCallList) > 1 ) {
-		pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)-1);
-		pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
-		ring_list_deleteallitems(pList);
-	}
 }
