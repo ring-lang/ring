@@ -182,14 +182,16 @@ class game from gamebase
 				al_clear_to_color(al_map_rgb(255,255,255))
 				for t in aobjects t.draw(self) next
 				al_flip_display()
-				for t=len(aobjects) to 1 step -1 aobjects[t].animate(self,aobjects[t]) next				
+				for t=len(aobjects) to 1 step -1 
+						aobjects[t].animate(self,aobjects[t]) 
+				next				
 				callgc()
 			ok	 			
 		end
 
 	func shutdown
 		delete()
-		al_exit()
+		bye #al_exit()
 
 	func delete
 		for t in aobjects t.delete() next
@@ -215,6 +217,7 @@ class game from gamebase
 		
 
 class gameobject from gamebase
+	lenabled = true
 	x=0 y=0	 width=0 height=0 nindex = 0
 	animate=true	move=false Scaled=false
 	func init
@@ -242,6 +245,7 @@ class sprite from gameobject
 		cimagefile = cfilename
 
 	func draw oengine
+		if not lenabled return ok
 		if transparent
 			if not transparentdone
 				transparentdone = true
@@ -256,6 +260,7 @@ class sprite from gameobject
 		ok
 
 	func animate oGame,oSelf
+		if not lenabled return ok
 		if not state = ""				 		
 				call state(oGame,oSelf) 
 		ok
@@ -313,6 +318,7 @@ class sprite from gameobject
 
 
 	func keyboard oGame,nkey
+		if not lenabled return ok
 		if not keypress = ""			
 			call keypress(oGame,self,nkey)
 		ok
