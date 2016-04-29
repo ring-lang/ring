@@ -33,7 +33,7 @@ func play oGame
 		title = "Stars Fighter!"
 		sprite
 		{
-			file = "images\stars.jpg"
+			file = "images/stars.jpg"
 			x = 0
 			y = 0
 			point = -370
@@ -53,7 +53,7 @@ func play oGame
 		}
 		sprite
 		{
-			file = "images\player.png"
+			file = "images/player.png"
 			transparent = true
 			type = ge_type_player
 			x = 400 y =400 width=100 height=100
@@ -63,7 +63,7 @@ func play oGame
 					ogame {
 						sprite {
 							type = ge_type_fire
-							file  = "images\back4.png"
+							file  = "images/back4.png"
 							transparent = true
   							x = oself.x + 30
 							y = oself.y - 30
@@ -105,7 +105,7 @@ func play oGame
 			sprite
 			{
 				type = ge_type_enemy
-				file = "images\enemy.png"
+				file = "images/enemy.png"
 				transparent = true
 				x = g*random(50) y =g width=100 height=100
 				animate=true Scaled=true
@@ -121,7 +121,7 @@ func play oGame
 						ogame {
 							sprite {
 								type = ge_type_fire
-								file  = "images\back6.png"
+								file  = "images/back6.png"
 								transparent = true
 								x = oself.x + 30
 								y = oself.y + oself.height+ 30
@@ -150,7 +150,7 @@ func play oGame
 		next
 		text {
 			size = 30
-			file = "fonts\pirulen.ttf"
+			file = "fonts/pirulen.ttf"
 			text = "Destroy All Enemies!"
 			color = al_map_rgb(255,0,0)
 			x = 100	y=50
@@ -161,7 +161,7 @@ func play oGame
 			animate = false
 			point = 400
 			size = 30
-			file = "fonts\pirulen.ttf"
+			file = "fonts/pirulen.ttf"
 			text = "Score : " + $score
 			x = 500	y=10
 			state = func oGame,oSelf { oSelf { text = "Score : " + $score } }
@@ -170,7 +170,7 @@ func play oGame
 			animate = false
 			point = 400
 			size = 30
-			file = "fonts\pirulen.ttf"
+			file = "fonts/pirulen.ttf"
 			text = "Energy : " + $value
 			x = 500	y=50
 			state = func oGame,oSelf { oSelf { text = "Energy : " + $value } }
@@ -179,7 +179,7 @@ func play oGame
 			animate = false
 			point = 400
 			size = 30
-			file = "fonts\pirulen.ttf"
+			file = "fonts/pirulen.ttf"
 			text = "Level : " + $level
 			x = 500	y=90
 		}
@@ -196,7 +196,7 @@ func checkwin ogame
 			text {
 				point = 400
 				size = 30
-				file = "fonts\pirulen.ttf"
+				file = "fonts/pirulen.ttf"
 				text = "Level Completed!"
 				x = 500	y=10
 				state = func ogame,oself {
@@ -219,7 +219,7 @@ func checkgameover ogame
 			text {
 				point = 400
 				size = 30
-				file = "fonts\pirulen.ttf"
+				file = "fonts/pirulen.ttf"
 				text = "Game Over !!!"
 				x = 500	y=10
 				state = func ogame,oself {
