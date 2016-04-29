@@ -65,6 +65,7 @@
 #else
 #define RING_SETBINARY ((void)0)
 #endif
+#include <errno.h>
 /* Include Project Headers */
 #include "ring_ext.h"
 #include "ring_string.h"

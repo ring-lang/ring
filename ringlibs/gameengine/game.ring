@@ -20,7 +20,7 @@ func main
 		if ogame.shutdown = true and $value = 0
 			ogame.shutdown()
 			exit
-		ok		
+		ok
 		ogame.refresh()
 		callgc()
 	end
@@ -211,7 +211,7 @@ func checkwin ogame
 		}
 	ok
 
-func checkgameover ogame	
+func checkgameover ogame
 	if $gameresult  return ok
 	if $value <= 0
 		$gameresult = true

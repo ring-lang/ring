@@ -464,9 +464,6 @@ func pGoto
 		 	exit 
 		ok
 	next
-		
-		
-
 
 func pFind
 	if isobject(oSearch)
