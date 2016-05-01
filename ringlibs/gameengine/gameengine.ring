@@ -1,6 +1,6 @@
-# the ring standard library
-# game engine for 2d games
-# 2016, mahmoud fayed <msfclipper@yahoo.com>
+# The Ring Standard Library
+# Game Engine for 2D Games
+# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
 load "gamelib.ring"
 load "gameengine.rh"

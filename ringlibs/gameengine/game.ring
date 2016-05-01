@@ -1,6 +1,6 @@
-# the ring standard library
-# game engine for 2d games
-# 2016, mahmoud fayed <msfclipper@yahoo.com>
+# The Ring Standard Library
+# Game Engine for 2D Games
+# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
 load "gameengine.ring"
 
@@ -152,7 +152,8 @@ func play oGame
 			size = 30
 			file = "fonts/pirulen.ttf"
 			text = "Destroy All Enemies!"
-			color = GE_COLOR_RED
+			nstep = 3
+			color = GE_COLOR_GREEN
 			x = 100	y=50
 			direction = ge_direction_incvertical
 			point = 500
@@ -198,6 +199,7 @@ func checkwin ogame
 				size = 30
 				file = "fonts/pirulen.ttf"
 				text = "Level Completed!"
+				nStep = 3
 				x = 500	y=10
 				state = func ogame,oself {
 					if oself.y >= 400
@@ -219,6 +221,7 @@ func checkgameover ogame
 			text {
 				point = 400
 				size = 30
+				nStep = 3
 				file = "fonts/pirulen.ttf"
 				text = "Game Over !!!"
 				x = 500	y=10
