@@ -473,7 +473,41 @@ func Fridays year1, year2
              if month < 10 smonth = "0" + month ok
              if m = 2 see "" + year + "-" + smonth + "-" + "13 is friday" + nl ok
          next
-     next	
+     next
+     
+/*
+	Function Name	: Permutation
+	Usage		: Generates all permutations of n different numerals:
+	Parameters	: List of numerals to generate.
+	output		: Permutations of numerals.
+*/     
+
+func Permutation a
+       elementcount = len(a)
+       if elementcount < 1 then return ok
+       pos = elementcount-1
+       while a[pos] >= a[pos+1] 
+               pos -= 1
+               if pos <= 0 permutationReverse(a, 1, elementcount)
+                  return ok
+       end
+       last = elementcount
+       while a[last] <= a[pos]
+               last -= 1
+       end
+       temp = a[pos]
+       a[pos] = a[last]
+       a[last] = temp
+       permutationReverse(a, pos+1, elementcount)
+
+ func permutationReverse a, first, last
+        while first < last
+                 temp = a[first]
+                 a[first] = a[last]
+                 a[last] = temp
+                 first += 1
+                 last -= 1
+        end
    
      
      
