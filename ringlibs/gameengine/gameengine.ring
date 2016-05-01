@@ -188,7 +188,7 @@ class game from gamebase
 
 	func shutdown
 		delete()
-		bye #al_exit()
+		bye
 
 	func delete
 		for t in aobjects t.delete() next
@@ -214,8 +214,11 @@ class game from gamebase
 		addobj(new animate)
 		return aobjects[len(aobjects)]
 
+	func getsound
+		return new sound
+
 	private
-		sprite text progress animate
+		sprite text progress animate sound
 		
 
 class gameobject from gamebase
@@ -375,3 +378,25 @@ Class Animate from Sprite
 		else
 			al_draw_bitmap_region(image,(framewidth*(frame-1)),0, framewidth, height, x, y, 0)
 		ok
+
+
+Class Sound 
+
+	file sample  csoundfile sampleid
+	playing = false
+	
+	func setfile cfilename
+		sample = al_load_sample(cfilename)
+		csoundfile = cfilename
+
+	func playSound
+		sampleid = al_new_allegro_sample_id()
+		al_play_sample(sample, 1.0, 0.0,1.0,ALLEGRO_PLAYMODE_LOOP,sampleid)
+		playing = true
+
+	func delete
+		if playing 
+			al_stop_sample(sample)
+		ok
+		al_destroy_allegro_sample_id(sampleid)
+		al_destroy_sample(sample)

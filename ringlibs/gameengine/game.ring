@@ -185,6 +185,10 @@ func play oGame
 			text = "Level : " + $level
 			x = 500	y=90
 		}
+		Sound {
+			file = "sound/music.wav"
+			playSound()
+		}
 	}
 
 
