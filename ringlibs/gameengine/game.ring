@@ -78,6 +78,7 @@ func play oGame
 										if oself.x >= x.x and oself.y >= x.y and
 										   oself.x <= x.x + x.width and
 										   oself.y <= x.y + x.height
+										   showfire(oGame,x.x+40,x.y+40)
 										   ogame.remove(x.nindex)
 										   $score+=100
 										   $enemies--
@@ -184,8 +185,6 @@ func play oGame
 			text = "Level : " + $level
 			x = 500	y=90
 		}
-
-
 	}
 
 
@@ -233,3 +232,31 @@ func checkgameover ogame
 			}
 		}
 	ok
+
+
+func showfire oGame,nX,nY
+	oGame {
+		animate {
+			file = "images/fire.png"
+			x = nX
+			y = nY
+			framewidth = 40
+			height = 42
+			nStep = 3
+			transparent = true
+			state = func oGame,oSelf {
+				oSelf { 
+					nStep--
+					if nStep = 0
+						nStep = 3
+						if frame < 8
+							frame++
+						else
+							frame=1
+							oGame.remove(oself.nIndex)
+						ok
+					ok
+				}
+			}
+		}
+	}

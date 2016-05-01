@@ -207,8 +207,13 @@ class game from gamebase
 	func getprogress
 		addobj(new progress)
 		return aobjects[len(aobjects)]
+
+	func getanimate
+		addobj(new animate)
+		return aobjects[len(aobjects)]
+
 	private
-		sprite text progress
+		sprite text progress animate
 		
 
 class gameobject from gamebase
@@ -346,3 +351,25 @@ class text from sprite
 	func delete
 		oresources.unloadfont(cfontfile,size)
 
+Class Animate from Sprite
+
+	frames = 0
+	frame = 1
+	framewidth = 30
+	animate = false
+	scaled = false
+
+	func draw oengine
+		if not lenabled return ok
+		if transparent
+			if not transparentdone
+				transparentdone = true
+				al_convert_mask_to_alpha(image,transparentcolor)
+			ok
+		ok
+		if Scaled
+			al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
+			al_get_bitmap_height(image),x,y,width,height,0)
+		else
+			al_draw_bitmap_region(image,(framewidth*(frame-1)),0, framewidth, height, x, y, 0)
+		ok
