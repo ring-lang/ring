@@ -1263,7 +1263,7 @@ void ring_vmlib_substr ( void *pPointer )
 		if ( nTransform == 1 ) {
 			cString = ring_string_find2(cStr,nSize,cStr2,nSize2) ;
 		} else {
-			cString = ring_string_find2(ring_string_lower(cStr),nSize,ring_string_lower(cStr2),nSize2) ;
+			cString = ring_string_find3(cStr,nSize,cStr2,nSize2) ;
 		}
 		if ( cString == NULL ) {
 			RING_API_RETSTRING(cStr);
@@ -1285,7 +1285,7 @@ void ring_vmlib_substr ( void *pPointer )
 			if ( nTransform == 1 ) {
 				cString = ring_string_find2(cStr+((int) nMark),nSize-nMark,cStr2,nSize2) ;
 			} else {
-				cString = ring_string_find2(ring_string_lower(cStr+((int) nMark)),nSize-nMark,ring_string_lower(cStr2),nSize2) ;
+				cString = ring_string_find3(cStr+((int) nMark),nSize-nMark,cStr2,nSize2) ;
 			}
 			if ( cString == NULL ) {
 				for ( x = nMark ; x < nSize ; x++ ) {

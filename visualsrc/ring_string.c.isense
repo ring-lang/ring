@@ -59,6 +59,15 @@ ring_string_find
 ring_string_find2
 Type: int
 nPos,x
+ring_string_find3
+Type: int
+nPos,x
+Type: char *
+cStr3
+Type: char *
+cStr4
+Type: char *
+pOutput
 ring_string_test
 nMaxValue
 Type: String *

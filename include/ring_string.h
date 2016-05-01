@@ -41,6 +41,8 @@ RING_API char * ring_string_find ( char *cStr1,char *cStr2 ) ;
 
 RING_API char * ring_string_find2 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 ) ;
 
+RING_API char * ring_string_find3 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 ) ;
+
 void ring_string_test ( void ) ;
 /* Macro */
 #define ring_string_tolower(x) ring_string_lower(x->cStr)

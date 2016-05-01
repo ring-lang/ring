@@ -189,6 +189,50 @@ RING_API char * ring_string_find2 ( char *cStr1,int nStrSize1,char *cStr2,int nS
 	return NULL ;
 }
 
+RING_API char * ring_string_find3 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 )
+{
+	int nPos,x  ;
+	char *cStr3  ;
+	char *cStr4  ;
+	char *pOutput  ;
+	/* This function is not case sensitive and work on a copy from cStr1 and cStr2 */
+	nPos = 0 ;
+	if ( (nStrSize1 - nStrSize2) < 0 ) {
+		return NULL ;
+	}
+	/* Copy Strings and convert to lower case */
+	cStr3 = (char *) malloc(nStrSize1+1) ;
+	cStr4 = (char *) malloc(nStrSize2+1) ;
+	if ( (cStr3==NULL) || (cStr4==NULL) ) {
+		printf( RING_OOM ) ;
+		exit(0);
+	}
+	for ( x = 0 ; x <= nStrSize1 ; x++ ) {
+		cStr3[x] = cStr1[x] ;
+	}
+	for ( x = 0 ; x <= nStrSize2 ; x++ ) {
+		cStr4[x] = cStr2[x] ;
+	}
+	ring_string_lower2(cStr3,nStrSize1);
+	ring_string_lower2(cStr4,nStrSize2);
+	pOutput = NULL ;
+	while ( nPos <= (nStrSize1 - nStrSize2) ) {
+		x = 0 ;
+		while ( (x < nStrSize2) && (cStr3[nPos+x] == cStr4[x] ) ) {
+			x++ ;
+		}
+		if ( x == nStrSize2 ) {
+			pOutput = cStr1+nPos ;
+			break ;
+		}
+		nPos++ ;
+	}
+	/* Free Memory */
+	free( cStr3 ) ;
+	free( cStr4 ) ;
+	return pOutput ;
+}
+
 void ring_string_test ( void )
 {
 	#define nMaxValue 10
