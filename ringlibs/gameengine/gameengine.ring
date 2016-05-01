@@ -93,11 +93,6 @@ class game from gamebase
 
 	func startup
 
-		al_init()
-		al_init_font_addon()
-		al_init_ttf_addon()
-		al_init_image_addon()
-
 		display = al_create_display(screen_w,screen_h)
 		al_set_window_title(display,title)
 
@@ -179,7 +174,7 @@ class game from gamebase
 			if redraw and al_is_event_queue_empty(event_queue)
 				redraw = false
 				al_set_target_bitmap(al_get_backbuffer(display))
-				al_clear_to_color(al_map_rgb(255,255,255))
+				al_clear_to_color(GE_COLOR_WHITE)
 				for t in aobjects t.draw(self) next
 				al_flip_display()
 				for t=len(aobjects) to 1 step -1 
@@ -238,7 +233,7 @@ class sprite from gameobject
 	state = ""
 	type = 0
 	transparent = false	transparentdone = false
-	transparentcolor = al_map_rgb(255,255,255)
+	transparentcolor = GE_COLOR_WHITE
 
 	func setfile cfilename
 		image = oresources.loadimage(cfilename)
@@ -339,7 +334,7 @@ class sprite from gameobject
 class text from sprite
 
 	size = 14
-	font  cfontfile  text="" color = al_map_rgb(255,255,255)
+	font  cfontfile  text="" color = GE_COLOR_WHITE
 	
 	func setfile cfilename
 		font = oresources.loadfont(cfilename,size)
