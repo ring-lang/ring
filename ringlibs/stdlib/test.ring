@@ -157,5 +157,16 @@ year1 = 2010
 year2 = 2020
 Fridays(year1, year2)
 
+# Generates all permutations of n different numerals
+Puts("Test Permutation()")
+list = [1, 2, 3, 4]
+for perm = 1 to 24
+     for i = 1 to len(list)
+          see list[i] + " "
+     next
+     see nl
+     Permutation(list)
+next
+
 
 
