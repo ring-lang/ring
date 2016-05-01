@@ -249,7 +249,7 @@ func showfire oGame,nX,nY
 					nStep--
 					if nStep = 0
 						nStep = 3
-						if frame < 8
+						if frame < 13
 							frame++
 						else
 							frame=1
