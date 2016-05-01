@@ -63,7 +63,7 @@ func play oGame
 					ogame {
 						sprite {
 							type = ge_type_fire
-							file  = "images/back4.png"
+							file  = "images/rocket.png"
 							transparent = true
   							x = oself.x + 30
 							y = oself.y - 30
@@ -122,7 +122,7 @@ func play oGame
 						ogame {
 							sprite {
 								type = ge_type_fire
-								file  = "images/back6.png"
+								file  = "images/rocket2.png"
 								transparent = true
 								x = oself.x + 30
 								y = oself.y + oself.height+ 30
