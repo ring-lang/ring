@@ -1,3 +1,6 @@
+# This is the SquaresPuzzle game, a simple RingAllegro application
+# Author : Majdi Sobain <majdisobain@gmail.com>
+
 Load "gamelib.ring"
 
 BoardDim = 398
