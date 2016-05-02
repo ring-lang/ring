@@ -80,7 +80,7 @@ func main
 			x = 260	y=510
 		}
 		Sound {
-			file = "sound/music.wav"
+			file = "sound/music1.wav"
 			playSound()
 		}
 	}
@@ -264,7 +264,7 @@ func play oGame
 			x = 500	y=90
 		}
 		Sound {
-			file = "sound/music.wav"
+			file = "sound/music2.wav"
 			playSound()
 		}
 	}
