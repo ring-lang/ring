@@ -5,8 +5,8 @@
 load "gameengine.ring"
 
 $score = 0
-$level = 30
-$enemies = 30
+$level = 1
+$enemies = 1
 $value = 100
 $playerindex = 2
 $gameresult = false
@@ -80,7 +80,7 @@ func play oGame
 										   oself.y <= x.y + x.height
 										   showfire(oGame,x.x+40,x.y+40)
 										   ogame.remove(x.nindex)
-										   $score+=100
+										   $score+=10
 										   $enemies--
 										   checkwin(oGame)
 										   exit
