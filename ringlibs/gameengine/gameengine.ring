@@ -34,7 +34,7 @@ class resources
 
 	func loadfont cfilename,nSize
 		npos = find(afonts,cfilename,1)
-		if npos = 0
+		if npos = 0 or aFonts[nPos][2] != nSize
 			afonts + [cfilename,nSize,al_load_ttf_font(cfilename,nSize,0)]
 			npos = len(afonts)
 		ok
@@ -190,8 +190,11 @@ class game from gamebase
 		delete()
 		bye
 
-	func delete
+	func deleteobjs
 		for t in aobjects t.delete() next
+
+	func delete
+		deleteobjs()
 		al_destroy_timer(timer)
 		al_destroy_allegro_event(ev)
 		al_destroy_allegro_timeout(timeout)

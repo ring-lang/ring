@@ -11,14 +11,54 @@ $value = 100
 $playerindex = 2
 $gameresult = false
 
+$startplay=false
+
 func main
 
-	oGame = New Game
+	oGame = New Game 
+	oGame {	
+		title = "Stars Fighter!"
+		sprite
+		{
+			file = "images/menu1.jpg"
+			x = 0 y=0 width=800 height = 600 scaled = true animate = false
+			keypress = func ogame,oself,nKey {
+				if nkey = key_esc 
+					ogame.shutdown()
+				but nKey = key_space 
+					$startplay=true 
+					ogame.shutdown=true 
+				ok
+			}
+		}
+		text {
+			animate = false
+			size = 40
+			file = "fonts/pirulen.ttf"
+			text = "Stars Fighter"
+			x = 10	y=50
+		}
+		text {
+			animate = false
+			size = 25
+			file = "fonts/pirulen.ttf"
+			text = "Press Space to start,ESC to Exit !"
+			x = 80	y=470
+		}
+	}
+		
+	if $startplay 
+		oGame.deleteobjs() 
+		oGame.lBraceEnd = true
+		playstart(oGame) 
+	ok
+
+func playstart oGame
 
 	while true
 		play(oGame)
 		if ogame.shutdown = true and $value = 0
-			ogame.shutdown()
+			ogame.shutdown()			
 			exit
 		ok
 		ogame.refresh()
@@ -26,7 +66,6 @@ func main
 	end
 
 func play oGame
-
 
 	oGame
 	{
@@ -76,14 +115,14 @@ func play oGame
 								for x in oGame.aObjects
 									if x.type = ge_type_enemy
 										if oself.x >= x.x and oself.y >= x.y and
-										   oself.x <= x.x + x.width and
-										   oself.y <= x.y + x.height
-										   showfire(oGame,x.x+40,x.y+40)
-										   ogame.remove(x.nindex)
-										   $score+=10
-										   $enemies--
-										   checkwin(oGame)
-										   exit
+											oself.x <= x.x + x.width and
+											oself.y <= x.y + x.height
+											showfire(oGame,x.x+40,x.y+40)
+											ogame.remove(x.nindex)
+											$score+=10
+											$enemies--
+											checkwin(oGame)
+											exit
 										ok
 									ok
 								next
