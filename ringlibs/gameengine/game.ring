@@ -5,8 +5,8 @@
 load "gameengine.ring"
 
 $score = 0
-$level = 1
-$enemies = 1
+$level = 30
+$enemies = 30
 $value = 100
 $playerindex = 2
 $gameresult = false
@@ -197,6 +197,7 @@ func checkwin ogame
 	if $enemies = 0
 		$gameresult = true
 		oGame {
+			if $level < 30
 			text {
 				point = 400
 				size = 30
@@ -213,6 +214,22 @@ func checkwin ogame
 					ok
 				}
 			}
+			else
+			text {
+				point = 400
+				size = 30
+				nStep = 3
+				file = "fonts/pirulen.ttf"
+				text = "You Win !!!"
+				x = 500	y=10
+				state = func ogame,oself {
+					if oself.y >= 400
+						ogame.shutdown = true
+						$value = 0
+					ok
+				}
+			}
+			ok
 		}
 	ok
 
