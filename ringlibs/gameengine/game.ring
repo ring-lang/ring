@@ -16,6 +16,18 @@ $startplay=false
 func main
 
 	oGame = New Game 
+
+	while true
+
+	$score = 0
+	$level = 1
+	$enemies = 1
+	$value = 100
+	$playerindex = 2
+	$gameresult = false
+
+	$startplay=false
+
 	oGame {	
 		title = "Stars Fighter!"
 		sprite
@@ -42,23 +54,36 @@ func main
 			animate = false
 			size = 25
 			file = "fonts/pirulen.ttf"
-			text = "Press Space to start,ESC to Exit !"
-			x = 80	y=470
+			text = "Press Space to start"
+			x = 190	y=470
+		}
+		text {
+			animate = false
+			size = 20
+			file = "fonts/pirulen.ttf"
+			text = "Press Esc to Exit"
+			x = 260	y=510
+		}
+
+		Sound {
+			file = "sound/music.wav"
+			playSound()
 		}
 	}
 		
 	if $startplay 
-		oGame.deleteobjs() 
-		oGame.lBraceEnd = true
-		playstart(oGame) 
+		oGame.refresh()
+		playstart(oGame) 		
+		oGame.refresh()
 	ok
+
+	end
 
 func playstart oGame
 
 	while true
 		play(oGame)
 		if ogame.shutdown = true and $value = 0
-			ogame.shutdown()			
 			exit
 		ok
 		ogame.refresh()

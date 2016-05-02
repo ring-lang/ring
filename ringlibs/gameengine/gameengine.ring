@@ -62,6 +62,7 @@ class game from gamebase
 	startup()
 
 	func refresh
+		deleteobjs()
 		aobjects = []
 		lbraceend = true
 		shutdown = false
@@ -192,6 +193,7 @@ class game from gamebase
 
 	func deleteobjs
 		for t in aobjects t.delete() next
+		aObjects = []
 
 	func delete
 		deleteobjs()
@@ -399,6 +401,7 @@ Class Sound
 
 	func delete
 		if playing 
+			playing = false
 			al_stop_sample(sample)
 		ok
 		al_destroy_allegro_sample_id(sampleid)
