@@ -45,11 +45,26 @@ func main
 		}
 		text {
 			animate = false
-			size = 40
+			size = 35
 			file = "fonts/pirulen.ttf"
 			text = "Stars Fighter"
 			x = 10	y=50
 		}
+		text {
+			animate = false
+			size = 25
+			file = "fonts/pirulen.ttf"
+			text = "Version 1.0"
+			x = 80	y=100
+		}
+		text {
+			animate = false
+			size = 16
+			file = "fonts/pirulen.ttf"
+			text = "(C) 2016, Mahmoud Fayed"
+			x = 45	y=140
+		}
+
 		text {
 			animate = false
 			size = 25
@@ -64,7 +79,6 @@ func main
 			text = "Press Esc to Exit"
 			x = 260	y=510
 		}
-
 		Sound {
 			file = "sound/music.wav"
 			playSound()
