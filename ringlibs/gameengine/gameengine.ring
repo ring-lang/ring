@@ -189,7 +189,7 @@ class game from gamebase
 
 	func shutdown
 		delete()
-		bye
+		al_exit()
 
 	func deleteobjs
 		for t in aobjects t.delete() next
