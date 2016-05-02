@@ -95,6 +95,11 @@ func main
 
 func playstart oGame
 
+	oSound = New Sound {
+		file = "sound/music2.wav"
+		playSound()
+	}
+
 	while true
 		play(oGame)
 		if ogame.shutdown = true and $value = 0
@@ -103,6 +108,8 @@ func playstart oGame
 		ogame.refresh()
 		callgc()
 	end
+
+	oSound.Delete()
 
 func play oGame
 
@@ -262,10 +269,6 @@ func play oGame
 			file = "fonts/pirulen.ttf"
 			text = "Level : " + $level
 			x = 500	y=90
-		}
-		Sound {
-			file = "sound/music2.wav"
-			playSound()
 		}
 	}
 
