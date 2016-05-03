@@ -14,6 +14,10 @@
 				[
 					'<a href="https://github.com/MajdiSobain/RingAllegro_SquaresPuzzle" target="_blank">Squares Puzzle</a>',
 					'<img src="squarespuzzle.png" width="40%">'
+				],
+				[
+					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_StarsFighter_1.0_win32.zip/download" target="_blank">Stars Fighter Game</a>',
+					'<img src="starsfighter.png" width="40%">'
 				]
 			    ]
                  ],
