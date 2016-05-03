@@ -94,7 +94,7 @@ class game from gamebase
 
 	func startup
 
-		#al_set_new_display_flags(ALLEGRO_FULLSCREEN)
+		al_set_new_display_flags(ALLEGRO_FULLSCREEN)
 		display = al_create_display(screen_w,screen_h)
 		al_set_window_title(display,title)
 
