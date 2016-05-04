@@ -361,7 +361,7 @@ The logical operators and/or follow the `short-circuit evaluation <http://en.wik
 If the first argument of the AND operator is zero, then there is no need to evaluate the second
 argument and the result will be zero.
 
-If the first arugment of the OR operator is one, then there is no need to evaluate the second
+If the first argument of the OR operator is one, then there is no need to evaluate the second
 argument and the result will be one.
 
 Example:
