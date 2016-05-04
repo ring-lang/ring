@@ -169,4 +169,13 @@ for perm = 1 to 24
 next
 
 
+# Sleep for the given amount of time.
+Puts("Test Sleep()")
+load "guilib.ring"
+for n = 1 to 10
+    Sleep(3)
+    see "" + n + " "
+next
+see nl
+
 
