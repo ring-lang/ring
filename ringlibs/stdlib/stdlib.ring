@@ -477,7 +477,7 @@ func Fridays year1, year2
      
 /*
 	Function Name	: Permutation
-	Usage		: Generates all permutations of n different numerals:
+	Usage		: Generates all permutations of n different numerals.
 	Parameters	: List of numerals to generate.
 	output		: Permutations of numerals.
 */     
@@ -509,7 +509,16 @@ func Permutation a
                  last -= 1
         end
    
+/*
+	Function Name	: Sleep
+	Usage		: Sleep for the given amount of time.
+	Parameters	: Time for sleep.
+	output		: Result of sleeping.
+*/          
      
-     
+func Sleep x
+     nTime = x * 1000
+     oTest = new qTest
+     oTest.qsleep(nTime)
       
 
