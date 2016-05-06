@@ -23,7 +23,7 @@ func main
 			blockwidth = 80
 			blockheight = 80
 			aMap = [
-				 	[0,0,0,2,0,0,0,3,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+				 	[0,0,0,1,0,0,0,3,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
 					[0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
 					[0,0,0,1,0,0,0,2,0,0,1,0,0,0,2,0,0,0,1,0,0,0],
 					[0,0,0,1,0,0,0,1,0,0,3,0,0,0,1,0,0,0,1,0,0,0],
@@ -36,7 +36,7 @@ func main
 					"images/fbwalldown.png"]
 			state = func oGame,oSelf {			
 				oSelf {
-					x -=  1
+					x -=  2
 					if x < - 1500
 						x = 0
 					ok
@@ -71,15 +71,15 @@ func main
 				$down --
 				if $down = 0
 					$down = 10
-					oself { y += 100 }
+					oself { y += 50 }
 				ok
 
 			}
 			keypress = func ogame,oself,nKey {
 				oself { 
 					if nkey = key_space
-						y -= 20
-						$down = 100
+						y -= 50
+						$down = 50
 					ok
 				}
 			}
