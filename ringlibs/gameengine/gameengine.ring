@@ -427,6 +427,9 @@ Class Map from gameobject
 	height = 600
 	image
 
+	func braceend
+		loadimages()
+
 	func loadimages
 		for x in aImages
 			aPImages + oresources.loadimage(x)
