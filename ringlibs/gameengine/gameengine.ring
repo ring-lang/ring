@@ -448,8 +448,6 @@ Class Map from Sprite
 					image = aPImages[x1]	
 					al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
 					al_get_bitmap_height(image),nX,nY,blockwidth,blockheight,0)
-					#al_draw_bitmap(image,nX,nY,0)
-
 				ok
 				nX += BlockWidth
 			next
