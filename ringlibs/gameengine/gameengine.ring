@@ -331,7 +331,6 @@ class sprite from gameobject
 			off
 		ok
 
-
 	func keyboard oGame,nkey
 		if not lenabled return ok
 		if not keypress = ""			
@@ -421,23 +420,26 @@ Class Map from Sprite
 	aPImages = []
 	BlockWidth = 32
 	BlockHeight = 32
-	PosX = 0
-	PosY = 0
+	Animate = false
 	width = 800
 	height = 600
-	image
+
+	lbraceend = true
 
 	func braceend
-		loadimages()
+		if lbraceend 
+			lbraceend = false
+			loadimages()
+		ok
 
 	func loadimages
-		for x in aImages
-			aPImages + oresources.loadimage(x)
+		for t in aImages
+			aPImages + oresources.loadimage(t)
 		next
 
 	func draw
-		nX = PosX
-		nY = PosY
+		nX = X
+		nY = Y
 		for y1 in aMap
 			for x1 in y1
 				if  x1 != 0 
@@ -448,7 +450,7 @@ Class Map from Sprite
 				nX += BlockWidth
 			next
 			nY += BlockHeight
-			nX = PosX
+			nX = X
 		next
 		
 	func animate oGame,oSelf
