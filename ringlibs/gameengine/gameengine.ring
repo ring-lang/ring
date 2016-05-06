@@ -94,7 +94,7 @@ class game from gamebase
 
 	func startup
 
-		al_set_new_display_flags(ALLEGRO_FULLSCREEN)
+		#al_set_new_display_flags(ALLEGRO_FULLSCREEN)
 		display = al_create_display(screen_w,screen_h)
 		al_set_window_title(display,title)
 
@@ -223,8 +223,12 @@ class game from gamebase
 		addobj(new sound)
 		return aobjects[len(aobjects)]
 
+	func getmap
+		addobj(new map)
+		return aobjects[len(aobjects)]
+
 	private
-		sprite text progress animate sound
+		sprite text progress animate sound map
 		
 
 class gameobject from gamebase
@@ -409,3 +413,36 @@ Class Sound from gameobject
 			al_destroy_allegro_sample_id(sampleid)
 			al_destroy_sample(sample)	
 		ok
+
+Class Map from gameobject
+
+	aMap = []
+	aImages = []
+	aPImages = []
+	BlockWidth = 32
+	BlockHeight = 32
+	x = 0
+	y = 0
+	width = 800
+	height = 600
+	image
+
+	func loadimages
+		for x in aImages
+			aPImages + oresources.loadimage(x)
+		next
+
+	func draw
+		nX = 0
+		nY = 0
+		for y1 in aMap
+			for x1 in y1
+				if  x1 = 0 loop ok		
+				image = aPImages[x1]	
+				al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
+				al_get_bitmap_height(image),nX,nY,blockwidth,blockheight,0)
+				nX += BlockWidth
+			next
+			nY += BlockHeight
+		next
+		
