@@ -105,6 +105,7 @@ func main
 					if nkey = key_space
 						y -= 55
 						$down = 60
+						if y<=0 y=0 ok
 					ok
 				}
 			}
