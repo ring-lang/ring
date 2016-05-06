@@ -10,7 +10,7 @@ func main
 
 	oGame {
 
-		Title = "Bird Fighter"
+		Title = "Flappy Bird"
 		Sprite {
 			file = "images/fbback.png"
 			x = 0 y=0 width=800 height = 600 scaled = true animate = false
