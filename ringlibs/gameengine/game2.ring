@@ -17,6 +17,8 @@ func main
 		}
 
 		Map {
+			blockwidth = 128
+			blockheight = 128
 			aMap = [
 				 	[0,0,0,1,0,0,0,0],
 					[0,0,0,1,0,0,0,0],
