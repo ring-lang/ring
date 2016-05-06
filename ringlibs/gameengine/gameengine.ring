@@ -437,12 +437,14 @@ Class Map from gameobject
 		nY = 0
 		for y1 in aMap
 			for x1 in y1
-				if  x1 = 0 loop ok		
-				image = aPImages[x1]	
-				al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
-				al_get_bitmap_height(image),nX,nY,blockwidth,blockheight,0)
+				if  x1 != 0 
+					image = aPImages[x1]	
+					al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
+					al_get_bitmap_height(image),nX,nY,blockwidth,blockheight,0)
+				ok
 				nX += BlockWidth
 			next
 			nY += BlockHeight
+			nX = 0
 		next
 		
