@@ -85,8 +85,7 @@ func main
 								}
 							}
 						}
-
-						
+						oGame.remove(oSelf.nIndex)
 					ok
 				}
 
