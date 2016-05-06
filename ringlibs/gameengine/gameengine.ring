@@ -433,8 +433,8 @@ Class Map from gameobject
 		next
 
 	func draw
-		nX = 0
-		nY = 0
+		nX = x
+		nY = y
 		for y1 in aMap
 			for x1 in y1
 				if  x1 != 0 

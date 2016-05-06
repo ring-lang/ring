@@ -28,7 +28,6 @@ func main
 				]
 			aImages = ["images/t1.bmp"]
 			LoadImages()
-			Draw()
 		}
 
 
