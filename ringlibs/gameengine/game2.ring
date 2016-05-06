@@ -2,6 +2,7 @@ Load "gameengine.ring"
 
 $down = 3
 $gameresult = false
+$Score = 0
 
 func main
 
@@ -108,4 +109,18 @@ func main
 				}
 			}
 		}
+
+		text {
+			animate = false
+			point = 400
+			size = 30
+			file = "fonts/pirulen.ttf"
+			text = "Score : " + $score
+			x = 500	y=10
+			state = func oGame,oSelf { 
+				oSelf { text = "Score : " + $score }  
+				if not $gameresult  $Score++  ok
+			}
+		}
+
 	}
