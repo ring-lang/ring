@@ -459,3 +459,17 @@ Class Map from Sprite
 		if not state = ""				 		
 				call state(oGame,oSelf) 
 		ok
+
+	func getvalue x1,y1
+		x2 = floor(((-1*x) + x1)/blockwidth)
+		y2 = floor(((-1*y) + y1)/blockheight)
+		x2++
+		y2++
+		if y2 > 0 and y2 <= len(aMap)
+			aList = aMap[y2]
+			if x2 > 0 and x2 <= len(aList)
+				return aList[x2]
+			ok
+		ok
+		return 0
+		

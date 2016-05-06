@@ -1,6 +1,7 @@
 Load "gameengine.ring"
 
 $down = 3
+$gameresult = false
 
 func main
 
@@ -39,8 +40,9 @@ func main
 					x -=  3
 					if x < - 2100
 						x = 0
-					ok
+					ok				
 				}
+
 				
 			}
 		}
@@ -66,6 +68,26 @@ func main
 							frame=1
 						ok
 					ok				
+					if  oGame.aObjects[2].getvalue(x,y) != 0 and $gameresult = false
+						$gameresult = true
+						oGame {
+							text {
+								point = 400
+								size = 30
+								nStep = 3
+								file = "fonts/pirulen.ttf"
+								text = "Game Over !!!"
+								x = 500	y=10
+								state = func ogame,oself {
+									if oself.y >= 400
+										ogame.shutdown = true
+									ok
+								}
+							}
+						}
+
+						
+					ok
 				}
 
 				$down --
