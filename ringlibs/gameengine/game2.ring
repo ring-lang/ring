@@ -37,14 +37,32 @@ func main
 			aImages = ["images/fbwall.png","images/fbwallup.png",
 					"images/fbwalldown.png"]
 			state = func oGame,oSelf {			
+				if $gameresult = false
 				oSelf {
 					x -=  3
 					if x < - 2100
 						x = 0
 					ok				
 				}
-
-				
+				ok
+					if  oGame.aObjects[2].getvalue(oGame.aObjects[3].x+50,oGame.aObjects[3].y) != 0 and $gameresult = false
+						$gameresult = true
+						oGame {
+							text {
+								point = 550
+								size = 30
+								nStep = 3
+								file = "fonts/pirulen.ttf"
+								text = "Game Over !!!"
+								x = 500	y=10
+								state = func ogame,oself {
+									if oself.y >= 550
+										ogame.shutdown = true
+									ok
+								}
+							}
+						}
+					ok				
 			}
 		}
 
@@ -69,25 +87,6 @@ func main
 							frame=1
 						ok
 					ok				
-					if  oGame.aObjects[2].getvalue(x,y) != 0 and $gameresult = false
-						$gameresult = true
-						oGame {
-							text {
-								point = 400
-								size = 30
-								nStep = 3
-								file = "fonts/pirulen.ttf"
-								text = "Game Over !!!"
-								x = 500	y=10
-								state = func ogame,oself {
-									if oself.y >= 400
-										ogame.shutdown = true
-									ok
-								}
-							}
-						}
-						oGame.remove(oSelf.nIndex)
-					ok
 				}
 
 				$down --
@@ -101,16 +100,17 @@ func main
 
 			}
 			keypress = func ogame,oself,nKey {
-				oself { 
-					if nkey = key_space
-						y -= 55
-						$down = 60
-						if y<=0 y=0 ok
-					ok
-				}
+				if $gameresult = false
+					oself { 
+						if nkey = key_space
+							y -= 55
+							$down = 60
+							if y<=0 y=0 ok
+						ok
+					}
+				ok
 			}
 		}
-
 		text {
 			animate = false
 			point = 400
@@ -123,5 +123,4 @@ func main
 				if not $gameresult  $Score++  ok
 			}
 		}
-
 	}
