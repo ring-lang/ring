@@ -382,7 +382,7 @@ Class Animate from Sprite
 			ok
 		ok
 		if Scaled
-			al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
+			al_draw_scaled_bitmap(image,(framewidth*(frame-1)),0,framewidth,
 			al_get_bitmap_height(image),x,y,width,height,0)
 		else
 			al_draw_bitmap_region(image,(framewidth*(frame-1)),0, framewidth, height, x, y, 0)

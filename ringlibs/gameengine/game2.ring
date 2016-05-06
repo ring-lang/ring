@@ -43,5 +43,31 @@ func main
 			}
 		}
 
+		animate {
+			file = "images/fbbird.png"
+			x = 10
+			y = 10
+			framewidth = 20
+			scaled = true
+			height = 50
+			width = 50
+			nStep = 3
+			transparent = true
+			state = func oGame,oSelf {
+				oSelf { 
+					nStep--
+					if nStep = 0
+						nStep = 3
+						if frame < 3
+							frame++
+						else
+							frame=1
+						ok
+					ok
+				}
+			}
+		}
+
+
 
 	}
