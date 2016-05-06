@@ -45,7 +45,7 @@ func main
 					ok				
 				}
 				ok
-					if  oGame.aObjects[2].getvalue(oGame.aObjects[3].x+50,oGame.aObjects[3].y) != 0 and $gameresult = false
+					if  oGame.aObjects[2].getvalue(oGame.aObjects[3].x+40,oGame.aObjects[3].y) != 0 and $gameresult = false
 						$gameresult = true
 						oGame {
 							text {
