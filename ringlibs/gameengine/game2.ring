@@ -1,5 +1,7 @@
 Load "gameengine.ring"
 
+$down = 10
+
 func main
 
 	oGame = New Game
@@ -34,7 +36,7 @@ func main
 					"images/fbwalldown.png"]
 			state = func oGame,oSelf {			
 				oSelf {
-					x -=  3
+					x -=  1
 					if x < - 1500
 						x = 0
 					ok
@@ -63,11 +65,23 @@ func main
 						else
 							frame=1
 						ok
+					ok				
+				}
+
+				$down --
+				if $down = 0
+					$down = 10
+					oself { y += 100 }
+				ok
+
+			}
+			keypress = func ogame,oself,nKey {
+				oself { 
+					if nkey = key_space
+						y -= 20
+						$down = 100
 					ok
 				}
 			}
 		}
-
-
-
 	}
