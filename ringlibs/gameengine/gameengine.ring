@@ -414,15 +414,15 @@ Class Sound from gameobject
 			al_destroy_sample(sample)	
 		ok
 
-Class Map from gameobject
+Class Map from Sprite
 
 	aMap = []
 	aImages = []
 	aPImages = []
 	BlockWidth = 32
 	BlockHeight = 32
-	x = 0
-	y = 0
+	PosX = 0
+	PosY = 0
 	width = 800
 	height = 600
 	image
@@ -436,8 +436,8 @@ Class Map from gameobject
 		next
 
 	func draw
-		nX = x
-		nY = y
+		nX = PosX
+		nY = PosY
 		for y1 in aMap
 			for x1 in y1
 				if  x1 != 0 
@@ -448,6 +448,10 @@ Class Map from gameobject
 				nX += BlockWidth
 			next
 			nY += BlockHeight
-			nX = 0
+			nX = PosX
 		next
 		
+	func animate oGame,oSelf
+		if not state = ""				 		
+				call state(oGame,oSelf) 
+		ok

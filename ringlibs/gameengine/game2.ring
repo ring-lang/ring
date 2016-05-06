@@ -27,6 +27,11 @@ func main
 					[0,0,0,1,0,0,0,0]
 				]
 			aImages = ["images/t1.bmp"]
+			state = func oGame,oSelf {
+				oSelf {
+					PosX -=  1	
+				}
+			}
 		}
 
 
