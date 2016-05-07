@@ -68,10 +68,10 @@ func main
 			text = "Press Esc to Exit"
 			x = 260	y=510
 		}
-		#Sound {
-		#	file = "sound/music1.wav"
-		#	playSound()
-		#}
+		Sound {
+			file = "sound/music1.wav"
+			playSound()
+		}
 	}
 	if $startplay 
 		oGame.refresh()
@@ -200,6 +200,10 @@ func playstart oGame
 				oSelf { text = "Score : " + $score }  
 				if not $gameresult  $Score++  ok
 			}
+		}
+		Sound {
+			file = "sound/music2.wav"
+			playSound()
 		}
 	}
 
