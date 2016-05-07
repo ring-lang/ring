@@ -23,7 +23,7 @@ func main
 	$startplay=false
 
 	oGame {	
-		title = "Flappy Bird"
+		title = "Flappy Bird 3000"
 		sprite
 		{
 			file = "images/fbback.png"
@@ -41,22 +41,30 @@ func main
 			animate = false
 			size = 35
 			file = "fonts/pirulen.ttf"
-			text = "Flappy Bird"
-			x = 30	y=50
+			text = "Flappy Bird 3000"
+			x = 150	y=50
 		}
 		text {
 			animate = false
 			size = 25
 			file = "fonts/pirulen.ttf"
 			text = "Version 1.0"
-			x = 80	y=100
+			x = 280	y=100
 		}
 		text {
 			animate = false
 			size = 16
 			file = "fonts/pirulen.ttf"
 			text = "(C) 2016, Mahmoud Fayed"
-			x = 45	y=140
+			x = 245	y=140
+		}
+
+		text {
+			animate = false
+			size = 25
+			file = "fonts/pirulen.ttf"
+			text = "To Win Get Score = 3000"
+			x = 150	y=270
 		}
 
 		text {
