@@ -253,10 +253,6 @@ func playstart oGame
 				if not $gameresult  $Score++  ok
 			}
 		}
-		#Sound {
-		#	file = "sound/music2.wav"
-		#	playSound()
-		#}
 	}
 
 func newmap aMap
