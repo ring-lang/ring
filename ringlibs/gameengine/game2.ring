@@ -150,15 +150,14 @@ func playstart oGame
 					"images/fbwalldown.png"]
 			state = func oGame,oSelf {			
 				if $gameresult = false
-				oSelf {
-					x -=  3
-					if x < - 2100
-						x = 0
-						newmap(aMap)
-					ok				
-				}
-				ok
-					if  oGame.aObjects[2].getvalue(oGame.aObjects[3].x+40,oGame.aObjects[3].y) != 0 and $gameresult = false
+					oSelf {
+						x -=  3
+						if x < - 2100
+							x = 0
+							newmap(aMap)
+						ok				
+					}
+					if  oGame.aObjects[2].getvalue(oGame.aObjects[3].x+40,oGame.aObjects[3].y) != 0 
 						$gameresult = true
 						oGame {
 							text {
@@ -170,9 +169,9 @@ func playstart oGame
 								x = 500	y=10
 								state = func ogame,oself {
 									if oself.y >= 550
-										ogame.shutdown = true
+											ogame.shutdown = true
 									ok
-									if oself.y = 90
+										if oself.y = 90
 										ogame {
 											Sound {
 												once = true
@@ -187,9 +186,10 @@ func playstart oGame
 								once = true
 								file = "sound/sfx_hit.ogg"
 								playSound()
-							}
+							}	
 						}
-					ok				
+					ok	
+				ok			
 			}
 		}
 
