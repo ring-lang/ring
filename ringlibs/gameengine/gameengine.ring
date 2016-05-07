@@ -465,10 +465,8 @@ Class Map from Sprite
 		ok
 
 	func getvalue x1,y1
-		x2 = floor(((-1*x) + x1)/blockwidth)
-		y2 = floor(((-1*y) + y1)/blockheight)
-		x2++
-		y2++
+		x2 = getcol(x1,y1)
+		y2 = getrow(x1,y1)
 		if y2 > 0 and y2 <= len(aMap)
 			aList = aMap[y2]
 			if x2 > 0 and x2 <= len(aList)
@@ -476,4 +474,14 @@ Class Map from Sprite
 			ok
 		ok
 		return 0
+
+	func getcol x1,y1
+		x2 = floor(((-1*x) + x1)/blockwidth)
+		x2++
+		return x2
 		
+	func getrow x1,y1
+		y2 = floor(((-1*y) + y1)/blockheight)
+		y2++
+		return y2
+
