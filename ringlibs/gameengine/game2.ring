@@ -114,7 +114,7 @@ func main
 		}
 
 		Sound {
-			file = "sound/music1.wav"
+			file = "sound/music2.wav"
 			playSound()
 		}
 	}
