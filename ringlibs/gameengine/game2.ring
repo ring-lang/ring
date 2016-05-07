@@ -8,6 +8,8 @@ $gameresult = false
 $Score = 0
 $startplay=false
 
+$lastcol = 0
+
 func main
 
 	oGame = New Game 
@@ -149,15 +151,27 @@ func playstart oGame
 					"images/fbwalldown.png"]
 			state = func oGame,oSelf {			
 				if $gameresult = false
+					px = oGame.aObjects[3].x
+					py = oGame.aObjects[3].y
 					oSelf {
 						x -=  3
 						if x < - 2100
 							x = 0
 							newmap(aMap)
-						ok				
+						ok	
+						nCol =  getcol(px,0)
+						if nCol=11 or nCol=15 or nCol=19 or nCol=23 or nCol=27
+							if nCol != $lastcol
+								$lastcol = nCol
+								$Score += 100
+								oGame { Sound {
+									once = true
+									file = "sound/sfx_point.ogg"
+									playSound()
+								} }
+							ok 
+						ok
 					}
-					px = oGame.aObjects[3].x
-					py = oGame.aObjects[3].y
 					if  oSelf.getvalue(px+40,py) != 0 or 
 					    oSelf.getvalue(px+40,py+40) != 0 or 
 					    oSelf.getvalue(px,py) != 0 or 
@@ -252,7 +266,6 @@ func playstart oGame
 			x = 500	y=10
 			state = func oGame,oSelf { 
 				oSelf { text = "Score : " + $score }  
-				if not $gameresult  $Score++  ok
 			}
 		}
 
