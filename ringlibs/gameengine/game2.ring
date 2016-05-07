@@ -3,10 +3,86 @@ Load "gameengine.ring"
 $down = 3
 $gameresult = false
 $Score = 0
+$startplay=false
 
 func main
 
-	oGame = New Game
+	oGame = New Game 
+
+	while true
+
+	$down = 3
+	$gameresult = false
+	$Score = 0
+
+	$startplay=false
+
+	oGame {	
+		title = "Flappy Bird"
+		sprite
+		{
+			file = "images/menu1.jpg"
+			x = 0 y=0 width=800 height = 600 scaled = true animate = false
+			keypress = func ogame,oself,nKey {
+				if nkey = key_esc 
+					ogame.shutdown()
+				but nKey = key_space 
+					$startplay=true 
+					ogame.shutdown=true 
+				ok
+			}
+		}
+		text {
+			animate = false
+			size = 35
+			file = "fonts/pirulen.ttf"
+			text = "Flappy Bird"
+			x = 10	y=50
+		}
+		text {
+			animate = false
+			size = 25
+			file = "fonts/pirulen.ttf"
+			text = "Version 1.0"
+			x = 80	y=100
+		}
+		text {
+			animate = false
+			size = 16
+			file = "fonts/pirulen.ttf"
+			text = "(C) 2016, Mahmoud Fayed"
+			x = 45	y=140
+		}
+
+		text {
+			animate = false
+			size = 25
+			file = "fonts/pirulen.ttf"
+			text = "Press Space to start"
+			x = 190	y=470
+		}
+		text {
+			animate = false
+			size = 20
+			file = "fonts/pirulen.ttf"
+			text = "Press Esc to Exit"
+			x = 260	y=510
+		}
+		#Sound {
+		#	file = "sound/music1.wav"
+		#	playSound()
+		#}
+	}
+	if $startplay 
+		oGame.refresh()
+		playstart(oGame) 		
+		oGame.refresh()
+	ok
+
+	end
+
+
+func playstart oGame
 
 	oGame {
 
