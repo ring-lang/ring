@@ -68,6 +68,38 @@ func main
 			text = "Press Esc to Exit"
 			x = 260	y=510
 		}
+
+		animate {
+			file = "images/fbbird.png"
+			x = 200
+			y = 200
+			framewidth = 20
+			scaled = true
+			height = 50
+			width = 50
+			nStep = 3
+			transparent = true
+			animate = true
+			direction = ge_direction_random
+			state = func oGame,oSelf {
+				oSelf { 
+					nStep--
+					if nStep = 0
+						nStep = 3
+						if frame < 3
+							frame++
+						else
+							frame=1
+						ok
+					ok	
+					if x <= 0 x=0 ok
+					if y <= 0 y=0 ok
+					if x >= 750 x= 750 ok
+					if y > 550 y=550 ok								
+				}
+			}
+		}
+
 		Sound {
 			file = "sound/music1.wav"
 			playSound()
