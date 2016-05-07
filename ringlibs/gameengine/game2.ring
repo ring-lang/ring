@@ -17,7 +17,6 @@ func main
 	$down = 3
 	$gameresult = false
 	$Score = 0
-
 	$startplay=false
 
 	oGame {	
@@ -157,10 +156,12 @@ func playstart oGame
 							newmap(aMap)
 						ok				
 					}
-					if  oGame.aObjects[2].getvalue(oGame.aObjects[3].x+40,oGame.aObjects[3].y) != 0 or 
-					    oGame.aObjects[2].getvalue(oGame.aObjects[3].x+40,oGame.aObjects[3].y+40) != 0 or 
-					    oGame.aObjects[2].getvalue(oGame.aObjects[3].x,oGame.aObjects[3].y) != 0 or 
-					    oGame.aObjects[2].getvalue(oGame.aObjects[3].x,oGame.aObjects[3].y+40) != 0 
+					px = oGame.aObjects[3].x
+					py = oGame.aObjects[3].y
+					if  oSelf.getvalue(px+40,py) != 0 or 
+					    oSelf.getvalue(px+40,py+40) != 0 or 
+					    oSelf.getvalue(px,py) != 0 or 
+					    oSelf.getvalue(px,py+40) != 0 
 						$gameresult = true
 						oGame {
 							text {
@@ -241,6 +242,7 @@ func playstart oGame
 				ok
 			}
 		}
+
 		text {
 			animate = false
 			point = 400
@@ -253,6 +255,7 @@ func playstart oGame
 				if not $gameresult  $Score++  ok
 			}
 		}
+
 	}
 
 func newmap aMap
