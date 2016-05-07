@@ -18,7 +18,11 @@
 				[
 					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_StarsFighter_1.0_win32.zip/download" target="_blank">Stars Fighter Game</a>',
 					'<img src="starsfighter.png" width="40%">'
-				]
+				],
+				[
+					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_FlappyBird3000_1.0_win32.zip/download" target="_blank">Flappy Bird 3000 Game</a>',
+					'<img src="flappybird.png" width="40%">'
+				]			    
 			    ]
                  ],
                  ["Posts from the 'Ring Documentation Walkthrough' blog",[

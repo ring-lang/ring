@@ -937,6 +937,8 @@ aList = "nice"
     </div>  
   </div>
 
+  
+ <a id="ringarticle" href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank" class="btn btn-default"  style="width:100%">Ring Article (CodeProject)</a> 
  <a id="ringbook" href="https://en.wikibooks.org/wiki/Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring in Wikibooks</a> 
  <a id="ringsamples" href="https://rosettacode.org/wiki/Category:Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring Samples (Rosettacode)</a> 
 
