@@ -394,7 +394,7 @@ Class Sound from gameobject
 	file sample  csoundfile sampleid
 	playing = false
 	type = 0
-	
+	once = false
 	func setfile cfilename
 		sample = al_load_sample(cfilename)
 		csoundfile = cfilename
@@ -402,7 +402,11 @@ Class Sound from gameobject
 	func playSound
 		if not playing
 			sampleid = al_new_allegro_sample_id()
-			al_play_sample(sample, 1.0, 0.0,1.0,ALLEGRO_PLAYMODE_LOOP,sampleid)
+			if once
+				al_play_sample(sample, 1.0, 0.0,1.0,ALLEGRO_PLAYMODE_ONCE,sampleid)	
+			else
+				al_play_sample(sample, 1.0, 0.0,1.0,ALLEGRO_PLAYMODE_LOOP,sampleid)
+			ok
 			playing = true
 		ok
 

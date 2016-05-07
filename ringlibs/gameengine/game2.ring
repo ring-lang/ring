@@ -137,7 +137,21 @@ func playstart oGame
 									if oself.y >= 550
 										ogame.shutdown = true
 									ok
+									if oself.y = 90
+										ogame {
+											Sound {
+												once = true
+												file = "sound/sfx_die.ogg"
+												playSound()
+											}
+										}
+									ok
 								}
+							}
+							Sound {
+								once = true
+								file = "sound/sfx_hit.ogg"
+								playSound()
 							}
 						}
 					ok				
@@ -201,10 +215,10 @@ func playstart oGame
 				if not $gameresult  $Score++  ok
 			}
 		}
-		Sound {
-			file = "sound/music2.wav"
-			playSound()
-		}
+		#Sound {
+		#	file = "sound/music2.wav"
+		#	playSound()
+		#}
 	}
 
 func newmap aMap
