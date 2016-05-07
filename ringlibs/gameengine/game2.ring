@@ -9,6 +9,7 @@ $Score = 0
 $startplay=false
 
 $lastcol = 0
+$playerwin = false
 
 func main
 
@@ -169,6 +170,7 @@ func playstart oGame
 									file = "sound/sfx_point.ogg"
 									playSound()
 								} }
+								checkwin(oGame)
 							ok 
 						ok
 					}
@@ -234,13 +236,15 @@ func playstart oGame
 					ok				
 				}
 
-				$down --
-				if $down = 0
-					$down = 3
-					oself { 
-						y += 25 
-						if y > 550 y=550 ok
-					}
+				if not $playerwin
+					$down --
+					if $down = 0
+						$down = 3
+						oself { 
+							y += 25 
+							if y > 550 y=550 ok
+						}
+					ok
 				ok
 
 			}
@@ -291,3 +295,25 @@ func newmap aMap
 			aMap[y][x] = aVar[y]
 		next
 	next
+
+func checkwin ogame
+	if $score = 2000
+		$gameresult = true
+		$playerwin = true
+		oGame {
+			text {
+				point = 400
+				size = 30
+				nStep = 3
+				file = "fonts/pirulen.ttf"
+				text = "You Win !!!"
+				x = 500	y=10
+				state = func ogame,oself {
+					if oself.y >= 400
+						ogame.shutdown = true
+						$value = 0
+					ok
+				}
+			}
+		}
+	ok
