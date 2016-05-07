@@ -7,7 +7,6 @@ $down = 3
 $gameresult = false
 $Score = 0
 $startplay=false
-
 $lastcol = 0
 $playerwin = false
 
@@ -21,6 +20,8 @@ func main
 	$gameresult = false
 	$Score = 0
 	$startplay=false
+	$lastcol = 0
+	$playerwin = false
 
 	oGame {	
 		title = "Flappy Bird 3000"
