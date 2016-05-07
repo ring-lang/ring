@@ -305,7 +305,7 @@ func newmap aMap
 	next
 
 func checkwin ogame
-	if $score = 2000
+	if $score = 3000
 		$gameresult = true
 		$playerwin = true
 		oGame {
