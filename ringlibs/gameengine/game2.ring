@@ -131,7 +131,7 @@ func playstart oGame
 
 	oGame {
 
-		Title = "Flappy Bird"
+		Title = "Flappy Bird 3000"
 		Sprite {
 			file = "images/fbback.png"
 			x = 0 y=0 width=800 height = 600 scaled = true animate = false
