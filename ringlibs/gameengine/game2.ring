@@ -175,7 +175,7 @@ func playstart oGame
 								$Score += 100
 								oGame { Sound {
 									once = true
-									file = "sound/sfx_point.ogg"
+									file = "sound/sfx_point.wav"
 									playSound()
 								} }
 								checkwin(oGame)
@@ -203,7 +203,7 @@ func playstart oGame
 										ogame {
 											Sound {
 												once = true
-												file = "sound/sfx_die.ogg"
+												file = "sound/sfx_die.wav"
 												playSound()
 											}
 										}
@@ -212,7 +212,7 @@ func playstart oGame
 							}
 							Sound {
 								once = true
-								file = "sound/sfx_hit.ogg"
+								file = "sound/sfx_hit.wav"
 								playSound()
 							}	
 						}
