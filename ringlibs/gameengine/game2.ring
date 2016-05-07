@@ -157,7 +157,10 @@ func playstart oGame
 							newmap(aMap)
 						ok				
 					}
-					if  oGame.aObjects[2].getvalue(oGame.aObjects[3].x+40,oGame.aObjects[3].y) != 0 
+					if  oGame.aObjects[2].getvalue(oGame.aObjects[3].x+40,oGame.aObjects[3].y) != 0 or 
+					    oGame.aObjects[2].getvalue(oGame.aObjects[3].x+40,oGame.aObjects[3].y+40) != 0 or 
+					    oGame.aObjects[2].getvalue(oGame.aObjects[3].x,oGame.aObjects[3].y) != 0 or 
+					    oGame.aObjects[2].getvalue(oGame.aObjects[3].x,oGame.aObjects[3].y+40) != 0 
 						$gameresult = true
 						oGame {
 							text {
