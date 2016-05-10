@@ -285,10 +285,15 @@ func playstart oGame
 			}
 		}
 
+		addenemy(oGame,500)
+		addenemy(oGame,1000)
+		addenemy(oGame,1500)
+		addenemy(oGame,2000)
 		addenemy(oGame,2500)
 
 
 	}
+
 
 func inlist nValue,aList
 	for x in aList
@@ -396,22 +401,23 @@ func showfire oGame,nX,nY
 func addenemy oGame,xPos
 
 	oGame {
-		sprite
-			{
+		lbraceend = false
+		sprite {
 				type = ge_type_enemy
 				file = "images/enemy.png"
 				transparent = true
 				x = xPos y =10 width=100 height=100
 				animate=true Scaled=true
 				direction = ge_direction_random
+				temp = xPos
 				state = func oGame,oSelf {
-					vValue = 2500 +  oGame.aObjects[2].x 
+					vValue = oSelf.temp +  oGame.aObjects[2].x 
 					oself { x = vvalue }
 					oself {
 						if y < 0 y = 0 ok
 						if y > ogame.screen_h-height y=ogame.screen_h-height ok
 					}
-					if random(100) = 1
+					if random(20) = 1
 						ogame {
 							sprite {
 								type = ge_type_fire
@@ -442,3 +448,4 @@ func addenemy oGame,xPos
 				}
 			}
 	}
+	ogame.lbraceend = true

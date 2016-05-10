@@ -235,6 +235,7 @@ class gameobject from gamebase
 	lenabled = true
 	x=0 y=0	 width=0 height=0 nindex = 0
 	animate=true	move=false Scaled=false
+	temp = null
 	func init
 	func draw
 	func animate
