@@ -208,6 +208,13 @@ func playstart oGame
 				on 5
 					oGame.aObjects[2].aMap[nRow][nCol] = 0
 					$DoorKey = true
+					$Score += 500
+					oGame { Sound {
+						once = true
+						file = "sound/sfx_point.wav"
+						playSound()
+					} }
+
 				off
 
 				if not $playerwin
@@ -235,9 +242,13 @@ func playstart oGame
 									oGame.aObjects[2].x -= 50
 								else
 									if x <= 750
-										x += 10
+										if  checkwall(oGame,oSelf,10,0)
+											x += 10
+										ok
 									else
-										x -= 10
+										if  checkwall(oGame,oSelf,-10,0)
+											x -= 10
+										ok
 									ok
 									return
 								ok
@@ -246,9 +257,10 @@ func playstart oGame
 						but nKey = key_left and checkwall(oGame,oSelf,-10,0)
 							x -= 10
 							if x <= 0
-								x=0
+								x += 10
 								if oGame.aObjects[2].x != 0
 									oGame.aObjects[2].x += 50
+									x += 50
 								ok
 							ok
 						ok
