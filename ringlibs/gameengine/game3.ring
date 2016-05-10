@@ -121,6 +121,7 @@ func main
 		oGame.refresh()
 		playstart(oGame) 		
 		oGame.refresh()
+		callgc()
 	ok
 
 	end
@@ -145,8 +146,8 @@ func playstart oGame
 			blockwidth = 80
 			blockheight = 80
 			aMap = [
-				 	[0,0,0,4,4,4,0,0,0,1,0,0,0,3,4,4,5,1,0,4,4,0,4,4,0,1,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,3,3,3,3,3,3,3,3],
-					[0,0,4,0,4,0,4,0,0,1,0,0,0,0,4,4,4,1,0,4,4,0,0,0,0,1,4,4,4,0,0,4,4,4,4,4,4,4,4,4,4,4,4,0,0,1,0,0,0,1,0,0,0,1,0,4,4,4,4,4,4,4,4],
+				 	[0,0,0,4,4,4,0,0,0,1,0,0,0,3,4,4,5,1,0,0,0,0,4,4,0,1,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,3,3,3,3,3,3,3,3],
+					[0,0,4,0,4,0,4,0,0,1,0,0,0,0,4,4,4,1,0,0,0,0,4,4,0,1,4,4,4,0,0,4,4,4,4,4,4,4,4,4,4,4,4,0,0,1,0,0,0,1,0,0,0,1,0,4,4,4,4,4,4,4,4],
 					[0,0,0,4,4,4,0,0,0,1,0,0,0,4,4,4,4,1,0,0,0,0,0,0,0,3,4,4,4,0,0,4,0,0,0,0,0,0,4,2,0,0,4,2,0,1,0,2,0,1,0,2,0,1,0,4,4,4,4,4,4,4,4],
 					[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,1,0,0,4,1,0,1,0,1,0,1,0,1,0,1,0,2,2,2,2,2,2,2,2],
 					[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,3,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0],
@@ -224,9 +225,11 @@ func playstart oGame
 
 				if not $playerwin
 						oself { 
+							for t=1 to 8
 							if checkwall(oGame,oSelf,0,5)
 								y += 5
 							ok
+							next
 							if y > 500 y=500 ok
 						}				
 				ok
@@ -299,17 +302,9 @@ func playstart oGame
 			state = func oGame,oSelf { oSelf { text = "Energy : " + $value } }
 		}
 
-		Sound {
-			file = "sound/music2.wav"
-			playSound()
-		}
-
-
-		addenemy(oGame,500)
-		addenemy(oGame,1500)
-		addenemy(oGame,2000)
-		addenemy(oGame,2500)
-
+		addenemy(oGame,900)
+		addenemy(oGame,1550)
+		addenemy(oGame,2350)
 
 	}
 
@@ -434,7 +429,7 @@ func addenemy oGame,xPos
 				transparent = true
 				x = xPos y =10 width=100 height=100
 				animate=true Scaled=true
-				direction = ge_direction_random
+				direction = GE_DIRECTION_NOMOVE
 				temp = xPos
 				state = func oGame,oSelf {
 					vValue = oSelf.temp +  oGame.aObjects[2].x 
@@ -443,7 +438,7 @@ func addenemy oGame,xPos
 						if y < 0 y = 0 ok
 						if y > 100 y=100 ok
 					}
-					if random(10) = 1
+					if random(60) = 1
 						ogame {
 							sprite {
 								type = ge_type_fire

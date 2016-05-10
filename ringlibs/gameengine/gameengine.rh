@@ -11,6 +11,7 @@ al_init_acodec_addon()
 al_reserve_samples(1)
 
 # Direction
+GE_DIRECTION_NOMOVE = 0
 GE_DIRECTION_INC = 1
 GE_DIRECTION_DEC = 2
 GE_DIRECTION_RANDOM = 3
