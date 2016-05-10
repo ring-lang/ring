@@ -251,7 +251,8 @@ func playstart oGame
 							$down = 10
 							if y<=0 y=0 ok
 						but nkey = key_down and checkwall(oGame,oSelf,0,40)
-							file = "images/superman.png"
+							file = "images/supermandown.png"
+							dotransparent()
 							y += 40
 							if y>=500 y=500 ok
 						but nKey = key_right and checkwall(oGame,oSelf,10,0)
