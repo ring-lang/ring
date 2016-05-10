@@ -260,12 +260,15 @@ class sprite from gameobject
 		image = oresources.loadimage(cfilename)
 		cimagefile = cfilename
 
+	func dotransparent
+		al_convert_mask_to_alpha(image,transparentcolor)
+
 	func draw oengine
 		if not lenabled return ok
 		if transparent
 			if not transparentdone
 				transparentdone = true
-				al_convert_mask_to_alpha(image,transparentcolor)
+				dotransparent()
 			ok
 		ok
 		if Scaled

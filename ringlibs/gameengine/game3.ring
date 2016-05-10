@@ -193,7 +193,7 @@ func playstart oGame
 			height = 86
 			width = 60
 			nStep = 3
-			transparent = true
+			transparent = true 
 			state = func oGame,oSelf {
 
 				nValue = oGame.aObjects[2].getvalue(oSelf.x,oSelf.y) 
@@ -225,10 +225,13 @@ func playstart oGame
 
 				if not $playerwin
 						oself { 
+							file = "images/superman.png"
+							height = 86
+							width = 60
 							for t=1 to 8
-							if checkwall(oGame,oSelf,0,5)
-								y += 5
-							ok
+								if checkwall(oGame,oSelf,0,5)
+									y += 5
+								ok
 							next
 							if y > 500 y=500 ok
 						}				
@@ -240,10 +243,15 @@ func playstart oGame
 					
 					oself { 
 						if nkey = key_up and checkwall(oGame,oSelf,0,-40)
+							file = "images/supermanup.png"
+							height = 123
+							width = 81
+							dotransparent()
 							y -= 40
 							$down = 10
 							if y<=0 y=0 ok
 						but nkey = key_down and checkwall(oGame,oSelf,0,40)
+							file = "images/superman.png"
 							y += 40
 							if y>=500 y=500 ok
 						but nKey = key_right and checkwall(oGame,oSelf,10,0)
