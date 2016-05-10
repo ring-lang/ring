@@ -256,6 +256,8 @@ func playstart oGame
 							y += 40
 							if y>=500 y=500 ok
 						but nKey = key_right and checkwall(oGame,oSelf,10,0)
+							file = "images/supermanright.png"
+							dotransparent()
 							x += 10
 							if x >= 440
 								if oGame.aObjects[2].x > -4500
