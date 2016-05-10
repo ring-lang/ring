@@ -245,7 +245,6 @@ func playstart oGame
 						if nkey = key_up and checkwall(oGame,oSelf,0,-40)
 							file = "images/supermanup.png"
 							height = 123
-							width = 81
 							dotransparent()
 							y -= 40
 							$down = 10
