@@ -11,6 +11,9 @@ $lastcol = 0
 $playerwin = false
 $DoorKey = false
 
+$enemies = 1
+$playerindex = 4
+$value = 10
 
 func main
 
@@ -142,14 +145,14 @@ func playstart oGame
 			blockwidth = 80
 			blockheight = 80
 			aMap = [
-				 	[0,0,0,4,4,4,0,0,0,1,0,0,0,3,4,4,5,1,0,4,4,0,4,0,0,1,4,4,4],
+				 	[0,0,0,4,4,4,0,0,0,1,0,0,0,3,4,4,5,1,0,4,4,0,4,4,0,1,4,4,4],
 					[0,0,4,0,4,0,4,0,0,1,0,0,0,0,4,4,4,1,0,4,4,0,0,0,0,1,4,4,4],
-					[0,0,0,4,4,4,0,0,0,3,0,0,0,4,4,4,4,1,0,0,0,0,0,0,0,3,4,4,4],
-					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],
-					[0,0,2,0,0,2,0,0,2,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
-					[0,0,1,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]
+					[0,0,0,4,4,4,0,0,0,1,0,0,0,4,4,4,4,1,0,0,0,0,0,0,0,3,4,4,4],
+					[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,1,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],
+					[0,0,2,0,0,2,0,0,2,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+					[0,0,1,0,0,1,0,0,1,3,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]
 				]
 			aImages = ["images/smwall.png","images/smwallup.png",
 					"images/smwalldown.png","images/smstar.png",
@@ -200,6 +203,7 @@ func playstart oGame
 				on 4 
 					oGame.aObjects[2].aMap[nRow][nCol] = 6
 					$Score += 100
+					checkopenwall(oGame)
 					oGame { Sound {
 						once = true
 						file = "sound/sfx_point.wav"
@@ -281,6 +285,9 @@ func playstart oGame
 			}
 		}
 
+		addenemy(oGame,2500)
+
+
 	}
 
 func inlist nValue,aList
@@ -322,3 +329,116 @@ func checkwall oGame,oself,diffx,diffy
 	if nValue = 0 return nValue ok
 
 	return nValue
+
+func checkopenwall oGame
+	if $score = 900
+		oGame.aObjects[2].aMap[3][10] = 3
+		oGame.aObjects[2].aMap[4][10] = 0
+		oGame.aObjects[2].aMap[5][10] = 0
+		oGame.aObjects[2].aMap[6][10] = 0
+		oGame.aObjects[2].aMap[7][10] = 0
+		oGame.aObjects[2].aMap[8][10] = 0
+	ok
+
+
+func checkgameover ogame
+	if $gameresult  return ok
+	if $value <= 0
+		$gameresult = true
+		oGame {
+			text {
+				point = 400
+				size = 30
+				nStep = 3
+				file = "fonts/pirulen.ttf"
+				text = "Game Over !!!"
+				x = 500	y=10
+				state = func ogame,oself {
+					if oself.y >= 400
+						ogame.shutdown = true
+					ok
+				}
+			}
+		}
+		showfire(oGame,oGame.aObjects[$PlayerIndex].x+40,oGame.aObjects[$PlayerIndex].y+40)
+		oGame.aObjects[$PlayerIndex].lenabled = false
+		oGame.remove($PlayerIndex)
+	ok
+
+
+func showfire oGame,nX,nY
+	oGame {
+		animate {
+			file = "images/fire.png"
+			x = nX
+			y = nY
+			framewidth = 40
+			height = 42
+			nStep = 3
+			transparent = true
+			state = func oGame,oSelf {
+				oSelf { 
+					nStep--
+					if nStep = 0
+						nStep = 3
+						if frame < 13
+							frame++
+						else
+							frame=1
+							oGame.remove(oself.nIndex)
+						ok
+					ok
+				}
+			}
+		}
+	}
+
+func addenemy oGame,xPos
+
+	oGame {
+		sprite
+			{
+				type = ge_type_enemy
+				file = "images/enemy.png"
+				transparent = true
+				x = xPos y =10 width=100 height=100
+				animate=true Scaled=true
+				direction = ge_direction_random
+				state = func oGame,oSelf {
+					vValue = 2500 +  oGame.aObjects[2].x 
+					oself { x = vvalue }
+					oself {
+						if y < 0 y = 0 ok
+						if y > ogame.screen_h-height y=ogame.screen_h-height ok
+					}
+					if random(100) = 1
+						ogame {
+							sprite {
+								type = ge_type_fire
+								file  = "images/rocket2.png"
+								transparent = true
+								x = oself.x + 30
+								y = oself.y + oself.height+ 30
+								width = 30
+								height = 30
+								point = ogame.screen_h+30
+								nstep = 10
+								direction = ge_direction_incvertical
+								state = func oGame,oSelf {
+									x =  oGame.aObjects[$playerindex]
+									if oself.x >= x.x and oself.y >= x.y and
+									   oself.x <= x.x + x.width and
+									   oself.y <= x.y + x.height
+									   if $value > 0
+									   	$value-=10
+									   ok
+									   ogame.remove(oself.nindex)
+									   checkgameover(oGame)
+									ok
+								}
+							}
+						}
+					ok
+				}
+			}
+	}
