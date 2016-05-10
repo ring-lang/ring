@@ -20,6 +20,10 @@ GE_DIRECTION_DECVERTICAL = 5
 # Key
 KEY_SPACE = 75
 KEY_ESC = 59
+KEY_RIGHT = Allegro_Key_Right
+KEY_LEFT  = Allegro_Key_Left
+KEY_UP = Allegro_Key_UP
+KEY_DOWN = Allegro_Key_Down
 
 # Type
 GE_TYPE_BACKGROUND = 1
