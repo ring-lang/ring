@@ -228,32 +228,7 @@ func playstart oGame
 			transparent = true 
 			state = func oGame,oSelf {
 
-				nValue = oGame.aObjects[2].getvalue(oSelf.x,oSelf.y) 
-				nRow = oGame.aObjects[2].getrow(oSelf.x,oSelf.y) 
-				nCol = oGame.aObjects[2].getcol(oSelf.x,oSelf.y) 
-
-				switch nValue
-				on 4 
-					oGame.aObjects[2].aMap[nRow][nCol] = 6
-					$Score += 100
-					checkopenwall(oGame)
-					oGame { Sound {
-						once = true
-						file = "sound/sfx_point.wav"
-						playSound()
-					} }
-				on 5
-					oGame.aObjects[2].aMap[nRow][nCol] = 0
-					$DoorKey = true
-					$Score += 500
-					checkopenwall(oGame)
-					oGame { Sound {
-						once = true
-						file = "sound/sfx_point.wav"
-						playSound()
-					} }
-
-				off
+				checkstarskeycol(oGame,oSelf)
 
 				if not $playerwin
 						oself { 
@@ -519,3 +494,48 @@ func addenemy oGame,xPos
 			}
 	}
 	ogame.lbraceend = true
+
+
+func checkstarskey oGame,oSelf,nValue,nRow,nCol
+	switch nValue
+		on 4 
+			oGame.aObjects[2].aMap[nRow][nCol] = 6
+			$Score += 100
+			checkopenwall(oGame)
+			oGame { Sound {
+				once = true
+				file = "sound/sfx_point.wav"
+				playSound()
+			} }
+		on 5
+			oGame.aObjects[2].aMap[nRow][nCol] = 0
+			$DoorKey = true
+			$Score += 500
+			checkopenwall(oGame)
+			oGame { Sound {
+				once = true
+				file = "sound/sfx_point.wav"
+				playSound()
+			} }
+	off
+
+func checkstarskeycol oGame,oSelf
+	nValue = oGame.aObjects[2].getvalue(oSelf.x,oSelf.y) 
+	nRow = oGame.aObjects[2].getrow(oSelf.x,oSelf.y) 
+	nCol = oGame.aObjects[2].getcol(oSelf.x,oSelf.y) 	
+	checkstarskey(oGame,oSelf,nValue,nRow,nCol)
+
+	nValue = oGame.aObjects[2].getvalue(oSelf.x+oSelf.width,oSelf.y+oSelf.height) 
+	nRow = oGame.aObjects[2].getrow(oSelf.x+oSelf.width,oSelf.y+oSelf.height) 
+	nCol = oGame.aObjects[2].getcol(oSelf.x+oSelf.width,oSelf.y+oSelf.height) 	
+	checkstarskey(oGame,oSelf,nValue,nRow,nCol)
+
+	nValue = oGame.aObjects[2].getvalue(oSelf.x+oSelf.width,oSelf.y) 
+	nRow = oGame.aObjects[2].getrow(oSelf.x+oSelf.width,oSelf.y) 
+	nCol = oGame.aObjects[2].getcol(oSelf.x+oSelf.width,oSelf.y) 	
+	checkstarskey(oGame,oSelf,nValue,nRow,nCol)
+
+	nValue = oGame.aObjects[2].getvalue(oSelf.x,oSelf.y+oSelf.height) 
+	nRow = oGame.aObjects[2].getrow(oSelf.x,oSelf.y+oSelf.height) 
+	nCol = oGame.aObjects[2].getcol(oSelf.x,oSelf.y+oSelf.height) 	
+	checkstarskey(oGame,oSelf,nValue,nRow,nCol)
