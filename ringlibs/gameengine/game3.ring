@@ -84,8 +84,8 @@ func main
 			y = 200
 			framewidth = 68
 			scaled = true
-			height = 102
-			width = 50
+			height = 86
+			width = 60
 			nStep = 10
 			transparent = true
 			animate = true
@@ -95,7 +95,7 @@ func main
 					nStep--
 					if nStep = 0
 						nStep = 10
-						if frame < 29
+						if frame < 1
 							frame++
 						else
 							frame=1
@@ -182,12 +182,12 @@ func playstart oGame
 
 		animate {
 			file = "images/superman.png"
-			x = 10
-			y = 10
-			framewidth = 68
+			x = 0
+			y = 0
+			framewidth = 60
 			scaled = true
-			height = 102
-			width = 50
+			height = 86
+			width = 60
 			nStep = 3
 			transparent = true
 			state = func oGame,oSelf {
@@ -211,25 +211,24 @@ func playstart oGame
 				off
 
 				if not $playerwin
-					$down --
-					if $down = 0
-						$down = 3
 						oself { 
-							y += 25 
+							if checkwall(oGame,oSelf,0,5)
+								y += 5
+							ok
 							if y > 500 y=500 ok
-						}
-					ok
+						}				
 				ok
 
 			}
 			keypress = func ogame,oself,nKey {
 				if $gameresult = false
+					
 					oself { 
-						if nkey = key_up 
-							y -= 55
+						if nkey = key_up and checkwall(oGame,oSelf,0,-40)
+							y -= 40
 							$down = 10
 							if y<=0 y=0 ok
-						but nKey = key_right
+						but nKey = key_right and checkwall(oGame,oSelf,10,0)
 							x += 10
 							if x >= 440
 								if oGame.aObjects[2].x > -2000
@@ -244,7 +243,7 @@ func playstart oGame
 								ok
 								x=400
 							ok
-						but nKey = key_left
+						but nKey = key_left and checkwall(oGame,oSelf,-10,0)
 							x -= 10
 							if x <= 0
 								x=0
@@ -257,8 +256,6 @@ func playstart oGame
 				ok
 			}
 		}
-
-
 
 		text {
 			animate = false
@@ -274,3 +271,42 @@ func playstart oGame
 
 	}
 
+func inlist nValue,aList
+	for x in aList
+		if x = nValue
+			return true
+		ok
+	next
+	return false
+
+func checkwall oGame,oself,diffx,diffy
+
+	xPos = oSelf.x + diffx
+	yPos = oSelf.y + diffy
+	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
+	nValue = inlist(nValue,[1,2,3])
+	nValue = not nValue
+	if nValue = 0 return nValue ok
+
+	xPos = oSelf.x + diffx
+	yPos = oSelf.y + diffy + oSelf.height
+	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
+	nValue = inlist(nValue,[1,2,3])
+	nValue = not nValue
+	if nValue = 0 return nValue ok
+
+	xPos = oSelf.x + diffx + oSelf.width
+	yPos = oSelf.y + diffy
+	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
+	nValue = inlist(nValue,[1,2,3])
+	nValue = not nValue
+	if nValue = 0 return nValue ok
+
+	xPos = oSelf.x + diffx + oSelf.width
+	yPos = oSelf.y + diffy + oSelf.height
+	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
+	nValue = inlist(nValue,[1,2,3])
+	nValue = not nValue
+	if nValue = 0 return nValue ok
+
+	return nValue
