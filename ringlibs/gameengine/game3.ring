@@ -43,6 +43,16 @@ func main
 					ogame.shutdown=true 
 				ok
 			}
+			state = func ogame,oself {				
+				oself { 
+					if x > -500
+						x-=1
+						y-=1
+						width +=1
+						height +=4									
+					ok
+				}
+			}
 		}
 		text {
 			animate = false
@@ -476,7 +486,7 @@ func addenemy oGame,xPos
 						if y < 0 y = 0 ok
 						if y > 100 y=100 ok
 					}
-					if random(30) = 1
+					if random(10) = 1
 						ogame {
 							sprite {
 								type = ge_type_fire
