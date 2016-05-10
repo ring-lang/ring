@@ -12,7 +12,7 @@ $playerwin = false
 $DoorKey = false
 
 $playerindex = 4
-$value = 100
+$value = 1000
 
 func main
 
@@ -27,7 +27,7 @@ func main
 	$lastcol = 0
 	$playerwin = false
 	$DoorKey = false
-	$value = 100
+	$value = 1000
 
 	oGame {	
 		title = "Super Man 2016"
@@ -161,8 +161,7 @@ func playstart oGame
 			state = func oGame,oSelf {			
 				if $gameresult = false
 					px = oGame.aObjects[3].x
-					py = oGame.aObjects[3].y
-					
+					py = oGame.aObjects[3].y					
 				ok			
 			}
 		}
@@ -243,6 +242,8 @@ func playstart oGame
 					
 					oself { 
 						if nkey = key_up and checkwall(oGame,oSelf,0,-40)
+							$value -= 1
+							checkgameover(oGame)
 							file = "images/supermanup.png"
 							height = 123
 							dotransparent()
@@ -273,6 +274,8 @@ func playstart oGame
 								x=400
 							ok
 						but nKey = key_left and checkwall(oGame,oSelf,-10,0)
+							file = "images/supermanleft.png"
+							dotransparent()
 							x -= 10
 							if x <= 0
 								x += 10
@@ -377,6 +380,7 @@ func checkopenwall oGame
 func checkgameover ogame
 	if $gameresult  return ok
 	if $value <= 0
+		$value = 0
 		$gameresult = true
 		oGame {
 			text {
@@ -445,7 +449,7 @@ func addenemy oGame,xPos
 						if y < 0 y = 0 ok
 						if y > 100 y=100 ok
 					}
-					if random(60) = 1
+					if random(30) = 1
 						ogame {
 							sprite {
 								type = ge_type_fire
@@ -465,7 +469,7 @@ func addenemy oGame,xPos
 									   oself.x <= x.x + x.width and
 									   oself.y <= x.y + x.height
 									   if $value > 0
-									   	$value-=20
+									   	$value-=100
 									   ok
 									   ogame.remove(oself.nindex)
 									   checkgameover(oGame)
