@@ -11,9 +11,8 @@ $lastcol = 0
 $playerwin = false
 $DoorKey = false
 
-$enemies = 1
 $playerindex = 4
-$value = 10
+$value = 100
 
 func main
 
@@ -28,6 +27,7 @@ func main
 	$lastcol = 0
 	$playerwin = false
 	$DoorKey = false
+	$value = 100
 
 	oGame {	
 		title = "Super Man 2016"
@@ -145,14 +145,14 @@ func playstart oGame
 			blockwidth = 80
 			blockheight = 80
 			aMap = [
-				 	[0,0,0,4,4,4,0,0,0,1,0,0,0,3,4,4,5,1,0,4,4,0,4,4,0,1,4,4,4],
-					[0,0,4,0,4,0,4,0,0,1,0,0,0,0,4,4,4,1,0,4,4,0,0,0,0,1,4,4,4],
-					[0,0,0,4,4,4,0,0,0,1,0,0,0,4,4,4,4,1,0,0,0,0,0,0,0,3,4,4,4],
-					[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0,0,0,1,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0],
-					[0,0,2,0,0,2,0,0,2,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
-					[0,0,1,0,0,1,0,0,1,3,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0]
+				 	[0,0,0,4,4,4,0,0,0,1,0,0,0,3,4,4,5,1,0,4,4,0,4,4,0,1,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,3,3,3,3,3,3,3,3],
+					[0,0,4,0,4,0,4,0,0,1,0,0,0,0,4,4,4,1,0,4,4,0,0,0,0,1,4,4,4,0,0,4,4,4,4,4,4,4,4,4,4,4,4,0,0,1,0,0,0,1,0,0,0,1,0,4,4,4,4,4,4,4,4],
+					[0,0,0,4,4,4,0,0,0,1,0,0,0,4,4,4,4,1,0,0,0,0,0,0,0,3,4,4,4,0,0,4,0,0,0,0,0,0,4,2,0,0,4,2,0,1,0,2,0,1,0,2,0,1,0,4,4,4,4,4,4,4,4],
+					[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,1,0,0,4,1,0,1,0,1,0,1,0,1,0,1,0,2,2,2,2,2,2,2,2],
+					[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,3,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0,0,0,1,0,0,0,2,0,0,0,1,0,0,0,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,3,0,1,0,3,0,1,0,3,0,1,0,0,0,0,0,0,0],
+					[0,0,2,0,0,2,0,0,2,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0],
+					[0,0,1,0,0,1,0,0,1,3,0,0,0,1,0,0,0,3,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0]
 				]
 			aImages = ["images/smwall.png","images/smwallup.png",
 					"images/smwalldown.png","images/smstar.png",
@@ -170,14 +170,14 @@ func playstart oGame
 			type = ge_type_enemy
 			animate = false
 			file  = "images/smhome.png"
-			x = 2500
+			x = 5000
 			y = 400
 			width = 290
 			height = 200
 			transparent = true
 			
 			state = func oGame,oSelf {				
-				vValue = 2500 +  oGame.aObjects[2].x 
+				vValue = 5000 +  oGame.aObjects[2].x 
 				oself { x = vvalue }
 			}
 			
@@ -213,6 +213,7 @@ func playstart oGame
 					oGame.aObjects[2].aMap[nRow][nCol] = 0
 					$DoorKey = true
 					$Score += 500
+					checkopenwall(oGame)
 					oGame { Sound {
 						once = true
 						file = "sound/sfx_point.wav"
@@ -239,10 +240,13 @@ func playstart oGame
 							y -= 40
 							$down = 10
 							if y<=0 y=0 ok
+						but nkey = key_down and checkwall(oGame,oSelf,0,40)
+							y += 40
+							if y>=500 y=500 ok
 						but nKey = key_right and checkwall(oGame,oSelf,10,0)
 							x += 10
 							if x >= 440
-								if oGame.aObjects[2].x > -2000
+								if oGame.aObjects[2].x > -4500
 									oGame.aObjects[2].x -= 50
 								else
 									if x <= 750
@@ -285,8 +289,23 @@ func playstart oGame
 			}
 		}
 
+		text {
+			animate = false
+			point = 400
+			size = 30
+			file = "fonts/pirulen.ttf"
+			text = "Energy : " + $value
+			x = 10	y=10
+			state = func oGame,oSelf { oSelf { text = "Energy : " + $value } }
+		}
+
+		Sound {
+			file = "sound/music2.wav"
+			playSound()
+		}
+
+
 		addenemy(oGame,500)
-		addenemy(oGame,1000)
 		addenemy(oGame,1500)
 		addenemy(oGame,2000)
 		addenemy(oGame,2500)
@@ -343,6 +362,13 @@ func checkopenwall oGame
 		oGame.aObjects[2].aMap[6][10] = 0
 		oGame.aObjects[2].aMap[7][10] = 0
 		oGame.aObjects[2].aMap[8][10] = 0
+	but $score = 2300
+		oGame.aObjects[2].aMap[3][18] = 3
+		oGame.aObjects[2].aMap[4][18] = 0
+		oGame.aObjects[2].aMap[5][18] = 0
+		oGame.aObjects[2].aMap[6][18] = 0
+		oGame.aObjects[2].aMap[7][18] = 0
+		oGame.aObjects[2].aMap[8][18] = 0
 	ok
 
 
@@ -404,7 +430,7 @@ func addenemy oGame,xPos
 		lbraceend = false
 		sprite {
 				type = ge_type_enemy
-				file = "images/enemy.png"
+				file = "images/smenemy.png"
 				transparent = true
 				x = xPos y =10 width=100 height=100
 				animate=true Scaled=true
@@ -415,13 +441,14 @@ func addenemy oGame,xPos
 					oself { x = vvalue }
 					oself {
 						if y < 0 y = 0 ok
-						if y > ogame.screen_h-height y=ogame.screen_h-height ok
+						if y > 100 y=100 ok
 					}
-					if random(20) = 1
+					if random(10) = 1
 						ogame {
 							sprite {
 								type = ge_type_fire
-								file  = "images/rocket2.png"
+								file  = "images/smrocket.png"
+								scaled  = true
 								transparent = true
 								x = oself.x + 30
 								y = oself.y + oself.height+ 30
@@ -436,7 +463,7 @@ func addenemy oGame,xPos
 									   oself.x <= x.x + x.width and
 									   oself.y <= x.y + x.height
 									   if $value > 0
-									   	$value-=10
+									   	$value-=20
 									   ok
 									   ogame.remove(oself.nindex)
 									   checkgameover(oGame)
