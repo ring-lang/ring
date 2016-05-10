@@ -150,7 +150,7 @@ func playstart oGame
 				]
 			aImages = ["images/smwall.png","images/smwallup.png",
 					"images/smwalldown.png","images/smstar.png",
-					"images/smkey.png"]
+					"images/smkey.png","images/smstar2.png"]
 			state = func oGame,oSelf {			
 				if $gameresult = false
 					px = oGame.aObjects[3].x
@@ -189,9 +189,13 @@ func playstart oGame
 			transparent = true
 			state = func oGame,oSelf {
 
-				switch oGame.aObjects[2].getvalue(oSelf.x,oSelf.y) 
+				nValue = oGame.aObjects[2].getvalue(oSelf.x,oSelf.y) 
+				nRow = oGame.aObjects[2].getrow(oSelf.x,oSelf.y) 
+				nCol = oGame.aObjects[2].getcol(oSelf.x,oSelf.y) 
+
+				switch nValue
 				on 4 
-					see "star" + nl
+					oGame.aObjects[2].aMap[nRow][nCol] = 6
 				on 5
 					see "key" + nl
 				off
