@@ -9,6 +9,8 @@ $Score = 0
 $startplay=false
 $lastcol = 0
 $playerwin = false
+$DoorKey = false
+
 
 func main
 
@@ -22,6 +24,7 @@ func main
 	$startplay=false
 	$lastcol = 0
 	$playerwin = false
+	$DoorKey = false
 
 	oGame {	
 		title = "Super Man 2016"
@@ -197,7 +200,8 @@ func playstart oGame
 				on 4 
 					oGame.aObjects[2].aMap[nRow][nCol] = 6
 				on 5
-					see "key" + nl
+					oGame.aObjects[2].aMap[nRow][nCol] = 0
+					$DoorKey = true
 				off
 
 				if not $playerwin
