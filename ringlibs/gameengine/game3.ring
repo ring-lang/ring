@@ -199,6 +199,12 @@ func playstart oGame
 				switch nValue
 				on 4 
 					oGame.aObjects[2].aMap[nRow][nCol] = 6
+					$Score += 100
+					oGame { Sound {
+						once = true
+						file = "sound/sfx_point.wav"
+						playSound()
+					} }
 				on 5
 					oGame.aObjects[2].aMap[nRow][nCol] = 0
 					$DoorKey = true
