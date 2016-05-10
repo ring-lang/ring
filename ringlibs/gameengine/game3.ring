@@ -189,6 +189,13 @@ func playstart oGame
 			transparent = true
 			state = func oGame,oSelf {
 
+				switch oGame.aObjects[2].getvalue(oSelf.x,oSelf.y) 
+				on 4 
+					see "star" + nl
+				on 5
+					see "key" + nl
+				off
+
 				if not $playerwin
 					$down --
 					if $down = 0
