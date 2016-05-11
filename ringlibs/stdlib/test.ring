@@ -178,4 +178,9 @@ for n = 1 to 10
 next
 see nl
 
+# Read a file line by line.
+Puts("Test Readline()")
+fp = fopen("C:\Ring\ReadMe.txt","r")
+Readline(fp)
+
 
