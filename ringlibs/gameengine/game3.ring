@@ -443,7 +443,6 @@ func showfire oGame,nX,nY
 	}
 
 func addenemy oGame,xPos
-
 	oGame {
 		lbraceend = false
 		sprite {
@@ -461,7 +460,7 @@ func addenemy oGame,xPos
 						if y < 0 y = 0 ok
 						if y > 100 y=100 ok
 					}
-					if random(10) = 1
+					if random(20) = 1
 						ogame {
 							sprite {
 								type = ge_type_fire
@@ -475,7 +474,11 @@ func addenemy oGame,xPos
 								point = ogame.screen_h+30
 								nstep = 10
 								direction = ge_direction_incvertical
+								xvalue =  oGame.aObjects[2].x 
+								temp = oself.x + 30 - xvalue
 								state = func oGame,oSelf {
+									vValue = oSelf.temp +  oGame.aObjects[2].x 
+									oself { x = vvalue }
 									x =  oGame.aObjects[$playerindex]
 									if oself.x >= x.x and oself.y >= x.y and
 									   oself.x <= x.x + x.width and
