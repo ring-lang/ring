@@ -236,7 +236,7 @@ func playstart oGame
 							height = 86
 							width = 60
 							for t=1 to 8
-								if checkwall(oGame,oSelf,0,5)
+								if checkwall2(oGame,oSelf,0,5,[2,1])
 									y += 5
 								ok
 							next
@@ -343,32 +343,35 @@ func inlist nValue,aList
 	return false
 
 func checkwall oGame,oself,diffx,diffy
+	alist = [1,2,3]
+	return checkwall2(oGame,oself,diffx,diffy,aList)
 
+func checkwall2 oGame,oself,diffx,diffy,aList
 	xPos = oSelf.x + diffx
 	yPos = oSelf.y + diffy
 	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
-	nValue = inlist(nValue,[1,2,3])
+	nValue = inlist(nValue,aList)
 	nValue = not nValue
 	if nValue = 0 return nValue ok
 
 	xPos = oSelf.x + diffx
 	yPos = oSelf.y + diffy + oSelf.height
 	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
-	nValue = inlist(nValue,[1,2,3])
+	nValue = inlist(nValue,aList)
 	nValue = not nValue
 	if nValue = 0 return nValue ok
 
 	xPos = oSelf.x + diffx + oSelf.width
 	yPos = oSelf.y + diffy
 	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
-	nValue = inlist(nValue,[1,2,3])
+	nValue = inlist(nValue,aList)
 	nValue = not nValue
 	if nValue = 0 return nValue ok
 
 	xPos = oSelf.x + diffx + oSelf.width
 	yPos = oSelf.y + diffy + oSelf.height
 	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
-	nValue = inlist(nValue,[1,2,3])
+	nValue = inlist(nValue,aList)
 	nValue = not nValue
 	if nValue = 0 return nValue ok
 

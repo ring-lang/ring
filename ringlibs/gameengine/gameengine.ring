@@ -176,16 +176,19 @@ class game from gamebase
 					off
 			if redraw and al_is_event_queue_empty(event_queue)
 				redraw = false
-				al_set_target_bitmap(al_get_backbuffer(display))
-				al_clear_to_color(GE_COLOR_WHITE)
-				for t in aobjects t.draw(self) next
-				al_flip_display()
+				drawobjs()
 				for t=len(aobjects) to 1 step -1 
 						aobjects[t].animate(self,aobjects[t]) 
 				next				
 				callgc()
 			ok	 			
 		end
+
+	func drawobjs
+		al_set_target_bitmap(al_get_backbuffer(display))
+		al_clear_to_color(GE_COLOR_WHITE)
+		for t in aobjects t.draw(self) next
+		al_flip_display()
 
 	func shutdown
 		delete()
