@@ -323,7 +323,7 @@ func playstart oGame
 			state = func oGame,oSelf { oSelf { text = "Energy : " + $value } }
 		}
 
-	
+		addenemy(oGame,600)
 		addenemy(oGame,900)
 		addenemy(oGame,1550)
 		addenemy(oGame,2350)
@@ -460,7 +460,8 @@ func addenemy oGame,xPos
 						if y < 0 y = 0 ok
 						if y > 100 y=100 ok
 					}
-					if random(20) = 1
+					if random(30) = 1
+						if $gameresult return ok
 						ogame {
 							sprite {
 								type = ge_type_fire
@@ -484,7 +485,7 @@ func addenemy oGame,xPos
 									   oself.x <= x.x + x.width and
 									   oself.y <= x.y + x.height
 									   if $value > 0
-									   	$value-=100
+									   	$value-=1000
 									   ok
 									   ogame.remove(oself.nindex)
 									   checkgameover(oGame)
