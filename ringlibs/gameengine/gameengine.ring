@@ -480,12 +480,10 @@ Class Map from Sprite
 		return 0
 
 	func getcol x1,y1
-		x2 = floor(((-1*x) + x1)/blockwidth)
-		x2++
+		x2 = ceil(((-1*x) + x1)/blockwidth)
 		return x2
 		
 	func getrow x1,y1
-		y2 = floor(((-1*y) + y1)/blockheight)
-		y2++
+		y2 = ceil(((-1*y) + y1)/blockheight)
 		return y2
 
