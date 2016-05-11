@@ -270,6 +270,7 @@ func playstart oGame
 							if x >= 440
 								if oGame.aObjects[2].x > -4500
 									oGame.aObjects[2].x -= 50
+									callenemystate(oGame)
 								else
 									if x <= 750
 										if  checkwall(oGame,oSelf,10,0)
@@ -292,6 +293,7 @@ func playstart oGame
 								x += 10
 								if oGame.aObjects[2].x != 0
 									oGame.aObjects[2].x += 50
+									callenemystate(oGame)
 									x += 50
 								ok
 							ok
@@ -553,3 +555,12 @@ func checkstarskeycol oGame,oSelf
 	nRow = oGame.aObjects[2].getrow(oSelf.x,oSelf.y+oSelf.height) 
 	nCol = oGame.aObjects[2].getcol(oSelf.x,oSelf.y+oSelf.height) 	
 	checkstarskey(oGame,oSelf,nValue,nRow,nCol)
+
+func callenemystate oGame
+	for t in oGame.aObjects
+		t {
+			if type = GE_TYPE_ENEMY
+				t.animate(oGame,t)
+			ok
+		}
+	next
