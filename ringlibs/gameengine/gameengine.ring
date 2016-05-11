@@ -461,9 +461,16 @@ Class Map from Sprite
 					al_get_bitmap_height(image),nX,nY,blockwidth,blockheight,0)
 				ok
 				nX += BlockWidth
+				if nX > SCREEN_W
+					EXIT
+				ok
 			next
 			nY += BlockHeight
 			nX = X
+			if nY > SCREEN_H
+				EXIT
+			ok
+
 		next
 		
 	func animate oGame,oSelf
