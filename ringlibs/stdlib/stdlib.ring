@@ -528,13 +528,15 @@ func Sleep x
 	output		: Result of reading.
 */      
       
-fp = fopen("C:\Ring\ReadMe.txt","r")
+fp = fopen("C:\Ring\bin\ReadMe.txt","r")
 readLine(fp)
 
 func Readline fp
      while not feof(fp)
-           r = fgets(fp,100)
-           see r
+           r = fgets(fp,256)
+           if r != NULL  
+              see r ok
      end
-     fclose(fp)      
+     fclose(fp)
+     return 
 
