@@ -465,8 +465,8 @@ func addenemy oGame,xPos
 				direction = GE_DIRECTION_NOMOVE
 				temp = xPos
 				state = func oGame,oSelf {
-					oself { x = oSelf.temp +  oGame.aObjects[2].x  }
-					oself {
+					oself { 
+						x = oSelf.temp +  oGame.aObjects[2].x  
 						if y < 0 y = 0 ok
 						if y > 100 y=100 ok
 					}
@@ -557,7 +557,7 @@ func callenemystate oGame
 	for t in oGame.aObjects
 		t {
 			if type = GE_TYPE_ENEMY
-				t.animate(oGame,t)
+				animate(oGame,t)
 			ok
 		}
 	next
