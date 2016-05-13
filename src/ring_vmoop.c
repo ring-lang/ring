@@ -813,7 +813,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	ring_list_setint(pList,RING_VAR_PVALUETYPE ,pVM->nGetSetObjType);
 	/* Check Setter & Getter for Public Attributes */
 	RING_VM_IR_LOAD ;
-	if ( (RING_VM_IR_OPCODE == ICO_PUSHV) || (RING_VM_IR_OPCODE == ICO_LOADINDEXADDRESS) || (RING_VM_IR_OPCODE == ICO_LOADSUBADDRESS) ) {
+	if ( RING_VM_IR_OPCODE != ICO_ASSIGNMENTPOINTER ) {
 		RING_VM_IR_UNLOAD ;
 		/* Get Property */
 		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
