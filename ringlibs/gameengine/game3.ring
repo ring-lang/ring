@@ -168,12 +168,6 @@ func playstart oGame
 			aImages = ["images/smwall.png","images/smwallup.png",
 					"images/smwalldown.png","images/smstar.png",
 					"images/smkey.png","images/smstar2.png"]
-			state = func oGame,oSelf {			
-				if $gameresult = false
-					px = oGame.aObjects[3].x
-					py = oGame.aObjects[3].y					
-				ok			
-			}
 		}
 
 		sprite {
@@ -469,7 +463,9 @@ func addenemy oGame,xPos
 						x = oSelf.temp +  oGame.aObjects[2].x  
 						if y < 0 y = 0 ok
 						if y > 100 y=100 ok
+						if x > SCREEN_W or x < 0 return ok
 					}
+
 					if random(10) = 1
 						if $gameresult return ok
 						ogame {
