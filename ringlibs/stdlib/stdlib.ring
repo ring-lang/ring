@@ -520,5 +520,23 @@ func Sleep x
      nTime = x * 1000
      oTest = new qTest
      oTest.qsleep(nTime)
+     
+/*
+	Function Name	: Readline
+	Usage		: Read a file line by line.
+	Parameters	: File to read.
+	output		: Result of reading.
+*/      
       
+fp = fopen("C:\Ring\bin\ReadMe.txt","r")
+readLine(fp)
+
+func Readline fp
+     while not feof(fp)
+           r = fgets(fp,256)
+           if r != NULL  
+              see r ok
+     end
+     fclose(fp)
+     return 
 
