@@ -187,8 +187,7 @@ func playstart oGame
 			transparent = true
 			
 			state = func oGame,oSelf {				
-				vValue = 5000 +  oGame.aObjects[2].x 
-				oself { x = vvalue }
+				oself { x = 5000 +  oGame.aObjects[2].x  }
 				if $gameresult or $DoorKey = false  return ok
 				if oGame.aObjects[$playerindex].x > oself.x + 100 and
 					oGame.aObjects[$playerindex].y > oself.y + 50 
@@ -466,8 +465,7 @@ func addenemy oGame,xPos
 				direction = GE_DIRECTION_NOMOVE
 				temp = xPos
 				state = func oGame,oSelf {
-					vValue = oSelf.temp +  oGame.aObjects[2].x 
-					oself { x = vvalue }
+					oself { x = oSelf.temp +  oGame.aObjects[2].x  }
 					oself {
 						if y < 0 y = 0 ok
 						if y > 100 y=100 ok
@@ -490,8 +488,7 @@ func addenemy oGame,xPos
 								xvalue =  oGame.aObjects[2].x 
 								temp = oself.x + 30 - xvalue
 								state = func oGame,oSelf {
-									vValue = oSelf.temp +  oGame.aObjects[2].x 
-									oself { x = vvalue }
+									oself { x = oSelf.temp +  oGame.aObjects[2].x  }
 									x =  oGame.aObjects[$playerindex]
 									if oself.x >= x.x and oself.y >= x.y and
 									   oself.x <= x.x + x.width and
