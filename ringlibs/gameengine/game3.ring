@@ -145,13 +145,7 @@ func playstart oGame
 		Sprite {
 			file = "images/supermancity.jpg"
 			x = 0 y=0 width=800 height = 600 scaled = true animate = false
-			keypress = func ogame,oself,nKey {
-				if nkey = key_esc 
-					ogame.shutdown()
-				ok
-			}
 		}
-
 		Map {
 			blockwidth = 80
 			blockheight = 80
@@ -181,7 +175,10 @@ func playstart oGame
 			transparent = true
 			
 			state = func oGame,oSelf {				
-				oself { x = 5000 +  oGame.aObjects[2].x  }
+				oself { 
+					x = 5000 +  oGame.aObjects[2].x  
+					if x < 0 or x > SCREEN_W return ok
+				}
 				if $gameresult or $DoorKey = false  return ok
 				if oGame.aObjects[$playerindex].x > oself.x + 100 and
 					oGame.aObjects[$playerindex].y > oself.y + 50 
@@ -231,6 +228,8 @@ func playstart oGame
 							for t=1 to 8
 								if checkwall2(oGame,oSelf,0,5,[2,1])
 									y += 5
+								else
+									exit
 								ok
 							next
 							if y > 500 y=500 ok
@@ -290,6 +289,8 @@ func playstart oGame
 									x += 50
 								ok
 							ok
+						but nkey = key_esc 
+							ogame.shutdown()			
 						ok
 					}
 				ok
@@ -553,7 +554,7 @@ func callenemystate oGame
 	for t in oGame.aObjects
 		t {
 			if type = GE_TYPE_ENEMY
-				animate(oGame,t)
+				call state(oGame,t)
 			ok
 		}
 	next

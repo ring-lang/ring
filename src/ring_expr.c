@@ -995,6 +995,8 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
 			ring_parser_icg_newoperand(pParser,pParser->TokenText);
+			/* Generate Location for nPC of Getter */
+			ring_parser_icg_newoperandint(pParser,0);
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			ring_parser_icg_newoperation(pParser,ICO_ANONYMOUS);
 			ring_parser_nexttoken(pParser);
