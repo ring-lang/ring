@@ -172,15 +172,13 @@ next
 # Sleep for the given amount of time.
 Puts("Test Sleep()")
 load "guilib.ring"
-for n = 1 to 10
-    Sleep(3)
-    see "" + n + " "
-next
+see "Wait 3 Seconds!"
+Sleep(3)
 see nl
 
 # Read a file line by line.
 Puts("Test Readline()")
-fp = fopen("C:\Ring\ReadMe.txt","r")
+fp = fopen("test.ring","r")
 Readline(fp)
 
 
