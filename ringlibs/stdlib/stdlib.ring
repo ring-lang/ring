@@ -3,6 +3,8 @@
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 # 2016, CalmoSoft <calmosoft@gmail.com>
 
+Load "stdlib.rh"
+
 /*
 	Function Name	: puts
 	Usage		: print the value then print new line (nl)
@@ -535,7 +537,7 @@ Func Sleep x
       
 Func Readline fp
 	if not feof(fp) 
-		r = fgets(fp,256) 
+		r = fgets(fp,C_LINESIZE) 
 		if r != NULL Return r ok
 	ok
 
