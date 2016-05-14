@@ -4,3 +4,4 @@
 # 2016, CalmoSoft <calmosoft@gmail.com>
 
 C_LINESIZE = 256
+C_SECONDSIZE = 1000

@@ -519,7 +519,7 @@ Func permutationReverse a, first, last
 */          
      
 Func Sleep x
-	nTime = x * 1000
+	nTime = x * C_SECONDSIZE
 	if isclass("qTest")
 		oTest = new qTest
 		oTest.qsleep(nTime)
