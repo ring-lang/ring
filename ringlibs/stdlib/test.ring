@@ -171,7 +171,6 @@ next
 
 # Sleep for the given amount of time.
 Puts("Test Sleep()")
-load "guilib.ring"
 see "Wait 3 Seconds!"
 Sleep(3)
 see nl
