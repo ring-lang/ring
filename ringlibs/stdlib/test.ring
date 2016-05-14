@@ -179,6 +179,7 @@ see nl
 # Read a file line by line.
 Puts("Test Readline()")
 fp = fopen("test.ring","r")
-Readline(fp)
-
+while not feof(fp) 
+See Readline(fp) end
+fclose(fp)
 

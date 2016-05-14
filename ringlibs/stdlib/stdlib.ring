@@ -1,5 +1,5 @@
 # The Ring Standard Library
-# Common functions and classes for applications
+# Common Functions and classes for applications
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 # 2016, CalmoSoft <calmosoft@gmail.com>
 
@@ -248,7 +248,7 @@ Func File2List cFileName
 	output		: Returns the result of search (0,1)
 */
 
-func Endswith str, substr
+Func Endswith str, substr
      str = trim(str)
      if right(str, len(substr)) = substr return 1 else return 0 ok 
      
@@ -259,7 +259,7 @@ func Endswith str, substr
 	output		: Returns the result of search (0,1)
 */
 
-func Startswith str, substr
+Func Startswith str, substr
      str = trim(str)
      if left(str, len(substr)) = substr return 1 else return 0 ok   
      
@@ -270,7 +270,7 @@ func Startswith str, substr
 	output		: The greatest common divisor.
 */
 
-func Gcd gcd, b
+Func Gcd gcd, b
        while b
              c   = gcd
              gcd = b
@@ -285,7 +285,7 @@ func Gcd gcd, b
 	output		: The least common multiple.
 */     
 
-func Lcm m,n
+Func Lcm m,n
      lcm = m*n / gcd(m,n)
      return lcm
      
@@ -296,7 +296,7 @@ func Lcm m,n
 	output		: Sum of a list.
 */ 
 
-func Sumlist bList
+Func Sumlist bList
      sum = 0
      for n = 1 to len(bList)
          sum += bList[n]
@@ -310,7 +310,7 @@ func Sumlist bList
 	output		: Product of a list.
 */
 
-func Prodlist bList
+Func Prodlist bList
      prod = 1
      for n = 1 to len(bList)
          prod *= bList[n]
@@ -324,7 +324,7 @@ func Prodlist bList
 	output		: Result of test (1=odd 2=even).
 */     
 
-func Evenorodd n 
+Func Evenorodd n 
      if n % 2 = 1 return 1 ok
      return 2
      
@@ -335,7 +335,7 @@ func Evenorodd n
 	output		: Result of compute.
 */  
 
-func Factors nArray    
+Func Factors nArray    
      nArray = []
      j = 0
      for i = 1 to n
@@ -350,7 +350,7 @@ func Factors nArray
 	output		: Result of check.
 */  
 
-func Palindrome aString
+Func Palindrome aString
      bString = ""
      for i=len(aString) to 1 step -1
          bString = bString + aString[i]
@@ -379,7 +379,7 @@ Func Isleapyear year
 	output		: Result of compute.
 */   
 
-func Binarydigits a
+Func Binarydigits a
      n = 0
      while pow(2,n+1) < a
            n = n + 1
@@ -397,7 +397,7 @@ func Binarydigits a
 	output		: Result of multiply.
 */     
 
-func Matrixmulti A, B
+Func Matrixmulti A, B
      n = 3
      C = newlist(n,n)
      for i = 1 to n
@@ -421,7 +421,7 @@ func Matrixmulti A, B
 	output		: Result of transpose.
 */     
 
-func Matrixtrans matrix
+Func Matrixtrans matrix
      transpose = newlist(5,4)
      for i = 1 to 5
          for j = 1 to 4
@@ -438,7 +438,7 @@ func Matrixtrans matrix
 	output		: The day of the week.
 */
 
-func Dayofweek date
+Func Dayofweek date
      year = number(substr(date,1,4))
      month = number(substr(date,6,2))
      day = number(substr(date,9,2))
@@ -464,7 +464,7 @@ func Dayofweek date
 	output		: Dates of Fridays od 13th.
 */  
 
-func Fridays year1, year2
+Func Fridays year1, year2
      mo = [4,0,0,3,5,1,3,6,2,4,0,2]
      for year = year1 to year2
          if year < 2100 leap = year - 1900 else leap = year - 1904 ok
@@ -482,7 +482,7 @@ func Fridays year1, year2
 	output		: Permutations of numerals.
 */     
 
-func Permutation a
+Func Permutation a
        elementcount = len(a)
        if elementcount < 1 then return ok
        pos = elementcount-1
@@ -500,7 +500,7 @@ func Permutation a
        a[last] = temp
        permutationReverse(a, pos+1, elementcount)
 
- func permutationReverse a, first, last
+Func permutationReverse a, first, last
         while first < last
                  temp = a[first]
                  a[first] = a[last]
@@ -516,7 +516,7 @@ func Permutation a
 	output		: Result of sleeping.
 */          
      
-func Sleep x
+Func Sleep x
      nTime = x * 1000
      oTest = new qTest
      oTest.qsleep(nTime)
@@ -528,12 +528,9 @@ func Sleep x
 	output		: Result of reading.
 */      
       
-func Readline fp
-     while not feof(fp)
-           r = fgets(fp,256)
-           if r != NULL  
-              see r ok
-     end
-     fclose(fp)
-     return 
+Func Readline fp
+	if not feof(fp) 
+		r = fgets(fp,256) 
+		if r != NULL Return r ok
+	ok
 
