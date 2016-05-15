@@ -14,6 +14,9 @@ func string_class_test
 	see oString
 	oString2 = oString.upper()
 	see oString2
+	oString2 = oString.lower()
+	see oString2
+
 
 Class String
 
@@ -23,7 +26,7 @@ Class String
 		cValue = x
 
 	Func Lower
-		return new string( lower(cValue) )
+		return new string( std_lower(cValue) )
 
 	Func Upper
 		return new string( std_upper(cValue) )
