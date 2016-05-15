@@ -8,3 +8,6 @@ Class String
 
 	Func init x
 		cValue = x
+
+	Func lower
+		cValue = lower(cValue)
