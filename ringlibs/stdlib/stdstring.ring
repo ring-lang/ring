@@ -8,6 +8,9 @@ ok
 
 func string_class_test
 	See "Testing the String Class" + nl
+	oString = new string("Hello, World!")
+	see oString
+
 
 Class String
 
