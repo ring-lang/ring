@@ -17,6 +17,8 @@ func string_class_test
 	oString.lower().println()
 	oString.left(5).println()
 	oString.right(6).println()
+	oString = new string("Hi" + nl + "Hello" )
+	See oString.lines() + nl
 
 Class String From StdBase
 
@@ -31,3 +33,6 @@ Class String From StdBase
 	
 	Func Right x
 		return new string( std_right(cValue,x) )
+
+	Func Lines
+		return std_lines(cValue)
