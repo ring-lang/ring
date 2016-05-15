@@ -2,7 +2,14 @@
 # Common Functions and classes for applications
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-Load "stdfunctions.ring"
-Load "stdbase.ring"
-Load "stdstring.ring"
-		
+Class StdBase
+
+	cValue
+
+	Func Print
+		See cValue
+		See nl
+
+	Func Size
+		return len(cValue)
+	
