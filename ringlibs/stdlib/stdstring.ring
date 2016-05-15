@@ -6,8 +6,11 @@ Class String
 
 	cValue 
 
-	Func init x
+	Func Init x
 		cValue = x
 
-	Func lower
+	Func Lower
 		cValue = lower(cValue)
+
+	Func Upper
+		cValue = upper(cValue)
