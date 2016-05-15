@@ -10,3 +10,6 @@ Func std_upper x
 
 Func std_lower x
 	return lower(x)
+
+Func std_left cStr,x
+	return left(cStr,x)

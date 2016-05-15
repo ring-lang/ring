@@ -16,6 +16,8 @@ func string_class_test
 	see oString2
 	oString2 = oString.lower()
 	see oString2
+	oString2 = oString.left(5)
+	see oString2
 
 
 Class String
@@ -32,5 +34,5 @@ Class String
 		return new string( std_upper(cValue) )
 	
 	Func Left x
-		return new string( left(cValue,x) )
+		return new string( std_left(cValue,x) )
 	
