@@ -13,3 +13,6 @@ Func std_lower x
 
 Func std_left cStr,x
 	return left(cStr,x)
+
+Func std_right cStr,x
+	return right(cStr,x)
