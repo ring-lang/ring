@@ -11,6 +11,9 @@ Class StdBase
 
 	Func Print
 		See cValue
+
+	Func PrintLn
+		Print()
 		See nl
 
 	Func Size

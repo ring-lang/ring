@@ -12,10 +12,10 @@ func string_class_test
 
 	See "Testing the String Class" + nl
 	oString = new string("Hello, World!")
-	oString.print()
-	oString.upper().print()
-	oString.lower().print()
-	oString.left(5).print()
+	oString.println()
+	oString.upper().println()
+	oString.lower().println()
+	oString.left(5).println()
 
 Class String From StdBase
 
