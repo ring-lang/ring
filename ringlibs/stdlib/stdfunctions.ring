@@ -16,3 +16,6 @@ Func std_left cStr,x
 
 Func std_right cStr,x
 	return right(cStr,x)
+
+Func std_lines cStr
+	return lines(cStr)
