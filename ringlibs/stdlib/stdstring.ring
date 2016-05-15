@@ -16,6 +16,7 @@ func string_class_test
 	oString.upper().println()
 	oString.lower().println()
 	oString.left(5).println()
+	oString.right(6).println()
 
 Class String From StdBase
 
@@ -28,3 +29,5 @@ Class String From StdBase
 	Func Left x
 		return new string( std_left(cValue,x) )
 	
+	Func Right x
+		return new string( std_right(cValue,x) )
