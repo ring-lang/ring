@@ -6,6 +6,9 @@ Class StdBase
 
 	cValue
 
+	Func Init x
+		cValue = x
+
 	Func Print
 		See cValue
 		See nl

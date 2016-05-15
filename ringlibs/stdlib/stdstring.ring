@@ -4,6 +4,7 @@
 
 if filename() = sysargv[2]
 	eval("Load 'stdfunctions.ring'")
+	eval("Load 'stdbase.ring'")
 	string_class_test()
 ok
 
@@ -20,12 +21,7 @@ func string_class_test
 	see oString2
 
 
-Class String
-
-	cValue 
-
-	Func Init x
-		cValue = x
+Class String From StdBase
 
 	Func Lower
 		return new string( std_lower(cValue) )
