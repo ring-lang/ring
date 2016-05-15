@@ -12,14 +12,10 @@ func string_class_test
 
 	See "Testing the String Class" + nl
 	oString = new string("Hello, World!")
-	see oString
-	oString2 = oString.upper()
-	see oString2
-	oString2 = oString.lower()
-	see oString2
-	oString2 = oString.left(5)
-	see oString2
-
+	oString.print()
+	oString.upper().print()
+	oString.lower().print()
+	oString.left(5).print()
 
 Class String From StdBase
 
