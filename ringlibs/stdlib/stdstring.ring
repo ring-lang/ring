@@ -10,7 +10,11 @@ Class String
 		cValue = x
 
 	Func Lower
-		cValue = lower(cValue)
+		return new string( lower(cValue) )
 
 	Func Upper
-		cValue = upper(cValue)
+		return new string( upper(cValue) )
+	
+	Func Left x
+		return new string( left(cValue,x) )
+	
