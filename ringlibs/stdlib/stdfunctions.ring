@@ -19,3 +19,6 @@ Func std_right cStr,x
 
 Func std_lines cStr
 	return lines(cStr)
+
+Func std_trim cStr
+	return trim(cStr)
