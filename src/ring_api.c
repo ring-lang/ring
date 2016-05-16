@@ -1336,14 +1336,11 @@ void ring_vmlib_lines ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
-		nCount = 0 ;
+		nCount = 1 ;
 		for ( x = 0 ; x < nSize ; x++ ) {
 			if ( cStr[x] == '\n' ) {
 				nCount++ ;
 			}
-		}
-		if ( nCount > 0 ) {
-			nCount++ ;
 		}
 		RING_API_RETNUMBER(nCount);
 	} else {
