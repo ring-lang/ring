@@ -22,3 +22,6 @@ Func std_lines cStr
 
 Func std_trim cStr
 	return trim(cStr)
+
+Func std_copy cStr,nCount
+	return copy(cStr,nCount)
