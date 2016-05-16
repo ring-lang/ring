@@ -36,3 +36,6 @@ Class String From StdBase
 
 	Func Lines
 		return std_lines(cValue)
+
+	Func Trim
+		return new string( std_trim(cValue) )
