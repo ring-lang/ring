@@ -22,6 +22,8 @@ func string_class_test
 	oString = new string("    Welcome    ")
 	oString.println()
 	oString.trim().println()
+	oString = new string("Hello! ")
+	oString.copy(3).println()
 
 Class String From StdBase
 
