@@ -25,3 +25,7 @@ Func std_trim cStr
 
 Func std_copy cStr,nCount
 	return copy(cStr,nCount)
+
+Func std_strcmp cStr1,cStr2
+	return strcmp(cStr1,cStr2)
+
