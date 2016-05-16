@@ -542,3 +542,15 @@ Func Readline fp
 		if r != NULL Return r ok
 	ok
 
+
+/*
+	Function Name	: IsMainSourceFile
+	Usage		: Check if the current file is the main source file
+	Parameters	: No Paramters 
+	output		: True/False 
+*/      
+Func IsMainSourceFile
+	if filename() = sysargv[2]
+		return true
+	ok
+	return false
