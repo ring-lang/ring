@@ -47,3 +47,6 @@ Class String From StdBase
 
 	Func Copy x
 		return new string( std_copy(cValue,x) )
+
+	Func strcmp cStr
+		return std_strcmp(cValue,cStr)
