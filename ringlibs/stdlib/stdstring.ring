@@ -19,6 +19,9 @@ func string_class_test
 	oString.right(6).println()
 	oString = new string("Hi" + nl + "Hello" )
 	See oString.lines() + nl
+	oString = new string("    Welcome    ")
+	oString.println()
+	oString.trim().println()
 
 Class String From StdBase
 
