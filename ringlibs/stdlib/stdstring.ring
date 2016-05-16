@@ -42,3 +42,6 @@ Class String From StdBase
 
 	Func Trim
 		return new string( std_trim(cValue) )
+
+	Func Copy x
+		return new string( std_copy(cValue,x) )
