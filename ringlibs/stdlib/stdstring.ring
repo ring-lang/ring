@@ -30,12 +30,16 @@ func string_class_test
 	oString = new string(["one","two","three"])
 	oString.print()
 	see oString.lines() + nl
+	oString = new String(1234)
+	oString.println()
 
 Class String From StdBase
 
 	Func Init x
 		if isstring(x)
 			super.init(x)
+		but isnumber(x)
+			super.init(""+x)
 		but islist(x)
 			super.init(list2str(x))
 		else
