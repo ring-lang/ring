@@ -27,8 +27,20 @@ func string_class_test
 	see oString.strcmp("Hello! ") + nl
 	see oString.strcmp("Hello ") + nl
 	see oString.strcmp("Hello!! ") + nl
+	oString = new string(["one","two","three"])
+	oString.print()
+	see oString.lines() + nl
 
 Class String From StdBase
+
+	Func Init x
+		if isstring(x)
+			super.init(x)
+		but islist(x)
+			super.init(list2str(x))
+		else
+			raise("Error: String Class - Init Method - Bad Parameter")
+		ok
 
 	Func Lower
 		return new string( std_lower(cValue) )
