@@ -24,6 +24,9 @@ func string_class_test
 	oString.trim().println()
 	oString = new string("Hello! ")
 	oString.copy(3).println()
+	see oString.strcmp("Hello! ") + nl
+	see oString.strcmp("Hello ") + nl
+	see oString.strcmp("Hello!! ") + nl
 
 Class String From StdBase
 
