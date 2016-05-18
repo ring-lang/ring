@@ -1924,10 +1924,10 @@ bool isValid(void)
 <comment>
 bool matches(QUrl, int options)
 </comment>
-QString password(int options)
-QString path(int options)
+QString password(QUrl::ComponentFormattingOption options)
+QString path(QUrl::ComponentFormattingOption options)
 int port(int defaultPort)
-QString query(int options)
+QString query(QUrl::ComponentFormattingOption options)
 QUrl resolved(QUrl)
 QString scheme(void)
 void setAuthority(QString, int mode)
