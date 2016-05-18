@@ -3414,7 +3414,7 @@ RING_FUNC(ring_QWidget_setWindowFlags)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setWindowFlags( (int ) RING_API_GETNUMBER(2));
+	pObject->setWindowFlags( (Qt::WindowType ) RING_API_GETNUMBER(2));
 }
 
 
@@ -3475,7 +3475,7 @@ RING_FUNC(ring_QWidget_setWindowModality)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setWindowModality( (int ) RING_API_GETNUMBER(2));
+	pObject->setWindowModality( (Qt::WindowModality ) RING_API_GETNUMBER(2));
 }
 
 
@@ -3538,7 +3538,7 @@ RING_FUNC(ring_QWidget_setWindowState)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setWindowState( (int ) RING_API_GETNUMBER(2));
+	pObject->setWindowState( (Qt::WindowState ) RING_API_GETNUMBER(2));
 }
 
 

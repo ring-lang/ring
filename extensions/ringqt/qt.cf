@@ -177,6 +177,9 @@ aNumberTypes + "Qt::FocusPolicy"
 aNumberTypes + "Qt::InputMethodHint"
 aNumberTypes + "Qt::LayoutDirection"
 aNumberTypes + "QSizePolicy::Policy"
+aNumberTypes + "Qt::WindowType"
+aNumberTypes + "Qt::WindowModality"
+aNumberTypes + "Qt::WindowState"
 </runcode>
 
 <class>
@@ -394,13 +397,13 @@ void setToolTip(QString)
 void setUpdatesEnabled(bool enable)
 void setWhatsThis(QString)
 void setWindowFilePath(QString)
-void setWindowFlags(int type)
+void setWindowFlags(Qt::WindowType type)
 void setWindowIcon(QIcon)
 void setWindowIconText(QString)
-void setWindowModality(int windowModality)
+void setWindowModality(Qt::WindowModality windowModality)
 void setWindowOpacity(double level)
 void setWindowRole(QString)
-void setWindowState(int windowState)
+void setWindowState(Qt::WindowState windowState)
 QSize size(void)
 QSize sizeIncrement(void)
 QSizePolicy sizePolicy(void)
