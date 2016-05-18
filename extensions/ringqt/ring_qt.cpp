@@ -17207,7 +17207,7 @@ RING_FUNC(ring_QDockWidget_featuresChanged)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->featuresChanged( (int ) RING_API_GETNUMBER(2));
+	pObject->featuresChanged( (QDockWidget::DockWidgetFeature ) RING_API_GETNUMBER(2));
 }
 
 
@@ -18959,7 +18959,7 @@ RING_FUNC(ring_QFrame_setFrameShape)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFrameShape( (int) RING_API_GETNUMBER(2));
+	pObject->setFrameShape( (QFrame::Shape) RING_API_GETNUMBER(2));
 }
 
 

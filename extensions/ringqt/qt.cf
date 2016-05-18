@@ -213,6 +213,7 @@ aNumberTypes + "QDockWidget::DockWidgetFeature"
 aNumberTypes + "Qt::TextElideMode"
 aNumberTypes + "Qt::DockWidgetAreas"
 aNumberTypes + "QFrame::Shadow"
+aNumberTypes + "QFrame::Shape"
 </runcode>
 
 <class>
@@ -1329,7 +1330,7 @@ QAction *toggleViewAction(void)
 QWidget *widget(void)
 void allowedAreasChanged(Qt::DockWidgetArea allowedAreas)
 void dockLocationChanged(Qt::DockWidgetArea area)
-void featuresChanged(int features)
+void featuresChanged(QDockWidget::DockWidgetFeature features)
 void topLevelChanged(bool topLevel)
 void visibilityChanged(bool visible)
 
@@ -1438,7 +1439,7 @@ int lineWidth(void)
 int midLineWidth(void)
 void setFrameRect(QRect)
 void setFrameShadow(QFrame::Shadow)
-void setFrameShape(int)
+void setFrameShape(QFrame::Shape)
 void setFrameStyle(int style)
 void setLineWidth(int)
 void setMidLineWidth(int)
