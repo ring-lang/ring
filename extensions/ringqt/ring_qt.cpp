@@ -2307,7 +2307,7 @@ RING_FUNC(ring_QWidget_render)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->render((QPaintDevice *) RING_API_GETCPOINTER(2,"QPaintDevice"),* (QPoint *) RING_API_GETCPOINTER(3,"QPoint"),* (QRegion *) RING_API_GETCPOINTER(4,"QRegion"), (int) RING_API_GETNUMBER(5));
+	pObject->render((QPaintDevice *) RING_API_GETCPOINTER(2,"QPaintDevice"),* (QPoint *) RING_API_GETCPOINTER(3,"QPoint"),* (QRegion *) RING_API_GETCPOINTER(4,"QRegion"), (QWidget::RenderFlag) RING_API_GETNUMBER(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		free(RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))

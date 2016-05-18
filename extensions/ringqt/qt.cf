@@ -168,6 +168,7 @@ aNumberTypes + "Qt::GestureFlag"
 aNumberTypes + "Qt::ShortcutContext"
 aNumberTypes + "Qt::InputMethodQuery"
 aNumberTypes + "Qt::WindowType"
+aNumberTypes + "QWidget::RenderFlag"
 </runcode>
 
 <class>
@@ -335,7 +336,7 @@ void releaseKeyboard(void)
 void releaseMouse(void)
 void releaseShortcut(int id)
 void removeAction(QAction *action)
-void render(QPaintDevice *target, QPoint,QRegion, int)
+void render(QPaintDevice *target, QPoint,QRegion, QWidget::RenderFlag)
 void repaint(void)
 void resize(int w, int h)
 bool restoreGeometry(QByteArray)
