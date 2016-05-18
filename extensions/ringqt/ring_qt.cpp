@@ -2756,7 +2756,7 @@ RING_FUNC(ring_QWidget_setFocusPolicy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFocusPolicy( (int ) RING_API_GETNUMBER(2));
+	pObject->setFocusPolicy( (Qt::FocusPolicy ) RING_API_GETNUMBER(2));
 }
 
 
@@ -2817,7 +2817,7 @@ RING_FUNC(ring_QWidget_setForegroundRole)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setForegroundRole( (int ) RING_API_GETNUMBER(2));
+	pObject->setForegroundRole( (QPalette::ColorRole ) RING_API_GETNUMBER(2));
 }
 
 
@@ -2892,7 +2892,7 @@ RING_FUNC(ring_QWidget_setInputMethodHints)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setInputMethodHints( (int ) RING_API_GETNUMBER(2));
+	pObject->setInputMethodHints( (Qt::InputMethodHint ) RING_API_GETNUMBER(2));
 }
 
 

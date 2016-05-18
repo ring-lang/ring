@@ -173,6 +173,8 @@ aNumberTypes + "Qt::WidgetAttribute"
 aNumberTypes + "QPalette::ColorRole"
 aNumberTypes + "Qt::ContextMenuPolicy"
 aNumberTypes + "Qt::FocusReason"
+aNumberTypes + "Qt::FocusPolicy"
+aNumberTypes + "Qt::InputMethodHint"
 </runcode>
 
 <class>
@@ -360,13 +362,13 @@ void setFixedHeight(int h)
 void setFixedSize(int w, int h)
 void setFixedWidth(int w)
 void setFocus(Qt::FocusReason reason)
-void setFocusPolicy(int policy)
+void setFocusPolicy(Qt::FocusPolicy policy)
 void setFocusProxy(QWidget *w)
 void setFont(QFont)
-void setForegroundRole(int role)
+void setForegroundRole(QPalette::ColorRole role)
 void setGeometry(int x, int y, int w, int h)
 void setGraphicsEffect(QGraphicsEffect *effect)
-void setInputMethodHints(int hints)
+void setInputMethodHints(Qt::InputMethodHint hints)
 void setLayout(QLayout *layout)
 void setLayoutDirection(int direction)
 void setLocale(QLocale)
