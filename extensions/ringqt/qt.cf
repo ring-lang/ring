@@ -283,7 +283,9 @@ aNumberTypes + "QAbstractSocket::PauseMode"
 aNumberTypes + "QAbstractSocket::SocketState"
 aNumberTypes + "QAbstractSocket::SocketOption"
 aNumberTypes + "QNetworkRequest::KnownHeaders"
-aNumberTypes + "QNetworkRequest::Capability"
+aNumberTypes + "QNetworkProxy::Capability"
+aNumberTypes + "QNetworkProxy::ProxyType"
+aNumberTypes + "QHostInfo::HostInfoError"
 </runcode>
 
 <class>
@@ -3028,13 +3030,13 @@ bool isTransparentProxy(void)
 QString password(void)
 int port(void)
 QByteArray rawHeader(QByteArray headerName)
-void setCapabilities(QNetworkRequest::Capability capabilities)
+void setCapabilities(QNetworkProxy::Capability capabilities)
 void setHeader(QNetworkRequest::KnownHeaders header,  QVariant value)
 void setHostName(QString hostName)
 void setPassword(QString password)
 void setPort(int port)
 void setRawHeader(QByteArray headerName, QByteArray headerValue)
-void setType(int type)
+void setType(QNetworkProxy::ProxyType type)
 void setUser(QString user)
 void swap(QNetworkProxy  other)
 int type(void)
@@ -3085,7 +3087,7 @@ int serverError(void)
 int serverPort(void)
 void setMaxPendingConnections(int numConnections)
 void setProxy(QNetworkProxy)
-bool setSocketDescriptor(int *socketDescriptor)
+bool setSocketDescriptor(qintptr socketDescriptor)
 int *socketDescriptor(void)
 bool waitForNewConnection(int msec, bool *timedOut)
 
@@ -3117,7 +3119,7 @@ int error(void)
 QString errorString(void)
 QString hostName(void)
 int lookupId(void)
-void setError(int error)
+void setError(QHostInfo::HostInfoError error)
 void setErrorString(QString)
 void setHostName(QString)
 void setLookupId(int id)

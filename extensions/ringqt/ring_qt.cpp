@@ -42650,7 +42650,7 @@ RING_FUNC(ring_QNetworkProxy_setCapabilities)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCapabilities( (QNetworkRequest::Capability ) RING_API_GETNUMBER(2));
+	pObject->setCapabilities( (QNetworkProxy::Capability ) RING_API_GETNUMBER(2));
 }
 
 
@@ -42778,7 +42778,7 @@ RING_FUNC(ring_QNetworkProxy_setType)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setType( (int ) RING_API_GETNUMBER(2));
+	pObject->setType( (QNetworkProxy::ProxyType ) RING_API_GETNUMBER(2));
 }
 
 
@@ -43397,12 +43397,9 @@ RING_FUNC(ring_QTcpServer_setSocketDescriptor)
 		return ;
 	}
 	pObject = (GTcpServer *) RING_API_GETCPOINTER(1,"QTcpServer");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(pObject->setSocketDescriptor(RING_API_GETINTPOINTER(2)));
-	RING_API_ACCEPTINTVALUE(1) ;
+	RING_API_RETNUMBER(pObject->setSocketDescriptor(* (qintptr  *) RING_API_GETCPOINTER(2,"qintptr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"qintptr"));
 }
 
 
@@ -43743,7 +43740,7 @@ RING_FUNC(ring_QHostInfo_setError)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setError( (int ) RING_API_GETNUMBER(2));
+	pObject->setError( (QHostInfo::HostInfoError ) RING_API_GETNUMBER(2));
 }
 
 
