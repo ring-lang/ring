@@ -34925,23 +34925,23 @@ RING_FUNC(ring_QColor_getHslF)
 		return ;
 	}
 	pObject = (QColor *) RING_API_GETCPOINTER(1,"QColor");
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(3) ) {
+	if ( ! RING_API_ISPOINTER(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(4) ) {
+	if ( ! RING_API_ISPOINTER(4) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(5) ) {
+	if ( ! RING_API_ISPOINTER(5) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->getHslF(RING_API_GETDOUBLEPOINTER(2),RING_API_GETDOUBLEPOINTER(3),RING_API_GETDOUBLEPOINTER(4),RING_API_GETDOUBLEPOINTER(5));
+	pObject->getHslF((qreal *) RING_API_GETCPOINTER(2,"qreal"),(qreal *) RING_API_GETCPOINTER(3,"qreal"),(qreal *) RING_API_GETCPOINTER(4,"qreal"),(qreal *) RING_API_GETCPOINTER(5,"qreal"));
 }
 
 
@@ -34995,23 +34995,23 @@ RING_FUNC(ring_QColor_getHsvF)
 		return ;
 	}
 	pObject = (QColor *) RING_API_GETCPOINTER(1,"QColor");
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(3) ) {
+	if ( ! RING_API_ISPOINTER(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(4) ) {
+	if ( ! RING_API_ISPOINTER(4) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(5) ) {
+	if ( ! RING_API_ISPOINTER(5) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->getHsvF(RING_API_GETDOUBLEPOINTER(2),RING_API_GETDOUBLEPOINTER(3),RING_API_GETDOUBLEPOINTER(4),RING_API_GETDOUBLEPOINTER(5));
+	pObject->getHsvF((qreal *) RING_API_GETCPOINTER(2,"qreal"),(qreal *) RING_API_GETCPOINTER(3,"qreal"),(qreal *) RING_API_GETCPOINTER(4,"qreal"),(qreal *) RING_API_GETCPOINTER(5,"qreal"));
 }
 
 
@@ -35065,23 +35065,23 @@ RING_FUNC(ring_QColor_getRgbF)
 		return ;
 	}
 	pObject = (QColor *) RING_API_GETCPOINTER(1,"QColor");
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(3) ) {
+	if ( ! RING_API_ISPOINTER(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(4) ) {
+	if ( ! RING_API_ISPOINTER(4) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(5) ) {
+	if ( ! RING_API_ISPOINTER(5) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->getRgbF(RING_API_GETDOUBLEPOINTER(2),RING_API_GETDOUBLEPOINTER(3),RING_API_GETDOUBLEPOINTER(4),RING_API_GETDOUBLEPOINTER(5));
+	pObject->getRgbF((qreal *) RING_API_GETCPOINTER(2,"qreal"),(qreal *) RING_API_GETCPOINTER(3,"qreal"),(qreal *) RING_API_GETCPOINTER(4,"qreal"),(qreal *) RING_API_GETCPOINTER(5,"qreal"));
 }
 
 
