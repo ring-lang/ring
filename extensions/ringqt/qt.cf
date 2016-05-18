@@ -164,6 +164,7 @@ aNewMethodName + ["QDialog","done","donedialog"]
 aNewMethodName + ["QTextDocument","end","enddoc"]
 aNewMethodName + ["QTextBlock","next","nextblock"]
 aNumberTypes + "Qt::GestureType"
+aNumberTypes + "Qt::GestureFlag"
 </runcode>
 
 <class>
@@ -278,7 +279,7 @@ void getContentsMargins(int *left, int *top, int *right, int *bottom)
 <comment>
 void grabGesture(int gesture, int flags)
 </comment>
-void grabGesture(Qt::GestureType gesture, int flags)
+void grabGesture(Qt::GestureType gesture, Qt::GestureFlag flags)
 void grabKeyboard(void)
 void grabMouse(void)
 int grabShortcut(QKeySequence , int context)

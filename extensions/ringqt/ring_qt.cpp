@@ -1198,7 +1198,7 @@ RING_FUNC(ring_QWidget_grabGesture)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->grabGesture( (Qt::GestureType ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->grabGesture( (Qt::GestureType ) RING_API_GETNUMBER(2), (Qt::GestureFlag ) RING_API_GETNUMBER(3));
 }
 
 
