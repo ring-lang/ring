@@ -211,6 +211,8 @@ aNumberTypes + "QTabWidget::TabPosition"
 aNumberTypes + "QTabWidget::TabShape"
 aNumberTypes + "QDockWidget::DockWidgetFeature"
 aNumberTypes + "Qt::TextElideMode"
+aNumberTypes + "Qt::DockWidgetAreas"
+aNumberTypes + "QFrame::Shadow"
 </runcode>
 
 <class>
@@ -1317,7 +1319,7 @@ int allowedAreas(void)
 int features(void)
 bool isAreaAllowed(Qt::DockWidgetArea area)
 bool isFloating(void)
-void setAllowedAreas(Qt::ToolBarArea areas)
+void setAllowedAreas(Qt::DockWidgetAreas areas)
 void setFeatures(QDockWidget::DockWidgetFeature features)
 void setFloating(bool floating)
 void setTitleBarWidget(QWidget *widget)
@@ -1435,7 +1437,7 @@ int frameWidth(void)
 int lineWidth(void)
 int midLineWidth(void)
 void setFrameRect(QRect)
-void setFrameShadow(int)
+void setFrameShadow(QFrame::Shadow)
 void setFrameShape(int)
 void setFrameStyle(int style)
 void setLineWidth(int)

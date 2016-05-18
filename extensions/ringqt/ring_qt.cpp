@@ -17009,7 +17009,7 @@ RING_FUNC(ring_QDockWidget_setAllowedAreas)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setAllowedAreas( (Qt::ToolBarArea ) RING_API_GETNUMBER(2));
+	pObject->setAllowedAreas( (Qt::DockWidgetAreas ) RING_API_GETNUMBER(2));
 }
 
 
@@ -18938,7 +18938,7 @@ RING_FUNC(ring_QFrame_setFrameShadow)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFrameShadow( (int) RING_API_GETNUMBER(2));
+	pObject->setFrameShadow( (QFrame::Shadow) RING_API_GETNUMBER(2));
 }
 
 
