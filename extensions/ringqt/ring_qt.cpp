@@ -40945,7 +40945,7 @@ RING_FUNC(ring_QByteArray_toShort)
 		return ;
 	}
 	pObject = (QByteArray *) RING_API_GETCPOINTER(1,"QByteArray");
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -40956,10 +40956,9 @@ RING_FUNC(ring_QByteArray_toShort)
 	{
 		short *pValue ; 
 		pValue = (short *) malloc(sizeof(short)) ;
-		*pValue = pObject->toShort(RING_API_GETINTPOINTER(2), (int ) RING_API_GETNUMBER(3));
+		*pValue = pObject->toShort((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"short");
 	}
-	RING_API_ACCEPTINTVALUE(1) ;
 }
 
 
@@ -40976,7 +40975,7 @@ RING_FUNC(ring_QByteArray_toUInt)
 		return ;
 	}
 	pObject = (QByteArray *) RING_API_GETCPOINTER(1,"QByteArray");
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -40984,8 +40983,7 @@ RING_FUNC(ring_QByteArray_toUInt)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->toUInt(RING_API_GETINTPOINTER(2), (int ) RING_API_GETNUMBER(3)));
-	RING_API_ACCEPTINTVALUE(1) ;
+	RING_API_RETNUMBER(pObject->toUInt((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3)));
 }
 
 
@@ -41002,7 +41000,7 @@ RING_FUNC(ring_QByteArray_toULong)
 		return ;
 	}
 	pObject = (QByteArray *) RING_API_GETCPOINTER(1,"QByteArray");
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -41010,8 +41008,7 @@ RING_FUNC(ring_QByteArray_toULong)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->toULong(RING_API_GETINTPOINTER(2), (int ) RING_API_GETNUMBER(3)));
-	RING_API_ACCEPTINTVALUE(1) ;
+	RING_API_RETNUMBER(pObject->toULong((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3)));
 }
 
 
@@ -41028,7 +41025,7 @@ RING_FUNC(ring_QByteArray_toULongLong)
 		return ;
 	}
 	pObject = (QByteArray *) RING_API_GETCPOINTER(1,"QByteArray");
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -41036,8 +41033,7 @@ RING_FUNC(ring_QByteArray_toULongLong)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->toULongLong(RING_API_GETINTPOINTER(2), (int ) RING_API_GETNUMBER(3)));
-	RING_API_ACCEPTINTVALUE(1) ;
+	RING_API_RETNUMBER(pObject->toULongLong((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3)));
 }
 
 
@@ -41691,7 +41687,7 @@ RING_FUNC(ring_QAbstractSocket_bind)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->bind(* (QHostAddress  *) RING_API_GETCPOINTER(2,"QHostAddress"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+	RING_API_RETNUMBER(pObject->bind(* (QHostAddress  *) RING_API_GETCPOINTER(2,"QHostAddress"), (int ) RING_API_GETNUMBER(3), (QAbstractSocket::BindFlag ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QHostAddress"));
 }
@@ -41726,7 +41722,7 @@ RING_FUNC(ring_QAbstractSocket_connectToHost)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->connectToHost(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+	pObject->connectToHost(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (QIODevice::OpenModeFlag ) RING_API_GETNUMBER(4), (QAbstractSocket::NetworkLayerProtocol ) RING_API_GETNUMBER(5));
 }
 
 

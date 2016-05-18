@@ -276,6 +276,9 @@ aNumberTypes + "QWebSettings::ThirdPartyCookiePolicy"
 aNumberTypes + "QWebSettings::WebGraphic"
 aNumberTypes + "Qt::BrushStyle"
 aNumberTypes + "bool"
+aNumberTypes + "QAbstractSocket::BindFlag"
+aNumberTypes + "QIODevice::OpenModeFlag"
+aNumberTypes + "QAbstractSocket::NetworkLayerProtocol"
 </runcode>
 
 <class>
@@ -2874,10 +2877,10 @@ long toLong(bool *ok, int base)
 qlonglong toLongLong(bool *ok, int base)
 QByteArray toLower(void)
 QByteArray toPercentEncoding(QByteArray,QByteArray, char percent)
-short toShort(int *ok, int base)
-int toUInt(int *ok, int base)
-int toULong(int *ok, int base)
-int toULongLong(int * ok, int base)
+short toShort(bool *ok, int base)
+int toUInt(bool *ok, int base)
+int toULong(bool *ok, int base)
+int toULongLong(bool * ok, int base)
 int toUShort(bool * ok, int base)
 QByteArray toUpper(void)
 QByteArray trimmed(void)
@@ -2952,8 +2955,8 @@ passvmpointer
 </class>
 
 void abort(void)
-bool bind(QHostAddress address, int port, int mode)
-void connectToHost(QString  hostName, int port, int openMode, int protocol)
+bool bind(QHostAddress address, int port, QAbstractSocket::BindFlag mode)
+void connectToHost(QString  hostName, int port, QIODevice::OpenModeFlag openMode, QAbstractSocket::NetworkLayerProtocol protocol)
 void disconnectFromHost(void)
 int error(void)
 bool flush(void)
