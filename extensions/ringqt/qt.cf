@@ -189,6 +189,8 @@ aNumberTypes + "Qt::CursorMoveStyle"
 aNumberTypes + "QLineEdit::EchoMode"
 aNumberTypes + "QTextDocument::FindFlag"
 aNumberTypes + "QTextCursor::MoveOperation"
+aNumberTypes + "QTextCursor::MoveMode"
+aNumberTypes + "QTextEdit::LineWrapMode"
 </runcode>
 
 <class>
@@ -657,7 +659,7 @@ bool isUndoRedoEnabled(void)
 int lineWrapColumnOrWidth(void)
 QVariant loadResource(int, QUrl)
 void mergeCurrentCharFormat(QTextCharFormat)
-void moveCursor(QTextCursor::MoveOperation operation, int mode)
+void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
 bool overwriteMode(void) 
 void print(QPrinter * printer)  
 void setAcceptRichText(bool accept)
@@ -666,13 +668,13 @@ void setCursorWidth(int width)
 void setDocument(QTextDocument *document)
 void setDocumentTitle(QString)
 void setLineWrapColumnOrWidth(int w)
-void setLineWrapMode(int)
+void setLineWrapMode(QTextEdit::LineWrapMode)
 void setOverwriteMode(bool overwrite)
 void setReadOnly(bool)
 void setTabChangesFocus(bool)
 void setTabStopWidth(int width)
 void setTextCursor(QTextCursor)
-void setTextInteractionFlags(int flags)
+void setTextInteractionFlags(Qt::TextInteractionFlag flags)
 void setUndoRedoEnabled(bool enable)
 void setWordWrapMode(int policy)
 bool tabChangesFocus(void)  

@@ -7122,7 +7122,7 @@ RING_FUNC(ring_QTextEdit_moveCursor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->moveCursor( (QTextCursor::MoveOperation ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->moveCursor( (QTextCursor::MoveOperation ) RING_API_GETNUMBER(2), (QTextCursor::MoveMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -7305,7 +7305,7 @@ RING_FUNC(ring_QTextEdit_setLineWrapMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setLineWrapMode( (int) RING_API_GETNUMBER(2));
+	pObject->setLineWrapMode( (QTextEdit::LineWrapMode) RING_API_GETNUMBER(2));
 }
 
 
@@ -7429,7 +7429,7 @@ RING_FUNC(ring_QTextEdit_setTextInteractionFlags)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTextInteractionFlags( (int ) RING_API_GETNUMBER(2));
+	pObject->setTextInteractionFlags( (Qt::TextInteractionFlag ) RING_API_GETNUMBER(2));
 }
 
 
