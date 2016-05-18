@@ -186,6 +186,9 @@ aNumberTypes + "Qt::TextInteractionFlag"
 aNumberTypes + "Qt::AspectRatioMode"
 aNumberTypes + "Qt::TransformationMode"
 aNumberTypes + "Qt::CursorMoveStyle"
+aNumberTypes + "QLineEdit::EchoMode"
+aNumberTypes + "QTextDocument::FindFlag"
+aNumberTypes + "QTextCursor::MoveOperation"
 </runcode>
 
 <class>
@@ -520,7 +523,7 @@ name: QPixmap
 para: const char *
 </class>
 QPixmap copy(int x, int y, int width, int height)
-QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::Transformation transformMode) 
+QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) 
 int width(void)
 int height(void)
 
@@ -579,7 +582,7 @@ void setCompleter(QCompleter *c)
 void setCursorMoveStyle(Qt::CursorMoveStyle style)
 void setCursorPosition(int)
 void setDragEnabled(bool b)
-void setEchoMode(int)
+void setEchoMode(QLineEdit::EchoMode)
 void setFrame(bool)
 void setInputMask(QString)
 void setMaxLength(int)
@@ -643,7 +646,7 @@ int cursorWidth(void)
 QTextDocument *document(void)
 QString documentTitle(void)
 void ensureCursorVisible(void)
-bool find(QString, int)
+bool find(QString, QTextDocument::FindFlag)
 QString fontFamily(void)
 bool fontItalic(void)
 double fontPointSize(void)
@@ -654,7 +657,7 @@ bool isUndoRedoEnabled(void)
 int lineWrapColumnOrWidth(void)
 QVariant loadResource(int, QUrl)
 void mergeCurrentCharFormat(QTextCharFormat)
-void moveCursor(int operation, int mode)
+void moveCursor(QTextCursor::MoveOperation operation, int mode)
 bool overwriteMode(void) 
 void print(QPrinter * printer)  
 void setAcceptRichText(bool accept)

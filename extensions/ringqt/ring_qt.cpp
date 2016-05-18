@@ -5279,12 +5279,14 @@ RING_FUNC(ring_QPixmap_scaled)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	{
 		QPixmap *pValue ; 
 		pValue = new QPixmap() ;
-		*pValue = pObject->scaled( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (Qt::AspectRatioMode ) RING_API_GETNUMBER(4),* (Qt::Transformation  *) RING_API_GETCPOINTER(5,"Qt::Transformation"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"Qt::Transformation"));
+		*pValue = pObject->scaled( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (Qt::AspectRatioMode ) RING_API_GETNUMBER(4), (Qt::TransformationMode ) RING_API_GETNUMBER(5));
 		RING_API_RETCPOINTER(pValue,"QPixmap");
 	}
 }
@@ -6048,7 +6050,7 @@ RING_FUNC(ring_QLineEdit_setEchoMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setEchoMode( (int) RING_API_GETNUMBER(2));
+	pObject->setEchoMode( (QLineEdit::EchoMode) RING_API_GETNUMBER(2));
 }
 
 
@@ -6912,7 +6914,7 @@ RING_FUNC(ring_QTextEdit_find)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->find(RING_API_GETSTRING(2), (int) RING_API_GETNUMBER(3)));
+	RING_API_RETNUMBER(pObject->find(RING_API_GETSTRING(2), (QTextDocument::FindFlag) RING_API_GETNUMBER(3)));
 }
 
 
@@ -7120,7 +7122,7 @@ RING_FUNC(ring_QTextEdit_moveCursor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->moveCursor( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->moveCursor( (QTextCursor::MoveOperation ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 }
 
 
