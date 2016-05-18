@@ -595,7 +595,7 @@ aclasses = [
 		] ,
 		[	:name = "GAbstractSocket" ,
 			:realname = "QAbstractSocket" ,
-			:initpara = "int x,QObject *",
+			:initpara = "QAbstractSocket::SocketType x,QObject *",
 			:initparaparent = "x,",
 			:events = [
 					[ 	:signal = "connected()" ,
