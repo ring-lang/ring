@@ -25758,7 +25758,7 @@ RING_FUNC(ring_QUrl_fileName)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->fileName( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->fileName( (QUrl::ComponentFormattingOption ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
@@ -25779,7 +25779,7 @@ RING_FUNC(ring_QUrl_fragment)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->fragment( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->fragment( (QUrl::ComponentFormattingOption ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
@@ -25834,7 +25834,7 @@ RING_FUNC(ring_QUrl_host)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->host( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->host( (QUrl::ComponentFormattingOption ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
