@@ -169,6 +169,7 @@ aNumberTypes + "Qt::ShortcutContext"
 aNumberTypes + "Qt::InputMethodQuery"
 aNumberTypes + "Qt::WindowType"
 aNumberTypes + "QWidget::RenderFlag"
+aNumberTypes + "Qt::WidgetAttribute"
 </runcode>
 
 <class>
@@ -345,7 +346,7 @@ void scroll(int dx, int dy)
 void setAcceptDrops(bool on)
 void setAccessibleDescription(QString)
 void setAccessibleName(QString)
-void setAttribute(int attribute, bool on)
+void setAttribute(Qt::WidgetAttribute attribute, bool on)
 void setAutoFillBackground(bool enabled)
 void setBackgroundRole(int role)
 void setBaseSize(int basew, int baseh)
