@@ -172,6 +172,7 @@ aNumberTypes + "QWidget::RenderFlag"
 aNumberTypes + "Qt::WidgetAttribute"
 aNumberTypes + "QPalette::ColorRole"
 aNumberTypes + "Qt::ContextMenuPolicy"
+aNumberTypes + "Qt::FocusReason"
 </runcode>
 
 <class>
@@ -358,7 +359,7 @@ void setCursor(QCursor)
 void setFixedHeight(int h)
 void setFixedSize(int w, int h)
 void setFixedWidth(int w)
-void setFocus(int reason)
+void setFocus(Qt::FocusReason reason)
 void setFocusPolicy(int policy)
 void setFocusProxy(QWidget *w)
 void setFont(QFont)

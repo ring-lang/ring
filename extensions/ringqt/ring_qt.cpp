@@ -2735,7 +2735,7 @@ RING_FUNC(ring_QWidget_setFocus)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFocus( (int ) RING_API_GETNUMBER(2));
+	pObject->setFocus( (Qt::FocusReason ) RING_API_GETNUMBER(2));
 }
 
 
