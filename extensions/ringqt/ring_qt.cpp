@@ -17009,7 +17009,7 @@ RING_FUNC(ring_QDockWidget_setAllowedAreas)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setAllowedAreas( (Qt::DockWidgetAreas ) RING_API_GETNUMBER(2));
+	pObject->setAllowedAreas( (Qt::DockWidgetArea ) RING_API_GETNUMBER(2));
 }
 
 
