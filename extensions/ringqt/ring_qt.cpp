@@ -46586,7 +46586,7 @@ RING_FUNC(ring_QTextCursor_setPosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPosition( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setPosition( (QTextCursor::MoveMode ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 }
 
 
@@ -46784,7 +46784,7 @@ RING_FUNC(ring_QColorDialog_setOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOption( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+	pObject->setOption( (QColorDialog::ColorDialogOption ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
 }
 
 
@@ -46805,7 +46805,7 @@ RING_FUNC(ring_QColorDialog_setOptions)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOptions( (int ) RING_API_GETNUMBER(2));
+	pObject->setOptions( (QColorDialog::ColorDialogOption ) RING_API_GETNUMBER(2));
 }
 
 
@@ -46826,7 +46826,7 @@ RING_FUNC(ring_QColorDialog_testOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->testOption( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->testOption( (QColorDialog::ColorDialogOption ) RING_API_GETNUMBER(2)));
 }
 
 

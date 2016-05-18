@@ -290,6 +290,7 @@ aNumberTypes + "QFileDevice::Permission"
 aNumberTypes + "QDir::SortFlag"
 aNumberTypes + "QFontDialog::FontDialogOption"
 aNumberTypes + "QTextCursor::SelectionType"
+aNumberTypes + "QColorDialog::ColorDialogOption"
 </runcode>
 
 <class>
@@ -3331,7 +3332,7 @@ void setBlockCharFormat(QTextCharFormat)
 void setBlockFormat(QTextBlockFormat)
 void setCharFormat(QTextCharFormat)
 void setKeepPositionOnInsert(bool b)
-void setPosition(int pos, int m)
+void setPosition(QTextCursor::MoveMode pos, int m)
 void setVerticalMovementX(int x)
 void setVisualNavigation(bool b)
 int verticalMovementX(void)
@@ -3348,9 +3349,9 @@ void open(void)
 int options(void)
 QColor selectedColor(void)
 void setCurrentColor(QColor)
-void setOption(int option, bool on )
-void setOptions(int options)
-bool testOption(int option)
+void setOption(QColorDialog::ColorDialogOption option, bool on )
+void setOptions(QColorDialog::ColorDialogOption options)
+bool testOption(QColorDialog::ColorDialogOption option)
 QColor customColor(int index)
 int customCount(void)
 void setCustomColor(int index, int color)
