@@ -23718,7 +23718,7 @@ RING_FUNC(ring_QDateTimeEdit_setCurrentSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCurrentSection( (int ) RING_API_GETNUMBER(2));
+	pObject->setCurrentSection( (QDateTimeEdit::Section ) RING_API_GETNUMBER(2));
 }
 
 
@@ -23937,7 +23937,7 @@ RING_FUNC(ring_QDateTimeEdit_setSelectedSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setSelectedSection( (int ) RING_API_GETNUMBER(2));
+	pObject->setSelectedSection( (QDateTimeEdit::Section ) RING_API_GETNUMBER(2));
 }
 
 
