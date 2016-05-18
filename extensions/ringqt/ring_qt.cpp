@@ -1253,7 +1253,7 @@ RING_FUNC(ring_QWidget_grabShortcut)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->grabShortcut(* (QKeySequence *) RING_API_GETCPOINTER(2,"QKeySequence"), (int ) RING_API_GETNUMBER(3)));
+	RING_API_RETNUMBER(pObject->grabShortcut(* (QKeySequence *) RING_API_GETCPOINTER(2,"QKeySequence"), (Qt::ShortcutContext ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QKeySequence"));
 }
