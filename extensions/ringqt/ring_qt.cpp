@@ -31607,7 +31607,7 @@ RING_FUNC(ring_QFileDialog_setViewMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setViewMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setViewMode( (QFileDialog::ViewMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -31628,7 +31628,7 @@ RING_FUNC(ring_QFileDialog_testOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->testOption( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->testOption( (QFileDialog::Option ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -31678,7 +31678,7 @@ RING_FUNC(ring_QFileDialog_getExistingDirectory)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->getExistingDirectory((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),RING_API_GETSTRING(4), (int) RING_API_GETNUMBER(5)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->getExistingDirectory((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),RING_API_GETSTRING(4), (QFileDialog::Option) RING_API_GETNUMBER(5)).toStdString().c_str());
 }
 
 

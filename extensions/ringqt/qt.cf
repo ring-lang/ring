@@ -243,6 +243,7 @@ aNumberTypes + "QFileDialog::DialogLabel"
 aNumberTypes + "QFileDialog::AcceptMode"
 aNumberTypes + "QFileDialog::FileMode"
 aNumberTypes + "QFileDialog::Option"
+aNumberTypes + "QFileDialog::ViewMode"
 </runcode>
 
 <class>
@@ -2354,13 +2355,13 @@ void setProxyModel(QAbstractProxyModel *proxyModel)
 <comment>
 void setSidebarUrls(const QList<QUrl> & urls)
 </comment>
-void setViewMode(int mode)
+void setViewMode(QFileDialog::ViewMode mode)
 <comment>
 QList<QUrl> sidebarUrls(void)
 </comment>
-bool testOption(int option)
+bool testOption(QFileDialog::Option option)
 int viewMode(void)
-QString getExistingDirectory(QWidget *,QString,QString, int)
+QString getExistingDirectory(QWidget *,QString,QString, QFileDialog::Option)
 QUrl getExistingDirectoryUrl(QWidget *,QString,QUrl, int,QStringList)
 QString getOpenFileName(QWidget *,QString,QString,QString)
 <comment>
