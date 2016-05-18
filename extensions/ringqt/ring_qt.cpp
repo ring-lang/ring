@@ -22886,7 +22886,7 @@ RING_FUNC(ring_QAbstractSlider_triggerAction)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->triggerAction( (int ) RING_API_GETNUMBER(2));
+	pObject->triggerAction( (QAbstractSlider::SliderAction ) RING_API_GETNUMBER(2));
 }
 
 
@@ -23012,7 +23012,7 @@ RING_FUNC(ring_QSlider_setTickPosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTickPosition( (int ) RING_API_GETNUMBER(2));
+	pObject->setTickPosition( (QSlider::TickPosition ) RING_API_GETNUMBER(2));
 }
 
 
@@ -23655,7 +23655,7 @@ RING_FUNC(ring_QDateTimeEdit_sectionText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->sectionText( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->sectionText( (QDateTimeEdit::Section ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 

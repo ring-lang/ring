@@ -221,6 +221,9 @@ aNumberTypes + "QAbstractItemView::EditTrigger"
 aNumberTypes + "QAbstractItemView::SelectionBehavior"
 aNumberTypes + "QAbstractItemView::SelectionMode"
 aNumberTypes + "QProgressBar::Direction"
+aNumberTypes + "QAbstractSlider::SliderAction"
+aNumberTypes + "QSlider::TickPosition"
+aNumberTypes + "QDateTimeEdit::Section"
 </runcode>
 
 <class>
@@ -1693,7 +1696,7 @@ void setSliderPosition(int)
 void setTracking(bool enable)
 int singleStep(void)
 int sliderPosition(void)
-void triggerAction(int action)
+void triggerAction(QAbstractSlider::SliderAction action)
 int value(void)
 void setOrientation(Qt::Orientation)
 void setRange(int min, int max)
@@ -1708,7 +1711,7 @@ passvmpointer
 </class>
 
 void setTickInterval(int ti)
-void setTickPosition(int position)
+void setTickPosition(QSlider::TickPosition position)
 int tickInterval(void)
 int tickPosition(void)
 QSize minimumSizeHint(void)
@@ -1755,7 +1758,7 @@ QDateTime minimumDateTime(void)
 QTime minimumTime(void)
 int sectionAt(int index)
 int sectionCount(void)
-QString sectionText(int section)
+QString sectionText(QDateTimeEdit::Section section)
 void setCalendarPopup(bool enable)
 void setCalendarWidget(QCalendarWidget *calendarWidget)
 void setCurrentSection(int section)
