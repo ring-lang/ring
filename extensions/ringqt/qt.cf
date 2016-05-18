@@ -301,6 +301,7 @@ aNumberTypes + "QTextDocument::MetaInformation"
 aNumberTypes + "Qt::InputMethodHints"
 aNumberTypes + "Qt::WindowFlags"
 aNumberTypes + "QEvent::Type"
+aNumberTypes + "QPrinter::PrinterMode"
 </runcode>
 
 <class>
@@ -2659,7 +2660,7 @@ bool isValidColor(QString)
 
 <class>
 name: QPrinter
-para: int
+para: QPrinter::PrinterMode
 </class>
 
 bool abort(void)
@@ -3391,7 +3392,7 @@ RING_FUNC(ring_QColorDialog_getcolor)
 
 <class>
 name: QHeaderView
-para: int, QWidget *
+para: Qt::Orientation, QWidget *
 parent: QAbstractItemView
 </class>
 

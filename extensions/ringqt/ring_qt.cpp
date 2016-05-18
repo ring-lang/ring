@@ -52820,7 +52820,7 @@ RING_FUNC(ring_QColor_new)
 RING_FUNC(ring_QPrinter_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
-	QPrinter *pObject = new QPrinter( (int) RING_API_GETNUMBER(1));
+	QPrinter *pObject = new QPrinter( (QPrinter::PrinterMode) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QPrinter");
 }
 
@@ -52925,7 +52925,7 @@ RING_FUNC(ring_QColorDialog_new)
 RING_FUNC(ring_QHeaderView_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
-	QHeaderView *pObject = new QHeaderView( (int) RING_API_GETNUMBER(1),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+	QHeaderView *pObject = new QHeaderView( (Qt::Orientation) RING_API_GETNUMBER(1),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
 	RING_API_RETCPOINTER(pObject,"QHeaderView");
 }
 
