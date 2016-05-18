@@ -19902,7 +19902,7 @@ RING_FUNC(ring_QAbstractItemView_setDefaultDropAction)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setDefaultDropAction( (int ) RING_API_GETNUMBER(2));
+	pObject->setDefaultDropAction( (Qt::DropAction ) RING_API_GETNUMBER(2));
 }
 
 
@@ -19923,7 +19923,7 @@ RING_FUNC(ring_QAbstractItemView_setDragDropMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setDragDropMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setDragDropMode( (QAbstractItemView::DragDropMode ) RING_API_GETNUMBER(2));
 }
 
 

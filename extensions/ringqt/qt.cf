@@ -215,6 +215,7 @@ aNumberTypes + "Qt::DockWidgetAreas"
 aNumberTypes + "QFrame::Shadow"
 aNumberTypes + "QFrame::Shape"
 aNumberTypes + "Qt::ScrollBarPolicy"
+aNumberTypes + "QAbstractItemView::DragDropMode"
 </runcode>
 
 <class>
@@ -1502,8 +1503,8 @@ QItemSelectionModel *selectionModel(void)
 void setAlternatingRowColors(bool enable)
 void setAutoScroll(bool enable)
 void setAutoScrollMargin(int margin)
-void setDefaultDropAction(int dropAction)
-void setDragDropMode(int behavior)
+void setDefaultDropAction(Qt::DropAction dropAction)
+void setDragDropMode(QAbstractItemView::DragDropMode behavior)
 void setDragDropOverwriteMode(bool overwrite)
 void setDragEnabled(bool enable)
 void setDropIndicatorShown(bool enable)
