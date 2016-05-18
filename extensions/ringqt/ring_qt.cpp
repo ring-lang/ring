@@ -33529,7 +33529,7 @@ RING_FUNC(ring_QPainter_setCompositionMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCompositionMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setCompositionMode( (QPainter::ComposionMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -33569,7 +33569,7 @@ RING_FUNC(ring_QPainter_setLayoutDirection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setLayoutDirection( (int ) RING_API_GETNUMBER(2));
+	pObject->setLayoutDirection( (Qt::LayoutDirection ) RING_API_GETNUMBER(2));
 }
 
 
@@ -33853,7 +33853,7 @@ RING_FUNC(ring_QPainter_testRenderHint)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->testRenderHint( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->testRenderHint( (QPainter::RenderHint ) RING_API_GETNUMBER(2)));
 }
 
 

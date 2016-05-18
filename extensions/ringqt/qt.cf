@@ -249,6 +249,7 @@ aNumberTypes + "Qt::FillRule"
 aNumberTypes + "Qt::SizeMode"
 aNumberTypes + "Qt::BGMode"
 aNumberTypes + "Qt::ClipOperation"
+aNumberTypes + "QPainter::ComposionMode"
 </runcode>
 
 <class>
@@ -2452,9 +2453,9 @@ void setClipPath( QPainterPath  path, Qt::ClipOperation operation)
 void setClipRect(int x, int y, int width, int height, Qt::ClipOperation operation)
 void setClipRegion( QRegion  region, Qt::ClipOperation operation)
 void setClipping(bool enable)
-void setCompositionMode(int mode)
+void setCompositionMode(QPainter::ComposionMode mode)
 void setFont( QFont  font)
-void setLayoutDirection(int direction)
+void setLayoutDirection(Qt::LayoutDirection direction)
 void setOpacity(qreal opacity)
 void setPen(QPen  pen)
 void setRenderHint(QPainter::RenderHint hint, bool on)
@@ -2466,7 +2467,7 @@ void setWorldMatrixEnabled(bool enable)
 void setWorldTransform( QTransform  matrix, bool combine)
 void shear(double sh, double sv)
 void strokePath( QPainterPath  path,  QPen  pen)
-bool testRenderHint(int hint)
+bool testRenderHint(QPainter::RenderHint hint)
 QTransform  transform(void)
 void translate(double dx, double dy)
 bool viewTransformEnabled(void)
