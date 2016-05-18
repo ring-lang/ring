@@ -9670,7 +9670,7 @@ RING_FUNC(ring_QTreeView_sortByColumn)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->sortByColumn( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->sortByColumn( (int ) RING_API_GETNUMBER(2), (Qt::SortOrder ) RING_API_GETNUMBER(3));
 }
 
 
@@ -10709,7 +10709,7 @@ RING_FUNC(ring_QFileSystemModel_setFilter)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFilter( (int ) RING_API_GETNUMBER(2));
+	pObject->setFilter( (QDir::Filter ) RING_API_GETNUMBER(2));
 }
 
 
@@ -10973,7 +10973,7 @@ RING_FUNC(ring_QFileSystemModel_dropMimeData)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->dropMimeData((QMimeData *) RING_API_GETCPOINTER(2,"QMimeData"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (QModelIndex  *) RING_API_GETCPOINTER(6,"QModelIndex")));
+	RING_API_RETNUMBER(pObject->dropMimeData((QMimeData *) RING_API_GETCPOINTER(2,"QMimeData"), (Qt::DropAction ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (QModelIndex  *) RING_API_GETCPOINTER(6,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
 		free(RING_API_GETCPOINTER(5,"QModelIndex"));
 }
@@ -31379,7 +31379,7 @@ RING_FUNC(ring_QFileDialog_setFilter)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFilter( (int ) RING_API_GETNUMBER(2));
+	pObject->setFilter( (QDir::Filter ) RING_API_GETNUMBER(2));
 }
 
 
@@ -45050,7 +45050,7 @@ RING_FUNC(ring_QDirModel_setFilter)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFilter( (int ) RING_API_GETNUMBER(2));
+	pObject->setFilter( (QDir::Filter ) RING_API_GETNUMBER(2));
 }
 
 
