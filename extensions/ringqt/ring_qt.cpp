@@ -45324,7 +45324,7 @@ RING_FUNC(ring_QFontDialog_setOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOption( (QFontDialog::FontDialogOptions ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+	pObject->setOption( (QFontDialog::FontDialogOption ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
 }
 
 
@@ -45345,7 +45345,7 @@ RING_FUNC(ring_QFontDialog_setOptions)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOptions( (int ) RING_API_GETNUMBER(2));
+	pObject->setOptions( (QFontDialog::FontDialogOption ) RING_API_GETNUMBER(2));
 }
 
 
@@ -45366,7 +45366,7 @@ RING_FUNC(ring_QFontDialog_testOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->testOption( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->testOption( (QFontDialog::FontDialogOption ) RING_API_GETNUMBER(2)));
 }
 
 RING_FUNC(ring_QFontDialog_getfont)

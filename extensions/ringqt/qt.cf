@@ -288,7 +288,7 @@ aNumberTypes + "QNetworkProxy::ProxyType"
 aNumberTypes + "QHostInfo::HostInfoError"
 aNumberTypes + "QFileDevice::Permission"
 aNumberTypes + "QDir::SortFlag"
-aNumberTypes + "QFontDialog::FontDialogOptions"
+aNumberTypes + "QFontDialog::FontDialogOption"
 </runcode>
 
 <class>
@@ -3225,9 +3225,9 @@ void open(QObject *receiver, const char *member)
 int options(void)
 QFont selectedFont(void)
 void setCurrentFont(QFont)
-void setOption(QFontDialog::FontDialogOptions option, bool on)
-void setOptions(int options)
-bool testOption(int option)
+void setOption(QFontDialog::FontDialogOption option, bool on)
+void setOptions(QFontDialog::FontDialogOption options)
+bool testOption(QFontDialog::FontDialogOption option)
 
 
 <register>
