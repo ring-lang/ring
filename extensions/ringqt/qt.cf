@@ -193,6 +193,8 @@ aNumberTypes + "QTextCursor::MoveMode"
 aNumberTypes + "QTextEdit::LineWrapMode"
 aNumberTypes + "QTextOption::WrapMode"
 aNumberTypes + "QItemSelectionModel::SelectionFlag"
+aNumberTypes + "Qt::SortOrder"
+aNumberTypes + "QAbstractItemView::ScrollHint"
 </runcode>
 
 <class>
@@ -756,7 +758,7 @@ void setCurrentItem(QListWidgetItem *item, QItemSelectionModel::SelectionFlag co
 void setCurrentRow(int row, QItemSelectionModel::SelectionFlag command)
 void setItemWidget(QListWidgetItem *item, QWidget *widget)
 void setSortingEnabled(bool enable)
-void sortItems(int order)
+void sortItems(Qt::SortOrder order)
 QListWidgetItem *takeItem(int row)
 QRect visualItemRect(QListWidgetItem *item)
 
@@ -823,7 +825,7 @@ void dataChanged(QModelIndex,QModelIndex)
 QModelIndex indexAt(QPoint) 
 void keyboardSearch(QString)
 void reset(void)
-void scrollTo(QModelIndex, int)
+void scrollTo(QModelIndex, QAbstractItemView::ScrollHint)
 void selectAll(void)
 void setModel(QAbstractItemModel *model)
 void setRootIndex(QModelIndex)
@@ -938,7 +940,7 @@ void setHeaderItem(QTreeWidgetItem *item)
 void setHeaderLabel(QString)
 void setItemWidget(QTreeWidgetItem *item, int column, QWidget * widget)
 int sortColumn(void) 
-void sortItems(int column, int order)
+void sortItems(int column, Qt::SortOrder order)
 QTreeWidgetItem *takeTopLevelItem(int index)
 QTreeWidgetItem *topLevelItem(int index)
 int topLevelItemCount(void)
@@ -1473,7 +1475,7 @@ void keyboardSearch(QString)
 QAbstractItemModel *model(void)
 void openPersistentEditor(QModelIndex)
 QModelIndex rootIndex(void)
-void scrollTo(QModelIndex,int)
+void scrollTo(QModelIndex,QAbstractItemView::ScrollHint)
 int selectionBehavior(void)
 int selectionMode(void)
 QItemSelectionModel *selectionModel(void)
@@ -1548,7 +1550,7 @@ void setItem(int row, int column, QTableWidgetItem *item)
 void setItemPrototype(QTableWidgetItem *item)
 void setRowCount(int rows)
 void setVerticalHeaderItem(int row, QTableWidgetItem *item)
-void sortItems(int column, int order)
+void sortItems(int column, Qt::SortOrder order)
 QTableWidgetItem *takeHorizontalHeaderItem(int column)
 QTableWidgetItem *takeItem(int row, int column)
 QTableWidgetItem *takeVerticalHeaderItem(int row)
@@ -1562,7 +1564,7 @@ void insertColumn(int column)
 void insertRow(int row)
 void removeColumn(int column)
 void removeRow(int row)
-void scrollToItem(QTableWidgetItem *item, int hint)
+void scrollToItem(QTableWidgetItem *item, QAbstractItemView::ScrollHint hint)
 
 void setcellActivatedEvent(const char *)
 void setcellChangedEvent(const char *)

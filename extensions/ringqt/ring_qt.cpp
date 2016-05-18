@@ -8642,7 +8642,7 @@ RING_FUNC(ring_QListWidget_sortItems)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->sortItems( (int ) RING_API_GETNUMBER(2));
+	pObject->sortItems( (Qt::SortOrder ) RING_API_GETNUMBER(2));
 }
 
 
@@ -9808,7 +9808,7 @@ RING_FUNC(ring_QTreeView_scrollTo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->scrollTo(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"), (int) RING_API_GETNUMBER(3));
+	pObject->scrollTo(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"), (QAbstractItemView::ScrollHint) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QModelIndex"));
 }
@@ -11766,7 +11766,7 @@ RING_FUNC(ring_QTreeWidget_sortItems)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->sortItems( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->sortItems( (int ) RING_API_GETNUMBER(2), (Qt::SortOrder ) RING_API_GETNUMBER(3));
 }
 
 
@@ -19765,7 +19765,7 @@ RING_FUNC(ring_QAbstractItemView_scrollTo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->scrollTo(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"), (int) RING_API_GETNUMBER(3));
+	pObject->scrollTo(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"), (QAbstractItemView::ScrollHint) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QModelIndex"));
 }
@@ -21124,7 +21124,7 @@ RING_FUNC(ring_QTableWidget_sortItems)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->sortItems( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->sortItems( (int ) RING_API_GETNUMBER(2), (Qt::SortOrder ) RING_API_GETNUMBER(3));
 }
 
 
@@ -21423,7 +21423,7 @@ RING_FUNC(ring_QTableWidget_scrollToItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->scrollToItem((QTableWidgetItem *) RING_API_GETCPOINTER(2,"QTableWidgetItem"), (int ) RING_API_GETNUMBER(3));
+	pObject->scrollToItem((QTableWidgetItem *) RING_API_GETCPOINTER(2,"QTableWidgetItem"), (QAbstractItemView::ScrollHint ) RING_API_GETNUMBER(3));
 }
 
 
