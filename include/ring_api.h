@@ -174,7 +174,7 @@ void ring_vmlib_intvalue ( void *pPointer ) ;
 #define RING_API_RETSTRING2(x,y) ((VM *) pPointer)->nSP++ ; ring_itemarray_setstring2(((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP, x,y)
 #define RING_API_RETLIST(x) ring_vm_api_retlist((VM *) pPointer,x)
 #define RING_API_NEWLIST ring_vm_api_newlist((VM *) pPointer)
-#define RING_API_RETCPOINTER(x,y) (ring_vm_api_retcpointer((VM *) pPointer,x,y))
+#define RING_API_RETCPOINTER(x,y) (ring_vm_api_retcpointer((VM *) pPointer,(void *) x,y))
 #define RING_API_GETCPOINTER(x,y) (ring_vm_api_getcpointer((VM *) pPointer,x,y))
 #define RING_API_PUSHPVALUE(x) ((VM *) pPointer)->nSP++ ; ring_itemarray_setpointer(((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP , x )
 #define RING_API_OBJTYPE ((VM *) pPointer)->aStack[((VM *) pPointer)->nSP].nObjectType
