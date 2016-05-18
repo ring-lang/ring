@@ -908,7 +908,7 @@ Class QPixmap
 
 	Func scaled P1,P2,P3,P4
 		pTempObj = new QPixmap
-		pTempObj.pObject = QPixmap_scaled(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+		pTempObj.pObject = QPixmap_scaled(pObject,P1,P2,P3,P4)
 		return pTempObj
 
 	Func width 

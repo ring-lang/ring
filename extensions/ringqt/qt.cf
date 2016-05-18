@@ -191,6 +191,8 @@ aNumberTypes + "QTextDocument::FindFlag"
 aNumberTypes + "QTextCursor::MoveOperation"
 aNumberTypes + "QTextCursor::MoveMode"
 aNumberTypes + "QTextEdit::LineWrapMode"
+aNumberTypes + "QTextOption::WrapMode"
+aNumberTypes + "QItemSelectionModel::SelectionFlag"
 </runcode>
 
 <class>
@@ -676,7 +678,7 @@ void setTabStopWidth(int width)
 void setTextCursor(QTextCursor)
 void setTextInteractionFlags(Qt::TextInteractionFlag flags)
 void setUndoRedoEnabled(bool enable)
-void setWordWrapMode(int policy)
+void setWordWrapMode(QTextOption::WrapMode policy)
 bool tabChangesFocus(void)  
 int tabStopWidth(void)  
 QColor textBackgroundColor(void)  
@@ -750,8 +752,8 @@ int row(QListWidgetItem *item)
 <comment>
 QList selectedItems(void)
 </comment>
-void setCurrentItem(QListWidgetItem *item, int command)
-void setCurrentRow(int row, int command)
+void setCurrentItem(QListWidgetItem *item, QItemSelectionModel::SelectionFlag command)
+void setCurrentRow(int row, QItemSelectionModel::SelectionFlag command)
 void setItemWidget(QListWidgetItem *item, QWidget *widget)
 void setSortingEnabled(bool enable)
 void sortItems(int order)
@@ -930,7 +932,7 @@ QWidget *itemWidget(QTreeWidgetItem *item, int column)
 void openPersistentEditor(QTreeWidgetItem *item, int column)
 void removeItemWidget(QTreeWidgetItem *item, int column)
 void setColumnCount(int columns)
-void setCurrentItem(QTreeWidgetItem * item, int column)
+void setCurrentItem(QTreeWidgetItem * item, QItemSelectionModel::SelectionFlag column)
 void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
 void setHeaderItem(QTreeWidgetItem *item)
 void setHeaderLabel(QString)

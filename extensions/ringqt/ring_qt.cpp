@@ -7471,7 +7471,7 @@ RING_FUNC(ring_QTextEdit_setWordWrapMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setWordWrapMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setWordWrapMode( (QTextOption::WrapMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -8550,7 +8550,7 @@ RING_FUNC(ring_QListWidget_setCurrentItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCurrentItem((QListWidgetItem *) RING_API_GETCPOINTER(2,"QListWidgetItem"), (int ) RING_API_GETNUMBER(3));
+	pObject->setCurrentItem((QListWidgetItem *) RING_API_GETCPOINTER(2,"QListWidgetItem"), (QItemSelectionModel::SelectionFlag ) RING_API_GETNUMBER(3));
 }
 
 
@@ -8575,7 +8575,7 @@ RING_FUNC(ring_QListWidget_setCurrentRow)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCurrentRow( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setCurrentRow( (int ) RING_API_GETNUMBER(2), (QItemSelectionModel::SelectionFlag ) RING_API_GETNUMBER(3));
 }
 
 
@@ -11628,7 +11628,7 @@ RING_FUNC(ring_QTreeWidget_setCurrentItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCurrentItem((QTreeWidgetItem *) RING_API_GETCPOINTER(2,"QTreeWidgetItem"), (int ) RING_API_GETNUMBER(3));
+	pObject->setCurrentItem((QTreeWidgetItem *) RING_API_GETCPOINTER(2,"QTreeWidgetItem"), (QItemSelectionModel::SelectionFlag ) RING_API_GETNUMBER(3));
 }
 
 
