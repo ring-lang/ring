@@ -293,6 +293,8 @@ aNumberTypes + "QTextCursor::SelectionType"
 aNumberTypes + "QColorDialog::ColorDialogOption"
 aNumberTypes + "QLCDNumber::Mode"
 aNumberTypes + "QLCDNumber::SegmentStyle"
+aNumberTypes + "QInputDialog::InputMode"
+aNumberTypes + "QInputDialog::InputDialogOption"
 </runcode>
 
 <class>
@@ -3452,7 +3454,7 @@ void setDoubleMaximum(double max)
 void setDoubleMinimum(double min)
 void setDoubleRange(double min, double max)
 void setDoubleValue(double value)
-void setInputMode(int mode)
+void setInputMode(QInputDialog::InputMode mode)
 void setIntMaximum(int max)
 void setIntMinimum(int min)
 void setIntRange(int min, int max)
@@ -3460,11 +3462,11 @@ void setIntStep(int step)
 void setIntValue(int value)
 void setLabelText(QString)
 void setOkButtonText(QString)
-void setOption(int option, bool on)
-void setOptions(int options)
+void setOption(QInputDialog::InputDialogOption option, bool on)
+void setOptions(QInputDialog::InputDialogOption options)
 void setTextEchoMode(int mode)
 void setTextValue(QString)
-bool testOption(int option)
+bool testOption(QInputDialog::InputDialogOption option)
 int textEchoMode(void)
 QString textValue(void)
 

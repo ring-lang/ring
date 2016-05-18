@@ -47722,7 +47722,7 @@ RING_FUNC(ring_QInputDialog_setInputMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setInputMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setInputMode( (QInputDialog::InputMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -47898,7 +47898,7 @@ RING_FUNC(ring_QInputDialog_setOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOption( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+	pObject->setOption( (QInputDialog::InputDialogOption ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
 }
 
 
@@ -47919,7 +47919,7 @@ RING_FUNC(ring_QInputDialog_setOptions)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOptions( (int ) RING_API_GETNUMBER(2));
+	pObject->setOptions( (QInputDialog::InputDialogOption ) RING_API_GETNUMBER(2));
 }
 
 
@@ -47982,7 +47982,7 @@ RING_FUNC(ring_QInputDialog_testOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->testOption( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->testOption( (QInputDialog::InputDialogOption ) RING_API_GETNUMBER(2)));
 }
 
 
