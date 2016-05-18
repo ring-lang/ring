@@ -273,6 +273,8 @@ aNumberTypes + "QWebSettings::FontFamily"
 aNumberTypes + "QWebSettings::FontSize"
 aNumberTypes + "QWebSettings::WebAttribute"
 aNumberTypes + "QWebSettings::ThirdPartyCookiePolicy"
+aNumberTypes + "QWebSettings::WebGraphic"
+aNumberTypes + "Qt::BrushStyle"
 </runcode>
 
 <class>
@@ -2796,8 +2798,8 @@ void setOfflineStorageDefaultQuota(int maximumSize)
 void setOfflineStoragePath(QString)
 void setOfflineWebApplicationCachePath(QString)
 void setOfflineWebApplicationCacheQuota(int maximumSize)
-void setWebGraphic(int type, QPixmap)
-QPixmap webGraphic(int type)
+void setWebGraphic(QWebSettings::WebGraphic type, QPixmap)
+QPixmap webGraphic(QWebSettings::WebGraphic type)
 
 <class>
 name: QBrush
@@ -2810,7 +2812,7 @@ bool isOpaque(void)
 QMatrix matrix(void)
 void setColor(QColor)
 void setMatrix(QMatrix)
-void setStyle(int style)
+void setStyle(Qt::BrushStyle style)
 void setTexture(QPixmap)
 void setTextureImage(QImage)
 void setTransform(QTransform)
