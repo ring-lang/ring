@@ -26146,7 +26146,7 @@ RING_FUNC(ring_QUrl_setPassword)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPassword(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setPassword(RING_API_GETSTRING(2), (QUrl::ParsingMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -26171,7 +26171,7 @@ RING_FUNC(ring_QUrl_setPath)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPath(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setPath(RING_API_GETSTRING(2), (QUrl::ParsingMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -26217,7 +26217,7 @@ RING_FUNC(ring_QUrl_setQuery)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setQuery(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setQuery(RING_API_GETSTRING(2), (QUrl::ParsingMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -26263,7 +26263,7 @@ RING_FUNC(ring_QUrl_setUrl)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setUrl(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setUrl(RING_API_GETSTRING(2), (QUrl::ParsingMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -26288,7 +26288,7 @@ RING_FUNC(ring_QUrl_setUserInfo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setUserInfo(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setUserInfo(RING_API_GETSTRING(2), (QUrl::ParsingMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -26313,7 +26313,7 @@ RING_FUNC(ring_QUrl_setUserName)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setUserName(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setUserName(RING_API_GETSTRING(2), (QUrl::ParsingMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -26370,7 +26370,7 @@ RING_FUNC(ring_QUrl_topLevelDomain)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->topLevelDomain( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->topLevelDomain( (QUrl::ComponentFormattingOption ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
@@ -26391,7 +26391,7 @@ RING_FUNC(ring_QUrl_userInfo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->userInfo( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->userInfo( (QUrl::ComponentFormattingOption ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
