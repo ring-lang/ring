@@ -37406,7 +37406,7 @@ RING_FUNC(ring_QPrinter_setPrintRange)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPrintRange( (int) RING_API_GETNUMBER(2));
+	pObject->setPrintRange( (QPrinter::PrintRange) RING_API_GETNUMBER(2));
 }
 
 
@@ -38002,7 +38002,7 @@ RING_FUNC(ring_QFont_setCapitalization)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCapitalization( (int ) RING_API_GETNUMBER(2));
+	pObject->setCapitalization( (QFont::Capitalization ) RING_API_GETNUMBER(2));
 }
 
 
@@ -38065,7 +38065,7 @@ RING_FUNC(ring_QFont_setHintingPreference)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setHintingPreference( (int ) RING_API_GETNUMBER(2));
+	pObject->setHintingPreference( (QFont::HintingPreference ) RING_API_GETNUMBER(2));
 }
 
 

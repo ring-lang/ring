@@ -262,6 +262,9 @@ aNumberTypes + "QPageLayout::Unit"
 aNumberTypes + "QPrinter::PageOrder"
 aNumberTypes + "QPageLayout::Orientation"
 aNumberTypes + "QPrinter::PaperSource"
+aNumberTypes + "QPrinter::PrintRange"
+aNumberTypes + "QFont::Capitalization"
+aNumberTypes + "QFont::HintingPreference"
 </runcode>
 
 <class>
@@ -2666,7 +2669,7 @@ bool setPageOrientation(QPageLayout::Orientation orientation)
 bool setPageSize(QPageSize)
 void setPaperSource(QPrinter::PaperSource source)
 void setPrintProgram(QString)
-void setPrintRange(int)
+void setPrintRange(QPrinter::PrintRange)
 void setPrinterName(QString)
 void setPrinterSelectionOption(QString)
 void setResolution(int dpi)
@@ -2705,10 +2708,10 @@ bool rawMode(void)
 QString rawName(void)
 QFont resolve(QFont)
 void setBold(bool enable)
-void setCapitalization(int caps)
+void setCapitalization(QFont::Capitalization caps)
 void setFamily(QString)
 void setFixedPitch(bool enable)
-void setHintingPreference(int hintingPreference)
+void setHintingPreference(QFont::HintingPreference hintingPreference)
 void setItalic(bool enable)
 void setKerning(bool enable)
 void setLetterSpacing(int type, double spacing)
