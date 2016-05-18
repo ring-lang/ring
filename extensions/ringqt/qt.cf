@@ -252,6 +252,8 @@ aNumberTypes + "Qt::ClipOperation"
 aNumberTypes + "QPainter::CompositionMode"
 aNumberTypes + "Qt::PenCapStyle"
 aNumberTypes + "Qt::PenJoinStyle"
+aNumberTypes + "Qt::PenStyle"
+aNumberTypes + "QColor::Spec"
 </runcode>
 
 <class>
@@ -2513,7 +2515,7 @@ void setCosmetic(bool cosmetic)
 void setDashOffset(double offset)
 void setJoinStyle(Qt::PenJoinStyle style)
 void setMiterLimit(double limit)
-void setStyle(int style)
+void setStyle(Qt::PenStyle style)
 void setWidth(int width)
 void setWidthF(double width)
 int style(void)
@@ -2532,12 +2534,12 @@ int black(void)
 double blackF(void)
 int blue(void)
 double blueF(void)
-QColor convertTo(int colorSpec)
+QColor convertTo(QColor::Spec colorSpec)
 int cyan(void)
 double cyanF(void)
 QColor darker(int factor)
 void getCmyk(int *c, int *m, int *y, int *k, int *a)
-void getCmykF(double *c, double *m, double *y, double *k, double *a)
+void getCmykF(qreal *c, qreal *m, qreal *y, qreal *k, qreal *a)
 void getHsl(int *h, int *s, int *l, int *a)
 void getHslF(double *h, double *s, double *l, double *a)
 void getHsv(int *h, int *s, int *v, int *a)

@@ -34492,7 +34492,7 @@ RING_FUNC(ring_QPen_setStyle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setStyle( (int ) RING_API_GETNUMBER(2));
+	pObject->setStyle( (Qt::PenStyle ) RING_API_GETNUMBER(2));
 }
 
 
@@ -34730,7 +34730,7 @@ RING_FUNC(ring_QColor_convertTo)
 	{
 		QColor *pValue ; 
 		pValue = new QColor() ;
-		*pValue = pObject->convertTo( (int ) RING_API_GETNUMBER(2));
+		*pValue = pObject->convertTo( (QColor::Spec ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QColor");
 	}
 }
@@ -34851,27 +34851,27 @@ RING_FUNC(ring_QColor_getCmykF)
 		return ;
 	}
 	pObject = (QColor *) RING_API_GETCPOINTER(1,"QColor");
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(3) ) {
+	if ( ! RING_API_ISPOINTER(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(4) ) {
+	if ( ! RING_API_ISPOINTER(4) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(5) ) {
+	if ( ! RING_API_ISPOINTER(5) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(6) ) {
+	if ( ! RING_API_ISPOINTER(6) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->getCmykF(RING_API_GETDOUBLEPOINTER(2),RING_API_GETDOUBLEPOINTER(3),RING_API_GETDOUBLEPOINTER(4),RING_API_GETDOUBLEPOINTER(5),RING_API_GETDOUBLEPOINTER(6));
+	pObject->getCmykF((qreal *) RING_API_GETCPOINTER(2,"qreal"),(qreal *) RING_API_GETCPOINTER(3,"qreal"),(qreal *) RING_API_GETCPOINTER(4,"qreal"),(qreal *) RING_API_GETCPOINTER(5,"qreal"),(qreal *) RING_API_GETCPOINTER(6,"qreal"));
 }
 
 
