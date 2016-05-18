@@ -249,7 +249,9 @@ aNumberTypes + "Qt::FillRule"
 aNumberTypes + "Qt::SizeMode"
 aNumberTypes + "Qt::BGMode"
 aNumberTypes + "Qt::ClipOperation"
-aNumberTypes + "QPainter::ComposionMode"
+aNumberTypes + "QPainter::CompositionMode"
+aNumberTypes + "Qt::PenCapStyle"
+aNumberTypes + "Qt::PenJoinStyle"
 </runcode>
 
 <class>
@@ -2453,7 +2455,7 @@ void setClipPath( QPainterPath  path, Qt::ClipOperation operation)
 void setClipRect(int x, int y, int width, int height, Qt::ClipOperation operation)
 void setClipRegion( QRegion  region, Qt::ClipOperation operation)
 void setClipping(bool enable)
-void setCompositionMode(QPainter::ComposionMode mode)
+void setCompositionMode(QPainter::CompositionMode mode)
 void setFont( QFont  font)
 void setLayoutDirection(Qt::LayoutDirection direction)
 void setOpacity(qreal opacity)
@@ -2505,11 +2507,11 @@ bool isSolid(void)
 int joinStyle(void)
 double miterLimit(void)
 void setBrush(QBrush)
-void setCapStyle(int style)
+void setCapStyle(Qt::PenCapStyle style)
 void setColor(QColor)
 void setCosmetic(bool cosmetic)
 void setDashOffset(double offset)
-void setJoinStyle(int style)
+void setJoinStyle(Qt::PenJoinStyle style)
 void setMiterLimit(double limit)
 void setStyle(int style)
 void setWidth(int width)
