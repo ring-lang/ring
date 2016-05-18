@@ -44559,7 +44559,7 @@ RING_FUNC(ring_QFileInfo_permission)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->permission( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->permission( (QFileDevice::Permission ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -45158,7 +45158,7 @@ RING_FUNC(ring_QDirModel_setSorting)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setSorting( (int ) RING_API_GETNUMBER(2));
+	pObject->setSorting( (QDir::SortFlag ) RING_API_GETNUMBER(2));
 }
 
 
@@ -45324,7 +45324,7 @@ RING_FUNC(ring_QFontDialog_setOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOption( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+	pObject->setOption( (QFontDialog::FontDialogOptions ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
 }
 
 

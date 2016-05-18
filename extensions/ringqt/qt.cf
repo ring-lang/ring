@@ -286,6 +286,9 @@ aNumberTypes + "QNetworkRequest::KnownHeaders"
 aNumberTypes + "QNetworkProxy::Capability"
 aNumberTypes + "QNetworkProxy::ProxyType"
 aNumberTypes + "QHostInfo::HostInfoError"
+aNumberTypes + "QFileDevice::Permission"
+aNumberTypes + "QDir::SortFlag"
+aNumberTypes + "QFontDialog::FontDialogOptions"
 </runcode>
 
 <class>
@@ -3170,7 +3173,7 @@ bool makeAbsolute(void)
 QString owner(void)
 uint ownerId(void)
 QString path(void)
-bool permission(int permissions)
+bool permission(QFileDevice::Permission permissions)
 int permissions(void)
 void refresh(void)
 void setCaching(bool enable)
@@ -3206,7 +3209,7 @@ void setLazyChildCount(bool enable)
 void setNameFilters(QStringList filters)
 void setReadOnly(bool enable)
 void setResolveSymlinks(bool enable)
-void setSorting(int sort)
+void setSorting(QDir::SortFlag sort)
 int sorting(void)
 void refresh(QModelIndex parent)
 
@@ -3222,7 +3225,7 @@ void open(QObject *receiver, const char *member)
 int options(void)
 QFont selectedFont(void)
 void setCurrentFont(QFont)
-void setOption(int option, bool on)
+void setOption(QFontDialog::FontDialogOptions option, bool on)
 void setOptions(int options)
 bool testOption(int option)
 
