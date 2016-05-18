@@ -31353,7 +31353,7 @@ RING_FUNC(ring_QFileDialog_setFileMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFileMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setFileMode( (QFileDialog::FileMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -31544,7 +31544,7 @@ RING_FUNC(ring_QFileDialog_setOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOption( (int ) RING_API_GETNUMBER(2), (bool) RING_API_GETNUMBER(3));
+	pObject->setOption( (QFileDialog::Option ) RING_API_GETNUMBER(2), (bool) RING_API_GETNUMBER(3));
 }
 
 
@@ -31565,7 +31565,7 @@ RING_FUNC(ring_QFileDialog_setOptions)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOptions( (int ) RING_API_GETNUMBER(2));
+	pObject->setOptions( (QFileDialog::Option ) RING_API_GETNUMBER(2));
 }
 
 

@@ -241,6 +241,8 @@ aNumberTypes + "QMessageBox::ButtonRole"
 aNumberTypes + "QMessageBox::StandardButton"
 aNumberTypes + "QFileDialog::DialogLabel"
 aNumberTypes + "QFileDialog::AcceptMode"
+aNumberTypes + "QFileDialog::FileMode"
+aNumberTypes + "QFileDialog::Option"
 </runcode>
 
 <class>
@@ -2337,7 +2339,7 @@ void setAcceptMode(QFileDialog::AcceptMode mode)
 void setDefaultSuffix(QString)
 void setDirectory(QString)
 void setDirectoryUrl(QUrl)
-void setFileMode(int mode)
+void setFileMode(QFileDialog::FileMode mode)
 void setFilter(QDir::Filter filters)
 void setHistory(QStringList)
 void setIconProvider(QFileIconProvider *provider)
@@ -2346,8 +2348,8 @@ void setLabelText(QFileDialog::DialogLabel label, QString)
 void setMimeTypeFilters(QStringList)
 void setNameFilter(QString)
 void setNameFilters(QStringList)
-void setOption(int option, bool)
-void setOptions(int options)
+void setOption(QFileDialog::Option option, bool)
+void setOptions(QFileDialog::Option options)
 void setProxyModel(QAbstractProxyModel *proxyModel)
 <comment>
 void setSidebarUrls(const QList<QUrl> & urls)
