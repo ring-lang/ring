@@ -276,9 +276,6 @@ QRect frameGeometry(void)
 QSize frameSize(void)
 QRect geometry(void)
 void getContentsMargins(int *left, int *top, int *right, int *bottom)
-<comment>
-void grabGesture(int gesture, int flags)
-</comment>
 void grabGesture(Qt::GestureType gesture, Qt::GestureFlag flags)
 void grabKeyboard(void)
 void grabMouse(void)
