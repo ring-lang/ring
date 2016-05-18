@@ -42518,7 +42518,7 @@ RING_FUNC(ring_QNetworkProxy_header)
 	{
 		QVariant *pValue ; 
 		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
-		*pValue = pObject->header( (int ) RING_API_GETNUMBER(2));
+		*pValue = pObject->header( (QNetworkRequest::KnownHeaders ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QVariant");
 	}
 }
@@ -42650,7 +42650,7 @@ RING_FUNC(ring_QNetworkProxy_setCapabilities)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCapabilities( (int ) RING_API_GETNUMBER(2));
+	pObject->setCapabilities( (QNetworkRequest::Capability ) RING_API_GETNUMBER(2));
 }
 
 
@@ -42671,7 +42671,7 @@ RING_FUNC(ring_QNetworkProxy_setHeader)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setHeader( (int ) RING_API_GETNUMBER(2),* (QVariant  *) RING_API_GETCPOINTER(3,"QVariant"));
+	pObject->setHeader( (QNetworkRequest::KnownHeaders ) RING_API_GETNUMBER(2),* (QVariant  *) RING_API_GETCPOINTER(3,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		free(RING_API_GETCPOINTER(2,"QVariant"));
 }

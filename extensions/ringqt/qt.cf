@@ -282,6 +282,8 @@ aNumberTypes + "QAbstractSocket::NetworkLayerProtocol"
 aNumberTypes + "QAbstractSocket::PauseMode"
 aNumberTypes + "QAbstractSocket::SocketState"
 aNumberTypes + "QAbstractSocket::SocketOption"
+aNumberTypes + "QNetworkRequest::KnownHeaders"
+aNumberTypes + "QNetworkRequest::Capability"
 </runcode>
 
 <class>
@@ -3019,15 +3021,15 @@ para: void
 
 int capabilities(void)
 bool hasRawHeader(QByteArray headerName)
-QVariant header(int header)
+QVariant header(QNetworkRequest::KnownHeaders header)
 QString hostName(void)
 bool isCachingProxy(void)
 bool isTransparentProxy(void)
 QString password(void)
 int port(void)
 QByteArray rawHeader(QByteArray headerName)
-void setCapabilities(int capabilities)
-void setHeader(int header,  QVariant value)
+void setCapabilities(QNetworkRequest::Capability capabilities)
+void setHeader(QNetworkRequest::KnownHeaders header,  QVariant value)
 void setHostName(QString hostName)
 void setPassword(QString password)
 void setPort(int port)
