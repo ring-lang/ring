@@ -254,6 +254,8 @@ aNumberTypes + "Qt::PenCapStyle"
 aNumberTypes + "Qt::PenJoinStyle"
 aNumberTypes + "Qt::PenStyle"
 aNumberTypes + "QColor::Spec"
+aNumberTypes + "QPrinter::Unit"
+aNumberTypes + "QPrinter::ColorMode"
 </runcode>
 
 <class>
@@ -2630,8 +2632,8 @@ QString outputFileName(void)
 int outputFormat(void)
 QPageLayout pageLayout(void)
 int pageOrder(void)
-QRectF pageRect(int unit)
-QRectF paperRect(int unit)
+QRectF pageRect(QPrinter::Unit unit)
+QRectF paperRect(QPrinter::Unit unit)
 int paperSource(void)
 QPrintEngine *printEngine(void)
 QString printProgram(void)
@@ -2641,7 +2643,7 @@ QString printerSelectionOption(void)
 int printerState(void)
 int resolution(void)
 void setCollateCopies(bool collate)
-void setColorMode(int newColorMode)
+void setColorMode(QPrinter::ColorMode newColorMode)
 void setCopyCount(int count)
 void setCreator(QString)
 void setDocName(QString)

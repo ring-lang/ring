@@ -36841,7 +36841,7 @@ RING_FUNC(ring_QPrinter_pageRect)
 	{
 		QRectF *pValue ; 
 		pValue = (QRectF *) malloc(sizeof(QRectF)) ;
-		*pValue = pObject->pageRect( (int ) RING_API_GETNUMBER(2));
+		*pValue = pObject->pageRect( (QPrinter::Unit ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QRectF");
 	}
 }
@@ -36867,7 +36867,7 @@ RING_FUNC(ring_QPrinter_paperRect)
 	{
 		QRectF *pValue ; 
 		pValue = (QRectF *) malloc(sizeof(QRectF)) ;
-		*pValue = pObject->paperRect( (int ) RING_API_GETNUMBER(2));
+		*pValue = pObject->paperRect( (QPrinter::Unit ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QRectF");
 	}
 }
@@ -37047,7 +37047,7 @@ RING_FUNC(ring_QPrinter_setColorMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setColorMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setColorMode( (QPrinter::ColorMode ) RING_API_GETNUMBER(2));
 }
 
 
