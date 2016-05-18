@@ -15826,7 +15826,7 @@ RING_FUNC(ring_QMainWindow_addDockWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addDockWidget( (int ) RING_API_GETNUMBER(2),(QDockWidget *) RING_API_GETCPOINTER(3,"QDockWidget"), (int ) RING_API_GETNUMBER(4));
+	pObject->addDockWidget( (Qt::DockWidgetArea ) RING_API_GETNUMBER(2),(QDockWidget *) RING_API_GETCPOINTER(3,"QDockWidget"), (Qt::Orientation ) RING_API_GETNUMBER(4));
 }
 
 
@@ -15868,7 +15868,7 @@ RING_FUNC(ring_QMainWindow_addToolBarBreak)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addToolBarBreak( (int) RING_API_GETNUMBER(2));
+	pObject->addToolBarBreak( (Qt::ToolBarArea) RING_API_GETNUMBER(2));
 }
 
 

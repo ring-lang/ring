@@ -205,6 +205,7 @@ aNumberTypes + "Qt::MatchFlag"
 aNumberTypes + "Qt::Corner"
 aNumberTypes + "Qt::ToolBarArea"
 aNumberTypes + "Qt::ToolButtonStyle"
+aNumberTypes + "Qt::DockWidgetArea"
 </runcode>
 
 <class>
@@ -1240,9 +1241,9 @@ para: void
 parent: QWidget
 </class>
 
-void addDockWidget(int area, QDockWidget *dockwidget, int orientation)
+void addDockWidget(Qt::DockWidgetArea area, QDockWidget *dockwidget, Qt::Orientation orientation)
 QToolBar *addToolBar(QString)
-void addToolBarBreak(int)
+void addToolBarBreak(Qt::ToolBarArea)
 QWidget *centralWidget(void)
 int corner(int corner)
 QMenu *createPopupMenu(void)
