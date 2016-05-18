@@ -3697,7 +3697,7 @@ RING_FUNC(ring_QWidget_testAttribute)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->testAttribute( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->testAttribute( (Qt::WidgetAttribute ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -3752,7 +3752,7 @@ RING_FUNC(ring_QWidget_ungrabGesture)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->ungrabGesture( (int ) RING_API_GETNUMBER(2));
+	pObject->ungrabGesture( (Qt::GestureType ) RING_API_GETNUMBER(2));
 }
 
 
