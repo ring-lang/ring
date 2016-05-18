@@ -204,6 +204,7 @@ aNumberTypes + "Qt::ItemFlag"
 aNumberTypes + "Qt::MatchFlag"
 aNumberTypes + "Qt::Corner"
 aNumberTypes + "Qt::ToolBarArea"
+aNumberTypes + "Qt::ToolButtonStyle"
 </runcode>
 
 <class>
@@ -1223,15 +1224,15 @@ bool isFloatable(void)
 bool isFloating(void)
 bool isMovable(void)
 int orientation(void)
-void setAllowedAreas(int areas)
+void setAllowedAreas(Qt::ToolBarArea areas)
 void setFloatable(bool floatable)
 void setMovable(bool movable)
-void setOrientation(int orientation)
+void setOrientation(Qt::Orientation orientation)
 QAction *toggleViewAction(void)
 int toolButtonStyle(void)
 QWidget *widgetForAction(QAction *action)
 void setIconSize(QSize)
-void setToolButtonStyle(int toolButtonStyle)
+void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)
 
 <class>
 name: QMainWindow
@@ -1271,7 +1272,7 @@ void setMenuWidget(QWidget *menuBar)
 void setStatusBar(QStatusBar *statusbar)
 void setTabPosition(int areas, int tabPosition)
 void setTabShape(int tabShape)
-void setToolButtonStyle(int toolButtonStyle)
+void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)
 void setUnifiedTitleAndToolBarOnMac(bool set)
 void splitDockWidget(QDockWidget *first, QDockWidget *second, int orientation)
 QStatusBar *statusBar(void)
@@ -1310,7 +1311,7 @@ int allowedAreas(void)
 int features(void)
 bool isAreaAllowed(Qt::ToolBarArea area)
 bool isFloating(void)
-void setAllowedAreas(int areas)
+void setAllowedAreas(Qt::ToolBarArea areas)
 void setFeatures(int features)
 void setFloating(bool floating)
 void setTitleBarWidget(QWidget *widget)
@@ -1619,7 +1620,7 @@ int value(void)
 void reset(void)
 void setMaximum(int maximum)
 void setMinimum(int minimum)
-void setOrientation(int)
+void setOrientation(Qt::Orientation)
 void setRange(int minimum, int maximum)
 void setValue(int value)
 
@@ -1678,7 +1679,7 @@ int singleStep(void)
 int sliderPosition(void)
 void triggerAction(int action)
 int value(void)
-void setOrientation(int)
+void setOrientation(Qt::Orientation)
 void setRange(int min, int max)
 void setValue(int)
 

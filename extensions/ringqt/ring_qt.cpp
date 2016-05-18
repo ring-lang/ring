@@ -15639,7 +15639,7 @@ RING_FUNC(ring_QToolBar_setAllowedAreas)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setAllowedAreas( (int ) RING_API_GETNUMBER(2));
+	pObject->setAllowedAreas( (Qt::ToolBarArea ) RING_API_GETNUMBER(2));
 }
 
 
@@ -15702,7 +15702,7 @@ RING_FUNC(ring_QToolBar_setOrientation)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOrientation( (int ) RING_API_GETNUMBER(2));
+	pObject->setOrientation( (Qt::Orientation ) RING_API_GETNUMBER(2));
 }
 
 
@@ -15797,7 +15797,7 @@ RING_FUNC(ring_QToolBar_setToolButtonStyle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setToolButtonStyle( (int ) RING_API_GETNUMBER(2));
+	pObject->setToolButtonStyle( (Qt::ToolButtonStyle ) RING_API_GETNUMBER(2));
 }
 
 
@@ -16484,7 +16484,7 @@ RING_FUNC(ring_QMainWindow_setToolButtonStyle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setToolButtonStyle( (int ) RING_API_GETNUMBER(2));
+	pObject->setToolButtonStyle( (Qt::ToolButtonStyle ) RING_API_GETNUMBER(2));
 }
 
 
@@ -17009,7 +17009,7 @@ RING_FUNC(ring_QDockWidget_setAllowedAreas)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setAllowedAreas( (int ) RING_API_GETNUMBER(2));
+	pObject->setAllowedAreas( (Qt::ToolBarArea ) RING_API_GETNUMBER(2));
 }
 
 
@@ -22110,7 +22110,7 @@ RING_FUNC(ring_QProgressBar_setOrientation)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOrientation( (int) RING_API_GETNUMBER(2));
+	pObject->setOrientation( (Qt::Orientation) RING_API_GETNUMBER(2));
 }
 
 
@@ -22924,7 +22924,7 @@ RING_FUNC(ring_QAbstractSlider_setOrientation)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOrientation( (int) RING_API_GETNUMBER(2));
+	pObject->setOrientation( (Qt::Orientation) RING_API_GETNUMBER(2));
 }
 
 
