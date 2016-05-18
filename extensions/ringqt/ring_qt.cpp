@@ -15550,7 +15550,7 @@ RING_FUNC(ring_QToolBar_isAreaAllowed)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->isAreaAllowed( (Qt::DockWidgetArea ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->isAreaAllowed( (Qt::ToolBarArea ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -16971,7 +16971,7 @@ RING_FUNC(ring_QDockWidget_isAreaAllowed)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->isAreaAllowed( (Qt::ToolBarArea ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->isAreaAllowed( (Qt::DockWidgetArea ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -17186,7 +17186,7 @@ RING_FUNC(ring_QDockWidget_dockLocationChanged)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->dockLocationChanged( (int ) RING_API_GETNUMBER(2));
+	pObject->dockLocationChanged( (Qt::DockWidgetArea ) RING_API_GETNUMBER(2));
 }
 
 
@@ -17595,7 +17595,7 @@ RING_FUNC(ring_QTabWidget_setElideMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setElideMode( (int) RING_API_GETNUMBER(2));
+	pObject->setElideMode( (Qt::TextElideMode) RING_API_GETNUMBER(2));
 }
 
 

@@ -210,6 +210,7 @@ aNumberTypes + "QMainWindow::DockOption"
 aNumberTypes + "QTabWidget::TabPosition"
 aNumberTypes + "QTabWidget::TabShape"
 aNumberTypes + "QDockWidget::DockWidgetFeature"
+aNumberTypes + "Qt::TextElideMode"
 </runcode>
 
 <class>
@@ -1224,7 +1225,7 @@ void clear(void)
 QSize iconSize(void)
 QAction *insertSeparator(QAction *before)
 QAction *insertWidget(QAction *before, QWidget *widget)
-bool isAreaAllowed(Qt::DockWidgetArea area)
+bool isAreaAllowed(Qt::ToolBarArea area)
 bool isFloatable(void)
 bool isFloating(void)
 bool isMovable(void)
@@ -1314,7 +1315,7 @@ parent: QWidget
 
 int allowedAreas(void)
 int features(void)
-bool isAreaAllowed(Qt::ToolBarArea area)
+bool isAreaAllowed(Qt::DockWidgetArea area)
 bool isFloating(void)
 void setAllowedAreas(Qt::ToolBarArea areas)
 void setFeatures(QDockWidget::DockWidgetFeature features)
@@ -1325,7 +1326,7 @@ QWidget *titleBarWidget(void)
 QAction *toggleViewAction(void)
 QWidget *widget(void)
 void allowedAreasChanged(Qt::DockWidgetArea allowedAreas)
-void dockLocationChanged(int area)
+void dockLocationChanged(Qt::DockWidgetArea area)
 void featuresChanged(int features)
 void topLevelChanged(bool topLevel)
 void visibilityChanged(bool visible)
@@ -1354,7 +1355,7 @@ bool isTabEnabled(int index)
 void removeTab(int index)
 void setCornerWidget(QWidget *widget, Qt::Corner corner)
 void setDocumentMode(bool set)
-void setElideMode(int)
+void setElideMode(Qt::TextElideMode)
 void setIconSize(QSize)
 void setMovable(bool movable)
 void setTabEnabled(int index, bool enable)
