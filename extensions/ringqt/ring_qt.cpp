@@ -2549,7 +2549,7 @@ RING_FUNC(ring_QWidget_setBackgroundRole)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setBackgroundRole( (int ) RING_API_GETNUMBER(2));
+	pObject->setBackgroundRole( (QPalette::ColorRole ) RING_API_GETNUMBER(2));
 }
 
 

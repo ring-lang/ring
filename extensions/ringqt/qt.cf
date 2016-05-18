@@ -170,6 +170,8 @@ aNumberTypes + "Qt::InputMethodQuery"
 aNumberTypes + "Qt::WindowType"
 aNumberTypes + "QWidget::RenderFlag"
 aNumberTypes + "Qt::WidgetAttribute"
+aNumberTypes + "QPalette::ColorRole"
+
 </runcode>
 
 <class>
@@ -348,7 +350,7 @@ void setAccessibleDescription(QString)
 void setAccessibleName(QString)
 void setAttribute(Qt::WidgetAttribute attribute, bool on)
 void setAutoFillBackground(bool enabled)
-void setBackgroundRole(int role)
+void setBackgroundRole(QPalette::ColorRole role)
 void setBaseSize(int basew, int baseh)
 void setContentsMargins(int left, int top, int right, int bottom)
 void setContextMenuPolicy(int policy)
