@@ -279,6 +279,8 @@ aNumberTypes + "bool"
 aNumberTypes + "QAbstractSocket::BindFlag"
 aNumberTypes + "QIODevice::OpenModeFlag"
 aNumberTypes + "QAbstractSocket::NetworkLayerProtocol"
+aNumberTypes + "QAbstractSocket::PauseMode"
+aNumberTypes + "QAbstractSocket::SocketState"
 </runcode>
 
 <class>
@@ -2970,10 +2972,10 @@ int peerPort(void)
 QNetworkProxy proxy(void)
 int readBufferSize(void)
 void resume(void)
-void setPauseMode(int pauseMode)
+void setPauseMode(QAbstractSocket::PauseMode pauseMode)
 void setProxy(QNetworkProxy  networkProxy)
 void setReadBufferSize(int size)
-bool setSocketDescriptor(int *socketDescriptor, int socketState, int openMode)
+bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState socketState, int openMode)
 void setSocketOption(int option,  QVariant  value)
 int *socketDescriptor(void)
 QVariant socketOption(int option)
