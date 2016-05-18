@@ -233,6 +233,9 @@ aNumberTypes + "QPainter::RenderHint"
 aNumberTypes + "QUrl::ComponentFormattingOption"
 aNumberTypes + "QUrl::ParsingMode"
 aNumberTypes + "QMediaPlaylist::PlaybackMode"
+aNumberTypes + "QAction::ActionEvent"
+aNumberTypes + "QAction::MenuRole"
+aNumberTypes + "QAction::Priority"
 </runcode>
 
 <class>
@@ -2171,7 +2174,7 @@ passvmpointer
 </class>
 
 QActionGroup *actionGroup(void)
-void activate(int event)
+void activate(QAction::ActionEvent event)
 bool autoRepeat(void)
 QVariant data(void)
 QFont font(void)
@@ -2196,8 +2199,8 @@ void setIcon(QIcon)
 void setIconText(QString)
 void setIconVisibleInMenu(bool visible)
 void setMenu(QMenu *menu)
-void setMenuRole(int menuRole)
-void setPriority(int priority)
+void setMenuRole(QAction::MenuRole menuRole)
+void setPriority(QAction::Priority priority)
 void setSeparator(bool b)
 void setShortcut(QKeySequence)
 void setShortcutContext(int context)

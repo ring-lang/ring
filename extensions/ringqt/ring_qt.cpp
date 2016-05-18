@@ -28861,7 +28861,7 @@ RING_FUNC(ring_QAction_activate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->activate( (int ) RING_API_GETNUMBER(2));
+	pObject->activate( (QAction::ActionEvent ) RING_API_GETNUMBER(2));
 }
 
 
@@ -29335,7 +29335,7 @@ RING_FUNC(ring_QAction_setMenuRole)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setMenuRole( (int ) RING_API_GETNUMBER(2));
+	pObject->setMenuRole( (QAction::MenuRole ) RING_API_GETNUMBER(2));
 }
 
 
@@ -29356,7 +29356,7 @@ RING_FUNC(ring_QAction_setPriority)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPriority( (int ) RING_API_GETNUMBER(2));
+	pObject->setPriority( (QAction::Priority ) RING_API_GETNUMBER(2));
 }
 
 
