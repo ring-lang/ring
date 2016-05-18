@@ -16314,7 +16314,7 @@ RING_FUNC(ring_QMainWindow_setDockOptions)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setDockOptions( (int ) RING_API_GETNUMBER(2));
+	pObject->setDockOptions( (QMainWindow::DockOption ) RING_API_GETNUMBER(2));
 }
 
 
@@ -16442,7 +16442,7 @@ RING_FUNC(ring_QMainWindow_setTabPosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTabPosition( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setTabPosition( (Qt::DockWidgetArea ) RING_API_GETNUMBER(2), (QTabWidget::TabPosition ) RING_API_GETNUMBER(3));
 }
 
 

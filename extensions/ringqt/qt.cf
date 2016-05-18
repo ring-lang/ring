@@ -206,6 +206,8 @@ aNumberTypes + "Qt::Corner"
 aNumberTypes + "Qt::ToolBarArea"
 aNumberTypes + "Qt::ToolButtonStyle"
 aNumberTypes + "Qt::DockWidgetArea"
+aNumberTypes + "QMainWindow::DockOption"
+aNumberTypes + "QTabWidget::TabPosition"
 </runcode>
 
 <class>
@@ -1265,13 +1267,13 @@ bool restoreState(QByteArray state, int version)
 QByteArray saveState(int version)
 void setCentralWidget(QWidget *widget)
 void setCorner(Qt::Corner corner, Qt::DockWidgetArea area)
-void setDockOptions(int options)
+void setDockOptions(QMainWindow::DockOption options)
 void setDocumentMode(bool enabled)
 void setIconSize(QSize)
 void setMenuBar(QMenuBar *menuBar)
 void setMenuWidget(QWidget *menuBar)
 void setStatusBar(QStatusBar *statusbar)
-void setTabPosition(int areas, int tabPosition)
+void setTabPosition(Qt::DockWidgetArea areas, QTabWidget::TabPosition tabPosition)
 void setTabShape(int tabShape)
 void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)
 void setUnifiedTitleAndToolBarOnMac(bool set)
