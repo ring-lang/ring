@@ -2106,7 +2106,7 @@ RING_FUNC(ring_QWidget_overrideWindowFlags)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->overrideWindowFlags( (int ) RING_API_GETNUMBER(2));
+	pObject->overrideWindowFlags( (Qt::WindowType ) RING_API_GETNUMBER(2));
 }
 
 

@@ -167,6 +167,7 @@ aNumberTypes + "Qt::GestureType"
 aNumberTypes + "Qt::GestureFlag"
 aNumberTypes + "Qt::ShortcutContext"
 aNumberTypes + "Qt::InputMethodQuery"
+aNumberTypes + "Qt::WindowType"
 </runcode>
 
 <class>
@@ -324,7 +325,7 @@ void move(int x, int y)
 QWidget *nativeParentWidget(void)
 QWidget *nextInFocusChain(void)
 QRect normalGeometry(void)
-void overrideWindowFlags(int flags)
+void overrideWindowFlags(Qt::WindowType flags)
 QPalette palette(void)
 QWidget *parentWidget(void)
 QPoint pos(void)
