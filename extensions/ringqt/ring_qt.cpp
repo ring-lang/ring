@@ -1402,7 +1402,7 @@ RING_FUNC(ring_QWidget_inputMethodQuery)
 	{
 		QVariant *pValue ; 
 		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
-		*pValue = pObject->inputMethodQuery( (int ) RING_API_GETNUMBER(2));
+		*pValue = pObject->inputMethodQuery( (Qt::InputMethodQuery ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QVariant");
 	}
 }

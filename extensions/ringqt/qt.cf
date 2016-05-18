@@ -166,6 +166,7 @@ aNewMethodName + ["QTextBlock","next","nextblock"]
 aNumberTypes + "Qt::GestureType"
 aNumberTypes + "Qt::GestureFlag"
 aNumberTypes + "Qt::ShortcutContext"
+aNumberTypes + "Qt::InputMethodQuery"
 </runcode>
 
 <class>
@@ -288,7 +289,7 @@ bool hasMouseTracking(void)
 int height(void)
 int heightForWidth(int w)
 int inputMethodHints(void)
-QVariant inputMethodQuery(int query)
+QVariant inputMethodQuery(Qt::InputMethodQuery query)
 void insertAction(QAction *before, QAction *action)
 bool isActiveWindow(void)
 bool isAncestorOf(QWidget *child)
