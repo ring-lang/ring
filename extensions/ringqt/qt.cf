@@ -297,6 +297,9 @@ aNumberTypes + "QInputDialog::InputMode"
 aNumberTypes + "QInputDialog::InputDialogOption"
 aNumberTypes + "QTextDocument::Stacks"
 aNumberTypes + "QTextDocument::FindFlag"
+aNumberTypes + "QTextDocument::MetaInformation"
+aNumberTypes + "Qt::InputMethodHints"
+aNumberTypes + "Qt::WindowFlags"
 </runcode>
 
 <class>
@@ -3474,7 +3477,7 @@ QString textValue(void)
 
 double getDouble(QWidget *parent,QString,QString, double value, double min, double max , int decimals, bool *ok, Qt::WindowType flags)
 int getInt(QWidget *parent,QString,QString, int value, int min, int max, int step, bool *ok, Qt::WindowType flags)
-QString getItem(QWidget *parent,QString,QString,QStringList, int current, bool editable, bool *ok, int, Qt::WindowType)
+QString getItem(QWidget *parent,QString,QString,QStringList, int current, bool editable, bool *ok, Qt::WindowFlags, Qt::InputMethodHints)
 QString getText(QWidget *parent,QString,QString,int mode,QString, int *ok, int flags, Qt::WindowType)
 
 
@@ -3641,7 +3644,7 @@ QTextBlock lastBlock(void)
 int lineCount(void)
 void markContentsDirty(int position, int length)
 int maximumBlockCount(void)
-QString metaInformation(int info)
+QString metaInformation(QTextDocument::MetaInformation info)
 QTextObject *object(int objectIndex)
 QTextObject *objectForFormat(QTextFormat f)
 int pageCount(void)
@@ -3651,7 +3654,7 @@ void redo(QTextCursor *cursor)
 QVariant resource(int type, QUrl name)
 int revision(void)
 QTextFrame *rootFrame(void)
-void setDefaultCursorMoveStyle(int style)
+void setDefaultCursorMoveStyle(Qt::CursorMoveStyle style)
 void setDefaultFont(QFont font)
 void setDefaultStyleSheet(QString sheet)
 void setDefaultTextOption(QTextOption option)

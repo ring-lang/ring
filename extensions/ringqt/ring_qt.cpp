@@ -48171,7 +48171,7 @@ RING_FUNC(ring_QInputDialog_getItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->getItem((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),RING_API_GETSTRING(4),* (QStringList *) RING_API_GETCPOINTER(5,"QStringList"), (int ) RING_API_GETNUMBER(6), (bool ) RING_API_GETNUMBER(7),(bool *) RING_API_GETCPOINTER(8,"bool"), (int) RING_API_GETNUMBER(9), (Qt::WindowType) RING_API_GETNUMBER(10)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->getItem((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),RING_API_GETSTRING(4),* (QStringList *) RING_API_GETCPOINTER(5,"QStringList"), (int ) RING_API_GETNUMBER(6), (bool ) RING_API_GETNUMBER(7),(bool *) RING_API_GETCPOINTER(8,"bool"), (Qt::WindowFlags) RING_API_GETNUMBER(9), (Qt::InputMethodHints) RING_API_GETNUMBER(10)).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
 		free(RING_API_GETCPOINTER(4,"QStringList"));
 }
@@ -50990,7 +50990,7 @@ RING_FUNC(ring_QTextDocument_metaInformation)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->metaInformation( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->metaInformation( (QTextDocument::MetaInformation ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
@@ -51194,7 +51194,7 @@ RING_FUNC(ring_QTextDocument_setDefaultCursorMoveStyle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setDefaultCursorMoveStyle( (int ) RING_API_GETNUMBER(2));
+	pObject->setDefaultCursorMoveStyle( (Qt::CursorMoveStyle ) RING_API_GETNUMBER(2));
 }
 
 
