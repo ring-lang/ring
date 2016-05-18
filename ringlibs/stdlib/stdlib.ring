@@ -95,12 +95,14 @@ Func Filter alist,cFunc
 /*
 	Function Name	: split
 	Usage		: convert string words to list items
-	Parameters	: the string to be converted
+	Parameters	: the string to be converted , the delimiter
+			: delimiter can be char of choice. Example: " "  or  ","   or  "|" 
 	output		: new list 
 */
 
-Func Split cstring
-	return str2list(substr(cstring," ",nl))
+Func Split cstring , delimiter
+	return str2list(substr(cstring, delimiter, nl))
+
 	
 /*
 	Function Name	: newlist
