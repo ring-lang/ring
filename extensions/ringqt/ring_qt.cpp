@@ -2934,7 +2934,7 @@ RING_FUNC(ring_QWidget_setLayoutDirection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setLayoutDirection( (int ) RING_API_GETNUMBER(2));
+	pObject->setLayoutDirection( (Qt::LayoutDirection ) RING_API_GETNUMBER(2));
 }
 
 
@@ -3267,7 +3267,7 @@ RING_FUNC(ring_QWidget_setSizePolicy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setSizePolicy( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setSizePolicy( (QSizePolicy::Policy ) RING_API_GETNUMBER(2), (QSizePolicy::Policy ) RING_API_GETNUMBER(3));
 }
 
 

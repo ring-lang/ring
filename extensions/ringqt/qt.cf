@@ -175,6 +175,8 @@ aNumberTypes + "Qt::ContextMenuPolicy"
 aNumberTypes + "Qt::FocusReason"
 aNumberTypes + "Qt::FocusPolicy"
 aNumberTypes + "Qt::InputMethodHint"
+aNumberTypes + "Qt::LayoutDirection"
+aNumberTypes + "QSizePolicy::Policy"
 </runcode>
 
 <class>
@@ -370,7 +372,7 @@ void setGeometry(int x, int y, int w, int h)
 void setGraphicsEffect(QGraphicsEffect *effect)
 void setInputMethodHints(Qt::InputMethodHint hints)
 void setLayout(QLayout *layout)
-void setLayoutDirection(int direction)
+void setLayoutDirection(Qt::LayoutDirection direction)
 void setLocale(QLocale)
 void setMask(QBitmap)
 void setMaximumHeight(int maxh)
@@ -385,7 +387,7 @@ void setParent(QWidget *parent)
 void setShortcutAutoRepeat(int id, bool enable)
 void setShortcutEnabled(int id, bool enable)
 void setSizeIncrement(int w, int h)
-void setSizePolicy(int horizontal, int vertical)
+void setSizePolicy(QSizePolicy::Policy horizontal, QSizePolicy::Policy vertical)
 void setStatusTip(QString)
 void setStyle(QStyle *style)
 void setToolTip(QString)
