@@ -208,6 +208,7 @@ aNumberTypes + "Qt::ToolButtonStyle"
 aNumberTypes + "Qt::DockWidgetArea"
 aNumberTypes + "QMainWindow::DockOption"
 aNumberTypes + "QTabWidget::TabPosition"
+aNumberTypes + "QTabWidget::TabShape"
 </runcode>
 
 <class>
@@ -1274,12 +1275,12 @@ void setMenuBar(QMenuBar *menuBar)
 void setMenuWidget(QWidget *menuBar)
 void setStatusBar(QStatusBar *statusbar)
 void setTabPosition(Qt::DockWidgetArea areas, QTabWidget::TabPosition tabPosition)
-void setTabShape(int tabShape)
+void setTabShape(QTabWidget::TabShape tabShape)
 void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)
 void setUnifiedTitleAndToolBarOnMac(bool set)
-void splitDockWidget(QDockWidget *first, QDockWidget *second, int orientation)
+void splitDockWidget(QDockWidget *first, QDockWidget *second, Qt::Orientation orientation)
 QStatusBar *statusBar(void)
-int tabPosition(int area) 
+int tabPosition(Qt::DockWidgetArea area) 
 int tabShape(void)
 void tabifyDockWidget(QDockWidget *first, QDockWidget *second)
 int toolBarArea(QToolBar *toolbar)

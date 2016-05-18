@@ -16463,7 +16463,7 @@ RING_FUNC(ring_QMainWindow_setTabShape)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTabShape( (int ) RING_API_GETNUMBER(2));
+	pObject->setTabShape( (QTabWidget::TabShape ) RING_API_GETNUMBER(2));
 }
 
 
@@ -16534,7 +16534,7 @@ RING_FUNC(ring_QMainWindow_splitDockWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->splitDockWidget((QDockWidget *) RING_API_GETCPOINTER(2,"QDockWidget"),(QDockWidget *) RING_API_GETCPOINTER(3,"QDockWidget"), (int ) RING_API_GETNUMBER(4));
+	pObject->splitDockWidget((QDockWidget *) RING_API_GETCPOINTER(2,"QDockWidget"),(QDockWidget *) RING_API_GETCPOINTER(3,"QDockWidget"), (Qt::Orientation ) RING_API_GETNUMBER(4));
 }
 
 
@@ -16572,7 +16572,7 @@ RING_FUNC(ring_QMainWindow_tabPosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->tabPosition( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->tabPosition( (Qt::DockWidgetArea ) RING_API_GETNUMBER(2)));
 }
 
 
