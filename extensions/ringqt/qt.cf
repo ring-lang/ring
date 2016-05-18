@@ -291,6 +291,8 @@ aNumberTypes + "QDir::SortFlag"
 aNumberTypes + "QFontDialog::FontDialogOption"
 aNumberTypes + "QTextCursor::SelectionType"
 aNumberTypes + "QColorDialog::ColorDialogOption"
+aNumberTypes + "QLCDNumber::Mode"
+aNumberTypes + "QLCDNumber::SegmentStyle"
 </runcode>
 
 <class>
@@ -3332,7 +3334,7 @@ void setBlockCharFormat(QTextCharFormat)
 void setBlockFormat(QTextBlockFormat)
 void setCharFormat(QTextCharFormat)
 void setKeepPositionOnInsert(bool b)
-void setPosition(QTextCursor::MoveMode pos, int m)
+void setPosition(int pos, QTextCursor::MoveMode m)
 void setVerticalMovementX(int x)
 void setVisualNavigation(bool b)
 int verticalMovementX(void)
@@ -3409,8 +3411,8 @@ int intValue(void)
 int mode(void)
 int segmentStyle(void)
 void setDigitCount(int numDigits)
-void setMode(int)
-void setSegmentStyle(int)
+void setMode(QLCDNumber::Mode)
+void setSegmentStyle(QLCDNumber::SegmentStyle)
 bool smallDecimalPoint(void)
 double value(void)
 void display(double)

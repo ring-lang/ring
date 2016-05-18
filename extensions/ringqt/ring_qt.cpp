@@ -46586,7 +46586,7 @@ RING_FUNC(ring_QTextCursor_setPosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPosition( (QTextCursor::MoveMode ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setPosition( (int ) RING_API_GETNUMBER(2), (QTextCursor::MoveMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -47081,7 +47081,7 @@ RING_FUNC(ring_QLCDNumber_setMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setMode( (int) RING_API_GETNUMBER(2));
+	pObject->setMode( (QLCDNumber::Mode) RING_API_GETNUMBER(2));
 }
 
 
@@ -47102,7 +47102,7 @@ RING_FUNC(ring_QLCDNumber_setSegmentStyle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setSegmentStyle( (int) RING_API_GETNUMBER(2));
+	pObject->setSegmentStyle( (QLCDNumber::SegmentStyle) RING_API_GETNUMBER(2));
 }
 
 
