@@ -275,6 +275,7 @@ aNumberTypes + "QWebSettings::WebAttribute"
 aNumberTypes + "QWebSettings::ThirdPartyCookiePolicy"
 aNumberTypes + "QWebSettings::WebGraphic"
 aNumberTypes + "Qt::BrushStyle"
+aNumberTypes + "bool"
 </runcode>
 
 <class>
@@ -2868,9 +2869,9 @@ QByteArray toBase64(void)
 double toDouble(bool * ok)
 float toFloat(bool * ok)
 QByteArray toHex(void)
-int toInt(int *ok, int base)
-long toLong(int *ok, int base)
-qlonglong toLongLong(int *ok, int base)
+int toInt(bool *ok, int base)
+long toLong(bool *ok, int base)
+qlonglong toLongLong(bool *ok, int base)
 QByteArray toLower(void)
 QByteArray toPercentEncoding(QByteArray,QByteArray, char percent)
 short toShort(int *ok, int base)

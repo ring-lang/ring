@@ -13,7 +13,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_WEBKITWIDGETS_LIB -DQT_QUICK_LIB -DQT_MULTIMEDIAWIDGETS_LIB -DQT_OPENGL_LIB -DQT_PRINTSUPPORT_LIB -DQT_WEBKIT_LIB -DQT_QML_LIB -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_POSITIONING_LIB -DQT_SENSORS_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR=\"B:/ring/extensions/ringqt\"
 CFLAGS        = -pipe -fno-keep-inline-dllexport -g -w $(DEFINES)
-CXXFLAGS      = -pipe -fno-keep-inline-dllexport -fpermissive -g -w -frtti -fexceptions -mthreads $(DEFINES)
+CXXFLAGS      = -pipe -fno-keep-inline-dllexport -fmax-errors=5 -g -w -frtti -fexceptions -mthreads $(DEFINES)
 INCPATH       = -I. -I"..\..\include" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtWebKitWidgets" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtQuick" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtMultimediaWidgets" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtOpenGL" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtPrintSupport" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtWebKit" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtQml" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtMultimedia" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtWidgets" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtTest" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtPositioning" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtSensors" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtNetwork" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtGui" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\include\QtCore" -I"debug" -I"C:\Qt\Qt5.3.0\5.3\mingw482_32\mkspecs\win32-g++"
 LINKER      =        g++
 LFLAGS        =        -shared -mthreads -Wl,--out-implib,debug\libringqt.a
