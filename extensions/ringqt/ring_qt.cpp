@@ -33360,7 +33360,7 @@ RING_FUNC(ring_QPainter_setBackgroundMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setBackgroundMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setBackgroundMode( (Qt::BGMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -33425,7 +33425,7 @@ RING_FUNC(ring_QPainter_setClipPath)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setClipPath(* (QPainterPath   *) RING_API_GETCPOINTER(2,"QPainterPath"), (int ) RING_API_GETNUMBER(3));
+	pObject->setClipPath(* (QPainterPath   *) RING_API_GETCPOINTER(2,"QPainterPath"), (Qt::ClipOperation ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QPainterPath"));
 }
@@ -33464,7 +33464,7 @@ RING_FUNC(ring_QPainter_setClipRect)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setClipRect( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6));
+	pObject->setClipRect( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (Qt::ClipOperation ) RING_API_GETNUMBER(6));
 }
 
 
@@ -33485,7 +33485,7 @@ RING_FUNC(ring_QPainter_setClipRegion)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setClipRegion(* (QRegion   *) RING_API_GETCPOINTER(2,"QRegion"), (int ) RING_API_GETNUMBER(3));
+	pObject->setClipRegion(* (QRegion   *) RING_API_GETCPOINTER(2,"QRegion"), (Qt::ClipOperation ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QRegion"));
 }

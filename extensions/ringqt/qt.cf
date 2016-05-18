@@ -247,6 +247,8 @@ aNumberTypes + "QFileDialog::ViewMode"
 aNumberTypes + "Qt::ImageConversionFlag"
 aNumberTypes + "Qt::FillRule"
 aNumberTypes + "Qt::SizeMode"
+aNumberTypes + "Qt::BGMode"
+aNumberTypes + "Qt::ClipOperation"
 </runcode>
 
 <class>
@@ -2443,12 +2445,12 @@ void rotate(qreal angle)
 void save(void)
 void scale(double sx, double sy)
 void setBackground( QBrush  brush)
-void setBackgroundMode(int mode)
+void setBackgroundMode(Qt::BGMode mode)
 void setBrush(QBrush brush)
 void setBrushOrigin(int x, int y)
-void setClipPath( QPainterPath  path, int operation)
-void setClipRect(int x, int y, int width, int height, int operation)
-void setClipRegion( QRegion  region, int operation)
+void setClipPath( QPainterPath  path, Qt::ClipOperation operation)
+void setClipRect(int x, int y, int width, int height, Qt::ClipOperation operation)
+void setClipRegion( QRegion  region, Qt::ClipOperation operation)
 void setClipping(bool enable)
 void setCompositionMode(int mode)
 void setFont( QFont  font)
