@@ -268,6 +268,8 @@ aNumberTypes + "QFont::HintingPreference"
 aNumberTypes + "QFont::SpacingType"
 aNumberTypes + "QFont::Style"
 aNumberTypes + "QFont::StyleHint"
+aNumberTypes + "QFont::StyleStrategy"
+aNumberTypes + "QWebSettings::FontFamily"
 </runcode>
 
 <class>
@@ -2727,9 +2729,9 @@ void setRawName(QString)
 void setStretch(int factor)
 void setStrikeOut(bool enable)
 void setStyle(QFont::Style style)
-void setStyleHint(QFont::StyleHint hint, int strategy)
+void setStyleHint(QFont::StyleHint hint, QFont::StyleStrategy strategy)
 void setStyleName(QString)
-void setStyleStrategy(int s)
+void setStyleStrategy(QFont::StyleStrategy s)
 void setUnderline(bool enable)
 void setWeight(int weight)
 void setWordSpacing(double spacing)
@@ -2756,7 +2758,7 @@ abstract
 
 QString cssMediaType(void)
 QString defaultTextEncoding(void)
-QString fontFamily(int which)
+QString fontFamily(QWebSettings::FontFamily which)
 int fontSize(int type)
 QString localStoragePath(void)
 void resetAttribute(int attribute)

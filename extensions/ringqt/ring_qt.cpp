@@ -38346,7 +38346,7 @@ RING_FUNC(ring_QFont_setStyleHint)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setStyleHint( (QFont::StyleHint ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setStyleHint( (QFont::StyleHint ) RING_API_GETNUMBER(2), (QFont::StyleStrategy ) RING_API_GETNUMBER(3));
 }
 
 
@@ -38388,7 +38388,7 @@ RING_FUNC(ring_QFont_setStyleStrategy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setStyleStrategy( (int ) RING_API_GETNUMBER(2));
+	pObject->setStyleStrategy( (QFont::StyleStrategy ) RING_API_GETNUMBER(2));
 }
 
 
@@ -38793,7 +38793,7 @@ RING_FUNC(ring_QWebSettings_fontFamily)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->fontFamily( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->fontFamily( (QWebSettings::FontFamily ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
