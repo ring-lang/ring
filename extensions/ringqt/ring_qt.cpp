@@ -39011,7 +39011,7 @@ RING_FUNC(ring_QWebSettings_setFontSize)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFontSize( (int ) RING_API_GETNUMBER(2), (QWebSettings::FontSize ) RING_API_GETNUMBER(3));
+	pObject->setFontSize( (QWebSettings::FontSize ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 }
 
 
@@ -39053,7 +39053,7 @@ RING_FUNC(ring_QWebSettings_setThirdPartyCookiePolicy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setThirdPartyCookiePolicy( (int ) RING_API_GETNUMBER(2));
+	pObject->setThirdPartyCookiePolicy( (QWebSettings::ThirdPartyCookiePolicy ) RING_API_GETNUMBER(2));
 }
 
 
@@ -39093,7 +39093,7 @@ RING_FUNC(ring_QWebSettings_testAttribute)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->testAttribute( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->testAttribute( (QWebSettings::WebAttribute ) RING_API_GETNUMBER(2)));
 }
 
 
