@@ -232,6 +232,7 @@ aNumberTypes + "QWebPage::WebAction"
 aNumberTypes + "QPainter::RenderHint"
 aNumberTypes + "QUrl::ComponentFormattingOption"
 aNumberTypes + "QUrl::ParsingMode"
+aNumberTypes + "QMediaPlaylist::PlaybackMode"
 </runcode>
 
 <class>
@@ -1952,7 +1953,7 @@ QString url(int options)
 QString toLocalFile(void)
 QString topLevelDomain(QUrl::ComponentFormattingOption options)
 QString userInfo(QUrl::ComponentFormattingOption options)
-QString userName(int options)
+QString userName(QUrl::ComponentFormattingOption options)
 QUrl fromLocalFile(QString)
 
 <class>
@@ -2129,7 +2130,7 @@ bool save(QUrl, const char * format)
 <comment>
 bool save(QIODevice *device, const char *format)
 </comment>
-void setPlaybackMode(int mode)
+void setPlaybackMode(QMediaPlaylist::PlaybackMode mode)
 void next(void)
 void previous(void)
 void setCurrentIndex(int playlistPosition)
@@ -2149,7 +2150,7 @@ int contrast(void)
 int hue(void)
 bool isFullScreen(void)
 int saturation(void)
-void setAspectRatioMode(int mode)
+void setAspectRatioMode(Qt::AspectRatioMode mode)
 void setBrightness(int brightness)
 void setContrast(int contrast)
 void setFullScreen(bool fullScreen)

@@ -26412,7 +26412,7 @@ RING_FUNC(ring_QUrl_userName)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->userName( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->userName( (QUrl::ComponentFormattingOption ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
@@ -28418,7 +28418,7 @@ RING_FUNC(ring_QMediaPlaylist_setPlaybackMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPlaybackMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setPlaybackMode( (QMediaPlaylist::PlaybackMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -28613,7 +28613,7 @@ RING_FUNC(ring_QVideoWidget_setAspectRatioMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setAspectRatioMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setAspectRatioMode( (Qt::AspectRatioMode ) RING_API_GETNUMBER(2));
 }
 
 
