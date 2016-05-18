@@ -184,6 +184,8 @@ aNumberTypes + "Qt::AlignmentFlag"
 aNumberTypes + "Qt::TextFormat"
 aNumberTypes + "Qt::TextInteractionFlag"
 aNumberTypes + "Qt::AspectRatioMode"
+aNumberTypes + "Qt::TransformationMode"
+aNumberTypes + "Qt::CursorMoveStyle"
 </runcode>
 
 <class>
@@ -518,7 +520,7 @@ name: QPixmap
 para: const char *
 </class>
 QPixmap copy(int x, int y, int width, int height)
-QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, int transformMode) 
+QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::Transformation transformMode) 
 int width(void)
 int height(void)
 
@@ -572,9 +574,9 @@ int maxLength(void)
 QString placeholderText(void)
 QString selectedText(void)
 int selectionStart(void)
-void setAlignment(int flag)
+void setAlignment(Qt::AlignmentFlag flag)
 void setCompleter(QCompleter *c)
-void setCursorMoveStyle(int style)
+void setCursorMoveStyle(Qt::CursorMoveStyle style)
 void setCursorPosition(int)
 void setDragEnabled(bool b)
 void setEchoMode(int)
@@ -690,7 +692,7 @@ void paste(void)
 void redo(void)
 void scrollToAnchor(QString)
 void selectAll(void)
-void setAlignment(int a)
+void setAlignment(Qt::AlignmentFlag a)
 void setCurrentFont(QFont)
 void setFontFamily(QString)
 void setFontItalic(bool italic)
@@ -1588,7 +1590,7 @@ int maximum(void)
 int minimum(void)
 int orientation(void)
 void resetFormat(void)
-void setAlignment(int alignment)
+void setAlignment(Qt::AlignmentFlag alignment)
 void setFormat(QString)
 void setInvertedAppearance(bool invert)
 void setTextDirection(int textDirection)
@@ -1758,7 +1760,7 @@ bool isGroupSeparatorShown(void)
 bool isReadOnly(void)
 bool keyboardTracking(void)
 void setAccelerated(bool on)
-void setAlignment(int flag)
+void setAlignment(Qt::AlignmentFlag flag)
 void setButtonSymbols(int bs)
 void setCorrectionMode(int cm)
 void setFrame(bool)
