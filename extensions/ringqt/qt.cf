@@ -231,6 +231,7 @@ aNumberTypes + "QWebPage::FindFlag"
 aNumberTypes + "QWebPage::WebAction"
 aNumberTypes + "QPainter::RenderHint"
 aNumberTypes + "QUrl::ComponentFormattingOption"
+aNumberTypes + "QUrl::ParsingMode"
 </runcode>
 
 <class>
@@ -1930,9 +1931,9 @@ int port(int defaultPort)
 QString query(QUrl::ComponentFormattingOption options)
 QUrl resolved(QUrl)
 QString scheme(void)
-void setAuthority(QString, int mode)
-void setFragment(QString, int mode)
-void setHost(QString, int mode)
+void setAuthority(QString, QUrl::ParsingMode mode)
+void setFragment(QString, QUrl::ParsingMode mode)
+void setHost(QString, QUrl::ParsingMode mode)
 void setPassword(QString, int mode)
 void setPath(QString, int mode)
 void setPort(int port)

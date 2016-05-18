@@ -26071,7 +26071,7 @@ RING_FUNC(ring_QUrl_setAuthority)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setAuthority(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setAuthority(RING_API_GETSTRING(2), (QUrl::ParsingMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -26096,7 +26096,7 @@ RING_FUNC(ring_QUrl_setFragment)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFragment(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setFragment(RING_API_GETSTRING(2), (QUrl::ParsingMode ) RING_API_GETNUMBER(3));
 }
 
 
@@ -26121,7 +26121,7 @@ RING_FUNC(ring_QUrl_setHost)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setHost(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setHost(RING_API_GETSTRING(2), (QUrl::ParsingMode ) RING_API_GETNUMBER(3));
 }
 
 
