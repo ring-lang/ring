@@ -15906,7 +15906,7 @@ RING_FUNC(ring_QMainWindow_corner)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->corner( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->corner( (Qt::Corner ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -16293,7 +16293,7 @@ RING_FUNC(ring_QMainWindow_setCorner)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCorner( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setCorner( (Qt::Corner ) RING_API_GETNUMBER(2), (Qt::DockWidgetArea ) RING_API_GETNUMBER(3));
 }
 
 
