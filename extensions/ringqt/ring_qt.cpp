@@ -15550,7 +15550,7 @@ RING_FUNC(ring_QToolBar_isAreaAllowed)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->isAreaAllowed( (Qt::ToolBarArea ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->isAreaAllowed( (Qt::DockWidgetArea ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -17030,7 +17030,7 @@ RING_FUNC(ring_QDockWidget_setFeatures)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFeatures( (int ) RING_API_GETNUMBER(2));
+	pObject->setFeatures( (QDockWidget::DockWidgetFeature ) RING_API_GETNUMBER(2));
 }
 
 
@@ -17165,7 +17165,7 @@ RING_FUNC(ring_QDockWidget_allowedAreasChanged)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->allowedAreasChanged( (int ) RING_API_GETNUMBER(2));
+	pObject->allowedAreasChanged( (Qt::DockWidgetArea ) RING_API_GETNUMBER(2));
 }
 
 

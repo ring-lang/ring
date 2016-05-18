@@ -209,6 +209,7 @@ aNumberTypes + "Qt::DockWidgetArea"
 aNumberTypes + "QMainWindow::DockOption"
 aNumberTypes + "QTabWidget::TabPosition"
 aNumberTypes + "QTabWidget::TabShape"
+aNumberTypes + "QDockWidget::DockWidgetFeature"
 </runcode>
 
 <class>
@@ -1223,7 +1224,7 @@ void clear(void)
 QSize iconSize(void)
 QAction *insertSeparator(QAction *before)
 QAction *insertWidget(QAction *before, QWidget *widget)
-bool isAreaAllowed(Qt::ToolBarArea area)
+bool isAreaAllowed(Qt::DockWidgetArea area)
 bool isFloatable(void)
 bool isFloating(void)
 bool isMovable(void)
@@ -1316,14 +1317,14 @@ int features(void)
 bool isAreaAllowed(Qt::ToolBarArea area)
 bool isFloating(void)
 void setAllowedAreas(Qt::ToolBarArea areas)
-void setFeatures(int features)
+void setFeatures(QDockWidget::DockWidgetFeature features)
 void setFloating(bool floating)
 void setTitleBarWidget(QWidget *widget)
 void setWidget(QWidget *widget)
 QWidget *titleBarWidget(void)
 QAction *toggleViewAction(void)
 QWidget *widget(void)
-void allowedAreasChanged(int allowedAreas)
+void allowedAreasChanged(Qt::DockWidgetArea allowedAreas)
 void dockLocationChanged(int area)
 void featuresChanged(int features)
 void topLevelChanged(bool topLevel)
