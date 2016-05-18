@@ -163,7 +163,7 @@ aNewMethodName + ["QLineEdit","end","endtext"]
 aNewMethodName + ["QDialog","done","donedialog"]
 aNewMethodName + ["QTextDocument","end","enddoc"]
 aNewMethodName + ["QTextBlock","next","nextblock"]
-
+aNumberTypes + "Qt::GestureType"
 </runcode>
 
 <class>
@@ -275,7 +275,10 @@ QRect frameGeometry(void)
 QSize frameSize(void)
 QRect geometry(void)
 void getContentsMargins(int *left, int *top, int *right, int *bottom)
+<comment>
 void grabGesture(int gesture, int flags)
+</comment>
+void grabGesture(Qt::GestureType gesture, int flags)
 void grabKeyboard(void)
 void grabMouse(void)
 int grabShortcut(QKeySequence , int context)
