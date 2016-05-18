@@ -46301,7 +46301,7 @@ RING_FUNC(ring_QTextCursor_movePosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->movePosition( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+	RING_API_RETNUMBER(pObject->movePosition( (QTextCursor::MoveOperation ) RING_API_GETNUMBER(2), (QTextCursor::MoveMode ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
 }
 
 
@@ -46373,7 +46373,7 @@ RING_FUNC(ring_QTextCursor_select)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->select( (int ) RING_API_GETNUMBER(2));
+	pObject->select( (QTextCursor::SelectionType ) RING_API_GETNUMBER(2));
 }
 
 

@@ -289,6 +289,7 @@ aNumberTypes + "QHostInfo::HostInfoError"
 aNumberTypes + "QFileDevice::Permission"
 aNumberTypes + "QDir::SortFlag"
 aNumberTypes + "QFontDialog::FontDialogOption"
+aNumberTypes + "QTextCursor::SelectionType"
 </runcode>
 
 <class>
@@ -3316,11 +3317,11 @@ bool keepPositionOnInsert(void)
 void mergeBlockCharFormat(QTextCharFormat)
 void mergeBlockFormat(QTextBlockFormat)
 void mergeCharFormat(QTextCharFormat)
-bool movePosition(int operation, int mode, int n)
+bool movePosition(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode, int n)
 int position(void)
 int positionInBlock(void)
 void removeSelectedText(void)
-void select(int selection)
+void select(QTextCursor::SelectionType selection)
 void selectedTableCells(int *firstRow, int *numRows, int *firstColumn, int *numColumns)
 QString selectedText(void)
 QTextDocumentFragment selection(void)
