@@ -295,6 +295,8 @@ aNumberTypes + "QLCDNumber::Mode"
 aNumberTypes + "QLCDNumber::SegmentStyle"
 aNumberTypes + "QInputDialog::InputMode"
 aNumberTypes + "QInputDialog::InputDialogOption"
+aNumberTypes + "QTextDocument::Stacks"
+aNumberTypes + "QTextDocument::FindFlag"
 </runcode>
 
 <class>
@@ -3470,10 +3472,10 @@ bool testOption(QInputDialog::InputDialogOption option)
 int textEchoMode(void)
 QString textValue(void)
 
-double getDouble(QWidget *parent,QString,QString, double value, double min, double max , int decimals, bool *ok, int flags)
-int getInt(QWidget *parent,QString,QString, int value, int min, int max, int step, bool *ok, int flags)
-QString getItem(QWidget *parent,QString,QString,QStringList, int current, bool editable, bool *ok, int, int)
-QString getText(QWidget *parent,QString,QString,int mode,QString, int *ok, int flags, int)
+double getDouble(QWidget *parent,QString,QString, double value, double min, double max , int decimals, bool *ok, Qt::WindowType flags)
+int getInt(QWidget *parent,QString,QString, int value, int min, int max, int step, bool *ok, Qt::WindowType flags)
+QString getItem(QWidget *parent,QString,QString,QStringList, int current, bool editable, bool *ok, int, Qt::WindowType)
+QString getText(QWidget *parent,QString,QString,int mode,QString, int *ok, int flags, Qt::WindowType)
 
 
 <class>
@@ -3613,7 +3615,7 @@ QTextBlock begin(void)
 int blockCount(void)
 QChar characterAt(int pos)
 int characterCount(void)
-void clearUndoRedoStacks(int stacksToClear )
+void clearUndoRedoStacks(QTextDocument::Stacks stacksToClear )
 QTextDocument *clone(QObject *parent )
 int defaultCursorMoveStyle(void)
 QFont defaultFont(void)
@@ -3623,7 +3625,7 @@ QAbstractTextDocumentLayout *documentLayout(void)
 double documentMargin(void)
 void drawContents(QPainter *p, QRectF rect)
 QTextBlock end(void)
-QTextCursor find(QString subString, QTextCursor cursor, int options )
+QTextCursor find(QString subString, QTextCursor cursor, QTextDocument::FindFlag options )
 QTextBlock findBlock(int pos)
 QTextBlock findBlockByLineNumber(int lineNumber)
 QTextBlock findBlockByNumber(int blockNumber)
