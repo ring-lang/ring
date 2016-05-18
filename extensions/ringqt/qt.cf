@@ -2362,17 +2362,17 @@ QList<QUrl> sidebarUrls(void)
 bool testOption(QFileDialog::Option option)
 int viewMode(void)
 QString getExistingDirectory(QWidget *,QString,QString, QFileDialog::Option)
-QUrl getExistingDirectoryUrl(QWidget *,QString,QUrl, int,QStringList)
+QUrl getExistingDirectoryUrl(QWidget *,QString,QUrl, QFileDialog::Option,QStringList)
 QString getOpenFileName(QWidget *,QString,QString,QString)
 <comment>
 QStringList getOpenFileNames(QWidget *,QString,QString,QString, QString, QString)
 </comment>
-QUrl getOpenFileUrl(QWidget *,QString,QUrl,QString, QString *,int options,QStringList)
+QUrl getOpenFileUrl(QWidget *,QString,QUrl,QString, QString *,QFileDialog::Option options,QStringList)
 <comment>
 QList<QUrl> getOpenFileUrls(QWidget * parent = 0, const QString & caption = QString(void), const QUrl & dir = QUrl(void), const QString & filter = QString(void), QString * selectedFilter = 0, Options options = 0, const QStringList & supportedSchemes = QStringList(void))
 </comment>
 QString getSaveFileName(QWidget *,QString,QString,QString)
-QUrl getSaveFileUrl(QWidget *,QString, QUrl,QString, QString *, int options,QStringList)
+QUrl getSaveFileUrl(QWidget *,QString, QUrl,QString, QString *, QFileDialog::Option options,QStringList)
 
 <class>
 name: QPainter

@@ -31710,7 +31710,7 @@ RING_FUNC(ring_QFileDialog_getExistingDirectoryUrl)
 	{
 		QUrl *pValue ; 
 		pValue = new QUrl() ;
-		*pValue = pObject->getExistingDirectoryUrl((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"), (int) RING_API_GETNUMBER(5),* (QStringList *) RING_API_GETCPOINTER(6,"QStringList"));
+		*pValue = pObject->getExistingDirectoryUrl((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"), (QFileDialog::Option) RING_API_GETNUMBER(5),* (QStringList *) RING_API_GETCPOINTER(6,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		free(RING_API_GETCPOINTER(3,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
@@ -31789,7 +31789,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileUrl)
 	{
 		QUrl *pValue ; 
 		pValue = new QUrl() ;
-		*pValue = pObject->getOpenFileUrl((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"),RING_API_GETSTRING(5),(QString *) RING_API_GETCPOINTER(6,"QString"), (int ) RING_API_GETNUMBER(7),* (QStringList *) RING_API_GETCPOINTER(8,"QStringList"));
+		*pValue = pObject->getOpenFileUrl((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"),RING_API_GETSTRING(5),(QString *) RING_API_GETCPOINTER(6,"QString"), (QFileDialog::Option ) RING_API_GETNUMBER(7),* (QStringList *) RING_API_GETCPOINTER(8,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		free(RING_API_GETCPOINTER(3,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
@@ -31868,7 +31868,7 @@ RING_FUNC(ring_QFileDialog_getSaveFileUrl)
 	{
 		QUrl *pValue ; 
 		pValue = new QUrl() ;
-		*pValue = pObject->getSaveFileUrl((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"),RING_API_GETSTRING(5),(QString *) RING_API_GETCPOINTER(6,"QString"), (int ) RING_API_GETNUMBER(7),* (QStringList *) RING_API_GETCPOINTER(8,"QStringList"));
+		*pValue = pObject->getSaveFileUrl((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"),RING_API_GETSTRING(5),(QString *) RING_API_GETCPOINTER(6,"QString"), (QFileDialog::Option ) RING_API_GETNUMBER(7),* (QStringList *) RING_API_GETCPOINTER(8,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		free(RING_API_GETCPOINTER(3,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
