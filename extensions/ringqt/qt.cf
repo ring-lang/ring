@@ -238,6 +238,7 @@ aNumberTypes + "QAction::MenuRole"
 aNumberTypes + "QAction::Priority"
 aNumberTypes + "QKeySequence::StandardKey"
 aNumberTypes + "QMessageBox::ButtonRole"
+aNumberTypes + "QMessageBox::StandardButton"
 </runcode>
 
 <class>
@@ -2247,7 +2248,7 @@ parent: QDialog
 </class>
 
 void addButton(QAbstractButton *button, QMessageBox::ButtonRole role)
-QAbstractButton *button(int which)
+QAbstractButton *button(QMessageBox::StandardButton which)
 int buttonRole(QAbstractButton *button)
 QAbstractButton *clickedButton(void)
 QPushButton *defaultButton(void)
@@ -2262,9 +2263,9 @@ void setDetailedText(QString)
 void setEscapeButton(QAbstractButton *button)
 void setIconPixmap(QPixmap)
 void setInformativeText(QString)
-void setStandardButtons(int buttons)
+void setStandardButtons(QMessageBox::StandardButton buttons)
 void setText(QString)
-void setTextFormat(int format)
+void setTextFormat(Qt::TextFormat format)
 void setWindowModality(int windowModality)
 void setWindowTitle(QString)
 int standardButton(QAbstractButton *button)

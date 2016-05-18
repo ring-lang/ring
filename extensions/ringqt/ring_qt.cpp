@@ -29958,7 +29958,7 @@ RING_FUNC(ring_QMessageBox_button)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(pObject->button( (int ) RING_API_GETNUMBER(2)),"QAbstractButton");
+	RING_API_RETCPOINTER(pObject->button( (QMessageBox::StandardButton ) RING_API_GETNUMBER(2)),"QAbstractButton");
 }
 
 
@@ -30256,7 +30256,7 @@ RING_FUNC(ring_QMessageBox_setStandardButtons)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setStandardButtons( (int ) RING_API_GETNUMBER(2));
+	pObject->setStandardButtons( (QMessageBox::StandardButton ) RING_API_GETNUMBER(2));
 }
 
 
@@ -30298,7 +30298,7 @@ RING_FUNC(ring_QMessageBox_setTextFormat)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTextFormat( (int ) RING_API_GETNUMBER(2));
+	pObject->setTextFormat( (Qt::TextFormat ) RING_API_GETNUMBER(2));
 }
 
 
