@@ -1450,12 +1450,12 @@ name: QAbstractScrollArea
 para: QWidget *parent
 parent: QFrame
 </class>
-void addScrollBarWidget(QWidget *widget, int alignment)
+void addScrollBarWidget(QWidget *widget, Qt::AlignmentFlag alignment)
 QWidget *cornerWidget(void)
 QScrollBar *horizontalScrollBar(void)
 int horizontalScrollBarPolicy(void)
 QSize maximumViewportSize(void)
-QWidgetList scrollBarWidgets(int)
+QWidgetList scrollBarWidgets(Qt::AlignmentFlag)
 void setCornerWidget(QWidget *widget)
 void setHorizontalScrollBar(QScrollBar *scrollBar)
 void setHorizontalScrollBarPolicy(int)

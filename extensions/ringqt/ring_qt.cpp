@@ -19069,7 +19069,7 @@ RING_FUNC(ring_QAbstractScrollArea_addScrollBarWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addScrollBarWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3));
+	pObject->addScrollBarWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (Qt::AlignmentFlag ) RING_API_GETNUMBER(3));
 }
 
 
@@ -19166,7 +19166,7 @@ RING_FUNC(ring_QAbstractScrollArea_scrollBarWidgets)
 	{
 		QWidgetList *pValue ; 
 		pValue = (QWidgetList *) malloc(sizeof(QWidgetList)) ;
-		*pValue = pObject->scrollBarWidgets( (int) RING_API_GETNUMBER(2));
+		*pValue = pObject->scrollBarWidgets( (Qt::AlignmentFlag) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QWidgetList");
 	}
 }
