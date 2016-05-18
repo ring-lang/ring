@@ -265,6 +265,9 @@ aNumberTypes + "QPrinter::PaperSource"
 aNumberTypes + "QPrinter::PrintRange"
 aNumberTypes + "QFont::Capitalization"
 aNumberTypes + "QFont::HintingPreference"
+aNumberTypes + "QFont::SpacingType"
+aNumberTypes + "QFont::Style"
+aNumberTypes + "QFont::StyleHint"
 </runcode>
 
 <class>
@@ -2714,7 +2717,7 @@ void setFixedPitch(bool enable)
 void setHintingPreference(QFont::HintingPreference hintingPreference)
 void setItalic(bool enable)
 void setKerning(bool enable)
-void setLetterSpacing(int type, double spacing)
+void setLetterSpacing(QFont::SpacingType type, double spacing)
 void setOverline(bool enable)
 void setPixelSize(int pixelSize)
 void setPointSize(int pointSize)
@@ -2723,8 +2726,8 @@ void setRawMode(bool enable)
 void setRawName(QString)
 void setStretch(int factor)
 void setStrikeOut(bool enable)
-void setStyle(int style)
-void setStyleHint(int hint, int strategy)
+void setStyle(QFont::Style style)
+void setStyleHint(QFont::StyleHint hint, int strategy)
 void setStyleName(QString)
 void setStyleStrategy(int s)
 void setUnderline(bool enable)

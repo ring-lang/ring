@@ -38132,7 +38132,7 @@ RING_FUNC(ring_QFont_setLetterSpacing)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setLetterSpacing( (int ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3));
+	pObject->setLetterSpacing( (QFont::SpacingType ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3));
 }
 
 
@@ -38321,7 +38321,7 @@ RING_FUNC(ring_QFont_setStyle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setStyle( (int ) RING_API_GETNUMBER(2));
+	pObject->setStyle( (QFont::Style ) RING_API_GETNUMBER(2));
 }
 
 
@@ -38346,7 +38346,7 @@ RING_FUNC(ring_QFont_setStyleHint)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setStyleHint( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setStyleHint( (QFont::StyleHint ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 }
 
 
