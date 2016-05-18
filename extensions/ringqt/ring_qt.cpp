@@ -20028,7 +20028,7 @@ RING_FUNC(ring_QAbstractItemView_setHorizontalScrollMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setHorizontalScrollMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setHorizontalScrollMode( (QAbstractItemView::ScrollMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -20288,7 +20288,7 @@ RING_FUNC(ring_QAbstractItemView_setVerticalScrollMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setVerticalScrollMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setVerticalScrollMode( (QAbstractItemView::ScrollMode ) RING_API_GETNUMBER(2));
 }
 
 
