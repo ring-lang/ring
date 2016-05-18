@@ -281,6 +281,7 @@ aNumberTypes + "QIODevice::OpenModeFlag"
 aNumberTypes + "QAbstractSocket::NetworkLayerProtocol"
 aNumberTypes + "QAbstractSocket::PauseMode"
 aNumberTypes + "QAbstractSocket::SocketState"
+aNumberTypes + "QAbstractSocket::SocketOption"
 </runcode>
 
 <class>
@@ -2975,10 +2976,10 @@ void resume(void)
 void setPauseMode(QAbstractSocket::PauseMode pauseMode)
 void setProxy(QNetworkProxy  networkProxy)
 void setReadBufferSize(int size)
-bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState socketState, int openMode)
-void setSocketOption(int option,  QVariant  value)
+bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState socketState, QIODevice::OpenModeFlag openMode)
+void setSocketOption(QAbstractSocket::SocketOption option,  QVariant  value)
 int *socketDescriptor(void)
-QVariant socketOption(int option)
+QVariant socketOption(QAbstractSocket::SocketOption option)
 int socketType(void)
 int state(void)
 bool waitForConnected(int msecs)

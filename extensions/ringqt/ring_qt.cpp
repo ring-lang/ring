@@ -42044,7 +42044,7 @@ RING_FUNC(ring_QAbstractSocket_setSocketDescriptor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->setSocketDescriptor(* (qintptr  *) RING_API_GETCPOINTER(2,"qintptr"), (QAbstractSocket::SocketState ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+	RING_API_RETNUMBER(pObject->setSocketDescriptor(* (qintptr  *) RING_API_GETCPOINTER(2,"qintptr"), (QAbstractSocket::SocketState ) RING_API_GETNUMBER(3), (QIODevice::OpenModeFlag ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"qintptr"));
 }
@@ -42067,7 +42067,7 @@ RING_FUNC(ring_QAbstractSocket_setSocketOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setSocketOption( (int ) RING_API_GETNUMBER(2),* (QVariant   *) RING_API_GETCPOINTER(3,"QVariant"));
+	pObject->setSocketOption( (QAbstractSocket::SocketOption ) RING_API_GETNUMBER(2),* (QVariant   *) RING_API_GETCPOINTER(3,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		free(RING_API_GETCPOINTER(2,"QVariant"));
 }
@@ -42110,7 +42110,7 @@ RING_FUNC(ring_QAbstractSocket_socketOption)
 	{
 		QVariant *pValue ; 
 		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
-		*pValue = pObject->socketOption( (int ) RING_API_GETNUMBER(2));
+		*pValue = pObject->socketOption( (QAbstractSocket::SocketOption ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QVariant");
 	}
 }
