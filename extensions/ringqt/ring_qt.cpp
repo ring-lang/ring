@@ -19231,7 +19231,7 @@ RING_FUNC(ring_QAbstractScrollArea_setHorizontalScrollBarPolicy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setHorizontalScrollBarPolicy( (int) RING_API_GETNUMBER(2));
+	pObject->setHorizontalScrollBarPolicy( (Qt::ScrollBarPolicy) RING_API_GETNUMBER(2));
 }
 
 
@@ -19273,7 +19273,7 @@ RING_FUNC(ring_QAbstractScrollArea_setVerticalScrollBarPolicy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setVerticalScrollBarPolicy( (int) RING_API_GETNUMBER(2));
+	pObject->setVerticalScrollBarPolicy( (Qt::ScrollBarPolicy) RING_API_GETNUMBER(2));
 }
 
 

@@ -214,6 +214,7 @@ aNumberTypes + "Qt::TextElideMode"
 aNumberTypes + "Qt::DockWidgetAreas"
 aNumberTypes + "QFrame::Shadow"
 aNumberTypes + "QFrame::Shape"
+aNumberTypes + "Qt::ScrollBarPolicy"
 </runcode>
 
 <class>
@@ -1458,9 +1459,9 @@ QSize maximumViewportSize(void)
 QWidgetList scrollBarWidgets(Qt::AlignmentFlag)
 void setCornerWidget(QWidget *widget)
 void setHorizontalScrollBar(QScrollBar *scrollBar)
-void setHorizontalScrollBarPolicy(int)
+void setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy)
 void setVerticalScrollBar(QScrollBar *scrollBar)
-void setVerticalScrollBarPolicy(int)
+void setVerticalScrollBarPolicy(Qt::ScrollBarPolicy)
 void setViewport(QWidget *widget)
 QScrollBar *verticalScrollBar(void)
 int verticalScrollBarPolicy(void)
