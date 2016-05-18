@@ -20204,7 +20204,7 @@ RING_FUNC(ring_QAbstractItemView_setSelectionMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setSelectionMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setSelectionMode( (QAbstractItemView::SelectionMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -20267,7 +20267,7 @@ RING_FUNC(ring_QAbstractItemView_setTextElideMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTextElideMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setTextElideMode( (Qt::TextElideMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -21958,7 +21958,7 @@ RING_FUNC(ring_QProgressBar_setTextDirection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTextDirection( (int ) RING_API_GETNUMBER(2));
+	pObject->setTextDirection( (QProgressBar::Direction ) RING_API_GETNUMBER(2));
 }
 
 

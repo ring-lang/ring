@@ -219,6 +219,8 @@ aNumberTypes + "QAbstractItemView::DragDropMode"
 aNumberTypes + "QAbstractItemView::ScrollMode"
 aNumberTypes + "QAbstractItemView::EditTrigger"
 aNumberTypes + "QAbstractItemView::SelectionBehavior"
+aNumberTypes + "QAbstractItemView::SelectionMode"
+aNumberTypes + "QProgressBar::Direction"
 </runcode>
 
 <class>
@@ -1520,10 +1522,10 @@ void setItemDelegateForColumn(int column, QAbstractItemDelegate *delegate)
 void setItemDelegateForRow(int row, QAbstractItemDelegate *delegate)
 void setModel(QAbstractItemModel *model)
 void setSelectionBehavior(QAbstractItemView::SelectionBehavior behavior)
-void setSelectionMode(int mode)
+void setSelectionMode(QAbstractItemView::SelectionMode mode)
 void setSelectionModel(QItemSelectionModel *selectionModel)
 void setTabKeyNavigation(bool enable)
-void setTextElideMode(int mode)
+void setTextElideMode(Qt::TextElideMode mode)
 void setVerticalScrollMode(QAbstractItemView::ScrollMode mode)
 bool showDropIndicator(void)
 int sizeHintForColumn(int column)
@@ -1626,7 +1628,7 @@ void resetFormat(void)
 void setAlignment(Qt::AlignmentFlag alignment)
 void setFormat(QString)
 void setInvertedAppearance(bool invert)
-void setTextDirection(int textDirection)
+void setTextDirection(QProgressBar::Direction textDirection)
 void setTextVisible(bool visible)
 QString text(void)
 int textDirection(void)
