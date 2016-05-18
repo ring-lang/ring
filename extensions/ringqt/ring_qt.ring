@@ -8409,12 +8409,6 @@ Class QInputDialog from QDialog
 	Func getInt P1,P2,P3,P4,P5,P6,P7,P8,P9
 		return QInputDialog_getInt(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,P6,P7,GetObjectPointerFromRingObject(P8),P9)
 
-	Func getItem P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return QInputDialog_getItem(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4),P5,P6,GetObjectPointerFromRingObject(P7),P8,P9)
-
-	Func getText P1,P2,P3,P4,P5,P6,P7,P8
-		return QInputDialog_getText(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,GetObjectPointerFromRingObject(P6),P7,P8)
-
 Class QAllEvents from QWidget
 
 	pObject

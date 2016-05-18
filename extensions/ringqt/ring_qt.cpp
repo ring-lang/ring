@@ -48126,107 +48126,6 @@ RING_FUNC(ring_QInputDialog_getInt)
 }
 
 
-RING_FUNC(ring_QInputDialog_getItem)
-{
-	QInputDialog *pObject ;
-	if ( RING_API_PARACOUNT != 10 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QInputDialog *) RING_API_GETCPOINTER(1,"QInputDialog");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(6) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(7) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(8) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(9) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(10) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(pObject->getItem((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),RING_API_GETSTRING(4),* (QStringList *) RING_API_GETCPOINTER(5,"QStringList"), (int ) RING_API_GETNUMBER(6), (bool ) RING_API_GETNUMBER(7),(bool *) RING_API_GETCPOINTER(8,"bool"), (Qt::WindowFlags) RING_API_GETNUMBER(9), (Qt::InputMethodHints) RING_API_GETNUMBER(10)).toStdString().c_str());
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"QStringList"));
-}
-
-
-RING_FUNC(ring_QInputDialog_getText)
-{
-	QInputDialog *pObject ;
-	if ( RING_API_PARACOUNT != 9 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QInputDialog *) RING_API_GETCPOINTER(1,"QInputDialog");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(6) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(7) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(8) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(9) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(pObject->getText((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),RING_API_GETSTRING(4), (int ) RING_API_GETNUMBER(5),RING_API_GETSTRING(6),RING_API_GETINTPOINTER(7), (int ) RING_API_GETNUMBER(8), (Qt::WindowType) RING_API_GETNUMBER(9)).toStdString().c_str());
-	RING_API_ACCEPTINTVALUE(6) ;
-}
-
-
 RING_FUNC(ring_QAllEvents_accept)
 {
 	GAllEvents *pObject ;
@@ -51383,7 +51282,7 @@ RING_FUNC(ring_QTextDocument_setMetaInformation)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setMetaInformation( (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3));
+	pObject->setMetaInformation( (QTextDocument::MetaInformation ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3));
 }
 
 
@@ -56644,8 +56543,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qinputdialog_textvalue",ring_QInputDialog_textValue);
 	ring_vm_funcregister("qinputdialog_getdouble",ring_QInputDialog_getDouble);
 	ring_vm_funcregister("qinputdialog_getint",ring_QInputDialog_getInt);
-	ring_vm_funcregister("qinputdialog_getitem",ring_QInputDialog_getItem);
-	ring_vm_funcregister("qinputdialog_gettext",ring_QInputDialog_getText);
 	ring_vm_funcregister("qallevents_accept",ring_QAllEvents_accept);
 	ring_vm_funcregister("qallevents_ignore",ring_QAllEvents_ignore);
 	ring_vm_funcregister("qallevents_getkeycode",ring_QAllEvents_getKeyCode);

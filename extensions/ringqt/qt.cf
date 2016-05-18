@@ -3477,9 +3477,10 @@ QString textValue(void)
 
 double getDouble(QWidget *parent,QString,QString, double value, double min, double max , int decimals, bool *ok, Qt::WindowType flags)
 int getInt(QWidget *parent,QString,QString, int value, int min, int max, int step, bool *ok, Qt::WindowType flags)
-QString getItem(QWidget *parent,QString,QString,QStringList, int current, bool editable, bool *ok, Qt::WindowFlags, Qt::InputMethodHints)
+<comment>
+QString getItem(QWidget *parent,QString,QString,QStringList, int current, bool editable, bool *ok, Qt::WindowFlags, Qt::WindowType flags)
 QString getText(QWidget *parent,QString,QString,int mode,QString, int *ok, int flags, Qt::WindowType)
-
+</comment>
 
 <class>
 name: QAllEvents
@@ -3663,7 +3664,7 @@ void setDocumentMargin(double margin)
 void setHtml(QString html)
 void setIndentWidth(double width)
 void setMaximumBlockCount(int maximum)
-void setMetaInformation(int info, QString string)
+void setMetaInformation(QTextDocument::MetaInformation info, QString string)
 void setPageSize(QSizeF size)
 void setPlainText(QString text)
 void setTextWidth(double width)
