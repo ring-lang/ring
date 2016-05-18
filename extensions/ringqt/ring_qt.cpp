@@ -2628,7 +2628,7 @@ RING_FUNC(ring_QWidget_setContextMenuPolicy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setContextMenuPolicy( (int ) RING_API_GETNUMBER(2));
+	pObject->setContextMenuPolicy( (Qt::ContextMenuPolicy ) RING_API_GETNUMBER(2));
 }
 
 

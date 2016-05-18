@@ -171,7 +171,7 @@ aNumberTypes + "Qt::WindowType"
 aNumberTypes + "QWidget::RenderFlag"
 aNumberTypes + "Qt::WidgetAttribute"
 aNumberTypes + "QPalette::ColorRole"
-
+aNumberTypes + "Qt::ContextMenuPolicy"
 </runcode>
 
 <class>
@@ -353,7 +353,7 @@ void setAutoFillBackground(bool enabled)
 void setBackgroundRole(QPalette::ColorRole role)
 void setBaseSize(int basew, int baseh)
 void setContentsMargins(int left, int top, int right, int bottom)
-void setContextMenuPolicy(int policy)
+void setContextMenuPolicy(Qt::ContextMenuPolicy policy)
 void setCursor(QCursor)
 void setFixedHeight(int h)
 void setFixedSize(int w, int h)
