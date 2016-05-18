@@ -14669,7 +14669,7 @@ RING_FUNC(ring_QMenuBar_cornerWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(pObject->cornerWidget( (int) RING_API_GETNUMBER(2)),"QWidget");
+	RING_API_RETCPOINTER(pObject->cornerWidget( (Qt::Corner) RING_API_GETNUMBER(2)),"QWidget");
 }
 
 
@@ -14795,7 +14795,7 @@ RING_FUNC(ring_QMenuBar_setCornerWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCornerWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int) RING_API_GETNUMBER(3));
+	pObject->setCornerWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (Qt::Corner) RING_API_GETNUMBER(3));
 }
 
 
@@ -15550,7 +15550,7 @@ RING_FUNC(ring_QToolBar_isAreaAllowed)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->isAreaAllowed( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->isAreaAllowed( (Qt::ToolBarArea ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -16971,7 +16971,7 @@ RING_FUNC(ring_QDockWidget_isAreaAllowed)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->isAreaAllowed( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->isAreaAllowed( (Qt::ToolBarArea ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -17312,7 +17312,7 @@ RING_FUNC(ring_QTabWidget_cornerWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(pObject->cornerWidget( (int ) RING_API_GETNUMBER(2)),"QWidget");
+	RING_API_RETCPOINTER(pObject->cornerWidget( (Qt::Corner ) RING_API_GETNUMBER(2)),"QWidget");
 }
 
 
@@ -17553,7 +17553,7 @@ RING_FUNC(ring_QTabWidget_setCornerWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCornerWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3));
+	pObject->setCornerWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (Qt::Corner ) RING_API_GETNUMBER(3));
 }
 
 

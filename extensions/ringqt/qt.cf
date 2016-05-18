@@ -202,6 +202,8 @@ aNumberTypes + "Qt::CheckState"
 aNumberTypes + "QTreeWidgetItem::ChildIndicatorPolicy"
 aNumberTypes + "Qt::ItemFlag"
 aNumberTypes + "Qt::MatchFlag"
+aNumberTypes + "Qt::Corner"
+aNumberTypes + "Qt::ToolBarArea"
 </runcode>
 
 <class>
@@ -1151,7 +1153,7 @@ QAction *addMenu(QMenu *menu)
 QMenu *addMenu(QString)
 QAction *addSeparator(void)
 void clear(void)
-QWidget *cornerWidget(int)
+QWidget *cornerWidget(Qt::Corner)
 <comment>
 QAction *defaultAction(void)
 </comment>
@@ -1160,7 +1162,7 @@ QAction *insertSeparator(QAction *before)
 bool isDefaultUp(void)
 bool isNativeMenuBar(void)
 void setActiveAction(QAction *act)
-void setCornerWidget(QWidget *widget, int)
+void setCornerWidget(QWidget *widget, Qt::Corner)
 <comment>
 void setDefaultAction(QAction *act)
 </comment>
@@ -1216,7 +1218,7 @@ void clear(void)
 QSize iconSize(void)
 QAction *insertSeparator(QAction *before)
 QAction *insertWidget(QAction *before, QWidget *widget)
-bool isAreaAllowed(int area)
+bool isAreaAllowed(Qt::ToolBarArea area)
 bool isFloatable(void)
 bool isFloating(void)
 bool isMovable(void)
@@ -1306,7 +1308,7 @@ parent: QWidget
 
 int allowedAreas(void)
 int features(void)
-bool isAreaAllowed(int area)
+bool isAreaAllowed(Qt::ToolBarArea area)
 bool isFloating(void)
 void setAllowedAreas(int areas)
 void setFeatures(int features)
@@ -1332,7 +1334,7 @@ passvmpointer
 
 int addTab(QWidget *page, QString)
 void clear(void)
-QWidget *cornerWidget(int corner)
+QWidget *cornerWidget(Qt::Corner corner)
 int count(void)
 int currentIndex(void)
 QWidget *currentWidget(void)
@@ -1344,7 +1346,7 @@ int insertTab(int index, QWidget *page,QString)
 bool isMovable(void)
 bool isTabEnabled(int index)
 void removeTab(int index)
-void setCornerWidget(QWidget *widget, int corner)
+void setCornerWidget(QWidget *widget, Qt::Corner corner)
 void setDocumentMode(bool set)
 void setElideMode(int)
 void setIconSize(QSize)
