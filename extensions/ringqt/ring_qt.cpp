@@ -23979,7 +23979,7 @@ RING_FUNC(ring_QDateTimeEdit_setTimeSpec)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTimeSpec( (int ) RING_API_GETNUMBER(2));
+	pObject->setTimeSpec( (Qt::TimeSpec ) RING_API_GETNUMBER(2));
 }
 
 
@@ -24018,12 +24018,7 @@ RING_FUNC(ring_QDateTimeEdit_timeSpec)
 		return ;
 	}
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
-	{
-		Qt::TimeSpec *pValue ; 
-		pValue = (Qt::TimeSpec *) malloc(sizeof(Qt::TimeSpec)) ;
-		*pValue = pObject->timeSpec();
-		RING_API_RETCPOINTER(pValue,"Qt::TimeSpec");
-	}
+	RING_API_RETNUMBER(pObject->timeSpec());
 }
 
 
@@ -24313,7 +24308,7 @@ RING_FUNC(ring_QAbstractSpinBox_setButtonSymbols)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setButtonSymbols( (int ) RING_API_GETNUMBER(2));
+	pObject->setButtonSymbols( (QAbstractSpinBox::ButtonSymbols ) RING_API_GETNUMBER(2));
 }
 
 
@@ -24334,7 +24329,7 @@ RING_FUNC(ring_QAbstractSpinBox_setCorrectionMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCorrectionMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setCorrectionMode( (QAbstractSpinBox::CorrectionMode ) RING_API_GETNUMBER(2));
 }
 
 

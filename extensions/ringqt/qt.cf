@@ -224,6 +224,9 @@ aNumberTypes + "QProgressBar::Direction"
 aNumberTypes + "QAbstractSlider::SliderAction"
 aNumberTypes + "QSlider::TickPosition"
 aNumberTypes + "QDateTimeEdit::Section"
+aNumberTypes + "Qt::TimeSpec"
+aNumberTypes + "QAbstractSpinBox::ButtonSymbols"
+aNumberTypes + "QAbstractSpinBox::CorrectionMode"
 </runcode>
 
 <class>
@@ -1774,7 +1777,7 @@ void setMinimumDateTime(QDateTime)
 void setMinimumTime(QTime)
 void setSelectedSection(QDateTimeEdit::Section section)
 void setTimeRange(QTime,QTime)
-void setTimeSpec(int spec)
+void setTimeSpec(Qt::TimeSpec spec)
 QTime time(void)
 Qt::TimeSpec timeSpec(void)
 void setDate(QDate)
@@ -1799,8 +1802,8 @@ bool isReadOnly(void)
 bool keyboardTracking(void)
 void setAccelerated(bool on)
 void setAlignment(Qt::AlignmentFlag flag)
-void setButtonSymbols(int bs)
-void setCorrectionMode(int cm)
+void setButtonSymbols(QAbstractSpinBox::ButtonSymbols bs)
+void setCorrectionMode(QAbstractSpinBox::CorrectionMode cm)
 void setFrame(bool)
 void setGroupSeparatorShown(bool shown)
 void setKeyboardTracking(bool kt)
