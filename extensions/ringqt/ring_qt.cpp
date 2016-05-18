@@ -24926,7 +24926,7 @@ RING_FUNC(ring_QWebView_findText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->findText(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+	RING_API_RETNUMBER(pObject->findText(RING_API_GETSTRING(2), (QWebPage::FindFlag ) RING_API_GETNUMBER(3)));
 }
 
 
@@ -25056,7 +25056,7 @@ RING_FUNC(ring_QWebView_pageAction)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(pObject->pageAction( (int ) RING_API_GETNUMBER(2)),"QAction");
+	RING_API_RETCPOINTER(pObject->pageAction( (QWebPage::WebAction ) RING_API_GETNUMBER(2)),"QAction");
 }
 
 
@@ -25201,7 +25201,7 @@ RING_FUNC(ring_QWebView_setRenderHint)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setRenderHint( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+	pObject->setRenderHint( (QPainter::RenderHint ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
 }
 
 
@@ -25222,7 +25222,7 @@ RING_FUNC(ring_QWebView_setRenderHints)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setRenderHints( (int ) RING_API_GETNUMBER(2));
+	pObject->setRenderHints( (QPainter::RenderHint ) RING_API_GETNUMBER(2));
 }
 
 
@@ -33632,7 +33632,7 @@ RING_FUNC(ring_QPainter_setRenderHint)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setRenderHint( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+	pObject->setRenderHint( (QPainter::RenderHint ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
 }
 
 

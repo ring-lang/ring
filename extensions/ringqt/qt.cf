@@ -227,6 +227,9 @@ aNumberTypes + "QDateTimeEdit::Section"
 aNumberTypes + "Qt::TimeSpec"
 aNumberTypes + "QAbstractSpinBox::ButtonSymbols"
 aNumberTypes + "QAbstractSpinBox::CorrectionMode"
+aNumberTypes + "QWebPage::FindFlag"
+aNumberTypes + "QWebPage::WebAction"
+aNumberTypes + "QPainter::RenderHint"
 </runcode>
 
 <class>
@@ -1852,7 +1855,7 @@ codename: GWebView
 passvmpointer
 </class>
 
-bool findText(QString, int options)
+bool findText(QString, QWebPage::FindFlag options)
 bool hasSelection(void)
 QWebHistory *history(void)
 QIcon icon(void)
@@ -1862,15 +1865,15 @@ void load(QUrl)
 void load(QNetworkRequest , int operation, QByteArray))
 </comment>
 QWebPage *page(void)
-QAction *pageAction(int action)
+QAction *pageAction(QWebPage::WebAction action)
 int renderHints(void)
 QString selectedHtml(void)
 QString selectedText(void)
 void setContent(QByteArray,QString,QUrl)
 void setHtml(QString,QUrl)
 void setPage(QWebPage *page)
-void setRenderHint(int hint, bool enabled)
-void setRenderHints(int hints)
+void setRenderHint(QPainter::RenderHint hint, bool enabled)
+void setRenderHints(QPainter::RenderHint hints)
 void setTextSizeMultiplier(qreal factor)
 void setUrl(QUrl)
 void setZoomFactor(qreal factor)
@@ -2435,7 +2438,7 @@ void setFont( QFont  font)
 void setLayoutDirection(int direction)
 void setOpacity(qreal opacity)
 void setPen(QPen  pen)
-void setRenderHint(int hint, bool on)
+void setRenderHint(QPainter::RenderHint hint, bool on)
 void setTransform( QTransform  transform, bool combine)
 void setViewTransformEnabled(bool enable)
 void setViewport(int x, int y, int width, int height)
