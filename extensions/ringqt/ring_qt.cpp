@@ -11064,7 +11064,7 @@ RING_FUNC(ring_QFileSystemModel_headerData)
 	{
 		QVariant *pValue ; 
 		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
-		*pValue = pObject->headerData( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+		*pValue = pObject->headerData( (int ) RING_API_GETNUMBER(2), (Qt::Orientation ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
 		RING_API_RETCPOINTER(pValue,"QVariant");
 	}
 }
@@ -11200,7 +11200,7 @@ RING_FUNC(ring_QFileSystemModel_sort)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->sort( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->sort( (int ) RING_API_GETNUMBER(2), (Qt::SortOrder ) RING_API_GETNUMBER(3));
 }
 
 
@@ -11956,7 +11956,7 @@ RING_FUNC(ring_QTreeWidget_scrollToItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->scrollToItem((QTreeWidgetItem *) RING_API_GETCPOINTER(2,"QTreeWidgetItem"), (int ) RING_API_GETNUMBER(3));
+	pObject->scrollToItem((QTreeWidgetItem *) RING_API_GETCPOINTER(2,"QTreeWidgetItem"), (QAbstractItemView::ScrollHint ) RING_API_GETNUMBER(3));
 }
 
 

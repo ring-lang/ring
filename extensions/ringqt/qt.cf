@@ -197,6 +197,7 @@ aNumberTypes + "Qt::SortOrder"
 aNumberTypes + "QAbstractItemView::ScrollHint"
 aNumberTypes + "QDir::Filter"
 aNumberTypes + "Qt::DropAction"
+aNumberTypes + "Qt::Orientation"
 </runcode>
 
 <class>
@@ -900,13 +901,13 @@ bool dropMimeData( QMimeData *data, Qt::DropAction action, int row, int column, 
 void fetchMore( QModelIndex parent)
 int flags( QModelIndex index)
 bool hasChildren( QModelIndex parent )
-QVariant headerData(int section, int orientation, int role )
+QVariant headerData(int section, Qt::Orientation orientation, int role )
 QMimeData * mimeData( QModelIndexList indexes)
 QStringList mimeTypes(void)
 QModelIndex parent( QModelIndex index)
 int rowCount( QModelIndex parent)
 bool setData( QModelIndex idx,  QVariant value, int role)
-void sort(int column, int order )
+void sort(int column, Qt::SortOrder order )
 int supportedDropActions(void)
 
 
@@ -951,7 +952,7 @@ void setSelectionModel(QItemSelectionModel *selectionModel)
 void clear(void)
 void collapseItem(QTreeWidgetItem *item)
 void expandItem(QTreeWidgetItem *item)
-void scrollToItem(QTreeWidgetItem *item, int hint)
+void scrollToItem(QTreeWidgetItem *item, QAbstractItemView::ScrollHint hint)
 
 void setcollapsedEvent(const char *)
 void setexpandedEvent(const char *)
