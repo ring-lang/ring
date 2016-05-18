@@ -270,6 +270,8 @@ aNumberTypes + "QFont::Style"
 aNumberTypes + "QFont::StyleHint"
 aNumberTypes + "QFont::StyleStrategy"
 aNumberTypes + "QWebSettings::FontFamily"
+aNumberTypes + "QWebSettings::FontSize"
+aNumberTypes + "QWebSettings::WebAttribute"
 </runcode>
 
 <class>
@@ -2759,10 +2761,10 @@ abstract
 QString cssMediaType(void)
 QString defaultTextEncoding(void)
 QString fontFamily(QWebSettings::FontFamily which)
-int fontSize(int type)
+int fontSize(QWebSettings::FontSize type)
 QString localStoragePath(void)
-void resetAttribute(int attribute)
-void resetFontFamily(int which)
+void resetAttribute(QWebSettings::WebAttribute attribute)
+void resetFontFamily(QWebSettings::FontFamily which)
 void resetFontSize(int type)
 void setAttribute(int attribute, bool on)
 void setCSSMediaType(QString)

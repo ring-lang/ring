@@ -38814,7 +38814,7 @@ RING_FUNC(ring_QWebSettings_fontSize)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->fontSize( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->fontSize( (QWebSettings::FontSize ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -38852,7 +38852,7 @@ RING_FUNC(ring_QWebSettings_resetAttribute)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->resetAttribute( (int ) RING_API_GETNUMBER(2));
+	pObject->resetAttribute( (QWebSettings::WebAttribute ) RING_API_GETNUMBER(2));
 }
 
 
@@ -38873,7 +38873,7 @@ RING_FUNC(ring_QWebSettings_resetFontFamily)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->resetFontFamily( (int ) RING_API_GETNUMBER(2));
+	pObject->resetFontFamily( (QWebSettings::FontFamily ) RING_API_GETNUMBER(2));
 }
 
 
