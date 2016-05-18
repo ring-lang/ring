@@ -198,6 +198,9 @@ aNumberTypes + "QAbstractItemView::ScrollHint"
 aNumberTypes + "QDir::Filter"
 aNumberTypes + "Qt::DropAction"
 aNumberTypes + "Qt::Orientation"
+aNumberTypes + "Qt::CheckState"
+aNumberTypes + "QTreeWidgetItem::ChildIndicatorPolicy"
+aNumberTypes + "Qt::ItemFlag"
 </runcode>
 
 <class>
@@ -1004,13 +1007,13 @@ QTreeWidgetItem *parent(void)
 void read(QDataStream)
 void removeChild(QTreeWidgetItem *child)
 void setBackground(int column,QBrush)
-void setCheckState(int column, int state)
-void setChildIndicatorPolicy(int policy)
+void setCheckState(int column, Qt::CheckState state)
+void setChildIndicatorPolicy(QTreeWidgetItem::ChildIndicatorPolicy policy)
 void setData(int column, int role,QVariant)
 void setDisabled(bool disabled)
 void setExpanded(bool expand)
 void setFirstColumnSpanned(bool span)
-void setFlags(int flags)
+void setFlags(Qt::ItemFlag flags)
 void setFont(int column, QFont)
 void setForeground(int column, QBrush)
 void setHidden(bool hide)
@@ -1386,9 +1389,9 @@ bool isSelected(void)
 void read(QDataStream)
 int row(void)
 void setBackground(QBrush)
-void setCheckState(int state)
+void setCheckState(Qt::CheckState state)
 void setData(int role, QVariant)
-void setFlags(int flags)
+void setFlags(Qt::ItemFlag flags)
 void setFont(QFont)
 void setForeground(QBrush)
 void setIcon(QIcon)
@@ -1931,7 +1934,7 @@ passvmpointer
 
 int checkState(void)
 bool isTristate(void)
-void setCheckState(int state)
+void setCheckState(Qt::CheckState state)
 void setTristate(bool y)
 QSize minimumSizeHint(void)
 QSize sizeHint(void)

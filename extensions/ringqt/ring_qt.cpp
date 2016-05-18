@@ -12852,7 +12852,7 @@ RING_FUNC(ring_QTreeWidgetItem_setCheckState)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCheckState( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setCheckState( (int ) RING_API_GETNUMBER(2), (Qt::CheckState ) RING_API_GETNUMBER(3));
 }
 
 
@@ -12873,7 +12873,7 @@ RING_FUNC(ring_QTreeWidgetItem_setChildIndicatorPolicy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setChildIndicatorPolicy( (int ) RING_API_GETNUMBER(2));
+	pObject->setChildIndicatorPolicy( (QTreeWidgetItem::ChildIndicatorPolicy ) RING_API_GETNUMBER(2));
 }
 
 
@@ -12984,7 +12984,7 @@ RING_FUNC(ring_QTreeWidgetItem_setFlags)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFlags( (int ) RING_API_GETNUMBER(2));
+	pObject->setFlags( (Qt::ItemFlag ) RING_API_GETNUMBER(2));
 }
 
 
@@ -18368,7 +18368,7 @@ RING_FUNC(ring_QTableWidgetItem_setCheckState)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCheckState( (int ) RING_API_GETNUMBER(2));
+	pObject->setCheckState( (Qt::CheckState ) RING_API_GETNUMBER(2));
 }
 
 
@@ -18412,7 +18412,7 @@ RING_FUNC(ring_QTableWidgetItem_setFlags)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setFlags( (int ) RING_API_GETNUMBER(2));
+	pObject->setFlags( (Qt::ItemFlag ) RING_API_GETNUMBER(2));
 }
 
 
@@ -26498,7 +26498,7 @@ RING_FUNC(ring_QCheckBox_setCheckState)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setCheckState( (int ) RING_API_GETNUMBER(2));
+	pObject->setCheckState( (Qt::CheckState ) RING_API_GETNUMBER(2));
 }
 
 
