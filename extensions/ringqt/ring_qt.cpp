@@ -4904,7 +4904,7 @@ RING_FUNC(ring_QLabel_setTextFormat)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTextFormat( (int) RING_API_GETNUMBER(2));
+	pObject->setTextFormat( (Qt::TextFormat) RING_API_GETNUMBER(2));
 }
 
 
@@ -4925,7 +4925,7 @@ RING_FUNC(ring_QLabel_setTextInteractionFlags)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setTextInteractionFlags( (int ) RING_API_GETNUMBER(2));
+	pObject->setTextInteractionFlags( (Qt::TextInteractionFlag ) RING_API_GETNUMBER(2));
 }
 
 
@@ -5286,7 +5286,7 @@ RING_FUNC(ring_QPixmap_scaled)
 	{
 		QPixmap *pValue ; 
 		pValue = new QPixmap() ;
-		*pValue = pObject->scaled( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+		*pValue = pObject->scaled( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (Qt::AspectRatioMode ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
 		RING_API_RETCPOINTER(pValue,"QPixmap");
 	}
 }

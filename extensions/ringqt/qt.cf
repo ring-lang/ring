@@ -181,6 +181,9 @@ aNumberTypes + "Qt::WindowType"
 aNumberTypes + "Qt::WindowModality"
 aNumberTypes + "Qt::WindowState"
 aNumberTypes + "Qt::AlignmentFlag"
+aNumberTypes + "Qt::TextFormat"
+aNumberTypes + "Qt::TextInteractionFlag"
+aNumberTypes + "Qt::AspectRatioMode"
 </runcode>
 
 <class>
@@ -483,8 +486,8 @@ void setMargin(int)
 void setOpenExternalLinks(bool open)
 void setScaledContents(bool)
 void setSelection(int start, int length)
-void setTextFormat(int)
-void setTextInteractionFlags(int flags)
+void setTextFormat(Qt::TextFormat)
+void setTextInteractionFlags(Qt::TextInteractionFlag flags)
 void setWordWrap(bool on)
 QString text(void)
 int textFormat(void)
@@ -515,7 +518,7 @@ name: QPixmap
 para: const char *
 </class>
 QPixmap copy(int x, int y, int width, int height)
-QPixmap scaled(int width, int height, int aspectRatioMode, int transformMode) 
+QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, int transformMode) 
 int width(void)
 int height(void)
 
