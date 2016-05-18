@@ -37131,7 +37131,7 @@ RING_FUNC(ring_QPrinter_setDuplex)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setDuplex( (int ) RING_API_GETNUMBER(2));
+	pObject->setDuplex( (QPrinter::DuplexMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -37240,7 +37240,7 @@ RING_FUNC(ring_QPrinter_setOutputFormat)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOutputFormat( (int ) RING_API_GETNUMBER(2));
+	pObject->setOutputFormat( (QPrinter::OutputFormat ) RING_API_GETNUMBER(2));
 }
 
 
@@ -37280,7 +37280,7 @@ RING_FUNC(ring_QPrinter_setPageMargins)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->setPageMargins(* (QMarginsF *) RING_API_GETCPOINTER(2,"QMarginsF"), (int ) RING_API_GETNUMBER(3)));
+	RING_API_RETNUMBER(pObject->setPageMargins(* (QMarginsF *) RING_API_GETCPOINTER(2,"QMarginsF"), (QPageLayout::Unit ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QMarginsF"));
 }

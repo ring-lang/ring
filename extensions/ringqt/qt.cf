@@ -256,6 +256,9 @@ aNumberTypes + "Qt::PenStyle"
 aNumberTypes + "QColor::Spec"
 aNumberTypes + "QPrinter::Unit"
 aNumberTypes + "QPrinter::ColorMode"
+aNumberTypes + "QPrinter::DuplexMode"
+aNumberTypes + "QPrinter::OutputFormat"
+aNumberTypes + "QPageLayout::Unit"
 </runcode>
 
 <class>
@@ -2647,14 +2650,14 @@ void setColorMode(QPrinter::ColorMode newColorMode)
 void setCopyCount(int count)
 void setCreator(QString)
 void setDocName(QString)
-void setDuplex(int duplex)
+void setDuplex(QPrinter::DuplexMode duplex)
 void setFontEmbeddingEnabled(bool enable)
 void setFromTo(int from, int to)
 void setFullPage(bool fp)
 void setOutputFileName(QString)
-void setOutputFormat(int format)
+void setOutputFormat(QPrinter::OutputFormat format)
 bool setPageLayout(QPageLayout)
-bool setPageMargins(QMarginsF, int units)
+bool setPageMargins(QMarginsF, QPageLayout::Unit units)
 void setPageOrder(int pageOrder)
 bool setPageOrientation(int orientation)
 bool setPageSize(QPageSize)
