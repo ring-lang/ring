@@ -30319,7 +30319,7 @@ RING_FUNC(ring_QMessageBox_setWindowModality)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setWindowModality( (int ) RING_API_GETNUMBER(2));
+	pObject->setWindowModality( (Qt::WindowModality ) RING_API_GETNUMBER(2));
 }
 
 
@@ -30985,7 +30985,7 @@ RING_FUNC(ring_QFileDialog_labelText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->labelText( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->labelText( (QFileDialog::DialogLabel ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
@@ -31271,7 +31271,7 @@ RING_FUNC(ring_QFileDialog_setAcceptMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setAcceptMode( (int ) RING_API_GETNUMBER(2));
+	pObject->setAcceptMode( (QFileDialog::AcceptMode ) RING_API_GETNUMBER(2));
 }
 
 
@@ -31460,7 +31460,7 @@ RING_FUNC(ring_QFileDialog_setLabelText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setLabelText( (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3));
+	pObject->setLabelText( (QFileDialog::DialogLabel ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3));
 }
 
 

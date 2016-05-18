@@ -239,6 +239,8 @@ aNumberTypes + "QAction::Priority"
 aNumberTypes + "QKeySequence::StandardKey"
 aNumberTypes + "QMessageBox::ButtonRole"
 aNumberTypes + "QMessageBox::StandardButton"
+aNumberTypes + "QFileDialog::DialogLabel"
+aNumberTypes + "QFileDialog::AcceptMode"
 </runcode>
 
 <class>
@@ -2266,7 +2268,7 @@ void setInformativeText(QString)
 void setStandardButtons(QMessageBox::StandardButton buttons)
 void setText(QString)
 void setTextFormat(Qt::TextFormat format)
-void setWindowModality(int windowModality)
+void setWindowModality(Qt::WindowModality windowModality)
 void setWindowTitle(QString)
 int standardButton(QAbstractButton *button)
 int standardButtons(void)
@@ -2314,7 +2316,7 @@ int filter(void)
 QStringList history(void)
 QFileIconProvider *iconProvider(void)
 QAbstractItemDelegate *itemDelegate(void)
-QString labelText(int label)
+QString labelText(QFileDialog::DialogLabel label)
 QStringList mimeTypeFilters(void)
 QStringList nameFilters(void)
 void open(QObject *receiver, const char *member)
@@ -2331,7 +2333,7 @@ QString selectedNameFilter(void)
 <comment>
 QList<QUrl> selectedUrls(void)
 </comment>
-void setAcceptMode(int mode)
+void setAcceptMode(QFileDialog::AcceptMode mode)
 void setDefaultSuffix(QString)
 void setDirectory(QString)
 void setDirectoryUrl(QUrl)
@@ -2340,7 +2342,7 @@ void setFilter(QDir::Filter filters)
 void setHistory(QStringList)
 void setIconProvider(QFileIconProvider *provider)
 void setItemDelegate(QAbstractItemDelegate *delegate)
-void setLabelText(int label, QString)
+void setLabelText(QFileDialog::DialogLabel label, QString)
 void setMimeTypeFilters(QStringList)
 void setNameFilter(QString)
 void setNameFilters(QStringList)
