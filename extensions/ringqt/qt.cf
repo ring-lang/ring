@@ -259,6 +259,9 @@ aNumberTypes + "QPrinter::ColorMode"
 aNumberTypes + "QPrinter::DuplexMode"
 aNumberTypes + "QPrinter::OutputFormat"
 aNumberTypes + "QPageLayout::Unit"
+aNumberTypes + "QPrinter::PageOrder"
+aNumberTypes + "QPageLayout::Orientation"
+aNumberTypes + "QPrinter::PaperSource"
 </runcode>
 
 <class>
@@ -2658,10 +2661,10 @@ void setOutputFileName(QString)
 void setOutputFormat(QPrinter::OutputFormat format)
 bool setPageLayout(QPageLayout)
 bool setPageMargins(QMarginsF, QPageLayout::Unit units)
-void setPageOrder(int pageOrder)
-bool setPageOrientation(int orientation)
+void setPageOrder(QPrinter::PageOrder pageOrder)
+bool setPageOrientation(QPageLayout::Orientation orientation)
 bool setPageSize(QPageSize)
-void setPaperSource(int source)
+void setPaperSource(QPrinter::PaperSource source)
 void setPrintProgram(QString)
 void setPrintRange(int)
 void setPrinterName(QString)

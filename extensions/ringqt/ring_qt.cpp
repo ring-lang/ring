@@ -37303,7 +37303,7 @@ RING_FUNC(ring_QPrinter_setPageOrder)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPageOrder( (int ) RING_API_GETNUMBER(2));
+	pObject->setPageOrder( (QPrinter::PageOrder ) RING_API_GETNUMBER(2));
 }
 
 
@@ -37324,7 +37324,7 @@ RING_FUNC(ring_QPrinter_setPageOrientation)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->setPageOrientation( (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(pObject->setPageOrientation( (QPageLayout::Orientation ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -37364,7 +37364,7 @@ RING_FUNC(ring_QPrinter_setPaperSource)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPaperSource( (int ) RING_API_GETNUMBER(2));
+	pObject->setPaperSource( (QPrinter::PaperSource ) RING_API_GETNUMBER(2));
 }
 
 
