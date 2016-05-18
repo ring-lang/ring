@@ -32391,7 +32391,7 @@ RING_FUNC(ring_QPainter_drawImage)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->drawImage( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (QImage  *) RING_API_GETCPOINTER(4,"QImage"), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7), (int ) RING_API_GETNUMBER(8), (int ) RING_API_GETNUMBER(9));
+	pObject->drawImage( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (QImage  *) RING_API_GETCPOINTER(4,"QImage"), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7), (int ) RING_API_GETNUMBER(8), (Qt::ImageConversionFlag ) RING_API_GETNUMBER(9));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		free(RING_API_GETCPOINTER(3,"QImage"));
 }
@@ -32668,7 +32668,7 @@ RING_FUNC(ring_QPainter_drawPolygon)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->drawPolygon((QPointF *) RING_API_GETCPOINTER(2,"QPointF"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+	pObject->drawPolygon((QPointF *) RING_API_GETCPOINTER(2,"QPointF"), (int ) RING_API_GETNUMBER(3), (Qt::FillRule ) RING_API_GETNUMBER(4));
 }
 
 
@@ -32788,7 +32788,7 @@ RING_FUNC(ring_QPainter_drawRoundedRect)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->drawRoundedRect( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (qreal  *) RING_API_GETCPOINTER(6,"qreal"),* (qreal  *) RING_API_GETCPOINTER(7,"qreal"), (int ) RING_API_GETNUMBER(8));
+	pObject->drawRoundedRect( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (qreal  *) RING_API_GETCPOINTER(6,"qreal"),* (qreal  *) RING_API_GETCPOINTER(7,"qreal"), (Qt::SizeMode ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
 		free(RING_API_GETCPOINTER(5,"qreal"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))

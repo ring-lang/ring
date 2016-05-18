@@ -244,6 +244,9 @@ aNumberTypes + "QFileDialog::AcceptMode"
 aNumberTypes + "QFileDialog::FileMode"
 aNumberTypes + "QFileDialog::Option"
 aNumberTypes + "QFileDialog::ViewMode"
+aNumberTypes + "Qt::ImageConversionFlag"
+aNumberTypes + "Qt::FillRule"
+aNumberTypes + "Qt::SizeMode"
 </runcode>
 
 <class>
@@ -2398,7 +2401,7 @@ void drawChord(int x, int y, int width, int height, int startAngle, int spanAngl
 void drawConvexPolygon( QPoint * points, int pointCount)
 void drawEllipse(int x, int y, int width, int height)
 void drawGlyphRun( QPointF  position,  QGlyphRun  glyphs)
-void drawImage(int x, int y,  QImage image, int sx , int sy, int sw, int sh , int flags)
+void drawImage(int x, int y,  QImage image, int sx , int sy, int sw, int sh , Qt::ImageConversionFlag flags)
 void drawLine(int x1, int y1, int x2, int y2)
 void drawLines( QLine * lines, int lineCount)
 void drawPath( QPainterPath  path)
@@ -2410,11 +2413,11 @@ void drawPixmapFragments( PixmapFragment *fragments, int fragmentCount,  QPixmap
 </comment>
 void drawPoint(int x, int y)
 void drawPoints( QPointF * points, int pointCount)
-void drawPolygon( QPointF * points, int pointCount, int fillRule)
+void drawPolygon( QPointF * points, int pointCount, Qt::FillRule fillRule)
 void drawPolyline( QPointF * points, int pointCount)
 void drawRect(int x, int y, int width, int height)
 void drawRects( QRectF * rectangles, int rectCount)
-void drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, int mode)
+void drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode)
 void drawStaticText(int left, int top,  QStaticText  staticText)
 void drawText(int x, int y, QString  text)
 void drawTiledPixmap(int x, int y, int width, int height,  QPixmap  pixmap, int sx, int sy)
