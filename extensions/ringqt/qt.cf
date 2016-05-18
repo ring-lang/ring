@@ -217,6 +217,8 @@ aNumberTypes + "QFrame::Shape"
 aNumberTypes + "Qt::ScrollBarPolicy"
 aNumberTypes + "QAbstractItemView::DragDropMode"
 aNumberTypes + "QAbstractItemView::ScrollMode"
+aNumberTypes + "QAbstractItemView::EditTrigger"
+aNumberTypes + "QAbstractItemView::SelectionBehavior"
 </runcode>
 
 <class>
@@ -1509,7 +1511,7 @@ void setDragDropMode(QAbstractItemView::DragDropMode behavior)
 void setDragDropOverwriteMode(bool overwrite)
 void setDragEnabled(bool enable)
 void setDropIndicatorShown(bool enable)
-void setEditTriggers(int triggers)
+void setEditTriggers(QAbstractItemView::EditTrigger triggers)
 void setHorizontalScrollMode(QAbstractItemView::ScrollMode mode)
 void setIconSize(QSize)
 void setIndexWidget(QModelIndex, QWidget *widget)
@@ -1517,7 +1519,7 @@ void setItemDelegate(QAbstractItemDelegate *delegate)
 void setItemDelegateForColumn(int column, QAbstractItemDelegate *delegate)
 void setItemDelegateForRow(int row, QAbstractItemDelegate *delegate)
 void setModel(QAbstractItemModel *model)
-void setSelectionBehavior(int behavior)
+void setSelectionBehavior(QAbstractItemView::SelectionBehavior behavior)
 void setSelectionMode(int mode)
 void setSelectionModel(QItemSelectionModel *selectionModel)
 void setTabKeyNavigation(bool enable)

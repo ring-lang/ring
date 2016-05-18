@@ -20007,7 +20007,7 @@ RING_FUNC(ring_QAbstractItemView_setEditTriggers)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setEditTriggers( (int ) RING_API_GETNUMBER(2));
+	pObject->setEditTriggers( (QAbstractItemView::EditTrigger ) RING_API_GETNUMBER(2));
 }
 
 
@@ -20183,7 +20183,7 @@ RING_FUNC(ring_QAbstractItemView_setSelectionBehavior)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setSelectionBehavior( (int ) RING_API_GETNUMBER(2));
+	pObject->setSelectionBehavior( (QAbstractItemView::SelectionBehavior ) RING_API_GETNUMBER(2));
 }
 
 
