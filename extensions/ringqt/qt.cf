@@ -201,6 +201,7 @@ aNumberTypes + "Qt::Orientation"
 aNumberTypes + "Qt::CheckState"
 aNumberTypes + "QTreeWidgetItem::ChildIndicatorPolicy"
 aNumberTypes + "Qt::ItemFlag"
+aNumberTypes + "Qt::MatchFlag"
 </runcode>
 
 <class>
@@ -1026,7 +1027,7 @@ void setTextAlignment(int column, int alignment)
 void setToolTip(int column, QString)
 void setWhatsThis(int column, QString)
 QSize sizeHint(int column)
-void sortChildren(int column, int order)
+void sortChildren(int column, Qt::SortOrder order)
 QString statusTip(int column)
 QTreeWidgetItem *takeChild(int index)
 QString text(int column)
@@ -1074,8 +1075,8 @@ int count(void)
 int currentIndex(void)
 QString currentText(void)
 bool duplicatesEnabled(void)
-int findData(QVariant, int role, int flags)
-int findText(QString, int flags)
+int findData(QVariant, int role, Qt::MatchFlag flags)
+int findText(QString, Qt::MatchFlag flags)
 bool hasFrame(void)
 void hidePopup(void)
 QSize iconSize(void)

@@ -13294,7 +13294,7 @@ RING_FUNC(ring_QTreeWidgetItem_sortChildren)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->sortChildren( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->sortChildren( (int ) RING_API_GETNUMBER(2), (Qt::SortOrder ) RING_API_GETNUMBER(3));
 }
 
 
@@ -13602,7 +13602,7 @@ RING_FUNC(ring_QComboBox_findData)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->findData(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+	RING_API_RETNUMBER(pObject->findData(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"), (int ) RING_API_GETNUMBER(3), (Qt::MatchFlag ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QVariant"));
 }
@@ -13629,7 +13629,7 @@ RING_FUNC(ring_QComboBox_findText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->findText(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+	RING_API_RETNUMBER(pObject->findText(RING_API_GETSTRING(2), (Qt::MatchFlag ) RING_API_GETNUMBER(3)));
 }
 
 
