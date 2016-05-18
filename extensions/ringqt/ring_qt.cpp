@@ -52603,7 +52603,7 @@ RING_FUNC(ring_QStatusBar_new)
 RING_FUNC(ring_QDockWidget_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
-	QDockWidget *pObject = new QDockWidget((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (int ) RING_API_GETNUMBER(2));
+	QDockWidget *pObject = new QDockWidget((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (Qt::WindowType ) RING_API_GETNUMBER(2));
 	RING_API_RETCPOINTER(pObject,"QDockWidget");
 }
 
@@ -52624,7 +52624,7 @@ RING_FUNC(ring_QTableWidgetItem_new)
 RING_FUNC(ring_QFrame_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
-	QFrame *pObject = new QFrame((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (int ) RING_API_GETNUMBER(2));
+	QFrame *pObject = new QFrame((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (Qt::WindowType ) RING_API_GETNUMBER(2));
 	RING_API_RETCPOINTER(pObject,"QFrame");
 }
 
@@ -52757,14 +52757,14 @@ RING_FUNC(ring_QVideoWidget_new)
 RING_FUNC(ring_QAction_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
-	GAction *pObject = new GAction((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	GAction *pObject = new GAction((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QAction");
 }
 
 RING_FUNC(ring_QEvent_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
-	QEvent *pObject = new QEvent( (int ) RING_API_GETNUMBER(1));
+	QEvent *pObject = new QEvent( (QEvent::Type ) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QEvent");
 }
 

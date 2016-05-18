@@ -300,6 +300,7 @@ aNumberTypes + "QTextDocument::FindFlag"
 aNumberTypes + "QTextDocument::MetaInformation"
 aNumberTypes + "Qt::InputMethodHints"
 aNumberTypes + "Qt::WindowFlags"
+aNumberTypes + "QEvent::Type"
 </runcode>
 
 <class>
@@ -1398,7 +1399,7 @@ void showMessage(QString , int timeout)
 
 <class>
 name: QDockWidget
-para: QWidget *parent,int flag
+para: QWidget *parent,Qt::WindowType flag
 parent: QWidget
 </class>
 
@@ -1513,7 +1514,7 @@ void write(QDataStream)
 
 <class>
 name: QFrame
-para: QWidget *parent, int flag
+para: QWidget *parent, Qt::WindowType flag
 parent: QWidget
 </class>
 QRect frameRect(void)
@@ -2232,7 +2233,7 @@ void setsaturationChangedEvent(const char *)
 
 <class>
 name: QAction
-para: QObject *parent
+para: QWidget *parent
 codename: GAction
 passvmpointer
 </class>
@@ -2292,7 +2293,7 @@ void setClickEvent(const char *)
 
 <class>
 name: QEvent
-para: int Type
+para: QEvent::Type Type
 </class>
 
 void accept(void)
