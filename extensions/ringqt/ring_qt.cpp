@@ -33012,9 +33012,11 @@ RING_FUNC(ring_QPainter_fillRect)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->fillRect( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (Qt::BrushStyle  *) RING_API_GETCPOINTER(6,"Qt::BrushStyle"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"Qt::BrushStyle"));
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->fillRect( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (Qt::BrushStyle ) RING_API_GETNUMBER(6));
 }
 
 
@@ -39506,7 +39508,7 @@ RING_FUNC(ring_QWebSettings_setWebGraphic)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setWebGraphic( (int ) RING_API_GETNUMBER(2),* (QPixmap *) RING_API_GETCPOINTER(3,"QPixmap"));
+	pObject->setWebGraphic( (QWebSettings::WebGraphic ) RING_API_GETNUMBER(2),* (QPixmap *) RING_API_GETCPOINTER(3,"QPixmap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		free(RING_API_GETCPOINTER(2,"QPixmap"));
 }
@@ -39532,7 +39534,7 @@ RING_FUNC(ring_QWebSettings_webGraphic)
 	{
 		QPixmap *pValue ; 
 		pValue = new QPixmap() ;
-		*pValue = pObject->webGraphic( (int ) RING_API_GETNUMBER(2));
+		*pValue = pObject->webGraphic( (QWebSettings::WebGraphic ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QPixmap");
 	}
 }
@@ -39671,7 +39673,7 @@ RING_FUNC(ring_QBrush_setStyle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setStyle( (int ) RING_API_GETNUMBER(2));
+	pObject->setStyle( (Qt::BrushStyle ) RING_API_GETNUMBER(2));
 }
 
 

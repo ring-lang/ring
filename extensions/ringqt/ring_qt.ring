@@ -5780,7 +5780,7 @@ Class QPainter
 		return QPainter_fillPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func fillRect P1,P2,P3,P4,P5
-		return QPainter_fillRect(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
+		return QPainter_fillRect(pObject,P1,P2,P3,P4,P5)
 
 	Func font 
 		pTempObj = new QFont

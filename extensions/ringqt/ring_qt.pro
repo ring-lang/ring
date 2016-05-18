@@ -75,8 +75,8 @@ FORMS    +=
 CONFIG += mobility
 MOBILITY = 
 
-
-QMAKE_CXXFLAGS += -fpermissive
+QMAKE_CXXFLAGS += -fmax-errors=5
+#QMAKE_CXXFLAGS += -fpermissive
 
 
 RESOURCES += \
