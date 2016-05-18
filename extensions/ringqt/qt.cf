@@ -180,6 +180,7 @@ aNumberTypes + "QSizePolicy::Policy"
 aNumberTypes + "Qt::WindowType"
 aNumberTypes + "Qt::WindowModality"
 aNumberTypes + "Qt::WindowState"
+aNumberTypes + "Qt::AlignmentFlag"
 </runcode>
 
 <class>
@@ -475,7 +476,7 @@ QPicture *picture(void)
 QPixmap *pixmap(void)
 QString selectedText(void)
 int selectionStart(void)
-void setAlignment(int)
+void setAlignment(Qt::AlignmentFlag)
 void setBuddy(QWidget *buddy)
 void setIndent(int)
 void setMargin(int)

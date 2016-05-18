@@ -4753,7 +4753,7 @@ RING_FUNC(ring_QLabel_setAlignment)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setAlignment( (int) RING_API_GETNUMBER(2));
+	pObject->setAlignment( (Qt::AlignmentFlag) RING_API_GETNUMBER(2));
 }
 
 
