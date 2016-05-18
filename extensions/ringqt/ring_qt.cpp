@@ -29417,7 +29417,7 @@ RING_FUNC(ring_QAction_setShortcutContext)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setShortcutContext( (int ) RING_API_GETNUMBER(2));
+	pObject->setShortcutContext( (Qt::ShortcutContext ) RING_API_GETNUMBER(2));
 }
 
 
@@ -29438,7 +29438,7 @@ RING_FUNC(ring_QAction_setShortcuts)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setShortcuts( (int ) RING_API_GETNUMBER(2));
+	pObject->setShortcuts( (QKeySequence::StandardKey ) RING_API_GETNUMBER(2));
 }
 
 
@@ -29937,7 +29937,7 @@ RING_FUNC(ring_QMessageBox_addButton)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addButton((QAbstractButton *) RING_API_GETCPOINTER(2,"QAbstractButton"), (int ) RING_API_GETNUMBER(3));
+	pObject->addButton((QAbstractButton *) RING_API_GETCPOINTER(2,"QAbstractButton"), (QMessageBox::ButtonRole ) RING_API_GETNUMBER(3));
 }
 
 

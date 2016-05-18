@@ -236,6 +236,8 @@ aNumberTypes + "QMediaPlaylist::PlaybackMode"
 aNumberTypes + "QAction::ActionEvent"
 aNumberTypes + "QAction::MenuRole"
 aNumberTypes + "QAction::Priority"
+aNumberTypes + "QKeySequence::StandardKey"
+aNumberTypes + "QMessageBox::ButtonRole"
 </runcode>
 
 <class>
@@ -2203,8 +2205,8 @@ void setMenuRole(QAction::MenuRole menuRole)
 void setPriority(QAction::Priority priority)
 void setSeparator(bool b)
 void setShortcut(QKeySequence)
-void setShortcutContext(int context)
-void setShortcuts(int key)
+void setShortcutContext(Qt::ShortcutContext context)
+void setShortcuts(QKeySequence::StandardKey key)
 void setStatusTip(QString)
 void setText(QString)
 void setToolTip(QString)
@@ -2244,7 +2246,7 @@ para: QWidget *parent
 parent: QDialog
 </class>
 
-void addButton(QAbstractButton *button, int role)
+void addButton(QAbstractButton *button, QMessageBox::ButtonRole role)
 QAbstractButton *button(int which)
 int buttonRole(QAbstractButton *button)
 QAbstractButton *clickedButton(void)
