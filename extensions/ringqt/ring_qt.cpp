@@ -25360,7 +25360,7 @@ RING_FUNC(ring_QWebView_triggerPageAction)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->triggerPageAction( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+	pObject->triggerPageAction( (QWebPage::WebAction ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
 }
 
 
@@ -25703,7 +25703,7 @@ RING_FUNC(ring_QUrl_authority)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->authority( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+	RING_API_RETSTRING(pObject->authority( (QUrl::ComponentFormattingOption ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 

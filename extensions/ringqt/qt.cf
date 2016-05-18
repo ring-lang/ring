@@ -230,6 +230,7 @@ aNumberTypes + "QAbstractSpinBox::CorrectionMode"
 aNumberTypes + "QWebPage::FindFlag"
 aNumberTypes + "QWebPage::WebAction"
 aNumberTypes + "QPainter::RenderHint"
+aNumberTypes + "QUrl::ComponentFormattingOption"
 </runcode>
 
 <class>
@@ -1880,7 +1881,7 @@ void setZoomFactor(qreal factor)
 QWebSettings *settings(void)
 qreal textSizeMultiplier(void)
 QString title(void)
-void triggerPageAction(int action, bool checked)
+void triggerPageAction(QWebPage::WebAction action, bool checked)
 QUrl url(void)
 qreal zoomFactor(void)
 void back(void)
@@ -1907,7 +1908,7 @@ para: QString
 <comment>
 QUrl adjusted(int options)
 </comment>
-QString authority(int options)
+QString authority(QUrl::ComponentFormattingOption options)
 void clear(void)
 QString errorString(void)
 QString fileName(int options)
