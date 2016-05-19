@@ -417,8 +417,8 @@ aclasses = [
 					]
 				  ]
 		] ,
-		[	:name = "GWebView" ,
-			:realname = "QWebView" ,
+		[	:name = "GWebEngineView" ,
+			:realname = "QWebEngineView" ,
 			:events = [
 					[ 	:signal = "iconChanged()" ,
 						:slot = "iconChangedSlot()" ,
