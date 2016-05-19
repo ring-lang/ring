@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network webenginewidgets multimedia multimediawidgets testlib printsupport
+QT       += core gui network  webenginewidgets multimedia multimediawidgets testlib printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -74,9 +74,6 @@ FORMS    +=
 
 CONFIG += mobility
 MOBILITY = 
-
-QMAKE_CXXFLAGS += -fmax-errors=5
-
 
 RESOURCES += \
     ringqt.qrc
