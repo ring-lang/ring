@@ -68,7 +68,7 @@ HEADERS  += \
     gtcpsocket.h \
     gallevents.h 
 
-INCLUDEPATH += ..\..\include
+INCLUDEPATH += ../../include
 
 FORMS    +=
 
