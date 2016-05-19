@@ -420,14 +420,6 @@ aclasses = [
 		[	:name = "GWebEngineView" ,
 			:realname = "QWebEngineView" ,
 			:events = [
-					[ 	:signal = "iconChanged()" ,
-						:slot = "iconChangedSlot()" ,
-						:event = "iconChanged"
-					] ,
-					[ 	:signal = "linkClicked(QUrl)" ,
-						:slot = "linkClickedSlot()" ,
-						:event = "linkClicked"
-					] ,
 					[ 	:signal = "loadFinished(bool)" ,
 						:slot = "loadFinishedSlot()" ,
 						:event = "loadFinished"
@@ -443,11 +435,7 @@ aclasses = [
 					[ 	:signal = "selectionChanged()" ,
 						:slot = "selectionChangedSlot()" ,
 						:event = "selectionChanged"
-					] ,
-					[ 	:signal = "statusBarMessage(QString)" ,
-						:slot = "statusBarMessageSlot()" ,
-						:event = "statusBarMessage"
-					] ,
+					] ,					
 					[ 	:signal = "titleChanged(QString)" ,
 						:slot = "titleChangedSlot()" ,
 						:event = "titleChanged"
