@@ -87,7 +87,11 @@ win32 {
 	LIBS +=  ../../lib/ring.lib
 }
 
-!win32 {
+macx {
+	LIBS +=  ../../lib/libring.dylib
+}
+
+unix:!macx {
 	LIBS +=  $$PWD/libring.so
 }
 
