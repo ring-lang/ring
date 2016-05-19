@@ -25291,48 +25291,6 @@ RING_FUNC(ring_QWebEngineView_stop)
 }
 
 
-RING_FUNC(ring_QWebEngineView_seticonChangedEvent)
-{
-	GWebEngineView *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->seticonChangedEvent(RING_API_GETSTRING(2));
-}
-
-
-RING_FUNC(ring_QWebEngineView_setlinkClickedEvent)
-{
-	GWebEngineView *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setlinkClickedEvent(RING_API_GETSTRING(2));
-}
-
-
 RING_FUNC(ring_QWebEngineView_setloadFinishedEvent)
 {
 	GWebEngineView *pObject ;
@@ -25414,27 +25372,6 @@ RING_FUNC(ring_QWebEngineView_setselectionChangedEvent)
 		return ;
 	}
 	pObject->setselectionChangedEvent(RING_API_GETSTRING(2));
-}
-
-
-RING_FUNC(ring_QWebEngineView_setstatusBarMessageEvent)
-{
-	GWebEngineView *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setstatusBarMessageEvent(RING_API_GETSTRING(2));
 }
 
 
@@ -54444,13 +54381,10 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwebengineview_forward",ring_QWebEngineView_forward);
 	ring_vm_funcregister("qwebengineview_reload",ring_QWebEngineView_reload);
 	ring_vm_funcregister("qwebengineview_stop",ring_QWebEngineView_stop);
-	ring_vm_funcregister("qwebengineview_seticonchangedevent",ring_QWebEngineView_seticonChangedEvent);
-	ring_vm_funcregister("qwebengineview_setlinkclickedevent",ring_QWebEngineView_setlinkClickedEvent);
 	ring_vm_funcregister("qwebengineview_setloadfinishedevent",ring_QWebEngineView_setloadFinishedEvent);
 	ring_vm_funcregister("qwebengineview_setloadprogressevent",ring_QWebEngineView_setloadProgressEvent);
 	ring_vm_funcregister("qwebengineview_setloadstartedevent",ring_QWebEngineView_setloadStartedEvent);
 	ring_vm_funcregister("qwebengineview_setselectionchangedevent",ring_QWebEngineView_setselectionChangedEvent);
-	ring_vm_funcregister("qwebengineview_setstatusbarmessageevent",ring_QWebEngineView_setstatusBarMessageEvent);
 	ring_vm_funcregister("qwebengineview_settitlechangedevent",ring_QWebEngineView_settitleChangedEvent);
 	ring_vm_funcregister("qwebengineview_seturlchangedevent",ring_QWebEngineView_seturlChangedEvent);
 	ring_vm_funcregister("qurl_authority",ring_QUrl_authority);

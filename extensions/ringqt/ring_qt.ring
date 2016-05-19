@@ -4460,12 +4460,6 @@ Class QWebEngineView from QWidget
 	Func stop 
 		return QWebEngineView_stop(pObject)
 
-	Func seticonChangedEvent P1
-		return QWebEngineView_seticonChangedEvent(pObject,P1)
-
-	Func setlinkClickedEvent P1
-		return QWebEngineView_setlinkClickedEvent(pObject,P1)
-
 	Func setloadFinishedEvent P1
 		return QWebEngineView_setloadFinishedEvent(pObject,P1)
 
@@ -4477,9 +4471,6 @@ Class QWebEngineView from QWidget
 
 	Func setselectionChangedEvent P1
 		return QWebEngineView_setselectionChangedEvent(pObject,P1)
-
-	Func setstatusBarMessageEvent P1
-		return QWebEngineView_setstatusBarMessageEvent(pObject,P1)
 
 	Func settitleChangedEvent P1
 		return QWebEngineView_settitleChangedEvent(pObject,P1)
