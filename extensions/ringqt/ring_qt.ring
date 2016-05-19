@@ -4383,141 +4383,109 @@ Class QDial from QAbstractSlider
 	Func setvalueChangedEvent P1
 		return QDial_setvalueChangedEvent(pObject,P1)
 
-Class QWebView from QWidget
+Class QWebEngineView from QWidget
 
 	pObject
 
 	Func init P1
-		pObject = QWebView_new(GetObjectPointerFromRingObject(P1))
+		pObject = QWebEngineView_new(GetObjectPointerFromRingObject(P1))
 		return self
 
 	Func delete
-		pObject = QWebView_delete(pObject)
-
-	Func findText P1,P2
-		return QWebView_findText(pObject,P1,P2)
+		pObject = QWebEngineView_delete(pObject)
 
 	Func hasSelection 
-		return QWebView_hasSelection(pObject)
+		return QWebEngineView_hasSelection(pObject)
 
 	Func history 
-		return QWebView_history(pObject)
-
-	Func icon 
-		pTempObj = new QIcon
-		pTempObj.pObject = QWebView_icon(pObject)
-		return pTempObj
-
-	Func isModified 
-		return QWebView_isModified(pObject)
+		return QWebEngineView_history(pObject)
 
 	Func loadpage P1
-		return QWebView_load(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebEngineView_load(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func page 
-		return QWebView_page(pObject)
+		return QWebEngineView_page(pObject)
 
 	Func pageAction P1
 		pTempObj = new QAction
-		pTempObj.pObject = QWebView_pageAction(pObject,P1)
+		pTempObj.pObject = QWebEngineView_pageAction(pObject,P1)
 		return pTempObj
-
-	Func renderHints 
-		return QWebView_renderHints(pObject)
-
-	Func selectedHtml 
-		return QWebView_selectedHtml(pObject)
 
 	Func selectedText 
-		return QWebView_selectedText(pObject)
+		return QWebEngineView_selectedText(pObject)
 
 	Func setContent P1,P2,P3
-		return QWebView_setContent(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+		return QWebEngineView_setContent(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
 
 	Func setHtml P1,P2
-		return QWebView_setHtml(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return QWebEngineView_setHtml(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setPage P1
-		return QWebView_setPage(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setRenderHint P1,P2
-		return QWebView_setRenderHint(pObject,P1,P2)
-
-	Func setRenderHints P1
-		return QWebView_setRenderHints(pObject,P1)
-
-	Func setTextSizeMultiplier P1
-		return QWebView_setTextSizeMultiplier(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebEngineView_setPage(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setUrl P1
-		return QWebView_setUrl(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebEngineView_setUrl(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setZoomFactor P1
-		return QWebView_setZoomFactor(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebEngineView_setZoomFactor(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func settings 
-		pTempObj = new QWebSettings
-		pTempObj.pObject = QWebView_settings(pObject)
+		pTempObj = new QWebEngineSettings
+		pTempObj.pObject = QWebEngineView_settings(pObject)
 		return pTempObj
 
-	Func textSizeMultiplier 
-		return QWebView_textSizeMultiplier(pObject)
-
 	Func title 
-		return QWebView_title(pObject)
+		return QWebEngineView_title(pObject)
 
 	Func triggerPageAction P1,P2
-		return QWebView_triggerPageAction(pObject,P1,P2)
+		return QWebEngineView_triggerPageAction(pObject,P1,P2)
 
 	Func url 
 		pTempObj = new QUrl
-		pTempObj.pObject = QWebView_url(pObject)
+		pTempObj.pObject = QWebEngineView_url(pObject)
 		return pTempObj
 
 	Func zoomFactor 
-		return QWebView_zoomFactor(pObject)
+		return QWebEngineView_zoomFactor(pObject)
 
 	Func back 
-		return QWebView_back(pObject)
+		return QWebEngineView_back(pObject)
 
 	Func forward 
-		return QWebView_forward(pObject)
-
-	Func print P1
-		return QWebView_print(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebEngineView_forward(pObject)
 
 	Func reload 
-		return QWebView_reload(pObject)
+		return QWebEngineView_reload(pObject)
 
 	Func stop 
-		return QWebView_stop(pObject)
+		return QWebEngineView_stop(pObject)
 
 	Func seticonChangedEvent P1
-		return QWebView_seticonChangedEvent(pObject,P1)
+		return QWebEngineView_seticonChangedEvent(pObject,P1)
 
 	Func setlinkClickedEvent P1
-		return QWebView_setlinkClickedEvent(pObject,P1)
+		return QWebEngineView_setlinkClickedEvent(pObject,P1)
 
 	Func setloadFinishedEvent P1
-		return QWebView_setloadFinishedEvent(pObject,P1)
+		return QWebEngineView_setloadFinishedEvent(pObject,P1)
 
 	Func setloadProgressEvent P1
-		return QWebView_setloadProgressEvent(pObject,P1)
+		return QWebEngineView_setloadProgressEvent(pObject,P1)
 
 	Func setloadStartedEvent P1
-		return QWebView_setloadStartedEvent(pObject,P1)
+		return QWebEngineView_setloadStartedEvent(pObject,P1)
 
 	Func setselectionChangedEvent P1
-		return QWebView_setselectionChangedEvent(pObject,P1)
+		return QWebEngineView_setselectionChangedEvent(pObject,P1)
 
 	Func setstatusBarMessageEvent P1
-		return QWebView_setstatusBarMessageEvent(pObject,P1)
+		return QWebEngineView_setstatusBarMessageEvent(pObject,P1)
 
 	Func settitleChangedEvent P1
-		return QWebView_settitleChangedEvent(pObject,P1)
+		return QWebEngineView_settitleChangedEvent(pObject,P1)
 
 	Func seturlChangedEvent P1
-		return QWebView_seturlChangedEvent(pObject,P1)
+		return QWebEngineView_seturlChangedEvent(pObject,P1)
 
 Class QUrl
 
@@ -6702,142 +6670,6 @@ Class QFont
 	Func substitutions 
 		pTempObj = new QStringList
 		pTempObj.pObject = QFont_substitutions(pObject)
-		return pTempObj
-
-Class QWebSettings
-
-	pObject
-
-	Func init P1
-		pObject = QWebSettings_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QWebSettings_delete(pObject)
-
-	Func cssMediaType 
-		return QWebSettings_cssMediaType(pObject)
-
-	Func defaultTextEncoding 
-		return QWebSettings_defaultTextEncoding(pObject)
-
-	Func fontFamily P1
-		return QWebSettings_fontFamily(pObject,P1)
-
-	Func fontSize P1
-		return QWebSettings_fontSize(pObject,P1)
-
-	Func localStoragePath 
-		return QWebSettings_localStoragePath(pObject)
-
-	Func resetAttribute P1
-		return QWebSettings_resetAttribute(pObject,P1)
-
-	Func resetFontFamily P1
-		return QWebSettings_resetFontFamily(pObject,P1)
-
-	Func resetFontSize P1
-		return QWebSettings_resetFontSize(pObject,P1)
-
-	Func setAttribute P1,P2
-		return QWebSettings_setAttribute(pObject,P1,P2)
-
-	Func setCSSMediaType P1
-		return QWebSettings_setCSSMediaType(pObject,P1)
-
-	Func setDefaultTextEncoding P1
-		return QWebSettings_setDefaultTextEncoding(pObject,P1)
-
-	Func setFontFamily P1,P2
-		return QWebSettings_setFontFamily(pObject,P1,P2)
-
-	Func setFontSize P1,P2
-		return QWebSettings_setFontSize(pObject,P1,P2)
-
-	Func setLocalStoragePath P1
-		return QWebSettings_setLocalStoragePath(pObject,P1)
-
-	Func setThirdPartyCookiePolicy P1
-		return QWebSettings_setThirdPartyCookiePolicy(pObject,P1)
-
-	Func setUserStyleSheetUrl P1
-		return QWebSettings_setUserStyleSheetUrl(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func testAttribute P1
-		return QWebSettings_testAttribute(pObject,P1)
-
-	Func thirdPartyCookiePolicy 
-		return QWebSettings_thirdPartyCookiePolicy(pObject)
-
-	Func userStyleSheetUrl 
-		pTempObj = new QUrl
-		pTempObj.pObject = QWebSettings_userStyleSheetUrl(pObject)
-		return pTempObj
-
-	Func clearIconDatabase 
-		return QWebSettings_clearIconDatabase(pObject)
-
-	Func clearMemoryCaches 
-		return QWebSettings_clearMemoryCaches(pObject)
-
-	Func enablePersistentStorage P1
-		return QWebSettings_enablePersistentStorage(pObject,P1)
-
-	Func globalSettings 
-		pTempObj = new QWebSettings
-		pTempObj.pObject = QWebSettings_globalSettings(pObject)
-		return pTempObj
-
-	Func iconDatabasePath 
-		return QWebSettings_iconDatabasePath(pObject)
-
-	Func iconForUrl P1
-		pTempObj = new QIcon
-		pTempObj.pObject = QWebSettings_iconForUrl(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func maximumPagesInCache 
-		return QWebSettings_maximumPagesInCache(pObject)
-
-	Func offlineStorageDefaultQuota 
-		return QWebSettings_offlineStorageDefaultQuota(pObject)
-
-	Func offlineStoragePath 
-		return QWebSettings_offlineStoragePath(pObject)
-
-	Func offlineWebApplicationCachePath 
-		return QWebSettings_offlineWebApplicationCachePath(pObject)
-
-	Func offlineWebApplicationCacheQuota 
-		return QWebSettings_offlineWebApplicationCacheQuota(pObject)
-
-	Func setIconDatabasePath P1
-		return QWebSettings_setIconDatabasePath(pObject,P1)
-
-	Func setMaximumPagesInCache P1
-		return QWebSettings_setMaximumPagesInCache(pObject,P1)
-
-	Func setObjectCacheCapacities P1,P2,P3
-		return QWebSettings_setObjectCacheCapacities(pObject,P1,P2,P3)
-
-	Func setOfflineStorageDefaultQuota P1
-		return QWebSettings_setOfflineStorageDefaultQuota(pObject,P1)
-
-	Func setOfflineStoragePath P1
-		return QWebSettings_setOfflineStoragePath(pObject,P1)
-
-	Func setOfflineWebApplicationCachePath P1
-		return QWebSettings_setOfflineWebApplicationCachePath(pObject,P1)
-
-	Func setOfflineWebApplicationCacheQuota P1
-		return QWebSettings_setOfflineWebApplicationCacheQuota(pObject,P1)
-
-	Func setWebGraphic P1,P2
-		return QWebSettings_setWebGraphic(pObject,P1,GetObjectPointerFromRingObject(P2))
-
-	Func webGraphic P1
-		pTempObj = new QPixmap
-		pTempObj.pObject = QWebSettings_webGraphic(pObject,P1)
 		return pTempObj
 
 Class QBrush
