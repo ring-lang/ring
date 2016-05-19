@@ -56,6 +56,7 @@ C_TYPE_NUMBER 	= 2
 C_TYPE_STRING 	= 3
 C_TYPE_POINTER 	= 4
 C_TYPE_UNKNOWN 	= 5
+C_TYPE_ENUM	= 6
 
 $cFuncStart = ""
 $aStructFuncs = []
@@ -63,6 +64,8 @@ $aStructFuncs = []
 aNumberTypes = ["int","float","double","bool","unsigned char","size_t",
 "long int","int8_t","int16_t","int32_t","int64_t",
 "uint8_t","uint16_t","uint32_t","uint64_t"]
+
+aEnumTypes = []
 
 aStringTypes = ["const char *","char const *","char *"]
 
@@ -256,6 +259,8 @@ Func VarTypeID cType
 		return C_TYPE_VOID
 	but find(aNumberTypes,cType) > 0
 		return C_TYPE_NUMBER
+	but find(aEnumTypes,cType) > 0
+		return C_TYPE_ENUM
 	but find(aStringTypes,cType) > 0
 		return C_TYPE_STRING
 	but right(cType,1) = "*"
@@ -418,6 +423,11 @@ Func GenFuncCodeCheckParaType aList
 					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 					 GenTabs(2) + "return ;" + nl +
 					 GenTabs(1) + "}" + nl
+			on C_TYPE_ENUM
+				cCode += GenTabs(1) + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
+					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+					 GenTabs(2) + "return ;" + nl +
+					 GenTabs(1) + "}" + nl
 			on C_TYPE_STRING
 				cCode += GenTabs(1) + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
 					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
@@ -450,6 +460,8 @@ Func GenFuncCodeCallFunc aList
 		on C_TYPE_VOID
 			lRet = false
 		on C_TYPE_NUMBER
+			cCode += "RING_API_RETNUMBER("
+		on C_TYPE_ENUM
 			cCode += "RING_API_RETNUMBER("
 		on C_TYPE_STRING
 			cCode += "RING_API_RETSTRING("
@@ -496,6 +508,8 @@ Func GenFuncCodeGetParaValues aList
 			switch VarTypeID(x)
 			on C_TYPE_NUMBER
 				cCode += " (" + x + ") " + "RING_API_GETNUMBER(" + t + ")"
+			on C_TYPE_ENUM
+				cCode += " (" + x + ") " + " (int) RING_API_GETNUMBER(" + t + ")"
 			on C_TYPE_STRING
 				cCode += "RING_API_GETSTRING(" + t + ")"
 			on C_TYPE_POINTER
@@ -723,6 +737,11 @@ Func GenMethodCodeCheckParaType aList
 					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 					 GenTabs(2) + "return ;" + nl +
 					 GenTabs(1) + "}" + nl
+			on C_TYPE_ENUM
+				cCode += GenTabs(1) + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
+					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+					 GenTabs(2) + "return ;" + nl +
+					 GenTabs(1) + "}" + nl
 			on C_TYPE_STRING
 				cCode += GenTabs(1) + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
 					 GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
@@ -756,6 +775,8 @@ Func GenMethodCodeCallFunc aList
 		on C_TYPE_VOID
 			lRet = false
 		on C_TYPE_NUMBER
+			cCode += "RING_API_RETNUMBER("
+		on C_TYPE_ENUM
 			cCode += "RING_API_RETNUMBER("
 		on C_TYPE_STRING
 			cCode += "RING_API_RETSTRING("
@@ -824,6 +845,8 @@ Func GenMethodCodeGetParaValues aList
 			switch VarTypeID(x)
 			on C_TYPE_NUMBER
 				cCode += " (" + x + ") " + "RING_API_GETNUMBER(" + t + ")"
+			on C_TYPE_ENUM
+				cCode += " (" + x + ") " + " (int) RING_API_GETNUMBER(" + t + ")"
 			on C_TYPE_STRING
 				cCode += "RING_API_GETSTRING(" + t + ")"
 			on C_TYPE_POINTER
