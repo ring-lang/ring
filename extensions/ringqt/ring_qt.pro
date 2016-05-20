@@ -94,3 +94,5 @@ unix:!macx {
 
 CONFIG += warn_off
 QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
+
+
