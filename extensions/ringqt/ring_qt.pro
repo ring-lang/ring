@@ -75,9 +75,6 @@ FORMS    +=
 CONFIG += mobility
 MOBILITY = 
 
-RESOURCES += \
-    ringqt.qrc
-
 OTHER_FILES +=
 
 win32 {
