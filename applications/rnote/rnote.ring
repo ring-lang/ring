@@ -386,7 +386,6 @@ MyApp = New qApp {
 		oDock3 = new qdockwidget(win1,0) {
 			setwidget(oWebBrowser)		
 			setwindowtitle("Web Browser")
-			setFeatures(QDockWidget_DocWidgetClosable)
 		}	
 
 		adddockwidget(1,oDock1,1)
