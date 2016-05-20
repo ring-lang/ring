@@ -417,8 +417,8 @@ aclasses = [
 					]
 				  ]
 		] ,
-		[	:name = "GWebEngineView" ,
-			:realname = "QWebEngineView" ,
+		[	:name = "GWebView" ,
+			:realname = "QWebView" ,
 			:events = [
 					[ 	:signal = "loadFinished(bool)" ,
 						:slot = "loadFinishedSlot()" ,

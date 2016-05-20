@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network  webenginewidgets multimedia multimediawidgets testlib printsupport
+QT       += core gui network webkitwidgets multimedia multimediawidgets testlib printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,7 +28,7 @@ SOURCES +=   \
     gspinbox.cpp \
     gslider.cpp \
     gdial.cpp \
-    gwebengineview.cpp \
+    gwebview.cpp \
     gcheckbox.cpp \
     gradiobutton.cpp \
     gbuttongroup.cpp \
@@ -56,7 +56,7 @@ HEADERS  += \
     gspinbox.h \
     gslider.h \
     gdial.h \
-    gwebengineview.h \
+    gwebview.h \
     gcheckbox.h \
     gradiobutton.h \
     gbuttongroup.h \

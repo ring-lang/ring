@@ -4383,100 +4383,100 @@ Class QDial from QAbstractSlider
 	Func setvalueChangedEvent P1
 		return QDial_setvalueChangedEvent(pObject,P1)
 
-Class QWebEngineView from QWidget
+Class QWebView from QWidget
 
 	pObject
 
 	Func init P1
-		pObject = QWebEngineView_new(GetObjectPointerFromRingObject(P1))
+		pObject = QWebView_new(GetObjectPointerFromRingObject(P1))
 		return self
 
 	Func delete
-		pObject = QWebEngineView_delete(pObject)
+		pObject = QWebView_delete(pObject)
 
 	Func hasSelection 
-		return QWebEngineView_hasSelection(pObject)
+		return QWebView_hasSelection(pObject)
 
 	Func history 
-		return QWebEngineView_history(pObject)
+		return QWebView_history(pObject)
 
 	Func loadpage P1
-		return QWebEngineView_load(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebView_load(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func page 
-		return QWebEngineView_page(pObject)
+		return QWebView_page(pObject)
 
 	Func pageAction P1
 		pTempObj = new QAction
-		pTempObj.pObject = QWebEngineView_pageAction(pObject,P1)
+		pTempObj.pObject = QWebView_pageAction(pObject,P1)
 		return pTempObj
 
 	Func selectedText 
-		return QWebEngineView_selectedText(pObject)
+		return QWebView_selectedText(pObject)
 
 	Func setContent P1,P2,P3
-		return QWebEngineView_setContent(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+		return QWebView_setContent(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
 
 	Func setHtml P1,P2
-		return QWebEngineView_setHtml(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return QWebView_setHtml(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setPage P1
-		return QWebEngineView_setPage(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebView_setPage(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setUrl P1
-		return QWebEngineView_setUrl(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebView_setUrl(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setZoomFactor P1
-		return QWebEngineView_setZoomFactor(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebView_setZoomFactor(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func settings 
-		pTempObj = new QWebEngineSettings
-		pTempObj.pObject = QWebEngineView_settings(pObject)
+		pTempObj = new QWebSettings
+		pTempObj.pObject = QWebView_settings(pObject)
 		return pTempObj
 
 	Func title 
-		return QWebEngineView_title(pObject)
+		return QWebView_title(pObject)
 
 	Func triggerPageAction P1,P2
-		return QWebEngineView_triggerPageAction(pObject,P1,P2)
+		return QWebView_triggerPageAction(pObject,P1,P2)
 
 	Func url 
 		pTempObj = new QUrl
-		pTempObj.pObject = QWebEngineView_url(pObject)
+		pTempObj.pObject = QWebView_url(pObject)
 		return pTempObj
 
 	Func zoomFactor 
-		return QWebEngineView_zoomFactor(pObject)
+		return QWebView_zoomFactor(pObject)
 
 	Func back 
-		return QWebEngineView_back(pObject)
+		return QWebView_back(pObject)
 
 	Func forward 
-		return QWebEngineView_forward(pObject)
+		return QWebView_forward(pObject)
 
 	Func reload 
-		return QWebEngineView_reload(pObject)
+		return QWebView_reload(pObject)
 
 	Func stop 
-		return QWebEngineView_stop(pObject)
+		return QWebView_stop(pObject)
 
 	Func setloadFinishedEvent P1
-		return QWebEngineView_setloadFinishedEvent(pObject,P1)
+		return QWebView_setloadFinishedEvent(pObject,P1)
 
 	Func setloadProgressEvent P1
-		return QWebEngineView_setloadProgressEvent(pObject,P1)
+		return QWebView_setloadProgressEvent(pObject,P1)
 
 	Func setloadStartedEvent P1
-		return QWebEngineView_setloadStartedEvent(pObject,P1)
+		return QWebView_setloadStartedEvent(pObject,P1)
 
 	Func setselectionChangedEvent P1
-		return QWebEngineView_setselectionChangedEvent(pObject,P1)
+		return QWebView_setselectionChangedEvent(pObject,P1)
 
 	Func settitleChangedEvent P1
-		return QWebEngineView_settitleChangedEvent(pObject,P1)
+		return QWebView_settitleChangedEvent(pObject,P1)
 
 	Func seturlChangedEvent P1
-		return QWebEngineView_seturlChangedEvent(pObject,P1)
+		return QWebView_seturlChangedEvent(pObject,P1)
 
 Class QUrl
 

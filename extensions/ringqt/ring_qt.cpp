@@ -18,7 +18,7 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-#include "gwebengineview.h"
+#include "gwebview.h"
 #include "gcheckbox.h"
 #include "gradiobutton.h"
 #include "gbuttongroup.h"
@@ -72,7 +72,7 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
-#include <QWebEngineView>
+#include <QWebView>
 #include <QUrl>
 #include <QCheckBox>
 #include <QRadioButton>
@@ -92,7 +92,7 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
-#include <QWebEngineSettings>
+#include <QWebSettings>
 #include <QBrush>
 #include <QByteArray>
 #include <QIODevice>
@@ -24905,9 +24905,9 @@ RING_FUNC(ring_QDial_setvalueChangedEvent)
 }
 
 
-RING_FUNC(ring_QWebEngineView_hasSelection)
+RING_FUNC(ring_QWebView_hasSelection)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -24917,14 +24917,14 @@ RING_FUNC(ring_QWebEngineView_hasSelection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	RING_API_RETNUMBER(pObject->hasSelection());
 }
 
 
-RING_FUNC(ring_QWebEngineView_history)
+RING_FUNC(ring_QWebView_history)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -24934,14 +24934,14 @@ RING_FUNC(ring_QWebEngineView_history)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	RING_API_RETCPOINTER(pObject->history(),"QWebHistory");
 }
 
 
-RING_FUNC(ring_QWebEngineView_load)
+RING_FUNC(ring_QWebView_load)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -24951,16 +24951,16 @@ RING_FUNC(ring_QWebEngineView_load)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	pObject->load(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
-RING_FUNC(ring_QWebEngineView_page)
+RING_FUNC(ring_QWebView_page)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -24970,14 +24970,14 @@ RING_FUNC(ring_QWebEngineView_page)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
-	RING_API_RETCPOINTER(pObject->page(),"QWebEnginePage");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
+	RING_API_RETCPOINTER(pObject->page(),"QWebPage");
 }
 
 
-RING_FUNC(ring_QWebEngineView_pageAction)
+RING_FUNC(ring_QWebView_pageAction)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -24987,18 +24987,18 @@ RING_FUNC(ring_QWebEngineView_pageAction)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(pObject->pageAction( (QWebEnginePage::WebAction )  (int) RING_API_GETNUMBER(2)),"QAction");
+	RING_API_RETCPOINTER(pObject->pageAction( (QWebPage::WebAction )  (int) RING_API_GETNUMBER(2)),"QAction");
 }
 
 
-RING_FUNC(ring_QWebEngineView_selectedText)
+RING_FUNC(ring_QWebView_selectedText)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -25008,14 +25008,14 @@ RING_FUNC(ring_QWebEngineView_selectedText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	RING_API_RETSTRING(pObject->selectedText().toStdString().c_str());
 }
 
 
-RING_FUNC(ring_QWebEngineView_setContent)
+RING_FUNC(ring_QWebView_setContent)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
@@ -25025,7 +25025,7 @@ RING_FUNC(ring_QWebEngineView_setContent)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISSTRING(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -25038,9 +25038,9 @@ RING_FUNC(ring_QWebEngineView_setContent)
 }
 
 
-RING_FUNC(ring_QWebEngineView_setHtml)
+RING_FUNC(ring_QWebView_setHtml)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -25050,7 +25050,7 @@ RING_FUNC(ring_QWebEngineView_setHtml)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -25061,9 +25061,9 @@ RING_FUNC(ring_QWebEngineView_setHtml)
 }
 
 
-RING_FUNC(ring_QWebEngineView_setPage)
+RING_FUNC(ring_QWebView_setPage)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -25073,18 +25073,18 @@ RING_FUNC(ring_QWebEngineView_setPage)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setPage((QWebEnginePage *) RING_API_GETCPOINTER(2,"QWebEnginePage"));
+	pObject->setPage((QWebPage *) RING_API_GETCPOINTER(2,"QWebPage"));
 }
 
 
-RING_FUNC(ring_QWebEngineView_setUrl)
+RING_FUNC(ring_QWebView_setUrl)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -25094,16 +25094,16 @@ RING_FUNC(ring_QWebEngineView_setUrl)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	pObject->setUrl(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
-RING_FUNC(ring_QWebEngineView_setZoomFactor)
+RING_FUNC(ring_QWebView_setZoomFactor)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -25113,16 +25113,16 @@ RING_FUNC(ring_QWebEngineView_setZoomFactor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	pObject->setZoomFactor(* (qreal  *) RING_API_GETCPOINTER(2,"qreal"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"qreal"));
 }
 
 
-RING_FUNC(ring_QWebEngineView_settings)
+RING_FUNC(ring_QWebView_settings)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -25132,14 +25132,14 @@ RING_FUNC(ring_QWebEngineView_settings)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
-	RING_API_RETCPOINTER(pObject->settings(),"QWebEngineSettings");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
+	RING_API_RETCPOINTER(pObject->settings(),"QWebSettings");
 }
 
 
-RING_FUNC(ring_QWebEngineView_title)
+RING_FUNC(ring_QWebView_title)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -25149,14 +25149,14 @@ RING_FUNC(ring_QWebEngineView_title)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	RING_API_RETSTRING(pObject->title().toStdString().c_str());
 }
 
 
-RING_FUNC(ring_QWebEngineView_triggerPageAction)
+RING_FUNC(ring_QWebView_triggerPageAction)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -25166,7 +25166,7 @@ RING_FUNC(ring_QWebEngineView_triggerPageAction)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -25175,13 +25175,13 @@ RING_FUNC(ring_QWebEngineView_triggerPageAction)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->triggerPageAction( (QWebEnginePage::WebAction )  (int) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+	pObject->triggerPageAction( (QWebPage::WebAction )  (int) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
 }
 
 
-RING_FUNC(ring_QWebEngineView_url)
+RING_FUNC(ring_QWebView_url)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -25191,7 +25191,7 @@ RING_FUNC(ring_QWebEngineView_url)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	{
 		QUrl *pValue ; 
 		pValue = new QUrl() ;
@@ -25201,9 +25201,9 @@ RING_FUNC(ring_QWebEngineView_url)
 }
 
 
-RING_FUNC(ring_QWebEngineView_zoomFactor)
+RING_FUNC(ring_QWebView_zoomFactor)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -25213,7 +25213,7 @@ RING_FUNC(ring_QWebEngineView_zoomFactor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	{
 		qreal *pValue ; 
 		pValue = (qreal *) malloc(sizeof(qreal)) ;
@@ -25223,9 +25223,9 @@ RING_FUNC(ring_QWebEngineView_zoomFactor)
 }
 
 
-RING_FUNC(ring_QWebEngineView_back)
+RING_FUNC(ring_QWebView_back)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -25235,14 +25235,14 @@ RING_FUNC(ring_QWebEngineView_back)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	pObject->back();
 }
 
 
-RING_FUNC(ring_QWebEngineView_forward)
+RING_FUNC(ring_QWebView_forward)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -25252,14 +25252,14 @@ RING_FUNC(ring_QWebEngineView_forward)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	pObject->forward();
 }
 
 
-RING_FUNC(ring_QWebEngineView_reload)
+RING_FUNC(ring_QWebView_reload)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -25269,14 +25269,14 @@ RING_FUNC(ring_QWebEngineView_reload)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	pObject->reload();
 }
 
 
-RING_FUNC(ring_QWebEngineView_stop)
+RING_FUNC(ring_QWebView_stop)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -25286,14 +25286,14 @@ RING_FUNC(ring_QWebEngineView_stop)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	pObject->stop();
 }
 
 
-RING_FUNC(ring_QWebEngineView_setloadFinishedEvent)
+RING_FUNC(ring_QWebView_setloadFinishedEvent)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -25303,7 +25303,7 @@ RING_FUNC(ring_QWebEngineView_setloadFinishedEvent)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -25312,9 +25312,9 @@ RING_FUNC(ring_QWebEngineView_setloadFinishedEvent)
 }
 
 
-RING_FUNC(ring_QWebEngineView_setloadProgressEvent)
+RING_FUNC(ring_QWebView_setloadProgressEvent)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -25324,7 +25324,7 @@ RING_FUNC(ring_QWebEngineView_setloadProgressEvent)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -25333,9 +25333,9 @@ RING_FUNC(ring_QWebEngineView_setloadProgressEvent)
 }
 
 
-RING_FUNC(ring_QWebEngineView_setloadStartedEvent)
+RING_FUNC(ring_QWebView_setloadStartedEvent)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -25345,7 +25345,7 @@ RING_FUNC(ring_QWebEngineView_setloadStartedEvent)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -25354,9 +25354,9 @@ RING_FUNC(ring_QWebEngineView_setloadStartedEvent)
 }
 
 
-RING_FUNC(ring_QWebEngineView_setselectionChangedEvent)
+RING_FUNC(ring_QWebView_setselectionChangedEvent)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -25366,7 +25366,7 @@ RING_FUNC(ring_QWebEngineView_setselectionChangedEvent)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -25375,9 +25375,9 @@ RING_FUNC(ring_QWebEngineView_setselectionChangedEvent)
 }
 
 
-RING_FUNC(ring_QWebEngineView_settitleChangedEvent)
+RING_FUNC(ring_QWebView_settitleChangedEvent)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -25387,7 +25387,7 @@ RING_FUNC(ring_QWebEngineView_settitleChangedEvent)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -25396,9 +25396,9 @@ RING_FUNC(ring_QWebEngineView_settitleChangedEvent)
 }
 
 
-RING_FUNC(ring_QWebEngineView_seturlChangedEvent)
+RING_FUNC(ring_QWebView_seturlChangedEvent)
 {
-	GWebEngineView *pObject ;
+	GWebView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -25408,7 +25408,7 @@ RING_FUNC(ring_QWebEngineView_seturlChangedEvent)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -51633,11 +51633,11 @@ RING_FUNC(ring_QDial_new)
 	RING_API_RETCPOINTER(pObject,"QDial");
 }
 
-RING_FUNC(ring_QWebEngineView_new)
+RING_FUNC(ring_QWebView_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
-	GWebEngineView *pObject = new GWebEngineView((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
-	RING_API_RETCPOINTER(pObject,"QWebEngineView");
+	GWebView *pObject = new GWebView((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QWebView");
 }
 
 RING_FUNC(ring_QUrl_new)
@@ -52489,9 +52489,9 @@ RING_FUNC(ring_QDial_delete)
 	}
 }
 
-RING_FUNC(ring_QWebEngineView_delete)
+RING_FUNC(ring_QWebView_delete)
 {
-	GWebEngineView *pObject ; 
+	GWebView *pObject ; 
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -52499,7 +52499,7 @@ RING_FUNC(ring_QWebEngineView_delete)
 	}
 	if ( RING_API_ISPOINTER(1) )
 	{
-		pObject = (GWebEngineView *) RING_API_GETCPOINTER(1,"GWebEngineView");
+		pObject = (GWebView *) RING_API_GETCPOINTER(1,"GWebView");
 		delete pObject ;
 	}
 }
@@ -54361,32 +54361,32 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdial_setsliderpressedevent",ring_QDial_setsliderPressedEvent);
 	ring_vm_funcregister("qdial_setsliderreleasedevent",ring_QDial_setsliderReleasedEvent);
 	ring_vm_funcregister("qdial_setvaluechangedevent",ring_QDial_setvalueChangedEvent);
-	ring_vm_funcregister("qwebengineview_hasselection",ring_QWebEngineView_hasSelection);
-	ring_vm_funcregister("qwebengineview_history",ring_QWebEngineView_history);
-	ring_vm_funcregister("qwebengineview_load",ring_QWebEngineView_load);
-	ring_vm_funcregister("qwebengineview_page",ring_QWebEngineView_page);
-	ring_vm_funcregister("qwebengineview_pageaction",ring_QWebEngineView_pageAction);
-	ring_vm_funcregister("qwebengineview_selectedtext",ring_QWebEngineView_selectedText);
-	ring_vm_funcregister("qwebengineview_setcontent",ring_QWebEngineView_setContent);
-	ring_vm_funcregister("qwebengineview_sethtml",ring_QWebEngineView_setHtml);
-	ring_vm_funcregister("qwebengineview_setpage",ring_QWebEngineView_setPage);
-	ring_vm_funcregister("qwebengineview_seturl",ring_QWebEngineView_setUrl);
-	ring_vm_funcregister("qwebengineview_setzoomfactor",ring_QWebEngineView_setZoomFactor);
-	ring_vm_funcregister("qwebengineview_settings",ring_QWebEngineView_settings);
-	ring_vm_funcregister("qwebengineview_title",ring_QWebEngineView_title);
-	ring_vm_funcregister("qwebengineview_triggerpageaction",ring_QWebEngineView_triggerPageAction);
-	ring_vm_funcregister("qwebengineview_url",ring_QWebEngineView_url);
-	ring_vm_funcregister("qwebengineview_zoomfactor",ring_QWebEngineView_zoomFactor);
-	ring_vm_funcregister("qwebengineview_back",ring_QWebEngineView_back);
-	ring_vm_funcregister("qwebengineview_forward",ring_QWebEngineView_forward);
-	ring_vm_funcregister("qwebengineview_reload",ring_QWebEngineView_reload);
-	ring_vm_funcregister("qwebengineview_stop",ring_QWebEngineView_stop);
-	ring_vm_funcregister("qwebengineview_setloadfinishedevent",ring_QWebEngineView_setloadFinishedEvent);
-	ring_vm_funcregister("qwebengineview_setloadprogressevent",ring_QWebEngineView_setloadProgressEvent);
-	ring_vm_funcregister("qwebengineview_setloadstartedevent",ring_QWebEngineView_setloadStartedEvent);
-	ring_vm_funcregister("qwebengineview_setselectionchangedevent",ring_QWebEngineView_setselectionChangedEvent);
-	ring_vm_funcregister("qwebengineview_settitlechangedevent",ring_QWebEngineView_settitleChangedEvent);
-	ring_vm_funcregister("qwebengineview_seturlchangedevent",ring_QWebEngineView_seturlChangedEvent);
+	ring_vm_funcregister("qwebview_hasselection",ring_QWebView_hasSelection);
+	ring_vm_funcregister("qwebview_history",ring_QWebView_history);
+	ring_vm_funcregister("qwebview_load",ring_QWebView_load);
+	ring_vm_funcregister("qwebview_page",ring_QWebView_page);
+	ring_vm_funcregister("qwebview_pageaction",ring_QWebView_pageAction);
+	ring_vm_funcregister("qwebview_selectedtext",ring_QWebView_selectedText);
+	ring_vm_funcregister("qwebview_setcontent",ring_QWebView_setContent);
+	ring_vm_funcregister("qwebview_sethtml",ring_QWebView_setHtml);
+	ring_vm_funcregister("qwebview_setpage",ring_QWebView_setPage);
+	ring_vm_funcregister("qwebview_seturl",ring_QWebView_setUrl);
+	ring_vm_funcregister("qwebview_setzoomfactor",ring_QWebView_setZoomFactor);
+	ring_vm_funcregister("qwebview_settings",ring_QWebView_settings);
+	ring_vm_funcregister("qwebview_title",ring_QWebView_title);
+	ring_vm_funcregister("qwebview_triggerpageaction",ring_QWebView_triggerPageAction);
+	ring_vm_funcregister("qwebview_url",ring_QWebView_url);
+	ring_vm_funcregister("qwebview_zoomfactor",ring_QWebView_zoomFactor);
+	ring_vm_funcregister("qwebview_back",ring_QWebView_back);
+	ring_vm_funcregister("qwebview_forward",ring_QWebView_forward);
+	ring_vm_funcregister("qwebview_reload",ring_QWebView_reload);
+	ring_vm_funcregister("qwebview_stop",ring_QWebView_stop);
+	ring_vm_funcregister("qwebview_setloadfinishedevent",ring_QWebView_setloadFinishedEvent);
+	ring_vm_funcregister("qwebview_setloadprogressevent",ring_QWebView_setloadProgressEvent);
+	ring_vm_funcregister("qwebview_setloadstartedevent",ring_QWebView_setloadStartedEvent);
+	ring_vm_funcregister("qwebview_setselectionchangedevent",ring_QWebView_setselectionChangedEvent);
+	ring_vm_funcregister("qwebview_settitlechangedevent",ring_QWebView_settitleChangedEvent);
+	ring_vm_funcregister("qwebview_seturlchangedevent",ring_QWebView_seturlChangedEvent);
 	ring_vm_funcregister("qurl_authority",ring_QUrl_authority);
 	ring_vm_funcregister("qurl_clear",ring_QUrl_clear);
 	ring_vm_funcregister("qurl_errorstring",ring_QUrl_errorString);
@@ -55673,7 +55673,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdatetimeedit_new",ring_QDateTimeEdit_new);
 	ring_vm_funcregister("qabstractspinbox_new",ring_QAbstractSpinBox_new);
 	ring_vm_funcregister("qdial_new",ring_QDial_new);
-	ring_vm_funcregister("qwebengineview_new",ring_QWebEngineView_new);
+	ring_vm_funcregister("qwebview_new",ring_QWebView_new);
 	ring_vm_funcregister("qurl_new",ring_QUrl_new);
 	ring_vm_funcregister("qcheckbox_new",ring_QCheckBox_new);
 	ring_vm_funcregister("qradiobutton_new",ring_QRadioButton_new);
@@ -55753,7 +55753,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdatetimeedit_delete",ring_QDateTimeEdit_delete);
 	ring_vm_funcregister("qabstractspinbox_delete",ring_QAbstractSpinBox_delete);
 	ring_vm_funcregister("qdial_delete",ring_QDial_delete);
-	ring_vm_funcregister("qwebengineview_delete",ring_QWebEngineView_delete);
+	ring_vm_funcregister("qwebview_delete",ring_QWebView_delete);
 	ring_vm_funcregister("qurl_delete",ring_QUrl_delete);
 	ring_vm_funcregister("qcheckbox_delete",ring_QCheckBox_delete);
 	ring_vm_funcregister("qradiobutton_delete",ring_QRadioButton_delete);

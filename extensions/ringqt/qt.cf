@@ -25,7 +25,7 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-#include "gwebengineview.h"
+#include "gwebview.h"
 #include "gcheckbox.h"
 #include "gradiobutton.h"
 #include "gbuttongroup.h"
@@ -79,7 +79,7 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
-#include <QWebEngineView>
+#include <QWebView>
 #include <QUrl>
 #include <QCheckBox>
 #include <QRadioButton>
@@ -99,7 +99,7 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
-#include <QWebEngineSettings>
+#include <QWebSettings>
 #include <QBrush>
 #include <QByteArray>
 #include <QIODevice>
@@ -154,7 +154,7 @@ extern "C" {
 <runcode>
 aStringTypes + "QString"
 aBeforeReturn + ["QString",".toStdString().c_str()"]
-aNewMethodName + ["QWebEngineView","load","loadpage"]
+aNewMethodName + ["QWebView","load","loadpage"]
 aNewMethodName + ["QMediaPlaylist","load","loadfile"]
 aNewMethodName + ["QMediaPlaylist","next","movenext"]
 aNewMethodName + ["QPainter","end","endpaint"]
@@ -227,8 +227,8 @@ aEnumTypes + "QDateTimeEdit::Section"
 aEnumTypes + "Qt::TimeSpec"
 aEnumTypes + "QAbstractSpinBox::ButtonSymbols"
 aEnumTypes + "QAbstractSpinBox::CorrectionMode"
-aEnumTypes + "QWebEnginePage::FindFlag"
-aEnumTypes + "QWebEnginePage::WebAction"
+aEnumTypes + "QWebPage::FindFlag"
+aEnumTypes + "QWebPage::WebAction"
 aEnumTypes + "QPainter::RenderHint"
 aEnumTypes + "QUrl::ComponentFormattingOption"
 aEnumTypes + "QUrl::ParsingMode"
@@ -269,11 +269,11 @@ aEnumTypes + "QFont::SpacingType"
 aEnumTypes + "QFont::Style"
 aEnumTypes + "QFont::StyleHint"
 aEnumTypes + "QFont::StyleStrategy"
-aEnumTypes + "QWebEngineSettings::FontFamily"
-aEnumTypes + "QWebEngineSettings::FontSize"
-aEnumTypes + "QWebEngineSettings::WebAttribute"
-aEnumTypes + "QWebEngineSettings::ThirdPartyCookiePolicy"
-aEnumTypes + "QWebEngineSettings::WebGraphic"
+aEnumTypes + "QWebSettings::FontFamily"
+aEnumTypes + "QWebSettings::FontSize"
+aEnumTypes + "QWebSettings::WebAttribute"
+aEnumTypes + "QWebSettings::ThirdPartyCookiePolicy"
+aEnumTypes + "QWebSettings::WebGraphic"
 aEnumTypes + "Qt::BrushStyle"
 aEnumTypes + "QAbstractSocket::BindFlag"
 aEnumTypes + "QIODevice::OpenModeFlag"
@@ -1919,15 +1919,15 @@ void setsliderReleasedEvent(const char *)
 void setvalueChangedEvent(const char *)
 
 <class>
-name: QWebEngineView
+name: QWebView
 para: QWidget *parent
 parent: QWidget
-codename: GWebEngineView
+codename: GWebView
 passvmpointer
 </class>
 
 <comment>
-bool findText(QString, QWebEnginePage::FindFlag options)
+bool findText(QString, QWebPage::FindFlag options)
 </comment>
 bool hasSelection(void)
 QWebHistory *history(void)
@@ -1939,8 +1939,8 @@ void load(QUrl)
 <comment>
 void load(QNetworkRequest , int operation, QByteArray))
 </comment>
-QWebEnginePage *page(void)
-QAction *pageAction(QWebEnginePage::WebAction action)
+QWebPage *page(void)
+QAction *pageAction(QWebPage::WebAction action)
 <comment>
 int renderHints(void)
 QString selectedHtml(void)
@@ -1948,7 +1948,7 @@ QString selectedHtml(void)
 QString selectedText(void)
 void setContent(QByteArray,QString,QUrl)
 void setHtml(QString,QUrl)
-void setPage(QWebEnginePage *page)
+void setPage(QWebPage *page)
 <comment>
 void setRenderHint(QPainter::RenderHint hint, bool enabled)
 void setRenderHints(QPainter::RenderHint hints)
@@ -1956,12 +1956,12 @@ void setTextSizeMultiplier(qreal factor)
 </comment>
 void setUrl(QUrl)
 void setZoomFactor(qreal factor)
-QWebEngineSettings *settings(void)
+QWebSettings *settings(void)
 <comment>
 qreal textSizeMultiplier(void)
 </comment>
 QString title(void)
-void triggerPageAction(QWebEnginePage::WebAction action, bool checked)
+void triggerPageAction(QWebPage::WebAction action, bool checked)
 QUrl url(void)
 qreal zoomFactor(void)
 void back(void)
@@ -2799,34 +2799,34 @@ QStringList substitutes(QString)
 QStringList substitutions(void)
 
 <class>
-name: QWebEngineSettings
+name: QWebSettings
 abstract
 </class>
 
 <comment>
 QString cssMediaType(void)
 QString defaultTextEncoding(void)
-QString fontFamily(QWebEngineSettings::FontFamily which)
-int fontSize(QWebEngineSettings::FontSize type)
+QString fontFamily(QWebSettings::FontFamily which)
+int fontSize(QWebSettings::FontSize type)
 QString localStoragePath(void)
-void resetAttribute(QWebEngineSettings::WebAttribute attribute)
-void resetFontFamily(QWebEngineSettings::FontFamily which)
-void resetFontSize(QWebEngineSettings::FontSize type)
-void setAttribute(QWebEngineSettings::WebAttribute attribute, bool on)
+void resetAttribute(QWebSettings::WebAttribute attribute)
+void resetFontFamily(QWebSettings::FontFamily which)
+void resetFontSize(QWebSettings::FontSize type)
+void setAttribute(QWebSettings::WebAttribute attribute, bool on)
 void setCSSMediaType(QString)
 void setDefaultTextEncoding(QString)
-void setFontFamily(QWebEngineSettings::FontFamily which, QString)
-void setFontSize(QWebEngineSettings::FontSize type, int size)
+void setFontFamily(QWebSettings::FontFamily which, QString)
+void setFontSize(QWebSettings::FontSize type, int size)
 void setLocalStoragePath(QString)
-void setThirdPartyCookiePolicy(QWebEngineSettings::ThirdPartyCookiePolicy policy)
+void setThirdPartyCookiePolicy(QWebSettings::ThirdPartyCookiePolicy policy)
 void setUserStyleSheetUrl(QUrl)
-bool testAttribute(QWebEngineSettings::WebAttribute attribute)
+bool testAttribute(QWebSettings::WebAttribute attribute)
 int thirdPartyCookiePolicy(void)
 QUrl userStyleSheetUrl(void)
 void clearIconDatabase(void)
 void clearMemoryCaches(void)
 void enablePersistentStorage(QString)
-QWebEngineSettings *globalSettings(void)
+QWebSettings *globalSettings(void)
 QString iconDatabasePath(void)
 QIcon iconForUrl(QUrl)
 int maximumPagesInCache(void)
@@ -2841,8 +2841,8 @@ void setOfflineStorageDefaultQuota(int maximumSize)
 void setOfflineStoragePath(QString)
 void setOfflineWebApplicationCachePath(QString)
 void setOfflineWebApplicationCacheQuota(int maximumSize)
-void setWebGraphic(QWebEngineSettings::WebGraphic type, QPixmap)
-QPixmap webGraphic(QWebEngineSettings::WebGraphic type)
+void setWebGraphic(QWebSettings::WebGraphic type, QPixmap)
+QPixmap webGraphic(QWebSettings::WebGraphic type)
 </comment>
 
 <class>
