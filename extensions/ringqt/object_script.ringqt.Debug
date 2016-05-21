@@ -25,7 +25,6 @@ INPUT(
 ./debug\gtcpsocket.o
 ./debug\gallevents.o
 ./debug\ring_qt.o
-./debug\qrc_ringqt.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
 ./debug\moc_glineedit.o

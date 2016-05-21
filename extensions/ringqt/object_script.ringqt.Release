@@ -25,7 +25,6 @@ INPUT(
 ./release\gtcpsocket.o
 ./release\gallevents.o
 ./release\ring_qt.o
-./release\qrc_ringqt.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
 ./release\moc_glineedit.o
