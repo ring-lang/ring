@@ -7,6 +7,9 @@
 /* Windows only */
 #include <direct.h>
 #define GetCurrentDir _getcwd
+#elif __MACH__
+/* Mac OS X */
+#include <mach-o/dyld.h>
 #else
 #include <unistd.h>
 #define GetCurrentDir getcwd
@@ -300,6 +303,9 @@ int ring_exefilename ( char *cDirPath )
 	#ifdef _WIN32
 	/* Windows only */
 	GetModuleFileName(NULL,cDirPath,nSize);
+	#elif __MACH__
+	/* Mac OS X */
+	_NSGetExecutablePath(cDirPath,&nSize);
 	#else
 	#ifdef __linux__
 	readlink("/proc/self/exe",cDirPath,nSize);
