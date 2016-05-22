@@ -634,9 +634,9 @@ func pNofileopened
 func pDebug
 	if cActiveFileName = Null return pNofileopened() ok
 	if iswindows()
-		cCode = 'start run "' + cActiveFileName '"' + nl 
+		cCode = 'start run "' + cActiveFileName + '"' + nl 
 	else
-		cCode = 'ring "' + cActiveFileName '"' + nl 
+		cCode = 'ring "' + cActiveFileName + '"' + nl 
 	ok
 	system(cCode)
 
@@ -645,7 +645,7 @@ func pRun
 	if iswindows()
 		cCode = 'start run2 "' + cActiveFileName + '"' + nl 
 	else
-		cCode = 'ring "' + cActiveFileName '"' + nl 
+		cCode = 'ring "' + cActiveFileName + '"' + nl 
 	ok
 	system(cCode)
 
@@ -654,7 +654,7 @@ func pRunNoConsole
 	if iswindows()
 		cCode = 'start /b run2 "' + cActiveFileName + '"' + nl 
 	else
-		cCode = 'ring "' + cActiveFileName '"' + nl 
+		cCode = 'ring "' + cActiveFileName + '"' + nl 
 	ok
 	system(cCode)
 
