@@ -7,12 +7,13 @@
 /* Windows only */
 #include <direct.h>
 #define GetCurrentDir _getcwd
-#elif __MACH__
-/* Mac OS X */
-#include <mach-o/dyld.h>
 #else
 #include <unistd.h>
 #define GetCurrentDir getcwd
+#if __MACH__
+/* Mac OS X */
+#include <mach-o/dyld.h>
+#endif
 #endif
 /* Define Functions */
 #if RING_TESTUNITS
