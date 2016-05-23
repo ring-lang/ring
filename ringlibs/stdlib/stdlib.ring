@@ -559,7 +559,7 @@ Func IsMainSourceFile
 	
 /*
 	Function Name	: Substring
-	Usage		: Return a position of a substring starting form a given position in a string.
+	Usage		: Return a position of a substring starting from a given position in a string.
 	Parameters	: String, substring, position. 
 	output		: Position of substring. 
 */  	
