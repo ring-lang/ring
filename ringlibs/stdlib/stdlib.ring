@@ -556,3 +556,14 @@ Func IsMainSourceFile
 		return true
 	ok
 	return false
+	
+/*
+	Function Name	: Substring
+	Usage		: Return a position of a substring starting from a given position in a string.
+	Parameters	: String, substring, position. 
+	output		: Position of substring. 
+*/  	
+func Substring str,substr,n
+       newstr=right(str,len(str)-n+1)
+       nr = substr(newstr, substr)
+       return n + nr -1
