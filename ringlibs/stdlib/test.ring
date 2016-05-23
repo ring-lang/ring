@@ -186,3 +186,11 @@ while not feof(fp)
 See Readline(fp) end
 fclose(fp)
 
+# Return a position of a substring starting from a given position in a string.
+Puts("Test Substring()")
+a = "abcxyzqweabc"
+b = "abc"
+i = 4
+see substring(a,b,i)
+
+
