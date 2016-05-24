@@ -4260,9 +4260,6 @@ Class QAbstractSpinBox from QWidget
 	Func isAccelerated 
 		return QAbstractSpinBox_isAccelerated(pObject)
 
-	Func isGroupSeparatorShown 
-		return QAbstractSpinBox_isGroupSeparatorShown(pObject)
-
 	Func isReadOnly 
 		return QAbstractSpinBox_isReadOnly(pObject)
 
@@ -4283,9 +4280,6 @@ Class QAbstractSpinBox from QWidget
 
 	Func setFrame P1
 		return QAbstractSpinBox_setFrame(pObject,P1)
-
-	Func setGroupSeparatorShown P1
-		return QAbstractSpinBox_setGroupSeparatorShown(pObject,P1)
 
 	Func setKeyboardTracking P1
 		return QAbstractSpinBox_setKeyboardTracking(pObject,P1)
@@ -6346,9 +6340,6 @@ Class QPrinter
 	Func outputFormat 
 		return QPrinter_outputFormat(pObject)
 
-	Func pageLayout 
-		return QPrinter_pageLayout(pObject)
-
 	Func pageOrder 
 		return QPrinter_pageOrder(pObject)
 
@@ -6415,20 +6406,8 @@ Class QPrinter
 	Func setOutputFormat P1
 		return QPrinter_setOutputFormat(pObject,P1)
 
-	Func setPageLayout P1
-		return QPrinter_setPageLayout(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setPageMargins P1,P2
-		return QPrinter_setPageMargins(pObject,GetObjectPointerFromRingObject(P1),P2)
-
 	Func setPageOrder P1
 		return QPrinter_setPageOrder(pObject,P1)
-
-	Func setPageOrientation P1
-		return QPrinter_setPageOrientation(pObject,P1)
-
-	Func setPageSize P1
-		return QPrinter_setPageSize(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setPaperSource P1
 		return QPrinter_setPaperSource(pObject,P1)

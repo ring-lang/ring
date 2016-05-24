@@ -24198,23 +24198,6 @@ RING_FUNC(ring_QAbstractSpinBox_isAccelerated)
 }
 
 
-RING_FUNC(ring_QAbstractSpinBox_isGroupSeparatorShown)
-{
-	QAbstractSpinBox *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QAbstractSpinBox *) RING_API_GETCPOINTER(1,"QAbstractSpinBox");
-	RING_API_RETNUMBER(pObject->isGroupSeparatorShown());
-}
-
-
 RING_FUNC(ring_QAbstractSpinBox_isReadOnly)
 {
 	QAbstractSpinBox *pObject ;
@@ -24351,27 +24334,6 @@ RING_FUNC(ring_QAbstractSpinBox_setFrame)
 		return ;
 	}
 	pObject->setFrame( (bool) RING_API_GETNUMBER(2));
-}
-
-
-RING_FUNC(ring_QAbstractSpinBox_setGroupSeparatorShown)
-{
-	QAbstractSpinBox *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QAbstractSpinBox *) RING_API_GETCPOINTER(1,"QAbstractSpinBox");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setGroupSeparatorShown( (bool ) RING_API_GETNUMBER(2));
 }
 
 
@@ -36515,28 +36477,6 @@ RING_FUNC(ring_QPrinter_outputFormat)
 }
 
 
-RING_FUNC(ring_QPrinter_pageLayout)
-{
-	QPrinter *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPrinter *) RING_API_GETCPOINTER(1,"QPrinter");
-	{
-		QPageLayout *pValue ; 
-		pValue = (QPageLayout *) malloc(sizeof(QPageLayout)) ;
-		*pValue = pObject->pageLayout();
-		RING_API_RETCPOINTER(pValue,"QPageLayout");
-	}
-}
-
-
 RING_FUNC(ring_QPrinter_pageOrder)
 {
 	QPrinter *pObject ;
@@ -36977,48 +36917,6 @@ RING_FUNC(ring_QPrinter_setOutputFormat)
 }
 
 
-RING_FUNC(ring_QPrinter_setPageLayout)
-{
-	QPrinter *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPrinter *) RING_API_GETCPOINTER(1,"QPrinter");
-	RING_API_RETNUMBER(pObject->setPageLayout(* (QPageLayout *) RING_API_GETCPOINTER(2,"QPageLayout")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPageLayout"));
-}
-
-
-RING_FUNC(ring_QPrinter_setPageMargins)
-{
-	QPrinter *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPrinter *) RING_API_GETCPOINTER(1,"QPrinter");
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(pObject->setPageMargins(* (QMarginsF *) RING_API_GETCPOINTER(2,"QMarginsF"), (QPageLayout::Unit )  (int) RING_API_GETNUMBER(3)));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QMarginsF"));
-}
-
-
 RING_FUNC(ring_QPrinter_setPageOrder)
 {
 	QPrinter *pObject ;
@@ -37037,46 +36935,6 @@ RING_FUNC(ring_QPrinter_setPageOrder)
 		return ;
 	}
 	pObject->setPageOrder( (QPrinter::PageOrder )  (int) RING_API_GETNUMBER(2));
-}
-
-
-RING_FUNC(ring_QPrinter_setPageOrientation)
-{
-	QPrinter *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPrinter *) RING_API_GETCPOINTER(1,"QPrinter");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(pObject->setPageOrientation( (QPageLayout::Orientation )  (int) RING_API_GETNUMBER(2)));
-}
-
-
-RING_FUNC(ring_QPrinter_setPageSize)
-{
-	QPrinter *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPrinter *) RING_API_GETCPOINTER(1,"QPrinter");
-	RING_API_RETNUMBER(pObject->setPageSize(* (QPageSize *) RING_API_GETCPOINTER(2,"QPageSize")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPageSize"));
 }
 
 
@@ -54325,7 +54183,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qabstractspinbox_hasframe",ring_QAbstractSpinBox_hasFrame);
 	ring_vm_funcregister("qabstractspinbox_interprettext",ring_QAbstractSpinBox_interpretText);
 	ring_vm_funcregister("qabstractspinbox_isaccelerated",ring_QAbstractSpinBox_isAccelerated);
-	ring_vm_funcregister("qabstractspinbox_isgroupseparatorshown",ring_QAbstractSpinBox_isGroupSeparatorShown);
 	ring_vm_funcregister("qabstractspinbox_isreadonly",ring_QAbstractSpinBox_isReadOnly);
 	ring_vm_funcregister("qabstractspinbox_keyboardtracking",ring_QAbstractSpinBox_keyboardTracking);
 	ring_vm_funcregister("qabstractspinbox_setaccelerated",ring_QAbstractSpinBox_setAccelerated);
@@ -54333,7 +54190,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qabstractspinbox_setbuttonsymbols",ring_QAbstractSpinBox_setButtonSymbols);
 	ring_vm_funcregister("qabstractspinbox_setcorrectionmode",ring_QAbstractSpinBox_setCorrectionMode);
 	ring_vm_funcregister("qabstractspinbox_setframe",ring_QAbstractSpinBox_setFrame);
-	ring_vm_funcregister("qabstractspinbox_setgroupseparatorshown",ring_QAbstractSpinBox_setGroupSeparatorShown);
 	ring_vm_funcregister("qabstractspinbox_setkeyboardtracking",ring_QAbstractSpinBox_setKeyboardTracking);
 	ring_vm_funcregister("qabstractspinbox_setreadonly",ring_QAbstractSpinBox_setReadOnly);
 	ring_vm_funcregister("qabstractspinbox_setspecialvaluetext",ring_QAbstractSpinBox_setSpecialValueText);
@@ -54903,7 +54759,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprinter_isvalid",ring_QPrinter_isValid);
 	ring_vm_funcregister("qprinter_outputfilename",ring_QPrinter_outputFileName);
 	ring_vm_funcregister("qprinter_outputformat",ring_QPrinter_outputFormat);
-	ring_vm_funcregister("qprinter_pagelayout",ring_QPrinter_pageLayout);
 	ring_vm_funcregister("qprinter_pageorder",ring_QPrinter_pageOrder);
 	ring_vm_funcregister("qprinter_pagerect",ring_QPrinter_pageRect);
 	ring_vm_funcregister("qprinter_paperrect",ring_QPrinter_paperRect);
@@ -54926,11 +54781,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprinter_setfullpage",ring_QPrinter_setFullPage);
 	ring_vm_funcregister("qprinter_setoutputfilename",ring_QPrinter_setOutputFileName);
 	ring_vm_funcregister("qprinter_setoutputformat",ring_QPrinter_setOutputFormat);
-	ring_vm_funcregister("qprinter_setpagelayout",ring_QPrinter_setPageLayout);
-	ring_vm_funcregister("qprinter_setpagemargins",ring_QPrinter_setPageMargins);
 	ring_vm_funcregister("qprinter_setpageorder",ring_QPrinter_setPageOrder);
-	ring_vm_funcregister("qprinter_setpageorientation",ring_QPrinter_setPageOrientation);
-	ring_vm_funcregister("qprinter_setpagesize",ring_QPrinter_setPageSize);
 	ring_vm_funcregister("qprinter_setpapersource",ring_QPrinter_setPaperSource);
 	ring_vm_funcregister("qprinter_setprintprogram",ring_QPrinter_setPrintProgram);
 	ring_vm_funcregister("qprinter_setprintrange",ring_QPrinter_setPrintRange);

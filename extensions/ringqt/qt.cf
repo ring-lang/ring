@@ -1871,7 +1871,9 @@ bool hasAcceptableInput(void)
 bool hasFrame(void)
 void interpretText(void)
 bool isAccelerated(void)
+<comment>
 bool isGroupSeparatorShown(void)
+</comment>
 bool isReadOnly(void)
 bool keyboardTracking(void)
 void setAccelerated(bool on)
@@ -1879,7 +1881,9 @@ void setAlignment(Qt::AlignmentFlag flag)
 void setButtonSymbols(QAbstractSpinBox::ButtonSymbols bs)
 void setCorrectionMode(QAbstractSpinBox::CorrectionMode cm)
 void setFrame(bool)
+<comment>
 void setGroupSeparatorShown(bool shown)
+</comment>
 void setKeyboardTracking(bool kt)
 void setReadOnly(bool r)
 void setSpecialValueText(QString)
@@ -2691,7 +2695,9 @@ bool fullPage(void)
 bool isValid(void)
 QString outputFileName(void)
 int outputFormat(void)
+<comment>
 QPageLayout pageLayout(void)
+</comment>
 int pageOrder(void)
 QRectF pageRect(QPrinter::Unit unit)
 QRectF paperRect(QPrinter::Unit unit)
@@ -2714,11 +2720,15 @@ void setFromTo(int from, int to)
 void setFullPage(bool fp)
 void setOutputFileName(QString)
 void setOutputFormat(QPrinter::OutputFormat format)
+<comment>
 bool setPageLayout(QPageLayout)
 bool setPageMargins(QMarginsF, QPageLayout::Unit units)
+</comment>
 void setPageOrder(QPrinter::PageOrder pageOrder)
+<comment>
 bool setPageOrientation(QPageLayout::Orientation orientation)
 bool setPageSize(QPageSize)
+</comment>
 void setPaperSource(QPrinter::PaperSource source)
 void setPrintProgram(QString)
 void setPrintRange(QPrinter::PrintRange)
