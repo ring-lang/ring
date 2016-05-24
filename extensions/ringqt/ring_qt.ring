@@ -1457,10 +1457,14 @@ Class QListWidget from QWidget
 		return QListWidget_isSortingEnabled(pObject)
 
 	Func item P1
-		return QListWidget_item(pObject,P1)
+		pTempObj = new QListWidgetItem
+		pTempObj.pObject = QListWidget_item(pObject,P1)
+		return pTempObj
 
 	Func itemAt P1,P2
-		return QListWidget_itemAt(pObject,P1,P2)
+		pTempObj = new QListWidgetItem
+		pTempObj.pObject = QListWidget_itemAt(pObject,P1,P2)
+		return pTempObj
 
 	Func itemWidget P1
 		pTempObj = new QWidget
@@ -1492,7 +1496,9 @@ Class QListWidget from QWidget
 		return QListWidget_sortItems(pObject,P1)
 
 	Func takeItem P1
-		return QListWidget_takeItem(pObject,P1)
+		pTempObj = new QListWidgetItem
+		pTempObj.pObject = QListWidget_takeItem(pObject,P1)
+		return pTempObj
 
 	Func visualItemRect P1
 		pTempObj = new QRect
@@ -8960,6 +8966,119 @@ Class QTime
 		pTempObj = new QTime
 		pTempObj.pObject = QTime_fromString(pObject,P1,P2)
 		return pTempObj
+
+Class QListWidgetItem
+
+	pObject
+
+	Func init 
+		pObject = QListWidgetItem_new()
+		return self
+
+	Func delete
+		pObject = QListWidgetItem_delete(pObject)
+
+	Func background 
+		pTempObj = new QBrush
+		pTempObj.pObject = QListWidgetItem_background(pObject)
+		return pTempObj
+
+	Func checkState 
+		return QListWidgetItem_checkState(pObject)
+
+	Func flags 
+		return QListWidgetItem_flags(pObject)
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QListWidgetItem_font(pObject)
+		return pTempObj
+
+	Func foreground 
+		pTempObj = new QBrush
+		pTempObj.pObject = QListWidgetItem_foreground(pObject)
+		return pTempObj
+
+	Func icon 
+		pTempObj = new QIcon
+		pTempObj.pObject = QListWidgetItem_icon(pObject)
+		return pTempObj
+
+	Func isHidden 
+		return QListWidgetItem_isHidden(pObject)
+
+	Func isSelected 
+		return QListWidgetItem_isSelected(pObject)
+
+	Func listWidget 
+		pTempObj = new QListWidget
+		pTempObj.pObject = QListWidgetItem_listWidget(pObject)
+		return pTempObj
+
+	Func setBackground P1
+		return QListWidgetItem_setBackground(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCheckState P1
+		return QListWidgetItem_setCheckState(pObject,P1)
+
+	Func setFlags P1
+		return QListWidgetItem_setFlags(pObject,P1)
+
+	Func setFont P1
+		return QListWidgetItem_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setForeground P1
+		return QListWidgetItem_setForeground(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHidden P1
+		return QListWidgetItem_setHidden(pObject,P1)
+
+	Func setIcon P1
+		return QListWidgetItem_setIcon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSelected P1
+		return QListWidgetItem_setSelected(pObject,P1)
+
+	Func setSizeHint P1
+		return QListWidgetItem_setSizeHint(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setStatusTip P1
+		return QListWidgetItem_setStatusTip(pObject,P1)
+
+	Func setText P1
+		return QListWidgetItem_setText(pObject,P1)
+
+	Func setTextAlignment P1
+		return QListWidgetItem_setTextAlignment(pObject,P1)
+
+	Func setToolTip P1
+		return QListWidgetItem_setToolTip(pObject,P1)
+
+	Func setWhatsThis P1
+		return QListWidgetItem_setWhatsThis(pObject,P1)
+
+	Func sizeHint 
+		pTempObj = new QSize
+		pTempObj.pObject = QListWidgetItem_sizeHint(pObject)
+		return pTempObj
+
+	Func statusTip 
+		return QListWidgetItem_statusTip(pObject)
+
+	Func text 
+		return QListWidgetItem_text(pObject)
+
+	Func textAlignment 
+		return QListWidgetItem_textAlignment(pObject)
+
+	Func toolTip 
+		return QListWidgetItem_toolTip(pObject)
+
+	Func type 
+		return QListWidgetItem_type(pObject)
+
+	Func whatsThis 
+		return QListWidgetItem_whatsThis(pObject)
 
 Class QIcon
 

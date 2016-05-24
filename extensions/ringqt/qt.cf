@@ -129,6 +129,7 @@ extern "C" {
 #include <QTextDocument>
 #include <QTime>
 #include <QTest>
+#include <QListWidgetItem>
 
 extern "C" {
 
@@ -301,6 +302,7 @@ aEnumTypes + "Qt::InputMethodHints"
 aEnumTypes + "Qt::WindowFlags"
 aEnumTypes + "QEvent::Type"
 aEnumTypes + "QPrinter::PrinterMode"
+aEnumTypes + "Qt::ItemFlags"
 </runcode>
 
 <class>
@@ -3772,3 +3774,40 @@ QString toString(QString)
 QTime currentTime(void)
 QTime fromMSecsSinceStartOfDay(int msecs)
 QTime fromString(QString,QString)
+
+
+<class>
+name: QListWidgetItem
+para: void
+</class>
+
+QBrush background(void)
+Qt::CheckState checkState(void)
+Qt::ItemFlags flags(void)
+QFont font(void)
+QBrush foreground(void)
+QIcon icon(void)
+bool isHidden(void)
+bool isSelected(void)
+QListWidget *listWidget(void)
+void setBackground(QBrush brush)
+void setCheckState(Qt::CheckState state)
+void setFlags(Qt::ItemFlags flags)
+void setFont(QFont font)
+void setForeground(QBrush brush)
+void setHidden(bool hide)
+void setIcon(QIcon icon)
+void setSelected(bool select)
+void setSizeHint(QSize size)
+void setStatusTip(QString statusTip)
+void setText(QString text)
+void setTextAlignment(int alignment)
+void setToolTip(QString toolTip)
+void setWhatsThis(QString whatsThis)
+QSize sizeHint(void)
+QString statusTip(void)
+QString text(void)
+int textAlignment(void)
+QString toolTip(void)
+int type(void)
+QString whatsThis(void)
