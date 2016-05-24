@@ -42,7 +42,7 @@ The language is designed for a Clear Goal
 
 #Build from source code
 
-## Building using Mac OS X
+## Building using MacOS X
 
 ### Get the source code
 
