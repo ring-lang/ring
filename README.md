@@ -40,6 +40,38 @@ The language is designed for a Clear Goal
 
 [Read more!](http://ring-lang.sourceforge.net/#why)
 
+=======================
+Build from source code
+=======================
+
+(1) Building using Mac OS X
+
+	git clone http://github.com/ring-lang/ring.git
+	brew install mysql
+	cd ring/src
+	./buildclangcomplete.sh
+	cp ../bin/ring /usr/local/bin
+	cp ../lib/libring.dylib /usr/local/lib
+	brew install allegro
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildclang.sh
+	cp ../../lib/libringallegro.dylib /usr/local/lib
+	cp gamelib.ring /usr/local/bin
+	cp allegro.rh /usr/local/bin
+	brew install homebrew/versions/qt52
+	cd ../ringqt
+	./gencode.sh
+	./buildclang.sh
+	cp libringqt.dylib /usr/local/lib
+	cp guilib.ring /usr/local/bin
+	cp ring_qt.ring /usr/local/bin
+	cp qt.rh /usr/local/bin
+	cd ../../applications/rnote
+	ring rnote.ring
+
+![Ring](http://ring-lang.sourceforge.net/ringmac.jpg)
+	
 =====================
 Visual Implementation
 =====================
