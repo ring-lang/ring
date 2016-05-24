@@ -48,6 +48,8 @@ The language is designed for a Clear Goal
 
 	git clone http://github.com/ring-lang/ring.git
 	
+### Install homebrew (follow the directions on homebrew's [http://brew.sh/ homepage]).
+	
 ### Install MySQL
 	
 	brew install mysql
