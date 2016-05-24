@@ -82,7 +82,7 @@ The language is designed for a Clear Goal
 	
 	brew install homebrew/versions/qt52
 	
-### Generate4 RingQt Source Code and Build
+### Generate RingQt Source Code and Build
 	
 	cd ../ringqt
 	./gencode.sh
