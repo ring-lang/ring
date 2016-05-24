@@ -46,54 +46,65 @@ Build from source code
 
 (1) Building using Mac OS X
 
-* Get the source code
+	* Get the source code
 
 	git clone http://github.com/ring-lang/ring.git
 	
-* Install MySQL
+	* Install MySQL
+	
 	brew install mysql
 	
-* Build Ring (Compiler/VM)
+	* Build Ring (Compiler/VM)
+	
 	cd ring/src
 	./buildclangcomplete.sh
 	
-* To be able to call ring from any folder 
+	* To be able to call ring from any folder 
+	
 	cp ../bin/ring /usr/local/bin
 	cp ../lib/libring.dylib /usr/local/lib
 	
-* Install Allegro (Required for RingAllegro and Game Development)
+	* Install Allegro (Required for RingAllegro and Game Development)
+	
 	brew install allegro
 	
-* Generate RingAllegro Source Code and Build 
+	* Generate RingAllegro Source Code and Build 
+	
 	cd ../extensions/ringallegro
 	./gencode.sh
 	./buildclang.sh
 	
-* Make the RingAllegro library ready for use directly
+	* Make the RingAllegro library ready for use directly
+	
 	cp ../../lib/libringallegro.dylib /usr/local/lib
 	cp gamelib.ring /usr/local/bin
 	cp allegro.rh /usr/local/bin
 	
-* Install Qt 5.2 (Required for RingQt and GUI Development)
+	* Install Qt 5.2 (Required for RingQt and GUI Development)
+	
 	brew install homebrew/versions/qt52
 	
-* Generate4 RingQt Source Code and Build
+	* Generate4 RingQt Source Code and Build
+	
 	cd ../ringqt
 	./gencode.sh
 	./buildclang.sh
 	
-* Make the RingQt library ready for use directly
+	* Make the RingQt library ready for use directly
+	
 	cp libringqt.dylib /usr/local/lib
 	cp guilib.ring /usr/local/bin
 	cp ring_qt.ring /usr/local/bin
 	cp qt.rh /usr/local/bin
 	
-* Run Ring Notepad
+	* Run Ring Notepad
+	
 	cd ../../applications/rnote
 	ring rnote.ring
 
-* Screen Shot
-![Ring](http://ring-lang.sourceforge.net/ringmac.png)
+	* Screen Shot
+	
+	![Ring](http://ring-lang.sourceforge.net/ringmac.png)
 	
 =====================
 Visual Implementation
