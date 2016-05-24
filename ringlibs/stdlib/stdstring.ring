@@ -51,10 +51,10 @@ Class String From StdBase
 
 	Func Upper
 		return new string( std_upper(cValue) )
-	
+
 	Func Left x
 		return new string( std_left(cValue,x) )
-	
+
 	Func Right x
 		return new string( std_right(cValue,x) )
 

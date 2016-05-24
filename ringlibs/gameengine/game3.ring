@@ -16,7 +16,7 @@ $value = 1000
 
 func main
 
-	oGame = New Game 
+	oGame = New Game
 
 	while true
 
@@ -29,27 +29,27 @@ func main
 	$DoorKey = false
 	$value = 1000
 
-	oGame {	
+	oGame {
 		title = "Super Man 2016"
 		sprite
 		{
 			file = "images/superman.jpg"
 			x = 0 y=0 width=800 height = 600 scaled = true animate = false
 			keypress = func ogame,oself,nKey {
-				if nkey = key_esc 
+				if nkey = key_esc
 					ogame.shutdown()
-				but nKey = key_space 
-					$startplay=true 
-					ogame.shutdown=true 
+				but nKey = key_space
+					$startplay=true
+					ogame.shutdown=true
 				ok
 			}
-			state = func ogame,oself {				
-				oself { 
+			state = func ogame,oself {
+				oself {
 					if x > -500
 						x-=1
 						y-=1
 						width +=1
-						height +=4									
+						height +=4
 					ok
 				}
 			}
@@ -104,7 +104,7 @@ func main
 			animate = true
 			direction = ge_direction_random
 			state = func oGame,oSelf {
-				oSelf { 
+				oSelf {
 					nStep--
 					if nStep = 0
 						nStep = 10
@@ -113,11 +113,11 @@ func main
 						else
 							frame=1
 						ok
-					ok	
+					ok
 					if x <= 0 x=0 ok
 					if y <= 0 y=0 ok
 					if x >= 750 x= 750 ok
-					if y > 550 y=550 ok								
+					if y > 550 y=550 ok
 				}
 			}
 		}
@@ -127,9 +127,9 @@ func main
 			playSound()
 		}
 	}
-	if $startplay 
+	if $startplay
 		oGame.refresh()
-		playstart(oGame) 		
+		playstart(oGame)
 		oGame.refresh()
 		callgc()
 	ok
@@ -173,15 +173,15 @@ func playstart oGame
 			width = 290
 			height = 200
 			transparent = true
-			
-			state = func oGame,oSelf {				
-				oself { 
-					x = 5000 +  oGame.aObjects[2].x  
+
+			state = func oGame,oSelf {
+				oself {
+					x = 5000 +  oGame.aObjects[2].x
 					if x < 0 or x > SCREEN_W return ok
 				}
 				if $gameresult or $DoorKey = false  return ok
 				if oGame.aObjects[$playerindex].x > oself.x + 100 and
-					oGame.aObjects[$playerindex].y > oself.y + 50 
+					oGame.aObjects[$playerindex].y > oself.y + 50
 					$gameresult = true
 					oGame {
 						sprite {
@@ -189,13 +189,13 @@ func playstart oGame
 							x=0 y=0 width=800 height=600
 							scaled = true animate=false
 							state = func ogame,oself {
-								oself { 
+								oself {
 									x-=5
 									y-=5
 									width +=10
-									height +=10									
+									height +=10
 									if x = -300
-										ogame.shutdown = true	
+										ogame.shutdown = true
 									ok
 								}
 							}
@@ -203,7 +203,7 @@ func playstart oGame
 					}
 				ok
 			}
-			
+
 		}
 
 		animate {
@@ -215,13 +215,13 @@ func playstart oGame
 			height = 86
 			width = 60
 			nStep = 3
-			transparent = true 
+			transparent = true
 			state = func oGame,oSelf {
 
 				checkstarskeycol(oGame,oSelf)
 
 				if not $playerwin
-						oself { 
+						oself {
 							file = "images/superman.png"
 							height = 86
 							width = 60
@@ -233,14 +233,14 @@ func playstart oGame
 								ok
 							next
 							if y > 500 y=500 ok
-						}				
+						}
 				ok
 
 			}
 			keypress = func ogame,oself,nKey {
 				if $gameresult = false
-					
-					oself { 
+
+					oself {
 						if nkey = key_up  and checkwall(oGame,oSelf,0,-40)
 							$value -= 1
 							checkgameover(oGame)
@@ -289,8 +289,8 @@ func playstart oGame
 									x += 50
 								ok
 							ok
-						but nkey = key_esc 
-							ogame.shutdown()			
+						but nkey = key_esc
+							ogame.shutdown()
 						ok
 					}
 				ok
@@ -313,8 +313,8 @@ func playstart oGame
 			file = "fonts/pirulen.ttf"
 			text = "Score : " + $score
 			x = 500	y=0
-			state = func oGame,oSelf { 			 
-				oSelf { text = "Score : " + $score }  				
+			state = func oGame,oSelf {
+				oSelf { text = "Score : " + $score }
 			}
 		}
 
@@ -432,7 +432,7 @@ func showfire oGame,nX,nY
 			nStep = 3
 			transparent = true
 			state = func oGame,oSelf {
-				oSelf { 
+				oSelf {
 					nStep--
 					if nStep = 0
 						nStep = 3
@@ -460,8 +460,8 @@ func addenemy oGame,xPos
 				direction = GE_DIRECTION_NOMOVE
 				temp = xPos
 				state = func oGame,oSelf {
-					oself { 
-						x = oSelf.temp +  oGame.aObjects[2].x  
+					oself {
+						x = oSelf.temp +  oGame.aObjects[2].x
 						if y < 0 y = 0 ok
 						if y > 100 y=100 ok
 						if x > SCREEN_W or x < 0 return ok
@@ -482,7 +482,7 @@ func addenemy oGame,xPos
 								point = ogame.screen_h+30
 								nstep = 30
 								direction = ge_direction_incvertical
-								xvalue =  oGame.aObjects[2].x 
+								xvalue =  oGame.aObjects[2].x
 								temp = oself.x + 30 - xvalue
 								state = func oGame,oSelf {
 									oself { x = oSelf.temp +  oGame.aObjects[2].x  }
@@ -508,7 +508,7 @@ func addenemy oGame,xPos
 
 func checkstarskey oGame,oSelf,nValue,nRow,nCol
 	switch nValue
-		on 4 
+		on 4
 			oGame.aObjects[2].aMap[nRow][nCol] = 6
 			$Score += 100
 			checkopenwall(oGame)
@@ -530,24 +530,24 @@ func checkstarskey oGame,oSelf,nValue,nRow,nCol
 	off
 
 func checkstarskeycol oGame,oSelf
-	nValue = oGame.aObjects[2].getvalue(oSelf.x,oSelf.y) 
-	nRow = oGame.aObjects[2].getrow(oSelf.x,oSelf.y) 
-	nCol = oGame.aObjects[2].getcol(oSelf.x,oSelf.y) 	
+	nValue = oGame.aObjects[2].getvalue(oSelf.x,oSelf.y)
+	nRow = oGame.aObjects[2].getrow(oSelf.x,oSelf.y)
+	nCol = oGame.aObjects[2].getcol(oSelf.x,oSelf.y)
 	checkstarskey(oGame,oSelf,nValue,nRow,nCol)
 
-	nValue = oGame.aObjects[2].getvalue(oSelf.x+oSelf.width,oSelf.y+oSelf.height) 
-	nRow = oGame.aObjects[2].getrow(oSelf.x+oSelf.width,oSelf.y+oSelf.height) 
-	nCol = oGame.aObjects[2].getcol(oSelf.x+oSelf.width,oSelf.y+oSelf.height) 	
+	nValue = oGame.aObjects[2].getvalue(oSelf.x+oSelf.width,oSelf.y+oSelf.height)
+	nRow = oGame.aObjects[2].getrow(oSelf.x+oSelf.width,oSelf.y+oSelf.height)
+	nCol = oGame.aObjects[2].getcol(oSelf.x+oSelf.width,oSelf.y+oSelf.height)
 	checkstarskey(oGame,oSelf,nValue,nRow,nCol)
 
-	nValue = oGame.aObjects[2].getvalue(oSelf.x+oSelf.width,oSelf.y) 
-	nRow = oGame.aObjects[2].getrow(oSelf.x+oSelf.width,oSelf.y) 
-	nCol = oGame.aObjects[2].getcol(oSelf.x+oSelf.width,oSelf.y) 	
+	nValue = oGame.aObjects[2].getvalue(oSelf.x+oSelf.width,oSelf.y)
+	nRow = oGame.aObjects[2].getrow(oSelf.x+oSelf.width,oSelf.y)
+	nCol = oGame.aObjects[2].getcol(oSelf.x+oSelf.width,oSelf.y)
 	checkstarskey(oGame,oSelf,nValue,nRow,nCol)
 
-	nValue = oGame.aObjects[2].getvalue(oSelf.x,oSelf.y+oSelf.height) 
-	nRow = oGame.aObjects[2].getrow(oSelf.x,oSelf.y+oSelf.height) 
-	nCol = oGame.aObjects[2].getcol(oSelf.x,oSelf.y+oSelf.height) 	
+	nValue = oGame.aObjects[2].getvalue(oSelf.x,oSelf.y+oSelf.height)
+	nRow = oGame.aObjects[2].getrow(oSelf.x,oSelf.y+oSelf.height)
+	nCol = oGame.aObjects[2].getcol(oSelf.x,oSelf.y+oSelf.height)
 	checkstarskey(oGame,oSelf,nValue,nRow,nCol)
 
 func callenemystate oGame

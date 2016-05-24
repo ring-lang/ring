@@ -12,7 +12,7 @@ $playerwin = false
 
 func main
 
-	oGame = New Game 
+	oGame = New Game
 
 	while true
 
@@ -23,18 +23,18 @@ func main
 	$lastcol = 0
 	$playerwin = false
 
-	oGame {	
+	oGame {
 		title = "Flappy Bird 3000"
 		sprite
 		{
 			file = "images/fbback.png"
 			x = 0 y=0 width=800 height = 600 scaled = true animate = false
 			keypress = func ogame,oself,nKey {
-				if nkey = key_esc 
+				if nkey = key_esc
 					ogame.shutdown()
-				but nKey = key_space 
-					$startplay=true 
-					ogame.shutdown=true 
+				but nKey = key_space
+					$startplay=true
+					ogame.shutdown=true
 				ok
 			}
 		}
@@ -96,7 +96,7 @@ func main
 			animate = true
 			direction = ge_direction_random
 			state = func oGame,oSelf {
-				oSelf { 
+				oSelf {
 					nStep--
 					if nStep = 0
 						nStep = 3
@@ -105,11 +105,11 @@ func main
 						else
 							frame=1
 						ok
-					ok	
+					ok
 					if x <= 0 x=0 ok
 					if y <= 0 y=0 ok
 					if x >= 750 x= 750 ok
-					if y > 550 y=550 ok								
+					if y > 550 y=550 ok
 				}
 			}
 		}
@@ -119,9 +119,9 @@ func main
 			playSound()
 		}
 	}
-	if $startplay 
+	if $startplay
 		oGame.refresh()
-		playstart(oGame) 		
+		playstart(oGame)
 		oGame.refresh()
 	ok
 
@@ -137,7 +137,7 @@ func playstart oGame
 			file = "images/fbback.png"
 			x = 0 y=0 width=800 height = 600 scaled = true animate = false
 			keypress = func ogame,oself,nKey {
-				if nkey = key_esc 
+				if nkey = key_esc
 					ogame.shutdown()
 				ok
 			}
@@ -159,7 +159,7 @@ func playstart oGame
 			newmap(aMap)
 			aImages = ["images/fbwall.png","images/fbwallup.png",
 					"images/fbwalldown.png"]
-			state = func oGame,oSelf {			
+			state = func oGame,oSelf {
 				if $gameresult = false
 					px = oGame.aObjects[3].x
 					py = oGame.aObjects[3].y
@@ -168,7 +168,7 @@ func playstart oGame
 						if x < - 2100
 							x = 0
 							newmap(aMap)
-						ok	
+						ok
 						nCol =  getcol(px,0)
 						if nCol=11 or nCol=15 or nCol=19 or nCol=23 or nCol=27
 							if nCol != $lastcol
@@ -180,13 +180,13 @@ func playstart oGame
 									playSound()
 								} }
 								checkwin(oGame)
-							ok 
+							ok
 						ok
 					}
-					if  oSelf.getvalue(px+40,py) != 0 or 
-					    oSelf.getvalue(px+40,py+40) != 0 or 
-					    oSelf.getvalue(px,py) != 0 or 
-					    oSelf.getvalue(px,py+40) != 0 
+					if  oSelf.getvalue(px+40,py) != 0 or
+					    oSelf.getvalue(px+40,py+40) != 0 or
+					    oSelf.getvalue(px,py) != 0 or
+					    oSelf.getvalue(px,py+40) != 0
 						$gameresult = true
 						oGame {
 							text {
@@ -215,10 +215,10 @@ func playstart oGame
 								once = true
 								file = "sound/sfx_hit.wav"
 								playSound()
-							}	
+							}
 						}
-					ok	
-				ok			
+					ok
+				ok
 			}
 		}
 
@@ -233,7 +233,7 @@ func playstart oGame
 			nStep = 3
 			transparent = true
 			state = func oGame,oSelf {
-				oSelf { 
+				oSelf {
 					nStep--
 					if nStep = 0
 						nStep = 3
@@ -242,15 +242,15 @@ func playstart oGame
 						else
 							frame=1
 						ok
-					ok				
+					ok
 				}
 
 				if not $playerwin
 					$down --
 					if $down = 0
 						$down = 3
-						oself { 
-							y += 25 
+						oself {
+							y += 25
 							if y > 550 y=550 ok
 						}
 					ok
@@ -259,7 +259,7 @@ func playstart oGame
 			}
 			keypress = func ogame,oself,nKey {
 				if $gameresult = false
-					oself { 
+					oself {
 						if nkey = key_space
 							y -= 55
 							$down = 60
@@ -277,8 +277,8 @@ func playstart oGame
 			file = "fonts/pirulen.ttf"
 			text = "Score : " + $score
 			x = 500	y=10
-			state = func oGame,oSelf { 
-				oSelf { text = "Score : " + $score }  
+			state = func oGame,oSelf {
+				oSelf { text = "Score : " + $score }
 			}
 		}
 
