@@ -50,9 +50,9 @@ The language is designed for a Clear Goal
 	
 ### Install homebrew (follow the directions on [homebrew's homepage](http://brew.sh/)).
 	
-### Install MySQL
+### Install MySQL Connector for the C Language
 	
-	brew install mysql
+	brew install mysql-connector-c
 	
 ### Build Ring (Compiler/VM)
 	
