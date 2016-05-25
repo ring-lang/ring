@@ -567,3 +567,13 @@ func Substring str,substr,n
        newstr=right(str,len(str)-n+1)
        nr = substr(newstr, substr)
        return n + nr -1
+       
+/*
+	Function Name	: Changestring
+	Usage		: Change substring from given position for given position with a substring.
+	Parameters	: Original string, position, length, substring
+	output		: Result string. 
+*/         
+func Changestring text, pos1, pos2, str
+       string = left(text,pos1-1) + str + right(text, len(text)-pos1-pos2+1)
+       return string
