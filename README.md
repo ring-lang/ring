@@ -50,52 +50,32 @@ The language is designed for a Clear Goal
 	
 ### Install homebrew (follow the directions on [homebrew's homepage](http://brew.sh/)).
 	
-### Install MySQL Connector for the C Language
+### Install Libraries 
 	
-	brew install mysql-connector-c
+	brew install mysql-connector-c allegro qt52
 	
 ### Build Ring (Compiler/VM)
 	
 	cd ring/src
 	./buildclangcomplete.sh
 	
-### To be able to call ring from any folder 
-	
-	cp ../bin/ring /usr/local/bin
-	cp ../lib/libring.dylib /usr/local/lib
-	
-### Install Allegro (Required for RingAllegro and Game Development)
-	
-	brew install allegro
 	
 ### Generate RingAllegro Source Code and Build 
 	
 	cd ../extensions/ringallegro
 	./gencode.sh
 	./buildclang.sh
-	
-### Make the RingAllegro library ready for use directly
-	
-	cp ../../lib/libringallegro.dylib /usr/local/lib
-	cp gamelib.ring /usr/local/bin
-	cp allegro.rh /usr/local/bin
-	
-### Install Qt 5.2 (Required for RingQt and GUI Development)
-	
-	brew install homebrew/versions/qt52
+
 	
 ### Generate RingQt Source Code and Build
 	
 	cd ../ringqt
 	./gencode.sh
 	./buildclang.sh
-	
-### Make the RingQt library ready for use directly
-	
-	cp libringqt.dylib /usr/local/lib
-	cp guilib.ring /usr/local/bin
-	cp ring_qt.ring /usr/local/bin
-	cp qt.rh /usr/local/bin
+
+### To be able to call ring from any folder 
+
+	./../../install.sh
 	
 ### Run Ring Notepad
 	
