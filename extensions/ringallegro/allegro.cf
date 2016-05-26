@@ -33,6 +33,7 @@ ALLEGRO_COLOR
 
 <register>
 void al_exit(void)
+void al_run_main(void)
 </register>
 
 <code>
@@ -43,6 +44,21 @@ RING_FUNC(ring_al_exit)
 		return ;
 	}
 	exit(0);
+}
+
+VM *globalVM ;
+
+int al_usr_main(int argc, char **argv)
+{
+	ring_vm_runcodefromthread(globalVM,"al_game_start()");	
+	exit(0);
+	return 0;
+}
+
+RING_FUNC(ring_al_run_main)
+{
+	globalVM = (VM *) pPointer ;
+	al_run_main(globalVM->pRingState->argc,globalVM->pRingState->argv,al_usr_main);	
 }
 </code>
 
