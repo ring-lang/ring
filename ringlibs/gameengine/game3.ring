@@ -14,10 +14,6 @@ $DoorKey = false
 $playerindex = 4
 $value = 1000
 
-al_run_main() 
-func al_game_start 
-	 main()
-
 func main
 
 	oGame = New Game

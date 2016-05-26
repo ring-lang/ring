@@ -10,10 +10,6 @@ $startplay=false
 $lastcol = 0
 $playerwin = false
 
-al_run_main() 
-func al_game_start 
-	 main()
-
 func main
 
 	oGame = New Game
