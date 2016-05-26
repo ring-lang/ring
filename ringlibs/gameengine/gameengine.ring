@@ -2,7 +2,6 @@
 # Game Engine for 2D Games
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "gamelib.ring"
 load "gameengine.rh"
 
 oresources = new resources

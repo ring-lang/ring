@@ -2,14 +2,6 @@
 # Game Engine for 2D Games
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-al_init()
-al_init_font_addon()
-al_init_ttf_addon()
-al_init_image_addon()
-al_install_audio()
-al_init_acodec_addon()
-al_reserve_samples(1)
-
 # Direction
 GE_DIRECTION_NOMOVE = 0
 GE_DIRECTION_INC = 1
@@ -32,8 +24,8 @@ GE_TYPE_PLAYER = 2
 GE_TYPE_ENEMY = 3
 GE_TYPE_FIRE = 4
 
-# colors
-GE_COLOR_WHITE = al_map_rgb(255,255,255)
-GE_COLOR_RED = al_map_rgb(255,0,0)
-GE_COLOR_GREEN = al_map_rgb(0,255,0)
-GE_COLOR_BLUE = al_map_rgb(0,0,255)
+# Here we define colors variables but set the values from loadgame.ring
+GE_COLOR_WHITE = NULL
+GE_COLOR_RED   = NULL
+GE_COLOR_GREEN = NULL
+GE_COLOR_BLUE  = NULL
