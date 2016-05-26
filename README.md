@@ -74,8 +74,8 @@ The language is designed for a Clear Goal
 	./buildclang.sh
 
 ### To be able to call ring from any folder 
-
-	sudo ./../../install.sh
+	cd ../../
+	sudo ./install.sh
 	
 ### Run Ring Notepad
 	
