@@ -85,6 +85,13 @@ The language is designed for a Clear Goal
 ### Screen Shot
 	
 ![Ring](http://ring-lang.sourceforge.net/ringmac.png)
+
+### Run Ring Applications and Games from Ring Notepad
+
+The next screen shot for the SuperMan Game (Developed using Ring)
+
+![Ring](http://ring-lang.sourceforge.net/supermanmac.png)
+
 	
 =====================
 Visual Implementation
