@@ -80,7 +80,7 @@ The language is designed for a Clear Goal
 ### Run Ring Notepad
 	
 	cd applications/rnote
-	ring rnote.ring
+	sudo ring rnote.ring
 
 ### Screen Shot
 	
