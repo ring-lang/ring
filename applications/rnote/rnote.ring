@@ -7,7 +7,7 @@ cActiveFileName = ""
 aTextColor = [0,0,0]  
 aBackColor = [255,255,255]
 cFont = "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0"
-cWebsite = "http://www.ring-lang.net"
+cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
 cStartUpFolder = exefolder()
 lShowProject = True
 lShowSourceCode = True
@@ -328,7 +328,9 @@ MyApp = New qApp {
 			setexpanded(myindex,true)
 			header().hide()			
 			chdir(exefolder())
-			cWebsite = "file:///"+oDir.CurrentPath() + "/../html/index.html"
+			if not ismacosx()
+				cWebsite = "file:///"+oDir.CurrentPath() + "/../html/index.html"
+			ok
 		}
 
 		oDock1 = new qdockwidget(win1,0) {
