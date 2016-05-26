@@ -92,6 +92,18 @@ The next screen shot for the SuperMan Game (Developed using Ring)
 
 ![Ring](http://ring-lang.sourceforge.net/supermanmac.png)
 
+You can run the SuperMan game from the terminal
+
+	cd ../../ringlibs/gameengine
+	ring loadgame3.ring
+
+To run the stars fighter game
+	
+	ring loadgame1.ring
+
+To run the Flappy Bird 3000 game 
+
+	ring loadgame2.ring
 	
 =====================
 Visual Implementation
