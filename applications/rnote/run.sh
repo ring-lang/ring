@@ -3,6 +3,5 @@
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
 cd $(dirname "$1")
-ls
 ring $1
 
