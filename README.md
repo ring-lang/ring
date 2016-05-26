@@ -75,7 +75,7 @@ The language is designed for a Clear Goal
 
 ### To be able to call ring from any folder 
 
-	./../../install.sh
+	sudo ./../../install.sh
 	
 ### Run Ring Notepad
 	
