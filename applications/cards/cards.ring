@@ -15,7 +15,7 @@ aMyCards = []
 aMyValues = []
 for x1 = 0 to 3
     for y1 = 0 to 12
-	  temppic = mypic.copy((79*y1)+1,(124*x1)+1,79,124)
+          temppic = mypic.copy((79*y1)+1,(124*x1)+1,79,124)
           aMyCards + temppic
           aMyValues + (y1+1)
     next
