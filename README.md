@@ -124,7 +124,7 @@ To run the Flappy Bird 3000 game
 	
 	cd ../extensions/ringallegro
 	./gencode.sh
-	./build.sh
+	./buildgcc.sh
 
 	
 ### Generate RingQt Source Code and Build
