@@ -118,7 +118,7 @@ To run the Flappy Bird 3000 game
 	
 ### Build Ring (Compiler/VM)
 	
-	./buildgcccomplete.sh
+	sudo ./buildgcccomplete.sh
 	
 ### Generate RingAllegro Source Code and Build 
 	
