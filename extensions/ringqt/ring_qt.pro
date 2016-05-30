@@ -86,7 +86,7 @@ macx {
 }
 
 unix:!macx {
-	LIBS +=  $$PWD/libring.so
+  	LIBS +=  /usr/lib/libring.so
 }
 
 CONFIG += warn_off
