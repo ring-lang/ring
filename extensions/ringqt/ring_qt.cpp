@@ -123,6 +123,7 @@ extern "C" {
 #include <QTime>
 #include <QTest>
 #include <QListWidgetItem>
+#include <QSystemTrayIcon>
 
 extern "C" {
 
@@ -51814,6 +51815,284 @@ RING_FUNC(ring_QListWidgetItem_whatsThis)
 	RING_API_RETSTRING(pObject->whatsThis().toStdString().c_str());
 }
 
+
+RING_FUNC(ring_QSystemTrayIcon_contextMenu)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	RING_API_RETCPOINTER(pObject->contextMenu(),"QMenu");
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_geometry)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->geometry();
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_icon)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	{
+		QIcon *pValue ; 
+		pValue = new QIcon() ;
+		*pValue = pObject->icon();
+		RING_API_RETCPOINTER(pValue,"QIcon");
+	}
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_isVisible)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	RING_API_RETNUMBER(pObject->isVisible());
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_setContextMenu)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setContextMenu((QMenu *) RING_API_GETCPOINTER(2,"QMenu"));
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_setIcon)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	pObject->setIcon(* (QIcon *) RING_API_GETCPOINTER(2,"QIcon"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QIcon"));
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_setToolTip)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setToolTip(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_toolTip)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	RING_API_RETSTRING(pObject->toolTip().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_hide)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	pObject->hide();
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_setVisible)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_show)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	pObject->show();
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_showMessage)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->showMessage(RING_API_GETSTRING(2),RING_API_GETSTRING(3), (QSystemTrayIcon::MessageIcon)  (int) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_isSystemTrayAvailable)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	RING_API_RETNUMBER(pObject->isSystemTrayAvailable());
+}
+
+
+RING_FUNC(ring_QSystemTrayIcon_supportsMessages)
+{
+	QSystemTrayIcon *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+	RING_API_RETNUMBER(pObject->supportsMessages());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
@@ -52379,6 +52658,13 @@ RING_FUNC(ring_QListWidgetItem_new)
 		RING_API_IGNORECPOINTERTYPE ;
 	QListWidgetItem *pObject = new QListWidgetItem();
 	RING_API_RETCPOINTER(pObject,"QListWidgetItem");
+}
+
+RING_FUNC(ring_QSystemTrayIcon_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QSystemTrayIcon *pObject = new QSystemTrayIcon();
+	RING_API_RETCPOINTER(pObject,"QSystemTrayIcon");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -53592,6 +53878,21 @@ RING_FUNC(ring_QListWidgetItem_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QListWidgetItem *) RING_API_GETCPOINTER(1,"QListWidgetItem");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSystemTrayIcon_delete)
+{
+	QSystemTrayIcon *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
 		delete pObject ;
 	}
 }
@@ -56121,6 +56422,20 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistwidgetitem_tooltip",ring_QListWidgetItem_toolTip);
 	ring_vm_funcregister("qlistwidgetitem_type",ring_QListWidgetItem_type);
 	ring_vm_funcregister("qlistwidgetitem_whatsthis",ring_QListWidgetItem_whatsThis);
+	ring_vm_funcregister("qsystemtrayicon_contextmenu",ring_QSystemTrayIcon_contextMenu);
+	ring_vm_funcregister("qsystemtrayicon_geometry",ring_QSystemTrayIcon_geometry);
+	ring_vm_funcregister("qsystemtrayicon_icon",ring_QSystemTrayIcon_icon);
+	ring_vm_funcregister("qsystemtrayicon_isvisible",ring_QSystemTrayIcon_isVisible);
+	ring_vm_funcregister("qsystemtrayicon_setcontextmenu",ring_QSystemTrayIcon_setContextMenu);
+	ring_vm_funcregister("qsystemtrayicon_seticon",ring_QSystemTrayIcon_setIcon);
+	ring_vm_funcregister("qsystemtrayicon_settooltip",ring_QSystemTrayIcon_setToolTip);
+	ring_vm_funcregister("qsystemtrayicon_tooltip",ring_QSystemTrayIcon_toolTip);
+	ring_vm_funcregister("qsystemtrayicon_hide",ring_QSystemTrayIcon_hide);
+	ring_vm_funcregister("qsystemtrayicon_setvisible",ring_QSystemTrayIcon_setVisible);
+	ring_vm_funcregister("qsystemtrayicon_show",ring_QSystemTrayIcon_show);
+	ring_vm_funcregister("qsystemtrayicon_showmessage",ring_QSystemTrayIcon_showMessage);
+	ring_vm_funcregister("qsystemtrayicon_issystemtrayavailable",ring_QSystemTrayIcon_isSystemTrayAvailable);
+	ring_vm_funcregister("qsystemtrayicon_supportsmessages",ring_QSystemTrayIcon_supportsMessages);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -56202,6 +56517,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextblock_new",ring_QTextBlock_new);
 	ring_vm_funcregister("qtime_new",ring_QTime_new);
 	ring_vm_funcregister("qlistwidgetitem_new",ring_QListWidgetItem_new);
+	ring_vm_funcregister("qsystemtrayicon_new",ring_QSystemTrayIcon_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -56283,4 +56599,5 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextblock_delete",ring_QTextBlock_delete);
 	ring_vm_funcregister("qtime_delete",ring_QTime_delete);
 	ring_vm_funcregister("qlistwidgetitem_delete",ring_QListWidgetItem_delete);
+	ring_vm_funcregister("qsystemtrayicon_delete",ring_QSystemTrayIcon_delete);
 }

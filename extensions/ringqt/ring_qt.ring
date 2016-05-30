@@ -9080,6 +9080,65 @@ Class QListWidgetItem
 	Func whatsThis 
 		return QListWidgetItem_whatsThis(pObject)
 
+Class QSystemTrayIcon
+
+	pObject
+
+	Func init 
+		pObject = QSystemTrayIcon_new()
+		return self
+
+	Func delete
+		pObject = QSystemTrayIcon_delete(pObject)
+
+	Func contextMenu 
+		pTempObj = new QMenu
+		pTempObj.pObject = QSystemTrayIcon_contextMenu(pObject)
+		return pTempObj
+
+	Func geometry 
+		pTempObj = new QRect
+		pTempObj.pObject = QSystemTrayIcon_geometry(pObject)
+		return pTempObj
+
+	Func icon 
+		pTempObj = new QIcon
+		pTempObj.pObject = QSystemTrayIcon_icon(pObject)
+		return pTempObj
+
+	Func isVisible 
+		return QSystemTrayIcon_isVisible(pObject)
+
+	Func setContextMenu P1
+		return QSystemTrayIcon_setContextMenu(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setIcon P1
+		return QSystemTrayIcon_setIcon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setToolTip P1
+		return QSystemTrayIcon_setToolTip(pObject,P1)
+
+	Func toolTip 
+		return QSystemTrayIcon_toolTip(pObject)
+
+	Func hide 
+		return QSystemTrayIcon_hide(pObject)
+
+	Func setVisible P1
+		return QSystemTrayIcon_setVisible(pObject,P1)
+
+	Func show 
+		return QSystemTrayIcon_show(pObject)
+
+	Func showMessage P1,P2,P3,P4
+		return QSystemTrayIcon_showMessage(pObject,P1,P2,P3,P4)
+
+	Func isSystemTrayAvailable 
+		return QSystemTrayIcon_isSystemTrayAvailable(pObject)
+
+	Func supportsMessages 
+		return QSystemTrayIcon_supportsMessages(pObject)
+
 Class QIcon
 
 	pObject

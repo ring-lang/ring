@@ -130,6 +130,7 @@ extern "C" {
 #include <QTime>
 #include <QTest>
 #include <QListWidgetItem>
+#include <QSystemTrayIcon>
 
 extern "C" {
 
@@ -303,6 +304,7 @@ aEnumTypes + "Qt::WindowFlags"
 aEnumTypes + "QEvent::Type"
 aEnumTypes + "QPrinter::PrinterMode"
 aEnumTypes + "Qt::ItemFlags"
+aEnumTypes + "QSystemTrayIcon::MessageIcon"
 </runcode>
 
 <class>
@@ -3811,3 +3813,23 @@ int textAlignment(void)
 QString toolTip(void)
 int type(void)
 QString whatsThis(void)
+
+<class>
+name: QSystemTrayIcon
+para: void
+</class>
+
+QMenu *contextMenu(void)
+QRect geometry(void)
+QIcon icon(void)
+bool isVisible(void)
+void setContextMenu(QMenu *menu)
+void setIcon(QIcon)
+void setToolTip(QString)
+QString toolTip(void)
+void hide(void)
+void setVisible(bool visible)
+void show(void)
+void showMessage(QString, QString, QSystemTrayIcon::MessageIcon, int millisecondsTimeoutHint)
+bool isSystemTrayAvailable(void)
+bool supportsMessages(void)
