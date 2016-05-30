@@ -104,7 +104,48 @@ To run the stars fighter game
 To run the Flappy Bird 3000 game 
 
 	ring loadgame2.ring
+
+## Building using Ubuntu Linux 
+
+### Get the source code
+
+	git clone http://github.com/ring-lang/ring.git
 	
+### Install Libraries 
+	
+	cd ring/src
+	./installdep.sh 
+	
+### Build Ring (Compiler/VM)
+	
+	./buildgcccomplete.sh
+	
+### Generate RingAllegro Source Code and Build 
+	
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./build.sh
+
+	
+### Generate RingQt Source Code and Build
+	
+	cd ../ringqt
+	./gencode.sh
+	./buildgcc.sh
+
+### To be able to call ring from any folder 
+	cd ../../
+	sudo ./install.sh
+	
+### Run Ring Notepad
+	
+	cd applications/rnote
+	sudo ring rnote.ring
+
+### Screen Shot
+	
+![Ring](http://ring-lang.sourceforge.net/ringubuntu.jpg)
+
 =====================
 Visual Implementation
 =====================
