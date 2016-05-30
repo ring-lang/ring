@@ -4127,7 +4127,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return QDateTimeEdit_currentSectionIndex(pObject)
 
 	Func date 
-		return QDateTimeEdit_date(pObject)
+		pTempObj = new QDate
+		pTempObj.pObject = QDateTimeEdit_date(pObject)
+		return pTempObj
 
 	Func dateTime 
 		return QDateTimeEdit_dateTime(pObject)
@@ -4139,7 +4141,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return QDateTimeEdit_displayedSections(pObject)
 
 	Func maximumDate 
-		return QDateTimeEdit_maximumDate(pObject)
+		pTempObj = new QDate
+		pTempObj.pObject = QDateTimeEdit_maximumDate(pObject)
+		return pTempObj
 
 	Func maximumDateTime 
 		return QDateTimeEdit_maximumDateTime(pObject)
@@ -4150,7 +4154,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return pTempObj
 
 	Func minimumDate 
-		return QDateTimeEdit_minimumDate(pObject)
+		pTempObj = new QDate
+		pTempObj.pObject = QDateTimeEdit_minimumDate(pObject)
+		return pTempObj
 
 	Func minimumDateTime 
 		return QDateTimeEdit_minimumDateTime(pObject)
@@ -9138,6 +9144,107 @@ Class QSystemTrayIcon
 
 	Func supportsMessages 
 		return QSystemTrayIcon_supportsMessages(pObject)
+
+Class QDate
+
+	pObject
+
+	Func init 
+		pObject = QDate_new()
+		return self
+
+	Func delete
+		pObject = QDate_delete(pObject)
+
+	Func addDays P1
+		pTempObj = new QDate
+		pTempObj.pObject = QDate_addDays(pObject,P1)
+		return pTempObj
+
+	Func addMonths P1
+		pTempObj = new QDate
+		pTempObj.pObject = QDate_addMonths(pObject,P1)
+		return pTempObj
+
+	Func addYears P1
+		pTempObj = new QDate
+		pTempObj.pObject = QDate_addYears(pObject,P1)
+		return pTempObj
+
+	Func day 
+		return QDate_day(pObject)
+
+	Func dayOfWeek 
+		return QDate_dayOfWeek(pObject)
+
+	Func dayOfYear 
+		return QDate_dayOfYear(pObject)
+
+	Func daysInMonth 
+		return QDate_daysInMonth(pObject)
+
+	Func daysInYear 
+		return QDate_daysInYear(pObject)
+
+	Func daysTo P1
+		return QDate_daysTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func getDate P1,P2,P3
+		return QDate_getDate(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func isNull 
+		return QDate_isNull(pObject)
+
+	Func isValid 
+		return QDate_isValid(pObject)
+
+	Func month 
+		return QDate_month(pObject)
+
+	Func setDate P1,P2,P3
+		return QDate_setDate(pObject,P1,P2,P3)
+
+	Func toJulianDay 
+		return QDate_toJulianDay(pObject)
+
+	Func toString P1
+		return QDate_toString(pObject,P1)
+
+	Func weekNumber P1
+		return QDate_weekNumber(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func year 
+		return QDate_year(pObject)
+
+	Func currentDate 
+		pTempObj = new QDate
+		pTempObj.pObject = QDate_currentDate(pObject)
+		return pTempObj
+
+	Func fromJulianDay P1
+		pTempObj = new QDate
+		pTempObj.pObject = QDate_fromJulianDay(pObject,P1)
+		return pTempObj
+
+	Func fromString P1,P2
+		pTempObj = new QDate
+		pTempObj.pObject = QDate_fromString(pObject,P1,P2)
+		return pTempObj
+
+	Func isLeapYear P1
+		return QDate_isLeapYear(pObject,P1)
+
+	Func longDayName P1
+		return QDate_longDayName(pObject,P1)
+
+	Func longMonthName P1
+		return QDate_longMonthName(pObject,P1)
+
+	Func shortDayName P1
+		return QDate_shortDayName(pObject,P1)
+
+	Func shortMonthName P1
+		return QDate_shortMonthName(pObject,P1)
 
 Class QIcon
 

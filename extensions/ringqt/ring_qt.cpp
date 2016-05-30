@@ -124,6 +124,7 @@ extern "C" {
 #include <QTest>
 #include <QListWidgetItem>
 #include <QSystemTrayIcon>
+#include <QDate>
 
 extern "C" {
 
@@ -23407,7 +23408,7 @@ RING_FUNC(ring_QDateTimeEdit_date)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDate *pValue ; 
-		pValue = (QDate *) malloc(sizeof(QDate)) ;
+		pValue = new QDate() ;
 		*pValue = pObject->date();
 		RING_API_RETCPOINTER(pValue,"QDate");
 	}
@@ -23485,7 +23486,7 @@ RING_FUNC(ring_QDateTimeEdit_maximumDate)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDate *pValue ; 
-		pValue = (QDate *) malloc(sizeof(QDate)) ;
+		pValue = new QDate() ;
 		*pValue = pObject->maximumDate();
 		RING_API_RETCPOINTER(pValue,"QDate");
 	}
@@ -23551,7 +23552,7 @@ RING_FUNC(ring_QDateTimeEdit_minimumDate)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDate *pValue ; 
-		pValue = (QDate *) malloc(sizeof(QDate)) ;
+		pValue = new QDate() ;
 		*pValue = pObject->minimumDate();
 		RING_API_RETCPOINTER(pValue,"QDate");
 	}
@@ -52093,6 +52094,560 @@ RING_FUNC(ring_QSystemTrayIcon_supportsMessages)
 	RING_API_RETNUMBER(pObject->supportsMessages());
 }
 
+
+RING_FUNC(ring_QDate_addDays)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->addDays( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QDate_addMonths)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->addMonths( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QDate_addYears)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->addYears( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QDate_day)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->day());
+}
+
+
+RING_FUNC(ring_QDate_dayOfWeek)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->dayOfWeek());
+}
+
+
+RING_FUNC(ring_QDate_dayOfYear)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->dayOfYear());
+}
+
+
+RING_FUNC(ring_QDate_daysInMonth)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->daysInMonth());
+}
+
+
+RING_FUNC(ring_QDate_daysInYear)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->daysInYear());
+}
+
+
+RING_FUNC(ring_QDate_daysTo)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->daysTo(* (QDate *) RING_API_GETCPOINTER(2,"QDate")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QDate"));
+}
+
+
+RING_FUNC(ring_QDate_getDate)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->getDate(RING_API_GETINTPOINTER(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4));
+	RING_API_ACCEPTINTVALUE(1) ;
+	RING_API_ACCEPTINTVALUE(2) ;
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_QDate_isNull)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QDate_isValid)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->isValid());
+}
+
+
+RING_FUNC(ring_QDate_month)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->month());
+}
+
+
+RING_FUNC(ring_QDate_setDate)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setDate( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_QDate_toJulianDay)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->toJulianDay());
+}
+
+
+RING_FUNC(ring_QDate_toString)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->toString(RING_API_GETSTRING(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QDate_weekNumber)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->weekNumber(RING_API_GETINTPOINTER(2)));
+	RING_API_ACCEPTINTVALUE(1) ;
+}
+
+
+RING_FUNC(ring_QDate_year)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	RING_API_RETNUMBER(pObject->year());
+}
+
+
+RING_FUNC(ring_QDate_currentDate)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->currentDate();
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QDate_fromJulianDay)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->fromJulianDay( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QDate_fromString)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->fromString(RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QDate_isLeapYear)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isLeapYear( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QDate_longDayName)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->longDayName( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QDate_longMonthName)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->longMonthName( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QDate_shortDayName)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->shortDayName( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QDate_shortMonthName)
+{
+	QDate *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->shortMonthName( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
@@ -52665,6 +53220,13 @@ RING_FUNC(ring_QSystemTrayIcon_new)
 		RING_API_IGNORECPOINTERTYPE ;
 	QSystemTrayIcon *pObject = new QSystemTrayIcon();
 	RING_API_RETCPOINTER(pObject,"QSystemTrayIcon");
+}
+
+RING_FUNC(ring_QDate_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QDate *pObject = new QDate();
+	RING_API_RETCPOINTER(pObject,"QDate");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -53893,6 +54455,21 @@ RING_FUNC(ring_QSystemTrayIcon_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QDate_delete)
+{
+	QDate *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
 		delete pObject ;
 	}
 }
@@ -56436,6 +57013,32 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qsystemtrayicon_showmessage",ring_QSystemTrayIcon_showMessage);
 	ring_vm_funcregister("qsystemtrayicon_issystemtrayavailable",ring_QSystemTrayIcon_isSystemTrayAvailable);
 	ring_vm_funcregister("qsystemtrayicon_supportsmessages",ring_QSystemTrayIcon_supportsMessages);
+	ring_vm_funcregister("qdate_adddays",ring_QDate_addDays);
+	ring_vm_funcregister("qdate_addmonths",ring_QDate_addMonths);
+	ring_vm_funcregister("qdate_addyears",ring_QDate_addYears);
+	ring_vm_funcregister("qdate_day",ring_QDate_day);
+	ring_vm_funcregister("qdate_dayofweek",ring_QDate_dayOfWeek);
+	ring_vm_funcregister("qdate_dayofyear",ring_QDate_dayOfYear);
+	ring_vm_funcregister("qdate_daysinmonth",ring_QDate_daysInMonth);
+	ring_vm_funcregister("qdate_daysinyear",ring_QDate_daysInYear);
+	ring_vm_funcregister("qdate_daysto",ring_QDate_daysTo);
+	ring_vm_funcregister("qdate_getdate",ring_QDate_getDate);
+	ring_vm_funcregister("qdate_isnull",ring_QDate_isNull);
+	ring_vm_funcregister("qdate_isvalid",ring_QDate_isValid);
+	ring_vm_funcregister("qdate_month",ring_QDate_month);
+	ring_vm_funcregister("qdate_setdate",ring_QDate_setDate);
+	ring_vm_funcregister("qdate_tojulianday",ring_QDate_toJulianDay);
+	ring_vm_funcregister("qdate_tostring",ring_QDate_toString);
+	ring_vm_funcregister("qdate_weeknumber",ring_QDate_weekNumber);
+	ring_vm_funcregister("qdate_year",ring_QDate_year);
+	ring_vm_funcregister("qdate_currentdate",ring_QDate_currentDate);
+	ring_vm_funcregister("qdate_fromjulianday",ring_QDate_fromJulianDay);
+	ring_vm_funcregister("qdate_fromstring",ring_QDate_fromString);
+	ring_vm_funcregister("qdate_isleapyear",ring_QDate_isLeapYear);
+	ring_vm_funcregister("qdate_longdayname",ring_QDate_longDayName);
+	ring_vm_funcregister("qdate_longmonthname",ring_QDate_longMonthName);
+	ring_vm_funcregister("qdate_shortdayname",ring_QDate_shortDayName);
+	ring_vm_funcregister("qdate_shortmonthname",ring_QDate_shortMonthName);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -56518,6 +57121,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtime_new",ring_QTime_new);
 	ring_vm_funcregister("qlistwidgetitem_new",ring_QListWidgetItem_new);
 	ring_vm_funcregister("qsystemtrayicon_new",ring_QSystemTrayIcon_new);
+	ring_vm_funcregister("qdate_new",ring_QDate_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -56600,4 +57204,5 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtime_delete",ring_QTime_delete);
 	ring_vm_funcregister("qlistwidgetitem_delete",ring_QListWidgetItem_delete);
 	ring_vm_funcregister("qsystemtrayicon_delete",ring_QSystemTrayIcon_delete);
+	ring_vm_funcregister("qdate_delete",ring_QDate_delete);
 }

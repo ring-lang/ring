@@ -131,6 +131,7 @@ extern "C" {
 #include <QTest>
 #include <QListWidgetItem>
 #include <QSystemTrayIcon>
+#include <QDate>
 
 extern "C" {
 
@@ -305,6 +306,8 @@ aEnumTypes + "QEvent::Type"
 aEnumTypes + "QPrinter::PrinterMode"
 aEnumTypes + "Qt::ItemFlags"
 aEnumTypes + "QSystemTrayIcon::MessageIcon"
+aEnumTypes + "Qt::DateFormat"
+aEnumTypes + "MonthNameType"
 </runcode>
 
 <class>
@@ -3833,3 +3836,35 @@ void show(void)
 void showMessage(QString, QString, QSystemTrayIcon::MessageIcon, int millisecondsTimeoutHint)
 bool isSystemTrayAvailable(void)
 bool supportsMessages(void)
+
+<class>
+name: QDate
+para: void
+</class>
+
+QDate addDays(int ndays)
+QDate addMonths(int nmonths)
+QDate addYears(int nyears)
+int day(void)
+int dayOfWeek(void)
+int dayOfYear(void)
+int daysInMonth(void)
+int daysInYear(void)
+int daysTo(QDate)
+void getDate(int * year, int * month, int * day)
+bool isNull(void)
+bool isValid(void)
+int month(void)
+bool setDate(int year, int month, int day)
+int toJulianDay(void)
+QString toString(QString)
+int weekNumber(int * yearNumber)
+int year(void)
+QDate currentDate(void)
+QDate fromJulianDay(int jd)
+QDate fromString(QString, QString)
+bool isLeapYear(int year)
+QString longDayName(int weekday)
+QString longMonthName(int month)
+QString shortDayName(int weekday)
+QString shortMonthName(int month)
