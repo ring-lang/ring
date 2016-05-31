@@ -146,21 +146,6 @@ To run the SuperMan game
 	
 ![Ring](http://ring-lang.sourceforge.net/ringubuntu.jpg)
 
-### Run Ring Applications and Games
-
-To run the stars fighter game  from the terminal
-	
-	cd ../../ringlibs/gameengine
-	ring loadgame1.ring
-
-To run the Flappy Bird 3000 game 
-
-	ring loadgame2.ring
-
-To run the SuperMan game
-	
-	ring loadgame3.ring
-
 ## Building using Microsoft Windows 
 
 ### Get the source code
@@ -205,22 +190,7 @@ To run the SuperMan game
 	
 ![Ring](http://ring-lang.sourceforge.net/ringwin.jpg)
 
-### Run Ring Applications and Games
 
-To run the stars fighter game  from the terminal
-	
-	cd ../../ringlibs/gameengine
-	ring loadgame1.ring
-
-To run the Flappy Bird 3000 game 
-
-	ring loadgame2.ring
-
-To run the SuperMan game
-	
-	ring loadgame3.ring
-
-	
 =====================
 Visual Implementation
 =====================
