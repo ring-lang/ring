@@ -189,12 +189,12 @@ To run the SuperMan game
 #### Add Ring/bin to System path
 
 	Hit "windows key".
-	Type "system environment variables"
-	Select "Advance" tab.
+	Type "Edit the System environment variables"
+	Select "Advanced" tab.
 	Click on "Enviroment Variables..."
 	Double click on "Path"
-	Add at the end the variable the new path that you want separated by semicolon. 
-		;C:\Ring\Bin\
+	Add at the end the variable the new path separated by semicolon. 
+		;C:\Ring\Bin
 	
 ### Run Ring Notepad
 	
