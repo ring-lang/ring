@@ -1,5 +1,5 @@
-# Simple Batch File to copy ring DLL files and libraries to the bin folder
-# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
+Rem Simple Batch File to copy ring DLL files and libraries to the bin folder
+Rem 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
 cd ..
 
