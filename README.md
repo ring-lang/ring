@@ -160,6 +160,10 @@ To run the SuperMan game
 	Allegro 5 : http://liballeg.org/download.html#windows
 	Qt 5.5    : https://download.qt.io/archive/qt/5.5/5.5.1/
 	
+	You can quickly install MySQL, LibCurl, OpenSSL and Allegro libraries 
+	from this link : https://sourceforge.net/projects/ring-lang/files/Ring%201.0/libdepwin.zip/download
+	Then extract and copy the libraries folders to Ring/libdepwin
+	
 ### Build Ring (Compiler/VM)
 	
 	cd ring/src
