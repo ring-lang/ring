@@ -92,19 +92,19 @@ The next screen shot for the SuperMan Game (Developed using Ring)
 
 ![Ring](http://ring-lang.sourceforge.net/supermanmac.png)
 
-You can run the SuperMan game from the terminal
-
-	cd ../../ringlibs/gameengine
-	ring loadgame3.ring
-
-To run the stars fighter game
+To run the stars fighter game from the terminal
 	
+	cd ../../ringlibs/gameengine
 	ring loadgame1.ring
 
 To run the Flappy Bird 3000 game 
 
 	ring loadgame2.ring
 
+To run the SuperMan game 
+
+	ring loadgame3.ring
+	
 ## Building using Ubuntu Linux 
 
 ### Get the source code
@@ -146,19 +146,21 @@ To run the Flappy Bird 3000 game
 	
 ![Ring](http://ring-lang.sourceforge.net/ringubuntu.jpg)
 
-You can run the SuperMan game from the terminal
+### Run Ring Applications and Games
 
-	cd ../../ringlibs/gameengine
-	ring loadgame3.ring
-
-To run the stars fighter game
+To run the stars fighter game  from the terminal
 	
+	cd ../../ringlibs/gameengine
 	ring loadgame1.ring
 
 To run the Flappy Bird 3000 game 
 
 	ring loadgame2.ring
 
+To run the SuperMan game
+	
+	ring loadgame3.ring
+	
 =====================
 Visual Implementation
 =====================
