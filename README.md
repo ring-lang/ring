@@ -146,6 +146,19 @@ To run the Flappy Bird 3000 game
 	
 ![Ring](http://ring-lang.sourceforge.net/ringubuntu.jpg)
 
+You can run the SuperMan game from the terminal
+
+	cd ../../ringlibs/gameengine
+	ring loadgame3.ring
+
+To run the stars fighter game
+	
+	ring loadgame1.ring
+
+To run the Flappy Bird 3000 game 
+
+	ring loadgame2.ring
+
 =====================
 Visual Implementation
 =====================
