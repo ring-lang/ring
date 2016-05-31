@@ -154,11 +154,11 @@ To run the SuperMan game
 	
 ### Install Libraries 
 	
-	MySQL C Connector
-	LibCurl
-	OpenSSL
-	Allegro
-	Qt
+	MySQL C Connector : https://dev.mysql.com/downloads/connector/c/
+	LibCurl : https://curl.haxx.se/libcurl/
+	OpenSSL : https://www.openssl.org
+	Allegro 5.2 : http://liballeg.org/download.html#windows
+	Qt 5.5.1  : https://download.qt.io/archive/qt/5.5/5.5.1/
 	
 ### Build Ring (Compiler/VM)
 	
