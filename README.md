@@ -193,7 +193,7 @@ To run the SuperMan game
 	Select "Advanced" tab.
 	Click on "Enviroment Variables..."
 	Double click on "Path"
-	Add at the end the variable the new path separated by semicolon. 
+	Add at the end the new path separated by semicolon. 
 		;C:\Ring\Bin
 	
 ### Run Ring Notepad
