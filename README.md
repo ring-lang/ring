@@ -160,6 +160,66 @@ To run the Flappy Bird 3000 game
 To run the SuperMan game
 	
 	ring loadgame3.ring
+
+## Building using Microsoft Windows 
+
+### Get the source code
+
+	git clone http://github.com/ring-lang/ring.git
+	
+### Install Libraries 
+	
+	MySQL C Connector
+	LibCurl
+	OpenSSL
+	Allegro
+	Qt
+	
+### Build Ring (Compiler/VM)
+	
+	cd ring/src
+	buildvccomplete.bat
+	
+### Generate RingAllegro Source Code and Build 
+	
+	cd ../extensions/ringallegro
+	gencode.bat
+	buildvc.bat
+	
+### Generate RingQt Source Code and Build
+	
+	cd ../ringqt
+	gencode.bat
+	buildvc.bat
+
+### To be able to call ring from any folder 
+	
+	Add Ring/bin and Ring/lib to System path
+	
+### Run Ring Notepad
+	
+	cd applications/rnote
+	ring rnote.ring
+
+### Screen Shot
+	
+![Ring](http://ring-lang.sourceforge.net/ringwin.jpg)
+
+### Run Ring Applications and Games
+
+To run the stars fighter game  from the terminal
+	
+	cd ../../ringlibs/gameengine
+	ring loadgame1.ring
+
+To run the Flappy Bird 3000 game 
+
+	ring loadgame2.ring
+
+To run the SuperMan game
+	
+	ring loadgame3.ring
+
 	
 =====================
 Visual Implementation
