@@ -74,7 +74,7 @@ The language is designed for a Clear Goal
 	./buildclang.sh
 
 ### To be able to call ring from any folder 
-	cd ../../
+	cd ../../bin
 	sudo ./install.sh
 	
 ### Run Ring Notepad
@@ -134,7 +134,7 @@ To run the SuperMan game
 	./buildgcc.sh
 
 ### To be able to call ring from any folder 
-	cd ../../
+	cd ../../bin
 	sudo ./install.sh
 	
 ### Run Ring Notepad
@@ -183,7 +183,7 @@ To run the SuperMan game
 
 ### To be able to call ring from any folder 
 	
-	cd ../../
+	cd ../../bin
 	install.bat
 	
 #### Add Ring/bin to System path
