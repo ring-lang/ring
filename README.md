@@ -183,7 +183,18 @@ To run the SuperMan game
 
 ### To be able to call ring from any folder 
 	
-	Add Ring/bin and Ring/lib to System path
+	cd ../../
+	install.bat
+	
+#### Add Ring/bin to System path
+
+	Hit "windows key".
+	Type "system environment variables"
+	Select "Advance" tab.
+	Click on "Enviroment Variables..."
+	Double click on "Path"
+	Add at the end the variable the new path that you want separated by semicolon. 
+		;C:\Ring\Bin\
 	
 ### Run Ring Notepad
 	
