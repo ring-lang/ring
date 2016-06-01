@@ -125,6 +125,7 @@ extern "C" {
 #include <QListWidgetItem>
 #include <QSystemTrayIcon>
 #include <QDate>
+#include <QTextCodec>
 
 extern "C" {
 
@@ -52648,6 +52649,232 @@ RING_FUNC(ring_QDate_shortMonthName)
 	RING_API_RETSTRING(pObject->shortMonthName( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
+
+RING_FUNC(ring_QTextCodec_canEncode)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->canEncode(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QTextCodec_fromUnicode)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QByteArray *pValue ; 
+		pValue = new QByteArray() ;
+		*pValue = pObject->fromUnicode(RING_API_GETSTRING(2));
+		RING_API_RETCPOINTER(pValue,"QByteArray");
+	}
+}
+
+
+RING_FUNC(ring_QTextCodec_makeDecoder)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->makeDecoder( (QTextCodec::ConversionFlag )  (int) RING_API_GETNUMBER(2)),"QTextDecoder");
+}
+
+
+RING_FUNC(ring_QTextCodec_makeEncoder)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->makeEncoder( (QTextCodec::ConversionFlag )  (int) RING_API_GETNUMBER(2)),"QTextEncoder");
+}
+
+
+RING_FUNC(ring_QTextCodec_toUnicode)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	RING_API_RETSTRING(pObject->toUnicode(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray")).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QTextCodec_codecForHtml)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	RING_API_RETCPOINTER(pObject->codecForHtml(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray")),"QTextCodec");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QTextCodec_codecForLocale)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	RING_API_RETCPOINTER(pObject->codecForLocale(),"QTextCodec");
+}
+
+
+RING_FUNC(ring_QTextCodec_codecForMib)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->codecForMib( (int ) RING_API_GETNUMBER(2)),"QTextCodec");
+}
+
+
+RING_FUNC(ring_QTextCodec_codecForName)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->codecForName(RING_API_GETSTRING(2)),"QTextCodec");
+}
+
+
+RING_FUNC(ring_QTextCodec_codecForUtfText)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	RING_API_RETCPOINTER(pObject->codecForUtfText(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray")),"QTextCodec");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QTextCodec_setCodecForLocale)
+{
+	QTextCodec *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCodecForLocale((QTextCodec *) RING_API_GETCPOINTER(2,"QTextCodec"));
+}
+
 RING_FUNC(ring_QObject_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
@@ -57039,6 +57266,17 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdate_longmonthname",ring_QDate_longMonthName);
 	ring_vm_funcregister("qdate_shortdayname",ring_QDate_shortDayName);
 	ring_vm_funcregister("qdate_shortmonthname",ring_QDate_shortMonthName);
+	ring_vm_funcregister("qtextcodec_canencode",ring_QTextCodec_canEncode);
+	ring_vm_funcregister("qtextcodec_fromunicode",ring_QTextCodec_fromUnicode);
+	ring_vm_funcregister("qtextcodec_makedecoder",ring_QTextCodec_makeDecoder);
+	ring_vm_funcregister("qtextcodec_makeencoder",ring_QTextCodec_makeEncoder);
+	ring_vm_funcregister("qtextcodec_tounicode",ring_QTextCodec_toUnicode);
+	ring_vm_funcregister("qtextcodec_codecforhtml",ring_QTextCodec_codecForHtml);
+	ring_vm_funcregister("qtextcodec_codecforlocale",ring_QTextCodec_codecForLocale);
+	ring_vm_funcregister("qtextcodec_codecformib",ring_QTextCodec_codecForMib);
+	ring_vm_funcregister("qtextcodec_codecforname",ring_QTextCodec_codecForName);
+	ring_vm_funcregister("qtextcodec_codecforutftext",ring_QTextCodec_codecForUtfText);
+	ring_vm_funcregister("qtextcodec_setcodecforlocale",ring_QTextCodec_setCodecForLocale);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);

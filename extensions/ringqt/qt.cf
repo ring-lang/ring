@@ -132,6 +132,7 @@ extern "C" {
 #include <QListWidgetItem>
 #include <QSystemTrayIcon>
 #include <QDate>
+#include <QTextCodec>
 
 extern "C" {
 
@@ -308,6 +309,8 @@ aEnumTypes + "Qt::ItemFlags"
 aEnumTypes + "QSystemTrayIcon::MessageIcon"
 aEnumTypes + "Qt::DateFormat"
 aEnumTypes + "MonthNameType"
+aEnumTypes + "QTextCodec::ConversionFlag"
+aEnumTypes + "ConverterState"
 </runcode>
 
 <class>
@@ -3868,3 +3871,21 @@ QString longDayName(int weekday)
 QString longMonthName(int month)
 QString shortDayName(int weekday)
 QString shortMonthName(int month)
+
+<class>
+name: QTextCodec
+para: void
+abstract
+</class>
+
+bool canEncode(QString s)
+QByteArray fromUnicode(QString str)
+QTextDecoder *makeDecoder(QTextCodec::ConversionFlag flags)
+QTextEncoder *makeEncoder(QTextCodec::ConversionFlag flags)
+QString toUnicode(QByteArray)
+QTextCodec *codecForHtml(QByteArray)
+QTextCodec *codecForLocale(void)
+QTextCodec *codecForMib(int mib)
+QTextCodec *codecForName(const char *name)
+QTextCodec *codecForUtfText(QByteArray)
+void setCodecForLocale(QTextCodec *c)

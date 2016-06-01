@@ -179,7 +179,7 @@ To run the SuperMan game
 	
 	cd ../ringqt
 	gencode.bat
-	buildvc.bat
+	buildmingw32.bat
 
 ### To be able to call ring from any folder 
 	
