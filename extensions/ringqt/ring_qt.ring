@@ -9248,59 +9248,12 @@ Class QDate
 
 Class QTextCodec
 
-	pObject
-
-	Func init 
-		pObject = QTextCodec_new()
-		return self
-
-	Func delete
-		pObject = QTextCodec_delete(pObject)
-
-	Func canEncode P1
-		return QTextCodec_canEncode(pObject,P1)
-
-	Func fromUnicode P1
-		pTempObj = new QByteArray
-		pTempObj.pObject = QTextCodec_fromUnicode(pObject,P1)
-		return pTempObj
-
-	Func makeDecoder P1
-		return QTextCodec_makeDecoder(pObject,P1)
-
-	Func makeEncoder P1
-		return QTextCodec_makeEncoder(pObject,P1)
-
-	Func toUnicode P1
-		return QTextCodec_toUnicode(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func codecForHtml P1
-		pTempObj = new QTextCodec
-		pTempObj.pObject = QTextCodec_codecForHtml(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func codecForLocale 
-		pTempObj = new QTextCodec
-		pTempObj.pObject = QTextCodec_codecForLocale(pObject)
-		return pTempObj
-
-	Func codecForMib P1
-		pTempObj = new QTextCodec
-		pTempObj.pObject = QTextCodec_codecForMib(pObject,P1)
-		return pTempObj
 
 	Func codecForName P1
-		pTempObj = new QTextCodec
-		pTempObj.pObject = QTextCodec_codecForName(pObject,P1)
-		return pTempObj
-
-	Func codecForUtfText P1
-		pTempObj = new QTextCodec
-		pTempObj.pObject = QTextCodec_codecForUtfText(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
+		return QTextCodec_codecForName(P1)
 
 	Func setCodecForLocale P1
-		return QTextCodec_setCodecForLocale(pObject,GetObjectPointerFromRingObject(P1))
+		return QTextCodec_setCodecForLocale(P1)
 
 Class QIcon
 

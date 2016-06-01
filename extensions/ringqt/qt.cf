@@ -3874,18 +3874,26 @@ QString shortMonthName(int month)
 
 <class>
 name: QTextCodec
-para: void
-abstract
+nonew
 </class>
 
-bool canEncode(QString s)
-QByteArray fromUnicode(QString str)
-QTextDecoder *makeDecoder(QTextCodec::ConversionFlag flags)
-QTextEncoder *makeEncoder(QTextCodec::ConversionFlag flags)
-QString toUnicode(QByteArray)
-QTextCodec *codecForHtml(QByteArray)
-QTextCodec *codecForLocale(void)
-QTextCodec *codecForMib(int mib)
+<register>
 QTextCodec *codecForName(const char *name)
-QTextCodec *codecForUtfText(QByteArray)
 void setCodecForLocale(QTextCodec *c)
+</register>
+
+<code>
+
+RING_FUNC(ring_QTextCodec_codecForName)
+{
+	RING_API_RETCPOINTER( QTextCodec::codecForName(RING_API_GETSTRING(1)) , "QTextCodec");
+}
+
+RING_FUNC(ring_QTextCodec_setCodecForLocale)
+{
+	 QTextCodec::setCodecForLocale( (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec"));
+}
+
+</code>
+
+
