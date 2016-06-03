@@ -139,6 +139,7 @@ extern "C" {
 #include <QSystemTrayIcon>
 #include <QDate>
 #include <QTextCodec>
+#include <QtSql>
 #include <QSqlDatabase>
 #include <QSqlDriver>
 #include <QSqlQuery>
@@ -3961,7 +3962,7 @@ void setUserName(QString)
 QStringList tables(QSql::TableType type)
 bool transaction(void)
 QString userName(void)
-QSqlDatabase addDatabase(QString, QString)
+QSqlDatabase addDatabase(QString)
 QSqlDatabase cloneDatabase(QSqlDatabase, QString)
 QStringList connectionNames(void)
 bool contains(QString)
@@ -3985,7 +3986,7 @@ void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy)
 
 <class>
 name: QSqlQuery
-para: QSqlDatabase db
+para: void
 </class>
 
 void addBindValue(QVariant, QSql::ParamType paramType)

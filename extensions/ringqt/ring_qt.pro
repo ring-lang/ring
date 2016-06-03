@@ -4,9 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network webkitwidgets multimedia multimediawidgets testlib printsupport sql
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets
 
 TARGET = ringqt
 TEMPLATE = lib
@@ -70,13 +68,6 @@ HEADERS  += \
 
 INCLUDEPATH += ../../include
 
-FORMS    +=
-
-CONFIG += mobility
-MOBILITY = 
-
-OTHER_FILES +=
-
 win32 {
 	LIBS +=  ../../lib/ring.lib
 }
@@ -90,6 +81,8 @@ unix:!macx {
 }
 
 CONFIG += warn_off
+CONFIG += release
+
 QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
 
-
+DEPLOYMENT_PLUGIN += qsqlite
