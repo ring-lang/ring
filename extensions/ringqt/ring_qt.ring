@@ -9368,9 +9368,9 @@ Class QSqlDatabase
 	Func userName 
 		return QSqlDatabase_userName(pObject)
 
-	Func addDatabase P1
+	Func addDatabase P1,P2
 		pTempObj = new QSqlDatabase
-		pTempObj.pObject = QSqlDatabase_addDatabase(pObject,P1)
+		pTempObj.pObject = QSqlDatabase_addDatabase(pObject,P1,P2)
 		return pTempObj
 
 	Func cloneDatabase P1,P2
