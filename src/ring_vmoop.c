@@ -741,7 +741,7 @@ void ring_vm_oop_deletepackagesafter ( VM *pVM,int x )
 int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 {
 	List *pList, *pList2  ;
-	int x,nPos  ;
+	int x  ;
 	/*
 	**  This function tell us if we are inside Class method during runtime or not 
 	**  pObjState is used when we Call Method or We use braces { } to access object 
@@ -750,8 +750,8 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 	**  Also braces can be used inside class methods to access objects 
 	**  Inside class method you can access any object using { } , you can access the self object 
 	**  Braces & Methods calls can be nested 
+	**  Check Calling from function 
 	*/
-	/* Check Calling from function */
 	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 			pList = ring_list_getlist(pVM->pFuncCallList,x);
