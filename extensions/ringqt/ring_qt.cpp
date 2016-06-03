@@ -126,6 +126,14 @@ extern "C" {
 #include <QSystemTrayIcon>
 #include <QDate>
 #include <QTextCodec>
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlIndex>
+#include <QSqlRecord>
+#include <QSqlField>
+#include <QSqlDriverCreatorBase>
 
 extern "C" {
 
@@ -52660,6 +52668,2708 @@ RING_FUNC(ring_QTextCodec_setCodecForLocale)
 	 QTextCodec::setCodecForLocale( (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec"));
 }
 
+
+RING_FUNC(ring_QSqlDatabase_close)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	pObject->close();
+}
+
+
+RING_FUNC(ring_QSqlDatabase_commit)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETNUMBER(pObject->commit());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_connectOptions)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETSTRING(pObject->connectOptions().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_connectionName)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETSTRING(pObject->connectionName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_databaseName)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETSTRING(pObject->databaseName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_driver)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETCPOINTER(pObject->driver(),"QSqlDriver");
+}
+
+
+RING_FUNC(ring_QSqlDatabase_driverName)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETSTRING(pObject->driverName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_exec)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QSqlQuery *pValue ; 
+		pValue = new QSqlQuery() ;
+		*pValue = pObject->exec(RING_API_GETSTRING(2));
+		RING_API_RETCPOINTER(pValue,"QSqlQuery");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_hostName)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETSTRING(pObject->hostName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_isOpen)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETNUMBER(pObject->isOpen());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_isOpenError)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETNUMBER(pObject->isOpenError());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_isValid)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETNUMBER(pObject->isValid());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_lastError)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	{
+		QSqlError *pValue ; 
+		pValue = new QSqlError() ;
+		*pValue = pObject->lastError();
+		RING_API_RETCPOINTER(pValue,"QSqlError");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_numericalPrecisionPolicy)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETNUMBER(pObject->numericalPrecisionPolicy());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_open)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETNUMBER(pObject->open());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_password)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETSTRING(pObject->password().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_port)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETNUMBER(pObject->port());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_primaryIndex)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QSqlIndex *pValue ; 
+		pValue = new QSqlIndex() ;
+		*pValue = pObject->primaryIndex(RING_API_GETSTRING(2));
+		RING_API_RETCPOINTER(pValue,"QSqlIndex");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_record)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QSqlRecord *pValue ; 
+		pValue = new QSqlRecord() ;
+		*pValue = pObject->record(RING_API_GETSTRING(2));
+		RING_API_RETCPOINTER(pValue,"QSqlRecord");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_rollback)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETNUMBER(pObject->rollback());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_setConnectOptions)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setConnectOptions(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_setDatabaseName)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDatabaseName(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_setHostName)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setHostName(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_setNumericalPrecisionPolicy)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNumericalPrecisionPolicy( (QSql::NumericalPrecisionPolicy )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_setPassword)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPassword(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_setPort)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPort( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_setUserName)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setUserName(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_tables)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->tables(* (QSql::TableType  *) RING_API_GETCPOINTER(2,"QSql::TableType"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSql::TableType"));
+		RING_API_RETCPOINTER(pValue,"QStringList");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_transaction)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETNUMBER(pObject->transaction());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_userName)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	RING_API_RETSTRING(pObject->userName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlDatabase_addDatabase)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QSqlDatabase *pValue ; 
+		pValue = new QSqlDatabase() ;
+		*pValue = pObject->addDatabase(RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+		RING_API_RETCPOINTER(pValue,"QSqlDatabase");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_cloneDatabase)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QSqlDatabase *pValue ; 
+		pValue = new QSqlDatabase() ;
+		*pValue = pObject->cloneDatabase(* (QSqlDatabase *) RING_API_GETCPOINTER(2,"QSqlDatabase"),RING_API_GETSTRING(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSqlDatabase"));
+		RING_API_RETCPOINTER(pValue,"QSqlDatabase");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_connectionNames)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->connectionNames();
+		RING_API_RETCPOINTER(pValue,"QStringList");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_contains)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->contains(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_database)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QSqlDatabase *pValue ; 
+		pValue = new QSqlDatabase() ;
+		*pValue = pObject->database(RING_API_GETSTRING(2), (bool) RING_API_GETNUMBER(3));
+		RING_API_RETCPOINTER(pValue,"QSqlDatabase");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_drivers)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->drivers();
+		RING_API_RETCPOINTER(pValue,"QStringList");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDatabase_isDriverAvailable)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isDriverAvailable(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_registerSqlDriver)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->registerSqlDriver(RING_API_GETSTRING(2),(QSqlDriverCreatorBase *) RING_API_GETCPOINTER(3,"QSqlDriverCreatorBase"));
+}
+
+
+RING_FUNC(ring_QSqlDatabase_removeDatabase)
+{
+	QSqlDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->removeDatabase(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlDriver_dbmsType)
+{
+	QSqlDriver *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDriver *) RING_API_GETCPOINTER(1,"QSqlDriver");
+	RING_API_RETNUMBER(pObject->dbmsType());
+}
+
+
+RING_FUNC(ring_QSqlDriver_isOpenError)
+{
+	QSqlDriver *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDriver *) RING_API_GETCPOINTER(1,"QSqlDriver");
+	RING_API_RETNUMBER(pObject->isOpenError());
+}
+
+
+RING_FUNC(ring_QSqlDriver_lastError)
+{
+	QSqlDriver *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDriver *) RING_API_GETCPOINTER(1,"QSqlDriver");
+	{
+		QSqlError *pValue ; 
+		pValue = new QSqlError() ;
+		*pValue = pObject->lastError();
+		RING_API_RETCPOINTER(pValue,"QSqlError");
+	}
+}
+
+
+RING_FUNC(ring_QSqlDriver_numericalPrecisionPolicy)
+{
+	QSqlDriver *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDriver *) RING_API_GETCPOINTER(1,"QSqlDriver");
+	RING_API_RETNUMBER(pObject->numericalPrecisionPolicy());
+}
+
+
+RING_FUNC(ring_QSqlDriver_setNumericalPrecisionPolicy)
+{
+	QSqlDriver *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlDriver *) RING_API_GETCPOINTER(1,"QSqlDriver");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNumericalPrecisionPolicy( (QSql::NumericalPrecisionPolicy)  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlQuery_addBindValue)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addBindValue(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"), (QSql::ParamType )  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QVariant"));
+}
+
+
+RING_FUNC(ring_QSqlQuery_at)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->at());
+}
+
+
+RING_FUNC(ring_QSqlQuery_bindValue)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->bindValue(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"), (QSql::ParamType )  (int) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QVariant"));
+}
+
+
+RING_FUNC(ring_QSqlQuery_boundValue)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
+		*pValue = pObject->boundValue(RING_API_GETSTRING(2));
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QSqlQuery_clear)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QSqlQuery_driver)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETCPOINTER(pObject->driver(),"QSqlDriver");
+}
+
+
+RING_FUNC(ring_QSqlQuery_exec)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->exec(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QSqlQuery_execBatch)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->execBatch( (QSqlQuery::BatchExecutionMode )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSqlQuery_executedQuery)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETSTRING(pObject->executedQuery().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlQuery_finish)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	pObject->finish();
+}
+
+
+RING_FUNC(ring_QSqlQuery_first)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->first());
+}
+
+
+RING_FUNC(ring_QSqlQuery_isActive)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->isActive());
+}
+
+
+RING_FUNC(ring_QSqlQuery_isForwardOnly)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->isForwardOnly());
+}
+
+
+RING_FUNC(ring_QSqlQuery_isNull)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isNull( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSqlQuery_isSelect)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->isSelect());
+}
+
+
+RING_FUNC(ring_QSqlQuery_isValid)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->isValid());
+}
+
+
+RING_FUNC(ring_QSqlQuery_last)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->last());
+}
+
+
+RING_FUNC(ring_QSqlQuery_lastError)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	{
+		QSqlError *pValue ; 
+		pValue = new QSqlError() ;
+		*pValue = pObject->lastError();
+		RING_API_RETCPOINTER(pValue,"QSqlError");
+	}
+}
+
+
+RING_FUNC(ring_QSqlQuery_lastInsertId)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	{
+		QVariant *pValue ; 
+		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
+		*pValue = pObject->lastInsertId();
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QSqlQuery_lastQuery)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETSTRING(pObject->lastQuery().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlQuery_next)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->next());
+}
+
+
+RING_FUNC(ring_QSqlQuery_nextResult)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->nextResult());
+}
+
+
+RING_FUNC(ring_QSqlQuery_numRowsAffected)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->numRowsAffected());
+}
+
+
+RING_FUNC(ring_QSqlQuery_numericalPrecisionPolicy)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->numericalPrecisionPolicy());
+}
+
+
+RING_FUNC(ring_QSqlQuery_prepare)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->prepare(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QSqlQuery_previous)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->previous());
+}
+
+
+RING_FUNC(ring_QSqlQuery_record)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	{
+		QSqlRecord *pValue ; 
+		pValue = new QSqlRecord() ;
+		*pValue = pObject->record();
+		RING_API_RETCPOINTER(pValue,"QSqlRecord");
+	}
+}
+
+
+RING_FUNC(ring_QSqlQuery_result)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETCPOINTER(pObject->result(),"QSqlResult");
+}
+
+
+RING_FUNC(ring_QSqlQuery_seek)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->seek( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_QSqlQuery_setForwardOnly)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setForwardOnly( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlQuery_setNumericalPrecisionPolicy)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNumericalPrecisionPolicy( (QSql::NumericalPrecisionPolicy )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlQuery_size)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	RING_API_RETNUMBER(pObject->size());
+}
+
+
+RING_FUNC(ring_QSqlQuery_value)
+{
+	QSqlQuery *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
+		*pValue = pObject->value( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QSqlError_databaseText)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	RING_API_RETSTRING(pObject->databaseText().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlError_driverText)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	RING_API_RETSTRING(pObject->driverText().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlError_isValid)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	RING_API_RETNUMBER(pObject->isValid());
+}
+
+
+RING_FUNC(ring_QSqlError_number)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	RING_API_RETNUMBER(pObject->number());
+}
+
+
+RING_FUNC(ring_QSqlError_setDatabaseText)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDatabaseText(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlError_setDriverText)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDriverText(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlError_setNumber)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNumber( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlError_setType)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setType( (QSqlError::ErrorType )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlError_text)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	RING_API_RETSTRING(pObject->text().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlError_type)
+{
+	QSqlError *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+	RING_API_RETNUMBER(pObject->type());
+}
+
+
+RING_FUNC(ring_QSqlIndex_append)
+{
+	QSqlIndex *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlIndex *) RING_API_GETCPOINTER(1,"QSqlIndex");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->append(* (QSqlField *) RING_API_GETCPOINTER(2,"QSqlField"), (bool) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSqlField"));
+}
+
+
+RING_FUNC(ring_QSqlIndex_cursorName)
+{
+	QSqlIndex *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlIndex *) RING_API_GETCPOINTER(1,"QSqlIndex");
+	RING_API_RETSTRING(pObject->cursorName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlIndex_isDescending)
+{
+	QSqlIndex *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlIndex *) RING_API_GETCPOINTER(1,"QSqlIndex");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isDescending( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSqlIndex_name)
+{
+	QSqlIndex *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlIndex *) RING_API_GETCPOINTER(1,"QSqlIndex");
+	RING_API_RETSTRING(pObject->name().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlIndex_setCursorName)
+{
+	QSqlIndex *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlIndex *) RING_API_GETCPOINTER(1,"QSqlIndex");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCursorName(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlIndex_setDescending)
+{
+	QSqlIndex *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlIndex *) RING_API_GETCPOINTER(1,"QSqlIndex");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDescending( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QSqlIndex_setName)
+{
+	QSqlIndex *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlIndex *) RING_API_GETCPOINTER(1,"QSqlIndex");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setName(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlRecord_append)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	pObject->append(* (QSqlField *) RING_API_GETCPOINTER(2,"QSqlField"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSqlField"));
+}
+
+
+RING_FUNC(ring_QSqlRecord_clear)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QSqlRecord_clearValues)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	pObject->clearValues();
+}
+
+
+RING_FUNC(ring_QSqlRecord_contains)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->contains(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QSqlRecord_count)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	RING_API_RETNUMBER(pObject->count());
+}
+
+
+RING_FUNC(ring_QSqlRecord_field)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QSqlField *pValue ; 
+		pValue = new QSqlField() ;
+		*pValue = pObject->field( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QSqlField");
+	}
+}
+
+
+RING_FUNC(ring_QSqlRecord_fieldName)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->fieldName( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlRecord_indexOf)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->indexOf(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QSqlRecord_insert)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->insert( (int ) RING_API_GETNUMBER(2),* (QSqlField *) RING_API_GETCPOINTER(3,"QSqlField"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QSqlField"));
+}
+
+
+RING_FUNC(ring_QSqlRecord_isEmpty)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	RING_API_RETNUMBER(pObject->isEmpty());
+}
+
+
+RING_FUNC(ring_QSqlRecord_isGenerated)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isGenerated(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QSqlRecord_isNull)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isNull(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QSqlRecord_remove)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->remove( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlRecord_replace)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->replace( (int ) RING_API_GETNUMBER(2),* (QSqlField *) RING_API_GETCPOINTER(3,"QSqlField"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QSqlField"));
+}
+
+
+RING_FUNC(ring_QSqlRecord_setGenerated)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setGenerated(RING_API_GETSTRING(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QSqlRecord_setNull)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNull( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlRecord_setValue)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setValue( (int ) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QVariant"));
+}
+
+
+RING_FUNC(ring_QSqlRecord_value)
+{
+	QSqlRecord *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
+		*pValue = pObject->value( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QSqlField_clear)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QSqlField_defaultValue)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	{
+		QVariant *pValue ; 
+		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
+		*pValue = pObject->defaultValue();
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QSqlField_isAutoValue)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETNUMBER(pObject->isAutoValue());
+}
+
+
+RING_FUNC(ring_QSqlField_isGenerated)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETNUMBER(pObject->isGenerated());
+}
+
+
+RING_FUNC(ring_QSqlField_isNull)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QSqlField_isReadOnly)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETNUMBER(pObject->isReadOnly());
+}
+
+
+RING_FUNC(ring_QSqlField_isValid)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETNUMBER(pObject->isValid());
+}
+
+
+RING_FUNC(ring_QSqlField_length)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETNUMBER(pObject->length());
+}
+
+
+RING_FUNC(ring_QSqlField_name)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETSTRING(pObject->name().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSqlField_precision)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETNUMBER(pObject->precision());
+}
+
+
+RING_FUNC(ring_QSqlField_requiredStatus)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETNUMBER(pObject->requiredStatus());
+}
+
+
+RING_FUNC(ring_QSqlField_setAutoValue)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAutoValue( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlField_setDefaultValue)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	pObject->setDefaultValue(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QVariant"));
+}
+
+
+RING_FUNC(ring_QSqlField_setGenerated)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setGenerated( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlField_setLength)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLength( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlField_setName)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setName(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSqlField_setPrecision)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPrecision( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlField_setReadOnly)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setReadOnly( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlField_setRequired)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRequired( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlField_setRequiredStatus)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRequiredStatus( (QSqlField::RequiredStatus )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlField_setType)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setType( (QVariant::Type )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSqlField_setValue)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	pObject->setValue(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QVariant"));
+}
+
+
+RING_FUNC(ring_QSqlField_type)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	RING_API_RETNUMBER(pObject->type());
+}
+
+
+RING_FUNC(ring_QSqlField_value)
+{
+	QSqlField *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+	{
+		QVariant *pValue ; 
+		pValue = (QVariant *) malloc(sizeof(QVariant)) ;
+		*pValue = pObject->value();
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
@@ -53239,6 +55949,48 @@ RING_FUNC(ring_QDate_new)
 		RING_API_IGNORECPOINTERTYPE ;
 	QDate *pObject = new QDate();
 	RING_API_RETCPOINTER(pObject,"QDate");
+}
+
+RING_FUNC(ring_QSqlDatabase_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QSqlDatabase *pObject = new QSqlDatabase();
+	RING_API_RETCPOINTER(pObject,"QSqlDatabase");
+}
+
+RING_FUNC(ring_QSqlQuery_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QSqlQuery *pObject = new QSqlQuery(* (QSqlDatabase  *) RING_API_GETCPOINTER(1,"QSqlDatabase"));
+	RING_API_RETCPOINTER(pObject,"QSqlQuery");
+}
+
+RING_FUNC(ring_QSqlError_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QSqlError *pObject = new QSqlError(RING_API_GETSTRING(1),RING_API_GETSTRING(2), (QSqlError::ErrorType)  (int) RING_API_GETNUMBER(3));
+	RING_API_RETCPOINTER(pObject,"QSqlError");
+}
+
+RING_FUNC(ring_QSqlIndex_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QSqlIndex *pObject = new QSqlIndex(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+	RING_API_RETCPOINTER(pObject,"QSqlIndex");
+}
+
+RING_FUNC(ring_QSqlRecord_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QSqlRecord *pObject = new QSqlRecord();
+	RING_API_RETCPOINTER(pObject,"QSqlRecord");
+}
+
+RING_FUNC(ring_QSqlField_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QSqlField *pObject = new QSqlField(RING_API_GETSTRING(1), (QVariant::Type)  (int) RING_API_GETNUMBER(2));
+	RING_API_RETCPOINTER(pObject,"QSqlField");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -54482,6 +57234,96 @@ RING_FUNC(ring_QDate_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSqlDatabase_delete)
+{
+	QSqlDatabase *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QSqlDatabase *) RING_API_GETCPOINTER(1,"QSqlDatabase");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSqlQuery_delete)
+{
+	QSqlQuery *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QSqlQuery *) RING_API_GETCPOINTER(1,"QSqlQuery");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSqlError_delete)
+{
+	QSqlError *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QSqlError *) RING_API_GETCPOINTER(1,"QSqlError");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSqlIndex_delete)
+{
+	QSqlIndex *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QSqlIndex *) RING_API_GETCPOINTER(1,"QSqlIndex");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSqlRecord_delete)
+{
+	QSqlRecord *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSqlField_delete)
+{
+	QSqlField *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
 		delete pObject ;
 	}
 }
@@ -57053,6 +59895,142 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdate_shortmonthname",ring_QDate_shortMonthName);
 	ring_vm_funcregister("qtextcodec_codecforname",ring_QTextCodec_codecForName);
 	ring_vm_funcregister("qtextcodec_setcodecforlocale",ring_QTextCodec_setCodecForLocale);
+	ring_vm_funcregister("qsqldatabase_close",ring_QSqlDatabase_close);
+	ring_vm_funcregister("qsqldatabase_commit",ring_QSqlDatabase_commit);
+	ring_vm_funcregister("qsqldatabase_connectoptions",ring_QSqlDatabase_connectOptions);
+	ring_vm_funcregister("qsqldatabase_connectionname",ring_QSqlDatabase_connectionName);
+	ring_vm_funcregister("qsqldatabase_databasename",ring_QSqlDatabase_databaseName);
+	ring_vm_funcregister("qsqldatabase_driver",ring_QSqlDatabase_driver);
+	ring_vm_funcregister("qsqldatabase_drivername",ring_QSqlDatabase_driverName);
+	ring_vm_funcregister("qsqldatabase_exec",ring_QSqlDatabase_exec);
+	ring_vm_funcregister("qsqldatabase_hostname",ring_QSqlDatabase_hostName);
+	ring_vm_funcregister("qsqldatabase_isopen",ring_QSqlDatabase_isOpen);
+	ring_vm_funcregister("qsqldatabase_isopenerror",ring_QSqlDatabase_isOpenError);
+	ring_vm_funcregister("qsqldatabase_isvalid",ring_QSqlDatabase_isValid);
+	ring_vm_funcregister("qsqldatabase_lasterror",ring_QSqlDatabase_lastError);
+	ring_vm_funcregister("qsqldatabase_numericalprecisionpolicy",ring_QSqlDatabase_numericalPrecisionPolicy);
+	ring_vm_funcregister("qsqldatabase_open",ring_QSqlDatabase_open);
+	ring_vm_funcregister("qsqldatabase_password",ring_QSqlDatabase_password);
+	ring_vm_funcregister("qsqldatabase_port",ring_QSqlDatabase_port);
+	ring_vm_funcregister("qsqldatabase_primaryindex",ring_QSqlDatabase_primaryIndex);
+	ring_vm_funcregister("qsqldatabase_record",ring_QSqlDatabase_record);
+	ring_vm_funcregister("qsqldatabase_rollback",ring_QSqlDatabase_rollback);
+	ring_vm_funcregister("qsqldatabase_setconnectoptions",ring_QSqlDatabase_setConnectOptions);
+	ring_vm_funcregister("qsqldatabase_setdatabasename",ring_QSqlDatabase_setDatabaseName);
+	ring_vm_funcregister("qsqldatabase_sethostname",ring_QSqlDatabase_setHostName);
+	ring_vm_funcregister("qsqldatabase_setnumericalprecisionpolicy",ring_QSqlDatabase_setNumericalPrecisionPolicy);
+	ring_vm_funcregister("qsqldatabase_setpassword",ring_QSqlDatabase_setPassword);
+	ring_vm_funcregister("qsqldatabase_setport",ring_QSqlDatabase_setPort);
+	ring_vm_funcregister("qsqldatabase_setusername",ring_QSqlDatabase_setUserName);
+	ring_vm_funcregister("qsqldatabase_tables",ring_QSqlDatabase_tables);
+	ring_vm_funcregister("qsqldatabase_transaction",ring_QSqlDatabase_transaction);
+	ring_vm_funcregister("qsqldatabase_username",ring_QSqlDatabase_userName);
+	ring_vm_funcregister("qsqldatabase_adddatabase",ring_QSqlDatabase_addDatabase);
+	ring_vm_funcregister("qsqldatabase_clonedatabase",ring_QSqlDatabase_cloneDatabase);
+	ring_vm_funcregister("qsqldatabase_connectionnames",ring_QSqlDatabase_connectionNames);
+	ring_vm_funcregister("qsqldatabase_contains",ring_QSqlDatabase_contains);
+	ring_vm_funcregister("qsqldatabase_database",ring_QSqlDatabase_database);
+	ring_vm_funcregister("qsqldatabase_drivers",ring_QSqlDatabase_drivers);
+	ring_vm_funcregister("qsqldatabase_isdriveravailable",ring_QSqlDatabase_isDriverAvailable);
+	ring_vm_funcregister("qsqldatabase_registersqldriver",ring_QSqlDatabase_registerSqlDriver);
+	ring_vm_funcregister("qsqldatabase_removedatabase",ring_QSqlDatabase_removeDatabase);
+	ring_vm_funcregister("qsqldriver_dbmstype",ring_QSqlDriver_dbmsType);
+	ring_vm_funcregister("qsqldriver_isopenerror",ring_QSqlDriver_isOpenError);
+	ring_vm_funcregister("qsqldriver_lasterror",ring_QSqlDriver_lastError);
+	ring_vm_funcregister("qsqldriver_numericalprecisionpolicy",ring_QSqlDriver_numericalPrecisionPolicy);
+	ring_vm_funcregister("qsqldriver_setnumericalprecisionpolicy",ring_QSqlDriver_setNumericalPrecisionPolicy);
+	ring_vm_funcregister("qsqlquery_addbindvalue",ring_QSqlQuery_addBindValue);
+	ring_vm_funcregister("qsqlquery_at",ring_QSqlQuery_at);
+	ring_vm_funcregister("qsqlquery_bindvalue",ring_QSqlQuery_bindValue);
+	ring_vm_funcregister("qsqlquery_boundvalue",ring_QSqlQuery_boundValue);
+	ring_vm_funcregister("qsqlquery_clear",ring_QSqlQuery_clear);
+	ring_vm_funcregister("qsqlquery_driver",ring_QSqlQuery_driver);
+	ring_vm_funcregister("qsqlquery_exec",ring_QSqlQuery_exec);
+	ring_vm_funcregister("qsqlquery_execbatch",ring_QSqlQuery_execBatch);
+	ring_vm_funcregister("qsqlquery_executedquery",ring_QSqlQuery_executedQuery);
+	ring_vm_funcregister("qsqlquery_finish",ring_QSqlQuery_finish);
+	ring_vm_funcregister("qsqlquery_first",ring_QSqlQuery_first);
+	ring_vm_funcregister("qsqlquery_isactive",ring_QSqlQuery_isActive);
+	ring_vm_funcregister("qsqlquery_isforwardonly",ring_QSqlQuery_isForwardOnly);
+	ring_vm_funcregister("qsqlquery_isnull",ring_QSqlQuery_isNull);
+	ring_vm_funcregister("qsqlquery_isselect",ring_QSqlQuery_isSelect);
+	ring_vm_funcregister("qsqlquery_isvalid",ring_QSqlQuery_isValid);
+	ring_vm_funcregister("qsqlquery_last",ring_QSqlQuery_last);
+	ring_vm_funcregister("qsqlquery_lasterror",ring_QSqlQuery_lastError);
+	ring_vm_funcregister("qsqlquery_lastinsertid",ring_QSqlQuery_lastInsertId);
+	ring_vm_funcregister("qsqlquery_lastquery",ring_QSqlQuery_lastQuery);
+	ring_vm_funcregister("qsqlquery_next",ring_QSqlQuery_next);
+	ring_vm_funcregister("qsqlquery_nextresult",ring_QSqlQuery_nextResult);
+	ring_vm_funcregister("qsqlquery_numrowsaffected",ring_QSqlQuery_numRowsAffected);
+	ring_vm_funcregister("qsqlquery_numericalprecisionpolicy",ring_QSqlQuery_numericalPrecisionPolicy);
+	ring_vm_funcregister("qsqlquery_prepare",ring_QSqlQuery_prepare);
+	ring_vm_funcregister("qsqlquery_previous",ring_QSqlQuery_previous);
+	ring_vm_funcregister("qsqlquery_record",ring_QSqlQuery_record);
+	ring_vm_funcregister("qsqlquery_result",ring_QSqlQuery_result);
+	ring_vm_funcregister("qsqlquery_seek",ring_QSqlQuery_seek);
+	ring_vm_funcregister("qsqlquery_setforwardonly",ring_QSqlQuery_setForwardOnly);
+	ring_vm_funcregister("qsqlquery_setnumericalprecisionpolicy",ring_QSqlQuery_setNumericalPrecisionPolicy);
+	ring_vm_funcregister("qsqlquery_size",ring_QSqlQuery_size);
+	ring_vm_funcregister("qsqlquery_value",ring_QSqlQuery_value);
+	ring_vm_funcregister("qsqlerror_databasetext",ring_QSqlError_databaseText);
+	ring_vm_funcregister("qsqlerror_drivertext",ring_QSqlError_driverText);
+	ring_vm_funcregister("qsqlerror_isvalid",ring_QSqlError_isValid);
+	ring_vm_funcregister("qsqlerror_number",ring_QSqlError_number);
+	ring_vm_funcregister("qsqlerror_setdatabasetext",ring_QSqlError_setDatabaseText);
+	ring_vm_funcregister("qsqlerror_setdrivertext",ring_QSqlError_setDriverText);
+	ring_vm_funcregister("qsqlerror_setnumber",ring_QSqlError_setNumber);
+	ring_vm_funcregister("qsqlerror_settype",ring_QSqlError_setType);
+	ring_vm_funcregister("qsqlerror_text",ring_QSqlError_text);
+	ring_vm_funcregister("qsqlerror_type",ring_QSqlError_type);
+	ring_vm_funcregister("qsqlindex_append",ring_QSqlIndex_append);
+	ring_vm_funcregister("qsqlindex_cursorname",ring_QSqlIndex_cursorName);
+	ring_vm_funcregister("qsqlindex_isdescending",ring_QSqlIndex_isDescending);
+	ring_vm_funcregister("qsqlindex_name",ring_QSqlIndex_name);
+	ring_vm_funcregister("qsqlindex_setcursorname",ring_QSqlIndex_setCursorName);
+	ring_vm_funcregister("qsqlindex_setdescending",ring_QSqlIndex_setDescending);
+	ring_vm_funcregister("qsqlindex_setname",ring_QSqlIndex_setName);
+	ring_vm_funcregister("qsqlrecord_append",ring_QSqlRecord_append);
+	ring_vm_funcregister("qsqlrecord_clear",ring_QSqlRecord_clear);
+	ring_vm_funcregister("qsqlrecord_clearvalues",ring_QSqlRecord_clearValues);
+	ring_vm_funcregister("qsqlrecord_contains",ring_QSqlRecord_contains);
+	ring_vm_funcregister("qsqlrecord_count",ring_QSqlRecord_count);
+	ring_vm_funcregister("qsqlrecord_field",ring_QSqlRecord_field);
+	ring_vm_funcregister("qsqlrecord_fieldname",ring_QSqlRecord_fieldName);
+	ring_vm_funcregister("qsqlrecord_indexof",ring_QSqlRecord_indexOf);
+	ring_vm_funcregister("qsqlrecord_insert",ring_QSqlRecord_insert);
+	ring_vm_funcregister("qsqlrecord_isempty",ring_QSqlRecord_isEmpty);
+	ring_vm_funcregister("qsqlrecord_isgenerated",ring_QSqlRecord_isGenerated);
+	ring_vm_funcregister("qsqlrecord_isnull",ring_QSqlRecord_isNull);
+	ring_vm_funcregister("qsqlrecord_remove",ring_QSqlRecord_remove);
+	ring_vm_funcregister("qsqlrecord_replace",ring_QSqlRecord_replace);
+	ring_vm_funcregister("qsqlrecord_setgenerated",ring_QSqlRecord_setGenerated);
+	ring_vm_funcregister("qsqlrecord_setnull",ring_QSqlRecord_setNull);
+	ring_vm_funcregister("qsqlrecord_setvalue",ring_QSqlRecord_setValue);
+	ring_vm_funcregister("qsqlrecord_value",ring_QSqlRecord_value);
+	ring_vm_funcregister("qsqlfield_clear",ring_QSqlField_clear);
+	ring_vm_funcregister("qsqlfield_defaultvalue",ring_QSqlField_defaultValue);
+	ring_vm_funcregister("qsqlfield_isautovalue",ring_QSqlField_isAutoValue);
+	ring_vm_funcregister("qsqlfield_isgenerated",ring_QSqlField_isGenerated);
+	ring_vm_funcregister("qsqlfield_isnull",ring_QSqlField_isNull);
+	ring_vm_funcregister("qsqlfield_isreadonly",ring_QSqlField_isReadOnly);
+	ring_vm_funcregister("qsqlfield_isvalid",ring_QSqlField_isValid);
+	ring_vm_funcregister("qsqlfield_length",ring_QSqlField_length);
+	ring_vm_funcregister("qsqlfield_name",ring_QSqlField_name);
+	ring_vm_funcregister("qsqlfield_precision",ring_QSqlField_precision);
+	ring_vm_funcregister("qsqlfield_requiredstatus",ring_QSqlField_requiredStatus);
+	ring_vm_funcregister("qsqlfield_setautovalue",ring_QSqlField_setAutoValue);
+	ring_vm_funcregister("qsqlfield_setdefaultvalue",ring_QSqlField_setDefaultValue);
+	ring_vm_funcregister("qsqlfield_setgenerated",ring_QSqlField_setGenerated);
+	ring_vm_funcregister("qsqlfield_setlength",ring_QSqlField_setLength);
+	ring_vm_funcregister("qsqlfield_setname",ring_QSqlField_setName);
+	ring_vm_funcregister("qsqlfield_setprecision",ring_QSqlField_setPrecision);
+	ring_vm_funcregister("qsqlfield_setreadonly",ring_QSqlField_setReadOnly);
+	ring_vm_funcregister("qsqlfield_setrequired",ring_QSqlField_setRequired);
+	ring_vm_funcregister("qsqlfield_setrequiredstatus",ring_QSqlField_setRequiredStatus);
+	ring_vm_funcregister("qsqlfield_settype",ring_QSqlField_setType);
+	ring_vm_funcregister("qsqlfield_setvalue",ring_QSqlField_setValue);
+	ring_vm_funcregister("qsqlfield_type",ring_QSqlField_type);
+	ring_vm_funcregister("qsqlfield_value",ring_QSqlField_value);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -57136,6 +60114,12 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistwidgetitem_new",ring_QListWidgetItem_new);
 	ring_vm_funcregister("qsystemtrayicon_new",ring_QSystemTrayIcon_new);
 	ring_vm_funcregister("qdate_new",ring_QDate_new);
+	ring_vm_funcregister("qsqldatabase_new",ring_QSqlDatabase_new);
+	ring_vm_funcregister("qsqlquery_new",ring_QSqlQuery_new);
+	ring_vm_funcregister("qsqlerror_new",ring_QSqlError_new);
+	ring_vm_funcregister("qsqlindex_new",ring_QSqlIndex_new);
+	ring_vm_funcregister("qsqlrecord_new",ring_QSqlRecord_new);
+	ring_vm_funcregister("qsqlfield_new",ring_QSqlField_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -57219,4 +60203,10 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistwidgetitem_delete",ring_QListWidgetItem_delete);
 	ring_vm_funcregister("qsystemtrayicon_delete",ring_QSystemTrayIcon_delete);
 	ring_vm_funcregister("qdate_delete",ring_QDate_delete);
+	ring_vm_funcregister("qsqldatabase_delete",ring_QSqlDatabase_delete);
+	ring_vm_funcregister("qsqlquery_delete",ring_QSqlQuery_delete);
+	ring_vm_funcregister("qsqlerror_delete",ring_QSqlError_delete);
+	ring_vm_funcregister("qsqlindex_delete",ring_QSqlIndex_delete);
+	ring_vm_funcregister("qsqlrecord_delete",ring_QSqlRecord_delete);
+	ring_vm_funcregister("qsqlfield_delete",ring_QSqlField_delete);
 }

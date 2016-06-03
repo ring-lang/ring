@@ -139,6 +139,14 @@ extern "C" {
 #include <QSystemTrayIcon>
 #include <QDate>
 #include <QTextCodec>
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlIndex>
+#include <QSqlRecord>
+#include <QSqlField>
+#include <QSqlDriverCreatorBase>
 
 extern "C" {
 
@@ -317,6 +325,14 @@ aEnumTypes + "Qt::DateFormat"
 aEnumTypes + "MonthNameType"
 aEnumTypes + "QTextCodec::ConversionFlag"
 aEnumTypes + "ConverterState"
+aEnumTypes + "QSql::NumericalPrecisionPolicy"
+aEnumTypes + "QVariant::Type"
+aEnumTypes + "DbmsType"
+aEnumTypes + "QSqlQuery::BatchExecutionMode"
+aEnumTypes + "RequiredStatus"
+aEnumTypes + "QSql::ParamType"
+aEnumTypes + "QSqlError::ErrorType"
+aEnumTypes + "QSqlField::RequiredStatus"
 </runcode>
 
 <class>
@@ -3909,3 +3925,188 @@ RING_FUNC(ring_QTextCodec_setCodecForLocale)
 </code>
 
 
+<class>
+name: QSqlDatabase
+para: void
+</class>
+
+void close(void)
+bool commit(void)
+QString connectOptions(void)
+QString connectionName(void)
+QString databaseName(void)
+QSqlDriver *driver(void)
+QString driverName(void)
+QSqlQuery exec(QString)
+QString hostName(void)
+bool isOpen(void)
+bool isOpenError(void)
+bool isValid(void)
+QSqlError lastError(void)
+QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+bool open(void)
+QString password(void)
+int port(void)
+QSqlIndex primaryIndex(QString)
+QSqlRecord record(QString)
+bool rollback(void)
+void setConnectOptions(QString)
+void setDatabaseName(QString)
+void setHostName(QString)
+void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
+void setPassword(QString)
+void setPort(int port)
+void setUserName(QString)
+QStringList tables(QSql::TableType type)
+bool transaction(void)
+QString userName(void)
+QSqlDatabase addDatabase(QString, QString)
+QSqlDatabase cloneDatabase(QSqlDatabase, QString)
+QStringList connectionNames(void)
+bool contains(QString)
+QSqlDatabase database(QString , bool)
+QStringList drivers(void)
+bool isDriverAvailable(QString)
+void registerSqlDriver(QString, QSqlDriverCreatorBase *)
+void removeDatabase(QString)
+
+<class>
+name: QSqlDriver
+para: void
+abstract
+</class>
+
+DbmsType dbmsType(void)
+bool isOpenError(void)
+QSqlError lastError(void)
+QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy)
+
+<class>
+name: QSqlQuery
+para: QSqlDatabase db
+</class>
+
+void addBindValue(QVariant, QSql::ParamType paramType)
+int at(void)
+void bindValue(QString, QVariant, QSql::ParamType paramType)
+QVariant boundValue(QString)
+void clear(void)
+QSqlDriver * driver(void)
+bool exec(QString)
+bool execBatch(QSqlQuery::BatchExecutionMode mode)
+QString executedQuery(void)
+void finish(void)
+bool first(void)
+bool isActive(void)
+bool isForwardOnly(void)
+bool isNull(int field)
+bool isSelect(void)
+bool isValid(void)
+bool last(void)
+QSqlError lastError(void)
+QVariant lastInsertId(void)
+QString lastQuery(void)
+bool next(void)
+bool nextResult(void)
+int numRowsAffected(void)
+QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+bool prepare(QString)
+bool previous(void)
+QSqlRecord record(void)
+QSqlResult *result(void)
+bool seek(int index, bool relative)
+void setForwardOnly(bool forward)
+void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
+int size(void)
+QVariant value(int index)
+
+<class>
+name: QSqlError
+para: QString, QString, QSqlError::ErrorType
+</class>
+
+QString databaseText(void)
+QString driverText(void)
+bool isValid(void)
+int number(void)
+void setDatabaseText(QString)
+void setDriverText(QString)
+void setNumber(int number)
+void setType(QSqlError::ErrorType type)
+QString text(void)
+QSqlError::ErrorType type(void)
+
+<class>
+name: QSqlIndex
+para: QString, QString 
+parent: QSqlRecord
+</class>
+
+void append(QSqlField, bool)
+QString cursorName(void)
+bool isDescending(int i)
+QString name(void)
+void setCursorName(QString)
+void setDescending(int i, bool desc)
+void setName(QString)
+
+<class>
+name: QSqlRecord
+para: void
+</class>
+
+void append(QSqlField)
+void clear(void)
+void clearValues(void)
+bool contains(QString)
+int count(void)
+QSqlField field(int index)
+QString fieldName(int index)
+int indexOf(QString)
+void insert(int pos, QSqlField)
+bool isEmpty(void)
+bool isGenerated(QString)
+bool isNull(QString)
+void remove(int pos)
+void replace(int pos, QSqlField)
+void setGenerated(QString, bool generated)
+void setNull(int index)
+void setValue(int index, QVariant)
+QVariant value(int index)
+
+<class>
+name: QSqlField
+para:  QString,QVariant::Type
+</class>
+
+void clear(void)
+QVariant defaultValue(void)
+bool isAutoValue(void)
+bool isGenerated(void)
+bool isNull(void)
+bool isReadOnly(void)
+bool isValid(void)
+int length(void)
+QString name(void)
+int precision(void)
+RequiredStatus requiredStatus(void)
+void setAutoValue(bool autoVal)
+void setDefaultValue(QVariant)
+void setGenerated(bool gen)
+void setLength(int fieldLength)
+void setName(QString)
+void setPrecision(int precision)
+void setReadOnly(bool readOnly)
+void setRequired(bool required)
+void setRequiredStatus(QSqlField::RequiredStatus required)
+void setType(QVariant::Type type)
+void setValue(QVariant)
+QVariant::Type type(void)
+QVariant value(void)
+
+<class>
+name: QSqlDriverCreatorBase
+para: void
+nonew
+</class>

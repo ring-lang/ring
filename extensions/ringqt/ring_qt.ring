@@ -9255,6 +9255,523 @@ Class QTextCodec
 	Func setCodecForLocale P1
 		return QTextCodec_setCodecForLocale(P1)
 
+Class QSqlDatabase
+
+	pObject
+
+	Func init 
+		pObject = QSqlDatabase_new()
+		return self
+
+	Func delete
+		pObject = QSqlDatabase_delete(pObject)
+
+	Func close 
+		return QSqlDatabase_close(pObject)
+
+	Func commit 
+		return QSqlDatabase_commit(pObject)
+
+	Func connectOptions 
+		return QSqlDatabase_connectOptions(pObject)
+
+	Func connectionName 
+		return QSqlDatabase_connectionName(pObject)
+
+	Func databaseName 
+		return QSqlDatabase_databaseName(pObject)
+
+	Func driver 
+		pTempObj = new QSqlDriver
+		pTempObj.pObject = QSqlDatabase_driver(pObject)
+		return pTempObj
+
+	Func driverName 
+		return QSqlDatabase_driverName(pObject)
+
+	Func exec P1
+		pTempObj = new QSqlQuery
+		pTempObj.pObject = QSqlDatabase_exec(pObject,P1)
+		return pTempObj
+
+	Func hostName 
+		return QSqlDatabase_hostName(pObject)
+
+	Func isOpen 
+		return QSqlDatabase_isOpen(pObject)
+
+	Func isOpenError 
+		return QSqlDatabase_isOpenError(pObject)
+
+	Func isValid 
+		return QSqlDatabase_isValid(pObject)
+
+	Func lastError 
+		pTempObj = new QSqlError
+		pTempObj.pObject = QSqlDatabase_lastError(pObject)
+		return pTempObj
+
+	Func numericalPrecisionPolicy 
+		return QSqlDatabase_numericalPrecisionPolicy(pObject)
+
+	Func open 
+		return QSqlDatabase_open(pObject)
+
+	Func password 
+		return QSqlDatabase_password(pObject)
+
+	Func port 
+		return QSqlDatabase_port(pObject)
+
+	Func primaryIndex P1
+		pTempObj = new QSqlIndex
+		pTempObj.pObject = QSqlDatabase_primaryIndex(pObject,P1)
+		return pTempObj
+
+	Func record P1
+		pTempObj = new QSqlRecord
+		pTempObj.pObject = QSqlDatabase_record(pObject,P1)
+		return pTempObj
+
+	Func rollback 
+		return QSqlDatabase_rollback(pObject)
+
+	Func setConnectOptions P1
+		return QSqlDatabase_setConnectOptions(pObject,P1)
+
+	Func setDatabaseName P1
+		return QSqlDatabase_setDatabaseName(pObject,P1)
+
+	Func setHostName P1
+		return QSqlDatabase_setHostName(pObject,P1)
+
+	Func setNumericalPrecisionPolicy P1
+		return QSqlDatabase_setNumericalPrecisionPolicy(pObject,P1)
+
+	Func setPassword P1
+		return QSqlDatabase_setPassword(pObject,P1)
+
+	Func setPort P1
+		return QSqlDatabase_setPort(pObject,P1)
+
+	Func setUserName P1
+		return QSqlDatabase_setUserName(pObject,P1)
+
+	Func tables P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QSqlDatabase_tables(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func transaction 
+		return QSqlDatabase_transaction(pObject)
+
+	Func userName 
+		return QSqlDatabase_userName(pObject)
+
+	Func addDatabase P1,P2
+		pTempObj = new QSqlDatabase
+		pTempObj.pObject = QSqlDatabase_addDatabase(pObject,P1,P2)
+		return pTempObj
+
+	Func cloneDatabase P1,P2
+		pTempObj = new QSqlDatabase
+		pTempObj.pObject = QSqlDatabase_cloneDatabase(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func connectionNames 
+		pTempObj = new QStringList
+		pTempObj.pObject = QSqlDatabase_connectionNames(pObject)
+		return pTempObj
+
+	Func contains P1
+		return QSqlDatabase_contains(pObject,P1)
+
+	Func database P1,P2
+		pTempObj = new QSqlDatabase
+		pTempObj.pObject = QSqlDatabase_database(pObject,P1,P2)
+		return pTempObj
+
+	Func drivers 
+		pTempObj = new QStringList
+		pTempObj.pObject = QSqlDatabase_drivers(pObject)
+		return pTempObj
+
+	Func isDriverAvailable P1
+		return QSqlDatabase_isDriverAvailable(pObject,P1)
+
+	Func registerSqlDriver P1,P2
+		return QSqlDatabase_registerSqlDriver(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func removeDatabase P1
+		return QSqlDatabase_removeDatabase(pObject,P1)
+
+Class QSqlDriver
+
+	pObject
+
+	Func init 
+		pObject = QSqlDriver_new()
+		return self
+
+	Func delete
+		pObject = QSqlDriver_delete(pObject)
+
+	Func dbmsType 
+		return QSqlDriver_dbmsType(pObject)
+
+	Func isOpenError 
+		return QSqlDriver_isOpenError(pObject)
+
+	Func lastError 
+		pTempObj = new QSqlError
+		pTempObj.pObject = QSqlDriver_lastError(pObject)
+		return pTempObj
+
+	Func numericalPrecisionPolicy 
+		return QSqlDriver_numericalPrecisionPolicy(pObject)
+
+	Func setNumericalPrecisionPolicy P1
+		return QSqlDriver_setNumericalPrecisionPolicy(pObject,P1)
+
+Class QSqlQuery
+
+	pObject
+
+	Func init P1
+		pObject = QSqlQuery_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSqlQuery_delete(pObject)
+
+	Func addBindValue P1,P2
+		return QSqlQuery_addBindValue(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func at 
+		return QSqlQuery_at(pObject)
+
+	Func bindValue P1,P2,P3
+		return QSqlQuery_bindValue(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func boundValue P1
+		return QSqlQuery_boundValue(pObject,P1)
+
+	Func clear 
+		return QSqlQuery_clear(pObject)
+
+	Func driver 
+		pTempObj = new QSqlDriver
+		pTempObj.pObject = QSqlQuery_driver(pObject)
+		return pTempObj
+
+	Func exec P1
+		return QSqlQuery_exec(pObject,P1)
+
+	Func execBatch P1
+		return QSqlQuery_execBatch(pObject,P1)
+
+	Func executedQuery 
+		return QSqlQuery_executedQuery(pObject)
+
+	Func finish 
+		return QSqlQuery_finish(pObject)
+
+	Func first 
+		return QSqlQuery_first(pObject)
+
+	Func isActive 
+		return QSqlQuery_isActive(pObject)
+
+	Func isForwardOnly 
+		return QSqlQuery_isForwardOnly(pObject)
+
+	Func isNull P1
+		return QSqlQuery_isNull(pObject,P1)
+
+	Func isSelect 
+		return QSqlQuery_isSelect(pObject)
+
+	Func isValid 
+		return QSqlQuery_isValid(pObject)
+
+	Func last 
+		return QSqlQuery_last(pObject)
+
+	Func lastError 
+		pTempObj = new QSqlError
+		pTempObj.pObject = QSqlQuery_lastError(pObject)
+		return pTempObj
+
+	Func lastInsertId 
+		return QSqlQuery_lastInsertId(pObject)
+
+	Func lastQuery 
+		return QSqlQuery_lastQuery(pObject)
+
+	Func next 
+		return QSqlQuery_next(pObject)
+
+	Func nextResult 
+		return QSqlQuery_nextResult(pObject)
+
+	Func numRowsAffected 
+		return QSqlQuery_numRowsAffected(pObject)
+
+	Func numericalPrecisionPolicy 
+		return QSqlQuery_numericalPrecisionPolicy(pObject)
+
+	Func prepare P1
+		return QSqlQuery_prepare(pObject,P1)
+
+	Func previous 
+		return QSqlQuery_previous(pObject)
+
+	Func record 
+		pTempObj = new QSqlRecord
+		pTempObj.pObject = QSqlQuery_record(pObject)
+		return pTempObj
+
+	Func result 
+		return QSqlQuery_result(pObject)
+
+	Func seek P1,P2
+		return QSqlQuery_seek(pObject,P1,P2)
+
+	Func setForwardOnly P1
+		return QSqlQuery_setForwardOnly(pObject,P1)
+
+	Func setNumericalPrecisionPolicy P1
+		return QSqlQuery_setNumericalPrecisionPolicy(pObject,P1)
+
+	Func size 
+		return QSqlQuery_size(pObject)
+
+	Func value P1
+		return QSqlQuery_value(pObject,P1)
+
+Class QSqlError
+
+	pObject
+
+	Func init P1,P2,P3
+		pObject = QSqlError_new(P1,P2,P3)
+		return self
+
+	Func delete
+		pObject = QSqlError_delete(pObject)
+
+	Func databaseText 
+		return QSqlError_databaseText(pObject)
+
+	Func driverText 
+		return QSqlError_driverText(pObject)
+
+	Func isValid 
+		return QSqlError_isValid(pObject)
+
+	Func number 
+		return QSqlError_number(pObject)
+
+	Func setDatabaseText P1
+		return QSqlError_setDatabaseText(pObject,P1)
+
+	Func setDriverText P1
+		return QSqlError_setDriverText(pObject,P1)
+
+	Func setNumber P1
+		return QSqlError_setNumber(pObject,P1)
+
+	Func setType P1
+		return QSqlError_setType(pObject,P1)
+
+	Func text 
+		return QSqlError_text(pObject)
+
+	Func type 
+		return QSqlError_type(pObject)
+
+Class QSqlIndex from QSqlRecord
+
+	pObject
+
+	Func init P1,P2
+		pObject = QSqlIndex_new(P1,P2)
+		return self
+
+	Func delete
+		pObject = QSqlIndex_delete(pObject)
+
+	Func append P1,P2
+		return QSqlIndex_append(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func cursorName 
+		return QSqlIndex_cursorName(pObject)
+
+	Func isDescending P1
+		return QSqlIndex_isDescending(pObject,P1)
+
+	Func name 
+		return QSqlIndex_name(pObject)
+
+	Func setCursorName P1
+		return QSqlIndex_setCursorName(pObject,P1)
+
+	Func setDescending P1,P2
+		return QSqlIndex_setDescending(pObject,P1,P2)
+
+	Func setName P1
+		return QSqlIndex_setName(pObject,P1)
+
+Class QSqlRecord
+
+	pObject
+
+	Func init 
+		pObject = QSqlRecord_new()
+		return self
+
+	Func delete
+		pObject = QSqlRecord_delete(pObject)
+
+	Func append P1
+		return QSqlRecord_append(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func clear 
+		return QSqlRecord_clear(pObject)
+
+	Func clearValues 
+		return QSqlRecord_clearValues(pObject)
+
+	Func contains P1
+		return QSqlRecord_contains(pObject,P1)
+
+	Func count 
+		return QSqlRecord_count(pObject)
+
+	Func field P1
+		pTempObj = new QSqlField
+		pTempObj.pObject = QSqlRecord_field(pObject,P1)
+		return pTempObj
+
+	Func fieldName P1
+		return QSqlRecord_fieldName(pObject,P1)
+
+	Func indexOf P1
+		return QSqlRecord_indexOf(pObject,P1)
+
+	Func insert P1,P2
+		return QSqlRecord_insert(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func isEmpty 
+		return QSqlRecord_isEmpty(pObject)
+
+	Func isGenerated P1
+		return QSqlRecord_isGenerated(pObject,P1)
+
+	Func isNull P1
+		return QSqlRecord_isNull(pObject,P1)
+
+	Func remove P1
+		return QSqlRecord_remove(pObject,P1)
+
+	Func replace P1,P2
+		return QSqlRecord_replace(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setGenerated P1,P2
+		return QSqlRecord_setGenerated(pObject,P1,P2)
+
+	Func setNull P1
+		return QSqlRecord_setNull(pObject,P1)
+
+	Func setValue P1,P2
+		return QSqlRecord_setValue(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func value P1
+		return QSqlRecord_value(pObject,P1)
+
+Class QSqlField
+
+	pObject
+
+	Func init P1,P2
+		pObject = QSqlField_new(P1,P2)
+		return self
+
+	Func delete
+		pObject = QSqlField_delete(pObject)
+
+	Func clear 
+		return QSqlField_clear(pObject)
+
+	Func defaultValue 
+		return QSqlField_defaultValue(pObject)
+
+	Func isAutoValue 
+		return QSqlField_isAutoValue(pObject)
+
+	Func isGenerated 
+		return QSqlField_isGenerated(pObject)
+
+	Func isNull 
+		return QSqlField_isNull(pObject)
+
+	Func isReadOnly 
+		return QSqlField_isReadOnly(pObject)
+
+	Func isValid 
+		return QSqlField_isValid(pObject)
+
+	Func length 
+		return QSqlField_length(pObject)
+
+	Func name 
+		return QSqlField_name(pObject)
+
+	Func precision 
+		return QSqlField_precision(pObject)
+
+	Func requiredStatus 
+		return QSqlField_requiredStatus(pObject)
+
+	Func setAutoValue P1
+		return QSqlField_setAutoValue(pObject,P1)
+
+	Func setDefaultValue P1
+		return QSqlField_setDefaultValue(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGenerated P1
+		return QSqlField_setGenerated(pObject,P1)
+
+	Func setLength P1
+		return QSqlField_setLength(pObject,P1)
+
+	Func setName P1
+		return QSqlField_setName(pObject,P1)
+
+	Func setPrecision P1
+		return QSqlField_setPrecision(pObject,P1)
+
+	Func setReadOnly P1
+		return QSqlField_setReadOnly(pObject,P1)
+
+	Func setRequired P1
+		return QSqlField_setRequired(pObject,P1)
+
+	Func setRequiredStatus P1
+		return QSqlField_setRequiredStatus(pObject,P1)
+
+	Func setType P1
+		return QSqlField_setType(pObject,P1)
+
+	Func setValue P1
+		return QSqlField_setValue(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func type 
+		return QSqlField_type(pObject)
+
+	Func value 
+		return QSqlField_value(pObject)
+
 Class QIcon
 
 	pObject

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network webkitwidgets multimedia multimediawidgets testlib printsupport
+QT       += core gui network webkitwidgets multimedia multimediawidgets testlib printsupport sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
