@@ -53250,8 +53250,8 @@ RING_FUNC(ring_QSqlDatabase_userName)
 RING_FUNC(ring_QSqlDatabase_addDatabase)
 {
 	QSqlDatabase *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
@@ -53264,14 +53264,10 @@ RING_FUNC(ring_QSqlDatabase_addDatabase)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
 	{
 		QSqlDatabase *pValue ; 
 		pValue = new QSqlDatabase() ;
-		*pValue = pObject->addDatabase(RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+		*pValue = pObject->addDatabase(RING_API_GETSTRING(2));
 		RING_API_RETCPOINTER(pValue,"QSqlDatabase");
 	}
 }
