@@ -9508,7 +9508,7 @@ Class QSqlQuery
 	Func lastQuery 
 		return QSqlQuery_lastQuery(pObject)
 
-	Func next 
+	Func movenext 
 		return QSqlQuery_next(pObject)
 
 	Func nextResult 

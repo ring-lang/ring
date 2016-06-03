@@ -181,6 +181,7 @@ aNewMethodName + ["QLineEdit","end","endtext"]
 aNewMethodName + ["QDialog","done","donedialog"]
 aNewMethodName + ["QTextDocument","end","enddoc"]
 aNewMethodName + ["QTextBlock","next","nextblock"]
+aNewMethodName + ["QSqlQuery","next","movenext"]
 aEnumTypes + "Qt::GestureType"
 aEnumTypes + "Qt::GestureFlag"
 aEnumTypes + "Qt::ShortcutContext"
