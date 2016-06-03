@@ -39,6 +39,7 @@ C_INS_STRUCT    = 5
 C_INS_FUNCSTART = 6
 C_INS_RUNCODE   = 7
 C_INS_CLASS	= 8
+C_INS_FILTER    = 9
 
 C_FUNC_INS	= 1
 C_FUNC_OUTPUT 	= 2
@@ -114,6 +115,10 @@ Func Main
 		see "ReadLine : " + cLine + nl
 		if cLine = NULL and lflag != C_INS_CODE
 			loop
+		but  lFlag = C_INS_COMMENT and cLine != "</comment>" 
+			loop
+		but  lFlag = C_INS_FILTER and cLine != "</filter>" 
+			loop
 		ok
 		if cLine = "<code>"
 			lflag = C_INS_CODE
@@ -152,7 +157,7 @@ Func Main
 			See "Filter output : " + lInclude + nl
 			lFilterFlag = lFlag 
 			if lInclude = false
-				lFlag = C_INS_COMMENT							
+				lFlag = C_INS_FILTER
 			ok
 			loop
 		but cLine = "</filter>"
