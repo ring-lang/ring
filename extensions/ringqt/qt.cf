@@ -25,7 +25,9 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
+<filter> (get("RINGQT_ANDROID") = "")
 #include "gwebview.h"
+</filter>
 #include "gcheckbox.h"
 #include "gradiobutton.h"
 #include "gbuttongroup.h"
@@ -79,7 +81,9 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
+<filter> (get("RINGQT_ANDROID") = "")
 #include <QWebView>
+</filter>
 #include <QUrl>
 #include <QCheckBox>
 #include <QRadioButton>
@@ -99,7 +103,9 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
+<filter> (get("RINGQT_ANDROID") = "")
 #include <QWebSettings>
+</filter>
 #include <QBrush>
 #include <QByteArray>
 #include <QIODevice>
@@ -1932,6 +1938,7 @@ void setsliderPressedEvent(const char *)
 void setsliderReleasedEvent(const char *)
 void setvalueChangedEvent(const char *)
 
+<filter> (get("RINGQT_ANDROID") = "")
 <class>
 name: QWebView
 para: QWidget *parent
@@ -1999,6 +2006,8 @@ void setstatusBarMessageEvent(const char *)
 </comment>
 void settitleChangedEvent(const char *)
 void seturlChangedEvent(const char *)
+
+</filter>
 
 <class>
 name: QUrl
@@ -2818,6 +2827,7 @@ QString substitute(QString)
 QStringList substitutes(QString)
 QStringList substitutions(void)
 
+<filter> (get("RINGQT_ANDROID") = "")
 <class>
 name: QWebSettings
 abstract
@@ -2864,6 +2874,8 @@ void setOfflineWebApplicationCacheQuota(int maximumSize)
 void setWebGraphic(QWebSettings::WebGraphic type, QPixmap)
 QPixmap webGraphic(QWebSettings::WebGraphic type)
 </comment>
+
+</filter>
 
 <class>
 name: QBrush
