@@ -74,7 +74,9 @@ Class QObject
 		return pTempObj
 
 	Func property P1
-		return QObject_property(pObject,P1)
+		pTempObj = new QVariant
+		pTempObj.pObject = QObject_property(pObject,P1)
+		return pTempObj
 
 	Func removeEventFilter P1
 		return QObject_removeEventFilter(pObject,GetObjectPointerFromRingObject(P1))
@@ -258,7 +260,9 @@ Class QWidget from QObject
 		return QWidget_inputMethodHints(pObject)
 
 	Func inputMethodQuery P1
-		return QWidget_inputMethodQuery(pObject,P1)
+		pTempObj = new QVariant
+		pTempObj.pObject = QWidget_inputMethodQuery(pObject,P1)
+		return pTempObj
 
 	Func insertAction P1,P2
 		return QWidget_insertAction(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
@@ -1239,7 +1243,9 @@ Class QTextEdit from QWidget
 		return QTextEdit_lineWrapColumnOrWidth(pObject)
 
 	Func loadResource P1,P2
-		return QTextEdit_loadResource(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj = new QVariant
+		pTempObj.pObject = QTextEdit_loadResource(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func mergeCurrentCharFormat P1
 		return QTextEdit_mergeCurrentCharFormat(pObject,GetObjectPointerFromRingObject(P1))
@@ -1811,7 +1817,9 @@ Class QFileSystemModel
 		return QFileSystemModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func myComputer P1
-		return QFileSystemModel_myComputer(pObject,P1)
+		pTempObj = new QVariant
+		pTempObj.pObject = QFileSystemModel_myComputer(pObject,P1)
+		return pTempObj
 
 	Func nameFilterDisables 
 		return QFileSystemModel_nameFilterDisables(pObject)
@@ -1875,7 +1883,9 @@ Class QFileSystemModel
 		return QFileSystemModel_columnCount(pObject)
 
 	Func data P1,P2
-		return QFileSystemModel_data(pObject,GetObjectPointerFromRingObject(P1),P2)
+		pTempObj = new QVariant
+		pTempObj.pObject = QFileSystemModel_data(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
 
 	Func dropMimeData P1,P2,P3,P4,P5
 		return QFileSystemModel_dropMimeData(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,GetObjectPointerFromRingObject(P5))
@@ -1890,7 +1900,9 @@ Class QFileSystemModel
 		return QFileSystemModel_hasChildren(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func headerData P1,P2,P3
-		return QFileSystemModel_headerData(pObject,P1,P2,P3)
+		pTempObj = new QVariant
+		pTempObj.pObject = QFileSystemModel_headerData(pObject,P1,P2,P3)
+		return pTempObj
 
 	Func mimeData P1
 		return QFileSystemModel_mimeData(pObject,GetObjectPointerFromRingObject(P1))
@@ -2144,7 +2156,9 @@ Class QTreeWidgetItem
 		return QTreeWidgetItem_columnCount(pObject)
 
 	Func data P1,P2
-		return QTreeWidgetItem_data(pObject,P1,P2)
+		pTempObj = new QVariant
+		pTempObj.pObject = QTreeWidgetItem_data(pObject,P1,P2)
+		return pTempObj
 
 	Func flags 
 		return QTreeWidgetItem_flags(pObject)
@@ -2348,7 +2362,9 @@ Class QComboBox from QWidget
 		return QComboBox_isEditable(pObject)
 
 	Func itemData P1,P2
-		return QComboBox_itemData(pObject,P1,P2)
+		pTempObj = new QVariant
+		pTempObj.pObject = QComboBox_itemData(pObject,P1,P2)
+		return pTempObj
 
 	Func itemDelegate 
 		return QComboBox_itemDelegate(pObject)
@@ -3188,7 +3204,9 @@ Class QTableWidgetItem
 		return QTableWidgetItem_column(pObject)
 
 	Func data P1
-		return QTableWidgetItem_data(pObject,P1)
+		pTempObj = new QVariant
+		pTempObj.pObject = QTableWidgetItem_data(pObject,P1)
+		return pTempObj
 
 	Func flags 
 		return QTableWidgetItem_flags(pObject)
@@ -5095,7 +5113,9 @@ Class QAction
 		return QAction_autoRepeat(pObject)
 
 	Func data 
-		return QAction_data(pObject)
+		pTempObj = new QVariant
+		pTempObj.pObject = QAction_data(pObject)
+		return pTempObj
 
 	Func font 
 		pTempObj = new QFont
@@ -7108,7 +7128,9 @@ Class QAbstractSocket from QIODevice
 		return QAbstractSocket_socketDescriptor(pObject)
 
 	Func socketOption P1
-		return QAbstractSocket_socketOption(pObject,P1)
+		pTempObj = new QVariant
+		pTempObj.pObject = QAbstractSocket_socketOption(pObject,P1)
+		return pTempObj
 
 	Func socketType 
 		return QAbstractSocket_socketType(pObject)
@@ -7182,7 +7204,9 @@ Class QNetworkProxy
 		return QNetworkProxy_hasRawHeader(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func header P1
-		return QNetworkProxy_header(pObject,P1)
+		pTempObj = new QVariant
+		pTempObj.pObject = QNetworkProxy_header(pObject,P1)
+		return pTempObj
 
 	Func hostName 
 		return QNetworkProxy_hostName(pObject)
@@ -8720,7 +8744,9 @@ Class QTextDocument from QObject
 		return QTextDocument_redo(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func resource P1,P2
-		return QTextDocument_resource(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj = new QVariant
+		pTempObj.pObject = QTextDocument_resource(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func revision 
 		return QTextDocument_revision(pObject)
@@ -9454,7 +9480,9 @@ Class QSqlQuery
 		return QSqlQuery_bindValue(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
 
 	Func boundValue P1
-		return QSqlQuery_boundValue(pObject,P1)
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlQuery_boundValue(pObject,P1)
+		return pTempObj
 
 	Func clear 
 		return QSqlQuery_clear(pObject)
@@ -9503,7 +9531,9 @@ Class QSqlQuery
 		return pTempObj
 
 	Func lastInsertId 
-		return QSqlQuery_lastInsertId(pObject)
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlQuery_lastInsertId(pObject)
+		return pTempObj
 
 	Func lastQuery 
 		return QSqlQuery_lastQuery(pObject)
@@ -9547,7 +9577,9 @@ Class QSqlQuery
 		return QSqlQuery_size(pObject)
 
 	Func value P1
-		return QSqlQuery_value(pObject,P1)
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlQuery_value(pObject,P1)
+		return pTempObj
 
 Class QSqlError
 
@@ -9687,7 +9719,9 @@ Class QSqlRecord
 		return QSqlRecord_setValue(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func value P1
-		return QSqlRecord_value(pObject,P1)
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlRecord_value(pObject,P1)
+		return pTempObj
 
 Class QSqlField
 
@@ -9704,7 +9738,9 @@ Class QSqlField
 		return QSqlField_clear(pObject)
 
 	Func defaultValue 
-		return QSqlField_defaultValue(pObject)
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlField_defaultValue(pObject)
+		return pTempObj
 
 	Func isAutoValue 
 		return QSqlField_isAutoValue(pObject)
@@ -9770,7 +9806,169 @@ Class QSqlField
 		return QSqlField_type(pObject)
 
 	Func value 
-		return QSqlField_value(pObject)
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlField_value(pObject)
+		return pTempObj
+
+Class QVariant
+
+	pObject
+
+	Func init 
+		pObject = QVariant_new()
+		return self
+
+	Func delete
+		pObject = QVariant_delete(pObject)
+
+	Func canConvert P1
+		return QVariant_canConvert(pObject,P1)
+
+	Func clear 
+		return QVariant_clear(pObject)
+
+	Func convert P1
+		return QVariant_convert(pObject,P1)
+
+	Func isNull 
+		return QVariant_isNull(pObject)
+
+	Func isValid 
+		return QVariant_isValid(pObject)
+
+	Func swap P1
+		return QVariant_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toBitArray 
+		return QVariant_toBitArray(pObject)
+
+	Func toBool 
+		return QVariant_toBool(pObject)
+
+	Func toByteArray 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QVariant_toByteArray(pObject)
+		return pTempObj
+
+	Func toChar 
+		return QVariant_toChar(pObject)
+
+	Func toDate 
+		pTempObj = new QDate
+		pTempObj.pObject = QVariant_toDate(pObject)
+		return pTempObj
+
+	Func toDateTime 
+		return QVariant_toDateTime(pObject)
+
+	Func toDouble P1
+		return QVariant_toDouble(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toEasingCurve 
+		return QVariant_toEasingCurve(pObject)
+
+	Func toFloat P1
+		return QVariant_toFloat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toInt P1
+		return QVariant_toInt(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toJsonArray 
+		return QVariant_toJsonArray(pObject)
+
+	Func toJsonDocument 
+		return QVariant_toJsonDocument(pObject)
+
+	Func toJsonObject 
+		return QVariant_toJsonObject(pObject)
+
+	Func toJsonValue 
+		return QVariant_toJsonValue(pObject)
+
+	Func toLine 
+		return QVariant_toLine(pObject)
+
+	Func toLineF 
+		return QVariant_toLineF(pObject)
+
+	Func toLocale 
+		return QVariant_toLocale(pObject)
+
+	Func toLongLong P1
+		return QVariant_toLongLong(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toModelIndex 
+		return QVariant_toModelIndex(pObject)
+
+	Func toPersistentModelIndex 
+		return QVariant_toPersistentModelIndex(pObject)
+
+	Func toPoint 
+		return QVariant_toPoint(pObject)
+
+	Func toPointF 
+		return QVariant_toPointF(pObject)
+
+	Func toReal P1
+		return QVariant_toReal(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QVariant_toRect(pObject)
+		return pTempObj
+
+	Func toRectF 
+		return QVariant_toRectF(pObject)
+
+	Func toRegExp 
+		return QVariant_toRegExp(pObject)
+
+	Func toRegularExpression 
+		return QVariant_toRegularExpression(pObject)
+
+	Func toSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QVariant_toSize(pObject)
+		return pTempObj
+
+	Func toSizeF 
+		return QVariant_toSizeF(pObject)
+
+	Func toStringList 
+		pTempObj = new QStringList
+		pTempObj.pObject = QVariant_toStringList(pObject)
+		return pTempObj
+
+	Func toTime 
+		pTempObj = new QTime
+		pTempObj.pObject = QVariant_toTime(pObject)
+		return pTempObj
+
+	Func toUInt P1
+		return QVariant_toUInt(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toULongLong P1
+		return QVariant_toULongLong(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toUrl 
+		pTempObj = new QUrl
+		pTempObj.pObject = QVariant_toUrl(pObject)
+		return pTempObj
+
+	Func toUuid 
+		return QVariant_toUuid(pObject)
+
+	Func type 
+		return QVariant_type(pObject)
+
+	Func typeName 
+		return QVariant_typeName(pObject)
+
+	Func userType 
+		return QVariant_userType(pObject)
+
+	Func toString 
+		return QVariant_toString(pObject)
 
 Class QIcon
 
