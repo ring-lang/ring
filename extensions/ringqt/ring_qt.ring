@@ -8049,8 +8049,132 @@ Class QStringList
 	Func delete
 		pObject = QStringList_delete(pObject)
 
+	Func join P1
+		return QStringList_join(pObject,P1)
+
+	Func sort 
+		return QStringList_sort(pObject)
+
+	Func removeDuplicates 
+		return QStringList_removeDuplicates(pObject)
+
+	Func filter P1,P2
+		pTempObj = new QStringList
+		pTempObj.pObject = QStringList_filter(pObject,P1,P2)
+		return pTempObj
+
+	Func replaceInStrings P1,P2,P3
+		pTempObj = new QStringList
+		pTempObj.pObject = QStringList_replaceInStrings(pObject,P1,P2,P3)
+		return pTempObj
+
 	Func append P1
 		return QStringList_append(pObject,P1)
+
+	Func at P1
+		return QStringList_at(pObject,P1)
+
+	Func back 
+		return QStringList_back(pObject)
+
+	Func clear 
+		return QStringList_clear(pObject)
+
+	Func contains P1
+		return QStringList_contains(pObject,P1)
+
+	Func count 
+		return QStringList_count(pObject)
+
+	Func empty 
+		return QStringList_empty(pObject)
+
+	Func endsWith P1
+		return QStringList_endsWith(pObject,P1)
+
+	Func first 
+		return QStringList_first(pObject)
+
+	Func front 
+		return QStringList_front(pObject)
+
+	Func indexOf P1,P2
+		return QStringList_indexOf(pObject,P1,P2)
+
+	Func insert P1,P2
+		return QStringList_insert(pObject,P1,P2)
+
+	Func isEmpty 
+		return QStringList_isEmpty(pObject)
+
+	Func last 
+		return QStringList_last(pObject)
+
+	Func lastIndexOf P1,P2
+		return QStringList_lastIndexOf(pObject,P1,P2)
+
+	Func length 
+		return QStringList_length(pObject)
+
+	Func move P1,P2
+		return QStringList_move(pObject,P1,P2)
+
+	Func pop_back 
+		return QStringList_pop_back(pObject)
+
+	Func pop_front 
+		return QStringList_pop_front(pObject)
+
+	Func prepend P1
+		return QStringList_prepend(pObject,P1)
+
+	Func push_back P1
+		return QStringList_push_back(pObject,P1)
+
+	Func push_front P1
+		return QStringList_push_front(pObject,P1)
+
+	Func removeAll P1
+		return QStringList_removeAll(pObject,P1)
+
+	Func removeAt P1
+		return QStringList_removeAt(pObject,P1)
+
+	Func removeFirst 
+		return QStringList_removeFirst(pObject)
+
+	Func removeLast 
+		return QStringList_removeLast(pObject)
+
+	Func removeOne P1
+		return QStringList_removeOne(pObject,P1)
+
+	Func replace P1,P2
+		return QStringList_replace(pObject,P1,P2)
+
+	Func reserve P1
+		return QStringList_reserve(pObject,P1)
+
+	Func size 
+		return QStringList_size(pObject)
+
+	Func startsWith P1
+		return QStringList_startsWith(pObject,P1)
+
+	Func swap P1,P2
+		return QStringList_swap(pObject,P1,P2)
+
+	Func takeAt P1
+		return QStringList_takeAt(pObject,P1)
+
+	Func takeFirst 
+		return QStringList_takeFirst(pObject)
+
+	Func takeLast 
+		return QStringList_takeLast(pObject)
+
+	Func value P1
+		return QStringList_value(pObject,P1)
 
 Class QLCDNumber from QFrame
 

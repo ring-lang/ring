@@ -335,6 +335,7 @@ aEnumTypes + "RequiredStatus"
 aEnumTypes + "QSql::ParamType"
 aEnumTypes + "QSqlError::ErrorType"
 aEnumTypes + "QSqlField::RequiredStatus"
+aEnumTypes + "Qt::CaseSensitivity"
 </runcode>
 
 <class>
@@ -3480,7 +3481,54 @@ name: QStringList
 para: void
 </class>
 
-void append(const char *)
+QString join(QString)
+void sort(void)
+int removeDuplicates(void)
+QStringList filter(QString, Qt::CaseSensitivity)
+QStringList replaceInStrings(QString,QString, Qt::CaseSensitivity)
+
+<comment>
+Methods from QList<T>
+</comment>
+
+void append(QString)
+QString at(int)
+QString back(void)
+void clear(void)
+bool contains(QString)
+int count(void)
+bool empty(void)
+bool endsWith(QString)
+QString first(void)
+QString front(void)
+int indexOf(QString, int)
+void insert(int, QString)
+bool isEmpty(void)
+QString last(void)
+int lastIndexOf(QString,int)
+int length(void)
+void move(int,int)
+void pop_back(void)
+void pop_front(void)
+void prepend(QString)
+void push_back(QString)
+void push_front(QString)
+int removeAll(QString)
+void removeAt(int)
+void removeFirst(void)
+void removeLast(void)
+bool removeOne(QString)
+void replace(int,QString)
+void reserve(int)
+int size(void)
+bool startsWith(QString)
+void swap(int,int)
+QString takeAt(int)
+QString takeFirst(void)
+QString takeLast(void)
+QString value(int)
+
+
 
 <class>
 name: QKeySequence
