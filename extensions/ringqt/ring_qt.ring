@@ -10094,6 +10094,236 @@ Class QVariant
 	Func toString 
 		return QVariant_toString(pObject)
 
+Class QNetworkRequest
+
+	pObject
+
+	Func init P1
+		pObject = QNetworkRequest_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QNetworkRequest_delete(pObject)
+
+	Func attribute P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QNetworkRequest_attribute(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func hasRawHeader P1
+		return QNetworkRequest_hasRawHeader(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func header P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QNetworkRequest_header(pObject,P1)
+		return pTempObj
+
+	Func originatingObject 
+		pTempObj = new QObject
+		pTempObj.pObject = QNetworkRequest_originatingObject(pObject)
+		return pTempObj
+
+	Func priority 
+		return QNetworkRequest_priority(pObject)
+
+	Func rawHeader P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QNetworkRequest_rawHeader(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setAttribute P1,P2
+		return QNetworkRequest_setAttribute(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setHeader P1,P2
+		return QNetworkRequest_setHeader(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setOriginatingObject P1
+		return QNetworkRequest_setOriginatingObject(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPriority P1
+		return QNetworkRequest_setPriority(pObject,P1)
+
+	Func setRawHeader P1,P2
+		return QNetworkRequest_setRawHeader(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setSslConfiguration P1
+		return QNetworkRequest_setSslConfiguration(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUrl P1
+		return QNetworkRequest_setUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func sslConfiguration 
+		return QNetworkRequest_sslConfiguration(pObject)
+
+	Func swap P1
+		return QNetworkRequest_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func url 
+		pTempObj = new QUrl
+		pTempObj.pObject = QNetworkRequest_url(pObject)
+		return pTempObj
+
+Class QNetworkAccessManager
+
+	pObject
+
+	Func init 
+		pObject = QNetworkAccessManager_new()
+		return self
+
+	Func delete
+		pObject = QNetworkAccessManager_delete(pObject)
+
+	Func activeConfiguration 
+		return QNetworkAccessManager_activeConfiguration(pObject)
+
+	Func cache 
+		return QNetworkAccessManager_cache(pObject)
+
+	Func clearAccessCache 
+		return QNetworkAccessManager_clearAccessCache(pObject)
+
+	Func configuration 
+		return QNetworkAccessManager_configuration(pObject)
+
+	Func connectToHost P1,P2
+		return QNetworkAccessManager_connectToHost(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func connectToHostEncrypted P1,P2,P3
+		return QNetworkAccessManager_connectToHostEncrypted(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func cookieJar 
+		return QNetworkAccessManager_cookieJar(pObject)
+
+	Func deleteResource P1
+		pTempObj = new QNetworkReply
+		pTempObj.pObject = QNetworkAccessManager_deleteResource(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func get P1
+		pTempObj = new QNetworkReply
+		pTempObj.pObject = QNetworkAccessManager_get(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func head P1
+		pTempObj = new QNetworkReply
+		pTempObj.pObject = QNetworkAccessManager_head(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func networkAccessible 
+		return QNetworkAccessManager_networkAccessible(pObject)
+
+	Func post P1,P2
+		pTempObj = new QNetworkReply
+		pTempObj.pObject = QNetworkAccessManager_post(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func proxy 
+		pTempObj = new QNetworkProxy
+		pTempObj.pObject = QNetworkAccessManager_proxy(pObject)
+		return pTempObj
+
+	Func proxyFactory 
+		return QNetworkAccessManager_proxyFactory(pObject)
+
+	Func put P1,P2
+		pTempObj = new QNetworkReply
+		pTempObj.pObject = QNetworkAccessManager_put(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func sendCustomRequest P1,P2,P3
+		pTempObj = new QNetworkReply
+		pTempObj.pObject = QNetworkAccessManager_sendCustomRequest(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func setCache P1
+		return QNetworkAccessManager_setCache(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setConfiguration P1
+		return QNetworkAccessManager_setConfiguration(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCookieJar P1
+		return QNetworkAccessManager_setCookieJar(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setNetworkAccessible P1
+		return QNetworkAccessManager_setNetworkAccessible(pObject,P1)
+
+	Func setProxy P1
+		return QNetworkAccessManager_setProxy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setProxyFactory P1
+		return QNetworkAccessManager_setProxyFactory(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func supportedSchemes 
+		pTempObj = new QStringList
+		pTempObj.pObject = QNetworkAccessManager_supportedSchemes(pObject)
+		return pTempObj
+
+Class QNetworkReply
+
+	pObject
+
+	Func init 
+		pObject = QNetworkReply_new()
+		return self
+
+	Func delete
+		pObject = QNetworkReply_delete(pObject)
+
+	Func attribute P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QNetworkReply_attribute(pObject,P1)
+		return pTempObj
+
+	Func error 
+		return QNetworkReply_error(pObject)
+
+	Func hasRawHeader P1
+		return QNetworkReply_hasRawHeader(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func header P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QNetworkReply_header(pObject,P1)
+		return pTempObj
+
+	Func isFinished 
+		return QNetworkReply_isFinished(pObject)
+
+	Func isRunning 
+		return QNetworkReply_isRunning(pObject)
+
+	Func manager 
+		pTempObj = new QNetworkAccessManager
+		pTempObj.pObject = QNetworkReply_manager(pObject)
+		return pTempObj
+
+	Func operation 
+		return QNetworkReply_operation(pObject)
+
+	Func rawHeader P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QNetworkReply_rawHeader(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func readBufferSize 
+		return QNetworkReply_readBufferSize(pObject)
+
+	Func request 
+		pTempObj = new QNetworkRequest
+		pTempObj.pObject = QNetworkReply_request(pObject)
+		return pTempObj
+
+	Func setSslConfiguration P1
+		return QNetworkReply_setSslConfiguration(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func sslConfiguration 
+		return QNetworkReply_sslConfiguration(pObject)
+
+	Func url 
+		pTempObj = new QUrl
+		pTempObj.pObject = QNetworkReply_url(pObject)
+		return pTempObj
+
 Class QIcon
 
 	pObject

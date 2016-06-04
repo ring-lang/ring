@@ -135,6 +135,9 @@ extern "C" {
 #include <QSqlRecord>
 #include <QSqlField>
 #include <QSqlDriverCreatorBase>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 extern "C" {
 
@@ -57151,6 +57154,1106 @@ RING_FUNC(ring_QVariant_toString)
 	RING_API_RETSTRING(pObject->toString().toStdString().c_str());
 }
 
+
+RING_FUNC(ring_QNetworkRequest_attribute)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = new QVariant() ;
+		*pValue = pObject->attribute( (QNetworkRequest::Attribute)  (int) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QVariant"));
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkRequest_hasRawHeader)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	RING_API_RETNUMBER(pObject->hasRawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QNetworkRequest_header)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = new QVariant() ;
+		*pValue = pObject->header( (QNetworkRequest::KnownHeaders)  (int) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkRequest_originatingObject)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	RING_API_RETCPOINTER(pObject->originatingObject(),"QObject");
+}
+
+
+RING_FUNC(ring_QNetworkRequest_priority)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	RING_API_RETNUMBER(pObject->priority());
+}
+
+
+RING_FUNC(ring_QNetworkRequest_rawHeader)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	{
+		QByteArray *pValue ; 
+		pValue = new QByteArray() ;
+		*pValue = pObject->rawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		RING_API_RETCPOINTER(pValue,"QByteArray");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkRequest_setAttribute)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAttribute( (QNetworkRequest::Attribute)  (int) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QVariant"));
+}
+
+
+RING_FUNC(ring_QNetworkRequest_setHeader)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setHeader( (QNetworkRequest::KnownHeaders)  (int) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QVariant"));
+}
+
+
+RING_FUNC(ring_QNetworkRequest_setOriginatingObject)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setOriginatingObject((QObject *) RING_API_GETCPOINTER(2,"QObject"));
+}
+
+
+RING_FUNC(ring_QNetworkRequest_setPriority)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPriority( (QNetworkRequest::Priority )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QNetworkRequest_setRawHeader)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	pObject->setRawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"),* (QByteArray *) RING_API_GETCPOINTER(3,"QByteArray"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QByteArray"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QNetworkRequest_setSslConfiguration)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	pObject->setSslConfiguration(* (QSslConfiguration *) RING_API_GETCPOINTER(2,"QSslConfiguration"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSslConfiguration"));
+}
+
+
+RING_FUNC(ring_QNetworkRequest_setUrl)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	pObject->setUrl(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QUrl"));
+}
+
+
+RING_FUNC(ring_QNetworkRequest_sslConfiguration)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	{
+		QSslConfiguration *pValue ; 
+		pValue = (QSslConfiguration *) malloc(sizeof(QSslConfiguration)) ;
+		*pValue = pObject->sslConfiguration();
+		RING_API_RETCPOINTER(pValue,"QSslConfiguration");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkRequest_swap)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	pObject->swap(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+}
+
+
+RING_FUNC(ring_QNetworkRequest_url)
+{
+	QNetworkRequest *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+	{
+		QUrl *pValue ; 
+		pValue = new QUrl() ;
+		*pValue = pObject->url();
+		RING_API_RETCPOINTER(pValue,"QUrl");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_activeConfiguration)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	{
+		QNetworkConfiguration *pValue ; 
+		pValue = (QNetworkConfiguration *) malloc(sizeof(QNetworkConfiguration)) ;
+		*pValue = pObject->activeConfiguration();
+		RING_API_RETCPOINTER(pValue,"QNetworkConfiguration");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_cache)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETCPOINTER(pObject->cache(),"QAbstractNetworkCache");
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_clearAccessCache)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	pObject->clearAccessCache();
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_configuration)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	{
+		QNetworkConfiguration *pValue ; 
+		pValue = (QNetworkConfiguration *) malloc(sizeof(QNetworkConfiguration)) ;
+		*pValue = pObject->configuration();
+		RING_API_RETCPOINTER(pValue,"QNetworkConfiguration");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_connectToHost)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->connectToHost(RING_API_GETSTRING(2),* (quint16 *) RING_API_GETCPOINTER(3,"quint16"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"quint16"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_connectToHostEncrypted)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->connectToHostEncrypted(RING_API_GETSTRING(2),* (quint16 *) RING_API_GETCPOINTER(3,"quint16"),* (QSslConfiguration *) RING_API_GETCPOINTER(4,"QSslConfiguration"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"quint16"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		free(RING_API_GETCPOINTER(3,"QSslConfiguration"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_cookieJar)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETCPOINTER(pObject->cookieJar(),"QNetworkCookieJar");
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_deleteResource)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETCPOINTER(pObject->deleteResource(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest")),"QNetworkReply");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_get)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETCPOINTER(pObject->get(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest")),"QNetworkReply");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_head)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETCPOINTER(pObject->head(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest")),"QNetworkReply");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_networkAccessible)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETNUMBER(pObject->networkAccessible());
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_post)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETCPOINTER(pObject->post(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest"),* (QByteArray *) RING_API_GETCPOINTER(3,"QByteArray")),"QNetworkReply");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_proxy)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	{
+		QNetworkProxy *pValue ; 
+		pValue = new QNetworkProxy() ;
+		*pValue = pObject->proxy();
+		RING_API_RETCPOINTER(pValue,"QNetworkProxy");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_proxyFactory)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETCPOINTER(pObject->proxyFactory(),"QNetworkProxyFactory");
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_put)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETCPOINTER(pObject->put(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest"),* (QByteArray *) RING_API_GETCPOINTER(3,"QByteArray")),"QNetworkReply");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_sendCustomRequest)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->sendCustomRequest(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest"),* (QByteArray *) RING_API_GETCPOINTER(3,"QByteArray"),(QIODevice *) RING_API_GETCPOINTER(4,"QIODevice")),"QNetworkReply");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_setCache)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCache((QAbstractNetworkCache *) RING_API_GETCPOINTER(2,"QAbstractNetworkCache"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_setConfiguration)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	pObject->setConfiguration(* (QNetworkConfiguration *) RING_API_GETCPOINTER(2,"QNetworkConfiguration"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QNetworkConfiguration"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_setCookieJar)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCookieJar((QNetworkCookieJar *) RING_API_GETCPOINTER(2,"QNetworkCookieJar"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_setNetworkAccessible)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNetworkAccessible( (QNetworkAccessManager::NetworkAccessibility )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_setProxy)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	pObject->setProxy(* (QNetworkProxy *) RING_API_GETCPOINTER(2,"QNetworkProxy"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QNetworkProxy"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_setProxyFactory)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setProxyFactory((QNetworkProxyFactory *) RING_API_GETCPOINTER(2,"QNetworkProxyFactory"));
+}
+
+
+RING_FUNC(ring_QNetworkAccessManager_supportedSchemes)
+{
+	QNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->supportedSchemes();
+		RING_API_RETCPOINTER(pValue,"QStringList");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkReply_attribute)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = new QVariant() ;
+		*pValue = pObject->attribute( (QNetworkRequest::Attribute )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkReply_error)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	RING_API_RETNUMBER(pObject->error());
+}
+
+
+RING_FUNC(ring_QNetworkReply_hasRawHeader)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	RING_API_RETNUMBER(pObject->hasRawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QNetworkReply_header)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = new QVariant() ;
+		*pValue = pObject->header( (QNetworkRequest::KnownHeaders )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkReply_isFinished)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	RING_API_RETNUMBER(pObject->isFinished());
+}
+
+
+RING_FUNC(ring_QNetworkReply_isRunning)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	RING_API_RETNUMBER(pObject->isRunning());
+}
+
+
+RING_FUNC(ring_QNetworkReply_manager)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	RING_API_RETCPOINTER(pObject->manager(),"QNetworkAccessManager");
+}
+
+
+RING_FUNC(ring_QNetworkReply_operation)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	{
+		QNetworkAccessManager::Operation *pValue ; 
+		pValue = (QNetworkAccessManager::Operation *) malloc(sizeof(QNetworkAccessManager::Operation)) ;
+		*pValue = pObject->operation();
+		RING_API_RETCPOINTER(pValue,"QNetworkAccessManager::Operation");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkReply_rawHeader)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	{
+		QByteArray *pValue ; 
+		pValue = new QByteArray() ;
+		*pValue = pObject->rawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		RING_API_RETCPOINTER(pValue,"QByteArray");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkReply_readBufferSize)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	{
+		qint64 *pValue ; 
+		pValue = (qint64 *) malloc(sizeof(qint64)) ;
+		*pValue = pObject->readBufferSize();
+		RING_API_RETCPOINTER(pValue,"qint64");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkReply_request)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	{
+		QNetworkRequest *pValue ; 
+		pValue = new QNetworkRequest() ;
+		*pValue = pObject->request();
+		RING_API_RETCPOINTER(pValue,"QNetworkRequest");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkReply_setSslConfiguration)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	pObject->setSslConfiguration(* (QSslConfiguration *) RING_API_GETCPOINTER(2,"QSslConfiguration"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSslConfiguration"));
+}
+
+
+RING_FUNC(ring_QNetworkReply_sslConfiguration)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	{
+		QSslConfiguration *pValue ; 
+		pValue = (QSslConfiguration *) malloc(sizeof(QSslConfiguration)) ;
+		*pValue = pObject->sslConfiguration();
+		RING_API_RETCPOINTER(pValue,"QSslConfiguration");
+	}
+}
+
+
+RING_FUNC(ring_QNetworkReply_url)
+{
+	QNetworkReply *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
+	{
+		QUrl *pValue ; 
+		pValue = new QUrl() ;
+		*pValue = pObject->url();
+		RING_API_RETCPOINTER(pValue,"QUrl");
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
@@ -57779,6 +58882,20 @@ RING_FUNC(ring_QVariant_new)
 		RING_API_IGNORECPOINTERTYPE ;
 	QVariant *pObject = new QVariant();
 	RING_API_RETCPOINTER(pObject,"QVariant");
+}
+
+RING_FUNC(ring_QNetworkRequest_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QNetworkRequest *pObject = new QNetworkRequest(* (QUrl *) RING_API_GETCPOINTER(1,"QUrl"));
+	RING_API_RETCPOINTER(pObject,"QNetworkRequest");
+}
+
+RING_FUNC(ring_QNetworkAccessManager_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QNetworkAccessManager *pObject = new QNetworkAccessManager();
+	RING_API_RETCPOINTER(pObject,"QNetworkAccessManager");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -59127,6 +60244,36 @@ RING_FUNC(ring_QVariant_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QNetworkRequest_delete)
+{
+	QNetworkRequest *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QNetworkAccessManager_delete)
+{
+	QNetworkAccessManager *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 		delete pObject ;
 	}
 }
@@ -61919,6 +63066,59 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvariant_typename",ring_QVariant_typeName);
 	ring_vm_funcregister("qvariant_usertype",ring_QVariant_userType);
 	ring_vm_funcregister("qvariant_tostring",ring_QVariant_toString);
+	ring_vm_funcregister("qnetworkrequest_attribute",ring_QNetworkRequest_attribute);
+	ring_vm_funcregister("qnetworkrequest_hasrawheader",ring_QNetworkRequest_hasRawHeader);
+	ring_vm_funcregister("qnetworkrequest_header",ring_QNetworkRequest_header);
+	ring_vm_funcregister("qnetworkrequest_originatingobject",ring_QNetworkRequest_originatingObject);
+	ring_vm_funcregister("qnetworkrequest_priority",ring_QNetworkRequest_priority);
+	ring_vm_funcregister("qnetworkrequest_rawheader",ring_QNetworkRequest_rawHeader);
+	ring_vm_funcregister("qnetworkrequest_setattribute",ring_QNetworkRequest_setAttribute);
+	ring_vm_funcregister("qnetworkrequest_setheader",ring_QNetworkRequest_setHeader);
+	ring_vm_funcregister("qnetworkrequest_setoriginatingobject",ring_QNetworkRequest_setOriginatingObject);
+	ring_vm_funcregister("qnetworkrequest_setpriority",ring_QNetworkRequest_setPriority);
+	ring_vm_funcregister("qnetworkrequest_setrawheader",ring_QNetworkRequest_setRawHeader);
+	ring_vm_funcregister("qnetworkrequest_setsslconfiguration",ring_QNetworkRequest_setSslConfiguration);
+	ring_vm_funcregister("qnetworkrequest_seturl",ring_QNetworkRequest_setUrl);
+	ring_vm_funcregister("qnetworkrequest_sslconfiguration",ring_QNetworkRequest_sslConfiguration);
+	ring_vm_funcregister("qnetworkrequest_swap",ring_QNetworkRequest_swap);
+	ring_vm_funcregister("qnetworkrequest_url",ring_QNetworkRequest_url);
+	ring_vm_funcregister("qnetworkaccessmanager_activeconfiguration",ring_QNetworkAccessManager_activeConfiguration);
+	ring_vm_funcregister("qnetworkaccessmanager_cache",ring_QNetworkAccessManager_cache);
+	ring_vm_funcregister("qnetworkaccessmanager_clearaccesscache",ring_QNetworkAccessManager_clearAccessCache);
+	ring_vm_funcregister("qnetworkaccessmanager_configuration",ring_QNetworkAccessManager_configuration);
+	ring_vm_funcregister("qnetworkaccessmanager_connecttohost",ring_QNetworkAccessManager_connectToHost);
+	ring_vm_funcregister("qnetworkaccessmanager_connecttohostencrypted",ring_QNetworkAccessManager_connectToHostEncrypted);
+	ring_vm_funcregister("qnetworkaccessmanager_cookiejar",ring_QNetworkAccessManager_cookieJar);
+	ring_vm_funcregister("qnetworkaccessmanager_deleteresource",ring_QNetworkAccessManager_deleteResource);
+	ring_vm_funcregister("qnetworkaccessmanager_get",ring_QNetworkAccessManager_get);
+	ring_vm_funcregister("qnetworkaccessmanager_head",ring_QNetworkAccessManager_head);
+	ring_vm_funcregister("qnetworkaccessmanager_networkaccessible",ring_QNetworkAccessManager_networkAccessible);
+	ring_vm_funcregister("qnetworkaccessmanager_post",ring_QNetworkAccessManager_post);
+	ring_vm_funcregister("qnetworkaccessmanager_proxy",ring_QNetworkAccessManager_proxy);
+	ring_vm_funcregister("qnetworkaccessmanager_proxyfactory",ring_QNetworkAccessManager_proxyFactory);
+	ring_vm_funcregister("qnetworkaccessmanager_put",ring_QNetworkAccessManager_put);
+	ring_vm_funcregister("qnetworkaccessmanager_sendcustomrequest",ring_QNetworkAccessManager_sendCustomRequest);
+	ring_vm_funcregister("qnetworkaccessmanager_setcache",ring_QNetworkAccessManager_setCache);
+	ring_vm_funcregister("qnetworkaccessmanager_setconfiguration",ring_QNetworkAccessManager_setConfiguration);
+	ring_vm_funcregister("qnetworkaccessmanager_setcookiejar",ring_QNetworkAccessManager_setCookieJar);
+	ring_vm_funcregister("qnetworkaccessmanager_setnetworkaccessible",ring_QNetworkAccessManager_setNetworkAccessible);
+	ring_vm_funcregister("qnetworkaccessmanager_setproxy",ring_QNetworkAccessManager_setProxy);
+	ring_vm_funcregister("qnetworkaccessmanager_setproxyfactory",ring_QNetworkAccessManager_setProxyFactory);
+	ring_vm_funcregister("qnetworkaccessmanager_supportedschemes",ring_QNetworkAccessManager_supportedSchemes);
+	ring_vm_funcregister("qnetworkreply_attribute",ring_QNetworkReply_attribute);
+	ring_vm_funcregister("qnetworkreply_error",ring_QNetworkReply_error);
+	ring_vm_funcregister("qnetworkreply_hasrawheader",ring_QNetworkReply_hasRawHeader);
+	ring_vm_funcregister("qnetworkreply_header",ring_QNetworkReply_header);
+	ring_vm_funcregister("qnetworkreply_isfinished",ring_QNetworkReply_isFinished);
+	ring_vm_funcregister("qnetworkreply_isrunning",ring_QNetworkReply_isRunning);
+	ring_vm_funcregister("qnetworkreply_manager",ring_QNetworkReply_manager);
+	ring_vm_funcregister("qnetworkreply_operation",ring_QNetworkReply_operation);
+	ring_vm_funcregister("qnetworkreply_rawheader",ring_QNetworkReply_rawHeader);
+	ring_vm_funcregister("qnetworkreply_readbuffersize",ring_QNetworkReply_readBufferSize);
+	ring_vm_funcregister("qnetworkreply_request",ring_QNetworkReply_request);
+	ring_vm_funcregister("qnetworkreply_setsslconfiguration",ring_QNetworkReply_setSslConfiguration);
+	ring_vm_funcregister("qnetworkreply_sslconfiguration",ring_QNetworkReply_sslConfiguration);
+	ring_vm_funcregister("qnetworkreply_url",ring_QNetworkReply_url);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -62009,6 +63209,8 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qsqlrecord_new",ring_QSqlRecord_new);
 	ring_vm_funcregister("qsqlfield_new",ring_QSqlField_new);
 	ring_vm_funcregister("qvariant_new",ring_QVariant_new);
+	ring_vm_funcregister("qnetworkrequest_new",ring_QNetworkRequest_new);
+	ring_vm_funcregister("qnetworkaccessmanager_new",ring_QNetworkAccessManager_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -62099,4 +63301,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qsqlrecord_delete",ring_QSqlRecord_delete);
 	ring_vm_funcregister("qsqlfield_delete",ring_QSqlField_delete);
 	ring_vm_funcregister("qvariant_delete",ring_QVariant_delete);
+	ring_vm_funcregister("qnetworkrequest_delete",ring_QNetworkRequest_delete);
+	ring_vm_funcregister("qnetworkaccessmanager_delete",ring_QNetworkAccessManager_delete);
 }

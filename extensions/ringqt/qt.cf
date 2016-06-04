@@ -148,6 +148,9 @@ extern "C" {
 #include <QSqlRecord>
 #include <QSqlField>
 #include <QSqlDriverCreatorBase>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 extern "C" {
 
@@ -336,6 +339,13 @@ aEnumTypes + "QSql::ParamType"
 aEnumTypes + "QSqlError::ErrorType"
 aEnumTypes + "QSqlField::RequiredStatus"
 aEnumTypes + "Qt::CaseSensitivity"
+aEnumTypes + "QNetworkRequest::Attribute"
+aEnumTypes + "QNetworkRequest::KnownHeaders"
+aEnumTypes + "QNetworkRequest::Priority"
+aEnumTypes + "QNetworkRequest::KnownHeaders" 
+aEnumTypes + "QNetworkRequest::Priority"
+aEnumTypes + "QNetworkAccessManager::NetworkAccessibility"
+aEnumTypes + "QNetworkReply::NetworkError"
 </runcode>
 
 <class>
@@ -4223,3 +4233,75 @@ QVariant::Type type(void)
 const char *typeName(void)
 int userType(void)
 QString toString(void)
+
+<class>
+name: QNetworkRequest
+para: QUrl
+</class>
+
+QVariant attribute(QNetworkRequest::Attribute, QVariant)
+bool hasRawHeader(QByteArray)
+QVariant header(QNetworkRequest::KnownHeaders)
+QObject *originatingObject(void)
+QNetworkRequest::Priority priority(void)
+QByteArray rawHeader(QByteArray)
+void setAttribute(QNetworkRequest::Attribute, QVariant)
+void setHeader(QNetworkRequest::KnownHeaders, QVariant)
+void setOriginatingObject(QObject *object)
+void setPriority(QNetworkRequest::Priority priority)
+void setRawHeader(QByteArray, QByteArray)
+void setSslConfiguration(QSslConfiguration)
+void setUrl(QUrl)
+QSslConfiguration sslConfiguration(void)
+void swap(QNetworkRequest)
+QUrl url(void)
+
+<class>
+name: QNetworkAccessManager
+para: void
+</class>
+
+QNetworkConfiguration activeConfiguration(void)
+QAbstractNetworkCache *cache(void)
+void clearAccessCache(void)
+QNetworkConfiguration configuration(void)
+void connectToHost(QString, quint16)
+void connectToHostEncrypted(QString, quint16, QSslConfiguration)
+QNetworkCookieJar *cookieJar(void)
+QNetworkReply *deleteResource(QNetworkRequest)
+QNetworkReply *get(QNetworkRequest)
+QNetworkReply *head(QNetworkRequest)
+QNetworkAccessManager::NetworkAccessibility networkAccessible(void)
+QNetworkReply *post(QNetworkRequest, QByteArray)
+QNetworkProxy proxy(void)
+QNetworkProxyFactory *proxyFactory(void)
+QNetworkReply *put(QNetworkRequest, QByteArray)
+QNetworkReply *sendCustomRequest(QNetworkRequest, QByteArray, QIODevice *)
+void setCache(QAbstractNetworkCache *cache)
+void setConfiguration(QNetworkConfiguration)
+void setCookieJar(QNetworkCookieJar *cookieJar)
+void setNetworkAccessible(QNetworkAccessManager::NetworkAccessibility accessible)
+void setProxy(QNetworkProxy)
+void setProxyFactory(QNetworkProxyFactory *factory)
+QStringList supportedSchemes(void)
+
+<class>
+name: QNetworkReply
+para: void
+abstract
+</class>
+
+QVariant attribute(QNetworkRequest::Attribute code)
+QNetworkReply::NetworkError error(void)
+bool hasRawHeader(QByteArray)
+QVariant header(QNetworkRequest::KnownHeaders header)
+bool isFinished(void)
+bool isRunning(void)
+QNetworkAccessManager *manager(void)
+QNetworkAccessManager::Operation operation(void)
+QByteArray rawHeader(QByteArray)
+qint64 readBufferSize(void)
+QNetworkRequest request(void)
+void setSslConfiguration(QSslConfiguration)
+QSslConfiguration sslConfiguration(void)
+QUrl url(void)
