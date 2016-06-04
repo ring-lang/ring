@@ -25,8 +25,7 @@ Func pCreate
 	oCon = oCon.addDatabase("QSQLITE")
 	see oCon.DriverName() + nl
 	oCon.setDatabaseName("test.db")
-	see ocon.lasterror().text() + nl
-	SEE cdir + "appdata.db" + nl
+	//see ocon.lasterror().text() + nl
  	SEE oCon.open() + NL
 	see ocon.isopen() + nl
 	see ocon.lasterror().text() + nl	 
