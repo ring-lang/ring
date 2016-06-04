@@ -352,16 +352,28 @@ void processEvents(void)
 
 RING_FUNC(ring_qApp_quit)
 {
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
 	qApp->quit();
 }
 
 RING_FUNC(ring_qApp_exec)
 {
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
 	qApp->exec();
 }
 
 RING_FUNC(ring_qApp_processEvents)
 {
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
 	qApp->processEvents();
 }
 
