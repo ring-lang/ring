@@ -10163,7 +10163,7 @@ Class QNetworkRequest
 		pTempObj.pObject = QNetworkRequest_url(pObject)
 		return pTempObj
 
-Class QNetworkAccessManager
+Class QNetworkAccessManager from QObject
 
 	pObject
 
@@ -10259,7 +10259,7 @@ Class QNetworkAccessManager
 		pTempObj.pObject = QNetworkAccessManager_supportedSchemes(pObject)
 		return pTempObj
 
-Class QNetworkReply
+Class QNetworkReply from QIODevice
 
 	pObject
 

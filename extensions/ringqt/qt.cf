@@ -4259,6 +4259,7 @@ QUrl url(void)
 <class>
 name: QNetworkAccessManager
 para: void
+parent: QObject
 </class>
 
 QNetworkConfiguration activeConfiguration(void)
@@ -4288,6 +4289,7 @@ QStringList supportedSchemes(void)
 <class>
 name: QNetworkReply
 para: void
+parent: QIODevice
 abstract
 </class>
 
