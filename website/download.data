@@ -14,6 +14,11 @@
 					'Ring 1.0 for MacOS X',
 					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_MacOSX_64bit_binary_release.zip/download" target="_blank">Download</a>',
 					'<img src="ringmac.png" width="40%">'
+				 ],
+				 [
+					'Ring 1.0 for Mobile App Development using Qt',
+					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_MobileAppDevelopment_Qt_Project.zip/download" target="_blank">Download</a>',
+					'<img src="ringandroid.png" width="40%">'
 				 ]
 				]
 		],
