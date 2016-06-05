@@ -10146,14 +10146,8 @@ Class QNetworkRequest
 	Func setRawHeader P1,P2
 		return QNetworkRequest_setRawHeader(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
-	Func setSslConfiguration P1
-		return QNetworkRequest_setSslConfiguration(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func setUrl P1
 		return QNetworkRequest_setUrl(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func sslConfiguration 
-		return QNetworkRequest_sslConfiguration(pObject)
 
 	Func swap P1
 		return QNetworkRequest_swap(pObject,GetObjectPointerFromRingObject(P1))
@@ -10167,12 +10161,15 @@ Class QNetworkAccessManager from QObject
 
 	pObject
 
-	Func init 
-		pObject = QNetworkAccessManager_new()
+	Func init P1
+		pObject = QNetworkAccessManager_new(GetObjectPointerFromRingObject(P1))
 		return self
 
 	Func delete
 		pObject = QNetworkAccessManager_delete(pObject)
+
+	Func setfinishedEvent P1
+		return QNetworkAccessManager_setfinishedEvent(pObject,P1)
 
 	Func activeConfiguration 
 		return QNetworkAccessManager_activeConfiguration(pObject)
@@ -10188,9 +10185,6 @@ Class QNetworkAccessManager from QObject
 
 	Func connectToHost P1,P2
 		return QNetworkAccessManager_connectToHost(pObject,P1,GetObjectPointerFromRingObject(P2))
-
-	Func connectToHostEncrypted P1,P2,P3
-		return QNetworkAccessManager_connectToHostEncrypted(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
 
 	Func cookieJar 
 		return QNetworkAccessManager_cookieJar(pObject)
@@ -10312,12 +10306,6 @@ Class QNetworkReply from QIODevice
 		pTempObj = new QNetworkRequest
 		pTempObj.pObject = QNetworkReply_request(pObject)
 		return pTempObj
-
-	Func setSslConfiguration P1
-		return QNetworkReply_setSslConfiguration(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func sslConfiguration 
-		return QNetworkReply_sslConfiguration(pObject)
 
 	Func url 
 		pTempObj = new QUrl

@@ -28,6 +28,7 @@ extern "C" {
 <filter> (get("RINGQT_ANDROID") = "")
 #include "gwebview.h"
 </filter>
+#include "gnetworkaccessmanager.h"
 #include "gcheckbox.h"
 #include "gradiobutton.h"
 #include "gbuttongroup.h"
@@ -4250,24 +4251,33 @@ void setHeader(QNetworkRequest::KnownHeaders, QVariant)
 void setOriginatingObject(QObject *object)
 void setPriority(QNetworkRequest::Priority priority)
 void setRawHeader(QByteArray, QByteArray)
+<comment>
 void setSslConfiguration(QSslConfiguration)
-void setUrl(QUrl)
 QSslConfiguration sslConfiguration(void)
+</comment>
+void setUrl(QUrl)
+
 void swap(QNetworkRequest)
 QUrl url(void)
 
 <class>
 name: QNetworkAccessManager
-para: void
+para: QObject *
 parent: QObject
+codename: GNetworkAccessManager
+passvmpointer
 </class>
+
+void setfinishedEvent(const char *)
 
 QNetworkConfiguration activeConfiguration(void)
 QAbstractNetworkCache *cache(void)
 void clearAccessCache(void)
 QNetworkConfiguration configuration(void)
 void connectToHost(QString, quint16)
+<comment>
 void connectToHostEncrypted(QString, quint16, QSslConfiguration)
+</comment>
 QNetworkCookieJar *cookieJar(void)
 QNetworkReply *deleteResource(QNetworkRequest)
 QNetworkReply *get(QNetworkRequest)
@@ -4304,6 +4314,8 @@ QNetworkAccessManager::Operation operation(void)
 QByteArray rawHeader(QByteArray)
 qint64 readBufferSize(void)
 QNetworkRequest request(void)
+<comment>
 void setSslConfiguration(QSslConfiguration)
 QSslConfiguration sslConfiguration(void)
+</comment>
 QUrl url(void)

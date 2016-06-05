@@ -37,6 +37,7 @@ SOURCES +=   \
     gabstractsocket.cpp \
     gtcpsocket.cpp \
     gallevents.cpp \
+    gnetworkaccessmanager.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -64,7 +65,8 @@ HEADERS  += \
     giodevice.h \
     gabstractsocket.h \
     gtcpsocket.h \
-    gallevents.h 
+    gallevents.h \
+    gnetworkaccessmanager.h 
 
 INCLUDEPATH += ../../include
 

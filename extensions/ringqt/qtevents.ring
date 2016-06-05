@@ -670,6 +670,16 @@ aclasses = [
 						:event = "currentColorChanged"
 					]
 				  ]
+		],
+		[	:name = "GNetworkAccessManager" ,
+			:realname = "QNetworkAccessManager" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "finished(QNetworkReply*)" ,
+						:slot = "finishedSlot(QNetworkReply*)" ,
+						:event = "finished"
+					] 
+				  ]
 		]
 	    ]
 
@@ -809,7 +819,11 @@ void "+aClass[:name]+"::set"+aEvent[:event]+"Event(const char *cStr)
 
 		# Slots
 		cSlots += '
-void '+aClass[:name]+'::'+aEvent[:slot]+'
+void '+aClass[:name]+'::'
+
+		cSlots += aEvent[:slot]
+
+		cSlots +='
 {
 	if (strcmp(this->c'+aEvent[:event]+'Event,"")==0)
 		return ;
