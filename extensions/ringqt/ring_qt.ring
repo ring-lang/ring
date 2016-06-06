@@ -9566,9 +9566,6 @@ Class QSqlDriver
 	Func delete
 		pObject = QSqlDriver_delete(pObject)
 
-	Func dbmsType 
-		return QSqlDriver_dbmsType(pObject)
-
 	Func isOpenError 
 		return QSqlDriver_isOpenError(pObject)
 
@@ -10023,9 +10020,6 @@ Class QVariant
 
 	Func toModelIndex 
 		return QVariant_toModelIndex(pObject)
-
-	Func toPersistentModelIndex 
-		return QVariant_toPersistentModelIndex(pObject)
 
 	Func toPoint 
 		return QVariant_toPoint(pObject)

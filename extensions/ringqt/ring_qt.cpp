@@ -54293,23 +54293,6 @@ RING_FUNC(ring_QSqlDatabase_removeDatabase)
 }
 
 
-RING_FUNC(ring_QSqlDriver_dbmsType)
-{
-	QSqlDriver *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QSqlDriver *) RING_API_GETCPOINTER(1,"QSqlDriver");
-	RING_API_RETNUMBER(pObject->dbmsType());
-}
-
-
 RING_FUNC(ring_QSqlDriver_isOpenError)
 {
 	QSqlDriver *pObject ;
@@ -56720,28 +56703,6 @@ RING_FUNC(ring_QVariant_toModelIndex)
 		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->toModelIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
-	}
-}
-
-
-RING_FUNC(ring_QVariant_toPersistentModelIndex)
-{
-	QVariant *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
-	{
-		QPersistentModelIndex *pValue ; 
-		pValue = (QPersistentModelIndex *) malloc(sizeof(QPersistentModelIndex)) ;
-		*pValue = pObject->toPersistentModelIndex();
-		RING_API_RETCPOINTER(pValue,"QPersistentModelIndex");
 	}
 }
 
@@ -62839,7 +62800,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qsqldatabase_isdriveravailable",ring_QSqlDatabase_isDriverAvailable);
 	ring_vm_funcregister("qsqldatabase_registersqldriver",ring_QSqlDatabase_registerSqlDriver);
 	ring_vm_funcregister("qsqldatabase_removedatabase",ring_QSqlDatabase_removeDatabase);
-	ring_vm_funcregister("qsqldriver_dbmstype",ring_QSqlDriver_dbmsType);
 	ring_vm_funcregister("qsqldriver_isopenerror",ring_QSqlDriver_isOpenError);
 	ring_vm_funcregister("qsqldriver_lasterror",ring_QSqlDriver_lastError);
 	ring_vm_funcregister("qsqldriver_numericalprecisionpolicy",ring_QSqlDriver_numericalPrecisionPolicy);
@@ -62961,7 +62921,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvariant_tolocale",ring_QVariant_toLocale);
 	ring_vm_funcregister("qvariant_tolonglong",ring_QVariant_toLongLong);
 	ring_vm_funcregister("qvariant_tomodelindex",ring_QVariant_toModelIndex);
-	ring_vm_funcregister("qvariant_topersistentmodelindex",ring_QVariant_toPersistentModelIndex);
 	ring_vm_funcregister("qvariant_topoint",ring_QVariant_toPoint);
 	ring_vm_funcregister("qvariant_topointf",ring_QVariant_toPointF);
 	ring_vm_funcregister("qvariant_toreal",ring_QVariant_toReal);

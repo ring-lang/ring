@@ -4049,7 +4049,9 @@ para: void
 abstract
 </class>
 
+<comment>
 DbmsType dbmsType(void)
+</comment>
 bool isOpenError(void)
 QSqlError lastError(void)
 QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
@@ -4214,7 +4216,9 @@ QLineF toLineF(void)
 QLocale toLocale(void)
 qlonglong toLongLong(bool *ok)
 QModelIndex toModelIndex(void)
+<comment>
 QPersistentModelIndex toPersistentModelIndex(void)
+</comment>
 QPoint toPoint(void)
 QPointF toPointF(void)
 qreal toReal(bool *ok)
