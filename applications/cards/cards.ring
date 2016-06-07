@@ -11,7 +11,7 @@ app1 = new qApp
 if isandroid()
     mypic = new QPixmap(":/resources/cardsimage")
 else
-    mypic = new QPixmap("cards.png")
+    mypic = new QPixmap("cards.jpg")
 ok
 
 mypic2 = mypic.copy(0,(124*4)+1,79,124)
