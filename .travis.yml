@@ -1,0 +1,5 @@
+language: c
+compiler: gcc
+install: ./src/installdep.sh
+script: ./src/buildgcccomplete.sh
+
