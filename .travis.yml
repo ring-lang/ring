@@ -19,3 +19,6 @@ install:
 script: 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd src && ./buildusingtravis.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd src && ./buildclangcomplete.sh ; fi
+
+notifications:
+ email: false
