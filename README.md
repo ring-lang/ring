@@ -2,8 +2,10 @@
 
 # Ring Programming Language
 
-[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)
-
+|| **Status** |
+|---|---|
+|**MacOS X**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|
+|**Ubuntu Linux** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|
 
 =============
 Description
