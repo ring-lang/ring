@@ -8,5 +8,5 @@ install:
  - sudo apt-get install -qq libcurl4-gnutls-dev
  - sudo apt-get install -qq libssl-dev
  
-script: cd src && ./buildgcccomplete.sh
+script: cd src && ./buildusingtravis.sh
 
