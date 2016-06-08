@@ -58,7 +58,7 @@ The language is designed for a Clear Goal
 	
 ### Install Libraries 
 	
-	brew install mysql-connector-c allegro qt52
+	brew install unixodbc mysql-connector-c allegro qt52
 	
 ### Build Ring (Compiler/VM)
 	
