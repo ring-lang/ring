@@ -1,6 +1,10 @@
+![Ring](http://ring-lang.sourceforge.net/thering.jpg)
+
+= Ring Programming Language
+
 [![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)
 
-![Ring](http://ring-lang.sourceforge.net/thering.jpg)
+
 =============
 Description
 =============
