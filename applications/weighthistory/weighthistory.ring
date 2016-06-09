@@ -16,7 +16,7 @@ MyApp = new qApp
 		{
 			label1 = new qLabel(win1) { setText("Weight") }
 			text1 = new qlineedit(win1) 
-			btn1 = new qpushbutton(win1) { setText("Add") }
+			btn1 = new qpushbutton(win1) { setText("Add") setClickEvent("pAddWeight()") }
 			addwidget(label1)
 			addwidget(text1)
 			addwidget(btn1)
@@ -65,4 +65,17 @@ Func pOpenDatabase
 		See "We Already have the database" + nl
 	ok
 
+Func pAddWeight
+	cWeight = text1.text()
+	pAddRecord(cWeight)
+	See "Record Added!" + nl
+
+Func pAddRecord cWeight
+	query = new QSqlQuery( )
+	cStr = "insert into weighthisotry (if_date,f_time,f_weight) values ('%f1','%f2',%f3)"
+	cStr = substr(cStr,"%f1",date())
+	cStr = substr(cStr,"%f2",time())
+	cStr = substr(cStr,"%f3",cWeight)
+	oCon.exec(cStr)
+	
 	
