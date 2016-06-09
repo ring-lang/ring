@@ -1,8 +1,9 @@
 load "guilib.ring"
 
+cDir = currentdir() + "/"
 oCon = NULL
 
-pCreate()
+pOpenDatabase() 
 
 MyApp = new qApp
 {
@@ -48,12 +49,20 @@ MyApp = new qApp
 	exec()
 }
 
-Func pCreate
-	cDir = currentdir() + "\"
+Func pOpenDatabase
+	lCreate = False
+	if not fexists(cDir + "weighthistory.db")
+		lCreate = True
+	ok
 	oCon = new QSqlDatabase()
 	oCon = oCon.addDatabase("QSQLITE")
 	oCon.setDatabaseName("weighthistory.db")
  	oCon.open()
-	query = new QSqlQuery( )
-	oCon.exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
+	if lCreate
+		query = new QSqlQuery( )
+		oCon.exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
+	else
+		See "We Already have the database" + nl
+	ok
+
 	
