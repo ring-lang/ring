@@ -1,5 +1,9 @@
 load "guilib.ring"
 
+oCon = NULL
+
+pCreate()
+
 MyApp = new qApp
 {
 	win1 = new qWidget()
