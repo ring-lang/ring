@@ -1,3 +1,6 @@
+# Application  : Cards Game
+# Author       : Mahmoud Fayed <msfclipper@yahoo.com>
+
 Load "guilib.ring"
 
 if isandroid()

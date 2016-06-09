@@ -1,4 +1,7 @@
-load "guilib.ring"
+# Application  : Weight History
+# Author       : Mahmoud Fayed <msfclipper@yahoo.com>
+
+Load "guilib.ring"
 
 cDir = currentdir() + "/"
 oCon = NULL
