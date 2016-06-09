@@ -43,3 +43,13 @@ MyApp = new qApp
 	}		
 	exec()
 }
+
+Func pCreate
+	cDir = currentdir() + "\"
+	oCon = new QSqlDatabase()
+	oCon = oCon.addDatabase("QSQLITE")
+	oCon.setDatabaseName("weighthistory.db")
+ 	oCon.open()
+	query = new QSqlQuery( )
+	oCon.exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
+	
