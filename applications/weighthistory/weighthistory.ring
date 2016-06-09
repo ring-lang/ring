@@ -65,6 +65,7 @@ Func pOpenDatabase
 	if lCreate
 		query = new QSqlQuery( )
 		query.exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
+		query.delete()
 	ok
 
 Func pCloseDatabase
@@ -84,10 +85,11 @@ Func pAddRecord cWeight
 	cStr = substr(cStr,"%f3",cWeight)
 	query.exec(cStr)
 	pShowRecord (cDate,cTime,cWeight)
+	query.delete()
 
 Func pShowRecord cDate,cTime,cWeight
 	Table1 { 
-		nRows = rowCount()-1
+		nRows = rowCount()
 		insertRow(nRows)
 		item = new qTableWidgetItem(cDate)
 		setItem(nRows,0,item)
@@ -113,3 +115,4 @@ Func pShowRecords
 		}
 		nRows++
 	end
+	query.delete()
