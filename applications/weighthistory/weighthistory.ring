@@ -51,6 +51,8 @@ MyApp = new qApp
 	exec()
 }
 
+pCloseDatabase()
+
 Func pOpenDatabase
 	lCreate = False
 	if not fexists(cDir + "weighthistory.db")
@@ -64,6 +66,9 @@ Func pOpenDatabase
 		query = new QSqlQuery( )
 		query.exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
 	ok
+
+Func pCloseDatabase
+	oCon.Close()
 
 Func pAddWeight
 	cWeight = text1.text()
