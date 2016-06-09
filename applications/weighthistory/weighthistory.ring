@@ -11,7 +11,6 @@ MyApp = new qApp
 	{
 		setWindowTitle("Weight History")
 		resize(600,600)
-		show()
 		layoutAdd = new qhboxlayout(win1)
 		{
 			label1 = new qLabel(win1) { setText("Weight") }
@@ -24,12 +23,12 @@ MyApp = new qApp
 		layoutData  = new qhboxlayout(win1)
 		{
 			Table1 = new qTableWidget(win1) {
-				setrowcount(0) setcolumncount(4)
+				setrowcount(0)
+				setcolumncount(3)
 				setselectionbehavior(QAbstractItemView_SelectRows)
-				setHorizontalHeaderItem(0, new QTableWidgetItem("ID"))
-				setHorizontalHeaderItem(1, new QTableWidgetItem("Date"))
-				setHorizontalHeaderItem(2, new QTableWidgetItem("Time"))
-				setHorizontalHeaderItem(3, new QTableWidgetItem("Weight"))
+				setHorizontalHeaderItem(0, new QTableWidgetItem("Date"))
+				setHorizontalHeaderItem(1, new QTableWidgetItem("Time"))
+				setHorizontalHeaderItem(2, new QTableWidgetItem("Weight"))
                 		}
 			addWidget(Table1)
 		}
@@ -44,7 +43,10 @@ MyApp = new qApp
 			addLayout(LayoutData)
 			addLayout(layoutClose)
 		}
-		setlayout(layoutMain)
+		setlayout(layoutMain)				
+		pShowRecords()
+		show()
+
 	}		
 	exec()
 }
@@ -60,22 +62,49 @@ Func pOpenDatabase
  	oCon.open()
 	if lCreate
 		query = new QSqlQuery( )
-		oCon.exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
-	else
-		See "We Already have the database" + nl
+		query.exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
 	ok
 
 Func pAddWeight
 	cWeight = text1.text()
 	pAddRecord(cWeight)
-	See "Record Added!" + nl
 
 Func pAddRecord cWeight
 	query = new QSqlQuery( )
-	cStr = "insert into weighthisotry (if_date,f_time,f_weight) values ('%f1','%f2',%f3)"
-	cStr = substr(cStr,"%f1",date())
-	cStr = substr(cStr,"%f2",time())
+	cStr = "insert into weighthistory (f_date,f_time,f_weight) values ('%f1','%f2',%f3)"
+	cDate = Date()
+	cTime = Time()
+	cStr = substr(cStr,"%f1",cDate)
+	cStr = substr(cStr,"%f2",cTime)
 	cStr = substr(cStr,"%f3",cWeight)
-	oCon.exec(cStr)
+	query.exec(cStr)
+	pShowRecord (cDate,cTime,cWeight)
+
+Func pShowRecord cDate,cTime,cWeight
+	Table1 { 
+		nRows = rowCount()-1
+		insertRow(nRows)
+		item = new qTableWidgetItem(cDate)
+		setItem(nRows,0,item)
+		item = new qTableWidgetItem(cTime)
+		setItem(nRows,1,item)
+		item = new qTableWidgetItem(cWeight)
+		setItem(nRows,2,item)
+	}
 	
-	
+Func pShowRecords	
+	query = new QSqlQuery( )
+	query.exec("select * from weighthistory")
+	nRows = 0
+	Table1.setrowcount(0)
+	while query.movenext()
+		Table1 { 
+			insertRow(nRows)
+			for x = 1 to 3
+				cStr = query.value(x).tostring()
+				item = new qTableWidgetItem(cStr)
+				setItem(nRows,x-1,item)
+			next	
+		}
+		nRows++
+	end
