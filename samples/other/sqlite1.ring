@@ -25,10 +25,8 @@ Func pCreate
 	oCon = oCon.addDatabase("QSQLITE")
 	see oCon.DriverName() + nl
 	oCon.setDatabaseName("test.db")
-	//see ocon.lasterror().text() + nl
  	SEE oCon.open() + NL
 	see ocon.isopen() + nl
 	see ocon.lasterror().text() + nl	 
-	query = new QSqlQuery( )
 	oCon.exec("create table person (id integer primary key, firstname varchar(20), lastname varchar(30), age integer)")
 	
