@@ -5703,8 +5703,8 @@ Class QPainter
 	Func drawGlyphRun P1,P2
 		return QPainter_drawGlyphRun(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
-	Func drawImage P1,P2,P3,P4,P5,P6,P7,P8
-		return QPainter_drawImage(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4,P5,P6,P7,P8)
+	Func drawImage P1,P2,P3
+		return QPainter_drawImage(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 
 	Func drawLine P1,P2,P3,P4
 		return QPainter_drawLine(pObject,P1,P2,P3,P4)
@@ -5721,8 +5721,8 @@ Class QPainter
 	Func drawPie P1,P2,P3,P4,P5,P6
 		return QPainter_drawPie(pObject,P1,P2,P3,P4,P5,P6)
 
-	Func drawPixmap P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return QPainter_drawPixmap(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),P6,P7,P8,P9)
+	Func drawPixmap P1,P2,P3
+		return QPainter_drawPixmap(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 
 	Func drawPoint P1,P2
 		return QPainter_drawPoint(pObject,P1,P2)
@@ -6731,7 +6731,9 @@ Class QBrush
 		return pTempObj
 
 	Func textureImage 
-		return QBrush_textureImage(pObject)
+		pTempObj = new QImage
+		pTempObj.pObject = QBrush_textureImage(pObject)
+		return pTempObj
 
 	Func transform 
 		return QBrush_transform(pObject)
@@ -10450,6 +10452,201 @@ Class QPainterPath
 		pTempObj = new QPainterPath
 		pTempObj.pObject = QPainterPath_united(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
+
+Class QImage
+
+	pObject
+
+	Func init 
+		pObject = QImage_new()
+		return self
+
+	Func delete
+		pObject = QImage_delete(pObject)
+
+	Func allGray 
+		return QImage_allGray(pObject)
+
+	Func bitPlaneCount 
+		return QImage_bitPlaneCount(pObject)
+
+	Func bits 
+		return QImage_bits(pObject)
+
+	Func byteCount 
+		return QImage_byteCount(pObject)
+
+	Func bytesPerLine 
+		return QImage_bytesPerLine(pObject)
+
+	Func cacheKey 
+		return QImage_cacheKey(pObject)
+
+	Func color P1
+		return QImage_color(pObject,P1)
+
+	Func colorCount 
+		return QImage_colorCount(pObject)
+
+	Func constBits 
+		return QImage_constBits(pObject)
+
+	Func constScanLine P1
+		return QImage_constScanLine(pObject,P1)
+
+	Func convertToFormat P1,P2
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_convertToFormat(pObject,P1,P2)
+		return pTempObj
+
+	Func copy P1,P2,P3,P4
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_copy(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func createAlphaMask P1
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_createAlphaMask(pObject,P1)
+		return pTempObj
+
+	Func createHeuristicMask P1
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_createHeuristicMask(pObject,P1)
+		return pTempObj
+
+	Func createMaskFromColor P1,P2
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_createMaskFromColor(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func depth 
+		return QImage_depth(pObject)
+
+	Func dotsPerMeterX 
+		return QImage_dotsPerMeterX(pObject)
+
+	Func dotsPerMeterY 
+		return QImage_dotsPerMeterY(pObject)
+
+	Func fill P1
+		return QImage_fill(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func format 
+		return QImage_format(pObject)
+
+	Func hasAlphaChannel 
+		return QImage_hasAlphaChannel(pObject)
+
+	Func height 
+		return QImage_height(pObject)
+
+	Func invertPixels P1
+		return QImage_invertPixels(pObject,P1)
+
+	Func isGrayscale 
+		return QImage_isGrayscale(pObject)
+
+	Func isNull 
+		return QImage_isNull(pObject)
+
+	Func loadimage P1,P2
+		return QImage_load(pObject,P1,P2)
+
+	Func loadFromData P1,P2
+		return QImage_loadFromData(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func mirrored P1,P2
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_mirrored(pObject,P1,P2)
+		return pTempObj
+
+	Func offset 
+		return QImage_offset(pObject)
+
+	Func pixel P1,P2
+		return QImage_pixel(pObject,P1,P2)
+
+	Func pixelIndex P1,P2
+		return QImage_pixelIndex(pObject,P1,P2)
+
+	Func rect 
+		pTempObj = new QRect
+		pTempObj.pObject = QImage_rect(pObject)
+		return pTempObj
+
+	Func rgbSwapped 
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_rgbSwapped(pObject)
+		return pTempObj
+
+	Func save P1,P2,P3
+		return QImage_save(pObject,P1,P2,P3)
+
+	Func scaled P1,P2,P3,P4
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_scaled(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func scaledToHeight P1,P2
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_scaledToHeight(pObject,P1,P2)
+		return pTempObj
+
+	Func scaledToWidth P1,P2
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_scaledToWidth(pObject,P1,P2)
+		return pTempObj
+
+	Func scanLine P1
+		return QImage_scanLine(pObject,P1)
+
+	Func setColor P1,P2
+		return QImage_setColor(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setColorCount P1
+		return QImage_setColorCount(pObject,P1)
+
+	Func setDotsPerMeterX P1
+		return QImage_setDotsPerMeterX(pObject,P1)
+
+	Func setDotsPerMeterY P1
+		return QImage_setDotsPerMeterY(pObject,P1)
+
+	Func setOffset P1
+		return QImage_setOffset(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPixel P1,P2,P3
+		return QImage_setPixel(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func setText P1,P2
+		return QImage_setText(pObject,P1,P2)
+
+	Func size 
+		pTempObj = new QSize
+		pTempObj.pObject = QImage_size(pObject)
+		return pTempObj
+
+	Func swap P1
+		return QImage_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func text P1
+		return QImage_text(pObject,P1)
+
+	Func textKeys 
+		pTempObj = new QStringList
+		pTempObj.pObject = QImage_textKeys(pObject)
+		return pTempObj
+
+	Func transformed P1,P2
+		pTempObj = new QImage
+		pTempObj.pObject = QImage_transformed(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func valid P1,P2
+		return QImage_valid(pObject,P1,P2)
+
+	Func width 
+		return QImage_width(pObject)
 
 Class QIcon
 
