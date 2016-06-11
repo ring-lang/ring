@@ -894,6 +894,38 @@ Class QPushButton from QAbstractButton
 	Func setIconSize P1
 		return QPushButton_setIconSize(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QBitmap from QPixmap
+
+	pObject
+
+	Func init 
+		pObject = QBitmap_new()
+		return self
+
+	Func delete
+		pObject = QBitmap_delete(pObject)
+
+	Func clear 
+		return QBitmap_clear(pObject)
+
+	Func swap P1
+		return QBitmap_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func transformed P1
+		pTempObj = new QBitmap
+		pTempObj.pObject = QBitmap_transformed(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func fromData P1,P2,P3
+		pTempObj = new QBitmap
+		pTempObj.pObject = QBitmap_fromData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+		return pTempObj
+
+	Func fromImage P1,P2
+		pTempObj = new QBitmap
+		pTempObj.pObject = QBitmap_fromImage(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
 Class QPixmap
 
 	pObject
@@ -920,6 +952,27 @@ Class QPixmap
 
 	Func height 
 		return QPixmap_height(pObject)
+
+	Func createMaskFromColor P1,P2
+		pTempObj = new QBitmap
+		pTempObj.pObject = QPixmap_createMaskFromColor(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func mask 
+		pTempObj = new QBitmap
+		pTempObj.pObject = QPixmap_mask(pObject)
+		return pTempObj
+
+	Func setMask P1
+		return QPixmap_setMask(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func fill P1
+		return QPixmap_fill(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func fromImage P1,P2
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_fromImage(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
 
 Class QLineEdit from QWidget
 

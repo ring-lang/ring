@@ -154,6 +154,7 @@ extern "C" {
 #include <QNetworkReply>
 #include <QPainterPath>
 #include <QImage>
+#include <QBitmap>
 
 extern "C" {
 
@@ -699,6 +700,18 @@ void setIconSize(QSize)
 
 
 <class>
+name: QBitmap
+para: void
+parent: QPixmap
+</class>
+
+void clear(void)
+void swap(QBitmap)
+QBitmap transformed(QTransform)
+QBitmap fromData(QSize, const uchar * bits, QImage::Format monoFormat)
+QBitmap fromImage(QImage, Qt::ImageConversionFlags flags)
+
+<class>
 name: QPixmap
 para: const char *
 </class>
@@ -706,6 +719,11 @@ QPixmap copy(int x, int y, int width, int height)
 QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) 
 int width(void)
 int height(void)
+QBitmap createMaskFromColor(QColor , Qt::MaskMode)
+QBitmap mask(void)
+void setMask(QBitmap)
+void fill(QColor)
+QPixmap fromImage(QImage,Qt::ImageConversionFlags)
 
 <class>
 name: QIcon

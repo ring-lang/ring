@@ -141,6 +141,7 @@ extern "C" {
 #include <QNetworkReply>
 #include <QPainterPath>
 #include <QImage>
+#include <QBitmap>
 
 extern "C" {
 
@@ -5247,6 +5248,126 @@ RING_FUNC(ring_QPushButton_setIconSize)
 }
 
 
+RING_FUNC(ring_QBitmap_clear)
+{
+	QBitmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBitmap *) RING_API_GETCPOINTER(1,"QBitmap");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QBitmap_swap)
+{
+	QBitmap *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBitmap *) RING_API_GETCPOINTER(1,"QBitmap");
+	pObject->swap(* (QBitmap *) RING_API_GETCPOINTER(2,"QBitmap"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QBitmap"));
+}
+
+
+RING_FUNC(ring_QBitmap_transformed)
+{
+	QBitmap *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBitmap *) RING_API_GETCPOINTER(1,"QBitmap");
+	{
+		QBitmap *pValue ; 
+		pValue = new QBitmap() ;
+		*pValue = pObject->transformed(* (QTransform *) RING_API_GETCPOINTER(2,"QTransform"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QTransform"));
+		RING_API_RETCPOINTER(pValue,"QBitmap");
+	}
+}
+
+
+RING_FUNC(ring_QBitmap_fromData)
+{
+	QBitmap *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBitmap *) RING_API_GETCPOINTER(1,"QBitmap");
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QBitmap *pValue ; 
+		pValue = new QBitmap() ;
+		*pValue = pObject->fromData(* (QSize *) RING_API_GETCPOINTER(2,"QSize"),(uchar *) RING_API_GETCPOINTER(3,"uchar"), (QImage::Format )  (int) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSize"));
+		RING_API_RETCPOINTER(pValue,"QBitmap");
+	}
+}
+
+
+RING_FUNC(ring_QBitmap_fromImage)
+{
+	QBitmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBitmap *) RING_API_GETCPOINTER(1,"QBitmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QBitmap *pValue ; 
+		pValue = new QBitmap() ;
+		*pValue = pObject->fromImage(* (QImage *) RING_API_GETCPOINTER(2,"QImage"), (Qt::ImageConversionFlags )  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QImage"));
+		RING_API_RETCPOINTER(pValue,"QBitmap");
+	}
+}
+
+
 RING_FUNC(ring_QPixmap_copy)
 {
 	QPixmap *pObject ;
@@ -5354,6 +5475,122 @@ RING_FUNC(ring_QPixmap_height)
 	}
 	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
 	RING_API_RETNUMBER(pObject->height());
+}
+
+
+RING_FUNC(ring_QPixmap_createMaskFromColor)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QBitmap *pValue ; 
+		pValue = new QBitmap() ;
+		*pValue = pObject->createMaskFromColor(* (QColor *) RING_API_GETCPOINTER(2,"QColor"), (Qt::MaskMode)  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QColor"));
+		RING_API_RETCPOINTER(pValue,"QBitmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_mask)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	{
+		QBitmap *pValue ; 
+		pValue = new QBitmap() ;
+		*pValue = pObject->mask();
+		RING_API_RETCPOINTER(pValue,"QBitmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_setMask)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	pObject->setMask(* (QBitmap *) RING_API_GETCPOINTER(2,"QBitmap"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QBitmap"));
+}
+
+
+RING_FUNC(ring_QPixmap_fill)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	pObject->fill(* (QColor *) RING_API_GETCPOINTER(2,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QColor"));
+}
+
+
+RING_FUNC(ring_QPixmap_fromImage)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->fromImage(* (QImage *) RING_API_GETCPOINTER(2,"QImage"), (Qt::ImageConversionFlags)  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QImage"));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
 }
 
 
@@ -60249,6 +60486,13 @@ RING_FUNC(ring_QPushButton_new)
 	RING_API_RETCPOINTER(pObject,"QPushButton");
 }
 
+RING_FUNC(ring_QBitmap_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QBitmap *pObject = new QBitmap();
+	RING_API_RETCPOINTER(pObject,"QBitmap");
+}
+
 RING_FUNC(ring_QPixmap_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
@@ -60935,6 +61179,21 @@ RING_FUNC(ring_QPushButton_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GPushButton *) RING_API_GETCPOINTER(1,"GPushButton");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QBitmap_delete)
+{
+	QBitmap *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QBitmap *) RING_API_GETCPOINTER(1,"QBitmap");
 		delete pObject ;
 	}
 }
@@ -62548,10 +62807,20 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpushbutton_setclickevent",ring_QPushButton_setClickEvent);
 	ring_vm_funcregister("qpushbutton_seticon",ring_QPushButton_setIcon);
 	ring_vm_funcregister("qpushbutton_seticonsize",ring_QPushButton_setIconSize);
+	ring_vm_funcregister("qbitmap_clear",ring_QBitmap_clear);
+	ring_vm_funcregister("qbitmap_swap",ring_QBitmap_swap);
+	ring_vm_funcregister("qbitmap_transformed",ring_QBitmap_transformed);
+	ring_vm_funcregister("qbitmap_fromdata",ring_QBitmap_fromData);
+	ring_vm_funcregister("qbitmap_fromimage",ring_QBitmap_fromImage);
 	ring_vm_funcregister("qpixmap_copy",ring_QPixmap_copy);
 	ring_vm_funcregister("qpixmap_scaled",ring_QPixmap_scaled);
 	ring_vm_funcregister("qpixmap_width",ring_QPixmap_width);
 	ring_vm_funcregister("qpixmap_height",ring_QPixmap_height);
+	ring_vm_funcregister("qpixmap_createmaskfromcolor",ring_QPixmap_createMaskFromColor);
+	ring_vm_funcregister("qpixmap_mask",ring_QPixmap_mask);
+	ring_vm_funcregister("qpixmap_setmask",ring_QPixmap_setMask);
+	ring_vm_funcregister("qpixmap_fill",ring_QPixmap_fill);
+	ring_vm_funcregister("qpixmap_fromimage",ring_QPixmap_fromImage);
 	ring_vm_funcregister("qlineedit_alignment",ring_QLineEdit_alignment);
 	ring_vm_funcregister("qlineedit_backspace",ring_QLineEdit_backspace);
 	ring_vm_funcregister("qlineedit_completer",ring_QLineEdit_completer);
@@ -65220,6 +65489,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
 	ring_vm_funcregister("qpushbutton_new",ring_QPushButton_new);
+	ring_vm_funcregister("qbitmap_new",ring_QBitmap_new);
 	ring_vm_funcregister("qpixmap_new",ring_QPixmap_new);
 	ring_vm_funcregister("qicon_new",ring_QIcon_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
@@ -65314,6 +65584,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
 	ring_vm_funcregister("qpushbutton_delete",ring_QPushButton_delete);
+	ring_vm_funcregister("qbitmap_delete",ring_QBitmap_delete);
 	ring_vm_funcregister("qpixmap_delete",ring_QPixmap_delete);
 	ring_vm_funcregister("qicon_delete",ring_QIcon_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
