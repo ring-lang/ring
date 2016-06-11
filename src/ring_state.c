@@ -198,7 +198,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	/* Print Version */
 	if ( (argc == 1) || (cStr == NULL) ) {
 		ring_print_line();
-		puts("Ring version 1.1 \n2013-2016, Mahmoud Fayed <msfclipper@yahoo.com> ");
+		printf( "Ring version %s \n2013-2016, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_VERSION ) ;
 		puts("Usage : ring filename.ring [Options]");
 		ring_print_line();
 		/* Options */

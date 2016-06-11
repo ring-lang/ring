@@ -35,6 +35,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("timelist",ring_vmlib_timelist);
 	ring_vm_funcregister("adddays",ring_vmlib_adddays);
 	ring_vm_funcregister("diffdays",ring_vmlib_diffdays);
+	ring_vm_funcregister("version",ring_vmlib_version);
 	/* Check Data Type */
 	ring_vm_funcregister("isstring",ring_vmlib_isstring);
 	ring_vm_funcregister("isnumber",ring_vmlib_isnumber);
@@ -716,6 +717,11 @@ void ring_vmlib_diffdays ( void *pPointer )
 	}
 	RING_API_ERROR(RING_API_BADPARATYPE);
 	return ;
+}
+
+void ring_vmlib_version ( void *pPointer )
+{
+	RING_API_RETSTRING(RING_VERSION);
 }
 /* Check Data Type */
 

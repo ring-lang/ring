@@ -58,6 +58,7 @@ RING_API void ring_state_main ( int argc, char *argv[] ) ;
 RING_API void ring_state_runfile ( RingState *pRingState,const char *cFileName ) ;
 /* MACRO */
 #define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
+#define RING_VERSION "1.1"
 /* General Functions */
 
 int ring_fexists ( const char *cFileName ) ;
