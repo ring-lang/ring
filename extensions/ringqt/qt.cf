@@ -153,6 +153,8 @@ extern "C" {
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QPainterPath>
+#include <QImage>
+#include <QBitmap>
 
 extern "C" {
 
@@ -188,7 +190,9 @@ aNewMethodName + ["QDialog","done","donedialog"]
 aNewMethodName + ["QTextDocument","end","enddoc"]
 aNewMethodName + ["QTextBlock","next","nextblock"]
 aNewMethodName + ["QSqlQuery","next","movenext"]
+aNewMethodName + ["QImage","load","loadimage"]
 aNumberTypes + "qreal"
+aNumberTypes + "qint64"
 aEnumTypes + "Qt::GestureType"
 aEnumTypes + "Qt::GestureFlag"
 aEnumTypes + "Qt::ShortcutContext"
@@ -350,6 +354,10 @@ aEnumTypes + "QNetworkRequest::Priority"
 aEnumTypes + "QNetworkAccessManager::NetworkAccessibility"
 aEnumTypes + "QNetworkReply::NetworkError"
 aEnumTypes + "Qt::SizeMode"
+aEnumTypes + "Qt::ImageConversionFlags"
+aEnumTypes + "Qt::MaskMode"
+aEnumTypes + "QImage::Format"
+aEnumTypes + "QImage::InvertMode"
 </runcode>
 
 <class>
@@ -692,6 +700,18 @@ void setIconSize(QSize)
 
 
 <class>
+name: QBitmap
+para: void
+parent: QPixmap
+</class>
+
+void clear(void)
+void swap(QBitmap)
+QBitmap transformed(QTransform)
+QBitmap fromData(QSize, const uchar * bits, QImage::Format monoFormat)
+QBitmap fromImage(QImage, Qt::ImageConversionFlags flags)
+
+<class>
 name: QPixmap
 para: const char *
 </class>
@@ -699,6 +719,11 @@ QPixmap copy(int x, int y, int width, int height)
 QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) 
 int width(void)
 int height(void)
+QBitmap createMaskFromColor(QColor , Qt::MaskMode)
+QBitmap mask(void)
+void setMask(QBitmap)
+void fill(QColor)
+QPixmap fromImage(QImage,Qt::ImageConversionFlags)
 
 <class>
 name: QIcon
@@ -2539,13 +2564,13 @@ void drawChord(int x, int y, int width, int height, int startAngle, int spanAngl
 void drawConvexPolygon( QPoint * points, int pointCount)
 void drawEllipse(int x, int y, int width, int height)
 void drawGlyphRun( QPointF  position,  QGlyphRun  glyphs)
-void drawImage(int x, int y,  QImage image, int sx , int sy, int sw, int sh , Qt::ImageConversionFlag flags)
+void drawImage(int x, int y,  QImage image)
 void drawLine(int x1, int y1, int x2, int y2)
 void drawLines( QLine * lines, int lineCount)
 void drawPath( QPainterPath  path)
 void drawPicture(int x, int y,  QPicture  picture)
 void drawPie(int x, int y, int width, int height, int startAngle, int spanAngle)
-void drawPixmap(int x, int y, int w, int h,  QPixmap  pixmap, int sx, int sy, int sw, int sh)
+void drawPixmap(int x, int y,  QPixmap)
 <comment>
 void drawPixmapFragments( PixmapFragment *fragments, int fragmentCount,  QPixmap  pixmap, PixmapFragmentHints hints)
 </comment>
@@ -4372,3 +4397,61 @@ QPainterPath toReversed(void)
 void translate(qreal dx, qreal dy)
 QPainterPath translated(qreal dx, qreal dy)
 QPainterPath united(QPainterPath)
+
+<class>
+name: QImage
+para: void
+</class>
+
+bool allGray(void)
+int bitPlaneCount(void)
+uchar *bits(void)
+int byteCount(void)
+int bytesPerLine(void)
+qint64 cacheKey(void)
+QRgb color(int i)
+int colorCount(void)
+const uchar *constBits(void)
+const uchar *constScanLine(int i)
+QImage convertToFormat(QImage::Format format, Qt::ImageConversionFlags flags)
+QImage copy(int x, int y, int width, int height)
+QImage createAlphaMask(Qt::ImageConversionFlags flags)
+QImage createHeuristicMask(bool clipTight)
+QImage createMaskFromColor(QRgb color, Qt::MaskMode mode)
+int depth(void)
+int dotsPerMeterX(void)
+int dotsPerMeterY(void)
+void fill(QColor)
+QImage::Format format(void)
+bool hasAlphaChannel(void)
+int height(void)
+void invertPixels(QImage::InvertMode mode)
+bool isGrayscale(void)
+bool isNull(void)
+bool load(QString, const char * format)
+bool loadFromData(QByteArray, const char * format)
+QImage mirrored(bool horizontal, bool vertical)
+QPoint offset(void)
+QRgb pixel(int x, int y)
+int pixelIndex(int x, int y)
+QRect rect(void)
+QImage rgbSwapped(void)
+bool save(QString, const char * format, int quality)
+QImage scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode)
+QImage scaledToHeight(int height, Qt::TransformationMode mode )
+QImage scaledToWidth(int width, Qt::TransformationMode mode)
+uchar *scanLine(int i)
+void setColor(int index, QRgb colorValue)
+void setColorCount(int colorCount)
+void setDotsPerMeterX(int x)
+void setDotsPerMeterY(int y)
+void setOffset(QPoint)
+void setPixel(int x, int y, uint index_or_rgb)
+void setText(QString,QString)
+QSize size(void)
+void swap(QImage)
+QString text(QString)
+QStringList textKeys(void)
+QImage transformed(QMatrix, Qt::TransformationMode mode)
+bool valid(int x, int y)
+int width(void)
