@@ -152,6 +152,7 @@ extern "C" {
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QPainterPath>
 
 extern "C" {
 
@@ -4323,3 +4324,49 @@ void setSslConfiguration(QSslConfiguration)
 QSslConfiguration sslConfiguration(void)
 </comment>
 QUrl url(void)
+
+<class>
+name: QPainterPath
+para: void
+</class>
+
+void addEllipse(qreal x, qreal y, qreal width, qreal height)
+void addPath(QPainterPath)
+void addPolygon(QPolygonF)
+void addRect(qreal x, qreal y, qreal width, qreal height)
+void addRegion(QRegion)
+void addRoundedRect(qreal x, qreal y, qreal w, qreal h, qreal xRadius, qreal yRadius, Qt::SizeMode mode)
+void addText(qreal x, qreal y, QFont, QString)
+qreal angleAtPercent(qreal t)
+void arcMoveTo(qreal x, qreal y, qreal width, qreal height, qreal angle)
+void arcTo(qreal x, qreal y, qreal width, qreal height, qreal startAngle, qreal sweepLength)
+QRectF boundingRect(void)
+void closeSubpath(void)
+void connectPath(QPainterPath)
+bool contains(QPointF)
+QRectF controlPointRect(void)
+void cubicTo(qreal c1X, qreal c1Y, qreal c2X, qreal c2Y, qreal endPointX, qreal endPointY)
+QPointF currentPosition(void)
+QPainterPath::Element elementAt(int index)
+int elementCount(void)
+Qt::FillRule fillRule(void)
+QPainterPath intersected(QPainterPath)
+bool intersects(QRectF)
+bool isEmpty(void)
+qreal length(void)
+void lineTo(qreal x, qreal y)
+void moveTo(qreal x, qreal y)
+qreal percentAtLength(qreal len)
+QPointF pointAtPercent(qreal t)
+void quadTo(qreal cx, qreal cy, qreal endPointX, qreal endPointY)
+void setElementPositionAt(int index, qreal x, qreal y)
+void setFillRule(Qt::FillRule fillRule)
+QPainterPath simplified(void)
+qreal slopeAtPercent(qreal t)
+QPainterPath subtracted(QPainterPath)
+void swap(QPainterPath)
+QPolygonF toFillPolygon(QTransform)
+QPainterPath toReversed(void)
+void translate(qreal dx, qreal dy)
+QPainterPath translated(qreal dx, qreal dy)
+QPainterPath united(QPainterPath)
