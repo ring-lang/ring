@@ -4451,7 +4451,7 @@ Class QWebView from QWidget
 		return QWebView_setUrl(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setZoomFactor P1
-		return QWebView_setZoomFactor(pObject,GetObjectPointerFromRingObject(P1))
+		return QWebView_setZoomFactor(pObject,P1)
 
 	Func settings 
 		pTempObj = new QWebSettings
@@ -4939,7 +4939,7 @@ Class QMediaPlayer
 		return QMediaPlayer_setMuted(pObject,P1)
 
 	Func setPlaybackRate P1
-		return QMediaPlayer_setPlaybackRate(pObject,GetObjectPointerFromRingObject(P1))
+		return QMediaPlayer_setPlaybackRate(pObject,P1)
 
 	Func setPlaylist P1
 		return QMediaPlayer_setPlaylist(pObject,GetObjectPointerFromRingObject(P1))
@@ -5669,7 +5669,9 @@ Class QPainter
 		return QPainter_clipBoundingRect(pObject)
 
 	Func clipPath 
-		return QPainter_clipPath(pObject)
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QPainter_clipPath(pObject)
+		return pTempObj
 
 	Func clipRegion 
 		return QPainter_clipRegion(pObject)
@@ -5741,7 +5743,7 @@ Class QPainter
 		return QPainter_drawRects(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func drawRoundedRect P1,P2,P3,P4,P5,P6,P7
-		return QPainter_drawRoundedRect(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),P7)
+		return QPainter_drawRoundedRect(pObject,P1,P2,P3,P4,P5,P6,P7)
 
 	Func drawStaticText P1,P2,P3
 		return QPainter_drawStaticText(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
@@ -5765,7 +5767,7 @@ Class QPainter
 		return QPainter_fillPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func fillRect P1,P2,P3,P4,P5
-		return QPainter_fillRect(pObject,P1,P2,P3,P4,P5)
+		return QPainter_fillRect(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
 
 	Func font 
 		pTempObj = new QFont
@@ -5811,7 +5813,7 @@ Class QPainter
 		return QPainter_restore(pObject)
 
 	Func rotate P1
-		return QPainter_rotate(pObject,GetObjectPointerFromRingObject(P1))
+		return QPainter_rotate(pObject,P1)
 
 	Func save 
 		return QPainter_save(pObject)
@@ -5853,7 +5855,7 @@ Class QPainter
 		return QPainter_setLayoutDirection(pObject,P1)
 
 	Func setOpacity P1
-		return QPainter_setOpacity(pObject,GetObjectPointerFromRingObject(P1))
+		return QPainter_setOpacity(pObject,P1)
 
 	Func setPen P1
 		return QPainter_setPen(pObject,GetObjectPointerFromRingObject(P1))
@@ -10304,6 +10306,149 @@ Class QNetworkReply from QIODevice
 	Func url 
 		pTempObj = new QUrl
 		pTempObj.pObject = QNetworkReply_url(pObject)
+		return pTempObj
+
+Class QPainterPath
+
+	pObject
+
+	Func init 
+		pObject = QPainterPath_new()
+		return self
+
+	Func delete
+		pObject = QPainterPath_delete(pObject)
+
+	Func addEllipse P1,P2,P3,P4
+		return QPainterPath_addEllipse(pObject,P1,P2,P3,P4)
+
+	Func addPath P1
+		return QPainterPath_addPath(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addPolygon P1
+		return QPainterPath_addPolygon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addRect P1,P2,P3,P4
+		return QPainterPath_addRect(pObject,P1,P2,P3,P4)
+
+	Func addRegion P1
+		return QPainterPath_addRegion(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addRoundedRect P1,P2,P3,P4,P5,P6,P7
+		return QPainterPath_addRoundedRect(pObject,P1,P2,P3,P4,P5,P6,P7)
+
+	Func addText P1,P2,P3,P4
+		return QPainterPath_addText(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func angleAtPercent P1
+		return QPainterPath_angleAtPercent(pObject,P1)
+
+	Func arcMoveTo P1,P2,P3,P4,P5
+		return QPainterPath_arcMoveTo(pObject,P1,P2,P3,P4,P5)
+
+	Func arcTo P1,P2,P3,P4,P5,P6
+		return QPainterPath_arcTo(pObject,P1,P2,P3,P4,P5,P6)
+
+	Func boundingRect 
+		return QPainterPath_boundingRect(pObject)
+
+	Func closeSubpath 
+		return QPainterPath_closeSubpath(pObject)
+
+	Func connectPath P1
+		return QPainterPath_connectPath(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func contains P1
+		return QPainterPath_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func controlPointRect 
+		return QPainterPath_controlPointRect(pObject)
+
+	Func cubicTo P1,P2,P3,P4,P5,P6
+		return QPainterPath_cubicTo(pObject,P1,P2,P3,P4,P5,P6)
+
+	Func currentPosition 
+		return QPainterPath_currentPosition(pObject)
+
+	Func elementAt P1
+		return QPainterPath_elementAt(pObject,P1)
+
+	Func elementCount 
+		return QPainterPath_elementCount(pObject)
+
+	Func fillRule 
+		return QPainterPath_fillRule(pObject)
+
+	Func intersected P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QPainterPath_intersected(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func intersects P1
+		return QPainterPath_intersects(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isEmpty 
+		return QPainterPath_isEmpty(pObject)
+
+	Func length 
+		return QPainterPath_length(pObject)
+
+	Func lineTo P1,P2
+		return QPainterPath_lineTo(pObject,P1,P2)
+
+	Func moveTo P1,P2
+		return QPainterPath_moveTo(pObject,P1,P2)
+
+	Func percentAtLength P1
+		return QPainterPath_percentAtLength(pObject,P1)
+
+	Func pointAtPercent P1
+		return QPainterPath_pointAtPercent(pObject,P1)
+
+	Func quadTo P1,P2,P3,P4
+		return QPainterPath_quadTo(pObject,P1,P2,P3,P4)
+
+	Func setElementPositionAt P1,P2,P3
+		return QPainterPath_setElementPositionAt(pObject,P1,P2,P3)
+
+	Func setFillRule P1
+		return QPainterPath_setFillRule(pObject,P1)
+
+	Func simplified 
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QPainterPath_simplified(pObject)
+		return pTempObj
+
+	Func slopeAtPercent P1
+		return QPainterPath_slopeAtPercent(pObject,P1)
+
+	Func subtracted P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QPainterPath_subtracted(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func swap P1
+		return QPainterPath_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toFillPolygon P1
+		return QPainterPath_toFillPolygon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toReversed 
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QPainterPath_toReversed(pObject)
+		return pTempObj
+
+	Func translate P1,P2
+		return QPainterPath_translate(pObject,P1,P2)
+
+	Func translated P1,P2
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QPainterPath_translated(pObject,P1,P2)
+		return pTempObj
+
+	Func united P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QPainterPath_united(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
 Class QIcon
