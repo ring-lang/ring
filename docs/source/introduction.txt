@@ -75,6 +75,8 @@ idea after reading a short description, in the same day i got a lot of emails fr
 
 The first version of the language Ring 1.0 is released in January 25, 2016
 
+The current version is Ring 1.1 
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -83,7 +85,7 @@ Features
 
 The Ring language comes with the next features
 
-.. tip:: One of the main goals behind the first release is creating a useful language ready for production!
+.. tip:: The language is ready for production!
 
 * Free Open Source (MIT License)
 * Interpreter - Hybrid Implementation (Compiler+VM) 
