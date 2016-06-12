@@ -48,6 +48,8 @@ func string_class_test
 	oString2 = new string("Second")
 	oString = oString1 + oString2
 	oString.println()
+	oString = oString1 * 3
+	oString.println()
 
 Class String From StdBase
 
@@ -110,5 +112,7 @@ Class String From StdBase
 		switch cOperator
 			on "+"
 		  	result.cValue = cValue + Para.cValue
+			on "*"
+				result.cvalue = std_copy(cValue,Para)
 		off
 		return result
