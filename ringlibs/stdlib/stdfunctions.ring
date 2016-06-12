@@ -2,7 +2,7 @@
 # Common Functions and classes for applications
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-# Standard Functions Wrapper 
+# Standard Functions Wrapper
 # To be called from classes contains methods with the same name
 
 Func std_upper x
@@ -29,3 +29,10 @@ Func std_copy cStr,nCount
 Func std_strcmp cStr1,cStr2
 	return strcmp(cStr1,cStr2)
 
+Func std_str2list cStr
+	return str2list(cStr)
+
+Func std_list2str aList
+	return list2str(aList)
+
+	
