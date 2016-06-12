@@ -40,6 +40,10 @@ func string_class_test
 	oString = oString.getfrom(oString.pos("Ring"))
 	oString.println()
 	oString.get(1,4).println()
+	oString = oString.replace("Ring","***Ring***",true)
+	oString.println()
+	oString = oString.replace("ring","***Ring***",false)
+	oString.println()
 
 Class String From StdBase
 
