@@ -79,6 +79,9 @@ Class String From StdBase
 	Func get nPos1,nPos2
 		return new string( std_getsubstr(cValue,nPos1,nPos2) )
 
+	Func getfrom nPos1
+		return new string( std_getsubstrfrom(cValue,nPos1) )
+		
 	Func pos cStr
 		return std_substrpos(cValue,cStr)
 
