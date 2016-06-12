@@ -75,3 +75,16 @@ Class String From StdBase
 
 	Func tolist
 		return std_str2list(cValue)
+
+	Func getsubstr nPos1,nPos2
+		return new string( std_getsubstr(cValue,nPos1,nPos2) )
+
+	Func substrpos cStr
+		return std_substrpos(cValue,cStr)
+
+	Func replace cStr1,cStr2,lCase
+		if lCase
+			return new string( std_substrreplace(cValue,cStr1,cStr2) )
+		else
+			return new string(std_substrreplace_notcasesensitive(cValue,cStr1,cStr2))
+		ok
