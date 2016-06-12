@@ -52,6 +52,9 @@ func string_class_test
 	oString.println()
 	for t in ostring see t next
 	oString.tofile("test.txt")
+	oString = new string("one two three")
+	see nl
+	see ostring.split()
 
 Class String From StdBase
 
@@ -111,6 +114,9 @@ Class String From StdBase
 		else
 			return new string(std_substrreplace_notcasesensitive(cValue,cStr1,cStr2))
 		ok
+
+	Func Split
+		return str2list( substr(cValue," ",nl) )
 
 	Func operator cOperator,Para
 		result = new string
