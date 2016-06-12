@@ -35,4 +35,14 @@ Func std_str2list cStr
 Func std_list2str aList
 	return list2str(aList)
 
-	
+Func std_getsubstr cStr,nPos1,nPos2
+	return substr(cStr,nPos1,nPos2)
+
+Func std_substrpos cStr,cSubStr
+	return substr(cStr,cSubStr)
+
+Func std_substrreplace cStr,cSubStr1,cSubStr2
+	return substr(cStr,cSubStr1,cSubStr2)
+
+Func std_substrreplace_notcasesensitive cStr,cSubStr1,cSubStr2	
+	return substr(cStr,cSubStr1,cSubStr2,true)
