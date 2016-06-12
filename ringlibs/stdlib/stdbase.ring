@@ -18,4 +18,6 @@ Class StdBase
 
 	Func Size
 		return len(cValue)
-	
+
+	Func Value
+		return cValue
