@@ -76,10 +76,10 @@ Class String From StdBase
 	Func tolist
 		return std_str2list(cValue)
 
-	Func getsubstr nPos1,nPos2
+	Func get nPos1,nPos2
 		return new string( std_getsubstr(cValue,nPos1,nPos2) )
 
-	Func substrpos cStr
+	Func pos cStr
 		return std_substrpos(cValue,cStr)
 
 	Func replace cStr1,cStr2,lCase
