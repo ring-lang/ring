@@ -92,6 +92,9 @@ Class String From StdBase
 	Func tolist
 		return std_str2list(cValue)
 
+	Func tofile cFile
+		write (cFile,cValue)
+
 	Func get nPos1,nPos2
 		return new string( std_getsubstr(cValue,nPos1,nPos2) )
 
