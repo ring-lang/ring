@@ -37,6 +37,8 @@ func string_class_test
 	see "List Items" + nl See aList
 	oString = new String( "Welcome to the Ring programming language")
 	See "the - position : " + oString.pos("the") + nl
+	oString = oString.getfrom(oString.pos("Ring"))
+	oString.println()
 
 Class String From StdBase
 
