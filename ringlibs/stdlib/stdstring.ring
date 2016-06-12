@@ -32,6 +32,9 @@ func string_class_test
 	see oString.lines() + nl
 	oString = new String(1234)
 	oString.println()
+	oString = new String("one"+nl+"two"+nl+"three")
+	aList = oString.tolist()
+	see "List Items" + nl See aList
 
 Class String From StdBase
 
@@ -69,3 +72,6 @@ Class String From StdBase
 
 	Func strcmp cStr
 		return std_strcmp(cValue,cStr)
+
+	Func tolist
+		return std_str2list(cValue)
