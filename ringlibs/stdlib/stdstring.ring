@@ -51,6 +51,7 @@ func string_class_test
 	oString = oString1 * 3
 	oString.println()
 	for t in ostring see t next
+	oString.tofile("test.txt")
 
 Class String From StdBase
 
