@@ -39,6 +39,7 @@ func string_class_test
 	See "the - position : " + oString.pos("the") + nl
 	oString = oString.getfrom(oString.pos("Ring"))
 	oString.println()
+	oString.get(1,4).println()
 
 Class String From StdBase
 
