@@ -55,6 +55,11 @@ func string_class_test
 	oString = new string("one two three")
 	see nl
 	see ostring.split()
+	oString { 
+		set("Hello") println() 
+		set("How are you?") println()
+	}
+	
 
 Class String From StdBase
 

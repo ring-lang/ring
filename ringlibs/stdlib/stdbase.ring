@@ -21,3 +21,6 @@ Class StdBase
 
 	Func Value
 		return cValue
+
+	Func Set x
+		Init(x)
