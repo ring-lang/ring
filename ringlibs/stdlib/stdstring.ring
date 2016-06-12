@@ -50,6 +50,7 @@ func string_class_test
 	oString.println()
 	oString = oString1 * 3
 	oString.println()
+	for t in ostring see t next
 
 Class String From StdBase
 
@@ -111,8 +112,12 @@ Class String From StdBase
 		result = new string
 		switch cOperator
 			on "+"
-		  	result.cValue = cValue + Para.cValue
+		  		result.cValue = cValue + Para.cValue
 			on "*"
 				result.cvalue = std_copy(cValue,Para)
+			on "len"
+				return len( cValue )
+			on "[]"
+				return cValue[para]
 		off
 		return result
