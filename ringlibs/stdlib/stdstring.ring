@@ -35,6 +35,8 @@ func string_class_test
 	oString = new String("one"+nl+"two"+nl+"three")
 	aList = oString.tolist()
 	see "List Items" + nl See aList
+	oString = new String( "Welcome to the Ring programming language")
+	See "the - position : " + oString.pos("the") + nl
 
 Class String From StdBase
 
@@ -81,7 +83,7 @@ Class String From StdBase
 
 	Func getfrom nPos1
 		return new string( std_getsubstrfrom(cValue,nPos1) )
-		
+
 	Func pos cStr
 		return std_substrpos(cValue,cStr)
 
