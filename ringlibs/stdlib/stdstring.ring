@@ -44,6 +44,10 @@ func string_class_test
 	oString.println()
 	oString = oString.replace("ring","***Ring***",false)
 	oString.println()
+	oString1 = new string("First")
+	oString2 = new string("Second")
+	oString = oString1 + oString2
+	oString.println()
 
 Class String From StdBase
 
@@ -100,3 +104,11 @@ Class String From StdBase
 		else
 			return new string(std_substrreplace_notcasesensitive(cValue,cStr1,cStr2))
 		ok
+
+	Func operator cOperator,Para
+		result = new string
+		switch cOperator
+			on "+"
+		  	result.cValue = cValue + Para.cValue
+		off
+		return result
