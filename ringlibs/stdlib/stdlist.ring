@@ -28,6 +28,10 @@ func list_class_test
 	oList.print()
 	see "Search two : " + oList.findincolumn(2,"two") + nl
 	see "Search 1 : " + oList.findincolumn(1,1) + nl
+	oList = new list ( [ "Egypt" , "USA" , "KSA" ] )
+	for x in oList
+		see x + nl
+	next
 
 Class List From StdBase
 
@@ -72,3 +76,15 @@ Class List From StdBase
 
 	Func Insert nIndex,Item
 		std_insert(vValue,nIndex,Item)	
+
+	Func operator cOperator,Para
+		result = new list
+		switch cOperator
+			on "+"
+		  		result.vValue = vValue + Para.vValue
+			on "len"
+				return len( vValue )
+			on "[]"
+				return vValue[para]
+		off
+		return result
