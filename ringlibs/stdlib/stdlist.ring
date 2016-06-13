@@ -30,3 +30,6 @@ Class List From StdBase
 	Func Delete x
 		std_del( vValue , x)
 			
+	Func Item x
+		return vValue[x]
+
