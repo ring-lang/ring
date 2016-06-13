@@ -18,6 +18,7 @@ func list_class_test
 	see oList.first() + nl
 	see oList.last() + nl
 	oList { set(1,"one") set(2,"two") set(3,"three") print() }
+	see oList.find("two") + nl
 
 Class List From StdBase
 
@@ -45,7 +46,9 @@ Class List From StdBase
 	Func Last
 		return vValue[len(vValue)]
 
-	Func set nIndex,Value
+	Func Set nIndex,Value
 		vValue[nIndex] = value
 
+	Func Find value
+		return std_find(vValue,value)
 

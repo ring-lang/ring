@@ -55,3 +55,6 @@ Func std_add aList,vValue
 
 Func std_del aList,nIndex
 	Del(aList,nIndex)
+
+Func std_find aList,vValue
+	return Find(aList,vValue)
