@@ -49,3 +49,6 @@ Func std_substrreplace cStr,cSubStr1,cSubStr2
 
 Func std_substrreplace_notcasesensitive cStr,cSubStr1,cSubStr2
 	return substr(cStr,cSubStr1,cSubStr2,true)
+
+Func std_add aList,vValue
+	Add(aList , vValue)

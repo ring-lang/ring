@@ -4,23 +4,23 @@
 
 Class StdBase
 
-	cValue
+	vValue
 
 	Func Init x
-		cValue = x
+		vValue = x
 
 	Func Print
-		See cValue
+		See vValue
 
 	Func PrintLn
 		Print()
 		See nl
 
 	Func Size
-		return len(cValue)
+		return len(vValue)
 
 	Func Value
-		return cValue
+		return vValue
 
 	Func Set x
 		Init(x)

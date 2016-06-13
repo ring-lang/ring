@@ -5,4 +5,6 @@
 Load "stdfunctions.ring"
 Load "stdbase.ring"
 Load "stdstring.ring"
+Load "stdlist.ring"
+
 		

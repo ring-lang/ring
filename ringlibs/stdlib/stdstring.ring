@@ -75,64 +75,64 @@ Class String From StdBase
 		ok
 
 	Func Lower
-		return new string( std_lower(cValue) )
+		return new string( std_lower(vValue) )
 
 	Func Upper
-		return new string( std_upper(cValue) )
+		return new string( std_upper(vValue) )
 
 	Func Left x
-		return new string( std_left(cValue,x) )
+		return new string( std_left(vValue,x) )
 
 	Func Right x
-		return new string( std_right(cValue,x) )
+		return new string( std_right(vValue,x) )
 
 	Func Lines
-		return std_lines(cValue)
+		return std_lines(vValue)
 
 	Func Trim
-		return new string( std_trim(cValue) )
+		return new string( std_trim(vValue) )
 
 	Func Copy x
-		return new string( std_copy(cValue,x) )
+		return new string( std_copy(vValue,x) )
 
 	Func strcmp cStr
-		return std_strcmp(cValue,cStr)
+		return std_strcmp(vValue,cStr)
 
 	Func tolist
-		return std_str2list(cValue)
+		return std_str2list(vValue)
 
 	Func tofile cFile
-		write (cFile,cValue)
+		write (cFile,vValue)
 
 	Func get nPos1,nPos2
-		return new string( std_getsubstr(cValue,nPos1,nPos2) )
+		return new string( std_getsubstr(vValue,nPos1,nPos2) )
 
 	Func getfrom nPos1
-		return new string( std_getsubstrfrom(cValue,nPos1) )
+		return new string( std_getsubstrfrom(vValue,nPos1) )
 
 	Func pos cStr
-		return std_substrpos(cValue,cStr)
+		return std_substrpos(vValue,cStr)
 
 	Func replace cStr1,cStr2,lCase
 		if lCase
-			return new string( std_substrreplace(cValue,cStr1,cStr2) )
+			return new string( std_substrreplace(vValue,cStr1,cStr2) )
 		else
-			return new string(std_substrreplace_notcasesensitive(cValue,cStr1,cStr2))
+			return new string(std_substrreplace_notcasesensitive(vValue,cStr1,cStr2))
 		ok
 
 	Func Split
-		return str2list( substr(cValue," ",nl) )
+		return str2list( substr(vValue," ",nl) )
 
 	Func operator cOperator,Para
 		result = new string
 		switch cOperator
 			on "+"
-		  		result.cValue = cValue + Para.cValue
+		  		result.vValue = vValue + Para.vValue
 			on "*"
-				result.cvalue = std_copy(cValue,Para)
+				result.vValue = std_copy(vValue,Para)
 			on "len"
-				return len( cValue )
+				return len( vValue )
 			on "[]"
-				return cValue[para]
+				return vValue[para]
 		off
 		return result
