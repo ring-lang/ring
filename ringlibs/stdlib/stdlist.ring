@@ -17,7 +17,7 @@ func list_class_test
 	oList.print()
 	see oList.first() + nl
 	see oList.last() + nl
-
+	oList { set(1,"one") set(2,"two") set(3,"three") print() }
 
 Class List From StdBase
 
@@ -44,4 +44,8 @@ Class List From StdBase
 
 	Func Last
 		return vValue[len(vValue)]
+
+	Func set nIndex,Value
+		vValue[nIndex] = value
+
 
