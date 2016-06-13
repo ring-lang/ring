@@ -6,7 +6,7 @@ Load "guilib.ring"
 cDir = currentdir() + "/"
 oCon = NULL
 
-pOpenDatabase() 
+pOpenDatabase()
 
 MyApp = new qApp
 {
@@ -17,7 +17,7 @@ MyApp = new qApp
 		layoutAdd = new qhboxlayout(win1)
 		{
 			label1 = new qLabel(win1) { setText("Weight") }
-			text1 = new qlineedit(win1) 
+			text1 = new qlineedit(win1)
 			btn1 = new qpushbutton(win1) { setText("Add") setClickEvent("pAddWeight()") }
 			addwidget(label1)
 			addwidget(text1)
@@ -46,11 +46,11 @@ MyApp = new qApp
 			addLayout(LayoutData)
 			addLayout(layoutClose)
 		}
-		setlayout(layoutMain)				
+		setlayout(layoutMain)
 		pShowRecords()
 		show()
 
-	}		
+	}
 	exec()
 }
 
@@ -91,7 +91,7 @@ Func pAddRecord cWeight
 	query.delete()
 
 Func pShowRecord cDate,cTime,cWeight
-	Table1 { 
+	Table1 {
 		nRows = rowCount()
 		insertRow(nRows)
 		item = new qTableWidgetItem(cDate)
@@ -101,20 +101,20 @@ Func pShowRecord cDate,cTime,cWeight
 		item = new qTableWidgetItem(cWeight)
 		setItem(nRows,2,item)
 	}
-	
-Func pShowRecords	
+
+Func pShowRecords
 	query = new QSqlQuery( )
 	query.exec("select * from weighthistory")
 	nRows = 0
 	Table1.setrowcount(0)
 	while query.movenext()
-		Table1 { 
+		Table1 {
 			insertRow(nRows)
 			for x = 1 to 3
 				cStr = query.value(x).tostring()
 				item = new qTableWidgetItem(cStr)
 				setItem(nRows,x-1,item)
-			next	
+			next
 		}
 		nRows++
 	end
