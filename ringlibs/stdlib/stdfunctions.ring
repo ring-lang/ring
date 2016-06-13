@@ -58,3 +58,12 @@ Func std_del aList,nIndex
 
 Func std_find aList,vValue
 	return Find(aList,vValue)
+
+Func std_sort aList
+	return sort(aList)
+
+Func std_reverse aList
+	return reverse(aList)
+
+Func std_insert aList,nIndex,Item
+	Insert(aList,nIndex,Item)

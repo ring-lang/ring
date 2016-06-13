@@ -19,6 +19,10 @@ func list_class_test
 	see oList.last() + nl
 	oList { set(1,"one") set(2,"two") set(3,"three") print() }
 	see oList.find("two") + nl
+	oList.sort().print()
+	oList.reverse().print()
+	oList.insert(2,"nice")
+	oList.print()
 
 Class List From StdBase
 
@@ -52,3 +56,11 @@ Class List From StdBase
 	Func Find value
 		return std_find(vValue,value)
 
+	Func Sort
+		return new list ( std_sort(vValue) )
+	
+	Func Reverse
+		return new list ( std_reverse(vValue) )
+
+	Func Insert nIndex,Item
+		std_insert(vValue,nIndex,Item)	
