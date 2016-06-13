@@ -52,3 +52,6 @@ Func std_substrreplace_notcasesensitive cStr,cSubStr1,cSubStr2
 
 Func std_add aList,vValue
 	Add(aList , vValue)
+
+Func std_del aList,nIndex
+	Del(aList,nIndex)

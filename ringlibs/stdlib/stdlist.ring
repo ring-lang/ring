@@ -25,5 +25,8 @@ Class List From StdBase
 		ok
 
 	Func Add x
-		std_add( vValue, x)
-		
+		std_add( vValue , x)
+
+	Func Delete x
+		std_del( vValue , x)
+			
