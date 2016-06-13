@@ -12,6 +12,9 @@ func list_class_test
 	oList = new list ( [1,2,3] )
 	oList.Add(4)
 	oList.print()
+	see oList.item(1) + nl
+	oList.delete(4)
+	oList.print()
 
 Class List From StdBase
 
