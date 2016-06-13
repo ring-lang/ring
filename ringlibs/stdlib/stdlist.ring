@@ -23,6 +23,11 @@ func list_class_test
 	oList.reverse().print()
 	oList.insert(2,"nice")
 	oList.print()
+	oList = new list ( [ [1,"one"],[2,"two"],[3,"three"] ] )
+	see copy("*",10) + nl
+	oList.print()
+	see "Search two : " + oList.findincolumn(2,"two") + nl
+	see "Search 1 : " + oList.findincolumn(1,1) + nl
 
 Class List From StdBase
 
@@ -55,6 +60,9 @@ Class List From StdBase
 
 	Func Find value
 		return std_find(vValue,value)
+
+	Func FindinColumn nCol,value
+		return std_findincolumn(vValue,value,nCol)
 
 	Func Sort
 		return new list ( std_sort(vValue) )
