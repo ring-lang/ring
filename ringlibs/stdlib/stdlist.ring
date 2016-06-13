@@ -15,6 +15,9 @@ func list_class_test
 	see oList.item(1) + nl
 	oList.delete(4)
 	oList.print()
+	see oList.first() + nl
+	see oList.last() + nl
+
 
 Class List From StdBase
 
@@ -35,4 +38,10 @@ Class List From StdBase
 			
 	Func Item x
 		return vValue[x]
+
+	Func First		
+		return vValue[1]
+
+	Func Last
+		return vValue[len(vValue)]
 
