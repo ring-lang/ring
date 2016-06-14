@@ -32,6 +32,9 @@ func list_class_test
 	for x in oList
 		see x + nl
 	next
+	oList =  new list ( [1,2,3,4] )
+	oList + [5,6,7] 
+	oList.print()
 
 Class List From StdBase
 
@@ -81,7 +84,15 @@ Class List From StdBase
 		result = new list
 		switch cOperator
 			on "+"
-		  		result.vValue = vValue + Para.vValue
+				if isobject(para)
+					for t in Para.vValue
+						vValue + t
+					next
+				but islist(para)
+					for t in Para
+						vValue + t
+					next
+				ok
 			on "len"
 				return len( vValue )
 			on "[]"
