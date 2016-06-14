@@ -42,6 +42,8 @@ func list_class_test
 
 Class List From StdBase
 
+	vValue  = []
+
 	Func Init x
 		if isstring(x) or isnumber(x)
 			super.init([x])
