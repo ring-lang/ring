@@ -35,6 +35,10 @@ func list_class_test
 	oList =  new list ( [1,2,3,4] )
 	oList + [5,6,7] 
 	oList.print()
+	oList = new list ( ["one","two"] )
+	oList2 = new list ( ["three","four"] )
+	oList + oList2
+	oList.print()
 
 Class List From StdBase
 
