@@ -137,5 +137,8 @@ Func std_decimals x
 Func std_clock
 	return clock()
 
+Func std_time
+	return time()
+
 
 
