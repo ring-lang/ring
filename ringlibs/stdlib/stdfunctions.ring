@@ -98,4 +98,7 @@ Func std_sinh x
 Func std_cosh x
 	return cosh(x)
 
+Func std_tanh x
+	return tanh(x)
+
 
