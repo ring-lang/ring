@@ -10,26 +10,51 @@ ok
 
 func datetime_class_test
 	
-	odatetime = new datetime
+	oDateTime = new datetime
 
 	See "Test the datetime Class Methods" + nl
 
+	See "Calculate performance" + nl
+	t1 = oDateTime.clock()
+	for x = 1 to 1000000 next
+	see oDateTime.clock() - t1
+
+	See "Time : " + oDateTime.time()
+
+	See "Date : " + oDateTime.date() 
+
+	See oDateTime.TimeList()
+
+	See "Month Name : " + oDateTime.TimeList()[4]      
+
+	cDate = oDateTime.date()
+	see cDate + nl                  
+	cDate = oDateTime.adddays(cDate,10)
+	see cDate + nl 
+
+	cDate1 = oDateTime.date()
+	see cDate1 + nl                                          
+	cDate2 = oDateTime.adddays(cDate1,10)
+	see cDate2 + nl                                          
+	see "DiffDays = " + oDateTime.diffdays(cDate1,cDate2) + nl         
+	see "DiffDays = " + oDateTime.diffdays(cDate2,cDate1) + nl       
+
 Class datetime 
 
-	Func std_clock
-		return clock()
+	Func clock
+		return std_clock()
 
-	Func std_time
-		return time()
+	Func time
+		return std_time()
 
-	Func std_date
-		return date()
+	Func date
+		return std_date()
 
-	Func std_timelist
-		return timelist()
+	Func timelist
+		return std_timelist()
 
-	Func std_adddays cDate,nDays
-		return adddays(cDate,nDays)
+	Func adddays cDate,nDays
+		return std_adddays(cDate,nDays)
 
-	Func std_diffdays cdate1,cdate2
-		return diffdays(cdate1,cdate2)
+	Func diffdays cdate1,cdate2
+		return std_diffdays(cdate1,cdate2)
