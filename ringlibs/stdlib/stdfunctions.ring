@@ -83,4 +83,7 @@ Func std_tan x
 Func std_asin x
 	return asin(x)
 
+Func std_acos x
+	return acos(x)
+
 
