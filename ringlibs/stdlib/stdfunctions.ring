@@ -110,4 +110,7 @@ Func std_log x
 Func std_log10 x
 	return log10(x)
 
+Func std_ceil x
+	return ceil(x)
+
 
