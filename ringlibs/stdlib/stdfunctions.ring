@@ -143,5 +143,8 @@ Func std_time
 Func std_date
 	return date()
 
+Func std_timelist
+	return timelist()
+
 
 
