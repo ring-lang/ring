@@ -6,5 +6,9 @@ Load "stdfunctions.ring"
 Load "stdbase.ring"
 Load "stdstring.ring"
 Load "stdlist.ring"
+Load "stdstack.ring"
+Load "stdqueue.ring"
+Load "stdmath.ring"
+Load "stddatetime.ring"
 
 		
