@@ -113,4 +113,8 @@ Func std_log10 x
 Func std_ceil x
 	return ceil(x)
 
+Func std_floor x
+	return floor(x)
+
+
 
