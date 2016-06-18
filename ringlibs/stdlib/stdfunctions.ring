@@ -128,5 +128,9 @@ Func std_sqrt x
 Func std_random x
 	return random(x)
 
+Func std_unsigned n1,n2,c
+	return unsigned(n1,n2,c)
+
+
 
 
