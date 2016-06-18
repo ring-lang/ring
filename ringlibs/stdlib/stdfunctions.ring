@@ -140,5 +140,8 @@ Func std_clock
 Func std_time
 	return time()
 
+Func std_date
+	return date()
+
 
 
