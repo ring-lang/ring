@@ -89,3 +89,7 @@ Func std_acos x
 Func std_atan x
 	return atan(x)
 
+Func std_atan2 x,y
+	return atan2(x,y)
+
+
