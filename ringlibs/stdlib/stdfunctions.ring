@@ -122,5 +122,9 @@ Func std_fabs x
 Func std_pow x,y
 	return pow(x,y)
 
+Func std_sqrt x
+	return sqrt(x)
+
+
 
 
