@@ -70,3 +70,7 @@ Func std_reverse aList
 
 Func std_insert aList,nIndex,Item
 	Insert(aList,nIndex,Item)
+
+Func std_sin x
+	return sin(x)
+
