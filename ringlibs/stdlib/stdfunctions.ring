@@ -92,4 +92,7 @@ Func std_atan x
 Func std_atan2 x,y
 	return atan2(x,y)
 
+Func std_sinh x
+	return sinh(x)
+
 
