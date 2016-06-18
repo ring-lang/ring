@@ -134,6 +134,8 @@ Func std_unsigned n1,n2,c
 Func std_decimals x
 	return decimals(x)
 
+Func std_clock
+	return clock()
 
 
 
