@@ -101,4 +101,7 @@ Func std_cosh x
 Func std_tanh x
 	return tanh(x)
 
+Func std_exp x
+	return exp(x)
+
 
