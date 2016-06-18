@@ -116,5 +116,8 @@ Func std_ceil x
 Func std_floor x
 	return floor(x)
 
+Func std_fabs x
+	return fabs(x)
+
 
 
