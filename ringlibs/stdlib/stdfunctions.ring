@@ -125,6 +125,8 @@ Func std_pow x,y
 Func std_sqrt x
 	return sqrt(x)
 
+Func std_random x
+	return random(x)
 
 
 
