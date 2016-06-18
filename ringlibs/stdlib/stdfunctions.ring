@@ -104,4 +104,7 @@ Func std_tanh x
 Func std_exp x
 	return exp(x)
 
+Func std_log x
+	return log(x)
+
 
