@@ -149,5 +149,8 @@ Func std_timelist
 Func std_adddays cDate,nDays
 	return adddays(cDate,nDays)
 
+Func std_diffdays cdate1,cdate2
+	return diffdays(cdate1,cdate2)
+
 
 
