@@ -9,18 +9,18 @@ if filename() = sysargv[2]
 	queue_class_test()
 ok
 
-func queue_class_test	
+func queue_class_test
 	oQueue = new Queue
 	oQueue.add(1)
 	oQueue.add(2)
 	oQueue.add(3)
 	see oQueue.remove() + nl
 	see oQueue.remove() + nl
-	see oQueue.remove() + nl	
+	see oQueue.remove() + nl
 	oQueue.add(4)
 	see oQueue.remove() + nl
 	oQueue { add("one") add("two") add("three") }
-	oQueue.print()	
+	oQueue.print()
 
 Class Queue From List
 
@@ -31,8 +31,7 @@ Class Queue From List
 			raise("Error: Queue Class - Init Method - Bad Parameter")
 		ok
 
-	Func Remove 
+	Func Remove
 		item = item(1)
 		delete(1)
 		return item
-
