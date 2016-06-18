@@ -86,4 +86,6 @@ Func std_asin x
 Func std_acos x
 	return acos(x)
 
+Func std_atan x
+	return atan(x)
 
