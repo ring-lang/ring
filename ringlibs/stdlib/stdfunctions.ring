@@ -77,4 +77,7 @@ Func std_sin x
 Func std_cos x
 	return cos(x)
 
+Func std_tan x
+	return tan(x)
+
 
