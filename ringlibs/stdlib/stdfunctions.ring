@@ -107,4 +107,7 @@ Func std_exp x
 Func std_log x
 	return log(x)
 
+Func std_log10 x
+	return log10(x)
+
 
