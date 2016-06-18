@@ -58,6 +58,32 @@ func math_class_test
 
 	see "sqrt(16) = " + oMath.sqrt(16) + nl
 
+	for x = 1 to 20
+        		see "Random number Max (100) : " + oMath.random(100) + nl
+	next
+
+	x = 1.1234567890123
+	for d = 0 to 14
+	        oMath.decimals(d)
+	        see x + nl
+	next
+
+	cKey = "hello"
+
+ 	h = 0
+	for x in cKey
+		h = unsigned(h,ascii(x),"+")
+		h = unsigned(h,unsigned(h,10,"<<"),"+")
+		r = unsigned(h,6,">>")
+		h = unsigned(h, r,"^")
+	next
+	h = unsigned(h,unsigned(h,3,"<<"),"+")
+	h = unsigned(h,unsigned(h,11,">>"),"^")
+	h = unsigned(h,unsigned(h,15,"<<"),"+")
+
+	see "Hash : " + h
+
+
 Class Math 
 
 	Func sin x
