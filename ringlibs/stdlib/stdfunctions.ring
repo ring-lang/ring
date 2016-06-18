@@ -119,5 +119,8 @@ Func std_floor x
 Func std_fabs x
 	return fabs(x)
 
+Func std_pow x,y
+	return pow(x,y)
+
 
 
