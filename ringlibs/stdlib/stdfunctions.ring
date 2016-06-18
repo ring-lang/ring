@@ -74,3 +74,7 @@ Func std_insert aList,nIndex,Item
 Func std_sin x
 	return sin(x)
 
+Func std_cos x
+	return cos(x)
+
+
