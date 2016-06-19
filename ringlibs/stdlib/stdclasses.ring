@@ -12,7 +12,7 @@ Load "stdmath.ring"
 Load "stddatetime.ring"
 Load "stdfile.ring"
 Load "stdsystem.ring"
-
+Load "stddebug"
 
 
 		
