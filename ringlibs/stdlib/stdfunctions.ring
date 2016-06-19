@@ -182,4 +182,7 @@ Func std_freopen cFileName,cMode,FileHandle
 Func std_tempfile
 	return tempfile()
 
+Func std_fseek filehandle,noffset,nwhence
+	return fseek(filehandle,noffset,nwhence)
+
 
