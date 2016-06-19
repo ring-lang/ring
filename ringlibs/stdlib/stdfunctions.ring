@@ -152,5 +152,8 @@ Func std_adddays cDate,nDays
 Func std_diffdays cdate1,cdate2
 	return diffdays(cdate1,cdate2)
 
+Func std_read cFileName
+	return read(cFileName)
+
 
 
