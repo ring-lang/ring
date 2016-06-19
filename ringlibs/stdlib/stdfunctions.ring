@@ -257,5 +257,9 @@ Func std_ismacosx()
 Func std_islinux()
 	return islinux()
 
+Func std_isfreebsd()
+	return isfreebsd()
+
+
 
 
