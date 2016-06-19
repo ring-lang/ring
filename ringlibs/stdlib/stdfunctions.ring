@@ -203,4 +203,7 @@ Func std_clearerr filehandle
 Func std_feof filehandle
 	return feof(filehandle)
 
+Func std_ferror filehandle
+	return ferror(filehandle)
+
 
