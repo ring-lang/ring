@@ -242,30 +242,31 @@ Func std_get cVariable
 Func std_ismsdos
 	return ismsdos()
 
-Func std_iswindows()
+Func std_iswindows
 	return iswindows()
 
-Func std_iswindows64()
+Func std_iswindows64
 	return iswindows64()
 
-Func std_isunix()
+Func std_isunix
 	return isunix()
 
-Func std_ismacosx()
+Func std_ismacosx
 	return ismacosx()
 
-Func std_islinux()
+Func std_islinux
 	return islinux()
 
-Func std_isfreebsd()
+Func std_isfreebsd
 	return isfreebsd()
 
-Func std_isandroid()
+Func std_isandroid
 	return isandroid()
 
-Func std_windowsnl()
+Func std_windowsnl
 	return windowsnl()
 
-
+Func std_sysargv
+	return sysargv
 
 
