@@ -10,5 +10,7 @@ Load "stdstack.ring"
 Load "stdqueue.ring"
 Load "stdmath.ring"
 Load "stddatetime.ring"
+Load "stdfile.ring"
+
 
 		
