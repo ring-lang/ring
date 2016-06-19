@@ -212,5 +212,7 @@ Func std_perror cErrorMessage
 Func std_fgetc filehandle
 	return fgetc(filehandle)
 
+Func std_fgets filehandle,nsize
+	return fgets(filehandle,nsize)
 
 
