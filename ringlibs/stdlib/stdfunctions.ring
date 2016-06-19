@@ -200,5 +200,7 @@ Func std_fsetpos filehandle,poshandle
 Func std_clearerr filehandle
 	clearerr(filehandle)
 
+Func std_feof filehandle
+	return feof(filehandle)
 
 
