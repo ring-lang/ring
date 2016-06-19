@@ -215,4 +215,8 @@ Func std_fgetc filehandle
 Func std_fgets filehandle,nsize
 	return fgets(filehandle,nsize)
 
+Func std_fputc filehandle,cchar
+	fputc(filehandle,cchar)
+
+
 
