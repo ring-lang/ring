@@ -161,4 +161,8 @@ Func std_write cFileName,cStr
 Func std_dir cFolderPath
 	return dir(cFolderPath)
 
+Func std_rename cOld,cNew
+	rename(cOld,cNew)
+
+
 
