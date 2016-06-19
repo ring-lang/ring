@@ -248,5 +248,9 @@ Func std_iswindows()
 Func std_iswindows64()
 	return iswindows64()
 
+Func std_isunix()
+	return isunix()
+
+
 
 
