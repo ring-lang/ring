@@ -185,4 +185,8 @@ Func std_tempfile
 Func std_fseek filehandle,noffset,nwhence
 	return fseek(filehandle,noffset,nwhence)
 
+Func std_ftell filehandle
+	return fteel(filehandle)
+
+
 
