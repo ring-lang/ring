@@ -242,5 +242,9 @@ Func std_get cVariable
 Func std_ismsdos
 	return ismsdos()
 
+Func std_iswindows()
+	return iswindows()
+
+
 
 
