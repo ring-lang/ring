@@ -170,4 +170,7 @@ Func std_remove cFileName
 Func std_fopen cFileName,cMode
 	return fopen(cFileName,cMode)
 
+Func std_fclose filehandle
+	fclose(filehandle)
+
 
