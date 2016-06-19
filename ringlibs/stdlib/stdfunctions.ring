@@ -221,4 +221,7 @@ Func std_fputc filehandle,cchar
 Func std_fputs filehandle,cStr
 	fputs(filehandle,cStr)
 
+Func std_ungetc filehandle,cchar
+	ungetc(filehandle,cchar)
+
 
