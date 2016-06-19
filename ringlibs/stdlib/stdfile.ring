@@ -15,6 +15,11 @@ func file_class_test
 	See "Test the file Class Methods" + nl
 	see ofile.read(filename())
 
+	see nl
+	ofile.open(filename(),"r")
+	see ofile.gets(100) + nl
+	ofile.close()
+
 Class file 
 
 	filehandle 
