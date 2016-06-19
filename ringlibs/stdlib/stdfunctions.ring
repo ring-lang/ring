@@ -230,5 +230,9 @@ Func std_fread filehandle,nsize
 Func std_fwrite filehandle,cString
 	fwrite(filehandle,cString)
 
+Func std_fexists cFileName
+	return fexists(cFileName)
+
+
 
 
