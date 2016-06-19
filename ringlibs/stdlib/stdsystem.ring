@@ -10,10 +10,11 @@ ok
 
 func System_class_test
 	
-	ofile = new file
+	oSystem = new System
 
 	See "Test the System Class Methods" + nl
- 
+ 	
+	oSystem.system("dir")
 
 Class System
  
