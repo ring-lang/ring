@@ -274,3 +274,6 @@ Func std_eval cCode
 
 Func std_raise cError
 	raise(cError)
+
+Func std_assert cCondition
+	assert(cCondition)
