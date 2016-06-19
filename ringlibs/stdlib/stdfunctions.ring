@@ -263,5 +263,9 @@ Func std_isfreebsd()
 Func std_isandroid()
 	return isandroid()
 
+Func std_windowsnl()
+	return windowsnl()
+
+
 
 
