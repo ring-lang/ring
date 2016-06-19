@@ -233,6 +233,8 @@ Func std_fwrite filehandle,cString
 Func std_fexists cFileName
 	return fexists(cFileName)
 
+Func std_system cCommand
+	system(cCommand)
 
 
 
