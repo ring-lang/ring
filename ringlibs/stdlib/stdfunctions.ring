@@ -191,3 +191,6 @@ Func std_ftell filehandle
 Func std_rewind filehandle
 	return rewind(filehandle)
 
+Func std_fgetpos filehandle
+	return fgetpos(filehandle)
+
