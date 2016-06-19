@@ -209,4 +209,8 @@ Func std_ferror filehandle
 Func std_perror cErrorMessage
 	perror(cErrorMessage)
 
+Func std_fgetc filehandle
+	return fgetc(filehandle)
+
+
 
