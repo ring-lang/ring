@@ -260,6 +260,8 @@ Func std_islinux()
 Func std_isfreebsd()
 	return isfreebsd()
 
+Func std_isandroid()
+	return isandroid()
 
 
 
