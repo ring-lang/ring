@@ -164,5 +164,7 @@ Func std_dir cFolderPath
 Func std_rename cOld,cNew
 	rename(cOld,cNew)
 
+Func std_remove cFileName
+	remove(cFileName)
 
 
