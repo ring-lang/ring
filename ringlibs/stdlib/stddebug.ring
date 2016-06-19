@@ -16,3 +16,11 @@ func Debug_class_test
  	 
 Class Debug
  
+	Func eval cCode
+		return std_eval(cCode)
+
+	Func raise cError
+		std_raise(cError)
+
+	Func assert cCondition
+		std_assert(cCondition)
