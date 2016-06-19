@@ -236,5 +236,8 @@ Func std_fexists cFileName
 Func std_system cCommand
 	system(cCommand)
 
+Func std_get cVariable
+	return get(cVariable)
+
 
 
