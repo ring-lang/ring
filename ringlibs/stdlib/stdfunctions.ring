@@ -158,5 +158,7 @@ Func std_read cFileName
 Func std_write cFileName,cStr
 	write(cFileName,cStr)
 
+Func std_dir cFolderPath
+	return dir(cFolderPath)
 
 
