@@ -227,5 +227,8 @@ Func std_ungetc filehandle,cchar
 Func std_fread filehandle,nsize
 	return fread(filehandle,nsize)
 
+Func std_fwrite filehandle,cString
+	fwrite(filehandle,cString)
+
 
 
