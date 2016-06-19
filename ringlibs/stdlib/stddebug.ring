@@ -11,8 +11,13 @@ ok
 func Debug_class_test
 	
 	oDebug = new Debug
-
 	See "Test the Debug Class Methods" + nl
+	oDebug.eval("see 'Hello'+nl")
+	try
+		x = 10
+		oDebug.assert(x=11)
+	catch see "assert" + nl done
+	raise("Error!")
  	 
 Class Debug
  
