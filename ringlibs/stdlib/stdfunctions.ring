@@ -224,4 +224,8 @@ Func std_fputs filehandle,cStr
 Func std_ungetc filehandle,cchar
 	ungetc(filehandle,cchar)
 
+Func std_fread filehandle,nsize
+	return fread(filehandle,nsize)
+
+
 
