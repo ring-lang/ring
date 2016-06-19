@@ -206,4 +206,7 @@ Func std_feof filehandle
 Func std_ferror filehandle
 	return ferror(filehandle)
 
+Func std_perror cErrorMessage
+	perror(cErrorMessage)
+
 
