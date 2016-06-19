@@ -167,4 +167,7 @@ Func std_rename cOld,cNew
 Func std_remove cFileName
 	remove(cFileName)
 
+Func std_fopen cFileName,cMode
+	return fopen(cFileName,cMode)
+
 
