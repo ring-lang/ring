@@ -197,3 +197,8 @@ Func std_fgetpos filehandle
 Func std_fsetpos filehandle,poshandle
 	fsetpos(filehandle,poshandle)
 
+Func std_clearerr filehandle
+	clearerr(filehandle)
+
+
+
