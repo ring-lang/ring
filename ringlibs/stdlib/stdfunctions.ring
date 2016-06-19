@@ -251,6 +251,8 @@ Func std_iswindows64()
 Func std_isunix()
 	return isunix()
 
+Func std_ismacosx()
+	return ismacosx()
 
 
 
