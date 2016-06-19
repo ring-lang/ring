@@ -245,6 +245,8 @@ Func std_ismsdos
 Func std_iswindows()
 	return iswindows()
 
+Func std_iswindows64()
+	return iswindows64()
 
 
 
