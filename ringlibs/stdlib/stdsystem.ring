@@ -15,6 +15,19 @@ func System_class_test
 	See "Test the System Class Methods" + nl
  	
 	oSystem.system("dir")
+	see oSystem.get("path") + nl
+	see oSystem.ismsdos() + nl
+	see oSystem.iswindows() + nl
+	see oSystem.iswindows64() + nl
+	see oSystem.isunix() + nl
+	see oSystem.ismacosx() + nl
+	see oSystem.islinux() + nl
+	see oSystem.isfreebsd() + nl
+	see oSystem.isandroid() + nl
+	see oSystem.windowsnl() + nl
+	see oSystem.sysargv() + nl
+	see oSystem.filename() + nl
+
 
 Class System
  
