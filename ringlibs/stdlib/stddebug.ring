@@ -14,6 +14,5 @@ func Debug_class_test
 
 	See "Test the Debug Class Methods" + nl
  	 
-
 Class Debug
  

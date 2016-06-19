@@ -268,3 +268,6 @@ Func std_windowsnl
 
 Func std_sysargv
 	return sysargv
+
+Func std_eval cCode
+	return eval(cCode)
