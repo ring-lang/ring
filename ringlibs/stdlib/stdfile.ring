@@ -13,6 +13,7 @@ func file_class_test
 	ofile = new file
 
 	See "Test the file Class Methods" + nl
+	see ofile.read(filename())
 
 Class file 
 
@@ -83,7 +84,7 @@ Class file
 		std_fputc(filehandle,cchar)
 
 	Func fputs filehandle,cStr
-		fputs(filehandle,cStr)
+		std_fputs(filehandle,cStr)
 
 	Func ungetc filehandle,cchar
 		std_ungetc(filehandle,cchar)
