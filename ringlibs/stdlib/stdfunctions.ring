@@ -155,5 +155,8 @@ Func std_diffdays cdate1,cdate2
 Func std_read cFileName
 	return read(cFileName)
 
+Func std_write cFileName,cStr
+	write(cFileName,cStr)
+
 
 
