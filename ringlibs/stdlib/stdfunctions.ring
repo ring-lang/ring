@@ -271,3 +271,6 @@ Func std_sysargv
 
 Func std_eval cCode
 	return eval(cCode)
+
+Func std_raise cError
+	raise(cError)
