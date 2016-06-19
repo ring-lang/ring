@@ -254,5 +254,8 @@ Func std_isunix()
 Func std_ismacosx()
 	return ismacosx()
 
+Func std_islinux()
+	return islinux()
+
 
 
