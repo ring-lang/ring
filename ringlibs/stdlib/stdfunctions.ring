@@ -218,5 +218,7 @@ Func std_fgets filehandle,nsize
 Func std_fputc filehandle,cchar
 	fputc(filehandle,cchar)
 
+Func std_fputs filehandle,cStr
+	fputs(filehandle,cStr)
 
 
