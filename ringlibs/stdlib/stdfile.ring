@@ -17,6 +17,8 @@ func file_class_test
 
 Class file 
 
+	filehandle 
+
 	Func read cFileName
 		return std_read(cFileName)
 
@@ -32,68 +34,69 @@ Class file
 	Func remove cFileName
 		std_remove(cFileName)
 
-	Func fopen cFileName,cMode
-		return std_fopen(cFileName,cMode)
+	Func open cFileName,cMode
+		filehandle = std_fopen(cFileName,cMode)
+		return filehandle
 
-	Func fclose filehandle
+	Func close  
 		std_fclose(filehandle)
 
-	Func fflush filehandle
+	Func flush  
 		std_fflush(filehandle)
 
-	Func freopen cFileName,cMode,FileHandle
+	Func reopen cFileName,cMode 
 		return std_freopen(cFileName,cMode,FileHandle)
 
 	Func tempfile
 		return std_tempfile()
 
-	Func fseek filehandle,noffset,nwhence
+	Func seek noffset,nwhence
 		return std_fseek(filehandle,noffset,nwhence)
 
-	Func ftell filehandle
+	Func tell 
 		return std_fteel(filehandle)
 
-	Func rewind filehandle
+	Func rewind 
 		return std_rewind(filehandle)
 
-	Func fgetpos filehandle
+	Func getpos  
 		return std_fgetpos(filehandle)
 
-	Func fsetpos filehandle,poshandle
+	Func setpos poshandle
 		std_fsetpos(filehandle,poshandle)
 
-	Func clearerr filehandle
+	Func clearerr 
 		std_clearerr(filehandle)
 
-	Func feof filehandle
+	Func eof  
 		return std_feof(filehandle)
 
-	Func ferror filehandle
+	Func error  
 		return std_ferror(filehandle)
 
 	Func perror cErrorMessage
 		std_perror(cErrorMessage)
 
-	Func fgetc filehandle
+	Func getc  
 		return std_fgetc(filehandle)
 
-	Func fgets filehandle,nsize
+	Func gets nsize
 		return std_fgets(filehandle,nsize)
 
-	Func fputc filehandle,cchar
+	Func putc cchar
 		std_fputc(filehandle,cchar)
 
-	Func fputs filehandle,cStr
+	Func puts cStr
 		std_fputs(filehandle,cStr)
 
-	Func ungetc filehandle,cchar
+	Func ungetc cchar
 		std_ungetc(filehandle,cchar)
 
-	Func fread filehandle,nsize
+	Func fread nsize
 		return std_fread(filehandle,nsize)
 
-	Func fwrite filehandle,cString
+	Func fwrite cString
 		std_fwrite(filehandle,cString)
 
-	Func fexists cFileName
+	Func exists cFileName
 		return std_fexists(cFileName)
