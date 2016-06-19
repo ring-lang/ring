@@ -268,7 +268,3 @@ Func std_windowsnl
 
 Func std_sysargv
 	return sysargv
-
-Func std_filename
-	return filename()
-
