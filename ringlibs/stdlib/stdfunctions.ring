@@ -322,3 +322,6 @@ Func std_isspace vValue
 
 Func std_isupper vValue
 	return isupper(vValue)
+
+Func std_isxdigit vValue
+	return isxdigit(vValue)
