@@ -328,3 +328,6 @@ Func std_isxdigit vValue
 
 Func std_number vValue
 	return number(vValue)
+
+Func std_string vValue
+	return string(vValue)
