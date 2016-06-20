@@ -326,3 +326,5 @@ Func std_isupper vValue
 Func std_isxdigit vValue
 	return isxdigit(vValue)
 
+Func std_number vValue
+	return number(vValue)
