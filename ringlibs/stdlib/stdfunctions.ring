@@ -347,3 +347,5 @@ Func std_dec vValue
 Func std_str2hex vValue
 	return str2hex(vValue)
 
+Func std_hex2str vValue
+	return hex2str(vValue)
