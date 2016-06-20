@@ -316,3 +316,6 @@ Func std_isprint vValue
 
 Func std_ispunct vValue
 	return ispunct(vValue)
+
+Func std_isspace vValue
+	return isspace(vValue)
