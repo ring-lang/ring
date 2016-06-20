@@ -301,3 +301,6 @@ Func std_isalpha vValue
 
 Func std_iscntrl vValue
 	return iscntrl(vValue)
+
+Func std_isdigit vValue
+	return isdigit(vValue)
