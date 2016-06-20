@@ -289,3 +289,6 @@ Func std_islist vValue
 
 Func std_type vValue
 	return type(vValue)
+
+Func std_isnull vValue
+	return isnull(vValue)
