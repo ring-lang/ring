@@ -14,6 +14,7 @@ Load "stdfile.ring"
 Load "stdsystem.ring"
 Load "stddebug.ring"
 Load "stddatatype.ring"
+Load "stdconversion.ring"
 
 
 		
