@@ -307,3 +307,6 @@ Func std_isdigit vValue
 
 Func std_isgraph vValue
 	return isgraph(vValue)
+
+Func std_islower vValue
+	return islower(vValue)
