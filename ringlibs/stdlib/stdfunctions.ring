@@ -295,3 +295,6 @@ Func std_isnull vValue
 
 Func std_isalnum vValue
 	return isalnum(vValue)
+
+Func std_isalpha vValue
+	return isalpha(vValue)
