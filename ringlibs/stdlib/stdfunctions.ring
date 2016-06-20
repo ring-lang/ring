@@ -292,3 +292,6 @@ Func std_type vValue
 
 Func std_isnull vValue
 	return isnull(vValue)
+
+Func std_isalnum vValue
+	return isalnum(vValue)
