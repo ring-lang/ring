@@ -281,7 +281,7 @@ Func std_assert cCondition
 Func std_isstring vValue
 	return isstring(vValue)
 
-Func strd_isnumber vValue
+Func std_isnumber vValue
 	return isnumber(vValue)
 
 Func std_islist vValue

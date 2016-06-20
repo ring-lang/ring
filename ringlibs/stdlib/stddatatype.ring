@@ -12,13 +12,16 @@ func datatype_class_test
 	
 	oDataType = new DataType
 	See "Test the DataType Class Methods" + nl
+	see oDataType.isstring("test") + nl
+	see oDataType.isnumber(1) + nl
+	see oDataType.islist(1:3) + nl
  	 
 Class DataType
  
 	Func isstring vValue
 		return std_isstring(vValue)
 
-	Func strd_isnumber vValue
+	Func isnumber vValue
 		return std_isnumber(vValue)
 
 	Func islist vValue
