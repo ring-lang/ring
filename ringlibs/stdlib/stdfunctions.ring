@@ -319,3 +319,6 @@ Func std_ispunct vValue
 
 Func std_isspace vValue
 	return isspace(vValue)
+
+Func std_isupper vValue
+	return isupper(vValue)
