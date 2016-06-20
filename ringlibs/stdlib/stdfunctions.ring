@@ -277,3 +277,6 @@ Func std_raise cError
 
 Func std_assert cCondition
 	assert(cCondition)
+
+Func std_isstring vValue
+	return isstring(vValue)
