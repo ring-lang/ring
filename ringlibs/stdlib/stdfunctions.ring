@@ -310,3 +310,6 @@ Func std_isgraph vValue
 
 Func std_islower vValue
 	return islower(vValue)
+
+Func std_isprint vValue
+	return isprint(vValue)
