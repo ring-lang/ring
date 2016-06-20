@@ -304,3 +304,6 @@ Func std_iscntrl vValue
 
 Func std_isdigit vValue
 	return isdigit(vValue)
+
+Func std_isgraph vValue
+	return isgraph(vValue)
