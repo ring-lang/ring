@@ -334,3 +334,6 @@ Func std_string vValue
 
 Func std_ascii vValue
 	return ascii(vValue)
+
+Func std_char vValue
+	return char(vValue)
