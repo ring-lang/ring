@@ -283,3 +283,6 @@ Func std_isstring vValue
 
 Func strd_isnumber vValue
 	return isnumber(vValue)
+
+Func std_islist vValue
+	return islist(vValue)
