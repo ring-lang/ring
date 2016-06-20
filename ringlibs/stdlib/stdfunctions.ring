@@ -341,3 +341,5 @@ Func std_char vValue
 Func std_hex vValue
 	return hex(vValue)
 
+Func std_dec vValue
+	return dec(vValue)
