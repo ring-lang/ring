@@ -10,8 +10,17 @@ ok
 
 func conversion_class_test
 	
-	oconversion = new conversion
+	oConversion = new conversion
 	See "Test the conversion Class Methods" + nl
+	See oConversion.number("3") + 5  + nl
+	See oConversion.string(3) + "5" + nl
+	See oConversion.Ascii("m") + nl	
+	See oConversion.char(77) + nl	
+	see oConversion.hex(162) + nl
+	see oConversion.dec("a2") + nl
+	cHex = oConversion.str2hex("Hello")
+	see cHex + nl
+	see oConversion.hex2str(cHex) + nl
 
 Class conversion
  
