@@ -337,3 +337,7 @@ Func std_ascii vValue
 
 Func std_char vValue
 	return char(vValue)
+
+Func std_hex vValue
+	return hex(vValue)
+
