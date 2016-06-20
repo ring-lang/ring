@@ -286,3 +286,6 @@ Func strd_isnumber vValue
 
 Func std_islist vValue
 	return islist(vValue)
+
+Func std_type vValue
+	return type(vValue)
