@@ -224,7 +224,7 @@
 				]
 			]
 	     ],
-	     ["Arabic Movies by Sofy Abbas (YouTube)",[
+	     ["Arabic Tutorials by Sofy Abbas (YouTube)",[
 				[
 					'<a href="https://www.youtube.com/watch?v=OWGaUQFrjAc" target="_blank">Download Ring and printing Hello, World!</a>'
 				],
@@ -245,7 +245,7 @@
 				]
 			]
 	      ],
-	      ["Arabic Movies by Ali Aliraqi (YouTube)",[
+	      ["Arabic Tutorials by Ali Aliraqi (YouTube)",[
 				[
 					'<a href="https://www.youtube.com/watch?v=lCh-n90q_dM&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=1" target="_blank">Introduction</a>'
 				],
@@ -277,5 +277,50 @@
 					'<a href="https://www.youtube.com/watch?v=CbEmf-WtTDM&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=10" target="_blank">Numbers (2)</a>'
 				]
 			]
-	      ]
+			],
+			["Arabic Tutorials by Mr. Alaa (YouTube)",[
+				[
+					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw" target="_blank">Ring introduction in Arabic</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Ip29yXhHJg0" target="_blank">Ring Set up</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=CGNQMcZMxSk" target="_blank">Qt and Ring</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ux8b15AkNfk" target="_blank">Build your First Ring GUI Application</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ARVCf3-T3I0" target="_blank">Ring hello world</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=FovfkqEj1kg" target="_blank">Ring Getting Started part1</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=SGFY__KNfDE" target="_blank">Ring Getting Started part2</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Bvb1VVunlis" target="_blank">Ring Variables Dynamic Typing</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=XG4uO-m3SZg" target="_blank">Ring Variables Deep Copy</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=6E_OSkmUhLU" target="_blank">Ring Weakly Typed</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=bfC-Uaz0NS4" target="_blank">Ring Arithmetic Operators</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=LELDebethmg" target="_blank">Ring Relational Operators</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=qclB9xuaI0Y" target="_blank">Ring Logical Operators</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=CMTFs2TB7_w" target="_blank">Ring Bitwise Operators</a>'
+				]
+			]
+		]
 ]
