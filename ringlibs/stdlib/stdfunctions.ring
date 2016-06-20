@@ -313,3 +313,6 @@ Func std_islower vValue
 
 Func std_isprint vValue
 	return isprint(vValue)
+
+Func std_ispunct vValue
+	return ispunct(vValue)
