@@ -298,3 +298,6 @@ Func std_isalnum vValue
 
 Func std_isalpha vValue
 	return isalpha(vValue)
+
+Func std_iscntrl vValue
+	return iscntrl(vValue)
