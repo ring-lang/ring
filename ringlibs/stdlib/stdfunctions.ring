@@ -380,6 +380,9 @@ Func std_odbc_fetch oODBC
 Func std_odbc_getdata oODBC,nCol
 	return odbc_getdata(oODBC,nCol)
 
+Func std_odbc_tables oODBC
+	return odbc_tables(oODBC)
+
 
 
 
