@@ -383,6 +383,9 @@ Func std_odbc_getdata oODBC,nCol
 Func std_odbc_tables oODBC
 	return odbc_tables(oODBC)
 
+Func std_odbc_columns oODBC,cTableName
+	return odbc_columns(oODBC,cTableName)
+
 
 
 
