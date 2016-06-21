@@ -368,6 +368,10 @@ Func std_odbc_connect oODBC,cConString
 Func std_odbc_disconnect oODBC
 	return odbc_disconnect(oODBC)
 
+Func std_odbc_execute oODBC,cSQL
+	return odbc_execute(oODBC)
+
+
 
 
 
