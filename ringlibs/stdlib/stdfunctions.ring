@@ -394,9 +394,3 @@ Func std_odbc_commit oODBC
 
 Func std_odbc_rollback oODBC
 	return odbc_rollback(oODBC)
-
-
-
-
-
-
