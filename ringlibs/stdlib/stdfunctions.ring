@@ -353,4 +353,7 @@ Func std_hex2str vValue
 Func std_odbc_init
 	return odbc_init()
 
+Func std_odbc_drivers
+	return odbc_drivers()
+
 
