@@ -12,52 +12,56 @@ func odbc_class_test
 	
 	oodbc = new odbc
 	See "Test the odbc Class Methods" + nl
- 
+	oODBC { 
+ 		see drivers()
+		see datasources()
+	}
 
 Class odbc
  
+	oODBC = init()
 	 
 	Func init
 		return std_odbc_init()
 
-	Func drivers oODBC
+	Func drivers  
 		return std_odbc_drivers(oODBC)
 
-	Func datasources oODBC
+	Func datasources  
 		return std_odbc_datasources(oODBC)
 
-	Func close oODBC
+	Func close  
 		return std_odbc_close(oODBC)
 
-	Func connect oODBC,cConString
+	Func connect cConString
 		return std_odbc_connect(oODBC,cConString)
 
-	Func disconnect oODBC
+	Func disconnect  
 		return std_odbc_disconnect(oODBC)
 
-	Func execute oODBC,cSQL
+	Func execute cSQL
 		return std_odbc_execute(oODBC)
 
-	Func colcount oODBC
+	Func colcount 
 		return std_odbc_colcount(oODBC)
 
-	Func fetch oODBC
+	Func fetch
 		return std_odbc_fetch(oODBC)
 
-	Func getdata oODBC,nCol
+	Func getdata nCol
 		return std_odbc_getdata(oODBC,nCol)
 
-	Func tables oODBC
+	Func tables
 		return std_odbc_tables(oODBC)
 
-	Func columns oODBC,cTableName
+	Func columns cTableName
 		return std_odbc_columns(oODBC,cTableName)
 
-	Func autocommit oODBC,lStatus
+	Func autocommit lStatus
 		return std_odbc_autocommit(oODBC,lStatus)
 
-	Func commit oODBC
+	Func commit 
 		return std_odbc_commit(oODBC)
 
-	Func rollback oODBC
+	Func rollback
 		return std_odbc_rollback(oODBC)
