@@ -359,5 +359,9 @@ Func std_odbc_drivers oODBC
 Func std_odbc_datasources oODBC
 	return odbc_datasources(oODBC)
 
+Func std_odbc_close oODBC
+	return odbc_close(oODBC)
+
+
 
 
