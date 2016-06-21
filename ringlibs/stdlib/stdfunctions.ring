@@ -377,6 +377,10 @@ Func std_odbc_colcount oODBC
 Func std_odbc_fetch oODBC
 	return odbc_fetch(oODBC)
 
+Func std_odbc_getdata oODBC,nCol
+	return odbc_getdata(oODBC,nCol)
+
+
 
 
 
