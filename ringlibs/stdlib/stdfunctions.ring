@@ -369,7 +369,7 @@ Func std_odbc_disconnect oODBC
 	return odbc_disconnect(oODBC)
 
 Func std_odbc_execute oODBC,cSQL
-	return odbc_execute(oODBC)
+	return odbc_execute(oODBC,cSQL)
 
 Func std_odbc_colcount oODBC
 	return odbc_colcount(oODBC)

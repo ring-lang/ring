@@ -15,6 +15,21 @@ func odbc_class_test
 	oODBC { 
  		see drivers()
 		see datasources()
+		See "Connect to database" + nl
+		see connect("DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+		See "Select data" + nl
+		see execute("select * from person") + nl
+		nMax = colcount()
+		See "Columns Count : " + nMax + nl
+		while fetch()
+		        See "Row data:" + nl
+		        for x = 1 to nMax
+		                see getdata(x) + " - "
+		        next
+		end
+		See "Close database..." + nl
+		disconnect()
+		close()
 	}
 
 Class odbc
@@ -40,7 +55,7 @@ Class odbc
 		return std_odbc_disconnect(oODBC)
 
 	Func execute cSQL
-		return std_odbc_execute(oODBC)
+		return std_odbc_execute(oODBC,cSQL)
 
 	Func colcount 
 		return std_odbc_colcount(oODBC)
