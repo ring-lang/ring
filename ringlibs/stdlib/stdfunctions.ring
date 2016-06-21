@@ -392,6 +392,9 @@ Func std_odbc_autocommit oODBC,lStatus
 Func std_odbc_commit oODBC
 	return odbc_commit(oODBC)
 
+Func std_odbc_rollback oODBC
+	return odbc_rollback(oODBC)
+
 
 
 
