@@ -386,6 +386,8 @@ Func std_odbc_tables oODBC
 Func std_odbc_columns oODBC,cTableName
 	return odbc_columns(oODBC,cTableName)
 
+Func std_odbc_autocommit oODBC,lStatus
+	return odbc_autocommit(oODBC,lStatus)
 
 
 
