@@ -349,3 +349,8 @@ Func std_str2hex vValue
 
 Func std_hex2str vValue
 	return hex2str(vValue)
+
+Func std_odbc_init
+	return odbc_init()
+
+
