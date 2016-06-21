@@ -362,6 +362,10 @@ Func std_odbc_datasources oODBC
 Func std_odbc_close oODBC
 	return odbc_close(oODBC)
 
+Func std_odbc_connect oODBC,cConString
+	return odbc_connect(oODBC,cConString)
+
+
 
 
 
