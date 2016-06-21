@@ -374,6 +374,9 @@ Func std_odbc_execute oODBC,cSQL
 Func std_odbc_colcount oODBC
 	return odbc_colcount(oODBC)
 
+Func std_odbc_fetch oODBC
+	return odbc_fetch(oODBC)
+
 
 
 
