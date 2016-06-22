@@ -17,3 +17,8 @@ func internet_class_test
 
 Class internet
  
+	Func download cURL
+		return std_download(cURL)
+
+	Func sendemail cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent
+		std_sendemail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
