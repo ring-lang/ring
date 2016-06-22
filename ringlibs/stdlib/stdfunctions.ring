@@ -419,3 +419,6 @@ Func std_mysql_insert_id
 Func std_mysql_result oMySQL
 	return mysql_result(oMySQL)
 
+Func std_mysql_next_result oMySQL
+	return mysql_next_result(oMySQL)
+
