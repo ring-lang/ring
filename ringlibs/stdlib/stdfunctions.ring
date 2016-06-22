@@ -437,3 +437,6 @@ Func std_mysql_autocommit oMySQL,lStatus
 Func std_mysql_commit oMySQL
 	return mysql_commit(oMySQL)
 
+Func std_mysql_rollback oMySQL
+	return mysql_rollback(oMySQL)
+
