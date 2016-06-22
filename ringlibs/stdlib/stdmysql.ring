@@ -17,6 +17,7 @@ func mysql_class_test
 
 Class MySQL
  
+	oMySQL = init()
 
 	Func info
 		return std_mysql_info()
@@ -24,43 +25,43 @@ Class MySQL
 	Func init
 		return std_mysql_init()
 
-	Func error oMySQL
+	Func error 
 		return std_mysql_error(oMySQL)
 
-	Func connect oMySQL,cServer,cUser,cPass
+	Func connect cServer,cUser,cPass
 		return std_mysql_connect(oMySQL,cServer,cUser,cPass)
 
-	Func close oMySQL	
+	Func close 	
 		return std_mysql_close(oMySQL)
 
-	Func query oMySQL,cQuery
+	Func query cQuery
 		return std_mysql_query(oMySQL,cQuery)
 
 	Func insert_id
 		return std_mysql_insert_id()
 
-	Func result oMySQL
+	Func result 
 		return std_mysql_result(oMySQL)
 
-	Func next_result oMySQL
+	Func next_result 
 		return std_mysql_next_result(oMySQL)
 
-	Func columns oMySQL
+	Func columns 
 		return std_mysql_columns(oMySQL)
 
-	Func result2 oMySQL
+	Func result2 
 		return std_mysql_result2(oMySQL)
 
-	Func escape_string oMySQL,cStr
+	Func escape_string cStr
 		return std_mysql_escapse_string(oMySQL,cStr)
 
-	Func autocommit oMySQL,lStatus
+	Func autocommit lStatus
 		return std_mysql_autocommit(oMySQL,lStatus)
 
-	Func commit oMySQL
+	Func commit 
 		return std_mysql_commit(oMySQL)
 
-	Func rollback oMySQL
+	Func rollback
 		return std_mysql_rollback(oMySQL)
 
 
