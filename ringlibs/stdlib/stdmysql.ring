@@ -13,6 +13,7 @@ func mysql_class_test
 	omysql = new mysql
 	See "Test the MySQL Class Methods" + nl
 	omysql { 
+		see info() + nl
 	}
 
 Class MySQL
