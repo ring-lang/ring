@@ -14,6 +14,13 @@ func mysql_class_test
 	See "Test the MySQL Class Methods" + nl
 	omysql { 
 		see info() + nl
+		connect("localhost", "root", "root","mahdb")
+		see "Execute Query" + nl
+		query("SELECT * FROM Employee")
+		see "Print Result" + nl
+		see result2()
+		see "Close database" + nl
+		close()
 	}
 
 Class MySQL
@@ -29,8 +36,8 @@ Class MySQL
 	Func error 
 		return std_mysql_error(oMySQL)
 
-	Func connect cServer,cUser,cPass
-		return std_mysql_connect(oMySQL,cServer,cUser,cPass)
+	Func connect cServer,cUser,cPass,cDatabase
+		return std_mysql_connect(oMySQL,cServer,cUser,cPass,cDatabase)
 
 	Func close 	
 		return std_mysql_close(oMySQL)
