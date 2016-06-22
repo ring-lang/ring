@@ -446,3 +446,5 @@ Func std_md5 cString
 Func std_sha1 cString
 	return sha1(cString)
 
+Func std_sha256 cString
+	return sha256(cString)
