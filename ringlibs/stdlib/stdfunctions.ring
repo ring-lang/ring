@@ -433,3 +433,7 @@ Func std_mysql_escape_string oMySQL,cStr
 
 Func std_mysql_autocommit oMySQL,lStatus
 	return mysql_autocommit(oMySQL,lStatus)
+
+Func std_mysql_commit oMySQL
+	return mysql_commit(oMySQL)
+
