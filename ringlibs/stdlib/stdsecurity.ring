@@ -12,7 +12,15 @@ func secuirty_class_test
 	
 	osecuirty = new secuirty
 	See "Test the secuirty Class Methods" + nl
-	osecuirty { 
+	oSecuirty { 
+		see md5("hello") + nl + 
+		sha1("hello") + nl + sha256("hello") + nl +
+		sha512("hello") + nl + sha384("hello") + nl + 
+		sha256("hello") + nl 
+		list = 0:15  cKey=""   for x in list cKey += char(x) next
+		list = 1:8   cIV = ""   for x in list cIV += char(x) next
+		cCipher = encrypt("hello",cKey,cIV)
+		see cCipher + nl + decrypt(cCipher,cKey,cIV) + nl
 	}
 
 Class secuirty
