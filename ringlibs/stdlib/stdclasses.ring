@@ -17,6 +17,8 @@ Load "stddatatype.ring"
 Load "stdconversion.ring"
 Load "stdodbc.ring"
 Load "stdmysql.ring"
+Load "stdsecuirty.ring"
+Load "stdinternet.ring"
 
 
 		
