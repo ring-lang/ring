@@ -467,5 +467,8 @@ Func std_decrypt cString,cKey,cIV
 Func std_randbytes nSize
 	return randbytes(nSize)
 
+Func std_download cURL
+	return download(cURL)
+
 
 
