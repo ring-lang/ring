@@ -461,4 +461,8 @@ Func std_sha224 cString
 Func std_encrypt cString,cKey,cIV
 	return encrypt(cString,cKey,cIV)
 
+Func std_decrypt cString,cKey,cIV
+	return decrypt(cString,cKey,cIV)
+
+
 
