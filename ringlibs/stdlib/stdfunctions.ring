@@ -407,7 +407,7 @@ Func std_mysql_error oMySQL
 Func std_mysql_connect oMySQL,cServer,cUser,cPass
 	return mysql_connect(oMySQL,cServer,cUser,cPass)
 
-Func std_mysql_cose oMySQL	
+Func std_mysql_close oMySQL	
 	return mysql_close(oMySQL)
 
 Func std_mysql_query oMySQL,cQuery
