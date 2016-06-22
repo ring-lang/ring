@@ -430,3 +430,6 @@ Func std_mysql_result2 oMySQL
 
 Func std_mysql_escape_string oMySQL,cStr
 	return mysql_escapse_string(oMySQL,cStr)
+
+Func std_mysql_autocommit oMySQL,lStatus
+	return mysql_autocommit(oMySQL,lStatus)
