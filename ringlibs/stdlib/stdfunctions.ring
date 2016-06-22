@@ -394,3 +394,6 @@ Func std_odbc_commit oODBC
 
 Func std_odbc_rollback oODBC
 	return odbc_rollback(oODBC)
+
+Func std_mysql_info
+	return mysql_info()
