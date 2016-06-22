@@ -13,6 +13,7 @@ func internet_class_test
 	ointernet = new internet
 	See "Test the internet Class Methods" + nl
 	ointernet { 
+		see download("www.ring-lang.sf.net")
 	}
 
 Class internet
