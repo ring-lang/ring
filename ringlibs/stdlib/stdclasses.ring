@@ -16,6 +16,7 @@ Load "stddebug.ring"
 Load "stddatatype.ring"
 Load "stdconversion.ring"
 Load "stdodbc.ring"
+Load "stdmysql.ring"
 
 
 		
