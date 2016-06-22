@@ -401,3 +401,5 @@ Func std_mysql_info
 Func std_mysql_init
 	return mysql_init()
 
+Func std_mysql_error oMySQL
+	return mysql_error(oMySQL)
