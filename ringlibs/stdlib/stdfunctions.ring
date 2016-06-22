@@ -448,3 +448,6 @@ Func std_sha1 cString
 
 Func std_sha256 cString
 	return sha256(cString)
+
+Func std_sha512 cString
+	return sha512(cString)
