@@ -410,4 +410,6 @@ Func std_mysql_connect oMySQL,cServer,cUser,cPass
 Func std_mysql_cose oMySQL	
 	return mysql_close(oMySQL)
 
+Func std_mysql_query oMySQL,cQuery
+	return mysql_query(oMySQL,cQuery)
 
