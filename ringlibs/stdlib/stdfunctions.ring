@@ -428,3 +428,5 @@ Func std_mysql_columns oMySQL
 Func std_mysql_result2 oMySQL
 	return mysql_result2(oMySQL)
 
+Func std_mysql_escape_string oMySQL,cStr
+	return mysql_escapse_string(oMySQL,cStr)
