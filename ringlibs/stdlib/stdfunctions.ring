@@ -470,5 +470,7 @@ Func std_randbytes nSize
 Func std_download cURL
 	return download(cURL)
 
+Func std_sendemail cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent
+	sendemail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
 
 
