@@ -422,3 +422,6 @@ Func std_mysql_result oMySQL
 Func std_mysql_next_result oMySQL
 	return mysql_next_result(oMySQL)
 
+Func std_mysql_columns oMySQL
+	return mysql_columns(oMySQL)
+
