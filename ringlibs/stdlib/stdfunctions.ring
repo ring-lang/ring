@@ -458,3 +458,7 @@ Func std_sha384 cString
 Func std_sha224 cString
 	return sha224(cString)
 
+Func std_encrypt cString,cKey,cIV
+	return encrypt(cString,cKey,cIV)
+
+
