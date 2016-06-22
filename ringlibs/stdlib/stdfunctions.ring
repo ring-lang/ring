@@ -443,3 +443,6 @@ Func std_mysql_rollback oMySQL
 Func std_md5 cString
 	return md5(cString)
 
+Func std_sha1 cString
+	return sha1(cString)
+
