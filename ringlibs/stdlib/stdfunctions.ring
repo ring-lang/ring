@@ -397,3 +397,7 @@ Func std_odbc_rollback oODBC
 
 Func std_mysql_info
 	return mysql_info()
+
+Func std_mysql_init
+	return mysql_init()
+
