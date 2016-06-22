@@ -403,3 +403,6 @@ Func std_mysql_init
 
 Func std_mysql_error oMySQL
 	return mysql_error(oMySQL)
+
+Func std_mysql_connect oMySQL,cServer,cUser,cPass
+	return mysql_connect(oMySQL,cServer,cUser,cPass)
