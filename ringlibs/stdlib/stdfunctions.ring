@@ -440,3 +440,6 @@ Func std_mysql_commit oMySQL
 Func std_mysql_rollback oMySQL
 	return mysql_rollback(oMySQL)
 
+Func std_md5 cString
+	return md5(cString)
+
