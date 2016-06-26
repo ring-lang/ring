@@ -278,7 +278,7 @@
 				]
 			]
 			],
-			["Arabic Tutorials by Mr. Alaa (YouTube)",[
+			["Arabic Tutorials by Mr. Alaa Mohammed(YouTube)",[
 				[
 					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw" target="_blank">Ring introduction in Arabic</a>'
 				],
@@ -319,7 +319,10 @@
 					'<a href="https://www.youtube.com/watch?v=qclB9xuaI0Y" target="_blank">Ring Logical Operators</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=CMTFs2TB7_w" target="_blank">Ring Bitwise Operators</a>'
+					'<a href="https://www.youtube.com/watch?v=CMTFs2TB7_w" target="_blank">Ring Bitwise Operators Binary AND</a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=j7N3pYDrItg&feature=youtu.be" target="_blank">Ring Bitwise Operators Binary OR</a>'
 				]
 			]
 		],
