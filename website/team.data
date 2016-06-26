@@ -313,22 +313,10 @@
 					'beyondsky1986@gmail.com',
 					'Tester',
 					'Active'
-				  ],
-				  [
-					'Ali Aliraqi',
-					'wwssr11wwss11@gmail.com',
-					'Tester',
-					'Active'
-				  ],
+				  ],				  
 				  [
 					'Mohamad Hamad',
 					'mohamad.hamad84@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Sofy Abbas',
-					'sofyebnabbas@gmail.com',
 					'Tester',
 					'Active'
 				  ],
@@ -345,9 +333,27 @@
 					'Active'
 				  ],
 				  [
+					'Sofy Abbas',
+					'sofyebnabbas@gmail.com',
+					'Video Tutorials',
+					'Active'
+				  ],
+				  [
+					'Ali Aliraqi',
+					'wwssr11wwss11@gmail.com',
+					'Video Tutorials',
+					'Active'
+				  ],
+				  [
 					'Alaa Mohammed Elockle',
 					'Mr.alaaelockle@hotmail.com',
-					'Arabic Movies',
+					'Video Tutorials',
 					'Active'
-				  ]
+				  ],
+				  [
+					'Ahmed Hassouna',
+					'mr.ahmed_hassouna@yahoo.com',
+					'Video Tutorials',
+					'Active'
+				  ]				  
 ]
