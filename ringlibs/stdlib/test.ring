@@ -26,7 +26,7 @@ See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
 
 # Test the Split function
 Puts("Test Split()")
-See Split("one two three four five")
+See Split("one two three four five"," ")
 
 # Test the Newlist function
 Puts("Test Newlist()")
@@ -182,7 +182,7 @@ see nl
 # Read a file line by line.
 Puts("Test Readline()")
 fp = fopen("test.ring","r")
-while not feof(fp) 
+while not feof(fp)
 See Readline(fp) end
 fclose(fp)
 
@@ -197,4 +197,7 @@ see substring(a,b,i)
 Puts("Test Changestring()")
 see Changestring("Rmasdg",2,4,"in")
 
-
+# Test printf()
+printf("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
+x=10 y=20
+printf("\nx value = #{x} , y value = #{y} \n")

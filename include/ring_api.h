@@ -71,6 +71,8 @@ void ring_vmlib_timelist ( void *pPointer ) ;
 void ring_vmlib_adddays ( void *pPointer ) ;
 
 void ring_vmlib_diffdays ( void *pPointer ) ;
+
+void ring_vmlib_version ( void *pPointer ) ;
 /* Check Data Type */
 
 void ring_vmlib_isstring ( void *pPointer ) ;

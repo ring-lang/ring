@@ -16,6 +16,46 @@ Func Puts vvalue
 	see nl
 
 /*
+	Function Name	: printf
+	Usage		: print string - support \n \t \r \\
+	Parameters	: the string
+*/
+Func Printf vValue
+	for t = 1 to len(vValue)
+		switch vValue[t]
+		on "\"
+			t++
+			switch vValue[t]
+			on "\"
+				see "\"
+			on "n"
+				see nl
+			on "t"
+				see char(9)
+			on "r" 
+				see char(13)
+			off
+		on "#"
+			if vValue[t+1] = "{"
+				cVar = ""
+				for r=t+2 to len(vValue)
+					if vValue[r] != "}"
+						cVar += vValue[r]
+					else
+						exit
+					ok					
+				next
+				cCode = "See " + cVar
+				eval(cCode)
+				t = r
+			ok
+		other
+			see vValue[t]
+		off
+	next
+
+
+/*
 	Function Name	: apppath
 	Usage		: get the path of the application folder
 	Parameters	: no Parameters
