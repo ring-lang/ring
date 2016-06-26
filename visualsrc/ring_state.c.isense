@@ -46,6 +46,7 @@ Type: RingState
 Mark: ->
 RingState *
 RING_STATE_CHECKPRINTRULES
+RING_VERSION
 GetCurrentDir
 GetCurrentDir
 ring_state_new

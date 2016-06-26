@@ -1,0 +1,31 @@
+# The Ring Standard Library
+# Common Functions and classes for applications
+# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
+
+if filename() = sysargv[2]
+	eval("Load 'stdfunctions.ring'")
+	eval("Load 'stdbase.ring'")
+	debug_class_test()
+ok
+
+func Debug_class_test
+	
+	oDebug = new Debug
+	See "Test the Debug Class Methods" + nl
+	oDebug.eval("see 'Hello'+nl")
+	try
+		x = 10
+		oDebug.assert(x=11)
+	catch see "assert" + nl done
+	raise("Error!")
+ 	 
+Class Debug
+ 
+	Func eval cCode
+		return std_eval(cCode)
+
+	Func raise cError
+		std_raise(cError)
+
+	Func assert cCondition
+		std_assert(cCondition)

@@ -965,6 +965,37 @@ int ring_parser_stmt ( Parser *pParser )
 		
 		puts("Rule : Statement  --> Expr ");
 		#endif
+		/*
+		**  Generate Code 
+		**  Call expreval() if we are inside { } 
+		*/
+		if ( pParser->nBraceFlag ) {
+			/* if ismethod(self,"braceexpreval") braceexpreval() ok */
+			ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+			ring_parser_icg_newoperand(pParser,"ismethod");
+			ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
+			ring_parser_icg_newoperand(pParser,"self");
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
+			ring_parser_icg_newoperand(pParser,"braceexpreval");
+			ring_parser_icg_newoperation(pParser,ICO_CALL);
+			ring_parser_icg_newoperation(pParser,ICO_NOOP);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			/* Jump */
+			ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
+			pMark = ring_parser_icg_getactiveoperation(pParser);
+			ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+			ring_parser_icg_newoperand(pParser,"braceexpreval");
+			/* Duplicate Stack */
+			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+			ring_parser_icg_newoperation(pParser,ICO_CALL);
+			ring_parser_icg_newoperation(pParser,ICO_NOOP);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+			nMark1 = ring_parser_icg_newlabel(pParser);
+			ring_parser_icg_addoperandint(pMark,nMark1);
+		}
 		ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 		return 1 ;
 	}
