@@ -278,52 +278,165 @@
 				]
 			]
 			],
-			["Arabic Tutorials by Mr. Alaa Mohammed(YouTube)",[
+		["Arabic Tutorials by Mr. Alaa Mohammed (YouTube) ",[
 				[
-					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw" target="_blank">Ring introduction in Arabic</a>'
+					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw" target="_blank"> 01 Ring introduction in Arabic</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=Ip29yXhHJg0" target="_blank">Ring Set up</a>'
+					'<a href="https://www.youtube.com/watch?v=Ip29yXhHJg0" target="_blank"> 02 Ring Set up</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=CGNQMcZMxSk" target="_blank">Qt and Ring</a>'
+					'<a href="https://www.youtube.com/watch?v=CGNQMcZMxSk" target="_blank"> 03 Qt and Ring</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=ux8b15AkNfk" target="_blank">Build your First Ring GUI Application</a>'
+					'<a href="https://www.youtube.com/watch?v=ux8b15AkNfk" target="_blank"> 04 Build your First Ring GUI Application</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=ARVCf3-T3I0" target="_blank">Ring hello world</a>'
+					'<a href="https://www.youtube.com/watch?v=ARVCf3-T3I0" target="_blank"> 05 Ring hello world</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=FovfkqEj1kg" target="_blank">Ring Getting Started part1</a>'
+					'<a href="https://www.youtube.com/watch?v=FovfkqEj1kg" target="_blank"> 06 Ring Getting Started part1</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=SGFY__KNfDE" target="_blank">Ring Getting Started part2</a>'
+					'<a href="https://www.youtube.com/watch?v=SGFY__KNfDE" target="_blank"> 07 Ring Getting Started part2</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=Bvb1VVunlis" target="_blank">Ring Variables Dynamic Typing</a>'
+					'<a href="https://www.youtube.com/watch?v=Bvb1VVunlis" target="_blank"> 08 Ring Variables Dynamic Typing</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=XG4uO-m3SZg" target="_blank">Ring Variables Deep Copy</a>'
+					'<a href="https://www.youtube.com/watch?v=XG4uO-m3SZg" target="_blank"> 09 Ring Variables Deep Copy</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=6E_OSkmUhLU" target="_blank">Ring Weakly Typed</a>'
+					'<a href="https://www.youtube.com/watch?v=6E_OSkmUhLU" target="_blank"> 10 Ring Weakly Typed</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=bfC-Uaz0NS4" target="_blank">Ring Arithmetic Operators</a>'
+					'<a href="https://www.youtube.com/watch?v=bfC-Uaz0NS4" target="_blank"> 11 Ring Arithmetic Operators</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=LELDebethmg" target="_blank">Ring Relational Operators</a>'
+					'<a href="https://www.youtube.com/watch?v=LELDebethmg" target="_blank"> 12 Ring Relational Operators</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=qclB9xuaI0Y" target="_blank">Ring Logical Operators</a>'
+					'<a href="https://www.youtube.com/watch?v=qclB9xuaI0Y" target="_blank"> 13 Ring Logical Operators</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=CMTFs2TB7_w" target="_blank">Ring Bitwise Operators Binary AND</a>'
+					'<a href="https://www.youtube.com/watch?v=CMTFs2TB7_w" target="_blank"> 14 Ring Bitwise Operators Binary AND</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=j7N3pYDrItg&feature=youtu.be" target="_blank">Ring Bitwise Operators Binary OR</a>'
+					'<a href="https://www.youtube.com/watch?v=j7N3pYDrItg&feature=youtu.be" target="_blank"> 15 Ring Bitwise Operators Binary OR</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+			    [
+					'<a href="https://www.youtube.com/watch?v=1wrrfeVUk8o&feature=youtu.be" target="_blank"> 16 Ring Bitwise Operators Binary XOR</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				
+				[
+					'<a href="https://www.youtube.com/watch?v=x7bVMpfVY40&feature=youtu.be" target="_blank"> 17 Ring Bitwise Operators Binary NOT</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=FRT_g5SeKiA&feature=youtu.be" target="_blank"> 18 Ring Bitwise Operators Binary Left Shift</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=SqiMjwyCKmY&feature=youtu.be" target="_blank"> 19 Ring Bitwise Operators Binary Right Shift</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ToGQrmWpZPY&index=19&list=PLgc0fyJgivssosIJu4kJGk5avIjaMzYHK" target="_blank"> 20 Ring Assignment Operators part 1</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=bZGjQYkFlBA&feature=youtu.be" target="_blank"> 21 Ring Assignment Operators part 2</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=A0gpMP0ZVjU&feature=youtu.be" target="_blank"> 22 Ring Misc Operators </a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=fHtwTV3GOC0" target="_blank"> 23 Ring Operators Precedence </a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=2bdtWkr39w4&feature=youtu.be" target="_blank"> 24 Ring If Statement </a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=XYIOWDTsxXI&feature=youtu.be" target="_blank"> 25 Ring Switch Statement</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=iUUGSWk8_KY&feature=youtu.be" target="_blank"> 26 Ring While Loop</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=bu4uln1gDE8&feature=youtu.be" target="_blank"> 27 Ring For Loop </a>'	,
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ot024yBnzFA&feature=youtu.be" target="_blank"> 28 Ring For In Loop </a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=nFZoq5yI5Jw&feature=youtu.be" target="_blank"> 29 Ring using the step option with for in </a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=lVYMylObJoM&feature=youtu.be" target="_blank"> 30 Ring using for in to modify lists</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+						
+				[
+					'<a href="https://www.youtube.com/watch?v=ngxCbYh-oUE&feature=youtu.be" target="_blank"> 31 Ring Do Again Loop</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				],
+				
+				[
+					'<a href="https://www.youtube.com/watch?v=Tvo3RqOZE2k&feature=youtu.be" target="_blank"> 32 Exit Command</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=HA1PxqcoI-M" target="_blank"> 33 Exit from two loops</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=JHvOMSpRqtc&feature=youtu.be" target="_blank"> 34 Loop command </a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=xFwDXJOZAFA&feature=youtu.be" target="_blank"> 35 Exit/Loop inside sub functions</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=bJuy555_3wc&feature=youtu.be" target="_blank"> 36 Short-circuit evaluation</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=PO3QA4eLoqU&feature=youtu.be" target="_blank"> 37 Comments about evaluation</a>',
+					'<img src="http://tecit.info/alaa.jpg" width="40%">'
+				]
+			
 			]
 		],
 			["Arabic Tutorials by Mr. Ahmed Hassouna (YouTube)",[
