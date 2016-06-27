@@ -217,7 +217,7 @@ In this example we will use the QListWidget Class
                 
                 btn1.settext( string(list1.currentrow() ))
                 btn1.settext( string(list1.currentrow() ) +" --- " + list1.item(list1.currentrow()).text() )
-         return
+
                 
 
         func pWork2
@@ -232,7 +232,7 @@ In this example we will use the QListWidget Class
                         
                         win1.setwindowtitle("After Delete - NbrOfItems: " + nbrOfItems +" CurItemNbr: " + curItemNbr +" CurValue: " + curValue )
                 }
-        return      
+
         
 The application during the runtime
 
