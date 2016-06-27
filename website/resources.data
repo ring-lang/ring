@@ -339,15 +339,13 @@
 					'<a href="https://www.youtube.com/watch?v=j7N3pYDrItg&feature=youtu.be" target="_blank"> 15 Ring Bitwise Operators Binary OR</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
 				],
-			    [
+			    	[
 					'<a href="https://www.youtube.com/watch?v=1wrrfeVUk8o&feature=youtu.be" target="_blank"> 16 Ring Bitwise Operators Binary XOR</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
-				],
-				
+				],			
 				[
 					'<a href="https://www.youtube.com/watch?v=x7bVMpfVY40&feature=youtu.be" target="_blank"> 17 Ring Bitwise Operators Binary NOT</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
-'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=FRT_g5SeKiA&feature=youtu.be" target="_blank"> 18 Ring Bitwise Operators Binary Left Shift</a>',
@@ -400,38 +398,31 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=lVYMylObJoM&feature=youtu.be" target="_blank"> 30 Ring using for in to modify lists</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
-				],
-						
+				],						
 				[
 					'<a href="https://www.youtube.com/watch?v=ngxCbYh-oUE&feature=youtu.be" target="_blank"> 31 Ring Do Again Loop</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
-				],
-				
+				],				
 				[
 					'<a href="https://www.youtube.com/watch?v=Tvo3RqOZE2k&feature=youtu.be" target="_blank"> 32 Exit Command</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
-				]
-				,
+				],
 				[
 					'<a href="https://www.youtube.com/watch?v=HA1PxqcoI-M" target="_blank"> 33 Exit from two loops</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
-				]
-				,
+				],
 				[
 					'<a href="https://www.youtube.com/watch?v=JHvOMSpRqtc&feature=youtu.be" target="_blank"> 34 Loop command </a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
-				]
-				,
+				],
 				[
 					'<a href="https://www.youtube.com/watch?v=xFwDXJOZAFA&feature=youtu.be" target="_blank"> 35 Exit/Loop inside sub functions</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
-				]
-				,
+				],
 				[
 					'<a href="https://www.youtube.com/watch?v=bJuy555_3wc&feature=youtu.be" target="_blank"> 36 Short-circuit evaluation</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
-				]
-				,
+				],
 				[
 					'<a href="https://www.youtube.com/watch?v=PO3QA4eLoqU&feature=youtu.be" target="_blank"> 37 Comments about evaluation</a>',
 					'<img src="http://tecit.info/alaa.jpg" width="40%">'
