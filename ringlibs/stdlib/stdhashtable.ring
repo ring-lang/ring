@@ -18,6 +18,8 @@ func hashtable_class_test
 		Add("KSA","Riyadh")
 		see self["Egypt"] + nl
 		see self["KSA"] + nl
+		see contains("Egypt") + nl
+		see contains("USA") + nl
 	}
 
 Class hashtable from list
@@ -32,4 +34,8 @@ Class hashtable from list
 	Func Add cKey,cValue
 		super.add([cKey,cValue])
 
-	
+	Func Contains cKey
+		if self[cKey] != NULL
+			return True
+		else return false ok
+
