@@ -20,6 +20,7 @@ func hashtable_class_test
 		see self["KSA"] + nl
 		see contains("Egypt") + nl
 		see contains("USA") + nl
+		see index("KSA")  + NL
 	}
 
 Class hashtable from list
@@ -45,3 +46,5 @@ Class hashtable from list
 			return True
 		else return false ok
 
+	Func Index cKey
+		return FindinColumn(1,cKey)
