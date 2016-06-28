@@ -34,6 +34,12 @@ Class hashtable from list
 	Func Add cKey,cValue
 		super.add([cKey,cValue])
 
+	Func Set cKey,cValue
+		Add(cKey,cValue)
+
+	Func Get cKey
+		return self[cKey]
+
 	Func Contains cKey
 		if self[cKey] != NULL
 			return True
