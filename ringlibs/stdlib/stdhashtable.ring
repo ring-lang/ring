@@ -5,6 +5,7 @@
 if filename() = sysargv[2]
 	eval("Load 'stdfunctions.ring'")
 	eval("Load 'stdbase.ring'")
+	eval("Load 'stdlist.ring'")
 	hashtable_class_test()
 ok
 
@@ -13,8 +14,22 @@ func hashtable_class_test
 	ohashtable = new hashtable
 	See "Test the hashtable Class Methods" + nl
 	ohashtable { 
-		
+		Add("Egypt","Cairo")
+		Add("KSA","Riyadh")
+		see self["Egypt"] + nl
+		see self["KSA"] + nl
 	}
 
-Class hashtable
+Class hashtable from list
  
+	Func Init x
+		if  islist(x)
+			super.init(x)
+		else
+			raise("Error: HashTable Class - Init Method - Bad Parameter")
+		ok
+
+	Func Add cKey,cValue
+		super.add([cKey,cValue])
+
+	
