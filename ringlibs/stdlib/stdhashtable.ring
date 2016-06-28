@@ -21,6 +21,10 @@ func hashtable_class_test
 		see contains("Egypt") + nl
 		see contains("USA") + nl
 		see index("KSA")  + NL
+		print()
+		delete(index("KSA"))
+		see copy("*",60) + nl
+		print()
 	}
 
 Class hashtable from list
@@ -44,7 +48,10 @@ Class hashtable from list
 	Func Contains cKey
 		if self[cKey] != NULL
 			return True
-		else return false ok
+		else 
+			del(vValue,len(vValue))
+			return false 
+		ok
 
 	Func Index cKey
 		return FindinColumn(1,cKey)
