@@ -19,6 +19,6 @@ Load "stdodbc.ring"
 Load "stdmysql.ring"
 Load "stdsecuirty.ring"
 Load "stdinternet.ring"
-
+Load "stdhashtable.ring"
 
 		
