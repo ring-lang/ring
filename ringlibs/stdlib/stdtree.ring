@@ -13,8 +13,20 @@ func tree_class_test
 	otree = new tree
 	See "Test the tree Class Methods" + nl
 	otree { 
-
+		set("The first step")	# set the root node value
+		see value() + nl 
+		Add("one")
+		Add("two")
+		Add("three") {
+			Add("3.1")
+			Add("3.2")
+			Add("3.3")
+			see children
+		}
+		see children
 	}
+	see copy("*",60) + nl
+	oTree.print()
 
 Class tree 
  
@@ -27,9 +39,11 @@ Class tree
 	func value
 		return data
 
-	func add
+	func add x
 		children + new tree
 		children[len(children)].parent = object2pointer(self)
+		children[len(children)].data = x
+		return children[len(children)]
 
 	func parent
 		if parent = null
@@ -38,4 +52,8 @@ Class tree
 		ok
 		return pointer2object(parent)
 
-	
+	func print
+		for x in children
+			see x.data + nl
+			x.print()		
+		next
