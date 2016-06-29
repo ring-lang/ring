@@ -5,7 +5,6 @@
 if filename() = sysargv[2]
 	eval("Load 'stdfunctions.ring'")
 	eval("Load 'stdbase.ring'")
-	eval("Load 'stdlist.ring'")
 	tree_class_test()
 ok
 
@@ -17,5 +16,9 @@ func tree_class_test
 
 	}
 
-Class tree from list
+Class tree 
  
+	data parent
+	children = []
+
+	
