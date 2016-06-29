@@ -21,4 +21,21 @@ Class tree
 	data parent
 	children = []
 
+	func set x
+		data = x
+
+	func value
+		return data
+
+	func add
+		children + new tree
+		children[len(children)].parent = object2pointer(self)
+
+	func parent
+		if parent = null
+			raise("This node is the root!")
+			return
+		ok
+		return pointer2object(parent)
+
 	
