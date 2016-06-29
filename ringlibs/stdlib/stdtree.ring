@@ -24,6 +24,10 @@ func tree_class_test
 			see children
 		}
 		see children
+		oTree.children[2] {
+			Add("2.1") Add("2.2") Add("2.3") { Add("2.3.1") Add("2.3.2") Add("test") } 
+		}
+		oTree.children[2].children[3].children[3].set("2.3.3")
 	}
 	see copy("*",60) + nl
 	oTree.print()
