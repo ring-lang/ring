@@ -158,6 +158,10 @@ void ring_vmlib_callgc ( void *pPointer ) ;
 void ring_vmlib_varptr ( void *pPointer ) ;
 
 void ring_vmlib_intvalue ( void *pPointer ) ;
+
+void ring_vmlib_object2pointer ( void *pPointer ) ;
+
+void ring_vmlib_pointer2object ( void *pPointer ) ;
 /* API For C Functions */
 #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)

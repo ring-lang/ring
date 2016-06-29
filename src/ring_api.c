@@ -83,6 +83,8 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("callgc",ring_vmlib_callgc);
 	ring_vm_funcregister("varptr",ring_vmlib_varptr);
 	ring_vm_funcregister("intvalue",ring_vmlib_intvalue);
+	ring_vm_funcregister("object2pointer",ring_vmlib_object2pointer);
+	ring_vm_funcregister("pointer2object",ring_vmlib_pointer2object);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -1534,4 +1536,28 @@ void ring_vmlib_intvalue ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vmlib_object2pointer ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISLIST(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+	RING_API_RETCPOINTER((void *) RING_API_GETLIST(1),"OBJECTPOINTER");
+}
+
+void ring_vmlib_pointer2object ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+	RING_API_RETLIST((List *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"));
 }
