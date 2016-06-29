@@ -16,7 +16,7 @@ func tree_class_test
 		set("The first step")	# set the root node value
 		see value() + nl 
 		Add("one")
-		Add("two")
+		Add("two") 
 		Add("three") {
 			Add("3.1")
 			Add("3.2")
