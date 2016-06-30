@@ -60,7 +60,7 @@ The language is designed for a Clear Goal
 	
 ### Install Libraries 
 	
-	brew install unixodbc mysql-connector-c allegro qt52
+	brew install homebrew/versions/qt52
 	
 ### Build Ring (Compiler/VM)
 	
