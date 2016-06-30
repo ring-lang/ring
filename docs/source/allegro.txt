@@ -349,7 +349,7 @@ Screen Shot:
 Using Threads
 =============
 
-In this example we will learn how to users threads from the Allegro library
+In this example we will learn how to use threads from the Allegro library
 
 .. code-block:: none
 
