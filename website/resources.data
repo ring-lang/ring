@@ -340,7 +340,7 @@
 					'<a href="https://www.youtube.com/watch?v=j7N3pYDrItg&feature=youtu.be" target="_blank"> 15 Ring Bitwise Operators Binary OR</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa" title="Support Team"></a>'
 				],
-			    [
+			    	[
 					'<a href="https://www.youtube.com/watch?v=1wrrfeVUk8o&feature=youtu.be" target="_blank"> 16 Ring Bitwise Operators Binary XOR</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa" title="Support Team"></a>'
 				],
@@ -348,7 +348,6 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=x7bVMpfVY40&feature=youtu.be" target="_blank"> 17 Ring Bitwise Operators Binary NOT</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa" title="Support Team"></a>'
-'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=FRT_g5SeKiA&feature=youtu.be" target="_blank"> 18 Ring Bitwise Operators Binary Left Shift</a>',
@@ -487,9 +486,8 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=uIuBvuorzPo&feature=youtu.be" target="_blank"> 47 Ring programming Main Function </a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa" title="Support Team"></a>'
-				]
-				
-		    	,
+				]				
+		    		,
 				[
 					'<a href="https://www.youtube.com/watch?v=yL8AFmxwdJI&feature=youtu.be" target="_blank"> 48 Ring programming Variables Scope </a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa" title="Support Team"></a>'
