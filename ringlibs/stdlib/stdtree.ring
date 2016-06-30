@@ -25,7 +25,9 @@ func tree_class_test
 		}
 		see children
 		oTree.children[2] {
-			Add("2.1") Add("2.2") Add("2.3") { Add("2.3.1") Add("2.3.2") Add("test") } 
+			Add("2.1") Add("2.2") Add("2.3") { 
+				Add("2.3.1") Add("2.3.2") Add("test") 
+			} 
 		}
 		oTree.children[2].children[3].children[3].set("2.3.3")
 	}
