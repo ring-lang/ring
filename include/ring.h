@@ -110,6 +110,9 @@
 #ifdef RING_VM_DLL
 #include "ring_vmdll.h"
 #endif
+#ifdef RING_VM_SQLITE
+#include "ring_vmsqlite.h"
+#endif
 #include "ring_hashlib.h"
 #include "ring_hashtable.h"
 #endif

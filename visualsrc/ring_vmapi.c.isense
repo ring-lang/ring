@@ -319,6 +319,7 @@ RING_VM_ODBC
 RING_VM_OPENSSL
 RING_VM_CURL
 RING_VM_DLL
+RING_VM_DLL
 ring_vm_extension
 ring_vmdll_h
 LoadDLL(x)

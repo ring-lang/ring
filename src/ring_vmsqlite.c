@@ -3,7 +3,7 @@
 **  Include Files 
 */
 #include "ring.h"
-#include <sqlite3.h>
+#include "sqlite3.h"
 /* Data */
 typedef struct ring_sqlite {
 	sqlite3 *db  ;
