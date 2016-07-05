@@ -15,6 +15,7 @@ void ring_vm_sqlite_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("sqlite_init",ring_vm_sqlite_init);
 	ring_vm_funcregister("sqlite_close",ring_vm_sqlite_close);
 	ring_vm_funcregister("sqlite_open",ring_vm_sqlite_open);
+	ring_vm_funcregister("sqlite_errmsg",ring_vm_sqlite_errmsg);
 }
 
 void ring_vm_sqlite_init ( void *pPointer )
@@ -68,6 +69,26 @@ void ring_vm_sqlite_open ( void *pPointer )
 		if ( psqlite->db ) {
 			rc = sqlite3_open(RING_API_GETSTRING(1),&psqlite->db);
 			RING_API_RETNUMBER((double) rc);
+		}
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vm_sqlite_errmsg ( void *pPointer )
+{
+	ring_sqlite *psqlite  ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) ) {
+		psqlite = (ring_sqlite *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SQLITE) ;
+		if ( psqlite == NULL ) {
+			return ;
+		}
+		if ( psqlite->db ) {
+			RING_API_RETSTRING(sqlite3_errmsg(psqlite->db));
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

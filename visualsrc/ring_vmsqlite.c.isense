@@ -24,3 +24,6 @@ Type: ring_sqlite *
 psqlite
 Type: int
 rc
+ring_vm_sqlite_errmsg
+Type: ring_sqlite *
+psqlite
