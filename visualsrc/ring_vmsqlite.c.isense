@@ -19,3 +19,8 @@ psqlite
 ring_vm_sqlite_close
 Type: ring_sqlite *
 psqlite
+ring_vm_sqlite_open
+Type: ring_sqlite *
+psqlite
+Type: int
+rc

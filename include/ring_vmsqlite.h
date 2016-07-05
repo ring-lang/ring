@@ -8,6 +8,8 @@ void ring_vm_sqlite_loadfunctions ( RingState *pRingState ) ;
 void ring_vm_sqlite_init ( void *pPointer ) ;
 
 void ring_vm_sqlite_close ( void *pPointer ) ;
+
+void ring_vm_sqlite_open ( void *pPointer ) ;
 /* Constants */
 #define RING_VM_POINTER_SQLITE "sqlite"
 #endif
