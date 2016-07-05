@@ -332,26 +332,36 @@ In this example we will learn about using the QComboBox class
 
 .. code-block:: none
 
-	Load "guilib.ring"
+        Load "guilib.ring"
 
-	New qApp {
+        New qApp {
+                win1 = new qMainWindow() {
+                        setGeometry(100,100,400,300)
+                        setwindowtitle("Using QCheckBox")
+                        
+                        ### 0-Unchecked  1-Checked
+                        
+                        CheckBox = new qcheckbox(win1) {
+                                setGeometry(100,100,160,30)
+                                settext("New Customer!")
+                                setclickedEvent("HandleClickEvent()")
+                        }                   
+                                    
+                        show()                            
+                }
+                exec()
+        }
 
-		win1 = new qWidget() {
-
-			setwindowtitle("Using QComboBox")
-			setGeometry(100,100,400,400)
-
-			New QComboBox(win1) {
-				setGeometry(150,100,200,30)
-				alist = ["one","two","three","four","five"]
-				for x in aList additem(x,0) next
-			}			
-
-			show()
-		}
-
-		exec()
-	}
+        Func HandleClickEvent
+            See "HandleClick - CheckBox " + CheckBox.isChecked()  +nl   
+            
+            if CheckBox.isChecked() = 1 
+                CheckBox.settext("New Customer. Check 1-ON")
+            else
+                CheckBox.settext("New Customer. Check 0-OFF")
+            ok
+            
+        return
 
 The application during the runtime
 
