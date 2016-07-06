@@ -2,8 +2,10 @@
 **  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
-#include "ring.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "sqlite3.h"
+#include "ring.h"
 /* Data */
 typedef struct ring_sqlite {
 	sqlite3 *db  ;
@@ -67,10 +69,8 @@ void ring_vm_sqlite_open ( void *pPointer )
 		if ( psqlite == NULL ) {
 			return ;
 		}
-		if ( psqlite->db ) {
-			rc = sqlite3_open(RING_API_GETSTRING(1),&psqlite->db);
-			RING_API_RETNUMBER((double) rc);
-		}
+		rc = sqlite3_open(RING_API_GETSTRING(2),&psqlite->db);
+		RING_API_RETNUMBER((double) rc);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -107,6 +107,7 @@ int ring_vm_sqlite_callback ( void *data, int argc, char **argv, char **ColName 
 		ring_list_addstring(pList2,ColName[x]);
 		ring_list_addstring(pList2,argv[x] ? argv[x] : "NULL");
 	}
+	return 0 ;
 }
 
 void ring_vm_sqlite_execute ( void *pPointer )
@@ -127,7 +128,7 @@ void ring_vm_sqlite_execute ( void *pPointer )
 		}
 		if ( psqlite->db ) {
 			pList = RING_API_NEWLIST ;
-			rc = sqlite3_exec(psqlite->db,RING_API_GETSTRING(2),ring_vm_sqlite_callback,pList,&ErrMsg);
+			rc = sqlite3_exec(psqlite->db,RING_API_GETSTRING(2),ring_vm_sqlite_callback,(void *) pList,&ErrMsg);
 			RING_API_RETLIST(pList);
 		}
 	} else {
