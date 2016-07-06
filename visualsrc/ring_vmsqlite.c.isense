@@ -27,3 +27,8 @@ rc
 ring_vm_sqlite_errmsg
 Type: ring_sqlite *
 psqlite
+ring_vm_sqlite_callback
+Type: List *
+pList, *pList2
+Type: int
+x

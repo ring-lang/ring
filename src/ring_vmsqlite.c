@@ -94,3 +94,16 @@ void ring_vm_sqlite_errmsg ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
+
+int ring_vm_sqlite_callback ( void *data, int argc, char **argv, char **ColName )
+{
+	List *pList, *pList2  ;
+	int x  ;
+	pList = (List *) data ;
+	pList = ring_list_newlist(pList);
+	for ( x = 0 ; x < argc ; x++ ) {
+		pList2 = ring_list_newlist(pList);
+		ring_list_addstring(pList2,ColName[x]);
+		ring_list_addstring(argv[x] ? argv[x] : "NULL");
+	}
+}

@@ -12,6 +12,8 @@ void ring_vm_sqlite_close ( void *pPointer ) ;
 void ring_vm_sqlite_open ( void *pPointer ) ;
 
 void ring_vm_sqlite_errmsg ( void *pPointer ) ;
+
+int ring_vm_sqlite_callback ( void *data, int argc, char **argv, char **ColName ) ;
 /* Constants */
 #define RING_VM_POINTER_SQLITE "sqlite"
 #endif
