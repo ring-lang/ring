@@ -32,3 +32,12 @@ Type: List *
 pList, *pList2
 Type: int
 x
+ring_vm_sqlite_execute
+Type: ring_sqlite *
+psqlite
+Type: int
+rc
+Type: List *
+pList
+Type: char *
+ErrMsg

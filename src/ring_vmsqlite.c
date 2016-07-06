@@ -16,6 +16,7 @@ void ring_vm_sqlite_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("sqlite_close",ring_vm_sqlite_close);
 	ring_vm_funcregister("sqlite_open",ring_vm_sqlite_open);
 	ring_vm_funcregister("sqlite_errmsg",ring_vm_sqlite_errmsg);
+	ring_vm_funcregister("sqlite_execute",ring_vm_sqlite_execute);
 }
 
 void ring_vm_sqlite_init ( void *pPointer )
@@ -104,6 +105,32 @@ int ring_vm_sqlite_callback ( void *data, int argc, char **argv, char **ColName 
 	for ( x = 0 ; x < argc ; x++ ) {
 		pList2 = ring_list_newlist(pList);
 		ring_list_addstring(pList2,ColName[x]);
-		ring_list_addstring(argv[x] ? argv[x] : "NULL");
+		ring_list_addstring(pList2,argv[x] ? argv[x] : "NULL");
+	}
+}
+
+void ring_vm_sqlite_execute ( void *pPointer )
+{
+	ring_sqlite *psqlite  ;
+	int rc  ;
+	List *pList  ;
+	char *ErrMsg  ;
+	ErrMsg = NULL ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) && RING_API_ISSTRING(2) ) {
+		psqlite = (ring_sqlite *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SQLITE) ;
+		if ( psqlite == NULL ) {
+			return ;
+		}
+		if ( psqlite->db ) {
+			pList = RING_API_NEWLIST ;
+			rc = sqlite3_exec(psqlite->db,RING_API_GETSTRING(2),ring_vm_sqlite_callback,pList,&ErrMsg);
+			RING_API_RETLIST(pList);
+		}
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
