@@ -12,4 +12,5 @@
 #define RING_VM_OPENSSL 1
 #define RING_VM_CURL 1
 #define RING_VM_DLL 1
+#define RING_VM_SQLITE 1
 #endif
