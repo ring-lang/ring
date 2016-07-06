@@ -2,10 +2,8 @@
 **  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
-#include <stdio.h>
-#include <stdlib.h>
-#include "sqlite3.h"
 #include "ring.h"
+#include "sqlite3.h"
 /* Data */
 typedef struct ring_sqlite {
 	sqlite3 *db  ;
