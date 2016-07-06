@@ -1,6 +1,6 @@
 # test ringsqlite
 oSQLite = sqlite_init()
-oSQLIte
+
 sqlite_open(oSQLite,"mytest.db") 
 
 sql = "CREATE TABLE COMPANY("  +
