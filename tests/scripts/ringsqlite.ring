@@ -33,4 +33,4 @@ see copy("*",50)  + nl
 for x in aResult
 	see x["name"] + nl
 next
-sqlite_close(oSQLite) + nl
+sqlite_close(oSQLite) 
