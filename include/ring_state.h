@@ -27,6 +27,8 @@ typedef struct RingState {
 	unsigned int nPrintRules : 1  ;
 	/* set to 1 if we need to print the  current instruction executed */
 	unsigned int nPrintInstruction : 1  ;
+	/* set to 1 if we need to generate the object file (ringo) */
+	unsigned int nGenObj : 1  ;
 	/* command line parameters */
 	int argc  ;
 	char  **argv  ;

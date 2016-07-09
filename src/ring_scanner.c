@@ -132,6 +132,10 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 	/* Files List */
 	ring_list_deleteitem(pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 	if ( nFreeFilesList ) {
+		/* Generate the Object File */
+		if ( pRingState->nGenObj ) {
+			ring_objfile_writefile(pRingState);
+		}
 		/* Run the Program */
 		#if RING_RUNVM
 		if ( nRunVM == 1 ) {
@@ -682,7 +686,7 @@ void ring_scanner_printtokens ( Scanner *pScanner )
 	ring_print_line();
 }
 
-RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int argc,char *argv[] )
+RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int argc,char *argv[] )
 {
 	RingState *pRingState  ;
 	pRingState = ring_state_new();
@@ -693,6 +697,7 @@ RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPri
 	pRingState->nPrintTokens = nTokens ;
 	pRingState->nPrintRules = nRules ;
 	pRingState->nPrintInstruction = nIns ;
+	pRingState->nGenObj = nGenObj ;
 	pRingState->argc = argc ;
 	pRingState->argv = argv ;
 	ring_scanner_readfile(cFileName,pRingState);

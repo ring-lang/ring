@@ -4,6 +4,10 @@
 /*
 **  Data 
 **  Functions 
-**  MACRO 
 */
+
+void ring_objfile_writefile ( RingState *pRingState ) ;
+
+void ring_objfile_writelist ( List *pList,FILE *fObj ) ;
+/* MACRO */
 #endif
