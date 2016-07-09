@@ -2,3 +2,7 @@ ring_objfile_h
 ring_objfile_writefile
 fObj
 ring_objfile_writelist
+Type: List *
+pList2
+Type: int
+x,x2

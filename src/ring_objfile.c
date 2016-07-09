@@ -24,7 +24,23 @@ void ring_objfile_writefile ( RingState *pRingState )
 
 void ring_objfile_writelist ( List *pList,FILE *fObj )
 {
+	List *pList2  ;
+	int x,x2  ;
 	fprintf( fObj , "{\n"  ) ;
 	/* Write List Items */
+	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+		pList2 = ring_list_getlist(pList,x);
+		for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
+			if ( ring_list_isstring(pList2,x2) ) {
+				fprintf( fObj , "%s\n" , ring_list_getstring(pList2,x2) ) ;
+			}
+			else if ( ring_list_isint(pList2,x2) ) {
+				fprintf( fObj , "%d\n" , ring_list_getint(pList2,x2) ) ;
+			}
+			else if ( ring_list_ispointer(pList2,x2) ) {
+				fprintf( fObj , "%p\n" , (void *) ring_list_getpointer(pList2,x2) ) ;
+			}
+		}
+	}
 	fprintf( fObj , "}\n"  ) ;
 }
