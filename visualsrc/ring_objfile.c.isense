@@ -1,0 +1,108 @@
+ring_state_h
+Parent: RingState
+Type: List *
+pRingFilesList
+Type: List *
+pRingFilesStack
+Type: List *
+pRingGenCode
+Type: List *
+pRingFunctionsMap
+Type: List *
+pRingClassesMap
+Type: List *
+pRingPackagesMap
+Type: List *
+pRingCFunctions
+Type: unsigned int
+nISCGI : 1
+Type: unsigned int
+nRun : 1
+Type: unsigned int
+nPrintIC : 1
+Type: unsigned int
+nPrintICFinal : 1
+Type: unsigned int
+nPrintTokens : 1
+Type: unsigned int
+nPrintRules : 1
+Type: unsigned int
+nPrintInstruction : 1
+Type: int
+argc
+Type: char  **
+argv
+Type: struct VM *
+pVM
+Type: char
+lStartup
+END:
+Type: RingState
+struct RingState
+Type: RingState
+Mark: ->
+struct RingState *
+Type: RingState
+Mark: ->
+RingState *
+RING_STATE_CHECKPRINTRULES
+RING_VERSION
+GetCurrentDir
+GetCurrentDir
+ring_state_new
+Type: RingState *
+pRingState
+ring_state_delete
+ring_state_cgiheader
+ring_print_line
+ring_state_init
+Type: RingState *
+pRingState
+ring_state_runcode
+ring_state_findvar
+Type: VM *
+pVM
+Type: List *
+pList
+ring_state_newvar
+Type: VM *
+pVM
+Type: List *
+pList
+ring_state_main
+Type: int
+x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC
+Type: const char *
+cStr
+ring_state_runfile
+ring_testallunits
+ring_showtime
+Type: time_t
+timer
+Type: char
+buffer[50]
+Type: struct tm*
+tm_info
+Type: clock_t
+myclock
+segfaultaction
+ring_issourcefile
+Type: int
+x
+ring_fexists
+Type: FILE *
+fp
+ring_currentdir
+Type: int
+nSize
+ring_exefilename
+Type: int
+nSize
+ring_chdir
+ring_exefolder
+Type: char
+cDir[200]
+Type: char
+cDir2[200]
+Type: int
+x,x2,nSize

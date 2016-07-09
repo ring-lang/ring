@@ -115,4 +115,5 @@
 #endif
 #include "ring_hashlib.h"
 #include "ring_hashtable.h"
+#include "ring_objfile.h"
 #endif
