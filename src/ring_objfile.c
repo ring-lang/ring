@@ -24,4 +24,7 @@ void ring_objfile_writefile ( RingState *pRingState )
 
 void ring_objfile_writelist ( List *pList,FILE *fObj )
 {
+	fprintf( fObj , "{\n"  ) ;
+	/* Write List Items */
+	fprintf( fObj , "}\n"  ) ;
 }
