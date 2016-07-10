@@ -70,6 +70,7 @@ void ring_objfile_readfile ( RingState *pRingState )
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pList2  ;
 	int nActiveList,nValue  ;
 	double dValue  ;
+	char *cString  ;
 	/* Create Lists */
 	pListFunctions = ring_list_new(0);
 	pListClasses = ring_list_new(0);
@@ -111,6 +112,12 @@ void ring_objfile_readfile ( RingState *pRingState )
 				c = getc(fObj);
 				switch ( c ) {
 					case 'S' :
+						c = getc(fObj);
+						fscanf( fObj , "[%d]" , &nValue ) ;
+						cString = (char *) malloc(nValue) ;
+						fread( cString , 1 , nValue , fObj );
+						ring_list_addstring2(pList,cString,nValue);
+						free( cString ) ;
 						break ;
 					case 'I' :
 						c = getc(fObj);
@@ -123,6 +130,11 @@ void ring_objfile_readfile ( RingState *pRingState )
 						ring_list_adddouble(pList,dValue);
 						break ;
 					case 'P' :
+						ring_list_addpointer(pList,NULL);
+						/* Read Line */
+						while ( c != '\n' ) {
+							c = getc(fObj);
+						}
 						break ;
 					case 'T' :
 						pList2 = pList ;

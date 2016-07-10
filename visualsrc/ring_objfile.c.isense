@@ -16,3 +16,5 @@ Type: int
 nActiveList,nValue
 Type: double
 dValue
+Type: char *
+cString
