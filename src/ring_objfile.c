@@ -10,7 +10,8 @@ void ring_objfile_writefile ( RingState *pRingState )
 	FILE *fObj;
 	/* Create File */
 	fObj = fopen("program.ringo" , "w+" );
-	fprintf( fObj , "# Ring Object File - Version 1.0\n"  ) ;
+	fprintf( fObj , "# Ring Object File\n"  ) ;
+	fprintf( fObj , "# Version 1.0\n"  ) ;
 	/* Write Functions Lists */
 	fprintf( fObj , "# Functions List\n"  ) ;
 	ring_objfile_writelist(pRingState->pRingFunctionsMap,fObj);
