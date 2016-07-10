@@ -39,7 +39,7 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 		pList2 = ring_list_getlist(pList,x);
 		for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
 			if ( ring_list_isstring(pList2,x2) ) {
-				fprintf( fObj , "[S]%s;" , ring_list_getstring(pList2,x2) ) ;
+				fprintf( fObj , "[S]%s#$!_EOS_!$#;" , ring_list_getstring(pList2,x2) ) ;
 			}
 			else if ( ring_list_isint(pList2,x2) ) {
 				fprintf( fObj , "[I]%d;" , ring_list_getint(pList2,x2) ) ;
