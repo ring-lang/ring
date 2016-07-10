@@ -10,15 +10,21 @@ void ring_objfile_writefile ( RingState *pRingState )
 	FILE *fObj;
 	/* Create File */
 	fObj = fopen("program.ringo" , "w+" );
+	fprintf( fObj , "# Ring Object File - Version 1.0\n"  ) ;
 	/* Write Functions Lists */
+	fprintf( fObj , "# Functions List\n"  ) ;
 	ring_objfile_writelist(pRingState->pRingFunctionsMap,fObj);
 	/* Write Classes List */
+	fprintf( fObj , "# Classes List\n"  ) ;
 	ring_objfile_writelist(pRingState->pRingClassesMap,fObj);
 	/* Write Packages */
+	fprintf( fObj , "# Packages List\n"  ) ;
 	ring_objfile_writelist(pRingState->pRingPackagesMap,fObj);
 	/* Write Code */
+	fprintf( fObj , "# Program Code\n"  ) ;
 	ring_objfile_writelist(pRingState->pRingGenCode,fObj);
 	/* Close File */
+	fprintf( fObj , "# End of File\n"  ) ;
 	fclose( fObj ) ;
 }
 
