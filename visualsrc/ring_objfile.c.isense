@@ -8,3 +8,11 @@ Type: int
 x,x2
 ring_objfile_readfile
 fObj
+Type: signed char
+c
+Type: List *
+pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pList2
+Type: int
+nActiveList,nValue
+Type: double
+dValue
