@@ -6,3 +6,5 @@ Type: List *
 pList2
 Type: int
 x,x2
+ring_objfile_readfile
+fObj

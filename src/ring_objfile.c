@@ -61,3 +61,15 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 	}
 	fprintf( fObj , "}\r\n"  ) ;
 }
+
+void ring_objfile_readfile ( RingState *pRingState )
+{
+	FILE *fObj;
+	/* Open File */
+	fObj = fopen("program.ringo" , "rb" );
+	/*
+	**  Process File 
+	**  Close File 
+	*/
+	fclose( fObj ) ;
+}

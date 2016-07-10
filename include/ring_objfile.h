@@ -9,5 +9,7 @@
 void ring_objfile_writefile ( RingState *pRingState ) ;
 
 void ring_objfile_writelist ( List *pList,FILE *fObj ) ;
+
+void ring_objfile_readfile ( RingState *pRingState ) ;
 /* MACRO */
 #endif
