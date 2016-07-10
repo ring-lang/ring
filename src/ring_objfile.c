@@ -43,6 +43,10 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 			else if ( ring_list_ispointer(pList2,x2) ) {
 				fprintf( fObj , "[P]%p;" , (void *) ring_list_getpointer(pList2,x2) ) ;
 			}
+			else if ( ring_list_islist(pList2,x2) ) {
+				fprintf( fObj , "[L]\n"  ) ;
+				ring_objfile_writelist(ring_list_getlist(pList2,x2) ,fObj);
+			}
 		}
 		fprintf( fObj , "\n"  ) ;
 	}
