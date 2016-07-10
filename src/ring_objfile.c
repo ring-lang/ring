@@ -37,6 +37,7 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 	/* Write List Items */
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList2 = ring_list_getlist(pList,x);
+		fprintf( fObj , "[LI];\r\n"  ) ;
 		for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
 			if ( ring_list_isstring(pList2,x2) ) {
 				fprintf( fObj , "[S][%d]" , ring_list_getstringsize(pList2,x2) ) ;
