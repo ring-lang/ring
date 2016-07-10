@@ -27,6 +27,8 @@ void ring_objfile_writefile ( RingState *pRingState )
 	/* Close File */
 	fprintf( fObj , "# End of File\n"  ) ;
 	fclose( fObj ) ;
+	/* Test */
+	ring_objfile_readfile(pRingState);
 }
 
 void ring_objfile_writelist ( List *pList,FILE *fObj )
@@ -91,7 +93,13 @@ void ring_objfile_readfile ( RingState *pRingState )
 				/* Read Line */
 				while ( c != '\n' ) {
 					c = getc(fObj);
+					#ifdef DEBUG_OBJFILE
+					printf( "%c  ",c ) ;
+					#endif
 				}
+				#ifdef DEBUG_OBJFILE
+				puts("Read Comment ! ");
+				#endif
 				break ;
 			case '{' :
 				nActiveList++ ;
@@ -116,20 +124,30 @@ void ring_objfile_readfile ( RingState *pRingState )
 					case 'S' :
 						c = getc(fObj);
 						fscanf( fObj , "[%d]" , &nValue ) ;
-						cString = (char *) malloc(nValue) ;
+						cString = (char *) malloc(nValue+1) ;
 						fread( cString , 1 , nValue , fObj );
+						cString[nValue] = '\0' ;
 						ring_list_addstring2(pList,cString,nValue);
 						free( cString ) ;
+						#ifdef DEBUG_OBJFILE
+						printf( "Read String %s Size %d \n",cString,nValue ) ;
+						#endif
 						break ;
 					case 'I' :
 						c = getc(fObj);
 						fscanf( fObj , "%d" , &nValue ) ;
 						ring_list_addint(pList,nValue);
+						#ifdef DEBUG_OBJFILE
+						printf( "Read Number %d \n  ",nValue ) ;
+						#endif
 						break ;
 					case 'D' :
 						c = getc(fObj);
 						fscanf( fObj , "%f" , &dValue ) ;
 						ring_list_adddouble(pList,dValue);
+						#ifdef DEBUG_OBJFILE
+						printf( "Read Double %d  \n",dValue ) ;
+						#endif
 						break ;
 					case 'P' :
 						ring_list_addpointer(pList,NULL);
@@ -137,6 +155,9 @@ void ring_objfile_readfile ( RingState *pRingState )
 						while ( c != '\n' ) {
 							c = getc(fObj);
 						}
+						#ifdef DEBUG_OBJFILE
+						puts("Read Pointer ");
+						#endif
 						break ;
 					case 'T' :
 						pList2 = pList ;
@@ -145,6 +166,9 @@ void ring_objfile_readfile ( RingState *pRingState )
 						while ( c != '\n' ) {
 							c = getc(fObj);
 						}
+						#ifdef DEBUG_OBJFILE
+						puts("Read T ");
+						#endif
 						break ;
 					case 'E' :
 						pList = pList2 ;
@@ -152,6 +176,10 @@ void ring_objfile_readfile ( RingState *pRingState )
 						while ( c != '\n' ) {
 							c = getc(fObj);
 						}
+						#ifdef DEBUG_OBJFILE
+						puts("Read E ");
+						#endif
+						break ;
 					case 'L' :
 						/* Read Until { */
 						while ( c != '{' ) {
@@ -160,12 +188,19 @@ void ring_objfile_readfile ( RingState *pRingState )
 						pList3 = pList ;
 						pList = ring_list_newlist(pList);
 						nBraceEnd = 1 ;
+						#ifdef DEBUG_OBJFILE
+						puts("Read L ");
+						#endif
 						break ;
 				}
 				break ;
 			case '}' :
 				if ( nBraceEnd ) {
 					pList = pList3 ;
+					nBraceEnd = 0 ;
+					#ifdef DEBUG_OBJFILE
+					puts("Read } ");
+					#endif
 				}
 				break ;
 		}

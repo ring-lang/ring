@@ -1,4 +1,5 @@
 ring_objfile_h
+DEBUG_OBJFILE
 ring_objfile_writefile
 fObj
 ring_objfile_writelist
