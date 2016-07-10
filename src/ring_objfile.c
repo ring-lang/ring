@@ -67,8 +67,8 @@ void ring_objfile_readfile ( RingState *pRingState )
 {
 	FILE *fObj;
 	signed char c  ;
-	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pList2  ;
-	int nActiveList,nValue  ;
+	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pList2, *pList3  ;
+	int nActiveList,nValue,nBraceEnd  ;
 	double dValue  ;
 	char *cString  ;
 	/* Create Lists */
@@ -78,6 +78,8 @@ void ring_objfile_readfile ( RingState *pRingState )
 	pListCode = ring_list_new(0);
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
 	nActiveList = 0 ;
+	/* Set Brace End Flag = 0 */
+	nBraceEnd = 0 ;
 	/* Open File */
 	fObj = fopen("program.ringo" , "rb" );
 	/* Process File */
@@ -151,7 +153,19 @@ void ring_objfile_readfile ( RingState *pRingState )
 							c = getc(fObj);
 						}
 					case 'L' :
+						/* Read Until { */
+						while ( c != '{' ) {
+							c = getc(fObj);
+						}
+						pList3 = pList ;
+						pList = ring_list_newlist(pList);
+						nBraceEnd = 1 ;
 						break ;
+				}
+				break ;
+			case '}' :
+				if ( nBraceEnd ) {
+					pList = pList3 ;
 				}
 				break ;
 		}

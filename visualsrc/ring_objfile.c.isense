@@ -11,9 +11,9 @@ fObj
 Type: signed char
 c
 Type: List *
-pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pList2
+pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pList2, *pList3
 Type: int
-nActiveList,nValue
+nActiveList,nValue,nBraceEnd
 Type: double
 dValue
 Type: char *
