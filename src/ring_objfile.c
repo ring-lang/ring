@@ -208,4 +208,20 @@ void ring_objfile_readfile ( RingState *pRingState )
 	}
 	/* Close File */
 	fclose( fObj ) ;
+	/*
+	**  Update Ring State 
+	**  Delete Lists 
+	*/
+	pRingState->pRingFunctionsMap = ring_list_delete(pRingState->pRingFunctionsMap);
+	pRingState->pRingClassesMap = ring_list_delete(pRingState->pRingClassesMap);
+	pRingState->pRingPackagesMap = ring_list_delete(pRingState->pRingPackagesMap);
+	pRingState->pRingGenCode = ring_list_delete(pRingState->pRingGenCode);
+	/* Update Lists */
+	pRingState->pRingFunctionsMap = pListFunctions ;
+	pRingState->pRingClassesMap = pListClasses ;
+	pRingState->pRingPackagesMap = pListPackages ;
+	pRingState->pRingGenCode = pListCode ;
+	#ifdef DEBUG_OBJFILE
+	puts("Update Done! ");
+	#endif
 }
