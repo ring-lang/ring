@@ -213,6 +213,7 @@ void ring_objfile_readfile ( RingState *pRingState )
 	puts("Old Code List ");
 	ring_list_print(pRingState->pRingGenCode);
 	#endif
+	ring_list_print(pRingState->pRingClassesMap);
 	/* Delete Lists */
 	pRingState->pRingFunctionsMap = ring_list_delete(pRingState->pRingFunctionsMap);
 	pRingState->pRingClassesMap = ring_list_delete(pRingState->pRingClassesMap);
@@ -228,4 +229,33 @@ void ring_objfile_readfile ( RingState *pRingState )
 	puts("New Code List ");
 	ring_list_print(pRingState->pRingGenCode);
 	#endif
+	puts("AFTER ************ ");
+	ring_list_print(pRingState->pRingClassesMap);
+	/* Update Classes Pointers */
+	ring_objfile_updateclassespointers(pRingState);
+}
+
+void ring_objfile_updateclassespointers ( RingState *pRingState )
+{
+	int x,x2  ;
+	List *pList, *pList2  ;
+	const char *cString  ;
+	for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingGenCode) ; x++ ) {
+		pList = ring_list_getlist(pRingState->pRingGenCode,x);
+		if ( ring_list_getint(pList,1) == ICO_NEWCLASS ) {
+			cString = ring_list_getstring(pList,2);
+			puts("New Class !!! ");
+			for ( x2 = 1 ; x2 <= ring_list_getsize(pRingState->pRingClassesMap) ; x2++ ) {
+				pList2 = ring_list_getlist(pRingState->pRingClassesMap,x2);
+				if ( strcmp(cString,ring_list_getstring(pList2,1)) == 0 ) {
+					ring_list_setpointer(pList,3,pList2);
+					#ifdef DEBUG_OBJFILE
+					puts("Pointer Updated ");
+					#endif
+					puts("Pointer Updated ");
+					break ;
+				}
+			}
+		}
+	}
 }

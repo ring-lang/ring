@@ -19,3 +19,10 @@ Type: double
 dValue
 Type: char *
 cString
+ring_objfile_updateclassespointers
+Type: int
+x,x2
+Type: List *
+pList, *pList2
+Type: const char *
+cString
