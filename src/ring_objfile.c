@@ -143,7 +143,7 @@ void ring_objfile_readfile ( RingState *pRingState )
 						break ;
 					case 'D' :
 						c = getc(fObj);
-						fscanf( fObj , "%f" , &dValue ) ;
+						fscanf( fObj , "%lf" , &dValue ) ;
 						ring_list_adddouble(pList,dValue);
 						#ifdef DEBUG_OBJFILE
 						printf( "Read Double %d  \n",dValue ) ;
@@ -208,10 +208,12 @@ void ring_objfile_readfile ( RingState *pRingState )
 	}
 	/* Close File */
 	fclose( fObj ) ;
-	/*
-	**  Update Ring State 
-	**  Delete Lists 
-	*/
+	/* Update Ring State */
+	#ifdef DEBUG_OBJFILE
+	puts("Old Code List ");
+	ring_list_print(pRingState->pRingGenCode);
+	#endif
+	/* Delete Lists */
 	pRingState->pRingFunctionsMap = ring_list_delete(pRingState->pRingFunctionsMap);
 	pRingState->pRingClassesMap = ring_list_delete(pRingState->pRingClassesMap);
 	pRingState->pRingPackagesMap = ring_list_delete(pRingState->pRingPackagesMap);
@@ -223,5 +225,7 @@ void ring_objfile_readfile ( RingState *pRingState )
 	pRingState->pRingGenCode = pListCode ;
 	#ifdef DEBUG_OBJFILE
 	puts("Update Done! ");
+	puts("New Code List ");
+	ring_list_print(pRingState->pRingGenCode);
 	#endif
 }
