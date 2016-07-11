@@ -12,7 +12,7 @@ fObj
 Type: signed char
 c
 Type: List *
-pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pList2, *pList3
+pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack
 Type: int
 nActiveList,nValue,nBraceEnd
 Type: double
