@@ -21,7 +21,7 @@ Type: char *
 cString
 ring_objfile_updateclassespointers
 Type: int
-x,x2
+x,x2,lFound
 Type: List *
 pList, *pList2
 Type: const char *

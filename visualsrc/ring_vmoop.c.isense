@@ -21,6 +21,8 @@ pString
 ring_vm_oop_newclass
 Type: List *
 pClass,*pList
+Type: int
+x
 ring_vm_oop_setscope
 Type: List *
 pList
@@ -106,7 +108,7 @@ ring_vm_oop_callmethodinsideclass
 Type: List *
 pList, *pList2
 Type: int
-x,nPos
+x
 ring_vm_oop_setget
 Type: List *
 pList

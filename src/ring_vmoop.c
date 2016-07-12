@@ -211,7 +211,18 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
 void ring_vm_oop_newclass ( VM *pVM )
 {
 	List *pClass,*pList  ;
+	int x  ;
 	pClass = (List *) RING_VM_IR_READPVALUE(2) ;
+	/* Find the Class Pointer using the Class Name */
+	if ( pClass == NULL ) {
+		for ( x = 1 ; x <= ring_list_getsize(pVM->pRingState->pRingClassesMap) ; x++ ) {
+			pList = ring_list_getlist(pVM->pRingState->pRingClassesMap,x);
+			if ( strcmp(ring_list_getstring(pList,1),RING_VM_IR_READCVALUE(1)) == 0 ) {
+				pClass = pList ;
+				break ;
+			}
+		}
+	}
 	pClass = ring_vm_oop_checkpointertoclassinpackage(pVM,pClass);
 	/* Make object methods visible while executing the Class Init method */
 	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));

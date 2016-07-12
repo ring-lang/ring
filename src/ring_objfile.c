@@ -237,9 +237,10 @@ void ring_objfile_readfile ( RingState *pRingState )
 
 void ring_objfile_updateclassespointers ( RingState *pRingState )
 {
-	int x,x2  ;
+	int x,x2,lFound  ;
 	List *pList, *pList2  ;
 	const char *cString  ;
+	lFound = 0 ;
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingGenCode) ; x++ ) {
 		pList = ring_list_getlist(pRingState->pRingGenCode,x);
 		if ( ring_list_getint(pList,1) == ICO_NEWCLASS ) {
@@ -247,12 +248,17 @@ void ring_objfile_updateclassespointers ( RingState *pRingState )
 			for ( x2 = 1 ; x2 <= ring_list_getsize(pRingState->pRingClassesMap) ; x2++ ) {
 				pList2 = ring_list_getlist(pRingState->pRingClassesMap,x2);
 				if ( strcmp(cString,ring_list_getstring(pList2,1)) == 0 ) {
+					lFound = 0 ;
 					ring_list_setpointer(pList,3,pList2);
 					#ifdef DEBUG_OBJFILE
 					puts("Pointer Updated ");
 					#endif
 					break ;
 				}
+			}
+			/* If we can't find the list (the class is inside a package) */
+			if ( lFound == 0 ) {
+				ring_list_setpointer(pList,3,NULL);
 			}
 		}
 	}
