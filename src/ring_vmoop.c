@@ -218,7 +218,13 @@ void ring_vm_oop_newclass ( VM *pVM )
 		for ( x = 1 ; x <= ring_list_getsize(pVM->pRingState->pRingClassesMap) ; x++ ) {
 			pList = ring_list_getlist(pVM->pRingState->pRingClassesMap,x);
 			if ( strcmp(ring_list_getstring(pList,1),RING_VM_IR_READCVALUE(1)) == 0 ) {
-				pClass = pList ;
+				if ( ring_list_getsize(pList) == 3 ) {
+					/* Here the class is stored inside a package - we have the class pointer (item 2) */
+					pClass = (List *) ring_list_getpointer(pList,2) ;
+				}
+				else {
+					pClass = pList ;
+				}
 				RING_VM_IR_READPVALUE(2) = (void *) pClass ;
 				break ;
 			}
