@@ -219,6 +219,7 @@ void ring_vm_oop_newclass ( VM *pVM )
 			pList = ring_list_getlist(pVM->pRingState->pRingClassesMap,x);
 			if ( strcmp(ring_list_getstring(pList,1),RING_VM_IR_READCVALUE(1)) == 0 ) {
 				pClass = pList ;
+				RING_VM_IR_READPVALUE(2) = (void *) pClass ;
 				break ;
 			}
 		}
