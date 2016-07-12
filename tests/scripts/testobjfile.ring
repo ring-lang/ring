@@ -3,6 +3,8 @@ o1 = new c1
 o1.m1()
 o2 = new c1
 o2.m1()
+o3 = new test.c1
+o3.m1()
 
 package test
 	class c1

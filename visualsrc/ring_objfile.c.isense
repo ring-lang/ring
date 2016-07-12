@@ -21,8 +21,12 @@ Type: char *
 cString
 ring_objfile_updateclassespointers
 Type: int
-x,x2,lFound
+x,x2,x3,x4,lFound
 Type: List *
-pList, *pList2
+pList, *pList2, *pList3
 Type: const char *
 cString
+Type: char
+cPackageName[400]
+Type: char
+cClassName[400]

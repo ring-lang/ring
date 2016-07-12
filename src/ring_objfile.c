@@ -237,9 +237,12 @@ void ring_objfile_readfile ( RingState *pRingState )
 
 void ring_objfile_updateclassespointers ( RingState *pRingState )
 {
-	int x,x2,lFound  ;
-	List *pList, *pList2  ;
+	int x,x2,x3,x4,lFound  ;
+	List *pList, *pList2, *pList3  ;
 	const char *cString  ;
+	char cPackageName[400]  ;
+	char cClassName[400]  ;
+	/* Update Class Pointer in Code */
 	lFound = 0 ;
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingGenCode) ; x++ ) {
 		pList = ring_list_getlist(pRingState->pRingGenCode,x);
@@ -259,6 +262,58 @@ void ring_objfile_updateclassespointers ( RingState *pRingState )
 			/* If we can't find the list (the class is inside a package) */
 			if ( lFound == 0 ) {
 				ring_list_setpointer(pList,3,NULL);
+			}
+		}
+	}
+	/*
+	**  Update Class Pointers in Classes Map when the class belong to a Package 
+	**  This updates works when the class name is : packagename.classname 
+	*/
+	for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingClassesMap) ; x++ ) {
+		pList = ring_list_getlist(pRingState->pRingClassesMap,x);
+		cString = ring_list_getstring(pList,1);
+		if ( ring_list_getstringsize(pList,1)  > 400 ) {
+			/* Avoid large names - we have limits (400 letters per package name - 400 letters for class name) */
+			continue ;
+		}
+		for ( x2 = ring_list_getstringsize(pList,1) - 1 ; x2 >= 0 ; x2-- ) {
+			if ( cString[x2] == '.' ) {
+				/*
+				**  Now we have a class name stored as packagename.classname 
+				**  Get Package Name 
+				*/
+				for ( x3 = 0 ; x3 < x2 ; x3++ ) {
+					cPackageName[x3] = cString[x3] ;
+				}
+				cPackageName[x2] = '\0' ;
+				#ifdef DEBUG_OBJFILE
+				printf( "Package Name %s \n  ",cPackageName ) ;
+				#endif
+				/* Get Class Name */
+				for ( x3 = x2+1 ; x3 <= ring_list_getstringsize(pList,1) - 1 ; x3++ ) {
+					cClassName[x3-x2-1] = cString[x3] ;
+				}
+				cClassName[ring_list_getstringsize(pList,1) - 1 - x2] = '\0' ;
+				#ifdef DEBUG_OBJFILE
+				printf( "Class Name %s \n  ",cClassName ) ;
+				#endif
+				/* Get The Package List */
+				for ( x3 = 1 ; x3 <= ring_list_getsize(pRingState->pRingPackagesMap) ; x3++ ) {
+					pList2 = ring_list_getlist(pRingState->pRingPackagesMap,x3);
+					if ( strcmp(ring_list_getstring(pList2,1),cPackageName) == 0 ) {
+						/* Get The Class List */
+						pList2 = ring_list_getlist(pList2,2);
+						for ( x4 = 1 ; x4 <= ring_list_getsize(pList2) ; x4++ ) {
+							pList3 = ring_list_getlist(pList2,x4);
+							if ( strcmp(ring_list_getstring(pList3,1),cClassName) == 0 ) {
+								/* Now We have the Class - Update Pointer */
+								ring_list_setpointer(pList,2,(void *) pList3);
+								break ;
+							}
+						}
+						break ;
+					}
+				}
 			}
 		}
 	}
