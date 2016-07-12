@@ -560,7 +560,7 @@ int ring_parser_range ( Parser *pParser )
 
 int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
-	int x,x2,nLastOperation,nCount,nNOOP,nToken,nMark  ;
+	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark  ;
 	List *pLoadAPos, *pList, *pMark  ;
 	char lSetProperty,lequal,nBeforeEqual  ;
 	char cFuncName[100]  ;
@@ -965,7 +965,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			ring_parser_nexttoken(pParser);
 			x = pParser->nAssignmentFlag ;
 			x2 = pParser->nNoAssignment ;
+			x3 = pParser->nBraceFlag ;
 			pParser->nAssignmentFlag = 1 ;
+			pParser->nBraceFlag = 0 ;
 			while ( ring_parser_stmt(pParser) ) {
 				if ( pParser->ActiveToken == pParser->TokensCount ) {
 					break ;
@@ -973,6 +975,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			}
 			pParser->nAssignmentFlag = x ;
 			pParser->nNoAssignment = x2 ;
+			pParser->nBraceFlag = x3 ;
 			if ( ring_parser_isoperator(pParser,"}") ) {
 				ring_parser_nexttoken(pParser);
 				/* Generate Code */
