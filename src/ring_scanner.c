@@ -721,8 +721,9 @@ void ring_scanner_runobjfile ( const char *cFileName,RingState *pRingState )
 	pRingState->pRingFilesStack = ring_list_new(0);
 	ring_list_addstring(pRingState->pRingFilesList,cFileName);
 	ring_list_addstring(pRingState->pRingFilesStack,cFileName);
-	ring_objfile_readfile(cFileName,pRingState);
-	ring_scanner_runprogram(pRingState);
+	if ( ring_objfile_readfile(cFileName,pRingState) ) {
+		ring_scanner_runprogram(pRingState);
+	}
 }
 
 void ring_scanner_runprogram ( RingState *pRingState )

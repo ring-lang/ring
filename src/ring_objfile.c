@@ -65,7 +65,7 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 	fprintf( fObj , "}\n"  ) ;
 }
 
-void ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
+int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 {
 	FILE *fObj;
 	signed char c  ;
@@ -84,6 +84,10 @@ void ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 	nBraceEnd = 0 ;
 	/* Open File */
 	fObj = fopen(cFileName , "rb" );
+	if ( fObj==NULL ) {
+		printf( "Can't open file %s \n  ",cFileName ) ;
+		return 0 ;
+	}
 	/* Process File */
 	c = getc(fObj);
 	while ( c != EOF ) {
@@ -228,6 +232,7 @@ void ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 	#endif
 	/* Update Classes Pointers */
 	ring_objfile_updateclassespointers(pRingState);
+	return 1 ;
 }
 
 void ring_objfile_updateclassespointers ( RingState *pRingState )
