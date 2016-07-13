@@ -2,6 +2,8 @@ ring_objfile_h
 DEBUG_OBJFILE
 ring_objfile_writefile
 fObj
+Type: char
+cFileName[400]
 ring_objfile_writelist
 Type: List *
 pList2
