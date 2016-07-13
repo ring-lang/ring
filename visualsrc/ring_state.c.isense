@@ -91,6 +91,9 @@ segfaultaction
 ring_issourcefile
 Type: int
 x
+ring_isobjectfile
+Type: int
+x
 ring_fexists
 Type: FILE *
 fp

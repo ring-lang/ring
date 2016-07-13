@@ -28,6 +28,8 @@ static void ring_showtime ( void ) ;
 void segfaultaction ( int sig ) ;
 
 int ring_issourcefile ( const char *cStr ) ;
+
+int ring_isobjectfile ( const char *cStr ) ;
 /* API Functions */
 
 RING_API RingState * ring_state_new ( void )
@@ -274,6 +276,18 @@ int ring_issourcefile ( const char *cStr )
 	x = strlen(cStr) - 1 ;
 	if ( x > 5 ) {
 		if ( tolower(cStr[x]) == 'g' && tolower(cStr[x-1]) == 'n' && tolower(cStr[x-2]) == 'i' && tolower(cStr[x-3]) == 'r' && cStr[x-4] == '.' ) {
+			return 1 ;
+		}
+	}
+	return 0 ;
+}
+
+int ring_isobjectfile ( const char *cStr )
+{
+	int x  ;
+	x = strlen(cStr) - 1 ;
+	if ( x > 6 ) {
+		if ( tolower(cStr[x]) == 'o' && tolower(cStr[x-1]) == 'g' && tolower(cStr[x-2]) == 'n' && tolower(cStr[x-3]) == 'i' && tolower(cStr[x-4]) == 'r' && cStr[x-5] == '.' ) {
 			return 1 ;
 		}
 	}
