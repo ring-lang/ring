@@ -26,10 +26,6 @@ static void ring_showtime ( void ) ;
 #endif
 
 void segfaultaction ( int sig ) ;
-
-int ring_issourcefile ( const char *cStr ) ;
-
-int ring_isobjectfile ( const char *cStr ) ;
 /* API Functions */
 
 RING_API RingState * ring_state_new ( void )
@@ -185,7 +181,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 			else if ( strcmp(argv[x],"-go") == 0 ) {
 				nGenObj = 1 ;
 			}
-			else if ( ring_issourcefile(argv[x]) && nSRC == 0 ) {
+			else if ( ( ring_issourcefile(argv[x]) || ring_isobjectfile(argv[x])) && nSRC == 0 ) {
 				cStr = argv[x] ;
 				nSRC = 1 ;
 			}

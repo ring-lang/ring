@@ -700,11 +700,47 @@ RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPri
 	pRingState->nGenObj = nGenObj ;
 	pRingState->argc = argc ;
 	pRingState->argv = argv ;
-	ring_scanner_readfile(cFileName,pRingState);
+	if ( ring_issourcefile(cFileName) ) {
+		ring_scanner_readfile(cFileName,pRingState);
+	}
+	else {
+		ring_scanner_runobjfile(cFileName,pRingState);
+	}
 	ring_state_delete(pRingState);
 }
 
 const char * ring_scanner_getkeywordtext ( const char *cStr )
 {
 	return RING_KEYWORDS[atoi(cStr)-1] ;
+}
+
+void ring_scanner_runobjfile ( const char *cFileName,RingState *pRingState )
+{
+	/* Files List */
+	pRingState->pRingFilesList = ring_list_new(0);
+	pRingState->pRingFilesStack = ring_list_new(0);
+	ring_list_addstring(pRingState->pRingFilesList,cFileName);
+	ring_list_addstring(pRingState->pRingFilesStack,cFileName);
+	ring_objfile_readfile(cFileName,pRingState);
+	ring_scanner_runprogram(pRingState);
+}
+
+void ring_scanner_runprogram ( RingState *pRingState )
+{
+	VM *pVM  ;
+	/* Add return to the end of the program */
+	ring_scanner_addreturn(pRingState);
+	if ( pRingState->nPrintIC ) {
+		ring_parser_icg_showoutput(pRingState->pRingGenCode,1);
+	}
+	if ( ! pRingState->nRun ) {
+		return ;
+	}
+	pVM = ring_vm_new(pRingState);
+	ring_vm_start(pRingState,pVM);
+	ring_vm_delete(pVM);
+	/* Display Generated Code */
+	if ( pRingState->nPrintICFinal ) {
+		ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
+	}
 }

@@ -27,8 +27,6 @@ void ring_objfile_writefile ( RingState *pRingState )
 	/* Close File */
 	fprintf( fObj , "# End of File\n"  ) ;
 	fclose( fObj ) ;
-	/* Test */
-	ring_objfile_readfile(pRingState);
 }
 
 void ring_objfile_writelist ( List *pList,FILE *fObj )
@@ -65,7 +63,7 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 	fprintf( fObj , "}\n"  ) ;
 }
 
-void ring_objfile_readfile ( RingState *pRingState )
+void ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 {
 	FILE *fObj;
 	signed char c  ;
@@ -83,7 +81,7 @@ void ring_objfile_readfile ( RingState *pRingState )
 	nActiveList = 0 ;
 	nBraceEnd = 0 ;
 	/* Open File */
-	fObj = fopen("program.ringo" , "rb" );
+	fObj = fopen(cFileName , "rb" );
 	/* Process File */
 	c = getc(fObj);
 	while ( c != EOF ) {
@@ -216,11 +214,6 @@ void ring_objfile_readfile ( RingState *pRingState )
 	puts("Old Code List ");
 	ring_list_print(pRingState->pRingGenCode);
 	#endif
-	/* Delete Lists */
-	pRingState->pRingFunctionsMap = ring_list_delete(pRingState->pRingFunctionsMap);
-	pRingState->pRingClassesMap = ring_list_delete(pRingState->pRingClassesMap);
-	pRingState->pRingPackagesMap = ring_list_delete(pRingState->pRingPackagesMap);
-	pRingState->pRingGenCode = ring_list_delete(pRingState->pRingGenCode);
 	/* Update Lists */
 	pRingState->pRingFunctionsMap = pListFunctions ;
 	pRingState->pRingClassesMap = pListClasses ;

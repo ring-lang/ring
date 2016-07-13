@@ -72,4 +72,8 @@ int ring_exefilename ( char *cDirPath ) ;
 void ring_chdir ( const char *cDir ) ;
 
 void ring_exefolder ( char *cDirPath ) ;
+
+int ring_issourcefile ( const char *cStr ) ;
+
+int ring_isobjectfile ( const char *cStr ) ;
 #endif
