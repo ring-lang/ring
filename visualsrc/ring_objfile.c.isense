@@ -40,3 +40,6 @@ Type: char
 cPackageName[400]
 Type: char
 cClassName[400]
+ring_objfile_xorstring
+Type: int
+x

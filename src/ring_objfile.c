@@ -48,14 +48,10 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 				fprintf( fObj , "[S][%d]" , ring_list_getstringsize(pList2,x2) ) ;
 				/* Encrypt String */
 				cString = ring_list_getstring(pList2,x2) ;
-				for ( x3 = 1 ; x3 <= ring_list_getstringsize(pList2,x2) ; x3++ ) {
-					cString[x3-1] = cString[x3-1] ^ cKey[(x3-1)%10] ;
-				}
+				ring_objfile_xorstring(cString,ring_list_getstringsize(pList2,x2),cKey,10);
 				fwrite( ring_list_getstring(pList2,x2) , 1 , ring_list_getstringsize(pList2,x2) , fObj );
 				/* Decrypt String */
-				for ( x3 = 1 ; x3 <= ring_list_getstringsize(pList2,x2) ; x3++ ) {
-					cString[x3-1] = cString[x3-1] ^ cKey[(x3-1)%10] ;
-				}
+				ring_objfile_xorstring(cString,ring_list_getstringsize(pList2,x2),cKey,10);
 				fprintf( fObj , "\n"  ) ;
 			}
 			else if ( ring_list_isint(pList2,x2) ) {
@@ -160,9 +156,7 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 						fread( cString , 1 , nValue , fObj );
 						cString[nValue] = '\0' ;
 						/* Decrypt String */
-						for ( x3 = 1 ; x3 <= nValue ; x3++ ) {
-							cString[x3-1] = cString[x3-1] ^ cKey[(x3-1)%10] ;
-						}
+						ring_objfile_xorstring(cString,nValue,cKey,10);
 						ring_list_addstring2(pList,cString,nValue);
 						free( cString ) ;
 						#ifdef DEBUG_OBJFILE
@@ -348,5 +342,13 @@ void ring_objfile_updateclassespointers ( RingState *pRingState )
 				}
 			}
 		}
+	}
+}
+
+void ring_objfile_xorstring ( char *cString,int nStringSize,char *cKey,int nKeySize )
+{
+	int x  ;
+	for ( x = 1 ; x <= nStringSize ; x++ ) {
+		cString[x-1] = cString[x-1] ^ cKey[(x-1)%nKeySize] ;
 	}
 }

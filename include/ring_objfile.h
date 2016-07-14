@@ -13,5 +13,7 @@ void ring_objfile_writelist ( List *pList,FILE *fObj ) ;
 int ring_objfile_readfile ( const char *cFileName,RingState *pRingState ) ;
 
 void ring_objfile_updateclassespointers ( RingState *pRingState ) ;
+
+void ring_objfile_xorstring ( char *cString,int nStringSize,char *cKey,int nKeySize ) ;
 /* MACRO */
 #endif
