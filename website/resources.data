@@ -653,7 +653,32 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=edSssGxvMR0&feature=youtu.be" target="_blank"> 78 Ring programming Find substring</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
-				]	
+				]
+				 ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=vs2Kvzw1lHw&feature=youtu.be" target="_blank"> 79 Ring programming Get substring from position to end</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=3nYd6MaZ1yk&feature=youtu.be" target="_blank"> 80 Ring programming Get Number of Characters From Position</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=1_fVoxHxpNo&feature=youtu.be" target="_blank"> 81 Ring programming Transform Substring To Another Substring</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=YowowhSij8w&feature=youtu.be" target="_blank"> 82 Ring programming strcmp Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=2DxAe-2XiMs&feature=youtu.be" target="_blank"> 83 Ring programming str2list and  list2str Functions</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                                ] 
 			]
 		],
 		
