@@ -13,7 +13,7 @@ void ring_objfile_writefile ( RingState *pRingState )
 	sprintf( cFileName , "%so" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
 	fObj = fopen(cFileName , "w+b" );
 	fprintf( fObj , "# Ring Object File\n"  ) ;
-	fprintf( fObj , "# Version 1.0\n"  ) ;
+	fprintf( fObj , "# Version 1.1\n"  ) ;
 	/* Write Functions Lists */
 	fprintf( fObj , "# Functions List\n"  ) ;
 	ring_objfile_writelist(pRingState->pRingFunctionsMap,fObj);
@@ -87,6 +87,7 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 	char *cString  ;
 	char cKey[11]  ;
 	strcpy(cKey,"ringstring");
+	char cFileType[100]  ;
 	/* Create Lists */
 	pListFunctions = ring_list_new(0);
 	pListClasses = ring_list_new(0);
@@ -100,6 +101,12 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 	fObj = fopen(cFileName , "rb" );
 	if ( fObj==NULL ) {
 		printf( "Can't open file %s \n  ",cFileName ) ;
+		return 0 ;
+	}
+	fread( cFileType , 1 , 18 , fObj );
+	cFileType[18] = '\0' ;
+	if ( strcmp(cFileType,"# Ring Object File") != 0 ) {
+		printf( "The file type is not correct - the VM expect a ring object file \n  ",cFileName ) ;
 		return 0 ;
 	}
 	/* Process File */

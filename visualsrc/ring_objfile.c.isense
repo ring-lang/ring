@@ -4,15 +4,17 @@ ring_objfile_writefile
 fObj
 Type: char
 cFileName[400]
+Type: char
+cFileType[100]
 ring_objfile_writelist
 Type: List *
 pList2
 Type: int
 x,x2,x3
-Type: char
-cKey[11]
 Type: char *
 cString
+Type: char
+cKey[11]
 ring_objfile_readfile
 fObj
 Type: signed char
@@ -20,11 +22,13 @@ c
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack
 Type: int
-nActiveList,nValue,nBraceEnd
+nActiveList,nValue,nBraceEnd,x3
 Type: double
 dValue
 Type: char *
 cString
+Type: char
+cKey[11]
 ring_objfile_updateclassespointers
 Type: int
 x,x2,x3,x4,lFound
