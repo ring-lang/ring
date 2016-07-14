@@ -109,6 +109,13 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 		printf( "The file type is not correct - the VM expect a ring object file \n  ",cFileName ) ;
 		return 0 ;
 	}
+	c = getc(fObj);
+	fread( cFileType , 1 , 13 , fObj );
+	cFileType[13] = '\0' ;
+	if ( strcmp(cFileType,"# Version 1.1") != 0 ) {
+		printf( "The file version is not correct - the VM expect a ring object file version 1.1 \n  ",cFileName ) ;
+		return 0 ;
+	}
 	/* Process File */
 	c = getc(fObj);
 	while ( c != EOF ) {
