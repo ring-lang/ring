@@ -8,7 +8,11 @@ ring_objfile_writelist
 Type: List *
 pList2
 Type: int
-x,x2
+x,x2,x3
+Type: char
+cKey[11]
+Type: char *
+cString
 ring_objfile_readfile
 fObj
 Type: signed char

@@ -34,7 +34,10 @@ void ring_objfile_writefile ( RingState *pRingState )
 void ring_objfile_writelist ( List *pList,FILE *fObj )
 {
 	List *pList2  ;
-	int x,x2  ;
+	int x,x2,x3  ;
+	char *cString  ;
+	char cKey[11]  ;
+	strcpy(cKey,"ringstring");
 	fprintf( fObj , "{\n"  ) ;
 	/* Write List Items */
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
@@ -43,7 +46,16 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 		for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
 			if ( ring_list_isstring(pList2,x2) ) {
 				fprintf( fObj , "[S][%d]" , ring_list_getstringsize(pList2,x2) ) ;
+				/* Encrypt String */
+				cString = ring_list_getstring(pList2,x2) ;
+				for ( x3 = 1 ; x3 <= ring_list_getstringsize(pList2,x2) ; x3++ ) {
+					cString[x3-1] = cString[x3-1] ^ cKey[(x3-1)%10] ;
+				}
 				fwrite( ring_list_getstring(pList2,x2) , 1 , ring_list_getstringsize(pList2,x2) , fObj );
+				/* Decrypt String */
+				for ( x3 = 1 ; x3 <= ring_list_getstringsize(pList2,x2) ; x3++ ) {
+					cString[x3-1] = cString[x3-1] ^ cKey[(x3-1)%10] ;
+				}
 				fprintf( fObj , "\n"  ) ;
 			}
 			else if ( ring_list_isint(pList2,x2) ) {
@@ -70,9 +82,11 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 	FILE *fObj;
 	signed char c  ;
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack  ;
-	int nActiveList,nValue,nBraceEnd  ;
+	int nActiveList,nValue,nBraceEnd,x3  ;
 	double dValue  ;
 	char *cString  ;
+	char cKey[11]  ;
+	strcpy(cKey,"ringstring");
 	/* Create Lists */
 	pListFunctions = ring_list_new(0);
 	pListClasses = ring_list_new(0);
@@ -131,6 +145,10 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 						cString = (char *) malloc(nValue+1) ;
 						fread( cString , 1 , nValue , fObj );
 						cString[nValue] = '\0' ;
+						/* Decrypt String */
+						for ( x3 = 1 ; x3 <= nValue ; x3++ ) {
+							cString[x3-1] = cString[x3-1] ^ cKey[(x3-1)%10] ;
+						}
 						ring_list_addstring2(pList,cString,nValue);
 						free( cString ) ;
 						#ifdef DEBUG_OBJFILE
