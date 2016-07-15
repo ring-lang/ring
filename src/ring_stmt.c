@@ -127,7 +127,7 @@ int ring_parser_class ( Parser *pParser )
 				ring_list_addint(pList2,0);
 			}
 			ring_parser_nexttoken(pParser);
-			if ( ring_parser_isidentifier(pParser) ) {
+			if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator(pParser,"(") ) {
 				x = ring_parser_paralist(pParser);
 			} else {
 				x = 1 ;
@@ -1004,8 +1004,15 @@ int ring_parser_stmt ( Parser *pParser )
 
 int ring_parser_paralist ( Parser *pParser )
 {
+	int nStart  ;
+	/* Check ( */
+	nStart = 0 ;
+	if ( ring_parser_isoperator(pParser,"(") ) {
+		ring_parser_nexttoken(pParser);
+		nStart = 1 ;
+	}
 	/* ParaList --> Epslion */
-	if ( ring_parser_isendline(pParser) ) {
+	if ( ring_parser_isendline(pParser) || (nStart && ring_parser_isoperator(pParser,")") ) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
@@ -1035,6 +1042,9 @@ int ring_parser_paralist ( Parser *pParser )
 				ring_parser_error(pParser,RING_PARSER_ERROR_PARALIST);
 				return 0 ;
 			}
+		}
+		if ( nStart && ring_parser_isoperator(pParser,")") ) {
+			ring_parser_nexttoken(pParser);
 		}
 		return 1 ;
 	} else {

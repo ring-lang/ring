@@ -18,6 +18,8 @@ cStr
 Type: char
 cFileName[200]
 ring_parser_paralist
+Type: int
+nStart
 ring_parser_list
 ring_parser_epslion
 ring_parser_passepslion

@@ -957,7 +957,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
 		ring_parser_icg_newoperand(pParser,cFuncName);
 		/* Get Function Parameters */
-		if ( ring_parser_isidentifier(pParser) ) {
+		if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator(pParser,"(") ) {
 			if (! ring_parser_paralist(pParser)) return 0 ;
 		}
 		/* Get Function Code */
