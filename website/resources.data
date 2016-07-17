@@ -679,6 +679,31 @@
 					'<a href="https://www.youtube.com/watch?v=2DxAe-2XiMs&feature=youtu.be" target="_blank"> 83 Ring programming str2list and  list2str Functions</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
                                 ] 
+                                  ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=aBXu7lL0JwU&feature=youtu.be" target="_blank"> 84 Ring programming clock() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=AlqjgTpISCk&feature=youtu.be" target="_blank"> 85 Ring programming Time () and  Date() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=s9lIDBefOyw&feature=youtu.be" target="_blank"> 86 Ring programming TimeList() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=wuOhNd19dTM&feature=youtu.be" target="_blank"> 87 Ring programming Adddays()Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=b65ivW4MsbI&feature=youtu.be" target="_blank"> 88 Ring programming DiffDays () Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                ] 
 			]
 		],
 		
