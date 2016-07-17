@@ -40,7 +40,9 @@
 #define RING_RUNVM 1
 #define RING_VMSHOWOPCODE 1
 #define RING_OOM "\nError : Out of Memory\n"
+#ifndef NDEBUG
 #define NDEBUG
+#endif
 /*
 **  Include Files 
 **  Include C Headers 
