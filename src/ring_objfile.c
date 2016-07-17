@@ -102,14 +102,14 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 	fread( cFileType , 1 , 18 , fObj );
 	cFileType[18] = '\0' ;
 	if ( strcmp(cFileType,"# Ring Object File") != 0 ) {
-		printf( "The file type is not correct - the VM expect a ring object file \n  ",cFileName ) ;
+		printf( "The file type is not correct - the VM expect a ring object file\n" ) ;
 		return 0 ;
 	}
 	c = getc(fObj);
 	fread( cFileType , 1 , 13 , fObj );
 	cFileType[13] = '\0' ;
 	if ( strcmp(cFileType,"# Version 1.1") != 0 ) {
-		printf( "The file version is not correct - the VM expect a ring object file version 1.1 \n  ",cFileName ) ;
+		printf( "The file version is not correct - the VM expect a ring object file version 1.1\n" ) ;
 		return 0 ;
 	}
 	/* Process File */
