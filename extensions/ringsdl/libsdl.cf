@@ -1,0 +1,30 @@
+<code>
+/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+#include "SDL.h"
+</code>
+
+<runcode>
+</runcode>
+
+<funcstart>
+sdl
+</funcstart>
+
+<struct>
+
+</struct>
+
+void SDL_Init(int)
+SDL_Window *SDL_CreateWindow(const char *, int, int, int, int, int)
+SDL_Renderer *SDL_CreateRenderer(SDL_Window *, int, int)
+SDL_Surface *SDL_LoadBMP(const char *)
+SDL_Texture *SDL_CreateTextureFromSurface(SDL_Renderer *,SDL_Surface *)
+void SDL_FreeSurface(SDL_Surface *)
+void SDL_RenderClear(SDL_Renderer *)
+void SDL_RenderCopy(SDL_Renderer *,SDL_Texture *,void *,void *)
+void SDL_RenderPresent(SDL_Renderer *)
+void SDL_Delay(int)
+void SDL_DestroyTexture(SDL_Texture *)
+void SDL_DestroyRenderer(SDL_Renderer *)
+void SDL_DestroyWindow(SDL_Window *)
+void SDL_Quit(void)
