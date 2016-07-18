@@ -50,6 +50,25 @@ RING_FUNC(ring_sdl_get_sdl_rect_x)
 	RING_API_RETNUMBER(pMyPointer->x);
 }
 
+RING_FUNC(ring_sdl_set_sdl_rect_x)
+{
+	SDL_Rect *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
+	pMyPointer->x=RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_get_sdl_rect_y)
 {
 	SDL_Rect *pMyPointer ;
@@ -63,6 +82,25 @@ RING_FUNC(ring_sdl_get_sdl_rect_y)
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
 	RING_API_RETNUMBER(pMyPointer->y);
+}
+
+RING_FUNC(ring_sdl_set_sdl_rect_y)
+{
+	SDL_Rect *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
+	pMyPointer->y=RING_API_GETNUMBER(2);
 }
 
 RING_FUNC(ring_sdl_get_sdl_rect_w)
@@ -80,6 +118,25 @@ RING_FUNC(ring_sdl_get_sdl_rect_w)
 	RING_API_RETNUMBER(pMyPointer->w);
 }
 
+RING_FUNC(ring_sdl_set_sdl_rect_w)
+{
+	SDL_Rect *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
+	pMyPointer->w=RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_get_sdl_rect_h)
 {
 	SDL_Rect *pMyPointer ;
@@ -93,6 +150,25 @@ RING_FUNC(ring_sdl_get_sdl_rect_h)
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
 	RING_API_RETNUMBER(pMyPointer->h);
+}
+
+RING_FUNC(ring_sdl_set_sdl_rect_h)
+{
+	SDL_Rect *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
+	pMyPointer->h=RING_API_GETNUMBER(2);
 }
 
 RING_FUNC(ring_SDL_RenderCopy2)
@@ -367,7 +443,11 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_new_sdl_rect",ring_sdl_new_sdl_rect);
 	ring_vm_funcregister("sdl_destroy_sdl_rect",ring_sdl_destroy_sdl_rect);
 	ring_vm_funcregister("sdl_get_sdl_rect_x",ring_sdl_get_sdl_rect_x);
+	ring_vm_funcregister("sdl_set_sdl_rect_x",ring_sdl_set_sdl_rect_x);
 	ring_vm_funcregister("sdl_get_sdl_rect_y",ring_sdl_get_sdl_rect_y);
+	ring_vm_funcregister("sdl_set_sdl_rect_y",ring_sdl_set_sdl_rect_y);
 	ring_vm_funcregister("sdl_get_sdl_rect_w",ring_sdl_get_sdl_rect_w);
+	ring_vm_funcregister("sdl_set_sdl_rect_w",ring_sdl_set_sdl_rect_w);
 	ring_vm_funcregister("sdl_get_sdl_rect_h",ring_sdl_get_sdl_rect_h);
+	ring_vm_funcregister("sdl_set_sdl_rect_h",ring_sdl_set_sdl_rect_h);
 }
