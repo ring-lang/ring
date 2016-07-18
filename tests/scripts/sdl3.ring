@@ -5,10 +5,19 @@ ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESEN
 bmp = SDL_LoadBMP("hello.bmp")
 tex = SDL_CreateTextureFromSurface(ren,bmp)
 SDL_FreeSurface(bmp)
-SDL_RenderClear(ren)
-SDL_RenderCopy2(ren,tex)
-SDL_RenderPresent(ren)
-SDL_Delay(2000)
+
+bmp = SDL_LoadBMP("hello2.bmp")
+tex2 = SDL_CreateTextureFromSurface(ren,bmp)
+SDL_FreeSurface(bmp)
+
+for x = 1 to 10 showtex(tex) showtex(tex2) next
+
 SDL_DestroyRenderer(ren)
 SDL_DestroyWindow(win)
 SDL_Quit()
+
+func showtex oTex
+	SDL_RenderClear(ren)
+	SDL_RenderCopy2(ren,oTex)
+	SDL_RenderPresent(ren)
+	SDL_Delay(200)
