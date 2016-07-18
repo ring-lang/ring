@@ -11,8 +11,31 @@ sdl
 </funcstart>
 
 <struct>
-
+SDL_Rect {x,y,w,h}
 </struct>
+
+<register>
+void SDL_RenderCopy2(SDL_Renderer *,SDL_Texture *)
+</register>
+
+<code>
+RING_FUNC(ring_SDL_RenderCopy2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_RenderCopy((SDL_Renderer *) RING_API_GETCPOINTER(1,"SDL_Renderer"),(SDL_Texture *) RING_API_GETCPOINTER(2,"SDL_Texture"),NULL,NULL);
+}
+</code>
 
 void SDL_Init(int)
 SDL_Window *SDL_CreateWindow(const char *, int, int, int, int, int)
