@@ -308,6 +308,7 @@ Type: const char *
 cStr
 ring_vmlib_object2pointer
 ring_vmlib_pointer2object
+ring_vmlib_nullpointer
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
@@ -319,7 +320,7 @@ RING_VM_ODBC
 RING_VM_OPENSSL
 RING_VM_CURL
 RING_VM_DLL
-RING_VM_DLL
+RING_VM_SQLITE
 ring_vm_extension
 ring_vmdll_h
 LoadDLL(x)

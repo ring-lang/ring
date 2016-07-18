@@ -85,6 +85,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("intvalue",ring_vmlib_intvalue);
 	ring_vm_funcregister("object2pointer",ring_vmlib_object2pointer);
 	ring_vm_funcregister("pointer2object",ring_vmlib_pointer2object);
+	ring_vm_funcregister("nullpointer",ring_vmlib_nullpointer);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -1560,4 +1561,9 @@ void ring_vmlib_pointer2object ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 	RING_API_RETLIST((List *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"));
+}
+
+void ring_vmlib_nullpointer ( void *pPointer )
+{
+	RING_API_RETCPOINTER(NULL,"void *");
 }
