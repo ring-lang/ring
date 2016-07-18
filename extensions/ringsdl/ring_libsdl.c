@@ -66,7 +66,7 @@ RING_FUNC(ring_sdl_set_sdl_rect_x)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
-	pMyPointer->x=RING_API_GETNUMBER(2);
+	pMyPointer->x = RING_API_GETNUMBER(2);
 }
 
 RING_FUNC(ring_sdl_get_sdl_rect_y)
@@ -100,7 +100,7 @@ RING_FUNC(ring_sdl_set_sdl_rect_y)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
-	pMyPointer->y=RING_API_GETNUMBER(2);
+	pMyPointer->y = RING_API_GETNUMBER(2);
 }
 
 RING_FUNC(ring_sdl_get_sdl_rect_w)
@@ -134,7 +134,7 @@ RING_FUNC(ring_sdl_set_sdl_rect_w)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
-	pMyPointer->w=RING_API_GETNUMBER(2);
+	pMyPointer->w = RING_API_GETNUMBER(2);
 }
 
 RING_FUNC(ring_sdl_get_sdl_rect_h)
@@ -168,7 +168,7 @@ RING_FUNC(ring_sdl_set_sdl_rect_h)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Rect");
-	pMyPointer->h=RING_API_GETNUMBER(2);
+	pMyPointer->h = RING_API_GETNUMBER(2);
 }
 
 RING_FUNC(ring_SDL_RenderCopy2)
@@ -423,6 +423,24 @@ RING_FUNC(ring_SDL_Quit)
 	SDL_Quit();
 }
 
+
+RING_FUNC(ring_SDL_RenderDrawRect)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_RenderDrawRect((SDL_Renderer *) RING_API_GETCPOINTER(1,"SDL_Renderer"),(SDL_Rect *) RING_API_GETCPOINTER(2,"SDL_Rect")));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -440,6 +458,7 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroyrenderer",ring_SDL_DestroyRenderer);
 	ring_vm_funcregister("sdl_destroywindow",ring_SDL_DestroyWindow);
 	ring_vm_funcregister("sdl_quit",ring_SDL_Quit);
+	ring_vm_funcregister("sdl_renderdrawrect",ring_SDL_RenderDrawRect);
 	ring_vm_funcregister("sdl_new_sdl_rect",ring_sdl_new_sdl_rect);
 	ring_vm_funcregister("sdl_destroy_sdl_rect",ring_sdl_destroy_sdl_rect);
 	ring_vm_funcregister("sdl_get_sdl_rect_x",ring_sdl_get_sdl_rect_x);
