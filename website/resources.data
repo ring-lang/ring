@@ -26,7 +26,11 @@
 				[
 					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_SuperMan2016_1.0_win32.zip/download" target="_blank">Super Man 2016 Game</a>',
 					'<img src="superman.png" width="40%">'
-				]				    
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/samples/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Fetch stock data from Yahoo and draw various types of charts</a>',
+					'<img src="GetQuoteCapture.jpg" width="40%">'
+				]				
 			    ]
                  ],
                  ["Posts from the 'Ring Documentation Walkthrough' blog",[
