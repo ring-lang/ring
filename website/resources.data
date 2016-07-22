@@ -707,7 +707,32 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=b65ivW4MsbI&feature=youtu.be" target="_blank"> 88 Ring programming DiffDays () Function</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
-                ] 
+                              ] 
+                                ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=6R_e-7NHtEo&feature=youtu.be" target="_blank"> 89 Check Data Type Isstring() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=0a0dQbJ7NIY&feature=youtu.be" target="_blank"> 90 Check Data Type IsNumber() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=OBsjgK8SSCY&feature=youtu.be" target="_blank"> 91 Check Data Type IsList() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=_c4marwcp58&feature=youtu.be" target="_blank"> 92 Check Data Type Type() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=A4bi2gAI8yo&feature=youtu.be" target="_blank"> 93 Check Data Type IsNULL() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+        			  ] 
 			]
 		],
 		
