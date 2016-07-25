@@ -758,6 +758,32 @@
 					'<a href="https://www.youtube.com/watch?v=RXdKTC518w0&feature=youtu.be" target="_blank"> 98 Check Character IsGraph() Function</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
         			    ] 
+        			     ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=H94f2xFeF_s&feature=youtu.be" target="_blank"> 99 Check Character IsLower() and IsUpper() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=BPrxi1JAZd8&feature=youtu.be" target="_blank"> 100 Check Character IsPrint() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=LYCeI17k3aI&feature=youtu.be" target="_blank"> 101 Check Character IsPunct() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=fp-8nRoYyZI&feature=youtu.be" target="_blank"> 102 Check Character IsSpace() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=OoZy1TSYwb0&feature=youtu.be" target="_blank"> 103 Conversion Number() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+        			  ] 
+				
 				
 			]
 		],
