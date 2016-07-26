@@ -784,7 +784,32 @@
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
         			  ] 
 				
-				
+					
+                 ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=aWdLf9vSke8&feature=youtu.be" target="_blank"> 104 Conversion  String() Function </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=oj4lMYBjYTg&feature=youtu.be" target="_blank"> 105 Conversion Ascii() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=fHtq4MA7NiE&feature=youtu.be" target="_blank"> 106 Conversion Char() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=cQWdfjTtBT0&feature=youtu.be" target="_blank"> 107 Conversion Hex() and Dec() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=tR79cjCFtgc&feature=youtu.be" target="_blank"> 108 Conversion Str2hex() AND Hex2str() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                ] 
 			]
 		],
 		
