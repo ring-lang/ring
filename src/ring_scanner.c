@@ -43,14 +43,14 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 
 void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 {
-	FILE *fp;
+	RING_FILE fp  ;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
 	signed char c  ;
 	Scanner *pScanner  ;
 	VM *pVM  ;
 	int nCont,nRunVM,nFreeFilesList = 0 ;
 	char cStartup[30]  ;
-	int x  ;
+	int x,nSize  ;
 	/* Check file */
 	if ( pRingState->pRingFilesList == NULL ) {
 		pRingState->pRingFilesList = ring_list_new(0);
@@ -67,13 +67,13 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 			return ;
 		}
 	}
-	fp = fopen(cFileName , "r" );
+	fp = RING_OPENFILE(cFileName , "r");
 	/* Read File */
 	if ( fp==NULL ) {
 		printf( "Can't open file %s \n  ",cFileName ) ;
 		return ;
 	}
-	c = getc(fp);
+	RING_READCHAR(fp,c,nSize);
 	pScanner = ring_scanner_new(pRingState);
 	/* Check Startup file */
 	if ( ring_fexists("startup.ring") && pScanner->pRingState->lStartup == 0 ) {
@@ -92,14 +92,15 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 		ring_string_setfromint(pScanner->ActiveToken,0);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 	}
-	while ( c != EOF ) {
+	nSize = 1 ;
+	while ( (c != EOF) && (nSize != 0) ) {
 		ring_scanner_readchar(c,pScanner);
-		c = getc(fp);
+		RING_READCHAR(fp,c,nSize);
 	}
 	nCont = ring_scanner_checklasttoken(pScanner);
 	/* Add Token "End of Line" to the end of any program */
 	ring_scanner_endofline(pScanner);
-	fclose( fp ) ;
+	RING_CLOSEFILE(fp);
 	/* Print Tokens */
 	if ( pRingState->nPrintTokens ) {
 		ring_scanner_printtokens(pScanner);
