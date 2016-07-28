@@ -17,5 +17,5 @@
 #define RING_FILE FILE *
 #define RING_OPENFILE(x,y) fopen(x,y)
 #define RING_CLOSEFILE(x) fclose(x)
-#define RING_READCHAR(x) getc(x)
+#define RING_READCHAR(x,y,z) y = getc(x)  /* z is unused here = number of characters - default = 1 */
 #endif
