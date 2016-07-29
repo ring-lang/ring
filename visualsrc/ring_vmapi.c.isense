@@ -324,7 +324,7 @@ RING_VM_SQLITE
 RING_FILE
 RING_OPENFILE(x,y)
 RING_CLOSEFILE(x)
-RING_READCHAR(x,y)
+RING_READCHAR(x,y,z)
 ring_vm_extension
 ring_vmdll_h
 LoadDLL(x)
