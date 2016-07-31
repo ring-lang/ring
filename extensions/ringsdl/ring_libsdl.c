@@ -188,20 +188,6 @@ RING_FUNC(ring_SDL_RenderCopy2)
 	SDL_RenderCopy((SDL_Renderer *) RING_API_GETCPOINTER(1,"SDL_Renderer"),(SDL_Texture *) RING_API_GETCPOINTER(2,"SDL_Texture"),NULL,NULL);
 }
 
-RING_FUNC(ring_SDL_Init)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	SDL_Init( (int) RING_API_GETNUMBER(1));
-}
-
-
 RING_FUNC(ring_SDL_CreateWindow)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
@@ -414,16 +400,6 @@ RING_FUNC(ring_SDL_DestroyWindow)
 }
 
 
-RING_FUNC(ring_SDL_Quit)
-{
-	if ( RING_API_PARACOUNT != 0 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	SDL_Quit();
-}
-
-
 RING_FUNC(ring_SDL_RenderDrawRect)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -471,10 +447,85 @@ RING_FUNC(ring_SDL_SetRenderDrawColor)
 	RING_API_RETNUMBER(SDL_SetRenderDrawColor((SDL_Renderer *) RING_API_GETCPOINTER(1,"SDL_Renderer"), (int) RING_API_GETNUMBER(2), (int) RING_API_GETNUMBER(3), (int) RING_API_GETNUMBER(4), (int) RING_API_GETNUMBER(5)));
 }
 
+
+RING_FUNC(ring_SDL_Init)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_Init( (int) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_SDL_InitSubSystem)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_InitSubSystem( (Uint32 ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_Quit)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_Quit();
+}
+
+
+RING_FUNC(ring_SDL_QuitSubSystem)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_QuitSubSystem( (Uint32 ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_SDL_SetMainReady)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_SetMainReady();
+}
+
+
+RING_FUNC(ring_SDL_WasInit)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_WasInit( (Uint32 ) RING_API_GETNUMBER(1)));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
-	ring_vm_funcregister("sdl_init",ring_SDL_Init);
 	ring_vm_funcregister("sdl_createwindow",ring_SDL_CreateWindow);
 	ring_vm_funcregister("sdl_createrenderer",ring_SDL_CreateRenderer);
 	ring_vm_funcregister("sdl_loadbmp",ring_SDL_LoadBMP);
@@ -487,9 +538,14 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroytexture",ring_SDL_DestroyTexture);
 	ring_vm_funcregister("sdl_destroyrenderer",ring_SDL_DestroyRenderer);
 	ring_vm_funcregister("sdl_destroywindow",ring_SDL_DestroyWindow);
-	ring_vm_funcregister("sdl_quit",ring_SDL_Quit);
 	ring_vm_funcregister("sdl_renderdrawrect",ring_SDL_RenderDrawRect);
 	ring_vm_funcregister("sdl_setrenderdrawcolor",ring_SDL_SetRenderDrawColor);
+	ring_vm_funcregister("sdl_init",ring_SDL_Init);
+	ring_vm_funcregister("sdl_initsubsystem",ring_SDL_InitSubSystem);
+	ring_vm_funcregister("sdl_quit",ring_SDL_Quit);
+	ring_vm_funcregister("sdl_quitsubsystem",ring_SDL_QuitSubSystem);
+	ring_vm_funcregister("sdl_setmainready",ring_SDL_SetMainReady);
+	ring_vm_funcregister("sdl_wasinit",ring_SDL_WasInit);
 	ring_vm_funcregister("sdl_new_sdl_rect",ring_sdl_new_sdl_rect);
 	ring_vm_funcregister("sdl_destroy_sdl_rect",ring_sdl_destroy_sdl_rect);
 	ring_vm_funcregister("sdl_get_sdl_rect_x",ring_sdl_get_sdl_rect_x);
