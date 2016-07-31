@@ -171,6 +171,33 @@ RING_FUNC(ring_sdl_set_sdl_rect_h)
 	pMyPointer->h = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_sdl_new_sdl_assert_data)
+{
+	SDL_assert_data *pMyPointer ;
+	pMyPointer = (SDL_assert_data *) malloc(sizeof(SDL_assert_data)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_assert_data");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_assert_data)
+{
+	SDL_assert_data *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_assert_data");
+	free(pMyPointer) ;
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -821,6 +848,109 @@ RING_FUNC(ring_SDL_LogWarn)
 	SDL_LogWarn( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
 }
 
+
+RING_FUNC(ring_SDL_GetAssertionReport)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GetAssertionReport(),"SDL_AssertData");
+}
+
+
+RING_FUNC(ring_SDL_GetDefaultAssertionHandler)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		SDL_AssertionHandler *pValue ; 
+		pValue = (SDL_AssertionHandler *) malloc(sizeof(SDL_AssertionHandler)) ;
+		*pValue = SDL_GetDefaultAssertionHandler();
+		RING_API_RETCPOINTER(pValue,"SDL_AssertionHandler");
+	}
+}
+
+
+RING_FUNC(ring_SDL_ResetAssertionReport)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_ResetAssertionReport();
+}
+
+
+RING_FUNC(ring_SDL_SetAssertionHandler)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_SetAssertionHandler(* (SDL_AssertionHandler  *) RING_API_GETCPOINTER(1,"SDL_AssertionHandler"),(void *) RING_API_GETCPOINTER(2,"void"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"SDL_AssertionHandler"));
+}
+
+
+RING_FUNC(ring_SDL_TriggerBreakpoint)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_TriggerBreakpoint();
+}
+
+
+RING_FUNC(ring_SDL_assert)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_assert( (int) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_SDL_assert_paranoid)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_assert_paranoid( (int) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_SDL_assert_release)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_assert_release( (int) RING_API_GETNUMBER(1));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -863,6 +993,14 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_logsetpriority",ring_SDL_LogSetPriority);
 	ring_vm_funcregister("sdl_logverbose",ring_SDL_LogVerbose);
 	ring_vm_funcregister("sdl_logwarn",ring_SDL_LogWarn);
+	ring_vm_funcregister("sdl_getassertionreport",ring_SDL_GetAssertionReport);
+	ring_vm_funcregister("sdl_getdefaultassertionhandler",ring_SDL_GetDefaultAssertionHandler);
+	ring_vm_funcregister("sdl_resetassertionreport",ring_SDL_ResetAssertionReport);
+	ring_vm_funcregister("sdl_setassertionhandler",ring_SDL_SetAssertionHandler);
+	ring_vm_funcregister("sdl_triggerbreakpoint",ring_SDL_TriggerBreakpoint);
+	ring_vm_funcregister("sdl_assert",ring_SDL_assert);
+	ring_vm_funcregister("sdl_assert_paranoid",ring_SDL_assert_paranoid);
+	ring_vm_funcregister("sdl_assert_release",ring_SDL_assert_release);
 	ring_vm_funcregister("sdl_new_sdl_rect",ring_sdl_new_sdl_rect);
 	ring_vm_funcregister("sdl_destroy_sdl_rect",ring_sdl_destroy_sdl_rect);
 	ring_vm_funcregister("sdl_get_sdl_rect_x",ring_sdl_get_sdl_rect_x);
@@ -873,4 +1011,6 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_set_sdl_rect_w",ring_sdl_set_sdl_rect_w);
 	ring_vm_funcregister("sdl_get_sdl_rect_h",ring_sdl_get_sdl_rect_h);
 	ring_vm_funcregister("sdl_set_sdl_rect_h",ring_sdl_set_sdl_rect_h);
+	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
+	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 }
