@@ -8,6 +8,8 @@ aNumberTypes + "Uint32"
 aNumberTypes + "SDL_bool"
 
 aEnumTypes + "SDL_HintPriority"
+aEnumTypes + "SDL_LOG_CATEGORY"
+aEnumTypes + "SDL_LogPriority"
 </runcode>
 
 <funcstart>
@@ -92,3 +94,30 @@ Error Handling
 void SDL_ClearError(void)
 const char *SDL_GetError(void)
 int SDL_SetError(const char *fmt)
+
+<comment>
+Log Handling
+</comment>
+
+void SDL_Log(const char *fmt)
+void SDL_LogCritical(int category,const char *fmt)
+void SDL_LogDebug(int category,const char *fmt)
+void SDL_LogError(int category,const char* fmt)
+<comment>
+void SDL_LogGetOutputFunction(SDL_LogOutputFunction *callback,void **userdata)
+</comment>
+SDL_LogPriority SDL_LogGetPriority(int category)
+void SDL_LogInfo(int category, const char *fmt)
+void SDL_LogMessage(int category,SDL_LogPriority priority,const char *fmt)
+<comment>
+void SDL_LogMessageV(int category,SDL_LogPriority priority, const char *fmt,va_list ap)
+</comment>
+void SDL_LogResetPriorities(void)
+void SDL_LogSetAllPriority(SDL_LogPriority priority)
+<comment>
+void SDL_LogSetOutputFunction(SDL_LogOutputFunction callback,void *userdata)
+</comment>
+void SDL_LogSetPriority(int category,SDL_LogPriority priority)
+void SDL_LogVerbose(int category, const char *fmt)
+void SDL_LogWarn(int category,const char *fmt)
+
