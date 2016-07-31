@@ -5,6 +5,9 @@
 
 <runcode>
 aNumberTypes + "Uint32"
+aNumberTypes + "SDL_bool"
+
+aEnumTypes + "SDL_HintPriority"
 </runcode>
 
 <funcstart>
@@ -66,3 +69,18 @@ Uint32 SDL_WasInit(Uint32 flags)
 <comment>
 int SDL_WinRTRunApp(MainFunction mainFunction, void *reserved)
 </comment>
+
+<comment>
+Configuration Variables
+</comment>
+
+<comment>
+void SDL_AddHintCallback(const char *name,SDL_HintCallback callback, void *userdata)
+</comment>
+void SDL_ClearHints(void)
+<comment>
+void SDL_DelHintCallback(const char *name, SDL_HintCallback callback,void *userdata)
+</comment>
+const char *SDL_GetHint(const char* name)
+SDL_bool SDL_SetHint(const char *name,const char *value)
+SDL_bool SDL_SetHintWithPriority(const char *name,const char *value,SDL_HintPriority priority)
