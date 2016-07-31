@@ -19,6 +19,7 @@ sdl
 <struct>
 SDL_Rect {x,y,w,h}
 SDL_assert_data
+SDL_version {major,minor,patch}
 </struct>
 
 <register>
@@ -137,3 +138,19 @@ void SDL_TriggerBreakpoint(void)
 void SDL_assert(int)
 void SDL_assert_paranoid(int)
 void SDL_assert_release(int)
+
+<comment>
+Querying SDL Version
+</comment>
+
+const char* SDL_GetRevision(void)
+int SDL_GetRevisionNumber(void)
+void SDL_GetVersion(SDL_version *ver)
+
+<comment>
+SDL_COMPILEDVERSION
+SDL_REVISION
+SDL_VERSION
+SDL_VERSIONNUM
+SDL_VERSION_ATLEAST
+</comment>

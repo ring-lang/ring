@@ -198,6 +198,135 @@ RING_FUNC(ring_sdl_destroy_sdl_assert_data)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_new_sdl_version)
+{
+	SDL_version *pMyPointer ;
+	pMyPointer = (SDL_version *) malloc(sizeof(SDL_version)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_version");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_version)
+{
+	SDL_version *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_version");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_get_sdl_version_major)
+{
+	SDL_version *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_version");
+	RING_API_RETNUMBER(pMyPointer->major);
+}
+
+RING_FUNC(ring_sdl_set_sdl_version_major)
+{
+	SDL_version *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_version");
+	pMyPointer->major = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_version_minor)
+{
+	SDL_version *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_version");
+	RING_API_RETNUMBER(pMyPointer->minor);
+}
+
+RING_FUNC(ring_sdl_set_sdl_version_minor)
+{
+	SDL_version *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_version");
+	pMyPointer->minor = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_version_patch)
+{
+	SDL_version *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_version");
+	RING_API_RETNUMBER(pMyPointer->patch);
+}
+
+RING_FUNC(ring_sdl_set_sdl_version_patch)
+{
+	SDL_version *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_version");
+	pMyPointer->patch = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -951,6 +1080,40 @@ RING_FUNC(ring_SDL_assert_release)
 	SDL_assert_release( (int) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_SDL_GetRevision)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GetRevision(),"char");
+}
+
+
+RING_FUNC(ring_SDL_GetRevisionNumber)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetRevisionNumber());
+}
+
+
+RING_FUNC(ring_SDL_GetVersion)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_GetVersion((SDL_version *) RING_API_GETCPOINTER(1,"SDL_version"));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -1001,6 +1164,9 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_assert",ring_SDL_assert);
 	ring_vm_funcregister("sdl_assert_paranoid",ring_SDL_assert_paranoid);
 	ring_vm_funcregister("sdl_assert_release",ring_SDL_assert_release);
+	ring_vm_funcregister("sdl_getrevision",ring_SDL_GetRevision);
+	ring_vm_funcregister("sdl_getrevisionnumber",ring_SDL_GetRevisionNumber);
+	ring_vm_funcregister("sdl_getversion",ring_SDL_GetVersion);
 	ring_vm_funcregister("sdl_new_sdl_rect",ring_sdl_new_sdl_rect);
 	ring_vm_funcregister("sdl_destroy_sdl_rect",ring_sdl_destroy_sdl_rect);
 	ring_vm_funcregister("sdl_get_sdl_rect_x",ring_sdl_get_sdl_rect_x);
@@ -1013,4 +1179,12 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_set_sdl_rect_h",ring_sdl_set_sdl_rect_h);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
+	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
+	ring_vm_funcregister("sdl_destroy_sdl_version",ring_sdl_destroy_sdl_version);
+	ring_vm_funcregister("sdl_get_sdl_version_major",ring_sdl_get_sdl_version_major);
+	ring_vm_funcregister("sdl_set_sdl_version_major",ring_sdl_set_sdl_version_major);
+	ring_vm_funcregister("sdl_get_sdl_version_minor",ring_sdl_get_sdl_version_minor);
+	ring_vm_funcregister("sdl_set_sdl_version_minor",ring_sdl_set_sdl_version_minor);
+	ring_vm_funcregister("sdl_get_sdl_version_patch",ring_sdl_get_sdl_version_patch);
+	ring_vm_funcregister("sdl_set_sdl_version_patch",ring_sdl_set_sdl_version_patch);
 }
