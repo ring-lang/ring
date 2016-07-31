@@ -7,6 +7,7 @@
 aNumberTypes + "Uint32"
 aNumberTypes + "SDL_bool"
 aNumberTypes + "Uint16"
+aNumberTypes + "Uint8"
 aEnumTypes + "SDL_HintPriority"
 aEnumTypes + "SDL_LOG_CATEGORY"
 aEnumTypes + "SDL_LogPriority"
@@ -21,6 +22,10 @@ aEnumTypes + "SDL_MessageBoxColorType"
 aEnumTypes + "SDL_MessageBoxFlags"
 aEnumTypes + "SDL_WindowEventID"
 aEnumTypes + "SDL_WindowFlags"
+aEnumTypes + "SDL_RendererFlags"
+aEnumTypes + "SDL_RendererFlip"
+aEnumTypes + "SDL_TextureAccess"
+aEnumTypes + "SDL_TextureModulate"
 </runcode>
 
 <funcstart>
@@ -37,6 +42,7 @@ SDL_MessageBoxColor
 SDL_MessageBoxColorScheme
 SDL_MessageBoxData
 SDL_WindowEvent
+SDL_RendererInfo
 </struct>
 
 <register>
@@ -62,18 +68,9 @@ RING_FUNC(ring_SDL_RenderCopy2)
 }
 </code>
 
-SDL_Renderer *SDL_CreateRenderer(SDL_Window *, int, int)
 SDL_Surface *SDL_LoadBMP(const char *)
-SDL_Texture *SDL_CreateTextureFromSurface(SDL_Renderer *,SDL_Surface *)
 void SDL_FreeSurface(SDL_Surface *)
-void SDL_RenderClear(SDL_Renderer *)
-void SDL_RenderCopy(SDL_Renderer *,SDL_Texture *,void *,void *)
-void SDL_RenderPresent(SDL_Renderer *)
 void SDL_Delay(int)
-void SDL_DestroyTexture(SDL_Texture *)
-void SDL_DestroyRenderer(SDL_Renderer *)
-int SDL_RenderDrawRect(SDL_Renderer *renderer,SDL_Rect *rect)
-int SDL_SetRenderDrawColor(SDL_Renderer *renderer,int,int,int,int) 
 
 <comment>
 Initialization and Shutdown
@@ -277,3 +274,77 @@ int SDL_UpdateWindowSurface(SDL_Window *window)
 int SDL_UpdateWindowSurfaceRects(SDL_Window *window,const SDL_Rect *rects,int numrects)
 int SDL_VideoInit(const char *driver_name)
 void SDL_VideoQuit(void)
+
+<comment>
+2D Accelerated Rendering
+</comment>
+
+SDL_Renderer *SDL_CreateRenderer(SDL_Window *window,int index,Uint32 flags)
+SDL_Renderer *SDL_CreateSoftwareRenderer(SDL_Surface *surface)
+SDL_Texture *SDL_CreateTexture(SDL_Renderer *renderer,Uint32 format,int access,int w,int h)
+SDL_Texture *SDL_CreateTextureFromSurface(SDL_Renderer *renderer,SDL_Surface *surface)
+<comment>
+int SDL_CreateWindowAndRenderer(int width,int height,Uint32 window_flags,SDL_Window **window,SDL_Renderer **renderer)
+</comment>
+void SDL_DestroyRenderer(SDL_Renderer *renderer)
+void SDL_DestroyTexture(SDL_Texture *texture)
+int SDL_GL_BindTexture(SDL_Texture *texture,float *texw,float *texh)
+int SDL_GL_UnbindTexture(SDL_Texture *texture)
+int SDL_GetNumRenderDrivers(void)
+int SDL_GetRenderDrawBlendMode(SDL_Renderer *renderer,SDL_BlendMode *blendMode)
+int SDL_GetRenderDrawColor(SDL_Renderer *renderer,Uint8 *r,Uint8 *g,Uint8 *b,Uint8 *a)
+int SDL_GetRenderDriverInfo(int index,SDL_RendererInfo *info)
+SDL_Texture *SDL_GetRenderTarget(SDL_Renderer *renderer)
+SDL_Renderer *SDL_GetRenderer(SDL_Window *window)
+int SDL_GetRendererInfo(SDL_Renderer *renderer,SDL_RendererInfo *info)
+int SDL_GetRendererOutputSize(SDL_Renderer *renderer,int *w,int *h)
+int SDL_GetTextureAlphaMod(SDL_Texture *texture,Uint8 *alpha)
+int SDL_GetTextureBlendMode(SDL_Texture *texture,SDL_BlendMode *blendMode)
+int SDL_GetTextureColorMod(SDL_Texture *texture,Uint8 *r,Uint8 *g,Uint8 *b)
+int SDL_LockTexture(SDL_Texture *texture,const SDL_Rect *rect,void **pixels,int *pitch)
+int SDL_QueryTexture(SDL_Texture *texture,Uint32 *format,int *access,int *w,int *h)
+int SDL_RenderClear(SDL_Renderer *renderer)
+int SDL_RenderCopy(SDL_Renderer *renderer,SDL_Texture *texture,const SDL_Rect *srcrect,const SDL_Rect *dstrect)
+int SDL_RenderCopyEx(SDL_Renderer *renderer,SDL_Texture *texture,const SDL_Rect *srcrect,const SDL_Rect *dstrect,const double angle,const SDL_Point *center,const SDL_RendererFlip flip)
+int SDL_RenderDrawLine(SDL_Renderer *renderer,int x1,int y1,int x2,int y2)
+int SDL_RenderDrawLines(SDL_Renderer *renderer,const SDL_Point *points,int count)
+int SDL_RenderDrawPoint(SDL_Renderer *renderer,int x, int y)
+int SDL_RenderDrawPoints(SDL_Renderer *renderer,const SDL_Point *points,int count)
+int SDL_RenderDrawRect(SDL_Renderer *renderer,const SDL_Rect *rect)
+int SDL_RenderDrawRects(SDL_Renderer *renderer,const SDL_Rect *rects,int count)
+int SDL_RenderFillRect(SDL_Renderer *renderer,const SDL_Rect *rect)
+int SDL_RenderFillRects(SDL_Renderer *renderer,const SDL_Rect* rects,int count)
+void SDL_RenderGetClipRect(SDL_Renderer *renderer,SDL_Rect *rect)
+<comment>
+SDL_bool SDL_RenderGetIntegerScale(SDL_Renderer *renderer)
+</comment>
+void SDL_RenderGetLogicalSize(SDL_Renderer *renderer,int *w,int *h)
+void SDL_RenderGetScale(SDL_Renderer *renderer,float *scaleX,float *scaleY)
+void SDL_RenderGetViewport(SDL_Renderer *renderer,SDL_Rect *rect)
+<comment>
+SDL_bool SDL_RenderIsClipEnabled(SDL_Renderer *renderer)
+</comment>
+void SDL_RenderPresent(SDL_Renderer *renderer)
+int SDL_RenderReadPixels(SDL_Renderer *renderer,const SDL_Rect *rect,Uint32 format,void *pixels,int pitch)
+int SDL_RenderSetClipRect(SDL_Renderer *renderer,const SDL_Rect *rect)
+<comment>
+int SDL_RenderSetIntegerScale(SDL_Renderer *renderer,SDL_bool enable)
+</comment>
+int SDL_RenderSetLogicalSize(SDL_Renderer *renderer,int w,int h)
+int SDL_RenderSetScale(SDL_Renderer *renderer,float scaleX,float scaleY)
+int SDL_RenderSetViewport(SDL_Renderer *renderer,const SDL_Rect *rect)
+SDL_bool SDL_RenderTargetSupported(SDL_Renderer *renderer)
+int SDL_SetRenderDrawBlendMode(SDL_Renderer *renderer,SDL_BlendMode blendMode)
+int SDL_SetRenderDrawColor(SDL_Renderer *renderer,Uint8 r,Uint8 g,Uint8 b,Uint8 a)
+int SDL_SetRenderTarget(SDL_Renderer *renderer,SDL_Texture *texture)
+int SDL_SetTextureAlphaMod(SDL_Texture *texture,Uint8 alpha)
+int SDL_SetTextureBlendMode(SDL_Texture *texture,SDL_BlendMode blendMode)
+int SDL_SetTextureColorMod(SDL_Texture *texture,Uint8 r,Uint8 g,Uint8 b)
+void SDL_UnlockTexture(SDL_Texture *texture)
+int SDL_UpdateTexture(SDL_Texture *texture,const SDL_Rect *rect,const void*pixels,int pitch)
+int SDL_UpdateYUVTexture(SDL_Texture *texture,const SDL_Rect *rect,const Uint8 *Yplane,int Ypitch,const Uint8 *Uplane,int Upitch,const Uint8 *Vplane,int Vpitch)
+
+
+
+
+
