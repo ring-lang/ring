@@ -8,7 +8,6 @@
 
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
-#include "SDL_video.h"
 RING_FUNC(ring_sdl_new_sdl_rect)
 {
 	SDL_Rect *pMyPointer ;
