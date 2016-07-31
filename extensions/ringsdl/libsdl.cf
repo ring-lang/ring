@@ -84,3 +84,11 @@ void SDL_DelHintCallback(const char *name, SDL_HintCallback callback,void *userd
 const char *SDL_GetHint(const char* name)
 SDL_bool SDL_SetHint(const char *name,const char *value)
 SDL_bool SDL_SetHintWithPriority(const char *name,const char *value,SDL_HintPriority priority)
+
+<comment>
+Error Handling
+</comment>
+
+void SDL_ClearError(void)
+const char *SDL_GetError(void)
+int SDL_SetError(const char *fmt)

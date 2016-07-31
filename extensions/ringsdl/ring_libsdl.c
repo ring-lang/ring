@@ -587,6 +587,40 @@ RING_FUNC(ring_SDL_SetHintWithPriority)
 	RING_API_RETNUMBER(SDL_SetHintWithPriority(RING_API_GETSTRING(1),RING_API_GETSTRING(2), (SDL_HintPriority )  (int) RING_API_GETNUMBER(3)));
 }
 
+
+RING_FUNC(ring_SDL_ClearError)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_ClearError();
+}
+
+
+RING_FUNC(ring_SDL_GetError)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GetError());
+}
+
+
+RING_FUNC(ring_SDL_SetError)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_SetError(RING_API_GETSTRING(1)));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -614,6 +648,9 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_gethint",ring_SDL_GetHint);
 	ring_vm_funcregister("sdl_sethint",ring_SDL_SetHint);
 	ring_vm_funcregister("sdl_sethintwithpriority",ring_SDL_SetHintWithPriority);
+	ring_vm_funcregister("sdl_clearerror",ring_SDL_ClearError);
+	ring_vm_funcregister("sdl_geterror",ring_SDL_GetError);
+	ring_vm_funcregister("sdl_seterror",ring_SDL_SetError);
 	ring_vm_funcregister("sdl_new_sdl_rect",ring_sdl_new_sdl_rect);
 	ring_vm_funcregister("sdl_destroy_sdl_rect",ring_sdl_destroy_sdl_rect);
 	ring_vm_funcregister("sdl_get_sdl_rect_x",ring_sdl_get_sdl_rect_x);
