@@ -1,6 +1,7 @@
 <code>
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
+#include "SDL_syswm.h"
 </code>
 
 <runcode>
@@ -27,6 +28,7 @@ aEnumTypes + "SDL_RendererFlip"
 aEnumTypes + "SDL_TextureAccess"
 aEnumTypes + "SDL_TextureModulate"
 aEnumTypes + "SDL_PixelFormatEnum"
+aEnumTypes + "SDL_SYSWM_TYPE"
 </runcode>
 
 <funcstart>
@@ -49,6 +51,8 @@ SDL_PixelFormat
 SDL_Point {x,y}
 SDL_Rect {x,y,w,h}
 SDL_Surface
+SDL_SysWMinfo
+SDL_SysWMmsg
 </struct>
 
 <register>
@@ -417,3 +421,10 @@ int SDL_SetSurfaceColorMod(SDL_Surface *surface,Uint8 r,Uint8 g,Uint8 b)
 int SDL_SetSurfacePalette(SDL_Surface *surface,SDL_Palette *palette)
 int SDL_SetSurfaceRLE(SDL_Surface *surface,int flag)
 void SDL_UnlockSurface(SDL_Surface* surface)
+
+<comment>
+Platform-specific Window Management
+</comment>
+
+SDL_bool SDL_GetWindowWMInfo(SDL_Window *window,SDL_SysWMinfo *info)
+

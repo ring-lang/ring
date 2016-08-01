@@ -8,6 +8,7 @@
 
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
+#include "SDL_syswm.h"
 RING_FUNC(ring_sdl_new_sdl_assert_data)
 {
 	SDL_assert_data *pMyPointer ;
@@ -716,6 +717,60 @@ RING_FUNC(ring_sdl_destroy_sdl_surface)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_syswminfo)
+{
+	SDL_SysWMinfo *pMyPointer ;
+	pMyPointer = (SDL_SysWMinfo *) malloc(sizeof(SDL_SysWMinfo)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_SysWMinfo");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_syswminfo)
+{
+	SDL_SysWMinfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_SysWMinfo");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_syswmmsg)
+{
+	SDL_SysWMmsg *pMyPointer ;
+	pMyPointer = (SDL_SysWMmsg *) malloc(sizeof(SDL_SysWMmsg)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_SysWMmsg");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_syswmmsg)
+{
+	SDL_SysWMmsg *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_SysWMmsg");
 	free(pMyPointer) ;
 }
 
@@ -4711,6 +4766,24 @@ RING_FUNC(ring_SDL_UnlockSurface)
 	SDL_UnlockSurface((SDL_Surface *) RING_API_GETCPOINTER(1,"SDL_Surface"));
 }
 
+
+RING_FUNC(ring_SDL_GetWindowWMInfo)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetWindowWMInfo((SDL_Window *) RING_API_GETCPOINTER(1,"SDL_Window"),(SDL_SysWMinfo *) RING_API_GETCPOINTER(2,"SDL_SysWMinfo")));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -4927,6 +5000,7 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_setsurfacepalette",ring_SDL_SetSurfacePalette);
 	ring_vm_funcregister("sdl_setsurfacerle",ring_SDL_SetSurfaceRLE);
 	ring_vm_funcregister("sdl_unlocksurface",ring_SDL_UnlockSurface);
+	ring_vm_funcregister("sdl_getwindowwminfo",ring_SDL_GetWindowWMInfo);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
@@ -4975,4 +5049,8 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_set_sdl_rect_h",ring_sdl_set_sdl_rect_h);
 	ring_vm_funcregister("sdl_new_sdl_surface",ring_sdl_new_sdl_surface);
 	ring_vm_funcregister("sdl_destroy_sdl_surface",ring_sdl_destroy_sdl_surface);
+	ring_vm_funcregister("sdl_new_sdl_syswminfo",ring_sdl_new_sdl_syswminfo);
+	ring_vm_funcregister("sdl_destroy_sdl_syswminfo",ring_sdl_destroy_sdl_syswminfo);
+	ring_vm_funcregister("sdl_new_sdl_syswmmsg",ring_sdl_new_sdl_syswmmsg);
+	ring_vm_funcregister("sdl_destroy_sdl_syswmmsg",ring_sdl_destroy_sdl_syswmmsg);
 }
