@@ -38,6 +38,8 @@ aEnumTypes + "SDL_Scancode"
 aEnumTypes + "SDL_JoystickPowerLevel"
 aEnumTypes + "SDL_GameControllerAxis"
 aEnumTypes + "SDL_GameControllerButton"
+aEnumTypes + "SDL_AudioFormat"
+aEnumTypes + "SDL_AudioStatus"
 </runcode>
 
 <funcstart>
@@ -94,6 +96,8 @@ SDL_HapticEffect
 SDL_HapticLeftRight
 SDL_HapticPeriodic
 SDL_HapticRamp
+SDL_AudioCVT
+SDL_AudioSpec
 </struct>
 
 <register>
@@ -652,3 +656,43 @@ int SDL_HapticUpdateEffect(SDL_Haptic *haptic,int effect,SDL_HapticEffect *data)
 int SDL_JoystickIsHaptic(SDL_Joystick *joystick)
 int SDL_MouseIsHaptic(void)
 int SDL_NumHaptics(void)
+
+<comment>
+Audio Device Management and Audio Playback
+</comment>
+
+int SDL_AudioInit(const char* driver_name)
+void SDL_AudioQuit(void)
+int SDL_BuildAudioCVT(SDL_AudioCVT *cvt,SDL_AudioFormat src_format,Uint8 src_channels,int src_rate,SDL_AudioFormat dst_format,Uint8 dst_channels,int dst_rate)
+<comment>
+void SDL_ClearQueuedAudio(SDL_AudioDeviceID dev)
+</comment>
+void SDL_CloseAudio(void)
+void SDL_CloseAudioDevice(SDL_AudioDeviceID dev)
+int SDL_ConvertAudio(SDL_AudioCVT *cvt)
+void SDL_FreeWAV(Uint8 *audio_buf)
+const char* SDL_GetAudioDeviceName(int index,int iscapture)
+SDL_AudioStatus SDL_GetAudioDeviceStatus(SDL_AudioDeviceID dev)
+const char* SDL_GetAudioDriver(int index)
+SDL_AudioStatus SDL_GetAudioStatus(void)
+const char* SDL_GetCurrentAudioDriver(void)
+int SDL_GetNumAudioDevices(int iscapture)
+int SDL_GetNumAudioDrivers(void)
+<comment>
+Uint32 SDL_GetQueuedAudioSize(SDL_AudioDeviceID dev)
+</comment>
+SDL_AudioSpec *SDL_LoadWAV(const char *file,SDL_AudioSpec *spec,Uint8 **audio_buf,Uint32 *audio_len)
+SDL_AudioSpec *SDL_LoadWAV_RW(SDL_RWops *src,int freesrc,SDL_AudioSpec *spec,Uint8 **audio_buf,Uint32 *audio_len)
+void SDL_LockAudio(void)
+void SDL_LockAudioDevice(SDL_AudioDeviceID dev)
+void SDL_MixAudio(Uint8 *dst,const Uint8* src,Uint32 len,int volume)
+void SDL_MixAudioFormat(Uint8 *dst,const Uint8 *src,SDL_AudioFormat format,Uint32 len,int volume)
+int SDL_OpenAudio(SDL_AudioSpec *desired,SDL_AudioSpec *obtained)
+SDL_AudioDeviceID SDL_OpenAudioDevice(const char *device,int iscapture,const SDL_AudioSpec *desired,SDL_AudioSpec *obtained,int allowed_changes)
+void SDL_PauseAudio(int pause_on)
+void SDL_PauseAudioDevice(SDL_AudioDeviceID dev,int pause_on)
+<comment>
+int SDL_QueueAudio(SDL_AudioDeviceID dev,const void *data,Uint32 len)
+</comment>
+void SDL_UnlockAudio(void)
+void SDL_UnlockAudioDevice(SDL_AudioDeviceID dev)

@@ -1638,6 +1638,60 @@ RING_FUNC(ring_sdl_destroy_sdl_hapticramp)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_new_sdl_audiocvt)
+{
+	SDL_AudioCVT *pMyPointer ;
+	pMyPointer = (SDL_AudioCVT *) malloc(sizeof(SDL_AudioCVT)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_AudioCVT");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_audiocvt)
+{
+	SDL_AudioCVT *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_AudioCVT");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_audiospec)
+{
+	SDL_AudioSpec *pMyPointer ;
+	pMyPointer = (SDL_AudioSpec *) malloc(sizeof(SDL_AudioSpec)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_AudioSpec");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_audiospec)
+{
+	SDL_AudioSpec *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_AudioSpec");
+	free(pMyPointer) ;
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -7647,6 +7701,445 @@ RING_FUNC(ring_SDL_NumHaptics)
 	RING_API_RETNUMBER(SDL_NumHaptics());
 }
 
+
+RING_FUNC(ring_SDL_AudioInit)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_AudioInit((char *) RING_API_GETCPOINTER(1,"char")));
+}
+
+
+RING_FUNC(ring_SDL_AudioQuit)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_AudioQuit();
+}
+
+
+RING_FUNC(ring_SDL_BuildAudioCVT)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_BuildAudioCVT((SDL_AudioCVT *) RING_API_GETCPOINTER(1,"SDL_AudioCVT"), (SDL_AudioFormat )  (int) RING_API_GETNUMBER(2), (Uint8 ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (SDL_AudioFormat )  (int) RING_API_GETNUMBER(5), (Uint8 ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7)));
+}
+
+
+RING_FUNC(ring_SDL_CloseAudio)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_CloseAudio();
+}
+
+
+RING_FUNC(ring_SDL_CloseAudioDevice)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	SDL_CloseAudioDevice(* (SDL_AudioDeviceID  *) RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"));
+}
+
+
+RING_FUNC(ring_SDL_ConvertAudio)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ConvertAudio((SDL_AudioCVT *) RING_API_GETCPOINTER(1,"SDL_AudioCVT")));
+}
+
+
+RING_FUNC(ring_SDL_FreeWAV)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_FreeWAV((Uint8 *) RING_API_GETCPOINTER(1,"Uint8"));
+}
+
+
+RING_FUNC(ring_SDL_GetAudioDeviceName)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GetAudioDeviceName( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)),"char");
+}
+
+
+RING_FUNC(ring_SDL_GetAudioDeviceStatus)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetAudioDeviceStatus(* (SDL_AudioDeviceID  *) RING_API_GETCPOINTER(1,"SDL_AudioDeviceID")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"));
+}
+
+
+RING_FUNC(ring_SDL_GetAudioDriver)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GetAudioDriver( (int ) RING_API_GETNUMBER(1)),"char");
+}
+
+
+RING_FUNC(ring_SDL_GetAudioStatus)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetAudioStatus());
+}
+
+
+RING_FUNC(ring_SDL_GetCurrentAudioDriver)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GetCurrentAudioDriver(),"char");
+}
+
+
+RING_FUNC(ring_SDL_GetNumAudioDevices)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetNumAudioDevices( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_GetNumAudioDrivers)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetNumAudioDrivers());
+}
+
+
+RING_FUNC(ring_SDL_LoadWAV)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_LoadWAV(RING_API_GETSTRING(1),(SDL_AudioSpec *) RING_API_GETCPOINTER(2,"SDL_AudioSpec"),(Uint8 *) RING_API_GETCPOINTER(3,"Uint8"),(Uint32 *) RING_API_GETCPOINTER(4,"Uint32")),"SDL_AudioSpec");
+}
+
+
+RING_FUNC(ring_SDL_LoadWAV_RW)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_LoadWAV_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (int ) RING_API_GETNUMBER(2),(SDL_AudioSpec *) RING_API_GETCPOINTER(3,"SDL_AudioSpec"),(Uint8 *) RING_API_GETCPOINTER(4,"Uint8"),(Uint32 *) RING_API_GETCPOINTER(5,"Uint32")),"SDL_AudioSpec");
+}
+
+
+RING_FUNC(ring_SDL_LockAudio)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_LockAudio();
+}
+
+
+RING_FUNC(ring_SDL_LockAudioDevice)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	SDL_LockAudioDevice(* (SDL_AudioDeviceID  *) RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"));
+}
+
+
+RING_FUNC(ring_SDL_MixAudio)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_MixAudio((Uint8 *) RING_API_GETCPOINTER(1,"Uint8"),(Uint8 *) RING_API_GETCPOINTER(2,"Uint8"), (Uint32 ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_SDL_MixAudioFormat)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_MixAudioFormat((Uint8 *) RING_API_GETCPOINTER(1,"Uint8"),(Uint8 *) RING_API_GETCPOINTER(2,"Uint8"), (SDL_AudioFormat )  (int) RING_API_GETNUMBER(3), (Uint32 ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_SDL_OpenAudio)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_OpenAudio((SDL_AudioSpec *) RING_API_GETCPOINTER(1,"SDL_AudioSpec"),(SDL_AudioSpec *) RING_API_GETCPOINTER(2,"SDL_AudioSpec")));
+}
+
+
+RING_FUNC(ring_SDL_OpenAudioDevice)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		SDL_AudioDeviceID *pValue ; 
+		pValue = (SDL_AudioDeviceID *) malloc(sizeof(SDL_AudioDeviceID)) ;
+		*pValue = SDL_OpenAudioDevice(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),(SDL_AudioSpec *) RING_API_GETCPOINTER(3,"SDL_AudioSpec"),(SDL_AudioSpec *) RING_API_GETCPOINTER(4,"SDL_AudioSpec"), (int ) RING_API_GETNUMBER(5));
+		RING_API_RETCPOINTER(pValue,"SDL_AudioDeviceID");
+	}
+}
+
+
+RING_FUNC(ring_SDL_PauseAudio)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_PauseAudio( (int ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_SDL_PauseAudioDevice)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_PauseAudioDevice(* (SDL_AudioDeviceID  *) RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"), (int ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"));
+}
+
+
+RING_FUNC(ring_SDL_UnlockAudio)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_UnlockAudio();
+}
+
+
+RING_FUNC(ring_SDL_UnlockAudioDevice)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	SDL_UnlockAudioDevice(* (SDL_AudioDeviceID  *) RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -7996,6 +8489,32 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_joystickishaptic",ring_SDL_JoystickIsHaptic);
 	ring_vm_funcregister("sdl_mouseishaptic",ring_SDL_MouseIsHaptic);
 	ring_vm_funcregister("sdl_numhaptics",ring_SDL_NumHaptics);
+	ring_vm_funcregister("sdl_audioinit",ring_SDL_AudioInit);
+	ring_vm_funcregister("sdl_audioquit",ring_SDL_AudioQuit);
+	ring_vm_funcregister("sdl_buildaudiocvt",ring_SDL_BuildAudioCVT);
+	ring_vm_funcregister("sdl_closeaudio",ring_SDL_CloseAudio);
+	ring_vm_funcregister("sdl_closeaudiodevice",ring_SDL_CloseAudioDevice);
+	ring_vm_funcregister("sdl_convertaudio",ring_SDL_ConvertAudio);
+	ring_vm_funcregister("sdl_freewav",ring_SDL_FreeWAV);
+	ring_vm_funcregister("sdl_getaudiodevicename",ring_SDL_GetAudioDeviceName);
+	ring_vm_funcregister("sdl_getaudiodevicestatus",ring_SDL_GetAudioDeviceStatus);
+	ring_vm_funcregister("sdl_getaudiodriver",ring_SDL_GetAudioDriver);
+	ring_vm_funcregister("sdl_getaudiostatus",ring_SDL_GetAudioStatus);
+	ring_vm_funcregister("sdl_getcurrentaudiodriver",ring_SDL_GetCurrentAudioDriver);
+	ring_vm_funcregister("sdl_getnumaudiodevices",ring_SDL_GetNumAudioDevices);
+	ring_vm_funcregister("sdl_getnumaudiodrivers",ring_SDL_GetNumAudioDrivers);
+	ring_vm_funcregister("sdl_loadwav",ring_SDL_LoadWAV);
+	ring_vm_funcregister("sdl_loadwav_rw",ring_SDL_LoadWAV_RW);
+	ring_vm_funcregister("sdl_lockaudio",ring_SDL_LockAudio);
+	ring_vm_funcregister("sdl_lockaudiodevice",ring_SDL_LockAudioDevice);
+	ring_vm_funcregister("sdl_mixaudio",ring_SDL_MixAudio);
+	ring_vm_funcregister("sdl_mixaudioformat",ring_SDL_MixAudioFormat);
+	ring_vm_funcregister("sdl_openaudio",ring_SDL_OpenAudio);
+	ring_vm_funcregister("sdl_openaudiodevice",ring_SDL_OpenAudioDevice);
+	ring_vm_funcregister("sdl_pauseaudio",ring_SDL_PauseAudio);
+	ring_vm_funcregister("sdl_pauseaudiodevice",ring_SDL_PauseAudioDevice);
+	ring_vm_funcregister("sdl_unlockaudio",ring_SDL_UnlockAudio);
+	ring_vm_funcregister("sdl_unlockaudiodevice",ring_SDL_UnlockAudioDevice);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
@@ -8112,4 +8631,8 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_hapticperiodic",ring_sdl_destroy_sdl_hapticperiodic);
 	ring_vm_funcregister("sdl_new_sdl_hapticramp",ring_sdl_new_sdl_hapticramp);
 	ring_vm_funcregister("sdl_destroy_sdl_hapticramp",ring_sdl_destroy_sdl_hapticramp);
+	ring_vm_funcregister("sdl_new_sdl_audiocvt",ring_sdl_new_sdl_audiocvt);
+	ring_vm_funcregister("sdl_destroy_sdl_audiocvt",ring_sdl_destroy_sdl_audiocvt);
+	ring_vm_funcregister("sdl_new_sdl_audiospec",ring_sdl_new_sdl_audiospec);
+	ring_vm_funcregister("sdl_destroy_sdl_audiospec",ring_sdl_destroy_sdl_audiospec);
 }
