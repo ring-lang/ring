@@ -34,6 +34,7 @@ aEnumTypes + "SDL_WindowEventID"
 aEnumTypes + "SDL_Keycode"
 aEnumTypes + "SDL_Keymod"
 aEnumTypes + "SDL_Scancode"
+aEnumTypes + "SDL_JoystickPowerLevel"
 </runcode>
 
 <funcstart>
@@ -545,3 +546,33 @@ int SDL_ShowCursor(int toggle)
 int SDL_WarpMouseGlobal(int x,int y)
 </comment>
 void SDL_WarpMouseInWindow(SDL_Window *window,int x,int y)
+
+<comment>
+Joystick Support
+</comment>
+
+void SDL_JoystickClose(SDL_Joystick *joystick)
+<comment>
+SDL_JoystickPowerLevel SDL_JoystickCurrentPowerLevel(SDL_Joystick *joystick)
+SDL_Joystick *SDL_JoystickFromInstanceID(SDL_JoystickID joyid)
+</comment>
+int SDL_JoystickEventState(int state)
+SDL_bool SDL_JoystickGetAttached(SDL_Joystick *joystick)
+Sint16 SDL_JoystickGetAxis(SDL_Joystick *joystick,int axis)
+int SDL_JoystickGetBall(SDL_Joystick *joystick,int ball,int *dx,int *dy)
+Uint8 SDL_JoystickGetButton(SDL_Joystick *joystick,int button)
+SDL_JoystickGUID SDL_JoystickGetDeviceGUID(int device_index)
+SDL_JoystickGUID SDL_JoystickGetGUID(SDL_Joystick *joystick)
+SDL_JoystickGUID SDL_JoystickGetGUIDFromString(const char *pchGUID)
+void SDL_JoystickGetGUIDString(SDL_JoystickGUID guid,char *pszGUID,int cbGUID)
+Uint8 SDL_JoystickGetHat(SDL_Joystick *joystick,int hat)
+SDL_JoystickID SDL_JoystickInstanceID(SDL_Joystick *joystick)
+const char *SDL_JoystickName(SDL_Joystick *joystick)
+const char *SDL_JoystickNameForIndex(int device_index)
+int SDL_JoystickNumAxes(SDL_Joystick *joystick)
+int SDL_JoystickNumBalls(SDL_Joystick *joystick)
+int SDL_JoystickNumButtons(SDL_Joystick *joystick)
+int SDL_JoystickNumHats(SDL_Joystick *joystick)
+SDL_Joystick *SDL_JoystickOpen(int device_index)
+void SDL_JoystickUpdate(void)
+int SDL_NumJoysticks(void)

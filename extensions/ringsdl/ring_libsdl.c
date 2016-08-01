@@ -6296,6 +6296,349 @@ RING_FUNC(ring_SDL_WarpMouseInWindow)
 	SDL_WarpMouseInWindow((SDL_Window *) RING_API_GETCPOINTER(1,"SDL_Window"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_SDL_JoystickClose)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_JoystickClose((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"));
+}
+
+
+RING_FUNC(ring_SDL_JoystickEventState)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickEventState( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_JoystickGetAttached)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickGetAttached((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick")));
+}
+
+
+RING_FUNC(ring_SDL_JoystickGetAxis)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Sint16 *pValue ; 
+		pValue = (Sint16 *) malloc(sizeof(Sint16)) ;
+		*pValue = SDL_JoystickGetAxis((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"), (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"Sint16");
+	}
+}
+
+
+RING_FUNC(ring_SDL_JoystickGetBall)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickGetBall((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4)));
+	RING_API_ACCEPTINTVALUE(3) ;
+	RING_API_ACCEPTINTVALUE(4) ;
+}
+
+
+RING_FUNC(ring_SDL_JoystickGetButton)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickGetButton((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_JoystickGetDeviceGUID)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		SDL_JoystickGUID *pValue ; 
+		pValue = (SDL_JoystickGUID *) malloc(sizeof(SDL_JoystickGUID)) ;
+		*pValue = SDL_JoystickGetDeviceGUID( (int ) RING_API_GETNUMBER(1));
+		RING_API_RETCPOINTER(pValue,"SDL_JoystickGUID");
+	}
+}
+
+
+RING_FUNC(ring_SDL_JoystickGetGUID)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		SDL_JoystickGUID *pValue ; 
+		pValue = (SDL_JoystickGUID *) malloc(sizeof(SDL_JoystickGUID)) ;
+		*pValue = SDL_JoystickGetGUID((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"));
+		RING_API_RETCPOINTER(pValue,"SDL_JoystickGUID");
+	}
+}
+
+
+RING_FUNC(ring_SDL_JoystickGetGUIDFromString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		SDL_JoystickGUID *pValue ; 
+		pValue = (SDL_JoystickGUID *) malloc(sizeof(SDL_JoystickGUID)) ;
+		*pValue = SDL_JoystickGetGUIDFromString(RING_API_GETSTRING(1));
+		RING_API_RETCPOINTER(pValue,"SDL_JoystickGUID");
+	}
+}
+
+
+RING_FUNC(ring_SDL_JoystickGetGUIDString)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_JoystickGetGUIDString(* (SDL_JoystickGUID  *) RING_API_GETCPOINTER(1,"SDL_JoystickGUID"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"SDL_JoystickGUID"));
+}
+
+
+RING_FUNC(ring_SDL_JoystickGetHat)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickGetHat((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_JoystickInstanceID)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		SDL_JoystickID *pValue ; 
+		pValue = (SDL_JoystickID *) malloc(sizeof(SDL_JoystickID)) ;
+		*pValue = SDL_JoystickInstanceID((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"));
+		RING_API_RETCPOINTER(pValue,"SDL_JoystickID");
+	}
+}
+
+
+RING_FUNC(ring_SDL_JoystickName)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_JoystickName((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick")));
+}
+
+
+RING_FUNC(ring_SDL_JoystickNameForIndex)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_JoystickNameForIndex( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_JoystickNumAxes)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickNumAxes((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick")));
+}
+
+
+RING_FUNC(ring_SDL_JoystickNumBalls)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickNumBalls((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick")));
+}
+
+
+RING_FUNC(ring_SDL_JoystickNumButtons)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickNumButtons((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick")));
+}
+
+
+RING_FUNC(ring_SDL_JoystickNumHats)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickNumHats((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick")));
+}
+
+
+RING_FUNC(ring_SDL_JoystickOpen)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_JoystickOpen( (int ) RING_API_GETNUMBER(1)),"SDL_Joystick");
+}
+
+
+RING_FUNC(ring_SDL_JoystickUpdate)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_JoystickUpdate();
+}
+
+
+RING_FUNC(ring_SDL_NumJoysticks)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_NumJoysticks());
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -6572,6 +6915,27 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_setrelativemousemode",ring_SDL_SetRelativeMouseMode);
 	ring_vm_funcregister("sdl_showcursor",ring_SDL_ShowCursor);
 	ring_vm_funcregister("sdl_warpmouseinwindow",ring_SDL_WarpMouseInWindow);
+	ring_vm_funcregister("sdl_joystickclose",ring_SDL_JoystickClose);
+	ring_vm_funcregister("sdl_joystickeventstate",ring_SDL_JoystickEventState);
+	ring_vm_funcregister("sdl_joystickgetattached",ring_SDL_JoystickGetAttached);
+	ring_vm_funcregister("sdl_joystickgetaxis",ring_SDL_JoystickGetAxis);
+	ring_vm_funcregister("sdl_joystickgetball",ring_SDL_JoystickGetBall);
+	ring_vm_funcregister("sdl_joystickgetbutton",ring_SDL_JoystickGetButton);
+	ring_vm_funcregister("sdl_joystickgetdeviceguid",ring_SDL_JoystickGetDeviceGUID);
+	ring_vm_funcregister("sdl_joystickgetguid",ring_SDL_JoystickGetGUID);
+	ring_vm_funcregister("sdl_joystickgetguidfromstring",ring_SDL_JoystickGetGUIDFromString);
+	ring_vm_funcregister("sdl_joystickgetguidstring",ring_SDL_JoystickGetGUIDString);
+	ring_vm_funcregister("sdl_joystickgethat",ring_SDL_JoystickGetHat);
+	ring_vm_funcregister("sdl_joystickinstanceid",ring_SDL_JoystickInstanceID);
+	ring_vm_funcregister("sdl_joystickname",ring_SDL_JoystickName);
+	ring_vm_funcregister("sdl_joysticknameforindex",ring_SDL_JoystickNameForIndex);
+	ring_vm_funcregister("sdl_joysticknumaxes",ring_SDL_JoystickNumAxes);
+	ring_vm_funcregister("sdl_joysticknumballs",ring_SDL_JoystickNumBalls);
+	ring_vm_funcregister("sdl_joysticknumbuttons",ring_SDL_JoystickNumButtons);
+	ring_vm_funcregister("sdl_joysticknumhats",ring_SDL_JoystickNumHats);
+	ring_vm_funcregister("sdl_joystickopen",ring_SDL_JoystickOpen);
+	ring_vm_funcregister("sdl_joystickupdate",ring_SDL_JoystickUpdate);
+	ring_vm_funcregister("sdl_numjoysticks",ring_SDL_NumJoysticks);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
