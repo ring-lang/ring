@@ -8690,6 +8690,16 @@ RING_FUNC(ring_SDL_UnloadObject)
 	SDL_UnloadObject((void *) RING_API_GETCPOINTER(1,"void"));
 }
 
+
+RING_FUNC(ring_SDL_GetPlatform)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GetPlatform());
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -9096,6 +9106,7 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_loadfunction",ring_SDL_LoadFunction);
 	ring_vm_funcregister("sdl_loadobject",ring_SDL_LoadObject);
 	ring_vm_funcregister("sdl_unloadobject",ring_SDL_UnloadObject);
+	ring_vm_funcregister("sdl_getplatform",ring_SDL_GetPlatform);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
