@@ -34,7 +34,6 @@ sdl
 </funcstart>
 
 <struct>
-SDL_Rect {x,y,w,h}
 SDL_assert_data
 SDL_version {major,minor,patch}
 SDL_DisplayMode
@@ -47,6 +46,8 @@ SDL_RendererInfo
 SDL_Color
 SDL_Palette
 SDL_PixelFormat
+SDL_Point {x,y}
+SDL_Rect {x,y,w,h}
 </struct>
 
 <register>
@@ -366,6 +367,19 @@ Uint32 SDL_MasksToPixelFormatEnum(int bpp,Uint32 Rmask,Uint32 Gmask,Uint32 Bmask
 SDL_bool SDL_PixelFormatEnumToMasks(Uint32 format,int *bpp,Uint32 *Rmask,Uint32 *Gmask,Uint32 *Bmask,Uint32 *Amask)
 int SDL_SetPaletteColors(SDL_Palette *palette,const SDL_Color *colors,int firstcolor,int ncolors)
 int SDL_SetPixelFormatPalette(SDL_PixelFormat *format,SDL_Palette *palette)
+
+<comment>
+Rectangle Functions
+</comment>
+
+SDL_bool SDL_EnclosePoints(const SDL_Point* points,int count,const SDL_Rect *clip,SDL_Rect *result)
+SDL_bool SDL_HasIntersection(const SDL_Rect *A,const SDL_Rect *B)
+SDL_bool SDL_IntersectRect(const SDL_Rect *A,const SDL_Rect *B,SDL_Rect *result)
+SDL_bool SDL_IntersectRectAndLine(const SDL_Rect *rect,int *X1,int *Y1,int *X2,int *Y2)
+SDL_bool SDL_PointInRect(const SDL_Point *p,const SDL_Rect *r)
+SDL_bool SDL_RectEmpty(const SDL_Rect *r)
+SDL_bool SDL_RectEquals(const SDL_Rect *a,const SDL_Rect *b)
+void SDL_UnionRect(const SDL_Rect *A,const SDL_Rect *B,SDL_Rect *result)
 
 
 
