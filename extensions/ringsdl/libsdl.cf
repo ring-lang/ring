@@ -48,6 +48,7 @@ SDL_Palette
 SDL_PixelFormat
 SDL_Point {x,y}
 SDL_Rect {x,y,w,h}
+SDL_Surface
 </struct>
 
 <register>
@@ -73,8 +74,6 @@ RING_FUNC(ring_SDL_RenderCopy2)
 }
 </code>
 
-SDL_Surface *SDL_LoadBMP(const char *)
-void SDL_FreeSurface(SDL_Surface *)
 void SDL_Delay(int)
 
 <comment>
@@ -376,10 +375,45 @@ SDL_bool SDL_EnclosePoints(const SDL_Point* points,int count,const SDL_Rect *cli
 SDL_bool SDL_HasIntersection(const SDL_Rect *A,const SDL_Rect *B)
 SDL_bool SDL_IntersectRect(const SDL_Rect *A,const SDL_Rect *B,SDL_Rect *result)
 SDL_bool SDL_IntersectRectAndLine(const SDL_Rect *rect,int *X1,int *Y1,int *X2,int *Y2)
+<comment>
 SDL_bool SDL_PointInRect(const SDL_Point *p,const SDL_Rect *r)
+</comment>
 SDL_bool SDL_RectEmpty(const SDL_Rect *r)
 SDL_bool SDL_RectEquals(const SDL_Rect *a,const SDL_Rect *b)
 void SDL_UnionRect(const SDL_Rect *A,const SDL_Rect *B,SDL_Rect *result)
 
+<comment>
+Surface Creation and Simple Drawing
+</comment>
 
-
+int SDL_BlitScaled(SDL_Surface *src,const SDL_Rect *srcrect,SDL_Surface *dst,SDL_Rect *dstrect)
+int SDL_BlitSurface(SDL_Surface *src,const SDL_Rect* srcrect,SDL_Surface *dst,SDL_Rect *dstrect)
+int SDL_ConvertPixels(int width,int height,Uint32 src_format,const void *src,int src_pitch,Uint32 dst_format,void *dst,int dst_pitch)
+SDL_Surface *SDL_ConvertSurface(SDL_Surface *src,const SDL_PixelFormat *fmt,Uint32 flags)
+SDL_Surface *SDL_ConvertSurfaceFormat(SDL_Surface *src,Uint32 pixel_format,Uint32 flags)
+SDL_Surface *SDL_CreateRGBSurface(Uint32 flags,int width,int height,int depth,Uint32 Rmask,Uint32 Gmask,Uint32 Bmask,Uint32 Amask)
+SDL_Surface* SDL_CreateRGBSurfaceFrom(void *pixels,int width,int height,int depth,int pitch,Uint32 Rmask,Uint32 Gmask,Uint32 Bmask,Uint32 Amask)
+int SDL_FillRect(SDL_Surface *dst,const SDL_Rect *rect,Uint32 color)
+int SDL_FillRects(SDL_Surface *dst,const SDL_Rect *rects,int count,Uint32 color)
+void SDL_FreeSurface(SDL_Surface *surface)
+void SDL_GetClipRect(SDL_Surface *surface,SDL_Rect *rect)
+int SDL_GetColorKey(SDL_Surface *surface,Uint32 *key)
+int SDL_GetSurfaceAlphaMod(SDL_Surface *surface,Uint8 *alpha)
+int SDL_GetSurfaceBlendMode(SDL_Surface *surface,SDL_BlendMode *blendMode)
+int SDL_GetSurfaceColorMod(SDL_Surface *surface,Uint8 *r,Uint8 *g,Uint8 *b)
+SDL_Surface *SDL_LoadBMP(const char *file)
+SDL_Surface *SDL_LoadBMP_RW(SDL_RWops *src,int freesrc)
+int SDL_LockSurface(SDL_Surface *surface)
+int SDL_LowerBlit(SDL_Surface *src,SDL_Rect *srcrect,SDL_Surface *dst,SDL_Rect *dstrect)
+int SDL_LowerBlitScaled(SDL_Surface *src,SDL_Rect *srcrect,SDL_Surface *dst,SDL_Rect *dstrect)
+SDL_bool SDL_MUSTLOCK(SDL_Surface *surface)
+int SDL_SaveBMP(SDL_Surface *surface,const char *file)
+int SDL_SaveBMP_RW(SDL_Surface *surface,SDL_RWops *dst,int freedst)
+SDL_bool SDL_SetClipRect(SDL_Surface *surface,const SDL_Rect *rect)
+int SDL_SetColorKey(SDL_Surface *surface,int flag,Uint32 key)
+int SDL_SetSurfaceAlphaMod(SDL_Surface *surface,Uint8 alpha)
+int SDL_SetSurfaceBlendMode(SDL_Surface *surface,SDL_BlendMode blendMode)
+int SDL_SetSurfaceColorMod(SDL_Surface *surface,Uint8 r,Uint8 g,Uint8 b)
+int SDL_SetSurfacePalette(SDL_Surface *surface,SDL_Palette *palette)
+int SDL_SetSurfaceRLE(SDL_Surface *surface,int flag)
+void SDL_UnlockSurface(SDL_Surface* surface)
