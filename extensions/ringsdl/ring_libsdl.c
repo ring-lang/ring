@@ -8850,6 +8850,20 @@ RING_FUNC(ring_SDL_GetPowerInfo)
 	RING_API_ACCEPTINTVALUE(2) ;
 }
 
+
+RING_FUNC(ring_SDL_acos)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_acos( (double ) RING_API_GETNUMBER(1)));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -9271,6 +9285,7 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_hassse41",ring_SDL_HasSSE41);
 	ring_vm_funcregister("sdl_hassse42",ring_SDL_HasSSE42);
 	ring_vm_funcregister("sdl_getpowerinfo",ring_SDL_GetPowerInfo);
+	ring_vm_funcregister("sdl_acos",ring_SDL_acos);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);

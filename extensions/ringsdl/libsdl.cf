@@ -780,3 +780,9 @@ Power Management Status
 </comment>
 
 SDL_PowerState SDL_GetPowerInfo(int *secs,int *pct)
+
+<comment>
+Standard Library Functionality
+</comment>
+
+double SDL_acos(double x)
