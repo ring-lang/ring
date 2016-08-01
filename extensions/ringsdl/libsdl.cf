@@ -2,6 +2,7 @@
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
 #include "SDL_syswm.h"
+#include "SDL_events.h"
 </code>
 
 <runcode>
@@ -29,6 +30,8 @@ aEnumTypes + "SDL_TextureAccess"
 aEnumTypes + "SDL_TextureModulate"
 aEnumTypes + "SDL_PixelFormatEnum"
 aEnumTypes + "SDL_SYSWM_TYPE"
+aEnumTypes + "SDL_EventType"
+aEnumTypes + "SDL_WindowEventID"
 </runcode>
 
 <funcstart>
@@ -43,7 +46,6 @@ SDL_MessageBoxButtonData
 SDL_MessageBoxColor
 SDL_MessageBoxColorScheme
 SDL_MessageBoxData
-SDL_WindowEvent
 SDL_RendererInfo
 SDL_Color
 SDL_Palette
@@ -53,6 +55,30 @@ SDL_Rect {x,y,w,h}
 SDL_Surface
 SDL_SysWMinfo
 SDL_SysWMmsg
+SDL_ControllerAxisEvent
+SDL_ControllerButtonEvent
+SDL_ControllerDeviceEvent
+SDL_DollarGestureEvent
+SDL_DropEvent
+SDL_Event
+SDL_Finger
+SDL_JoyAxisEvent
+SDL_JoyBallEvent
+SDL_JoyButtonEvent
+SDL_JoyDeviceEvent
+SDL_JoyHatEvent
+SDL_KeyboardEvent
+SDL_MouseButtonEvent
+SDL_MouseMotionEvent
+SDL_MouseWheelEvent
+SDL_MultiGestureEvent
+SDL_QuitEvent
+SDL_SysWMEvent
+SDL_TextEditingEvent
+SDL_TextInputEvent
+SDL_TouchFingerEvent
+SDL_UserEvent
+SDL_WindowEvent
 </struct>
 
 <register>
@@ -435,3 +461,35 @@ Clipboard Handling
 char *SDL_GetClipboardText(void)
 SDL_bool SDL_HasClipboardText(void)
 int SDL_SetClipboardText(const char *text)
+
+<comment>
+Event Handling
+</comment>
+
+void SDL_AddEventWatch(SDL_EventFilter filter,void *userdata)
+void SDL_DelEventWatch(SDL_EventFilter filter,void *userdata)
+Uint8 SDL_EventState(Uint32 type,int state)
+void SDL_FilterEvents(SDL_EventFilter filter,void *userdata)
+void SDL_FlushEvent(Uint32 type)
+void SDL_FlushEvents(Uint32 minType,Uint32 maxType)
+SDL_bool SDL_GetEventFilter(SDL_EventFilter *filter,void **userdata)
+Uint8 SDL_GetEventState(Uint32 type)
+int SDL_GetNumTouchDevices(void)
+int SDL_GetNumTouchFingers(SDL_TouchID touchID)
+SDL_TouchID SDL_GetTouchDevice(int index)
+SDL_Finger* SDL_GetTouchFinger(SDL_TouchID touchID,int index)
+SDL_bool SDL_HasEvent(Uint32 type)
+SDL_bool SDL_HasEvents(Uint32 minType,Uint32 maxType)
+int SDL_LoadDollarTemplates(SDL_TouchID touchId,SDL_RWops *src)
+int SDL_PeepEvents(SDL_Event *events,int numevents,SDL_eventaction action,Uint32 minType,Uint32 maxType)
+int SDL_PollEvent(SDL_Event *event)
+void SDL_PumpEvents(void)
+int SDL_PushEvent(SDL_Event *event)
+SDL_bool SDL_QuitRequested(void)
+int SDL_RecordGesture(SDL_TouchID touchId)
+Uint32 SDL_RegisterEvents(int numevents)
+int SDL_SaveAllDollarTemplates(SDL_RWops *dst)
+int SDL_SaveDollarTemplate(SDL_GestureID gestureId,SDL_RWops *dst)
+void SDL_SetEventFilter(SDL_EventFilter filter,void *userdata)
+int SDL_WaitEvent(SDL_Event *event)
+int SDL_WaitEventTimeout(SDL_Event *event,int timeout)
