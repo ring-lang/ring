@@ -1422,6 +1422,222 @@ RING_FUNC(ring_sdl_destroy_sdl_keysym)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_new_sdl_hapticcondition)
+{
+	SDL_HapticCondition *pMyPointer ;
+	pMyPointer = (SDL_HapticCondition *) malloc(sizeof(SDL_HapticCondition)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_HapticCondition");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_hapticcondition)
+{
+	SDL_HapticCondition *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticCondition");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_hapticconstant)
+{
+	SDL_HapticConstant *pMyPointer ;
+	pMyPointer = (SDL_HapticConstant *) malloc(sizeof(SDL_HapticConstant)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_HapticConstant");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_hapticconstant)
+{
+	SDL_HapticConstant *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticConstant");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_hapticcustom)
+{
+	SDL_HapticCustom *pMyPointer ;
+	pMyPointer = (SDL_HapticCustom *) malloc(sizeof(SDL_HapticCustom)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_HapticCustom");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_hapticcustom)
+{
+	SDL_HapticCustom *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticCustom");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_hapticdirection)
+{
+	SDL_HapticDirection *pMyPointer ;
+	pMyPointer = (SDL_HapticDirection *) malloc(sizeof(SDL_HapticDirection)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_HapticDirection");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_hapticdirection)
+{
+	SDL_HapticDirection *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticDirection");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_hapticeffect)
+{
+	SDL_HapticEffect *pMyPointer ;
+	pMyPointer = (SDL_HapticEffect *) malloc(sizeof(SDL_HapticEffect)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_HapticEffect");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_hapticeffect)
+{
+	SDL_HapticEffect *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticEffect");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_hapticleftright)
+{
+	SDL_HapticLeftRight *pMyPointer ;
+	pMyPointer = (SDL_HapticLeftRight *) malloc(sizeof(SDL_HapticLeftRight)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_HapticLeftRight");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_hapticleftright)
+{
+	SDL_HapticLeftRight *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticLeftRight");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_hapticperiodic)
+{
+	SDL_HapticPeriodic *pMyPointer ;
+	pMyPointer = (SDL_HapticPeriodic *) malloc(sizeof(SDL_HapticPeriodic)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_HapticPeriodic");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_hapticperiodic)
+{
+	SDL_HapticPeriodic *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticPeriodic");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_sdl_hapticramp)
+{
+	SDL_HapticRamp *pMyPointer ;
+	pMyPointer = (SDL_HapticRamp *) malloc(sizeof(SDL_HapticRamp)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_HapticRamp");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_hapticramp)
+{
+	SDL_HapticRamp *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_HapticRamp");
+	free(pMyPointer) ;
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -6966,6 +7182,471 @@ RING_FUNC(ring_SDL_IsGameController)
 	RING_API_RETNUMBER(SDL_IsGameController( (int ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_SDL_HapticClose)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_HapticClose((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"));
+}
+
+
+RING_FUNC(ring_SDL_HapticDestroyEffect)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_HapticDestroyEffect((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_SDL_HapticEffectSupported)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticEffectSupported((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"),(SDL_HapticEffect *) RING_API_GETCPOINTER(2,"SDL_HapticEffect")));
+}
+
+
+RING_FUNC(ring_SDL_HapticGetEffectStatus)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticGetEffectStatus((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_HapticIndex)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticIndex((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticName)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_HapticName( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_HapticNewEffect)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticNewEffect((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"),(SDL_HapticEffect *) RING_API_GETCPOINTER(2,"SDL_HapticEffect")));
+}
+
+
+RING_FUNC(ring_SDL_HapticNumAxes)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticNumAxes((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticNumEffects)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticNumEffects((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticNumEffectsPlaying)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticNumEffectsPlaying((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticOpen)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_HapticOpen( (int ) RING_API_GETNUMBER(1)),"SDL_Haptic");
+}
+
+
+RING_FUNC(ring_SDL_HapticOpenFromJoystick)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_HapticOpenFromJoystick((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick")),"SDL_Haptic");
+}
+
+
+RING_FUNC(ring_SDL_HapticOpenFromMouse)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_HapticOpenFromMouse(),"SDL_Haptic");
+}
+
+
+RING_FUNC(ring_SDL_HapticOpened)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticOpened( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_HapticPause)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticPause((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticQuery)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		unsigned int *pValue ; 
+		pValue = (unsigned int *) malloc(sizeof(unsigned int)) ;
+		*pValue = SDL_HapticQuery((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"));
+		RING_API_RETCPOINTER(pValue,"unsigned int");
+	}
+}
+
+
+RING_FUNC(ring_SDL_HapticRumbleInit)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticRumbleInit((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticRumblePlay)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticRumblePlay((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"), (float ) RING_API_GETNUMBER(2), (Uint32 ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_SDL_HapticRumbleStop)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticRumbleStop((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticRumbleSupported)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticRumbleSupported((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticRunEffect)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticRunEffect((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"), (int ) RING_API_GETNUMBER(2), (Uint32 ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_SDL_HapticSetAutocenter)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticSetAutocenter((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_HapticSetGain)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticSetGain((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_HapticStopAll)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticStopAll((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticStopEffect)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticStopEffect((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_HapticUnpause)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticUnpause((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
+}
+
+
+RING_FUNC(ring_SDL_HapticUpdateEffect)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HapticUpdateEffect((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"), (int ) RING_API_GETNUMBER(2),(SDL_HapticEffect *) RING_API_GETCPOINTER(3,"SDL_HapticEffect")));
+}
+
+
+RING_FUNC(ring_SDL_JoystickIsHaptic)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_JoystickIsHaptic((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick")));
+}
+
+
+RING_FUNC(ring_SDL_MouseIsHaptic)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_MouseIsHaptic());
+}
+
+
+RING_FUNC(ring_SDL_NumHaptics)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_NumHaptics());
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -7285,6 +7966,36 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_gamecontrolleropen",ring_SDL_GameControllerOpen);
 	ring_vm_funcregister("sdl_gamecontrollerupdate",ring_SDL_GameControllerUpdate);
 	ring_vm_funcregister("sdl_isgamecontroller",ring_SDL_IsGameController);
+	ring_vm_funcregister("sdl_hapticclose",ring_SDL_HapticClose);
+	ring_vm_funcregister("sdl_hapticdestroyeffect",ring_SDL_HapticDestroyEffect);
+	ring_vm_funcregister("sdl_hapticeffectsupported",ring_SDL_HapticEffectSupported);
+	ring_vm_funcregister("sdl_hapticgeteffectstatus",ring_SDL_HapticGetEffectStatus);
+	ring_vm_funcregister("sdl_hapticindex",ring_SDL_HapticIndex);
+	ring_vm_funcregister("sdl_hapticname",ring_SDL_HapticName);
+	ring_vm_funcregister("sdl_hapticneweffect",ring_SDL_HapticNewEffect);
+	ring_vm_funcregister("sdl_hapticnumaxes",ring_SDL_HapticNumAxes);
+	ring_vm_funcregister("sdl_hapticnumeffects",ring_SDL_HapticNumEffects);
+	ring_vm_funcregister("sdl_hapticnumeffectsplaying",ring_SDL_HapticNumEffectsPlaying);
+	ring_vm_funcregister("sdl_hapticopen",ring_SDL_HapticOpen);
+	ring_vm_funcregister("sdl_hapticopenfromjoystick",ring_SDL_HapticOpenFromJoystick);
+	ring_vm_funcregister("sdl_hapticopenfrommouse",ring_SDL_HapticOpenFromMouse);
+	ring_vm_funcregister("sdl_hapticopened",ring_SDL_HapticOpened);
+	ring_vm_funcregister("sdl_hapticpause",ring_SDL_HapticPause);
+	ring_vm_funcregister("sdl_hapticquery",ring_SDL_HapticQuery);
+	ring_vm_funcregister("sdl_hapticrumbleinit",ring_SDL_HapticRumbleInit);
+	ring_vm_funcregister("sdl_hapticrumbleplay",ring_SDL_HapticRumblePlay);
+	ring_vm_funcregister("sdl_hapticrumblestop",ring_SDL_HapticRumbleStop);
+	ring_vm_funcregister("sdl_hapticrumblesupported",ring_SDL_HapticRumbleSupported);
+	ring_vm_funcregister("sdl_hapticruneffect",ring_SDL_HapticRunEffect);
+	ring_vm_funcregister("sdl_hapticsetautocenter",ring_SDL_HapticSetAutocenter);
+	ring_vm_funcregister("sdl_hapticsetgain",ring_SDL_HapticSetGain);
+	ring_vm_funcregister("sdl_hapticstopall",ring_SDL_HapticStopAll);
+	ring_vm_funcregister("sdl_hapticstopeffect",ring_SDL_HapticStopEffect);
+	ring_vm_funcregister("sdl_hapticunpause",ring_SDL_HapticUnpause);
+	ring_vm_funcregister("sdl_hapticupdateeffect",ring_SDL_HapticUpdateEffect);
+	ring_vm_funcregister("sdl_joystickishaptic",ring_SDL_JoystickIsHaptic);
+	ring_vm_funcregister("sdl_mouseishaptic",ring_SDL_MouseIsHaptic);
+	ring_vm_funcregister("sdl_numhaptics",ring_SDL_NumHaptics);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
@@ -7385,4 +8096,20 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_windowevent",ring_sdl_destroy_sdl_windowevent);
 	ring_vm_funcregister("sdl_new_sdl_keysym",ring_sdl_new_sdl_keysym);
 	ring_vm_funcregister("sdl_destroy_sdl_keysym",ring_sdl_destroy_sdl_keysym);
+	ring_vm_funcregister("sdl_new_sdl_hapticcondition",ring_sdl_new_sdl_hapticcondition);
+	ring_vm_funcregister("sdl_destroy_sdl_hapticcondition",ring_sdl_destroy_sdl_hapticcondition);
+	ring_vm_funcregister("sdl_new_sdl_hapticconstant",ring_sdl_new_sdl_hapticconstant);
+	ring_vm_funcregister("sdl_destroy_sdl_hapticconstant",ring_sdl_destroy_sdl_hapticconstant);
+	ring_vm_funcregister("sdl_new_sdl_hapticcustom",ring_sdl_new_sdl_hapticcustom);
+	ring_vm_funcregister("sdl_destroy_sdl_hapticcustom",ring_sdl_destroy_sdl_hapticcustom);
+	ring_vm_funcregister("sdl_new_sdl_hapticdirection",ring_sdl_new_sdl_hapticdirection);
+	ring_vm_funcregister("sdl_destroy_sdl_hapticdirection",ring_sdl_destroy_sdl_hapticdirection);
+	ring_vm_funcregister("sdl_new_sdl_hapticeffect",ring_sdl_new_sdl_hapticeffect);
+	ring_vm_funcregister("sdl_destroy_sdl_hapticeffect",ring_sdl_destroy_sdl_hapticeffect);
+	ring_vm_funcregister("sdl_new_sdl_hapticleftright",ring_sdl_new_sdl_hapticleftright);
+	ring_vm_funcregister("sdl_destroy_sdl_hapticleftright",ring_sdl_destroy_sdl_hapticleftright);
+	ring_vm_funcregister("sdl_new_sdl_hapticperiodic",ring_sdl_new_sdl_hapticperiodic);
+	ring_vm_funcregister("sdl_destroy_sdl_hapticperiodic",ring_sdl_destroy_sdl_hapticperiodic);
+	ring_vm_funcregister("sdl_new_sdl_hapticramp",ring_sdl_new_sdl_hapticramp);
+	ring_vm_funcregister("sdl_destroy_sdl_hapticramp",ring_sdl_destroy_sdl_hapticramp);
 }

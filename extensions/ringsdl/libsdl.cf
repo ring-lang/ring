@@ -86,6 +86,14 @@ SDL_TouchFingerEvent
 SDL_UserEvent
 SDL_WindowEvent
 SDL_Keysym
+SDL_HapticCondition
+SDL_HapticConstant
+SDL_HapticCustom
+SDL_HapticDirection
+SDL_HapticEffect
+SDL_HapticLeftRight
+SDL_HapticPeriodic
+SDL_HapticRamp
 </struct>
 
 <register>
@@ -609,3 +617,38 @@ const char *SDL_GameControllerNameForIndex(int joystick_index)
 SDL_GameController* SDL_GameControllerOpen(int joystick_index)
 void SDL_GameControllerUpdate(void)
 SDL_bool SDL_IsGameController(int joystick_index)
+
+<comment>
+Force Feedback Support
+</comment>
+
+void SDL_HapticClose(SDL_Haptic* haptic)
+void SDL_HapticDestroyEffect(SDL_Haptic *haptic,int effect)
+int SDL_HapticEffectSupported(SDL_Haptic *haptic,SDL_HapticEffect *effect)
+int SDL_HapticGetEffectStatus(SDL_Haptic *haptic,int effect)
+int SDL_HapticIndex(SDL_Haptic *haptic)
+const char *SDL_HapticName(int device_index)
+int SDL_HapticNewEffect(SDL_Haptic *haptic,SDL_HapticEffect *effect)
+int SDL_HapticNumAxes(SDL_Haptic *haptic)
+int SDL_HapticNumEffects(SDL_Haptic *haptic)
+int SDL_HapticNumEffectsPlaying(SDL_Haptic *haptic)
+SDL_Haptic *SDL_HapticOpen(int device_index)
+SDL_Haptic *SDL_HapticOpenFromJoystick(SDL_Joystick *joystick)
+SDL_Haptic *SDL_HapticOpenFromMouse(void)
+int SDL_HapticOpened(int device_index)
+int SDL_HapticPause(SDL_Haptic *haptic)
+unsigned int SDL_HapticQuery(SDL_Haptic *haptic)
+int SDL_HapticRumbleInit(SDL_Haptic *haptic)
+int SDL_HapticRumblePlay(SDL_Haptic *haptic,float strength,Uint32 length)
+int SDL_HapticRumbleStop(SDL_Haptic *haptic)
+int SDL_HapticRumbleSupported(SDL_Haptic *haptic)
+int SDL_HapticRunEffect(SDL_Haptic *haptic,int effect,Uint32 iterations)
+int SDL_HapticSetAutocenter(SDL_Haptic *haptic,int autocenter)
+int SDL_HapticSetGain(SDL_Haptic *haptic,int gain)
+int SDL_HapticStopAll(SDL_Haptic *haptic)
+int SDL_HapticStopEffect(SDL_Haptic *haptic,int effect)
+int SDL_HapticUnpause(SDL_Haptic *haptic)
+int SDL_HapticUpdateEffect(SDL_Haptic *haptic,int effect,SDL_HapticEffect *data)
+int SDL_JoystickIsHaptic(SDL_Joystick *joystick)
+int SDL_MouseIsHaptic(void)
+int SDL_NumHaptics(void)
