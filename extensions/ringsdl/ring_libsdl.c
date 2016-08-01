@@ -4784,6 +4784,40 @@ RING_FUNC(ring_SDL_GetWindowWMInfo)
 	RING_API_RETNUMBER(SDL_GetWindowWMInfo((SDL_Window *) RING_API_GETCPOINTER(1,"SDL_Window"),(SDL_SysWMinfo *) RING_API_GETCPOINTER(2,"SDL_SysWMinfo")));
 }
 
+
+RING_FUNC(ring_SDL_GetClipboardText)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GetClipboardText());
+}
+
+
+RING_FUNC(ring_SDL_HasClipboardText)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasClipboardText());
+}
+
+
+RING_FUNC(ring_SDL_SetClipboardText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_SetClipboardText(RING_API_GETSTRING(1)));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -5001,6 +5035,9 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_setsurfacerle",ring_SDL_SetSurfaceRLE);
 	ring_vm_funcregister("sdl_unlocksurface",ring_SDL_UnlockSurface);
 	ring_vm_funcregister("sdl_getwindowwminfo",ring_SDL_GetWindowWMInfo);
+	ring_vm_funcregister("sdl_getclipboardtext",ring_SDL_GetClipboardText);
+	ring_vm_funcregister("sdl_hasclipboardtext",ring_SDL_HasClipboardText);
+	ring_vm_funcregister("sdl_setclipboardtext",ring_SDL_SetClipboardText);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);

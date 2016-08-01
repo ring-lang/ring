@@ -428,3 +428,10 @@ Platform-specific Window Management
 
 SDL_bool SDL_GetWindowWMInfo(SDL_Window *window,SDL_SysWMinfo *info)
 
+<comment>
+Clipboard Handling
+</comment>
+
+char *SDL_GetClipboardText(void)
+SDL_bool SDL_HasClipboardText(void)
+int SDL_SetClipboardText(const char *text)
