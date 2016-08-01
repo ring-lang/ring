@@ -26,6 +26,7 @@ aEnumTypes + "SDL_RendererFlags"
 aEnumTypes + "SDL_RendererFlip"
 aEnumTypes + "SDL_TextureAccess"
 aEnumTypes + "SDL_TextureModulate"
+aEnumTypes + "SDL_PixelFormatEnum"
 </runcode>
 
 <funcstart>
@@ -43,6 +44,9 @@ SDL_MessageBoxColorScheme
 SDL_MessageBoxData
 SDL_WindowEvent
 SDL_RendererInfo
+SDL_Color
+SDL_Palette
+SDL_PixelFormat
 </struct>
 
 <register>
@@ -344,7 +348,24 @@ void SDL_UnlockTexture(SDL_Texture *texture)
 int SDL_UpdateTexture(SDL_Texture *texture,const SDL_Rect *rect,const void*pixels,int pitch)
 int SDL_UpdateYUVTexture(SDL_Texture *texture,const SDL_Rect *rect,const Uint8 *Yplane,int Ypitch,const Uint8 *Uplane,int Upitch,const Uint8 *Vplane,int Vpitch)
 
+<comment>
+Pixel Formats and Conversion Routines
+</comment>
 
+SDL_PixelFormat *SDL_AllocFormat(Uint32 pixel_format)
+SDL_Palette *SDL_AllocPalette(int ncolors)
+void SDL_CalculateGammaRamp(float gamma,Uint16 *ramp)
+void SDL_FreeFormat(SDL_PixelFormat *format)
+void SDL_FreePalette(SDL_Palette *palette)
+const char *SDL_GetPixelFormatName(Uint32 format)
+void SDL_GetRGB(Uint32 pixel,const SDL_PixelFormat* format,Uint8 *r,Uint8 *g,Uint8 *b)
+void SDL_GetRGBA(Uint32 pixel,const SDL_PixelFormat* format,Uint8 *r,Uint8 *g,Uint8 *b,Uint8 *a)
+Uint32 SDL_MapRGB(const SDL_PixelFormat* format,Uint8 r,Uint8 g, Uint8 b)
+Uint32 SDL_MapRGBA(const SDL_PixelFormat* format,Uint8 r,Uint8 g, Uint8 b, Uint8 a)
+Uint32 SDL_MasksToPixelFormatEnum(int bpp,Uint32 Rmask,Uint32 Gmask,Uint32 Bmask,Uint32 Amask)
+SDL_bool SDL_PixelFormatEnumToMasks(Uint32 format,int *bpp,Uint32 *Rmask,Uint32 *Gmask,Uint32 *Bmask,Uint32 *Amask)
+int SDL_SetPaletteColors(SDL_Palette *palette,const SDL_Color *colors,int firstcolor,int ncolors)
+int SDL_SetPixelFormatPalette(SDL_PixelFormat *format,SDL_Palette *palette)
 
 
 
