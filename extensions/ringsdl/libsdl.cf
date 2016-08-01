@@ -32,6 +32,9 @@ aEnumTypes + "SDL_PixelFormatEnum"
 aEnumTypes + "SDL_SYSWM_TYPE"
 aEnumTypes + "SDL_EventType"
 aEnumTypes + "SDL_WindowEventID"
+aEnumTypes + "SDL_Keycode"
+aEnumTypes + "SDL_Keymod"
+aEnumTypes + "SDL_Scancode"
 </runcode>
 
 <funcstart>
@@ -79,6 +82,7 @@ SDL_TextInputEvent
 SDL_TouchFingerEvent
 SDL_UserEvent
 SDL_WindowEvent
+SDL_Keysym
 </struct>
 
 <register>
@@ -493,3 +497,24 @@ int SDL_SaveDollarTemplate(SDL_GestureID gestureId,SDL_RWops *dst)
 void SDL_SetEventFilter(SDL_EventFilter filter,void *userdata)
 int SDL_WaitEvent(SDL_Event *event)
 int SDL_WaitEventTimeout(SDL_Event *event,int timeout)
+
+<comment>
+Keyboard Support
+</comment>
+
+SDL_Keycode SDL_GetKeyFromName(const char* name)
+SDL_Keycode SDL_GetKeyFromScancode(SDL_Scancode scancode)
+const char* SDL_GetKeyName(SDL_Keycode key)
+SDL_Window* SDL_GetKeyboardFocus(void)
+const Uint8* SDL_GetKeyboardState(int* numkeys)
+SDL_Keymod SDL_GetModState(void)
+SDL_Scancode SDL_GetScancodeFromKey(SDL_Keycode key)
+SDL_Scancode SDL_GetScancodeFromName(const char* name)
+const char* SDL_GetScancodeName(SDL_Scancode scancode)
+SDL_bool SDL_HasScreenKeyboardSupport(void)
+SDL_bool SDL_IsScreenKeyboardShown(SDL_Window* window)
+SDL_bool SDL_IsTextInputActive(void)
+void SDL_SetModState(SDL_Keymod modstate)
+void SDL_SetTextInputRect(SDL_Rect* rect)
+void SDL_StartTextInput(void)
+void SDL_StopTextInput(void)
