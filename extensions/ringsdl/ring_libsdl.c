@@ -8140,6 +8140,34 @@ RING_FUNC(ring_SDL_UnlockAudioDevice)
 		free(RING_API_GETCPOINTER(1,"SDL_AudioDeviceID"));
 }
 
+
+RING_FUNC(ring_SDL_GetBasePath)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GetBasePath());
+}
+
+
+RING_FUNC(ring_SDL_GetPrefPath)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GetPrefPath(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -8515,6 +8543,8 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_pauseaudiodevice",ring_SDL_PauseAudioDevice);
 	ring_vm_funcregister("sdl_unlockaudio",ring_SDL_UnlockAudio);
 	ring_vm_funcregister("sdl_unlockaudiodevice",ring_SDL_UnlockAudioDevice);
+	ring_vm_funcregister("sdl_getbasepath",ring_SDL_GetBasePath);
+	ring_vm_funcregister("sdl_getprefpath",ring_SDL_GetPrefPath);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);

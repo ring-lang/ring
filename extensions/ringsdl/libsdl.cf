@@ -694,5 +694,14 @@ void SDL_PauseAudioDevice(SDL_AudioDeviceID dev,int pause_on)
 <comment>
 int SDL_QueueAudio(SDL_AudioDeviceID dev,const void *data,Uint32 len)
 </comment>
+
 void SDL_UnlockAudio(void)
 void SDL_UnlockAudioDevice(SDL_AudioDeviceID dev)
+
+<comment>
+Filesystem Paths
+</comment>
+
+char *SDL_GetBasePath(void)
+char *SDL_GetPrefPath(const char *org,const char *app)
+
