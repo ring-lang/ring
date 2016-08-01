@@ -739,3 +739,10 @@ size_t SDL_WriteLE32(SDL_RWops *dst,Uint32 value)
 size_t SDL_WriteLE64(SDL_RWops *dst,Uint64 value)
 size_t SDL_WriteU8(SDL_RWops *dst,Uint8 value)
 
+<comment>
+Shared Object Loading and Function Lookup
+</comment>
+
+void *SDL_LoadFunction(void *handle,const char *name)
+void *SDL_LoadObject(const char *sofile)
+void SDL_UnloadObject(void *handle)
