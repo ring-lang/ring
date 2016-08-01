@@ -42,6 +42,7 @@ aEnumTypes + "SDL_GameControllerAxis"
 aEnumTypes + "SDL_GameControllerButton"
 aEnumTypes + "SDL_AudioFormat"
 aEnumTypes + "SDL_AudioStatus"
+aEnumTypes + "SDL_PowerState"
 </runcode>
 
 <funcstart>
@@ -762,7 +763,9 @@ int SDL_GetCPUCount(void)
 int SDL_GetSystemRAM(void)
 SDL_bool SDL_Has3DNow(void)
 SDL_bool SDL_HasAVX(void)
+<comment>
 SDL_bool SDL_HasAVX2(void)
+</comment>
 SDL_bool SDL_HasAltiVec(void)
 SDL_bool SDL_HasMMX(void)
 SDL_bool SDL_HasRDTSC(void)
@@ -772,3 +775,8 @@ SDL_bool SDL_HasSSE3(void)
 SDL_bool SDL_HasSSE41(void)
 SDL_bool SDL_HasSSE42(void)
 
+<comment>
+Power Management Status
+</comment>
+
+SDL_PowerState SDL_GetPowerInfo(int *secs,int *pct)

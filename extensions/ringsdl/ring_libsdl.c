@@ -8751,16 +8751,6 @@ RING_FUNC(ring_SDL_HasAVX)
 }
 
 
-RING_FUNC(ring_SDL_HasAVX2)
-{
-	if ( RING_API_PARACOUNT != 0 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_RETNUMBER(SDL_HasAVX2());
-}
-
-
 RING_FUNC(ring_SDL_HasAltiVec)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -8838,6 +8828,26 @@ RING_FUNC(ring_SDL_HasSSE42)
 		return ;
 	}
 	RING_API_RETNUMBER(SDL_HasSSE42());
+}
+
+
+RING_FUNC(ring_SDL_GetPowerInfo)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetPowerInfo(RING_API_GETINTPOINTER(1),RING_API_GETINTPOINTER(2)));
+	RING_API_ACCEPTINTVALUE(1) ;
+	RING_API_ACCEPTINTVALUE(2) ;
 }
 
 RING_DLL void ringlib_init(RingState *pRingState)
@@ -9252,7 +9262,6 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_getsystemram",ring_SDL_GetSystemRAM);
 	ring_vm_funcregister("sdl_has3dnow",ring_SDL_Has3DNow);
 	ring_vm_funcregister("sdl_hasavx",ring_SDL_HasAVX);
-	ring_vm_funcregister("sdl_hasavx2",ring_SDL_HasAVX2);
 	ring_vm_funcregister("sdl_hasaltivec",ring_SDL_HasAltiVec);
 	ring_vm_funcregister("sdl_hasmmx",ring_SDL_HasMMX);
 	ring_vm_funcregister("sdl_hasrdtsc",ring_SDL_HasRDTSC);
@@ -9261,6 +9270,7 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_hassse3",ring_SDL_HasSSE3);
 	ring_vm_funcregister("sdl_hassse41",ring_SDL_HasSSE41);
 	ring_vm_funcregister("sdl_hassse42",ring_SDL_HasSSE42);
+	ring_vm_funcregister("sdl_getpowerinfo",ring_SDL_GetPowerInfo);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
