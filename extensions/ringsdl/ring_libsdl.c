@@ -1692,6 +1692,33 @@ RING_FUNC(ring_sdl_destroy_sdl_audiospec)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_new_sdl_rwops)
+{
+	SDL_RWops *pMyPointer ;
+	pMyPointer = (SDL_RWops *) malloc(sizeof(SDL_RWops)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDL_RWops");
+}
+
+RING_FUNC(ring_sdl_destroy_sdl_rwops)
+{
+	SDL_RWops *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_RWops");
+	free(pMyPointer) ;
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -8168,6 +8195,455 @@ RING_FUNC(ring_SDL_GetPrefPath)
 	RING_API_RETSTRING(SDL_GetPrefPath(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
 }
 
+
+RING_FUNC(ring_SDL_AllocRW)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_AllocRW(),"SDL_RWops");
+}
+
+
+RING_FUNC(ring_SDL_FreeRW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_FreeRW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"));
+}
+
+
+RING_FUNC(ring_SDL_RWFromConstMem)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_RWFromConstMem((void *) RING_API_GETCPOINTER(1,"void"), (int ) RING_API_GETNUMBER(2)),"SDL_RWops");
+}
+
+
+RING_FUNC(ring_SDL_RWFromFP)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_RWFromFP((void *) RING_API_GETCPOINTER(1,"void"), (SDL_bool ) RING_API_GETNUMBER(2)),"SDL_RWops");
+}
+
+
+RING_FUNC(ring_SDL_RWFromFile)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_RWFromFile(RING_API_GETSTRING(1),RING_API_GETSTRING(2)),"SDL_RWops");
+}
+
+
+RING_FUNC(ring_SDL_RWFromMem)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_RWFromMem((void *) RING_API_GETCPOINTER(1,"void"), (int   ) RING_API_GETNUMBER(2)),"SDL_RWops");
+}
+
+
+RING_FUNC(ring_SDL_RWclose)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_RWclose((struct SDL_RWops *) RING_API_GETCPOINTER(1,"struct SDL_RWops")));
+}
+
+
+RING_FUNC(ring_SDL_RWread)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_RWread((struct SDL_RWops *) RING_API_GETCPOINTER(1,"struct SDL_RWops"),(void *) RING_API_GETCPOINTER(2,"void"), (size_t ) RING_API_GETNUMBER(3), (size_t ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_SDL_RWseek)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Sint64 *pValue ; 
+		pValue = (Sint64 *) malloc(sizeof(Sint64)) ;
+		*pValue = SDL_RWseek((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"),* (Sint64  *) RING_API_GETCPOINTER(2,"Sint64"), (int ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"Sint64"));
+		RING_API_RETCPOINTER(pValue,"Sint64");
+	}
+}
+
+
+RING_FUNC(ring_SDL_RWsize)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Sint64 *pValue ; 
+		pValue = (Sint64 *) malloc(sizeof(Sint64)) ;
+		*pValue = SDL_RWsize((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"));
+		RING_API_RETCPOINTER(pValue,"Sint64");
+	}
+}
+
+
+RING_FUNC(ring_SDL_RWtell)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Sint64 *pValue ; 
+		pValue = (Sint64 *) malloc(sizeof(Sint64)) ;
+		*pValue = SDL_RWtell((struct SDL_RWops *) RING_API_GETCPOINTER(1,"struct SDL_RWops"));
+		RING_API_RETCPOINTER(pValue,"Sint64");
+	}
+}
+
+
+RING_FUNC(ring_SDL_RWwrite)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_RWwrite((struct SDL_RWops *) RING_API_GETCPOINTER(1,"struct SDL_RWops"),(void *) RING_API_GETCPOINTER(2,"void"), (size_t ) RING_API_GETNUMBER(3), (size_t ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_SDL_ReadBE16)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ReadBE16((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_SDL_ReadBE32)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ReadBE32((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_SDL_ReadBE64)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ReadBE64((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_SDL_ReadLE16)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ReadLE16((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_SDL_ReadLE32)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ReadLE32((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_SDL_ReadLE64)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ReadLE64((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_SDL_ReadU8)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ReadU8((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_SDL_WriteBE16)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_WriteBE16((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (Uint16 ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_WriteBE32)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_WriteBE32((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (Uint32 ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_WriteBE64)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_WriteBE64((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (Uint64 ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_WriteLE16)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_WriteLE16((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (Uint16 ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_WriteLE32)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_WriteLE32((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (Uint32 ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_WriteLE64)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_WriteLE64((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (Uint64 ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_WriteU8)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_WriteU8((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (Uint8 ) RING_API_GETNUMBER(2)));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -8545,6 +9021,32 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_unlockaudiodevice",ring_SDL_UnlockAudioDevice);
 	ring_vm_funcregister("sdl_getbasepath",ring_SDL_GetBasePath);
 	ring_vm_funcregister("sdl_getprefpath",ring_SDL_GetPrefPath);
+	ring_vm_funcregister("sdl_allocrw",ring_SDL_AllocRW);
+	ring_vm_funcregister("sdl_freerw",ring_SDL_FreeRW);
+	ring_vm_funcregister("sdl_rwfromconstmem",ring_SDL_RWFromConstMem);
+	ring_vm_funcregister("sdl_rwfromfp",ring_SDL_RWFromFP);
+	ring_vm_funcregister("sdl_rwfromfile",ring_SDL_RWFromFile);
+	ring_vm_funcregister("sdl_rwfrommem",ring_SDL_RWFromMem);
+	ring_vm_funcregister("sdl_rwclose",ring_SDL_RWclose);
+	ring_vm_funcregister("sdl_rwread",ring_SDL_RWread);
+	ring_vm_funcregister("sdl_rwseek",ring_SDL_RWseek);
+	ring_vm_funcregister("sdl_rwsize",ring_SDL_RWsize);
+	ring_vm_funcregister("sdl_rwtell",ring_SDL_RWtell);
+	ring_vm_funcregister("sdl_rwwrite",ring_SDL_RWwrite);
+	ring_vm_funcregister("sdl_readbe16",ring_SDL_ReadBE16);
+	ring_vm_funcregister("sdl_readbe32",ring_SDL_ReadBE32);
+	ring_vm_funcregister("sdl_readbe64",ring_SDL_ReadBE64);
+	ring_vm_funcregister("sdl_readle16",ring_SDL_ReadLE16);
+	ring_vm_funcregister("sdl_readle32",ring_SDL_ReadLE32);
+	ring_vm_funcregister("sdl_readle64",ring_SDL_ReadLE64);
+	ring_vm_funcregister("sdl_readu8",ring_SDL_ReadU8);
+	ring_vm_funcregister("sdl_writebe16",ring_SDL_WriteBE16);
+	ring_vm_funcregister("sdl_writebe32",ring_SDL_WriteBE32);
+	ring_vm_funcregister("sdl_writebe64",ring_SDL_WriteBE64);
+	ring_vm_funcregister("sdl_writele16",ring_SDL_WriteLE16);
+	ring_vm_funcregister("sdl_writele32",ring_SDL_WriteLE32);
+	ring_vm_funcregister("sdl_writele64",ring_SDL_WriteLE64);
+	ring_vm_funcregister("sdl_writeu8",ring_SDL_WriteU8);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
@@ -8665,4 +9167,6 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_audiocvt",ring_sdl_destroy_sdl_audiocvt);
 	ring_vm_funcregister("sdl_new_sdl_audiospec",ring_sdl_new_sdl_audiospec);
 	ring_vm_funcregister("sdl_destroy_sdl_audiospec",ring_sdl_destroy_sdl_audiospec);
+	ring_vm_funcregister("sdl_new_sdl_rwops",ring_sdl_new_sdl_rwops);
+	ring_vm_funcregister("sdl_destroy_sdl_rwops",ring_sdl_destroy_sdl_rwops);
 }

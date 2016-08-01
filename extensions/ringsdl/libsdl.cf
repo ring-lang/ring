@@ -10,6 +10,8 @@ aNumberTypes + "SDL_bool"
 aNumberTypes + "Uint16"
 aNumberTypes + "Uint8"
 aNumberTypes + "Sint16"
+aNumberTypes + "size_t"
+aNumberTypes + "Uint64"
 aEnumTypes + "SDL_HintPriority"
 aEnumTypes + "SDL_LOG_CATEGORY"
 aEnumTypes + "SDL_LogPriority"
@@ -98,6 +100,7 @@ SDL_HapticPeriodic
 SDL_HapticRamp
 SDL_AudioCVT
 SDL_AudioSpec
+SDL_RWops
 </struct>
 
 <register>
@@ -704,4 +707,35 @@ Filesystem Paths
 
 char *SDL_GetBasePath(void)
 char *SDL_GetPrefPath(const char *org,const char *app)
+
+<comment>
+File I/O Abstraction
+</comment>
+
+SDL_RWops *SDL_AllocRW(void)
+void SDL_FreeRW(SDL_RWops *area)
+SDL_RWops *SDL_RWFromConstMem(const void* mem,int size)
+SDL_RWops *SDL_RWFromFP(void *fp,SDL_bool autoclose)
+SDL_RWops *SDL_RWFromFile(const char *file,const char *mode)
+SDL_RWops *SDL_RWFromMem(void *mem,int   size)
+int SDL_RWclose(struct SDL_RWops *context)
+size_t SDL_RWread(struct SDL_RWops *context,void *ptr,size_t size,size_t maxnum)
+Sint64 SDL_RWseek(SDL_RWops *context,Sint64 offset,int whence)
+Sint64 SDL_RWsize(SDL_RWops *context)
+Sint64 SDL_RWtell(struct SDL_RWops *context)
+size_t SDL_RWwrite(struct SDL_RWops *context,const void *ptr,size_t size,size_t num)
+Uint16 SDL_ReadBE16(SDL_RWops *src)
+Uint32 SDL_ReadBE32(SDL_RWops *src)
+Uint64 SDL_ReadBE64(SDL_RWops *src)
+Uint16 SDL_ReadLE16(SDL_RWops *src)
+Uint32 SDL_ReadLE32(SDL_RWops *src)
+Uint64 SDL_ReadLE64(SDL_RWops *src)
+Uint8 SDL_ReadU8(SDL_RWops *src)
+size_t SDL_WriteBE16(SDL_RWops *dst,Uint16 value)
+size_t SDL_WriteBE32(SDL_RWops *dst,Uint32 value)
+size_t SDL_WriteBE64(SDL_RWops *dst,Uint64 value)
+size_t SDL_WriteLE16(SDL_RWops *dst,Uint16 value)
+size_t SDL_WriteLE32(SDL_RWops *dst,Uint32 value)
+size_t SDL_WriteLE64(SDL_RWops *dst,Uint64 value)
+size_t SDL_WriteU8(SDL_RWops *dst,Uint8 value)
 
