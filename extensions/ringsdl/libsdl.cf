@@ -2,7 +2,6 @@
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
 #include "SDL_syswm.h"
-#include "SDL_events.h"
 </code>
 
 <runcode>
@@ -518,3 +517,31 @@ void SDL_SetModState(SDL_Keymod modstate)
 void SDL_SetTextInputRect(SDL_Rect* rect)
 void SDL_StartTextInput(void)
 void SDL_StopTextInput(void)
+
+
+<comment>
+Mouse Support
+</comment>
+
+<comment>
+int SDL_CaptureMouse(SDL_bool enabled)
+</comment>
+SDL_Cursor *SDL_CreateColorCursor(SDL_Surface *surface,int hot_x,int hot_y)
+SDL_Cursor *SDL_CreateCursor(const Uint8 *data,const Uint8 *mask,int w,int h,int hot_x,int hot_y)
+void SDL_FreeCursor(SDL_Cursor *cursor)
+SDL_Cursor *SDL_GetCursor(void)
+SDL_Cursor *SDL_GetDefaultCursor(void)
+<comment>
+Uint32 SDL_GetGlobalMouseState(int *x,int *y)
+</comment>
+SDL_Window *SDL_GetMouseFocus(void)
+Uint32 SDL_GetMouseState(int *x,int * y)
+SDL_bool SDL_GetRelativeMouseMode(void)
+Uint32 SDL_GetRelativeMouseState(int *x,int *y)
+void SDL_SetCursor(SDL_Cursor *cursor)
+int SDL_SetRelativeMouseMode(SDL_bool enabled)
+int SDL_ShowCursor(int toggle)
+<comment>
+int SDL_WarpMouseGlobal(int x,int y)
+</comment>
+void SDL_WarpMouseInWindow(SDL_Window *window,int x,int y)

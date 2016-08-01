@@ -9,7 +9,6 @@
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
 #include "SDL_syswm.h"
-#include "SDL_events.h"
 RING_FUNC(ring_sdl_new_sdl_assert_data)
 {
 	SDL_assert_data *pMyPointer ;
@@ -6083,6 +6082,220 @@ RING_FUNC(ring_SDL_StopTextInput)
 	SDL_StopTextInput();
 }
 
+
+RING_FUNC(ring_SDL_CreateColorCursor)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_CreateColorCursor((SDL_Surface *) RING_API_GETCPOINTER(1,"SDL_Surface"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)),"SDL_Cursor");
+}
+
+
+RING_FUNC(ring_SDL_CreateCursor)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_CreateCursor((Uint8 *) RING_API_GETCPOINTER(1,"Uint8"),(Uint8 *) RING_API_GETCPOINTER(2,"Uint8"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6)),"SDL_Cursor");
+}
+
+
+RING_FUNC(ring_SDL_FreeCursor)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_FreeCursor((SDL_Cursor *) RING_API_GETCPOINTER(1,"SDL_Cursor"));
+}
+
+
+RING_FUNC(ring_SDL_GetCursor)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GetCursor(),"SDL_Cursor");
+}
+
+
+RING_FUNC(ring_SDL_GetDefaultCursor)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GetDefaultCursor(),"SDL_Cursor");
+}
+
+
+RING_FUNC(ring_SDL_GetMouseFocus)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GetMouseFocus(),"SDL_Window");
+}
+
+
+RING_FUNC(ring_SDL_GetMouseState)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetMouseState(RING_API_GETINTPOINTER(1),RING_API_GETINTPOINTER(2)));
+	RING_API_ACCEPTINTVALUE(1) ;
+	RING_API_ACCEPTINTVALUE(2) ;
+}
+
+
+RING_FUNC(ring_SDL_GetRelativeMouseMode)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetRelativeMouseMode());
+}
+
+
+RING_FUNC(ring_SDL_GetRelativeMouseState)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetRelativeMouseState(RING_API_GETINTPOINTER(1),RING_API_GETINTPOINTER(2)));
+	RING_API_ACCEPTINTVALUE(1) ;
+	RING_API_ACCEPTINTVALUE(2) ;
+}
+
+
+RING_FUNC(ring_SDL_SetCursor)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_SetCursor((SDL_Cursor *) RING_API_GETCPOINTER(1,"SDL_Cursor"));
+}
+
+
+RING_FUNC(ring_SDL_SetRelativeMouseMode)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_SetRelativeMouseMode( (SDL_bool ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_ShowCursor)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_ShowCursor( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_WarpMouseInWindow)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_WarpMouseInWindow((SDL_Window *) RING_API_GETCPOINTER(1,"SDL_Window"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -6346,6 +6559,19 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_settextinputrect",ring_SDL_SetTextInputRect);
 	ring_vm_funcregister("sdl_starttextinput",ring_SDL_StartTextInput);
 	ring_vm_funcregister("sdl_stoptextinput",ring_SDL_StopTextInput);
+	ring_vm_funcregister("sdl_createcolorcursor",ring_SDL_CreateColorCursor);
+	ring_vm_funcregister("sdl_createcursor",ring_SDL_CreateCursor);
+	ring_vm_funcregister("sdl_freecursor",ring_SDL_FreeCursor);
+	ring_vm_funcregister("sdl_getcursor",ring_SDL_GetCursor);
+	ring_vm_funcregister("sdl_getdefaultcursor",ring_SDL_GetDefaultCursor);
+	ring_vm_funcregister("sdl_getmousefocus",ring_SDL_GetMouseFocus);
+	ring_vm_funcregister("sdl_getmousestate",ring_SDL_GetMouseState);
+	ring_vm_funcregister("sdl_getrelativemousemode",ring_SDL_GetRelativeMouseMode);
+	ring_vm_funcregister("sdl_getrelativemousestate",ring_SDL_GetRelativeMouseState);
+	ring_vm_funcregister("sdl_setcursor",ring_SDL_SetCursor);
+	ring_vm_funcregister("sdl_setrelativemousemode",ring_SDL_SetRelativeMouseMode);
+	ring_vm_funcregister("sdl_showcursor",ring_SDL_ShowCursor);
+	ring_vm_funcregister("sdl_warpmouseinwindow",ring_SDL_WarpMouseInWindow);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
