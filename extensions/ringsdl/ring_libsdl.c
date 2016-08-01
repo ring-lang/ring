@@ -6353,12 +6353,7 @@ RING_FUNC(ring_SDL_JoystickGetAxis)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		Sint16 *pValue ; 
-		pValue = (Sint16 *) malloc(sizeof(Sint16)) ;
-		*pValue = SDL_JoystickGetAxis((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"), (int ) RING_API_GETNUMBER(2));
-		RING_API_RETCPOINTER(pValue,"Sint16");
-	}
+	RING_API_RETNUMBER(SDL_JoystickGetAxis((SDL_Joystick *) RING_API_GETCPOINTER(1,"SDL_Joystick"), (int ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -6637,6 +6632,338 @@ RING_FUNC(ring_SDL_NumJoysticks)
 		return ;
 	}
 	RING_API_RETNUMBER(SDL_NumJoysticks());
+}
+
+
+RING_FUNC(ring_SDL_GameControllerAddMapping)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GameControllerAddMapping(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerAddMappingsFromFile)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GameControllerAddMappingsFromFile(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerAddMappingsFromRW)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GameControllerAddMappingsFromRW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerClose)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_GameControllerClose((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController"));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerEventState)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GameControllerEventState( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetAttached)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GameControllerGetAttached((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController")));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetAxis)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GameControllerGetAxis((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController"), (SDL_GameControllerAxis )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetAxisFromString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GameControllerGetAxisFromString(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetBindForAxis)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		SDL_GameControllerButtonBind *pValue ; 
+		pValue = (SDL_GameControllerButtonBind *) malloc(sizeof(SDL_GameControllerButtonBind)) ;
+		*pValue = SDL_GameControllerGetBindForAxis((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController"), (SDL_GameControllerAxis )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"SDL_GameControllerButtonBind");
+	}
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetBindForButton)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		SDL_GameControllerButtonBind *pValue ; 
+		pValue = (SDL_GameControllerButtonBind *) malloc(sizeof(SDL_GameControllerButtonBind)) ;
+		*pValue = SDL_GameControllerGetBindForButton((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController"), (SDL_GameControllerButton )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"SDL_GameControllerButtonBind");
+	}
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetButton)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GameControllerGetButton((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController"), (SDL_GameControllerButton )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetButtonFromString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GameControllerGetButtonFromString(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetJoystick)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GameControllerGetJoystick((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController")),"SDL_Joystick");
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetStringForAxis)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GameControllerGetStringForAxis( (SDL_GameControllerAxis )  (int) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerGetStringForButton)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GameControllerGetStringForButton( (SDL_GameControllerButton )  (int) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerMapping)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GameControllerMapping((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController")));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerMappingForGUID)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GameControllerMappingForGUID(* (SDL_JoystickGUID  *) RING_API_GETCPOINTER(1,"SDL_JoystickGUID")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"SDL_JoystickGUID"));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerName)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GameControllerName((SDL_GameController *) RING_API_GETCPOINTER(1,"SDL_GameController")));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerNameForIndex)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(SDL_GameControllerNameForIndex( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SDL_GameControllerOpen)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(SDL_GameControllerOpen( (int ) RING_API_GETNUMBER(1)),"SDL_GameController");
+}
+
+
+RING_FUNC(ring_SDL_GameControllerUpdate)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SDL_GameControllerUpdate();
+}
+
+
+RING_FUNC(ring_SDL_IsGameController)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_IsGameController( (int ) RING_API_GETNUMBER(1)));
 }
 
 RING_DLL void ringlib_init(RingState *pRingState)
@@ -6936,6 +7263,28 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_joystickopen",ring_SDL_JoystickOpen);
 	ring_vm_funcregister("sdl_joystickupdate",ring_SDL_JoystickUpdate);
 	ring_vm_funcregister("sdl_numjoysticks",ring_SDL_NumJoysticks);
+	ring_vm_funcregister("sdl_gamecontrolleraddmapping",ring_SDL_GameControllerAddMapping);
+	ring_vm_funcregister("sdl_gamecontrolleraddmappingsfromfile",ring_SDL_GameControllerAddMappingsFromFile);
+	ring_vm_funcregister("sdl_gamecontrolleraddmappingsfromrw",ring_SDL_GameControllerAddMappingsFromRW);
+	ring_vm_funcregister("sdl_gamecontrollerclose",ring_SDL_GameControllerClose);
+	ring_vm_funcregister("sdl_gamecontrollereventstate",ring_SDL_GameControllerEventState);
+	ring_vm_funcregister("sdl_gamecontrollergetattached",ring_SDL_GameControllerGetAttached);
+	ring_vm_funcregister("sdl_gamecontrollergetaxis",ring_SDL_GameControllerGetAxis);
+	ring_vm_funcregister("sdl_gamecontrollergetaxisfromstring",ring_SDL_GameControllerGetAxisFromString);
+	ring_vm_funcregister("sdl_gamecontrollergetbindforaxis",ring_SDL_GameControllerGetBindForAxis);
+	ring_vm_funcregister("sdl_gamecontrollergetbindforbutton",ring_SDL_GameControllerGetBindForButton);
+	ring_vm_funcregister("sdl_gamecontrollergetbutton",ring_SDL_GameControllerGetButton);
+	ring_vm_funcregister("sdl_gamecontrollergetbuttonfromstring",ring_SDL_GameControllerGetButtonFromString);
+	ring_vm_funcregister("sdl_gamecontrollergetjoystick",ring_SDL_GameControllerGetJoystick);
+	ring_vm_funcregister("sdl_gamecontrollergetstringforaxis",ring_SDL_GameControllerGetStringForAxis);
+	ring_vm_funcregister("sdl_gamecontrollergetstringforbutton",ring_SDL_GameControllerGetStringForButton);
+	ring_vm_funcregister("sdl_gamecontrollermapping",ring_SDL_GameControllerMapping);
+	ring_vm_funcregister("sdl_gamecontrollermappingforguid",ring_SDL_GameControllerMappingForGUID);
+	ring_vm_funcregister("sdl_gamecontrollername",ring_SDL_GameControllerName);
+	ring_vm_funcregister("sdl_gamecontrollernameforindex",ring_SDL_GameControllerNameForIndex);
+	ring_vm_funcregister("sdl_gamecontrolleropen",ring_SDL_GameControllerOpen);
+	ring_vm_funcregister("sdl_gamecontrollerupdate",ring_SDL_GameControllerUpdate);
+	ring_vm_funcregister("sdl_isgamecontroller",ring_SDL_IsGameController);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);

@@ -9,6 +9,7 @@ aNumberTypes + "Uint32"
 aNumberTypes + "SDL_bool"
 aNumberTypes + "Uint16"
 aNumberTypes + "Uint8"
+aNumberTypes + "Sint16"
 aEnumTypes + "SDL_HintPriority"
 aEnumTypes + "SDL_LOG_CATEGORY"
 aEnumTypes + "SDL_LogPriority"
@@ -35,6 +36,8 @@ aEnumTypes + "SDL_Keycode"
 aEnumTypes + "SDL_Keymod"
 aEnumTypes + "SDL_Scancode"
 aEnumTypes + "SDL_JoystickPowerLevel"
+aEnumTypes + "SDL_GameControllerAxis"
+aEnumTypes + "SDL_GameControllerButton"
 </runcode>
 
 <funcstart>
@@ -576,3 +579,33 @@ int SDL_JoystickNumHats(SDL_Joystick *joystick)
 SDL_Joystick *SDL_JoystickOpen(int device_index)
 void SDL_JoystickUpdate(void)
 int SDL_NumJoysticks(void)
+
+<comment>
+GameController and Joystick Mapping
+</comment>
+
+int SDL_GameControllerAddMapping(const char *mappingString)
+int SDL_GameControllerAddMappingsFromFile(const char *filename)
+int SDL_GameControllerAddMappingsFromRW(SDL_RWops *rw,int freerw)
+void SDL_GameControllerClose(SDL_GameController *gamecontroller)
+int SDL_GameControllerEventState(int state)
+<comment>
+SDL_GameController* SDL_GameControllerFromInstanceID(SDL_JoystickID joyid)
+</comment>
+SDL_bool SDL_GameControllerGetAttached(SDL_GameController *gamecontroller)
+Sint16 SDL_GameControllerGetAxis(SDL_GameController *gamecontroller,SDL_GameControllerAxis axis)
+SDL_GameControllerAxis SDL_GameControllerGetAxisFromString(const char *pchString)
+SDL_GameControllerButtonBind SDL_GameControllerGetBindForAxis(SDL_GameController *gamecontroller,SDL_GameControllerAxis axis)
+SDL_GameControllerButtonBind SDL_GameControllerGetBindForButton(SDL_GameController *gamecontroller,SDL_GameControllerButton button)
+Uint8 SDL_GameControllerGetButton(SDL_GameController *gamecontroller,SDL_GameControllerButton button)
+SDL_GameControllerButton SDL_GameControllerGetButtonFromString(const char *pchString)
+SDL_Joystick *SDL_GameControllerGetJoystick(SDL_GameController *gamecontroller)
+const char *SDL_GameControllerGetStringForAxis(SDL_GameControllerAxis axis)
+const char *SDL_GameControllerGetStringForButton(SDL_GameControllerButton button)
+char *SDL_GameControllerMapping(SDL_GameController *gamecontroller)
+char *SDL_GameControllerMappingForGUID(SDL_JoystickGUID guid)
+const char *SDL_GameControllerName(SDL_GameController *gamecontroller)
+const char *SDL_GameControllerNameForIndex(int joystick_index)
+SDL_GameController* SDL_GameControllerOpen(int joystick_index)
+void SDL_GameControllerUpdate(void)
+SDL_bool SDL_IsGameController(int joystick_index)
