@@ -753,3 +753,22 @@ Platform Detection
 
 const char *SDL_GetPlatform(void)
 
+<comment>
+CPU Feature Detection
+</comment>
+
+int SDL_GetCPUCacheLineSize(void)
+int SDL_GetCPUCount(void)
+int SDL_GetSystemRAM(void)
+SDL_bool SDL_Has3DNow(void)
+SDL_bool SDL_HasAVX(void)
+SDL_bool SDL_HasAVX2(void)
+SDL_bool SDL_HasAltiVec(void)
+SDL_bool SDL_HasMMX(void)
+SDL_bool SDL_HasRDTSC(void)
+SDL_bool SDL_HasSSE(void)
+SDL_bool SDL_HasSSE2(void)
+SDL_bool SDL_HasSSE3(void)
+SDL_bool SDL_HasSSE41(void)
+SDL_bool SDL_HasSSE42(void)
+

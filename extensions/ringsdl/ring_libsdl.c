@@ -8700,6 +8700,146 @@ RING_FUNC(ring_SDL_GetPlatform)
 	RING_API_RETSTRING(SDL_GetPlatform());
 }
 
+
+RING_FUNC(ring_SDL_GetCPUCacheLineSize)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetCPUCacheLineSize());
+}
+
+
+RING_FUNC(ring_SDL_GetCPUCount)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetCPUCount());
+}
+
+
+RING_FUNC(ring_SDL_GetSystemRAM)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_GetSystemRAM());
+}
+
+
+RING_FUNC(ring_SDL_Has3DNow)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_Has3DNow());
+}
+
+
+RING_FUNC(ring_SDL_HasAVX)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasAVX());
+}
+
+
+RING_FUNC(ring_SDL_HasAVX2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasAVX2());
+}
+
+
+RING_FUNC(ring_SDL_HasAltiVec)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasAltiVec());
+}
+
+
+RING_FUNC(ring_SDL_HasMMX)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasMMX());
+}
+
+
+RING_FUNC(ring_SDL_HasRDTSC)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasRDTSC());
+}
+
+
+RING_FUNC(ring_SDL_HasSSE)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasSSE());
+}
+
+
+RING_FUNC(ring_SDL_HasSSE2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasSSE2());
+}
+
+
+RING_FUNC(ring_SDL_HasSSE3)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasSSE3());
+}
+
+
+RING_FUNC(ring_SDL_HasSSE41)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasSSE41());
+}
+
+
+RING_FUNC(ring_SDL_HasSSE42)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDL_HasSSE42());
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -9107,6 +9247,20 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_loadobject",ring_SDL_LoadObject);
 	ring_vm_funcregister("sdl_unloadobject",ring_SDL_UnloadObject);
 	ring_vm_funcregister("sdl_getplatform",ring_SDL_GetPlatform);
+	ring_vm_funcregister("sdl_getcpucachelinesize",ring_SDL_GetCPUCacheLineSize);
+	ring_vm_funcregister("sdl_getcpucount",ring_SDL_GetCPUCount);
+	ring_vm_funcregister("sdl_getsystemram",ring_SDL_GetSystemRAM);
+	ring_vm_funcregister("sdl_has3dnow",ring_SDL_Has3DNow);
+	ring_vm_funcregister("sdl_hasavx",ring_SDL_HasAVX);
+	ring_vm_funcregister("sdl_hasavx2",ring_SDL_HasAVX2);
+	ring_vm_funcregister("sdl_hasaltivec",ring_SDL_HasAltiVec);
+	ring_vm_funcregister("sdl_hasmmx",ring_SDL_HasMMX);
+	ring_vm_funcregister("sdl_hasrdtsc",ring_SDL_HasRDTSC);
+	ring_vm_funcregister("sdl_hassse",ring_SDL_HasSSE);
+	ring_vm_funcregister("sdl_hassse2",ring_SDL_HasSSE2);
+	ring_vm_funcregister("sdl_hassse3",ring_SDL_HasSSE3);
+	ring_vm_funcregister("sdl_hassse41",ring_SDL_HasSSE41);
+	ring_vm_funcregister("sdl_hassse42",ring_SDL_HasSSE42);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
