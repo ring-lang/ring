@@ -8864,6 +8864,462 @@ RING_FUNC(ring_SDL_acos)
 	RING_API_RETNUMBER(SDL_acos( (double ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_IMG_Init)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_Init( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_IMG_Quit)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	IMG_Quit();
+}
+
+
+RING_FUNC(ring_IMG_Load)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_Load(RING_API_GETSTRING(1)),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_Load_RW)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_Load_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (int ) RING_API_GETNUMBER(2)),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadTyped_RW)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadTyped_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3)),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadCUR_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadCUR_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadBMP_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadBMP_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadPNM_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadPNM_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadXPM_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadXPM_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadXCF_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadXCF_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadPCX_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadPCX_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadGIF_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadGIF_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadJPG_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadJPG_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadTIF_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadTIF_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadPNG_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadPNG_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadTGA_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadTGA_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadLBM_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadLBM_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_LoadXV_RW)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_LoadXV_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_ReadXPMFromArray)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(IMG_ReadXPMFromArray((char *) RING_API_GETCPOINTER(1,"char")),"SDL_Surface");
+}
+
+
+RING_FUNC(ring_IMG_isCUR)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isCUR((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isICO)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isICO((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isBMP)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isBMP((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isPNM)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isPNM((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isXPM)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isXPM((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isXCF)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isXCF((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isPCX)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isPCX((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isGIF)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isGIF((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isJPG)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isJPG((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isTIF)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isTIF((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isPNG)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isPNG((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isLBM)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isLBM((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
+
+RING_FUNC(ring_IMG_isXV)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IMG_isXV((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -9286,6 +9742,38 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_hassse42",ring_SDL_HasSSE42);
 	ring_vm_funcregister("sdl_getpowerinfo",ring_SDL_GetPowerInfo);
 	ring_vm_funcregister("sdl_acos",ring_SDL_acos);
+	ring_vm_funcregister("img_init",ring_IMG_Init);
+	ring_vm_funcregister("img_quit",ring_IMG_Quit);
+	ring_vm_funcregister("img_load",ring_IMG_Load);
+	ring_vm_funcregister("img_load_rw",ring_IMG_Load_RW);
+	ring_vm_funcregister("img_loadtyped_rw",ring_IMG_LoadTyped_RW);
+	ring_vm_funcregister("img_loadcur_rw",ring_IMG_LoadCUR_RW);
+	ring_vm_funcregister("img_loadbmp_rw",ring_IMG_LoadBMP_RW);
+	ring_vm_funcregister("img_loadpnm_rw",ring_IMG_LoadPNM_RW);
+	ring_vm_funcregister("img_loadxpm_rw",ring_IMG_LoadXPM_RW);
+	ring_vm_funcregister("img_loadxcf_rw",ring_IMG_LoadXCF_RW);
+	ring_vm_funcregister("img_loadpcx_rw",ring_IMG_LoadPCX_RW);
+	ring_vm_funcregister("img_loadgif_rw",ring_IMG_LoadGIF_RW);
+	ring_vm_funcregister("img_loadjpg_rw",ring_IMG_LoadJPG_RW);
+	ring_vm_funcregister("img_loadtif_rw",ring_IMG_LoadTIF_RW);
+	ring_vm_funcregister("img_loadpng_rw",ring_IMG_LoadPNG_RW);
+	ring_vm_funcregister("img_loadtga_rw",ring_IMG_LoadTGA_RW);
+	ring_vm_funcregister("img_loadlbm_rw",ring_IMG_LoadLBM_RW);
+	ring_vm_funcregister("img_loadxv_rw",ring_IMG_LoadXV_RW);
+	ring_vm_funcregister("img_readxpmfromarray",ring_IMG_ReadXPMFromArray);
+	ring_vm_funcregister("img_iscur",ring_IMG_isCUR);
+	ring_vm_funcregister("img_isico",ring_IMG_isICO);
+	ring_vm_funcregister("img_isbmp",ring_IMG_isBMP);
+	ring_vm_funcregister("img_ispnm",ring_IMG_isPNM);
+	ring_vm_funcregister("img_isxpm",ring_IMG_isXPM);
+	ring_vm_funcregister("img_isxcf",ring_IMG_isXCF);
+	ring_vm_funcregister("img_ispcx",ring_IMG_isPCX);
+	ring_vm_funcregister("img_isgif",ring_IMG_isGIF);
+	ring_vm_funcregister("img_isjpg",ring_IMG_isJPG);
+	ring_vm_funcregister("img_istif",ring_IMG_isTIF);
+	ring_vm_funcregister("img_ispng",ring_IMG_isPNG);
+	ring_vm_funcregister("img_islbm",ring_IMG_isLBM);
+	ring_vm_funcregister("img_isxv",ring_IMG_isXV);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
