@@ -9,6 +9,8 @@
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
 #include "SDL_syswm.h"
+#include "SDL_image.h"
+#include "SDL_ttf.h"
 RING_FUNC(ring_sdl_new_sdl_assert_data)
 {
 	SDL_assert_data *pMyPointer ;
@@ -9320,6 +9322,36 @@ RING_FUNC(ring_IMG_isXV)
 	RING_API_RETNUMBER(IMG_isXV((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops")));
 }
 
+
+RING_FUNC(ring_TTF_Init)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(TTF_Init());
+}
+
+
+RING_FUNC(ring_TTF_WasInit)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(TTF_WasInit());
+}
+
+
+RING_FUNC(ring_TTF_Quit)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	TTF_Quit();
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -9774,6 +9806,9 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("img_ispng",ring_IMG_isPNG);
 	ring_vm_funcregister("img_islbm",ring_IMG_isLBM);
 	ring_vm_funcregister("img_isxv",ring_IMG_isXV);
+	ring_vm_funcregister("ttf_init",ring_TTF_Init);
+	ring_vm_funcregister("ttf_wasinit",ring_TTF_WasInit);
+	ring_vm_funcregister("ttf_quit",ring_TTF_Quit);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);

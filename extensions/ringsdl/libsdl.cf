@@ -2,6 +2,8 @@
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
 #include "SDL_syswm.h"
+#include "SDL_image.h"
+#include "SDL_ttf.h"
 </code>
 
 <runcode>
@@ -827,3 +829,54 @@ int IMG_isXV(SDL_RWops *src)
 void IMG_SetError(const char *fmt)
 char *IMG_GetError(void)
 </comment>
+
+<comment>
+SDL_ttf
+</comment>
+
+int TTF_Init(void)
+int TTF_WasInit(void)
+void TTF_Quit(void)
+<comment>
+void TTF_SetError(const char *fmt)
+char *TTF_GetError(void)
+</comment>
+TTF_Font *TTF_OpenFont(const char *file, int ptsize)
+TTF_Font *TTF_OpenFontRW(SDL_RWops *src, int freesrc, int ptsize)
+TTF_Font *TTF_OpenFontIndex(const char *file, int ptsize, long index)
+TTF_Font *TTF_OpenFontIndexRW(SDL_RWops *src, int freesrc, int ptsize, long index)
+void TTF_CloseFont(TTF_Font *font)
+void TTF_ByteSwappedUNICODE(int swapped)
+int TTF_GetFontStyle(TTF_Font *font)
+void TTF_SetFontStyle(TTF_Font *font, int style)
+int TTF_GetFontOutline(TTF_Font *font)
+void TTF_SetFontOutline(TTF_Font *font, int outline)
+int TTF_GetFontHinting(TTF_Font *font)
+void TTF_SetFontHinting(TTF_Font *font, int hinting)
+int TTF_GetFontKerning(TTF_Font *font)
+void TTF_SetFontKerning(TTF_Font *font, int allowed)
+int TTF_FontHeight(const TTF_Font *font)
+int TTF_FontAscent(const TTF_Font *font)
+int TTF_FontDescent(const TTF_Font *font)
+int TTF_FontLineSkip(const TTF_Font *font)
+long TTF_FontFaces(const TTF_Font *font)
+int TTF_FontFaceIsFixedWidth(const TTF_Font *font)
+char * TTF_FontFaceFamilyName(const TTF_Font *font)
+char * TTF_FontFaceStyleName(const TTF_Font *font)
+int TTF_GlyphIsProvided(const TTF_Font *font, Uint16 ch)
+int TTF_GlyphMetrics(TTF_Font *font, Uint16 ch, int *minx, int *maxx, int *miny, int *maxy, int *advance)
+int TTF_SizeText(TTF_Font *font, const char *text, int *w, int *h)
+int TTF_SizeUTF8(TTF_Font *font, const char *text, int *w, int *h)
+int TTF_SizeUNICODE(TTF_Font *font, const Unit16 *text, int *w, int *h)
+SDL_Surface *TTF_RenderText Solid(TTF_Font *font, const char *text, SDL_Color fg)
+SDL_Surface *TTF_RenderUTF8 Solid(TTF_Font *font, const char *text,SDL_Color fg)
+SDL_Surface *TTF_RenderUNICODE Solid(TTF_Font *font, const Uint16 *text,SDL_Color fg)
+SDL_Surface *TTF_RenderGlyph Solid(TTF_Font *font, Uint16 ch, SDL_Color fg)
+SDL_Surface *TTF_RenderText Shaded(TTF_Font *font, const char *text,SDL_Color fg, SDL_Color bg)
+SDL_Surface *TTF_RenderUTF8 Shaded(TTF_Font *font, const char *text,SDL_Color fg, SDL_Color bg)
+SDL_Surface *TTF_RenderUNICODE Shaded(TTF_Font *font, const Uint16 *text,SDL_Color fg, SDL_Color bg)
+SDL_Surface *TTF_RenderGlyph Shaded(TTF_Font *font, Uint16 ch, SDL_Color fg,SDL_Color bg)
+SDL_Surface *TTF_RenderText Blended(TTF_Font *font, const char *text,SDL_Color fg)
+SDL_Surface *TTF_RenderUTF8 Blended(TTF_Font *font, const char *text,SDL_Color fg)
+SDL_Surface *TTF_RenderUNICODE Blended(TTF_Font *font, const Uint16 *text,SDL_Color fg)
+SDL_Surface *TTF_RenderGlyph Blended(TTF_Font *font, Uint16 ch, SDL_Color fg)
