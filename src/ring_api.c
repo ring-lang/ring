@@ -187,6 +187,11 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 				RING_API_ERROR(RING_API_BADPARATYPE);
 				return NULL ;
 			}
+			else {
+				if ( strcmp(ring_list_getstring(pList,2),"NULLPOINTER") == 0 ) {
+					return NULL ;
+				}
+			}
 			RING_API_ERROR(RING_API_NULLPOINTER);
 			return NULL ;
 		}
@@ -1565,5 +1570,5 @@ void ring_vmlib_pointer2object ( void *pPointer )
 
 void ring_vmlib_nullpointer ( void *pPointer )
 {
-	RING_API_RETCPOINTER(NULL,"void *");
+	RING_API_RETCPOINTER(NULL,"NULLPOINTER");
 }
