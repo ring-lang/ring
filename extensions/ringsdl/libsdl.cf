@@ -156,7 +156,7 @@ void SDL_ClearHints(void)
 <comment>
 void SDL_DelHintCallback(const char *name, SDL_HintCallback callback,void *userdata)
 </comment>
-const char *SDL_GetHint(const char* name)
+const char *SDL_GetHint(const char * name)
 SDL_bool SDL_SetHint(const char *name,const char *value)
 SDL_bool SDL_SetHintWithPriority(const char *name,const char *value,SDL_HintPriority priority)
 
@@ -175,7 +175,7 @@ Log Handling
 void SDL_Log(const char *fmt)
 void SDL_LogCritical(int category,const char *fmt)
 void SDL_LogDebug(int category,const char *fmt)
-void SDL_LogError(int category,const char* fmt)
+void SDL_LogError(int category,const char * fmt)
 <comment>
 void SDL_LogGetOutputFunction(SDL_LogOutputFunction *callback,void **userdata)
 </comment>
@@ -214,7 +214,7 @@ void SDL_assert_release(int)
 Querying SDL Version
 </comment>
 
-const char* SDL_GetRevision(void)
+const char * SDL_GetRevision(void)
 int SDL_GetRevisionNumber(void)
 void SDL_GetVersion(SDL_version *ver)
 
@@ -230,7 +230,7 @@ SDL_VERSION_ATLEAST
 Display and Window Management
 </comment>
 
-SDL_Window *SDL_CreateWindow(const char* title,int x, int y,int w,int h,Uint32 flags)
+SDL_Window *SDL_CreateWindow(const char * title,int x, int y,int w,int h,Uint32 flags)
 <comment>
 int SDL_CreateWindowAndRenderer(int width,int height,Uint32 window_flags,SDL_Window **window,SDL_Renderer **renderer)
 </comment>
@@ -271,7 +271,7 @@ SDL_Window *SDL_GetGrabbedWindow(void)
 int SDL_GetNumDisplayModes(int displayIndex)
 int SDL_GetNumVideoDisplays(void)
 int SDL_GetNumVideoDrivers(void)
-const char* SDL_GetVideoDriver(int index)
+const char * SDL_GetVideoDriver(int index)
 <comment>
 int SDL_GetWindowBordersSize(SDL_Window *window,int *top,int *left,int *bottom,int *right)
 </comment>
@@ -523,15 +523,15 @@ int SDL_WaitEventTimeout(SDL_Event *event,int timeout)
 Keyboard Support
 </comment>
 
-SDL_Keycode SDL_GetKeyFromName(const char* name)
+SDL_Keycode SDL_GetKeyFromName(const char * name)
 SDL_Keycode SDL_GetKeyFromScancode(SDL_Scancode scancode)
-const char* SDL_GetKeyName(SDL_Keycode key)
+const char * SDL_GetKeyName(SDL_Keycode key)
 SDL_Window* SDL_GetKeyboardFocus(void)
 const Uint8* SDL_GetKeyboardState(int* numkeys)
 SDL_Keymod SDL_GetModState(void)
 SDL_Scancode SDL_GetScancodeFromKey(SDL_Keycode key)
-SDL_Scancode SDL_GetScancodeFromName(const char* name)
-const char* SDL_GetScancodeName(SDL_Scancode scancode)
+SDL_Scancode SDL_GetScancodeFromName(const char * name)
+const char * SDL_GetScancodeName(SDL_Scancode scancode)
 SDL_bool SDL_HasScreenKeyboardSupport(void)
 SDL_bool SDL_IsScreenKeyboardShown(SDL_Window* window)
 SDL_bool SDL_IsTextInputActive(void)
@@ -667,7 +667,7 @@ int SDL_NumHaptics(void)
 Audio Device Management and Audio Playback
 </comment>
 
-int SDL_AudioInit(const char* driver_name)
+int SDL_AudioInit(const char * driver_name)
 void SDL_AudioQuit(void)
 int SDL_BuildAudioCVT(SDL_AudioCVT *cvt,SDL_AudioFormat src_format,Uint8 src_channels,int src_rate,SDL_AudioFormat dst_format,Uint8 dst_channels,int dst_rate)
 <comment>
@@ -677,11 +677,11 @@ void SDL_CloseAudio(void)
 void SDL_CloseAudioDevice(SDL_AudioDeviceID dev)
 int SDL_ConvertAudio(SDL_AudioCVT *cvt)
 void SDL_FreeWAV(Uint8 *audio_buf)
-const char* SDL_GetAudioDeviceName(int index,int iscapture)
+const char * SDL_GetAudioDeviceName(int index,int iscapture)
 SDL_AudioStatus SDL_GetAudioDeviceStatus(SDL_AudioDeviceID dev)
-const char* SDL_GetAudioDriver(int index)
+const char * SDL_GetAudioDriver(int index)
 SDL_AudioStatus SDL_GetAudioStatus(void)
-const char* SDL_GetCurrentAudioDriver(void)
+const char * SDL_GetCurrentAudioDriver(void)
 int SDL_GetNumAudioDevices(int iscapture)
 int SDL_GetNumAudioDrivers(void)
 <comment>

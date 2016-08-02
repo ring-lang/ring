@@ -1844,11 +1844,11 @@ RING_FUNC(ring_SDL_GetHint)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(SDL_GetHint((char *) RING_API_GETCPOINTER(1,"char")));
+	RING_API_RETSTRING(SDL_GetHint(RING_API_GETSTRING(1)));
 }
 
 
@@ -1986,11 +1986,11 @@ RING_FUNC(ring_SDL_LogError)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	SDL_LogError( (int ) RING_API_GETNUMBER(1),(char *) RING_API_GETCPOINTER(2,"char"));
+	SDL_LogError( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
 }
 
 
@@ -2235,7 +2235,7 @@ RING_FUNC(ring_SDL_GetRevision)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	RING_API_RETCPOINTER(SDL_GetRevision(),"char");
+	RING_API_RETSTRING(SDL_GetRevision());
 }
 
 
@@ -2269,7 +2269,7 @@ RING_FUNC(ring_SDL_CreateWindow)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -2293,7 +2293,7 @@ RING_FUNC(ring_SDL_CreateWindow)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(SDL_CreateWindow((char *) RING_API_GETCPOINTER(1,"char"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (Uint32 ) RING_API_GETNUMBER(6)),"SDL_Window");
+	RING_API_RETCPOINTER(SDL_CreateWindow(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (Uint32 ) RING_API_GETNUMBER(6)),"SDL_Window");
 }
 
 
@@ -2708,7 +2708,7 @@ RING_FUNC(ring_SDL_GetVideoDriver)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(SDL_GetVideoDriver( (int ) RING_API_GETNUMBER(1)),"char");
+	RING_API_RETSTRING(SDL_GetVideoDriver( (int ) RING_API_GETNUMBER(1)));
 }
 
 
@@ -6187,11 +6187,11 @@ RING_FUNC(ring_SDL_GetKeyFromName)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(SDL_GetKeyFromName((char *) RING_API_GETCPOINTER(1,"char")));
+	RING_API_RETNUMBER(SDL_GetKeyFromName(RING_API_GETSTRING(1)));
 }
 
 
@@ -6219,7 +6219,7 @@ RING_FUNC(ring_SDL_GetKeyName)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(SDL_GetKeyName( (SDL_Keycode )  (int) RING_API_GETNUMBER(1)),"char");
+	RING_API_RETSTRING(SDL_GetKeyName( (SDL_Keycode )  (int) RING_API_GETNUMBER(1)));
 }
 
 
@@ -6278,11 +6278,11 @@ RING_FUNC(ring_SDL_GetScancodeFromName)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(SDL_GetScancodeFromName((char *) RING_API_GETCPOINTER(1,"char")));
+	RING_API_RETNUMBER(SDL_GetScancodeFromName(RING_API_GETSTRING(1)));
 }
 
 
@@ -6296,7 +6296,7 @@ RING_FUNC(ring_SDL_GetScancodeName)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(SDL_GetScancodeName( (SDL_Scancode )  (int) RING_API_GETNUMBER(1)),"char");
+	RING_API_RETSTRING(SDL_GetScancodeName( (SDL_Scancode )  (int) RING_API_GETNUMBER(1)));
 }
 
 
@@ -7737,11 +7737,11 @@ RING_FUNC(ring_SDL_AudioInit)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(SDL_AudioInit((char *) RING_API_GETCPOINTER(1,"char")));
+	RING_API_RETNUMBER(SDL_AudioInit(RING_API_GETSTRING(1)));
 }
 
 
@@ -7857,7 +7857,7 @@ RING_FUNC(ring_SDL_GetAudioDeviceName)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(SDL_GetAudioDeviceName( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)),"char");
+	RING_API_RETSTRING(SDL_GetAudioDeviceName( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -7883,7 +7883,7 @@ RING_FUNC(ring_SDL_GetAudioDriver)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(SDL_GetAudioDriver( (int ) RING_API_GETNUMBER(1)),"char");
+	RING_API_RETSTRING(SDL_GetAudioDriver( (int ) RING_API_GETNUMBER(1)));
 }
 
 
@@ -7903,7 +7903,7 @@ RING_FUNC(ring_SDL_GetCurrentAudioDriver)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	RING_API_RETCPOINTER(SDL_GetCurrentAudioDriver(),"char");
+	RING_API_RETSTRING(SDL_GetCurrentAudioDriver());
 }
 
 
