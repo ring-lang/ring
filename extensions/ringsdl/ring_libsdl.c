@@ -356,6 +356,108 @@ RING_FUNC(ring_sdl_destroy_sdl_color)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_color_r)
+{
+	SDL_Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Color");
+	RING_API_RETNUMBER(pMyPointer->r);
+}
+
+RING_FUNC(ring_sdl_set_sdl_color_r)
+{
+	SDL_Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Color");
+	pMyPointer->r = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_color_g)
+{
+	SDL_Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Color");
+	RING_API_RETNUMBER(pMyPointer->g);
+}
+
+RING_FUNC(ring_sdl_set_sdl_color_g)
+{
+	SDL_Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Color");
+	pMyPointer->g = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_color_b)
+{
+	SDL_Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Color");
+	RING_API_RETNUMBER(pMyPointer->b);
+}
+
+RING_FUNC(ring_sdl_set_sdl_color_b)
+{
+	SDL_Color *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Color");
+	pMyPointer->b = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_new_sdl_palette)
 {
 	SDL_Palette *pMyPointer ;
@@ -10622,6 +10724,12 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_rendererinfo",ring_sdl_destroy_sdl_rendererinfo);
 	ring_vm_funcregister("sdl_new_sdl_color",ring_sdl_new_sdl_color);
 	ring_vm_funcregister("sdl_destroy_sdl_color",ring_sdl_destroy_sdl_color);
+	ring_vm_funcregister("sdl_get_sdl_color_r",ring_sdl_get_sdl_color_r);
+	ring_vm_funcregister("sdl_set_sdl_color_r",ring_sdl_set_sdl_color_r);
+	ring_vm_funcregister("sdl_get_sdl_color_g",ring_sdl_get_sdl_color_g);
+	ring_vm_funcregister("sdl_set_sdl_color_g",ring_sdl_set_sdl_color_g);
+	ring_vm_funcregister("sdl_get_sdl_color_b",ring_sdl_get_sdl_color_b);
+	ring_vm_funcregister("sdl_set_sdl_color_b",ring_sdl_set_sdl_color_b);
 	ring_vm_funcregister("sdl_new_sdl_palette",ring_sdl_new_sdl_palette);
 	ring_vm_funcregister("sdl_destroy_sdl_palette",ring_sdl_destroy_sdl_palette);
 	ring_vm_funcregister("sdl_new_sdl_pixelformat",ring_sdl_new_sdl_pixelformat);

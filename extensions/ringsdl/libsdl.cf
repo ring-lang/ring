@@ -60,7 +60,7 @@ SDL_MessageBoxColor
 SDL_MessageBoxColorScheme
 SDL_MessageBoxData
 SDL_RendererInfo
-SDL_Color
+SDL_Color {r,g,b}
 SDL_Palette
 SDL_PixelFormat
 SDL_Point {x,y}
