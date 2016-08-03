@@ -689,6 +689,7 @@ Func GenStruct	aFunc
 				"}" + nl + nl
 		else
 			cPointerType = left(cItem,nPointer)
+			cPointerTypeRet = trim(substr(cPointerType,"*",""))
 			cItem = substr(cItem,nPointer+1)
 			x = substr(x,nPointer+1)
 			# Generate Functions to Get Struct Members Values
@@ -707,7 +708,7 @@ Func GenStruct	aFunc
 				GenTabs(1) + "}" + nl +
 				GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
 				'"'+cStruct  +'");' + nl +			
-				GenTabs(1) + "RING_API_RETCPOINTER(pMyPointer->"+x+',"'+cPointerType+'"'+");" + nl +
+				GenTabs(1) + "RING_API_RETCPOINTER(pMyPointer->"+x+',"'+cPointerTypeRet+'"'+");" + nl +
 				"}" + nl + nl
 			# Generate Functions to Set Struct Members Value
 			cFuncName = $cFuncStart+"set_"+lower(cStruct)+"_"+cItem
