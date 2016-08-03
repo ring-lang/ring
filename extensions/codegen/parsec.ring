@@ -642,52 +642,96 @@ Func GenStruct	aFunc
 			'"'+cStruct  +'");' + nl +
 			GenTabs(1) + "free(pMyPointer) ;" + nl +						
 			"}" + nl + nl
-	# Generate Functions to Get Struct Members Values
-	# We expect the members to be of type (numbers)
-	# To Do : Generate Functions to Set Struct Members Values
-	# To Do : Deal with struct members of type : strings
+	# We expect the members to be of type (numbers) or (pointers)
 	for x in aStructMembers
 		cItem = substr(x,".","_")
-		cFuncName = $cFuncStart+"get_"+lower(cStruct)+"_"+cItem
-		$aStructFuncs + cFuncName
-		cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
-			"{" + nl + 
-			GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
-			GenTabs(1) + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
-			GenTabs(2) +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
-			GenTabs(2) + "return ;" + nl +
-			GenTabs(1) + "}" + nl +
-			GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
-			GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-			GenTabs(2) + "return ;" + nl + 
-			GenTabs(1) + "}" + nl +
-			GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
-			'"'+cStruct  +'");' + nl +			
-			GenTabs(1) + "RING_API_RETNUMBER(pMyPointer->"+x+");" + nl +
-			"}" + nl + nl
-		# Generate Function to Set Struct Member Value
-		cFuncName = $cFuncStart+"set_"+lower(cStruct)+"_"+cItem
-		$aStructFuncs + cFuncName
-		cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
-			"{" + nl + 
-			GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
-			GenTabs(1) + "if ( RING_API_PARACOUNT != 2 ) {" + nl +
-			GenTabs(2) +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
-			GenTabs(2) + "return ;" + nl +
-			GenTabs(1) + "}" + nl +
-			GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
-			GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-			GenTabs(2) + "return ;" + nl + 
-			GenTabs(1) + "}" + nl +
-			GenTabs(1) + "if ( ! RING_API_ISNUMBER(2) ) { " + nl +
-			GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-			GenTabs(2) + "return ;" + nl + 
-			GenTabs(1) + "}" + nl +
-			GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
-			'"'+cStruct  +'");' + nl +			
-			GenTabs(1) + "pMyPointer->"+x+" = "+"RING_API_GETNUMBER(2);" + nl +
-			"}" + nl + nl
-
+		nPointer = substr(cItem,"*")
+		if not nPointer	# The item is number - not pointer
+			# Generate Functions to Get Struct Members Values
+			cFuncName = $cFuncStart+"get_"+lower(cStruct)+"_"+cItem
+			$aStructFuncs + cFuncName
+			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+				"{" + nl + 
+				GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
+				GenTabs(1) + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
+				GenTabs(2) +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
+				GenTabs(2) + "return ;" + nl +
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				GenTabs(2) + "return ;" + nl + 
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
+				'"'+cStruct  +'");' + nl +			
+				GenTabs(1) + "RING_API_RETNUMBER(pMyPointer->"+x+");" + nl +
+				"}" + nl + nl
+			# Generate Functions to Set Struct Members Value
+			cFuncName = $cFuncStart+"set_"+lower(cStruct)+"_"+cItem
+			$aStructFuncs + cFuncName
+			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+				"{" + nl + 
+				GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
+				GenTabs(1) + "if ( RING_API_PARACOUNT != 2 ) {" + nl +
+				GenTabs(2) +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
+				GenTabs(2) + "return ;" + nl +
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				GenTabs(2) + "return ;" + nl + 
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "if ( ! RING_API_ISNUMBER(2) ) { " + nl +
+				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				GenTabs(2) + "return ;" + nl + 
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
+				'"'+cStruct  +'");' + nl +			
+				GenTabs(1) + "pMyPointer->"+x+" = "+"RING_API_GETNUMBER(2);" + nl +
+				"}" + nl + nl
+		else
+			cPointerType = left(cItem,nPointer)
+			cItem = substr(cItem,nPointer+1)
+			x = substr(x,nPointer+1)
+			# Generate Functions to Get Struct Members Values
+			cFuncName = $cFuncStart+"get_"+lower(cStruct)+"_"+cItem
+			$aStructFuncs + cFuncName
+			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+				"{" + nl + 
+				GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
+				GenTabs(1) + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
+				GenTabs(2) +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
+				GenTabs(2) + "return ;" + nl +
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				GenTabs(2) + "return ;" + nl + 
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
+				'"'+cStruct  +'");' + nl +			
+				GenTabs(1) + "RING_API_RETCPOINTER(pMyPointer->"+x+',"'+cPointerType+'"'+");" + nl +
+				"}" + nl + nl
+			# Generate Functions to Set Struct Members Value
+			cFuncName = $cFuncStart+"set_"+lower(cStruct)+"_"+cItem
+			$aStructFuncs + cFuncName
+			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+				"{" + nl + 
+				GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
+				GenTabs(1) + "if ( RING_API_PARACOUNT != 2 ) {" + nl +
+				GenTabs(2) +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
+				GenTabs(2) + "return ;" + nl +
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				GenTabs(2) + "return ;" + nl + 
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "if ( ! RING_API_ISPOINTER(2) ) { " + nl +
+				GenTabs(2) + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				GenTabs(2) + "return ;" + nl + 
+				GenTabs(1) + "}" + nl +
+				GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
+				'"'+cStruct  +'");' + nl +			
+				GenTabs(1) + "pMyPointer->"+x+" = ("+cPointerType+") RING_API_GETCPOINTER(2,"+'"'+cPointerType +'"'+");" + nl +
+				"}" + nl + nl			
+		ok
 	next
 	return cCode
 
