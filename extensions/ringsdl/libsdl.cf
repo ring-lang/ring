@@ -65,7 +65,7 @@ SDL_Palette
 SDL_PixelFormat
 SDL_Point {x,y}
 SDL_Rect {x,y,w,h}
-SDL_Surface
+SDL_Surface {SDL_PixelFormat *format}
 SDL_SysWMinfo
 SDL_SysWMmsg
 SDL_ControllerAxisEvent
