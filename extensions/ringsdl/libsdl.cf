@@ -3,7 +3,8 @@
 #include "SDL.h"
 #include "SDL_syswm.h"
 #include "SDL_image.h"
-#include "SDL_ttf.h"
+#include "SDL_ttf.h"
+#include "SDL_mixer.h"
 </code>
 
 <runcode>
@@ -104,6 +105,9 @@ SDL_HapticRamp
 SDL_AudioCVT
 SDL_AudioSpec
 SDL_RWops
+Mix_Chunk
+Mix_MusicType
+Mix_Fading
 </struct>
 
 <register>
@@ -880,3 +884,90 @@ SDL_Surface *TTF_RenderGlyph_Blended(TTF_Font *font, Uint16 ch, SDL_Color fg)
 void TTF_SetError(const char *fmt)
 char *TTF_GetError(void)
 </comment>
+
+<comment>
+SDL_Mixer
+</comment>
+
+int Mix_Init(int flags)
+void Mix_Quit(void)
+int Mix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize)
+void Mix_CloseAudio(void)
+void Mix_SetError(const char *fmt)
+char *Mix_GetError(void)
+int Mix_QuerySpec(int *frequency, Uint16 *format, int *channels)
+int Mix_GetNumChunkDecoders(void)
+const char *Mix_GetChunkDecoder(int index)
+Mix_Chunk *Mix_LoadWAV(char *file)
+Mix_Chunk *Mix_LoadWAV_RW(SDL_RWops *src, int freesrc)
+Mix_Chunk *Mix_QuickLoad_WAV(Uint8 *mem)
+<comment>
+Mix_Chunk *Mix_QuickLoad_RAW(Uint8 *mem)
+</comment>
+int Mix_VolumeChunk(Mix_Chunk *chunk, int volume)
+void Mix_FreeChunk(Mix_Chunk *chunk)
+int Mix_AllocateChannels(int numchans)
+int Mix_Volume(int channel, int volume)
+int Mix_PlayChannel(int channel, Mix_Chunk *chunk, int loops)
+int Mix_PlayChannelTimed(int channel, Mix_Chunk *chunk, int loops, int ticks)
+int Mix_FadeInChannel(int channel, Mix_Chunk *chunk, int loops, int ms)
+int Mix_FadeInChannelTimed(int channel, Mix_Chunk *chunk,int loops, int ms, int ticks)
+void Mix_Pause(int channel)
+void Mix_Resume(int channel)
+int Mix_HaltChannel(int channel)
+int Mix_ExpireChannel(int channel, int ticks)
+int Mix_FadeOutChannel(int channel, int ms)
+<comment>
+void Mix_ChannelFinished(void (*channel_finished)(int channel))
+</comment>
+int Mix_Playing(int channel)
+int Mix_Paused(int channel)
+Mix_Fading Mix_FadingChannel(int which)
+Mix_Chunk *Mix_GetChunk(int channel)
+int Mix_ReserveChannels(int num)
+int Mix_GroupChannel(int which, int tag)
+int Mix_GroupChannels(int from, int to, int tag)
+int Mix_GroupCount(int tag)
+int Mix_GroupAvailable(int tag)
+int Mix_GroupOldest(int tag)
+int Mix_GroupNewer(int tag)
+int Mix_FadeOutGroup(int tag, int ms)
+int Mix_HaltGroup(int tag)
+int Mix_GetNumMusicDecoders(void)
+const char *Mix_GetMusicDecoder(int index)
+Mix_Music *Mix_LoadMUS(const char *file)
+void Mix_FreeMusic(Mix_Music *music)
+int Mix_PlayMusic(Mix_Music *music, int loops)
+int Mix_FadeInMusic(Mix_Music *music, int loops, int ms)
+int Mix_FadeInMusicPos(Mix_Music *music, int loops, int ms, double position)
+<comment>
+void Mix_HookMusic(void (*mix_func)(void *udata, Uint8 *stream, int len),void *arg)
+<comment>
+int Mix_VolumeMusic(int volume)
+void Mix_PauseMusic(void)
+void Mix_ResumeMusic(void)
+void Mix_RewindMusic(void)
+int Mix_SetMusicPosition(double position)
+int Mix_SetMusicCMD(const char *command)
+int Mix_HaltMusic(void)
+int Mix_FadeOutMusic(int ms)
+<comment>
+void Mix_HookMusicFinished(void (*music_finished)())
+</comment>
+Mix_MusicType Mix_GetMusicType(const Mix_Music *music)
+int Mix_PlayingMusic(void)
+int Mix_PausedMusic(void)
+Mix_Fading Mix_FadingMusic(void)
+void *Mix_GetMusicHookData(void)
+int Mix_RegisterEffect(int chan, Mix_EffectFunc_t f, Mix_EffectDone_t d,void *arg)
+int Mix_UnregisterEffect(int channel, Mix_EffectFunc_t f)
+int Mix_UnregisterAllEffects(int channel)
+<comment>
+void Mix_SetPostMix(void (*mix_func)(void *udata, Uint8 *stream, int len),void *arg)
+</comment>
+int Mix_SetPanning(int channel, Uint8 left, Uint8 right)
+int Mix_SetDistance(int channel, Uint8 distance)
+int Mix_SetPosition(int channel, Sint16 angle, Uint8 distance)
+int Mix_SetReverseStereo(int channel, int flip)
+
+

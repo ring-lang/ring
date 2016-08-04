@@ -10,7 +10,8 @@
 #include "SDL.h"
 #include "SDL_syswm.h"
 #include "SDL_image.h"
-#include "SDL_ttf.h"
+#include "SDL_ttf.h"
+#include "SDL_mixer.h"
 RING_FUNC(ring_sdl_new_sdl_assert_data)
 {
 	SDL_assert_data *pMyPointer ;
@@ -1854,6 +1855,87 @@ RING_FUNC(ring_sdl_destroy_sdl_rwops)
 		return ;
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_RWops");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_mix_chunk)
+{
+	Mix_Chunk *pMyPointer ;
+	pMyPointer = (Mix_Chunk *) malloc(sizeof(Mix_Chunk)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Mix_Chunk");
+}
+
+RING_FUNC(ring_sdl_destroy_mix_chunk)
+{
+	Mix_Chunk *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mix_Chunk");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_mix_musictype)
+{
+	Mix_MusicType *pMyPointer ;
+	pMyPointer = (Mix_MusicType *) malloc(sizeof(Mix_MusicType)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Mix_MusicType");
+}
+
+RING_FUNC(ring_sdl_destroy_mix_musictype)
+{
+	Mix_MusicType *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mix_MusicType");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_new_mix_fading)
+{
+	Mix_Fading *pMyPointer ;
+	pMyPointer = (Mix_Fading *) malloc(sizeof(Mix_Fading)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Mix_Fading");
+}
+
+RING_FUNC(ring_sdl_destroy_mix_fading)
+{
+	Mix_Fading *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Mix_Fading");
 	free(pMyPointer) ;
 }
 
@@ -10238,6 +10320,947 @@ RING_FUNC(ring_TTF_RenderGlyph_Blended)
 		free(RING_API_GETCPOINTER(3,"SDL_Color"));
 }
 
+
+RING_FUNC(ring_Mix_Init)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_Init( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_Quit)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	Mix_Quit();
+}
+
+
+RING_FUNC(ring_Mix_OpenAudio)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_OpenAudio( (int ) RING_API_GETNUMBER(1), (Uint16 ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_Mix_CloseAudio)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	Mix_CloseAudio();
+}
+
+
+RING_FUNC(ring_Mix_SetError)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	Mix_SetError(RING_API_GETSTRING(1));
+}
+
+
+RING_FUNC(ring_Mix_GetError)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETSTRING(Mix_GetError());
+}
+
+
+RING_FUNC(ring_Mix_QuerySpec)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_QuerySpec(RING_API_GETINTPOINTER(1),(Uint16 *) RING_API_GETCPOINTER(2,"Uint16"),RING_API_GETINTPOINTER(3)));
+	RING_API_ACCEPTINTVALUE(1) ;
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_Mix_GetNumChunkDecoders)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_GetNumChunkDecoders());
+}
+
+
+RING_FUNC(ring_Mix_GetChunkDecoder)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(Mix_GetChunkDecoder( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_LoadWAV)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(Mix_LoadWAV(RING_API_GETSTRING(1)),"Mix_Chunk");
+}
+
+
+RING_FUNC(ring_Mix_LoadWAV_RW)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(Mix_LoadWAV_RW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (int ) RING_API_GETNUMBER(2)),"Mix_Chunk");
+}
+
+
+RING_FUNC(ring_Mix_QuickLoad_WAV)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(Mix_QuickLoad_WAV((Uint8 *) RING_API_GETCPOINTER(1,"Uint8")),"Mix_Chunk");
+}
+
+
+RING_FUNC(ring_Mix_VolumeChunk)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_VolumeChunk((Mix_Chunk *) RING_API_GETCPOINTER(1,"Mix_Chunk"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_Mix_FreeChunk)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	Mix_FreeChunk((Mix_Chunk *) RING_API_GETCPOINTER(1,"Mix_Chunk"));
+}
+
+
+RING_FUNC(ring_Mix_AllocateChannels)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_AllocateChannels( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_Volume)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_Volume( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_Mix_PlayChannel)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_PlayChannel( (int ) RING_API_GETNUMBER(1),(Mix_Chunk *) RING_API_GETCPOINTER(2,"Mix_Chunk"), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_Mix_PlayChannelTimed)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_PlayChannelTimed( (int ) RING_API_GETNUMBER(1),(Mix_Chunk *) RING_API_GETCPOINTER(2,"Mix_Chunk"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_Mix_FadeInChannel)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_FadeInChannel( (int ) RING_API_GETNUMBER(1),(Mix_Chunk *) RING_API_GETCPOINTER(2,"Mix_Chunk"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_Mix_FadeInChannelTimed)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_FadeInChannelTimed( (int ) RING_API_GETNUMBER(1),(Mix_Chunk *) RING_API_GETCPOINTER(2,"Mix_Chunk"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5)));
+}
+
+
+RING_FUNC(ring_Mix_Pause)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	Mix_Pause( (int ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_Mix_Resume)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	Mix_Resume( (int ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_Mix_HaltChannel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_HaltChannel( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_ExpireChannel)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_ExpireChannel( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_Mix_FadeOutChannel)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_FadeOutChannel( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_Mix_Playing)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_Playing( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_Paused)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_Paused( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_FadingChannel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Mix_Fading *pValue ; 
+		pValue = (Mix_Fading *) malloc(sizeof(Mix_Fading)) ;
+		*pValue = Mix_FadingChannel( (int ) RING_API_GETNUMBER(1));
+		RING_API_RETCPOINTER(pValue,"Mix_Fading");
+	}
+}
+
+
+RING_FUNC(ring_Mix_GetChunk)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(Mix_GetChunk( (int ) RING_API_GETNUMBER(1)),"Mix_Chunk");
+}
+
+
+RING_FUNC(ring_Mix_ReserveChannels)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_ReserveChannels( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_GroupChannel)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_GroupChannel( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_Mix_GroupChannels)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_GroupChannels( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_Mix_GroupCount)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_GroupCount( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_GroupAvailable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_GroupAvailable( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_GroupOldest)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_GroupOldest( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_GroupNewer)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_GroupNewer( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_FadeOutGroup)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_FadeOutGroup( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_Mix_HaltGroup)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_HaltGroup( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_GetNumMusicDecoders)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_GetNumMusicDecoders());
+}
+
+
+RING_FUNC(ring_Mix_GetMusicDecoder)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(Mix_GetMusicDecoder( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_LoadMUS)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(Mix_LoadMUS(RING_API_GETSTRING(1)),"Mix_Music");
+}
+
+
+RING_FUNC(ring_Mix_FreeMusic)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	Mix_FreeMusic((Mix_Music *) RING_API_GETCPOINTER(1,"Mix_Music"));
+}
+
+
+RING_FUNC(ring_Mix_PlayMusic)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_PlayMusic((Mix_Music *) RING_API_GETCPOINTER(1,"Mix_Music"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_Mix_FadeInMusic)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_FadeInMusic((Mix_Music *) RING_API_GETCPOINTER(1,"Mix_Music"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_Mix_FadeInMusicPos)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_FadeInMusicPos((Mix_Music *) RING_API_GETCPOINTER(1,"Mix_Music"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_Mix_GetMusicType)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Mix_MusicType *pValue ; 
+		pValue = (Mix_MusicType *) malloc(sizeof(Mix_MusicType)) ;
+		*pValue = Mix_GetMusicType((Mix_Music *) RING_API_GETCPOINTER(1,"Mix_Music"));
+		RING_API_RETCPOINTER(pValue,"Mix_MusicType");
+	}
+}
+
+
+RING_FUNC(ring_Mix_PlayingMusic)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_PlayingMusic());
+}
+
+
+RING_FUNC(ring_Mix_PausedMusic)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_PausedMusic());
+}
+
+
+RING_FUNC(ring_Mix_FadingMusic)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Mix_Fading *pValue ; 
+		pValue = (Mix_Fading *) malloc(sizeof(Mix_Fading)) ;
+		*pValue = Mix_FadingMusic();
+		RING_API_RETCPOINTER(pValue,"Mix_Fading");
+	}
+}
+
+
+RING_FUNC(ring_Mix_GetMusicHookData)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(Mix_GetMusicHookData(),"void");
+}
+
+
+RING_FUNC(ring_Mix_RegisterEffect)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_RegisterEffect( (int ) RING_API_GETNUMBER(1),* (Mix_EffectFunc_t  *) RING_API_GETCPOINTER(2,"Mix_EffectFunc_t"),* (Mix_EffectDone_t  *) RING_API_GETCPOINTER(3,"Mix_EffectDone_t"),(void *) RING_API_GETCPOINTER(4,"void")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"Mix_EffectFunc_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		free(RING_API_GETCPOINTER(3,"Mix_EffectDone_t"));
+}
+
+
+RING_FUNC(ring_Mix_UnregisterEffect)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_UnregisterEffect( (int ) RING_API_GETNUMBER(1),* (Mix_EffectFunc_t  *) RING_API_GETCPOINTER(2,"Mix_EffectFunc_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"Mix_EffectFunc_t"));
+}
+
+
+RING_FUNC(ring_Mix_UnregisterAllEffects)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_UnregisterAllEffects( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_Mix_SetPanning)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_SetPanning( (int ) RING_API_GETNUMBER(1), (Uint8 ) RING_API_GETNUMBER(2), (Uint8 ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_Mix_SetDistance)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_SetDistance( (int ) RING_API_GETNUMBER(1), (Uint8 ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_Mix_SetPosition)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_SetPosition( (int ) RING_API_GETNUMBER(1), (Sint16 ) RING_API_GETNUMBER(2), (Uint8 ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_Mix_SetReverseStereo)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(Mix_SetReverseStereo( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -10734,6 +11757,63 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("ttf_renderutf8_blended",ring_TTF_RenderUTF8_Blended);
 	ring_vm_funcregister("ttf_renderunicode_blended",ring_TTF_RenderUNICODE_Blended);
 	ring_vm_funcregister("ttf_renderglyph_blended",ring_TTF_RenderGlyph_Blended);
+	ring_vm_funcregister("mix_init",ring_Mix_Init);
+	ring_vm_funcregister("mix_quit",ring_Mix_Quit);
+	ring_vm_funcregister("mix_openaudio",ring_Mix_OpenAudio);
+	ring_vm_funcregister("mix_closeaudio",ring_Mix_CloseAudio);
+	ring_vm_funcregister("mix_seterror",ring_Mix_SetError);
+	ring_vm_funcregister("mix_geterror",ring_Mix_GetError);
+	ring_vm_funcregister("mix_queryspec",ring_Mix_QuerySpec);
+	ring_vm_funcregister("mix_getnumchunkdecoders",ring_Mix_GetNumChunkDecoders);
+	ring_vm_funcregister("mix_getchunkdecoder",ring_Mix_GetChunkDecoder);
+	ring_vm_funcregister("mix_loadwav",ring_Mix_LoadWAV);
+	ring_vm_funcregister("mix_loadwav_rw",ring_Mix_LoadWAV_RW);
+	ring_vm_funcregister("mix_quickload_wav",ring_Mix_QuickLoad_WAV);
+	ring_vm_funcregister("mix_volumechunk",ring_Mix_VolumeChunk);
+	ring_vm_funcregister("mix_freechunk",ring_Mix_FreeChunk);
+	ring_vm_funcregister("mix_allocatechannels",ring_Mix_AllocateChannels);
+	ring_vm_funcregister("mix_volume",ring_Mix_Volume);
+	ring_vm_funcregister("mix_playchannel",ring_Mix_PlayChannel);
+	ring_vm_funcregister("mix_playchanneltimed",ring_Mix_PlayChannelTimed);
+	ring_vm_funcregister("mix_fadeinchannel",ring_Mix_FadeInChannel);
+	ring_vm_funcregister("mix_fadeinchanneltimed",ring_Mix_FadeInChannelTimed);
+	ring_vm_funcregister("mix_pause",ring_Mix_Pause);
+	ring_vm_funcregister("mix_resume",ring_Mix_Resume);
+	ring_vm_funcregister("mix_haltchannel",ring_Mix_HaltChannel);
+	ring_vm_funcregister("mix_expirechannel",ring_Mix_ExpireChannel);
+	ring_vm_funcregister("mix_fadeoutchannel",ring_Mix_FadeOutChannel);
+	ring_vm_funcregister("mix_playing",ring_Mix_Playing);
+	ring_vm_funcregister("mix_paused",ring_Mix_Paused);
+	ring_vm_funcregister("mix_fadingchannel",ring_Mix_FadingChannel);
+	ring_vm_funcregister("mix_getchunk",ring_Mix_GetChunk);
+	ring_vm_funcregister("mix_reservechannels",ring_Mix_ReserveChannels);
+	ring_vm_funcregister("mix_groupchannel",ring_Mix_GroupChannel);
+	ring_vm_funcregister("mix_groupchannels",ring_Mix_GroupChannels);
+	ring_vm_funcregister("mix_groupcount",ring_Mix_GroupCount);
+	ring_vm_funcregister("mix_groupavailable",ring_Mix_GroupAvailable);
+	ring_vm_funcregister("mix_groupoldest",ring_Mix_GroupOldest);
+	ring_vm_funcregister("mix_groupnewer",ring_Mix_GroupNewer);
+	ring_vm_funcregister("mix_fadeoutgroup",ring_Mix_FadeOutGroup);
+	ring_vm_funcregister("mix_haltgroup",ring_Mix_HaltGroup);
+	ring_vm_funcregister("mix_getnummusicdecoders",ring_Mix_GetNumMusicDecoders);
+	ring_vm_funcregister("mix_getmusicdecoder",ring_Mix_GetMusicDecoder);
+	ring_vm_funcregister("mix_loadmus",ring_Mix_LoadMUS);
+	ring_vm_funcregister("mix_freemusic",ring_Mix_FreeMusic);
+	ring_vm_funcregister("mix_playmusic",ring_Mix_PlayMusic);
+	ring_vm_funcregister("mix_fadeinmusic",ring_Mix_FadeInMusic);
+	ring_vm_funcregister("mix_fadeinmusicpos",ring_Mix_FadeInMusicPos);
+	ring_vm_funcregister("mix_getmusictype",ring_Mix_GetMusicType);
+	ring_vm_funcregister("mix_playingmusic",ring_Mix_PlayingMusic);
+	ring_vm_funcregister("mix_pausedmusic",ring_Mix_PausedMusic);
+	ring_vm_funcregister("mix_fadingmusic",ring_Mix_FadingMusic);
+	ring_vm_funcregister("mix_getmusichookdata",ring_Mix_GetMusicHookData);
+	ring_vm_funcregister("mix_registereffect",ring_Mix_RegisterEffect);
+	ring_vm_funcregister("mix_unregistereffect",ring_Mix_UnregisterEffect);
+	ring_vm_funcregister("mix_unregisteralleffects",ring_Mix_UnregisterAllEffects);
+	ring_vm_funcregister("mix_setpanning",ring_Mix_SetPanning);
+	ring_vm_funcregister("mix_setdistance",ring_Mix_SetDistance);
+	ring_vm_funcregister("mix_setposition",ring_Mix_SetPosition);
+	ring_vm_funcregister("mix_setreversestereo",ring_Mix_SetReverseStereo);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
@@ -10864,4 +11944,10 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_audiospec",ring_sdl_destroy_sdl_audiospec);
 	ring_vm_funcregister("sdl_new_sdl_rwops",ring_sdl_new_sdl_rwops);
 	ring_vm_funcregister("sdl_destroy_sdl_rwops",ring_sdl_destroy_sdl_rwops);
+	ring_vm_funcregister("sdl_new_mix_chunk",ring_sdl_new_mix_chunk);
+	ring_vm_funcregister("sdl_destroy_mix_chunk",ring_sdl_destroy_mix_chunk);
+	ring_vm_funcregister("sdl_new_mix_musictype",ring_sdl_new_mix_musictype);
+	ring_vm_funcregister("sdl_destroy_mix_musictype",ring_sdl_destroy_mix_musictype);
+	ring_vm_funcregister("sdl_new_mix_fading",ring_sdl_new_mix_fading);
+	ring_vm_funcregister("sdl_destroy_mix_fading",ring_sdl_destroy_mix_fading);
 }
