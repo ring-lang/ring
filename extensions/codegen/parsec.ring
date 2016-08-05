@@ -24,7 +24,7 @@
 	using <nodllstartup> we can avoid #include "ring.h", We need this to write our startup code. 
 	using <libinitfunc> we can change the function name that register the library functions
 	using <ignorecpointertype> we can ignore pointer type check         
-	using <filter> and </filter> we can include/execlude parts of the configuration file
+	using <filter> and </filter> we can include/exclude parts of the configuration file
 	based on a condition
 	for example <filter> iswindows() 
 			... functions related to windows
@@ -40,6 +40,7 @@ C_INS_FUNCSTART = 6
 C_INS_RUNCODE   = 7
 C_INS_CLASS	= 8
 C_INS_FILTER    = 9
+C_INS_CONSTANT  = 10
 
 C_FUNC_INS	= 1
 C_FUNC_OUTPUT 	= 2
@@ -141,6 +142,9 @@ Func Main
 		but cLine = "<class>"
 			lFlag = C_INS_CLASS
 			loop
+		but cLine = "<constant>"
+			lFlag = C_INS_CONSTANT
+			loop
 		but cLine = "<nodllstartup>"
 			$lNodllstartup = true
 			loop
@@ -166,7 +170,7 @@ Func Main
 		but cLine = "</code>" or cLine = "</register>" or 
 		    cLine = "</comment>" or cLine = "</struct>" or
 		    cLine = "</funcstart>" or cLine = "</runcode>" or
-		    cLine = "</class>" 
+		    cLine = "</class>" or cLine = "</constant>"
 			lFlag = C_INS_FUNCTION			
 			loop
 		ok
@@ -191,6 +195,8 @@ Func Main
 			if left(lower(cValue),5) = "name:"
 				$cClassName = trim(substr(cValue,6))
 			ok
+		but lFlag = C_INS_CONSTANT
+			aData + [C_INS_CONSTANT,cLine]
 		ok
 	next
 	cCode = GenCode(aData)
