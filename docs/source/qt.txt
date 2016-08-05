@@ -708,6 +708,67 @@ The application during the runtime
 
 .. image:: ringqt_shot15.jpg
 	:alt: QProgressBar
+
+
+Using QProgressBar and Timer
+============================
+
+In this example we will learn about using the "animated" QProgressBar class and Timer
+
+.. code-block:: none	
+	###------------------------------------
+	### ProgressBar and Timer Example
+	
+	Load "guilib.ring"
+	
+	new qApp
+	{
+	    win1 = new qwidget()
+	    {
+	        setgeometry(100,100,400,100)
+	        setwindowtitle("Timer and ProgressBar")
+	
+	        LabelMan = new qlabel(win1)
+	        {
+	            setgeometry(10,10,200,30)
+	            settext(theTime())          ### ==>> func
+	        }
+	
+	        TimerMan = new qtimer(win1)
+	        {
+	            setinterval(1000)
+	            settimeoutevent("pTime()")  ### ==>> func
+	            start()
+	        }
+	
+	        BarMan = new qprogressbar(win1)
+	        {
+	            setGeometry(100,50,300,10)  ###  Position X y, Length, Thickness
+	            setvalue(0)                 ###  Percent filled
+	        }
+	
+	        show()
+	    }
+	    exec()
+	}
+	
+	func pTime
+	        LabelMan.settext(theTime())     ### ==>> func
+	
+	        See "BarMan value: " + Barman.value() +nl
+	        Increment = 10
+	        if BarMan.value() >= 100        ### ProgressBar start over.
+	            BarMan.setvalue(0)
+	            See "BarMan value Reset: " + Barman.value() +nl
+	        ok
+	        BarMan{ setvalue(value() + Increment) }
+	return
+	
+	Func theTime
+	return "Time : " + Time()
+
+.. image:: ringqt_shot15-B.jpg
+	:alt: QProgressBar
 	
 Using QSpinBox
 ==================
