@@ -110,6 +110,10 @@ Mix_MusicType
 Mix_Fading
 </struct>
 
+<constant>
+MIX_DEFAULT_FORMAT
+</constant>
+
 <register>
 void SDL_RenderCopy2(SDL_Renderer *,SDL_Texture *)
 </register>

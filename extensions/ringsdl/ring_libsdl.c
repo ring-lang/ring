@@ -1939,6 +1939,11 @@ RING_FUNC(ring_sdl_destroy_mix_fading)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_mix_default_format)
+{
+	RING_API_RETNUMBER(MIX_DEFAULT_FORMAT);
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -11950,4 +11955,5 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_mix_musictype",ring_sdl_destroy_mix_musictype);
 	ring_vm_funcregister("sdl_new_mix_fading",ring_sdl_new_mix_fading);
 	ring_vm_funcregister("sdl_destroy_mix_fading",ring_sdl_destroy_mix_fading);
+	ring_vm_funcregister("sdl_get_mix_default_format",ring_sdl_get_mix_default_format);
 }
