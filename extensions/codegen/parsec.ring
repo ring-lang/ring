@@ -10,6 +10,7 @@
 	     [  C_INS_STRUCT  , C_FUNC_STRUCTDATA  ]	
 	     [  C_INS_RUNCODE , C_FUNC_CODE ]
 	     [  C_INS_CLASS   , C_FUNC_CODE ]
+	     [  C_INS_CONSTANT, C_FUNC_CODE ] 
 	The first record is used for generating code written in <code> and </code>
 	The second record is used for function prototype 
 	The third record is used for function registration only <register> and </register>
@@ -307,6 +308,8 @@ Func GenCode aList
 			cCode += aFunc[C_INS_CODE] + nl
 		but aFunc[C_FUNC_INS] = C_INS_STRUCT
 			cCode += GenStruct(aFunc)
+		but aFunc[C_FUNC_INS] = C_INS_CONSTANT
+			cCode += GenConstant(aFunc)
 		but aFunc[C_FUNC_INS] = C_INS_RUNCODE
 			Try
 				eval(aFunc[C_INS_CODE])
@@ -741,6 +744,21 @@ Func GenStruct	aFunc
 		ok
 	next
 	return cCode
+
+Func GenConstant aFunc
+	# this function get constant information 
+	# and generate function to get the constant value
+	cConstant = aFunc[C_FUNC_CODE]
+	cCode = ""
+	# Generate Functions to Get The Constant Value
+	cFuncName = $cFuncStart+"get_"+lower(cConstant)
+	$aStructFuncs + cFuncName
+	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+		"{" + nl + 
+		GenTabs(1) + "RING_API_RETNUMBER("+cConstant+");" + nl +
+		"}" + nl + nl
+	return cCode
+
 
 Func GenMethodCode aList
 	cCode = nl+"RING_FUNC(" + "ring_"+$cClassName+"_"+
