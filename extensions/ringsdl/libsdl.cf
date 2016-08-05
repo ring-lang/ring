@@ -4,7 +4,7 @@
 #include "SDL_syswm.h"
 #include "SDL_image.h"
 #include "SDL_ttf.h"
-#include "SDL_mixer.h"
+#include "SDL_mixer.h"
 </code>
 
 <runcode>
@@ -74,7 +74,7 @@ SDL_ControllerButtonEvent
 SDL_ControllerDeviceEvent
 SDL_DollarGestureEvent
 SDL_DropEvent
-SDL_Event
+SDL_Event { type , key.keysym.sym }
 SDL_Finger
 SDL_JoyAxisEvent
 SDL_JoyBallEvent
@@ -112,6 +112,8 @@ Mix_Fading
 
 <constant>
 MIX_DEFAULT_FORMAT
+SDL_KEYDOWN
+SDL_QUIT
 </constant>
 
 <register>

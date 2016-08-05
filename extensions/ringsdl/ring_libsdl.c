@@ -11,7 +11,7 @@
 #include "SDL_syswm.h"
 #include "SDL_image.h"
 #include "SDL_ttf.h"
-#include "SDL_mixer.h"
+#include "SDL_mixer.h"
 RING_FUNC(ring_sdl_new_sdl_assert_data)
 {
 	SDL_assert_data *pMyPointer ;
@@ -1048,6 +1048,74 @@ RING_FUNC(ring_sdl_destroy_sdl_event)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_event_type)
+{
+	SDL_Event *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Event");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_sdl_set_sdl_event_type)
+{
+	SDL_Event *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Event");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_event_key_keysym_sym)
+{
+	SDL_Event *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Event");
+	RING_API_RETNUMBER(pMyPointer->key.keysym.sym);
+}
+
+RING_FUNC(ring_sdl_set_sdl_event_key_keysym_sym)
+{
+	SDL_Event *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Event");
+	pMyPointer->key.keysym.sym = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_new_sdl_finger)
 {
 	SDL_Finger *pMyPointer ;
@@ -1942,6 +2010,16 @@ RING_FUNC(ring_sdl_destroy_mix_fading)
 RING_FUNC(ring_sdl_get_mix_default_format)
 {
 	RING_API_RETNUMBER(MIX_DEFAULT_FORMAT);
+}
+
+RING_FUNC(ring_sdl_get_sdl_keydown)
+{
+	RING_API_RETNUMBER(SDL_KEYDOWN);
+}
+
+RING_FUNC(ring_sdl_get_sdl_quit)
+{
+	RING_API_RETNUMBER(SDL_QUIT);
 }
 
 RING_FUNC(ring_SDL_RenderCopy2)
@@ -11889,6 +11967,10 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_dropevent",ring_sdl_destroy_sdl_dropevent);
 	ring_vm_funcregister("sdl_new_sdl_event",ring_sdl_new_sdl_event);
 	ring_vm_funcregister("sdl_destroy_sdl_event",ring_sdl_destroy_sdl_event);
+	ring_vm_funcregister("sdl_get_sdl_event_type",ring_sdl_get_sdl_event_type);
+	ring_vm_funcregister("sdl_set_sdl_event_type",ring_sdl_set_sdl_event_type);
+	ring_vm_funcregister("sdl_get_sdl_event_key_keysym_sym",ring_sdl_get_sdl_event_key_keysym_sym);
+	ring_vm_funcregister("sdl_set_sdl_event_key_keysym_sym",ring_sdl_set_sdl_event_key_keysym_sym);
 	ring_vm_funcregister("sdl_new_sdl_finger",ring_sdl_new_sdl_finger);
 	ring_vm_funcregister("sdl_destroy_sdl_finger",ring_sdl_destroy_sdl_finger);
 	ring_vm_funcregister("sdl_new_sdl_joyaxisevent",ring_sdl_new_sdl_joyaxisevent);
@@ -11956,4 +12038,6 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_new_mix_fading",ring_sdl_new_mix_fading);
 	ring_vm_funcregister("sdl_destroy_mix_fading",ring_sdl_destroy_mix_fading);
 	ring_vm_funcregister("sdl_get_mix_default_format",ring_sdl_get_mix_default_format);
+	ring_vm_funcregister("sdl_get_sdl_keydown",ring_sdl_get_sdl_keydown);
+	ring_vm_funcregister("sdl_get_sdl_quit",ring_sdl_get_sdl_quit);
 }
