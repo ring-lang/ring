@@ -994,4 +994,3 @@ int Mix_SetDistance(int channel, Uint8 distance)
 int Mix_SetPosition(int channel, Sint16 angle, Uint8 distance)
 int Mix_SetReverseStereo(int channel, int flip)
 
-
