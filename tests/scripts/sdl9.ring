@@ -19,20 +19,20 @@ while true
 	cMsg = ""
 	thevent = sdl_pollevent(myevent)
 	switch sdl_get_sdl_event_type(myevent)
-		on sdl_get_sdl_quit()
+		on SDL_QUIT
 			exit
-		on sdl_get_sdl_keydown()
+		on SDL_KEYDOWN
 			Key = SDL_GET_SDL_Event_key_keysym_sym(myevent)
 			if key = 27 exit ok
-		on sdl_get_SDL_MOUSEBUTTONDOWN()
-			if sdl_get_Sdl_Event_button_button(myevent) = sdl_get_SDL_BUTTON_LEFT()
+		on SDL_MOUSEBUTTONDOWN
+			if sdl_get_Sdl_Event_button_button(myevent) = SDL_BUTTON_LEFT
 				SDL_SETWINDOWTITLE(win, " Button_Left_Down " )
-			but sdl_get_Sdl_Event_button_button(myevent) = sdl_get_SDL_BUTTON_MIDDLE()
+			but sdl_get_Sdl_Event_button_button(myevent) = SDL_BUTTON_MIDDLE
 				SDL_SETWINDOWTITLE(win,  " Button_Middle_Down " )
-			but sdl_get_Sdl_Event_button_button(myevent) = sdl_get_SDL_BUTTON_RIGHT()
+			but sdl_get_Sdl_Event_button_button(myevent) = SDL_BUTTON_RIGHT
 				SDL_SETWINDOWTITLE(win,  " Button_Right_Down " )
 			ok
-		on sdl_get_SDL_MOUSEMOTION()
+		on SDL_MOUSEMOTION
 			sdl_fillrect(surface,nullpointer(),0)
 			if sdl_get_sdl_event_motion_xrel(myevent) < 0
 				cMsg += " Left "
