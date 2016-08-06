@@ -184,22 +184,28 @@ Error Handling
 
 void SDL_ClearError(void)
 const char *SDL_GetError(void)
+<comment>
 int SDL_SetError(const char *fmt)
+</comment>
 
 <comment>
 Log Handling
 </comment>
 
+<comment>
 void SDL_Log(const char *fmt)
 void SDL_LogCritical(int category,const char *fmt)
 void SDL_LogDebug(int category,const char *fmt)
 void SDL_LogError(int category,const char * fmt)
+</comment>
 <comment>
 void SDL_LogGetOutputFunction(SDL_LogOutputFunction *callback,void **userdata)
 </comment>
 SDL_LogPriority SDL_LogGetPriority(int category)
+<comment>
 void SDL_LogInfo(int category, const char *fmt)
 void SDL_LogMessage(int category,SDL_LogPriority priority,const char *fmt)
+</comment>
 <comment>
 void SDL_LogMessageV(int category,SDL_LogPriority priority, const char *fmt,va_list ap)
 </comment>
@@ -209,8 +215,10 @@ void SDL_LogSetAllPriority(SDL_LogPriority priority)
 void SDL_LogSetOutputFunction(SDL_LogOutputFunction callback,void *userdata)
 </comment>
 void SDL_LogSetPriority(int category,SDL_LogPriority priority)
+<comment>
 void SDL_LogVerbose(int category, const char *fmt)
 void SDL_LogWarn(int category,const char *fmt)
+</comment>
 
 <comment>
 Assertions
@@ -907,7 +915,9 @@ int Mix_Init(int flags)
 void Mix_Quit(void)
 int Mix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize)
 void Mix_CloseAudio(void)
+<comment>
 void Mix_SetError(const char *fmt)
+</comment>
 char *Mix_GetError(void)
 int Mix_QuerySpec(int *frequency, Uint16 *format, int *channels)
 int Mix_GetNumChunkDecoders(void)

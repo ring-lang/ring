@@ -2627,88 +2627,6 @@ RING_FUNC(ring_SDL_GetError)
 }
 
 
-RING_FUNC(ring_SDL_SetError)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(SDL_SetError(RING_API_GETSTRING(1)));
-}
-
-
-RING_FUNC(ring_SDL_Log)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	SDL_Log(RING_API_GETSTRING(1));
-}
-
-
-RING_FUNC(ring_SDL_LogCritical)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	SDL_LogCritical( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
-}
-
-
-RING_FUNC(ring_SDL_LogDebug)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	SDL_LogDebug( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
-}
-
-
-RING_FUNC(ring_SDL_LogError)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	SDL_LogError( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
-}
-
-
 RING_FUNC(ring_SDL_LogGetPriority)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -2720,46 +2638,6 @@ RING_FUNC(ring_SDL_LogGetPriority)
 		return ;
 	}
 	RING_API_RETNUMBER(SDL_LogGetPriority( (int ) RING_API_GETNUMBER(1)));
-}
-
-
-RING_FUNC(ring_SDL_LogInfo)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	SDL_LogInfo( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
-}
-
-
-RING_FUNC(ring_SDL_LogMessage)
-{
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	SDL_LogMessage( (int ) RING_API_GETNUMBER(1), (SDL_LogPriority )  (int) RING_API_GETNUMBER(2),RING_API_GETSTRING(3));
 }
 
 
@@ -2802,42 +2680,6 @@ RING_FUNC(ring_SDL_LogSetPriority)
 		return ;
 	}
 	SDL_LogSetPriority( (int ) RING_API_GETNUMBER(1), (SDL_LogPriority )  (int) RING_API_GETNUMBER(2));
-}
-
-
-RING_FUNC(ring_SDL_LogVerbose)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	SDL_LogVerbose( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
-}
-
-
-RING_FUNC(ring_SDL_LogWarn)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	SDL_LogWarn( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
 }
 
 
@@ -10878,20 +10720,6 @@ RING_FUNC(ring_Mix_CloseAudio)
 }
 
 
-RING_FUNC(ring_Mix_SetError)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	Mix_SetError(RING_API_GETSTRING(1));
-}
-
-
 RING_FUNC(ring_Mix_GetError)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -11774,19 +11602,10 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_sethintwithpriority",ring_SDL_SetHintWithPriority);
 	ring_vm_funcregister("sdl_clearerror",ring_SDL_ClearError);
 	ring_vm_funcregister("sdl_geterror",ring_SDL_GetError);
-	ring_vm_funcregister("sdl_seterror",ring_SDL_SetError);
-	ring_vm_funcregister("sdl_log",ring_SDL_Log);
-	ring_vm_funcregister("sdl_logcritical",ring_SDL_LogCritical);
-	ring_vm_funcregister("sdl_logdebug",ring_SDL_LogDebug);
-	ring_vm_funcregister("sdl_logerror",ring_SDL_LogError);
 	ring_vm_funcregister("sdl_loggetpriority",ring_SDL_LogGetPriority);
-	ring_vm_funcregister("sdl_loginfo",ring_SDL_LogInfo);
-	ring_vm_funcregister("sdl_logmessage",ring_SDL_LogMessage);
 	ring_vm_funcregister("sdl_logresetpriorities",ring_SDL_LogResetPriorities);
 	ring_vm_funcregister("sdl_logsetallpriority",ring_SDL_LogSetAllPriority);
 	ring_vm_funcregister("sdl_logsetpriority",ring_SDL_LogSetPriority);
-	ring_vm_funcregister("sdl_logverbose",ring_SDL_LogVerbose);
-	ring_vm_funcregister("sdl_logwarn",ring_SDL_LogWarn);
 	ring_vm_funcregister("sdl_getassertionreport",ring_SDL_GetAssertionReport);
 	ring_vm_funcregister("sdl_getdefaultassertionhandler",ring_SDL_GetDefaultAssertionHandler);
 	ring_vm_funcregister("sdl_resetassertionreport",ring_SDL_ResetAssertionReport);
@@ -12258,7 +12077,6 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("mix_quit",ring_Mix_Quit);
 	ring_vm_funcregister("mix_openaudio",ring_Mix_OpenAudio);
 	ring_vm_funcregister("mix_closeaudio",ring_Mix_CloseAudio);
-	ring_vm_funcregister("mix_seterror",ring_Mix_SetError);
 	ring_vm_funcregister("mix_geterror",ring_Mix_GetError);
 	ring_vm_funcregister("mix_queryspec",ring_Mix_QuerySpec);
 	ring_vm_funcregister("mix_getnumchunkdecoders",ring_Mix_GetNumChunkDecoders);
