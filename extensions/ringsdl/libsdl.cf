@@ -74,7 +74,7 @@ SDL_ControllerButtonEvent
 SDL_ControllerDeviceEvent
 SDL_DollarGestureEvent
 SDL_DropEvent
-SDL_Event { type , key.keysym.sym }
+SDL_Event {type,key.keysym.sym,button.type,button.state,button.x,button.y,button.button, motion.type, motion.state,motion.x,motion.y,motion.xrel,motion.yrel}
 SDL_Finger
 SDL_JoyAxisEvent
 SDL_JoyBallEvent
@@ -114,6 +114,14 @@ Mix_Fading
 MIX_DEFAULT_FORMAT
 SDL_KEYDOWN
 SDL_QUIT
+SDL_MOUSEBUTTONDOWN
+SDL_MOUSEBUTTONUP
+SDL_BUTTON_LEFT
+SDL_BUTTON_MIDDLE
+SDL_BUTTON_RIGHT
+SDL_PRESSED
+SDL_RELEASED
+SDL_MOUSEMOTION
 </constant>
 
 <register>
