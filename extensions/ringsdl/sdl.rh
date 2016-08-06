@@ -1,3 +1,5 @@
+Load "ring_libsdl.rh"
+
 SDL_INIT_TIMER         = dec("00000001")
 
 SDL_INIT_AUDIO         = dec("00000010")
@@ -77,3 +79,4 @@ MUS_MP3 = 6
 MUS_MP3_MAD = 7
 MUS_FLAC = 8
 MUS_MODPLUG = 9
+

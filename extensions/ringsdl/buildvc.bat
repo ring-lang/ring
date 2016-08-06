@@ -5,3 +5,4 @@ link /DEBUG ring_libsdl.obj  ..\..\lib\ring.lib ..\..\libdepwin\sdl2vc\lib\x86\s
 del ring_libsdl.obj
 copy libsdl.ring ..\..\bin
 copy sdl.rh ..\..\bin
+copy ring_libsdl.rh ..\..\bin

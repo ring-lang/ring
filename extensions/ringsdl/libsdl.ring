@@ -1,4 +1,3 @@
-Load "sdl.rh"
 if iswindows()
 	LoadLib("ring_sdl.dll")
 but ismacosx()
@@ -6,3 +5,4 @@ but ismacosx()
 but islinux()
 	LoadLib("libringsdl.so")
 ok
+Load "sdl.rh"
