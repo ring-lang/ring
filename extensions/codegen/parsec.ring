@@ -1,5 +1,5 @@
 # Generate C Functions wrappers for the Ring programming language
-# To execute : run parsec test.cf [test.c]
+# To execute : run parsec test.cf [test.c] [test.ring]
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
 /* Data Structure & Usage
@@ -1026,10 +1026,21 @@ Func GenDeleteFuncForClasses aList
 	next
 	return cCode
 
+Func GenRingConstants aList
+	cCode = ""
+	for aFunc in aList
+		if aFunc[C_FUNC_INS] = C_INS_CONSTANT
+			cConstant = aFunc[C_FUNC_CODE]
+			cCode += cConstant + " = " + $cFuncStart + "get_" + cConstant + "()" + nl
+		ok
+	next	
+	return cCode
 
 Func GenRingCode aList
 	# This function generate Ring Classes that wraps C++ Classes
 	cCode = ""
+	cCode = GenRingConstants(aList)
+	if len($aClassesList) = 0 return cCode Ok	# if no classes then Avoid generating code 
 	cClassName = ""
 	aClasses = []
 	cCode += GenRingCodeFuncGetObjectPointer()
