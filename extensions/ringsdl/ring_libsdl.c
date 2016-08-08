@@ -4254,6 +4254,210 @@ RING_FUNC(ring_sdl_destroy_sdl_windowevent)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_windowevent_type)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_sdl_set_sdl_windowevent_type)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_windowevent_timestamp)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	RING_API_RETNUMBER(pMyPointer->timestamp);
+}
+
+RING_FUNC(ring_sdl_set_sdl_windowevent_timestamp)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	pMyPointer->timestamp = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_windowevent_windowID)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	RING_API_RETNUMBER(pMyPointer->windowID);
+}
+
+RING_FUNC(ring_sdl_set_sdl_windowevent_windowID)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	pMyPointer->windowID = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_windowevent_event)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	RING_API_RETNUMBER(pMyPointer->event);
+}
+
+RING_FUNC(ring_sdl_set_sdl_windowevent_event)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	pMyPointer->event = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_windowevent_data1)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	RING_API_RETNUMBER(pMyPointer->data1);
+}
+
+RING_FUNC(ring_sdl_set_sdl_windowevent_data1)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	pMyPointer->data1 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_windowevent_data2)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	RING_API_RETNUMBER(pMyPointer->data2);
+}
+
+RING_FUNC(ring_sdl_set_sdl_windowevent_data2)
+{
+	SDL_WindowEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_WindowEvent");
+	pMyPointer->data2 = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_new_sdl_keysym)
 {
 	SDL_Keysym *pMyPointer ;
@@ -14853,6 +15057,18 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_userevent",ring_sdl_destroy_sdl_userevent);
 	ring_vm_funcregister("sdl_new_sdl_windowevent",ring_sdl_new_sdl_windowevent);
 	ring_vm_funcregister("sdl_destroy_sdl_windowevent",ring_sdl_destroy_sdl_windowevent);
+	ring_vm_funcregister("sdl_get_sdl_windowevent_type",ring_sdl_get_sdl_windowevent_type);
+	ring_vm_funcregister("sdl_set_sdl_windowevent_type",ring_sdl_set_sdl_windowevent_type);
+	ring_vm_funcregister("sdl_get_sdl_windowevent_timestamp",ring_sdl_get_sdl_windowevent_timestamp);
+	ring_vm_funcregister("sdl_set_sdl_windowevent_timestamp",ring_sdl_set_sdl_windowevent_timestamp);
+	ring_vm_funcregister("sdl_get_sdl_windowevent_windowID",ring_sdl_get_sdl_windowevent_windowID);
+	ring_vm_funcregister("sdl_set_sdl_windowevent_windowID",ring_sdl_set_sdl_windowevent_windowID);
+	ring_vm_funcregister("sdl_get_sdl_windowevent_event",ring_sdl_get_sdl_windowevent_event);
+	ring_vm_funcregister("sdl_set_sdl_windowevent_event",ring_sdl_set_sdl_windowevent_event);
+	ring_vm_funcregister("sdl_get_sdl_windowevent_data1",ring_sdl_get_sdl_windowevent_data1);
+	ring_vm_funcregister("sdl_set_sdl_windowevent_data1",ring_sdl_set_sdl_windowevent_data1);
+	ring_vm_funcregister("sdl_get_sdl_windowevent_data2",ring_sdl_get_sdl_windowevent_data2);
+	ring_vm_funcregister("sdl_set_sdl_windowevent_data2",ring_sdl_set_sdl_windowevent_data2);
 	ring_vm_funcregister("sdl_new_sdl_keysym",ring_sdl_new_sdl_keysym);
 	ring_vm_funcregister("sdl_destroy_sdl_keysym",ring_sdl_destroy_sdl_keysym);
 	ring_vm_funcregister("sdl_new_sdl_hapticcondition",ring_sdl_new_sdl_hapticcondition);
