@@ -91,7 +91,7 @@ SDL_QuitEvent
 SDL_SysWMEvent
 SDL_TextEditingEvent {type,timestamp,windowID,start,length}
 SDL_TextInputEvent {type,timestamp,windowID}
-SDL_UserEvent
+SDL_UserEvent {type,timestamp,windowID,code,void *data1,void *data2}
 SDL_WindowEvent {type,timestamp,windowID,event,data1,data2}
 SDL_Keysym
 SDL_HapticCondition
