@@ -2726,6 +2726,176 @@ RING_FUNC(ring_sdl_destroy_sdl_keyboardevent)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_keyboardevent_type)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_sdl_set_sdl_keyboardevent_type)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_keyboardevent_timestamp)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	RING_API_RETNUMBER(pMyPointer->timestamp);
+}
+
+RING_FUNC(ring_sdl_set_sdl_keyboardevent_timestamp)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	pMyPointer->timestamp = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_keyboardevent_windowID)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	RING_API_RETNUMBER(pMyPointer->windowID);
+}
+
+RING_FUNC(ring_sdl_set_sdl_keyboardevent_windowID)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	pMyPointer->windowID = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_keyboardevent_state)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	RING_API_RETNUMBER(pMyPointer->state);
+}
+
+RING_FUNC(ring_sdl_set_sdl_keyboardevent_state)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	pMyPointer->state = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_keyboardevent_repeat)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	RING_API_RETNUMBER(pMyPointer->repeat);
+}
+
+RING_FUNC(ring_sdl_set_sdl_keyboardevent_repeat)
+{
+	SDL_KeyboardEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_KeyboardEvent");
+	pMyPointer->repeat = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_new_sdl_mousebuttonevent)
 {
 	SDL_MouseButtonEvent *pMyPointer ;
@@ -14317,6 +14487,16 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_joyhatevent",ring_sdl_destroy_sdl_joyhatevent);
 	ring_vm_funcregister("sdl_new_sdl_keyboardevent",ring_sdl_new_sdl_keyboardevent);
 	ring_vm_funcregister("sdl_destroy_sdl_keyboardevent",ring_sdl_destroy_sdl_keyboardevent);
+	ring_vm_funcregister("sdl_get_sdl_keyboardevent_type",ring_sdl_get_sdl_keyboardevent_type);
+	ring_vm_funcregister("sdl_set_sdl_keyboardevent_type",ring_sdl_set_sdl_keyboardevent_type);
+	ring_vm_funcregister("sdl_get_sdl_keyboardevent_timestamp",ring_sdl_get_sdl_keyboardevent_timestamp);
+	ring_vm_funcregister("sdl_set_sdl_keyboardevent_timestamp",ring_sdl_set_sdl_keyboardevent_timestamp);
+	ring_vm_funcregister("sdl_get_sdl_keyboardevent_windowID",ring_sdl_get_sdl_keyboardevent_windowID);
+	ring_vm_funcregister("sdl_set_sdl_keyboardevent_windowID",ring_sdl_set_sdl_keyboardevent_windowID);
+	ring_vm_funcregister("sdl_get_sdl_keyboardevent_state",ring_sdl_get_sdl_keyboardevent_state);
+	ring_vm_funcregister("sdl_set_sdl_keyboardevent_state",ring_sdl_set_sdl_keyboardevent_state);
+	ring_vm_funcregister("sdl_get_sdl_keyboardevent_repeat",ring_sdl_get_sdl_keyboardevent_repeat);
+	ring_vm_funcregister("sdl_set_sdl_keyboardevent_repeat",ring_sdl_set_sdl_keyboardevent_repeat);
 	ring_vm_funcregister("sdl_new_sdl_mousebuttonevent",ring_sdl_new_sdl_mousebuttonevent);
 	ring_vm_funcregister("sdl_destroy_sdl_mousebuttonevent",ring_sdl_destroy_sdl_mousebuttonevent);
 	ring_vm_funcregister("sdl_get_sdl_mousebuttonevent_type",ring_sdl_get_sdl_mousebuttonevent_type);
