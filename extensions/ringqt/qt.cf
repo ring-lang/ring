@@ -155,6 +155,7 @@ extern "C" {
 #include <QPainterPath>
 #include <QImage>
 #include <QBitmap>
+#include <QMediaContent>
 
 extern "C" {
 
@@ -2274,7 +2275,10 @@ name: QMediaPlaylist
 para: void
 </class>
 
+<comment>
 bool addMedia(QMediaContent)
+</comment>
+bool addMedia(QUrl)
 <comment>
 bool addMedia(const QList<QMediaContent> & items)
 </comment>
@@ -4455,3 +4459,5 @@ QStringList textKeys(void)
 QImage transformed(QMatrix, Qt::TransformationMode mode)
 bool valid(int x, int y)
 int width(void)
+
+

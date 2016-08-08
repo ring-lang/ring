@@ -142,6 +142,7 @@ extern "C" {
 #include <QPainterPath>
 #include <QImage>
 #include <QBitmap>
+#include <QMediaContent>
 
 extern "C" {
 
@@ -28025,9 +28026,9 @@ RING_FUNC(ring_QMediaPlaylist_addMedia)
 		return ;
 	}
 	pObject = (QMediaPlaylist *) RING_API_GETCPOINTER(1,"QMediaPlaylist");
-	RING_API_RETNUMBER(pObject->addMedia(* (QMediaContent *) RING_API_GETCPOINTER(2,"QMediaContent")));
+	RING_API_RETNUMBER(pObject->addMedia(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QMediaContent"));
+		free(RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
