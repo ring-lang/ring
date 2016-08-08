@@ -72,7 +72,7 @@ SDL_SysWMmsg
 SDL_ControllerAxisEvent
 SDL_ControllerButtonEvent
 SDL_ControllerDeviceEvent
-SDL_DollarGestureEvent
+SDL_DollarGestureEvent {type,timestamp,touchId,gestureId,numFingers,error,x,y}
 SDL_DropEvent
 SDL_Event {type,key.keysym.sym,button.type,button.state,button.x,button.y,button.button, motion.type, motion.state,motion.x,motion.y,motion.xrel,motion.yrel}
 SDL_TouchFingerEvent {type,timestamp,touchId,fingerId,x,y,dx,dy,pressure}

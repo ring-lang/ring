@@ -994,6 +994,278 @@ RING_FUNC(ring_sdl_destroy_sdl_dollargestureevent)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_dollargestureevent_type)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dollargestureevent_type)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_dollargestureevent_timestamp)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	RING_API_RETNUMBER(pMyPointer->timestamp);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dollargestureevent_timestamp)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	pMyPointer->timestamp = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_dollargestureevent_touchId)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	RING_API_RETNUMBER(pMyPointer->touchId);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dollargestureevent_touchId)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	pMyPointer->touchId = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_dollargestureevent_gestureId)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	RING_API_RETNUMBER(pMyPointer->gestureId);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dollargestureevent_gestureId)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	pMyPointer->gestureId = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_dollargestureevent_numFingers)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	RING_API_RETNUMBER(pMyPointer->numFingers);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dollargestureevent_numFingers)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	pMyPointer->numFingers = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_dollargestureevent_error)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	RING_API_RETNUMBER(pMyPointer->error);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dollargestureevent_error)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	pMyPointer->error = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_dollargestureevent_x)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	RING_API_RETNUMBER(pMyPointer->x);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dollargestureevent_x)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_dollargestureevent_y)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	RING_API_RETNUMBER(pMyPointer->y);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dollargestureevent_y)
+{
+	SDL_DollarGestureEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DollarGestureEvent");
+	pMyPointer->y = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_new_sdl_dropevent)
 {
 	SDL_DropEvent *pMyPointer ;
@@ -12681,6 +12953,22 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_controllerdeviceevent",ring_sdl_destroy_sdl_controllerdeviceevent);
 	ring_vm_funcregister("sdl_new_sdl_dollargestureevent",ring_sdl_new_sdl_dollargestureevent);
 	ring_vm_funcregister("sdl_destroy_sdl_dollargestureevent",ring_sdl_destroy_sdl_dollargestureevent);
+	ring_vm_funcregister("sdl_get_sdl_dollargestureevent_type",ring_sdl_get_sdl_dollargestureevent_type);
+	ring_vm_funcregister("sdl_set_sdl_dollargestureevent_type",ring_sdl_set_sdl_dollargestureevent_type);
+	ring_vm_funcregister("sdl_get_sdl_dollargestureevent_timestamp",ring_sdl_get_sdl_dollargestureevent_timestamp);
+	ring_vm_funcregister("sdl_set_sdl_dollargestureevent_timestamp",ring_sdl_set_sdl_dollargestureevent_timestamp);
+	ring_vm_funcregister("sdl_get_sdl_dollargestureevent_touchId",ring_sdl_get_sdl_dollargestureevent_touchId);
+	ring_vm_funcregister("sdl_set_sdl_dollargestureevent_touchId",ring_sdl_set_sdl_dollargestureevent_touchId);
+	ring_vm_funcregister("sdl_get_sdl_dollargestureevent_gestureId",ring_sdl_get_sdl_dollargestureevent_gestureId);
+	ring_vm_funcregister("sdl_set_sdl_dollargestureevent_gestureId",ring_sdl_set_sdl_dollargestureevent_gestureId);
+	ring_vm_funcregister("sdl_get_sdl_dollargestureevent_numFingers",ring_sdl_get_sdl_dollargestureevent_numFingers);
+	ring_vm_funcregister("sdl_set_sdl_dollargestureevent_numFingers",ring_sdl_set_sdl_dollargestureevent_numFingers);
+	ring_vm_funcregister("sdl_get_sdl_dollargestureevent_error",ring_sdl_get_sdl_dollargestureevent_error);
+	ring_vm_funcregister("sdl_set_sdl_dollargestureevent_error",ring_sdl_set_sdl_dollargestureevent_error);
+	ring_vm_funcregister("sdl_get_sdl_dollargestureevent_x",ring_sdl_get_sdl_dollargestureevent_x);
+	ring_vm_funcregister("sdl_set_sdl_dollargestureevent_x",ring_sdl_set_sdl_dollargestureevent_x);
+	ring_vm_funcregister("sdl_get_sdl_dollargestureevent_y",ring_sdl_get_sdl_dollargestureevent_y);
+	ring_vm_funcregister("sdl_set_sdl_dollargestureevent_y",ring_sdl_set_sdl_dollargestureevent_y);
 	ring_vm_funcregister("sdl_new_sdl_dropevent",ring_sdl_new_sdl_dropevent);
 	ring_vm_funcregister("sdl_destroy_sdl_dropevent",ring_sdl_destroy_sdl_dropevent);
 	ring_vm_funcregister("sdl_new_sdl_event",ring_sdl_new_sdl_event);
