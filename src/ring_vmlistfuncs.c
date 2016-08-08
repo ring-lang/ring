@@ -244,6 +244,7 @@ void ring_vmlib_sort ( void *pPointer )
 		pList2 = RING_API_GETLIST(1);
 		ring_list_copy(pList,pList2);
 		if ( ring_list_getsize(pList) < 2 ) {
+			RING_API_RETLIST(pList2);
 			return ;
 		}
 		if ( nParaCount == 1 ) {
