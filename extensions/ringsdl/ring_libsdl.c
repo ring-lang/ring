@@ -2780,6 +2780,312 @@ RING_FUNC(ring_sdl_destroy_sdl_mousemotionevent)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_mousemotionevent_type)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_sdl_set_sdl_mousemotionevent_type)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_mousemotionevent_timestamp)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	RING_API_RETNUMBER(pMyPointer->timestamp);
+}
+
+RING_FUNC(ring_sdl_set_sdl_mousemotionevent_timestamp)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	pMyPointer->timestamp = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_mousemotionevent_windowID)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	RING_API_RETNUMBER(pMyPointer->windowID);
+}
+
+RING_FUNC(ring_sdl_set_sdl_mousemotionevent_windowID)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	pMyPointer->windowID = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_mousemotionevent_which)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	RING_API_RETNUMBER(pMyPointer->which);
+}
+
+RING_FUNC(ring_sdl_set_sdl_mousemotionevent_which)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	pMyPointer->which = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_mousemotionevent_state)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	RING_API_RETNUMBER(pMyPointer->state);
+}
+
+RING_FUNC(ring_sdl_set_sdl_mousemotionevent_state)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	pMyPointer->state = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_mousemotionevent_x)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	RING_API_RETNUMBER(pMyPointer->x);
+}
+
+RING_FUNC(ring_sdl_set_sdl_mousemotionevent_x)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_mousemotionevent_y)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	RING_API_RETNUMBER(pMyPointer->y);
+}
+
+RING_FUNC(ring_sdl_set_sdl_mousemotionevent_y)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	pMyPointer->y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_mousemotionevent_xrel)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	RING_API_RETNUMBER(pMyPointer->xrel);
+}
+
+RING_FUNC(ring_sdl_set_sdl_mousemotionevent_xrel)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	pMyPointer->xrel = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_mousemotionevent_yrel)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	RING_API_RETNUMBER(pMyPointer->yrel);
+}
+
+RING_FUNC(ring_sdl_set_sdl_mousemotionevent_yrel)
+{
+	SDL_MouseMotionEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_MouseMotionEvent");
+	pMyPointer->yrel = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_new_sdl_mousewheelevent)
 {
 	SDL_MouseWheelEvent *pMyPointer ;
@@ -13505,6 +13811,24 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_mousebuttonevent",ring_sdl_destroy_sdl_mousebuttonevent);
 	ring_vm_funcregister("sdl_new_sdl_mousemotionevent",ring_sdl_new_sdl_mousemotionevent);
 	ring_vm_funcregister("sdl_destroy_sdl_mousemotionevent",ring_sdl_destroy_sdl_mousemotionevent);
+	ring_vm_funcregister("sdl_get_sdl_mousemotionevent_type",ring_sdl_get_sdl_mousemotionevent_type);
+	ring_vm_funcregister("sdl_set_sdl_mousemotionevent_type",ring_sdl_set_sdl_mousemotionevent_type);
+	ring_vm_funcregister("sdl_get_sdl_mousemotionevent_timestamp",ring_sdl_get_sdl_mousemotionevent_timestamp);
+	ring_vm_funcregister("sdl_set_sdl_mousemotionevent_timestamp",ring_sdl_set_sdl_mousemotionevent_timestamp);
+	ring_vm_funcregister("sdl_get_sdl_mousemotionevent_windowID",ring_sdl_get_sdl_mousemotionevent_windowID);
+	ring_vm_funcregister("sdl_set_sdl_mousemotionevent_windowID",ring_sdl_set_sdl_mousemotionevent_windowID);
+	ring_vm_funcregister("sdl_get_sdl_mousemotionevent_which",ring_sdl_get_sdl_mousemotionevent_which);
+	ring_vm_funcregister("sdl_set_sdl_mousemotionevent_which",ring_sdl_set_sdl_mousemotionevent_which);
+	ring_vm_funcregister("sdl_get_sdl_mousemotionevent_state",ring_sdl_get_sdl_mousemotionevent_state);
+	ring_vm_funcregister("sdl_set_sdl_mousemotionevent_state",ring_sdl_set_sdl_mousemotionevent_state);
+	ring_vm_funcregister("sdl_get_sdl_mousemotionevent_x",ring_sdl_get_sdl_mousemotionevent_x);
+	ring_vm_funcregister("sdl_set_sdl_mousemotionevent_x",ring_sdl_set_sdl_mousemotionevent_x);
+	ring_vm_funcregister("sdl_get_sdl_mousemotionevent_y",ring_sdl_get_sdl_mousemotionevent_y);
+	ring_vm_funcregister("sdl_set_sdl_mousemotionevent_y",ring_sdl_set_sdl_mousemotionevent_y);
+	ring_vm_funcregister("sdl_get_sdl_mousemotionevent_xrel",ring_sdl_get_sdl_mousemotionevent_xrel);
+	ring_vm_funcregister("sdl_set_sdl_mousemotionevent_xrel",ring_sdl_set_sdl_mousemotionevent_xrel);
+	ring_vm_funcregister("sdl_get_sdl_mousemotionevent_yrel",ring_sdl_get_sdl_mousemotionevent_yrel);
+	ring_vm_funcregister("sdl_set_sdl_mousemotionevent_yrel",ring_sdl_set_sdl_mousemotionevent_yrel);
 	ring_vm_funcregister("sdl_new_sdl_mousewheelevent",ring_sdl_new_sdl_mousewheelevent);
 	ring_vm_funcregister("sdl_destroy_sdl_mousewheelevent",ring_sdl_destroy_sdl_mousewheelevent);
 	ring_vm_funcregister("sdl_new_sdl_multigestureevent",ring_sdl_new_sdl_multigestureevent);
