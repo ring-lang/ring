@@ -90,7 +90,7 @@ SDL_MultiGestureEvent
 SDL_QuitEvent
 SDL_SysWMEvent
 SDL_TextEditingEvent {type,timestamp,windowID,start,length}
-SDL_TextInputEvent
+SDL_TextInputEvent {type,timestamp,windowID}
 SDL_UserEvent
 SDL_WindowEvent
 SDL_Keysym
