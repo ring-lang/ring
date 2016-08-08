@@ -85,7 +85,7 @@ SDL_JoyHatEvent
 SDL_KeyboardEvent
 SDL_MouseButtonEvent {type,timestamp,windowID,which,button,state,clicks,x,y}
 SDL_MouseMotionEvent {type,timestamp,windowID,which,state,x,y,xrel,yrel}
-SDL_MouseWheelEvent
+SDL_MouseWheelEvent {type,timestamp,windowID,which,x,y}
 SDL_MultiGestureEvent
 SDL_QuitEvent
 SDL_SysWMEvent
