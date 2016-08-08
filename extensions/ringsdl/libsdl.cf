@@ -89,7 +89,7 @@ SDL_MouseWheelEvent {type,timestamp,windowID,which,x,y}
 SDL_MultiGestureEvent
 SDL_QuitEvent
 SDL_SysWMEvent
-SDL_TextEditingEvent
+SDL_TextEditingEvent {type,timestamp,windowID,start,length}
 SDL_TextInputEvent
 SDL_UserEvent
 SDL_WindowEvent

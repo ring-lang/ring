@@ -3901,6 +3901,176 @@ RING_FUNC(ring_sdl_destroy_sdl_texteditingevent)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_texteditingevent_type)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_sdl_set_sdl_texteditingevent_type)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_texteditingevent_timestamp)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	RING_API_RETNUMBER(pMyPointer->timestamp);
+}
+
+RING_FUNC(ring_sdl_set_sdl_texteditingevent_timestamp)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	pMyPointer->timestamp = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_texteditingevent_windowID)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	RING_API_RETNUMBER(pMyPointer->windowID);
+}
+
+RING_FUNC(ring_sdl_set_sdl_texteditingevent_windowID)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	pMyPointer->windowID = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_texteditingevent_start)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	RING_API_RETNUMBER(pMyPointer->start);
+}
+
+RING_FUNC(ring_sdl_set_sdl_texteditingevent_start)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	pMyPointer->start = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_texteditingevent_length)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	RING_API_RETNUMBER(pMyPointer->length);
+}
+
+RING_FUNC(ring_sdl_set_sdl_texteditingevent_length)
+{
+	SDL_TextEditingEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_TextEditingEvent");
+	pMyPointer->length = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_new_sdl_textinputevent)
 {
 	SDL_TextInputEvent *pMyPointer ;
@@ -14559,6 +14729,16 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_syswmevent",ring_sdl_destroy_sdl_syswmevent);
 	ring_vm_funcregister("sdl_new_sdl_texteditingevent",ring_sdl_new_sdl_texteditingevent);
 	ring_vm_funcregister("sdl_destroy_sdl_texteditingevent",ring_sdl_destroy_sdl_texteditingevent);
+	ring_vm_funcregister("sdl_get_sdl_texteditingevent_type",ring_sdl_get_sdl_texteditingevent_type);
+	ring_vm_funcregister("sdl_set_sdl_texteditingevent_type",ring_sdl_set_sdl_texteditingevent_type);
+	ring_vm_funcregister("sdl_get_sdl_texteditingevent_timestamp",ring_sdl_get_sdl_texteditingevent_timestamp);
+	ring_vm_funcregister("sdl_set_sdl_texteditingevent_timestamp",ring_sdl_set_sdl_texteditingevent_timestamp);
+	ring_vm_funcregister("sdl_get_sdl_texteditingevent_windowID",ring_sdl_get_sdl_texteditingevent_windowID);
+	ring_vm_funcregister("sdl_set_sdl_texteditingevent_windowID",ring_sdl_set_sdl_texteditingevent_windowID);
+	ring_vm_funcregister("sdl_get_sdl_texteditingevent_start",ring_sdl_get_sdl_texteditingevent_start);
+	ring_vm_funcregister("sdl_set_sdl_texteditingevent_start",ring_sdl_set_sdl_texteditingevent_start);
+	ring_vm_funcregister("sdl_get_sdl_texteditingevent_length",ring_sdl_get_sdl_texteditingevent_length);
+	ring_vm_funcregister("sdl_set_sdl_texteditingevent_length",ring_sdl_set_sdl_texteditingevent_length);
 	ring_vm_funcregister("sdl_new_sdl_textinputevent",ring_sdl_new_sdl_textinputevent);
 	ring_vm_funcregister("sdl_destroy_sdl_textinputevent",ring_sdl_destroy_sdl_textinputevent);
 	ring_vm_funcregister("sdl_new_sdl_userevent",ring_sdl_new_sdl_userevent);
