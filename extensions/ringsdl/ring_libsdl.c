@@ -2421,6 +2421,176 @@ RING_FUNC(ring_sdl_destroy_sdl_joyaxisevent)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_joyaxisevent_type)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_sdl_set_sdl_joyaxisevent_type)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_joyaxisevent_timestamp)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->timestamp);
+}
+
+RING_FUNC(ring_sdl_set_sdl_joyaxisevent_timestamp)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	pMyPointer->timestamp = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_joyaxisevent_which)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->which);
+}
+
+RING_FUNC(ring_sdl_set_sdl_joyaxisevent_which)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	pMyPointer->which = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_joyaxisevent_axis)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->axis);
+}
+
+RING_FUNC(ring_sdl_set_sdl_joyaxisevent_axis)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	pMyPointer->axis = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_joyaxisevent_value)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->value);
+}
+
+RING_FUNC(ring_sdl_set_sdl_joyaxisevent_value)
+{
+	SDL_JoyAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_JoyAxisEvent");
+	pMyPointer->value = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_new_sdl_joyballevent)
 {
 	SDL_JoyBallEvent *pMyPointer ;
@@ -13311,6 +13481,16 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_finger",ring_sdl_destroy_sdl_finger);
 	ring_vm_funcregister("sdl_new_sdl_joyaxisevent",ring_sdl_new_sdl_joyaxisevent);
 	ring_vm_funcregister("sdl_destroy_sdl_joyaxisevent",ring_sdl_destroy_sdl_joyaxisevent);
+	ring_vm_funcregister("sdl_get_sdl_joyaxisevent_type",ring_sdl_get_sdl_joyaxisevent_type);
+	ring_vm_funcregister("sdl_set_sdl_joyaxisevent_type",ring_sdl_set_sdl_joyaxisevent_type);
+	ring_vm_funcregister("sdl_get_sdl_joyaxisevent_timestamp",ring_sdl_get_sdl_joyaxisevent_timestamp);
+	ring_vm_funcregister("sdl_set_sdl_joyaxisevent_timestamp",ring_sdl_set_sdl_joyaxisevent_timestamp);
+	ring_vm_funcregister("sdl_get_sdl_joyaxisevent_which",ring_sdl_get_sdl_joyaxisevent_which);
+	ring_vm_funcregister("sdl_set_sdl_joyaxisevent_which",ring_sdl_set_sdl_joyaxisevent_which);
+	ring_vm_funcregister("sdl_get_sdl_joyaxisevent_axis",ring_sdl_get_sdl_joyaxisevent_axis);
+	ring_vm_funcregister("sdl_set_sdl_joyaxisevent_axis",ring_sdl_set_sdl_joyaxisevent_axis);
+	ring_vm_funcregister("sdl_get_sdl_joyaxisevent_value",ring_sdl_get_sdl_joyaxisevent_value);
+	ring_vm_funcregister("sdl_set_sdl_joyaxisevent_value",ring_sdl_set_sdl_joyaxisevent_value);
 	ring_vm_funcregister("sdl_new_sdl_joyballevent",ring_sdl_new_sdl_joyballevent);
 	ring_vm_funcregister("sdl_destroy_sdl_joyballevent",ring_sdl_destroy_sdl_joyballevent);
 	ring_vm_funcregister("sdl_new_sdl_joybuttonevent",ring_sdl_new_sdl_joybuttonevent);
