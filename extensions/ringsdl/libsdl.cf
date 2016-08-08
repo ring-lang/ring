@@ -69,11 +69,11 @@ SDL_Rect {x,y,w,h}
 SDL_Surface {SDL_PixelFormat *format}
 SDL_SysWMinfo
 SDL_SysWMmsg
-SDL_ControllerAxisEvent
+SDL_ControllerAxisEvent {type,timestamp,which,axis,value}
 SDL_ControllerButtonEvent
 SDL_ControllerDeviceEvent
 SDL_DollarGestureEvent {type,timestamp,touchId,gestureId,numFingers,error,x,y}
-SDL_DropEvent
+SDL_DropEvent {type,timestamp,char *file}
 SDL_Event {type,key.keysym.sym,button.type,button.state,button.x,button.y,button.button, motion.type, motion.state,motion.x,motion.y,motion.xrel,motion.yrel}
 SDL_TouchFingerEvent {type,timestamp,touchId,fingerId,x,y,dx,dy,pressure}
 SDL_Finger

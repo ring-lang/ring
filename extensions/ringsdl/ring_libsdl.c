@@ -913,6 +913,176 @@ RING_FUNC(ring_sdl_destroy_sdl_controlleraxisevent)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_controlleraxisevent_type)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_sdl_set_sdl_controlleraxisevent_type)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_controlleraxisevent_timestamp)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->timestamp);
+}
+
+RING_FUNC(ring_sdl_set_sdl_controlleraxisevent_timestamp)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	pMyPointer->timestamp = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_controlleraxisevent_which)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->which);
+}
+
+RING_FUNC(ring_sdl_set_sdl_controlleraxisevent_which)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	pMyPointer->which = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_controlleraxisevent_axis)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->axis);
+}
+
+RING_FUNC(ring_sdl_set_sdl_controlleraxisevent_axis)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	pMyPointer->axis = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_controlleraxisevent_value)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	RING_API_RETNUMBER(pMyPointer->value);
+}
+
+RING_FUNC(ring_sdl_set_sdl_controlleraxisevent_value)
+{
+	SDL_ControllerAxisEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_ControllerAxisEvent");
+	pMyPointer->value = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_new_sdl_controllerbuttonevent)
 {
 	SDL_ControllerButtonEvent *pMyPointer ;
@@ -1291,6 +1461,108 @@ RING_FUNC(ring_sdl_destroy_sdl_dropevent)
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DropEvent");
 	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_get_sdl_dropevent_type)
+{
+	SDL_DropEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DropEvent");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dropevent_type)
+{
+	SDL_DropEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DropEvent");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_dropevent_timestamp)
+{
+	SDL_DropEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DropEvent");
+	RING_API_RETNUMBER(pMyPointer->timestamp);
+}
+
+RING_FUNC(ring_sdl_set_sdl_dropevent_timestamp)
+{
+	SDL_DropEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DropEvent");
+	pMyPointer->timestamp = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_dropevent_file)
+{
+	SDL_DropEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DropEvent");
+	RING_API_RETCPOINTER(pMyPointer->file,"char");
+}
+
+RING_FUNC(ring_sdl_set_sdl_dropevent_file)
+{
+	SDL_DropEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_DropEvent");
+	pMyPointer->file = (char *) RING_API_GETCPOINTER(2,"char *");
 }
 
 RING_FUNC(ring_sdl_new_sdl_event)
@@ -12947,6 +13219,16 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_sdl_syswmmsg",ring_sdl_destroy_sdl_syswmmsg);
 	ring_vm_funcregister("sdl_new_sdl_controlleraxisevent",ring_sdl_new_sdl_controlleraxisevent);
 	ring_vm_funcregister("sdl_destroy_sdl_controlleraxisevent",ring_sdl_destroy_sdl_controlleraxisevent);
+	ring_vm_funcregister("sdl_get_sdl_controlleraxisevent_type",ring_sdl_get_sdl_controlleraxisevent_type);
+	ring_vm_funcregister("sdl_set_sdl_controlleraxisevent_type",ring_sdl_set_sdl_controlleraxisevent_type);
+	ring_vm_funcregister("sdl_get_sdl_controlleraxisevent_timestamp",ring_sdl_get_sdl_controlleraxisevent_timestamp);
+	ring_vm_funcregister("sdl_set_sdl_controlleraxisevent_timestamp",ring_sdl_set_sdl_controlleraxisevent_timestamp);
+	ring_vm_funcregister("sdl_get_sdl_controlleraxisevent_which",ring_sdl_get_sdl_controlleraxisevent_which);
+	ring_vm_funcregister("sdl_set_sdl_controlleraxisevent_which",ring_sdl_set_sdl_controlleraxisevent_which);
+	ring_vm_funcregister("sdl_get_sdl_controlleraxisevent_axis",ring_sdl_get_sdl_controlleraxisevent_axis);
+	ring_vm_funcregister("sdl_set_sdl_controlleraxisevent_axis",ring_sdl_set_sdl_controlleraxisevent_axis);
+	ring_vm_funcregister("sdl_get_sdl_controlleraxisevent_value",ring_sdl_get_sdl_controlleraxisevent_value);
+	ring_vm_funcregister("sdl_set_sdl_controlleraxisevent_value",ring_sdl_set_sdl_controlleraxisevent_value);
 	ring_vm_funcregister("sdl_new_sdl_controllerbuttonevent",ring_sdl_new_sdl_controllerbuttonevent);
 	ring_vm_funcregister("sdl_destroy_sdl_controllerbuttonevent",ring_sdl_destroy_sdl_controllerbuttonevent);
 	ring_vm_funcregister("sdl_new_sdl_controllerdeviceevent",ring_sdl_new_sdl_controllerdeviceevent);
@@ -12971,6 +13253,12 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_set_sdl_dollargestureevent_y",ring_sdl_set_sdl_dollargestureevent_y);
 	ring_vm_funcregister("sdl_new_sdl_dropevent",ring_sdl_new_sdl_dropevent);
 	ring_vm_funcregister("sdl_destroy_sdl_dropevent",ring_sdl_destroy_sdl_dropevent);
+	ring_vm_funcregister("sdl_get_sdl_dropevent_type",ring_sdl_get_sdl_dropevent_type);
+	ring_vm_funcregister("sdl_set_sdl_dropevent_type",ring_sdl_set_sdl_dropevent_type);
+	ring_vm_funcregister("sdl_get_sdl_dropevent_timestamp",ring_sdl_get_sdl_dropevent_timestamp);
+	ring_vm_funcregister("sdl_set_sdl_dropevent_timestamp",ring_sdl_set_sdl_dropevent_timestamp);
+	ring_vm_funcregister("sdl_get_sdl_dropevent_file",ring_sdl_get_sdl_dropevent_file);
+	ring_vm_funcregister("sdl_set_sdl_dropevent_file",ring_sdl_set_sdl_dropevent_file);
 	ring_vm_funcregister("sdl_new_sdl_event",ring_sdl_new_sdl_event);
 	ring_vm_funcregister("sdl_destroy_sdl_event",ring_sdl_destroy_sdl_event);
 	ring_vm_funcregister("sdl_get_sdl_event_type",ring_sdl_get_sdl_event_type);
