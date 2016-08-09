@@ -10,6 +10,8 @@ $startplay=false
 $lastcol = 0
 $playerwin = false
 
+start_playing()
+
 func main
 
 	oGame = New Game

@@ -25,6 +25,9 @@ func al_game_start
 
     	main()
 
+func start_playing
+	al_run_main()
+
 class gamebase
 	title=""
 	screen_w=800  screen_h=600

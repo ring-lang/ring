@@ -14,6 +14,8 @@ $DoorKey = false
 $playerindex = 4
 $value = 1000
 
+start_playing()
+
 func main
 
 	oGame = New Game

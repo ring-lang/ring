@@ -13,6 +13,8 @@ $gameresult = false
 
 $startplay=false
 
+start_playing()
+
 func main
 
 	oGame = New Game 
