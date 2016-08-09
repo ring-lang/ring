@@ -7,6 +7,9 @@ load "gameengine.rh"
 
 oresources = new resources
 
+func start_playing
+	al_run_main()
+
 func al_game_start 
 
 	al_init()
@@ -24,9 +27,6 @@ func al_game_start
 	GE_COLOR_BLUE = al_map_rgb(0,0,255)
 
     	main()
-
-func start_playing
-	al_run_main()
 
 class gamebase
 	title=""
