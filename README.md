@@ -103,15 +103,15 @@ The next screen shot for the SuperMan Game (Developed using Ring)
 To run the stars fighter game from the terminal
 	
 	cd ../../ringlibs/gameengine
-	ring loadgame1.ring
+	ring game.ring
 
 To run the Flappy Bird 3000 game 
 
-	ring loadgame2.ring
+	ring game2.ring
 
 To run the SuperMan game 
 
-	ring loadgame3.ring
+	ring game3.ring
 	
 ## Building using Ubuntu Linux 
 
