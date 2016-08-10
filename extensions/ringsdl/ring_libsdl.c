@@ -5302,6 +5302,36 @@ RING_FUNC(ring_sdl_get_sdl_lastevent)
 	RING_API_RETNUMBER(SDL_LASTEVENT);
 }
 
+RING_FUNC(ring_sdl_get_sdlk_left)
+{
+	RING_API_RETNUMBER(SDLK_LEFT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_right)
+{
+	RING_API_RETNUMBER(SDLK_RIGHT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_up)
+{
+	RING_API_RETNUMBER(SDLK_UP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_down)
+{
+	RING_API_RETNUMBER(SDLK_DOWN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_space)
+{
+	RING_API_RETNUMBER(SDLK_SPACE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_escape)
+{
+	RING_API_RETNUMBER(SDLK_ESCAPE);
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -15362,4 +15392,10 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_get_sdl_render_targets_reset",ring_sdl_get_sdl_render_targets_reset);
 	ring_vm_funcregister("sdl_get_sdl_userevent",ring_sdl_get_sdl_userevent);
 	ring_vm_funcregister("sdl_get_sdl_lastevent",ring_sdl_get_sdl_lastevent);
+	ring_vm_funcregister("sdl_get_sdlk_left",ring_sdl_get_sdlk_left);
+	ring_vm_funcregister("sdl_get_sdlk_right",ring_sdl_get_sdlk_right);
+	ring_vm_funcregister("sdl_get_sdlk_up",ring_sdl_get_sdlk_up);
+	ring_vm_funcregister("sdl_get_sdlk_down",ring_sdl_get_sdlk_down);
+	ring_vm_funcregister("sdl_get_sdlk_space",ring_sdl_get_sdlk_space);
+	ring_vm_funcregister("sdl_get_sdlk_escape",ring_sdl_get_sdlk_escape);
 }
