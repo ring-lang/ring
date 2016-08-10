@@ -798,6 +798,40 @@ RING_FUNC(ring_sdl_destroy_sdl_surface)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_get_sdl_surface_flags)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	RING_API_RETNUMBER(pMyPointer->flags);
+}
+
+RING_FUNC(ring_sdl_set_sdl_surface_flags)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	pMyPointer->flags = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_get_sdl_surface_format)
 {
 	SDL_Surface *pMyPointer ;
@@ -830,6 +864,244 @@ RING_FUNC(ring_sdl_set_sdl_surface_format)
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
 	pMyPointer->format = (SDL_PixelFormat *) RING_API_GETCPOINTER(2,"SDL_PixelFormat *");
+}
+
+RING_FUNC(ring_sdl_get_sdl_surface_w)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	RING_API_RETNUMBER(pMyPointer->w);
+}
+
+RING_FUNC(ring_sdl_set_sdl_surface_w)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	pMyPointer->w = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_surface_h)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	RING_API_RETNUMBER(pMyPointer->h);
+}
+
+RING_FUNC(ring_sdl_set_sdl_surface_h)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	pMyPointer->h = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_surface_pitch)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	RING_API_RETNUMBER(pMyPointer->pitch);
+}
+
+RING_FUNC(ring_sdl_set_sdl_surface_pitch)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	pMyPointer->pitch = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_surface_pixels)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	RING_API_RETCPOINTER(pMyPointer->pixels,"void");
+}
+
+RING_FUNC(ring_sdl_set_sdl_surface_pixels)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	pMyPointer->pixels = (void *) RING_API_GETCPOINTER(2,"void *");
+}
+
+RING_FUNC(ring_sdl_get_sdl_surface_userdata)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	RING_API_RETCPOINTER(pMyPointer->userdata,"void");
+}
+
+RING_FUNC(ring_sdl_set_sdl_surface_userdata)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	pMyPointer->userdata = (void *) RING_API_GETCPOINTER(2,"void *");
+}
+
+RING_FUNC(ring_sdl_get_sdl_surface_locked)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	RING_API_RETNUMBER(pMyPointer->locked);
+}
+
+RING_FUNC(ring_sdl_set_sdl_surface_locked)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	pMyPointer->locked = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_sdl_surface_lock_data)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	RING_API_RETCPOINTER(pMyPointer->lock_data,"void");
+}
+
+RING_FUNC(ring_sdl_set_sdl_surface_lock_data)
+{
+	SDL_Surface *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
+	pMyPointer->lock_data = (void *) RING_API_GETCPOINTER(2,"void *");
 }
 
 RING_FUNC(ring_sdl_new_sdl_syswminfo)
@@ -15077,8 +15349,24 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_set_sdl_rect_h",ring_sdl_set_sdl_rect_h);
 	ring_vm_funcregister("sdl_new_sdl_surface",ring_sdl_new_sdl_surface);
 	ring_vm_funcregister("sdl_destroy_sdl_surface",ring_sdl_destroy_sdl_surface);
+	ring_vm_funcregister("sdl_get_sdl_surface_flags",ring_sdl_get_sdl_surface_flags);
+	ring_vm_funcregister("sdl_set_sdl_surface_flags",ring_sdl_set_sdl_surface_flags);
 	ring_vm_funcregister("sdl_get_sdl_surface_format",ring_sdl_get_sdl_surface_format);
 	ring_vm_funcregister("sdl_set_sdl_surface_format",ring_sdl_set_sdl_surface_format);
+	ring_vm_funcregister("sdl_get_sdl_surface_w",ring_sdl_get_sdl_surface_w);
+	ring_vm_funcregister("sdl_set_sdl_surface_w",ring_sdl_set_sdl_surface_w);
+	ring_vm_funcregister("sdl_get_sdl_surface_h",ring_sdl_get_sdl_surface_h);
+	ring_vm_funcregister("sdl_set_sdl_surface_h",ring_sdl_set_sdl_surface_h);
+	ring_vm_funcregister("sdl_get_sdl_surface_pitch",ring_sdl_get_sdl_surface_pitch);
+	ring_vm_funcregister("sdl_set_sdl_surface_pitch",ring_sdl_set_sdl_surface_pitch);
+	ring_vm_funcregister("sdl_get_sdl_surface_pixels",ring_sdl_get_sdl_surface_pixels);
+	ring_vm_funcregister("sdl_set_sdl_surface_pixels",ring_sdl_set_sdl_surface_pixels);
+	ring_vm_funcregister("sdl_get_sdl_surface_userdata",ring_sdl_get_sdl_surface_userdata);
+	ring_vm_funcregister("sdl_set_sdl_surface_userdata",ring_sdl_set_sdl_surface_userdata);
+	ring_vm_funcregister("sdl_get_sdl_surface_locked",ring_sdl_get_sdl_surface_locked);
+	ring_vm_funcregister("sdl_set_sdl_surface_locked",ring_sdl_set_sdl_surface_locked);
+	ring_vm_funcregister("sdl_get_sdl_surface_lock_data",ring_sdl_get_sdl_surface_lock_data);
+	ring_vm_funcregister("sdl_set_sdl_surface_lock_data",ring_sdl_set_sdl_surface_lock_data);
 	ring_vm_funcregister("sdl_new_sdl_syswminfo",ring_sdl_new_sdl_syswminfo);
 	ring_vm_funcregister("sdl_destroy_sdl_syswminfo",ring_sdl_destroy_sdl_syswminfo);
 	ring_vm_funcregister("sdl_new_sdl_syswmmsg",ring_sdl_new_sdl_syswmmsg);
