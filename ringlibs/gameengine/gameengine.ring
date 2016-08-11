@@ -3,6 +3,7 @@
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
 load "gl_allegro.ring"
+#load "gl_libsdl.ring"
 load "gameengine.rh"
 
 oresources = new resources
@@ -133,6 +134,7 @@ class game from gamebase
 						if key[key_other]
 							key[key_other] = false
 							for t in aobjects  t.keyboard(self,nkeycode)  next
+							nKeyCode = 0
 						ok		
 						redraw = true
 					on GL_event_mouse_axes
@@ -151,7 +153,7 @@ class game from gamebase
 								on gl_key_left
 									key[key_left] = true
 								on gl_key_right
-									key[key_right] = true									
+									key[key_right] = true							
 						off
 					on GL_event_key_up
 						switch gl_get_glib_event_keyboard_keycode(ev)
@@ -180,7 +182,7 @@ class game from gamebase
 	func drawobjs
 		gl_set_target_bitmap(gl_get_backbuffer(display))
 		gl_clear_to_color(GE_COLOR_WHITE)
-		for t in aobjects t.draw(self) next
+		for t in aobjects t.draw(self) next		
 		gl_flip_display()
 
 	func shutdown
