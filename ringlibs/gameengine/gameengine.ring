@@ -116,7 +116,7 @@ class game from gamebase
 			gl_wait_for_event_until(event_queue, ev, timeout)
 			switch gl_get_glib_event_type(ev)
 					on gl_event_display_close
-						exit
+						shutdown()
 					on gl_event_timer
 						# keyboard
 						if key[key_up]
