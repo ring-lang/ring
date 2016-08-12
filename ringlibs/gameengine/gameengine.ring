@@ -138,11 +138,17 @@ class game from gamebase
 						ok		
 						redraw = true
 					on GL_event_mouse_axes
-						 
+						for t in aobjects  t.mouse(self,GL_event_mouse_axes)  next						 
 					on GL_event_mouse_enter_display
- 
+						for t in aobjects  t.mouse(self,GL_event_mouse_enter_display)  next 
 					on GL_event_mouse_button_up
-						 
+						for t in aobjects  t.mouse(self,GL_event_mouse_button_up)  next					
+					on GL_EVENT_FINGER_DOWN
+						for t in aobjects  t.finger(self,GL_EVENT_FINGER_DOWN)  next
+					on GL_EVENT_FINGER_UP
+						for t in aobjects  t.finger(self,GL_EVENT_FINGER_UP)  next
+					on GL_EVENT_FINGER_MOTION
+ 						for t in aobjects  t.finger(self,GL_EVENT_FINGER_MOTION)  next
 					on GL_event_key_down
 						nkeycode = gl_get_glib_event_keyboard_keycode(ev)
 						switch nkeycode
@@ -235,6 +241,8 @@ class gameobject from gamebase
 	func animate
 	func delete
 	func keyboard oGame,nkey
+	func mouse oGame,nType
+	func finger oGame,nType
 	func rgb r,g,b
 		return gl_map_rgb(r,g,b)
 
@@ -245,6 +253,8 @@ class sprite from gameobject
 	r = 0
 	cimagefile = ""
 	keypress = ""
+	mouse = ""
+	finger = ""
 	state = ""
 	type = 0
 	transparent = false	transparentdone = false
@@ -341,6 +351,18 @@ class sprite from gameobject
 		on key_left	x-=10
 		on key_right	x+=10
 		off
+
+	func mouse oGame,nType
+		if not lenabled return ok
+		if not mouse = ""			
+			call mouse(oGame,self,Type)
+		ok
+
+	func finger oGame,nType
+		if not lenabled return ok
+		if not finger = ""			
+			call finger(oGame,self,nType)
+		ok
 
 	func delete
 		oresources.unloadimage(cimagefile)
