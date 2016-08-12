@@ -50,12 +50,6 @@ func main
 					ogame.shutdown=true 
 				ok
 			}
-			finger = func ogame,oself,nType {
-				if nType = GE_FINGER_DOWN 
-					$startplay=true 
-					ogame.shutdown=true 
-				ok
-			}
 		}
 		text {
 			animate = false

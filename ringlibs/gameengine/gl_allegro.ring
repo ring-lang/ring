@@ -174,3 +174,15 @@ func gl_destroy_glib_sample_id sampleid
 
 func gl_destroy_sample sample
 	al_destroy_sample(sample)	
+
+func gl_mouse_x myevent
+	return 0
+
+func gl_mouse_y myevent
+	return 0
+
+func gl_mouse_xrel myevent
+	return 0
+
+func gl_mouse_yrel myevent
+	return 0

@@ -101,7 +101,9 @@ func gl_set_window_title display,title
 
 func gl_create_display screen_w,screen_h
 	SDL_win = SDL_CreateWindow("", 100, 100, screen_w,screen_h, SDL_WINDOW_SHOWN)
+	#SDL_win = SDL_CreateWindow("", 100, 100, screen_w,screen_h, SDL_WINDOW_FULLSCREEN_DESKTOP)
 	SDL_ren = SDL_CreateRenderer(SDL_win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
+	SDL_RenderSetLogicalSize(SDL_ren,screen_w,screen_h)
 	return SDL_win
 
 func gl_set_new_display_flags nFlags
@@ -241,6 +243,18 @@ func gl_destroy_glib_sample_id sampleid
 
 func gl_destroy_sample sample
 	Mix_FreeChunk( sample )
+
+func gl_mouse_x myevent
+	return sdl_get_sdl_event_motion_x(SDL_event_queue)
+
+func gl_mouse_y myevent
+	return sdl_get_sdl_event_motion_y(SDL_event_queue)
+
+func gl_mouse_xrel myevent
+	return sdl_get_sdl_event_motion_xrel(SDL_event_queue)
+
+func gl_mouse_yrel myevent
+	return sdl_get_sdl_event_motion_yrel(SDL_event_queue)
 
 # Private Functions - Not used by the Game Engine  
 
