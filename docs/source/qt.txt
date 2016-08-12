@@ -738,6 +738,7 @@ Using QProgressBar and Timer
 In this example we will learn about using the "animated" QProgressBar class and Timer
 
 .. code-block:: none	
+
 	###------------------------------------
 	### ProgressBar and Timer Example
 	
@@ -793,7 +794,7 @@ In this example we will learn about using the "animated" QProgressBar class and 
 	:alt: QProgressBar
 	
 Using QSpinBox
-==================
+==============
 
 In this example we will learn about using the QSpinBox class
 
@@ -820,7 +821,7 @@ The application during the runtime
 	:alt: QSpinBox
 	
 Using QSlider
-==================
+=============
 
 In this example we will learn about using the QSlider class
 
@@ -1190,7 +1191,7 @@ The application during the runtime
 	:alt: Display Image
 	
 Display Scaled Image using QLabel
-==========================
+=================================
 
 In this example we will learn about displaying and scaling an image so that it looks "animated" using the QLabel widget
 
