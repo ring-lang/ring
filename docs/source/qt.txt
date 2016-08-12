@@ -1167,6 +1167,100 @@ The application during the runtime
 .. image:: ringqt_shot26.jpg
 	:alt: Display Image
 	
+Display Scaled Image using QLabel
+==========================
+
+In this example we will learn about displaying and scaling an image so that it looks "animated" using the QLabel widget
+
+.. code-block:: none
+
+	Load "guilib.ring"
+
+	#----------------------------------------------------
+	# REQUIRES: image = "C:\RING\bin\stock.jpg"
+
+	# imageStock: start dimensions for growing image
+
+	imageW = 200 ;  imageH = 200 ; GrowBy = 4
+
+	###----------------------------------------------------
+	### Window and Box Size dimensions
+
+	WinWidth = 1280 ; WinHeight = 960
+	BoxWidth = WinWidth -80 ; BoxHeight = WinHeight -80
+
+	###----------------------------------------------------
+
+	New qapp {
+
+		win1 = new qwidget() {
+
+			setgeometry(50,50, WinWidth,WinHeight)
+			setwindowtitle("Animated Image - Display Image Scaled and Resized")
+
+			imageStock = new qlabel(win1) {
+
+				image = new qpixmap("C:\RING\bin\stock.jpg")
+				AspectRatio = image.width() / image.height()
+
+				imageW = 200
+				imageH = imageH / AspectRatio
+
+				### Size-H, Size-V, Aspect, Transform
+				setpixmap(image.scaled(imageW , imageH ,0,0))   
+
+				PosLeft = (BoxWidth  - imageW ) / 2
+				PosTop  = (BoxHeight - imageH ) / 2
+				setGeometry(PosLeft,PosTop,imageW,imageH)
+
+			}
+
+			TimerMan = new qtimer(win1) {
+				setinterval(100)            ### interval 100 millisecs.
+				settimeoutevent("pTime()")  ### ==>> func
+				start()
+			}
+
+			show()
+		}
+	exec()
+	}
+
+
+	###------------------------------------------------------
+	### Fuction TimerMan: calling interval 100 milliseconds
+
+	func pTime
+
+	### Stop Timer when image is size of Window area
+	if imageW > BoxWidth
+		TimerMan.stop()
+		imageStock.clear()      ### Will clear the image
+	ok
+
+	### Grow image
+	imageW += GrowBy
+	imageH  = imageW / AspectRatio
+
+	### Scaled Image: Size-H, Size-V, Aspect, Transform
+	imageStock.setpixmap(image.scaled(imageW , imageH ,0,0))
+
+	### Center the image
+	PosLeft = (WinWidth  - imageW ) / 2
+	PosTop  = (WinHeight - imageH ) / 2
+	imageStock.setGeometry(PosLeft,PosTop,imageW,imageH)
+
+	#See "Windows: iW: "+ imageW +" iH: "+ imageH +" bW: "+ BoxWidth +" bH: "+ BoxHeight +nl
+
+	return
+	###-------------
+
+The application during the runtime
+
+.. image:: ringqt_shot26-B.jpg
+	:alt: Display Image
+	
+		
 Menubar and StyleSheet Example
 ==============================
 
