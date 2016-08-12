@@ -44,6 +44,18 @@ func main
 					ogame.shutdown=true 
 				ok
 			}
+			mouse = func ogame,oself,nType {		
+				if nType = GE_MOUSE_UP
+					$startplay=true 
+					ogame.shutdown=true 
+				ok
+			}
+			finger = func ogame,oself,nType {
+				if nType = GE_FINGER_DOWN 
+					$startplay=true 
+					ogame.shutdown=true 
+				ok
+			}
 		}
 		text {
 			animate = false
@@ -145,6 +157,12 @@ func play oGame
 			type = ge_type_player
 			x = 400 y =400 width=100 height=100
 			animate=false move=true Scaled=true
+			mouse = func ogame,oself,nType {		
+				if nType = GE_MOUSE_UP
+					cFunc = oself.keypress	
+					call cFunc(oGame,oSelf,Key_Space)
+				ok
+			}
 			keypress = func oGame,oself,nkey {
 				if nkey = key_space
 					ogame {

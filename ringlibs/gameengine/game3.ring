@@ -406,7 +406,7 @@ func checkgameover ogame
 			text {
 				point = 400
 				size = 30
-				nStep = 3
+				nStep = 9
 				file = "fonts/pirulen.ttf"
 				text = "Game Over !!!"
 				x = 500	y=10

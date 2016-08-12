@@ -20,6 +20,7 @@ GL_EVENT_DISPLAY_CLOSE = SDL_QUIT
 GL_EVENT_TIMER = -2
 GL_EVENT_MOUSE_AXES = SDL_MOUSEMOTION 
 GL_EVENT_MOUSE_ENTER_DISPLAY = -3 
+GL_EVENT_MOUSE_BUTTON_DOWN = SDL_MOUSEBUTTONDOWN 
 GL_EVENT_MOUSE_BUTTON_UP = SDL_MOUSEBUTTONUP 
 GL_EVENT_KEY_DOWN = SDL_KEYDOWN 
 GL_EVENT_KEY_UP = SDL_KEYUP 
@@ -51,6 +52,8 @@ sdl_v1=0
 sdl_v2=0
 sdl_v3=0
 sdl_v4=0
+SDL_event_queue = null
+SDL_NEVENT = 0
 
 func gl_start_playing
 	gl_game_start()
@@ -116,13 +119,16 @@ func gl_create_event_queue
 func gl_create_timer nCount
 
 func gl_wait_for_event_until event_queue, ev, timeout
-	sdl_pollevent(event_queue)
+	SDL_event_queue = event_queue
 
 func gl_get_glib_event_type ev
-	if clock() - SDL_CLOCK >= SDL_FPS
+	if ( clock() - SDL_CLOCK >= SDL_FPS ) and SDL_NEVENT = 0
 		SDL_CLOCK = clock()
-		return GL_EVENT_TIMER
+		SDL_NEVENT = 1
+		return GL_EVENT_TIMER		
 	ok
+	SDL_NEVENT = 0
+	sdl_pollevent(SDL_event_queue)
 	return sdl_get_sdl_event_type(SDL_event)
 
 func gl_get_glib_event_keyboard_keycode ev

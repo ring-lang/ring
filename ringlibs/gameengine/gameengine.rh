@@ -29,3 +29,15 @@ GE_COLOR_WHITE = NULL
 GE_COLOR_RED   = NULL
 GE_COLOR_GREEN = NULL
 GE_COLOR_BLUE  = NULL
+
+# Finger Events
+GE_FINGER_DOWN   = GL_EVENT_FINGER_DOWN
+GE_FINGER_UP     = GL_EVENT_FINGER_UP
+GE_FINGER_MOTION = GL_EVENT_FINGER_MOTION
+
+# Mouse Events
+GE_MOUSE_DOWN         = GL_event_mouse_button_down
+GE_MOUSE_UP           = GL_event_mouse_button_up
+GE_MOUSE_AXES         = GL_event_mouse_axes
+GE_MOUSE_ENTERDISPLAY = GL_event_mouse_enter_display
+

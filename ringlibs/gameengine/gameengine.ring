@@ -141,6 +141,8 @@ class game from gamebase
 						for t in aobjects  t.mouse(self,GL_event_mouse_axes)  next						 
 					on GL_event_mouse_enter_display
 						for t in aobjects  t.mouse(self,GL_event_mouse_enter_display)  next 
+					on GL_event_mouse_button_down
+						for t in aobjects  t.mouse(self,GL_event_mouse_button_down)  next
 					on GL_event_mouse_button_up
 						for t in aobjects  t.mouse(self,GL_event_mouse_button_up)  next					
 					on GL_EVENT_FINGER_DOWN
@@ -355,7 +357,7 @@ class sprite from gameobject
 	func mouse oGame,nType
 		if not lenabled return ok
 		if not mouse = ""			
-			call mouse(oGame,self,Type)
+			call mouse(oGame,self,nType)
 		ok
 
 	func finger oGame,nType
