@@ -138,13 +138,17 @@ class game from gamebase
 						ok		
 						redraw = true
 					on GL_event_mouse_axes
-						for t in aobjects  t.mouse(self,GL_event_mouse_axes)  next						 
+						aMouselist = [gl_mouse_x(),gl_mouse_y(),gl_mouse_xrel(),gl_mouse_yrel()]
+						for t in aobjects  t.mouse(self,GL_event_mouse_axes,aMouseList)  next						 
 					on GL_event_mouse_enter_display
-						for t in aobjects  t.mouse(self,GL_event_mouse_enter_display)  next 
+						aMouselist = [gl_mouse_x(),gl_mouse_y(),gl_mouse_xrel(),gl_mouse_yrel()]
+						for t in aobjects  t.mouse(self,GL_event_mouse_enter_display,aMouseList)  next 
 					on GL_event_mouse_button_down
-						for t in aobjects  t.mouse(self,GL_event_mouse_button_down)  next
+						aMouselist = [gl_mouse_x(),gl_mouse_y(),gl_mouse_xrel(),gl_mouse_yrel()]
+						for t in aobjects  t.mouse(self,GL_event_mouse_button_down,aMouseList)  next
 					on GL_event_mouse_button_up
-						for t in aobjects  t.mouse(self,GL_event_mouse_button_up)  next					
+						aMouselist = [gl_mouse_x(),gl_mouse_y(),gl_mouse_xrel(),gl_mouse_yrel()]
+						for t in aobjects  t.mouse(self,GL_event_mouse_button_up,aMouseList)  next					
 					on GL_EVENT_FINGER_DOWN
 						for t in aobjects  t.finger(self,GL_EVENT_FINGER_DOWN)  next
 					on GL_EVENT_FINGER_UP
@@ -243,7 +247,7 @@ class gameobject from gamebase
 	func animate
 	func delete
 	func keyboard oGame,nkey
-	func mouse oGame,nType
+	func mouse oGame,nType,aMouseList
 	func finger oGame,nType
 	func rgb r,g,b
 		return gl_map_rgb(r,g,b)
@@ -354,10 +358,10 @@ class sprite from gameobject
 		on key_right	x+=10
 		off
 
-	func mouse oGame,nType
+	func mouse oGame,nType,aMouseList
 		if not lenabled return ok
 		if not mouse = ""			
-			call mouse(oGame,self,nType)
+			call mouse(oGame,self,nType,aMouseList)
 		ok
 
 	func finger oGame,nType

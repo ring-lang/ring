@@ -244,17 +244,17 @@ func gl_destroy_glib_sample_id sampleid
 func gl_destroy_sample sample
 	Mix_FreeChunk( sample )
 
-func gl_mouse_x myevent
-	return sdl_get_sdl_event_motion_x(SDL_event_queue)
+func gl_mouse_x  
+	return sdl_get_sdl_event_motion_x(SDL_event)
 
-func gl_mouse_y myevent
-	return sdl_get_sdl_event_motion_y(SDL_event_queue)
+func gl_mouse_y  
+	return sdl_get_sdl_event_motion_y(SDL_event)
 
-func gl_mouse_xrel myevent
-	return sdl_get_sdl_event_motion_xrel(SDL_event_queue)
+func gl_mouse_xrel  
+	return sdl_get_sdl_event_motion_xrel(SDL_event)
 
-func gl_mouse_yrel myevent
-	return sdl_get_sdl_event_motion_yrel(SDL_event_queue)
+func gl_mouse_yrel  
+	return sdl_get_sdl_event_motion_yrel(SDL_event)
 
 # Private Functions - Not used by the Game Engine  
 
