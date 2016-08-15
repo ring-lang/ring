@@ -16120,6 +16120,31 @@ RING_FUNC(ring_QMainWindow_addToolBar)
 }
 
 
+RING_FUNC(ring_QMainWindow_addToolBar_2)
+{
+	QMainWindow *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMainWindow *) RING_API_GETCPOINTER(1,"QMainWindow");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addToolBar( (Qt::ToolBarArea )  (int) RING_API_GETNUMBER(2),(QToolBar *) RING_API_GETCPOINTER(3,"QToolBar"));
+}
+
+
 RING_FUNC(ring_QMainWindow_addToolBarBreak)
 {
 	QMainWindow *pObject ;
@@ -63335,6 +63360,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtoolbar_settoolbuttonstyle",ring_QToolBar_setToolButtonStyle);
 	ring_vm_funcregister("qmainwindow_adddockwidget",ring_QMainWindow_addDockWidget);
 	ring_vm_funcregister("qmainwindow_addtoolbar",ring_QMainWindow_addToolBar);
+	ring_vm_funcregister("qmainwindow_addtoolbar_2",ring_QMainWindow_addToolBar_2);
 	ring_vm_funcregister("qmainwindow_addtoolbarbreak",ring_QMainWindow_addToolBarBreak);
 	ring_vm_funcregister("qmainwindow_centralwidget",ring_QMainWindow_centralWidget);
 	ring_vm_funcregister("qmainwindow_corner",ring_QMainWindow_corner);

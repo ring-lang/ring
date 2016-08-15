@@ -1425,6 +1425,7 @@ parent: QWidget
 
 void addDockWidget(Qt::DockWidgetArea area, QDockWidget *dockwidget, Qt::Orientation orientation)
 QToolBar *addToolBar(QString)
+void addToolBar@2(Qt::ToolBarArea area, QToolBar *toolbar)
 void addToolBarBreak(Qt::ToolBarArea)
 QWidget *centralWidget(void)
 int corner(Qt::Corner corner)

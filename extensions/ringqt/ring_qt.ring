@@ -2838,6 +2838,9 @@ Class QMainWindow from QWidget
 		pTempObj.pObject = QMainWindow_addToolBar(pObject,P1)
 		return pTempObj
 
+	Func addToolBar_2 P1,P2
+		return QMainWindow_addToolBar_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
 	Func addToolBarBreak P1
 		return QMainWindow_addToolBarBreak(pObject,P1)
 
