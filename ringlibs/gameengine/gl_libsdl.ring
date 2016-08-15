@@ -192,6 +192,7 @@ func gl_draw_scaled_bitmap image,p2,p3,p4,p5,p6,p7,p8,p9,p10
 	sdl_set_sdl_rect_h(rect2,p9)
 	SDL_RenderCopy(SDL_ren,tex,rect,rect2)
 	sdl_destroy_sdl_rect(rect)
+	sdl_destroy_sdl_rect(rect2)
 
 func gl_draw_text font,color,x,y,nAlign,text
 	text = TTF_RenderText_Solid(font,text,color)
