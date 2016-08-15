@@ -30,6 +30,8 @@
 	for example <filter> iswindows() 
 			... functions related to windows
 		    </filter>
+	in method prototype - when we use @ in the method name
+	we mean that we have the same method with different parameters (As in C++)	
 */
 
 C_INS_FUNCTION  = 1
@@ -375,15 +377,17 @@ Func GenFuncPrototype aList
 				cClassName = $cClassName
 			ok
 			cCode += GenTabs(1) + 'ring_vm_funcregister("' 
+			cFuncName = aFunc[C_FUNC_NAME]
+			cFuncName = SubStr(cFuncName,"@","_")
 			if cClassName != ""
 				cCode += lower(cClassName) + "_" 
 			ok
-			cCode += lower(aFunc[C_FUNC_NAME]) + '",' +
+			cCode += lower(cFuncName) + '",' +
 				  "ring_"
 			if cClassName != ""
 				cCode += cClassName + "_" 
 			ok
-			cCode += aFunc[C_FUNC_NAME] + ");" + nl
+			cCode += cFuncName + ");" + nl
 		ok
 	next
 	for cFunc in $aStructFuncs
@@ -761,8 +765,12 @@ Func GenConstant aFunc
 
 
 Func GenMethodCode aList
+
+	cFuncName = aList[C_FUNC_NAME]
+	cFuncName = substr(cFuncName,"@","_")
+	
 	cCode = nl+"RING_FUNC(" + "ring_"+$cClassName+"_"+
-				aList[C_FUNC_NAME] + ")" + nl +
+				cFuncName + ")" + nl +
 	 	"{" + nl +
 	 	GenMethodCodeCheckParaCount(aList) +
 		GenMethodCodeCheckIgnorePointerType() +
@@ -864,6 +872,11 @@ Func GenMethodCodeCheckParaType aList
 	return cCode
 
 Func GenMethodCodeCallFunc aList
+	cFuncName = aList[C_FUNC_NAME]
+	nPos = SubStr(cFuncName,"@")
+	if nPos > 0
+		cFuncName = left(cFuncName,nPos-1)
+	ok
 	cCode = GenTabs(1)
 	lRet = true
 	lUNKNOWN = false
@@ -898,7 +911,7 @@ Func GenMethodCodeCallFunc aList
 			lRet = false
 			lUNKNOWN = true
 	off
-	cCode += "pObject->"+aList[C_FUNC_NAME] + "(" +
+	cCode += "pObject->"+ cFuncName + "(" +
 		GenMethodCodeGetParaValues(aList) + ")"
 
 	#Check before return list for any 
@@ -1078,6 +1091,7 @@ Func GenRingCode aList
 			if aFunc[C_FUNC_NAME] = "new" loop ok
 			cMethodName = aFunc[C_FUNC_NAME]
 			cMethodName = GenRingCodeNewMethodName(cClassName,cMethodName)
+			cMethodName = SubStr(cMethodName,"@","_")
 			cCode += nl + GenTabs(1) + "Func " + cMethodName + " "
 			aPara = aFunc[C_FUNC_PARA]
 			cCode += GenRingCodeParaList(aPara)
@@ -1094,14 +1108,16 @@ Func GenRingCode aList
 			else
 				cCode += nl + GenTabs(2) + "return " 
 			ok
+			cMethodName = aFunc[C_FUNC_NAME]
+			cMethodName = SubStr(cMethodName,"@","_")
 			if find($aClassesList,cClassName,1) > 0
-				cCode += cClassName + "_" + aFunc[C_FUNC_NAME]+"(pObject"
+				cCode += cClassName + "_" + cMethodName + "(pObject"
 				cParaCode = GenRingCodeParaListUse(aPara)
 				if cParaCode != NULL
 					cCode += ","+cParaCode
 				ok
 			else
-				cCode += cClassName + "_" + aFunc[C_FUNC_NAME]+"(" +
+				cCode += cClassName + "_" + cMethodName + "(" +
 				GenRingCodeParaList(aPara)			
 			ok
 			cCode += ")" + nl
