@@ -14,7 +14,7 @@ start_playing()
 
 func main
 
-	oGame = New Game
+	oGame = New Game	
 
 	while true
 
@@ -37,6 +37,12 @@ func main
 				but nKey = key_space
 					$startplay=true
 					ogame.shutdown=true
+				ok
+			}
+			mouse = func ogame,oself,nType,aMouseList {		
+				if nType = GE_MOUSE_UP				
+					cFunc = oself.keypress	
+					call cFunc(oGame,oSelf,Key_Space)
 				ok
 			}
 		}
@@ -124,7 +130,7 @@ func main
 	if $startplay
 		oGame.refresh()
 		playstart(oGame)
-		oGame.refresh()
+		oGame.refresh()		
 	ok
 
 	end
@@ -142,7 +148,7 @@ func playstart oGame
 				if nkey = key_esc
 					ogame.shutdown()
 				ok
-			}
+			}			
 		}
 
 		Map {
@@ -268,6 +274,12 @@ func playstart oGame
 							if y<=0 y=0 ok
 						ok
 					}
+				ok
+			}
+			mouse = func ogame,oself,nType,aMouseList {		
+				if nType = GE_MOUSE_UP				
+					cFunc = oself.keypress	
+					call cFunc(oGame,oSelf,Key_Space)
 				ok
 			}
 		}

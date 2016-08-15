@@ -44,7 +44,7 @@ SDL_target = NULL
 SDL_event = NULL
 
 # Frames per second
-SDL_FPS = 1000 / 60
+SDL_FPS = 1000 / 30
 SDL_CLOCK = clock()
 
 #other
@@ -64,8 +64,8 @@ func gl_game_start
 	flags = IMG_INIT_JPG | IMG_INIT_PNG
 	IMG_Init(flags)
 	TTF_Init()
-	Mix_OpenAudio( 44100, sdl_get_mix_default_format() , 2, 10000)
-	Mix_AllocateChannels(4)
+	Mix_OpenAudio( 44100, sdl_get_mix_default_format() , 2, 4048)
+	Mix_AllocateChannels(16)
 	
 	# colors
 	GE_COLOR_WHITE = gl_map_rgb(255,255,255)
@@ -101,7 +101,6 @@ func gl_set_window_title display,title
 
 func gl_create_display screen_w,screen_h
 	SDL_win = SDL_CreateWindow("", 100, 100, screen_w,screen_h, SDL_WINDOW_SHOWN)
-	#SDL_win = SDL_CreateWindow("", 100, 100, screen_w,screen_h, SDL_WINDOW_FULLSCREEN_DESKTOP)
 	SDL_ren = SDL_CreateRenderer(SDL_win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
 	SDL_RenderSetLogicalSize(SDL_ren,screen_w,screen_h)
 	return SDL_win
@@ -123,14 +122,14 @@ func gl_create_timer nCount
 func gl_wait_for_event_until event_queue, ev, timeout
 	SDL_event_queue = event_queue
 
-func gl_get_glib_event_type ev
-	if ( clock() - SDL_CLOCK >= SDL_FPS ) and SDL_NEVENT = 0
+func gl_get_glib_event_type ev	
+	if ( clock() - SDL_CLOCK >= SDL_FPS )  and SDL_NEVENT = 0
 		SDL_CLOCK = clock()
 		SDL_NEVENT = 1
 		return GL_EVENT_TIMER		
 	ok
-	SDL_NEVENT = 0
 	sdl_pollevent(SDL_event_queue)
+	SDL_NEVENT = 0	
 	return sdl_get_sdl_event_type(SDL_event)
 
 func gl_get_glib_event_keyboard_keycode ev
@@ -182,11 +181,16 @@ func gl_get_bitmap_width image
 func gl_draw_scaled_bitmap image,p2,p3,p4,p5,p6,p7,p8,p9,p10
 	tex = image[2]
 	rect = sdl_new_sdl_rect()
-	sdl_set_sdl_rect_x(rect,p6)
-	sdl_set_sdl_rect_y(rect,p7)
-	sdl_set_sdl_rect_w(rect,p8)
-	sdl_set_sdl_rect_h(rect,p9)
-	SDL_RenderCopy(SDL_ren,tex,nullpointer(),rect)
+	sdl_set_sdl_rect_x(rect,p2)
+	sdl_set_sdl_rect_y(rect,p3)
+	sdl_set_sdl_rect_w(rect,p4)
+	sdl_set_sdl_rect_h(rect,p5)
+	rect2 = sdl_new_sdl_rect()
+	sdl_set_sdl_rect_x(rect2,p6)
+	sdl_set_sdl_rect_y(rect2,p7)
+	sdl_set_sdl_rect_w(rect2,p8)
+	sdl_set_sdl_rect_h(rect2,p9)
+	SDL_RenderCopy(SDL_ren,tex,rect,rect2)
 	sdl_destroy_sdl_rect(rect)
 
 func gl_draw_text font,color,x,y,nAlign,text
@@ -236,8 +240,7 @@ func gl_set_target_bitmap oBitmap
 func gl_new_glib_sample_id
 
 func gl_play_sample sound,p2,p3,p4,p5,p6	
-	#Mix_VolumeChunk(sound,1)
-	Mix_PlayChannel(-1,sound,-1)
+	Mix_PlayChannel(1,sound,0)
 
 func gl_destroy_glib_sample_id sampleid
 
