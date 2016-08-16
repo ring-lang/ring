@@ -368,10 +368,16 @@
                     'Arabic Tutorials',
                     'Active'
                   ],
-				  [
+	          [
                     'Mostafa Gaber',
                     'mostnour@gmail.com',
                     'Tester',
+                    'Active'
+                  ],
+                  [
+                    'Abdelraouf Mohamed',
+                    'abdelraouf.mohamed31@gmail.com',
+                    'Tester/Samples',
                     'Active'
                   ]
 ]
