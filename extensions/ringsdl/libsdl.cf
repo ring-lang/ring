@@ -111,6 +111,7 @@ Mix_MusicType
 Mix_Fading
 IPaddress {host,port}
 TCPsocket
+UDPsocket
 </struct>
 
 <constant>
