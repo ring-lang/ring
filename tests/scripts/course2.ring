@@ -1,7 +1,7 @@
-see "Enter you name
+see "Enter your name
 please
 "
 
 give name
 
-see "hello, "+ name
+see "hello, " + name

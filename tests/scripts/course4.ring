@@ -1,6 +1,8 @@
-#input
+# Input
 see"enter your name ? " give name
-#process
-output= " hello " +name 
-#output
+
+# Process
+output = " hello " + name 
+
+# Output
 see output

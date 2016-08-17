@@ -17,7 +17,7 @@ myevent = sdl_new_sdl_event()
 
 while true
 	cMsg = ""
-	thevent = sdl_pollevent(myevent)
+	sdl_pollevent(myevent)
 	switch sdl_get_sdl_event_type(myevent)
 		on SDL_QUIT
 			exit

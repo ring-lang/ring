@@ -1,3 +1,3 @@
-see "enter your name "
+see "Enter your name "
 give name 
-see " hello " +name 
+see " hello " + name 
