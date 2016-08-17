@@ -6040,6 +6040,11 @@ RING_FUNC(ring_sdl_get_sdlnet_max_udpchannels)
 	RING_API_RETNUMBER(SDLNET_MAX_UDPCHANNELS);
 }
 
+RING_FUNC(ring_sdl_get_sdlnet_max_udpaddresses)
+{
+	RING_API_RETNUMBER(SDLNET_MAX_UDPADDRESSES);
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -16801,4 +16806,5 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_get_inaddr_none",ring_sdl_get_inaddr_none);
 	ring_vm_funcregister("sdl_get_inaddr_broadcast",ring_sdl_get_inaddr_broadcast);
 	ring_vm_funcregister("sdl_get_sdlnet_max_udpchannels",ring_sdl_get_sdlnet_max_udpchannels);
+	ring_vm_funcregister("sdl_get_sdlnet_max_udpaddresses",ring_sdl_get_sdlnet_max_udpaddresses);
 }
