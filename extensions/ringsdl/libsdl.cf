@@ -112,6 +112,7 @@ Mix_Fading
 IPaddress {host,port}
 TCPsocket
 UDPsocket
+UDPpacket {channel, Uint8 *data, len, maxlen, status}
 </struct>
 
 <constant>

@@ -5489,6 +5489,203 @@ RING_FUNC(ring_sdl_destroy_udpsocket)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_new_udppacket)
+{
+	UDPpacket *pMyPointer ;
+	pMyPointer = (UDPpacket *) malloc(sizeof(UDPpacket)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"UDPpacket");
+}
+
+RING_FUNC(ring_sdl_destroy_udppacket)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_get_udppacket_channel)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	RING_API_RETNUMBER(pMyPointer->channel);
+}
+
+RING_FUNC(ring_sdl_set_udppacket_channel)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	pMyPointer->channel = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_udppacket_data)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	RING_API_RETCPOINTER(pMyPointer->data,"Uint8");
+}
+
+RING_FUNC(ring_sdl_set_udppacket_data)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	pMyPointer->data = (Uint8 *) RING_API_GETCPOINTER(2,"Uint8 *");
+}
+
+RING_FUNC(ring_sdl_get_udppacket_len)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	RING_API_RETNUMBER(pMyPointer->len);
+}
+
+RING_FUNC(ring_sdl_set_udppacket_len)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	pMyPointer->len = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_udppacket_maxlen)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	RING_API_RETNUMBER(pMyPointer->maxlen);
+}
+
+RING_FUNC(ring_sdl_set_udppacket_maxlen)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	pMyPointer->maxlen = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_udppacket_status)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	RING_API_RETNUMBER(pMyPointer->status);
+}
+
+RING_FUNC(ring_sdl_set_udppacket_status)
+{
+	UDPpacket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"UDPpacket");
+	pMyPointer->status = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_get_mix_default_format)
 {
 	RING_API_RETNUMBER(MIX_DEFAULT_FORMAT);
@@ -16439,6 +16636,18 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_tcpsocket",ring_sdl_destroy_tcpsocket);
 	ring_vm_funcregister("sdl_new_udpsocket",ring_sdl_new_udpsocket);
 	ring_vm_funcregister("sdl_destroy_udpsocket",ring_sdl_destroy_udpsocket);
+	ring_vm_funcregister("sdl_new_udppacket",ring_sdl_new_udppacket);
+	ring_vm_funcregister("sdl_destroy_udppacket",ring_sdl_destroy_udppacket);
+	ring_vm_funcregister("sdl_get_udppacket_channel",ring_sdl_get_udppacket_channel);
+	ring_vm_funcregister("sdl_set_udppacket_channel",ring_sdl_set_udppacket_channel);
+	ring_vm_funcregister("sdl_get_udppacket_data",ring_sdl_get_udppacket_data);
+	ring_vm_funcregister("sdl_set_udppacket_data",ring_sdl_set_udppacket_data);
+	ring_vm_funcregister("sdl_get_udppacket_len",ring_sdl_get_udppacket_len);
+	ring_vm_funcregister("sdl_set_udppacket_len",ring_sdl_set_udppacket_len);
+	ring_vm_funcregister("sdl_get_udppacket_maxlen",ring_sdl_get_udppacket_maxlen);
+	ring_vm_funcregister("sdl_set_udppacket_maxlen",ring_sdl_set_udppacket_maxlen);
+	ring_vm_funcregister("sdl_get_udppacket_status",ring_sdl_get_udppacket_status);
+	ring_vm_funcregister("sdl_set_udppacket_status",ring_sdl_set_udppacket_status);
 	ring_vm_funcregister("sdl_get_mix_default_format",ring_sdl_get_mix_default_format);
 	ring_vm_funcregister("sdl_get_sdl_quit",ring_sdl_get_sdl_quit);
 	ring_vm_funcregister("sdl_get_sdl_button_left",ring_sdl_get_sdl_button_left);
