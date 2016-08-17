@@ -1,8 +1,8 @@
 see "Enter the width "
 give width
-see "Enter the hight "
-give hight
+see "Enter the height "
+give height
 see "Area = "
-see 1*width*hight
+see 1*width*height
 see "Perimeter= "
-see (0+width+hight)*2
+see (0+width+height)*2
