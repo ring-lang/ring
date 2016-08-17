@@ -6030,6 +6030,11 @@ RING_FUNC(ring_sdl_get_inaddr_none)
 	RING_API_RETNUMBER(INADDR_NONE);
 }
 
+RING_FUNC(ring_sdl_get_inaddr_broadcast)
+{
+	RING_API_RETNUMBER(INADDR_BROADCAST);
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -16789,4 +16794,5 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_get_sdl_net_patchlevel",ring_sdl_get_sdl_net_patchlevel);
 	ring_vm_funcregister("sdl_get_inaddr_any",ring_sdl_get_inaddr_any);
 	ring_vm_funcregister("sdl_get_inaddr_none",ring_sdl_get_inaddr_none);
+	ring_vm_funcregister("sdl_get_inaddr_broadcast",ring_sdl_get_inaddr_broadcast);
 }
