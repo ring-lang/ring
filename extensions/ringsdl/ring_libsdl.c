@@ -5340,6 +5340,101 @@ RING_FUNC(ring_sdl_destroy_mix_fading)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_new_ipaddress)
+{
+	IPaddress *pMyPointer ;
+	pMyPointer = (IPaddress *) malloc(sizeof(IPaddress)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"IPaddress");
+}
+
+RING_FUNC(ring_sdl_destroy_ipaddress)
+{
+	IPaddress *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"IPaddress");
+	free(pMyPointer) ;
+}
+
+RING_FUNC(ring_sdl_get_ipaddress_host)
+{
+	IPaddress *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"IPaddress");
+	RING_API_RETNUMBER(pMyPointer->host);
+}
+
+RING_FUNC(ring_sdl_set_ipaddress_host)
+{
+	IPaddress *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"IPaddress");
+	pMyPointer->host = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_sdl_get_ipaddress_port)
+{
+	IPaddress *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"IPaddress");
+	RING_API_RETNUMBER(pMyPointer->port);
+}
+
+RING_FUNC(ring_sdl_set_ipaddress_port)
+{
+	IPaddress *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"IPaddress");
+	pMyPointer->port = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_sdl_get_mix_default_format)
 {
 	RING_API_RETNUMBER(MIX_DEFAULT_FORMAT);
@@ -16280,6 +16375,12 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_destroy_mix_musictype",ring_sdl_destroy_mix_musictype);
 	ring_vm_funcregister("sdl_new_mix_fading",ring_sdl_new_mix_fading);
 	ring_vm_funcregister("sdl_destroy_mix_fading",ring_sdl_destroy_mix_fading);
+	ring_vm_funcregister("sdl_new_ipaddress",ring_sdl_new_ipaddress);
+	ring_vm_funcregister("sdl_destroy_ipaddress",ring_sdl_destroy_ipaddress);
+	ring_vm_funcregister("sdl_get_ipaddress_host",ring_sdl_get_ipaddress_host);
+	ring_vm_funcregister("sdl_set_ipaddress_host",ring_sdl_set_ipaddress_host);
+	ring_vm_funcregister("sdl_get_ipaddress_port",ring_sdl_get_ipaddress_port);
+	ring_vm_funcregister("sdl_set_ipaddress_port",ring_sdl_set_ipaddress_port);
 	ring_vm_funcregister("sdl_get_mix_default_format",ring_sdl_get_mix_default_format);
 	ring_vm_funcregister("sdl_get_sdl_quit",ring_sdl_get_sdl_quit);
 	ring_vm_funcregister("sdl_get_sdl_button_left",ring_sdl_get_sdl_button_left);

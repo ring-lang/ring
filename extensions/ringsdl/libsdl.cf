@@ -109,6 +109,7 @@ SDL_RWops
 Mix_Chunk
 Mix_MusicType
 Mix_Fading
+IPaddress {host,port}
 </struct>
 
 <constant>
