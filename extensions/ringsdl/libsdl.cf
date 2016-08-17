@@ -114,6 +114,7 @@ TCPsocket
 UDPsocket
 UDPpacket {channel, Uint8 *data, len, maxlen, status}
 SDLNet_SocketSet
+SDLNet_GenericSocket
 </struct>
 
 <constant>

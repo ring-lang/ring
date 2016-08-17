@@ -5713,6 +5713,33 @@ RING_FUNC(ring_sdl_destroy_sdlnet_socketset)
 	free(pMyPointer) ;
 }
 
+RING_FUNC(ring_sdl_new_sdlnet_genericsocket)
+{
+	SDLNet_GenericSocket *pMyPointer ;
+	pMyPointer = (SDLNet_GenericSocket *) malloc(sizeof(SDLNet_GenericSocket)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"SDLNet_GenericSocket");
+}
+
+RING_FUNC(ring_sdl_destroy_sdlnet_genericsocket)
+{
+	SDLNet_GenericSocket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"SDLNet_GenericSocket");
+	free(pMyPointer) ;
+}
+
 RING_FUNC(ring_sdl_get_mix_default_format)
 {
 	RING_API_RETNUMBER(MIX_DEFAULT_FORMAT);
@@ -16677,6 +16704,8 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_set_udppacket_status",ring_sdl_set_udppacket_status);
 	ring_vm_funcregister("sdl_new_sdlnet_socketset",ring_sdl_new_sdlnet_socketset);
 	ring_vm_funcregister("sdl_destroy_sdlnet_socketset",ring_sdl_destroy_sdlnet_socketset);
+	ring_vm_funcregister("sdl_new_sdlnet_genericsocket",ring_sdl_new_sdlnet_genericsocket);
+	ring_vm_funcregister("sdl_destroy_sdlnet_genericsocket",ring_sdl_destroy_sdlnet_genericsocket);
 	ring_vm_funcregister("sdl_get_mix_default_format",ring_sdl_get_mix_default_format);
 	ring_vm_funcregister("sdl_get_sdl_quit",ring_sdl_get_sdl_quit);
 	ring_vm_funcregister("sdl_get_sdl_button_left",ring_sdl_get_sdl_button_left);
