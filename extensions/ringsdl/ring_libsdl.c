@@ -14946,6 +14946,26 @@ RING_FUNC(ring_SDLNet_TCP_GetPeerAddress)
 		free(RING_API_GETCPOINTER(1,"TCPsocket"));
 }
 
+
+RING_FUNC(ring_SDLNet_TCP_Send)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SDLNet_TCP_Send(* (TCPsocket  *) RING_API_GETCPOINTER(1,"TCPsocket"),(void *) RING_API_GETCPOINTER(2,"void"), (int ) RING_API_GETNUMBER(3)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"TCPsocket"));
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -15502,6 +15522,7 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdlnet_tcp_close",ring_SDLNet_TCP_Close);
 	ring_vm_funcregister("sdlnet_tcp_accept",ring_SDLNet_TCP_Accept);
 	ring_vm_funcregister("sdlnet_tcp_getpeeraddress",ring_SDLNet_TCP_GetPeerAddress);
+	ring_vm_funcregister("sdlnet_tcp_send",ring_SDLNet_TCP_Send);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
