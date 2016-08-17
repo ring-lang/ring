@@ -1043,3 +1043,4 @@ SDL_Net
 
 int SDLNet_Init(void)
 void SDLNet_Quit(void)
+char *SDLNet_GetError(void)
