@@ -12,6 +12,7 @@
 #include "SDL_image.h"
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
+#include "SDL_net.h"
 RING_FUNC(ring_sdl_new_sdl_assert_data)
 {
 	SDL_assert_data *pMyPointer ;
@@ -14755,6 +14756,16 @@ RING_FUNC(ring_Mix_SetReverseStereo)
 	RING_API_RETNUMBER(Mix_SetReverseStereo( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_SDLNet_Init)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(SDLNet_Init());
+}
+
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
@@ -15298,6 +15309,7 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("mix_setdistance",ring_Mix_SetDistance);
 	ring_vm_funcregister("mix_setposition",ring_Mix_SetPosition);
 	ring_vm_funcregister("mix_setreversestereo",ring_Mix_SetReverseStereo);
+	ring_vm_funcregister("sdlnet_init",ring_SDLNet_Init);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
