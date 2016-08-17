@@ -5435,6 +5435,33 @@ RING_FUNC(ring_sdl_set_ipaddress_port)
 	pMyPointer->port = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_sdl_new_tcpsocket)
+{
+	TCPsocket *pMyPointer ;
+	pMyPointer = (TCPsocket *) malloc(sizeof(TCPsocket)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"TCPsocket");
+}
+
+RING_FUNC(ring_sdl_destroy_tcpsocket)
+{
+	TCPsocket *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TCPsocket");
+	free(pMyPointer) ;
+}
+
 RING_FUNC(ring_sdl_get_mix_default_format)
 {
 	RING_API_RETNUMBER(MIX_DEFAULT_FORMAT);
@@ -16381,6 +16408,8 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_set_ipaddress_host",ring_sdl_set_ipaddress_host);
 	ring_vm_funcregister("sdl_get_ipaddress_port",ring_sdl_get_ipaddress_port);
 	ring_vm_funcregister("sdl_set_ipaddress_port",ring_sdl_set_ipaddress_port);
+	ring_vm_funcregister("sdl_new_tcpsocket",ring_sdl_new_tcpsocket);
+	ring_vm_funcregister("sdl_destroy_tcpsocket",ring_sdl_destroy_tcpsocket);
 	ring_vm_funcregister("sdl_get_mix_default_format",ring_sdl_get_mix_default_format);
 	ring_vm_funcregister("sdl_get_sdl_quit",ring_sdl_get_sdl_quit);
 	ring_vm_funcregister("sdl_get_sdl_button_left",ring_sdl_get_sdl_button_left);

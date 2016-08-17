@@ -110,6 +110,7 @@ Mix_Chunk
 Mix_MusicType
 Mix_Fading
 IPaddress {host,port}
+TCPsocket
 </struct>
 
 <constant>
