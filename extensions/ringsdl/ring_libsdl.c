@@ -6005,6 +6005,11 @@ RING_FUNC(ring_sdl_get_sdlk_escape)
 	RING_API_RETNUMBER(SDLK_ESCAPE);
 }
 
+RING_FUNC(ring_sdl_get_sdl_net_major_version)
+{
+	RING_API_RETNUMBER(SDL_NET_MAJOR_VERSION);
+}
+
 RING_FUNC(ring_SDL_RenderCopy2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -16759,4 +16764,5 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_get_sdlk_down",ring_sdl_get_sdlk_down);
 	ring_vm_funcregister("sdl_get_sdlk_space",ring_sdl_get_sdlk_space);
 	ring_vm_funcregister("sdl_get_sdlk_escape",ring_sdl_get_sdlk_escape);
+	ring_vm_funcregister("sdl_get_sdl_net_major_version",ring_sdl_get_sdl_net_major_version);
 }
