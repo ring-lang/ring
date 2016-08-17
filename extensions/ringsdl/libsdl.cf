@@ -1042,3 +1042,4 @@ SDL_Net
 </comment>
 
 int SDLNet_Init(void)
+void SDLNet_Quit(void)
