@@ -26,3 +26,5 @@ target_link_libraries (ring libcurl libmysql libeay32 odbc32)
 ADD_EXECUTABLE (ringlang ${CMAKE_CURRENT_SOURCE_DIR}/src/ring.c)
 
 TARGET_LINK_LIBRARIES (ringlang ring)
+
+set_target_properties(ringlang PROPERTIES OUTPUT_NAME ring)
