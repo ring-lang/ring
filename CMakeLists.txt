@@ -7,4 +7,6 @@ include_directories(include)
 # Add source files
 file(GLOB SOURCES "src/*.c")
 
+list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ringw.c)
+
 add_executable(ring ${SOURCES})
