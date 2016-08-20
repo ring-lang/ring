@@ -4,4 +4,7 @@ project (ring)
 # Header Files
 include_directories(include)
 
-add_executable(ring src/ring.c)
+# Add source files
+file(GLOB SOURCES "src/*.c")
+
+add_executable(ring ${SOURCES})
