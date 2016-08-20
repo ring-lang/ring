@@ -7,7 +7,7 @@ include_directories(include)
 # Add source files
 file(GLOB SOURCES "src/*.c")
 
-#list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ring.c)
+list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ring.c)
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ringw.c)
 
 # Libraries
@@ -19,6 +19,6 @@ link_directories(${CMAKE_CURRENT_SOURCE_DIR}/libdepwin/LibCurl/lib)
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/libdepwin/MySQL/lib)
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/libdepwin/openssl/lib)
 
-add_executable(ring ${SOURCES})
+add_library(ring SHARED ${SOURCES})
 
 target_link_libraries (ring libcurl libmysql libeay32 odbc32)
