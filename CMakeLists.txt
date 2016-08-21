@@ -32,11 +32,14 @@ IF (WIN32)
 
 ELSE(WIN32)
 
-	message("Building Ring for Linux or MacOS X")
-
-	# Libraries
-	include_directories(/usr/include/mysql)
-	link_directories(/usr/lib/mysql/lib)
+	IF(NOT APPLE)
+		message("Building Ring for Linux")
+		# Libraries
+		include_directories(/usr/include/mysql)
+		link_directories(/usr/lib/mysql/lib)
+	ELSE(NOT APPLE)
+		message("Building Ring For MacOS X")
+	ENDIF(NOT APPLE)
 
 	add_library(ring SHARED ${SOURCES})
 	target_link_libraries (ring m dl odbc mysqlclient ssl crypto curl)
