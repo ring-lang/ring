@@ -6,6 +6,7 @@
 |---|---|
 |Download |[![GitHub release](https://img.shields.io/badge/binary%20release-version%201.0-brightgreen.svg)](http://ring-lang.sourceforge.net/download.html)|
 |Help |[![GitHub release](https://img.shields.io/badge/documentation-version%201.0-orange.svg)](http://ring-lang.sourceforge.net/doc/index.html)|
+|Try |[![GitHub release](https://img.shields.io/badge/interactive%20ring-use%20online-green.svg)](http://ring-lang.sourceforge.net/cgi-bin/ringlang.cgi)|
 |Support |[![GitHub release](https://img.shields.io/badge/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|
 |Source Code |[![GitHub release](https://img.shields.io/badge/release-version%201.0-blue.svg)](https://github.com/ring-lang/ring/releases)|
 
