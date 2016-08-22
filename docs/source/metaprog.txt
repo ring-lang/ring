@@ -966,9 +966,9 @@ Output:
 	
 
 Example:
+
 We can Find a Class List Member using GetAttribute() using a function findclass()
 The Find uses the member name, rather than the column number
-
 
 .. code-block:: none
 
@@ -982,7 +982,8 @@ The Find uses the member name, rather than the column number
 	see nl +"=====================" + nl + nl
 	
 	for i = 1 to len(myList)
-	     see  "Pos: "+ i +" | "+ myList[i].position +" | "+ myList[i].name     +" | "+  myList[i].symbol    +" | "+ nl
+	     see  "Pos: "+ i +" | "+ myList[i].position +" | "+ myList[i].name +
+		  " | "+  myList[i].symbol    +" | "+ nl
 	next
 	
 	

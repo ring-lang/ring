@@ -177,69 +177,6 @@ Example:
 	see find(mylist,"two",1) + nl		# print 2
 	see find(mylist,2,2) + nl		# print 2
 
-
-Example:
-
-To find an Item inside a Class List with Members, we can use the findclass() function with GetAttibute
-The Member class name is specified, rather than column number as in simple list. 
-
-.. code-block:: none
-
-myList =
-         [ new Company {position=3 name="Mahmoud" symbol="MHD"},
-           new Company {position=2 name="Bert" symbol="BRT"},
-           new Company {position=1 name="Ring" symbol="RNG"}
-         ]
-
-see myList
-see nl +"=====================" + nl + nl
-
-for i = 1 to len(myList)
-     see  "Pos: "+ i +" | "+ myList[i].position +" | "+ myList[i].name     +" | "+  myList[i].symbol    +" | "+ nl
-next
-
-See findclass(myList, "MHD", "symbol") +nl   ### Specify Member name
-
-###---------------------------------------
-
-func findclass classList, cValue, classMember
-
-       # See nl + "FindClass: "  +" "+ cValue + nl + nl
-
-       for i = 1 to len(classList)
-            result = getattribute( classList[i], classMember )
-           
-           # See "Result-Attr: " + i +" "+  result +nl
-           if result = cValue
-               j = i
-           ok      
-       next
-return j
-
-###--------------------------------------
-
-class company position name symbol
-
-###--------------------------------------
-
-Output:
-
-.. code-block:: none
-
-	Pos: 1 | 3 | Mahmoud | MHD |
-	Pos: 2 | 2 | Bert | BRT |
-	Pos: 3 | 1 | Ring | RNG |
-	
-	FindClass:  MHD
-	
-	Result-Attr: 1 MHD
-	Result-Attr: 2 BRT
-	Result-Attr: 3 RNG
-	
-	1
-
-
-
 Also we can use the binarysearch() function to search in sorted list.
 
 Syntax:
