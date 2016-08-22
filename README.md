@@ -4,6 +4,8 @@
 
 [![GitHub release](https://img.shields.io/badge/release-version%201.0-blue.svg)](https://github.com/ring-lang/ring/releases)
 
+[![GitHub release](https://img.shields.io/badge/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)
+
 || **Status** |
 |---|---|
 |**MacOS X**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|
