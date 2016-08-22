@@ -2,7 +2,7 @@
 
 # Ring Programming Language
 
-|| **General** |
+|| **Resources** |
 |---|---|
 |Download |[![GitHub release](https://img.shields.io/badge/binary%20release-version%201.0-brightgreen.svg)](http://ring-lang.sourceforge.net/download.html)|
 |Read |[![GitHub release](https://img.shields.io/badge/documentation-version%201.0-orange.svg)](http://ring-lang.sourceforge.net/doc/index.html)|
