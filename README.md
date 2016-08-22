@@ -2,6 +2,8 @@
 
 # Ring Programming Language
 
+[![GitHub release](https://img.shields.io/badge/release-version%201.0-blue.svg)](https://github.com/ring-lang/ring/releases)
+
 || **Status** |
 |---|---|
 |**MacOS X**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|
