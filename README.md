@@ -3,8 +3,8 @@
 # Ring Programming Language
 
 || **General** |
-
-|---|[![GitHub release](https://img.shields.io/badge/binary%20release-version%201.0-brightgreen.svg)](http://ring-lang.sourceforge.net/download.html)|
+|---|---|
+| |[![GitHub release](https://img.shields.io/badge/binary%20release-version%201.0-brightgreen.svg)](http://ring-lang.sourceforge.net/download.html)|
 
 | |[![GitHub release](https://img.shields.io/badge/documentation-version%201.0-orange.svg)](http://ring-lang.sourceforge.net/doc/index.html)|
 
