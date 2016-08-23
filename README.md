@@ -59,7 +59,8 @@ The language is designed for a Clear Goal
 #Building from source code
 
 You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
-## building using CMake 
+
+## Building using CMake 
 
 	cmake .
 	make
