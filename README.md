@@ -56,7 +56,15 @@ The language is designed for a Clear Goal
 
 [Read more!](http://ring-lang.sourceforge.net/#why)
 
-#Build from source code
+#Building from source code
+
+You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
+## building using CMake 
+
+	cmake .
+	make
+
+The next steps explains building using scripts.
 
 ## Building using MacOS X
 
