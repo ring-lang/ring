@@ -201,3 +201,10 @@ see Changestring("Rmasdg",2,4,"in")
 printf("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
 x=10 y=20
 printf("\nx value = #{x} , y value = #{y} \n")
+
+# Check directory
+see "Check dir : b:\ring " 
+puts( DirExists("b:\ring") )
+see "Check dir : C:\ring " 
+Puts( DirExists("C:\ring") )
+
