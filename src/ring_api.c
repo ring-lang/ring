@@ -247,6 +247,10 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
 			return &(pItem->data.iNumber) ;
 		}
 	}
+	else if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_STRING ) {
+		pItem = ring_list_getitem(pList,RING_VAR_VALUE);
+		return pItem->data.pString->cStr ;
+	}
 	return NULL ;
 }
 
