@@ -286,7 +286,7 @@ void ring_vmlib_sort ( void *pPointer )
 				}
 				ring_list_sortnum(pList,1,ring_list_getsize(pList),nColumn);
 			}
-			else if ( ring_list_isstring(pList3,1) ) {
+			else if ( ring_list_isstring(pList3,nColumn) ) {
 				/* Check that all items are strings */
 				for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 					pList3 = ring_list_getlist(pList,x);
