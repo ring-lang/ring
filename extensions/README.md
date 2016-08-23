@@ -11,3 +11,5 @@ game programming library.
 
 The folder ringqt contains the Ring binding to the Qt framework.
 
+The folder ringsdl contains the Ring binding to the LibSDL
+game programming library.
