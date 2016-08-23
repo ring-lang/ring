@@ -309,6 +309,9 @@ cStr
 ring_vmlib_object2pointer
 ring_vmlib_pointer2object
 ring_vmlib_nullpointer
+ring_vmlib_space
+Type: String *
+pString
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA

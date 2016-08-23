@@ -86,6 +86,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("object2pointer",ring_vmlib_object2pointer);
 	ring_vm_funcregister("pointer2object",ring_vmlib_pointer2object);
 	ring_vm_funcregister("nullpointer",ring_vmlib_nullpointer);
+	ring_vm_funcregister("space",ring_vmlib_space);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -1575,4 +1576,20 @@ void ring_vmlib_pointer2object ( void *pPointer )
 void ring_vmlib_nullpointer ( void *pPointer )
 {
 	RING_API_RETCPOINTER(NULL,"NULLPOINTER");
+}
+
+void ring_vmlib_space ( void *pPointer )
+{
+	String *pString  ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		pString = ring_string_new2("",RING_API_GETNUMBER(1));
+		RING_API_RETSTRING2(ring_string_get(pString),RING_API_GETNUMBER(1));
+		ring_string_delete(pString);
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
 }
