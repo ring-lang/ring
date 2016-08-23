@@ -208,3 +208,6 @@ puts( DirExists("b:\ring") )
 see "Check dir : C:\ring " 
 Puts( DirExists("C:\ring") )
 
+# Create Directory
+puts("create Directory : myfolder")
+makedir("myfolder")

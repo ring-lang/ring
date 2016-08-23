@@ -633,3 +633,13 @@ Func DirExists cDir
 	catch
 		return false
 	done
+
+
+/*
+	Function Name	: MakeDir
+	Usage		: Make Directory
+	Parameters	: Directory Name
+*/         
+
+Func MakeDir cDir
+	system("mkdir " + cDir )
