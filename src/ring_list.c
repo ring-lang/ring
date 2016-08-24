@@ -706,6 +706,76 @@ RING_API int ring_list_findpointer ( List *pList,void *pPointer )
 	}
 	return 0 ;
 }
+
+RING_API int ring_list_findstringinlistofobjs ( List *pList,const char *str,int nColumn,const char *cAttribute )
+{
+	int x,nCount,nPos  ;
+	List *pList2  ;
+	assert(pList != NULL);
+	nCount = ring_list_getsize(pList);
+	/* Find Item */
+	if ( (nCount > 0) && (nColumn > 0) ) {
+		for ( x = 1 ; x <= nCount ; x++ ) {
+			if ( ring_list_islist(pList,x) == 0 ) {
+				continue ;
+			}
+			pList2 = ring_list_getlist(pList,x);
+			if ( nColumn > 1 ) {
+				if ( ring_list_islist(pList2,nColumn) ) {
+					pList2 = ring_list_getlist(pList2,nColumn);
+				}
+				else {
+					continue ;
+				}
+			}
+			if ( ring_vm_oop_isobject(pList2) == 0 ) {
+				continue ;
+			}
+			nPos = ring_list_findstring(ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
+			pList2 = ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA) ;
+			pList2 = ring_list_getlist(pList2,nPos) ;
+			if ( strcmp(str,ring_list_getstring(pList2,RING_VAR_VALUE)) == 0 ) {
+				return x ;
+			}
+		}
+	}
+	return 0 ;
+}
+
+RING_API int ring_list_finddoubleinlistofobjs ( List *pList,double nNum1,int nColumn,const char *cAttribute )
+{
+	int x,nCount,nPos  ;
+	List *pList2  ;
+	assert(pList != NULL);
+	nCount = ring_list_getsize(pList);
+	/* Find Item */
+	if ( (nCount > 0) && (nColumn > 0) ) {
+		for ( x = 1 ; x <= nCount ; x++ ) {
+			if ( ring_list_islist(pList,x) == 0 ) {
+				continue ;
+			}
+			pList2 = ring_list_getlist(pList,x);
+			if ( nColumn > 1 ) {
+				if ( ring_list_islist(pList2,nColumn) ) {
+					pList2 = ring_list_getlist(pList2,nColumn);
+				}
+				else {
+					continue ;
+				}
+			}
+			if ( ring_vm_oop_isobject(pList2) == 0 ) {
+				continue ;
+			}
+			nPos = ring_list_findstring(ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
+			pList2 = ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA) ;
+			pList2 = ring_list_getlist(pList2,nPos) ;
+			if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == nNum1 ) {
+				return x ;
+			}
+		}
+	}
+	return 0 ;
+}
 /* Sort (QuickSort) and Binary Search */
 
 RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn )

@@ -40,12 +40,18 @@ void ring_vmlib_list ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
+/*
+**  Find() Usage Syntax 
+**  Find(List,ItemValue) ----> Item Index 
+**  Find(List,ItemValue,nColumn) ---> Item Index 
+**  Find(List,ItemValue,nColumn,cProperty) ---> Item Index 
+*/
 
 void ring_vmlib_find ( void *pPointer )
 {
 	int nNum1,nColumn  ;
 	List *pList  ;
-	if ( (RING_API_PARACOUNT != 2) && (RING_API_PARACOUNT != 3) ) {
+	if ( ! ( (RING_API_PARACOUNT >= 2) && (RING_API_PARACOUNT <= 4) ) ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
@@ -54,7 +60,7 @@ void ring_vmlib_find ( void *pPointer )
 		pList = RING_API_GETLIST(1) ;
 		if ( ring_list_getsize(pList) > 0 ) {
 			nColumn = 0 ;
-			if ( RING_API_PARACOUNT == 3 ) {
+			if ( RING_API_PARACOUNT >= 3 ) {
 				if ( RING_API_ISNUMBER(3) ) {
 					nColumn = RING_API_GETNUMBER(3) ;
 				}
@@ -62,14 +68,32 @@ void ring_vmlib_find ( void *pPointer )
 					RING_API_ERROR(RING_API_BADPARATYPE);
 				}
 			}
-			if ( RING_API_ISSTRING(2) ) {
-				nNum1 = ring_list_findstring(pList,RING_API_GETSTRING(2),nColumn);
-			}
-			else if ( RING_API_ISNUMBER(2) ) {
-				nNum1 = ring_list_finddouble(pList,RING_API_GETNUMBER(2),nColumn);
+			if ( RING_API_PARACOUNT == 4 ) {
+				if ( RING_API_ISSTRING(4) ) {
+					if ( RING_API_ISSTRING(2) ) {
+						nNum1 = ring_list_findstringinlistofobjs(pList,RING_API_GETSTRING(2),nColumn,RING_API_GETSTRING(4));
+					}
+					else if ( RING_API_ISNUMBER(2) ) {
+						nNum1 = ring_list_finddoubleinlistofobjs(pList,RING_API_GETNUMBER(2),nColumn,RING_API_GETSTRING(4));
+					}
+					else {
+						RING_API_ERROR(RING_API_BADPARATYPE);
+					}
+				}
+				else {
+					RING_API_ERROR(RING_API_BADPARATYPE);
+				}
 			}
 			else {
-				RING_API_ERROR(RING_API_BADPARATYPE);
+				if ( RING_API_ISSTRING(2) ) {
+					nNum1 = ring_list_findstring(pList,RING_API_GETSTRING(2),nColumn);
+				}
+				else if ( RING_API_ISNUMBER(2) ) {
+					nNum1 = ring_list_finddouble(pList,RING_API_GETNUMBER(2),nColumn);
+				}
+				else {
+					RING_API_ERROR(RING_API_BADPARATYPE);
+				}
 			}
 		}
 		RING_API_RETNUMBER(nNum1);

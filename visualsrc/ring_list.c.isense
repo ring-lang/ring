@@ -168,6 +168,16 @@ pList2
 ring_list_findpointer
 Type: int
 x
+ring_list_findstringinlistofobjs
+Type: int
+x,nCount,nPos
+Type: List *
+pList2
+ring_list_finddoubleinlistofobjs
+Type: int
+x,nCount,nPos
+Type: List *
+pList2
 ring_list_sortnum
 Type: int
 x,y,mid
