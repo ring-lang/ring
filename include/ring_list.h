@@ -157,4 +157,6 @@ RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem ) ;
 #define ring_list_getstringobject(pList,index) ( ring_item_getstring(ring_list_getitem(pList,index)) )
 #define ring_list_getstringsize(pList,index) ( ring_string_size(ring_item_getstring(ring_list_getitem(pList,index))) )
 #define ring_list_getsize(x) (x->nSize)
+#define RING_VM_LISTOFOBJS_FINDSTRING 1
+#define RING_VM_LISTOFOBJS_FINDNUMBER 0
 #endif

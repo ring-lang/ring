@@ -35,6 +35,8 @@ ring_list_getstring(pList,index)
 ring_list_getstringobject(pList,index)
 ring_list_getstringsize(pList,index)
 ring_list_getsize(x)
+RING_VM_LISTOFOBJS_FINDSTRING
+RING_VM_LISTOFOBJS_FINDNUMBER
 ring_list_new
 x
 Type: List *
@@ -169,11 +171,6 @@ ring_list_findpointer
 Type: int
 x
 ring_list_findinlistofobjs
-Type: int
-x,nCount,nPos
-Type: List *
-pList2
-ring_list_finddoubleinlistofobjs
 Type: int
 x,nCount,nPos
 Type: List *
