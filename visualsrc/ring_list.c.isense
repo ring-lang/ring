@@ -168,7 +168,7 @@ pList2
 ring_list_findpointer
 Type: int
 x
-ring_list_findstringinlistofobjs
+ring_list_findinlistofobjs
 Type: int
 x,nCount,nPos
 Type: List *

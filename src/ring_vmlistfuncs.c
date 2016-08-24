@@ -71,10 +71,10 @@ void ring_vmlib_find ( void *pPointer )
 			if ( RING_API_PARACOUNT == 4 ) {
 				if ( RING_API_ISSTRING(4) ) {
 					if ( RING_API_ISSTRING(2) ) {
-						nNum1 = ring_list_findstringinlistofobjs(pList,RING_API_GETSTRING(2),nColumn,RING_API_GETSTRING(4));
+						nNum1 = ring_list_findinlistofobjs(pList,1,0.0,RING_API_GETSTRING(2),nColumn,RING_API_GETSTRING(4));
 					}
 					else if ( RING_API_ISNUMBER(2) ) {
-						nNum1 = ring_list_finddoubleinlistofobjs(pList,RING_API_GETNUMBER(2),nColumn,RING_API_GETSTRING(4));
+						nNum1 = ring_list_findinlistofobjs(pList,0,RING_API_GETNUMBER(2),"",nColumn,RING_API_GETSTRING(4));
 					}
 					else {
 						RING_API_ERROR(RING_API_BADPARATYPE);
