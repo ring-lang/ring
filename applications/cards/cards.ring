@@ -24,11 +24,11 @@ Player2EatPic= mypic.copy(160,(124*4)+1,79,124)
 aMyCards = []
 aMyValues = []
 for x1 = 0 to 3
-        for y1 = 0 to 12
-          temppic = mypic.copy((79*y1)+1,(124*x1)+1,79,124)
-                  aMyCards + temppic
-                  aMyValues + (y1+1)
-        next
+	for y1 = 0 to 12
+		temppic = mypic.copy((79*y1)+1,(124*x1)+1,79,124)
+		aMyCards + temppic
+		aMyValues + (y1+1)
+	next
 next
 
 nPlayer1Score = 0   nPlayer2Score=0
@@ -280,6 +280,6 @@ Class Game
                 return true
 
         Func delay x
-        nTime = x * 1000
-        oTest = new qTest
-        oTest.qsleep(nTime)
+			nTime = x * 1000
+			oTest = new qTest
+			oTest.qsleep(nTime)
