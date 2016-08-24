@@ -197,7 +197,11 @@ pItem
 Type: Items *
 pItems
 ring_list_getdoublecolumn
+Type: int
+nPos
 ring_list_getstringcolumn
+Type: int
+nPos
 ring_list_genarray
 Type: int
 x

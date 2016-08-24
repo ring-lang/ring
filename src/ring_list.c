@@ -750,19 +750,19 @@ RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,con
 }
 /* Sort (QuickSort) and Binary Search */
 
-RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn )
+RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,const char *cAttribute )
 {
 	int x,y,mid  ;
 	double midvalue  ;
 	x = left ;
 	y = right ;
 	mid = (x+y)/2 ;
-	midvalue = ring_list_getdoublecolumn(pList,mid,nColumn);
+	midvalue = ring_list_getdoublecolumn(pList,mid,nColumn,cAttribute);
 	while ( x <= y ) {
-		while ( ring_list_getdoublecolumn(pList,x,nColumn) < midvalue ) {
+		while ( ring_list_getdoublecolumn(pList,x,nColumn,cAttribute) < midvalue ) {
 			x++ ;
 		}
-		while ( ring_list_getdoublecolumn(pList,y,nColumn) > midvalue ) {
+		while ( ring_list_getdoublecolumn(pList,y,nColumn,cAttribute) > midvalue ) {
 			y-- ;
 		}
 		if ( x <= y ) {
@@ -772,26 +772,26 @@ RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn )
 		}
 	}
 	if ( left < y ) {
-		ring_list_sortnum(pList, left, y,nColumn);
+		ring_list_sortnum(pList, left, y,nColumn,cAttribute);
 	}
 	if ( y < right ) {
-		ring_list_sortnum(pList, x, right,nColumn);
+		ring_list_sortnum(pList, x, right,nColumn,cAttribute);
 	}
 }
 
-RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn )
+RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute )
 {
 	int x,y,mid  ;
 	String *midvalue  ;
 	x = left ;
 	y = right ;
 	mid = (x+y)/2 ;
-	midvalue = ring_string_new(ring_list_getstringcolumn(pList,mid,nColumn));
+	midvalue = ring_string_new(ring_list_getstringcolumn(pList,mid,nColumn,cAttribute));
 	while ( x <= y ) {
-		while ( strcmp(ring_list_getstringcolumn(pList,x,nColumn),ring_string_get(midvalue)) < 0 ) {
+		while ( strcmp(ring_list_getstringcolumn(pList,x,nColumn,cAttribute),ring_string_get(midvalue)) < 0 ) {
 			x++ ;
 		}
-		while ( strcmp(ring_list_getstringcolumn(pList,y,nColumn),ring_string_get(midvalue)) > 0 ) {
+		while ( strcmp(ring_list_getstringcolumn(pList,y,nColumn,cAttribute),ring_string_get(midvalue)) > 0 ) {
 			y-- ;
 		}
 		if ( x <= y ) {
@@ -802,24 +802,24 @@ RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn )
 	}
 	ring_string_delete(midvalue);
 	if ( left < y ) {
-		ring_list_sortstr(pList, left, y,nColumn);
+		ring_list_sortstr(pList, left, y,nColumn,cAttribute);
 	}
 	if ( y < right ) {
-		ring_list_sortstr(pList, x, right, nColumn);
+		ring_list_sortstr(pList, x, right, nColumn,cAttribute);
 	}
 }
 
-RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn )
+RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn,const char *cAttribute )
 {
 	int nFirst,nMiddle,nLast  ;
 	nFirst = 1 ;
 	nLast = ring_list_getsize(pList) ;
 	while ( nFirst <= nLast ) {
 		nMiddle = (nFirst+nLast)/2 ;
-		if ( ring_list_getdoublecolumn(pList,nMiddle,nColumn) == nNum1 ) {
+		if ( ring_list_getdoublecolumn(pList,nMiddle,nColumn,cAttribute) == nNum1 ) {
 			return nMiddle ;
 		}
-		else if ( ring_list_getdoublecolumn(pList,nMiddle,nColumn) < nNum1 ) {
+		else if ( ring_list_getdoublecolumn(pList,nMiddle,nColumn,cAttribute) < nNum1 ) {
 			nFirst = nMiddle + 1 ;
 		}
 		else {
@@ -829,14 +829,14 @@ RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn )
 	return 0 ;
 }
 
-RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColumn )
+RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColumn,const char *cAttribute )
 {
 	int nFirst,nMiddle,nLast,nRes  ;
 	nFirst = 1 ;
 	nLast = ring_list_getsize(pList) ;
 	while ( nFirst <= nLast ) {
 		nMiddle = (nFirst+nLast)/2 ;
-		nRes = strcmp(ring_list_getstringcolumn(pList,nMiddle,nColumn) ,cFind) ;
+		nRes = strcmp(ring_list_getstringcolumn(pList,nMiddle,nColumn,cAttribute) ,cFind) ;
 		if ( nRes == 0 ) {
 			return nMiddle ;
 		}
@@ -861,24 +861,60 @@ RING_API void ring_list_swap ( List *pList,int x,int y )
 	pList->pLastItemLastAccess->pValue = pItem ;
 }
 
-RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn )
+RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute )
 {
+	int nPos  ;
 	if ( nColumn == 0 ) {
 		return ring_list_getdouble(pList,nIndex) ;
 	}
 	else {
-		return ring_list_getdouble(ring_list_getlist(pList,nIndex),nColumn) ;
+		if ( strcmp(cAttribute,"") == 0 ) {
+			return ring_list_getdouble(ring_list_getlist(pList,nIndex),nColumn) ;
+		}
+		else {
+			pList = ring_list_getlist(pList,nIndex);
+			if ( nColumn > 1 ) {
+				pList = ring_list_getlist(pList,nColumn);
+			}
+			if ( ring_vm_oop_isobject(pList) ) {
+				nPos = ring_list_findstring(ring_list_getlist(pList,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
+				pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA) ;
+				pList = ring_list_getlist(pList,nPos) ;
+				if ( ring_list_isdouble(pList,RING_VAR_VALUE) ) {
+					return ring_list_getdouble(pList,RING_VAR_VALUE) ;
+				}
+			}
+		}
 	}
+	return 0.0 ;
 }
 
-RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn )
+RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute )
 {
+	int nPos  ;
 	if ( nColumn == 0 ) {
 		return ring_list_getstring(pList,nIndex) ;
 	}
 	else {
-		return ring_list_getstring(ring_list_getlist(pList,nIndex),nColumn) ;
+		if ( strcmp(cAttribute,"") == 0 ) {
+			return ring_list_getstring(ring_list_getlist(pList,nIndex),nColumn) ;
+		}
+		else {
+			pList = ring_list_getlist(pList,nIndex);
+			if ( nColumn > 1 ) {
+				pList = ring_list_getlist(pList,nColumn);
+			}
+			if ( ring_vm_oop_isobject(pList) ) {
+				nPos = ring_list_findstring(ring_list_getlist(pList,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
+				pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA) ;
+				pList = ring_list_getlist(pList,nPos) ;
+				if ( ring_list_isstring(pList,RING_VAR_VALUE) ) {
+					return ring_list_getstring(pList,RING_VAR_VALUE) ;
+				}
+			}
+		}
 	}
+	return "" ;
 }
 /* List Items to Array */
 
