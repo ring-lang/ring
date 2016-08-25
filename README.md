@@ -107,15 +107,7 @@ The next steps explains building using scripts.
 	cd applications/rnote
 	sudo ring rnote.ring
 
-### Screen Shot
-	
-![Ring](http://ring-lang.sourceforge.net/ringmac.png)
-
 ### Run Ring Applications and Games from Ring Notepad
-
-The next screen shot for the SuperMan Game (Developed using Ring)
-
-![Ring](http://ring-lang.sourceforge.net/supermanmac.png)
 
 To run the stars fighter game from the terminal
 	
@@ -166,10 +158,6 @@ To run the SuperMan game
 	
 	cd applications/rnote
 	sudo ring rnote.ring
-
-### Screen Shot
-	
-![Ring](http://ring-lang.sourceforge.net/ringubuntu.jpg)
 
 ## Building using Microsoft Windows 
 
@@ -225,11 +213,6 @@ To run the SuperMan game
 	
 	cd applications/rnote
 	ring rnote.ring
-
-### Screen Shot
-	
-![Ring](http://ring-lang.sourceforge.net/ringwin.jpg)
-
 
 =====================
 Visual Implementation
