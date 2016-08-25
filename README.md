@@ -31,8 +31,6 @@ The language is designed to be Simple, Small, Flexible and Fast.
 Its Dynamic Language (Dynamic Typing and Weakly Typed) that compile the source code to
 byte code then execute it by the Ring Virtual Machine, which is integrated with the
 Ring Compiler in one program. 
-The first version of the language (around 100,000 lines of C/C++/Ring code) is released on
-January 25th, 2016.
 
 The language is simple, trying to be natural, encourage organization and comes with 
 transparent and visual implementation. It comes with compact syntax and a group of features that
@@ -200,20 +198,3 @@ The next steps explains building using scripts.
 	
 	cd applications/rnote
 	ring rnote.ring
-
-=====================
-Visual Implementation
-=====================
-
-The Ring programming language is designed using the PWCT visual programming tool (http://pwct.org)
-and you will find the visual source of the language in the folder "visualsrc" - *.ssf files and 
-the generated source code (In the C Language) in the [src folder](https://github.com/ring-lang/ring/tree/master/src)
-and the [include folder](https://github.com/ring-lang/ring/tree/master/include). 
-The next screen shots demonstrates how to visually modify the Ring Compiler and Virtual Machine (VM)
-then generate the C code.
-
-The next screen shot from the ring_vm.ssf file (Generate [ring_vm.c](https://github.com/ring-lang/ring/blob/master/src/ring_vm.c) and [ring_vm.h](https://github.com/ring-lang/ring/blob/master/include/ring_vm.h))
-![Ring](http://ring-lang.sourceforge.net/ringvisualsrc1.jpg)
-
-The next screen shot from the ring_list.ssf file (Generate [ring_list.c](https://github.com/ring-lang/ring/blob/master/src/ring_list.c) and [ring_list.h](https://github.com/ring-lang/ring/blob/master/include/ring_list.h))
-![Ring](http://ring-lang.sourceforge.net/ringvisualsrc2.jpg)
