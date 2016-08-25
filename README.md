@@ -2,6 +2,8 @@
 
 # Ring Programming Language
 
+## Innovative and practical general-purpose multi-paradigm language
+
 || **Resources** |
 |---|---|
 |Download |[![Download](https://img.shields.io/badge/binary%20release-version%201.0-brightgreen.svg)](http://ring-lang.sourceforge.net/download.html)|
