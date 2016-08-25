@@ -60,89 +60,7 @@ The language is designed for a Clear Goal
 
 You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
 
-## Building using CMake 
-
-	cmake .
-	make
-
 The next steps explains building using scripts.
-
-## Building using MacOS X
-
-### Get the source code
-
-	git clone http://github.com/ring-lang/ring.git
-	
-### Install homebrew (follow the directions on [homebrew's homepage](http://brew.sh/)).
-	
-### Install Libraries 
-	
-	brew install unixodbc mysql-connector-c allegro homebrew/versions/qt52
-	
-### Build Ring (Compiler/VM)
-	
-	cd ring/src
-	./buildclangcomplete.sh
-	
-	
-### Generate RingAllegro Source Code and Build 
-	
-	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildclang.sh
-
-	
-### Generate RingQt Source Code and Build
-	
-	cd ../ringqt
-	./gencode.sh
-	./buildclang.sh
-
-### To be able to call ring from any folder 
-	cd ../../bin
-	sudo ./install.sh
-	
-### Run Ring Notepad
-	
-	cd applications/rnote
-	sudo ring rnote.ring
-	
-## Building using Ubuntu Linux 
-
-### Get the source code
-
-	git clone http://github.com/ring-lang/ring.git
-	
-### Install Libraries 
-	
-	cd ring/src
-	./installdep.sh 
-	
-### Build Ring (Compiler/VM)
-	
-	sudo ./buildgcccomplete.sh
-	
-### Generate RingAllegro Source Code and Build 
-	
-	cd ../extensions/ringallegro
-	./gencode.sh
-	./buildgcc.sh
-
-	
-### Generate RingQt Source Code and Build
-	
-	cd ../ringqt
-	./gencode.sh
-	./buildgcc.sh
-
-### To be able to call ring from any folder 
-	cd ../../bin
-	sudo ./install.sh
-	
-### Run Ring Notepad
-	
-	cd applications/rnote
-	sudo ring rnote.ring
 
 ## Building using Microsoft Windows 
 
@@ -198,3 +116,87 @@ The next steps explains building using scripts.
 	
 	cd applications/rnote
 	ring rnote.ring
+
+## Building using Ubuntu Linux 
+
+### Get the source code
+
+	git clone http://github.com/ring-lang/ring.git
+	
+### Install Libraries 
+	
+	cd ring/src
+	./installdep.sh 
+	
+### Build Ring (Compiler/VM)
+	
+	sudo ./buildgcccomplete.sh
+	
+### Generate RingAllegro Source Code and Build 
+	
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildgcc.sh
+
+	
+### Generate RingQt Source Code and Build
+	
+	cd ../ringqt
+	./gencode.sh
+	./buildgcc.sh
+
+### To be able to call ring from any folder 
+	cd ../../bin
+	sudo ./install.sh
+	
+### Run Ring Notepad
+	
+	cd applications/rnote
+	sudo ring rnote.ring
+
+	
+## Building using MacOS X
+
+### Get the source code
+
+	git clone http://github.com/ring-lang/ring.git
+	
+### Install homebrew (follow the directions on [homebrew's homepage](http://brew.sh/)).
+	
+### Install Libraries 
+	
+	brew install unixodbc mysql-connector-c allegro homebrew/versions/qt52
+	
+### Build Ring (Compiler/VM)
+	
+	cd ring/src
+	./buildclangcomplete.sh
+	
+	
+### Generate RingAllegro Source Code and Build 
+	
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildclang.sh
+
+	
+### Generate RingQt Source Code and Build
+	
+	cd ../ringqt
+	./gencode.sh
+	./buildclang.sh
+
+### To be able to call ring from any folder 
+	cd ../../bin
+	sudo ./install.sh
+	
+### Run Ring Notepad
+	
+	cd applications/rnote
+	sudo ring rnote.ring
+	
+
+## Building using CMake 
+
+	cmake .
+	make
