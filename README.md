@@ -4,7 +4,6 @@
 
 ## Innovative and practical general-purpose multi-paradigm language
 
-|| **Resources** || **Status** |     																															 
 |---|---|---|---|             																															 
 |Download |[![Download](https://img.shields.io/badge/binary%20release-version%201.0-brightgreen.svg)](http://ring-lang.sourceforge.net/download.html)|**MacOS X**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
 |Help |[![Help](https://img.shields.io/badge/documentation-version%201.0-orange.svg)](http://ring-lang.sourceforge.net/doc/index.html)|**Ubuntu Linux** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
