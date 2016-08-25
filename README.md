@@ -6,10 +6,10 @@
 
 ||*Resources*||*Status*|
 |---|---|---|---|             																															 
-|Download |[![Download](https://img.shields.io/badge/binary%20release-version%201.0-brightgreen.svg)](http://ring-lang.sourceforge.net/download.html)|**MacOS X (GCC)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Help |[![Help](https://img.shields.io/badge/documentation-version%201.0-orange.svg)](http://ring-lang.sourceforge.net/doc/index.html)|**Ubuntu Linux (GCC)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
-|Try |[![Try](https://img.shields.io/badge/interactive%20ring-use%20online-green.svg)](http://ring-lang.sourceforge.net/cgi-bin/ringlang.cgi)|**MacOS X (CLANG)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Support |[![Support](https://img.shields.io/badge/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|**Ubuntu Linux (CLANG)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Download |[![Download](https://img.shields.io/badge/binary%20release-version%201.0-brightgreen.svg)](http://ring-lang.sourceforge.net/download.html)|**MacOS X (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
+|Help |[![Help](https://img.shields.io/badge/documentation-version%201.0-orange.svg)](http://ring-lang.sourceforge.net/doc/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Try |[![Try](https://img.shields.io/badge/interactive%20ring-use%20online-green.svg)](http://ring-lang.sourceforge.net/cgi-bin/ringlang.cgi)|**MacOS X (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
+|Support |[![Support](https://img.shields.io/badge/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 |Source Code |[![Source Code](https://img.shields.io/badge/release-version%201.0-blue.svg)](https://github.com/ring-lang/ring/releases)|
 
 =============
