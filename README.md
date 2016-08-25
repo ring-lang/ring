@@ -26,28 +26,6 @@ Its Dynamic Language (Dynamic Typing and Weakly Typed) that compile the source c
 byte code then execute it by the Ring Virtual Machine, which is integrated with the
 Ring Compiler in one program. 
 
-The language is simple, trying to be natural, encourage organization and comes with 
-transparent and visual implementation. It comes with compact syntax and a group of features that
-enable the programmer to create natural interfaces and declarative domain-specific 
-languages in a fraction of time. It is very small, fast and comes with smart garbage
-collector that puts the memory under the programmer control. It supports many 
-programming paradigms, comes with useful and practical libraries. The language is
-designed for productivity and developing high quality solutions that can scale.
-
-The language is designed for a Clear Goal
-
-* Applications programming language.
-
-* Productivity and developing high quality solutions that can scale.
-
-* Small and fast language that can be embedded in C/C++ projects.
-
-* Simple language that can be used in education and introducing Compiler/VM concepts.
-
-* General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
-
-* Practical language designed for creating the next version of the Programming Without Coding Technology software.
-
 [Read more!](http://ring-lang.sourceforge.net/#why)
 
 #Building from source code
