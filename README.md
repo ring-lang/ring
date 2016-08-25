@@ -106,19 +106,6 @@ The next steps explains building using scripts.
 	
 	cd applications/rnote
 	sudo ring rnote.ring
-
-To run the stars fighter game from the terminal
-	
-	cd ../../ringlibs/gameengine
-	ring game.ring
-
-To run the Flappy Bird 3000 game 
-
-	ring game2.ring
-
-To run the SuperMan game 
-
-	ring game3.ring
 	
 ## Building using Ubuntu Linux 
 
