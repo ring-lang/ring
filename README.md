@@ -198,5 +198,7 @@ The next steps explains building using scripts.
 
 ## Building using CMake 
 
+Install libraries (MySQL Client, OpenSSL, LibCurl, Allegro 5 and Qt 5.5)
+
 	cmake .
 	make
