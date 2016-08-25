@@ -107,8 +107,6 @@ The next steps explains building using scripts.
 	cd applications/rnote
 	sudo ring rnote.ring
 
-### Run Ring Applications and Games from Ring Notepad
-
 To run the stars fighter game from the terminal
 	
 	cd ../../ringlibs/gameengine
