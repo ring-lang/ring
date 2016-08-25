@@ -24,9 +24,7 @@ Console, GUI, Web, Games and Mobile applications.
 The language is designed to be Simple, Small, Flexible and Fast. 
 Its Dynamic Language (Dynamic Typing and Weakly Typed) that compile the source code to
 byte code then execute it by the Ring Virtual Machine, which is integrated with the
-Ring Compiler in one program. 
-
-[Read more!](http://ring-lang.sourceforge.net/#why)
+Ring Compiler in one program. [Read more!](http://ring-lang.sourceforge.net/#why)
 
 #Building from source code
 
