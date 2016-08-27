@@ -4,4 +4,4 @@ clang -c -fpic ring_state.c ring_ext.c ring_hashlib.c ring_hashtable.c ring_vmgc
 
 clang -dynamiclib -o $PWD/../lib/libring.dylib ring_state.o ring_ext.o ring_hashlib.o ring_hashtable.o ring_vmgc.o ring_vmos.o ring_string.o ring_list.o ring_item.o ring_items.o ring_scanner.o ring_parser.o ring_stmt.o ring_expr.o ring_codegen.o ring_vm.o ring_vmexpr.o ring_vmvars.o ring_vmlists.o ring_vmfuncs.o ring_api.o ring_vmoop.o ring_vmcui.o ring_vmtrycatch.o ring_vmstrindex.o ring_vmjump.o ring_vmduprange.o ring_vmlistfuncs.o ring_vmrefmeta.o ring_vmperformance.o ring_vmexit.o ring_vmstackvars.o ring_vmstate.o ring_vmmath.o ring_vmfile.o ring_vmdll.o ring_vmsqlite.o sqlite3.o ring_vmodbc.o ring_vmmysql.o ring_vmcurl.o ring_vmopenssl.o ring_objfile.o -lm -ldl -lodbc   -lmysqlclient -lcurl -lssl -lcrypto 
 
-clang ring.c $PWD/../lib/libring.dylib -o $PWD/../bin/ring -L $PWD/../lib  -I $PWD/../include
+clang ring.c $PWD/../lib/libring.dylib -o $PWD/../bin/ring -L $PWD/../lib  -I $PWD/../include -I $PWD/../extensions/ringsqlite
