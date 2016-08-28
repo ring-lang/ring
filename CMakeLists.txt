@@ -10,8 +10,11 @@ include_directories(include)
 
 # Add source files
 file(GLOB SOURCES "src/*.c")
-file(GLOB SOURCES "extensions/ringsqlite/*.c")
 file(GLOB SOURCES "extensions/ringcurl/*.c")
+file(GLOB SOURCES "extensions/ringopenssl/*.c")
+file(GLOB SOURCES "extensions/ringodbc/*.c")
+file(GLOB SOURCES "extensions/ringmysql/*.c")
+file(GLOB SOURCES "extensions/ringsqlite/*.c")
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ring.c)
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ringw.c)
 
