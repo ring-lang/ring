@@ -23,7 +23,7 @@ ring_vmodbc.obj ring_vmmysql.obj ring_vmopenssl.obj ring_vmcurl.obj ring_ext.obj
 
 copy ..\lib\ring.dll ..\bin\
 
-cl /DEBUG ring.c ..\lib\ring.lib /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:..\bin\ring.exe
+cl /DEBUG ring.c ..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:..\bin\ring.exe 
 
 del *.obj
 
