@@ -28,7 +28,7 @@
 					'<img src="superman.png" width="40%">'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/samples/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Fetch stock data from Yahoo and draw various types of charts</a>',
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Fetch stock data from Yahoo and draw various types of charts</a>',
 					'<img src="GetQuoteCapture.jpg" width="40%">'
 				]				
 			    ]
