@@ -7,11 +7,11 @@ project (ring)
 
 # Header Files
 include_directories(include)
-include_directories(extensions/ringsqlite)
 
 # Add source files
 file(GLOB SOURCES "src/*.c")
 file(GLOB SOURCES "extensions/ringsqlite/*.c")
+file(GLOB SOURCES "extensions/ringcurl/*.c")
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ring.c)
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ringw.c)
 
