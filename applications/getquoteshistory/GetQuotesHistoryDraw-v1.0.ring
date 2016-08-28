@@ -15,7 +15,7 @@ Load "guilib.ring"
 ### List of TICKER SYMBOLS xxx.tickers file REQUIRED 
 
 
-	TickersDir   = "B:\RING\samples\"
+	TickersDir   =  CurrentDir()
 	#TickersFile  = "GetQuotesTickers.tickers"
 	#TickersUse   = TickersDir + TickersFile 	### INITIAL file.tickers to use
 	TickersList = []  							###	["GetQuotesTickers.tickers", "GetReits.tickers", "GetRailroad.tickers" ]
