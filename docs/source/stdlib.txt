@@ -383,3 +383,25 @@ Example:
 	# Test List2File
 	Puts("Test List2File()")
 	list2file(1:100,"myfile.txt")
+
+
+file2list() function
+====================
+
+Read text file and convert lines to list items
+
+Syntax:
+
+.. code-block:: none
+
+	File2List(cFileName) ---> List
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Test File2List
+	Puts("Test File2List()")
+	see len(file2list("myfile.txt"))
