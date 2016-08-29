@@ -588,8 +588,8 @@ Example:
 	next
 
 
-palindrome function
-===================
+palindrome() function
+=====================
 
 Check if a sequence of characters is a palindrome or not. 
 
@@ -608,3 +608,28 @@ Example:
 	Puts("Test Palindrome()")
 	cString = "radar"
 	see Palindrome(cString)
+
+
+isleapyear() function
+=====================
+
+Check whether a given year is a leap year in the Gregorian calendar. 
+
+Syntax:
+
+.. code-block:: none
+
+	Isleapyear(number) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+
+	Load "stdlib.ring"
+
+	Puts("Test Isleapyear()")
+	year = 2016
+	if Isleapyear(year) see "" + year + " is a leap year."
+	else see "" + year + " is not a leap year." ok
+
