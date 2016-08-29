@@ -654,3 +654,25 @@ Example:
 	b = 35
 	see "Binary digits of " + b + " = " + Binarydigits(b)
 
+
+sleep() function
+================
+
+Sleep for the given amount of time.
+
+Syntax:
+
+.. code-block:: none
+
+	sleep(nSeconds) 
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Sleep()")
+	see "Wait 3 Seconds!"
+	Sleep(3)
+	see nl
