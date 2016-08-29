@@ -625,11 +625,32 @@ Example:
 
 .. code-block:: none
 
-
 	Load "stdlib.ring"
 
 	Puts("Test Isleapyear()")
 	year = 2016
 	if Isleapyear(year) see "" + year + " is a leap year."
 	else see "" + year + " is not a leap year." ok
+
+
+binarydigits() function
+=======================
+
+Compute the sequence of binary digits for a given non-negative integer. 
+
+Syntax:
+
+.. code-block:: none
+
+	binarydigits(number) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Binarydigits()")
+	b = 35
+	see "Binary digits of " + b + " = " + Binarydigits(b)
 
