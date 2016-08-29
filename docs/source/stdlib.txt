@@ -752,6 +752,31 @@ Example:
 		Permutation(list)
 	next
 
+readline() function
+===================
+
+Read line from file
+
+Syntax:
+
+.. code-block:: none
+
+	readline(fp) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Read a file line by line.
+	Puts("Test Readline()")
+	fp = fopen("test.ring","r")
+	while not feof(fp)
+	See Readline(fp) end
+	fclose(fp)
+
+
 sleep() function
 ================
 
