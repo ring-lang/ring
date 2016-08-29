@@ -405,3 +405,24 @@ Example:
 	# Test File2List
 	Puts("Test File2List()")
 	see len(file2list("myfile.txt"))
+
+endswith() function
+===================
+
+Returns true if the given string ends with the specified substring. Trailing white spaces are ignored.
+
+Syntax:
+
+.. code-block:: none
+
+	Endswith(string, substring) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Endswith()")
+	see endsWith("CalmoSoft", "Soft") + nl
+
