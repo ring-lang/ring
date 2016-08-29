@@ -142,7 +142,7 @@ see Binarydigits(b) + nl
 Puts("Test Matrixmulti()")
 A = [[1,2,3], [4,5,6], [7,8,9]]
 B = [[1,0,0], [0,1,0], [0,0,1]]
-Matrixmulti(A, B)
+see Matrixmulti(A, B)
 
 # Transpose an arbitrarily sized rectangular Matrix.
 Puts("Test Matrixtrans()")

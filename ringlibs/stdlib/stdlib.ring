@@ -445,7 +445,7 @@ Func Binarydigits a
 */     
 
 Func Matrixmulti A, B
-     n = 3
+     n = len(A)
      C = newlist(n,n)
      for i = 1 to n
          for j = 1 to n
@@ -454,12 +454,7 @@ Func Matrixmulti A, B
              next
          next
      next
-     for i = 1 to n
-         for j = 1 to n
-             see C[i][j] + " "
-         next
-         see nl
-     next
+	 return C
      
 /*
 	Function Name	: Matrixtrans
