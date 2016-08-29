@@ -464,15 +464,16 @@ Func Matrixmulti A, B
 */     
 
 Func Matrixtrans matrix
-     transpose = newlist(5,4)
-     for i = 1 to 5
-         for j = 1 to 4
-             transpose[i][j] = matrix[j][i]
-             see "" + transpose[i][j] + " "
-         next
-         see nl
+	 rows = len(matrix)
+	 cols = len(matrix[1])	 
+     transpose = newlist(cols,rows)
+     for i = 1 to cols
+         for j = 1 to rows
+             transpose[i][j] = matrix[j][i]             
+         next         
      next
-     
+     return transpose
+	 
 /*
 	Function Name	: Dayofweek
 	Usage		: Return the day of the week of given date. (yyyy-mm-dd)
