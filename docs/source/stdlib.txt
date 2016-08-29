@@ -88,3 +88,23 @@ Example:
 	aList = 1:10
 	del(value(aList),1) # delete first item
 	see aList 	    # print numbers from 1 to 10
+
+times() function
+================
+
+Execute a Function nCount times
+
+Syntax:
+
+.. code-block:: none
+
+	Times(nCount,function)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Times()")
+	Times ( 3 , func { see "Hello, World!" + nl } )
