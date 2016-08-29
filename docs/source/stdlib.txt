@@ -654,6 +654,30 @@ Example:
 	b = 35
 	see "Binary digits of " + b + " = " + Binarydigits(b)
 
+matrixmulti() function
+======================
+
+Multiply two matrices together. 
+
+Syntax:
+
+.. code-block:: none
+
+	Matrixmulti(List,List) ---> List
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Multiply two matrices together.
+	Puts("Test Matrixmulti()")
+	A = [[1,2,3], [4,5,6], [7,8,9]]
+	B = [[1,0,0], [0,1,0], [0,0,1]]
+	see Matrixmulti(A, B)
+
+
 
 sleep() function
 ================
@@ -741,3 +765,4 @@ Example:
 	# Create Directory
 	puts("create Directory : myfolder")
 	makedir("myfolder")
+
