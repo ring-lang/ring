@@ -320,3 +320,24 @@ Example:
 
 	Puts("Test Fibonacci()")
 	see "6 Fibonacci is : " + Fibonacci(6)
+
+isprime() function
+==================
+
+Check whether a number is prime or not
+
+Syntax:
+
+.. code-block:: none
+
+	isprime(number) ---> Number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Isprime()")
+	if isPrime(16) see "16 is a prime number"
+	else see "16 is not a prime number" ok
