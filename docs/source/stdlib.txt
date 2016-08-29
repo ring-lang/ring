@@ -701,6 +701,29 @@ Example:
 	see Matrixtrans(matrix)
 
 
+dayofweek() function
+====================
+
+Return the day of the week of given date. (yyyy-mm-dd)
+
+Syntax:
+
+.. code-block:: none
+
+	dayofweek(string) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Return the day of the week of given date.
+	Puts("Test Dayofweek()")
+	date = "2016-04-24"
+	see "Data : " + date + " - Day : " + Dayofweek(date) + nl
+
+
 sleep() function
 ================
 
