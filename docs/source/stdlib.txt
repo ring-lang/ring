@@ -19,6 +19,8 @@ Example:
 
 .. code-block:: none
 
+	Load "stdlib.ring"
+
 	Puts("Hello, World!")
 
 printf() function
@@ -37,6 +39,8 @@ Syntax:
 Example:
 
 .. code-block:: none
+
+	Load "stdlib.ring"
 
 	printf("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
 	x=10 y=20
@@ -58,7 +62,29 @@ Example:
 
 .. code-block:: none
 
+	Load "stdlib.ring"
+
 	# Application Path
 	Puts("Test AppPath()")
 	See AppPath() + nl
 
+value() function
+================
+
+create a copy from a list or object
+
+Syntax:
+
+.. code-block:: none
+
+	value(List) ---> new list 
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	aList = 1:10
+	del(value(aList),1) # delete first item
+	see aList 	    # print numbers from 1 to 10
