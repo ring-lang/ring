@@ -562,3 +562,27 @@ Example:
 	nr = 17
 	see Evenorodd(nr) + nl
 
+factors() function
+==================
+
+Compute the factors of a positive integer.
+
+Syntax:
+
+.. code-block:: none
+
+	factors(list) ---> list
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Factors()")
+	n = 45
+	aList = factors(n)
+	see "Factors of " + n + " = "
+	for i = 1 to len(aList)
+	    see "" + aList[i] + " "
+	next
