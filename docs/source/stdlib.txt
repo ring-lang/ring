@@ -406,28 +406,6 @@ Example:
 	Puts("Test File2List()")
 	see len(file2list("myfile.txt"))
 
-endswith() function
-===================
-
-Returns true if the given string ends with the specified substring.
-
-Trailing white spaces are ignored.
-
-Syntax:
-
-.. code-block:: none
-
-	Endswith(string, substring) ---> True/False
-
-Example:
-
-.. code-block:: none
-
-	Load "stdlib.ring"
-
-	Puts("Test Endswith()")
-	see endsWith("CalmoSoft", "Soft") + nl
-
 
 startswith() function
 =====================
@@ -451,6 +429,29 @@ Example:
 
 	Puts("Test Startswith()")
 	see Startswith("CalmoSoft", "Calmo") + nl
+
+
+endswith() function
+===================
+
+Returns true if the given string ends with the specified substring.
+
+Trailing white spaces are ignored.
+
+Syntax:
+
+.. code-block:: none
+
+	Endswith(string, substring) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Endswith()")
+	see endsWith("CalmoSoft", "Soft") + nl
 
 
 gcd() function
@@ -514,3 +515,26 @@ Example:
 	Puts("Test Sumlist()")
 	aList = [1,2,3,4,5]
 	see Sumlist(aList) + nl
+
+
+prodlist() function
+===================
+
+Compute the product of a list of integers.
+
+Syntax:
+
+.. code-block:: none
+
+	prodlist(list) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Prodlist()")
+	aList = [1,2,3,4,5]
+	see Prodlist(aList) + nl
+
