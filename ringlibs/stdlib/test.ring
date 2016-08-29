@@ -194,7 +194,7 @@ see substring(a,b,i)
 
 # Change substring from given position for given position with a substring.
 Puts("Test Changestring()")
-see Changestring("Rmasdg",2,4,"in")
+see Changestring("Rmasdg",2,5,"in")
 
 # Test printf()
 printf("\nHello, World\n\nHow are you? \t\t I'm fine!\n")

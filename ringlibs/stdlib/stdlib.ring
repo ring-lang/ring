@@ -613,7 +613,7 @@ func Substring str,substr,n
 	output		: Result string. 
 */         
 func Changestring text, pos1, pos2, str
-       string = left(text,pos1-1) + str + right(text, len(text)-pos1-pos2+1)
+       string = left(text,pos1-1) + str + substr(text, pos2+1)
        return string
 
 
