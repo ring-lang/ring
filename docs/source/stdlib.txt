@@ -440,7 +440,6 @@ Syntax:
 
 .. code-block:: none
 
-
 	StartsWith(string, substring) ---> True/False
 
 
@@ -452,3 +451,24 @@ Example:
 
 	Puts("Test Startswith()")
 	see Startswith("CalmoSoft", "Calmo") + nl
+
+
+gcd() function
+==============
+
+Finding of the greatest common divisor of two integers.
+
+Syntax:
+
+.. code-block:: none
+
+	Gcd(number,number) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Gcd()")
+	see gcd (24, 32) + nl
