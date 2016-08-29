@@ -359,7 +359,7 @@ First-class lists
 =================
 
 Lists are `first-class citizens <http://en.wikipedia.org/wiki/First-class_citizen>`_ where we can store
-lists in varaibles, pass lists to functions, and return lists from functions.
+lists in variables, pass lists to functions, and return lists from functions.
 
 Example:
 
