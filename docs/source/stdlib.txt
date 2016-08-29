@@ -676,3 +676,26 @@ Example:
 	see "Wait 3 Seconds!"
 	Sleep(3)
 	see nl
+
+ismainsourcefile() function
+===========================
+
+Check if the current file is the main source file
+
+Syntax:
+
+.. code-block:: none
+
+	IsMainSourceFile() ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	if ismainsourcefile()
+		# code 
+	ok
+
+
