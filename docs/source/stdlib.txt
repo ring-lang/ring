@@ -472,3 +472,25 @@ Example:
 
 	Puts("Test Gcd()")
 	see gcd (24, 32) + nl
+
+
+lcm() function
+==============
+
+Compute the least common multiple of two integers.
+
+Syntax:
+
+.. code-block:: none
+
+	lcm(number,number) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Lcm()")
+	see Lcm(24,36) + nl
+
