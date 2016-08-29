@@ -150,3 +150,24 @@ Example:
 	See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
 
 
+split() function
+================
+
+Convert string words to list items
+
+Syntax:
+
+.. code-block:: none
+
+	Split(cstring,delimiter)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Split()")
+	See Split("one two three four five"," ")
+
+
