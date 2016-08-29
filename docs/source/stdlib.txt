@@ -4,4 +4,20 @@ Stdlib
 
 In this chapter we are going to learn about functions and classes in the stdlib.ring
 
+puts() function
+===============
+
+print the value then print new line (nl)
+
+Syntax:
+
+.. code-block:: none
+
+	puts(expr)
+
+Example:
+
+.. code-block:: none
+
+	Puts("Hello, World!")
 
