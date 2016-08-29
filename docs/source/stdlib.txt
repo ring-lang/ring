@@ -1,0 +1,7 @@
+=======
+Stdlib
+=======
+
+In this chapter we are going to learn about functions and classes in the stdlib.ring
+
+

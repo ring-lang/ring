@@ -35,6 +35,7 @@ Contents:
    Natural language programming	<natural>
    Functional Programming (FP) <fp>
    Reflection and Meta-programming <metaprog>
+   Stdlib Functions and Classes <stdlib>
    Extension using the C/C++ languages <extension>
    Embedding Ring Interpreter in C/C++ Programs <embedding>
    Command Line Options	<interpreter>
