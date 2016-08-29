@@ -199,3 +199,22 @@ Example:
 	See chrArray[1][1] + nl
 	See numArray[1][1] + nl
 
+capitalized() function
+======================
+
+Return a copy of a string with the first letter capitalized
+
+Syntax:
+
+.. code-block:: none
+
+	Capitalized(string) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Capitalized()")
+	See capitalized("welcome to the Ring Programming Language")
