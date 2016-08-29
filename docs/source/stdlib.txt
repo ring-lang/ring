@@ -776,6 +776,30 @@ Example:
 	See Readline(fp) end
 	fclose(fp)
 
+substring() function
+====================
+
+Return a position of a substring starting from a given position in a string.
+
+Syntax:
+
+.. code-block:: none
+
+	Substring(str,substr,npos) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Return a position of a substring starting from a given position in a string.
+	Puts("Test Substring()")
+	a = "abcxyzqweabc"
+	b = "abc"
+	i = 4
+	see substring(a,b,i)
+
 
 sleep() function
 ================
