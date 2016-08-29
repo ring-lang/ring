@@ -240,3 +240,22 @@ Example:
 	Puts("Test Isspecial()")
 	See "Isspecial  = " + isSpecial("%") + nl
 
+isvowel() function
+==================
+
+Check whether a character is vowel or not
+
+Syntax:
+
+.. code-block:: none
+
+	IsVowel(char) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Isvowel()")
+	See "Isvowel = " + isVowel("c") + nl
