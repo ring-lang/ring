@@ -42,3 +42,23 @@ Example:
 	x=10 y=20
 	printf("\nx value = #{x} , y value = #{y} \n")
 
+
+apppath() function
+==================
+
+Get the path of the application folder
+
+Syntax:
+
+.. code-block:: none
+
+	AppPath() ---> The path as String
+
+Example:
+
+.. code-block:: none
+
+	# Application Path
+	Puts("Test AppPath()")
+	See AppPath() + nl
+
