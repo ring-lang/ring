@@ -361,3 +361,25 @@ Example:
 
 	Puts("Test Sign()")
 	see "sign of 12 is = " + sign(12) + nl
+
+
+list2file() function
+====================
+
+Write list items to text file (each item in new line).
+
+Syntax:
+
+.. code-block:: none
+
+	List2File(aList,cFileName)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Test List2File
+	Puts("Test List2File()")
+	list2file(1:100,"myfile.txt")
