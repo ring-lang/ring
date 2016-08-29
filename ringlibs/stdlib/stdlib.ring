@@ -498,7 +498,7 @@ Func Dayofweek date
             on 6 sday = days[2]
             on 0 sday = days[3]
      off
-     see "" + year + "-" + month + "-" + day + " is : " + sday + nl
+     return sday 
      
 /*
 	Function Name	: Fridays

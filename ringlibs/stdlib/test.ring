@@ -152,7 +152,7 @@ see Matrixtrans(matrix)
 # Return the day of the week of given date.
 Puts("Test Dayofweek()")
 date = "2016-04-24"
-Dayofweek(date)
+see "Data : " + date + " - Day : " + Dayofweek(date) + nl
 
 # Friday the 13th between start and end year.
 Puts("Test Fridays()")
