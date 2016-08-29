@@ -504,7 +504,7 @@ Func Dayofweek date
 	Function Name	: Fridays
 	Usage		: Fridays the 13th between start and end year.
 	Parameters	: Start and end year.
-	output		: Dates of Fridays od 13th.
+	output		: Dates of Fridays on 13th.
 */  
 
 Func Fridays year1, year2
