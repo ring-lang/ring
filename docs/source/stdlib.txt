@@ -586,3 +586,25 @@ Example:
 	for i = 1 to len(aList)
 	    see "" + aList[i] + " "
 	next
+
+
+palindrome function
+===================
+
+Check if a sequence of characters is a palindrome or not. 
+
+Syntax:
+
+.. code-block:: none
+
+	Palindrome(String) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Palindrome()")
+	cString = "radar"
+	see Palindrome(cString)
