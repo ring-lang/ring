@@ -280,3 +280,23 @@ Example:
 
 	Puts("Test Linecount()")
 	See "the number of lines = " + lineCount("test.ring")
+
+factorial() function
+====================
+
+Return the factorial of a number
+
+Syntax:
+
+.. code-block:: none
+
+	Factorial(number) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Factorial()")
+	see "6 factorial is : " + Factorial(6)
