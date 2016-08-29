@@ -341,3 +341,23 @@ Example:
 	Puts("Test Isprime()")
 	if isPrime(16) see "16 is a prime number"
 	else see "16 is not a prime number" ok
+
+sign() function
+===============
+
+Returns an integer value indicating the sign of a number.
+
+Syntax:
+
+.. code-block:: none
+
+	Sign(number) ---> number ( -1 = negative , 0 , 1 (positive) )
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Sign()")
+	see "sign of 12 is = " + sign(12) + nl
