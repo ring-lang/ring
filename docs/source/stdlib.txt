@@ -218,3 +218,25 @@ Example:
 
 	Puts("Test Capitalized()")
 	See capitalized("welcome to the Ring Programming Language")
+
+isspecial() function
+====================
+
+Check whether a character is special or not
+
+
+Syntax:
+
+.. code-block:: none
+
+	IsSpecial(char) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Isspecial()")
+	See "Isspecial  = " + isSpecial("%") + nl
+
