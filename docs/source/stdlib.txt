@@ -699,3 +699,45 @@ Example:
 	ok
 
 
+direxists() function
+====================
+
+Check if directory exists
+
+Syntax:
+
+.. code-block:: none
+
+	DirExists(String) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	see "Check dir : b:\ring " 
+	puts( DirExists("b:\ring") )
+	see "Check dir : C:\ring " 
+	Puts( DirExists("C:\ring") )
+
+makedir() function
+==================
+
+Make Directory
+
+Syntax:
+
+.. code-block:: none
+
+	MakeDir(String)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Create Directory
+	puts("create Directory : myfolder")
+	makedir("myfolder")
