@@ -401,8 +401,8 @@ Func Palindrome aString
          bString = bString + aString[i]
      next
      see aString
-     if aString = bString see " is a palindrome." + nl
-     else see " is not a palindrome" + nl ok
+     if aString = bString return 1 ok
+     return false
      
 /*
 	Function Name	: Isleapyear
