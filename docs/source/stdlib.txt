@@ -21,3 +21,24 @@ Example:
 
 	Puts("Hello, World!")
 
+printf() function
+=================
+
+print string - support \\n,\\t and \\r
+
+Also we can use #{variable_name} to insert variables values.
+
+Syntax:
+
+.. code-block:: none
+
+	printf(string)
+
+Example:
+
+.. code-block:: none
+
+	printf("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
+	x=10 y=20
+	printf("\nx value = #{x} , y value = #{y} \n")
+
