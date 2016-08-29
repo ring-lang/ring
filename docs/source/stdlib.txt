@@ -494,3 +494,23 @@ Example:
 	Puts("Test Lcm()")
 	see Lcm(24,36) + nl
 
+sumlist() function
+==================
+
+Compute the sum of a list of integers.
+
+Syntax:
+
+.. code-block:: none
+
+	sumlist(list) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Sumlist()")
+	aList = [1,2,3,4,5]
+	see Sumlist(aList) + nl
