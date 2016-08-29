@@ -538,3 +538,27 @@ Example:
 	aList = [1,2,3,4,5]
 	see Prodlist(aList) + nl
 
+
+evenorodd() function
+====================
+
+Test whether an integer is even or odd.
+
+Result of test (1=odd 2=even).
+
+Syntax:
+
+.. code-block:: none
+
+	evenorodd(number) ---> 1 (odd) or 2 (even)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Evenorodd()")
+	nr = 17
+	see Evenorodd(nr) + nl
+
