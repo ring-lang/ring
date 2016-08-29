@@ -259,3 +259,24 @@ Example:
 
 	Puts("Test Isvowel()")
 	See "Isvowel = " + isVowel("c") + nl
+
+
+linecount() function
+====================
+
+Return the lines count in a text file.
+
+Syntax:
+
+.. code-block:: none
+
+	LineCount(cFileName) ---> Lines Count as number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Linecount()")
+	See "the number of lines = " + lineCount("test.ring")
