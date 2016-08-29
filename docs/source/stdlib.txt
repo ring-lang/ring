@@ -108,3 +108,24 @@ Example:
 
 	Puts("Test Times()")
 	Times ( 3 , func { see "Hello, World!" + nl } )
+
+map() function
+==============
+
+Execute a Function on each list item
+
+Syntax:
+
+.. code-block:: none
+
+	 Map(alist,function)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Map()")
+	See Map( 1:10, func x { return x*x } )
+
