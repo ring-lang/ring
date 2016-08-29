@@ -300,3 +300,23 @@ Example:
 
 	Puts("Test Factorial()")
 	see "6 factorial is : " + Factorial(6)
+
+fibonacci() function
+====================
+
+Return the fibonacci number
+
+Syntax:
+
+.. code-block:: none
+
+	Fibonacci(number) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Fibonacci()")
+	see "6 Fibonacci is : " + Fibonacci(6)
