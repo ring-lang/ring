@@ -724,6 +724,34 @@ Example:
 	see "Data : " + date + " - Day : " + Dayofweek(date) + nl
 
 
+permutation() function
+======================
+
+Generates all permutations of n different numerals.
+
+Syntax:
+
+.. code-block:: none
+
+	permutation(list)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Generates all permutations of n different numerals
+	Puts("Test Permutation()")
+	list = [1, 2, 3, 4]
+	for perm = 1 to 24
+		for i = 1 to len(list)
+	        	see list[i] + " "
+		next
+     		see nl
+		Permutation(list)
+	next
+
 sleep() function
 ================
 
