@@ -136,7 +136,7 @@ else see "" + year + " is not a leap year." ok
 Puts("Test Binarydigits()")
 b = 35
 see "Binary digits of " + b + " = "
-Binarydigits(b)
+see Binarydigits(b) + nl
 
 # Multiply two matrices together.
 Puts("Test Matrixmulti()")
