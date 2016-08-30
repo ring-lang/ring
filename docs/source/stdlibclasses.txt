@@ -1,0 +1,6 @@
+==============
+Stdlib Classes
+==============
+
+In this chapter we are going to learn about the classes in the stdlib.ring
+

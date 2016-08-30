@@ -1,8 +1,8 @@
-=============================
-Stdlib Functions and Classes
-=============================
+================
+Stdlib Functions
+================
 
-In this chapter we are going to learn about functions and classes in the stdlib.ring
+In this chapter we are going to learn about functions in the stdlib.ring
 
 puts() function
 ===============

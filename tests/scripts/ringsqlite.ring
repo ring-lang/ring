@@ -21,7 +21,7 @@ sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  +
          "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" +
          "VALUES (4, 'Ibrahim', 24, 'Egypt ', 65000.00 );"
 
-sqlite_execute(oSQLite,sql) + nl
+sqlite_execute(oSQLite,sql)
 
 aResult =  sqlite_execute(oSQLite,"select * from COMPANY") 
 for x in aResult
