@@ -348,3 +348,61 @@ output:
 	two
 	three
 
+HashTable Class
+===============
+
+Parent Class : List Class
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+Init(List)
+Add(cKey,Value)				Add item to the HashTable
+Set(cKey,Value)				Set item value using the Key
+Get(cKey)					Get item value using the Key
+Contains(cKey)				Check if the HashTable contains item using the Key
+Index(cKey)					Get the item index using the Key
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	ohashtable = new hashtable
+	See "Test the hashtable Class Methods" + nl
+	ohashtable { 
+		Add("Egypt","Cairo")
+		Add("KSA","Riyadh")
+		see self["Egypt"] + nl
+		see self["KSA"] + nl
+		see contains("Egypt") + nl
+		see contains("USA") + nl
+		see index("KSA")  + NL
+		print()
+		delete(index("KSA"))
+		see copy("*",60) + nl
+		print()
+	}
+	
+output:
+
+.. code-block:: none
+
+	Test the hashtable Class Methods
+	Cairo
+	Riyadh
+	1
+	0
+	2
+	Egypt
+	Cairo
+	KSA
+	Riyadh
+	************************************************************
+	Egypt
+	Cairo
+
