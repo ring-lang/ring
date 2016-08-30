@@ -4,6 +4,26 @@ Stdlib Classes
 
 In this chapter we are going to learn about the classes in the stdlib.ring
 
+* String Class
+* List Class
+* Stack Class
+* Queue Class
+* HashTable Class
+* Tree Class
+* Math Class
+* DateTime Class
+* File Class
+* System Class
+* Debug Class
+* DataType Class
+* Conversion Class
+* ODBC CLass
+* MySQL Class
+* SQLite Class
+* Security Class
+* Internet Class
+
+
 String Class
 ============
 
