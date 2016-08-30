@@ -72,14 +72,14 @@ func math_class_test
 
  	h = 0
 	for x in cKey
-		h = unsigned(h,ascii(x),"+")
-		h = unsigned(h,unsigned(h,10,"<<"),"+")
-		r = unsigned(h,6,">>")
-		h = unsigned(h, r,"^")
+		h = oMath.unsigned(h,ascii(x),"+")
+		h = oMath.unsigned(h,oMath.unsigned(h,10,"<<"),"+")
+		r = oMath.unsigned(h,6,">>")
+		h = oMath.unsigned(h, r,"^")
 	next
-	h = unsigned(h,unsigned(h,3,"<<"),"+")
-	h = unsigned(h,unsigned(h,11,">>"),"^")
-	h = unsigned(h,unsigned(h,15,"<<"),"+")
+	h = oMath.unsigned(h,oMath.unsigned(h,3,"<<"),"+")
+	h = oMath.unsigned(h,oMath.unsigned(h,11,">>"),"^")
+	h = oMath.unsigned(h,oMath.unsigned(h,15,"<<"),"+")
 
 	see "Hash : " + h
 
