@@ -4,3 +4,121 @@ Stdlib Classes
 
 In this chapter we are going to learn about the classes in the stdlib.ring
 
+String Class
+============
+
+Methods:
+
+===========================	======================================================================
+Method				Output
+===========================	======================================================================
+Init(String|Number|List) 
+Lower()  			New String - Lower case characters
+Upper()  			New String - Upper case characters
+Left(x)  			New String - contains x characters from the left
+Right(x) 			New String - contains x characters from the right
+Lines()  			Number - Lines count
+Trim()   			New String - Remove Spaces
+Copy(x)  			New String - repeat string x times
+strcmp(cString)   		Compare string with cString  
+tolist()	  		List (String Lines to String Items)
+tofile(cFileName) 		Write string to file
+get(nPos1,nPos2)  		New String - from nPos1 to nPos2
+getfrom(nPos1)	  		New String - from nPos1 to the end of the string
+replace(cStr1,cStr2,lCase) 	New String - Replace cStr1 with cStr2 , lCase (True=Math Case)
+split()		  		List - Each Word as list item
+===========================	======================================================================
+
+Example:
+
+.. code-block:: none
+
+	See "Testing the String Class" + nl
+	oString = new string("Hello, World!")
+	oString.println()
+	oString.upper().println()
+	oString.lower().println()
+	oString.left(5).println()
+	oString.right(6).println()
+	oString = new string("Hi" + nl + "Hello" )
+	See oString.lines() + nl
+	oString = new string("    Welcome    ")
+	oString.println()
+	oString.trim().println()
+	oString = new string("Hello! ")
+	oString.copy(3).println()
+	see oString.strcmp("Hello! ") + nl
+	see oString.strcmp("Hello ") + nl
+	see oString.strcmp("Hello!! ") + nl
+	oString = new string(["one","two","three"])
+	oString.print()
+	see oString.lines() + nl
+	oString = new String(1234)
+	oString.println()
+	oString = new String("one"+nl+"two"+nl+"three")
+	aList = oString.tolist()
+	see "List Items" + nl See aList
+	oString = new String( "Welcome to the Ring programming language")
+	See "the - position : " + oString.pos("the") + nl
+	oString = oString.getfrom(oString.pos("Ring"))
+	oString.println()
+	oString.get(1,4).println()
+	oString = oString.replace("Ring","***Ring***",true)
+	oString.println()
+	oString = oString.replace("ring","***Ring***",false)
+	oString.println()
+	oString1 = new string("First")
+	oString2 = new string("Second")
+	oString = oString1 + oString2
+	oString.println()
+	oString = oString1 * 3
+	oString.println()
+	for t in ostring see t next
+	oString.tofile("test.txt")
+	oString = new string("one two three")
+	see nl
+	see ostring.split()
+	oString {
+		set("Hello") println()
+		set("How are you?") println()
+	}
+
+Output:
+
+.. code-block:: none
+
+	Testing the String Class
+	Hello, World!
+	HELLO, WORLD!
+	hello, world!
+	Hello
+	World!
+	2
+		Welcome
+	Welcome
+	Hello! Hello! Hello!
+	0
+	1
+	-1
+	one
+	two
+	three
+	4
+	1234
+	List Items
+	one
+	two
+	three
+	the - position : 12
+	Ring programming language
+	Ring
+	***Ring*** programming language
+	******Ring****** programming language
+	FirstSecond
+	FirstFirstFirst
+	FirstFirstFirst
+	one
+	two
+	three
+	Hello
+	How are you?
