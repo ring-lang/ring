@@ -406,3 +406,87 @@ output:
 	Egypt
 	Cairo
 
+
+Tree Class
+==========
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+set(value)					Set the node value.
+value()						Get the node value.
+Add(value)					Add new child.
+parent()					Get the parent node.
+print()						Print the tree nodes.
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	otree = new tree
+	See "Test the tree Class Methods" + nl
+	otree {
+		set("The first step")	# set the root node value
+		see value() + nl
+		Add("one")
+		Add("two")
+		Add("three") {
+			Add("3.1")
+			Add("3.2")
+			Add("3.3")
+			see children
+		}
+		see children
+		oTree.children[2] {
+			Add("2.1") Add("2.2") Add("2.3") {
+				Add("2.3.1") Add("2.3.2") Add("test")
+			}
+		}
+		oTree.children[2].children[3].children[3].set("2.3.3")
+	}
+	see copy("*",60) + nl
+	oTree.print()
+	
+output:
+
+.. code-block:: none
+
+	Test the tree Class Methods
+	The first step
+	data: 3.1
+	parent: List...
+	children: List...
+	data: 3.2
+	parent: List...
+	children: List...
+	data: 3.3
+	parent: List...
+	children: List...
+	data: one
+	parent: List...
+	children: List...
+	data: two
+	parent: List...
+	children: List...
+	data: three
+	parent: List...
+	children: List...
+	************************************************************
+	one
+	two
+	2.1
+	2.2
+	2.3
+	2.3.1
+	2.3.2
+	2.3.3
+	three
+	3.1
+	3.2
+	3.3
+
