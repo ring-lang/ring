@@ -17,11 +17,11 @@ func datetime_class_test
 	See "Calculate performance" + nl
 	t1 = oDateTime.clock()
 	for x = 1 to 1000000 next
-	see oDateTime.clock() - t1
+	see oDateTime.clock() - t1 + nl
 
-	See "Time : " + oDateTime.time()
+	See "Time : " + oDateTime.time() + nl
 
-	See "Date : " + oDateTime.date() 
+	See "Date : " + oDateTime.date()  + nl
 
 	See oDateTime.TimeList()
 
