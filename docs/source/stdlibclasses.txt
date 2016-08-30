@@ -302,3 +302,49 @@ output:
 	three
 	two
 	one
+	
+	
+Queue Class
+===========
+
+Parent Class : List Class
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+Init(String|Number|List)
+Remove()					Remove item from the Queue.
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oQueue = new Queue
+	oQueue.add(1)
+	oQueue.add(2)
+	oQueue.add(3)
+	see oQueue.remove() + nl
+	see oQueue.remove() + nl
+	see oQueue.remove() + nl
+	oQueue.add(4)
+	see oQueue.remove() + nl
+	oQueue { add("one") add("two") add("three") }
+	oQueue.print()
+	
+output:
+
+.. code-block:: none
+
+	1
+	2
+	3
+	4
+	one
+	two
+	three
+
