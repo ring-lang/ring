@@ -1278,12 +1278,7 @@ In this example we will learn about displaying and scaling an image so that it l
 	return
 	###-------------
 
-The application during the runtime
-
-.. image:: ringqt_shot26-B.jpg
-	:alt: Display Image
 	
-		
 Menubar and StyleSheet Example
 ==============================
 

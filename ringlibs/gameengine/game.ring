@@ -17,7 +17,7 @@ start_playing()
 
 func main
 
-	oGame = New Game 
+	oGame = New Game
 
 	while true
 
@@ -30,24 +30,24 @@ func main
 
 	$startplay=false
 
-	oGame {	
+	oGame {
 		title = "Stars Fighter!"
 		sprite
 		{
 			file = "images/menu1.jpg"
 			x = 0 y=0 width=800 height = 600 scaled = true animate = false
 			keypress = func ogame,oself,nKey {
-				if nkey = key_esc 
+				if nkey = key_esc
 					ogame.shutdown()
-				but nKey = key_space 
-					$startplay=true 
-					ogame.shutdown=true 
+				but nKey = key_space
+					$startplay=true
+					ogame.shutdown=true
 				ok
 			}
-			mouse = func ogame,oself,nType,aMouseList {		
+			mouse = func ogame,oself,nType,aMouseList {
 				if nType = GE_MOUSE_UP
-					$startplay=true 
-					ogame.shutdown=true 
+					$startplay=true
+					ogame.shutdown=true
 				ok
 			}
 		}
@@ -92,10 +92,10 @@ func main
 			playSound()
 		}
 	}
-		
-	if $startplay 
+
+	if $startplay
 		oGame.refresh()
-		playstart(oGame) 		
+		playstart(oGame)
 		oGame.refresh()
 	ok
 
@@ -151,7 +151,7 @@ func play oGame
 			type = ge_type_player
 			x = 400 y =400 width=100 height=100
 			animate=false move=true Scaled=true
-			mouse = func ogame,oself,nType,aMouseList {		
+			mouse = func ogame,oself,nType,aMouseList {
 				if nType = GE_MOUSE_DOWN
 					if aMouseList[1] < oSelf.X  # left
 						oSelf.X -= 100
@@ -164,8 +164,8 @@ func play oGame
 						oSelf.Y += 100
 					ok
 				ok
-				if nType = GE_MOUSE_UP				
-					cFunc = oself.keypress	
+				if nType = GE_MOUSE_UP
+					cFunc = oself.keypress
 					call cFunc(oGame,oSelf,Key_Space)
 				ok
 			}
@@ -376,7 +376,7 @@ func showfire oGame,nX,nY
 			nStep = 3
 			transparent = true
 			state = func oGame,oSelf {
-				oSelf { 
+				oSelf {
 					nStep--
 					if nStep = 0
 						nStep = 3

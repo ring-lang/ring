@@ -29,6 +29,7 @@ Contents:
    Demo Programs <demo>
    ODBC Functions <odbc>
    MySQL Functions <mysql>
+   SQLite Functions <sqlite>	
    Security and Internet Functions <secfunc>
    Object Oriented Programming (OOP) <oop>
    Declarative Programming using Nested Structures <declarative>

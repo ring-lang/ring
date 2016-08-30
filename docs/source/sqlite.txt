@@ -1,0 +1,6 @@
+================
+SQLite Functions
+================
+
+In this chapter we will learn about using the SQLite database in the Ring programming language.
+

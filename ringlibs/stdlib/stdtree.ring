@@ -9,14 +9,14 @@ if filename() = sysargv[2]
 ok
 
 func tree_class_test
-	
+
 	otree = new tree
 	See "Test the tree Class Methods" + nl
-	otree { 
+	otree {
 		set("The first step")	# set the root node value
-		see value() + nl 
+		see value() + nl
 		Add("one")
-		Add("two") 
+		Add("two")
 		Add("three") {
 			Add("3.1")
 			Add("3.2")
@@ -25,17 +25,17 @@ func tree_class_test
 		}
 		see children
 		oTree.children[2] {
-			Add("2.1") Add("2.2") Add("2.3") { 
-				Add("2.3.1") Add("2.3.2") Add("test") 
-			} 
+			Add("2.1") Add("2.2") Add("2.3") {
+				Add("2.3.1") Add("2.3.2") Add("test")
+			}
 		}
 		oTree.children[2].children[3].children[3].set("2.3.3")
 	}
 	see copy("*",60) + nl
 	oTree.print()
 
-Class tree 
- 
+Class tree
+
 	data parent
 	children = []
 
@@ -61,5 +61,5 @@ Class tree
 	func print
 		for x in children
 			see x.data + nl
-			x.print()		
+			x.print()
 		next

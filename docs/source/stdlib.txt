@@ -1,6 +1,6 @@
-=======
-Stdlib
-=======
+=============================
+Stdlib Functions and Classes
+=============================
 
 In this chapter we are going to learn about functions and classes in the stdlib.ring
 

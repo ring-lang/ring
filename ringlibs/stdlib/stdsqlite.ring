@@ -8,10 +8,10 @@ if filename() = sysargv[2]
 ok
 
 func sqlite_class_test
-	
+
 	osqlite = new sqlite
 	See "Test the sqlite Class Methods" + nl
-	osqlite { 
+	osqlite {
 		open("test.db")
 		sql = "CREATE TABLE COMPANY("  +
        			"ID INT PRIMARY KEY     NOT NULL," +
@@ -20,7 +20,7 @@ func sqlite_class_test
 		         "ADDRESS        CHAR(50)," +
 		         "SALARY         REAL );"
 
-		execute(sql) 
+		execute(sql)
 
 		sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  +
 		         "VALUES (1, 'Mahmoud', 29, 'Jeddah', 20000.00 ); " +
@@ -31,9 +31,9 @@ func sqlite_class_test
 		         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" +
 		         "VALUES (4, 'Ibrahim', 24, 'Egypt ', 65000.00 );"
 
-		execute(sql) 
+		execute(sql)
 
-		aResult =  execute("select * from COMPANY") 
+		aResult =  execute("select * from COMPANY")
 		for x in aResult
 			for t in x
 				see t[2] + nl
@@ -43,17 +43,17 @@ func sqlite_class_test
 		for x in aResult
 			see x["name"] + nl
 		next
-		close() 
+		close()
 	}
 
 Class sqlite
- 
+
 	osqlite = init()
-	 
+
 	Func init
 		return sqlite_init()
 
-	Func close  
+	Func close
 		return sqlite_close(osqlite)
 
 	Func open cDatabase
@@ -64,4 +64,3 @@ Class sqlite
 
 	Func execute cSQL
 		return sqlite_execute(osqlite,cSQL)
-
