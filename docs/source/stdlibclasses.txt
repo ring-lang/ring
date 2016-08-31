@@ -1004,3 +1004,54 @@ Output:
 	1
 	1
 	0	
+
+Conversion Class
+================
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+number(vValue)				Convert strings to numbers.
+string(vValue)				Convert numbers to strings.
+ascii(vValue)				Get the ASCII code for a letter.
+char(vValue)				Convert the ASCII code to character.
+hex(vValue)					Convert decimal to hexadecimal.
+dec(vValue)					Convert hexadecimal to decimal.
+str2hex(vValue)				Convert string characters to hexadecimal characters.
+hex2str(vValue)				Convert hexadecimal characters to string.
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oConversion = new conversion
+	See "Test the conversion Class Methods" + nl
+	See oConversion.number("3") + 5  + nl
+	See oConversion.string(3) + "5" + nl
+	See oConversion.Ascii("m") + nl	
+	See oConversion.char(77) + nl	
+	see oConversion.hex(162) + nl
+	see oConversion.dec("a2") + nl
+	cHex = oConversion.str2hex("Hello")
+	see cHex + nl
+	see oConversion.hex2str(cHex) + nl
+
+Output:
+
+.. code-block:: none
+
+	Test the conversion Class Methods
+	8
+	35
+	109
+	M
+	a2
+	162
+	48656c6c6f
+	Hello
+
