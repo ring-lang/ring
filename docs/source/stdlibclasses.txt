@@ -1106,3 +1106,70 @@ example:
 		disconnect()
 		close()
 	}
+	
+MySQL Class
+===========
+
+Methods:
+
+======================================	======================================================================
+Method									Description/Output
+======================================	======================================================================
+info()									Return string contains the MySQL Client version.
+error() 								Get the error message from the MySQL Client.
+connect(cServer,cUser,cPass,cDatabase)	Connect to the MySQL database server.
+close() 								Close the connection to the MySQL database.
+query(cQuery)							Execute SQL queries.
+insert_id()								Get the inserted row id.
+result() 								Get the query result (data without column names).
+next_result()							Move to the next query result.
+columns() 								Get a list of columns names.
+result2() 								Get all of the column names then the query result in one list.
+escape_string(cStr)						Before storing binary data and special characters in the database.
+autocommit(lStatus)						Enable or disable the auto commit feature.
+commit() 								Commit updates to the database.
+rollback()								Rollback updates to the database.
+======================================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+	
+	omysql = new mysql
+	See "Test the MySQL Class Methods" + nl
+	omysql { 
+		see info() + nl
+		connect("localhost", "root", "root","mahdb")
+		see "Execute Query" + nl
+		query("SELECT * FROM Employee")
+		see "Print Result" + nl
+		see result2()
+		see "Close database" + nl
+		close()
+	}
+	
+Output:
+
+.. code-block:: none
+	
+	Test the MySQL Class Methods
+	5.5.30
+	Execute Query
+	Print Result
+	Id
+	Name
+	Salary
+	1
+	Mahmoud
+	15000
+	2
+	Samir
+	16000
+	3
+	Fayed
+	17000
+	Close database
+
+
