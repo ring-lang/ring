@@ -67,3 +67,5 @@ Class System
 	Func sysargv
 		return std_sysargv()
 
+	Func filename
+		return std_filename()
