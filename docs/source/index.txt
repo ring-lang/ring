@@ -13,6 +13,7 @@ Contents:
 
    Introduction <introduction>
    Language Design <languagedesign>
+   Building From Source Code <sourcecode>
    Getting Started <getting_started>
    Variables <variables>
    Operators <operators>

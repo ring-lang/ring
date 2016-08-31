@@ -1,0 +1,195 @@
+Building From Source Code
+=========================
+
+The Ring programming language is a free open source product (MIT License).
+
+You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
+
+The next steps explains building using scripts.
+
+Building using Microsoft Windows
+================================
+
+Get the source code
+
+.. code-block:: none
+
+	git clone http://github.com/ring-lang/ring.git
+
+Install Libraries
+
+.. code-block:: none
+
+	MySQL     : https://dev.mysql.com/downloads/connector/c/
+	LibCurl   : https://curl.haxx.se/libcurl/
+	OpenSSL   : https://www.openssl.org
+	Allegro 5 : http://liballeg.org/download.html#windows
+	Qt 5.5    : https://download.qt.io/archive/qt/5.5/5.5.1/
+
+You can quickly install MySQL, LibCurl, OpenSSL and Allegro libraries 
+from this link : https://sourceforge.net/projects/ring-lang/files/Ring%201.0/libdepwin.zip/download
+Then extract and copy the libraries folders to Ring/libdepwin
+
+Build Ring (Compiler/VM)
+
+.. code-block:: none
+
+	cd ring/src
+	buildvccomplete.bat
+
+Generate RingAllegro Source Code and Build
+
+.. code-block:: none
+
+	cd ../extensions/ringallegro
+	gencode.bat
+	buildvc.bat
+
+Generate RingQt Source Code and Build
+
+.. code-block:: none
+
+	cd ../ringqt
+	gencode.bat
+	buildmingw32.bat
+
+To be able to call ring from any folder
+
+.. code-block:: none
+
+	cd ../../bin
+	install.bat
+
+Add Ring/bin to System path
+
+.. code-block:: none
+
+	Hit "windows key".
+	Type "Edit the System environment variables"
+	Select "Advanced" tab.
+	Click on "Enviroment Variables..."
+	Double click on "Path"
+	Add at the end the new path separated by semicolon. 
+	    ;C:\Ring\Bin
+
+Run Ring Notepad
+
+.. code-block:: none
+
+	cd applications/rnote
+	ring rnote.ring
+
+Building using Ubuntu Linux
+===========================
+
+Get the source code
+
+.. code-block:: none
+
+	git clone http://github.com/ring-lang/ring.git
+
+Install Libraries
+
+.. code-block:: none
+
+	cd ring/src
+	./installdep.sh 
+
+Build Ring (Compiler/VM)
+
+.. code-block:: none
+
+	sudo ./buildgcccomplete.sh
+
+Generate RingAllegro Source Code and Build
+
+.. code-block:: none
+
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingQt Source Code and Build
+
+.. code-block:: none
+
+	cd ../ringqt
+	./gencode.sh
+	./buildgcc.sh
+
+To be able to call ring from any folder
+
+.. code-block:: none
+
+	cd ../../bin
+	sudo ./install.sh
+
+Run Ring Notepad
+
+.. code-block:: none
+
+	cd applications/rnote
+	sudo ring rnote.ring
+
+Building using MacOS X
+======================
+
+Get the source code
+
+.. code-block:: none
+
+	git clone http://github.com/ring-lang/ring.git
+
+Install homebrew (follow the directions on homebrew's homepage).
+Install Libraries
+
+.. code-block:: none
+
+	brew install unixodbc mysql-connector-c allegro homebrew/versions/qt52
+
+Build Ring (Compiler/VM)
+
+.. code-block:: none
+
+	cd ring/src
+	./buildclangcomplete.sh
+
+Generate RingAllegro Source Code and Build
+
+
+.. code-block:: none
+
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildclang.sh
+
+Generate RingQt Source Code and Build
+
+.. code-block:: none
+
+	cd ../ringqt
+	./gencode.sh
+	./buildclang.sh
+
+To be able to call ring from any folder
+
+.. code-block:: none
+
+	cd ../../bin
+	sudo ./install.sh
+
+Run Ring Notepad
+
+.. code-block:: none
+
+	cd applications/rnote
+	sudo ring rnote.ring
+
+Building using CMake
+
+Install libraries (MySQL Client, OpenSSL, LibCurl, Allegro 5 and Qt 5.5)
+
+.. code-block:: none
+
+	cmake .
+	make
