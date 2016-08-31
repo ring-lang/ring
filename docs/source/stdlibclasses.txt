@@ -950,7 +950,7 @@ example:
 	oDataType.isalnum("ABCabc123") + nl + # print 1
 	oDataType.isalnum("How are you")  + nl     # print 0 because of spaces
  	see oDataType.isalpha("Hello") + nl +     # print 1
-    oDataType.isalpha("123456") + nl +    # print 0
+    	oDataType.isalpha("123456") + nl +    # print 0
    	oDataType.isalpha("ABCabc123") + nl + # print 0
    	oDataType.isalpha("How are you")  + nl    # print 0
 	See oDataType.iscntrl("hello") + nl +     # print 0
