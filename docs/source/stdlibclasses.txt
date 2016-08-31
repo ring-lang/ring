@@ -1,4 +1,4 @@
-==============
+﻿==============
 Stdlib Classes
 ==============
 
@@ -1320,15 +1320,10 @@ Output:
 Internet Class
 ==============
 
-
 Methods:
 
-===============================================================================
-Method						
-===============================================================================
-download(cURL)
-sendemail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
-===============================================================================
+* download(cURL)
+* sendemail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
 
 example:
 
