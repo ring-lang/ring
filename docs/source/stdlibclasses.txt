@@ -1055,3 +1055,54 @@ Output:
 	48656c6c6f
 	Hello
 
+ODBC Class
+==========
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+drivers()  					Get a list of ODBC drivers.
+datasources()  				Get a list of ODBC data sources.
+close()  					Free resources.
+connect(cConString)			Connect to the database.
+disconnect()  				Close the connection.
+execute(cSQL)				Execute SQL Statements
+colcount() 					Get columns count in the query result
+fetch()						Fetch a row from the query result
+getdata(nCol)				Get column value from the fetched row
+tables()					Get a list of tables inside the database
+columns(cTableName)			Get a list of columns inside the table
+autocommit(lStatus)			Enable or disable the auto commit feature
+commit()					Commit updates to the database
+rollback()					Rollback updates to the database
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oodbc = new odbc
+	See "Test the odbc Class Methods" + nl
+	oODBC { 
+ 		see drivers()
+		see datasources()
+		See "Connect to database" + nl
+		see connect("DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+		See "Select data" + nl
+		see execute("select * from person") + nl
+		nMax = colcount()
+		See "Columns Count : " + nMax + nl
+		while fetch()
+		        See "Row data:" + nl
+		        for x = 1 to nMax
+		                see getdata(x) + " - "
+		        next
+		end
+		See "Close database..." + nl
+		disconnect()
+		close()
+	}
