@@ -229,3 +229,20 @@ Output
 
 	Hello, World!
 				
+Visual Implementation
+=====================
+
+The Ring programming language is designed using the PWCT visual programming tool 
+and you will find the visual source of the language in the folder "visualsrc" - *.ssf 
+files and the generated source code (In the C Language) in the	src folder and 
+the include folder.
+
+The next screen shot from the ring_vm.ssf file (Generate ring_vm.c and ring_vm.h) 
+
+.. image:: visualsrc1.jpg
+
+The next screen shot from the ring_list.ssf file (Generate ring_list.c and ring_list.h) 
+
+.. image:: visualsrc2.JPG
+
+	
