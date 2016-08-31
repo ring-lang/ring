@@ -47,4 +47,5 @@ Contents:
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Desktop and Mobile development using RingQt <qt>
+   Frequently asked questions (FAQ) <faq>
    Resources <resources>
