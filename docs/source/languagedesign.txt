@@ -1,0 +1,7 @@
+===============
+Language Design
+===============
+
+In this chapter we will learn about the basic concepts behind the language design.
+
+* Why Ring?
