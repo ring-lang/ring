@@ -777,3 +777,58 @@ output:
 	DiffDays = 10
 
 	
+File Class
+==========
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+read(cFileName)				Read the file content
+write(cFileName,cStr)		Write string to file
+dir(cFolderPath)			Get the folder contents (files & sub folders)
+rename(cOld,cNew)			Rename files using the Rename() function
+remove(cFileName)			Delete a file using the Remove() function
+open(cFileName,cMode)		Open a file using the Fopen() function
+close()						Close file
+flush()						Flushes the output buffer of a stream
+reopen(cFileName,cMode)		Open another file using the same file handle
+tempfile()					Creates a temp. file (binary).
+seek(noffset,nwhence)		Set the file position of the stream
+tell()						Know the current file position of a stream
+rewind()					Set the file position to the beginning of the file 
+getpos()					Get handle to the current file position
+setpos(poshandle)			Set the current file position
+clearerr()					Clear the EOF error and the error indicators of a stream
+eof()						Test the end-of-file indicator
+error()						Test the error indicator
+perror(cErrorMessage)		Print error message to the stderr
+getc()						Get the next character from the stream
+gets(nsize)					Read new line from the stream
+putc(cchar)					Write a character to the stream
+puts(cStr)					Write a string to the stream
+ungetc(cchar)				Push a character to the stream
+fread(nsize)				Read data from a stream
+fwrite(cString)				Write data to a stream
+exists(cFileName)			Check if a file exists
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	ofile = new file
+
+	See "Test the file Class Methods" + nl
+	see ofile.read(filename())
+
+	see nl
+	ofile.open(filename(),"r")
+	see ofile.gets(100) + nl
+	ofile.close()
+
+
+
