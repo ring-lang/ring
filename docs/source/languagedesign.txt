@@ -25,3 +25,114 @@ Designed for a Clear Goal
 * Simple language that can be used in education and introducing Compiler/VM concepts.
 * General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
 * Practical language designed for creating the next version of the Programming Without Coding Technology software.
+
+Simple
+======
+
+Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code
+
+.. code-block:: none
+
+	See "Hello, World!" 
+
+The Main function is optional and will be executed after the statements, and is useful for using the local scope.
+
+.. code-block:: none
+
+	Func Main
+		See "Hello, World!" 
+		
+Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name! 
+You can use the '+' operator for string concatenation and the language is weakly typed and will convert automatically between numbers and strings based on the context.
+
+.. code-block:: none
+
+	nCount = 10	# Global variable
+	Func Main
+		nID = 1	# Local variable
+		See "Count = " + nCount + nl + " ID = " + nID
+
+Trying to be natural
+====================
+
+Ring is not case-sensitive
+
+.. code-block:: none
+
+
+	See "Enter your name ? " 
+	Give name
+	See "Hello " + Name	# Name is the same as name 
+			
+The list index starts from 1
+
+.. code-block:: none
+
+	aList = ["one","two","three"]
+	See aList[1]	# print one
+			
+Call functions before definition
+
+.. code-block:: none
+
+
+	one() 
+	two() 
+	three()
+	Func one 
+		See "One" + nl
+	Func two 
+		See "two" + nl
+	Func three 
+		See "three" + nl
+			
+The assignment operator uses Deep copy (no references in this operation)
+
+.. code-block:: none
+
+	aList = ["one","two","three"]
+	aList2 = aList
+	aList[1] = 1
+	see alist[1]	# print 1
+	see aList2[1]	# print one
+				
+Pass numbers and strings by value, but pass lists and objects by reference. 
+The for in loop can update the list items.
+
+.. code-block:: none
+
+	Func Main
+		aList = [1,2,3]
+		update(aList)
+		see aList	# print one two three
+
+	Func update aList
+		for x in aList
+			switch x
+			on 1 x = "one"
+			on 2 x = "two"
+			on 3 x = "three"
+			off
+		next
+			
+Using Lists during definition
+
+.. code-block:: none
+
+	aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
+	see aList       # print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+			
+Exit from more than one loop
+
+.. code-block:: none
+
+	for x = 1 to 10
+			for y = 1 to 10
+					see "x=" + x + " y=" + y + nl
+					if x = 3 and y = 5
+							exit 2     # exit from 2 loops
+					ok
+			next
+	next
+	
+	
