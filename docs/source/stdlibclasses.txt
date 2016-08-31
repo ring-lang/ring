@@ -1262,3 +1262,56 @@ Output:
 	Ibrahim
 
 
+Security Class
+==============
+
+
+Methods:
+
+======================================	======================================================================
+Method									Description/Output
+======================================	======================================================================
+md5(cString)							Calculate the MD5 hash.
+sha1(cString)							Calculate the SHA1 hash.
+sha256(cString)							Calculate the SHA256 hash.
+sha512(cString)							Calculate the SHA512 hash.
+sha384(cString)							Calculate the SHA384 hash.
+sha224(cString)							Calculate the SHA224 hash.
+encrypt(cString,cKey,cIV)				Cncrypts the data using the Blowfish algorithm.
+decrypt(cString,cKey,cIV)				Decrypt the data encrypted using the Encrypt() method.
+randbytes(nSize)						Generate a string of pseudo-random bytes.
+======================================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	osecuirty = new secuirty
+	See "Test the secuirty Class Methods" + nl
+	oSecuirty { 
+		see md5("hello") + nl + 
+		sha1("hello") + nl + sha256("hello") + nl +
+		sha512("hello") + nl + sha384("hello") + nl + 
+		sha256("hello") + nl 
+		list = 0:15  cKey=""   for x in list cKey += char(x) next
+		list = 1:8   cIV = ""   for x in list cIV += char(x) next
+		cCipher = encrypt("hello",cKey,cIV)
+		see cCipher + nl + decrypt(cCipher,cKey,cIV) + nl
+	}
+
+	
+Output:
+
+.. code-block:: none
+
+	Test the secuirty Class Methods
+	5d41402abc4b2a76b9719d911017c592
+	aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
+	2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+	9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673ca72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043
+	59e1748777448c69de6b800d7a33bbfb9ff1b463e44354c3553bcdb9c666fa90125a3c79f90397bdf5f6a13de828684f
+	2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+	;َحٍ*qçp
+	hello
