@@ -830,5 +830,50 @@ example:
 	see ofile.gets(100) + nl
 	ofile.close()
 
+System Class
+============
 
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+system()					Execute system commands
+get()						Get environment variables 
+ismsdos()					Check if the operating system is MSDOS or not
+iswindows()					Check if the operating system is Windows or not
+iswindows64()				Check if the operating system is Windows 64bit or not 
+isunix()					Check if the operating system is Unix or not 
+ismacosx()					Check if the operating system is Mac OS X or not
+islinux()					Check if the operating system is Linux or not 
+isfreebsd()					Check if the operating system is FreeBSD or not
+isandroid()					Check if the operating system is Android or not 
+windowsnl()					Get the windows new line string 
+sysargv()					Get the command line arguments passed to the ring script
+filename()					Get the active source file
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+oSystem = new System
+
+	See "Test the System Class Methods" + nl
+ 	
+	oSystem.system("dir")
+	see oSystem.get("path") + nl
+	see oSystem.ismsdos() + nl
+	see oSystem.iswindows() + nl
+	see oSystem.iswindows64() + nl
+	see oSystem.isunix() + nl
+	see oSystem.ismacosx() + nl
+	see oSystem.islinux() + nl
+	see oSystem.isfreebsd() + nl
+	see oSystem.isandroid() + nl
+	see oSystem.windowsnl() + nl
+	see oSystem.sysargv() + nl
+	see oSystem.filename() + nl
 
