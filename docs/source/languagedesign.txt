@@ -510,4 +510,41 @@ After the second line directly, The list [1,2,3,4,5] will be deleted from the me
 * If we have a reference to a variable (when we pass objects and lists to functions), then deleting variables will be based on reference counting, if no references everything will be deleted, but if we have a reference, the data will stay in memory.
 
 
+The philosophy behind data types
+================================
+
+The Ring programming language is designed to be SMALL. 
+The language provides the basic constructs that you need to do anything!
+One of the goals is to keep the basic constructs simple and small as possible.
+
+Using Lists in Ring you can
+
+* Create Arrays (one data type)
+* Create Lists (Mix of data types)
+* Create Tree (Nested arrays)
+* Use String Index (Looks like Dictionary/Hash Table)
+
+The same principle is applied to Numbers
+
+* You can use the number for int value
+* You can use the number for double value
+* You can use the number for Boolean value (True/False)
+
+The sample principle is applied for Strings
+
+* You can use the string for storing one character 
+* You can use the string for storing text (one or many lines)
+* You can use the string for storing binary data
+* You can use the string for storing date
+* You can use the string for storing time
+* You can use the string for storing NULL values (empty strings)
+
+And we have Object Oriented Support + Operator Overloading where the programmer
+can define new data types and use them as default types defined by the language
+
+So We have
+
+* A small and simple language that someone can pick in little days
+* A fast language that provide primitive types (String – Number – List – Object)
+* A flexible language that can be extended using OOP to add new types according to the application domain
 
