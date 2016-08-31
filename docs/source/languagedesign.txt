@@ -481,3 +481,30 @@ The classes that power the declarative interface looks like this
 			cOutput += nl+"</div>" + nl
 			cOutput = TabMLString(cOutput)
 	 
+Smart Garbage Collector
+=======================
+
+Avoid memory problems :- 
+
+* Invalid Memory Access
+* Memory leaks
+* Uninitialized Memory Access
+* Dangling pointer
+
+Rules :- 
+
+* Global variables always stay in the memory, until you delete these variables using the assignment statement.
+* Local variables always deleted after the end of the function.
+* The programmer have full control on when to delete the variable from the memory using the Assignment statement.
+
+Example:
+
+.. code-block:: none
+
+	aList = [1,2,3,4,5]
+	aList = "nice"
+			
+After the second line directly, The list [1,2,3,4,5] will be deleted from the memory and we will have a string "nice" 
+
+* The programmer can call the function callgc() to force running the garbage collector.
+* If we have a reference to a variable (when we pass objects and lists to functions), then deleting variables will be based on reference counting, if no references everything will be deleted, but if we have a reference, the data will stay in memory.
