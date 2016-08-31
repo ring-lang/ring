@@ -1315,3 +1315,29 @@ Output:
 	2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
 	;َحٍ*qçp
 	hello
+
+	
+Internet Class
+==============
+
+
+Methods:
+
+===============================================================================
+Method						
+===============================================================================
+download(cURL)
+sendemail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
+===============================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	ointernet = new internet
+	See "Test the internet Class Methods" + nl
+	ointernet { 
+		see download("www.ring-lang.sf.net")
+	}
