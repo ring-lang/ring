@@ -245,4 +245,73 @@ The next screen shot from the ring_list.ssf file (Generate ring_list.c and ring_
 
 .. image:: visualsrc2.JPG
 
-	
+
+Compact Syntax
+==============
+
+The language is not line sensitive, you don't need to write ; after statements, also you don't need to press ENTER or TAB, so we can write the next code
+
+.. code-block:: none
+
+
+	See "The First Message"	See " Another message in the same line! " + nl
+	See "Enter your name?" Give Name See "Hello " + Name
+			
+The next code create a class called Point contains three attributes X,Y and Z. No keywords is used to end the package/class/function definition. Also, we can write the attributes names directly below the class name.
+
+.. code-block:: none
+
+	Class Point X Y Z
+			
+We can use classes and functions before their definition, In this example we will create new object, set the object attributes then print the object values.
+
+.. code-block:: none
+
+	o1 = New point	o1.x=10    o1.y=20   o1.z=30	See O1	Class Point X Y Z
+			
+Instead of using the dot '.' operator to access the object attributes and methods we can use braces { } to access the object, then we can use the object attributes and methods.
+
+.. code-block:: none
+
+	o1 = New point { x=10 y=20 z=30 } See O1  Class Point X Y Z
+			 
+Now we will call a method after accessing the object using { }
+
+.. code-block:: none
+
+	 
+	oPerson = new Person
+	{
+		Name = "Somebody"
+		Address = "Somewhere"
+		Phone = "0000000"
+		Print()			# here we call the Print() method
+	}
+	Class Person Name Address Phone
+		Func Print
+			See "Name :" + name + nl +
+				"Address :" + Address + nl +
+				"Phone : " + phone + nl
+
+When we use { } to access the object then write any attribute name, the language will check the class for any setter/getter methods that will be called automatically.
+
+.. code-block:: none
+
+
+	New Number {
+			See one		# Execute GetOne()
+			See two		# Execute GetTwo()
+			See three	# Execute GetThree()
+	}
+	Class Number one two three
+		Func GetOne
+			See "Number : One" + nl
+			return 1
+		Func GetTwo
+			See "Number : Two" + nl
+			return 2
+		Func GetThree
+			See "Number : Three" + nl
+			return 3	
+			
+			
