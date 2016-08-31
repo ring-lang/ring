@@ -859,7 +859,7 @@ example:
 
 	Load "stdlib.ring"
 
-oSystem = new System
+	oSystem = new System
 
 	See "Test the System Class Methods" + nl
  	
@@ -877,3 +877,31 @@ oSystem = new System
 	see oSystem.sysargv() + nl
 	see oSystem.filename() + nl
 
+Debug Class
+===========
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+eval(cCode)					Execute code during the runtime from string.
+raise(cError)				Raise an exception.
+assert(cCondition)			Test condition before executing the code.
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oDebug = new Debug
+	See "Test the Debug Class Methods" + nl
+	oDebug.eval("see 'Hello'+nl")
+	try
+		x = 10
+		oDebug.assert(x=11)
+	catch see "assert" + nl done
+	raise("Error!")
+	
