@@ -13,7 +13,6 @@ Contents:
 
    Introduction <introduction>
    Language Design <languagedesign>
-   Frequently Asked Questions (FAQ) <faq>
    Building From Source Code <sourcecode>
    Getting Started <getting_started>
    Variables <variables>
@@ -48,4 +47,5 @@ Contents:
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Desktop and Mobile development using RingQt <qt>
+   Frequently Asked Questions (FAQ) <faq>
    Resources <resources>
