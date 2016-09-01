@@ -123,3 +123,67 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 
 .. note:: The previous code doesn't work alone, you need to learn how to use RingSDL first.
 
+object2pointer() function
+=========================
+
+Use this function to get a C pointer for Ring lists and objects
+
+Syntax:
+
+.. code-block:: none
+
+	object2pointer(List|Object) --> Low Level Object ( C Pointer )
+
+pointer2object() function
+=========================
+
+Use this function to get the Ring list and/or object from the low level object (C Pointer)
+
+Syntax:
+
+.. code-block:: none
+
+	pointer2object(Low Level Object) ---> List|Object
+
+
+Example:
+
+.. code-block:: none
+
+	# Create the list 
+	mylist = 1:5
+
+	# Create pointer to the list
+	x = object2pointer(mylist)
+	see x
+
+	see nl
+
+	# Add items to the list
+	mylist + "welcome"
+
+	# print the list items
+	y = pointer2object(x)
+	see y 
+
+Output:
+
+.. code-block:: none
+
+	0069A5D8
+	OBJECTPOINTER
+	0
+
+	1
+	2
+	3
+	4
+	5
+	welcome
+
+.. note:: In Ring the assignment operator copy lists and objects by value, to copy by referenace
+	Just use the object2pointer() and pointer2object() functions.
+
+.. tip:: The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
+         to create a reference for the parent node (object) in the child node (another object).
+
