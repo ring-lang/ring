@@ -40,6 +40,7 @@ Contents:
    Reflection and Meta-programming <metaprog>
    Stdlib Functions <stdlib>
    Stdlib Classes <stdlibclasses>
+   Low Level Functions <lowlevel>
    Extension using the C/C++ languages <extension>
    Embedding Ring Interpreter in C/C++ Programs <embedding>
    Command Line Options	<interpreter>
