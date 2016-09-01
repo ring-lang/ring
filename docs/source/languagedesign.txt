@@ -367,55 +367,55 @@ Also keywords that can be ignored like the ‘the’ keyword
 
 	New App
 	{
-			I want window
-			The window title = "hello world"
+		I want window
+		The window title = "hello world"
 	}
 
 	Class App
 
-			func geti
-					if nIwantwindow = 0
-							nIwantwindow++
-					ok
+		func geti
+				if nIwantwindow = 0
+					nIwantwindow++
+				ok
 
-			func getwant
-					if nIwantwindow = 1
-							nIwantwindow++
-					ok
+		func getwant
+				if nIwantwindow = 1
+					nIwantwindow++
+				ok
 
-			func getwindow
-					if nIwantwindow = 2
-							nIwantwindow= 0
-							see "Instruction : I want window" + nl
-					ok
-					if nWindowTitle = 0
-							nWindowTitle++
-					ok
+		func getwindow
+				if nIwantwindow = 2
+					nIwantwindow= 0
+					see "Instruction : I want window" + nl
+				ok
+				if nWindowTitle = 0
+					nWindowTitle++
+				ok
 
-			func settitle cValue
-					if nWindowTitle = 1
-							nWindowTitle=0
-							see "Instruction : Window Title = " + cValue + nl
-					ok
+		func settitle cValue
+				if nWindowTitle = 1
+					nWindowTitle=0
+					see "Instruction : Window Title = " + cValue + nl
+				ok
 
-			private
+		private
 
-					# Attributes for the instruction I want window
-							i want window
-							nIwantwindow = 0
-					# Attributes for the instruction Window title
-					# Here we don't define the window attribute again
-							title
-							nWindowTitle = 0
-					# Keywords to ignore, just give them any value
-							the=0
+			# Attributes for the instruction I want window
+				i want window
+				nIwantwindow = 0
+			# Attributes for the instruction Window title
+			# Here we don't define the window attribute again
+				title
+				nWindowTitle = 0
+			# Keywords to ignore, just give them any value
+				the=0
 
 To complete the previous example, use read() to get the content of a file that contains
 
 .. code-block:: none
 
-			I want window
-			The window title = "hello world"
+	I want window
+	The window title = "hello world"
 
 Then use eval() to execute the content of that file!.
 Also, you can update the methods GetWindow() and SetTitle() to create Real windows using the GUI Library
@@ -439,27 +439,27 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 
 	  BootStrapWebPage()
 	  {
-			div
-			{
-			  classname = :container
+		div
+		{
+		  classname = :container
+		  div
+		  {
+			classname = :jumbotron
+			H1 {   text("Bootstrap Page")   }
+		  }
+		  div
+		  {
+			classname = :row
+			for x = 1 to 3
 			  div
 			  {
-					classname = :jumbotron
-					H1 {   text("Bootstrap Page")   }
+			    classname = "col-sm-4"
+			    H3 { html("Welcome to the Ring programming language") }
+			    P  { html("Using a scripting language is very fun!") }
 			  }
-			  div
-			  {
-					classname = :row
-					for x = 1 to 3
-					  div
-					  {
-							classname = "col-sm-4"
-							H3 { html("Welcome to the Ring programming language") }
-							P  { html("Using a scripting language is very fun!") }
-					  }
-					next
-			  }
-			}
+			next
+		  }
+		}
 	  }
 
 The classes that power the declarative interface looks like this
