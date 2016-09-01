@@ -81,3 +81,79 @@ Output:
 
 	Instruction : I want window
 	Instruction : Window Title = hello world
+
+
+BraceExprEval Method
+====================
+
+The next example demonstrates how to use the "BraceExprEval" method to get expressions in
+Natural code.
+
+Example:
+
+.. code-block:: none
+
+	new natural {
+		create 5
+	}
+
+	class natural
+		create=0
+		lkeyword = false
+		func braceexpreval r		
+			if lkeyword lkeyword=false return ok
+			see "expr eval" + nl
+			see "type: " + type(r) see nl
+			see "value : " see r see nl
+		func getcreate
+			lkeyword = true
+			see "create" + nl
+
+Output:
+
+.. code-block:: none
+
+	create
+	expr eval
+	type: NUMBER
+	value : 5
+
+Real Natural Code
+=================
+
+The next example is a more advanced example 
+
+.. code-block:: none
+
+	# Natural Code
+	new program {
+		get 2 numbers then print the sum
+	}
+
+	# Natural Code Implementation
+	class program
+		# Keywords
+			get=0 numbers=0 then=0 print=0 the=0 sum=0
+
+		# Execution
+		func braceexpreval x
+			value = x
+		func getnumbers
+			for x=1 to value
+				see "Enter Number ("+x+") :" give nNumber
+				aNumbers + nNumber
+			next
+		func getsum
+			nSUm = 0
+			for x in aNumbers nSum+= x next
+			see "The Sum : " + nSum
+		private
+			value=0	aNumbers=[]
+		
+Output: 
+
+.. code-block:: none
+
+	Enter Number (1) :3
+	Enter Number (2) :4
+	The Sum : 7
