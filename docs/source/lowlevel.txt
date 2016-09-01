@@ -181,7 +181,7 @@ Output:
 	5
 	welcome
 
-.. note:: In Ring the assignment operator copy lists and objects by value, to copy by referenace
+.. note:: In Ring the assignment operator copy lists and objects by value, to copy by reference
 	Just use the object2pointer() and pointer2object() functions.
 
 .. tip:: The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
