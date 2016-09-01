@@ -5,6 +5,7 @@ Low Level Functions
 In this chapter we will learn about the low level functions provided by Ring
 
 * callgc()
+* varptr()
 * space()
 * nullpointer()
 * object2pointer()
@@ -35,5 +36,38 @@ Example
 .. tip:: In Ring the garbage collector works automatically in the end of function execution or
 	 when you use the assignment statement.
 
+
+varptr() function
+=================
+
+Use the varptr() function when you need to pass a pointer to a C/C++ function.
+
+Syntax:
+
+	varptr(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
+
+example:
+
+.. code-block:: none
+
+	r = 10
+	z = 20
+	see r + nl
+	see varptr("r","int") 
+	see varptr("z","int")
+
+Output:
+
+.. code-block:: none
+
+	10
+	00E3C740
+	int
+	2
+	00E3BEC0
+	int
+	2
+
+.. note:: the low level object is a list contains three items (The Pointer, The Type, The Status)
 
 
