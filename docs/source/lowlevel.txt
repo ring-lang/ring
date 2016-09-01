@@ -78,9 +78,13 @@ Use the space function to allocate a specific number of bytes in Memory.
 
 Syntax:
 
+.. code-block:: none
+
 	Space(nBytesCount) ---> String 
 
 Example:
+
+.. code-block:: none
 
 	mystring = space(200)
 	See "String Size : " + len(mystring) + nl
@@ -90,6 +94,8 @@ Example:
 
 Output:
 
+.. code-block:: none
+
 	String Size : 200
 	String :                                                                                                                                                        
 	String Pointer : 00FF8FE8
@@ -97,4 +103,23 @@ Output:
 	2
 
 .. note:: You may need the space() and VarPtr() functions to pass buffers to C functions.
+
+
+nullpointer() function
+======================
+
+You may need to pass the NULL pointer to a C function that may expect a pointer as parameter
+and accept NULL pointers for optional parameters.
+
+Example:
+
+The next example uses the SDL_BlitSurface() function from the LibSDL Library through RingSDL
+The function accept SDL_Rect pointers in the second and the last parameter.
+Also the function accept NULL pointers, so we can pass them using the NULLPointer() Function.
+
+.. code-block:: none
+
+	SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
+
+.. note:: The previous code doesn't work alone, you need to learn how to use RingSDL first.
 
