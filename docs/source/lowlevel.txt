@@ -10,3 +10,30 @@ In this chapter we will learn about the low level functions provided by Ring
 * object2pointer()
 * pointer2object()
 
+callgc() function
+=================
+
+Use this function to force calling the garbage collector during function execution when you
+use a loop that create temp. variables that you don't free using the assignment operation.
+
+It's very rare to need this function but it's useful when you create something like event-loop
+for your game engine and start creating lists on the fly when you call functions.
+
+Example 
+
+.. code-block:: none
+
+	While True
+
+		# process events
+		# call functions using temp. lists like myfunc(["temp list"])
+
+		# call the garbage collector
+		callgc()
+	End
+
+.. tip:: In Ring the garbage collector works automatically in the end of function execution or
+	 when you use the assignment statement.
+
+
+
