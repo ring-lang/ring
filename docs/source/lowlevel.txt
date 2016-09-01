@@ -71,3 +71,30 @@ Output:
 .. note:: the low level object is a list contains three items (The Pointer, The Type, The Status)
 
 
+space() function
+================
+
+Use the space function to allocate a specific number of bytes in Memory.
+
+Syntax:
+
+	Space(nBytesCount) ---> String 
+
+Example:
+
+	mystring = space(200)
+	See "String Size : " + len(mystring) + nl
+	See "String : " + mystring + nl
+	See "String Pointer : " 
+	See varptr("mystring","char *")
+
+Output:
+
+	String Size : 200
+	String :                                                                                                                                                        
+	String Pointer : 00FF8FE8
+	char *
+	2
+
+.. note:: You may need the space() and VarPtr() functions to pass buffers to C functions.
+
