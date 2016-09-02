@@ -1,0 +1,7 @@
+==================================================
+Graphics and 2D Games programming using RingLibSDL
+==================================================
+
+In this chapter we will learn about using RingLibSDL to create games based on the
+LibSDL, SDLImage, SDLTTF and SDLMixer libraries.
+

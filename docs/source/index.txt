@@ -47,6 +47,7 @@ Contents:
    Web Development (CGI Library) <web>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    Graphics and 2D Games programming using RingAllegro <allegro>	
+   Graphics and 2D Games programming using RingLibSDL <libsdl>	
    Desktop and Mobile development using RingQt <qt>
    Syntax Flexibility <syntaxflexibility>
    Frequently Asked Questions (FAQ) <faq>
