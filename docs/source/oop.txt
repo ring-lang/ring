@@ -565,6 +565,12 @@ Find() and List of Objects
 
 We can use the find() function to search inside a list of objects.
 
+Syntax:
+
+.. code-block:: none
+
+	Find(List,ItemValue,nColumn,cAttribute) ---> Item Index
+
 Example:
 
 .. code-block:: none
@@ -610,6 +616,12 @@ Sort() and list of objects
 ==========================
 
 We can sort a list of objects based on an object attribute using the Sort() function.
+
+Syntax:
+
+.. code-block:: none
+
+	Sort(List,nColumn,cAttribute) ---> Sorted List based on Object Attribute
 
 Example:
 
