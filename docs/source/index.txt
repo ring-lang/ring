@@ -50,4 +50,5 @@ Contents:
    Desktop and Mobile development using RingQt <qt>
    Syntax Flexibility <syntaxflexibility>
    Frequently Asked Questions (FAQ) <faq>
+   Reference <reference>
    Resources <resources>

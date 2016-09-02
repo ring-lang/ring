@@ -1,0 +1,9 @@
+==============
+Reference
+==============
+
+In this chapter we will learn about
+
+* A list of compiler errors
+* A list of runtime errors
+
