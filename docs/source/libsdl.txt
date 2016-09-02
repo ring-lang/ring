@@ -329,7 +329,7 @@ Example:
 	Mix_AllocateChannels(4)
 	sound = Mix_LoadWav( "sound.wav" )
 	Mix_VolumeChunk(sound,1)
-	Mix_PlayChannelTimed(-1,sound,-1,500)
+	Mix_PlayChannel(1,sound,0)
 
 	myevent = sdl_new_sdl_event()
 	while true
