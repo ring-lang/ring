@@ -559,3 +559,50 @@ Output:
 	x: 10.000000
 	y: 20.000000
 	z: 30.000000
+
+Find() and List of Objects
+==========================
+
+We can use the find() function to search inside a list of objects.
+
+Example:
+
+.. code-block:: none
+
+	myList1 = [new Company {position=3 name="Mahmoud" symbol="MHD"},
+  		   new Company {position=2 name="Bert" symbol="BRT"},
+		   new Company {position=1 name="Ring" symbol="RNG"}
+		  ]
+
+	see find(mylist1,"Bert",1,"name") + nl
+	see find(mylist1,"Ring",1,"name") + nl
+	see find(mylist1,"Mahmoud",1,"name") + nl
+	see find(mylist1,"RNG",1,"symbol") + nl
+	see find(mylist1,"MHD",1,"symbol") + nl
+	see find(mylist1,"BRT",1,"symbol") + nl
+	see find(mylist1,3,1,"position") + nl
+	see find(mylist1,1,1,"position") + nl
+	see "Other" + nl
+	see find(mylist1,"test",1,"name") + nl
+	see find(mylist1,"test",0,"name") + nl
+	see find(mylist1,"test",5,"name") + nl
+
+	class company position name symbol
+
+Output:
+
+.. code-block:: none
+
+	2
+	3
+	1
+	3
+	1
+	2
+	1
+	3
+	Other
+	0
+	0
+	0
+
