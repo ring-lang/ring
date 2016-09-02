@@ -49,4 +49,5 @@ Contents:
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Desktop and Mobile development using RingQt <qt>
    Frequently Asked Questions (FAQ) <faq>
+   Syntax Flexibility <syntaxflexibility>
    Resources <resources>

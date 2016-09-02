@@ -1,0 +1,48 @@
+==================
+Syntax Flexibility
+==================
+
+Using "()" around the function parameters
+=========================================
+
+We can use () around the function parameters (optional).
+
+Example:
+
+.. code-block:: none
+
+	hello()
+	sum(3,4)
+
+	func hello()
+		see "Hello" + nl
+
+	func sum(x,y)
+		see x+y+nl
+	
+Output:
+
+.. code-block:: none
+
+	Hello
+	7
+
+Example:
+
+.. code-block:: none
+
+	myfunc = func x,y { see x + y + nl }
+
+	call myfunc (3,4)
+
+	myfunc2 = func (x,y) { see x+y+nl }
+
+	call myfunc(3,4)
+
+Output:
+
+.. code-block:: none
+
+	7
+	7
+
