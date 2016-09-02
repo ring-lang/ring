@@ -2,6 +2,9 @@
 Syntax Flexibility
 ==================
 
+In this chapter we will learn about some options that are provided automatically by the Ring
+compiler for syntax flexibility.
+
 Using "()" around the function parameters
 =========================================
 
@@ -45,4 +48,39 @@ Output:
 
 	7
 	7
+
+Using Semi-colon after and between statements
+=============================================
+
+In Ring we can use semi-colon after and between statements (optional).
+
+Example:
+
+.. code-block:: none
+
+	# Using semi-colon is optional
+
+	see "Hello" + nl ; see "How are you?" + nl  ; see "Welcome to Ring" + nl ;
+	one() ; two() ; three() ;
+	func one ; see "one" + nl ;
+	func two ; see "two" + nl ;
+	func three ; see "three" + nl ;
+
+
+Output:
+
+.. code-block:: none
+
+
+	Hello
+	How are you?
+	Welcome to Ring
+	one
+	two
+	three
+
+
+
+
+
 
