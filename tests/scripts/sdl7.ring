@@ -1,6 +1,6 @@
 Load "libsdl.ring"
 
-sdl_init(SDL_INIT_EVERYTHING)
+SDL_Init(SDL_INIT_EVERYTHING)
 
 flags = IMG_INIT_JPG | IMG_INIT_PNG
 IMG_Init(flags)

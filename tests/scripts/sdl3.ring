@@ -1,6 +1,6 @@
 Load "libsdl.ring"
 
-sdl_init(SDL_INIT_EVERYTHING)
+SDL_Init(SDL_INIT_EVERYTHING)
 win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
 ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC )
 bmp = SDL_LoadBMP("hello.bmp")
