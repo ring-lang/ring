@@ -13,14 +13,13 @@ tex = SDL_CreateTextureFromSurface(ren,bmp)
 SDL_FreeSurface(bmp)
 SDL_RenderClear(ren)
 SDL_RenderCopy(ren,tex,nullpointer(),nullpointer())
+SDL_DestroyTexture(tex)
 
 bmp = IMG_Load("player.png")
-
 # Image - Set Transparent color (white)
 myformat = sdl_get_sdl_surface_format(bmp)
 white = SDL_MapRGB(myformat, 255, 255, 255)
 SDL_SetColorKey(bmp, SDL_True, white)
-
 
 tex = SDL_CreateTextureFromSurface(ren,bmp)
 SDL_FreeSurface(bmp)
@@ -38,6 +37,9 @@ sdl_set_sdl_rect_y(rect,200)
 sdl_set_sdl_rect_w(rect,100)
 sdl_set_sdl_rect_h(rect,100)
 SDL_RenderCopy(ren,tex,nullpointer(),rect)
+
+SDL_DestroyTexture(tex)
+SDL_Destroy_SDL_Rect(rect)
 
 SDL_RenderPresent(ren)
 SDL_Delay(2000)

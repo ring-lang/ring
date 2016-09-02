@@ -1,4 +1,4 @@
-load "libsdl.ring"
+Load "libsdl.ring"
 
 sdl_init(SDL_INIT_EVERYTHING)
 
@@ -14,7 +14,6 @@ sdl_set_sdl_color_b(color,0)
 surface = SDL_GetWindowSurface(win)
 
 myevent = sdl_new_sdl_event()
-
 while true
 	cMsg = ""
 	sdl_pollevent(myevent)
@@ -50,6 +49,8 @@ while true
 	off
 end
 
+SDL_Destroy_SDL_Color(Color)
+TTF_CloseFont(font)
 SDL_DestroyWindow(win)
 SDL_Quit()
 
@@ -57,3 +58,4 @@ func showmsg mymsg
 	text = TTF_RenderText_Solid(font,mymsg,color)
 	SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
 	SDL_UpdateWindowSurface(win)
+	SDL_FreeSurface(text)
