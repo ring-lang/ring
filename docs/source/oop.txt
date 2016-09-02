@@ -606,3 +606,111 @@ Output:
 	0
 	0
 
+Sort() and list of objects
+==========================
+
+We can sort a list of objects based on an object attribute using the Sort() function.
+
+Example:
+
+.. code-block:: none
+
+	myList1 = [
+			new Company {position=3 name="Mahmoud" symbol="MHD"},
+			new Company {position=2 name="Bert" symbol="BRT"},
+			new Company {position=8 name="Charlie" symbol="CHR"},
+			new Company {position=6 name="Easy" symbol="FEAS"},
+			new Company {position=7 name="Fox" symbol="EFOX"},
+			new Company {position=5 name="Dog" symbol="GDOG"},
+			new Company {position=4 name="George" symbol="DGRG"},
+			new Company {position=1 name="Ring" symbol="RNG"}
+		  ]
+
+	see sort(mylist1,1,"name")
+	see copy("*",70) + nl
+	see sort(mylist1,1,"symbol")
+	see copy("*",70) + nl
+	see sort(mylist1,1,"position")
+
+	class company position name symbol
+
+Output:
+
+.. code-block:: none
+
+
+	position: 2.000000
+	name: Bert
+	symbol: BRT
+	position: 8.000000
+	name: Charlie
+	symbol: CHR
+	position: 5.000000
+	name: Dog
+	symbol: GDOG
+	position: 6.000000
+	name: Easy
+	symbol: FEAS
+	position: 7.000000
+	name: Fox
+	symbol: EFOX
+	position: 4.000000
+	name: George
+	symbol: DGRG
+	position: 3.000000
+	name: Mahmoud
+	symbol: MHD
+	position: 1.000000
+	name: Ring
+	symbol: RNG
+	**********************************************************************
+	position: 2.000000
+	name: Bert
+	symbol: BRT
+	position: 8.000000
+	name: Charlie
+	symbol: CHR
+	position: 4.000000
+	name: George
+	symbol: DGRG
+	position: 7.000000
+	name: Fox
+	symbol: EFOX
+	position: 6.000000
+	name: Easy
+	symbol: FEAS
+	position: 5.000000
+	name: Dog
+	symbol: GDOG
+	position: 3.000000
+	name: Mahmoud
+	symbol: MHD
+	position: 1.000000
+	name: Ring
+	symbol: RNG
+	**********************************************************************
+	position: 1.000000
+	name: Ring
+	symbol: RNG
+	position: 2.000000
+	name: Bert
+	symbol: BRT
+	position: 3.000000
+	name: Mahmoud
+	symbol: MHD
+	position: 4.000000
+	name: George
+	symbol: DGRG
+	position: 5.000000
+	name: Dog
+	symbol: GDOG
+	position: 6.000000
+	name: Easy
+	symbol: FEAS
+	position: 7.000000
+	name: Fox
+	symbol: EFOX
+	position: 8.000000
+	name: Charlie
+	symbol: CHR
+
