@@ -79,7 +79,45 @@ Output:
 	two
 	three
 
+Using $ and @ in the start of the variable name
+===============================================
 
+You can use any unicode character in the variable name also we can use $ and @ in the name.
+
+This feature may help, for example we can start global variables with $ and the object attributes
+with @. 
+
+In other languages like Ruby this is the rule, In the Ring language this is just an option without
+any force from the Compiler.
+
+example:
+
+.. code-block:: none
+
+	$global_variable = 5
+
+	new test { hello() }	
+
+	class test
+
+		@instance_variable = 10
+
+		func hello
+
+			local_variable = 15
+
+			see "Global   : " + $global_variable + nl + 
+			    "Instance : " + @instance_variable + nl +
+			    "Local    : " + local_variable + nl
+
+Output:
+
+
+.. code-block:: none
+
+	Global   : 5
+	Instance : 10
+	Local    : 15
 
 
 
