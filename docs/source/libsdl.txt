@@ -1,6 +1,6 @@
-==================================================
-Graphics and 2D Games programming using RingLibSDL
-==================================================
+=================
+Using RingLibSDL
+=================
 
 In this chapter we will learn about using RingLibSDL to create games based on the
 LibSDL, SDLImage, SDLTTF and SDLMixer libraries.
@@ -313,3 +313,38 @@ Example:
 		SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
 		SDL_UpdateWindowSurface(win)
 		SDL_FreeSurface(text)
+
+Play Sound
+==========
+
+Example:
+
+.. code-block:: none
+
+	Load "libsdl.ring"
+
+	sdl_init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT , 2, 10000)
+	Mix_AllocateChannels(4)
+	sound = Mix_LoadWav( "sound.wav" )
+	Mix_VolumeChunk(sound,1)
+	Mix_PlayChannelTimed(-1,sound,-1,500)
+
+	myevent = sdl_new_sdl_event()
+	while true
+		thevent = sdl_pollevent(myevent)
+		switch sdl_get_sdl_event_type(myevent)
+			on sdl_get_sdl_quit()
+				exit
+			on sdl_get_sdl_keydown()
+				Key = SDL_GET_SDL_Event_key_keysym_sym(myevent)
+				if key = 27 exit ok			
+		off
+	end
+
+	Mix_FreeChunk( sound )
+	Mix_CloseAudio()
+	Mix_Quit()
+	SDL_DestroyWindow(win)
+	SDL_Quit()
