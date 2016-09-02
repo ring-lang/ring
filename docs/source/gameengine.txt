@@ -57,6 +57,7 @@ Also LibSDL is very powerful and popular, very easy to use for Mobile Developmen
 
 Ring 1.1 comes with support for LibSDL so we can quickly create games for Mobile.
 
+.. note:: We can use just one library for Desktop and Mobile development.
 
 Game Engine Classes
 ===================
@@ -81,6 +82,17 @@ Games Layer
 In this layer we create our games using the Game Engine classes
 
 The classes are designed to be used through Declarative Programming.
+
+In our games we will use the next classes
+
+* Game class
+* Sprite class
+* Text class
+* Animate class
+* Sound class
+* Map class
+
+.. note:: Other classes in the engine are for internal use by the engine.
 
 We will introduce three examples
 
