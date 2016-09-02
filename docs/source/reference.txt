@@ -4,11 +4,54 @@ Reference
 
 In this chapter we will learn about
 
-* A list of compiler errors
-* A list of runtime errors
+* Language keywords
+* Compiler Errors
+* Runtime Errors
 
-List of Compiler Errors
-=======================
+Language Keywords
+=================
+
+* again
+* and
+* but
+* bye
+* call
+* catch
+* class
+* do
+* done
+* else
+* end
+* exit
+* for
+* from
+* func
+* give
+* if
+* import
+* in
+* load
+* loop
+* new
+* next
+* not
+* off
+* ok
+* on
+* or
+* other
+* package
+* private
+* return
+* see
+* step
+* switch
+* to
+* try
+* while
+
+Compiler Errors
+===============
 
 * Error (C1) : Error in parameters list, expected identifier
 * Error (C2) : Error in class name
@@ -36,8 +79,8 @@ List of Compiler Errors
 * Error (C24) : The parent class name is identical to the subclass name
 * Error (C25) : Trying to access the self reference after the object name"
 
-List of Runtime Errors
-======================
+Runtime Errors
+==============
 
 * Error (R1) : Cann't divide by zero !
 * Error (R2) : Array Access (Index out of range) !
