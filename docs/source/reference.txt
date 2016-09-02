@@ -35,3 +35,41 @@ List of Compiler Errors
 * Error (C23) : Using '(' after number!
 * Error (C24) : The parent class name is identical to the subclass name
 * Error (C25) : Trying to access the self reference after the object name"
+
+List of Runtime Errors
+======================
+
+* Error (R1) : Cann't divide by zero !
+* Error (R2) : Array Access (Index out of range) !
+* Error (R3) : Calling Function without definition !
+* Error (R4) : Stack Overflow !
+* Error (R5) : Can't access the list item, Object is not list !
+* Error (R6) : Variable is required
+* Error (R7) : Can't assign to a string letter more than one character
+* Error (R8) : Variable is not a string 
+* Error (R9) : Using exit command outside loops 
+* Error (R10) : Using exit command with number outside the range 
+* Error (R11) : error in class name, class not found! 
+* Error (R12) : error in property name, property not found! 
+* Error (R13) : Object is required
+* Error (R14) : Calling Method without definition !
+* Error (R15) : error in parent class name, class not found! 
+* Error (R16) : Using braces to access unknown object ! 
+* Error (R17) : error, using 'Super' without parent class! 
+* Error (R18) : Numeric Overflow! 
+* Error (R19) : Calling function with less number of parameters!
+* Error (R20) : Calling function with extra number of parameters!
+* Error (R21) : Using operator with values of incorrect type
+* Error (R22) : Using loop command outside loops 
+* Error (R23) : Using loop command with number outside the range 
+* Error (R24) : Using uninitialized variable 
+* Error (R25) : Error in package name, Package not found! 
+* Error (R26) : Calling private method from outside the class 
+* Error (R27) : Using private attribute from outside the class 
+* Error (R28) : Using bad data type as step value
+* Error (R29) : Using bad data type in for loop
+* Error (R30) : parent class name is identical to child class name 
+* Error (R31) : Trying to destory the object using the self reference 
+* Error (R32) : The CALL command expect a variable contains string!
+* Error (R33) : Bad decimals number (correct range >= 0 and <=14) !
+* Error (R34) : Variable is required for the assignment operation
