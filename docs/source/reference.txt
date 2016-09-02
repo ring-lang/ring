@@ -7,3 +7,31 @@ In this chapter we will learn about
 * A list of compiler errors
 * A list of runtime errors
 
+List of Compiler Errors
+=======================
+
+* Error (C1) : Error in parameters list, expected identifier
+* Error (C2) : Error in class name
+* Error (C3) : Unclosed control strucutre, 'ok' is missing
+* Error (C4) : Unclosed control strucutre, 'end' is missing
+* Error (C5) : Unclosed control strucutre, next is missing
+* Error (C6) : Error in function name
+* Error (C7) : Error in list items
+* Error (C8) : Parentheses ')' is missing 
+* Error (C9) : Brackets ']' is missing 
+* Error (C10) : Error in parent class name
+* Error (C11) : Error in expression operator
+* Error (C12) :No class definition
+* Error (C13) : Error in variable name
+* Error (C14) : Try/Catch miss the Catch keyword!
+* Error (C15) : Try/Catch miss the Done keyword!
+* Error (C16) : Error in Switch statement expression!
+* Error (C17) : Switch statement without OFF
+* Error (C18) : Missing closing brace for the block opened!
+* Error (C19) : Numeric Overflow!
+* Error (C20) : Error in package name
+* Error (C21) : Unclosed control strucutre, 'again' is missing
+* Error (C22) : Function redefinition, function is already defined!
+* Error (C23) : Using '(' after number!
+* Error (C24) : The parent class name is identical to the subclass name
+* Error (C25) : Trying to access the self reference after the object name"
