@@ -35,6 +35,9 @@ that can be loaded from Ring code.
 Using RingAllegro and RingLibSDL is very similar to using Allegro and LibSDL from C code where
 you have the same functions but we can build on that using the Ring language features
 
+* RingAllegro Source Code : https://github.com/ring-lang/ring/tree/master/extensions/ringallegro
+* RingLibSDL Source Code : https://github.com/ring-lang/ring/tree/master/extensions/ringsdl
+
 
 Interface to graphics library
 =============================
@@ -59,6 +62,9 @@ Ring 1.1 comes with support for LibSDL so we can quickly create games for Mobile
 
 .. note:: We can use just one library for Desktop and Mobile development.
 
+* gl_allegro.ring source code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gl_allegro.ring
+* gl_libsdl.ring source code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gl_libsdl.ring
+
 Game Engine Classes
 ===================
 
@@ -75,6 +81,8 @@ The Engine comes with the next classes
 * Map class
 
 And we have the start_playing() function to start the engine event loop.
+
+* Source Code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gameengine.ring
 
 Games Layer
 ===========
