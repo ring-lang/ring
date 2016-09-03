@@ -37,6 +37,10 @@ GL_EVENT_FINGER_DOWN = -1
 GL_EVENT_FINGER_UP = -1
 GL_EVENT_FINGER_MOTION = -1
 
+# Internal
+GL_SYS_EventsQueue = NULL
+GL_SYS_Event = NULL
+
 func gl_start_playing
 	al_run_main()
 
@@ -89,6 +93,9 @@ func gl_events display,event_queue,ev,timer,timeout
 	al_register_event_source(event_queue, al_get_mouse_event_source())
 	al_install_keyboard()
 	al_register_event_source(event_queue, al_get_keyboard_event_source())
+	GL_SYS_EventsQueue = event_queue
+	GL_SYS_Event = ev
+
 
 func gl_new_glib_event
 	return al_new_allegro_event()
@@ -176,13 +183,7 @@ func gl_destroy_sample sample
 	al_destroy_sample(sample)	
 
 func gl_mouse_x 
-	return 0
+	return al_get_allegro_event_mouse_x(GL_SYS_Event)
 
 func gl_mouse_y 
-	return 0
-
-func gl_mouse_xrel 
-	return 0
-
-func gl_mouse_yrel 
-	return 0
+	return  al_get_allegro_event_mouse_y(GL_SYS_Event)

@@ -138,16 +138,16 @@ class game from gamebase
 						ok		
 						redraw = true
 					on GL_event_mouse_axes
-						aMouselist = [gl_mouse_x(),gl_mouse_y(),gl_mouse_xrel(),gl_mouse_yrel()]
+						aMouselist = [gl_mouse_x(),gl_mouse_y()]
 						for t in aobjects  t.mouse(self,GL_event_mouse_axes,aMouseList)  next						 
 					on GL_event_mouse_enter_display
-						aMouselist = [gl_mouse_x(),gl_mouse_y(),gl_mouse_xrel(),gl_mouse_yrel()]
+						aMouselist = [gl_mouse_x(),gl_mouse_y()]
 						for t in aobjects  t.mouse(self,GL_event_mouse_enter_display,aMouseList)  next 
 					on GL_event_mouse_button_down
-						aMouselist = [gl_mouse_x(),gl_mouse_y(),gl_mouse_xrel(),gl_mouse_yrel()]
+						aMouselist = [gl_mouse_x(),gl_mouse_y()]
 						for t in aobjects  t.mouse(self,GL_event_mouse_button_down,aMouseList)  next
 					on GL_event_mouse_button_up
-						aMouselist = [gl_mouse_x(),gl_mouse_y(),gl_mouse_xrel(),gl_mouse_yrel()]
+						aMouselist = [gl_mouse_x(),gl_mouse_y()]
 						for t in aobjects  t.mouse(self,GL_event_mouse_button_up,aMouseList)  next					
 					on GL_EVENT_FINGER_DOWN
 						for t in aobjects  t.finger(self,GL_EVENT_FINGER_DOWN)  next
