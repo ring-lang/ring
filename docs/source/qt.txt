@@ -211,12 +211,15 @@ In this example we will use the QListWidget Class
                 curItemNbr = list1.currentrow()
                 curValue   = list1.item(list1.currentrow()).text()
                 
-                See "After Select - NbrOfItems: " + nbrOfItems +" CurItemNbr: " + curItemNbr +" CurValue: " + curValue +nl
+                See "After Select - NbrOfItems: " + nbrOfItems +
+			" CurItemNbr: " + curItemNbr +
+			" CurValue: " + curValue + nl
                         
-                win1.setwindowtitle( "After Select - NbrOfItems: " + nbrOfItems +" CurItemNbr: " + curItemNbr +" CurValue: " + curValue )
+                win1.setwindowtitle( "After Select - NbrOfItems: " + nbrOfItems +
+			" CurItemNbr: " + curItemNbr + " CurValue: " + curValue )
                 
-                btn1.settext( string(list1.currentrow() ))
-                btn1.settext( string(list1.currentrow() ) +" --- " + list1.item(list1.currentrow()).text() )
+                btn1.settext( string(list1.currentrow() ) + " --- " +
+			      list1.item(list1.currentrow()).text() )
 
                 
 
@@ -228,9 +231,12 @@ In this example we will use the QListWidget Class
                         curItemNbr = currentrow()
                         curValue   = item(currentrow()).text()
                     
-                        See "After Delete - NbrOfItems: " + nbrOfItems +" CurItemNbr: " + curItemNbr +" CurValue: " + curValue +nl
+                        See "After Delete - NbrOfItems: " + nbrOfItems +
+				" CurItemNbr: " + curItemNbr +
+				" CurValue: " + curValue + nl
                         
-                        win1.setwindowtitle("After Delete - NbrOfItems: " + nbrOfItems +" CurItemNbr: " + curItemNbr +" CurValue: " + curValue )
+                        win1.setwindowtitle("After Delete - NbrOfItems: " + nbrOfItems +
+				" CurItemNbr: " + curItemNbr +" CurValue: " + curValue )
                 }
 
         
