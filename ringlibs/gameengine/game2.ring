@@ -14,7 +14,8 @@ start_playing()
 
 func main
 
-	oGame = New Game
+	oGame = New Game  
+
 
 	while true
 
@@ -139,7 +140,8 @@ func main
 func playstart oGame
 
 	oGame {
-
+		FPS = 60
+		FixedFPS = 120
 		Title = "Flappy Bird 3000"
 		Sprite {
 			file = "images/fbback.png"

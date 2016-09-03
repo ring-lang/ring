@@ -57,6 +57,8 @@ class game from gamebase
 
 	display event_queue ev timeout timer
 	fps = 60 	redraw = true
+	FixedFPS = fps
+	gClock = 0
 	nid = 0
 	key = [false,false,false,false,false]
 	nkeycode=0
@@ -111,6 +113,8 @@ class game from gamebase
 
 		
 	func start
+
+		gClock = clock()
 
 		while shutdown = false
 			gl_wait_for_event_until(event_queue, ev, timeout)
@@ -184,10 +188,18 @@ class game from gamebase
 			if redraw and gl_is_event_queue_empty(event_queue)
 				redraw = false
 				drawobjs()
-				for t=len(aobjects) to 1 step -1 
-						aobjects[t].animate(self,aobjects[t]) 
-				next				
-				callgc()
+			ok
+
+			nDif = clock() - gclock
+			if nDif >= (clockspersecond()/FixedFPS)							
+				nDif = floor( nDif / (clockspersecond()/FixedFPS) )
+				for nTimes = 1 to nDif
+					for t=len(aobjects) to 1 step -1 
+							aobjects[t].animate(self,aobjects[t]) 
+					next	
+				next		
+				callgc()		
+				gclock = clock()	 
 			ok	 			
 		end
 

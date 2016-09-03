@@ -150,7 +150,8 @@ func main
 func playstart oGame
 
 	oGame {
-
+		FPS = 40
+		FixedFPS = 10
 		Title = "Super Man 2016"
 		Sprite {
 			file = "images/supermancity.jpg"
