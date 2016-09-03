@@ -211,7 +211,25 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
 void ring_vm_oop_newclass ( VM *pVM )
 {
 	List *pClass,*pList  ;
+	int x  ;
 	pClass = (List *) RING_VM_IR_READPVALUE(2) ;
+	/* Find the Class Pointer using the Class Name */
+	if ( pClass == NULL ) {
+		for ( x = 1 ; x <= ring_list_getsize(pVM->pRingState->pRingClassesMap) ; x++ ) {
+			pList = ring_list_getlist(pVM->pRingState->pRingClassesMap,x);
+			if ( strcmp(ring_list_getstring(pList,1),RING_VM_IR_READCVALUE(1)) == 0 ) {
+				if ( ring_list_getsize(pList) == 3 ) {
+					/* Here the class is stored inside a package - we have the class pointer (item 2) */
+					pClass = (List *) ring_list_getpointer(pList,2) ;
+				}
+				else {
+					pClass = pList ;
+				}
+				RING_VM_IR_READPVALUE(2) = (void *) pClass ;
+				break ;
+			}
+		}
+	}
 	pClass = ring_vm_oop_checkpointertoclassinpackage(pVM,pClass);
 	/* Make object methods visible while executing the Class Init method */
 	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
@@ -741,7 +759,7 @@ void ring_vm_oop_deletepackagesafter ( VM *pVM,int x )
 int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 {
 	List *pList, *pList2  ;
-	int x,nPos  ;
+	int x  ;
 	/*
 	**  This function tell us if we are inside Class method during runtime or not 
 	**  pObjState is used when we Call Method or We use braces { } to access object 
@@ -750,8 +768,8 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 	**  Also braces can be used inside class methods to access objects 
 	**  Inside class method you can access any object using { } , you can access the self object 
 	**  Braces & Methods calls can be nested 
+	**  Check Calling from function 
 	*/
-	/* Check Calling from function */
 	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 			pList = ring_list_getlist(pVM->pFuncCallList,x);
@@ -813,7 +831,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	ring_list_setint(pList,RING_VAR_PVALUETYPE ,pVM->nGetSetObjType);
 	/* Check Setter & Getter for Public Attributes */
 	RING_VM_IR_LOAD ;
-	if ( (RING_VM_IR_OPCODE == ICO_PUSHV) || (RING_VM_IR_OPCODE == ICO_LOADINDEXADDRESS) || (RING_VM_IR_OPCODE == ICO_LOADSUBADDRESS) ) {
+	if ( RING_VM_IR_OPCODE != ICO_ASSIGNMENTPOINTER ) {
 		RING_VM_IR_UNLOAD ;
 		/* Get Property */
 		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {

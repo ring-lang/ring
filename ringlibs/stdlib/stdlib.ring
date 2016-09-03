@@ -1,7 +1,10 @@
 # The Ring Standard Library
-# Common functions and classes for applications
+# Common Functions and classes for applications
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 # 2016, CalmoSoft <calmosoft@gmail.com>
+
+Load "stdlib.rh"
+Load "stdclasses.ring"
 
 /*
 	Function Name	: puts
@@ -11,6 +14,46 @@
 Func Puts vvalue
 	see vvalue
 	see nl
+
+/*
+	Function Name	: printf
+	Usage		: print string - support \n \t \r \\
+	Parameters	: the string
+*/
+Func Printf vValue
+	for t = 1 to len(vValue)
+		switch vValue[t]
+		on "\"
+			t++
+			switch vValue[t]
+			on "\"
+				see "\"
+			on "n"
+				see nl
+			on "t"
+				see char(9)
+			on "r" 
+				see char(13)
+			off
+		on "#"
+			if vValue[t+1] = "{"
+				cVar = ""
+				for r=t+2 to len(vValue)
+					if vValue[r] != "}"
+						cVar += vValue[r]
+					else
+						exit
+					ok					
+				next
+				cCode = "See " + cVar
+				eval(cCode)
+				t = r
+			ok
+		other
+			see vValue[t]
+		off
+	next
+
 
 /*
 	Function Name	: apppath
@@ -92,12 +135,14 @@ Func Filter alist,cFunc
 /*
 	Function Name	: split
 	Usage		: convert string words to list items
-	Parameters	: the string to be converted
+	Parameters	: the string to be converted , the delimiter
+			: delimiter can be char of choice. Example: " "  or  ","   or  "|" 
 	output		: new list 
 */
 
-Func Split cstring
-	return str2list(substr(cstring," ",nl))
+Func Split cstring , delimiter
+	return str2list(substr(cstring, delimiter, nl))
+
 	
 /*
 	Function Name	: newlist
@@ -248,7 +293,7 @@ Func File2List cFileName
 	output		: Returns the result of search (0,1)
 */
 
-func Endswith str, substr
+Func Endswith str, substr
      str = trim(str)
      if right(str, len(substr)) = substr return 1 else return 0 ok 
      
@@ -259,7 +304,7 @@ func Endswith str, substr
 	output		: Returns the result of search (0,1)
 */
 
-func Startswith str, substr
+Func Startswith str, substr
      str = trim(str)
      if left(str, len(substr)) = substr return 1 else return 0 ok   
      
@@ -270,7 +315,7 @@ func Startswith str, substr
 	output		: The greatest common divisor.
 */
 
-func Gcd gcd, b
+Func Gcd gcd, b
        while b
              c   = gcd
              gcd = b
@@ -285,7 +330,7 @@ func Gcd gcd, b
 	output		: The least common multiple.
 */     
 
-func Lcm m,n
+Func Lcm m,n
      lcm = m*n / gcd(m,n)
      return lcm
      
@@ -296,7 +341,7 @@ func Lcm m,n
 	output		: Sum of a list.
 */ 
 
-func Sumlist bList
+Func Sumlist bList
      sum = 0
      for n = 1 to len(bList)
          sum += bList[n]
@@ -310,7 +355,7 @@ func Sumlist bList
 	output		: Product of a list.
 */
 
-func Prodlist bList
+Func Prodlist bList
      prod = 1
      for n = 1 to len(bList)
          prod *= bList[n]
@@ -324,7 +369,7 @@ func Prodlist bList
 	output		: Result of test (1=odd 2=even).
 */     
 
-func Evenorodd n 
+Func Evenorodd n 
      if n % 2 = 1 return 1 ok
      return 2
      
@@ -335,7 +380,7 @@ func Evenorodd n
 	output		: Result of compute.
 */  
 
-func Factors nArray    
+Func Factors nArray    
      nArray = []
      j = 0
      for i = 1 to n
@@ -350,14 +395,14 @@ func Factors nArray
 	output		: Result of check.
 */  
 
-func Palindrome aString
+Func Palindrome aString
      bString = ""
      for i=len(aString) to 1 step -1
          bString = bString + aString[i]
      next
      see aString
-     if aString = bString see " is a palindrome." + nl
-     else see " is not a palindrome" + nl ok
+     if aString = bString return 1 ok
+     return false
      
 /*
 	Function Name	: Isleapyear
@@ -379,16 +424,18 @@ Func Isleapyear year
 	output		: Result of compute.
 */   
 
-func Binarydigits a
+Func Binarydigits a
+	 cOutput = ""
      n = 0
      while pow(2,n+1) < a
            n = n + 1
      end
      for i = n to 0 step -1
          x = pow(2,i)
-         if a >= x see 1 a = a - x
-         else see 0 ok
+         if a >= x cOutput += "1" a = a - x
+         else cOutput += "0" ok
      next
+	 return cOutput
      
 /*
 	Function Name	: Matrixmulti
@@ -397,8 +444,8 @@ func Binarydigits a
 	output		: Result of multiply.
 */     
 
-func Matrixmulti A, B
-     n = 3
+Func Matrixmulti A, B
+     n = len(A)
      C = newlist(n,n)
      for i = 1 to n
          for j = 1 to n
@@ -407,12 +454,7 @@ func Matrixmulti A, B
              next
          next
      next
-     for i = 1 to n
-         for j = 1 to n
-             see C[i][j] + " "
-         next
-         see nl
-     next
+	 return C
      
 /*
 	Function Name	: Matrixtrans
@@ -421,16 +463,17 @@ func Matrixmulti A, B
 	output		: Result of transpose.
 */     
 
-func Matrixtrans matrix
-     transpose = newlist(5,4)
-     for i = 1 to 5
-         for j = 1 to 4
-             transpose[i][j] = matrix[j][i]
-             see "" + transpose[i][j] + " "
-         next
-         see nl
+Func Matrixtrans matrix
+	 rows = len(matrix)
+	 cols = len(matrix[1])	 
+     transpose = newlist(cols,rows)
+     for i = 1 to cols
+         for j = 1 to rows
+             transpose[i][j] = matrix[j][i]             
+         next         
      next
-     
+     return transpose
+	 
 /*
 	Function Name	: Dayofweek
 	Usage		: Return the day of the week of given date. (yyyy-mm-dd)
@@ -438,7 +481,7 @@ func Matrixtrans matrix
 	output		: The day of the week.
 */
 
-func Dayofweek date
+Func Dayofweek date
      year = number(substr(date,1,4))
      month = number(substr(date,6,2))
      day = number(substr(date,9,2))
@@ -455,16 +498,16 @@ func Dayofweek date
             on 6 sday = days[2]
             on 0 sday = days[3]
      off
-     see "" + year + "-" + month + "-" + day + " is : " + sday + nl
+     return sday 
      
 /*
 	Function Name	: Fridays
 	Usage		: Fridays the 13th between start and end year.
 	Parameters	: Start and end year.
-	output		: Dates of Fridays od 13th.
+	output		: Dates of Fridays on 13th.
 */  
 
-func Fridays year1, year2
+Func Fridays year1, year2
      mo = [4,0,0,3,5,1,3,6,2,4,0,2]
      for year = year1 to year2
          if year < 2100 leap = year - 1900 else leap = year - 1904 ok
@@ -477,12 +520,12 @@ func Fridays year1, year2
      
 /*
 	Function Name	: Permutation
-	Usage		: Generates all permutations of n different numerals:
+	Usage		: Generates all permutations of n different numerals.
 	Parameters	: List of numerals to generate.
 	output		: Permutations of numerals.
 */     
 
-func Permutation a
+Func Permutation a
        elementcount = len(a)
        if elementcount < 1 then return ok
        pos = elementcount-1
@@ -500,7 +543,7 @@ func Permutation a
        a[last] = temp
        permutationReverse(a, pos+1, elementcount)
 
- func permutationReverse a, first, last
+Func permutationReverse a, first, last
         while first < last
                  temp = a[first]
                  a[first] = a[last]
@@ -509,7 +552,92 @@ func Permutation a
                  last -= 1
         end
    
+/*
+	Function Name	: Sleep
+	Usage		: Sleep for the given amount of time.
+	Parameters	: Time for sleep.
+	output		: Result of sleeping.
+*/          
      
+Func Sleep x
+	nTime = x * C_SECONDSIZE
+	if isclass("qTest")
+		oTest = new qTest
+		oTest.qsleep(nTime)
+	else
+		nClock = clock()
+		while clock() - nClock < nTime end
+	ok
      
+/*
+	Function Name	: Readline
+	Usage		: Read a file line by line.
+	Parameters	: File to read.
+	output		: Result of reading.
+*/      
       
+Func Readline fp
+	if not feof(fp) 
+		r = fgets(fp,C_LINESIZE) 
+		if r != NULL Return r ok
+	ok
 
+
+/*
+	Function Name	: IsMainSourceFile
+	Usage		: Check if the current file is the main source file
+	Parameters	: No Paramters 
+	output		: True/False 
+*/      
+Func IsMainSourceFile
+	if filename() = sysargv[2]
+		return true
+	ok
+	return false
+	
+/*
+	Function Name	: Substring
+	Usage		: Return a position of a substring starting from a given position in a string.
+	Parameters	: String, substring, position. 
+	output		: Position of substring. 
+*/  	
+func Substring str,substr,n
+       newstr=right(str,len(str)-n+1)
+       nr = substr(newstr, substr)
+       return n + nr -1
+       
+/*
+	Function Name	: Changestring
+	Usage		: Change substring from given position for given position with a substring.
+	Parameters	: Original string, position, length, substring
+	output		: Result string. 
+*/         
+func Changestring text, pos1, pos2, str
+       string = left(text,pos1-1) + str + substr(text, pos2+1)
+       return string
+
+
+/*
+	Function Name	: DirExists
+	Usage		: Check if directory exists
+	Parameters	: Path
+	output		: True/False
+*/         
+
+Func DirExists cDir
+	try
+		dir(cDir)
+		return true
+	catch
+		return false
+	done
+
+
+/*
+	Function Name	: MakeDir
+	Usage		: Make Directory
+	Parameters	: Directory Name
+*/         
+
+Func MakeDir cDir
+	system("mkdir " + cDir )

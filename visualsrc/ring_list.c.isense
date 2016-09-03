@@ -35,6 +35,8 @@ ring_list_getstring(pList,index)
 ring_list_getstringobject(pList,index)
 ring_list_getstringsize(pList,index)
 ring_list_getsize(x)
+RING_VM_LISTOFOBJS_FINDSTRING
+RING_VM_LISTOFOBJS_FINDNUMBER
 ring_list_new
 x
 Type: List *
@@ -168,6 +170,11 @@ pList2
 ring_list_findpointer
 Type: int
 x
+ring_list_findinlistofobjs
+Type: int
+x,nCount,nPos
+Type: List *
+pList2
 ring_list_sortnum
 Type: int
 x,y,mid
@@ -190,7 +197,11 @@ pItem
 Type: Items *
 pItems
 ring_list_getdoublecolumn
+Type: int
+nPos
 ring_list_getstringcolumn
+Type: int
+nPos
 ring_list_genarray
 Type: int
 x

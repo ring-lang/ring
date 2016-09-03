@@ -158,6 +158,7 @@ Syntax:
 
 	Find(List,ItemValue) ---> Item Index
 	Find(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index 
+	Find(List,ItemValue,nColumn,cAttribute) ---> Item Index
 
 Example:
 
@@ -216,6 +217,7 @@ Syntax:
 
 	Sort(List) ---> Sorted List
 	Sort(List,nColumn) ---> Sorted List based on nColumn 
+	Sort(List,nColumn,cAttribute) ---> Sorted List based on Object Attribute
 
 Example:
 
@@ -359,7 +361,7 @@ First-class lists
 =================
 
 Lists are `first-class citizens <http://en.wikipedia.org/wiki/First-class_citizen>`_ where we can store
-lists in varaibles, pass lists to functions, and return lists from functions.
+lists in variables, pass lists to functions, and return lists from functions.
 
 Example:
 

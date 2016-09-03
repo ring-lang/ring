@@ -12,6 +12,8 @@ Contents:
    :maxdepth: 2
 
    Introduction <introduction>
+   Language Design <languagedesign>
+   Building From Source Code <sourcecode>
    Getting Started <getting_started>
    Variables <variables>
    Operators <operators>
@@ -29,17 +31,26 @@ Contents:
    Demo Programs <demo>
    ODBC Functions <odbc>
    MySQL Functions <mysql>
+   SQLite Functions <sqlite>	
    Security and Internet Functions <secfunc>
    Object Oriented Programming (OOP) <oop>
    Declarative Programming using Nested Structures <declarative>
    Natural language programming	<natural>
    Functional Programming (FP) <fp>
    Reflection and Meta-programming <metaprog>
+   Stdlib Functions <stdlib>
+   Stdlib Classes <stdlibclasses>
+   Low Level Functions <lowlevel>
    Extension using the C/C++ languages <extension>
    Embedding Ring Interpreter in C/C++ Programs <embedding>
    Command Line Options	<interpreter>
    Web Development (CGI Library) <web>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    Graphics and 2D Games programming using RingAllegro <allegro>	
+   Using RingLibSDL <libsdl>
+   Demo Project - Game Engine for 2D Games <gameengine>	
    Desktop and Mobile development using RingQt <qt>
+   Syntax Flexibility <syntaxflexibility>
+   Frequently Asked Questions (FAQ) <faq>
+   Reference <reference>
    Resources <resources>

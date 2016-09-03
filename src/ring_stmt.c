@@ -127,7 +127,7 @@ int ring_parser_class ( Parser *pParser )
 				ring_list_addint(pList2,0);
 			}
 			ring_parser_nexttoken(pParser);
-			if ( ring_parser_isidentifier(pParser) ) {
+			if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator(pParser,"(") ) {
 				x = ring_parser_paralist(pParser);
 			} else {
 				x = 1 ;
@@ -221,8 +221,8 @@ int ring_parser_stmt ( Parser *pParser )
 	List *pMark,*pMark2,*pMark3,*pList2  ;
 	double nNum1  ;
 	char cStr[50]  ;
-	nPerformanceLocations = 0 ;
 	char cFileName[200]  ;
+	nPerformanceLocations = 0 ;
 	assert(pParser != NULL);
 	/* Statement --> Load Literal */
 	if ( ring_parser_iskeyword(pParser,K_LOAD) ) {
@@ -965,6 +965,37 @@ int ring_parser_stmt ( Parser *pParser )
 		
 		puts("Rule : Statement  --> Expr ");
 		#endif
+		/*
+		**  Generate Code 
+		**  Call expreval() if we are inside { } 
+		*/
+		if ( pParser->nBraceFlag ) {
+			/* if ismethod(self,"braceexpreval") braceexpreval() ok */
+			ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+			ring_parser_icg_newoperand(pParser,"ismethod");
+			ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
+			ring_parser_icg_newoperand(pParser,"self");
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
+			ring_parser_icg_newoperand(pParser,"braceexpreval");
+			ring_parser_icg_newoperation(pParser,ICO_CALL);
+			ring_parser_icg_newoperation(pParser,ICO_NOOP);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			/* Jump */
+			ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
+			pMark = ring_parser_icg_getactiveoperation(pParser);
+			ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+			ring_parser_icg_newoperand(pParser,"braceexpreval");
+			/* Duplicate Stack */
+			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+			ring_parser_icg_newoperation(pParser,ICO_CALL);
+			ring_parser_icg_newoperation(pParser,ICO_NOOP);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+			nMark1 = ring_parser_icg_newlabel(pParser);
+			ring_parser_icg_addoperandint(pMark,nMark1);
+		}
 		ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 		return 1 ;
 	}
@@ -973,8 +1004,15 @@ int ring_parser_stmt ( Parser *pParser )
 
 int ring_parser_paralist ( Parser *pParser )
 {
+	int nStart  ;
+	/* Check ( */
+	nStart = 0 ;
+	if ( ring_parser_isoperator(pParser,"(") ) {
+		ring_parser_nexttoken(pParser);
+		nStart = 1 ;
+	}
 	/* ParaList --> Epslion */
-	if ( ring_parser_isendline(pParser) ) {
+	if ( ring_parser_isendline(pParser) || (nStart && ring_parser_isoperator(pParser,")") ) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
@@ -1004,6 +1042,9 @@ int ring_parser_paralist ( Parser *pParser )
 				ring_parser_error(pParser,RING_PARSER_ERROR_PARALIST);
 				return 0 ;
 			}
+		}
+		if ( nStart && ring_parser_isoperator(pParser,")") ) {
+			ring_parser_nexttoken(pParser);
 		}
 		return 1 ;
 	} else {

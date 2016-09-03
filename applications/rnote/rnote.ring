@@ -7,7 +7,7 @@ cActiveFileName = ""
 aTextColor = [0,0,0]  
 aBackColor = [255,255,255]
 cFont = "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0"
-cWebsite = "http://www.ring-lang.net"
+cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
 cStartUpFolder = exefolder()
 lShowProject = True
 lShowSourceCode = True
@@ -328,7 +328,9 @@ MyApp = New qApp {
 			setexpanded(myindex,true)
 			header().hide()			
 			chdir(exefolder())
-			cWebsite = "file:///"+oDir.CurrentPath() + "/../html/index.html"
+			if not ismacosx()
+				cWebsite = "file:///"+oDir.CurrentPath() + "/../html/index.html"
+			ok
 		}
 
 		oDock1 = new qdockwidget(win1,0) {
@@ -386,7 +388,6 @@ MyApp = New qApp {
 		oDock3 = new qdockwidget(win1,0) {
 			setwidget(oWebBrowser)		
 			setwindowtitle("Web Browser")
-			setFeatures(QDockWidget_DocWidgetClosable)
 		}	
 
 		adddockwidget(1,oDock1,1)
@@ -472,54 +473,74 @@ func pFind
 	ok
 	oSearch = new qWidget()
 	{
-		new qLabel(oSearch)
+		oLblFindWhat = new qLabel(oSearch)
 		{
 			setText("Find What : ")
-			setgeometry(10,10,50,30)
 		}
 		oSearchValue = new qlineedit(oSearch)
 		{
-			setgeometry(80,10,460,30)
 			setReturnPressedEvent("pFindValue()")
 		}
-		new qLabel(oSearch)
+		oLayout1 = new qHBoxLayout(oSearch)
+		{
+			addWidget(oLblFindWhat)
+			addWidget(oSearchValue)
+		}		
+		oLblReplaceWith = new qLabel(oSearch)
 		{
 			setText("Replace with ")
-			setgeometry(10,45,80,30)
 		}
 		oReplaceValue = new qlineedit(oSearch)
+
+		oLayout2 = new qHBoxLayout(oSearch)
 		{
-			setgeometry(80,45,460,30)
+			addWidget(oLblReplaceWith)
+			addWidget(oReplaceValue)
 		}
 		oSearchCase = new qCheckbox(oSearch)
 		{
 			setText("Case Sensitive")
-			setgeometry(80,85,100,30)
 		}
-		new qPushButton(oSearch)
+		oLayout3 = new qHBoxLayout(oSearch)
+		{
+			addWidget(oSearchCase)			
+		}
+		oBtnFind = new qPushButton(oSearch)
 		{
 			setText("Find/Find Next")
-			setgeometry(80,120,100,30)
 			setclickevent("pFindValue()")
 		}
-		new qPushButton(oSearch)
+		oBtnReplace = new qPushButton(oSearch)
 		{
 			setText("Replace")
-			setgeometry(200,120,100,30)
 			setclickevent("pReplace()")
 		}
-		new qPushButton(oSearch)
+		oBtnReplaceAll = new qPushButton(oSearch)
 		{
 			setText("Replace All")
-			setgeometry(320,120,100,30)
 			setclickevent("pReplaceAll()")
 		}
-		new qPushButton(oSearch)
+		oBtnClose = new qPushButton(oSearch)
 		{
 			setText("Close")
-			setgeometry(440,120,100,30)
 			setclickevent("pSearchClose()")
 		}
+		oLayout4 = new qHBoxLayout(oSearch)
+		{
+			addWidget(oBtnFind)
+			addWidget(oBtnReplace)
+			addWidget(oBtnReplaceAll)
+			addWidget(oBtnClose)
+		}
+		oLayout5 = new qVBoxLayout(oSearch)
+		{
+			AddLayout(oLayout1)
+			AddLayout(oLayout2)
+			AddLayout(oLayout3)
+			AddLayout(oLayout4)
+		}
+
+		setLayout(oLayout5)
 
 		setwinicon(oSearch,"image/notepad.png")
 		setWindowTitle("Find/Replace")		
@@ -635,9 +656,9 @@ func pNofileopened
 func pDebug
 	if cActiveFileName = Null return pNofileopened() ok
 	if iswindows()
-		cCode = 'start run "' + cActiveFileName '"' + nl 
+		cCode = 'start run "' + cActiveFileName + '"' + nl 
 	else
-		cCode = 'ring "' + cActiveFileName '"' + nl 
+		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 	ok
 	system(cCode)
 
@@ -646,7 +667,7 @@ func pRun
 	if iswindows()
 		cCode = 'start run2 "' + cActiveFileName + '"' + nl 
 	else
-		cCode = 'ring "' + cActiveFileName '"' + nl 
+		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 	ok
 	system(cCode)
 
@@ -655,7 +676,7 @@ func pRunNoConsole
 	if iswindows()
 		cCode = 'start /b run2 "' + cActiveFileName + '"' + nl 
 	else
-		cCode = 'ring "' + cActiveFileName '"' + nl 
+		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 	ok
 	system(cCode)
 

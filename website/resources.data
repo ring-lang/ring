@@ -14,7 +14,23 @@
 				[
 					'<a href="https://github.com/MajdiSobain/RingAllegro_SquaresPuzzle" target="_blank">Squares Puzzle</a>',
 					'<img src="squarespuzzle.png" width="40%">'
-				]
+				],
+				[
+					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_StarsFighter_1.0_win32.zip/download" target="_blank">Stars Fighter Game</a>',
+					'<img src="starsfighter.png" width="40%">'
+				],
+				[
+					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_FlappyBird3000_1.0_win32.zip/download" target="_blank">Flappy Bird 3000 Game</a>',
+					'<img src="flappybird.png" width="40%">'
+				],
+				[
+					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_SuperMan2016_1.0_win32.zip/download" target="_blank">Super Man 2016 Game</a>',
+					'<img src="superman.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Fetch stock data from Yahoo and draw various types of charts</a>',
+					'<img src="GetQuoteCapture.jpg" width="40%">'
+				]				
 			    ]
                  ],
                  ["Posts from the 'Ring Documentation Walkthrough' blog",[
@@ -212,7 +228,7 @@
 				]
 			]
 	     ],
-	     ["Arabic Movies by Sofy Abbas (YouTube)",[
+	     ["Arabic Tutorials by Sofy Abbas (YouTube)",[
 				[
 					'<a href="https://www.youtube.com/watch?v=OWGaUQFrjAc" target="_blank">Download Ring and printing Hello, World!</a>'
 				],
@@ -233,7 +249,7 @@
 				]
 			]
 	      ],
-	      ["Arabic Movies by Ali Aliraqi (YouTube)",[
+	      ["Arabic Tutorials by Ali Aliraqi (YouTube)",[
 				[
 					'<a href="https://www.youtube.com/watch?v=lCh-n90q_dM&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=1" target="_blank">Introduction</a>'
 				],
@@ -263,7 +279,613 @@
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=CbEmf-WtTDM&list=PLGuernz43q4TOELXsWkXvESxXShvJ9X8P&index=10" target="_blank">Numbers (2)</a>'
+				],
+                                [
+                                    '<a href="https://youtu.be/FmyyzYhH_vg" target="_blank">Operatores </a>'
+			
+                                ],
+                                [
+                                    '<a href="https://youtu.be/6T5t77sJPns" target="_blank">Relational Operatores </a>'
+			
+                                ]
+			]
+			],
+			
+	        	["Arabic Tutorials by Mr. Alaa Mohammed (YouTube) ", [
+			        [
+					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw" target="_blank"> 01 Ring introduction in Arabic</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Ip29yXhHJg0" target="_blank"> 02 Ring Set up</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=CGNQMcZMxSk" target="_blank"> 03 Qt and Ring</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ux8b15AkNfk" target="_blank"> 04 Build your First Ring GUI Application</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ARVCf3-T3I0" target="_blank"> 05 Ring hello world</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=FovfkqEj1kg" target="_blank"> 06 Ring Getting Started part1</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=SGFY__KNfDE" target="_blank"> 07 Ring Getting Started part2</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Bvb1VVunlis" target="_blank"> 08 Ring Variables Dynamic Typing</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=XG4uO-m3SZg" target="_blank"> 09 Ring Variables Deep Copy</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=6E_OSkmUhLU" target="_blank"> 10 Ring Weakly Typed</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=bfC-Uaz0NS4" target="_blank"> 11 Ring Arithmetic Operators</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=LELDebethmg" target="_blank"> 12 Ring Relational Operators</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=qclB9xuaI0Y" target="_blank"> 13 Ring Logical Operators</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=CMTFs2TB7_w" target="_blank"> 14 Ring Bitwise Operators Binary AND</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=j7N3pYDrItg&feature=youtu.be" target="_blank"> 15 Ring Bitwise Operators Binary OR</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+			        [
+					'<a href="https://www.youtube.com/watch?v=1wrrfeVUk8o&feature=youtu.be" target="_blank"> 16 Ring Bitwise Operators Binary XOR</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				
+				[
+					'<a href="https://www.youtube.com/watch?v=x7bVMpfVY40&feature=youtu.be" target="_blank"> 17 Ring Bitwise Operators Binary NOT</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=FRT_g5SeKiA&feature=youtu.be" target="_blank"> 18 Ring Bitwise Operators Binary Left Shift</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=SqiMjwyCKmY&feature=youtu.be" target="_blank"> 19 Ring Bitwise Operators Binary Right Shift</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ToGQrmWpZPY&index=19&list=PLgc0fyJgivssosIJu4kJGk5avIjaMzYHK" target="_blank"> 20 Ring Assignment Operators part 1</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=bZGjQYkFlBA&feature=youtu.be" target="_blank"> 21 Ring Assignment Operators part 2</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=A0gpMP0ZVjU&feature=youtu.be" target="_blank"> 22 Ring Misc Operators </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=fHtwTV3GOC0" target="_blank"> 23 Ring Operators Precedence </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=2bdtWkr39w4&feature=youtu.be" target="_blank"> 24 Ring If Statement </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=XYIOWDTsxXI&feature=youtu.be" target="_blank"> 25 Ring Switch Statement</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=iUUGSWk8_KY&feature=youtu.be" target="_blank"> 26 Ring While Loop</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=bu4uln1gDE8&feature=youtu.be" target="_blank"> 27 Ring For Loop </a>'	,
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ot024yBnzFA&feature=youtu.be" target="_blank"> 28 Ring For In Loop </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=nFZoq5yI5Jw&feature=youtu.be" target="_blank"> 29 Ring using the step option with for in </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=lVYMylObJoM&feature=youtu.be" target="_blank"> 30 Ring using for in to modify lists</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+						
+				[
+					'<a href="https://www.youtube.com/watch?v=ngxCbYh-oUE&feature=youtu.be" target="_blank"> 31 Ring Do Again Loop</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				
+				[
+					'<a href="https://www.youtube.com/watch?v=Tvo3RqOZE2k&feature=youtu.be" target="_blank"> 32 Exit Command</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=HA1PxqcoI-M" target="_blank"> 33 Exit from two loops</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=JHvOMSpRqtc&feature=youtu.be" target="_blank"> 34 Loop command </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=xFwDXJOZAFA&feature=youtu.be" target="_blank"> 35 Exit/Loop inside sub functions</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=bJuy555_3wc&feature=youtu.be" target="_blank"> 36 Short-circuit evaluation</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=PO3QA4eLoqU&feature=youtu.be" target="_blank"> 37 Comments about evaluation</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=bJuy555_3wc&feature=youtu.be" target="_blank"> 38 Ring programming Short-circuit evaluation</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=PO3QA4eLoqU&feature=youtu.be" target="_blank"> 39 Ring programming Comments about evaluation</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=rPpiievNGjY" target="_blank"> 40 Ring programming Getting Input Give Command</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=pezFjtJQOfw&feature=youtu.be" target="_blank"> 41 Ring programming Getting Input GetChar() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=L9Gq6nXM9oQ&feature=youtu.be" target="_blank"> 42 Ring programming Getting Input Input() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=Dz3Xfir1liA&feature=youtu.be" target="_blank"> 43 Ring programming Function Introduction </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=u9n0qfi7Fpk&feature=youtu.be" target="_blank"> 44 Ring programming Define Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=64oAkFMgg8w&feature=youtu.be" target="_blank"> 45 Ring programming Call Functions</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=tBr77n1Kbg8&feature=youtu.be" target="_blank"> 46 Ring programming Declare  Send  parameters </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=uIuBvuorzPo&feature=youtu.be" target="_blank"> 47 Ring programming Main Function </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				
+		    	,
+				[
+					'<a href="https://www.youtube.com/watch?v=yL8AFmxwdJI&feature=youtu.be" target="_blank"> 48 Ring programming Variables Scope </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=nDHA6bUje20&feature=youtu.be" target="_blank"> 49 Ring programming Program Structure </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=cTw7D6xXHSQ&feature=youtu.be" target="_blank"> 50 Ring programming Return Value </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=a8tkXoDaraU&feature=youtu.be" target="_blank"> 51 Ring programming Recursion </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+								,
+				[
+					'<a href="https://www.youtube.com/watch?v=J5z9O1SIylk&feature=youtu.be" target="_blank"> 52 Ring programming Create Lists </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=be4OTOMxmS0&feature=youtu.be" target="_blank"> 53 Ring programming List Add Items </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=3TZKe5wCcEc&feature=youtu.be" target="_blank"> 54 Ring programming Get List Size </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=5vo3VyGDaaM&feature=youtu.be" target="_blank"> 55 Ring programming Delete Item From List </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=MwZ8y5FrZ8w&feature=youtu.be" target="_blank"> 56 Ring programming Get List Item</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=-1ae8E50Ivg&feature=youtu.be" target="_blank"> 57 Ring programming Set List Item </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=MbgNdOWPc08&feature=youtu.be" target="_blank"> 58 Ring programming Lists Find Function Search  </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=Q1_QeeB9IEI&feature=youtu.be" target="_blank"> 59 Ring programming list BinarySearch</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=gacAdb1s9N0&feature=youtu.be" target="_blank"> 60 Ring programming Lists Sort</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=NPKSjoFKkfI&feature=youtu.be" target="_blank"> 61 Ring programming Lists Reverse </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				 ,
+				[
+					'<a href="https://www.youtube.com/watch?v=DK3PV5ciKwY&feature=youtu.be" target="_blank"> 62 Ring programming Lists Insert Items</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=ppK-HcLF-vw&feature=youtu.be" target="_blank"> 63 Ring programming Nested lists</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=XVplL7JQiEk&feature=youtu.be" target="_blank"> 64 Ring programming Copy lists</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=yKZw80gId44&feature=youtu.be" target="_blank"> 65 Ring programming First class lists</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				
+				
+								,
+				[
+					'<a href="https://www.youtube.com/watch?v=oGLS3Syvekc&feature=youtu.be" target="_blank"> 66 Ring programming Using Lists during definition </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=jzadaJNR1jg&feature=youtu.be" target="_blank"> 67 Ring programming Passing Lists to Functions</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=pQ66WhnJ3VI&feature=youtu.be" target="_blank"> 68 Ring programming Access List Items by String Index</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=hPxTV3YwIWs&feature=youtu.be" target="_blank"> 69 Ring programming Passing Parameters Using List</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=nBYFstD1hOo&feature=youtu.be" target="_blank"> 70 Ring programming String Literals</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=1cHKKvlfIN4&feature=youtu.be" target="_blank"> 71 Ring programming Get String Length</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=_MHh8zyARiI&feature=youtu.be" target="_blank"> 72 Ring programming Convert Letters Case</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=PW6FycTF92k&feature=youtu.be" target="_blank"> 73 Ring programming Access String Letters</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				 ,
+				[
+					'<a href="https://www.youtube.com/watch?v=lrOfSnKi92Y&feature=youtu.be" target="_blank"> 74 Ring programming Left and right Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=GSLVrXmUE94&feature=youtu.be" target="_blank"> 75 Ring programming Trim Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=pyX4RKRmLNg&feature=youtu.be" target="_blank"> 76 Ring programming Copy Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=DTRICkgUbdE&feature=youtu.be" target="_blank"> 77 Ring programming Lines Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=edSssGxvMR0&feature=youtu.be" target="_blank"> 78 Ring programming Find substring</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				 ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=vs2Kvzw1lHw&feature=youtu.be" target="_blank"> 79 Ring programming Get substring from position to end</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=3nYd6MaZ1yk&feature=youtu.be" target="_blank"> 80 Ring programming Get Number of Characters From Position</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=1_fVoxHxpNo&feature=youtu.be" target="_blank"> 81 Ring programming Transform Substring To Another Substring</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=YowowhSij8w&feature=youtu.be" target="_blank"> 82 Ring programming strcmp Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=2DxAe-2XiMs&feature=youtu.be" target="_blank"> 83 Ring programming str2list and  list2str Functions</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                                ] 
+                                  ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=aBXu7lL0JwU&feature=youtu.be" target="_blank"> 84 Ring programming clock() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=AlqjgTpISCk&feature=youtu.be" target="_blank"> 85 Ring programming Time () and  Date() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=s9lIDBefOyw&feature=youtu.be" target="_blank"> 86 Ring programming TimeList() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=wuOhNd19dTM&feature=youtu.be" target="_blank"> 87 Ring programming Adddays()Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=b65ivW4MsbI&feature=youtu.be" target="_blank"> 88 Ring programming DiffDays () Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                              ] 
+                                ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=6R_e-7NHtEo&feature=youtu.be" target="_blank"> 89 Check Data Type Isstring() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=0a0dQbJ7NIY&feature=youtu.be" target="_blank"> 90 Check Data Type IsNumber() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=OBsjgK8SSCY&feature=youtu.be" target="_blank"> 91 Check Data Type IsList() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=_c4marwcp58&feature=youtu.be" target="_blank"> 92 Check Data Type Type() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=A4bi2gAI8yo&feature=youtu.be" target="_blank"> 93 Check Data Type IsNULL() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+        			 ] 
+        			  ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=slae6N2w2Kw&feature=youtu.be" target="_blank"> 94 Check Character IsAlNum() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=-Bf-HYfcvZI&feature=youtu.be" target="_blank"> 95 Check Character IsAlpha() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=-7k8aHrtfHc&feature=youtu.be" target="_blank"> 96 Check Character IsCntrl() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=HUnEEuUB1Cs&feature=youtu.be" target="_blank"> 97 Check Character IsDigit() Function and IsXDigit() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=RXdKTC518w0&feature=youtu.be" target="_blank"> 98 Check Character IsGraph() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+        			    ] 
+        			     ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=H94f2xFeF_s&feature=youtu.be" target="_blank"> 99 Check Character IsLower() and IsUpper() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=BPrxi1JAZd8&feature=youtu.be" target="_blank"> 100 Check Character IsPrint() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=LYCeI17k3aI&feature=youtu.be" target="_blank"> 101 Check Character IsPunct() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=fp-8nRoYyZI&feature=youtu.be" target="_blank"> 102 Check Character IsSpace() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=OoZy1TSYwb0&feature=youtu.be" target="_blank"> 103 Conversion Number() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+        			  ] 
+				
+					
+                 ,
+ 				[
+					'<a href="https://www.youtube.com/watch?v=aWdLf9vSke8&feature=youtu.be" target="_blank"> 104 Conversion  String() Function </a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=oj4lMYBjYTg&feature=youtu.be" target="_blank"> 105 Conversion Ascii() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=fHtq4MA7NiE&feature=youtu.be" target="_blank"> 106 Conversion Char() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=cQWdfjTtBT0&feature=youtu.be" target="_blank"> 107 Conversion Hex() and Dec() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+				]
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=tR79cjCFtgc&feature=youtu.be" target="_blank"> 108 Conversion Str2hex() AND Hex2str() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                ] 
+			]
+		],
+		
+			["Arabic Tutorials by Mr. Ahmed Hassouna (YouTube)",[
+				[
+					'<a href="https://www.youtube.com/watch?v=3YsdVicFv3Q" target="_blank">01 PWCT Introduction In Ring Programming Language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ThPcTPyTkXc" target="_blank">02 PWCT Download And Install Ring Programming Language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=nvgzIfuOnFo&index" target="_blank">03 PWCT Download And Install Ring On Ubuntu Linux</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ibdTtHm_61I&index" target="_blank">04 PWCT Download And Install Ring On Mac OS X</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=q09Or4KTzQs&index" target="_blank">05 PWCT features of ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=k2vx3elMq2k&index" target="_blank">06 PWCT Output in ring programming language using see</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=xw3rX33obGM&index" target="_blank">07 PWCT Input in ring programming language using give</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Tezj0Rqi3Hk&index" target="_blank">08 PWCT Download And Install Notepad Plus Plus With Add ring language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=EDvde6hTG8s&index" target="_blank">09 PWCT Variable in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=v0rkrg1hBOY&index" target="_blank">10 PWCT Comments in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=s2bQK3dTPsc&index" target="_blank">11 PWCT arithmetic operators in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=fcduGjbJSL8&index" target="_blank">12 PWCT Logical operators in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=jWoSCijesaY&index" target="_blank">13 PWCT Comparison Or Relational operators in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=LASgs4ppOsA&index" target="_blank">14 PWCT Assignment operators in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=WJe8rLBU7tQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=15" target="_blank">15 PWCT list instead of array in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=eJi5_OkOaeg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=16" target="_blank">16 PWCT range list array in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=h5LUDUgYClA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=17" target="_blank">17 PWCT work in list part 1 in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=FPVx45VoWYw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=18" target="_blank">18 PWCT work in list part 2 in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				]
 			]
-	      ]
+		]
 ]

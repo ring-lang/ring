@@ -170,48 +170,76 @@ In this example we will use the QListWidget Class
 
 .. code-block:: none
 
-	Load "guilib.ring"
+        Load "guilib.ring"
 
-	New qApp {
+        New qApp {
 
-		win1 = new qWidget() {
+                win1 = new qWidget() {
 
-			setGeometry(100,100,400,400)
+                        setGeometry(100,100,500,400)
 
-			list1 = new qlistwidget(win1) {
-				setGeometry(150,100,200,200)
-				alist = ["one","two","three","four","five"]
-				for x in alist additem(x) next
-				setcurrentrow(3,2)
-				win1.setwindowtitle("Items Count : " + count() )
-			}
+                        list1 = new qlistwidget(win1) {
+                                setGeometry(150,100,200,200)
+                                alist = ["one","two","three","four","five"]
+                                for x in alist additem(x) next
+                                
+                                setcurrentrow(3,2)
+                                win1.setwindowtitle("Items Count : " + count() )
+                        }
 
-			btn1 = new qpushbutton(win1) {
-				setGeometry(10,200,100,30)
-				settext("selected item")
-				setclickevent("pWork()")
-			}
+                        btn1 = new qpushbutton(win1) {
+                                setGeometry(10,200,100,30)
+                                settext("selected item")
+                                setclickevent("pWork()")
+                        }
 
-			btn2 = new qpushbutton(win1) {
-				setGeometry(10,240,100,30)
-				settext("Delete item")
-				setclickevent("pWork2()")
-			}
+                        btn2 = new qpushbutton(win1) {
+                                setGeometry(10,240,100,30)
+                                settext("Delete item")
+                                setclickevent("pWork2()")
+                        }
 
-			show()
-		}
+                        show()
+                }
 
-		exec()
-	}
+                exec()
+        }
 
-	func pWork
-		btn1.settext(string(list1.currentrow()))
+        func pWork
+                        
+                nbrOfItems = list1.count()
+                curItemNbr = list1.currentrow()
+                curValue   = list1.item(list1.currentrow()).text()
+                
+                See "After Select - NbrOfItems: " + nbrOfItems +
+			" CurItemNbr: " + curItemNbr +
+			" CurValue: " + curValue + nl
+                        
+                win1.setwindowtitle( "After Select - NbrOfItems: " + nbrOfItems +
+			" CurItemNbr: " + curItemNbr + " CurValue: " + curValue )
+                
+                btn1.settext( string(list1.currentrow() ) + " --- " +
+			      list1.item(list1.currentrow()).text() )
 
-	func pWork2
-		list1 {
-			takeitem(currentrow())
-		}
+                
 
+        func pWork2
+                list1 {
+                        takeitem(currentrow())
+                        
+                        nbrOfItems = count()
+                        curItemNbr = currentrow()
+                        curValue   = item(currentrow()).text()
+                    
+                        See "After Delete - NbrOfItems: " + nbrOfItems +
+				" CurItemNbr: " + curItemNbr +
+				" CurValue: " + curValue + nl
+                        
+                        win1.setwindowtitle("After Delete - NbrOfItems: " + nbrOfItems +
+				" CurItemNbr: " + curItemNbr +" CurValue: " + curValue )
+                }
+
+        
 The application during the runtime
 
 .. image:: ringqt_shot5.jpg
@@ -310,26 +338,36 @@ In this example we will learn about using the QComboBox class
 
 .. code-block:: none
 
-	Load "guilib.ring"
+        Load "guilib.ring"
 
-	New qApp {
+        New qApp {
+                win1 = new qMainWindow() {
+                        setGeometry(100,100,400,300)
+                        setwindowtitle("Using QCheckBox")
+                        
+                        ### 0-Unchecked  1-Checked
+                        
+                        CheckBox = new qcheckbox(win1) {
+                                setGeometry(100,100,160,30)
+                                settext("New Customer!")
+                                setclickedEvent("HandleClickEvent()")
+                        }                   
+                                    
+                        show()                            
+                }
+                exec()
+        }
 
-		win1 = new qWidget() {
-
-			setwindowtitle("Using QComboBox")
-			setGeometry(100,100,400,400)
-
-			New QComboBox(win1) {
-				setGeometry(150,100,200,30)
-				alist = ["one","two","three","four","five"]
-				for x in aList additem(x,0) next
-			}			
-
-			show()
-		}
-
-		exec()
-	}
+        Func HandleClickEvent
+            See "HandleClick - CheckBox " + CheckBox.isChecked()  +nl   
+            
+            if CheckBox.isChecked() = 1 
+                CheckBox.settext("New Customer. Check 1-ON")
+            else
+                CheckBox.settext("New Customer. Check 0-OFF")
+            ok
+            
+        return
 
 The application during the runtime
 
@@ -698,9 +736,71 @@ The application during the runtime
 
 .. image:: ringqt_shot15.jpg
 	:alt: QProgressBar
+
+
+Using QProgressBar and Timer
+============================
+
+In this example we will learn about using the "animated" QProgressBar class and Timer
+
+.. code-block:: none	
+
+	###------------------------------------
+	### ProgressBar and Timer Example
+	
+	Load "guilib.ring"
+	
+	new qApp
+	{
+	    win1 = new qwidget()
+	    {
+	        setgeometry(100,100,400,100)
+	        setwindowtitle("Timer and ProgressBar")
+	
+	        LabelMan = new qlabel(win1)
+	        {
+	            setgeometry(10,10,200,30)
+	            settext(theTime())          ### ==>> func
+	        }
+	
+	        TimerMan = new qtimer(win1)
+	        {
+	            setinterval(1000)
+	            settimeoutevent("pTime()")  ### ==>> func
+	            start()
+	        }
+	
+	        BarMan = new qprogressbar(win1)
+	        {
+	            setGeometry(100,50,300,10)  ###  Position X y, Length, Thickness
+	            setvalue(0)                 ###  Percent filled
+	        }
+	
+	        show()
+	    }
+	    exec()
+	}
+	
+	func pTime
+	        LabelMan.settext(theTime())     ### ==>> func
+	
+	        See "BarMan value: " + Barman.value() +nl
+	        Increment = 10
+	        if BarMan.value() >= 100        ### ProgressBar start over.
+	            BarMan.setvalue(0)
+	            See "BarMan value Reset: " + Barman.value() +nl
+	        ok
+	        BarMan{ setvalue(value() + Increment) }
+	return
+	
+	Func theTime
+	return "Time : " + Time()
+
+.. image:: ringqt_shot15-B.jpg
+	:alt: QProgressBar
 	
 Using QSpinBox
-==================
+==============
 
 In this example we will learn about using the QSpinBox class
 
@@ -727,7 +827,7 @@ The application during the runtime
 	:alt: QSpinBox
 	
 Using QSlider
-==================
+=============
 
 In this example we will learn about using the QSlider class
 
@@ -1095,6 +1195,95 @@ The application during the runtime
 
 .. image:: ringqt_shot26.jpg
 	:alt: Display Image
+	
+Display Scaled Image using QLabel
+=================================
+
+In this example we will learn about displaying and scaling an image so that it looks "animated" using the QLabel widget
+
+.. code-block:: none
+
+	Load "guilib.ring"
+
+	#----------------------------------------------------
+	# REQUIRES: image = "C:\RING\bin\stock.jpg"
+
+	# imageStock: start dimensions for growing image
+
+	imageW = 200 ;  imageH = 200 ; GrowBy = 4
+
+	###----------------------------------------------------
+	### Window and Box Size dimensions
+
+	WinWidth = 1280 ; WinHeight = 960
+	BoxWidth = WinWidth -80 ; BoxHeight = WinHeight -80
+
+	###----------------------------------------------------
+
+	New qapp {
+
+		win1 = new qwidget() {
+
+			setgeometry(50,50, WinWidth,WinHeight)
+			setwindowtitle("Animated Image - Display Image Scaled and Resized")
+
+			imageStock = new qlabel(win1) {
+
+				image = new qpixmap("C:\RING\bin\stock.jpg")
+				AspectRatio = image.width() / image.height()
+
+				imageW = 200
+				imageH = imageH / AspectRatio
+
+				### Size-H, Size-V, Aspect, Transform
+				setpixmap(image.scaled(imageW , imageH ,0,0))   
+
+				PosLeft = (BoxWidth  - imageW ) / 2
+				PosTop  = (BoxHeight - imageH ) / 2
+				setGeometry(PosLeft,PosTop,imageW,imageH)
+
+			}
+
+			TimerMan = new qtimer(win1) {
+				setinterval(100)            ### interval 100 millisecs.
+				settimeoutevent("pTime()")  ### ==>> func
+				start()
+			}
+
+			show()
+		}
+	exec()
+	}
+
+
+	###------------------------------------------------------
+	### Fuction TimerMan: calling interval 100 milliseconds
+
+	func pTime
+
+	### Stop Timer when image is size of Window area
+	if imageW > BoxWidth
+		TimerMan.stop()
+		imageStock.clear()      ### Will clear the image
+	ok
+
+	### Grow image
+	imageW += GrowBy
+	imageH  = imageW / AspectRatio
+
+	### Scaled Image: Size-H, Size-V, Aspect, Transform
+	imageStock.setpixmap(image.scaled(imageW , imageH ,0,0))
+
+	### Center the image
+	PosLeft = (WinWidth  - imageW ) / 2
+	PosTop  = (WinHeight - imageH ) / 2
+	imageStock.setGeometry(PosLeft,PosTop,imageW,imageH)
+
+	#See "Windows: iW: "+ imageW +" iH: "+ imageH +" bW: "+ BoxWidth +" bH: "+ BoxHeight +nl
+
+	return
+	###-------------
+
 	
 Menubar and StyleSheet Example
 ==============================

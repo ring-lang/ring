@@ -103,9 +103,13 @@ void ring_scanner_addreturn3 ( RingState *pRingState,int aPara[3] ) ;
 
 void ring_scanner_printtokens ( Scanner *pScanner ) ;
 
-RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int argc,char *argv[] ) ;
+RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int argc,char *argv[] ) ;
 
 const char * ring_scanner_getkeywordtext ( const char *cStr ) ;
+
+void ring_scanner_runobjfile ( const char *cFileName,RingState *pRingState ) ;
+
+void ring_scanner_runprogram ( RingState *pRingState ) ;
 /* MACRO */
 #define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem(pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
 /*

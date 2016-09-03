@@ -4,9 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network webkitwidgets multimedia multimediawidgets testlib printsupport
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets
 
 TARGET = ringqt
 TEMPLATE = lib
@@ -39,6 +37,7 @@ SOURCES +=   \
     gabstractsocket.cpp \
     gtcpsocket.cpp \
     gallevents.cpp \
+    gnetworkaccessmanager.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -66,31 +65,26 @@ HEADERS  += \
     giodevice.h \
     gabstractsocket.h \
     gtcpsocket.h \
-    gallevents.h 
+    gallevents.h \
+    gnetworkaccessmanager.h 
 
-INCLUDEPATH += ..\..\include
-
-FORMS    +=
-
-CONFIG += mobility
-MOBILITY = 
-
-
-QMAKE_CXXFLAGS += -fpermissive
-
-
-RESOURCES += \
-    ringqt.qrc
-
-OTHER_FILES +=
+INCLUDEPATH += ../../include
 
 win32 {
 	LIBS +=  ../../lib/ring.lib
 }
 
-!win32 {
-	LIBS +=  $$PWD/libring.so
+macx {
+	LIBS +=  ../../lib/libring.dylib
+}
+
+unix:!macx {
+  	LIBS +=  /usr/lib/libring.so
 }
 
 CONFIG += warn_off
+CONFIG += release
+
 QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
+
+DEPLOYMENT_PLUGIN += qsqlite

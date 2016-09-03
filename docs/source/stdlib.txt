@@ -1,0 +1,910 @@
+================
+Stdlib Functions
+================
+
+In this chapter we are going to learn about functions in the stdlib.ring
+
+puts() function
+===============
+
+print the value then print new line (nl)
+
+Syntax:
+
+.. code-block:: none
+
+	puts(expr)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Hello, World!")
+
+printf() function
+=================
+
+print string - support \\n,\\t and \\r
+
+Also we can use #{variable_name} to insert variables values.
+
+Syntax:
+
+.. code-block:: none
+
+	printf(string)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	printf("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
+	x=10 y=20
+	printf("\nx value = #{x} , y value = #{y} \n")
+
+
+apppath() function
+==================
+
+Get the path of the application folder
+
+Syntax:
+
+.. code-block:: none
+
+	AppPath() ---> The path as String
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Application Path
+	Puts("Test AppPath()")
+	See AppPath() + nl
+
+value() function
+================
+
+create a copy from a list or object
+
+Syntax:
+
+.. code-block:: none
+
+	value(List) ---> new list 
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	aList = 1:10
+	del(value(aList),1) # delete first item
+	see aList 	    # print numbers from 1 to 10
+
+times() function
+================
+
+Execute a Function nCount times
+
+Syntax:
+
+.. code-block:: none
+
+	Times(nCount,function)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Times()")
+	Times ( 3 , func { see "Hello, World!" + nl } )
+
+map() function
+==============
+
+Execute a Function on each list item
+
+Syntax:
+
+.. code-block:: none
+
+	 Map(alist,function)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Map()")
+	See Map( 1:10, func x { return x*x } )
+
+filter() function
+=================
+
+Execute a Function on each list item to filter items
+
+Syntax:
+
+.. code-block:: none
+
+	Filter(alist,function)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Filter()")
+	See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
+
+
+split() function
+================
+
+Convert string words to list items
+
+Syntax:
+
+.. code-block:: none
+
+	Split(cstring,delimiter)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Split()")
+	See Split("one two three four five"," ")
+
+
+newlist() function
+==================
+
+Create a two dimensional list
+
+
+Syntax:
+
+.. code-block:: none
+
+	NewList(nRows,nColumns) ---> new list 
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Newlist()")
+	a1 = 3
+	a2 = 5
+	chrArray = newlist(a1,a2)
+	numArray = newlist(a1,a2)
+	chrArray[1][1] = "Hello"
+	numArray[1][1]  = 987.2
+	See chrArray[1][1] + nl
+	See numArray[1][1] + nl
+
+capitalized() function
+======================
+
+Return a copy of a string with the first letter capitalized
+
+Syntax:
+
+.. code-block:: none
+
+	Capitalized(string) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Capitalized()")
+	See capitalized("welcome to the Ring Programming Language")
+
+isspecial() function
+====================
+
+Check whether a character is special or not
+
+
+Syntax:
+
+.. code-block:: none
+
+	IsSpecial(char) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Isspecial()")
+	See "Isspecial  = " + isSpecial("%") + nl
+
+isvowel() function
+==================
+
+Check whether a character is vowel or not
+
+Syntax:
+
+.. code-block:: none
+
+	IsVowel(char) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Isvowel()")
+	See "Isvowel = " + isVowel("c") + nl
+
+
+linecount() function
+====================
+
+Return the lines count in a text file.
+
+Syntax:
+
+.. code-block:: none
+
+	LineCount(cFileName) ---> Lines Count as number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Linecount()")
+	See "the number of lines = " + lineCount("test.ring")
+
+factorial() function
+====================
+
+Return the factorial of a number
+
+Syntax:
+
+.. code-block:: none
+
+	Factorial(number) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Factorial()")
+	see "6 factorial is : " + Factorial(6)
+
+fibonacci() function
+====================
+
+Return the fibonacci number
+
+Syntax:
+
+.. code-block:: none
+
+	Fibonacci(number) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Fibonacci()")
+	see "6 Fibonacci is : " + Fibonacci(6)
+
+isprime() function
+==================
+
+Check whether a number is prime or not
+
+Syntax:
+
+.. code-block:: none
+
+	isprime(number) ---> Number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Isprime()")
+	if isPrime(16) see "16 is a prime number"
+	else see "16 is not a prime number" ok
+
+sign() function
+===============
+
+Returns an integer value indicating the sign of a number.
+
+Syntax:
+
+.. code-block:: none
+
+	Sign(number) ---> number ( -1 = negative , 0 , 1 (positive) )
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Sign()")
+	see "sign of 12 is = " + sign(12) + nl
+
+
+list2file() function
+====================
+
+Write list items to text file (each item in new line).
+
+Syntax:
+
+.. code-block:: none
+
+	List2File(aList,cFileName)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Test List2File
+	Puts("Test List2File()")
+	list2file(1:100,"myfile.txt")
+
+
+file2list() function
+====================
+
+Read text file and convert lines to list items
+
+Syntax:
+
+.. code-block:: none
+
+	File2List(cFileName) ---> List
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Test File2List
+	Puts("Test File2List()")
+	see len(file2list("myfile.txt"))
+
+
+startswith() function
+=====================
+
+Returns true if the given string starts with the specified substring.
+
+Leading white spaces are ignored.
+
+Syntax:
+
+.. code-block:: none
+
+	StartsWith(string, substring) ---> True/False
+
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Startswith()")
+	see Startswith("CalmoSoft", "Calmo") + nl
+
+
+endswith() function
+===================
+
+Returns true if the given string ends with the specified substring.
+
+Trailing white spaces are ignored.
+
+Syntax:
+
+.. code-block:: none
+
+	Endswith(string, substring) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Endswith()")
+	see endsWith("CalmoSoft", "Soft") + nl
+
+
+gcd() function
+==============
+
+Finding of the greatest common divisor of two integers.
+
+Syntax:
+
+.. code-block:: none
+
+	Gcd(number,number) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Gcd()")
+	see gcd (24, 32) + nl
+
+
+lcm() function
+==============
+
+Compute the least common multiple of two integers.
+
+Syntax:
+
+.. code-block:: none
+
+	lcm(number,number) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Lcm()")
+	see Lcm(24,36) + nl
+
+sumlist() function
+==================
+
+Compute the sum of a list of integers.
+
+Syntax:
+
+.. code-block:: none
+
+	sumlist(list) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Sumlist()")
+	aList = [1,2,3,4,5]
+	see Sumlist(aList) + nl
+
+
+prodlist() function
+===================
+
+Compute the product of a list of integers.
+
+Syntax:
+
+.. code-block:: none
+
+	prodlist(list) ---> number
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Prodlist()")
+	aList = [1,2,3,4,5]
+	see Prodlist(aList) + nl
+
+
+evenorodd() function
+====================
+
+Test whether an integer is even or odd.
+
+Result of test (1=odd 2=even).
+
+Syntax:
+
+.. code-block:: none
+
+	evenorodd(number) ---> 1 (odd) or 2 (even)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Evenorodd()")
+	nr = 17
+	see Evenorodd(nr) + nl
+
+factors() function
+==================
+
+Compute the factors of a positive integer.
+
+Syntax:
+
+.. code-block:: none
+
+	factors(list) ---> list
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Factors()")
+	n = 45
+	aList = factors(n)
+	see "Factors of " + n + " = "
+	for i = 1 to len(aList)
+	    see "" + aList[i] + " "
+	next
+
+
+palindrome() function
+=====================
+
+Check if a sequence of characters is a palindrome or not. 
+
+Syntax:
+
+.. code-block:: none
+
+	Palindrome(String) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Palindrome()")
+	cString = "radar"
+	see Palindrome(cString)
+
+
+isleapyear() function
+=====================
+
+Check whether a given year is a leap year in the Gregorian calendar. 
+
+Syntax:
+
+.. code-block:: none
+
+	Isleapyear(number) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Isleapyear()")
+	year = 2016
+	if Isleapyear(year) see "" + year + " is a leap year."
+	else see "" + year + " is not a leap year." ok
+
+
+binarydigits() function
+=======================
+
+Compute the sequence of binary digits for a given non-negative integer. 
+
+Syntax:
+
+.. code-block:: none
+
+	binarydigits(number) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Binarydigits()")
+	b = 35
+	see "Binary digits of " + b + " = " + Binarydigits(b)
+
+matrixmulti() function
+======================
+
+Multiply two matrices together. 
+
+Syntax:
+
+.. code-block:: none
+
+	Matrixmulti(List,List) ---> List
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Multiply two matrices together.
+	Puts("Test Matrixmulti()")
+	A = [[1,2,3], [4,5,6], [7,8,9]]
+	B = [[1,0,0], [0,1,0], [0,0,1]]
+	see Matrixmulti(A, B)
+
+
+matrixtrans() function
+======================
+
+Transpose an arbitrarily sized rectangular Matrix. 
+
+Syntax:
+
+.. code-block:: none
+
+	Matrixtrans(List) ---> List
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Transpose an arbitrarily sized rectangular Matrix.
+	Puts("Test Matrixtrans()")
+	matrix = [[78,19,30,12,36], [49,10,65,42,50], [30,93,24,78,10], [39,68,27,64,29]]
+	see Matrixtrans(matrix)
+
+
+dayofweek() function
+====================
+
+Return the day of the week of given date. (yyyy-mm-dd)
+
+Syntax:
+
+.. code-block:: none
+
+	dayofweek(string) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Return the day of the week of given date.
+	Puts("Test Dayofweek()")
+	date = "2016-04-24"
+	see "Data : " + date + " - Day : " + Dayofweek(date) + nl
+
+
+permutation() function
+======================
+
+Generates all permutations of n different numerals.
+
+Syntax:
+
+.. code-block:: none
+
+	permutation(list)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Generates all permutations of n different numerals
+	Puts("Test Permutation()")
+	list = [1, 2, 3, 4]
+	for perm = 1 to 24
+		for i = 1 to len(list)
+	        	see list[i] + " "
+		next
+     		see nl
+		Permutation(list)
+	next
+
+readline() function
+===================
+
+Read line from file
+
+Syntax:
+
+.. code-block:: none
+
+	readline(fp) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Read a file line by line.
+	Puts("Test Readline()")
+	fp = fopen("test.ring","r")
+	while not feof(fp)
+	See Readline(fp) end
+	fclose(fp)
+
+substring() function
+====================
+
+Return a position of a substring starting from a given position in a string.
+
+Syntax:
+
+.. code-block:: none
+
+	Substring(str,substr,npos) ---> string
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Return a position of a substring starting from a given position in a string.
+	Puts("Test Substring()")
+	a = "abcxyzqweabc"
+	b = "abc"
+	i = 4
+	see substring(a,b,i)
+
+changestring() function
+=======================
+
+Change substring from given position to a given position with another substring.
+
+Syntax:
+
+.. code-block:: none
+
+	Changestring(cString, nPos1, nPos2, cSubstr) ---> cString
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Change substring from given position for given position with a substring.
+	Puts("Test Changestring()")
+	see Changestring("Rmasdg",2,5,"in")	# Ring
+
+sleep() function
+================
+
+Sleep for the given amount of time.
+
+Syntax:
+
+.. code-block:: none
+
+	sleep(nSeconds) 
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Sleep()")
+	see "Wait 3 Seconds!"
+	Sleep(3)
+	see nl
+
+ismainsourcefile() function
+===========================
+
+Check if the current file is the main source file
+
+Syntax:
+
+.. code-block:: none
+
+	IsMainSourceFile() ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	if ismainsourcefile()
+		# code 
+	ok
+
+
+direxists() function
+====================
+
+Check if directory exists
+
+Syntax:
+
+.. code-block:: none
+
+	DirExists(String) ---> True/False
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	see "Check dir : b:\ring " 
+	puts( DirExists("b:\ring") )
+	see "Check dir : C:\ring " 
+	Puts( DirExists("C:\ring") )
+
+makedir() function
+==================
+
+Make Directory
+
+Syntax:
+
+.. code-block:: none
+
+	MakeDir(String)
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	# Create Directory
+	puts("create Directory : myfolder")
+	makedir("myfolder")
+

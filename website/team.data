@@ -38,6 +38,12 @@
 					'Active'
 				  ],
 				  [
+					'Bert Mariani',
+					'bert.mariani@gmail.com',
+					'Tester/Samples',
+					'Active'
+				  ],
+				  [
 					'Hany Salah',
 					'hanyhani@hotmail.com',
 					'Marketing',
@@ -283,13 +289,7 @@
 					'saneeno.sn@gmail.com',
 					'Tester',
 					'Active'
-				  ],
-				  [
-					'Reem Mohammed',
-					'reem.busines@gmail.com',
-					'Tester',
-					'Active'
-				  ],
+				  ],				  
 				  [
 					'Mohammed Aljazaeri',
 					'pr.mohd90@gmail.com',
@@ -307,22 +307,10 @@
 					'beyondsky1986@gmail.com',
 					'Tester',
 					'Active'
-				  ],
-				  [
-					'Ali Aliraqi',
-					'wwssr11wwss11@gmail.com',
-					'Tester',
-					'Active'
-				  ],
+				  ],				  
 				  [
 					'Mohamad Hamad',
 					'mohamad.hamad84@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Sofy Abbas',
-					'sofyebnabbas@gmail.com',
 					'Tester',
 					'Active'
 				  ],
@@ -337,5 +325,65 @@
 					'montasir41@yandex.ru',
 					'Tester',
 					'Active'
-				  ]
+				  ],
+				  [
+					'Sofy Abbas',
+					'sofyebnabbas@gmail.com',
+					'Video Tutorials',
+					'Active'
+				  ],
+				  [
+					'Ali Aliraqi',
+					'wwssr11wwss11@gmail.com',
+					'Video Tutorials',
+					'Active'
+				  ],
+				  [
+					'Alaa Mohammed Elockle',
+					'Mr.alaaelockle@hotmail.com',
+					'Video Tutorials',
+					'Active'
+				  ],
+				  [
+					'Ahmed Hassouna',
+					'mr.ahmed_hassouna@yahoo.com',
+					'Video Tutorials',
+					'Active'
+				  ],
+				  [
+					'Mohamed Elkehlawy Mahmoud',
+					'mohamedelkehlawy@gmail.com',
+					'Arabic Tutorials',
+					'Active'
+				  ],
+				  [
+					'Reem Basheer',
+					'reem.busines@gmail.com',
+					'Arabic Tutorials',
+					'Active'
+				  ],
+                  [
+                    'Yasmin Alwaan',
+                    'Eng_Yasmin@live.com',
+                    'Arabic Tutorials',
+                    'Active'
+                  ],
+	          [
+                    'Mostafa Gaber',
+                    'mostnour@gmail.com',
+                    'Tester',
+                    'Active'
+                  ],
+                  [
+                    'Abdelraouf Mohamed',
+                    'abdelraouf.mohamed31@gmail.com',
+                    'Tester/Samples',
+                    'Active'
+                  ],
+                  [
+                    'Abdelrahman Fawzy Omar',
+                    'h.a.m.a.n.y.1995f@gmail.com',
+                    'Tester/Samples',
+                    'Active'
+                  ]
 ]

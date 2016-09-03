@@ -80,10 +80,11 @@ Example:
 
 		# we can use Switch-ON-Other-OFF instead of IF-BUT-ELSE-OK
 
-		if nMenu = 1 sayhello() 
-		but nMenu = 2 Sum()
-		but nMenu = 3 Stars()
-		but nMenu = 4 
+		Switch nMenu
+		On 1 sayhello() 
+		On 2 Sum()
+		On 3 Stars()
+		On 4 
 			see "Enter Number : " give x
 			see "Output : " 
 
@@ -93,9 +94,9 @@ Example:
 				see "Error in parameters!" + nl
 			Done
 
-		but nMenu = "5" return 
-		else see "bad option" + nl
-		ok
+		On "5" return 
+		Other see "bad option" + nl
+		Off
 
 	end
 

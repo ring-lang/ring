@@ -2,10 +2,18 @@
 # Game Engine for 2D Games
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "gamelib.ring"
+if isandroid()
+	eval('load "gl_libsdl.ring"')
+else
+	eval('load "gl_allegro.ring"')
+ok 
+
 load "gameengine.rh"
 
 oresources = new resources
+
+func start_playing
+	gl_start_playing()
 
 class gamebase
 	title=""
@@ -20,7 +28,7 @@ class resources
 	func loadimage cfilename
 		npos = find(aimages,cfilename,1)
 		if npos = 0
-			aimages + [cfilename,al_load_bitmap(cfilename)]
+			aimages + [cfilename,gl_load_bitmap(cfilename)]
 			npos = len(aimages)
 		ok
 		return aimages[npos][2]
@@ -28,14 +36,14 @@ class resources
 	func unloadimage cfilename
 		npos = find(aimages,cfilename,1)
 		if not npos = 0
-			al_destroy_bitmap(aimages[npos][2])
+			gl_destroy_bitmap(aimages[npos][2])
 			del(aimages,npos)
 		ok
 
 	func loadfont cfilename,nSize
 		npos = find(afonts,cfilename,1)
 		if npos = 0 or aFonts[nPos][2] != nSize
-			afonts + [cfilename,nSize,al_load_ttf_font(cfilename,nSize,0)]
+			afonts + [cfilename,nSize,gl_load_ttf_font(cfilename,nSize,0)]
 			npos = len(afonts)
 		ok
 		return afonts[npos][3]
@@ -43,7 +51,7 @@ class resources
 	func unloadfont cfilename,size
 		for x=1 to len(aFonts)
 			if aFonts[x][1] = cFileName and aFonts[x][2] = size
-				al_destroy_font(afonts[x][3])
+				gl_destroy_font(afonts[x][3])
 				del(afonts,x)
 				exit
 			ok
@@ -53,6 +61,8 @@ class game from gamebase
 
 	display event_queue ev timeout timer
 	fps = 60 	redraw = true
+	FixedFPS = fps
+	gClock = 0
 	nid = 0
 	key = [false,false,false,false,false]
 	nkeycode=0
@@ -69,7 +79,7 @@ class game from gamebase
 
 	func settitle cTitle
 		title = cTitle
-		al_set_window_title(display,title)
+		gl_set_window_title(display,title)
 
 	func braceend
 		# we check to call start() one time during the program life time
@@ -94,36 +104,28 @@ class game from gamebase
 
 	func startup
 
-		al_set_new_display_flags(ALLEGRO_FULLSCREEN)
-		display = al_create_display(screen_w,screen_h)
-		al_set_window_title(display,title)
+		#gl_set_new_display_flags(GL_FULLSCREEN)
+		display = gl_create_display(screen_w,screen_h)
+		gl_set_window_title(display,title)
 
+		ev = gl_new_glib_event()
+		timeout = gl_new_glib_timeout()
+		event_queue = gl_create_event_queue()
+		timer = gl_create_timer(1.0 / fps)
 
-		event_queue = al_create_event_queue()
-		al_register_event_source(event_queue, al_get_display_event_source(display))
+		gl_events(display,event_queue,ev,timer,timeout)
 
-		ev = al_new_allegro_event()
-		timeout = al_new_allegro_timeout()
-		al_init_timeout(timeout, 0.06)
-
-		timer = al_create_timer(1.0 / fps)
-		al_register_event_source(event_queue, al_get_timer_event_source(timer))
-		al_start_timer(timer)
-
-		al_install_mouse()
-		al_register_event_source(event_queue, al_get_mouse_event_source())
-
-		al_install_keyboard()
-		al_register_event_source(event_queue, al_get_keyboard_event_source())
-
+		
 	func start
 
+		gClock = clock()
+
 		while shutdown = false
-			al_wait_for_event_until(event_queue, ev, timeout)
-			switch al_get_allegro_event_type(ev)
-					on allegro_event_display_close
-						exit
-					on allegro_event_timer
+			gl_wait_for_event_until(event_queue, ev, timeout)
+			switch gl_get_glib_event_type(ev)
+					on gl_event_display_close
+						shutdown()
+					on gl_event_timer
 						# keyboard
 						if key[key_up]
 							for t in aobjects  t.keyboard(self,key_up)  next
@@ -140,56 +142,80 @@ class game from gamebase
 						if key[key_other]
 							key[key_other] = false
 							for t in aobjects  t.keyboard(self,nkeycode)  next
+							nKeyCode = 0
 						ok		
 						redraw = true
-					on allegro_event_mouse_axes
-						 
-					on allegro_event_mouse_enter_display
- 
-					on allegro_event_mouse_button_up
-						 
-					on allegro_event_key_down
-						nkeycode = al_get_allegro_event_keyboard_keycode(ev)
+					on GL_event_mouse_axes
+						aMouselist = [gl_mouse_x(),gl_mouse_y()]
+						for t in aobjects  t.mouse(self,GL_event_mouse_axes,aMouseList)  next						 
+					on GL_event_mouse_enter_display
+						aMouselist = [gl_mouse_x(),gl_mouse_y()]
+						for t in aobjects  t.mouse(self,GL_event_mouse_enter_display,aMouseList)  next 
+					on GL_event_mouse_button_down
+						aMouselist = [gl_mouse_x(),gl_mouse_y()]
+						for t in aobjects  t.mouse(self,GL_event_mouse_button_down,aMouseList)  next
+					on GL_event_mouse_button_up
+						aMouselist = [gl_mouse_x(),gl_mouse_y()]
+						for t in aobjects  t.mouse(self,GL_event_mouse_button_up,aMouseList)  next					
+					on GL_EVENT_FINGER_DOWN
+						for t in aobjects  t.finger(self,GL_EVENT_FINGER_DOWN)  next
+					on GL_EVENT_FINGER_UP
+						for t in aobjects  t.finger(self,GL_EVENT_FINGER_UP)  next
+					on GL_EVENT_FINGER_MOTION
+ 						for t in aobjects  t.finger(self,GL_EVENT_FINGER_MOTION)  next
+					on GL_event_key_down
+						nkeycode = gl_get_glib_event_keyboard_keycode(ev)
 						switch nkeycode
-								on allegro_key_up
+								on gl_key_up
 									key[key_up] = true
-								on allegro_key_down
+								on gl_key_down
 									key[key_down] = true
-								on allegro_key_left
+								on gl_key_left
 									key[key_left] = true
-								on allegro_key_right
-									key[key_right] = true									
+								on gl_key_right
+									key[key_right] = true							
 						off
-					on allegro_event_key_up
-						switch al_get_allegro_event_keyboard_keycode(ev)
-								on allegro_key_up
+					on GL_event_key_up
+						switch gl_get_glib_event_keyboard_keycode(ev)
+								on gl_key_up
 										key[key_up] = false
-								on allegro_key_down
+								on gl_key_down
 										key[key_down] = false
-								on allegro_key_left
+								on gl_key_left
 										key[key_left] = false
-								on allegro_key_right
+								on gl_key_right
 										key[key_right] = false
 								other
 										key[key_other] = true
 						off
 					off
-			if redraw and al_is_event_queue_empty(event_queue)
+			if redraw and gl_is_event_queue_empty(event_queue)
 				redraw = false
-				al_set_target_bitmap(al_get_backbuffer(display))
-				al_clear_to_color(GE_COLOR_WHITE)
-				for t in aobjects t.draw(self) next
-				al_flip_display()
-				for t=len(aobjects) to 1 step -1 
-						aobjects[t].animate(self,aobjects[t]) 
-				next				
-				callgc()
+				drawobjs()
+			ok
+
+			nDif = clock() - gclock
+			if nDif >= (clockspersecond()/FixedFPS)							
+				nDif = floor( nDif / (clockspersecond()/FixedFPS) )
+				for nTimes = 1 to nDif
+					for t=len(aobjects) to 1 step -1 
+							aobjects[t].animate(self,aobjects[t]) 
+					next	
+				next		
+				callgc()		
+				gclock = clock()	 
 			ok	 			
 		end
 
+	func drawobjs
+		gl_set_target_bitmap(gl_get_backbuffer(display))
+		gl_clear_to_color(GE_COLOR_WHITE)
+		for t in aobjects t.draw(self) next		
+		gl_flip_display()
+
 	func shutdown
 		delete()
-		al_exit()
+		gl_exit()
 
 	func deleteobjs
 		for t in aobjects t.delete() next
@@ -197,11 +223,7 @@ class game from gamebase
 
 	func delete
 		deleteobjs()
-		al_destroy_timer(timer)
-		al_destroy_allegro_event(ev)
-		al_destroy_allegro_timeout(timeout)
-		al_destroy_event_queue(event_queue)	
-		al_destroy_display(display)
+		gl_destroy(display,event_queue,timeout,ev,timer)
 
 	func getsprite	
 		addobj(new sprite)
@@ -223,21 +245,28 @@ class game from gamebase
 		addobj(new sound)
 		return aobjects[len(aobjects)]
 
+	func getmap
+		addobj(new map)
+		return aobjects[len(aobjects)]
+
 	private
-		sprite text progress animate sound
+		sprite text progress animate sound map
 		
 
 class gameobject from gamebase
 	lenabled = true
 	x=0 y=0	 width=0 height=0 nindex = 0
 	animate=true	move=false Scaled=false
+	temp = null
 	func init
 	func draw
 	func animate
 	func delete
 	func keyboard oGame,nkey
+	func mouse oGame,nType,aMouseList
+	func finger oGame,nType
 	func rgb r,g,b
-		return al_map_rgb(r,g,b)
+		return gl_map_rgb(r,g,b)
 
 class sprite from gameobject
 	image	point=400
@@ -246,6 +275,8 @@ class sprite from gameobject
 	r = 0
 	cimagefile = ""
 	keypress = ""
+	mouse = ""
+	finger = ""
 	state = ""
 	type = 0
 	transparent = false	transparentdone = false
@@ -255,19 +286,22 @@ class sprite from gameobject
 		image = oresources.loadimage(cfilename)
 		cimagefile = cfilename
 
+	func dotransparent
+		gl_convert_mask_to_alpha(image,transparentcolor)
+
 	func draw oengine
 		if not lenabled return ok
 		if transparent
 			if not transparentdone
 				transparentdone = true
-				al_convert_mask_to_alpha(image,transparentcolor)
+				dotransparent()
 			ok
 		ok
 		if Scaled
-			al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
-			al_get_bitmap_height(image),x,y,width,height,0)
+			gl_draw_scaled_bitmap(image,0,0,gl_get_bitmap_width(image),
+			gl_get_bitmap_height(image),x,y,width,height,0)
 		else
-			al_draw_bitmap(image,x,y,0)
+			gl_draw_bitmap(image,x,y,0)
 		ok
 
 	func animate oGame,oSelf
@@ -327,7 +361,6 @@ class sprite from gameobject
 			off
 		ok
 
-
 	func keyboard oGame,nkey
 		if not lenabled return ok
 		if not keypress = ""			
@@ -340,6 +373,18 @@ class sprite from gameobject
 		on key_left	x-=10
 		on key_right	x+=10
 		off
+
+	func mouse oGame,nType,aMouseList
+		if not lenabled return ok
+		if not mouse = ""			
+			call mouse(oGame,self,nType,aMouseList)
+		ok
+
+	func finger oGame,nType
+		if not lenabled return ok
+		if not finger = ""			
+			call finger(oGame,self,nType)
+		ok
 
 	func delete
 		oresources.unloadimage(cimagefile)
@@ -357,7 +402,7 @@ class text from sprite
 		cfontfile = cfilename
 
 	func draw oGame
-		al_draw_text(font, color, x, y,ALLEGRO_ALIGN_LEFT,text)		
+		gl_draw_text(font, color, x, y,GL_ALIGN_LEFT,text)		
 
 	func delete
 		oresources.unloadfont(cfontfile,size)
@@ -375,14 +420,14 @@ Class Animate from Sprite
 		if transparent
 			if not transparentdone
 				transparentdone = true
-				al_convert_mask_to_alpha(image,transparentcolor)
+				gl_convert_mask_to_alpha(image,transparentcolor)
 			ok
 		ok
 		if Scaled
-			al_draw_scaled_bitmap(image,0,0,al_get_bitmap_width(image),
-			al_get_bitmap_height(image),x,y,width,height,0)
+			gl_draw_scaled_bitmap(image,(framewidth*(frame-1)),0,framewidth,
+			gl_get_bitmap_height(image),x,y,width,height,0)
 		else
-			al_draw_bitmap_region(image,(framewidth*(frame-1)),0, framewidth, height, x, y, 0)
+			gl_draw_bitmap_region(image,(framewidth*(frame-1)),0, framewidth, height, x, y, 0)
 		ok
 
 
@@ -391,21 +436,98 @@ Class Sound from gameobject
 	file sample  csoundfile sampleid
 	playing = false
 	type = 0
-	
+	once = false
 	func setfile cfilename
-		sample = al_load_sample(cfilename)
+		sample = gl_load_sample(cfilename)
 		csoundfile = cfilename
 
 	func playSound
 		if not playing
-			sampleid = al_new_allegro_sample_id()
-			al_play_sample(sample, 1.0, 0.0,1.0,ALLEGRO_PLAYMODE_LOOP,sampleid)
+			sampleid = gl_new_glib_sample_id()
+			if once
+				gl_play_sample(sample, 1.0, 0.0,1.0,GL_PLAYMODE_ONCE,sampleid)	
+			else
+				gl_play_sample(sample, 1.0, 0.0,1.0,GL_PLAYMODE_LOOP,sampleid)
+			ok
 			playing = true
 		ok
 
 	func delete
 		if playing 
 			playing = false
-			al_destroy_allegro_sample_id(sampleid)
-			al_destroy_sample(sample)	
+			gl_destroy_glib_sample_id(sampleid)
+			gl_destroy_sample(sample)	
 		ok
+
+Class Map from Sprite
+
+	aMap = []
+	aImages = []
+	aPImages = []
+	BlockWidth = 32
+	BlockHeight = 32
+	Animate = false
+	width = 800
+	height = 600
+
+	lbraceend = true
+
+	func braceend
+		if lbraceend 
+			lbraceend = false
+			loadimages()
+		ok
+
+	func loadimages
+		for t in aImages
+			aPImages + oresources.loadimage(t)
+			image = aPImages[len(aPImages)]
+			gl_convert_mask_to_alpha(image,transparentcolor)
+		next
+
+	func draw
+		nX = X
+		nY = Y
+		for y1 in aMap
+			for x1 in y1
+				if  x1 != 0 
+					image = aPImages[x1]	
+					gl_draw_scaled_bitmap(image,0,0,gl_get_bitmap_width(image),
+					gl_get_bitmap_height(image),nX,nY,blockwidth,blockheight,0)
+				ok
+				nX += BlockWidth
+				if nX > SCREEN_W
+					EXIT
+				ok
+			next
+			nY += BlockHeight
+			nX = X
+			if nY > SCREEN_H
+				EXIT
+			ok
+
+		next
+		
+	func animate oGame,oSelf
+		if not state = ""				 		
+				call state(oGame,oSelf) 
+		ok
+
+	func getvalue x1,y1
+		x2 = getcol(x1,y1)
+		y2 = getrow(x1,y1)
+		if y2 > 0 and y2 <= len(aMap)
+			aList = aMap[y2]
+			if x2 > 0 and x2 <= len(aList)
+				return aList[x2]
+			ok
+		ok
+		return 0
+
+	func getcol x1,y1
+		x2 = ceil(((-1*x) + x1)/blockwidth)
+		return x2
+		
+	func getrow x1,y1
+		y2 = ceil(((-1*y) + y1)/blockheight)
+		return y2

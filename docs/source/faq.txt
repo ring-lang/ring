@@ -1,0 +1,155 @@
+================================
+Frequently Asked Questions (FAQ)
+================================
+
+
+What is the philosophy behind data types in Ring?
+=================================================
+
+The Ring programming language is designed to be SMALL. 
+The language provides the basic constructs that you need to do anything!
+One of the goals is to keep the basic constructs simple and small as possible.
+
+Using Lists in Ring you can
+
+* Create Arrays (one data type)
+* Create Lists (Mix of data types)
+* Create Tree (Nested arrays)
+* Use String Index (Looks like Dictionary/Hash Table)
+
+The same principle is applied to Numbers
+
+* You can use the number for int value
+* You can use the number for double value
+* You can use the number for Boolean value (True/False)
+
+The sample principle is applied for Strings
+
+* You can use the string for storing one character 
+* You can use the string for storing text (one or many lines)
+* You can use the string for storing binary data
+* You can use the string for storing date
+* You can use the string for storing time
+* You can use the string for storing NULL values (empty strings)
+
+And we have Object Oriented Support + Operator Overloading where the programmer
+can define new data types and use them as default types defined by the language
+
+So We have
+
+* A small and simple language that someone can pick in little days
+* A fast language that provide primitive types (String – Number – List – Object)
+* A flexible language that can be extended using OOP to add new types according to the application domain
+
+
+What is the goal of including the "Main" function in Ring?
+==========================================================
+
+The main function is very important, you need it when you want to write statements that uses 
+local variables instead of the Global scope.
+
+Example:
+
+.. code-block:: none
+
+	x = 10
+	myfunc()
+	See "X value = " + X  # here i expect that x will be (10)
+        	              # but i will get another value (6) because myfunc() uses x !
+	Func myfunc
+	   for x = 1 to 5
+	       See x + nl
+	   next
+
+Output:
+
+.. code-block:: none
+
+	1
+	2
+	3
+	4
+	5
+	X value = 6
+
+Now using the Main function
+
+.. code-block:: none
+
+	Func Main 
+	   x = 10
+	   myfunc()
+	   See "X value = " + X                         
+
+	Func myfunc
+	   for x = 1 to 5
+	       See x + nl
+	   next
+
+Output
+
+.. code-block:: none
+
+	1
+	2
+	3
+	4
+	5
+	X value = 10
+
+Why the list index start from 1 in Ring?
+========================================
+
+It\’s about how we count in the real world, when we have three apples in our hand
+
+we say 1 2 3 
+
+We don\'t start from 0
+
+The question must be why the other languages start from 0 ?
+
+The answer is, because this is related to the machine and how we deal with values and memory address.
+
+Example
+
+we have array called myarray[5]
+
+In memory : myarray will have an address
+
+The first item will be stored in that address
+
+The second item will come after that address and so on
+
+Now when we need to point to the first item we need the address of myarray
+
+So we type myarray[0] because myarray + 0 result will still point to the first item
+
+for the second item myarray[1] because myarray + 1 result will point to the second item and so on
+
+In Low Level languages or languages near to the machine it\'s good to be like this
+
+But for high level language designed for applications it\’s better to be natural
+
+Example
+
+.. code-block:: none
+
+	mylist = [1,2,3,4,5]
+	for x = 1 to len(mylist)
+		see x + nl
+	next
+
+In the previous example we start from 1 to the length of the array
+if the index starts from 0 we will write
+
+.. code-block:: none
+
+	for x = 0 to len(mylist)-1
+
+or remember the for loop in other languages
+
+.. code-block:: none
+
+	for(x=0 ; x<nMax ; x++ )
+
+You will use the < operator !

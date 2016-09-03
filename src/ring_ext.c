@@ -43,4 +43,8 @@ void ring_vm_extension ( RingState *pRingState )
 	#if RING_VM_DLL
 	ring_vm_dll_loadfunctions(pRingState);
 	#endif
+	/* SQLITE */
+	#if RING_VM_SQLITE
+	ring_vm_sqlite_loadfunctions(pRingState);
+	#endif
 }

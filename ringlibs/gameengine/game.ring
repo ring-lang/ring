@@ -13,9 +13,11 @@ $gameresult = false
 
 $startplay=false
 
+start_playing()
+
 func main
 
-	oGame = New Game 
+	oGame = New Game
 
 	while true
 
@@ -28,18 +30,24 @@ func main
 
 	$startplay=false
 
-	oGame {	
+	oGame {
 		title = "Stars Fighter!"
 		sprite
 		{
 			file = "images/menu1.jpg"
 			x = 0 y=0 width=800 height = 600 scaled = true animate = false
 			keypress = func ogame,oself,nKey {
-				if nkey = key_esc 
+				if nkey = key_esc
 					ogame.shutdown()
-				but nKey = key_space 
-					$startplay=true 
-					ogame.shutdown=true 
+				but nKey = key_space
+					$startplay=true
+					ogame.shutdown=true
+				ok
+			}
+			mouse = func ogame,oself,nType,aMouseList {
+				if nType = GE_MOUSE_UP
+					$startplay=true
+					ogame.shutdown=true
 				ok
 			}
 		}
@@ -84,10 +92,10 @@ func main
 			playSound()
 		}
 	}
-		
-	if $startplay 
+
+	if $startplay
 		oGame.refresh()
-		playstart(oGame) 		
+		playstart(oGame)
 		oGame.refresh()
 	ok
 
@@ -115,6 +123,8 @@ func play oGame
 
 	oGame
 	{
+		FPS = 40
+		FixedFPS = 80
 		title = "Stars Fighter!"
 		sprite
 		{
@@ -143,6 +153,31 @@ func play oGame
 			type = ge_type_player
 			x = 400 y =400 width=100 height=100
 			animate=false move=true Scaled=true
+			mouse = func ogame,oself,nType,aMouseList {
+
+				if not ( aMouseList[GE_MOUSE_X] >= oSelf.x and aMouseList[GE_MOUSE_X] <= oSelf.x+oSelf.width and
+					aMouseList[GE_MOUSE_Y] >= oself.y and aMouseList[GE_MOUSE_Y] <= oSelf.y+oSelf.height )
+
+					if nType = GE_MOUSE_DOWN
+						if aMouseList[1] < oSelf.X  # left
+							oSelf.X -= 100
+						else
+							oSelf.X += 100
+						ok
+						if aMouseList[2] < oSelf.Y  # up
+							oSelf.Y -= 100
+						else
+							oSelf.Y += 100
+						ok
+					ok
+
+				else
+					if nType = GE_MOUSE_UP
+						cFunc = oself.keypress
+						call cFunc(oGame,oSelf,Key_Space)
+					ok
+				ok
+			}
 			keypress = func oGame,oself,nkey {
 				if nkey = key_space
 					ogame {
@@ -350,7 +385,7 @@ func showfire oGame,nX,nY
 			nStep = 3
 			transparent = true
 			state = func oGame,oSelf {
-				oSelf { 
+				oSelf {
 					nStep--
 					if nStep = 0
 						nStep = 3

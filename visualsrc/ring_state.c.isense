@@ -28,6 +28,8 @@ Type: unsigned int
 nPrintRules : 1
 Type: unsigned int
 nPrintInstruction : 1
+Type: unsigned int
+nGenObj : 1
 Type: int
 argc
 Type: char  **
@@ -46,6 +48,7 @@ Type: RingState
 Mark: ->
 RingState *
 RING_STATE_CHECKPRINTRULES
+RING_VERSION
 GetCurrentDir
 GetCurrentDir
 ring_state_new
@@ -70,7 +73,7 @@ Type: List *
 pList
 ring_state_main
 Type: int
-x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC
+x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nObj
 Type: const char *
 cStr
 ring_state_runfile
@@ -86,6 +89,9 @@ Type: clock_t
 myclock
 segfaultaction
 ring_issourcefile
+Type: int
+x
+ring_isobjectfile
 Type: int
 x
 ring_fexists

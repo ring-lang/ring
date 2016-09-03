@@ -1,0 +1,114 @@
+=======================================
+Demo Project - Game Engine for 2D Games
+=======================================
+
+In this chapter we will learn about using the different programming paradigm in the same project.
+
+We will create a simple Game Engine for 2D Games.
+
+Project Layers
+==============
+
+The project contains the next layers
+
+* Games Layer (Here we will use declarative programming)
+* Game Engine Classes (Here we will use the Object-Oriented Programming paradigm)
+* Interface to graphics library (Here we will use procedural programming)
+* Graphics Library bindings (Here we have RingAllegro and RingLibSDL)
+
+Graphics Library bindings
+=========================
+
+We already have RingAllegro to use the Allegro game programming library and we have RingLibSDL
+to use the LibSDL game programming library.
+
+Both of RingAllegro and RingLibSDL are created using the C language with the help of the 
+Ring code generator for extensions.
+
+Each of them is over 10,000 lines of C code which is generated after writing simple configuration
+files (That are processed by the code generator).
+
+Each configuration file determines the functions names, structures information and constants
+then the generator process this configuration file to produce the C code and the library
+that can be loaded from Ring code.
+
+Using RingAllegro and RingLibSDL is very similar to using Allegro and LibSDL from C code where
+you have the same functions but we can build on that using the Ring language features
+
+* RingAllegro Source Code : https://github.com/ring-lang/ring/tree/master/extensions/ringallegro
+* RingLibSDL Source Code : https://github.com/ring-lang/ring/tree/master/extensions/ringsdl
+
+
+Interface to graphics library
+=============================
+
+In this layer we have gl_allegro.ring and gl_libsdl.ring
+
+Each library provides the same functions to be used with interacting with the Graphics Library.
+
+This layer hides the details and the difference between RingAllegro and RingLibSDL.
+
+You have the same functions, Just use it and you can switch between Allegro and LibSDL at anytime.
+
+Why ?
+
+Allegro is very simple, we can use it to quickly create 2D games for Windows, Linux and MacOS X.
+
+In Ring 1.0 we started by supporting Allegro.
+
+Also LibSDL is very powerful and popular, very easy to use for Mobile Development.
+
+Ring 1.1 comes with support for LibSDL so we can quickly create games for Mobile.
+
+.. note:: We can use just one library for Desktop and Mobile development.
+
+* gl_allegro.ring source code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gl_allegro.ring
+* gl_libsdl.ring source code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gl_libsdl.ring
+
+Game Engine Classes
+===================
+
+The Engine comes with the next classes
+
+* GameBase class
+* Resources class
+* Game class
+* GameObject class
+* Sprite class
+* Text class
+* Animate class
+* Sound class
+* Map class
+
+And we have the start_playing() function to start the engine event loop.
+
+* Source Code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gameengine.ring
+
+Games Layer
+===========
+
+In this layer we create our games using the Game Engine classes
+
+The classes are designed to be used through Declarative Programming.
+
+In our games we will use the next classes
+
+* Game class
+* Sprite class
+* Text class
+* Animate class
+* Sound class
+* Map class
+
+.. note:: Other classes in the engine are for internal use by the engine.
+
+We will introduce three examples
+
+* Stars Fighter Game
+* Flappy Bird 3000 Game
+* Super Man 2016 Game
+
+
+
+
+

@@ -1,0 +1,1096 @@
+<code>
+/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+#include "SDL.h"
+#include "SDL_syswm.h"
+#include "SDL_image.h"
+#include "SDL_ttf.h"
+#include "SDL_mixer.h"
+#include "SDL_net.h"
+</code>
+
+<runcode>
+aNumberTypes + "Uint32"
+aNumberTypes + "SDL_bool"
+aNumberTypes + "Uint16"
+aNumberTypes + "Uint8"
+aNumberTypes + "Sint16"
+aNumberTypes + "size_t"
+aNumberTypes + "Uint64"
+aEnumTypes + "SDL_HintPriority"
+aEnumTypes + "SDL_LOG_CATEGORY"
+aEnumTypes + "SDL_LogPriority"
+aEnumTypes + "SDL_AssertState"
+aEnumTypes + "SDL_BlendMode"
+aEnumTypes + "SDL_GLattr"
+aEnumTypes + "SDL_GLcontextFlag"
+aEnumTypes + "SDL_GLprofile"
+aEnumTypes + "SDL_HitTestResult"
+aEnumTypes + "SDL_MessageBoxButtonFlags"
+aEnumTypes + "SDL_MessageBoxColorType"
+aEnumTypes + "SDL_MessageBoxFlags"
+aEnumTypes + "SDL_WindowEventID"
+aEnumTypes + "SDL_WindowFlags"
+aEnumTypes + "SDL_RendererFlags"
+aEnumTypes + "SDL_RendererFlip"
+aEnumTypes + "SDL_TextureAccess"
+aEnumTypes + "SDL_TextureModulate"
+aEnumTypes + "SDL_PixelFormatEnum"
+aEnumTypes + "SDL_SYSWM_TYPE"
+aEnumTypes + "SDL_EventType"
+aEnumTypes + "SDL_WindowEventID"
+aEnumTypes + "SDL_Keycode"
+aEnumTypes + "SDL_Keymod"
+aEnumTypes + "SDL_Scancode"
+aEnumTypes + "SDL_JoystickPowerLevel"
+aEnumTypes + "SDL_GameControllerAxis"
+aEnumTypes + "SDL_GameControllerButton"
+aEnumTypes + "SDL_AudioFormat"
+aEnumTypes + "SDL_AudioStatus"
+aEnumTypes + "SDL_PowerState"
+</runcode>
+
+<funcstart>
+sdl
+</funcstart>
+
+<struct>
+SDL_assert_data
+SDL_version {major,minor,patch}
+SDL_DisplayMode
+SDL_MessageBoxButtonData
+SDL_MessageBoxColor
+SDL_MessageBoxColorScheme
+SDL_MessageBoxData
+SDL_RendererInfo
+SDL_Color {r,g,b}
+SDL_Palette
+SDL_PixelFormat
+SDL_Point {x,y}
+SDL_Rect {x,y,w,h}
+SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked,void *lock_data}
+SDL_SysWMinfo
+SDL_SysWMmsg
+SDL_ControllerAxisEvent {type,timestamp,which,axis,value}
+SDL_ControllerButtonEvent
+SDL_ControllerDeviceEvent
+SDL_DollarGestureEvent {type,timestamp,touchId,gestureId,numFingers,error,x,y}
+SDL_DropEvent {type,timestamp,char *file}
+SDL_Event {type,key.keysym.sym,button.type,button.state,button.x,button.y,button.button, motion.type, motion.state,motion.x,motion.y,motion.xrel,motion.yrel}
+SDL_TouchFingerEvent {type,timestamp,touchId,fingerId,x,y,dx,dy,pressure}
+SDL_Finger
+SDL_JoyAxisEvent {type,timestamp,which,axis,value}
+SDL_JoyBallEvent
+SDL_JoyButtonEvent
+SDL_JoyDeviceEvent
+SDL_JoyHatEvent
+SDL_KeyboardEvent {type,timestamp,windowID,state,repeat}
+SDL_MouseButtonEvent {type,timestamp,windowID,which,button,state,clicks,x,y}
+SDL_MouseMotionEvent {type,timestamp,windowID,which,state,x,y,xrel,yrel}
+SDL_MouseWheelEvent {type,timestamp,windowID,which,x,y}
+SDL_MultiGestureEvent
+SDL_QuitEvent
+SDL_SysWMEvent
+SDL_TextEditingEvent {type,timestamp,windowID,start,length}
+SDL_TextInputEvent {type,timestamp,windowID}
+SDL_UserEvent {type,timestamp,windowID,code,void *data1,void *data2}
+SDL_WindowEvent {type,timestamp,windowID,event,data1,data2}
+SDL_Keysym
+SDL_HapticCondition
+SDL_HapticConstant
+SDL_HapticCustom
+SDL_HapticDirection
+SDL_HapticEffect
+SDL_HapticLeftRight
+SDL_HapticPeriodic
+SDL_HapticRamp
+SDL_AudioCVT
+SDL_AudioSpec
+SDL_RWops
+Mix_Chunk
+Mix_MusicType
+Mix_Fading
+IPaddress {host,port}
+TCPsocket
+UDPsocket
+UDPpacket {channel, Uint8 *data, len, maxlen, status}
+SDLNet_SocketSet
+SDLNet_GenericSocket
+</struct>
+
+<constant>
+MIX_DEFAULT_FORMAT
+SDL_QUIT
+SDL_BUTTON_LEFT
+SDL_BUTTON_MIDDLE
+SDL_BUTTON_RIGHT
+SDL_PRESSED
+SDL_RELEASED
+SDL_APP_TERMINATING
+SDL_APP_LOWMEMORY
+SDL_APP_WILLENTERBACKGROUND
+SDL_APP_DIDENTERBACKGROUND
+SDL_APP_WILLENTERFOREGROUND
+SDL_APP_DIDENTERFOREGROUND
+SDL_WINDOWEVENT
+SDL_SYSWMEVENT
+SDL_KEYDOWN
+SDL_KEYUP
+SDL_TEXTEDITING
+SDL_TEXTINPUT
+SDL_MOUSEMOTION
+SDL_MOUSEBUTTONDOWN
+SDL_MOUSEBUTTONUP
+SDL_MOUSEWHEEL
+SDL_JOYAXISMOTION
+SDL_JOYBALLMOTION
+SDL_JOYHATMOTION
+SDL_JOYBUTTONDOWN
+SDL_JOYBUTTONUP
+SDL_JOYDEVICEADDED
+SDL_JOYDEVICEREMOVED
+SDL_CONTROLLERAXISMOTION
+SDL_CONTROLLERBUTTONDOWN
+SDL_CONTROLLERBUTTONUP
+SDL_CONTROLLERDEVICEADDED
+SDL_CONTROLLERDEVICEREMOVED
+SDL_CONTROLLERDEVICEREMAPPED
+SDL_FINGERDOWN
+SDL_FINGERUP
+SDL_FINGERMOTION
+SDL_DOLLARGESTURE
+SDL_DOLLARRECORD
+SDL_MULTIGESTURE
+SDL_CLIPBOARDUPDATE
+SDL_DROPFILE
+SDL_RENDER_TARGETS_RESET
+SDL_USEREVENT
+SDL_LASTEVENT
+SDLK_LEFT
+SDLK_RIGHT
+SDLK_UP
+SDLK_DOWN
+SDLK_SPACE
+SDLK_ESCAPE
+SDL_NET_MAJOR_VERSION
+SDL_NET_MINOR_VERSION
+SDL_NET_PATCHLEVEL
+INADDR_ANY
+INADDR_NONE
+INADDR_BROADCAST
+SDLNET_MAX_UDPCHANNELS
+SDLNET_MAX_UDPADDRESSES
+</constant>
+
+<register>
+void SDL_RenderCopy2(SDL_Renderer *,SDL_Texture *)
+</register>
+
+<code>
+RING_FUNC(ring_SDL_RenderCopy2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SDL_RenderCopy((SDL_Renderer *) RING_API_GETCPOINTER(1,"SDL_Renderer"),(SDL_Texture *) RING_API_GETCPOINTER(2,"SDL_Texture"),NULL,NULL);
+}
+</code>
+
+void SDL_Delay(int)
+
+<comment>
+Initialization and Shutdown
+</comment>
+
+void SDL_Init(int)
+int SDL_InitSubSystem(Uint32 flags)
+void SDL_Quit(void)
+void SDL_QuitSubSystem(Uint32 flags)
+void SDL_SetMainReady(void)
+Uint32 SDL_WasInit(Uint32 flags)
+<comment>
+int SDL_WinRTRunApp(MainFunction mainFunction, void *reserved)
+</comment>
+
+<comment>
+Configuration Variables
+</comment>
+
+<comment>
+void SDL_AddHintCallback(const char *name,SDL_HintCallback callback, void *userdata)
+</comment>
+void SDL_ClearHints(void)
+<comment>
+void SDL_DelHintCallback(const char *name, SDL_HintCallback callback,void *userdata)
+</comment>
+const char *SDL_GetHint(const char * name)
+SDL_bool SDL_SetHint(const char *name,const char *value)
+SDL_bool SDL_SetHintWithPriority(const char *name,const char *value,SDL_HintPriority priority)
+
+<comment>
+Error Handling
+</comment>
+
+void SDL_ClearError(void)
+const char *SDL_GetError(void)
+<comment>
+int SDL_SetError(const char *fmt)
+</comment>
+
+<comment>
+Log Handling
+</comment>
+
+<comment>
+void SDL_Log(const char *fmt)
+void SDL_LogCritical(int category,const char *fmt)
+void SDL_LogDebug(int category,const char *fmt)
+void SDL_LogError(int category,const char * fmt)
+</comment>
+<comment>
+void SDL_LogGetOutputFunction(SDL_LogOutputFunction *callback,void **userdata)
+</comment>
+SDL_LogPriority SDL_LogGetPriority(int category)
+<comment>
+void SDL_LogInfo(int category, const char *fmt)
+void SDL_LogMessage(int category,SDL_LogPriority priority,const char *fmt)
+</comment>
+<comment>
+void SDL_LogMessageV(int category,SDL_LogPriority priority, const char *fmt,va_list ap)
+</comment>
+void SDL_LogResetPriorities(void)
+void SDL_LogSetAllPriority(SDL_LogPriority priority)
+<comment>
+void SDL_LogSetOutputFunction(SDL_LogOutputFunction callback,void *userdata)
+</comment>
+void SDL_LogSetPriority(int category,SDL_LogPriority priority)
+<comment>
+void SDL_LogVerbose(int category, const char *fmt)
+void SDL_LogWarn(int category,const char *fmt)
+</comment>
+
+<comment>
+Assertions
+</comment>
+
+<comment>
+SDL_AssertionHandler SDL_GetAssertionHandler(void **puserdata)
+</comment>
+SDL_AssertData *SDL_GetAssertionReport(void)
+SDL_AssertionHandler SDL_GetDefaultAssertionHandler(void)
+void SDL_ResetAssertionReport(void)
+void SDL_SetAssertionHandler(SDL_AssertionHandler handler,void *userdata)
+void SDL_TriggerBreakpoint(void)
+void SDL_assert(int)
+void SDL_assert_paranoid(int)
+void SDL_assert_release(int)
+
+<comment>
+Querying SDL Version
+</comment>
+
+const char * SDL_GetRevision(void)
+int SDL_GetRevisionNumber(void)
+void SDL_GetVersion(SDL_version *ver)
+
+<comment>
+SDL_COMPILEDVERSION
+SDL_REVISION
+SDL_VERSION
+SDL_VERSIONNUM
+SDL_VERSION_ATLEAST
+</comment>
+
+<comment>
+Display and Window Management
+</comment>
+
+SDL_Window *SDL_CreateWindow(const char * title,int x, int y,int w,int h,Uint32 flags)
+<comment>
+int SDL_CreateWindowAndRenderer(int width,int height,Uint32 window_flags,SDL_Window **window,SDL_Renderer **renderer)
+</comment>
+SDL_Window *SDL_CreateWindowFrom(const void *data)
+void SDL_DestroyWindow(SDL_Window *window)
+void SDL_DisableScreenSaver(void)
+void SDL_EnableScreenSaver(void)
+SDL_GLContext SDL_GL_CreateContext(SDL_Window *window)
+void SDL_GL_DeleteContext(SDL_GLContext context)
+SDL_bool SDL_GL_ExtensionSupported(const char *extension)
+int SDL_GL_GetAttribute(SDL_GLattr attr,int *value)
+SDL_GLContext SDL_GL_GetCurrentContext(void)
+SDL_Window *SDL_GL_GetCurrentWindow(void)
+void SDL_GL_GetDrawableSize(SDL_Window *window,int *w,int *h)
+void *SDL_GL_GetProcAddress(const char *proc)
+int SDL_GL_GetSwapInterval(void)
+int SDL_GL_LoadLibrary(const char *path)
+int SDL_GL_MakeCurrent(SDL_Window *window,SDL_GLContext context)
+void SDL_GL_ResetAttributes(void)
+int SDL_GL_SetAttribute(SDL_GLattr attr,int value)
+int SDL_GL_SetSwapInterval(int interval)
+void SDL_GL_SwapWindow(SDL_Window *window)
+void SDL_GL_UnloadLibrary(void)
+SDL_DisplayMode *SDL_GetClosestDisplayMode(int displayIndex,SDL_DisplayMode *mode,SDL_DisplayMode *closest)
+int SDL_GetCurrentDisplayMode(int displayIndex,SDL_DisplayMode *mode)
+const char *SDL_GetCurrentVideoDriver(void)
+int SDL_GetDesktopDisplayMode(int displayIndex,SDL_DisplayMode *mode)
+int SDL_GetDisplayBounds(int displayIndex,SDL_Rect *rect)
+<comment>
+int SDL_GetDisplayDPI(int displayIndex,float *ddpi,float *hdpi,float * vdpi)
+<comment>
+int SDL_GetDisplayMode(int displayIndex,int modeIndex,SDL_DisplayMode* mode)
+const char *SDL_GetDisplayName(int displayIndex)
+<comment>
+int SDL_GetDisplayUsableBounds(int displayIndex,SDL_Rect *rect)
+SDL_Window *SDL_GetGrabbedWindow(void)
+</comment>
+int SDL_GetNumDisplayModes(int displayIndex)
+int SDL_GetNumVideoDisplays(void)
+int SDL_GetNumVideoDrivers(void)
+const char * SDL_GetVideoDriver(int index)
+<comment>
+int SDL_GetWindowBordersSize(SDL_Window *window,int *top,int *left,int *bottom,int *right)
+</comment>
+float SDL_GetWindowBrightness(SDL_Window *window)
+void *SDL_GetWindowData(SDL_Window *window,const char *name)
+int SDL_GetWindowDisplayIndex(SDL_Window *window)
+int SDL_GetWindowDisplayMode(SDL_Window *window,SDL_DisplayMode *mode)
+Uint32 SDL_GetWindowFlags(SDL_Window *window)
+SDL_Window *SDL_GetWindowFromID(Uint32 id)
+int SDL_GetWindowGammaRamp(SDL_Window *window,Uint16 *red,Uint16 *green,Uint16 *blue)
+SDL_bool SDL_GetWindowGrab(SDL_Window *window)
+Uint32 SDL_GetWindowID(SDL_Window* window)
+void SDL_GetWindowMaximumSize(SDL_Window *window,int *w,int *h)
+void SDL_GetWindowMinimumSize(SDL_Window *window,int *w,int *h)
+<comment>
+int SDL_GetWindowOpacity(SDL_Window *window,float *opacity)'
+</comment>
+Uint32 SDL_GetWindowPixelFormat(SDL_Window *window)
+void SDL_GetWindowPosition(SDL_Window *window,int *x,int *y)
+void SDL_GetWindowSize(SDL_Window *window,int *w,int *h)
+SDL_Surface *SDL_GetWindowSurface(SDL_Window *window)
+const char *SDL_GetWindowTitle(SDL_Window *window)
+<comment>
+SDL_bool SDL_GetWindowWMInfo(SDL_Window *window,SDL_SysWMinfo *info)
+</comment>
+void SDL_HideWindow(SDL_Window *window)
+SDL_bool SDL_IsScreenSaverEnabled(void)
+void SDL_MaximizeWindow(SDL_Window *window)
+void SDL_MinimizeWindow(SDL_Window *window)
+void SDL_RaiseWindow(SDL_Window *window)
+void SDL_RestoreWindow(SDL_Window *window)
+void SDL_SetWindowBordered(SDL_Window *window,SDL_bool bordered)
+int SDL_SetWindowBrightness(SDL_Window *window,float brightness)
+void *SDL_SetWindowData(SDL_Window *window,const char *name,void *userdata)
+int SDL_SetWindowDisplayMode(SDL_Window *window,const SDL_DisplayMode *mode)
+int SDL_SetWindowFullscreen(SDL_Window *window,Uint32 flags)
+int SDL_SetWindowGammaRamp(SDL_Window *window,const Uint16 *red,const Uint16 *green,const Uint16* blue)
+void SDL_SetWindowGrab(SDL_Window *window,SDL_bool grabbed)
+<comment>
+int SDL_SetWindowHitTest(SDL_Window *window,SDL_HitTest callback,void *callback_data)
+</comment>
+void SDL_SetWindowIcon(SDL_Window *window,SDL_Surface *icon)
+<comment>
+int SDL_SetWindowInputFocus(SDL_Window *window)
+</comment>
+void SDL_SetWindowMaximumSize(SDL_Window *window,int max_w,int max_h)
+void SDL_SetWindowMinimumSize(SDL_Window* window,int min_w,int min_h)
+<comment>
+int SDL_SetWindowModalFor(SDL_Window * modal_window,SDL_Window * parent_window)
+int SDL_SetWindowOpacity(SDL_Window * window,float opacity)
+</comment>
+void SDL_SetWindowPosition(SDL_Window *window,int x,int y)
+void SDL_SetWindowSize(SDL_Window *window,int w,int h)
+void SDL_SetWindowTitle(SDL_Window *window,const char *title)
+int SDL_ShowMessageBox(const SDL_MessageBoxData *messageboxdata,int *buttonid)
+int SDL_ShowSimpleMessageBox(Uint32 flags,const char *title,const char *message,SDL_Window *window)
+void SDL_ShowWindow(SDL_Window *window)
+int SDL_UpdateWindowSurface(SDL_Window *window)
+int SDL_UpdateWindowSurfaceRects(SDL_Window *window,const SDL_Rect *rects,int numrects)
+int SDL_VideoInit(const char *driver_name)
+void SDL_VideoQuit(void)
+
+<comment>
+2D Accelerated Rendering
+</comment>
+
+SDL_Renderer *SDL_CreateRenderer(SDL_Window *window,int index,Uint32 flags)
+SDL_Renderer *SDL_CreateSoftwareRenderer(SDL_Surface *surface)
+SDL_Texture *SDL_CreateTexture(SDL_Renderer *renderer,Uint32 format,int access,int w,int h)
+SDL_Texture *SDL_CreateTextureFromSurface(SDL_Renderer *renderer,SDL_Surface *surface)
+<comment>
+int SDL_CreateWindowAndRenderer(int width,int height,Uint32 window_flags,SDL_Window **window,SDL_Renderer **renderer)
+</comment>
+void SDL_DestroyRenderer(SDL_Renderer *renderer)
+void SDL_DestroyTexture(SDL_Texture *texture)
+int SDL_GL_BindTexture(SDL_Texture *texture,float *texw,float *texh)
+int SDL_GL_UnbindTexture(SDL_Texture *texture)
+int SDL_GetNumRenderDrivers(void)
+int SDL_GetRenderDrawBlendMode(SDL_Renderer *renderer,SDL_BlendMode *blendMode)
+int SDL_GetRenderDrawColor(SDL_Renderer *renderer,Uint8 *r,Uint8 *g,Uint8 *b,Uint8 *a)
+int SDL_GetRenderDriverInfo(int index,SDL_RendererInfo *info)
+SDL_Texture *SDL_GetRenderTarget(SDL_Renderer *renderer)
+SDL_Renderer *SDL_GetRenderer(SDL_Window *window)
+int SDL_GetRendererInfo(SDL_Renderer *renderer,SDL_RendererInfo *info)
+int SDL_GetRendererOutputSize(SDL_Renderer *renderer,int *w,int *h)
+int SDL_GetTextureAlphaMod(SDL_Texture *texture,Uint8 *alpha)
+int SDL_GetTextureBlendMode(SDL_Texture *texture,SDL_BlendMode *blendMode)
+int SDL_GetTextureColorMod(SDL_Texture *texture,Uint8 *r,Uint8 *g,Uint8 *b)
+int SDL_LockTexture(SDL_Texture *texture,const SDL_Rect *rect,void **pixels,int *pitch)
+int SDL_QueryTexture(SDL_Texture *texture,int *format,int *access,int *w,int *h)
+int SDL_RenderClear(SDL_Renderer *renderer)
+int SDL_RenderCopy(SDL_Renderer *renderer,SDL_Texture *texture,const SDL_Rect *srcrect,const SDL_Rect *dstrect)
+int SDL_RenderCopyEx(SDL_Renderer *renderer,SDL_Texture *texture,const SDL_Rect *srcrect,const SDL_Rect *dstrect,const double angle,const SDL_Point *center,const SDL_RendererFlip flip)
+int SDL_RenderDrawLine(SDL_Renderer *renderer,int x1,int y1,int x2,int y2)
+int SDL_RenderDrawLines(SDL_Renderer *renderer,const SDL_Point *points,int count)
+int SDL_RenderDrawPoint(SDL_Renderer *renderer,int x, int y)
+int SDL_RenderDrawPoints(SDL_Renderer *renderer,const SDL_Point *points,int count)
+int SDL_RenderDrawRect(SDL_Renderer *renderer,const SDL_Rect *rect)
+int SDL_RenderDrawRects(SDL_Renderer *renderer,const SDL_Rect *rects,int count)
+int SDL_RenderFillRect(SDL_Renderer *renderer,const SDL_Rect *rect)
+int SDL_RenderFillRects(SDL_Renderer *renderer,const SDL_Rect* rects,int count)
+void SDL_RenderGetClipRect(SDL_Renderer *renderer,SDL_Rect *rect)
+<comment>
+SDL_bool SDL_RenderGetIntegerScale(SDL_Renderer *renderer)
+</comment>
+void SDL_RenderGetLogicalSize(SDL_Renderer *renderer,int *w,int *h)
+void SDL_RenderGetScale(SDL_Renderer *renderer,float *scaleX,float *scaleY)
+void SDL_RenderGetViewport(SDL_Renderer *renderer,SDL_Rect *rect)
+<comment>
+SDL_bool SDL_RenderIsClipEnabled(SDL_Renderer *renderer)
+</comment>
+void SDL_RenderPresent(SDL_Renderer *renderer)
+int SDL_RenderReadPixels(SDL_Renderer *renderer,const SDL_Rect *rect,Uint32 format,void *pixels,int pitch)
+int SDL_RenderSetClipRect(SDL_Renderer *renderer,const SDL_Rect *rect)
+<comment>
+int SDL_RenderSetIntegerScale(SDL_Renderer *renderer,SDL_bool enable)
+</comment>
+int SDL_RenderSetLogicalSize(SDL_Renderer *renderer,int w,int h)
+int SDL_RenderSetScale(SDL_Renderer *renderer,float scaleX,float scaleY)
+int SDL_RenderSetViewport(SDL_Renderer *renderer,const SDL_Rect *rect)
+SDL_bool SDL_RenderTargetSupported(SDL_Renderer *renderer)
+int SDL_SetRenderDrawBlendMode(SDL_Renderer *renderer,SDL_BlendMode blendMode)
+int SDL_SetRenderDrawColor(SDL_Renderer *renderer,Uint8 r,Uint8 g,Uint8 b,Uint8 a)
+int SDL_SetRenderTarget(SDL_Renderer *renderer,SDL_Texture *texture)
+int SDL_SetTextureAlphaMod(SDL_Texture *texture,Uint8 alpha)
+int SDL_SetTextureBlendMode(SDL_Texture *texture,SDL_BlendMode blendMode)
+int SDL_SetTextureColorMod(SDL_Texture *texture,Uint8 r,Uint8 g,Uint8 b)
+void SDL_UnlockTexture(SDL_Texture *texture)
+int SDL_UpdateTexture(SDL_Texture *texture,const SDL_Rect *rect,const void*pixels,int pitch)
+int SDL_UpdateYUVTexture(SDL_Texture *texture,const SDL_Rect *rect,const Uint8 *Yplane,int Ypitch,const Uint8 *Uplane,int Upitch,const Uint8 *Vplane,int Vpitch)
+
+<comment>
+Pixel Formats and Conversion Routines
+</comment>
+
+SDL_PixelFormat *SDL_AllocFormat(Uint32 pixel_format)
+SDL_Palette *SDL_AllocPalette(int ncolors)
+void SDL_CalculateGammaRamp(float gamma,Uint16 *ramp)
+void SDL_FreeFormat(SDL_PixelFormat *format)
+void SDL_FreePalette(SDL_Palette *palette)
+const char *SDL_GetPixelFormatName(Uint32 format)
+void SDL_GetRGB(Uint32 pixel,const SDL_PixelFormat* format,Uint8 *r,Uint8 *g,Uint8 *b)
+void SDL_GetRGBA(Uint32 pixel,const SDL_PixelFormat* format,Uint8 *r,Uint8 *g,Uint8 *b,Uint8 *a)
+Uint32 SDL_MapRGB(const SDL_PixelFormat* format,Uint8 r,Uint8 g, Uint8 b)
+Uint32 SDL_MapRGBA(const SDL_PixelFormat* format,Uint8 r,Uint8 g, Uint8 b, Uint8 a)
+Uint32 SDL_MasksToPixelFormatEnum(int bpp,Uint32 Rmask,Uint32 Gmask,Uint32 Bmask,Uint32 Amask)
+SDL_bool SDL_PixelFormatEnumToMasks(Uint32 format,int *bpp,Uint32 *Rmask,Uint32 *Gmask,Uint32 *Bmask,Uint32 *Amask)
+int SDL_SetPaletteColors(SDL_Palette *palette,const SDL_Color *colors,int firstcolor,int ncolors)
+int SDL_SetPixelFormatPalette(SDL_PixelFormat *format,SDL_Palette *palette)
+
+<comment>
+Rectangle Functions
+</comment>
+
+SDL_bool SDL_EnclosePoints(const SDL_Point* points,int count,const SDL_Rect *clip,SDL_Rect *result)
+SDL_bool SDL_HasIntersection(const SDL_Rect *A,const SDL_Rect *B)
+SDL_bool SDL_IntersectRect(const SDL_Rect *A,const SDL_Rect *B,SDL_Rect *result)
+SDL_bool SDL_IntersectRectAndLine(const SDL_Rect *rect,int *X1,int *Y1,int *X2,int *Y2)
+<comment>
+SDL_bool SDL_PointInRect(const SDL_Point *p,const SDL_Rect *r)
+</comment>
+SDL_bool SDL_RectEmpty(const SDL_Rect *r)
+SDL_bool SDL_RectEquals(const SDL_Rect *a,const SDL_Rect *b)
+void SDL_UnionRect(const SDL_Rect *A,const SDL_Rect *B,SDL_Rect *result)
+
+<comment>
+Surface Creation and Simple Drawing
+</comment>
+
+int SDL_BlitScaled(SDL_Surface *src,const SDL_Rect *srcrect,SDL_Surface *dst,SDL_Rect *dstrect)
+int SDL_BlitSurface(SDL_Surface *src,const SDL_Rect* srcrect,SDL_Surface *dst,SDL_Rect *dstrect)
+int SDL_ConvertPixels(int width,int height,Uint32 src_format,const void *src,int src_pitch,Uint32 dst_format,void *dst,int dst_pitch)
+SDL_Surface *SDL_ConvertSurface(SDL_Surface *src,const SDL_PixelFormat *fmt,Uint32 flags)
+SDL_Surface *SDL_ConvertSurfaceFormat(SDL_Surface *src,Uint32 pixel_format,Uint32 flags)
+SDL_Surface *SDL_CreateRGBSurface(Uint32 flags,int width,int height,int depth,Uint32 Rmask,Uint32 Gmask,Uint32 Bmask,Uint32 Amask)
+SDL_Surface* SDL_CreateRGBSurfaceFrom(void *pixels,int width,int height,int depth,int pitch,Uint32 Rmask,Uint32 Gmask,Uint32 Bmask,Uint32 Amask)
+int SDL_FillRect(SDL_Surface *dst,const SDL_Rect *rect,Uint32 color)
+int SDL_FillRects(SDL_Surface *dst,const SDL_Rect *rects,int count,Uint32 color)
+void SDL_FreeSurface(SDL_Surface *surface)
+void SDL_GetClipRect(SDL_Surface *surface,SDL_Rect *rect)
+int SDL_GetColorKey(SDL_Surface *surface,Uint32 *key)
+int SDL_GetSurfaceAlphaMod(SDL_Surface *surface,Uint8 *alpha)
+int SDL_GetSurfaceBlendMode(SDL_Surface *surface,SDL_BlendMode *blendMode)
+int SDL_GetSurfaceColorMod(SDL_Surface *surface,Uint8 *r,Uint8 *g,Uint8 *b)
+SDL_Surface *SDL_LoadBMP(const char *file)
+SDL_Surface *SDL_LoadBMP_RW(SDL_RWops *src,int freesrc)
+int SDL_LockSurface(SDL_Surface *surface)
+int SDL_LowerBlit(SDL_Surface *src,SDL_Rect *srcrect,SDL_Surface *dst,SDL_Rect *dstrect)
+int SDL_LowerBlitScaled(SDL_Surface *src,SDL_Rect *srcrect,SDL_Surface *dst,SDL_Rect *dstrect)
+SDL_bool SDL_MUSTLOCK(SDL_Surface *surface)
+int SDL_SaveBMP(SDL_Surface *surface,const char *file)
+int SDL_SaveBMP_RW(SDL_Surface *surface,SDL_RWops *dst,int freedst)
+SDL_bool SDL_SetClipRect(SDL_Surface *surface,const SDL_Rect *rect)
+int SDL_SetColorKey(SDL_Surface *surface,int flag,Uint32 key)
+int SDL_SetSurfaceAlphaMod(SDL_Surface *surface,Uint8 alpha)
+int SDL_SetSurfaceBlendMode(SDL_Surface *surface,SDL_BlendMode blendMode)
+int SDL_SetSurfaceColorMod(SDL_Surface *surface,Uint8 r,Uint8 g,Uint8 b)
+int SDL_SetSurfacePalette(SDL_Surface *surface,SDL_Palette *palette)
+int SDL_SetSurfaceRLE(SDL_Surface *surface,int flag)
+void SDL_UnlockSurface(SDL_Surface* surface)
+
+<comment>
+Platform-specific Window Management
+</comment>
+
+SDL_bool SDL_GetWindowWMInfo(SDL_Window *window,SDL_SysWMinfo *info)
+
+<comment>
+Clipboard Handling
+</comment>
+
+char *SDL_GetClipboardText(void)
+SDL_bool SDL_HasClipboardText(void)
+int SDL_SetClipboardText(const char *text)
+
+<comment>
+Event Handling
+</comment>
+
+void SDL_AddEventWatch(SDL_EventFilter filter,void *userdata)
+void SDL_DelEventWatch(SDL_EventFilter filter,void *userdata)
+Uint8 SDL_EventState(Uint32 type,int state)
+void SDL_FilterEvents(SDL_EventFilter filter,void *userdata)
+void SDL_FlushEvent(Uint32 type)
+void SDL_FlushEvents(Uint32 minType,Uint32 maxType)
+SDL_bool SDL_GetEventFilter(SDL_EventFilter *filter,void **userdata)
+Uint8 SDL_GetEventState(Uint32 type)
+int SDL_GetNumTouchDevices(void)
+int SDL_GetNumTouchFingers(SDL_TouchID touchID)
+SDL_TouchID SDL_GetTouchDevice(int index)
+SDL_Finger* SDL_GetTouchFinger(SDL_TouchID touchID,int index)
+SDL_bool SDL_HasEvent(Uint32 type)
+SDL_bool SDL_HasEvents(Uint32 minType,Uint32 maxType)
+int SDL_LoadDollarTemplates(SDL_TouchID touchId,SDL_RWops *src)
+int SDL_PeepEvents(SDL_Event *events,int numevents,SDL_eventaction action,Uint32 minType,Uint32 maxType)
+int SDL_PollEvent(SDL_Event *event)
+void SDL_PumpEvents(void)
+int SDL_PushEvent(SDL_Event *event)
+SDL_bool SDL_QuitRequested(void)
+int SDL_RecordGesture(SDL_TouchID touchId)
+Uint32 SDL_RegisterEvents(int numevents)
+int SDL_SaveAllDollarTemplates(SDL_RWops *dst)
+int SDL_SaveDollarTemplate(SDL_GestureID gestureId,SDL_RWops *dst)
+void SDL_SetEventFilter(SDL_EventFilter filter,void *userdata)
+int SDL_WaitEvent(SDL_Event *event)
+int SDL_WaitEventTimeout(SDL_Event *event,int timeout)
+
+<comment>
+Keyboard Support
+</comment>
+
+SDL_Keycode SDL_GetKeyFromName(const char * name)
+SDL_Keycode SDL_GetKeyFromScancode(SDL_Scancode scancode)
+const char * SDL_GetKeyName(SDL_Keycode key)
+SDL_Window* SDL_GetKeyboardFocus(void)
+const Uint8* SDL_GetKeyboardState(int* numkeys)
+SDL_Keymod SDL_GetModState(void)
+SDL_Scancode SDL_GetScancodeFromKey(SDL_Keycode key)
+SDL_Scancode SDL_GetScancodeFromName(const char * name)
+const char * SDL_GetScancodeName(SDL_Scancode scancode)
+SDL_bool SDL_HasScreenKeyboardSupport(void)
+SDL_bool SDL_IsScreenKeyboardShown(SDL_Window* window)
+SDL_bool SDL_IsTextInputActive(void)
+void SDL_SetModState(SDL_Keymod modstate)
+void SDL_SetTextInputRect(SDL_Rect* rect)
+void SDL_StartTextInput(void)
+void SDL_StopTextInput(void)
+
+
+<comment>
+Mouse Support
+</comment>
+
+<comment>
+int SDL_CaptureMouse(SDL_bool enabled)
+</comment>
+SDL_Cursor *SDL_CreateColorCursor(SDL_Surface *surface,int hot_x,int hot_y)
+SDL_Cursor *SDL_CreateCursor(const Uint8 *data,const Uint8 *mask,int w,int h,int hot_x,int hot_y)
+void SDL_FreeCursor(SDL_Cursor *cursor)
+SDL_Cursor *SDL_GetCursor(void)
+SDL_Cursor *SDL_GetDefaultCursor(void)
+<comment>
+Uint32 SDL_GetGlobalMouseState(int *x,int *y)
+</comment>
+SDL_Window *SDL_GetMouseFocus(void)
+Uint32 SDL_GetMouseState(int *x,int * y)
+SDL_bool SDL_GetRelativeMouseMode(void)
+Uint32 SDL_GetRelativeMouseState(int *x,int *y)
+void SDL_SetCursor(SDL_Cursor *cursor)
+int SDL_SetRelativeMouseMode(SDL_bool enabled)
+int SDL_ShowCursor(int toggle)
+<comment>
+int SDL_WarpMouseGlobal(int x,int y)
+</comment>
+void SDL_WarpMouseInWindow(SDL_Window *window,int x,int y)
+
+<comment>
+Joystick Support
+</comment>
+
+void SDL_JoystickClose(SDL_Joystick *joystick)
+<comment>
+SDL_JoystickPowerLevel SDL_JoystickCurrentPowerLevel(SDL_Joystick *joystick)
+SDL_Joystick *SDL_JoystickFromInstanceID(SDL_JoystickID joyid)
+</comment>
+int SDL_JoystickEventState(int state)
+SDL_bool SDL_JoystickGetAttached(SDL_Joystick *joystick)
+Sint16 SDL_JoystickGetAxis(SDL_Joystick *joystick,int axis)
+int SDL_JoystickGetBall(SDL_Joystick *joystick,int ball,int *dx,int *dy)
+Uint8 SDL_JoystickGetButton(SDL_Joystick *joystick,int button)
+SDL_JoystickGUID SDL_JoystickGetDeviceGUID(int device_index)
+SDL_JoystickGUID SDL_JoystickGetGUID(SDL_Joystick *joystick)
+SDL_JoystickGUID SDL_JoystickGetGUIDFromString(const char *pchGUID)
+void SDL_JoystickGetGUIDString(SDL_JoystickGUID guid,char *pszGUID,int cbGUID)
+Uint8 SDL_JoystickGetHat(SDL_Joystick *joystick,int hat)
+SDL_JoystickID SDL_JoystickInstanceID(SDL_Joystick *joystick)
+const char *SDL_JoystickName(SDL_Joystick *joystick)
+const char *SDL_JoystickNameForIndex(int device_index)
+int SDL_JoystickNumAxes(SDL_Joystick *joystick)
+int SDL_JoystickNumBalls(SDL_Joystick *joystick)
+int SDL_JoystickNumButtons(SDL_Joystick *joystick)
+int SDL_JoystickNumHats(SDL_Joystick *joystick)
+SDL_Joystick *SDL_JoystickOpen(int device_index)
+void SDL_JoystickUpdate(void)
+int SDL_NumJoysticks(void)
+
+<comment>
+GameController and Joystick Mapping
+</comment>
+
+int SDL_GameControllerAddMapping(const char *mappingString)
+int SDL_GameControllerAddMappingsFromFile(const char *filename)
+int SDL_GameControllerAddMappingsFromRW(SDL_RWops *rw,int freerw)
+void SDL_GameControllerClose(SDL_GameController *gamecontroller)
+int SDL_GameControllerEventState(int state)
+<comment>
+SDL_GameController* SDL_GameControllerFromInstanceID(SDL_JoystickID joyid)
+</comment>
+SDL_bool SDL_GameControllerGetAttached(SDL_GameController *gamecontroller)
+Sint16 SDL_GameControllerGetAxis(SDL_GameController *gamecontroller,SDL_GameControllerAxis axis)
+SDL_GameControllerAxis SDL_GameControllerGetAxisFromString(const char *pchString)
+SDL_GameControllerButtonBind SDL_GameControllerGetBindForAxis(SDL_GameController *gamecontroller,SDL_GameControllerAxis axis)
+SDL_GameControllerButtonBind SDL_GameControllerGetBindForButton(SDL_GameController *gamecontroller,SDL_GameControllerButton button)
+Uint8 SDL_GameControllerGetButton(SDL_GameController *gamecontroller,SDL_GameControllerButton button)
+SDL_GameControllerButton SDL_GameControllerGetButtonFromString(const char *pchString)
+SDL_Joystick *SDL_GameControllerGetJoystick(SDL_GameController *gamecontroller)
+const char *SDL_GameControllerGetStringForAxis(SDL_GameControllerAxis axis)
+const char *SDL_GameControllerGetStringForButton(SDL_GameControllerButton button)
+char *SDL_GameControllerMapping(SDL_GameController *gamecontroller)
+char *SDL_GameControllerMappingForGUID(SDL_JoystickGUID guid)
+const char *SDL_GameControllerName(SDL_GameController *gamecontroller)
+const char *SDL_GameControllerNameForIndex(int joystick_index)
+SDL_GameController* SDL_GameControllerOpen(int joystick_index)
+void SDL_GameControllerUpdate(void)
+SDL_bool SDL_IsGameController(int joystick_index)
+
+<comment>
+Force Feedback Support
+</comment>
+
+void SDL_HapticClose(SDL_Haptic* haptic)
+void SDL_HapticDestroyEffect(SDL_Haptic *haptic,int effect)
+int SDL_HapticEffectSupported(SDL_Haptic *haptic,SDL_HapticEffect *effect)
+int SDL_HapticGetEffectStatus(SDL_Haptic *haptic,int effect)
+int SDL_HapticIndex(SDL_Haptic *haptic)
+const char *SDL_HapticName(int device_index)
+int SDL_HapticNewEffect(SDL_Haptic *haptic,SDL_HapticEffect *effect)
+int SDL_HapticNumAxes(SDL_Haptic *haptic)
+int SDL_HapticNumEffects(SDL_Haptic *haptic)
+int SDL_HapticNumEffectsPlaying(SDL_Haptic *haptic)
+SDL_Haptic *SDL_HapticOpen(int device_index)
+SDL_Haptic *SDL_HapticOpenFromJoystick(SDL_Joystick *joystick)
+SDL_Haptic *SDL_HapticOpenFromMouse(void)
+int SDL_HapticOpened(int device_index)
+int SDL_HapticPause(SDL_Haptic *haptic)
+unsigned int SDL_HapticQuery(SDL_Haptic *haptic)
+int SDL_HapticRumbleInit(SDL_Haptic *haptic)
+int SDL_HapticRumblePlay(SDL_Haptic *haptic,float strength,Uint32 length)
+int SDL_HapticRumbleStop(SDL_Haptic *haptic)
+int SDL_HapticRumbleSupported(SDL_Haptic *haptic)
+int SDL_HapticRunEffect(SDL_Haptic *haptic,int effect,Uint32 iterations)
+int SDL_HapticSetAutocenter(SDL_Haptic *haptic,int autocenter)
+int SDL_HapticSetGain(SDL_Haptic *haptic,int gain)
+int SDL_HapticStopAll(SDL_Haptic *haptic)
+int SDL_HapticStopEffect(SDL_Haptic *haptic,int effect)
+int SDL_HapticUnpause(SDL_Haptic *haptic)
+int SDL_HapticUpdateEffect(SDL_Haptic *haptic,int effect,SDL_HapticEffect *data)
+int SDL_JoystickIsHaptic(SDL_Joystick *joystick)
+int SDL_MouseIsHaptic(void)
+int SDL_NumHaptics(void)
+
+<comment>
+Audio Device Management and Audio Playback
+</comment>
+
+int SDL_AudioInit(const char * driver_name)
+void SDL_AudioQuit(void)
+int SDL_BuildAudioCVT(SDL_AudioCVT *cvt,SDL_AudioFormat src_format,Uint8 src_channels,int src_rate,SDL_AudioFormat dst_format,Uint8 dst_channels,int dst_rate)
+<comment>
+void SDL_ClearQueuedAudio(SDL_AudioDeviceID dev)
+</comment>
+void SDL_CloseAudio(void)
+void SDL_CloseAudioDevice(SDL_AudioDeviceID dev)
+int SDL_ConvertAudio(SDL_AudioCVT *cvt)
+void SDL_FreeWAV(Uint8 *audio_buf)
+const char * SDL_GetAudioDeviceName(int index,int iscapture)
+SDL_AudioStatus SDL_GetAudioDeviceStatus(SDL_AudioDeviceID dev)
+const char * SDL_GetAudioDriver(int index)
+SDL_AudioStatus SDL_GetAudioStatus(void)
+const char * SDL_GetCurrentAudioDriver(void)
+int SDL_GetNumAudioDevices(int iscapture)
+int SDL_GetNumAudioDrivers(void)
+<comment>
+Uint32 SDL_GetQueuedAudioSize(SDL_AudioDeviceID dev)
+</comment>
+SDL_AudioSpec *SDL_LoadWAV(const char *file,SDL_AudioSpec *spec,Uint8 **audio_buf,Uint32 *audio_len)
+SDL_AudioSpec *SDL_LoadWAV_RW(SDL_RWops *src,int freesrc,SDL_AudioSpec *spec,Uint8 **audio_buf,Uint32 *audio_len)
+void SDL_LockAudio(void)
+void SDL_LockAudioDevice(SDL_AudioDeviceID dev)
+void SDL_MixAudio(Uint8 *dst,const Uint8* src,Uint32 len,int volume)
+void SDL_MixAudioFormat(Uint8 *dst,const Uint8 *src,SDL_AudioFormat format,Uint32 len,int volume)
+int SDL_OpenAudio(SDL_AudioSpec *desired,SDL_AudioSpec *obtained)
+SDL_AudioDeviceID SDL_OpenAudioDevice(const char *device,int iscapture,const SDL_AudioSpec *desired,SDL_AudioSpec *obtained,int allowed_changes)
+void SDL_PauseAudio(int pause_on)
+void SDL_PauseAudioDevice(SDL_AudioDeviceID dev,int pause_on)
+<comment>
+int SDL_QueueAudio(SDL_AudioDeviceID dev,const void *data,Uint32 len)
+</comment>
+
+void SDL_UnlockAudio(void)
+void SDL_UnlockAudioDevice(SDL_AudioDeviceID dev)
+
+<comment>
+Filesystem Paths
+</comment>
+
+char *SDL_GetBasePath(void)
+char *SDL_GetPrefPath(const char *org,const char *app)
+
+<comment>
+File I/O Abstraction
+</comment>
+
+SDL_RWops *SDL_AllocRW(void)
+void SDL_FreeRW(SDL_RWops *area)
+SDL_RWops *SDL_RWFromConstMem(const void* mem,int size)
+SDL_RWops *SDL_RWFromFP(void *fp,SDL_bool autoclose)
+SDL_RWops *SDL_RWFromFile(const char *file,const char *mode)
+SDL_RWops *SDL_RWFromMem(void *mem,int   size)
+int SDL_RWclose(struct SDL_RWops *context)
+size_t SDL_RWread(struct SDL_RWops *context,void *ptr,size_t size,size_t maxnum)
+Sint64 SDL_RWseek(SDL_RWops *context,Sint64 offset,int whence)
+Sint64 SDL_RWsize(SDL_RWops *context)
+Sint64 SDL_RWtell(struct SDL_RWops *context)
+size_t SDL_RWwrite(struct SDL_RWops *context,const void *ptr,size_t size,size_t num)
+Uint16 SDL_ReadBE16(SDL_RWops *src)
+Uint32 SDL_ReadBE32(SDL_RWops *src)
+Uint64 SDL_ReadBE64(SDL_RWops *src)
+Uint16 SDL_ReadLE16(SDL_RWops *src)
+Uint32 SDL_ReadLE32(SDL_RWops *src)
+Uint64 SDL_ReadLE64(SDL_RWops *src)
+Uint8 SDL_ReadU8(SDL_RWops *src)
+size_t SDL_WriteBE16(SDL_RWops *dst,Uint16 value)
+size_t SDL_WriteBE32(SDL_RWops *dst,Uint32 value)
+size_t SDL_WriteBE64(SDL_RWops *dst,Uint64 value)
+size_t SDL_WriteLE16(SDL_RWops *dst,Uint16 value)
+size_t SDL_WriteLE32(SDL_RWops *dst,Uint32 value)
+size_t SDL_WriteLE64(SDL_RWops *dst,Uint64 value)
+size_t SDL_WriteU8(SDL_RWops *dst,Uint8 value)
+
+<comment>
+Shared Object Loading and Function Lookup
+</comment>
+
+void *SDL_LoadFunction(void *handle,const char *name)
+void *SDL_LoadObject(const char *sofile)
+void SDL_UnloadObject(void *handle)
+
+<comment>
+Platform Detection
+</comment>
+
+const char *SDL_GetPlatform(void)
+
+<comment>
+CPU Feature Detection
+</comment>
+
+int SDL_GetCPUCacheLineSize(void)
+int SDL_GetCPUCount(void)
+int SDL_GetSystemRAM(void)
+SDL_bool SDL_Has3DNow(void)
+SDL_bool SDL_HasAVX(void)
+<comment>
+SDL_bool SDL_HasAVX2(void)
+</comment>
+SDL_bool SDL_HasAltiVec(void)
+SDL_bool SDL_HasMMX(void)
+SDL_bool SDL_HasRDTSC(void)
+SDL_bool SDL_HasSSE(void)
+SDL_bool SDL_HasSSE2(void)
+SDL_bool SDL_HasSSE3(void)
+SDL_bool SDL_HasSSE41(void)
+SDL_bool SDL_HasSSE42(void)
+
+<comment>
+Power Management Status
+</comment>
+
+SDL_PowerState SDL_GetPowerInfo(int *secs,int *pct)
+
+<comment>
+Standard Library Functionality
+</comment>
+
+double SDL_acos(double x)
+
+<comment>
+SDL_Image
+</comment>
+
+int IMG_Init(int flags)
+void IMG_Quit(void)
+SDL_Surface *IMG_Load(const char *file)
+SDL_Surface *IMG_Load_RW(SDL_RWops *src, int freesrc)
+SDL_Surface *IMG_LoadTyped_RW(SDL_RWops *src, int freesrc, char *type)
+SDL_Surface *IMG_LoadCUR_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadBMP_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadPNM_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadXPM_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadXCF_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadPCX_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadGIF_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadJPG_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadTIF_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadPNG_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadTGA_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadLBM_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadXV_RW(SDL_RWops *src)
+SDL_Surface *IMG_ReadXPMFromArray(char **xpm)
+int IMG_isCUR(SDL_RWops *src)
+int IMG_isICO(SDL_RWops *src)
+int IMG_isBMP(SDL_RWops *src)
+int IMG_isPNM(SDL_RWops *src)
+int IMG_isXPM(SDL_RWops *src)
+int IMG_isXCF(SDL_RWops *src)
+int IMG_isPCX(SDL_RWops *src)
+int IMG_isGIF(SDL_RWops *src)
+int IMG_isJPG(SDL_RWops *src)
+int IMG_isTIF(SDL_RWops *src)
+int IMG_isPNG(SDL_RWops *src)
+int IMG_isLBM(SDL_RWops *src)
+int IMG_isXV(SDL_RWops *src)
+<comment>
+void IMG_SetError(const char *fmt)
+char *IMG_GetError(void)
+</comment>
+
+<comment>
+SDL_ttf
+</comment>
+
+int TTF_Init(void)
+int TTF_WasInit(void)
+void TTF_Quit(void)
+TTF_Font *TTF_OpenFont(const char *file, int ptsize)
+TTF_Font *TTF_OpenFontRW(SDL_RWops *src, int freesrc, int ptsize)
+TTF_Font *TTF_OpenFontIndex(const char *file, int ptsize, long index)
+TTF_Font *TTF_OpenFontIndexRW(SDL_RWops *src, int freesrc, int ptsize, long index)
+void TTF_CloseFont(TTF_Font *font)
+void TTF_ByteSwappedUNICODE(int swapped)
+int TTF_GetFontStyle(TTF_Font *font)
+void TTF_SetFontStyle(TTF_Font *font, int style)
+int TTF_GetFontOutline(TTF_Font *font)
+void TTF_SetFontOutline(TTF_Font *font, int outline)
+int TTF_GetFontHinting(TTF_Font *font)
+void TTF_SetFontHinting(TTF_Font *font, int hinting)
+int TTF_GetFontKerning(TTF_Font *font)
+void TTF_SetFontKerning(TTF_Font *font, int allowed)
+int TTF_FontHeight(const TTF_Font *font)
+int TTF_FontAscent(const TTF_Font *font)
+int TTF_FontDescent(const TTF_Font *font)
+int TTF_FontLineSkip(const TTF_Font *font)
+long TTF_FontFaces(const TTF_Font *font)
+int TTF_FontFaceIsFixedWidth(const TTF_Font *font)
+char *TTF_FontFaceFamilyName(const TTF_Font *font)
+char *TTF_FontFaceStyleName(const TTF_Font *font)
+int TTF_GlyphIsProvided(const TTF_Font *font, Uint16 ch)
+int TTF_GlyphMetrics(TTF_Font *font, Uint16 ch, int *minx, int *maxx, int *miny, int *maxy, int *advance)
+int TTF_SizeText(TTF_Font *font, const char *text, int *w, int *h)
+int TTF_SizeUTF8(TTF_Font *font, const char *text, int *w, int *h)
+int TTF_SizeUNICODE(TTF_Font *font, const Uint16 *text, int *w, int *h)
+SDL_Surface *TTF_RenderText_Solid(TTF_Font *font, const char *text, SDL_Color fg)
+SDL_Surface *TTF_RenderUTF8_Solid(TTF_Font *font, const char *text,SDL_Color fg)
+SDL_Surface *TTF_RenderUNICODE_Solid(TTF_Font *font, const Uint16 *text,SDL_Color fg)
+SDL_Surface *TTF_RenderGlyph_Solid(TTF_Font *font, Uint16 ch, SDL_Color fg)
+SDL_Surface *TTF_RenderText_Shaded(TTF_Font *font, const char *text,SDL_Color fg, SDL_Color bg)
+SDL_Surface *TTF_RenderUTF8_Shaded(TTF_Font *font, const char *text,SDL_Color fg, SDL_Color bg)
+SDL_Surface *TTF_RenderUNICODE_Shaded(TTF_Font *font, const Uint16 *text,SDL_Color fg, SDL_Color bg)
+SDL_Surface *TTF_RenderGlyph_Shaded(TTF_Font *font, Uint16 ch, SDL_Color fg,SDL_Color bg)
+SDL_Surface *TTF_RenderText_Blended(TTF_Font *font, const char *text,SDL_Color fg)
+SDL_Surface *TTF_RenderUTF8_Blended(TTF_Font *font, const char *text,SDL_Color fg)
+SDL_Surface *TTF_RenderUNICODE_Blended(TTF_Font *font, const Uint16 *text,SDL_Color fg)
+SDL_Surface *TTF_RenderGlyph_Blended(TTF_Font *font, Uint16 ch, SDL_Color fg)
+<comment>
+void TTF_SetError(const char *fmt)
+char *TTF_GetError(void)
+</comment>
+
+<comment>
+SDL_Mixer
+</comment>
+
+int Mix_Init(int flags)
+void Mix_Quit(void)
+int Mix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize)
+void Mix_CloseAudio(void)
+<comment>
+void Mix_SetError(const char *fmt)
+</comment>
+char *Mix_GetError(void)
+int Mix_QuerySpec(int *frequency, Uint16 *format, int *channels)
+int Mix_GetNumChunkDecoders(void)
+const char *Mix_GetChunkDecoder(int index)
+Mix_Chunk *Mix_LoadWAV(char *file)
+Mix_Chunk *Mix_LoadWAV_RW(SDL_RWops *src, int freesrc)
+Mix_Chunk *Mix_QuickLoad_WAV(Uint8 *mem)
+<comment>
+Mix_Chunk *Mix_QuickLoad_RAW(Uint8 *mem)
+</comment>
+int Mix_VolumeChunk(Mix_Chunk *chunk, int volume)
+void Mix_FreeChunk(Mix_Chunk *chunk)
+int Mix_AllocateChannels(int numchans)
+int Mix_Volume(int channel, int volume)
+int Mix_PlayChannel(int channel, Mix_Chunk *chunk, int loops)
+int Mix_PlayChannelTimed(int channel, Mix_Chunk *chunk, int loops, int ticks)
+int Mix_FadeInChannel(int channel, Mix_Chunk *chunk, int loops, int ms)
+int Mix_FadeInChannelTimed(int channel, Mix_Chunk *chunk,int loops, int ms, int ticks)
+void Mix_Pause(int channel)
+void Mix_Resume(int channel)
+int Mix_HaltChannel(int channel)
+int Mix_ExpireChannel(int channel, int ticks)
+int Mix_FadeOutChannel(int channel, int ms)
+<comment>
+void Mix_ChannelFinished(void (*channel_finished)(int channel))
+</comment>
+int Mix_Playing(int channel)
+int Mix_Paused(int channel)
+Mix_Fading Mix_FadingChannel(int which)
+Mix_Chunk *Mix_GetChunk(int channel)
+int Mix_ReserveChannels(int num)
+int Mix_GroupChannel(int which, int tag)
+int Mix_GroupChannels(int from, int to, int tag)
+int Mix_GroupCount(int tag)
+int Mix_GroupAvailable(int tag)
+int Mix_GroupOldest(int tag)
+int Mix_GroupNewer(int tag)
+int Mix_FadeOutGroup(int tag, int ms)
+int Mix_HaltGroup(int tag)
+int Mix_GetNumMusicDecoders(void)
+const char *Mix_GetMusicDecoder(int index)
+Mix_Music *Mix_LoadMUS(const char *file)
+void Mix_FreeMusic(Mix_Music *music)
+int Mix_PlayMusic(Mix_Music *music, int loops)
+int Mix_FadeInMusic(Mix_Music *music, int loops, int ms)
+int Mix_FadeInMusicPos(Mix_Music *music, int loops, int ms, double position)
+<comment>
+void Mix_HookMusic(void (*mix_func)(void *udata, Uint8 *stream, int len),void *arg)
+<comment>
+int Mix_VolumeMusic(int volume)
+void Mix_PauseMusic(void)
+void Mix_ResumeMusic(void)
+void Mix_RewindMusic(void)
+int Mix_SetMusicPosition(double position)
+int Mix_SetMusicCMD(const char *command)
+int Mix_HaltMusic(void)
+int Mix_FadeOutMusic(int ms)
+<comment>
+void Mix_HookMusicFinished(void (*music_finished)())
+</comment>
+Mix_MusicType Mix_GetMusicType(const Mix_Music *music)
+int Mix_PlayingMusic(void)
+int Mix_PausedMusic(void)
+Mix_Fading Mix_FadingMusic(void)
+void *Mix_GetMusicHookData(void)
+int Mix_RegisterEffect(int chan, Mix_EffectFunc_t f, Mix_EffectDone_t d,void *arg)
+int Mix_UnregisterEffect(int channel, Mix_EffectFunc_t f)
+int Mix_UnregisterAllEffects(int channel)
+<comment>
+void Mix_SetPostMix(void (*mix_func)(void *udata, Uint8 *stream, int len),void *arg)
+</comment>
+int Mix_SetPanning(int channel, Uint8 left, Uint8 right)
+int Mix_SetDistance(int channel, Uint8 distance)
+int Mix_SetPosition(int channel, Sint16 angle, Uint8 distance)
+int Mix_SetReverseStereo(int channel, int flip)
+
+<comment>
+SDL_Net
+</comment>
+
+int SDLNet_Init(void)
+void SDLNet_Quit(void)
+char *SDLNet_GetError(void)
+void SDLNet_Write16(Uint16 value, void *area)
+void SDLNet_Write32(Uint32 value, void *area)
+Uint16 SDLNet_Read16(void *area)
+Uint32 SDLNet_Read32(void *area)
+int SDLNet_ResolveHost(IPaddress *address, const char *host, Uint16 port)
+const char *SDLNet_ResolveIP(IPaddress *address)
+TCPsocket SDLNet_TCP_Open(IPaddress *ip)
+void SDLNet_TCP_Close(TCPsocket sock)
+TCPsocket SDLNet_TCP_Accept(TCPsocket server)
+IPaddress *SDLNet_TCP_GetPeerAddress(TCPsocket sock)
+int SDLNet_TCP_Send(TCPsocket sock, const void *data, int len)
+int SDLNet_TCP_Recv(TCPsocket sock, void *data, int maxlen)
+UDPsocket SDLNet_UDP_Open(Uint16 port)
+void SDLNet_UDP_Close(UDPsocket sock)
+int SDLNet_UDP_Bind(UDPsocket sock, int channel, IPaddress *address)
+void SDLNet_UDP_Unbind(UDPsocket sock, int channel)
+IPaddress *SDLNet_UDP_GetPeerAddress(UDPsocket sock, int channel)
+int SDLNet_UDP_Send(UDPsocket sock, int channel, UDPpacket *packet)
+int SDLNet_UDP_Recv(UDPsocket sock, UDPpacket *packet)
+int SDLNet_UDP_SendV(UDPsocket sock, UDPpacket **packetV, int npackets)
+int SDLNet_UDP_RecvV(UDPsocket sock, UDPpacket **packetV)
+UDPpacket *SDLNet_AllocPacket(int size)
+int SDLNet_ResizePacket(UDPpacket *packet, int size)
+void SDLNet_FreePacket(UDPpacket *packet)
+UDPpacket **SDLNet_AllocPacketV(int howmany, int size)
+void SDLNet_FreePacketV(UDPpacket **packetV)
+SDLNet_SocketSet SDLNet_AllocSocketSet(int maxsockets)
+void SDLNet_FreeSocketSet(SDLNet_SocketSet set)
+int SDLNet_AddSocket(SDLNet_SocketSet set, SDLNet_GenericSocket sock)
+int SDLNet_TCP_AddSocket(SDLNet_SocketSet set, TCPsocket sock)
+int SDLNet_UDP_AddSocket(SDLNet_SocketSet set, UDPsocket sock)
+int SDLNet_DelSocket(SDLNet_SocketSet set, SDLNet_GenericSocket sock)
+int SDLNet_TCP_DelSocket(SDLNet_SocketSet set, TCPsocket sock)
+int SDLNet_UDP_DelSocket(SDLNet_SocketSet set, UDPsocket sock)
+int SDLNet_CheckSockets(SDLNet_SocketSet set, Uint32 timeout)
+int SDLNet_SocketReady(TCPsocket sock)

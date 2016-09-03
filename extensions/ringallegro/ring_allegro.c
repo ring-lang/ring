@@ -200,6 +200,21 @@ RING_FUNC(ring_al_exit)
 	exit(0);
 }
 
+VM *globalVM ;
+
+int al_usr_main(int argc, char **argv)
+{
+	ring_vm_runcodefromthread(globalVM,"al_game_start()");	
+	exit(0);
+	return 0;
+}
+
+RING_FUNC(ring_al_run_main)
+{
+	globalVM = (VM *) pPointer ;
+	al_run_main(globalVM->pRingState->argc,globalVM->pRingState->argv,al_usr_main);	
+}
+
 RING_FUNC(ring_al_init)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -843,70 +858,6 @@ RING_FUNC(ring_al_set_window_position)
 }
 
 
-RING_FUNC(ring_al_get_window_constraints)
-{
-	if ( RING_API_PARACOUNT != 5 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(al_get_window_constraints((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"),RING_API_GETINTPOINTER(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4),RING_API_GETINTPOINTER(5)));
-	RING_API_ACCEPTINTVALUE(2) ;
-	RING_API_ACCEPTINTVALUE(3) ;
-	RING_API_ACCEPTINTVALUE(4) ;
-	RING_API_ACCEPTINTVALUE(5) ;
-}
-
-
-RING_FUNC(ring_al_set_window_constraints)
-{
-	if ( RING_API_PARACOUNT != 5 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(al_set_window_constraints((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5)));
-}
-
-
 RING_FUNC(ring_al_get_display_flags)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -961,28 +912,6 @@ RING_FUNC(ring_al_get_display_option)
 }
 
 
-RING_FUNC(ring_al_set_display_option)
-{
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	al_set_display_option((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
-}
-
-
 RING_FUNC(ring_al_get_display_format)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -994,20 +923,6 @@ RING_FUNC(ring_al_get_display_format)
 		return ;
 	}
 	RING_API_RETNUMBER(al_get_display_format((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY")));
-}
-
-
-RING_FUNC(ring_al_get_display_orientation)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(al_get_display_orientation((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY")));
 }
 
 
@@ -1083,6 +998,20 @@ RING_FUNC(ring_al_set_display_icons)
 }
 
 
+RING_FUNC(ring_al_inhibit_screensaver)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_inhibit_screensaver( (bool ) RING_API_GETNUMBER(1)));
+}
+
+
 RING_FUNC(ring_al_acknowledge_drawing_halt)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -1111,17 +1040,103 @@ RING_FUNC(ring_al_acknowledge_drawing_resume)
 }
 
 
-RING_FUNC(ring_al_inhibit_screensaver)
+RING_FUNC(ring_al_get_display_orientation)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISNUMBER(1) ) {
+	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(al_inhibit_screensaver( (bool ) RING_API_GETNUMBER(1)));
+	RING_API_RETNUMBER(al_get_display_orientation((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY")));
+}
+
+
+RING_FUNC(ring_al_set_display_option)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	al_set_display_option((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_al_get_window_constraints)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_get_window_constraints((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"),RING_API_GETINTPOINTER(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4),RING_API_GETINTPOINTER(5)));
+	RING_API_ACCEPTINTVALUE(2) ;
+	RING_API_ACCEPTINTVALUE(3) ;
+	RING_API_ACCEPTINTVALUE(4) ;
+	RING_API_ACCEPTINTVALUE(5) ;
+}
+
+
+RING_FUNC(ring_al_set_window_constraints)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(al_set_window_constraints((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5)));
 }
 
 
@@ -11662,6 +11677,7 @@ RING_FUNC(ring_al_destroy_vertex_decl)
 RING_DLL void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("al_exit",ring_al_exit);
+	ring_vm_funcregister("al_run_main",ring_al_run_main);
 	ring_vm_funcregister("al_init",ring_al_init);
 	ring_vm_funcregister("al_create_config",ring_al_create_config);
 	ring_vm_funcregister("al_destroy_config",ring_al_destroy_config);
@@ -11701,21 +11717,21 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("al_acknowledge_resize",ring_al_acknowledge_resize);
 	ring_vm_funcregister("al_get_window_position",ring_al_get_window_position);
 	ring_vm_funcregister("al_set_window_position",ring_al_set_window_position);
-	ring_vm_funcregister("al_get_window_constraints",ring_al_get_window_constraints);
-	ring_vm_funcregister("al_set_window_constraints",ring_al_set_window_constraints);
 	ring_vm_funcregister("al_get_display_flags",ring_al_get_display_flags);
 	ring_vm_funcregister("al_set_display_flag",ring_al_set_display_flag);
 	ring_vm_funcregister("al_get_display_option",ring_al_get_display_option);
-	ring_vm_funcregister("al_set_display_option",ring_al_set_display_option);
 	ring_vm_funcregister("al_get_display_format",ring_al_get_display_format);
-	ring_vm_funcregister("al_get_display_orientation",ring_al_get_display_orientation);
 	ring_vm_funcregister("al_get_display_refresh_rate",ring_al_get_display_refresh_rate);
 	ring_vm_funcregister("al_set_window_title",ring_al_set_window_title);
 	ring_vm_funcregister("al_set_display_icon",ring_al_set_display_icon);
 	ring_vm_funcregister("al_set_display_icons",ring_al_set_display_icons);
+	ring_vm_funcregister("al_inhibit_screensaver",ring_al_inhibit_screensaver);
 	ring_vm_funcregister("al_acknowledge_drawing_halt",ring_al_acknowledge_drawing_halt);
 	ring_vm_funcregister("al_acknowledge_drawing_resume",ring_al_acknowledge_drawing_resume);
-	ring_vm_funcregister("al_inhibit_screensaver",ring_al_inhibit_screensaver);
+	ring_vm_funcregister("al_get_display_orientation",ring_al_get_display_orientation);
+	ring_vm_funcregister("al_set_display_option",ring_al_set_display_option);
+	ring_vm_funcregister("al_get_window_constraints",ring_al_get_window_constraints);
+	ring_vm_funcregister("al_set_window_constraints",ring_al_set_window_constraints);
 	ring_vm_funcregister("al_create_event_queue",ring_al_create_event_queue);
 	ring_vm_funcregister("al_destroy_event_queue",ring_al_destroy_event_queue);
 	ring_vm_funcregister("al_register_event_source",ring_al_register_event_source);

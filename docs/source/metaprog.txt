@@ -963,6 +963,69 @@ Output:
 	10
 	20
 	30
+	
+
+Example:
+
+We can Find a Class List Member using GetAttribute() using a function findclass()
+The Find uses the member name, rather than the column number
+
+.. code-block:: none
+
+	myList =
+	          [new Company {position=3 name="Mahmoud" symbol="MHD"},
+	           new Company {position=2 name="Bert" symbol="BRT"},
+	           new Company {position=1 name="Ring" symbol="RNG"}
+	          ]
+	
+	see myList
+	see nl +"=====================" + nl + nl
+	
+	for i = 1 to len(myList)
+	     see  "Pos: "+ i +" | "+ myList[i].position +" | "+ myList[i].name +
+		  " | "+  myList[i].symbol    +" | "+ nl
+	next
+	
+	
+	See findclass(myList, "MHD", "symbol") +nl   ### Specify Member class name
+	
+	###---------------------------------------
+	
+	func findclass classList, cValue, classMember
+	
+	       See nl + "FindClass: "  +" "+ cValue + nl + nl
+	
+	       for i = 1 to len(classList)
+	            result = getattribute( classList[i], classMember )
+	           
+	           See "Result-Attr: " + i +" "+  result +nl
+	           if result = cValue
+	               j = i
+	            ok      
+	       next
+	return j
+	
+	###--------------------------------------
+	
+	class company position name symbol
+
+Output:
+
+.. code-block:: none
+
+	Pos: 1 | 3 | Mahmoud | MHD |
+	Pos: 2 | 2 | Bert | BRT |
+	Pos: 3 | 1 | Ring | RNG |
+	
+	FindClass:  MHD
+	
+	Result-Attr: 1 MHD
+	Result-Attr: 2 BRT
+	Result-Attr: 3 RNG
+	
+	1
+
+	
 
 setattribute() function
 =======================

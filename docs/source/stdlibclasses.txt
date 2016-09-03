@@ -1,0 +1,1324 @@
+﻿==============
+Stdlib Classes
+==============
+
+In this chapter we are going to learn about the classes in the stdlib.ring
+
+* String Class
+* List Class
+* Stack Class
+* Queue Class
+* HashTable Class
+* Tree Class
+* Math Class
+* DateTime Class
+* File Class
+* System Class
+* Debug Class
+* DataType Class
+* Conversion Class
+* ODBC CLass
+* MySQL Class
+* SQLite Class
+* Security Class
+* Internet Class
+
+
+String Class
+============
+
+Methods:
+
+===========================	======================================================================
+Method				Description/Output
+===========================	======================================================================
+Init(String|Number|List) 
+Lower()  			New String - Lower case characters
+Upper()  			New String - Upper case characters
+Left(x)  			New String - contains x characters from the left
+Right(x) 			New String - contains x characters from the right
+Lines()  			Number - Lines count
+Trim()   			New String - Remove Spaces
+Copy(x)  			New String - repeat string x times
+strcmp(cString)   		Compare string with cString  
+tolist()	  		List (String Lines to String Items)
+tofile(cFileName) 		Write string to file
+get(nPos1,nPos2)  		New String - from nPos1 to nPos2
+getfrom(nPos1)	  		New String - from nPos1 to the end of the string
+replace(cStr1,cStr2,lCase) 	New String - Replace cStr1 with cStr2 , lCase (True=Math Case)
+split()		  		List - Each Word as list item
+===========================	======================================================================
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	See "Testing the String Class" + nl
+	oString = new string("Hello, World!")
+	oString.println()
+	oString.upper().println()
+	oString.lower().println()
+	oString.left(5).println()
+	oString.right(6).println()
+	oString = new string("Hi" + nl + "Hello" )
+	See oString.lines() + nl
+	oString = new string("    Welcome    ")
+	oString.println()
+	oString.trim().println()
+	oString = new string("Hello! ")
+	oString.copy(3).println()
+	see oString.strcmp("Hello! ") + nl
+	see oString.strcmp("Hello ") + nl
+	see oString.strcmp("Hello!! ") + nl
+	oString = new string(["one","two","three"])
+	oString.print()
+	see oString.lines() + nl
+	oString = new String(1234)
+	oString.println()
+	oString = new String("one"+nl+"two"+nl+"three")
+	aList = oString.tolist()
+	see "List Items" + nl See aList
+	oString = new String( "Welcome to the Ring programming language")
+	See "the - position : " + oString.pos("the") + nl
+	oString = oString.getfrom(oString.pos("Ring"))
+	oString.println()
+	oString.get(1,4).println()
+	oString = oString.replace("Ring","***Ring***",true)
+	oString.println()
+	oString = oString.replace("ring","***Ring***",false)
+	oString.println()
+	oString1 = new string("First")
+	oString2 = new string("Second")
+	oString = oString1 + oString2
+	oString.println()
+	oString = oString1 * 3
+	oString.println()
+	for t in ostring see t next
+	oString.tofile("test.txt")
+	oString = new string("one two three")
+	see nl
+	see ostring.split()
+	oString {
+		set("Hello") println()
+		set("How are you?") println()
+	}
+
+Output:
+
+.. code-block:: none
+
+	Testing the String Class
+	Hello, World!
+	HELLO, WORLD!
+	hello, world!
+	Hello
+	World!
+	2
+		Welcome
+	Welcome
+	Hello! Hello! Hello!
+	0
+	1
+	-1
+	one
+	two
+	three
+	4
+	1234
+	List Items
+	one
+	two
+	three
+	the - position : 12
+	Ring programming language
+	Ring
+	***Ring*** programming language
+	******Ring****** programming language
+	FirstSecond
+	FirstFirstFirst
+	FirstFirstFirst
+	one
+	two
+	three
+	Hello
+	How are you?
+
+	
+List Class
+==========
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+Init(String|List)			
+Add(Value)					Add item to the list
+Delete(nIndex)				Delete item from the list 
+Item(nIndex)				Get item from the list
+First()						Get the first item in the list
+Last()						Get the last item in the list
+Set(nIndex,Value)			Set item value
+FindInColumn(nCol,Value)	Find item in a column 
+Sort()						Sort items - return new list
+Reverse()					Reverse items - return new list
+Insert(nIndex,Value)		Inset Item after nIndex
+===========================	======================================================================
+
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oList = new list ( [1,2,3] )
+	oList.Add(4)
+	oList.print()
+	see oList.item(1) + nl
+	oList.delete(4)
+	oList.print()
+	see oList.first() + nl
+	see oList.last() + nl
+	oList { set(1,"one") set(2,"two") set(3,"three") print() }
+	see oList.find("two") + nl
+	oList.sort().print()
+	oList.reverse().print()
+	oList.insert(2,"nice")
+	oList.print()
+	oList = new list ( [ [1,"one"],[2,"two"],[3,"three"] ] )
+	see copy("*",10) + nl
+	oList.print()
+	see "Search two : " + oList.findincolumn(2,"two") + nl
+	see "Search 1 : " + oList.findincolumn(1,1) + nl
+	oList = new list ( [ "Egypt" , "USA" , "KSA" ] )
+	for x in oList
+		see x + nl
+	next
+	oList =  new list ( [1,2,3,4] )
+	oList + [5,6,7] 
+	oList.print()
+	oList = new list ( ["one","two"] )
+	oList2 = new list ( ["three","four"] )
+	oList + oList2
+	oList.print()
+
+	
+output:
+
+.. code-block:: none
+
+	1
+	2
+	3
+	4
+	1
+	1
+	2
+	3
+	1
+	3
+	one
+	two
+	three
+	2
+	one
+	three
+	two
+	three
+	two
+	one
+	one
+	two
+	nice
+	three
+	**********
+	1
+	one
+	2
+	two
+	3
+	three
+	Search two : 2
+	Search 1 : 1
+	Egypt
+	USA
+	KSA
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	one
+	two
+	three
+	four
+
+	
+Stack Class
+===========
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+Init(String|Number|List)
+Push(Value)					Push item to the stack
+Pop()						Pop item from the stack
+Print()						Print the stack items
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oStack = new Stack
+	oStack.push(1)
+	oStack.push(2)
+	oStack.push(3)
+	see oStack.pop() + nl
+	see oStack.pop() + nl
+	see oStack.pop() + nl	
+	oStack.push(4)
+	see oStack.pop() + nl
+	oStack { push("one") push("two") push("three") }
+	oStack.print()	
+	
+output:
+
+.. code-block:: none
+
+	3
+	2
+	1
+	4
+	three
+	two
+	one
+	
+	
+Queue Class
+===========
+
+Parent Class : List Class
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+Init(String|Number|List)
+Remove()					Remove item from the Queue.
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oQueue = new Queue
+	oQueue.add(1)
+	oQueue.add(2)
+	oQueue.add(3)
+	see oQueue.remove() + nl
+	see oQueue.remove() + nl
+	see oQueue.remove() + nl
+	oQueue.add(4)
+	see oQueue.remove() + nl
+	oQueue { add("one") add("two") add("three") }
+	oQueue.print()
+	
+output:
+
+.. code-block:: none
+
+	1
+	2
+	3
+	4
+	one
+	two
+	three
+
+HashTable Class
+===============
+
+Parent Class : List Class
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+Init(List)
+Add(cKey,Value)				Add item to the HashTable
+Set(cKey,Value)				Set item value using the Key
+Get(cKey)					Get item value using the Key
+Contains(cKey)				Check if the HashTable contains item using the Key
+Index(cKey)					Get the item index using the Key
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	ohashtable = new hashtable
+	See "Test the hashtable Class Methods" + nl
+	ohashtable { 
+		Add("Egypt","Cairo")
+		Add("KSA","Riyadh")
+		see self["Egypt"] + nl
+		see self["KSA"] + nl
+		see contains("Egypt") + nl
+		see contains("USA") + nl
+		see index("KSA")  + NL
+		print()
+		delete(index("KSA"))
+		see copy("*",60) + nl
+		print()
+	}
+	
+output:
+
+.. code-block:: none
+
+	Test the hashtable Class Methods
+	Cairo
+	Riyadh
+	1
+	0
+	2
+	Egypt
+	Cairo
+	KSA
+	Riyadh
+	************************************************************
+	Egypt
+	Cairo
+
+
+Tree Class
+==========
+
+Data:
+
+===========================	======================================================================
+Attribute						Description
+===========================	======================================================================
+Data 						Node Value
+Children					Children List
+===========================	======================================================================
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+set(value)					Set the node value.
+value()						Get the node value.
+Add(value)					Add new child.
+parent()					Get the parent node.
+print()						Print the tree nodes.
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	otree = new tree
+	See "Test the tree Class Methods" + nl
+	otree {
+		set("The first step")	# set the root node value
+		see value() + nl
+		Add("one")
+		Add("two")
+		Add("three") {
+			Add("3.1")
+			Add("3.2")
+			Add("3.3")
+			see children
+		}
+		see children
+		oTree.children[2] {
+			Add("2.1") Add("2.2") Add("2.3") {
+				Add("2.3.1") Add("2.3.2") Add("test")
+			}
+		}
+		oTree.children[2].children[3].children[3].set("2.3.3")
+	}
+	see copy("*",60) + nl
+	oTree.print()
+	
+output:
+
+.. code-block:: none
+
+	Test the tree Class Methods
+	The first step
+	data: 3.1
+	parent: List...
+	children: List...
+	data: 3.2
+	parent: List...
+	children: List...
+	data: 3.3
+	parent: List...
+	children: List...
+	data: one
+	parent: List...
+	children: List...
+	data: two
+	parent: List...
+	children: List...
+	data: three
+	parent: List...
+	children: List...
+	************************************************************
+	one
+	two
+	2.1
+	2.2
+	2.3
+	2.3.1
+	2.3.2
+	2.3.3
+	three
+	3.1
+	3.2
+	3.3
+
+Math Class
+==========
+
+Methods:
+
+===============		=============================================================================
+Method				Description
+===============		=============================================================================
+sin(x)			Returns the sine of an angle of x radians
+cos(x)			Returns the cosine of an angle of x radians
+tan(x)			Returns the tangent of an angle of x radians
+asin(x)			Returns the principal value of the arc sine of x, expressed in radians
+acos(x)			Returns the principal value of the arc cosine of x, expressed in radians
+atan(x)			Returns the principal value of the arc tangent of x, expressed in radians
+atan2(y,x)		Returns the principal arc tangent of y/x, in the interval [-pi,+pi] radians
+sinh(x)			Returns the hyperbolic sine of x radians
+cosh(x)			Returns the hyperbolic cosine of x radians
+tanh(x)			Returns the hyperbolic tangent of x radians
+exp(x)			Returns the value of e raised to the xth power
+log(x)			Returns the natural logarithm of x
+log10(x)		Returns the common logarithm (base-10 logarithm) of x
+ceil(x)			Returns the smallest integer value greater than or equal to x	
+floor(x)		Returns the largest integer value less than or equal to x
+fabs(x)			Returns the absolute value of x.
+pow(x,y)		Returns x raised to the power of y 
+sqrt(x)			Returns the square root of x
+random(x)		Returns a random number in the range [0,x]
+unsigned(n,n,c)		Perform operation using unsigned numbers 
+decimals(n)		Determine the decimals digits after the point in float/double numbers
+=============== 	=============================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oMath = new Math
+
+	See "Test the Math Class Methods" + nl
+	See "Sin(0) = " + oMath.sin(0) + nl
+	See "Sin(90) radians = " + oMath.sin(90) + nl
+	See "Sin(90) degree = " + oMath.sin(90*3.14/180) + nl
+
+	See "Cos(0) = " + oMath.cos(0) + nl
+	See "Cos(90) radians = " + oMath.cos(90) + nl
+	See "Cos(90) degree = " +oMath. cos(90*3.14/180) + nl
+
+	See "Tan(0) = " + oMath.tan(0) + nl
+	See "Tan(90) radians = " + oMath.tan(90) + nl
+	See "Tan(90) degree = " + oMath.tan(90*3.14/180) + nl
+
+	See "asin(0) = " + oMath.asin(0) + nl
+	See "acos(0) = " + oMath.acos(0) + nl
+	See "atan(0) = " + oMath.atan(0) + nl
+	See "atan2(1,1) = " +oMath. atan2(1,1) + nl
+
+	See "sinh(0) = " + oMath.sinh(0) + nl
+	See "sinh(1) = " + oMath.sinh(1) + nl
+	See "cosh(0) = " + oMath.cosh(0) + nl
+	See "cosh(1) = " + oMath.cosh(1) + nl
+	See "tanh(0) = " + oMath.tanh(0) + nl
+	See "tanh(1) = " + oMath.tanh(1) + nl
+
+	See "exp(0) = " + oMath.exp(0) + nl
+	See "exp(1) = " + oMath.exp(1) + nl
+	See "log(1) = " + oMath.log(1) + nl
+	See "log(2) = " + oMath.log(2) + nl
+	See "log10(1) = " + oMath.log10(1) + nl
+	See "log10(2) = " + oMath.log10(2) + nl
+	See "log10(10) = " + oMath.log10(10) + nl
+
+	See "Ceil(1.12) = " + oMath.Ceil(1.12) + nl
+	See "Ceil(1.72) = " + oMath.Ceil(1.72) + nl
+
+	See "Floor(1.12) = " + oMath.floor(1.12) + nl
+	See "Floor(1.72) = " + oMath.floor(1.72) + nl
+
+	See "fabs(1.12) = " + oMath.fabs(1.12) + nl
+	See "fabs(1.72) = " + oMath.fabs(1.72) + nl
+
+	See "pow(2,3) = " + oMath.pow(2,3) + nl
+
+	see "sqrt(16) = " + oMath.sqrt(16) + nl
+
+	for x = 1 to 20
+        		see "Random number Max (100) : " + oMath.random(100) + nl
+	next
+
+	x = 1.1234567890123
+	for d = 0 to 14
+	        oMath.decimals(d)
+	        see x + nl
+	next
+
+	cKey = "hello"
+
+ 	h = 0
+	for x in cKey
+		h = oMath.unsigned(h,ascii(x),"+")
+		h = oMath.unsigned(h,oMath.unsigned(h,10,"<<"),"+")
+		r = oMath.unsigned(h,6,">>")
+		h = oMath.unsigned(h, r,"^")
+	next
+	h = oMath.unsigned(h,oMath.unsigned(h,3,"<<"),"+")
+	h = oMath.unsigned(h,oMath.unsigned(h,11,">>"),"^")
+	h = oMath.unsigned(h,oMath.unsigned(h,15,"<<"),"+")
+
+	see "Hash : " + h
+
+	
+	
+output:
+
+.. code-block:: none
+
+	Test the Math Class Methods
+	Sin(0) = 0
+	Sin(90) radians = 0.89
+	Sin(90) degree = 1.00
+	Cos(0) = 1
+	Cos(90) radians = -0.45
+	Cos(90) degree = 0.00
+	Tan(0) = 0
+	Tan(90) radians = -2.00
+	Tan(90) degree = 1255.77
+	asin(0) = 0
+	acos(0) = 1.57
+	atan(0) = 0
+	atan2(1,1) = 0.79
+	sinh(0) = 0
+	sinh(1) = 1.18
+	cosh(0) = 1
+	cosh(1) = 1.54
+	tanh(0) = 0
+	tanh(1) = 0.76
+	exp(0) = 1
+	exp(1) = 2.72
+	log(1) = 0
+	log(2) = 0.69
+	log10(1) = 0
+	log10(2) = 0.30
+	log10(10) = 1
+	Ceil(1.12) = 2
+	Ceil(1.72) = 2
+	Floor(1.12) = 1
+	Floor(1.72) = 1
+	fabs(1.12) = 1.12
+	fabs(1.72) = 1.72
+	pow(2,3) = 8
+	sqrt(16) = 4
+	Random number Max (100) : 87
+	Random number Max (100) : 49
+	Random number Max (100) : 99
+	Random number Max (100) : 58
+	Random number Max (100) : 15
+	Random number Max (100) : 46
+	Random number Max (100) : 37
+	Random number Max (100) : 64
+	Random number Max (100) : 73
+	Random number Max (100) : 35
+	Random number Max (100) : 89
+	Random number Max (100) : 80
+	Random number Max (100) : 20
+	Random number Max (100) : 33
+	Random number Max (100) : 44
+	Random number Max (100) : 89
+	Random number Max (100) : 82
+	Random number Max (100) : 94
+	Random number Max (100) : 83
+	Random number Max (100) : 68
+	1
+	1.1
+	1.12
+	1.123
+	1.1235
+	1.12346
+	1.123457
+	1.1234568
+	1.12345679
+	1.123456789
+	1.1234567890
+	1.12345678901
+	1.123456789012
+	1.1234567890123
+	1.12345678901230
+	Hash : 3372029979.00000000000000
+
+DateTime Class
+==============
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+clock()						The number of clock ticks from program start.
+time()						Get the system time.
+date()						Get the date.
+timelist()					List contains the date and the time information.
+adddays(cDate,nDays)		Return Date from cDate and after nDays
+diffdays(cDate1,cDate2)		Return the Number of days (cDate1 - cDate2)
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oDateTime = new datetime
+
+	See "Test the datetime Class Methods" + nl
+
+	See "Calculate performance" + nl
+	t1 = oDateTime.clock()
+	for x = 1 to 1000000 next
+	see oDateTime.clock() - t1 + nl
+
+	See "Time : " + oDateTime.time() + nl
+
+	See "Date : " + oDateTime.date() + nl 
+
+	See oDateTime.TimeList()
+
+	See "Month Name : " + oDateTime.TimeList()[4]      
+
+	cDate = oDateTime.date()
+	see cDate + nl                  
+	cDate = oDateTime.adddays(cDate,10)
+	see cDate + nl 
+
+	cDate1 = oDateTime.date()
+	see cDate1 + nl                                          
+	cDate2 = oDateTime.adddays(cDate1,10)
+	see cDate2 + nl                                          
+	see "DiffDays = " + oDateTime.diffdays(cDate1,cDate2) + nl         
+	see "DiffDays = " + oDateTime.diffdays(cDate2,cDate1) + nl       
+
+
+output:
+
+.. code-block:: none
+
+	Test the datetime Class Methods
+	Calculate performance
+	85
+	Time : 02:53:35
+	Date : 31/08/2016
+	Wed
+	Wednesday
+	Aug
+	August
+	08/31/16 02:53:35
+	31
+	02
+	02
+	244
+	08
+	53
+	AM
+	35
+	35
+	3
+	08/31/16
+	02:53:35
+	16
+	2016
+	Arab Standard Time
+	%
+	Month Name : August31/08/2016
+	10/09/2016
+	31/08/2016
+	10/09/2016
+	DiffDays = -10
+	DiffDays = 10
+
+	
+File Class
+==========
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+read(cFileName)				Read the file content
+write(cFileName,cStr)		Write string to file
+dir(cFolderPath)			Get the folder contents (files & sub folders)
+rename(cOld,cNew)			Rename files using the Rename() function
+remove(cFileName)			Delete a file using the Remove() function
+open(cFileName,cMode)		Open a file using the Fopen() function
+close()						Close file
+flush()						Flushes the output buffer of a stream
+reopen(cFileName,cMode)		Open another file using the same file handle
+tempfile()					Creates a temp. file (binary).
+seek(noffset,nwhence)		Set the file position of the stream
+tell()						Know the current file position of a stream
+rewind()					Set the file position to the beginning of the file 
+getpos()					Get handle to the current file position
+setpos(poshandle)			Set the current file position
+clearerr()					Clear the EOF error and the error indicators of a stream
+eof()						Test the end-of-file indicator
+error()						Test the error indicator
+perror(cErrorMessage)		Print error message to the stderr
+getc()						Get the next character from the stream
+gets(nsize)					Read new line from the stream
+putc(cchar)					Write a character to the stream
+puts(cStr)					Write a string to the stream
+ungetc(cchar)				Push a character to the stream
+fread(nsize)				Read data from a stream
+fwrite(cString)				Write data to a stream
+exists(cFileName)			Check if a file exists
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	ofile = new file
+
+	See "Test the file Class Methods" + nl
+	see ofile.read(filename())
+
+	see nl
+	ofile.open(filename(),"r")
+	see ofile.gets(100) + nl
+	ofile.close()
+
+System Class
+============
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+system()					Execute system commands
+get()						Get environment variables 
+ismsdos()					Check if the operating system is MSDOS or not
+iswindows()					Check if the operating system is Windows or not
+iswindows64()				Check if the operating system is Windows 64bit or not 
+isunix()					Check if the operating system is Unix or not 
+ismacosx()					Check if the operating system is Mac OS X or not
+islinux()					Check if the operating system is Linux or not 
+isfreebsd()					Check if the operating system is FreeBSD or not
+isandroid()					Check if the operating system is Android or not 
+windowsnl()					Get the windows new line string 
+sysargv()					Get the command line arguments passed to the ring script
+filename()					Get the active source file
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oSystem = new System
+
+	See "Test the System Class Methods" + nl
+ 	
+	oSystem.system("dir")
+	see oSystem.get("path") + nl
+	see oSystem.ismsdos() + nl
+	see oSystem.iswindows() + nl
+	see oSystem.iswindows64() + nl
+	see oSystem.isunix() + nl
+	see oSystem.ismacosx() + nl
+	see oSystem.islinux() + nl
+	see oSystem.isfreebsd() + nl
+	see oSystem.isandroid() + nl
+	see oSystem.windowsnl() + nl
+	see oSystem.sysargv() + nl
+	see oSystem.filename() + nl
+
+Debug Class
+===========
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+eval(cCode)					Execute code during the runtime from string.
+raise(cError)				Raise an exception.
+assert(cCondition)			Test condition before executing the code.
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oDebug = new Debug
+	See "Test the Debug Class Methods" + nl
+	oDebug.eval("see 'Hello'+nl")
+	try
+		x = 10
+		oDebug.assert(x=11)
+	catch see "assert" + nl done
+	raise("Error!")
+	
+
+DataType Class
+==============
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+isstring(vValue)			We can know if the value is a string or not.
+isnumber(vValue)			We can know if the value is a number or not.
+islist(vValue)				We can know if the value is a list or not.
+type(vValue)				Know the type of a value 
+isnull(vValue)				Check the value to know if it’s null or not.
+isalnum(vValue)				1 if the value is digit/letter or 0 if not
+isalpha(vValue)				1 if the value is a letter or 0 if not
+iscntrl(vValue)				1 if the value is a control character (no printing position) 
+isdigit(vValue)				1 if the value is a digit or 0 if not
+isgraph(vValue)				1 if the value can be printed (Except space) or 0 if not
+islower(vValue)				1 if the value is lowercase letter or 0 if not
+isprint(vValue)				1 if the value occupies a printing position or 0 if not
+ispunct(vValue)				1 if the value is a punctuation character or 0 if not
+isspace(vValue)				1 if the value is a white-space or 0 if not
+isupper(vValue)				1 if the value is an uppercase alphabetic letter or 0 if not
+isxdigit(vValue)			1 if the value is a hexdecimal digit character or 0 if not
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oDataType = new DataType
+	See "Test the DataType Class Methods" + nl
+	see oDataType.isstring("test") + nl
+	see oDataType.isnumber(1) + nl
+	see oDataType.islist(1:3) + nl
+	see oDataType.type("test") + nl
+	see oDataType.isnull(null) + nl
+	see oDataType.isalnum("Hello") + nl +     # print 1
+	oDataType.isalnum("123456") + nl +    # print 1
+	oDataType.isalnum("ABCabc123") + nl + # print 1
+	oDataType.isalnum("How are you")  + nl     # print 0 because of spaces
+ 	see oDataType.isalpha("Hello") + nl +     # print 1
+    	oDataType.isalpha("123456") + nl +    # print 0
+   	oDataType.isalpha("ABCabc123") + nl + # print 0
+   	oDataType.isalpha("How are you")  + nl    # print 0
+	See oDataType.iscntrl("hello") + nl +     # print 0
+	oDataType.iscntrl(nl)                 # print 1
+	see oDataType.isdigit("0123456789") + nl +        # print 1
+	oDataType.isdigit("0123a") + nl
+	see oDataType.isgraph("abcdef") + nl +    # print 1
+	oDataType.isgraph("abc def")   + nl        # print 0
+	see oDataType.islower("abcDEF") + nl +    # print 0
+	oDataType.islower("ghi") + nl          # print 1
+	see oDataType.isprint("Hello") + nl +             # print 1
+	oDataType.isprint("Nice to see you") + nl +   # print 1
+	oDataType.isprint(nl)    + nl                      # print 0
+	see oDataType.isprint("Hello") + nl              # print 1
+	see oDataType.isupper("welcome") + nl +    # print 0
+	oDataType.isupper("WELCOME")  + nl         # print 1
+	see oDataType.isxdigit("0123456789abcdef") + nl +  # print 1
+	oDataType.isxdigit("123z")                     # print 0
+
+
+Output:
+
+.. code-block:: none
+
+	Test the DataType Class Methods
+	1
+	1
+	1
+	STRING
+	1
+	1
+	1
+	1
+	0
+	1
+	0
+	0
+	0
+	0
+	11
+	0
+	1
+	0
+	0
+	1
+	1
+	1
+	0
+	1
+	0
+	1
+	1
+	0	
+
+Conversion Class
+================
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+number(vValue)				Convert strings to numbers.
+string(vValue)				Convert numbers to strings.
+ascii(vValue)				Get the ASCII code for a letter.
+char(vValue)				Convert the ASCII code to character.
+hex(vValue)					Convert decimal to hexadecimal.
+dec(vValue)					Convert hexadecimal to decimal.
+str2hex(vValue)				Convert string characters to hexadecimal characters.
+hex2str(vValue)				Convert hexadecimal characters to string.
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oConversion = new conversion
+	See "Test the conversion Class Methods" + nl
+	See oConversion.number("3") + 5  + nl
+	See oConversion.string(3) + "5" + nl
+	See oConversion.Ascii("m") + nl	
+	See oConversion.char(77) + nl	
+	see oConversion.hex(162) + nl
+	see oConversion.dec("a2") + nl
+	cHex = oConversion.str2hex("Hello")
+	see cHex + nl
+	see oConversion.hex2str(cHex) + nl
+
+Output:
+
+.. code-block:: none
+
+	Test the conversion Class Methods
+	8
+	35
+	109
+	M
+	a2
+	162
+	48656c6c6f
+	Hello
+
+ODBC Class
+==========
+
+Methods:
+
+===========================	======================================================================
+Method						Description/Output
+===========================	======================================================================
+drivers()  					Get a list of ODBC drivers.
+datasources()  				Get a list of ODBC data sources.
+close()  					Free resources.
+connect(cConString)			Connect to the database.
+disconnect()  				Close the connection.
+execute(cSQL)				Execute SQL Statements
+colcount() 					Get columns count in the query result
+fetch()						Fetch a row from the query result
+getdata(nCol)				Get column value from the fetched row
+tables()					Get a list of tables inside the database
+columns(cTableName)			Get a list of columns inside the table
+autocommit(lStatus)			Enable or disable the auto commit feature
+commit()					Commit updates to the database
+rollback()					Rollback updates to the database
+===========================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oodbc = new odbc
+	See "Test the odbc Class Methods" + nl
+	oODBC { 
+ 		see drivers()
+		see datasources()
+		See "Connect to database" + nl
+		see connect("DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+		See "Select data" + nl
+		see execute("select * from person") + nl
+		nMax = colcount()
+		See "Columns Count : " + nMax + nl
+		while fetch()
+		        See "Row data:" + nl
+		        for x = 1 to nMax
+		                see getdata(x) + " - "
+		        next
+		end
+		See "Close database..." + nl
+		disconnect()
+		close()
+	}
+	
+MySQL Class
+===========
+
+Methods:
+
+======================================	======================================================================
+Method									Description/Output
+======================================	======================================================================
+info()									Return string contains the MySQL Client version.
+error() 								Get the error message from the MySQL Client.
+connect(cServer,cUser,cPass,cDatabase)	Connect to the MySQL database server.
+close() 								Close the connection to the MySQL database.
+query(cQuery)							Execute SQL queries.
+insert_id()								Get the inserted row id.
+result() 								Get the query result (data without column names).
+next_result()							Move to the next query result.
+columns() 								Get a list of columns names.
+result2() 								Get all of the column names then the query result in one list.
+escape_string(cStr)						Before storing binary data and special characters in the database.
+autocommit(lStatus)						Enable or disable the auto commit feature.
+commit() 								Commit updates to the database.
+rollback()								Rollback updates to the database.
+======================================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+	
+	omysql = new mysql
+	See "Test the MySQL Class Methods" + nl
+	omysql { 
+		see info() + nl
+		connect("localhost", "root", "root","mahdb")
+		see "Execute Query" + nl
+		query("SELECT * FROM Employee")
+		see "Print Result" + nl
+		see result2()
+		see "Close database" + nl
+		close()
+	}
+	
+Output:
+
+.. code-block:: none
+	
+	Test the MySQL Class Methods
+	5.5.30
+	Execute Query
+	Print Result
+	Id
+	Name
+	Salary
+	1
+	Mahmoud
+	15000
+	2
+	Samir
+	16000
+	3
+	Fayed
+	17000
+	Close database
+
+
+SQLite Class
+============
+
+Methods:
+
+======================================	======================================================================
+Method									Description/Output
+======================================	======================================================================
+open(cDatabase)							Open Database.
+close()									Close Database.
+errormessage()							Get Error Message.
+execute(cSQL)							Execute Query.
+======================================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	osqlite = new sqlite
+	See "Test the sqlite Class Methods" + nl
+	osqlite {
+		open("test.db")
+		sql = "CREATE TABLE COMPANY("  +
+       			"ID INT PRIMARY KEY     NOT NULL," +
+		         "NAME           TEXT    NOT NULL," +
+		         "AGE            INT     NOT NULL," +
+		         "ADDRESS        CHAR(50)," +
+		         "SALARY         REAL );"
+
+		execute(sql)
+
+		sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  +
+		         "VALUES (1, 'Mahmoud', 29, 'Jeddah', 20000.00 ); " +
+		         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  +
+		         "VALUES (2, 'Ahmed', 27, 'Jeddah', 15000.00 ); "     +
+		         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" +
+		         "VALUES (3, 'Mohammed', 31, 'Egypt', 20000.00 );" +
+		         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" +
+		         "VALUES (4, 'Ibrahim', 24, 'Egypt ', 65000.00 );"
+
+		execute(sql)
+
+		aResult =  execute("select * from COMPANY")
+		for x in aResult
+			for t in x
+				see t[2] + nl
+			next
+		next
+		see copy("*",50)  + nl
+		for x in aResult
+			see x["name"] + nl
+		next
+		close()
+	}
+
+Output:
+
+.. code-block:: none
+
+	Test the sqlite Class Methods
+	1
+	Mahmoud
+	29
+	Jeddah
+	20000.0
+	2
+	Ahmed
+	27
+	Jeddah
+	15000.0
+	3
+	Mohammed
+	31
+	Egypt
+	20000.0
+	4
+	Ibrahim
+	24
+	Egypt
+	65000.0
+	**************************************************
+	Mahmoud
+	Ahmed
+	Mohammed
+	Ibrahim
+
+
+Security Class
+==============
+
+
+Methods:
+
+======================================	======================================================================
+Method									Description/Output
+======================================	======================================================================
+md5(cString)							Calculate the MD5 hash.
+sha1(cString)							Calculate the SHA1 hash.
+sha256(cString)							Calculate the SHA256 hash.
+sha512(cString)							Calculate the SHA512 hash.
+sha384(cString)							Calculate the SHA384 hash.
+sha224(cString)							Calculate the SHA224 hash.
+encrypt(cString,cKey,cIV)				Cncrypts the data using the Blowfish algorithm.
+decrypt(cString,cKey,cIV)				Decrypt the data encrypted using the Encrypt() method.
+randbytes(nSize)						Generate a string of pseudo-random bytes.
+======================================	======================================================================
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	osecuirty = new secuirty
+	See "Test the secuirty Class Methods" + nl
+	oSecuirty { 
+		see md5("hello") + nl + 
+		sha1("hello") + nl + sha256("hello") + nl +
+		sha512("hello") + nl + sha384("hello") + nl + 
+		sha256("hello") + nl 
+		list = 0:15  cKey=""   for x in list cKey += char(x) next
+		list = 1:8   cIV = ""   for x in list cIV += char(x) next
+		cCipher = encrypt("hello",cKey,cIV)
+		see cCipher + nl + decrypt(cCipher,cKey,cIV) + nl
+	}
+
+	
+
+Internet Class
+==============
+
+Methods:
+
+* download(cURL)
+* sendemail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	ointernet = new internet
+	See "Test the internet Class Methods" + nl
+	ointernet { 
+		see download("www.ring-lang.sf.net")
+	}

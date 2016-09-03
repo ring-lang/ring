@@ -5,7 +5,7 @@ extern "C" {
 }
 #include "gabstractsocket.h"
 
-GAbstractSocket::GAbstractSocket(int x,QObject *parent,VM *pVM)  : QAbstractSocket(x,parent)
+GAbstractSocket::GAbstractSocket(QAbstractSocket::SocketType x,QObject *parent,VM *pVM)  : QAbstractSocket(x,parent)
 {
 	this->pVM = pVM;
 	strcpy(this->cconnectedEvent,"");

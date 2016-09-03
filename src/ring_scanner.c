@@ -43,14 +43,14 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 
 void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 {
-	FILE *fp;
+	RING_FILE fp  ;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
 	signed char c  ;
 	Scanner *pScanner  ;
 	VM *pVM  ;
 	int nCont,nRunVM,nFreeFilesList = 0 ;
 	char cStartup[30]  ;
-	int x  ;
+	int x,nSize  ;
 	/* Check file */
 	if ( pRingState->pRingFilesList == NULL ) {
 		pRingState->pRingFilesList = ring_list_new(0);
@@ -67,13 +67,13 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 			return ;
 		}
 	}
-	fp = fopen(cFileName , "r" );
+	fp = RING_OPENFILE(cFileName , "r");
 	/* Read File */
 	if ( fp==NULL ) {
 		printf( "Can't open file %s \n  ",cFileName ) ;
 		return ;
 	}
-	c = getc(fp);
+	RING_READCHAR(fp,c,nSize);
 	pScanner = ring_scanner_new(pRingState);
 	/* Check Startup file */
 	if ( ring_fexists("startup.ring") && pScanner->pRingState->lStartup == 0 ) {
@@ -92,14 +92,15 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 		ring_string_setfromint(pScanner->ActiveToken,0);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 	}
-	while ( c != EOF ) {
+	nSize = 1 ;
+	while ( (c != EOF) && (nSize != 0) ) {
 		ring_scanner_readchar(c,pScanner);
-		c = getc(fp);
+		RING_READCHAR(fp,c,nSize);
 	}
 	nCont = ring_scanner_checklasttoken(pScanner);
 	/* Add Token "End of Line" to the end of any program */
 	ring_scanner_endofline(pScanner);
-	fclose( fp ) ;
+	RING_CLOSEFILE(fp);
 	/* Print Tokens */
 	if ( pRingState->nPrintTokens ) {
 		ring_scanner_printtokens(pScanner);
@@ -132,6 +133,10 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 	/* Files List */
 	ring_list_deleteitem(pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 	if ( nFreeFilesList ) {
+		/* Generate the Object File */
+		if ( pRingState->nGenObj ) {
+			ring_objfile_writefile(pRingState);
+		}
 		/* Run the Program */
 		#if RING_RUNVM
 		if ( nRunVM == 1 ) {
@@ -682,7 +687,7 @@ void ring_scanner_printtokens ( Scanner *pScanner )
 	ring_print_line();
 }
 
-RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int argc,char *argv[] )
+RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int argc,char *argv[] )
 {
 	RingState *pRingState  ;
 	pRingState = ring_state_new();
@@ -693,13 +698,51 @@ RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPri
 	pRingState->nPrintTokens = nTokens ;
 	pRingState->nPrintRules = nRules ;
 	pRingState->nPrintInstruction = nIns ;
+	pRingState->nGenObj = nGenObj ;
 	pRingState->argc = argc ;
 	pRingState->argv = argv ;
-	ring_scanner_readfile(cFileName,pRingState);
+	if ( ring_issourcefile(cFileName) ) {
+		ring_scanner_readfile(cFileName,pRingState);
+	}
+	else {
+		ring_scanner_runobjfile(cFileName,pRingState);
+	}
 	ring_state_delete(pRingState);
 }
 
 const char * ring_scanner_getkeywordtext ( const char *cStr )
 {
 	return RING_KEYWORDS[atoi(cStr)-1] ;
+}
+
+void ring_scanner_runobjfile ( const char *cFileName,RingState *pRingState )
+{
+	/* Files List */
+	pRingState->pRingFilesList = ring_list_new(0);
+	pRingState->pRingFilesStack = ring_list_new(0);
+	ring_list_addstring(pRingState->pRingFilesList,cFileName);
+	ring_list_addstring(pRingState->pRingFilesStack,cFileName);
+	if ( ring_objfile_readfile(cFileName,pRingState) ) {
+		ring_scanner_runprogram(pRingState);
+	}
+}
+
+void ring_scanner_runprogram ( RingState *pRingState )
+{
+	VM *pVM  ;
+	/* Add return to the end of the program */
+	ring_scanner_addreturn(pRingState);
+	if ( pRingState->nPrintIC ) {
+		ring_parser_icg_showoutput(pRingState->pRingGenCode,1);
+	}
+	if ( ! pRingState->nRun ) {
+		return ;
+	}
+	pVM = ring_vm_new(pRingState);
+	ring_vm_start(pRingState,pVM);
+	ring_vm_delete(pVM);
+	/* Display Generated Code */
+	if ( pRingState->nPrintICFinal ) {
+		ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
+	}
 }

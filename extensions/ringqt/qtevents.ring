@@ -420,14 +420,6 @@ aclasses = [
 		[	:name = "GWebView" ,
 			:realname = "QWebView" ,
 			:events = [
-					[ 	:signal = "iconChanged()" ,
-						:slot = "iconChangedSlot()" ,
-						:event = "iconChanged"
-					] ,
-					[ 	:signal = "linkClicked(QUrl)" ,
-						:slot = "linkClickedSlot()" ,
-						:event = "linkClicked"
-					] ,
 					[ 	:signal = "loadFinished(bool)" ,
 						:slot = "loadFinishedSlot()" ,
 						:event = "loadFinished"
@@ -443,11 +435,7 @@ aclasses = [
 					[ 	:signal = "selectionChanged()" ,
 						:slot = "selectionChangedSlot()" ,
 						:event = "selectionChanged"
-					] ,
-					[ 	:signal = "statusBarMessage(QString)" ,
-						:slot = "statusBarMessageSlot()" ,
-						:event = "statusBarMessage"
-					] ,
+					] ,					
 					[ 	:signal = "titleChanged(QString)" ,
 						:slot = "titleChangedSlot()" ,
 						:event = "titleChanged"
@@ -595,7 +583,7 @@ aclasses = [
 		] ,
 		[	:name = "GAbstractSocket" ,
 			:realname = "QAbstractSocket" ,
-			:initpara = "int x,QObject *",
+			:initpara = "QAbstractSocket::SocketType x,QObject *",
 			:initparaparent = "x,",
 			:events = [
 					[ 	:signal = "connected()" ,
@@ -681,6 +669,16 @@ aclasses = [
 						:slot = "currentColorChangedSlot()" ,
 						:event = "currentColorChanged"
 					]
+				  ]
+		],
+		[	:name = "GNetworkAccessManager" ,
+			:realname = "QNetworkAccessManager" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "finished(QNetworkReply*)" ,
+						:slot = "finishedSlot(QNetworkReply*)" ,
+						:event = "finished"
+					] 
 				  ]
 		]
 	    ]
@@ -821,7 +819,11 @@ void "+aClass[:name]+"::set"+aEvent[:event]+"Event(const char *cStr)
 
 		# Slots
 		cSlots += '
-void '+aClass[:name]+'::'+aEvent[:slot]+'
+void '+aClass[:name]+'::'
+
+		cSlots += aEvent[:slot]
+
+		cSlots +='
 {
 	if (strcmp(this->c'+aEvent[:event]+'Event,"")==0)
 		return ;

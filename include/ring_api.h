@@ -71,6 +71,10 @@ void ring_vmlib_timelist ( void *pPointer ) ;
 void ring_vmlib_adddays ( void *pPointer ) ;
 
 void ring_vmlib_diffdays ( void *pPointer ) ;
+
+void ring_vmlib_version ( void *pPointer ) ;
+
+void ring_vmlib_clockspersecond ( void *pPointer ) ;
 /* Check Data Type */
 
 void ring_vmlib_isstring ( void *pPointer ) ;
@@ -156,6 +160,14 @@ void ring_vmlib_callgc ( void *pPointer ) ;
 void ring_vmlib_varptr ( void *pPointer ) ;
 
 void ring_vmlib_intvalue ( void *pPointer ) ;
+
+void ring_vmlib_object2pointer ( void *pPointer ) ;
+
+void ring_vmlib_pointer2object ( void *pPointer ) ;
+
+void ring_vmlib_nullpointer ( void *pPointer ) ;
+
+void ring_vmlib_space ( void *pPointer ) ;
 /* API For C Functions */
 #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)
@@ -174,7 +186,7 @@ void ring_vmlib_intvalue ( void *pPointer ) ;
 #define RING_API_RETSTRING2(x,y) ((VM *) pPointer)->nSP++ ; ring_itemarray_setstring2(((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP, x,y)
 #define RING_API_RETLIST(x) ring_vm_api_retlist((VM *) pPointer,x)
 #define RING_API_NEWLIST ring_vm_api_newlist((VM *) pPointer)
-#define RING_API_RETCPOINTER(x,y) (ring_vm_api_retcpointer((VM *) pPointer,x,y))
+#define RING_API_RETCPOINTER(x,y) (ring_vm_api_retcpointer((VM *) pPointer,(void *) x,y))
 #define RING_API_GETCPOINTER(x,y) (ring_vm_api_getcpointer((VM *) pPointer,x,y))
 #define RING_API_PUSHPVALUE(x) ((VM *) pPointer)->nSP++ ; ring_itemarray_setpointer(((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP , x )
 #define RING_API_OBJTYPE ((VM *) pPointer)->aStack[((VM *) pPointer)->nSP].nObjectType
@@ -185,7 +197,7 @@ void ring_vmlib_intvalue ( void *pPointer ) ;
 #define RING_API_ISCPOINTERNOTASSIGNED(x) (RING_API_GETCPOINTERSTATUS(x) == RING_CPOINTERSTATUS_NOTASSIGNED)
 #define RING_API_VARPOINTER(x,y) (ring_vm_api_varptr(pPointer,x,y))
 #define RING_API_INTVALUE(x) (ring_vm_api_intvalue(pPointer,x))
-#define RING_API_GETINTPOINTER(x) RING_API_VARPOINTER(RING_API_GETSTRING(x),"int")
+#define RING_API_GETINTPOINTER(x) (int *) RING_API_VARPOINTER(RING_API_GETSTRING(x),"int")
 #define RING_API_ACCEPTINTVALUE(x) RING_API_INTVALUE(RING_API_GETSTRING(x))
 #define RING_API_GETDOUBLEPOINTER(x) RING_API_VARPOINTER(RING_API_GETSTRING(x),"double")
 #define RING_API_IGNORECPOINTERTYPE ((VM *) pPointer)->nIgnoreCPointerTypeCheck = 1

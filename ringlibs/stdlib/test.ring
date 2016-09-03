@@ -1,3 +1,7 @@
+# The Ring Standard Library
+# Common Functions and classes for applications
+# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016, CalmoSoft <calmosoft@gmail.com>
 Load "stdlib.ring"
 
 # Application Path
@@ -22,7 +26,7 @@ See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
 
 # Test the Split function
 Puts("Test Split()")
-See Split("one two three four five")
+See Split("one two three four five"," ")
 
 # Test the Newlist function
 Puts("Test Newlist()")
@@ -125,31 +129,30 @@ Palindrome(cString)
 # Check whether a given year is a leap year in the Gregorian calendar.
 Puts("Test Isleapyear()")
 year = 2016
-leap = Isleapyear(year)
-if leap true see "" + year + " is a leap year."
+if Isleapyear(year) see "" + year + " is a leap year."
 else see "" + year + " is not a leap year." ok
 
 # Compute the sequence of binary digits for a given non-negative integer.
 Puts("Test Binarydigits()")
 b = 35
 see "Binary digits of " + b + " = "
-Binarydigits(b)
+see Binarydigits(b) + nl
 
 # Multiply two matrices together.
 Puts("Test Matrixmulti()")
 A = [[1,2,3], [4,5,6], [7,8,9]]
 B = [[1,0,0], [0,1,0], [0,0,1]]
-Matrixmulti(A, B)
+see Matrixmulti(A, B)
 
 # Transpose an arbitrarily sized rectangular Matrix.
 Puts("Test Matrixtrans()")
 matrix = [[78,19,30,12,36], [49,10,65,42,50], [30,93,24,78,10], [39,68,27,64,29]]
-Matrixtrans(matrix)
+see Matrixtrans(matrix)
 
 # Return the day of the week of given date.
 Puts("Test Dayofweek()")
 date = "2016-04-24"
-Dayofweek(date)
+see "Data : " + date + " - Day : " + Dayofweek(date) + nl
 
 # Friday the 13th between start and end year.
 Puts("Test Fridays()")
@@ -169,4 +172,41 @@ for perm = 1 to 24
 next
 
 
+# Sleep for the given amount of time.
+Puts("Test Sleep()")
+see "Wait 3 Seconds!"
+Sleep(3)
+see nl
 
+# Read a file line by line.
+Puts("Test Readline()")
+fp = fopen("test.ring","r")
+while not feof(fp)
+See Readline(fp) end
+fclose(fp)
+
+# Return a position of a substring starting from a given position in a string.
+Puts("Test Substring()")
+a = "abcxyzqweabc"
+b = "abc"
+i = 4
+see substring(a,b,i)
+
+# Change substring from given position for given position with a substring.
+Puts("Test Changestring()")
+see Changestring("Rmasdg",2,5,"in")
+
+# Test printf()
+printf("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
+x=10 y=20
+printf("\nx value = #{x} , y value = #{y} \n")
+
+# Check directory
+see "Check dir : b:\ring " 
+puts( DirExists("b:\ring") )
+see "Check dir : C:\ring " 
+Puts( DirExists("C:\ring") )
+
+# Create Directory
+puts("create Directory : myfolder")
+makedir("myfolder")

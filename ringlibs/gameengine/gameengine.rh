@@ -2,15 +2,8 @@
 # Game Engine for 2D Games
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-al_init()
-al_init_font_addon()
-al_init_ttf_addon()
-al_init_image_addon()
-al_install_audio()
-al_init_acodec_addon()
-al_reserve_samples(1)
-
 # Direction
+GE_DIRECTION_NOMOVE = 0
 GE_DIRECTION_INC = 1
 GE_DIRECTION_DEC = 2
 GE_DIRECTION_RANDOM = 3
@@ -18,8 +11,12 @@ GE_DIRECTION_INCVERTICAL = 4
 GE_DIRECTION_DECVERTICAL = 5
 
 # Key
-KEY_SPACE = 75
-KEY_ESC = 59
+KEY_SPACE = GL_SPACE
+KEY_ESC = GL_ESC
+KEY_RIGHT = GL_Key_Right
+KEY_LEFT  = GL_Key_Left
+KEY_UP = GL_Key_UP
+KEY_DOWN = GL_Key_Down
 
 # Type
 GE_TYPE_BACKGROUND = 1
@@ -27,8 +24,22 @@ GE_TYPE_PLAYER = 2
 GE_TYPE_ENEMY = 3
 GE_TYPE_FIRE = 4
 
-# colors
-GE_COLOR_WHITE = al_map_rgb(255,255,255)
-GE_COLOR_RED = al_map_rgb(255,0,0)
-GE_COLOR_GREEN = al_map_rgb(0,255,0)
-GE_COLOR_BLUE = al_map_rgb(0,0,255)
+# Here we define colors variables but set the values from loadgame.ring
+GE_COLOR_WHITE = NULL
+GE_COLOR_RED   = NULL
+GE_COLOR_GREEN = NULL
+GE_COLOR_BLUE  = NULL
+
+# Finger Events
+GE_FINGER_DOWN   = GL_EVENT_FINGER_DOWN
+GE_FINGER_UP     = GL_EVENT_FINGER_UP
+GE_FINGER_MOTION = GL_EVENT_FINGER_MOTION
+
+# Mouse Events
+GE_MOUSE_DOWN         = GL_event_mouse_button_down
+GE_MOUSE_UP           = GL_event_mouse_button_up
+GE_MOUSE_AXES         = GL_event_mouse_axes
+GE_MOUSE_ENTERDISPLAY = GL_event_mouse_enter_display
+
+GE_MOUSE_X = 1
+GE_MOUSE_Y = 2

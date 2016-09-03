@@ -24,8 +24,8 @@ INPUT(
 ./release\gabstractsocket.o
 ./release\gtcpsocket.o
 ./release\gallevents.o
+./release\gnetworkaccessmanager.o
 ./release\ring_qt.o
-./release\qrc_ringqt.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
 ./release\moc_glineedit.o
@@ -51,4 +51,5 @@ INPUT(
 ./release\moc_gabstractsocket.o
 ./release\moc_gtcpsocket.o
 ./release\moc_gallevents.o
+./release\moc_gnetworkaccessmanager.o
 );

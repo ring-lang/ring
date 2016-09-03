@@ -25,7 +25,10 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
+<filter> (get("RINGQT_ANDROID") = "")
 #include "gwebview.h"
+</filter>
+#include "gnetworkaccessmanager.h"
 #include "gcheckbox.h"
 #include "gradiobutton.h"
 #include "gbuttongroup.h"
@@ -79,7 +82,9 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
+<filter> (get("RINGQT_ANDROID") = "")
 #include <QWebView>
+</filter>
 #include <QUrl>
 #include <QCheckBox>
 #include <QRadioButton>
@@ -99,7 +104,9 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
+<filter> (get("RINGQT_ANDROID") = "")
 #include <QWebSettings>
+</filter>
 #include <QBrush>
 #include <QByteArray>
 #include <QIODevice>
@@ -129,6 +136,26 @@ extern "C" {
 #include <QTextDocument>
 #include <QTime>
 #include <QTest>
+#include <QListWidgetItem>
+#include <QSystemTrayIcon>
+#include <QDate>
+#include <QTextCodec>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlIndex>
+#include <QSqlRecord>
+#include <QSqlField>
+#include <QSqlDriverCreatorBase>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QPainterPath>
+#include <QImage>
+#include <QBitmap>
+#include <QMediaContent>
 
 extern "C" {
 
@@ -163,7 +190,175 @@ aNewMethodName + ["QLineEdit","end","endtext"]
 aNewMethodName + ["QDialog","done","donedialog"]
 aNewMethodName + ["QTextDocument","end","enddoc"]
 aNewMethodName + ["QTextBlock","next","nextblock"]
-
+aNewMethodName + ["QSqlQuery","next","movenext"]
+aNewMethodName + ["QImage","load","loadimage"]
+aNumberTypes + "qreal"
+aNumberTypes + "qint64"
+aEnumTypes + "Qt::GestureType"
+aEnumTypes + "Qt::GestureFlag"
+aEnumTypes + "Qt::ShortcutContext"
+aEnumTypes + "Qt::InputMethodQuery"
+aEnumTypes + "Qt::WindowType"
+aEnumTypes + "QWidget::RenderFlag"
+aEnumTypes + "Qt::WidgetAttribute"
+aEnumTypes + "QPalette::ColorRole"
+aEnumTypes + "Qt::ContextMenuPolicy"
+aEnumTypes + "Qt::FocusReason"
+aEnumTypes + "Qt::FocusPolicy"
+aEnumTypes + "Qt::InputMethodHint"
+aEnumTypes + "Qt::LayoutDirection"
+aEnumTypes + "QSizePolicy::Policy"
+aEnumTypes + "Qt::WindowType"
+aEnumTypes + "Qt::WindowModality"
+aEnumTypes + "Qt::WindowState"
+aEnumTypes + "Qt::AlignmentFlag"
+aEnumTypes + "Qt::TextFormat"
+aEnumTypes + "Qt::TextInteractionFlag"
+aEnumTypes + "Qt::AspectRatioMode"
+aEnumTypes + "Qt::TransformationMode"
+aEnumTypes + "Qt::CursorMoveStyle"
+aEnumTypes + "QLineEdit::EchoMode"
+aEnumTypes + "QTextDocument::FindFlag"
+aEnumTypes + "QTextCursor::MoveOperation"
+aEnumTypes + "QTextCursor::MoveMode"
+aEnumTypes + "QTextEdit::LineWrapMode"
+aEnumTypes + "QTextOption::WrapMode"
+aEnumTypes + "QItemSelectionModel::SelectionFlag"
+aEnumTypes + "Qt::SortOrder"
+aEnumTypes + "QAbstractItemView::ScrollHint"
+aEnumTypes + "QDir::Filter"
+aEnumTypes + "Qt::DropAction"
+aEnumTypes + "Qt::Orientation"
+aEnumTypes + "Qt::CheckState"
+aEnumTypes + "QTreeWidgetItem::ChildIndicatorPolicy"
+aEnumTypes + "Qt::ItemFlag"
+aEnumTypes + "Qt::MatchFlag"
+aEnumTypes + "Qt::Corner"
+aEnumTypes + "Qt::ToolBarArea"
+aEnumTypes + "Qt::ToolButtonStyle"
+aEnumTypes + "Qt::DockWidgetArea"
+aEnumTypes + "QMainWindow::DockOption"
+aEnumTypes + "QTabWidget::TabPosition"
+aEnumTypes + "QTabWidget::TabShape"
+aEnumTypes + "QDockWidget::DockWidgetFeature"
+aEnumTypes + "Qt::TextElideMode"
+aEnumTypes + "Qt::DockWidgetAreas"
+aEnumTypes + "QFrame::Shadow"
+aEnumTypes + "QFrame::Shape"
+aEnumTypes + "Qt::ScrollBarPolicy"
+aEnumTypes + "QAbstractItemView::DragDropMode"
+aEnumTypes + "QAbstractItemView::ScrollMode"
+aEnumTypes + "QAbstractItemView::EditTrigger"
+aEnumTypes + "QAbstractItemView::SelectionBehavior"
+aEnumTypes + "QAbstractItemView::SelectionMode"
+aEnumTypes + "QProgressBar::Direction"
+aEnumTypes + "QAbstractSlider::SliderAction"
+aEnumTypes + "QSlider::TickPosition"
+aEnumTypes + "QDateTimeEdit::Section"
+aEnumTypes + "Qt::TimeSpec"
+aEnumTypes + "QAbstractSpinBox::ButtonSymbols"
+aEnumTypes + "QAbstractSpinBox::CorrectionMode"
+aEnumTypes + "QWebPage::FindFlag"
+aEnumTypes + "QWebPage::WebAction"
+aEnumTypes + "QPainter::RenderHint"
+aEnumTypes + "QUrl::ComponentFormattingOption"
+aEnumTypes + "QUrl::ParsingMode"
+aEnumTypes + "QMediaPlaylist::PlaybackMode"
+aEnumTypes + "QAction::ActionEvent"
+aEnumTypes + "QAction::MenuRole"
+aEnumTypes + "QAction::Priority"
+aEnumTypes + "QKeySequence::StandardKey"
+aEnumTypes + "QMessageBox::ButtonRole"
+aEnumTypes + "QMessageBox::StandardButton"
+aEnumTypes + "QFileDialog::DialogLabel"
+aEnumTypes + "QFileDialog::AcceptMode"
+aEnumTypes + "QFileDialog::FileMode"
+aEnumTypes + "QFileDialog::Option"
+aEnumTypes + "QFileDialog::ViewMode"
+aEnumTypes + "Qt::ImageConversionFlag"
+aEnumTypes + "Qt::FillRule"
+aEnumTypes + "Qt::SizeMode"
+aEnumTypes + "Qt::BGMode"
+aEnumTypes + "Qt::ClipOperation"
+aEnumTypes + "QPainter::CompositionMode"
+aEnumTypes + "Qt::PenCapStyle"
+aEnumTypes + "Qt::PenJoinStyle"
+aEnumTypes + "Qt::PenStyle"
+aEnumTypes + "QColor::Spec"
+aEnumTypes + "QPrinter::Unit"
+aEnumTypes + "QPrinter::ColorMode"
+aEnumTypes + "QPrinter::DuplexMode"
+aEnumTypes + "QPrinter::OutputFormat"
+aEnumTypes + "QPageLayout::Unit"
+aEnumTypes + "QPrinter::PageOrder"
+aEnumTypes + "QPageLayout::Orientation"
+aEnumTypes + "QPrinter::PaperSource"
+aEnumTypes + "QPrinter::PrintRange"
+aEnumTypes + "QFont::Capitalization"
+aEnumTypes + "QFont::HintingPreference"
+aEnumTypes + "QFont::SpacingType"
+aEnumTypes + "QFont::Style"
+aEnumTypes + "QFont::StyleHint"
+aEnumTypes + "QFont::StyleStrategy"
+aEnumTypes + "QWebSettings::FontFamily"
+aEnumTypes + "QWebSettings::FontSize"
+aEnumTypes + "QWebSettings::WebAttribute"
+aEnumTypes + "QWebSettings::ThirdPartyCookiePolicy"
+aEnumTypes + "QWebSettings::WebGraphic"
+aEnumTypes + "Qt::BrushStyle"
+aEnumTypes + "QAbstractSocket::BindFlag"
+aEnumTypes + "QIODevice::OpenModeFlag"
+aEnumTypes + "QAbstractSocket::NetworkLayerProtocol"
+aEnumTypes + "QAbstractSocket::PauseMode"
+aEnumTypes + "QAbstractSocket::SocketState"
+aEnumTypes + "QAbstractSocket::SocketOption"
+aEnumTypes + "QNetworkRequest::KnownHeaders"
+aEnumTypes + "QNetworkProxy::Capability"
+aEnumTypes + "QNetworkProxy::ProxyType"
+aEnumTypes + "QHostInfo::HostInfoError"
+aEnumTypes + "QFileDevice::Permission"
+aEnumTypes + "QDir::SortFlag"
+aEnumTypes + "QFontDialog::FontDialogOption"
+aEnumTypes + "QTextCursor::SelectionType"
+aEnumTypes + "QColorDialog::ColorDialogOption"
+aEnumTypes + "QLCDNumber::Mode"
+aEnumTypes + "QLCDNumber::SegmentStyle"
+aEnumTypes + "QInputDialog::InputMode"
+aEnumTypes + "QInputDialog::InputDialogOption"
+aEnumTypes + "QTextDocument::Stacks"
+aEnumTypes + "QTextDocument::FindFlag"
+aEnumTypes + "QTextDocument::MetaInformation"
+aEnumTypes + "Qt::InputMethodHints"
+aEnumTypes + "Qt::WindowFlags"
+aEnumTypes + "QEvent::Type"
+aEnumTypes + "QPrinter::PrinterMode"
+aEnumTypes + "Qt::ItemFlags"
+aEnumTypes + "QSystemTrayIcon::MessageIcon"
+aEnumTypes + "Qt::DateFormat"
+aEnumTypes + "MonthNameType"
+aEnumTypes + "QTextCodec::ConversionFlag"
+aEnumTypes + "ConverterState"
+aEnumTypes + "QSql::NumericalPrecisionPolicy"
+aEnumTypes + "QVariant::Type"
+aEnumTypes + "DbmsType"
+aEnumTypes + "QSqlQuery::BatchExecutionMode"
+aEnumTypes + "RequiredStatus"
+aEnumTypes + "QSql::ParamType"
+aEnumTypes + "QSqlError::ErrorType"
+aEnumTypes + "QSqlField::RequiredStatus"
+aEnumTypes + "Qt::CaseSensitivity"
+aEnumTypes + "QNetworkRequest::Attribute"
+aEnumTypes + "QNetworkRequest::KnownHeaders"
+aEnumTypes + "QNetworkRequest::Priority"
+aEnumTypes + "QNetworkRequest::KnownHeaders" 
+aEnumTypes + "QNetworkRequest::Priority"
+aEnumTypes + "QNetworkAccessManager::NetworkAccessibility"
+aEnumTypes + "QNetworkReply::NetworkError"
+aEnumTypes + "Qt::SizeMode"
+aEnumTypes + "Qt::ImageConversionFlags"
+aEnumTypes + "Qt::MaskMode"
+aEnumTypes + "QImage::Format"
+aEnumTypes + "QImage::InvertMode"
 </runcode>
 
 <class>
@@ -181,16 +376,28 @@ void processEvents(void)
 
 RING_FUNC(ring_qApp_quit)
 {
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
 	qApp->quit();
 }
 
 RING_FUNC(ring_qApp_exec)
 {
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
 	qApp->exec();
 }
 
 RING_FUNC(ring_qApp_processEvents)
 {
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
 	qApp->processEvents();
 }
 
@@ -275,10 +482,10 @@ QRect frameGeometry(void)
 QSize frameSize(void)
 QRect geometry(void)
 void getContentsMargins(int *left, int *top, int *right, int *bottom)
-void grabGesture(int gesture, int flags)
+void grabGesture(Qt::GestureType gesture, Qt::GestureFlag flags)
 void grabKeyboard(void)
 void grabMouse(void)
-int grabShortcut(QKeySequence , int context)
+int grabShortcut(QKeySequence , Qt::ShortcutContext context)
 QGraphicsEffect *graphicsEffect(void)
 QGraphicsProxyWidget *graphicsProxyWidget(void)
 bool hasFocus(void)
@@ -286,7 +493,7 @@ bool hasMouseTracking(void)
 int height(void)
 int heightForWidth(int w)
 int inputMethodHints(void)
-QVariant inputMethodQuery(int query)
+QVariant inputMethodQuery(Qt::InputMethodQuery query)
 void insertAction(QAction *before, QAction *action)
 bool isActiveWindow(void)
 bool isAncestorOf(QWidget *child)
@@ -321,7 +528,7 @@ void move(int x, int y)
 QWidget *nativeParentWidget(void)
 QWidget *nextInFocusChain(void)
 QRect normalGeometry(void)
-void overrideWindowFlags(int flags)
+void overrideWindowFlags(Qt::WindowType flags)
 QPalette palette(void)
 QWidget *parentWidget(void)
 QPoint pos(void)
@@ -331,7 +538,7 @@ void releaseKeyboard(void)
 void releaseMouse(void)
 void releaseShortcut(int id)
 void removeAction(QAction *action)
-void render(QPaintDevice *target, QPoint,QRegion, int)
+void render(QPaintDevice *target, QPoint,QRegion, QWidget::RenderFlag)
 void repaint(void)
 void resize(int w, int h)
 bool restoreGeometry(QByteArray)
@@ -340,26 +547,26 @@ void scroll(int dx, int dy)
 void setAcceptDrops(bool on)
 void setAccessibleDescription(QString)
 void setAccessibleName(QString)
-void setAttribute(int attribute, bool on)
+void setAttribute(Qt::WidgetAttribute attribute, bool on)
 void setAutoFillBackground(bool enabled)
-void setBackgroundRole(int role)
+void setBackgroundRole(QPalette::ColorRole role)
 void setBaseSize(int basew, int baseh)
 void setContentsMargins(int left, int top, int right, int bottom)
-void setContextMenuPolicy(int policy)
+void setContextMenuPolicy(Qt::ContextMenuPolicy policy)
 void setCursor(QCursor)
 void setFixedHeight(int h)
 void setFixedSize(int w, int h)
 void setFixedWidth(int w)
-void setFocus(int reason)
-void setFocusPolicy(int policy)
+void setFocus(Qt::FocusReason reason)
+void setFocusPolicy(Qt::FocusPolicy policy)
 void setFocusProxy(QWidget *w)
 void setFont(QFont)
-void setForegroundRole(int role)
+void setForegroundRole(QPalette::ColorRole role)
 void setGeometry(int x, int y, int w, int h)
 void setGraphicsEffect(QGraphicsEffect *effect)
-void setInputMethodHints(int hints)
+void setInputMethodHints(Qt::InputMethodHint hints)
 void setLayout(QLayout *layout)
-void setLayoutDirection(int direction)
+void setLayoutDirection(Qt::LayoutDirection direction)
 void setLocale(QLocale)
 void setMask(QBitmap)
 void setMaximumHeight(int maxh)
@@ -374,20 +581,20 @@ void setParent(QWidget *parent)
 void setShortcutAutoRepeat(int id, bool enable)
 void setShortcutEnabled(int id, bool enable)
 void setSizeIncrement(int w, int h)
-void setSizePolicy(int horizontal, int vertical)
+void setSizePolicy(QSizePolicy::Policy horizontal, QSizePolicy::Policy vertical)
 void setStatusTip(QString)
 void setStyle(QStyle *style)
 void setToolTip(QString)
 void setUpdatesEnabled(bool enable)
 void setWhatsThis(QString)
 void setWindowFilePath(QString)
-void setWindowFlags(int type)
+void setWindowFlags(Qt::WindowType type)
 void setWindowIcon(QIcon)
 void setWindowIconText(QString)
-void setWindowModality(int windowModality)
+void setWindowModality(Qt::WindowModality windowModality)
 void setWindowOpacity(double level)
 void setWindowRole(QString)
-void setWindowState(int windowState)
+void setWindowState(Qt::WindowState windowState)
 QSize size(void)
 QSize sizeIncrement(void)
 QSizePolicy sizePolicy(void)
@@ -395,10 +602,10 @@ void stackUnder(QWidget *w)
 QString statusTip(void)
 QStyle *style(void)
 QString styleSheet(void)
-bool testAttribute(int attribute)
+bool testAttribute(Qt::WidgetAttribute attribute)
 QString toolTip(void)
 bool underMouse(void)
-void ungrabGesture(int gesture)
+void ungrabGesture(Qt::GestureType gesture)
 void unsetCursor(void)
 void unsetLayoutDirection(void)
 void unsetLocale(void)
@@ -459,15 +666,15 @@ QPicture *picture(void)
 QPixmap *pixmap(void)
 QString selectedText(void)
 int selectionStart(void)
-void setAlignment(int)
+void setAlignment(Qt::AlignmentFlag)
 void setBuddy(QWidget *buddy)
 void setIndent(int)
 void setMargin(int)
 void setOpenExternalLinks(bool open)
 void setScaledContents(bool)
 void setSelection(int start, int length)
-void setTextFormat(int)
-void setTextInteractionFlags(int flags)
+void setTextFormat(Qt::TextFormat)
+void setTextInteractionFlags(Qt::TextInteractionFlag flags)
 void setWordWrap(bool on)
 QString text(void)
 int textFormat(void)
@@ -494,13 +701,30 @@ void setIconSize(QSize)
 
 
 <class>
+name: QBitmap
+para: void
+parent: QPixmap
+</class>
+
+void clear(void)
+void swap(QBitmap)
+QBitmap transformed(QTransform)
+QBitmap fromData(QSize, const uchar * bits, QImage::Format monoFormat)
+QBitmap fromImage(QImage, Qt::ImageConversionFlags flags)
+
+<class>
 name: QPixmap
 para: const char *
 </class>
 QPixmap copy(int x, int y, int width, int height)
-QPixmap scaled(int width, int height, int aspectRatioMode, int transformMode) 
+QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) 
 int width(void)
 int height(void)
+QBitmap createMaskFromColor(QColor , Qt::MaskMode)
+QBitmap mask(void)
+void setMask(QBitmap)
+void fill(QColor)
+QPixmap fromImage(QImage,Qt::ImageConversionFlags)
 
 <class>
 name: QIcon
@@ -552,12 +776,12 @@ int maxLength(void)
 QString placeholderText(void)
 QString selectedText(void)
 int selectionStart(void)
-void setAlignment(int flag)
+void setAlignment(Qt::AlignmentFlag flag)
 void setCompleter(QCompleter *c)
-void setCursorMoveStyle(int style)
+void setCursorMoveStyle(Qt::CursorMoveStyle style)
 void setCursorPosition(int)
 void setDragEnabled(bool b)
-void setEchoMode(int)
+void setEchoMode(QLineEdit::EchoMode)
 void setFrame(bool)
 void setInputMask(QString)
 void setMaxLength(int)
@@ -621,7 +845,7 @@ int cursorWidth(void)
 QTextDocument *document(void)
 QString documentTitle(void)
 void ensureCursorVisible(void)
-bool find(QString, int)
+bool find(QString, QTextDocument::FindFlag)
 QString fontFamily(void)
 bool fontItalic(void)
 double fontPointSize(void)
@@ -632,7 +856,7 @@ bool isUndoRedoEnabled(void)
 int lineWrapColumnOrWidth(void)
 QVariant loadResource(int, QUrl)
 void mergeCurrentCharFormat(QTextCharFormat)
-void moveCursor(int operation, int mode)
+void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
 bool overwriteMode(void) 
 void print(QPrinter * printer)  
 void setAcceptRichText(bool accept)
@@ -641,15 +865,15 @@ void setCursorWidth(int width)
 void setDocument(QTextDocument *document)
 void setDocumentTitle(QString)
 void setLineWrapColumnOrWidth(int w)
-void setLineWrapMode(int)
+void setLineWrapMode(QTextEdit::LineWrapMode)
 void setOverwriteMode(bool overwrite)
 void setReadOnly(bool)
 void setTabChangesFocus(bool)
 void setTabStopWidth(int width)
 void setTextCursor(QTextCursor)
-void setTextInteractionFlags(int flags)
+void setTextInteractionFlags(Qt::TextInteractionFlag flags)
 void setUndoRedoEnabled(bool enable)
-void setWordWrapMode(int policy)
+void setWordWrapMode(QTextOption::WrapMode policy)
 bool tabChangesFocus(void)  
 int tabStopWidth(void)  
 QColor textBackgroundColor(void)  
@@ -670,7 +894,7 @@ void paste(void)
 void redo(void)
 void scrollToAnchor(QString)
 void selectAll(void)
-void setAlignment(int a)
+void setAlignment(Qt::AlignmentFlag a)
 void setCurrentFont(QFont)
 void setFontFamily(QString)
 void setFontItalic(bool italic)
@@ -723,11 +947,11 @@ int row(QListWidgetItem *item)
 <comment>
 QList selectedItems(void)
 </comment>
-void setCurrentItem(QListWidgetItem *item, int command)
-void setCurrentRow(int row, int command)
+void setCurrentItem(QListWidgetItem *item, QItemSelectionModel::SelectionFlag command)
+void setCurrentRow(int row, QItemSelectionModel::SelectionFlag command)
 void setItemWidget(QListWidgetItem *item, QWidget *widget)
 void setSortingEnabled(bool enable)
-void sortItems(int order)
+void sortItems(Qt::SortOrder order)
 QListWidgetItem *takeItem(int row)
 QRect visualItemRect(QListWidgetItem *item)
 
@@ -787,14 +1011,14 @@ void setRowHidden(int row,QModelIndex, bool hide)
 void setSortingEnabled(bool enable)
 void setUniformRowHeights(bool uniform)
 void setWordWrap(bool on)
-void sortByColumn(int column,int order)
+void sortByColumn(int column,Qt::SortOrder order)
 bool uniformRowHeights(void) 
 bool wordWrap(void) 
 void dataChanged(QModelIndex,QModelIndex)
 QModelIndex indexAt(QPoint) 
 void keyboardSearch(QString)
 void reset(void)
-void scrollTo(QModelIndex, int)
+void scrollTo(QModelIndex, QAbstractItemView::ScrollHint)
 void selectAll(void)
 void setModel(QAbstractItemModel *model)
 void setRootIndex(QModelIndex)
@@ -850,7 +1074,7 @@ bool resolveSymlinks(void)
 bool rmdir(QModelIndex)
 QDir rootDirectory(void)
 QString rootPath(void)
-void setFilter(int filters)
+void setFilter(QDir::Filter filters)
 void setIconProvider(QFileIconProvider *provider)
 void setNameFilterDisables(bool enable)
 void setNameFilters(QStringList)
@@ -863,17 +1087,17 @@ QString type(QModelIndex)
 bool canFetchMore(QModelIndex)
 int columnCount(void)
 QVariant data( QModelIndex index, int role)
-bool dropMimeData( QMimeData *data, int action, int row, int column, QModelIndex parent)
+bool dropMimeData( QMimeData *data, Qt::DropAction action, int row, int column, QModelIndex parent)
 void fetchMore( QModelIndex parent)
 int flags( QModelIndex index)
 bool hasChildren( QModelIndex parent )
-QVariant headerData(int section, int orientation, int role )
+QVariant headerData(int section, Qt::Orientation orientation, int role )
 QMimeData * mimeData( QModelIndexList indexes)
 QStringList mimeTypes(void)
 QModelIndex parent( QModelIndex index)
 int rowCount( QModelIndex parent)
 bool setData( QModelIndex idx,  QVariant value, int role)
-void sort(int column, int order )
+void sort(int column, Qt::SortOrder order )
 int supportedDropActions(void)
 
 
@@ -903,13 +1127,13 @@ QWidget *itemWidget(QTreeWidgetItem *item, int column)
 void openPersistentEditor(QTreeWidgetItem *item, int column)
 void removeItemWidget(QTreeWidgetItem *item, int column)
 void setColumnCount(int columns)
-void setCurrentItem(QTreeWidgetItem * item, int column)
+void setCurrentItem(QTreeWidgetItem * item, QItemSelectionModel::SelectionFlag column)
 void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
 void setHeaderItem(QTreeWidgetItem *item)
 void setHeaderLabel(QString)
 void setItemWidget(QTreeWidgetItem *item, int column, QWidget * widget)
 int sortColumn(void) 
-void sortItems(int column, int order)
+void sortItems(int column, Qt::SortOrder order)
 QTreeWidgetItem *takeTopLevelItem(int index)
 QTreeWidgetItem *topLevelItem(int index)
 int topLevelItemCount(void)
@@ -918,7 +1142,7 @@ void setSelectionModel(QItemSelectionModel *selectionModel)
 void clear(void)
 void collapseItem(QTreeWidgetItem *item)
 void expandItem(QTreeWidgetItem *item)
-void scrollToItem(QTreeWidgetItem *item, int hint)
+void scrollToItem(QTreeWidgetItem *item, QAbstractItemView::ScrollHint hint)
 
 void setcollapsedEvent(const char *)
 void setexpandedEvent(const char *)
@@ -970,13 +1194,13 @@ QTreeWidgetItem *parent(void)
 void read(QDataStream)
 void removeChild(QTreeWidgetItem *child)
 void setBackground(int column,QBrush)
-void setCheckState(int column, int state)
-void setChildIndicatorPolicy(int policy)
+void setCheckState(int column, Qt::CheckState state)
+void setChildIndicatorPolicy(QTreeWidgetItem::ChildIndicatorPolicy policy)
 void setData(int column, int role,QVariant)
 void setDisabled(bool disabled)
 void setExpanded(bool expand)
 void setFirstColumnSpanned(bool span)
-void setFlags(int flags)
+void setFlags(Qt::ItemFlag flags)
 void setFont(int column, QFont)
 void setForeground(int column, QBrush)
 void setHidden(bool hide)
@@ -989,7 +1213,7 @@ void setTextAlignment(int column, int alignment)
 void setToolTip(int column, QString)
 void setWhatsThis(int column, QString)
 QSize sizeHint(int column)
-void sortChildren(int column, int order)
+void sortChildren(int column, Qt::SortOrder order)
 QString statusTip(int column)
 QTreeWidgetItem *takeChild(int index)
 QString text(int column)
@@ -1037,8 +1261,8 @@ int count(void)
 int currentIndex(void)
 QString currentText(void)
 bool duplicatesEnabled(void)
-int findData(QVariant, int role, int flags)
-int findText(QString, int flags)
+int findData(QVariant, int role, Qt::MatchFlag flags)
+int findText(QString, Qt::MatchFlag flags)
 bool hasFrame(void)
 void hidePopup(void)
 QSize iconSize(void)
@@ -1113,7 +1337,7 @@ QAction *addMenu(QMenu *menu)
 QMenu *addMenu(QString)
 QAction *addSeparator(void)
 void clear(void)
-QWidget *cornerWidget(int)
+QWidget *cornerWidget(Qt::Corner)
 <comment>
 QAction *defaultAction(void)
 </comment>
@@ -1122,7 +1346,7 @@ QAction *insertSeparator(QAction *before)
 bool isDefaultUp(void)
 bool isNativeMenuBar(void)
 void setActiveAction(QAction *act)
-void setCornerWidget(QWidget *widget, int)
+void setCornerWidget(QWidget *widget, Qt::Corner)
 <comment>
 void setDefaultAction(QAction *act)
 </comment>
@@ -1178,20 +1402,20 @@ void clear(void)
 QSize iconSize(void)
 QAction *insertSeparator(QAction *before)
 QAction *insertWidget(QAction *before, QWidget *widget)
-bool isAreaAllowed(int area)
+bool isAreaAllowed(Qt::ToolBarArea area)
 bool isFloatable(void)
 bool isFloating(void)
 bool isMovable(void)
 int orientation(void)
-void setAllowedAreas(int areas)
+void setAllowedAreas(Qt::ToolBarArea areas)
 void setFloatable(bool floatable)
 void setMovable(bool movable)
-void setOrientation(int orientation)
+void setOrientation(Qt::Orientation orientation)
 QAction *toggleViewAction(void)
 int toolButtonStyle(void)
 QWidget *widgetForAction(QAction *action)
 void setIconSize(QSize)
-void setToolButtonStyle(int toolButtonStyle)
+void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)
 
 <class>
 name: QMainWindow
@@ -1199,11 +1423,12 @@ para: void
 parent: QWidget
 </class>
 
-void addDockWidget(int area, QDockWidget *dockwidget, int orientation)
+void addDockWidget(Qt::DockWidgetArea area, QDockWidget *dockwidget, Qt::Orientation orientation)
 QToolBar *addToolBar(QString)
-void addToolBarBreak(int)
+void addToolBar@2(Qt::ToolBarArea area, QToolBar *toolbar)
+void addToolBarBreak(Qt::ToolBarArea)
 QWidget *centralWidget(void)
-int corner(int corner)
+int corner(Qt::Corner corner)
 QMenu *createPopupMenu(void)
 int dockOptions(void)
 int dockWidgetArea(QDockWidget *dockwidget)
@@ -1222,20 +1447,20 @@ bool restoreDockWidget(QDockWidget *dockwidget)
 bool restoreState(QByteArray state, int version)
 QByteArray saveState(int version)
 void setCentralWidget(QWidget *widget)
-void setCorner(int corner, int area)
-void setDockOptions(int options)
+void setCorner(Qt::Corner corner, Qt::DockWidgetArea area)
+void setDockOptions(QMainWindow::DockOption options)
 void setDocumentMode(bool enabled)
 void setIconSize(QSize)
 void setMenuBar(QMenuBar *menuBar)
 void setMenuWidget(QWidget *menuBar)
 void setStatusBar(QStatusBar *statusbar)
-void setTabPosition(int areas, int tabPosition)
-void setTabShape(int tabShape)
-void setToolButtonStyle(int toolButtonStyle)
+void setTabPosition(Qt::DockWidgetArea areas, QTabWidget::TabPosition tabPosition)
+void setTabShape(QTabWidget::TabShape tabShape)
+void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)
 void setUnifiedTitleAndToolBarOnMac(bool set)
-void splitDockWidget(QDockWidget *first, QDockWidget *second, int orientation)
+void splitDockWidget(QDockWidget *first, QDockWidget *second, Qt::Orientation orientation)
 QStatusBar *statusBar(void)
-int tabPosition(int area) 
+int tabPosition(Qt::DockWidgetArea area) 
 int tabShape(void)
 void tabifyDockWidget(QDockWidget *first, QDockWidget *second)
 int toolBarArea(QToolBar *toolbar)
@@ -1262,25 +1487,25 @@ void showMessage(QString , int timeout)
 
 <class>
 name: QDockWidget
-para: QWidget *parent,int flag
+para: QWidget *parent,Qt::WindowType flag
 parent: QWidget
 </class>
 
 int allowedAreas(void)
 int features(void)
-bool isAreaAllowed(int area)
+bool isAreaAllowed(Qt::DockWidgetArea area)
 bool isFloating(void)
-void setAllowedAreas(int areas)
-void setFeatures(int features)
+void setAllowedAreas(Qt::DockWidgetArea areas)
+void setFeatures(QDockWidget::DockWidgetFeature features)
 void setFloating(bool floating)
 void setTitleBarWidget(QWidget *widget)
 void setWidget(QWidget *widget)
 QWidget *titleBarWidget(void)
 QAction *toggleViewAction(void)
 QWidget *widget(void)
-void allowedAreasChanged(int allowedAreas)
-void dockLocationChanged(int area)
-void featuresChanged(int features)
+void allowedAreasChanged(Qt::DockWidgetArea allowedAreas)
+void dockLocationChanged(Qt::DockWidgetArea area)
+void featuresChanged(QDockWidget::DockWidgetFeature features)
 void topLevelChanged(bool topLevel)
 void visibilityChanged(bool visible)
 
@@ -1294,7 +1519,7 @@ passvmpointer
 
 int addTab(QWidget *page, QString)
 void clear(void)
-QWidget *cornerWidget(int corner)
+QWidget *cornerWidget(Qt::Corner corner)
 int count(void)
 int currentIndex(void)
 QWidget *currentWidget(void)
@@ -1306,9 +1531,9 @@ int insertTab(int index, QWidget *page,QString)
 bool isMovable(void)
 bool isTabEnabled(int index)
 void removeTab(int index)
-void setCornerWidget(QWidget *widget, int corner)
+void setCornerWidget(QWidget *widget, Qt::Corner corner)
 void setDocumentMode(bool set)
-void setElideMode(int)
+void setElideMode(Qt::TextElideMode)
 void setIconSize(QSize)
 void setMovable(bool movable)
 void setTabEnabled(int index, bool enable)
@@ -1352,9 +1577,9 @@ bool isSelected(void)
 void read(QDataStream)
 int row(void)
 void setBackground(QBrush)
-void setCheckState(int state)
+void setCheckState(Qt::CheckState state)
 void setData(int role, QVariant)
-void setFlags(int flags)
+void setFlags(Qt::ItemFlag flags)
 void setFont(QFont)
 void setForeground(QBrush)
 void setIcon(QIcon)
@@ -1377,7 +1602,7 @@ void write(QDataStream)
 
 <class>
 name: QFrame
-para: QWidget *parent, int flag
+para: QWidget *parent, Qt::WindowType flag
 parent: QWidget
 </class>
 QRect frameRect(void)
@@ -1388,8 +1613,8 @@ int frameWidth(void)
 int lineWidth(void)
 int midLineWidth(void)
 void setFrameRect(QRect)
-void setFrameShadow(int)
-void setFrameShape(int)
+void setFrameShadow(QFrame::Shadow)
+void setFrameShape(QFrame::Shape)
 void setFrameStyle(int style)
 void setLineWidth(int)
 void setMidLineWidth(int)
@@ -1400,17 +1625,17 @@ name: QAbstractScrollArea
 para: QWidget *parent
 parent: QFrame
 </class>
-void addScrollBarWidget(QWidget *widget, int alignment)
+void addScrollBarWidget(QWidget *widget, Qt::AlignmentFlag alignment)
 QWidget *cornerWidget(void)
 QScrollBar *horizontalScrollBar(void)
 int horizontalScrollBarPolicy(void)
 QSize maximumViewportSize(void)
-QWidgetList scrollBarWidgets(int)
+QWidgetList scrollBarWidgets(Qt::AlignmentFlag)
 void setCornerWidget(QWidget *widget)
 void setHorizontalScrollBar(QScrollBar *scrollBar)
-void setHorizontalScrollBarPolicy(int)
+void setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy)
 void setVerticalScrollBar(QScrollBar *scrollBar)
-void setVerticalScrollBarPolicy(int)
+void setVerticalScrollBarPolicy(Qt::ScrollBarPolicy)
 void setViewport(QWidget *widget)
 QScrollBar *verticalScrollBar(void)
 int verticalScrollBarPolicy(void)
@@ -1444,32 +1669,32 @@ void keyboardSearch(QString)
 QAbstractItemModel *model(void)
 void openPersistentEditor(QModelIndex)
 QModelIndex rootIndex(void)
-void scrollTo(QModelIndex,int)
+void scrollTo(QModelIndex,QAbstractItemView::ScrollHint)
 int selectionBehavior(void)
 int selectionMode(void)
 QItemSelectionModel *selectionModel(void)
 void setAlternatingRowColors(bool enable)
 void setAutoScroll(bool enable)
 void setAutoScrollMargin(int margin)
-void setDefaultDropAction(int dropAction)
-void setDragDropMode(int behavior)
+void setDefaultDropAction(Qt::DropAction dropAction)
+void setDragDropMode(QAbstractItemView::DragDropMode behavior)
 void setDragDropOverwriteMode(bool overwrite)
 void setDragEnabled(bool enable)
 void setDropIndicatorShown(bool enable)
-void setEditTriggers(int triggers)
-void setHorizontalScrollMode(int mode)
+void setEditTriggers(QAbstractItemView::EditTrigger triggers)
+void setHorizontalScrollMode(QAbstractItemView::ScrollMode mode)
 void setIconSize(QSize)
 void setIndexWidget(QModelIndex, QWidget *widget)
 void setItemDelegate(QAbstractItemDelegate *delegate)
 void setItemDelegateForColumn(int column, QAbstractItemDelegate *delegate)
 void setItemDelegateForRow(int row, QAbstractItemDelegate *delegate)
 void setModel(QAbstractItemModel *model)
-void setSelectionBehavior(int behavior)
-void setSelectionMode(int mode)
+void setSelectionBehavior(QAbstractItemView::SelectionBehavior behavior)
+void setSelectionMode(QAbstractItemView::SelectionMode mode)
 void setSelectionModel(QItemSelectionModel *selectionModel)
 void setTabKeyNavigation(bool enable)
-void setTextElideMode(int mode)
-void setVerticalScrollMode(int mode)
+void setTextElideMode(Qt::TextElideMode mode)
+void setVerticalScrollMode(QAbstractItemView::ScrollMode mode)
 bool showDropIndicator(void)
 int sizeHintForColumn(int column)
 QSize sizeHintForIndex(QModelIndex)
@@ -1519,7 +1744,7 @@ void setItem(int row, int column, QTableWidgetItem *item)
 void setItemPrototype(QTableWidgetItem *item)
 void setRowCount(int rows)
 void setVerticalHeaderItem(int row, QTableWidgetItem *item)
-void sortItems(int column, int order)
+void sortItems(int column, Qt::SortOrder order)
 QTableWidgetItem *takeHorizontalHeaderItem(int column)
 QTableWidgetItem *takeItem(int row, int column)
 QTableWidgetItem *takeVerticalHeaderItem(int row)
@@ -1533,7 +1758,7 @@ void insertColumn(int column)
 void insertRow(int row)
 void removeColumn(int column)
 void removeRow(int row)
-void scrollToItem(QTableWidgetItem *item, int hint)
+void scrollToItem(QTableWidgetItem *item, QAbstractItemView::ScrollHint hint)
 
 void setcellActivatedEvent(const char *)
 void setcellChangedEvent(const char *)
@@ -1568,10 +1793,10 @@ int maximum(void)
 int minimum(void)
 int orientation(void)
 void resetFormat(void)
-void setAlignment(int alignment)
+void setAlignment(Qt::AlignmentFlag alignment)
 void setFormat(QString)
 void setInvertedAppearance(bool invert)
-void setTextDirection(int textDirection)
+void setTextDirection(QProgressBar::Direction textDirection)
 void setTextVisible(bool visible)
 QString text(void)
 int textDirection(void)
@@ -1579,7 +1804,7 @@ int value(void)
 void reset(void)
 void setMaximum(int maximum)
 void setMinimum(int minimum)
-void setOrientation(int)
+void setOrientation(Qt::Orientation)
 void setRange(int minimum, int maximum)
 void setValue(int value)
 
@@ -1636,9 +1861,9 @@ void setSliderPosition(int)
 void setTracking(bool enable)
 int singleStep(void)
 int sliderPosition(void)
-void triggerAction(int action)
+void triggerAction(QAbstractSlider::SliderAction action)
 int value(void)
-void setOrientation(int)
+void setOrientation(Qt::Orientation)
 void setRange(int min, int max)
 void setValue(int)
 
@@ -1651,7 +1876,7 @@ passvmpointer
 </class>
 
 void setTickInterval(int ti)
-void setTickPosition(int position)
+void setTickPosition(QSlider::TickPosition position)
 int tickInterval(void)
 int tickPosition(void)
 QSize minimumSizeHint(void)
@@ -1698,10 +1923,10 @@ QDateTime minimumDateTime(void)
 QTime minimumTime(void)
 int sectionAt(int index)
 int sectionCount(void)
-QString sectionText(int section)
+QString sectionText(QDateTimeEdit::Section section)
 void setCalendarPopup(bool enable)
 void setCalendarWidget(QCalendarWidget *calendarWidget)
-void setCurrentSection(int section)
+void setCurrentSection(QDateTimeEdit::Section section)
 void setCurrentSectionIndex(int index)
 void setDateRange(QDate,QDate)
 void setDateTimeRange(QDateTime,QDateTime)
@@ -1712,9 +1937,9 @@ void setMaximumTime(QTime)
 void setMinimumDate(QDate)
 void setMinimumDateTime(QDateTime)
 void setMinimumTime(QTime)
-void setSelectedSection(int section)
+void setSelectedSection(QDateTimeEdit::Section section)
 void setTimeRange(QTime,QTime)
-void setTimeSpec(int spec)
+void setTimeSpec(Qt::TimeSpec spec)
 QTime time(void)
 Qt::TimeSpec timeSpec(void)
 void setDate(QDate)
@@ -1734,15 +1959,19 @@ bool hasAcceptableInput(void)
 bool hasFrame(void)
 void interpretText(void)
 bool isAccelerated(void)
+<comment>
 bool isGroupSeparatorShown(void)
+</comment>
 bool isReadOnly(void)
 bool keyboardTracking(void)
 void setAccelerated(bool on)
-void setAlignment(int flag)
-void setButtonSymbols(int bs)
-void setCorrectionMode(int cm)
+void setAlignment(Qt::AlignmentFlag flag)
+void setButtonSymbols(QAbstractSpinBox::ButtonSymbols bs)
+void setCorrectionMode(QAbstractSpinBox::CorrectionMode cm)
 void setFrame(bool)
+<comment>
 void setGroupSeparatorShown(bool shown)
+</comment>
 void setKeyboardTracking(bool kt)
 void setReadOnly(bool r)
 void setSpecialValueText(QString)
@@ -1781,6 +2010,7 @@ void setsliderPressedEvent(const char *)
 void setsliderReleasedEvent(const char *)
 void setvalueChangedEvent(const char *)
 
+<filter> (get("RINGQT_ANDROID") = "")
 <class>
 name: QWebView
 para: QWidget *parent
@@ -1789,49 +2019,67 @@ codename: GWebView
 passvmpointer
 </class>
 
-bool findText(QString, int options)
+<comment>
+bool findText(QString, QWebPage::FindFlag options)
+</comment>
 bool hasSelection(void)
 QWebHistory *history(void)
+<comment>
 QIcon icon(void)
 bool isModified(void)
+</comment>
 void load(QUrl)
 <comment>
 void load(QNetworkRequest , int operation, QByteArray))
 </comment>
 QWebPage *page(void)
-QAction *pageAction(int action)
+QAction *pageAction(QWebPage::WebAction action)
+<comment>
 int renderHints(void)
 QString selectedHtml(void)
+</comment>
 QString selectedText(void)
 void setContent(QByteArray,QString,QUrl)
 void setHtml(QString,QUrl)
 void setPage(QWebPage *page)
-void setRenderHint(int hint, bool enabled)
-void setRenderHints(int hints)
+<comment>
+void setRenderHint(QPainter::RenderHint hint, bool enabled)
+void setRenderHints(QPainter::RenderHint hints)
 void setTextSizeMultiplier(qreal factor)
+</comment>
 void setUrl(QUrl)
 void setZoomFactor(qreal factor)
 QWebSettings *settings(void)
+<comment>
 qreal textSizeMultiplier(void)
+</comment>
 QString title(void)
-void triggerPageAction(int action, bool checked)
+void triggerPageAction(QWebPage::WebAction action, bool checked)
 QUrl url(void)
 qreal zoomFactor(void)
 void back(void)
 void forward(void)
+<comment>
 void print(QPrinter *printer)
+</comment>
 void reload(void)
 void stop(void)
 
+<comment>
 void seticonChangedEvent(const char *)
 void setlinkClickedEvent(const char *)
+</comment>
 void setloadFinishedEvent(const char *)
 void setloadProgressEvent(const char *)
 void setloadStartedEvent(const char *)
 void setselectionChangedEvent(const char *)
+<comment>
 void setstatusBarMessageEvent(const char *)
+</comment>
 void settitleChangedEvent(const char *)
 void seturlChangedEvent(const char *)
+
+</filter>
 
 <class>
 name: QUrl
@@ -1841,14 +2089,14 @@ para: QString
 <comment>
 QUrl adjusted(int options)
 </comment>
-QString authority(int options)
+QString authority(QUrl::ComponentFormattingOption options)
 void clear(void)
 QString errorString(void)
-QString fileName(int options)
-QString fragment(int options)
+QString fileName(QUrl::ComponentFormattingOption options)
+QString fragment(QUrl::ComponentFormattingOption options)
 bool hasFragment(void)
 bool hasQuery(void)
-QString host(int options)
+QString host(QUrl::ComponentFormattingOption options)
 bool isEmpty(void)
 bool isLocalFile(void)
 bool isParentOf(QUrl)
@@ -1857,23 +2105,23 @@ bool isValid(void)
 <comment>
 bool matches(QUrl, int options)
 </comment>
-QString password(int options)
-QString path(int options)
+QString password(QUrl::ComponentFormattingOption options)
+QString path(QUrl::ComponentFormattingOption options)
 int port(int defaultPort)
-QString query(int options)
+QString query(QUrl::ComponentFormattingOption options)
 QUrl resolved(QUrl)
 QString scheme(void)
-void setAuthority(QString, int mode)
-void setFragment(QString, int mode)
-void setHost(QString, int mode)
-void setPassword(QString, int mode)
-void setPath(QString, int mode)
+void setAuthority(QString, QUrl::ParsingMode mode)
+void setFragment(QString, QUrl::ParsingMode mode)
+void setHost(QString, QUrl::ParsingMode mode)
+void setPassword(QString, QUrl::ParsingMode mode)
+void setPath(QString, QUrl::ParsingMode mode)
 void setPort(int port)
-void setQuery(QString, int mode)
+void setQuery(QString, QUrl::ParsingMode mode)
 void setScheme(QString)
-void setUrl(QString, int parsingMode)
-void setUserInfo(QString, int mode)
-void setUserName(QString, int mode)
+void setUrl(QString, QUrl::ParsingMode parsingMode)
+void setUserInfo(QString, QUrl::ParsingMode mode)
+void setUserName(QString, QUrl::ParsingMode mode)
 void swap(QUrl)
 <comment>
 QString toDisplayString(int options)
@@ -1882,9 +2130,9 @@ QString toString(int options)
 QString url(int options)
 </comment>
 QString toLocalFile(void)
-QString topLevelDomain(int options)
-QString userInfo(int options)
-QString userName(int options)
+QString topLevelDomain(QUrl::ComponentFormattingOption options)
+QString userInfo(QUrl::ComponentFormattingOption options)
+QString userName(QUrl::ComponentFormattingOption options)
 QUrl fromLocalFile(QString)
 
 <class>
@@ -1897,7 +2145,7 @@ passvmpointer
 
 int checkState(void)
 bool isTristate(void)
-void setCheckState(int state)
+void setCheckState(Qt::CheckState state)
 void setTristate(bool y)
 QSize minimumSizeHint(void)
 QSize sizeHint(void)
@@ -2028,7 +2276,10 @@ name: QMediaPlaylist
 para: void
 </class>
 
+<comment>
 bool addMedia(QMediaContent)
+</comment>
+bool addMedia(QUrl)
 <comment>
 bool addMedia(const QList<QMediaContent> & items)
 </comment>
@@ -2061,7 +2312,7 @@ bool save(QUrl, const char * format)
 <comment>
 bool save(QIODevice *device, const char *format)
 </comment>
-void setPlaybackMode(int mode)
+void setPlaybackMode(QMediaPlaylist::PlaybackMode mode)
 void next(void)
 void previous(void)
 void setCurrentIndex(int playlistPosition)
@@ -2081,7 +2332,7 @@ int contrast(void)
 int hue(void)
 bool isFullScreen(void)
 int saturation(void)
-void setAspectRatioMode(int mode)
+void setAspectRatioMode(Qt::AspectRatioMode mode)
 void setBrightness(int brightness)
 void setContrast(int contrast)
 void setFullScreen(bool fullScreen)
@@ -2096,13 +2347,13 @@ void setsaturationChangedEvent(const char *)
 
 <class>
 name: QAction
-para: QObject *parent
+para: QWidget *parent
 codename: GAction
 passvmpointer
 </class>
 
 QActionGroup *actionGroup(void)
-void activate(int event)
+void activate(QAction::ActionEvent event)
 bool autoRepeat(void)
 QVariant data(void)
 QFont font(void)
@@ -2127,12 +2378,12 @@ void setIcon(QIcon)
 void setIconText(QString)
 void setIconVisibleInMenu(bool visible)
 void setMenu(QMenu *menu)
-void setMenuRole(int menuRole)
-void setPriority(int priority)
+void setMenuRole(QAction::MenuRole menuRole)
+void setPriority(QAction::Priority priority)
 void setSeparator(bool b)
 void setShortcut(QKeySequence)
-void setShortcutContext(int context)
-void setShortcuts(int key)
+void setShortcutContext(Qt::ShortcutContext context)
+void setShortcuts(QKeySequence::StandardKey key)
 void setStatusTip(QString)
 void setText(QString)
 void setToolTip(QString)
@@ -2156,7 +2407,7 @@ void setClickEvent(const char *)
 
 <class>
 name: QEvent
-para: int Type
+para: QEvent::Type Type
 </class>
 
 void accept(void)
@@ -2172,8 +2423,8 @@ para: QWidget *parent
 parent: QDialog
 </class>
 
-void addButton(QAbstractButton *button, int role)
-QAbstractButton *button(int which)
+void addButton(QAbstractButton *button, QMessageBox::ButtonRole role)
+QAbstractButton *button(QMessageBox::StandardButton which)
 int buttonRole(QAbstractButton *button)
 QAbstractButton *clickedButton(void)
 QPushButton *defaultButton(void)
@@ -2188,10 +2439,10 @@ void setDetailedText(QString)
 void setEscapeButton(QAbstractButton *button)
 void setIconPixmap(QPixmap)
 void setInformativeText(QString)
-void setStandardButtons(int buttons)
+void setStandardButtons(QMessageBox::StandardButton buttons)
 void setText(QString)
-void setTextFormat(int format)
-void setWindowModality(int windowModality)
+void setTextFormat(Qt::TextFormat format)
+void setWindowModality(Qt::WindowModality windowModality)
 void setWindowTitle(QString)
 int standardButton(QAbstractButton *button)
 int standardButtons(void)
@@ -2239,7 +2490,7 @@ int filter(void)
 QStringList history(void)
 QFileIconProvider *iconProvider(void)
 QAbstractItemDelegate *itemDelegate(void)
-QString labelText(int label)
+QString labelText(QFileDialog::DialogLabel label)
 QStringList mimeTypeFilters(void)
 QStringList nameFilters(void)
 void open(QObject *receiver, const char *member)
@@ -2256,43 +2507,43 @@ QString selectedNameFilter(void)
 <comment>
 QList<QUrl> selectedUrls(void)
 </comment>
-void setAcceptMode(int mode)
+void setAcceptMode(QFileDialog::AcceptMode mode)
 void setDefaultSuffix(QString)
 void setDirectory(QString)
 void setDirectoryUrl(QUrl)
-void setFileMode(int mode)
-void setFilter(int filters)
+void setFileMode(QFileDialog::FileMode mode)
+void setFilter(QDir::Filter filters)
 void setHistory(QStringList)
 void setIconProvider(QFileIconProvider *provider)
 void setItemDelegate(QAbstractItemDelegate *delegate)
-void setLabelText(int label, QString)
+void setLabelText(QFileDialog::DialogLabel label, QString)
 void setMimeTypeFilters(QStringList)
 void setNameFilter(QString)
 void setNameFilters(QStringList)
-void setOption(int option, bool)
-void setOptions(int options)
+void setOption(QFileDialog::Option option, bool)
+void setOptions(QFileDialog::Option options)
 void setProxyModel(QAbstractProxyModel *proxyModel)
 <comment>
 void setSidebarUrls(const QList<QUrl> & urls)
 </comment>
-void setViewMode(int mode)
+void setViewMode(QFileDialog::ViewMode mode)
 <comment>
 QList<QUrl> sidebarUrls(void)
 </comment>
-bool testOption(int option)
+bool testOption(QFileDialog::Option option)
 int viewMode(void)
-QString getExistingDirectory(QWidget *,QString,QString, int)
-QUrl getExistingDirectoryUrl(QWidget *,QString,QUrl, int,QStringList)
+QString getExistingDirectory(QWidget *,QString,QString, QFileDialog::Option)
+QUrl getExistingDirectoryUrl(QWidget *,QString,QUrl, QFileDialog::Option,QStringList)
 QString getOpenFileName(QWidget *,QString,QString,QString)
 <comment>
 QStringList getOpenFileNames(QWidget *,QString,QString,QString, QString, QString)
 </comment>
-QUrl getOpenFileUrl(QWidget *,QString,QUrl,QString, QString *,int options,QStringList)
+QUrl getOpenFileUrl(QWidget *,QString,QUrl,QString, QString *,QFileDialog::Option options,QStringList)
 <comment>
 QList<QUrl> getOpenFileUrls(QWidget * parent = 0, const QString & caption = QString(void), const QUrl & dir = QUrl(void), const QString & filter = QString(void), QString * selectedFilter = 0, Options options = 0, const QStringList & supportedSchemes = QStringList(void))
 </comment>
 QString getSaveFileName(QWidget *,QString,QString,QString)
-QUrl getSaveFileUrl(QWidget *,QString, QUrl,QString, QString *, int options,QStringList)
+QUrl getSaveFileUrl(QWidget *,QString, QUrl,QString, QString *, QFileDialog::Option options,QStringList)
 
 <class>
 name: QPainter
@@ -2318,23 +2569,23 @@ void drawChord(int x, int y, int width, int height, int startAngle, int spanAngl
 void drawConvexPolygon( QPoint * points, int pointCount)
 void drawEllipse(int x, int y, int width, int height)
 void drawGlyphRun( QPointF  position,  QGlyphRun  glyphs)
-void drawImage(int x, int y,  QImage image, int sx , int sy, int sw, int sh , int flags)
+void drawImage(int x, int y,  QImage image)
 void drawLine(int x1, int y1, int x2, int y2)
 void drawLines( QLine * lines, int lineCount)
 void drawPath( QPainterPath  path)
 void drawPicture(int x, int y,  QPicture  picture)
 void drawPie(int x, int y, int width, int height, int startAngle, int spanAngle)
-void drawPixmap(int x, int y, int w, int h,  QPixmap  pixmap, int sx, int sy, int sw, int sh)
+void drawPixmap(int x, int y,  QPixmap)
 <comment>
 void drawPixmapFragments( PixmapFragment *fragments, int fragmentCount,  QPixmap  pixmap, PixmapFragmentHints hints)
 </comment>
 void drawPoint(int x, int y)
 void drawPoints( QPointF * points, int pointCount)
-void drawPolygon( QPointF * points, int pointCount, int fillRule)
+void drawPolygon( QPointF * points, int pointCount, Qt::FillRule fillRule)
 void drawPolyline( QPointF * points, int pointCount)
 void drawRect(int x, int y, int width, int height)
 void drawRects( QRectF * rectangles, int rectCount)
-void drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, int mode)
+void drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode)
 void drawStaticText(int left, int top,  QStaticText  staticText)
 void drawText(int x, int y, QString  text)
 void drawTiledPixmap(int x, int y, int width, int height,  QPixmap  pixmap, int sx, int sy)
@@ -2342,7 +2593,7 @@ bool end(void)
 void endNativePainting(void)
 void eraseRect(int x, int y, int width, int height)
 void fillPath( QPainterPath  path,  QBrush  brush)
-void fillRect(int x, int y, int width, int height, Qt::BrushStyle style)
+void fillRect(int x, int y, int width, int height, QBrush)
 QFont font(void)
 QFontInfo fontInfo(void)
 QFontMetrics fontMetrics(void)
@@ -2360,19 +2611,19 @@ void rotate(qreal angle)
 void save(void)
 void scale(double sx, double sy)
 void setBackground( QBrush  brush)
-void setBackgroundMode(int mode)
+void setBackgroundMode(Qt::BGMode mode)
 void setBrush(QBrush brush)
 void setBrushOrigin(int x, int y)
-void setClipPath( QPainterPath  path, int operation)
-void setClipRect(int x, int y, int width, int height, int operation)
-void setClipRegion( QRegion  region, int operation)
+void setClipPath( QPainterPath  path, Qt::ClipOperation operation)
+void setClipRect(int x, int y, int width, int height, Qt::ClipOperation operation)
+void setClipRegion( QRegion  region, Qt::ClipOperation operation)
 void setClipping(bool enable)
-void setCompositionMode(int mode)
+void setCompositionMode(QPainter::CompositionMode mode)
 void setFont( QFont  font)
-void setLayoutDirection(int direction)
+void setLayoutDirection(Qt::LayoutDirection direction)
 void setOpacity(qreal opacity)
 void setPen(QPen  pen)
-void setRenderHint(int hint, bool on)
+void setRenderHint(QPainter::RenderHint hint, bool on)
 void setTransform( QTransform  transform, bool combine)
 void setViewTransformEnabled(bool enable)
 void setViewport(int x, int y, int width, int height)
@@ -2381,7 +2632,7 @@ void setWorldMatrixEnabled(bool enable)
 void setWorldTransform( QTransform  matrix, bool combine)
 void shear(double sh, double sv)
 void strokePath( QPainterPath  path,  QPen  pen)
-bool testRenderHint(int hint)
+bool testRenderHint(QPainter::RenderHint hint)
 QTransform  transform(void)
 void translate(double dx, double dy)
 bool viewTransformEnabled(void)
@@ -2419,13 +2670,13 @@ bool isSolid(void)
 int joinStyle(void)
 double miterLimit(void)
 void setBrush(QBrush)
-void setCapStyle(int style)
+void setCapStyle(Qt::PenCapStyle style)
 void setColor(QColor)
 void setCosmetic(bool cosmetic)
 void setDashOffset(double offset)
-void setJoinStyle(int style)
+void setJoinStyle(Qt::PenJoinStyle style)
 void setMiterLimit(double limit)
-void setStyle(int style)
+void setStyle(Qt::PenStyle style)
 void setWidth(int width)
 void setWidthF(double width)
 int style(void)
@@ -2444,18 +2695,18 @@ int black(void)
 double blackF(void)
 int blue(void)
 double blueF(void)
-QColor convertTo(int colorSpec)
+QColor convertTo(QColor::Spec colorSpec)
 int cyan(void)
 double cyanF(void)
 QColor darker(int factor)
 void getCmyk(int *c, int *m, int *y, int *k, int *a)
-void getCmykF(double *c, double *m, double *y, double *k, double *a)
+void getCmykF(qreal *c, qreal *m, qreal *y, qreal *k, qreal *a)
 void getHsl(int *h, int *s, int *l, int *a)
-void getHslF(double *h, double *s, double *l, double *a)
+void getHslF(qreal *h, qreal *s, qreal *l, qreal *a)
 void getHsv(int *h, int *s, int *v, int *a)
-void getHsvF(double *h, double *s, double *v, double *a)
+void getHsvF(qreal *h, qreal *s, qreal *v, qreal *a)
 void getRgb(int *r, int *g, int *b, int *a)
-void getRgbF(double *r, double *g, double *b, double *a)
+void getRgbF(qreal *r, qreal *g, qreal *b, qreal *a)
 int green(void)
 double greenF(void)
 int hslHue(void)
@@ -2522,7 +2773,7 @@ bool isValidColor(QString)
 
 <class>
 name: QPrinter
-para: int
+para: QPrinter::PrinterMode
 </class>
 
 bool abort(void)
@@ -2538,10 +2789,12 @@ bool fullPage(void)
 bool isValid(void)
 QString outputFileName(void)
 int outputFormat(void)
+<comment>
 QPageLayout pageLayout(void)
+</comment>
 int pageOrder(void)
-QRectF pageRect(int unit)
-QRectF paperRect(int unit)
+QRectF pageRect(QPrinter::Unit unit)
+QRectF paperRect(QPrinter::Unit unit)
 int paperSource(void)
 QPrintEngine *printEngine(void)
 QString printProgram(void)
@@ -2551,24 +2804,28 @@ QString printerSelectionOption(void)
 int printerState(void)
 int resolution(void)
 void setCollateCopies(bool collate)
-void setColorMode(int newColorMode)
+void setColorMode(QPrinter::ColorMode newColorMode)
 void setCopyCount(int count)
 void setCreator(QString)
 void setDocName(QString)
-void setDuplex(int duplex)
+void setDuplex(QPrinter::DuplexMode duplex)
 void setFontEmbeddingEnabled(bool enable)
 void setFromTo(int from, int to)
 void setFullPage(bool fp)
 void setOutputFileName(QString)
-void setOutputFormat(int format)
+void setOutputFormat(QPrinter::OutputFormat format)
+<comment>
 bool setPageLayout(QPageLayout)
-bool setPageMargins(QMarginsF, int units)
-void setPageOrder(int pageOrder)
-bool setPageOrientation(int orientation)
+bool setPageMargins(QMarginsF, QPageLayout::Unit units)
+</comment>
+void setPageOrder(QPrinter::PageOrder pageOrder)
+<comment>
+bool setPageOrientation(QPageLayout::Orientation orientation)
 bool setPageSize(QPageSize)
-void setPaperSource(int source)
+</comment>
+void setPaperSource(QPrinter::PaperSource source)
 void setPrintProgram(QString)
-void setPrintRange(int)
+void setPrintRange(QPrinter::PrintRange)
 void setPrinterName(QString)
 void setPrinterSelectionOption(QString)
 void setResolution(int dpi)
@@ -2607,13 +2864,13 @@ bool rawMode(void)
 QString rawName(void)
 QFont resolve(QFont)
 void setBold(bool enable)
-void setCapitalization(int caps)
+void setCapitalization(QFont::Capitalization caps)
 void setFamily(QString)
 void setFixedPitch(bool enable)
-void setHintingPreference(int hintingPreference)
+void setHintingPreference(QFont::HintingPreference hintingPreference)
 void setItalic(bool enable)
 void setKerning(bool enable)
-void setLetterSpacing(int type, double spacing)
+void setLetterSpacing(QFont::SpacingType type, double spacing)
 void setOverline(bool enable)
 void setPixelSize(int pixelSize)
 void setPointSize(int pointSize)
@@ -2622,10 +2879,10 @@ void setRawMode(bool enable)
 void setRawName(QString)
 void setStretch(int factor)
 void setStrikeOut(bool enable)
-void setStyle(int style)
-void setStyleHint(int hint, int strategy)
+void setStyle(QFont::Style style)
+void setStyleHint(QFont::StyleHint hint, QFont::StyleStrategy strategy)
 void setStyleName(QString)
-void setStyleStrategy(int s)
+void setStyleStrategy(QFont::StyleStrategy s)
 void setUnderline(bool enable)
 void setWeight(int weight)
 void setWordSpacing(double spacing)
@@ -2645,28 +2902,30 @@ QString substitute(QString)
 QStringList substitutes(QString)
 QStringList substitutions(void)
 
+<filter> (get("RINGQT_ANDROID") = "")
 <class>
 name: QWebSettings
 abstract
 </class>
 
+<comment>
 QString cssMediaType(void)
 QString defaultTextEncoding(void)
-QString fontFamily(int which)
-int fontSize(int type)
+QString fontFamily(QWebSettings::FontFamily which)
+int fontSize(QWebSettings::FontSize type)
 QString localStoragePath(void)
-void resetAttribute(int attribute)
-void resetFontFamily(int which)
-void resetFontSize(int type)
-void setAttribute(int attribute, bool on)
+void resetAttribute(QWebSettings::WebAttribute attribute)
+void resetFontFamily(QWebSettings::FontFamily which)
+void resetFontSize(QWebSettings::FontSize type)
+void setAttribute(QWebSettings::WebAttribute attribute, bool on)
 void setCSSMediaType(QString)
 void setDefaultTextEncoding(QString)
-void setFontFamily(int which, QString)
-void setFontSize(int type, int size)
+void setFontFamily(QWebSettings::FontFamily which, QString)
+void setFontSize(QWebSettings::FontSize type, int size)
 void setLocalStoragePath(QString)
-void setThirdPartyCookiePolicy(int policy)
+void setThirdPartyCookiePolicy(QWebSettings::ThirdPartyCookiePolicy policy)
 void setUserStyleSheetUrl(QUrl)
-bool testAttribute(int attribute)
+bool testAttribute(QWebSettings::WebAttribute attribute)
 int thirdPartyCookiePolicy(void)
 QUrl userStyleSheetUrl(void)
 void clearIconDatabase(void)
@@ -2687,8 +2946,11 @@ void setOfflineStorageDefaultQuota(int maximumSize)
 void setOfflineStoragePath(QString)
 void setOfflineWebApplicationCachePath(QString)
 void setOfflineWebApplicationCacheQuota(int maximumSize)
-void setWebGraphic(int type, QPixmap)
-QPixmap webGraphic(int type)
+void setWebGraphic(QWebSettings::WebGraphic type, QPixmap)
+QPixmap webGraphic(QWebSettings::WebGraphic type)
+</comment>
+
+</filter>
 
 <class>
 name: QBrush
@@ -2701,7 +2963,7 @@ bool isOpaque(void)
 QMatrix matrix(void)
 void setColor(QColor)
 void setMatrix(QMatrix)
-void setStyle(int style)
+void setStyle(Qt::BrushStyle style)
 void setTexture(QPixmap)
 void setTextureImage(QImage)
 void setTransform(QTransform)
@@ -2757,15 +3019,15 @@ QByteArray toBase64(void)
 double toDouble(bool * ok)
 float toFloat(bool * ok)
 QByteArray toHex(void)
-int toInt(int *ok, int base)
-long toLong(int *ok, int base)
-qlonglong toLongLong(int *ok, int base)
+int toInt(bool *ok, int base)
+long toLong(bool *ok, int base)
+qlonglong toLongLong(bool *ok, int base)
 QByteArray toLower(void)
 QByteArray toPercentEncoding(QByteArray,QByteArray, char percent)
-short toShort(int *ok, int base)
-int toUInt(int *ok, int base)
-int toULong(int *ok, int base)
-int toULongLong(int * ok, int base)
+short toShort(bool *ok, int base)
+int toUInt(bool *ok, int base)
+int toULong(bool *ok, int base)
+int toULongLong(bool * ok, int base)
 int toUShort(bool * ok, int base)
 QByteArray toUpper(void)
 QByteArray trimmed(void)
@@ -2840,8 +3102,8 @@ passvmpointer
 </class>
 
 void abort(void)
-bool bind(QHostAddress address, int port, int mode)
-void connectToHost(QString  hostName, int port, int openMode, int protocol)
+bool bind(QHostAddress address, int port, QAbstractSocket::BindFlag mode)
+void connectToHost(QString  hostName, int port, QIODevice::OpenModeFlag openMode, QAbstractSocket::NetworkLayerProtocol protocol)
 void disconnectFromHost(void)
 int error(void)
 bool flush(void)
@@ -2855,13 +3117,13 @@ int peerPort(void)
 QNetworkProxy proxy(void)
 int readBufferSize(void)
 void resume(void)
-void setPauseMode(int pauseMode)
+void setPauseMode(QAbstractSocket::PauseMode pauseMode)
 void setProxy(QNetworkProxy  networkProxy)
 void setReadBufferSize(int size)
-bool setSocketDescriptor(int *socketDescriptor, int socketState, int openMode)
-void setSocketOption(int option,  QVariant  value)
+bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState socketState, QIODevice::OpenModeFlag openMode)
+void setSocketOption(QAbstractSocket::SocketOption option,  QVariant  value)
 int *socketDescriptor(void)
-QVariant socketOption(int option)
+QVariant socketOption(QAbstractSocket::SocketOption option)
 int socketType(void)
 int state(void)
 bool waitForConnected(int msecs)
@@ -2901,20 +3163,20 @@ para: void
 
 int capabilities(void)
 bool hasRawHeader(QByteArray headerName)
-QVariant header(int header)
+QVariant header(QNetworkRequest::KnownHeaders header)
 QString hostName(void)
 bool isCachingProxy(void)
 bool isTransparentProxy(void)
 QString password(void)
 int port(void)
 QByteArray rawHeader(QByteArray headerName)
-void setCapabilities(int capabilities)
-void setHeader(int header,  QVariant value)
+void setCapabilities(QNetworkProxy::Capability capabilities)
+void setHeader(QNetworkRequest::KnownHeaders header,  QVariant value)
 void setHostName(QString hostName)
 void setPassword(QString password)
 void setPort(int port)
 void setRawHeader(QByteArray headerName, QByteArray headerValue)
-void setType(int type)
+void setType(QNetworkProxy::ProxyType type)
 void setUser(QString user)
 void swap(QNetworkProxy  other)
 int type(void)
@@ -2965,7 +3227,7 @@ int serverError(void)
 int serverPort(void)
 void setMaxPendingConnections(int numConnections)
 void setProxy(QNetworkProxy)
-bool setSocketDescriptor(int *socketDescriptor)
+bool setSocketDescriptor(qintptr socketDescriptor)
 int *socketDescriptor(void)
 bool waitForNewConnection(int msec, bool *timedOut)
 
@@ -2997,7 +3259,7 @@ int error(void)
 QString errorString(void)
 QString hostName(void)
 int lookupId(void)
-void setError(int error)
+void setError(QHostInfo::HostInfoError error)
 void setErrorString(QString)
 void setHostName(QString)
 void setLookupId(int id)
@@ -3048,7 +3310,7 @@ bool makeAbsolute(void)
 QString owner(void)
 uint ownerId(void)
 QString path(void)
-bool permission(int permissions)
+bool permission(QFileDevice::Permission permissions)
 int permissions(void)
 void refresh(void)
 void setCaching(bool enable)
@@ -3078,13 +3340,13 @@ QStringList nameFilters(void)
 bool remove(QModelIndex index)
 bool resolveSymlinks(void)
 bool rmdir(QModelIndex index)
-void setFilter(int filters)
+void setFilter(QDir::Filter filters)
 void setIconProvider(QFileIconProvider *provider)
 void setLazyChildCount(bool enable)
 void setNameFilters(QStringList filters)
 void setReadOnly(bool enable)
 void setResolveSymlinks(bool enable)
-void setSorting(int sort)
+void setSorting(QDir::SortFlag sort)
 int sorting(void)
 void refresh(QModelIndex parent)
 
@@ -3100,9 +3362,9 @@ void open(QObject *receiver, const char *member)
 int options(void)
 QFont selectedFont(void)
 void setCurrentFont(QFont)
-void setOption(int option, bool on)
-void setOptions(int options)
-bool testOption(int option)
+void setOption(QFontDialog::FontDialogOption option, bool on)
+void setOptions(QFontDialog::FontDialogOption options)
+bool testOption(QFontDialog::FontDialogOption option)
 
 
 <register>
@@ -3191,11 +3453,11 @@ bool keepPositionOnInsert(void)
 void mergeBlockCharFormat(QTextCharFormat)
 void mergeBlockFormat(QTextBlockFormat)
 void mergeCharFormat(QTextCharFormat)
-bool movePosition(int operation, int mode, int n)
+bool movePosition(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode, int n)
 int position(void)
 int positionInBlock(void)
 void removeSelectedText(void)
-void select(int selection)
+void select(QTextCursor::SelectionType selection)
 void selectedTableCells(int *firstRow, int *numRows, int *firstColumn, int *numColumns)
 QString selectedText(void)
 QTextDocumentFragment selection(void)
@@ -3205,7 +3467,7 @@ void setBlockCharFormat(QTextCharFormat)
 void setBlockFormat(QTextBlockFormat)
 void setCharFormat(QTextCharFormat)
 void setKeepPositionOnInsert(bool b)
-void setPosition(int pos, int m)
+void setPosition(int pos, QTextCursor::MoveMode m)
 void setVerticalMovementX(int x)
 void setVisualNavigation(bool b)
 int verticalMovementX(void)
@@ -3222,9 +3484,9 @@ void open(void)
 int options(void)
 QColor selectedColor(void)
 void setCurrentColor(QColor)
-void setOption(int option, bool on )
-void setOptions(int options)
-bool testOption(int option)
+void setOption(QColorDialog::ColorDialogOption option, bool on )
+void setOptions(QColorDialog::ColorDialogOption options)
+bool testOption(QColorDialog::ColorDialogOption option)
 QColor customColor(int index)
 int customCount(void)
 void setCustomColor(int index, int color)
@@ -3254,7 +3516,7 @@ RING_FUNC(ring_QColorDialog_getcolor)
 
 <class>
 name: QHeaderView
-para: int, QWidget *
+para: Qt::Orientation, QWidget *
 parent: QAbstractItemView
 </class>
 
@@ -3263,7 +3525,54 @@ name: QStringList
 para: void
 </class>
 
-void append(const char *)
+QString join(QString)
+void sort(void)
+int removeDuplicates(void)
+QStringList filter(QString, Qt::CaseSensitivity)
+QStringList replaceInStrings(QString,QString, Qt::CaseSensitivity)
+
+<comment>
+Methods from QList<T>
+</comment>
+
+void append(QString)
+QString at(int)
+QString back(void)
+void clear(void)
+bool contains(QString)
+int count(void)
+bool empty(void)
+bool endsWith(QString)
+QString first(void)
+QString front(void)
+int indexOf(QString, int)
+void insert(int, QString)
+bool isEmpty(void)
+QString last(void)
+int lastIndexOf(QString,int)
+int length(void)
+void move(int,int)
+void pop_back(void)
+void pop_front(void)
+void prepend(QString)
+void push_back(QString)
+void push_front(QString)
+int removeAll(QString)
+void removeAt(int)
+void removeFirst(void)
+void removeLast(void)
+bool removeOne(QString)
+void replace(int,QString)
+void reserve(int)
+int size(void)
+bool startsWith(QString)
+void swap(int,int)
+QString takeAt(int)
+QString takeFirst(void)
+QString takeLast(void)
+QString value(int)
+
+
 
 <class>
 name: QKeySequence
@@ -3282,8 +3591,8 @@ int intValue(void)
 int mode(void)
 int segmentStyle(void)
 void setDigitCount(int numDigits)
-void setMode(int)
-void setSegmentStyle(int)
+void setMode(QLCDNumber::Mode)
+void setSegmentStyle(QLCDNumber::SegmentStyle)
 bool smallDecimalPoint(void)
 double value(void)
 void display(double)
@@ -3323,7 +3632,7 @@ void setDoubleMaximum(double max)
 void setDoubleMinimum(double min)
 void setDoubleRange(double min, double max)
 void setDoubleValue(double value)
-void setInputMode(int mode)
+void setInputMode(QInputDialog::InputMode mode)
 void setIntMaximum(int max)
 void setIntMinimum(int min)
 void setIntRange(int min, int max)
@@ -3331,19 +3640,20 @@ void setIntStep(int step)
 void setIntValue(int value)
 void setLabelText(QString)
 void setOkButtonText(QString)
-void setOption(int option, bool on)
-void setOptions(int options)
-void setTextEchoMode(int mode)
+void setOption(QInputDialog::InputDialogOption option, bool on)
+void setOptions(QInputDialog::InputDialogOption options)
+void setTextEchoMode(QLineEdit::EchoMode mode)
 void setTextValue(QString)
-bool testOption(int option)
+bool testOption(QInputDialog::InputDialogOption option)
 int textEchoMode(void)
 QString textValue(void)
 
-double getDouble(QWidget *parent,QString,QString, double value, double min, double max , int decimals, int *ok, int flags)
-int getInt(QWidget *parent,QString,QString, int value, int min, int max, int step, int *ok, int flags)
-QString getItem(QWidget *parent,QString,QString,QStringList, int current, bool editable, int *ok, int, int)
-QString getText(QWidget *parent,QString,QString,int mode,QString, int *ok, int flags, int)
-
+double getDouble(QWidget *parent,QString,QString, double value, double min, double max , int decimals, bool *ok, Qt::WindowType flags)
+int getInt(QWidget *parent,QString,QString, int value, int min, int max, int step, bool *ok, Qt::WindowType flags)
+<comment>
+QString getItem(QWidget *parent,QString,QString,QStringList, int current, bool editable, bool *ok, Qt::WindowFlags, Qt::WindowType flags)
+QString getText(QWidget *parent,QString,QString,int mode,QString, int *ok, int flags, Qt::WindowType)
+</comment>
 
 <class>
 name: QAllEvents
@@ -3482,7 +3792,7 @@ QTextBlock begin(void)
 int blockCount(void)
 QChar characterAt(int pos)
 int characterCount(void)
-void clearUndoRedoStacks(int stacksToClear )
+void clearUndoRedoStacks(QTextDocument::Stacks stacksToClear )
 QTextDocument *clone(QObject *parent )
 int defaultCursorMoveStyle(void)
 QFont defaultFont(void)
@@ -3492,7 +3802,7 @@ QAbstractTextDocumentLayout *documentLayout(void)
 double documentMargin(void)
 void drawContents(QPainter *p, QRectF rect)
 QTextBlock end(void)
-QTextCursor find(QString subString, QTextCursor cursor, int options )
+QTextCursor find(QString subString, QTextCursor cursor, QTextDocument::FindFlag options )
 QTextBlock findBlock(int pos)
 QTextBlock findBlockByLineNumber(int lineNumber)
 QTextBlock findBlockByNumber(int blockNumber)
@@ -3508,7 +3818,7 @@ QTextBlock lastBlock(void)
 int lineCount(void)
 void markContentsDirty(int position, int length)
 int maximumBlockCount(void)
-QString metaInformation(int info)
+QString metaInformation(QTextDocument::MetaInformation info)
 QTextObject *object(int objectIndex)
 QTextObject *objectForFormat(QTextFormat f)
 int pageCount(void)
@@ -3518,7 +3828,7 @@ void redo(QTextCursor *cursor)
 QVariant resource(int type, QUrl name)
 int revision(void)
 QTextFrame *rootFrame(void)
-void setDefaultCursorMoveStyle(int style)
+void setDefaultCursorMoveStyle(Qt::CursorMoveStyle style)
 void setDefaultFont(QFont font)
 void setDefaultStyleSheet(QString sheet)
 void setDefaultTextOption(QTextOption option)
@@ -3527,7 +3837,7 @@ void setDocumentMargin(double margin)
 void setHtml(QString html)
 void setIndentWidth(double width)
 void setMaximumBlockCount(int maximum)
-void setMetaInformation(int info, QString string)
+void setMetaInformation(QTextDocument::MetaInformation info, QString string)
 void setPageSize(QSizeF size)
 void setPlainText(QString text)
 void setTextWidth(double width)
@@ -3606,3 +3916,549 @@ QString toString(QString)
 QTime currentTime(void)
 QTime fromMSecsSinceStartOfDay(int msecs)
 QTime fromString(QString,QString)
+
+
+<class>
+name: QListWidgetItem
+para: void
+</class>
+
+QBrush background(void)
+Qt::CheckState checkState(void)
+Qt::ItemFlags flags(void)
+QFont font(void)
+QBrush foreground(void)
+QIcon icon(void)
+bool isHidden(void)
+bool isSelected(void)
+QListWidget *listWidget(void)
+void setBackground(QBrush brush)
+void setCheckState(Qt::CheckState state)
+void setFlags(Qt::ItemFlags flags)
+void setFont(QFont font)
+void setForeground(QBrush brush)
+void setHidden(bool hide)
+void setIcon(QIcon icon)
+void setSelected(bool select)
+void setSizeHint(QSize size)
+void setStatusTip(QString statusTip)
+void setText(QString text)
+void setTextAlignment(int alignment)
+void setToolTip(QString toolTip)
+void setWhatsThis(QString whatsThis)
+QSize sizeHint(void)
+QString statusTip(void)
+QString text(void)
+int textAlignment(void)
+QString toolTip(void)
+int type(void)
+QString whatsThis(void)
+
+<class>
+name: QSystemTrayIcon
+para: void
+</class>
+
+QMenu *contextMenu(void)
+QRect geometry(void)
+QIcon icon(void)
+bool isVisible(void)
+void setContextMenu(QMenu *menu)
+void setIcon(QIcon)
+void setToolTip(QString)
+QString toolTip(void)
+void hide(void)
+void setVisible(bool visible)
+void show(void)
+void showMessage(QString, QString, QSystemTrayIcon::MessageIcon, int millisecondsTimeoutHint)
+bool isSystemTrayAvailable(void)
+bool supportsMessages(void)
+
+<class>
+name: QDate
+para: void
+</class>
+
+QDate addDays(int ndays)
+QDate addMonths(int nmonths)
+QDate addYears(int nyears)
+int day(void)
+int dayOfWeek(void)
+int dayOfYear(void)
+int daysInMonth(void)
+int daysInYear(void)
+int daysTo(QDate)
+void getDate(int * year, int * month, int * day)
+bool isNull(void)
+bool isValid(void)
+int month(void)
+bool setDate(int year, int month, int day)
+int toJulianDay(void)
+QString toString(QString)
+int weekNumber(int * yearNumber)
+int year(void)
+QDate currentDate(void)
+QDate fromJulianDay(int jd)
+QDate fromString(QString, QString)
+bool isLeapYear(int year)
+QString longDayName(int weekday)
+QString longMonthName(int month)
+QString shortDayName(int weekday)
+QString shortMonthName(int month)
+
+<class>
+name: QTextCodec
+nonew
+</class>
+
+<register>
+QTextCodec *codecForName(const char *name)
+void setCodecForLocale(QTextCodec *c)
+</register>
+
+<code>
+
+RING_FUNC(ring_QTextCodec_codecForName)
+{
+	RING_API_RETCPOINTER( QTextCodec::codecForName(RING_API_GETSTRING(1)) , "QTextCodec");
+}
+
+RING_FUNC(ring_QTextCodec_setCodecForLocale)
+{
+	 QTextCodec::setCodecForLocale( (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec"));
+}
+
+</code>
+
+
+<class>
+name: QSqlDatabase
+para: void
+</class>
+
+void close(void)
+bool commit(void)
+QString connectOptions(void)
+QString connectionName(void)
+QString databaseName(void)
+QSqlDriver *driver(void)
+QString driverName(void)
+QSqlQuery exec(QString)
+QString hostName(void)
+bool isOpen(void)
+bool isOpenError(void)
+bool isValid(void)
+QSqlError lastError(void)
+QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+bool open(void)
+QString password(void)
+int port(void)
+QSqlIndex primaryIndex(QString)
+QSqlRecord record(QString)
+bool rollback(void)
+void setConnectOptions(QString)
+void setDatabaseName(QString)
+void setHostName(QString)
+void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
+void setPassword(QString)
+void setPort(int port)
+void setUserName(QString)
+QStringList tables(QSql::TableType type)
+bool transaction(void)
+QString userName(void)
+QSqlDatabase addDatabase(QString)
+QSqlDatabase cloneDatabase(QSqlDatabase, QString)
+QStringList connectionNames(void)
+bool contains(QString)
+QSqlDatabase database(QString , bool)
+QStringList drivers(void)
+bool isDriverAvailable(QString)
+void registerSqlDriver(QString, QSqlDriverCreatorBase *)
+void removeDatabase(QString)
+
+<class>
+name: QSqlDriver
+para: void
+abstract
+</class>
+
+<comment>
+DbmsType dbmsType(void)
+</comment>
+bool isOpenError(void)
+QSqlError lastError(void)
+QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy)
+
+<class>
+name: QSqlQuery
+para: void
+</class>
+
+void addBindValue(QVariant, QSql::ParamType paramType)
+int at(void)
+void bindValue(QString, QVariant, QSql::ParamType paramType)
+QVariant boundValue(QString)
+void clear(void)
+QSqlDriver * driver(void)
+bool exec(QString)
+bool execBatch(QSqlQuery::BatchExecutionMode mode)
+QString executedQuery(void)
+void finish(void)
+bool first(void)
+bool isActive(void)
+bool isForwardOnly(void)
+bool isNull(int field)
+bool isSelect(void)
+bool isValid(void)
+bool last(void)
+QSqlError lastError(void)
+QVariant lastInsertId(void)
+QString lastQuery(void)
+bool next(void)
+bool nextResult(void)
+int numRowsAffected(void)
+QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+bool prepare(QString)
+bool previous(void)
+QSqlRecord record(void)
+QSqlResult *result(void)
+bool seek(int index, bool relative)
+void setForwardOnly(bool forward)
+void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
+int size(void)
+QVariant value(int index)
+
+<class>
+name: QSqlError
+para: QString, QString, QSqlError::ErrorType
+</class>
+
+QString databaseText(void)
+QString driverText(void)
+bool isValid(void)
+int number(void)
+void setDatabaseText(QString)
+void setDriverText(QString)
+void setNumber(int number)
+void setType(QSqlError::ErrorType type)
+QString text(void)
+QSqlError::ErrorType type(void)
+
+<class>
+name: QSqlIndex
+para: QString, QString 
+parent: QSqlRecord
+</class>
+
+void append(QSqlField, bool)
+QString cursorName(void)
+bool isDescending(int i)
+QString name(void)
+void setCursorName(QString)
+void setDescending(int i, bool desc)
+void setName(QString)
+
+<class>
+name: QSqlRecord
+para: void
+</class>
+
+void append(QSqlField)
+void clear(void)
+void clearValues(void)
+bool contains(QString)
+int count(void)
+QSqlField field(int index)
+QString fieldName(int index)
+int indexOf(QString)
+void insert(int pos, QSqlField)
+bool isEmpty(void)
+bool isGenerated(QString)
+bool isNull(QString)
+void remove(int pos)
+void replace(int pos, QSqlField)
+void setGenerated(QString, bool generated)
+void setNull(int index)
+void setValue(int index, QVariant)
+QVariant value(int index)
+
+<class>
+name: QSqlField
+para:  QString,QVariant::Type
+</class>
+
+void clear(void)
+QVariant defaultValue(void)
+bool isAutoValue(void)
+bool isGenerated(void)
+bool isNull(void)
+bool isReadOnly(void)
+bool isValid(void)
+int length(void)
+QString name(void)
+int precision(void)
+RequiredStatus requiredStatus(void)
+void setAutoValue(bool autoVal)
+void setDefaultValue(QVariant)
+void setGenerated(bool gen)
+void setLength(int fieldLength)
+void setName(QString)
+void setPrecision(int precision)
+void setReadOnly(bool readOnly)
+void setRequired(bool required)
+void setRequiredStatus(QSqlField::RequiredStatus required)
+void setType(QVariant::Type type)
+void setValue(QVariant)
+QVariant::Type type(void)
+QVariant value(void)
+
+<class>
+name: QSqlDriverCreatorBase
+para: void
+nonew
+</class>
+
+<class>
+name: QVariant
+para: void
+</class>
+
+bool canConvert(int targetTypeId)
+void clear(void)
+bool convert(int targetTypeId)
+bool isNull(void)
+bool isValid(void)
+void swap(QVariant)
+QBitArray toBitArray(void)
+bool toBool(void)
+QByteArray toByteArray(void)
+QChar toChar(void)
+QDate toDate(void)
+QDateTime toDateTime(void)
+double toDouble(bool *ok)
+QEasingCurve toEasingCurve(void)
+float toFloat(bool *ok)
+int toInt(bool *ok)
+QJsonArray toJsonArray(void)
+QJsonDocument toJsonDocument(void)
+QJsonObject toJsonObject(void)
+QJsonValue toJsonValue(void)
+QLine toLine(void)
+QLineF toLineF(void)
+QLocale toLocale(void)
+qlonglong toLongLong(bool *ok)
+QModelIndex toModelIndex(void)
+<comment>
+QPersistentModelIndex toPersistentModelIndex(void)
+</comment>
+QPoint toPoint(void)
+QPointF toPointF(void)
+qreal toReal(bool *ok)
+QRect toRect(void)
+QRectF toRectF(void)
+QRegExp toRegExp(void)
+QRegularExpression toRegularExpression(void)
+QSize toSize(void)
+QSizeF toSizeF(void)
+QStringList toStringList(void)
+QTime toTime(void)
+uint toUInt(bool *ok)
+qulonglong toULongLong(bool *ok)
+QUrl toUrl(void)
+QUuid toUuid(void)
+QVariant::Type type(void)
+const char *typeName(void)
+int userType(void)
+QString toString(void)
+
+<class>
+name: QNetworkRequest
+para: QUrl
+</class>
+
+QVariant attribute(QNetworkRequest::Attribute, QVariant)
+bool hasRawHeader(QByteArray)
+QVariant header(QNetworkRequest::KnownHeaders)
+QObject *originatingObject(void)
+QNetworkRequest::Priority priority(void)
+QByteArray rawHeader(QByteArray)
+void setAttribute(QNetworkRequest::Attribute, QVariant)
+void setHeader(QNetworkRequest::KnownHeaders, QVariant)
+void setOriginatingObject(QObject *object)
+void setPriority(QNetworkRequest::Priority priority)
+void setRawHeader(QByteArray, QByteArray)
+<comment>
+void setSslConfiguration(QSslConfiguration)
+QSslConfiguration sslConfiguration(void)
+</comment>
+void setUrl(QUrl)
+
+void swap(QNetworkRequest)
+QUrl url(void)
+
+<class>
+name: QNetworkAccessManager
+para: QObject *
+parent: QObject
+codename: GNetworkAccessManager
+passvmpointer
+</class>
+
+void setfinishedEvent(const char *)
+
+QNetworkConfiguration activeConfiguration(void)
+QAbstractNetworkCache *cache(void)
+void clearAccessCache(void)
+QNetworkConfiguration configuration(void)
+void connectToHost(QString, quint16)
+<comment>
+void connectToHostEncrypted(QString, quint16, QSslConfiguration)
+</comment>
+QNetworkCookieJar *cookieJar(void)
+QNetworkReply *deleteResource(QNetworkRequest)
+QNetworkReply *get(QNetworkRequest)
+QNetworkReply *head(QNetworkRequest)
+QNetworkAccessManager::NetworkAccessibility networkAccessible(void)
+QNetworkReply *post(QNetworkRequest, QByteArray)
+QNetworkProxy proxy(void)
+QNetworkProxyFactory *proxyFactory(void)
+QNetworkReply *put(QNetworkRequest, QByteArray)
+QNetworkReply *sendCustomRequest(QNetworkRequest, QByteArray, QIODevice *)
+void setCache(QAbstractNetworkCache *cache)
+void setConfiguration(QNetworkConfiguration)
+void setCookieJar(QNetworkCookieJar *cookieJar)
+void setNetworkAccessible(QNetworkAccessManager::NetworkAccessibility accessible)
+void setProxy(QNetworkProxy)
+void setProxyFactory(QNetworkProxyFactory *factory)
+QStringList supportedSchemes(void)
+
+<class>
+name: QNetworkReply
+para: void
+parent: QIODevice
+abstract
+</class>
+
+QVariant attribute(QNetworkRequest::Attribute code)
+QNetworkReply::NetworkError error(void)
+bool hasRawHeader(QByteArray)
+QVariant header(QNetworkRequest::KnownHeaders header)
+bool isFinished(void)
+bool isRunning(void)
+QNetworkAccessManager *manager(void)
+QNetworkAccessManager::Operation operation(void)
+QByteArray rawHeader(QByteArray)
+qint64 readBufferSize(void)
+QNetworkRequest request(void)
+<comment>
+void setSslConfiguration(QSslConfiguration)
+QSslConfiguration sslConfiguration(void)
+</comment>
+QUrl url(void)
+
+<class>
+name: QPainterPath
+para: void
+</class>
+
+void addEllipse(qreal x, qreal y, qreal width, qreal height)
+void addPath(QPainterPath)
+void addPolygon(QPolygonF)
+void addRect(qreal x, qreal y, qreal width, qreal height)
+void addRegion(QRegion)
+void addRoundedRect(qreal x, qreal y, qreal w, qreal h, qreal xRadius, qreal yRadius, Qt::SizeMode mode)
+void addText(qreal x, qreal y, QFont, QString)
+qreal angleAtPercent(qreal t)
+void arcMoveTo(qreal x, qreal y, qreal width, qreal height, qreal angle)
+void arcTo(qreal x, qreal y, qreal width, qreal height, qreal startAngle, qreal sweepLength)
+QRectF boundingRect(void)
+void closeSubpath(void)
+void connectPath(QPainterPath)
+bool contains(QPointF)
+QRectF controlPointRect(void)
+void cubicTo(qreal c1X, qreal c1Y, qreal c2X, qreal c2Y, qreal endPointX, qreal endPointY)
+QPointF currentPosition(void)
+QPainterPath::Element elementAt(int index)
+int elementCount(void)
+Qt::FillRule fillRule(void)
+QPainterPath intersected(QPainterPath)
+bool intersects(QRectF)
+bool isEmpty(void)
+qreal length(void)
+void lineTo(qreal x, qreal y)
+void moveTo(qreal x, qreal y)
+qreal percentAtLength(qreal len)
+QPointF pointAtPercent(qreal t)
+void quadTo(qreal cx, qreal cy, qreal endPointX, qreal endPointY)
+void setElementPositionAt(int index, qreal x, qreal y)
+void setFillRule(Qt::FillRule fillRule)
+QPainterPath simplified(void)
+qreal slopeAtPercent(qreal t)
+QPainterPath subtracted(QPainterPath)
+void swap(QPainterPath)
+QPolygonF toFillPolygon(QTransform)
+QPainterPath toReversed(void)
+void translate(qreal dx, qreal dy)
+QPainterPath translated(qreal dx, qreal dy)
+QPainterPath united(QPainterPath)
+
+<class>
+name: QImage
+para: void
+</class>
+
+bool allGray(void)
+int bitPlaneCount(void)
+uchar *bits(void)
+int byteCount(void)
+int bytesPerLine(void)
+qint64 cacheKey(void)
+QRgb color(int i)
+int colorCount(void)
+const uchar *constBits(void)
+const uchar *constScanLine(int i)
+QImage convertToFormat(QImage::Format format, Qt::ImageConversionFlags flags)
+QImage copy(int x, int y, int width, int height)
+QImage createAlphaMask(Qt::ImageConversionFlags flags)
+QImage createHeuristicMask(bool clipTight)
+QImage createMaskFromColor(QRgb color, Qt::MaskMode mode)
+int depth(void)
+int dotsPerMeterX(void)
+int dotsPerMeterY(void)
+void fill(QColor)
+QImage::Format format(void)
+bool hasAlphaChannel(void)
+int height(void)
+void invertPixels(QImage::InvertMode mode)
+bool isGrayscale(void)
+bool isNull(void)
+bool load(QString, const char * format)
+bool loadFromData(QByteArray, const char * format)
+QImage mirrored(bool horizontal, bool vertical)
+QPoint offset(void)
+QRgb pixel(int x, int y)
+int pixelIndex(int x, int y)
+QRect rect(void)
+QImage rgbSwapped(void)
+bool save(QString, const char * format, int quality)
+QImage scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode)
+QImage scaledToHeight(int height, Qt::TransformationMode mode )
+QImage scaledToWidth(int width, Qt::TransformationMode mode)
+uchar *scanLine(int i)
+void setColor(int index, QRgb colorValue)
+void setColorCount(int colorCount)
+void setDotsPerMeterX(int x)
+void setDotsPerMeterY(int y)
+void setOffset(QPoint)
+void setPixel(int x, int y, uint index_or_rgb)
+void setText(QString,QString)
+QSize size(void)
+void swap(QImage)
+QString text(QString)
+QStringList textKeys(void)
+QImage transformed(QMatrix, Qt::TransformationMode mode)
+bool valid(int x, int y)
+int width(void)
+
+

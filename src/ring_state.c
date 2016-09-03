@@ -10,6 +10,10 @@
 #else
 #include <unistd.h>
 #define GetCurrentDir getcwd
+#if __MACH__
+/* Mac OS X */
+#include <mach-o/dyld.h>
+#endif
 #endif
 /* Define Functions */
 #if RING_TESTUNITS
@@ -22,8 +26,6 @@ static void ring_showtime ( void ) ;
 #endif
 
 void segfaultaction ( int sig ) ;
-
-int ring_issourcefile ( const char *cStr ) ;
 /* API Functions */
 
 RING_API RingState * ring_state_new ( void )
@@ -48,6 +50,7 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->nPrintTokens = 0 ;
 	pRingState->nPrintRules = 0 ;
 	pRingState->nPrintInstruction = 0 ;
+	pRingState->nGenObj = 0 ;
 	pRingState->argc = 0 ;
 	pRingState->argv = NULL ;
 	pRingState->pVM = NULL ;
@@ -131,7 +134,7 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr )
 
 RING_API void ring_state_main ( int argc, char *argv[] )
 {
-	int x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC  ;
+	int x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj  ;
 	const char *cStr  ;
 	/* Init Values */
 	nCGI = 0 ;
@@ -144,6 +147,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	nPerformance = 0 ;
 	cStr = NULL ;
 	nSRC = 0 ;
+	nGenObj = 0 ;
 	signal(SIGSEGV,segfaultaction);
 	#if RING_TESTUNITS
 	ring_testallunits();
@@ -174,7 +178,10 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 			else if ( strcmp(argv[x],"-performance") == 0 ) {
 				nPerformance = 1 ;
 			}
-			else if ( ring_issourcefile(argv[x]) && nSRC == 0 ) {
+			else if ( strcmp(argv[x],"-go") == 0 ) {
+				nGenObj = 1 ;
+			}
+			else if ( ( ring_issourcefile(argv[x]) || ring_isobjectfile(argv[x])) && nSRC == 0 ) {
 				cStr = argv[x] ;
 				nSRC = 1 ;
 			}
@@ -188,13 +195,13 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	srand(time(NULL));
 	/* Check Startup ring.ring */
 	if ( ring_fexists("ring.ring") && argc == 1 ) {
-		ring_execute("ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,argc,argv);
+		ring_execute("ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,argc,argv);
 		exit(0);
 	}
 	/* Print Version */
 	if ( (argc == 1) || (cStr == NULL) ) {
 		ring_print_line();
-		puts("Ring version 1.0 \n2013-2016, Mahmoud Fayed <msfclipper@yahoo.com> ");
+		printf( "Ring version %s \n2013-2016, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_VERSION ) ;
 		puts("Usage : ring filename.ring [Options]");
 		ring_print_line();
 		/* Options */
@@ -206,10 +213,11 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		puts("-norun    :  Don't run the program after compiling");
 		puts("-ins      :  Print instruction operation code before execution");
 		puts("-clock    :  Print clock before and after program execution");
+		puts("-go       :  Generate object file");
 		ring_print_line();
 		exit(0);
 	}
-	ring_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,argc,argv);
+	ring_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,argc,argv);
 	#if RING_TESTPERFORMANCE
 	if ( nPerformance ) {
 		ring_showtime();
@@ -269,6 +277,18 @@ int ring_issourcefile ( const char *cStr )
 	}
 	return 0 ;
 }
+
+int ring_isobjectfile ( const char *cStr )
+{
+	int x  ;
+	x = strlen(cStr) - 1 ;
+	if ( x > 6 ) {
+		if ( tolower(cStr[x]) == 'o' && tolower(cStr[x-1]) == 'g' && tolower(cStr[x-2]) == 'n' && tolower(cStr[x-3]) == 'i' && tolower(cStr[x-4]) == 'r' && cStr[x-5] == '.' ) {
+			return 1 ;
+		}
+	}
+	return 0 ;
+}
 /* General Functions */
 
 int ring_fexists ( const char *cFileName )
@@ -300,10 +320,11 @@ int ring_exefilename ( char *cDirPath )
 	#ifdef _WIN32
 	/* Windows only */
 	GetModuleFileName(NULL,cDirPath,nSize);
-	#else
-	#ifdef __linux__
+	#elif __MACH__
+	/* Mac OS X */
+	_NSGetExecutablePath(cDirPath,&nSize);
+	#elif __linux__
 	readlink("/proc/self/exe",cDirPath,nSize);
-	#endif
 	#endif
 	return 0 ;
 }

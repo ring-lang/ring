@@ -1,4 +1,9 @@
   aNews = [
+  ["June 6, 2016",'<a href="download.html#binary" target="_blank"> Ring 1.0 for Mobile App Development using Qt  </a>'],
+  ["May 26, 2016",'<a href="download.html#binary" target="_blank"> Ring 1.0 for MacOS X Released!  </a>'],
+  ["May 11, 2016",'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_SuperMan2016_1.0_win32.zip/download" target="_blank"> Super Man 2016 Game </a>'],
+  ["May 7, 2016",'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_FlappyBird3000_1.0_win32.zip/download" target="_blank"> Flappy Bird 3000 Game </a>'],
+  ["May 3, 2016",'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_StarsFighter_1.0_win32.zip/download" target="_blank"> Stars Fighter Game </a>'],
   ["May 2, 2016",'<a href="http://www.codeproject.com/Articles/1096942/Squares-Puzzle-using-RingAllegro" target="_blank"> Article: Squares Puzzle using RingAllegro (CodeProject)</a>'],
   ["April 3, 2016",'<a href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank"> Ring Article (CodeProject)</a>'],
   ["March 31, 2016",'<a href="http://github.com/ring-lang/ring" target="_blank"> Ring Source Code (GitHub)</a>'],

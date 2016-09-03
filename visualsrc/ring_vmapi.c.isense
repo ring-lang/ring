@@ -174,6 +174,8 @@ Type: char
 buffer[5]
 Type: double
 nResult
+ring_vmlib_version
+ring_vmlib_clockspersecond
 ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist
@@ -305,6 +307,12 @@ cStr , *cStr2
 ring_vmlib_intvalue
 Type: const char *
 cStr
+ring_vmlib_object2pointer
+ring_vmlib_pointer2object
+ring_vmlib_nullpointer
+ring_vmlib_space
+Type: String *
+pString
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
@@ -316,6 +324,11 @@ RING_VM_ODBC
 RING_VM_OPENSSL
 RING_VM_CURL
 RING_VM_DLL
+RING_VM_SQLITE
+RING_FILE
+RING_OPENFILE(x,y)
+RING_CLOSEFILE(x)
+RING_READCHAR(x,y,z)
 ring_vm_extension
 ring_vmdll_h
 LoadDLL(x)

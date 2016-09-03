@@ -40,7 +40,9 @@
 #define RING_RUNVM 1
 #define RING_VMSHOWOPCODE 1
 #define RING_OOM "\nError : Out of Memory\n"
+#ifndef NDEBUG
 #define NDEBUG
+#endif
 /*
 **  Include Files 
 **  Include C Headers 
@@ -110,6 +112,10 @@
 #ifdef RING_VM_DLL
 #include "ring_vmdll.h"
 #endif
+#ifdef RING_VM_SQLITE
+#include "ring_vmsqlite.h"
+#endif
 #include "ring_hashlib.h"
 #include "ring_hashtable.h"
+#include "ring_objfile.h"
 #endif

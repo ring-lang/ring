@@ -25,7 +25,7 @@ class GAbstractSocket : public QAbstractSocket
     char cstateChangedEvent[100];
 
 
-    GAbstractSocket(int x,QObject *parent,VM *pVM );
+    GAbstractSocket(QAbstractSocket::SocketType x,QObject *parent,VM *pVM );
 
     void setconnectedEvent(const char *cStr);
     void setdisconnectedEvent(const char *cStr);

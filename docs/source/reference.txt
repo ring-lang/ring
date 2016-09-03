@@ -1,0 +1,163 @@
+==============
+Reference
+==============
+
+In this chapter we will learn about
+
+* Language keywords
+* Language Functions
+* Compiler Errors
+* Runtime Errors
+
+Language Keywords
+=================
+
+Keywords Count : 38
+
+* again
+* and
+* but
+* bye
+* call
+* catch
+* class
+* do
+* done
+* else
+* end
+* exit
+* for
+* from
+* func
+* give
+* if
+* import
+* in
+* load
+* loop
+* new
+* next
+* not
+* off
+* ok
+* on
+* or
+* other
+* package
+* private
+* return
+* see
+* step
+* switch
+* to
+* try
+* while
+
+Language Functions
+==================
+
+Functions Count : 207
+
+.. code-block:: none
+
+	acos() add() addattribute() adddays() addmethod() ascii() asin() assert()
+	atan() atan2() attributes() binarysearch() callgc() ceil() cfunctions() char()
+	chdir() classes() classname() clearerr() clock() closelib() copy() cos()
+	cosh() currentdir() date() dec() decimals() decrypt() del() diffdays()
+	dir() download() encrypt() eval() exefilename() exefolder() exp() fabs()
+	fclose() feof() ferror() fexists() fflush() fgetc() fgetpos() fgets()
+	filename() find() floor() fopen() fputc() fputs() fread() freopen()
+	fseek() fsetpos() ftell() functions() fwrite() get() getattribute() getchar()
+	globals() hex() hex2str() input() insert() intvalue() isalnum() isalpha()
+	isandroid() isattribute() iscfunction() isclass() iscntrl() isdigit() 
+	isfreebsd() isfunction()  isglobal() isgraph() islinux() islist() islocal()
+	islower() ismacosx() ismethod() ismsdos() isnull() isnumber() isobject() 
+	ispackage() ispackageclass() isprint() isprivateattribute() isprivatemethod()
+	ispunct() isspace() isstring() isunix() isupper() iswindows() iswindows64()
+	isxdigit() left() len() lines() list() list2str() loadlib() locals()
+	log() log10() lower() max() md5() mergemethods() methods() min()
+	murmur3hash() mysql_autocommit() mysql_close() mysql_columns() mysql_commit()
+	mysql_connect() mysql_error() mysql_escape_string()
+	mysql_info() mysql_init() mysql_insert_id() mysql_next_result() mysql_query()
+	mysql_result() mysql_result2() mysql_rollback()
+	nullpointer() number() object2pointer() objectid() odbc_autocommit() 
+	odbc_close() odbc_colcount() odbc_columns()
+	odbc_commit() odbc_connect() odbc_datasources() odbc_disconnect() 
+	odbc_drivers() odbc_execute() odbc_fetch() odbc_getdata()
+	odbc_init() odbc_rollback() odbc_tables() packageclasses() packages()
+	perror() pointer2object() pow()
+	raise() randbytes() random() read() remove() rename() reverse() rewind()
+	right() sendemail() setattribute() sha1() sha224() sha256() sha384() sha512()
+	sin() sinh() sort() space() sqlite_close() 
+	sqlite_errmsg() sqlite_execute() sqlite_init()
+	sqlite_open() sqrt() str2hex() str2list() strcmp() 
+	string() substr() system() tan() tanh() tempfile() tempname() time() 
+	timelist() trim() type() ungetc() unsigned() upper() varptr() 
+	version() windowsnl() write()
+
+Compiler Errors
+===============
+
+* Error (C1) : Error in parameters list, expected identifier
+* Error (C2) : Error in class name
+* Error (C3) : Unclosed control strucutre, 'ok' is missing
+* Error (C4) : Unclosed control strucutre, 'end' is missing
+* Error (C5) : Unclosed control strucutre, next is missing
+* Error (C6) : Error in function name
+* Error (C7) : Error in list items
+* Error (C8) : Parentheses ')' is missing 
+* Error (C9) : Brackets ']' is missing 
+* Error (C10) : Error in parent class name
+* Error (C11) : Error in expression operator
+* Error (C12) :No class definition
+* Error (C13) : Error in variable name
+* Error (C14) : Try/Catch miss the Catch keyword!
+* Error (C15) : Try/Catch miss the Done keyword!
+* Error (C16) : Error in Switch statement expression!
+* Error (C17) : Switch statement without OFF
+* Error (C18) : Missing closing brace for the block opened!
+* Error (C19) : Numeric Overflow!
+* Error (C20) : Error in package name
+* Error (C21) : Unclosed control strucutre, 'again' is missing
+* Error (C22) : Function redefinition, function is already defined!
+* Error (C23) : Using '(' after number!
+* Error (C24) : The parent class name is identical to the subclass name
+* Error (C25) : Trying to access the self reference after the object name"
+
+Runtime Errors
+==============
+
+* Error (R1) : Cann't divide by zero !
+* Error (R2) : Array Access (Index out of range) !
+* Error (R3) : Calling Function without definition !
+* Error (R4) : Stack Overflow !
+* Error (R5) : Can't access the list item, Object is not list !
+* Error (R6) : Variable is required
+* Error (R7) : Can't assign to a string letter more than one character
+* Error (R8) : Variable is not a string 
+* Error (R9) : Using exit command outside loops 
+* Error (R10) : Using exit command with number outside the range 
+* Error (R11) : error in class name, class not found! 
+* Error (R12) : error in property name, property not found! 
+* Error (R13) : Object is required
+* Error (R14) : Calling Method without definition !
+* Error (R15) : error in parent class name, class not found! 
+* Error (R16) : Using braces to access unknown object ! 
+* Error (R17) : error, using 'Super' without parent class! 
+* Error (R18) : Numeric Overflow! 
+* Error (R19) : Calling function with less number of parameters!
+* Error (R20) : Calling function with extra number of parameters!
+* Error (R21) : Using operator with values of incorrect type
+* Error (R22) : Using loop command outside loops 
+* Error (R23) : Using loop command with number outside the range 
+* Error (R24) : Using uninitialized variable 
+* Error (R25) : Error in package name, Package not found! 
+* Error (R26) : Calling private method from outside the class 
+* Error (R27) : Using private attribute from outside the class 
+* Error (R28) : Using bad data type as step value
+* Error (R29) : Using bad data type in for loop
+* Error (R30) : parent class name is identical to child class name 
+* Error (R31) : Trying to destory the object using the self reference 
+* Error (R32) : The CALL command expect a variable contains string!
+* Error (R33) : Bad decimals number (correct range >= 0 and <=14) !
+* Error (R34) : Variable is required for the assignment operation

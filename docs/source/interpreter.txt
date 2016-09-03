@@ -18,6 +18,7 @@ Option		Description
 -norun		Don't run the program after compiling
 -ins		Print instruction operation code before execution
 -performance	Print clock before and after program execution
+-go		Generate Object File
 ============	=======================================================
 
 Printing Tokens
@@ -862,3 +863,28 @@ Output:
 	Date  : 2015/09/15 Time : 15:56:17
 	Clock : 0 
 	===================================================
+
+
+Generate Object File
+====================
+
+You can generate object file (*.ringo) from your source code file (*.ring) 
+using -go option
+
+.. tip::
+
+	You will get one object file to use for distributing/running your application which may contains one or many
+	ring source files that you can keep or distribute based on the application (commercial or open source).
+
+Command:
+
+.. code-block:: none
+
+	ring test.ring -go
+
+To run the compiled object file
+
+.. code-block:: none
+
+	ring test.ringo
+

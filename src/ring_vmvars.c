@@ -126,6 +126,14 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 			/* Accessing Object Attribute Using { } */
 			if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
 				pList = ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
+				/* Pass braces { } for class init() method */
+				if ( pVM->nCallClassInit ) {
+					/*
+					**  Here ring_vm_oop_callmethodinsideclass(pVM) will return 0 because of class init() calling 
+					**  This check can be done here or in ring_vm_oop_callmethodinsideclass() 
+					*/
+					return 1 ;
+				}
 				/* Get Object List */
 				pList = (List *) ring_list_getpointer(pList,RING_ABRACEOBJECTS_BRACEOBJECT);
 				nType = ring_vm_oop_objtypefromobjlist(pList);

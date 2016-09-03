@@ -48,6 +48,7 @@ Example:
 	func hello
 		see "Hello from function" + nl
 
+
 .. index:: 
 	pair: Functions; Call Functions
 
