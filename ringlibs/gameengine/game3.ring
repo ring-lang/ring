@@ -14,7 +14,7 @@ $DoorKey = false
 $playerindex = 4
 $value = 1000
 
-$MOVEPLAYER = false
+$moveplayer = false
 
 start_playing()
 
@@ -307,11 +307,11 @@ func playstart oGame
 			}
 			mouse = func ogame,oself,nType,aMouseList {	
 				if nType = GE_MOUSE_DOWN
-					$MOVEPLAYER = TRUE
+					$moveplayer = TRUE
 				But nType = GE_MOUSE_UP
-					$MOVEPLAYER = FALSE
+					$moveplayer = FALSE
 				ok
-				if $MOVEPLAYER = TRUE
+				if $moveplayer = TRUE
 					if aMouseList[1] < oSelf.X  # left
 						cFunc = oself.keypress	
 						call cFunc(oGame,oSelf,Key_left)
