@@ -56,14 +56,14 @@ Keywords Count : 38
 Language Functions
 ==================
 
-Functions Count : 207
+Functions Count : 208
 
 .. code-block:: none
 
 	acos() add() addattribute() adddays() addmethod() ascii() asin() assert()
 	atan() atan2() attributes() binarysearch() callgc() ceil() cfunctions() char()
-	chdir() classes() classname() clearerr() clock() closelib() copy() cos()
-	cosh() currentdir() date() dec() decimals() decrypt() del() diffdays()
+	chdir() classes() classname() clearerr() clock() clockspersecond() closelib() 
+	copy() cos() cosh() currentdir() date() dec() decimals() decrypt() del() diffdays()
 	dir() download() encrypt() eval() exefilename() exefolder() exp() fabs()
 	fclose() feof() ferror() fexists() fflush() fgetc() fgetpos() fgets()
 	filename() find() floor() fopen() fputc() fputs() fread() freopen()
