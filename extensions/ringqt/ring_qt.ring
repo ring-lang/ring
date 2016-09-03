@@ -3685,7 +3685,145 @@ Class QAbstractItemView from QAbstractScrollArea
 	Func update P1
 		return QAbstractItemView_update(pObject,GetObjectPointerFromRingObject(P1))
 
-Class QTableWidget from QAbstractItemView
+Class QTableView from QAbstractItemView
+
+	pObject
+
+	Func init P1
+		pObject = QTableView_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTableView_delete(pObject)
+
+	Func clearSpans 
+		return QTableView_clearSpans(pObject)
+
+	Func columnAt P1
+		return QTableView_columnAt(pObject,P1)
+
+	Func columnSpan P1,P2
+		return QTableView_columnSpan(pObject,P1,P2)
+
+	Func columnViewportPosition P1
+		return QTableView_columnViewportPosition(pObject,P1)
+
+	Func columnWidth P1
+		return QTableView_columnWidth(pObject,P1)
+
+	Func gridStyle 
+		return QTableView_gridStyle(pObject)
+
+	Func horizontalHeader 
+		pTempObj = new QHeaderView
+		pTempObj.pObject = QTableView_horizontalHeader(pObject)
+		return pTempObj
+
+	Func isColumnHidden P1
+		return QTableView_isColumnHidden(pObject,P1)
+
+	Func isCornerButtonEnabled 
+		return QTableView_isCornerButtonEnabled(pObject)
+
+	Func isRowHidden P1
+		return QTableView_isRowHidden(pObject,P1)
+
+	Func isSortingEnabled 
+		return QTableView_isSortingEnabled(pObject)
+
+	Func rowAt P1
+		return QTableView_rowAt(pObject,P1)
+
+	Func rowHeight P1
+		return QTableView_rowHeight(pObject,P1)
+
+	Func rowSpan P1,P2
+		return QTableView_rowSpan(pObject,P1,P2)
+
+	Func rowViewportPosition P1
+		return QTableView_rowViewportPosition(pObject,P1)
+
+	Func setColumnHidden P1,P2
+		return QTableView_setColumnHidden(pObject,P1,P2)
+
+	Func setColumnWidth P1,P2
+		return QTableView_setColumnWidth(pObject,P1,P2)
+
+	Func setCornerButtonEnabled P1
+		return QTableView_setCornerButtonEnabled(pObject,P1)
+
+	Func setGridStyle P1
+		return QTableView_setGridStyle(pObject,P1)
+
+	Func setHorizontalHeader P1
+		return QTableView_setHorizontalHeader(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRowHeight P1,P2
+		return QTableView_setRowHeight(pObject,P1,P2)
+
+	Func setRowHidden P1,P2
+		return QTableView_setRowHidden(pObject,P1,P2)
+
+	Func setSortingEnabled P1
+		return QTableView_setSortingEnabled(pObject,P1)
+
+	Func setSpan P1,P2,P3,P4
+		return QTableView_setSpan(pObject,P1,P2,P3,P4)
+
+	Func setVerticalHeader P1
+		return QTableView_setVerticalHeader(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWordWrap P1
+		return QTableView_setWordWrap(pObject,P1)
+
+	Func showGrid 
+		return QTableView_showGrid(pObject)
+
+	Func sortByColumn P1,P2
+		return QTableView_sortByColumn(pObject,P1,P2)
+
+	Func verticalHeader 
+		pTempObj = new QHeaderView
+		pTempObj.pObject = QTableView_verticalHeader(pObject)
+		return pTempObj
+
+	Func wordWrap 
+		return QTableView_wordWrap(pObject)
+
+	Func hideColumn P1
+		return QTableView_hideColumn(pObject,P1)
+
+	Func hideRow P1
+		return QTableView_hideRow(pObject,P1)
+
+	Func resizeColumnToContents P1
+		return QTableView_resizeColumnToContents(pObject,P1)
+
+	Func resizeColumnsToContents 
+		return QTableView_resizeColumnsToContents(pObject)
+
+	Func resizeRowToContents P1
+		return QTableView_resizeRowToContents(pObject,P1)
+
+	Func resizeRowsToContents 
+		return QTableView_resizeRowsToContents(pObject)
+
+	Func selectColumn P1
+		return QTableView_selectColumn(pObject,P1)
+
+	Func selectRow P1
+		return QTableView_selectRow(pObject,P1)
+
+	Func setShowGrid P1
+		return QTableView_setShowGrid(pObject,P1)
+
+	Func showColumn P1
+		return QTableView_showColumn(pObject,P1)
+
+	Func showRow P1
+		return QTableView_showRow(pObject,P1)
+
+Class QTableWidget from QTableView
 
 	pObject
 

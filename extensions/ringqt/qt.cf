@@ -156,6 +156,7 @@ extern "C" {
 #include <QImage>
 #include <QBitmap>
 #include <QMediaContent>
+#include <QTableView>
 
 extern "C" {
 
@@ -1712,9 +1713,57 @@ void setCurrentIndex(QModelIndex)
 void update(QModelIndex)
 
 <class>
-name: QTableWidget
+name: QTableView
 para: QWidget *parent
 parent: QAbstractItemView
+</class>
+
+void clearSpans(void)
+int columnAt(int x)
+int columnSpan(int row, int column)
+int columnViewportPosition(int column)
+int columnWidth(int column)
+Qt::PenStyle gridStyle(void)
+QHeaderView *horizontalHeader(void)
+bool isColumnHidden(int column)
+bool isCornerButtonEnabled(void)
+bool isRowHidden(int row)
+bool isSortingEnabled(void)
+int rowAt(int y)
+int rowHeight(int row)
+int rowSpan(int row, int column)
+int rowViewportPosition(int row)
+void setColumnHidden(int column, bool hide)
+void setColumnWidth(int column, int width)
+void setCornerButtonEnabled(bool enable)
+void setGridStyle(Qt::PenStyle style)
+void setHorizontalHeader(QHeaderView *header)
+void setRowHeight(int row, int height)
+void setRowHidden(int row, bool hide)
+void setSortingEnabled(bool enable)
+void setSpan(int row, int column, int rowSpanCount, int columnSpanCount)
+void setVerticalHeader(QHeaderView *header)
+void setWordWrap(bool on)
+bool showGrid(void)
+void sortByColumn(int column, Qt::SortOrder order)
+QHeaderView *verticalHeader(void)
+bool wordWrap(void)
+void hideColumn(int column)
+void hideRow(int row)
+void resizeColumnToContents(int column)
+void resizeColumnsToContents(void)
+void resizeRowToContents(int row)
+void resizeRowsToContents(void)
+void selectColumn(int column)
+void selectRow(int row)
+void setShowGrid(bool show)
+void showColumn(int column)
+void showRow(int row)
+
+<class>
+name: QTableWidget
+para: QWidget *parent
+parent: QTableView
 codename: GTableWidget
 passvmpointer
 </class>

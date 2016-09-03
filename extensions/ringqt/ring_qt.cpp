@@ -143,6 +143,7 @@ extern "C" {
 #include <QImage>
 #include <QBitmap>
 #include <QMediaContent>
+#include <QTableView>
 
 extern "C" {
 
@@ -20849,6 +20850,867 @@ RING_FUNC(ring_QAbstractItemView_update)
 	pObject->update(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+}
+
+
+RING_FUNC(ring_QTableView_clearSpans)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	pObject->clearSpans();
+}
+
+
+RING_FUNC(ring_QTableView_columnAt)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnAt( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QTableView_columnSpan)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnSpan( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_QTableView_columnViewportPosition)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnViewportPosition( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QTableView_columnWidth)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnWidth( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QTableView_gridStyle)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	RING_API_RETNUMBER(pObject->gridStyle());
+}
+
+
+RING_FUNC(ring_QTableView_horizontalHeader)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	RING_API_RETCPOINTER(pObject->horizontalHeader(),"QHeaderView");
+}
+
+
+RING_FUNC(ring_QTableView_isColumnHidden)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isColumnHidden( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QTableView_isCornerButtonEnabled)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	RING_API_RETNUMBER(pObject->isCornerButtonEnabled());
+}
+
+
+RING_FUNC(ring_QTableView_isRowHidden)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isRowHidden( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QTableView_isSortingEnabled)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	RING_API_RETNUMBER(pObject->isSortingEnabled());
+}
+
+
+RING_FUNC(ring_QTableView_rowAt)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowAt( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QTableView_rowHeight)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowHeight( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QTableView_rowSpan)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowSpan( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_QTableView_rowViewportPosition)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowViewportPosition( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QTableView_setColumnHidden)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnHidden( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QTableView_setColumnWidth)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnWidth( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QTableView_setCornerButtonEnabled)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCornerButtonEnabled( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_setGridStyle)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setGridStyle( (Qt::PenStyle )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_setHorizontalHeader)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setHorizontalHeader((QHeaderView *) RING_API_GETCPOINTER(2,"QHeaderView"));
+}
+
+
+RING_FUNC(ring_QTableView_setRowHeight)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowHeight( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QTableView_setRowHidden)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowHidden( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QTableView_setSortingEnabled)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSortingEnabled( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_setSpan)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSpan( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QTableView_setVerticalHeader)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVerticalHeader((QHeaderView *) RING_API_GETCPOINTER(2,"QHeaderView"));
+}
+
+
+RING_FUNC(ring_QTableView_setWordWrap)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWordWrap( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_showGrid)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	RING_API_RETNUMBER(pObject->showGrid());
+}
+
+
+RING_FUNC(ring_QTableView_sortByColumn)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->sortByColumn( (int ) RING_API_GETNUMBER(2), (Qt::SortOrder )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QTableView_verticalHeader)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	RING_API_RETCPOINTER(pObject->verticalHeader(),"QHeaderView");
+}
+
+
+RING_FUNC(ring_QTableView_wordWrap)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	RING_API_RETNUMBER(pObject->wordWrap());
+}
+
+
+RING_FUNC(ring_QTableView_hideColumn)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->hideColumn( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_hideRow)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->hideRow( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_resizeColumnToContents)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->resizeColumnToContents( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_resizeColumnsToContents)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	pObject->resizeColumnsToContents();
+}
+
+
+RING_FUNC(ring_QTableView_resizeRowToContents)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->resizeRowToContents( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_resizeRowsToContents)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	pObject->resizeRowsToContents();
+}
+
+
+RING_FUNC(ring_QTableView_selectColumn)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->selectColumn( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_selectRow)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->selectRow( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_setShowGrid)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setShowGrid( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_showColumn)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->showColumn( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTableView_showRow)
+{
+	QTableView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->showRow( (int ) RING_API_GETNUMBER(2));
 }
 
 
@@ -60687,6 +61549,13 @@ RING_FUNC(ring_QAbstractScrollArea_new)
 	RING_API_RETCPOINTER(pObject,"QAbstractScrollArea");
 }
 
+RING_FUNC(ring_QTableView_new)
+{
+		RING_API_IGNORECPOINTERTYPE ;
+	QTableView *pObject = new QTableView((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	RING_API_RETCPOINTER(pObject,"QTableView");
+}
+
 RING_FUNC(ring_QTableWidget_new)
 {
 		RING_API_IGNORECPOINTERTYPE ;
@@ -61580,6 +62449,21 @@ RING_FUNC(ring_QAbstractScrollArea_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QAbstractScrollArea *) RING_API_GETCPOINTER(1,"QAbstractScrollArea");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QTableView_delete)
+{
+	QTableView *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QTableView *) RING_API_GETCPOINTER(1,"QTableView");
 		delete pObject ;
 	}
 }
@@ -63594,6 +64478,47 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qabstractitemview_scrolltotop",ring_QAbstractItemView_scrollToTop);
 	ring_vm_funcregister("qabstractitemview_setcurrentindex",ring_QAbstractItemView_setCurrentIndex);
 	ring_vm_funcregister("qabstractitemview_update",ring_QAbstractItemView_update);
+	ring_vm_funcregister("qtableview_clearspans",ring_QTableView_clearSpans);
+	ring_vm_funcregister("qtableview_columnat",ring_QTableView_columnAt);
+	ring_vm_funcregister("qtableview_columnspan",ring_QTableView_columnSpan);
+	ring_vm_funcregister("qtableview_columnviewportposition",ring_QTableView_columnViewportPosition);
+	ring_vm_funcregister("qtableview_columnwidth",ring_QTableView_columnWidth);
+	ring_vm_funcregister("qtableview_gridstyle",ring_QTableView_gridStyle);
+	ring_vm_funcregister("qtableview_horizontalheader",ring_QTableView_horizontalHeader);
+	ring_vm_funcregister("qtableview_iscolumnhidden",ring_QTableView_isColumnHidden);
+	ring_vm_funcregister("qtableview_iscornerbuttonenabled",ring_QTableView_isCornerButtonEnabled);
+	ring_vm_funcregister("qtableview_isrowhidden",ring_QTableView_isRowHidden);
+	ring_vm_funcregister("qtableview_issortingenabled",ring_QTableView_isSortingEnabled);
+	ring_vm_funcregister("qtableview_rowat",ring_QTableView_rowAt);
+	ring_vm_funcregister("qtableview_rowheight",ring_QTableView_rowHeight);
+	ring_vm_funcregister("qtableview_rowspan",ring_QTableView_rowSpan);
+	ring_vm_funcregister("qtableview_rowviewportposition",ring_QTableView_rowViewportPosition);
+	ring_vm_funcregister("qtableview_setcolumnhidden",ring_QTableView_setColumnHidden);
+	ring_vm_funcregister("qtableview_setcolumnwidth",ring_QTableView_setColumnWidth);
+	ring_vm_funcregister("qtableview_setcornerbuttonenabled",ring_QTableView_setCornerButtonEnabled);
+	ring_vm_funcregister("qtableview_setgridstyle",ring_QTableView_setGridStyle);
+	ring_vm_funcregister("qtableview_sethorizontalheader",ring_QTableView_setHorizontalHeader);
+	ring_vm_funcregister("qtableview_setrowheight",ring_QTableView_setRowHeight);
+	ring_vm_funcregister("qtableview_setrowhidden",ring_QTableView_setRowHidden);
+	ring_vm_funcregister("qtableview_setsortingenabled",ring_QTableView_setSortingEnabled);
+	ring_vm_funcregister("qtableview_setspan",ring_QTableView_setSpan);
+	ring_vm_funcregister("qtableview_setverticalheader",ring_QTableView_setVerticalHeader);
+	ring_vm_funcregister("qtableview_setwordwrap",ring_QTableView_setWordWrap);
+	ring_vm_funcregister("qtableview_showgrid",ring_QTableView_showGrid);
+	ring_vm_funcregister("qtableview_sortbycolumn",ring_QTableView_sortByColumn);
+	ring_vm_funcregister("qtableview_verticalheader",ring_QTableView_verticalHeader);
+	ring_vm_funcregister("qtableview_wordwrap",ring_QTableView_wordWrap);
+	ring_vm_funcregister("qtableview_hidecolumn",ring_QTableView_hideColumn);
+	ring_vm_funcregister("qtableview_hiderow",ring_QTableView_hideRow);
+	ring_vm_funcregister("qtableview_resizecolumntocontents",ring_QTableView_resizeColumnToContents);
+	ring_vm_funcregister("qtableview_resizecolumnstocontents",ring_QTableView_resizeColumnsToContents);
+	ring_vm_funcregister("qtableview_resizerowtocontents",ring_QTableView_resizeRowToContents);
+	ring_vm_funcregister("qtableview_resizerowstocontents",ring_QTableView_resizeRowsToContents);
+	ring_vm_funcregister("qtableview_selectcolumn",ring_QTableView_selectColumn);
+	ring_vm_funcregister("qtableview_selectrow",ring_QTableView_selectRow);
+	ring_vm_funcregister("qtableview_setshowgrid",ring_QTableView_setShowGrid);
+	ring_vm_funcregister("qtableview_showcolumn",ring_QTableView_showColumn);
+	ring_vm_funcregister("qtableview_showrow",ring_QTableView_showRow);
 	ring_vm_funcregister("qtablewidget_cellwidget",ring_QTableWidget_cellWidget);
 	ring_vm_funcregister("qtablewidget_closepersistenteditor",ring_QTableWidget_closePersistentEditor);
 	ring_vm_funcregister("qtablewidget_column",ring_QTableWidget_column);
@@ -65541,6 +66466,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtablewidgetitem_new",ring_QTableWidgetItem_new);
 	ring_vm_funcregister("qframe_new",ring_QFrame_new);
 	ring_vm_funcregister("qabstractscrollarea_new",ring_QAbstractScrollArea_new);
+	ring_vm_funcregister("qtableview_new",ring_QTableView_new);
 	ring_vm_funcregister("qtablewidget_new",ring_QTableWidget_new);
 	ring_vm_funcregister("qprogressbar_new",ring_QProgressBar_new);
 	ring_vm_funcregister("qspinbox_new",ring_QSpinBox_new);
@@ -65636,6 +66562,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtablewidgetitem_delete",ring_QTableWidgetItem_delete);
 	ring_vm_funcregister("qframe_delete",ring_QFrame_delete);
 	ring_vm_funcregister("qabstractscrollarea_delete",ring_QAbstractScrollArea_delete);
+	ring_vm_funcregister("qtableview_delete",ring_QTableView_delete);
 	ring_vm_funcregister("qtablewidget_delete",ring_QTableWidget_delete);
 	ring_vm_funcregister("qprogressbar_delete",ring_QProgressBar_delete);
 	ring_vm_funcregister("qspinbox_delete",ring_QSpinBox_delete);
