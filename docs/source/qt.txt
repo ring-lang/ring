@@ -659,10 +659,10 @@ The application during the runtime
 .. image:: ringqt_shot13.jpg
 	:alt: QTabWidget
 
-Using QTableView
-=================
+Using QTableWidget
+==================
 
-In this example we will learn about using the QTableView class
+In this example we will learn about using the QTableWidget class
 
 .. code-block:: none
 
@@ -702,7 +702,7 @@ In this example we will learn about using the QTableView class
 The application during the runtime
 
 .. image:: ringqt_shot14.jpg
-	:alt: QTableView
+	:alt: QTableWidget
 
 	
 Using QProgressBar
