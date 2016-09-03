@@ -175,6 +175,7 @@ buffer[5]
 Type: double
 nResult
 ring_vmlib_version
+ring_vmlib_clockspersecond
 ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist
