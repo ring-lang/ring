@@ -14,6 +14,8 @@ $DoorKey = false
 $playerindex = 4
 $value = 1000
 
+$MOVEPLAYER = false
+
 start_playing()
 
 func main
@@ -43,6 +45,12 @@ func main
 				but nKey = key_space
 					$startplay=true
 					ogame.shutdown=true
+				ok
+			}
+			mouse = func ogame,oself,nType,aMouseList {		
+				if nType = GE_MOUSE_UP
+					$startplay=true 
+					ogame.shutdown=true 
 				ok
 			}
 			state = func ogame,oself {
@@ -296,6 +304,29 @@ func playstart oGame
 						ok
 					}
 				ok
+			}
+			mouse = func ogame,oself,nType,aMouseList {	
+				if nType = GE_MOUSE_DOWN
+					$MOVEPLAYER = TRUE
+				But nType = GE_MOUSE_UP
+					$MOVEPLAYER = FALSE
+				ok
+				if $MOVEPLAYER = TRUE
+					if aMouseList[1] < oSelf.X  # left
+						cFunc = oself.keypress	
+						call cFunc(oGame,oSelf,Key_left)
+					else
+						cFunc = oself.keypress	
+						call cFunc(oGame,oSelf,Key_right)
+					ok
+					if aMouseList[2] < oSelf.Y  # up
+						cFunc = oself.keypress	
+						call cFunc(oGame,oSelf,Key_up)
+					else
+						cFunc = oself.keypress	
+						call cFunc(oGame,oSelf,Key_down)
+					ok
+				ok				
 			}
 		}
 
