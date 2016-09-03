@@ -4,7 +4,7 @@
 # 2016, CalmoSoft <calmosoft@gmail.com>
 
 #Constant used by the Sleep() function
-C_SECONDSIZE = 1000
+C_SECONDSIZE = ClocksPerSecond()
 
 # Constant used by the ReadLine() function
 C_LINESIZE = 256

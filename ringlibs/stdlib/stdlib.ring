@@ -561,13 +561,8 @@ Func permutationReverse a, first, last
      
 Func Sleep x
 	nTime = x * C_SECONDSIZE
-	if isclass("qTest")
-		oTest = new qTest
-		oTest.qsleep(nTime)
-	else
-		nClock = clock()
-		while clock() - nClock < nTime end
-	ok
+	nClock = clock()
+	while clock() - nClock < nTime end
      
 /*
 	Function Name	: Readline
