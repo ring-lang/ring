@@ -123,14 +123,11 @@ func gl_wait_for_event_until event_queue, ev, timeout
 	SDL_event_queue = event_queue
 
 func gl_get_glib_event_type ev	
-	if ( clock() - SDL_CLOCK >= SDL_FPS )  and SDL_NEVENT = 0
-		SDL_CLOCK = clock()
-		SDL_NEVENT = 1
+	if  sdl_pollevent(SDL_event_queue)
+		return sdl_get_sdl_event_type(SDL_event)
+	else
 		return GL_EVENT_TIMER		
 	ok
-	sdl_pollevent(SDL_event_queue)
-	SDL_NEVENT = 0	
-	return sdl_get_sdl_event_type(SDL_event)
 
 func gl_get_glib_event_keyboard_keycode ev
 	nKey = SDL_GET_SDL_Event_key_keysym_sym(SDL_event)
@@ -241,7 +238,7 @@ func gl_set_target_bitmap oBitmap
 func gl_new_glib_sample_id
 
 func gl_play_sample sound,p2,p3,p4,p5,p6	
-	Mix_PlayChannel(1,sound,0)
+	Mix_PlayChannel(-1,sound,p5)
 
 func gl_destroy_glib_sample_id sampleid
 
