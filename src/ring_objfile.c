@@ -82,8 +82,8 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 	double dValue  ;
 	char *cString  ;
 	char cKey[11]  ;
-	strcpy(cKey,"ringstring");
 	char cFileType[100]  ;
+	strcpy(cKey,"ringstring");
 	/* Create Lists */
 	pListFunctions = ring_list_new(0);
 	pListClasses = ring_list_new(0);

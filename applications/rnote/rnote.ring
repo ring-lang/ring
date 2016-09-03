@@ -655,6 +655,7 @@ func pNofileopened
 
 func pDebug
 	if cActiveFileName = Null return pNofileopened() ok
+	pSave()
 	if iswindows()
 		cCode = 'start run "' + cActiveFileName + '"' + nl 
 	else
@@ -664,6 +665,7 @@ func pDebug
 
 func pRun
 	if cActiveFileName = Null return pNofileopened() ok
+	pSave()
 	if iswindows()
 		cCode = 'start run2 "' + cActiveFileName + '"' + nl 
 	else
@@ -673,6 +675,7 @@ func pRun
 
 func pRunNoConsole
 	if cActiveFileName = Null return pNofileopened() ok
+	pSave()
 	if iswindows()
 		cCode = 'start /b run2 "' + cActiveFileName + '"' + nl 
 	else
