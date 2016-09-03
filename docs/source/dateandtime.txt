@@ -29,6 +29,25 @@ Example:
 .. index:: 
 	pair: Date and Time; Time()
 
+ClocksPerSecond() Function
+==========================
+
+Return how many clocks in one second
+
+Syntax:
+
+.. code-block:: none
+
+	clockspersecond() ---> Number of clocks in one second
+
+Example:
+
+.. code-block:: none
+
+	# Wait 1 second
+	t = clock()
+	while clock() - t <= clockspersecond() end
+
 Time() Function
 ===============
 
