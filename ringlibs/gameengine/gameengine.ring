@@ -2,8 +2,12 @@
 # Game Engine for 2D Games
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "gl_allegro.ring"
-#load "gl_libsdl.ring"
+if isandroid()
+	eval('load "gl_libsdl.ring"')
+else
+	eval('load "gl_allegro.ring"')
+ok 
+
 load "gameengine.rh"
 
 oresources = new resources
