@@ -312,14 +312,14 @@ func playstart oGame
 					$moveplayer = FALSE
 				ok
 				if $moveplayer = TRUE
-					if aMouseList[1] < oSelf.X  # left
+					if aMouseList[GE_MOUSE_X] < oSelf.X  # left
 						cFunc = oself.keypress	
 						call cFunc(oGame,oSelf,Key_left)
 					else
 						cFunc = oself.keypress	
 						call cFunc(oGame,oSelf,Key_right)
 					ok
-					if aMouseList[2] < oSelf.Y  # up
+					if aMouseList[GE_MOUSE_Y] < oSelf.Y  # up
 						cFunc = oself.keypress	
 						call cFunc(oGame,oSelf,Key_up)
 					else

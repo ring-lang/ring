@@ -152,10 +152,11 @@ func play oGame
 			x = 400 y =400 width=100 height=100
 			animate=false move=true Scaled=true
 			mouse = func ogame,oself,nType,aMouseList {
-				if nType = GE_MOUSE_DOWN
-					if not ( aMouseList[1] >= oSelf.x and aMouseList[1] <= oSelf.x+oSelf.width and
-						aMouseList[2] >= oself.y and aMouseList[2] <= oSelf.y+oSelf.height )
-					
+
+				if not ( aMouseList[GE_MOUSE_X] >= oSelf.x and aMouseList[GE_MOUSE_X] <= oSelf.x+oSelf.width and
+					aMouseList[GE_MOUSE_Y] >= oself.y and aMouseList[GE_MOUSE_Y] <= oSelf.y+oSelf.height )
+
+					if nType = GE_MOUSE_DOWN
 						if aMouseList[1] < oSelf.X  # left
 							oSelf.X -= 100
 						else
@@ -167,10 +168,9 @@ func play oGame
 							oSelf.Y += 100
 						ok
 					ok
-				ok
-				if nType = GE_MOUSE_UP
-					if aMouseList[1] >= oSelf.x and aMouseList[1] <= oSelf.x+oSelf.width and
-					   aMouseList[2] >= oself.y and aMouseList[2] <= oSelf.y+oSelf.height
+
+				else
+					if nType = GE_MOUSE_UP
 						cFunc = oself.keypress
 						call cFunc(oGame,oSelf,Key_Space)
 					ok
