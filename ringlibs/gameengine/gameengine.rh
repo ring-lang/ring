@@ -41,3 +41,5 @@ GE_MOUSE_UP           = GL_event_mouse_button_up
 GE_MOUSE_AXES         = GL_event_mouse_axes
 GE_MOUSE_ENTERDISPLAY = GL_event_mouse_enter_display
 
+GE_MOUSE_X = 1
+GE_MOUSE_Y = 2
