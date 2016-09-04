@@ -4,14 +4,7 @@
 
 load "gameengine.ring"
 
-$score = 0
-$level = 1
-$enemies = 1
-$value = 100
-$playerindex = 2
-$gameresult = false
-
-$startplay=false
+oGameState = NULL
 
 start_playing()
 
@@ -21,14 +14,7 @@ func main
 
 	while true
 
-	$score = 0
-	$level = 1
-	$enemies = 1
-	$value = 100
-	$playerindex = 2
-	$gameresult = false
-
-	$startplay=false
+	oGameState = new GameState
 
 	oGame {
 		title = "Stars Fighter!"
@@ -40,13 +26,13 @@ func main
 				if nkey = key_esc or nKey = GE_AC_BACK
 					ogame.shutdown()
 				but nKey = key_space
-					$startplay=true
+					oGameState.startplay=true
 					ogame.shutdown=true
 				ok
 			}
 			mouse = func ogame,oself,nType,aMouseList {
 				if nType = GE_MOUSE_UP
-					$startplay=true
+					oGameState.startplay=true
 					ogame.shutdown=true
 				ok
 			}
@@ -93,7 +79,7 @@ func main
 		}
 	}
 
-	if $startplay
+	if oGameState.startplay
 		oGame.refresh()
 		playstart(oGame)
 		oGame.refresh()
@@ -110,7 +96,7 @@ func playstart oGame
 
 	while true
 		play(oGame)
-		if ogame.shutdown = true and $value = 0
+		if ogame.shutdown = true and oGameState.value = 0
 			exit
 		ok
 		ogame.refresh()
@@ -200,8 +186,8 @@ func play oGame
 											oself.y <= x.y + x.height
 											showfire(oGame,x.x+40,x.y+40)
 											ogame.remove(x.nindex)
-											$score+=10
-											$enemies--
+											oGameState.score+=10
+											oGameState.enemies--
 											checkwin(oGame)
 											exit
 										ok
@@ -222,7 +208,7 @@ func play oGame
 				}
 			}
 		}
-		for g = 1 to $enemies
+		for g = 1 to oGameState.enemies
 			sprite
 			{
 				type = ge_type_enemy
@@ -252,12 +238,12 @@ func play oGame
 								nstep = 10
 								direction = ge_direction_incvertical
 								state = func oGame,oSelf {
-									x =  oGame.aObjects[$playerindex]
+									x =  oGame.aObjects[oGameState.playerindex]
 									if oself.x >= x.x and oself.y >= x.y and
 									   oself.x <= x.x + x.width and
 									   oself.y <= x.y + x.height
-									   if $value > 0
-									   	$value-=10
+									   if oGameState.value > 0
+									   	oGameState.value-=10
 									   ok
 									   ogame.remove(oself.nindex)
 									   checkgameover(oGame)
@@ -284,36 +270,36 @@ func play oGame
 			point = 400
 			size = 30
 			file = "fonts/pirulen.ttf"
-			text = "Score : " + $score
+			text = "Score : " + oGameState.score
 			x = 500	y=10
-			state = func oGame,oSelf { oSelf { text = "Score : " + $score } }
+			state = func oGame,oSelf { oSelf { text = "Score : " + oGameState.score } }
 		}
 		text {
 			animate = false
 			point = 400
 			size = 30
 			file = "fonts/pirulen.ttf"
-			text = "Energy : " + $value
+			text = "Energy : " + oGameState.value
 			x = 500	y=50
-			state = func oGame,oSelf { oSelf { text = "Energy : " + $value } }
+			state = func oGame,oSelf { oSelf { text = "Energy : " + oGameState.value } }
 		}
 		text {
 			animate = false
 			point = 400
 			size = 30
 			file = "fonts/pirulen.ttf"
-			text = "Level : " + $level
+			text = "Level : " + oGameState.level
 			x = 500	y=90
 		}
 	}
 
 
 func checkwin ogame
-	if $gameresult  return ok
-	if $enemies = 0
-		$gameresult = true
+	if oGameState.gameresult  return ok
+	if oGameState.enemies = 0
+		oGameState.gameresult = true
 		oGame {
-			if $level < 30
+			if oGameState.level < 30
 			text {
 				point = 400
 				size = 30
@@ -324,9 +310,9 @@ func checkwin ogame
 				state = func ogame,oself {
 					if oself.y >= 400
 						ogame.shutdown = true
-						$level++
-						$enemies = $level
-						$gameresult = false
+						oGameState.level++
+						oGameState.enemies = oGameState.level
+						oGameState.gameresult = false
 					ok
 				}
 			}
@@ -341,7 +327,7 @@ func checkwin ogame
 				state = func ogame,oself {
 					if oself.y >= 400
 						ogame.shutdown = true
-						$value = 0
+						oGameState.value = 0
 					ok
 				}
 			}
@@ -350,9 +336,9 @@ func checkwin ogame
 	ok
 
 func checkgameover ogame
-	if $gameresult  return ok
-	if $value <= 0
-		$gameresult = true
+	if oGameState.gameresult  return ok
+	if oGameState.value <= 0
+		oGameState.gameresult = true
 		oGame {
 			text {
 				point = 400
@@ -368,9 +354,9 @@ func checkgameover ogame
 				}
 			}
 		}
-		showfire(oGame,oGame.aObjects[$PlayerIndex].x+40,oGame.aObjects[$PlayerIndex].y+40)
-		oGame.aObjects[$PlayerIndex].lenabled = false
-		oGame.remove($PlayerIndex)
+		showfire(oGame,oGame.aObjects[oGameState.PlayerIndex].x+40,oGame.aObjects[oGameState.PlayerIndex].y+40)
+		oGame.aObjects[oGameState.PlayerIndex].lenabled = false
+		oGame.remove(oGameState.PlayerIndex)
 	ok
 
 
@@ -400,3 +386,13 @@ func showfire oGame,nX,nY
 			}
 		}
 	}
+
+
+class gamestate
+	score = 0
+	level = 1
+	enemies = 1
+	value = 100
+	playerindex = 2
+	gameresult = false
+	startplay=false
