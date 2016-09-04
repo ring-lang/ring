@@ -55,6 +55,9 @@ sdl_v4=0
 SDL_event_queue = null
 SDL_NEVENT = 0
 
+#android
+GL_AC_BACK = SDLK_AC_BACK
+
 func gl_start_playing
 	gl_game_start()
     	main()

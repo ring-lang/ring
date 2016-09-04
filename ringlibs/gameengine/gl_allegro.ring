@@ -41,6 +41,9 @@ GL_EVENT_FINGER_MOTION = -1
 GL_SYS_EventsQueue = NULL
 GL_SYS_Event = NULL
 
+# ANDROID 
+GL_AC_BACK = -1 
+
 func gl_start_playing
 	al_run_main()
 

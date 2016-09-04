@@ -43,3 +43,6 @@ GE_MOUSE_ENTERDISPLAY = GL_event_mouse_enter_display
 
 GE_MOUSE_X = 1
 GE_MOUSE_Y = 2
+
+# Android
+GE_AC_BACK = GL_AC_BACK

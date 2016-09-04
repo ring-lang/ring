@@ -40,7 +40,7 @@ func main
 			file = "images/superman.jpg"
 			x = 0 y=0 width=800 height = 600 scaled = true animate = false
 			keypress = func ogame,oself,nKey {
-				if nkey = key_esc
+				if nkey = key_esc or nKey = GE_AC_BACK
 					ogame.shutdown()
 				but nKey = key_space
 					$startplay=true
@@ -300,7 +300,7 @@ func playstart oGame
 									x += 50
 								ok
 							ok
-						but nkey = key_esc
+						but nkey = key_esc or nKey = GE_AC_BACK
 							ogame.shutdown()
 						ok
 					}
