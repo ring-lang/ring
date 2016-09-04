@@ -3,18 +3,7 @@
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 Load "gameengine.ring"
 
-$down = 3
-$gameresult = false
-$Score = 0
-$startplay=false
-$lastcol = 0
-$playerwin = false
-$DoorKey = false
-
-$playerindex = 4
-$value = 1000
-
-$moveplayer = false
+oGameState = NULL
 
 start_playing()
 
@@ -24,14 +13,7 @@ func main
 
 	while true
 
-	$down = 3
-	$gameresult = false
-	$Score = 0
-	$startplay=false
-	$lastcol = 0
-	$playerwin = false
-	$DoorKey = false
-	$value = 1000
+	oGameState = new GameState
 
 	oGame {
 		title = "Super Man 2016"
@@ -43,13 +25,13 @@ func main
 				if nkey = key_esc or nKey = GE_AC_BACK
 					ogame.shutdown()
 				but nKey = key_space
-					$startplay=true
+					oGameState.startplay=true
 					ogame.shutdown=true
 				ok
 			}
 			mouse = func ogame,oself,nType,aMouseList {		
 				if nType = GE_MOUSE_UP
-					$startplay=true 
+					oGameState.startplay=true 
 					ogame.shutdown=true 
 				ok
 			}
@@ -137,7 +119,7 @@ func main
 			playSound()
 		}
 	}
-	if $startplay
+	if oGameState.startplay
 		oGame.refresh()
 		playstart(oGame)
 		oGame.refresh()
@@ -190,10 +172,10 @@ func playstart oGame
 					x = 5000 +  oGame.aObjects[2].x
 					if x < 0 or x > SCREEN_W return ok
 				}
-				if $gameresult or $DoorKey = false  return ok
-				if oGame.aObjects[$playerindex].x > oself.x + 100 and
-					oGame.aObjects[$playerindex].y > oself.y + 50
-					$gameresult = true
+				if oGameState.gameresult or oGameState.DoorKey = false  return ok
+				if oGame.aObjects[oGameState.playerindex].x > oself.x + 100 and
+					oGame.aObjects[oGameState.playerindex].y > oself.y + 50
+					oGameState.gameresult = true
 					oGame {
 						sprite {
 							file = "images/smwin.jpg"
@@ -231,7 +213,7 @@ func playstart oGame
 
 				checkstarskeycol(oGame,oSelf)
 
-				if not $playerwin
+				if not oGameState.playerwin
 						oself {
 							file = "images/superman.png"
 							height = 86
@@ -249,17 +231,17 @@ func playstart oGame
 
 			}
 			keypress = func ogame,oself,nKey {
-				if $gameresult = false
+				if oGameState.gameresult = false
 
 					oself {
 						if nkey = key_up  and checkwall(oGame,oSelf,0,-40)
-							$value -= 1
+							oGameState.value -= 1
 							checkgameover(oGame)
 							file = "images/supermanup.png"
 							height = 123
 							dotransparent()
 							y -= 40
-							$down = 10
+							oGameState.down = 10
 							if y<=0 y=0 ok
 						but nkey = key_down and checkwall(oGame,oSelf,0,40)
 							file = "images/supermandown.png"
@@ -308,11 +290,11 @@ func playstart oGame
 			}
 			mouse = func ogame,oself,nType,aMouseList {	
 				if nType = GE_MOUSE_DOWN
-					$moveplayer = TRUE
+					oGameState.moveplayer = TRUE
 				But nType = GE_MOUSE_UP
-					$moveplayer = FALSE
+					oGameState.moveplayer = FALSE
 				ok
-				if $moveplayer = TRUE
+				if oGameState.moveplayer = TRUE
 					if aMouseList[GE_MOUSE_X] < oSelf.X  # left
 						cFunc = oself.keypress	
 						call cFunc(oGame,oSelf,Key_left)
@@ -345,10 +327,10 @@ func playstart oGame
 			point = 400
 			size = 30
 			file = "fonts/pirulen.ttf"
-			text = "Score : " + $score
+			text = "Score : " + oGameState.score
 			x = 500	y=0
 			state = func oGame,oSelf {
-				oSelf { text = "Score : " + $score }
+				oSelf { text = "Score : " + oGameState.score }
 			}
 		}
 
@@ -357,9 +339,9 @@ func playstart oGame
 			point = 400
 			size = 30
 			file = "fonts/pirulen.ttf"
-			text = "Energy : " + $value
+			text = "Energy : " + oGameState.value
 			x = 10	y=0
-			state = func oGame,oSelf { oSelf { text = "Energy : " + $value } }
+			state = func oGame,oSelf { oSelf { text = "Energy : " + oGameState.value } }
 		}
 	}
 
@@ -408,21 +390,21 @@ func checkwall2 oGame,oself,diffx,diffy,aList
 	return nValue
 
 func checkopenwall oGame
-	if $score = 900
+	if oGameState.score = 900
 		oGame.aObjects[2].aMap[3][10] = 3
 		oGame.aObjects[2].aMap[4][10] = 0
 		oGame.aObjects[2].aMap[5][10] = 0
 		oGame.aObjects[2].aMap[6][10] = 0
 		oGame.aObjects[2].aMap[7][10] = 0
 		oGame.aObjects[2].aMap[8][10] = 0
-	but $score = 1800
+	but oGameState.score = 1800
 		oGame.aObjects[2].aMap[3][18] = 3
 		oGame.aObjects[2].aMap[4][18] = 0
 		oGame.aObjects[2].aMap[5][18] = 0
 		oGame.aObjects[2].aMap[6][18] = 0
 		oGame.aObjects[2].aMap[7][18] = 0
 		oGame.aObjects[2].aMap[8][18] = 0
-	but $score = 5500
+	but oGameState.score = 5500
 		oGame.aObjects[2].aMap[1][44] = 0
 		oGame.aObjects[2].aMap[2][44] = 0
 		oGame.aObjects[2].aMap[3][44] = 2
@@ -430,10 +412,10 @@ func checkopenwall oGame
 
 
 func checkgameover ogame
-	if $gameresult  return ok
-	if $value <= 0
-		$value = 0
-		$gameresult = true
+	if oGameState.gameresult  return ok
+	if oGameState.value <= 0
+		oGameState.value = 0
+		oGameState.gameresult = true
 		oGame {
 			text {
 				point = 400
@@ -449,9 +431,9 @@ func checkgameover ogame
 				}
 			}
 		}
-		showfire(oGame,oGame.aObjects[$PlayerIndex].x+40,oGame.aObjects[$PlayerIndex].y+40)
-		oGame.aObjects[$PlayerIndex].lenabled = false
-		oGame.remove($PlayerIndex)
+		showfire(oGame,oGame.aObjects[oGameState.PlayerIndex].x+40,oGame.aObjects[oGameState.PlayerIndex].y+40)
+		oGame.aObjects[oGameState.PlayerIndex].lenabled = false
+		oGame.remove(oGameState.PlayerIndex)
 	ok
 
 
@@ -502,7 +484,7 @@ func addenemy oGame,xPos
 					}
 
 					if random(10) = 1
-						if $gameresult return ok
+						if oGameState.gameresult return ok
 						ogame {
 							sprite {
 								type = ge_type_fire
@@ -520,12 +502,12 @@ func addenemy oGame,xPos
 								temp = oself.x + 30 - xvalue
 								state = func oGame,oSelf {
 									oself { x = oSelf.temp +  oGame.aObjects[2].x  }
-									x =  oGame.aObjects[$playerindex]
+									x =  oGame.aObjects[oGameState.playerindex]
 									if oself.x >= x.x and oself.y >= x.y and
 									   oself.x <= x.x + x.width and
 									   oself.y <= x.y + x.height
-									   if $value > 0
-									   	$value-=1000
+									   if oGameState.value > 0
+									   	oGameState.value-=1000
 									   ok
 									   ogame.remove(oself.nindex)
 									   checkgameover(oGame)
@@ -544,7 +526,7 @@ func checkstarskey oGame,oSelf,nValue,nRow,nCol
 	switch nValue
 		on 4
 			oGame.aObjects[2].aMap[nRow][nCol] = 6
-			$Score += 100
+			oGameState.Score += 100
 			checkopenwall(oGame)
 			oGame { Sound {
 				once = true
@@ -553,8 +535,8 @@ func checkstarskey oGame,oSelf,nValue,nRow,nCol
 			} }
 		on 5
 			oGame.aObjects[2].aMap[nRow][nCol] = 0
-			$DoorKey = true
-			$Score += 500
+			oGameState.DoorKey = true
+			oGameState.Score += 500
 			checkopenwall(oGame)
 			oGame { Sound {
 				once = true
@@ -592,3 +574,16 @@ func callenemystate oGame
 			ok
 		}
 	next
+
+Class GameState
+
+	down = 3
+	gameresult = false
+	Score = 0
+	startplay=false
+	lastcol = 0
+	playerwin = false
+	DoorKey = false
+	playerindex = 4
+	value = 1000
+	moveplayer = false
