@@ -42,7 +42,7 @@ Contents:
    Stdlib Classes <stdlibclasses>
    Low Level Functions <lowlevel>
    Extension using the C/C++ languages <extension>
-   Embedding Ring Interpreter in C/C++ Programs <embedding>
+   Embedding Ring Language in C/C++ Programs <embedding>
    Command Line Options	<interpreter>
    Web Development (CGI Library) <web>
    Code Generator for wrapping C/C++ Libraries <codegenerator>

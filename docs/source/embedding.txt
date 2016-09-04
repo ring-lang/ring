@@ -1,8 +1,8 @@
 =============================================
-Embedding Ring Interpreter in C/C++ Programs
+Embedding Ring Language in C/C++ Programs
 =============================================
 
-We can call the Ring interpreter from C/C++ programs using the next functions
+We can use the Ring language from C/C++ programs using the next functions
 
 .. code-block:: C
 
@@ -11,12 +11,12 @@ We can call the Ring interpreter from C/C++ programs using the next functions
 	ring_state_delete(RingState *pState);
 
 .. index:: 
-	pair: Embedding Ring Interpreter in C/C++ Programs; Ring State
+	pair: Embedding Ring Language in C/C++ Programs; Ring State
 
 Ring State
 ==========
 
-The idea is to use the ring_state_init() to create new state for the Ring Interpreter
+The idea is to use the ring_state_init() to create new state for the Ring Language
 then call the ring_state_runcode() function to execut Ring code using the same state.
 When we are done, we call the ring_state_delete() to free the memory.
 
@@ -42,7 +42,7 @@ Output:
 	hello world from the ring programming language
 
 .. index:: 
-	pair: Embedding Ring Interpreter in C/C++ Programs; Ring State Functions
+	pair: Embedding Ring Language in C/C++ Programs; Ring State Functions
 
 Ring State Functions
 ====================
@@ -61,7 +61,7 @@ Also we have functions to create new variables and get variables values.
 	void ring_state_runfile ( RingState *pRingState,const char *cFileName ) ;
 
 .. index:: 
-	pair: Embedding Ring Interpreter in C/C++ Programs; Ring State Variables
+	pair: Embedding Ring Language in C/C++ Programs; Ring State Variables
 
 Ring State Variables
 ====================
