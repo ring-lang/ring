@@ -241,6 +241,30 @@ playsound()		Play the sound file
 ================	=================================================================================
 
 
+Map Class
+=========
+
+The next table present the class attributes.
+
+============	=================================================================================
+Attributes		Description
+============	=================================================================================
+aMap 		List determine the map content using numbers.
+aImages		List determine the image used for each number in the map.
+BlockWidth	Number determine the block width (default = 32).
+BlockHeight	Number determine the block height (default = 32).
+Animate		True/False determine the animation status.
+============	=================================================================================
+
+The next table present the class methods.
+
+================	=================================================================================
+Method			Description
+================	=================================================================================
+getvalue(x,y)		Return the item value in the Map according to the visible part
+================	=================================================================================
+
+
 Stars Fighter Game
 ==================
 
