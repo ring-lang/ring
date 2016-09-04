@@ -69,6 +69,7 @@ class game from gamebase
 	aobjects = []
 	lbraceend = true
 	shutdown = false
+
 	startup()
 
 	func refresh
@@ -105,6 +106,7 @@ class game from gamebase
 	func startup
 
 		#gl_set_new_display_flags(GL_FULLSCREEN)
+
 		display = gl_create_display(screen_w,screen_h)
 		gl_set_window_title(display,title)
 
@@ -260,7 +262,7 @@ class game from gamebase
 		
 
 class gameobject from gamebase
-	lenabled = true
+	enabled = true
 	x=0 y=0	 width=0 height=0 nindex = 0
 	animate=true	move=false Scaled=false
 	temp = null
@@ -296,7 +298,7 @@ class sprite from gameobject
 		gl_convert_mask_to_alpha(image,transparentcolor)
 
 	func draw oengine
-		if not lenabled return ok
+		if not enabled return ok
 		if transparent
 			if not transparentdone
 				transparentdone = true
@@ -311,7 +313,7 @@ class sprite from gameobject
 		ok
 
 	func animate oGame,oSelf
-		if not lenabled return ok
+		if not enabled return ok
 		if not state = ""				 		
 				call state(oGame,oSelf) 
 		ok
@@ -368,7 +370,7 @@ class sprite from gameobject
 		ok
 
 	func keyboard oGame,nkey
-		if not lenabled return ok
+		if not enabled return ok
 		if not keypress = ""			
 			call keypress(oGame,self,nkey)
 		ok
@@ -381,13 +383,13 @@ class sprite from gameobject
 		off
 
 	func mouse oGame,nType,aMouseList
-		if not lenabled return ok
+		if not enabled return ok
 		if not mouse = ""			
 			call mouse(oGame,self,nType,aMouseList)
 		ok
 
 	func finger oGame,nType
-		if not lenabled return ok
+		if not enabled return ok
 		if not finger = ""			
 			call finger(oGame,self,nType)
 		ok
@@ -422,7 +424,7 @@ Class Animate from Sprite
 	scaled = false
 
 	func draw oengine
-		if not lenabled return ok
+		if not enabled return ok
 		if transparent
 			if not transparentdone
 				transparentdone = true

@@ -432,7 +432,7 @@ func checkgameover ogame
 			}
 		}
 		showfire(oGame,oGame.aObjects[oGameState.PlayerIndex].x+40,oGame.aObjects[oGameState.PlayerIndex].y+40)
-		oGame.aObjects[oGameState.PlayerIndex].lenabled = false
+		oGame.aObjects[oGameState.PlayerIndex].enabled = false
 		oGame.remove(oGameState.PlayerIndex)
 	ok
 
