@@ -5975,36 +5975,6 @@ RING_FUNC(ring_sdl_get_sdl_lastevent)
 	RING_API_RETNUMBER(SDL_LASTEVENT);
 }
 
-RING_FUNC(ring_sdl_get_sdlk_left)
-{
-	RING_API_RETNUMBER(SDLK_LEFT);
-}
-
-RING_FUNC(ring_sdl_get_sdlk_right)
-{
-	RING_API_RETNUMBER(SDLK_RIGHT);
-}
-
-RING_FUNC(ring_sdl_get_sdlk_up)
-{
-	RING_API_RETNUMBER(SDLK_UP);
-}
-
-RING_FUNC(ring_sdl_get_sdlk_down)
-{
-	RING_API_RETNUMBER(SDLK_DOWN);
-}
-
-RING_FUNC(ring_sdl_get_sdlk_space)
-{
-	RING_API_RETNUMBER(SDLK_SPACE);
-}
-
-RING_FUNC(ring_sdl_get_sdlk_escape)
-{
-	RING_API_RETNUMBER(SDLK_ESCAPE);
-}
-
 RING_FUNC(ring_sdl_get_sdl_net_major_version)
 {
 	RING_API_RETNUMBER(SDL_NET_MAJOR_VERSION);
@@ -6043,6 +6013,1166 @@ RING_FUNC(ring_sdl_get_sdlnet_max_udpchannels)
 RING_FUNC(ring_sdl_get_sdlnet_max_udpaddresses)
 {
 	RING_API_RETNUMBER(SDLNET_MAX_UDPADDRESSES);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_0)
+{
+	RING_API_RETNUMBER(SDLK_0);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_1)
+{
+	RING_API_RETNUMBER(SDLK_1);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_2)
+{
+	RING_API_RETNUMBER(SDLK_2);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_3)
+{
+	RING_API_RETNUMBER(SDLK_3);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_4)
+{
+	RING_API_RETNUMBER(SDLK_4);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_5)
+{
+	RING_API_RETNUMBER(SDLK_5);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_6)
+{
+	RING_API_RETNUMBER(SDLK_6);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_7)
+{
+	RING_API_RETNUMBER(SDLK_7);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_8)
+{
+	RING_API_RETNUMBER(SDLK_8);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_9)
+{
+	RING_API_RETNUMBER(SDLK_9);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_a)
+{
+	RING_API_RETNUMBER(SDLK_a);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_ac_back)
+{
+	RING_API_RETNUMBER(SDLK_AC_BACK);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_ac_bookmarks)
+{
+	RING_API_RETNUMBER(SDLK_AC_BOOKMARKS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_ac_forward)
+{
+	RING_API_RETNUMBER(SDLK_AC_FORWARD);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_ac_home)
+{
+	RING_API_RETNUMBER(SDLK_AC_HOME);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_ac_refresh)
+{
+	RING_API_RETNUMBER(SDLK_AC_REFRESH);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_ac_search)
+{
+	RING_API_RETNUMBER(SDLK_AC_SEARCH);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_ac_stop)
+{
+	RING_API_RETNUMBER(SDLK_AC_STOP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_again)
+{
+	RING_API_RETNUMBER(SDLK_AGAIN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_alterase)
+{
+	RING_API_RETNUMBER(SDLK_ALTERASE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_quote)
+{
+	RING_API_RETNUMBER(SDLK_QUOTE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_application)
+{
+	RING_API_RETNUMBER(SDLK_APPLICATION);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_audiomute)
+{
+	RING_API_RETNUMBER(SDLK_AUDIOMUTE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_audionext)
+{
+	RING_API_RETNUMBER(SDLK_AUDIONEXT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_audioplay)
+{
+	RING_API_RETNUMBER(SDLK_AUDIOPLAY);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_audioprev)
+{
+	RING_API_RETNUMBER(SDLK_AUDIOPREV);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_brightnessdown)
+{
+	RING_API_RETNUMBER(SDLK_BRIGHTNESSDOWN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_brightnessup)
+{
+	RING_API_RETNUMBER(SDLK_BRIGHTNESSUP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_c)
+{
+	RING_API_RETNUMBER(SDLK_c);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_calculator)
+{
+	RING_API_RETNUMBER(SDLK_CALCULATOR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_cancel)
+{
+	RING_API_RETNUMBER(SDLK_CANCEL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_capslock)
+{
+	RING_API_RETNUMBER(SDLK_CAPSLOCK);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_clear)
+{
+	RING_API_RETNUMBER(SDLK_CLEAR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_clearagain)
+{
+	RING_API_RETNUMBER(SDLK_CLEARAGAIN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_comma)
+{
+	RING_API_RETNUMBER(SDLK_COMMA);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_computer)
+{
+	RING_API_RETNUMBER(SDLK_COMPUTER);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_copy)
+{
+	RING_API_RETNUMBER(SDLK_COPY);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_crsel)
+{
+	RING_API_RETNUMBER(SDLK_CRSEL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_currencysubunit)
+{
+	RING_API_RETNUMBER(SDLK_CURRENCYSUBUNIT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_currencyunit)
+{
+	RING_API_RETNUMBER(SDLK_CURRENCYUNIT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_cut)
+{
+	RING_API_RETNUMBER(SDLK_CUT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_d)
+{
+	RING_API_RETNUMBER(SDLK_d);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_decimalseparator)
+{
+	RING_API_RETNUMBER(SDLK_DECIMALSEPARATOR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_delete)
+{
+	RING_API_RETNUMBER(SDLK_DELETE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_displayswitch)
+{
+	RING_API_RETNUMBER(SDLK_DISPLAYSWITCH);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_down)
+{
+	RING_API_RETNUMBER(SDLK_DOWN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_e)
+{
+	RING_API_RETNUMBER(SDLK_e);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_eject)
+{
+	RING_API_RETNUMBER(SDLK_EJECT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_end)
+{
+	RING_API_RETNUMBER(SDLK_END);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_equals)
+{
+	RING_API_RETNUMBER(SDLK_EQUALS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_escape)
+{
+	RING_API_RETNUMBER(SDLK_ESCAPE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_execute)
+{
+	RING_API_RETNUMBER(SDLK_EXECUTE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_exsel)
+{
+	RING_API_RETNUMBER(SDLK_EXSEL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f)
+{
+	RING_API_RETNUMBER(SDLK_f);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f1)
+{
+	RING_API_RETNUMBER(SDLK_F1);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f10)
+{
+	RING_API_RETNUMBER(SDLK_F10);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f11)
+{
+	RING_API_RETNUMBER(SDLK_F11);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f12)
+{
+	RING_API_RETNUMBER(SDLK_F12);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f13)
+{
+	RING_API_RETNUMBER(SDLK_F13);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f14)
+{
+	RING_API_RETNUMBER(SDLK_F14);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f15)
+{
+	RING_API_RETNUMBER(SDLK_F15);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f16)
+{
+	RING_API_RETNUMBER(SDLK_F16);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f17)
+{
+	RING_API_RETNUMBER(SDLK_F17);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f18)
+{
+	RING_API_RETNUMBER(SDLK_F18);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f19)
+{
+	RING_API_RETNUMBER(SDLK_F19);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f2)
+{
+	RING_API_RETNUMBER(SDLK_F2);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f20)
+{
+	RING_API_RETNUMBER(SDLK_F20);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f21)
+{
+	RING_API_RETNUMBER(SDLK_F21);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f22)
+{
+	RING_API_RETNUMBER(SDLK_F22);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f23)
+{
+	RING_API_RETNUMBER(SDLK_F23);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f24)
+{
+	RING_API_RETNUMBER(SDLK_F24);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f3)
+{
+	RING_API_RETNUMBER(SDLK_F3);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f4)
+{
+	RING_API_RETNUMBER(SDLK_F4);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f5)
+{
+	RING_API_RETNUMBER(SDLK_F5);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f6)
+{
+	RING_API_RETNUMBER(SDLK_F6);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f7)
+{
+	RING_API_RETNUMBER(SDLK_F7);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f8)
+{
+	RING_API_RETNUMBER(SDLK_F8);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_f9)
+{
+	RING_API_RETNUMBER(SDLK_F9);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_find)
+{
+	RING_API_RETNUMBER(SDLK_FIND);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_g)
+{
+	RING_API_RETNUMBER(SDLK_g);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_backquote)
+{
+	RING_API_RETNUMBER(SDLK_BACKQUOTE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_h)
+{
+	RING_API_RETNUMBER(SDLK_h);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_help)
+{
+	RING_API_RETNUMBER(SDLK_HELP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_home)
+{
+	RING_API_RETNUMBER(SDLK_HOME);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_i)
+{
+	RING_API_RETNUMBER(SDLK_i);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_insert)
+{
+	RING_API_RETNUMBER(SDLK_INSERT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_j)
+{
+	RING_API_RETNUMBER(SDLK_j);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_k)
+{
+	RING_API_RETNUMBER(SDLK_k);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kbdillumdown)
+{
+	RING_API_RETNUMBER(SDLK_KBDILLUMDOWN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kbdillumtoggle)
+{
+	RING_API_RETNUMBER(SDLK_KBDILLUMTOGGLE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kbdillumup)
+{
+	RING_API_RETNUMBER(SDLK_KBDILLUMUP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_0)
+{
+	RING_API_RETNUMBER(SDLK_KP_0);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_00)
+{
+	RING_API_RETNUMBER(SDLK_KP_00);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_000)
+{
+	RING_API_RETNUMBER(SDLK_KP_000);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_1)
+{
+	RING_API_RETNUMBER(SDLK_KP_1);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_2)
+{
+	RING_API_RETNUMBER(SDLK_KP_2);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_3)
+{
+	RING_API_RETNUMBER(SDLK_KP_3);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_4)
+{
+	RING_API_RETNUMBER(SDLK_KP_4);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_5)
+{
+	RING_API_RETNUMBER(SDLK_KP_5);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_6)
+{
+	RING_API_RETNUMBER(SDLK_KP_6);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_7)
+{
+	RING_API_RETNUMBER(SDLK_KP_7);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_8)
+{
+	RING_API_RETNUMBER(SDLK_KP_8);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_9)
+{
+	RING_API_RETNUMBER(SDLK_KP_9);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_a)
+{
+	RING_API_RETNUMBER(SDLK_KP_A);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_ampersand)
+{
+	RING_API_RETNUMBER(SDLK_KP_AMPERSAND);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_at)
+{
+	RING_API_RETNUMBER(SDLK_KP_AT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_b)
+{
+	RING_API_RETNUMBER(SDLK_KP_B);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_backspace)
+{
+	RING_API_RETNUMBER(SDLK_KP_BACKSPACE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_binary)
+{
+	RING_API_RETNUMBER(SDLK_KP_BINARY);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_c)
+{
+	RING_API_RETNUMBER(SDLK_KP_C);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_clear)
+{
+	RING_API_RETNUMBER(SDLK_KP_CLEAR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_clearentry)
+{
+	RING_API_RETNUMBER(SDLK_KP_CLEARENTRY);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_colon)
+{
+	RING_API_RETNUMBER(SDLK_KP_COLON);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_comma)
+{
+	RING_API_RETNUMBER(SDLK_KP_COMMA);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_d)
+{
+	RING_API_RETNUMBER(SDLK_KP_D);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_dblampersand)
+{
+	RING_API_RETNUMBER(SDLK_KP_DBLAMPERSAND);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_dblverticalbar)
+{
+	RING_API_RETNUMBER(SDLK_KP_DBLVERTICALBAR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_decimal)
+{
+	RING_API_RETNUMBER(SDLK_KP_DECIMAL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_divide)
+{
+	RING_API_RETNUMBER(SDLK_KP_DIVIDE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_e)
+{
+	RING_API_RETNUMBER(SDLK_KP_E);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_enter)
+{
+	RING_API_RETNUMBER(SDLK_KP_ENTER);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_equals)
+{
+	RING_API_RETNUMBER(SDLK_KP_EQUALS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_equalsas400)
+{
+	RING_API_RETNUMBER(SDLK_KP_EQUALSAS400);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_exclam)
+{
+	RING_API_RETNUMBER(SDLK_KP_EXCLAM);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_f)
+{
+	RING_API_RETNUMBER(SDLK_KP_F);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_greater)
+{
+	RING_API_RETNUMBER(SDLK_KP_GREATER);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_hash)
+{
+	RING_API_RETNUMBER(SDLK_KP_HASH);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_hexadecimal)
+{
+	RING_API_RETNUMBER(SDLK_KP_HEXADECIMAL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_leftbrace)
+{
+	RING_API_RETNUMBER(SDLK_KP_LEFTBRACE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_leftparen)
+{
+	RING_API_RETNUMBER(SDLK_KP_LEFTPAREN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_less)
+{
+	RING_API_RETNUMBER(SDLK_KP_LESS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_memadd)
+{
+	RING_API_RETNUMBER(SDLK_KP_MEMADD);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_memclear)
+{
+	RING_API_RETNUMBER(SDLK_KP_MEMCLEAR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_memdivide)
+{
+	RING_API_RETNUMBER(SDLK_KP_MEMDIVIDE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_memmultiply)
+{
+	RING_API_RETNUMBER(SDLK_KP_MEMMULTIPLY);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_memrecall)
+{
+	RING_API_RETNUMBER(SDLK_KP_MEMRECALL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_memstore)
+{
+	RING_API_RETNUMBER(SDLK_KP_MEMSTORE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_memsubtract)
+{
+	RING_API_RETNUMBER(SDLK_KP_MEMSUBTRACT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_minus)
+{
+	RING_API_RETNUMBER(SDLK_KP_MINUS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_multiply)
+{
+	RING_API_RETNUMBER(SDLK_KP_MULTIPLY);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_octal)
+{
+	RING_API_RETNUMBER(SDLK_KP_OCTAL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_percent)
+{
+	RING_API_RETNUMBER(SDLK_KP_PERCENT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_period)
+{
+	RING_API_RETNUMBER(SDLK_KP_PERIOD);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_plus)
+{
+	RING_API_RETNUMBER(SDLK_KP_PLUS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_plusminus)
+{
+	RING_API_RETNUMBER(SDLK_KP_PLUSMINUS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_power)
+{
+	RING_API_RETNUMBER(SDLK_KP_POWER);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_rightbrace)
+{
+	RING_API_RETNUMBER(SDLK_KP_RIGHTBRACE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_rightparen)
+{
+	RING_API_RETNUMBER(SDLK_KP_RIGHTPAREN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_space)
+{
+	RING_API_RETNUMBER(SDLK_KP_SPACE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_tab)
+{
+	RING_API_RETNUMBER(SDLK_KP_TAB);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_verticalbar)
+{
+	RING_API_RETNUMBER(SDLK_KP_VERTICALBAR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_kp_xor)
+{
+	RING_API_RETNUMBER(SDLK_KP_XOR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_l)
+{
+	RING_API_RETNUMBER(SDLK_l);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_lalt)
+{
+	RING_API_RETNUMBER(SDLK_LALT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_lctrl)
+{
+	RING_API_RETNUMBER(SDLK_LCTRL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_left)
+{
+	RING_API_RETNUMBER(SDLK_LEFT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_leftbracket)
+{
+	RING_API_RETNUMBER(SDLK_LEFTBRACKET);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_lgui)
+{
+	RING_API_RETNUMBER(SDLK_LGUI);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_lshift)
+{
+	RING_API_RETNUMBER(SDLK_LSHIFT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_m)
+{
+	RING_API_RETNUMBER(SDLK_m);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_mail)
+{
+	RING_API_RETNUMBER(SDLK_MAIL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_mediaselect)
+{
+	RING_API_RETNUMBER(SDLK_MEDIASELECT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_menu)
+{
+	RING_API_RETNUMBER(SDLK_MENU);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_minus)
+{
+	RING_API_RETNUMBER(SDLK_MINUS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_mode)
+{
+	RING_API_RETNUMBER(SDLK_MODE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_mute)
+{
+	RING_API_RETNUMBER(SDLK_MUTE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_n)
+{
+	RING_API_RETNUMBER(SDLK_n);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_numlockclear)
+{
+	RING_API_RETNUMBER(SDLK_NUMLOCKCLEAR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_o)
+{
+	RING_API_RETNUMBER(SDLK_o);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_oper)
+{
+	RING_API_RETNUMBER(SDLK_OPER);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_out)
+{
+	RING_API_RETNUMBER(SDLK_OUT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_p)
+{
+	RING_API_RETNUMBER(SDLK_p);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_pagedown)
+{
+	RING_API_RETNUMBER(SDLK_PAGEDOWN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_pageup)
+{
+	RING_API_RETNUMBER(SDLK_PAGEUP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_paste)
+{
+	RING_API_RETNUMBER(SDLK_PASTE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_pause)
+{
+	RING_API_RETNUMBER(SDLK_PAUSE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_period)
+{
+	RING_API_RETNUMBER(SDLK_PERIOD);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_power)
+{
+	RING_API_RETNUMBER(SDLK_POWER);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_printscreen)
+{
+	RING_API_RETNUMBER(SDLK_PRINTSCREEN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_prior)
+{
+	RING_API_RETNUMBER(SDLK_PRIOR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_q)
+{
+	RING_API_RETNUMBER(SDLK_q);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_r)
+{
+	RING_API_RETNUMBER(SDLK_r);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_ralt)
+{
+	RING_API_RETNUMBER(SDLK_RALT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_rctrl)
+{
+	RING_API_RETNUMBER(SDLK_RCTRL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_return)
+{
+	RING_API_RETNUMBER(SDLK_RETURN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_return2)
+{
+	RING_API_RETNUMBER(SDLK_RETURN2);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_rgui)
+{
+	RING_API_RETNUMBER(SDLK_RGUI);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_right)
+{
+	RING_API_RETNUMBER(SDLK_RIGHT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_rightbracket)
+{
+	RING_API_RETNUMBER(SDLK_RIGHTBRACKET);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_rshift)
+{
+	RING_API_RETNUMBER(SDLK_RSHIFT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_s)
+{
+	RING_API_RETNUMBER(SDLK_s);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_scrolllock)
+{
+	RING_API_RETNUMBER(SDLK_SCROLLLOCK);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_select)
+{
+	RING_API_RETNUMBER(SDLK_SELECT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_semicolon)
+{
+	RING_API_RETNUMBER(SDLK_SEMICOLON);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_separator)
+{
+	RING_API_RETNUMBER(SDLK_SEPARATOR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_slash)
+{
+	RING_API_RETNUMBER(SDLK_SLASH);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_sleep)
+{
+	RING_API_RETNUMBER(SDLK_SLEEP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_space)
+{
+	RING_API_RETNUMBER(SDLK_SPACE);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_stop)
+{
+	RING_API_RETNUMBER(SDLK_STOP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_sysreq)
+{
+	RING_API_RETNUMBER(SDLK_SYSREQ);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_t)
+{
+	RING_API_RETNUMBER(SDLK_t);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_tab)
+{
+	RING_API_RETNUMBER(SDLK_TAB);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_thousandsseparator)
+{
+	RING_API_RETNUMBER(SDLK_THOUSANDSSEPARATOR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_u)
+{
+	RING_API_RETNUMBER(SDLK_u);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_undo)
+{
+	RING_API_RETNUMBER(SDLK_UNDO);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_unknown)
+{
+	RING_API_RETNUMBER(SDLK_UNKNOWN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_up)
+{
+	RING_API_RETNUMBER(SDLK_UP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_v)
+{
+	RING_API_RETNUMBER(SDLK_v);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_volumedown)
+{
+	RING_API_RETNUMBER(SDLK_VOLUMEDOWN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_volumeup)
+{
+	RING_API_RETNUMBER(SDLK_VOLUMEUP);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_w)
+{
+	RING_API_RETNUMBER(SDLK_w);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_www)
+{
+	RING_API_RETNUMBER(SDLK_WWW);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_x)
+{
+	RING_API_RETNUMBER(SDLK_x);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_y)
+{
+	RING_API_RETNUMBER(SDLK_y);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_z)
+{
+	RING_API_RETNUMBER(SDLK_z);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_ampersand)
+{
+	RING_API_RETNUMBER(SDLK_AMPERSAND);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_asterisk)
+{
+	RING_API_RETNUMBER(SDLK_ASTERISK);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_at)
+{
+	RING_API_RETNUMBER(SDLK_AT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_caret)
+{
+	RING_API_RETNUMBER(SDLK_CARET);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_colon)
+{
+	RING_API_RETNUMBER(SDLK_COLON);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_dollar)
+{
+	RING_API_RETNUMBER(SDLK_DOLLAR);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_exclaim)
+{
+	RING_API_RETNUMBER(SDLK_EXCLAIM);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_greater)
+{
+	RING_API_RETNUMBER(SDLK_GREATER);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_hash)
+{
+	RING_API_RETNUMBER(SDLK_HASH);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_leftparen)
+{
+	RING_API_RETNUMBER(SDLK_LEFTPAREN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_less)
+{
+	RING_API_RETNUMBER(SDLK_LESS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_percent)
+{
+	RING_API_RETNUMBER(SDLK_PERCENT);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_plus)
+{
+	RING_API_RETNUMBER(SDLK_PLUS);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_question)
+{
+	RING_API_RETNUMBER(SDLK_QUESTION);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_quotedbl)
+{
+	RING_API_RETNUMBER(SDLK_QUOTEDBL);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_rightparen)
+{
+	RING_API_RETNUMBER(SDLK_RIGHTPAREN);
+}
+
+RING_FUNC(ring_sdl_get_sdlk_underscore)
+{
+	RING_API_RETNUMBER(SDLK_UNDERSCORE);
 }
 
 RING_FUNC(ring_SDL_RenderCopy2)
@@ -16793,12 +17923,6 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_get_sdl_render_targets_reset",ring_sdl_get_sdl_render_targets_reset);
 	ring_vm_funcregister("sdl_get_sdl_userevent",ring_sdl_get_sdl_userevent);
 	ring_vm_funcregister("sdl_get_sdl_lastevent",ring_sdl_get_sdl_lastevent);
-	ring_vm_funcregister("sdl_get_sdlk_left",ring_sdl_get_sdlk_left);
-	ring_vm_funcregister("sdl_get_sdlk_right",ring_sdl_get_sdlk_right);
-	ring_vm_funcregister("sdl_get_sdlk_up",ring_sdl_get_sdlk_up);
-	ring_vm_funcregister("sdl_get_sdlk_down",ring_sdl_get_sdlk_down);
-	ring_vm_funcregister("sdl_get_sdlk_space",ring_sdl_get_sdlk_space);
-	ring_vm_funcregister("sdl_get_sdlk_escape",ring_sdl_get_sdlk_escape);
 	ring_vm_funcregister("sdl_get_sdl_net_major_version",ring_sdl_get_sdl_net_major_version);
 	ring_vm_funcregister("sdl_get_sdl_net_minor_version",ring_sdl_get_sdl_net_minor_version);
 	ring_vm_funcregister("sdl_get_sdl_net_patchlevel",ring_sdl_get_sdl_net_patchlevel);
@@ -16807,4 +17931,236 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_get_inaddr_broadcast",ring_sdl_get_inaddr_broadcast);
 	ring_vm_funcregister("sdl_get_sdlnet_max_udpchannels",ring_sdl_get_sdlnet_max_udpchannels);
 	ring_vm_funcregister("sdl_get_sdlnet_max_udpaddresses",ring_sdl_get_sdlnet_max_udpaddresses);
+	ring_vm_funcregister("sdl_get_sdlk_0",ring_sdl_get_sdlk_0);
+	ring_vm_funcregister("sdl_get_sdlk_1",ring_sdl_get_sdlk_1);
+	ring_vm_funcregister("sdl_get_sdlk_2",ring_sdl_get_sdlk_2);
+	ring_vm_funcregister("sdl_get_sdlk_3",ring_sdl_get_sdlk_3);
+	ring_vm_funcregister("sdl_get_sdlk_4",ring_sdl_get_sdlk_4);
+	ring_vm_funcregister("sdl_get_sdlk_5",ring_sdl_get_sdlk_5);
+	ring_vm_funcregister("sdl_get_sdlk_6",ring_sdl_get_sdlk_6);
+	ring_vm_funcregister("sdl_get_sdlk_7",ring_sdl_get_sdlk_7);
+	ring_vm_funcregister("sdl_get_sdlk_8",ring_sdl_get_sdlk_8);
+	ring_vm_funcregister("sdl_get_sdlk_9",ring_sdl_get_sdlk_9);
+	ring_vm_funcregister("sdl_get_sdlk_a",ring_sdl_get_sdlk_a);
+	ring_vm_funcregister("sdl_get_sdlk_ac_back",ring_sdl_get_sdlk_ac_back);
+	ring_vm_funcregister("sdl_get_sdlk_ac_bookmarks",ring_sdl_get_sdlk_ac_bookmarks);
+	ring_vm_funcregister("sdl_get_sdlk_ac_forward",ring_sdl_get_sdlk_ac_forward);
+	ring_vm_funcregister("sdl_get_sdlk_ac_home",ring_sdl_get_sdlk_ac_home);
+	ring_vm_funcregister("sdl_get_sdlk_ac_refresh",ring_sdl_get_sdlk_ac_refresh);
+	ring_vm_funcregister("sdl_get_sdlk_ac_search",ring_sdl_get_sdlk_ac_search);
+	ring_vm_funcregister("sdl_get_sdlk_ac_stop",ring_sdl_get_sdlk_ac_stop);
+	ring_vm_funcregister("sdl_get_sdlk_again",ring_sdl_get_sdlk_again);
+	ring_vm_funcregister("sdl_get_sdlk_alterase",ring_sdl_get_sdlk_alterase);
+	ring_vm_funcregister("sdl_get_sdlk_quote",ring_sdl_get_sdlk_quote);
+	ring_vm_funcregister("sdl_get_sdlk_application",ring_sdl_get_sdlk_application);
+	ring_vm_funcregister("sdl_get_sdlk_audiomute",ring_sdl_get_sdlk_audiomute);
+	ring_vm_funcregister("sdl_get_sdlk_audionext",ring_sdl_get_sdlk_audionext);
+	ring_vm_funcregister("sdl_get_sdlk_audioplay",ring_sdl_get_sdlk_audioplay);
+	ring_vm_funcregister("sdl_get_sdlk_audioprev",ring_sdl_get_sdlk_audioprev);
+	ring_vm_funcregister("sdl_get_sdlk_brightnessdown",ring_sdl_get_sdlk_brightnessdown);
+	ring_vm_funcregister("sdl_get_sdlk_brightnessup",ring_sdl_get_sdlk_brightnessup);
+	ring_vm_funcregister("sdl_get_sdlk_c",ring_sdl_get_sdlk_c);
+	ring_vm_funcregister("sdl_get_sdlk_calculator",ring_sdl_get_sdlk_calculator);
+	ring_vm_funcregister("sdl_get_sdlk_cancel",ring_sdl_get_sdlk_cancel);
+	ring_vm_funcregister("sdl_get_sdlk_capslock",ring_sdl_get_sdlk_capslock);
+	ring_vm_funcregister("sdl_get_sdlk_clear",ring_sdl_get_sdlk_clear);
+	ring_vm_funcregister("sdl_get_sdlk_clearagain",ring_sdl_get_sdlk_clearagain);
+	ring_vm_funcregister("sdl_get_sdlk_comma",ring_sdl_get_sdlk_comma);
+	ring_vm_funcregister("sdl_get_sdlk_computer",ring_sdl_get_sdlk_computer);
+	ring_vm_funcregister("sdl_get_sdlk_copy",ring_sdl_get_sdlk_copy);
+	ring_vm_funcregister("sdl_get_sdlk_crsel",ring_sdl_get_sdlk_crsel);
+	ring_vm_funcregister("sdl_get_sdlk_currencysubunit",ring_sdl_get_sdlk_currencysubunit);
+	ring_vm_funcregister("sdl_get_sdlk_currencyunit",ring_sdl_get_sdlk_currencyunit);
+	ring_vm_funcregister("sdl_get_sdlk_cut",ring_sdl_get_sdlk_cut);
+	ring_vm_funcregister("sdl_get_sdlk_d",ring_sdl_get_sdlk_d);
+	ring_vm_funcregister("sdl_get_sdlk_decimalseparator",ring_sdl_get_sdlk_decimalseparator);
+	ring_vm_funcregister("sdl_get_sdlk_delete",ring_sdl_get_sdlk_delete);
+	ring_vm_funcregister("sdl_get_sdlk_displayswitch",ring_sdl_get_sdlk_displayswitch);
+	ring_vm_funcregister("sdl_get_sdlk_down",ring_sdl_get_sdlk_down);
+	ring_vm_funcregister("sdl_get_sdlk_e",ring_sdl_get_sdlk_e);
+	ring_vm_funcregister("sdl_get_sdlk_eject",ring_sdl_get_sdlk_eject);
+	ring_vm_funcregister("sdl_get_sdlk_end",ring_sdl_get_sdlk_end);
+	ring_vm_funcregister("sdl_get_sdlk_equals",ring_sdl_get_sdlk_equals);
+	ring_vm_funcregister("sdl_get_sdlk_escape",ring_sdl_get_sdlk_escape);
+	ring_vm_funcregister("sdl_get_sdlk_execute",ring_sdl_get_sdlk_execute);
+	ring_vm_funcregister("sdl_get_sdlk_exsel",ring_sdl_get_sdlk_exsel);
+	ring_vm_funcregister("sdl_get_sdlk_f",ring_sdl_get_sdlk_f);
+	ring_vm_funcregister("sdl_get_sdlk_f1",ring_sdl_get_sdlk_f1);
+	ring_vm_funcregister("sdl_get_sdlk_f10",ring_sdl_get_sdlk_f10);
+	ring_vm_funcregister("sdl_get_sdlk_f11",ring_sdl_get_sdlk_f11);
+	ring_vm_funcregister("sdl_get_sdlk_f12",ring_sdl_get_sdlk_f12);
+	ring_vm_funcregister("sdl_get_sdlk_f13",ring_sdl_get_sdlk_f13);
+	ring_vm_funcregister("sdl_get_sdlk_f14",ring_sdl_get_sdlk_f14);
+	ring_vm_funcregister("sdl_get_sdlk_f15",ring_sdl_get_sdlk_f15);
+	ring_vm_funcregister("sdl_get_sdlk_f16",ring_sdl_get_sdlk_f16);
+	ring_vm_funcregister("sdl_get_sdlk_f17",ring_sdl_get_sdlk_f17);
+	ring_vm_funcregister("sdl_get_sdlk_f18",ring_sdl_get_sdlk_f18);
+	ring_vm_funcregister("sdl_get_sdlk_f19",ring_sdl_get_sdlk_f19);
+	ring_vm_funcregister("sdl_get_sdlk_f2",ring_sdl_get_sdlk_f2);
+	ring_vm_funcregister("sdl_get_sdlk_f20",ring_sdl_get_sdlk_f20);
+	ring_vm_funcregister("sdl_get_sdlk_f21",ring_sdl_get_sdlk_f21);
+	ring_vm_funcregister("sdl_get_sdlk_f22",ring_sdl_get_sdlk_f22);
+	ring_vm_funcregister("sdl_get_sdlk_f23",ring_sdl_get_sdlk_f23);
+	ring_vm_funcregister("sdl_get_sdlk_f24",ring_sdl_get_sdlk_f24);
+	ring_vm_funcregister("sdl_get_sdlk_f3",ring_sdl_get_sdlk_f3);
+	ring_vm_funcregister("sdl_get_sdlk_f4",ring_sdl_get_sdlk_f4);
+	ring_vm_funcregister("sdl_get_sdlk_f5",ring_sdl_get_sdlk_f5);
+	ring_vm_funcregister("sdl_get_sdlk_f6",ring_sdl_get_sdlk_f6);
+	ring_vm_funcregister("sdl_get_sdlk_f7",ring_sdl_get_sdlk_f7);
+	ring_vm_funcregister("sdl_get_sdlk_f8",ring_sdl_get_sdlk_f8);
+	ring_vm_funcregister("sdl_get_sdlk_f9",ring_sdl_get_sdlk_f9);
+	ring_vm_funcregister("sdl_get_sdlk_find",ring_sdl_get_sdlk_find);
+	ring_vm_funcregister("sdl_get_sdlk_g",ring_sdl_get_sdlk_g);
+	ring_vm_funcregister("sdl_get_sdlk_backquote",ring_sdl_get_sdlk_backquote);
+	ring_vm_funcregister("sdl_get_sdlk_h",ring_sdl_get_sdlk_h);
+	ring_vm_funcregister("sdl_get_sdlk_help",ring_sdl_get_sdlk_help);
+	ring_vm_funcregister("sdl_get_sdlk_home",ring_sdl_get_sdlk_home);
+	ring_vm_funcregister("sdl_get_sdlk_i",ring_sdl_get_sdlk_i);
+	ring_vm_funcregister("sdl_get_sdlk_insert",ring_sdl_get_sdlk_insert);
+	ring_vm_funcregister("sdl_get_sdlk_j",ring_sdl_get_sdlk_j);
+	ring_vm_funcregister("sdl_get_sdlk_k",ring_sdl_get_sdlk_k);
+	ring_vm_funcregister("sdl_get_sdlk_kbdillumdown",ring_sdl_get_sdlk_kbdillumdown);
+	ring_vm_funcregister("sdl_get_sdlk_kbdillumtoggle",ring_sdl_get_sdlk_kbdillumtoggle);
+	ring_vm_funcregister("sdl_get_sdlk_kbdillumup",ring_sdl_get_sdlk_kbdillumup);
+	ring_vm_funcregister("sdl_get_sdlk_kp_0",ring_sdl_get_sdlk_kp_0);
+	ring_vm_funcregister("sdl_get_sdlk_kp_00",ring_sdl_get_sdlk_kp_00);
+	ring_vm_funcregister("sdl_get_sdlk_kp_000",ring_sdl_get_sdlk_kp_000);
+	ring_vm_funcregister("sdl_get_sdlk_kp_1",ring_sdl_get_sdlk_kp_1);
+	ring_vm_funcregister("sdl_get_sdlk_kp_2",ring_sdl_get_sdlk_kp_2);
+	ring_vm_funcregister("sdl_get_sdlk_kp_3",ring_sdl_get_sdlk_kp_3);
+	ring_vm_funcregister("sdl_get_sdlk_kp_4",ring_sdl_get_sdlk_kp_4);
+	ring_vm_funcregister("sdl_get_sdlk_kp_5",ring_sdl_get_sdlk_kp_5);
+	ring_vm_funcregister("sdl_get_sdlk_kp_6",ring_sdl_get_sdlk_kp_6);
+	ring_vm_funcregister("sdl_get_sdlk_kp_7",ring_sdl_get_sdlk_kp_7);
+	ring_vm_funcregister("sdl_get_sdlk_kp_8",ring_sdl_get_sdlk_kp_8);
+	ring_vm_funcregister("sdl_get_sdlk_kp_9",ring_sdl_get_sdlk_kp_9);
+	ring_vm_funcregister("sdl_get_sdlk_kp_a",ring_sdl_get_sdlk_kp_a);
+	ring_vm_funcregister("sdl_get_sdlk_kp_ampersand",ring_sdl_get_sdlk_kp_ampersand);
+	ring_vm_funcregister("sdl_get_sdlk_kp_at",ring_sdl_get_sdlk_kp_at);
+	ring_vm_funcregister("sdl_get_sdlk_kp_b",ring_sdl_get_sdlk_kp_b);
+	ring_vm_funcregister("sdl_get_sdlk_kp_backspace",ring_sdl_get_sdlk_kp_backspace);
+	ring_vm_funcregister("sdl_get_sdlk_kp_binary",ring_sdl_get_sdlk_kp_binary);
+	ring_vm_funcregister("sdl_get_sdlk_kp_c",ring_sdl_get_sdlk_kp_c);
+	ring_vm_funcregister("sdl_get_sdlk_kp_clear",ring_sdl_get_sdlk_kp_clear);
+	ring_vm_funcregister("sdl_get_sdlk_kp_clearentry",ring_sdl_get_sdlk_kp_clearentry);
+	ring_vm_funcregister("sdl_get_sdlk_kp_colon",ring_sdl_get_sdlk_kp_colon);
+	ring_vm_funcregister("sdl_get_sdlk_kp_comma",ring_sdl_get_sdlk_kp_comma);
+	ring_vm_funcregister("sdl_get_sdlk_kp_d",ring_sdl_get_sdlk_kp_d);
+	ring_vm_funcregister("sdl_get_sdlk_kp_dblampersand",ring_sdl_get_sdlk_kp_dblampersand);
+	ring_vm_funcregister("sdl_get_sdlk_kp_dblverticalbar",ring_sdl_get_sdlk_kp_dblverticalbar);
+	ring_vm_funcregister("sdl_get_sdlk_kp_decimal",ring_sdl_get_sdlk_kp_decimal);
+	ring_vm_funcregister("sdl_get_sdlk_kp_divide",ring_sdl_get_sdlk_kp_divide);
+	ring_vm_funcregister("sdl_get_sdlk_kp_e",ring_sdl_get_sdlk_kp_e);
+	ring_vm_funcregister("sdl_get_sdlk_kp_enter",ring_sdl_get_sdlk_kp_enter);
+	ring_vm_funcregister("sdl_get_sdlk_kp_equals",ring_sdl_get_sdlk_kp_equals);
+	ring_vm_funcregister("sdl_get_sdlk_kp_equalsas400",ring_sdl_get_sdlk_kp_equalsas400);
+	ring_vm_funcregister("sdl_get_sdlk_kp_exclam",ring_sdl_get_sdlk_kp_exclam);
+	ring_vm_funcregister("sdl_get_sdlk_kp_f",ring_sdl_get_sdlk_kp_f);
+	ring_vm_funcregister("sdl_get_sdlk_kp_greater",ring_sdl_get_sdlk_kp_greater);
+	ring_vm_funcregister("sdl_get_sdlk_kp_hash",ring_sdl_get_sdlk_kp_hash);
+	ring_vm_funcregister("sdl_get_sdlk_kp_hexadecimal",ring_sdl_get_sdlk_kp_hexadecimal);
+	ring_vm_funcregister("sdl_get_sdlk_kp_leftbrace",ring_sdl_get_sdlk_kp_leftbrace);
+	ring_vm_funcregister("sdl_get_sdlk_kp_leftparen",ring_sdl_get_sdlk_kp_leftparen);
+	ring_vm_funcregister("sdl_get_sdlk_kp_less",ring_sdl_get_sdlk_kp_less);
+	ring_vm_funcregister("sdl_get_sdlk_kp_memadd",ring_sdl_get_sdlk_kp_memadd);
+	ring_vm_funcregister("sdl_get_sdlk_kp_memclear",ring_sdl_get_sdlk_kp_memclear);
+	ring_vm_funcregister("sdl_get_sdlk_kp_memdivide",ring_sdl_get_sdlk_kp_memdivide);
+	ring_vm_funcregister("sdl_get_sdlk_kp_memmultiply",ring_sdl_get_sdlk_kp_memmultiply);
+	ring_vm_funcregister("sdl_get_sdlk_kp_memrecall",ring_sdl_get_sdlk_kp_memrecall);
+	ring_vm_funcregister("sdl_get_sdlk_kp_memstore",ring_sdl_get_sdlk_kp_memstore);
+	ring_vm_funcregister("sdl_get_sdlk_kp_memsubtract",ring_sdl_get_sdlk_kp_memsubtract);
+	ring_vm_funcregister("sdl_get_sdlk_kp_minus",ring_sdl_get_sdlk_kp_minus);
+	ring_vm_funcregister("sdl_get_sdlk_kp_multiply",ring_sdl_get_sdlk_kp_multiply);
+	ring_vm_funcregister("sdl_get_sdlk_kp_octal",ring_sdl_get_sdlk_kp_octal);
+	ring_vm_funcregister("sdl_get_sdlk_kp_percent",ring_sdl_get_sdlk_kp_percent);
+	ring_vm_funcregister("sdl_get_sdlk_kp_period",ring_sdl_get_sdlk_kp_period);
+	ring_vm_funcregister("sdl_get_sdlk_kp_plus",ring_sdl_get_sdlk_kp_plus);
+	ring_vm_funcregister("sdl_get_sdlk_kp_plusminus",ring_sdl_get_sdlk_kp_plusminus);
+	ring_vm_funcregister("sdl_get_sdlk_kp_power",ring_sdl_get_sdlk_kp_power);
+	ring_vm_funcregister("sdl_get_sdlk_kp_rightbrace",ring_sdl_get_sdlk_kp_rightbrace);
+	ring_vm_funcregister("sdl_get_sdlk_kp_rightparen",ring_sdl_get_sdlk_kp_rightparen);
+	ring_vm_funcregister("sdl_get_sdlk_kp_space",ring_sdl_get_sdlk_kp_space);
+	ring_vm_funcregister("sdl_get_sdlk_kp_tab",ring_sdl_get_sdlk_kp_tab);
+	ring_vm_funcregister("sdl_get_sdlk_kp_verticalbar",ring_sdl_get_sdlk_kp_verticalbar);
+	ring_vm_funcregister("sdl_get_sdlk_kp_xor",ring_sdl_get_sdlk_kp_xor);
+	ring_vm_funcregister("sdl_get_sdlk_l",ring_sdl_get_sdlk_l);
+	ring_vm_funcregister("sdl_get_sdlk_lalt",ring_sdl_get_sdlk_lalt);
+	ring_vm_funcregister("sdl_get_sdlk_lctrl",ring_sdl_get_sdlk_lctrl);
+	ring_vm_funcregister("sdl_get_sdlk_left",ring_sdl_get_sdlk_left);
+	ring_vm_funcregister("sdl_get_sdlk_leftbracket",ring_sdl_get_sdlk_leftbracket);
+	ring_vm_funcregister("sdl_get_sdlk_lgui",ring_sdl_get_sdlk_lgui);
+	ring_vm_funcregister("sdl_get_sdlk_lshift",ring_sdl_get_sdlk_lshift);
+	ring_vm_funcregister("sdl_get_sdlk_m",ring_sdl_get_sdlk_m);
+	ring_vm_funcregister("sdl_get_sdlk_mail",ring_sdl_get_sdlk_mail);
+	ring_vm_funcregister("sdl_get_sdlk_mediaselect",ring_sdl_get_sdlk_mediaselect);
+	ring_vm_funcregister("sdl_get_sdlk_menu",ring_sdl_get_sdlk_menu);
+	ring_vm_funcregister("sdl_get_sdlk_minus",ring_sdl_get_sdlk_minus);
+	ring_vm_funcregister("sdl_get_sdlk_mode",ring_sdl_get_sdlk_mode);
+	ring_vm_funcregister("sdl_get_sdlk_mute",ring_sdl_get_sdlk_mute);
+	ring_vm_funcregister("sdl_get_sdlk_n",ring_sdl_get_sdlk_n);
+	ring_vm_funcregister("sdl_get_sdlk_numlockclear",ring_sdl_get_sdlk_numlockclear);
+	ring_vm_funcregister("sdl_get_sdlk_o",ring_sdl_get_sdlk_o);
+	ring_vm_funcregister("sdl_get_sdlk_oper",ring_sdl_get_sdlk_oper);
+	ring_vm_funcregister("sdl_get_sdlk_out",ring_sdl_get_sdlk_out);
+	ring_vm_funcregister("sdl_get_sdlk_p",ring_sdl_get_sdlk_p);
+	ring_vm_funcregister("sdl_get_sdlk_pagedown",ring_sdl_get_sdlk_pagedown);
+	ring_vm_funcregister("sdl_get_sdlk_pageup",ring_sdl_get_sdlk_pageup);
+	ring_vm_funcregister("sdl_get_sdlk_paste",ring_sdl_get_sdlk_paste);
+	ring_vm_funcregister("sdl_get_sdlk_pause",ring_sdl_get_sdlk_pause);
+	ring_vm_funcregister("sdl_get_sdlk_period",ring_sdl_get_sdlk_period);
+	ring_vm_funcregister("sdl_get_sdlk_power",ring_sdl_get_sdlk_power);
+	ring_vm_funcregister("sdl_get_sdlk_printscreen",ring_sdl_get_sdlk_printscreen);
+	ring_vm_funcregister("sdl_get_sdlk_prior",ring_sdl_get_sdlk_prior);
+	ring_vm_funcregister("sdl_get_sdlk_q",ring_sdl_get_sdlk_q);
+	ring_vm_funcregister("sdl_get_sdlk_r",ring_sdl_get_sdlk_r);
+	ring_vm_funcregister("sdl_get_sdlk_ralt",ring_sdl_get_sdlk_ralt);
+	ring_vm_funcregister("sdl_get_sdlk_rctrl",ring_sdl_get_sdlk_rctrl);
+	ring_vm_funcregister("sdl_get_sdlk_return",ring_sdl_get_sdlk_return);
+	ring_vm_funcregister("sdl_get_sdlk_return2",ring_sdl_get_sdlk_return2);
+	ring_vm_funcregister("sdl_get_sdlk_rgui",ring_sdl_get_sdlk_rgui);
+	ring_vm_funcregister("sdl_get_sdlk_right",ring_sdl_get_sdlk_right);
+	ring_vm_funcregister("sdl_get_sdlk_rightbracket",ring_sdl_get_sdlk_rightbracket);
+	ring_vm_funcregister("sdl_get_sdlk_rshift",ring_sdl_get_sdlk_rshift);
+	ring_vm_funcregister("sdl_get_sdlk_s",ring_sdl_get_sdlk_s);
+	ring_vm_funcregister("sdl_get_sdlk_scrolllock",ring_sdl_get_sdlk_scrolllock);
+	ring_vm_funcregister("sdl_get_sdlk_select",ring_sdl_get_sdlk_select);
+	ring_vm_funcregister("sdl_get_sdlk_semicolon",ring_sdl_get_sdlk_semicolon);
+	ring_vm_funcregister("sdl_get_sdlk_separator",ring_sdl_get_sdlk_separator);
+	ring_vm_funcregister("sdl_get_sdlk_slash",ring_sdl_get_sdlk_slash);
+	ring_vm_funcregister("sdl_get_sdlk_sleep",ring_sdl_get_sdlk_sleep);
+	ring_vm_funcregister("sdl_get_sdlk_space",ring_sdl_get_sdlk_space);
+	ring_vm_funcregister("sdl_get_sdlk_stop",ring_sdl_get_sdlk_stop);
+	ring_vm_funcregister("sdl_get_sdlk_sysreq",ring_sdl_get_sdlk_sysreq);
+	ring_vm_funcregister("sdl_get_sdlk_t",ring_sdl_get_sdlk_t);
+	ring_vm_funcregister("sdl_get_sdlk_tab",ring_sdl_get_sdlk_tab);
+	ring_vm_funcregister("sdl_get_sdlk_thousandsseparator",ring_sdl_get_sdlk_thousandsseparator);
+	ring_vm_funcregister("sdl_get_sdlk_u",ring_sdl_get_sdlk_u);
+	ring_vm_funcregister("sdl_get_sdlk_undo",ring_sdl_get_sdlk_undo);
+	ring_vm_funcregister("sdl_get_sdlk_unknown",ring_sdl_get_sdlk_unknown);
+	ring_vm_funcregister("sdl_get_sdlk_up",ring_sdl_get_sdlk_up);
+	ring_vm_funcregister("sdl_get_sdlk_v",ring_sdl_get_sdlk_v);
+	ring_vm_funcregister("sdl_get_sdlk_volumedown",ring_sdl_get_sdlk_volumedown);
+	ring_vm_funcregister("sdl_get_sdlk_volumeup",ring_sdl_get_sdlk_volumeup);
+	ring_vm_funcregister("sdl_get_sdlk_w",ring_sdl_get_sdlk_w);
+	ring_vm_funcregister("sdl_get_sdlk_www",ring_sdl_get_sdlk_www);
+	ring_vm_funcregister("sdl_get_sdlk_x",ring_sdl_get_sdlk_x);
+	ring_vm_funcregister("sdl_get_sdlk_y",ring_sdl_get_sdlk_y);
+	ring_vm_funcregister("sdl_get_sdlk_z",ring_sdl_get_sdlk_z);
+	ring_vm_funcregister("sdl_get_sdlk_ampersand",ring_sdl_get_sdlk_ampersand);
+	ring_vm_funcregister("sdl_get_sdlk_asterisk",ring_sdl_get_sdlk_asterisk);
+	ring_vm_funcregister("sdl_get_sdlk_at",ring_sdl_get_sdlk_at);
+	ring_vm_funcregister("sdl_get_sdlk_caret",ring_sdl_get_sdlk_caret);
+	ring_vm_funcregister("sdl_get_sdlk_colon",ring_sdl_get_sdlk_colon);
+	ring_vm_funcregister("sdl_get_sdlk_dollar",ring_sdl_get_sdlk_dollar);
+	ring_vm_funcregister("sdl_get_sdlk_exclaim",ring_sdl_get_sdlk_exclaim);
+	ring_vm_funcregister("sdl_get_sdlk_greater",ring_sdl_get_sdlk_greater);
+	ring_vm_funcregister("sdl_get_sdlk_hash",ring_sdl_get_sdlk_hash);
+	ring_vm_funcregister("sdl_get_sdlk_leftparen",ring_sdl_get_sdlk_leftparen);
+	ring_vm_funcregister("sdl_get_sdlk_less",ring_sdl_get_sdlk_less);
+	ring_vm_funcregister("sdl_get_sdlk_percent",ring_sdl_get_sdlk_percent);
+	ring_vm_funcregister("sdl_get_sdlk_plus",ring_sdl_get_sdlk_plus);
+	ring_vm_funcregister("sdl_get_sdlk_question",ring_sdl_get_sdlk_question);
+	ring_vm_funcregister("sdl_get_sdlk_quotedbl",ring_sdl_get_sdlk_quotedbl);
+	ring_vm_funcregister("sdl_get_sdlk_rightparen",ring_sdl_get_sdlk_rightparen);
+	ring_vm_funcregister("sdl_get_sdlk_underscore",ring_sdl_get_sdlk_underscore);
 }
