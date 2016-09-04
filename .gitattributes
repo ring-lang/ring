@@ -1,1 +1,2 @@
 *.ring linguist-language=Ring
+*.h linguist-language=C
