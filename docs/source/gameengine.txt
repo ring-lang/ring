@@ -196,6 +196,29 @@ Draw(oGame)		Draw the object
 ================	=================================================================================
 
 
+Animate Class
+=============
+
+The next table present the class attributes.
+
+============	=================================================================================
+Attributes		Description
+============	=================================================================================
+frames		Number determine the number of frames 
+frame		Number determine the active frame
+framewidth	Number determine the frame width.
+animate		True/False determine using animate or not.
+scaled		True/False determine scaling image or not.
+============	=================================================================================
+
+The next table present the class methods.
+
+================	=================================================================================
+Method			Description
+================	=================================================================================
+Draw(oGame)		Draw the object
+================	=================================================================================
+
 
 Stars Fighter Game
 ==================
