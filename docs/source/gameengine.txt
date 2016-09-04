@@ -146,8 +146,37 @@ map			Create new Map object and add it ot the game objects.
 ================	=================================================================================
 
 
+GameObject Class
+================
+
+The next table present the class attributes.
+
+============	=================================================================================
+Attributes		Description
+============	=================================================================================
+enabled		True/False determine the state of the object (Active/Not Active)
+x		Number determine the x position of the object.
+y		Number determine the y position of the object.
+width		Number determine the width of the object.
+height		Number determine the height of the object.
+nIndex		Number determine the index of the object in objects list.
+animate		True/False to animate the object or not.
+move		True/False to move the object using the keyboard or not.
+Scaled		True/False to scale the object image or not.
+============	=================================================================================
+
+The next table present the class methods.
+
+================	=================================================================================
+Method			Description
+================	=================================================================================
+================	=================================================================================
+
+
 Sprite Class
 ============
+
+Parent Class : GameObject Class
 
 The next table present the class attributes.
 
@@ -176,6 +205,8 @@ Draw(oGame)		Draw the object
 Text Class
 ==========
 
+Parent Class : Sprite Class
+
 The next table present the class attributes.
 
 ============	=================================================================================
@@ -198,6 +229,8 @@ Draw(oGame)		Draw the object
 
 Animate Class
 =============
+
+Parent Class : Sprite Class
 
 The next table present the class attributes.
 
@@ -223,6 +256,8 @@ Draw(oGame)		Draw the object
 Sound Class
 ===========
 
+Parent Class : GameObject Class
+
 The next table present the class attributes.
 
 ============	=================================================================================
@@ -243,6 +278,8 @@ playsound()		Play the sound file
 
 Map Class
 =========
+
+Parent Class : Sprite Class
 
 The next table present the class attributes.
 
@@ -632,7 +669,7 @@ The Stars Fighter source code
 		}
 		showfire(oGame,oGame.aObjects[oGameState.PlayerIndex].x+40,
 				 oGame.aObjects[oGameState.PlayerIndex].y+40)
-		oGame.aObjects[oGameState.PlayerIndex].lenabled = false
+		oGame.aObjects[oGameState.PlayerIndex].enabled = false
 		oGame.remove(oGameState.PlayerIndex)
 	  ok
 
@@ -1488,7 +1525,7 @@ The Super Man 2016 Game source code
 		}
 		showfire(oGame,oGame.aObjects[oGameState.PlayerIndex].x+40,
 			 oGame.aObjects[oGameState.PlayerIndex].y+40)
-		oGame.aObjects[oGameState.PlayerIndex].lenabled = false
+		oGame.aObjects[oGameState.PlayerIndex].enabled = false
 		oGame.remove(oGameState.PlayerIndex)
 	  ok
 
