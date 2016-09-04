@@ -123,8 +123,8 @@ func play oGame
 
 	oGame
 	{
-		FPS = 40
-		FixedFPS = 80
+		FPS = 60
+		FixedFPS = 120
 		title = "Stars Fighter!"
 		sprite
 		{

@@ -189,21 +189,27 @@ class game from gamebase
 										key[key_other] = true
 						off
 					off
+
+			drawdone = false
 			if redraw and gl_is_event_queue_empty(event_queue)
 				redraw = false
 				drawobjs()
+				drawdone = true
 			ok
 
 			nDif = clock() - gclock
-			if nDif >= (clockspersecond()/FixedFPS)							
+			if nDif >= (clockspersecond()/FixedFPS)		
+				if drawdone = false	
+					drawobjs()
+				ok					
 				nDif = floor( nDif / (clockspersecond()/FixedFPS) )
 				for nTimes = 1 to nDif
 					for t=len(aobjects) to 1 step -1 
 							aobjects[t].animate(self,aobjects[t]) 
 					next	
-				next		
-				callgc()		
+				next	
 				gclock = clock()	 
+				callgc()		
 			ok	 			
 		end
 
