@@ -3,12 +3,7 @@
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 Load "gameengine.ring"
 
-$down = 3
-$gameresult = false
-$Score = 0
-$startplay=false
-$lastcol = 0
-$playerwin = false
+oGameState = NULL
 
 start_playing()
 
@@ -19,12 +14,7 @@ func main
 
 	while true
 
-	$down = 3
-	$gameresult = false
-	$Score = 0
-	$startplay=false
-	$lastcol = 0
-	$playerwin = false
+	oGameState = New GameState
 
 	oGame {
 		title = "Flappy Bird 3000"
@@ -36,7 +26,7 @@ func main
 				if nkey = key_esc or nKey = GE_AC_BACK
 					ogame.shutdown()
 				but nKey = key_space
-					$startplay=true
+					oGameState.startplay=true
 					ogame.shutdown=true
 				ok
 			}
@@ -128,7 +118,7 @@ func main
 			playSound()
 		}
 	}
-	if $startplay
+	if oGameState.startplay
 		oGame.refresh()
 		playstart(oGame)
 		oGame.refresh()
@@ -170,7 +160,7 @@ func playstart oGame
 			aImages = ["images/fbwall.png","images/fbwallup.png",
 					"images/fbwalldown.png"]
 			state = func oGame,oSelf {
-				if $gameresult = false
+				if oGameState.gameresult = false
 					px = oGame.aObjects[3].x
 					py = oGame.aObjects[3].y
 					oSelf {
@@ -181,9 +171,9 @@ func playstart oGame
 						ok
 						nCol =  getcol(px,0)
 						if nCol=11 or nCol=15 or nCol=19 or nCol=23 or nCol=27
-							if nCol != $lastcol
-								$lastcol = nCol
-								$Score += 100
+							if nCol != oGameState.lastcol
+								oGameState.lastcol = nCol
+								oGameState.Score += 100
 								oGame { Sound {
 									once = true
 									file = "sound/sfx_point.wav"
@@ -197,7 +187,7 @@ func playstart oGame
 					    oSelf.getvalue(px+40,py+40) != 0 or
 					    oSelf.getvalue(px,py) != 0 or
 					    oSelf.getvalue(px,py+40) != 0
-						$gameresult = true
+						oGameState.gameresult = true
 						oGame {
 							text {
 								point = 550
@@ -255,10 +245,10 @@ func playstart oGame
 					ok
 				}
 
-				if not $playerwin
-					$down --
-					if $down = 0
-						$down = 3
+				if not oGameState.playerwin
+					oGameState.down --
+					if oGameState.down = 0
+						oGameState.down = 3
 						oself {
 							y += 25
 							if y > 550 y=550 ok
@@ -268,11 +258,11 @@ func playstart oGame
 
 			}
 			keypress = func ogame,oself,nKey {
-				if $gameresult = false
+				if oGameState.gameresult = false
 					oself {
 						if nkey = key_space
 							y -= 55
-							$down = 60
+							oGameState.down = 60
 							if y<=0 y=0 ok
 						ok
 					}
@@ -291,10 +281,10 @@ func playstart oGame
 			point = 400
 			size = 30
 			file = "fonts/pirulen.ttf"
-			text = "Score : " + $score
+			text = "Score : " + oGameState.score
 			x = 500	y=10
 			state = func oGame,oSelf {
-				oSelf { text = "Score : " + $score }
+				oSelf { text = "Score : " + oGameState.score }
 			}
 		}
 
@@ -322,9 +312,9 @@ func newmap aMap
 	next
 
 func checkwin ogame
-	if $score = 3000
-		$gameresult = true
-		$playerwin = true
+	if oGameState.score = 3000
+		oGameState.gameresult = true
+		oGameState.playerwin = true
 		oGame {
 			text {
 				point = 400
@@ -336,9 +326,17 @@ func checkwin ogame
 				state = func ogame,oself {
 					if oself.y >= 400
 						ogame.shutdown = true
-						$value = 0
+						oGameState.value = 0
 					ok
 				}
 			}
 		}
 	ok
+
+Class GameState
+	down = 3
+	gameresult = false
+	Score = 0
+	startplay=false
+	lastcol = 0
+	playerwin = false
