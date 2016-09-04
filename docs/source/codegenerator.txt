@@ -12,7 +12,7 @@ Using the tool
 ==============
 
 The code generator program is parsec.ring that can be executed as any ring code using the
-ring interpreter.
+ring language.
 
 for example to read a configuration file called test.cf to generate the source code file test.c
 run parsec.ring as in the next command
