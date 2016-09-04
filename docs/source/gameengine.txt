@@ -145,9 +145,9 @@ sound 			Create new Sound object and add it to the game objects.
 map			Create new Map object and add it ot the game objects.
 ================	=================================================================================
 
+
 Sprite Class
 ============
-
 
 The next table present the class attributes.
 
@@ -171,6 +171,30 @@ Method			Description
 ================	=================================================================================
 Draw(oGame)		Draw the object
 ================	=================================================================================
+
+
+Text Class
+==========
+
+The next table present the class attributes.
+
+============	=================================================================================
+Attributes		Description
+============	=================================================================================
+size		Number determine the font size
+font		String determine the font file name
+text		String determine the text to be displayed
+color		Number determine the color
+============	=================================================================================
+
+The next table present the class methods.
+
+================	=================================================================================
+Method			Description
+================	=================================================================================
+Draw(oGame)		Draw the object
+================	=================================================================================
+
 
 
 Stars Fighter Game
