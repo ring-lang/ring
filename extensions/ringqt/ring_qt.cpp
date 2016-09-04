@@ -22163,6 +22163,25 @@ RING_FUNC(ring_QTableWidget_setHorizontalHeaderItem)
 }
 
 
+RING_FUNC(ring_QTableWidget_setHorizontalHeaderLabels)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	pObject->setHorizontalHeaderLabels(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QStringList"));
+}
+
+
 RING_FUNC(ring_QTableWidget_setItem)
 {
 	GTableWidget *pObject ;
@@ -64540,6 +64559,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtablewidget_setcurrentcell",ring_QTableWidget_setCurrentCell);
 	ring_vm_funcregister("qtablewidget_setcurrentitem",ring_QTableWidget_setCurrentItem);
 	ring_vm_funcregister("qtablewidget_sethorizontalheaderitem",ring_QTableWidget_setHorizontalHeaderItem);
+	ring_vm_funcregister("qtablewidget_sethorizontalheaderlabels",ring_QTableWidget_setHorizontalHeaderLabels);
 	ring_vm_funcregister("qtablewidget_setitem",ring_QTableWidget_setItem);
 	ring_vm_funcregister("qtablewidget_setitemprototype",ring_QTableWidget_setItemPrototype);
 	ring_vm_funcregister("qtablewidget_setrowcount",ring_QTableWidget_setRowCount);

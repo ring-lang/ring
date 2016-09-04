@@ -3909,6 +3909,9 @@ Class QTableWidget from QTableView
 	Func setHorizontalHeaderItem P1,P2
 		return QTableWidget_setHorizontalHeaderItem(pObject,P1,GetObjectPointerFromRingObject(P2))
 
+	Func setHorizontalHeaderLabels P1
+		return QTableWidget_setHorizontalHeaderLabels(pObject,GetObjectPointerFromRingObject(P1))
+
 	Func setItem P1,P2,P3
 		return QTableWidget_setItem(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 
