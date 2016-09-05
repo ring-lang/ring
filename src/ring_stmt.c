@@ -572,7 +572,7 @@ int ring_parser_stmt ( Parser *pParser )
 					ring_list_addpointer(pList2,ring_parser_icg_getactiveoperation(pParser));
 				}
 			}
-			if ( ring_parser_iskeyword(pParser,K_ELSE) ) {
+			if ( ring_parser_iskeyword(pParser,K_ELSE) || ring_parser_iskeyword(pParser,K_OTHER) ) {
 				/* Generate Code */
 				nMark1 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_addoperandint(pMark,nMark1);
@@ -906,7 +906,7 @@ int ring_parser_stmt ( Parser *pParser )
 				}
 			}
 			/* Other */
-			if ( ring_parser_iskeyword(pParser,K_OTHER) ) {
+			if ( ring_parser_iskeyword(pParser,K_OTHER) || ring_parser_iskeyword(pParser,K_ELSE) ) {
 				ring_parser_nexttoken(pParser);
 				/* Generate Code */
 				nMark1 = ring_parser_icg_newlabel(pParser);
