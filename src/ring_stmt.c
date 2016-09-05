@@ -546,7 +546,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_JUMP);
 			ring_list_addpointer(pList2,ring_parser_icg_getactiveoperation(pParser));
 			/* { 'But' Statements } 'Else' Statements */
-			while ( ring_parser_iskeyword(pParser,K_BUT) ) {
+			while ( ring_parser_iskeyword(pParser,K_BUT) || ring_parser_iskeyword(pParser,K_ELSEIF) ) {
 				/* Generate Code */
 				nMark1 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_addoperandint(pMark,nMark1);

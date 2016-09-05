@@ -427,6 +427,7 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_addstring(pScanner->Keywords,"do");
 	ring_list_addstring(pScanner->Keywords,"again");
 	ring_list_addstring(pScanner->Keywords,"call");
+	ring_list_addstring(pScanner->Keywords,"elseif");
 	ring_list_genhashtable(pScanner->Keywords);
 }
 
