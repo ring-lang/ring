@@ -181,7 +181,7 @@ Example:
 		see "catching error" + nl
 	end
 
-Output::
+Output:
 
 .. code-block:: none
 
