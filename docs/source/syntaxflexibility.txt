@@ -138,6 +138,34 @@ Example:
 	ok
 	see nl
 
+Using the 'else' keyword as 'other' in switch statement
+===================================================
+
+if you don't like the 'other' keyword in switch statement
+Then you can use the 'else' keyword.
+
+Also you can replace 'else' with 'other' in if statement.
+
+i.e. 'other' keyword is the same as 'else' keyword.
+
+Example:
+
+.. code-block:: none
+
+	x = 1
+	switch x
+		on 10 
+			see "10" + nl
+		else 
+			see "not 10" + nl
+	end
+
+Output:
+
+.. code-block:: none
+
+	not 10
+
 Using the 'end' keyword in different control structures
 =======================================================
 
