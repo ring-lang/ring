@@ -123,7 +123,6 @@ func main
 		oGame.refresh()
 		playstart(oGame)
 		oGame.refresh()
-		callgc()
 	ok
 
 	end

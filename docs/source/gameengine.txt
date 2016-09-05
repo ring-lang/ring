@@ -413,7 +413,6 @@ The Stars Fighter source code
 		  exit
 		ok
 		ogame.refresh()
-		callgc()
 	  end
 
 	  oSound.Delete()
@@ -1209,7 +1208,6 @@ The Super Man 2016 Game source code
 		  oGame.refresh()
 		  playstart(oGame)
 		  oGame.refresh()
-		  callgc()
 		ok
 
 	  end
