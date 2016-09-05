@@ -119,7 +119,7 @@ Output:
 	Instance : 10
 	Local    : 15
 
-Using 'elseif' keyword as 'but' in if statement
+Using the 'elseif' keyword as 'but' in if statement
 ===============================================
 
 if you don't like the 'but' keyword in if statement
@@ -138,7 +138,61 @@ Example:
 	ok
 	see nl
 
+Using the 'end' keyword in different control structures
+=======================================================
 
+We can use the 'end' keyword to close differnt control structures
+* If statement
+* For loop
+* Switch 
+* While
+* Try-Catch
+
+Example:
+
+.. code-block:: none
+
+	see "if statement.." + nl
+	x = 1
+	if x = 1 
+		see "one" + nl
+	elseif x=2 
+		see "two" + nl
+	elseif x=3 
+		see "three" + nl
+	end
+	see "for loop.." + nl
+	for t = 1 to 10
+		see t 
+	end
+	see nl
+	see "switch..." + nl
+	x = 1
+
+	switch x
+		on 1 see "one" + nl
+		on 2 see "two" + nl
+	end
+
+	see "try catch..." + nl
+	try
+		x = 1 / 0
+	catch
+		see "catching error" + nl
+	end
+
+Output::
+
+.. code-block:: none
+
+	if statement..
+	one
+	for loop..
+	12345678910
+	switch...
+	one
+	try catch...
+	catching error
 
 
 
