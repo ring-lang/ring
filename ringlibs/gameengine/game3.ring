@@ -1,11 +1,10 @@
 # The Ring Standard Library
 # Game Engine for 2D Games
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
-Load "gameengine.ring"
 
 oGameState = NULL
 
-start_playing()
+Load "gameengine.ring"
 
 func main
 

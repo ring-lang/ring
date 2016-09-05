@@ -2,11 +2,9 @@
 # Game Engine for 2D Games
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "gameengine.ring"
-
 oGameState = NULL
 
-start_playing()
+Load "gameengine.ring"
 
 func main
 

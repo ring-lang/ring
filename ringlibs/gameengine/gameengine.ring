@@ -12,8 +12,7 @@ load "gameengine.rh"
 
 oresources = new resources
 
-func start_playing
-	gl_start_playing()
+gl_start_playing()
 
 class gamebase
 	title=""
