@@ -100,7 +100,7 @@ In our games we will use the next classes
 
 .. note:: Other classes in the engine are for internal use by the engine.
 
-We will introduce three examples
+We will introduce some examples and three simple games :-
 
 * Stars Fighter Game
 * Flappy Bird 3000 Game
