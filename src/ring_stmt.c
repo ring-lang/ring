@@ -589,7 +589,7 @@ int ring_parser_stmt ( Parser *pParser )
 					}
 				}
 			}
-			if ( ring_parser_iskeyword(pParser,K_OK) ) {
+			if ( ring_parser_iskeyword(pParser,K_OK) || ring_parser_iskeyword(pParser,K_END) ) {
 				/* Generate Code */
 				nMark1 = ring_parser_icg_newlabel(pParser);
 				if ( pMark != NULL ) {
