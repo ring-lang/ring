@@ -1,4 +1,4 @@
-Load "gameengine.ring"
+Load "gameengine.ring"				# Give control to the game engine
 
 func main					# Called by the Game Engine
 
