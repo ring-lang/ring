@@ -80,8 +80,6 @@ The Engine comes with the next classes
 * Sound class
 * Map class
 
-And we have the start_playing() function to start the engine event loop.
-
 * Source Code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gameengine.ring
 
 Games Layer
@@ -309,11 +307,7 @@ Using the Game Engine - Creating the Game Window
 
 .. code-block:: none
 
-	Load "gameengine.ring"
-
-	oGame = NULL		# Global Variable for our Game
-
-	start_playing()		# Give Control to the Game Engine
+	Load "gameengine.ring"	# Give Control to the Game Engine
 
 	func main		# Called by the Game Engine
 
@@ -322,16 +316,15 @@ Using the Game Engine - Creating the Game Window
 			title = "My First Game"
 		}			# Start the Events Loop	
 
+.. note:: if you want to define global variables, this must be befor load "gameengine.ring"
+	  because this instruction will give the control to the game engine.
+
 Using the Game Engine - Drawing Text
 ====================================
 
 .. code-block:: none
 
-	Load "gameengine.ring"
-
-	oGame = NULL		# Global Variable for our Game
-
-	start_playing()		# Give Control to the Game Engine
+	Load "gameengine.ring"	# Give Control to the Game Engine
 
 	func main		# Called by the Game Engine
 
@@ -354,11 +347,7 @@ Using the Game Engine - Moving Text
 
 .. code-block:: none
 
-	Load "gameengine.ring"
-
-	oGame = NULL		# Global Variable for our Game
-
-	start_playing()		# Give Control to the Game Engine
+	Load "gameengine.ring"	# Give Control to the Game Engine
 
 	func main		# Called by the Game Engine
 
@@ -393,11 +382,7 @@ Using the Game Engine - Playing Sound
 
 .. code-block:: none
 
-	Load "gameengine.ring"
-
-	oGame = NULL		# Global Variable for our Game
-
-	start_playing()		# Give Control to the Game Engine
+	Load "gameengine.ring"	# Give Control to the Game Engine
 
 	func main		# Called by the Game Engine
 
@@ -435,13 +420,9 @@ Using the Game Engine - Animation
 
 .. code-block:: none
 
-	Load "gameengine.ring"
+	Load "gameengine.ring"	# Give Control to the Game Engine
 
-	oGame = NULL          # Global Variable for our Game
-
-	start_playing()          # Give Control to the Game Engine
-
-	func main          # Called by the Game Engine
+	func main          	# Called by the Game Engine
 
 	  oGame = New Game      # Create the Game Object
 	  {
@@ -479,13 +460,9 @@ Using the Game Engine - Animation and Functions
 
 .. code-block:: none
 
-	Load "gameengine.ring"
+	Load "gameengine.ring"	# Give Control to the Game Engine
 
-	oGame = NULL          # Global Variable for our Game
-
-	start_playing()          # Give Control to the Game Engine
-
-	func main          # Called by the Game Engine
+	func main          	# Called by the Game Engine
 
 	  oGame = New Game      # Create the Game Object
 	  {
@@ -538,11 +515,9 @@ The Stars Fighter source code
 	# Game Engine for 2D Games
 	# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-	load "gameengine.ring"
-
 	oGameState = NULL
 
-	start_playing()
+	load "gameengine.ring"
 
 	func main
 
@@ -950,11 +925,10 @@ The Flappy Bird 3000 Game source code
 	# The Ring Standard Library
 	# Game Engine for 2D Games
 	# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
-	Load "gameengine.ring"
 
 	oGameState = NULL
 
-	start_playing()
+	Load "gameengine.ring"
 
 	func main
 
@@ -1303,11 +1277,10 @@ The Super Man 2016 Game source code
 	# The Ring Standard Library
 	# Game Engine for 2D Games
 	# 2016, Mahmoud Fayed <msfclipper@yahoo.com>
-	Load "gameengine.ring"
 
 	oGameState = NULL
 
-	start_playing()
+	Load "gameengine.ring"
 
 	func main
 
