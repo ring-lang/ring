@@ -28,7 +28,7 @@ func showfire oGame,nX,nY
 					nStep--
 					if nStep = 0
 						nStep = 3
-						if frame < 13	    # we have 12 frames in animation
+						if frame < 13	    # we have 13 frames in animation
 							frame++   # move to next frame
 						else
 							frame=1
