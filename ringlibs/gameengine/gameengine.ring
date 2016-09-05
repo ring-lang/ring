@@ -70,6 +70,8 @@ class game from gamebase
 	lbraceend = true
 	shutdown = false
 
+	nBracesCount = 0
+
 	startup()
 
 	func refresh
@@ -82,9 +84,13 @@ class game from gamebase
 		title = cTitle
 		gl_set_window_title(display,title)
 
+	func bracestart
+		nBracesCount++
+
 	func braceend
+		nBracesCount--
 		# we check to call start() one time during the program life time
-		if lbraceend = true
+		if lbraceend = true and nBracesCount  = 0
 			lbraceend = false
 			start()
 		ok
