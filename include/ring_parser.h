@@ -144,6 +144,8 @@ void ring_parser_error ( Parser *pParser,const char *cStr ) ;
 /* Generate Code */
 
 void ring_parser_gencall ( Parser *pParser,int nCallMethod ) ;
+
+void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod ) ;
 /* MACRO */
 #define RING_PARSER_IGNORENEWLINE while(ring_parser_epslion(pParser));
 #define RING_PARSER_PASSNEWLINE while(ring_parser_passepslion(pParser));

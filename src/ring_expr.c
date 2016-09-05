@@ -1174,28 +1174,7 @@ int ring_parser_mixer ( Parser *pParser )
 			**  Generate Code 
 			**  if ismethod(self,"braceend") braceend() ok 
 			*/
-			ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
-			ring_parser_icg_newoperand(pParser,"ismethod");
-			ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
-			ring_parser_icg_newoperand(pParser,"self");
-			ring_parser_icg_newoperandint(pParser,0);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
-			ring_parser_icg_newoperand(pParser,"braceend");
-			ring_parser_icg_newoperation(pParser,ICO_CALL);
-			ring_parser_icg_newoperation(pParser,ICO_NOOP);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			/* Jump */
-			ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
-			pMark = ring_parser_icg_getactiveoperation(pParser);
-			ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
-			ring_parser_icg_newoperand(pParser,"braceend");
-			ring_parser_icg_newoperation(pParser,ICO_CALL);
-			ring_parser_icg_newoperation(pParser,ICO_NOOP);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
-			nMark1 = ring_parser_icg_newlabel(pParser);
-			ring_parser_icg_addoperandint(pMark,nMark1);
+			ring_parser_gencallbracemethod(pParser,"braceend");
 			ring_parser_icg_newoperation(pParser,ICO_BRACEEND);
 			#if RING_PARSERTRACE
 			RING_STATE_CHECKPRINTRULES 
@@ -1264,5 +1243,34 @@ int ring_parser_ppmm ( Parser *pParser )
 		return 1 ;
 	}
 	return 0 ;
+}
+
+void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
+{
+	int nMark1  ;
+	List *pMark  ;
+	/* if ismethod(self,cMethod) cMethod() ok */
+	ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+	ring_parser_icg_newoperand(pParser,"ismethod");
+	ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
+	ring_parser_icg_newoperand(pParser,"self");
+	ring_parser_icg_newoperandint(pParser,0);
+	ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+	ring_parser_icg_newoperation(pParser,ICO_PUSHC);
+	ring_parser_icg_newoperand(pParser,cMethod);
+	ring_parser_icg_newoperation(pParser,ICO_CALL);
+	ring_parser_icg_newoperation(pParser,ICO_NOOP);
+	ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+	/* Jump */
+	ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
+	pMark = ring_parser_icg_getactiveoperation(pParser);
+	ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+	ring_parser_icg_newoperand(pParser,cMethod);
+	ring_parser_icg_newoperation(pParser,ICO_CALL);
+	ring_parser_icg_newoperation(pParser,ICO_NOOP);
+	ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+	ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+	nMark1 = ring_parser_icg_newlabel(pParser);
+	ring_parser_icg_addoperandint(pMark,nMark1);
 }
 
