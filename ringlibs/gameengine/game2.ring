@@ -115,7 +115,6 @@ func main
 
 		Sound {
 			file = "sound/music2.wav"
-			playSound()
 		}
 	}
 	if oGameState.startplay
@@ -177,7 +176,6 @@ func playstart oGame
 								oGame { Sound {
 									once = true
 									file = "sound/sfx_point.wav"
-									playSound()
 								} }
 								checkwin(oGame)
 							ok
@@ -205,7 +203,6 @@ func playstart oGame
 											Sound {
 												once = true
 												file = "sound/sfx_die.wav"
-												playSound()
 											}
 										}
 									ok
@@ -214,7 +211,6 @@ func playstart oGame
 							Sound {
 								once = true
 								file = "sound/sfx_hit.wav"
-								playSound()
 							}
 						}
 					ok

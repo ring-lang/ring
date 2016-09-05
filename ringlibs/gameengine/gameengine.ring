@@ -466,6 +466,8 @@ Class Sound from gameobject
 			gl_destroy_glib_sample_id(sampleid)
 			gl_destroy_sample(sample)	
 		ok
+	func braceend
+		playsound()
 
 Class Map from Sprite
 

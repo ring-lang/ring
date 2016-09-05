@@ -116,7 +116,6 @@ func main
 
 		Sound {
 			file = "sound/music2.wav"
-			playSound()
 		}
 	}
 	if oGameState.startplay
@@ -530,7 +529,6 @@ func checkstarskey oGame,oSelf,nValue,nRow,nCol
 			oGame { Sound {
 				once = true
 				file = "sound/sfx_point.wav"
-				playSound()
 			} }
 		on 5
 			oGame.aObjects[2].aMap[nRow][nCol] = 0
@@ -540,7 +538,6 @@ func checkstarskey oGame,oSelf,nValue,nRow,nCol
 			oGame { Sound {
 				once = true
 				file = "sound/sfx_point.wav"
-				playSound()
 			} }
 	off
 

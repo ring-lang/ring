@@ -75,7 +75,6 @@ func main
 		}
 		Sound {
 			file = "sound/music1.wav"
-			playSound()
 		}
 	}
 
@@ -91,7 +90,6 @@ func playstart oGame
 
 	oSound = New Sound {
 		file = "sound/music2.wav"
-		playSound()
 	}
 
 	while true
