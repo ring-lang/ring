@@ -139,7 +139,7 @@ Example:
 	see nl
 
 Using the 'else' keyword as 'other' in switch statement
-===================================================
+=======================================================
 
 if you don't like the 'other' keyword in switch statement
 Then you can use the 'else' keyword.
