@@ -120,7 +120,7 @@ Output:
 	Local    : 15
 
 Using the 'elseif' keyword as 'but' in if statement
-===============================================
+===================================================
 
 if you don't like the 'but' keyword in if statement
 Then you can use the 'elseif' keyword.
