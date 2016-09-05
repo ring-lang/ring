@@ -26,7 +26,6 @@ func main					# Called by the Game Engine
 						if frame < 13	    # we have 12 frames in animation
 							frame++   # move to next frame
 						else
-							frame=1    # back to first frame 
 							oGame.remove(oself.nIndex)   # remove object
 						ok
 					ok
