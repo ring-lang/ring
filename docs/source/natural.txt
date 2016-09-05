@@ -83,6 +83,40 @@ Output:
 	Instruction : Window Title = hello world
 
 
+BraceStart and BraceEnd Methods
+===============================
+
+We can write code that will be executed before/after using { }
+
+Example:
+
+.. code-block:: none
+
+	o1 = new test {
+		see "Hello" + nl
+	}
+
+	o1 {}
+
+	class test
+
+		func bracestart
+			see "start" + nl
+
+		func braceend
+			see "end" + nl
+
+Output:
+
+.. code-block:: none
+
+	start
+	Hello
+	end
+	start
+	end
+
+
 BraceExprEval Method
 ====================
 
@@ -157,3 +191,4 @@ Output:
 	Enter Number (1) :3
 	Enter Number (2) :4
 	The Sum : 7
+
