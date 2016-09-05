@@ -369,7 +369,7 @@ int ring_parser_stmt ( Parser *pParser )
 									break ;
 								}
 							}
-							if ( ring_parser_iskeyword(pParser,K_NEXT) ) {
+							if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) ) {
 								/* Generate Code */
 								nMark3 = ring_parser_icg_newlabel(pParser);
 								/* Increment Jump */
@@ -472,7 +472,7 @@ int ring_parser_stmt ( Parser *pParser )
 							break ;
 						}
 					}
-					if ( ring_parser_iskeyword(pParser,K_NEXT) ) {
+					if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) ) {
 						ring_parser_nexttoken(pParser);
 						/* Generate Code */
 						nMark3 = ring_parser_icg_newlabel(pParser);
@@ -790,7 +790,7 @@ int ring_parser_stmt ( Parser *pParser )
 					break ;
 				}
 			}
-			if ( ring_parser_iskeyword(pParser,K_DONE) ) {
+			if ( ring_parser_iskeyword(pParser,K_DONE) || ring_parser_iskeyword(pParser,K_END) ) {
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
 				
@@ -927,7 +927,7 @@ int ring_parser_stmt ( Parser *pParser )
 				}
 			}
 			/* OFF */
-			if ( ring_parser_iskeyword(pParser,K_OFF) ) {
+			if ( ring_parser_iskeyword(pParser,K_OFF) || ring_parser_iskeyword(pParser,K_END) ) {
 				ring_parser_nexttoken(pParser);
 				/* Generate Code */
 				nMark1 = ring_parser_icg_newlabel(pParser);
