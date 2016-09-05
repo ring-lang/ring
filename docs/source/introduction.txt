@@ -66,8 +66,8 @@ In Sept. 2013 I started the design and the implementation of the Ring programmin
 After 21 months of development, In May 2015 the language Compiler & Virtual Machine were ready for use!
 
 After that i spent three months testing the language again, trying to discover any bug to fix, writing better tests,
-by the end of August 2015, all know bugs were fixed, Writing many tests and testing automation using batch files and 
-diff.exe helped a lot in getting a stable product.
+by the end of August 2015, all know bugs were fixed, Writing many tests and testing automation helped a lot in 
+getting a stable product.
 
 In 12 September 2015, most of the documentation was written. Before releasing the language i started the marketing by
 writing a post in Arabic language about it to my facebook profile page asking for contributors interested in the language 
