@@ -1159,6 +1159,8 @@ int ring_parser_mixer ( Parser *pParser )
 		
 		puts("Rule : Mixer --> '{' {Statement} BraceEnd");
 		#endif
+		/* if ismethod(self,"bracestart") bracestart() ok */
+		ring_parser_gencallbracemethod(pParser,"bracestart");
 		ring_parser_nexttoken(pParser);
 		nStatus = pParser->nAssignmentFlag ;
 		pParser->nAssignmentFlag = 1 ;
