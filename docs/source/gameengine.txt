@@ -388,7 +388,6 @@ The Stars Fighter source code
 			}
 			Sound {
 			  file = "sound/music1.wav"
-			  playSound()
 			}
 		  }
 
@@ -404,7 +403,6 @@ The Stars Fighter source code
 
 	  oSound = New Sound {
 		file = "sound/music2.wav"
-		playSound()
 	  }
 
 	  while true
@@ -843,7 +841,6 @@ The Flappy Bird 3000 Game source code
 
 		  Sound {
 			file = "sound/music2.wav"
-			playSound()
 		  }
 		}
 		if oGameState.startplay
@@ -905,7 +902,6 @@ The Flappy Bird 3000 Game source code
 					oGame { Sound {
 					  once = true
 					  file = "sound/sfx_point.wav"
-					  playSound()
 					} }
 					checkwin(oGame)
 				  ok
@@ -933,7 +929,6 @@ The Flappy Bird 3000 Game source code
 						  Sound {
 							once = true
 							file = "sound/sfx_die.wav"
-							playSound()
 						  }
 						}
 					  ok
@@ -942,7 +937,6 @@ The Flappy Bird 3000 Game source code
 				  Sound {
 					once = true
 					file = "sound/sfx_hit.wav"
-					playSound()
 				  }
 				}
 			  ok
@@ -1201,7 +1195,6 @@ The Super Man 2016 Game source code
 
 		  Sound {
 			file = "sound/music2.wav"
-			playSound()
 		  }
 		}
 		if oGameState.startplay
@@ -1624,7 +1617,6 @@ The Super Man 2016 Game source code
 		  oGame { Sound {
 			once = true
 			file = "sound/sfx_point.wav"
-			playSound()
 		  } }
 		on 5
 		  oGame.aObjects[2].aMap[nRow][nCol] = 0
@@ -1634,7 +1626,6 @@ The Super Man 2016 Game source code
 		  oGame { Sound {
 			once = true
 			file = "sound/sfx_point.wav"
-			playSound()
 		  } }
 	  off
 
