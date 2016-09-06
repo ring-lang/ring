@@ -525,6 +525,10 @@ Using the Game Engine - Animation and Functions
 		 }  
 	  }
 
+.. image:: gameengineshot6.png
+	:alt: screen shot
+
+
 Using the Game Engine - Sprite - Automatic Movement using Keyboard
 ==================================================================
 
