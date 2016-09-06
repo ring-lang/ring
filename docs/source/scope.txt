@@ -52,3 +52,80 @@ if not found ----> Runtime Error
 if found  ----> Check if we can do optimization to avoid 
 searching next time (Cache / Pointers for performance).
 
+Conflict between global variables and Class Attributes
+======================================================
+
+Look at this example:
+
+.. code-block:: none
+
+	name = "test"
+	o1 = new person
+	see o1
+
+	class person
+		name
+		address 
+		phone
+
+In the previous example we have aglobal variable called 'name'
+inside the class person.
+
+when we use the variable 'name', Ring will start the search operation and 
+will try to find it.
+
+if found ---> Use it
+
+if not found ---> Define new attribute
+
+But the variable name is a global variable, so it will be found and used!
+
+We will not have the attribute name! added to the object. 
+
+Solution (1) - Use the Main Function 
+
+.. code-block:: none
+
+	func main
+		name = "test"
+		o1 = new person
+		see o1
+
+	class person
+		name
+		address 
+		phone
+
+Solution Number (2) - Use special mark for global variable names like $
+
+.. code-block:: none
+
+	$name = "test"
+	o1 = new person
+	see o1
+
+	class person
+		name
+		address 
+		phone
+
+Solution Number (3) - Use the AddAttribute() Method
+
+.. code-block:: none
+
+	name = "test"
+	o1 = new person
+	see o1
+
+	class person
+		AddAttribute(self,"name")
+		address 
+		phone
+
+So what is the best solution to this conflict?
+
+1 - Use the $ Mark 
+
+2 - Optional : Try to avoid global variables and use the Main function 
+
+In practice i do both of them.
