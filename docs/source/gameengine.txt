@@ -687,8 +687,10 @@ Using the Game Engine - Sprite - State event
 					oself {
 						if x < 0 x = 0 ok
 						if y < 0 y = 0 ok
-						if x > ogame.width-width  x= ogame.width - width ok
-						if y > ogame.height-height y=ogame.height - height ok
+						if x > ogame.width-width  
+							x= ogame.width - width ok
+						if y > ogame.height-height 
+							y=ogame.height - height ok
 					}
 				}
 			}
