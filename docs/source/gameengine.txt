@@ -347,6 +347,12 @@ Using the Game Engine - Drawing Text
 		}		# Start the Events Loop	
 
 
+Screen Shot:
+
+.. image:: gameengineshot2.png
+	:alt: screen shot
+
+
 Using the Game Engine - Moving Text
 ===================================
 
