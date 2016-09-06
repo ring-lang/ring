@@ -34,3 +34,21 @@ You still can access the global scope.
 
 * Function Parameters are already defined in the local scope.
 
+How Ring find the variable?
+===========================
+
+1 - Search First in the Local Scope 
+
+if not found !
+
+2 - Search in the Object Scope 
+
+if not found !
+
+3 - Search in the public scope
+
+if not found ----> Runtime Error
+
+if found  ----> Check if we can do optimization to avoid 
+searching next time (Cache / Pointers for performance).
+
