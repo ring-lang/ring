@@ -329,12 +329,11 @@ After the object access using { } if the class contains a method called BraceEnd
 	}
 	# Our Class
 	Class journey
+		hello=0 it=0 is=0 me=0
 		func GetHello
 			See "Hello" + nl
 		func braceEnd
 			See "Goodbye!" + nl
-		private
-			hello=0 it=0 is=0 me=0
 
 We can execute code written in strings using the Eval() function
 
