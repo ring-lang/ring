@@ -760,6 +760,12 @@ Using the Game Engine - Animate - Events
 			}
 		}					# Start the Events Loop	
 
+Screen Shot:
+
+.. image:: gameengineshot11.png
+	:alt: screen shot
+
+
 
 Using the Game Engine - Map
 ===========================
@@ -803,6 +809,12 @@ Using the Game Engine - Map
 
 	  }
 	}          # Start the Events Loop  
+
+
+Screen Shot:
+
+.. image:: gameengineshot12.png
+	:alt: screen shot
 
 
 Using the Game Engine - Map Events
@@ -865,6 +877,11 @@ Using the Game Engine - Map Events
 
 		}
 	  }          # Start the Events Loop  
+
+Screen Shot:
+
+.. image:: gameengineshot13.png
+	:alt: screen shot
 
 
 
