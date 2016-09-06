@@ -34,11 +34,11 @@ Contents:
    SQLite Functions <sqlite>	
    Security and Internet Functions <secfunc>
    Object Oriented Programming (OOP) <oop>
-   Scope Rules <scope>
    Declarative Programming using Nested Structures <declarative>
    Natural language programming	<natural>
    Functional Programming (FP) <fp>
    Reflection and Meta-programming <metaprog>
+   Scope Rules <scope>
    Stdlib Functions <stdlib>
    Stdlib Classes <stdlibclasses>
    Low Level Functions <lowlevel>
