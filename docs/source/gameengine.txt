@@ -319,6 +319,11 @@ Using the Game Engine - Creating the Game Window
 .. note:: if you want to define global variables, this must be before load "gameengine.ring"
 	  because this instruction will give the control to the game engine.
 
+Screen Shot:
+
+.. image:: gameengineshot1.png
+	:alt: screen shot
+
 Using the Game Engine - Drawing Text
 ====================================
 
@@ -501,6 +506,29 @@ Using the Game Engine - Animation and Functions
 		 }  
 	  }
 
+Using the Game Engine - Sprite - Automatic Movement using Keyboard
+==================================================================
+
+.. code-block:: none
+
+	Load "gameengine.ring"				# Give control to the game engine
+
+	func main					# Called by the Game Engine
+
+		oGame = New Game			# Create the Game Object
+		{
+			title = "My First Game"
+			sprite
+			{
+				type = GE_TYPE_PLAYER		# Just for our usage
+				x=400 y=400 width=100 height=100
+				file = "images/player.png"	
+				transparent = true			
+				Animate=false 
+				Move=true 	# we can move it using keyboard arrows
+				Scaled=true
+			}
+		}					# Start the Events Loop	
 
 
 
