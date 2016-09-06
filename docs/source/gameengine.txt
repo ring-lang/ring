@@ -553,6 +553,8 @@ Using the Game Engine - Sprite - Automatic Movement using Keyboard
 			}
 		}					# Start the Events Loop	
 
+.. image:: gameengineshot7.png
+	:alt: screen shot
 
 
 Stars Fighter Game
