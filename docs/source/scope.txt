@@ -20,3 +20,17 @@ In Ring we have three scopes :-
 
 (3) Local Scope - Related to functions and methods
 
+Defining Variables and Variables Access
+=======================================
+
+* Ring uses lexical scoping, i.e. the scope of the variable is based on where 
+we defined the variable.
+
+* Inside braces {  } when you access an object - you still can access the global
+scope and the local scope.
+
+* After Class keyword and name , when you write variable names to define the class attributes
+You still can access the global scope.
+
+* Function Parameters are already defined in the local scope.
+
