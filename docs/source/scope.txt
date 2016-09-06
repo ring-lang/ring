@@ -2,6 +2,16 @@
 Scope Rules
 ===========
 
+In this chapter we will learn about scope rules and how ring find variables.
+
+Also we will learn about conflicts and how to solve/avoid them.
+
+These information are important once you start developing large applications with Ring
+That uses Global variables, Classes and braces { } to access objects 
+
+Three Scopes 
+============
+
 In Ring we have three scopes :-
 
 (1) Public/Global Scope - Each variable you define in the statements part (before functions and classes)
