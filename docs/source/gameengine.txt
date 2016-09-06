@@ -475,6 +475,10 @@ Using the Game Engine - Animation
 	  }          # Start the Events Loop  
 
 
+.. image:: gameengineshot5.png
+	:alt: screen shot
+
+
 Using the Game Engine - Animation and Functions
 ===============================================
 
