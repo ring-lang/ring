@@ -76,7 +76,7 @@ Look at this example:
 		address 
 		phone
 
-In the previous example we have aglobal variable called 'name'
+In the previous example we have a global variable called 'name'
 inside the class person.
 
 when we use the variable 'name', Ring will start the search operation and 
