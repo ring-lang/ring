@@ -69,6 +69,9 @@ class game from gamebase
 	lbraceend = true
 	shutdown = false
 
+	width = screen_w
+	height = screen_h
+
 	nBracesCount = 0
 
 	startup()
