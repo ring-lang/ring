@@ -1,0 +1,12 @@
+===========
+Scope Rules
+===========
+
+In Ring we have three scopes :-
+
+(1) Public/Global Scope - Each variable you define in the statements part (before functions and classes)
+
+(2) Object Scope - When you are inside an object (Inside class method or using { } to access the object )
+
+(3) Local Scope - Related to functions and methods
+
