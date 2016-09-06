@@ -388,6 +388,12 @@ Using the Game Engine - Moving Text
 			}
 		}					# Start the Events Loop	
 
+Screen Shot:
+
+.. image:: gameengineshot3.png
+	:alt: screen shot
+
+
 Using the Game Engine - Playing Sound
 =====================================
 
