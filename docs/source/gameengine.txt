@@ -432,9 +432,6 @@ Using the Game Engine - Playing Sound
 			}		
 		}					# Start the Events Loop	
 
-.. image:: gameengineshot4.png
-	:alt: screen shot
-
 Using the Game Engine - Animation
 =================================
 
