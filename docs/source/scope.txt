@@ -2,12 +2,23 @@
 Scope Rules
 ===========
 
-In this chapter we will learn about scope rules and how ring find variables.
+In this chapter we will learn about scope rules and how Ring find variables.
 
 Also we will learn about conflicts and how to solve/avoid them.
 
-These information are important once you start developing large applications with Ring
-That uses Global variables, Classes and braces { } to access objects 
+The next information are important once you start developing large applications using Ring
+
+These application may uses 
+
+* Global variables (Try to avoid them)
+
+* Classes (Object-Oriented)
+
+* braces { } to access objects
+
+* Declarative Programming
+
+* Natural Programming
 
 Three Scopes 
 ============
