@@ -129,3 +129,40 @@ So what is the best solution to this conflict?
 2 - Optional : Try to avoid global variables and use the Main function 
 
 In practice i do both of them.
+
+conflict between class attribute and local variable 
+===================================================
+
+This conflict may happen when we access the object using braces
+
+Example:
+
+.. code-block:: none
+ 
+	func main
+		name = "nice"
+		o1 = new person {name="mahmoud" address="Egypt"  phone = 000 }
+		see o1
+
+	class person 
+		name
+		address
+		phone
+
+In the previous example we have the local variable name.
+
+The value of this variable will be set to "mahmoud" instead of the object attribute.
+
+Solution : Just use Self 
+
+.. code-block:: none
+
+	func main
+		name = "nice"
+		o1 = new person {self.name="mahmoud" address="Egypt"  phone = 000 }
+		see o1
+
+	class person 
+		name
+		address
+		phone
