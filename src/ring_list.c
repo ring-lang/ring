@@ -707,12 +707,13 @@ RING_API int ring_list_findpointer ( List *pList,void *pPointer )
 	return 0 ;
 }
 
-RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,const char *cAttribute )
+RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute )
 {
 	int x,nCount,nPos  ;
 	List *pList2  ;
 	assert(pList != NULL);
 	nCount = ring_list_getsize(pList);
+	ring_string_lower(cAttribute);
 	/* Find Item */
 	if ( (nCount > 0) && (nColumn > 0) ) {
 		for ( x = 1 ; x <= nCount ; x++ ) {
