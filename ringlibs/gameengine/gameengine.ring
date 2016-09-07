@@ -74,6 +74,9 @@ class game from gamebase
 
 	nBracesCount = 0
 
+	# objects
+	sprite text progress animate sound map
+
 	startup()
 
 	func refresh
@@ -264,9 +267,6 @@ class game from gamebase
 	func getmap
 		addobj(new map)
 		return aobjects[len(aobjects)]
-
-	private
-		sprite text progress animate sound map
 		
 
 class gameobject from gamebase
@@ -297,6 +297,8 @@ class sprite from gameobject
 	type = 0
 	transparent = false	transparentdone = false
 	transparentcolor = GE_COLOR_WHITE
+
+	file=0
 
 	func setfile cfilename
 		image = oresources.loadimage(cfilename)
@@ -405,8 +407,6 @@ class sprite from gameobject
 	func delete
 		oresources.unloadimage(cimagefile)
 
-	private
-		file=0
 
 class text from sprite
 
