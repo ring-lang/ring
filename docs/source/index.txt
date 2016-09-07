@@ -18,6 +18,7 @@ Contents:
    Variables <variables>
    Operators <operators>
    Control Structures <controlstructures>
+   Control Structures - Second Style <controlstructures2>
    Getting Input <getinput>
    Functions <functions>
    Lists <lists>

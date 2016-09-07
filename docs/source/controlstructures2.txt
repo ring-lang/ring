@@ -1,0 +1,77 @@
+=================================
+Control Structures - Second Style
+=================================
+
+In this chapter we are going to learn about the second style of control structures
+provided by the Ring programming language.
+
+.. index:: 
+	pair: Control Structures; Branching
+
+
+Branching
+=========
+
+* If Statement
+
+Syntax:
+
+.. code-block:: none
+
+	if Expression
+		Block of statements
+	elseif Expression
+		Block of statements
+	else
+		Block of statements
+	end
+
+* Switch Statement
+
+Syntax:
+
+.. code-block:: none
+
+	switch Expression
+	on Expression
+		Block of statements
+	else
+		Block of statements
+	end		
+
+.. index:: 
+	pair: Control Structures; Looping
+
+Looping
+=======
+
+* While Loop
+
+Syntax:
+
+.. code-block:: none
+
+	while Expression
+		Block of statements
+	end
+
+
+* For Loop
+
+Syntax:
+
+.. code-block:: none
+
+	for identifier=expression to expression [step expression]
+		Block of statements
+	end
+
+* For in Loop
+
+Syntax:
+
+.. code-block:: none
+
+	for identifier in List/String  [step expression]
+		Block of statements
+	end
