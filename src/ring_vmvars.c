@@ -109,11 +109,9 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 	} else {
 		/* Check Private Attributes */
 		if ( ring_list_getint(pList2,RING_VAR_PRIVATEFLAG) == 1 ) {
-			if ( pVM->nVarScope != RING_VARSCOPE_OBJSTATE ) {
-				if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
-					ring_vm_error2(pVM,RING_VM_ERROR_USINGPRIVATEATTRIBUTE,cStr);
-					return 0 ;
-				}
+			if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
+				ring_vm_error2(pVM,RING_VM_ERROR_USINGPRIVATEATTRIBUTE,cStr);
+				return 0 ;
 			}
 		}
 		RING_VM_STACK_SETPVALUE(pList2);
