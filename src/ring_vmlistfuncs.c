@@ -79,6 +79,9 @@ void ring_vmlib_find ( void *pPointer )
 					else {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 					}
+					if ( nNum1 == -1 ) {
+						RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
+					}
 				}
 				else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
