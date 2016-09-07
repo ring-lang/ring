@@ -757,6 +757,11 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> Try {Statement} Catch {Statement} Done */
 	if ( ring_parser_iskeyword(pParser,K_TRY) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
+		if ( ring_parser_isoperator(pParser,"{") ) {
+			ring_parser_nexttoken(pParser);
+			pParser->nControlStructureBrace = 1 ;
+		}
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_TRY);
 		pMark = ring_parser_icg_getactiveoperation(pParser);
@@ -790,7 +795,7 @@ int ring_parser_stmt ( Parser *pParser )
 					break ;
 				}
 			}
-			if ( ring_parser_iskeyword(pParser,K_DONE) || ring_parser_iskeyword(pParser,K_END) ) {
+			if ( ring_parser_iskeyword(pParser,K_DONE) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
 				
