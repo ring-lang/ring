@@ -44,6 +44,10 @@ Type: char
 nNoAssignment
 Type: char
 nFuncCallOnly
+Type: int
+nControlStructureExpr
+Type: int
+nControlStructureBrace
 Type: RingState *
 pRingState
 END:

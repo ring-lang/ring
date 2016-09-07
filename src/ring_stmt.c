@@ -523,7 +523,7 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_IF) ) {
 		ring_parser_nexttoken(pParser);
 		pParser->nAssignmentFlag = 0 ;
-		if ( ring_parser_expr(pParser) ) {
+		if ( ring_parser_csexpr(pParser) ) {
 			pParser->nAssignmentFlag = 1 ;
 			/*
 			**  First Condition 
@@ -589,7 +589,7 @@ int ring_parser_stmt ( Parser *pParser )
 					}
 				}
 			}
-			if ( ring_parser_iskeyword(pParser,K_OK) || ring_parser_iskeyword(pParser,K_END) ) {
+			if ( ring_parser_iskeyword(pParser,K_OK) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 				/* Generate Code */
 				nMark1 = ring_parser_icg_newlabel(pParser);
 				if ( pMark != NULL ) {
@@ -1196,4 +1196,27 @@ int ring_parser_step ( Parser *pParser,int *nMark1 )
 	pParser->nInsertFlag = 0 ;
 	pParser->nInsertCounter = 0 ;
 	return 1 ;
+}
+
+int ring_parser_csexpr ( Parser *pParser )
+{
+	int nOutput  ;
+	pParser->nControlStructureExpr = 1 ;
+	nOutput = ring_parser_expr(pParser);
+	pParser->nControlStructureExpr = 0 ;
+	RING_PARSER_IGNORENEWLINE ;
+	if ( ring_parser_isoperator(pParser,"{") ) {
+		ring_parser_nexttoken(pParser);
+		pParser->nControlStructureBrace = 1 ;
+	}
+	return nOutput ;
+}
+
+int ring_parser_csbraceend ( Parser *pParser )
+{
+	if ( (pParser->nControlStructureBrace == 1) && ring_parser_isoperator(pParser,"}") ) {
+		pParser->nControlStructureBrace = 0 ;
+		return 1 ;
+	}
+	return 0 ;
 }

@@ -36,6 +36,10 @@ typedef struct Parser {
 	char nNoAssignment  ;
 	/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
 	char nFuncCallOnly  ;
+	/* Flag to tell { } that we are inside control structure (if/for/while/...) expression */
+	int nControlStructureExpr  ;
+	/* Flag - We started using braces {} in control structure - we have { */
+	int nControlStructureBrace  ;
 	/* Ring State */
 	RingState *pRingState  ;
 } Parser ;
@@ -117,6 +121,10 @@ int ring_parser_passepslion ( Parser *pParser ) ;
 int ring_parser_namedotname ( Parser *pParser ) ;
 
 int ring_parser_ppmm ( Parser *pParser ) ;
+
+int ring_parser_csexpr ( Parser *pParser ) ;
+
+int ring_parser_csbraceend ( Parser *pParser ) ;
 /* Check Token */
 
 void ring_parser_loadtoken ( Parser *pParser ) ;

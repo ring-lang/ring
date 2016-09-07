@@ -1149,7 +1149,7 @@ int ring_parser_mixer ( Parser *pParser )
 		}
 	}
 	/* '{' {Statement} '}' */
-	if ( ring_parser_isoperator(pParser,"{") ) {
+	if ( ring_parser_isoperator(pParser,"{") && pParser->nControlStructureExpr == 0 ) {
 		pParser->nBraceFlag++ ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PUSHV);
