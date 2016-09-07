@@ -6,6 +6,16 @@ New App
 
 Class App
 
+        # Attributes for the instruction I want window
+                        i want window
+                        nIwantwindow = 0
+        # Attributes for the instruction Window title
+        # Here we don't define the window attribute again
+                        title
+                        nWindowTitle = 0
+        # Keywords to ignore, just give them any value
+                        the=0
+
         func geti
                 if nIwantwindow = 0
                         nIwantwindow++
@@ -31,14 +41,3 @@ Class App
                         see "Instruction : Window Title = " + cValue + nl
                 ok
 
-        private
-
-                # Attributes for the instruction I want window
-                        i want window
-                        nIwantwindow = 0
-                # Attributes for the instruction Window title
-                # Here we don't define the window attribute again
-                        title
-                        nWindowTitle = 0
-                # Keywords to ignore, just give them any value
-                        the=0
