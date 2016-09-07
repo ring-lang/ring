@@ -863,7 +863,7 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_SWITCH) ) {
 		ring_parser_nexttoken(pParser);
 		pParser->nAssignmentFlag = 0 ;
-		if ( ring_parser_expr(pParser) ) {
+		if ( ring_parser_csexpr(pParser) ) {
 			pParser->nAssignmentFlag = 1 ;
 			#if RING_PARSERTRACE
 			RING_STATE_CHECKPRINTRULES 
@@ -927,7 +927,7 @@ int ring_parser_stmt ( Parser *pParser )
 				}
 			}
 			/* OFF */
-			if ( ring_parser_iskeyword(pParser,K_OFF) || ring_parser_iskeyword(pParser,K_END) ) {
+			if ( ring_parser_iskeyword(pParser,K_OFF) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 				ring_parser_nexttoken(pParser);
 				/* Generate Code */
 				nMark1 = ring_parser_icg_newlabel(pParser);
