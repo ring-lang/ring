@@ -60,7 +60,7 @@ if not found ----> Runtime Error
 if found  ----> Check if we can do optimization to avoid 
 searching next time (Cache / Pointers for performance).
 
-Conflict between global variables and Class Attributes
+Conflict between Global Variables and Class Attributes
 ======================================================
 
 Look at this example:
@@ -138,8 +138,8 @@ So what is the best solution to this conflict?
 
 In practice i do both of them.
 
-conflict between class attribute and local variable 
-===================================================
+Conflict between Class Attributes and Local Variables
+=====================================================
 
 This conflict may happen when we access the object using braces
 
