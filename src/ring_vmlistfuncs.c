@@ -336,6 +336,10 @@ void ring_vmlib_sort ( void *pPointer )
 			}
 			if ( ring_vm_oop_isobject(pList3) ) {
 				nPos = ring_list_findstring(ring_list_getlist(pList3,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
+				if ( nPos == 0 ) {
+					RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
+					return ;
+				}
 				pList3 = ring_list_getlist(pList3,RING_OBJECT_OBJECTDATA) ;
 				pList3 = ring_list_getlist(pList3,nPos) ;
 				if ( ring_list_isstring(pList3,RING_VAR_VALUE) ) {
