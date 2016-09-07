@@ -153,3 +153,76 @@ or remember the for loop in other languages
 	for(x=0 ; x<nMax ; x++ )
 
 You will use the < operator !
+
+
+Why should a search of global names be made while defining the class attributes?
+================================================================================
+
+The question is why we don't avoid conflicts with global variable names when we
+define the class attributes ?
+
+At first remember that using the optional $ mark in the global variables names solve
+the problem. Also using the Main function and avoiding global variables may help.
+
+The Answer:
+
+Ring is a dynamic language
+
+We can in the run-time determine the class attributes (Add/Remove) 
+
+We can execute (any code) while defining the class attributes
+
+Example (1)
+
+.. code-block:: none
+
+	oPerson = new Person
+	Class Person
+	   See "Welcome to the Ring language"
+
+Example (2)
+
+Customize attributes based on global variable value
+
+.. code-block:: none
+
+	$debug = true
+	oPerson = new Person
+	see oPerson
+	Class Person
+	    if $debug  date=date()  time=time() ok
+
+In the previous example when we have the $debug flag set to true, we will add the Date and Time
+attributes to the object state.
+
+Example (3)
+
+Store the object index based on global variable
+
+.. code-block:: none
+
+	$ObjectsCount = 0
+	oPerson = new Person
+	see oPerson
+	oPerson2 = new Person
+	see oPerson2
+	Class Person
+	      $ObjectsCount++
+	      nIndex = $ObjectsCount
+
+Output:
+
+.. code-block:: none
+
+	nindex: 1.000000
+	nindex: 2.000000
+
+Common Example: 
+
+* Connect to the database then get table columns.
+
+* Create class attributes based on the column names.
+
+* Later when you modify the database - you may don't need to modify your code.
+
+It's flexibility but remember that power comes with great responsibility.
