@@ -219,7 +219,7 @@ Output:
 
 Common Example: 
 
-* Connect to the database then get table columns.
+* Connect to the database then get table columns (Using global Variable/Object).
 
 * Create class attributes based on the column names.
 
