@@ -34,7 +34,7 @@ Type: List *
 pList, *pList2, *pList3
 Type: int
 x,nParaCount,nColumn,nPos
-Type: const char *
+Type: char *
 cAttribute
 ring_vmlib_binarysearch
 Type: List *

@@ -258,7 +258,7 @@ void ring_vmlib_sort ( void *pPointer )
 {
 	List *pList, *pList2, *pList3  ;
 	int x,nParaCount,nColumn,nPos  ;
-	const char *cAttribute  ;
+	char *cAttribute  ;
 	nParaCount = RING_API_PARACOUNT ;
 	if ( ! ( (nParaCount >= 1) && (nParaCount <= 3) ) ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -329,6 +329,7 @@ void ring_vmlib_sort ( void *pPointer )
 		else if ( (nParaCount == 3) && RING_API_ISNUMBER(2) && ring_list_islist(pList,1) && RING_API_ISSTRING(3) ) {
 			nColumn = RING_API_GETNUMBER(2) ;
 			cAttribute = RING_API_GETSTRING(3) ;
+			ring_string_lower(cAttribute);
 			pList3 = ring_list_getlist(pList,1);
 			if ( nColumn > 1 ) {
 				pList3 = ring_list_getlist(pList3,nColumn);
