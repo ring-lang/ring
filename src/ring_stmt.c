@@ -335,7 +335,7 @@ int ring_parser_stmt ( Parser *pParser )
 					if ( ring_parser_iskeyword(pParser,K_TO) ) {
 						ring_parser_nexttoken(pParser);
 						pParser->nAssignmentFlag = 0 ;
-						if ( ring_parser_expr(pParser) ) {
+						if ( ring_parser_csexpr(pParser) ) {
 							pParser->nAssignmentFlag = 1 ;
 							/* Generate Code */
 							if ( (ring_parser_icg_getlastoperation(pParser) == ICO_PUSHN) && (ring_parser_icg_newlabel(pParser) == (nMark1+2)) ) {
@@ -369,7 +369,7 @@ int ring_parser_stmt ( Parser *pParser )
 									break ;
 								}
 							}
-							if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) ) {
+							if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 								/* Generate Code */
 								nMark3 = ring_parser_icg_newlabel(pParser);
 								/* Increment Jump */
@@ -433,7 +433,7 @@ int ring_parser_stmt ( Parser *pParser )
 				nStart = ring_parser_icg_instructionscount(pParser) + 1 ;
 				ring_parser_nexttoken(pParser);
 				pParser->nAssignmentFlag = 0 ;
-				if ( ring_parser_expr(pParser) ) {
+				if ( ring_parser_csexpr(pParser) ) {
 					pParser->nAssignmentFlag = 1 ;
 					/* Generate Code */
 					nEnd = ring_parser_icg_instructionscount(pParser) ;
@@ -472,7 +472,7 @@ int ring_parser_stmt ( Parser *pParser )
 							break ;
 						}
 					}
-					if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) ) {
+					if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 						ring_parser_nexttoken(pParser);
 						/* Generate Code */
 						nMark3 = ring_parser_icg_newlabel(pParser);
