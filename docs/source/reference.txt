@@ -186,19 +186,19 @@ Statement ---> 'see' <Expr>
 
 Statement ---> 'give' <Identifier>
 
-Statement ---> 'if' <Expr> {statement} [ {'but' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'
+Statement ---> 'if' <Expr> ['{'] {statement} [ {'but'|'elseif' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'|'end'|'}'
 
-Statement ---> 'Switch' <Expr> { 'on' <Expr> {statement} } ['other' {Statement} ]  'off'
+Statement ---> 'Switch' <Expr> ['{'] { 'on' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'
 
-Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] {Statement} 'next'
+Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] ['{'] {Statement} 'next'|'end'|'}'
 
-Statement ---> 'for' <Identifier> 'in' <Expr> {statement} [ 'step' <Expr> ] 'next'
+Statement ---> 'for' <Identifier> 'in' <Expr>  [ 'step' <Expr> ] ['{'] {statement} 'next'|'end'|'}'
 
-Statement ---> 'while' <Expr> {statement} 'end'
+Statement ---> 'while' <Expr> ['{'] {statement} 'end'|'}'
 
 Statement ---> 'do' {statement} 'again' <Expr> 
 
-Statement ---> 'try' {statement} 'catch' {statement} 'done'
+Statement ---> 'try' {statement} ['{'] 'catch' {statement} 'done'|'end'|'}'
 
 Statement ---> 'return' <Expr>
 
