@@ -169,7 +169,8 @@ Output:
 Using the 'end' keyword in different control structures
 =======================================================
 
-We can use the 'end' keyword to close differnt control structures
+We can use the 'end' keyword to close different control structures
+
 * If statement
 * For loop
 * Switch 
@@ -226,7 +227,8 @@ Using braces to start and end different control structures
 ==========================================================
 
 
-We can use braces { } to start and end differnt control structures
+We can use braces { } to start and end different control structures
+
 * If statement
 * For loop
 * Switch 
