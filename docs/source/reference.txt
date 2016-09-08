@@ -8,6 +8,7 @@ In this chapter we will learn about
 * Language Functions
 * Compiler Errors
 * Runtime Errors
+* Language Grammar
 
 Language Keywords
 =================
@@ -162,3 +163,15 @@ Runtime Errors
 * Error (R32) : The CALL command expect a variable contains string!
 * Error (R33) : Bad decimals number (correct range >= 0 and <=14) !
 * Error (R34) : Variable is required for the assignment operation
+
+
+Language Grammar
+================
+
+Program ---> {statement}
+
+Statement ---> 'class' <identifier> [ 'from' <Identifier> ]
+
+Statement ---> 'func' <identifier> [ParaList]
+
+
