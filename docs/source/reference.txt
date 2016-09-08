@@ -190,6 +190,13 @@ Statement ---> 'for' <Identifier> '=' <Expr> {Statement} 'next'
 
 Statement ---> 'for' <Identifier> 'in' <Expr> {statement} 'next'
 
+Statement ---> 'if' <Expr> {statement} 'ok'
+
+Statement ---> 'while' <Expr> {statement} 'end'
+
+Statement ---> 'do' {statement} 'again' <Expr> 
+
+
 
 
 Statement ---> 'For'
