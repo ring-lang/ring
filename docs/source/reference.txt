@@ -188,4 +188,8 @@ Statement ---> 'give' <Identifier>
 
 Statement ---> 'for' <Identifier> '=' <Expr> {Statement} 'next'
 
+Statement ---> 'for' <Identifier> 'in' <Expr> {statement} 'next'
+
+
+
 Statement ---> 'For'
