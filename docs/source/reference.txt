@@ -216,4 +216,6 @@ ParaList ---> epslion
 
 ParaList ---> ['('] <Identifier> { ',' <Identifier> } [')']
 
+List ---> '[' [ <Expr> { ',' <Expr> } ] ']'
+
 
