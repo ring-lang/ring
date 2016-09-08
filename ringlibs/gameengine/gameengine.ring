@@ -544,10 +544,14 @@ Class Map from Sprite
 
 	func getcol x1,y1
 		x2 = ceil(((-1*x) + x1)/blockwidth)
-		x2 = min(x2, len(aMap[1]) )
+		if x2 > len(aMap[1]) 
+			x2 = len(aMap[1])
+		ok
 		return x2
 		
 	func getrow x1,y1
 		y2 = ceil(((-1*y) + y1)/blockheight)
-		y2 = min(y2, len(aMap) )
+		if y2 > len(aMap) 
+			x2 = len(aMap)
+		ok
 		return y2
