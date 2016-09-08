@@ -180,3 +180,7 @@ Statement ---> 'Import' <Identifier> { '.' <Identifier> }
 
 Statement ---> 'Private'
 
+Statement ---> 'Load' Literal
+
+
+
