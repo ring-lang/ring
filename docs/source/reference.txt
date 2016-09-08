@@ -186,27 +186,27 @@ Statement ---> 'see' <Expr>
 
 Statement ---> 'give' <Identifier>
 
+Statement ---> 'if' <Expr> {statement} 'ok'
+
+Statement ---> 'Switch' <Expr> { 'on' <Expr> {statement} } 'off'
+
 Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] {Statement} 'next'
 
 Statement ---> 'for' <Identifier> 'in' <Expr> {statement} [ 'step' <Expr> ] 'next'
-
-Statement ---> 'if' <Expr> {statement} 'ok'
 
 Statement ---> 'while' <Expr> {statement} 'end'
 
 Statement ---> 'do' {statement} 'again' <Expr> 
 
-Statement ---> 'return' <Expr>
-
 Statement ---> 'try' {statement} 'catch' {statement} 'done'
+
+Statement ---> 'return' <Expr>
 
 Statement ---> 'bye'
 
 Statement ---> 'exit'
 
 Statement ---> 'loop'
-
-Statement ---> 'Switch' <Expr> { 'on' <Expr> {statement} } 'off'
 
 Statement ---> <Expr>
 
@@ -218,4 +218,4 @@ ParaList ---> ['('] <Identifier> { ',' <Identifier> } [')']
 
 List ---> '[' [ <Expr> { ',' <Expr> } ] ']'
 
-
+Expr ---> <LogicNot> { 'and'|'or' <LogicNot> }
