@@ -254,6 +254,10 @@ func gl_mouse_x
 func gl_mouse_y  
 	return sdl_get_sdl_event_motion_y(SDL_event)
 
+func gl_draw_filled_rectangle(x1, y1,x2, y2, color)
+
+func gl_draw_line(x1,y1,x2,y2,color,thickness)
+
 # Private Functions - Not used by the Game Engine  
 
 func gl_delay x
@@ -270,3 +274,4 @@ func gl_texture_width tex
 func gl_texture_height tex
 	SDL_QueryTexture(tex,"sdl_v1", "sdl_v2","sdl_v3","sdl_v4")
 	return sdl_v4
+

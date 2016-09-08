@@ -191,3 +191,9 @@ func gl_mouse_x
 
 func gl_mouse_y 
 	return  al_get_allegro_event_mouse_y(GL_SYS_Event)
+
+func gl_draw_filled_rectangle(x1, y1,x2, y2, color)
+	al_draw_filled_rectangle(x1,y1,x2,y2,color)
+
+func gl_draw_line(x1,y1,x2,y2,color,thickness)
+	al_draw_line(x1,y1,x2,y2,color,thickness)
