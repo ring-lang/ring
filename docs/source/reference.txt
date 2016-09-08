@@ -186,7 +186,7 @@ Statement ---> 'see' <Expr>
 
 Statement ---> 'give' <Identifier>
 
-Statement ---> 'if' <Expr> {statement} 'ok'
+Statement ---> 'if' <Expr> {statement} [ {'but' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'
 
 Statement ---> 'Switch' <Expr> { 'on' <Expr> {statement} } 'off'
 
@@ -215,8 +215,6 @@ Statement ---> epslion
 ParaList ---> epslion
 
 ParaList ---> ['('] <Identifier> { ',' <Identifier> } [')']
-
-List ---> '[' [ <Expr> { ',' <Expr> } ] ']'
 
 Expr ---> <LogicNot> { 'and'|'or' <LogicNot> }
 
@@ -250,7 +248,7 @@ Factor ---> '-' <Expr>
 
 Factor ---> '(' <Expr> ')'
 
-Factor ---> List
+Factor ---> <List>
 
 Factor ---> 'new' <Identifier>
 
@@ -258,15 +256,15 @@ Factor ---> <AnonymousFunction>
 
 Factor ---> 'call' <identifier> '(' <Parameters> ')'
 
+List ---> '[' [ <Expr> { ',' <Expr> } ] ']'
+
 Mixer ---> { '.' <Identifier> }
 
 Mixer ---> '[' <Expr> ']'
 
-Mixer ---> '(' [ <Expr> [ { ',' <Expr> }] ] 
+Mixer ---> '(' [ <Expr> [ { ',' <Expr> }] ]  ')'
 
 Mixer ---> '{' {Statement} '}'
 
-
-
-
+AnonymousFunction ---> 'func' [<ParaList>] '{' {Statement} '}'
 
