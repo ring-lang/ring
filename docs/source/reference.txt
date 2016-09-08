@@ -219,3 +219,26 @@ ParaList ---> ['('] <Identifier> { ',' <Identifier> } [')']
 List ---> '[' [ <Expr> { ',' <Expr> } ] ']'
 
 Expr ---> <LogicNot> { 'and'|'or' <LogicNot> }
+
+LogicNot --> ['not'] <EqualOrNot> 
+
+EqualOrNot --> [ '='|'!=' ] <Compare>
+
+Compare ---> <BitOrXor> [ { '<' | '>' | '<=' | '>=' <BitOrXor> } ]
+
+BitOrXor ---> <BitAnd> [ { '|' | '^' <BitAnd> } ]
+
+BitAnd ---> <BitShift> [ { '&' <BitShift> } ]
+
+BitShift ---> <Arithmetic> [ { '<<' | '>>' <Arithmetic> } ]
+
+Arithmetic ---> <Term> [ { '+' | '-'  <Term>  } ]
+
+Term ---> <Range> [ { '*' | '/' | '%' <Range> } ]
+
+Range ---> <Factor> [ ':' <Factor> ]
+
+
+
+
+
