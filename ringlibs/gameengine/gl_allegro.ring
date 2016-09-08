@@ -59,6 +59,7 @@ func gl_game_start
 	al_install_audio()
 	al_init_acodec_addon()
 	al_reserve_samples(1)
+	al_init_primitives_addon()
 
 	# colors
 	GE_COLOR_WHITE = al_map_rgb(255,255,255)

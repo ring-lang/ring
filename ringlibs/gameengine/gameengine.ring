@@ -75,7 +75,7 @@ class game from gamebase
 	nBracesCount = 0
 
 	# objects
-	sprite text progress animate sound map
+	sprite text progress animate sound map object
 
 	startup()
 
@@ -268,6 +268,9 @@ class game from gamebase
 		addobj(new map)
 		return aobjects[len(aobjects)]
 		
+	func getobject
+		addobj(new gameobject)
+		return aobjects[len(aobjects)]
 
 class gameobject from gamebase
 	enabled = true
@@ -279,17 +282,21 @@ class gameobject from gamebase
 	finger = ""
 	state = ""
 	draw = ""
+
 	func init
+
 	func draw oGame
 		if not draw = ""				 		
-				call draw(oGame,oSelf) 
+				call draw(oGame,Self) 
 		ok
+
 	func animate oGame,oSelf
 		if not enabled return ok
 		if not state = ""				 		
 				call state(oGame,oSelf) 
 		ok
 		if not animate return ok
+
 	func keyboard oGame,nkey
 		if not enabled return ok
 		if not keypress = ""			
