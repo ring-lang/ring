@@ -170,8 +170,10 @@ Language Grammar
 
 Program ---> {statement}
 
-Statement ---> 'class' <identifier> [ 'from' <Identifier> ]
+Statement ---> 'package' <Identifier> { '.' <Identifier> }
 
-Statement ---> 'func' <identifier> [ParaList]
+Statement ---> 'class' <Identifier> [ 'from' <Identifier> ]
+
+Statement ---> 'func' <Identifier> [ParaList]
 
 
