@@ -198,6 +198,15 @@ Statement ---> 'do' {statement} 'again' <Expr>
 
 Statement ---> 'return' <Expr>
 
+Statement ---> 'try' {statement} 'catch' {statement} 'done'
+
+Statement ---> 'bye'
+
+Statement ---> 'exit'
+
+Statement ---> 'loop'
+
+Statement ---> 'Switch' <Expr> { 'on' <Expr> {statement} } 'off'
 
 
 
