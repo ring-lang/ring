@@ -1,6 +1,6 @@
-==================
-Control Structures
-==================
+================================
+Control Structures - First Style
+================================
 
 In this chapter we are going to learn about the control structures provided by
 the Ring programming language.

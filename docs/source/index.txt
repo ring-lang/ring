@@ -17,8 +17,9 @@ Contents:
    Getting Started <getting_started>
    Variables <variables>
    Operators <operators>
-   Control Structures <controlstructures>
+   Control Structures - First Style <controlstructures>
    Control Structures - Second Style <controlstructures2>
+   Control Structures - Third Style <controlstructures3>
    Getting Input <getinput>
    Functions <functions>
    Lists <lists>

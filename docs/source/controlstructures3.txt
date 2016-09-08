@@ -1,8 +1,8 @@
-=================================
-Control Structures - Second Style
-=================================
+================================
+Control Structures - Third Style
+================================
 
-In this chapter we are going to learn about the second style of control structures
+In this chapter we are going to learn about the third style of control structures
 provided by the Ring programming language.
 
 .. index:: 
@@ -18,13 +18,13 @@ Syntax:
 
 .. code-block:: none
 
-	if Expression
+	if Expression {
 		Block of statements
 	elseif Expression
 		Block of statements
 	else
 		Block of statements
-	end
+	}
 
 * Switch Statement
 
@@ -32,12 +32,12 @@ Syntax:
 
 .. code-block:: none
 
-	switch Expression
+	switch Expression {
 	on Expression
 		Block of statements
 	else
 		Block of statements
-	end		
+	}	
 
 .. index:: 
 	pair: Control Structures; Looping
@@ -51,9 +51,9 @@ Syntax:
 
 .. code-block:: none
 
-	while Expression
+	while Expression {
 		Block of statements
-	end
+	}
 
 
 * For Loop
@@ -62,9 +62,9 @@ Syntax:
 
 .. code-block:: none
 
-	for identifier=expression to expression [step expression]
+	for identifier=expression to expression [step expression] {
 		Block of statements
-	end
+	}
 
 * For in Loop
 
@@ -72,9 +72,9 @@ Syntax:
 
 .. code-block:: none
 
-	for identifier in List/String  [step expression]
+	for identifier in List/String  [step expression] {
 		Block of statements
-	end
+	}
 
 
 Exceptions
@@ -82,8 +82,8 @@ Exceptions
 
 .. code-block:: none
 
-	try
+	try {
 		Block of statements
 	catch
 		Block of statements
-	end
+	}
