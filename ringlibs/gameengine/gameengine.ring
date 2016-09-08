@@ -274,13 +274,39 @@ class gameobject from gamebase
 	x=0 y=0	 width=0 height=0 nindex = 0
 	animate=true	move=false Scaled=false
 	temp = null
+	keypress = ""
+	mouse = ""
+	finger = ""
+	state = ""
 	func init
 	func draw
 	func animate
 	func delete
 	func keyboard oGame,nkey
+		if not enabled return ok
+		if not keypress = ""			
+			call keypress(oGame,self,nkey)
+		ok
+		if not move return ok
+		switch nkey
+		on key_up	y-=10
+		on key_down	y+=10
+		on key_left	x-=10
+		on key_right	x+=10
+		off
+
 	func mouse oGame,nType,aMouseList
+		if not enabled return ok
+		if not mouse = ""			
+			call mouse(oGame,self,nType,aMouseList)
+		ok
+
 	func finger oGame,nType
+		if not enabled return ok
+		if not finger = ""			
+			call finger(oGame,self,nType)
+		ok
+
 	func rgb r,g,b
 		return gl_map_rgb(r,g,b)
 
@@ -290,10 +316,6 @@ class sprite from gameobject
 	ncounter = 0
 	r = 0
 	cimagefile = ""
-	keypress = ""
-	mouse = ""
-	finger = ""
-	state = ""
 	type = 0
 	transparent = false	transparentdone = false
 	transparentcolor = GE_COLOR_WHITE
@@ -356,6 +378,18 @@ class sprite from gameobject
 			else
 				oGame.remove(nindex)
 			ok
+		but direction = ge_direction_inchorizontal
+			if x < point				
+				x+=nstep
+			else
+				oGame.remove(nindex)
+			ok
+		but direction = ge_direction_dechorizontal
+			if x > point				
+				x-=nstep
+			else
+				oGame.remove(nindex)
+			ok
 		but direction = ge_direction_random
 			if ncounter = 0
 				r = random(7)
@@ -377,31 +411,6 @@ class sprite from gameobject
 			on 6	x+=nstep y-=nstep
 			on 7	x-=nstep y+=nstep
 			off
-		ok
-
-	func keyboard oGame,nkey
-		if not enabled return ok
-		if not keypress = ""			
-			call keypress(oGame,self,nkey)
-		ok
-		if not move return ok
-		switch nkey
-		on key_up	y-=10
-		on key_down	y+=10
-		on key_left	x-=10
-		on key_right	x+=10
-		off
-
-	func mouse oGame,nType,aMouseList
-		if not enabled return ok
-		if not mouse = ""			
-			call mouse(oGame,self,nType,aMouseList)
-		ok
-
-	func finger oGame,nType
-		if not enabled return ok
-		if not finger = ""			
-			call finger(oGame,self,nType)
 		ok
 
 	func delete
