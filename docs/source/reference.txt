@@ -188,7 +188,7 @@ Statement ---> 'give' <Identifier>
 
 Statement ---> 'if' <Expr> {statement} [ {'but' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'
 
-Statement ---> 'Switch' <Expr> { 'on' <Expr> {statement} } 'off'
+Statement ---> 'Switch' <Expr> { 'on' <Expr> {statement} } ['other' {Statement} ]  'off'
 
 Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] {Statement} 'next'
 
@@ -214,9 +214,9 @@ Statement ---> epslion
 
 ParaList ---> epslion
 
-ParaList ---> ['('] <Identifier> { ',' <Identifier> } [')']
+ParaList ---> ['('] <Identifier> [{ ',' <Identifier> }] [')']
 
-Expr ---> <LogicNot> { 'and'|'or' <LogicNot> }
+Expr ---> <LogicNot> [{ 'and'|'or' <LogicNot> }]
 
 LogicNot --> ['not'] <EqualOrNot> 
 
