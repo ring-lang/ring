@@ -177,3 +177,6 @@ Statement ---> 'class' <Identifier> [ 'from' <Identifier> ]
 Statement ---> 'func' <Identifier> [ParaList]
 
 Statement ---> 'Import' <Identifier> { '.' <Identifier> }
+
+Statement ---> 'Private'
+
