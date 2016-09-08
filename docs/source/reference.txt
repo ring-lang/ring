@@ -238,6 +238,34 @@ Term ---> <Range> [ { '*' | '/' | '%' <Range> } ]
 
 Range ---> <Factor> [ ':' <Factor> ]
 
+Factor ---> <Identifier> [ {Mixer} ] [ '=' <Expr> ]
+
+Factor ---> <Number>
+
+Factor ---> <Literal>
+
+Factor ---> ':' <Identifier>
+
+Factor ---> '-' <Expr>
+
+Factor ---> '(' <Expr> ')'
+
+Factor ---> List
+
+Factor ---> 'new' <Identifier>
+
+Factor ---> <AnonymousFunction>
+
+Factor ---> 'call' <identifier> '(' <Parameters> ')'
+
+Mixer ---> { '.' <Identifier> }
+
+Mixer ---> '[' <Expr> ']'
+
+Mixer ---> '(' [ <Expr> [ { ',' <Expr> }] ] 
+
+Mixer ---> '{' {Statement} '}'
+
 
 
 
