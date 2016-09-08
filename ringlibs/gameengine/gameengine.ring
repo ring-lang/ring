@@ -278,10 +278,18 @@ class gameobject from gamebase
 	mouse = ""
 	finger = ""
 	state = ""
+	draw = ""
 	func init
-	func draw
-	func animate
-	func delete
+	func draw oGame
+		if not draw = ""				 		
+				call draw(oGame,oSelf) 
+		ok
+	func animate oGame,oSelf
+		if not enabled return ok
+		if not state = ""				 		
+				call state(oGame,oSelf) 
+		ok
+		if not animate return ok
 	func keyboard oGame,nkey
 		if not enabled return ok
 		if not keypress = ""			
@@ -309,6 +317,9 @@ class gameobject from gamebase
 
 	func rgb r,g,b
 		return gl_map_rgb(r,g,b)
+
+	func delete
+
 
 class sprite from gameobject
 	image	point=400
