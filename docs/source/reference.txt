@@ -176,11 +176,16 @@ Statement ---> 'class' <Identifier> [ 'from' <Identifier> ]
 
 Statement ---> 'func' <Identifier> [ParaList]
 
-Statement ---> 'Import' <Identifier> { '.' <Identifier> }
+Statement ---> 'import' <Identifier> { '.' <Identifier> }
 
-Statement ---> 'Private'
+Statement ---> 'private'
 
-Statement ---> 'Load' <Literal>
+Statement ---> 'load' <Literal>
 
-Statement ---> 'See' <Expr>
+Statement ---> 'see' <Expr>
 
+Statement ---> 'give' <Identifier>
+
+Statement ---> 'for' <Identifier> '=' <Expr> {Statement} 'next'
+
+Statement ---> 'For'
