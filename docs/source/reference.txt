@@ -186,9 +186,9 @@ Statement ---> 'see' <Expr>
 
 Statement ---> 'give' <Identifier>
 
-Statement ---> 'for' <Identifier> '=' <Expr> {Statement} 'next'
+Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] {Statement} 'next'
 
-Statement ---> 'for' <Identifier> 'in' <Expr> {statement} 'next'
+Statement ---> 'for' <Identifier> 'in' <Expr> {statement} [ 'step' <Expr> ] 'next'
 
 Statement ---> 'if' <Expr> {statement} 'ok'
 
@@ -211,4 +211,9 @@ Statement ---> 'Switch' <Expr> { 'on' <Expr> {statement} } 'off'
 Statement ---> <Expr>
 
 Statement ---> epslion
+
+ParaList ---> epslion
+
+ParaList ---> ['('] <Identifier> { ',' <Identifier> } [')']
+
 
