@@ -14,15 +14,17 @@ In this chapter we will learn about
 Language Keywords
 =================
 
-Keywords Count : 41
+Keywords Count : 43
 
 * again
 * and
 * but
 * bye
 * call
+* case
 * catch
 * class
+* def
 * do
 * done
 * else
@@ -177,7 +179,7 @@ Statement ---> 'package' <Identifier> { '.' <Identifier> }
 
 Statement ---> 'class' <Identifier> [ 'from' <Identifier> ]
 
-Statement ---> 'func' <Identifier> [ParaList]
+Statement ---> 'func'|'def' <Identifier> [ParaList]
 
 Statement ---> 'import' <Identifier> { '.' <Identifier> }
 
@@ -191,7 +193,7 @@ Statement ---> 'give'|'get' <Identifier>
 
 Statement ---> 'if' <Expr> ['{'] {statement} [ {'but'|'elseif' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'|'end'|'}'
 
-Statement ---> 'Switch' <Expr> ['{'] { 'on' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'
+Statement ---> 'Switch' <Expr> ['{'] { 'on'|'case' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'
 
 Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] ['{'] {Statement} 'next'|'end'|'}'
 
