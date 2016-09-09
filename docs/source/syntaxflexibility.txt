@@ -295,3 +295,49 @@ Example:
 	put "Hello World" + nl
 	put "Enter Your Name ? " Get Name
 	Put "Hello " + Name
+
+Using 'case' as 'on' in switch statements
+=========================================
+
+We can replace the 'on' keyword with 'case' keyword in the switch statement.
+
+Example (1) :
+
+.. code-block:: none
+
+	for x=1 to 10 
+		switch x 
+		case 1 put "one" + nl
+		case 2 put "two" + nl
+		case 3 put "thre" + nl
+		else put "else" + nl
+		end
+	end
+
+Example (2) :
+
+.. code-block:: none
+
+	for x=1 to 10 {
+		switch x {
+		case 1 put "one" + nl
+		case 2 put "two" + nl
+		case 3 put "thre" + nl
+		else put "else" + nl
+		}
+	}
+
+
+Using 'def' as 'func' in functions/methods definition
+=====================================================
+
+We can use the 'def' keyword as the 'func' keyword to define functions and methods.
+
+Example:
+
+.. code-block:: none
+
+	one() two()
+
+	def one put "one" + nl
+	def two put "two" + nl
