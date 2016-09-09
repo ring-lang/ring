@@ -14,7 +14,7 @@ In this chapter we will learn about
 Language Keywords
 =================
 
-Keywords Count : 39
+Keywords Count : 41
 
 * again
 * and
@@ -32,6 +32,7 @@ Keywords Count : 39
 * for
 * from
 * func
+* get
 * give
 * if
 * import
@@ -48,6 +49,7 @@ Keywords Count : 39
 * other
 * package
 * private
+* put
 * return
 * see
 * step
@@ -183,9 +185,9 @@ Statement ---> 'private'
 
 Statement ---> 'load' <Literal>
 
-Statement ---> 'see' <Expr>
+Statement ---> 'see'|'put' <Expr>
 
-Statement ---> 'give' <Identifier>
+Statement ---> 'give'|'get' <Identifier>
 
 Statement ---> 'if' <Expr> ['{'] {statement} [ {'but'|'elseif' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'|'end'|'}'
 
