@@ -210,3 +210,13 @@ Puts( DirExists("C:\ring") )
 # Create Directory
 puts("create Directory : myfolder")
 makedir("myfolder")
+
+# Test GetString() and GetNumber()
+See "Test getstring() and getnumber()"+nl
+See "Enter your name ?" 
+cName = getstring()
+see "Your name is : " + cName + nl
+See "Enter your Age? "
+nAge = getnumber()
+nAge++
+See "Your age after 1 year : " + nAge + nl
