@@ -16,11 +16,11 @@ Func Puts vvalue
 	see nl
 
 /*
-	Function Name	: printf
+	Function Name	: print
 	Usage		: print string - support \n \t \r \\
 	Parameters	: the string
 */
-Func Printf vValue
+Func Print vValue
 	for t = 1 to len(vValue)
 		switch vValue[t]
 		on "\"
