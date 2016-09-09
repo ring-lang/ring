@@ -271,7 +271,7 @@ Mixer ---> '(' [ <Expr> [ { ',' <Expr> }] ]  ')'
 
 Mixer ---> '{' {Statement} '}'
 
-AnonymousFunction ---> 'func' [<ParaList>] '{' {Statement} '}'
+AnonymousFunction ---> 'func'|'def'| [<ParaList>] '{' {Statement} '}'
 
 
 Virtual Machine (VM) Instructions
