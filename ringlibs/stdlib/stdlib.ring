@@ -56,6 +56,15 @@ Func Print vValue
 
 
 /*
+	Function Name	: getstring
+	Usage		: get input using the keyboard
+	Parameters	: no Parameters
+*/
+Func GetString
+	Give _temp_get_string
+	return _temp_get_string
+
+/*
 	Function Name	: apppath
 	Usage		: get the path of the application folder
 	Parameters	: no Parameters
