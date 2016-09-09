@@ -311,7 +311,7 @@ Example:
 CurrentDir() 
 ============
 
-Return the path of the currect directory
+Return the path of the current directory
 
 Syntax:
 
