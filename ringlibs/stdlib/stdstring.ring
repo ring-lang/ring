@@ -39,7 +39,7 @@ func string_class_test
 	See "the - position : " + oString.pos("the") + nl
 	oString = oString.getfrom(oString.pos("Ring"))
 	oString.println()
-	oString.get(1,4).println()
+	oString.mid(1,4).println()
 	oString = oString.replace("Ring","***Ring***",true)
 	oString.println()
 	oString = oString.replace("ring","***Ring***",false)
@@ -104,7 +104,7 @@ Class String From StdBase
 	Func tofile cFile
 		write (cFile,vValue)
 
-	Func get nPos1,nPos2
+	Func mid nPos1,nPos2
 		return new string( std_getsubstr(vValue,nPos1,nPos2) )
 
 	Func getfrom nPos1
