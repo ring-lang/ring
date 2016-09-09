@@ -935,7 +935,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		}
 	}
 	/* Factor --> Anonymous Function */
-	if ( ring_parser_iskeyword(pParser,K_FUNC) ) {
+	if ( ring_parser_iskeyword(pParser,K_FUNC) || ring_parser_iskeyword(pParser,K_DEF) ) {
 		ring_parser_nexttoken(pParser);
 		/*
 		**  Generate Code 
