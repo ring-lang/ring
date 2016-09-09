@@ -72,7 +72,7 @@ Functions Count : 208
 	dir() download() encrypt() eval() exefilename() exefolder() exp() fabs()
 	fclose() feof() ferror() fexists() fflush() fgetc() fgetpos() fgets()
 	filename() find() floor() fopen() fputc() fputs() fread() freopen()
-	fseek() fsetpos() ftell() functions() fwrite() get() getattribute() getchar()
+	fseek() fsetpos() ftell() functions() fwrite() sysget() getattribute() getchar()
 	globals() hex() hex2str() input() insert() intvalue() isalnum() isalpha()
 	isandroid() isattribute() iscfunction() isclass() iscntrl() isdigit() 
 	isfreebsd() isfunction()  isglobal() isgraph() islinux() islist() islocal()
