@@ -15,7 +15,7 @@ func System_class_test
 	See "Test the System Class Methods" + nl
  	
 	oSystem.system("dir")
-	see oSystem.get("path") + nl
+	see oSystem.sysget("path") + nl
 	see oSystem.ismsdos() + nl
 	see oSystem.iswindows() + nl
 	see oSystem.iswindows64() + nl
@@ -34,7 +34,7 @@ Class System
 	Func system cCommand
 		std_system(cCommand)
 
-	Func get cVariable
+	Func sysget cVariable
 		return std_get(cVariable)
 
 	Func ismsdos

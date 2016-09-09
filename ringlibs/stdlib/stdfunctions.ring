@@ -237,7 +237,7 @@ Func std_system cCommand
 	system(cCommand)
 
 Func std_get cVariable
-	return get(cVariable)
+	return sysget(cVariable)
 
 Func std_ismsdos
 	return ismsdos()
