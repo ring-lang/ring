@@ -430,6 +430,8 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_addstring(pScanner->Keywords,"elseif");
 	ring_list_addstring(pScanner->Keywords,"put");
 	ring_list_addstring(pScanner->Keywords,"get");
+	ring_list_addstring(pScanner->Keywords,"case");
+	ring_list_addstring(pScanner->Keywords,"def");
 	ring_list_genhashtable(pScanner->Keywords);
 }
 
