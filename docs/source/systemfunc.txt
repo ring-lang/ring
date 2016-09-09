@@ -6,7 +6,7 @@ In this chapter we are going to learn about the system functions
 
 * System()
 
-* Get()
+* SysGet()
 
 * IsMSDOS()
 
@@ -48,7 +48,7 @@ Example:
 	System("myapp.exe") 	# Run myapp.exe
 	System("ls")		# print list of files
 
-Get() Function
+SysGet() Function
 ==============
 
 We can get environment variables using the Get() function
@@ -57,13 +57,13 @@ Syntax:
 
 .. code-block:: none
 
-	Get(cVariable)
+	SysGet(cVariable)
 
 Example:
 
 .. code-block:: none
 
-	see get("path")		# print system path information
+	see sysget("path")		# print system path information
 
 
 IsMSDOS()
