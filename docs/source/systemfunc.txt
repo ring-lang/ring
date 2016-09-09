@@ -57,7 +57,7 @@ Example:
 	System("ls")		# print list of files
 
 SysGet() Function
-==============
+=================
 
 We can get environment variables using the Get() function
 
@@ -74,8 +74,8 @@ Example:
 	see sysget("path")		# print system path information
 
 
-IsMSDOS()
-=========
+IsMSDOS() Function
+==================
 
 We can check if the operating system is MSDOS or not using the IsMSDOS() function
 
@@ -86,8 +86,8 @@ Syntax:
 	IsMSDOS() ---> Returns 1 if the operating system is MS-DOS, Returns 0 if it's not
 		       
 
-IsWindows()
-===========
+IsWindows() Function
+====================
 
 We can check if the operating system is Windows or not using the IsWindows() function
 
@@ -98,8 +98,8 @@ Syntax:
 	IsWindows() ---> Returns 1 if the operating system is Windows, Returns 0 if it's not
 
 
-IsWindows64()
-=============
+IsWindows64() Function
+======================
 
 We can check if the operating system is Windows 64bit or not using the IsWindows64() function
 
@@ -110,8 +110,8 @@ Syntax:
 	IsWindows64() ---> Returns 1 if the operating system is Windows64, Returns 0 if it's not
 
 
-IsUnix()
-========
+IsUnix() Function
+=================
 
 We can check if the operating system is Unix or not using the IsUnix() function
 
@@ -122,8 +122,8 @@ Syntax:
 	IsUnix() ---> Returns 1 if the operating system is Unix, Returns 0 if it's not
 
 
-IsMacOSX()
-==========
+IsMacOSX() Function
+===================
 
 We can check if the operating system is Mac OS X or not using the IsMacOSX() function
 
@@ -134,8 +134,8 @@ Syntax:
 	IsMacOSX() ---> Returns 1 if the operating system is Mac OS X, Returns 0 if it's not
 
 
-IsLinux()
-=========
+IsLinux() Function
+==================
 
 We can check if the operating system is Linux or not using the IsLinux() function
 
@@ -146,8 +146,8 @@ Syntax:
 	IsLinux() ---> Returns 1 if the operating system is Linux, Returns 0 if it's not
 
 
-IsFreeBSD()
-===========
+IsFreeBSD() Function
+====================
 
 We can check if the operating system is FreeBSD or not using the IsFreeBSD() function
 
@@ -158,8 +158,8 @@ Syntax:
 	IsFreeBSD() ---> Returns 1 if the operating system is FreeBSD, Returns 0 if it's not
 
 
-IsAndroid()
-===========
+IsAndroid() Function
+====================
 
 We can check if the operating system is Android or not using the IsAndroid() function
 
@@ -196,8 +196,8 @@ Output:
 	IsFreeBSD()   --> 0
 	IsAndroid()   --> 0
 
-Windowsnl()
-===========
+Windowsnl() Function
+====================
 
 We can get the windows new line string using the Windowsnl() function.
 
@@ -308,8 +308,8 @@ Example:
 		see "I'm a sub file in a program" + nl
 	ok
 
-CurrentDir() 
-============
+CurrentDir() Function
+=====================
 
 Return the path of the current directory
 
@@ -319,8 +319,8 @@ Syntax:
 
 	CurrenDir() ---> String contains the path of the currect directory 
 
-ExeFileName()
-=============
+ExeFileName() Function
+======================
 
 Return the Ring executable file name
 
@@ -330,8 +330,8 @@ Syntax:
 
 	exefilename() ---> String contains the Ring executable file name
 
-ChDir()
-=======
+ChDir() Function
+================
 
 Change the current directory
 
@@ -341,8 +341,8 @@ Syntax:
 
 	ChDir(cNewPath)
 
-ExeFolder()
-===========
+ExeFolder() Function
+====================
 
 Return the Ring executable file path
 
