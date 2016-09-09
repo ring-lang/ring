@@ -216,6 +216,50 @@ Syntax:
 		Block of statements
 	}
 
+Example:
+
+.. code-block:: none
+
+	load "stdlib.ring"
+
+	aList = 1:10	# create list contains numbers from 1 to 10
+	for x in aList { print("#{x}\n") }  # print numbers from 1 to 10
+
+Example:
+
+.. code-block:: none
+
+	load "stdlib.ring"
+
+	aList = 1:10	# create list contains numbers from 1 to 10
+	# print odd items inside the list
+	for x in aList step 2 {
+		print("#{x}\n") 
+	}
+
+When we use (For in) we get items by reference.
+
+This means that we can read/edit items inside the loop.
+	
+Example:
+
+.. code-block:: none
+
+	load "stdlib.ring"
+
+	aList = 1:5	# create list contains numbers from 1 to 5
+	# replace list numbers with strings
+	for x in aList {
+		switch x {
+		case 1  x = "one"
+		case 2  x = "two"
+		case 3  x = "three"
+		case 4  x = "four"
+		case 5  x = "five"
+		}
+	}
+	print(aList)	# print the list items
+
 
 Exceptions
 ==========
