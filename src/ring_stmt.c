@@ -264,8 +264,8 @@ int ring_parser_stmt ( Parser *pParser )
 		}
 		return 0 ;
 	}
-	/* Statement --> See Expr */
-	if ( ring_parser_iskeyword(pParser,K_SEE) ) {
+	/* Statement --> See|Put Expr */
+	if ( ring_parser_iskeyword(pParser,K_SEE) | ring_parser_iskeyword(pParser,K_PUT) ) {
 		ring_parser_nexttoken(pParser);
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
@@ -279,8 +279,8 @@ int ring_parser_stmt ( Parser *pParser )
 		#endif
 		return x ;
 	}
-	/* Statement --> Give Identifier */
-	if ( ring_parser_iskeyword(pParser,K_GIVE) ) {
+	/* Statement --> Give|Get Identifier */
+	if ( ring_parser_iskeyword(pParser,K_GIVE) | ring_parser_iskeyword(pParser,K_GET) ) {
 		ring_parser_nexttoken(pParser);
 		if ( ring_parser_isidentifier(pParser) ) {
 			/* Generate Code */

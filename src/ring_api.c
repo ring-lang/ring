@@ -19,7 +19,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("len",ring_vmlib_len);
 	ring_vm_funcregister("add",ring_vmlib_add);
 	ring_vm_funcregister("del",ring_vmlib_del);
-	ring_vm_funcregister("get",ring_vmlib_get);
+	ring_vm_funcregister("sysget",ring_vmlib_get);
 	ring_vm_funcregister("clock",ring_vmlib_clock);
 	ring_vm_funcregister("lower",ring_vmlib_lower);
 	ring_vm_funcregister("upper",ring_vmlib_upper);

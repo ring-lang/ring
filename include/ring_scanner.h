@@ -62,7 +62,9 @@ typedef enum SCANNER_KEYWORD {
 	K_DO ,
 	K_AGAIN ,
 	K_CALL ,
-	K_ELSEIF 
+	K_ELSEIF ,
+	K_PUT ,
+	K_GET 
 } SCANNER_KEYWORD ;
 /* Functions */
 
