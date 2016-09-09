@@ -33,7 +33,7 @@ Syntax:
 .. code-block:: none
 
 	switch Expression {
-	on Expression
+	case Expression
 		Block of statements
 	else
 		Block of statements
