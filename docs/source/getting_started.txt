@@ -1,6 +1,6 @@
-===============
-Getting Started
-===============
+=============================
+Getting Started - First Style
+=============================
 
 .. index:: 
 	pair: Getting Started; Hello World

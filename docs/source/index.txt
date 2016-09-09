@@ -14,7 +14,8 @@ Contents:
    Introduction <introduction>
    Language Design <languagedesign>
    Building From Source Code <sourcecode>
-   Getting Started <getting_started>
+   Getting Started - First Style <getting_started>
+   Getting Started - Second Style <getting_started2>
    Variables <variables>
    Operators <operators>
    Control Structures - First Style <controlstructures>
