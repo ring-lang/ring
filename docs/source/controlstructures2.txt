@@ -59,6 +59,26 @@ Syntax:
 		Block of statements
 	end		
 
+Example:
+
+.. code-block:: none
+
+	Put " 
+		Main Menu
+		---------
+		(1) Say Hello
+		(2) About
+		(3) Exit
+
+	    " Get nOption
+
+	Switch nOption
+	Case 1 Put "Enter your name : " Get name Put "Hello " + name + nl
+	Case 2 Put "Sample : using switch statement" + nl
+	Case 3 Bye
+	Else Put "bad option..." + nl
+	End
+
 .. index:: 
 	pair: Control Structures; Looping
 
