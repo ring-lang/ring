@@ -23,7 +23,7 @@ Example:
 
 	Puts("Hello, World!")
 
-printf() function
+print() function
 =================
 
 print string - support \\n,\\t and \\r
@@ -34,7 +34,7 @@ Syntax:
 
 .. code-block:: none
 
-	printf(string)
+	print(string)
 
 Example:
 
@@ -42,9 +42,29 @@ Example:
 
 	Load "stdlib.ring"
 
-	printf("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
+	print("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
 	x=10 y=20
-	printf("\nx value = #{x} , y value = #{y} \n")
+	print("\nx value = #{x} , y value = #{y} \n")
+
+getstring() function
+====================
+
+Get input from the keyboard - return value as string
+
+.. code-block:: none
+
+	getstring() ---> string
+
+
+getnumber() function
+====================
+
+Get input from the keyboard - return value as number
+
+.. code-block:: none
+
+	getnumber() ---> number
+
 
 
 apppath() function
