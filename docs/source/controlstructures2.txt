@@ -136,6 +136,44 @@ Syntax:
 		Block of statements
 	end
 
+Example:
+
+.. code-block:: none
+
+	# print numbers from 1 to 10
+	for x = 1 to 10	 put x + nl  end
+
+Example:
+
+.. code-block:: none
+
+	# Dynamic loop
+	Put "Start : " get nStart       
+	Put "End   : " get nEnd
+	Put "Step  : " get nStep
+	For x = nStart to nEnd Step nStep
+		Put x + nl
+	End
+
+Example:
+
+.. code-block:: none
+
+	# print even numbers from 0 to 10
+	for x = 0 to 10 step 2
+		Put x + nl
+	end
+
+Example:
+
+.. code-block:: none
+
+	# print even numbers from 10 to 0
+	for x = 10 to 0 step -2
+		put x + nl
+	end
+
+
 * For in Loop
 
 Syntax:
