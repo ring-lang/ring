@@ -839,7 +839,7 @@ Methods:
 Method						Description/Output
 ===========================	======================================================================
 system()					Execute system commands
-get()						Get environment variables 
+sysget()					Get environment variables 
 ismsdos()					Check if the operating system is MSDOS or not
 iswindows()					Check if the operating system is Windows or not
 iswindows64()				Check if the operating system is Windows 64bit or not 
@@ -864,7 +864,7 @@ example:
 	See "Test the System Class Methods" + nl
  	
 	oSystem.system("dir")
-	see oSystem.get("path") + nl
+	see oSystem.sysget("path") + nl
 	see oSystem.ismsdos() + nl
 	see oSystem.iswindows() + nl
 	see oSystem.iswindows64() + nl
