@@ -30,6 +30,14 @@ In this chapter we are going to learn about the system functions
 
 * Get Active Source File Name
 
+* CurrentDir()
+
+* ExeFileName()
+
+* ChDir()
+
+* ExeFolder()
+
 System() Function
 =================
 
@@ -300,3 +308,46 @@ Example:
 		see "I'm a sub file in a program" + nl
 	ok
 
+CurrentDir() 
+============
+
+Return the path of the currect directory
+
+Syntax:
+
+.. code-block:: none
+
+	CurrenDir() ---> String contains the path of the currect directory 
+
+ExeFileName()
+=============
+
+Return the Ring executable file name
+
+Syntax:
+
+.. code-block:: none
+
+	exefilename() ---> String contains the Ring executable file name
+
+ChDir()
+=======
+
+Change the current directory
+
+Syntax:
+
+.. code-block:: none
+
+	ChDir(cNewPath)
+
+ExeFolder()
+===========
+
+Return the Ring executable file path
+
+Syntax:
+
+.. code-block:: none
+
+	exefolder() ---> String contains the Ring executable path
