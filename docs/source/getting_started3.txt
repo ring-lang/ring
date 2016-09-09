@@ -69,8 +69,8 @@ Using Ring we can write multi-line literal, see the next example
 
 	    ")
 
-Also you can use the \n to insert new line
-and you can use -{variable_name}
+Also you can use the \\n to insert new line
+and you can use #{variable_name} to insert variables values.
 
 
 .. code-block:: none
@@ -105,7 +105,7 @@ The previous program can be written in one line.
 .. code-block:: none
 
 	Load "stdlib.ring"
-	Pring("What is your name? ") cName=getstring() pring("Hello #{cName}")
+	Print("What is your name? ") cName=getstring() print("Hello #{cName}")
 
 .. index:: 
 	pair: Getting Started; Writing Comments
@@ -130,9 +130,9 @@ Multi-lines comments are written between /* and */
 
 	Load "stdlib.ring"
 
-	Pring("What is your name? ") 	# print message on screen
+	Print("What is your name? ") 	# print message on screen
 	cName=GetString()		# get input from the user
-	pring("Hello #{cName}")		# say hello!
+	print("Hello #{cName}")		# say hello!
 
 	// print("Bye!")
 
