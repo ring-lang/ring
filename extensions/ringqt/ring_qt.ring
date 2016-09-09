@@ -10389,7 +10389,7 @@ Class QNetworkAccessManager from QObject
 		pTempObj.pObject = QNetworkAccessManager_deleteResource(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
-	Func get P1
+	Func getvalue P1
 		pTempObj = new QNetworkReply
 		pTempObj.pObject = QNetworkAccessManager_get(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj

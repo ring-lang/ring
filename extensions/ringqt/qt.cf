@@ -25,7 +25,7 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-<filter> (get("RINGQT_ANDROID") = "")
+<filter> (sysget("RINGQT_ANDROID") = "")
 #include "gwebview.h"
 </filter>
 #include "gnetworkaccessmanager.h"
@@ -82,7 +82,7 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
-<filter> (get("RINGQT_ANDROID") = "")
+<filter> (sysget("RINGQT_ANDROID") = "")
 #include <QWebView>
 </filter>
 #include <QUrl>
@@ -104,7 +104,7 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
-<filter> (get("RINGQT_ANDROID") = "")
+<filter> (sysget("RINGQT_ANDROID") = "")
 #include <QWebSettings>
 </filter>
 #include <QBrush>
