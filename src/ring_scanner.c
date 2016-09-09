@@ -7,7 +7,7 @@ const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC",
 
 "END","GIVE","BYE","EXIT","TRY","CATCH","DONE","SWITCH","ON","OTHER","OFF", 
 
-"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL"} ;
+"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF","PUT","GET","CASE","DEF"} ;
 /* Functions */
 
 Scanner * ring_scanner_new ( RingState *pRingState )

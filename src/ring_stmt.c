@@ -95,8 +95,8 @@ int ring_parser_class ( Parser *pParser )
 			return 0 ;
 		}
 	}
-	/* Statement --> Func Identifier [PARALIST] */
-	if ( ring_parser_iskeyword(pParser,K_FUNC) ) {
+	/* Statement --> Func|Def Identifier [PARALIST] */
+	if ( ring_parser_iskeyword(pParser,K_FUNC) || ring_parser_iskeyword(pParser,K_DEF) ) {
 		ring_parser_nexttoken(pParser);
 		if ( ring_parser_isidentifier(pParser) ) {
 			/*
@@ -864,7 +864,7 @@ int ring_parser_stmt ( Parser *pParser )
 		}
 		return 1 ;
 	}
-	/* Statement --> Switch  Expr { ON Expr {Statement} } OFF */
+	/* Statement --> Switch  Expr { ON|CASE Expr {Statement} } OFF */
 	if ( ring_parser_iskeyword(pParser,K_SWITCH) ) {
 		ring_parser_nexttoken(pParser);
 		pParser->nAssignmentFlag = 0 ;
@@ -876,10 +876,10 @@ int ring_parser_stmt ( Parser *pParser )
 			puts("Rule : Statement  --> 'Switch' Expr {ON} [Other] OFF");
 			#endif
 			RING_PARSER_IGNORENEWLINE ;
-			/* ON Statements */
+			/* ON|CASE Statements */
 			pList2 = ring_list_new(0);
 			pMark = NULL ;
-			while ( ring_parser_iskeyword(pParser,K_ON) ) {
+			while ( ring_parser_iskeyword(pParser,K_ON) || ring_parser_iskeyword(pParser,K_CASE) ) {
 				ring_parser_nexttoken(pParser);
 				/* Generate Code */
 				nMark1 = ring_parser_icg_newlabel(pParser);
