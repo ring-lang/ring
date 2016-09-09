@@ -43,7 +43,7 @@ Copy(x)  			New String - repeat string x times
 strcmp(cString)   		Compare string with cString  
 tolist()	  		List (String Lines to String Items)
 tofile(cFileName) 		Write string to file
-get(nPos1,nPos2)  		New String - from nPos1 to nPos2
+mid(nPos1,nPos2)  		New String - from nPos1 to nPos2
 getfrom(nPos1)	  		New String - from nPos1 to the end of the string
 replace(cStr1,cStr2,lCase) 	New String - Replace cStr1 with cStr2 , lCase (True=Math Case)
 split()		  		List - Each Word as list item
@@ -84,7 +84,7 @@ Example:
 	See "the - position : " + oString.pos("the") + nl
 	oString = oString.getfrom(oString.pos("Ring"))
 	oString.println()
-	oString.get(1,4).println()
+	oString.mid(1,4).println()
 	oString = oString.replace("Ring","***Ring***",true)
 	oString.println()
 	oString = oString.replace("ring","***Ring***",false)
@@ -361,7 +361,7 @@ Method						Description/Output
 Init(List)
 Add(cKey,Value)				Add item to the HashTable
 Set(cKey,Value)				Set item value using the Key
-Get(cKey)					Get item value using the Key
+GetValue(cKey)				Get item value using the Key
 Contains(cKey)				Check if the HashTable contains item using the Key
 Index(cKey)					Get the item index using the Key
 ===========================	======================================================================
