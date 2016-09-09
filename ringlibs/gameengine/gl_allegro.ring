@@ -197,3 +197,30 @@ func gl_draw_filled_rectangle(x1, y1,x2, y2, color)
 
 func gl_draw_line(x1,y1,x2,y2,color,thickness)
 	al_draw_line(x1,y1,x2,y2,color,thickness)
+
+func gl_draw_circle cx,cy,r,color,thickness
+	al_draw_circle(cx,cy,r,color,thickness)
+
+func gl_draw_filled_circle cx, cy, r, color
+	al_draw_filled_circle(cx, cy, r, color)
+
+func gl_draw_rectangle x1,y1,x2,y2,color,thickness 
+	al_draw_rectangle(x1,y1,x2,y2,color,thickness)
+
+func gl_draw_ellipse cx, cy, rx, ry,color, thickness
+	al_draw_ellipse(cx, cy, rx, ry,color, thickness)
+
+func gl_draw_arc cx,cy,r,start_theta,delta_theta,color,thickness
+	al_draw_arc(cx,cy,r,start_theta,delta_theta,color,thickness)
+
+func gl_draw_rounded_rectangle x1,y1,x2,y2,rx,ry,color,thickness
+	al_draw_rounded_rectangle(x1,y1,x2,y2,rx,ry,color,thickness)
+
+func gl_draw_filled_rounded_rectangle x1,y1,x2,y2,rx,ry,color
+	al_draw_filled_rounded_rectangle(x1,y1,x2,y2,rx,ry,color)
+
+func gl_draw_triangle x1,y1,x2,y2,x3,y3,color,thickness
+	al_draw_triangle(x1,y1,x2,y2,x3,y3,color,thickness)
+
+func gl_draw_filled_triangle x1, y1, x2, y2,x3,y3,color
+	al_draw_filled_triangle(x1, y1, x2, y2,x3,y3,color)
