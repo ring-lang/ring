@@ -194,6 +194,8 @@ aNewMethodName + ["QTextBlock","next","nextblock"]
 aNewMethodName + ["QSqlQuery","next","movenext"]
 aNewMethodName + ["QImage","load","loadimage"]
 aNewMethodName + ["QNetworkAccessManager","get","getvalue"]
+aNewMethodName + ["QNetworkAccessManager","put","putvalue"]
+
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
 aEnumTypes + "Qt::GestureType"

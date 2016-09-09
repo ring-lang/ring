@@ -10415,7 +10415,7 @@ Class QNetworkAccessManager from QObject
 	Func proxyFactory 
 		return QNetworkAccessManager_proxyFactory(pObject)
 
-	Func put P1,P2
+	Func putvalue P1,P2
 		pTempObj = new QNetworkReply
 		pTempObj.pObject = QNetworkAccessManager_put(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 		return pTempObj
