@@ -159,6 +159,53 @@ Syntax:
 		Block of statements
 	}
 
+Example:
+
+.. code-block:: none
+
+	# print numbers from 1 to 10
+	load "stdlib.ring"
+	for x = 1 to 10	 { 
+		print("#{x}\n") 
+	}
+
+Example:
+
+.. code-block:: none
+
+	load "stdlib.ring"
+
+	# Dynamic loop
+	print("Start : ") nStart = getnumber()
+	print("End   : ") nEnd = getnumber()
+	print("Step  : ") nStep = getnumber()
+	for x = nStart to nEnd step nStep {
+		print("#{x}\n") 
+	}
+
+Example:
+
+.. code-block:: none
+
+	load "stdlib.ring"
+
+	# print even numbers from 0 to 10
+	for x = 0 to 10 step 2 {
+		print("#{x}\n") 
+	}
+
+Example:
+
+.. code-block:: none
+
+	load "stdlib.ring"
+
+	# print even numbers from 10 to 0
+	for x = 10 to 0 step -2 {
+		print("#{x}\n") 
+	}
+
+
 * For in Loop
 
 Syntax:
