@@ -280,3 +280,18 @@ Output:
 	one
 	try catch...
 	catching error
+
+Using 'put' and 'get' as 'see' and 'give'
+=========================================
+
+We can replace the 'see' keyword with the 'put' keyword.
+
+Also we can replacew the 'give' keyword with the 'get' keyword.
+
+Example:
+
+.. code-block:: none
+
+	put "Hello World" + nl
+	put "Enter Your Name ? " Get Name
+	Put "Hello " + Name
