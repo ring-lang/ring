@@ -1212,15 +1212,15 @@ int ring_parser_csexpr ( Parser *pParser )
 	RING_PARSER_IGNORENEWLINE ;
 	if ( ring_parser_isoperator(pParser,"{") ) {
 		ring_parser_nexttoken(pParser);
-		pParser->nControlStructureBrace = 1 ;
+		pParser->nControlStructureBrace++ ;
 	}
 	return nOutput ;
 }
 
 int ring_parser_csbraceend ( Parser *pParser )
 {
-	if ( (pParser->nControlStructureBrace == 1) && ring_parser_isoperator(pParser,"}") ) {
-		pParser->nControlStructureBrace = 0 ;
+	if ( (pParser->nControlStructureBrace >= 1) && ring_parser_isoperator(pParser,"}") ) {
+		pParser->nControlStructureBrace-- ;
 		return 1 ;
 	}
 	return 0 ;
