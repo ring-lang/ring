@@ -1,0 +1,132 @@
+==============================
+Getting Started - Second Style
+==============================
+
+.. index:: 
+	pair: Getting Started; Hello World
+
+Hello World
+===========
+
+The next program prints the Hello World message on the screen (std-out).
+
+.. code-block:: none
+
+	put "Hello World"
+
+.. index:: 
+	pair: Getting Started; Run the program
+
+Run the program
+===============
+
+to run the program, save the code in a file, for example : hello.ring
+then from the command line or terminal, run it using the ring interpreter
+
+.. code-block:: none
+
+	ring hello.ring
+
+.. index:: 
+	pair: Getting Started; Not Case-Sensitive
+
+Not Case-Sensitive
+==================
+
+Since the Ring language is not case-sensitive, the same program can
+be written in different styles
+
+.. tip:: It's better to select one style and use it in all of the program source code
+
+.. code-block:: none
+
+	PUT "Hello World"
+
+.. code-block:: none
+
+	Put "Hello World"
+
+
+.. index:: 
+	pair: Getting Started; Multi-Line literals
+
+Multi-Line literals
+===================
+
+Using Ring we can write multi-line literal, see the next example
+
+.. code-block:: none
+
+	Put "
+		Hello 
+		Welcome to the Ring programming language
+		How are you?
+
+	    "
+
+Also you can use the nl constant to insert new line
+and you can use the + operator to concatenate strings
+
+.. note:: nl value means a new line and the actual codes that
+	 represent a newline is different between operating systems
+
+.. code-block:: none
+
+	Put "Hello" + nl + "Welcome to the Ring programming language" + 
+	    nl + "How are you?"
+
+.. index:: 
+	pair: Getting Started; Getting Input
+
+Getting Input
+=============
+
+You can get the input from the user using the get command
+
+.. code-block:: none
+
+	Put "What is your name? "
+	Get cName
+	Put "Hello " + cName
+
+.. index:: 
+	pair: Getting Started; No Explicit End For Statements
+
+No Explicit End For Statements
+==============================
+
+You don't need to use ';' or press ENTER to separate statements.
+The previous program can be written in one line.
+
+.. code-block:: none
+
+	Put "What is your name? " get cName put "Hello " + cName
+
+.. index:: 
+	pair: Getting Started; Writing Comments
+
+Writing Comments
+================
+
+We can write one line comments and multi-line comments
+
+The comment starts with # or //
+
+Multi-lines comments are written between /* and */
+
+.. code-block:: none
+
+
+	/* 
+		Program Name : My first program using Ring
+		Date         : 2015.05.08
+		Author       : Mahmoud Fayed
+	*/
+
+	Put "What is your name? " 	# print message on screen
+	get cName 			# get input from the user
+	put "Hello " + cName		# say hello!
+
+	// Put "Bye!"
+
+.. note:: Using // to comment a lines of code is just a code style.

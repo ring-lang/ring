@@ -1,0 +1,139 @@
+==============================
+Getting Started - Third Style
+==============================
+
+.. index:: 
+	pair: Getting Started; Hello World
+
+Hello World
+===========
+
+The next program prints the Hello World message on the screen (std-out).
+
+.. code-block:: none
+
+	load "stdlib.ring"
+
+	print("Hello World")
+
+.. index:: 
+	pair: Getting Started; Run the program
+
+Run the program
+===============
+
+to run the program, save the code in a file, for example : hello.ring
+then from the command line or terminal, run it using the ring interpreter
+
+.. code-block:: none
+
+	ring hello.ring
+
+.. index:: 
+	pair: Getting Started; Not Case-Sensitive
+
+Not Case-Sensitive
+==================
+
+Since the Ring language is not case-sensitive, the same program can
+be written in different styles
+
+.. tip:: It's better to select one style and use it in all of the program source code
+
+.. code-block:: none
+
+	LOAD "stdlib.ring"
+	PRINT("Hello World")
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+	Print("Hello World")
+
+
+.. index:: 
+	pair: Getting Started; Multi-Line literals
+
+Multi-Line literals
+===================
+
+Using Ring we can write multi-line literal, see the next example
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+	Print("
+		Hello 
+		Welcome to the Ring programming language
+		How are you?
+
+	    ")
+
+Also you can use the \n to insert new line
+and you can use -{variable_name}
+
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+	Print( "Hello\nWelcome to the Ring programming language\nHow are you?")
+
+.. index:: 
+	pair: Getting Started; Getting Input
+
+Getting Input
+=============
+
+You can get the input from the user using the getstring() function
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+	Print("What is your name? ")
+	cName = GetString()
+	Print("Hello #{cName}")
+
+.. index:: 
+	pair: Getting Started; No Explicit End For Statements
+
+No Explicit End For Statements
+==============================
+
+You don't need to use ';' or press ENTER to separate statements.
+The previous program can be written in one line.
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+	Pring("What is your name? ") cName=getstring() pring("Hello #{cName}")
+
+.. index:: 
+	pair: Getting Started; Writing Comments
+
+Writing Comments
+================
+
+We can write one line comments and multi-line comments
+
+The comment starts with # or //
+
+Multi-lines comments are written between /* and */
+
+.. code-block:: none
+
+
+	/* 
+		Program Name : My first program using Ring
+		Date         : 2016.09.09
+		Author       : Mahmoud Fayed
+	*/
+
+	Load "stdlib.ring"
+
+	Pring("What is your name? ") 	# print message on screen
+	cName=GetString()		# get input from the user
+	pring("Hello #{cName}")		# say hello!
+
+	// print("Bye!")
+
+.. note:: Using // to comment a lines of code is just a code style.
