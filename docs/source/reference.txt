@@ -328,9 +328,9 @@ VV : Variable Value (We have a Pointer to a value, And we access this value)
 
 (Logic)
 
-* ICO_AND
-* ICO_OR
-* ICO_NOT
+* ICO_AND		: Stack[nSize-1] = Stack[nSize-1] && Stack[nSize] , POP stack[nSize]
+* ICO_OR		: Stack[nSize-1] = Stack[nSize-1] || Stack[nSize] , POP stack[nSize]
+* ICO_NOT		: Stack[nSize]   = ! Stack[nSize]  
 
 (Lists)
 
