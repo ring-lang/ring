@@ -277,13 +277,13 @@ AnonymousFunction ---> 'func'|'def'| [<ParaList>] '{' {Statement} '}'
 Virtual Machine (VM) Instructions
 =================================
 
-VM : Virtual Machine
-Stack : VM Stack
-IR : Instruction Register
-PC : Program Counter
-VP : Variable Pointer
-nSize : Last Item in the Stack (Last In - First Out)
-VV : Variable Value (We have a Pointer to a value, And we access this value)
+* VM : Virtual Machine
+* Stack : VM Stack
+* IR : Instruction Register
+* PC : Program Counter
+* VP : Variable Pointer
+* nSize : Last Item in the Stack (Last In - First Out)
+* VV : Variable Value (We have a Pointer to a value, And we access this value)
 (Stack and Variables)
 
 * ICO_PUSHC 		: Add string from the IR to the stack
@@ -417,12 +417,12 @@ VV : Variable Value (We have a Pointer to a value, And we access this value)
 
 (Bitwise Operators)
 
-* ICO_BITAND
-* ICO_BITOR
-* ICO_BITXOR
-* ICO_BITNOT
-* ICO_BITSHL
-* ICO_BITSHR
+* ICO_BITAND			: Stack[nSize-1] = Stack[nSize-1] & Stack[nSize] , POP stack[nSize]
+* ICO_BITOR			: Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]
+* ICO_BITXOR			: Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
+* ICO_BITNOT			: Stack[nSize] = ! Stack[nSize] 
+* ICO_BITSHL			: Stack[nSize-1] = Stack[nSize-1] << Stack[nSize] , POP stack[nSize]
+* ICO_BITSHR			: Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
 
 (For Step)
 
