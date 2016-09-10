@@ -367,5 +367,60 @@ Example:
 	SDL_Quit()
 
 
-See RingLibSDL Chapter.
+See the RingLibSDL Chapter.
+
+Demo Project - Game Engine for 2D Games
+=======================================
+
+In practice we would create a game engine in a language like C/C++ to get the best performance 
+then provide Ring classes to use the engine.
+
+But many 2D Games are simple and creating a game engine in Ring will be fast enough in many cases
+
+Also this would be a good demo project to learn about the language concepts where we build things
+using Object Oriented Programming (OOP) then access the power that we have using declarative programming
+using nested structures or using natural programming.
+
+In this project we selected the first way (declarative programming using nested structures)
+
+Example:
+
+.. code-block:: none
+
+	Load "gameengine.ring"	# Give Control to the Game Engine
+
+	func main		# Called by the Game Engine
+
+		oGame = New Game	# Create the Game Object
+		{
+			title = "My First Game"
+			text {
+				x = 10	y=50
+				animate = false
+				size = 20
+				file = "fonts/pirulen.ttf"
+				text = "game development using ring is very fun!"
+				color = rgb(0,0,0)	# Color = black	
+			}
+			text {
+				x = 10	y=150
+				# Animation Part ======================================
+				animate = true				# Use Animation
+				direction = GE_DIRECTION_INCVERTICAL	# Increase y
+				point = 400	 	# Continue until y=400
+				nStep = 3		# Each time y+= 3
+				#======================================================
+				size = 20
+				file = "fonts/pirulen.ttf"
+				text = "welcome to the real world!"
+				color = rgb(0,0,255)	# Color = Blue 	
+			}
+			Sound {					# Play Sound
+				file = "sound/music1.wav"	# Sound File Name
+			}		
+		}					# Start the Events Loop	
+
+
+
+
 
