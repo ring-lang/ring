@@ -1,0 +1,19 @@
+============
+What is new?
+============
+
+In this chapter we will learn about the changes in each Ring release.
+
+What is new in Ring 1.1?
+========================
+
+Ring 1.1  comes with many new features 
+
+* Generate/Execute Ring Object Files (*.ringo)
+
+This feature enable you to distribute your applications without distributing
+the source code. Also it makes application distribution a simple process where
+you get one Ring object files for the complete project (many source code files).
+
+Check the "command line options" chapter to know more about this feature.
+
