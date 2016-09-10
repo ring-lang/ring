@@ -261,8 +261,9 @@ func gl_draw_filled_rectangle(x1, y1,width,height, color)
 	SDL_RenderFillRect(SDL_Ren, rect)
 	sdl_destroy_sdl_rect(rect)
 
-
 func gl_draw_line(x1,y1,x2,y2,color,thickness)
+	gl_setcolor(color)
+	SDL_RenderDrawLine(SDL_Ren,x1,y1,x2,y2)
 
 func gl_draw_circle cx,cy,r,color,thickness
 
