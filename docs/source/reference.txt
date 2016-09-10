@@ -301,10 +301,10 @@ Virtual Machine (VM) Instructions
 
 * ICO_JUMP		: Set PC to new value from the IR 
 * ICO_JUMPZERO		: If Stack[nSize] is a number = 0 then Set PC to new value from the IR 
-* ICO_JUMPFOR		: 
+* ICO_JUMPFOR		: End of for loop
 * ICO_JUMPONE		: If Stack[nSize] is a number = 1 then Set PC to new value from the IR 
-* ICO_JUMPZERO2		:
-* ICO_JUMPONE2		:
+* ICO_JUMPZERO2		: As ICO_JUMPZERO but add 1 to the stack (required for many 'AND' conditions)
+* ICO_JUMPONE2		: As ICO_JUMPONE but add 1 to the stack (required for many 'OR' conditions)
 
 (Compare)
 
@@ -341,17 +341,17 @@ Virtual Machine (VM) Instructions
 
 (Functions)
 
-* ICO_LOADFUNC
-* ICO_CALL
-* ICO_RETURN
-* ICO_RETNULL
-* ICO_RETFROMEVAL
-* ICO_RETITEMREF
-* ICO_NEWFUNC
-* ICO_BLOCKFLAG
-* ICO_FUNCEXE
-* ICO_ENDFUNCEXE
-* ICO_ANONYMOUS
+* ICO_LOADFUNC		: Find function
+* ICO_CALL		: Call function
+* ICO_RETURN		: Return from function
+* ICO_RETNULL		: Return NULl from function
+* ICO_RETFROMEVAL	: Return after eval() 
+* ICO_RETITEMREF	: Return the list item reference - not the value
+* ICO_NEWFUNC		: Start new function
+* ICO_BLOCKFLAG		: Flag to determine to jump to an address later
+* ICO_FUNCEXE		: Start executing function
+* ICO_ENDFUNCEXE	: End function execution
+* ICO_ANONYMOUS		: Anonymous function
 
 (User Interface)
 
@@ -361,26 +361,26 @@ Virtual Machine (VM) Instructions
 (End Program/Loop)
 
 * ICO_BYE		: End execution of VM
-* ICO_EXITMARK			
-* ICO_POPEXITMARK
-* ICO_EXIT		: break from one loop or more 
-* ICO_LOOP		: continue to next loop 
+* ICO_EXITMARK		: Place to exit to from a loop	
+* ICO_POPEXITMARK	: Remove exit mark
+* ICO_EXIT		: Break from one loop or more 
+* ICO_LOOP		: Continue to next loop 
 
 (For Better Performance)
 
-* ICO_PUSHP
-* ICO_INCP
-* ICO_PUSHPV
-* ICO_INCJUMP
-* ICO_INCPJUMP
-* ICO_JUMPVARLENUM
-* ICO_JUMPVARPLENUM
-* ICO_LOADFUNCP
-* ICO_PUSHPLOCAL
-* ICO_INCLPJUMP
-* ICO_JUMPVARLPLENUM
-* ICO_INCPJUMPSTEP1
-* ICO_JUMPVARPLENUMSTEP1
+* ICO_PUSHP		 : Push pointer to the stack
+* ICO_INCP		 : Increment variable value using pointer
+* ICO_PUSHPV		 : Push value of variable using variable pointer
+* ICO_INCJUMP		 : Increment then jump
+* ICO_INCPJUMP		 : Increment using pointer then jump
+* ICO_JUMPVARLENUM	 : Jump if variable value is <= numeric value
+* ICO_JUMPVARPLENUM	 : Jump if variable value (using pointer) <= numeric value 
+* ICO_LOADFUNCP		 : Push function pointer
+* ICO_PUSHPLOCAL	 : Push pointer to local variable
+* ICO_INCLPJUMP		 : Increment value using pointer to local variable then jump
+* ICO_JUMPVARLPLENUM	 : Jump if the variable value (using pointer) <= numeric value
+* ICO_INCPJUMPSTEP1	 : Increment value using variable pointer then jump (for loop step = 1)
+* ICO_JUMPVARPLENUMSTEP1 : Increment value using variable pointer then jump (for loop step = 1)
 
 (Try-Catch-Done)
 
@@ -426,6 +426,6 @@ Virtual Machine (VM) Instructions
 
 (For Step)
 
-* ICO_STEPNUMBER		: Determine step number in for loop
-* ICO_POPSTEP			: POP step number from steps stack
-* ICO_LOADAFIRST		: Load the first address of variable name 
+* ICO_STEPNUMBER	: Determine step number in for loop
+* ICO_POPSTEP		: POP step number from steps stack
+* ICO_LOADAFIRST	: Load the first address of variable name 
