@@ -317,14 +317,14 @@ VV : Variable Value (We have a Pointer to a value, And we access this value)
 
 (Math)
 
-* ICO_SUM
-* ICO_SUB
-* ICO_MUL
-* ICO_DIV
-* ICO_MOD
-* ICO_NEG
-* ICO_PLUSPLUS
-* ICO_MINUSMINUS
+* ICO_SUM		: Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]
+* ICO_SUB		: Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]
+* ICO_MUL		: Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]
+* ICO_DIV		: Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]
+* ICO_MOD		: Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]
+* ICO_NEG		: Stack[nSize] = - Stack[nSize-1]
+* ICO_PLUSPLUS		: Stack[nSize] = Stack[nSize] + 1
+* ICO_MINUSMINUS	: Stack[nSize] = Stack[nSize] - 1
 
 (Logic)
 
