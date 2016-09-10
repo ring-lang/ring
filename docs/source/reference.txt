@@ -426,6 +426,6 @@ Virtual Machine (VM) Instructions
 
 (For Step)
 
-* ICO_STEPNUMBER
-* ICO_POPSTEP
-* ICO_LOADAFIRST
+* ICO_STEPNUMBER		: Determine step number in for loop
+* ICO_POPSTEP			: POP step number from steps stack
+* ICO_LOADAFIRST		: Load the first address of variable name 
