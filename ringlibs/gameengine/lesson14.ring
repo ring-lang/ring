@@ -16,11 +16,25 @@ func main					# Called by the Game Engine
 			}
 			state = func oGame,oSelf {
 				oSelf { 
-					if x <= 800 {
+					if x <= 800 
 						x+= 3 
 					else
 						x=0
-					}
+					ok
+				}
+			}
+			keypress = func oGame,oSelf,nKey {
+				oSelf { 
+					Switch nKey	
+					on KEY_LEFT	
+						x -= 10			
+					on KEY_RIGHT
+						x += 10
+					on KEY_UP
+						y -= 10
+					on KEY_DOWN
+						y += 10
+					off
 				}
 			}
 		}
