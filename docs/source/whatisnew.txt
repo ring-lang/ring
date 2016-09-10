@@ -20,6 +20,54 @@ Ring 1.1  comes with many new features
 * Better Code Generator for Extensions 
 * Better Documentation
 
+Better Natural Language Programming Support
+===========================================
+
+Ring is an innovative language because of it's compact syntax, smart implementation (small, transparent & visual)
+and it's ability to create declarative and natural domain specific languages in a fraction of time.
+
+This release add support for calling methods when an expression is evaluated
+
+check this example:
+
+.. code-block:: none
+
+	# Natural Code
+	new program {
+		get 2 numbers then print the sum
+	}
+
+	# Natural Code Implementation
+	class program
+		# Keywords
+			get=0 numbers=0 then=0 print=0 the=0 sum=0
+
+		# Execution
+		func braceexpreval x
+			value = x
+		func getnumbers
+			for x=1 to value
+				see "Enter Number ("+x+") :" give nNumber
+				aNumbers + nNumber
+			next
+		func getsum
+			nSUm = 0
+			for x in aNumbers nSum+= x next
+			see "The Sum : " + nSum
+		private
+			value=0	aNumbers=[]
+		
+Output: 
+
+.. code-block:: none
+
+	Enter Number (1) :3
+	Enter Number (2) :4
+	The Sum : 7
+
+for more information see the "Natural Language Programming" chapter.
+
+
 Generate/Execute Ring Object Files (*.ringo)
 ============================================
 
