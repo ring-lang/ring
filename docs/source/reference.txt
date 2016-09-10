@@ -334,10 +334,10 @@ VV : Variable Value (We have a Pointer to a value, And we access this value)
 
 (Lists)
 
-* ICO_LISTSTART
-* ICO_LISTITEM
-* ICO_LISTEND
-* ICO_LOADINDEXADDRESS
+* ICO_LISTSTART		: Start New List in Temp. Memory
+* ICO_LISTITEM		: Add List Item
+* ICO_LISTEND		: End List
+* ICO_LOADINDEXADDRESS	: Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]
 
 (Functions)
 
