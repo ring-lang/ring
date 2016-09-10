@@ -360,11 +360,11 @@ VV : Variable Value (We have a Pointer to a value, And we access this value)
 
 (End Program/Loop)
 
-* ICO_BYE
-* ICO_EXITMARK
+* ICO_BYE		: End execution of VM
+* ICO_EXITMARK			
 * ICO_POPEXITMARK
-* ICO_EXIT
-* ICO_LOOP
+* ICO_EXIT		: break from one loop or more 
+* ICO_LOOP		: continue to next loop 
 
 (For Better Performance)
 
