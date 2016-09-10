@@ -207,3 +207,138 @@ Check the next chapters
 * Object Oriented Programming (OOP) 
 * Low Level Functions
 
+StdLib functions and classes written in Ring
+============================================
+
+Ring 1.1 comes with a library called StdLib, it's written in Ring by the help of Ring Team
+
+The library provide a useful group of new functions and classes
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Times()")
+	Times ( 3 , func { see "Hello, World!" + nl } )
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Map()")
+	See Map( 1:10, func x { return x*x } )
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Puts("Test Filter()")
+	See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
+
+Example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	See "Testing the String Class" + nl
+	oString = new string("Hello, World!")
+	oString.println()
+	oString.upper().println()
+	oString.lower().println()
+	oString.left(5).println()
+	oString.right(6).println()
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oList = new list ( [1,2,3] )
+	oList.Add(4)
+	oList.print()
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oStack = new Stack
+	oStack.push(1)
+	oStack.push(2)
+	oStack.push(3)
+	see oStack.pop() + nl
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	oQueue = new Queue
+	oQueue.add(1)
+	oQueue.add(2)
+	oQueue.add(3)
+	see oQueue.remove() + nl
+
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	ohashtable = new hashtable
+	See "Test the hashtable Class Methods" + nl
+	ohashtable { 
+		Add("Egypt","Cairo")
+		Add("KSA","Riyadh")
+		see self["Egypt"] + nl
+		see self["KSA"] + nl
+		see contains("Egypt") + nl
+		see contains("USA") + nl
+		see index("KSA")  + NL
+		print()
+		delete(index("KSA"))
+		see copy("*",60) + nl
+		print()
+	}
+
+example:
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	otree = new tree
+	See "Test the tree Class Methods" + nl
+	otree {
+		set("The first step")	# set the root node value
+		see value() + nl
+		Add("one")
+		Add("two")
+		Add("three") {
+			Add("3.1")
+			Add("3.2")
+			Add("3.3")
+			see children
+		}
+		see children
+		oTree.children[2] {
+			Add("2.1") Add("2.2") Add("2.3") {
+				Add("2.3.1") Add("2.3.2") Add("test")
+			}
+		}
+		oTree.children[2].children[3].children[3].set("2.3.3")
+	}
+	see copy("*",60) + nl
+	oTree.print()
+
