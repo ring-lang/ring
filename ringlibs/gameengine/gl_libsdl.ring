@@ -140,6 +140,7 @@ func gl_is_event_queue_empty event_queue
 	return true
 
 func gl_clear_to_color nColor
+	gl_setcolor(nColor)
 	SDL_RenderClear(SDL_ren)
 
 func gl_flip_display
@@ -254,7 +255,12 @@ func gl_mouse_x
 func gl_mouse_y  
 	return sdl_get_sdl_event_motion_y(SDL_event)
 
-func gl_draw_filled_rectangle(x1, y1,x2, y2, color)
+func gl_draw_filled_rectangle(x1, y1,width,height, color)
+	gl_setcolor(color)
+	rect = gl_rect(x1,y1,width,height)
+	SDL_RenderFillRect(SDL_Ren, rect)
+	sdl_destroy_sdl_rect(rect)
+
 
 func gl_draw_line(x1,y1,x2,y2,color,thickness)
 
@@ -293,3 +299,16 @@ func gl_texture_height tex
 	SDL_QueryTexture(tex,"sdl_v1", "sdl_v2","sdl_v3","sdl_v4")
 	return sdl_v4
 
+func gl_setcolor color
+	r = sdl_get_sdl_color_r(color)
+	g = sdl_get_sdl_color_g(color)
+	b = sdl_get_sdl_color_b(color)
+	SDL_SetRenderDrawColor(SDL_Ren, r, g, b, 255)
+
+func gl_rect p1,p2,p3,p4
+	rect = sdl_new_sdl_rect()
+	sdl_set_sdl_rect_x(rect,p1)
+	sdl_set_sdl_rect_y(rect,p2)
+	sdl_set_sdl_rect_w(rect,p3)
+	sdl_set_sdl_rect_h(rect,p4)
+	return rect
