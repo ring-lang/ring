@@ -255,21 +255,27 @@ func gl_mouse_x
 func gl_mouse_y  
 	return sdl_get_sdl_event_motion_y(SDL_event)
 
-func gl_draw_filled_rectangle(x1, y1,width,height, color)
+func gl_draw_filled_rectangle(x1, y1,x2,y2, color)
 	gl_setcolor(color)
-	rect = gl_rect(x1,y1,width,height)
+	rect = gl_rect(x1,y1,x2-x1+1,y2-y1+1)
 	SDL_RenderFillRect(SDL_Ren, rect)
 	sdl_destroy_sdl_rect(rect)
 
 func gl_draw_line(x1,y1,x2,y2,color,thickness)
 	gl_setcolor(color)
-	SDL_RenderDrawLine(SDL_Ren,x1,y1,x2,y2)
+	SDL_RenderDrawLine(SDL_Ren,x1,y1,x2-x1+1,y2-y1+1)
 
 func gl_draw_circle cx,cy,r,color,thickness
+
 
 func gl_draw_filled_circle cx, cy, r, color
 
 func gl_draw_rectangle x1,y1,x2,y2,color,thickness 
+	gl_setcolor(color)
+	rect = gl_rect(x1,y1,x2-x1+1,y2-y1+1)
+	SDL_RenderDrawRect(SDL_Ren, rect)
+	sdl_destroy_sdl_rect(rect)
+
 
 func gl_draw_ellipse cx, cy, rx, ry,color, thickness
 
