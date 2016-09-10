@@ -177,7 +177,7 @@ Check the next chapters:-
 * Control Structures - Second Style - May looks like Lua and Ruby
 * Control Structures - Third Style - May looks like C (uses braces)
 
-.. note:: All of these styles are provided automatically by the compiler at the same time, It's
-better to select one style for the same project (you can create your style as a mix from these styles)
-for example you can use Put/Get and Braces. 
+.. note:: All of these styles are provided automatically by the compiler at the same time, It's better to select one style for the same project (you can create your style as a mix from these styles) for example you can use Put/Get and Braces.
+
+ 
 
