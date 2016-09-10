@@ -277,18 +277,25 @@ AnonymousFunction ---> 'func'|'def'| [<ParaList>] '{' {Statement} '}'
 Virtual Machine (VM) Instructions
 =================================
 
+VM : Virtual Machine
+Stack : VM Stack
+IR : Instruction Register
+PC : Program Counter
+VP : Variable Pointer
+nSize : Last Item in the Stack (Last In - First Out)
+VV : Variable Value (We have a Pointer to a value, And we access this value)
 (Stack and Variables)
 
-* ICO_PUSHC
-* ICO_PUSHN
-* ICO_PUSHV
-* ICO_LOADADDRESS
-* ICO_ASSIGNMENT
-* ICO_INC
-* ICO_LOADAPUSHV
-* ICO_NEWLINE
-* ICO_FREESTACK
-* ICO_FILENAME
+* ICO_PUSHC 		: Add string from the IR to the stack
+* ICO_PUSHN 		: Add number from the IR to the stack
+* ICO_PUSHV 		: Replace variable name in the stack with the variable value 
+* ICO_LOADADDRESS 	: Read variable name from the IR, push VP to the stack
+* ICO_ASSIGNMENT 	: Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]
+* ICO_INC 		: Increment Number in Stack[nSize] by 1
+* ICO_LOADAPUSHV	: The same as ICO_LOADADDRESS then ICO_PUSHV
+* ICO_NEWLINE		: Store new line number (debug info)
+* ICO_FREESTACK		: Remove all items from the stack , nSize = 0
+* ICO_FILENAME		: Store the source code file name (debug info)
 
 (Jump)
 
