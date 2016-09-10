@@ -78,3 +78,106 @@ Also using Ring object file remove the loading time required for compiling the a
 
 Check the "command line options" chapter to know more about this feature.
 
+
+Syntax Flexibility and differnt styles for I/O and Control Structures
+=====================================================================
+
+Programmers are sensitive to the programming language syntax. Great programmers know to how work
+using many different styles but each programmer may have his/her favorite style.
+
+Each programming language comes with a style that you may like or not. Ring is just one of these
+languages, but as a respone to many programmers asking for a better syntax we decided to provide
+more options.
+
+Example :
+
+.. code-block:: none
+
+	Put "What is your name? "
+	Get cName
+	Put "Hello " + cName
+
+Example : 
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	Print("What is your name? ") 	# print message on screen
+	cName=GetString()		# get input from the user
+	print("Hello #{cName}")		# say hello!
+
+Example :
+
+.. code-block:: none
+
+	While True
+
+		Put " 
+			Main Menu
+			---------
+			(1) Say Hello
+			(2) About
+			(3) Exit
+
+		    " Get nOption
+
+		Switch nOption
+		Case 1 
+			Put "Enter your name : " 
+			Get name 
+			Put "Hello " + name + nl
+		Case 2 
+			Put "Sample : using while loop" + nl
+		Case 3 
+			Bye
+		Else 
+			Put "bad option..." + nl
+		End
+	End
+
+Example :
+
+.. code-block:: none
+
+	Load "stdlib.ring"
+
+	While True {
+
+		print(" 
+			Main Menu
+			---------
+			(1) Say Hello
+			(2) About
+			(3) Exit
+
+			  ")
+
+		nOption = GetString()
+
+		switch nOption {
+		case 1 
+			print("Enter your name : ")
+			name = getstring()
+			print("Hello #{name}\n")
+		case 2 
+			print("Sample : using switch statement\n")
+		case 3 
+			Bye
+		else 
+			print("bad option...\n")
+		}
+
+	}
+
+Check the next chapters:-
+
+* Getting Started - Second Style
+* Getting Started - Third Style
+* Control Structures - Second Style - May looks like Lua and Ruby
+* Control Structures - Third Style - May looks like C (uses braces)
+
+.. note:: All of these styles are provided automatically by the compiler at the same time, It's
+better to select one style for the same project (you can create your style as a mix from these styles)
+for example you can use Put/Get and Braces. 
+
