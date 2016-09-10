@@ -6,19 +6,20 @@ func main					# Called by the Game Engine
 	{
 		title = "My First Game"
 		Object {
-			x = 100 y=100 width = 200 height=200
+			x = 0 y=300 width = 200 height=200
 			draw = func oGame,oSelf {
 				oSelf {
-					gl_draw_filled_rectangle(x, y,x+width, y+height, gl_map_rgb(0,0,255))
-					gl_draw_line(x, y,x+width, y+height, gl_map_rgb(0,255,255),1)
+					for t = 1 to 210
+						gl_draw_circle(x,y,t,gl_map_rgb(t*random(255),t*2,t*3),1)
+					next
 				}
 			}
 			state = func oGame,oSelf {
 				oSelf { 
-					if x <= 550 {
-						x+= 10 
+					if x <= 800 {
+						x+= 3 
 					else
-						x=100
+						x=0
 					}
 				}
 			}
