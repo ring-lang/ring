@@ -9,7 +9,17 @@ What is new in Ring 1.1?
 
 Ring 1.1  comes with many new features 
 
+* Better Natural Programming Support
 * Generate/Execute Ring Object Files (*.ringo)
+* New Functions 
+* StdLib functions and classes
+* RingLibSDL 
+* Game Engine for 2D Games
+* RingSQLite
+* Better Documentation
+
+Generate/Execute Ring Object Files (*.ringo)
+============================================
 
 This feature enable you to distribute your applications without distributing
 the source code. Also it makes application distribution a simple process where
