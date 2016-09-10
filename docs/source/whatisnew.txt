@@ -342,3 +342,30 @@ example:
 	see copy("*",60) + nl
 	oTree.print()
 
+Check the next chapters:
+
+* StdLib Functions
+* StdLib Classes
+
+RingLibSDL 
+==========
+
+Ring 1.0 provided RingAllegro to be able to create games using the Allegro game programming library
+
+Now Ring 1.1 provide RingLibSDL also so we can have the choice between Allegro or LibSDL
+
+Example:
+
+.. code-block:: none
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	SDL_Delay(2000)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+
+See RingLibSDL Chapter.
+
