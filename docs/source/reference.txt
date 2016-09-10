@@ -355,8 +355,8 @@ Virtual Machine (VM) Instructions
 
 (User Interface)
 
-* ICO_PRINT
-* ICO_GIVE
+* ICO_PRINT		: Print value to the standard output
+* ICO_GIVE		: Get input from the keyboard
 
 (End Program/Loop)
 
@@ -384,45 +384,45 @@ Virtual Machine (VM) Instructions
 
 (Try-Catch-Done)
 
-* ICO_TRY
-* ICO_DONE
+* ICO_TRY		: Start try region
+* ICO_DONE		: End try region
 
 (Duplicate and Range)
 
-* ICO_DUPLICATE
-* ICO_RANGE
+* ICO_DUPLICATE		: Duplicate stack value
+* ICO_RANGE		: Create list from value to value
 
 (OOP)
 
-* ICO_NEWOBJ
-* ICO_SETSCOPE
-* ICO_LOADSUBADDRESS
-* ICO_LOADMETHOD
-* ICO_AFTERCALLMETHOD
-* ICO_AFTERCALLMETHOD2
-* ICO_NEWCLASS
-* ICO_BRACESTART
-* ICO_BRACEEND
-* ICO_IMPORT
-* ICO_PRIVATE
-* ICO_SETPROPERTY
-* ICO_CALLCLASSINIT
+* ICO_NEWOBJ		: Create new object, get class name from the IR, push object pointer to the stack.
+* ICO_SETSCOPE		: Called after creating new object, set the active scope to be the object scope.
+* ICO_LOADSUBADDRESS	: Get object attribute, push the pointer to the stack.
+* ICO_LOADMETHOD	: Find object method 
+* ICO_AFTERCALLMETHOD	: Used after calling a method - normal case
+* ICO_AFTERCALLMETHOD2  : Used after calling a method - second case
+* ICO_NEWCLASS		: Start new class region
+* ICO_BRACESTART	: Open brace
+* ICO_BRACEEND		: End brace
+* ICO_IMPORT		: Import package
+* ICO_PRIVATE		: start private attributes region
+* ICO_SETPROPERTY	: set attribute value - check for setter.	
+* ICO_CALLCLASSINIT	: call call init() method.
 
 (Other)
 
-* ICO_SETREFERENCE
-* ICO_KILLREFERENCE
-* ICO_ASSIGNMENTPOINTER
-* ICO_BEFOREEQUAL
+* ICO_SETREFERENCE	: Copy by reference
+* ICO_KILLREFERENCE	: Remove reference
+* ICO_ASSIGNMENTPOINTER : Determine the left side variable
+* ICO_BEFOREEQUAL	: Determine operators like += , -= , ... etc
 
 (Bitwise Operators)
 
-* ICO_BITAND			: Stack[nSize-1] = Stack[nSize-1] & Stack[nSize] , POP stack[nSize]
-* ICO_BITOR			: Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]
-* ICO_BITXOR			: Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
-* ICO_BITNOT			: Stack[nSize] = ! Stack[nSize] 
-* ICO_BITSHL			: Stack[nSize-1] = Stack[nSize-1] << Stack[nSize] , POP stack[nSize]
-* ICO_BITSHR			: Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
+* ICO_BITAND		: Stack[nSize-1] = Stack[nSize-1] & Stack[nSize] , POP stack[nSize]
+* ICO_BITOR		: Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]
+* ICO_BITXOR		: Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
+* ICO_BITNOT		: Stack[nSize] = ! Stack[nSize] 
+* ICO_BITSHL		: Stack[nSize-1] = Stack[nSize-1] << Stack[nSize] , POP stack[nSize]
+* ICO_BITSHR		: Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
 
 (For Step)
 
