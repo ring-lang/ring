@@ -299,21 +299,21 @@ VV : Variable Value (We have a Pointer to a value, And we access this value)
 
 (Jump)
 
-* ICO_JUMP
-* ICO_JUMPZERO
-* ICO_JUMPFOR
-* ICO_JUMPONE
-* ICO_JUMPZERO2
-* ICO_JUMPONE2
+* ICO_JUMP		: Set PC to new value from the IR 
+* ICO_JUMPZERO		: If Stack[nSize] is a number = 0 then Set PC to new value from the IR 
+* ICO_JUMPFOR		: 
+* ICO_JUMPONE		: If Stack[nSize] is a number = 1 then Set PC to new value from the IR 
+* ICO_JUMPZERO2		:
+* ICO_JUMPONE2		:
 
 (Compare)
 
-* ICO_LESSEQUAL
-* ICO_EQUAL
-* ICO_LESS
-* ICO_GREATER
-* ICO_GREATEREQUAL
-* ICO_NOTEQUAL
+* ICO_LESSEQUAL		: If stack[nSize-1] <= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_EQUAL		: If stack[nSize-1] = stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_LESS		: If stack[nSize-1] < stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_GREATER		: If stack[nSize-1] > stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_GREATEREQUAL	: If stack[nSize-1] >= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_NOTEQUAL		: If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
 
 (Math)
 
