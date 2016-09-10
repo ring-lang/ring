@@ -471,4 +471,21 @@ Example:
 	sqlite_close(oSQLite) 
 
 
+Better Code Generator for Extensions 
+====================================
+
+We are using the code generator (written in Ring) every day to add new libraries to Ring.
+
+The generator is used to create RingQt and RingAllegro 
+
+Also in Ring 1.1 it's used to create RingLibSDL.
+
+more features are added like 
+
+* Set/Get structure members (numbers & pointers)
+* Using constants 
+* Better Generated Code
+
+See the Code Generator chapter.
+
 
