@@ -267,7 +267,6 @@ func gl_draw_line(x1,y1,x2,y2,color,thickness)
 
 func gl_draw_circle cx,cy,r,color,thickness
 
-
 func gl_draw_filled_circle cx, cy, r, color
 
 func gl_draw_rectangle x1,y1,x2,y2,color,thickness 
@@ -276,6 +275,9 @@ func gl_draw_rectangle x1,y1,x2,y2,color,thickness
 	SDL_RenderDrawRect(SDL_Ren, rect)
 	sdl_destroy_sdl_rect(rect)
 
+func gl_draw_point x,y,color
+	gl_setcolor(color)
+	SDL_RenderDrawPoint(SDL_Ren,x,y)
 
 func gl_draw_ellipse cx, cy, rx, ry,color, thickness
 

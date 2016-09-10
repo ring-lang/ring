@@ -224,3 +224,6 @@ func gl_draw_triangle x1,y1,x2,y2,x3,y3,color,thickness
 
 func gl_draw_filled_triangle x1, y1, x2, y2,x3,y3,color
 	al_draw_filled_triangle(x1, y1, x2, y2,x3,y3,color)
+
+func gl_draw_point x,y,color
+	al_draw_pixel(x,y,color)
