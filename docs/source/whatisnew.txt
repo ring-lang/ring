@@ -11,11 +11,13 @@ Ring 1.1  comes with many new features
 
 * Better Natural Programming Support
 * Generate/Execute Ring Object Files (*.ringo)
-* New Functions 
-* StdLib functions and classes
+* Syntax Flexibility and differnt styles for I/O and Control Structures
+* New Functions written in C
+* StdLib functions and classes written in Ring
 * RingLibSDL 
-* Game Engine for 2D Games
+* Demo Project - Game Engine for 2D Games
 * RingSQLite
+* Better Code Generator for Extensions using C/C++
 * Better Documentation
 
 Generate/Execute Ring Object Files (*.ringo)
