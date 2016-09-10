@@ -489,3 +489,16 @@ more features are added like
 See the Code Generator chapter.
 
 
+Better Documentation
+====================
+
+Ring 1.1 documentation (over 500 pages) is better than Ring 1.0 documentation (over 300 pages)
+
+Many chapters are added for providing better information about the language like
+
+* Language Reference
+* Scope Rules
+* FAQ
+
+and more!
+
