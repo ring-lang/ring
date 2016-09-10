@@ -12,7 +12,7 @@ Ring 1.1  comes with many new features
 * Better Natural Language Programming Support
 * Generate/Execute Ring Object Files (*.ringo)
 * Syntax Flexibility and differnt styles for I/O and Control Structures
-* New Functions written in C
+* New Functions and Changes
 * StdLib functions and classes written in Ring
 * RingLibSDL 
 * Demo Project - Game Engine for 2D Games
@@ -180,4 +180,30 @@ Check the next chapters:-
 .. note:: All of these styles are provided automatically by the compiler at the same time, It's better to select one style for the same project (you can create your style as a mix from these styles) for example you can use Put/Get and Braces.
 
  
+New Functions and Changes
+=========================
+
+Changed:
+
+* get() function : changed to sysget()
+* sort() function : can now work on list of objects
+* find() function : can now work on list of objects
+
+Added:
+
+* CurrentDir()
+* ExeFileName()
+* ChDir()
+* ExeFolder()
+* varptr()
+* space()
+* nullpointer()
+* object2pointer()
+* pointer2object()
+
+Check the next chapters 
+
+* System Functions
+* Object Oriented Programming (OOP) 
+* Low Level Functions
 
