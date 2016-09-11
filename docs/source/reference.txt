@@ -277,6 +277,8 @@ AnonymousFunction ---> 'func'|'def'| [<ParaList>] '{' {Statement} '}'
 Virtual Machine (VM) Instructions
 =================================
 
+Definitions :-
+
 * VM : Virtual Machine
 * Stack : VM Stack
 * IR : Instruction Register
@@ -286,6 +288,9 @@ Virtual Machine (VM) Instructions
 * VV : Variable Value (We have a Pointer to a value, And we access this value)
 (Stack and Variables)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_PUSHC 		: Add string from the IR to the stack
 * ICO_PUSHN 		: Add number from the IR to the stack
 * ICO_PUSHV 		: Replace variable name in the stack with the variable value 
@@ -296,27 +301,39 @@ Virtual Machine (VM) Instructions
 * ICO_NEWLINE		: Store new line number (debug info)
 * ICO_FREESTACK		: Remove all items from the stack , nSize = 0
 * ICO_FILENAME		: Store the source code file name (debug info)
+=======================	============================================================================
 
 (Jump)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_JUMP		: Set PC to new value from the IR 
 * ICO_JUMPZERO		: If Stack[nSize] is a number = 0 then Set PC to new value from the IR 
 * ICO_JUMPFOR		: End of for loop
 * ICO_JUMPONE		: If Stack[nSize] is a number = 1 then Set PC to new value from the IR 
 * ICO_JUMPZERO2		: As ICO_JUMPZERO but add 1 to the stack (required for many 'AND' conditions)
 * ICO_JUMPONE2		: As ICO_JUMPONE but add 1 to the stack (required for many 'OR' conditions)
+=======================	============================================================================
 
 (Compare)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_LESSEQUAL		: If stack[nSize-1] <= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
 * ICO_EQUAL		: If stack[nSize-1] = stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
 * ICO_LESS		: If stack[nSize-1] < stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
 * ICO_GREATER		: If stack[nSize-1] > stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
 * ICO_GREATEREQUAL	: If stack[nSize-1] >= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
 * ICO_NOTEQUAL		: If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+=======================	============================================================================
 
 (Math)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_SUM		: Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]
 * ICO_SUB		: Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]
 * ICO_MUL		: Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]
@@ -325,22 +342,34 @@ Virtual Machine (VM) Instructions
 * ICO_NEG		: Stack[nSize] = - Stack[nSize-1]
 * ICO_PLUSPLUS		: Stack[nSize] = Stack[nSize] + 1
 * ICO_MINUSMINUS	: Stack[nSize] = Stack[nSize] - 1
+=======================	============================================================================
 
 (Logic)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_AND		: Stack[nSize-1] = Stack[nSize-1] && Stack[nSize] , POP stack[nSize]
 * ICO_OR		: Stack[nSize-1] = Stack[nSize-1] || Stack[nSize] , POP stack[nSize]
 * ICO_NOT		: Stack[nSize]   = ! Stack[nSize]  
+=======================	============================================================================
 
 (Lists)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_LISTSTART		: Start New List in Temp. Memory
 * ICO_LISTITEM		: Add List Item
 * ICO_LISTEND		: End List
 * ICO_LOADINDEXADDRESS	: Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]
+=======================	============================================================================
 
 (Functions)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_LOADFUNC		: Find function
 * ICO_CALL		: Call function
 * ICO_RETURN		: Return from function
@@ -352,22 +381,34 @@ Virtual Machine (VM) Instructions
 * ICO_FUNCEXE		: Start executing function
 * ICO_ENDFUNCEXE	: End function execution
 * ICO_ANONYMOUS		: Anonymous function
+=======================	============================================================================
 
 (User Interface)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_PRINT		: Print value to the standard output
 * ICO_GIVE		: Get input from the keyboard
+=======================	============================================================================
 
 (End Program/Loop)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_BYE		: End execution of VM
 * ICO_EXITMARK		: Place to exit to from a loop	
 * ICO_POPEXITMARK	: Remove exit mark
 * ICO_EXIT		: Break from one loop or more 
 * ICO_LOOP		: Continue to next loop 
+=======================	============================================================================
 
 (For Better Performance)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_PUSHP		 : Push pointer to the stack
 * ICO_INCP		 : Increment variable value using pointer
 * ICO_PUSHPV		 : Push value of variable using variable pointer
@@ -381,19 +422,31 @@ Virtual Machine (VM) Instructions
 * ICO_JUMPVARLPLENUM	 : Jump if the variable value (using pointer) <= numeric value
 * ICO_INCPJUMPSTEP1	 : Increment value using variable pointer then jump (for loop step = 1)
 * ICO_JUMPVARPLENUMSTEP1 : Increment value using variable pointer then jump (for loop step = 1)
+=======================	============================================================================
 
 (Try-Catch-Done)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_TRY		: Start try region
 * ICO_DONE		: End try region
+=======================	============================================================================
 
 (Duplicate and Range)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_DUPLICATE		: Duplicate stack value
 * ICO_RANGE		: Create list from value to value
+=======================	============================================================================
 
 (OOP)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_NEWOBJ		: Create new object, get class name from the IR, push object pointer to the stack.
 * ICO_SETSCOPE		: Called after creating new object, set the active scope to be the object scope.
 * ICO_LOADSUBADDRESS	: Get object attribute, push the pointer to the stack.
@@ -407,25 +460,38 @@ Virtual Machine (VM) Instructions
 * ICO_PRIVATE		: start private attributes region
 * ICO_SETPROPERTY	: set attribute value - check for setter.	
 * ICO_CALLCLASSINIT	: call call init() method.
+=======================	============================================================================
 
 (Other)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_SETREFERENCE	: Copy by reference
 * ICO_KILLREFERENCE	: Remove reference
 * ICO_ASSIGNMENTPOINTER : Determine the left side variable
 * ICO_BEFOREEQUAL	: Determine operators like += , -= , ... etc
+=======================	============================================================================
 
 (Bitwise Operators)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_BITAND		: Stack[nSize-1] = Stack[nSize-1] & Stack[nSize] , POP stack[nSize]
 * ICO_BITOR		: Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]
 * ICO_BITXOR		: Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
 * ICO_BITNOT		: Stack[nSize] = ! Stack[nSize] 
 * ICO_BITSHL		: Stack[nSize-1] = Stack[nSize-1] << Stack[nSize] , POP stack[nSize]
 * ICO_BITSHR		: Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
+=======================	============================================================================
 
 (For Step)
 
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
 * ICO_STEPNUMBER	: Determine step number in for loop
 * ICO_POPSTEP		: POP step number from steps stack
 * ICO_LOADAFIRST	: Load the first address of variable name 
+=======================	============================================================================
