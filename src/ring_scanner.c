@@ -3,11 +3,11 @@
 /* Keywords */
 const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC", 
 
-"FROM","NEXT","LOAD","ELSE","SEE","WHILE","OK","CLASS","BREAK","RETURN","BUT", 
+"FROM","NEXT","LOAD","ELSE","SEE","WHILE","OK","CLASS","RETURN","BUT", 
 
 "END","GIVE","BYE","EXIT","TRY","CATCH","DONE","SWITCH","ON","OTHER","OFF", 
 
-"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF","PUT","GET","CASE","DEF"} ;
+"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF","PUT","GET","CASE","DEF","CHANGERINGKEYWORD"} ;
 /* Functions */
 
 Scanner * ring_scanner_new ( RingState *pRingState )
@@ -401,7 +401,6 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_addstring(pScanner->Keywords,"while");
 	ring_list_addstring(pScanner->Keywords,"ok");
 	ring_list_addstring(pScanner->Keywords,"class");
-	ring_list_addstring(pScanner->Keywords,"break");
 	ring_list_addstring(pScanner->Keywords,"return");
 	ring_list_addstring(pScanner->Keywords,"but");
 	ring_list_addstring(pScanner->Keywords,"end");
@@ -432,6 +431,7 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_addstring(pScanner->Keywords,"get");
 	ring_list_addstring(pScanner->Keywords,"case");
 	ring_list_addstring(pScanner->Keywords,"def");
+	ring_list_addstring(pScanner->Keywords,"changeringkeyword");
 	ring_list_genhashtable(pScanner->Keywords);
 }
 

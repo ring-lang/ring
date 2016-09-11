@@ -37,7 +37,6 @@ typedef enum SCANNER_KEYWORD {
 	K_WHILE ,
 	K_OK ,
 	K_CLASS ,
-	K_BREAK ,
 	K_RETURN ,
 	K_BUT ,
 	K_END ,
@@ -66,7 +65,8 @@ typedef enum SCANNER_KEYWORD {
 	K_PUT ,
 	K_GET ,
 	K_CASE ,
-	K_DEF 
+	K_DEF ,
+	K_CHANGERINGKEYWORD 
 } SCANNER_KEYWORD ;
 /* Functions */
 
