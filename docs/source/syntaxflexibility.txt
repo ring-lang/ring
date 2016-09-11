@@ -5,6 +5,67 @@ Syntax Flexibility
 In this chapter we will learn about some options that are provided automatically by the Ring
 compiler for syntax flexibility.
 
+Change Language Keywords
+========================
+
+We can change any keyword using the ChangeRingKeyword command.
+
+.. note:: Remember to restore the keyword again if the team will mix between styles in the same project.
+
+.. tip:: The ChangeRingKeyword command is executed in the scanner stage by the compiler (before parsing).
+
+
+Syntax:
+
+.. code-block:: none
+	
+	ChangeRingKeyword  <oldkeyword>  <newkeyword>
+
+Example:
+
+.. code-block:: none
+
+	ChangeRingKeyword see print
+	
+	print "welcome" + nl
+
+	ChangeRingKeyword print see
+
+	see "Welcome" + nl
+
+Example:
+
+.. code-block:: none
+
+	ChangeRingKeyword  func function
+	ChangeRingKeyword  see  print
+	ChangeRingKeyword  ok   endif
+	ChangeRingKeyword  next endfor
+	ChangeRingKeyword  end  endwhile
+
+	x = 10
+	while x > 0
+		print "x = " + x + nl
+		for t = 1 to 10
+			if t = 3
+				print "number three" + nl
+			endif
+		endfor	
+
+	x--
+	endwhile
+
+	test() 
+
+	function test
+		print "message from test" + nl
+
+	ChangeRingKeyword  print see
+	ChangeRingKeyword  endif ok
+	ChangeRingKeyword  endfor next
+	ChangeRingKeyword  endwhile end
+
+
 Using "()" around the function parameters
 =========================================
 

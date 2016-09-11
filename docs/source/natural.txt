@@ -126,32 +126,34 @@ Example:
 	ChangeRingKeyword	_and  and
 
 			func geti
-					if nIwantwindow = 0
-							nIwantwindow++
-					ok
+				if nIwantwindow = 0
+					nIwantwindow++
+				ok
 
 			func getwant
-					if nIwantwindow = 1
-							nIwantwindow++
-					ok
+				if nIwantwindow = 1
+					nIwantwindow++
+				ok
 
 			func getwindow
-					if nIwantwindow = 2
-							nIwantwindow= 0
-							see "Instruction : I want window" + nl
-					ok
-					if nWindowTitle = 0
-							nWindowTitle++
-					ok
+				if nIwantwindow = 2
+					nIwantwindow= 0
+					see "Instruction : I want window" + nl
+				ok
+				if nWindowTitle = 0
+					nWindowTitle++
+				ok
 
 			func settitle cValue
-					if nWindowTitle = 1
-							nWindowTitle=0
-							see "Instruction : Window Title = " + cValue + nl
-					ok
+				if nWindowTitle = 1
+					nWindowTitle=0
+					see "Instruction : Window Title = " + cValue + nl
+				ok
 
 			func getand
-					see "Using : and" + nl
+				see "Using : and" + nl
+
+
 
 Output:
 
