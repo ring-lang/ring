@@ -25,6 +25,7 @@ Contents:
    Control Structures - Third Style <controlstructures3>
    Getting Input <getinput>
    Functions <functions>
+   Program Structure <programstructure>
    Lists <lists>
    Strings <strings>
    Date and Time <dateandtime>
