@@ -993,7 +993,9 @@ Func GenNewFuncForClasses aList
 		aList + mylist
 		cCode += "RING_FUNC(" + cFuncName + ")" + nl + 
 			"{" + nl +
-				GenTabs(1) + GenMethodCodeCheckIgnorePointerType() +
+				GenMethodCodeCheckIgnorePointerType() +
+			 	GenFuncCodeCheckParaCount(myList) +
+	 			GenFuncCodeCheckParaType(myList) +
 				GenTabs(1) + cCodeName + " *pObject = " +
 				"new " + cCodeName + "(" + 				
 				GenFuncCodeGetParaValues(myList) 
