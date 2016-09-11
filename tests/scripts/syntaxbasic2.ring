@@ -21,6 +21,7 @@ test()
 function test
 	print "message from test" + nl
 
+ChangeRingKeyword  function func
 ChangeRingKeyword  print see
 ChangeRingKeyword  endif ok
 ChangeRingKeyword  endfor next
