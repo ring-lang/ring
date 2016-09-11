@@ -10,7 +10,7 @@ func main					# Called by the Game Engine
 			draw = func oGame,oSelf {
 				oSelf {
 					for t = 1 to 210
-						gl_draw_circle(x,y,t,gl_map_rgb(t*random(255),t*2,t*3),1)
+						gl_draw_circle(x,y,t,gl_map_rgb(t*random(255),t*2,t*3),1)						
 					next
 				}
 			}

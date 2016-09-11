@@ -266,6 +266,11 @@ func gl_draw_line(x1,y1,x2,y2,color,thickness)
 	SDL_RenderDrawLine(SDL_Ren,x1,y1,x2-x1+1,y2-y1+1)
 
 func gl_draw_circle cx,cy,r,color,thickness
+	cr = sdl_get_sdl_color_r(color)
+	cg = sdl_get_sdl_color_g(color)
+	cb = sdl_get_sdl_color_b(color)
+	circleRGBA(SDL_Ren,cx, cy, r, cr,cg,cb,255 )
+
 
 func gl_draw_filled_circle cx, cy, r, color
 
