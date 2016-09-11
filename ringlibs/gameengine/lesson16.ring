@@ -17,10 +17,12 @@ func main					# Called by the Game Engine
 			}
 		}
 		Object {
-			x = 0 y=300 width = 200 height=200
+			addattribute(self,"limit")
+			limit = 100
+			x = 400 y=200 width = 200 height=200
 			draw = func oGame,oSelf {
 				oSelf {
-					for t = 1 to 120
+					for t = 1 to limit
 						gl_draw_circle(x,y,t,gl_map_rgb(t*random(255),t*2,t*3),1)						
 					next
 				}
@@ -36,6 +38,8 @@ func main					# Called by the Game Engine
 						y -= 10
 					on KEY_DOWN
 						y += 10
+					on KEY_SPACE
+						limit += 10
 					off
 				}
 			}
