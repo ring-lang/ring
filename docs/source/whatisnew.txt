@@ -1,11 +1,11 @@
-============
-What is new?
-============
-
-In this chapter we will learn about the changes in each Ring release.
-
+========================
 What is new in Ring 1.1?
 ========================
+
+In this chapter we will learn about the changes and new features in Ring 1.1 release.
+
+List of changes and new features
+================================
 
 Ring 1.1  comes with many new features 
 
@@ -501,5 +501,5 @@ Many chapters are added for providing better information about the language like
 * Scope Rules
 * FAQ
 
-and more!
+And more!
 

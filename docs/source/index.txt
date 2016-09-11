@@ -13,7 +13,7 @@ Contents:
 
    Introduction <introduction>
    Language Design <languagedesign>
-   What is new? <whatisnew>
+   What is new in Ring 1.1? <whatisnew>
    Building From Source Code <sourcecode>
    Getting Started - First Style <getting_started>
    Getting Started - Second Style <getting_started2>
