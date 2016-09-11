@@ -356,6 +356,19 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 					pScanner->cMLComment = 0 ;
 					return ;
 			}
+			break ;
+		case SCANNER_STATE_CHANGEKEYWORD :
+			/* Switch State */
+			if ( c == '\n' ) {
+				pScanner->state = SCANNER_STATE_GENERAL ;
+				#if RING_SCANNEROUTPUT
+				printf( "\n Change Keyword = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
+				#endif
+				ring_string_set(pScanner->ActiveToken,"");
+			} else {
+				ring_string_add(pScanner->ActiveToken,cStr);
+			}
+			break ;
 	}
 	if ( c == '\n' ) {
 		pScanner->LinesCount++ ;
@@ -461,9 +474,14 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 		#if RING_SCANNEROUTPUT
 		printf( "\nTOKEN (Keyword) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
 		#endif
-		sprintf( cStr , "%d" , nResult ) ;
-		ring_string_set(pScanner->ActiveToken,cStr);
-		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_KEYWORD);
+		if ( nResult != RING_SCANNER_CHANGERINGKEYWORD ) {
+			sprintf( cStr , "%d" , nResult ) ;
+			ring_string_set(pScanner->ActiveToken,cStr);
+			ring_scanner_addtoken(pScanner,SCANNER_TOKEN_KEYWORD);
+		}
+		else {
+			ring_string_set(pScanner->ActiveToken,"");
+		}
 	} else {
 		/* Add Identifier */
 		if ( strcmp(ring_string_get(pScanner->ActiveToken),"") != 0 ) {

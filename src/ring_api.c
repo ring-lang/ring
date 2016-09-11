@@ -1162,6 +1162,7 @@ void ring_vmlib_trim ( void *pPointer )
 			cNewStr[x-nPos1] = cStr[x] ;
 		}
 		RING_API_RETSTRING2(cNewStr,nPos2-nPos1+1);
+		free( cNewStr ) ;
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

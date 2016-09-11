@@ -136,4 +136,7 @@ void ring_scanner_runprogram ( RingState *pRingState ) ;
 #define SCANNER_STATE_LITERAL 1
 #define SCANNER_STATE_COMMENT 2
 #define SCANNER_STATE_MLCOMMENT 3
+#define SCANNER_STATE_CHANGEKEYWORD 4
+/* Change Ring Keyword */
+#define RING_SCANNER_CHANGERINGKEYWORD 44
 #endif
