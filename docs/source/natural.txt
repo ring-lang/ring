@@ -111,9 +111,6 @@ Example:
 			I want window and the window title = "hello world"
 	}
 
-	ChangeRingKeyword	_and  and
-
-
 	Class App
 
 			# Attributes for the instruction I want window
@@ -125,6 +122,8 @@ Example:
 					nWindowTitle = 0
 			# Keywords to ignore, just give them any value
 					the=0  and=0
+
+	ChangeRingKeyword	_and  and
 
 			func geti
 					if nIwantwindow = 0
@@ -151,6 +150,18 @@ Example:
 							see "Instruction : Window Title = " + cValue + nl
 					ok
 
+		func getand
+			see "Using : and" + nl
+
+Output:
+
+.. code-block:: none
+
+	Instruction : I want window
+	Using : and
+	Instruction : Window Title = hello world
+			
+		
 BraceStart and BraceEnd Methods
 ===============================
 
