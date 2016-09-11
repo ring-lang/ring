@@ -150,8 +150,8 @@ Example:
 							see "Instruction : Window Title = " + cValue + nl
 					ok
 
-		func getand
-			see "Using : and" + nl
+			func getand
+					see "Using : and" + nl
 
 Output:
 
