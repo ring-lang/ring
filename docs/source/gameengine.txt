@@ -2,9 +2,11 @@
 Demo Project - Game Engine for 2D Games
 =======================================
 
-In this chapter we will learn about using the different programming paradigm in the same project.
+In this chapter we will learn about using the different programming paradigms in the same project.
 
 We will create a simple Game Engine for 2D Games.
+
+You can use the Engine directly to create 2D Games for Desktop or Mobile.
 
 Project Layers
 ==============

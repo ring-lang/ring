@@ -5,6 +5,10 @@ Using RingLibSDL
 In this chapter we will learn about using RingLibSDL to create games based on the
 LibSDL, SDLImage, SDLTTF and SDLMixer libraries.
 
+.. tip:: RingLibSDL is not distributed with the binary releases for desktop which uses RingAllegro
+
+.. note:: To use RingLibSDL, Just download the 'Ring for Android Games using LibSDL' release.
+
 Create Window
 =============
 
