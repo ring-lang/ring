@@ -115,6 +115,8 @@ const char * ring_scanner_getkeywordtext ( const char *cStr ) ;
 void ring_scanner_runobjfile ( const char *cFileName,RingState *pRingState ) ;
 
 void ring_scanner_runprogram ( RingState *pRingState ) ;
+
+void ring_scanner_changekeyword ( Scanner *pScanner ) ;
 /* MACRO */
 #define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem(pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
 /*

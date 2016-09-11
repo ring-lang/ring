@@ -364,6 +364,7 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 				#if RING_SCANNEROUTPUT
 				printf( "\n Change Keyword = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
 				#endif
+				ring_scanner_changekeyword(pScanner);
 				ring_string_set(pScanner->ActiveToken,"");
 			} else {
 				ring_string_add(pScanner->ActiveToken,cStr);
@@ -481,6 +482,7 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 		}
 		else {
 			ring_string_set(pScanner->ActiveToken,"");
+			pScanner->state = SCANNER_STATE_CHANGEKEYWORD ;
 		}
 	} else {
 		/* Add Identifier */
@@ -768,4 +770,34 @@ void ring_scanner_runprogram ( RingState *pRingState )
 	if ( pRingState->nPrintICFinal ) {
 		ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
 	}
+}
+
+void ring_scanner_changekeyword ( Scanner *pScanner )
+{
+	char *cStr  ;
+	int x,nSize  ;
+	String *word1, *word2, *activeword  ;
+	char cStr2[2]  ;
+	cStr2[1] = '\0' ;
+	/* Create Strings */
+	word1 = ring_string_new("");
+	word2 = ring_string_new("");
+	cStr = ring_string_get(pScanner->ActiveToken) ;
+	activeword = word1 ;
+	for ( x = 0 ; x < ring_string_size(pScanner->ActiveToken) ; x++ ) {
+		if ( cStr[x] == ' ' ) {
+			if ( (activeword == word1) && (ring_string_size(activeword) >= 1) ) {
+				activeword = word2 ;
+			}
+		}
+		else {
+			cStr2[0] = cStr[x] ;
+			ring_string_add(activeword,cStr2);
+		}
+	}
+	ring_string_print(word1);
+	ring_string_print(word2);
+	/* Delete Strings */
+	ring_string_delete(word1);
+	ring_string_delete(word2);
 }

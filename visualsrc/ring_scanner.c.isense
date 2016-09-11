@@ -166,3 +166,12 @@ ring_scanner_runobjfile
 ring_scanner_runprogram
 Type: VM *
 pVM
+ring_scanner_changekeyword
+Type: char *
+cStr
+Type: int
+x,nSize
+Type: String *
+word1, *word2, *activeword
+Type: char
+cStr2[2]
