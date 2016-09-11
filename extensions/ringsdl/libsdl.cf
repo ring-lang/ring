@@ -6,6 +6,10 @@
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "SDL_net.h"
+#include "sdl2_gfxPrimitives.h"
+#include "sdl2_gfx\SDL2_gfxPrimitives.c"
+#include "sdl2_gfx\SDL2_rotozoom.c"
+
 </code>
 
 <runcode>
@@ -1320,3 +1324,9 @@ int SDLNet_TCP_DelSocket(SDLNet_SocketSet set, TCPsocket sock)
 int SDLNet_UDP_DelSocket(SDLNet_SocketSet set, UDPsocket sock)
 int SDLNet_CheckSockets(SDLNet_SocketSet set, Uint32 timeout)
 int SDLNet_SocketReady(TCPsocket sock)
+
+<comment>
+SDL2_gfx
+</comment>
+
+int circleRGBA(SDL_Renderer * renderer, Sint16 x, Sint16 y, Sint16 rad, Uint8 r, Uint8 g, Uint8 b, Uint8 a)
