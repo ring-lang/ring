@@ -775,7 +775,7 @@ void ring_scanner_runprogram ( RingState *pRingState )
 void ring_scanner_changekeyword ( Scanner *pScanner )
 {
 	char *cStr  ;
-	int x,nSize  ;
+	int x,nSize,nResult  ;
 	String *word1, *word2, *activeword  ;
 	char cStr2[2]  ;
 	cStr2[1] = '\0' ;
@@ -795,8 +795,19 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 			ring_string_add(activeword,cStr2);
 		}
 	}
-	ring_string_print(word1);
-	ring_string_print(word2);
+	/* Change Keyword */
+	if ( (strcmp(ring_string_get(word1),"") == 0) || (strcmp(ring_string_get(word2),"") == 0) ) {
+		puts("Warning : The Compiler command  ChangeRingKeyword required two words");
+	}
+	else {
+		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),ring_string_get(word1));
+		if ( nResult > 0 ) {
+			ring_list_setstring(pScanner->Keywords,nResult,ring_string_get(word2));
+			ring_list_genhashtable(pScanner->Keywords);
+		}
+		else {
+		}
+	}
 	/* Delete Strings */
 	ring_string_delete(word1);
 	ring_string_delete(word2);

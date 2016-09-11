@@ -170,7 +170,7 @@ ring_scanner_changekeyword
 Type: char *
 cStr
 Type: int
-x,nSize
+x,nSize,nResult
 Type: String *
 word1, *word2, *activeword
 Type: char
