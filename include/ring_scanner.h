@@ -94,7 +94,7 @@ typedef enum SCANNER_OPERATOR {
 	OP_REFERENCE ,
 	OP_SEMI ,
 	OP_XOR 
-} ;
+} SCANNER_OPERATOR ;
 /* Functions */
 
 Scanner * ring_scanner_new ( RingState *pRingState ) ;

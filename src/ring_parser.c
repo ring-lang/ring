@@ -186,11 +186,11 @@ int ring_parser_isanykeyword ( Parser *pParser )
 	return 0 ;
 }
 
-int ring_parser_isoperator2 ( Parser *pParser,int nType )
+int ring_parser_isoperator2 ( Parser *pParser,SCANNER_OPERATOR nType )
 {
 	assert(pParser != NULL);
 	if ( pParser->TokenType == SCANNER_TOKEN_OPERATOR ) {
-		if ( pParser->nTokenIndex == nType ) {
+		if ( pParser->nTokenIndex == (int) nType ) {
 			return 1 ;
 		}
 	}
