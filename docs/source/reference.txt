@@ -284,7 +284,7 @@ Definitions :-
 * IR : Instruction Register
 * PC : Program Counter
 * VP : Variable Pointer
-* nSize : Last Item in the Stack (Last In - First Out)
+* Stack[nSize] : Last Item in the Stack (Last In - First Out)
 * VV : Variable Value (We have a Pointer to a variable, And we access this variable value)
 (Stack and Variables)
 
