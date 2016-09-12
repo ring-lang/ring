@@ -1025,7 +1025,8 @@ int ring_parser_mixer ( Parser *pParser )
 	while ( ring_parser_isoperator(pParser,".") ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
-		if ( ring_parser_isidentifier(pParser) ) {
+		/* we support literal to be able to call methods contains operators in the name */
+		if ( ring_parser_isidentifier(pParser) || ring_parser_isliteral(pParser) ) {
 			/* Prevent Accessing the self reference from outside the object */
 			if ( strcmp(pParser->TokenText,"self") == 0 ) {
 				ring_parser_error(pParser,RING_PARSER_ERROR_ACCESSSELFREF);

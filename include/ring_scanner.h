@@ -66,7 +66,8 @@ typedef enum SCANNER_KEYWORD {
 	K_GET ,
 	K_CASE ,
 	K_DEF ,
-	K_CHANGERINGKEYWORD 
+	K_CHANGERINGKEYWORD ,
+	K_CHANGERINGIOPERATOR 
 } SCANNER_KEYWORD ;
 /* Functions */
 
@@ -117,6 +118,8 @@ void ring_scanner_runobjfile ( const char *cFileName,RingState *pRingState ) ;
 void ring_scanner_runprogram ( RingState *pRingState ) ;
 
 void ring_scanner_changekeyword ( Scanner *pScanner ) ;
+
+void ring_scanner_changeoperator ( Scanner *pScanner ) ;
 /* MACRO */
 #define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem(pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
 /*
@@ -139,6 +142,8 @@ void ring_scanner_changekeyword ( Scanner *pScanner ) ;
 #define SCANNER_STATE_COMMENT 2
 #define SCANNER_STATE_MLCOMMENT 3
 #define SCANNER_STATE_CHANGEKEYWORD 4
-/* Change Ring Keyword */
+#define SCANNER_STATE_CHANGEOPERATOR 5
+/* Change Ring Keyword/Operator */
 #define RING_SCANNER_CHANGERINGKEYWORD 44
+#define RING_SCANNER_CHANGERINGOPERATOR 45
 #endif

@@ -7,7 +7,7 @@ const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC",
 
 "END","GIVE","BYE","EXIT","TRY","CATCH","DONE","SWITCH","ON","OTHER","OFF", 
 
-"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF","PUT","GET","CASE","DEF","CHANGERINGKEYWORD"} ;
+"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF","PUT","GET","CASE","DEF","CHANGERINGKEYWORD","CHANGERINGOPERATOR"} ;
 /* Functions */
 
 Scanner * ring_scanner_new ( RingState *pRingState )
@@ -370,6 +370,19 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 				ring_string_add(pScanner->ActiveToken,cStr);
 			}
 			break ;
+		case SCANNER_STATE_CHANGEOPERATOR :
+			/* Switch State */
+			if ( c == '\n' ) {
+				pScanner->state = SCANNER_STATE_GENERAL ;
+				#if RING_SCANNEROUTPUT
+				printf( "\n Change Keyword = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
+				#endif
+				ring_scanner_changeoperator(pScanner);
+				ring_string_set(pScanner->ActiveToken,"");
+			} else {
+				ring_string_add(pScanner->ActiveToken,cStr);
+			}
+			break ;
 	}
 	if ( c == '\n' ) {
 		pScanner->LinesCount++ ;
@@ -446,6 +459,7 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_addstring(pScanner->Keywords,"case");
 	ring_list_addstring(pScanner->Keywords,"def");
 	ring_list_addstring(pScanner->Keywords,"changeringkeyword");
+	ring_list_addstring(pScanner->Keywords,"changeringoperator");
 	ring_list_genhashtable(pScanner->Keywords);
 }
 
@@ -475,10 +489,14 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 		#if RING_SCANNEROUTPUT
 		printf( "\nTOKEN (Keyword) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
 		#endif
-		if ( nResult != RING_SCANNER_CHANGERINGKEYWORD ) {
+		if ( (nResult != RING_SCANNER_CHANGERINGKEYWORD) && (nResult != RING_SCANNER_CHANGERINGOPERATOR) ) {
 			sprintf( cStr , "%d" , nResult ) ;
 			ring_string_set(pScanner->ActiveToken,cStr);
 			ring_scanner_addtoken(pScanner,SCANNER_TOKEN_KEYWORD);
+		}
+		else if ( nResult == RING_SCANNER_CHANGERINGOPERATOR ) {
+			ring_string_set(pScanner->ActiveToken,"");
+			pScanner->state = SCANNER_STATE_CHANGEOPERATOR ;
 		}
 		else {
 			ring_string_set(pScanner->ActiveToken,"");
@@ -795,6 +813,9 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 			ring_string_add(activeword,cStr2);
 		}
 	}
+	/* To Lower Case */
+	ring_string_lower(ring_string_get(word1));
+	ring_string_lower(ring_string_get(word2));
 	/* Change Keyword */
 	if ( (strcmp(ring_string_get(word1),"") == 0) || (strcmp(ring_string_get(word2),"") == 0) ) {
 		puts("Warning : The Compiler command  ChangeRingKeyword required two words");
@@ -806,6 +827,52 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 			ring_list_genhashtable(pScanner->Keywords);
 		}
 		else {
+			puts("Warning : Compiler command ChangeRingKeyword - Keyword not found !");
+		}
+	}
+	/* Delete Strings */
+	ring_string_delete(word1);
+	ring_string_delete(word2);
+}
+
+void ring_scanner_changeoperator ( Scanner *pScanner )
+{
+	char *cStr  ;
+	int x,nSize,nResult  ;
+	String *word1, *word2, *activeword  ;
+	char cStr2[2]  ;
+	cStr2[1] = '\0' ;
+	/* Create Strings */
+	word1 = ring_string_new("");
+	word2 = ring_string_new("");
+	cStr = ring_string_get(pScanner->ActiveToken) ;
+	activeword = word1 ;
+	for ( x = 0 ; x < ring_string_size(pScanner->ActiveToken) ; x++ ) {
+		if ( cStr[x] == ' ' ) {
+			if ( (activeword == word1) && (ring_string_size(activeword) >= 1) ) {
+				activeword = word2 ;
+			}
+		}
+		else {
+			cStr2[0] = cStr[x] ;
+			ring_string_add(activeword,cStr2);
+		}
+	}
+	/* To Lower Case */
+	ring_string_lower(ring_string_get(word1));
+	ring_string_lower(ring_string_get(word2));
+	/* Change Operator */
+	if ( (strcmp(ring_string_get(word1),"") == 0) || (strcmp(ring_string_get(word2),"") == 0) ) {
+		puts("Warning : The Compiler command  ChangeRingOperator requires two words");
+	}
+	else {
+		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Operators),ring_string_get(word1));
+		if ( nResult > 0 ) {
+			ring_list_setstring(pScanner->Operators,nResult,ring_string_get(word2));
+			ring_list_genhashtable(pScanner->Operators);
+		}
+		else {
+			puts("Warning : Compiler command ChangeRingOperator - Operator not found !");
 		}
 	}
 	/* Delete Strings */

@@ -822,9 +822,9 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	/* Create String */
 	pString = ring_string_new("if ismethod(ring_gettemp_var,'get");
 	ring_string_add(pString,ring_list_getstring(pVar,1));
-	ring_string_add(pString,"')\nreturn ring_gettemp_var.get");
+	ring_string_add(pString,"')\nreturn ring_gettemp_var.'get");
 	ring_string_add(pString,ring_list_getstring(pVar,1));
-	ring_string_add(pString,"() ok");
+	ring_string_add(pString,"'() ok");
 	/* Set Variable ring_gettemp_var  , Number 5 in Public Memory */
 	pList = ring_list_getlist(ring_list_getlist(pVM->pMem,1),5) ;
 	ring_list_setpointer(pList,RING_VAR_VALUE,pVM->pGetSetObject);
@@ -913,9 +913,9 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			/* Create String */
 			pString = ring_string_new("if ismethod(ring_gettemp_var,'set");
 			ring_string_add(pString,ring_list_getstring(pList,3));
-			ring_string_add(pString,"')\nring_gettemp_var.set");
+			ring_string_add(pString,"')\nring_gettemp_var.'set");
 			ring_string_add(pString,ring_list_getstring(pList,3));
-			ring_string_add(pString,"(ring_settemp_var)\nring_tempflag_var = 0\nelse\nring_tempflag_var = 1\nok");
+			ring_string_add(pString,"'(ring_settemp_var)\nring_tempflag_var = 0\nelse\nring_tempflag_var = 1\nok");
 			/* Eval the string */
 			pItem = RING_VM_IR_ITEM(2) ;
 			pVM->nEvalCalledFromRingCode = 0 ;

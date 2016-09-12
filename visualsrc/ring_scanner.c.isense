@@ -71,6 +71,7 @@ K_GET
 K_CASE
 K_DEF
 K_CHANGERINGKEYWORD
+K_CHANGERINGIOPERATOR
 END:
 Type: SCANNER_KEYWORD
 SCANNER_KEYWORD
@@ -89,7 +90,9 @@ SCANNER_STATE_LITERAL
 SCANNER_STATE_COMMENT
 SCANNER_STATE_MLCOMMENT
 SCANNER_STATE_CHANGEKEYWORD
+SCANNER_STATE_CHANGEOPERATOR
 RING_SCANNER_CHANGERINGKEYWORD
+RING_SCANNER_CHANGERINGOPERATOR
 ring_scanner_new
 Type: Scanner *
 pScanner
@@ -167,6 +170,15 @@ ring_scanner_runprogram
 Type: VM *
 pVM
 ring_scanner_changekeyword
+Type: char *
+cStr
+Type: int
+x,nSize,nResult
+Type: String *
+word1, *word2, *activeword
+Type: char
+cStr2[2]
+ring_scanner_changeoperator
 Type: char *
 cStr
 Type: int
