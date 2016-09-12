@@ -292,7 +292,12 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 					#endif
 				}
 			} else {
-				ring_scanner_checktoken(pScanner);
+				if ( ring_scanner_isoperator(pScanner,ring_string_get(pScanner->ActiveToken)) ) {
+					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_OPERATOR);
+				}
+				else {
+					ring_scanner_checktoken(pScanner);
+				}
 			}
 			/* Switch State */
 			if ( c == '"' ) {
@@ -375,7 +380,7 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 			if ( c == '\n' ) {
 				pScanner->state = SCANNER_STATE_GENERAL ;
 				#if RING_SCANNEROUTPUT
-				printf( "\n Change Keyword = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
+				printf( "\n Change operator = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
 				#endif
 				ring_scanner_changeoperator(pScanner);
 				ring_string_set(pScanner->ActiveToken,"");
