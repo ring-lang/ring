@@ -8,6 +8,7 @@ typedef struct Parser {
 	int TokensCount  ;
 	char TokenType  ;
 	const char *TokenText  ;
+	int nTokenIndex  ;
 	int nLineNumber  ;
 	int nErrorLine  ;
 	int nErrorsCount  ;
@@ -146,6 +147,8 @@ int ring_parser_isendline ( Parser *pParser ) ;
 int ring_parser_settoken ( Parser *pParser,int x ) ;
 
 int ring_parser_isanykeyword ( Parser *pParser ) ;
+
+int ring_parser_isoperator2 ( Parser *pParser,int nType ) ;
 /* Display Errors */
 
 void ring_parser_error ( Parser *pParser,const char *cStr ) ;

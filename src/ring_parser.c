@@ -50,6 +50,7 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->Tokens = pTokens ;
 	pParser->ActiveToken = 0 ;
 	pParser->TokensCount = ring_list_getsize(pParser->Tokens) ;
+	pParser->nTokenIndex = 0 ;
 	pParser->nLineNumber = 1 ;
 	pParser->nErrorLine = 0 ;
 	pParser->nErrorsCount = 0 ;
@@ -93,6 +94,7 @@ void ring_parser_loadtoken ( Parser *pParser )
 	pList = ring_list_getlist(pParser->Tokens,pParser->ActiveToken);
 	pParser->TokenType = ring_list_getint(pList,1) ;
 	pParser->TokenText = ring_list_getstring(pList,2) ;
+	pParser->nTokenIndex = ring_list_getint(pList,3) ;
 }
 
 int ring_parser_nexttoken ( Parser *pParser )
@@ -180,6 +182,17 @@ int ring_parser_isanykeyword ( Parser *pParser )
 	assert(pParser != NULL);
 	if ( pParser->TokenType == SCANNER_TOKEN_KEYWORD ) {
 		return 1 ;
+	}
+	return 0 ;
+}
+
+int ring_parser_isoperator2 ( Parser *pParser,int nType )
+{
+	assert(pParser != NULL);
+	if ( pParser->TokenType == SCANNER_TOKEN_OPERATOR ) {
+		if ( pParser->nTokenIndex == nType ) {
+			return 1 ;
+		}
 	}
 	return 0 ;
 }

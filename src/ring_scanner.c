@@ -27,6 +27,7 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	pScanner->FloatMark = 0 ;
 	pScanner->cMLComment = 0 ;
 	pScanner->pRingState = pRingState ;
+	pScanner->nTokenIndex = 0 ;
 	return pScanner ;
 }
 
@@ -477,6 +478,9 @@ void ring_scanner_addtoken ( Scanner *pScanner,int type )
 	ring_list_addint(pList,type);
 	/* Add Token Text */
 	ring_list_addstring(pList,ring_string_get(pScanner->ActiveToken));
+	/* Add Token Index */
+	ring_list_addint(pList,pScanner->nTokenIndex);
+	pScanner->nTokenIndex = 0 ;
 	ring_scanner_floatmark(pScanner,type);
 	ring_string_set(pScanner->ActiveToken,"");
 }
@@ -557,8 +561,11 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
 
 int ring_scanner_isoperator ( Scanner *pScanner, const char *cStr )
 {
+	int nPos  ;
 	assert(pScanner != NULL);
-	if ( ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Operators),cStr) > 0 ) {
+	nPos = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Operators),cStr) ;
+	if ( nPos > 0 ) {
+		pScanner->nTokenIndex = nPos ;
 		return 1 ;
 	}
 	return 0 ;

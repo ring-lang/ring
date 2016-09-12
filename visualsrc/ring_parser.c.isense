@@ -11,6 +11,8 @@ TokenType
 Type: const char *
 TokenText
 Type: int
+nTokenIndex
+Type: int
 nLineNumber
 Type: int
 nErrorLine
@@ -109,6 +111,7 @@ ring_parser_isidentifier
 ring_parser_isendline
 ring_parser_settoken
 ring_parser_isanykeyword
+ring_parser_isoperator2
 ring_parser_error
 Type: int
 RingActiveFile

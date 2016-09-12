@@ -17,6 +17,8 @@ Type: char
 cMLComment
 Type: RingState *
 pRingState
+Type: int
+nTokenIndex
 END:
 Type: Scanner
 struct Scanner
@@ -75,6 +77,29 @@ K_CHANGERINGIOPERATOR
 END:
 Type: SCANNER_KEYWORD
 SCANNER_KEYWORD
+Parent: SCANNER_OPERATOR
+OP_PLUS = 1
+OP_MINUS
+OP_MUL
+OP_DIV
+OP_REM
+OP_DOT
+OP_FOPEN
+OP_FCLOSE
+OP_EQUAL
+OP_COMMA
+OP_NOT
+OP_GREATER
+OP_LESS
+OP_LOPEN
+OP_LCLOSE
+OP_RANGE
+OP_BRACEOPEN
+OP_BRACECLOSE
+OP_REFERENCE
+OP_SEMI
+OP_XOR
+END:
 RING_SCANNER_DELETELASTTOKEN
 RING_SCANNER_TOKENTYPE
 RING_SCANNER_TOKENVALUE
@@ -130,6 +155,8 @@ Type: unsigned int
 x
 ring_scanner_checklasttoken
 ring_scanner_isoperator
+Type: int
+nPos
 ring_scanner_operators
 ring_scanner_lasttokentype
 x

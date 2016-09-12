@@ -17,6 +17,8 @@ typedef struct Scanner {
 	char cMLComment  ;
 	/* Ring State */
 	RingState *pRingState  ;
+	/* Index of Keyword/Operator */
+	int nTokenIndex  ;
 } Scanner ;
 /* Keywords */
 typedef enum SCANNER_KEYWORD {
@@ -69,6 +71,30 @@ typedef enum SCANNER_KEYWORD {
 	K_CHANGERINGKEYWORD ,
 	K_CHANGERINGIOPERATOR 
 } SCANNER_KEYWORD ;
+/* Operators */
+typedef enum SCANNER_OPERATOR {
+	OP_PLUS = 1 ,
+	OP_MINUS ,
+	OP_MUL ,
+	OP_DIV ,
+	OP_REM ,
+	OP_DOT ,
+	OP_FOPEN ,
+	OP_FCLOSE ,
+	OP_EQUAL ,
+	OP_COMMA ,
+	OP_NOT ,
+	OP_GREATER ,
+	OP_LESS ,
+	OP_LOPEN ,
+	OP_LCLOSE ,
+	OP_RANGE ,
+	OP_BRACEOPEN ,
+	OP_BRACECLOSE ,
+	OP_REFERENCE ,
+	OP_SEMI ,
+	OP_XOR 
+} ;
 /* Functions */
 
 Scanner * ring_scanner_new ( RingState *pRingState ) ;
