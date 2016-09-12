@@ -409,8 +409,8 @@ int ring_parser_arithmetic ( Parser *pParser )
 		puts("Rule : Arithmetic --> Term");
 		#endif
 		x = 1 ;
-		while ( ring_parser_isoperator2(pParser,OP_PLUS) || ring_parser_isoperator2(pParser,OP_MINUS) ) {
-			if ( ring_parser_isoperator2(pParser,OP_PLUS) ) {
+		while ( ring_parser_isoperator(pParser,"+") || ring_parser_isoperator(pParser,"-") ) {
+			if ( ring_parser_isoperator(pParser,"+") ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_term(pParser);
@@ -461,8 +461,8 @@ int ring_parser_term ( Parser *pParser )
 		
 		puts("Rule : Term --> Range");
 		#endif
-		while ( ring_parser_isoperator2(pParser,OP_MUL) || ring_parser_isoperator2(pParser,OP_DIV) || ring_parser_isoperator2(pParser,OP_REM) ) {
-			if ( ring_parser_isoperator2(pParser,OP_MUL) ) {
+		while ( ring_parser_isoperator(pParser,"*") || ring_parser_isoperator(pParser,"/") || ring_parser_isoperator(pParser,"%") ) {
+			if ( ring_parser_isoperator(pParser,"*") ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				#if RING_PARSERTRACE
@@ -479,7 +479,7 @@ int ring_parser_term ( Parser *pParser )
 				/* Generate Location for nPC for Operator Overloading */
 				ring_parser_icg_newoperandint(pParser,0);
 			}
-			else if ( ring_parser_isoperator2(pParser,OP_REM) ) {
+			else if ( ring_parser_isoperator(pParser,"%") ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_range(pParser);
