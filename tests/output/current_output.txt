@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 3786
+Time 3896
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome

@@ -535,7 +535,7 @@ int ring_parser_range ( Parser *pParser )
 			puts("Rule : Range --> Factor");
 		}
 		#endif
-		if ( ring_parser_isoperator(pParser,":") ) {
+		if ( ring_parser_isoperator2(pParser,OP_RANGE) ) {
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			x = ring_parser_factor(pParser,&nFlag);
@@ -767,7 +767,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		return 1 ;
 	}
 	/* Factor --> Literal --> ':' Identifier */
-	if ( ring_parser_isoperator(pParser,":") ) {
+	if ( ring_parser_isoperator2(pParser,OP_RANGE) ) {
 		ring_parser_nexttoken(pParser);
 		if ( ring_parser_isidentifier(pParser) || ring_parser_isanykeyword(pParser) ) {
 			nCount = ring_parser_icg_instructionscount(pParser);
