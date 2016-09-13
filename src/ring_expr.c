@@ -324,7 +324,7 @@ int ring_parser_bitand ( Parser *pParser )
 		
 		puts("Rule : BitAnd --> BitShift");
 		#endif
-		while ( ring_parser_isoperator(pParser,"&") ) {
+		while ( ring_parser_isoperator2(pParser,OP_REFERENCE) ) {
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			x = ring_parser_bitshift(pParser);
@@ -839,7 +839,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		return x ;
 	}
 	/* Factor --> & */
-	else if ( ring_parser_isoperator(pParser,"&") ) {
+	else if ( ring_parser_isoperator2(pParser,OP_REFERENCE) ) {
 		ring_parser_nexttoken(pParser);
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_RETITEMREF);
