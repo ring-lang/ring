@@ -58,6 +58,8 @@ func string_class_test
 	oString {
 		set("Hello") println()
 		set("How are you?") println()
+		see startswith("How") + nl
+		see endswith("you?") + nl
 	}
 
 
@@ -122,6 +124,12 @@ Class String From StdBase
 
 	Func Split
 		return str2list( substr(vValue," ",nl) )
+
+	Func startswith substr
+		if std_left(std_trim(vValue) , len(substr)) = substr return 1 else return 0 ok   
+
+	Func endswith substr
+		if std_right(std_trim(vValue), len(substr)) = substr return 1 else return 0 ok 
 
 	Func operator cOperator,Para
 		result = new string
