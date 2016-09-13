@@ -206,27 +206,8 @@ Output:
 
 	Plus operator
 
-Changing the '=' operator to 'is'
-=================================
-
-Change the Ring Keyword 'And'
-=============================
-
-What if we want to connect between the two instructions using 'and'
-
-We have a problem because in Ring 'and' is a keyword
-
-We can change that using the ChangeRingKeyword command.
-
-Syntax:
-
-.. code-block:: none
-	
-	ChangeRingKeyword  <oldkeyword>  <newkeyword>
-
-.. note:: remember to restore the keyword again 
-
-.. tip:: The ChangeRingKeyword command is executed in the scanner stage by the compiler (before parsing).
+Chang the '=' operator to 'is'
+==============================
 	
 Example:
 
