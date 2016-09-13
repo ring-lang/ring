@@ -871,7 +871,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		return 0 ;
 	}
 	/* Factor --> List */
-	if ( ring_parser_isoperator(pParser,"[") ) {
+	if ( ring_parser_isoperator2(pParser,OP_LOPEN) ) {
 		x = ring_parser_list(pParser) ;
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
@@ -1049,7 +1049,7 @@ int ring_parser_mixer ( Parser *pParser )
 		}
 	}
 	/* [Index]  to access array element, Index = Expression */
-	if ( ring_parser_isoperator(pParser,"[") ) {
+	if ( ring_parser_isoperator2(pParser,OP_LOPEN) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
 		if ( ring_parser_expr(pParser) ) {
@@ -1057,7 +1057,7 @@ int ring_parser_mixer ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_LOADINDEXADDRESS);
 			/* Add 0 For Operator Overloading */
 			ring_parser_icg_newoperandint(pParser,0);
-			if ( ring_parser_isoperator(pParser,"]") ) {
+			if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
 				ring_parser_nexttoken(pParser);
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
