@@ -114,11 +114,11 @@ int ring_parser_equalornot ( Parser *pParser )
 		
 		puts("Rule : EqualOrNot --> Compare");
 		#endif
-		while ( ring_parser_isoperator(pParser,"=") || ring_parser_isoperator(pParser,"!") ) {
+		while ( ring_parser_isoperator2(pParser,OP_EQUAL) || ring_parser_isoperator(pParser,"!") ) {
 			if ( ring_parser_isoperator(pParser,"!") ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
-				if ( ring_parser_isoperator(pParser,"=") ) {
+				if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 					ring_parser_nexttoken(pParser);
 					RING_PARSER_IGNORENEWLINE ;
 					x = ring_parser_compare(pParser);
@@ -179,7 +179,7 @@ int ring_parser_compare ( Parser *pParser )
 			if ( ring_parser_isoperator(pParser,"<") ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
-				if ( ring_parser_isoperator(pParser,"=") ) {
+				if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 					nEqual = 1 ;
 					ring_parser_nexttoken(pParser);
 				}
@@ -216,7 +216,7 @@ int ring_parser_compare ( Parser *pParser )
 			else {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
-				if ( ring_parser_isoperator(pParser,"=") ) {
+				if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 					nEqual = 1 ;
 					ring_parser_nexttoken(pParser);
 					RING_PARSER_IGNORENEWLINE ;
@@ -597,7 +597,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		pList = ring_parser_icg_getactiveoperation(pParser) ;
 		/* Check Operator */
 		lequal = 1 ;
-		if ( ring_parser_isoperator(pParser,"=") ) {
+		if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 			nBeforeEqual = 0 ;
 		}
 		else if ( ring_parser_isoperator(pParser,"+=") ) {
@@ -789,7 +789,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			#endif
 			ring_parser_nexttoken(pParser);
 			/* Hash --> '=' Expression */
-			if ( ring_parser_isoperator(pParser,"=") ) {
+			if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 				ring_parser_nexttoken(pParser);
 				if ( ring_parser_expr(pParser) ) {
 					/* Generate Code */
@@ -1119,7 +1119,7 @@ int ring_parser_mixer ( Parser *pParser )
 			if ( ring_parser_expr(pParser) ) {
 				pParser->nAssignmentFlag = nFlag ;
 				RING_PARSER_IGNORENEWLINE ;
-				if ( ring_parser_isoperator(pParser,",") ) {
+				if ( ring_parser_isoperator2(pParser,OP_COMMA) ) {
 					ring_parser_nexttoken(pParser);
 				}
 				else if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
