@@ -100,6 +100,8 @@ OP_REFERENCE
 OP_SEMI
 OP_XOR
 END:
+Type: SCANNER_OPERATOR
+SCANNER_OPERATOR
 RING_SCANNER_DELETELASTTOKEN
 RING_SCANNER_TOKENTYPE
 RING_SCANNER_TOKENVALUE
@@ -141,6 +143,8 @@ Type: List *
 pList
 Type: String *
 pString
+Type: int
+nTokenIndex
 ring_scanner_keywords
 ring_scanner_addtoken
 Type: List *

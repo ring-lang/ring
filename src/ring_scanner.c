@@ -7,7 +7,9 @@ const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC",
 
 "END","GIVE","BYE","EXIT","TRY","CATCH","DONE","SWITCH","ON","OTHER","OFF", 
 
-"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF","PUT","GET","CASE","DEF","CHANGERINGKEYWORD","CHANGERINGOPERATOR"} ;
+"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF", 
+
+"PUT","GET","CASE","DEF","CHANGERINGKEYWORD","CHANGERINGOPERATOR"} ;
 /* Functions */
 
 Scanner * ring_scanner_new ( RingState *pRingState )
@@ -166,6 +168,7 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 	char cStr[2]  ;
 	List *pList  ;
 	String *pString  ;
+	int nTokenIndex  ;
 	assert(pScanner != NULL);
 	cStr[0] = c ;
 	cStr[1] = '\0' ;
@@ -186,6 +189,7 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 			/* Check Space/Tab/New Line */
 			if ( c != ' ' && c != '\n' && c != '\t' && c != '\"' && c != '\'' && c != '\r' && c != '`' ) {
 				if ( ring_scanner_isoperator(pScanner,cStr) ) {
+					nTokenIndex = pScanner->nTokenIndex ;
 					ring_scanner_checktoken(pScanner);
 					ring_string_set(pScanner->ActiveToken,cStr);
 					#if RING_SCANNEROUTPUT
@@ -227,10 +231,12 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 							#if RING_SCANNEROUTPUT
 							printf( "\nTOKEN (Operator) = %s , merge previous two operators in one \n",ring_string_get(pScanner->ActiveToken) ) ;
 							#endif
+							nTokenIndex += 100 ;
 						}
 					}
 					/* Check += -= *= /= %= &= |= ^= <<= >>= */
 					else if ( strcmp(cStr,"=") == 0 ) {
+						nTokenIndex += 100 ;
 						if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"+") == 0 ) {
 							RING_SCANNER_DELETELASTTOKEN ;
 							ring_string_set(pScanner->ActiveToken,"+=");
@@ -271,20 +277,26 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 							RING_SCANNER_DELETELASTTOKEN ;
 							ring_string_set(pScanner->ActiveToken,">>=");
 						}
+						else {
+							nTokenIndex -= 100 ;
+						}
 					}
 					/* Check ++ and -- */
 					else if ( strcmp(cStr,"+") == 0 ) {
 						if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"+") == 0 ) {
 							RING_SCANNER_DELETELASTTOKEN ;
 							ring_string_set(pScanner->ActiveToken,"++");
+							nTokenIndex += 100 ;
 						}
 					}
 					else if ( strcmp(cStr,"-") == 0 ) {
 						if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"-") == 0 ) {
 							RING_SCANNER_DELETELASTTOKEN ;
 							ring_string_set(pScanner->ActiveToken,"--");
+							nTokenIndex += 100 ;
 						}
 					}
+					pScanner->nTokenIndex = nTokenIndex ;
 					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_OPERATOR);
 				} else {
 					ring_string_add(pScanner->ActiveToken,cStr);
