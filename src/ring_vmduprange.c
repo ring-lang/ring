@@ -67,9 +67,17 @@ void ring_vm_range ( VM *pVM )
 					/* Create List Variable */
 					pVar = ring_vm_range_newlist(pVM);
 					/* Create List */
-					for ( x = nNum2 ; x <= nNum1 ; x++ ) {
-						cStr[0] = (char) x ;
-						ring_list_addstring(pVar,cStr);
+					if ( nNum2 <= nNum1 ) {
+						for ( x = nNum2 ; x <= nNum1 ; x++ ) {
+							cStr[0] = (char) x ;
+							ring_list_addstring(pVar,cStr);
+						}
+					}
+					else {
+						for ( x = nNum2 ; x >= nNum1 ; x-- ) {
+							cStr[0] = (char) x ;
+							ring_list_addstring(pVar,cStr);
+						}
 					}
 				}
 				ring_string_delete(pString2);
