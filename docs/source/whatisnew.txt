@@ -86,12 +86,14 @@ Programmers are sensitive to the programming language syntax. Great programmers 
 using many different styles but each programmer may have his/her favorite style.
 
 Each programming language comes with a style that you may like or not. Ring is just one of these
-languages, but as a respone to many programmers asking for a better syntax we decided to provide
+languages, but as a response to many programmers asking for a better syntax we decided to provide
 more options.
+
+Also some of these features are very necessary for Natural Language Programming.
 
 Example : 
 
-We have two commands to change languge keywords and operators.
+We have two commands to change language keywords and operators.
 
 .. code-block:: none
 
