@@ -73,10 +73,11 @@ Type: List *
 pList
 ring_state_main
 Type: int
-x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nObj
+x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj
 Type: const char *
 cStr
 ring_state_runfile
+ring_state_runobjectfile
 ring_testallunits
 ring_showtime
 Type: time_t

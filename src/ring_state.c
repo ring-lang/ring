@@ -229,6 +229,11 @@ RING_API void ring_state_runfile ( RingState *pRingState,const char *cFileName )
 {
 	ring_scanner_readfile(cFileName,pRingState);
 }
+
+RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName )
+{
+	ring_scanner_runobjectfile(cFileName,pRingState);
+}
 #if RING_TESTUNITS
 
 static void ring_testallunits ( void )
