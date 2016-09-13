@@ -580,7 +580,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		RING_PARSER_PASSNEWLINE ;
 		/* Back if we don't have { */
 		if ( (RING_PARSER_CURRENTTOKEN > nToken ) ) {
-			if ( ! ring_parser_isoperator(pParser,"{") ) {
+			if ( ! ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 				ring_parser_settoken(pParser,nToken);
 			}
 		}
@@ -895,7 +895,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_SETSCOPE);
 			RING_PARSER_IGNORENEWLINE ;
-			if ( ring_parser_isoperator(pParser,"{") ) {
+			if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 				x = ring_parser_mixer(pParser);
 				pParser->nNoAssignment = 1 ;
 				return x ;
@@ -961,7 +961,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			if (! ring_parser_paralist(pParser)) return 0 ;
 		}
 		/* Get Function Code */
-		if ( ring_parser_isoperator(pParser,"{") ) {
+		if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 			ring_parser_nexttoken(pParser);
 			x = pParser->nAssignmentFlag ;
 			x2 = pParser->nNoAssignment ;
@@ -976,7 +976,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			pParser->nAssignmentFlag = x ;
 			pParser->nNoAssignment = x2 ;
 			pParser->nBraceFlag = x3 ;
-			if ( ring_parser_isoperator(pParser,"}") ) {
+			if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
 				ring_parser_nexttoken(pParser);
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_RETNULL);
@@ -1150,7 +1150,7 @@ int ring_parser_mixer ( Parser *pParser )
 		}
 	}
 	/* '{' {Statement} '}' */
-	if ( ring_parser_isoperator(pParser,"{") && pParser->nControlStructureExpr == 0 ) {
+	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) && pParser->nControlStructureExpr == 0 ) {
 		pParser->nBraceFlag++ ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PUSHV);
@@ -1171,7 +1171,7 @@ int ring_parser_mixer ( Parser *pParser )
 			}
 		}
 		pParser->nAssignmentFlag = nStatus ;
-		if ( ring_parser_isoperator(pParser,"}") ) {
+		if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
 			pParser->nBraceFlag-- ;
 			/*
 			**  Generate Code 
