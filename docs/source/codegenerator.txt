@@ -197,6 +197,43 @@ to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mou
 .. index:: 
 	pair: Code Generator; Register New Functions
 
+Determine Structure Member Types
+================================
+
+You can determine the pointer name before the strucuture member name.
+
+Example:
+
+.. code-block:: none
+
+	SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked,void *lock_data}
+
+
+Defining Contants
+=================
+
+You can define constatants using <constant> and </constant>
+
+The generator will generate the required functions to get the constant values
+
+And will define the constants to be used with the same name in Ring code using *.rh file that
+will be generated too.
+
+rh = Ring Header
+
+Example:
+
+.. code-block:: none
+
+	<constant>
+	MIX_DEFAULT_FORMAT
+	SDL_QUIT
+	SDL_BUTTON_LEFT
+	SDL_BUTTON_MIDDLE
+	SDL_BUTTON_RIGHT
+	</constant>
+
+
 Register New Functions
 ======================
 
@@ -265,6 +302,35 @@ types that can be considered as numbers when the code generator find it in the f
 
 .. index:: 
 	pair: Code Generator; Allegro configuration file
+
+Enum and Numbers
+================
+
+We have the list aEnumTypes to use for adding each Enumeration we uses in the functions prototype.
+
+Example:
+
+.. code-block:: none
+	<runcode>
+	aNumberTypes + "qreal"
+	aNumberTypes + "qint64"
+	aEnumTypes + "Qt::GestureType"
+	aEnumTypes + "Qt::GestureFlag"
+	</runcode>
+
+
+Filtering using Expressions
+===========================
+
+using <filter> and </filter> we can include/exclude parts of the configuration file
+based on a condition, for example 
+
+.. code-block:: none
+
+		<filter> iswindows() 
+			... functions related to windows
+		</filter>
+
 
 Configuration file for the Allegro Library
 ==========================================
@@ -467,6 +533,8 @@ Code Generator Rules for Wrapping C++ Classes
 * Using the aNewMethodName list we can define another method name to be used in Ring code when we
   call the C++ method. this feature is required because some C++ method may be identical to Ring
   Keywords like "load","next","end" and "done".
+* in method prototype - when we use @ in the method name, we mean that we have the same method with 
+  different parameters (As in C++)
 
 Using configuration file that wrap C++ Library
 ==============================================
@@ -1043,3 +1111,12 @@ also Ring code around 9000 lines.
 
 	Most of the content of the previous configuration file is removed from this documentation, 
         for a complete version see the Ring source code distribution.
+
+Configuration Files Examples
+============================
+
+You can learn from the next examples
+
+* RingAllegro : https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf
+* RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/qt.cf
+* RingLibSDL : https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/libsdl.cf
