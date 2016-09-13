@@ -89,6 +89,22 @@ Each programming language comes with a style that you may like or not. Ring is j
 languages, but as a respone to many programmers asking for a better syntax we decided to provide
 more options.
 
+Example : 
+
+We have two commands to change languge keywords and operators.
+
+.. code-block:: none
+
+	ChangeRingOperator + plus 
+	ChangeRingKeyword see print
+
+	Print 5 plus 5  
+
+	ChangeRingOperator plus +
+	ChangeRingKeyword print see
+
+We have new styles (Optional) for Input/Output.
+
 Example :
 
 .. code-block:: none
@@ -106,6 +122,8 @@ Example :
 	Print("What is your name? ") 	# print message on screen
 	cName=GetString()		# get input from the user
 	print("Hello #{cName}")		# say hello!
+
+We have new styles (optional) for control structures.
 
 Example :
 

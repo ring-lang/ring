@@ -67,6 +67,52 @@ Example:
 	ChangeRingKeyword  endwhile end
 
 
+Change Language Operators
+=========================
+
+We can change any operator using the ChangeRingOperator command.
+
+.. note:: Remember to restore the operator again if the team will mix between styles in the same project.
+
+.. tip:: The ChangeRingOperartor command is executed in the scanner stage by the compiler (before parsing).
+
+
+Syntax:
+
+.. code-block:: none
+	
+	ChangeRingOperator  <oldkeyword>  <newkeyword>
+
+Example:
+
+The next program hide the + operator by changing it to _+
+
+.. code-block:: none
+
+	changeringoperator + _+
+	changeringkeyword SEE PRINT
+
+	try
+		print 5 + 10
+	catch
+		print nl print "error" print nl
+	done
+
+	changeringoperator _+ +
+
+The next program change the + operator to "plus".
+
+.. code-block:: none
+
+	changeringoperator + plus 
+	changeringkeyword SEE PRINT
+
+	Print 5 plus 5  
+
+	changeringoperator plus +
+	changeringkeyword PRINT SEE 
+
+
 Using "()" around the function parameters
 =========================================
 
