@@ -163,6 +163,10 @@ nIndex		Number determine the index of the object in objects list.
 animate		True/False to animate the object or not.
 move		True/False to move the object using the keyboard or not.
 Scaled		True/False to scale the object image or not.
+draw		Function to be called when drawing the object.
+state		Function to be called for object animation.
+keypress	Function to be called when a key is pressed.
+mouse		Function to be called when a mouse event happens.
 ============	=================================================================================
 
 The next table present the class methods.
@@ -189,8 +193,6 @@ image		String determine the image file name.
 point		Number determine the limit of automatic movement of the object.
 direction	Number determine the direction of movement. 
 nstep		Number determine the increment/decrement during movement.
-keypress	Function to be called when a key is pressed.
-mouse		Function to be called when a mouse event happens.
 type		Number determine the object type in the game (Optional).
 transparent	True/False value determine if the image is transparent.
 ============	=================================================================================
@@ -890,6 +892,8 @@ Screen Shot:
 
 Using the Game Engine - Object and Drawing
 ==========================================
+
+We can use the Object keyword (defined by the game engine) to create objects from the GameObject class.
 
 Example:
 
