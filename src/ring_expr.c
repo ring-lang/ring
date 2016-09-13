@@ -742,7 +742,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			return 1 ;
 		}
 		/* Check using '(' after number */
-		if ( ring_parser_isoperator(pParser,"(") ) {
+		if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 			ring_parser_error(pParser,RING_PARSER_ERROR_USINGBRACTAFTERNUM);
 			return 0 ;
 		}
@@ -848,13 +848,13 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		}
 	}
 	/* Factor --> ( Expr ) */
-	if ( ring_parser_isoperator(pParser,"(") ) {
+	if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 		ring_parser_nexttoken(pParser);
 		x = pParser->nAssignmentFlag ;
 		pParser->nAssignmentFlag = 0 ;
 		if ( ring_parser_expr(pParser) ) {
 			pParser->nAssignmentFlag = x ;
-			if ( ring_parser_isoperator(pParser,")") ) {
+			if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
 				ring_parser_nexttoken(pParser);
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
@@ -900,7 +900,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				pParser->nNoAssignment = 1 ;
 				return x ;
 			}
-			else if ( ring_parser_isoperator(pParser,"(") ) {
+			else if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 				/*
 				**  Calling the init method using { } 
 				**  Generate Code (Start Brace) 
@@ -957,7 +957,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
 		ring_parser_icg_newoperand(pParser,cFuncName);
 		/* Get Function Parameters */
-		if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator(pParser,"(") ) {
+		if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 			if (! ring_parser_paralist(pParser)) return 0 ;
 		}
 		/* Get Function Code */
@@ -1003,7 +1003,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			ring_parser_icg_newoperation(pParser,ICO_ANONYMOUS);
 			ring_parser_nexttoken(pParser);
-			if ( ring_parser_isoperator(pParser,"(") ) {
+			if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 				return ring_parser_mixer(pParser) ;
 			}
 			else {
@@ -1079,7 +1079,7 @@ int ring_parser_mixer ( Parser *pParser )
 		}
 	}
 	/* |  [ ( [ Expr { , Expr } ] ) ]  ] */
-	if ( ring_parser_isoperator(pParser,"(") ) {
+	if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 		/* Generate Code */
 		nCallMethod = 0 ;
 		if ( ring_parser_icg_getlastoperation(pParser) == ICO_LOADADDRESS ) {
@@ -1096,7 +1096,7 @@ int ring_parser_mixer ( Parser *pParser )
 		}
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
-		if ( ring_parser_isoperator(pParser,")") ) {
+		if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
 			ring_parser_nexttoken(pParser);
 			/* Generate Code */
 			ring_parser_gencall(pParser,nCallMethod);
@@ -1122,7 +1122,7 @@ int ring_parser_mixer ( Parser *pParser )
 				if ( ring_parser_isoperator(pParser,",") ) {
 					ring_parser_nexttoken(pParser);
 				}
-				else if ( ring_parser_isoperator(pParser,")") ) {
+				else if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
 					#if RING_PARSERTRACE
 					RING_STATE_CHECKPRINTRULES 
 					
