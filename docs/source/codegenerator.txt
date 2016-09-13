@@ -197,7 +197,7 @@ to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mou
 .. index:: 
 	pair: Code Generator; Register New Functions
 
-Determine Structure Member Types
+Determine Structure Members Types
 ================================
 
 You can determine the pointer name before the strucuture member name.
@@ -232,6 +232,14 @@ Example:
 	SDL_BUTTON_MIDDLE
 	SDL_BUTTON_RIGHT
 	</constant>
+
+.. note:: You will need to pass the *.rh file name to parsec.ring after the generated source file name.
+
+Example:
+
+.. code-block:: none
+
+	ring ..\codegen\parsec.ring libsdl.cf ring_libsdl.c ring_libsdl.rh
 
 
 Register New Functions
@@ -1121,3 +1129,16 @@ You can learn from the next examples
 * RingAllegro : https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf
 * RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/qt.cf
 * RingLibSDL : https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/libsdl.cf
+
+After modifing the configuration file, You will need to generate the code, You can learn from
+the next examples
+
+* RingAllegro : https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.bat
+* RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencode.bat
+* RingLibSDL : https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/gencode.bat
+
+After generating the code, You will need to build the library, You can learn from the next examples
+
+* RingAllegro : https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/buildvc.bat
+* RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildmingw32.bat
+* RingLibSDL : https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/buildvc.bat
