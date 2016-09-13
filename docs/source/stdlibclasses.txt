@@ -4,6 +4,7 @@ Stdlib Classes
 
 In this chapter we are going to learn about the classes in the stdlib.ring
 
+* StdBase Class
 * String Class
 * List Class
 * Stack Class
@@ -23,9 +24,31 @@ In this chapter we are going to learn about the classes in the stdlib.ring
 * Security Class
 * Internet Class
 
+StdBase Class
+=============
+
+Attributes:
+
+* vValue : Object Value
+
+Methods:
+
+===========================	======================================================================
+Method				Description/Output
+===========================	======================================================================
+Init(x)				Set vValue Attribute to x value
+Print()				Print vValue
+PrintLn()			Print vValue then New Line
+Size()				return number represent the size of vValue
+Value()				return vValue
+Set(x)				Call Init(x)
+===========================	======================================================================
+
 
 String Class
 ============
+
+Parent Class : StdBase Class
 
 Methods:
 
@@ -149,6 +172,8 @@ Output:
 List Class
 ==========
 
+Parent Class : StdBase Class
+
 Methods:
 
 ===========================	======================================================================
@@ -261,6 +286,8 @@ output:
 	
 Stack Class
 ===========
+
+Parent Class : List Class
 
 Methods:
 
