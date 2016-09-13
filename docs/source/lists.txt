@@ -25,6 +25,13 @@ Example:
 	aList = 1:5
 	aList2 = "a":"z"
 
+Example:
+
+.. code-block:: none
+
+	aList = 5:1
+	aList2 = "z":"a"
+
 Also we can create lists using the list() function
 
 Syntax:
