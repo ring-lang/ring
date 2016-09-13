@@ -174,9 +174,9 @@ int ring_parser_compare ( Parser *pParser )
 		
 		puts("Rule : Compare --> BitOrXOR");
 		#endif
-		while ( ring_parser_isoperator(pParser,"<") || ring_parser_isoperator(pParser,">") ) {
+		while ( ring_parser_isoperator2(pParser,OP_LESS) || ring_parser_isoperator2(pParser,OP_GREATER) ) {
 			nEqual = 0 ;
-			if ( ring_parser_isoperator(pParser,"<") ) {
+			if ( ring_parser_isoperator2(pParser,OP_LESS) ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
