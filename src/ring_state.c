@@ -232,7 +232,7 @@ RING_API void ring_state_runfile ( RingState *pRingState,const char *cFileName )
 
 RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName )
 {
-	ring_scanner_runobjectfile(cFileName,pRingState);
+	ring_scanner_runobjfile(cFileName,pRingState);
 }
 #if RING_TESTUNITS
 
