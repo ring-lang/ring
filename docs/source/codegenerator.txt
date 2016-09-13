@@ -311,6 +311,7 @@ We have the list aEnumTypes to use for adding each Enumeration we uses in the fu
 Example:
 
 .. code-block:: none
+
 	<runcode>
 	aNumberTypes + "qreal"
 	aNumberTypes + "qint64"
