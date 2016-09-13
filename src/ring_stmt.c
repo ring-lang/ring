@@ -127,7 +127,7 @@ int ring_parser_class ( Parser *pParser )
 				ring_list_addint(pList2,0);
 			}
 			ring_parser_nexttoken(pParser);
-			if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator(pParser,"(") ) {
+			if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 				x = ring_parser_paralist(pParser);
 			} else {
 				x = 1 ;
@@ -310,7 +310,7 @@ int ring_parser_stmt ( Parser *pParser )
 		if ( ring_parser_isidentifier(pParser) ) {
 			pString = ring_string_new(pParser->TokenText);
 			ring_parser_nexttoken(pParser);
-			if ( ring_parser_isoperator(pParser,"=") ) {
+			if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 				/*
 				**  Generate Code 
 				**  Mark for Exit command to go to outside the loop 
@@ -758,7 +758,7 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_TRY) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
-		if ( ring_parser_isoperator(pParser,"{") ) {
+		if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 			ring_parser_nexttoken(pParser);
 			pParser->nControlStructureBrace = 1 ;
 		}
@@ -1012,12 +1012,12 @@ int ring_parser_paralist ( Parser *pParser )
 	int nStart  ;
 	/* Check ( */
 	nStart = 0 ;
-	if ( ring_parser_isoperator(pParser,"(") ) {
+	if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 		ring_parser_nexttoken(pParser);
 		nStart = 1 ;
 	}
 	/* ParaList --> Epslion */
-	if ( ring_parser_isendline(pParser) || (nStart && ring_parser_isoperator(pParser,")") ) ) {
+	if ( ring_parser_isendline(pParser) || (nStart && ring_parser_isoperator2(pParser,OP_FCLOSE) ) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
@@ -1036,7 +1036,7 @@ int ring_parser_paralist ( Parser *pParser )
 		puts("Rule : ParaList --> Identifier {',' Identifier}");
 		#endif
 		ring_parser_nexttoken(pParser);
-		while ( ring_parser_isoperator(pParser,",") ) {
+		while ( ring_parser_isoperator2(pParser,OP_COMMA) ) {
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			if ( ring_parser_isidentifier(pParser) ) {
@@ -1048,7 +1048,7 @@ int ring_parser_paralist ( Parser *pParser )
 				return 0 ;
 			}
 		}
-		if ( nStart && ring_parser_isoperator(pParser,")") ) {
+		if ( nStart && ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
 			ring_parser_nexttoken(pParser);
 		}
 		return 1 ;
@@ -1061,12 +1061,12 @@ int ring_parser_paralist ( Parser *pParser )
 int ring_parser_list ( Parser *pParser )
 {
 	/* "["  [ Expr { , Expr } ] "]" */
-	if ( ring_parser_isoperator(pParser,"[") ) {
+	if ( ring_parser_isoperator2(pParser,OP_LOPEN) ) {
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_LISTSTART);
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
-		if ( ring_parser_isoperator(pParser,"]") ) {
+		if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
 			ring_parser_nexttoken(pParser);
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_LISTEND);
@@ -1086,10 +1086,10 @@ int ring_parser_list ( Parser *pParser )
 				}
 				pParser->nAssignmentFlag = 1 ;
 				RING_PARSER_IGNORENEWLINE ;
-				if ( ring_parser_isoperator(pParser,",") ) {
+				if ( ring_parser_isoperator2(pParser,OP_COMMA) ) {
 					ring_parser_nexttoken(pParser);
 				}
-				else if ( ring_parser_isoperator(pParser,"]") ) {
+				else if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
 					ring_parser_nexttoken(pParser);
 					#if RING_PARSERTRACE
 					RING_STATE_CHECKPRINTRULES 
@@ -1154,7 +1154,7 @@ int ring_parser_namedotname ( Parser *pParser )
 		/* Get Token Text */
 		pString = ring_string_new(pParser->TokenText);
 		ring_parser_nexttoken(pParser);
-		while ( ring_parser_isoperator(pParser,".") ) {
+		while ( ring_parser_isoperator2(pParser,OP_DOT) ) {
 			ring_parser_nexttoken(pParser);
 			ring_string_add(pString,".");
 			if ( ring_parser_isidentifier(pParser) ) {
@@ -1210,7 +1210,7 @@ int ring_parser_csexpr ( Parser *pParser )
 	nOutput = ring_parser_expr(pParser);
 	pParser->nControlStructureExpr = 0 ;
 	RING_PARSER_IGNORENEWLINE ;
-	if ( ring_parser_isoperator(pParser,"{") ) {
+	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 		ring_parser_nexttoken(pParser);
 		pParser->nControlStructureBrace++ ;
 	}
@@ -1219,7 +1219,7 @@ int ring_parser_csexpr ( Parser *pParser )
 
 int ring_parser_csbraceend ( Parser *pParser )
 {
-	if ( (pParser->nControlStructureBrace >= 1) && ring_parser_isoperator(pParser,"}") ) {
+	if ( (pParser->nControlStructureBrace >= 1) && ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
 		pParser->nControlStructureBrace-- ;
 		return 1 ;
 	}
