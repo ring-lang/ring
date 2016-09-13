@@ -272,8 +272,8 @@ int ring_parser_bitorxor ( Parser *pParser )
 		
 		puts("Rule : BitOrXOR -->  BitAnd");
 		#endif
-		while ( ring_parser_isoperator(pParser,"|") || ring_parser_isoperator(pParser,"^") ) {
-			if ( ring_parser_isoperator(pParser,"|") ) {
+		while ( ring_parser_isoperator2(pParser,OP_BITOR) || ring_parser_isoperator2(pParser,OP_XOR) ) {
+			if ( ring_parser_isoperator2(pParser,OP_BITOR) ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_bitand(pParser);
@@ -324,7 +324,7 @@ int ring_parser_bitand ( Parser *pParser )
 		
 		puts("Rule : BitAnd --> BitShift");
 		#endif
-		while ( ring_parser_isoperator2(pParser,OP_REFERENCE) ) {
+		while ( ring_parser_isoperator2(pParser,OP_BITAND) ) {
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			x = ring_parser_bitshift(pParser);
@@ -839,7 +839,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		return x ;
 	}
 	/* Factor --> & */
-	else if ( ring_parser_isoperator2(pParser,OP_REFERENCE) ) {
+	else if ( ring_parser_isoperator2(pParser,OP_BITAND) ) {
 		ring_parser_nexttoken(pParser);
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_RETITEMREF);
