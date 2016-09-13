@@ -823,7 +823,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		#endif
 		return x ;
 	}
-	else if ( ring_parser_isoperator(pParser,"~") ) {
+	else if ( ring_parser_isoperator2(pParser,OP_BITNOT) ) {
 		/* bitnot (~) Expr */
 		ring_parser_nexttoken(pParser);
 		x = ring_parser_expr(pParser);
