@@ -47,7 +47,7 @@ void ring_vm_range ( VM *pVM )
 				}
 			}
 			else {
-				for ( x = nNum1 ; x <= nNum2 ; x++ ) {
+				for ( x = nNum2 ; x >= nNum1 ; x-- ) {
 					ring_list_adddouble(pVar,x);
 				}
 			}
