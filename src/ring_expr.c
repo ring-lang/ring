@@ -114,8 +114,8 @@ int ring_parser_equalornot ( Parser *pParser )
 		
 		puts("Rule : EqualOrNot --> Compare");
 		#endif
-		while ( ring_parser_isoperator2(pParser,OP_EQUAL) || ring_parser_isoperator(pParser,"!") ) {
-			if ( ring_parser_isoperator(pParser,"!") ) {
+		while ( ring_parser_isoperator2(pParser,OP_EQUAL) || ring_parser_isoperator2(pParser,OP_NOT) ) {
+			if ( ring_parser_isoperator2(pParser,OP_NOT) ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
