@@ -1,8 +1,14 @@
+.. index:: 
+	single: Mathematical Functions; Introduction
+
 ======================
 Mathematical Functions
 ======================
 
 In this chapter we are going to learn about the mathematical functions
+
+.. index:: 
+	pair: Mathematical Functions; list of functions
 
 List of functions
 =================
@@ -34,6 +40,9 @@ random(x)		Returns a random number in the range [0,x]
 unsigned(n,n,c)		Perform operation using unsigned numbers 
 decimals(n)		Determine the decimals digits after the point in float/double numbers
 =============== 	=============================================================================
+
+.. index:: 
+	pair: Mathematical Functions; Example
 
 Example
 ========
@@ -127,6 +136,9 @@ Program Output:
 	pow(2,3) = 8
 	sqrt(16) = 4
 
+.. index:: 
+	pair: Mathematical Functions; Random()
+
 Random() Function
 =================
 
@@ -192,6 +204,9 @@ Program Output:
 	Random number : 6632
 	Random number Max (100) : 60
 
+.. index:: 
+	pair: Mathematical Functions; Unsigned()
+
 Unsigned() Function
 ===================
 
@@ -228,6 +243,9 @@ Output:
 .. code-block:: none
 
 	3372029979.00
+
+.. index:: 
+	pair: Mathematical Functions; Decimals()
 
 Decimals() Functions
 ====================

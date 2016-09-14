@@ -1,3 +1,6 @@
+.. index:: 
+	single: Control Structures - Third Style; Introduction
+
 ================================
 Control Structures - Third Style
 ================================
@@ -6,11 +9,14 @@ In this chapter we are going to learn about the third style of control structure
 provided by the Ring programming language.
 
 .. index:: 
-	pair: Control Structures; Branching
+	pair: Control Structures - Third Style; Branching
 
 
 Branching
 =========
+
+.. index:: 
+	pair: Control Structures - Third Style; If Statement
 
 * If Statement
 
@@ -54,6 +60,8 @@ Example:
 		print("bad option...\n")
 	}
 
+.. index:: 
+	pair: Control Structures - Third Style; Switch Statement
 
 * Switch Statement
 
@@ -105,6 +113,9 @@ Example:
 Looping
 =======
 
+.. index:: 
+	pair: Control Structures - Third Style; While Loop
+
 * While Loop
 
 Syntax:
@@ -148,6 +159,9 @@ Example:
 		}
 
 	}
+
+.. index:: 
+	pair: Control Structures - Third Style; For Loop
 
 * For Loop
 
@@ -206,6 +220,9 @@ Example:
 	}
 
 
+.. index:: 
+	pair: Control Structures - Third Style; For In Loop
+
 * For in Loop
 
 Syntax:
@@ -260,6 +277,9 @@ Example:
 	}
 	print(aList)	# print the list items
 
+
+.. index:: 
+	pair: Control Structures - Third Style; Exceptions
 
 Exceptions
 ==========

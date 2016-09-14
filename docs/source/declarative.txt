@@ -1,9 +1,9 @@
+.. index:: 
+	single: Declarative Programming; Introduction
+
 ===============================================
 Declarative Programming using Nested Structures
 ===============================================
-
-.. index:: 
-	pair: Declarative Programming; Introduction
 
 In this chapter we are going to learn how to build declarative programming world using nested structures on the top
 of object oriented.

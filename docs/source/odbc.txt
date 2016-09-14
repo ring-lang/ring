@@ -1,3 +1,6 @@
+.. index:: 
+	single: ODBC Functions; Introduction
+
 ==============
 ODBC Functions
 ==============
@@ -20,6 +23,9 @@ This chapter contains the ODBC functions provided by the Ring programming langua
 * odbc_commit()
 * odbc_rollback()
 
+.. index:: 
+	pair: ODBC Functions; odbc_init()
+
 odbc_init() Function
 ====================
 
@@ -30,6 +36,9 @@ Syntax:
 .. code-block:: none
 
 	odbc_init() ---> ODBC Handle
+
+.. index:: 
+	pair: ODBC Functions; odbc_drivers()
 
 odbc_drivers() Function
 =======================
@@ -42,6 +51,9 @@ Syntax:
 
 	odbc_drivers(ODBC Handle) ---> List of Drivers
 
+.. index:: 
+	pair: ODBC Functions; odbc_datasources()
+
 odbc_datasources() Function
 ===========================
 
@@ -53,6 +65,9 @@ Syntax:
 
 	odbc_datasources(ODBC Handle) ---> List of Data sources
 
+.. index:: 
+	pair: ODBC Functions; odbc_close()
+
 odbc_close() Function
 =====================
 
@@ -63,6 +78,9 @@ Syntax:
 .. code-block:: none
 
 	odbc_close(ODBC Handle)
+
+.. index:: 
+	pair: ODBC Functions; Print List of ODBC Drivers
 
 Print List of ODBC Drivers
 ==========================
@@ -116,6 +134,9 @@ Output:
 	Driver para o Microsoft Visual FoxPro - UsageCount=1
 	Microsoft FoxPro VFP Driver (*.dbf) - UsageCount=1
 
+.. index:: 
+	pair: ODBC Functions; Print List of ODBC Data Sources
+
 Print List of ODBC Data Sources
 ===============================
 
@@ -157,6 +178,9 @@ Output:
 	Visual FoxPro Database - Microsoft Visual FoxPro Driver
 	Visual FoxPro Tables - Microsoft Visual FoxPro Driver
 
+.. index:: 
+	pair: ODBC Functions; odbc_connect()
+
 odbc_connect() Function
 =======================
 
@@ -168,6 +192,9 @@ Syntax:
 
 	odbc_connect(ODBC Handle, cConnectionString)
 
+.. index:: 
+	pair: ODBC Functions; odbc_disconnect()
+
 odbc_disconnect() Function
 ==========================
 
@@ -178,6 +205,9 @@ Syntax:
 .. code-block:: none
 
 	odbc_disconnect(ODBC Handle)
+
+.. index:: 
+	pair: ODBC Functions; Open and Close Connection
 
 Open and Close Connection 
 =========================
@@ -205,6 +235,9 @@ Output:
 	disconnect
 	Close database...
 
+.. index:: 
+	pair: ODBC Functions; odbc_execute()
+
 odbc_execute() Function
 =======================
 
@@ -216,6 +249,8 @@ Syntax:
 
 	odbc_execute(ODBC Handle, cSQLStatement)
 
+.. index:: 
+	pair: ODBC Functions; odbc_colcount()
 
 odbc_colcount() Function
 ========================
@@ -228,6 +263,9 @@ Syntax:
 
 	odbc_colcount(ODBC Handle) ---> Columns Count as Number
 
+.. index:: 
+	pair: ODBC Functions; odbc_fetch()
+
 odbc_fetch() Function
 =====================
 
@@ -239,6 +277,9 @@ Syntax:
 
 	odbc_fetch(ODBC Handle)
 
+.. index:: 
+	pair: ODBC Functions; odbc_getdata()
+
 odbc_getdata() Function
 =======================
 
@@ -249,6 +290,9 @@ Syntax:
 .. code-block:: none
 
 	odbc_getdata(ODBC Handle, nColumnNumber) ---> Column Value
+
+.. index:: 
+	pair: ODBC Functions; Execute Query and Print Result
 
 Execute Query and Print Result
 ==============================
@@ -274,6 +318,9 @@ The next example execute query then print the query result.
 	See "Close database..." + nl
 	odbc_disconnect(pODBC)
 	odbc_close(pODBC)
+
+.. index:: 
+	pair: ODBC Functions; odbc_tables()
 
 odbc_tables() Function
 ======================
@@ -325,6 +372,8 @@ Output:
 	.\test - NULL - tel - TABLE - NULL
 	Close database...
 
+.. index:: 
+	pair: ODBC Functions; odbc_columns()
 
 odbc_columns() Function
 =======================
@@ -374,6 +423,9 @@ Output:
 	NOTES
 	Close database...
 
+.. index:: 
+	pair: ODBC Functions; odbc_autocommit()
+
 odbc_autocommit() Function
 ==========================
 
@@ -386,6 +438,9 @@ Syntax:
 	odbc_autocommit(ODBC Handle, lStatus)   # lStatus can be True or False
 
 
+.. index:: 
+	pair: ODBC Functions; odbc_commit()
+
 odbc_commit() Function
 ======================
 
@@ -397,6 +452,9 @@ Syntax:
 
 	odbc_commit(ODBC Handle)
 
+.. index:: 
+	pair: ODBC Functions; odbc_rollback()
+
 odbc_rollback() Function
 ========================
 
@@ -407,6 +465,9 @@ Syntax:
 .. code-block:: none
 
 	odbc_rollback(ODBC Handle)
+
+.. index:: 
+	pair: ODBC Functions; Transactions and Using Commit and Rollback
 
 Transactions and Using Commit and Rollback
 ==========================================
@@ -450,6 +511,9 @@ Output:
 	1
 	insert data...
 	Close database...
+
+.. index:: 
+	pair: ODBC Functions; Save and Restore Images
 
 Save and Restore images
 =======================

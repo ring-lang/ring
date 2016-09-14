@@ -1,3 +1,6 @@
+.. index:: 
+	single: Low Level Functions; Introduction
+
 ===================
 Low Level Functions
 ===================
@@ -10,6 +13,9 @@ In this chapter we will learn about the low level functions provided by Ring
 * nullpointer()
 * object2pointer()
 * pointer2object()
+
+.. index:: 
+	pair: Low Level Functions; callgc()
 
 callgc() function
 =================
@@ -36,6 +42,8 @@ Example
 .. tip:: In Ring the garbage collector works automatically in the end of function execution or
 	 when you use the assignment statement.
 
+.. index:: 
+	pair: Low Level Functions; varptr()
 
 varptr() function
 =================
@@ -71,6 +79,9 @@ Output:
 .. note:: the low level object is a list contains three items (The Pointer, The Type, The Status)
 
 
+.. index:: 
+	pair: Low Level Functions; space()
+
 space() function
 ================
 
@@ -104,6 +115,8 @@ Output:
 
 .. note:: You may need the space() and VarPtr() functions to pass buffers to C functions.
 
+.. index:: 
+	pair: Low Level Functions; nullpointer()
 
 nullpointer() function
 ======================
@@ -123,6 +136,9 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 
 .. note:: The previous code doesn't work alone, you need to learn how to use RingSDL first.
 
+.. index:: 
+	pair: Low Level Functions; object2pointer()
+
 object2pointer() function
 =========================
 
@@ -133,6 +149,9 @@ Syntax:
 .. code-block:: none
 
 	object2pointer(List|Object) --> Low Level Object ( C Pointer )
+
+.. index:: 
+	pair: Low Level Functions; pointer2object()
 
 pointer2object() function
 =========================

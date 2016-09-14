@@ -1,11 +1,12 @@
+.. index:: 
+	single: Command Line Options; Introduction
+
 ====================
 Command Line Options
 ====================
 
-.. index:: 
-	pair: Interpreter; Command Line Options
-
-The ring interpreter takes source code file (*.ring) as input to execute, also the interpreter provide other options like
+The ring language takes source code file (*.ring) or the object file (*.ringo) as input to execute, 
+also the language provide other options like
 
 ============	=======================================================
 Option		Description	
@@ -20,6 +21,9 @@ Option		Description
 -performance	Print clock before and after program execution
 -go		Generate Object File
 ============	=======================================================
+
+.. index:: 
+	pair: Command Line Options; Printing Tokens
 
 Printing Tokens
 ===============
@@ -117,6 +121,9 @@ Output:
 	   EndLine
 
 	===================================================
+
+.. index:: 
+	pair: Command Line Options; Printing Rules
 
 Printing Rules
 ==============
@@ -398,6 +405,8 @@ Output:
 
 	===================================================
 
+.. index:: 
+	pair: Command Line Options; Printing Intermediate Code
 
 Printing Intermediate Code
 ==========================
@@ -526,6 +535,8 @@ Output:
 
 	===================================================
 
+.. index:: 
+	pair: Command Line Options; Printing Final Intermediate Code
 
 Printing Final Intermediate Code
 ================================
@@ -776,6 +787,8 @@ Output:
 
 	===================================================
 
+.. index:: 
+	pair: Command Line Options; CGI Support
 
 
 CGI Support
@@ -787,6 +800,9 @@ Command:
 
 	ring test.ring -cgi
 
+.. index:: 
+	pair: Command Line Options; No Run
+
 No Run 
 ======
 
@@ -796,6 +812,8 @@ Command:
 
 	ring test.ring -norun
 
+.. index:: 
+	pair: Command Line Options; Printing Instruction Operation Code
 
 Printing Instruction Operation Code
 ===================================
@@ -825,6 +843,9 @@ Output:
 	.....
 	
 .. tip:: Output removed from the previous example because it's very large!
+
+.. index:: 
+	pair: Command Line Options; Performance
 
 Performance
 ===========
@@ -864,6 +885,8 @@ Output:
 	Clock : 0 
 	===================================================
 
+.. index:: 
+	pair: Command Line Options; Generate Object File
 
 Generate Object File
 ====================

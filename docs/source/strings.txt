@@ -1,8 +1,14 @@
+.. index:: 
+	single: Strings; Introduction
+
 =======
 Strings
 =======
 
 In this chapter we are going to learn about strings creation and manipulation.
+
+.. index:: 
+	pair: Strings; String Literals
 
 String Literals
 ===============
@@ -15,6 +21,9 @@ Syntax:
 	cStr2 = 'Another string'
 	cStr3 = :JustAnotherString
 	cStr4 = `Yet "another" 'string' ! `
+
+.. index:: 
+	pair: Strings; Get String Length
 
 Get String Length
 =================
@@ -35,6 +44,9 @@ Example:
 	see cStr + nl
 	see "String size : " + len(cStr) + nl
 
+.. index:: 
+	pair: Strings; Convert Letters Case
+
 Convert Letters Case
 ====================
 
@@ -51,6 +63,9 @@ Example:
 
 	cStr = "Welcome To The Ring Programming Language"
 	see cStr + nl + upper(cStr) + nl + lower(cStr) 		
+
+.. index:: 
+	pair: Strings; Access String Letters
 
 Access String Letters
 =====================
@@ -101,6 +116,9 @@ Example:
 	cName[1] = upper(cName[1])
 	see "Hello " + cName
 
+.. index:: 
+	pair: Strings; Left()
+
 Left() Function
 ===============
 
@@ -119,6 +137,9 @@ Example:
 .. code-block:: none
 
 	see left("Hello World!",5) # print Hello
+
+.. index:: 
+	pair: Strings; Right()
 
 Right() Function
 ================
@@ -139,6 +160,9 @@ Example:
 
 	see Right("Hello World!",6) # print World!
 
+.. index:: 
+	pair: Strings; Trim()
+
 Trim() Function
 ===============
 
@@ -157,6 +181,9 @@ Example:
 	cMsg = "     Welcome      "
 	see trim(cMsg)			# print Welcome
 
+.. index:: 
+	pair: Strings; Copy()
+
 Copy() Function
 ===============
 
@@ -173,6 +200,9 @@ Example
 .. code-block:: none
 
 	see copy("***hello***",3) # print ***hello******hello******hello***
+
+.. index:: 
+	pair: Strings; Lines()
 
 Lines() Function
 ================
@@ -194,6 +224,9 @@ Example:
 	are you fine?"
 	see lines(cStr)		# print 3
 
+.. index:: 
+	pair: Strings; Substr()
+
 Substr() Function
 =================
 
@@ -207,6 +240,9 @@ Using Substr() we can
 * Get Number of characters from position
 
 * Transform Substring To Another Substring 
+
+.. index:: 
+	pair: Strings; Find SubString
 
 Find substring
 ==============
@@ -223,6 +259,9 @@ Example:
 
 	cStr = "Welcome to the Ring programming language"
 	see substr(cStr,"Ring")		# print 16
+
+.. index:: 
+	pair: Strings; Get Substring from position to end
 
 Get substring from position to end
 ==================================
@@ -241,6 +280,9 @@ Example:
 	nPos = substr(cStr,"Ring")	# nPos = 16
 	see substr(cStr,nPos)		# print Ring programming language
 
+.. index:: 
+	pair: Strings; Get Number of Characters from position
+
 Get Number of Characters From Position
 ======================================
 
@@ -257,6 +299,9 @@ Example:
 	cStr = "Welcome to the Ring programming language"
 	nPos = substr(cStr,"Ring")	# nPos = 16
 	see substr(cStr,nPos,4)		# print Ring 
+
+.. index:: 
+	pair: Strings; Transform Substring To Another Substring
 
 Transform Substring To Another Substring
 ========================================
@@ -275,6 +320,9 @@ Example:
 	cStr = "Welcome to the New programming language"
 	see substr(cStr,"New","Ring") + nl  # print Welcome to the Ring programming language 
 	see substr(cStr,"new","Ring",1)+ nl # print Welcome to the Ring programming language 
+
+.. index:: 
+	pair: Strings; strcmp()
 
 strcmp() Function
 =================
@@ -304,6 +352,9 @@ Output:
 	0
 	-1
 	1
+
+.. index:: 
+	pair: Strings; str2list() and list2str()
 
 str2list() and list2str() Functions
 ===================================

@@ -1,9 +1,15 @@
+.. index:: 
+	single: Syntax Flexibility; Introduction
+
 ==================
 Syntax Flexibility
 ==================
 
 In this chapter we will learn about some options that are provided automatically by the Ring
 compiler for syntax flexibility.
+
+.. index:: 
+	pair: Syntax Flexibility; Change Language Keywords
 
 Change Language Keywords
 ========================
@@ -67,6 +73,9 @@ Example:
 	ChangeRingKeyword  endwhile end
 
 
+.. index:: 
+	pair: Syntax Flexibility; Change Language Operators
+
 Change Language Operators
 =========================
 
@@ -113,6 +122,9 @@ The next program change the + operator to "plus".
 	changeringkeyword PRINT SEE 
 
 
+.. index:: 
+	pair: Syntax Flexibility; Using "()" around the function parameters
+
 Using "()" around the function parameters
 =========================================
 
@@ -157,6 +169,9 @@ Output:
 	7
 	7
 
+.. index:: 
+	pair: Syntax Flexibility; Using Semi-colon after and between statements
+
 Using Semi-colon after and between statements
 =============================================
 
@@ -186,6 +201,9 @@ Output:
 	one
 	two
 	three
+
+.. index:: 
+	pair: Syntax Flexibility; Using $ and @ in the start of the variable name
 
 Using $ and @ in the start of the variable name
 ===============================================
@@ -227,6 +245,9 @@ Output:
 	Instance : 10
 	Local    : 15
 
+.. index:: 
+	pair: Syntax Flexibility; Using the 'elseif' keyword as 'but' in if statement
+
 Using the 'elseif' keyword as 'but' in if statement
 ===================================================
 
@@ -245,6 +266,9 @@ Example:
 	else see "other"
 	ok
 	see nl
+
+.. index:: 
+	pair: Syntax Flexibility; Using the 'else' keyword as 'other' in switch statement
 
 Using the 'else' keyword as 'other' in switch statement
 =======================================================
@@ -273,6 +297,9 @@ Output:
 .. code-block:: none
 
 	not 10
+
+.. index:: 
+	pair: Syntax Flexibility; Using the 'end' keyword in different control structures
 
 Using the 'end' keyword in different control structures
 =======================================================
@@ -330,6 +357,9 @@ Output:
 	one
 	try catch...
 	catching error
+
+.. index:: 
+	pair: Syntax Flexibility; Using braces to start and end different control structures
 
 Using braces to start and end different control structures
 ==========================================================
@@ -389,6 +419,10 @@ Output:
 	try catch...
 	catching error
 
+
+.. index:: 
+	pair: Syntax Flexibility; Using 'put' and 'get' as 'see' and 'give'
+
 Using 'put' and 'get' as 'see' and 'give'
 =========================================
 
@@ -403,6 +437,9 @@ Example:
 	put "Hello World" + nl
 	put "Enter Your Name ? " Get Name
 	Put "Hello " + Name
+
+.. index:: 
+	pair: Syntax Flexibility; Using 'case' as 'on' in switch statements
 
 Using 'case' as 'on' in switch statements
 =========================================
@@ -435,6 +472,9 @@ Example (2) :
 		}
 	}
 
+
+.. index:: 
+	pair: Syntax Flexibility; Using 'def' as 'func' in functions/methods definition
 
 Using 'def' as 'func' in functions/methods definition
 =====================================================

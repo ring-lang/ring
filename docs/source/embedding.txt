@@ -1,3 +1,6 @@
+.. index:: 
+	single: Embedding Ring Language in C/C++ Programs; Introduction
+
 =============================================
 Embedding Ring Language in C/C++ Programs
 =============================================

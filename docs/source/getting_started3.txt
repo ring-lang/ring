@@ -1,9 +1,12 @@
+.. index:: 
+	single: Getting Started - Third Style; Introduction
+
 ==============================
 Getting Started - Third Style
 ==============================
 
 .. index:: 
-	pair: Getting Started; Hello World
+	pair: Getting Started - Third Style; Hello World
 
 Hello World
 ===========
@@ -17,7 +20,7 @@ The next program prints the Hello World message on the screen (std-out).
 	print("Hello World")
 
 .. index:: 
-	pair: Getting Started; Run the program
+	pair: Getting Started - Third Style; Run the program
 
 Run the program
 ===============
@@ -30,7 +33,7 @@ then from the command line or terminal, run it using the ring interpreter
 	ring hello.ring
 
 .. index:: 
-	pair: Getting Started; Not Case-Sensitive
+	pair: Getting Started - Third Style; Not Case-Sensitive
 
 Not Case-Sensitive
 ==================
@@ -52,7 +55,7 @@ be written in different styles
 
 
 .. index:: 
-	pair: Getting Started; Multi-Line literals
+	pair: Getting Started - Third Style; Multi-Line literals
 
 Multi-Line literals
 ===================
@@ -79,7 +82,7 @@ and you can use #{variable_name} to insert variables values.
 	Print( "Hello\nWelcome to the Ring programming language\nHow are you?")
 
 .. index:: 
-	pair: Getting Started; Getting Input
+	pair: Getting Started - Third Style; Getting Input
 
 Getting Input
 =============
@@ -94,7 +97,7 @@ You can get the input from the user using the getstring() function
 	Print("Hello #{cName}")
 
 .. index:: 
-	pair: Getting Started; No Explicit End For Statements
+	pair: Getting Started - Third Style; No Explicit End For Statements
 
 No Explicit End For Statements
 ==============================
@@ -108,7 +111,7 @@ The previous program can be written in one line.
 	Print("What is your name? ") cName=getstring() print("Hello #{cName}")
 
 .. index:: 
-	pair: Getting Started; Writing Comments
+	pair: Getting Started - Third Style; Writing Comments
 
 Writing Comments
 ================

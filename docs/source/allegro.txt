@@ -1,3 +1,6 @@
+.. index:: 
+	single: Graphics and Game Programming; Introduction
+
 ===================================================
 Graphics and 2D Games programming using RingAllegro
 ===================================================

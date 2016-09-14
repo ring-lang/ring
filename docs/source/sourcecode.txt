@@ -1,3 +1,6 @@
+.. index:: 
+	single: Building From Source Code; Introduction
+
 =========================
 Building From Source Code
 =========================
@@ -7,6 +10,9 @@ The Ring programming language is a free open source product (MIT License).
 You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
 
 The next steps explains building using scripts.
+
+.. index:: 
+	pair: Building From Source Code; Building using Microsoft Windows
 
 Building using Microsoft Windows
 ================================
@@ -80,6 +86,9 @@ Run Ring Notepad
 	cd applications/rnote
 	ring rnote.ring
 
+.. index:: 
+	pair: Building From Source Code; Building using Ubuntu Linux
+
 Building using Ubuntu Linux
 ===========================
 
@@ -131,6 +140,9 @@ Run Ring Notepad
 
 	cd applications/rnote
 	sudo ring rnote.ring
+
+.. index:: 
+	pair: Building From Source Code; Building using MacOS X
 
 Building using MacOS X
 ======================
@@ -185,6 +197,9 @@ Run Ring Notepad
 
 	cd applications/rnote
 	sudo ring rnote.ring
+
+.. index:: 
+	pair: Building From Source Code; Building using CMake
 
 Building using CMake
 ====================

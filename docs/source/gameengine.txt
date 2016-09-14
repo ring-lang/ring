@@ -1,3 +1,6 @@
+.. index:: 
+	single: Game Engine for 2D Games; Introduction
+
 =======================================
 Demo Project - Game Engine for 2D Games
 =======================================
@@ -8,6 +11,9 @@ We will create a simple Game Engine for 2D Games.
 
 You can use the Engine directly to create 2D Games for Desktop or Mobile.
 
+.. index:: 
+	pair: Game Engine for 2D Games; Project Layers
+
 Project Layers
 ==============
 
@@ -17,6 +23,9 @@ The project contains the next layers
 * Game Engine Classes (Here we will use the Object-Oriented Programming paradigm)
 * Interface to graphics library (Here we will use procedural programming)
 * Graphics Library bindings (Here we have RingAllegro and RingLibSDL)
+
+.. index:: 
+	pair: Game Engine for 2D Games; Graphics Library Bindings
 
 Graphics Library bindings
 =========================
@@ -40,6 +49,8 @@ you have the same functions but we can build on that using the Ring language fea
 * RingAllegro Source Code : https://github.com/ring-lang/ring/tree/master/extensions/ringallegro
 * RingLibSDL Source Code : https://github.com/ring-lang/ring/tree/master/extensions/ringsdl
 
+.. index:: 
+	pair: Game Engine for 2D Games; Interface to graphics library
 
 Interface to graphics library
 =============================
@@ -67,6 +78,9 @@ Ring 1.1 comes with support for LibSDL so we can quickly create games for Mobile
 * gl_allegro.ring source code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gl_allegro.ring
 * gl_libsdl.ring source code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gl_libsdl.ring
 
+.. index:: 
+	pair: Game Engine for 2D Games; Game Engine Classes
+
 Game Engine Classes
 ===================
 
@@ -83,6 +97,9 @@ The Engine comes with the next classes
 * Map class
 
 * Source Code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gameengine.ring
+
+.. index:: 
+	pair: Game Engine for 2D Games; Games Layer
 
 Games Layer
 ===========
@@ -107,6 +124,9 @@ We will introduce some examples and three simple games :-
 * Stars Fighter Game
 * Flappy Bird 3000 Game
 * Super Man 2016 Game
+
+.. index:: 
+	pair: Game Engine for 2D Games; Game Class
 
 Game Class
 ==========
@@ -145,6 +165,8 @@ sound 			Create new Sound object and add it to the game objects.
 map			Create new Map object and add it ot the game objects.
 ================	=================================================================================
 
+.. index:: 
+	pair: Game Engine for 2D Games; GameObject Class
 
 GameObject Class
 ================
@@ -179,6 +201,9 @@ mouse(oGame,nType,aMouseList)	Check Mouse Events
 rgb(r,g,b)			Return new color using the RGB (Red, Green and Blue) Values.
 ==============================	================================================================
 
+.. index:: 
+	pair: Game Engine for 2D Games; Sprite Class
+
 Sprite Class
 ============
 
@@ -205,6 +230,8 @@ Method			Description
 Draw(oGame)		Draw the object
 ================	=================================================================================
 
+.. index:: 
+	pair: Game Engine for 2D Games; Text Class
 
 Text Class
 ==========
@@ -231,6 +258,9 @@ Draw(oGame)		Draw the object
 ================	=================================================================================
 
 
+.. index:: 
+	pair: Game Engine for 2D Games; Animate Class
+
 Animate Class
 =============
 
@@ -256,6 +286,8 @@ Method			Description
 Draw(oGame)		Draw the object
 ================	=================================================================================
 
+.. index:: 
+	pair: Game Engine for 2D Games; Sound Class
 
 Sound Class
 ===========
@@ -279,6 +311,8 @@ Method			Description
 playsound()		Play the sound file
 ================	=================================================================================
 
+.. index:: 
+	pair: Game Engine for 2D Games; Map Class
 
 Map Class
 =========
@@ -305,6 +339,8 @@ Method			Description
 getvalue(x,y)		Return the item value in the Map according to the visible part
 ================	=================================================================================
 
+.. index:: 
+	pair: Game Engine for 2D Games; Creating the Game Window
 
 Using the Game Engine - Creating the Game Window
 ================================================
@@ -327,6 +363,9 @@ Screen Shot:
 
 .. image:: gameengineshot1.png
 	:alt: screen shot
+
+.. index:: 
+	pair: Game Engine for 2D Games; Drawing Text
 
 Using the Game Engine - Drawing Text
 ====================================
@@ -356,6 +395,8 @@ Screen Shot:
 .. image:: gameengineshot2.png
 	:alt: screen shot
 
+.. index:: 
+	pair: Game Engine for 2D Games; Moving Text
 
 Using the Game Engine - Moving Text
 ===================================
@@ -397,6 +438,8 @@ Screen Shot:
 .. image:: gameengineshot3.png
 	:alt: screen shot
 
+.. index:: 
+	pair: Game Engine for 2D Games; Playing Sound
 
 Using the Game Engine - Playing Sound
 =====================================
@@ -435,6 +478,9 @@ Using the Game Engine - Playing Sound
 				file = "sound/music1.wav"	# Sound File Name
 			}		
 		}					# Start the Events Loop	
+
+.. index:: 
+	pair: Game Engine for 2D Games; Animation
 
 Using the Game Engine - Animation
 =================================
@@ -479,6 +525,8 @@ Using the Game Engine - Animation
 .. image:: gameengineshot5.png
 	:alt: screen shot
 
+.. index:: 
+	pair: Game Engine for 2D Games; Animation and Functions
 
 Using the Game Engine - Animation and Functions
 ===============================================
@@ -530,6 +578,9 @@ Using the Game Engine - Animation and Functions
 	:alt: screen shot
 
 
+.. index:: 
+	pair: Game Engine for 2D Games; Sprite Automatic Movement
+
 Using the Game Engine - Sprite - Automatic Movement using Keyboard
 ==================================================================
 
@@ -557,6 +608,9 @@ Using the Game Engine - Sprite - Automatic Movement using Keyboard
 .. image:: gameengineshot7.png
 	:alt: screen shot
 
+
+.. index:: 
+	pair: Game Engine for 2D Games; Sprite Keypress Event
 
 Using the Game Engine - Sprite - Keypress event
 ===============================================
@@ -596,6 +650,8 @@ Using the Game Engine - Sprite - Keypress event
 			}
 		}					# Start the Events Loop	
 
+.. index:: 
+	pair: Game Engine for 2D Games; Sprite Mouse Event
 
 Using the Game Engine - Sprite - Mouse event
 ============================================
@@ -643,6 +699,8 @@ Using the Game Engine - Sprite - Mouse event
 			}
 		}					# Start the Events Loop	
 
+.. index:: 
+	pair: Game Engine for 2D Games; Sprite State Event
 
 Using the Game Engine - Sprite - State event
 ============================================
@@ -700,6 +758,9 @@ Using the Game Engine - Sprite - State event
 			}
 		}					# Start the Events Loop	
 
+
+.. index:: 
+	pair: Game Engine for 2D Games; Animate Events
 
 Using the Game Engine - Animate - Events
 ========================================
@@ -771,6 +832,8 @@ Screen Shot:
 .. image:: gameengineshot11.png
 	:alt: screen shot
 
+.. index:: 
+	pair: Game Engine for 2D Games; Map
 
 
 Using the Game Engine - Map
@@ -822,6 +885,9 @@ Screen Shot:
 .. image:: gameengineshot12.png
 	:alt: screen shot
 
+
+.. index:: 
+	pair: Game Engine for 2D Games; Map Events
 
 Using the Game Engine - Map Events
 ==================================
@@ -889,6 +955,8 @@ Screen Shot:
 .. image:: gameengineshot13.png
 	:alt: screen shot
 
+.. index:: 
+	pair: Game Engine for 2D Games; Object and Drawing
 
 Using the Game Engine - Object and Drawing
 ==========================================
@@ -1000,6 +1068,8 @@ Screen Shot:
 .. image:: gameengineshot15.png
 	:alt: screen shot
 
+.. index:: 
+	pair: Game Engine for 2D Games; Stars Fighter Game
 
 Stars Fighter Game
 ==================
@@ -1411,6 +1481,8 @@ Screen Shot:
 	:alt: Stars Fighter
 
 
+.. index:: 
+	pair: Game Engine for 2D Games; Flappy Bird 3000 Game
 
 Flappy Bird 3000 Game
 =====================
@@ -1763,6 +1835,8 @@ Screen Shot:
 	:alt: Flappy Bird 300
 
 
+.. index:: 
+	pair: Game Engine for 2D Games; Super Man 2016 Game
 
 Super Man 2016 Game
 ===================

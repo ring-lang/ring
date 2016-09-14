@@ -1,3 +1,6 @@
+.. index:: 
+	single: Functional Programming; Introduction
+
 ======================
 Functional Programming
 ======================
@@ -251,6 +254,8 @@ Output:
 	odd
 	even
 
+.. index:: 
+	pair: Functional Programming; Equality of functions
 
 Equality of functions
 =====================

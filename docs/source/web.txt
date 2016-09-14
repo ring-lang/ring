@@ -1,8 +1,14 @@
+.. index:: 
+	single: Web Development (CGI Library); Introduction
+
 =============================
 Web Development (CGI Library)
 =============================
 
 In this chapter we will learn about developing Web applications using a CGI Library written in the Ring language.
+
+.. index:: 
+	pair: Web Development (CGI Library); Ring CGI Hello World Program
 
 Ring CGI Hello World Program
 ============================
@@ -16,6 +22,9 @@ The next program is the Hello World program
 	See "content-type : text/html" +nl+nl+
 	    "Hello World!" + nl
 
+
+.. index:: 
+	pair: Web Development (CGI Library); Hello World Program using the Web Library 
 
 Hello World Program using the Web Library 
 =========================================
@@ -56,6 +65,9 @@ Example (2) :
 .. tip:: the difference between ex. 1 and ex. 2 is using WebPage() function to
 	 return the page object instead of creating the object using new statement.
 
+.. index:: 
+	pair: Web Development (CGI Library); Web Library Features
+
 Web Library Features
 ====================
 
@@ -70,6 +82,9 @@ The next features are provided by the Web library to quickly create web applicat
 * Templates
 * CRUD MVC Sample
 * Users Logic & Registration Sample
+
+.. index:: 
+	pair: Web Development (CGI Library); HTTP Get Example
 
 HTTP Get Example
 ================
@@ -250,6 +265,9 @@ Screen Shot:
 .. image:: ex5.jpg
 	:alt: HTTP Get
 
+.. index:: 
+	pair: Web Development (CGI Library); HTTP POST Example
+
 HTTP POST Example
 =================
 
@@ -315,6 +333,9 @@ Screen Shot:
 
 .. image:: ex7.jpg
 	:alt: HTTP Post
+
+.. index:: 
+	pair: Web Development (CGI Library); Upload Files
 
 Upload Files
 ============
@@ -400,6 +421,8 @@ Screen Shot:
 .. image:: ex9.jpg
 	:alt: Upload File
 
+.. index:: 
+	pair: Web Development (CGI Library); Cookies
 
 Cookies
 =======
@@ -458,6 +481,9 @@ Screen Shot:
 .. image:: ex11.jpg
 	:alt: Cookies
 
+.. index:: 
+	pair: Web Development (CGI Library); URL Encode
+
 URL Encode
 ==========
 
@@ -490,6 +516,9 @@ Screen Shot:
 .. image:: ex12r.jpg
 	:alt: URL Encode
 
+
+.. index:: 
+	pair: Web Development (CGI Library); Templates
 
 Templates
 =========
@@ -573,6 +602,9 @@ Screen Shot:
 .. image:: ex13.jpg
 	:alt: Templates
 
+.. index:: 
+	pair: Web Development (CGI Library); HTML Special Characters
+
 HTML Special Characters
 =======================
 
@@ -606,6 +638,9 @@ Screen Shot:
 .. image:: ex14.jpg
 	:alt: HTML Special Characters
 
+
+.. index:: 
+	pair: Web Development (CGI Library); Hash Functions
 
 Hash Functions
 ==============
@@ -682,6 +717,9 @@ Screen Shot:
 .. image:: ex16.jpg
 	:alt: Hash Functions
 
+.. index:: 
+	pair: Web Development (CGI Library); Random Image
+
 Random Image
 ============
 
@@ -718,6 +756,9 @@ Screen Shot:
 
 .. image:: ex17.jpg
 	:alt: Random Image
+
+.. index:: 
+	pair: Web Development (CGI Library); HTML Lists
 
 HTML Lists
 ==========
@@ -768,6 +809,9 @@ Screen Shot:
 .. image:: ex18.jpg
 	:alt: HTML Lists
 
+.. index:: 
+	pair: Web Development (CGI Library); HTML Tables
+
 HTML Tables
 ===========
 
@@ -807,6 +851,9 @@ Screen Shot:
 	:alt: HTML Tables
 
 
+.. index:: 
+	pair: Web Development (CGI Library); Gradient
+
 Gradient
 ========
 
@@ -840,6 +887,9 @@ Screen Shot:
 
 .. image:: ex20.jpg
 	:alt: Gradient
+
+.. index:: 
+	pair: Web Development (CGI Library); Generating Pages using Objects
 
 Generating Pages using Objects
 ==============================
@@ -1004,6 +1054,8 @@ Screen Shot:
 .. image:: ex21_2.jpg
 	:alt: Using Objects - part 2
 
+.. index:: 
+	pair: Web Development (CGI Library); Using Bootstrap Library using Functions
 
 Using Bootstrap Library using Functions
 =======================================
@@ -1044,6 +1096,9 @@ Screen Shot:
 
 .. image:: ex22.jpg
 	:alt: Bootstrap
+
+.. index:: 
+	pair: Web Development (CGI Library); Using Bootstrap Library using Objects
 
 Using Bootstrap Library using Objects
 =======================================
@@ -1176,6 +1231,9 @@ Screen Shot:
 .. image:: ex23.jpg
 	:alt: Bootstrap Page using Objects
 
+.. index:: 
+	pair: Web Development (CGI Library); CRUD Example using MVC
+
 CRUD Example using MVC
 ======================
 
@@ -1256,6 +1314,9 @@ Screen Shot:
 	
 .. image:: ex24_2.jpg
 	:alt: Salary Table - Search
+
+.. index:: 
+	pair: Web Development (CGI Library); Users registration and Login
 
 Users registration and Login
 ============================
@@ -1550,6 +1611,9 @@ The next code for checking if the user needs to login or not
 	}
 	oUser.Disconnect()
 
+.. index:: 
+	pair: Web Development (CGI Library); Database, ModelBase & ControllerBase classes
+
 Database, ModelBase & ControllerBase classes
 ============================================
 
@@ -1841,6 +1905,9 @@ The next code presents the Database, ModelBase & ControllerBase classes
 
 		oModel.Disconnect()
 
+.. index:: 
+	pair: Web Development (CGI Library); WebLib API
+
 WebLib API
 ==========
 
@@ -1903,6 +1970,9 @@ Span			Wraps HTML Span.
 Button			Wraps HTML Button.
 =====================	========================================================	
 
+.. index:: 
+	pair: Web Development (CGI Library); Application Class
+
 Application Class
 =================
 
@@ -1931,6 +2001,9 @@ The methods SetCookie, Cookie & GetCookies are used for adding and reading cooki
 The methods StartHTML, ScriptsLibs, Style & Print are used for page structure and JS/CSS support.
 
 The method URLEncode is used to encode a URL to be used in HTML pages.
+
+.. index:: 
+	pair: Web Development (CGI Library); Page Class
 
 Page Class
 ==========
@@ -2053,6 +2126,9 @@ Using aPara we can set values for the next attributes
 	dataride datatarget dataslideto dataslide datadismiss dataplacement datacontent
 	datatrigger dataspy dataoffset dataoffsettop
 
+.. index:: 
+	pair: Web Development (CGI Library); ScriptFunctions Class
+
 ScriptFunctions Class
 =====================
 
@@ -2073,6 +2149,9 @@ ScriptFuncClean		cFuncName,cDiv						Define function cFuncName that clear the cD
 ScriptFuncSelect	cF,aL,cD,cR,cGR,cFC,nTO,cL1,cL2				Used to Edit/Delete Grid Record
 ScriptScrollFixed 	cDiv,nSize						Set cDiv as Fixed Div with Size = nSize
 ==================	==============================================		============================================================
+
+.. index:: 
+	pair: Web Development (CGI Library); StyleFunctions Class
 
 StyleFunctions Class
 ====================

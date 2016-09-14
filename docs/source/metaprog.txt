@@ -1,3 +1,6 @@
+.. index:: 
+	single: Reflection and Meta-programming; Introduction
+
 ===============================
 Reflection and Meta-programming
 ===============================
@@ -6,6 +9,9 @@ Since the Ring programming language is a dynamic language, we can get answers ab
 the program code and we can modify our code during the runtime.
 
 In this chapter we will learn about this and the available functions to use.
+
+.. index:: 
+	pair: Reflection and Meta-programming; locals()
 
 locals() Function
 =================
@@ -44,6 +50,9 @@ Output:
 	y
 	z
 
+.. index:: 
+	pair: Reflection and Meta-programming; globals()
+
 globals() Function
 ==================
 
@@ -78,6 +87,9 @@ Output:
 	y
 	z
 
+.. index:: 
+	pair: Reflection and Meta-programming; functions()
+
 functions() Function
 ====================
 
@@ -111,6 +123,9 @@ Output:
 	f1
 	f2
 	f3
+
+.. index:: 
+	pair: Reflection and Meta-programming; cfunctions()
 
 cfunctions() Function
 =====================
@@ -147,6 +162,9 @@ Output:
 
 .. note:: The complete list is removed from the previous output.
 
+.. index:: 
+	pair: Reflection and Meta-programming; islocal()
+
 islocal() Function
 ==================
 
@@ -180,6 +198,9 @@ Output:
 	0
 
 
+.. index:: 
+	pair: Reflection and Meta-programming; isglobal()
+
 isglobal() Function
 ===================
 
@@ -212,6 +233,9 @@ Output:
 	1
 	1
 	0
+
+.. index:: 
+	pair: Reflection and Meta-programming; isfunction()
 
 isfunction() Function
 =====================
@@ -247,6 +271,9 @@ Output:
 	1
 	0
 
+.. index:: 
+	pair: Reflection and Meta-programming; iscfunction()
+
 iscfunction() Function
 ======================
 
@@ -275,6 +302,8 @@ Output:
 	1
 	0
 
+.. index:: 
+	pair: Reflection and Meta-programming; packages()
 
 packages() Function
 ===================
@@ -318,6 +347,8 @@ Output:
 	package3
 	package4
 
+.. index:: 
+	pair: Reflection and Meta-programming; ispackage()
 
 ispackage() Function
 ====================
@@ -365,6 +396,8 @@ Output:
 	0
 	1
 
+.. index:: 
+	pair: Reflection and Meta-programming; classes()
 
 classes() Function
 ==================
@@ -399,6 +432,9 @@ Output:
 	class1
 	class2
 	class3
+
+.. index:: 
+	pair: Reflection and Meta-programming; isclass()
 
 isclass() Function
 ==================
@@ -436,6 +472,9 @@ Output:
 	0
 	1
 	1
+
+.. index:: 
+	pair: Reflection and Meta-programming; packagesclasses()
 
 packageclasses() Function
 =========================
@@ -481,6 +520,8 @@ Output:
 	class2
 	class3
 
+.. index:: 
+	pair: Reflection and Meta-programming; ispackagesclass()
 
 ispackageclass() Function
 =========================
@@ -524,6 +565,9 @@ Output:
 	1
 	1
 
+.. index:: 
+	pair: Reflection and Meta-programming; classname()
+
 classname() Function
 ====================
 		
@@ -548,6 +592,9 @@ Example:
 
 	class point
 	class rect
+
+.. index:: 
+	pair: Reflection and Meta-programming; objectid()
 
 objectid() Function
 ===================
@@ -580,6 +627,9 @@ Output:
 	021B5808
 	021B5808
 		
+.. index:: 
+	pair: Reflection and Meta-programming; isobject()
+
 isobject() Function
 ===================
 
@@ -592,6 +642,9 @@ Syntax:
 	isobject(variable) --> Returns True if it's an object, False if it's not
 
 		
+.. index:: 
+	pair: Reflection and Meta-programming; attributes()
+
 attributes() Function
 =====================
 
@@ -612,6 +665,9 @@ Example:
 	for t in aList see t next	# print xyz 
 	Class Point x y z
 		
+.. index:: 
+	pair: Reflection and Meta-programming; methods()
+
 methods() Function
 ==================
 
@@ -656,6 +712,9 @@ Output:
 	hello from f4
 
 
+.. index:: 
+	pair: Reflection and Meta-programming; isattribute()
+
 isattribute() Function
 ======================
 
@@ -679,6 +738,9 @@ Example:
 	see isattribute(o1,"z") + nl	# print 1
 
 	class point x y z
+
+.. index:: 
+	pair: Reflection and Meta-programming; isprivateattribute()
 
 isprivateattribute() Function
 =============================
@@ -719,6 +781,8 @@ Output:
 	1
 	1
 
+.. index:: 
+	pair: Reflection and Meta-programming; ismethod()
 	
 ismethod() Function
 ===================
@@ -748,6 +812,8 @@ Example:
 		func print
 			see x + nl + y + nl + z + nl
 
+.. index:: 
+	pair: Reflection and Meta-programming; isprivatemethod()
 
 isprivatemethod() Function
 ==========================
@@ -783,6 +849,9 @@ Output:
 
 	0
 	1
+
+.. index:: 
+	pair: Reflection and Meta-programming; addattribute()
 
 addattribute() Function
 =======================
@@ -825,6 +894,8 @@ Output:
 	z: 30.000000
 
 
+.. index:: 
+	pair: Reflection and Meta-programming; addmethod()
 
 
 addmethod() Function
@@ -929,6 +1000,9 @@ Output:
 	150
 	250
 
+.. index:: 
+	pair: Reflection and Meta-programming; getattribute()
+
 getattribute() function
 =======================
 
@@ -1026,6 +1100,8 @@ Output:
 	1
 
 	
+.. index:: 
+	pair: Reflection and Meta-programming; setattribute()
 
 setattribute() function
 =======================
@@ -1066,6 +1142,8 @@ Output:
 	blue
 	yellow
 
+.. index:: 
+	pair: Reflection and Meta-programming; mergemethods()
 
 mergemethods() Function
 =======================

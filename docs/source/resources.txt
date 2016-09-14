@@ -1,8 +1,14 @@
+.. index:: 
+	single: Resources; Introduction
+
 =========
 Resources
 =========
 
 In this section you will find resources about the language
+
+.. index:: 
+	pair: Resources; Ring Language Website
 
 Ring Language Website 
 =====================
@@ -13,6 +19,9 @@ For news about the language check the website
 
 	 http://ring-lang.sf.net
 
+.. index:: 
+	pair: Resources; Ring Group
+
 Ring Group
 ==========
 
@@ -20,6 +29,9 @@ For questions use the Ring Group (English)
 
 	https://groups.google.com/forum/#!forum/ring-lang
 
+
+.. index:: 
+	pair: Resources; Contact the Autor
 
 Contact the Author
 ==================

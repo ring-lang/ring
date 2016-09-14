@@ -1,3 +1,6 @@
+.. index:: 
+	single: Reference; Introduction
+
 ==============
 Reference
 ==============
@@ -10,6 +13,9 @@ In this chapter we will learn about
 * Runtime Errors
 * Language Grammar
 * Virtual Machine (VM) Instructions
+
+.. index:: 
+	pair: Reference; Language Keywords
 
 Language Keywords
 =================
@@ -60,6 +66,9 @@ Keywords Count : 43
 * try
 * while
 
+.. index:: 
+	pair: Reference; Language Functions
+
 Language Functions
 ==================
 
@@ -102,6 +111,9 @@ Functions Count : 208
 	timelist() trim() type() ungetc() unsigned() upper() varptr() 
 	version() windowsnl() write()
 
+.. index:: 
+	pair: Reference; Compiler Errors
+
 Compiler Errors
 ===============
 
@@ -130,6 +142,9 @@ Compiler Errors
 * Error (C23) : Using '(' after number!
 * Error (C24) : The parent class name is identical to the subclass name
 * Error (C25) : Trying to access the self reference after the object name"
+
+.. index:: 
+	pair: Reference; Runtime Errors
 
 Runtime Errors
 ==============
@@ -169,6 +184,8 @@ Runtime Errors
 * Error (R33) : Bad decimals number (correct range >= 0 and <=14) !
 * Error (R34) : Variable is required for the assignment operation
 
+.. index:: 
+	pair: Reference; Language Grammar
 
 Language Grammar
 ================
@@ -273,6 +290,8 @@ Mixer ---> '{' {Statement} '}'
 
 AnonymousFunction ---> 'func'|'def'| [<ParaList>] '{' {Statement} '}'
 
+.. index:: 
+	pair: Reference; Virtual Machine Instructions
 
 Virtual Machine (VM) Instructions
 =================================

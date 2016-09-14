@@ -1,3 +1,6 @@
+.. index:: 
+	single: Data Type; Introduction
+
 ==============================
 Check Data Type and Conversion
 ==============================
@@ -153,6 +156,9 @@ The next functions can be used to check character
 * isupper()
 * isxdigit()
 
+.. index:: 
+	pair: Data Type; IsAlNum()
+
 IsAlNum() Function
 ==================
 
@@ -172,6 +178,9 @@ Example:
 	    isalnum("123456") + nl +	# print 1
 	    isalnum("ABCabc123") + nl +	# print 1
 	    isalnum("How are you")  	# print 0 because of spaces
+
+.. index:: 
+	pair: Data Type; IsAlpha()
 
 IsAlpha() Function
 ==================
@@ -193,6 +202,9 @@ Example:
 	    isalpha("ABCabc123") + nl +	# print 0
 	    isalpha("How are you")  	# print 0
 
+.. index:: 
+	pair: Data Type; IsCntrl()
+
 IsCntrl() Function
 ==================
 
@@ -211,6 +223,9 @@ Example:
 	See iscntrl("hello") + nl +	# print 0 
 	    iscntrl(nl)			# print 1
 
+.. index:: 
+	pair: Data Type; IsDigit()
+
 IsDigit() Function
 ==================
 
@@ -228,6 +243,9 @@ Example:
 
 	see isdigit("0123456789") + nl +	# print 1
 	    isdigit("0123a") 			# print 0
+
+.. index:: 
+	pair: Data Type; IsGraph()
 
 IsGraph() Function
 ==================
@@ -248,6 +266,9 @@ Example:
 	    isgraph("abc def") 		# print 0
 
 
+.. index:: 
+	pair: Data Type; IsLower()
+
 IsLower() Function 
 ==================
 
@@ -266,6 +287,9 @@ Example:
 	see islower("abcDEF") + nl + 	# print 0
 	    islower("ghi")		# print 1
 
+
+.. index:: 
+	pair: Data Type; IsPrint()
 
 IsPrint() Function
 ==================
@@ -286,6 +310,8 @@ Example:
 	    isprint("Nice to see you") + nl +   # print 1
 	    isprint(nl)				# print 0
 
+.. index:: 
+	pair: Data Type; IsPunct()
 
 IsPunct() Function
 ==================
@@ -305,6 +331,8 @@ Example:
 	see ispunct("hello") + nl +	# print 0
 	    ispunct(",") 		# print 1
 
+.. index:: 
+	pair: Data Type; IsSpace()
 
 IsSpace() Function
 ==================
@@ -325,6 +353,9 @@ Example:
 	    isspace("test") 		# print 0
 
 
+.. index:: 
+	pair: Data Type; IsUpper()
+
 IsUpper() Function
 ==================
 
@@ -343,6 +374,9 @@ Example:
 	see isupper("welcome") + nl +	 # print 0 
 	    isupper("WELCOME") 		 # print 1
 
+
+.. index:: 
+	pair: Data Type; IsXdigit()
 
 IsXdigit() Function
 ===================
@@ -380,6 +414,9 @@ The next functions can be used for conversion
 * str2hex()
 * hex2str()
 
+.. index:: 
+	pair: Data Type; Number()
+
 Number() Function
 =================
 
@@ -398,6 +435,9 @@ Example:
 
 	see number("5") + 5 + nl 	# print 10
 	see 0 + "10" + 2		# print 12	
+
+.. index:: 
+	pair: Data Type; String()
 
 String() Function
 =================
@@ -418,6 +458,8 @@ Example:
 	see string(5) + 5 + nl 		# print 55
 	see "" + 10 + 2			# print 102	
 
+.. index:: 
+	pair: Data Type; Ascii()
 
 Ascii() Function
 ================
@@ -436,6 +478,9 @@ Example:
 
 	See ascii("m") + nl + 	# print 109
 	    ascii("M") 		# print 77
+
+.. index:: 
+	pair: Data Type; Char()
 
 Char() Function
 ===============
@@ -456,6 +501,9 @@ Example:
 	    char(77) 		# print M
 
 
+.. index:: 
+	pair: Data Type; Hex()
+
 Hex() Function
 ==============
 
@@ -473,6 +521,9 @@ Example:
 
 	See hex(10) + nl + 	# print a
 	    hex(200)		# print c8
+
+.. index:: 
+	pair: Data Type; Dec()
 
 Dec() Function
 ==============
@@ -492,6 +543,9 @@ Example:
 	See dec("a") + nl + 	# print 10
 	    dec("c8")		# print 200
 
+.. index:: 
+	pair: Data Type; Str2Hex()
+
 Str2hex() Function
 ==================
 
@@ -509,6 +563,8 @@ Example:
 
 	See str2hex("hello")  	# print 68656c6c6f
 
+.. index:: 
+	pair: Data Type; Hex2str()
 
 Hex2str() Function
 ==================

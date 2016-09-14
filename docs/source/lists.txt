@@ -1,8 +1,14 @@
+.. index:: 
+	single: Lists; Introduction
+
 =====
 Lists
 =====
 
 In this chapter we are going to learn how to deal with lists.
+
+.. index:: 
+	pair: Lists; Create Lists
 
 Create Lists
 ============
@@ -48,6 +54,9 @@ Example
 
 .. note:: the list index start from 1 
 
+.. index:: 
+	pair: Lists; Add Items
+
 Add Items
 =========
 
@@ -83,6 +92,9 @@ Example:
 	aList + 11	# add number 11 to the list
 	see aList	# print the list
 
+.. index:: 
+	pair: Lists; Get List Size
+
 Get List Size
 =============
 
@@ -99,6 +111,9 @@ Example:
 .. code-block:: none
 
 	aList = 1:20  see len(aList)  # print 20
+
+.. index:: 
+	pair: Lists; Delete Item From List
 
 Delete Item From List
 =====================
@@ -119,6 +134,9 @@ Example:
 	Del(aList,3)	# delete item number three
 	see aList   	# print one two three
 
+
+.. index:: 
+	pair: Lists; Get List Item
 	
 Get List Item
 =============
@@ -137,6 +155,9 @@ Example:
 	see "Egypt : " + aList[1] + nl +
 	    "KSA   : " + aList[2] + nl
 
+.. index:: 
+	pair: Lists; Set List Item
+
 Set List Item
 =============
 
@@ -153,6 +174,9 @@ Example:
 	aList = list(3)	# create list contains three items
 	aList[1] = "one" aList[2] = "two" aList[3] = "three"
 	see aList
+
+.. index:: 
+	pair: Lists; Search
 
 Search
 ======
@@ -212,6 +236,9 @@ Output:
 	three
 	two
 	4
+
+.. index:: 
+	pair: Lists; Sort()
 
 Sort
 ====
@@ -276,6 +303,9 @@ Output:
 	16000
 
 
+.. index:: 
+	pair: Lists; Reverse()
+
 Reverse
 =======
 
@@ -294,6 +324,9 @@ Example:
 	aList = [10,20,30,40,50]
 	aList = reverse(aList)
 	see aList 	# print 50 40 30 20 10
+
+.. index:: 
+	pair: Lists; Insert()
 
 Insert Items
 ============
@@ -315,6 +348,10 @@ Example:
 	aList = [1,2,4,5]
 	insert(aList,2,3)
 	see aList	  # print 1 2 3 4 5 
+
+
+.. index:: 
+	pair: Lists; Nested Lists
 
 Nested Lists
 ============
@@ -340,6 +377,9 @@ Example:
 	see aList2[5][2] + nl 	# print four
 	see aList2[5][4][3]	# print 300
 
+.. index:: 
+	pair: Lists; Copy Lists
+
 Copy Lists
 ==========
 
@@ -364,6 +404,9 @@ Example:
 	see aList[5]		# print three four five 100 200 300
 
 
+.. index:: 
+	pair: Lists; First-Class Lists
+
 First-class lists
 =================
 
@@ -387,6 +430,9 @@ Example:
 		return list
 
 	func mylist return [10,20,30,40,50]
+
+.. index:: 
+	pair: Lists; Using Lists during definition
 		
 Using Lists during definition
 =============================
@@ -401,6 +447,9 @@ Example:
 	see aList	# print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
 	
 	
+.. index:: 
+	pair: Lists; Passing Lists to Functions
+
 Passing Lists to Functions
 ==========================
 
@@ -419,6 +468,9 @@ Example:
 	func myfunc list
 		list + [6,7,8,9,10]
 
+
+.. index:: 
+	pair: Lists; Access List Items by String Index
 
 Access List Items by String Index
 =================================
@@ -465,6 +517,9 @@ Example:
 	see aList["Egypt"] + nl + 	# print Cairo
 	    aList["KSA"] + nl		# print Riyadh
 
+.. index:: 
+	pair: Lists; Passing Parameters Using List
+
 Passing Parameters Using List
 =============================
 	
@@ -488,6 +543,4 @@ Example:
                     "Server    : " + mypara[:server] + nl +
                     "Port      : " + mypara[:port]
 
-
-		
 

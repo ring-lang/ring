@@ -1,3 +1,6 @@
+.. index:: 
+	single: Files; Introduction
+
 =====
 Files
 =====
@@ -121,6 +124,8 @@ Example:
 	next
 	see "Files count : " + len(mylist)
 
+.. index:: 
+	pair: Files; Rename()
 
 Rename() Function
 =================
@@ -139,6 +144,9 @@ Example:
 
 	rename("file.txt","help.txt")
 
+.. index:: 
+	pair: Files; Remove()
+
 Remove() Function
 =================
 
@@ -156,6 +164,9 @@ Example:
 .. code-block:: none
 
 	remove("test.txt")
+
+.. index:: 
+	pair: Files; Fopen()
 
 Fopen() Function
 ================
@@ -179,6 +190,8 @@ Mode	Description
 "a+"	reading & appending
 =====	==========================================
 
+.. index:: 
+	pair: Files; Fclose()
 
 Fclose() Function
 =================
@@ -192,6 +205,9 @@ Syntax:
 
 	Fclose(file handle)
 
+.. index:: 
+	pair: Files; Fflush()
+
 Fflush() Function
 =================
 
@@ -202,6 +218,9 @@ Syntax:
 .. code-block:: none
 
 	Fflush(file handle)
+
+.. index:: 
+	pair: Files; Freopen()
 
 Freopen() Function
 ==================
@@ -254,6 +273,9 @@ Output:
 	9
 	10
 
+.. index:: 
+	pair: Files; Tempfile()
+
 Tempfile() Function
 ===================
 
@@ -267,6 +289,8 @@ Syntax:
 
 	TempFile() ---> file handle
 
+.. index:: 
+	pair: Files; Tempname()
 
 Tempname() Function
 ===================
@@ -280,6 +304,9 @@ Syntax:
 .. code-block:: none
 
 	Tempname() ---> generated file name as string
+
+.. index:: 
+	pair: Files; Fseek()
 
 Fseek() Function
 ================
@@ -302,6 +329,9 @@ Value	Description
 2	End of file
 =====	===============================
 
+.. index:: 
+	pair: Files; Ftell()
+
 Ftell() Function
 ================
 
@@ -312,6 +342,9 @@ Syntax:
 .. code-block:: none
 
 	Ftell(file handle) ---> file position as number
+
+.. index:: 
+	pair: Files; Rewind()
 
 Rewind() Function
 =================
@@ -324,6 +357,9 @@ Syntax:
 	
 	Rewind(file handle)
 
+.. index:: 
+	pair: Files; Fgetpos()
+
 Fgetpos() Function
 ==================
 
@@ -335,6 +371,9 @@ Syntax:
 
 	Fgetpos(file handle) ---> position handle
 
+.. index:: 
+	pair: Files; Fsetpos()
+
 Fsetpos() Function
 ==================
 
@@ -345,6 +384,9 @@ Syntax:
 .. code-block:: none
 
 	Fsetpos(file handle,position handle)
+
+.. index:: 
+	pair: Files; Clearerr()
 
 Clearerr() Function
 ===================
@@ -358,6 +400,9 @@ Syntax:
 
 	Clearerr(file handle)
 
+.. index:: 
+	pair: Files; Feof()
+
 Feof() Function
 ===============
 
@@ -368,6 +413,9 @@ Syntax:
 .. code-block:: none
 
 	Feof(file handle) ---> returns 1 if EOF and 0 if not
+
+.. index:: 
+	pair: Files; Ferror()
 
 Ferror() Function
 =================
@@ -380,6 +428,9 @@ Syntax:
 
 	Ferror(file handle) ---> returns 1 if error and 0 if not
 
+.. index:: 
+	pair: Files; Perror()
+
 Perror() Function
 =================
 
@@ -390,6 +441,9 @@ Syntax:
 .. code-block:: none
 
 	Perror(cErrorMessage)
+
+.. index:: 
+	pair: Files; Fgetc()
 
 Fgetc() Function
 ================
@@ -402,6 +456,9 @@ Syntax:
 
 	Fgetc(file handle) ---> returns character or EOF
 
+
+.. index:: 
+	pair: Files; Fgets()
 
 Fgets() Function
 ================
@@ -416,6 +473,9 @@ Syntax:
 
 The function stop when nSize characters are read, new line character is read or EOF.
 
+.. index:: 
+	pair: Files; Fputc()
+
 Fputc() Function
 ================
 
@@ -426,6 +486,9 @@ Syntax:
 .. code-block:: none
 
 	Fputc(file handle,cChar)
+
+.. index:: 
+	pair: Files; Fputs()
 
 Fputs() Function
 ================
@@ -438,6 +501,9 @@ Syntax:
 
 	Fputs(file handle,cString)
 
+
+.. index:: 
+	pair: Files; Ungetc()
 
 Ungetc() Function
 =================
@@ -453,6 +519,9 @@ Syntax:
 	Ungetc(file handle,character)
 
 
+.. index:: 
+	pair: Files; Fread()
+
 Fread() Function
 ================
 
@@ -463,6 +532,9 @@ Syntax:
 .. code-block:: none
 
 	Fread(file handle,nSize)
+
+.. index:: 
+	pair: Files; Fwrite()
 
 Fwrite() Function
 =================
@@ -475,6 +547,9 @@ Syntax:
 
 	Fwrite(file handle,cString)
 
+
+.. index:: 
+	pair: Files; Fexists()
 
 Fexists() Function
 ==================
@@ -500,6 +575,9 @@ Output:
 
 	1
 	0
+
+.. index:: 
+	pair: Files; Example
 
 Example
 =======

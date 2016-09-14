@@ -1,3 +1,6 @@
+.. index:: 
+	single: Code Generator; Introduction
+
 ============================================
 Code Generator for wrapping C/C++ Libraries 
 ============================================
@@ -23,6 +26,7 @@ run parsec.ring as in the next command
 
 .. index:: 
 	pair: Code Generator; Configuration file
+
 
 Configuration file 
 ==================
@@ -195,7 +199,7 @@ Also we will generate two functions to create/delete the structure ALLEGRO_EVENT
 to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mouse.y).
 
 .. index:: 
-	pair: Code Generator; Register New Functions
+	pair: Code Generator; Determine Structure Members Types
 
 Determine Structure Members Types
 ================================
@@ -208,6 +212,9 @@ Example:
 
 	SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked,void *lock_data}
 
+
+.. index:: 
+	pair: Code Generator; Defining Constants
 
 Defining Contants
 =================
@@ -241,6 +248,9 @@ Example:
 
 	ring ..\codegen\parsec.ring libsdl.cf ring_libsdl.c ring_libsdl.rh
 
+
+.. index:: 
+	pair: Code Generator; Register New Functions
 
 Register New Functions
 ======================
@@ -309,7 +319,7 @@ The previoud line of code add the string "al_fixed" to the list aNumberTypes, Th
 types that can be considered as numbers when the code generator find it in the function prototype.
 
 .. index:: 
-	pair: Code Generator; Allegro configuration file
+	pair: Code Generator; Enum and Numbers
 
 Enum and Numbers
 ================
@@ -328,6 +338,9 @@ Example:
 	</runcode>
 
 
+.. index:: 
+	pair: Code Generator; Filtering using Expressions
+
 Filtering using Expressions
 ===========================
 
@@ -340,6 +353,9 @@ based on a condition, for example
 			... functions related to windows
 		</filter>
 
+
+.. index:: 
+	pair: Code Generator; Configuration file for the Allegro library
 
 Configuration file for the Allegro Library
 ==========================================
@@ -544,6 +560,9 @@ Code Generator Rules for Wrapping C++ Classes
   Keywords like "load","next","end" and "done".
 * in method prototype - when we use @ in the method name, we mean that we have the same method with 
   different parameters (As in C++)
+
+.. index:: 
+	pair: Code Generator; Using configuration file that wrap C++ library
 
 Using configuration file that wrap C++ Library
 ==============================================
@@ -1120,6 +1139,9 @@ also Ring code around 9000 lines.
 
 	Most of the content of the previous configuration file is removed from this documentation, 
         for a complete version see the Ring source code distribution.
+
+.. index:: 
+	pair: Code Generator; Configuration Files Examples
 
 Configuration Files Examples
 ============================

@@ -1,3 +1,6 @@
+.. index:: 
+	single: Extension; Introduction
+
 ===================================
 Extension using the C/C++ languages
 ===================================

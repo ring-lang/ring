@@ -1,9 +1,12 @@
+.. index:: 
+	single: Getting Started - Second Style; Introduction
+
 ==============================
 Getting Started - Second Style
 ==============================
 
 .. index:: 
-	pair: Getting Started; Hello World
+	pair: Getting Started - Second Style; Hello World
 
 Hello World
 ===========
@@ -15,7 +18,7 @@ The next program prints the Hello World message on the screen (std-out).
 	put "Hello World"
 
 .. index:: 
-	pair: Getting Started; Run the program
+	pair: Getting Started - Second Style; Run the program
 
 Run the program
 ===============
@@ -28,7 +31,7 @@ then from the command line or terminal, run it using the ring interpreter
 	ring hello.ring
 
 .. index:: 
-	pair: Getting Started; Not Case-Sensitive
+	pair: Getting Started - Second Style; Not Case-Sensitive
 
 Not Case-Sensitive
 ==================
@@ -48,7 +51,7 @@ be written in different styles
 
 
 .. index:: 
-	pair: Getting Started; Multi-Line literals
+	pair: Getting Started - Second Style; Multi-Line literals
 
 Multi-Line literals
 ===================
@@ -76,7 +79,7 @@ and you can use the + operator to concatenate strings
 	    nl + "How are you?"
 
 .. index:: 
-	pair: Getting Started; Getting Input
+	pair: Getting Started - Second Style; Getting Input
 
 Getting Input
 =============
@@ -90,7 +93,7 @@ You can get the input from the user using the get command
 	Put "Hello " + cName
 
 .. index:: 
-	pair: Getting Started; No Explicit End For Statements
+	pair: Getting Started - Second Style; No Explicit End For Statements
 
 No Explicit End For Statements
 ==============================
@@ -103,7 +106,7 @@ The previous program can be written in one line.
 	Put "What is your name? " get cName put "Hello " + cName
 
 .. index:: 
-	pair: Getting Started; Writing Comments
+	pair: Getting Started - Second Style; Writing Comments
 
 Writing Comments
 ================

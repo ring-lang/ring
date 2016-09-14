@@ -1,3 +1,6 @@
+.. index:: 
+	single: Variables; Introduction
+
 =========
 Variables
 =========
@@ -24,6 +27,9 @@ Syntax:
 	be removed from memory (even if the variable contains a list or object).
 
 
+.. index:: 
+	pair: Variables; Dynamic Typing
+
 Dynamic Typing
 ==============
 
@@ -48,6 +54,9 @@ Ring is a dynamic programming language that uses `Dynamic Typing <http://en.wiki
 	x = false		# x is a number (logical value = 0)
 	see x + nl
 
+.. index:: 
+	pair: Variables; Deep Copy
+
 Deep Copy
 =========
 
@@ -66,6 +75,9 @@ This operation called `Deep Copy <http://en.wikipedia.org/wiki/Object_copy#Deep_
 	See list	# print the first list - no items to print
 	See "********" + nl
 	See list2	# print the second list - contains 5 items
+
+.. index:: 
+	pair: Variables; Weakly Typed
 
 Weakly Typed
 ============

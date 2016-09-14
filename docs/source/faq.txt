@@ -1,7 +1,12 @@
+.. index:: 
+	single: Frequently Asked Questions; Introduction
+
 ================================
 Frequently Asked Questions (FAQ)
 ================================
 
+.. index:: 
+	pair: Frequently Asked Questions; Philosophy behind data types in Ring
 
 What is the philosophy behind data types in Ring?
 =================================================
@@ -41,6 +46,9 @@ So We have
 * A fast language that provide primitive types (String – Number – List – Object)
 * A flexible language that can be extended using OOP to add new types according to the application domain
 
+
+.. index:: 
+	pair: Frequently Asked Questions; Goal of including the "Main" function in Ring
 
 What is the goal of including the "Main" function in Ring?
 ==========================================================
@@ -96,6 +104,9 @@ Output
 	4
 	5
 	X value = 10
+
+.. index:: 
+	pair: Frequently Asked Questions; List index start from 1
 
 Why the list index start from 1 in Ring?
 ========================================
@@ -154,6 +165,9 @@ or remember the for loop in other languages
 
 You will use the < operator !
 
+
+.. index:: 
+	pair: Frequently Asked Questions; Search of global names while defining the class attributes
 
 Why should a search of global names be made while defining the class attributes?
 ================================================================================

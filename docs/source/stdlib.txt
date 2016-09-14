@@ -1,8 +1,14 @@
+.. index:: 
+	single: Stdlib Functions; Introduction
+
 ================
 Stdlib Functions
 ================
 
 In this chapter we are going to learn about functions in the stdlib.ring
+
+.. index:: 
+	pair: Stdlib Functions; puts()
 
 puts() function
 ===============
@@ -22,6 +28,9 @@ Example:
 	Load "stdlib.ring"
 
 	Puts("Hello, World!")
+
+.. index:: 
+	pair: Stdlib Functions; print()
 
 print() function
 =================
@@ -46,6 +55,9 @@ Example:
 	x=10 y=20
 	print("\nx value = #{x} , y value = #{y} \n")
 
+.. index:: 
+	pair: Stdlib Functions; getstring()
+
 getstring() function
 ====================
 
@@ -56,6 +68,9 @@ Get input from the keyboard - return value as string
 	getstring() ---> string
 
 
+.. index:: 
+	pair: Stdlib Functions; getnumber()
+
 getnumber() function
 ====================
 
@@ -65,7 +80,8 @@ Get input from the keyboard - return value as number
 
 	getnumber() ---> number
 
-
+.. index:: 
+	pair: Stdlib Functions; apppath()
 
 apppath() function
 ==================
@@ -88,6 +104,9 @@ Example:
 	Puts("Test AppPath()")
 	See AppPath() + nl
 
+.. index:: 
+	pair: Stdlib Functions; value()
+
 value() function
 ================
 
@@ -109,6 +128,9 @@ Example:
 	del(value(aList),1) # delete first item
 	see aList 	    # print numbers from 1 to 10
 
+.. index:: 
+	pair: Stdlib Functions; times()
+
 times() function
 ================
 
@@ -128,6 +150,9 @@ Example:
 
 	Puts("Test Times()")
 	Times ( 3 , func { see "Hello, World!" + nl } )
+
+.. index:: 
+	pair: Stdlib Functions; map()
 
 map() function
 ==============
@@ -149,6 +174,9 @@ Example:
 	Puts("Test Map()")
 	See Map( 1:10, func x { return x*x } )
 
+.. index:: 
+	pair: Stdlib Functions; filter()
+
 filter() function
 =================
 
@@ -169,6 +197,8 @@ Example:
 	Puts("Test Filter()")
 	See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
 
+.. index:: 
+	pair: Stdlib Functions; split()
 
 split() function
 ================
@@ -190,6 +220,9 @@ Example:
 	Puts("Test Split()")
 	See Split("one two three four five"," ")
 
+
+.. index:: 
+	pair: Stdlib Functions; newlist()
 
 newlist() function
 ==================
@@ -219,6 +252,9 @@ Example:
 	See chrArray[1][1] + nl
 	See numArray[1][1] + nl
 
+.. index:: 
+	pair: Stdlib Functions; capitalized()
+
 capitalized() function
 ======================
 
@@ -238,6 +274,9 @@ Example:
 
 	Puts("Test Capitalized()")
 	See capitalized("welcome to the Ring Programming Language")
+
+.. index:: 
+	pair: Stdlib Functions; isspecial()
 
 isspecial() function
 ====================
@@ -260,6 +299,9 @@ Example:
 	Puts("Test Isspecial()")
 	See "Isspecial  = " + isSpecial("%") + nl
 
+.. index:: 
+	pair: Stdlib Functions; isvowel()
+
 isvowel() function
 ==================
 
@@ -281,6 +323,9 @@ Example:
 	See "Isvowel = " + isVowel("c") + nl
 
 
+.. index:: 
+	pair: Stdlib Functions; linecount()
+
 linecount() function
 ====================
 
@@ -300,6 +345,9 @@ Example:
 
 	Puts("Test Linecount()")
 	See "the number of lines = " + lineCount("test.ring")
+
+.. index:: 
+	pair: Stdlib Functions; factorial()
 
 factorial() function
 ====================
@@ -321,6 +369,9 @@ Example:
 	Puts("Test Factorial()")
 	see "6 factorial is : " + Factorial(6)
 
+.. index:: 
+	pair: Stdlib Functions; fibonacci()
+
 fibonacci() function
 ====================
 
@@ -340,6 +391,9 @@ Example:
 
 	Puts("Test Fibonacci()")
 	see "6 Fibonacci is : " + Fibonacci(6)
+
+.. index:: 
+	pair: Stdlib Functions; isprime()
 
 isprime() function
 ==================
@@ -362,6 +416,9 @@ Example:
 	if isPrime(16) see "16 is a prime number"
 	else see "16 is not a prime number" ok
 
+.. index:: 
+	pair: Stdlib Functions; sign()
+
 sign() function
 ===============
 
@@ -382,6 +439,8 @@ Example:
 	Puts("Test Sign()")
 	see "sign of 12 is = " + sign(12) + nl
 
+.. index:: 
+	pair: Stdlib Functions; list2file()
 
 list2file() function
 ====================
@@ -405,6 +464,9 @@ Example:
 	list2file(1:100,"myfile.txt")
 
 
+.. index:: 
+	pair: Stdlib Functions; file2list()
+
 file2list() function
 ====================
 
@@ -426,6 +488,8 @@ Example:
 	Puts("Test File2List()")
 	see len(file2list("myfile.txt"))
 
+.. index:: 
+	pair: Stdlib Functions; startswith()
 
 startswith() function
 =====================
@@ -450,6 +514,8 @@ Example:
 	Puts("Test Startswith()")
 	see Startswith("CalmoSoft", "Calmo") + nl
 
+.. index:: 
+	pair: Stdlib Functions; endswith()
 
 endswith() function
 ===================
@@ -473,6 +539,8 @@ Example:
 	Puts("Test Endswith()")
 	see endsWith("CalmoSoft", "Soft") + nl
 
+.. index:: 
+	pair: Stdlib Functions; gcd()
 
 gcd() function
 ==============
@@ -495,6 +563,9 @@ Example:
 	see gcd (24, 32) + nl
 
 
+.. index:: 
+	pair: Stdlib Functions; lcm()
+
 lcm() function
 ==============
 
@@ -514,6 +585,9 @@ Example:
 
 	Puts("Test Lcm()")
 	see Lcm(24,36) + nl
+
+.. index:: 
+	pair: Stdlib Functions; sumlist()
 
 sumlist() function
 ==================
@@ -536,6 +610,8 @@ Example:
 	aList = [1,2,3,4,5]
 	see Sumlist(aList) + nl
 
+.. index:: 
+	pair: Stdlib Functions; prodlist()
 
 prodlist() function
 ===================
@@ -558,6 +634,8 @@ Example:
 	aList = [1,2,3,4,5]
 	see Prodlist(aList) + nl
 
+.. index:: 
+	pair: Stdlib Functions; evenorodd()
 
 evenorodd() function
 ====================
@@ -581,6 +659,9 @@ Example:
 	Puts("Test Evenorodd()")
 	nr = 17
 	see Evenorodd(nr) + nl
+
+.. index:: 
+	pair: Stdlib Functions; factors()
 
 factors() function
 ==================
@@ -608,6 +689,9 @@ Example:
 	next
 
 
+.. index:: 
+	pair: Stdlib Functions; palindrome()
+
 palindrome() function
 =====================
 
@@ -629,6 +713,9 @@ Example:
 	cString = "radar"
 	see Palindrome(cString)
 
+
+.. index:: 
+	pair: Stdlib Functions; isleapyear()
 
 isleapyear() function
 =====================
@@ -653,6 +740,9 @@ Example:
 	else see "" + year + " is not a leap year." ok
 
 
+.. index:: 
+	pair: Stdlib Functions; binarydigits()
+
 binarydigits() function
 =======================
 
@@ -673,6 +763,9 @@ Example:
 	Puts("Test Binarydigits()")
 	b = 35
 	see "Binary digits of " + b + " = " + Binarydigits(b)
+
+.. index:: 
+	pair: Stdlib Functions; matrixmulti()
 
 matrixmulti() function
 ======================
@@ -698,6 +791,9 @@ Example:
 	see Matrixmulti(A, B)
 
 
+.. index:: 
+	pair: Stdlib Functions; matrixtrans()
+
 matrixtrans() function
 ======================
 
@@ -720,6 +816,8 @@ Example:
 	matrix = [[78,19,30,12,36], [49,10,65,42,50], [30,93,24,78,10], [39,68,27,64,29]]
 	see Matrixtrans(matrix)
 
+.. index:: 
+	pair: Stdlib Functions; dayofweek()
 
 dayofweek() function
 ====================
@@ -743,6 +841,8 @@ Example:
 	date = "2016-04-24"
 	see "Data : " + date + " - Day : " + Dayofweek(date) + nl
 
+.. index:: 
+	pair: Stdlib Functions; permutation()
 
 permutation() function
 ======================
@@ -772,6 +872,9 @@ Example:
 		Permutation(list)
 	next
 
+.. index:: 
+	pair: Stdlib Functions; readline()
+
 readline() function
 ===================
 
@@ -795,6 +898,9 @@ Example:
 	while not feof(fp)
 	See Readline(fp) end
 	fclose(fp)
+
+.. index:: 
+	pair: Stdlib Functions; substring()
 
 substring() function
 ====================
@@ -820,6 +926,9 @@ Example:
 	i = 4
 	see substring(a,b,i)
 
+.. index:: 
+	pair: Stdlib Functions; changestring()
+
 changestring() function
 =======================
 
@@ -840,6 +949,9 @@ Example:
 	# Change substring from given position for given position with a substring.
 	Puts("Test Changestring()")
 	see Changestring("Rmasdg",2,5,"in")	# Ring
+
+.. index:: 
+	pair: Stdlib Functions; sleep()
 
 sleep() function
 ================
@@ -863,6 +975,9 @@ Example:
 	Sleep(3)
 	see nl
 
+.. index:: 
+	pair: Stdlib Functions; ismainsourcefile()
+
 ismainsourcefile() function
 ===========================
 
@@ -884,6 +999,8 @@ Example:
 		# code 
 	ok
 
+.. index:: 
+	pair: Stdlib Functions; direxists()
 
 direxists() function
 ====================
@@ -906,6 +1023,9 @@ Example:
 	puts( DirExists("b:\ring") )
 	see "Check dir : C:\ring " 
 	Puts( DirExists("C:\ring") )
+
+.. index:: 
+	pair: Stdlib Functions; makedir()
 
 makedir() function
 ==================

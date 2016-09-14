@@ -1,8 +1,14 @@
+.. index:: 
+	single: SQLite; Introduction
+
 ================
 SQLite Functions
 ================
 
 In this chapter we will learn about using the SQLite database in the Ring programming language.
+
+.. index:: 
+	pair: SQLite; sqlite_init()
 
 sqlite_init() function
 ======================
@@ -13,6 +19,9 @@ Syntax:
 
 	sqlite_init() ---> SQLite Object
 
+.. index:: 
+	pair: SQLite; sqlite_open()
+
 sqlite_open() function
 ======================
 
@@ -22,6 +31,9 @@ Syntax:
 
 	sqlite_open(SQLite Object,cFileName)
 
+.. index:: 
+	pair: SQLite; sqlite_execute()
+
 sqlite_execute() function
 =========================
 
@@ -30,6 +42,9 @@ Syntax:
 .. code-block:: none
 
 	sqlite_exexute(SQLite Object,cSQLStatement)
+
+.. index:: 
+	pair: SQLite; sqlite_close()
 
 sqlite_close() function
 =======================

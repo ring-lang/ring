@@ -1,3 +1,6 @@
+.. index:: 
+	single: Functions; Introduction
+
 =========
 Functions
 =========
@@ -77,6 +80,8 @@ Example:
 
 	func second  see "message from the second function" + nl
 
+.. index:: 
+	pair: Functions; Declare parameters
 
 Declare parameters
 ==================
@@ -90,6 +95,9 @@ Example:
 
 	func sum x,y
 		see x+y+nl
+
+.. index:: 
+	pair: Functions; Send Parameters
 
 Send Parameters
 ===============
@@ -115,6 +123,9 @@ Example:
 
 	func sum x,y see x+y+nl
 
+.. index:: 
+	pair: Functions; Main Function
+
 Main Function
 =============
 
@@ -133,6 +144,9 @@ Example:
 
 	func main
 		see "Message from the main function" + nl
+
+.. index:: 
+	pair: Functions; Variables Scope
 
 Variables Scope
 ===============
@@ -169,6 +183,8 @@ Example:
 	  It's recommended to use the main functions instead of typing the instructions directly to set the scope
 	  of the new variables to local.
 
+.. index:: 
+	pair: Functions; Return Value
 
 Return Value
 ============
@@ -195,6 +211,9 @@ Example:
 	ok
 
 	func novalue
+
+.. index:: 
+	pair: Functions; Recursion
 
 Recursion
 =========

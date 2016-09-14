@@ -1,3 +1,6 @@
+.. index:: 
+	single: Scope Rules; Introduction
+
 ===========
 Scope Rules
 ===========
@@ -20,6 +23,9 @@ These application may uses
 
 * Natural Programming
 
+.. index:: 
+	pair: Scope Rules; Three Scopes
+
 Three Scopes 
 ============
 
@@ -31,6 +37,9 @@ In Ring we have three scopes :-
 
 (3) Local Scope - Related to functions and methods
 
+.. index:: 
+	pair: Scope Rules; Defining Variables and Variables Access
+
 Defining Variables and Variables Access
 =======================================
 
@@ -41,6 +50,9 @@ Defining Variables and Variables Access
 (3) After the 'Class' keyword and the class name, when you write variable names to be defined as attributes, You still can access the global scope.
 
 (4) Function Parameters are automatically defined in the local scope.
+
+.. index:: 
+	pair: Scope Rules; How Ring find the Variable?
 
 How Ring find the variable?
 ===========================
@@ -59,6 +71,9 @@ if not found ----> Runtime Error
 
 if found  ----> Check if we can do optimization to avoid 
 searching next time (Cache / Pointers for performance).
+
+.. index:: 
+	pair: Scope Rules; Conflict between Global Variables and Class Attributes
 
 Conflict between Global Variables and Class Attributes
 ======================================================
@@ -137,6 +152,9 @@ So what is the best solution to this conflict?
 2 - Optional : Try to avoid global variables and use the Main function 
 
 In practice i do both of them.
+
+.. index:: 
+	pair: Scope Rules; Conflict between Class Attributes and Local Variables
 
 Conflict between Class Attributes and Local Variables
 =====================================================

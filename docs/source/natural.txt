@@ -1,9 +1,15 @@
+.. index:: 
+	single: Natural Language Programming; Introduction
+
 ============================
 Natural Language Programming
 ============================
 
 Using the Ring programming language, we can create Natural programming languages based
 on classes and objects.
+
+.. index:: 
+	pair: Natural Language Programming; History
 
 History
 =======
@@ -15,6 +21,9 @@ to create/use code similar to Natural language statements in any domain that we 
 
 The Ring programming language comes with the Supernova sprite, but with more generalization and with mix of other languages
 sprites.
+
+.. index:: 
+	pair: Natural Language Programming; Example
 
 Example
 =======
@@ -80,6 +89,9 @@ Output:
 	Instruction : I want window
 	Instruction : Window Title = hello world
 
+
+.. index:: 
+	pair: Natural Language Programming; Change the Ring Keyword 'And'
 
 Change the Ring Keyword 'And'
 =============================
@@ -164,6 +176,9 @@ Output:
 	Instruction : Window Title = hello world
 			
 
+.. index:: 
+	pair: Natural Language Programming; Change the Ring Operator '+'
+
 Change the Ring Operator '+'
 ============================
 
@@ -206,8 +221,11 @@ Output:
 
 	Plus operator
 
-Chang the '=' operator to 'is'
-==============================
+.. index:: 
+	pair: Natural Language Programming; Change the '=' operator to 'is'
+
+Change the '=' operator to 'is'
+===============================
 	
 Example:
 
@@ -262,6 +280,9 @@ Example:
 					see "Instruction : Window Title = " + cValue + nl
 				ok
 
+
+.. index:: 
+	pair: Natural Language Programming; Using Eval() with our Natural Code
 
 Using Eval() with our Natural Code
 ==================================
@@ -334,6 +355,9 @@ Example:
 			ok
 
 		
+.. index:: 
+	pair: Natural Language Programming; BraceStart and BraceEnd Methods
+
 BraceStart and BraceEnd Methods
 ===============================
 
@@ -367,6 +391,9 @@ Output:
 	start
 	end
 
+
+.. index:: 
+	pair: Natural Language Programming; BraceExprEval Method
 
 BraceExprEval Method
 ====================
@@ -402,6 +429,9 @@ Output:
 	expr eval
 	type: NUMBER
 	value : 5
+
+.. index:: 
+	pair: Natural Language Programming; Real Natual Code
 
 Real Natural Code
 =================

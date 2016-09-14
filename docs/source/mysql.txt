@@ -1,3 +1,6 @@
+.. index:: 
+	single: MySQL Functions; Introduction
+
 ===============
 MySQL Functions
 ===============
@@ -19,6 +22,9 @@ In this chapter we are going to learn about the MySQL functions provided by the 
 * MySQL_AutoCommit()
 * MySQL_Commit()
 * MySQL_Rollback()
+
+.. index:: 
+	pair: MySQL Functions; MySQL_Info()
 
 MySQL_Info() Function 
 =====================
@@ -43,6 +49,9 @@ Output:
 
 	MySQL Client Version : 6.1.5
 
+.. index:: 
+	pair: MySQL Functions; MySQL_Init()
+
 MySQL_Init() Function
 =====================
 
@@ -53,6 +62,9 @@ Syntax:
 .. code-block:: none
 
 	MySQL_Init() ---> MySQL Handle
+
+.. index:: 
+	pair: MySQL Functions; MySQL_Error()
 
 MySQL_Error() Function
 ======================
@@ -65,6 +77,9 @@ Syntax:
 
 	MySQL_Error(MySQL Handle) ---> Error message as string
 
+.. index:: 
+	pair: MySQL Functions; MySQL_Connect()
+
 MySQL_Connect() Function
 ========================
 
@@ -75,6 +90,9 @@ Syntax:
 .. code-block:: none
 
 	MySQL_Connect(MySQL Handle, cServer, cUserName, cPassword) ---> lStatus
+
+.. index:: 
+	pair: MySQL Functions; MySQL_Close()
 
 MySQL_Close() Function
 ======================
@@ -87,6 +105,9 @@ Syntax:
 
 	MySQL_Close(MySQL Handle)
 
+.. index:: 
+	pair: MySQL Functions; MySQL_Query()
+
 MySQL_Query() Function
 ======================
 
@@ -97,6 +118,9 @@ Syntax:
 .. code-block:: none
 	
 	MySQL_Query(MySQL Handle, cSQLQuery)
+
+.. index:: 
+	pair: MySQL Functions; Create Database
 
 Create Database
 ===============
@@ -130,6 +154,9 @@ Output:
 	Connect
 	Create Database...
 	Close Connection
+
+.. index:: 
+	pair: MySQL Functions; Create Table and Insert Data
 
 Create Table and Insert Data
 ============================
@@ -182,6 +209,9 @@ Output:
 	Insert data
 	Close connection
 
+.. index:: 
+	pair: MySQL Functions; MySQL_Inser_ID()
+
 MySQL_Insert_ID() Function
 ==========================
 
@@ -231,6 +261,9 @@ Output:
 	inserted row id : 4
 	close database
 
+.. index:: 
+	pair: MySQL Functions; MySQL_Result()
+
 MySQL_Result() Function
 =======================
 
@@ -241,6 +274,9 @@ Syntax:
 .. code-block:: none
 
 	MySQL_Result(MySQL Handle) ---> List contains the query result	
+
+.. index:: 
+	pair: MySQL Functions; MySQL_Next_Result()
 
 MySQL_Next_Result() Function
 ============================
@@ -253,6 +289,9 @@ Syntax:
 .. code-block:: none
 
 	MySQL_Next_Result(MySQL Handle)
+
+.. index:: 
+	pair: MySQL Functions; Print Query Result
 
 Print Query Result
 ==================
@@ -284,6 +323,9 @@ Output:
 	Mahmoud
 	Fayed
 	close database
+
+.. index:: 
+	pair: MySQL Functions; MySQL_Columns()
 
 MySQL_Columns() Function
 ========================
@@ -330,6 +372,9 @@ Output:
 	3
 	32768
 	Close database
+
+.. index:: 
+	pair: MySQL Functions; MySQL_Result2()
 
 MySQL_Result2() Function
 ========================
@@ -379,6 +424,9 @@ Output:
 	Close database
 
 
+.. index:: 
+	pair: MySQL Functions; MySQL_Escape_String()
+
 MySQL_Escape_String() Function
 ==============================
 
@@ -390,6 +438,9 @@ Syntax:
 .. code-block:: none
 
 	MySQL_Escape_String(MySQL Handle, cString) ---> String after processing
+
+.. index:: 
+	pair: MySQL Functions; Save Image Inside the Database
 
 Save Image inside the database
 ==============================
@@ -421,6 +472,9 @@ Output:
 	Insert data...
 	Close database...
 
+.. index:: 
+	pair: MySQL Functions; Restore Image From The Database
+
 Restore Image From The Database
 ===============================
 
@@ -449,6 +503,9 @@ Output:
 	Close database...
 
 
+.. index:: 
+	pair: MySQL Functions; MySQL_AutoCommit()
+
 MySQL_AutoCommit() Function
 ===========================
 
@@ -459,6 +516,9 @@ Syntax:
 .. code-block:: none
 
 	MySQL_AutoCommit(MySQL Handle, lStatus)  # lstatus can be True/False
+
+.. index:: 
+	pair: MySQL Functions; MySQL_Commit()
 
 MySQL_Commit() Function
 =======================
@@ -471,6 +531,9 @@ Syntax:
 
 	MySQL_Commit(MySQL Handle)
 
+.. index:: 
+	pair: MySQL Functions; MySQL_Rollback()
+
 MySQL_Rollback() Function
 =========================
 
@@ -481,6 +544,9 @@ Syntax:
 .. code-block:: none
 
 	MySQL_Rollback(MySQL Handle)
+
+.. index:: 
+	pair: MySQL Functions; Transaction Example
 
 Transaction Example
 ===================

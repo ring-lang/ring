@@ -1,3 +1,6 @@
+.. index:: 
+	single: System Functions; Introduction
+
 ================
 System Functions
 ================
@@ -38,6 +41,9 @@ In this chapter we are going to learn about the system functions
 
 * ExeFolder()
 
+.. index:: 
+	pair: System Functions; System() Function
+
 System() Function
 =================
 
@@ -55,6 +61,9 @@ Example:
 
 	System("myapp.exe") 	# Run myapp.exe
 	System("ls")		# print list of files
+
+.. index:: 
+	pair: System Functions; SysGet() Function
 
 SysGet() Function
 =================
@@ -74,6 +83,9 @@ Example:
 	see sysget("path")		# print system path information
 
 
+.. index:: 
+	pair: System Functions; IsMSDOS() Function
+
 IsMSDOS() Function
 ==================
 
@@ -85,6 +97,9 @@ Syntax:
 
 	IsMSDOS() ---> Returns 1 if the operating system is MS-DOS, Returns 0 if it's not
 		       
+
+.. index:: 
+	pair: System Functions; IsWindows() Function
 
 IsWindows() Function
 ====================
@@ -98,6 +113,9 @@ Syntax:
 	IsWindows() ---> Returns 1 if the operating system is Windows, Returns 0 if it's not
 
 
+.. index:: 
+	pair: System Functions; IsWindows64() Function
+
 IsWindows64() Function
 ======================
 
@@ -109,6 +127,9 @@ Syntax:
 
 	IsWindows64() ---> Returns 1 if the operating system is Windows64, Returns 0 if it's not
 
+
+.. index:: 
+	pair: System Functions; IsUnix() Function
 
 IsUnix() Function
 =================
@@ -122,6 +143,9 @@ Syntax:
 	IsUnix() ---> Returns 1 if the operating system is Unix, Returns 0 if it's not
 
 
+.. index:: 
+	pair: System Functions; IsMacOSX() Function
+
 IsMacOSX() Function
 ===================
 
@@ -133,6 +157,9 @@ Syntax:
 
 	IsMacOSX() ---> Returns 1 if the operating system is Mac OS X, Returns 0 if it's not
 
+
+.. index:: 
+	pair: System Functions; IsLinux() Function
 
 IsLinux() Function
 ==================
@@ -146,6 +173,9 @@ Syntax:
 	IsLinux() ---> Returns 1 if the operating system is Linux, Returns 0 if it's not
 
 
+.. index:: 
+	pair: System Functions; IsFreeBSD() Function
+
 IsFreeBSD() Function
 ====================
 
@@ -158,6 +188,9 @@ Syntax:
 	IsFreeBSD() ---> Returns 1 if the operating system is FreeBSD, Returns 0 if it's not
 
 
+.. index:: 
+	pair: System Functions; IsAndroid() Function
+
 IsAndroid() Function
 ====================
 
@@ -168,6 +201,9 @@ Syntax:
 .. code-block:: none
 
 	IsAndroid() ---> Returns 1 if the operating system is Android, Returns 0 if it's not
+
+.. index:: 
+	pair: System Functions; Example
 
 Example
 =======
@@ -195,6 +231,9 @@ Output:
 	IsLinux()     --> 0
 	IsFreeBSD()   --> 0
 	IsAndroid()   --> 0
+
+.. index:: 
+	pair: System Functions; Windowsnl() Function
 
 Windowsnl() Function
 ====================
@@ -226,6 +265,9 @@ Example:
 	ok
 
 	write("ouput.txt",cStr)
+
+.. index:: 
+	pair: System Functions; Get Command Line Arguments
 
 Get Command Line Arguments
 ==========================
@@ -273,6 +315,9 @@ Output
 	9
 	10
 
+.. index:: 
+	pair: System Functions; Get Active Source File Name
+
 Get Active Source File Name
 ===========================
 
@@ -308,6 +353,9 @@ Example:
 		see "I'm a sub file in a program" + nl
 	ok
 
+.. index:: 
+	pair: System Functions; CurrentDir() Function
+
 CurrentDir() Function
 =====================
 
@@ -318,6 +366,9 @@ Syntax:
 .. code-block:: none
 
 	CurrenDir() ---> String contains the path of the currect directory 
+
+.. index:: 
+	pair: System Functions; ExeFileName() Function
 
 ExeFileName() Function
 ======================
@@ -330,6 +381,9 @@ Syntax:
 
 	exefilename() ---> String contains the Ring executable file name
 
+.. index:: 
+	pair: System Functions; ChDir() Function
+
 ChDir() Function
 ================
 
@@ -340,6 +394,9 @@ Syntax:
 .. code-block:: none
 
 	ChDir(cNewPath)
+
+.. index:: 
+	pair: System Functions; ExeFolder() Function
 
 ExeFolder() Function
 ====================

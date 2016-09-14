@@ -1,3 +1,6 @@
+.. index:: 
+	single: Operators; Introduction
+
 =========
 Operators
 =========
@@ -31,6 +34,9 @@ provided by the Ring language. Assume variable X=50 and variable Y=10 then:
 +------------+---------------+----------+---------+
 | \- \-      |  Decrement    |	x\- \-  |  49     |
 +------------+---------------+----------+---------+
+
+.. index:: 
+	pair: Operators; Relational Operators
 
 Relational Operators
 ====================
@@ -137,6 +143,9 @@ Assume variable X=8 then:
 +------------+-----------------------------+-------------+---------+
 | ^=         |  Bitwise XOR and assignment |	x ^= 4   |  x=12   |
 +------------+-----------------------------+-------------+---------+
+
+.. index:: 
+	pair: Operators; Misc Operators
 
 Misc Operators
 ==============

@@ -1,9 +1,9 @@
+.. index:: 
+	single: Eval() and Debugging; Introduction
+
 ====================
 Eval() and Debugging
 ====================
-
-.. index:: 
-	pair: Eval() and Debugging; Introduction
 
 In this chapter we are going to learn about
 

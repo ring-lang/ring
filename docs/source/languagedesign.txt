@@ -1,8 +1,14 @@
-﻿===============
+﻿.. index:: 
+	single: Language Design; Introduction
+
+===============
 Language Design
 ===============
 
 In this chapter we will learn about the basic concepts behind the language design.
+
+.. index:: 
+	pair: Language Design; Why Ring?
 
 Why Ring?
 =========
@@ -16,6 +22,9 @@ programmer control. It supports many programming paradigms, comes with useful
 and practical libraries. The language is designed for productivity and developing
 high quality solutions that can scale.
 
+.. index:: 
+	pair: Language Design; Designed for a clear goal
+
 Designed for a Clear Goal
 =========================
 
@@ -25,6 +34,9 @@ Designed for a Clear Goal
 * Simple language that can be used in education and introducing Compiler/VM concepts.
 * General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
 * Practical language designed for creating the next version of the Programming Without Coding Technology software.
+
+.. index:: 
+	pair: Language Design; Simple
 
 Simple
 ======
@@ -51,6 +63,9 @@ You can use the '+' operator for string concatenation and the language is weakly
 	Func Main
 		nID = 1	# Local variable
 		See "Count = " + nCount + nl + " ID = " + nID
+
+.. index:: 
+	pair: Language Design; Trying to be natural
 
 Trying to be natural
 ====================
@@ -135,6 +150,9 @@ Exit from more than one loop
 			next
 	next
 	
+.. index:: 
+	pair: Language Design; Encourage Organization
+
 Encourage Organization
 ======================
 
@@ -166,6 +184,9 @@ Multi-line comments are written between /* and */
 
 	// See "Bye!"
 				
+.. index:: 
+	pair: Language Design; Transparent Implementation
+
 Transparent Implementation
 ==========================
 
@@ -229,6 +250,9 @@ Output
 
 	Hello, World!
 				
+.. index:: 
+	pair: Language Design; Visual Implementation
+
 Visual Implementation
 =====================
 
@@ -245,6 +269,9 @@ The next screen shot from the ring_list.ssf file (Generate ring_list.c and ring_
 
 .. image:: visualsrc2.JPG
 
+
+.. index:: 
+	pair: Language Design; Compact Syntax
 
 Compact Syntax
 ==============
@@ -314,6 +341,9 @@ When we use { } to access the object then write any attribute name, the language
 			See "Number : Three" + nl
 			return 3	
 			
+.. index:: 
+	pair: Language Design; Define Natural Statements
+
 Define Natural Statements
 =========================
 
@@ -419,6 +449,9 @@ Then use eval() to execute the content of that file!.
 Also, you can update the methods GetWindow() and SetTitle() to create Real windows using the GUI Library
 
 
+.. index:: 
+	pair: Language Design; Define Declarative Languages
+
 Define Declarative Languages
 ============================
 
@@ -479,6 +512,9 @@ The classes that power the declarative interface looks like this
 			cOutput += nl+"</div>" + nl
 			cOutput = TabMLString(cOutput)
 	 
+.. index:: 
+	pair: Language Design; Smart Garbage Collector
+
 Smart Garbage Collector
 =======================
 

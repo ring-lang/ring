@@ -1,3 +1,6 @@
+.. index:: 
+	Single: Desktop and Mobile Development;  Introduction
+
 ===========================================
 Desktop and Mobile development using RingQt
 ===========================================
@@ -73,6 +76,9 @@ Then we click on the say hello button
 .. image:: ringqt_shot2.jpg
 	:alt: Click on the button
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using Layout
+
 Using Layout
 ============
 
@@ -131,6 +137,9 @@ The application during the runtime!
 .. image:: ringqt_shot3.jpg
 	:alt: Vertical Layout
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QTextEdit Class
+
 Using the QTextEdit Class
 =========================
 
@@ -163,6 +172,9 @@ During the runtime we can paste rich text in the qtextedit widget
 .. image:: ringqt_shot4.jpg
 	:alt: QTextEdit Class
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QListWidget Class
+
 Using the QListWidget Class
 ===========================
 
@@ -245,6 +257,9 @@ The application during the runtime
 .. image:: ringqt_shot5.jpg
 	:alt: QListWidget Class
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QTreeView and QFileSystemModel
+
 Using QTreeView and QFileSystemModel
 ====================================
 
@@ -280,6 +295,9 @@ The application during the runtime
 .. image:: ringqt_shot6.jpg
 	:alt: QTreeView and QFileSystemModel
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QTreeWidget and QTreeWidgetItem
+
 Using QTreeWidget and QTreeWidgetItem
 =====================================
 
@@ -331,6 +349,9 @@ The application during the runtime
 .. image:: ringqt_shot7.jpg
 	:alt: QTreeWidget and QTreeWidgetItem
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QComboBox Class
+
 Using QComboBox Class
 =====================
 
@@ -375,6 +396,9 @@ The application during the runtime
 	:alt: QComboBox
 
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Creating Menubar
+
 Creating Menubar
 ================
 
@@ -475,6 +499,8 @@ The application during the runtime
 .. image:: ringqt_shot9.jpg
 	:alt: QMenuBar
 
+.. index:: 
+	pair: Desktop and Mobile Development; Creating Toolbar
 	
 Creating Toolbar
 ================
@@ -519,6 +545,8 @@ The application during the runtime
 .. image:: ringqt_shot10.jpg
 	:alt: QToolBar
 
+.. index:: 
+	pair: Desktop and Mobile Development; Creating StatusBar
 	
 Creating StatusBar
 ==================
@@ -553,6 +581,9 @@ The application during the runtime
 	:alt: QStatusBar
 
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QDockWidget
+
 Using QDockWidget
 =================
 
@@ -601,6 +632,9 @@ The application during the runtime
 
 .. image:: ringqt_shot12.jpg
 	:alt: QDockWidget
+
+.. index:: 
+	pair: Desktop and Mobile Development; Using QTabWidget
 
 Using QTabWidget
 =================
@@ -659,6 +693,9 @@ The application during the runtime
 .. image:: ringqt_shot13.jpg
 	:alt: QTabWidget
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QTableWidget
+
 Using QTableWidget
 ==================
 
@@ -704,6 +741,8 @@ The application during the runtime
 .. image:: ringqt_shot14.jpg
 	:alt: QTableWidget
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QProgressBar
 	
 Using QProgressBar
 ==================
@@ -737,6 +776,8 @@ The application during the runtime
 .. image:: ringqt_shot15.jpg
 	:alt: QProgressBar
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QProgressBar and Timer
 
 Using QProgressBar and Timer
 ============================
@@ -799,6 +840,9 @@ In this example we will learn about using the "animated" QProgressBar class and 
 .. image:: ringqt_shot15-B.jpg
 	:alt: QProgressBar
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QSpinBox
+
 Using QSpinBox
 ==============
 
@@ -826,6 +870,9 @@ The application during the runtime
 .. image:: ringqt_shot16.jpg
 	:alt: QSpinBox
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QSlider
+
 Using QSlider
 =============
 
@@ -865,6 +912,9 @@ The application during the runtime
 .. image:: ringqt_shot17.jpg
 	:alt: QSlider
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QDateEdit
+
 Using QDateEdit
 ==================
 
@@ -891,7 +941,10 @@ The application during the runtime
 .. image:: ringqt_shot18.jpg
 	:alt: QDateEdit
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QDial
 	
+
 Using QDial
 ==================
 
@@ -917,6 +970,9 @@ The application during the runtime
 
 .. image:: ringqt_shot19.jpg
 	:alt: QDial
+
+.. index:: 
+	pair: Desktop and Mobile Development; Using QWebView
 
 Using QWebView
 ==============
@@ -945,6 +1001,9 @@ The application during the runtime
 .. image:: ringqt_shot20.jpg
 	:alt: QWebView
 
+
+.. index:: 
+	pair: Desktop and Mobile Development; Using QCheckBox
 	
 Using QCheckBox
 ===============
@@ -972,6 +1031,9 @@ The application during the runtime
 .. image:: ringqt_shot21.jpg
 	:alt: QCheckBox
 
+
+.. index:: 
+	pair: Desktop and Mobile Development; Using QRadioButton and QButtonGroup
 	
 Using QRadioButton and QButtonGroup
 ====================================
@@ -1027,6 +1089,9 @@ The application during the runtime
 .. image:: ringqt_shot22.jpg
 	:alt:  QRadioButton and QButtonGroup classes
 
+.. index:: 
+	pair: Desktop and Mobile Development; Adding Hyperlink to QLabel
+
 Adding Hyperlink to QLabel
 ==========================
 
@@ -1054,6 +1119,9 @@ The application during the runtime
 .. image:: ringqt_shot23.jpg
 	:alt: Hyperlink
 	
+.. index:: 
+	pair: Desktop and Mobile Development; QVideoWidget and QMediaPlayer
+
 QVideoWidget and QMediaPlayer
 =============================
 
@@ -1139,6 +1207,9 @@ The application during the runtime
 	:alt: QVideoWidget
 
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QFrame
+
 Using QFrame
 ============
 
@@ -1168,6 +1239,9 @@ The application during the runtime
 .. image:: ringqt_shot25.jpg
 	:alt: QFrame
 
+
+.. index:: 
+	pair: Desktop and Mobile Development; Display Image using QLabel
 	
 Display Image using QLabel
 ==========================
@@ -1196,6 +1270,9 @@ The application during the runtime
 .. image:: ringqt_shot26.jpg
 	:alt: Display Image
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Display Scaled Image using QLabel
+
 Display Scaled Image using QLabel
 =================================
 
@@ -1285,6 +1362,9 @@ In this example we will learn about displaying and scaling an image so that it l
 	###-------------
 
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Menubar and StyleSheet Example
+
 Menubar and StyleSheet Example
 ==============================
 
@@ -1352,6 +1432,8 @@ The application during the runtime
 .. image:: ringqt_shot27.jpg
 	:alt: Menubar
 
+.. index:: 
+	pair: Desktop and Mobile Development; QLineEdit Events and QMessageBox
 
 QLineEdit Events and QMessageBox
 ================================
@@ -1425,6 +1507,9 @@ The application during the runtime
 .. image:: ringqt_shot29.jpg
 	:alt: qLineEdit events and qMessagebox
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Other Widgets Events
+
 Other Widgets Events
 ====================
 
@@ -1507,6 +1592,9 @@ The application during the runtime
 .. image:: ringqt_shot31.jpg
 	:alt: qProgressBar valueChanged event
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QTimer Class
+
 Using the QTimer Class
 ======================
 
@@ -1546,6 +1634,9 @@ The application during the runtime
 .. image:: ringqt_shot32.jpg
 	:alt: QTimer Class
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QFileDialog Class
+
 Using the QFileDialog Class
 ===========================
 
@@ -1579,6 +1670,9 @@ The application during the runtime
 
 .. image:: ringqt_shot33.jpg
 	:alt: QFileDialog Class
+
+.. index:: 
+	pair: Desktop and Mobile Development; Drawing using QPainter
 
 Drawing using QPainter
 ======================
@@ -1629,6 +1723,9 @@ The application during the runtime
 
 .. image:: ringqt_shot34.jpg
 	:alt: QPainter Class
+
+.. index:: 
+	pair: Desktop and Mobile Development; Printing using QPrinter
 
 Printing using QPrinter
 =======================
@@ -1681,6 +1778,9 @@ In this example we will learn how to print to PDF file using QPrinter
 		system ("test.pdf")
 		system ("test2.pdf")
 
+.. index:: 
+	pair: Desktop and Mobile Development; Creating more than one window
+
 Creating More than one Window
 =============================
 
@@ -1724,6 +1824,9 @@ The application during the runtime
 .. image:: ringqt_shot35.jpg
 	:alt: More than one window
 
+.. index:: 
+	pair: Desktop and Mobile Development; Playing Sound
+
 Playing Sound
 =============
 
@@ -1743,6 +1846,9 @@ Example:
 		exec()
 	}
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QColorDialog Class
+
 Using the QColorDialog Class
 ============================
 
@@ -1788,6 +1894,9 @@ The application during the runtime
 .. image:: ringqt_shot37.jpg
 	:alt: QColorDialog Class
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using qLCDNumber
+
 Using qLCDNumber Class
 ======================
 
@@ -1828,6 +1937,9 @@ The application during the runtime
 			
 .. image:: ringqt_shot38.jpg
 	:alt: QLCDNumber Class
+
+.. index:: 
+	pair: Desktop and Mobile Development; Movable Label Example
 
 Movable Label Example
 =====================
@@ -1880,6 +1992,9 @@ The application during the runtime
 .. image:: ringqt_shot39.jpg
 	:alt: Movable label
 	
+.. index:: 
+	pair: Desktop and Mobile Development; QMessagebox Example
+
 QMessagebox Example
 ===================
 
@@ -1931,6 +2046,9 @@ The application during the runtime
 .. image:: ringqt_shot40.jpg
 	:alt: QMessageBox output
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QInputDialog Class
+
 Using QInputDialog Class
 ========================
 
@@ -1977,6 +2095,9 @@ The application during the runtime
 			
 .. image:: ringqt_shot41.jpg
 	:alt: QInputDialog
+
+.. index:: 
+	pair: Desktop and Mobile Development; KeyPress and Mouse Move Events
 
 KeyPress and Mouse Move Events
 ==============================
@@ -2029,6 +2150,9 @@ The application during the runtime
 			
 .. image:: ringqt_shot42.jpg
 	:alt: KeyPress and Mouse Move Events
+
+.. index:: 
+	pair: Desktop and Mobile Development; Moving Objects using the Mouse
 
 Moving Objects using the Mouse
 ==============================
@@ -2113,6 +2237,9 @@ The application during the runtime
 .. image:: ringqt_shot45.jpg
 	:alt: Moving object using the mouse
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Inheritance from GUI Classes
+
 Inheritance from GUI Classes
 ============================
 
@@ -2140,6 +2267,9 @@ The application during the runtime
 .. image:: ringqt_shot46.jpg
 	:alt: Inheritance from GUI Classes
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QDesktopWidget Class
+
 Using QDesktopWidget Class
 ==========================
 
@@ -2177,6 +2307,9 @@ The application during the runtime
 			
 .. image:: ringqt_shot47.jpg
 	:alt: Using QDesktopWidget Class
+
+.. index:: 
+	pair: Desktop and Mobile Development; Simple Client and Server Example
 
 Simple Client and Server Example
 ================================
@@ -2291,6 +2424,9 @@ The application during the runtime
 
 .. index:: 
 	pair: Demo Programs; Notepad Application
+
+.. index:: 
+	pair: Desktop and Mobile Development; Notepad Application
 
 Notepad Application
 ===================
@@ -3099,6 +3235,9 @@ The next screen shot demonstrates the application main window
 .. index:: 
 	pair: Demo Programs; The Cards Game
 	  
+.. index:: 
+	pair: Desktop and Mobile Development; The Cards Game
+
 The Cards Game
 ==============
 

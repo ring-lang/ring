@@ -1,8 +1,14 @@
+.. index:: 
+	single: What is new in Ring 1.1?; Introduction
+
 ========================
 What is new in Ring 1.1?
 ========================
 
 In this chapter we will learn about the changes and new features in Ring 1.1 release.
+
+.. index:: 
+	pair: What is new in Ring 1.1?; List of changes and new features
 
 List of changes and new features
 ================================
@@ -19,6 +25,9 @@ Ring 1.1  comes with many new features
 * RingSQLite
 * Better Code Generator for Extensions 
 * Better Documentation
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Better Natural Language Programming Support
 
 Better Natural Language Programming Support
 ===========================================
@@ -67,6 +76,8 @@ Output:
 
 for more information see the "Natural Language Programming" chapter.
 
+.. index:: 
+	pair: What is new in Ring 1.1?; Generate/Execute Ring Object Files (*.ringo)
 
 Generate/Execute Ring Object Files (*.ringo)
 ============================================
@@ -78,6 +89,9 @@ Also using Ring object file remove the loading time required for compiling the a
 
 Check the "command line options" chapter to know more about this feature.
 
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Syntax Flexibility
 
 Syntax Flexibility and different styles for I/O and Control Structures
 ======================================================================
@@ -200,6 +214,8 @@ Check the next chapters:-
 
 .. note:: All of these styles are provided automatically by the compiler at the same time, It's better to select one style for the same project (you can create your style as a mix from these styles) for example you can use Put/Get and Braces.
 
+.. index:: 
+	pair: What is new in Ring 1.1?; New Functions and Changes
  
 New Functions and Changes
 =========================
@@ -212,6 +228,7 @@ Changed:
 
 Added:
 
+* clockspersecond()
 * CurrentDir()
 * ExeFileName()
 * ChDir()
@@ -227,6 +244,9 @@ Check the next chapters
 * System Functions
 * Object Oriented Programming (OOP) 
 * Low Level Functions
+
+.. index:: 
+	pair: What is new in Ring 1.1?; StdLib functions and classes written in Ring
 
 StdLib functions and classes written in Ring
 ============================================
@@ -368,6 +388,9 @@ Check the next chapters:
 * StdLib Functions
 * StdLib Classes
 
+.. index:: 
+	pair: What is new in Ring 1.1?; RingLibSDL 
+
 RingLibSDL 
 ==========
 
@@ -389,6 +412,9 @@ Example:
 
 
 See the RingLibSDL Chapter.
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Game Engine for 2D Games
 
 Demo Project - Game Engine for 2D Games
 =======================================
@@ -444,6 +470,9 @@ Example:
 See the "Demo Project - Game Engine for 2D Games" chapter.
 
 
+.. index:: 
+	pair: What is new in Ring 1.1?; RingSQLite
+
 RingSQLite
 ==========
 
@@ -491,6 +520,9 @@ Example:
 	next
 	sqlite_close(oSQLite) 
 
+.. index:: 
+	pair: What is new in Ring 1.1?; Better Code Generator for Extensions 
+
 
 Better Code Generator for Extensions 
 ====================================
@@ -509,6 +541,9 @@ more features are added like
 
 See the Code Generator chapter.
 
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Better Documentation
 
 Better Documentation
 ====================

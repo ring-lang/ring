@@ -1,3 +1,6 @@
+.. index:: 
+	single: Control Structures - Second Style; Introduction
+
 =================================
 Control Structures - Second Style
 =================================
@@ -6,11 +9,14 @@ In this chapter we are going to learn about the second style of control structur
 provided by the Ring programming language.
 
 .. index:: 
-	pair: Control Structures; Branching
+	pair: Control Structures - Second Style; Branching
 
 
 Branching
 =========
+
+.. index:: 
+	pair: Control Structures - Second Style; If Statement
 
 * If Statement
 
@@ -45,6 +51,8 @@ Example:
 	else put "bad option..." + nl
 	end
 
+.. index:: 
+	pair: Control Structures - Second Style; Switch Statement
 
 * Switch Statement
 
@@ -80,7 +88,7 @@ Example:
 	End
 
 .. index:: 
-	pair: Control Structures; Looping
+	pair: Control Structures - Second Style; Looping
 
 Looping
 =======
@@ -124,6 +132,8 @@ Example:
 			Put "bad option..." + nl
 		End
 	End
+.. index:: 
+	pair: Control Structures - Second Style; For Loop
 
 
 * For Loop
@@ -174,6 +184,9 @@ Example:
 	end
 
 
+.. index:: 
+	pair: Control Structures - Second Style; For In Loop
+
 * For in Loop
 
 Syntax:
@@ -191,6 +204,8 @@ Example:
 	aList = 1:10	# create list contains numbers from 1 to 10
 	for x in aList  put x + nl  end  # print numbers from 1 to 10
 
+.. index:: 
+	pair: Control Structures - Second Style; Exceptions
 
 Exceptions
 ==========

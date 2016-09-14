@@ -1,3 +1,6 @@
+.. index:: 
+	single: Security and Internet Functions; Introduction
+
 ===============================
 Security and Internet Functions
 ===============================
@@ -16,6 +19,9 @@ for Hashing, Encryption & Decryption.
 * Randbytes()
 * Download()
 * SendEmail()
+
+.. index:: 
+	pair: Security and Internet Functions; MD5()
 
 MD5() Function
 ==============
@@ -42,6 +48,9 @@ Output:
 	md5('happy') = 56ab24c15b72a457069c5ea42fcfc640
 	md5('Hello') = 8b1a9953c4611296a827abf8c47804d7
 
+.. index:: 
+	pair: Security and Internet Functions; SHA1()
+
 SHA1() Function
 ===============
 
@@ -66,6 +75,9 @@ Output:
 
 	sha1('hello') : aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
 	sha1('apple') : d0be2dc421be4fcd0172e5afceea3970e2f3d940
+
+.. index:: 
+	pair: Security and Internet Functions; SHA256()
 
 SHA256() Function
 =================
@@ -92,6 +104,9 @@ Output:
 
 	sha256('hello') : 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
 	sha256('apple') : 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b
+
+.. index:: 
+	pair: Security and Internet Functions; SHA512()
 
 SHA512() Function
 =================
@@ -122,6 +137,9 @@ Output:
 	c5940feb7a65a3a290e17e6b23ee943ecc4f73e7490327245b4fe5d5efb590feb2
 	sha512('hello world') : 309ecc489c12d6eb4cc40f50c902f2b4d0ed77ee511a7c7a9bcd3ca8
 	6d4cd86f989dd35bc5ff499670da34255b45b0cfd830e81f605dcf7dc5542e93ae9cd76f
+
+.. index:: 
+	pair: Security and Internet Functions; SHA384()
 
 SHA384() Function
 =================
@@ -154,6 +172,9 @@ Output:
 	sha384('hello world') : fdbd8e75a67f29f701a4e040385e2e23986303ea10239211af907fcb
 	b83578b3e417cb71ce646efd0819dd8c088de1bd
 
+.. index:: 
+	pair: Security and Internet Functions; SHA224()
+
 SHA224() Function
 =================
 
@@ -181,6 +202,9 @@ Output:
 	sha224('apple') : b7bbfdf1a1012999b3c466fdeb906a629caa5e3e022428d1eb702281
 	sha224('hello world') : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522a563582b
 
+.. index:: 
+	pair: Security and Internet Functions; Encrypt()
+
 Encrypt() Function
 ==================
 
@@ -192,6 +216,9 @@ Syntax:
 
 	Encrypt(cString, cKey, cIV) ---> Encrypted string
 
+.. index:: 
+	pair: Security and Internet Functions; Decrypt()
+
 Decrypt() Function
 ==================
 
@@ -202,6 +229,9 @@ Syntax:
 .. code-block:: none
 
 	Decrypt(cCipher, cKey, cIV) ---> Decrypted string
+
+.. index:: 
+	pair: Security and Internet Functions; Example
 
 Encryption and Decryption Example
 =================================
@@ -218,6 +248,9 @@ These functions use the Blowfish algorithm.
 	cStr = Encrypt(cStr,cKey,cIV) 
 	See "Cipher Text    : " + cStr + nl +
 	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+
+.. index:: 
+	pair: Security and Internet Functions; File Hash
 
 File Hash
 =========
@@ -249,6 +282,9 @@ Output:
 	sha512 : da3d5e997d06f8b2a7a9964b77f7d82eedb76b245c611082c1639f83f51d83880bcd08f
 	cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 
+.. index:: 
+	pair: Security and Internet Functions; RandBytes()
+
 Randbytes() Function
 ====================
 
@@ -269,6 +305,9 @@ Example:
 	see salt + nl
 	see sha256("test" + salt) + nl
 
+.. index:: 
+	pair: Security and Internet Functions; Download()
+
 Download() Function
 ===================
 
@@ -285,6 +324,9 @@ Example:
 	cStr= download("http://doublesvsoop.sourceforge.net/")
 	see cStr
 	write("download.txt",cStr)
+
+.. index:: 
+	pair: Security and Internet Functions; SendEmail()
 
 SendEmail() Function
 ====================

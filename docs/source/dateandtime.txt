@@ -1,3 +1,6 @@
+.. index:: 
+	single: Date and Time; Introduction
+
 =============
 Date and Time
 =============
@@ -27,7 +30,7 @@ Example:
 	see clock() - t1 
 
 .. index:: 
-	pair: Date and Time; Time()
+	pair: Date and Time; ClosPerSecond()
 
 ClocksPerSecond() Function
 ==========================
@@ -47,6 +50,9 @@ Example:
 	# Wait 1 second
 	t = clock()
 	while clock() - t <= clockspersecond() end
+
+.. index:: 
+	pair: Date and Time; Time()
 
 Time() Function
 ===============

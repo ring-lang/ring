@@ -1,3 +1,6 @@
+.. index:: 
+	single: Demo Programs; Introduction
+
 =============
 Demo Programs
 =============

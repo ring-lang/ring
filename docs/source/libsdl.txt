@@ -1,3 +1,6 @@
+.. index:: 
+	single: RingLibSDL; Introduction
+
 =================
 Using RingLibSDL
 =================
@@ -8,6 +11,9 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.
 .. tip:: RingLibSDL is not distributed with the binary releases for desktop which uses RingAllegro
 
 .. note:: To use RingLibSDL, Just download the 'Ring for Android Games using LibSDL' release.
+
+.. index:: 
+	pair: RingLibSDL; Create Window
 
 Create Window
 =============
@@ -23,6 +29,9 @@ Example:
 	SDL_Delay(2000)
 	SDL_DestroyWindow(win)
 	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Display Image
 
 Display Image
 =============
@@ -47,6 +56,9 @@ Example:
 	SDL_DestroyRenderer(ren)
 	SDL_DestroyWindow(win)
 	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Switch Between Two Images
 
 Switch between two images
 =========================
@@ -81,6 +93,9 @@ Example:
 		SDL_RenderPresent(ren)
 		SDL_Delay(200)
 
+.. index:: 
+	pair: RingLibSDL; Draw Rectangle
+
 Draw Rectangle
 ==============
 
@@ -108,6 +123,9 @@ Example:
 	SDL_DestroyWindow(win)
 	SDL_Quit()
 
+.. index:: 
+	pair: RingLibSDL; Display PNG Images
+
 Display PNG Images
 ==================
 
@@ -131,6 +149,9 @@ Example:
 	SDL_DestroyRenderer(ren)
 	SDL_DestroyWindow(win)
 	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Use TTF Fonts
 
 Use TTF Fonts
 =============
@@ -164,6 +185,9 @@ Example:
 	SDL_DestroyRenderer(ren)
 	SDL_DestroyWindow(win)
 	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Display Transparent Images
 
 Display Transparent Images
 ==========================
@@ -221,6 +245,9 @@ Example:
 	SDL_DestroyWindow(win)
 	SDL_Quit()
 
+.. index:: 
+	pair: RingLibSDL; Close Window Event
+
 Close Window Event
 ==================
 
@@ -248,6 +275,9 @@ Example:
 
 	SDL_DestroyWindow(win)
 	SDL_Quit()
+
+.. index:: 
+	pair: RingLibSDL; Mouse Events
 
 Mouse Events
 ============
@@ -317,6 +347,9 @@ Example:
 		SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
 		SDL_UpdateWindowSurface(win)
 		SDL_FreeSurface(text)
+
+.. index:: 
+	pair: RingLibSDL; Play Sound
 
 Play Sound
 ==========
