@@ -50,9 +50,9 @@ Contents:
    Low Level Functions <lowlevel>
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>
-   Command Line Options	<interpreter>
-   Web Development (CGI Library) <web>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
+   Command Line Options	<compiler>
+   Web Development (CGI Library) <web>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Using RingLibSDL <libsdl>
    Demo Project - Game Engine for 2D Games <gameengine>	

@@ -1,0 +1,68 @@
+.. index:: 
+	single: Program Structure;  Introduction
+
+=================
+Program Structure
+=================
+In this chapter we will learn about using many source code files in the same project.
+
+
+.. index:: 
+	pair: Program Structure;  Source Code File Sections
+
+Source Code File Sections
+=========================
+
+Each source code file may contains the next sections (in the same order).
+
++--------------------------------+
+| Source Code File Sections	 |
++================================+
+| Load Files			 |
++--------------------------------+
+| Statements and Global Variables|
++--------------------------------+
+| Functions 			 |
++--------------------------------+
+| Packages and Classes		 |
++--------------------------------+
+
+The application maybe one or more of files.
+
+.. index:: 
+	pair: Program Structure;  Using Many Source Code Files
+
+Using Many Source Code Files
+============================
+
+To include another source file in the project, just use the load command.
+
+
+Syntax:
+
+.. code-block:: none
+
+	Load  "filename.ring"
+
+.. note:: The Load command is executed directly by the compiler in the parsing stage
+
+.. tip:: if you don't know the file name until the runtime, or you need to use functions to get the file path, just use eval().
+
+Example:
+
+.. code-block:: none
+
+	# File : Start.ring
+
+	Load "sub.ring"
+
+	sayhello("Mahmoud")
+
+.. code-block:: none
+
+	# File : sub.ring
+
+	func sayhello cName
+		see "Hello " + cName + nl
+
+
