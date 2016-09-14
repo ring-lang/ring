@@ -144,6 +144,7 @@ extern "C" {
 #include <QBitmap>
 #include <QMediaContent>
 #include <QTableView>
+#include "highlighter.h"
 
 extern "C" {
 
@@ -62681,6 +62682,21 @@ RING_FUNC(ring_QImage_new)
 	RING_API_RETCPOINTER(pObject,"QImage");
 }
 
+RING_FUNC(ring_RingCodeHighlighter_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	Highlighter *pObject = new Highlighter((QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument"));
+	RING_API_RETCPOINTER(pObject,"RingCodeHighlighter");
+}
+
 RING_FUNC(ring_QObject_delete)
 {
 	QObject *pObject ; 
@@ -64117,6 +64133,21 @@ RING_FUNC(ring_QImage_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QImage *) RING_API_GETCPOINTER(1,"QImage");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_RingCodeHighlighter_delete)
+{
+	Highlighter *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (Highlighter *) RING_API_GETCPOINTER(1,"Highlighter");
 		delete pObject ;
 	}
 }
@@ -67197,6 +67228,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qnetworkaccessmanager_new",ring_QNetworkAccessManager_new);
 	ring_vm_funcregister("qpainterpath_new",ring_QPainterPath_new);
 	ring_vm_funcregister("qimage_new",ring_QImage_new);
+	ring_vm_funcregister("ringcodehighlighter_new",ring_RingCodeHighlighter_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -67293,4 +67325,5 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qnetworkaccessmanager_delete",ring_QNetworkAccessManager_delete);
 	ring_vm_funcregister("qpainterpath_delete",ring_QPainterPath_delete);
 	ring_vm_funcregister("qimage_delete",ring_QImage_delete);
+	ring_vm_funcregister("ringcodehighlighter_delete",ring_RingCodeHighlighter_delete);
 }

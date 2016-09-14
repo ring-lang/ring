@@ -10899,3 +10899,14 @@ Class QKeySequence
 
 	Func delete
 		pObject = QKeySequence_delete(pObject)
+
+Class RingCodeHighlighter
+
+	pObject
+
+	Func init P1
+		pObject = RingCodeHighlighter_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = RingCodeHighlighter_delete(pObject)

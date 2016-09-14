@@ -38,6 +38,7 @@ SOURCES +=   \
     gtcpsocket.cpp \
     gallevents.cpp \
     gnetworkaccessmanager.cpp \
+    highlighter.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -66,7 +67,8 @@ HEADERS  += \
     gabstractsocket.h \
     gtcpsocket.h \
     gallevents.h \
-    gnetworkaccessmanager.h 
+    gnetworkaccessmanager.h \
+    highlighter.h \
 
 INCLUDEPATH += ../../include
 

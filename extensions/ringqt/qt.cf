@@ -157,6 +157,7 @@ extern "C" {
 #include <QBitmap>
 #include <QMediaContent>
 #include <QTableView>
+#include "highlighter.h"
 
 extern "C" {
 
@@ -4515,3 +4516,8 @@ bool valid(int x, int y)
 int width(void)
 
 
+<class>
+name: RingCodeHighlighter
+para: QTextDocument *parent
+codename: Highlighter
+</class>

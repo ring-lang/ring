@@ -10,7 +10,6 @@ func main
 
 	oGame = New Game  
 
-
 	while true
 
 	oGameState = New GameState
