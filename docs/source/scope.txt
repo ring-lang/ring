@@ -192,3 +192,140 @@ Solution : Just use Self
 		name
 		address
 		phone
+
+Using Braces to access objects inside Class Methods
+===================================================
+
+Remember that we have Three scopes (Local Scope, Object Scope and Global Scope) and when we
+are inside a class method, we expect that we have access to the object attributes and methods and
+this is true until we use braces to access another object attributes and methods because in this case
+our object scope will be switched to another object.
+
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			see x + nl + y + nl # works fine
+			myobj = new otherclass {
+				see name + nl
+				see x + nl + y + nl # error !
+			}
+
+	class otherclass
+		name = "test"
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	test
+
+	Line 8 Error (R24) : Using uninitialized variable : x
+	In method test() in file methodbraceerror.ring
+	called from line 5  in file methodbraceerror.ring
+
+Now what we will do to solve the previous problem?
+
+The best solution : Don't Use Braces
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			see x + nl + y + nl  
+			myobj = new otherclass 
+			see myobj.name
+			see x + nl + y + nl 			
+
+	class otherclass
+		name = "test"
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	test
+	10
+	20
+
+
+Other Solution (May lead to other errors) : Copy the self object 
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			oSelf = self
+			see x + nl + y + nl  
+			myobj = new otherclass {
+				see name + nl
+				see oself.x + nl + oself.y + nl  
+			}
+
+	class otherclass
+		name = "test"
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	test
+	10
+	20
+
+Now look at this line
+
+.. code-block:: ring
+
+	oself = self
+
+The problem with the previous line is that we will have a new copy from the object
+Because in Ring the assignment operator copy lists and objects by value (not by reference).
+
+When we access the new object attributes (reading) we don't have problems 
+
+But if we modified the object attributes (Then we will modify the copy!).
+
+.. note:: We can use braces again with the copy
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			oSelf = self
+			see x + nl + y + nl  
+			myobj = new otherclass {
+				see name + nl
+				oSelf {
+					see x + nl + y + nl
+				}
+			}
+
+	class otherclass
+		name = "test"
+
+In GUI application, we may create a class contains the window objects as attributes to be able 
+to access the controls from different methods. Remember the previous information when you try to access
+objects using braces inside methods because in this case you can't access the object attributes directly
+and if you copied the self object you will work on a copy and the new controls that you create will be 
+related to the copy and you can't access them.
+
