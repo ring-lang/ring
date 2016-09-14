@@ -346,6 +346,7 @@ MyApp = New qApp {
 			setTextChangedEvent("pTextChanged()")
 		}
 
+		new RingCodeHighLighter( textedit1.document() )
 
 		oDock2 = new qdockwidget(win1,0) {
 			setwidget(textedit1)
