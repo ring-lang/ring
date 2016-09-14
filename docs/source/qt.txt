@@ -19,7 +19,7 @@ In this example we will create an application to ask the user about his/her name
 When the user type the name in the textbox then click on "Say Hello" button, the textbox
 value will be updated by adding "Hello " to the name.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -84,7 +84,7 @@ Using Layout
 
 The next example is just an upgrade to the previous application to use the vertical layout.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -145,7 +145,7 @@ Using the QTextEdit Class
 
 In this example we will use the QTextEdit Class 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -180,7 +180,7 @@ Using the QListWidget Class
 
 In this example we will use the QListWidget Class 
 
-.. code-block:: none
+.. code-block:: ring
 
         Load "guilib.ring"
 
@@ -265,7 +265,7 @@ Using QTreeView and QFileSystemModel
 
 In this example we will learn how to use the QTreeView widget to represent the File System
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -303,7 +303,7 @@ Using QTreeWidget and QTreeWidgetItem
 
 In this example we will learn about using the QTreeWidget and QTreeWidgetItem classes
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -357,7 +357,7 @@ Using QComboBox Class
 
 In this example we will learn about using the QComboBox class
 
-.. code-block:: none
+.. code-block:: ring
 
         Load "guilib.ring"
 
@@ -404,7 +404,7 @@ Creating Menubar
 
 In this example we will learn about using the QMenuBar class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -507,7 +507,7 @@ Creating Toolbar
 
 In this example we will learn about using the QToolBar class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -553,7 +553,7 @@ Creating StatusBar
 
 In this example we will learn about using the QStatusBar class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -589,7 +589,7 @@ Using QDockWidget
 
 In this example we will learn about using the QDockWidget class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -641,7 +641,7 @@ Using QTabWidget
 
 In this example we will learn about using the QTabWidget class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -701,7 +701,7 @@ Using QTableWidget
 
 In this example we will learn about using the QTableWidget class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -749,7 +749,7 @@ Using QProgressBar
 
 In this example we will learn about using the QProgressBar class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -784,7 +784,7 @@ Using QProgressBar and Timer
 
 In this example we will learn about using the "animated" QProgressBar class and Timer
 
-.. code-block:: none	
+.. code-block:: ring	
 
 	###------------------------------------
 	### ProgressBar and Timer Example
@@ -848,7 +848,7 @@ Using QSpinBox
 
 In this example we will learn about using the QSpinBox class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -878,7 +878,7 @@ Using QSlider
 
 In this example we will learn about using the QSlider class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -920,7 +920,7 @@ Using QDateEdit
 
 In this example we will learn about using the QDateEdit class
 
-.. code-block:: none
+.. code-block:: ring
 	
 	Load "guilib.ring"
 
@@ -950,7 +950,7 @@ Using QDial
 
 In this example we will learn about using the QDial class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -979,7 +979,7 @@ Using QWebView
 
 In this example we will learn about using the QWebView class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1010,7 +1010,7 @@ Using QCheckBox
 
 In this example we will learn about using the QCheckBox class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1040,7 +1040,7 @@ Using QRadioButton and QButtonGroup
 
 In this example we will learn about using the QRadioButton and QButtonGroup classes
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1097,7 +1097,7 @@ Adding Hyperlink to QLabel
 
 In this example we will learn about creating Hyperlink using the QLabel class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1129,7 +1129,7 @@ In this example we will learn about using the QVideoWidget and QMediaPlayer clas
 a group of movies from different positions at the same time
 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1215,7 +1215,7 @@ Using QFrame
 
 In this example we will learn about using the QFrame class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1248,7 +1248,7 @@ Display Image using QLabel
 
 In this example we will learn about displaying an image using the QLabel widget
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1278,7 +1278,7 @@ Display Scaled Image using QLabel
 
 In this example we will learn about displaying and scaling an image so that it looks "animated" using the QLabel widget
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1370,7 +1370,7 @@ Menubar and StyleSheet Example
 
 In this example we will learn about creating menubar and setting the window stylesheet
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1440,7 +1440,7 @@ QLineEdit Events and QMessageBox
 
 In this example we will learn about using QLineEdit Events and displaying a Messagebox
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1521,7 +1521,7 @@ To use it just use the function setValueChangedEvent()
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1562,7 +1562,7 @@ The application during the runtime
 
 Another example for the stateChanged event of the QCheckBox class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1600,7 +1600,7 @@ Using the QTimer Class
 
 In this example we will learn about using the QTimer class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1642,7 +1642,7 @@ Using the QFileDialog Class
 
 Example
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1679,7 +1679,7 @@ Drawing using QPainter
 
 In this example we will learn about drawing using the QPainter class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 	New qapp {
@@ -1732,7 +1732,7 @@ Printing using QPrinter
 
 In this example we will learn how to print to PDF file using QPrinter
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 	new qApp {
@@ -1786,7 +1786,7 @@ Creating More than one Window
 
 The next example demonstrates how to create more than one window
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 	app1 = new qapp {
@@ -1832,7 +1832,7 @@ Playing Sound
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 	new qapp {
@@ -1854,7 +1854,7 @@ Using the QColorDialog Class
 
 Example: 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1902,7 +1902,7 @@ Using qLCDNumber Class
 
 In this example we will learn about using the qLCDNumber class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1944,7 +1944,7 @@ The application during the runtime
 Movable Label Example
 =====================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2000,7 +2000,7 @@ QMessagebox Example
 
 In this section we will learn how to check the output of the Message box
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2054,7 +2054,7 @@ Using QInputDialog Class
 
 In the next example we will learn about using the QInputDialog class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2105,7 +2105,7 @@ KeyPress and Mouse Move Events
 In this example we will learn how to use the Events Filter to know about KeyPress and Mouse Move
 Events
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2159,7 +2159,7 @@ Moving Objects using the Mouse
 
 In the next example we will learn how to program movable objects where the user can move a label
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2245,7 +2245,7 @@ Inheritance from GUI Classes
 
 Example :
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2275,7 +2275,7 @@ Using QDesktopWidget Class
 
 In the next example we will learn about using the QDesktopWidget class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2316,7 +2316,7 @@ Simple Client and Server Example
 
 In this section we will learn about creating simple Client and Server Application
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2433,7 +2433,7 @@ Notepad Application
 
 In the next example we will see simple Notepad developed using the RingQt
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -3247,7 +3247,7 @@ Each player get 5 cards, the cards are unknown to any one. each time one player 
 to see it. if the card is identical to another card the play get point for each card.
 if the card value is "5" the player get points for all visible cards.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 

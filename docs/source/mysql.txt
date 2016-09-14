@@ -33,19 +33,19 @@ We can get the MySQL Client version using the MySQL_Info() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Info() ---> string contains the MySQL Client version
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "MySQL Client Version : " + mysql_info()
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL Client Version : 6.1.5
 
@@ -59,7 +59,7 @@ We can start using MySQL Client through the MySQL_Init() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Init() ---> MySQL Handle
 
@@ -73,7 +73,7 @@ We can get the error message from the MySQL Client using the MySQL_Error() funct
 
 Syntax: 
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Error(MySQL Handle) ---> Error message as string
 
@@ -87,7 +87,7 @@ We can connect to the MySQL database server using the MySQL_Connect() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Connect(MySQL Handle, cServer, cUserName, cPassword) ---> lStatus
 
@@ -101,7 +101,7 @@ We can close the connection to the MySQL database using the MySQL_Close() functi
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Close(MySQL Handle)
 
@@ -115,7 +115,7 @@ We can execute SQL queries using the MySQL_Query() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	MySQL_Query(MySQL Handle, cSQLQuery)
 
@@ -127,7 +127,7 @@ Create Database
 
 The next example connect to MySQL Server then create new database.
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "MySQL Test - Create Database" + nl
 	con = mysql_init()
@@ -148,7 +148,7 @@ The next example connect to MySQL Server then create new database.
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL Test - Create Database
 	Connect
@@ -163,7 +163,7 @@ Create Table and Insert Data
 
 The next example create new table and insert records 
 
-.. code-block:: none
+.. code-block:: ring
 
 	func main
 		see "Create Table and Insert Records" + nl
@@ -200,7 +200,7 @@ The next example create new table and insert records
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Create Table and Insert Records
 	Connect
@@ -219,13 +219,13 @@ We can get the inserted row id using the MySQL_Insert_ID() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Insert_ID() ---> Inserted row id as number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	con = mysql_init()
 	see "connect to database" + nl
@@ -249,7 +249,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	connect to database
 	drop table
@@ -271,7 +271,7 @@ We can get the query result (data without column names) using the MySQL_Result()
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Result(MySQL Handle) ---> List contains the query result	
 
@@ -286,7 +286,7 @@ We use this function when we have multiple SQL statements in the same query.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Next_Result(MySQL Handle)
 
@@ -298,7 +298,7 @@ Print Query Result
 
 The next example execute a query on the database then print the result.
 
-.. code-block:: none
+.. code-block:: ring
 
 	con = mysql_init()
 	see "Connect to database" + nl
@@ -315,7 +315,7 @@ The next example execute a query on the database then print the result.
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Connect to database
 	Execute Query
@@ -334,13 +334,13 @@ We can get a list of columns names using the MySQL_Columns() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Columns(MySQL Handle) ---> List contains columns information
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	con = mysql_init()
 	see "Connect to database" + nl
@@ -354,7 +354,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Connect to database
 	Execute Query
@@ -384,13 +384,13 @@ column names then the query result in one list.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Result2(MySQL Handle) ---> List (query result starts with columns names)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	con = mysql_init()
 	see "Connect to database" + nl
@@ -404,7 +404,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Connect to database
 	Execute Query
@@ -435,7 +435,7 @@ processing using MySQL_Escape_String() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Escape_String(MySQL Handle, cString) ---> String after processing
 
@@ -447,7 +447,7 @@ Save Image inside the database
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Read file" + nl
 	cFile = read("tests\mahmoud.jpg")
@@ -464,7 +464,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Read file
 	Connect to database...
@@ -480,7 +480,7 @@ Restore Image From The Database
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	con = mysql_init()
 	See "Connect to database..." + nl
@@ -495,7 +495,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Connect to database...
 	Read data from database...
@@ -513,7 +513,7 @@ We can enable or disable the auto commit feature using the MySQL_AutoCommit() fu
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_AutoCommit(MySQL Handle, lStatus)  # lstatus can be True/False
 
@@ -527,7 +527,7 @@ We can commit updates to the database using the MySQL_Commit() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Commit(MySQL Handle)
 
@@ -541,7 +541,7 @@ We can rollback updates to the database using the MySQL_Rollback() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MySQL_Rollback(MySQL Handle)
 
@@ -556,7 +556,7 @@ The next example presents the usage of MySQL_Autocommit(), MySQL_Commit()
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func main
 	
@@ -606,7 +606,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Connect
 	Drop table

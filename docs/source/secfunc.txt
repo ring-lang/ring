@@ -30,20 +30,20 @@ We can calculate the MD5 hash using the MD5() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MD5(cString) ---> String contains the MD5 hash of the string cString 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "md5('happy') = " + md5("happy") + nl +
 	    "md5('Hello') = " + md5("Hello") + nl
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	md5('happy') = 56ab24c15b72a457069c5ea42fcfc640
 	md5('Hello') = 8b1a9953c4611296a827abf8c47804d7
@@ -58,20 +58,20 @@ We can calculate the SHA1 hash using the SHA1() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	SHA1(cString) ---> String contains the SHA1 hash of the string cString 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "sha1('hello') : " + sha1("hello") + nl +
 	    "sha1('apple') : " + sha1("apple") + nl
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sha1('hello') : aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
 	sha1('apple') : d0be2dc421be4fcd0172e5afceea3970e2f3d940
@@ -86,21 +86,21 @@ We can calculate the SHA256 hash using the SHA256() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	SHA256(cString) ---> String contains the SHA256 hash of the string cString 
 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "sha256('hello') : " + sha256("hello") + nl +
 	    "sha256('apple') : " + sha256("apple") + nl
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sha256('hello') : 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
 	sha256('apple') : 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b
@@ -115,13 +115,13 @@ We can calculate the SHA512 hash using the SHA512() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	SHA512(cString) ---> String contains the SHA512 hash of the string cString 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "sha512('hello') : " + sha512("hello") + nl +
 	    "sha512('apple') : " + sha512("apple") + nl +
@@ -129,7 +129,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sha512('hello') : 9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673c
 	a72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043
@@ -149,13 +149,13 @@ We can calculate the SHA384 hash using the SHA384() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	SHA384(cString) ---> String contains the SHA384 hash of the string cString 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "sha384('hello') : " + sha384("hello") + nl +
 	    "sha384('apple') : " + sha384("apple") + nl +
@@ -163,7 +163,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sha384('hello') : 59e1748777448c69de6b800d7a33bbfb9ff1b463e44354c3553bcdb9c666fa
 	90125a3c79f90397bdf5f6a13de828684f
@@ -182,13 +182,13 @@ We can calculate the SHA224 hash using the SHA224() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	SHA224(cString) ---> String contains the SHA224 hash of the string cString 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "sha224('hello') : " + sha224("hello") + nl + 
 	    "sha224('apple') : " + sha224("apple") + nl +
@@ -196,7 +196,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sha224('hello') : ea09ae9cc6768c50fcee903ed054556e5bfc8347907f12598aa24193
 	sha224('apple') : b7bbfdf1a1012999b3c466fdeb906a629caa5e3e022428d1eb702281
@@ -212,7 +212,7 @@ We can use the Encrypt() function to encrypts the data using the Blowfish algori
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Encrypt(cString, cKey, cIV) ---> Encrypted string
 
@@ -226,7 +226,7 @@ We can use the Decrypt() function to decrypt the data encrypted using the Encryp
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Decrypt(cCipher, cKey, cIV) ---> Decrypted string
 
@@ -240,7 +240,7 @@ The next example demonstrates how to use the Encrypt() and Decrypt() functions.
 
 These functions use the Blowfish algorithm.
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Enter a string : " give cStr
 	list = 0:15  cKey=""    for x in list cKey += char(x) next
@@ -257,7 +257,7 @@ File Hash
 
 The next example demonstrates how to calculate the hash functions for files
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = read("myapp.exe")
 	see "Size : " + len(cStr) + nl +
@@ -270,7 +270,7 @@ The next example demonstrates how to calculate the hash functions for files
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Size : 58079876
 	md5 : 762eee15d8d2fd73b71ea52538b28667
@@ -292,13 +292,13 @@ We can generate a string of pseudo-random bytes using the Randbytes() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Randbytes(nSize) ---> String contains random bytes (bytes count = nSize)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	salt =  randbytes(32) 
 	password = "SecretPassWord@$%123"
@@ -313,13 +313,13 @@ Download() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Download(cURL) ---> String contains the server response
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr= download("http://doublesvsoop.sourceforge.net/")
 	see cStr
@@ -333,13 +333,13 @@ SendEmail() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	SendEmail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Send email..." + nl
 	sendemail("smtp://smtp.gmail.com:587",

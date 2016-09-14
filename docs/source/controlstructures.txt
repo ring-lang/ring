@@ -19,7 +19,7 @@ Branching
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	if Expression
 		Block of statements
@@ -31,7 +31,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see " 
 		Main Menu
@@ -56,7 +56,7 @@ Example:
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	switch Expression
 	on Expression
@@ -67,7 +67,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See " 
 		Main Menu
@@ -99,7 +99,7 @@ Looping
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	while Expression
 		Block of statements
@@ -107,7 +107,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	While True
 
@@ -141,7 +141,7 @@ Example:
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for identifier=expression to expression [step expression]
 		Block of statements
@@ -149,14 +149,14 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print numbers from 1 to 10
 	for x = 1 to 10	 see x + nl  next
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# Dynamic loop
 	See "Start : " give nStart       
@@ -168,7 +168,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print even numbers from 0 to 10
 	for x = 0 to 10 step 2
@@ -177,7 +177,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print even numbers from 10 to 0
 	for x = 10 to 0 step -2
@@ -192,7 +192,7 @@ Example:
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for identifier in List/String  [step expression]
 		Block of statements
@@ -200,7 +200,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = 1:10	# create list contains numbers from 1 to 10
 	for x in aList  see x + nl  next  # print numbers from 1 to 10
@@ -215,7 +215,7 @@ We can use the Step option with For in to skip number of items in each iteration
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = 1:10	# create list contains numbers from 1 to 10
 	# print odd items inside the list
@@ -236,7 +236,7 @@ This means that we can read/edit items inside the loop.
 	
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = 1:5	# create list contains numbers from 1 to 5
 	# replace list numbers with strings
@@ -259,7 +259,7 @@ Do Again Loop
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	do
 		Block of statements
@@ -267,7 +267,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x = 1 
 	do 
@@ -286,14 +286,14 @@ Used to go outside one or more of loops.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	exit [expression]	# inside loop
 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for x = 1 to 10
 		see x + nl
@@ -310,7 +310,7 @@ The next example presents how to use the exit command to exit from two loops in 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for x = 1 to 10
 		for y = 1 to 10
@@ -330,13 +330,13 @@ Used to jump to the next iteration in the loop.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	loop [expression]	# inside loop
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for x = 1 to 10
 		if x = 3
@@ -357,7 +357,7 @@ inside that function and the command will work on the outer loop.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print numbers from 1 to 10 except number 5.
 
@@ -387,7 +387,7 @@ argument and the result will be one.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	/* output
 	** nice 
@@ -406,7 +406,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# No output
 
@@ -421,7 +421,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	/* output 
 	** nice
@@ -457,7 +457,7 @@ Comments about evaluation
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# output = message from the if statement
 

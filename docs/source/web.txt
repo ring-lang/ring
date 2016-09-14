@@ -15,7 +15,7 @@ Ring CGI Hello World Program
 
 The next program is the Hello World program 
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 
@@ -33,7 +33,7 @@ We can use the web library to write CGI Web applications quickly
 
 Example (1) :
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 
@@ -49,7 +49,7 @@ Example (1) :
 
 Example (2) :
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 
@@ -91,7 +91,7 @@ HTTP Get Example
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -205,7 +205,7 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -273,7 +273,7 @@ HTTP POST Example
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -307,7 +307,7 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -342,7 +342,7 @@ Upload Files
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -373,7 +373,7 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -429,7 +429,7 @@ Cookies
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -454,7 +454,7 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -489,7 +489,7 @@ URL Encode
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -555,7 +555,7 @@ The HTML Code
 
 The Ring Code
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -612,7 +612,7 @@ The text() function display HTML special characters.
 
 If you want to write html code, use the html() function.
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -647,7 +647,7 @@ Hash Functions
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -681,7 +681,7 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -723,7 +723,7 @@ Screen Shot:
 Random Image
 ============
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -776,7 +776,7 @@ To end the list we uses the ulend() function.
 
 We uses listart() and liend() to determine the list item.
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -819,7 +819,7 @@ In this example we will learn how to generate HTML tables using the
 tablestart(), tableend(), rowstart(), rowend() ,headerstart(), headerend(), cellstart()
 and cellend() functions.
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -861,7 +861,7 @@ In this example we will learn how to use the StyleGradient() function.
 
 The function takes the style number as input (range from 1 to 60).
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -902,7 +902,7 @@ This choice means more beautiful code but slower.
 The fastest method is to print HTML code directly, then using functions then using
 templates then using objects (slower).
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1062,7 +1062,7 @@ Using Bootstrap Library using Functions
 
 The next example uses the Bootstrap JavaScript Library when generating the HTML page.
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1107,7 +1107,7 @@ The next example uses the Bootstrap JavaScript Library when generating the HTML 
 
 Instead of using functions to generate the HTML elements, we will use objects.
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1257,7 +1257,7 @@ The method AddFuncScript is used to call the form for adding/modifying record da
 The method FormViewContent is used to determine the controls in the form when we add or
 modify a record.
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1326,7 +1326,7 @@ like username & email.
 
 The next code is stored in ex25_users.ring
 
-.. code-block:: none
+.. code-block:: ring
 
 	Class UsersModel from ModelBase
 	  cSearchColumn = "username"
@@ -1378,7 +1378,7 @@ In the file ex25.ring we load ex25_users.ring then create an object from UsersCo
 
 Using the created object, we call the routing method.
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1396,7 +1396,7 @@ Screen Shot:
 	
 See the next code for the registration page
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1462,7 +1462,7 @@ Screen Shot:
 
 The Registration response
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1501,7 +1501,7 @@ The Registration response
 
 See the next code for the Login page
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1560,7 +1560,7 @@ Screen Shot:
 
 The response page
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1590,7 +1590,7 @@ The response page
 
 The next code for checking if the user needs to login or not
 
-.. code-block:: none
+.. code-block:: ring
 
 	#!b:\mahmoud\apps\ring\ring.exe -cgi
 	Load "weblib.ring"
@@ -1621,7 +1621,7 @@ In this section we will see some code from datalib.ring
 
 The next code presents the Database, ModelBase & ControllerBase classes
 
-.. code-block:: none
+.. code-block:: ring
 
 	Import System.Web
 
@@ -2070,7 +2070,7 @@ HeaderEnd		None					HTML </th>
 aPara in the page methods is a list contains attributes and values.
 Using aPara we can set values for the next attributes
 
-.. code-block:: none 
+.. code-block:: ring 
 
 	classname id name align style dir value onclick oncontextmenu ondblclick
 	onmousedown onmouseenter onmouseleave onmousemove onmouseover onmouseout

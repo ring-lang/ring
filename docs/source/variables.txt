@@ -11,7 +11,7 @@ switch between the types using the same variable name.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	<Variable Name> = <Value>
 
@@ -35,7 +35,7 @@ Dynamic Typing
 
 Ring is a dynamic programming language that uses `Dynamic Typing <http://en.wikipedia.org/wiki/Type_system>`_.
 
-.. code-block:: none
+.. code-block:: ring
 
 	x = "Hello"		# x is a string
 	see x + nl
@@ -67,7 +67,7 @@ The assignment operator will do a complete duplication for us.
 This operation called `Deep Copy <http://en.wikipedia.org/wiki/Object_copy#Deep_copy>`_
 
 
-.. code-block:: none
+.. code-block:: ring
 
 	list = [1,2,3,"four","five"]
 	list2 = list
@@ -87,7 +87,7 @@ convert between data types (like string & numbers) when that conversion make sen
 
 Rules:
 
-.. code-block:: none
+.. code-block:: ring
 
 	<NUMBER> + <STRING> --> <NUMBER>
 	<STRING> + <NUMBER> --> <STRING>
@@ -99,7 +99,7 @@ Rules:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x = 10			# x is a number
 	y = "20"		# y is a string

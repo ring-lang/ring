@@ -15,7 +15,7 @@ sqlite_init() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sqlite_init() ---> SQLite Object
 
@@ -27,7 +27,7 @@ sqlite_open() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sqlite_open(SQLite Object,cFileName)
 
@@ -39,7 +39,7 @@ sqlite_execute() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sqlite_exexute(SQLite Object,cSQLStatement)
 
@@ -51,7 +51,7 @@ sqlite_close() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sqlite_close(SQLite Object)
 
@@ -60,7 +60,7 @@ Example
 
 The next code create a SQLite database, add new records then display the data.
 
-.. code-block:: none
+.. code-block:: ring
 
 	oSQLite = sqlite_init()
 
@@ -100,7 +100,7 @@ The next code create a SQLite database, add new records then display the data.
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	Mahmoud

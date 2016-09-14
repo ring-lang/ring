@@ -17,13 +17,13 @@ print the value then print new line (nl)
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	puts(expr)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -41,13 +41,13 @@ Also we can use #{variable_name} to insert variables values.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	print(string)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -63,7 +63,7 @@ getstring() function
 
 Get input from the keyboard - return value as string
 
-.. code-block:: none
+.. code-block:: ring
 
 	getstring() ---> string
 
@@ -76,7 +76,7 @@ getnumber() function
 
 Get input from the keyboard - return value as number
 
-.. code-block:: none
+.. code-block:: ring
 
 	getnumber() ---> number
 
@@ -90,13 +90,13 @@ Get the path of the application folder
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	AppPath() ---> The path as String
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -114,13 +114,13 @@ create a copy from a list or object
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	value(List) ---> new list 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -138,13 +138,13 @@ Execute a Function nCount times
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Times(nCount,function)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -161,13 +161,13 @@ Execute a Function on each list item
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	 Map(alist,function)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -184,13 +184,13 @@ Execute a Function on each list item to filter items
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Filter(alist,function)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -207,13 +207,13 @@ Convert string words to list items
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Split(cstring,delimiter)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -232,13 +232,13 @@ Create a two dimensional list
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	NewList(nRows,nColumns) ---> new list 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -262,13 +262,13 @@ Return a copy of a string with the first letter capitalized
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Capitalized(string) ---> string
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -286,13 +286,13 @@ Check whether a character is special or not
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsSpecial(char) ---> True/False
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -309,13 +309,13 @@ Check whether a character is vowel or not
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsVowel(char) ---> True/False
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -333,13 +333,13 @@ Return the lines count in a text file.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	LineCount(cFileName) ---> Lines Count as number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -356,13 +356,13 @@ Return the factorial of a number
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Factorial(number) ---> number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -379,13 +379,13 @@ Return the fibonacci number
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fibonacci(number) ---> number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -402,13 +402,13 @@ Check whether a number is prime or not
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	isprime(number) ---> Number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -426,13 +426,13 @@ Returns an integer value indicating the sign of a number.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Sign(number) ---> number ( -1 = negative , 0 , 1 (positive) )
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -449,13 +449,13 @@ Write list items to text file (each item in new line).
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	List2File(aList,cFileName)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -474,13 +474,13 @@ Read text file and convert lines to list items
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	File2List(cFileName) ---> List
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -500,14 +500,14 @@ Leading white spaces are ignored.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	StartsWith(string, substring) ---> True/False
 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -526,13 +526,13 @@ Trailing white spaces are ignored.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Endswith(string, substring) ---> True/False
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -549,13 +549,13 @@ Finding of the greatest common divisor of two integers.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Gcd(number,number) ---> number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -573,13 +573,13 @@ Compute the least common multiple of two integers.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	lcm(number,number) ---> number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -596,13 +596,13 @@ Compute the sum of a list of integers.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sumlist(list) ---> number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -620,13 +620,13 @@ Compute the product of a list of integers.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	prodlist(list) ---> number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -646,13 +646,13 @@ Result of test (1=odd 2=even).
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	evenorodd(number) ---> 1 (odd) or 2 (even)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -670,13 +670,13 @@ Compute the factors of a positive integer.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	factors(list) ---> list
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -699,13 +699,13 @@ Check if a sequence of characters is a palindrome or not.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Palindrome(String) ---> True/False
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -724,13 +724,13 @@ Check whether a given year is a leap year in the Gregorian calendar.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Isleapyear(number) ---> True/False
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -750,13 +750,13 @@ Compute the sequence of binary digits for a given non-negative integer.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	binarydigits(number) ---> string
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -774,13 +774,13 @@ Multiply two matrices together.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Matrixmulti(List,List) ---> List
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -801,13 +801,13 @@ Transpose an arbitrarily sized rectangular Matrix.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Matrixtrans(List) ---> List
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -826,13 +826,13 @@ Return the day of the week of given date. (yyyy-mm-dd)
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	dayofweek(string) ---> string
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -851,13 +851,13 @@ Generates all permutations of n different numerals.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	permutation(list)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -882,13 +882,13 @@ Read line from file
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	readline(fp) ---> string
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -909,13 +909,13 @@ Return a position of a substring starting from a given position in a string.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Substring(str,substr,npos) ---> string
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -936,13 +936,13 @@ Change substring from given position to a given position with another substring.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Changestring(cString, nPos1, nPos2, cSubstr) ---> cString
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -960,13 +960,13 @@ Sleep for the given amount of time.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	sleep(nSeconds) 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -985,13 +985,13 @@ Check if the current file is the main source file
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsMainSourceFile() ---> True/False
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1009,13 +1009,13 @@ Check if directory exists
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	DirExists(String) ---> True/False
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1034,13 +1034,13 @@ Make Directory
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MakeDir(String)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 

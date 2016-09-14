@@ -22,7 +22,7 @@ Branching
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	if Expression {
 		Block of statements
@@ -34,7 +34,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -67,7 +67,7 @@ Example:
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	switch Expression {
 	case Expression
@@ -78,7 +78,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -120,7 +120,7 @@ Looping
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	while Expression {
 		Block of statements
@@ -128,7 +128,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -167,7 +167,7 @@ Example:
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for identifier=expression to expression [step expression] {
 		Block of statements
@@ -175,7 +175,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print numbers from 1 to 10
 	load "stdlib.ring"
@@ -185,7 +185,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	load "stdlib.ring"
 
@@ -199,7 +199,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	load "stdlib.ring"
 
@@ -210,7 +210,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	load "stdlib.ring"
 
@@ -227,7 +227,7 @@ Example:
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for identifier in List/String  [step expression] {
 		Block of statements
@@ -235,7 +235,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	load "stdlib.ring"
 
@@ -244,7 +244,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	load "stdlib.ring"
 
@@ -260,7 +260,7 @@ This means that we can read/edit items inside the loop.
 	
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	load "stdlib.ring"
 
@@ -284,7 +284,7 @@ Example:
 Exceptions
 ==========
 
-.. code-block:: none
+.. code-block:: ring
 
 	try {
 		Block of statements

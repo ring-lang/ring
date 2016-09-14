@@ -46,13 +46,13 @@ We can read the file content using the Read() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Read(cFileName) ---> String contains the file content
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see read("myfile.txt")
 
@@ -60,7 +60,7 @@ The read function can read binary files too
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see read("myapp.exe")
 
@@ -77,13 +77,13 @@ The write function can write binary data to binary files.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Write(cFileName,cString)	# write string cString to file cFileName
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# copy file
 	cFile = read("ring.exe")
@@ -99,7 +99,7 @@ We can get the folder contents (files & sub folders) using the Dir() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Dir(cFolderPath) ---> List contains files & sub folders.
 
@@ -111,7 +111,7 @@ This function returns a list and each list item is a list of two items
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "Testing DIR() " + nl
 	mylist = dir("C:\myfolder")
@@ -134,13 +134,13 @@ We can rename files using the Rename() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Rename(cOldFileName,cNewFileName)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	rename("file.txt","help.txt")
 
@@ -155,13 +155,13 @@ We can delete a file using the Remove() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Remove(cFileName)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	remove("test.txt")
 
@@ -175,7 +175,7 @@ We can open a file using the Fopen() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fopen(cFileName,cMode) ---> File Handle
 
@@ -201,7 +201,7 @@ using the Fclose() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fclose(file handle)
 
@@ -215,7 +215,7 @@ We can flushes the output buffer of a stream using the Fflush() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fflush(file handle)
 
@@ -230,13 +230,13 @@ the old file
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Freopen(cFileName,cMode,file handle) ---> file handle
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	freopen("myprogoutput.txt","w+",stdout)
 	see "welcome" + nl
@@ -255,7 +255,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# Output to stdout
 	Done
@@ -285,7 +285,7 @@ The file will be deleted automatically when the stream is closed
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	TempFile() ---> file handle
 
@@ -301,7 +301,7 @@ The generated name will be different from the name of any existing file
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Tempname() ---> generated file name as string
 
@@ -315,7 +315,7 @@ We can set the file position of the stream using the Fseek() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fseek(file handle, nOffset, nWhence) ---> zero if successful
 
@@ -339,7 +339,7 @@ We can know the current file position of a stream using the Ftell() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Ftell(file handle) ---> file position as number
 
@@ -353,7 +353,7 @@ We can set the file position to the beginning of the file using the Rewind() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	Rewind(file handle)
 
@@ -367,7 +367,7 @@ We can get handle to the current file position using the Fgetpos() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fgetpos(file handle) ---> position handle
 
@@ -381,7 +381,7 @@ We can set the current file position using the Fgetpos() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fsetpos(file handle,position handle)
 
@@ -396,7 +396,7 @@ function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Clearerr(file handle)
 
@@ -410,7 +410,7 @@ We can test the end-of-file indicator using the Feof() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Feof(file handle) ---> returns 1 if EOF and 0 if not
 
@@ -424,7 +424,7 @@ We can test the error indicator of a given stream using the Ferror() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Ferror(file handle) ---> returns 1 if error and 0 if not
 
@@ -438,7 +438,7 @@ We can print error message to the stderr using the Perror() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Perror(cErrorMessage)
 
@@ -452,7 +452,7 @@ We can get the next character from the stream using the Fgetc() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fgetc(file handle) ---> returns character or EOF
 
@@ -467,7 +467,7 @@ We can read new line from the stream using the Fgets() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fgets(file handle,nSize) ---> string
 
@@ -483,7 +483,7 @@ We can write a character to the stream using the Fputc() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fputc(file handle,cChar)
 
@@ -497,7 +497,7 @@ We can write a string to the stream using the Fputs() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fputs(file handle,cString)
 
@@ -514,7 +514,7 @@ The character will be available for the next read
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Ungetc(file handle,character)
 
@@ -529,7 +529,7 @@ We can read data from a stream using the Fread() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fread(file handle,nSize)
 
@@ -543,7 +543,7 @@ We can write data to a stream using the Fwrite() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fwrite(file handle,cString)
 
@@ -558,20 +558,20 @@ We can check if a file exists using the Fexists() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Fexists(cFileName) ---> returns 1 if the file exists
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see fexists("b:\mahmoud\apps\ring\ring.exe") + nl +
 	    fexists("b:\mahmoud\apps\ring\ring2.exe") + nl 
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	0
@@ -584,7 +584,7 @@ Example
 
 The next program test some of the file functions
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Testing file functions" + nl
 

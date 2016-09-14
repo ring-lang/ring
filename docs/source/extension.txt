@@ -623,7 +623,7 @@ for all of the module functions.
 
 The next Ring code demonstrates how to use the DLL library during the runtime.
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Dynamic DLL" + NL
 	LoadLib("ringlib.dll")
@@ -631,7 +631,7 @@ The next Ring code demonstrates how to use the DLL library during the runtime.
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Dynamic DLL
 	Message from dlfunc

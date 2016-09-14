@@ -205,6 +205,6 @@ lower precedence.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See 3+5*4	# prints 23

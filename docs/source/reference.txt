@@ -74,7 +74,7 @@ Language Functions
 
 Functions Count : 208
 
-.. code-block:: none
+.. code-block:: ring
 
 	acos() add() addattribute() adddays() addmethod() ascii() asin() assert()
 	atan() atan2() attributes() binarysearch() callgc() ceil() cfunctions() char()

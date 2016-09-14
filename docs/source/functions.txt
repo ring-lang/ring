@@ -34,7 +34,7 @@ To define new function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func <function_name> [parameters]
 		Block of statements
@@ -44,7 +44,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func hello
 		see "Hello from function" + nl
@@ -62,7 +62,7 @@ To call function without parameters, we type the function name then ()
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	hello()
 
@@ -72,7 +72,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	first()  second()
 
@@ -91,7 +91,7 @@ of identifiers separated by comma.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func sum x,y
 		see x+y+nl
@@ -106,13 +106,13 @@ To send parameters to function, type the parameters inside () after the function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	funcname(parameters)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	/* output
 	** 8
@@ -136,7 +136,7 @@ if no other statements comes alone, the main function will be the first `entry p
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# this program will print the hello world message first then execute the main function
 
@@ -161,7 +161,7 @@ Inside any function we can access the variables defined inside this function bes
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# the program will print numbers from 10 to 1
 
@@ -193,7 +193,7 @@ The function can return a value using the Return command.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Return [Expression]
 
@@ -204,7 +204,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	if novalue() = NULL	
 		See "the function doesn't return a value" + nl
@@ -223,7 +223,7 @@ and the function can call itself using different parameters.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see fact(5)  	# output = 120
 

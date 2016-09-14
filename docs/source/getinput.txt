@@ -19,13 +19,13 @@ Give Command
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Give VariableName
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Enter the first number : " Give nNum1
 	See "Enter the second number : " Give nNum2
@@ -33,7 +33,7 @@ Example:
  
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Enter the first number : 3
 	Enter the second number : 4
@@ -49,13 +49,13 @@ We can get one character from the standard input using the GetChar() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	GetChar() ---> Character
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	While True
 		See "
@@ -87,7 +87,7 @@ We can get input from the keyboard using the Input() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Input(nCount) ---> string
 
@@ -95,7 +95,7 @@ The function will wait until nCount characters (at least) are read
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Enter message (30 characters) : " cMsg = input(30)
 	See "Message : " + cMsg

@@ -80,7 +80,7 @@ Conflict between Global Variables and Class Attributes
 
 Look at this example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	name = "test"
 	o1 = new person
@@ -107,7 +107,7 @@ We will not have the attribute name! added to the object.
 
 Solution (1) - Use the Main Function 
 
-.. code-block:: none
+.. code-block:: ring
 
 	func main
 		name = "test"
@@ -121,7 +121,7 @@ Solution (1) - Use the Main Function
 
 Solution Number (2) - Use special mark for global variable names like $
 
-.. code-block:: none
+.. code-block:: ring
 
 	$name = "test"
 	o1 = new person
@@ -134,7 +134,7 @@ Solution Number (2) - Use special mark for global variable names like $
 
 Solution Number (3) - Use the AddAttribute() Method
 
-.. code-block:: none
+.. code-block:: ring
 
 	name = "test"
 	o1 = new person
@@ -163,7 +163,7 @@ This conflict may happen when we access the object using braces
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
  
 	func main
 		name = "nice"
@@ -181,7 +181,7 @@ The value of this variable will be set to "mahmoud" instead of the object attrib
 
 Solution : Just use Self 
 
-.. code-block:: none
+.. code-block:: ring
 
 	func main
 		name = "nice"

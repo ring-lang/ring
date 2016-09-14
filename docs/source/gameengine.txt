@@ -345,7 +345,7 @@ getvalue(x,y)		Return the item value in the Map according to the visible part
 Using the Game Engine - Creating the Game Window
 ================================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"	# Give Control to the Game Engine
 
@@ -370,7 +370,7 @@ Screen Shot:
 Using the Game Engine - Drawing Text
 ====================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"	# Give Control to the Game Engine
 
@@ -401,7 +401,7 @@ Screen Shot:
 Using the Game Engine - Moving Text
 ===================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"	# Give Control to the Game Engine
 
@@ -444,7 +444,7 @@ Screen Shot:
 Using the Game Engine - Playing Sound
 =====================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"	# Give Control to the Game Engine
 
@@ -485,7 +485,7 @@ Using the Game Engine - Playing Sound
 Using the Game Engine - Animation
 =================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"	# Give Control to the Game Engine
 
@@ -531,7 +531,7 @@ Using the Game Engine - Animation
 Using the Game Engine - Animation and Functions
 ===============================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"	# Give Control to the Game Engine
 
@@ -584,7 +584,7 @@ Using the Game Engine - Animation and Functions
 Using the Game Engine - Sprite - Automatic Movement using Keyboard
 ==================================================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"				# Give control to the game engine
 
@@ -615,7 +615,7 @@ Using the Game Engine - Sprite - Automatic Movement using Keyboard
 Using the Game Engine - Sprite - Keypress event
 ===============================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"				# Give control to the game engine
 
@@ -656,7 +656,7 @@ Using the Game Engine - Sprite - Keypress event
 Using the Game Engine - Sprite - Mouse event
 ============================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"				# Give control to the game engine
 
@@ -705,7 +705,7 @@ Using the Game Engine - Sprite - Mouse event
 Using the Game Engine - Sprite - State event
 ============================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"				# Give control to the game engine
 
@@ -765,7 +765,7 @@ Using the Game Engine - Sprite - State event
 Using the Game Engine - Animate - Events
 ========================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"				# Give control to the game engine
 
@@ -839,7 +839,7 @@ Screen Shot:
 Using the Game Engine - Map
 ===========================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"        # Give control to the game engine
 
@@ -892,7 +892,7 @@ Screen Shot:
 Using the Game Engine - Map Events
 ==================================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"        # Give control to the game engine
 
@@ -965,7 +965,7 @@ We can use the Object keyword (defined by the game engine) to create objects fro
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"				# Give control to the game engine
 
@@ -1019,7 +1019,7 @@ Screen Shot:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"				# Give control to the game engine
 
@@ -1076,7 +1076,7 @@ Stars Fighter Game
 
 The Stars Fighter source code
 
-.. code-block:: none
+.. code-block:: ring
 
 	# The Ring Standard Library
 	# Game Engine for 2D Games
@@ -1489,7 +1489,7 @@ Flappy Bird 3000 Game
 
 The Flappy Bird 3000 Game source code
 
-.. code-block:: none
+.. code-block:: ring
 
 	# The Ring Standard Library
 	# Game Engine for 2D Games
@@ -1843,7 +1843,7 @@ Super Man 2016 Game
 
 The Super Man 2016 Game source code
 
-.. code-block:: none
+.. code-block:: ring
 
 	# The Ring Standard Library
 	# Game Engine for 2D Games

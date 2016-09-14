@@ -40,7 +40,7 @@ To include another source file in the project, just use the load command.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load  "filename.ring"
 
@@ -50,7 +50,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# File : Start.ring
 
@@ -58,7 +58,7 @@ Example:
 
 	sayhello("Mahmoud")
 
-.. code-block:: none
+.. code-block:: ring
 
 	# File : sub.ring
 

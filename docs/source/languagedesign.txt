@@ -43,13 +43,13 @@ Simple
 
 Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Hello, World!" 
 
 The Main function is optional and will be executed after the statements, and is useful for using the local scope.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Func Main
 		See "Hello, World!" 
@@ -57,7 +57,7 @@ The Main function is optional and will be executed after the statements, and is 
 Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name! 
 You can use the '+' operator for string concatenation and the language is weakly typed and will convert automatically between numbers and strings based on the context.
 
-.. code-block:: none
+.. code-block:: ring
 
 	nCount = 10	# Global variable
 	Func Main
@@ -72,7 +72,7 @@ Trying to be natural
 
 Ring is not case-sensitive
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	See "Enter your name ? " 
@@ -81,14 +81,14 @@ Ring is not case-sensitive
 			
 The list index starts from 1
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = ["one","two","three"]
 	See aList[1]	# print one
 			
 Call functions before definition
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	one() 
@@ -103,7 +103,7 @@ Call functions before definition
 			
 The assignment operator uses Deep copy (no references in this operation)
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = ["one","two","three"]
 	aList2 = aList
@@ -114,7 +114,7 @@ The assignment operator uses Deep copy (no references in this operation)
 Pass numbers and strings by value, but pass lists and objects by reference. 
 The for in loop can update the list items.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Func Main
 		aList = [1,2,3]
@@ -132,14 +132,14 @@ The for in loop can update the list items.
 			
 Using Lists during definition
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 	see aList       # print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
 			
 Exit from more than one loop
 
-.. code-block:: none
+.. code-block:: ring
 
 	for x = 1 to 10
 			for y = 1 to 10
@@ -171,7 +171,7 @@ We can write one line comments and multi-line comments
 The comment starts with # or // 
 Multi-line comments are written between /* and */
 
-.. code-block:: none
+.. code-block:: ring
 
 	/* 
 		Program Name : My first program using Ring
@@ -192,13 +192,13 @@ Transparent Implementation
 
 Ring comes with transparent implementation. We can know what is happening in each compiler stage and what is going on during the run-time by the Virtual Machine Example : ring helloworld.ring -tokens -rules -ic
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Hello, World!" 
 			
 Output
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	==================================================================
@@ -278,7 +278,7 @@ Compact Syntax
 
 The language is not line sensitive, you don't need to write ; after statements, also you don't need to press ENTER or TAB, so we can write the next code
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	See "The First Message"	See " Another message in the same line! " + nl
@@ -286,25 +286,25 @@ The language is not line sensitive, you don't need to write ; after statements, 
 			
 The next code create a class called Point contains three attributes X,Y and Z. No keywords is used to end the package/class/function definition. Also, we can write the attributes names directly below the class name.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Class Point X Y Z
 			
 We can use classes and functions before their definition, In this example we will create new object, set the object attributes then print the object values.
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = New point	o1.x=10    o1.y=20   o1.z=30	See O1	Class Point X Y Z
 			
 Instead of using the dot '.' operator to access the object attributes and methods we can use braces { } to access the object, then we can use the object attributes and methods.
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = New point { x=10 y=20 z=30 } See O1  Class Point X Y Z
 			 
 Now we will call a method after accessing the object using { }
 
-.. code-block:: none
+.. code-block:: ring
 
 	 
 	oPerson = new Person
@@ -322,7 +322,7 @@ Now we will call a method after accessing the object using { }
 
 When we use { } to access the object then write any attribute name, the language will check the class for any setter/getter methods that will be called automatically.
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	New Number {
@@ -349,7 +349,7 @@ Define Natural Statements
 
 After the object access using { } if the class contains a method called BraceEnd() it will be executed!
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	TimeForFun = new journey
@@ -367,7 +367,7 @@ After the object access using { } if the class contains a method called BraceEnd
 
 We can execute code written in strings using the Eval() function
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	cCode = "See 'Code that will be executed later!' "
@@ -375,14 +375,14 @@ We can execute code written in strings using the Eval() function
 
 We can create a list then execute code generated from that list
 
-.. code-block:: none
+.. code-block:: ring
 
 	aWords = ["hello","it","is","me"]
 	for word in aWords cCode=word+"=0" eval(cCode) next
 
 We can read text files using the Read(cFileName) function and we can write files using the Write(cFileName,cString) function.
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Enter File Name:" Give cFileName See Read(cFileName) # Print the file content
 
@@ -391,7 +391,7 @@ The first instruction is : I want window
 The second instruction is : Window title = Expression 
 Also keywords that can be ignored like the ‘the’ keyword 
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	New App
@@ -440,7 +440,7 @@ Also keywords that can be ignored like the ‘the’ keyword
 		
 To complete the previous example, use read() to get the content of a file that contains
 
-.. code-block:: none
+.. code-block:: ring
 
 	I want window
 	The window title = "hello world"
@@ -461,7 +461,7 @@ We learned how to use Natural statements to execute our code and using the same 
 The next example from the Web library, generate HTML document using the Bootstrap library. No HTML code is written directly in this example, we created a similar language (just as example) Then using this declarative language that uses nested structures, we generated the HTML Document.. 
 The idea in this example is that the GetDiv() and GetH1() methods return an object that we can access using {} and after each object access the method BraceEnd() will be executed to send the generated HTML to the parent object until we reach to the root where BraceEnd() will print the output.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "weblib.ring"
 	Import System.Web
@@ -495,7 +495,7 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 
 The classes that power the declarative interface looks like this
 
-.. code-block:: none
+.. code-block:: ring
 
 	Class Link from ObjsBase
 		title  link
@@ -533,7 +533,7 @@ Rules :-
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [1,2,3,4,5]
 	aList = "nice"

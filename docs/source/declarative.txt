@@ -26,7 +26,7 @@ Also we can add objects to the list at any time using the Add() function or the 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	alist = [new point, new point, new point]	# create list contains three objects 
 
@@ -50,7 +50,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Item 4 is a list contains 3 items
 	1
@@ -85,7 +85,7 @@ will be done.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new Container
 	myobj = o1.addobj()	# the assignment will create another copy
@@ -108,7 +108,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x: 10.000000
 	y: 20.000000
@@ -119,7 +119,7 @@ Output:
 
 Example(2):
 
-.. code-block:: none
+.. code-block:: ring
 
 	func main
 		o1 = new screen  {
@@ -150,7 +150,7 @@ Example(2):
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x: 100.000000
 	y: 200.000000
@@ -161,7 +161,7 @@ Output:
 
 Example(3):
 
-.. code-block:: none
+.. code-block:: ring
 
 	func main
 		o1 = New Screen  {
@@ -189,7 +189,7 @@ Example(3):
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x: 100.000000
 	y: 200.000000
@@ -211,7 +211,7 @@ if the object contains a method called BraceEnd(), it will be executed before th
 
 Example: 
 
-.. code-block:: none
+.. code-block:: ring
 
 	New Point { See "How are you?" + nl }
 
@@ -221,7 +221,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	How are you?
 	I'm fine, Thank you!
@@ -242,7 +242,7 @@ The next features enable us to build and use declartive programming environment 
 
 Example: 
 
-.. code-block:: none
+.. code-block:: ring
 
 	# Declartive Programming (Nested Structures)
 
@@ -288,7 +288,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x: 100.000000
 	y: 200.000000
@@ -315,7 +315,7 @@ will create the object and return the object reference for us.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	new Container 
 	{
@@ -340,7 +340,7 @@ Example:
 
 Output
 
-.. code-block:: none
+.. code-block:: ring
 
 	3D Point
 	10

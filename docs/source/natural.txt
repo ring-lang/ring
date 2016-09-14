@@ -36,7 +36,7 @@ The second instruction is : Window title = <expr>
 
 Also keywords that can be ignored like the 'the' keyword
 
-.. code-block:: none
+.. code-block:: ring
 
 	New App 
 	{
@@ -84,7 +84,7 @@ Also keywords that can be ignored like the 'the' keyword
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Instruction : I want window
 	Instruction : Window Title = hello world
@@ -104,7 +104,7 @@ We can change that using the ChangeRingKeyword command.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	ChangeRingKeyword  <oldkeyword>  <newkeyword>
 
@@ -114,7 +114,7 @@ Syntax:
 	
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ChangeRingKeyword	and  _and
 
@@ -169,7 +169,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Instruction : I want window
 	Using : and
@@ -190,7 +190,7 @@ Then use the operator as identifier that we can handle it's behaviour
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	ChangeRingOperator  <oldoperator>  <newoperator>
 
@@ -200,7 +200,7 @@ Syntax:
 	
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ChangeRingOperator + _+
 
@@ -217,7 +217,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Plus operator
 
@@ -229,7 +229,7 @@ Change the '=' operator to 'is'
 	
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ChangeRingKeyword	and  _and
 	ChangeRingOperator	=    is
@@ -289,7 +289,7 @@ Using Eval() with our Natural Code
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func Main
 
@@ -365,7 +365,7 @@ We can write code that will be executed before/after using { }
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new test {
 		see "Hello" + nl
@@ -383,7 +383,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	start
 	Hello
@@ -403,7 +403,7 @@ Natural code.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	new natural {
 		create 5
@@ -423,7 +423,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	create
 	expr eval
@@ -438,7 +438,7 @@ Real Natural Code
 
 The next example is a more advanced example 
 
-.. code-block:: none
+.. code-block:: ring
 
 	# Natural Code
 	new program {
@@ -467,7 +467,7 @@ The next example is a more advanced example
 		
 Output: 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Enter Number (1) :3
 	Enter Number (2) :4

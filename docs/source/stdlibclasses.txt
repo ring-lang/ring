@@ -85,7 +85,7 @@ endswith(substring)		Return true if the start ends with a substring
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -141,7 +141,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Testing the String Class
 	Hello, World!
@@ -208,7 +208,7 @@ Insert(nIndex,Value)		Inset Item after nIndex
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -246,7 +246,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	2
@@ -317,7 +317,7 @@ Print()						Print the stack items
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -335,7 +335,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	3
 	2
@@ -364,7 +364,7 @@ Remove()					Remove item from the Queue.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -382,7 +382,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	2
@@ -415,7 +415,7 @@ Index(cKey)					Get the item index using the Key
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -437,7 +437,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the hashtable Class Methods
 	Cairo
@@ -483,7 +483,7 @@ print()						Print the tree nodes.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -513,7 +513,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the tree Class Methods
 	The first step
@@ -585,7 +585,7 @@ decimals(n)		Determine the decimals digits after the point in float/double numbe
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -666,7 +666,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the Math Class Methods
 	Sin(0) = 0
@@ -761,7 +761,7 @@ diffdays(cDate1,cDate2)		Return the Number of days (cDate1 - cDate2)
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -797,7 +797,7 @@ example:
 
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the datetime Class Methods
 	Calculate performance
@@ -875,7 +875,7 @@ exists(cFileName)			Check if a file exists
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -917,7 +917,7 @@ filename()					Get the active source file
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -957,7 +957,7 @@ assert(cCondition)			Test condition before executing the code.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1002,7 +1002,7 @@ isxdigit(vValue)			1 if the value is a hexdecimal digit character or 0 if not
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1041,7 +1041,7 @@ example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the DataType Class Methods
 	1
@@ -1096,7 +1096,7 @@ hex2str(vValue)				Convert hexadecimal characters to string.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1114,7 +1114,7 @@ example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the conversion Class Methods
 	8
@@ -1155,7 +1155,7 @@ rollback()					Rollback updates to the database
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1210,7 +1210,7 @@ rollback()								Rollback updates to the database.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 	
@@ -1229,7 +1229,7 @@ example:
 	
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	Test the MySQL Class Methods
 	5.5.30
@@ -1268,7 +1268,7 @@ execute(cSQL)							Execute Query.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1311,7 +1311,7 @@ example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the sqlite Class Methods
 	1
@@ -1366,7 +1366,7 @@ randbytes(nSize)						Generate a string of pseudo-random bytes.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1397,7 +1397,7 @@ Methods:
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 

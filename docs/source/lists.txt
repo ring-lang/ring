@@ -17,7 +17,7 @@ We can create new lists by defining the list items inside square bracts.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [1,2,3,4,5]
 
@@ -26,14 +26,14 @@ Also we can create new lists using the : operator
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = 1:5
 	aList2 = "a":"z"
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = 5:1
 	aList2 = "z":"a"
@@ -42,13 +42,13 @@ Also we can create lists using the list() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	list = list(size)
 
 Example
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = list(10)	# aList contains 10 items
 
@@ -64,14 +64,14 @@ To add new items to the list, we can use the Add() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Add(List,Item)
 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = ["one","two"]
 	add(aList,"three")
@@ -80,13 +80,13 @@ Also we can do that using the + operator.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	List + item
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = 1:10	# create list contains numbers from 1 to 10
 	aList + 11	# add number 11 to the list
@@ -102,13 +102,13 @@ We can get the list size using the len() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Len(List)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = 1:20  see len(aList)  # print 20
 
@@ -122,13 +122,13 @@ To delete an item from the list, we can use the del() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	del(list,index)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = ["one","two","other","three"]
 	Del(aList,3)	# delete item number three
@@ -143,13 +143,13 @@ Get List Item
 
 To get an item from the list, we uses the next syntax
 
-.. code-block:: none
+.. code-block:: ring
 
 	List[Index]
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = ["Cairo","Riyadh"]
 	see "Egypt : " + aList[1] + nl +
@@ -163,13 +163,13 @@ Set List Item
 
 To set the value of an item inside the list, we can use the next syntax
 
-.. code-block:: none
+.. code-block:: ring
 
 	List[Index] = Expression
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = list(3)	# create list contains three items
 	aList[1] = "one" aList[2] = "two" aList[3] = "three"
@@ -185,7 +185,7 @@ To find an item inside the list we can use the find() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Find(List,ItemValue) ---> Item Index
 	Find(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index 
@@ -193,14 +193,14 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = ["one","two","three","four","five"]
 	see find(aList,"three")		# print 3
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	mylist = [["one",1],
 		  ["two",2],
@@ -213,14 +213,14 @@ Also we can use the binarysearch() function to search in sorted list.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	BinarySearch(List,ItemValue) ---> Item Index
 	BinarySearch(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = ["one","two","three","four","five"]
 	aList = sort(aList)
@@ -228,7 +228,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	five
 	four
@@ -247,7 +247,7 @@ We can sort the list using the sort() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Sort(List) ---> Sorted List
 	Sort(List,nColumn) ---> Sorted List based on nColumn 
@@ -255,7 +255,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [10,12,3,5,31,15]
 	aList = sort(aList) see aList # print 3 5 10 12 15 31
@@ -264,7 +264,7 @@ We can sort list of strings
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	mylist = ["mahmoud","samir","ahmed","ibrahim","mohammed"]
 	see mylist	   	  # print list before sorting
@@ -276,7 +276,7 @@ We can sort a list based on a specific column.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [ ["mahmoud",15000] ,
 		  ["ahmed", 14000 ] ,
@@ -289,7 +289,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ahmed
 	14000
@@ -313,13 +313,13 @@ We can reverse a list using the reverse() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Reverse(List) ---> Reversed List
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [10,20,30,40,50]
 	aList = reverse(aList)
@@ -335,7 +335,7 @@ To insert an item in the list we can use the insert() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Insert(List,Index,Item)
 
@@ -343,7 +343,7 @@ The inserted item will be after the index
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [1,2,4,5]
 	insert(aList,2,3)
@@ -360,7 +360,7 @@ The list may contain other lists
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [ 1 , [10,20,30] , 5 , [100,1000,5000] ]
 	aList2 = [
@@ -387,7 +387,7 @@ We can copy lists (including nested lists) using the Assignment operator.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [
 	"one","two", 
@@ -415,7 +415,7 @@ lists in variables, pass lists to functions, and return lists from functions.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = duplicate( [1,2,3,4,5] )
 	see aList[10] + nl		  # print 5
@@ -441,7 +441,7 @@ We can use the list items while we are defining the list for the first time.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 	see aList	# print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
@@ -458,7 +458,7 @@ function will work on the same list and can modify it.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func main
 		aList = [1,2,3,4,5]	# create list, local in function main
@@ -481,7 +481,7 @@ the first item is a string.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [ ["one",1] , ["two",2] , ["three",3] ]
 	see aList["one"] + nl +
@@ -492,7 +492,7 @@ This type of lists can be defined in a better syntax using the : and = operators
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = [ :one = 1 , :two = 2 , :three = 3 ]
 	see aList["one"] + nl +
@@ -509,7 +509,7 @@ We can add new items to the list using the string index
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	aList = []
 	aList["Egypt"] = "Cairo"
@@ -530,7 +530,7 @@ Also some parameters maybe optional.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	myconnect (  [ :server = "myserver.com" , :port = 80 , 
                        :username = "mahmoud" , :password = "password" ] ) 

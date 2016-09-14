@@ -128,7 +128,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	welcome
 	hello world from the ring programming language

@@ -33,7 +33,7 @@ We can create ODBC Handle using the odbc_init() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_init() ---> ODBC Handle
 
@@ -47,7 +47,7 @@ We can get a list of ODBC drivers using the odbc_drivers() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_drivers(ODBC Handle) ---> List of Drivers
 
@@ -61,7 +61,7 @@ We can get a list of ODBC data sources using the odbc_datasources() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_datasources(ODBC Handle) ---> List of Data sources
 
@@ -75,7 +75,7 @@ After the end of using ODBC functions we can free resources using ODBC_Close() f
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_close(ODBC Handle)
 
@@ -87,7 +87,7 @@ Print List of ODBC Drivers
 
 The next example print a list of ODBC drivers.
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "ODBC test 1" + nl
 	oODBC = odbc_init()
@@ -97,7 +97,7 @@ The next example print a list of ODBC drivers.
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ODBC test 1
 	Drivers
@@ -142,7 +142,7 @@ Print List of ODBC Data Sources
 
 The next example print a list of ODBC data sources.
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "ODBC test 2" + nl
 	pODBC = odbc_init()
@@ -152,7 +152,7 @@ The next example print a list of ODBC data sources.
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ODBC test 2
 	Data Sources
@@ -188,7 +188,7 @@ We can connect to the database using the odbc_connect() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_connect(ODBC Handle, cConnectionString)
 
@@ -202,7 +202,7 @@ We can close the connection to the database using the odbc_disconnect() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_disconnect(ODBC Handle)
 
@@ -214,7 +214,7 @@ Open and Close Connection
 
 The next example connect to the database then close the connection
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "ODBC test 3" + nl
 	pODBC = odbc_init()
@@ -227,7 +227,7 @@ The next example connect to the database then close the connection
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ODBC test 3
 	Connect to database
@@ -245,7 +245,7 @@ We can execute SQL Statements on the database using the odbc_execute() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_execute(ODBC Handle, cSQLStatement)
 
@@ -259,7 +259,7 @@ We can get columns count in the query result using the odbc_colcount() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_colcount(ODBC Handle) ---> Columns Count as Number
 
@@ -273,7 +273,7 @@ We can fetch a row from the query result using the odbc_fetch() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_fetch(ODBC Handle)
 
@@ -287,7 +287,7 @@ We can get column value from the fetched row using the odbc_getdata() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_getdata(ODBC Handle, nColumnNumber) ---> Column Value
 
@@ -299,7 +299,7 @@ Execute Query and Print Result
 
 The next example execute query then print the query result.
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "ODBC test 4" + nl
 	pODBC = odbc_init()
@@ -331,13 +331,13 @@ We can access the result of this function as we get any query result.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_tables(ODBC Handle)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "ODBC test - Get Database Tables" + nl
 	pODBC = odbc_init()
@@ -360,7 +360,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ODBC test - Get Database Tables
 	Connect to database
@@ -382,13 +382,13 @@ We can get a list of columns inside the table using the odbc_columns() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_columns(ODBC Handle, cTableName)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "ODBC test - Get Table Columns" + nl
 	pODBC = odbc_init()
@@ -405,7 +405,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ODBC test - Get Table Columns
 	Connect to database
@@ -433,7 +433,7 @@ We can enable or disable the auto commit feature using the odbc_autocommit() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_autocommit(ODBC Handle, lStatus)   # lStatus can be True or False
 
@@ -448,7 +448,7 @@ We can commit updates to the database using the odbc_commit() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_commit(ODBC Handle)
 
@@ -462,7 +462,7 @@ We can rollback updates to the database using the odbc_rollback() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	odbc_rollback(ODBC Handle)
 
@@ -474,7 +474,7 @@ Transactions and Using Commit and Rollback
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "ODBC Test - Transactions and using Commit and Rollback" + nl
 	pODBC = odbc_init()
@@ -504,7 +504,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ODBC Test - Transactions and using Commit and Rollback
 	Connect to database
@@ -520,7 +520,7 @@ Save and Restore images
 
 The next example save an image inside the database
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "ODBC test - Save image in the database" + nl
 	pODBC = odbc_init()
@@ -538,7 +538,7 @@ The next example save an image inside the database
 
 The next example restore the image from the database
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "ODBC Test - Restore image from the database" + nl
 	pODBC = odbc_init()

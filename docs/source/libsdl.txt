@@ -20,7 +20,7 @@ Create Window
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -38,7 +38,7 @@ Display Image
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -65,7 +65,7 @@ Switch between two images
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -101,7 +101,7 @@ Draw Rectangle
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -131,7 +131,7 @@ Display PNG Images
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -158,7 +158,7 @@ Use TTF Fonts
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -194,7 +194,7 @@ Display Transparent Images
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -253,7 +253,7 @@ Close Window Event
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -284,7 +284,7 @@ Mouse Events
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -356,7 +356,7 @@ Play Sound
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 

@@ -20,7 +20,7 @@ ring language.
 for example to read a configuration file called test.cf to generate the source code file test.c
 run parsec.ring as in the next command
 
-.. code-block:: none
+.. code-block:: ring
 
 	ring parsec.ring test.cf test.c
 
@@ -46,7 +46,7 @@ Using the function prototype
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ALLEGRO_DISPLAY *al_create_display(int w, int h)
 	void al_destroy_display(ALLEGRO_DISPLAY *display)
@@ -60,7 +60,7 @@ and al_get_new_display_option() functions.
 
 The generated code will be as in the next example
 
-.. code-block:: none
+.. code-block:: ring
 
 	RING_FUNC(ring_al_create_display)
 	{
@@ -150,7 +150,7 @@ Adding code to the generated code
 
 Example :
 
-.. code-block:: none
+.. code-block:: ring
 
 	<code>
 		/* some C code will be written here */
@@ -169,7 +169,7 @@ Prefix for Functions Names
 	for example when we wrap the Allegro game programming library and we need all of the library 
 	functions to start with "al" we type the next code in the configuration file
 
-.. code-block:: none
+.. code-block:: ring
 
 	<funcstart>
 	al
@@ -187,7 +187,7 @@ you can type the structure members between { } separated by comma.
 
 Example 
 
-.. code-block:: none
+.. code-block:: ring
 
 	<struct>
 	ALLEGRO_COLOR
@@ -208,7 +208,7 @@ You can determine the pointer name before the strucuture member name.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked,void *lock_data}
 
@@ -230,7 +230,7 @@ rh = Ring Header
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	<constant>
 	MIX_DEFAULT_FORMAT
@@ -244,7 +244,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ring ..\codegen\parsec.ring libsdl.cf ring_libsdl.c ring_libsdl.rh
 
@@ -261,7 +261,7 @@ we need to write the code of this function.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	<register>
 	void al_exit(void)
@@ -292,7 +292,7 @@ Writing comments in the configuration file
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	<comment>
 	configuration files
@@ -309,7 +309,7 @@ write the code between <runcode> and </runcode>
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	<runcode>
 	aNumberTypes + "al_fixed"
@@ -328,7 +328,7 @@ We have the list aEnumTypes to use for adding each Enumeration we uses in the fu
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	<runcode>
 	aNumberTypes + "qreal"
@@ -347,7 +347,7 @@ Filtering using Expressions
 using <filter> and </filter> we can include/exclude parts of the configuration file
 based on a condition, for example 
 
-.. code-block:: none
+.. code-block:: ring
 
 		<filter> iswindows() 
 			... functions related to windows
@@ -368,7 +368,7 @@ We can see this configuration file as a complete example about using the code ge
 Also we can use it to know the functions that can be used from RingAllegro when you use it
 to create 2D games!
 
-.. code-block:: none
+.. code-block:: ring
 
 	<code>
 	#define ALLEGRO_NO_MAGIC_MAIN
@@ -447,7 +447,7 @@ threads to our Ring applications by using a threads library.
 
 The idea is using ring_vm_mutexfunctions() and ring_vm_runcodefromthread() to execute Ring code.
 
-.. code-block:: none
+.. code-block:: ring
 
 	<comment>
 	Threads
@@ -572,7 +572,7 @@ that as we did with using C libraries but here we will generate *.cpp file inste
 we will determine another file to be generated (*.ring). This file will contains classes in Ring code
 that wraps C++ functions for using C++ classes and objects.
 
-.. code-block:: none
+.. code-block:: ring
 
 	ring parsec.ring qt.cf ring_qt.cpp ring_qt.ring
 
@@ -587,7 +587,7 @@ The next configuration file is used to wrap many Qt classes
 The configuration file is around 3500 lines and generate C++ code around 56000 lines and generate 
 also Ring code around 9000 lines.
 
-.. code-block:: none
+.. code-block:: ring
 
 	<nodllstartup>
 

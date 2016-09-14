@@ -51,13 +51,13 @@ We can execute system commands using the system() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	System(cCommand)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	System("myapp.exe") 	# Run myapp.exe
 	System("ls")		# print list of files
@@ -72,13 +72,13 @@ We can get environment variables using the Get() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	SysGet(cVariable)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see sysget("path")		# print system path information
 
@@ -93,7 +93,7 @@ We can check if the operating system is MSDOS or not using the IsMSDOS() functio
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsMSDOS() ---> Returns 1 if the operating system is MS-DOS, Returns 0 if it's not
 		       
@@ -108,7 +108,7 @@ We can check if the operating system is Windows or not using the IsWindows() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsWindows() ---> Returns 1 if the operating system is Windows, Returns 0 if it's not
 
@@ -123,7 +123,7 @@ We can check if the operating system is Windows 64bit or not using the IsWindows
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsWindows64() ---> Returns 1 if the operating system is Windows64, Returns 0 if it's not
 
@@ -138,7 +138,7 @@ We can check if the operating system is Unix or not using the IsUnix() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsUnix() ---> Returns 1 if the operating system is Unix, Returns 0 if it's not
 
@@ -153,7 +153,7 @@ We can check if the operating system is Mac OS X or not using the IsMacOSX() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsMacOSX() ---> Returns 1 if the operating system is Mac OS X, Returns 0 if it's not
 
@@ -168,7 +168,7 @@ We can check if the operating system is Linux or not using the IsLinux() functio
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsLinux() ---> Returns 1 if the operating system is Linux, Returns 0 if it's not
 
@@ -183,7 +183,7 @@ We can check if the operating system is FreeBSD or not using the IsFreeBSD() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsFreeBSD() ---> Returns 1 if the operating system is FreeBSD, Returns 0 if it's not
 
@@ -198,7 +198,7 @@ We can check if the operating system is Android or not using the IsAndroid() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsAndroid() ---> Returns 1 if the operating system is Android, Returns 0 if it's not
 
@@ -208,7 +208,7 @@ Syntax:
 Example
 =======
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "IsMSDOS()     --> " + ismsdos()     + nl
 	see "IsWindows()   --> " + iswindows()   + nl
@@ -221,7 +221,7 @@ Example
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsMSDOS()     --> 0
 	IsWindows()   --> 1
@@ -242,13 +242,13 @@ We can get the windows new line string using the Windowsnl() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	WindowsNL() ---> Returns a string contains CR+LF = CHAR(13) + CHAR(10)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = read("input.txt")
 
@@ -278,7 +278,7 @@ The sysargv variable is a list contains the command line parameters.
 
 Example
 
-.. code-block:: none
+.. code-block:: ring
 
 	see copy("=",30) + nl
 	see "Command Line Parameters" + nl
@@ -293,7 +293,7 @@ Example
 
 Output
 
-.. code-block:: none
+.. code-block:: ring
 
 	b:\mahmoud\apps\ring>ring tests\syspara.ring 1 10
 	==============================
@@ -325,26 +325,26 @@ We can get the active source file name (*.ring) using the filename() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	filename() ---> String contains the active source file name.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "Active Source File Name : " + filename() + nl
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Active Source File Name : tests\filename.ring
 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	if sysargv[2] = filename()
 		see "I'm the main program file!" + nl
@@ -363,7 +363,7 @@ Return the path of the current directory
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	CurrenDir() ---> String contains the path of the currect directory 
 
@@ -377,7 +377,7 @@ Return the Ring executable file name
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	exefilename() ---> String contains the Ring executable file name
 
@@ -391,7 +391,7 @@ Change the current directory
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ChDir(cNewPath)
 
@@ -405,6 +405,6 @@ Return the Ring executable file path
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	exefolder() ---> String contains the Ring executable path

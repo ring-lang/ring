@@ -23,13 +23,13 @@ We can change any keyword using the ChangeRingKeyword command.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	ChangeRingKeyword  <oldkeyword>  <newkeyword>
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ChangeRingKeyword see print
 	
@@ -41,7 +41,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ChangeRingKeyword  func function
 	ChangeRingKeyword  see  print
@@ -88,7 +88,7 @@ We can change any operator using the ChangeRingOperator command.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	ChangeRingOperator  <oldkeyword>  <newkeyword>
 
@@ -96,7 +96,7 @@ Example:
 
 The next program hide the + operator by changing it to _+
 
-.. code-block:: none
+.. code-block:: ring
 
 	changeringoperator + _+
 	changeringkeyword SEE PRINT
@@ -111,7 +111,7 @@ The next program hide the + operator by changing it to _+
 
 The next program change the + operator to "plus".
 
-.. code-block:: none
+.. code-block:: ring
 
 	changeringoperator + plus 
 	changeringkeyword SEE PRINT
@@ -132,7 +132,7 @@ We can use () around the function parameters (optional).
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	hello()
 	sum(3,4)
@@ -145,14 +145,14 @@ Example:
 	
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Hello
 	7
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	myfunc = func x,y { see x + y + nl }
 
@@ -164,7 +164,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	7
 	7
@@ -179,7 +179,7 @@ In Ring we can use semi-colon after and between statements (optional).
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# Using semi-colon is optional
 
@@ -192,7 +192,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	Hello
@@ -218,7 +218,7 @@ any force from the Compiler.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	$global_variable = 5
 
@@ -239,7 +239,7 @@ example:
 Output:
 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Global   : 5
 	Instance : 10
@@ -256,7 +256,7 @@ Then you can use the 'elseif' keyword.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	give x
 	if x = 1 see "one"
@@ -282,7 +282,7 @@ i.e. 'other' keyword is the same as 'else' keyword.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x = 1
 	switch x
@@ -294,7 +294,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	not 10
 
@@ -314,7 +314,7 @@ We can use the 'end' keyword to close different control structures
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "if statement.." + nl
 	x = 1
@@ -347,7 +347,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	if statement..
 	one
@@ -375,7 +375,7 @@ We can use braces { } to start and end different control structures
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "if statement.." + nl
 	x = 1
@@ -408,7 +408,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	if statement..
 	one
@@ -432,7 +432,7 @@ Also we can replacew the 'give' keyword with the 'get' keyword.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	put "Hello World" + nl
 	put "Enter Your Name ? " Get Name
@@ -448,7 +448,7 @@ We can replace the 'on' keyword with 'case' keyword in the switch statement.
 
 Example (1) :
 
-.. code-block:: none
+.. code-block:: ring
 
 	for x=1 to 10 
 		switch x 
@@ -461,7 +461,7 @@ Example (1) :
 
 Example (2) :
 
-.. code-block:: none
+.. code-block:: ring
 
 	for x=1 to 10 {
 		switch x {
@@ -483,7 +483,7 @@ We can use the 'def' keyword as the 'func' keyword to define functions and metho
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	one() two()
 

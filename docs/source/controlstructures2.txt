@@ -22,7 +22,7 @@ Branching
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	if Expression
 		Block of statements
@@ -34,7 +34,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	put " 
 		Main Menu
@@ -58,7 +58,7 @@ Example:
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	switch Expression
 	case Expression
@@ -69,7 +69,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Put " 
 		Main Menu
@@ -97,7 +97,7 @@ Looping
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	while Expression
 		Block of statements
@@ -106,7 +106,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	While True
 
@@ -140,7 +140,7 @@ Example:
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for identifier=expression to expression [step expression]
 		Block of statements
@@ -148,14 +148,14 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print numbers from 1 to 10
 	for x = 1 to 10	 put x + nl  end
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# Dynamic loop
 	Put "Start : " get nStart       
@@ -167,7 +167,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print even numbers from 0 to 10
 	for x = 0 to 10 step 2
@@ -176,7 +176,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print even numbers from 10 to 0
 	for x = 10 to 0 step -2
@@ -191,7 +191,7 @@ Example:
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for identifier in List/String  [step expression]
 		Block of statements
@@ -199,7 +199,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList = 1:10	# create list contains numbers from 1 to 10
 	for x in aList  put x + nl  end  # print numbers from 1 to 10
@@ -210,7 +210,7 @@ Example:
 Exceptions
 ==========
 
-.. code-block:: none
+.. code-block:: ring
 
 	try
 		Block of statements

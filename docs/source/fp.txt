@@ -29,7 +29,7 @@ to the function by reference.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Func Main
 		aList = [1,2,3,4,5]
@@ -48,7 +48,7 @@ Example:
 		
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList
 	1
@@ -81,13 +81,13 @@ We can call function from variables contains the function name using the Call co
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Call Variable([Parameters])
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Func Main
 		see "before test2()" + nl
@@ -105,7 +105,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	before test2()
 	Message from test!
@@ -123,7 +123,7 @@ Higher-order functions are the functions that takes other functions as parameter
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Func Main
 		times(5,:test)
@@ -139,7 +139,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Message from the test function!
 	Message from the test function!
@@ -157,13 +157,13 @@ Anonymous Functions are functions without names that can be passed as parameters
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Func [Parameters] { [statements] }
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	test( func x,y { 
 				see "hello" + nl
@@ -192,7 +192,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	hello
 	Sum : 6
@@ -204,7 +204,7 @@ Output:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Func Main
 		aList = [1,2,3,4]
@@ -239,7 +239,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	4
@@ -264,7 +264,7 @@ We can test if function = function or not using the '=' or '!=' operators
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	f1 = func { see "hello" + nl }
 
@@ -282,7 +282,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	hello
 	how are you?

@@ -47,7 +47,7 @@ decimals(n)		Determine the decimals digits after the point in float/double numbe
 Example
 ========
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Mathematical Functions" + nl
 	See "Sin(0) = " + sin(0) + nl
@@ -98,7 +98,7 @@ Example
 
 Program Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Mathematical Functions
 	Sin(0) = 0
@@ -146,13 +146,13 @@ The Random() function generate a random number and we can set the maximum value 
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Random(x) ---> Random number in the range [0,x]
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	for x = 1 to 20
 		see  "Random number : " + random() + nl +
@@ -161,7 +161,7 @@ Example:
 
 Program Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Random number : 31881
 	Random number Max (100) : 80
@@ -214,13 +214,13 @@ We can use unsigned numbers using the Unsigned() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Unsigned(nNum1,nNum2,cOperator)	--> result of cOperator operation on nNum1,nNum2
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see oat_hash("hello") + nl
 
@@ -240,7 +240,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	3372029979.00
 
@@ -254,13 +254,13 @@ We can determine the decimals numbers count after the point in float/double numb
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Decimals(nDecimalsCount)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x = 1.1234567890123
 	for d = 0 to 14
@@ -271,7 +271,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	1

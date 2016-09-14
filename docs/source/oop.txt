@@ -31,7 +31,7 @@ We can define new classes using the next syntax
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Class <Class Name> [From <Parent Class Name>]
 		[Attributes]
@@ -45,14 +45,14 @@ And we can create objects using the next syntax
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	New <Object Name> [ (init method parameters) ] |
 			  [ { access object data and methods } ]   ---> Object
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	New point { x=10  y=20  z=30  print() }
 	Class Point x y z func print see x + nl + y + nl + z + nl 
@@ -63,7 +63,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	10
 	20
@@ -71,7 +71,7 @@ Output:
 
 We can rewrite the same program in another style
 
-.. code-block:: none
+.. code-block:: ring
 
 	New point 			# create new object using the point class
 	{ 				# access the new object attributes and methods
@@ -93,7 +93,7 @@ We can rewrite the same program in another style
 
 Also we can write the same program in another way
 
-.. code-block:: none
+.. code-block:: ring
 
 	P1 = New Point
 	P1.x = 10
@@ -106,7 +106,7 @@ Also we can write the same program in another way
 
 Also we can write the same program in another way
 
-.. code-block:: none
+.. code-block:: ring
 
 	new point { print() } 	
 	Class Point
@@ -117,7 +117,7 @@ Also we can write the same program in another way
 
 Also we can write the same program in another way
 
-.. code-block:: none
+.. code-block:: ring
 
 	new point(10,20,30)
 	Class Point
@@ -129,7 +129,7 @@ Also we can write the same program in another way
 
 Also we can write the same program in another way
 
-.. code-block:: none
+.. code-block:: ring
 
 	new point( [ :x = 10 , :y = 20 , :z = 30 ] )
 	Class Point x y z
@@ -151,13 +151,13 @@ Inside the braces we can use the object attributes and methods directly
 
 This can be done when we create the object using the New keyword or at any time using the next syntax
 
-.. code-block:: none
+.. code-block:: ring
 
 	ObjectName { access object data and methods }
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Creating the Object" + nl
 	o1 = new Point
@@ -174,7 +174,7 @@ We can use braces to access objects when we call functions or methods
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new Point
 
@@ -192,7 +192,7 @@ We can mix between using braces and the dot operator to access the object in the
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new Point
 
@@ -213,7 +213,7 @@ Using braces to access objects can be nested.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	R1 = New Rectangle 
 	{
@@ -250,7 +250,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Name : Rectangle 1
 	Color: Blue
@@ -267,7 +267,7 @@ We can define methods to be used when we set and get object attributes.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Class ClassName
 
@@ -282,7 +282,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new person
 
@@ -304,7 +304,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Message from SetName() Function!
 	Message from GetName() Function!
@@ -323,7 +323,7 @@ We can define private attributes and methods after the keyword private inside th
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new person {
 		name = "Test"
@@ -364,7 +364,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Name   : Test
 	Age    : 20
@@ -382,7 +382,7 @@ We can add the operator method to our class to enable using operators with the c
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Class ClassName
 
@@ -397,7 +397,7 @@ and the second represent the second parameter after the operator.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point { x = 10 y = 10 print("P1    : ") }
 	o2 = new point { x = 20 y = 40 print("P2    : ") }
@@ -424,7 +424,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	P1    : X : 10 Y : 10
 	P2    : X : 20 Y : 40
@@ -440,7 +440,7 @@ We can create class from another class in the class definition using the keyword
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Class <Class Name> [From <Parent Class Name>]
 
@@ -448,7 +448,7 @@ We can call a method in the parent class from the child class using the super ob
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func methodname
 		...
@@ -457,7 +457,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Func main
 		e1 = new Employee {
@@ -482,7 +482,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Name : test
 	Age  : 20
@@ -499,7 +499,7 @@ We can write instructions after the class name to be executed when we create new
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new dynamicClass
 	see o1.var5 + nl	# output 5
@@ -525,7 +525,7 @@ Packages
 
 We can create a package (a group of classes under a common name) using the next syntax
 
-.. code-block:: none
+.. code-block:: ring
 
 	package PackageName
 		Class Class1
@@ -538,7 +538,7 @@ We can create a package (a group of classes under a common name) using the next 
 
 Example
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new System.output.console
 	o1.print("Hello World")
@@ -556,7 +556,7 @@ When we import a package, we can use any class inside this package directly.
 
 Example
 
-.. code-block:: none
+.. code-block:: ring
 
 	import system.output
 	o1 = new console {
@@ -577,14 +577,14 @@ We can print the object state (attributes and values) using the see command.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see new point { x=10 y=20 z=30 }
 	class point x y z
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x: 10.000000
 	y: 20.000000
@@ -600,13 +600,13 @@ We can use the find() function to search inside a list of objects.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Find(List,ItemValue,nColumn,cAttribute) ---> Item Index
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	myList1 = [new Company {position=3 name="Mahmoud" symbol="MHD"},
   		   new Company {position=2 name="Bert" symbol="BRT"},
@@ -630,7 +630,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	2
 	3
@@ -655,13 +655,13 @@ We can sort a list of objects based on an object attribute using the Sort() func
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Sort(List,nColumn,cAttribute) ---> Sorted List based on Object Attribute
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	myList1 = [
 			new Company {position=3 name="Mahmoud" symbol="MHD"},
@@ -684,7 +684,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	position: 2.000000

@@ -13,7 +13,7 @@ Hello World
 
 The next program prints the Hello World message on the screen (std-out).
 
-.. code-block:: none
+.. code-block:: ring
 
 	load "stdlib.ring"
 
@@ -28,7 +28,7 @@ Run the program
 to run the program, save the code in a file, for example : hello.ring
 then from the command line or terminal, run it using the ring interpreter
 
-.. code-block:: none
+.. code-block:: ring
 
 	ring hello.ring
 
@@ -43,12 +43,12 @@ be written in different styles
 
 .. tip:: It's better to select one style and use it in all of the program source code
 
-.. code-block:: none
+.. code-block:: ring
 
 	LOAD "stdlib.ring"
 	PRINT("Hello World")
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 	Print("Hello World")
@@ -62,7 +62,7 @@ Multi-Line literals
 
 Using Ring we can write multi-line literal, see the next example
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 	Print("
@@ -76,7 +76,7 @@ Also you can use the \\n to insert new line
 and you can use #{variable_name} to insert variables values.
 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 	Print( "Hello\nWelcome to the Ring programming language\nHow are you?")
@@ -89,7 +89,7 @@ Getting Input
 
 You can get the input from the user using the getstring() function
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 	Print("What is your name? ")
@@ -105,7 +105,7 @@ No Explicit End For Statements
 You don't need to use ';' or press ENTER to separate statements.
 The previous program can be written in one line.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 	Print("What is your name? ") cName=getstring() print("Hello #{cName}")
@@ -122,7 +122,7 @@ The comment starts with # or //
 
 Multi-lines comments are written between /* and */
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	/* 

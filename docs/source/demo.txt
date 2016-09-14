@@ -18,7 +18,7 @@ Language Shell
 
 We can create simple interactive programming environment using the next program
 
-.. code-block:: none
+.. code-block:: ring
 
 	while true 
 		see nl + "code:> "
@@ -32,7 +32,7 @@ We can create simple interactive programming environment using the next program
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	code:> see "hello world"
 	hello world
@@ -63,7 +63,7 @@ Main Menu
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# Demo Program
 
@@ -123,7 +123,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	        Main Menu

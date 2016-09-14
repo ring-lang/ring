@@ -39,7 +39,7 @@ This release add support for calling methods when an expression is evaluated
 
 check this example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# Natural Code
 	new program {
@@ -68,7 +68,7 @@ check this example:
 		
 Output: 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Enter Number (1) :3
 	Enter Number (2) :4
@@ -109,7 +109,7 @@ Example :
 
 We have two commands to change language keywords and operators.
 
-.. code-block:: none
+.. code-block:: ring
 
 	ChangeRingOperator + plus 
 	ChangeRingKeyword see print
@@ -123,7 +123,7 @@ We have new styles (Optional) for Input/Output.
 
 Example :
 
-.. code-block:: none
+.. code-block:: ring
 
 	Put "What is your name? "
 	Get cName
@@ -131,7 +131,7 @@ Example :
 
 Example : 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -143,7 +143,7 @@ We have new styles (optional) for control structures.
 
 Example :
 
-.. code-block:: none
+.. code-block:: ring
 
 	While True
 
@@ -172,7 +172,7 @@ Example :
 
 Example :
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -257,7 +257,7 @@ The library provide a useful group of new functions and classes
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -266,7 +266,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -275,7 +275,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -284,7 +284,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -298,7 +298,7 @@ Example:
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -308,7 +308,7 @@ example:
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -320,7 +320,7 @@ example:
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -333,7 +333,7 @@ example:
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -355,7 +355,7 @@ example:
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -400,7 +400,7 @@ Now Ring 1.1 provide RingLibSDL also so we can have the choice between Allegro o
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -432,7 +432,7 @@ In this project we selected the first way (declarative programming using nested 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gameengine.ring"	# Give Control to the Game Engine
 
@@ -482,7 +482,7 @@ Now Ring 1.1 provide native support for SQLite database too.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	oSQLite = sqlite_init()
 
