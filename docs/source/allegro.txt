@@ -10,7 +10,7 @@ in our Ring applications.
 
 We have the file gamelib.ring that load the DLL library that contains wrappers for the Allegro functions
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "allegro.rh"
 	Loadlib("ring_allegro.dll")
@@ -31,7 +31,7 @@ Drawing, Animation and Input
 The next example uses the Allegro library for drawing, moving objects on the screen and getting
 input from the keyboard and the mouse.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gamelib.ring"
 
@@ -222,7 +222,7 @@ Using TrueType Fonts
 
 In this example we will see how to use TrueType Fonts *.ttf in our Games using Allegro
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gamelib.ring"
 
@@ -254,7 +254,7 @@ Playing Sound Files
 
 The next example play a sound file
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gamelib.ring"
 
@@ -287,7 +287,7 @@ Scaling and Rotating Images
 
 The next example display and rotate an image
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gamelib.ring"
 
@@ -321,7 +321,7 @@ Display Transparent Image
 
 The next example display image with white background on another image
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gamelib.ring"
 
@@ -354,7 +354,7 @@ Using Threads
 
 In this example we will learn how to use threads from the Allegro library
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "gamelib.ring"
 
@@ -393,7 +393,7 @@ In this example we will learn how to use threads from the Allegro library
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	2
