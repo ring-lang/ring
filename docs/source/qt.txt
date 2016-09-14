@@ -2423,10 +2423,7 @@ The application during the runtime
 	:alt: Client and Server Example
 
 .. index:: 
-	pair: Demo Programs; Notepad Application
-
-.. index:: 
-	pair: Desktop and Mobile Development; Notepad Application
+	pair: Desktop and Mobile Development; Dynamic Objects
 
 Dynamic Objects
 ===============
@@ -2490,6 +2487,10 @@ Example:
 
 	Class MyButton from qPushButton
 		nIndex = 0
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; Notepad Application
 
 
 Notepad Application

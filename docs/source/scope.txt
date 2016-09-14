@@ -193,6 +193,9 @@ Solution : Just use Self
 		address
 		phone
 
+.. index:: 
+	pair: Scope Rules; Using Braces to access objects inside Class Methods
+
 Using Braces to access objects inside Class Methods
 ===================================================
 
