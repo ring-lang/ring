@@ -1,0 +1,104 @@
+.. index:: 
+	single: How to contribute?; Introduction
+
+==================
+How to contribute?
+==================
+
+Ring is a free-open source project, Everyone is welcome to contribute to Ring.
+
+Project Home : https://github.com/ring-lang/ring
+
+You can help in many parts in the project
+
+* Documentation
+* Testing
+* Samples
+* Applications
+* Libraries in Ring
+* Extensions in C/C++
+* Compiler and Virtual Machine (VM)
+* Ideas and suggestions
+
+
+.. index:: 
+	pair: How to contribute?; Documentation
+
+Documentation
+=============
+
+You can modify anything in the documentation, by updating the text files (*.txt)
+in this folder : https://github.com/ring-lang/ring/tree/master/docs/source
+
+The documentation is created using Sphinx : http://www.sphinx-doc.org/en/stable/
+
+.. index:: 
+	pair: How to contribute?; Testing
+
+Testing
+=======
+
+You can write new tests in this folder 
+
+https://github.com/ring-lang/ring/tree/master/tests/scripts
+
+
+.. index:: 
+	pair: How to contribute?; Samples
+
+Samples
+=======
+
+You can add new samples to this folder
+
+https://github.com/ring-lang/ring/tree/master/samples/other
+
+.. index:: 
+	pair: How to contribute?; Applications
+
+Applications
+============
+
+You can add new applications to this folder
+
+https://github.com/ring-lang/ring/tree/master/applications
+
+.. index:: 
+	pair: How to contribute?; Libraries in Ring
+
+Libraries in Ring
+=================
+
+You can update and add libraries to this folder
+
+https://github.com/ring-lang/ring/tree/master/ringlibs
+
+.. index:: 
+	pair: How to contribute?; Extensions in C/C++
+
+
+Extensions in C/C++
+===================
+
+You can add and update extensions in this folder
+
+https://github.com/ring-lang/ring/tree/master/extensions
+
+.. index:: 
+	pair: How to contribute?; Compiler and Virtual Machine (VM)
+
+Compiler and Virtual Machine (VM)
+=================================
+
+* Source Code (C Language) : https://github.com/ring-lang/ring/tree/master/src
+* Visual Source (PWCT) : https://github.com/ring-lang/ring/tree/master/visualsrc
+
+.. index:: 
+	pair: How to contribute?; Ideas and suggestions
+
+Ideas and suggestions
+=====================
+
+You can share your ideas, suggestions and questions to this group
+
+https://groups.google.com/forum/#!forum/ring-lang

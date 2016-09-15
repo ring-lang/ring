@@ -15,6 +15,7 @@ Contents:
    Language Design <languagedesign>
    What is new in Ring 1.1? <whatisnew>
    Building From Source Code <sourcecode>
+   How to contribute? <contribute>
    Applications developed using Ring in little hours <ringapps>
    Getting Started - First Style <getting_started>
    Getting Started - Second Style <getting_started2>
