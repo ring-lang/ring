@@ -9,7 +9,7 @@ const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC",
 
 "IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF", 
 
-"PUT","GET","CASE","DEF","CHANGERINGKEYWORD","CHANGERINGOPERATOR"} ;
+"PUT","GET","CASE","DEF","CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX"} ;
 /* Functions */
 
 Scanner * ring_scanner_new ( RingState *pRingState )
@@ -401,6 +401,19 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 				ring_string_add(pScanner->ActiveToken,cStr);
 			}
 			break ;
+		case SCANNER_STATE_LOADSYNTAX :
+			/* Switch State */
+			if ( c == '\n' ) {
+				pScanner->state = SCANNER_STATE_GENERAL ;
+				#if RING_SCANNEROUTPUT
+				printf( "\n Load Syntax = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
+				#endif
+				ring_scanner_loadsyntax(pScanner);
+				ring_string_set(pScanner->ActiveToken,"");
+			} else {
+				ring_string_add(pScanner->ActiveToken,cStr);
+			}
+			break ;
 	}
 	if ( c == '\n' ) {
 		pScanner->LinesCount++ ;
@@ -476,8 +489,13 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_addstring(pScanner->Keywords,"get");
 	ring_list_addstring(pScanner->Keywords,"case");
 	ring_list_addstring(pScanner->Keywords,"def");
+	/*
+	**  The next keywords are sensitive to the order and keywords count 
+	**  if you will add new keywords revise constants and ring_scanner_checktoken() 
+	*/
 	ring_list_addstring(pScanner->Keywords,"changeringkeyword");
 	ring_list_addstring(pScanner->Keywords,"changeringoperator");
+	ring_list_addstring(pScanner->Keywords,"loadsyntax");
 	ring_list_genhashtable(pScanner->Keywords);
 }
 
@@ -510,7 +528,7 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 		#if RING_SCANNEROUTPUT
 		printf( "\nTOKEN (Keyword) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
 		#endif
-		if ( (nResult != RING_SCANNER_CHANGERINGKEYWORD) && (nResult != RING_SCANNER_CHANGERINGOPERATOR) ) {
+		if ( nResult < RING_SCANNER_CHANGERINGKEYWORD ) {
 			sprintf( cStr , "%d" , nResult ) ;
 			ring_string_set(pScanner->ActiveToken,cStr);
 			ring_scanner_addtoken(pScanner,SCANNER_TOKEN_KEYWORD);
@@ -518,6 +536,10 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 		else if ( nResult == RING_SCANNER_CHANGERINGOPERATOR ) {
 			ring_string_set(pScanner->ActiveToken,"");
 			pScanner->state = SCANNER_STATE_CHANGEOPERATOR ;
+		}
+		else if ( nResult == RING_SCANNER_LOADSYNTAX ) {
+			ring_string_set(pScanner->ActiveToken,"");
+			pScanner->state = SCANNER_STATE_LOADSYNTAX ;
 		}
 		else {
 			ring_string_set(pScanner->ActiveToken,"");
@@ -902,4 +924,24 @@ void ring_scanner_changeoperator ( Scanner *pScanner )
 	/* Delete Strings */
 	ring_string_delete(word1);
 	ring_string_delete(word2);
+}
+
+void ring_scanner_loadsyntax ( Scanner *pScanner )
+{
+	char *cFileName  ;
+	RING_FILE fp  ;
+	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
+	signed char c  ;
+	int nSize  ;
+	cFileName = ring_string_get(pScanner->ActiveToken) ;
+	fp = RING_OPENFILE(cFileName , "r");
+	nSize = 1 ;
+	ring_string_set(pScanner->ActiveToken,"");
+	RING_READCHAR(fp,c,nSize);
+	while ( (c != EOF) && (nSize != 0) ) {
+		ring_scanner_readchar(c,pScanner);
+		RING_READCHAR(fp,c,nSize);
+	}
+	RING_CLOSEFILE(fp);
+	ring_scanner_readchar('\n',pScanner);
 }
