@@ -849,7 +849,7 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 	cStr = ring_string_get(pScanner->ActiveToken) ;
 	activeword = word1 ;
 	for ( x = 0 ; x < ring_string_size(pScanner->ActiveToken) ; x++ ) {
-		if ( cStr[x] == ' ' ) {
+		if ( (cStr[x] == ' ') || (cStr[x] == '\t') ) {
 			if ( (activeword == word1) && (ring_string_size(activeword) >= 1) ) {
 				activeword = word2 ;
 			}
@@ -894,7 +894,7 @@ void ring_scanner_changeoperator ( Scanner *pScanner )
 	cStr = ring_string_get(pScanner->ActiveToken) ;
 	activeword = word1 ;
 	for ( x = 0 ; x < ring_string_size(pScanner->ActiveToken) ; x++ ) {
-		if ( cStr[x] == ' ' ) {
+		if ( (cStr[x] == ' ') || (cStr[x] == '\t') ) {
 			if ( (activeword == word1) && (ring_string_size(activeword) >= 1) ) {
 				activeword = word2 ;
 			}
@@ -932,8 +932,18 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 	RING_FILE fp  ;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
 	signed char c  ;
-	int nSize  ;
+	int x,nSize  ;
 	cFileName = ring_string_get(pScanner->ActiveToken) ;
+	/* Remove Spaces and " " from file name */
+	x = 0 ;
+	while ( ( (cFileName[x] == ' ') || (cFileName[x] == '"') ) && (x <= strlen(cFileName)) ) {
+		cFileName++ ;
+	}
+	x = strlen(cFileName) ;
+	while ( ( (cFileName[x-1] == ' ') || (cFileName[x-1] == '"') ) && (x >= 1) ) {
+		cFileName[x-1] = '\0' ;
+		x-- ;
+	}
 	fp = RING_OPENFILE(cFileName , "r");
 	if ( fp==NULL ) {
 		printf( "\nCan't open file %s \n",cFileName ) ;

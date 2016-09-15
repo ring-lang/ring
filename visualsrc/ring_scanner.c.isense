@@ -229,4 +229,4 @@ Type: RING_FILE
 fp
 c
 Type: int
-nSize
+x,nSize
