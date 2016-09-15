@@ -71,8 +71,8 @@ Press Enter to continue and return to the Ring Notepad.
 .. index:: 
 	pair: Ring Notepad; Ring Notepad - Creating and running your first GUI application 
 
-Creating and running your first GUI Application 
-===============================================
+Creating and running your first GUI/Mobile Application 
+======================================================
 
 To learn how to create GUI applications using Ring check the "Desktop and Mobile development using RingQt" chapter.
 
@@ -139,8 +139,8 @@ We can run the application in any web browser or in the browser that are embedde
 .. index:: 
 	pair: Ring Notepad; Ring Notepad - Creating and running your first game 
 
-Creating and running your first Game
-====================================
+Creating and running your first Desktop/Mobile Game
+===================================================
 
 To learn about creating 2D Games using Ring check the "Demo Project - Game Engine for 2D Games" chapter.
 
