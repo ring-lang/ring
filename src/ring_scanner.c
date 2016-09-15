@@ -73,7 +73,7 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 	fp = RING_OPENFILE(cFileName , "r");
 	/* Read File */
 	if ( fp==NULL ) {
-		printf( "Can't open file %s \n  ",cFileName ) ;
+		printf( "\nCan't open file %s \n",cFileName ) ;
 		return ;
 	}
 	RING_READCHAR(fp,c,nSize);
@@ -935,6 +935,10 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 	int nSize  ;
 	cFileName = ring_string_get(pScanner->ActiveToken) ;
 	fp = RING_OPENFILE(cFileName , "r");
+	if ( fp==NULL ) {
+		printf( "\nCan't open file %s \n",cFileName ) ;
+		return ;
+	}
 	nSize = 1 ;
 	ring_string_set(pScanner->ActiveToken,"");
 	RING_READCHAR(fp,c,nSize);

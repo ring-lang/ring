@@ -1,4 +1,4 @@
-loadsyntax stylebasicon.ring
+loadsyntax "stylebasicon.ring"
 
 x = 10
 while x > 0
@@ -12,7 +12,7 @@ while x > 0
 x--
 endwhile
 
-loadsyntax stylebasicoff.ring
+loadsyntax "stylebasicoff.ring"
 
 
 see "done" + nl
