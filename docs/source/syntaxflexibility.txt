@@ -125,6 +125,71 @@ The next program change the + operator to "plus".
 .. index:: 
 	pair: Syntax Flexibility; Using "()" around the function parameters
 
+Load Syntax Files
+=================
+
+You may store a group of ChangeRingKeyword and ChangeRingOperator commands in a file to use later
+in many source files. You can't use the Load command to call these files because
+
+* ChangeRingKeyword and ChangeRingOperator commands are executed in the scanner phase by the compiler (before parsing).
+* The load command is executed in the parsing phase (after the scanner phase).
+
+Solution: Use the LoadSyntax Command which is executed in the scanner phase.
+
+Syntax:
+
+.. code-block:: ring
+
+	LoadSyntax	"syntaxfile.ring"
+
+Example:
+
+File : StyleBasicOn.ring
+
+.. code-block:: ring
+
+	ChangeRingKeyword 	see 	print
+	ChangeRingKeyword 	ok 	endif
+	ChangeRingKeyword 	next 	endfor
+	ChangeRingKeyword 	end 	endwhile
+
+File : StyleBasicOff.ring
+
+.. code-block:: ring
+
+	ChangeRingKeyword  print 	see
+	ChangeRingKeyword  endif 	ok
+	ChangeRingKeyword  endfor 	next
+	ChangeRingKeyword  endwhile 	end
+
+File : UseStyleBasic.ring
+
+.. code-block:: ring
+
+	LoadSyntax "stylebasicon.ring"
+
+	x = 10
+	while x > 0
+		print "x = " + x + nl
+		for t = 1 to 10
+			if t = 3
+				print "number three" + nl
+			endif
+		endfor	
+		x--
+	endwhile
+
+	LoadSyntax "stylebasicoff.ring"
+
+	see "done" + nl
+
+.. note:: files called by the LoadSyntax command must contains ChangeRingKeyword and ChangeRingOperator commands only. 
+
+.. tip:: files called by the LoadSyntax command doesn't support functions, packages and classes. just imperative commands only.
+
+.. note:: Using this feature you can create many styles that you can use in the same project and you can support Ring translation to other languages like Arabic, French and so on.
+
+	
 Using "()" around the function parameters
 =========================================
 
