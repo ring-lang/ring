@@ -7,3 +7,64 @@ Using Ring Notepad
 
 In this chapter we will learn about using Ring Notepad to write and execute Ring programs quickly
 
+Ring Notepad is just a simple application developed using the Ring language.
+
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Main Window
+
+Ring Notepad - Main Window
+==========================
+
+When we run the Ring Notepad we get three dockable windows
+
+* Project Files Window : where we can select and open any ring file (*.ring) quickly.
+* Source Code Window : Where we write the source code. 
+* Web Browser Window : Where we read the documentation or quickly open any website.
+
+.. image:: urn_shot1.png
+	:alt: Using Ring Notepad
+
+
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first console application 
+
+Creating and running your first console application 
+===================================================
+
+At first we will type the source code
+
+.. code-block:: ring
+
+	See "Hello, World!"
+
+As in the next image 
+
+.. image:: urn_shot2.png
+	:alt: Using Ring Notepad
+
+Then we will click on the "Save" button from the toolbar (or press CTRL+S)
+
+.. image:: urn_shot3.png
+	:alt: Using Ring Notepad
+
+Determine the source code file name and location. 
+
+For example type : hello 
+
+This will create a new source code file called : hello.ring
+
+.. image:: urn_shot4.png
+	:alt: Using Ring Notepad
+
+To run the program click on "Debug (Run then wait!)" button from the toolbar
+
+.. image:: urn_shot5.png
+	:alt: Using Ring Notepad
+
+The next screen shot present the application during the runtime
+
+Press Enter to continue and return to the Ring Notepad.
+
+.. image:: urn_shot6.png
+	:alt: Using Ring Notepad
+
