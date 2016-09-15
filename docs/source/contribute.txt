@@ -21,6 +21,17 @@ You can help in many parts in the project
 * Compiler and Virtual Machine (VM)
 * Ideas and suggestions
 
+.. index:: 
+	pair: How to contribute?; Special thanks to contributors
+
+
+Special thanks to contributors
+==============================
+
+Throughout the creation of this project, Ring relied heavily on contributions from experts along with college students.  
+Their input was invaluable, and we want to take a moment to thank them and recognize them for all of their hard work.
+
+Ring Team: http://ring-lang.sf.net/team.html
 
 .. index:: 
 	pair: How to contribute?; Documentation
@@ -115,3 +126,4 @@ Ideas and suggestions
 You can share your ideas, suggestions and questions in this group
 
 https://groups.google.com/forum/#!forum/ring-lang
+
