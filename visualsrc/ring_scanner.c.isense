@@ -230,3 +230,5 @@ fp
 c
 Type: int
 x,nSize
+Type: char
+cFileName2[200]
