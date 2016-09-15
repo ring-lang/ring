@@ -40,8 +40,8 @@
 
 /*
 	File is modified to include Ring Keywords and Ignore the Case
-	Update by : Mahmoud Fayed <msfclipper@yahoo.com>
-	Date	  : 2016.09.14
+	Updateed by : Mahmoud Fayed <msfclipper@yahoo.com>
+	Date	    : 2016.09.14
 */
 
 #include "highlighter.h"
@@ -69,7 +69,8 @@ Highlighter::Highlighter(QTextDocument *parent)
 					<< "\\bpackage\\b" << "\\bprivate\\b" << "\\bput\\b"
 					<< "\\breturn\\b" << "\\bsee\\b" << "\\bstep\\b"
 					<< "\\bswitch\\b" << "\\bto\\b" << "\\btry\\b"
-					<< "\\bwhile\\b" << "\\bchangeringkeyword\\b" << "\\bchangeringoperator\\b";
+					<< "\\bwhile\\b" << "\\bchangeringkeyword\\b"
+					<< "\\bchangeringoperator\\b" << "\\bloadsyntax\\b";
                     
     foreach (const QString &pattern, keywordPatterns) {
         rule.pattern = QRegExp(pattern,Qt::CaseInsensitive);   
