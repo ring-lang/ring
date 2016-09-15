@@ -1,0 +1,81 @@
+.. index:: 
+	single: Applications developed using Ring; Introduction
+
+=================================================
+Applications developed using Ring in little hours
+=================================================
+
+Ring is a new language, just released in 2016.01.25! 
+In little months we got thousands of downloads and many developers started learning, 
+using, and improving the language. Their feedback are the secret behind the language progress and success. 
+Many developers said that Ring is powerful, beautiful and easy to learn. Some of them provided good examples about what can be done using Ring in little hours. 
+They are very happy with the language productivity.
+
+FetchStockData Application
+==========================
+
+URL : https://groups.google.com/forum/#!topic/ring-lang/-fa1U_SXSjo
+
+Author : Bert Mariani
+
+This App is written in Ring. 
+
+It will fetch stock data from Yahoo and draw various types of charts.
+Any valid stock ticker can be entered, or selected from the drop down list - Select Symbol.
+
+It will not guarantee that you make money in the stock market.
+But it will visualize the history of the stock.
+
+
+.. image:: ringapps_shot3.png
+	:alt: Ring Application
+
+
+Fifteen Puzzle Game
+===================
+
+URL : https://github.com/CalmoSoft/CalmoSoft-Fifteen-Puzzle-Game/blob/gh-pages/CalmoSoftPuzzle.ring
+
+Author : Gal Zsolt (CalmoSoft)
+
+.. image:: ringapps_shot6.jpg
+	:alt: Ring Application
+
+
+TicTacToe Game
+==============
+
+URL : https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/TecTacToe.ring
+
+Author : Abdelrahman Mohammed
+
+.. image:: ringapps_shot5.jpg
+	:alt: Ring Application
+
+
+Squares Puzzle Game
+===================
+
+URL : https://github.com/MajdiSobain/RingAllegro_SquaresPuzzle
+
+Author : Majdi Sobain
+
+This project is about (Squares Puzzle) popular game that I have programmed using
+ring language with its RingAllegro Library. The principle of this game is very known to all of us, 
+which is moving squares to get the real full shape of the original picture.
+
+This game could be played using mouse and keyboard as well, showing a message of congratulations at the successful solving.
+
+.. image:: ringapps_shot2.png
+	:alt: Ring Application
+
+
+Werdy Application
+=================
+
+URL : https://github.com/magdy-ragab/werdy
+
+Author : Magdy Ragab
+
+.. image:: ringapps_shot1.png
+	:alt: Ring Application
