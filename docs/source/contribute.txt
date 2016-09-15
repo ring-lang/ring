@@ -112,6 +112,6 @@ Compiler and Virtual Machine (VM)
 Ideas and suggestions
 =====================
 
-You can share your ideas, suggestions and questions to this group
+You can share your ideas, suggestions and questions in this group
 
 https://groups.google.com/forum/#!forum/ring-lang
