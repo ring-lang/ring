@@ -1,0 +1,9 @@
+.. index:: 
+	single: Ring Notepad; Introduction
+
+==================
+Using Ring Notepad
+==================
+
+In this chapter we will learn about using Ring Notepad to write and execute Ring programs quickly
+

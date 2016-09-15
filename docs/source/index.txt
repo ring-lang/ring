@@ -18,6 +18,7 @@ Contents:
    Getting Started - First Style <getting_started>
    Getting Started - Second Style <getting_started2>
    Getting Started - Third Style <getting_started3>
+   Using Ring Notepad <ringnotepad>
    Variables <variables>
    Operators <operators>
    Control Structures - First Style <controlstructures>
