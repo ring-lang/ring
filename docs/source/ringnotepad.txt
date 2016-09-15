@@ -68,3 +68,33 @@ Press Enter to continue and return to the Ring Notepad.
 .. image:: urn_shot6.png
 	:alt: Using Ring Notepad
 
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first GUI application 
+
+Creating and running your first GUI application 
+===============================================
+
+In Ring notepad we have a special button to run GUI applications without displaying the console window.
+
+Source Code:
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	New qApp {
+		new qWidget() {
+			resize(400,400)
+			setWindowTitle("Hello, World!")
+			show()
+		}
+		exec()
+	}
+
+.. image:: urn_shot7.png
+	:alt: Using Ring Notepad
+
+.. image:: urn_shot8.png
+	:alt: Using Ring Notepad
+
+	
