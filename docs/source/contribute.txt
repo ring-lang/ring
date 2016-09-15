@@ -15,6 +15,7 @@ You can help in many parts in the project
 * Testing
 * Samples
 * Applications
+* Editors Support
 * Libraries in Ring
 * Extensions in C/C++
 * Compiler and Virtual Machine (VM)
@@ -65,6 +66,18 @@ https://github.com/ring-lang/ring/tree/master/applications
 
 .. index:: 
 	pair: How to contribute?; Libraries in Ring
+
+.. index:: 
+	pair: How to contribute?; Editors Support
+
+Editors Support
+===============
+
+You can help in supporting Ring in different code editors
+
+Check the next folder
+
+https://github.com/ring-lang/ring/tree/master/editor
 
 Libraries in Ring
 =================
