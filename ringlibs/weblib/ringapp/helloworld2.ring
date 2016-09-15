@@ -6,7 +6,7 @@ Import System.Web
 
 new page {
 
-	text("hello world")
+	text("Hello, World!")
 
 }
 

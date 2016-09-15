@@ -74,6 +74,8 @@ Press Enter to continue and return to the Ring Notepad.
 Creating and running your first GUI Application 
 ===============================================
 
+To learn how to create GUI applications using Ring check the "Desktop and Mobile development using RingQt" chapter.
+
 Source Code:
 
 .. code-block:: ring
@@ -100,3 +102,73 @@ The next screen shot present the application during the runtime
 	:alt: Using Ring Notepad
 
 	
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first Web application 
+
+Creating and running your first Web Application 
+===============================================
+
+To learn how support Ring in your web server and how to create web applications using Ring check 
+the "Web Development (CGI Library)" chapter.
+
+.. note:: You need to support the Ring language in your web server to be able to run the next example.
+
+Source Code:
+
+.. code-block:: ring
+
+	#!b:\ring\bin\ring.exe -cgi
+
+	load "weblib.ring"
+
+	Import System.Web
+
+	new page {
+
+		text("Hello, World!")
+
+	}
+
+
+We can run the application in any web browser or in the browser that are embedded in Ring Notepad.
+
+.. image:: urn_shot9.png
+	:alt: Using Ring Notepad
+
+
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first game 
+
+Creating and running your first Game
+====================================
+
+To learn about creating 2D Games using Ring check the "Demo Project - Game Engine for 2D Games" chapter.
+
+Source Code:
+
+.. code-block:: ring
+
+	Load "gameengine.ring"				 
+
+	func main					 
+
+		oGame = New Game			 
+		{
+			title = "My First Game"
+			sprite
+			{
+				type = GE_TYPE_PLAYER		 
+				x=400 y=400 width=100 height=100
+				file = "images/player.png"	
+				transparent = true			
+				Animate=false 
+				Move=true 	 
+				Scaled=true
+			}
+		}					 
+
+
+We can run the application as any GUI application.
+
+.. image:: urn_shot10.png
+	:alt: Using Ring Notepad
