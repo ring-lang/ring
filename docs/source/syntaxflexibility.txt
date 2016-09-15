@@ -127,7 +127,7 @@ The next program change the + operator to "plus".
 
 
 .. index:: 
-	pair: Syntax Flexibility; Load Syntax Files.
+	pair: Syntax Flexibility; Load Syntax Files
 
 
 Load Syntax Files

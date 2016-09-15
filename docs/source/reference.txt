@@ -20,7 +20,7 @@ In this chapter we will learn about
 Language Keywords
 =================
 
-Keywords Count : 45
+Keywords Count : 46
 
 * again
 * and
@@ -48,6 +48,7 @@ Keywords Count : 45
 * import
 * in
 * load
+* loadsyntax
 * loop
 * new
 * next
@@ -205,6 +206,12 @@ Statement ---> 'import' <Identifier> { '.' <Identifier> }
 Statement ---> 'private'
 
 Statement ---> 'load' <Literal>
+
+Statement ---> 'loadsyntax' <Literal>
+
+Statement ---> 'changeringkeyword' <OldKeyword> <NewKeyword>
+
+Statement ---> 'changeringoperator' <OldOperator> <NewOperator>
 
 Statement ---> 'see'|'put' <Expr>
 
