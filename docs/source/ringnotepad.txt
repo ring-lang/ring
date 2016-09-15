@@ -74,8 +74,6 @@ Press Enter to continue and return to the Ring Notepad.
 Creating and running your first GUI application 
 ===============================================
 
-In Ring notepad we have a special button to run GUI applications without displaying the console window.
-
 Source Code:
 
 .. code-block:: ring
@@ -91,8 +89,12 @@ Source Code:
 		exec()
 	}
 
+In Ring notepad we have a special button to run GUI applications without displaying the console window.
+
 .. image:: urn_shot7.png
 	:alt: Using Ring Notepad
+
+The next screen shot present the application during the runtime
 
 .. image:: urn_shot8.png
 	:alt: Using Ring Notepad

@@ -11,6 +11,9 @@ using, and improving the language. Their feedback are the secret behind the lang
 Many developers said that Ring is powerful, beautiful and easy to learn. Some of them provided good examples about what can be done using Ring in little hours. 
 They are very happy with the language productivity.
 
+.. index:: 
+	pair: Applications developed using Ring; FetchStockData Application
+
 FetchStockData Application
 ==========================
 
@@ -31,6 +34,9 @@ But it will visualize the history of the stock.
 	:alt: Ring Application
 
 
+.. index:: 
+	pair: Applications developed using Ring; Fifteen Puzzle Game
+
 Fifteen Puzzle Game
 ===================
 
@@ -42,6 +48,9 @@ Author : Gal Zsolt (CalmoSoft)
 	:alt: Ring Application
 
 
+.. index:: 
+	pair: Applications developed using Ring; TicTacToe Game
+
 TicTacToe Game
 ==============
 
@@ -52,6 +61,9 @@ Author : Abdelrahman Mohammed
 .. image:: ringapps_shot5.jpg
 	:alt: Ring Application
 
+
+.. index:: 
+	pair: Applications developed using Ring; Squares Puzzle Game
 
 Squares Puzzle Game
 ===================
@@ -68,6 +80,10 @@ This game could be played using mouse and keyboard as well, showing a message of
 
 .. image:: ringapps_shot2.png
 	:alt: Ring Application
+
+
+.. index:: 
+	pair: Applications developed using Ring; Werdy Application
 
 
 Werdy Application

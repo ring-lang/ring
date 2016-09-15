@@ -20,7 +20,7 @@ In this chapter we will learn about
 Language Keywords
 =================
 
-Keywords Count : 43
+Keywords Count : 45
 
 * again
 * and
@@ -29,6 +29,8 @@ Keywords Count : 43
 * call
 * case
 * catch
+* changeringkeyword
+* changeringoperator
 * class
 * def
 * do
