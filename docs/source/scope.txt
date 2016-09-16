@@ -49,6 +49,17 @@ Defining Variables and Variables Access
 
 (3) After the 'Class' keyword and the class name, when you write variable names to be defined as attributes, You still can access the global scope.
 
+In this region we have
+
+	* Global Scope ----> The Global Scope
+	* Object Scope ----> The Object Scope
+	* Local Scope  ----> The Object Scope
+
+.. note:: Since the local scope point also to the object scope in this region, we can use nested braces and still have access to the object scope through the local scope.
+
+.. tip :: You can create windows and controls as attibutes by defining them in this region.
+	
+
 (4) Function Parameters are automatically defined in the local scope.
 
 .. index:: 
@@ -331,4 +342,78 @@ to access the controls from different methods. Remember the previous information
 objects using braces inside methods because in this case you can't access the object attributes directly
 and if you copied the self object you will work on a copy and the new controls that you create will be 
 related to the copy and you can't access them.
+
+A good way for creating classes for windows is to define the window directly after the class name
+
+In this area you can use nested braces without problems to define the window and the controls, and
+they will be attributes that you can access from methods.
+
+Example:
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	new qApp 
+	{
+		$ObjectName = "oFirstWindow"
+		oFirstWindow = new FirstWindow
+
+		$ObjectName = "oSecondWindow"
+		oSecondWindow = new SecondWindow
+
+		exec()
+	}
+
+	Class FirstWindow
+
+		win = new qWidget() {
+			setgeometry(0,50,300,200)
+			setWindowTitle("First Window")
+			label1 = new qLabel(win)
+			{
+				setgeometry(10,10,300,30)
+				setText("0")
+			}
+			btn1 = new qPushButton(win)
+			{
+				move(100,100)
+				setText("Increment")
+				setClickEvent($ObjectName+".increment()")
+			}
+			show()
+		}	
+
+		Func Increment
+			label1 {
+				setText( "" + ( 0 + text() + 1 ) )
+			}
+
+
+	Class SecondWindow
+
+		win = new qWidget() {
+			setgeometry(400,50,300,200)
+			setWindowTitle("Second Window")
+			label1 = new qLabel(win)
+			{
+				setgeometry(10,10,300,30)
+				setText("0")
+			}
+			btn1 = new qPushButton(win)
+			{
+				move(100,100)
+				setText("Decrement")
+				setClickEvent($ObjectName+".decrement()")
+			}
+			show()
+		}	
+
+		Func Decrement
+			label1 {
+				setText( "" + ( 0 + text() - 1 ) )
+			}
+
+
+
 
