@@ -6,7 +6,7 @@ Applications developed using Ring in little hours
 =================================================
 
 Ring is a new language, just released in 2016.01.25! 
-In little days we got thousands of downloads and many developers started learning, 
+In little months we got thousands of downloads and many developers started learning, 
 using, and improving the language. Their feedback are the secret behind the language progress and success. 
 Many developers said that Ring is powerful, beautiful and easy to learn. Some of them provided good examples about what can be done using Ring in little hours. 
 They are very happy with the language productivity.
@@ -37,9 +37,6 @@ Here are some quotes about the Ring programming language:
 
 "I wish you the best with this project."
 	, David O'Neil (United States)
-
-"For a start. It might be a great language."
-	, Garry Taylor (Australia)
 
 "This looks like it was developed by some very competent people."
 	, Jim Clack
