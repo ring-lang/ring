@@ -6,7 +6,7 @@ Applications developed using Ring in little hours
 =================================================
 
 Ring is a new language, just released in 2016.01.25! 
-In little months we got thousands of downloads and many developers started learning, 
+In little days we got thousands of downloads and many developers started learning, 
 using, and improving the language. Their feedback are the secret behind the language progress and success. 
 Many developers said that Ring is powerful, beautiful and easy to learn. Some of them provided good examples about what can be done using Ring in little hours. 
 They are very happy with the language productivity.
@@ -26,7 +26,7 @@ Here are some quotes about the Ring programming language:
 "Very nice approach for a new language."
 	, Matth Moestl (Austria)
 
-"Very interesting! Will keep an eye on it.!"
+"Very interesting! I will keep an eye on it.!"
 	, Eslipak (Argentina)
 
 "I'd like to see some benchmarks. Otherwise, at first glance, it looks really promising."
@@ -47,31 +47,30 @@ Here are some quotes about the Ring programming language:
 "It is more simpler than C/C++ programming languages."
 	, Umer Farooq
 
-"Thank you for this awesome language and wonderfull ready to use Qt binding."
+"Thank you for this awesome language and wonderful ready to use Qt binding."
 	, Martial FAESSEL
 
 "I think it's great what he does for the community of developers and novice programming."
 	, Marino Esteban 
 
-"I just wanted to say GOOD JOB, Ring is just awesome. I have been checking the docs, and the language is so cool and fluent.
-It's just awesome, I love it, from now on count me as Ring's biggest fan. L O V E I T 
-Thanks for this, I am sure it's going to be BIG."
+"Ring is just awesome. The language is so cool and fluent. I am sure it's going to be BIG."
 	, Ahmed Zain
 
-"What a proud, really wish you Eng.Mahmoud Samir and Your Team  moving forward  ^_^
- and from now , considered me a Big  fan of the Ring programming language."
+"What a proud, really wish you Eng. Mahmoud Samir and Your Team  moving forward  ^_^
+ and from now , considered me a big  fan of the Ring programming language."
 	, Zainab Mahmoud
 
 "Well guys I love this language and it appears that you have created perfect language"
 	, Moemen Ghulmi
 
-"Good work Mahmoud, i've installed ring pl, and it's very perfect language."
+"Good work Mahmoud, I've installed ring pl, and it's very perfect language."
 	, Ahmed Omar
 
-"Thanks to Eng. Fayed for this great startup programming language and all the team behind it's release. I wish you best of luck."
+"Thanks to Eng. Fayed for this great startup programming language and all the team behind
+ its release. I wish you best of luck."
 	, Elkhouaja Khalid
 
-"Congratulations ! I am very happy And I wish you Success and good luck"
+"Congratulations! I am very happy and I wish you Success and good luck"
 	, Abobasmla Hassan
 
 .. index:: 
