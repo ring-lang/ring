@@ -70,3 +70,11 @@ Step 2:
 
 When you run the executable file (ring.exe) or (myapp.exe) the file ring.ringo will be executed.
 
+Creating Windows Installer
+==========================
+
+There are many tools that you can use to distribute your application.
+
+Check : nullsoft scriptable install system
+URL : http://nsis.sourceforge.net/Main_Page
+
