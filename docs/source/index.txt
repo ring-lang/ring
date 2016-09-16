@@ -61,7 +61,7 @@ Contents:
    Desktop and Mobile development using RingQt <qt>
    Scope Rules <scope>
    Syntax Flexibility <syntaxflexibility>
-   Distributing Ring Application <distribute>
+   Distributing Ring Applications <distribute>
    Frequently Asked Questions (FAQ) <faq>
    Reference <reference>
    Resources <resources>
