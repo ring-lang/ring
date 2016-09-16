@@ -1,0 +1,72 @@
+.. index:: 
+	single: Distributing Ring Application; Introduction
+
+==============================
+Distributing Ring Applications
+==============================
+
+In this chapter we will learn about distributing Ring applications.
+
+
+.. index:: 
+	pair: Distributing Ring Application; Distributing Applications for Microsoft Windows
+
+Distributing Applications for Microsoft Windows
+===============================================
+
+Step 1:
+
+.. code-block:: none
+
+	Copy c:\ring\bin folder to be for example c:\myapp
+
+Step 2:
+
+.. code-block:: none
+
+	Rename c:\myapp\ring.exe to c:\myapp\myapp.exe
+
+Step 3:
+
+.. code-block:: none
+
+	Create a file c:\myapp\ring.ring 
+
+And write
+
+.. code-block:: ring
+
+	Load "myapp.ring"
+
+When you run myapp.exe the file ring.ring will be executed automatically
+
+So your file myapp.ring will be called and executed
+
+Or just rename myapp.ring to ring.ring
+
+It's a fast way to distribute applications.
+
+.. index:: 
+	pair: Distributing Ring Application; Protecting the Source Code
+
+Protecting the Source Code
+==========================
+
+Step 1:
+
+Execute the next command 
+
+.. code-block:: none
+
+	ring myapp.ring -go
+
+This will generate one object file (myapp.ringo) from the project files (*.ring)
+
+Step 2:
+
+.. code-block:: none
+
+	Rename myapp.ringo to ring.ringo
+
+When you run the executable file (ring.exe) or (myapp.exe) the file ring.ringo will be executed.
+
