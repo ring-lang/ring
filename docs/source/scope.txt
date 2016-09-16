@@ -343,6 +343,13 @@ objects using braces inside methods because in this case you can't access the ob
 and if you copied the self object you will work on a copy and the new controls that you create will be 
 related to the copy and you can't access them.
 
+
+.. index:: 
+	pair: Scope Rules; Creating a Class for each Window in GUI applications
+
+Creating a Class for each Window in GUI applications
+====================================================
+
 A good way for creating classes for windows is to define the window directly after the class name
 
 In this area you can use nested braces without problems to define the window and the controls, and
@@ -413,7 +420,3 @@ Example:
 			label1 {
 				setText( "" + ( 0 + text() - 1 ) )
 			}
-
-
-
-
