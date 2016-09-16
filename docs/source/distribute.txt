@@ -70,6 +70,9 @@ Step 2:
 
 When you run the executable file (ring.exe) or (myapp.exe) the file ring.ringo will be executed.
 
+.. index:: 
+	pair: Distributing Ring Application; Creating Windows Installer
+
 Creating Windows Installer
 ==========================
 
@@ -78,3 +81,27 @@ There are many tools that you can use to distribute your application.
 Check : nullsoft scriptable install system
 URL : http://nsis.sourceforge.net/Main_Page
 
+.. index:: 
+	pair: Distributing Ring Application; Using C/C++ Compiler and Linker
+
+Using C/C++ Compiler and Linker
+===============================
+
+Ring can be embedded in C/C++ programs, you can create executable files using a C/C++ compiler
+by embedding Ring language in your C/C++ program.
+
+Check the "Embedding Ring Language in C/C++ Programs" chapter.
+
+Using this way you will avoid using ring.ring or ring.ringo files.
+
+.. index:: 
+	pair: Distributing Ring Application; Distributing Applications and Games for Mobile
+
+Distributing Applications and Games for Mobile
+==============================================
+
+Ring can be embedded in a Qt projects or LibSDL projects to build Mobile applications and Games.
+
+You can build the Qt project or the LibSDL and get the Android package directly (*.apk)
+
+Check Ring distributions for Mobile development using Qt or LibSDL.
