@@ -17,7 +17,7 @@ Ring 1.1  comes with many new features
 
 * Better Natural Language Programming Support
 * Generate/Execute Ring Object Files (*.ringo)
-* Syntax Flexibility and differnt styles for I/O and Control Structures
+* Syntax Flexibility and different styles for I/O and Control Structures
 * New Functions and Changes
 * StdLib functions and classes written in Ring
 * RingLibSDL 
