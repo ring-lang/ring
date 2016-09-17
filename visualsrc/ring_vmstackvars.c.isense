@@ -3,8 +3,6 @@ Type: List *
 pVar
 Type: List *
 pList
-Type: String *
-pString
 ring_vm_loadaddress
 ring_vm_assignment
 Type: List *

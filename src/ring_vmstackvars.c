@@ -25,6 +25,10 @@ void ring_vm_pushv ( VM *pVM )
 					if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
 						if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"NULL") == 0 ) {
 							ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
+							if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
+								ring_list_deletelastitem(pVM->pActiveMem);
+							}
+							/* PASS THE ICO_PUSHV Command */
 							return ;
 						}
 					}
