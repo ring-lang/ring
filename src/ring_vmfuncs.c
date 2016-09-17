@@ -138,6 +138,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		}
 	}
 	ring_vm_error2(pVM,RING_VM_ERROR_FUNCNOTFOUND,cStr);
+	/* Pass The Call Instruction */
+	pVM->nPC++ ;
 	return 0 ;
 }
 

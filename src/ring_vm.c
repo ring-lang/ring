@@ -647,7 +647,8 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 			RING_VM_STACK_POP ;
 			if ( ring_vm_oop_isobject(pList) ) {
 				if ( ring_vm_oop_ismethod(pVM, pList,"braceerror") ) {
-					ring_vm_eval(pVM,"braceerror()");
+					ring_list_setstring(ring_list_getlist(ring_list_getlist(pVM->pMem,1),6),3,cStr);
+					ring_vm_runcode(pVM,"braceerror()");
 					return ;
 				}
 			}
