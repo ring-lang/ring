@@ -640,6 +640,19 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 {
 	int x  ;
 	List *pList  ;
+	/* Check BraceError() */
+	if ( ring_list_getsize(pVM->pObjState) > 0 ) {
+		if ( ring_vm_findvar(pVM,"self") ) {
+			pList = ring_vm_oop_getobj(pVM);
+			RING_VM_STACK_POP ;
+			if ( ring_vm_oop_isobject(pList) ) {
+				if ( ring_vm_oop_ismethod(pVM, pList,"braceerror") ) {
+					ring_vm_eval(pVM,"braceerror()");
+					return ;
+				}
+			}
+		}
+	}
 	if ( ring_list_getsize(pVM->pTry) == 0 ) {
 		ring_state_cgiheader(pVM->pRingState);
 		printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
