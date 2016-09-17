@@ -550,7 +550,11 @@ Output:
 Clean Natural Code
 ==================
 
+Instead of typing the literal as "literal" we can accept the words directly.
+
 Example:
+
+The next example accept hello world instead of "hello world"
 
 .. code-block:: ring
 
