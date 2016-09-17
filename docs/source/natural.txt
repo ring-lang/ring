@@ -473,3 +473,73 @@ Output:
 	Enter Number (2) :4
 	The Sum : 7
 
+.. index:: 
+	pair: Natural Language Programming; BraceError() Method
+
+BraceError() Method
+===================
+
+The next examples demonstrates how to use the "BraceError" method to handle errors when accessing
+the object using braces {}.
+
+Example:
+
+.. code-block:: ring
+
+	func main
+		o1 = new point {
+			x=10 y=20 z=30
+			TEST
+			SEE test
+		}
+
+	class point x y z
+		func braceerror
+			see "Handle Error!" + nl
+			SEE "Message :" + cCatchError + nl
+			if ( left(cCatchError,11) = "Error (R24)" ) and not isattribute(self,"test")
+				see "add attribute" + nl
+				addattribute(self,"test")
+				test = 10
+			ok
+			see "done" + nl
+			return 
+			
+Output:
+
+.. code-block:: none
+
+	Handle Error!
+	Message :Error (R24) : Using uninitialized variable : test
+	add attribute
+	done
+	10
+	
+Example:
+
+.. code-block:: ring
+
+	new point {
+		x=10 y=20 z=30
+		test()
+		see "mmm..." + NL
+	}
+
+	class point x y z
+		func braceerror
+			see "Handle Error!" + nl
+			see "Message :" + cCatchError + nl
+			see self
+			see "Done" + NL
+			
+Output:
+
+.. code-block:: none
+
+	Handle Error!
+	Message :Error (R3) : Calling Function without definition !: test
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
+	Done
+	mmm...
