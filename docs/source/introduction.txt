@@ -5,6 +5,9 @@
 Introduction
 ============
 
+.. image:: thering.jpg
+	:alt: The Ring Programming Language
+
 Welcome to the Ring programming language!
 
 The Ring is an Innovative and practical general-purpose multi-paradigm scripting language
