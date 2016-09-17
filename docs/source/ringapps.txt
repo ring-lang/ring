@@ -76,6 +76,8 @@ Here are some quotes about the Ring programming language:
 "Good work, good website and good luck."
 	, Shadi Saeed (Egypt)
 
+"Good Features of multi-use language on the Web, Mobile and Desktop."
+	, Abdelrhman Haider
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
