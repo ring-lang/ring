@@ -12,7 +12,7 @@ install:
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq libmysqlclient-dev   ; fi
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq libcurl4-gnutls-dev  ; fi
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq libssl-dev  ; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo brew update ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install unixodbc ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install mysql-connector-c ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install allegro ; fi
