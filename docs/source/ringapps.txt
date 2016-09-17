@@ -1,8 +1,8 @@
 .. index:: 
-	single: Applications developed using Ring; Introduction
+	single: Applications developed in little hours; Introduction
 
 =================================================
-Applications developed using Ring in little hours
+Applications developed in little hours
 =================================================
 
 Ring is a new language, just released in 2016.01.25! 
@@ -38,11 +38,14 @@ Here are some quotes about the Ring programming language:
 "I wish you the best with this project."
 	, David O'Neil (United States)
 
+"Just fantastic."
+	, José Antonio (Mexico)
+
 "This looks like it was developed by some very competent people."
-	, Jim Clack
+	, Jim Clack (United States)
 
 "It is more simpler than C/C++ programming languages."
-	, Umer Farooq
+	, Umer Farooq (Pakistan)
 
 "Thank you for this awesome language and wonderful ready to use Qt binding."
 	, Martial FAESSEL
@@ -61,7 +64,7 @@ Here are some quotes about the Ring programming language:
 	, Moemen Ghulmi
 
 "Good work Mahmoud, I've installed ring pl, and it's very perfect language."
-	, Ahmed Omar
+	, Ahmed Omar (Egypt)
 
 "Thanks to Eng. Fayed for this great startup programming language and all the team behind
  its release. I wish you best of luck."
@@ -69,6 +72,10 @@ Here are some quotes about the Ring programming language:
 
 "Congratulations! I am very happy and I wish you Success and good luck"
 	, Abobasmla Hassan
+
+"Good work, good website and Good luck"
+	, Shadi Saeed (Egypt)
+
 
 .. index:: 
 	pair: Applications developed using Ring; FetchStockData Application
