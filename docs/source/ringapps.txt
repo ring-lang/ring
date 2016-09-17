@@ -60,7 +60,7 @@ Here are some quotes about the Ring programming language:
  and from now , considered me a big  fan of the Ring programming language."
 	, Zainab Mahmoud
 
-"Well guys I love this language and it appears that you have created perfect language"
+"Well guys I love this language and it appears that you have created perfect language."
 	, Moemen Ghulmi
 
 "Good work Mahmoud, I've installed ring pl, and it's very perfect language."
@@ -70,10 +70,10 @@ Here are some quotes about the Ring programming language:
  its release. I wish you best of luck."
 	, Elkhouaja Khalid
 
-"Congratulations! I am very happy and I wish you Success and good luck"
+"Congratulations! I am very happy and I wish you Success and good luck."
 	, Abobasmla Hassan
 
-"Good work, good website and Good luck"
+"Good work, good website and good luck."
 	, Shadi Saeed (Egypt)
 
 
