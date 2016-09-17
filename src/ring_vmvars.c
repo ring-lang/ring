@@ -32,6 +32,10 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				pList = pVM->pActiveMem ;
 			}
 			else if ( x == 2 ) {
+				/* IF obj.attribute - we did the search in local scope - pass others */
+				if ( pVM->nGetSetProperty == 1 ) {
+					continue ;
+				}
 				if ( ring_list_getsize(pVM->pObjState) == 0 ) {
 					continue ;
 				}
@@ -50,6 +54,10 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 					}
 				}
 			} else {
+				/* IF obj.attribute - we did the search in local scope - pass others */
+				if ( pVM->nGetSetProperty == 1 ) {
+					continue ;
+				}
 				pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
 			}
 			if ( ring_list_getsize(pList) < 10 ) {
