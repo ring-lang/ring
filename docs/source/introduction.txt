@@ -101,17 +101,18 @@ The Ring language comes with the next features
 .. tip:: The language is ready for production!
 
 * Free Open Source (MIT License)
-* Interpreter - Hybrid Implementation (Compiler+VM) 
+* Hybrid Implementation (Compiler + Virtual Machine) 
 * Declarative programming on the top of Object-Oriented programming
-* No explicit end for statements (No ; or ENTER is required)
-* A small language (Around 100,000 lines of code) 
+* Natural Language programming on the top of Object-Oriented programming
+* Syntax Flexibility (You can change the language keywords and operators)
+* Compact Syntax, No explicit end for statements (No ; or ENTER is required)
+* Using braces { } we can access objects and use attributes/methods as variables/functions
+* Transparent Implementation 
+* Visual Implementation - Developed using Visual Programming (PWCT) 
+* A small language (Around 200,000 lines of code) 
 	* The compiler + The Virtual Machine are 15,000 lines of C code
-	* The other 85,000 lines of code are related to libraries!
-		* 10,000 lines of C code
-		* 50,000 lines of C++ code
-		* 25,000 lines of Ring code
+	* The other 185,000 lines of code are related to libraries!
 * Writen in ANSI C (The code is generated)
-* Developed using Visual Programming (PWCT) 
 * Optional Printing for Tokens/Grammar/Byte-Code during execution
 * Portable (Windows, Linux & Mac OS X)
 * Comments (One line & Multi-lines)
@@ -150,7 +151,6 @@ The Ring language comes with the next features
 	* Operator Overloading
 	* Packages
 
-* using { } to access objects and use attributes/methods as variables/functions
 * Reflection and Meta-programming
 * Clear program structure (Statements then functions then packages & classes)
 * Exception Handling
@@ -161,7 +161,7 @@ The Ring language comes with the next features
 * String functions
 * List functions
 * File processing functions
-* Database support (ODBC & MySQL)
+* Database support (ODBC, SQLite & MySQL)
 * Security Functions (OpenSSL)
 * Internet Functions (LibCurl)
 * CGI Library (Written in Ring)
@@ -182,10 +182,11 @@ The Ring language comes with the next features
 * Embedding the language in C/C++ programs
 * Comes with code generator (Written in Ring) to quickly wrap C/C++ Libraries
 	* Used to Support Allegro by creating RingAllegro
+	* Used to Support LibSDL by creating RingLibSDL
 	* Used to Support Qt by creating RingQt
-* Create 2D Games (Using the Allegro Library)
+* Create 2D Games for Desktop and Mobile (Using the Allegro Library or the LibSDL Library)
+* Comes with simple Game Engine for 2D Games
 * Create GUI Applications for Desktop and Mobile (Using the Qt Framework)
-
 
 
 License
