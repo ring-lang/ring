@@ -161,3 +161,44 @@ Author : Magdy Ragab
 
 .. image:: ringapps_shot1.png
 	:alt: Ring Application
+
+
+Samples in this book
+====================
+
+The next samples are developed in little hours too and we will introduce them through this book.
+
+The Ring Notepad
+
+.. image:: urn_shot1.png
+	:alt: Ring Application
+
+The Cards Game
+
+.. image:: ringapps_shot4.png
+	:alt: Ring Application
+
+.. image:: ringqt_shot52.jpg
+	:alt: Ring Application
+
+Web Development
+
+.. image:: ex24.jpg
+	:alt: Ring Application
+
+Stars Fighter Game
+
+.. image:: starsfighter.png
+	:alt: Ring Application
+
+Flappy Bird 3000 Game
+
+.. image:: flappybird.png
+	:alt: Ring Application
+
+Super Man 2016 Game
+
+.. image:: superman.png
+	:alt: Ring Application
+
+
