@@ -641,7 +641,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 	int x  ;
 	List *pList  ;
 	/* Check BraceError() */
-	if ( ring_list_getsize(pVM->pObjState) > 0 ) {
+	if ( (ring_list_getsize(pVM->pObjState) > 0) && (ring_vm_oop_callmethodinsideclass(pVM) == 0 ) ) {
 		if ( ring_vm_findvar(pVM,"self") ) {
 			pList = ring_vm_oop_getobj(pVM);
 			RING_VM_STACK_POP ;

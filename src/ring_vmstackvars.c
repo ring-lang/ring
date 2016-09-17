@@ -28,7 +28,6 @@ void ring_vm_pushv ( VM *pVM )
 							if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
 								ring_list_deletelastitem(pVM->pActiveMem);
 							}
-							/* PASS THE ICO_PUSHV Command */
 							return ;
 						}
 					}
