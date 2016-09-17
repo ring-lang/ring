@@ -13,7 +13,7 @@ They are very happy with the language productivity.
 
 
 .. index:: 
-	pair: Applications developed using Ring; Quotes about Ring
+	pair: Applications developed in little hours; Quotes about Ring
 
 Quotes about Ring
 =================
@@ -78,7 +78,7 @@ Here are some quotes about the Ring programming language:
 
 
 .. index:: 
-	pair: Applications developed using Ring; FetchStockData Application
+	pair: Applications developed in little hours; FetchStockData Application
 
 FetchStockData Application
 ==========================
@@ -101,7 +101,7 @@ But it will visualize the history of the stock.
 
 
 .. index:: 
-	pair: Applications developed using Ring; Fifteen Puzzle Game
+	pair: Applications developed in little hours; Fifteen Puzzle Game
 
 Fifteen Puzzle Game
 ===================
@@ -115,7 +115,7 @@ Author : Gal Zsolt (CalmoSoft)
 
 
 .. index:: 
-	pair: Applications developed using Ring; TicTacToe Game
+	pair: Applications developed in little hours; TicTacToe Game
 
 TicTacToe Game
 ==============
@@ -129,7 +129,7 @@ Author : Abdelrahman Mohammed
 
 
 .. index:: 
-	pair: Applications developed using Ring; Squares Puzzle Game
+	pair: Applications developed in little hours; Squares Puzzle Game
 
 Squares Puzzle Game
 ===================
@@ -149,7 +149,7 @@ This game could be played using mouse and keyboard as well, showing a message of
 
 
 .. index:: 
-	pair: Applications developed using Ring; Werdy Application
+	pair: Applications developed in little hours; Werdy Application
 
 
 Werdy Application
@@ -162,6 +162,9 @@ Author : Magdy Ragab
 .. image:: ringapps_shot1.png
 	:alt: Ring Application
 
+
+.. index:: 
+	pair: Applications developed in little hours; Samples in this book
 
 Samples in this book
 ====================
