@@ -45,7 +45,7 @@ Defining Variables and Variables Access
 
 (1) Ring uses lexical scoping, i.e. the scope of the variable is based on where we defined the variable.
 
-(2) Inside braces {  } when you access an object, You still can access the global scope and the local scope.
+(2) Inside braces {  } when you access an object, You will change the current active object scope to this object scope but you still can access the global scope and the local scope.
 
 (3) After the 'Class' keyword and the class name, when you write variable names to be defined as attributes, You still can access the global scope.
 
