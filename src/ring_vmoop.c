@@ -338,6 +338,18 @@ void ring_vm_oop_property ( VM *pVM )
 	pVM->pActiveMem = ring_list_getlist(pVar,2);
 	pVM->nGetSetProperty = 1 ;
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
+		/* Create the attribute if we are in the class region after the class name */
+		if ( pVM->nCheckNULLVar ) {
+			ring_vm_newvar(pVM, RING_VM_IR_READC);
+			/* Support for Private Flag */
+			ring_list_setint((List *) RING_VM_STACK_READP,RING_VAR_PRIVATEFLAG,pVM->nPrivateFlag);
+			RING_VM_STACK_POP ;
+			ring_vm_findvar(pVM, RING_VM_IR_READC);
+			pVM->pActiveMem = pScope ;
+			pVM->nGetSetProperty = 0 ;
+			pVM->pGetSetObject = NULL ;
+			return ;
+		}
 		pVM->pActiveMem = pScope ;
 		pVM->nGetSetProperty = 0 ;
 		if ( pVM->nActiveCatch == 0 ) {
