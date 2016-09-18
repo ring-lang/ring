@@ -213,6 +213,14 @@ Func Main
 		WriteFile(sysargv[5],cCode)
 	ok
 
+	if len($aClassesList) > 0
+		cCode = ""
+		for x in $aClassesList
+			cCode += x[1] + nl
+		next
+		WriteFile("classes.txt",cCode)
+	next
+
 Func WriteFile cFileName,cCode
 	See "Writing file : " + cFileName + nl + 
 	    "Size : " + len(cCode) + " Bytes" + nl
