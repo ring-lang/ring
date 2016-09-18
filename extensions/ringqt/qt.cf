@@ -2064,7 +2064,7 @@ void setsliderPressedEvent(const char *)
 void setsliderReleasedEvent(const char *)
 void setvalueChangedEvent(const char *)
 
-<filter> (get("RINGQT_ANDROID") = "")
+<filter> (sysget("RINGQT_ANDROID") = "")
 <class>
 name: QWebView
 para: QWidget *parent
@@ -2956,7 +2956,7 @@ QString substitute(QString)
 QStringList substitutes(QString)
 QStringList substitutions(void)
 
-<filter> (get("RINGQT_ANDROID") = "")
+<filter> (sysget("RINGQT_ANDROID") = "")
 <class>
 name: QWebSettings
 abstract
