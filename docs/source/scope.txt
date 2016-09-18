@@ -471,7 +471,7 @@ Output:
 	name: NULL
 
 The problem in the previous example is that the Class account contains an attribute called "name"
-and the Friend class contains an attribue call "name" also.
+and the Friend class contains an attribue called "name" also.
 
 If you tried using self.name inside braces you will get the same result!
 
@@ -497,14 +497,16 @@ If you tried using self.name inside braces you will get the same result!
 So why using self.name inside braces doesn't solve this conflict?
 
 Because after the class region we have
-global scope ---> global scope
-object scope ---> object scope (Account Class)
-local  scope ---> local scope (Account Class)
+
+* global scope ---> global scope
+* object scope ---> object scope (Account Class)
+* local  scope ---> local scope (Account Class)
 
 When we use braces we change the object scope, so we have
-global scope ---> global scope
-object scope ---> object scope (Friend Class)
-local  scope ---> local scope (Account Class)
+
+* global scope ---> global scope
+* object scope ---> object scope (Friend Class)
+* local  scope ---> local scope (Account Class)
 
 Ring search in the local scope first, so using self.name will use the Account class.
 
