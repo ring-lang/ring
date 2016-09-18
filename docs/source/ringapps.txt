@@ -39,7 +39,7 @@ Here are some quotes about the Ring programming language:
 	, David O'Neil (United States)
 
 "Just fantastic."
-	, José Antonio (Mexico)
+	, Jose Antonio (Mexico)
 
 "This looks like it was developed by some very competent people."
 	, Jim Clack (United States)
