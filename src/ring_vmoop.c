@@ -368,11 +368,6 @@ void ring_vm_oop_property ( VM *pVM )
 	pVM->pActiveMem = pScope ;
 	pVM->nGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
-	if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
-		/* Error Message */
-		ring_vm_error2(pVM,RING_VM_ERROR_PROPERTYNOTFOUND,RING_VM_IR_READC);
-		return ;
-	}
 }
 
 void ring_vm_oop_loadmethod ( VM *pVM )
