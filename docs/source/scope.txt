@@ -49,16 +49,17 @@ Defining Variables and Variables Access
 
 (3) After the 'Class' keyword and the class name, when you write variable names to be defined as attributes, You still can access the global scope.
 
-In this region we have
+In this region (class region - after the class name and before methods) we have
 
 	* Global Scope ----> The Global Scope
 	* Object Scope ----> The Object Scope
 	* Local Scope  ----> The Object Scope
 
-.. note:: Since the local scope point also to the object scope in this region, we can use nested braces and still have access to the object scope through the local scope.
+.. note:: Since the local scope in the class region point also to the object scope in this region, we can use nested braces and still have access to the object scope of the class through the local scope.
 
 .. tip :: You can create windows and controls as attibutes by defining them in this region.
 	
+.. tip :: In the class region if you created objects and used braces {} to access them then using self.attribute inside braces will use the class (not the object that you access) because you have access to the class through the local scope.
 
 (4) Function Parameters are automatically defined in the local scope.
 
