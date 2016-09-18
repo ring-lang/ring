@@ -175,7 +175,7 @@ The next samples are developed in little hours and we will introduce them throug
 
 The next screen shot for he Ring Notepad application
 
-.. image:: urn_shot1.png
+.. image:: shotringnotepad.png
 	:alt: Ring Application
 
 The next screen shot for the Cards Game
@@ -190,7 +190,7 @@ The next screen shot for the Cards Game (Android)
 
 The next screen shot from the Web Development chapter
 
-.. image:: ex24.jpg
+.. image:: ex24_2.jpg
 	:alt: Ring Application
 
 The next screen shots for simple 2D Games that we will present in the Game Engine Chapter.
