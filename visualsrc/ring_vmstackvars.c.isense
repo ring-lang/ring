@@ -20,6 +20,8 @@ ring_vm_loadapushv
 Type: List *
 pVar
 ring_vm_newline
+Type: List *
+pList
 ring_vm_freestack
 Type: List *
 pList

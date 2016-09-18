@@ -218,6 +218,7 @@ void ring_vm_loadapushv ( VM *pVM )
 
 void ring_vm_newline ( VM *pVM )
 {
+	List *pList  ;
 	pVM->nLineNumber = RING_VM_IR_READI ;
 }
 
