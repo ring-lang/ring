@@ -219,7 +219,7 @@ Func Main
 			cCode += x[1] + nl
 		next
 		WriteFile("classes.txt",cCode)
-	next
+	ok
 
 Func WriteFile cFileName,cCode
 	See "Writing file : " + cFileName + nl + 
