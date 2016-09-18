@@ -156,7 +156,7 @@ Solution Number (3) - Use the AddAttribute() Method
 		address 
 		phone
 
-Solution Number (3) - Use self before the attribute name
+Solution Number (4) - Use self before the attribute name
 
 .. code-block:: ring
 
@@ -172,11 +172,15 @@ Solution Number (3) - Use self before the attribute name
 
 So what is the best solution to this conflict?
 
-1 - Use the $ Mark 
+1 - Use the $ Mark for global variables 
 
 2 - Optional : Try to avoid global variables and use the Main function 
 
 In practice i do both of them.
+
+The other solution 
+
+1 - Use self before the attribute name or use AddAttribute()
 
 .. index:: 
 	pair: Scope Rules; Conflict between Class Attributes and Local Variables
@@ -434,3 +438,175 @@ Example:
 			label1 {
 				setText( "" + ( 0 + text() - 1 ) )
 			}
+
+Conflict between self inside braces and self in the class region
+================================================================
+
+Look at this example
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		aFriends + new Friend { 
+			name = "Gal" 
+		}
+		aFriends + new Friend { 
+			name = "Bert" 
+		}
+	
+	Class Friend
+		name
+
+Output:
+
+.. code-block:: none
+
+	name: NULL
+	name: NULL
+
+The problem in the previous example is that the Class account contains an attribute called "name"
+and the Friend class contains an attribue call "name" also.
+
+If you tried using self.name inside braces you will get the same result!
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		aFriends + new Friend { 
+			self.name = "Gal" 
+		}
+		aFriends + new Friend { 
+			self.name = "Bert" 
+		}
+	
+	Class Friend
+		name
+
+So why using self.name inside braces doesn't solve this conflict?
+
+Because after the class region we have
+global scope ---> global scope
+object scope ---> object scope (Account Class)
+local  scope ---> local scope (Account Class)
+
+When we use braces we change the object scope, so we have
+global scope ---> global scope
+object scope ---> object scope (Friend Class)
+local  scope ---> local scope (Account Class)
+
+Ring search in the local scope first, so using self.name will use the Account class.
+
+There are many solution
+
+Solution (1) : Access the object through the list
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		aFriends + new Friend
+		aFriends[len(aFriends)] { 
+			aFriends[len(aFriends)].name = "Gal" 
+		}
+		aFriends + new Friend 
+		aFriends[len(aFriends)] { 
+			aFriends[len(aFriends)].name = "Bert" 
+		}
+	
+	Class Friend
+		name
+
+Solution (2) : Create Method in the friend class to set the name attribute.
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		aFriends + new Friend { 
+			setname("Gal")
+		}
+		aFriends + new Friend { 
+			setname("Bert")
+		}
+	
+	Class Friend
+		name
+		func setname cName
+			name = cName
+
+Solution (3) : Create a method in the account class to set the attribute
+
+.. code-block:: ring
+
+	New Account {
+		see aFriends
+	}
+
+	Class Account
+		name = "Mahmoud"
+		aFriends = []
+		friend("Gal")
+		friend("Bert")
+
+		func friend cName
+			aFriends + new Friend { 
+				name = cName
+			}
+	
+	Class Friend
+		name
+
+Solution (4) : Declarative Programming
+
+.. code-block:: ring
+
+	New Account {
+		name = "mahmoud"
+		friend {
+			name = "Gal"
+		}
+		friend {
+			name = "Bert"
+		}
+		see aFriends
+	}
+
+	Class Account
+		name 
+		aFriends = []
+		friend
+		func getfriend
+			aFriends + new Friend
+			return aFriends[len(aFriends)]
+	
+	Class Friend
+		name
+
+Output:
+
+.. code-block:: none
+
+	name: Gal
+	name: Bert
