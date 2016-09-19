@@ -731,9 +731,13 @@ At first remember that
 In Ring
 
 1 - Special and *very simple* scope rules that are designed for Flexibility first then Security
+
 2 - Ring is designed to support programming in the small and programming in the large.
+
 3 - The language provide the different programming paradigms that you may select from based on the project size. Errors comes only if you selected a bad paradigm for the target project or you are using the paradigm in a way that is not correct or at least not common.
+
 4 - In Ring you have the choice, you can use global variables or avoid them. you can give them a special $ mark or leave them. you can use object-oriented or stay with procedures. you can use the class region (after the class name and before any method) just for attributes or use it for code too.
+
 5 - Just read the next scope rules and think about them then use them in your favorite way.
 
 Scope Rules:
