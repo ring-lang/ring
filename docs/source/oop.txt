@@ -773,12 +773,12 @@ use self.attribute and self.method()
 
 .. code-block:: ring
 
-Class Point
-	self.x = 10
-	self.y = 20
-	self.z = 30
-	func print
-		see self.x + nl + self.y + nl + self.z + nl
+	Class Point
+		self.x = 10
+		self.y = 20
+		self.z = 30
+		func print
+			see self.x + nl + self.y + nl + self.z + nl
 
 .. note:: using self.attribute in the class region to define the class attribute protect the class attributes from conflict with global variables.
 
