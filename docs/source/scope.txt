@@ -85,7 +85,60 @@ if found  ----> Check if we can do optimization to avoid
 searching next time (Cache / Pointers for performance).
 
 .. index:: 
+	pair: Scope Rules; Using Object.Attribute
+
+Using Object.Attribute
+======================
+
+When we use object.attribute the search will be in the object attributes only.
+
+I.e. no search will be done in the local scope or in the global scope for the object attribute.
+
+.. note:: Using self.attribute will search for the first self before searching for attributes.
+
+
+.. index:: 
+	pair: Scope Rules; The Self Object
+
+The Self Object
+===============
+
+The self object is a reference to the current object that we can use from the class methods.
+
+When we are inside class method and use self we mean the object the will be created from this class.
+
+Inside the class method if we used braces { } we will change the current object scope and self will
+be changed also inside braces to be that object that we access using braces.
+
+Inside the class region (after the class name and before any method) we have access to the object through
+the local scope and the object scope. In this area using self will always lead to the class object.
+if we used braces then self inside braces then self will lead to the class object (not the object that
+we access using braces) because in the class region
+
+Global Scope ---> Global Scope
+Object Scope ---> Object Scope
+Local Scope  ---> Object Scope
+
+And using braces changes the object scope only (not the local scope) and when Ring search for variables
+it will search in the local scope first so it will find self in the class that we are inside.
+
+.. index:: 
 	pair: Scope Rules; Conflict between Global Variables and Class Attributes
+
+How Ring Define Variables and Attributes
+========================================
+
+Ring will use the variable name in the Assignment operation
+
+1 - Search using the variable name
+
+2 - If not found ---> Avoid the runtime error and define the variable in the current local scope
+
+3 - If found ---> Use the variable and don't define anything in the current local scope
+
+.. note:: In the class region (after the class name and before any method) the local scope is the same as the object scope.
+
+
 
 Conflict between Global Variables and Class Attributes
 ======================================================
