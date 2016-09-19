@@ -223,10 +223,6 @@ In this example we will use the QListWidget Class
                 curItemNbr = list1.currentrow()
                 curValue   = list1.item(list1.currentrow()).text()
                 
-                See "After Select - NbrOfItems: " + nbrOfItems +
-			" CurItemNbr: " + curItemNbr +
-			" CurValue: " + curValue + nl
-                        
                 win1.setwindowtitle( "After Select - NbrOfItems: " + nbrOfItems +
 			" CurItemNbr: " + curItemNbr + " CurValue: " + curValue )
                 
@@ -243,10 +239,6 @@ In this example we will use the QListWidget Class
                         curItemNbr = currentrow()
                         curValue   = item(currentrow()).text()
                     
-                        See "After Delete - NbrOfItems: " + nbrOfItems +
-				" CurItemNbr: " + curItemNbr +
-				" CurValue: " + curValue + nl
-                        
                         win1.setwindowtitle("After Delete - NbrOfItems: " + nbrOfItems +
 				" CurItemNbr: " + curItemNbr +" CurValue: " + curValue )
                 }
@@ -1525,11 +1517,9 @@ In this example we will learn about using the "animated" QProgressBar class and 
 	func pTime
 	        LabelMan.settext(theTime())     ### ==>> func
 	
-	        See "BarMan value: " + Barman.value() +nl
 	        Increment = 10
 	        if BarMan.value() >= 100        ### ProgressBar start over.
 	            BarMan.setvalue(0)
-	            See "BarMan value Reset: " + Barman.value() +nl
 	        ok
 	        BarMan{ setvalue(value() + Increment) }
 	
