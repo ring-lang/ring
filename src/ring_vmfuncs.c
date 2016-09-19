@@ -384,6 +384,8 @@ void ring_vm_newfunc ( VM *pVM )
 			ring_vm_error(pVM,RING_VM_ERROR_EXTRAPARAMETERSCOUNT);
 		}
 	}
+	/* Support this in the method */
+	ring_vm_oop_setthethisvariable(pVM);
 }
 
 void ring_vm_blockflag ( VM *pVM )

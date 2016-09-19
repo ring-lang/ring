@@ -85,6 +85,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 
 void ring_vm_savestate2 ( VM *pVM,List *pList )
 {
+	List *pThis  ;
 	/* Save State */
 	ring_list_addint(pList,ring_list_getsize(pVM->pExitMark));
 	ring_list_addint(pList,ring_list_getsize(pVM->pLoopMark));
@@ -122,6 +123,10 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	ring_list_addpointer(pList,pVM->pGetSetObject);
 	ring_list_addpointer(pList,pVM->aLoadAddressScope);
 	ring_list_addint(pList,ring_list_getsize(pVM->pLoadAddressScope));
+	/* Save This variable */
+	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	ring_list_addpointer(pList,ring_list_getpointer(pThis,RING_VAR_VALUE));
+	ring_list_addint(pList,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
 	pVM->nCheckNULLVar = 0 ;
 	pVM->pAssignment = NULL ;
 	pVM->nNOAssignment = 0 ;
@@ -129,6 +134,7 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 
 void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 {
+	List *pThis  ;
 	/* Restore State */
 	ring_vm_backstate(ring_list_getint(pList,x),pVM->pExitMark);
 	ring_vm_backstate(ring_list_getint(pList,x+1),pVM->pLoopMark);
@@ -162,6 +168,10 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	pVM->pGetSetObject = (void *) ring_list_getpointer(pList,x+25) ;
 	pVM->aLoadAddressScope = (List *) ring_list_getpointer(pList,x+26) ;
 	ring_vm_backstate(ring_list_getint(pList,x+27),pVM->pLoadAddressScope);
+	/* Restore This variable */
+	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	ring_list_setpointer(pThis,RING_VAR_VALUE,ring_list_getpointer(pList,x+28));
+	ring_list_setint(pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,x+29));
 }
 /* Return to a Specific position in the array, delete all items after that position */
 

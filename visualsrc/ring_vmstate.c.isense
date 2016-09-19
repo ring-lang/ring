@@ -1,7 +1,11 @@
 ring_vm_savestate
 ring_vm_restorestate
 ring_vm_savestate2
+Type: List *
+pThis
 ring_vm_restorestate2
+Type: List *
+pThis
 ring_vm_backstate
 Type: int
 nLimit,y

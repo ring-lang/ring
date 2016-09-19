@@ -84,18 +84,13 @@ void ring_vm_oop_newobj ( VM *pVM )
 				/* Create Self/this variable in the state list */
 				pSelf = ring_vm_newvar2("self",pList3);
 				ring_list_setint(pSelf,RING_VAR_TYPE,RING_VM_POINTER);
-				/* Save this */
-				pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
 				if ( nType == RING_OBJTYPE_VARIABLE ) {
 					ring_list_setpointer(pSelf,RING_VAR_VALUE,pVar);
-					ring_list_setpointer(pThis,RING_VAR_VALUE,pVar);
 				}
 				else if ( nType == RING_OBJTYPE_LISTITEM ) {
 					ring_list_setpointer(pSelf,RING_VAR_VALUE,pItem);
-					ring_list_setpointer(pThis,RING_VAR_VALUE,pItem);
 				}
 				ring_list_setint(pSelf,RING_VAR_PVALUETYPE ,nType);
-				ring_list_setint(pThis,RING_VAR_PVALUETYPE ,nType);
 				/* Jump to Class INIT Method */
 				ring_vm_blockflag2(pVM,pVM->nPC);
 				/* Execute Parent Classes Init first */
@@ -886,6 +881,11 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	Item *pItem,*pItem2  ;
 	String *pString  ;
 	/* To Access Property Data */
+	if ( ring_list_getsize(pVM->aSetProperty) < 1 ) {
+		/* This case happens when using This.Attribute inside nested braces in a class method */
+		ring_vm_assignment(pVM);
+		return ;
+	}
 	pList = ring_list_getlist(pVM->aSetProperty,ring_list_getsize(pVM->aSetProperty));
 	/* Add Before Equal Flag */
 	if ( ring_list_getsize(pList) == 4 ) {
@@ -1155,4 +1155,33 @@ void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer )
 	else if ( nType == RING_OBJTYPE_LISTITEM ) {
 		ring_list_setpointer(pList,3,(Item *) pContainer);
 	}
+}
+
+void ring_vm_oop_setthethisvariable ( VM *pVM )
+{
+	List *pList, *pThis  ;
+	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	if ( ring_list_getsize(pVM->pObjState) < 1 ) {
+		ring_list_setpointer(pThis,RING_VAR_VALUE,NULL);
+		ring_list_setint(pThis,RING_VAR_PVALUETYPE,0);
+		return ;
+	}
+	if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
+		ring_list_setpointer(pThis,RING_VAR_VALUE,NULL);
+		ring_list_setint(pThis,RING_VAR_PVALUETYPE,0);
+		return ;
+	}
+	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
+	/* Get Object Scope */
+	pList = ring_list_getlist(pList,RING_OBJSTATE_SCOPE);
+	if ( pList == NULL ) {
+		ring_list_setpointer(pThis,RING_VAR_VALUE,NULL);
+		ring_list_setint(pThis,RING_VAR_PVALUETYPE,0);
+		return ;
+	}
+	/* Get Self Attribute List */
+	pList = ring_list_getlist(pList,1);
+	/* Save this */
+	ring_list_setpointer(pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
+	ring_list_setint(pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
 }
