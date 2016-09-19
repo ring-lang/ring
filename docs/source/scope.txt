@@ -115,9 +115,9 @@ the local scope and the object scope. In this area using self will always lead t
 if we used braces then self inside braces then self will lead to the class object (not the object that
 we access using braces) because in the class region
 
-Global Scope ---> Global Scope
-Object Scope ---> Object Scope
-Local Scope  ---> Object Scope
+* Global Scope ---> Global Scope
+* Object Scope ---> Object Scope
+* Local Scope  ---> Object Scope
 
 And using braces changes the object scope only (not the local scope) and when Ring search for variables
 it will search in the local scope first so it will find self in the class that we are inside.
@@ -132,12 +132,15 @@ Ring will use the variable name in the Assignment operation
 
 1 - Search using the variable name
 
-2 - If not found ---> Avoid the runtime error and define the variable in the current local scope
+2 - If not found ---> Avoid the runtime error and define the variable in the current scope
 
-3 - If found ---> Use the variable and don't define anything in the current local scope
+3 - If found ---> Use the variable and don't define anything in the current scope
 
-.. note:: In the class region (after the class name and before any method) the local scope is the same as the object scope.
+* In the global region (before any function or class) the current scope is the global scope.
 
+* In the class region (after the class name and before any method) the current scope is the object attributes.
+
+* In Functions and methods the current scope is the local scope.
 
 
 Conflict between Global Variables and Class Attributes
