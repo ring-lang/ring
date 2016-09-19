@@ -760,15 +760,15 @@ Simple rules to avoid any conflict and use the scope rules in a better way
 
 1 - Try to avoid global variables
 
-2 - Use the Main Function - this will help you to avoid global variables
+2 - Use the Main Function - This will help you to avoid global variables
 
 3 - If you are going to use many global variables use the $ mark before the variable name
 
-4 - in the class region if you don't respect the advice number three ($) then use self.attribute when you define your attributes
+4 - In the class region if you don't respect the advice number three ($) then use self.attribute when you define your attributes
 
 5 - You can use object.attribute and object.method() instead of object { attribute } and object { method() } if you don't like changing the object scope.
 
-6 - If you will use nested braces in a class - think about using the class region if possible because in this region you will have access to objects that you access using { } + access to the class attributes
+6 - If you will use nested braces in a class - think about using the class region if possible because in this region you will have access to the object that you access using { } + access to the class attributes
 
 7 - If you are inside a class method and used nested braces you will change the object scope with each brace and you will loss the access to the class attributes but you have access to the local scope before and after using brace { } , if you will read the class attribute only (not modify) it from braces then you may copy the self object before using braces to another local variable and access this variable from braces (this is like fighting with the language that you do only if you don't like object.attribute and object.method() .
 
