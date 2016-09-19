@@ -7,7 +7,7 @@ Load "guilib.ring"
 MyApp = new qApp
 {	
 	$ApplicationObject = "oApp"   # To be used when calling events
-	oApp = new App
+	oApp = new App 		
 	exec()
 	oApp.CloseDatabase()
 }
@@ -16,7 +16,6 @@ class App
 
 	cDir = currentdir() + "/"
 	oCon 
-	OpenDatabase()
 
 	win1 = new qWidget()
 	{
@@ -58,6 +57,7 @@ class App
 			addLayout(layoutClose)
 		}
 		setlayout(layoutMain)
+		self.OpenDatabase()
 		self.ShowRecords()				
 		show()	
 	}
@@ -67,11 +67,12 @@ class App
 		if not fexists(cDir + "weighthistory.db")
 			lCreate = True
 		ok
-		oCon = new QSqlDatabase() 
-		oCon = oCon.addDatabase("QSQLITE") {
-			setDatabaseName("weighthistory.db")
-			Open()			
-		}
+		new QSqlDatabase() {
+			this.oCon = addDatabase("QSQLITE") {
+				setDatabaseName("weighthistory.db")
+				Open()			
+			}
+		}	
 		if lCreate
 			new QSqlQuery( ) {
 				exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
@@ -114,15 +115,15 @@ class App
 		}
 
 	Func ShowRecords
-		localTable = Table1    # copy attribute to use it when we uses braces { }	
-		query = new QSqlQuery( ) {
+
+		query = new QSqlQuery() {
 			exec("select * from weighthistory")
 			nRows = 0
-			localTable.setrowcount(0)
-			while movenext()
-				localTable {
+			this.Table1.setrowcount(0)
+			while movenext() 
+				this.table1 {
 					insertRow(nRows)
-					for x = 1 to 3
+					for x = 1 to 3 
 						cStr = query.value(x).tostring()
 						item = new qTableWidgetItem(cStr)
 						setItem(nRows,x-1,item)
