@@ -105,22 +105,22 @@ The Self Object
 
 The self object is a reference to the current object that we can use from the class methods.
 
-When we are inside class method and use self we mean the object the will be created from this class.
+When we are inside class method and use Self we mean the object that will be created from this class.
 
-Inside the class method if we used braces { } we will change the current object scope and self will
-be changed also inside braces to be that object that we access using braces.
+Inside the class methods if we used Braces { } this will change the current object scope and self will
+be changed also inside braces to reference the object that we access using Braces.
 
-Inside the class region (after the class name and before any method) we have access to the object through
-the local scope and the object scope. In this area using self will always lead to the class object.
-if we used braces then self inside braces then self will lead to the class object (not the object that
-we access using braces) because in the class region
+Inside the Class Region (after the class name and before any method) we have access to the object through
+the object scope and the local scope also. In this region using Self will always be a reference to the class object.
+if we used Braces to change the object scope then used Self inside Braces, Also self will be a reference to the class object (not the object that
+we already access using braces) because in the class region we have :-
 
 * Global Scope ---> Global Scope
 * Object Scope ---> Object Scope
 * Local Scope  ---> Object Scope
 
-And using braces changes the object scope only (not the local scope) and when Ring search for variables
-it will search in the local scope first so it will find self in the class that we are inside.
+And using Braces changes the object scope only (not the local scope) and when Ring search for variables
+it will search in the Local Scope first so it will find self in the class that we are inside.
 
 .. index:: 
 	pair: Scope Rules; Conflict between Global Variables and Class Attributes
