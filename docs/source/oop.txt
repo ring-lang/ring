@@ -762,3 +762,35 @@ Output:
 	name: Charlie
 	symbol: CHR
 
+Using Self.Attribute
+====================
+
+Inside the class region (After the class name and before any method) and the class methods we can
+use self.attribute and self.method()
+
+.. code-block:: ring
+
+Class Point
+	self.x = 10
+	self.y = 20
+	self.z = 30
+	func print
+		see self.x + nl + self.y + nl + self.z + nl
+
+.. note:: using self.attribute in the class region to define the class attribute protect the class attributes from conflict with global variables.
+
+.. tip:: if you typed the class attributes with self.attribute and there are a global variable with the same name it will be used and the attribute will not be defined.
+
+Check the "Scope Rules" chapter to know about the conflict between the global variable name and the attribute name
+
+Whay this may happens?
+
+Because 
+
+* Because in the class region we can access global variables.
+* Before defining any variable, Ring try to find the variable and use it if it's found.
+
+.. note:: Try to avoid the global variables, use the main function and start their names with $ 
+
+.. tip:: In large programs protect your classes and define their members using self.attribute
+
