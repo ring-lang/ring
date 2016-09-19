@@ -19,6 +19,12 @@ We will learn about
 * Inheritance
 * Dynamic Attributes
 * Packages
+* Printing Objects
+* Find() and List of Objects
+* Sort() and List of Objects
+* Using Self.Attribute and Self.Method()
+* Using This.Attribute and This.Method()
+
 
 .. index:: 
 	pair: Object Oriented Programming; Classes and Objects
@@ -765,8 +771,8 @@ Output:
 .. index:: 
 	pair: Object Oriented Programming; Using Self.Attribute
 
-Using Self.Attribute
-====================
+Using Self.Attribute and Self.Method()
+======================================
 
 Inside the class region (After the class name and before any method) and the class methods we can
 use self.attribute and self.method()
@@ -797,8 +803,8 @@ Because
 
 .. tip:: In large programs protect your classes and define their members using self.attribute
 
-Using This.attribute
-====================
+Using This.Attribute and This.Method()
+======================================
 
 Inside class methods we have access to the object scope directly. we don't need to use Self.attribute
 or Self.method to read/write attribute and call methods.
