@@ -503,12 +503,12 @@ This case happens when you want to read/modify attribute insead braces.
 		Func OpenDatabase
 			# some code here
 			new QSqlDatabase() {
-				LocalCon = addDatabase("QSQLITE") {
+				oCon = addDatabase("QSQLITE") {
 					setDatabaseName("weighthistory.db")
 					open()
 				}
 			}	
-			oCon = LocalCon 
+			self.oCon = oCon 
 			# some code here 	
 
 In the previous example we want to create the connection object and save it inside the oCon attribute.
@@ -518,10 +518,10 @@ The object is an output from the addDatabase() method that we use after accessin
 Inside braces we can't use the Self reference to use the object created from the MyApp class, Because
 the Self reference here will be to the object that we access using Braces.
 
-We solved the problem in the previous example by creating a local variable called LocalCon then after Braces
+We solved the problem in the previous example by creating a local variable called oCon then after Braces
 we copied that variable to the oCon attribute.
 
-The next code is better
+The next code is another solution.
 
 .. code-block:: ring
 
@@ -539,6 +539,29 @@ The next code is better
 				Open()	
 			}
 			# some code here 	
+
+
+The next code is a better solution.
+
+.. code-block:: ring
+
+	Class MyApp
+
+		oCon   # Attribute
+
+		# some code here
+
+		Func OpenDatabase
+			# some code here
+			new QSqlDatabase() {
+				this.oCon = addDatabase("QSQLITE") {
+					setDatabaseName("weighthistory.db")
+					Open()	
+				}
+			}
+			# some code here 	
+
+.. note:: We used this.attribute to access the class attribute (oCon) while we are inside Braces.
 
 
 .. index:: 
