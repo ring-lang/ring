@@ -233,7 +233,9 @@ void ring_vm_freestack ( VM *pVM )
 	if ( (pVM->nBlockFlag >= 1) ) {
 		if ( ring_list_getsize(pVM->aScopeNewObj) > 0  && (pVM->nInsideBraceFlag==0) ) {
 			pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj)) ;
-			pVM->nSP = ring_list_getint(pList,RING_ASCOPENEWOBJ_SP) ;
+			if ( ring_list_getint(pList,RING_ASCOPENEWOBJ_SP)   > pVM->nSP ) {
+				pVM->nSP = ring_list_getint(pList,RING_ASCOPENEWOBJ_SP) ;
+			}
 			return ;
 		}
 	}

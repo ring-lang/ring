@@ -352,6 +352,7 @@ void ring_vm_oop_property ( VM *pVM )
 		}
 		pVM->pActiveMem = pScope ;
 		pVM->nGetSetProperty = 0 ;
+		pVM->pGetSetObject = NULL ;
 		if ( pVM->nActiveCatch == 0 ) {
 			/*
 			**  We check nActiveCatch because we may have error "accessing private attribute' 
