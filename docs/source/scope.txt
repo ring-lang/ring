@@ -475,6 +475,73 @@ related to the copy and you can't access them.
 
 
 .. index:: 
+	pair: Scope Rules; Accessing the class attributes from braces inside class methods
+
+
+Accessing the class attributes from braces inside class methods
+===============================================================
+
+We access the class attributes directly from the class methods, also we have the choice to use the Self
+reference before the attribute/method name. Using Braces {} inside class method change the active object
+scope and prevent us from getting direct access to the class attributes. Also using Self will not help because
+the Self reference will be changed to the object that we access using Braces.
+
+In this case if you want to read an attribute you have to copy the Self object before using Braces and
+if you want to modify an attribute you have to the copy from local variable to the object attribute after using
+Braces. 
+
+This case happens when you want to read/modify attribute insead braces. 
+
+.. code-block:: ring
+
+	Class MyApp
+
+		oCon   # Attribute
+
+		# some code here
+
+		Func OpenDatabase
+			# some code here
+			new QSqlDatabase() {
+				LocalCon = addDatabase("QSQLITE") {
+					setDatabaseName("weighthistory.db")
+					open()
+				}
+			}	
+			oCon = LocalCon 
+			# some code here 	
+
+In the previous example we want to create the connection object and save it inside the oCon attribute.
+
+The object is an output from the addDatabase() method that we use after accessing the QSQLDatabase() object.
+
+Inside braces we can't use the Self reference to use the object created from the MyApp class, Because
+the Self reference here will be to the object that we access using Braces.
+
+We solved the problem in the previous example by creating a local variable called LocalCon then after Braces
+we copied that variable to the oCon attribute.
+
+The next code is better
+
+.. code-block:: ring
+
+	Class MyApp
+
+		oCon   # Attribute
+
+		# some code here
+
+		Func OpenDatabase
+			# some code here
+			oCon = new QSqlDatabase()
+			oCon = oCon.addDatabase("QSQLITE") {
+				setDatabaseName("weighthistory.db")
+				Open()	
+			}
+			# some code here 	
+
+
+.. index:: 
 	pair: Scope Rules; Creating a Class for each Window in GUI applications
 
 Creating a Class for each Window in GUI applications
@@ -794,72 +861,8 @@ Output:
 	20
 	30
 	
-
 .. index:: 
 	pair: Scope Rules; Summary of Scope Rules
-
-
-Accessing the class attributes from braces inside class methods
-===============================================================
-
-We access the class attributes directly from the class methods, also we have the choice to use the Self
-reference before the attribute/method name. Using Braces {} inside class method change the active object
-scope and prevent us from getting direct access to the class attributes. Also using Self will not help because
-the Self reference will be changed to the object that we access using Braces.
-
-In this case if you want to read an attribute you have to copy the Self object before using Braces and
-if you want to modify an attribute you have to the copy from local variable to the object attribute after using
-Braces. 
-
-This case happens when you want to read/modify attribute insead braces. 
-
-.. code-block:: ring
-
-	Class MyApp
-
-		oCon   # Attribute
-
-		# some code here
-
-		Func OpenDatabase
-			# some code here
-			new QSqlDatabase() {
-				LocalCon = addDatabase("QSQLITE") {
-					setDatabaseName("weighthistory.db")
-					open()
-				}
-			}	
-			oCon = LocalCon 
-			# some code here 	
-
-In the previous example we want to create the connection object and save it inside the oCon attribute.
-
-The object is an output from the addDatabase() method that we use after accessing the QSQLDatabase() object.
-
-Inside braces we can't use the Self reference to use the object created from the MyApp class, Because
-the Self reference here will be to the object that we access using Braces.
-
-We solved the problem in the previous example by creating a local variable called LocalCon then after Braces
-wer copied that variable to the oCon attribute.
-
-The next code is better
-
-.. code-block:: ring
-
-	Class MyApp
-
-		oCon   # Attribute
-
-		# some code here
-
-		Func OpenDatabase
-			# some code here
-			oCon = new QSqlDatabase()
-			oCon = oCon.addDatabase("QSQLITE") {
-				setDatabaseName("weighthistory.db")
-				Open()	
-			}
-			# some code here 	
 
 
 Summary of Scope Rules
@@ -919,7 +922,7 @@ Scope Rules:
 
 From these rules you can understand all types of conflicts and why you may have them and how to avoid them
 
-Simple rules to avoid any conflict and use the scope rules in a better way
+Simple advices to avoid any conflict and use the scope rules in a better way
 
 1 - Try to avoid global variables
 
