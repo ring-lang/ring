@@ -762,6 +762,9 @@ Output:
 	name: Charlie
 	symbol: CHR
 
+.. index:: 
+	pair: Object Oriented Programming; Using Self.Attribute
+
 Using Self.Attribute
 ====================
 
@@ -794,3 +797,33 @@ Because
 
 .. tip:: In large programs protect your classes and define their members using self.attribute
 
+Using This.attribute
+====================
+
+Inside class methods we have access to the object scope directly. we don't need to use Self.attribute
+or Self.method to read/write attribute and call methods.
+
+But we can use braces {} while we are inside methods to access another object, In this case the current
+object scope will be changed while we are inside the brace.
+
+How we can get access to our class attributes and methods while we are inside braces?
+
+This can be done using This.Attribute and This.Method()
+
+Example:
+
+.. code-block:: ring
+
+	new point  
+
+	class point 
+		x=10 y=20 z=30
+		print()
+		func print
+			new UI {
+				display(this.x,this.y,this.z)
+			}
+
+	Class UI
+		func display x,y,z
+			see x + nl + y + nl + z + nl
