@@ -664,4 +664,6 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VM_ERROR_ASSIGNNOTVARIABLE "Error (R34) : Variable is required for the assignment operation"
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 2
+/* Variables Location */
+#define RING_VM_STATICVAR_THIS 12
 #endif

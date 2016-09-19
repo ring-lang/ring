@@ -22,7 +22,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 {
 	const char *cClassName,*cClassName2  ;
 	int x,nLimit,nClassPC,nType,nCont  ;
-	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf  ;
+	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis  ;
 	Item *pItem  ;
 	const char *cTempName = RING_TEMP_OBJECT ;
 	pList2 = NULL ;
@@ -84,13 +84,18 @@ void ring_vm_oop_newobj ( VM *pVM )
 				/* Create Self/this variable in the state list */
 				pSelf = ring_vm_newvar2("self",pList3);
 				ring_list_setint(pSelf,RING_VAR_TYPE,RING_VM_POINTER);
+				/* Save this */
+				pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
 				if ( nType == RING_OBJTYPE_VARIABLE ) {
 					ring_list_setpointer(pSelf,RING_VAR_VALUE,pVar);
+					ring_list_setpointer(pThis,RING_VAR_VALUE,pVar);
 				}
 				else if ( nType == RING_OBJTYPE_LISTITEM ) {
 					ring_list_setpointer(pSelf,RING_VAR_VALUE,pItem);
+					ring_list_setpointer(pThis,RING_VAR_VALUE,pItem);
 				}
 				ring_list_setint(pSelf,RING_VAR_PVALUETYPE ,nType);
+				ring_list_setint(pThis,RING_VAR_PVALUETYPE ,nType);
 				/* Jump to Class INIT Method */
 				ring_vm_blockflag2(pVM,pVM->nPC);
 				/* Execute Parent Classes Init first */

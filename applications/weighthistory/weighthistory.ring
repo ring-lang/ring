@@ -67,19 +67,18 @@ class App
 		if not fexists(cDir + "weighthistory.db")
 			lCreate = True
 		ok
-		new QSqlDatabase() {
-			LocalCon = addDatabase("QSQLITE") {
-				setDatabaseName("weighthistory.db")
-				open()
-			}
-		}	
-		oCon = LocalCon 
+		oCon = new QSqlDatabase() 
+		oCon = oCon.addDatabase("QSQLITE") {
+			setDatabaseName("weighthistory.db")
+			Open()			
+		}
 		if lCreate
 			new QSqlQuery( ) {
 				exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
 				delete()
 			}
 		ok
+
 
 	Func CloseDatabase
 		oCon.Close()
