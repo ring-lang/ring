@@ -848,7 +848,11 @@ Scope Rules:
 
 9 - The Self reference inside class region (after the class name and before any method) always point to the object scope created from the class.
 
-10- The Self reference inside methods will be changed when we uses Braces to that object that we access.
+10- The Self reference inside methods will be changed when we uses Braces to be a reference to the object that we access.
+
+11- Writing variable names directly in the class region (after the class name and before any method) means using them or define then (in order).
+
+12- Using self.attribute in the class region reduce search to the object scope (avoid conflict with global scope).
 
 From these rules you can understand all types of conflicts and why you may have them and how to avoid them
 
