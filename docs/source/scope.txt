@@ -265,7 +265,38 @@ Output:
 
 Now what we will do to solve the previous problem?
 
-The best solution : Don't Use Braces
+Simple Solution : Write the code that access the class attributes outside braces.
+
+.. code-block:: ring
+
+	new point { test() }
+
+	class point
+		x=10 y=20
+		func test
+			see x + nl + y + nl # works fine
+			myobj = new otherclass {
+				see name + nl
+			}
+			see x + nl + y + nl # Outside braces - works fine
+
+
+	class otherclass
+		name = "test"
+
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	test
+	10
+	20
+
+
+Another solution : Don't Use Braces
 
 .. code-block:: ring
 
@@ -282,18 +313,10 @@ The best solution : Don't Use Braces
 	class otherclass
 		name = "test"
 
-Output:
-
-.. code-block:: none
-
-	10
-	20
-	test
-	10
-	20
-
 
 Other Solution (May lead to other errors) : Copy the self object 
+
+We may use this solution if we want to use braces and get access to the class attributes (Just Reading).
 
 .. code-block:: ring
 
@@ -356,7 +379,7 @@ But if we modified the object attributes (Then we will modify the copy!).
 	class otherclass
 		name = "test"
 
-In GUI application, we may create a class contains the window objects as attributes to be able 
+In a GUI application, we may create a class contains the window objects as attributes to be able 
 to access the controls from different methods. Remember the previous information when you try to access
 objects using braces inside methods because in this case you can't access the object attributes directly
 and if you copied the self object you will work on a copy and the new controls that you create will be 
@@ -442,6 +465,16 @@ Example:
 
 Conflict between self inside braces and self in the class region
 ================================================================
+
+In the class region (after the class name and before any methods) we define the attributes.
+
+In this region we have access to the global scope and the local scope will point to the object scope.
+
+Three Scopes
+
+Global Scope ---> Gloabl Scope
+Object Scope ---> Object Scope
+Local Scope  ---> Object Scope
 
 Look at this example
 
@@ -613,3 +646,55 @@ Output:
 
 	name: Gal
 	name: Bert
+
+Using braces to escape from the current object scope
+====================================================
+
+Since braces change the current object scope to another object. we can use it to do some work without
+modifying the class attributes and using the same variable names.
+
+.. code-block:: ring
+
+	new point {x=10 y=20 z=30 start() }
+	class point x y z
+		func start
+			see self # print the x y z values (10,20,30)
+			new Local {
+				x = 100
+				y = 200
+				z = 300
+			}
+			see self # print the x y z values (10,20,30)	
+			see x + nl # will print 100
+			see y + nl # will print 200
+			see z + nl # will print 300
+			Self {	# NO Advantage - Search is done in local scope first
+				see x + nl # will print 100
+				see y + nl # will print 200
+				see z + nl # will print 300
+			}
+			see self.x + nl # will print 10
+			see self.y + nl # will print 20
+			see self.z + nl # will print 30
+
+	class Local
+	
+Output:
+
+.. code-block:: none
+
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
+	100
+	200
+	300
+	100
+	200
+	300
+	10
+	20
+	30
