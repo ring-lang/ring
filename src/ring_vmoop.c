@@ -22,7 +22,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 {
 	const char *cClassName,*cClassName2  ;
 	int x,nLimit,nClassPC,nType,nCont  ;
-	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis  ;
+	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf  ;
 	Item *pItem  ;
 	const char *cTempName = RING_TEMP_OBJECT ;
 	pList2 = NULL ;
@@ -81,7 +81,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 				ring_list_addpointer(pList2,pList);
 				/* Create List for the Object State */
 				pList3 = ring_list_newlist(pList2);
-				/* Create Self/this variable in the state list */
+				/* Create Self variable in the state list */
 				pSelf = ring_vm_newvar2("self",pList3);
 				ring_list_setint(pSelf,RING_VAR_TYPE,RING_VM_POINTER);
 				if ( nType == RING_OBJTYPE_VARIABLE ) {
