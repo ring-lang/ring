@@ -463,6 +463,9 @@ Example:
 				setText( "" + ( 0 + text() - 1 ) )
 			}
 
+.. index:: 
+	pair: Scope Rules; Conflict between self inside braces and self in the class region
+
 Conflict between self inside braces and self in the class region
 ================================================================
 
@@ -647,6 +650,10 @@ Output:
 	name: Gal
 	name: Bert
 
+.. index:: 
+	pair: Scope Rules; Using braces to escape from the current object scope
+
+
 Using braces to escape from the current object scope
 ====================================================
 
@@ -698,3 +705,67 @@ Output:
 	10
 	20
 	30
+	
+
+.. index:: 
+	pair: Scope Rules; Summary of Scope Rules
+
+	
+Summary of Scope Rules
+======================
+
+At first remember that 
+
+1 - Each programming language comes with it's scope rules based on the language goals
+
+2 - Programming in the small is different than Programming in the Large
+
+3 - Some programming language are designed for developing small programs while others are designed for large programs
+
+4 - In programming, If we have access to more than one scope - Then problems may come if we don't manage things correctly
+
+5 - It's always more secure to reduce the number of visible scopes
+
+6 - Some programming languages force you to manage the scope in some way, while others not!
+
+In Ring
+
+1 - Special and *very simple* scope rules that are designed for Flexibility first then Security
+2 - Ring is designed to support programming in the small and programming in the large.
+3 - The language provide the different programming paradigms that you may select from based on the project size. Errors comes only if you selected a bad paradigm for the target project or you are using the paradigm in a way that is not correct or at least not common.
+4 - In Ring you have the choice, you can use global variables or avoid them. you can give them a special $ mark or leave them. you can use object-oriented or stay with procedures. you can use the class region (after the class name and before any method) just for attributes or use it for code too.
+5 - Just read the next scope rules and think about them then use them in your favorite way.
+
+Scope Rules:
+
+1 - At any place in our program code we have only at maximum Three Scopes (Local Scope, Object Scope and Global Scope)
+
+2 - When Ring find a variable it will search in the local scope first then in the object scope then in the global scope
+
+3 - At any time inside procedures or methods you can use braces { } to access an object and change the current object scope.
+
+4 - In the class region (After the class name and before any method) this is a special region where both of the object scope and the local scope point to the object scope. I.e. No local variables where each variable you define in this region will become an attribute.
+
+5 - Before defining any variable (in any scope and in the class region too) a search process will be done to use the variable if it's found
+
+6 - Functions and Methods parameters are defined automatically as local variables to these functions or methods.
+
+From these rules you can understand all types of conflicts and why you may have them and how to avoid them
+
+Simple rules to avoid any conflict and use the scope rules in a better way
+
+1 - Try to avoid global variables
+
+2 - Use the Main Function - this will help you to avoid global variables
+
+3 - If you are going to use many global variables use the $ mark before the variable name
+
+4 - in the class region if you don't respect the advice number three ($) then use self.attribute when you define your attributes
+
+5 - You can use object.attribute and object.method() instead of object { attribute } and object { method() } if you don't like changing the object scope.
+
+6 - If you will use nested braces in a class - think about using the class region if possible because in this region you will have access to objects that you access using { } + access to the class attributes
+
+7 - If you are inside a class method and used nested braces you will change the object scope with each brace and you will loss the access to the class attributes but you have access to the local scope before and after using brace { } , if you will read the class attribute only (not modify) it from braces then you may copy the self object before using braces to another local variable and access this variable from braces (this is like fighting with the language that you do only if you don't like object.attribute and object.method() .
+
+After understanding all of the previous points, You will master this topic.
