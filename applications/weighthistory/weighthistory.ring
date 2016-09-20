@@ -50,8 +50,8 @@ class App
 				setHorizontalHeaderItem(2, new QTableWidgetItem("Weight"))
 				setitemChangedEvent($ApplicationObject+".ItemChanged()")
 			             setAlternatingRowColors(true)    
-			                horizontalHeader().setStyleSheet("color: blue")
-			                verticalHeader().setStyleSheet("color: red") 
+			             horizontalHeader().setStyleSheet("color: blue")
+			             verticalHeader().setStyleSheet("color: red") 
                 		}
 			addWidget(Table1)
 		}
@@ -85,7 +85,7 @@ class App
 		}	
 		if lCreate
 			new QSqlQuery( ) {
-				exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight integer)")
+				exec("create table weighthistory (id integer primary key, f_date varchar(10), f_time varchar(8), f_weight varchar(8) );")
 				delete()
 			}
 		ok
@@ -115,7 +115,7 @@ class App
 
 	Func AddRecord cWeight
 		new QSqlQuery( ) {
-			cStr = "insert into weighthistory (f_date,f_time,f_weight) values ('%f1','%f2',%f3)"
+			cStr = "insert into weighthistory (f_date,f_time,f_weight) values ('%f1','%f2','%f3')"
 			cDate = Date()
 			cTime = Time()
 			cStr = substr(cStr,"%f1",cDate)
