@@ -140,4 +140,65 @@ Output:
 	f3 method
 	========================================
 
+.. index::
+	pair: Scope Rules for Functions and Methods; Calling a function with the same name as method in the current class
+
+Calling a function with the same name as method in the current class
+====================================================================
+
+In the previous example we have a function called f3() and we have a method called f3() 
+
+How we can call the f3() function from the test() method ?
+
+Solution (1) : Change the current object scope to another object scope
+
+In this solution we will have an empty class called local that we will use to change the current object scope.
+
+.. code-block:: ring
+
+	func main
+		o1 = new myclass { test()}
+
+	func f1
+		see "f1 function" + nl
+
+	func f2 
+		see "f2 function" + nl
+
+	func f3 
+		see "f3 function" + nl
+
+	func myline
+		see copy("=",40) + nl
+
+	Class myclass
+
+		func test
+			myline()
+			see "test method" + nl
+			f1()
+			f2()
+			f3()		   # call f3() method	
+			new local { f3() } # call f3() function 
+			myline()
+
+		func f3
+			see "f3 method" + nl
+
+	class local
+
+Output:
+
+.. code-block:: none
+
+	========================================
+	test method
+	f1 function
+	f2 function
+	f3 method
+	f3 function
+	========================================
+
+
+
 
