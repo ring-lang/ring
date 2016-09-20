@@ -240,3 +240,69 @@ Common Example:
 * Later when you modify the database - you may don't need to modify your code.
 
 It's flexibility but remember that power comes with great responsibility.
+
+.. index:: 
+	pair: Frequently Asked Questions; Constructor methods in Ring
+
+
+Is there constructor methods in Ring?
+=====================================
+
+When you create new object for example
+
+.. code-block:: ring
+
+	new point
+
+1 - Ring will allocate dynamic memory space to be used for the new object attributes that Ring doesn't know anything about them.
+
+2 - Ring will change the current local scope and the current object scope to use the object state created in step (1)
+
+3 - Ring will move the execution to the class Region (After the class name and before any methods)
+
+4 - Any Instructions/Code in the class region will be executed as any Ring code
+
+5 - Control is moved from the class region to the location of (new point) once we reach the end of the class region or we uses a Return command.
+
+So All attributes that added to the object are dynamic attributes, this mean that you can control what attributes will be added through the runtime.
+
+Example:
+
+.. code-block:: ring
+
+	$3D = False
+	see  new point 
+	$3D = True
+	see new point 
+
+	class point
+		x y
+		if not $3D return ok
+		z
+
+Output:
+
+.. code-block:: none
+
+	x: NULL
+	y: NULL
+	x: NULL
+	y: NULL
+	z: NULL
+
+You have an option to call init() method directly when you create a new object 
+
+This method can do anything with the object attributes as it will be called after creating the object and executing the class region code.
+
+
+.. code-block:: ring
+
+	p1 = new point3d(100,200,300)
+	see p1
+
+	class point3d
+		x y z
+		func init p1,p2,p3
+			x=p1 y=p2 z=p3
+
+
