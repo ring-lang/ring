@@ -19,8 +19,8 @@ These applications may contains and use
 .. index::
 	pair: Scope Rules for Functions and Methods; How Ring find a functions and methods?
 
-How Ring find a functions and methods?
-======================================
+How Ring find the Functions and Methods?
+========================================
 
 When you call a method or function, Ring will start a search process to find this function
 

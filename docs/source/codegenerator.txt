@@ -204,7 +204,7 @@ to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mou
 	pair: Code Generator; Determine Structure Members Types
 
 Determine Structure Members Types
-================================
+=================================
 
 You can determine the pointer name before the strucuture member name.
 
