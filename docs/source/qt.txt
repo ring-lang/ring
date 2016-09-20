@@ -2534,7 +2534,7 @@ The next sample help in recording (Date, Time and Weight).
 					   setAlternatingRowColors(true)    
 					   horizontalHeader().setStyleSheet("color: blue")
 					   verticalHeader().setStyleSheet("color: red") 
-						}
+		  }
 		  addWidget(Table1)
 		}
 		layoutClose = new qhboxlayout(win1)
