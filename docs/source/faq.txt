@@ -306,3 +306,42 @@ This method can do anything with the object attributes as it will be called afte
 			x=p1 y=p2 z=p3
 
 
+.. index:: 
+	pair: Frequently Asked Questions; What happens when we create a new object?
+
+What happens when we create a new object?
+=========================================
+
+1- When you create an object, the class region code will be executed and you will have the object attributes based on the code in that region
+
+2- Ring don't care about the object methods until you start calling a method
+
+3- When you call a method, Ring will check the object class and the class parent (if you are using inheritance) and will collect the methods for you to be used now or later from any object that belong to the same class.
+
+4- Since methods are dynamic and each object get the method from the class, you can after creating objects, add new methods and use it with the object or any object created or will be created from the same class.
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new point {x=10 y=20 z=30}
+	o2 = new point {x=100 y=200 z =300}
+
+	addmethod(o1,"print", func { see x + nl + y + nl + z + nl } )
+
+	o1.print()
+	o2.print()
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	30
+	100
+	200
+	300
+
