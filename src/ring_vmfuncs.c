@@ -16,15 +16,13 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 	/* nFuncExecute is used also by See command while nFuncExecute2 is not */
 	pVM->nFuncExecute++ ;
 	pVM->nFuncExecute2++ ;
-	/* pFunctionsMap is a list of lists (Functions in the program) */
-	pList = pVM->pFunctionsMap ;
 	/* Search */
-	for ( y = 1 ; y <= 2 ; y++ ) {
+	for ( y = 2 ; y >= 1 ; y-- ) {
 		/* For OOP Support - Search in the Class Methods */
 		if ( y == 2 ) {
 			/* Exit if we are  ( not inside class (no active object) ) or we call method after object name */
 			if ( ( ring_list_getsize(pVM->pObjState) == 0 ) || ( pVM->nCallMethod == 1 ) ) {
-				break ;
+				continue ;
 			}
 			pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
 			/* Pass Braces for Class Init() method */
@@ -35,8 +33,12 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			}
 			pList = (List *) ring_list_getpointer(pList,RING_OBJSTATE_METHODS);
 			if ( pList == NULL ) {
-				break ;
+				continue ;
 			}
+		}
+		else {
+			/* pFunctionsMap is a list of lists (Functions in the program) */
+			pList = pVM->pFunctionsMap ;
 		}
 		if ( ring_list_gethashtable(pList) == NULL ) {
 			ring_list_genhashtable2(pList);
