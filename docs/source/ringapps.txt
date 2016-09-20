@@ -113,6 +113,8 @@ URL : https://github.com/CalmoSoft/CalmoSoft-Fifteen-Puzzle-Game/blob/gh-pages/C
 Author : Gal Zsolt (CalmoSoft)
 
 .. image:: ringapps_shot6.jpg
+	:width: 200pt
+	:height: 200pt
 	:alt: Ring Application
 
 
@@ -127,6 +129,8 @@ URL : https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/TecTacToe.ri
 Author : Abdelrahman Mohammed
 
 .. image:: ringapps_shot5.jpg
+	:width: 200pt
+	:height: 200pt
 	:alt: Ring Application
 
 
@@ -147,6 +151,8 @@ which is moving squares to get the real full shape of the original picture.
 This game could be played using mouse and keyboard as well, showing a message of congratulations at the successful solving.
 
 .. image:: ringapps_shot2.png
+	:width: 200pt
+	:height: 200pt
 	:alt: Ring Application
 
 
@@ -162,6 +168,8 @@ URL : https://github.com/magdy-ragab/werdy
 Author : Magdy Ragab
 
 .. image:: ringapps_shot1.png
+	:width: 300pt
+	:height: 300pt
 	:alt: Ring Application
 
 
@@ -198,15 +206,21 @@ The next screen shots for simple 2D Games that we will present in the Game Engin
 Stars Fighter Game
 
 .. image:: starsfighter.png
+	:width: 250pt
+	:height: 150pt
 	:alt: Ring Application
 
 Flappy Bird 3000 Game
 
 .. image:: flappybird.png
+	:width: 250pt
+	:height: 150pt
 	:alt: Ring Application
 
 Super Man 2016 Game
 
 .. image:: superman.png
+	:width: 250pt
+	:height: 150pt
 	:alt: Ring Application
 
