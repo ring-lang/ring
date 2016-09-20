@@ -16,22 +16,28 @@ class App
 
 	cDir = currentdir() + "/"
 	oCon 
+	aIDs = []
 
 	win1 = new qWidget()
 	{
 		setWindowTitle("Weight History")
 		resize(600,600)
-		layoutAdd = new qhboxlayout(win1)
+		layoutButtons = new qhboxlayout(win1)
 		{
 			label1 = new qLabel(win1) { setText("Weight") }
 			text1 = new qlineedit(win1)
-			btn1 = new qpushbutton(win1) { 
+			btnAdd = new qpushbutton(win1) { 
 					setText("Add") 
 					setClickEvent($ApplicationObject+".AddWeight()") 
 			}
+			btnDelete = new qpushbutton(win1) { 
+					setText("Delete") 
+					setClickEvent($ApplicationObject+".Deleteweight()") 
+			}
 			addwidget(label1)
 			addwidget(text1)
-			addwidget(btn1)
+			addwidget(btnAdd)
+			addwidget(btnDelete)
 		}
 		layoutData  = new qhboxlayout(win1)
 		{
@@ -42,6 +48,10 @@ class App
 				setHorizontalHeaderItem(0, new QTableWidgetItem("Date"))
 				setHorizontalHeaderItem(1, new QTableWidgetItem("Time"))
 				setHorizontalHeaderItem(2, new QTableWidgetItem("Weight"))
+				setitemChangedEvent($ApplicationObject+".ItemChanged()")
+			             setAlternatingRowColors(true)    
+			                horizontalHeader().setStyleSheet("color: blue")
+			                verticalHeader().setStyleSheet("color: red") 
                 		}
 			addWidget(Table1)
 		}
@@ -52,7 +62,7 @@ class App
 		}
 		layoutMain = new qvboxlayout(win1)
 		{
-			addlayout(layoutAdd)
+			addlayout(layoutButtons)
 			addLayout(LayoutData)
 			addLayout(layoutClose)
 		}
@@ -88,6 +98,21 @@ class App
 		cWeight = text1.text()
 		AddRecord(cWeight)
 
+	Func DeleteWeight
+		Table1 {
+	 		nRow = CurrentRow() 
+			if nRow >= 0
+				nID = this.aIDs[nROW+1] 
+				new QSqlQuery( ) {
+					exec("delete from weighthistory where id = " + nID )
+				}
+				Del(this.aIDs,nRow+1)
+				removerow(nRow)	
+				selectrow(nRow)
+			ok
+		}
+		
+
 	Func AddRecord cWeight
 		new QSqlQuery( ) {
 			cStr = "insert into weighthistory (f_date,f_time,f_weight) values ('%f1','%f2',%f3)"
@@ -99,23 +124,12 @@ class App
 			exec(cStr)
 			delete()
 		}
-		ShowRecord (cDate,cTime,cWeight)
+		ShowRecords(cDate,cTime,cWeight)
+		Table1.selectrow(table1.rowcount()-1)
 
-
-	Func ShowRecord cDate,cTime,cWeight
-		Table1 {
-			nRows = rowCount()
-			insertRow(nRows)
-			item = new qTableWidgetItem(cDate)
-			setItem(nRows,0,item)
-			item = new qTableWidgetItem(cTime)
-			setItem(nRows,1,item)
-			item = new qTableWidgetItem(cWeight)
-			setItem(nRows,2,item)
-		}
 
 	Func ShowRecords
-
+		aIDs = []
 		query = new QSqlQuery() {
 			exec("select * from weighthistory")
 			nRows = 0
@@ -123,6 +137,7 @@ class App
 			while movenext() 
 				this.table1 {
 					insertRow(nRows)
+					this.aIDs + query.value(0).tostring()
 					for x = 1 to 3 
 						cStr = query.value(x).tostring()
 						item = new qTableWidgetItem(cStr)
@@ -133,3 +148,22 @@ class App
 			end
 			delete()
 		}
+	 
+	Func ItemChanged
+		nRow =  table1.currentrow()
+		if nRow >= 0 
+			myitem = Table1.item(table1.currentrow(),0)
+			cDate = myitem.text()
+			myitem = Table1.item(table1.currentrow(),1)
+			cTime = myitem.text()
+			myitem = Table1.item(table1.currentrow(),2)
+			cWeight = myitem.text()
+			new QSqlQuery( ) {
+				cStr = "update weighthistory set f_date ='%f1' , f_time = '%f2' , f_weight ='%f3' where id = " +  this.aIDs[nROW+1] 
+				cStr = substr(cStr,"%f1",cDate)
+				cStr = substr(cStr,"%f2",cTime)
+				cStr = substr(cStr,"%f3",cWeight)	
+				exec(cStr)
+				delete()
+			}
+		ok
