@@ -141,10 +141,10 @@ Output:
 	========================================
 
 .. index::
-	pair: Scope Rules for Functions and Methods; Calling a function with the same name as method in the current class
+	pair: Scope Rules for Functions and Methods; Calling a function sharing the name with a method in the current class
 
-Calling a function with the same name as method in the current class
-====================================================================
+Calling a function sharing the name with a method in the current class
+======================================================================
 
 In the previous example we have a function called f3() and we have a method called f3() 
 
