@@ -1,9 +1,9 @@
 .. index:: 
 	single: Scope Rules; Introduction
 
-===========
-Scope Rules
-===========
+========================================
+Scope Rules for Variables and Attributes
+========================================
 
 In this chapter we will learn about scope rules and how Ring find variables.
 
