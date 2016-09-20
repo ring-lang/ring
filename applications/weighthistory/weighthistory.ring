@@ -3,7 +3,6 @@
 
 Load "guilib.ring"
 
-
 MyApp = new qApp
 {	
 	$ApplicationObject = "oApp"   # To be used when calling events
