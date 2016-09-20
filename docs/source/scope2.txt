@@ -52,10 +52,10 @@ We can replace Ring Functions with Ring Methods.
 .. tip:: We can use this.method() to escape from the current active scope that we access using braces {} and call a method in the class that we are inside.
 
 .. index::
-	pair: Scope Rules for Functions and Methods; Example
+	pair: Scope Rules for Functions and Methods; Example about Sharing Names between Functions and Methods
 
-Example
-=======
+Example about Sharing Names between Functions and Methods
+=========================================================
 
 Look at the next example
 
