@@ -424,13 +424,13 @@ for example you can create a game engine using object-oriented programming but w
 
 (6) Ring Compiler and Virtual Machine is just 15,000 lines of ANSI C code that can be compiled and used in any platform.
 
-(7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions of C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
+(7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions or C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
 
 .. index:: 
 	pair: Frequently Asked Questions; What are the advantages to using Ring over Python and Ruby?
 
-What are the advantages to using Ring over Python and Ruby?
-===========================================================
+What are the advantages to using Ring over Perl, PHP, Python or Ruby?
+=====================================================================
 
 (1) Ring is New and Innovative. The language will let you think different about programming.
 
@@ -448,13 +448,12 @@ What are the advantages to using Ring over Python and Ruby?
 .. index:: 
 	pair: Frequently Asked Questions; What are the advantages to using Ring over Tcl and Lua?
 
-What are the advantages to using Ring over Lua?
-=======================================================
+What are the advantages to using Ring over Tcl or Lua?
+======================================================
 
 (1) Clean Code (More Natural)
 
 (2) More Features (A lot of useful programming paradigms)
-
 
 .. index:: 
 	pair: Frequently Asked Questions; What are the advantages to using Ring over C# or Java?
