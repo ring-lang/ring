@@ -182,6 +182,58 @@ In this example we will use the QListWidget Class
 
 .. code-block:: ring
 
+	Load "guilib.ring"
+
+	New qApp {
+
+	        win1 = new qWidget() {
+
+	                setGeometry(100,100,400,400)
+
+	                list1 = new qlistwidget(win1) {
+        	                setGeometry(150,100,200,200)
+                	        alist = ["one","two","three","four","five"]
+                        	for x in alist additem(x) next
+	                        setcurrentrow(3,2)
+        	                win1.setwindowtitle("Items Count : " + count() )
+                	}
+
+	                btn1 = new qpushbutton(win1) {
+        	                setGeometry(10,200,100,30)
+                	        settext("selected item")
+                        	setclickevent("pWork()")
+	                }
+
+	                btn2 = new qpushbutton(win1) {
+        	                setGeometry(10,240,100,30)
+                	        settext("Delete item")
+                        	setclickevent("pWork2()")
+	                }
+
+	                show()
+        	}
+
+	        exec()
+	}
+
+	func pWork
+        	btn1.settext(string(list1.currentrow()))
+
+	func pWork2
+        	list1 {
+         	       takeitem(currentrow())
+	        }
+
+The application during the runtime
+
+.. image:: ringqt_shot5.jpg
+	:alt: QListWidget Class
+
+
+Another Example:
+
+.. code-block:: ring
+
         Load "guilib.ring"
 
         New qApp {
@@ -243,11 +295,7 @@ In this example we will use the QListWidget Class
 				" CurItemNbr: " + curItemNbr +" CurValue: " + curValue )
                 }
 
-        
-The application during the runtime
-
-.. image:: ringqt_shot5.jpg
-	:alt: QListWidget Class
+       
 
 .. index:: 
 	pair: Desktop and Mobile Development; Using QTreeView and QFileSystemModel
@@ -351,33 +399,27 @@ In this example we will learn about using the QComboBox class
 
 .. code-block:: ring
 
-        Load "guilib.ring"
+	Load "guilib.ring"
 
-        New qApp {
-                win1 = new qMainWindow() {
-                        setGeometry(100,100,400,300)
-                        setwindowtitle("Using QCheckBox")
-                        
-                        ### 0-Unchecked  1-Checked
-                        
-                        CheckBox = new qcheckbox(win1) {
-                                setGeometry(100,100,160,30)
-                                settext("New Customer!")
-                                setclickedEvent("HandleClickEvent()")
-                        }                   
-                                    
-                        show()                            
-                }
-                exec()
-        }
+	New qApp {
 
-        Func HandleClickEvent
-            
-            if CheckBox.isChecked() = 1 
-                CheckBox.settext("New Customer. Check 1-ON")
-            else
-                CheckBox.settext("New Customer. Check 0-OFF")
-            ok
+	        win1 = new qWidget() {
+
+        	        setwindowtitle("Using QComboBox")
+	                setGeometry(100,100,400,400)
+
+	                New QComboBox(win1) {
+        	                setGeometry(150,100,200,30)
+                	        alist = ["one","two","three","four","five"]
+                        	for x in aList additem(x,0) next
+	                }
+
+	                show()
+        	}
+
+	        exec()
+	}
+
             
 The application during the runtime
 
@@ -955,6 +997,39 @@ The application during the runtime
 
 .. image:: ringqt_shot21.jpg
 	:alt: QCheckBox
+
+
+Another Example:
+
+.. code-block:: ring
+
+        Load "guilib.ring"
+
+        New qApp {
+                win1 = new qMainWindow() {
+                        setGeometry(100,100,400,300)
+                        setwindowtitle("Using QCheckBox")
+                        
+                        ### 0-Unchecked  1-Checked
+                        
+                        CheckBox = new qcheckbox(win1) {
+                                setGeometry(100,100,160,30)
+                                settext("New Customer!")
+                                setclickedEvent("HandleClickEvent()")
+                        }                   
+                                    
+                        show()                            
+                }
+                exec()
+        }
+
+        Func HandleClickEvent
+            
+            if CheckBox.isChecked() = 1 
+                CheckBox.settext("New Customer. Check 1-ON")
+            else
+                CheckBox.settext("New Customer. Check 0-OFF")
+            ok
 
 
 .. index:: 
