@@ -802,15 +802,15 @@ The next function can be used to get the file size without reading the file!
 
 .. code-block:: ring
 
-	fp = fopen(“filename”,”r”)
+	fp = fopen("filename","r")
 
-	see  “File Size : ” + getFileSize(fp) + nl
+	see  "File Size : " + getFileSize(fp) + nl
 
 Another solution (Read the file)
 
 .. code-block:: ring
 
-	see len(read(“filename”))
+	see len(read("filename"))
 
 
 .. index:: 
@@ -828,7 +828,7 @@ then we can add the path variable to the file name
 	func currentpath
 		cFileName = filename()
 		for x = len(cFileName) to 1 step -1
-			if cFileName[x] = “/”
+			if cFileName[x] = "/"
 				return left(cFileName,x-1)
 			ok
 		next
@@ -882,8 +882,8 @@ Example
 	C_COUNTRY = 1
 	C_CITY = 2
 	mylist = [
-		:KSA = “Riyadh” ,
-		:Egypt = “Cairo”
+		:KSA = "Riyadh" ,
+		:Egypt = "Cairo"
 	]
 
 	for x in mylist
@@ -958,32 +958,32 @@ At first remember that you can check strings using '=' operator directly.
 
 .. code-block:: ring
 
-	see strcmp(“hello”,”hello”) + nl +
-	strcmp(“abc”,”bcd”) + nl +
-	strcmp(“bcd”,”abc”) + nl
+	see strcmp("hello","hello") + nl +
+	strcmp("abc","bcd") + nl +
+	strcmp("bcd","abc") + nl
 
 if the two strings are the same then it returns 0
 
 abc and bcd aren’t the same. in the second line it returns -1 and in the third line it returns 1
 
-In the second line we compare between “abc” and “bcd”
+In the second line we compare between "abc" and "bcd"
 
-Not equal because the first letter in “abc” = “a” 
-and the first letter in “bcd” = “b”
+Not equal because the first letter in "abc" = "a" 
+and the first letter in "bcd" = "b"
 
-So we have “a” != “b” and “a” < “b”
+So we have "a" != "b" and "a" < "b"
 
 So we get output = -1
 
-In the third line we have “bcd” and “abc”
+In the third line we have "bcd" and "abc"
 
-the first letter in “bcd” is “b” and the first letter in “abc” is “a”
+the first letter in "bcd" is "b" and the first letter in "abc" is "a"
 
-So we have “b” != “a” and “b” > “a”
+So we have "b" != "a" and "b" > "a"
 
 So we get output = 1
 
-.. note:: ASCII(“a”) = 97 and ASCII(“b”) = 98 So “a” < “b” because 97 < 98
+.. note:: ASCII("a") = 97 and ASCII("b") = 98 So "a" < "b" because 97 < 98
 
 
 .. index:: 
@@ -1127,23 +1127,23 @@ This example demonstrates how to create a modal window
 	{
 		frmStart=new Qwidget()
 		{
-			setWindowTitle(“The First Window”)
+			setWindowTitle("The First Window")
 			resize(300,320)
 			move(200,200)
 		
 			button=new qPushButton(frmStart)
 			{
-				setText(“Show Modal Window”)
+				setText("Show Modal Window")
 				resize(200,30)
-				setClickEvent(“frmModal.show()”)
+				setClickEvent("frmModal.show()")
 			}
 
 			new qPushButton(frmStart)
 			{
-				setText(“Close Window”)
+				setText("Close Window")
 				move(0,50)
 				resize(200,30)
-				setClickEvent(“frmStart.Close()”)
+				setClickEvent("frmStart.Close()")
 			}
 
 			show()
@@ -1151,7 +1151,7 @@ This example demonstrates how to create a modal window
 
 		frmModal =new Qwidget()
 		{
-			setWindowTitle(“Modal Window”)
+			setWindowTitle("Modal Window")
 			resize(300,320)
 			move(200,200)
 			setparent(frmStart)
@@ -1171,3 +1171,45 @@ Related Documents
 * http://doc.qt.io/qt-5/qwindow.html#setParent
 * http://doc.qt.io/qt-5/qt.html#WindowModality-enum
 
+
+.. index:: 
+	pair: Frequently Asked Questions; How to Close a window then displaying another one?
+
+How to Close a window then displaying another one?
+==================================================
+
+This example demonstrates how to close a window and show another one
+
+.. code-block:: none
+
+	Load "guilib.ring"
+
+	app=new qApp
+	{
+		frmBefore=new Qwidget()
+		{
+			setWindowTitle("before!")
+			resize(300,320)
+			move(200,200)
+
+			button=new qPushButton(frmBefore)
+			{
+				setText("Close")
+				setClickEvent("frmBefore.close() frmMain.show()")
+			}
+
+			show()
+		}
+
+		frmMain=new Qwidget()
+		{
+			setWindowTitle("After!")
+			resize(300,320)
+			move(200,200)
+		}
+
+		exec()
+
+	}
+
+ 
