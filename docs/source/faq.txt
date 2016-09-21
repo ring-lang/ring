@@ -658,3 +658,61 @@ And the language comes with innovative features added to achieve the language go
 * Simple language that can be used in education and introducing Compiler/VM concepts.
 * General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
 * Practical language designed for creating the next version of the Programming Without Coding Technology software.
+
+.. index:: 
+	pair: Frequently Asked Questions; How to use SQLite using ODBC?
+
+How to use SQLite using ODBC?
+=============================
+
+In Ring 1.1 we have native support for SQLite, so you don't need to use it through ODBC.
+
+Also we can access SQLite through RingQt.
+
+The answer to your question
+
+.. code-block:: ring
+
+	pODBC = odbc_init()
+	odbc_connect(pODBC,"DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;")
+	odbc_execute(pODBC,"create table 'tel' ('ID','NAME','PHONE');")
+	odbc_execute(pODBC,"insert into 'tel' values ('1','Mahmoud','123456');")
+	odbc_execute(pODBC,"insert into 'tel' values ('2','Ahmed','123456');")
+	odbc_execute(pODBC,"insert into 'tel' values ('3','Ibrahim','123456');")
+	odbc_execute(pODBC,"select * from tel") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+        	See nl
+	        for x = 1 to nMax
+        	        see odbc_getdata(pODBC,x) 
+			if x != nMax see " - " ok
+	        next
+	end
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output:
+
+.. code-block:: none
+
+	Columns Count : 3
+
+	1 - Mahmoud - 123456
+	2 - Ahmed - 123456
+	3 - Ibrahim - 123456
+
+The program will create the file : mydb.db
+
+Note : when i print the odbc drivers i see the long list that includes
+
+.. code-block:: none
+
+	SQLite3 ODBC Driver - UsageCount=1
+	SQLite ODBC Driver - UsageCount=1	
+	SQLite ODBC (UTF-8) Driver - UsageCount=1
+
+And I'm using "SQLite3 ODBC Driver".
+
+
+
