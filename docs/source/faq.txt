@@ -6,6 +6,34 @@ Frequently Asked Questions (FAQ)
 ================================
 
 .. index:: 
+	pair: Frequently Asked Questions; Why Ring uses 'See', 'Give', 'But' and 'Ok' Keywords?
+
+Why Ring uses 'See', 'Give', 'But' and 'Ok' Keywords?
+=====================================================
+
+See and Give are selected not to be "opposite actions" but to reflect what I want to do as a programmer.
+
+When i want to see something on the screen I use 'See'.
+
+When i want to give some input to the program i use 'Give'.
+
+My selection of "but" and "ok" is based on selecting keywords that can be written quickly.
+
+Also using "but" is easy to remember than elseif/elif/elsif where each language select a different keyword.
+
+In Ring 1.1 All of this is just an option.
+
+You can use 'Put' and 'Get' instead of 'See' and 'Give'
+
+You can use 'elseif' and 'end' insetad of 'But' and 'Ok'
+
+It's your choice. In Ring we have syntax flexibility where we provide more than one style.
+
+Also you can change the language keywords and operators.
+
+Also you can define new natural languages too.
+
+.. index:: 
 	pair: Frequently Asked Questions; Philosophy behind data types in Ring
 
 What is the philosophy behind data types in Ring?
@@ -45,6 +73,50 @@ So We have
 * A small and simple language that someone can pick in little days
 * A fast language that provide primitive types (String – Number – List – Object)
 * A flexible language that can be extended using OOP to add new types according to the application domain
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What about the Boolean values in Ring?
+
+What about the Boolean values in Ring?
+======================================
+
+
+You can use true for 1 and false for 0
+
+when you test the result of Boolean expressions in your code.
+
+Just when you print the value using the see command you will see 1 for (true) and 0 for (false)
+
+Why ?
+
+Because Ring contains only 4 types of variables
+
+(1) Number
+
+(2) String
+
+(3) List
+
+(4) Object
+
+The first type (Number) is used to represent int, double and Boolean values.
+
+The second type (String) is used to represent char, array of characters, date and time.
+
+The third type (List) is used to represent Arrays of one type, Arrays of more than one type, Hash (Dictionary), Tree, etc.
+
+The object can be an object created from a Ring class (Any Class) or just a C Pointer that we get from calling a C/C++ function/method.
+
+Why ?
+
+The Ring is designed to give the programmer/developer the most simple constructs that can be used to do everything.
+The programmer/developer can customize the language by creating new classes (and use operator overloading) to get more types that he care about according to the problem domain.
+
+Why ?
+
+Because simple is better, and easy to learn and remember!
+And this provide flexibility to convert between high level types that can be represented using the same basic type
 
 
 .. index:: 
@@ -165,81 +237,6 @@ or remember the for loop in other languages
 
 You will use the < operator !
 
-
-.. index:: 
-	pair: Frequently Asked Questions; Search of global names while defining the class attributes
-
-Why should a search of global names be made while defining the class attributes?
-================================================================================
-
-The question is why we don't avoid conflicts with global variable names when we
-define the class attributes ?
-
-At first remember that using the optional $ mark in the global variables names solve
-the problem. Also using the Main function and avoiding global variables may help.
-
-The Answer:
-
-Ring is a dynamic language
-
-We can in the run-time determine the class attributes (Add/Remove) 
-
-We can execute (any code) while defining the class attributes
-
-Example (1)
-
-.. code-block:: ring
-
-	oPerson = new Person
-	Class Person
-	   See "Welcome to the Ring language"
-
-Example (2)
-
-Customize attributes based on global variable value
-
-.. code-block:: ring
-
-	$debug = true
-	oPerson = new Person
-	see oPerson
-	Class Person
-	    if $debug  date=date()  time=time() ok
-
-In the previous example when we have the $debug flag set to true, we will add the Date and Time
-attributes to the object state.
-
-Example (3)
-
-Store the object index based on global variable
-
-.. code-block:: ring
-
-	$ObjectsCount = 0
-	oPerson = new Person
-	see oPerson
-	oPerson2 = new Person
-	see oPerson2
-	Class Person
-	      $ObjectsCount++
-	      nIndex = $ObjectsCount
-
-Output:
-
-.. code-block:: ring
-
-	nindex: 1.000000
-	nindex: 2.000000
-
-Common Example: 
-
-* Connect to the database then get table columns (Using global Variable/Object).
-
-* Create class attributes based on the column names.
-
-* Later when you modify the database - you may don't need to modify your code.
-
-It's flexibility but remember that power comes with great responsibility.
 
 .. index:: 
 	pair: Frequently Asked Questions; Constructor methods in Ring
@@ -401,7 +398,83 @@ Output
 	Mr. Marino - Ring Programming Language
 
 .. index:: 
+	pair: Frequently Asked Questions; Search of global names while defining the class attributes
+
+Why should a search of global names be made while defining the class attributes?
+================================================================================
+
+The question is why we don't avoid conflicts with global variable names when we
+define the class attributes ?
+
+At first remember that using the optional $ mark in the global variables names solve
+the problem. Also using the Main function and avoiding global variables may help.
+
+The Answer:
+
+Ring is a dynamic language
+
+We can in the run-time determine the class attributes (Add/Remove) 
+
+We can execute (any code) while defining the class attributes
+
+Example (1)
+
+.. code-block:: ring
+
+	oPerson = new Person
+	Class Person
+	   See "Welcome to the Ring language"
+
+Example (2)
+
+Customize attributes based on global variable value
+
+.. code-block:: ring
+
+	$debug = true
+	oPerson = new Person
+	see oPerson
+	Class Person
+	    if $debug  date=date()  time=time() ok
+
+In the previous example when we have the $debug flag set to true, we will add the Date and Time
+attributes to the object state.
+
+Example (3)
+
+Store the object index based on global variable
+
+.. code-block:: ring
+
+	$ObjectsCount = 0
+	oPerson = new Person
+	see oPerson
+	oPerson2 = new Person
+	see oPerson2
+	Class Person
+	      $ObjectsCount++
+	      nIndex = $ObjectsCount
+
+Output:
+
+.. code-block:: ring
+
+	nindex: 1.000000
+	nindex: 2.000000
+
+Common Example: 
+
+* Connect to the database then get table columns (Using global Variable/Object).
+
+* Create class attributes based on the column names.
+
+* Later when you modify the database - you may don't need to modify your code.
+
+It's flexibility but remember that power comes with great responsibility.
+
+.. index:: 
 	pair: Frequently Asked Questions; What are the advantages to using Ring over native C or C++?
+
 
 What are the advantages to using Ring over native C or C++?
 ===========================================================
@@ -425,186 +498,6 @@ for example you can create a game engine using object-oriented programming but w
 (6) Ring Compiler and Virtual Machine is just 15,000 lines of ANSI C code that can be compiled and used in any platform.
 
 (7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions or C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
-
-.. index:: 
-	pair: Frequently Asked Questions; What are the advantages to using Ring over Python and Ruby?
-
-What are the advantages to using Ring over Perl, PHP, Python or Ruby?
-=====================================================================
-
-(1) Ring is New and Innovative. The language will let you think different about programming.
-
-(2) Ring is Smaller. (Lessons learned from the Lua language)
-
-(3) Ring is Simple. (Lessons learned from the BASIC and Clipper/Harbour languages)
-
-(4) Ring is more Natural. (Lessons learned from the Supernova language)
-
-(5) Ring is more Declarative. (Lessons learned from REBOL and QML languages)
-
-(6) Ring Implementation is Transparent, Visual and comes with Rich Features.
-
-
-.. index:: 
-	pair: Frequently Asked Questions; What are the advantages to using Ring over Tcl and Lua?
-
-What are the advantages to using Ring over Tcl or Lua?
-======================================================
-
-(1) Clean Code (More Natural)
-
-(2) More Features (A lot of useful programming paradigms)
-
-.. index:: 
-	pair: Frequently Asked Questions; What are the advantages to using Ring over C# or Java?
-
-What are the advantages to using Ring over C# or Java?
-======================================================
-
-(1) Compact Code (Clean and Natural), More Productivity and Flexibility.
-
-(2) Better support for Declarative Programming and Natural Programming
-
-
-.. index:: 
-	pair: Frequently Asked Questions; Why Ring uses 'See', 'Give', 'But' and 'Ok' Keywords?
-
-Why Ring uses 'See', 'Give', 'But' and 'Ok' Keywords?
-=====================================================
-
-See and Give are selected not to be "opposite actions" but to reflect what I want to do as a programmer.
-
-When i want to see something on the screen I use 'See'.
-
-When i want to give some input to the program i use 'Give'.
-
-My selection of "but" and "ok" is based on selecting keywords that can be written quickly.
-
-Also using "but" is easy to remember than elseif/elif/elsif where each language select a different keyword.
-
-In Ring 1.1 All of this is just an option.
-
-You can use 'Put' and 'Get' instead of 'See' and 'Give'
-
-You can use 'elseif' and 'end' insetad of 'But' and 'Ok'
-
-It's your choice. In Ring we have syntax flexibility where we provide more than one style.
-
-Also you can change the language keywords and operators.
-
-Also you can define new natural languages too.
-
-
-.. index:: 
-	pair: Frequently Asked Questions; Can I connect to dbase/harbour database?
-
-Can I connect to dbase/harbour database?
-========================================
-
-You can connect to any database using ODBC
-
-To connect to xbase files (*.DBF)
-
-.. code-block:: ring
-
-	See "Using DBF Files using ODBC" + nl
-	pODBC = odbc_init()
-	See "Connect to database" + nl
-	odbc_connect(pODBC,"Driver={Microsoft dBase Driver (*.dbf)};datasource=dBase Files;DriverID=277")
-	See "Select data" + nl
-	odbc_execute(pODBC,"select * from tel.dbf") 
-	nMax = odbc_colcount(pODBC)
-	See "Columns Count : " + nMax + nl
-	while odbc_fetch(pODBC)
-		   See "Row data:" + nl
-		   for x = 1 to nMax
-				   see odbc_getdata(pODBC,x) + " - "
-		   next
-	end
-	See "Close database..." + nl
-	odbc_disconnect(pODBC)
-	odbc_close(pODBC)
-
-Output 
-
-.. code-block:: none
-
-	Using DBF Files using ODBC
-	Connect to database
-	Select data
-	Columns Count : 3
-	Row data:
-	Ahmad - Egypt - 234567 - Row data:
-	Fady - Egypt - 345678 - Row data:
-	Shady - Egypt - 456789 - Row data:
-	Mahmoud - Egypt - 123456 - Close database...
-
-
-Also you can connect to a Visual FoxPro database (requires installing Visual FoxPro driver)
-
-.. code-block:: ring
-
-
-	See "ODBC test 6" + nl
-	pODBC = odbc_init()
-	See "Connect to database" + nl
-	odbc_connect(pODBC,"Driver={Microsoft Visual FoxPro Driver};SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA\CH1\Data\mydata.dbc;") 
-	See "Select data" + nl
-	see odbc_execute(pODBC,"select * from t38") + nl
-	nMax = odbc_colcount(pODBC)
-	See "Columns Count : " + nMax + nl
-	while odbc_fetch(pODBC)
-		See "Row data:" + nl
-		for x = 1 to nMax
-			see odbc_getdata(pODBC,x) + " - "
-		next
-	end
-	See "Close database..." + nl
-	odbc_disconnect(pODBC)
-	odbc_close(pODBC)
-
-.. index:: 
-	pair: Frequently Asked Questions; What about the Boolean values in Ring?
-
-What about the Boolean values in Ring?
-======================================
-
-
-You can use true for 1 and false for 0
-
-when you test the result of Boolean expressions in your code.
-
-Just when you print the value using the see command you will see 1 for (true) and 0 for (false)
-
-Why ?
-
-Because Ring contains only 4 types of variables
-
-(1) Number
-
-(2) String
-
-(3) List
-
-(4) Object
-
-The first type (Number) is used to represent int, double and Boolean values.
-
-The second type (String) is used to represent char, array of characters, date and time.
-
-The third type (List) is used to represent Arrays of one type, Arrays of more than one type, Hash (Dictionary), Tree, etc.
-
-The object can be an object created from a Ring class (Any Class) or just a C Pointer that we get from calling a C/C++ function/method.
-
-Why ?
-
-The Ring is designed to give the programmer/developer the most simple constructs that can be used to do everything.
-The programmer/developer can customize the language by creating new classes (and use operator overloading) to get more types that he care about according to the problem domain.
-
-Why ?
-
-Because simple is better, and easy to learn and remember!
-And this provide flexibility to convert between high level types that can be represented using the same basic type
 
 
 .. index:: 
@@ -660,6 +553,46 @@ And the language comes with innovative features added to achieve the language go
 * Practical language designed for creating the next version of the Programming Without Coding Technology software.
 
 .. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Python and Ruby?
+
+What are the advantages to using Ring over Perl, PHP, Python or Ruby?
+=====================================================================
+
+(1) Ring is New and Innovative. The language will let you think different about programming.
+
+(2) Ring is Smaller. (Lessons learned from the Lua language)
+
+(3) Ring is Simple. (Lessons learned from the BASIC and Clipper/Harbour languages)
+
+(4) Ring is more Natural. (Lessons learned from the Supernova language)
+
+(5) Ring is more Declarative. (Lessons learned from REBOL and QML languages)
+
+(6) Ring Implementation is Transparent, Visual and comes with Rich Features.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Tcl and Lua?
+
+What are the advantages to using Ring over Tcl or Lua?
+======================================================
+
+(1) Clean Code (More Natural)
+
+(2) More Features (A lot of useful programming paradigms)
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over C# or Java?
+
+What are the advantages to using Ring over C# or Java?
+======================================================
+
+(1) Compact Code (Clean and Natural), More Productivity and Flexibility.
+
+(2) Better support for Declarative Programming and Natural Programming
+
+
+.. index:: 
 	pair: Frequently Asked Questions; How to use SQLite using ODBC?
 
 How to use SQLite using ODBC?
@@ -674,7 +607,8 @@ The answer to your question
 .. code-block:: ring
 
 	pODBC = odbc_init()
-	odbc_connect(pODBC,"DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;")
+	odbc_connect(pODBC,"DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;"+
+			   "Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;")
 	odbc_execute(pODBC,"create table 'tel' ('ID','NAME','PHONE');")
 	odbc_execute(pODBC,"insert into 'tel' values ('1','Mahmoud','123456');")
 	odbc_execute(pODBC,"insert into 'tel' values ('2','Ahmed','123456');")
@@ -713,6 +647,78 @@ Note : when i print the odbc drivers i see the long list that includes
 	SQLite ODBC (UTF-8) Driver - UsageCount=1
 
 And I'm using "SQLite3 ODBC Driver".
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Can I connect to dbase/harbour database?
+
+Can I connect to dbase/harbour database?
+========================================
+
+You can connect to any database using ODBC
+
+To connect to xbase files (*.DBF)
+
+.. code-block:: ring
+
+	See "Using DBF Files using ODBC" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft dBase Driver (*.dbf)};"+
+			   "datasource=dBase Files;DriverID=277")
+	See "Select data" + nl
+	odbc_execute(pODBC,"select * from tel.dbf") 
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		   See "Row data:" + nl
+		   for x = 1 to nMax
+				   see odbc_getdata(pODBC,x) + " - "
+		   next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output 
+
+.. code-block:: none
+
+	Using DBF Files using ODBC
+	Connect to database
+	Select data
+	Columns Count : 3
+	Row data:
+	Ahmad - Egypt - 234567 - Row data:
+	Fady - Egypt - 345678 - Row data:
+	Shady - Egypt - 456789 - Row data:
+	Mahmoud - Egypt - 123456 - Close database...
+
+
+Also you can connect to a Visual FoxPro database (requires installing Visual FoxPro driver)
+
+.. code-block:: ring
+
+
+	See "ODBC test 6" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft Visual FoxPro Driver};"+
+		"SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA\CH1\Data\mydata.dbc;") 
+	See "Select data" + nl
+	see odbc_execute(pODBC,"select * from t38") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		See "Row data:" + nl
+		for x = 1 to nMax
+			see odbc_getdata(pODBC,x) + " - "
+		next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
 
 
 .. index:: 
