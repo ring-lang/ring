@@ -2556,9 +2556,6 @@ The next sample help in recording (Date, Time and Weight).
 
 .. code-block:: ring
 
-	# Application  : Weight History
-	# Author       : Mahmoud Fayed <msfclipper@yahoo.com>
-
 	Load "guilib.ring"
 
 	MyApp = new qApp
