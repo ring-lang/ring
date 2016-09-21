@@ -1331,3 +1331,49 @@ Output
 	y: 2.000000
 	z: 3.000000
 
+.. index:: 
+	pair: Frequently Asked Questions; How to create an array of buttons in GUI applications?
+
+How to create an array of buttons in GUI applications?
+======================================================
+
+Check the next example:
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	App1 = new qApp {
+
+		win1 = new qWidget() {
+			move(0,0)
+			resize(500,500)
+			new qPushButton(win1)
+			{
+				settext("OK")
+				setclickevent("click()")
+			}
+			btn1 = new qPushButton(win1)
+			{
+				setgeometry(100,100,100,30)
+				settext("Button1")
+			}
+
+			btn2 = new qPushButton(win1)
+			{
+				setgeometry(200,100,100,30)
+				settext("Button2")
+			}
+
+			button = [btn1, btn2]
+			show()
+		}
+
+		exec()
+
+	}
+
+	func click
+
+		button[1] { settext ("Button3") }
+		button[2] { settext ("Button4") }
