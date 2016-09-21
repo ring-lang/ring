@@ -738,48 +738,6 @@ Add Ring/bin folder to the path then
 	ring <filename.ring>|<filename.ringo>
 
 .. index:: 
-	pair: Frequently Asked Questions; How can I disable maximize button and resize window?
-
-How can I disable maximize button and resize window?
-====================================================
-
-Use the method setWindowFlags()
-
-.. code-block:: ring
-
-	Load "guilib.ring"
-	app1 = new qapp {
-			win1 = new qwidget() {
-					setwindowtitle("First")
-					setgeometry(100,100,500,500)
-
-					new qpushbutton(win1) {
-							setgeometry(100,100,100,30)
-							settext("close")
-							setclickevent("app1.quit()")
-					}
-
-					new qpushbutton(win1) {
-							setgeometry(250,100,100,30)
-							settext("Second")
-							setclickevent("second()")
-					}
-
-					showmaximized()
-			}
-			exec()
-	}
-
-	func second
-			win2 = new qwidget() {
-					setwindowtitle("Second")
-					setgeometry(100,100,500,500)
-					setwindowflags(Qt_dialog)
-					show()
-			}
-
-
-.. index:: 
 	pair: Frequently Asked Questions; How to get the file size using ftell() and fseek() functions?
 
 How to get the file size using ftell() and fseek() functions?
@@ -1112,105 +1070,6 @@ We have Three Characters
 
 Because Windows uses CHAR(13) and CHAR(10) for each new line  ( i.e. CR+LF )
 
-.. index:: 
-	pair: Frequently Asked Questions; How to create a Modal Window?
-
-How to create a Modal Window?
-=============================
-
-This example demonstrates how to create a modal window
-
-.. code-block:: ring
-
-	load "guilib.ring"
-	app=new qApp
-	{
-		frmStart=new Qwidget()
-		{
-			setWindowTitle("The First Window")
-			resize(300,320)
-			move(200,200)
-		
-			button=new qPushButton(frmStart)
-			{
-				setText("Show Modal Window")
-				resize(200,30)
-				setClickEvent("frmModal.show()")
-			}
-
-			new qPushButton(frmStart)
-			{
-				setText("Close Window")
-				move(0,50)
-				resize(200,30)
-				setClickEvent("frmStart.Close()")
-			}
-
-			show()
-		}
-
-		frmModal =new Qwidget()
-		{
-			setWindowTitle("Modal Window")
-			resize(300,320)
-			move(200,200)
-			setparent(frmStart)
-			setwindowmodality(true)
-			setwindowflags(Qt_Dialog)
-		}
-
-		exec()
-
-	}
-
- 
-Related Documents
-
-* http://doc.qt.io/qt-5/qtwidgets-widgets-windowflags-example.html
-* http://doc.qt.io/qt-5/qt.html#WindowType-enum
-* http://doc.qt.io/qt-5/qwindow.html#setParent
-* http://doc.qt.io/qt-5/qt.html#WindowModality-enum
-
-
-.. index:: 
-	pair: Frequently Asked Questions; How to Close a window then displaying another one?
-
-How to Close a window then displaying another one?
-==================================================
-
-This example demonstrates how to close a window and show another one
-
-.. code-block:: none
-
-	Load "guilib.ring"
-
-	app=new qApp
-	{
-		frmBefore=new Qwidget()
-		{
-			setWindowTitle("before!")
-			resize(300,320)
-			move(200,200)
-
-			button=new qPushButton(frmBefore)
-			{
-				setText("Close")
-				setClickEvent("frmBefore.close() frmMain.show()")
-			}
-
-			show()
-		}
-
-		frmMain=new Qwidget()
-		{
-			setWindowTitle("After!")
-			resize(300,320)
-			move(200,200)
-		}
-
-		exec()
-
-	}
 
 .. index:: 
 	pair: Frequently Asked Questions; How to use NULL and ISNULL() function?
@@ -1331,6 +1190,129 @@ Output
 	y: 2.000000
 	z: 3.000000
 
+
+.. index:: 
+	pair: Frequently Asked Questions; How to insert an item to the first position in the list?
+
+How to insert an item to the first position in the list?
+========================================================
+
+To insert an item we can use the insert(aList,nIndex,Value) function.
+
+.. code-block:: ring
+
+	aList = 1:5
+	insert(aList,0,0)
+	See aList # print numbers from 0 to 5
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to print new lines and other characters?
+
+How to print new lines and other characters?
+============================================
+
+To print new line we can use the nl variable.
+
+.. code-block:: ring
+
+	See "Hello" + nl
+
+or we can use multi-line literal as in the next example
+
+.. code-block:: ring
+
+	See "Hello
+	
+	"
+if we want to print other characters we can use the char(nASCII) function
+
+.. code-block:: ring
+
+	See char(109) + nl +    # print m
+	    char(77)            # print M
+
+.. index:: 
+	pair: Frequently Asked Questions; Why we don’t use () after the qApp class name?
+
+Why we don’t use () after the qApp class name?
+==============================================
+
+When we use RingQt to create GUI application, we uses () after the 
+class name when we create new objects for example.
+
+.. code-block:: ring
+
+	new qWidget() { setWindowTitle("Hello World") resize(400,400) show() }
+
+but before doing that we create an object from the qApp class and we don’t use () after that
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	app = new qApp
+	{
+	    win=new qWidget()
+	    {
+        	setwindowtitle(:test)
+         	show()
+	    }
+	    exec()
+	}
+ 
+Using () after the class name means calling the init() method in the class and passing parameters to this method.
+
+If we used () while no init() method in the class we get the expected error message.
+
+The class qApp don’t have this method while the other classes have it because they need it to 
+create an object using a function that return a pointer to that object and this pointer will
+be stored in an attribute called pObject, for more information see ring_qt.ring file
+which contains the classes.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Why the window title bar is going outside the screen?
+
+Why the window title bar is going outside the screen?
+=====================================================
+
+When we write the next code
+
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	app = new qApp
+	{
+		win=new qWidget()
+		{
+		      setwindowtitle(:test)
+		      setGeometry(0,0,200,200)
+		      show()
+		}
+		exec()
+	}
+ 
+I would expect that the window will run at the point (0,0) with (200,200) size but the actual 
+result is that the window title bar is going outside the screen.
+
+This is related to the behavior of Qt framework.
+
+The next code will avoid the problem
+
+.. code-block:: ring
+
+	load "guilib.ring"
+	new qApp {
+		new qWidget() {
+			move(0,0)
+			resize(200,200)
+			show()
+		}
+		exec()
+	}
+
+
 .. index:: 
 	pair: Frequently Asked Questions; How to create an array of buttons in GUI applications?
 
@@ -1379,122 +1361,144 @@ Check the next example:
 		button[2] { settext ("Button4") }
 
 .. index:: 
-	pair: Frequently Asked Questions; How to insert an item to the first position in the list?
+	pair: Frequently Asked Questions; How to Close a window then displaying another one?
 
-How to insert an item to the first position in the list?
-========================================================
+How to Close a window then displaying another one?
+==================================================
 
-To insert an item we can use the insert(aList,nIndex,Value) function.
+This example demonstrates how to close a window and show another one
 
-.. code-block:: ring
-
-	aList = 1:5
-	insert(aList,0,0)
-	See aList # print numbers from 0 to 5
-
-.. index:: 
-	pair: Frequently Asked Questions; Why the window title bar is going outside the screen?
-
-Why the window title bar is going outside the screen?
-=====================================================
-
-When we write the next code
-
-
-.. code-block:: ring
+.. code-block:: none
 
 	Load "guilib.ring"
-	app = new qApp
+
+	app=new qApp
 	{
-		win=new qWidget()
+		frmBefore=new Qwidget()
 		{
-		      setwindowtitle(:test)
-		      setGeometry(0,0,200,200)
-		      show()
+			setWindowTitle("before!")
+			resize(300,320)
+			move(200,200)
+
+			button=new qPushButton(frmBefore)
+			{
+				setText("Close")
+				setClickEvent("frmBefore.close() frmMain.show()")
+			}
+
+			show()
 		}
+
+		frmMain=new Qwidget()
+		{
+			setWindowTitle("After!")
+			resize(300,320)
+			move(200,200)
+		}
+
 		exec()
+
 	}
- 
-I would expect that the window will run at the point (0,0) with (200,200) size but the actual 
-result is that the window title bar is going outside the screen.
 
-This is related to the behavior of Qt framework.
+.. index:: 
+	pair: Frequently Asked Questions; How to create a Modal Window?
 
-The next code will avoid the problem
+How to create a Modal Window?
+=============================
+
+This example demonstrates how to create a modal window
 
 .. code-block:: ring
 
 	load "guilib.ring"
-	new qApp {
-		new qWidget() {
-			move(0,0)
-			resize(200,200)
+	app=new qApp
+	{
+		frmStart=new Qwidget()
+		{
+			setWindowTitle("The First Window")
+			resize(300,320)
+			move(200,200)
+		
+			button=new qPushButton(frmStart)
+			{
+				setText("Show Modal Window")
+				resize(200,30)
+				setClickEvent("frmModal.show()")
+			}
+
+			new qPushButton(frmStart)
+			{
+				setText("Close Window")
+				move(0,50)
+				resize(200,30)
+				setClickEvent("frmStart.Close()")
+			}
+
 			show()
 		}
+
+		frmModal =new Qwidget()
+		{
+			setWindowTitle("Modal Window")
+			resize(300,320)
+			move(200,200)
+			setparent(frmStart)
+			setwindowmodality(true)
+			setwindowflags(Qt_Dialog)
+		}
+
 		exec()
+
 	}
+
+ 
+Related Documents
+
+* http://doc.qt.io/qt-5/qtwidgets-widgets-windowflags-example.html
+* http://doc.qt.io/qt-5/qt.html#WindowType-enum
+* http://doc.qt.io/qt-5/qwindow.html#setParent
+* http://doc.qt.io/qt-5/qt.html#WindowModality-enum
 
 
 .. index:: 
-	pair: Frequently Asked Questions; Why we don’t use () after the qApp class name?
+	pair: Frequently Asked Questions; How can I disable maximize button and resize window?
 
-Why we don’t use () after the qApp class name?
-==============================================
+How can I disable maximize button and resize window?
+====================================================
 
-When we use RingQt to create GUI application, we uses () after the 
-class name when we create new objects for example.
-
-.. code-block:: ring
-
-	new qWidget() { setWindowTitle("Hello World") resize(400,400) show() }
-
-but before doing that we create an object from the qApp class and we don’t use () after that
+Use the method setWindowFlags()
 
 .. code-block:: ring
 
 	Load "guilib.ring"
-	app = new qApp
-	{
-	    win=new qWidget()
-	    {
-        	setwindowtitle(:test)
-         	show()
-	    }
-	    exec()
+	app1 = new qapp {
+			win1 = new qwidget() {
+					setwindowtitle("First")
+					setgeometry(100,100,500,500)
+
+					new qpushbutton(win1) {
+							setgeometry(100,100,100,30)
+							settext("close")
+							setclickevent("app1.quit()")
+					}
+
+					new qpushbutton(win1) {
+							setgeometry(250,100,100,30)
+							settext("Second")
+							setclickevent("second()")
+					}
+
+					showmaximized()
+			}
+			exec()
 	}
- 
-Using () after the class name means calling the init() method in the class and passing parameters to this method.
 
-If we used () while no init() method in the class we get the expected error message.
+	func second
+			win2 = new qwidget() {
+					setwindowtitle("Second")
+					setgeometry(100,100,500,500)
+					setwindowflags(Qt_dialog)
+					show()
+			}
 
-The class qApp don’t have this method while the other classes have it because they need it to 
-create an object using a function that return a pointer to that object and this pointer will
-be stored in an attribute called pObject, for more information see ring_qt.ring file
-which contains the classes.
-
-.. index:: 
-	pair: Frequently Asked Questions; How to print new lines and other characters?
-
-How to print new lines and other characters?
-============================================
-
-To print new line we can use the nl variable.
-
-.. code-block:: ring
-
-	See "Hello" + nl
-
-or we can use multi-line literal as in the next example
-
-.. code-block:: ring
-
-	See "Hello
-	
-	"
-if we want to print other characters we can use the char(nASCII) function
-
-.. code-block:: ring
-
-	See char(109) + nl +    # print m
-	    char(77)            # print M
 
