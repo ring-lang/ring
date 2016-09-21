@@ -461,9 +461,7 @@ What are the advantages to using Ring over Tcl or Lua?
 What are the advantages to using Ring over C# or Java?
 ======================================================
 
-(1) Compact Code (Clear and Natural)
+(1) Compact Code (Clear and Natural), More Productivity and Flexibility.
 
-(2) More Productivity and Flexibility because Ring is a Dynamic Language
-
-(3) Better support for Declarative Programming and Natural Programming
+(2) Better support for Declarative Programming and Natural Programming
 
