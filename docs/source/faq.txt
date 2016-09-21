@@ -458,8 +458,8 @@ What are the advantages to using Ring over Tcl or Lua?
 .. index:: 
 	pair: Frequently Asked Questions; What are the advantages to using Ring over C# or Java?
 
-What are the advantages to using Ring over C# or Java
-=====================================================
+What are the advantages to using Ring over C# or Java?
+======================================================
 
 (1) Compact Code (Clear and Natural)
 
