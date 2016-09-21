@@ -1053,3 +1053,64 @@ Output
 
 	message from myfunc
 	message from test
+
+.. index:: 
+	pair: Frequently Asked Questions; Why this example use the GetChar() twice?
+
+Why this example use the GetChar() twice?
+=========================================
+
+The GetChar() function accept one character from the keyboard buffer
+
+In this example
+
+
+.. code-block:: ring
+
+
+	While True
+	       	See "
+        	        Main Menu
+                	(1) Say Hello
+	                (2) Exit
+	        "
+	        Option = GetChar()
+        	GetChar() GetChar()  # End of line
+	        # the previous two lines can be replaced with the next line
+        	# Give Option
+
+	        if Option = 1
+        	        see "Enter your name : " give cName
+                	see "Hello " + cName
+	        else
+        	        bye
+	        ok
+	End
+
+We uses GetChar() Three times
+
+The first time we get the user option
+
+.. code-block:: ring
+
+	Option = GetChar()
+ 
+
+But in the second and the third times (We accept the new line characters from the buffer)
+
+.. code-block:: ring
+
+	GetChar() GetChar()  # End of line
+
+Example : when the user select the option number 1 then press ENTER
+
+We have Three Characters
+
+* The first character is : Number 1
+* The second character is : CHAR(13)
+* The third character is : CHAR(10)
+
+Because Windows uses CHAR(13) and CHAR(10) for each new line  ( i.e. CR+LF )
+
+
+
