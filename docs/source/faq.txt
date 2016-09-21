@@ -495,3 +495,71 @@ Also you can change the language keywords and operators.
 Also you can define new natural languages too.
 
 
+.. index:: 
+	pair: Frequently Asked Questions; Can I connect to dbase/harbour database?
+
+Can I connect to dbase/harbour database?
+========================================
+
+You can connect to any database using ODBC
+
+To connect to xbase files (*.DBF)
+
+.. code-block:: ring
+
+	See "Using DBF Files using ODBC" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft dBase Driver (*.dbf)};datasource=dBase Files;DriverID=277")
+	See "Select data" + nl
+	odbc_execute(pODBC,"select * from tel.dbf") 
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		   See "Row data:" + nl
+		   for x = 1 to nMax
+				   see odbc_getdata(pODBC,x) + " - "
+		   next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output 
+
+.. code-block:: none
+
+	Using DBF Files using ODBC
+	Connect to database
+	Select data
+	Columns Count : 3
+	Row data:
+	Ahmad - Egypt - 234567 - Row data:
+	Fady - Egypt - 345678 - Row data:
+	Shady - Egypt - 456789 - Row data:
+	Mahmoud - Egypt - 123456 - Close database...
+
+
+Also you can connect to a Visual FoxPro database (requires installing Visual FoxPro driver)
+
+.. code-block:: ring
+
+
+	See "ODBC test 6" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft Visual FoxPro Driver};SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA\CH1\Data\mydata.dbc;") 
+	See "Select data" + nl
+	see odbc_execute(pODBC,"select * from t38") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		See "Row data:" + nl
+		for x = 1 to nMax
+			see odbc_getdata(pODBC,x) + " - "
+		next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
