@@ -3981,24 +3981,24 @@ RingQt define a new class called QAllEvents that help you in using Events Filter
 
 The next table presents the methods that we have
 
-================================
-Methods to get parameters
-================================
-getKeyCode() 	--> Number
+================================	======================
+Methods to get parameters		Class Name
+================================	======================
+getKeyCode() 	--> Number		QAllEvents
 getx()		--> Number
 gety()		--> Number
 getglobalx()	--> Number
 getglobaly()	--> Number
 getbutton()	--> Number
 getbuttons()	--> Number
-================================
+================================	======================
 
 The next table presents the methods that we have to use events.
 
-===================================================
-Method Name
-===================================================
-setKeyPressEvent(cEvent)
+===================================================	======================
+Method Name						Class Name
+===================================================	======================
+setKeyPressEvent(cEvent)				QAllEvents
 setMouseButtonPressEvent(cEvent)
 setMouseButtonReleaseEvent(cEvent)
 setMouseButtonDblClickEvent(cEvent)
@@ -4025,4 +4025,5 @@ setWindowBlockedEvent(cEvent)
 setWindowDeactivateEvent(cEvent)
 setWindowStateChangeEvent(cEvent)
 setWindowUnblockedEvent(cEvent)
-===================================================
+===================================================	======================
+
