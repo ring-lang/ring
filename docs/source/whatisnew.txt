@@ -24,6 +24,8 @@ Ring 1.1  comes with many new features
 * Demo Project - Game Engine for 2D Games
 * RingSQLite
 * Better Code Generator for Extensions 
+* Using Self.Attribute in the Class Region to define new attributes
+* Using This.Attribute in nested Braces inside the Class Methods
 * Better Documentation
 
 .. index:: 
@@ -541,6 +543,45 @@ more features are added like
 
 See the Code Generator chapter.
 
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Using Self.Attribute in the Class Region to define new attributes
+
+
+Using Self.Attribute in the Class Region to define new attributes
+=================================================================
+
+We can use Self.Attribute in the Class Region (after the class name and before any methods)
+to define new attributes.
+
+
+.. code-block:: ring
+
+	class Person
+		name		# Define name as attribute if it's not a global variable
+		address
+		phone
+
+	class person2
+        	self.name	# Must Define the attribute
+	        self.address
+	        self.phone
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Using This.Attribute in nested Braces inside the Class Methods
+
+
+Using This.Attribute in nested Braces inside the Class Methods
+==============================================================
+
+We can use nested braces {} while we are inside methods to access another objects, In this case 
+the current object scope will be changed while we are inside the brace and Self will point to the object
+that we access using braces {}. In this case we can use This.Attribute and This.Method() to access the object
+that will be created from the current class.
+
+Check the Object Oriented Programming chapter for more information.
+
+Also Check the Weight History Application in GUI Development using RingQt chapter.
 
 .. index:: 
 	pair: What is new in Ring 1.1?; Better Documentation
