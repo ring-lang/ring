@@ -605,3 +605,56 @@ Why ?
 
 Because simple is better, and easy to learn and remember!
 And this provide flexibility to convert between high level types that can be represented using the same basic type
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What is the difference between Ring and Python? And is Ring Open Source?
+
+What is the difference between Ring and Python? And is Ring Open Source?
+========================================================================
+
+Yes the language is Free Open Source (MIT license)
+
+In general I like Python and Ruby but i was looking for a language more suitable for creating the next version of
+the Programming Without Coding Technology (PWCT) software so i started the Ring design.
+
+Some simple changes that matters for my goal are 
+
+(1) Not case sensitive
+
+(2) The list index start from 1
+
+(3) You can call functions before definition
+
+(4) Don't use Python syntax like (indentation, using self, :, pass & _) 
+
+(5) Weakly typed (convert automatically between types based on context)
+
+(6) The programs follow simple and constant structure (Statements then functions then packages and classes)
+
+(7) Using the '=' operator for assignment and for testing values 
+
+Critical changes are
+
+(1) Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 85K lines are related to libraries and are optional when we go for embedded the language in C/C++ programs.
+
+(2) The Garbage collector : Uses Escape Analysis/Reference counting and give the programmer the ability to determine when to delete memory using the assignment operator
+
+(3) Compact Syntax : Ring is not line sensitive, you don't need to write ; or press ENTER to separate between statements
+
+(4) Using { } to access the object then use the object attributes and methods directly
+
+(5) Natural Programming : It's very easy to create natural interfaces using Ring based on OOP
+
+(6) Declarative Programming using Nested Structure
+
+The Ring programming language is designed based on my experience from using many other
+languages like C, C++, C#, Lua, PHP, Python, Ruby, Harbour, Basic and Supernova
+And the language comes with innovative features added to achieve the language goal
+
+* Applications programming language.
+* Productivity and developing high quality solutions that can scale.
+* Small and fast language that can be embedded in C/C++ projects.
+* Simple language that can be used in education and introducing Compiler/VM concepts.
+* General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
+* Practical language designed for creating the next version of the Programming Without Coding Technology software.
