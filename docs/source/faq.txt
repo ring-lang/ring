@@ -835,4 +835,32 @@ then we can add the path variable to the file name
 		return cFileName
 
 
+.. index:: 
+	pair: Frequently Asked Questions; What about predefined parameters or optional parameters in functions?
+
+What about predefined parameters or optional parameters in functions?
+=====================================================================
+
+if you want to use predefined parameters or optional parameters
+Just accept a list that works like hash/dictionary
+
+Example
+
+.. code-block:: ring
+
+	sum([ :a = 1, :b = 2])
+	sum([ :a = 1 ])
+	sum([ :b = 2 ])
+	func sum pList
+		if plist[:a] = NULL pList[:a] = 4 ok
+		if plist[:b] = NULL pList[:b] = 5 ok
+		see pList[:a] + pList[:b] + nl
+
+Output
+
+.. code-block:: none
+
+	3
+	6
+	6
 
