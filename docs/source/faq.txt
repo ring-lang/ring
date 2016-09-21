@@ -986,4 +986,70 @@ So we get output = 1
 .. note:: ASCII(“a”) = 97 and ASCII(“b”) = 98 So “a” < “b” because 97 < 98
 
 
+.. index:: 
+	pair: Frequently Asked Questions; How to use many source code files in the project?
 
+How to use many source code files in the project?
+=================================================
+
+Example:
+
+I have the next folder
+
+.. code-block:: none
+
+	C:\LRing
+
+Contains the next files
+
+.. code-block:: none
+
+	C:\LRing\t1.ring
+	C:\LRing\mylib.ring
+	C:\LRing\libs\mylib2.ring
+
+The file t1.ring contains the next code
+
+.. code-block:: ring
+
+	load "mylib.ring"
+	load "libs\mylib2.ring"
+	myfunc()
+	test()
+
+The file mylib.ring contains the next code
+
+.. code-block:: ring
+
+	func myfunc
+		see "message from myfunc"+nl
+
+The file libs\mylib2.ring contains the next code
+
+.. code-block:: ring
+
+	func test
+		see "message from test" + nl
+
+from the folder C:\LRing
+
+If Ring is not added to the path you can add it or use the next command
+
+.. code-block:: none
+
+	set path=%path%;c:\ring\bin;
+
+Where c:\ring is the Ring folder
+
+Now run
+
+.. code-block:: none
+
+	Ring t1.ring
+
+Output
+
+.. code-block:: none
+
+	message from myfunc
+	message from test
