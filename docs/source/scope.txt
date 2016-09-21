@@ -237,7 +237,7 @@ In practice i do both of them.
 
 The other solution 
 
-1 - Use self before the attribute name or use AddAttribute()
+* Use self before the attribute name or use AddAttribute()
 
 .. index:: 
 	pair: Scope Rules; Conflict between Class Attributes and Local Variables
@@ -653,9 +653,9 @@ In this region we have access to the global scope and the local scope will point
 
 Three Scopes
 
-Global Scope ---> Gloabl Scope
-Object Scope ---> Object Scope
-Local Scope  ---> Object Scope
+* Global Scope ---> Gloabl Scope
+* Object Scope ---> Object Scope
+* Local Scope  ---> Object Scope
 
 Look at this example
 
@@ -959,6 +959,7 @@ Simple advices to avoid any conflict and use the scope rules in a better way
 
 6 - If you will use nested braces in a class - think about using the class region if possible because in this region you will have access to the object that you access using { } + access to the class attributes
 
-7 - If you are inside a class method and used nested braces you will change the object scope with each brace and you will loss the access to the class attributes but you have access to the local scope before and after using brace { } , if you will read the class attribute only (not modify) it from braces then you may copy the self object before using braces to another local variable and access this variable from braces (this is like fighting with the language that you do only if you don't like object.attribute and object.method() .
+7 - If you are inside a class method and used nested braces you will change the object scope with each brace and you will loss the access to the class attributes directly but you have access to the local scope before and after using brace { } , if you will read/modify the class attribute from braces then use This.Attribute because using 'This' means (The object created from this class) while using 'Self' means (The object in the current object scope).
+
 
 After understanding all of the previous points, You will master this topic.
