@@ -594,135 +594,6 @@ It's flexibility but remember that power comes with great responsibility.
 
 
 .. index:: 
-	pair: Frequently Asked Questions; How to use SQLite using ODBC?
-
-How to use SQLite using ODBC?
-=============================
-
-In Ring 1.1 we have native support for SQLite, so you don't need to use it through ODBC.
-
-Also we can access SQLite through RingQt.
-
-The answer to your question
-
-.. code-block:: ring
-
-	pODBC = odbc_init()
-	odbc_connect(pODBC,"DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;"+
-			   "Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;")
-	odbc_execute(pODBC,"create table 'tel' ('ID','NAME','PHONE');")
-	odbc_execute(pODBC,"insert into 'tel' values ('1','Mahmoud','123456');")
-	odbc_execute(pODBC,"insert into 'tel' values ('2','Ahmed','123456');")
-	odbc_execute(pODBC,"insert into 'tel' values ('3','Ibrahim','123456');")
-	odbc_execute(pODBC,"select * from tel") + nl
-	nMax = odbc_colcount(pODBC)
-	See "Columns Count : " + nMax + nl
-	while odbc_fetch(pODBC)
-        	See nl
-	        for x = 1 to nMax
-        	        see odbc_getdata(pODBC,x) 
-			if x != nMax see " - " ok
-	        next
-	end
-	odbc_disconnect(pODBC)
-	odbc_close(pODBC)
-
-Output:
-
-.. code-block:: none
-
-	Columns Count : 3
-
-	1 - Mahmoud - 123456
-	2 - Ahmed - 123456
-	3 - Ibrahim - 123456
-
-The program will create the file : mydb.db
-
-Note : when i print the odbc drivers i see the long list that includes
-
-.. code-block:: none
-
-	SQLite3 ODBC Driver - UsageCount=1
-	SQLite ODBC Driver - UsageCount=1	
-	SQLite ODBC (UTF-8) Driver - UsageCount=1
-
-And I'm using "SQLite3 ODBC Driver".
-
-
-.. index:: 
-	pair: Frequently Asked Questions; Can I connect to dbase/harbour database?
-
-Can I connect to dbase/harbour database?
-========================================
-
-You can connect to any database using ODBC
-
-To connect to xbase files (*.DBF)
-
-.. code-block:: ring
-
-	See "Using DBF Files using ODBC" + nl
-	pODBC = odbc_init()
-	See "Connect to database" + nl
-	odbc_connect(pODBC,"Driver={Microsoft dBase Driver (*.dbf)};"+
-			   "datasource=dBase Files;DriverID=277")
-	See "Select data" + nl
-	odbc_execute(pODBC,"select * from tel.dbf") 
-	nMax = odbc_colcount(pODBC)
-	See "Columns Count : " + nMax + nl
-	while odbc_fetch(pODBC)
-		   See "Row data:" + nl
-		   for x = 1 to nMax
-				   see odbc_getdata(pODBC,x) + " - "
-		   next
-	end
-	See "Close database..." + nl
-	odbc_disconnect(pODBC)
-	odbc_close(pODBC)
-
-Output 
-
-.. code-block:: none
-
-	Using DBF Files using ODBC
-	Connect to database
-	Select data
-	Columns Count : 3
-	Row data:
-	Ahmad - Egypt - 234567 - Row data:
-	Fady - Egypt - 345678 - Row data:
-	Shady - Egypt - 456789 - Row data:
-	Mahmoud - Egypt - 123456 - Close database...
-
-
-Also you can connect to a Visual FoxPro database (requires installing Visual FoxPro driver)
-
-.. code-block:: ring
-
-
-	See "ODBC test 6" + nl
-	pODBC = odbc_init()
-	See "Connect to database" + nl
-	odbc_connect(pODBC,"Driver={Microsoft Visual FoxPro Driver};"+
-		"SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA\CH1\Data\mydata.dbc;") 
-	See "Select data" + nl
-	see odbc_execute(pODBC,"select * from t38") + nl
-	nMax = odbc_colcount(pODBC)
-	See "Columns Count : " + nMax + nl
-	while odbc_fetch(pODBC)
-		See "Row data:" + nl
-		for x = 1 to nMax
-			see odbc_getdata(pODBC,x) + " - "
-		next
-	end
-	See "Close database..." + nl
-	odbc_disconnect(pODBC)
-	odbc_close(pODBC)
-
-
-
-.. index:: 
 	pair: Frequently Asked Questions; Where can i write a program and execute it?
 
 Where can i write a program and execute it?
@@ -1501,4 +1372,132 @@ Use the method setWindowFlags()
 					show()
 			}
 
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to use SQLite using ODBC?
+
+How to use SQLite using ODBC?
+=============================
+
+In Ring 1.1 we have native support for SQLite, so you don't need to use it through ODBC.
+
+Also we can access SQLite through RingQt.
+
+The answer to your question
+
+.. code-block:: ring
+
+	pODBC = odbc_init()
+	odbc_connect(pODBC,"DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;"+
+			   "Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;")
+	odbc_execute(pODBC,"create table 'tel' ('ID','NAME','PHONE');")
+	odbc_execute(pODBC,"insert into 'tel' values ('1','Mahmoud','123456');")
+	odbc_execute(pODBC,"insert into 'tel' values ('2','Ahmed','123456');")
+	odbc_execute(pODBC,"insert into 'tel' values ('3','Ibrahim','123456');")
+	odbc_execute(pODBC,"select * from tel") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+        	See nl
+	        for x = 1 to nMax
+        	        see odbc_getdata(pODBC,x) 
+			if x != nMax see " - " ok
+	        next
+	end
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output:
+
+.. code-block:: none
+
+	Columns Count : 3
+
+	1 - Mahmoud - 123456
+	2 - Ahmed - 123456
+	3 - Ibrahim - 123456
+
+The program will create the file : mydb.db
+
+Note : when i print the odbc drivers i see the long list that includes
+
+.. code-block:: none
+
+	SQLite3 ODBC Driver - UsageCount=1
+	SQLite ODBC Driver - UsageCount=1	
+	SQLite ODBC (UTF-8) Driver - UsageCount=1
+
+And I'm using "SQLite3 ODBC Driver".
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Can I connect to dbase/harbour database?
+
+Can I connect to dbase/harbour database?
+========================================
+
+You can connect to any database using ODBC
+
+To connect to xbase files (*.DBF)
+
+.. code-block:: ring
+
+	See "Using DBF Files using ODBC" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft dBase Driver (*.dbf)};"+
+			   "datasource=dBase Files;DriverID=277")
+	See "Select data" + nl
+	odbc_execute(pODBC,"select * from tel.dbf") 
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		   See "Row data:" + nl
+		   for x = 1 to nMax
+				   see odbc_getdata(pODBC,x) + " - "
+		   next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output 
+
+.. code-block:: none
+
+	Using DBF Files using ODBC
+	Connect to database
+	Select data
+	Columns Count : 3
+	Row data:
+	Ahmad - Egypt - 234567 - Row data:
+	Fady - Egypt - 345678 - Row data:
+	Shady - Egypt - 456789 - Row data:
+	Mahmoud - Egypt - 123456 - Close database...
+
+
+Also you can connect to a Visual FoxPro database (requires installing Visual FoxPro driver)
+
+.. code-block:: ring
+
+
+	See "ODBC test 6" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft Visual FoxPro Driver};"+
+		"SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA\CH1\Data\mydata.dbc;") 
+	See "Select data" + nl
+	see odbc_execute(pODBC,"select * from t38") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		See "Row data:" + nl
+		for x = 1 to nMax
+			see odbc_getdata(pODBC,x) + " - "
+		next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
 
