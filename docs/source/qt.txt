@@ -4027,3 +4027,38 @@ setWindowStateChangeEvent(cEvent)
 setWindowUnblockedEvent(cEvent)
 ===================================================	======================
 
+.. index:: 
+	pair: Desktop and Mobile Development; The Difference between Qt and RingQt
+
+The Difference between Qt and RingQt
+====================================
+
+(1) RingQt use simple methods to set the code that will be executed for events.
+
+Syntax:
+
+.. code-block:: none
+
+	Set<Event_Name>Event(cEventCode)
+	
+(2) RingQt change the name of some methods to avoid conflict with Ring Keywords.
+
+The next table present these changes
+
+=====================	======================		===================
+Class Name		Qt Method Name			RingQt Method Name
+=====================	======================		===================
+QWebView		load				loadpage
+QMediaPlaylist		load				loadfile
+QMediaPlaylist		next				movenext
+QPainter		end				endpaint
+QPicture		load				loadfile
+QLineEdit		end				endtext
+QDialog			done				donedialog
+QTextDocument		end				enddoc
+QTextBlock		next				nextblock
+QSqlQuery		next				movenext
+QImage			load				loadimage
+QNetworkAccessManager	get				getvalue
+QNetworkAccessManager	put				putvalue
+=====================	======================		===================
