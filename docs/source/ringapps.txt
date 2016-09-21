@@ -47,6 +47,9 @@ Here are some quotes about the Ring programming language:
 "It is more simpler than C/C++ programming languages."
 	, Umer Farooq (Pakistan)
 
+"The Ring programming language seems pretty interesting so far."
+	, Eric Johnson (United States)
+
 "Thank you for this awesome language and wonderful ready to use Qt binding."
 	, Martial FAESSEL
 
@@ -66,8 +69,7 @@ Here are some quotes about the Ring programming language:
 "Good work Mahmoud, I've installed ring pl, and it's very perfect language."
 	, Ahmed Omar (Egypt)
 
-"Thanks to Eng. Fayed for this great startup programming language and all the team behind
- its release. I wish you best of luck."
+"Thanks for this great startup programming language. I wish you best of luck."
 	, Elkhouaja Khalid
 
 "Congratulations! I am very happy and I wish you Success and good luck."

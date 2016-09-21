@@ -400,3 +400,48 @@ Output
 
 	Mr. Marino - Ring Programming Language
 
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over native C or C++?
+
+What are the advantages to using Ring over native C or C++?
+===========================================================
+
+Ring provides a better way to mix between different programming paradigms in solving problems.
+
+The different programming paradigms play well together in the same language. 
+
+(1) It's easy to switch from one programming paradigm to another one because the language constructs use similar syntax for similar concepts.
+
+(2) The paradigms are provided to interact and used together in different layers in the software. 
+
+for example you can create a game engine using object-oriented programming but write the game code using declarative programming or natural programming and behind the scene your declarative or natural code will use the object-oriented classes.
+
+(3) Ring is very productive and natural programming language than C/C++ languages.
+
+(4) Ring is a dynamic language. We can generate and execute code during the runtime. We have dynamic typing and weakly typed language for flexibility.
+
+(5) The Garbage collector is generational (escape analysis) and also use reference counting. it's very fast and still provide control to the programmer who can delete memory at any time.
+
+(6) Ring Compiler and Virtual Machine is just 15,000 lines of ANSI C code that can be compiled and used in any platform.
+
+(7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions of C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Python and Ruby?
+
+What are the advantages to using Ring over Python and Ruby?
+===========================================================
+
+(1) Ring is New and Innovative. The language will let you think different about programming.
+
+(2) Ring is Smaller. (Lessons learned from the Lua language)
+
+(3) Ring is Simple. (Lessons learned from the BASIC and Clipper/Harbour languages)
+
+(4) Ring is more Natural. (Lessons learned from the Supernova language)
+
+(5) Ring is more Declarative. (Lessons learned from REBOL and QML languages)
+
+(6) Ring Implementation is Transparent, Visual and comes with Rich Features.
+
+
