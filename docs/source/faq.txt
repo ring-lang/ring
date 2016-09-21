@@ -864,3 +864,42 @@ Output
 	6
 	6
 
+
+.. index:: 
+	pair: Frequently Asked Questions; How to print keys or values only in List/Dictionary?
+
+How to print keys or values only in List/Dictionary?
+====================================================
+
+
+If you want to print keys only or values only just select the index of the item (one or two).
+
+Example
+
+.. code-block:: ring
+
+
+	C_COUNTRY = 1
+	C_CITY = 2
+	mylist = [
+		:KSA = “Riyadh” ,
+		:Egypt = “Cairo”
+	]
+
+	for x in mylist
+		see x[C_COUNTRY] + nl
+	next
+
+	for x in mylist
+		see x[C_CITY] + nl
+	next
+
+Output
+
+.. code-block:: none
+
+	ksa
+	egypt
+	Riyadh
+	Cairo
+
