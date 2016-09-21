@@ -1472,3 +1472,29 @@ create an object using a function that return a pointer to that object and this 
 be stored in an attribute called pObject, for more information see ring_qt.ring file
 which contains the classes.
 
+.. index:: 
+	pair: Frequently Asked Questions; How to print new lines and other characters?
+
+How to print new lines and other characters?
+============================================
+
+To print new line we can use the nl variable.
+
+.. code-block:: ring
+
+	See "Hello" + nl
+
+or we can use multi-line literal as in the next example
+
+.. code-block:: ring
+
+	See "Hello
+	
+	"
+if we want to print other characters we can use the char(nASCII) function
+
+.. code-block:: ring
+
+	See char(109) + nl +    # print m
+	    char(77)            # print M
+
