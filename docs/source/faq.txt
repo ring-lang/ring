@@ -1112,5 +1112,62 @@ We have Three Characters
 
 Because Windows uses CHAR(13) and CHAR(10) for each new line  ( i.e. CR+LF )
 
+.. index:: 
+	pair: Frequently Asked Questions; How to create a Modal Window?
 
+How to create a Modal Window?
+=============================
+
+This example demonstrates how to create a modal window
+
+.. code-block:: ring
+
+	load "guilib.ring"
+	app=new qApp
+	{
+		frmStart=new Qwidget()
+		{
+			setWindowTitle(“The First Window”)
+			resize(300,320)
+			move(200,200)
+		
+			button=new qPushButton(frmStart)
+			{
+				setText(“Show Modal Window”)
+				resize(200,30)
+				setClickEvent(“frmModal.show()”)
+			}
+
+			new qPushButton(frmStart)
+			{
+				setText(“Close Window”)
+				move(0,50)
+				resize(200,30)
+				setClickEvent(“frmStart.Close()”)
+			}
+
+			show()
+		}
+
+		frmModal =new Qwidget()
+		{
+			setWindowTitle(“Modal Window”)
+			resize(300,320)
+			move(200,200)
+			setparent(frmStart)
+			setwindowmodality(true)
+			setwindowflags(Qt_Dialog)
+		}
+
+		exec()
+
+	}
+
+ 
+Related Documents
+
+* http://doc.qt.io/qt-5/qtwidgets-widgets-windowflags-example.html
+* http://doc.qt.io/qt-5/qt.html#WindowType-enum
+* http://doc.qt.io/qt-5/qwindow.html#setParent
+* http://doc.qt.io/qt-5/qt.html#WindowModality-enum
 
