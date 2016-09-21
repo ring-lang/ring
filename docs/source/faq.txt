@@ -1212,4 +1212,83 @@ This example demonstrates how to close a window and show another one
 
 	}
 
- 
+.. index:: 
+	pair: Frequently Asked Questions; How to use NULL and ISNULL() function?
+
+How to use NULL and ISNULL() function?
+======================================
+
+when we try to use uninitialized variable in the Ring programming language, we get a clear runtime error message
+
+Example
+
+.. code-block:: ring
+
+	See x
+
+Output
+
+.. code-block:: none
+
+	Line 1 Error (R24) : Using uninitialized variable : x
+	in file tests\seeuninit.ring
+
+The same happens when you try to access uninitialized attributes
+
+Example
+
+.. code-block:: ring
+
+	o1 = new point
+	see o1
+	see o1.x
+	class point x y z
+
+Output
+
+.. code-block:: none
+
+	x: NULL
+	y: NULL
+	z: NULL
+
+	Line 3 Error (R24) : Using uninitialized variable : x
+	in file tests\seeuninit2.ring
+
+if you want to check for the error, just use Try/Catch/End
+
+.. code-block:: ring
+
+	Try
+		see x
+	Catch
+		See "Sorry, We can’t use x!" + nl
+	Done
+
+Output
+
+.. code-block:: none
+
+	Sorry, We can’t use x!
+
+Now we will talk about NULL and ISNULL()
+
+Since we get error message when we deal with uninitialized variables
+
+We can check these errors using Try/Catch/Done, So we uses NULL and ISNULL() for dealing with Strings.
+
+NULL is a variable contains an empty string
+
+ISNULL() is a function that returns true (1) if the input is an empty string or just a string contains "NULL"
+
+This because we need to test these values (empty strings) and strings contains "NULL" that sometimes come from external resource like DBMS.
+
+Example
+
+.. code-block:: ring
+
+	See IsNull(5) + nl +        # print 0
+	IsNull("hello") + nl +      # print 0
+	IsNull([1,3,5]) + nl +      # print 0
+	IsNull("") + nl +           # print 1
+	IsNull("NULL")              # print 1
