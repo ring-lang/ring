@@ -3822,6 +3822,10 @@ The next screen shot while running the game using a Mobile (Android)
 .. note:: using Qt we can run the same application on other Mobile systems 
 
 
+.. index:: 
+	pair: Desktop and Mobile Development; Classes and their Methods to use the default events
+
+
 Classes and their Methods to use the default events
 ===================================================
 
@@ -3967,3 +3971,58 @@ QColorDialog 			SetColorSelectedEvent()
 QNetworkAccessManager 		SetFinishedEvent()
 ==============================	===========================================================
 
+.. index:: 
+	pair: Desktop and Mobile Development; Methods to use Events with Events Filter 
+
+Methods to use Events with Events Filter 
+========================================
+
+RingQt define a new class called QAllEvents that help you in using Events Filter
+
+The next table presents the methods that we have
+
+================================
+Methods to get parameters
+================================
+getKeyCode() 	--> Number
+getx()		--> Number
+gety()		--> Number
+getglobalx()	--> Number
+getglobaly()	--> Number
+getbutton()	--> Number
+getbuttons()	--> Number
+================================
+
+The next table presents the methods that we have to use events.
+
+===================================================
+Method Name
+===================================================
+setKeyPressEvent(cEvent)
+setMouseButtonPressEvent(cEvent)
+setMouseButtonReleaseEvent(cEvent)
+setMouseButtonDblClickEvent(cEvent)
+setMouseMoveEvent(cEvent)
+setCloseEvent(cEvent)
+setContextMenuEvent(cEvent)
+setDragEnterEvent(cEvent)
+setDragLeaveEvent(cEvent)
+setDragMoveEvent(cEvent)
+setDropEvent(cEvent)
+setEnterEvent(cEvent)
+setFocusInEvent(cEvent)
+setFocusOutEvent(cEvent)
+setKeyReleaseEvent(cEvent)
+setLeaveEvent(cEvent)
+setNonClientAreaMouseButtonDblClickEvent(cEvent)
+setNonClientAreaMouseButtonPressEvent(cEvent)
+setNonClientAreaMouseButtonReleaseEvent(cEvent)
+setNonClientAreaMouseMoveEvent(cEvent)
+setMoveEvent(cEvent)
+setResizeEvent(cEvent)
+setWindowActivateEvent(cEvent)
+setWindowBlockedEvent(cEvent)
+setWindowDeactivateEvent(cEvent)
+setWindowStateChangeEvent(cEvent)
+setWindowUnblockedEvent(cEvent)
+===================================================
