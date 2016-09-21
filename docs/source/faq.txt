@@ -715,4 +715,64 @@ Note : when i print the odbc drivers i see the long list that includes
 And I'm using "SQLite3 ODBC Driver".
 
 
+.. index:: 
+	pair: Frequently Asked Questions; Where can i write a program and execute it?
+
+Where can i write a program and execute it?
+===========================================
+
+Run the file start.bat
+
+This will run the Ring Notepad where you can write/execute programs.
+
+If you want to run programs using the command line
+
+Open the bin folder
+
+Then run ring.exe
+
+.. code-block:: none
+	ring <filename.ring>
+
+.. index:: 
+	pair: Frequently Asked Questions; How can I disable maximize button and resize window?
+
+How can I disable maximize button and resize window?
+====================================================
+
+Use the method setWindowFlags()
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	app1 = new qapp {
+			win1 = new qwidget() {
+					setwindowtitle("First")
+					setgeometry(100,100,500,500)
+
+					new qpushbutton(win1) {
+							setgeometry(100,100,100,30)
+							settext("close")
+							setclickevent("app1.quit()")
+					}
+
+					new qpushbutton(win1) {
+							setgeometry(250,100,100,30)
+							settext("Second")
+							setclickevent("second()")
+					}
+
+					showmaximized()
+			}
+			exec()
+	}
+
+	func second
+			win2 = new qwidget() {
+					setwindowtitle("Second")
+					setgeometry(100,100,500,500)
+					setwindowflags(Qt_dialog)
+					show()
+			}
+
 
