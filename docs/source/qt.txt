@@ -4043,7 +4043,7 @@ Syntax:
 	
 (2) RingQt change the name of some methods to avoid conflict with Ring Keywords.
 
-The next table present these changes
+The next table present these little changes
 
 =====================	======================		===================
 Class Name		Qt Method Name			RingQt Method Name
@@ -4062,3 +4062,13 @@ QImage			load				loadimage
 QNetworkAccessManager	get				getvalue
 QNetworkAccessManager	put				putvalue
 =====================	======================		===================
+
+.. index:: 
+	pair: Desktop and Mobile Development; RingQt Classes and their Qt Documentation
+
+RingQt Classes and their Qt Documentation
+=========================================
+
+Qt Documentation : http://doc.qt.io/qt-5/classes.html
+
+See the next chapter for supported classes and methods.

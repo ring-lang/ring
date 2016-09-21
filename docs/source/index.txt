@@ -54,6 +54,7 @@ Contents:
    Using RingLibSDL <libsdl>
    Demo Project - Game Engine for 2D Games <gameengine>	
    Desktop and Mobile development using RingQt <qt>
+   RingQt Classes and Methods <qtclassesdoc>
    Scope Rules for Variables and Attributes <scope>
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>

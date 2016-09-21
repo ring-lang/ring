@@ -1,0 +1,4145 @@
+.. index:: 
+     single: RingQt Classes Reference; Introduction
+
+========================
+RingQt Classes Reference
+========================
+
+
+.. index::
+	pair: RingQt Classes Reference; qApp Class
+
+qApp Class
+=========
+
+* void exec(void)
+* void quit(void)
+* void processEvents(void)
+
+.. index::
+	pair: RingQt Classes Reference; qTest Class
+
+qTest Class
+==========
+
+* void qsleep(int)
+
+.. index::
+	pair: RingQt Classes Reference; QObject Class
+
+QObject Class
+============
+
+
+Parameters : void
+
+* bool blockSignals(bool block)
+* QObjectList children(void)
+* void dumpObjectInfo(void)
+* void dumpObjectTree(void)
+* bool inherits(const char *className)
+* void installEventFilter(QObject *filterObj)
+* bool isWidgetType(void)
+* void killTimer(int id)
+* void moveToThread(QThread *targetThread)
+* QString objectName(void)
+* QObject *parent(void)
+* QVariant property(const char *name)
+* void removeEventFilter(QObject *obj)
+* void setObjectName(QString)
+* void setParent(QObject *parent)
+* bool setProperty(const char *name, QVariant)
+* bool signalsBlocked(void)
+* int startTimer(int interval)
+* QThread *thread(void)
+* void deleteLater(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWidget Class
+
+QWidget Class
+============
+
+
+Parameters : void
+
+
+Parent Class : QObject
+
+* bool acceptDrops(void)
+* QString accessibleDescription(void)
+* QString accessibleName(void)
+* void activateWindow(void)
+* void addAction(QAction *action)
+* void adjustSize(void)
+* bool autoFillBackground(void)
+* int backgroundRole(void)
+* QSize baseSize(void)
+* QWidget *childAt(int x, int y)
+* QRect childrenRect(void)
+* QRegion childrenRegion(void)
+* void clearFocus(void)
+* void clearMask(void)
+* QMargins contentsMargins(void)
+* QRect contentsRect(void)
+* int contextMenuPolicy(void)
+* QCursor cursor(void)
+* int effectiveWinId(void)
+* void ensurePolished(void)
+* int focusPolicy(void)
+* QWidget *focusProxy(void)
+* QWidget *focusWidget(void)
+* QFont font(void)
+* QFontInfo fontInfo(void)
+* QFontMetrics fontMetrics(void)
+* int foregroundRole(void)
+* QRect frameGeometry(void)
+* QSize frameSize(void)
+* QRect geometry(void)
+* void getContentsMargins(int *left, int *top, int *right, int *bottom)
+* void grabGesture(Qt::GestureType gesture, Qt::GestureFlag flags)
+* void grabKeyboard(void)
+* void grabMouse(void)
+* int grabShortcut(QKeySequence , Qt::ShortcutContext context)
+* QGraphicsEffect *graphicsEffect(void)
+* QGraphicsProxyWidget *graphicsProxyWidget(void)
+* bool hasFocus(void)
+* bool hasMouseTracking(void)
+* int height(void)
+* int heightForWidth(int w)
+* int inputMethodHints(void)
+* QVariant inputMethodQuery(Qt::InputMethodQuery query)
+* void insertAction(QAction *before, QAction *action)
+* bool isActiveWindow(void)
+* bool isAncestorOf(QWidget *child)
+* bool isEnabled(void)
+* bool isEnabledTo(QWidget *ancestor)
+* bool isFullScreen(void)
+* bool isHidden(void)
+* bool isMaximized(void)
+* bool isMinimized(void)
+* bool isModal(void)
+* bool isVisible(void)
+* bool isVisibleTo(QWidget *ancestor)
+* bool isWindow(void)
+* bool isWindowModified(void)
+* QLayout *layout(void)
+* int layoutDirection(void)
+* QLocale locale(void)
+* QPoint mapFrom(QWidget *parent, QPoint)
+* QPoint mapFromGlobal(QPoint)
+* QPoint mapFromParent(QPoint)
+* QPoint mapTo(QWidget *parent, QPoint)
+* QPoint mapToGlobal(QPoint pos)
+* QPoint mapToParent(QPoint pos)
+* QRegion mask(void)
+* int maximumHeight(void)
+* QSize maximumSize(void)
+* int maximumWidth(void)
+* int minimumHeight(void)
+* QSize minimumSize(void)
+* int minimumWidth(void)
+* void move(int x, int y)
+* QWidget *nativeParentWidget(void)
+* QWidget *nextInFocusChain(void)
+* QRect normalGeometry(void)
+* void overrideWindowFlags(Qt::WindowType flags)
+* QPalette palette(void)
+* QWidget *parentWidget(void)
+* QPoint pos(void)
+* QWidget *previousInFocusChain(void)
+* QRect rect(void)
+* void releaseKeyboard(void)
+* void releaseMouse(void)
+* void releaseShortcut(int id)
+* void removeAction(QAction *action)
+* void render(QPaintDevice *target, QPoint,QRegion, QWidget::RenderFlag)
+* void repaint(void)
+* void resize(int w, int h)
+* bool restoreGeometry(QByteArray)
+* QByteArray saveGeometry(void)
+* void scroll(int dx, int dy)
+* void setAcceptDrops(bool on)
+* void setAccessibleDescription(QString)
+* void setAccessibleName(QString)
+* void setAttribute(Qt::WidgetAttribute attribute, bool on)
+* void setAutoFillBackground(bool enabled)
+* void setBackgroundRole(QPalette::ColorRole role)
+* void setBaseSize(int basew, int baseh)
+* void setContentsMargins(int left, int top, int right, int bottom)
+* void setContextMenuPolicy(Qt::ContextMenuPolicy policy)
+* void setCursor(QCursor)
+* void setFixedHeight(int h)
+* void setFixedSize(int w, int h)
+* void setFixedWidth(int w)
+* void setFocus(Qt::FocusReason reason)
+* void setFocusPolicy(Qt::FocusPolicy policy)
+* void setFocusProxy(QWidget *w)
+* void setFont(QFont)
+* void setForegroundRole(QPalette::ColorRole role)
+* void setGeometry(int x, int y, int w, int h)
+* void setGraphicsEffect(QGraphicsEffect *effect)
+* void setInputMethodHints(Qt::InputMethodHint hints)
+* void setLayout(QLayout *layout)
+* void setLayoutDirection(Qt::LayoutDirection direction)
+* void setLocale(QLocale)
+* void setMask(QBitmap)
+* void setMaximumHeight(int maxh)
+* void setMaximumSize(int maxw, int maxh)
+* void setMaximumWidth(int maxw)
+* void setMinimumHeight(int minh)
+* void setMinimumSize(int minw, int minh)
+* void setMinimumWidth(int minw)
+* void setMouseTracking(bool enable)
+* void setPalette(QPalette)
+* void setParent(QWidget *parent)
+* void setShortcutAutoRepeat(int id, bool enable)
+* void setShortcutEnabled(int id, bool enable)
+* void setSizeIncrement(int w, int h)
+* void setSizePolicy(QSizePolicy::Policy horizontal, QSizePolicy::Policy vertical)
+* void setStatusTip(QString)
+* void setStyle(QStyle *style)
+* void setToolTip(QString)
+* void setUpdatesEnabled(bool enable)
+* void setWhatsThis(QString)
+* void setWindowFilePath(QString)
+* void setWindowFlags(Qt::WindowType type)
+* void setWindowIcon(QIcon)
+* void setWindowIconText(QString)
+* void setWindowModality(Qt::WindowModality windowModality)
+* void setWindowOpacity(double level)
+* void setWindowRole(QString)
+* void setWindowState(Qt::WindowState windowState)
+* QSize size(void)
+* QSize sizeIncrement(void)
+* QSizePolicy sizePolicy(void)
+* void stackUnder(QWidget *w)
+* QString statusTip(void)
+* QStyle *style(void)
+* QString styleSheet(void)
+* bool testAttribute(Qt::WidgetAttribute attribute)
+* QString toolTip(void)
+* bool underMouse(void)
+* void ungrabGesture(Qt::GestureType gesture)
+* void unsetCursor(void)
+* void unsetLayoutDirection(void)
+* void unsetLocale(void)
+* void update(int x, int y, int w, int h)
+* void updateGeometry(void)
+* bool updatesEnabled(void)
+* QRegion visibleRegion(void)
+* QString whatsThis(void)
+* int width(void)
+* int winId(void)
+* QWidget *window(void)
+* QString windowFilePath(void)
+* int windowFlags(void)
+* QIcon windowIcon(void)
+* QString windowIconText(void)
+* int windowModality(void)
+* double windowOpacity(void)
+* QString windowRole(void)
+* int windowState(void)
+* QString windowTitle(void)
+* int windowType(void)
+* int x(void)
+* int y(void)
+* bool close(void)
+* void hide(void)
+* void lower(void)
+* void raise(void)
+* void setDisabled(bool disable)
+* void setEnabled(bool)
+* void setHidden(bool hidden)
+* void setStyleSheet(QString)
+* void setWindowModified(bool)
+* void setWindowTitle(QString)
+* void show(void)
+* void showFullScreen(void)
+* void showMaximized(void)
+* void showMinimized(void)
+* void showNormal(void)
+* QWidget *find(int id)
+* QWidget *keyboardGrabber(void)
+* QWidget *mouseGrabber(void)
+* void setTabOrder(QWidget *first, QWidget *second)
+
+.. index::
+	pair: RingQt Classes Reference; QLabel Class
+
+QLabel Class
+===========
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* QWidget *buddy(void)
+* bool hasScaledContents(void)
+* bool hasSelectedText(void)
+* int indent(void)
+* int margin(void)
+* QMovie *movie(void)
+* bool openExternalLinks(void)
+* QPicture *picture(void)
+* QPixmap *pixmap(void)
+* QString selectedText(void)
+* int selectionStart(void)
+* void setAlignment(Qt::AlignmentFlag)
+* void setBuddy(QWidget *buddy)
+* void setIndent(int)
+* void setMargin(int)
+* void setOpenExternalLinks(bool open)
+* void setScaledContents(bool)
+* void setSelection(int start, int length)
+* void setTextFormat(Qt::TextFormat)
+* void setTextInteractionFlags(Qt::TextInteractionFlag flags)
+* void setWordWrap(bool on)
+* QString text(void)
+* int textFormat(void)
+* int textInteractionFlags(void)
+* bool wordWrap(void)
+* void clear(void)
+* void setMovie(QMovie *movie)
+* void setNum(double num)
+* void setPicture(QPicture)
+* void setPixmap(QPixmap)
+* void setText(QString)
+
+.. index::
+	pair: RingQt Classes Reference; QPushButton Class
+
+QPushButton Class
+================
+
+
+Parameters : QWidget *
+
+
+Parent Class : QAbstractButton
+
+* void setClickEvent(const char *)
+* void setIcon(QIcon)
+* void setIconSize(QSize)
+
+.. index::
+	pair: RingQt Classes Reference; QBitmap Class
+
+QBitmap Class
+============
+
+
+Parameters : void
+
+
+Parent Class : QPixmap
+
+* void clear(void)
+* void swap(QBitmap)
+* QBitmap transformed(QTransform)
+* QBitmap fromData(QSize, const uchar * bits, QImage::Format monoFormat)
+* QBitmap fromImage(QImage, Qt::ImageConversionFlags flags)
+
+.. index::
+	pair: RingQt Classes Reference; QPixmap Class
+
+QPixmap Class
+============
+
+
+Parameters : const char *
+
+* QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode)
+* int width(void)
+* int height(void)
+* QBitmap createMaskFromColor(QColor , Qt::MaskMode)
+* QBitmap mask(void)
+* void setMask(QBitmap)
+* void fill(QColor)
+* QPixmap fromImage(QImage,Qt::ImageConversionFlags)
+
+.. index::
+	pair: RingQt Classes Reference; QIcon Class
+
+QIcon Class
+==========
+
+
+Parameters : QPixmap
+
+
+.. index::
+	pair: RingQt Classes Reference; QSize Class
+
+QSize Class
+==========
+
+
+Parameters : int width, int height
+
+
+.. index::
+	pair: RingQt Classes Reference; QLineEdit Class
+
+QLineEdit Class
+==============
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* int alignment(void)
+* void backspace(void)
+* QCompleter *completer(void)
+* QMenu *createStandardContextMenu(void)
+* void cursorBackward(bool mark, int steps)
+* void cursorForward(bool mark, int steps)
+* int cursorMoveStyle(void)
+* int cursorPosition(void)
+* int cursorPositionAt(QPoint)
+* void cursorWordBackward(bool mark)
+* void cursorWordForward(bool mark)
+* void del(void)
+* void deselect(void)
+* QString displayText(void)
+* bool dragEnabled(void)
+* int echoMode(void)
+* void end(bool mark)
+* void getTextMargins(int *left, int *top, int *right, int *bottom)
+* bool hasAcceptableInput(void)
+* bool hasFrame(void)
+* bool hasSelectedText(void)
+* void home(bool mark)
+* QString inputMask(void)
+* void insert(QString)
+* bool isModified(void)
+* bool isReadOnly(void)
+* bool isRedoAvailable(void)
+* bool isUndoAvailable(void)
+* int maxLength(void)
+* QString placeholderText(void)
+* QString selectedText(void)
+* int selectionStart(void)
+* void setAlignment(Qt::AlignmentFlag flag)
+* void setCompleter(QCompleter *c)
+* void setCursorMoveStyle(Qt::CursorMoveStyle style)
+* void setCursorPosition(int)
+* void setDragEnabled(bool b)
+* void setEchoMode(QLineEdit::EchoMode)
+* void setFrame(bool)
+* void setInputMask(QString)
+* void setMaxLength(int)
+* void setModified(bool)
+* void setPlaceholderText(QString)
+* void setReadOnly(bool)
+* void setSelection(int start, int length)
+* void setTextMargins(int left, int top, int right, int bottom)
+* void setValidator(QValidator *v)
+* QString text(void)
+* QMargins textMargins(void)
+* QValidator *validator(void)
+* void clear(void)
+* void copy(void)
+* void cut(void)
+* void paste(void)
+* void redo(void)
+* void selectAll(void)
+* void setText(QString)
+* void undo(void)
+* void setTextChangedEvent(const char *)
+* void setcursorPositionChangedEvent(const char *)
+* void seteditingFinishedEvent(const char *)
+* void setreturnPressedEvent(const char *)
+* void setselectionChangedEvent(const char *)
+* void settextEditedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QVBoxLayout Class
+
+QVBoxLayout Class
+================
+
+
+Parameters : void
+
+* void addLayout(QLayout *)
+
+.. index::
+	pair: RingQt Classes Reference; QHBoxLayout Class
+
+QHBoxLayout Class
+================
+
+
+Parameters : void
+
+* void addLayout(QLayout *)
+
+.. index::
+	pair: RingQt Classes Reference; QTextEdit Class
+
+QTextEdit Class
+==============
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* bool acceptRichText(void)
+* int alignment(void)
+* QString anchorAt(QPoint)
+* bool canPaste(void)
+* QTextCharFormat currentCharFormat(void)
+* QFont currentFont(void)
+* QTextCursor cursorForPosition(QPoint)
+* QRect cursorRect(void)
+* int cursorWidth(void)
+* QTextDocument *document(void)
+* QString documentTitle(void)
+* void ensureCursorVisible(void)
+* bool find(QString, QTextDocument::FindFlag)
+* QString fontFamily(void)
+* bool fontItalic(void)
+* double fontPointSize(void)
+* bool fontUnderline(void)
+* int fontWeight(void)
+* bool isReadOnly(void)
+* bool isUndoRedoEnabled(void)
+* int lineWrapColumnOrWidth(void)
+* QVariant loadResource(int, QUrl)
+* void mergeCurrentCharFormat(QTextCharFormat)
+* void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
+* bool overwriteMode(void)
+* void print(QPrinter * printer)
+* void setAcceptRichText(bool accept)
+* void setCurrentCharFormat(QTextCharFormat)
+* void setCursorWidth(int width)
+* void setDocument(QTextDocument *document)
+* void setDocumentTitle(QString)
+* void setLineWrapColumnOrWidth(int w)
+* void setLineWrapMode(QTextEdit::LineWrapMode)
+* void setOverwriteMode(bool overwrite)
+* void setReadOnly(bool)
+* void setTabChangesFocus(bool)
+* void setTabStopWidth(int width)
+* void setTextCursor(QTextCursor)
+* void setTextInteractionFlags(Qt::TextInteractionFlag flags)
+* void setUndoRedoEnabled(bool enable)
+* void setWordWrapMode(QTextOption::WrapMode policy)
+* bool tabChangesFocus(void)
+* int tabStopWidth(void)
+* QColor textBackgroundColor(void)
+* QColor textColor(void)
+* QTextCursor textCursor(void)
+* int textInteractionFlags(void)
+* QString toHtml(void)
+* QString toPlainText(void)
+* int wordWrapMode(void)
+* void append(QString)
+* void clear(void)
+* void copy(void)
+* void cut(void)
+* void insertHtml(QString)
+* void insertPlainText(QString)
+* void paste(void)
+* void redo(void)
+* void scrollToAnchor(QString)
+* void selectAll(void)
+* void setAlignment(Qt::AlignmentFlag a)
+* void setCurrentFont(QFont)
+* void setFontFamily(QString)
+* void setFontItalic(bool italic)
+* void setFontPointSize(double s)
+* void setFontUnderline(bool underline)
+* void setFontWeight(int weight)
+* void setHtml(QString)
+* void setPlainText(QString)
+* void setText(QString)
+* void setTextBackgroundColor(QColor)
+* void setTextColor(QColor)
+* void undo(void)
+* void zoomIn(int range)
+* void zoomOut(int range)
+* void setcopyAvailableEvent(const char *)
+* void setcurrentCharFormatChangedEvent(const char *)
+* void setcursorPositionChangedEvent(const char *)
+* void setredoAvailableEvent(const char *)
+* void setselectionChangedEvent(const char *)
+* void settextChangedEvent(const char *)
+* void setundoAvailableEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QListWidget Class
+
+QListWidget Class
+================
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* void addItem(QString)
+* int count(void)
+* void editItem(QListWidgetItem *item)
+* bool isSortingEnabled(void)
+* QListWidgetItem *item(int row)
+* QListWidgetItem *itemAt(int x, int y)
+* QWidget *itemWidget(QListWidgetItem *item)
+* void openPersistentEditor(QListWidgetItem *item)
+* void removeItemWidget(QListWidgetItem *item)
+* int row(QListWidgetItem *item)
+* void setCurrentRow(int row, QItemSelectionModel::SelectionFlag command)
+* void setItemWidget(QListWidgetItem *item, QWidget *widget)
+* void setSortingEnabled(bool enable)
+* void sortItems(Qt::SortOrder order)
+* QListWidgetItem *takeItem(int row)
+* QRect visualItemRect(QListWidgetItem *item)
+* void setcurrentItemChangedEvent(const char *)
+* void setcurrentRowChangedEvent(const char *)
+* void setcurrentTextChangedEvent(const char *)
+* void setitemActivatedEvent(const char *)
+* void setitemChangedEvent(const char *)
+* void setitemClickedEvent(const char *)
+* void setitemDoubleClickedEvent(const char *)
+* void setitemEnteredEvent(const char *)
+* void setitemPressedEvent(const char *)
+* void setitemSelectionChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QTreeView Class
+
+QTreeView Class
+==============
+
+
+Parameters : QWidget *
+
+
+Parent Class : QAbstractItemView
+
+* bool allColumnsShowFocus(void)
+* int autoExpandDelay(void)
+* int columnAt(int x)
+* int columnViewportPosition(int column)
+* int columnWidth(int column)
+* bool expandsOnDoubleClick(void)
+* QHeaderView *header(void)
+* int indentation(void)
+* QModelIndex indexAbove(QModelIndex)
+* QModelIndex indexBelow(QModelIndex)
+* bool isAnimated(void)
+* bool isColumnHidden(int column)
+* bool isExpanded(QModelIndex)
+* bool isFirstColumnSpanned(int row, QModelIndex)
+* bool isHeaderHidden(void)
+* bool isRowHidden(int row,QModelIndex)
+* bool isSortingEnabled(void)
+* bool itemsExpandable(void)
+* bool rootIsDecorated(void)
+* void setAllColumnsShowFocus(bool enable)
+* void setAnimated(bool enable)
+* void setAutoExpandDelay(int delay)
+* void setColumnHidden(int column, bool hide)
+* void setColumnWidth(int column, int width)
+* void setExpanded(QModelIndex, bool expanded)
+* void setExpandsOnDoubleClick(bool enable)
+* void setFirstColumnSpanned(int row, QModelIndex, bool span)
+* void setHeader(QHeaderView * header)
+* void setHeaderHidden(bool hide)
+* void setIndentation(int i)
+* void setItemsExpandable(bool enable)
+* void setRootIsDecorated(bool show)
+* void setRowHidden(int row,QModelIndex, bool hide)
+* void setSortingEnabled(bool enable)
+* void setUniformRowHeights(bool uniform)
+* void setWordWrap(bool on)
+* void sortByColumn(int column,Qt::SortOrder order)
+* bool uniformRowHeights(void)
+* bool wordWrap(void)
+* void dataChanged(QModelIndex,QModelIndex)
+* QModelIndex indexAt(QPoint)
+* void keyboardSearch(QString)
+* void reset(void)
+* void scrollTo(QModelIndex, QAbstractItemView::ScrollHint)
+* void selectAll(void)
+* void setModel(QAbstractItemModel *model)
+* void setRootIndex(QModelIndex)
+* void setSelectionModel(QItemSelectionModel *selectionModel)
+* QRect visualRect(QModelIndex)
+* void collapse(QModelIndex)
+* void collapseAll(void)
+* void expand(QModelIndex)
+* void expandAll(void)
+* void expandToDepth(int depth)
+* void hideColumn(int column)
+* void resizeColumnToContents(int column)
+* void showColumn(int column)
+* void setcollapsedEvent(const char *)
+* void setexpandedEvent(const char *)
+* void setactivatedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void setenteredEvent(const char *)
+* void setpressedEvent(const char *)
+* void setviewportEnteredEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QDir Class
+
+QDir Class
+=========
+
+
+Parameters : void
+
+* void setNameFilters(QStringList)
+
+.. index::
+	pair: RingQt Classes Reference; QFileSystemModel Class
+
+QFileSystemModel Class
+=====================
+
+
+Parameters : void
+
+* QIcon fileIcon(QModelIndex)
+* QFileInfo fileInfo(QModelIndex)
+* QString fileName(QModelIndex)
+* QString filePath(QModelIndex)
+* int filter(void)
+* QFileIconProvider *iconProvider(void)
+* QModelIndex index(QString, int column)
+* bool isDir(QModelIndex)
+* bool isReadOnly(void)
+* QDateTime lastModified(QModelIndex)
+* QModelIndex mkdir(QModelIndex,QString)
+* QVariant myComputer(int role)
+* bool nameFilterDisables(void)
+* QStringList nameFilters(void)
+* int permissions(QModelIndex)
+* bool remove(QModelIndex)
+* bool resolveSymlinks(void)
+* bool rmdir(QModelIndex)
+* QDir rootDirectory(void)
+* QString rootPath(void)
+* void setFilter(QDir::Filter filters)
+* void setIconProvider(QFileIconProvider *provider)
+* void setNameFilterDisables(bool enable)
+* void setNameFilters(QStringList)
+* void setReadOnly(bool enable)
+* void setResolveSymlinks(bool enable)
+* QModelIndex setRootPath(QString)
+* int size(QModelIndex)
+* QString type(QModelIndex)
+* bool canFetchMore(QModelIndex)
+* int columnCount(void)
+* QVariant data( QModelIndex index, int role)
+* bool dropMimeData( QMimeData *data, Qt::DropAction action, int row, int column, QModelIndex parent)
+* void fetchMore( QModelIndex parent)
+* int flags( QModelIndex index)
+* bool hasChildren( QModelIndex parent )
+* QVariant headerData(int section, Qt::Orientation orientation, int role )
+* QMimeData * mimeData( QModelIndexList indexes)
+* QStringList mimeTypes(void)
+* QModelIndex parent( QModelIndex index)
+* int rowCount( QModelIndex parent)
+* bool setData( QModelIndex idx,  QVariant value, int role)
+* void sort(int column, Qt::SortOrder order )
+* int supportedDropActions(void)
+
+.. index::
+	pair: RingQt Classes Reference; QTreeWidget Class
+
+QTreeWidget Class
+================
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* void addTopLevelItem(QTreeWidgetItem *item)
+* void closePersistentEditor(QTreeWidgetItem *item, int column)
+* int columnCount(void)
+* int currentColumn(void)
+* QTreeWidgetItem *currentItem(void)
+* void editItem(QTreeWidgetItem *item, int column)
+* QTreeWidgetItem *headerItem(void)
+* int indexOfTopLevelItem(QTreeWidgetItem *item)
+* void insertTopLevelItem(int index, QTreeWidgetItem *item)
+* QTreeWidgetItem *invisibleRootItem(void)
+* bool isFirstItemColumnSpanned( QTreeWidgetItem *item)
+* QTreeWidgetItem *itemAbove(QTreeWidgetItem *item)
+* QTreeWidgetItem *itemAt(int x, int y)
+* QTreeWidgetItem *itemBelow(QTreeWidgetItem *item)
+* QWidget *itemWidget(QTreeWidgetItem *item, int column)
+* void openPersistentEditor(QTreeWidgetItem *item, int column)
+* void removeItemWidget(QTreeWidgetItem *item, int column)
+* void setColumnCount(int columns)
+* void setCurrentItem(QTreeWidgetItem * item, QItemSelectionModel::SelectionFlag column)
+* void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
+* void setHeaderItem(QTreeWidgetItem *item)
+* void setHeaderLabel(QString)
+* void setItemWidget(QTreeWidgetItem *item, int column, QWidget * widget)
+* int sortColumn(void)
+* void sortItems(int column, Qt::SortOrder order)
+* QTreeWidgetItem *takeTopLevelItem(int index)
+* QTreeWidgetItem *topLevelItem(int index)
+* int topLevelItemCount(void)
+* QRect visualItemRect(QTreeWidgetItem *item)
+* void setSelectionModel(QItemSelectionModel *selectionModel)
+* void clear(void)
+* void collapseItem(QTreeWidgetItem *item)
+* void expandItem(QTreeWidgetItem *item)
+* void scrollToItem(QTreeWidgetItem *item, QAbstractItemView::ScrollHint hint)
+* void setcollapsedEvent(const char *)
+* void setexpandedEvent(const char *)
+* void setactivatedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void setenteredEvent(const char *)
+* void setpressedEvent(const char *)
+* void setviewportEnteredEvent(const char *)
+* void setcurrentItemChangedEvent(const char *)
+* void setitemActivatedEvent(const char *)
+* void setitemChangedEvent(const char *)
+* void setitemClickedEvent(const char *)
+* void setitemCollapsedEvent(const char *)
+* void setitemDoubleClickedEvent(const char *)
+* void setitemEnteredEvent(const char *)
+* void setitemExpandedEvent(const char *)
+* void setitemPressedEvent(const char *)
+* void setitemSelectionChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QTreeWidgetItem Class
+
+QTreeWidgetItem Class
+====================
+
+
+Parameters : void
+
+* void addChild(QTreeWidgetItem *child)
+* QBrush background(int column)
+* int checkState(int column)
+* QTreeWidgetItem *child(int index)
+* int childCount(void)
+* int childIndicatorPolicy(void)
+* QTreeWidgetItem *clone(void)
+* int columnCount(void)
+* QVariant data(int column, int role)
+* int flags(void)
+* QFont font(int column)
+* QBrush foreground(int column)
+* QIcon icon(int column)
+* int indexOfChild(QTreeWidgetItem *child)
+* void insertChild(int index, QTreeWidgetItem *child)
+* bool isDisabled(void)
+* bool isExpanded(void)
+* bool isFirstColumnSpanned(void)
+* bool isHidden(void)
+* bool isSelected(void)
+* QTreeWidgetItem *parent(void)
+* void read(QDataStream)
+* void removeChild(QTreeWidgetItem *child)
+* void setBackground(int column,QBrush)
+* void setCheckState(int column, Qt::CheckState state)
+* void setChildIndicatorPolicy(QTreeWidgetItem::ChildIndicatorPolicy policy)
+* void setData(int column, int role,QVariant)
+* void setDisabled(bool disabled)
+* void setExpanded(bool expand)
+* void setFirstColumnSpanned(bool span)
+* void setFlags(Qt::ItemFlag flags)
+* void setFont(int column, QFont)
+* void setForeground(int column, QBrush)
+* void setHidden(bool hide)
+* void setIcon(int column, QIcon)
+* void setSelected(bool select)
+* void setSizeHint(int column, QSize)
+* void setStatusTip(int column, QString)
+* void setText(int column, QString)
+* void setTextAlignment(int column, int alignment)
+* void setToolTip(int column, QString)
+* void setWhatsThis(int column, QString)
+* QSize sizeHint(int column)
+* void sortChildren(int column, Qt::SortOrder order)
+* QString statusTip(int column)
+* QTreeWidgetItem *takeChild(int index)
+* QString text(int column)
+* int textAlignment(int column)
+* QString toolTip(int column)
+* QTreeWidget *treeWidget(void)
+* int type(void)
+* QString whatsThis(int column)
+* void write(QDataStream)
+
+.. index::
+	pair: RingQt Classes Reference; QComboBox Class
+
+QComboBox Class
+==============
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* void addItem(QString,int)
+* QCompleter *completer(void)
+* int count(void)
+* int currentIndex(void)
+* QString currentText(void)
+* bool duplicatesEnabled(void)
+* int findData(QVariant, int role, Qt::MatchFlag flags)
+* int findText(QString, Qt::MatchFlag flags)
+* bool hasFrame(void)
+* void hidePopup(void)
+* QSize iconSize(void)
+* void insertItem(int index, QString, QVariant)
+* bool isEditable(void)
+* QVariant itemData(int index, int role)
+* QAbstractItemDelegate *itemDelegate(void)
+* QIcon itemIcon(int index)
+* QString itemText(int index)
+* QLineEdit *lineEdit(void)
+* int maxCount(void)
+* int maxVisibleItems(void)
+* int minimumContentsLength(void)
+* QAbstractItemModel *model(void)
+* int modelColumn(void)
+* void removeItem(int index)
+* QModelIndex rootModelIndex(void)
+* void setCompleter(QCompleter *completer)
+* void setDuplicatesEnabled(bool enable)
+* void setEditable(bool editable)
+* void setFrame(bool)
+* void setIconSize(QSize)
+* void setItemDelegate(QAbstractItemDelegate *delegate)
+* void setItemIcon(int index, QIcon)
+* void setItemText(int index, QString)
+* void setLineEdit(QLineEdit *edit)
+* void setMaxCount(int max)
+* void setMaxVisibleItems(int maxItems)
+* void setMinimumContentsLength(int characters)
+* void setModel(QAbstractItemModel *model)
+* void setModelColumn(int visibleColumn)
+* void setRootModelIndex(QModelIndex)
+* void setView(QAbstractItemView *itemView)
+* void showPopup(void)
+* QAbstractItemView *view(void)
+* void setactivatedEvent(const char *)
+* void setcurrentIndexChangedEvent(const char *)
+* void seteditTextChangedEvent(const char *)
+* void sethighlightedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QMenuBar Class
+
+QMenuBar Class
+=============
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* QAction *actionAt(QPoint)
+* QRect actionGeometry(QAction *act)
+* QAction *activeAction(void)
+* QAction *addAction(QString)
+* QAction *addSeparator(void)
+* void clear(void)
+* QWidget *cornerWidget(Qt::Corner)
+* QAction *insertSeparator(QAction *before)
+* bool isDefaultUp(void)
+* bool isNativeMenuBar(void)
+* void setActiveAction(QAction *act)
+* void setCornerWidget(QWidget *widget, Qt::Corner)
+* void setNativeMenuBar(bool nativeMenuBar)
+
+.. index::
+	pair: RingQt Classes Reference; QMenu Class
+
+QMenu Class
+==========
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* QAction *actionAt(QPoint)
+* QRect actionGeometry(QAction *act)
+* QAction *activeAction(void)
+* void addAction(QAction *)
+* QMenu *addMenu(QString)
+* QAction *addSeparator(void)
+* void clear(void)
+* QAction *defaultAction(void)
+* QAction *exec(void)
+* void hideTearOffMenu(void)
+* QIcon icon(void)
+* QAction *insertMenu(QAction *before, QMenu *menu)
+* QAction *insertSeparator(QAction *before)
+* bool isEmpty(void)
+* bool isTearOffEnabled(void)
+* bool isTearOffMenuVisible(void)
+* QAction *menuAction(void)
+* void popup(QPoint, QAction *atAction)
+* bool separatorsCollapsible(void)
+* void setActiveAction(QAction *act)
+* void setDefaultAction(QAction *act)
+* void setIcon(QIcon)
+* void setSeparatorsCollapsible(bool collapse)
+* void setTearOffEnabled(bool)
+* void setTitle(QString)
+* QString title(void)
+
+.. index::
+	pair: RingQt Classes Reference; QToolBar Class
+
+QToolBar Class
+=============
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* QAction *actionAt(int x, int y)
+* QAction *addAction(QString)
+* QAction *addSeparator(void)
+* QAction *addWidget(QWidget *widget)
+* int allowedAreas(void)
+* void clear(void)
+* QSize iconSize(void)
+* QAction *insertSeparator(QAction *before)
+* QAction *insertWidget(QAction *before, QWidget *widget)
+* bool isAreaAllowed(Qt::ToolBarArea area)
+* bool isFloatable(void)
+* bool isFloating(void)
+* bool isMovable(void)
+* int orientation(void)
+* void setAllowedAreas(Qt::ToolBarArea areas)
+* void setFloatable(bool floatable)
+* void setMovable(bool movable)
+* void setOrientation(Qt::Orientation orientation)
+* QAction *toggleViewAction(void)
+* int toolButtonStyle(void)
+* QWidget *widgetForAction(QAction *action)
+* void setIconSize(QSize)
+* void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)
+
+.. index::
+	pair: RingQt Classes Reference; QMainWindow Class
+
+QMainWindow Class
+================
+
+
+Parameters : void
+
+
+Parent Class : QWidget
+
+* void addDockWidget(Qt::DockWidgetArea area, QDockWidget *dockwidget, Qt::Orientation orientation)
+* QToolBar *addToolBar(QString)
+* void addToolBar_2(Qt::ToolBarArea area, QToolBar *toolbar)
+* void addToolBarBreak(Qt::ToolBarArea)
+* QWidget *centralWidget(void)
+* int corner(Qt::Corner corner)
+* QMenu *createPopupMenu(void)
+* int dockOptions(void)
+* int dockWidgetArea(QDockWidget *dockwidget)
+* bool documentMode(void)
+* QSize iconSize(void)
+* void insertToolBar(QToolBar *before, QToolBar *toolbar)
+* void insertToolBarBreak(QToolBar *before)
+* bool isAnimated(void)
+* bool isDockNestingEnabled(void)
+* QMenuBar *menuBar(void)
+* QWidget *menuWidget(void)
+* void removeDockWidget(QDockWidget *dockwidget)
+* void removeToolBar(QToolBar *toolbar)
+* void removeToolBarBreak(QToolBar *before)
+* bool restoreDockWidget(QDockWidget *dockwidget)
+* bool restoreState(QByteArray state, int version)
+* QByteArray saveState(int version)
+* void setCentralWidget(QWidget *widget)
+* void setCorner(Qt::Corner corner, Qt::DockWidgetArea area)
+* void setDockOptions(QMainWindow::DockOption options)
+* void setDocumentMode(bool enabled)
+* void setIconSize(QSize)
+* void setMenuBar(QMenuBar *menuBar)
+* void setMenuWidget(QWidget *menuBar)
+* void setStatusBar(QStatusBar *statusbar)
+* void setTabPosition(Qt::DockWidgetArea areas, QTabWidget::TabPosition tabPosition)
+* void setTabShape(QTabWidget::TabShape tabShape)
+* void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)
+* void setUnifiedTitleAndToolBarOnMac(bool set)
+* void splitDockWidget(QDockWidget *first, QDockWidget *second, Qt::Orientation orientation)
+* QStatusBar *statusBar(void)
+* int tabPosition(Qt::DockWidgetArea area)
+* int tabShape(void)
+* void tabifyDockWidget(QDockWidget *first, QDockWidget *second)
+* int toolBarArea(QToolBar *toolbar)
+* bool toolBarBreak(QToolBar *toolbar)
+* int toolButtonStyle(void)
+* bool unifiedTitleAndToolBarOnMac(void)
+
+.. index::
+	pair: RingQt Classes Reference; QStatusBar Class
+
+QStatusBar Class
+===============
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* void addPermanentWidget(QWidget * widget, int stretch)
+* void addWidget(QWidget * widget, int stretch)
+* QString currentMessage(void)
+* int insertPermanentWidget(int index, QWidget * widget, int stretch)
+* int insertWidget(int index, QWidget * widget, int stretch)
+* bool isSizeGripEnabled(void)
+* void removeWidget(QWidget *widget)
+* void setSizeGripEnabled(bool)
+* void clearMessage(void)
+* void showMessage(QString , int timeout)
+
+.. index::
+	pair: RingQt Classes Reference; QDockWidget Class
+
+QDockWidget Class
+================
+
+
+Parameters : QWidget *parent,Qt::WindowType flag
+
+
+Parent Class : QWidget
+
+* int allowedAreas(void)
+* int features(void)
+* bool isAreaAllowed(Qt::DockWidgetArea area)
+* bool isFloating(void)
+* void setAllowedAreas(Qt::DockWidgetArea areas)
+* void setFeatures(QDockWidget::DockWidgetFeature features)
+* void setFloating(bool floating)
+* void setTitleBarWidget(QWidget *widget)
+* void setWidget(QWidget *widget)
+* QWidget *titleBarWidget(void)
+* QAction *toggleViewAction(void)
+* QWidget *widget(void)
+* void allowedAreasChanged(Qt::DockWidgetArea allowedAreas)
+* void dockLocationChanged(Qt::DockWidgetArea area)
+* void featuresChanged(QDockWidget::DockWidgetFeature features)
+* void topLevelChanged(bool topLevel)
+* void visibilityChanged(bool visible)
+
+.. index::
+	pair: RingQt Classes Reference; QTabWidget Class
+
+QTabWidget Class
+===============
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* int addTab(QWidget *page, QString)
+* void clear(void)
+* QWidget *cornerWidget(Qt::Corner corner)
+* int count(void)
+* int currentIndex(void)
+* QWidget *currentWidget(void)
+* bool documentMode(void)
+* int elideMode(void)
+* QSize iconSize(void)
+* int indexOf(QWidget *w)
+* int insertTab(int index, QWidget *page,QString)
+* bool isMovable(void)
+* bool isTabEnabled(int index)
+* void removeTab(int index)
+* void setCornerWidget(QWidget *widget, Qt::Corner corner)
+* void setDocumentMode(bool set)
+* void setElideMode(Qt::TextElideMode)
+* void setIconSize(QSize)
+* void setMovable(bool movable)
+* void setTabEnabled(int index, bool enable)
+* void setTabIcon(int index, QIcon)
+* void setTabText(int index,QString)
+* void setTabToolTip(int index, QString)
+* void setTabWhatsThis(int index, QString)
+* void setTabsClosable(bool closeable)
+* void setUsesScrollButtons(bool useButtons)
+* QIcon tabIcon(int index)
+* QString tabText(int index)
+* QString tabToolTip(int index)
+* QString tabWhatsThis(int index)
+* bool tabsClosable(void)
+* bool usesScrollButtons(void)
+* QWidget *widget(int index)
+* int heightForWidth(int width)
+* QSize minimumSizeHint(void)
+* QSize sizeHint(void)
+* void setCurrentIndex(int index)
+* void setCurrentWidget(QWidget *widget)
+* void setcurrentChangedEvent(const char *)
+* void settabCloseRequestedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QTableWidgetItem Class
+
+QTableWidgetItem Class
+=====================
+
+
+Parameters : QString
+
+* QBrush background(void)
+* int checkState(void)
+* QTableWidgetItem *clone(void)
+* int column(void)
+* QVariant data(int role)
+* int flags(void)
+* QFont font(void)
+* QBrush foreground(void)
+* QIcon icon(void)
+* bool isSelected(void)
+* void read(QDataStream)
+* int row(void)
+* void setBackground(QBrush)
+* void setCheckState(Qt::CheckState state)
+* void setData(int role, QVariant)
+* void setFlags(Qt::ItemFlag flags)
+* void setFont(QFont)
+* void setForeground(QBrush)
+* void setIcon(QIcon)
+* void setSelected(bool select)
+* void setSizeHint(QSize)
+* void setStatusTip(QString)
+* void setText(QString)
+* void setTextAlignment(int alignment)
+* void setToolTip(QString)
+* void setWhatsThis(QString)
+* QSize sizeHint(void)
+* QString statusTip(void)
+* QTableWidget *tableWidget(void)
+* QString text(void)
+* int textAlignment(void)
+* QString toolTip(void)
+* int type(void)
+* QString whatsThis(void)
+* void write(QDataStream)
+
+.. index::
+	pair: RingQt Classes Reference; QFrame Class
+
+QFrame Class
+===========
+
+
+Parameters : QWidget *parent, Qt::WindowType flag
+
+
+Parent Class : QWidget
+
+* int frameShadow(void)
+* int frameShape(void)
+* int frameStyle(void)
+* int frameWidth(void)
+* int lineWidth(void)
+* int midLineWidth(void)
+* void setFrameRect(QRect)
+* void setFrameShadow(QFrame::Shadow)
+* void setFrameShape(QFrame::Shape)
+* void setFrameStyle(int style)
+* void setLineWidth(int)
+* void setMidLineWidth(int)
+* QSize sizeHint(void)
+
+.. index::
+	pair: RingQt Classes Reference; QAbstractScrollArea Class
+
+QAbstractScrollArea Class
+========================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QFrame
+
+* QWidget *cornerWidget(void)
+* QScrollBar *horizontalScrollBar(void)
+* int horizontalScrollBarPolicy(void)
+* QSize maximumViewportSize(void)
+* QWidgetList scrollBarWidgets(Qt::AlignmentFlag)
+* void setCornerWidget(QWidget *widget)
+* void setHorizontalScrollBar(QScrollBar *scrollBar)
+* void setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy)
+* void setVerticalScrollBar(QScrollBar *scrollBar)
+* void setVerticalScrollBarPolicy(Qt::ScrollBarPolicy)
+* void setViewport(QWidget *widget)
+* QScrollBar *verticalScrollBar(void)
+* int verticalScrollBarPolicy(void)
+* QWidget *viewport(void)
+
+.. index::
+	pair: RingQt Classes Reference; QAbstractItemView Class
+
+QAbstractItemView Class
+======================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QAbstractScrollArea
+
+* bool alternatingRowColors(void)
+* int autoScrollMargin(void)
+* void closePersistentEditor(QModelIndex)
+* QModelIndex currentIndex(void)
+* int defaultDropAction(void)
+* int dragDropMode(void)
+* bool dragDropOverwriteMode(void)
+* bool dragEnabled(void)
+* int editTriggers(void)
+* bool hasAutoScroll(void)
+* int horizontalScrollMode(void)
+* QSize iconSize(void)
+* QModelIndex indexAt(QPoint)
+* QWidget *indexWidget(QModelIndex)
+* QAbstractItemDelegate *itemDelegate(QModelIndex)
+* QAbstractItemDelegate *itemDelegateForColumn(int column)
+* QAbstractItemDelegate *itemDelegateForRow(int row)
+* void keyboardSearch(QString)
+* QAbstractItemModel *model(void)
+* void openPersistentEditor(QModelIndex)
+* QModelIndex rootIndex(void)
+* void scrollTo(QModelIndex,QAbstractItemView::ScrollHint)
+* int selectionBehavior(void)
+* int selectionMode(void)
+* QItemSelectionModel *selectionModel(void)
+* void setAlternatingRowColors(bool enable)
+* void setAutoScroll(bool enable)
+* void setAutoScrollMargin(int margin)
+* void setDefaultDropAction(Qt::DropAction dropAction)
+* void setDragDropMode(QAbstractItemView::DragDropMode behavior)
+* void setDragDropOverwriteMode(bool overwrite)
+* void setDragEnabled(bool enable)
+* void setDropIndicatorShown(bool enable)
+* void setEditTriggers(QAbstractItemView::EditTrigger triggers)
+* void setHorizontalScrollMode(QAbstractItemView::ScrollMode mode)
+* void setIconSize(QSize)
+* void setIndexWidget(QModelIndex, QWidget *widget)
+* void setItemDelegate(QAbstractItemDelegate *delegate)
+* void setItemDelegateForColumn(int column, QAbstractItemDelegate *delegate)
+* void setItemDelegateForRow(int row, QAbstractItemDelegate *delegate)
+* void setModel(QAbstractItemModel *model)
+* void setSelectionBehavior(QAbstractItemView::SelectionBehavior behavior)
+* void setSelectionMode(QAbstractItemView::SelectionMode mode)
+* void setSelectionModel(QItemSelectionModel *selectionModel)
+* void setTabKeyNavigation(bool enable)
+* void setTextElideMode(Qt::TextElideMode mode)
+* void setVerticalScrollMode(QAbstractItemView::ScrollMode mode)
+* bool showDropIndicator(void)
+* int sizeHintForColumn(int column)
+* QSize sizeHintForIndex(QModelIndex)
+* int sizeHintForRow(int row)
+* bool tabKeyNavigation(void)
+* int textElideMode(void)
+* int verticalScrollMode(void)
+* QRect visualRect(QModelIndex)
+* void clearSelection(void)
+* void edit(QModelIndex)
+* void scrollToBottom(void)
+* void scrollToTop(void)
+* void setCurrentIndex(QModelIndex)
+* void update(QModelIndex)
+
+.. index::
+	pair: RingQt Classes Reference; QTableView Class
+
+QTableView Class
+===============
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QAbstractItemView
+
+* void clearSpans(void)
+* int columnAt(int x)
+* int columnSpan(int row, int column)
+* int columnViewportPosition(int column)
+* int columnWidth(int column)
+* Qt::PenStyle gridStyle(void)
+* QHeaderView *horizontalHeader(void)
+* bool isColumnHidden(int column)
+* bool isCornerButtonEnabled(void)
+* bool isRowHidden(int row)
+* bool isSortingEnabled(void)
+* int rowAt(int y)
+* int rowHeight(int row)
+* int rowSpan(int row, int column)
+* int rowViewportPosition(int row)
+* void setColumnHidden(int column, bool hide)
+* void setColumnWidth(int column, int width)
+* void setCornerButtonEnabled(bool enable)
+* void setGridStyle(Qt::PenStyle style)
+* void setHorizontalHeader(QHeaderView *header)
+* void setRowHeight(int row, int height)
+* void setRowHidden(int row, bool hide)
+* void setSortingEnabled(bool enable)
+* void setSpan(int row, int column, int rowSpanCount, int columnSpanCount)
+* void setVerticalHeader(QHeaderView *header)
+* void setWordWrap(bool on)
+* bool showGrid(void)
+* void sortByColumn(int column, Qt::SortOrder order)
+* QHeaderView *verticalHeader(void)
+* bool wordWrap(void)
+* void hideColumn(int column)
+* void hideRow(int row)
+* void resizeColumnToContents(int column)
+* void resizeColumnsToContents(void)
+* void resizeRowToContents(int row)
+* void resizeRowsToContents(void)
+* void selectColumn(int column)
+* void selectRow(int row)
+* void setShowGrid(bool show)
+* void showColumn(int column)
+* void showRow(int row)
+
+.. index::
+	pair: RingQt Classes Reference; QTableWidget Class
+
+QTableWidget Class
+=================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QTableView
+
+* QWidget *cellWidget(int row, int column)
+* void closePersistentEditor(QTableWidgetItem *item)
+* int column(QTableWidgetItem *item)
+* int columnCount(void)
+* int currentColumn(void)
+* QTableWidgetItem *currentItem(void)
+* int currentRow(void)
+* void editItem(QTableWidgetItem *item)
+* QTableWidgetItem *horizontalHeaderItem(int column)
+* QTableWidgetItem *item(int row, int column)
+* QTableWidgetItem *itemAt(int ax, int ay)
+* QTableWidgetItem *itemPrototype(void)
+* void openPersistentEditor(QTableWidgetItem *item)
+* void removeCellWidget(int row, int column)
+* int row(const QTableWidgetItem *item)
+* int rowCount(void)
+* void setCellWidget(int row, int column, QWidget *widget)
+* void setColumnCount(int columns)
+* void setCurrentCell(int row, int column)
+* void setCurrentItem(QTableWidgetItem * item)
+* void setHorizontalHeaderItem(int column, QTableWidgetItem *item)
+* void setHorizontalHeaderLabels(QStringList)
+* void setItem(int row, int column, QTableWidgetItem *item)
+* void setItemPrototype(QTableWidgetItem *item)
+* void setRowCount(int rows)
+* void setVerticalHeaderItem(int row, QTableWidgetItem *item)
+* void sortItems(int column, Qt::SortOrder order)
+* QTableWidgetItem *takeHorizontalHeaderItem(int column)
+* QTableWidgetItem *takeItem(int row, int column)
+* QTableWidgetItem *takeVerticalHeaderItem(int row)
+* QTableWidgetItem *verticalHeaderItem(int row)
+* int visualColumn(int logicalColumn)
+* QRect visualItemRect(QTableWidgetItem *)
+* int visualRow(int logicalRow)
+* void clear(void)
+* void clearContents(void)
+* void insertColumn(int column)
+* void insertRow(int row)
+* void removeColumn(int column)
+* void removeRow(int row)
+* void scrollToItem(QTableWidgetItem *item, QAbstractItemView::ScrollHint hint)
+* void setcellActivatedEvent(const char *)
+* void setcellChangedEvent(const char *)
+* void setcellClickedEvent(const char *)
+* void setcellDoubleClickedEvent(const char *)
+* void setcellEnteredEvent(const char *)
+* void setcellPressedEvent(const char *)
+* void setcurrentCellChangedEvent(const char *)
+* void setcurrentItemChangedEvent(const char *)
+* void setitemActivatedEvent(const char *)
+* void setitemChangedEvent(const char *)
+* void setitemClickedEvent(const char *)
+* void setitemDoubleClickedEvent(const char *)
+* void setitemEnteredEvent(const char *)
+* void setitemPressedEvent(const char *)
+* void setitemSelectionChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QProgressBar Class
+
+QProgressBar Class
+=================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* int alignment(void)
+* QString format(void)
+* bool invertedAppearance(void)
+* bool isTextVisible(void)
+* int maximum(void)
+* int minimum(void)
+* int orientation(void)
+* void resetFormat(void)
+* void setAlignment(Qt::AlignmentFlag alignment)
+* void setFormat(QString)
+* void setInvertedAppearance(bool invert)
+* void setTextDirection(QProgressBar::Direction textDirection)
+* void setTextVisible(bool visible)
+* QString text(void)
+* int textDirection(void)
+* int value(void)
+* void reset(void)
+* void setMaximum(int maximum)
+* void setMinimum(int minimum)
+* void setOrientation(Qt::Orientation)
+* void setRange(int minimum, int maximum)
+* void setValue(int value)
+* void setvalueChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QSpinBox Class
+
+QSpinBox Class
+=============
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* QString cleanText(void)
+* int displayIntegerBase(void)
+* int maximum(void)
+* int minimum(void)
+* QString prefix(void)
+* void setDisplayIntegerBase(int base)
+* void setMaximum(int max)
+* void setMinimum(int min)
+* void setPrefix(QString)
+* void setRange(int minimum, int maximum)
+* void setSingleStep(int val)
+* void setSuffix(QString)
+* int singleStep(void)
+* QString suffix(void)
+* int value(void)
+* void setValue(int val)
+* void setvalueChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QAbstractSlider Class
+
+QAbstractSlider Class
+====================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* bool invertedAppearance(void)
+* bool invertedControls(void)
+* bool isSliderDown(void)
+* int maximum(void)
+* int minimum(void)
+* int orientation(void)
+* int pageStep(void)
+* void setInvertedAppearance(bool)
+* void setInvertedControls(bool)
+* void setMaximum(int)
+* void setMinimum(int)
+* void setPageStep(int)
+* void setSingleStep(int)
+* void setSliderDown(bool)
+* void setSliderPosition(int)
+* void setTracking(bool enable)
+* int singleStep(void)
+* int sliderPosition(void)
+* void triggerAction(QAbstractSlider::SliderAction action)
+* int value(void)
+* void setOrientation(Qt::Orientation)
+* void setRange(int min, int max)
+* void setValue(int)
+
+.. index::
+	pair: RingQt Classes Reference; QSlider Class
+
+QSlider Class
+============
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QAbstractSlider
+
+* void setTickInterval(int ti)
+* void setTickPosition(QSlider::TickPosition position)
+* int tickInterval(void)
+* int tickPosition(void)
+* QSize minimumSizeHint(void)
+* QSize sizeHint(void)
+* void setactionTriggeredEvent(const char *)
+* void setrangeChangedEvent(const char *)
+* void setsliderMovedEvent(const char *)
+* void setsliderPressedEvent(const char *)
+* void setsliderReleasedEvent(const char *)
+* void setvalueChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QDateEdit Class
+
+QDateEdit Class
+==============
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QDateTimeEdit
+
+
+.. index::
+	pair: RingQt Classes Reference; QDateTimeEdit Class
+
+QDateTimeEdit Class
+==================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QAbstractSpinBox
+
+* bool calendarPopup(void)
+* QCalendarWidget *calendarWidget(void)
+* void clearMaximumDate(void)
+* void clearMaximumDateTime(void)
+* void clearMaximumTime(void)
+* void clearMinimumDate(void)
+* void clearMinimumDateTime(void)
+* void clearMinimumTime(void)
+* int currentSection(void)
+* int currentSectionIndex(void)
+* QDate date(void)
+* QDateTime dateTime(void)
+* QString displayFormat(void)
+* int displayedSections(void)
+* QDate maximumDate(void)
+* QDateTime maximumDateTime(void)
+* QTime maximumTime(void)
+* QDate minimumDate(void)
+* QDateTime minimumDateTime(void)
+* QTime minimumTime(void)
+* int sectionAt(int index)
+* int sectionCount(void)
+* QString sectionText(QDateTimeEdit::Section section)
+* void setCalendarPopup(bool enable)
+* void setCalendarWidget(QCalendarWidget *calendarWidget)
+* void setCurrentSection(QDateTimeEdit::Section section)
+* void setCurrentSectionIndex(int index)
+* void setDateRange(QDate,QDate)
+* void setDateTimeRange(QDateTime,QDateTime)
+* void setDisplayFormat(QString)
+* void setMaximumDate(QDate)
+* void setMaximumDateTime(QDateTime)
+* void setMaximumTime(QTime)
+* void setMinimumDate(QDate)
+* void setMinimumDateTime(QDateTime)
+* void setMinimumTime(QTime)
+* void setSelectedSection(QDateTimeEdit::Section section)
+* void setTimeRange(QTime,QTime)
+* void setTimeSpec(Qt::TimeSpec spec)
+* QTime time(void)
+* Qt::TimeSpec timeSpec(void)
+* void setDate(QDate)
+* void setDateTime(QDateTime)
+* void setTime(QTime)
+
+.. index::
+	pair: RingQt Classes Reference; QAbstractSpinBox Class
+
+QAbstractSpinBox Class
+=====================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* int alignment(void)
+* int buttonSymbols(void)
+* int correctionMode(void)
+* bool hasAcceptableInput(void)
+* bool hasFrame(void)
+* void interpretText(void)
+* bool isAccelerated(void)
+* bool keyboardTracking(void)
+* void setAccelerated(bool on)
+* void setAlignment(Qt::AlignmentFlag flag)
+* void setButtonSymbols(QAbstractSpinBox::ButtonSymbols bs)
+* void setCorrectionMode(QAbstractSpinBox::CorrectionMode cm)
+* void setFrame(bool)
+* void setReadOnly(bool r)
+* void setSpecialValueText(QString)
+* void setWrapping(bool w)
+* QString specialValueText(void)
+* void stepBy(int steps)
+* QString text(void)
+* bool wrapping(void)
+* void clear(void)
+* void selectAll(void)
+* void stepDown(void)
+* void stepUp(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDial Class
+
+QDial Class
+==========
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QAbstractSlider
+
+* int notchSize(void)
+* qreal notchTarget(void)
+* bool notchesVisible(void)
+* void setNotchTarget(double target)
+* bool wrapping(void)
+* QSize minimumSizeHint(void)
+* QSize sizeHint(void)
+* void setNotchesVisible(bool visible)
+* void setWrapping(bool on)
+* void setactionTriggeredEvent(const char *)
+* void setrangeChangedEvent(const char *)
+* void setsliderMovedEvent(const char *)
+* void setsliderPressedEvent(const char *)
+* void setsliderReleasedEvent(const char *)
+* void setvalueChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+=============
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* QWebHistory *history(void)
+* QAction *pageAction(QWebPage::WebAction action)
+* void setContent(QByteArray,QString,QUrl)
+* void setHtml(QString,QUrl)
+* void setPage(QWebPage *page)
+* void setZoomFactor(qreal factor)
+* QWebSettings *settings(void)
+* void triggerPageAction(QWebPage::WebAction action, bool checked)
+* QUrl url(void)
+* qreal zoomFactor(void)
+* void back(void)
+* void forward(void)
+* void stop(void)
+* void setloadProgressEvent(const char *)
+* void setloadStartedEvent(const char *)
+* void setselectionChangedEvent(const char *)
+* void seturlChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QUrl Class
+
+QUrl Class
+=========
+
+
+Parameters : QString
+
+* void clear(void)
+* QString errorString(void)
+* QString fileName(QUrl::ComponentFormattingOption options)
+* QString fragment(QUrl::ComponentFormattingOption options)
+* bool hasFragment(void)
+* bool hasQuery(void)
+* QString host(QUrl::ComponentFormattingOption options)
+* bool isEmpty(void)
+* bool isLocalFile(void)
+* bool isParentOf(QUrl)
+* bool isRelative(void)
+* bool isValid(void)
+* QString path(QUrl::ComponentFormattingOption options)
+* int port(int defaultPort)
+* QString query(QUrl::ComponentFormattingOption options)
+* QUrl resolved(QUrl)
+* QString scheme(void)
+* void setAuthority(QString, QUrl::ParsingMode mode)
+* void setFragment(QString, QUrl::ParsingMode mode)
+* void setHost(QString, QUrl::ParsingMode mode)
+* void setPassword(QString, QUrl::ParsingMode mode)
+* void setPath(QString, QUrl::ParsingMode mode)
+* void setPort(int port)
+* void setQuery(QString, QUrl::ParsingMode mode)
+* void setScheme(QString)
+* void setUrl(QString, QUrl::ParsingMode parsingMode)
+* void setUserInfo(QString, QUrl::ParsingMode mode)
+* void setUserName(QString, QUrl::ParsingMode mode)
+* void swap(QUrl)
+* QString topLevelDomain(QUrl::ComponentFormattingOption options)
+* QString userInfo(QUrl::ComponentFormattingOption options)
+* QString userName(QUrl::ComponentFormattingOption options)
+* QUrl fromLocalFile(QString)
+
+.. index::
+	pair: RingQt Classes Reference; QCheckBox Class
+
+QCheckBox Class
+==============
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QAbstractButton
+
+* int checkState(void)
+* bool isTristate(void)
+* void setCheckState(Qt::CheckState state)
+* void setTristate(bool y)
+* QSize minimumSizeHint(void)
+* QSize sizeHint(void)
+* void setstateChangedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* void settoggledEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QAbstractButton Class
+
+QAbstractButton Class
+====================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* bool autoExclusive(void)
+* bool autoRepeat(void)
+* int autoRepeatDelay(void)
+* int autoRepeatInterval(void)
+* QButtonGroup *group(void)
+* QIcon icon(void)
+* QSize iconSize(void)
+* bool isCheckable(void)
+* bool isChecked(void)
+* bool isDown(void)
+* void setAutoExclusive(bool)
+* void setAutoRepeat(bool)
+* void setAutoRepeatDelay(int)
+* void setAutoRepeatInterval(int)
+* void setCheckable(bool)
+* void setDown(bool)
+* void setIcon(QIcon)
+* void setShortcut(QKeySequence)
+* void setText(QString)
+* QKeySequence shortcut(void)
+* QString text(void)
+* void animateClick(int msec)
+* void click(void)
+* void setChecked(bool)
+* void setIconSize(QSize)
+* void toggle(void)
+
+.. index::
+	pair: RingQt Classes Reference; QRadioButton Class
+
+QRadioButton Class
+=================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QAbstractButton
+
+* QSize minimumSizeHint(void)
+* QSize sizeHint(void)
+* void setclickedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* void settoggledEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QButtonGroup Class
+
+QButtonGroup Class
+=================
+
+
+Parameters : QObject *parent
+
+* void addButton(QAbstractButton *button, int id)
+* QAbstractButton *button(int id)
+* QAbstractButton *checkedButton(void)
+* int checkedId(void)
+* bool exclusive(void)
+* int id(QAbstractButton *button)
+* void removeButton(QAbstractButton *button)
+* void setExclusive(bool)
+* void setId(QAbstractButton *button, int id)
+* void setbuttonClickedEvent(const char *)
+* void setbuttonPressedEvent(const char *)
+* void setbuttonReleasedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QMediaPlayer Class
+
+QMediaPlayer Class
+=================
+
+
+Parameters : void
+
+* int bufferStatus(void)
+* QMediaContent currentMedia(void)
+* QNetworkConfiguration currentNetworkConfiguration(void)
+* int duration(void)
+* int error(void)
+* QString errorString(void)
+* bool isAudioAvailable(void)
+* bool isMuted(void)
+* bool isSeekable(void)
+* bool isVideoAvailable(void)
+* QMediaContent media(void)
+* int mediaStatus(void)
+* QIODevice *mediaStream(void)
+* qreal playbackRate(void)
+* QMediaPlaylist *playlist(void)
+* int position(void)
+* void setVideoOutput(QVideoWidget *output)
+* int volume(void)
+* void pause(void)
+* void play(void)
+* void setMuted(bool muted)
+* void setPlaylist(QMediaPlaylist *playlist)
+* void setPosition(int position)
+* void setVolume(int volume)
+* void stop(void)
+
+.. index::
+	pair: RingQt Classes Reference; QMediaPlaylist Class
+
+QMediaPlaylist Class
+===================
+
+
+Parameters : void
+
+* int currentIndex(void)
+* QMediaContent currentMedia(void)
+* int error(void)
+* QString errorString(void)
+* bool insertMedia(int pos, QMediaContent)
+* bool isReadOnly(void)
+* QMediaContent media(int index)
+* int mediaCount(void)
+* int nextIndex(int steps)
+* int playbackMode(void)
+* int previousIndex(int steps)
+* bool save(QUrl, const char * format)
+* void next(void)
+* void previous(void)
+* void setCurrentIndex(int playlistPosition)
+* void shuffle(void)
+
+.. index::
+	pair: RingQt Classes Reference; QVideoWidget Class
+
+QVideoWidget Class
+=================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* int aspectRatioMode(void)
+* int brightness(void)
+* int contrast(void)
+* int hue(void)
+* bool isFullScreen(void)
+* int saturation(void)
+* void setAspectRatioMode(Qt::AspectRatioMode mode)
+* void setBrightness(int brightness)
+* void setContrast(int contrast)
+* void setFullScreen(bool fullScreen)
+* void setHue(int hue)
+* void setSaturation(int saturation)
+* void setbrightnessChangedEvent(const char *)
+* void setcontrastChangedEvent(const char *)
+* void setfullScreenChangedEvent(const char *)
+* void sethueChangedEvent(const char *)
+* void setsaturationChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QAction Class
+
+QAction Class
+============
+
+
+Parameters : QWidget *parent
+
+* QActionGroup *actionGroup(void)
+* void activate(QAction::ActionEvent event)
+* bool autoRepeat(void)
+* QVariant data(void)
+* QFont font(void)
+* QIcon icon(void)
+* QString iconText(void)
+* bool isCheckable(void)
+* bool isChecked(void)
+* bool isEnabled(void)
+* bool isIconVisibleInMenu(void)
+* bool isSeparator(void)
+* bool isVisible(void)
+* QMenu *menu(void)
+* int menuRole(void)
+* QWidget *parentWidget(void)
+* int priority(void)
+* void setActionGroup(QActionGroup *group)
+* void setAutoRepeat(bool)
+* void setCheckable(bool)
+* void setData(QVariant)
+* void setFont(QFont)
+* void setIcon(QIcon)
+* void setIconText(QString)
+* void setIconVisibleInMenu(bool visible)
+* void setMenu(QMenu *menu)
+* void setMenuRole(QAction::MenuRole menuRole)
+* void setPriority(QAction::Priority priority)
+* void setSeparator(bool b)
+* void setShortcut(QKeySequence)
+* void setShortcutContext(Qt::ShortcutContext context)
+* void setShortcuts(QKeySequence::StandardKey key)
+* void setStatusTip(QString)
+* void setText(QString)
+* void setToolTip(QString)
+* void setWhatsThis(QString)
+* QKeySequence shortcut(void)
+* int shortcutContext(void)
+* bool showStatusText(QWidget *widget)
+* QString statusTip(void)
+* QString text(void)
+* QString toolTip(void)
+* QString whatsThis(void)
+* void hover(void)
+* void setChecked(bool)
+* void setDisabled(bool)
+* void setEnabled(bool)
+* void setVisible(bool)
+* void toggle(void)
+* void trigger(void)
+* void setClickEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QEvent Class
+
+QEvent Class
+===========
+
+
+Parameters : QEvent::Type Type
+
+* void accept(void)
+* void ignore(void)
+* bool isAccepted(void)
+* void setAccepted(bool accepted)
+* bool spontaneous(void)
+* int type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QMessageBox Class
+
+QMessageBox Class
+================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QDialog
+
+* void addButton(QAbstractButton *button, QMessageBox::ButtonRole role)
+* QAbstractButton *button(QMessageBox::StandardButton which)
+* int buttonRole(QAbstractButton *button)
+* QAbstractButton *clickedButton(void)
+* QPushButton *defaultButton(void)
+* QString detailedText(void)
+* QAbstractButton *escapeButton(void)
+* QPixmap iconPixmap(void)
+* QString informativeText(void)
+* void open(QObject *receiver, const char *member)
+* void removeButton(QAbstractButton *button)
+* void setDefaultButton(QPushButton *button)
+* void setDetailedText(QString)
+* void setEscapeButton(QAbstractButton *button)
+* void setIconPixmap(QPixmap)
+* void setInformativeText(QString)
+* void setStandardButtons(QMessageBox::StandardButton buttons)
+* void setText(QString)
+* void setTextFormat(Qt::TextFormat format)
+* void setWindowModality(Qt::WindowModality windowModality)
+* void setWindowTitle(QString)
+* int standardButton(QAbstractButton *button)
+* int standardButtons(void)
+* QString text(void)
+* int textFormat(void)
+* int exec(void)
+* void about(QWidget *parent, QString,QString)
+* void aboutQt(QWidget *parent, QString)
+* int critical(QWidget * parent, QString , QString, int buttons, int defaultButton)
+* int information(QWidget * parent, QString ,QString, int buttons,int defaultButton)
+* int question(QWidget * parent,QString,QString, int buttons ,int  defaultButton)
+* int warning(QWidget *parent, QString,QString, int buttons,int defaultButton)
+
+.. index::
+	pair: RingQt Classes Reference; QTimer Class
+
+QTimer Class
+===========
+
+
+Parameters : QObject *parent
+
+* int interval(void)
+* bool isActive(void)
+* bool isSingleShot(void)
+* void setInterval(int msec)
+* void setSingleShot(bool singleShot)
+* int timerId(void)
+* void start(void)
+* void stop(void)
+* void settimeoutEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QFileDialog Class
+
+QFileDialog Class
+================
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* int acceptMode(void)
+* QString defaultSuffix(void)
+* QDir directory(void)
+* QUrl directoryUrl(void)
+* int fileMode(void)
+* int filter(void)
+* QStringList history(void)
+* QFileIconProvider *iconProvider(void)
+* QAbstractItemDelegate *itemDelegate(void)
+* QString labelText(QFileDialog::DialogLabel label)
+* QStringList mimeTypeFilters(void)
+* QStringList nameFilters(void)
+* void open(QObject *receiver, const char *member)
+* int options(void)
+* QAbstractProxyModel *proxyModel(void)
+* bool restoreState(QByteArray)
+* QByteArray saveState(void)
+* void selectFile(QString)
+* void selectMimeTypeFilter(QString)
+* void selectNameFilter(QString)
+* void selectUrl(QUrl)
+* QStringList selectedFiles(void)
+* QString selectedNameFilter(void)
+* void setDefaultSuffix(QString)
+* void setDirectory(QString)
+* void setDirectoryUrl(QUrl)
+* void setFileMode(QFileDialog::FileMode mode)
+* void setFilter(QDir::Filter filters)
+* void setHistory(QStringList)
+* void setIconProvider(QFileIconProvider *provider)
+* void setItemDelegate(QAbstractItemDelegate *delegate)
+* void setLabelText(QFileDialog::DialogLabel label, QString)
+* void setMimeTypeFilters(QStringList)
+* void setNameFilter(QString)
+* void setNameFilters(QStringList)
+* void setOption(QFileDialog::Option option, bool)
+* void setOptions(QFileDialog::Option options)
+* void setProxyModel(QAbstractProxyModel *proxyModel)
+* int viewMode(void)
+* QString getExistingDirectory(QWidget *,QString,QString, QFileDialog::Option)
+* QUrl getExistingDirectoryUrl(QWidget *,QString,QUrl, QFileDialog::Option,QStringList)
+* QString getOpenFileName(QWidget *,QString,QString,QString)
+* QUrl getSaveFileUrl(QWidget *,QString, QUrl,QString, QString *, QFileDialog::Option options,QStringList)
+
+.. index::
+	pair: RingQt Classes Reference; QPainter Class
+
+QPainter Class
+=============
+
+
+Parameters : void
+
+* QBrush background(void)
+* int backgroundMode(void)
+* bool begin(QPaintDevice *device)
+* void beginNativePainting(void)
+* QRect boundingRect(int x, int y, int w, int h, int flags,  QString  text)
+* QBrush brush(void)
+* QPoint brushOrigin(void)
+* QRectF clipBoundingRect(void)
+* QPainterPath clipPath(void)
+* QRegion clipRegion(void)
+* QTransform combinedTransform(void)
+* int compositionMode(void)
+* QPaintDevice *device(void)
+* QTransform deviceTransform(void)
+* void drawArc(int x, int y, int width, int height, int startAngle, int spanAngle)
+* void drawChord(int x, int y, int width, int height, int startAngle, int spanAngle)
+* void drawConvexPolygon( QPoint * points, int pointCount)
+* void drawEllipse(int x, int y, int width, int height)
+* void drawGlyphRun( QPointF  position,  QGlyphRun  glyphs)
+* void drawImage(int x, int y,  QImage image)
+* void drawLine(int x1, int y1, int x2, int y2)
+* void drawLines( QLine * lines, int lineCount)
+* void drawPath( QPainterPath  path)
+* void drawPicture(int x, int y,  QPicture  picture)
+* void drawPie(int x, int y, int width, int height, int startAngle, int spanAngle)
+* void drawPixmap(int x, int y,  QPixmap)
+* void drawPoints( QPointF * points, int pointCount)
+* void drawPolygon( QPointF * points, int pointCount, Qt::FillRule fillRule)
+* void drawPolyline( QPointF * points, int pointCount)
+* void drawRect(int x, int y, int width, int height)
+* void drawRects( QRectF * rectangles, int rectCount)
+* void drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Qt::SizeMode mode)
+* void drawStaticText(int left, int top,  QStaticText  staticText)
+* void drawText(int x, int y, QString  text)
+* void drawTiledPixmap(int x, int y, int width, int height,  QPixmap  pixmap, int sx, int sy)
+* bool end(void)
+* void endNativePainting(void)
+* void eraseRect(int x, int y, int width, int height)
+* void fillPath( QPainterPath  path,  QBrush  brush)
+* void fillRect(int x, int y, int width, int height, QBrush)
+* QFont font(void)
+* QFontInfo fontInfo(void)
+* QFontMetrics fontMetrics(void)
+* bool hasClipping(void)
+* void initFrom( QWidget *widget)
+* bool isActive(void)
+* int layoutDirection(void)
+* double opacity(void)
+* QPaintEngine *paintEngine(void)
+* QPen pen(void)
+* int renderHints(void)
+* void resetTransform(void)
+* void restore(void)
+* void rotate(qreal angle)
+* void save(void)
+* void scale(double sx, double sy)
+* void setBackground( QBrush  brush)
+* void setBackgroundMode(Qt::BGMode mode)
+* void setBrush(QBrush brush)
+* void setBrushOrigin(int x, int y)
+* void setClipPath( QPainterPath  path, Qt::ClipOperation operation)
+* void setClipRect(int x, int y, int width, int height, Qt::ClipOperation operation)
+* void setClipRegion( QRegion  region, Qt::ClipOperation operation)
+* void setClipping(bool enable)
+* void setCompositionMode(QPainter::CompositionMode mode)
+* void setFont( QFont  font)
+* void setLayoutDirection(Qt::LayoutDirection direction)
+* void setOpacity(qreal opacity)
+* void setPen(QPen  pen)
+* void setRenderHint(QPainter::RenderHint hint, bool on)
+* void setTransform( QTransform  transform, bool combine)
+* void setViewTransformEnabled(bool enable)
+* void setViewport(int x, int y, int width, int height)
+* void setWindow(int x, int y, int width, int height)
+* void setWorldMatrixEnabled(bool enable)
+* void setWorldTransform( QTransform  matrix, bool combine)
+* void shear(double sh, double sv)
+* void strokePath( QPainterPath  path,  QPen  pen)
+* bool testRenderHint(QPainter::RenderHint hint)
+* QTransform  transform(void)
+* void translate(double dx, double dy)
+* bool viewTransformEnabled(void)
+* QRect viewport(void)
+* QRect window(void)
+* bool worldMatrixEnabled(void)
+* QTransform  worldTransform(void)
+
+.. index::
+	pair: RingQt Classes Reference; QPicture Class
+
+QPicture Class
+=============
+
+
+Parameters : void
+
+* QRect boundingRect(void)
+* const char *data(void)
+* bool isNull(void)
+* bool load(QString, const char *format)
+* bool play(QPainter *painter)
+* bool save(QString , const char *format)
+* void setBoundingRect(QRect)
+* int size(void)
+* void swap(QPicture)
+
+.. index::
+	pair: RingQt Classes Reference; QPen Class
+
+QPen Class
+=========
+
+
+Parameters : void
+
+* QBrush brush(void)
+* int capStyle(void)
+* QColor color(void)
+* double dashOffset(void)
+* bool isCosmetic(void)
+* bool isSolid(void)
+* int joinStyle(void)
+* double miterLimit(void)
+* void setBrush(QBrush)
+* void setCapStyle(Qt::PenCapStyle style)
+* void setColor(QColor)
+* void setCosmetic(bool cosmetic)
+* void setDashOffset(double offset)
+* void setJoinStyle(Qt::PenJoinStyle style)
+* void setMiterLimit(double limit)
+* void setStyle(Qt::PenStyle style)
+* void setWidth(int width)
+* void setWidthF(double width)
+* int style(void)
+* void swap(QPen)
+* int width(void)
+* double widthF(void)
+
+.. index::
+	pair: RingQt Classes Reference; QColor Class
+
+QColor Class
+===========
+
+
+Parameters : void
+
+* int alpha(void)
+* double alphaF(void)
+* int black(void)
+* double blackF(void)
+* int blue(void)
+* double blueF(void)
+* QColor convertTo(QColor::Spec colorSpec)
+* int cyan(void)
+* double cyanF(void)
+* QColor darker(int factor)
+* void getCmyk(int *c, int *m, int *y, int *k, int *a)
+* void getCmykF(qreal *c, qreal *m, qreal *y, qreal *k, qreal *a)
+* void getHsl(int *h, int *s, int *l, int *a)
+* void getHslF(qreal *h, qreal *s, qreal *l, qreal *a)
+* void getHsv(int *h, int *s, int *v, int *a)
+* void getHsvF(qreal *h, qreal *s, qreal *v, qreal *a)
+* void getRgb(int *r, int *g, int *b, int *a)
+* void getRgbF(qreal *r, qreal *g, qreal *b, qreal *a)
+* int green(void)
+* double greenF(void)
+* int hslHue(void)
+* double hslHueF(void)
+* int hslSaturation(void)
+* double hslSaturationF(void)
+* int hsvHue(void)
+* double hsvHueF(void)
+* int hsvSaturation(void)
+* double hsvSaturationF(void)
+* int hue(void)
+* double hueF(void)
+* bool isValid(void)
+* QColor lighter(int factor)
+* int lightness(void)
+* double lightnessF(void)
+* int magenta(void)
+* double magentaF(void)
+* QString name(void)
+* int red(void)
+* double redF(void)
+* QRgb rgb(void)
+* QRgb rgba(void)
+* int saturation(void)
+* double saturationF(void)
+* void setAlpha(int alpha)
+* void setAlphaF(double alpha)
+* void setBlue(int blue)
+* void setBlueF(double blue)
+* void setCmyk(int c, int m, int y, int k, int a)
+* void setCmykF(double c, double m, double y, double k, double a)
+* void setGreen(int green)
+* void setGreenF(double green)
+* void setHsl(int h, int s, int l, int a)
+* void setHslF(double h, double s, double l, double a)
+* void setHsv(int h, int s, int v, int a)
+* void setHsvF(double h, double s, double v, double a)
+* void setNamedColor(QString)
+* void setRed(int red)
+* void setRedF(double red)
+* void setRgb(int r, int g, int b, int a)
+* void setRgbF(double r, double g, double b, double a)
+* void setRgba(QRgb rgba)
+* int spec(void)
+* QColor toCmyk(void)
+* QColor toHsl(void)
+* QColor toHsv(void)
+* QColor toRgb(void)
+* int value(void)
+* double valueF(void)
+* int yellow(void)
+* double yellowF(void)
+* QStringList colorNames(void)
+* QColor fromCmyk(int c, int m, int y, int k, int a)
+* QColor fromCmykF(double c, double m, double y, double k, double a)
+* QColor fromHsl(int h, int s, int l, int a)
+* QColor fromHslF(double h, double s, double l, double a)
+* QColor fromHsv(int h, int s, int v, int a)
+* QColor fromHsvF(double h, double s, double v, double a)
+* QColor fromRgb(int r, int g, int b, int a)
+* QColor fromRgbF(double r, double g, double b, double a)
+* QColor fromRgba(QRgb rgba)
+* bool isValidColor(QString)
+
+.. index::
+	pair: RingQt Classes Reference; QPrinter Class
+
+QPrinter Class
+=============
+
+
+Parameters : QPrinter::PrinterMode
+
+* bool abort(void)
+* bool collateCopies(void)
+* int colorMode(void)
+* int copyCount(void)
+* QString creator(void)
+* QString docName(void)
+* int duplex(void)
+* bool fontEmbeddingEnabled(void)
+* int fromPage(void)
+* bool fullPage(void)
+* bool isValid(void)
+* QString outputFileName(void)
+* int outputFormat(void)
+* QRectF pageRect(QPrinter::Unit unit)
+* QRectF paperRect(QPrinter::Unit unit)
+* int paperSource(void)
+* QPrintEngine *printEngine(void)
+* QString printProgram(void)
+* int printRange(void)
+* QString printerName(void)
+* QString printerSelectionOption(void)
+* int printerState(void)
+* int resolution(void)
+* void setCollateCopies(bool collate)
+* void setColorMode(QPrinter::ColorMode newColorMode)
+* void setCopyCount(int count)
+* void setCreator(QString)
+* void setDocName(QString)
+* void setDuplex(QPrinter::DuplexMode duplex)
+* void setFontEmbeddingEnabled(bool enable)
+* void setFromTo(int from, int to)
+* void setFullPage(bool fp)
+* void setOutputFileName(QString)
+* void setOutputFormat(QPrinter::OutputFormat format)
+* void setPrintProgram(QString)
+* void setPrintRange(QPrinter::PrintRange)
+* void setPrinterName(QString)
+* void setPrinterSelectionOption(QString)
+* void setResolution(int dpi)
+* bool supportsMultipleCopies(void)
+* int toPage(void)
+* bool newPage(void)
+* QPaintEngine *paintEngine(void)
+* void setPageSizeMM(QSizeF)
+
+.. index::
+	pair: RingQt Classes Reference; QFont Class
+
+QFont Class
+==========
+
+
+Parameters : QString, int, int, bool
+
+* bool bold(void)
+* int capitalization(void)
+* QString defaultFamily(void)
+* bool exactMatch(void)
+* QString family(void)
+* bool fixedPitch(void)
+* bool fromString(QString)
+* int hintingPreference(void)
+* bool isCopyOf(QFont)
+* bool italic(void)
+* bool kerning(void)
+* QString key(void)
+* QString lastResortFamily(void)
+* QString lastResortFont(void)
+* double letterSpacing(void)
+* int letterSpacingType(void)
+* bool overline(void)
+* int pixelSize(void)
+* int pointSize(void)
+* double pointSizeF(void)
+* bool rawMode(void)
+* QString rawName(void)
+* QFont resolve(QFont)
+* void setBold(bool enable)
+* void setCapitalization(QFont::Capitalization caps)
+* void setFamily(QString)
+* void setFixedPitch(bool enable)
+* void setHintingPreference(QFont::HintingPreference hintingPreference)
+* void setItalic(bool enable)
+* void setKerning(bool enable)
+* void setLetterSpacing(QFont::SpacingType type, double spacing)
+* void setOverline(bool enable)
+* void setPixelSize(int pixelSize)
+* void setPointSize(int pointSize)
+* void setPointSizeF(double pointSize)
+* void setRawMode(bool enable)
+* void setRawName(QString)
+* void setStretch(int factor)
+* void setStrikeOut(bool enable)
+* void setStyle(QFont::Style style)
+* void setStyleHint(QFont::StyleHint hint, QFont::StyleStrategy strategy)
+* void setStyleName(QString)
+* void setStyleStrategy(QFont::StyleStrategy s)
+* void setUnderline(bool enable)
+* void setWeight(int weight)
+* void setWordSpacing(double spacing)
+* int stretch(void)
+* bool strikeOut(void)
+* int style(void)
+* int styleHint(void)
+* QString styleName(void)
+* int styleStrategy(void)
+* QString toString(void)
+* bool underline(void)
+* int weight(void)
+* double wordSpacing(void)
+* void insertSubstitution(QString,QString)
+* void insertSubstitutions(QString,QStringList)
+* QString substitute(QString)
+* QStringList substitutes(QString)
+* QStringList substitutions(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebSettings Class
+
+QWebSettings Class
+=================
+
+
+.. index::
+	pair: RingQt Classes Reference; QBrush Class
+
+QBrush Class
+===========
+
+
+Parameters : void
+
+* QColor color(void)
+* QGradient *gradient(void)
+* bool isOpaque(void)
+* QMatrix matrix(void)
+* void setColor(QColor)
+* void setMatrix(QMatrix)
+* void setStyle(Qt::BrushStyle style)
+* void setTexture(QPixmap)
+* void setTextureImage(QImage)
+* void setTransform(QTransform)
+* int style(void)
+* void swap(QBrush)
+* QPixmap texture(void)
+* QImage textureImage(void)
+* QTransform transform(void)
+
+.. index::
+	pair: RingQt Classes Reference; QByteArray Class
+
+QByteArray Class
+===============
+
+
+Parameters : void
+
+* QByteArray append(const char *str)
+* char at(int i)
+* int capacity(void)
+* void chop(int n)
+* void clear(void)
+* const char *constData(void)
+* bool contains(const char *str)
+* int count(const char *str)
+* const char *data(void)
+* bool endsWith(const char *str)
+* QByteArray fill(char ch, int size)
+* int indexOf(const char *str, int from)
+* QByteArray insert(int i, const char *str, int len)
+* bool isEmpty(void)
+* bool isNull(void)
+* int lastIndexOf(const char *str, int from)
+* QByteArray left(int len)
+* QByteArray leftJustified(int width, char fill, bool truncate)
+* int length(void)
+* QByteArray mid(int pos, int len)
+* QByteArray prepend(const char *str, int len)
+* void push_back(const char *str)
+* void push_front(const char *str)
+* QByteArray remove(int pos, int len)
+* QByteArray repeated(int times)
+* QByteArray  replace(int pos, int len, const char *after, int alen)
+* void reserve(int size)
+* void resize(int size)
+* QByteArray right(int len)
+* QByteArray rightJustified(int width, char fill, bool truncate)
+* QByteArray setNum(int n, int base)
+* QByteArray setRawData(const char *data, uint size)
+* QByteArray simplified(void)
+* int size(void)
+* void squeeze(void)
+* bool startsWith(const char *str)
+* void swap(QByteArray other)
+* QByteArray toBase64(void)
+* double toDouble(bool * ok)
+* float toFloat(bool * ok)
+* QByteArray toHex(void)
+* int toInt(bool *ok, int base)
+* long toLong(bool *ok, int base)
+* qlonglong toLongLong(bool *ok, int base)
+* QByteArray toLower(void)
+* QByteArray toPercentEncoding(QByteArray,QByteArray, char percent)
+* short toShort(bool *ok, int base)
+* int toUInt(bool *ok, int base)
+* int toULong(bool *ok, int base)
+* int toULongLong(bool * ok, int base)
+* int toUShort(bool * ok, int base)
+* QByteArray toUpper(void)
+* QByteArray trimmed(void)
+* void truncate(int pos)
+* QByteArray fromBase64(QByteArray)
+* QByteArray fromHex(QByteArray)
+* QByteArray fromPercentEncoding(QByteArray, char percent)
+* QByteArray fromRawData(const char *data, int size)
+* QByteArray number(int n, int base)
+
+.. index::
+	pair: RingQt Classes Reference; QIODevice Class
+
+QIODevice Class
+==============
+
+
+Parameters : void
+
+* QString errorString(void)
+* bool getChar(char *c)
+* bool isOpen(void)
+* bool isReadable(void)
+* bool isTextModeEnabled(void)
+* bool isWritable(void)
+* int openMode(void)
+* int peek(char *data, int maxSize)
+* int read(char *data, int maxSize)
+* int readLine(char *data, int maxSize)
+* void ungetChar(char c)
+* int write(const char *data, int maxSize)
+* void setaboutToCloseEvent(const char *)
+* void setbytesWrittenEvent(const char *)
+* void setreadChannelFinishedEvent(const char *)
+* void setreadyReadEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QAbstractSocket Class
+
+QAbstractSocket Class
+====================
+
+
+Parameters : void
+
+
+Parent Class : QIODevice
+
+* void abort(void)
+* bool bind(QHostAddress address, int port, QAbstractSocket::BindFlag mode)
+* void connectToHost(QString  hostName, int port, QIODevice::OpenModeFlag openMode, QAbstractSocket::NetworkLayerProtocol protocol)
+* void disconnectFromHost(void)
+* int error(void)
+* bool flush(void)
+* bool isValid(void)
+* QHostAddress localAddress(void)
+* int localPort(void)
+* int pauseMode(void)
+* QHostAddress peerAddress(void)
+* QString peerName(void)
+* int peerPort(void)
+* QNetworkProxy proxy(void)
+* int readBufferSize(void)
+* void resume(void)
+* void setPauseMode(QAbstractSocket::PauseMode pauseMode)
+* void setProxy(QNetworkProxy  networkProxy)
+* void setReadBufferSize(int size)
+* bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState socketState, QIODevice::OpenModeFlag openMode)
+* void setSocketOption(QAbstractSocket::SocketOption option,  QVariant  value)
+* int *socketDescriptor(void)
+* QVariant socketOption(QAbstractSocket::SocketOption option)
+* int socketType(void)
+* int state(void)
+* bool waitForConnected(int msecs)
+* bool waitForDisconnected(int msecs)
+* bool atEnd(void)
+* int bytesAvailable(void)
+* int bytesToWrite(void)
+* bool canReadLine(void)
+* void close(void)
+* bool isSequential(void)
+* bool waitForBytesWritten(int msecs)
+* bool waitForReadyRead(int msecs)
+* void setconnectedEvent(const char *)
+* void setdisconnectedEvent(const char *)
+* void seterrorEvent(const char *)
+* void sethostFoundEvent(const char *)
+* void setproxyAuthenticationRequiredEvent(const char *)
+* void setstateChangedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QNetworkProxy Class
+
+QNetworkProxy Class
+==================
+
+
+Parameters : void
+
+* int capabilities(void)
+* bool hasRawHeader(QByteArray headerName)
+* QVariant header(QNetworkRequest::KnownHeaders header)
+* QString hostName(void)
+* bool isCachingProxy(void)
+* bool isTransparentProxy(void)
+* QString password(void)
+* int port(void)
+* QByteArray rawHeader(QByteArray headerName)
+* void setCapabilities(QNetworkProxy::Capability capabilities)
+* void setHeader(QNetworkRequest::KnownHeaders header,  QVariant value)
+* void setHostName(QString hostName)
+* void setPassword(QString password)
+* void setPort(int port)
+* void setRawHeader(QByteArray headerName, QByteArray headerValue)
+* void setType(QNetworkProxy::ProxyType type)
+* void setUser(QString user)
+* void swap(QNetworkProxy  other)
+* int type(void)
+* QString user(void)
+* QNetworkProxy applicationProxy(void)
+* void setApplicationProxy(QNetworkProxy  networkProxy)
+
+.. index::
+	pair: RingQt Classes Reference; QTcpSocket Class
+
+QTcpSocket Class
+===============
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractSocket
+
+* void setconnectedEvent(const char *)
+* void setdisconnectedEvent(const char *)
+* void seterrorEvent(const char *)
+* void sethostFoundEvent(const char *)
+* void setproxyAuthenticationRequiredEvent(const char *)
+* void setstateChangedEvent(const char *)
+* void setaboutToCloseEvent(const char *)
+* void setbytesWrittenEvent(const char *)
+* void setreadChannelFinishedEvent(const char *)
+* void setreadyReadEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QTcpServer Class
+
+QTcpServer Class
+===============
+
+
+Parameters : QWidget *
+
+* void close(void)
+* QString errorString(void)
+* bool hasPendingConnections(void)
+* bool isListening(void)
+* bool listen(QHostAddress, int port)
+* int maxPendingConnections(void)
+* QTcpSocket *nextPendingConnection(void)
+* void pauseAccepting(void)
+* QNetworkProxy proxy(void)
+* void resumeAccepting(void)
+* QHostAddress serverAddress(void)
+* int serverError(void)
+* int serverPort(void)
+* void setMaxPendingConnections(int numConnections)
+* void setProxy(QNetworkProxy)
+* bool setSocketDescriptor(qintptr socketDescriptor)
+* int *socketDescriptor(void)
+* bool waitForNewConnection(int msec, bool *timedOut)
+* void setacceptErrorEvent(const char *)
+* void setnewConnectionEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QHostAddress Class
+
+QHostAddress Class
+=================
+
+
+Parameters : void
+
+* void clear(void)
+* bool isInSubnet(QHostAddress, int netmask)
+* bool isNull(void)
+* int protocol(void)
+* QString scopeId(void)
+* bool setAddress(QString)
+* int toIPv4Address(void)
+* Q_IPV6ADDR toIPv6Address(void)
+* QString toString(void)
+
+.. index::
+	pair: RingQt Classes Reference; QHostInfo Class
+
+QHostInfo Class
+==============
+
+
+Parameters : void
+
+* int error(void)
+* QString errorString(void)
+* QString hostName(void)
+* int lookupId(void)
+* void setError(QHostInfo::HostInfoError error)
+* void setErrorString(QString)
+* void setHostName(QString)
+* void setLookupId(int id)
+* void abortHostLookup(int id)
+* QHostInfo fromName(QString)
+* QString localDomainName(void)
+* QString localHostName(void)
+* int lookupHost(QString, QObject *receiver, const char *member)
+
+.. index::
+	pair: RingQt Classes Reference; QFileInfo Class
+
+QFileInfo Class
+==============
+
+
+Parameters : void
+
+* QDir absoluteDir(void)
+* QString absoluteFilePath(void)
+* QString absolutePath(void)
+* QString baseName(void)
+* QString bundleName(void)
+* bool caching(void)
+* QString canonicalFilePath(void)
+* QString canonicalPath(void)
+* QString completeBaseName(void)
+* QString completeSuffix(void)
+* QDateTime created(void)
+* QDir dir(void)
+* bool exists(void)
+* QString fileName(void)
+* QString filePath(void)
+* QString group(void)
+* int groupId(void)
+* bool isAbsolute(void)
+* bool isBundle(void)
+* bool isDir(void)
+* bool isExecutable(void)
+* bool isFile(void)
+* bool isHidden(void)
+* bool isNativePath(void)
+* bool isReadable(void)
+* bool isRelative(void)
+* bool isRoot(void)
+* bool isSymLink(void)
+* bool isWritable(void)
+* QDateTime lastModified(void)
+* QDateTime lastRead(void)
+* bool makeAbsolute(void)
+* QString owner(void)
+* uint ownerId(void)
+* QString path(void)
+* bool permission(QFileDevice::Permission permissions)
+* int permissions(void)
+* void refresh(void)
+* void setCaching(bool enable)
+* void setFile(QString)
+* int size(void)
+* QString suffix(void)
+* void swap(QFileInfo)
+* QString symLinkTarget(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDirModel Class
+
+QDirModel Class
+==============
+
+
+Parameters : void
+
+* QIcon fileIcon(QModelIndex)
+* QFileInfo fileInfo(QModelIndex)
+* QString fileName(QModelIndex)
+* QString filePath(QModelIndex)
+* int filter(void)
+* QFileIconProvider *iconProvider(void)
+* QModelIndex index(QString path, int column)
+* bool isDir(QModelIndex)
+* bool isReadOnly(void)
+* bool lazyChildCount(void)
+* QModelIndex mkdir(QModelIndex parent, QString name)
+* QStringList nameFilters(void)
+* bool remove(QModelIndex index)
+* bool resolveSymlinks(void)
+* bool rmdir(QModelIndex index)
+* void setFilter(QDir::Filter filters)
+* void setIconProvider(QFileIconProvider *provider)
+* void setLazyChildCount(bool enable)
+* void setNameFilters(QStringList filters)
+* void setReadOnly(bool enable)
+* void setResolveSymlinks(bool enable)
+* void setSorting(QDir::SortFlag sort)
+* int sorting(void)
+* void refresh(QModelIndex parent)
+
+.. index::
+	pair: RingQt Classes Reference; QFontDialog Class
+
+QFontDialog Class
+================
+
+
+Parameters : void
+
+
+Parent Class : QDialog
+
+* QFont currentFont(void)
+* void open(QObject *receiver, const char *member)
+* int options(void)
+* QFont selectedFont(void)
+* void setCurrentFont(QFont)
+* void setOption(QFontDialog::FontDialogOption option, bool on)
+* void setOptions(QFontDialog::FontDialogOption options)
+* bool testOption(QFontDialog::FontDialogOption option)
+* int getfont(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDialog Class
+
+QDialog Class
+============
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* bool isSizeGripEnabled(void)
+* int result(void)
+* void setModal(bool modal)
+* void setResult(int i)
+* void setSizeGripEnabled(bool)
+* void accept(void)
+* void done(int r)
+* int exec(void)
+* void open(void)
+* void reject(void)
+
+.. index::
+	pair: RingQt Classes Reference; QTextCursor Class
+
+QTextCursor Class
+================
+
+
+Parameters : void
+
+* int anchor(void)
+* bool atBlockEnd(void)
+* bool atBlockStart(void)
+* bool atEnd(void)
+* bool atStart(void)
+* void beginEditBlock(void)
+* QTextBlock block(void)
+* QTextCharFormat blockCharFormat(void)
+* QTextBlockFormat blockFormat(void)
+* int blockNumber(void)
+* QTextCharFormat charFormat(void)
+* void clearSelection(void)
+* int columnNumber(void)
+* QTextList *createList(QTextListFormat)
+* QTextFrame *currentFrame(void)
+* QTextList *currentList(void)
+* QTextTable *currentTable(void)
+* void deleteChar(void)
+* void deletePreviousChar(void)
+* QTextDocument *document(void)
+* void endEditBlock(void)
+* bool hasComplexSelection(void)
+* bool hasSelection(void)
+* void insertBlock(void)
+* void insertFragment(QTextDocumentFragment)
+* QTextFrame *insertFrame(QTextFrameFormat)
+* void insertHtml(QString)
+* void insertImage(QTextImageFormat)
+* QTextList *insertList(QTextListFormat)
+* QTextTable * insertTable(int rows, int columns, QTextTableFormat)
+* void insertText(QString)
+* bool isCopyOf(QTextCursor)
+* bool isNull(void)
+* void joinPreviousEditBlock(void)
+* bool keepPositionOnInsert(void)
+* void mergeBlockCharFormat(QTextCharFormat)
+* void mergeBlockFormat(QTextBlockFormat)
+* void mergeCharFormat(QTextCharFormat)
+* bool movePosition(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode, int n)
+* int position(void)
+* int positionInBlock(void)
+* void removeSelectedText(void)
+* void select(QTextCursor::SelectionType selection)
+* void selectedTableCells(int *firstRow, int *numRows, int *firstColumn, int *numColumns)
+* QString selectedText(void)
+* QTextDocumentFragment selection(void)
+* int selectionEnd(void)
+* int selectionStart(void)
+* void setBlockCharFormat(QTextCharFormat)
+* void setBlockFormat(QTextBlockFormat)
+* void setCharFormat(QTextCharFormat)
+* void setKeepPositionOnInsert(bool b)
+* void setPosition(int pos, QTextCursor::MoveMode m)
+* void setVerticalMovementX(int x)
+* void setVisualNavigation(bool b)
+* int verticalMovementX(void)
+* bool visualNavigation(void)
+
+.. index::
+	pair: RingQt Classes Reference; QColorDialog Class
+
+QColorDialog Class
+=================
+
+
+Parameters : void
+
+
+Parent Class : QDialog
+
+* QColor currentColor(void)
+* void open(void)
+* int options(void)
+* QColor selectedColor(void)
+* void setCurrentColor(QColor)
+* void setOption(QColorDialog::ColorDialogOption option, bool on )
+* void setOptions(QColorDialog::ColorDialogOption options)
+* bool testOption(QColorDialog::ColorDialogOption option)
+* QColor customColor(int index)
+* int customCount(void)
+* void setCustomColor(int index, int color)
+* void setStandardColor(int index, int color)
+* int getcolor(void)
+
+.. index::
+	pair: RingQt Classes Reference; QHeaderView Class
+
+QHeaderView Class
+================
+
+
+Parameters : Qt::Orientation, QWidget *
+
+
+Parent Class : QAbstractItemView
+
+
+.. index::
+	pair: RingQt Classes Reference; QStringList Class
+
+QStringList Class
+================
+
+
+Parameters : void
+
+* QString join(QString)
+* void sort(void)
+* int removeDuplicates(void)
+* QStringList filter(QString, Qt::CaseSensitivity)
+* QStringList replaceInStrings(QString,QString, Qt::CaseSensitivity)
+* void append(QString)
+* QString at(int)
+* QString back(void)
+* void clear(void)
+* bool contains(QString)
+* int count(void)
+* bool empty(void)
+* bool endsWith(QString)
+* QString first(void)
+* QString front(void)
+* int indexOf(QString, int)
+* void insert(int, QString)
+* bool isEmpty(void)
+* QString last(void)
+* int lastIndexOf(QString,int)
+* int length(void)
+* void move(int,int)
+* void pop_back(void)
+* void pop_front(void)
+* void prepend(QString)
+* void push_back(QString)
+* void push_front(QString)
+* int removeAll(QString)
+* void removeAt(int)
+* void removeFirst(void)
+* void removeLast(void)
+* bool removeOne(QString)
+* void replace(int,QString)
+* void reserve(int)
+* int size(void)
+* bool startsWith(QString)
+* void swap(int,int)
+* QString takeAt(int)
+* QString takeFirst(void)
+* QString takeLast(void)
+* QString value(int)
+
+.. index::
+	pair: RingQt Classes Reference; QKeySequence Class
+
+QKeySequence Class
+=================
+
+
+Parameters : QString
+
+
+.. index::
+	pair: RingQt Classes Reference; QLCDNumber Class
+
+QLCDNumber Class
+===============
+
+
+Parameters : QWidget *
+
+
+Parent Class : QFrame
+
+* bool checkOverflow(double num)
+* int digitCount(void)
+* int intValue(void)
+* int mode(void)
+* int segmentStyle(void)
+* void setDigitCount(int numDigits)
+* void setMode(QLCDNumber::Mode)
+* void setSegmentStyle(QLCDNumber::SegmentStyle)
+* bool smallDecimalPoint(void)
+* double value(void)
+* void display(double)
+* void setBinMode(void)
+* void setDecMode(void)
+* void setHexMode(void)
+* void setOctMode(void)
+* void setSmallDecimalPoint(bool)
+
+.. index::
+	pair: RingQt Classes Reference; QInputDialog Class
+
+QInputDialog Class
+=================
+
+
+Parameters : QWidget *
+
+
+Parent Class : QDialog
+
+* QString cancelButtonText(void)
+* QStringList comboBoxItems(void)
+* int doubleDecimals(void)
+* double doubleMaximum(void)
+* double doubleMinimum(void)
+* double doubleValue(void)
+* int inputMode(void)
+* int intMaximum(void)
+* int intMinimum(void)
+* int intStep(void)
+* int intValue(void)
+* bool isComboBoxEditable(void)
+* QString labelText(void)
+* QString okButtonText(void)
+* void open(QObject *receiver, const char *member)
+* int options(void)
+* void setCancelButtonText(QString)
+* void setComboBoxEditable(bool editable)
+* void setComboBoxItems(QStringList)
+* void setDoubleDecimals(int decimals)
+* void setDoubleMaximum(double max)
+* void setDoubleMinimum(double min)
+* void setDoubleRange(double min, double max)
+* void setDoubleValue(double value)
+* void setInputMode(QInputDialog::InputMode mode)
+* void setIntMaximum(int max)
+* void setIntMinimum(int min)
+* void setIntRange(int min, int max)
+* void setIntStep(int step)
+* void setIntValue(int value)
+* void setLabelText(QString)
+* void setOkButtonText(QString)
+* void setOption(QInputDialog::InputDialogOption option, bool on)
+* void setOptions(QInputDialog::InputDialogOption options)
+* void setTextEchoMode(QLineEdit::EchoMode mode)
+* void setTextValue(QString)
+* bool testOption(QInputDialog::InputDialogOption option)
+* int textEchoMode(void)
+* QString textValue(void)
+* double getDouble(QWidget *parent,QString,QString, double value, double min, double max , int decimals, bool *ok, Qt::WindowType flags)
+* int getInt(QWidget *parent,QString,QString, int value, int min, int max, int step, bool *ok, Qt::WindowType flags)
+
+.. index::
+	pair: RingQt Classes Reference; QAllEvents Class
+
+QAllEvents Class
+===============
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* void accept(void)
+* void ignore(void)
+* int getKeyCode(void)
+* int getx(void)
+* int gety(void)
+* int getglobalx(void)
+* int getglobaly(void)
+* int getbutton(void)
+* int getbuttons(void)
+* void setKeyPressEvent(const char *cStr)
+* void setMouseButtonPressEvent(const char *cStr)
+* void setMouseButtonReleaseEvent(const char *cStr)
+* void setMouseButtonDblClickEvent(const char *cStr)
+* void setMouseMoveEvent(const char *cStr)
+* void setCloseEvent(const char *cStr)
+* void setContextMenuEvent(const char *cStr)
+* void setDragEnterEvent(const char *cStr)
+* void setDragLeaveEvent(const char *cStr)
+* void setDragMoveEvent(const char *cStr)
+* void setDropEvent(const char *cStr)
+* void setEnterEvent(const char *cStr)
+* void setFocusInEvent(const char *cStr)
+* void setFocusOutEvent(const char *cStr)
+* void setKeyReleaseEvent(const char *cStr)
+* void setLeaveEvent(const char *cStr)
+* void setNonClientAreaMouseButtonDblClickEvent(const char *cStr)
+* void setNonClientAreaMouseButtonPressEvent(const char *cStr)
+* void setNonClientAreaMouseButtonReleaseEvent(const char *cStr)
+* void setNonClientAreaMouseMoveEvent(const char *cStr)
+* void setMoveEvent(const char *cStr)
+* void setResizeEvent(const char *cStr)
+* void setWindowActivateEvent(const char *cStr)
+* void setWindowBlockedEvent(const char *cStr)
+* void setWindowDeactivateEvent(const char *cStr)
+* void setWindowStateChangeEvent(const char *cStr)
+* void setWindowUnblockedEvent(const char *cStr)
+
+.. index::
+	pair: RingQt Classes Reference; QDesktopWidget Class
+
+QDesktopWidget Class
+===================
+
+
+Parameters : void
+
+
+Parent Class : QWidget
+
+* QRect availableGeometry(int screen)
+* bool isVirtualDesktop(void)
+* int primaryScreen(void)
+* QWidget *screen(int screen)
+* int screenCount(void)
+* QRect screenGeometry(int screen)
+* int screenNumber(QWidget *widget)
+
+.. index::
+	pair: RingQt Classes Reference; QRect Class
+
+QRect Class
+==========
+
+
+Parameters : void
+
+* void adjust(int dx1, int dy1, int dx2, int dy2)
+* QRect adjusted(int dx1, int dy1, int dx2, int dy2)
+* int bottom(void)
+* QPoint bottomLeft(void)
+* QPoint bottomRight(void)
+* QPoint center(void)
+* bool contains(int x, int y, bool proper)
+* void getCoords(int *x1, int *y1, int *x2, int *y2)
+* void getRect(int *x, int *y, int *width, int *height)
+* int  height(void)
+* QRect intersected(QRect)
+* bool intersects(QRect)
+* bool isEmpty(void)
+* bool isNull(void)
+* bool isValid(void)
+* int left(void)
+* void moveBottom(int y)
+* void moveBottomLeft(QPoint)
+* void moveBottomRight(QPoint)
+* void moveCenter(QPoint)
+* void moveLeft(int x)
+* void moveRight(int x)
+* void moveTo(int x, int y)
+* void moveTop(int y)
+* void moveTopLeft(QPoint)
+* void moveTopRight(QPoint)
+* QRect normalized(void)
+* int right(void)
+* void setBottom(int y)
+* void setBottomLeft(QPoint)
+* void setBottomRight(QPoint)
+* void setCoords(int x1, int y1, int x2, int y2)
+* void setHeight(int height)
+* void setLeft(int x)
+* void setRect(int x, int y, int width, int height)
+* void setRight(int x)
+* void setSize(QSize)
+* void setTop(int y)
+* void setTopLeft(QPoint)
+* void setTopRight(QPoint)
+* void setWidth(int width)
+* void setX(int x)
+* void setY(int y)
+* QSize size(void)
+* int top(void)
+* QPoint topLeft(void)
+* QPoint topRight(void)
+* void translate(int dx, int dy)
+* QRect translated(int dx, int dy)
+* QRect united(QRect)
+* int width(void)
+* int x(void)
+* int y(void)
+
+.. index::
+	pair: RingQt Classes Reference; QTextDocument Class
+
+QTextDocument Class
+==================
+
+
+Parameters : void
+
+
+Parent Class : QObject
+
+* void addResource(int type,QUrl name, QVariant resource)
+* void adjustSize(void)
+* QVector<QTextFormat> allFormats(void)
+* int availableRedoSteps(void)
+* int availableUndoSteps(void)
+* QTextBlock begin(void)
+* int blockCount(void)
+* QChar characterAt(int pos)
+* int characterCount(void)
+* void clearUndoRedoStacks(QTextDocument::Stacks stacksToClear )
+* QTextDocument *clone(QObject *parent )
+* int defaultCursorMoveStyle(void)
+* QFont defaultFont(void)
+* QString defaultStyleSheet(void)
+* QTextOption defaultTextOption(void)
+* QAbstractTextDocumentLayout *documentLayout(void)
+* double documentMargin(void)
+* void drawContents(QPainter *p, QRectF rect)
+* QTextBlock end(void)
+* QTextCursor find(QString subString, QTextCursor cursor, QTextDocument::FindFlag options )
+* QTextBlock findBlock(int pos)
+* QTextBlock findBlockByLineNumber(int lineNumber)
+* QTextBlock findBlockByNumber(int blockNumber)
+* QTextBlock firstBlock(void)
+* double idealWidth(void)
+* double indentWidth(void)
+* bool isEmpty(void)
+* bool isModified(void)
+* bool isRedoAvailable(void)
+* bool isUndoAvailable(void)
+* bool isUndoRedoEnabled(void)
+* QTextBlock lastBlock(void)
+* int lineCount(void)
+* void markContentsDirty(int position, int length)
+* int maximumBlockCount(void)
+* QString metaInformation(QTextDocument::MetaInformation info)
+* QTextObject *object(int objectIndex)
+* QTextObject *objectForFormat(QTextFormat f)
+* int pageCount(void)
+* QSizeF pageSize(void)
+* void print(QPrinter *printer)
+* void redo(QTextCursor *cursor)
+* QVariant resource(int type, QUrl name)
+* int revision(void)
+* QTextFrame *rootFrame(void)
+* void setDefaultCursorMoveStyle(Qt::CursorMoveStyle style)
+* void setDefaultFont(QFont font)
+* void setDefaultStyleSheet(QString sheet)
+* void setDefaultTextOption(QTextOption option)
+* void setDocumentLayout(QAbstractTextDocumentLayout * layout)
+* void setDocumentMargin(double margin)
+* void setHtml(QString html)
+* void setIndentWidth(double width)
+* void setMaximumBlockCount(int maximum)
+* void setMetaInformation(QTextDocument::MetaInformation info, QString string)
+* void setPageSize(QSizeF size)
+* void setPlainText(QString text)
+* void setTextWidth(double width)
+* void setUndoRedoEnabled(bool enable)
+* void setUseDesignMetrics(bool b)
+* QSizeF size(void)
+* qreal textWidth(void)
+* QString toHtml(QByteArray encoding)
+* QString toPlainText(void)
+* void undo(QTextCursor *cursor)
+* bool useDesignMetrics(void)
+* void setModified(bool m)
+
+.. index::
+	pair: RingQt Classes Reference; QTextBlock Class
+
+QTextBlock Class
+===============
+
+
+Parameters : void
+
+* int blockFormatIndex(void)
+* int blockNumber(void)
+* QTextCharFormat charFormat(void)
+* int charFormatIndex(void)
+* void clearLayout(void)
+* bool contains(int position)
+* QTextDocument *document(void)
+* bool isValid(void)
+* bool isVisible(void)
+* QTextLayout * layout(void)
+* int length(void)
+* int lineCount(void)
+* QTextBlock next(void)
+* int position(void)
+* QTextBlock previous(void)
+* int revision(void)
+* void setLineCount(int count)
+* void setRevision(int rev)
+* void setUserData(QTextBlockUserData * data)
+* void setUserState(int state)
+* void setVisible(bool visible)
+* QString text(void)
+* int textDirection(void)
+* QTextList * textList(void)
+* QTextBlockUserData * userData(void)
+* int userState(void)
+
+.. index::
+	pair: RingQt Classes Reference; QTime Class
+
+QTime Class
+==========
+
+
+Parameters : void
+
+* QTime addMSecs(int ms)
+* QTime addSecs(int s)
+* int elapsed(void)
+* int hour(void)
+* bool isNull(void)
+* bool isValid(void)
+* int minute(void)
+* int msec(void)
+* int msecsSinceStartOfDay(void)
+* int msecsTo(QTime)
+* int restart(void)
+* int second(void)
+* int secsTo(QTime)
+* bool setHMS(int h, int m, int s, int ms)
+* void start(void)
+* QString toString(QString)
+* QTime currentTime(void)
+* QTime fromMSecsSinceStartOfDay(int msecs)
+* QTime fromString(QString,QString)
+
+.. index::
+	pair: RingQt Classes Reference; QListWidgetItem Class
+
+QListWidgetItem Class
+====================
+
+
+Parameters : void
+
+* QBrush background(void)
+* Qt::CheckState checkState(void)
+* Qt::ItemFlags flags(void)
+* QFont font(void)
+* QBrush foreground(void)
+* QIcon icon(void)
+* bool isHidden(void)
+* bool isSelected(void)
+* QListWidget *listWidget(void)
+* void setBackground(QBrush brush)
+* void setCheckState(Qt::CheckState state)
+* void setFlags(Qt::ItemFlags flags)
+* void setFont(QFont font)
+* void setForeground(QBrush brush)
+* void setHidden(bool hide)
+* void setIcon(QIcon icon)
+* void setSelected(bool select)
+* void setSizeHint(QSize size)
+* void setStatusTip(QString statusTip)
+* void setText(QString text)
+* void setTextAlignment(int alignment)
+* void setToolTip(QString toolTip)
+* void setWhatsThis(QString whatsThis)
+* QSize sizeHint(void)
+* QString statusTip(void)
+* QString text(void)
+* int textAlignment(void)
+* QString toolTip(void)
+* int type(void)
+* QString whatsThis(void)
+
+.. index::
+	pair: RingQt Classes Reference; QSystemTrayIcon Class
+
+QSystemTrayIcon Class
+====================
+
+
+Parameters : void
+
+* QMenu *contextMenu(void)
+* QRect geometry(void)
+* QIcon icon(void)
+* bool isVisible(void)
+* void setContextMenu(QMenu *menu)
+* void setIcon(QIcon)
+* void setToolTip(QString)
+* QString toolTip(void)
+* void hide(void)
+* void setVisible(bool visible)
+* void show(void)
+* void showMessage(QString, QString, QSystemTrayIcon::MessageIcon, int millisecondsTimeoutHint)
+* bool isSystemTrayAvailable(void)
+* bool supportsMessages(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDate Class
+
+QDate Class
+==========
+
+
+Parameters : void
+
+* QDate addDays(int ndays)
+* QDate addMonths(int nmonths)
+* QDate addYears(int nyears)
+* int day(void)
+* int dayOfWeek(void)
+* int dayOfYear(void)
+* int daysInMonth(void)
+* int daysInYear(void)
+* int daysTo(QDate)
+* void getDate(int * year, int * month, int * day)
+* bool isNull(void)
+* bool isValid(void)
+* int month(void)
+* bool setDate(int year, int month, int day)
+* int toJulianDay(void)
+* QString toString(QString)
+* int weekNumber(int * yearNumber)
+* int year(void)
+* QDate currentDate(void)
+* QDate fromJulianDay(int jd)
+* QDate fromString(QString, QString)
+* bool isLeapYear(int year)
+* QString longDayName(int weekday)
+* QString longMonthName(int month)
+* QString shortDayName(int weekday)
+* QString shortMonthName(int month)
+
+.. index::
+	pair: RingQt Classes Reference; QTextCodec Class
+
+QTextCodec Class
+===============
+
+* QTextCodec *codecForName(const char *name)
+* void setCodecForLocale(QTextCodec *c)
+
+.. index::
+	pair: RingQt Classes Reference; QSqlDatabase Class
+
+QSqlDatabase Class
+=================
+
+
+Parameters : void
+
+* void close(void)
+* bool commit(void)
+* QString connectOptions(void)
+* QString connectionName(void)
+* QString databaseName(void)
+* QSqlDriver *driver(void)
+* QString driverName(void)
+* QSqlQuery exec(QString)
+* QString hostName(void)
+* bool isOpen(void)
+* bool isOpenError(void)
+* bool isValid(void)
+* QSqlError lastError(void)
+* QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+* bool open(void)
+* QString password(void)
+* int port(void)
+* QSqlIndex primaryIndex(QString)
+* QSqlRecord record(QString)
+* bool rollback(void)
+* void setConnectOptions(QString)
+* void setDatabaseName(QString)
+* void setHostName(QString)
+* void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
+* void setPassword(QString)
+* void setPort(int port)
+* void setUserName(QString)
+* QStringList tables(QSql::TableType type)
+* bool transaction(void)
+* QString userName(void)
+* QSqlDatabase addDatabase(QString)
+* QSqlDatabase cloneDatabase(QSqlDatabase, QString)
+* QStringList connectionNames(void)
+* bool contains(QString)
+* QSqlDatabase database(QString , bool)
+* QStringList drivers(void)
+* bool isDriverAvailable(QString)
+* void registerSqlDriver(QString, QSqlDriverCreatorBase *)
+* void removeDatabase(QString)
+
+.. index::
+	pair: RingQt Classes Reference; QSqlDriver Class
+
+QSqlDriver Class
+===============
+
+
+Parameters : void
+
+* QSqlError lastError(void)
+* QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+* void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy)
+
+.. index::
+	pair: RingQt Classes Reference; QSqlQuery Class
+
+QSqlQuery Class
+==============
+
+
+Parameters : void
+
+* void addBindValue(QVariant, QSql::ParamType paramType)
+* int at(void)
+* void bindValue(QString, QVariant, QSql::ParamType paramType)
+* QVariant boundValue(QString)
+* void clear(void)
+* QSqlDriver * driver(void)
+* bool exec(QString)
+* bool execBatch(QSqlQuery::BatchExecutionMode mode)
+* QString executedQuery(void)
+* void finish(void)
+* bool first(void)
+* bool isActive(void)
+* bool isForwardOnly(void)
+* bool isNull(int field)
+* bool isSelect(void)
+* bool isValid(void)
+* bool last(void)
+* QSqlError lastError(void)
+* QVariant lastInsertId(void)
+* QString lastQuery(void)
+* bool next(void)
+* bool nextResult(void)
+* int numRowsAffected(void)
+* QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+* bool prepare(QString)
+* bool previous(void)
+* QSqlRecord record(void)
+* QSqlResult *result(void)
+* bool seek(int index, bool relative)
+* void setForwardOnly(bool forward)
+* void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy precisionPolicy)
+* int size(void)
+* QVariant value(int index)
+
+.. index::
+	pair: RingQt Classes Reference; QSqlError Class
+
+QSqlError Class
+==============
+
+
+Parameters : QString, QString, QSqlError::ErrorType
+
+* QString databaseText(void)
+* QString driverText(void)
+* bool isValid(void)
+* int number(void)
+* void setDatabaseText(QString)
+* void setDriverText(QString)
+* void setNumber(int number)
+* void setType(QSqlError::ErrorType type)
+* QString text(void)
+* QSqlError::ErrorType type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QSqlIndex Class
+
+QSqlIndex Class
+==============
+
+
+Parameters : QString, QString
+
+
+Parent Class : QSqlRecord
+
+* void append(QSqlField, bool)
+* QString cursorName(void)
+* bool isDescending(int i)
+* QString name(void)
+* void setCursorName(QString)
+* void setDescending(int i, bool desc)
+* void setName(QString)
+
+.. index::
+	pair: RingQt Classes Reference; QSqlRecord Class
+
+QSqlRecord Class
+===============
+
+
+Parameters : void
+
+* void append(QSqlField)
+* void clear(void)
+* void clearValues(void)
+* bool contains(QString)
+* int count(void)
+* QSqlField field(int index)
+* QString fieldName(int index)
+* int indexOf(QString)
+* void insert(int pos, QSqlField)
+* bool isEmpty(void)
+* bool isGenerated(QString)
+* bool isNull(QString)
+* void remove(int pos)
+* void replace(int pos, QSqlField)
+* void setGenerated(QString, bool generated)
+* void setNull(int index)
+* void setValue(int index, QVariant)
+* QVariant value(int index)
+
+.. index::
+	pair: RingQt Classes Reference; QSqlField Class
+
+QSqlField Class
+==============
+
+
+Parameters : QString,QVariant::Type
+
+* void clear(void)
+* QVariant defaultValue(void)
+* bool isAutoValue(void)
+* bool isGenerated(void)
+* bool isNull(void)
+* bool isReadOnly(void)
+* bool isValid(void)
+* int length(void)
+* QString name(void)
+* int precision(void)
+* RequiredStatus requiredStatus(void)
+* void setAutoValue(bool autoVal)
+* void setDefaultValue(QVariant)
+* void setGenerated(bool gen)
+* void setLength(int fieldLength)
+* void setName(QString)
+* void setPrecision(int precision)
+* void setReadOnly(bool readOnly)
+* void setRequired(bool required)
+* void setRequiredStatus(QSqlField::RequiredStatus required)
+* void setType(QVariant::Type type)
+* void setValue(QVariant)
+* QVariant::Type type(void)
+* QVariant value(void)
+
+.. index::
+	pair: RingQt Classes Reference; QSqlDriverCreatorBase Class
+
+QSqlDriverCreatorBase Class
+==========================
+
+
+Parameters : void
+
+
+.. index::
+	pair: RingQt Classes Reference; QVariant Class
+
+QVariant Class
+=============
+
+
+Parameters : void
+
+* bool canConvert(int targetTypeId)
+* void clear(void)
+* bool convert(int targetTypeId)
+* bool isNull(void)
+* bool isValid(void)
+* void swap(QVariant)
+* QBitArray toBitArray(void)
+* bool toBool(void)
+* QByteArray toByteArray(void)
+* QChar toChar(void)
+* QDate toDate(void)
+* QDateTime toDateTime(void)
+* double toDouble(bool *ok)
+* QEasingCurve toEasingCurve(void)
+* float toFloat(bool *ok)
+* int toInt(bool *ok)
+* QJsonArray toJsonArray(void)
+* QJsonDocument toJsonDocument(void)
+* QJsonObject toJsonObject(void)
+* QJsonValue toJsonValue(void)
+* QLine toLine(void)
+* QLineF toLineF(void)
+* QLocale toLocale(void)
+* qlonglong toLongLong(bool *ok)
+* QModelIndex toModelIndex(void)
+* QPointF toPointF(void)
+* qreal toReal(bool *ok)
+* QRect toRect(void)
+* QRectF toRectF(void)
+* QRegExp toRegExp(void)
+* QRegularExpression toRegularExpression(void)
+* QSize toSize(void)
+* QSizeF toSizeF(void)
+* QStringList toStringList(void)
+* QTime toTime(void)
+* uint toUInt(bool *ok)
+* qulonglong toULongLong(bool *ok)
+* QUrl toUrl(void)
+* QUuid toUuid(void)
+* QVariant::Type type(void)
+* const char *typeName(void)
+* int userType(void)
+* QString toString(void)
+
+.. index::
+	pair: RingQt Classes Reference; QNetworkRequest Class
+
+QNetworkRequest Class
+====================
+
+
+Parameters : QUrl
+
+* QVariant attribute(QNetworkRequest::Attribute, QVariant)
+* bool hasRawHeader(QByteArray)
+* QVariant header(QNetworkRequest::KnownHeaders)
+* QObject *originatingObject(void)
+* QNetworkRequest::Priority priority(void)
+* QByteArray rawHeader(QByteArray)
+* void setAttribute(QNetworkRequest::Attribute, QVariant)
+* void setHeader(QNetworkRequest::KnownHeaders, QVariant)
+* void setOriginatingObject(QObject *object)
+* void setPriority(QNetworkRequest::Priority priority)
+* void setRawHeader(QByteArray, QByteArray)
+* void swap(QNetworkRequest)
+* QUrl url(void)
+
+.. index::
+	pair: RingQt Classes Reference; QNetworkAccessManager Class
+
+QNetworkAccessManager Class
+==========================
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* void setfinishedEvent(const char *)
+* QNetworkConfiguration activeConfiguration(void)
+* QAbstractNetworkCache *cache(void)
+* void clearAccessCache(void)
+* QNetworkConfiguration configuration(void)
+* void connectToHost(QString, quint16)
+* QNetworkReply *deleteResource(QNetworkRequest)
+* QNetworkReply *get(QNetworkRequest)
+* QNetworkReply *head(QNetworkRequest)
+* QNetworkAccessManager::NetworkAccessibility networkAccessible(void)
+* QNetworkReply *post(QNetworkRequest, QByteArray)
+* QNetworkProxy proxy(void)
+* QNetworkProxyFactory *proxyFactory(void)
+* QNetworkReply *put(QNetworkRequest, QByteArray)
+* QNetworkReply *sendCustomRequest(QNetworkRequest, QByteArray, QIODevice *)
+* void setCache(QAbstractNetworkCache *cache)
+* void setConfiguration(QNetworkConfiguration)
+* void setCookieJar(QNetworkCookieJar *cookieJar)
+* void setNetworkAccessible(QNetworkAccessManager::NetworkAccessibility accessible)
+* void setProxy(QNetworkProxy)
+* void setProxyFactory(QNetworkProxyFactory *factory)
+* QStringList supportedSchemes(void)
+
+.. index::
+	pair: RingQt Classes Reference; QNetworkReply Class
+
+QNetworkReply Class
+==================
+
+
+Parameters : void
+
+
+Parent Class : QIODevice
+
+* QVariant attribute(QNetworkRequest::Attribute code)
+* QNetworkReply::NetworkError error(void)
+* bool hasRawHeader(QByteArray)
+* QVariant header(QNetworkRequest::KnownHeaders header)
+* bool isFinished(void)
+* bool isRunning(void)
+* QNetworkAccessManager *manager(void)
+* QNetworkAccessManager::Operation operation(void)
+* QByteArray rawHeader(QByteArray)
+* qint64 readBufferSize(void)
+* QNetworkRequest request(void)
+
+.. index::
+	pair: RingQt Classes Reference; QPainterPath Class
+
+QPainterPath Class
+=================
+
+
+Parameters : void
+
+* void addEllipse(qreal x, qreal y, qreal width, qreal height)
+* void addPath(QPainterPath)
+* void addPolygon(QPolygonF)
+* void addRect(qreal x, qreal y, qreal width, qreal height)
+* void addRegion(QRegion)
+* void addRoundedRect(qreal x, qreal y, qreal w, qreal h, qreal xRadius, qreal yRadius, Qt::SizeMode mode)
+* void addText(qreal x, qreal y, QFont, QString)
+* qreal angleAtPercent(qreal t)
+* void arcMoveTo(qreal x, qreal y, qreal width, qreal height, qreal angle)
+* void arcTo(qreal x, qreal y, qreal width, qreal height, qreal startAngle, qreal sweepLength)
+* QRectF boundingRect(void)
+* void closeSubpath(void)
+* void connectPath(QPainterPath)
+* bool contains(QPointF)
+* QRectF controlPointRect(void)
+* void cubicTo(qreal c1X, qreal c1Y, qreal c2X, qreal c2Y, qreal endPointX, qreal endPointY)
+* QPointF currentPosition(void)
+* QPainterPath::Element elementAt(int index)
+* int elementCount(void)
+* Qt::FillRule fillRule(void)
+* QPainterPath intersected(QPainterPath)
+* bool intersects(QRectF)
+* bool isEmpty(void)
+* qreal length(void)
+* void lineTo(qreal x, qreal y)
+* void moveTo(qreal x, qreal y)
+* qreal percentAtLength(qreal len)
+* QPointF pointAtPercent(qreal t)
+* void quadTo(qreal cx, qreal cy, qreal endPointX, qreal endPointY)
+* void setElementPositionAt(int index, qreal x, qreal y)
+* void setFillRule(Qt::FillRule fillRule)
+* QPainterPath simplified(void)
+* qreal slopeAtPercent(qreal t)
+* QPainterPath subtracted(QPainterPath)
+* void swap(QPainterPath)
+* QPolygonF toFillPolygon(QTransform)
+* QPainterPath toReversed(void)
+* void translate(qreal dx, qreal dy)
+* QPainterPath translated(qreal dx, qreal dy)
+* QPainterPath united(QPainterPath)
+
+.. index::
+	pair: RingQt Classes Reference; QImage Class
+
+QImage Class
+===========
+
+
+Parameters : void
+
+* bool allGray(void)
+* int bitPlaneCount(void)
+* uchar *bits(void)
+* int byteCount(void)
+* int bytesPerLine(void)
+* qint64 cacheKey(void)
+* QRgb color(int i)
+* int colorCount(void)
+* const uchar *constBits(void)
+* const uchar *constScanLine(int i)
+* QImage convertToFormat(QImage::Format format, Qt::ImageConversionFlags flags)
+* QImage copy(int x, int y, int width, int height)
+* QImage createAlphaMask(Qt::ImageConversionFlags flags)
+* QImage createHeuristicMask(bool clipTight)
+* QImage createMaskFromColor(QRgb color, Qt::MaskMode mode)
+* int depth(void)
+* int dotsPerMeterX(void)
+* int dotsPerMeterY(void)
+* void fill(QColor)
+* QImage::Format format(void)
+* bool hasAlphaChannel(void)
+* int height(void)
+* void invertPixels(QImage::InvertMode mode)
+* bool isGrayscale(void)
+* bool isNull(void)
+* bool load(QString, const char * format)
+* bool loadFromData(QByteArray, const char * format)
+* QImage mirrored(bool horizontal, bool vertical)
+* QPoint offset(void)
+* QRgb pixel(int x, int y)
+* int pixelIndex(int x, int y)
+* QRect rect(void)
+* QImage rgbSwapped(void)
+* bool save(QString, const char * format, int quality)
+* QImage scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode)
+* QImage scaledToHeight(int height, Qt::TransformationMode mode )
+* QImage scaledToWidth(int width, Qt::TransformationMode mode)
+* uchar *scanLine(int i)
+* void setColor(int index, QRgb colorValue)
+* void setColorCount(int colorCount)
+* void setDotsPerMeterX(int x)
+* void setDotsPerMeterY(int y)
+* void setOffset(QPoint)
+* void setPixel(int x, int y, uint index_or_rgb)
+* void setText(QString,QString)
+* QSize size(void)
+* void swap(QImage)
+* QString text(QString)
+* QStringList textKeys(void)
+* QImage transformed(QMatrix, Qt::TransformationMode mode)
+* bool valid(int x, int y)
+* int width(void)
+
+.. index::
+	pair: RingQt Classes Reference; RingCodeHighlighter Class
+
+RingCodeHighlighter Class
+========================
+
+
+Parameters : QTextDocument *parent
+
