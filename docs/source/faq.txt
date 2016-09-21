@@ -563,3 +563,45 @@ Also you can connect to a Visual FoxPro database (requires installing Visual Fox
 	odbc_disconnect(pODBC)
 	odbc_close(pODBC)
 
+.. index:: 
+	pair: Frequently Asked Questions; What about the Boolean values in Ring?
+
+What about the Boolean values in Ring?
+======================================
+
+
+You can use true for 1 and false for 0
+
+when you test the result of Boolean expressions in your code.
+
+Just when you print the value using the see command you will see 1 for (true) and 0 for (false)
+
+Why ?
+
+Because Ring contains only 4 types of variables
+
+(1) Number
+
+(2) String
+
+(3) List
+
+(4) Object
+
+The first type (Number) is used to represent int, double and Boolean values.
+
+The second type (String) is used to represent char, array of characters, date and time.
+
+The third type (List) is used to represent Arrays of one type, Arrays of more than one type, Hash (Dictionary), Tree, etc.
+
+The object can be an object created from a Ring class (Any Class) or just a C Pointer that we get from calling a C/C++ function/method.
+
+Why ?
+
+The Ring is designed to give the programmer/developer the most simple constructs that can be used to do everything.
+The programmer/developer can customize the language by creating new classes (and use operator overloading) to get more types that he care about according to the problem domain.
+
+Why ?
+
+Because simple is better, and easy to learn and remember!
+And this provide flexibility to convert between high level types that can be represented using the same basic type
