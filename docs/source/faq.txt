@@ -445,3 +445,26 @@ What are the advantages to using Ring over Python and Ruby?
 (6) Ring Implementation is Transparent, Visual and comes with Rich Features.
 
 
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Tcl and Lua?
+
+What are the advantages to using Ring over Lua?
+=======================================================
+
+(1) Clean Code (More Natural)
+
+(2) More Features (A lot of useful programming paradigms)
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over C# or Java?
+
+What are the advantages to using Ring over C# or Java
+=====================================================
+
+(1) Compact Code (Clear and Natural)
+
+(2) More Productivity and Flexibility because Ring is a Dynamic Language
+
+(3) Better support for Declarative Programming and Natural Programming
+
