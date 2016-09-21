@@ -1433,3 +1433,42 @@ The next code will avoid the problem
 		}
 		exec()
 	}
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Why we don’t use () after the qApp class name?
+
+Why we don’t use () after the qApp class name?
+==============================================
+
+When we use RingQt to create GUI application, we uses () after the 
+class name when we create new objects for example.
+
+.. code-block:: ring
+
+	new qWidget() { setWindowTitle("Hello World") resize(400,400) show() }
+
+but before doing that we create an object from the qApp class and we don’t use () after that
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	app = new qApp
+	{
+	    win=new qWidget()
+	    {
+        	setwindowtitle(:test)
+         	show()
+	    }
+	    exec()
+	}
+ 
+Using () after the class name means calling the init() method in the class and passing parameters to this method.
+
+If we used () while no init() method in the class we get the expected error message.
+
+The class qApp don’t have this method while the other classes have it because they need it to 
+create an object using a function that return a pointer to that object and this pointer will
+be stored in an attribute called pObject, for more information see ring_qt.ring file
+which contains the classes.
+
