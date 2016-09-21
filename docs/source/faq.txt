@@ -903,3 +903,50 @@ Output
 	Riyadh
 	Cairo
 
+.. index:: 
+	pair: Frequently Asked Questions; Why i get a strange result when printing nl with lists?
+
+Why i get a strange result when printing nl with lists?
+=======================================================
+
+In the next code
+
+.. code-block:: ring
+
+	list = 1:5        # list = [1,2,3,4,5]
+	see list + nl
+
+New Line will be added to the list then the list will be printed, the default print of the lists 
+will print a newline at the end, You added new newline and You have now 2 newlines to be printed.
+
+.. code-block:: ring	
+
+	See <Expr>
+
+The see command just print the final result of the expression, the expression will be evaluated as it
+
+.. code-block:: ring
+
+	nl = char(13) + char(10) # just a variable that you can change to anything !
+
+The + is an operator
+
+.. code-block:: none
+
+	string + string ---> new string
+	string + number ---> new string
+	number + number ---> new number
+	number + string ---> new number
+
+list + item ---> nothing new will be created but the item will be added to the same list
+
+Exception
+
+number + nl —> New String
+
+This exception is added to easily print numbers then new line.
+
+No need for this with printing lists because after printing the last item we already get a new line.
+
+
+
