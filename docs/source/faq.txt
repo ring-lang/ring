@@ -1377,3 +1377,19 @@ Check the next example:
 
 		button[1] { settext ("Button3") }
 		button[2] { settext ("Button4") }
+
+.. index:: 
+	pair: Frequently Asked Questions; How to insert an item to the first position in the list?
+
+How to insert an item to the first position in the list?
+========================================================
+
+To insert an item we can use the insert(aList,nIndex,Value) function.
+
+.. code-block:: ring
+
+	aList = 1:5
+	insert(aList,0,0)
+	See aList # print numbers from 0 to 5
+
+
