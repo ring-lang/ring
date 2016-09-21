@@ -812,3 +812,27 @@ Another solution (Read the file)
 
 	see len(read(“filename”))
 
+
+.. index:: 
+	pair: Frequently Asked Questions; How to get the current source file path?
+
+How to get the current source file path?
+========================================
+
+We can use the next function to get the current source file path
+then we can add the path variable to the file name
+
+.. code-block:: ring
+
+	cPath = CurrentPath()
+	func currentpath
+		cFileName = filename()
+		for x = len(cFileName) to 1 step -1
+			if cFileName[x] = “/”
+				return left(cFileName,x-1)
+			ok
+		next
+		return cFileName
+
+
+
