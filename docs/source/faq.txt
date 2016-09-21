@@ -1392,4 +1392,44 @@ To insert an item we can use the insert(aList,nIndex,Value) function.
 	insert(aList,0,0)
 	See aList # print numbers from 0 to 5
 
+.. index:: 
+	pair: Frequently Asked Questions; Why the window title bar is going outside the screen?
 
+Why the window title bar is going outside the screen?
+=====================================================
+
+When we write the next code
+
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	app = new qApp
+	{
+		win=new qWidget()
+		{
+		      setwindowtitle(:test)
+		      setGeometry(0,0,200,200)
+		      show()
+		}
+		exec()
+	}
+ 
+I would expect that the window will run at the point (0,0) with (200,200) size but the actual 
+result is that the window title bar is going outside the screen.
+
+This is related to the behavior of Qt framework.
+
+The next code will avoid the problem
+
+.. code-block:: ring
+
+	load "guilib.ring"
+	new qApp {
+		new qWidget() {
+			move(0,0)
+			resize(200,200)
+			show()
+		}
+		exec()
+	}
