@@ -948,5 +948,42 @@ This exception is added to easily print numbers then new line.
 
 No need for this with printing lists because after printing the last item we already get a new line.
 
+.. index:: 
+	pair: Frequently Asked Questions; Could you explain the output of the StrCmp() function?
+
+Could you explain the output of the StrCmp() function?
+======================================================
+
+At first remember that you can check strings using '=' operator directly.
+
+.. code-block:: ring
+
+	see strcmp(“hello”,”hello”) + nl +
+	strcmp(“abc”,”bcd”) + nl +
+	strcmp(“bcd”,”abc”) + nl
+
+if the two strings are the same then it returns 0
+
+abc and bcd aren’t the same. in the second line it returns -1 and in the third line it returns 1
+
+In the second line we compare between “abc” and “bcd”
+
+Not equal because the first letter in “abc” = “a” 
+and the first letter in “bcd” = “b”
+
+So we have “a” != “b” and “a” < “b”
+
+So we get output = -1
+
+In the third line we have “bcd” and “abc”
+
+the first letter in “bcd” is “b” and the first letter in “abc” is “a”
+
+So we have “b” != “a” and “b” > “a”
+
+So we get output = 1
+
+.. note:: ASCII(“a”) = 97 and ASCII(“b”) = 98 So “a” < “b” because 97 < 98
+
 
 
