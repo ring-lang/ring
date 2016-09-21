@@ -6,6 +6,126 @@ Frequently Asked Questions (FAQ)
 ================================
 
 .. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over native C or C++?
+
+
+What are the advantages to using Ring over native C or C++?
+===========================================================
+
+Ring provides a better way to mix between different programming paradigms in solving problems.
+
+The different programming paradigms play well together in the same language. 
+
+(1) It's easy to switch from one programming paradigm to another one because the language constructs use similar syntax for similar concepts.
+
+(2) The paradigms are provided to interact and used together in different layers in the software. 
+
+for example you can create a game engine using object-oriented programming but write the game code using declarative programming or natural programming and behind the scene your declarative or natural code will use the object-oriented classes.
+
+(3) Ring is very productive and natural programming language than C/C++ languages.
+
+(4) Ring is a dynamic language. We can generate and execute code during the runtime. We have dynamic typing and weakly typed language for flexibility.
+
+(5) The Garbage collector is generational (escape analysis) and also use reference counting. it's very fast and still provide control to the programmer who can delete memory at any time.
+
+(6) Ring Compiler and Virtual Machine is just 15,000 lines of ANSI C code that can be compiled and used in any platform.
+
+(7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions or C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What is the difference between Ring and Python? And is Ring Open Source?
+
+What is the difference between Ring and Python? And is Ring Open Source?
+========================================================================
+
+Yes the language is Free Open Source (MIT license)
+
+In general I like Python and Ruby but i was looking for a language more suitable for creating the next version of
+the Programming Without Coding Technology (PWCT) software so i started the Ring design.
+
+Some simple changes that matters for my goal are 
+
+(1) Not case sensitive
+
+(2) The list index start from 1
+
+(3) You can call functions before definition
+
+(4) Don't use Python syntax like (indentation, using self, :, pass & _) 
+
+(5) Weakly typed (convert automatically between types based on context)
+
+(6) The programs follow simple and constant structure (Statements then functions then packages and classes)
+
+(7) Using the '=' operator for assignment and for testing values
+
+Critical changes are
+
+(1) Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 85K lines are related to libraries and are optional when we go for using the language in C/C++ programs.
+
+(2) The Garbage collector : Uses Escape Analysis/Reference counting and give the programmer the ability to determine when to delete memory using the assignment operator
+
+(3) Compact Syntax : Ring is not line sensitive, you don't need to write ; or press ENTER to separate between statements
+
+(4) Using { } to access the object then using the object attributes and methods directly
+
+(5) Natural Programming : It's very easy to create natural interfaces using Ring based on OOP
+
+(6) Declarative Programming using Nested Structure
+
+The Ring programming language is designed based on my experience from using many other
+languages like C, C++, C#, Lua, PHP, Python, Ruby, Harbour, Basic and Supernova
+And the language comes with innovative features added to achieve the language goal
+
+* Applications programming language.
+* Productivity and developing high quality solutions that can scale.
+* Small and fast language that can be embedded in C/C++ projects.
+* Simple language that can be used in education and introducing Compiler/VM concepts.
+* General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
+* Practical language designed for creating the next version of the Programming Without Coding Technology software.
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Python and Ruby?
+
+What are the advantages to using Ring over Perl, PHP, Python or Ruby?
+=====================================================================
+
+(1) Ring is New and Innovative. The language will let you think different about programming.
+
+(2) Ring is Smaller. (Lessons learned from the Lua language)
+
+(3) Ring is Simple. (Lessons learned from the BASIC and Clipper/Harbour languages)
+
+(4) Ring is more Natural. (Lessons learned from the Supernova language)
+
+(5) Ring is more Declarative. (Lessons learned from REBOL and QML languages)
+
+(6) Ring Implementation is Transparent, Visual and comes with Rich Features.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Tcl and Lua?
+
+What are the advantages to using Ring over Tcl or Lua?
+======================================================
+
+(1) Clean Code (More Natural)
+
+(2) More Features (A lot of useful programming paradigms)
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over C# or Java?
+
+What are the advantages to using Ring over C# or Java?
+======================================================
+
+(1) Compact Code (Clean and Natural), More Productivity and Flexibility.
+
+(2) Better support for Declarative Programming and Natural Programming
+
+
+.. index:: 
 	pair: Frequently Asked Questions; Why Ring uses 'See', 'Give', 'But' and 'Ok' Keywords?
 
 Why Ring uses 'See', 'Give', 'But' and 'Ok' Keywords?
@@ -472,125 +592,6 @@ Common Example:
 
 It's flexibility but remember that power comes with great responsibility.
 
-.. index:: 
-	pair: Frequently Asked Questions; What are the advantages to using Ring over native C or C++?
-
-
-What are the advantages to using Ring over native C or C++?
-===========================================================
-
-Ring provides a better way to mix between different programming paradigms in solving problems.
-
-The different programming paradigms play well together in the same language. 
-
-(1) It's easy to switch from one programming paradigm to another one because the language constructs use similar syntax for similar concepts.
-
-(2) The paradigms are provided to interact and used together in different layers in the software. 
-
-for example you can create a game engine using object-oriented programming but write the game code using declarative programming or natural programming and behind the scene your declarative or natural code will use the object-oriented classes.
-
-(3) Ring is very productive and natural programming language than C/C++ languages.
-
-(4) Ring is a dynamic language. We can generate and execute code during the runtime. We have dynamic typing and weakly typed language for flexibility.
-
-(5) The Garbage collector is generational (escape analysis) and also use reference counting. it's very fast and still provide control to the programmer who can delete memory at any time.
-
-(6) Ring Compiler and Virtual Machine is just 15,000 lines of ANSI C code that can be compiled and used in any platform.
-
-(7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions or C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
-
-
-.. index:: 
-	pair: Frequently Asked Questions; What is the difference between Ring and Python? And is Ring Open Source?
-
-What is the difference between Ring and Python? And is Ring Open Source?
-========================================================================
-
-Yes the language is Free Open Source (MIT license)
-
-In general I like Python and Ruby but i was looking for a language more suitable for creating the next version of
-the Programming Without Coding Technology (PWCT) software so i started the Ring design.
-
-Some simple changes that matters for my goal are 
-
-(1) Not case sensitive
-
-(2) The list index start from 1
-
-(3) You can call functions before definition
-
-(4) Don't use Python syntax like (indentation, using self, :, pass & _) 
-
-(5) Weakly typed (convert automatically between types based on context)
-
-(6) The programs follow simple and constant structure (Statements then functions then packages and classes)
-
-(7) Using the '=' operator for assignment and for testing values 
-
-Critical changes are
-
-(1) Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 85K lines are related to libraries and are optional when we go for embedded the language in C/C++ programs.
-
-(2) The Garbage collector : Uses Escape Analysis/Reference counting and give the programmer the ability to determine when to delete memory using the assignment operator
-
-(3) Compact Syntax : Ring is not line sensitive, you don't need to write ; or press ENTER to separate between statements
-
-(4) Using { } to access the object then use the object attributes and methods directly
-
-(5) Natural Programming : It's very easy to create natural interfaces using Ring based on OOP
-
-(6) Declarative Programming using Nested Structure
-
-The Ring programming language is designed based on my experience from using many other
-languages like C, C++, C#, Lua, PHP, Python, Ruby, Harbour, Basic and Supernova
-And the language comes with innovative features added to achieve the language goal
-
-* Applications programming language.
-* Productivity and developing high quality solutions that can scale.
-* Small and fast language that can be embedded in C/C++ projects.
-* Simple language that can be used in education and introducing Compiler/VM concepts.
-* General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
-* Practical language designed for creating the next version of the Programming Without Coding Technology software.
-
-.. index:: 
-	pair: Frequently Asked Questions; What are the advantages to using Ring over Python and Ruby?
-
-What are the advantages to using Ring over Perl, PHP, Python or Ruby?
-=====================================================================
-
-(1) Ring is New and Innovative. The language will let you think different about programming.
-
-(2) Ring is Smaller. (Lessons learned from the Lua language)
-
-(3) Ring is Simple. (Lessons learned from the BASIC and Clipper/Harbour languages)
-
-(4) Ring is more Natural. (Lessons learned from the Supernova language)
-
-(5) Ring is more Declarative. (Lessons learned from REBOL and QML languages)
-
-(6) Ring Implementation is Transparent, Visual and comes with Rich Features.
-
-
-.. index:: 
-	pair: Frequently Asked Questions; What are the advantages to using Ring over Tcl and Lua?
-
-What are the advantages to using Ring over Tcl or Lua?
-======================================================
-
-(1) Clean Code (More Natural)
-
-(2) More Features (A lot of useful programming paradigms)
-
-.. index:: 
-	pair: Frequently Asked Questions; What are the advantages to using Ring over C# or Java?
-
-What are the advantages to using Ring over C# or Java?
-======================================================
-
-(1) Compact Code (Clean and Natural), More Productivity and Flexibility.
-
-(2) Better support for Declarative Programming and Natural Programming
-
 
 .. index:: 
 	pair: Frequently Asked Questions; How to use SQLite using ODBC?
@@ -727,18 +728,14 @@ Also you can connect to a Visual FoxPro database (requires installing Visual Fox
 Where can i write a program and execute it?
 ===========================================
 
-Run the file start.bat
-
-This will run the Ring Notepad where you can write/execute programs.
+Run the Ring Notepad where you can write/execute programs.
 
 If you want to run programs using the command line
 
-Open the bin folder
-
-Then run ring.exe
+Add Ring/bin folder to the path then
 
 .. code-block:: none
-	ring <filename.ring>
+	ring <filename.ring>|<filename.ringo>
 
 .. index:: 
 	pair: Frequently Asked Questions; How can I disable maximize button and resize window?
@@ -781,4 +778,37 @@ Use the method setWindowFlags()
 					show()
 			}
 
+
+.. index:: 
+	pair: Frequently Asked Questions; How to get the file size using ftell() and fseek() functions?
+
+How to get the file size using ftell() and fseek() functions?
+=============================================================
+
+
+The next function can be used to get the file size without reading the file!
+
+.. code-block:: ring
+
+	func getFileSize fp
+	       C_FILESTART = 0
+	       C_FILEEND = 2
+	       fseek(fp,0,C_FILEEND)
+	       nFileSize = ftell(fp)
+	       fseek(fp,0,C_FILESTART)
+	       return nFileSize
+
+.. note:: The previous function take the fp (file pointer) as parameter, We can get the fp from opening the file using fopen() function.
+
+.. code-block:: ring
+
+	fp = fopen(“filename”,”r”)
+
+	see  “File Size : ” + getFileSize(fp) + nl
+
+Another solution (Read the file)
+
+.. code-block:: ring
+
+	see len(read(“filename”))
 
