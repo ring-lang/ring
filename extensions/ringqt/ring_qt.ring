@@ -10845,6 +10845,181 @@ Class QImage
 	Func width 
 		return QImage_width(pObject)
 
+Class QXmlStreamReader from QIODevice
+
+	pObject
+
+	Func init 
+		pObject = QXmlStreamReader_new()
+		return self
+
+	Func delete
+		pObject = QXmlStreamReader_delete(pObject)
+
+	Func addData P1
+		return QXmlStreamReader_addData(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addData_2 P1
+		return QXmlStreamReader_addData_2(pObject,P1)
+
+	Func addData_3 P1
+		return QXmlStreamReader_addData_3(pObject,P1)
+
+	Func addExtraNamespaceDeclaration P1
+		return QXmlStreamReader_addExtraNamespaceDeclaration(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addExtraNamespaceDeclarations P1
+		return QXmlStreamReader_addExtraNamespaceDeclarations(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func atEnd 
+		return QXmlStreamReader_atEnd(pObject)
+
+	Func attributes 
+		return QXmlStreamReader_attributes(pObject)
+
+	Func characterOffset 
+		return QXmlStreamReader_characterOffset(pObject)
+
+	Func clear 
+		return QXmlStreamReader_clear(pObject)
+
+	Func columnNumber 
+		return QXmlStreamReader_columnNumber(pObject)
+
+	Func device 
+		pTempObj = new QIODevice
+		pTempObj.pObject = QXmlStreamReader_device(pObject)
+		return pTempObj
+
+	Func documentEncoding 
+		return QXmlStreamReader_documentEncoding(pObject)
+
+	Func documentVersion 
+		return QXmlStreamReader_documentVersion(pObject)
+
+	Func dtdName 
+		return QXmlStreamReader_dtdName(pObject)
+
+	Func dtdPublicId 
+		return QXmlStreamReader_dtdPublicId(pObject)
+
+	Func dtdSystemId 
+		return QXmlStreamReader_dtdSystemId(pObject)
+
+	Func entityDeclarations 
+		return QXmlStreamReader_entityDeclarations(pObject)
+
+	Func entityResolver 
+		return QXmlStreamReader_entityResolver(pObject)
+
+	Func error 
+		return QXmlStreamReader_error(pObject)
+
+	Func errorString 
+		return QXmlStreamReader_errorString(pObject)
+
+	Func hasError 
+		return QXmlStreamReader_hasError(pObject)
+
+	Func isCDATA 
+		return QXmlStreamReader_isCDATA(pObject)
+
+	Func isCharacters 
+		return QXmlStreamReader_isCharacters(pObject)
+
+	Func isComment 
+		return QXmlStreamReader_isComment(pObject)
+
+	Func isDTD 
+		return QXmlStreamReader_isDTD(pObject)
+
+	Func isEndDocument 
+		return QXmlStreamReader_isEndDocument(pObject)
+
+	Func isEndElement 
+		return QXmlStreamReader_isEndElement(pObject)
+
+	Func isEntityReference 
+		return QXmlStreamReader_isEntityReference(pObject)
+
+	Func isProcessingInstruction 
+		return QXmlStreamReader_isProcessingInstruction(pObject)
+
+	Func isStandaloneDocument 
+		return QXmlStreamReader_isStandaloneDocument(pObject)
+
+	Func isStartDocument 
+		return QXmlStreamReader_isStartDocument(pObject)
+
+	Func isStartElement 
+		return QXmlStreamReader_isStartElement(pObject)
+
+	Func isWhitespace 
+		return QXmlStreamReader_isWhitespace(pObject)
+
+	Func lineNumber 
+		return QXmlStreamReader_lineNumber(pObject)
+
+	Func name 
+		return QXmlStreamReader_name(pObject)
+
+	Func namespaceDeclarations 
+		return QXmlStreamReader_namespaceDeclarations(pObject)
+
+	Func namespaceProcessing 
+		return QXmlStreamReader_namespaceProcessing(pObject)
+
+	Func namespaceUri 
+		return QXmlStreamReader_namespaceUri(pObject)
+
+	Func notationDeclarations 
+		return QXmlStreamReader_notationDeclarations(pObject)
+
+	Func prefix 
+		return QXmlStreamReader_prefix(pObject)
+
+	Func processingInstructionData 
+		return QXmlStreamReader_processingInstructionData(pObject)
+
+	Func processingInstructionTarget 
+		return QXmlStreamReader_processingInstructionTarget(pObject)
+
+	Func qualifiedName 
+		return QXmlStreamReader_qualifiedName(pObject)
+
+	Func raiseError P1
+		return QXmlStreamReader_raiseError(pObject,P1)
+
+	Func readElementText P1
+		return QXmlStreamReader_readElementText(pObject,P1)
+
+	Func readNext 
+		return QXmlStreamReader_readNext(pObject)
+
+	Func readNextStartElement 
+		return QXmlStreamReader_readNextStartElement(pObject)
+
+	Func setDevice P1
+		return QXmlStreamReader_setDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setEntityResolver P1
+		return QXmlStreamReader_setEntityResolver(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setNamespaceProcessing P1
+		return QXmlStreamReader_setNamespaceProcessing(pObject,P1)
+
+	Func skipCurrentElement 
+		return QXmlStreamReader_skipCurrentElement(pObject)
+
+	Func text 
+		return QXmlStreamReader_text(pObject)
+
+	Func tokenString 
+		return QXmlStreamReader_tokenString(pObject)
+
+	Func tokenType 
+		return QXmlStreamReader_tokenType(pObject)
+
 Class QIcon
 
 	pObject
