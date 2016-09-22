@@ -4533,7 +4533,6 @@ codename: Highlighter
 <class>
 name: QXmlStreamReader
 para: void
-parent: QIODevice
 </class>
 
 void addData(QByteArray)

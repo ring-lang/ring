@@ -10845,7 +10845,7 @@ Class QImage
 	Func width 
 		return QImage_width(pObject)
 
-Class QXmlStreamReader from QIODevice
+Class QXmlStreamReader
 
 	pObject
 

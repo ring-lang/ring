@@ -4153,9 +4153,6 @@ QXmlStreamReader Class
 
 Parameters : void
 
-
-Parent Class : QIODevice
-
 * void addData(QByteArray)
 * void addData_2(QString)
 * void addData_3(const char * data)
