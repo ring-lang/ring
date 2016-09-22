@@ -685,9 +685,23 @@ aclasses = [
 
 Func Main
 
+	# DocFuncs() bye
 	for aClass in aClasses
 		GenHeader(aClass)	GenSource(aClass)
 	next
+
+Func DocFuncs
+	for aClass in aClasses
+		see copy("=",50)  + nl
+		see aClass[:realname] + " Class " + nl +copy("=",50) +nl
+		aEvents  = aClass[:events]
+		for aEvent in aEvents
+			cEvent = aEvent[:event]
+			see "Set" + upper(left(cEvent,1))+substr(cEvent,2)+"Event()" + nl
+		next		
+		see copy("=",50)  + nl	
+	next
+	
 
 Func GenHeader aClass
 

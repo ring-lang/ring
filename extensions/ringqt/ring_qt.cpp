@@ -148,11 +148,11 @@ extern "C" {
 
 extern "C" {
 
-	#ifdef _WIN32
+	
 		#define RING_DLL __declspec(dllexport)
-	#else
+	
 		#define RING_DLL extern
-	#endif
+	
 
 	RING_DLL void ring_qt_start(RingState *pRingState);
 
