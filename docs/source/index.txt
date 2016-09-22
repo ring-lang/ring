@@ -51,7 +51,9 @@ Contents:
    Natural language programming	<natural>
    Web Development (CGI Library) <web>
    Graphics and 2D Games programming using RingAllegro <allegro>	
+   RingAllegro Functions <ringallegrofuncsdoc>
    Using RingLibSDL <libsdl>
+   RingLibSDL Functions <ringlibsdlfuncsdoc>
    Demo Project - Game Engine for 2D Games <gameengine>	
    Desktop and Mobile development using RingQt <qt>
    RingQt Classes and Methods <qtclassesdoc>
