@@ -3,9 +3,9 @@
 # Date : 2016.09.22
 
 #==========   Expect the next input
-# C_OUTPUTFILE = "qtclassesdoc.txt"
-# C_CHAPTERNAME = "RingQt Classes Reference"
-# cFile = read("qt.cf")
+# C_OUTPUTFILE = "qtclassesdoc.txt"		# Output File Name
+# C_CHAPTERNAME = "RingQt Classes Reference"	# Chapter Name
+# cFile = read("qt.cf")				# Input File
 # lStart = False		# False = Classes Doc.   True = Functions Doc.
 #===============================================
 
@@ -14,9 +14,9 @@ aList = str2list(cFile)
 
 cOutput = ".. index:: " + windowsnl() 
 cOutput += "     single: "+C_CHAPTERNAME+"; Introduction" + windowsnl() + windowsnl()
-cOutput += "========================" + windowsnl()
+cOutput += copy("=",len(C_CHAPTERNAME)) + windowsnl()
 cOutput += C_CHAPTERNAME + windowsnl()
-cOutput += "========================" + windowsnl() + windowsnl()
+cOutput += copy("=",len(C_CHAPTERNAME)) + windowsnl() + windowsnl()
 
 
 for x = 1 to len(aList) 
@@ -57,6 +57,11 @@ for x = 1 to len(aList)
 		loop
 	ok
 	avoidblock("code")
+	avoidblock("funcstart")
+	avoidblock("runcode")
+	avoidblock("struct")
+	avoidblock("constant")
+
 	avoidline("register")
 	avoidline("filter")
 
