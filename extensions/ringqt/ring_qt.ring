@@ -11443,10 +11443,14 @@ Class QRegularExpression
 		return QRegularExpression_isValid(pObject)
 
 	Func match P1,P2,P3,P4
-		return QRegularExpression_match(pObject,P1,P2,P3,P4)
+		pTempObj = new QRegularExpressionMatch
+		pTempObj.pObject = QRegularExpression_match(pObject,P1,P2,P3,P4)
+		return pTempObj
 
 	Func match_2 P1,P2,P3,P4
-		return QRegularExpression_match_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+		pTempObj = new QRegularExpressionMatch
+		pTempObj.pObject = QRegularExpression_match_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+		return pTempObj
 
 	Func namedCaptureGroups 
 		pTempObj = new QStringList
@@ -11473,6 +11477,78 @@ Class QRegularExpression
 
 	Func swap P1
 		return QRegularExpression_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QRegularExpressionMatch
+
+	pObject
+
+	Func init 
+		pObject = QRegularExpressionMatch_new()
+		return self
+
+	Func delete
+		pObject = QRegularExpressionMatch_delete(pObject)
+
+	Func captured P1
+		return QRegularExpressionMatch_captured(pObject,P1)
+
+	Func captured_2 P1
+		return QRegularExpressionMatch_captured_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func capturedEnd P1
+		return QRegularExpressionMatch_capturedEnd(pObject,P1)
+
+	Func capturedEnd_2 P1
+		return QRegularExpressionMatch_capturedEnd_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func capturedLength P1
+		return QRegularExpressionMatch_capturedLength(pObject,P1)
+
+	Func capturedLength_2 P1
+		return QRegularExpressionMatch_capturedLength_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func capturedRef P1
+		return QRegularExpressionMatch_capturedRef(pObject,P1)
+
+	Func capturedRef_2 P1
+		return QRegularExpressionMatch_capturedRef_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func capturedStart P1
+		return QRegularExpressionMatch_capturedStart(pObject,P1)
+
+	Func capturedStart_2 P1
+		return QRegularExpressionMatch_capturedStart_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func capturedTexts 
+		pTempObj = new QStringList
+		pTempObj.pObject = QRegularExpressionMatch_capturedTexts(pObject)
+		return pTempObj
+
+	Func hasMatch 
+		return QRegularExpressionMatch_hasMatch(pObject)
+
+	Func hasPartialMatch 
+		return QRegularExpressionMatch_hasPartialMatch(pObject)
+
+	Func isValid 
+		return QRegularExpressionMatch_isValid(pObject)
+
+	Func lastCapturedIndex 
+		return QRegularExpressionMatch_lastCapturedIndex(pObject)
+
+	Func matchOptions 
+		return QRegularExpressionMatch_matchOptions(pObject)
+
+	Func matchType 
+		return QRegularExpressionMatch_matchType(pObject)
+
+	Func regularExpression 
+		pTempObj = new QRegularExpression
+		pTempObj.pObject = QRegularExpressionMatch_regularExpression(pObject)
+		return pTempObj
+
+	Func swap P1
+		return QRegularExpressionMatch_swap(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QIcon
 
