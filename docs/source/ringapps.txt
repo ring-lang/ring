@@ -5,9 +5,9 @@
 Applications developed in little hours
 =================================================
 
-Ring is a new programming language that focus on natural language programming and declarative programming paradigms 
-and will let you think different about programming and how to solve your problems in a better way. It's just released in 2016.01.25! and 
-in little days we got thousands of downloads and many developers started learning and 
+Ring is a new programming language that focuses on natural language programming and declarative programming paradigms 
+and will let you think different about programming and how to solve your problems in a better way. It's just released in 2016.01.25!  
+In little days we got thousands of downloads and many developers started learning and 
 using the language. Their feedback are the secret behind the language progress and success. 
 They said that Ring is powerful, beautiful and easy to learn, Some of them provided good examples about what can be done using Ring in little hours. 
 They are very happy with the language productivity.
