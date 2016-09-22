@@ -11434,10 +11434,14 @@ Class QRegularExpression
 		return QRegularExpression_errorString(pObject)
 
 	Func globalMatch P1,P2,P3,P4
-		return QRegularExpression_globalMatch(pObject,P1,P2,P3,P4)
+		pTempObj = new QRegularExpressionMatchIterator
+		pTempObj.pObject = QRegularExpression_globalMatch(pObject,P1,P2,P3,P4)
+		return pTempObj
 
 	Func globalMatch_2 P1,P2,P3,P4
-		return QRegularExpression_globalMatch_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+		pTempObj = new QRegularExpressionMatchIterator
+		pTempObj.pObject = QRegularExpression_globalMatch_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+		return pTempObj
 
 	Func isValid 
 		return QRegularExpression_isValid(pObject)
@@ -11549,6 +11553,47 @@ Class QRegularExpressionMatch
 
 	Func swap P1
 		return QRegularExpressionMatch_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QRegularExpressionMatchIterator
+
+	pObject
+
+	Func init 
+		pObject = QRegularExpressionMatchIterator_new()
+		return self
+
+	Func delete
+		pObject = QRegularExpressionMatchIterator_delete(pObject)
+
+	Func hasNext 
+		return QRegularExpressionMatchIterator_hasNext(pObject)
+
+	Func isValid 
+		return QRegularExpressionMatchIterator_isValid(pObject)
+
+	Func matchOptions 
+		return QRegularExpressionMatchIterator_matchOptions(pObject)
+
+	Func matchType 
+		return QRegularExpressionMatchIterator_matchType(pObject)
+
+	Func next 
+		pTempObj = new QRegularExpressionMatch
+		pTempObj.pObject = QRegularExpressionMatchIterator_next(pObject)
+		return pTempObj
+
+	Func peekNext 
+		pTempObj = new QRegularExpressionMatch
+		pTempObj.pObject = QRegularExpressionMatchIterator_peekNext(pObject)
+		return pTempObj
+
+	Func regularExpression 
+		pTempObj = new QRegularExpression
+		pTempObj.pObject = QRegularExpressionMatchIterator_regularExpression(pObject)
+		return pTempObj
+
+	Func swap P1
+		return QRegularExpressionMatchIterator_swap(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QIcon
 

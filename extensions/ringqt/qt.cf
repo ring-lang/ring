@@ -170,6 +170,7 @@ extern "C" {
 #include <QThreadPool>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QRegularExpressionMatchIterator>
 
 #include "highlighter.h"
 
@@ -4812,3 +4813,18 @@ QRegularExpression::MatchOptions matchOptions(void)
 QRegularExpression::MatchType matchType(void)
 QRegularExpression regularExpression(void)
 void swap(QRegularExpressionMatch  other)
+
+<class>
+name: QRegularExpressionMatchIterator
+para: void
+</class>
+
+bool hasNext(void)
+bool isValid(void)
+QRegularExpression::MatchOptions matchOptions(void)
+QRegularExpression::MatchType matchType(void)
+QRegularExpressionMatch next(void)
+QRegularExpressionMatch peekNext(void)
+QRegularExpression regularExpression(void)
+void swap(QRegularExpressionMatchIterator other)
+
