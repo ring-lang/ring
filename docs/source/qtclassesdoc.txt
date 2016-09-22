@@ -10,7 +10,7 @@ RingQt Classes Reference
 	pair: RingQt Classes Reference; QApp Class
 
 QApp Class
-=========
+==========
 
 * void exec(void)
 * void quit(void)
@@ -20,7 +20,7 @@ QApp Class
 	pair: RingQt Classes Reference; QTest Class
 
 QTest Class
-==========
+===========
 
 * void qsleep(int)
 
@@ -28,7 +28,7 @@ QTest Class
 	pair: RingQt Classes Reference; QObject Class
 
 QObject Class
-============
+=============
 
 
 Parameters : void
@@ -58,7 +58,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QWidget Class
 
 QWidget Class
-============
+=============
 
 
 Parameters : void
@@ -268,7 +268,7 @@ Parent Class : QObject
 	pair: RingQt Classes Reference; QLabel Class
 
 QLabel Class
-===========
+============
 
 
 Parameters : QWidget *
@@ -312,7 +312,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QPushButton Class
 
 QPushButton Class
-================
+=================
 
 
 Parameters : QWidget *
@@ -328,7 +328,7 @@ Parent Class : QAbstractButton
 	pair: RingQt Classes Reference; QBitmap Class
 
 QBitmap Class
-============
+=============
 
 
 Parameters : void
@@ -346,7 +346,7 @@ Parent Class : QPixmap
 	pair: RingQt Classes Reference; QPixmap Class
 
 QPixmap Class
-============
+=============
 
 
 Parameters : const char *
@@ -364,7 +364,7 @@ Parameters : const char *
 	pair: RingQt Classes Reference; QIcon Class
 
 QIcon Class
-==========
+===========
 
 
 Parameters : QPixmap
@@ -374,7 +374,7 @@ Parameters : QPixmap
 	pair: RingQt Classes Reference; QSize Class
 
 QSize Class
-==========
+===========
 
 
 Parameters : int width, int height
@@ -384,7 +384,7 @@ Parameters : int width, int height
 	pair: RingQt Classes Reference; QLineEdit Class
 
 QLineEdit Class
-==============
+===============
 
 
 Parameters : QWidget *
@@ -461,7 +461,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QVBoxLayout Class
 
 QVBoxLayout Class
-================
+=================
 
 
 Parameters : void
@@ -472,7 +472,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QHBoxLayout Class
 
 QHBoxLayout Class
-================
+=================
 
 
 Parameters : void
@@ -483,7 +483,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QTextEdit Class
 
 QTextEdit Class
-==============
+===============
 
 
 Parameters : QWidget *
@@ -578,7 +578,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QListWidget Class
 
 QListWidget Class
-================
+=================
 
 
 Parameters : QWidget *
@@ -617,7 +617,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QTreeView Class
 
 QTreeView Class
-==============
+===============
 
 
 Parameters : QWidget *
@@ -695,7 +695,7 @@ Parent Class : QAbstractItemView
 	pair: RingQt Classes Reference; QDir Class
 
 QDir Class
-=========
+==========
 
 
 Parameters : void
@@ -706,7 +706,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QFileSystemModel Class
 
 QFileSystemModel Class
-=====================
+======================
 
 
 Parameters : void
@@ -760,7 +760,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QTreeWidget Class
 
 QTreeWidget Class
-================
+=================
 
 
 Parameters : QWidget *
@@ -825,7 +825,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QTreeWidgetItem Class
 
 QTreeWidgetItem Class
-====================
+=====================
 
 
 Parameters : void
@@ -888,7 +888,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QComboBox Class
 
 QComboBox Class
-==============
+===============
 
 
 Parameters : QWidget *
@@ -948,7 +948,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QMenuBar Class
 
 QMenuBar Class
-=============
+==============
 
 
 Parameters : QWidget *
@@ -974,7 +974,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QMenu Class
 
 QMenu Class
-==========
+===========
 
 
 Parameters : QWidget *
@@ -1013,7 +1013,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QToolBar Class
 
 QToolBar Class
-=============
+==============
 
 
 Parameters : QWidget *
@@ -1049,7 +1049,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QMainWindow Class
 
 QMainWindow Class
-================
+=================
 
 
 Parameters : void
@@ -1106,7 +1106,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QStatusBar Class
 
 QStatusBar Class
-===============
+================
 
 
 Parameters : QWidget *
@@ -1129,7 +1129,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QDockWidget Class
 
 QDockWidget Class
-================
+=================
 
 
 Parameters : QWidget *parent,Qt::WindowType flag
@@ -1159,7 +1159,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QTabWidget Class
 
 QTabWidget Class
-===============
+================
 
 
 Parameters : QWidget *parent
@@ -1212,7 +1212,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QTableWidgetItem Class
 
 QTableWidgetItem Class
-=====================
+======================
 
 
 Parameters : QString
@@ -1257,7 +1257,7 @@ Parameters : QString
 	pair: RingQt Classes Reference; QFrame Class
 
 QFrame Class
-===========
+============
 
 
 Parameters : QWidget *parent, Qt::WindowType flag
@@ -1283,7 +1283,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QAbstractScrollArea Class
 
 QAbstractScrollArea Class
-========================
+=========================
 
 
 Parameters : QWidget *parent
@@ -1310,7 +1310,7 @@ Parent Class : QFrame
 	pair: RingQt Classes Reference; QAbstractItemView Class
 
 QAbstractItemView Class
-======================
+=======================
 
 
 Parameters : QWidget *parent
@@ -1384,7 +1384,7 @@ Parent Class : QAbstractScrollArea
 	pair: RingQt Classes Reference; QTableView Class
 
 QTableView Class
-===============
+================
 
 
 Parameters : QWidget *parent
@@ -1438,7 +1438,7 @@ Parent Class : QAbstractItemView
 	pair: RingQt Classes Reference; QTableWidget Class
 
 QTableWidget Class
-=================
+==================
 
 
 Parameters : QWidget *parent
@@ -1507,7 +1507,7 @@ Parent Class : QTableView
 	pair: RingQt Classes Reference; QProgressBar Class
 
 QProgressBar Class
-=================
+==================
 
 
 Parameters : QWidget *parent
@@ -1543,7 +1543,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QSpinBox Class
 
 QSpinBox Class
-=============
+==============
 
 
 Parameters : QWidget *parent
@@ -1573,7 +1573,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QAbstractSlider Class
 
 QAbstractSlider Class
-====================
+=====================
 
 
 Parameters : QWidget *parent
@@ -1609,7 +1609,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QSlider Class
 
 QSlider Class
-============
+=============
 
 
 Parameters : QWidget *parent
@@ -1634,7 +1634,7 @@ Parent Class : QAbstractSlider
 	pair: RingQt Classes Reference; QDateEdit Class
 
 QDateEdit Class
-==============
+===============
 
 
 Parameters : QWidget *parent
@@ -1647,7 +1647,7 @@ Parent Class : QDateTimeEdit
 	pair: RingQt Classes Reference; QDateTimeEdit Class
 
 QDateTimeEdit Class
-==================
+===================
 
 
 Parameters : QWidget *parent
@@ -1704,7 +1704,7 @@ Parent Class : QAbstractSpinBox
 	pair: RingQt Classes Reference; QAbstractSpinBox Class
 
 QAbstractSpinBox Class
-=====================
+======================
 
 
 Parameters : QWidget *parent
@@ -1741,7 +1741,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QDial Class
 
 QDial Class
-==========
+===========
 
 
 Parameters : QWidget *parent
@@ -1769,7 +1769,7 @@ Parent Class : QAbstractSlider
 	pair: RingQt Classes Reference; QWebView Class
 
 QWebView Class
-=============
+==============
 
 
 Parameters : QWidget *parent
@@ -1799,7 +1799,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QUrl Class
 
 QUrl Class
-=========
+==========
 
 
 Parameters : QString
@@ -1842,7 +1842,7 @@ Parameters : QString
 	pair: RingQt Classes Reference; QCheckBox Class
 
 QCheckBox Class
-==============
+===============
 
 
 Parameters : QWidget *parent
@@ -1866,7 +1866,7 @@ Parent Class : QAbstractButton
 	pair: RingQt Classes Reference; QAbstractButton Class
 
 QAbstractButton Class
-====================
+=====================
 
 
 Parameters : QWidget *parent
@@ -1905,7 +1905,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QRadioButton Class
 
 QRadioButton Class
-=================
+==================
 
 
 Parameters : QWidget *parent
@@ -1924,7 +1924,7 @@ Parent Class : QAbstractButton
 	pair: RingQt Classes Reference; QButtonGroup Class
 
 QButtonGroup Class
-=================
+==================
 
 
 Parameters : QObject *parent
@@ -1946,7 +1946,7 @@ Parameters : QObject *parent
 	pair: RingQt Classes Reference; QMediaPlayer Class
 
 QMediaPlayer Class
-=================
+==================
 
 
 Parameters : void
@@ -1981,7 +1981,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QMediaPlaylist Class
 
 QMediaPlaylist Class
-===================
+====================
 
 
 Parameters : void
@@ -2007,7 +2007,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QVideoWidget Class
 
 QVideoWidget Class
-=================
+==================
 
 
 Parameters : QWidget *parent
@@ -2037,7 +2037,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QAction Class
 
 QAction Class
-============
+=============
 
 
 Parameters : QWidget *parent
@@ -2098,7 +2098,7 @@ Parameters : QWidget *parent
 	pair: RingQt Classes Reference; QEvent Class
 
 QEvent Class
-===========
+============
 
 
 Parameters : QEvent::Type Type
@@ -2114,7 +2114,7 @@ Parameters : QEvent::Type Type
 	pair: RingQt Classes Reference; QMessageBox Class
 
 QMessageBox Class
-================
+=================
 
 
 Parameters : QWidget *parent
@@ -2159,7 +2159,7 @@ Parent Class : QDialog
 	pair: RingQt Classes Reference; QTimer Class
 
 QTimer Class
-===========
+============
 
 
 Parameters : QObject *parent
@@ -2178,7 +2178,7 @@ Parameters : QObject *parent
 	pair: RingQt Classes Reference; QFileDialog Class
 
 QFileDialog Class
-================
+=================
 
 
 Parameters : QWidget *parent
@@ -2234,7 +2234,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QPainter Class
 
 QPainter Class
-=============
+==============
 
 
 Parameters : void
@@ -2330,7 +2330,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QPicture Class
 
 QPicture Class
-=============
+==============
 
 
 Parameters : void
@@ -2349,7 +2349,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QPen Class
 
 QPen Class
-=========
+==========
 
 
 Parameters : void
@@ -2381,7 +2381,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QColor Class
 
 QColor Class
-===========
+============
 
 
 Parameters : void
@@ -2472,7 +2472,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QPrinter Class
 
 QPrinter Class
-=============
+==============
 
 
 Parameters : QPrinter::PrinterMode
@@ -2526,7 +2526,7 @@ Parameters : QPrinter::PrinterMode
 	pair: RingQt Classes Reference; QFont Class
 
 QFont Class
-==========
+===========
 
 
 Parameters : QString, int, int, bool
@@ -2597,14 +2597,14 @@ Parameters : QString, int, int, bool
 	pair: RingQt Classes Reference; QWebSettings Class
 
 QWebSettings Class
-=================
+==================
 
 
 .. index::
 	pair: RingQt Classes Reference; QBrush Class
 
 QBrush Class
-===========
+============
 
 
 Parameters : void
@@ -2629,7 +2629,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QByteArray Class
 
 QByteArray Class
-===============
+================
 
 
 Parameters : void
@@ -2698,7 +2698,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QIODevice Class
 
 QIODevice Class
-==============
+===============
 
 
 Parameters : void
@@ -2724,7 +2724,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QAbstractSocket Class
 
 QAbstractSocket Class
-====================
+=====================
 
 
 Parameters : void
@@ -2778,7 +2778,7 @@ Parent Class : QIODevice
 	pair: RingQt Classes Reference; QNetworkProxy Class
 
 QNetworkProxy Class
-==================
+===================
 
 
 Parameters : void
@@ -2810,7 +2810,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QTcpSocket Class
 
 QTcpSocket Class
-===============
+================
 
 
 Parameters : QObject *
@@ -2833,7 +2833,7 @@ Parent Class : QAbstractSocket
 	pair: RingQt Classes Reference; QTcpServer Class
 
 QTcpServer Class
-===============
+================
 
 
 Parameters : QWidget *
@@ -2863,7 +2863,7 @@ Parameters : QWidget *
 	pair: RingQt Classes Reference; QHostAddress Class
 
 QHostAddress Class
-=================
+==================
 
 
 Parameters : void
@@ -2882,7 +2882,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QHostInfo Class
 
 QHostInfo Class
-==============
+===============
 
 
 Parameters : void
@@ -2905,7 +2905,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QFileInfo Class
 
 QFileInfo Class
-==============
+===============
 
 
 Parameters : void
@@ -2959,7 +2959,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QDirModel Class
 
 QDirModel Class
-==============
+===============
 
 
 Parameters : void
@@ -2993,7 +2993,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QFontDialog Class
 
 QFontDialog Class
-================
+=================
 
 
 Parameters : void
@@ -3015,7 +3015,7 @@ Parent Class : QDialog
 	pair: RingQt Classes Reference; QDialog Class
 
 QDialog Class
-============
+=============
 
 
 Parameters : QWidget *parent
@@ -3038,7 +3038,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QTextCursor Class
 
 QTextCursor Class
-================
+=================
 
 
 Parameters : void
@@ -3105,7 +3105,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QColorDialog Class
 
 QColorDialog Class
-=================
+==================
 
 
 Parameters : void
@@ -3131,7 +3131,7 @@ Parent Class : QDialog
 	pair: RingQt Classes Reference; QHeaderView Class
 
 QHeaderView Class
-================
+=================
 
 
 Parameters : Qt::Orientation, QWidget *
@@ -3144,7 +3144,7 @@ Parent Class : QAbstractItemView
 	pair: RingQt Classes Reference; QStringList Class
 
 QStringList Class
-================
+=================
 
 
 Parameters : void
@@ -3195,7 +3195,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QKeySequence Class
 
 QKeySequence Class
-=================
+==================
 
 
 Parameters : QString
@@ -3205,7 +3205,7 @@ Parameters : QString
 	pair: RingQt Classes Reference; QLCDNumber Class
 
 QLCDNumber Class
-===============
+================
 
 
 Parameters : QWidget *
@@ -3234,7 +3234,7 @@ Parent Class : QFrame
 	pair: RingQt Classes Reference; QInputDialog Class
 
 QInputDialog Class
-=================
+==================
 
 
 Parameters : QWidget *
@@ -3288,7 +3288,7 @@ Parent Class : QDialog
 	pair: RingQt Classes Reference; QAllEvents Class
 
 QAllEvents Class
-===============
+================
 
 
 Parameters : QWidget *
@@ -3337,7 +3337,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QDesktopWidget Class
 
 QDesktopWidget Class
-===================
+====================
 
 
 Parameters : void
@@ -3357,7 +3357,7 @@ Parent Class : QWidget
 	pair: RingQt Classes Reference; QRect Class
 
 QRect Class
-==========
+===========
 
 
 Parameters : void
@@ -3420,7 +3420,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QTextDocument Class
 
 QTextDocument Class
-==================
+===================
 
 
 Parameters : void
@@ -3500,7 +3500,7 @@ Parent Class : QObject
 	pair: RingQt Classes Reference; QTextBlock Class
 
 QTextBlock Class
-===============
+================
 
 
 Parameters : void
@@ -3536,7 +3536,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QTime Class
 
 QTime Class
-==========
+===========
 
 
 Parameters : void
@@ -3565,7 +3565,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QListWidgetItem Class
 
 QListWidgetItem Class
-====================
+=====================
 
 
 Parameters : void
@@ -3605,7 +3605,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QSystemTrayIcon Class
 
 QSystemTrayIcon Class
-====================
+=====================
 
 
 Parameters : void
@@ -3629,7 +3629,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QDate Class
 
 QDate Class
-==========
+===========
 
 
 Parameters : void
@@ -3665,7 +3665,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QTextCodec Class
 
 QTextCodec Class
-===============
+================
 
 * QTextCodec *codecForName(const char *name)
 * void setCodecForLocale(QTextCodec *c)
@@ -3674,7 +3674,7 @@ QTextCodec Class
 	pair: RingQt Classes Reference; QSqlDatabase Class
 
 QSqlDatabase Class
-=================
+==================
 
 
 Parameters : void
@@ -3723,7 +3723,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QSqlDriver Class
 
 QSqlDriver Class
-===============
+================
 
 
 Parameters : void
@@ -3736,7 +3736,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QSqlQuery Class
 
 QSqlQuery Class
-==============
+===============
 
 
 Parameters : void
@@ -3779,7 +3779,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QSqlError Class
 
 QSqlError Class
-==============
+===============
 
 
 Parameters : QString, QString, QSqlError::ErrorType
@@ -3799,7 +3799,7 @@ Parameters : QString, QString, QSqlError::ErrorType
 	pair: RingQt Classes Reference; QSqlIndex Class
 
 QSqlIndex Class
-==============
+===============
 
 
 Parameters : QString, QString
@@ -3819,7 +3819,7 @@ Parent Class : QSqlRecord
 	pair: RingQt Classes Reference; QSqlRecord Class
 
 QSqlRecord Class
-===============
+================
 
 
 Parameters : void
@@ -3847,7 +3847,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QSqlField Class
 
 QSqlField Class
-==============
+===============
 
 
 Parameters : QString,QVariant::Type
@@ -3881,7 +3881,7 @@ Parameters : QString,QVariant::Type
 	pair: RingQt Classes Reference; QSqlDriverCreatorBase Class
 
 QSqlDriverCreatorBase Class
-==========================
+===========================
 
 
 Parameters : void
@@ -3891,7 +3891,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QVariant Class
 
 QVariant Class
-=============
+==============
 
 
 Parameters : void
@@ -3944,7 +3944,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QNetworkRequest Class
 
 QNetworkRequest Class
-====================
+=====================
 
 
 Parameters : QUrl
@@ -3967,7 +3967,7 @@ Parameters : QUrl
 	pair: RingQt Classes Reference; QNetworkAccessManager Class
 
 QNetworkAccessManager Class
-==========================
+===========================
 
 
 Parameters : QObject *
@@ -4002,7 +4002,7 @@ Parent Class : QObject
 	pair: RingQt Classes Reference; QNetworkReply Class
 
 QNetworkReply Class
-==================
+===================
 
 
 Parameters : void
@@ -4026,7 +4026,7 @@ Parent Class : QIODevice
 	pair: RingQt Classes Reference; QPainterPath Class
 
 QPainterPath Class
-=================
+==================
 
 
 Parameters : void
@@ -4076,7 +4076,7 @@ Parameters : void
 	pair: RingQt Classes Reference; QImage Class
 
 QImage Class
-===========
+============
 
 
 Parameters : void
@@ -4138,7 +4138,7 @@ Parameters : void
 	pair: RingQt Classes Reference; RingCodeHighlighter Class
 
 RingCodeHighlighter Class
-========================
+=========================
 
 
 Parameters : QTextDocument *parent
@@ -4148,7 +4148,7 @@ Parameters : QTextDocument *parent
 	pair: RingQt Classes Reference; QXmlStreamReader Class
 
 QXmlStreamReader Class
-=====================
+======================
 
 
 Parameters : void
@@ -4207,3 +4207,269 @@ Parameters : void
 * QStringRef text(void)
 * QString tokenString(void)
 * TokenType tokenType(void)
+
+.. index::
+	pair: RingQt Classes Reference; QXmlStreamWriter Class
+
+QXmlStreamWriter Class
+======================
+
+
+Parameters : void
+
+* bool autoFormatting(void)
+* int autoFormattingIndent(void)
+* QTextCodec *codec(void)
+* QIODevice *device(void)
+* bool hasError(void)
+* void setAutoFormatting(bool enable)
+* void setAutoFormattingIndent(int spacesOrTabs)
+* void setCodec(QTextCodec *codec)
+* void setCodec_2(const char *codecName)
+* void setDevice(QIODevice *device)
+* void writeAttribute(QString, QString,QString)
+* void writeAttribute_2(QString, QString)
+* void writeAttribute_3(QXmlStreamAttribute)
+* void writeAttributes(QXmlStreamAttributes)
+* void writeCDATA(QString text)
+* void writeCharacters(QString text)
+* void writeComment(QString text)
+* void writeCurrentToken(QXmlStreamReader reader)
+* void writeDTD(QString dtd)
+* void writeDefaultNamespace(QString namespaceUri)
+* void writeEmptyElement(QString namespaceUri, QString name)
+* void writeEmptyElement_2(QString qualifiedName)
+* void writeEndDocument(void)
+* void writeEndElement(void)
+* void writeEntityReference(QString name)
+* void writeNamespace(QString namespaceUri, QString prefix)
+* void writeProcessingInstruction(QString target, QString data)
+* void writeStartDocument(QString version)
+* void writeStartDocument_2(QString version, bool standalone)
+* void writeStartDocument_3(void)
+* void writeStartElement(QString namespaceUri, QString name)
+* void writeStartElement_2(QString qualifiedName)
+* void writeTextElement(QString namespaceUri, QString name, QString text)
+* void writeTextElement_2(QString qualifiedName, QString text)
+
+.. index::
+	pair: RingQt Classes Reference; QXmlStreamNotationDeclaration Class
+
+QXmlStreamNotationDeclaration Class
+===================================
+
+
+Parameters : void
+
+* QStringRef name(void)
+* QStringRef publicId(void)
+* QStringRef systemId(void)
+
+.. index::
+	pair: RingQt Classes Reference; QXmlStreamNamespaceDeclaration Class
+
+QXmlStreamNamespaceDeclaration Class
+====================================
+
+
+Parameters : void
+
+* QStringRef namespaceUri(void)
+* QStringRef prefix(void)
+
+.. index::
+	pair: RingQt Classes Reference; QXmlStreamEntityResolver Class
+
+QXmlStreamEntityResolver Class
+==============================
+
+
+Parameters : void
+
+
+.. index::
+	pair: RingQt Classes Reference; QXmlStreamEntityDeclaration Class
+
+QXmlStreamEntityDeclaration Class
+=================================
+
+
+Parameters : void
+
+* QStringRef name(void)
+* QStringRef notationName(void)
+* QStringRef publicId(void)
+* QStringRef systemId(void)
+* QStringRef value(void)
+
+.. index::
+	pair: RingQt Classes Reference; QXmlStreamAttributes Class
+
+QXmlStreamAttributes Class
+==========================
+
+
+Parameters : void
+
+* void append(QString  namespaceUri, QString  name, QString  value)
+* void append_2(QString  qualifiedName, QString  value)
+* bool hasAttribute(QString  qualifiedName)
+* bool hasAttribute_2(QLatin1String qualifiedName)
+* bool hasAttribute_3(QString  namespaceUri, QString  name)
+* QStringRef value(QString  namespaceUri, QString  name)
+* QStringRef value_2(QString  namespaceUri, QLatin1String name)
+* QStringRef value_3(QLatin1String namespaceUri, QLatin1String name)
+* QStringRef value_4(QString  qualifiedName)
+* QStringRef value_5(QLatin1String qualifiedName)
+
+.. index::
+	pair: RingQt Classes Reference; QXmlStreamAttribute Class
+
+QXmlStreamAttribute Class
+=========================
+
+
+Parameters : void
+
+* bool isDefault(void)
+* QStringRef name(void)
+* QStringRef namespaceUri(void)
+* QStringRef prefix(void)
+* QStringRef qualifiedName(void)
+* QStringRef value(void)
+
+.. index::
+	pair: RingQt Classes Reference; QThread Class
+
+QThread Class
+=============
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QAbstractEventDispatcher *eventDispatcher(void)
+* void exit(int returnCode)
+* bool isFinished(void)
+* bool isInterruptionRequested(void)
+* bool isRunning(void)
+* int loopLevel(void)
+* QThread::Priority priority(void)
+* void requestInterruption(void)
+* void setEventDispatcher(QAbstractEventDispatcher *eventDispatcher)
+* void setPriority(QThread::Priority priority)
+* void setStackSize(uint stackSize)
+* uint stackSize(void)
+* bool wait(unsigned long time)
+* void quit(void)
+* void start(QThread::Priority priority)
+* void terminate(void)
+* QThread *currentThread(void)
+* Qt::HANDLE currentThreadId(void)
+* int idealThreadCount(void)
+* void msleep(unsigned long msecs)
+* void sleep(unsigned long secs)
+* void usleep(unsigned long usecs)
+* void yieldCurrentThread(void)
+* void setStartedEvent(const char *)
+* void setFinishedEvent(const char *)
+
+.. index::
+	pair: RingQt Classes Reference; QThreadPool Class
+
+QThreadPool Class
+=================
+
+
+Parameters : void
+
+
+Parent Class : QObject
+
+* int activeThreadCount(void)
+* void cancel(QRunnable * runnable)
+* void clear(void)
+* int expiryTimeout(void)
+* int maxThreadCount(void)
+* void releaseThread(void)
+* void reserveThread(void)
+* void setExpiryTimeout(int expiryTimeout)
+* void setMaxThreadCount(int maxThreadCount)
+* void start(QRunnable * runnable, int priority)
+* bool tryStart(QRunnable * runnable)
+* bool waitForDone(int msecs)
+* QThreadPool *globalInstance(void)
+
+.. index::
+	pair: RingQt Classes Reference; QRegularExpression Class
+
+QRegularExpression Class
+========================
+
+
+Parameters : void
+
+* int captureCount(void)
+* QString errorString(void)
+* QRegularExpressionMatchIterator globalMatch(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+* QRegularExpressionMatchIterator globalMatch_2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+* bool isValid(void)
+* QRegularExpressionMatch match(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+* QRegularExpressionMatch match_2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+* QStringList namedCaptureGroups(void)
+* void optimize(void)
+* QString pattern(void)
+* int patternErrorOffset(void)
+* QRegularExpression::PatternOptions patternOptions(void)
+* void setPattern(QString  pattern)
+* void setPatternOptions(QRegularExpression::PatternOptions options)
+* void swap(QRegularExpression  other)
+
+.. index::
+	pair: RingQt Classes Reference; QRegularExpressionMatch Class
+
+QRegularExpressionMatch Class
+=============================
+
+
+Parameters : void
+
+* QString captured(int nth)
+* QString captured_2(const QString  name)
+* int capturedEnd(int nth)
+* int capturedEnd_2(const QString  name)
+* int capturedLength(int nth)
+* int capturedLength_2(const QString  name)
+* QStringRef capturedRef(int nth)
+* QStringRef capturedRef_2(const QString  name)
+* int capturedStart(int nth)
+* int capturedStart_2(const QString  name)
+* QStringList capturedTexts(void)
+* bool hasMatch(void)
+* bool hasPartialMatch(void)
+* bool isValid(void)
+* int lastCapturedIndex(void)
+* QRegularExpression::MatchOptions matchOptions(void)
+* QRegularExpression::MatchType matchType(void)
+* QRegularExpression regularExpression(void)
+* void swap(QRegularExpressionMatch  other)
+
+.. index::
+	pair: RingQt Classes Reference; QRegularExpressionMatchIterator Class
+
+QRegularExpressionMatchIterator Class
+=====================================
+
+
+Parameters : void
+
+* bool hasNext(void)
+* bool isValid(void)
+* QRegularExpression::MatchOptions matchOptions(void)
+* QRegularExpression::MatchType matchType(void)
+* QRegularExpressionMatch next(void)
+* QRegularExpressionMatch peekNext(void)
+* QRegularExpression regularExpression(void)
+* void swap(QRegularExpressionMatchIterator other)

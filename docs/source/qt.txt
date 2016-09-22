@@ -3969,6 +3969,8 @@ QTcpSocket 			SetConnectedEvent()
 QColorDialog 			SetColorSelectedEvent()
 ..				SetCurrentColorChangedEvent()
 QNetworkAccessManager 		SetFinishedEvent()
+QThread				SetStartedEvent()
+..				SetFinishedEvent()
 ==============================	===========================================================
 
 .. index:: 
