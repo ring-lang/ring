@@ -10245,7 +10245,9 @@ Class QVariant
 		return QVariant_toRegExp(pObject)
 
 	Func toRegularExpression 
-		return QVariant_toRegularExpression(pObject)
+		pTempObj = new QRegularExpression
+		pTempObj.pObject = QVariant_toRegularExpression(pObject)
+		return pTempObj
 
 	Func toSize 
 		pTempObj = new QSize
@@ -11413,6 +11415,64 @@ Class QThreadPool from QObject
 		pTempObj = new QThreadPool
 		pTempObj.pObject = QThreadPool_globalInstance(pObject)
 		return pTempObj
+
+Class QRegularExpression
+
+	pObject
+
+	Func init 
+		pObject = QRegularExpression_new()
+		return self
+
+	Func delete
+		pObject = QRegularExpression_delete(pObject)
+
+	Func captureCount 
+		return QRegularExpression_captureCount(pObject)
+
+	Func errorString 
+		return QRegularExpression_errorString(pObject)
+
+	Func globalMatch P1,P2,P3,P4
+		return QRegularExpression_globalMatch(pObject,P1,P2,P3,P4)
+
+	Func globalMatch_2 P1,P2,P3,P4
+		return QRegularExpression_globalMatch_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+
+	Func isValid 
+		return QRegularExpression_isValid(pObject)
+
+	Func match P1,P2,P3,P4
+		return QRegularExpression_match(pObject,P1,P2,P3,P4)
+
+	Func match_2 P1,P2,P3,P4
+		return QRegularExpression_match_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+
+	Func namedCaptureGroups 
+		pTempObj = new QStringList
+		pTempObj.pObject = QRegularExpression_namedCaptureGroups(pObject)
+		return pTempObj
+
+	Func optimize 
+		return QRegularExpression_optimize(pObject)
+
+	Func pattern 
+		return QRegularExpression_pattern(pObject)
+
+	Func patternErrorOffset 
+		return QRegularExpression_patternErrorOffset(pObject)
+
+	Func patternOptions 
+		return QRegularExpression_patternOptions(pObject)
+
+	Func setPattern P1
+		return QRegularExpression_setPattern(pObject,P1)
+
+	Func setPatternOptions P1
+		return QRegularExpression_setPatternOptions(pObject,P1)
+
+	Func swap P1
+		return QRegularExpression_swap(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QIcon
 
