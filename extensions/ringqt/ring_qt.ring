@@ -11020,6 +11020,121 @@ Class QXmlStreamReader
 	Func tokenType 
 		return QXmlStreamReader_tokenType(pObject)
 
+Class QXmlStreamWriter
+
+	pObject
+
+	Func init 
+		pObject = QXmlStreamWriter_new()
+		return self
+
+	Func delete
+		pObject = QXmlStreamWriter_delete(pObject)
+
+	Func autoFormatting 
+		return QXmlStreamWriter_autoFormatting(pObject)
+
+	Func autoFormattingIndent 
+		return QXmlStreamWriter_autoFormattingIndent(pObject)
+
+	Func codec 
+		return QXmlStreamWriter_codec(pObject)
+
+	Func device 
+		pTempObj = new QIODevice
+		pTempObj.pObject = QXmlStreamWriter_device(pObject)
+		return pTempObj
+
+	Func hasError 
+		return QXmlStreamWriter_hasError(pObject)
+
+	Func setAutoFormatting P1
+		return QXmlStreamWriter_setAutoFormatting(pObject,P1)
+
+	Func setAutoFormattingIndent P1
+		return QXmlStreamWriter_setAutoFormattingIndent(pObject,P1)
+
+	Func setCodec P1
+		return QXmlStreamWriter_setCodec(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCodec_2 P1
+		return QXmlStreamWriter_setCodec_2(pObject,P1)
+
+	Func setDevice P1
+		return QXmlStreamWriter_setDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func writeAttribute P1,P2,P3
+		return QXmlStreamWriter_writeAttribute(pObject,P1,P2,P3)
+
+	Func writeAttribute_2 P1,P2
+		return QXmlStreamWriter_writeAttribute_2(pObject,P1,P2)
+
+	Func writeAttribute_3 P1
+		return QXmlStreamWriter_writeAttribute_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func writeAttributes P1
+		return QXmlStreamWriter_writeAttributes(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func writeCDATA P1
+		return QXmlStreamWriter_writeCDATA(pObject,P1)
+
+	Func writeCharacters P1
+		return QXmlStreamWriter_writeCharacters(pObject,P1)
+
+	Func writeComment P1
+		return QXmlStreamWriter_writeComment(pObject,P1)
+
+	Func writeCurrentToken P1
+		return QXmlStreamWriter_writeCurrentToken(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func writeDTD P1
+		return QXmlStreamWriter_writeDTD(pObject,P1)
+
+	Func writeDefaultNamespace P1
+		return QXmlStreamWriter_writeDefaultNamespace(pObject,P1)
+
+	Func writeEmptyElement P1,P2
+		return QXmlStreamWriter_writeEmptyElement(pObject,P1,P2)
+
+	Func writeEmptyElement_2 P1
+		return QXmlStreamWriter_writeEmptyElement_2(pObject,P1)
+
+	Func writeEndDocument 
+		return QXmlStreamWriter_writeEndDocument(pObject)
+
+	Func writeEndElement 
+		return QXmlStreamWriter_writeEndElement(pObject)
+
+	Func writeEntityReference P1
+		return QXmlStreamWriter_writeEntityReference(pObject,P1)
+
+	Func writeNamespace P1,P2
+		return QXmlStreamWriter_writeNamespace(pObject,P1,P2)
+
+	Func writeProcessingInstruction P1,P2
+		return QXmlStreamWriter_writeProcessingInstruction(pObject,P1,P2)
+
+	Func writeStartDocument P1
+		return QXmlStreamWriter_writeStartDocument(pObject,P1)
+
+	Func writeStartDocument_2 P1,P2
+		return QXmlStreamWriter_writeStartDocument_2(pObject,P1,P2)
+
+	Func writeStartDocument_3 
+		return QXmlStreamWriter_writeStartDocument_3(pObject)
+
+	Func writeStartElement P1,P2
+		return QXmlStreamWriter_writeStartElement(pObject,P1,P2)
+
+	Func writeStartElement_2 P1
+		return QXmlStreamWriter_writeStartElement_2(pObject,P1)
+
+	Func writeTextElement P1,P2,P3
+		return QXmlStreamWriter_writeTextElement(pObject,P1,P2,P3)
+
+	Func writeTextElement_2 P1,P2
+		return QXmlStreamWriter_writeTextElement_2(pObject,P1,P2)
+
 Class QIcon
 
 	pObject

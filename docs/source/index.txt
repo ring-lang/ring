@@ -63,9 +63,9 @@ Contents:
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
-   Frequently Asked Questions (FAQ) <faq>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
+   Frequently Asked Questions (FAQ) <faq>
    Language Reference <reference>
    Resources <resources>

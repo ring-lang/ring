@@ -108,9 +108,6 @@ Func Main
 	ok
 	cFile = sysargv[3]
 	cStr = read(cFile)
-	if iswindows()
-		cStr = substr(cStr,char(13)+char(10),nl)
-	ok
 	aList = str2list(cStr)
 	aData = []
 	lFlag = C_INS_FUNCTION
