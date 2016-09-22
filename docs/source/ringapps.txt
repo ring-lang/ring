@@ -76,21 +76,6 @@ Quotes about Ring
 "Good Features of multi-use language on the Web, Mobile and Desktop."
 	, Abdelrhman Haider
 
-.. index:: 
-	pair: Applications developed in little hours; Werdy Application
-
-
-Werdy Application
-=================
-
-URL : https://github.com/magdy-ragab/werdy
-
-Author : Magdy Ragab
-
-.. image:: ringapps_shot1.png
-	:width: 300pt
-	:height: 300pt
-	:alt: Ring Application
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
@@ -170,6 +155,23 @@ This game could be played using mouse and keyboard as well, showing a message of
 
 
 .. index:: 
+	pair: Applications developed in little hours; Werdy Application
+
+
+Werdy Application
+=================
+
+URL : https://github.com/magdy-ragab/werdy
+
+Author : Magdy Ragab
+
+.. image:: ringapps_shot1.png
+	:width: 300pt
+	:height: 300pt
+	:alt: Ring Application
+
+
+.. index:: 
 	pair: Applications developed in little hours; Samples in this book
 
 Samples in this book
@@ -219,4 +221,5 @@ Super Man 2016 Game
 	:width: 250pt
 	:height: 150pt
 	:alt: Ring Application
+
 
