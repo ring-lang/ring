@@ -168,7 +168,7 @@ extern "C" {
 
 }
 
-RING_FUNC(ring_qApp_quit)
+RING_FUNC(ring_QApp_quit)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -177,7 +177,7 @@ RING_FUNC(ring_qApp_quit)
 	qApp->quit();
 }
 
-RING_FUNC(ring_qApp_exec)
+RING_FUNC(ring_QApp_exec)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -186,7 +186,7 @@ RING_FUNC(ring_qApp_exec)
 	qApp->exec();
 }
 
-RING_FUNC(ring_qApp_processEvents)
+RING_FUNC(ring_QApp_processEvents)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -195,7 +195,7 @@ RING_FUNC(ring_qApp_processEvents)
 	qApp->processEvents();
 }
 
-RING_FUNC(ring_qTest_qsleep)
+RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
 }
