@@ -154,6 +154,7 @@ extern "C" {
 #include <QXmlStreamAttributes>
 #include <QXmlStreamAttribute>
 #include <QThread>
+#include <QThreadPool>
 
 #include "highlighter.h"
 
@@ -64198,6 +64199,255 @@ RING_FUNC(ring_QThread_setFinishedEvent)
 	pObject->setFinishedEvent(RING_API_GETSTRING(2));
 }
 
+
+RING_FUNC(ring_QThreadPool_activeThreadCount)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	RING_API_RETNUMBER(pObject->activeThreadCount());
+}
+
+
+RING_FUNC(ring_QThreadPool_cancel)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->cancel((QRunnable *) RING_API_GETCPOINTER(2,"QRunnable"));
+}
+
+
+RING_FUNC(ring_QThreadPool_clear)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QThreadPool_expiryTimeout)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	RING_API_RETNUMBER(pObject->expiryTimeout());
+}
+
+
+RING_FUNC(ring_QThreadPool_maxThreadCount)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	RING_API_RETNUMBER(pObject->maxThreadCount());
+}
+
+
+RING_FUNC(ring_QThreadPool_releaseThread)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	pObject->releaseThread();
+}
+
+
+RING_FUNC(ring_QThreadPool_reserveThread)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	pObject->reserveThread();
+}
+
+
+RING_FUNC(ring_QThreadPool_setExpiryTimeout)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setExpiryTimeout( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QThreadPool_setMaxThreadCount)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMaxThreadCount( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QThreadPool_start)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->start((QRunnable *) RING_API_GETCPOINTER(2,"QRunnable"), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QThreadPool_tryStart)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->tryStart((QRunnable *) RING_API_GETCPOINTER(2,"QRunnable")));
+}
+
+
+RING_FUNC(ring_QThreadPool_waitForDone)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->waitForDone( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QThreadPool_globalInstance)
+{
+	QThreadPool *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
+	RING_API_RETCPOINTER(pObject->globalInstance(),"QThreadPool");
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -65630,6 +65880,17 @@ RING_FUNC(ring_QThread_new)
 	}
 	GThread *pObject = new GThread((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QThread");
+}
+
+RING_FUNC(ring_QThreadPool_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QThreadPool *pObject = new QThreadPool();
+	RING_API_RETCPOINTER(pObject,"QThreadPool");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -67218,6 +67479,21 @@ RING_FUNC(ring_QThread_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GThread *) RING_API_GETCPOINTER(1,"GThread");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QThreadPool_delete)
+{
+	QThreadPool *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
 		delete pObject ;
 	}
 }
@@ -70341,6 +70617,19 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qthread_yieldcurrentthread",ring_QThread_yieldCurrentThread);
 	ring_vm_funcregister("qthread_setstartedevent",ring_QThread_setStartedEvent);
 	ring_vm_funcregister("qthread_setfinishedevent",ring_QThread_setFinishedEvent);
+	ring_vm_funcregister("qthreadpool_activethreadcount",ring_QThreadPool_activeThreadCount);
+	ring_vm_funcregister("qthreadpool_cancel",ring_QThreadPool_cancel);
+	ring_vm_funcregister("qthreadpool_clear",ring_QThreadPool_clear);
+	ring_vm_funcregister("qthreadpool_expirytimeout",ring_QThreadPool_expiryTimeout);
+	ring_vm_funcregister("qthreadpool_maxthreadcount",ring_QThreadPool_maxThreadCount);
+	ring_vm_funcregister("qthreadpool_releasethread",ring_QThreadPool_releaseThread);
+	ring_vm_funcregister("qthreadpool_reservethread",ring_QThreadPool_reserveThread);
+	ring_vm_funcregister("qthreadpool_setexpirytimeout",ring_QThreadPool_setExpiryTimeout);
+	ring_vm_funcregister("qthreadpool_setmaxthreadcount",ring_QThreadPool_setMaxThreadCount);
+	ring_vm_funcregister("qthreadpool_start",ring_QThreadPool_start);
+	ring_vm_funcregister("qthreadpool_trystart",ring_QThreadPool_tryStart);
+	ring_vm_funcregister("qthreadpool_waitfordone",ring_QThreadPool_waitForDone);
+	ring_vm_funcregister("qthreadpool_globalinstance",ring_QThreadPool_globalInstance);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -70447,6 +70736,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qxmlstreamattributes_new",ring_QXmlStreamAttributes_new);
 	ring_vm_funcregister("qxmlstreamattribute_new",ring_QXmlStreamAttribute_new);
 	ring_vm_funcregister("qthread_new",ring_QThread_new);
+	ring_vm_funcregister("qthreadpool_new",ring_QThreadPool_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -70553,4 +70843,5 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qxmlstreamattributes_delete",ring_QXmlStreamAttributes_delete);
 	ring_vm_funcregister("qxmlstreamattribute_delete",ring_QXmlStreamAttribute_delete);
 	ring_vm_funcregister("qthread_delete",ring_QThread_delete);
+	ring_vm_funcregister("qthreadpool_delete",ring_QThreadPool_delete);
 }

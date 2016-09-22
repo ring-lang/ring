@@ -11362,6 +11362,58 @@ Class QThread from QObject
 	Func setFinishedEvent P1
 		return QThread_setFinishedEvent(pObject,P1)
 
+Class QThreadPool from QObject
+
+	pObject
+
+	Func init 
+		pObject = QThreadPool_new()
+		return self
+
+	Func delete
+		pObject = QThreadPool_delete(pObject)
+
+	Func activeThreadCount 
+		return QThreadPool_activeThreadCount(pObject)
+
+	Func cancel P1
+		return QThreadPool_cancel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func clear 
+		return QThreadPool_clear(pObject)
+
+	Func expiryTimeout 
+		return QThreadPool_expiryTimeout(pObject)
+
+	Func maxThreadCount 
+		return QThreadPool_maxThreadCount(pObject)
+
+	Func releaseThread 
+		return QThreadPool_releaseThread(pObject)
+
+	Func reserveThread 
+		return QThreadPool_reserveThread(pObject)
+
+	Func setExpiryTimeout P1
+		return QThreadPool_setExpiryTimeout(pObject,P1)
+
+	Func setMaxThreadCount P1
+		return QThreadPool_setMaxThreadCount(pObject,P1)
+
+	Func start P1,P2
+		return QThreadPool_start(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func tryStart P1
+		return QThreadPool_tryStart(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func waitForDone P1
+		return QThreadPool_waitForDone(pObject,P1)
+
+	Func globalInstance 
+		pTempObj = new QThreadPool
+		pTempObj.pObject = QThreadPool_globalInstance(pObject)
+		return pTempObj
+
 Class QIcon
 
 	pObject

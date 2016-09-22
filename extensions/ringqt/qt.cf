@@ -167,6 +167,7 @@ extern "C" {
 #include <QXmlStreamAttributes>
 #include <QXmlStreamAttribute>
 #include <QThread>
+#include <QThreadPool>
 
 #include "highlighter.h"
 
@@ -4736,3 +4737,26 @@ void yieldCurrentThread(void)
 
 void setStartedEvent(const char *)
 void setFinishedEvent(const char *)
+
+
+<class>
+name: QThreadPool
+para: void
+parent: QObject
+</class>
+
+int activeThreadCount(void)
+void cancel(QRunnable * runnable)
+void clear(void)
+int expiryTimeout(void)
+int maxThreadCount(void)
+void releaseThread(void)
+void reserveThread(void)
+void setExpiryTimeout(int expiryTimeout)
+void setMaxThreadCount(int maxThreadCount)
+void start(QRunnable * runnable, int priority)
+bool tryStart(QRunnable * runnable)
+bool waitForDone(int msecs)
+QThreadPool *globalInstance(void)
+
+
