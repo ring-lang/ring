@@ -7,9 +7,9 @@ RingQt Classes Reference
 
 
 .. index::
-	pair: RingQt Classes Reference; qApp Class
+	pair: RingQt Classes Reference; QApp Class
 
-qApp Class
+QApp Class
 =========
 
 * void exec(void)
@@ -17,9 +17,9 @@ qApp Class
 * void processEvents(void)
 
 .. index::
-	pair: RingQt Classes Reference; qTest Class
+	pair: RingQt Classes Reference; QTest Class
 
-qTest Class
+QTest Class
 ==========
 
 * void qsleep(int)

@@ -374,7 +374,7 @@ aEnumTypes + "QXmlStreamReader::ReadElementTextBehaviour"
 </runcode>
 
 <class>
-name: qApp
+name: QApp
 nonew
 </class>
 
@@ -416,7 +416,7 @@ RING_FUNC(ring_qApp_processEvents)
 </code>
 
 <class>
-name: qTest
+name: QTest
 nonew
 </class>
 

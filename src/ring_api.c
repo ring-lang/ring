@@ -1005,7 +1005,12 @@ void ring_vmlib_str2list ( void *pPointer )
 		for ( x = 0 ; x < nSize ; x++ ) {
 			if ( cStr[x] == '\n' ) {
 				if ( x > nStart ) {
-					ring_list_addstring2(pList,cStr+nStart,x-nStart);
+					if ( cStr[x-1] == '\r' ) {
+						ring_list_addstring2(pList,cStr+nStart,x-nStart-1);
+					}
+					else {
+						ring_list_addstring2(pList,cStr+nStart,x-nStart);
+					}
 				} else {
 					ring_list_addstring(pList,"");
 				}
@@ -1558,6 +1563,7 @@ void ring_vmlib_intvalue ( void *pPointer )
 
 void ring_vmlib_object2pointer ( void *pPointer )
 {
+	List *pList  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1565,7 +1571,8 @@ void ring_vmlib_object2pointer ( void *pPointer )
 	if ( ! RING_API_ISLIST(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
-	RING_API_RETCPOINTER((void *) RING_API_GETLIST(1),"OBJECTPOINTER");
+	pList = RING_API_GETLIST(1) ;
+	RING_API_RETCPOINTER((void *) pList,"OBJECTPOINTER");
 }
 
 void ring_vmlib_pointer2object ( void *pPointer )

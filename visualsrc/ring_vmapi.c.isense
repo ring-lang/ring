@@ -308,6 +308,8 @@ ring_vmlib_intvalue
 Type: const char *
 cStr
 ring_vmlib_object2pointer
+Type: List *
+pList
 ring_vmlib_pointer2object
 ring_vmlib_nullpointer
 ring_vmlib_space

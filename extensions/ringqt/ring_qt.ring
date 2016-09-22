@@ -9,23 +9,23 @@ Func GetObjectPointerFromRingObject pObj
      ok	
      return pObj		
 
-Class qApp
+Class QApp
 
 
 	Func exec 
-		return qApp_exec()
+		return QApp_exec()
 
 	Func quit 
-		return qApp_quit()
+		return QApp_quit()
 
 	Func processEvents 
-		return qApp_processEvents()
+		return QApp_processEvents()
 
-Class qTest
+Class QTest
 
 
 	Func qsleep P1
-		return qTest_qsleep(P1)
+		return QTest_qsleep(P1)
 
 Class QObject
 

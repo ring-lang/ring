@@ -2,19 +2,23 @@
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 # Date : 2016.09.22
 
+#===============================================
 C_OUTPUTFILE = "qtclassesdoc.txt"
-
+C_CHAPTERNAME = "RingQt Classes Reference"
 cFile = read("qt.cf")
-cFile = substr(cFile,windowsnl(),char(10))
+lStart = False		# False = Classes Doc.   True = Functions Doc.
+#===============================================
+
+
 aList = str2list(cFile)
 
 cOutput = ".. index:: " + windowsnl() 
-cOutput += "     single: RingQt Classes Reference; Introduction" + windowsnl() + windowsnl()
+cOutput += "     single: "+C_CHAPTERNAME+"; Introduction" + windowsnl() + windowsnl()
 cOutput += "========================" + windowsnl()
-cOutput += "RingQt Classes Reference" + windowsnl()
+cOutput += C_CHAPTERNAME + windowsnl()
 cOutput += "========================" + windowsnl() + windowsnl()
 
-lStart = False
+
 for x = 1 to len(aList) 
 	cLine = trim(aList[x])
 	if left(lower(cLine),7)="<class>"		 
@@ -25,11 +29,11 @@ for x = 1 to len(aList)
 			if left(cLine,5) = "name:"
 				cClassName = trim(substr(cLine,6)) + " Class"
 				cOutput += Windowsnl() + ".. index::" + windowsnl()  
-				cOutput +="	pair: RingQt Classes Reference; "
+				cOutput +="	pair: "+C_CHAPTERNAME+"; "
 				cOutput += cClassName + WindowsNl()
 
 				cOutput += windowsnl() + cClassName + windowsnl()
-				cOutput += Copy("=",len(cClassName)-1) + windowsnl() + windowsnl()
+				cOutput += Copy("=",len(cClassName)) + windowsnl() + windowsnl()
 			ok
 			if left(cLine,7) = "parent:"
 				cClassName = trim(substr(cLine,8)) 

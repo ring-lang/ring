@@ -65215,10 +65215,10 @@ RING_FUNC(ring_QXmlStreamReader_delete)
 
 RING_DLL void ring_qt_start(RingState *pRingState)
 {
-	ring_vm_funcregister("qapp_exec",ring_qApp_exec);
-	ring_vm_funcregister("qapp_quit",ring_qApp_quit);
-	ring_vm_funcregister("qapp_processevents",ring_qApp_processEvents);
-	ring_vm_funcregister("qtest_qsleep",ring_qTest_qsleep);
+	ring_vm_funcregister("qapp_exec",ring_QApp_exec);
+	ring_vm_funcregister("qapp_quit",ring_QApp_quit);
+	ring_vm_funcregister("qapp_processevents",ring_QApp_processEvents);
+	ring_vm_funcregister("qtest_qsleep",ring_QTest_qsleep);
 	ring_vm_funcregister("qobject_blocksignals",ring_QObject_blockSignals);
 	ring_vm_funcregister("qobject_children",ring_QObject_children);
 	ring_vm_funcregister("qobject_dumpobjectinfo",ring_QObject_dumpObjectInfo);
