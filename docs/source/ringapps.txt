@@ -5,20 +5,18 @@
 Applications developed in little hours
 =================================================
 
-Ring is a new language, just released in 2016.01.25! 
-In little months we got thousands of downloads and many developers started learning, 
-using, and improving the language. Their feedback are the secret behind the language progress and success. 
-Many developers said that Ring is powerful, beautiful and easy to learn. Some of them provided good examples about what can be done using Ring in little hours. 
+Ring is a new programming language that focus on natural language programming and declarative programming paradigms 
+and will let you think different about programming and how to solve your problems in a better way. It's just released in 2016.01.25! and 
+in little days we got thousands of downloads and many developers started learning and 
+using the language. Their feedback are the secret behind the language progress and success. 
+They said that Ring is powerful, beautiful and easy to learn, Some of them provided good examples about what can be done using Ring in little hours. 
 They are very happy with the language productivity.
-
 
 .. index:: 
 	pair: Applications developed in little hours; Quotes about Ring
 
 Quotes about Ring
 =================
-
-Here are some quotes about the Ring programming language:
 
 "I find the language and its syntax very natural and easy to follow."
 	, Bhudda (United States)
@@ -75,11 +73,24 @@ Here are some quotes about the Ring programming language:
 "Congratulations! I am very happy and I wish you Success and good luck."
 	, Abobasmla Hassan
 
-"Good work, good website and good luck."
-	, Shadi Saeed (Egypt)
-
 "Good Features of multi-use language on the Web, Mobile and Desktop."
 	, Abdelrhman Haider
+
+.. index:: 
+	pair: Applications developed in little hours; Werdy Application
+
+
+Werdy Application
+=================
+
+URL : https://github.com/magdy-ragab/werdy
+
+Author : Magdy Ragab
+
+.. image:: ringapps_shot1.png
+	:width: 300pt
+	:height: 300pt
+	:alt: Ring Application
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
@@ -155,23 +166,6 @@ This game could be played using mouse and keyboard as well, showing a message of
 .. image:: ringapps_shot2.png
 	:width: 200pt
 	:height: 200pt
-	:alt: Ring Application
-
-
-.. index:: 
-	pair: Applications developed in little hours; Werdy Application
-
-
-Werdy Application
-=================
-
-URL : https://github.com/magdy-ragab/werdy
-
-Author : Magdy Ragab
-
-.. image:: ringapps_shot1.png
-	:width: 300pt
-	:height: 300pt
 	:alt: Ring Application
 
 
