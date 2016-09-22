@@ -97,7 +97,9 @@ Class QObject
 		return QObject_startTimer(pObject,P1)
 
 	Func thread 
-		return QObject_thread(pObject)
+		pTempObj = new QThread
+		pTempObj.pObject = QObject_thread(pObject)
+		return pTempObj
 
 	Func deleteLater 
 		return QObject_deleteLater(pObject)
@@ -11271,6 +11273,94 @@ Class QXmlStreamAttribute
 
 	Func value 
 		return QXmlStreamAttribute_value(pObject)
+
+Class QThread from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QThread_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QThread_delete(pObject)
+
+	Func eventDispatcher 
+		return QThread_eventDispatcher(pObject)
+
+	Func exit P1
+		return QThread_exit(pObject,P1)
+
+	Func isFinished 
+		return QThread_isFinished(pObject)
+
+	Func isInterruptionRequested 
+		return QThread_isInterruptionRequested(pObject)
+
+	Func isRunning 
+		return QThread_isRunning(pObject)
+
+	Func loopLevel 
+		return QThread_loopLevel(pObject)
+
+	Func priority 
+		return QThread_priority(pObject)
+
+	Func requestInterruption 
+		return QThread_requestInterruption(pObject)
+
+	Func setEventDispatcher P1
+		return QThread_setEventDispatcher(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPriority P1
+		return QThread_setPriority(pObject,P1)
+
+	Func setStackSize P1
+		return QThread_setStackSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func stackSize 
+		return QThread_stackSize(pObject)
+
+	Func wait P1
+		return QThread_wait(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func quit 
+		return QThread_quit(pObject)
+
+	Func start P1
+		return QThread_start(pObject,P1)
+
+	Func terminate 
+		return QThread_terminate(pObject)
+
+	Func currentThread 
+		pTempObj = new QThread
+		pTempObj.pObject = QThread_currentThread(pObject)
+		return pTempObj
+
+	Func currentThreadId 
+		return QThread_currentThreadId(pObject)
+
+	Func idealThreadCount 
+		return QThread_idealThreadCount(pObject)
+
+	Func msleep P1
+		return QThread_msleep(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func sleep P1
+		return QThread_sleep(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func usleep P1
+		return QThread_usleep(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func yieldCurrentThread 
+		return QThread_yieldCurrentThread(pObject)
+
+	Func setStartedEvent P1
+		return QThread_setStartedEvent(pObject,P1)
+
+	Func setFinishedEvent P1
+		return QThread_setFinishedEvent(pObject,P1)
 
 Class QIcon
 

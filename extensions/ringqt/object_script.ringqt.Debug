@@ -26,6 +26,7 @@ INPUT(
 ./debug\gallevents.o
 ./debug\gnetworkaccessmanager.o
 ./debug\highlighter.o
+./debug\gthread.o
 ./debug\ring_qt.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
@@ -54,4 +55,5 @@ INPUT(
 ./debug\moc_gallevents.o
 ./debug\moc_gnetworkaccessmanager.o
 ./debug\moc_highlighter.o
+./debug\moc_gthread.o
 );

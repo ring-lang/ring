@@ -680,6 +680,20 @@ aclasses = [
 						:event = "finished"
 					] 
 				  ]
+		],
+		[	:name = "GThread" ,
+			:realname = "QThread" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "started()" ,
+						:slot = "startedSlot()" ,
+						:event = "Started"
+					] ,
+					[ 	:signal = "finished()" ,
+						:slot = "finishedSlot()" ,
+						:event = "Finished"
+					] 
+				  ]
 		]
 	    ]
 

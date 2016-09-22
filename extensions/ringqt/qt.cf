@@ -40,6 +40,7 @@ extern "C" {
 #include "gtcpsocket.h"
 #include "gcolordialog.h"
 #include "gallevents.h"
+#include "gthread.h"
 #include <QApplication>
 #include <QObject>
 #include <QWidget>
@@ -165,7 +166,7 @@ extern "C" {
 #include <QXmlStreamEntityDeclaration>
 #include <QXmlStreamAttributes>
 #include <QXmlStreamAttribute>
-
+#include <QThread>
 
 #include "highlighter.h"
 
@@ -378,6 +379,7 @@ aEnumTypes + "Error"
 aEnumTypes + "ReadElementTextBehaviour"
 aEnumTypes + "TokenType"
 aEnumTypes + "QXmlStreamReader::ReadElementTextBehaviour"
+aEnumTypes + "QThread::Priority"
 </runcode>
 
 <class>
@@ -4699,3 +4701,38 @@ QStringRef namespaceUri(void)
 QStringRef prefix(void)
 QStringRef qualifiedName(void)
 QStringRef value(void)
+
+<class>
+name: QThread
+para: QObject *
+parent: QObject
+codename: GThread
+passvmpointer
+</class>
+
+QAbstractEventDispatcher *eventDispatcher(void)
+void exit(int returnCode)
+bool isFinished(void)
+bool isInterruptionRequested(void)
+bool isRunning(void)
+int loopLevel(void)
+QThread::Priority priority(void)
+void requestInterruption(void)
+void setEventDispatcher(QAbstractEventDispatcher *eventDispatcher)
+void setPriority(QThread::Priority priority)
+void setStackSize(uint stackSize)
+uint stackSize(void)
+bool wait(unsigned long time)
+void quit(void)
+void start(QThread::Priority priority)
+void terminate(void)
+QThread *currentThread(void)
+Qt::HANDLE currentThreadId(void)
+int idealThreadCount(void)
+void msleep(unsigned long msecs)
+void sleep(unsigned long secs)
+void usleep(unsigned long usecs)
+void yieldCurrentThread(void)
+
+void setStartedEvent(const char *)
+void setFinishedEvent(const char *)

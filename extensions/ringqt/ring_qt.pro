@@ -39,6 +39,7 @@ SOURCES +=   \
     gallevents.cpp \
     gnetworkaccessmanager.cpp \
     highlighter.cpp \
+    gthread.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -69,6 +70,7 @@ HEADERS  += \
     gallevents.h \
     gnetworkaccessmanager.h \
     highlighter.h \
+    gthread.h
 
 INCLUDEPATH += ../../include
 
