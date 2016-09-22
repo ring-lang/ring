@@ -116,6 +116,12 @@ Func Main
 	lFlag = C_INS_FUNCTION
 	for cLine in aList
 		cLine = trim(cLine)
+		nPos = substr(cLine,"#")
+		if nPos > 0  
+			if (substr(cLine,"#include") = 0 ) and ( substr(cLine,"#define") = 0 )
+			cLine = trim(left(cLine,nPos-1))
+			ok
+		ok
 		see "ReadLine : " + cLine + nl
 		if cLine = NULL and lflag != C_INS_CODE
 			loop
