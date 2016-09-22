@@ -10875,7 +10875,9 @@ Class QXmlStreamReader
 		return QXmlStreamReader_atEnd(pObject)
 
 	Func attributes 
-		return QXmlStreamReader_attributes(pObject)
+		pTempObj = new QXmlStreamAttributes
+		pTempObj.pObject = QXmlStreamReader_attributes(pObject)
+		return pTempObj
 
 	Func characterOffset 
 		return QXmlStreamReader_characterOffset(pObject)
@@ -10910,7 +10912,9 @@ Class QXmlStreamReader
 		return QXmlStreamReader_entityDeclarations(pObject)
 
 	Func entityResolver 
-		return QXmlStreamReader_entityResolver(pObject)
+		pTempObj = new QXmlStreamEntityResolver
+		pTempObj.pObject = QXmlStreamReader_entityResolver(pObject)
+		return pTempObj
 
 	Func error 
 		return QXmlStreamReader_error(pObject)
@@ -11135,6 +11139,139 @@ Class QXmlStreamWriter
 	Func writeTextElement_2 P1,P2
 		return QXmlStreamWriter_writeTextElement_2(pObject,P1,P2)
 
+Class QXmlStreamNotationDeclaration
+
+	pObject
+
+	Func init 
+		pObject = QXmlStreamNotationDeclaration_new()
+		return self
+
+	Func delete
+		pObject = QXmlStreamNotationDeclaration_delete(pObject)
+
+	Func name 
+		return QXmlStreamNotationDeclaration_name(pObject)
+
+	Func publicId 
+		return QXmlStreamNotationDeclaration_publicId(pObject)
+
+	Func systemId 
+		return QXmlStreamNotationDeclaration_systemId(pObject)
+
+Class QXmlStreamNamespaceDeclaration
+
+	pObject
+
+	Func init 
+		pObject = QXmlStreamNamespaceDeclaration_new()
+		return self
+
+	Func delete
+		pObject = QXmlStreamNamespaceDeclaration_delete(pObject)
+
+	Func namespaceUri 
+		return QXmlStreamNamespaceDeclaration_namespaceUri(pObject)
+
+	Func prefix 
+		return QXmlStreamNamespaceDeclaration_prefix(pObject)
+
+Class QXmlStreamEntityDeclaration
+
+	pObject
+
+	Func init 
+		pObject = QXmlStreamEntityDeclaration_new()
+		return self
+
+	Func delete
+		pObject = QXmlStreamEntityDeclaration_delete(pObject)
+
+	Func name 
+		return QXmlStreamEntityDeclaration_name(pObject)
+
+	Func notationName 
+		return QXmlStreamEntityDeclaration_notationName(pObject)
+
+	Func publicId 
+		return QXmlStreamEntityDeclaration_publicId(pObject)
+
+	Func systemId 
+		return QXmlStreamEntityDeclaration_systemId(pObject)
+
+	Func value 
+		return QXmlStreamEntityDeclaration_value(pObject)
+
+Class QXmlStreamAttributes
+
+	pObject
+
+	Func init 
+		pObject = QXmlStreamAttributes_new()
+		return self
+
+	Func delete
+		pObject = QXmlStreamAttributes_delete(pObject)
+
+	Func append P1,P2,P3
+		return QXmlStreamAttributes_append(pObject,P1,P2,P3)
+
+	Func append_2 P1,P2
+		return QXmlStreamAttributes_append_2(pObject,P1,P2)
+
+	Func hasAttribute P1
+		return QXmlStreamAttributes_hasAttribute(pObject,P1)
+
+	Func hasAttribute_2 P1
+		return QXmlStreamAttributes_hasAttribute_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func hasAttribute_3 P1,P2
+		return QXmlStreamAttributes_hasAttribute_3(pObject,P1,P2)
+
+	Func value P1,P2
+		return QXmlStreamAttributes_value(pObject,P1,P2)
+
+	Func value_2 P1,P2
+		return QXmlStreamAttributes_value_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func value_3 P1,P2
+		return QXmlStreamAttributes_value_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func value_4 P1
+		return QXmlStreamAttributes_value_4(pObject,P1)
+
+	Func value_5 P1
+		return QXmlStreamAttributes_value_5(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QXmlStreamAttribute
+
+	pObject
+
+	Func init 
+		pObject = QXmlStreamAttribute_new()
+		return self
+
+	Func delete
+		pObject = QXmlStreamAttribute_delete(pObject)
+
+	Func isDefault 
+		return QXmlStreamAttribute_isDefault(pObject)
+
+	Func name 
+		return QXmlStreamAttribute_name(pObject)
+
+	Func namespaceUri 
+		return QXmlStreamAttribute_namespaceUri(pObject)
+
+	Func prefix 
+		return QXmlStreamAttribute_prefix(pObject)
+
+	Func qualifiedName 
+		return QXmlStreamAttribute_qualifiedName(pObject)
+
+	Func value 
+		return QXmlStreamAttribute_value(pObject)
+
 Class QIcon
 
 	pObject
@@ -11200,3 +11337,14 @@ Class RingCodeHighlighter
 
 	Func delete
 		pObject = RingCodeHighlighter_delete(pObject)
+
+Class QXmlStreamEntityResolver
+
+	pObject
+
+	Func init 
+		pObject = QXmlStreamEntityResolver_new()
+		return self
+
+	Func delete
+		pObject = QXmlStreamEntityResolver_delete(pObject)

@@ -158,6 +158,13 @@ extern "C" {
 #include <QMediaContent>
 #include <QTableView>
 #include <QXmlStreamReader>
+#include <QXmlStreamWriter>
+#include <QXmlStreamNotationDeclaration>
+#include <QXmlStreamNamespaceDeclaration>
+#include <QXmlStreamEntityResolver>
+#include <QXmlStreamEntityDeclaration>
+#include <QXmlStreamAttributes>
+#include <QXmlStreamAttribute>
 
 
 #include "highlighter.h"
@@ -4630,3 +4637,65 @@ void writeStartElement(QString namespaceUri, QString name)
 void writeStartElement@2(QString qualifiedName)
 void writeTextElement(QString namespaceUri, QString name, QString text)
 void writeTextElement@2(QString qualifiedName, QString text)
+
+<class>
+name: QXmlStreamNotationDeclaration
+para: void
+</class>
+
+QStringRef name(void)
+QStringRef publicId(void)
+QStringRef systemId(void)
+
+<class>
+name: QXmlStreamNamespaceDeclaration
+para: void
+</class>
+
+QStringRef namespaceUri(void)
+QStringRef prefix(void)
+
+<class>
+name: QXmlStreamEntityResolver
+para: void
+</class>
+
+<class>
+name: QXmlStreamEntityDeclaration
+para: void
+</class>
+
+QStringRef name(void)
+QStringRef notationName(void)
+QStringRef publicId(void)
+QStringRef systemId(void)
+QStringRef value(void)
+
+<class>
+name: QXmlStreamAttributes
+para: void
+</class>
+
+void append(QString  namespaceUri, QString  name, QString  value)
+void append@2(QString  qualifiedName, QString  value)
+bool hasAttribute(QString  qualifiedName)
+bool hasAttribute@2(QLatin1String qualifiedName)
+bool hasAttribute@3(QString  namespaceUri, QString  name)
+QStringRef value(QString  namespaceUri, QString  name)
+QStringRef value@2(QString  namespaceUri, QLatin1String name)
+QStringRef value@3(QLatin1String namespaceUri, QLatin1String name)
+QStringRef value@4(QString  qualifiedName)
+QStringRef value@5(QLatin1String qualifiedName)
+
+
+<class>
+name: QXmlStreamAttribute
+para: void
+</class>
+
+bool isDefault(void)
+QStringRef name(void)
+QStringRef namespaceUri(void)
+QStringRef prefix(void)
+QStringRef qualifiedName(void)
+QStringRef value(void)
