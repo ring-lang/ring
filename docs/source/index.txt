@@ -51,12 +51,9 @@ Contents:
    Natural language programming	<natural>
    Web Development (CGI Library) <web>
    Graphics and 2D Games programming using RingAllegro <allegro>	
-   RingAllegro Functions <ringallegrofuncsdoc>
    Using RingLibSDL <libsdl>
-   RingLibSDL Functions <ringlibsdlfuncsdoc>
    Demo Project - Game Engine for 2D Games <gameengine>	
    Desktop and Mobile development using RingQt <qt>
-   RingQt Classes and Methods <qtclassesdoc>
    Scope Rules for Variables and Attributes <scope>
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>
@@ -67,5 +64,8 @@ Contents:
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    Frequently Asked Questions (FAQ) <faq>
-   Reference <reference>
+   RingAllegro Functions Reference <ringallegrofuncsdoc>
+   RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
+   RingQt Classes and Methods Reference <qtclassesdoc>
+   Language Reference <reference>
    Resources <resources>

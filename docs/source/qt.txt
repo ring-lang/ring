@@ -4071,4 +4071,4 @@ RingQt Classes and their Qt Documentation
 
 Qt Documentation : http://doc.qt.io/qt-5/classes.html
 
-See the next chapter for supported classes and methods.
+See the "RingQt Classes and Methods Reference" chapter for supported classes and methods.
