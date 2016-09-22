@@ -157,6 +157,9 @@ extern "C" {
 #include <QBitmap>
 #include <QMediaContent>
 #include <QTableView>
+#include <QXmlStreamReader>
+
+
 #include "highlighter.h"
 
 extern "C" {
@@ -364,6 +367,9 @@ aEnumTypes + "Qt::ImageConversionFlags"
 aEnumTypes + "Qt::MaskMode"
 aEnumTypes + "QImage::Format"
 aEnumTypes + "QImage::InvertMode"
+aEnumTypes + "Error"
+aEnumTypes + "ReadElementTextBehaviour"
+aEnumTypes + "TokenType"
 </runcode>
 
 <class>
@@ -4521,3 +4527,65 @@ name: RingCodeHighlighter
 para: QTextDocument *parent
 codename: Highlighter
 </class>
+
+
+<class>
+name: QXmlStreamReader
+para: void
+parent: QIODevice
+</class>
+
+void addData(QByteArray)
+void addData@2(QString)
+void addData@3(const char * data)
+void addExtraNamespaceDeclaration(QXmlStreamNamespaceDeclaration *)
+void addExtraNamespaceDeclarations(QXmlStreamNamespaceDeclarations *)
+bool atEnd(void)
+QXmlStreamAttributes attributes(void)
+qint64 characterOffset(void)
+void clear(void)
+qint64 columnNumber(void)
+QIODevice *device(void) 
+QStringRef documentEncoding(void)
+QStringRef documentVersion(void)
+QStringRef dtdName(void)
+QStringRef dtdPublicId(void)
+QStringRef dtdSystemId(void)
+QXmlStreamEntityDeclarations entityDeclarations(void)
+QXmlStreamEntityResolver *entityResolver(void)
+Error error(void)
+QString	errorString(void)
+bool hasError(void)
+bool isCDATA(void)
+bool isCharacters(void)
+bool isComment(void)
+bool isDTD(void)
+bool isEndDocument(void)
+bool isEndElement(void)
+bool isEntityReference(void)
+bool isProcessingInstruction(void)
+bool isStandaloneDocument(void)
+bool isStartDocument(void)
+bool isStartElement(void)
+bool isWhitespace(void)
+qint64 lineNumber(void)
+QStringRef name(void)
+QXmlStreamNamespaceDeclarations	namespaceDeclarations(void)
+bool namespaceProcessing(void)
+QStringRef namespaceUri(void)
+QXmlStreamNotationDeclarations	notationDeclarations(void)
+QStringRef prefix(void)
+QStringRef processingInstructionData(void)
+QStringRef processingInstructionTarget(void)
+QStringRef qualifiedName(void)
+void raiseError(QString)
+QString	readElementText(ReadElementTextBehaviour)
+TokenType readNext(void)
+bool readNextStartElement(void)
+void setDevice(QIODevice *device)
+void setEntityResolver(QXmlStreamEntityResolver *resolver)
+void setNamespaceProcessing(bool)
+void skipCurrentElement(void)
+QStringRef text(void)
+QString	tokenString(void)
+TokenType tokenType(void)
