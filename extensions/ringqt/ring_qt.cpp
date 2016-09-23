@@ -63823,23 +63823,6 @@ RING_FUNC(ring_QThread_isRunning)
 }
 
 
-RING_FUNC(ring_QThread_loopLevel)
-{
-	GThread *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
-	RING_API_RETNUMBER(pObject->loopLevel());
-}
-
-
 RING_FUNC(ring_QThread_priority)
 {
 	GThread *pObject ;
@@ -64220,27 +64203,6 @@ RING_FUNC(ring_QThreadPool_activeThreadCount)
 }
 
 
-RING_FUNC(ring_QThreadPool_cancel)
-{
-	QThreadPool *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QThreadPool *) RING_API_GETCPOINTER(1,"QThreadPool");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->cancel((QRunnable *) RING_API_GETCPOINTER(2,"QRunnable"));
-}
-
-
 RING_FUNC(ring_QThreadPool_clear)
 {
 	QThreadPool *pObject ;
@@ -64524,42 +64486,6 @@ RING_FUNC(ring_QRegularExpression_globalMatch)
 }
 
 
-RING_FUNC(ring_QRegularExpression_globalMatch_2)
-{
-	QRegularExpression *pObject ;
-	if ( RING_API_PARACOUNT != 5 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QRegularExpression *) RING_API_GETCPOINTER(1,"QRegularExpression");
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	{
-		QRegularExpressionMatchIterator *pValue ; 
-		pValue = new QRegularExpressionMatchIterator() ;
-		*pValue = pObject->globalMatch(* (QStringRef   *) RING_API_GETCPOINTER(2,"QStringRef"), (int ) RING_API_GETNUMBER(3), (QRegularExpression::MatchType )  (int) RING_API_GETNUMBER(4), (QRegularExpression::MatchOptions )  (int) RING_API_GETNUMBER(5));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
-		RING_API_RETCPOINTER(pValue,"QRegularExpressionMatchIterator");
-	}
-}
-
-
 RING_FUNC(ring_QRegularExpression_isValid)
 {
 	QRegularExpression *pObject ;
@@ -64615,42 +64541,6 @@ RING_FUNC(ring_QRegularExpression_match)
 }
 
 
-RING_FUNC(ring_QRegularExpression_match_2)
-{
-	QRegularExpression *pObject ;
-	if ( RING_API_PARACOUNT != 5 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QRegularExpression *) RING_API_GETCPOINTER(1,"QRegularExpression");
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	{
-		QRegularExpressionMatch *pValue ; 
-		pValue = new QRegularExpressionMatch() ;
-		*pValue = pObject->match(* (QStringRef   *) RING_API_GETCPOINTER(2,"QStringRef"), (int ) RING_API_GETNUMBER(3), (QRegularExpression::MatchType )  (int) RING_API_GETNUMBER(4), (QRegularExpression::MatchOptions )  (int) RING_API_GETNUMBER(5));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
-		RING_API_RETCPOINTER(pValue,"QRegularExpressionMatch");
-	}
-}
-
-
 RING_FUNC(ring_QRegularExpression_namedCaptureGroups)
 {
 	QRegularExpression *pObject ;
@@ -64670,23 +64560,6 @@ RING_FUNC(ring_QRegularExpression_namedCaptureGroups)
 		*pValue = pObject->namedCaptureGroups();
 		RING_API_RETCPOINTER(pValue,"QStringList");
 	}
-}
-
-
-RING_FUNC(ring_QRegularExpression_optimize)
-{
-	QRegularExpression *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QRegularExpression *) RING_API_GETCPOINTER(1,"QRegularExpression");
-	pObject->optimize();
 }
 
 
@@ -71556,7 +71429,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qthread_isfinished",ring_QThread_isFinished);
 	ring_vm_funcregister("qthread_isinterruptionrequested",ring_QThread_isInterruptionRequested);
 	ring_vm_funcregister("qthread_isrunning",ring_QThread_isRunning);
-	ring_vm_funcregister("qthread_looplevel",ring_QThread_loopLevel);
 	ring_vm_funcregister("qthread_priority",ring_QThread_priority);
 	ring_vm_funcregister("qthread_requestinterruption",ring_QThread_requestInterruption);
 	ring_vm_funcregister("qthread_seteventdispatcher",ring_QThread_setEventDispatcher);
@@ -71577,7 +71449,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qthread_setstartedevent",ring_QThread_setStartedEvent);
 	ring_vm_funcregister("qthread_setfinishedevent",ring_QThread_setFinishedEvent);
 	ring_vm_funcregister("qthreadpool_activethreadcount",ring_QThreadPool_activeThreadCount);
-	ring_vm_funcregister("qthreadpool_cancel",ring_QThreadPool_cancel);
 	ring_vm_funcregister("qthreadpool_clear",ring_QThreadPool_clear);
 	ring_vm_funcregister("qthreadpool_expirytimeout",ring_QThreadPool_expiryTimeout);
 	ring_vm_funcregister("qthreadpool_maxthreadcount",ring_QThreadPool_maxThreadCount);
@@ -71592,12 +71463,9 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qregularexpression_capturecount",ring_QRegularExpression_captureCount);
 	ring_vm_funcregister("qregularexpression_errorstring",ring_QRegularExpression_errorString);
 	ring_vm_funcregister("qregularexpression_globalmatch",ring_QRegularExpression_globalMatch);
-	ring_vm_funcregister("qregularexpression_globalmatch_2",ring_QRegularExpression_globalMatch_2);
 	ring_vm_funcregister("qregularexpression_isvalid",ring_QRegularExpression_isValid);
 	ring_vm_funcregister("qregularexpression_match",ring_QRegularExpression_match);
-	ring_vm_funcregister("qregularexpression_match_2",ring_QRegularExpression_match_2);
 	ring_vm_funcregister("qregularexpression_namedcapturegroups",ring_QRegularExpression_namedCaptureGroups);
-	ring_vm_funcregister("qregularexpression_optimize",ring_QRegularExpression_optimize);
 	ring_vm_funcregister("qregularexpression_pattern",ring_QRegularExpression_pattern);
 	ring_vm_funcregister("qregularexpression_patternerroroffset",ring_QRegularExpression_patternErrorOffset);
 	ring_vm_funcregister("qregularexpression_patternoptions",ring_QRegularExpression_patternOptions);

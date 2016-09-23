@@ -11302,9 +11302,6 @@ Class QThread from QObject
 	Func isRunning 
 		return QThread_isRunning(pObject)
 
-	Func loopLevel 
-		return QThread_loopLevel(pObject)
-
 	Func priority 
 		return QThread_priority(pObject)
 
@@ -11378,9 +11375,6 @@ Class QThreadPool from QObject
 	Func activeThreadCount 
 		return QThreadPool_activeThreadCount(pObject)
 
-	Func cancel P1
-		return QThreadPool_cancel(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func clear 
 		return QThreadPool_clear(pObject)
 
@@ -11438,11 +11432,6 @@ Class QRegularExpression
 		pTempObj.pObject = QRegularExpression_globalMatch(pObject,P1,P2,P3,P4)
 		return pTempObj
 
-	Func globalMatch_2 P1,P2,P3,P4
-		pTempObj = new QRegularExpressionMatchIterator
-		pTempObj.pObject = QRegularExpression_globalMatch_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
-		return pTempObj
-
 	Func isValid 
 		return QRegularExpression_isValid(pObject)
 
@@ -11451,18 +11440,10 @@ Class QRegularExpression
 		pTempObj.pObject = QRegularExpression_match(pObject,P1,P2,P3,P4)
 		return pTempObj
 
-	Func match_2 P1,P2,P3,P4
-		pTempObj = new QRegularExpressionMatch
-		pTempObj.pObject = QRegularExpression_match_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
-		return pTempObj
-
 	Func namedCaptureGroups 
 		pTempObj = new QStringList
 		pTempObj.pObject = QRegularExpression_namedCaptureGroups(pObject)
 		return pTempObj
-
-	Func optimize 
-		return QRegularExpression_optimize(pObject)
 
 	Func pattern 
 		return QRegularExpression_pattern(pObject)

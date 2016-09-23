@@ -4724,7 +4724,11 @@ void exit(int returnCode)
 bool isFinished(void)
 bool isInterruptionRequested(void)
 bool isRunning(void)
+
+<comment>
 int loopLevel(void)
+</comment>
+
 QThread::Priority priority(void)
 void requestInterruption(void)
 void setEventDispatcher(QAbstractEventDispatcher *eventDispatcher)
@@ -4754,7 +4758,11 @@ parent: QObject
 </class>
 
 int activeThreadCount(void)
+
+<comment>
 void cancel(QRunnable * runnable)
+</comment>
+
 void clear(void)
 int expiryTimeout(void)
 int maxThreadCount(void)
@@ -4776,12 +4784,24 @@ para: void
 int captureCount(void)
 QString errorString(void)
 QRegularExpressionMatchIterator globalMatch(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+
+<comment>
 QRegularExpressionMatchIterator globalMatch@2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+</comment>
+
 bool isValid(void)
 QRegularExpressionMatch match(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+
+<comment>
 QRegularExpressionMatch match@2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+</comment>
+
 QStringList namedCaptureGroups(void)
+
+<comment>
 void optimize(void)
+</comment>
+
 QString pattern(void)
 int patternErrorOffset(void)
 QRegularExpression::PatternOptions patternOptions(void)
