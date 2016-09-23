@@ -4877,3 +4877,44 @@ QJsonDocument fromBinaryData( QByteArray  data, QJsonDocument::DataValidation va
 QJsonDocument fromJson( QByteArray  json, QJsonParseError * error)
 QJsonDocument fromRawData( char * data, int size, QJsonDocument::DataValidation validation)
 QJsonDocument fromVariant( QVariant  variant)
+
+
+<class>
+name: QJsonObject
+para: void
+</class>
+
+
+<comment>
+iterator begin(void)
+const_iterator begin@2(void)
+const_iterator constBegin(void)
+const_iterator constEnd(void)
+const_iterator constFind(QString  key)
+</comment>
+
+bool contains(QString  key)
+int count(void)
+bool empty(void)
+
+<comment>
+iterator end(void)
+const_iterator end(void)
+iterator erase(iterator it)
+iterator find(QString  key)
+const_iterator find(QString  key)
+iterator insert(QString  key, QJsonValue  value)
+</comment>
+
+bool isEmpty(void)
+QStringList keys(void)
+int length(void)
+void remove(QString  key)
+int size(void)
+QJsonValue take(QString  key)
+QVariantHash toVariantHash(void)
+QVariantMap toVariantMap(void)
+QJsonValue value(QString  key)
+
+QJsonObject fromVariantHash(QVariantHash  hash)
+QJsonObject fromVariantMap(QVariantMap  map)

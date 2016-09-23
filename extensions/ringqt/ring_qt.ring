@@ -10206,7 +10206,9 @@ Class QVariant
 		return pTempObj
 
 	Func toJsonObject 
-		return QVariant_toJsonObject(pObject)
+		pTempObj = new QJsonObject
+		pTempObj.pObject = QVariant_toJsonObject(pObject)
+		return pTempObj
 
 	Func toJsonValue 
 		return QVariant_toJsonValue(pObject)
@@ -11691,7 +11693,9 @@ Class QJsonDocument
 		return QJsonDocument_isObject(pObject)
 
 	Func object 
-		return QJsonDocument_object(pObject)
+		pTempObj = new QJsonObject
+		pTempObj.pObject = QJsonDocument_object(pObject)
+		return pTempObj
 
 	Func rawData P1
 		return QJsonDocument_rawData(pObject,GetObjectPointerFromRingObject(P1))
@@ -11735,6 +11739,65 @@ Class QJsonDocument
 	Func fromVariant P1
 		pTempObj = new QJsonDocument
 		pTempObj.pObject = QJsonDocument_fromVariant(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+Class QJsonObject
+
+	pObject
+
+	Func init 
+		pObject = QJsonObject_new()
+		return self
+
+	Func delete
+		pObject = QJsonObject_delete(pObject)
+
+	Func contains P1
+		return QJsonObject_contains(pObject,P1)
+
+	Func count 
+		return QJsonObject_count(pObject)
+
+	Func empty 
+		return QJsonObject_empty(pObject)
+
+	Func isEmpty 
+		return QJsonObject_isEmpty(pObject)
+
+	Func keys 
+		pTempObj = new QStringList
+		pTempObj.pObject = QJsonObject_keys(pObject)
+		return pTempObj
+
+	Func length 
+		return QJsonObject_length(pObject)
+
+	Func remove P1
+		return QJsonObject_remove(pObject,P1)
+
+	Func size 
+		return QJsonObject_size(pObject)
+
+	Func take P1
+		return QJsonObject_take(pObject,P1)
+
+	Func toVariantHash 
+		return QJsonObject_toVariantHash(pObject)
+
+	Func toVariantMap 
+		return QJsonObject_toVariantMap(pObject)
+
+	Func value P1
+		return QJsonObject_value(pObject,P1)
+
+	Func fromVariantHash P1
+		pTempObj = new QJsonObject
+		pTempObj.pObject = QJsonObject_fromVariantHash(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func fromVariantMap P1
+		pTempObj = new QJsonObject
+		pTempObj.pObject = QJsonObject_fromVariantMap(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
 Class QIcon
