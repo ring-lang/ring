@@ -6,7 +6,7 @@ os:
 compiler:
   - gcc
   - clang
-osx_image: xcode8
+osx_image: beta-xcode6.2
 install: 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq unixODBC ; fi
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq unixODBC-dev  ; fi
