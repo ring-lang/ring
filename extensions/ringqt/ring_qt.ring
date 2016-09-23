@@ -10211,7 +10211,9 @@ Class QVariant
 		return pTempObj
 
 	Func toJsonValue 
-		return QVariant_toJsonValue(pObject)
+		pTempObj = new QJsonValue
+		pTempObj.pObject = QVariant_toJsonValue(pObject)
+		return pTempObj
 
 	Func toLine 
 		return QVariant_toLine(pObject)
@@ -11595,7 +11597,9 @@ Class QJsonArray
 		return QJsonArray_append(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func at P1
-		return QJsonArray_at(pObject,P1)
+		pTempObj = new QJsonValue
+		pTempObj.pObject = QJsonArray_at(pObject,P1)
+		return pTempObj
 
 	Func contains P1
 		return QJsonArray_contains(pObject,GetObjectPointerFromRingObject(P1))
@@ -11607,7 +11611,9 @@ Class QJsonArray
 		return QJsonArray_empty(pObject)
 
 	Func first 
-		return QJsonArray_first(pObject)
+		pTempObj = new QJsonValue
+		pTempObj.pObject = QJsonArray_first(pObject)
+		return pTempObj
 
 	Func insert P1,P2
 		return QJsonArray_insert(pObject,P1,GetObjectPointerFromRingObject(P2))
@@ -11616,7 +11622,9 @@ Class QJsonArray
 		return QJsonArray_isEmpty(pObject)
 
 	Func last 
-		return QJsonArray_last(pObject)
+		pTempObj = new QJsonValue
+		pTempObj.pObject = QJsonArray_last(pObject)
+		return pTempObj
 
 	Func pop_back 
 		return QJsonArray_pop_back(pObject)
@@ -11649,7 +11657,9 @@ Class QJsonArray
 		return QJsonArray_size(pObject)
 
 	Func takeAt P1
-		return QJsonArray_takeAt(pObject,P1)
+		pTempObj = new QJsonValue
+		pTempObj.pObject = QJsonArray_takeAt(pObject,P1)
+		return pTempObj
 
 	Func toVariantList 
 		return QJsonArray_toVariantList(pObject)
@@ -11779,25 +11789,112 @@ Class QJsonObject
 		return QJsonObject_size(pObject)
 
 	Func take P1
-		return QJsonObject_take(pObject,P1)
-
-	Func toVariantHash 
-		return QJsonObject_toVariantHash(pObject)
+		pTempObj = new QJsonValue
+		pTempObj.pObject = QJsonObject_take(pObject,P1)
+		return pTempObj
 
 	Func toVariantMap 
 		return QJsonObject_toVariantMap(pObject)
 
 	Func value P1
-		return QJsonObject_value(pObject,P1)
-
-	Func fromVariantHash P1
-		pTempObj = new QJsonObject
-		pTempObj.pObject = QJsonObject_fromVariantHash(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QJsonValue
+		pTempObj.pObject = QJsonObject_value(pObject,P1)
 		return pTempObj
 
 	Func fromVariantMap P1
 		pTempObj = new QJsonObject
 		pTempObj.pObject = QJsonObject_fromVariantMap(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+Class QJsonParseError
+
+	pObject
+
+	Func init 
+		pObject = QJsonParseError_new()
+		return self
+
+	Func delete
+		pObject = QJsonParseError_delete(pObject)
+
+	Func errorString 
+		return QJsonParseError_errorString(pObject)
+
+Class QJsonValue
+
+	pObject
+
+	Func init 
+		pObject = QJsonValue_new()
+		return self
+
+	Func delete
+		pObject = QJsonValue_delete(pObject)
+
+	Func isArray 
+		return QJsonValue_isArray(pObject)
+
+	Func isBool 
+		return QJsonValue_isBool(pObject)
+
+	Func isDouble 
+		return QJsonValue_isDouble(pObject)
+
+	Func isNull 
+		return QJsonValue_isNull(pObject)
+
+	Func isObject 
+		return QJsonValue_isObject(pObject)
+
+	Func isString 
+		return QJsonValue_isString(pObject)
+
+	Func isUndefined 
+		return QJsonValue_isUndefined(pObject)
+
+	Func toArray P1
+		pTempObj = new QJsonArray
+		pTempObj.pObject = QJsonValue_toArray(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func toArray_2 
+		pTempObj = new QJsonArray
+		pTempObj.pObject = QJsonValue_toArray_2(pObject)
+		return pTempObj
+
+	Func toBool P1
+		return QJsonValue_toBool(pObject,P1)
+
+	Func toDouble P1
+		return QJsonValue_toDouble(pObject,P1)
+
+	Func toInt P1
+		return QJsonValue_toInt(pObject,P1)
+
+	Func toObject P1
+		pTempObj = new QJsonObject
+		pTempObj.pObject = QJsonValue_toObject(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func toObject_2 
+		pTempObj = new QJsonObject
+		pTempObj.pObject = QJsonValue_toObject_2(pObject)
+		return pTempObj
+
+	Func toString P1
+		return QJsonValue_toString(pObject,P1)
+
+	Func toVariant 
+		pTempObj = new QVariant
+		pTempObj.pObject = QJsonValue_toVariant(pObject)
+		return pTempObj
+
+	Func type 
+		return QJsonValue_type(pObject)
+
+	Func fromVariant P1
+		pTempObj = new QJsonValue
+		pTempObj.pObject = QJsonValue_fromVariant(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
 Class QIcon

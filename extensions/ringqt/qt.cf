@@ -4912,11 +4912,15 @@ int length(void)
 void remove(QString  key)
 int size(void)
 QJsonValue take(QString  key)
+
+<comment>
 QVariantHash toVariantHash(void)
+QJsonObject fromVariantHash(QVariantHash  hash)
+</comment>
+
 QVariantMap toVariantMap(void)
 QJsonValue value(QString  key)
 
-QJsonObject fromVariantHash(QVariantHash  hash)
 QJsonObject fromVariantMap(QVariantMap  map)
 
 
@@ -4925,7 +4929,7 @@ name: QJsonParseError
 para: void
 </class>
 
-QString	errorString(void)
+QString errorString(void)
 
 <class>
 name: QJsonValue

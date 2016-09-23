@@ -57699,7 +57699,7 @@ RING_FUNC(ring_QVariant_toJsonValue)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QJsonValue *pValue ; 
-		pValue = (QJsonValue *) malloc(sizeof(QJsonValue)) ;
+		pValue = new QJsonValue() ;
 		*pValue = pObject->toJsonValue();
 		RING_API_RETCPOINTER(pValue,"QJsonValue");
 	}
@@ -65246,7 +65246,7 @@ RING_FUNC(ring_QJsonArray_at)
 	}
 	{
 		QJsonValue *pValue ; 
-		pValue = (QJsonValue *) malloc(sizeof(QJsonValue)) ;
+		pValue = new QJsonValue() ;
 		*pValue = pObject->at( (int ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QJsonValue");
 	}
@@ -65321,7 +65321,7 @@ RING_FUNC(ring_QJsonArray_first)
 	pObject = (QJsonArray *) RING_API_GETCPOINTER(1,"QJsonArray");
 	{
 		QJsonValue *pValue ; 
-		pValue = (QJsonValue *) malloc(sizeof(QJsonValue)) ;
+		pValue = new QJsonValue() ;
 		*pValue = pObject->first();
 		RING_API_RETCPOINTER(pValue,"QJsonValue");
 	}
@@ -65383,7 +65383,7 @@ RING_FUNC(ring_QJsonArray_last)
 	pObject = (QJsonArray *) RING_API_GETCPOINTER(1,"QJsonArray");
 	{
 		QJsonValue *pValue ; 
-		pValue = (QJsonValue *) malloc(sizeof(QJsonValue)) ;
+		pValue = new QJsonValue() ;
 		*pValue = pObject->last();
 		RING_API_RETCPOINTER(pValue,"QJsonValue");
 	}
@@ -65595,7 +65595,7 @@ RING_FUNC(ring_QJsonArray_takeAt)
 	}
 	{
 		QJsonValue *pValue ; 
-		pValue = (QJsonValue *) malloc(sizeof(QJsonValue)) ;
+		pValue = new QJsonValue() ;
 		*pValue = pObject->takeAt( (int ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QJsonValue");
 	}
@@ -66196,31 +66196,9 @@ RING_FUNC(ring_QJsonObject_take)
 	}
 	{
 		QJsonValue *pValue ; 
-		pValue = (QJsonValue *) malloc(sizeof(QJsonValue)) ;
+		pValue = new QJsonValue() ;
 		*pValue = pObject->take(RING_API_GETSTRING(2));
 		RING_API_RETCPOINTER(pValue,"QJsonValue");
-	}
-}
-
-
-RING_FUNC(ring_QJsonObject_toVariantHash)
-{
-	QJsonObject *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QJsonObject *) RING_API_GETCPOINTER(1,"QJsonObject");
-	{
-		QVariantHash *pValue ; 
-		pValue = (QVariantHash *) malloc(sizeof(QVariantHash)) ;
-		*pValue = pObject->toVariantHash();
-		RING_API_RETCPOINTER(pValue,"QVariantHash");
 	}
 }
 
@@ -66266,33 +66244,9 @@ RING_FUNC(ring_QJsonObject_value)
 	}
 	{
 		QJsonValue *pValue ; 
-		pValue = (QJsonValue *) malloc(sizeof(QJsonValue)) ;
+		pValue = new QJsonValue() ;
 		*pValue = pObject->value(RING_API_GETSTRING(2));
 		RING_API_RETCPOINTER(pValue,"QJsonValue");
-	}
-}
-
-
-RING_FUNC(ring_QJsonObject_fromVariantHash)
-{
-	QJsonObject *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QJsonObject *) RING_API_GETCPOINTER(1,"QJsonObject");
-	{
-		QJsonObject *pValue ; 
-		pValue = new QJsonObject() ;
-		*pValue = pObject->fromVariantHash(* (QVariantHash   *) RING_API_GETCPOINTER(2,"QVariantHash"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariantHash"));
-		RING_API_RETCPOINTER(pValue,"QJsonObject");
 	}
 }
 
@@ -66317,6 +66271,386 @@ RING_FUNC(ring_QJsonObject_fromVariantMap)
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QVariantMap"));
 		RING_API_RETCPOINTER(pValue,"QJsonObject");
+	}
+}
+
+
+RING_FUNC(ring_QJsonParseError_errorString)
+{
+	QJsonParseError *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonParseError *) RING_API_GETCPOINTER(1,"QJsonParseError");
+	RING_API_RETSTRING(pObject->errorString().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QJsonValue_isArray)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	RING_API_RETNUMBER(pObject->isArray());
+}
+
+
+RING_FUNC(ring_QJsonValue_isBool)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	RING_API_RETNUMBER(pObject->isBool());
+}
+
+
+RING_FUNC(ring_QJsonValue_isDouble)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	RING_API_RETNUMBER(pObject->isDouble());
+}
+
+
+RING_FUNC(ring_QJsonValue_isNull)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QJsonValue_isObject)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	RING_API_RETNUMBER(pObject->isObject());
+}
+
+
+RING_FUNC(ring_QJsonValue_isString)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	RING_API_RETNUMBER(pObject->isString());
+}
+
+
+RING_FUNC(ring_QJsonValue_isUndefined)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	RING_API_RETNUMBER(pObject->isUndefined());
+}
+
+
+RING_FUNC(ring_QJsonValue_toArray)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	{
+		QJsonArray *pValue ; 
+		pValue = new QJsonArray() ;
+		*pValue = pObject->toArray(* (QJsonArray   *) RING_API_GETCPOINTER(2,"QJsonArray"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QJsonArray"));
+		RING_API_RETCPOINTER(pValue,"QJsonArray");
+	}
+}
+
+
+RING_FUNC(ring_QJsonValue_toArray_2)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	{
+		QJsonArray *pValue ; 
+		pValue = new QJsonArray() ;
+		*pValue = pObject->toArray();
+		RING_API_RETCPOINTER(pValue,"QJsonArray");
+	}
+}
+
+
+RING_FUNC(ring_QJsonValue_toBool)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->toBool( (bool ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QJsonValue_toDouble)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->toDouble( (double ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QJsonValue_toInt)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->toInt( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QJsonValue_toObject)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	{
+		QJsonObject *pValue ; 
+		pValue = new QJsonObject() ;
+		*pValue = pObject->toObject(* (QJsonObject   *) RING_API_GETCPOINTER(2,"QJsonObject"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QJsonObject"));
+		RING_API_RETCPOINTER(pValue,"QJsonObject");
+	}
+}
+
+
+RING_FUNC(ring_QJsonValue_toObject_2)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	{
+		QJsonObject *pValue ; 
+		pValue = new QJsonObject() ;
+		*pValue = pObject->toObject();
+		RING_API_RETCPOINTER(pValue,"QJsonObject");
+	}
+}
+
+
+RING_FUNC(ring_QJsonValue_toString)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->toString(RING_API_GETSTRING(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QJsonValue_toVariant)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	{
+		QVariant *pValue ; 
+		pValue = new QVariant() ;
+		*pValue = pObject->toVariant();
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QJsonValue_type)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	{
+		QJsonValue::Type *pValue ; 
+		pValue = (QJsonValue::Type *) malloc(sizeof(QJsonValue::Type)) ;
+		*pValue = pObject->type();
+		RING_API_RETCPOINTER(pValue,"QJsonValue::Type");
+	}
+}
+
+
+RING_FUNC(ring_QJsonValue_fromVariant)
+{
+	QJsonValue *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
+	{
+		QJsonValue *pValue ; 
+		pValue = new QJsonValue() ;
+		*pValue = pObject->fromVariant(* (QVariant   *) RING_API_GETCPOINTER(2,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QVariant"));
+		RING_API_RETCPOINTER(pValue,"QJsonValue");
 	}
 }
 
@@ -67829,6 +68163,28 @@ RING_FUNC(ring_QJsonObject_new)
 	}
 	QJsonObject *pObject = new QJsonObject();
 	RING_API_RETCPOINTER(pObject,"QJsonObject");
+}
+
+RING_FUNC(ring_QJsonParseError_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QJsonParseError *pObject = new QJsonParseError();
+	RING_API_RETCPOINTER(pObject,"QJsonParseError");
+}
+
+RING_FUNC(ring_QJsonValue_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QJsonValue *pObject = new QJsonValue();
+	RING_API_RETCPOINTER(pObject,"QJsonValue");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -69522,6 +69878,36 @@ RING_FUNC(ring_QJsonObject_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QJsonObject *) RING_API_GETCPOINTER(1,"QJsonObject");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QJsonParseError_delete)
+{
+	QJsonParseError *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QJsonParseError *) RING_API_GETCPOINTER(1,"QJsonParseError");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QJsonValue_delete)
+{
+	QJsonValue *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
 		delete pObject ;
 	}
 }
@@ -72743,11 +73129,28 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qjsonobject_remove",ring_QJsonObject_remove);
 	ring_vm_funcregister("qjsonobject_size",ring_QJsonObject_size);
 	ring_vm_funcregister("qjsonobject_take",ring_QJsonObject_take);
-	ring_vm_funcregister("qjsonobject_tovarianthash",ring_QJsonObject_toVariantHash);
 	ring_vm_funcregister("qjsonobject_tovariantmap",ring_QJsonObject_toVariantMap);
 	ring_vm_funcregister("qjsonobject_value",ring_QJsonObject_value);
-	ring_vm_funcregister("qjsonobject_fromvarianthash",ring_QJsonObject_fromVariantHash);
 	ring_vm_funcregister("qjsonobject_fromvariantmap",ring_QJsonObject_fromVariantMap);
+	ring_vm_funcregister("qjsonparseerror_errorstring",ring_QJsonParseError_errorString);
+	ring_vm_funcregister("qjsonvalue_isarray",ring_QJsonValue_isArray);
+	ring_vm_funcregister("qjsonvalue_isbool",ring_QJsonValue_isBool);
+	ring_vm_funcregister("qjsonvalue_isdouble",ring_QJsonValue_isDouble);
+	ring_vm_funcregister("qjsonvalue_isnull",ring_QJsonValue_isNull);
+	ring_vm_funcregister("qjsonvalue_isobject",ring_QJsonValue_isObject);
+	ring_vm_funcregister("qjsonvalue_isstring",ring_QJsonValue_isString);
+	ring_vm_funcregister("qjsonvalue_isundefined",ring_QJsonValue_isUndefined);
+	ring_vm_funcregister("qjsonvalue_toarray",ring_QJsonValue_toArray);
+	ring_vm_funcregister("qjsonvalue_toarray_2",ring_QJsonValue_toArray_2);
+	ring_vm_funcregister("qjsonvalue_tobool",ring_QJsonValue_toBool);
+	ring_vm_funcregister("qjsonvalue_todouble",ring_QJsonValue_toDouble);
+	ring_vm_funcregister("qjsonvalue_toint",ring_QJsonValue_toInt);
+	ring_vm_funcregister("qjsonvalue_toobject",ring_QJsonValue_toObject);
+	ring_vm_funcregister("qjsonvalue_toobject_2",ring_QJsonValue_toObject_2);
+	ring_vm_funcregister("qjsonvalue_tostring",ring_QJsonValue_toString);
+	ring_vm_funcregister("qjsonvalue_tovariant",ring_QJsonValue_toVariant);
+	ring_vm_funcregister("qjsonvalue_type",ring_QJsonValue_type);
+	ring_vm_funcregister("qjsonvalue_fromvariant",ring_QJsonValue_fromVariant);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -72861,6 +73264,8 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qjsonarray_new",ring_QJsonArray_new);
 	ring_vm_funcregister("qjsondocument_new",ring_QJsonDocument_new);
 	ring_vm_funcregister("qjsonobject_new",ring_QJsonObject_new);
+	ring_vm_funcregister("qjsonparseerror_new",ring_QJsonParseError_new);
+	ring_vm_funcregister("qjsonvalue_new",ring_QJsonValue_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -72974,4 +73379,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qjsonarray_delete",ring_QJsonArray_delete);
 	ring_vm_funcregister("qjsondocument_delete",ring_QJsonDocument_delete);
 	ring_vm_funcregister("qjsonobject_delete",ring_QJsonObject_delete);
+	ring_vm_funcregister("qjsonparseerror_delete",ring_QJsonParseError_delete);
+	ring_vm_funcregister("qjsonvalue_delete",ring_QJsonValue_delete);
 }
