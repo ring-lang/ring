@@ -20,7 +20,6 @@ funcAfterClass = func cClassName {
 	if find(aRingQtClasses,cClassName) = 0
 		nPos = find(aRingQtToQtClasses,lower(cClassName),1)
 		if nPos > 0
-			see nPos + nl
 			cClassName = aRingQtToQtClasses[nPos][2]
 		ok
 		if cClassName = "QWebView"

@@ -4815,3 +4815,39 @@ Parameters : void
 * QRegularExpressionMatch peekNext(void)
 * QRegularExpression regularExpression(void)
 * void swap(QRegularExpressionMatchIterator other)
+
+.. index::
+	pair: RingQt Classes Reference; QJsonArray Class
+
+QJsonArray Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QJsonArray.html
+
+
+Parameters : void
+
+* void append(QJsonValue  value)
+* QJsonValue at(int i)
+* bool contains(QJsonValue  value)
+* int count(void)
+* bool empty(void)
+* QJsonValue first(void)
+* void insert(int i, QJsonValue  value)
+* bool isEmpty(void)
+* QJsonValue last(void)
+* void pop_back(void)
+* void pop_front(void)
+* void prepend(QJsonValue  value)
+* void push_back(QJsonValue  value)
+* void push_front(QJsonValue  value)
+* void removeAt(int i)
+* void removeFirst(void)
+* void removeLast(void)
+* void replace(int i, QJsonValue  value)
+* int size(void)
+* QJsonValue takeAt(int i)
+* QVariantList toVariantList(void)
+* QJsonArray fromStringList(QStringList  list)
+* QJsonArray fromVariantList(QVariantList  list)
