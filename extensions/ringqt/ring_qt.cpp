@@ -66765,25 +66765,6 @@ RING_FUNC(ring_QPlainTextEdit_createStandardContextMenu)
 }
 
 
-RING_FUNC(ring_QPlainTextEdit_createStandardContextMenu_2)
-{
-	GPlainTextEdit *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
-	RING_API_RETCPOINTER(pObject->createStandardContextMenu(* (QPoint  *) RING_API_GETCPOINTER(2,"QPoint")),"QMenu");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
-}
-
-
 RING_FUNC(ring_QPlainTextEdit_currentCharFormat)
 {
 	GPlainTextEdit *pObject ;
@@ -66989,27 +66970,6 @@ RING_FUNC(ring_QPlainTextEdit_find)
 }
 
 
-RING_FUNC(ring_QPlainTextEdit_find_2)
-{
-	GPlainTextEdit *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
-	RING_API_RETNUMBER(pObject->find(* (QRegExp  *) RING_API_GETCPOINTER(2,"QRegExp"),* (QTextDocument::FindFlags  *) RING_API_GETCPOINTER(3,"QTextDocument::FindFlags")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRegExp"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QTextDocument::FindFlags"));
-}
-
-
 RING_FUNC(ring_QPlainTextEdit_isReadOnly)
 {
 	GPlainTextEdit *pObject ;
@@ -67136,23 +67096,6 @@ RING_FUNC(ring_QPlainTextEdit_overwriteMode)
 	}
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->overwriteMode());
-}
-
-
-RING_FUNC(ring_QPlainTextEdit_placeholderText)
-{
-	GPlainTextEdit *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
-	RING_API_RETSTRING(pObject->placeholderText().toStdString().c_str());
 }
 
 
@@ -67380,27 +67323,6 @@ RING_FUNC(ring_QPlainTextEdit_setOverwriteMode)
 		return ;
 	}
 	pObject->setOverwriteMode( (bool ) RING_API_GETNUMBER(2));
-}
-
-
-RING_FUNC(ring_QPlainTextEdit_setPlaceholderText)
-{
-	GPlainTextEdit *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setPlaceholderText(RING_API_GETSTRING(2));
 }
 
 
@@ -74453,7 +74375,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_canpaste",ring_QPlainTextEdit_canPaste);
 	ring_vm_funcregister("qplaintextedit_centeronscroll",ring_QPlainTextEdit_centerOnScroll);
 	ring_vm_funcregister("qplaintextedit_createstandardcontextmenu",ring_QPlainTextEdit_createStandardContextMenu);
-	ring_vm_funcregister("qplaintextedit_createstandardcontextmenu_2",ring_QPlainTextEdit_createStandardContextMenu_2);
 	ring_vm_funcregister("qplaintextedit_currentcharformat",ring_QPlainTextEdit_currentCharFormat);
 	ring_vm_funcregister("qplaintextedit_cursorforposition",ring_QPlainTextEdit_cursorForPosition);
 	ring_vm_funcregister("qplaintextedit_cursorrect",ring_QPlainTextEdit_cursorRect);
@@ -74464,7 +74385,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_ensurecursorvisible",ring_QPlainTextEdit_ensureCursorVisible);
 	ring_vm_funcregister("qplaintextedit_extraselections",ring_QPlainTextEdit_extraSelections);
 	ring_vm_funcregister("qplaintextedit_find",ring_QPlainTextEdit_find);
-	ring_vm_funcregister("qplaintextedit_find_2",ring_QPlainTextEdit_find_2);
 	ring_vm_funcregister("qplaintextedit_isreadonly",ring_QPlainTextEdit_isReadOnly);
 	ring_vm_funcregister("qplaintextedit_isundoredoenabled",ring_QPlainTextEdit_isUndoRedoEnabled);
 	ring_vm_funcregister("qplaintextedit_linewrapmode",ring_QPlainTextEdit_lineWrapMode);
@@ -74472,7 +74392,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_mergecurrentcharformat",ring_QPlainTextEdit_mergeCurrentCharFormat);
 	ring_vm_funcregister("qplaintextedit_movecursor",ring_QPlainTextEdit_moveCursor);
 	ring_vm_funcregister("qplaintextedit_overwritemode",ring_QPlainTextEdit_overwriteMode);
-	ring_vm_funcregister("qplaintextedit_placeholdertext",ring_QPlainTextEdit_placeholderText);
 	ring_vm_funcregister("qplaintextedit_print",ring_QPlainTextEdit_print);
 	ring_vm_funcregister("qplaintextedit_setbackgroundvisible",ring_QPlainTextEdit_setBackgroundVisible);
 	ring_vm_funcregister("qplaintextedit_setcenteronscroll",ring_QPlainTextEdit_setCenterOnScroll);
@@ -74484,7 +74403,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_setlinewrapmode",ring_QPlainTextEdit_setLineWrapMode);
 	ring_vm_funcregister("qplaintextedit_setmaximumblockcount",ring_QPlainTextEdit_setMaximumBlockCount);
 	ring_vm_funcregister("qplaintextedit_setoverwritemode",ring_QPlainTextEdit_setOverwriteMode);
-	ring_vm_funcregister("qplaintextedit_setplaceholdertext",ring_QPlainTextEdit_setPlaceholderText);
 	ring_vm_funcregister("qplaintextedit_setreadonly",ring_QPlainTextEdit_setReadOnly);
 	ring_vm_funcregister("qplaintextedit_settabchangesfocus",ring_QPlainTextEdit_setTabChangesFocus);
 	ring_vm_funcregister("qplaintextedit_settabstopwidth",ring_QPlainTextEdit_setTabStopWidth);

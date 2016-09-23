@@ -4977,7 +4977,11 @@ int blockCount(void)
 bool canPaste(void)
 bool centerOnScroll(void)
 QMenu * createStandardContextMenu(void)
+
+<comment>
 QMenu * createStandardContextMenu@2(QPoint position)
+</comment>
+
 QTextCharFormat currentCharFormat(void)
 QTextCursor cursorForPosition(QPoint pos)
 QRect cursorRect(QTextCursor cursor)
@@ -4988,7 +4992,11 @@ QString documentTitle(void)
 void ensureCursorVisible(void)
 QList<QTextEdit::ExtraSelection> extraSelections(void)
 bool find(QString exp, QTextDocument::FindFlags options)
+
+<comment>
 bool find@2(QRegExp exp, QTextDocument::FindFlags options)
+</comment>
+
 bool isReadOnly(void)
 bool isUndoRedoEnabled(void)
 QPlainTextEdit::LineWrapMode lineWrapMode(void)
@@ -5001,7 +5009,11 @@ int maximumBlockCount(void)
 void mergeCurrentCharFormat(QTextCharFormat modifier)
 void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
 bool overwriteMode(void)
+
+<comment>
 QString placeholderText(void)
+</comment>
+
 void print(QPagedPaintDevice *printer)
 void setBackgroundVisible(bool visible)
 void setCenterOnScroll(bool enabled)
@@ -5013,7 +5025,11 @@ void setExtraSelections(QList<QTextEdit::ExtraSelection> selections)
 void setLineWrapMode(QPlainTextEdit::LineWrapMode mode)
 void setMaximumBlockCount(int maximum)
 void setOverwriteMode(bool overwrite)
+
+<comment>
 void setPlaceholderText(QString placeholderText)
+</comment>
+
 void setReadOnly(bool ro)
 void setTabChangesFocus(bool b)
 void setTabStopWidth(int width)

@@ -11928,11 +11928,6 @@ Class QPlainTextEdit from QWidget
 		pTempObj.pObject = QPlainTextEdit_createStandardContextMenu(pObject)
 		return pTempObj
 
-	Func createStandardContextMenu_2 P1
-		pTempObj = new QMenu
-		pTempObj.pObject = QPlainTextEdit_createStandardContextMenu_2(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
 	Func currentCharFormat 
 		return QPlainTextEdit_currentCharFormat(pObject)
 
@@ -11971,9 +11966,6 @@ Class QPlainTextEdit from QWidget
 	Func find P1,P2
 		return QPlainTextEdit_find(pObject,P1,GetObjectPointerFromRingObject(P2))
 
-	Func find_2 P1,P2
-		return QPlainTextEdit_find_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
 	Func isReadOnly 
 		return QPlainTextEdit_isReadOnly(pObject)
 
@@ -11994,9 +11986,6 @@ Class QPlainTextEdit from QWidget
 
 	Func overwriteMode 
 		return QPlainTextEdit_overwriteMode(pObject)
-
-	Func placeholderText 
-		return QPlainTextEdit_placeholderText(pObject)
 
 	Func print P1
 		return QPlainTextEdit_print(pObject,GetObjectPointerFromRingObject(P1))
@@ -12030,9 +12019,6 @@ Class QPlainTextEdit from QWidget
 
 	Func setOverwriteMode P1
 		return QPlainTextEdit_setOverwriteMode(pObject,P1)
-
-	Func setPlaceholderText P1
-		return QPlainTextEdit_setPlaceholderText(pObject,P1)
 
 	Func setReadOnly P1
 		return QPlainTextEdit_setReadOnly(pObject,P1)
