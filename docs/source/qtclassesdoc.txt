@@ -4907,3 +4907,48 @@ Parameters : void
 * QJsonValue value(QString  key)
 * QJsonObject fromVariantHash(QVariantHash  hash)
 * QJsonObject fromVariantMap(QVariantMap  map)
+
+.. index::
+	pair: RingQt Classes Reference; QJsonParseError Class
+
+QJsonParseError Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QJsonParseError.html
+
+
+Parameters : void
+
+* QString	errorString(void)
+
+.. index::
+	pair: RingQt Classes Reference; QJsonValue Class
+
+QJsonValue Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QJsonValue.html
+
+
+Parameters : void
+
+* bool isArray(void)
+* bool isBool(void)
+* bool isDouble(void)
+* bool isNull(void)
+* bool isObject(void)
+* bool isString(void)
+* bool isUndefined(void)
+* QJsonArray toArray(QJsonArray  defaultValue)
+* QJsonArray toArray_2(void)
+* bool toBool(bool defaultValue  )
+* double toDouble(double defaultValue )
+* int toInt(int defaultValue )
+* QJsonObject toObject(QJsonObject  defaultValue)
+* QJsonObject toObject_2(void)
+* QString toString(QString  defaultValue  )
+* QVariant toVariant(void)
+* QJsonValue::Type type(void)
+* QJsonValue fromVariant(QVariant  variant)
