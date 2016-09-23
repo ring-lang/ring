@@ -7,6 +7,7 @@ C_OUTPUTFILE = "ringlibsdlfuncsdoc.txt"
 C_CHAPTERNAME = "RingLibSDL Functions Reference"
 cFile = read("libsdl.cf")
 lStart = True		# False = Classes Doc.   True = Functions Doc.
+funcAfterClass = ""	# Not used
 #===============================================
 
 load "../codegen/gendoc.ring"

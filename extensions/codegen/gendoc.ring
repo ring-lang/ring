@@ -36,7 +36,9 @@ for x = 1 to len(aList)
 
 				cOutput += windowsnl() + cClassName + windowsnl()
 				cOutput += Copy("=",len(cClassName)) + windowsnl() + windowsnl()
-				cOutput += call funcAfterClass(cClassNameAlone)
+				if funcAfterClass != NULL
+					cOutput += call funcAfterClass(cClassNameAlone)
+				ok
 			ok
 			if left(cLine,7) = "parent:"
 				cClassName = trim(substr(cLine,8)) 

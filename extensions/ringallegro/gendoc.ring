@@ -7,6 +7,7 @@ C_OUTPUTFILE = "ringallegrofuncsdoc.txt"
 C_CHAPTERNAME = "RingAllegro Functions Reference"
 cFile = read("allegro.cf")
 lStart = True		# False = Classes Doc.   True = Functions Doc.
+funcAfterClass = ""	# Not used
 #===============================================
 
 load "../codegen/gendoc.ring"
