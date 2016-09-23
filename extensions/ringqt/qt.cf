@@ -4918,3 +4918,37 @@ QJsonValue value(QString  key)
 
 QJsonObject fromVariantHash(QVariantHash  hash)
 QJsonObject fromVariantMap(QVariantMap  map)
+
+
+<class>
+name: QJsonParseError
+para: void
+</class>
+
+QString	errorString(void)
+
+<class>
+name: QJsonValue
+para: void
+</class>
+
+bool isArray(void)
+bool isBool(void)
+bool isDouble(void)
+bool isNull(void)
+bool isObject(void)
+bool isString(void)
+bool isUndefined(void)
+QJsonArray toArray(QJsonArray  defaultValue)
+QJsonArray toArray@2(void)
+bool toBool(bool defaultValue  )
+double toDouble(double defaultValue )
+int toInt(int defaultValue )
+QJsonObject toObject(QJsonObject  defaultValue)
+QJsonObject toObject@2(void)
+QString toString(QString  defaultValue  )
+QVariant toVariant(void)
+QJsonValue::Type type(void)
+QJsonValue fromVariant(QVariant  variant)
+
+
