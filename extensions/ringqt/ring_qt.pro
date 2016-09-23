@@ -40,6 +40,7 @@ SOURCES +=   \
     gnetworkaccessmanager.cpp \
     highlighter.cpp \
     gthread.cpp \
+    gplaintextedit.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -70,7 +71,8 @@ HEADERS  += \
     gallevents.h \
     gnetworkaccessmanager.h \
     highlighter.h \
-    gthread.h
+    gthread.h \
+    gplaintextedit.h 
 
 INCLUDEPATH += ../../include
 

@@ -32,6 +32,9 @@ extern "C" {
 #include "gcolordialog.h"
 #include "gallevents.h"
 #include "gthread.h"
+#include "gplaintextedit.h"
+
+
 #include <QApplication>
 #include <QObject>
 #include <QWidget>
@@ -66660,7 +66663,7 @@ RING_FUNC(ring_QJsonValue_fromVariant)
 
 RING_FUNC(ring_QPlainTextEdit_anchorAt)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -66670,7 +66673,7 @@ RING_FUNC(ring_QPlainTextEdit_anchorAt)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETSTRING(pObject->anchorAt(* (QPoint  *) RING_API_GETCPOINTER(2,"QPoint")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QPoint"));
@@ -66679,7 +66682,7 @@ RING_FUNC(ring_QPlainTextEdit_anchorAt)
 
 RING_FUNC(ring_QPlainTextEdit_backgroundVisible)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66689,14 +66692,14 @@ RING_FUNC(ring_QPlainTextEdit_backgroundVisible)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->backgroundVisible());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_blockCount)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66706,14 +66709,14 @@ RING_FUNC(ring_QPlainTextEdit_blockCount)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->blockCount());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_canPaste)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66723,14 +66726,14 @@ RING_FUNC(ring_QPlainTextEdit_canPaste)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->canPaste());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_centerOnScroll)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66740,14 +66743,14 @@ RING_FUNC(ring_QPlainTextEdit_centerOnScroll)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->centerOnScroll());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_createStandardContextMenu)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66757,14 +66760,14 @@ RING_FUNC(ring_QPlainTextEdit_createStandardContextMenu)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETCPOINTER(pObject->createStandardContextMenu(),"QMenu");
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_createStandardContextMenu_2)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -66774,7 +66777,7 @@ RING_FUNC(ring_QPlainTextEdit_createStandardContextMenu_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETCPOINTER(pObject->createStandardContextMenu(* (QPoint  *) RING_API_GETCPOINTER(2,"QPoint")),"QMenu");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QPoint"));
@@ -66783,7 +66786,7 @@ RING_FUNC(ring_QPlainTextEdit_createStandardContextMenu_2)
 
 RING_FUNC(ring_QPlainTextEdit_currentCharFormat)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66793,7 +66796,7 @@ RING_FUNC(ring_QPlainTextEdit_currentCharFormat)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		QTextCharFormat *pValue ; 
 		pValue = (QTextCharFormat *) malloc(sizeof(QTextCharFormat)) ;
@@ -66805,7 +66808,7 @@ RING_FUNC(ring_QPlainTextEdit_currentCharFormat)
 
 RING_FUNC(ring_QPlainTextEdit_cursorForPosition)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -66815,7 +66818,7 @@ RING_FUNC(ring_QPlainTextEdit_cursorForPosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		QTextCursor *pValue ; 
 		pValue = new QTextCursor() ;
@@ -66829,7 +66832,7 @@ RING_FUNC(ring_QPlainTextEdit_cursorForPosition)
 
 RING_FUNC(ring_QPlainTextEdit_cursorRect)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -66839,7 +66842,7 @@ RING_FUNC(ring_QPlainTextEdit_cursorRect)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		QRect *pValue ; 
 		pValue = new QRect() ;
@@ -66853,7 +66856,7 @@ RING_FUNC(ring_QPlainTextEdit_cursorRect)
 
 RING_FUNC(ring_QPlainTextEdit_cursorRect_2)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66863,7 +66866,7 @@ RING_FUNC(ring_QPlainTextEdit_cursorRect_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		QRect *pValue ; 
 		pValue = new QRect() ;
@@ -66875,7 +66878,7 @@ RING_FUNC(ring_QPlainTextEdit_cursorRect_2)
 
 RING_FUNC(ring_QPlainTextEdit_cursorWidth)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66885,14 +66888,14 @@ RING_FUNC(ring_QPlainTextEdit_cursorWidth)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->cursorWidth());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_document)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66902,14 +66905,14 @@ RING_FUNC(ring_QPlainTextEdit_document)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETCPOINTER(pObject->document(),"QTextDocument");
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_documentTitle)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66919,14 +66922,14 @@ RING_FUNC(ring_QPlainTextEdit_documentTitle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETSTRING(pObject->documentTitle().toStdString().c_str());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_ensureCursorVisible)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66936,14 +66939,14 @@ RING_FUNC(ring_QPlainTextEdit_ensureCursorVisible)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->ensureCursorVisible();
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_extraSelections)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -66953,7 +66956,7 @@ RING_FUNC(ring_QPlainTextEdit_extraSelections)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		QList<QTextEdit::ExtraSelection> *pValue ; 
 		pValue = (QList<QTextEdit::ExtraSelection> *) malloc(sizeof(QList<QTextEdit::ExtraSelection>)) ;
@@ -66965,7 +66968,7 @@ RING_FUNC(ring_QPlainTextEdit_extraSelections)
 
 RING_FUNC(ring_QPlainTextEdit_find)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -66975,7 +66978,7 @@ RING_FUNC(ring_QPlainTextEdit_find)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -66988,7 +66991,7 @@ RING_FUNC(ring_QPlainTextEdit_find)
 
 RING_FUNC(ring_QPlainTextEdit_find_2)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -66998,7 +67001,7 @@ RING_FUNC(ring_QPlainTextEdit_find_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->find(* (QRegExp  *) RING_API_GETCPOINTER(2,"QRegExp"),* (QTextDocument::FindFlags  *) RING_API_GETCPOINTER(3,"QTextDocument::FindFlags")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QRegExp"));
@@ -67009,7 +67012,7 @@ RING_FUNC(ring_QPlainTextEdit_find_2)
 
 RING_FUNC(ring_QPlainTextEdit_isReadOnly)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67019,14 +67022,14 @@ RING_FUNC(ring_QPlainTextEdit_isReadOnly)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->isReadOnly());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_isUndoRedoEnabled)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67036,14 +67039,14 @@ RING_FUNC(ring_QPlainTextEdit_isUndoRedoEnabled)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->isUndoRedoEnabled());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_lineWrapMode)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67053,14 +67056,14 @@ RING_FUNC(ring_QPlainTextEdit_lineWrapMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->lineWrapMode());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_maximumBlockCount)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67070,14 +67073,14 @@ RING_FUNC(ring_QPlainTextEdit_maximumBlockCount)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->maximumBlockCount());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_mergeCurrentCharFormat)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67087,7 +67090,7 @@ RING_FUNC(ring_QPlainTextEdit_mergeCurrentCharFormat)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->mergeCurrentCharFormat(* (QTextCharFormat  *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
@@ -67096,7 +67099,7 @@ RING_FUNC(ring_QPlainTextEdit_mergeCurrentCharFormat)
 
 RING_FUNC(ring_QPlainTextEdit_moveCursor)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -67106,7 +67109,7 @@ RING_FUNC(ring_QPlainTextEdit_moveCursor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67121,7 +67124,7 @@ RING_FUNC(ring_QPlainTextEdit_moveCursor)
 
 RING_FUNC(ring_QPlainTextEdit_overwriteMode)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67131,14 +67134,14 @@ RING_FUNC(ring_QPlainTextEdit_overwriteMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->overwriteMode());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_placeholderText)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67148,14 +67151,14 @@ RING_FUNC(ring_QPlainTextEdit_placeholderText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETSTRING(pObject->placeholderText().toStdString().c_str());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_print)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67165,7 +67168,7 @@ RING_FUNC(ring_QPlainTextEdit_print)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67176,7 +67179,7 @@ RING_FUNC(ring_QPlainTextEdit_print)
 
 RING_FUNC(ring_QPlainTextEdit_setBackgroundVisible)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67186,7 +67189,7 @@ RING_FUNC(ring_QPlainTextEdit_setBackgroundVisible)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67197,7 +67200,7 @@ RING_FUNC(ring_QPlainTextEdit_setBackgroundVisible)
 
 RING_FUNC(ring_QPlainTextEdit_setCenterOnScroll)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67207,7 +67210,7 @@ RING_FUNC(ring_QPlainTextEdit_setCenterOnScroll)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67218,7 +67221,7 @@ RING_FUNC(ring_QPlainTextEdit_setCenterOnScroll)
 
 RING_FUNC(ring_QPlainTextEdit_setCurrentCharFormat)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67228,7 +67231,7 @@ RING_FUNC(ring_QPlainTextEdit_setCurrentCharFormat)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->setCurrentCharFormat(* (QTextCharFormat  *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
@@ -67237,7 +67240,7 @@ RING_FUNC(ring_QPlainTextEdit_setCurrentCharFormat)
 
 RING_FUNC(ring_QPlainTextEdit_setCursorWidth)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67247,7 +67250,7 @@ RING_FUNC(ring_QPlainTextEdit_setCursorWidth)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67258,7 +67261,7 @@ RING_FUNC(ring_QPlainTextEdit_setCursorWidth)
 
 RING_FUNC(ring_QPlainTextEdit_setDocument)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67268,7 +67271,7 @@ RING_FUNC(ring_QPlainTextEdit_setDocument)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67279,7 +67282,7 @@ RING_FUNC(ring_QPlainTextEdit_setDocument)
 
 RING_FUNC(ring_QPlainTextEdit_setDocumentTitle)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67289,7 +67292,7 @@ RING_FUNC(ring_QPlainTextEdit_setDocumentTitle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67300,7 +67303,7 @@ RING_FUNC(ring_QPlainTextEdit_setDocumentTitle)
 
 RING_FUNC(ring_QPlainTextEdit_setExtraSelections)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67310,7 +67313,7 @@ RING_FUNC(ring_QPlainTextEdit_setExtraSelections)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->setExtraSelections(* (QList<QTextEdit::ExtraSelection>  *) RING_API_GETCPOINTER(2,"QList<QTextEdit::ExtraSelection>"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QList<QTextEdit::ExtraSelection>"));
@@ -67319,7 +67322,7 @@ RING_FUNC(ring_QPlainTextEdit_setExtraSelections)
 
 RING_FUNC(ring_QPlainTextEdit_setLineWrapMode)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67329,7 +67332,7 @@ RING_FUNC(ring_QPlainTextEdit_setLineWrapMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67340,7 +67343,7 @@ RING_FUNC(ring_QPlainTextEdit_setLineWrapMode)
 
 RING_FUNC(ring_QPlainTextEdit_setMaximumBlockCount)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67350,7 +67353,7 @@ RING_FUNC(ring_QPlainTextEdit_setMaximumBlockCount)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67361,7 +67364,7 @@ RING_FUNC(ring_QPlainTextEdit_setMaximumBlockCount)
 
 RING_FUNC(ring_QPlainTextEdit_setOverwriteMode)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67371,7 +67374,7 @@ RING_FUNC(ring_QPlainTextEdit_setOverwriteMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67382,7 +67385,7 @@ RING_FUNC(ring_QPlainTextEdit_setOverwriteMode)
 
 RING_FUNC(ring_QPlainTextEdit_setPlaceholderText)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67392,7 +67395,7 @@ RING_FUNC(ring_QPlainTextEdit_setPlaceholderText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67403,7 +67406,7 @@ RING_FUNC(ring_QPlainTextEdit_setPlaceholderText)
 
 RING_FUNC(ring_QPlainTextEdit_setReadOnly)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67413,7 +67416,7 @@ RING_FUNC(ring_QPlainTextEdit_setReadOnly)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67424,7 +67427,7 @@ RING_FUNC(ring_QPlainTextEdit_setReadOnly)
 
 RING_FUNC(ring_QPlainTextEdit_setTabChangesFocus)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67434,7 +67437,7 @@ RING_FUNC(ring_QPlainTextEdit_setTabChangesFocus)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67445,7 +67448,7 @@ RING_FUNC(ring_QPlainTextEdit_setTabChangesFocus)
 
 RING_FUNC(ring_QPlainTextEdit_setTabStopWidth)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67455,7 +67458,7 @@ RING_FUNC(ring_QPlainTextEdit_setTabStopWidth)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67466,7 +67469,7 @@ RING_FUNC(ring_QPlainTextEdit_setTabStopWidth)
 
 RING_FUNC(ring_QPlainTextEdit_setTextCursor)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67476,7 +67479,7 @@ RING_FUNC(ring_QPlainTextEdit_setTextCursor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->setTextCursor(* (QTextCursor  *) RING_API_GETCPOINTER(2,"QTextCursor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QTextCursor"));
@@ -67485,7 +67488,7 @@ RING_FUNC(ring_QPlainTextEdit_setTextCursor)
 
 RING_FUNC(ring_QPlainTextEdit_setTextInteractionFlags)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67495,7 +67498,7 @@ RING_FUNC(ring_QPlainTextEdit_setTextInteractionFlags)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->setTextInteractionFlags(* (Qt::TextInteractionFlags  *) RING_API_GETCPOINTER(2,"Qt::TextInteractionFlags"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"Qt::TextInteractionFlags"));
@@ -67504,7 +67507,7 @@ RING_FUNC(ring_QPlainTextEdit_setTextInteractionFlags)
 
 RING_FUNC(ring_QPlainTextEdit_setUndoRedoEnabled)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67514,7 +67517,7 @@ RING_FUNC(ring_QPlainTextEdit_setUndoRedoEnabled)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67525,7 +67528,7 @@ RING_FUNC(ring_QPlainTextEdit_setUndoRedoEnabled)
 
 RING_FUNC(ring_QPlainTextEdit_setWordWrapMode)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67535,7 +67538,7 @@ RING_FUNC(ring_QPlainTextEdit_setWordWrapMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67546,7 +67549,7 @@ RING_FUNC(ring_QPlainTextEdit_setWordWrapMode)
 
 RING_FUNC(ring_QPlainTextEdit_tabChangesFocus)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67556,14 +67559,14 @@ RING_FUNC(ring_QPlainTextEdit_tabChangesFocus)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->tabChangesFocus());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_tabStopWidth)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67573,14 +67576,14 @@ RING_FUNC(ring_QPlainTextEdit_tabStopWidth)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->tabStopWidth());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_textCursor)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67590,7 +67593,7 @@ RING_FUNC(ring_QPlainTextEdit_textCursor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		QTextCursor *pValue ; 
 		pValue = new QTextCursor() ;
@@ -67602,7 +67605,7 @@ RING_FUNC(ring_QPlainTextEdit_textCursor)
 
 RING_FUNC(ring_QPlainTextEdit_textInteractionFlags)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67612,7 +67615,7 @@ RING_FUNC(ring_QPlainTextEdit_textInteractionFlags)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		Qt::TextInteractionFlags *pValue ; 
 		pValue = (Qt::TextInteractionFlags *) malloc(sizeof(Qt::TextInteractionFlags)) ;
@@ -67624,7 +67627,7 @@ RING_FUNC(ring_QPlainTextEdit_textInteractionFlags)
 
 RING_FUNC(ring_QPlainTextEdit_toPlainText)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67634,14 +67637,14 @@ RING_FUNC(ring_QPlainTextEdit_toPlainText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETSTRING(pObject->toPlainText().toStdString().c_str());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_wordWrapMode)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67651,14 +67654,14 @@ RING_FUNC(ring_QPlainTextEdit_wordWrapMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETNUMBER(pObject->wordWrapMode());
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_appendHtml)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67668,7 +67671,7 @@ RING_FUNC(ring_QPlainTextEdit_appendHtml)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67679,7 +67682,7 @@ RING_FUNC(ring_QPlainTextEdit_appendHtml)
 
 RING_FUNC(ring_QPlainTextEdit_appendPlainText)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67689,7 +67692,7 @@ RING_FUNC(ring_QPlainTextEdit_appendPlainText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67700,7 +67703,7 @@ RING_FUNC(ring_QPlainTextEdit_appendPlainText)
 
 RING_FUNC(ring_QPlainTextEdit_centerCursor)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67710,14 +67713,14 @@ RING_FUNC(ring_QPlainTextEdit_centerCursor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->centerCursor();
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_clear)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67727,14 +67730,14 @@ RING_FUNC(ring_QPlainTextEdit_clear)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->clear();
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_copy)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67744,14 +67747,14 @@ RING_FUNC(ring_QPlainTextEdit_copy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->copy();
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_cut)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67761,14 +67764,14 @@ RING_FUNC(ring_QPlainTextEdit_cut)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->cut();
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_insertPlainText)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67778,7 +67781,7 @@ RING_FUNC(ring_QPlainTextEdit_insertPlainText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67789,7 +67792,7 @@ RING_FUNC(ring_QPlainTextEdit_insertPlainText)
 
 RING_FUNC(ring_QPlainTextEdit_paste)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67799,14 +67802,14 @@ RING_FUNC(ring_QPlainTextEdit_paste)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->paste();
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_redo)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67816,14 +67819,14 @@ RING_FUNC(ring_QPlainTextEdit_redo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->redo();
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_selectAll)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67833,14 +67836,14 @@ RING_FUNC(ring_QPlainTextEdit_selectAll)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->selectAll();
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_setPlainText)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67850,7 +67853,7 @@ RING_FUNC(ring_QPlainTextEdit_setPlainText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67861,7 +67864,7 @@ RING_FUNC(ring_QPlainTextEdit_setPlainText)
 
 RING_FUNC(ring_QPlainTextEdit_undo)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -67871,14 +67874,14 @@ RING_FUNC(ring_QPlainTextEdit_undo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->undo();
 }
 
 
 RING_FUNC(ring_QPlainTextEdit_zoomIn)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67888,7 +67891,7 @@ RING_FUNC(ring_QPlainTextEdit_zoomIn)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -67899,7 +67902,7 @@ RING_FUNC(ring_QPlainTextEdit_zoomIn)
 
 RING_FUNC(ring_QPlainTextEdit_zoomOut)
 {
-	QPlainTextEdit *pObject ;
+	GPlainTextEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -67909,7 +67912,7 @@ RING_FUNC(ring_QPlainTextEdit_zoomOut)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -69461,7 +69464,7 @@ RING_FUNC(ring_QPlainTextEdit_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QPlainTextEdit *pObject = new QPlainTextEdit((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	GPlainTextEdit *pObject = new GPlainTextEdit((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QPlainTextEdit");
 }
 
@@ -71192,7 +71195,7 @@ RING_FUNC(ring_QJsonValue_delete)
 
 RING_FUNC(ring_QPlainTextEdit_delete)
 {
-	QPlainTextEdit *pObject ; 
+	GPlainTextEdit *pObject ; 
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -71200,7 +71203,7 @@ RING_FUNC(ring_QPlainTextEdit_delete)
 	}
 	if ( RING_API_ISPOINTER(1) )
 	{
-		pObject = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+		pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"GPlainTextEdit");
 		delete pObject ;
 	}
 }

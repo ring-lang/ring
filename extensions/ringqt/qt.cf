@@ -41,6 +41,9 @@ extern "C" {
 #include "gcolordialog.h"
 #include "gallevents.h"
 #include "gthread.h"
+#include "gplaintextedit.h"
+
+
 #include <QApplication>
 #include <QObject>
 #include <QWidget>
@@ -4964,6 +4967,8 @@ QJsonValue fromVariant(QVariant  variant)
 name: QPlainTextEdit
 para: QWidget *
 parent: QWidget
+codename: GPlainTextEdit
+passvmpointer
 </class>
 
 QString anchorAt(QPoint pos)
