@@ -4902,10 +4902,8 @@ Parameters : void
 * void remove(QString  key)
 * int size(void)
 * QJsonValue take(QString  key)
-* QVariantHash toVariantHash(void)
 * QVariantMap toVariantMap(void)
 * QJsonValue value(QString  key)
-* QJsonObject fromVariantHash(QVariantHash  hash)
 * QJsonObject fromVariantMap(QVariantMap  map)
 
 .. index::
@@ -4920,7 +4918,7 @@ C++ Reference : http://doc.qt.io/qt-5/QJsonParseError.html
 
 Parameters : void
 
-* QString	errorString(void)
+* QString errorString(void)
 
 .. index::
 	pair: RingQt Classes Reference; QJsonValue Class
@@ -4952,3 +4950,84 @@ Parameters : void
 * QVariant toVariant(void)
 * QJsonValue::Type type(void)
 * QJsonValue fromVariant(QVariant  variant)
+
+.. index::
+	pair: RingQt Classes Reference; QPlainTextEdit Class
+
+QPlainTextEdit Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPlainTextEdit.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QWidget
+
+* QString anchorAt(QPoint pos)
+* bool backgroundVisible(void)
+* int blockCount(void)
+* bool canPaste(void)
+* bool centerOnScroll(void)
+* QMenu * createStandardContextMenu(void)
+* QMenu * createStandardContextMenu_2(QPoint position)
+* QTextCharFormat currentCharFormat(void)
+* QTextCursor cursorForPosition(QPoint pos)
+* QRect cursorRect(QTextCursor cursor)
+* QRect cursorRect_2(void)
+* int cursorWidth(void)
+* QTextDocument * document(void)
+* QString documentTitle(void)
+* void ensureCursorVisible(void)
+* QList<QTextEdit::ExtraSelection> extraSelections(void)
+* bool find(QString exp, QTextDocument::FindFlags options)
+* bool find_2(QRegExp exp, QTextDocument::FindFlags options)
+* bool isReadOnly(void)
+* bool isUndoRedoEnabled(void)
+* QPlainTextEdit::LineWrapMode lineWrapMode(void)
+* int maximumBlockCount(void)
+* void mergeCurrentCharFormat(QTextCharFormat modifier)
+* void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
+* bool overwriteMode(void)
+* QString placeholderText(void)
+* void print(QPagedPaintDevice *printer)
+* void setBackgroundVisible(bool visible)
+* void setCenterOnScroll(bool enabled)
+* void setCurrentCharFormat(QTextCharFormat format)
+* void setCursorWidth(int width)
+* void setDocument(QTextDocument *document)
+* void setDocumentTitle(QString title)
+* void setExtraSelections(QList<QTextEdit::ExtraSelection> selections)
+* void setLineWrapMode(QPlainTextEdit::LineWrapMode mode)
+* void setMaximumBlockCount(int maximum)
+* void setOverwriteMode(bool overwrite)
+* void setPlaceholderText(QString placeholderText)
+* void setReadOnly(bool ro)
+* void setTabChangesFocus(bool b)
+* void setTabStopWidth(int width)
+* void setTextCursor(QTextCursor cursor)
+* void setTextInteractionFlags(Qt::TextInteractionFlags flags)
+* void setUndoRedoEnabled(bool enable)
+* void setWordWrapMode(QTextOption::WrapMode policy)
+* bool tabChangesFocus(void)
+* int tabStopWidth(void)
+* QTextCursor textCursor(void)
+* Qt::TextInteractionFlags textInteractionFlags(void)
+* QString toPlainText(void)
+* QTextOption::WrapMode wordWrapMode(void)
+* void appendHtml(QString html)
+* void appendPlainText(QString text)
+* void centerCursor(void)
+* void clear(void)
+* void copy(void)
+* void cut(void)
+* void insertPlainText(QString text)
+* void paste(void)
+* void redo(void)
+* void selectAll(void)
+* void setPlainText(QString text)
+* void undo(void)
+* void zoomIn(int range)
+* void zoomOut(int range)
