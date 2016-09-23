@@ -171,7 +171,12 @@ extern "C" {
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QRegularExpressionMatchIterator>
-
+#include <QJsonValue>
+#include <QJsonParseError>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <iterator>
 #include "highlighter.h"
 
 extern "C" {
@@ -389,6 +394,8 @@ aEnumTypes + "QRegularExpression::MatchType"
 aEnumTypes + "QRegularExpression::PatternOption"
 aEnumTypes + "QRegularExpression::MatchOptions"
 aEnumTypes + "QRegularExpression::PatternOptions"
+aEnumTypes + "QJsonDocument::DataValidation"
+aEnumTypes + "QJsonDocument::JsonFormat"
 </runcode>
 
 <class>
@@ -4797,4 +4804,53 @@ QRegularExpressionMatch next(void)
 QRegularExpressionMatch peekNext(void)
 QRegularExpression regularExpression(void)
 void swap(QRegularExpressionMatchIterator other)
+
+<class>
+name: QJsonArray 
+para: void
+</class>
+
+void append(QJsonValue  value)
+QJsonValue at(int i)
+
+<comment>
+iterator begin(void)
+const_iterator begin(void)
+const_iterator constBegin(void)
+const_iterator constEnd(void)
+</comment>
+
+bool contains(QJsonValue  value)
+int count(void)
+bool empty(void)
+
+<comment>
+iterator end(void)
+const_iterator end@2(void)
+iterator erase(iterator it)
+</comment>
+
+QJsonValue first(void)
+void insert(int i, QJsonValue  value)
+
+<comment>
+iterator insert@2(iterator before, QJsonValue  value)
+</comment>
+
+bool isEmpty(void)
+QJsonValue last(void)
+void pop_back(void)
+void pop_front(void)
+void prepend(QJsonValue  value)
+void push_back(QJsonValue  value)
+void push_front(QJsonValue  value)
+void removeAt(int i)
+void removeFirst(void)
+void removeLast(void)
+void replace(int i, QJsonValue  value)
+int size(void)
+QJsonValue takeAt(int i)
+QVariantList toVariantList(void)
+QJsonArray fromStringList(QStringList  list)
+QJsonArray fromVariantList(QVariantList  list)
 
