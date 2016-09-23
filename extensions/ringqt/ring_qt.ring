@@ -10201,7 +10201,9 @@ Class QVariant
 		return pTempObj
 
 	Func toJsonDocument 
-		return QVariant_toJsonDocument(pObject)
+		pTempObj = new QJsonDocument
+		pTempObj.pObject = QVariant_toJsonDocument(pObject)
+		return pTempObj
 
 	Func toJsonObject 
 		return QVariant_toJsonObject(pObject)
@@ -11658,6 +11660,81 @@ Class QJsonArray
 	Func fromVariantList P1
 		pTempObj = new QJsonArray
 		pTempObj.pObject = QJsonArray_fromVariantList(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+Class QJsonDocument
+
+	pObject
+
+	Func init 
+		pObject = QJsonDocument_new()
+		return self
+
+	Func delete
+		pObject = QJsonDocument_delete(pObject)
+
+	Func array 
+		pTempObj = new QJsonArray
+		pTempObj.pObject = QJsonDocument_array(pObject)
+		return pTempObj
+
+	Func isArray 
+		return QJsonDocument_isArray(pObject)
+
+	Func isEmpty 
+		return QJsonDocument_isEmpty(pObject)
+
+	Func isNull 
+		return QJsonDocument_isNull(pObject)
+
+	Func isObject 
+		return QJsonDocument_isObject(pObject)
+
+	Func object 
+		return QJsonDocument_object(pObject)
+
+	Func rawData P1
+		return QJsonDocument_rawData(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setArray P1
+		return QJsonDocument_setArray(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setObject P1
+		return QJsonDocument_setObject(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toBinaryData 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QJsonDocument_toBinaryData(pObject)
+		return pTempObj
+
+	Func toJson P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QJsonDocument_toJson(pObject,P1)
+		return pTempObj
+
+	Func toVariant 
+		pTempObj = new QVariant
+		pTempObj.pObject = QJsonDocument_toVariant(pObject)
+		return pTempObj
+
+	Func fromBinaryData P1,P2
+		pTempObj = new QJsonDocument
+		pTempObj.pObject = QJsonDocument_fromBinaryData(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func fromJson P1,P2
+		pTempObj = new QJsonDocument
+		pTempObj.pObject = QJsonDocument_fromJson(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func fromRawData P1,P2,P3
+		pTempObj = new QJsonDocument
+		pTempObj.pObject = QJsonDocument_fromRawData(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func fromVariant P1
+		pTempObj = new QJsonDocument
+		pTempObj.pObject = QJsonDocument_fromVariant(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
 Class QIcon
