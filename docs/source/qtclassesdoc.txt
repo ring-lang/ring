@@ -12,6 +12,9 @@ RingQt Classes Reference
 QApp Class
 ==========
 
+
+C++ Reference : http://doc.qt.io/qt-5/QApplication.html
+
 * void exec(void)
 * void quit(void)
 * void processEvents(void)
@@ -22,6 +25,9 @@ QApp Class
 QTest Class
 ===========
 
+
+C++ Reference : http://doc.qt.io/qt-5/QTest.html
+
 * void qsleep(int)
 
 .. index::
@@ -29,6 +35,9 @@ QTest Class
 
 QObject Class
 =============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QObject.html
 
 
 Parameters : void
@@ -59,6 +68,9 @@ Parameters : void
 
 QWidget Class
 =============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QWidget.html
 
 
 Parameters : void
@@ -271,6 +283,9 @@ QLabel Class
 ============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QLabel.html
+
+
 Parameters : QWidget *
 
 
@@ -315,6 +330,9 @@ QPushButton Class
 =================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QPushButton.html
+
+
 Parameters : QWidget *
 
 
@@ -329,6 +347,9 @@ Parent Class : QAbstractButton
 
 QBitmap Class
 =============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBitmap.html
 
 
 Parameters : void
@@ -349,6 +370,9 @@ QPixmap Class
 =============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QPixmap.html
+
+
 Parameters : const char *
 
 * QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode)
@@ -367,6 +391,9 @@ QIcon Class
 ===========
 
 
+C++ Reference : http://doc.qt.io/qt-5/QIcon.html
+
+
 Parameters : QPixmap
 
 
@@ -377,6 +404,9 @@ QSize Class
 ===========
 
 
+C++ Reference : http://doc.qt.io/qt-5/QSize.html
+
+
 Parameters : int width, int height
 
 
@@ -385,6 +415,9 @@ Parameters : int width, int height
 
 QLineEdit Class
 ===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QLineEdit.html
 
 
 Parameters : QWidget *
@@ -464,6 +497,9 @@ QVBoxLayout Class
 =================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QVBoxLayout.html
+
+
 Parameters : void
 
 * void addLayout(QLayout *)
@@ -475,6 +511,9 @@ QHBoxLayout Class
 =================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QHBoxLayout.html
+
+
 Parameters : void
 
 * void addLayout(QLayout *)
@@ -484,6 +523,9 @@ Parameters : void
 
 QTextEdit Class
 ===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextEdit.html
 
 
 Parameters : QWidget *
@@ -581,6 +623,9 @@ QListWidget Class
 =================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QListWidget.html
+
+
 Parameters : QWidget *
 
 
@@ -618,6 +663,9 @@ Parent Class : QWidget
 
 QTreeView Class
 ===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTreeView.html
 
 
 Parameters : QWidget *
@@ -698,6 +746,9 @@ QDir Class
 ==========
 
 
+C++ Reference : http://doc.qt.io/qt-5/QDir.html
+
+
 Parameters : void
 
 * void setNameFilters(QStringList)
@@ -707,6 +758,9 @@ Parameters : void
 
 QFileSystemModel Class
 ======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFileSystemModel.html
 
 
 Parameters : void
@@ -761,6 +815,9 @@ Parameters : void
 
 QTreeWidget Class
 =================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTreeWidget.html
 
 
 Parameters : QWidget *
@@ -828,6 +885,9 @@ QTreeWidgetItem Class
 =====================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QTreeWidgetItem.html
+
+
 Parameters : void
 
 * void addChild(QTreeWidgetItem *child)
@@ -891,6 +951,9 @@ QComboBox Class
 ===============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QComboBox.html
+
+
 Parameters : QWidget *
 
 
@@ -951,6 +1014,9 @@ QMenuBar Class
 ==============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QMenuBar.html
+
+
 Parameters : QWidget *
 
 
@@ -975,6 +1041,9 @@ Parent Class : QWidget
 
 QMenu Class
 ===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMenu.html
 
 
 Parameters : QWidget *
@@ -1016,6 +1085,9 @@ QToolBar Class
 ==============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QToolBar.html
+
+
 Parameters : QWidget *
 
 
@@ -1050,6 +1122,9 @@ Parent Class : QWidget
 
 QMainWindow Class
 =================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMainWindow.html
 
 
 Parameters : void
@@ -1109,6 +1184,9 @@ QStatusBar Class
 ================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QStatusBar.html
+
+
 Parameters : QWidget *
 
 
@@ -1130,6 +1208,9 @@ Parent Class : QWidget
 
 QDockWidget Class
 =================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDockWidget.html
 
 
 Parameters : QWidget *parent,Qt::WindowType flag
@@ -1160,6 +1241,9 @@ Parent Class : QWidget
 
 QTabWidget Class
 ================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTabWidget.html
 
 
 Parameters : QWidget *parent
@@ -1215,6 +1299,9 @@ QTableWidgetItem Class
 ======================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QTableWidgetItem.html
+
+
 Parameters : QString
 
 * QBrush background(void)
@@ -1260,6 +1347,9 @@ QFrame Class
 ============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QFrame.html
+
+
 Parameters : QWidget *parent, Qt::WindowType flag
 
 
@@ -1284,6 +1374,9 @@ Parent Class : QWidget
 
 QAbstractScrollArea Class
 =========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAbstractScrollArea.html
 
 
 Parameters : QWidget *parent
@@ -1311,6 +1404,9 @@ Parent Class : QFrame
 
 QAbstractItemView Class
 =======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAbstractItemView.html
 
 
 Parameters : QWidget *parent
@@ -1387,6 +1483,9 @@ QTableView Class
 ================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QTableView.html
+
+
 Parameters : QWidget *parent
 
 
@@ -1439,6 +1538,9 @@ Parent Class : QAbstractItemView
 
 QTableWidget Class
 ==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTableWidget.html
 
 
 Parameters : QWidget *parent
@@ -1510,6 +1612,9 @@ QProgressBar Class
 ==================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QProgressBar.html
+
+
 Parameters : QWidget *parent
 
 
@@ -1546,6 +1651,9 @@ QSpinBox Class
 ==============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QSpinBox.html
+
+
 Parameters : QWidget *parent
 
 
@@ -1574,6 +1682,9 @@ Parent Class : QWidget
 
 QAbstractSlider Class
 =====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAbstractSlider.html
 
 
 Parameters : QWidget *parent
@@ -1612,6 +1723,9 @@ QSlider Class
 =============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QSlider.html
+
+
 Parameters : QWidget *parent
 
 
@@ -1637,6 +1751,9 @@ QDateEdit Class
 ===============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QDateEdit.html
+
+
 Parameters : QWidget *parent
 
 
@@ -1648,6 +1765,9 @@ Parent Class : QDateTimeEdit
 
 QDateTimeEdit Class
 ===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDateTimeEdit.html
 
 
 Parameters : QWidget *parent
@@ -1707,6 +1827,9 @@ QAbstractSpinBox Class
 ======================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QAbstractSpinBox.html
+
+
 Parameters : QWidget *parent
 
 
@@ -1744,6 +1867,9 @@ QDial Class
 ===========
 
 
+C++ Reference : http://doc.qt.io/qt-5/QDial.html
+
+
 Parameters : QWidget *parent
 
 
@@ -1770,6 +1896,9 @@ Parent Class : QAbstractSlider
 
 QWebView Class
 ==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QWebView.html
 
 
 Parameters : QWidget *parent
@@ -1800,6 +1929,9 @@ Parent Class : QWidget
 
 QUrl Class
 ==========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QUrl.html
 
 
 Parameters : QString
@@ -1845,6 +1977,9 @@ QCheckBox Class
 ===============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QCheckBox.html
+
+
 Parameters : QWidget *parent
 
 
@@ -1867,6 +2002,9 @@ Parent Class : QAbstractButton
 
 QAbstractButton Class
 =====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAbstractButton.html
 
 
 Parameters : QWidget *parent
@@ -1908,6 +2046,9 @@ QRadioButton Class
 ==================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QRadioButton.html
+
+
 Parameters : QWidget *parent
 
 
@@ -1925,6 +2066,9 @@ Parent Class : QAbstractButton
 
 QButtonGroup Class
 ==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QButtonGroup.html
 
 
 Parameters : QObject *parent
@@ -1947,6 +2091,9 @@ Parameters : QObject *parent
 
 QMediaPlayer Class
 ==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMediaPlayer.html
 
 
 Parameters : void
@@ -1984,6 +2131,9 @@ QMediaPlaylist Class
 ====================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QMediaPlaylist.html
+
+
 Parameters : void
 
 * int currentIndex(void)
@@ -2008,6 +2158,9 @@ Parameters : void
 
 QVideoWidget Class
 ==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVideoWidget.html
 
 
 Parameters : QWidget *parent
@@ -2038,6 +2191,9 @@ Parent Class : QWidget
 
 QAction Class
 =============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAction.html
 
 
 Parameters : QWidget *parent
@@ -2101,6 +2257,9 @@ QEvent Class
 ============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QEvent.html
+
+
 Parameters : QEvent::Type Type
 
 * void accept(void)
@@ -2115,6 +2274,9 @@ Parameters : QEvent::Type Type
 
 QMessageBox Class
 =================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMessageBox.html
 
 
 Parameters : QWidget *parent
@@ -2162,6 +2324,9 @@ QTimer Class
 ============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QTimer.html
+
+
 Parameters : QObject *parent
 
 * int interval(void)
@@ -2179,6 +2344,9 @@ Parameters : QObject *parent
 
 QFileDialog Class
 =================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFileDialog.html
 
 
 Parameters : QWidget *parent
@@ -2235,6 +2403,9 @@ Parent Class : QWidget
 
 QPainter Class
 ==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPainter.html
 
 
 Parameters : void
@@ -2333,6 +2504,9 @@ QPicture Class
 ==============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QPicture.html
+
+
 Parameters : void
 
 * QRect boundingRect(void)
@@ -2350,6 +2524,9 @@ Parameters : void
 
 QPen Class
 ==========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPen.html
 
 
 Parameters : void
@@ -2382,6 +2559,9 @@ Parameters : void
 
 QColor Class
 ============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QColor.html
 
 
 Parameters : void
@@ -2475,6 +2655,9 @@ QPrinter Class
 ==============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QPrinter.html
+
+
 Parameters : QPrinter::PrinterMode
 
 * bool abort(void)
@@ -2527,6 +2710,9 @@ Parameters : QPrinter::PrinterMode
 
 QFont Class
 ===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFont.html
 
 
 Parameters : QString, int, int, bool
@@ -2600,11 +2786,17 @@ QWebSettings Class
 ==================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QWebSettings.html
+
+
 .. index::
 	pair: RingQt Classes Reference; QBrush Class
 
 QBrush Class
 ============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBrush.html
 
 
 Parameters : void
@@ -2630,6 +2822,9 @@ Parameters : void
 
 QByteArray Class
 ================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QByteArray.html
 
 
 Parameters : void
@@ -2701,6 +2896,9 @@ QIODevice Class
 ===============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QIODevice.html
+
+
 Parameters : void
 
 * QString errorString(void)
@@ -2725,6 +2923,9 @@ Parameters : void
 
 QAbstractSocket Class
 =====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAbstractSocket.html
 
 
 Parameters : void
@@ -2781,6 +2982,9 @@ QNetworkProxy Class
 ===================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QNetworkProxy.html
+
+
 Parameters : void
 
 * int capabilities(void)
@@ -2813,6 +3017,9 @@ QTcpSocket Class
 ================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QTcpSocket.html
+
+
 Parameters : QObject *
 
 
@@ -2834,6 +3041,9 @@ Parent Class : QAbstractSocket
 
 QTcpServer Class
 ================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTcpServer.html
 
 
 Parameters : QWidget *
@@ -2866,6 +3076,9 @@ QHostAddress Class
 ==================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QHostAddress.html
+
+
 Parameters : void
 
 * void clear(void)
@@ -2883,6 +3096,9 @@ Parameters : void
 
 QHostInfo Class
 ===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QHostInfo.html
 
 
 Parameters : void
@@ -2906,6 +3122,9 @@ Parameters : void
 
 QFileInfo Class
 ===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFileInfo.html
 
 
 Parameters : void
@@ -2962,6 +3181,9 @@ QDirModel Class
 ===============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QDirModel.html
+
+
 Parameters : void
 
 * QIcon fileIcon(QModelIndex)
@@ -2996,6 +3218,9 @@ QFontDialog Class
 =================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QFontDialog.html
+
+
 Parameters : void
 
 
@@ -3016,6 +3241,9 @@ Parent Class : QDialog
 
 QDialog Class
 =============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDialog.html
 
 
 Parameters : QWidget *parent
@@ -3039,6 +3267,9 @@ Parent Class : QWidget
 
 QTextCursor Class
 =================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextCursor.html
 
 
 Parameters : void
@@ -3108,6 +3339,9 @@ QColorDialog Class
 ==================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QColorDialog.html
+
+
 Parameters : void
 
 
@@ -3134,6 +3368,9 @@ QHeaderView Class
 =================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QHeaderView.html
+
+
 Parameters : Qt::Orientation, QWidget *
 
 
@@ -3145,6 +3382,9 @@ Parent Class : QAbstractItemView
 
 QStringList Class
 =================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QStringList.html
 
 
 Parameters : void
@@ -3198,6 +3438,9 @@ QKeySequence Class
 ==================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QKeySequence.html
+
+
 Parameters : QString
 
 
@@ -3206,6 +3449,9 @@ Parameters : QString
 
 QLCDNumber Class
 ================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QLCDNumber.html
 
 
 Parameters : QWidget *
@@ -3235,6 +3481,9 @@ Parent Class : QFrame
 
 QInputDialog Class
 ==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QInputDialog.html
 
 
 Parameters : QWidget *
@@ -3291,6 +3540,9 @@ QAllEvents Class
 ================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QAllEvents.html
+
+
 Parameters : QWidget *
 
 
@@ -3340,6 +3592,9 @@ QDesktopWidget Class
 ====================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QDesktopWidget.html
+
+
 Parameters : void
 
 
@@ -3358,6 +3613,9 @@ Parent Class : QWidget
 
 QRect Class
 ===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QRect.html
 
 
 Parameters : void
@@ -3421,6 +3679,9 @@ Parameters : void
 
 QTextDocument Class
 ===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextDocument.html
 
 
 Parameters : void
@@ -3503,6 +3764,9 @@ QTextBlock Class
 ================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QTextBlock.html
+
+
 Parameters : void
 
 * int blockFormatIndex(void)
@@ -3539,6 +3803,9 @@ QTime Class
 ===========
 
 
+C++ Reference : http://doc.qt.io/qt-5/QTime.html
+
+
 Parameters : void
 
 * QTime addMSecs(int ms)
@@ -3566,6 +3833,9 @@ Parameters : void
 
 QListWidgetItem Class
 =====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QListWidgetItem.html
 
 
 Parameters : void
@@ -3608,6 +3878,9 @@ QSystemTrayIcon Class
 =====================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QSystemTrayIcon.html
+
+
 Parameters : void
 
 * QMenu *contextMenu(void)
@@ -3630,6 +3903,9 @@ Parameters : void
 
 QDate Class
 ===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDate.html
 
 
 Parameters : void
@@ -3667,6 +3943,9 @@ Parameters : void
 QTextCodec Class
 ================
 
+
+C++ Reference : http://doc.qt.io/qt-5/QTextCodec.html
+
 * QTextCodec *codecForName(const char *name)
 * void setCodecForLocale(QTextCodec *c)
 
@@ -3675,6 +3954,9 @@ QTextCodec Class
 
 QSqlDatabase Class
 ==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSqlDatabase.html
 
 
 Parameters : void
@@ -3726,6 +4008,9 @@ QSqlDriver Class
 ================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QSqlDriver.html
+
+
 Parameters : void
 
 * QSqlError lastError(void)
@@ -3737,6 +4022,9 @@ Parameters : void
 
 QSqlQuery Class
 ===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSqlQuery.html
 
 
 Parameters : void
@@ -3782,6 +4070,9 @@ QSqlError Class
 ===============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QSqlError.html
+
+
 Parameters : QString, QString, QSqlError::ErrorType
 
 * QString databaseText(void)
@@ -3802,6 +4093,9 @@ QSqlIndex Class
 ===============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QSqlIndex.html
+
+
 Parameters : QString, QString
 
 
@@ -3820,6 +4114,9 @@ Parent Class : QSqlRecord
 
 QSqlRecord Class
 ================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSqlRecord.html
 
 
 Parameters : void
@@ -3848,6 +4145,9 @@ Parameters : void
 
 QSqlField Class
 ===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSqlField.html
 
 
 Parameters : QString,QVariant::Type
@@ -3884,6 +4184,9 @@ QSqlDriverCreatorBase Class
 ===========================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QSqlDriverCreatorBase.html
+
+
 Parameters : void
 
 
@@ -3892,6 +4195,9 @@ Parameters : void
 
 QVariant Class
 ==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVariant.html
 
 
 Parameters : void
@@ -3947,6 +4253,9 @@ QNetworkRequest Class
 =====================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QNetworkRequest.html
+
+
 Parameters : QUrl
 
 * QVariant attribute(QNetworkRequest::Attribute, QVariant)
@@ -3968,6 +4277,9 @@ Parameters : QUrl
 
 QNetworkAccessManager Class
 ===========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QNetworkAccessManager.html
 
 
 Parameters : QObject *
@@ -4005,6 +4317,9 @@ QNetworkReply Class
 ===================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QNetworkReply.html
+
+
 Parameters : void
 
 
@@ -4027,6 +4342,9 @@ Parent Class : QIODevice
 
 QPainterPath Class
 ==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPainterPath.html
 
 
 Parameters : void
@@ -4077,6 +4395,9 @@ Parameters : void
 
 QImage Class
 ============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QImage.html
 
 
 Parameters : void
@@ -4151,6 +4472,9 @@ QXmlStreamReader Class
 ======================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QXmlStreamReader.html
+
+
 Parameters : void
 
 * void addData(QByteArray)
@@ -4215,6 +4539,9 @@ QXmlStreamWriter Class
 ======================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QXmlStreamWriter.html
+
+
 Parameters : void
 
 * bool autoFormatting(void)
@@ -4259,6 +4586,9 @@ QXmlStreamNotationDeclaration Class
 ===================================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QXmlStreamNotationDeclaration.html
+
+
 Parameters : void
 
 * QStringRef name(void)
@@ -4270,6 +4600,9 @@ Parameters : void
 
 QXmlStreamNamespaceDeclaration Class
 ====================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QXmlStreamNamespaceDeclaration.html
 
 
 Parameters : void
@@ -4284,6 +4617,9 @@ QXmlStreamEntityResolver Class
 ==============================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QXmlStreamEntityResolver.html
+
+
 Parameters : void
 
 
@@ -4292,6 +4628,9 @@ Parameters : void
 
 QXmlStreamEntityDeclaration Class
 =================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QXmlStreamEntityDeclaration.html
 
 
 Parameters : void
@@ -4307,6 +4646,9 @@ Parameters : void
 
 QXmlStreamAttributes Class
 ==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QXmlStreamAttributes.html
 
 
 Parameters : void
@@ -4329,6 +4671,9 @@ QXmlStreamAttribute Class
 =========================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QXmlStreamAttribute.html
+
+
 Parameters : void
 
 * bool isDefault(void)
@@ -4345,6 +4690,9 @@ QThread Class
 =============
 
 
+C++ Reference : http://doc.qt.io/qt-5/QThread.html
+
+
 Parameters : QObject *
 
 
@@ -4355,7 +4703,6 @@ Parent Class : QObject
 * bool isFinished(void)
 * bool isInterruptionRequested(void)
 * bool isRunning(void)
-* int loopLevel(void)
 * QThread::Priority priority(void)
 * void requestInterruption(void)
 * void setEventDispatcher(QAbstractEventDispatcher *eventDispatcher)
@@ -4383,13 +4730,15 @@ QThreadPool Class
 =================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QThreadPool.html
+
+
 Parameters : void
 
 
 Parent Class : QObject
 
 * int activeThreadCount(void)
-* void cancel(QRunnable * runnable)
 * void clear(void)
 * int expiryTimeout(void)
 * int maxThreadCount(void)
@@ -4409,17 +4758,17 @@ QRegularExpression Class
 ========================
 
 
+C++ Reference : http://doc.qt.io/qt-5/QRegularExpression.html
+
+
 Parameters : void
 
 * int captureCount(void)
 * QString errorString(void)
 * QRegularExpressionMatchIterator globalMatch(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
-* QRegularExpressionMatchIterator globalMatch_2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
 * bool isValid(void)
 * QRegularExpressionMatch match(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
-* QRegularExpressionMatch match_2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
 * QStringList namedCaptureGroups(void)
-* void optimize(void)
 * QString pattern(void)
 * int patternErrorOffset(void)
 * QRegularExpression::PatternOptions patternOptions(void)
@@ -4432,6 +4781,9 @@ Parameters : void
 
 QRegularExpressionMatch Class
 =============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QRegularExpressionMatch.html
 
 
 Parameters : void
@@ -4461,6 +4813,9 @@ Parameters : void
 
 QRegularExpressionMatchIterator Class
 =====================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QRegularExpressionMatchIterator.html
 
 
 Parameters : void
