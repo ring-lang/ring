@@ -7,6 +7,7 @@
 # C_CHAPTERNAME = "RingQt Classes Reference"	# Chapter Name
 # cFile = read("qt.cf")				# Input File
 # lStart = False		# False = Classes Doc.   True = Functions Doc.
+# funcAfterClass = func cClassName { return string }     # function to call 
 #===============================================
 
 
@@ -27,13 +28,15 @@ for x = 1 to len(aList)
 		do 
 			cLine = trim(aList[x])
 			if left(cLine,5) = "name:"
-				cClassName = trim(substr(cLine,6)) + " Class"
+				cClassNameAlone = trim(substr(cLine,6)) 
+				cClassName = cClassNameAlone + " Class"
 				cOutput += Windowsnl() + ".. index::" + windowsnl()  
 				cOutput +="	pair: "+C_CHAPTERNAME+"; "
 				cOutput += cClassName + WindowsNl()
 
 				cOutput += windowsnl() + cClassName + windowsnl()
 				cOutput += Copy("=",len(cClassName)) + windowsnl() + windowsnl()
+				cOutput += call funcAfterClass(cClassNameAlone)
 			ok
 			if left(cLine,7) = "parent:"
 				cClassName = trim(substr(cLine,8)) 
