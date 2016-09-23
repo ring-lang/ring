@@ -11897,6 +11897,226 @@ Class QJsonValue
 		pTempObj.pObject = QJsonValue_fromVariant(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
+Class QPlainTextEdit from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QPlainTextEdit_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPlainTextEdit_delete(pObject)
+
+	Func anchorAt P1
+		return QPlainTextEdit_anchorAt(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func backgroundVisible 
+		return QPlainTextEdit_backgroundVisible(pObject)
+
+	Func blockCount 
+		return QPlainTextEdit_blockCount(pObject)
+
+	Func canPaste 
+		return QPlainTextEdit_canPaste(pObject)
+
+	Func centerOnScroll 
+		return QPlainTextEdit_centerOnScroll(pObject)
+
+	Func createStandardContextMenu 
+		pTempObj = new QMenu
+		pTempObj.pObject = QPlainTextEdit_createStandardContextMenu(pObject)
+		return pTempObj
+
+	Func createStandardContextMenu_2 P1
+		pTempObj = new QMenu
+		pTempObj.pObject = QPlainTextEdit_createStandardContextMenu_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func currentCharFormat 
+		return QPlainTextEdit_currentCharFormat(pObject)
+
+	Func cursorForPosition P1
+		pTempObj = new QTextCursor
+		pTempObj.pObject = QPlainTextEdit_cursorForPosition(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func cursorRect P1
+		pTempObj = new QRect
+		pTempObj.pObject = QPlainTextEdit_cursorRect(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func cursorRect_2 
+		pTempObj = new QRect
+		pTempObj.pObject = QPlainTextEdit_cursorRect_2(pObject)
+		return pTempObj
+
+	Func cursorWidth 
+		return QPlainTextEdit_cursorWidth(pObject)
+
+	Func document 
+		pTempObj = new QTextDocument
+		pTempObj.pObject = QPlainTextEdit_document(pObject)
+		return pTempObj
+
+	Func documentTitle 
+		return QPlainTextEdit_documentTitle(pObject)
+
+	Func ensureCursorVisible 
+		return QPlainTextEdit_ensureCursorVisible(pObject)
+
+	Func extraSelections 
+		return QPlainTextEdit_extraSelections(pObject)
+
+	Func find P1,P2
+		return QPlainTextEdit_find(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func find_2 P1,P2
+		return QPlainTextEdit_find_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func isReadOnly 
+		return QPlainTextEdit_isReadOnly(pObject)
+
+	Func isUndoRedoEnabled 
+		return QPlainTextEdit_isUndoRedoEnabled(pObject)
+
+	Func lineWrapMode 
+		return QPlainTextEdit_lineWrapMode(pObject)
+
+	Func maximumBlockCount 
+		return QPlainTextEdit_maximumBlockCount(pObject)
+
+	Func mergeCurrentCharFormat P1
+		return QPlainTextEdit_mergeCurrentCharFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveCursor P1,P2
+		return QPlainTextEdit_moveCursor(pObject,P1,P2)
+
+	Func overwriteMode 
+		return QPlainTextEdit_overwriteMode(pObject)
+
+	Func placeholderText 
+		return QPlainTextEdit_placeholderText(pObject)
+
+	Func print P1
+		return QPlainTextEdit_print(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBackgroundVisible P1
+		return QPlainTextEdit_setBackgroundVisible(pObject,P1)
+
+	Func setCenterOnScroll P1
+		return QPlainTextEdit_setCenterOnScroll(pObject,P1)
+
+	Func setCurrentCharFormat P1
+		return QPlainTextEdit_setCurrentCharFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCursorWidth P1
+		return QPlainTextEdit_setCursorWidth(pObject,P1)
+
+	Func setDocument P1
+		return QPlainTextEdit_setDocument(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDocumentTitle P1
+		return QPlainTextEdit_setDocumentTitle(pObject,P1)
+
+	Func setExtraSelections P1
+		return QPlainTextEdit_setExtraSelections(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLineWrapMode P1
+		return QPlainTextEdit_setLineWrapMode(pObject,P1)
+
+	Func setMaximumBlockCount P1
+		return QPlainTextEdit_setMaximumBlockCount(pObject,P1)
+
+	Func setOverwriteMode P1
+		return QPlainTextEdit_setOverwriteMode(pObject,P1)
+
+	Func setPlaceholderText P1
+		return QPlainTextEdit_setPlaceholderText(pObject,P1)
+
+	Func setReadOnly P1
+		return QPlainTextEdit_setReadOnly(pObject,P1)
+
+	Func setTabChangesFocus P1
+		return QPlainTextEdit_setTabChangesFocus(pObject,P1)
+
+	Func setTabStopWidth P1
+		return QPlainTextEdit_setTabStopWidth(pObject,P1)
+
+	Func setTextCursor P1
+		return QPlainTextEdit_setTextCursor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTextInteractionFlags P1
+		return QPlainTextEdit_setTextInteractionFlags(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUndoRedoEnabled P1
+		return QPlainTextEdit_setUndoRedoEnabled(pObject,P1)
+
+	Func setWordWrapMode P1
+		return QPlainTextEdit_setWordWrapMode(pObject,P1)
+
+	Func tabChangesFocus 
+		return QPlainTextEdit_tabChangesFocus(pObject)
+
+	Func tabStopWidth 
+		return QPlainTextEdit_tabStopWidth(pObject)
+
+	Func textCursor 
+		pTempObj = new QTextCursor
+		pTempObj.pObject = QPlainTextEdit_textCursor(pObject)
+		return pTempObj
+
+	Func textInteractionFlags 
+		return QPlainTextEdit_textInteractionFlags(pObject)
+
+	Func toPlainText 
+		return QPlainTextEdit_toPlainText(pObject)
+
+	Func wordWrapMode 
+		return QPlainTextEdit_wordWrapMode(pObject)
+
+	Func appendHtml P1
+		return QPlainTextEdit_appendHtml(pObject,P1)
+
+	Func appendPlainText P1
+		return QPlainTextEdit_appendPlainText(pObject,P1)
+
+	Func centerCursor 
+		return QPlainTextEdit_centerCursor(pObject)
+
+	Func clear 
+		return QPlainTextEdit_clear(pObject)
+
+	Func copy 
+		return QPlainTextEdit_copy(pObject)
+
+	Func cut 
+		return QPlainTextEdit_cut(pObject)
+
+	Func insertPlainText P1
+		return QPlainTextEdit_insertPlainText(pObject,P1)
+
+	Func paste 
+		return QPlainTextEdit_paste(pObject)
+
+	Func redo 
+		return QPlainTextEdit_redo(pObject)
+
+	Func selectAll 
+		return QPlainTextEdit_selectAll(pObject)
+
+	Func setPlainText P1
+		return QPlainTextEdit_setPlainText(pObject,P1)
+
+	Func undo 
+		return QPlainTextEdit_undo(pObject)
+
+	Func zoomIn P1
+		return QPlainTextEdit_zoomIn(pObject,P1)
+
+	Func zoomOut P1
+		return QPlainTextEdit_zoomOut(pObject,P1)
+
 Class QIcon
 
 	pObject

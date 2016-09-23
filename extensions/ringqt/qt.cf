@@ -177,6 +177,9 @@ extern "C" {
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <iterator>
+#include <QPlainTextEdit>
+
+
 #include "highlighter.h"
 
 extern "C" {
@@ -396,6 +399,7 @@ aEnumTypes + "QRegularExpression::MatchOptions"
 aEnumTypes + "QRegularExpression::PatternOptions"
 aEnumTypes + "QJsonDocument::DataValidation"
 aEnumTypes + "QJsonDocument::JsonFormat"
+aEnumTypes + "QPlainTextEdit::LineWrapMode"
 </runcode>
 
 <class>
@@ -4955,4 +4959,82 @@ QVariant toVariant(void)
 QJsonValue::Type type(void)
 QJsonValue fromVariant(QVariant  variant)
 
+
+<class>
+name: QPlainTextEdit
+para: QWidget *
+parent: QWidget
+</class>
+
+QString anchorAt(QPoint pos)
+bool backgroundVisible(void)
+int blockCount(void)
+bool canPaste(void)
+bool centerOnScroll(void)
+QMenu * createStandardContextMenu(void)
+QMenu * createStandardContextMenu@2(QPoint position)
+QTextCharFormat currentCharFormat(void)
+QTextCursor cursorForPosition(QPoint pos)
+QRect cursorRect(QTextCursor cursor)
+QRect cursorRect@2(void)
+int cursorWidth(void)
+QTextDocument * document(void)
+QString documentTitle(void)
+void ensureCursorVisible(void)
+QList<QTextEdit::ExtraSelection> extraSelections(void)
+bool find(QString exp, QTextDocument::FindFlags options)
+bool find@2(QRegExp exp, QTextDocument::FindFlags options)
+bool isReadOnly(void)
+bool isUndoRedoEnabled(void)
+QPlainTextEdit::LineWrapMode lineWrapMode(void)
+
+<comment>
+virtual QVariant loadResource(int type, QUrl name)
+</comment>
+
+int maximumBlockCount(void)
+void mergeCurrentCharFormat(QTextCharFormat modifier)
+void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
+bool overwriteMode(void)
+QString placeholderText(void)
+void print(QPagedPaintDevice *printer)
+void setBackgroundVisible(bool visible)
+void setCenterOnScroll(bool enabled)
+void setCurrentCharFormat(QTextCharFormat format)
+void setCursorWidth(int width)
+void setDocument(QTextDocument *document)
+void setDocumentTitle(QString title)
+void setExtraSelections(QList<QTextEdit::ExtraSelection> selections)
+void setLineWrapMode(QPlainTextEdit::LineWrapMode mode)
+void setMaximumBlockCount(int maximum)
+void setOverwriteMode(bool overwrite)
+void setPlaceholderText(QString placeholderText)
+void setReadOnly(bool ro)
+void setTabChangesFocus(bool b)
+void setTabStopWidth(int width)
+void setTextCursor(QTextCursor cursor)
+void setTextInteractionFlags(Qt::TextInteractionFlags flags)
+void setUndoRedoEnabled(bool enable)
+void setWordWrapMode(QTextOption::WrapMode policy)
+bool tabChangesFocus(void)
+int tabStopWidth(void)
+QTextCursor textCursor(void)
+Qt::TextInteractionFlags textInteractionFlags(void)
+QString toPlainText(void)
+QTextOption::WrapMode wordWrapMode(void)
+
+void appendHtml(QString html)
+void appendPlainText(QString text)
+void centerCursor(void)
+void clear(void)
+void copy(void)
+void cut(void)
+void insertPlainText(QString text)
+void paste(void)
+void redo(void)
+void selectAll(void)
+void setPlainText(QString text)
+void undo(void)
+void zoomIn(int range)
+void zoomOut(int range)
 
