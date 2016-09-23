@@ -4880,3 +4880,30 @@ Parameters : void
 * QJsonDocument fromJson( QByteArray  json, QJsonParseError * error)
 * QJsonDocument fromRawData( char * data, int size, QJsonDocument::DataValidation validation)
 * QJsonDocument fromVariant( QVariant  variant)
+
+.. index::
+	pair: RingQt Classes Reference; QJsonObject Class
+
+QJsonObject Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QJsonObject.html
+
+
+Parameters : void
+
+* bool contains(QString  key)
+* int count(void)
+* bool empty(void)
+* bool isEmpty(void)
+* QStringList keys(void)
+* int length(void)
+* void remove(QString  key)
+* int size(void)
+* QJsonValue take(QString  key)
+* QVariantHash toVariantHash(void)
+* QVariantMap toVariantMap(void)
+* QJsonValue value(QString  key)
+* QJsonObject fromVariantHash(QVariantHash  hash)
+* QJsonObject fromVariantMap(QVariantMap  map)
