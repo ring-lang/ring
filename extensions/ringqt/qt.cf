@@ -2981,56 +2981,6 @@ QString substitute(QString)
 QStringList substitutes(QString)
 QStringList substitutions(void)
 
-<filter> (sysget("RINGQT_ANDROID") = "")
-<class>
-name: QWebSettings
-abstract
-</class>
-
-<comment>
-QString cssMediaType(void)
-QString defaultTextEncoding(void)
-QString fontFamily(QWebSettings::FontFamily which)
-int fontSize(QWebSettings::FontSize type)
-QString localStoragePath(void)
-void resetAttribute(QWebSettings::WebAttribute attribute)
-void resetFontFamily(QWebSettings::FontFamily which)
-void resetFontSize(QWebSettings::FontSize type)
-void setAttribute(QWebSettings::WebAttribute attribute, bool on)
-void setCSSMediaType(QString)
-void setDefaultTextEncoding(QString)
-void setFontFamily(QWebSettings::FontFamily which, QString)
-void setFontSize(QWebSettings::FontSize type, int size)
-void setLocalStoragePath(QString)
-void setThirdPartyCookiePolicy(QWebSettings::ThirdPartyCookiePolicy policy)
-void setUserStyleSheetUrl(QUrl)
-bool testAttribute(QWebSettings::WebAttribute attribute)
-int thirdPartyCookiePolicy(void)
-QUrl userStyleSheetUrl(void)
-void clearIconDatabase(void)
-void clearMemoryCaches(void)
-void enablePersistentStorage(QString)
-QWebSettings *globalSettings(void)
-QString iconDatabasePath(void)
-QIcon iconForUrl(QUrl)
-int maximumPagesInCache(void)
-int offlineStorageDefaultQuota(void)
-QString offlineStoragePath(void)
-QString offlineWebApplicationCachePath(void)
-int offlineWebApplicationCacheQuota(void)
-void setIconDatabasePath(QString)
-void setMaximumPagesInCache(int pages)
-void setObjectCacheCapacities(int cacheMinDeadCapacity, int cacheMaxDead, int totalCapacity)
-void setOfflineStorageDefaultQuota(int maximumSize)
-void setOfflineStoragePath(QString)
-void setOfflineWebApplicationCachePath(QString)
-void setOfflineWebApplicationCacheQuota(int maximumSize)
-void setWebGraphic(QWebSettings::WebGraphic type, QPixmap)
-QPixmap webGraphic(QWebSettings::WebGraphic type)
-</comment>
-
-</filter>
-
 <class>
 name: QBrush
 para: void

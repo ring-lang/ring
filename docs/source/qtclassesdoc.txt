@@ -1892,6 +1892,39 @@ Parent Class : QAbstractSlider
 * void setvalueChangedEvent(const char *)
 
 .. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* QWebHistory *history(void)
+* QAction *pageAction(QWebPage::WebAction action)
+* void setContent(QByteArray,QString,QUrl)
+* void setHtml(QString,QUrl)
+* void setPage(QWebPage *page)
+* void setZoomFactor(qreal factor)
+* QWebSettings *settings(void)
+* void triggerPageAction(QWebPage::WebAction action, bool checked)
+* QUrl url(void)
+* qreal zoomFactor(void)
+* void back(void)
+* void forward(void)
+* void stop(void)
+* void setloadProgressEvent(const char *)
+* void setloadStartedEvent(const char *)
+* void setselectionChangedEvent(const char *)
+* void seturlChangedEvent(const char *)
+
+.. index::
 	pair: RingQt Classes Reference; QUrl Class
 
 QUrl Class

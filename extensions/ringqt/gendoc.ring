@@ -23,7 +23,11 @@ funcAfterClass = func cClassName {
 			see nPos + nl
 			cClassName = aRingQtToQtClasses[nPos][2]
 		ok
-		return windowsnl() + "C++ Reference : http://doc.qt.io/qt-5/" + cClassName + ".html" + windowsnl() + windowsnl()
+		if cClassName = "QWebView"
+			return windowsnl() + "C++ Reference : http://doc.qt.io/archives/qt-5.5/qwebview.html" + windowsnl() + windowsnl()
+		else
+			return windowsnl() + "C++ Reference : http://doc.qt.io/qt-5/" + cClassName + ".html" + windowsnl() + windowsnl()
+		ok
 	ok
 }
 #===============================================

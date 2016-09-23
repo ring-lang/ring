@@ -66,7 +66,6 @@ for x = 1 to len(aList)
 	avoidblock("runcode")
 	avoidblock("struct")
 	avoidblock("constant")
-	avoidblock("filter")
 
 	avoidline("register")
 	avoidline("filter")

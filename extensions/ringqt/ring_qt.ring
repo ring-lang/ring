@@ -4653,9 +4653,7 @@ Class QWebView from QWidget
 		return QWebView_setZoomFactor(pObject,P1)
 
 	Func settings 
-		pTempObj = new QWebSettings
-		pTempObj.pObject = QWebView_settings(pObject)
-		return pTempObj
+		return QWebView_settings(pObject)
 
 	Func title 
 		return QWebView_title(pObject)
