@@ -1892,39 +1892,6 @@ Parent Class : QAbstractSlider
 * void setvalueChangedEvent(const char *)
 
 .. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/QWebView.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWidget
-
-* QWebHistory *history(void)
-* QAction *pageAction(QWebPage::WebAction action)
-* void setContent(QByteArray,QString,QUrl)
-* void setHtml(QString,QUrl)
-* void setPage(QWebPage *page)
-* void setZoomFactor(qreal factor)
-* QWebSettings *settings(void)
-* void triggerPageAction(QWebPage::WebAction action, bool checked)
-* QUrl url(void)
-* qreal zoomFactor(void)
-* void back(void)
-* void forward(void)
-* void stop(void)
-* void setloadProgressEvent(const char *)
-* void setloadStartedEvent(const char *)
-* void setselectionChangedEvent(const char *)
-* void seturlChangedEvent(const char *)
-
-.. index::
 	pair: RingQt Classes Reference; QUrl Class
 
 QUrl Class
@@ -2780,16 +2747,6 @@ Parameters : QString, int, int, bool
 * QStringList substitutions(void)
 
 .. index::
-	pair: RingQt Classes Reference; QWebSettings Class
-
-QWebSettings Class
-==================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QWebSettings.html
-
-
-.. index::
 	pair: RingQt Classes Reference; QBrush Class
 
 QBrush Class
@@ -3538,9 +3495,6 @@ Parent Class : QDialog
 
 QAllEvents Class
 ================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QAllEvents.html
 
 
 Parameters : QWidget *

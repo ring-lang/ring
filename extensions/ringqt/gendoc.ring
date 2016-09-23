@@ -9,7 +9,7 @@ cFile = read("qt.cf")
 lStart = False		# False = Classes Doc.   True = Functions Doc.
 
 # The next list for RingQt classes that are not defined in Qt
-aRingQtClasses = ["RingCodeHighlighter"]
+aRingQtClasses = ["RingCodeHighlighter","QAllEvents"]
 
 # The next list for RingQt Names and their Qt Names
 aRingQtToQtClasses = [
