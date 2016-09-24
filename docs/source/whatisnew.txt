@@ -45,13 +45,13 @@ check this example:
 
 	# Natural Code
 	new program {
-		get 2 numbers then print the sum
+		Accept 2 numbers then print the sum
 	}
 
 	# Natural Code Implementation
 	class program
 		# Keywords
-			get=0 numbers=0 then=0 print=0 the=0 sum=0
+			Accept=0 numbers=0 then=0 print=0 the=0 sum=0
 
 		# Execution
 		func braceexpreval x
