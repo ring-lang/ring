@@ -180,8 +180,10 @@ call ring scripts/methodbraceerror.ring
 call ring scripts/methodbraceerror2.ring
 call ring scripts/methodbraceerror3.ring
 call ring scripts/methodbraceerror4.ring
-call ring scripts/usestylebasic.ring
-call ring scripts/usestylesupernova.ring
+cd scripts
+call ring usestylebasic.ring
+call ring usestylesupernova.ring
+cd ..
 call ring scripts/isfunctionclass.ring
 call ring scripts/handlebraceerror.ring
 call ring scripts/handlebraceerror2.ring

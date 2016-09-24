@@ -212,7 +212,10 @@ Example:
 
 .. code-block:: ring
 
+
 	SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked,void *lock_data}
+	
+	
 
 
 .. index:: 

@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 0
-184
-184
+169
+169
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4808
+Time 4894
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2348,7 +2348,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-00C4CC28
+00CDB7E0
 OBJECTPOINTER
 0
 1
@@ -2590,8 +2590,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 24/09/2016
-time: 21:36:25
+date: 25/09/2016
+time: 00:52:55
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -2895,23 +2895,35 @@ test
 10
 20
 
-B:\ring\tests>call ring scripts/usestylebasic.ring 
+B:\ring\tests>cd scripts 
 
-Can't open file b:\ring\bin\stylebasicon.ring 
+B:\ring\tests\scripts>call ring usestylebasic.ring 
+x = 10
+number three
+x = 9
+number three
+x = 8
+number three
+x = 7
+number three
+x = 6
+number three
+x = 5
+number three
+x = 4
+number three
+x = 3
+number three
+x = 2
+number three
+x = 1
+number three
+done
 
-Can't open file b:\ring\bin\stylebasicoff.ring 
+B:\ring\tests\scripts>call ring usestylesupernova.ring 
+nice
+B:\ring\tests\scripts>cd .. 
 
-scripts/usestylebasic.ring Line (19) Error (C3) : Unclosed control strucutre, 'ok' is missing
-scripts/usestylebasic.ring Line (19) Error (C5) : Unclosed control strucutre, next is missing
-scripts/usestylebasic.ring Line (19) Error (C4) : Unclosed control strucutre, 'end' is missing
-scripts/usestylebasic.ring errors count : 3 
-
-B:\ring\tests>call ring scripts/usestylesupernova.ring 
-
-Can't open file b:\ring\bin\stylesupernova.ring 
-
-Line 5 Error (R24) : Using uninitialized variable : doif 
-in file scripts/usestylesupernova.ring 
 B:\ring\tests>call ring scripts/isfunctionclass.ring 
 f1
 f2

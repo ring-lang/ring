@@ -270,6 +270,13 @@ void ring_vm_call ( VM *pVM )
 		ring_vm_deletescope(pVM);
 		/* Restore ActiveMem */
 		pVM->pActiveMem = pActiveMem ;
+		/* Restore nFuncSP value */
+		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+			pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+			pVM->nFuncSP = ring_list_getint(pList,RING_FUNCCL_SP) ;
+		} else {
+			pVM->nFuncSP = 0 ;
+		}
 		/* if eval() is called, start the main loop again */
 		if ( pVM->nEvalCalledFromRingCode == 1 ) {
 			pVM->nEvalCalledFromRingCode = 0 ;
