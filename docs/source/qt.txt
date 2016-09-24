@@ -4047,9 +4047,9 @@ Syntax:
 
 The next table present these little changes
 
-=====================			======================		===================
+===============================		======================		===================
 Class Name				Qt Method Name			RingQt Method Name
-=====================			======================		===================
+===============================		======================		===================
 QWebView				load				loadpage
 QMediaPlaylist				load				loadfile
 QMediaPlaylist				next				movenext
