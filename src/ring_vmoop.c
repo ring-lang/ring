@@ -247,7 +247,10 @@ void ring_vm_oop_setscope ( VM *pVM )
 	List *pList  ;
 	/* This function called after creating new object and executing class init */
 	pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj)) ;
-	/* Restore Stack Information */
+	/*
+	**  Restore State 
+	**  Restore Stack Information 
+	*/
 	pVM->nSP = ring_list_getint(pList,4) ;
 	/* Restore FuncExecute */
 	pVM->nFuncExecute = ring_list_getint(pList,5) ;
