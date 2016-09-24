@@ -1,4 +1,4 @@
-give x
+x=4
 if x = 1 see "one"
 elseif x=2 see "two"
 elseif x=3 see "three"

@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4824
+Time 4909
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2340,3 +2340,772 @@ B:\ring\tests>call ring scripts/addmethod2.ring
 10
 20
 30
+
+B:\ring\tests>call ring scripts/bracexpreval.ring 
+
+Can't open file scripts/bracexpreval.ring 
+
+B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
+Enter Number (1) :Enter Number (2) :The Sum : 7
+B:\ring\tests>call ring scripts/objectpointer.ring 
+0116C358
+OBJECTPOINTER
+0
+1
+2
+3
+4
+5
+welcome
+
+B:\ring\tests>call ring scripts/double.ring 
+5.60
+B:\ring\tests>call ring scripts/funcdef.ring 
+Hello
+7
+
+B:\ring\tests>call ring scripts/funcdef2.ring 
+7
+7
+
+B:\ring\tests>call ring scripts/sortlistoneitem.ring 
+one
+one
+
+B:\ring\tests>call ring scripts/findlistofobjs.ring 
+2
+3
+1
+3
+1
+2
+1
+3
+Other
+0
+0
+0
+
+B:\ring\tests>call ring scripts/sortlistofobjsnative.ring 
+position: 1.000000
+name: Ring
+symbol: RNG
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+************************************************************
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+position: 1.000000
+name: Ring
+symbol: RNG
+
+B:\ring\tests>call ring scripts/sortlistofobjsnative2.ring 
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 8.000000
+name: Charlie
+symbol: CHR
+position: 5.000000
+name: Dog
+symbol: GDOG
+position: 6.000000
+name: Easy
+symbol: FEAS
+position: 7.000000
+name: Fox
+symbol: EFOX
+position: 4.000000
+name: George
+symbol: DGRG
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+position: 1.000000
+name: Ring
+symbol: RNG
+**********************************************************************
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 8.000000
+name: Charlie
+symbol: CHR
+position: 4.000000
+name: George
+symbol: DGRG
+position: 7.000000
+name: Fox
+symbol: EFOX
+position: 6.000000
+name: Easy
+symbol: FEAS
+position: 5.000000
+name: Dog
+symbol: GDOG
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+position: 1.000000
+name: Ring
+symbol: RNG
+**********************************************************************
+position: 1.000000
+name: Ring
+symbol: RNG
+position: 2.000000
+name: Bert
+symbol: BRT
+position: 3.000000
+name: Mahmoud
+symbol: MHD
+position: 4.000000
+name: George
+symbol: DGRG
+position: 5.000000
+name: Dog
+symbol: GDOG
+position: 6.000000
+name: Easy
+symbol: FEAS
+position: 7.000000
+name: Fox
+symbol: EFOX
+position: 8.000000
+name: Charlie
+symbol: CHR
+
+B:\ring\tests>call ring scripts/substrchar.ring 
+BRK-B
+1 CurTicker: |BRK/B|
+2 /- Ticker: |BRK-B|
+
+B:\ring\tests>call ring scripts/ringsqlite.ring 
+1
+Mahmoud
+29
+Jeddah
+20000.0
+2
+Ahmed
+27
+Jeddah
+15000.0
+3
+Mohammed
+31
+Egypt
+20000.0
+4
+Ibrahim
+24
+Egypt 
+65000.0
+**************************************************
+Mahmoud
+Ahmed
+Mohammed
+Ibrahim
+
+B:\ring\tests>call ring scripts/semicolon.ring 
+Hello
+How are you?
+Welcome to Ring
+one
+two
+three
+
+B:\ring\tests>call ring scripts/visualvars.ring 
+Global   : 5
+Instance : 10
+Local    : 15
+
+B:\ring\tests>call ring scripts/bracestart.ring 
+start
+Hello
+end
+start
+end
+
+B:\ring\tests>call ring scripts/elseif.ring 
+four
+
+B:\ring\tests>call ring scripts/testendinif.ring 
+one
+
+B:\ring\tests>call ring scripts/useend.ring 
+if statement..
+one
+for loop..
+12345678910
+switch...
+one
+try catch...
+catching error
+
+B:\ring\tests>call ring scripts/ifother.ring 
+other
+
+B:\ring\tests>call ring scripts/switchelse.ring 
+not 10
+
+B:\ring\tests>call ring scripts/conflict1.ring 
+name: NULL
+address: NULL
+phone: NULL
+
+B:\ring\tests>call ring scripts/conflict2.ring 
+name: NULL
+address: NULL
+phone: NULL
+
+B:\ring\tests>call ring scripts/conflict3.ring 
+name: NULL
+address: NULL
+phone: NULL
+
+B:\ring\tests>call ring scripts/conflict4.ring 
+name: mahmoud
+address: Egypt
+phone: 0.000000
+
+B:\ring\tests>call ring scripts/privatemethod.ring 
+
+Line 4 Error (R26) : Calling private method from outside the class : salary 
+in file scripts/privatemethod.ring 
+B:\ring\tests>call ring scripts/privateattribute.ring 
+
+Line 6 Error (R27) : Using private attribute from outside the class : salary 
+in file scripts/privateattribute.ring 
+B:\ring\tests>call ring scripts/dynamicattr1.ring 
+nindex: 1.000000
+nindex: 2.000000
+
+B:\ring\tests>call ring scripts/dynamicattr2.ring 
+date: 24/09/2016
+time: 21:36:12
+
+B:\ring\tests>call ring scripts/sortobjscase.ring 
+ SPY SP500 0
+ SDYL SPDivs 1
+ FB Facebook 2
+ AMZN Amazon 3
+ NVDA Nvidia 4
+ GOOGL Google 5
+
+SORT: 
+
+symbol: AMZN
+cmpname: Amazon
+position: 3.000000
+symbol: FB
+cmpname: Facebook
+position: 2.000000
+symbol: GOOGL
+cmpname: Google
+position: 5.000000
+symbol: NVDA
+cmpname: Nvidia
+position: 4.000000
+symbol: SDYL
+cmpname: SPDivs
+position: 1.000000
+symbol: SPY
+cmpname: SP500
+position: 0.000000
+
+B:\ring\tests>call ring scripts/findlistofobjs2.ring 
+2
+3
+1
+3
+1
+2
+1
+3
+Other
+0
+0
+0
+catch error!
+end of test
+
+B:\ring\tests>call ring scripts/ifstylebraces.ring 
+false
+
+B:\ring\tests>call ring scripts/whilestylebraces.ring 
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+
+B:\ring\tests>call ring scripts/forstylebraces.ring 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+
+B:\ring\tests>call ring scripts/switchstylebraces.ring 
+three
+
+B:\ring\tests>call ring scripts/trystylebraces.ring 
+error
+
+B:\ring\tests>call ring scripts/stylebraces.ring 
+if statement..
+one
+for loop..
+12345678910
+switch...
+one
+try catch...
+catching error
+
+B:\ring\tests>call ring scripts/casetest.ring 
+one
+two
+thre
+else
+else
+else
+else
+else
+else
+else
+
+B:\ring\tests>call ring scripts/deftest.ring 
+one
+two
+
+B:\ring\tests>call ring scripts/forstyle3.ring 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+B:\ring\tests>call ring scripts/forinstyle3.ring 
+onetwothreefourfive
+B:\ring\tests>call ring scripts/changekeyword.ring 
+welcome
+Welcome
+
+B:\ring\tests>call ring scripts/syntaxbasic.ring 
+x = 10
+number three
+x = 9
+number three
+x = 8
+number three
+x = 7
+number three
+x = 6
+number three
+x = 5
+number three
+x = 4
+number three
+x = 3
+number three
+x = 2
+number three
+x = 1
+number three
+
+B:\ring\tests>call ring scripts/naturaland.ring 
+Instruction : I want window
+Using : and
+Instruction : Window Title = hello world
+
+B:\ring\tests>call ring scripts/syntaxbasic2.ring 
+x = 10
+number three
+x = 9
+number three
+x = 8
+number three
+x = 7
+number three
+x = 6
+number three
+x = 5
+number three
+x = 4
+number three
+x = 3
+number three
+x = 2
+number three
+x = 1
+number three
+message from test
+
+B:\ring\tests>call ring scripts/changeoperator.ring 
+5
+error
+15
+
+B:\ring\tests>call ring scripts/naturalplus.ring 
+Plus operator
+B:\ring\tests>call ring scripts/changeoperator2.ring 
+10
+B:\ring\tests>call ring scripts/evalinbrace.ring 
+10
+5
+
+B:\ring\tests>call ring scripts/naturalequal.ring 
+Instruction : I want window
+Instruction : Window Title = hello world
+
+B:\ring\tests>call ring scripts/rangemaxtomin.ring 
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+z
+y
+x
+w
+v
+u
+t
+s
+r
+q
+p
+o
+n
+m
+l
+k
+j
+i
+h
+g
+f
+e
+d
+c
+b
+a
+
+B:\ring\tests>call ring scripts/naturaleval.ring 
+Instruction : I want window
+Instruction : Window Title = hello world
+
+B:\ring\tests>call ring scripts/methodbraceerror.ring 
+10
+20
+test
+
+Line 9 Error (R24) : Using uninitialized variable : x 
+In method test() in file scripts/methodbraceerror.ring
+called from line 1  in file scripts/methodbraceerror.ring 
+B:\ring\tests>call ring scripts/methodbraceerror2.ring 
+10
+20
+test
+10
+20
+
+B:\ring\tests>call ring scripts/methodbraceerror3.ring 
+10
+20
+test
+10
+20
+
+B:\ring\tests>call ring scripts/methodbraceerror4.ring 
+10
+20
+test
+10
+20
+
+B:\ring\tests>call ring scripts/usestylebasic.ring 
+
+Can't open file b:\ring\bin\stylebasicon.ring 
+
+Can't open file b:\ring\bin\stylebasicoff.ring 
+
+scripts/usestylebasic.ring Line (19) Error (C3) : Unclosed control strucutre, 'ok' is missing
+scripts/usestylebasic.ring Line (19) Error (C5) : Unclosed control strucutre, next is missing
+scripts/usestylebasic.ring Line (19) Error (C4) : Unclosed control strucutre, 'end' is missing
+scripts/usestylebasic.ring errors count : 3 
+
+B:\ring\tests>call ring scripts/usestylesupernova.ring 
+
+Can't open file b:\ring\bin\stylesupernova.ring 
+
+Line 5 Error (R24) : Using uninitialized variable : doif 
+in file scripts/usestylesupernova.ring 
+B:\ring\tests>call ring scripts/isfunctionclass.ring 
+f1
+f2
+f3
+test
+
+B:\ring\tests>call ring scripts/handlebraceerror.ring 
+Handle Error!
+Message :Error (R24) : Using uninitialized variable : test
+add attribute
+done
+10
+B:\ring\tests>call ring scripts/handlebraceerror2.ring 
+Handle Error!
+Message :Error (R3) : Calling Function without definition !: test
+x: 10.000000
+y: 20.000000
+z: 30.000000
+Done
+mmm...
+
+B:\ring\tests>call ring scripts/naturalstring.ring 
+Instruction : I want window
+Instruction : Window Title =  hello world
+
+B:\ring\tests>call ring scripts/selfsearch.ring 
+
+Line 7 Error (R12) : error in property name, property not found! : t 
+in file scripts/selfsearch.ring 
+B:\ring\tests>call ring scripts/selfafterclass.ring 
+100
+200
+300
+x: 10.000000
+y: 20.000000
+z: 30.000000
+100
+200
+300
+
+B:\ring\tests>call ring scripts/selfafterclass2.ring 
+100
+200
+300
+x: 10.000000
+y: 20.000000
+z: 30.000000
+100
+200
+300
+
+Line 15 Error (R12) : error in property name, property not found! : extra 
+In method test() in file scripts/selfafterclass2.ring
+called from line 7  in file scripts/selfafterclass2.ring 
+B:\ring\tests>call ring scripts/selfafterclass3.ring 
+name: NULL
+address: NULL
+phone: NULL
+
+B:\ring\tests>call ring scripts/selfselfconflict1.ring 
+name: NULL
+name: NULL
+
+B:\ring\tests>call ring scripts/selfselfconflict2.ring 
+name: NULL
+name: NULL
+
+B:\ring\tests>call ring scripts/selfselfconflict3.ring 
+name: Gal
+name: Bert
+
+B:\ring\tests>call ring scripts/selfselfconflict4.ring 
+name: Gal
+name: Bert
+
+B:\ring\tests>call ring scripts/selfselfconflict5.ring 
+name: Gal
+name: Bert
+
+B:\ring\tests>call ring scripts/selfselfconflict6.ring 
+name: Gal
+name: bert
+
+B:\ring\tests>call ring scripts/assigncrash.ring 
+one
+two
+three
+four
+five
+
+B:\ring\tests>call ring scripts/assigncrash2.ring 
+
+B:\ring\tests>call ring scripts/assigncrash3.ring 
+
+B:\ring\tests>call ring scripts/assigncrash4.ring 
+
+B:\ring\tests>call ring scripts/assigncrash5.ring 
+
+B:\ring\tests>call ring scripts/assigncrash6.ring 
+done
+
+B:\ring\tests>call ring scripts/braceescape.ring 
+x: 10.000000
+y: 20.000000
+z: 30.000000
+x: 10.000000
+y: 20.000000
+z: 30.000000
+100
+200
+300
+100
+200
+300
+10
+20
+30
+
+B:\ring\tests>call ring scripts/testconflict.ring 
+Class-Company-CurCmp: AMZN | Amazon | Cloud | 
+Label-String-Symbol : JACK
+
+
+B:\ring\tests>call ring scripts/usingthis.ring 
+10
+20
+30
+
+B:\ring\tests>call ring scripts/returninclassregion.ring 
+x: NULL
+y: NULL
+x: NULL
+y: NULL
+z: NULL
+
+B:\ring\tests>call ring scripts/initmethod.ring 
+x: 100.000000
+y: 200.000000
+z: 300.000000
+
+B:\ring\tests>call ring scripts/dynamicmethods.ring 
+10
+20
+30
+100
+200
+300
+
+B:\ring\tests>call ring scripts/accesssetget.ring 
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Mahmoud - Ring Programming Language
+
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Gal - Ring Programming Language
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Bert - Ring Programming Language
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Marino - Ring Programming Language
+
+B:\ring\tests>call ring scripts/functionsscope.ring 
+========================================
+test method
+f1 function
+f2 function
+f3 method
+========================================
+========================================
+test2 method
+f1 function
+f2 function
+f3 method
+========================================
+========================================
+test2 function
+f1 function
+f2 function
+f3 method
+f3 method
+f3 method
+========================================
+
+B:\ring\tests>call ring scripts/functionsscope2.ring 
+========================================
+test method
+f1 function
+f2 function
+f3 method
+f3 function
+========================================

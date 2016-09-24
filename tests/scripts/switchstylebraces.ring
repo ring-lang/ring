@@ -1,4 +1,4 @@
-give x
+x=3
 
 switch x {
 	on 1 see "one" + nl

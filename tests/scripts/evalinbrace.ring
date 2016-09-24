@@ -1,8 +1,9 @@
 func main
-	x = 5
+	t = 5
 	new point {
 		x=10 y=20 z=30
-		eval("see x" )
+		eval("see x + nl" )
+		eval("see t + nl" )
 	}
 
 class point 
