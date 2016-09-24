@@ -123,6 +123,8 @@ void ring_vm_oop_newobj ( VM *pVM )
 				/* Save nCallClassInit */
 				ring_list_addint(pList4,pVM->nCallClassInit);
 				pVM->nCallClassInit = 0 ;
+				/* Save Line Number */
+				ring_list_addint(pList4,pVM->nLineNumber);
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3 ;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
@@ -256,6 +258,8 @@ void ring_vm_oop_setscope ( VM *pVM )
 	pVM->pBraceObject = (List *) ring_list_getpointer(pList,8) ;
 	/* Restore nCallClassInit */
 	pVM->nCallClassInit = ring_list_getint(pList,9) ;
+	/* Restore nLineNumber */
+	pVM->nLineNumber = ring_list_getint(pList,10) ;
 	/* Restore the scope (before creating the object using new) */
 	pVM->pActiveMem = (List *) ring_list_getpointer(pList,1) ;
 	/* Restore List Status */

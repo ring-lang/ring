@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4810
+Time 4842
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -1750,7 +1750,7 @@ welcome
 
 Line 15 Error (R31) : Trying to destory the object using the self reference  
 In method f1() in file scripts/selfbug.ring
-called from line 10  in file scripts/selfbug.ring 
+called from line 4  in file scripts/selfbug.ring 
 B:\ring\tests>call ring scripts/selfininit.ring 
 10
 20

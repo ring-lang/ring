@@ -4,7 +4,7 @@ cClassName,*cClassName2
 Type: int
 x,nLimit,nClassPC,nType,nCont
 Type: List *
-pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis
+pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf
 Type: Item *
 pItem
 Type: const char *
