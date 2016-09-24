@@ -11296,7 +11296,7 @@ Class QThread from QObject
 	Func eventDispatcher 
 		return QThread_eventDispatcher(pObject)
 
-	Func exit P1
+	Func exitfromthread P1
 		return QThread_exit(pObject,P1)
 
 	Func isFinished 
@@ -11564,7 +11564,7 @@ Class QRegularExpressionMatchIterator
 	Func matchType 
 		return QRegularExpressionMatchIterator_matchType(pObject)
 
-	Func next 
+	Func nextitem 
 		pTempObj = new QRegularExpressionMatch
 		pTempObj.pObject = QRegularExpressionMatchIterator_next(pObject)
 		return pTempObj

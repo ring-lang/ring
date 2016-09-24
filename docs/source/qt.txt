@@ -4047,23 +4047,25 @@ Syntax:
 
 The next table present these little changes
 
-=====================	======================		===================
-Class Name		Qt Method Name			RingQt Method Name
-=====================	======================		===================
-QWebView		load				loadpage
-QMediaPlaylist		load				loadfile
-QMediaPlaylist		next				movenext
-QPainter		end				endpaint
-QPicture		load				loadfile
-QLineEdit		end				endtext
-QDialog			done				donedialog
-QTextDocument		end				enddoc
-QTextBlock		next				nextblock
-QSqlQuery		next				movenext
-QImage			load				loadimage
-QNetworkAccessManager	get				getvalue
-QNetworkAccessManager	put				putvalue
-=====================	======================		===================
+=====================			======================		===================
+Class Name				Qt Method Name			RingQt Method Name
+=====================			======================		===================
+QWebView				load				loadpage
+QMediaPlaylist				load				loadfile
+QMediaPlaylist				next				movenext
+QPainter				end				endpaint
+QPicture				load				loadfile
+QLineEdit				end				endtext
+QDialog					done				donedialog
+QTextDocument				end				enddoc
+QTextBlock				next				nextblock
+QSqlQuery				next				movenext
+QImage					load				loadimage
+QNetworkAccessManager			get				getvalue
+QNetworkAccessManager			put				putvalue
+QThread					exit				exitfromthread
+QRegularExpressionMatchIterator		next				nextitem
+===============================		======================		===================
 
 .. index:: 
 	pair: Desktop and Mobile Development; RingQt Classes and their Qt Documentation

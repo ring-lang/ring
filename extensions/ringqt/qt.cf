@@ -222,6 +222,8 @@ aNewMethodName + ["QSqlQuery","next","movenext"]
 aNewMethodName + ["QImage","load","loadimage"]
 aNewMethodName + ["QNetworkAccessManager","get","getvalue"]
 aNewMethodName + ["QNetworkAccessManager","put","putvalue"]
+aNewMethodName + ["QThread","exit","exitfromthread"]
+aNewMethodName + ["QRegularExpressionMatchIterator","next","nextitem"]
 
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
@@ -4684,7 +4686,7 @@ passvmpointer
 </class>
 
 QAbstractEventDispatcher *eventDispatcher(void)
-void exit(int returnCode)
+void exit(int returnCode) # In RingQt use : void exitfromthread(int returnCode)
 bool isFinished(void)
 bool isInterruptionRequested(void)
 bool isRunning(void)
@@ -4807,7 +4809,7 @@ bool hasNext(void)
 bool isValid(void)
 QRegularExpression::MatchOptions matchOptions(void)
 QRegularExpression::MatchType matchType(void)
-QRegularExpressionMatch next(void)
+QRegularExpressionMatch next(void) # In RingQt use : QRegularExpressionMatch nextitem(void)
 QRegularExpressionMatch peekNext(void)
 QRegularExpression regularExpression(void)
 void swap(QRegularExpressionMatchIterator other)
