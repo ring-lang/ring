@@ -259,6 +259,7 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Set Active File */
 			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
 			ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
+			ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 			ring_parser_nexttoken(pParser);
 			return 1 ;
 		}

@@ -607,6 +607,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_ASCOPENEWOBJ_LISTSTART 2
 #define RING_ASCOPENEWOBJ_NESTEDLISTS 3
 #define RING_ASCOPENEWOBJ_SP 4
+#define RING_ASCOPENEWOBJ_FUNCSP 10
 /* State */
 #define RING_STATE_TRYCATCH 1
 #define RING_STATE_EXIT 2

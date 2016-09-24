@@ -125,6 +125,10 @@ void ring_vm_oop_newobj ( VM *pVM )
 				pVM->nCallClassInit = 0 ;
 				/* Save Line Number */
 				ring_list_addint(pList4,pVM->nLineNumber);
+				/* Save Function Stack */
+				ring_list_addint(pList4,pVM->nFuncSP);
+				/* Save Assignment Pointer */
+				ring_list_addpointer(pList4,pVM->pAssignment);
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3 ;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
@@ -132,12 +136,12 @@ void ring_vm_oop_newobj ( VM *pVM )
 				ring_list_addpointer(pList5,pList3);
 				ring_list_addpointer(pList5,NULL);
 				ring_list_addpointer(pList5,pList);
-				/* Support using Braces to access the object state */
-				pVM->pBraceObject = pList2 ;
 				/* Create the Super Virtual Object */
 				ring_vm_oop_newsuperobj(pVM,pList3,pList);
 				/* Enable NULL variables (To be class attributes) */
 				pVM->nCheckNULLVar++ ;
+				/* Support using Braces to access the object state */
+				pVM->pBraceObject = pList2 ;
 				return ;
 			}
 		}
@@ -263,6 +267,10 @@ void ring_vm_oop_setscope ( VM *pVM )
 	pVM->nCallClassInit = ring_list_getint(pList,9) ;
 	/* Restore nLineNumber */
 	pVM->nLineNumber = ring_list_getint(pList,10) ;
+	/* Restore Function Stack */
+	pVM->nFuncSP = ring_list_getint(pList,11) ;
+	/* Restore Assignment Pointer */
+	pVM->pAssignment = (List *) ring_list_getpointer(pList,12) ;
 	/* Restore the scope (before creating the object using new) */
 	pVM->pActiveMem = (List *) ring_list_getpointer(pList,1) ;
 	/* Restore List Status */
