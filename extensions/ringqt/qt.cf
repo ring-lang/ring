@@ -5237,12 +5237,12 @@ void setViewfinderSettings( QCameraViewfinderSettings   settings)
 QCamera::State state(void)
 QCamera::Status status(void)
 QCamera::LockTypes supportedLocks(void)
+
+<comment>
 QList<QCamera::FrameRateRange> supportedViewfinderFrameRateRanges( QCameraViewfinderSettings   settings )
 QList<QVideoFrame::PixelFormat> supportedViewfinderPixelFormats( QCameraViewfinderSettings   settings )
 QList<QSize> supportedViewfinderResolutions( QCameraViewfinderSettings   settings )
 QList<QCameraViewfinderSettings> supportedViewfinderSettings( QCameraViewfinderSettings   settings )
-
-<comment>
 QCameraViewfinderSettings viewfinderSettings(void)
 </comment>
 

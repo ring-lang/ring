@@ -12473,18 +12473,6 @@ Class QCamera from QMediaObject
 	Func supportedLocks 
 		return QCamera_supportedLocks(pObject)
 
-	Func supportedViewfinderFrameRateRanges P1
-		return QCamera_supportedViewfinderFrameRateRanges(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func supportedViewfinderPixelFormats P1
-		return QCamera_supportedViewfinderPixelFormats(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func supportedViewfinderResolutions P1
-		return QCamera_supportedViewfinderResolutions(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func supportedViewfinderSettings P1
-		return QCamera_supportedViewfinderSettings(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func loadcamera 
 		return QCamera_load(pObject)
 

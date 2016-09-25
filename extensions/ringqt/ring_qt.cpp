@@ -69959,102 +69959,6 @@ RING_FUNC(ring_QCamera_supportedLocks)
 }
 
 
-RING_FUNC(ring_QCamera_supportedViewfinderFrameRateRanges)
-{
-	QCamera *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCamera *) RING_API_GETCPOINTER(1,"QCamera");
-	{
-		QList<QCamera::FrameRateRange> *pValue ; 
-		pValue = (QList<QCamera::FrameRateRange> *) malloc(sizeof(QList<QCamera::FrameRateRange>)) ;
-		*pValue = pObject->supportedViewfinderFrameRateRanges(* (QCameraViewfinderSettings    *) RING_API_GETCPOINTER(2,"QCameraViewfinderSettings"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QCameraViewfinderSettings"));
-		RING_API_RETCPOINTER(pValue,"QList<QCamera::FrameRateRange>");
-	}
-}
-
-
-RING_FUNC(ring_QCamera_supportedViewfinderPixelFormats)
-{
-	QCamera *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCamera *) RING_API_GETCPOINTER(1,"QCamera");
-	{
-		QList<QVideoFrame::PixelFormat> *pValue ; 
-		pValue = (QList<QVideoFrame::PixelFormat> *) malloc(sizeof(QList<QVideoFrame::PixelFormat>)) ;
-		*pValue = pObject->supportedViewfinderPixelFormats(* (QCameraViewfinderSettings    *) RING_API_GETCPOINTER(2,"QCameraViewfinderSettings"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QCameraViewfinderSettings"));
-		RING_API_RETCPOINTER(pValue,"QList<QVideoFrame::PixelFormat>");
-	}
-}
-
-
-RING_FUNC(ring_QCamera_supportedViewfinderResolutions)
-{
-	QCamera *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCamera *) RING_API_GETCPOINTER(1,"QCamera");
-	{
-		QList<QSize> *pValue ; 
-		pValue = (QList<QSize> *) malloc(sizeof(QList<QSize>)) ;
-		*pValue = pObject->supportedViewfinderResolutions(* (QCameraViewfinderSettings    *) RING_API_GETCPOINTER(2,"QCameraViewfinderSettings"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QCameraViewfinderSettings"));
-		RING_API_RETCPOINTER(pValue,"QList<QSize>");
-	}
-}
-
-
-RING_FUNC(ring_QCamera_supportedViewfinderSettings)
-{
-	QCamera *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCamera *) RING_API_GETCPOINTER(1,"QCamera");
-	{
-		QList<QCameraViewfinderSettings> *pValue ; 
-		pValue = (QList<QCameraViewfinderSettings> *) malloc(sizeof(QList<QCameraViewfinderSettings>)) ;
-		*pValue = pObject->supportedViewfinderSettings(* (QCameraViewfinderSettings    *) RING_API_GETCPOINTER(2,"QCameraViewfinderSettings"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QCameraViewfinderSettings"));
-		RING_API_RETCPOINTER(pValue,"QList<QCameraViewfinderSettings>");
-	}
-}
-
-
 RING_FUNC(ring_QCamera_load)
 {
 	QCamera *pObject ;
@@ -77538,10 +77442,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcamera_state",ring_QCamera_state);
 	ring_vm_funcregister("qcamera_status",ring_QCamera_status);
 	ring_vm_funcregister("qcamera_supportedlocks",ring_QCamera_supportedLocks);
-	ring_vm_funcregister("qcamera_supportedviewfinderframerateranges",ring_QCamera_supportedViewfinderFrameRateRanges);
-	ring_vm_funcregister("qcamera_supportedviewfinderpixelformats",ring_QCamera_supportedViewfinderPixelFormats);
-	ring_vm_funcregister("qcamera_supportedviewfinderresolutions",ring_QCamera_supportedViewfinderResolutions);
-	ring_vm_funcregister("qcamera_supportedviewfindersettings",ring_QCamera_supportedViewfinderSettings);
 	ring_vm_funcregister("qcamera_load",ring_QCamera_load);
 	ring_vm_funcregister("qcamera_searchandlock",ring_QCamera_searchAndLock);
 	ring_vm_funcregister("qcamera_searchandlock_2",ring_QCamera_searchAndLock_2);
