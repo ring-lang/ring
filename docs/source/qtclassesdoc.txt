@@ -5104,8 +5104,6 @@ Parameters : void
 * void setAnchor(bool anchor)
 * void setAnchorHref( QString   value)
 * void setAnchorNames( QStringList   names)
-* void setFont( QFont   font, QTextCharFormat::FontPropertiesInheritanceBehavior behavior)
-* void setFont_2( QFont   font)
 * void setFontCapitalization(QFont::Capitalization capitalization)
 * void setFontFamily( QString   family)
 * void setFontFixedPitch(bool fixedPitch)
@@ -5133,3 +5131,99 @@ Parameters : void
 * QColor underlineColor(void)
 * QTextCharFormat::UnderlineStyle underlineStyle(void)
 * QTextCharFormat::VerticalAlignment verticalAlignment(void)
+
+.. index::
+	pair: RingQt Classes Reference; QCameraViewfinder Class
+
+QCameraViewfinder Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCameraViewfinder.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QVideoWidget
+
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsVideoItem Class
+
+QGraphicsVideoItem Class
+========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGraphicsVideoItem.html
+
+
+Parameters : void
+
+* Qt::AspectRatioMode aspectRatioMode(void)
+* QSizeF nativeSize(void)
+* QPointF offset(void)
+* void setAspectRatioMode(Qt::AspectRatioMode mode)
+* void setOffset(QPointF offset)
+* void setSize(QSizeF size)
+* QSizeF size(void)
+
+.. index::
+	pair: RingQt Classes Reference; QVideoWidgetControl Class
+
+QVideoWidgetControl Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QVideoWidgetControl.html
+
+
+Parent Class : QMediaControl
+
+
+.. index::
+	pair: RingQt Classes Reference; QCamera Class
+
+QCamera Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCamera.html
+
+
+Parameters : void
+
+
+Parent Class : QMediaObject
+
+* QCamera::CaptureModes captureMode(void)
+* QCamera::Error error(void)
+* QString errorString(void)
+* QCameraExposure * exposure(void)
+* QCameraFocus * focus(void)
+* QCameraImageProcessing * imageProcessing(void)
+* bool isCaptureModeSupported(QCamera::CaptureModes mode)
+* QCamera::LockStatus lockStatus(void)
+* QCamera::LockStatus lockStatus_2(QCamera::LockType lockType)
+* QCamera::LockTypes requestedLocks(void)
+* void setViewfinder(QVideoWidget * viewfinder)
+* void setViewfinder_2(QGraphicsVideoItem * viewfinder)
+* void setViewfinder_3(QAbstractVideoSurface * surface)
+* void setViewfinderSettings( QCameraViewfinderSettings   settings)
+* QCamera::State state(void)
+* QCamera::Status status(void)
+* QCamera::LockTypes supportedLocks(void)
+* QList<QCamera::FrameRateRange> supportedViewfinderFrameRateRanges( QCameraViewfinderSettings   settings )
+* QList<QVideoFrame::PixelFormat> supportedViewfinderPixelFormats( QCameraViewfinderSettings   settings )
+* QList<QSize> supportedViewfinderResolutions( QCameraViewfinderSettings   settings )
+* QList<QCameraViewfinderSettings> supportedViewfinderSettings( QCameraViewfinderSettings   settings )
+* QCameraViewfinderSettings viewfinderSettings(void)
+* void load(void)
+* void searchAndLock(void)
+* void searchAndLock_2(QCamera::LockTypes locks)
+* void setCaptureMode(QCamera::CaptureModes mode)
+* void start(void)
+* void stop(void)
+* void unload(void)
+* void unlock(void)
+* void unlock_2(QCamera::LockTypes locks)
