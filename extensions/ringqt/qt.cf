@@ -5229,7 +5229,11 @@ QCamera::LockTypes requestedLocks(void)
 void setViewfinder(QVideoWidget * viewfinder)
 void setViewfinder@2(QGraphicsVideoItem * viewfinder)
 void setViewfinder@3(QAbstractVideoSurface * surface)
+
+<comment>
 void setViewfinderSettings( QCameraViewfinderSettings   settings)
+</comment>
+
 QCamera::State state(void)
 QCamera::Status status(void)
 QCamera::LockTypes supportedLocks(void)
@@ -5237,7 +5241,11 @@ QList<QCamera::FrameRateRange> supportedViewfinderFrameRateRanges( QCameraViewfi
 QList<QVideoFrame::PixelFormat> supportedViewfinderPixelFormats( QCameraViewfinderSettings   settings )
 QList<QSize> supportedViewfinderResolutions( QCameraViewfinderSettings   settings )
 QList<QCameraViewfinderSettings> supportedViewfinderSettings( QCameraViewfinderSettings   settings )
+
+<comment>
 QCameraViewfinderSettings viewfinderSettings(void)
+</comment>
+
 void load(void)
 void searchAndLock(void)
 void searchAndLock@2(QCamera::LockTypes locks)
@@ -5272,3 +5280,17 @@ QStringList supportedImageCodecs(void)
 QList<QSize> supportedResolutions( QImageEncoderSettings   settings , bool * continuous )
 void cancelCapture(void)
 int capture( QString   file )
+
+
+<class>
+name: QMediaObject
+para: void
+parent: QWidget
+abstract
+</class>
+
+QStringList availableMetaData(void)
+bool isMetaDataAvailable(void)
+QVariant metaData( QString   key)
+int notifyInterval(void)
+void setNotifyInterval(int milliSeconds)

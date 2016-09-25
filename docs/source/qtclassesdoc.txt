@@ -5209,7 +5209,6 @@ Parent Class : QMediaObject
 * void setViewfinder(QVideoWidget * viewfinder)
 * void setViewfinder_2(QGraphicsVideoItem * viewfinder)
 * void setViewfinder_3(QAbstractVideoSurface * surface)
-* void setViewfinderSettings( QCameraViewfinderSettings   settings)
 * QCamera::State state(void)
 * QCamera::Status status(void)
 * QCamera::LockTypes supportedLocks(void)
@@ -5217,7 +5216,6 @@ Parent Class : QMediaObject
 * QList<QVideoFrame::PixelFormat> supportedViewfinderPixelFormats( QCameraViewfinderSettings   settings )
 * QList<QSize> supportedViewfinderResolutions( QCameraViewfinderSettings   settings )
 * QList<QCameraViewfinderSettings> supportedViewfinderSettings( QCameraViewfinderSettings   settings )
-* QCameraViewfinderSettings viewfinderSettings(void)
 * void load(void)
 * void searchAndLock(void)
 * void searchAndLock_2(QCamera::LockTypes locks)
@@ -5258,3 +5256,24 @@ Parameters : QMediaObject * mediaObject
 * QList<QSize> supportedResolutions( QImageEncoderSettings   settings , bool * continuous )
 * void cancelCapture(void)
 * int capture( QString   file )
+
+.. index::
+	pair: RingQt Classes Reference; QMediaObject Class
+
+QMediaObject Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMediaObject.html
+
+
+Parameters : void
+
+
+Parent Class : QWidget
+
+* QStringList availableMetaData(void)
+* bool isMetaDataAvailable(void)
+* QVariant metaData( QString   key)
+* int notifyInterval(void)
+* void setNotifyInterval(int milliSeconds)

@@ -69908,25 +69908,6 @@ RING_FUNC(ring_QCamera_setViewfinder_3)
 }
 
 
-RING_FUNC(ring_QCamera_setViewfinderSettings)
-{
-	QCamera *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCamera *) RING_API_GETCPOINTER(1,"QCamera");
-	pObject->setViewfinderSettings(* (QCameraViewfinderSettings    *) RING_API_GETCPOINTER(2,"QCameraViewfinderSettings"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QCameraViewfinderSettings"));
-}
-
-
 RING_FUNC(ring_QCamera_state)
 {
 	QCamera *pObject ;
@@ -70070,28 +70051,6 @@ RING_FUNC(ring_QCamera_supportedViewfinderSettings)
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QCameraViewfinderSettings"));
 		RING_API_RETCPOINTER(pValue,"QList<QCameraViewfinderSettings>");
-	}
-}
-
-
-RING_FUNC(ring_QCamera_viewfinderSettings)
-{
-	QCamera *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCamera *) RING_API_GETCPOINTER(1,"QCamera");
-	{
-		QCameraViewfinderSettings *pValue ; 
-		pValue = (QCameraViewfinderSettings *) malloc(sizeof(QCameraViewfinderSettings)) ;
-		*pValue = pObject->viewfinderSettings();
-		RING_API_RETCPOINTER(pValue,"QCameraViewfinderSettings");
 	}
 }
 
@@ -70620,6 +70579,109 @@ RING_FUNC(ring_QCameraImageCapture_capture)
 		return ;
 	}
 	RING_API_RETNUMBER(pObject->capture(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QMediaObject_availableMetaData)
+{
+	QMediaObject *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMediaObject *) RING_API_GETCPOINTER(1,"QMediaObject");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->availableMetaData();
+		RING_API_RETCPOINTER(pValue,"QStringList");
+	}
+}
+
+
+RING_FUNC(ring_QMediaObject_isMetaDataAvailable)
+{
+	QMediaObject *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMediaObject *) RING_API_GETCPOINTER(1,"QMediaObject");
+	RING_API_RETNUMBER(pObject->isMetaDataAvailable());
+}
+
+
+RING_FUNC(ring_QMediaObject_metaData)
+{
+	QMediaObject *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMediaObject *) RING_API_GETCPOINTER(1,"QMediaObject");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = new QVariant() ;
+		*pValue = pObject->metaData(RING_API_GETSTRING(2));
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QMediaObject_notifyInterval)
+{
+	QMediaObject *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMediaObject *) RING_API_GETCPOINTER(1,"QMediaObject");
+	RING_API_RETNUMBER(pObject->notifyInterval());
+}
+
+
+RING_FUNC(ring_QMediaObject_setNotifyInterval)
+{
+	QMediaObject *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMediaObject *) RING_API_GETCPOINTER(1,"QMediaObject");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNotifyInterval( (int ) RING_API_GETNUMBER(2));
 }
 
 RING_FUNC(ring_QObject_new)
@@ -77473,7 +77535,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcamera_setviewfinder",ring_QCamera_setViewfinder);
 	ring_vm_funcregister("qcamera_setviewfinder_2",ring_QCamera_setViewfinder_2);
 	ring_vm_funcregister("qcamera_setviewfinder_3",ring_QCamera_setViewfinder_3);
-	ring_vm_funcregister("qcamera_setviewfindersettings",ring_QCamera_setViewfinderSettings);
 	ring_vm_funcregister("qcamera_state",ring_QCamera_state);
 	ring_vm_funcregister("qcamera_status",ring_QCamera_status);
 	ring_vm_funcregister("qcamera_supportedlocks",ring_QCamera_supportedLocks);
@@ -77481,7 +77542,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcamera_supportedviewfinderpixelformats",ring_QCamera_supportedViewfinderPixelFormats);
 	ring_vm_funcregister("qcamera_supportedviewfinderresolutions",ring_QCamera_supportedViewfinderResolutions);
 	ring_vm_funcregister("qcamera_supportedviewfindersettings",ring_QCamera_supportedViewfinderSettings);
-	ring_vm_funcregister("qcamera_viewfindersettings",ring_QCamera_viewfinderSettings);
 	ring_vm_funcregister("qcamera_load",ring_QCamera_load);
 	ring_vm_funcregister("qcamera_searchandlock",ring_QCamera_searchAndLock);
 	ring_vm_funcregister("qcamera_searchandlock_2",ring_QCamera_searchAndLock_2);
@@ -77509,6 +77569,11 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcameraimagecapture_supportedresolutions",ring_QCameraImageCapture_supportedResolutions);
 	ring_vm_funcregister("qcameraimagecapture_cancelcapture",ring_QCameraImageCapture_cancelCapture);
 	ring_vm_funcregister("qcameraimagecapture_capture",ring_QCameraImageCapture_capture);
+	ring_vm_funcregister("qmediaobject_availablemetadata",ring_QMediaObject_availableMetaData);
+	ring_vm_funcregister("qmediaobject_ismetadataavailable",ring_QMediaObject_isMetaDataAvailable);
+	ring_vm_funcregister("qmediaobject_metadata",ring_QMediaObject_metaData);
+	ring_vm_funcregister("qmediaobject_notifyinterval",ring_QMediaObject_notifyInterval);
+	ring_vm_funcregister("qmediaobject_setnotifyinterval",ring_QMediaObject_setNotifyInterval);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);

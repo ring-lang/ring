@@ -12464,9 +12464,6 @@ Class QCamera from QMediaObject
 	Func setViewfinder_3 P1
 		return QCamera_setViewfinder_3(pObject,GetObjectPointerFromRingObject(P1))
 
-	Func setViewfinderSettings P1
-		return QCamera_setViewfinderSettings(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func state 
 		return QCamera_state(pObject)
 
@@ -12487,9 +12484,6 @@ Class QCamera from QMediaObject
 
 	Func supportedViewfinderSettings P1
 		return QCamera_supportedViewfinderSettings(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func viewfinderSettings 
-		return QCamera_viewfinderSettings(pObject)
 
 	Func loadcamera 
 		return QCamera_load(pObject)
@@ -12584,6 +12578,36 @@ Class QCameraImageCapture
 
 	Func capture P1
 		return QCameraImageCapture_capture(pObject,P1)
+
+Class QMediaObject from QWidget
+
+	pObject
+
+	Func init 
+		pObject = QMediaObject_new()
+		return self
+
+	Func delete
+		pObject = QMediaObject_delete(pObject)
+
+	Func availableMetaData 
+		pTempObj = new QStringList
+		pTempObj.pObject = QMediaObject_availableMetaData(pObject)
+		return pTempObj
+
+	Func isMetaDataAvailable 
+		return QMediaObject_isMetaDataAvailable(pObject)
+
+	Func metaData P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QMediaObject_metaData(pObject,P1)
+		return pTempObj
+
+	Func notifyInterval 
+		return QMediaObject_notifyInterval(pObject)
+
+	Func setNotifyInterval P1
+		return QMediaObject_setNotifyInterval(pObject,P1)
 
 Class QIcon
 
