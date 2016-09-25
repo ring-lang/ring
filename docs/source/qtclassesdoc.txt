@@ -5227,3 +5227,34 @@ Parent Class : QMediaObject
 * void unload(void)
 * void unlock(void)
 * void unlock_2(QCamera::LockTypes locks)
+
+.. index::
+	pair: RingQt Classes Reference; QCameraImageCapture Class
+
+QCameraImageCapture Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCameraImageCapture.html
+
+
+Parameters : QMediaObject * mediaObject
+
+* QMultimedia::AvailabilityStatus availability(void)
+* QVideoFrame::PixelFormat bufferFormat(void)
+* QCameraImageCapture::CaptureDestinations captureDestination(void)
+* QImageEncoderSettings encodingSettings(void)
+* QCameraImageCapture::Error error(void)
+* QString errorString(void)
+* QString imageCodecDescription( QString   codec)
+* bool isAvailable(void)
+* bool isCaptureDestinationSupported(QCameraImageCapture::CaptureDestinations destination)
+* bool isReadyForCapture(void)
+* void setBufferFormat( QVideoFrame::PixelFormat format)
+* void setCaptureDestination(QCameraImageCapture::CaptureDestinations destination)
+* void setEncodingSettings( QImageEncoderSettings   settings)
+* QList<QVideoFrame::PixelFormat> supportedBufferFormats(void)
+* QStringList supportedImageCodecs(void)
+* QList<QSize> supportedResolutions( QImageEncoderSettings   settings , bool * continuous )
+* void cancelCapture(void)
+* int capture( QString   file )
