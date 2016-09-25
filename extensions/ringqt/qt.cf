@@ -185,6 +185,8 @@ extern "C" {
 #include <QTextCharFormat>
 #include <QCameraViewfinder>
 #include <QGraphicsVideoItem>
+#include <QVideoWidgetControl>
+#include <QCamera>
 
 #include "highlighter.h"
 
@@ -411,6 +413,17 @@ aEnumTypes + "QPlainTextEdit::LineWrapMode"
 aEnumTypes + "QTextCharFormat::FontPropertiesInheritanceBehavior"
 aEnumTypes + "QTextCharFormat::UnderlineStyle"
 aEnumTypes + "QTextCharFormat::VerticalAlignment"
+aEnumTypes + "QCamera::FrameRateRange"
+aEnumTypes + "QCamera::CaptureMode"
+aEnumTypes + "QCamera::CaptureModes"
+aEnumTypes + "QCamera::Error"
+aEnumTypes + "QCamera::LockChangeReason"
+aEnumTypes + "QCamera::LockQCamera::Status"
+aEnumTypes + "QCamera::LockType"
+aEnumTypes + "QCamera::LockTypes"
+aEnumTypes + "QCamera::Position"
+aEnumTypes + "QCamera::State"
+aEnumTypes + "QCamera::Status"
 
 </runcode>
 
@@ -5184,3 +5197,49 @@ void setAspectRatioMode(Qt::AspectRatioMode mode)
 void setOffset(QPointF offset)
 void setSize(QSizeF size)
 QSizeF size(void)
+
+<class>
+name: QVideoWidgetControl
+parent: QMediaControl
+abstract
+</class>
+
+<class>
+name: QCamera
+para: void
+parent: QMediaObject
+</class>
+
+QCamera::CaptureModes captureMode(void)
+QCamera::Error error(void)
+QString errorString(void)
+QCameraExposure * exposure(void)
+QCameraFocus * focus(void)
+QCameraImageProcessing * imageProcessing(void)
+bool isCaptureModeSupported(QCamera::CaptureModes mode)
+QCamera::LockStatus lockStatus(void)
+QCamera::LockStatus lockStatus@2(QCamera::LockType lockType)
+QCamera::LockTypes requestedLocks(void)
+void setViewfinder(QVideoWidget * viewfinder)
+void setViewfinder@2(QGraphicsVideoItem * viewfinder)
+void setViewfinder@3(QAbstractVideoSurface * surface)
+void setViewfinderSettings( QCameraViewfinderSettings   settings)
+QCamera::State state(void)
+QCamera::Status status(void)
+QCamera::LockTypes supportedLocks(void)
+QList<QCamera::FrameRateRange> supportedViewfinderFrameRateRanges( QCameraViewfinderSettings   settings )
+QList<QVideoFrame::PixelFormat> supportedViewfinderPixelFormats( QCameraViewfinderSettings   settings )
+QList<QSize> supportedViewfinderResolutions( QCameraViewfinderSettings   settings )
+QList<QCameraViewfinderSettings> supportedViewfinderSettings( QCameraViewfinderSettings   settings )
+QCameraViewfinderSettings viewfinderSettings(void)
+void load(void)
+void searchAndLock(void)
+void searchAndLock@2(QCamera::LockTypes locks)
+void setCaptureMode(QCamera::CaptureModes mode)
+void start(void)
+void stop(void)
+void unload(void)
+void unlock(void)
+void unlock@2(QCamera::LockTypes locks)
+
+

@@ -12414,6 +12414,110 @@ Class QGraphicsVideoItem
 	Func size 
 		return QGraphicsVideoItem_size(pObject)
 
+Class QCamera from QMediaObject
+
+	pObject
+
+	Func init 
+		pObject = QCamera_new()
+		return self
+
+	Func delete
+		pObject = QCamera_delete(pObject)
+
+	Func captureMode 
+		return QCamera_captureMode(pObject)
+
+	Func error 
+		return QCamera_error(pObject)
+
+	Func errorString 
+		return QCamera_errorString(pObject)
+
+	Func exposure 
+		return QCamera_exposure(pObject)
+
+	Func focus 
+		return QCamera_focus(pObject)
+
+	Func imageProcessing 
+		return QCamera_imageProcessing(pObject)
+
+	Func isCaptureModeSupported P1
+		return QCamera_isCaptureModeSupported(pObject,P1)
+
+	Func lockStatus 
+		return QCamera_lockStatus(pObject)
+
+	Func lockStatus_2 P1
+		return QCamera_lockStatus_2(pObject,P1)
+
+	Func requestedLocks 
+		return QCamera_requestedLocks(pObject)
+
+	Func setViewfinder P1
+		return QCamera_setViewfinder(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setViewfinder_2 P1
+		return QCamera_setViewfinder_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setViewfinder_3 P1
+		return QCamera_setViewfinder_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setViewfinderSettings P1
+		return QCamera_setViewfinderSettings(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func state 
+		return QCamera_state(pObject)
+
+	Func status 
+		return QCamera_status(pObject)
+
+	Func supportedLocks 
+		return QCamera_supportedLocks(pObject)
+
+	Func supportedViewfinderFrameRateRanges P1
+		return QCamera_supportedViewfinderFrameRateRanges(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func supportedViewfinderPixelFormats P1
+		return QCamera_supportedViewfinderPixelFormats(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func supportedViewfinderResolutions P1
+		return QCamera_supportedViewfinderResolutions(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func supportedViewfinderSettings P1
+		return QCamera_supportedViewfinderSettings(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func viewfinderSettings 
+		return QCamera_viewfinderSettings(pObject)
+
+	Func load 
+		return QCamera_load(pObject)
+
+	Func searchAndLock 
+		return QCamera_searchAndLock(pObject)
+
+	Func searchAndLock_2 P1
+		return QCamera_searchAndLock_2(pObject,P1)
+
+	Func setCaptureMode P1
+		return QCamera_setCaptureMode(pObject,P1)
+
+	Func start 
+		return QCamera_start(pObject)
+
+	Func stop 
+		return QCamera_stop(pObject)
+
+	Func unload 
+		return QCamera_unload(pObject)
+
+	Func unlock 
+		return QCamera_unlock(pObject)
+
+	Func unlock_2 P1
+		return QCamera_unlock_2(pObject,P1)
+
 Class QIcon
 
 	pObject
