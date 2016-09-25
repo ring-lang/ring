@@ -12103,6 +12103,97 @@ Class QPlainTextEdit from QWidget
 	Func zoomOut P1
 		return QPlainTextEdit_zoomOut(pObject,P1)
 
+Class QGridLayout
+
+	pObject
+
+	Func init 
+		pObject = QGridLayout_new()
+		return self
+
+	Func delete
+		pObject = QGridLayout_delete(pObject)
+
+	Func addItem P1,P2,P3,P4,P5,P6
+		return QGridLayout_addItem(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,GetObjectPointerFromRingObject(P6))
+
+	Func addLayout P1,P2,P3,P4
+		return QGridLayout_addLayout(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func addLayout_2 P1,P2,P3,P4,P5,P6
+		return QGridLayout_addLayout_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,GetObjectPointerFromRingObject(P6))
+
+	Func addWidget P1,P2,P3,P4
+		return QGridLayout_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func addWidget_2 P1,P2,P3,P4,P5,P6
+		return QGridLayout_addWidget_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,GetObjectPointerFromRingObject(P6))
+
+	Func cellRect P1,P2
+		pTempObj = new QRect
+		pTempObj.pObject = QGridLayout_cellRect(pObject,P1,P2)
+		return pTempObj
+
+	Func columnCount 
+		return QGridLayout_columnCount(pObject)
+
+	Func columnMinimumWidth P1
+		return QGridLayout_columnMinimumWidth(pObject,P1)
+
+	Func columnStretch P1
+		return QGridLayout_columnStretch(pObject,P1)
+
+	Func getItemPosition P1,P2,P3,P4,P5
+		return QGridLayout_getItemPosition(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+
+	Func horizontalSpacing 
+		return QGridLayout_horizontalSpacing(pObject)
+
+	Func itemAtPosition P1,P2
+		return QGridLayout_itemAtPosition(pObject,P1,P2)
+
+	Func originCorner 
+		return QGridLayout_originCorner(pObject)
+
+	Func rowCount 
+		return QGridLayout_rowCount(pObject)
+
+	Func rowMinimumHeight P1
+		return QGridLayout_rowMinimumHeight(pObject,P1)
+
+	Func rowStretch P1
+		return QGridLayout_rowStretch(pObject,P1)
+
+	Func setColumnMinimumWidth P1,P2
+		return QGridLayout_setColumnMinimumWidth(pObject,P1,P2)
+
+	Func setColumnStretch P1,P2
+		return QGridLayout_setColumnStretch(pObject,P1,P2)
+
+	Func setHorizontalSpacing P1
+		return QGridLayout_setHorizontalSpacing(pObject,P1)
+
+	Func setOriginCorner P1
+		return QGridLayout_setOriginCorner(pObject,P1)
+
+	Func setRowMinimumHeight P1,P2
+		return QGridLayout_setRowMinimumHeight(pObject,P1,P2)
+
+	Func setRowStretch P1,P2
+		return QGridLayout_setRowStretch(pObject,P1,P2)
+
+	Func setSpacing P1
+		return QGridLayout_setSpacing(pObject,P1)
+
+	Func setVerticalSpacing P1
+		return QGridLayout_setVerticalSpacing(pObject,P1)
+
+	Func spacing 
+		return QGridLayout_spacing(pObject)
+
+	Func verticalSpacing 
+		return QGridLayout_verticalSpacing(pObject)
+
 Class QIcon
 
 	pObject

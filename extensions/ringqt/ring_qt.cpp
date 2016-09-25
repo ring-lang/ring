@@ -168,7 +168,7 @@ extern "C" {
 #include <QJsonArray>
 #include <iterator>
 #include <QPlainTextEdit>
-
+#include <QGridLayout>
 
 #include "highlighter.h"
 
@@ -67842,6 +67842,651 @@ RING_FUNC(ring_QPlainTextEdit_zoomOut)
 	pObject->zoomOut( (int ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_QGridLayout_addItem)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addItem((QLayoutItem *) RING_API_GETCPOINTER(2,"QLayoutItem"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),* (Qt::Alignment  *) RING_API_GETCPOINTER(7,"Qt::Alignment"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		free(RING_API_GETCPOINTER(6,"Qt::Alignment"));
+}
+
+
+RING_FUNC(ring_QGridLayout_addLayout)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addLayout((QLayout *) RING_API_GETCPOINTER(2,"QLayout"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Qt::Alignment  *) RING_API_GETCPOINTER(5,"Qt::Alignment"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		free(RING_API_GETCPOINTER(4,"Qt::Alignment"));
+}
+
+
+RING_FUNC(ring_QGridLayout_addLayout_2)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addLayout((QLayout *) RING_API_GETCPOINTER(2,"QLayout"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),* (Qt::Alignment  *) RING_API_GETCPOINTER(7,"Qt::Alignment"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		free(RING_API_GETCPOINTER(6,"Qt::Alignment"));
+}
+
+
+RING_FUNC(ring_QGridLayout_addWidget)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Qt::Alignment  *) RING_API_GETCPOINTER(5,"Qt::Alignment"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		free(RING_API_GETCPOINTER(4,"Qt::Alignment"));
+}
+
+
+RING_FUNC(ring_QGridLayout_addWidget_2)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),* (Qt::Alignment  *) RING_API_GETCPOINTER(7,"Qt::Alignment"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		free(RING_API_GETCPOINTER(6,"Qt::Alignment"));
+}
+
+
+RING_FUNC(ring_QGridLayout_cellRect)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->cellRect( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QGridLayout_columnCount)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	RING_API_RETNUMBER(pObject->columnCount());
+}
+
+
+RING_FUNC(ring_QGridLayout_columnMinimumWidth)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnMinimumWidth( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGridLayout_columnStretch)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnStretch( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGridLayout_getItemPosition)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->getItemPosition( (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4),RING_API_GETINTPOINTER(5),RING_API_GETINTPOINTER(6));
+	RING_API_ACCEPTINTVALUE(2) ;
+	RING_API_ACCEPTINTVALUE(3) ;
+	RING_API_ACCEPTINTVALUE(4) ;
+	RING_API_ACCEPTINTVALUE(5) ;
+}
+
+
+RING_FUNC(ring_QGridLayout_horizontalSpacing)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	RING_API_RETNUMBER(pObject->horizontalSpacing());
+}
+
+
+RING_FUNC(ring_QGridLayout_itemAtPosition)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->itemAtPosition( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)),"QLayoutItem");
+}
+
+
+RING_FUNC(ring_QGridLayout_originCorner)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	RING_API_RETNUMBER(pObject->originCorner());
+}
+
+
+RING_FUNC(ring_QGridLayout_rowCount)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	RING_API_RETNUMBER(pObject->rowCount());
+}
+
+
+RING_FUNC(ring_QGridLayout_rowMinimumHeight)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowMinimumHeight( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGridLayout_rowStretch)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowStretch( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGridLayout_setColumnMinimumWidth)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnMinimumWidth( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGridLayout_setColumnStretch)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnStretch( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGridLayout_setHorizontalSpacing)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setHorizontalSpacing( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGridLayout_setOriginCorner)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setOriginCorner( (Qt::Corner )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGridLayout_setRowMinimumHeight)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowMinimumHeight( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGridLayout_setRowStretch)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowStretch( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGridLayout_setSpacing)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSpacing( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGridLayout_setVerticalSpacing)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVerticalSpacing( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGridLayout_spacing)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	RING_API_RETNUMBER(pObject->spacing());
+}
+
+
+RING_FUNC(ring_QGridLayout_verticalSpacing)
+{
+	QGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+	RING_API_RETNUMBER(pObject->verticalSpacing());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -69388,6 +70033,17 @@ RING_FUNC(ring_QPlainTextEdit_new)
 	}
 	GPlainTextEdit *pObject = new GPlainTextEdit((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QPlainTextEdit");
+}
+
+RING_FUNC(ring_QGridLayout_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QGridLayout *pObject = new QGridLayout();
+	RING_API_RETCPOINTER(pObject,"QGridLayout");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -71126,6 +71782,21 @@ RING_FUNC(ring_QPlainTextEdit_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"GPlainTextEdit");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QGridLayout_delete)
+{
+	QGridLayout *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
 		delete pObject ;
 	}
 }
@@ -74430,6 +75101,32 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_undo",ring_QPlainTextEdit_undo);
 	ring_vm_funcregister("qplaintextedit_zoomin",ring_QPlainTextEdit_zoomIn);
 	ring_vm_funcregister("qplaintextedit_zoomout",ring_QPlainTextEdit_zoomOut);
+	ring_vm_funcregister("qgridlayout_additem",ring_QGridLayout_addItem);
+	ring_vm_funcregister("qgridlayout_addlayout",ring_QGridLayout_addLayout);
+	ring_vm_funcregister("qgridlayout_addlayout_2",ring_QGridLayout_addLayout_2);
+	ring_vm_funcregister("qgridlayout_addwidget",ring_QGridLayout_addWidget);
+	ring_vm_funcregister("qgridlayout_addwidget_2",ring_QGridLayout_addWidget_2);
+	ring_vm_funcregister("qgridlayout_cellrect",ring_QGridLayout_cellRect);
+	ring_vm_funcregister("qgridlayout_columncount",ring_QGridLayout_columnCount);
+	ring_vm_funcregister("qgridlayout_columnminimumwidth",ring_QGridLayout_columnMinimumWidth);
+	ring_vm_funcregister("qgridlayout_columnstretch",ring_QGridLayout_columnStretch);
+	ring_vm_funcregister("qgridlayout_getitemposition",ring_QGridLayout_getItemPosition);
+	ring_vm_funcregister("qgridlayout_horizontalspacing",ring_QGridLayout_horizontalSpacing);
+	ring_vm_funcregister("qgridlayout_itematposition",ring_QGridLayout_itemAtPosition);
+	ring_vm_funcregister("qgridlayout_origincorner",ring_QGridLayout_originCorner);
+	ring_vm_funcregister("qgridlayout_rowcount",ring_QGridLayout_rowCount);
+	ring_vm_funcregister("qgridlayout_rowminimumheight",ring_QGridLayout_rowMinimumHeight);
+	ring_vm_funcregister("qgridlayout_rowstretch",ring_QGridLayout_rowStretch);
+	ring_vm_funcregister("qgridlayout_setcolumnminimumwidth",ring_QGridLayout_setColumnMinimumWidth);
+	ring_vm_funcregister("qgridlayout_setcolumnstretch",ring_QGridLayout_setColumnStretch);
+	ring_vm_funcregister("qgridlayout_sethorizontalspacing",ring_QGridLayout_setHorizontalSpacing);
+	ring_vm_funcregister("qgridlayout_setorigincorner",ring_QGridLayout_setOriginCorner);
+	ring_vm_funcregister("qgridlayout_setrowminimumheight",ring_QGridLayout_setRowMinimumHeight);
+	ring_vm_funcregister("qgridlayout_setrowstretch",ring_QGridLayout_setRowStretch);
+	ring_vm_funcregister("qgridlayout_setspacing",ring_QGridLayout_setSpacing);
+	ring_vm_funcregister("qgridlayout_setverticalspacing",ring_QGridLayout_setVerticalSpacing);
+	ring_vm_funcregister("qgridlayout_spacing",ring_QGridLayout_spacing);
+	ring_vm_funcregister("qgridlayout_verticalspacing",ring_QGridLayout_verticalSpacing);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -74546,6 +75243,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qjsonparseerror_new",ring_QJsonParseError_new);
 	ring_vm_funcregister("qjsonvalue_new",ring_QJsonValue_new);
 	ring_vm_funcregister("qplaintextedit_new",ring_QPlainTextEdit_new);
+	ring_vm_funcregister("qgridlayout_new",ring_QGridLayout_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -74662,4 +75360,5 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qjsonparseerror_delete",ring_QJsonParseError_delete);
 	ring_vm_funcregister("qjsonvalue_delete",ring_QJsonValue_delete);
 	ring_vm_funcregister("qplaintextedit_delete",ring_QPlainTextEdit_delete);
+	ring_vm_funcregister("qgridlayout_delete",ring_QGridLayout_delete);
 }

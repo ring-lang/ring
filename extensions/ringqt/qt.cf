@@ -181,7 +181,7 @@ extern "C" {
 #include <QJsonArray>
 #include <iterator>
 #include <QPlainTextEdit>
-
+#include <QGridLayout>
 
 #include "highlighter.h"
 
@@ -5061,3 +5061,36 @@ void undo(void)
 void zoomIn(int range)
 void zoomOut(int range)
 
+
+<class>
+name: QGridLayout
+para: void
+</class>
+
+
+void addItem(QLayoutItem * item, int row, int column, int rowSpan , int columnSpan , Qt::Alignment alignment )
+void addLayout(QLayout * layout, int row, int column, Qt::Alignment alignment )
+void addLayout@2(QLayout * layout, int row, int column, int rowSpan, int columnSpan, Qt::Alignment alignment )
+void addWidget(QWidget * widget, int row, int column, Qt::Alignment alignment )
+void addWidget@2(QWidget * widget, int fromRow, int fromColumn, int rowSpan, int columnSpan, Qt::Alignment alignment )
+QRect cellRect(int row, int column)
+int columnCount(void)
+int columnMinimumWidth(int column)
+int columnStretch(int column)
+void getItemPosition(int index, int * row, int * column, int * rowSpan, int * columnSpan)
+int horizontalSpacing(void)
+QLayoutItem * itemAtPosition(int row, int column)
+Qt::Corner originCorner(void)
+int rowCount(void)
+int rowMinimumHeight(int row)
+int rowStretch(int row)
+void setColumnMinimumWidth(int column, int minSize)
+void setColumnStretch(int column, int stretch)
+void setHorizontalSpacing(int spacing)
+void setOriginCorner(Qt::Corner corner)
+void setRowMinimumHeight(int row, int minSize)
+void setRowStretch(int row, int stretch)
+void setSpacing(int spacing)
+void setVerticalSpacing(int spacing)
+int spacing(void)
+int verticalSpacing(void)
