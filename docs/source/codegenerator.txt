@@ -210,13 +210,9 @@ You can determine the pointer name before the strucuture member name.
 
 Example:
 
-.. code-block:: ring
-
+.. code-block:: none
 
 	SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked,void *lock_data}
-	
-	
-
 
 .. index:: 
 	pair: Code Generator; Defining Constants
@@ -537,7 +533,7 @@ The idea is using ring_vm_mutexfunctions() and ring_vm_runcodefromthread() to ex
 	pair: Code Generator; Wrapping C++ Classes
 
 Code Generator Rules for Wrapping C++ Classes
-==============================================
+=============================================
 
 * We can define classes between <class> and </class>
 * Between <class> and <class> we set attributes like 
