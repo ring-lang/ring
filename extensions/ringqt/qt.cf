@@ -183,6 +183,8 @@ extern "C" {
 #include <QPlainTextEdit>
 #include <QGridLayout>
 #include <QTextCharFormat>
+#include <QCameraViewfinder>
+#include <QGraphicsVideoItem>
 
 #include "highlighter.h"
 
@@ -5161,3 +5163,24 @@ QString toolTip(void)
 QColor underlineColor(void)
 QTextCharFormat::UnderlineStyle underlineStyle(void)
 QTextCharFormat::VerticalAlignment verticalAlignment(void)
+
+
+<class>
+name: QCameraViewfinder
+para: QWidget *
+parent: QVideoWidget
+</class>
+
+
+<class>
+name: QGraphicsVideoItem
+para: void
+</class>
+
+Qt::AspectRatioMode aspectRatioMode(void)
+QSizeF nativeSize(void)
+QPointF offset(void)
+void setAspectRatioMode(Qt::AspectRatioMode mode)
+void setOffset(QPointF offset)
+void setSize(QSizeF size)
+QSizeF size(void)

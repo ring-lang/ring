@@ -170,6 +170,8 @@ extern "C" {
 #include <QPlainTextEdit>
 #include <QGridLayout>
 #include <QTextCharFormat>
+#include <QCameraViewfinder>
+#include <QGraphicsVideoItem>
 
 #include "highlighter.h"
 
@@ -69509,6 +69511,148 @@ RING_FUNC(ring_QTextCharFormat_verticalAlignment)
 	RING_API_RETNUMBER(pObject->verticalAlignment());
 }
 
+
+RING_FUNC(ring_QGraphicsVideoItem_aspectRatioMode)
+{
+	QGraphicsVideoItem *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
+	RING_API_RETNUMBER(pObject->aspectRatioMode());
+}
+
+
+RING_FUNC(ring_QGraphicsVideoItem_nativeSize)
+{
+	QGraphicsVideoItem *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
+	{
+		QSizeF *pValue ; 
+		pValue = (QSizeF *) malloc(sizeof(QSizeF)) ;
+		*pValue = pObject->nativeSize();
+		RING_API_RETCPOINTER(pValue,"QSizeF");
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsVideoItem_offset)
+{
+	QGraphicsVideoItem *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
+	{
+		QPointF *pValue ; 
+		pValue = (QPointF *) malloc(sizeof(QPointF)) ;
+		*pValue = pObject->offset();
+		RING_API_RETCPOINTER(pValue,"QPointF");
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsVideoItem_setAspectRatioMode)
+{
+	QGraphicsVideoItem *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAspectRatioMode( (Qt::AspectRatioMode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGraphicsVideoItem_setOffset)
+{
+	QGraphicsVideoItem *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
+	pObject->setOffset(* (QPointF  *) RING_API_GETCPOINTER(2,"QPointF"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QPointF"));
+}
+
+
+RING_FUNC(ring_QGraphicsVideoItem_setSize)
+{
+	QGraphicsVideoItem *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
+	pObject->setSize(* (QSizeF  *) RING_API_GETCPOINTER(2,"QSizeF"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSizeF"));
+}
+
+
+RING_FUNC(ring_QGraphicsVideoItem_size)
+{
+	QGraphicsVideoItem *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
+	{
+		QSizeF *pValue ; 
+		pValue = (QSizeF *) malloc(sizeof(QSizeF)) ;
+		*pValue = pObject->size();
+		RING_API_RETCPOINTER(pValue,"QSizeF");
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -71077,6 +71221,32 @@ RING_FUNC(ring_QTextCharFormat_new)
 	}
 	QTextCharFormat *pObject = new QTextCharFormat();
 	RING_API_RETCPOINTER(pObject,"QTextCharFormat");
+}
+
+RING_FUNC(ring_QCameraViewfinder_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QCameraViewfinder *pObject = new QCameraViewfinder((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	RING_API_RETCPOINTER(pObject,"QCameraViewfinder");
+}
+
+RING_FUNC(ring_QGraphicsVideoItem_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QGraphicsVideoItem *pObject = new QGraphicsVideoItem();
+	RING_API_RETCPOINTER(pObject,"QGraphicsVideoItem");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -72845,6 +73015,36 @@ RING_FUNC(ring_QTextCharFormat_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QCameraViewfinder_delete)
+{
+	QCameraViewfinder *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QCameraViewfinder *) RING_API_GETCPOINTER(1,"QCameraViewfinder");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QGraphicsVideoItem_delete)
+{
+	QGraphicsVideoItem *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
 		delete pObject ;
 	}
 }
@@ -76228,6 +76428,13 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextcharformat_underlinecolor",ring_QTextCharFormat_underlineColor);
 	ring_vm_funcregister("qtextcharformat_underlinestyle",ring_QTextCharFormat_underlineStyle);
 	ring_vm_funcregister("qtextcharformat_verticalalignment",ring_QTextCharFormat_verticalAlignment);
+	ring_vm_funcregister("qgraphicsvideoitem_aspectratiomode",ring_QGraphicsVideoItem_aspectRatioMode);
+	ring_vm_funcregister("qgraphicsvideoitem_nativesize",ring_QGraphicsVideoItem_nativeSize);
+	ring_vm_funcregister("qgraphicsvideoitem_offset",ring_QGraphicsVideoItem_offset);
+	ring_vm_funcregister("qgraphicsvideoitem_setaspectratiomode",ring_QGraphicsVideoItem_setAspectRatioMode);
+	ring_vm_funcregister("qgraphicsvideoitem_setoffset",ring_QGraphicsVideoItem_setOffset);
+	ring_vm_funcregister("qgraphicsvideoitem_setsize",ring_QGraphicsVideoItem_setSize);
+	ring_vm_funcregister("qgraphicsvideoitem_size",ring_QGraphicsVideoItem_size);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -76346,6 +76553,8 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_new",ring_QPlainTextEdit_new);
 	ring_vm_funcregister("qgridlayout_new",ring_QGridLayout_new);
 	ring_vm_funcregister("qtextcharformat_new",ring_QTextCharFormat_new);
+	ring_vm_funcregister("qcameraviewfinder_new",ring_QCameraViewfinder_new);
+	ring_vm_funcregister("qgraphicsvideoitem_new",ring_QGraphicsVideoItem_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -76464,4 +76673,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_delete",ring_QPlainTextEdit_delete);
 	ring_vm_funcregister("qgridlayout_delete",ring_QGridLayout_delete);
 	ring_vm_funcregister("qtextcharformat_delete",ring_QTextCharFormat_delete);
+	ring_vm_funcregister("qcameraviewfinder_delete",ring_QCameraViewfinder_delete);
+	ring_vm_funcregister("qgraphicsvideoitem_delete",ring_QGraphicsVideoItem_delete);
 }

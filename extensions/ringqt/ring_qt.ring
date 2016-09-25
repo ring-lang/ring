@@ -12382,6 +12382,38 @@ Class QTextCharFormat
 	Func verticalAlignment 
 		return QTextCharFormat_verticalAlignment(pObject)
 
+Class QGraphicsVideoItem
+
+	pObject
+
+	Func init 
+		pObject = QGraphicsVideoItem_new()
+		return self
+
+	Func delete
+		pObject = QGraphicsVideoItem_delete(pObject)
+
+	Func aspectRatioMode 
+		return QGraphicsVideoItem_aspectRatioMode(pObject)
+
+	Func nativeSize 
+		return QGraphicsVideoItem_nativeSize(pObject)
+
+	Func offset 
+		return QGraphicsVideoItem_offset(pObject)
+
+	Func setAspectRatioMode P1
+		return QGraphicsVideoItem_setAspectRatioMode(pObject,P1)
+
+	Func setOffset P1
+		return QGraphicsVideoItem_setOffset(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSize P1
+		return QGraphicsVideoItem_setSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func size 
+		return QGraphicsVideoItem_size(pObject)
+
 Class QIcon
 
 	pObject
@@ -12458,3 +12490,14 @@ Class QXmlStreamEntityResolver
 
 	Func delete
 		pObject = QXmlStreamEntityResolver_delete(pObject)
+
+Class QCameraViewfinder from QVideoWidget
+
+	pObject
+
+	Func init P1
+		pObject = QCameraViewfinder_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCameraViewfinder_delete(pObject)
