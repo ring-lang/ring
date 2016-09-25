@@ -230,6 +230,7 @@ aNewMethodName + ["QNetworkAccessManager","get","getvalue"]
 aNewMethodName + ["QNetworkAccessManager","put","putvalue"]
 aNewMethodName + ["QThread","exit","exitfromthread"]
 aNewMethodName + ["QRegularExpressionMatchIterator","next","nextitem"]
+aNewMethodName + ["QCamera","load","loadcamera"]
 
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"

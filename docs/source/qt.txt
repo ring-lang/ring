@@ -4065,6 +4065,7 @@ QNetworkAccessManager			get				getvalue
 QNetworkAccessManager			put				putvalue
 QThread					exit				exitfromthread
 QRegularExpressionMatchIterator		next				nextitem
+QCamera					load				loadcamera
 ===============================		======================		===================
 
 .. index:: 

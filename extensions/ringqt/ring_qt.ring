@@ -12491,7 +12491,7 @@ Class QCamera from QMediaObject
 	Func viewfinderSettings 
 		return QCamera_viewfinderSettings(pObject)
 
-	Func load 
+	Func loadcamera 
 		return QCamera_load(pObject)
 
 	Func searchAndLock 
