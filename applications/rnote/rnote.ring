@@ -692,7 +692,8 @@ func pSave
 
 func pSaveAs
 	new qfiledialog(win1) {
-		cName = getsavefilename(win1,"Save As","","source files(*.ring)")
+		pSaveCurrentFolder()
+		cName = getsavefilename(win1,"Save As",cStartupFolder,"source files(*.ring)")
 		if cName != NULL
 			cActiveFileName = cName
 			writefile(cActiveFileName,textedit1.toplaintext())
@@ -776,7 +777,8 @@ func pOpen
 	
 func pNew
 	new qfiledialog(win1) {
-		cName = getsavefilename(win1,"New file","","source files(*.ring)")
+		pSaveCurrentFolder()
+		cName = getsavefilename(win1,"New file",cStartupFolder,"source files(*.ring)")
 		if cName != NULL
 			write(cName,"")
 			cActiveFileName = cName
