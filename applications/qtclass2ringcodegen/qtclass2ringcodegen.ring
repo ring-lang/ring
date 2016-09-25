@@ -86,15 +86,15 @@ Func pProcess aList
 			cItem = trim(substr(cLine,5,substr(cLine,"{")-5))
 			see cItem  + nl
 			aEnum + cItem
-			cLine = ""
+			cLine = 'aEnumTypes + "' + cClassName + "::"+cItem+'"'
 		but  left(cLine,5) = "flags" 
 			cItem = trim(substr(cLine,6))
 			see cItem  + nl
 			aEnum + cItem
-			cLine = ""
+			cLine = 'aEnumTypes + "' + cClassName + "::"+cItem+'"'
 		but  left(cLine,5) = "class" 
 			cClassName = trim(substr(cLine,6))
-			cLine = ""
+			cLine = "#include <" + cClassName + ">" 
 		ok
 	next
 
