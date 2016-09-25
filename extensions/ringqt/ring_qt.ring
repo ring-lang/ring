@@ -12518,6 +12518,73 @@ Class QCamera from QMediaObject
 	Func unlock_2 P1
 		return QCamera_unlock_2(pObject,P1)
 
+Class QCameraImageCapture
+
+	pObject
+
+	Func init P1
+		pObject = QCameraImageCapture_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCameraImageCapture_delete(pObject)
+
+	Func availability 
+		return QCameraImageCapture_availability(pObject)
+
+	Func bufferFormat 
+		return QCameraImageCapture_bufferFormat(pObject)
+
+	Func captureDestination 
+		return QCameraImageCapture_captureDestination(pObject)
+
+	Func encodingSettings 
+		return QCameraImageCapture_encodingSettings(pObject)
+
+	Func error 
+		return QCameraImageCapture_error(pObject)
+
+	Func errorString 
+		return QCameraImageCapture_errorString(pObject)
+
+	Func imageCodecDescription P1
+		return QCameraImageCapture_imageCodecDescription(pObject,P1)
+
+	Func isAvailable 
+		return QCameraImageCapture_isAvailable(pObject)
+
+	Func isCaptureDestinationSupported P1
+		return QCameraImageCapture_isCaptureDestinationSupported(pObject,P1)
+
+	Func isReadyForCapture 
+		return QCameraImageCapture_isReadyForCapture(pObject)
+
+	Func setBufferFormat P1
+		return QCameraImageCapture_setBufferFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCaptureDestination P1
+		return QCameraImageCapture_setCaptureDestination(pObject,P1)
+
+	Func setEncodingSettings P1
+		return QCameraImageCapture_setEncodingSettings(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func supportedBufferFormats 
+		return QCameraImageCapture_supportedBufferFormats(pObject)
+
+	Func supportedImageCodecs 
+		pTempObj = new QStringList
+		pTempObj.pObject = QCameraImageCapture_supportedImageCodecs(pObject)
+		return pTempObj
+
+	Func supportedResolutions P1,P2
+		return QCameraImageCapture_supportedResolutions(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func cancelCapture 
+		return QCameraImageCapture_cancelCapture(pObject)
+
+	Func capture P1
+		return QCameraImageCapture_capture(pObject,P1)
+
 Class QIcon
 
 	pObject

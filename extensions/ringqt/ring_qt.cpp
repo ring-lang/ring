@@ -174,6 +174,7 @@ extern "C" {
 #include <QGraphicsVideoItem>
 #include <QVideoWidgetControl>
 #include <QCamera>
+#include <QCameraImageCapture>
 
 #include "highlighter.h"
 
@@ -70259,6 +70260,368 @@ RING_FUNC(ring_QCamera_unlock_2)
 	pObject->unlock( (QCamera::LockTypes )  (int) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_QCameraImageCapture_availability)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	{
+		QMultimedia::AvailabilityStatus *pValue ; 
+		pValue = (QMultimedia::AvailabilityStatus *) malloc(sizeof(QMultimedia::AvailabilityStatus)) ;
+		*pValue = pObject->availability();
+		RING_API_RETCPOINTER(pValue,"QMultimedia::AvailabilityStatus");
+	}
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_bufferFormat)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	{
+		QVideoFrame::PixelFormat *pValue ; 
+		pValue = (QVideoFrame::PixelFormat *) malloc(sizeof(QVideoFrame::PixelFormat)) ;
+		*pValue = pObject->bufferFormat();
+		RING_API_RETCPOINTER(pValue,"QVideoFrame::PixelFormat");
+	}
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_captureDestination)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	RING_API_RETNUMBER(pObject->captureDestination());
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_encodingSettings)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	{
+		QImageEncoderSettings *pValue ; 
+		pValue = (QImageEncoderSettings *) malloc(sizeof(QImageEncoderSettings)) ;
+		*pValue = pObject->encodingSettings();
+		RING_API_RETCPOINTER(pValue,"QImageEncoderSettings");
+	}
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_error)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	RING_API_RETNUMBER(pObject->error());
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_errorString)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	RING_API_RETSTRING(pObject->errorString().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_imageCodecDescription)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->imageCodecDescription(RING_API_GETSTRING(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_isAvailable)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	RING_API_RETNUMBER(pObject->isAvailable());
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_isCaptureDestinationSupported)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isCaptureDestinationSupported( (QCameraImageCapture::CaptureDestinations )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_isReadyForCapture)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	RING_API_RETNUMBER(pObject->isReadyForCapture());
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_setBufferFormat)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	pObject->setBufferFormat(* (QVideoFrame::PixelFormat  *) RING_API_GETCPOINTER(2,"QVideoFrame::PixelFormat"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QVideoFrame::PixelFormat"));
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_setCaptureDestination)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCaptureDestination( (QCameraImageCapture::CaptureDestinations )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_setEncodingSettings)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	pObject->setEncodingSettings(* (QImageEncoderSettings    *) RING_API_GETCPOINTER(2,"QImageEncoderSettings"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QImageEncoderSettings"));
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_supportedBufferFormats)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	{
+		QList<QVideoFrame::PixelFormat> *pValue ; 
+		pValue = (QList<QVideoFrame::PixelFormat> *) malloc(sizeof(QList<QVideoFrame::PixelFormat>)) ;
+		*pValue = pObject->supportedBufferFormats();
+		RING_API_RETCPOINTER(pValue,"QList<QVideoFrame::PixelFormat>");
+	}
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_supportedImageCodecs)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->supportedImageCodecs();
+		RING_API_RETCPOINTER(pValue,"QStringList");
+	}
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_supportedResolutions)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QList<QSize> *pValue ; 
+		pValue = (QList<QSize> *) malloc(sizeof(QList<QSize>)) ;
+		*pValue = pObject->supportedResolutions(* (QImageEncoderSettings    *) RING_API_GETCPOINTER(2,"QImageEncoderSettings"),(bool *) RING_API_GETCPOINTER(3,"bool"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QImageEncoderSettings"));
+		RING_API_RETCPOINTER(pValue,"QList<QSize>");
+	}
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_cancelCapture)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	pObject->cancelCapture();
+}
+
+
+RING_FUNC(ring_QCameraImageCapture_capture)
+{
+	QCameraImageCapture *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->capture(RING_API_GETSTRING(2)));
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -71864,6 +72227,21 @@ RING_FUNC(ring_QCamera_new)
 	}
 	QCamera *pObject = new QCamera();
 	RING_API_RETCPOINTER(pObject,"QCamera");
+}
+
+RING_FUNC(ring_QCameraImageCapture_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QCameraImageCapture *pObject = new QCameraImageCapture((QMediaObject *) RING_API_GETCPOINTER(1,"QMediaObject"));
+	RING_API_RETCPOINTER(pObject,"QCameraImageCapture");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -73677,6 +74055,21 @@ RING_FUNC(ring_QCamera_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QCamera *) RING_API_GETCPOINTER(1,"QCamera");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QCameraImageCapture_delete)
+{
+	QCameraImageCapture *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
 		delete pObject ;
 	}
 }
@@ -77098,6 +77491,24 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcamera_unload",ring_QCamera_unload);
 	ring_vm_funcregister("qcamera_unlock",ring_QCamera_unlock);
 	ring_vm_funcregister("qcamera_unlock_2",ring_QCamera_unlock_2);
+	ring_vm_funcregister("qcameraimagecapture_availability",ring_QCameraImageCapture_availability);
+	ring_vm_funcregister("qcameraimagecapture_bufferformat",ring_QCameraImageCapture_bufferFormat);
+	ring_vm_funcregister("qcameraimagecapture_capturedestination",ring_QCameraImageCapture_captureDestination);
+	ring_vm_funcregister("qcameraimagecapture_encodingsettings",ring_QCameraImageCapture_encodingSettings);
+	ring_vm_funcregister("qcameraimagecapture_error",ring_QCameraImageCapture_error);
+	ring_vm_funcregister("qcameraimagecapture_errorstring",ring_QCameraImageCapture_errorString);
+	ring_vm_funcregister("qcameraimagecapture_imagecodecdescription",ring_QCameraImageCapture_imageCodecDescription);
+	ring_vm_funcregister("qcameraimagecapture_isavailable",ring_QCameraImageCapture_isAvailable);
+	ring_vm_funcregister("qcameraimagecapture_iscapturedestinationsupported",ring_QCameraImageCapture_isCaptureDestinationSupported);
+	ring_vm_funcregister("qcameraimagecapture_isreadyforcapture",ring_QCameraImageCapture_isReadyForCapture);
+	ring_vm_funcregister("qcameraimagecapture_setbufferformat",ring_QCameraImageCapture_setBufferFormat);
+	ring_vm_funcregister("qcameraimagecapture_setcapturedestination",ring_QCameraImageCapture_setCaptureDestination);
+	ring_vm_funcregister("qcameraimagecapture_setencodingsettings",ring_QCameraImageCapture_setEncodingSettings);
+	ring_vm_funcregister("qcameraimagecapture_supportedbufferformats",ring_QCameraImageCapture_supportedBufferFormats);
+	ring_vm_funcregister("qcameraimagecapture_supportedimagecodecs",ring_QCameraImageCapture_supportedImageCodecs);
+	ring_vm_funcregister("qcameraimagecapture_supportedresolutions",ring_QCameraImageCapture_supportedResolutions);
+	ring_vm_funcregister("qcameraimagecapture_cancelcapture",ring_QCameraImageCapture_cancelCapture);
+	ring_vm_funcregister("qcameraimagecapture_capture",ring_QCameraImageCapture_capture);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -77219,6 +77630,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcameraviewfinder_new",ring_QCameraViewfinder_new);
 	ring_vm_funcregister("qgraphicsvideoitem_new",ring_QGraphicsVideoItem_new);
 	ring_vm_funcregister("qcamera_new",ring_QCamera_new);
+	ring_vm_funcregister("qcameraimagecapture_new",ring_QCameraImageCapture_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -77340,4 +77752,5 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcameraviewfinder_delete",ring_QCameraViewfinder_delete);
 	ring_vm_funcregister("qgraphicsvideoitem_delete",ring_QGraphicsVideoItem_delete);
 	ring_vm_funcregister("qcamera_delete",ring_QCamera_delete);
+	ring_vm_funcregister("qcameraimagecapture_delete",ring_QCameraImageCapture_delete);
 }

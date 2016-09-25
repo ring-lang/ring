@@ -187,6 +187,7 @@ extern "C" {
 #include <QGraphicsVideoItem>
 #include <QVideoWidgetControl>
 #include <QCamera>
+#include <QCameraImageCapture>
 
 #include "highlighter.h"
 
@@ -424,6 +425,10 @@ aEnumTypes + "QCamera::LockTypes"
 aEnumTypes + "QCamera::Position"
 aEnumTypes + "QCamera::State"
 aEnumTypes + "QCamera::Status"
+aEnumTypes + "QCameraImageCapture::CaptureDestination"
+aEnumTypes + "QCameraImageCapture::CaptureDestinations"
+aEnumTypes + "QCameraImageCapture::DriveMode"
+aEnumTypes + "QCameraImageCapture::Error"
 
 </runcode>
 
@@ -5243,3 +5248,26 @@ void unlock(void)
 void unlock@2(QCamera::LockTypes locks)
 
 
+<class>
+name: QCameraImageCapture
+para: QMediaObject * mediaObject
+</class>
+
+QMultimedia::AvailabilityStatus availability(void)
+QVideoFrame::PixelFormat bufferFormat(void)
+QCameraImageCapture::CaptureDestinations captureDestination(void)
+QImageEncoderSettings encodingSettings(void)
+QCameraImageCapture::Error error(void)
+QString errorString(void)
+QString imageCodecDescription( QString   codec)
+bool isAvailable(void)
+bool isCaptureDestinationSupported(QCameraImageCapture::CaptureDestinations destination)
+bool isReadyForCapture(void)
+void setBufferFormat( QVideoFrame::PixelFormat format)
+void setCaptureDestination(QCameraImageCapture::CaptureDestinations destination)
+void setEncodingSettings( QImageEncoderSettings   settings)
+QList<QVideoFrame::PixelFormat> supportedBufferFormats(void)
+QStringList supportedImageCodecs(void)
+QList<QSize> supportedResolutions( QImageEncoderSettings   settings , bool * continuous )
+void cancelCapture(void)
+int capture( QString   file )
