@@ -767,7 +767,8 @@ Func pSetWindows
 
 func pOpen
 	new qfiledialog(win1) {
-		cName = getopenfilename(win1,"open file","","source files(*.ring)")			
+		pSaveCurrentFolder()
+		cName = getopenfilename(win1,"open file",cStartupFolder,"source files(*.ring)")			
 		if cName != NULL
 			cActiveFileName = cName
 			textedit1.settext(read(cActiveFileName))
