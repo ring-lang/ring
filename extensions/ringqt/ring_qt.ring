@@ -12294,9 +12294,6 @@ Class QTextCharFormat
 	Func setAnchorNames P1
 		return QTextCharFormat_setAnchorNames(pObject,GetObjectPointerFromRingObject(P1))
 
-	Func setFont P1,P2
-		return QTextCharFormat_setFont(pObject,GetObjectPointerFromRingObject(P1),P2)
-
 	Func setFont_2 P1
 		return QTextCharFormat_setFont_2(pObject,GetObjectPointerFromRingObject(P1))
 

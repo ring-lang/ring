@@ -5130,7 +5130,9 @@ bool isValid(void)
 void setAnchor(bool anchor)
 void setAnchorHref( QString   value)
 void setAnchorNames( QStringList   names)
+<comment>
 void setFont( QFont   font, QTextCharFormat::FontPropertiesInheritanceBehavior behavior)
+</comment>
 void setFont@2( QFont   font)
 void setFontCapitalization(QFont::Capitalization capitalization)
 void setFontFamily( QString   family)

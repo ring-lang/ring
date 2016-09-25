@@ -68934,29 +68934,6 @@ RING_FUNC(ring_QTextCharFormat_setAnchorNames)
 }
 
 
-RING_FUNC(ring_QTextCharFormat_setFont)
-{
-	QTextCharFormat *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setFont(* (QFont    *) RING_API_GETCPOINTER(2,"QFont"), (QTextCharFormat::FontPropertiesInheritanceBehavior )  (int) RING_API_GETNUMBER(3));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
-}
-
-
 RING_FUNC(ring_QTextCharFormat_setFont_2)
 {
 	QTextCharFormat *pObject ;
@@ -76223,7 +76200,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextcharformat_setanchor",ring_QTextCharFormat_setAnchor);
 	ring_vm_funcregister("qtextcharformat_setanchorhref",ring_QTextCharFormat_setAnchorHref);
 	ring_vm_funcregister("qtextcharformat_setanchornames",ring_QTextCharFormat_setAnchorNames);
-	ring_vm_funcregister("qtextcharformat_setfont",ring_QTextCharFormat_setFont);
 	ring_vm_funcregister("qtextcharformat_setfont_2",ring_QTextCharFormat_setFont_2);
 	ring_vm_funcregister("qtextcharformat_setfontcapitalization",ring_QTextCharFormat_setFontCapitalization);
 	ring_vm_funcregister("qtextcharformat_setfontfamily",ring_QTextCharFormat_setFontFamily);
