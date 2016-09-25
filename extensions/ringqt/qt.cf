@@ -182,6 +182,7 @@ extern "C" {
 #include <iterator>
 #include <QPlainTextEdit>
 #include <QGridLayout>
+#include <QTextCharFormat>
 
 #include "highlighter.h"
 
@@ -405,6 +406,10 @@ aEnumTypes + "QRegularExpression::PatternOptions"
 aEnumTypes + "QJsonDocument::DataValidation"
 aEnumTypes + "QJsonDocument::JsonFormat"
 aEnumTypes + "QPlainTextEdit::LineWrapMode"
+aEnumTypes + "QTextCharFormat::FontPropertiesInheritanceBehavior"
+aEnumTypes + "QTextCharFormat::UnderlineStyle"
+aEnumTypes + "QTextCharFormat::VerticalAlignment"
+
 </runcode>
 
 <class>
@@ -5094,3 +5099,63 @@ void setSpacing(int spacing)
 void setVerticalSpacing(int spacing)
 int spacing(void)
 int verticalSpacing(void)
+
+<class>
+name: QTextCharFormat 
+para: void
+</class>
+
+QString anchorHref(void)
+QStringList anchorNames(void)
+QFont font(void)
+QFont::Capitalization fontCapitalization(void)
+QString fontFamily(void)
+bool fontFixedPitch(void)
+QFont::HintingPreference fontHintingPreference(void)
+bool fontItalic(void)
+bool fontKerning(void)
+qreal fontLetterSpacing(void)
+QFont::SpacingType fontLetterSpacingType(void)
+bool fontOverline(void)
+qreal fontPointSize(void)
+int fontStretch(void)
+bool fontStrikeOut(void)
+QFont::StyleHint fontStyleHint(void)
+QFont::StyleStrategy fontStyleStrategy(void)
+bool fontUnderline(void)
+int fontWeight(void)
+qreal fontWordSpacing(void)
+bool isAnchor(void)
+bool isValid(void)
+void setAnchor(bool anchor)
+void setAnchorHref( QString   value)
+void setAnchorNames( QStringList   names)
+void setFont( QFont   font, QTextCharFormat::FontPropertiesInheritanceBehavior behavior)
+void setFont@2( QFont   font)
+void setFontCapitalization(QFont::Capitalization capitalization)
+void setFontFamily( QString   family)
+void setFontFixedPitch(bool fixedPitch)
+void setFontHintingPreference(QFont::HintingPreference hintingPreference)
+void setFontItalic(bool italic)
+void setFontKerning(bool enable)
+void setFontLetterSpacing(qreal spacing)
+void setFontLetterSpacingType(QFont::SpacingType letterSpacingType)
+void setFontOverline(bool overline)
+void setFontPointSize(qreal size)
+void setFontStretch(int factor)
+void setFontStrikeOut(bool strikeOut)
+void setFontStyleHint(QFont::StyleHint hint, QFont::StyleStrategy strategy )
+void setFontStyleStrategy(QFont::StyleStrategy strategy)
+void setFontUnderline(bool underline)
+void setFontWeight(int weight)
+void setFontWordSpacing(qreal spacing)
+void setTextOutline( QPen   pen)
+void setToolTip( QString   text)
+void setUnderlineColor( QColor   color)
+void setUnderlineStyle(QTextCharFormat::UnderlineStyle style)
+void setVerticalAlignment(QTextCharFormat::VerticalAlignment alignment)
+QPen textOutline(void)
+QString toolTip(void)
+QColor underlineColor(void)
+QTextCharFormat::UnderlineStyle underlineStyle(void)
+QTextCharFormat::VerticalAlignment verticalAlignment(void)

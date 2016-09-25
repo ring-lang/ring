@@ -1239,7 +1239,9 @@ Class QTextEdit from QWidget
 		return QTextEdit_canPaste(pObject)
 
 	Func currentCharFormat 
-		return QTextEdit_currentCharFormat(pObject)
+		pTempObj = new QTextCharFormat
+		pTempObj.pObject = QTextEdit_currentCharFormat(pObject)
+		return pTempObj
 
 	Func currentFont 
 		pTempObj = new QFont
@@ -8032,7 +8034,9 @@ Class QTextCursor
 		return pTempObj
 
 	Func blockCharFormat 
-		return QTextCursor_blockCharFormat(pObject)
+		pTempObj = new QTextCharFormat
+		pTempObj.pObject = QTextCursor_blockCharFormat(pObject)
+		return pTempObj
 
 	Func blockFormat 
 		return QTextCursor_blockFormat(pObject)
@@ -8041,7 +8045,9 @@ Class QTextCursor
 		return QTextCursor_blockNumber(pObject)
 
 	Func charFormat 
-		return QTextCursor_charFormat(pObject)
+		pTempObj = new QTextCharFormat
+		pTempObj.pObject = QTextCursor_charFormat(pObject)
+		return pTempObj
 
 	Func clearSelection 
 		return QTextCursor_clearSelection(pObject)
@@ -9166,7 +9172,9 @@ Class QTextBlock
 		return QTextBlock_blockNumber(pObject)
 
 	Func charFormat 
-		return QTextBlock_charFormat(pObject)
+		pTempObj = new QTextCharFormat
+		pTempObj.pObject = QTextBlock_charFormat(pObject)
+		return pTempObj
 
 	Func charFormatIndex 
 		return QTextBlock_charFormatIndex(pObject)
@@ -11929,7 +11937,9 @@ Class QPlainTextEdit from QWidget
 		return pTempObj
 
 	Func currentCharFormat 
-		return QPlainTextEdit_currentCharFormat(pObject)
+		pTempObj = new QTextCharFormat
+		pTempObj.pObject = QPlainTextEdit_currentCharFormat(pObject)
+		return pTempObj
 
 	Func cursorForPosition P1
 		pTempObj = new QTextCursor
@@ -12193,6 +12203,187 @@ Class QGridLayout
 
 	Func verticalSpacing 
 		return QGridLayout_verticalSpacing(pObject)
+
+Class QTextCharFormat
+
+	pObject
+
+	Func init 
+		pObject = QTextCharFormat_new()
+		return self
+
+	Func delete
+		pObject = QTextCharFormat_delete(pObject)
+
+	Func anchorHref 
+		return QTextCharFormat_anchorHref(pObject)
+
+	Func anchorNames 
+		pTempObj = new QStringList
+		pTempObj.pObject = QTextCharFormat_anchorNames(pObject)
+		return pTempObj
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QTextCharFormat_font(pObject)
+		return pTempObj
+
+	Func fontCapitalization 
+		return QTextCharFormat_fontCapitalization(pObject)
+
+	Func fontFamily 
+		return QTextCharFormat_fontFamily(pObject)
+
+	Func fontFixedPitch 
+		return QTextCharFormat_fontFixedPitch(pObject)
+
+	Func fontHintingPreference 
+		return QTextCharFormat_fontHintingPreference(pObject)
+
+	Func fontItalic 
+		return QTextCharFormat_fontItalic(pObject)
+
+	Func fontKerning 
+		return QTextCharFormat_fontKerning(pObject)
+
+	Func fontLetterSpacing 
+		return QTextCharFormat_fontLetterSpacing(pObject)
+
+	Func fontLetterSpacingType 
+		return QTextCharFormat_fontLetterSpacingType(pObject)
+
+	Func fontOverline 
+		return QTextCharFormat_fontOverline(pObject)
+
+	Func fontPointSize 
+		return QTextCharFormat_fontPointSize(pObject)
+
+	Func fontStretch 
+		return QTextCharFormat_fontStretch(pObject)
+
+	Func fontStrikeOut 
+		return QTextCharFormat_fontStrikeOut(pObject)
+
+	Func fontStyleHint 
+		return QTextCharFormat_fontStyleHint(pObject)
+
+	Func fontStyleStrategy 
+		return QTextCharFormat_fontStyleStrategy(pObject)
+
+	Func fontUnderline 
+		return QTextCharFormat_fontUnderline(pObject)
+
+	Func fontWeight 
+		return QTextCharFormat_fontWeight(pObject)
+
+	Func fontWordSpacing 
+		return QTextCharFormat_fontWordSpacing(pObject)
+
+	Func isAnchor 
+		return QTextCharFormat_isAnchor(pObject)
+
+	Func isValid 
+		return QTextCharFormat_isValid(pObject)
+
+	Func setAnchor P1
+		return QTextCharFormat_setAnchor(pObject,P1)
+
+	Func setAnchorHref P1
+		return QTextCharFormat_setAnchorHref(pObject,P1)
+
+	Func setAnchorNames P1
+		return QTextCharFormat_setAnchorNames(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFont P1,P2
+		return QTextCharFormat_setFont(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setFont_2 P1
+		return QTextCharFormat_setFont_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFontCapitalization P1
+		return QTextCharFormat_setFontCapitalization(pObject,P1)
+
+	Func setFontFamily P1
+		return QTextCharFormat_setFontFamily(pObject,P1)
+
+	Func setFontFixedPitch P1
+		return QTextCharFormat_setFontFixedPitch(pObject,P1)
+
+	Func setFontHintingPreference P1
+		return QTextCharFormat_setFontHintingPreference(pObject,P1)
+
+	Func setFontItalic P1
+		return QTextCharFormat_setFontItalic(pObject,P1)
+
+	Func setFontKerning P1
+		return QTextCharFormat_setFontKerning(pObject,P1)
+
+	Func setFontLetterSpacing P1
+		return QTextCharFormat_setFontLetterSpacing(pObject,P1)
+
+	Func setFontLetterSpacingType P1
+		return QTextCharFormat_setFontLetterSpacingType(pObject,P1)
+
+	Func setFontOverline P1
+		return QTextCharFormat_setFontOverline(pObject,P1)
+
+	Func setFontPointSize P1
+		return QTextCharFormat_setFontPointSize(pObject,P1)
+
+	Func setFontStretch P1
+		return QTextCharFormat_setFontStretch(pObject,P1)
+
+	Func setFontStrikeOut P1
+		return QTextCharFormat_setFontStrikeOut(pObject,P1)
+
+	Func setFontStyleHint P1,P2
+		return QTextCharFormat_setFontStyleHint(pObject,P1,P2)
+
+	Func setFontStyleStrategy P1
+		return QTextCharFormat_setFontStyleStrategy(pObject,P1)
+
+	Func setFontUnderline P1
+		return QTextCharFormat_setFontUnderline(pObject,P1)
+
+	Func setFontWeight P1
+		return QTextCharFormat_setFontWeight(pObject,P1)
+
+	Func setFontWordSpacing P1
+		return QTextCharFormat_setFontWordSpacing(pObject,P1)
+
+	Func setTextOutline P1
+		return QTextCharFormat_setTextOutline(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setToolTip P1
+		return QTextCharFormat_setToolTip(pObject,P1)
+
+	Func setUnderlineColor P1
+		return QTextCharFormat_setUnderlineColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUnderlineStyle P1
+		return QTextCharFormat_setUnderlineStyle(pObject,P1)
+
+	Func setVerticalAlignment P1
+		return QTextCharFormat_setVerticalAlignment(pObject,P1)
+
+	Func textOutline 
+		pTempObj = new QPen
+		pTempObj.pObject = QTextCharFormat_textOutline(pObject)
+		return pTempObj
+
+	Func toolTip 
+		return QTextCharFormat_toolTip(pObject)
+
+	Func underlineColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QTextCharFormat_underlineColor(pObject)
+		return pTempObj
+
+	Func underlineStyle 
+		return QTextCharFormat_underlineStyle(pObject)
+
+	Func verticalAlignment 
+		return QTextCharFormat_verticalAlignment(pObject)
 
 Class QIcon
 

@@ -169,6 +169,7 @@ extern "C" {
 #include <iterator>
 #include <QPlainTextEdit>
 #include <QGridLayout>
+#include <QTextCharFormat>
 
 #include "highlighter.h"
 
@@ -7047,7 +7048,7 @@ RING_FUNC(ring_QTextEdit_currentCharFormat)
 	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
 	{
 		QTextCharFormat *pValue ; 
-		pValue = (QTextCharFormat *) malloc(sizeof(QTextCharFormat)) ;
+		pValue = new QTextCharFormat() ;
 		*pValue = pObject->currentCharFormat();
 		RING_API_RETCPOINTER(pValue,"QTextCharFormat");
 	}
@@ -45659,7 +45660,7 @@ RING_FUNC(ring_QTextCursor_blockCharFormat)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	{
 		QTextCharFormat *pValue ; 
-		pValue = (QTextCharFormat *) malloc(sizeof(QTextCharFormat)) ;
+		pValue = new QTextCharFormat() ;
 		*pValue = pObject->blockCharFormat();
 		RING_API_RETCPOINTER(pValue,"QTextCharFormat");
 	}
@@ -45720,7 +45721,7 @@ RING_FUNC(ring_QTextCursor_charFormat)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	{
 		QTextCharFormat *pValue ; 
-		pValue = (QTextCharFormat *) malloc(sizeof(QTextCharFormat)) ;
+		pValue = new QTextCharFormat() ;
 		*pValue = pObject->charFormat();
 		RING_API_RETCPOINTER(pValue,"QTextCharFormat");
 	}
@@ -52354,7 +52355,7 @@ RING_FUNC(ring_QTextBlock_charFormat)
 	pObject = (QTextBlock *) RING_API_GETCPOINTER(1,"QTextBlock");
 	{
 		QTextCharFormat *pValue ; 
-		pValue = (QTextCharFormat *) malloc(sizeof(QTextCharFormat)) ;
+		pValue = new QTextCharFormat() ;
 		*pValue = pObject->charFormat();
 		RING_API_RETCPOINTER(pValue,"QTextCharFormat");
 	}
@@ -66780,7 +66781,7 @@ RING_FUNC(ring_QPlainTextEdit_currentCharFormat)
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		QTextCharFormat *pValue ; 
-		pValue = (QTextCharFormat *) malloc(sizeof(QTextCharFormat)) ;
+		pValue = new QTextCharFormat() ;
 		*pValue = pObject->currentCharFormat();
 		RING_API_RETCPOINTER(pValue,"QTextCharFormat");
 	}
@@ -68487,6 +68488,1050 @@ RING_FUNC(ring_QGridLayout_verticalSpacing)
 	RING_API_RETNUMBER(pObject->verticalSpacing());
 }
 
+
+RING_FUNC(ring_QTextCharFormat_anchorHref)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETSTRING(pObject->anchorHref().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_anchorNames)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->anchorNames();
+		RING_API_RETCPOINTER(pValue,"QStringList");
+	}
+}
+
+
+RING_FUNC(ring_QTextCharFormat_font)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	{
+		QFont *pValue ; 
+		pValue = new QFont() ;
+		*pValue = pObject->font();
+		RING_API_RETCPOINTER(pValue,"QFont");
+	}
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontCapitalization)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontCapitalization());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontFamily)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETSTRING(pObject->fontFamily().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontFixedPitch)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontFixedPitch());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontHintingPreference)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontHintingPreference());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontItalic)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontItalic());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontKerning)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontKerning());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontLetterSpacing)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontLetterSpacing());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontLetterSpacingType)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontLetterSpacingType());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontOverline)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontOverline());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontPointSize)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontPointSize());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontStretch)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontStretch());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontStrikeOut)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontStrikeOut());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontStyleHint)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontStyleHint());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontStyleStrategy)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontStyleStrategy());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontUnderline)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontUnderline());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontWeight)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontWeight());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_fontWordSpacing)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->fontWordSpacing());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_isAnchor)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->isAnchor());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_isValid)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->isValid());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setAnchor)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAnchor( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setAnchorHref)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAnchorHref(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setAnchorNames)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	pObject->setAnchorNames(* (QStringList    *) RING_API_GETCPOINTER(2,"QStringList"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QStringList"));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFont)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFont(* (QFont    *) RING_API_GETCPOINTER(2,"QFont"), (QTextCharFormat::FontPropertiesInheritanceBehavior )  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QFont"));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFont_2)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	pObject->setFont(* (QFont    *) RING_API_GETCPOINTER(2,"QFont"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QFont"));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontCapitalization)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontCapitalization( (QFont::Capitalization )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontFamily)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontFamily(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontFixedPitch)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontFixedPitch( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontHintingPreference)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontHintingPreference( (QFont::HintingPreference )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontItalic)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontItalic( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontKerning)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontKerning( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontLetterSpacing)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontLetterSpacing( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontLetterSpacingType)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontLetterSpacingType( (QFont::SpacingType )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontOverline)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontOverline( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontPointSize)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontPointSize( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontStretch)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontStretch( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontStrikeOut)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontStrikeOut( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontStyleHint)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontStyleHint( (QFont::StyleHint )  (int) RING_API_GETNUMBER(2), (QFont::StyleStrategy )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontStyleStrategy)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontStyleStrategy( (QFont::StyleStrategy )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontUnderline)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontUnderline( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontWeight)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontWeight( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setFontWordSpacing)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFontWordSpacing( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setTextOutline)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	pObject->setTextOutline(* (QPen    *) RING_API_GETCPOINTER(2,"QPen"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QPen"));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setToolTip)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setToolTip(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setUnderlineColor)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	pObject->setUnderlineColor(* (QColor    *) RING_API_GETCPOINTER(2,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QColor"));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setUnderlineStyle)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setUnderlineStyle( (QTextCharFormat::UnderlineStyle )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_setVerticalAlignment)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVerticalAlignment( (QTextCharFormat::VerticalAlignment )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextCharFormat_textOutline)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	{
+		QPen *pValue ; 
+		pValue = new QPen() ;
+		*pValue = pObject->textOutline();
+		RING_API_RETCPOINTER(pValue,"QPen");
+	}
+}
+
+
+RING_FUNC(ring_QTextCharFormat_toolTip)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETSTRING(pObject->toolTip().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_underlineColor)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	{
+		QColor *pValue ; 
+		pValue = new QColor() ;
+		*pValue = pObject->underlineColor();
+		RING_API_RETCPOINTER(pValue,"QColor");
+	}
+}
+
+
+RING_FUNC(ring_QTextCharFormat_underlineStyle)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->underlineStyle());
+}
+
+
+RING_FUNC(ring_QTextCharFormat_verticalAlignment)
+{
+	QTextCharFormat *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
+	RING_API_RETNUMBER(pObject->verticalAlignment());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -70044,6 +71089,17 @@ RING_FUNC(ring_QGridLayout_new)
 	}
 	QGridLayout *pObject = new QGridLayout();
 	RING_API_RETCPOINTER(pObject,"QGridLayout");
+}
+
+RING_FUNC(ring_QTextCharFormat_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QTextCharFormat *pObject = new QTextCharFormat();
+	RING_API_RETCPOINTER(pObject,"QTextCharFormat");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -71797,6 +72853,21 @@ RING_FUNC(ring_QGridLayout_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QTextCharFormat_delete)
+{
+	QTextCharFormat *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
 		delete pObject ;
 	}
 }
@@ -75127,6 +76198,60 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgridlayout_setverticalspacing",ring_QGridLayout_setVerticalSpacing);
 	ring_vm_funcregister("qgridlayout_spacing",ring_QGridLayout_spacing);
 	ring_vm_funcregister("qgridlayout_verticalspacing",ring_QGridLayout_verticalSpacing);
+	ring_vm_funcregister("qtextcharformat_anchorhref",ring_QTextCharFormat_anchorHref);
+	ring_vm_funcregister("qtextcharformat_anchornames",ring_QTextCharFormat_anchorNames);
+	ring_vm_funcregister("qtextcharformat_font",ring_QTextCharFormat_font);
+	ring_vm_funcregister("qtextcharformat_fontcapitalization",ring_QTextCharFormat_fontCapitalization);
+	ring_vm_funcregister("qtextcharformat_fontfamily",ring_QTextCharFormat_fontFamily);
+	ring_vm_funcregister("qtextcharformat_fontfixedpitch",ring_QTextCharFormat_fontFixedPitch);
+	ring_vm_funcregister("qtextcharformat_fonthintingpreference",ring_QTextCharFormat_fontHintingPreference);
+	ring_vm_funcregister("qtextcharformat_fontitalic",ring_QTextCharFormat_fontItalic);
+	ring_vm_funcregister("qtextcharformat_fontkerning",ring_QTextCharFormat_fontKerning);
+	ring_vm_funcregister("qtextcharformat_fontletterspacing",ring_QTextCharFormat_fontLetterSpacing);
+	ring_vm_funcregister("qtextcharformat_fontletterspacingtype",ring_QTextCharFormat_fontLetterSpacingType);
+	ring_vm_funcregister("qtextcharformat_fontoverline",ring_QTextCharFormat_fontOverline);
+	ring_vm_funcregister("qtextcharformat_fontpointsize",ring_QTextCharFormat_fontPointSize);
+	ring_vm_funcregister("qtextcharformat_fontstretch",ring_QTextCharFormat_fontStretch);
+	ring_vm_funcregister("qtextcharformat_fontstrikeout",ring_QTextCharFormat_fontStrikeOut);
+	ring_vm_funcregister("qtextcharformat_fontstylehint",ring_QTextCharFormat_fontStyleHint);
+	ring_vm_funcregister("qtextcharformat_fontstylestrategy",ring_QTextCharFormat_fontStyleStrategy);
+	ring_vm_funcregister("qtextcharformat_fontunderline",ring_QTextCharFormat_fontUnderline);
+	ring_vm_funcregister("qtextcharformat_fontweight",ring_QTextCharFormat_fontWeight);
+	ring_vm_funcregister("qtextcharformat_fontwordspacing",ring_QTextCharFormat_fontWordSpacing);
+	ring_vm_funcregister("qtextcharformat_isanchor",ring_QTextCharFormat_isAnchor);
+	ring_vm_funcregister("qtextcharformat_isvalid",ring_QTextCharFormat_isValid);
+	ring_vm_funcregister("qtextcharformat_setanchor",ring_QTextCharFormat_setAnchor);
+	ring_vm_funcregister("qtextcharformat_setanchorhref",ring_QTextCharFormat_setAnchorHref);
+	ring_vm_funcregister("qtextcharformat_setanchornames",ring_QTextCharFormat_setAnchorNames);
+	ring_vm_funcregister("qtextcharformat_setfont",ring_QTextCharFormat_setFont);
+	ring_vm_funcregister("qtextcharformat_setfont_2",ring_QTextCharFormat_setFont_2);
+	ring_vm_funcregister("qtextcharformat_setfontcapitalization",ring_QTextCharFormat_setFontCapitalization);
+	ring_vm_funcregister("qtextcharformat_setfontfamily",ring_QTextCharFormat_setFontFamily);
+	ring_vm_funcregister("qtextcharformat_setfontfixedpitch",ring_QTextCharFormat_setFontFixedPitch);
+	ring_vm_funcregister("qtextcharformat_setfonthintingpreference",ring_QTextCharFormat_setFontHintingPreference);
+	ring_vm_funcregister("qtextcharformat_setfontitalic",ring_QTextCharFormat_setFontItalic);
+	ring_vm_funcregister("qtextcharformat_setfontkerning",ring_QTextCharFormat_setFontKerning);
+	ring_vm_funcregister("qtextcharformat_setfontletterspacing",ring_QTextCharFormat_setFontLetterSpacing);
+	ring_vm_funcregister("qtextcharformat_setfontletterspacingtype",ring_QTextCharFormat_setFontLetterSpacingType);
+	ring_vm_funcregister("qtextcharformat_setfontoverline",ring_QTextCharFormat_setFontOverline);
+	ring_vm_funcregister("qtextcharformat_setfontpointsize",ring_QTextCharFormat_setFontPointSize);
+	ring_vm_funcregister("qtextcharformat_setfontstretch",ring_QTextCharFormat_setFontStretch);
+	ring_vm_funcregister("qtextcharformat_setfontstrikeout",ring_QTextCharFormat_setFontStrikeOut);
+	ring_vm_funcregister("qtextcharformat_setfontstylehint",ring_QTextCharFormat_setFontStyleHint);
+	ring_vm_funcregister("qtextcharformat_setfontstylestrategy",ring_QTextCharFormat_setFontStyleStrategy);
+	ring_vm_funcregister("qtextcharformat_setfontunderline",ring_QTextCharFormat_setFontUnderline);
+	ring_vm_funcregister("qtextcharformat_setfontweight",ring_QTextCharFormat_setFontWeight);
+	ring_vm_funcregister("qtextcharformat_setfontwordspacing",ring_QTextCharFormat_setFontWordSpacing);
+	ring_vm_funcregister("qtextcharformat_settextoutline",ring_QTextCharFormat_setTextOutline);
+	ring_vm_funcregister("qtextcharformat_settooltip",ring_QTextCharFormat_setToolTip);
+	ring_vm_funcregister("qtextcharformat_setunderlinecolor",ring_QTextCharFormat_setUnderlineColor);
+	ring_vm_funcregister("qtextcharformat_setunderlinestyle",ring_QTextCharFormat_setUnderlineStyle);
+	ring_vm_funcregister("qtextcharformat_setverticalalignment",ring_QTextCharFormat_setVerticalAlignment);
+	ring_vm_funcregister("qtextcharformat_textoutline",ring_QTextCharFormat_textOutline);
+	ring_vm_funcregister("qtextcharformat_tooltip",ring_QTextCharFormat_toolTip);
+	ring_vm_funcregister("qtextcharformat_underlinecolor",ring_QTextCharFormat_underlineColor);
+	ring_vm_funcregister("qtextcharformat_underlinestyle",ring_QTextCharFormat_underlineStyle);
+	ring_vm_funcregister("qtextcharformat_verticalalignment",ring_QTextCharFormat_verticalAlignment);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -75244,6 +76369,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qjsonvalue_new",ring_QJsonValue_new);
 	ring_vm_funcregister("qplaintextedit_new",ring_QPlainTextEdit_new);
 	ring_vm_funcregister("qgridlayout_new",ring_QGridLayout_new);
+	ring_vm_funcregister("qtextcharformat_new",ring_QTextCharFormat_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -75361,4 +76487,5 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qjsonvalue_delete",ring_QJsonValue_delete);
 	ring_vm_funcregister("qplaintextedit_delete",ring_QPlainTextEdit_delete);
 	ring_vm_funcregister("qgridlayout_delete",ring_QGridLayout_delete);
+	ring_vm_funcregister("qtextcharformat_delete",ring_QTextCharFormat_delete);
 }
