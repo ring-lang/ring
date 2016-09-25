@@ -1,4 +1,4 @@
-# Application  : Help2Wiki
+# Application  : QtClass2RingCodeGen
 # Usage        : convert Qt Class Methods prototypes to Ring Code Generator Style!
 # Author       : Mahmoud Fayed <msfclipper@yahoo.com>
 # Date          : 2016.09.25
