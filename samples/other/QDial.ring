@@ -16,24 +16,23 @@ New qApp {
                                             settext("Decrement")
                                             setClickEvent("pDecrement()")
                                                
-                            }
- 
+                            } 
                             pdial = new qdial(win1) {
                                        setGeometry(100,50,250,300)
                                        setNotchesVisible(true)
                                        setValue(50)
+			SetValueChangedEvent("pDialMove()")
                             }
-
                             lineedit1 = new qlineedit(win1) {
                                             setGeometry(200,400,50,30)
                                             setalignment(Qt_AlignHCenter)
                                             settext(string(pdial.value()))
                                             setreturnPressedEvent("pPress()") 
                             } 
-                  show()
+                  	show()
                   }
-                  exec()
-                  }
+	exec()
+}
 
 func pIncrement
        pdial{val=value()}
@@ -48,3 +47,6 @@ func pDecrement
 func pPress
        lineedit1{val=text()}
        pdial.setvalue(number(val)) 
+
+func pDialMove
+       lineedit1.settext(""+pdial.value())
