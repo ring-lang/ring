@@ -12597,6 +12597,202 @@ Class QMediaObject from QWidget
 	Func setNotifyInterval P1
 		return QMediaObject_setNotifyInterval(pObject,P1)
 
+Class QHeaderView from QAbstractItemView
+
+	pObject
+
+	Func init P1,P2
+		pObject = QHeaderView_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QHeaderView_delete(pObject)
+
+	Func cascadingSectionResizes 
+		return QHeaderView_cascadingSectionResizes(pObject)
+
+	Func count 
+		return QHeaderView_count(pObject)
+
+	Func defaultAlignment 
+		return QHeaderView_defaultAlignment(pObject)
+
+	Func defaultSectionSize 
+		return QHeaderView_defaultSectionSize(pObject)
+
+	Func hiddenSectionCount 
+		return QHeaderView_hiddenSectionCount(pObject)
+
+	Func hideSection P1
+		return QHeaderView_hideSection(pObject,P1)
+
+	Func highlightSections 
+		return QHeaderView_highlightSections(pObject)
+
+	Func isSectionHidden P1
+		return QHeaderView_isSectionHidden(pObject,P1)
+
+	Func isSortIndicatorShown 
+		return QHeaderView_isSortIndicatorShown(pObject)
+
+	Func length 
+		return QHeaderView_length(pObject)
+
+	Func logicalIndex P1
+		return QHeaderView_logicalIndex(pObject,P1)
+
+	Func logicalIndexAt P1
+		return QHeaderView_logicalIndexAt(pObject,P1)
+
+	Func logicalIndexAt_2 P1,P2
+		return QHeaderView_logicalIndexAt_2(pObject,P1,P2)
+
+	Func logicalIndexAt_3 P1
+		return QHeaderView_logicalIndexAt_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func maximumSectionSize 
+		return QHeaderView_maximumSectionSize(pObject)
+
+	Func minimumSectionSize_2 
+		return QHeaderView_minimumSectionSize_2(pObject)
+
+	Func moveSection P1,P2
+		return QHeaderView_moveSection(pObject,P1,P2)
+
+	Func offset 
+		return QHeaderView_offset(pObject)
+
+	Func orientation 
+		return QHeaderView_orientation(pObject)
+
+	Func resetDefaultSectionSize 
+		return QHeaderView_resetDefaultSectionSize(pObject)
+
+	Func resizeContentsPrecision 
+		return QHeaderView_resizeContentsPrecision(pObject)
+
+	Func resizeSection P1,P2
+		return QHeaderView_resizeSection(pObject,P1,P2)
+
+	Func resizeSections P1
+		return QHeaderView_resizeSections(pObject,P1)
+
+	Func restoreState P1
+		return QHeaderView_restoreState(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func saveState 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QHeaderView_saveState(pObject)
+		return pTempObj
+
+	Func sectionPosition P1
+		return QHeaderView_sectionPosition(pObject,P1)
+
+	Func sectionResizeMode P1
+		return QHeaderView_sectionResizeMode(pObject,P1)
+
+	Func sectionSize P1
+		return QHeaderView_sectionSize(pObject,P1)
+
+	Func sectionSizeHint P1
+		return QHeaderView_sectionSizeHint(pObject,P1)
+
+	Func sectionViewportPosition P1
+		return QHeaderView_sectionViewportPosition(pObject,P1)
+
+	Func sectionsClickable 
+		return QHeaderView_sectionsClickable(pObject)
+
+	Func sectionsHidden 
+		return QHeaderView_sectionsHidden(pObject)
+
+	Func sectionsMovable 
+		return QHeaderView_sectionsMovable(pObject)
+
+	Func sectionsMoved 
+		return QHeaderView_sectionsMoved(pObject)
+
+	Func setCascadingSectionResizes P1
+		return QHeaderView_setCascadingSectionResizes(pObject,P1)
+
+	Func setDefaultAlignment P1
+		return QHeaderView_setDefaultAlignment(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDefaultSectionSize P1
+		return QHeaderView_setDefaultSectionSize(pObject,P1)
+
+	Func setHighlightSections P1
+		return QHeaderView_setHighlightSections(pObject,P1)
+
+	Func setMaximumSectionSize P1
+		return QHeaderView_setMaximumSectionSize(pObject,P1)
+
+	Func setMinimumSectionSize P1
+		return QHeaderView_setMinimumSectionSize(pObject,P1)
+
+	Func setResizeContentsPrecision P1
+		return QHeaderView_setResizeContentsPrecision(pObject,P1)
+
+	Func setSectionHidden P1,P2
+		return QHeaderView_setSectionHidden(pObject,P1,P2)
+
+	Func setSectionResizeMode P1
+		return QHeaderView_setSectionResizeMode(pObject,P1)
+
+	Func setSectionResizeMode_2 P1,P2
+		return QHeaderView_setSectionResizeMode_2(pObject,P1,P2)
+
+	Func setSectionsClickable P1
+		return QHeaderView_setSectionsClickable(pObject,P1)
+
+	Func setSectionsMovable P1
+		return QHeaderView_setSectionsMovable(pObject,P1)
+
+	Func setSortIndicator P1,P2
+		return QHeaderView_setSortIndicator(pObject,P1,P2)
+
+	Func setSortIndicatorShown P1
+		return QHeaderView_setSortIndicatorShown(pObject,P1)
+
+	Func setStretchLastSection P1
+		return QHeaderView_setStretchLastSection(pObject,P1)
+
+	Func showSection P1
+		return QHeaderView_showSection(pObject,P1)
+
+	Func sortIndicatorOrder 
+		return QHeaderView_sortIndicatorOrder(pObject)
+
+	Func sortIndicatorSection 
+		return QHeaderView_sortIndicatorSection(pObject)
+
+	Func stretchLastSection 
+		return QHeaderView_stretchLastSection(pObject)
+
+	Func stretchSectionCount 
+		return QHeaderView_stretchSectionCount(pObject)
+
+	Func swapSections P1,P2
+		return QHeaderView_swapSections(pObject,P1,P2)
+
+	Func visualIndex P1
+		return QHeaderView_visualIndex(pObject,P1)
+
+	Func visualIndexAt P1
+		return QHeaderView_visualIndexAt(pObject,P1)
+
+	Func headerDataChanged P1,P2,P3
+		return QHeaderView_headerDataChanged(pObject,P1,P2,P3)
+
+	Func setOffset P1
+		return QHeaderView_setOffset(pObject,P1)
+
+	Func setOffsetToLastSection 
+		return QHeaderView_setOffsetToLastSection(pObject)
+
+	Func setOffsetToSectionPosition P1
+		return QHeaderView_setOffsetToSectionPosition(pObject,P1)
+
 Class QIcon
 
 	pObject
@@ -12629,17 +12825,6 @@ Class QDateEdit from QDateTimeEdit
 
 	Func delete
 		pObject = QDateEdit_delete(pObject)
-
-Class QHeaderView from QAbstractItemView
-
-	pObject
-
-	Func init P1,P2
-		pObject = QHeaderView_new(P1,GetObjectPointerFromRingObject(P2))
-		return self
-
-	Func delete
-		pObject = QHeaderView_delete(pObject)
 
 Class QKeySequence
 

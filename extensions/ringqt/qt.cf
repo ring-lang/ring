@@ -430,6 +430,7 @@ aEnumTypes + "QCameraImageCapture::CaptureDestination"
 aEnumTypes + "QCameraImageCapture::CaptureDestinations"
 aEnumTypes + "QCameraImageCapture::DriveMode"
 aEnumTypes + "QCameraImageCapture::Error"
+aEnumTypes + "QHeaderView::ResizeMode"
 
 </runcode>
 
@@ -3586,12 +3587,6 @@ RING_FUNC(ring_QColorDialog_getcolor)
 
 
 <class>
-name: QHeaderView
-para: Qt::Orientation, QWidget *
-parent: QAbstractItemView
-</class>
-
-<class>
 name: QStringList
 para: void
 </class>
@@ -5294,3 +5289,73 @@ bool isMetaDataAvailable(void)
 QVariant metaData( QString   key)
 int notifyInterval(void)
 void setNotifyInterval(int milliSeconds)
+
+
+<class>
+name: QHeaderView
+para: Qt::Orientation, QWidget *
+parent: QAbstractItemView
+</class>
+
+bool cascadingSectionResizes(void)
+int count(void)
+Qt::Alignment defaultAlignment(void)
+int defaultSectionSize(void)
+int hiddenSectionCount(void)
+void hideSection(int logicalIndex)
+bool highlightSections(void)
+bool isSectionHidden(int logicalIndex)
+bool isSortIndicatorShown(void)
+int length(void)
+int logicalIndex(int visualIndex)
+int logicalIndexAt(int position)
+int logicalIndexAt@2(int x, int y)
+int logicalIndexAt@3( QPoint   pos)
+int maximumSectionSize(void)
+int minimumSectionSize@2(void)
+void moveSection(int from, int to)
+int offset(void)
+Qt::Orientation orientation(void)
+void resetDefaultSectionSize(void)
+int resizeContentsPrecision(void)
+void resizeSection(int logicalIndex, int size)
+void resizeSections(QHeaderView::ResizeMode mode)
+bool restoreState( QByteArray   state)
+QByteArray saveState(void)
+int sectionPosition(int logicalIndex)
+QHeaderView::ResizeMode sectionResizeMode(int logicalIndex)
+int sectionSize(int logicalIndex)
+int sectionSizeHint(int logicalIndex)
+int sectionViewportPosition(int logicalIndex)
+bool sectionsClickable(void)
+bool sectionsHidden(void)
+bool sectionsMovable(void)
+bool sectionsMoved(void)
+void setCascadingSectionResizes(bool enable)
+void setDefaultAlignment(Qt::Alignment alignment)
+void setDefaultSectionSize(int size)
+void setHighlightSections(bool highlight)
+void setMaximumSectionSize(int size)
+void setMinimumSectionSize(int size)
+void setResizeContentsPrecision(int precision)
+void setSectionHidden(int logicalIndex, bool hide)
+void setSectionResizeMode(QHeaderView::ResizeMode mode)
+void setSectionResizeMode@2(int logicalIndex, QHeaderView::ResizeMode mode)
+void setSectionsClickable(bool clickable)
+void setSectionsMovable(bool movable)
+void setSortIndicator(int logicalIndex, Qt::SortOrder order)
+void setSortIndicatorShown(bool show)
+void setStretchLastSection(bool stretch)
+void showSection(int logicalIndex)
+Qt::SortOrder sortIndicatorOrder(void)
+int sortIndicatorSection(void)
+bool stretchLastSection(void)
+int stretchSectionCount(void)
+void swapSections(int first, int second)
+int visualIndex(int logicalIndex)
+int visualIndexAt(int position)
+
+void headerDataChanged(Qt::Orientation orientation, int logicalFirst, int logicalLast)
+void setOffset(int offset)
+void setOffsetToLastSection(void)
+void setOffsetToSectionPosition(int visualSectionNumber)
