@@ -26,6 +26,8 @@ class GSpinBox : public QSpinBox
 
     ~GSpinBox();
 
+    void geteventparameters(void) ;
+
     void setvalueChangedEvent(const char *cStr);
 
 

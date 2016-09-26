@@ -26,6 +26,8 @@ class GProgressBar : public QProgressBar
 
     ~GProgressBar();
 
+    void geteventparameters(void) ;
+
     void setvalueChangedEvent(const char *cStr);
 
 

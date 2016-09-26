@@ -20,6 +20,14 @@ GTimer::~GTimer()
 	ring_list_delete(this->pParaList);
 }
 
+void GTimer::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTimer::settimeoutEvent(const char *cStr)
 {

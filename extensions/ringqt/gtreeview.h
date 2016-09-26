@@ -33,6 +33,8 @@ class GTreeView : public QTreeView
 
     ~GTreeView();
 
+    void geteventparameters(void) ;
+
     void setcollapsedEvent(const char *cStr);
     void setexpandedEvent(const char *cStr);
     void setactivatedEvent(const char *cStr);

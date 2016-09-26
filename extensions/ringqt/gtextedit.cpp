@@ -32,6 +32,14 @@ GTextEdit::~GTextEdit()
 	ring_list_delete(this->pParaList);
 }
 
+void GTextEdit::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTextEdit::setcopyAvailableEvent(const char *cStr)
 {

@@ -28,6 +28,14 @@ GCheckBox::~GCheckBox()
 	ring_list_delete(this->pParaList);
 }
 
+void GCheckBox::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GCheckBox::setstateChangedEvent(const char *cStr)
 {

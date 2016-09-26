@@ -22,6 +22,14 @@ GTabWidget::~GTabWidget()
 	ring_list_delete(this->pParaList);
 }
 
+void GTabWidget::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTabWidget::setcurrentChangedEvent(const char *cStr)
 {

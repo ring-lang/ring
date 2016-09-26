@@ -29,6 +29,8 @@ class GIODevice : public QIODevice
 
     ~GIODevice();
 
+    void geteventparameters(void) ;
+
     void setaboutToCloseEvent(const char *cStr);
     void setbytesWrittenEvent(const char *cStr);
     void setreadChannelFinishedEvent(const char *cStr);

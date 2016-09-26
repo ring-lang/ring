@@ -31,6 +31,8 @@ class GWebView : public QWebView
 
     ~GWebView();
 
+    void geteventparameters(void) ;
+
     void setloadFinishedEvent(const char *cStr);
     void setloadProgressEvent(const char *cStr);
     void setloadStartedEvent(const char *cStr);

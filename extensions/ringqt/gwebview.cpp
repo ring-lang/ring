@@ -30,6 +30,14 @@ GWebView::~GWebView()
 	ring_list_delete(this->pParaList);
 }
 
+void GWebView::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GWebView::setloadFinishedEvent(const char *cStr)
 {

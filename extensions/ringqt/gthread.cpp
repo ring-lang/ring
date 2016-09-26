@@ -22,6 +22,14 @@ GThread::~GThread()
 	ring_list_delete(this->pParaList);
 }
 
+void GThread::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GThread::setStartedEvent(const char *cStr)
 {

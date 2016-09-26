@@ -28,6 +28,14 @@ GVideoWidget::~GVideoWidget()
 	ring_list_delete(this->pParaList);
 }
 
+void GVideoWidget::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GVideoWidget::setbrightnessChangedEvent(const char *cStr)
 {

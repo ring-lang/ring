@@ -31,6 +31,8 @@ class GAbstractSocket : public QAbstractSocket
 
     ~GAbstractSocket();
 
+    void geteventparameters(void) ;
+
     void setconnectedEvent(const char *cStr);
     void setdisconnectedEvent(const char *cStr);
     void seterrorEvent(const char *cStr);

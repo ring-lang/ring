@@ -20,6 +20,14 @@ GAction::~GAction()
 	ring_list_delete(this->pParaList);
 }
 
+void GAction::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GAction::setClickEvent(const char *cStr)
 {

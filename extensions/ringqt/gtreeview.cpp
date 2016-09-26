@@ -34,6 +34,14 @@ GTreeView::~GTreeView()
 	ring_list_delete(this->pParaList);
 }
 
+void GTreeView::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTreeView::setcollapsedEvent(const char *cStr)
 {

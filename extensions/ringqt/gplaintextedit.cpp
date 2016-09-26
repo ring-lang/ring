@@ -36,6 +36,14 @@ GPlainTextEdit::~GPlainTextEdit()
 	ring_list_delete(this->pParaList);
 }
 
+void GPlainTextEdit::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GPlainTextEdit::setblockCountChangedEvent(const char *cStr)
 {

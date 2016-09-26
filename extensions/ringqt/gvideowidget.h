@@ -30,6 +30,8 @@ class GVideoWidget : public QVideoWidget
 
     ~GVideoWidget();
 
+    void geteventparameters(void) ;
+
     void setbrightnessChangedEvent(const char *cStr);
     void setcontrastChangedEvent(const char *cStr);
     void setfullScreenChangedEvent(const char *cStr);

@@ -29,6 +29,8 @@ class GComboBox : public QComboBox
 
     ~GComboBox();
 
+    void geteventparameters(void) ;
+
     void setactivatedEvent(const char *cStr);
     void setcurrentIndexChangedEvent(const char *cStr);
     void seteditTextChangedEvent(const char *cStr);

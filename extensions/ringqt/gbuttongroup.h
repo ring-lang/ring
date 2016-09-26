@@ -28,6 +28,8 @@ class GButtonGroup : public QButtonGroup
 
     ~GButtonGroup();
 
+    void geteventparameters(void) ;
+
     void setbuttonClickedEvent(const char *cStr);
     void setbuttonPressedEvent(const char *cStr);
     void setbuttonReleasedEvent(const char *cStr);

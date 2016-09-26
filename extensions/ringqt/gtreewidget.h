@@ -43,6 +43,8 @@ class GTreeWidget : public QTreeWidget
 
     ~GTreeWidget();
 
+    void geteventparameters(void) ;
+
     void setcollapsedEvent(const char *cStr);
     void setexpandedEvent(const char *cStr);
     void setactivatedEvent(const char *cStr);

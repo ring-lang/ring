@@ -835,6 +835,8 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
 <T_CLASSNAMEMETHOD2>();
 
+<T_GETEVENTPARAMETERS>
+
 <T_SETEVENTS>
 
   public slots:
@@ -855,6 +857,7 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 	cCode = substr(cCode,"<T_CLASSNAME>", aClass[:name])
 	cCode = substr(cCode,"<T_CLASSNAMEMETHOD>", cSpace+aClass[:name])
 	cCode = substr(cCode,"<T_CLASSNAMEMETHOD2>", cSpace+"~"+aClass[:name])
+	cCode = substr(cCode,"<T_GETEVENTPARAMETERS>", cSpace+"void geteventparameters(void) ;")
 	cCode = substr(cCode,"<T_REALCLASSNAME>", aClass[:realname])
 
 	if aClass[:initpara] != NULL
@@ -904,6 +907,14 @@ extern "C" {
 {
 	ring_list_delete(this->pParaList);
 }
+
+void <T_CLASSNAME>::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
 
 <T_SETEVENTS>
 <T_SLOTS>

@@ -26,6 +26,8 @@ class GAction : public QAction
 
     ~GAction();
 
+    void geteventparameters(void) ;
+
     void setClickEvent(const char *cStr);
 
 

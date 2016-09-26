@@ -27,6 +27,8 @@ class GTcpServer : public QTcpServer
 
     ~GTcpServer();
 
+    void geteventparameters(void) ;
+
     void setacceptErrorEvent(const char *cStr);
     void setnewConnectionEvent(const char *cStr);
 

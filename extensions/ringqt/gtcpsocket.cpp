@@ -38,6 +38,14 @@ GTcpSocket::~GTcpSocket()
 	ring_list_delete(this->pParaList);
 }
 
+void GTcpSocket::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTcpSocket::setconnectedEvent(const char *cStr)
 {

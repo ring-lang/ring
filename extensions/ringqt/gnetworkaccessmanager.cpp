@@ -20,6 +20,14 @@ GNetworkAccessManager::~GNetworkAccessManager()
 	ring_list_delete(this->pParaList);
 }
 
+void GNetworkAccessManager::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GNetworkAccessManager::setfinishedEvent(const char *cStr)
 {

@@ -26,6 +26,8 @@ class GTimer : public QTimer
 
     ~GTimer();
 
+    void geteventparameters(void) ;
+
     void settimeoutEvent(const char *cStr);
 
 

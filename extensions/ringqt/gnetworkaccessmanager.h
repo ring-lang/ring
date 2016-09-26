@@ -26,6 +26,8 @@ class GNetworkAccessManager : public QNetworkAccessManager
 
     ~GNetworkAccessManager();
 
+    void geteventparameters(void) ;
+
     void setfinishedEvent(const char *cStr);
 
 

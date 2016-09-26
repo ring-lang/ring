@@ -24,6 +24,14 @@ GButtonGroup::~GButtonGroup()
 	ring_list_delete(this->pParaList);
 }
 
+void GButtonGroup::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GButtonGroup::setbuttonClickedEvent(const char *cStr)
 {

@@ -20,6 +20,14 @@ GSpinBox::~GSpinBox()
 	ring_list_delete(this->pParaList);
 }
 
+void GSpinBox::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GSpinBox::setvalueChangedEvent(const char *cStr)
 {

@@ -27,6 +27,8 @@ class GTabWidget : public QTabWidget
 
     ~GTabWidget();
 
+    void geteventparameters(void) ;
+
     void setcurrentChangedEvent(const char *cStr);
     void settabCloseRequestedEvent(const char *cStr);
 

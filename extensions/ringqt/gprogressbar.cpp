@@ -20,6 +20,14 @@ GProgressBar::~GProgressBar()
 	ring_list_delete(this->pParaList);
 }
 
+void GProgressBar::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GProgressBar::setvalueChangedEvent(const char *cStr)
 {

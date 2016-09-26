@@ -30,6 +30,14 @@ GDial::~GDial()
 	ring_list_delete(this->pParaList);
 }
 
+void GDial::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GDial::setactionTriggeredEvent(const char *cStr)
 {

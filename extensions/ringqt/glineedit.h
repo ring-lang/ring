@@ -31,6 +31,8 @@ class GLineEdit : public QLineEdit
 
     ~GLineEdit();
 
+    void geteventparameters(void) ;
+
     void setTextChangedEvent(const char *cStr);
     void setcursorPositionChangedEvent(const char *cStr);
     void seteditingFinishedEvent(const char *cStr);

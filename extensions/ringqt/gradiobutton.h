@@ -29,6 +29,8 @@ class GRadioButton : public QRadioButton
 
     ~GRadioButton();
 
+    void geteventparameters(void) ;
+
     void setclickedEvent(const char *cStr);
     void setpressedEvent(const char *cStr);
     void setreleasedEvent(const char *cStr);

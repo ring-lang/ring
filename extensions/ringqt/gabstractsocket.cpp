@@ -30,6 +30,14 @@ GAbstractSocket::~GAbstractSocket()
 	ring_list_delete(this->pParaList);
 }
 
+void GAbstractSocket::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GAbstractSocket::setconnectedEvent(const char *cStr)
 {

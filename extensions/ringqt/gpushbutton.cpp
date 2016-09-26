@@ -20,6 +20,14 @@ GPushButton::~GPushButton()
 	ring_list_delete(this->pParaList);
 }
 
+void GPushButton::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GPushButton::setClickEvent(const char *cStr)
 {

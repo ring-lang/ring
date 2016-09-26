@@ -34,6 +34,8 @@ class GPlainTextEdit : public QPlainTextEdit
 
     ~GPlainTextEdit();
 
+    void geteventparameters(void) ;
+
     void setblockCountChangedEvent(const char *cStr);
     void setcopyAvailableEvent(const char *cStr);
     void setcursorPositionChangedEvent(const char *cStr);

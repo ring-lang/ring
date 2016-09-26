@@ -35,6 +35,8 @@ class GListWidget : public QListWidget
 
     ~GListWidget();
 
+    void geteventparameters(void) ;
+
     void setcurrentItemChangedEvent(const char *cStr);
     void setcurrentRowChangedEvent(const char *cStr);
     void setcurrentTextChangedEvent(const char *cStr);

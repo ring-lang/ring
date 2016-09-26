@@ -26,6 +26,8 @@ class GPushButton : public QPushButton
 
     ~GPushButton();
 
+    void geteventparameters(void) ;
+
     void setClickEvent(const char *cStr);
 
 

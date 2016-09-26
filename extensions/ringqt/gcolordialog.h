@@ -27,6 +27,8 @@ class GColorDialog : public QColorDialog
 
     ~GColorDialog();
 
+    void geteventparameters(void) ;
+
     void setcolorSelectedEvent(const char *cStr);
     void setcurrentColorChangedEvent(const char *cStr);
 

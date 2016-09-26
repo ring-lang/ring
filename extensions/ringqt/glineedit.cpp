@@ -30,6 +30,14 @@ GLineEdit::~GLineEdit()
 	ring_list_delete(this->pParaList);
 }
 
+void GLineEdit::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GLineEdit::setTextChangedEvent(const char *cStr)
 {

@@ -26,6 +26,14 @@ GComboBox::~GComboBox()
 	ring_list_delete(this->pParaList);
 }
 
+void GComboBox::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GComboBox::setactivatedEvent(const char *cStr)
 {

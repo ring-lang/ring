@@ -40,6 +40,8 @@ class GTableWidget : public QTableWidget
 
     ~GTableWidget();
 
+    void geteventparameters(void) ;
+
     void setcellActivatedEvent(const char *cStr);
     void setcellChangedEvent(const char *cStr);
     void setcellClickedEvent(const char *cStr);

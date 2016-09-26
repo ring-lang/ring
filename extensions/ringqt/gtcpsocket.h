@@ -35,6 +35,8 @@ class GTcpSocket : public QTcpSocket
 
     ~GTcpSocket();
 
+    void geteventparameters(void) ;
+
     void setconnectedEvent(const char *cStr);
     void setdisconnectedEvent(const char *cStr);
     void seterrorEvent(const char *cStr);

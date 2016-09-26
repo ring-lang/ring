@@ -48,6 +48,14 @@ GTableWidget::~GTableWidget()
 	ring_list_delete(this->pParaList);
 }
 
+void GTableWidget::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTableWidget::setcellActivatedEvent(const char *cStr)
 {

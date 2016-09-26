@@ -27,6 +27,8 @@ class GThread : public QThread
 
     ~GThread();
 
+    void geteventparameters(void) ;
+
     void setStartedEvent(const char *cStr);
     void setFinishedEvent(const char *cStr);
 

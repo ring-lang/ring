@@ -32,6 +32,8 @@ class GTextEdit : public QTextEdit
 
     ~GTextEdit();
 
+    void geteventparameters(void) ;
+
     void setcopyAvailableEvent(const char *cStr);
     void setcurrentCharFormatChangedEvent(const char *cStr);
     void setcursorPositionChangedEvent(const char *cStr);

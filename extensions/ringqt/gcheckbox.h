@@ -30,6 +30,8 @@ class GCheckBox : public QCheckBox
 
     ~GCheckBox();
 
+    void geteventparameters(void) ;
+
     void setstateChangedEvent(const char *cStr);
     void setclickedEvent(const char *cStr);
     void setpressedEvent(const char *cStr);

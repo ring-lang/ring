@@ -31,6 +31,8 @@ class GDial : public QDial
 
     ~GDial();
 
+    void geteventparameters(void) ;
+
     void setactionTriggeredEvent(const char *cStr);
     void setrangeChangedEvent(const char *cStr);
     void setsliderMovedEvent(const char *cStr);
