@@ -64,6 +64,7 @@ void GComboBox::activatedSlot()
 {
 	if (strcmp(this->cactivatedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cactivatedEvent);
 }
 
@@ -71,6 +72,7 @@ void GComboBox::currentIndexChangedSlot()
 {
 	if (strcmp(this->ccurrentIndexChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentIndexChangedEvent);
 }
 
@@ -78,6 +80,7 @@ void GComboBox::editTextChangedSlot()
 {
 	if (strcmp(this->ceditTextChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ceditTextChangedEvent);
 }
 
@@ -85,6 +88,7 @@ void GComboBox::highlightedSlot()
 {
 	if (strcmp(this->chighlightedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->chighlightedEvent);
 }
 

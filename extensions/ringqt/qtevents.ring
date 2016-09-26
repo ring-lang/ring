@@ -747,7 +747,10 @@ aclasses = [
 					] ,
 					[ 	:signal = "sectionClicked(int logicalIndex)" ,
 						:slot = "sectionClickedSlot()" ,
-						:event = "sectionClicked"
+						:event = "sectionClicked",
+						:slotparaconnect = "int",
+						:slotparafunction = "int p1",
+						:slotparacode = SlotParaGetNumber()
 					],
 					[ 	:signal = "sectionCountChanged(int oldCount, int newCount)" ,
 						:slot = "sectionCountChangedSlot()" ,
@@ -875,7 +878,13 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 		# Set Events
 		cSetEvents += cSpace+"void set"+aEvent[:event]+"Event(const char *cStr);"+nl
 		# Events Slots
-		cEventsSlots += cSpace+"void "+aEvent[:slot]+";"+nl
+
+		cSlot = aEvent[:slot]
+		if aEvent[:slotparafunction] != NULL
+			cSlot = substr(cSlot,"()","("+aEvent[:slotparafunction]+")")
+		ok
+
+		cEventsSlots += cSpace+"void "+cSlot+";"+nl
 	Next
 
 	cCode = substr(cCode,"<T_EVENTSATTRIBUTES>", cEventsAttributes)
@@ -946,8 +955,13 @@ void <T_CLASSNAME>::geteventparameters(void)
 		cClearEvents += char(9) + 'strcpy(this->c'+aEvent[:event]+'Event,"");'+nl
 
 		# Connect
+		cSlot = aEvent[:slot]
+		if aEvent[:slotparaconnect] != NULL
+			cSlot = substr(cSlot,"()","("+aEvent[:slotparaconnect]+")")
+		ok
+
 		cConnect += char(9) + "QObject::connect(this, SIGNAL("+aEvent[:signal]+
-				"),this, SLOT("+aEvent[:slot]+"));"+nl
+				"),this, SLOT("+cSlot+"));"+nl
 		# Set Events
 		cSetEvents += "
 void "+aClass[:name]+"::set"+aEvent[:event]+"Event(const char *cStr)
@@ -960,15 +974,26 @@ void "+aClass[:name]+"::set"+aEvent[:event]+"Event(const char *cStr)
 		cSlots += '
 void '+aClass[:name]+'::'
 
-		cSlots += aEvent[:slot]
+
+		cSlot = aEvent[:slot]
+		if aEvent[:slotparafunction] != NULL
+			cSlot = substr(cSlot,"()","("+aEvent[:slotparafunction]+")")
+		ok
+
+		cSlots += cSlot
 
 		cSlots +='
 {
 	if (strcmp(this->c'+aEvent[:event]+'Event,"")==0)
 		return ;
+'
+		cSlots += aEvent[:slotparacode]
+
+		cSlots +='
 	ring_vm_runcode(this->pVM,this->c'+aEvent[:event]+'Event);
 }
 '
+
 
 	Next
 
@@ -989,3 +1014,10 @@ Func WriteFile cFileName,cCode
 		fwrite(fp,cLine+char(13)+char(10))
 	next
 	fclose(fp)
+
+
+Func SlotParaGetNumber 
+	return "
+		ring_list_deleteallitems(this->pParaList);
+		ring_list_adddouble(this->pParaList, (double) p1 ) ;	
+	"

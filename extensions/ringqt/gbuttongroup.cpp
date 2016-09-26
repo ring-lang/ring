@@ -56,6 +56,7 @@ void GButtonGroup::buttonClickedSlot()
 {
 	if (strcmp(this->cbuttonClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbuttonClickedEvent);
 }
 
@@ -63,6 +64,7 @@ void GButtonGroup::buttonPressedSlot()
 {
 	if (strcmp(this->cbuttonPressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbuttonPressedEvent);
 }
 
@@ -70,6 +72,7 @@ void GButtonGroup::buttonReleasedSlot()
 {
 	if (strcmp(this->cbuttonReleasedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbuttonReleasedEvent);
 }
 

@@ -48,6 +48,7 @@ void GTcpServer::acceptErrorSlot()
 {
 	if (strcmp(this->cacceptErrorEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cacceptErrorEvent);
 }
 
@@ -55,6 +56,7 @@ void GTcpServer::newConnectionSlot()
 {
 	if (strcmp(this->cnewConnectionEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cnewConnectionEvent);
 }
 

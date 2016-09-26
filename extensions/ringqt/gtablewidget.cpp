@@ -152,6 +152,7 @@ void GTableWidget::cellActivatedSlot()
 {
 	if (strcmp(this->ccellActivatedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccellActivatedEvent);
 }
 
@@ -159,6 +160,7 @@ void GTableWidget::cellChangedSlot()
 {
 	if (strcmp(this->ccellChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccellChangedEvent);
 }
 
@@ -166,6 +168,7 @@ void GTableWidget::cellClickedSlot()
 {
 	if (strcmp(this->ccellClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccellClickedEvent);
 }
 
@@ -173,6 +176,7 @@ void GTableWidget::cellDoubleClickedSlot()
 {
 	if (strcmp(this->ccellDoubleClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccellDoubleClickedEvent);
 }
 
@@ -180,6 +184,7 @@ void GTableWidget::cellEnteredSlot()
 {
 	if (strcmp(this->ccellEnteredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccellEnteredEvent);
 }
 
@@ -187,6 +192,7 @@ void GTableWidget::cellPressedSlot()
 {
 	if (strcmp(this->ccellPressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccellPressedEvent);
 }
 
@@ -194,6 +200,7 @@ void GTableWidget::currentCellChangedSlot()
 {
 	if (strcmp(this->ccurrentCellChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentCellChangedEvent);
 }
 
@@ -201,6 +208,7 @@ void GTableWidget::currentItemChangedSlot()
 {
 	if (strcmp(this->ccurrentItemChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentItemChangedEvent);
 }
 
@@ -208,6 +216,7 @@ void GTableWidget::itemActivatedSlot()
 {
 	if (strcmp(this->citemActivatedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemActivatedEvent);
 }
 
@@ -215,6 +224,7 @@ void GTableWidget::itemChangedSlot()
 {
 	if (strcmp(this->citemChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemChangedEvent);
 }
 
@@ -222,6 +232,7 @@ void GTableWidget::itemClickedSlot()
 {
 	if (strcmp(this->citemClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemClickedEvent);
 }
 
@@ -229,6 +240,7 @@ void GTableWidget::itemDoubleClickedSlot()
 {
 	if (strcmp(this->citemDoubleClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemDoubleClickedEvent);
 }
 
@@ -236,6 +248,7 @@ void GTableWidget::itemEnteredSlot()
 {
 	if (strcmp(this->citemEnteredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemEnteredEvent);
 }
 
@@ -243,6 +256,7 @@ void GTableWidget::itemPressedSlot()
 {
 	if (strcmp(this->citemPressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemPressedEvent);
 }
 
@@ -250,6 +264,7 @@ void GTableWidget::itemSelectionChangedSlot()
 {
 	if (strcmp(this->citemSelectionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemSelectionChangedEvent);
 }
 

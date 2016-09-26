@@ -40,6 +40,7 @@ void GNetworkAccessManager::finishedSlot(QNetworkReply*)
 {
 	if (strcmp(this->cfinishedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cfinishedEvent);
 }
 

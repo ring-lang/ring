@@ -48,6 +48,7 @@ void GTabWidget::currentChangedSlot()
 {
 	if (strcmp(this->ccurrentChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentChangedEvent);
 }
 
@@ -55,6 +56,7 @@ void GTabWidget::tabCloseRequestedSlot()
 {
 	if (strcmp(this->ctabCloseRequestedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctabCloseRequestedEvent);
 }
 

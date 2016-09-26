@@ -72,6 +72,7 @@ void GVideoWidget::brightnessChangedSlot()
 {
 	if (strcmp(this->cbrightnessChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbrightnessChangedEvent);
 }
 
@@ -79,6 +80,7 @@ void GVideoWidget::contrastChangedSlot()
 {
 	if (strcmp(this->ccontrastChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccontrastChangedEvent);
 }
 
@@ -86,6 +88,7 @@ void GVideoWidget::fullScreenChangedSlot()
 {
 	if (strcmp(this->cfullScreenChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cfullScreenChangedEvent);
 }
 
@@ -93,6 +96,7 @@ void GVideoWidget::hueChangedSlot()
 {
 	if (strcmp(this->chueChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->chueChangedEvent);
 }
 
@@ -100,6 +104,7 @@ void GVideoWidget::saturationChangedSlot()
 {
 	if (strcmp(this->csaturationChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->csaturationChangedEvent);
 }
 

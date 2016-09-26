@@ -40,6 +40,7 @@ void GAction::clickedSlot()
 {
 	if (strcmp(this->cClickEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cClickEvent);
 }
 

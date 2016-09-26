@@ -80,6 +80,7 @@ void GDial::actionTriggeredSlot()
 {
 	if (strcmp(this->cactionTriggeredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cactionTriggeredEvent);
 }
 
@@ -87,6 +88,7 @@ void GDial::rangeChangedSlot()
 {
 	if (strcmp(this->crangeChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->crangeChangedEvent);
 }
 
@@ -94,6 +96,7 @@ void GDial::sliderMovedSlot()
 {
 	if (strcmp(this->csliderMovedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->csliderMovedEvent);
 }
 
@@ -101,6 +104,7 @@ void GDial::sliderPressedSlot()
 {
 	if (strcmp(this->csliderPressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->csliderPressedEvent);
 }
 
@@ -108,6 +112,7 @@ void GDial::sliderReleasedSlot()
 {
 	if (strcmp(this->csliderReleasedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->csliderReleasedEvent);
 }
 
@@ -115,6 +120,7 @@ void GDial::valueChangedSlot()
 {
 	if (strcmp(this->cvalueChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cvalueChangedEvent);
 }
 

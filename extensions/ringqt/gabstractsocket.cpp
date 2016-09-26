@@ -80,6 +80,7 @@ void GAbstractSocket::connectedSlot()
 {
 	if (strcmp(this->cconnectedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cconnectedEvent);
 }
 
@@ -87,6 +88,7 @@ void GAbstractSocket::disconnectedSlot()
 {
 	if (strcmp(this->cdisconnectedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cdisconnectedEvent);
 }
 
@@ -94,6 +96,7 @@ void GAbstractSocket::errorSlot()
 {
 	if (strcmp(this->cerrorEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cerrorEvent);
 }
 
@@ -101,6 +104,7 @@ void GAbstractSocket::hostFoundSlot()
 {
 	if (strcmp(this->chostFoundEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->chostFoundEvent);
 }
 
@@ -108,6 +112,7 @@ void GAbstractSocket::proxyAuthenticationRequiredSlot()
 {
 	if (strcmp(this->cproxyAuthenticationRequiredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cproxyAuthenticationRequiredEvent);
 }
 
@@ -115,6 +120,7 @@ void GAbstractSocket::stateChangedSlot()
 {
 	if (strcmp(this->cstateChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cstateChangedEvent);
 }
 

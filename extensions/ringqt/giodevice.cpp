@@ -64,6 +64,7 @@ void GIODevice::aboutToCloseSlot()
 {
 	if (strcmp(this->caboutToCloseEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->caboutToCloseEvent);
 }
 
@@ -71,6 +72,7 @@ void GIODevice::bytesWrittenSlot()
 {
 	if (strcmp(this->cbytesWrittenEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbytesWrittenEvent);
 }
 
@@ -78,6 +80,7 @@ void GIODevice::readChannelFinishedSlot()
 {
 	if (strcmp(this->creadChannelFinishedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creadChannelFinishedEvent);
 }
 
@@ -85,6 +88,7 @@ void GIODevice::readyReadSlot()
 {
 	if (strcmp(this->creadyReadEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creadyReadEvent);
 }
 

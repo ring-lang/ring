@@ -64,6 +64,7 @@ void GRadioButton::clickedSlot()
 {
 	if (strcmp(this->cclickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cclickedEvent);
 }
 
@@ -71,6 +72,7 @@ void GRadioButton::pressedSlot()
 {
 	if (strcmp(this->cpressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cpressedEvent);
 }
 
@@ -78,6 +80,7 @@ void GRadioButton::releasedSlot()
 {
 	if (strcmp(this->creleasedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creleasedEvent);
 }
 
@@ -85,6 +88,7 @@ void GRadioButton::toggledSlot()
 {
 	if (strcmp(this->ctoggledEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctoggledEvent);
 }
 

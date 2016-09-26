@@ -12820,6 +12820,9 @@ Class QHeaderView from QAbstractItemView
 	Func setsortIndicatorChangedEvent P1
 		return QHeaderView_setsortIndicatorChangedEvent(pObject,P1)
 
+	Func geteventparameters 
+		return QHeaderView_geteventparameters(pObject)
+
 Class QIcon
 
 	pObject

@@ -48,6 +48,7 @@ void GColorDialog::colorSelectedSlot()
 {
 	if (strcmp(this->ccolorSelectedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccolorSelectedEvent);
 }
 
@@ -55,6 +56,7 @@ void GColorDialog::currentColorChangedSlot()
 {
 	if (strcmp(this->ccurrentColorChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentColorChangedEvent);
 }
 

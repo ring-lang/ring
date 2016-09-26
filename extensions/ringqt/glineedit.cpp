@@ -80,6 +80,7 @@ void GLineEdit::textChangedSlot()
 {
 	if (strcmp(this->cTextChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cTextChangedEvent);
 }
 
@@ -87,6 +88,7 @@ void GLineEdit::cursorPositionChangedSlot()
 {
 	if (strcmp(this->ccursorPositionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccursorPositionChangedEvent);
 }
 
@@ -94,6 +96,7 @@ void GLineEdit::editingFinishedSlot()
 {
 	if (strcmp(this->ceditingFinishedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ceditingFinishedEvent);
 }
 
@@ -101,6 +104,7 @@ void GLineEdit::returnPressedSlot()
 {
 	if (strcmp(this->creturnPressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creturnPressedEvent);
 }
 
@@ -108,6 +112,7 @@ void GLineEdit::selectionChangedSlot()
 {
 	if (strcmp(this->cselectionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cselectionChangedEvent);
 }
 
@@ -115,6 +120,7 @@ void GLineEdit::textEditedSlot()
 {
 	if (strcmp(this->ctextEditedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctextEditedEvent);
 }
 

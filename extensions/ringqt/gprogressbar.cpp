@@ -40,6 +40,7 @@ void GProgressBar::valueChangedSlot()
 {
 	if (strcmp(this->cvalueChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cvalueChangedEvent);
 }
 

@@ -48,6 +48,7 @@ void GThread::startedSlot()
 {
 	if (strcmp(this->cStartedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cStartedEvent);
 }
 
@@ -55,6 +56,7 @@ void GThread::finishedSlot()
 {
 	if (strcmp(this->cFinishedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cFinishedEvent);
 }
 

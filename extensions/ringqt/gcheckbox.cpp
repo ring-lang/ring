@@ -72,6 +72,7 @@ void GCheckBox::stateChangedSlot()
 {
 	if (strcmp(this->cstateChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cstateChangedEvent);
 }
 
@@ -79,6 +80,7 @@ void GCheckBox::clickedSlot()
 {
 	if (strcmp(this->cclickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cclickedEvent);
 }
 
@@ -86,6 +88,7 @@ void GCheckBox::pressedSlot()
 {
 	if (strcmp(this->cpressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cpressedEvent);
 }
 
@@ -93,6 +96,7 @@ void GCheckBox::releasedSlot()
 {
 	if (strcmp(this->creleasedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creleasedEvent);
 }
 
@@ -100,6 +104,7 @@ void GCheckBox::toggledSlot()
 {
 	if (strcmp(this->ctoggledEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctoggledEvent);
 }
 

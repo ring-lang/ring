@@ -88,6 +88,7 @@ void GTextEdit::copyAvailableSlot()
 {
 	if (strcmp(this->ccopyAvailableEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccopyAvailableEvent);
 }
 
@@ -95,6 +96,7 @@ void GTextEdit::currentCharFormatChangedSlot()
 {
 	if (strcmp(this->ccurrentCharFormatChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentCharFormatChangedEvent);
 }
 
@@ -102,6 +104,7 @@ void GTextEdit::cursorPositionChangedSlot()
 {
 	if (strcmp(this->ccursorPositionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccursorPositionChangedEvent);
 }
 
@@ -109,6 +112,7 @@ void GTextEdit::redoAvailableSlot()
 {
 	if (strcmp(this->credoAvailableEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->credoAvailableEvent);
 }
 
@@ -116,6 +120,7 @@ void GTextEdit::selectionChanged()
 {
 	if (strcmp(this->cselectionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cselectionChangedEvent);
 }
 
@@ -123,6 +128,7 @@ void GTextEdit::textChangedSlot()
 {
 	if (strcmp(this->ctextChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctextChangedEvent);
 }
 
@@ -130,6 +136,7 @@ void GTextEdit::undoAvailableSlot()
 {
 	if (strcmp(this->cundoAvailableEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cundoAvailableEvent);
 }
 

@@ -5376,3 +5376,5 @@ void setsectionMovedEvent(const char *)
 void setsectionPressedEvent(const char *)
 void setsectionResizedEvent(const char *)
 void setsortIndicatorChangedEvent(const char *)
+
+void geteventparameters(void)

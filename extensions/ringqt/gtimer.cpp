@@ -40,6 +40,7 @@ void GTimer::timeoutSlot()
 {
 	if (strcmp(this->ctimeoutEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctimeoutEvent);
 }
 

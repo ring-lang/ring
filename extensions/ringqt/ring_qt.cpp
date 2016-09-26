@@ -72006,6 +72006,23 @@ RING_FUNC(ring_QHeaderView_setsortIndicatorChangedEvent)
 	pObject->setsortIndicatorChangedEvent(RING_API_GETSTRING(2));
 }
 
+
+RING_FUNC(ring_QHeaderView_geteventparameters)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject->geteventparameters();
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -78962,6 +78979,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qheaderview_setsectionpressedevent",ring_QHeaderView_setsectionPressedEvent);
 	ring_vm_funcregister("qheaderview_setsectionresizedevent",ring_QHeaderView_setsectionResizedEvent);
 	ring_vm_funcregister("qheaderview_setsortindicatorchangedevent",ring_QHeaderView_setsortIndicatorChangedEvent);
+	ring_vm_funcregister("qheaderview_geteventparameters",ring_QHeaderView_geteventparameters);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);

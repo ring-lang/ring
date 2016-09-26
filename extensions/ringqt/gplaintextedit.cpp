@@ -104,6 +104,7 @@ void GPlainTextEdit::blockCountChangedSlot()
 {
 	if (strcmp(this->cblockCountChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cblockCountChangedEvent);
 }
 
@@ -111,6 +112,7 @@ void GPlainTextEdit::copyAvailableSlot()
 {
 	if (strcmp(this->ccopyAvailableEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccopyAvailableEvent);
 }
 
@@ -118,6 +120,7 @@ void GPlainTextEdit::cursorPositionChangedSlot()
 {
 	if (strcmp(this->ccursorPositionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccursorPositionChangedEvent);
 }
 
@@ -125,6 +128,7 @@ void GPlainTextEdit::modificationChangedSlot()
 {
 	if (strcmp(this->cmodificationChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cmodificationChangedEvent);
 }
 
@@ -132,6 +136,7 @@ void GPlainTextEdit::redoAvailableSlot()
 {
 	if (strcmp(this->credoAvailableEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->credoAvailableEvent);
 }
 
@@ -139,6 +144,7 @@ void GPlainTextEdit::selectionChanged()
 {
 	if (strcmp(this->cselectionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cselectionChangedEvent);
 }
 
@@ -146,6 +152,7 @@ void GPlainTextEdit::textChangedSlot()
 {
 	if (strcmp(this->ctextChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctextChangedEvent);
 }
 
@@ -153,6 +160,7 @@ void GPlainTextEdit::undoAvailableSlot()
 {
 	if (strcmp(this->cundoAvailableEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cundoAvailableEvent);
 }
 
@@ -160,6 +168,7 @@ void GPlainTextEdit::updateRequestSlot()
 {
 	if (strcmp(this->cupdateRequestEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cupdateRequestEvent);
 }
 
