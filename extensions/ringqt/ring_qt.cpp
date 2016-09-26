@@ -33,7 +33,7 @@ extern "C" {
 #include "gallevents.h"
 #include "gthread.h"
 #include "gplaintextedit.h"
-
+#include "gheaderview.h"
 
 #include <QApplication>
 #include <QObject>
@@ -70591,7 +70591,7 @@ RING_FUNC(ring_QMediaObject_setNotifyInterval)
 
 RING_FUNC(ring_QHeaderView_cascadingSectionResizes)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70601,14 +70601,14 @@ RING_FUNC(ring_QHeaderView_cascadingSectionResizes)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->cascadingSectionResizes());
 }
 
 
 RING_FUNC(ring_QHeaderView_count)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70618,14 +70618,14 @@ RING_FUNC(ring_QHeaderView_count)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->count());
 }
 
 
 RING_FUNC(ring_QHeaderView_defaultAlignment)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70635,7 +70635,7 @@ RING_FUNC(ring_QHeaderView_defaultAlignment)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	{
 		Qt::Alignment *pValue ; 
 		pValue = (Qt::Alignment *) malloc(sizeof(Qt::Alignment)) ;
@@ -70647,7 +70647,7 @@ RING_FUNC(ring_QHeaderView_defaultAlignment)
 
 RING_FUNC(ring_QHeaderView_defaultSectionSize)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70657,14 +70657,14 @@ RING_FUNC(ring_QHeaderView_defaultSectionSize)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->defaultSectionSize());
 }
 
 
 RING_FUNC(ring_QHeaderView_hiddenSectionCount)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70674,14 +70674,14 @@ RING_FUNC(ring_QHeaderView_hiddenSectionCount)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->hiddenSectionCount());
 }
 
 
 RING_FUNC(ring_QHeaderView_hideSection)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -70691,7 +70691,7 @@ RING_FUNC(ring_QHeaderView_hideSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -70702,7 +70702,7 @@ RING_FUNC(ring_QHeaderView_hideSection)
 
 RING_FUNC(ring_QHeaderView_highlightSections)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70712,14 +70712,14 @@ RING_FUNC(ring_QHeaderView_highlightSections)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->highlightSections());
 }
 
 
 RING_FUNC(ring_QHeaderView_isSectionHidden)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -70729,7 +70729,7 @@ RING_FUNC(ring_QHeaderView_isSectionHidden)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -70740,7 +70740,7 @@ RING_FUNC(ring_QHeaderView_isSectionHidden)
 
 RING_FUNC(ring_QHeaderView_isSortIndicatorShown)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70750,14 +70750,14 @@ RING_FUNC(ring_QHeaderView_isSortIndicatorShown)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->isSortIndicatorShown());
 }
 
 
 RING_FUNC(ring_QHeaderView_length)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70767,14 +70767,14 @@ RING_FUNC(ring_QHeaderView_length)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->length());
 }
 
 
 RING_FUNC(ring_QHeaderView_logicalIndex)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -70784,7 +70784,7 @@ RING_FUNC(ring_QHeaderView_logicalIndex)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -70795,7 +70795,7 @@ RING_FUNC(ring_QHeaderView_logicalIndex)
 
 RING_FUNC(ring_QHeaderView_logicalIndexAt)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -70805,7 +70805,7 @@ RING_FUNC(ring_QHeaderView_logicalIndexAt)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -70816,7 +70816,7 @@ RING_FUNC(ring_QHeaderView_logicalIndexAt)
 
 RING_FUNC(ring_QHeaderView_logicalIndexAt_2)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -70826,7 +70826,7 @@ RING_FUNC(ring_QHeaderView_logicalIndexAt_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -70841,7 +70841,7 @@ RING_FUNC(ring_QHeaderView_logicalIndexAt_2)
 
 RING_FUNC(ring_QHeaderView_logicalIndexAt_3)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -70851,7 +70851,7 @@ RING_FUNC(ring_QHeaderView_logicalIndexAt_3)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->logicalIndexAt(* (QPoint    *) RING_API_GETCPOINTER(2,"QPoint")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QPoint"));
@@ -70860,7 +70860,7 @@ RING_FUNC(ring_QHeaderView_logicalIndexAt_3)
 
 RING_FUNC(ring_QHeaderView_maximumSectionSize)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70870,14 +70870,14 @@ RING_FUNC(ring_QHeaderView_maximumSectionSize)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->maximumSectionSize());
 }
 
 
 RING_FUNC(ring_QHeaderView_minimumSectionSize_2)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70887,14 +70887,14 @@ RING_FUNC(ring_QHeaderView_minimumSectionSize_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->minimumSectionSize());
 }
 
 
 RING_FUNC(ring_QHeaderView_moveSection)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -70904,7 +70904,7 @@ RING_FUNC(ring_QHeaderView_moveSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -70919,7 +70919,7 @@ RING_FUNC(ring_QHeaderView_moveSection)
 
 RING_FUNC(ring_QHeaderView_offset)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70929,14 +70929,14 @@ RING_FUNC(ring_QHeaderView_offset)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->offset());
 }
 
 
 RING_FUNC(ring_QHeaderView_orientation)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70946,31 +70946,14 @@ RING_FUNC(ring_QHeaderView_orientation)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->orientation());
-}
-
-
-RING_FUNC(ring_QHeaderView_resetDefaultSectionSize)
-{
-	QHeaderView *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
-	pObject->resetDefaultSectionSize();
 }
 
 
 RING_FUNC(ring_QHeaderView_resizeContentsPrecision)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -70980,14 +70963,14 @@ RING_FUNC(ring_QHeaderView_resizeContentsPrecision)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->resizeContentsPrecision());
 }
 
 
 RING_FUNC(ring_QHeaderView_resizeSection)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -70997,7 +70980,7 @@ RING_FUNC(ring_QHeaderView_resizeSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71012,7 +70995,7 @@ RING_FUNC(ring_QHeaderView_resizeSection)
 
 RING_FUNC(ring_QHeaderView_resizeSections)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71022,7 +71005,7 @@ RING_FUNC(ring_QHeaderView_resizeSections)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71033,7 +71016,7 @@ RING_FUNC(ring_QHeaderView_resizeSections)
 
 RING_FUNC(ring_QHeaderView_restoreState)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71043,7 +71026,7 @@ RING_FUNC(ring_QHeaderView_restoreState)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->restoreState(* (QByteArray    *) RING_API_GETCPOINTER(2,"QByteArray")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QByteArray"));
@@ -71052,7 +71035,7 @@ RING_FUNC(ring_QHeaderView_restoreState)
 
 RING_FUNC(ring_QHeaderView_saveState)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71062,7 +71045,7 @@ RING_FUNC(ring_QHeaderView_saveState)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	{
 		QByteArray *pValue ; 
 		pValue = new QByteArray() ;
@@ -71074,7 +71057,7 @@ RING_FUNC(ring_QHeaderView_saveState)
 
 RING_FUNC(ring_QHeaderView_sectionPosition)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71084,7 +71067,7 @@ RING_FUNC(ring_QHeaderView_sectionPosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71095,7 +71078,7 @@ RING_FUNC(ring_QHeaderView_sectionPosition)
 
 RING_FUNC(ring_QHeaderView_sectionResizeMode)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71105,7 +71088,7 @@ RING_FUNC(ring_QHeaderView_sectionResizeMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71116,7 +71099,7 @@ RING_FUNC(ring_QHeaderView_sectionResizeMode)
 
 RING_FUNC(ring_QHeaderView_sectionSize)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71126,7 +71109,7 @@ RING_FUNC(ring_QHeaderView_sectionSize)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71137,7 +71120,7 @@ RING_FUNC(ring_QHeaderView_sectionSize)
 
 RING_FUNC(ring_QHeaderView_sectionSizeHint)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71147,7 +71130,7 @@ RING_FUNC(ring_QHeaderView_sectionSizeHint)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71158,7 +71141,7 @@ RING_FUNC(ring_QHeaderView_sectionSizeHint)
 
 RING_FUNC(ring_QHeaderView_sectionViewportPosition)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71168,7 +71151,7 @@ RING_FUNC(ring_QHeaderView_sectionViewportPosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71179,7 +71162,7 @@ RING_FUNC(ring_QHeaderView_sectionViewportPosition)
 
 RING_FUNC(ring_QHeaderView_sectionsClickable)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71189,14 +71172,14 @@ RING_FUNC(ring_QHeaderView_sectionsClickable)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->sectionsClickable());
 }
 
 
 RING_FUNC(ring_QHeaderView_sectionsHidden)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71206,14 +71189,14 @@ RING_FUNC(ring_QHeaderView_sectionsHidden)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->sectionsHidden());
 }
 
 
 RING_FUNC(ring_QHeaderView_sectionsMovable)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71223,14 +71206,14 @@ RING_FUNC(ring_QHeaderView_sectionsMovable)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->sectionsMovable());
 }
 
 
 RING_FUNC(ring_QHeaderView_sectionsMoved)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71240,14 +71223,14 @@ RING_FUNC(ring_QHeaderView_sectionsMoved)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->sectionsMoved());
 }
 
 
 RING_FUNC(ring_QHeaderView_setCascadingSectionResizes)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71257,7 +71240,7 @@ RING_FUNC(ring_QHeaderView_setCascadingSectionResizes)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71268,7 +71251,7 @@ RING_FUNC(ring_QHeaderView_setCascadingSectionResizes)
 
 RING_FUNC(ring_QHeaderView_setDefaultAlignment)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71278,7 +71261,7 @@ RING_FUNC(ring_QHeaderView_setDefaultAlignment)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	pObject->setDefaultAlignment(* (Qt::Alignment  *) RING_API_GETCPOINTER(2,"Qt::Alignment"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"Qt::Alignment"));
@@ -71287,7 +71270,7 @@ RING_FUNC(ring_QHeaderView_setDefaultAlignment)
 
 RING_FUNC(ring_QHeaderView_setDefaultSectionSize)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71297,7 +71280,7 @@ RING_FUNC(ring_QHeaderView_setDefaultSectionSize)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71308,7 +71291,7 @@ RING_FUNC(ring_QHeaderView_setDefaultSectionSize)
 
 RING_FUNC(ring_QHeaderView_setHighlightSections)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71318,7 +71301,7 @@ RING_FUNC(ring_QHeaderView_setHighlightSections)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71329,7 +71312,7 @@ RING_FUNC(ring_QHeaderView_setHighlightSections)
 
 RING_FUNC(ring_QHeaderView_setMaximumSectionSize)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71339,7 +71322,7 @@ RING_FUNC(ring_QHeaderView_setMaximumSectionSize)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71350,7 +71333,7 @@ RING_FUNC(ring_QHeaderView_setMaximumSectionSize)
 
 RING_FUNC(ring_QHeaderView_setMinimumSectionSize)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71360,7 +71343,7 @@ RING_FUNC(ring_QHeaderView_setMinimumSectionSize)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71371,7 +71354,7 @@ RING_FUNC(ring_QHeaderView_setMinimumSectionSize)
 
 RING_FUNC(ring_QHeaderView_setResizeContentsPrecision)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71381,7 +71364,7 @@ RING_FUNC(ring_QHeaderView_setResizeContentsPrecision)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71392,7 +71375,7 @@ RING_FUNC(ring_QHeaderView_setResizeContentsPrecision)
 
 RING_FUNC(ring_QHeaderView_setSectionHidden)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -71402,7 +71385,7 @@ RING_FUNC(ring_QHeaderView_setSectionHidden)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71417,7 +71400,7 @@ RING_FUNC(ring_QHeaderView_setSectionHidden)
 
 RING_FUNC(ring_QHeaderView_setSectionResizeMode)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71427,7 +71410,7 @@ RING_FUNC(ring_QHeaderView_setSectionResizeMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71438,7 +71421,7 @@ RING_FUNC(ring_QHeaderView_setSectionResizeMode)
 
 RING_FUNC(ring_QHeaderView_setSectionResizeMode_2)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -71448,7 +71431,7 @@ RING_FUNC(ring_QHeaderView_setSectionResizeMode_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71463,7 +71446,7 @@ RING_FUNC(ring_QHeaderView_setSectionResizeMode_2)
 
 RING_FUNC(ring_QHeaderView_setSectionsClickable)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71473,7 +71456,7 @@ RING_FUNC(ring_QHeaderView_setSectionsClickable)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71484,7 +71467,7 @@ RING_FUNC(ring_QHeaderView_setSectionsClickable)
 
 RING_FUNC(ring_QHeaderView_setSectionsMovable)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71494,7 +71477,7 @@ RING_FUNC(ring_QHeaderView_setSectionsMovable)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71505,7 +71488,7 @@ RING_FUNC(ring_QHeaderView_setSectionsMovable)
 
 RING_FUNC(ring_QHeaderView_setSortIndicator)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -71515,7 +71498,7 @@ RING_FUNC(ring_QHeaderView_setSortIndicator)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71530,7 +71513,7 @@ RING_FUNC(ring_QHeaderView_setSortIndicator)
 
 RING_FUNC(ring_QHeaderView_setSortIndicatorShown)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71540,7 +71523,7 @@ RING_FUNC(ring_QHeaderView_setSortIndicatorShown)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71551,7 +71534,7 @@ RING_FUNC(ring_QHeaderView_setSortIndicatorShown)
 
 RING_FUNC(ring_QHeaderView_setStretchLastSection)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71561,7 +71544,7 @@ RING_FUNC(ring_QHeaderView_setStretchLastSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71572,7 +71555,7 @@ RING_FUNC(ring_QHeaderView_setStretchLastSection)
 
 RING_FUNC(ring_QHeaderView_showSection)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71582,7 +71565,7 @@ RING_FUNC(ring_QHeaderView_showSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71593,7 +71576,7 @@ RING_FUNC(ring_QHeaderView_showSection)
 
 RING_FUNC(ring_QHeaderView_sortIndicatorOrder)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71603,14 +71586,14 @@ RING_FUNC(ring_QHeaderView_sortIndicatorOrder)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->sortIndicatorOrder());
 }
 
 
 RING_FUNC(ring_QHeaderView_sortIndicatorSection)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71620,14 +71603,14 @@ RING_FUNC(ring_QHeaderView_sortIndicatorSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->sortIndicatorSection());
 }
 
 
 RING_FUNC(ring_QHeaderView_stretchLastSection)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71637,14 +71620,14 @@ RING_FUNC(ring_QHeaderView_stretchLastSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->stretchLastSection());
 }
 
 
 RING_FUNC(ring_QHeaderView_stretchSectionCount)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71654,14 +71637,14 @@ RING_FUNC(ring_QHeaderView_stretchSectionCount)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->stretchSectionCount());
 }
 
 
 RING_FUNC(ring_QHeaderView_swapSections)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -71671,7 +71654,7 @@ RING_FUNC(ring_QHeaderView_swapSections)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71686,7 +71669,7 @@ RING_FUNC(ring_QHeaderView_swapSections)
 
 RING_FUNC(ring_QHeaderView_visualIndex)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71696,7 +71679,7 @@ RING_FUNC(ring_QHeaderView_visualIndex)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71707,7 +71690,7 @@ RING_FUNC(ring_QHeaderView_visualIndex)
 
 RING_FUNC(ring_QHeaderView_visualIndexAt)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71717,7 +71700,7 @@ RING_FUNC(ring_QHeaderView_visualIndexAt)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71728,7 +71711,7 @@ RING_FUNC(ring_QHeaderView_visualIndexAt)
 
 RING_FUNC(ring_QHeaderView_headerDataChanged)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
@@ -71738,7 +71721,7 @@ RING_FUNC(ring_QHeaderView_headerDataChanged)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71757,7 +71740,7 @@ RING_FUNC(ring_QHeaderView_headerDataChanged)
 
 RING_FUNC(ring_QHeaderView_setOffset)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71767,7 +71750,7 @@ RING_FUNC(ring_QHeaderView_setOffset)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71778,7 +71761,7 @@ RING_FUNC(ring_QHeaderView_setOffset)
 
 RING_FUNC(ring_QHeaderView_setOffsetToLastSection)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -71788,14 +71771,14 @@ RING_FUNC(ring_QHeaderView_setOffsetToLastSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	pObject->setOffsetToLastSection();
 }
 
 
 RING_FUNC(ring_QHeaderView_setOffsetToSectionPosition)
 {
-	QHeaderView *pObject ;
+	GHeaderView *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -71805,12 +71788,222 @@ RING_FUNC(ring_QHeaderView_setOffsetToSectionPosition)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	pObject->setOffsetToSectionPosition( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setgeometriesChangedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setgeometriesChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setsectionClickedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsectionClickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setsectionCountChangedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsectionCountChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setsectionDoubleClickedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsectionDoubleClickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setsectionEnteredEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsectionEnteredEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setsectionHandleDoubleClickedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsectionHandleDoubleClickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setsectionMovedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsectionMovedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setsectionPressedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsectionPressedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setsectionResizedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsectionResizedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QHeaderView_setsortIndicatorChangedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsortIndicatorChangedEvent(RING_API_GETSTRING(2));
 }
 
 RING_FUNC(ring_QObject_new)
@@ -73431,7 +73624,7 @@ RING_FUNC(ring_QHeaderView_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QHeaderView *pObject = new QHeaderView( (Qt::Orientation)  (int) RING_API_GETNUMBER(1),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+	GHeaderView *pObject = new GHeaderView( (Qt::Orientation)  (int) RING_API_GETNUMBER(1),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QHeaderView");
 }
 
@@ -75252,7 +75445,7 @@ RING_FUNC(ring_QCameraImageCapture_delete)
 
 RING_FUNC(ring_QHeaderView_delete)
 {
-	QHeaderView *pObject ; 
+	GHeaderView *pObject ; 
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -75260,7 +75453,7 @@ RING_FUNC(ring_QHeaderView_delete)
 	}
 	if ( RING_API_ISPOINTER(1) )
 	{
-		pObject = (QHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+		pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"GHeaderView");
 		delete pObject ;
 	}
 }
@@ -78718,7 +78911,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qheaderview_movesection",ring_QHeaderView_moveSection);
 	ring_vm_funcregister("qheaderview_offset",ring_QHeaderView_offset);
 	ring_vm_funcregister("qheaderview_orientation",ring_QHeaderView_orientation);
-	ring_vm_funcregister("qheaderview_resetdefaultsectionsize",ring_QHeaderView_resetDefaultSectionSize);
 	ring_vm_funcregister("qheaderview_resizecontentsprecision",ring_QHeaderView_resizeContentsPrecision);
 	ring_vm_funcregister("qheaderview_resizesection",ring_QHeaderView_resizeSection);
 	ring_vm_funcregister("qheaderview_resizesections",ring_QHeaderView_resizeSections);
@@ -78760,6 +78952,16 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qheaderview_setoffset",ring_QHeaderView_setOffset);
 	ring_vm_funcregister("qheaderview_setoffsettolastsection",ring_QHeaderView_setOffsetToLastSection);
 	ring_vm_funcregister("qheaderview_setoffsettosectionposition",ring_QHeaderView_setOffsetToSectionPosition);
+	ring_vm_funcregister("qheaderview_setgeometrieschangedevent",ring_QHeaderView_setgeometriesChangedEvent);
+	ring_vm_funcregister("qheaderview_setsectionclickedevent",ring_QHeaderView_setsectionClickedEvent);
+	ring_vm_funcregister("qheaderview_setsectioncountchangedevent",ring_QHeaderView_setsectionCountChangedEvent);
+	ring_vm_funcregister("qheaderview_setsectiondoubleclickedevent",ring_QHeaderView_setsectionDoubleClickedEvent);
+	ring_vm_funcregister("qheaderview_setsectionenteredevent",ring_QHeaderView_setsectionEnteredEvent);
+	ring_vm_funcregister("qheaderview_setsectionhandledoubleclickedevent",ring_QHeaderView_setsectionHandleDoubleClickedEvent);
+	ring_vm_funcregister("qheaderview_setsectionmovedevent",ring_QHeaderView_setsectionMovedEvent);
+	ring_vm_funcregister("qheaderview_setsectionpressedevent",ring_QHeaderView_setsectionPressedEvent);
+	ring_vm_funcregister("qheaderview_setsectionresizedevent",ring_QHeaderView_setsectionResizedEvent);
+	ring_vm_funcregister("qheaderview_setsortindicatorchangedevent",ring_QHeaderView_setsortIndicatorChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);

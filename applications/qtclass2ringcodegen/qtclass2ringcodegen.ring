@@ -17,8 +17,8 @@ New qApp
 
 		setWindowTitle("Convert Qt Class Methods prototypes to Ring Code Generator Style!")
 		layout1 = new qhboxlayout(win1) {
-			lbl1 = new qlabel(win1)  { settext("Help Source") }
-			lbl2 = new qlabel(win1) { settext("Wiki Source (output)") }
+			lbl1 = new qlabel(win1)  { settext("Input") }
+			lbl2 = new qlabel(win1) { settext("Output") }
 			addwidget(lbl1)
 			addwidget(lbl2)
 	                }

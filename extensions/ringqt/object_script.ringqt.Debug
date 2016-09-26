@@ -28,6 +28,7 @@ INPUT(
 ./debug\highlighter.o
 ./debug\gthread.o
 ./debug\gplaintextedit.o
+./debug\gheaderview.o
 ./debug\ring_qt.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
@@ -58,4 +59,5 @@ INPUT(
 ./debug\moc_highlighter.o
 ./debug\moc_gthread.o
 ./debug\moc_gplaintextedit.o
+./debug\moc_gheaderview.o
 );

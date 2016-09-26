@@ -12665,9 +12665,6 @@ Class QHeaderView from QAbstractItemView
 	Func orientation 
 		return QHeaderView_orientation(pObject)
 
-	Func resetDefaultSectionSize 
-		return QHeaderView_resetDefaultSectionSize(pObject)
-
 	Func resizeContentsPrecision 
 		return QHeaderView_resizeContentsPrecision(pObject)
 
@@ -12792,6 +12789,36 @@ Class QHeaderView from QAbstractItemView
 
 	Func setOffsetToSectionPosition P1
 		return QHeaderView_setOffsetToSectionPosition(pObject,P1)
+
+	Func setgeometriesChangedEvent P1
+		return QHeaderView_setgeometriesChangedEvent(pObject,P1)
+
+	Func setsectionClickedEvent P1
+		return QHeaderView_setsectionClickedEvent(pObject,P1)
+
+	Func setsectionCountChangedEvent P1
+		return QHeaderView_setsectionCountChangedEvent(pObject,P1)
+
+	Func setsectionDoubleClickedEvent P1
+		return QHeaderView_setsectionDoubleClickedEvent(pObject,P1)
+
+	Func setsectionEnteredEvent P1
+		return QHeaderView_setsectionEnteredEvent(pObject,P1)
+
+	Func setsectionHandleDoubleClickedEvent P1
+		return QHeaderView_setsectionHandleDoubleClickedEvent(pObject,P1)
+
+	Func setsectionMovedEvent P1
+		return QHeaderView_setsectionMovedEvent(pObject,P1)
+
+	Func setsectionPressedEvent P1
+		return QHeaderView_setsectionPressedEvent(pObject,P1)
+
+	Func setsectionResizedEvent P1
+		return QHeaderView_setsectionResizedEvent(pObject,P1)
+
+	Func setsortIndicatorChangedEvent P1
+		return QHeaderView_setsortIndicatorChangedEvent(pObject,P1)
 
 Class QIcon
 

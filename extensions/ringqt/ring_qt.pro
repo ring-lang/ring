@@ -41,6 +41,7 @@ SOURCES +=   \
     highlighter.cpp \
     gthread.cpp \
     gplaintextedit.cpp \
+    gheaderview.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -72,7 +73,8 @@ HEADERS  += \
     gnetworkaccessmanager.h \
     highlighter.h \
     gthread.h \
-    gplaintextedit.h 
+    gplaintextedit.h \
+    gheaderview.h 
 
 INCLUDEPATH += ../../include
 

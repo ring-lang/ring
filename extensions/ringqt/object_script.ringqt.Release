@@ -28,6 +28,7 @@ INPUT(
 ./release\highlighter.o
 ./release\gthread.o
 ./release\gplaintextedit.o
+./release\gheaderview.o
 ./release\ring_qt.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
@@ -58,4 +59,5 @@ INPUT(
 ./release\moc_highlighter.o
 ./release\moc_gthread.o
 ./release\moc_gplaintextedit.o
+./release\moc_gheaderview.o
 );

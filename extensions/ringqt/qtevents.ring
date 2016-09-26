@@ -735,6 +735,53 @@ aclasses = [
 						:event = "updateRequest"
 					]
 				  ]
+		] ,
+		[	:name = "GHeaderView" ,
+			:initpara = "Qt::Orientation x, QWidget *",
+			:initparaparent = "x,",
+			:realname = "QHeaderView" ,
+			:events = [
+					[ 	:signal = "geometriesChanged()" ,
+						:slot = "geometriesChangedSlot()" ,
+						:event = "geometriesChanged"
+					] ,
+					[ 	:signal = "sectionClicked(int logicalIndex)" ,
+						:slot = "sectionClickedSlot()" ,
+						:event = "sectionClicked"
+					],
+					[ 	:signal = "sectionCountChanged(int oldCount, int newCount)" ,
+						:slot = "sectionCountChangedSlot()" ,
+						:event = "sectionCountChanged"
+					] ,			
+					[ 	:signal = "sectionDoubleClicked(int logicalIndex)" ,
+						:slot = "sectionDoubleClickedSlot()" ,
+						:event = "sectionDoubleClicked"
+					] ,			
+					[ 	:signal = "sectionEntered(int logicalIndex)" ,
+						:slot = "sectionEnteredSlot()" ,
+						:event = "sectionEntered"
+					] ,			
+					[ 	:signal = "sectionHandleDoubleClicked(int logicalIndex)" ,
+						:slot = "sectionHandleDoubleClickedSlot()" ,
+						:event = "sectionHandleDoubleClicked"
+					] ,		
+					[ 	:signal = "sectionMoved(int logicalIndex, int oldVisualIndex, int newVisualIndex)" ,
+						:slot = "sectionMovedSlot()" ,
+						:event = "sectionMoved"
+					] ,		
+					[ 	:signal = "sectionPressed(int logicalIndex)" ,
+						:slot = "sectionPressedSlot()" ,
+						:event = "sectionPressed"
+					] ,		
+					[ 	:signal = "sectionResized(int logicalIndex, int oldSize, int newSize)" ,
+						:slot = "sectionResizedSlot()" ,
+						:event = "sectionResized"
+					] ,		
+					[ 	:signal = "sortIndicatorChanged(int logicalIndex, Qt::SortOrder order)" ,
+						:slot = "sortIndicatorChangedSlot()" ,
+						:event = "sortIndicatorChanged"
+					] 		
+			  ]
 		] 
 	    ]
 

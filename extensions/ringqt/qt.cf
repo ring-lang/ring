@@ -42,7 +42,7 @@ extern "C" {
 #include "gallevents.h"
 #include "gthread.h"
 #include "gplaintextedit.h"
-
+#include "gheaderview.h"
 
 #include <QApplication>
 #include <QObject>
@@ -5295,6 +5295,8 @@ void setNotifyInterval(int milliSeconds)
 name: QHeaderView
 para: Qt::Orientation, QWidget *
 parent: QAbstractItemView
+codename: GHeaderView
+passvmpointer
 </class>
 
 bool cascadingSectionResizes(void)
@@ -5316,7 +5318,11 @@ int minimumSectionSize@2(void)
 void moveSection(int from, int to)
 int offset(void)
 Qt::Orientation orientation(void)
+
+<comment>
 void resetDefaultSectionSize(void)
+</comment>
+
 int resizeContentsPrecision(void)
 void resizeSection(int logicalIndex, int size)
 void resizeSections(QHeaderView::ResizeMode mode)
@@ -5359,3 +5365,14 @@ void headerDataChanged(Qt::Orientation orientation, int logicalFirst, int logica
 void setOffset(int offset)
 void setOffsetToLastSection(void)
 void setOffsetToSectionPosition(int visualSectionNumber)
+
+void setgeometriesChangedEvent(const char *)
+void setsectionClickedEvent(const char *)
+void setsectionCountChangedEvent(const char *)
+void setsectionDoubleClickedEvent(const char *)
+void setsectionEnteredEvent(const char *)
+void setsectionHandleDoubleClickedEvent(const char *)
+void setsectionMovedEvent(const char *)
+void setsectionPressedEvent(const char *)
+void setsectionResizedEvent(const char *)
+void setsortIndicatorChangedEvent(const char *)
