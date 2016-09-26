@@ -8,6 +8,7 @@ extern "C" {
 GIODevice::GIODevice(QObject *parent,VM *pVM)  : QIODevice(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->caboutToCloseEvent,"");
 	strcpy(this->cbytesWrittenEvent,"");
 	strcpy(this->creadChannelFinishedEvent,"");
@@ -19,6 +20,12 @@ GIODevice::GIODevice(QObject *parent,VM *pVM)  : QIODevice(parent)
 	QObject::connect(this, SIGNAL(readyRead()),this, SLOT(readyReadSlot()));
 
 }
+
+GIODevice::~GIODevice()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GIODevice::setaboutToCloseEvent(const char *cStr)
 {

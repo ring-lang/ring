@@ -8,6 +8,7 @@ extern "C" {
 GTabWidget::GTabWidget(QWidget *parent,VM *pVM)  : QTabWidget(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccurrentChangedEvent,"");
 	strcpy(this->ctabCloseRequestedEvent,"");
 
@@ -15,6 +16,12 @@ GTabWidget::GTabWidget(QWidget *parent,VM *pVM)  : QTabWidget(parent)
 	QObject::connect(this, SIGNAL(tabCloseRequested(int)),this, SLOT(tabCloseRequestedSlot()));
 
 }
+
+GTabWidget::~GTabWidget()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GTabWidget::setcurrentChangedEvent(const char *cStr)
 {

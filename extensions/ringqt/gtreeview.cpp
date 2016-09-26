@@ -8,6 +8,7 @@ extern "C" {
 GTreeView::GTreeView(QWidget *parent,VM *pVM)  : QTreeView(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccollapsedEvent,"");
 	strcpy(this->cexpandedEvent,"");
 	strcpy(this->cactivatedEvent,"");
@@ -27,6 +28,12 @@ GTreeView::GTreeView(QWidget *parent,VM *pVM)  : QTreeView(parent)
 	QObject::connect(this, SIGNAL(viewportEntered()),this, SLOT(viewportEnteredSlot()));
 
 }
+
+GTreeView::~GTreeView()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GTreeView::setcollapsedEvent(const char *cStr)
 {

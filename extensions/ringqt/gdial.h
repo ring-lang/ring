@@ -17,6 +17,8 @@ class GDial : public QDial
 
     VM *pVM;
 
+    List *pParaList;
+
     char cactionTriggeredEvent[100];
     char crangeChangedEvent[100];
     char csliderMovedEvent[100];
@@ -26,6 +28,8 @@ class GDial : public QDial
 
 
     GDial(QWidget *parent,VM *pVM );
+
+    ~GDial();
 
     void setactionTriggeredEvent(const char *cStr);
     void setrangeChangedEvent(const char *cStr);

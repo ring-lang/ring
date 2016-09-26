@@ -8,11 +8,18 @@ extern "C" {
 GTimer::GTimer(QObject *parent,VM *pVM)  : QTimer(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ctimeoutEvent,"");
 
 	QObject::connect(this, SIGNAL(timeout()),this, SLOT(timeoutSlot()));
 
 }
+
+GTimer::~GTimer()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GTimer::settimeoutEvent(const char *cStr)
 {

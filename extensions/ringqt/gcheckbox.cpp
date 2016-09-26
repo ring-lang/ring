@@ -8,6 +8,7 @@ extern "C" {
 GCheckBox::GCheckBox(QWidget *parent,VM *pVM)  : QCheckBox(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cstateChangedEvent,"");
 	strcpy(this->cclickedEvent,"");
 	strcpy(this->cpressedEvent,"");
@@ -21,6 +22,12 @@ GCheckBox::GCheckBox(QWidget *parent,VM *pVM)  : QCheckBox(parent)
 	QObject::connect(this, SIGNAL(toggled(bool)),this, SLOT(toggledSlot()));
 
 }
+
+GCheckBox::~GCheckBox()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GCheckBox::setstateChangedEvent(const char *cStr)
 {

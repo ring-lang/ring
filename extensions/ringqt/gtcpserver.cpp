@@ -8,6 +8,7 @@ extern "C" {
 GTcpServer::GTcpServer(QObject *parent,VM *pVM)  : QTcpServer(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cacceptErrorEvent,"");
 	strcpy(this->cnewConnectionEvent,"");
 
@@ -15,6 +16,12 @@ GTcpServer::GTcpServer(QObject *parent,VM *pVM)  : QTcpServer(parent)
 	QObject::connect(this, SIGNAL(newConnection()),this, SLOT(newConnectionSlot()));
 
 }
+
+GTcpServer::~GTcpServer()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GTcpServer::setacceptErrorEvent(const char *cStr)
 {

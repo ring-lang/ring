@@ -8,6 +8,7 @@ extern "C" {
 GTreeWidget::GTreeWidget(QWidget *parent,VM *pVM)  : QTreeWidget(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccollapsedEvent,"");
 	strcpy(this->cexpandedEvent,"");
 	strcpy(this->cactivatedEvent,"");
@@ -47,6 +48,12 @@ GTreeWidget::GTreeWidget(QWidget *parent,VM *pVM)  : QTreeWidget(parent)
 	QObject::connect(this, SIGNAL(itemSelectionChanged()),this, SLOT(itemSelectionChangedSlot()));
 
 }
+
+GTreeWidget::~GTreeWidget()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GTreeWidget::setcollapsedEvent(const char *cStr)
 {

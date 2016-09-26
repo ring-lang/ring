@@ -8,11 +8,18 @@ extern "C" {
 GNetworkAccessManager::GNetworkAccessManager(QObject *parent,VM *pVM)  : QNetworkAccessManager(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cfinishedEvent,"");
 
 	QObject::connect(this, SIGNAL(finished(QNetworkReply*)),this, SLOT(finishedSlot(QNetworkReply*)));
 
 }
+
+GNetworkAccessManager::~GNetworkAccessManager()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GNetworkAccessManager::setfinishedEvent(const char *cStr)
 {

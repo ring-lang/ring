@@ -17,10 +17,14 @@ class GTimer : public QTimer
 
     VM *pVM;
 
+    List *pParaList;
+
     char ctimeoutEvent[100];
 
 
     GTimer(QObject *parent,VM *pVM );
+
+    ~GTimer();
 
     void settimeoutEvent(const char *cStr);
 

@@ -17,6 +17,8 @@ class GTreeView : public QTreeView
 
     VM *pVM;
 
+    List *pParaList;
+
     char ccollapsedEvent[100];
     char cexpandedEvent[100];
     char cactivatedEvent[100];
@@ -28,6 +30,8 @@ class GTreeView : public QTreeView
 
 
     GTreeView(QWidget *parent,VM *pVM );
+
+    ~GTreeView();
 
     void setcollapsedEvent(const char *cStr);
     void setexpandedEvent(const char *cStr);

@@ -827,9 +827,13 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
     VM *pVM;
 
+    List *pParaList;
+
 <T_EVENTSATTRIBUTES>
 
 <T_CLASSNAMEMETHOD>(<T_INITPARA>parent,VM *pVM );
+
+<T_CLASSNAMEMETHOD2>();
 
 <T_SETEVENTS>
 
@@ -850,6 +854,7 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 	# Set the class name and the parent class name
 	cCode = substr(cCode,"<T_CLASSNAME>", aClass[:name])
 	cCode = substr(cCode,"<T_CLASSNAMEMETHOD>", cSpace+aClass[:name])
+	cCode = substr(cCode,"<T_CLASSNAMEMETHOD2>", cSpace+"~"+aClass[:name])
 	cCode = substr(cCode,"<T_REALCLASSNAME>", aClass[:realname])
 
 	if aClass[:initpara] != NULL
@@ -890,9 +895,16 @@ extern "C" {
 <T_CLASSNAME>::<T_CLASSNAME>(<T_INITPARA>parent,VM *pVM)  : <T_REALCLASSNAME>(<T_INITPARAPARENT>parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 <T_CLEAREVENTS>
 <T_CONNECT>
 }
+
+<T_CLASSNAME>::~<T_CLASSNAME>()
+{
+	ring_list_delete(this->pParaList);
+}
+
 <T_SETEVENTS>
 <T_SLOTS>
 `	# End of Code String

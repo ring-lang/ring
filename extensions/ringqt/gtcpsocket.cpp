@@ -8,6 +8,7 @@ extern "C" {
 GTcpSocket::GTcpSocket(QObject *parent,VM *pVM)  : QTcpSocket(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cconnectedEvent,"");
 	strcpy(this->cdisconnectedEvent,"");
 	strcpy(this->cerrorEvent,"");
@@ -31,6 +32,12 @@ GTcpSocket::GTcpSocket(QObject *parent,VM *pVM)  : QTcpSocket(parent)
 	QObject::connect(this, SIGNAL(readyRead()),this, SLOT(readyReadSlot()));
 
 }
+
+GTcpSocket::~GTcpSocket()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GTcpSocket::setconnectedEvent(const char *cStr)
 {

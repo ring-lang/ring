@@ -17,11 +17,15 @@ class GColorDialog : public QColorDialog
 
     VM *pVM;
 
+    List *pParaList;
+
     char ccolorSelectedEvent[100];
     char ccurrentColorChangedEvent[100];
 
 
     GColorDialog(QWidget *parent,VM *pVM );
+
+    ~GColorDialog();
 
     void setcolorSelectedEvent(const char *cStr);
     void setcurrentColorChangedEvent(const char *cStr);

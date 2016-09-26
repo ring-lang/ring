@@ -17,6 +17,8 @@ class GPlainTextEdit : public QPlainTextEdit
 
     VM *pVM;
 
+    List *pParaList;
+
     char cblockCountChangedEvent[100];
     char ccopyAvailableEvent[100];
     char ccursorPositionChangedEvent[100];
@@ -29,6 +31,8 @@ class GPlainTextEdit : public QPlainTextEdit
 
 
     GPlainTextEdit(QWidget *parent,VM *pVM );
+
+    ~GPlainTextEdit();
 
     void setblockCountChangedEvent(const char *cStr);
     void setcopyAvailableEvent(const char *cStr);

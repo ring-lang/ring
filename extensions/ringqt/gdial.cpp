@@ -8,6 +8,7 @@ extern "C" {
 GDial::GDial(QWidget *parent,VM *pVM)  : QDial(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cactionTriggeredEvent,"");
 	strcpy(this->crangeChangedEvent,"");
 	strcpy(this->csliderMovedEvent,"");
@@ -23,6 +24,12 @@ GDial::GDial(QWidget *parent,VM *pVM)  : QDial(parent)
 	QObject::connect(this, SIGNAL(valueChanged(int)),this, SLOT(valueChangedSlot()));
 
 }
+
+GDial::~GDial()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GDial::setactionTriggeredEvent(const char *cStr)
 {

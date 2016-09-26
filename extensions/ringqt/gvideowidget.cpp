@@ -8,6 +8,7 @@ extern "C" {
 GVideoWidget::GVideoWidget(QWidget *parent,VM *pVM)  : QVideoWidget(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cbrightnessChangedEvent,"");
 	strcpy(this->ccontrastChangedEvent,"");
 	strcpy(this->cfullScreenChangedEvent,"");
@@ -21,6 +22,12 @@ GVideoWidget::GVideoWidget(QWidget *parent,VM *pVM)  : QVideoWidget(parent)
 	QObject::connect(this, SIGNAL(saturationChanged(int)),this, SLOT(saturationChangedSlot()));
 
 }
+
+GVideoWidget::~GVideoWidget()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GVideoWidget::setbrightnessChangedEvent(const char *cStr)
 {

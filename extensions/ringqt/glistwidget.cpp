@@ -8,6 +8,7 @@ extern "C" {
 GListWidget::GListWidget(QWidget *parent,VM *pVM)  : QListWidget(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccurrentItemChangedEvent,"");
 	strcpy(this->ccurrentRowChangedEvent,"");
 	strcpy(this->ccurrentTextChangedEvent,"");
@@ -31,6 +32,12 @@ GListWidget::GListWidget(QWidget *parent,VM *pVM)  : QListWidget(parent)
 	QObject::connect(this, SIGNAL(itemSelectionChanged()),this, SLOT(itemSelectionChangedSlot()));
 
 }
+
+GListWidget::~GListWidget()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GListWidget::setcurrentItemChangedEvent(const char *cStr)
 {

@@ -17,11 +17,15 @@ class GTcpServer : public QTcpServer
 
     VM *pVM;
 
+    List *pParaList;
+
     char cacceptErrorEvent[100];
     char cnewConnectionEvent[100];
 
 
     GTcpServer(QObject *parent,VM *pVM );
+
+    ~GTcpServer();
 
     void setacceptErrorEvent(const char *cStr);
     void setnewConnectionEvent(const char *cStr);

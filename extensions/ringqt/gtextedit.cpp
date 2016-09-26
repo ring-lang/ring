@@ -8,6 +8,7 @@ extern "C" {
 GTextEdit::GTextEdit(QWidget *parent,VM *pVM)  : QTextEdit(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccopyAvailableEvent,"");
 	strcpy(this->ccurrentCharFormatChangedEvent,"");
 	strcpy(this->ccursorPositionChangedEvent,"");
@@ -25,6 +26,12 @@ GTextEdit::GTextEdit(QWidget *parent,VM *pVM)  : QTextEdit(parent)
 	QObject::connect(this, SIGNAL(undoAvailable(bool)),this, SLOT(undoAvailableSlot()));
 
 }
+
+GTextEdit::~GTextEdit()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GTextEdit::setcopyAvailableEvent(const char *cStr)
 {

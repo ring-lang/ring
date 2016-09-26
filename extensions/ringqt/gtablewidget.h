@@ -17,6 +17,8 @@ class GTableWidget : public QTableWidget
 
     VM *pVM;
 
+    List *pParaList;
+
     char ccellActivatedEvent[100];
     char ccellChangedEvent[100];
     char ccellClickedEvent[100];
@@ -35,6 +37,8 @@ class GTableWidget : public QTableWidget
 
 
     GTableWidget(QWidget *parent,VM *pVM );
+
+    ~GTableWidget();
 
     void setcellActivatedEvent(const char *cStr);
     void setcellChangedEvent(const char *cStr);

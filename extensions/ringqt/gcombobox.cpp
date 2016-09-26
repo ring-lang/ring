@@ -8,6 +8,7 @@ extern "C" {
 GComboBox::GComboBox(QWidget *parent,VM *pVM)  : QComboBox(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cactivatedEvent,"");
 	strcpy(this->ccurrentIndexChangedEvent,"");
 	strcpy(this->ceditTextChangedEvent,"");
@@ -19,6 +20,12 @@ GComboBox::GComboBox(QWidget *parent,VM *pVM)  : QComboBox(parent)
 	QObject::connect(this, SIGNAL(highlighted(int)),this, SLOT(highlightedSlot()));
 
 }
+
+GComboBox::~GComboBox()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GComboBox::setactivatedEvent(const char *cStr)
 {

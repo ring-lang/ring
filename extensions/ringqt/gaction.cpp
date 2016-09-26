@@ -8,11 +8,18 @@ extern "C" {
 GAction::GAction(QWidget *parent,VM *pVM)  : QAction(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cClickEvent,"");
 
 	QObject::connect(this, SIGNAL(triggered()),this, SLOT(clickedSlot()));
 
 }
+
+GAction::~GAction()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GAction::setClickEvent(const char *cStr)
 {

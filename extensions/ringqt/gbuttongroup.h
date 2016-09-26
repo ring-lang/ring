@@ -17,12 +17,16 @@ class GButtonGroup : public QButtonGroup
 
     VM *pVM;
 
+    List *pParaList;
+
     char cbuttonClickedEvent[100];
     char cbuttonPressedEvent[100];
     char cbuttonReleasedEvent[100];
 
 
     GButtonGroup(QObject *parent,VM *pVM );
+
+    ~GButtonGroup();
 
     void setbuttonClickedEvent(const char *cStr);
     void setbuttonPressedEvent(const char *cStr);

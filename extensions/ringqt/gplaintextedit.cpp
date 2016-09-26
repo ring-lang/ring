@@ -8,6 +8,7 @@ extern "C" {
 GPlainTextEdit::GPlainTextEdit(QWidget *parent,VM *pVM)  : QPlainTextEdit(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cblockCountChangedEvent,"");
 	strcpy(this->ccopyAvailableEvent,"");
 	strcpy(this->ccursorPositionChangedEvent,"");
@@ -29,6 +30,12 @@ GPlainTextEdit::GPlainTextEdit(QWidget *parent,VM *pVM)  : QPlainTextEdit(parent
 	QObject::connect(this, SIGNAL(updateRequest(const QRect &rect, int dy)),this, SLOT(updateRequestSlot()));
 
 }
+
+GPlainTextEdit::~GPlainTextEdit()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GPlainTextEdit::setblockCountChangedEvent(const char *cStr)
 {

@@ -17,11 +17,15 @@ class GThread : public QThread
 
     VM *pVM;
 
+    List *pParaList;
+
     char cStartedEvent[100];
     char cFinishedEvent[100];
 
 
     GThread(QObject *parent,VM *pVM );
+
+    ~GThread();
 
     void setStartedEvent(const char *cStr);
     void setFinishedEvent(const char *cStr);

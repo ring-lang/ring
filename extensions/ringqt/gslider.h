@@ -17,6 +17,8 @@ class GSlider : public QSlider
 
     VM *pVM;
 
+    List *pParaList;
+
     char cactionTriggeredEvent[100];
     char crangeChangedEvent[100];
     char csliderMovedEvent[100];
@@ -26,6 +28,8 @@ class GSlider : public QSlider
 
 
     GSlider(QWidget *parent,VM *pVM );
+
+    ~GSlider();
 
     void setactionTriggeredEvent(const char *cStr);
     void setrangeChangedEvent(const char *cStr);

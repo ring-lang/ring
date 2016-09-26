@@ -17,6 +17,8 @@ class GLineEdit : public QLineEdit
 
     VM *pVM;
 
+    List *pParaList;
+
     char cTextChangedEvent[100];
     char ccursorPositionChangedEvent[100];
     char ceditingFinishedEvent[100];
@@ -26,6 +28,8 @@ class GLineEdit : public QLineEdit
 
 
     GLineEdit(QWidget *parent,VM *pVM );
+
+    ~GLineEdit();
 
     void setTextChangedEvent(const char *cStr);
     void setcursorPositionChangedEvent(const char *cStr);

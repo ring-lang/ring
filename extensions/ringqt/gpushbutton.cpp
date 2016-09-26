@@ -8,11 +8,18 @@ extern "C" {
 GPushButton::GPushButton(QWidget *parent,VM *pVM)  : QPushButton(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cClickEvent,"");
 
 	QObject::connect(this, SIGNAL(clicked()),this, SLOT(clickedSlot()));
 
 }
+
+GPushButton::~GPushButton()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GPushButton::setClickEvent(const char *cStr)
 {

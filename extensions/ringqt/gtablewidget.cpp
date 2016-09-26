@@ -8,6 +8,7 @@ extern "C" {
 GTableWidget::GTableWidget(QWidget *parent,VM *pVM)  : QTableWidget(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccellActivatedEvent,"");
 	strcpy(this->ccellChangedEvent,"");
 	strcpy(this->ccellClickedEvent,"");
@@ -41,6 +42,12 @@ GTableWidget::GTableWidget(QWidget *parent,VM *pVM)  : QTableWidget(parent)
 	QObject::connect(this, SIGNAL(itemSelectionChanged()),this, SLOT(itemSelectionChangedSlot()));
 
 }
+
+GTableWidget::~GTableWidget()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GTableWidget::setcellActivatedEvent(const char *cStr)
 {

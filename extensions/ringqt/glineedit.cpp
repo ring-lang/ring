@@ -8,6 +8,7 @@ extern "C" {
 GLineEdit::GLineEdit(QWidget *parent,VM *pVM)  : QLineEdit(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cTextChangedEvent,"");
 	strcpy(this->ccursorPositionChangedEvent,"");
 	strcpy(this->ceditingFinishedEvent,"");
@@ -23,6 +24,12 @@ GLineEdit::GLineEdit(QWidget *parent,VM *pVM)  : QLineEdit(parent)
 	QObject::connect(this, SIGNAL(textEdited(QString)),this, SLOT(textEditedSlot()));
 
 }
+
+GLineEdit::~GLineEdit()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GLineEdit::setTextChangedEvent(const char *cStr)
 {

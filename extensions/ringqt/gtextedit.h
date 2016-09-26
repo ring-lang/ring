@@ -17,6 +17,8 @@ class GTextEdit : public QTextEdit
 
     VM *pVM;
 
+    List *pParaList;
+
     char ccopyAvailableEvent[100];
     char ccurrentCharFormatChangedEvent[100];
     char ccursorPositionChangedEvent[100];
@@ -27,6 +29,8 @@ class GTextEdit : public QTextEdit
 
 
     GTextEdit(QWidget *parent,VM *pVM );
+
+    ~GTextEdit();
 
     void setcopyAvailableEvent(const char *cStr);
     void setcurrentCharFormatChangedEvent(const char *cStr);

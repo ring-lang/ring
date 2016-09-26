@@ -17,6 +17,8 @@ class GComboBox : public QComboBox
 
     VM *pVM;
 
+    List *pParaList;
+
     char cactivatedEvent[100];
     char ccurrentIndexChangedEvent[100];
     char ceditTextChangedEvent[100];
@@ -24,6 +26,8 @@ class GComboBox : public QComboBox
 
 
     GComboBox(QWidget *parent,VM *pVM );
+
+    ~GComboBox();
 
     void setactivatedEvent(const char *cStr);
     void setcurrentIndexChangedEvent(const char *cStr);

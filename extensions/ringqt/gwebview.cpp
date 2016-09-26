@@ -8,6 +8,7 @@ extern "C" {
 GWebView::GWebView(QWidget *parent,VM *pVM)  : QWebView(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cloadFinishedEvent,"");
 	strcpy(this->cloadProgressEvent,"");
 	strcpy(this->cloadStartedEvent,"");
@@ -23,6 +24,12 @@ GWebView::GWebView(QWidget *parent,VM *pVM)  : QWebView(parent)
 	QObject::connect(this, SIGNAL(urlChanged(QUrl)),this, SLOT(urlChangedSlot()));
 
 }
+
+GWebView::~GWebView()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GWebView::setloadFinishedEvent(const char *cStr)
 {

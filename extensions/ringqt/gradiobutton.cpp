@@ -8,6 +8,7 @@ extern "C" {
 GRadioButton::GRadioButton(QWidget *parent,VM *pVM)  : QRadioButton(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cclickedEvent,"");
 	strcpy(this->cpressedEvent,"");
 	strcpy(this->creleasedEvent,"");
@@ -19,6 +20,12 @@ GRadioButton::GRadioButton(QWidget *parent,VM *pVM)  : QRadioButton(parent)
 	QObject::connect(this, SIGNAL(toggled(bool)),this, SLOT(toggledSlot()));
 
 }
+
+GRadioButton::~GRadioButton()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GRadioButton::setclickedEvent(const char *cStr)
 {

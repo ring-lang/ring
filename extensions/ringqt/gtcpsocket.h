@@ -17,6 +17,8 @@ class GTcpSocket : public QTcpSocket
 
     VM *pVM;
 
+    List *pParaList;
+
     char cconnectedEvent[100];
     char cdisconnectedEvent[100];
     char cerrorEvent[100];
@@ -30,6 +32,8 @@ class GTcpSocket : public QTcpSocket
 
 
     GTcpSocket(QObject *parent,VM *pVM );
+
+    ~GTcpSocket();
 
     void setconnectedEvent(const char *cStr);
     void setdisconnectedEvent(const char *cStr);

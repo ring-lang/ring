@@ -8,6 +8,7 @@ extern "C" {
 GThread::GThread(QObject *parent,VM *pVM)  : QThread(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cStartedEvent,"");
 	strcpy(this->cFinishedEvent,"");
 
@@ -15,6 +16,12 @@ GThread::GThread(QObject *parent,VM *pVM)  : QThread(parent)
 	QObject::connect(this, SIGNAL(finished()),this, SLOT(finishedSlot()));
 
 }
+
+GThread::~GThread()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GThread::setStartedEvent(const char *cStr)
 {

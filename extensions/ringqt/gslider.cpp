@@ -8,6 +8,7 @@ extern "C" {
 GSlider::GSlider(QWidget *parent,VM *pVM)  : QSlider(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cactionTriggeredEvent,"");
 	strcpy(this->crangeChangedEvent,"");
 	strcpy(this->csliderMovedEvent,"");
@@ -23,6 +24,12 @@ GSlider::GSlider(QWidget *parent,VM *pVM)  : QSlider(parent)
 	QObject::connect(this, SIGNAL(valueChanged(int)),this, SLOT(valueChangedSlot()));
 
 }
+
+GSlider::~GSlider()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GSlider::setactionTriggeredEvent(const char *cStr)
 {

@@ -8,6 +8,7 @@ extern "C" {
 GAbstractSocket::GAbstractSocket(QAbstractSocket::SocketType x,QObject *parent,VM *pVM)  : QAbstractSocket(x,parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cconnectedEvent,"");
 	strcpy(this->cdisconnectedEvent,"");
 	strcpy(this->cerrorEvent,"");
@@ -23,6 +24,12 @@ GAbstractSocket::GAbstractSocket(QAbstractSocket::SocketType x,QObject *parent,V
 	QObject::connect(this, SIGNAL(stateChanged(QAbstractSocket::SocketState)),this, SLOT(stateChangedSlot()));
 
 }
+
+GAbstractSocket::~GAbstractSocket()
+{
+	ring_list_delete(this->pParaList);
+}
+
  
 void GAbstractSocket::setconnectedEvent(const char *cStr)
 {
