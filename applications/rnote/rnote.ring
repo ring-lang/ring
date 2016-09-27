@@ -8,6 +8,7 @@ aTextColor = [0,0,0]
 aBackColor = [255,255,255]
 cFont = "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0"
 cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
+cCurrentDir = CurrentDir() + "/"	# The Ring Notepad Folder
 cStartUpFolder = exefolder() + "/../applications/"
 lShowProject = True
 lShowSourceCode = True
@@ -664,7 +665,7 @@ func pDebug
 	if cActiveFileName = Null return pNofileopened() ok
 	pSave()
 	if iswindows()
-		cCode = 'start run "' + cActiveFileName + '"' + nl 
+		cCode = 'start '+cCurrentDir+'run "' + cActiveFileName + '"' + nl 
 	else
 		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 	ok
@@ -674,7 +675,7 @@ func pRun
 	if cActiveFileName = Null return pNofileopened() ok
 	pSave()
 	if iswindows()
-		cCode = 'start run2 "' + cActiveFileName + '"' + nl 
+		cCode = 'start '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl 
 	else
 		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 	ok
@@ -684,7 +685,7 @@ func pRunNoConsole
 	if cActiveFileName = Null return pNofileopened() ok
 	pSave()
 	if iswindows()
-		cCode = 'start /b run2 "' + cActiveFileName + '"' + nl 
+		cCode = 'start /b '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl 
 	else
 		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 	ok
