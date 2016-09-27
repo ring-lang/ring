@@ -18,6 +18,9 @@ They are very happy with the language productivity.
 Quotes about Ring
 =================
 
+"I like Smalltalk very much but now I like Ring better!"
+	, Gal Zsolt (Hungary)
+
 "I find the language and its syntax very natural and easy to follow."
 	, Bhudda (United States)
 
@@ -41,9 +44,6 @@ Quotes about Ring
 
 "This looks like it was developed by some very competent people."
 	, Jim Clack (United States)
-
-"It is more simpler than C/C++ programming languages."
-	, Umer Farooq (Pakistan)
 
 "The Ring programming language seems pretty interesting so far."
 	, Eric Johnson (United States)

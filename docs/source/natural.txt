@@ -182,11 +182,11 @@ Output:
 Change the Ring Operator '+'
 ============================
 
-What if we want to define new behavior for the any operator like the "+" operator.
+What if we want to define a new behavior for any operator like the "+" operator.
 
-We can change do using the ChangeRingOperator command to hide operator (change it's name)
+We can do this change using the ChangeRingOperator command to hide operator (change it's name)
 
-Then use the operator as identifier that we can handle it's behaviour
+Then we can use the operator as identifier that we can handle it's behaviour
 
 Syntax:
 
