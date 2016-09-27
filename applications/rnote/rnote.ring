@@ -8,7 +8,7 @@ aTextColor = [0,0,0]
 aBackColor = [255,255,255]
 cFont = "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0"
 cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
-cStartUpFolder = exefolder()
+cStartUpFolder = exefolder() + "/../applications/"
 lShowProject = True
 lShowSourceCode = True
 lShowBrowser = True
@@ -316,6 +316,12 @@ MyApp = New qApp {
 				myfiles = new qstringlist()
 				myfiles.append("*.ring")
 				myfiles.append("*.rh")
+				myfiles.append("*.txt")
+				myfiles.append("*.html")
+				myfiles.append("*.rhtml")
+				myfiles.append("*.css")
+				myfiles.append("*.js")
+				myfiles.append("*.xml")
 				setnamefilters(myfiles)	
 				setNameFilterDisables(false)
 			}
@@ -329,7 +335,7 @@ MyApp = New qApp {
 			header().hide()			
 			chdir(exefolder())
 			if not ismacosx()
-				cWebsite = "file:///"+oDir.CurrentPath() + "/../html/index.html"
+				cWebsite = "file:///"+oDir.CurrentPath() + "/../docs/build/html/index.html"
 			ok
 		}
 
