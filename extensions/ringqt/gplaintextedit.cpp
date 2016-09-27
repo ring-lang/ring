@@ -19,15 +19,15 @@ GPlainTextEdit::GPlainTextEdit(QWidget *parent,VM *pVM)  : QPlainTextEdit(parent
 	strcpy(this->cundoAvailableEvent,"");
 	strcpy(this->cupdateRequestEvent,"");
 
-	QObject::connect(this, SIGNAL(blockCountChanged(int newBlockCount)),this, SLOT(blockCountChangedSlot()));
+	QObject::connect(this, SIGNAL(blockCountChanged(int)),this, SLOT(blockCountChangedSlot()));
 	QObject::connect(this, SIGNAL(copyAvailable(bool)),this, SLOT(copyAvailableSlot()));
 	QObject::connect(this, SIGNAL(cursorPositionChanged()),this, SLOT(cursorPositionChangedSlot()));
-	QObject::connect(this, SIGNAL(modificationChanged(bool changed)),this, SLOT(modificationChangedSlot()));
+	QObject::connect(this, SIGNAL(modificationChanged(bool)),this, SLOT(modificationChangedSlot()));
 	QObject::connect(this, SIGNAL(redoAvailable(bool)),this, SLOT(redoAvailableSlot()));
 	QObject::connect(this, SIGNAL(selectionChanged()),this, SLOT(selectionChanged()));
 	QObject::connect(this, SIGNAL(textChanged()),this, SLOT(textChangedSlot()));
 	QObject::connect(this, SIGNAL(undoAvailable(bool)),this, SLOT(undoAvailableSlot()));
-	QObject::connect(this, SIGNAL(updateRequest(const QRect &rect, int dy)),this, SLOT(updateRequestSlot()));
+	QObject::connect(this, SIGNAL(updateRequest(const QRect, int)),this, SLOT(updateRequestSlot()));
 
 }
 

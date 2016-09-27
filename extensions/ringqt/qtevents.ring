@@ -698,7 +698,7 @@ aclasses = [
 		[	:name = "GPlainTextEdit" ,
 			:realname = "QPlainTextEdit" ,
 			:events = [
-					[ 	:signal = "blockCountChanged(int newBlockCount)" ,
+					[ 	:signal = "blockCountChanged(int)" ,
 						:slot = "blockCountChangedSlot()" ,
 						:event = "blockCountChanged"
 					] ,
@@ -710,7 +710,7 @@ aclasses = [
 						:slot = "cursorPositionChangedSlot()" ,
 						:event = "cursorPositionChanged"
 					] ,
-					[ 	:signal = "modificationChanged(bool changed)" ,
+					[ 	:signal = "modificationChanged(bool)" ,
 						:slot = "modificationChangedSlot()" ,
 						:event = "modificationChanged"
 					] ,
@@ -730,7 +730,7 @@ aclasses = [
 						:slot = "undoAvailableSlot()" ,
 						:event = "undoAvailable"
 					],
-					[ 	:signal = "updateRequest(const QRect &rect, int dy)" ,
+					[ 	:signal = "updateRequest(const QRect, int)" ,
 						:slot = "updateRequestSlot()" ,
 						:event = "updateRequest"
 					]
