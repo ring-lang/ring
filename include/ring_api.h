@@ -29,6 +29,8 @@ void ring_vm_extension ( RingState *pRingState ) ;
 RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char *cStr2 ) ;
 
 RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr ) ;
+
+RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cType ) ;
 /*
 **  Library 
 **  General 

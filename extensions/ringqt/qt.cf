@@ -4399,6 +4399,8 @@ void setProxy(QNetworkProxy)
 void setProxyFactory(QNetworkProxyFactory *factory)
 QStringList supportedSchemes(void)
 
+void geteventparameters(void)
+
 <class>
 name: QNetworkReply
 para: void

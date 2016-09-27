@@ -36,11 +36,14 @@ void GNetworkAccessManager::setfinishedEvent(const char *cStr)
 }
 
 
-void GNetworkAccessManager::finishedSlot(QNetworkReply*)
+void GNetworkAccessManager::finishedSlot(QNetworkReply *p1)
 {
 	if (strcmp(this->cfinishedEvent,"")==0)
 		return ;
 
+		ring_list_deleteallitems(this->pParaList);
+		ring_list_addcpointer(this->pParaList, p1, "QNetworkReply *" ) ;	
+	
 	ring_vm_runcode(this->pVM,this->cfinishedEvent);
 }
 

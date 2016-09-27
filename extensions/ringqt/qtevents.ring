@@ -676,8 +676,11 @@ aclasses = [
 			:initpara = "QObject *",
 			:events = [
 					[ 	:signal = "finished(QNetworkReply*)" ,
-						:slot = "finishedSlot(QNetworkReply*)" ,
-						:event = "finished"
+						:slot = "finishedSlot()" ,
+						:event = "finished",
+						:slotparaconnect = "QNetworkReply*",
+						:slotparafunction = "QNetworkReply *p1",
+						:slotparacode = SlotParaGetPointer("QNetworkReply *")
 					] 
 				  ]
 		],
@@ -1020,4 +1023,10 @@ Func SlotParaGetNumber
 	return "
 		ring_list_deleteallitems(this->pParaList);
 		ring_list_adddouble(this->pParaList, (double) p1 ) ;	
+	"
+
+Func SlotParaGetPointer cType
+	return "
+		ring_list_deleteallitems(this->pParaList);
+		ring_list_addcpointer(this->pParaList, p1, "+'"'+cType+'"'+" ) ;	
 	"

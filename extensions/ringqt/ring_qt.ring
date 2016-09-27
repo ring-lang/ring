@@ -10466,6 +10466,9 @@ Class QNetworkAccessManager from QObject
 		pTempObj.pObject = QNetworkAccessManager_supportedSchemes(pObject)
 		return pTempObj
 
+	Func geteventparameters 
+		return QNetworkAccessManager_geteventparameters(pObject)
+
 Class QNetworkReply from QIODevice
 
 	pObject

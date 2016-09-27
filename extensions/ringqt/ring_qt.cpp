@@ -59000,6 +59000,23 @@ RING_FUNC(ring_QNetworkAccessManager_supportedSchemes)
 }
 
 
+RING_FUNC(ring_QNetworkAccessManager_geteventparameters)
+{
+	GNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	pObject->geteventparameters();
+}
+
+
 RING_FUNC(ring_QNetworkReply_attribute)
 {
 	QNetworkReply *pObject ;
@@ -78351,6 +78368,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qnetworkaccessmanager_setproxy",ring_QNetworkAccessManager_setProxy);
 	ring_vm_funcregister("qnetworkaccessmanager_setproxyfactory",ring_QNetworkAccessManager_setProxyFactory);
 	ring_vm_funcregister("qnetworkaccessmanager_supportedschemes",ring_QNetworkAccessManager_supportedSchemes);
+	ring_vm_funcregister("qnetworkaccessmanager_geteventparameters",ring_QNetworkAccessManager_geteventparameters);
 	ring_vm_funcregister("qnetworkreply_attribute",ring_QNetworkReply_attribute);
 	ring_vm_funcregister("qnetworkreply_error",ring_QNetworkReply_error);
 	ring_vm_funcregister("qnetworkreply_hasrawheader",ring_QNetworkReply_hasRawHeader);

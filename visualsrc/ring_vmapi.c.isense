@@ -91,6 +91,7 @@ Type: List *
 pList
 Type: Item *
 pItem
+ring_list_addcpointer
 ring_vmlib_len
 Type: VM *
 pVM

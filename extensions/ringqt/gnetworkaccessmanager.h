@@ -33,7 +33,7 @@ class GNetworkAccessManager : public QNetworkAccessManager
 
   public slots:
 
-    void finishedSlot(QNetworkReply*);
+    void finishedSlot(QNetworkReply *p1);
 
 };
 

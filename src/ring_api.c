@@ -279,6 +279,18 @@ RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
 		pItem->data.dNumber = (double) pItem->data.iNumber ;
 	}
 }
+
+RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cType )
+{
+	/* create sub list */
+	pList = ring_list_newlist(pList);
+	/* The variable value will be a list contains the pointer */
+	ring_list_addpointer(pList,pGeneral);
+	/* Add the pointer type */
+	ring_list_addstring(pList,cType);
+	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
+	ring_list_addint(pList,2);
+}
 /*
 **  Library 
 **  General 
