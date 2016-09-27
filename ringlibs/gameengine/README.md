@@ -10,7 +10,7 @@ The Engine can use the next libraries
 
 (2) LibSDL - Using RingLibSDL extension - See gl_libsdl.ring 
 
-Simple Samples
+Simple Samples (See The Ring/Applications folder)
 
 (1) Stars Fighter  : game.ring
 
