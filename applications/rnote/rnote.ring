@@ -454,13 +454,25 @@ func pWebBack
 	oWebView.Back()
 
 func pProject
-	oDock1.Show()
+	if oDock1.isvisible()
+		oDock1.hide()
+	else
+		oDock1.Show()
+	ok
 	
 func pSourceCode
-	oDock2.Show()
+	if oDock2.isvisible()
+		oDock2.hide()
+	else
+		oDock2.Show()
+	ok
 
 func pWebBrowser
-	oDock3.Show()
+	if oDock3.isvisible()
+		oDock3.hide()
+	else
+		oDock3.Show()
+	ok
 
 func pChangeFile
 	pSaveCurrentFolder()
