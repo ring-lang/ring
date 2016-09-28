@@ -14,16 +14,17 @@ lShowProject = True
 lShowSourceCode = True
 lShowBrowser = True
 nTabSpaces = 0
-
 aBrowserLinks = [
 	["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
 	["Localhost","http://localhost"],
 	["Ring Website","http://ring-lang.sf.net"],
-	["Ring Group","https://groups.google.com/forum/#!forum/ring-lang"],
-	["Ring Article","http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language"],
-	["Ring Rosetta Code Samples","https://rosettacode.org/wiki/Category:Ring"],
-	["Ring Resources","http://ring-lang.sourceforge.net/resources.html"],
+	["Ring Group (Google Groups)","https://groups.google.com/forum/#!forum/ring-lang"],
+	["Ring Source Code (GitHub)","https://github.com/ring-lang/ring"],
+	["Ring Article (Codeproject)","http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language"],
+	["Ring Samples (Rosetta Code)","https://rosettacode.org/wiki/Category:Ring"],
 	["Ring Page (Facebook)","https://www.facebook.com/ringprogramminglanguage"],
+	["Ring Download Statistics (Sourceforge)","https://sourceforge.net/projects/ring-lang/files/stats/timeline?dates=2016-01-21+to+2099-09-30"],
+	["Ring Resources","http://ring-lang.sourceforge.net/resources.html"],
 	["Ring Team","http://ring-lang.sourceforge.net/team.html"]
 ]
 
