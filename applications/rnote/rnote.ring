@@ -120,12 +120,13 @@ MyApp = New qApp {
 		}
 
 		menu1 = new qmenubar(win1) {		
-			sub1 = addmenu("File")
-			sub2 = addmenu("Edit")
-			sub3 = addmenu("View")
-			sub4 = addmenu("Program")
-			sub5 = addmenu("Help")
-			sub1 { 
+			subFile = addmenu("File")
+			subEdit = addmenu("Edit")
+			subView = addmenu("View")
+			subProgram = addmenu("Program")
+			subBrowser = addmenu("Browser")
+			subHelp = addmenu("Help")
+			subFile { 
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+n"))
 					setbtnimage(self,"image/new.png")
@@ -174,7 +175,7 @@ MyApp = New qApp {
 				}
 				addaction(oAction)
 			}
-			sub2 { 
+			subEdit { 
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+z"))
 					setbtnimage(self,"image/undo.png")
@@ -249,7 +250,7 @@ MyApp = New qApp {
 				}
 				addaction(oAction)
 			}				
-			sub3 {
+			subView {
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+p"))
 					setbtnimage(self,"image/project.png")
@@ -272,7 +273,7 @@ MyApp = New qApp {
 				}
 				addaction(oAction)	
 			}
-			sub4 { 
+			subProgram { 
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+d"))
 					setbtnimage(self,"image/debug.png")
@@ -297,8 +298,52 @@ MyApp = New qApp {
 				}
 				addaction(oAction)	
 			}
+			subBrowser { 
+				oAction = new qAction(win1) {
+					settext("Local Help")
+					setclickevent("pBrowserLink(1)")
+				}
+				addaction(oAction)
+				oAction = new qAction(win1) {
+					settext("Local Host")
+					setclickevent("pBrowserLink(2)")
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qAction(win1) {
+					settext("Ring Website")
+					setclickevent("pBrowserLink(3)")
+				}
+				addaction(oAction)	
+				oAction = new qAction(win1) {
+					settext("Ring Group")
+					setclickevent("pBrowserLink(4)")
+				}
+				addaction(oAction)	
+				oAction = new qAction(win1) {
+					settext("Ring Article")
+					setclickevent("pBrowserLink(5)")
+				}
+				addaction(oAction)	
+				oAction = new qAction(win1) {
+					settext("Rosetta Code Samples")
+					setclickevent("pBrowserLink(6)")
+				}
+				addaction(oAction)	
+				addseparator()
+				oAction = new qAction(win1) {
+					settext("Resources")
+					setclickevent("pBrowserLink(7)")
+				}
+				addaction(oAction)	
+				oAction = new qAction(win1) {
+					settext("Ring Team")
+					setclickevent("pBrowserLink(8)")
+				}
+				addaction(oAction)	
+			}
 
-			sub5 { 
+			subHelp { 
 
 				oAction = new qAction(win1) {
 					settext("Language Reference (CHM)")
@@ -311,8 +356,8 @@ MyApp = New qApp {
 				}
 				addaction(oAction)
 				addseparator()
-				sub6 = addmenu("Development Tools")
-				sub6 { 
+				subHelpTools = addmenu("Development Tools")
+				subHelpTools { 
 
 					oAction = new qAction(win1) {
 						settext("Programming Language")
@@ -973,3 +1018,29 @@ Func pSetTabSpaces
 	oFontMetrics = new QFontMetrics(oFont)
 	nSpaceWidth = oFontMetrics.Width(" ",1)
 	textedit1.setTabStopWidth(nTabSpaces*nSpaceWidth)
+
+
+Func pBrowserLink x
+	switch x 
+	on 1  # Local Help		
+		cLink = "file:///"+exefolder() + "../docs/build/html/index.html"
+	on 2 # Localhost
+		cLink = "http://localhost"
+	on 3 # Ring Website
+		cLink = "http://ring-lang.sf.net"
+	on 4 # Ring Group
+		cLink = "https://groups.google.com/forum/#!forum/ring-lang"
+	on 5 # Ring Article
+		cLink = "http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language"
+	on 6 # Ring Rosetta Code Samples
+		cLink = "https://rosettacode.org/wiki/Category:Ring"
+	on 7 # Ring Resources
+		cLink = "http://ring-lang.sourceforge.net/resources.html"
+	on 8 # Ring Team		
+		cLink = "http://ring-lang.sourceforge.net/team.html"
+	off
+
+	oWebView { loadpage(new qurl(cLink)) }	
+	oWBText  { setText(cWebSite) }		
+
+	oDock3.Show()
