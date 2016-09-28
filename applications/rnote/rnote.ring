@@ -15,6 +15,18 @@ lShowSourceCode = True
 lShowBrowser = True
 nTabSpaces = 0
 
+aBrowserLinks = [
+	["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
+	["Localhost","http://localhost"],
+	["Ring Website","http://ring-lang.sf.net"],
+	["Ring Group","https://groups.google.com/forum/#!forum/ring-lang"],
+	["Ring Article","http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language"],
+	["Ring Rosetta Code Samples","https://rosettacode.org/wiki/Category:Ring"],
+	["Ring Resources","http://ring-lang.sourceforge.net/resources.html"],
+	["Ring Page (Facebook)","https://www.facebook.com/ringprogramminglanguage"],
+	["Ring Team","http://ring-lang.sourceforge.net/team.html"]
+]
+
 LoadSettings()
 
 oSearch = NULL
@@ -299,48 +311,15 @@ MyApp = New qApp {
 				addaction(oAction)	
 			}
 			subBrowser { 
-				oAction = new qAction(win1) {
-					settext("Local Help")
-					setclickevent("pBrowserLink(1)")
-				}
-				addaction(oAction)
-				oAction = new qAction(win1) {
-					settext("Local Host")
-					setclickevent("pBrowserLink(2)")
-				}
-				addaction(oAction)
-				addseparator()
-				oAction = new qAction(win1) {
-					settext("Ring Website")
-					setclickevent("pBrowserLink(3)")
-				}
-				addaction(oAction)	
-				oAction = new qAction(win1) {
-					settext("Ring Group")
-					setclickevent("pBrowserLink(4)")
-				}
-				addaction(oAction)	
-				oAction = new qAction(win1) {
-					settext("Ring Article")
-					setclickevent("pBrowserLink(5)")
-				}
-				addaction(oAction)	
-				oAction = new qAction(win1) {
-					settext("Rosetta Code Samples")
-					setclickevent("pBrowserLink(6)")
-				}
-				addaction(oAction)	
-				addseparator()
-				oAction = new qAction(win1) {
-					settext("Resources")
-					setclickevent("pBrowserLink(7)")
-				}
-				addaction(oAction)	
-				oAction = new qAction(win1) {
-					settext("Ring Team")
-					setclickevent("pBrowserLink(8)")
-				}
-				addaction(oAction)	
+
+				for x=1 to len(aBrowserLinks)
+					item = aBrowserLinks[x]
+					oAction = new qAction(win1) {
+						settext(item[1])
+						setclickevent("pBrowserLink("+x+")")
+					}
+					addaction(oAction)		
+				next
 			}
 
 			subHelp { 
@@ -1021,24 +1000,8 @@ Func pSetTabSpaces
 
 
 Func pBrowserLink x
-	switch x 
-	on 1  # Local Help		
-		cLink = "file:///"+exefolder() + "../docs/build/html/index.html"
-	on 2 # Localhost
-		cLink = "http://localhost"
-	on 3 # Ring Website
-		cLink = "http://ring-lang.sf.net"
-	on 4 # Ring Group
-		cLink = "https://groups.google.com/forum/#!forum/ring-lang"
-	on 5 # Ring Article
-		cLink = "http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language"
-	on 6 # Ring Rosetta Code Samples
-		cLink = "https://rosettacode.org/wiki/Category:Ring"
-	on 7 # Ring Resources
-		cLink = "http://ring-lang.sourceforge.net/resources.html"
-	on 8 # Ring Team		
-		cLink = "http://ring-lang.sourceforge.net/team.html"
-	off
+
+	cLink = aBrowserLinks[x][2]
 
 	oWebView { loadpage(new qurl(cLink)) }	
 	oWBText  { setText(cWebSite) }		
