@@ -275,6 +275,18 @@ MyApp = New qApp {
 				addaction(oAction)	
 			}
 			sub4 { 
+
+				oAction = new qAction(win1) {
+					settext("Language Reference (CHM)")
+					setclickevent("pOpenCHM()")
+				}
+				addaction(oAction)
+				oAction = new qAction(win1) {
+					settext("Language Reference (PDF)")
+					setclickevent("pOpenPDF()")
+				}
+				addaction(oAction)
+				addseparator()
 				sub5 = addmenu("Development Tools")
 				sub5 { 
 
@@ -891,3 +903,9 @@ Func pQuit
 	if pSaveSettings() 
 		myapp.quit()
 	ok
+
+Func pOpenCHM
+	System( "start " + exefolder()+"/../docs/ring.chm" )
+
+Func pOpenPDF
+	System( "start " + exefolder()+"/../docs/ring.pdf" )
