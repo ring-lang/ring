@@ -5,7 +5,7 @@
 Applications developed in little hours
 =================================================
 
-Ring is a new programming language that focuses on natural language programming and declarative programming paradigms 
+Ring is a new programming language that focuses on the Natural Language Programming and Declarative Programming paradigms 
 and will let you think different about programming and how to solve your problems in a better way. It's just released in 2016.01.25!  
 In little days we got thousands of downloads and many developers started learning and 
 using the language. Their feedback are the secret behind the language progress and success. 
