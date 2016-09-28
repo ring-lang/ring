@@ -123,7 +123,8 @@ MyApp = New qApp {
 			sub1 = addmenu("File")
 			sub2 = addmenu("Edit")
 			sub3 = addmenu("View")
-			sub4 = addmenu("Help")
+			sub4 = addmenu("Program")
+			sub5 = addmenu("Help")
 			sub1 { 
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+n"))
@@ -163,30 +164,6 @@ MyApp = New qApp {
 					setclickevent("pPrint()")
 				}
 				addaction(oAction)
-				addseparator()
-				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+d"))
-					setbtnimage(self,"image/debug.png")
-					settext("Debug (Run then wait!)")
-					setclickevent("pDebug()")
-				}
-				addaction(oAction)
-				addseparator()
-				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+r"))
-					setbtnimage(self,"image/run.png")
-					settext("Run")
-					setclickevent("pRun()")
-				}
-				addaction(oAction)
-				addseparator()
-				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+F5"))
-					setbtnimage(self,"image/run.png")
-					settext("Run GUI Application (No Console)")
-					setclickevent("pRunNoConsole()")
-				}
-				addaction(oAction)	
 				addseparator()
 				oAction = new qaction(win1) {
 					setShortcut(new QKeySequence("Ctrl+q"))
@@ -296,6 +273,32 @@ MyApp = New qApp {
 				addaction(oAction)	
 			}
 			sub4 { 
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+d"))
+					setbtnimage(self,"image/debug.png")
+					settext("Debug (Run then wait!)")
+					setclickevent("pDebug()")
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+r"))
+					setbtnimage(self,"image/run.png")
+					settext("Run")
+					setclickevent("pRun()")
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+F5"))
+					setbtnimage(self,"image/run.png")
+					settext("Run GUI Application (No Console)")
+					setclickevent("pRunNoConsole()")
+				}
+				addaction(oAction)	
+			}
+
+			sub5 { 
 
 				oAction = new qAction(win1) {
 					settext("Language Reference (CHM)")
@@ -308,8 +311,8 @@ MyApp = New qApp {
 				}
 				addaction(oAction)
 				addseparator()
-				sub5 = addmenu("Development Tools")
-				sub5 { 
+				sub6 = addmenu("Development Tools")
+				sub6 { 
 
 					oAction = new qAction(win1) {
 						settext("Programming Language")
