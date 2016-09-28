@@ -13,6 +13,7 @@ cStartUpFolder = exefolder() + "/../applications/"
 lShowProject = True
 lShowSourceCode = True
 lShowBrowser = True
+nTabSpaces = 0
 
 LoadSettings()
 
@@ -884,7 +885,8 @@ Func pSaveSettingsToFile
 		    "cStartupFolder = '" + cStartupFolder + "'" + nl + 
 		    "lShowProject = " + oDock1.isvisible() + nl +
 		    "lShowSourceCode = " + oDock2.isvisible() + nl +
-		    "lShowBrowser = " + oDock3.isvisible()
+		    "lShowBrowser = " + oDock3.isvisible() + nl +
+		    "nTabSpaces = " + nTabSpaces + nl
 	cSettings = substr(cSettings,nl,char(13)+char(10))
 	write("ringnotepad.ini",cSettings)
 
@@ -922,6 +924,7 @@ Func RestoreSettings
 	pSetFont()
 	pSetWebsite()
 	pSetWindows()
+	pSetTabSpaces()
 
 Func pQuit
 	if pSaveSettings() 
@@ -945,9 +948,13 @@ Func pTabWidth
 		exec()
 	}
 
-	nSpaces = 0 + oInput.textvalue()	
+	nTabSpaces = 0 + oInput.textvalue()	
+	pSetTabSpaces()
+
+Func pSetTabSpaces
+
 	oFont = new qfont("",0,0,0)
 	oFont.fromstring(cFont)
 	oFontMetrics = new QFontMetrics(oFont)
 	nSpaceWidth = oFontMetrics.Width(" ",1)
-	textedit1.setTabStopWidth(nSpaces*nSpaceWidth)
+	textedit1.setTabStopWidth(nTabSpaces*nSpaceWidth)
