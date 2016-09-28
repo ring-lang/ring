@@ -188,6 +188,7 @@ extern "C" {
 #include <QVideoWidgetControl>
 #include <QCamera>
 #include <QCameraImageCapture>
+#include <QFontMetrics>
 
 #include "highlighter.h"
 
@@ -549,7 +550,11 @@ QWidget *focusProxy(void)
 QWidget *focusWidget(void)
 QFont font(void)
 QFontInfo fontInfo(void)
+
+<comment>
 QFontMetrics fontMetrics(void)
+</comment>
+
 int foregroundRole(void)
 QRect frameGeometry(void)
 QSize frameSize(void)
@@ -2718,7 +2723,11 @@ void fillPath( QPainterPath  path,  QBrush  brush)
 void fillRect(int x, int y, int width, int height, QBrush)
 QFont font(void)
 QFontInfo fontInfo(void)
+
+<comment>
 QFontMetrics fontMetrics(void)
+</comment>
+
 bool hasClipping(void)
 void initFrom( QWidget *widget)
 bool isActive(void)
@@ -5380,3 +5389,36 @@ void setsectionResizedEvent(const char *)
 void setsortIndicatorChangedEvent(const char *)
 
 void geteventparameters(void)
+
+<class>
+name: QFontMetrics
+para: QFont
+</class>
+
+int ascent(void)
+int averageCharWidth(void)
+QRect boundingRect(QChar ch)
+QRect boundingRect@2( QString   text)
+QRect boundingRect@3(int x, int y, int width, int height, int flags,  QString   text, int tabStops , int * tabArray )
+QRect boundingRect@4( QRect   rect, int flags,  QString   text, int tabStops , int * tabArray )
+int descent(void)
+QString elidedText( QString   text, Qt::TextElideMode mode, int width, int flags )
+int height(void)
+bool inFont(QChar ch)
+bool inFontUcs4(uint character)
+int leading(void)
+int leftBearing(QChar ch)
+int lineSpacing(void)
+int lineWidth(void)
+int maxWidth(void)
+int minLeftBearing(void)
+int minRightBearing(void)
+int overlinePos(void)
+int rightBearing(QChar ch)
+QSize size(int flags,  QString   text, int tabStops , int * tabArray )
+int strikeOutPos(void)
+QRect tightBoundingRect( QString   text)
+int underlinePos(void)
+int width( QString   text, int len )
+int width@2(QChar ch)
+int xHeight(void)

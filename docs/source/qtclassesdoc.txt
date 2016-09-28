@@ -103,7 +103,6 @@ Parent Class : QObject
 * QWidget *focusWidget(void)
 * QFont font(void)
 * QFontInfo fontInfo(void)
-* QFontMetrics fontMetrics(void)
 * int foregroundRole(void)
 * QRect frameGeometry(void)
 * QSize frameSize(void)
@@ -2452,7 +2451,6 @@ Parameters : void
 * void fillRect(int x, int y, int width, int height, QBrush)
 * QFont font(void)
 * QFontInfo fontInfo(void)
-* QFontMetrics fontMetrics(void)
 * bool hasClipping(void)
 * void initFrom( QWidget *widget)
 * bool isActive(void)
@@ -4280,6 +4278,7 @@ Parent Class : QObject
 * void setProxy(QNetworkProxy)
 * void setProxyFactory(QNetworkProxyFactory *factory)
 * QStringList supportedSchemes(void)
+* void geteventparameters(void)
 
 .. index::
 	pair: RingQt Classes Reference; QNetworkReply Class
@@ -5344,3 +5343,43 @@ Parent Class : QAbstractItemView
 * void setsectionResizedEvent(const char *)
 * void setsortIndicatorChangedEvent(const char *)
 * void geteventparameters(void)
+
+.. index::
+	pair: RingQt Classes Reference; QFontMetrics Class
+
+QFontMetrics Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFontMetrics.html
+
+
+Parameters : QFont
+
+* int ascent(void)
+* int averageCharWidth(void)
+* QRect boundingRect(QChar ch)
+* QRect boundingRect_2( QString   text)
+* QRect boundingRect_3(int x, int y, int width, int height, int flags,  QString   text, int tabStops , int * tabArray )
+* QRect boundingRect_4( QRect   rect, int flags,  QString   text, int tabStops , int * tabArray )
+* int descent(void)
+* QString elidedText( QString   text, Qt::TextElideMode mode, int width, int flags )
+* int height(void)
+* bool inFont(QChar ch)
+* bool inFontUcs4(uint character)
+* int leading(void)
+* int leftBearing(QChar ch)
+* int lineSpacing(void)
+* int lineWidth(void)
+* int maxWidth(void)
+* int minLeftBearing(void)
+* int minRightBearing(void)
+* int overlinePos(void)
+* int rightBearing(QChar ch)
+* QSize size(int flags,  QString   text, int tabStops , int * tabArray )
+* int strikeOutPos(void)
+* QRect tightBoundingRect( QString   text)
+* int underlinePos(void)
+* int width( QString   text, int len )
+* int width_2(QChar ch)
+* int xHeight(void)

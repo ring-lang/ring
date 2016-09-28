@@ -175,6 +175,7 @@ extern "C" {
 #include <QVideoWidgetControl>
 #include <QCamera>
 #include <QCameraImageCapture>
+#include <QFontMetrics>
 
 #include "highlighter.h"
 
@@ -1098,28 +1099,6 @@ RING_FUNC(ring_QWidget_fontInfo)
 		pValue = (QFontInfo *) malloc(sizeof(QFontInfo)) ;
 		*pValue = pObject->fontInfo();
 		RING_API_RETCPOINTER(pValue,"QFontInfo");
-	}
-}
-
-
-RING_FUNC(ring_QWidget_fontMetrics)
-{
-	QWidget *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
-	{
-		QFontMetrics *pValue ; 
-		pValue = (QFontMetrics *) malloc(sizeof(QFontMetrics)) ;
-		*pValue = pObject->fontMetrics();
-		RING_API_RETCPOINTER(pValue,"QFontMetrics");
 	}
 }
 
@@ -33908,28 +33887,6 @@ RING_FUNC(ring_QPainter_fontInfo)
 		pValue = (QFontInfo *) malloc(sizeof(QFontInfo)) ;
 		*pValue = pObject->fontInfo();
 		RING_API_RETCPOINTER(pValue,"QFontInfo");
-	}
-}
-
-
-RING_FUNC(ring_QPainter_fontMetrics)
-{
-	QPainter *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
-	{
-		QFontMetrics *pValue ; 
-		pValue = (QFontMetrics *) malloc(sizeof(QFontMetrics)) ;
-		*pValue = pObject->fontMetrics();
-		RING_API_RETCPOINTER(pValue,"QFontMetrics");
 	}
 }
 
@@ -72040,6 +71997,608 @@ RING_FUNC(ring_QHeaderView_geteventparameters)
 	pObject->geteventparameters();
 }
 
+
+RING_FUNC(ring_QFontMetrics_ascent)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->ascent());
+}
+
+
+RING_FUNC(ring_QFontMetrics_averageCharWidth)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->averageCharWidth());
+}
+
+
+RING_FUNC(ring_QFontMetrics_boundingRect)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->boundingRect(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QChar"));
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QFontMetrics_boundingRect_2)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->boundingRect(RING_API_GETSTRING(2));
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QFontMetrics_boundingRect_3)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->boundingRect( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),RING_API_GETSTRING(7), (int ) RING_API_GETNUMBER(8),RING_API_GETINTPOINTER(9));
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+	RING_API_ACCEPTINTVALUE(8) ;
+}
+
+
+RING_FUNC(ring_QFontMetrics_boundingRect_4)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->boundingRect(* (QRect    *) RING_API_GETCPOINTER(2,"QRect"), (int ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (int ) RING_API_GETNUMBER(5),RING_API_GETINTPOINTER(6));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QRect"));
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+	RING_API_ACCEPTINTVALUE(5) ;
+}
+
+
+RING_FUNC(ring_QFontMetrics_descent)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->descent());
+}
+
+
+RING_FUNC(ring_QFontMetrics_elidedText)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->elidedText(RING_API_GETSTRING(2), (Qt::TextElideMode )  (int) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QFontMetrics_height)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->height());
+}
+
+
+RING_FUNC(ring_QFontMetrics_inFont)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->inFont(* (QChar  *) RING_API_GETCPOINTER(2,"QChar")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QChar"));
+}
+
+
+RING_FUNC(ring_QFontMetrics_inFontUcs4)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->inFontUcs4(* (uint  *) RING_API_GETCPOINTER(2,"uint")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"uint"));
+}
+
+
+RING_FUNC(ring_QFontMetrics_leading)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->leading());
+}
+
+
+RING_FUNC(ring_QFontMetrics_leftBearing)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->leftBearing(* (QChar  *) RING_API_GETCPOINTER(2,"QChar")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QChar"));
+}
+
+
+RING_FUNC(ring_QFontMetrics_lineSpacing)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->lineSpacing());
+}
+
+
+RING_FUNC(ring_QFontMetrics_lineWidth)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->lineWidth());
+}
+
+
+RING_FUNC(ring_QFontMetrics_maxWidth)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->maxWidth());
+}
+
+
+RING_FUNC(ring_QFontMetrics_minLeftBearing)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->minLeftBearing());
+}
+
+
+RING_FUNC(ring_QFontMetrics_minRightBearing)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->minRightBearing());
+}
+
+
+RING_FUNC(ring_QFontMetrics_overlinePos)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->overlinePos());
+}
+
+
+RING_FUNC(ring_QFontMetrics_rightBearing)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->rightBearing(* (QChar  *) RING_API_GETCPOINTER(2,"QChar")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QChar"));
+}
+
+
+RING_FUNC(ring_QFontMetrics_size)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QSize *pValue ; 
+		pValue = new QSize() ;
+		*pValue = pObject->size( (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3), (int ) RING_API_GETNUMBER(4),RING_API_GETINTPOINTER(5));
+		RING_API_RETCPOINTER(pValue,"QSize");
+	}
+	RING_API_ACCEPTINTVALUE(4) ;
+}
+
+
+RING_FUNC(ring_QFontMetrics_strikeOutPos)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->strikeOutPos());
+}
+
+
+RING_FUNC(ring_QFontMetrics_tightBoundingRect)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->tightBoundingRect(RING_API_GETSTRING(2));
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QFontMetrics_underlinePos)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->underlinePos());
+}
+
+
+RING_FUNC(ring_QFontMetrics_width)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->width(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_QFontMetrics_width_2)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->width(* (QChar  *) RING_API_GETCPOINTER(2,"QChar")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QChar"));
+}
+
+
+RING_FUNC(ring_QFontMetrics_xHeight)
+{
+	QFontMetrics *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+	RING_API_RETNUMBER(pObject->xHeight());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -73660,6 +74219,17 @@ RING_FUNC(ring_QHeaderView_new)
 	}
 	GHeaderView *pObject = new GHeaderView( (Qt::Orientation)  (int) RING_API_GETNUMBER(1),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QHeaderView");
+}
+
+RING_FUNC(ring_QFontMetrics_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	QFontMetrics *pObject = new QFontMetrics(* (QFont *) RING_API_GETCPOINTER(1,"QFont"));
+	RING_API_RETCPOINTER(pObject,"QFontMetrics");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -75492,6 +76062,21 @@ RING_FUNC(ring_QHeaderView_delete)
 	}
 }
 
+RING_FUNC(ring_QFontMetrics_delete)
+{
+	QFontMetrics *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+		delete pObject ;
+	}
+}
+
 RING_DLL void ring_qt_start(RingState *pRingState)
 {
 	ring_vm_funcregister("qapp_exec",ring_QApp_exec);
@@ -75543,7 +76128,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwidget_focuswidget",ring_QWidget_focusWidget);
 	ring_vm_funcregister("qwidget_font",ring_QWidget_font);
 	ring_vm_funcregister("qwidget_fontinfo",ring_QWidget_fontInfo);
-	ring_vm_funcregister("qwidget_fontmetrics",ring_QWidget_fontMetrics);
 	ring_vm_funcregister("qwidget_foregroundrole",ring_QWidget_foregroundRole);
 	ring_vm_funcregister("qwidget_framegeometry",ring_QWidget_frameGeometry);
 	ring_vm_funcregister("qwidget_framesize",ring_QWidget_frameSize);
@@ -77143,7 +77727,6 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpainter_fillrect",ring_QPainter_fillRect);
 	ring_vm_funcregister("qpainter_font",ring_QPainter_font);
 	ring_vm_funcregister("qpainter_fontinfo",ring_QPainter_fontInfo);
-	ring_vm_funcregister("qpainter_fontmetrics",ring_QPainter_fontMetrics);
 	ring_vm_funcregister("qpainter_hasclipping",ring_QPainter_hasClipping);
 	ring_vm_funcregister("qpainter_initfrom",ring_QPainter_initFrom);
 	ring_vm_funcregister("qpainter_isactive",ring_QPainter_isActive);
@@ -78998,6 +79581,33 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qheaderview_setsectionresizedevent",ring_QHeaderView_setsectionResizedEvent);
 	ring_vm_funcregister("qheaderview_setsortindicatorchangedevent",ring_QHeaderView_setsortIndicatorChangedEvent);
 	ring_vm_funcregister("qheaderview_geteventparameters",ring_QHeaderView_geteventparameters);
+	ring_vm_funcregister("qfontmetrics_ascent",ring_QFontMetrics_ascent);
+	ring_vm_funcregister("qfontmetrics_averagecharwidth",ring_QFontMetrics_averageCharWidth);
+	ring_vm_funcregister("qfontmetrics_boundingrect",ring_QFontMetrics_boundingRect);
+	ring_vm_funcregister("qfontmetrics_boundingrect_2",ring_QFontMetrics_boundingRect_2);
+	ring_vm_funcregister("qfontmetrics_boundingrect_3",ring_QFontMetrics_boundingRect_3);
+	ring_vm_funcregister("qfontmetrics_boundingrect_4",ring_QFontMetrics_boundingRect_4);
+	ring_vm_funcregister("qfontmetrics_descent",ring_QFontMetrics_descent);
+	ring_vm_funcregister("qfontmetrics_elidedtext",ring_QFontMetrics_elidedText);
+	ring_vm_funcregister("qfontmetrics_height",ring_QFontMetrics_height);
+	ring_vm_funcregister("qfontmetrics_infont",ring_QFontMetrics_inFont);
+	ring_vm_funcregister("qfontmetrics_infontucs4",ring_QFontMetrics_inFontUcs4);
+	ring_vm_funcregister("qfontmetrics_leading",ring_QFontMetrics_leading);
+	ring_vm_funcregister("qfontmetrics_leftbearing",ring_QFontMetrics_leftBearing);
+	ring_vm_funcregister("qfontmetrics_linespacing",ring_QFontMetrics_lineSpacing);
+	ring_vm_funcregister("qfontmetrics_linewidth",ring_QFontMetrics_lineWidth);
+	ring_vm_funcregister("qfontmetrics_maxwidth",ring_QFontMetrics_maxWidth);
+	ring_vm_funcregister("qfontmetrics_minleftbearing",ring_QFontMetrics_minLeftBearing);
+	ring_vm_funcregister("qfontmetrics_minrightbearing",ring_QFontMetrics_minRightBearing);
+	ring_vm_funcregister("qfontmetrics_overlinepos",ring_QFontMetrics_overlinePos);
+	ring_vm_funcregister("qfontmetrics_rightbearing",ring_QFontMetrics_rightBearing);
+	ring_vm_funcregister("qfontmetrics_size",ring_QFontMetrics_size);
+	ring_vm_funcregister("qfontmetrics_strikeoutpos",ring_QFontMetrics_strikeOutPos);
+	ring_vm_funcregister("qfontmetrics_tightboundingrect",ring_QFontMetrics_tightBoundingRect);
+	ring_vm_funcregister("qfontmetrics_underlinepos",ring_QFontMetrics_underlinePos);
+	ring_vm_funcregister("qfontmetrics_width",ring_QFontMetrics_width);
+	ring_vm_funcregister("qfontmetrics_width_2",ring_QFontMetrics_width_2);
+	ring_vm_funcregister("qfontmetrics_xheight",ring_QFontMetrics_xHeight);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -79120,6 +79730,7 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcamera_new",ring_QCamera_new);
 	ring_vm_funcregister("qcameraimagecapture_new",ring_QCameraImageCapture_new);
 	ring_vm_funcregister("qheaderview_new",ring_QHeaderView_new);
+	ring_vm_funcregister("qfontmetrics_new",ring_QFontMetrics_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -79242,4 +79853,5 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcamera_delete",ring_QCamera_delete);
 	ring_vm_funcregister("qcameraimagecapture_delete",ring_QCameraImageCapture_delete);
 	ring_vm_funcregister("qheaderview_delete",ring_QHeaderView_delete);
+	ring_vm_funcregister("qfontmetrics_delete",ring_QFontMetrics_delete);
 }

@@ -204,9 +204,6 @@ Class QWidget from QObject
 	Func fontInfo 
 		return QWidget_fontInfo(pObject)
 
-	Func fontMetrics 
-		return QWidget_fontMetrics(pObject)
-
 	Func foregroundRole 
 		return QWidget_foregroundRole(pObject)
 
@@ -5975,9 +5972,6 @@ Class QPainter
 
 	Func fontInfo 
 		return QPainter_fontInfo(pObject)
-
-	Func fontMetrics 
-		return QPainter_fontMetrics(pObject)
 
 	Func hasClipping 
 		return QPainter_hasClipping(pObject)
@@ -12825,6 +12819,110 @@ Class QHeaderView from QAbstractItemView
 
 	Func geteventparameters 
 		return QHeaderView_geteventparameters(pObject)
+
+Class QFontMetrics
+
+	pObject
+
+	Func init P1
+		pObject = QFontMetrics_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QFontMetrics_delete(pObject)
+
+	Func ascent 
+		return QFontMetrics_ascent(pObject)
+
+	Func averageCharWidth 
+		return QFontMetrics_averageCharWidth(pObject)
+
+	Func boundingRect P1
+		pTempObj = new QRect
+		pTempObj.pObject = QFontMetrics_boundingRect(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func boundingRect_2 P1
+		pTempObj = new QRect
+		pTempObj.pObject = QFontMetrics_boundingRect_2(pObject,P1)
+		return pTempObj
+
+	Func boundingRect_3 P1,P2,P3,P4,P5,P6,P7,P8
+		pTempObj = new QRect
+		pTempObj.pObject = QFontMetrics_boundingRect_3(pObject,P1,P2,P3,P4,P5,P6,P7,GetObjectPointerFromRingObject(P8))
+		return pTempObj
+
+	Func boundingRect_4 P1,P2,P3,P4,P5
+		pTempObj = new QRect
+		pTempObj.pObject = QFontMetrics_boundingRect_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,GetObjectPointerFromRingObject(P5))
+		return pTempObj
+
+	Func descent 
+		return QFontMetrics_descent(pObject)
+
+	Func elidedText P1,P2,P3,P4
+		return QFontMetrics_elidedText(pObject,P1,P2,P3,P4)
+
+	Func height 
+		return QFontMetrics_height(pObject)
+
+	Func inFont P1
+		return QFontMetrics_inFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func inFontUcs4 P1
+		return QFontMetrics_inFontUcs4(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func leading 
+		return QFontMetrics_leading(pObject)
+
+	Func leftBearing P1
+		return QFontMetrics_leftBearing(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func lineSpacing 
+		return QFontMetrics_lineSpacing(pObject)
+
+	Func lineWidth 
+		return QFontMetrics_lineWidth(pObject)
+
+	Func maxWidth 
+		return QFontMetrics_maxWidth(pObject)
+
+	Func minLeftBearing 
+		return QFontMetrics_minLeftBearing(pObject)
+
+	Func minRightBearing 
+		return QFontMetrics_minRightBearing(pObject)
+
+	Func overlinePos 
+		return QFontMetrics_overlinePos(pObject)
+
+	Func rightBearing P1
+		return QFontMetrics_rightBearing(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func size P1,P2,P3,P4
+		pTempObj = new QSize
+		pTempObj.pObject = QFontMetrics_size(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+		return pTempObj
+
+	Func strikeOutPos 
+		return QFontMetrics_strikeOutPos(pObject)
+
+	Func tightBoundingRect P1
+		pTempObj = new QRect
+		pTempObj.pObject = QFontMetrics_tightBoundingRect(pObject,P1)
+		return pTempObj
+
+	Func underlinePos 
+		return QFontMetrics_underlinePos(pObject)
+
+	Func width P1,P2
+		return QFontMetrics_width(pObject,P1,P2)
+
+	Func width_2 P1
+		return QFontMetrics_width_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func xHeight 
+		return QFontMetrics_xHeight(pObject)
 
 Class QIcon
 
