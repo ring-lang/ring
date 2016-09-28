@@ -685,11 +685,12 @@ func pRunNoConsole
 	if cActiveFileName = Null return pNofileopened() ok
 	pSave()
 	if iswindows()
-		cCode = 'start /b '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl 
+		cCode = 'start /b '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl 		
 	else
 		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 	ok
 	system(cCode)
+	
 
 func pSave
 	if cActiveFileName = NULL return pSaveAs() ok
