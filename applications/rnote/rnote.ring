@@ -53,6 +53,11 @@ MyApp = New qApp {
 					settooltip("Save As")
 				 } ,
 				new qpushbutton(win1) { 
+					setbtnimage(self,"image/undo.png") 
+					setclickevent("pUndo()")
+					settooltip("Undo")
+				} ,
+				new qpushbutton(win1) { 
 					setbtnimage(self,"image/cut.png")
 					setclickevent("pCut()")
 					settooltip("Cut")
@@ -192,6 +197,14 @@ MyApp = New qApp {
 				addaction(oAction)
 			}
 			sub2 { 
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+z"))
+					setbtnimage(self,"image/undo.png")
+					settext("Undo")
+					setclickevent("pUndo()")
+				}
+				addaction(oAction)
+				addseparator()
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+x"))
 					setbtnimage(self,"image/cut.png")
@@ -733,6 +746,10 @@ func pPrint
 	status1.showmessage("Done!",0)
 	system("RingDoc.pdf")
 
+func pUndo
+	textedit1.undo()
+	status1.showmessage("Undo!",0)
+
 func pCut
 	textedit1.cut()
 	status1.showmessage("Cut!",0)		
@@ -909,3 +926,4 @@ Func pOpenCHM
 
 Func pOpenPDF
 	System( "start " + exefolder()+"/../docs/ring.pdf" )
+
