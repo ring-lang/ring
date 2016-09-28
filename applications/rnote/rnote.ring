@@ -263,6 +263,13 @@ MyApp = New qApp {
 					setclickevent("pFind()")
 				}
 				addaction(oAction)
+				addseparator()
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+t"))
+					settext("Set Tab Width")
+					setclickevent("pTabWidth()")
+				}
+				addaction(oAction)
 			}				
 			sub3 {
 				oAction = new qAction(win1) {
@@ -927,3 +934,20 @@ Func pOpenCHM
 Func pOpenPDF
 	System( "start " + exefolder()+"/../docs/ring.pdf" )
 
+Func pTabWidth
+	
+	oInput = New QInputDialog(win1)
+	{
+		setwindowtitle("Set the Tab Width")
+		setgeometry(100,100,400,50)
+		setlabeltext("Spaces Count")
+		settextvalue("1")
+		exec()
+	}
+
+	nSpaces = 0 + oInput.textvalue()	
+	oFont = new qfont("",0,0,0)
+	oFont.fromstring(cFont)
+	oFontMetrics = new QFontMetrics(oFont)
+	nSpaceWidth = oFontMetrics.Width(" ",1)
+	textedit1.setTabStopWidth(nSpaces*nSpaceWidth)
