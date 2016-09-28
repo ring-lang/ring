@@ -438,7 +438,7 @@ MyApp = New qApp {
 		adddockwidget(2,oDock2,2)
 		adddockwidget(2,oDock3,1)
 
-		setwinicon(self,"image/notepad.png")
+		setwinicon(self,cCurrentDir + "/image/notepad.png")
 		showmaximized()	
 	}
 	RestoreSettings()
