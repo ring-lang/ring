@@ -1010,6 +1010,6 @@ Func pBrowserLink x
 	cLink = aBrowserLinks[x][2]
 
 	oWebView { loadpage(new qurl(cLink)) }	
-	oWBText  { setText(cWebSite) }		
+	oWBText  { setText(cLink) }		
 
 	oDock3.Show()
