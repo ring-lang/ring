@@ -12110,6 +12110,33 @@ Class QPlainTextEdit from QWidget
 	Func zoomOut P1
 		return QPlainTextEdit_zoomOut(pObject,P1)
 
+	Func setblockCountChangedEvent P1
+		return QPlainTextEdit_setblockCountChangedEvent(pObject,P1)
+
+	Func setcopyAvailableEvent P1
+		return QPlainTextEdit_setcopyAvailableEvent(pObject,P1)
+
+	Func setcursorPositionChangedEvent P1
+		return QPlainTextEdit_setcursorPositionChangedEvent(pObject,P1)
+
+	Func setmodificationChangedEvent P1
+		return QPlainTextEdit_setmodificationChangedEvent(pObject,P1)
+
+	Func setredoAvailableEvent P1
+		return QPlainTextEdit_setredoAvailableEvent(pObject,P1)
+
+	Func setselectionChangedEvent P1
+		return QPlainTextEdit_setselectionChangedEvent(pObject,P1)
+
+	Func settextChangedEvent P1
+		return QPlainTextEdit_settextChangedEvent(pObject,P1)
+
+	Func setundoAvailableEvent P1
+		return QPlainTextEdit_setundoAvailableEvent(pObject,P1)
+
+	Func setupdateRequestEvent P1
+		return QPlainTextEdit_setupdateRequestEvent(pObject,P1)
+
 Class QGridLayout
 
 	pObject

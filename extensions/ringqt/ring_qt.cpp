@@ -67823,6 +67823,195 @@ RING_FUNC(ring_QPlainTextEdit_zoomOut)
 }
 
 
+RING_FUNC(ring_QPlainTextEdit_setblockCountChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setblockCountChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_setcopyAvailableEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcopyAvailableEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_setcursorPositionChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcursorPositionChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_setmodificationChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setmodificationChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_setredoAvailableEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setredoAvailableEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_setselectionChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setselectionChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_settextChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->settextChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_setundoAvailableEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setundoAvailableEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_setupdateRequestEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setupdateRequestEvent(RING_API_GETSTRING(2));
+}
+
+
 RING_FUNC(ring_QGridLayout_addItem)
 {
 	QGridLayout *pObject ;
@@ -79376,6 +79565,15 @@ RING_DLL void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_undo",ring_QPlainTextEdit_undo);
 	ring_vm_funcregister("qplaintextedit_zoomin",ring_QPlainTextEdit_zoomIn);
 	ring_vm_funcregister("qplaintextedit_zoomout",ring_QPlainTextEdit_zoomOut);
+	ring_vm_funcregister("qplaintextedit_setblockcountchangedevent",ring_QPlainTextEdit_setblockCountChangedEvent);
+	ring_vm_funcregister("qplaintextedit_setcopyavailableevent",ring_QPlainTextEdit_setcopyAvailableEvent);
+	ring_vm_funcregister("qplaintextedit_setcursorpositionchangedevent",ring_QPlainTextEdit_setcursorPositionChangedEvent);
+	ring_vm_funcregister("qplaintextedit_setmodificationchangedevent",ring_QPlainTextEdit_setmodificationChangedEvent);
+	ring_vm_funcregister("qplaintextedit_setredoavailableevent",ring_QPlainTextEdit_setredoAvailableEvent);
+	ring_vm_funcregister("qplaintextedit_setselectionchangedevent",ring_QPlainTextEdit_setselectionChangedEvent);
+	ring_vm_funcregister("qplaintextedit_settextchangedevent",ring_QPlainTextEdit_settextChangedEvent);
+	ring_vm_funcregister("qplaintextedit_setundoavailableevent",ring_QPlainTextEdit_setundoAvailableEvent);
+	ring_vm_funcregister("qplaintextedit_setupdaterequestevent",ring_QPlainTextEdit_setupdateRequestEvent);
 	ring_vm_funcregister("qgridlayout_additem",ring_QGridLayout_addItem);
 	ring_vm_funcregister("qgridlayout_addlayout",ring_QGridLayout_addLayout);
 	ring_vm_funcregister("qgridlayout_addlayout_2",ring_QGridLayout_addLayout_2);

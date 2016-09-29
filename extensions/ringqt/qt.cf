@@ -5093,6 +5093,16 @@ void undo(void)
 void zoomIn(int range)
 void zoomOut(int range)
 
+void setblockCountChangedEvent(const char *cStr)
+void setcopyAvailableEvent(const char *cStr)
+void setcursorPositionChangedEvent(const char *cStr)
+void setmodificationChangedEvent(const char *cStr)
+void setredoAvailableEvent(const char *cStr)
+void setselectionChangedEvent(const char *cStr)
+void settextChangedEvent(const char *cStr)
+void setundoAvailableEvent(const char *cStr)
+void setupdateRequestEvent(const char *cStr)
+
 
 <class>
 name: QGridLayout
