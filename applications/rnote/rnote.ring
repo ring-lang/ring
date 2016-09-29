@@ -36,6 +36,9 @@ oSearchCase = NULL
 oSearchFilter = NULL
 oReplaceValue = NULL
 
+cSearchText = ""
+cReplaceText = ""
+
 lAskToSave = false
 
 MyApp = New qApp {
@@ -568,6 +571,7 @@ func pFind
 		}
 		oSearchValue = new qlineedit(oSearch)
 		{
+			setText(cSearchText)
 			setReturnPressedEvent("pFindValue()")
 		}
 		oLayout1 = new qHBoxLayout(oSearch)
@@ -580,6 +584,9 @@ func pFind
 			setText("Replace with ")
 		}
 		oReplaceValue = new qlineedit(oSearch)
+		{
+			setText(cReplaceText)
+		}
 
 		oLayout2 = new qHBoxLayout(oSearch)
 		{
@@ -700,6 +707,9 @@ Func pReplaceAll
 Func pSearchClose
 	oSearch.close() 
 	oSearch = NULL
+	cSearchText = oSearchValue.text()
+	cReplaceText = oReplaceValue.text()
+
 
 func pSearchKeyPress
 	if oSearchFilter.getKeyCode() = Qt_Key_Escape
