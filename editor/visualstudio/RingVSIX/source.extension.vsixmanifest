@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="d04d94b6-a45c-43fb-966e-6d6f0c3786a6" Version="1.0" Language="en-US" Publisher="Ring Team" />
+    <DisplayName>RingForVS</DisplayName>
+    <Description xml:space="preserve">Supporting Ring Programming Language in Visual Studio</Description>
+    <MoreInfo>http://ring-lang.net</MoreInfo>
+    <Icon>Templates\Projects\Ring\RingProject.ico</Icon>
+    <PreviewImage>Screenshot_4.png</PreviewImage>
+    <Tags>Ring</Tags>
+  </Metadata>
+  <Installation InstalledByMsi="false">
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0]" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency Id="Microsoft.VisualStudio.MPF.12.0" DisplayName="Visual Studio MPF 12.0" d:Source="Installed" Version="[12.0]" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    <Asset Type="Microsoft.VisualStudio.ItemTemplate" Path="Output\ItemTemplates" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="Output\ProjectTemplates" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="Ring.VisualStudio.Editor" Path="|Ring.VisualStudio.Editor|" />
+  </Assets>
+</PackageManifest>
