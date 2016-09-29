@@ -271,6 +271,7 @@ MyApp = New qApp {
 					setclickevent("pProject()")
 				}
 				addaction(oAction)			
+				addseparator()	
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+u"))
 					setbtnimage(self,"image/source.png")
@@ -278,6 +279,7 @@ MyApp = New qApp {
 					settext("Source Code")
 				}
 				addaction(oAction)	
+				addseparator()	
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+w"))
 					setbtnimage(self,"image/richtext.png")
@@ -319,7 +321,10 @@ MyApp = New qApp {
 						settext(item[1])
 						setclickevent("pBrowserLink("+x+")")
 					}
-					addaction(oAction)		
+					addaction(oAction)	
+					if x != len(aBrowserLinks)
+						addseparator()	
+					ok
 				next
 			}
 
