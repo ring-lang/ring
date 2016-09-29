@@ -12,5 +12,5 @@ Just Copy the files to the next path
 "C:\Users\{UserName}\AppData\Roaming\Sublime Text 2\Packages\User\"
 
 The file ring.sublime-build includes the next line
-"cmd": ["C:\\ring\\ring.exe","$file"],
+"cmd": ["B:\\ring\\bin\\ring.exe","$file"],
 You can modify it according to the ring.exe path in your machine 
