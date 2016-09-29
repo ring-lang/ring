@@ -330,16 +330,19 @@ MyApp = New qApp {
 
 			subHelp { 
 
-				oAction = new qAction(win1) {
-					settext("Language Reference (CHM)")
-					setclickevent("pOpenCHM()")
+				subHelpLF = addmenu("Language Reference")
+				subHelpLF { 
+					oAction = new qAction(win1) {
+						settext("CHM File")
+						setclickevent("pOpenCHM()")
+					}
+					addaction(oAction)
+					oAction = new qAction(win1) {
+						settext("PDF File")
+						setclickevent("pOpenPDF()")
+					}
+					addaction(oAction)
 				}
-				addaction(oAction)
-				oAction = new qAction(win1) {
-					settext("Language Reference (PDF)")
-					setclickevent("pOpenPDF()")
-				}
-				addaction(oAction)
 				addseparator()
 				subHelpTools = addmenu("Development Tools")
 				subHelpTools { 
