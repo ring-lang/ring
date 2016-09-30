@@ -3,17 +3,13 @@
 
 Load "guilib.ring"
 
-if isandroid()
-    nScale = 3
-else
-    nScale = 1
-ok
-
 app1 = new qApp
 
 if isandroid()
+    nScale = 3
     mypic = new QPixmap(":/resources/cardsimage")
 else
+    nScale = 1
     mypic = new QPixmap("cards.jpg")
 ok
 
