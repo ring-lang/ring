@@ -303,7 +303,7 @@ Output
 Why the list index start from 1 in Ring?
 ========================================
 
-It\’s about how we count in the real world, when we have three apples in our hand
+It\'s about how we count in the real world, when we have three apples in our hand
 
 we say 1 2 3 
 
@@ -331,7 +331,7 @@ for the second item myarray[1] because myarray + 1 result will point to the seco
 
 In Low Level languages or languages near to the machine it\'s good to be like this
 
-But for high level language designed for applications it\’s better to be natural
+But for high level language designed for applications it\'s better to be natural
 
 Example
 
@@ -831,7 +831,7 @@ At first remember that you can check strings using '=' operator directly.
 
 if the two strings are the same then it returns 0
 
-abc and bcd aren’t the same. in the second line it returns -1 and in the third line it returns 1
+abc and bcd aren't the same. in the second line it returns -1 and in the third line it returns 1
 
 In the second line we compare between "abc" and "bcd"
 
@@ -1030,14 +1030,14 @@ if you want to check for the error, just use Try/Catch/End
 	Try
 		see x
 	Catch
-		See "Sorry, We can’t use x!" + nl
+		See "Sorry, We can't use x!" + nl
 	Done
 
 Output
 
 .. code-block:: none
 
-	Sorry, We can’t use x!
+	Sorry, We can't use x!
 
 Now we will talk about NULL and ISNULL()
 
@@ -1142,9 +1142,9 @@ if we want to print other characters we can use the char(nASCII) function
 	    char(77)            # print M
 
 .. index:: 
-	pair: Frequently Asked Questions; Why we don’t use () after the qApp class name?
+	pair: Frequently Asked Questions; Why we don't use () after the qApp class name?
 
-Why we don’t use () after the qApp class name?
+Why we don't use () after the qApp class name?
 ==============================================
 
 When we use RingQt to create GUI application, we uses () after the 
@@ -1154,7 +1154,7 @@ class name when we create new objects for example.
 
 	new qWidget() { setWindowTitle("Hello World") resize(400,400) show() }
 
-but before doing that we create an object from the qApp class and we don’t use () after that
+but before doing that we create an object from the qApp class and we don't use () after that
 
 .. code-block:: ring
 
@@ -1173,7 +1173,7 @@ Using () after the class name means calling the init() method in the class and p
 
 If we used () while no init() method in the class we get the expected error message.
 
-The class qApp don’t have this method while the other classes have it because they need it to 
+The class qApp don't have this method while the other classes have it because they need it to 
 create an object using a function that return a pointer to that object and this pointer will
 be stored in an attribute called pObject, for more information see ring_qt.ring file
 which contains the classes.

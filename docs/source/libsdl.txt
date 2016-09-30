@@ -10,7 +10,7 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.
 
 .. tip:: RingLibSDL is not distributed with the binary releases for desktop which uses RingAllegro
 
-.. note:: To use RingLibSDL, Just download the 'Ring for Android Games using LibSDL' release.
+.. note:: To use RingLibSDL, Check ring/android/ringlibsdl folder.
 
 .. index:: 
 	pair: RingLibSDL; Create Window
