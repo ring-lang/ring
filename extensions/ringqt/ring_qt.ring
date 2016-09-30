@@ -1212,7 +1212,7 @@ Class QHBoxLayout
 	Func addLayout P1
 		return QHBoxLayout_addLayout(pObject,GetObjectPointerFromRingObject(P1))
 
-Class QTextEdit from QWidget
+Class QTextEdit from QAbstractScrollArea
 
 	pObject
 
@@ -11902,7 +11902,7 @@ Class QJsonValue
 		pTempObj.pObject = QJsonValue_fromVariant(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
-Class QPlainTextEdit from QWidget
+Class QPlainTextEdit from QAbstractScrollArea
 
 	pObject
 

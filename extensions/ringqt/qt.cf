@@ -906,7 +906,7 @@ void addLayout(QLayout *)
 <class>
 name: QTextEdit
 para: QWidget *
-parent: QWidget
+parent: QAbstractScrollArea
 codename: GTextEdit
 passvmpointer
 </class>
@@ -5000,7 +5000,7 @@ QJsonValue fromVariant(QVariant  variant)
 <class>
 name: QPlainTextEdit
 para: QWidget *
-parent: QWidget
+parent: QAbstractScrollArea
 codename: GPlainTextEdit
 passvmpointer
 </class>
