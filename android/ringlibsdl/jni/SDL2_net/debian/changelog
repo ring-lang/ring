@@ -1,0 +1,212 @@
+libsdl2-net (2.0.0) unstable; urgency=low
+
+  * Updated library version to 2.0 for consistency with SDL 2.0
+
+ -- Sam Lantinga <slouken@libsdl.org>  Tue, 26 Feb 2013 15:48:41 -0800
+
+libsdl2-net (1.2.9) unstable; urgency=low
+
+  * sdl-net for SDL2. Initial release.
+
+ -- Sam Lantinga <slouken@libsdl.org>  Fri, 15 Feb 2013 13:09:44 -0800
+
+sdl-net1.2 (1.2.7-5) unstable; urgency=low
+
+  * Add also 'Multi-Arch: same' to -dev package, since the headers are all
+    architecture-independent. Thanks to Steve Langasek. (Closes: #652873)
+
+ -- Manuel A. Fernandez Montecelo <manuel.montezelo@gmail.com>  Wed, 21 Dec 2011 18:43:32 +0000
+
+sdl-net1.2 (1.2.7-4) unstable; urgency=low
+
+  * Remove previous uploader, inactive for years
+  * Switch to debhelper compat level v9
+  * Build for multiarch
+  * Quell lintian warnings:
+    - binary-control-field-duplicates-source (remove field from binary package
+      libsdl-net1.2)
+
+ -- Manuel A. Fernandez Montecelo <manuel.montezelo@gmail.com>  Mon, 19 Dec 2011 00:17:25 +0000
+
+sdl-net1.2 (1.2.7-3) unstable; urgency=low
+
+  * New maintainer
+    - Make package as part of SDL team
+    - Add myself to uploaders, and setting DM-Upload-Allowed: yes
+  * Incorporated changes from Roman Vasiyarov <rvasiyarov@gmail.com>:
+    - Added pkg-config files (Closes: #631085)
+  * Bump Standards-Version to 3.9.2 (no changes needed)
+  * Changed debhelper compat to level 8 (level 4 before):
+    - Updated dependency on debhelper to (>= 8.0.0)
+    - Simplify a lot debian/rules file by leveraging debhelper capabilities,
+      only acting when deviating from auto behaviour
+  * Added 'source/format', with '3.0 (quilt)'
+    - Removed dependency on dpatch
+    - Convert patches, documenting and refreshing them
+  * Convert ${pkg}.dirs and ${pkg}.files into ${pkg}.install
+  * Updating 'watch' file to version=3
+  * Added Vcs-Git and Vcs-Browser in 'control' file
+  * Modifications to dependencies and build options:
+    - Depending on newer dpkg-dev
+    - Depending on SDL >= 1.2.14 (instead of misc old versions)
+    - Removed Conflict dependencies on libsdl-net1.1. It's very old and not
+      present in any of the last Debian releases, long unsupported.
+  * debian/copyright: updated and converted to DEP-5
+  * Stop shipping .la files (Closes: #633328).  The command given in the bug
+    report to remove dependency_libs is not working, and I don't think that any
+    Debian package use .la anyway -- 0 rdepends for the -dev package.
+
+ -- Manuel A. Fernandez Montecelo <manuel.montezelo@gmail.com>  Sun, 04 Dec 2011 10:12:42 +0000
+
+sdl-net1.2 (1.2.7-2) unstable; urgency=low
+
+  * Fix the clean rule to check for Makefile first
+
+ -- Mike Furr <mfurr@debian.org>  Thu, 30 Aug 2007 16:58:14 -0400
+
+sdl-net1.2 (1.2.7-1) unstable; urgency=low
+
+  * New upstream release (Closes: #399914, #437003)
+  * Fixed copyright file to say LGPL instead of GPL (Closes: #433475)
+  * Fixed several lintian errors (pkg is now binNMU-safe).
+  * Updated to latest standards version (no changes).
+
+ -- Mike Furr <mfurr@debian.org>  Thu, 30 Aug 2007 16:32:29 -0400
+
+sdl-net1.2 (1.2.5-7) unstable; urgency=low
+
+  * Argh, added semicolon patch to list of patches to actually apply
+  * Hand verified resulting package has this fix!
+
+ -- Mike Furr <mfurr@debian.org>  Wed, 29 Mar 2006 15:33:39 -0500
+
+sdl-net1.2 (1.2.5-6) unstable; urgency=low
+
+  * Accidentally dropped semicolon patch when I switched to dpatch.
+    Added patch back to remove ; at end of extern block in SDL_net.h
+    (Closes: 346132)
+
+ -- Mike Furr <mfurr@debian.org>  Sun,  8 Jan 2006 15:02:27 -0500
+
+sdl-net1.2 (1.2.5-5) unstable; urgency=low
+
+  * Touch auto-* files so that make doesn't try to rebuild them
+    after they are patched by the .diff.gz (Closes: 327316)
+
+ -- Mike Furr <mfurr@debian.org>  Mon,  3 Oct 2005 22:17:12 -0400
+
+sdl-net1.2 (1.2.5-4) unstable; urgency=low
+
+  * dpatch-ification
+  * Added patch from Sam Hocevar which doesn't byteswap on big endian
+    arches when SDL_DATA_ALIGNED is true
+  * Changed comment for SDLNet_UDP_Bind to reflect implementation
+    - Since upstream has not responded to this (and seems dead), and a fair
+      number of packages use sdl-net, I don't want to change the behavior
+      just for debian, only properly document the actual behavior.
+    - (Closes: 211570)
+  * Updated libtool for kfreebsd-gnu support (Closes: 278595)
+  * Updated debian/copyright to say GPL is the license instead of copyright
+    (Closes: 290202)
+
+ -- Mike Furr <mfurr@debian.org>  Sat,  2 Jul 2005 17:51:00 -0400
+
+sdl-net1.2 (1.2.5-3) unstable; urgency=low
+
+  * Improved the package description (Closes: 209732)
+  * Added ARM to list in SDL_net.h of CPU's that are have data alignment
+    issues.  (Closes: 212570) [also forwared this upstream]
+
+ -- Mike Furr <mfurr@debian.org>  Tue,  7 Oct 2003 23:15:39 -0400
+
+sdl-net1.2 (1.2.5-2) unstable; urgency=low
+
+  * Removed illegal semicolon at end of extern "C" block
+    in SDL_net.h.  (Closes: 204186) 
+
+ -- Mike Furr <mfurr@debian.org>  Wed,  6 Aug 2003 21:01:30 -0400
+
+sdl-net1.2 (1.2.5-1) unstable; urgency=low
+
+  * New upstream release. 
+  * Updated control's standard's version to 3.5.9
+  * Added upstream's CHANGES files to the package.
+
+ -- Mike Furr <mfurr@debian.org>  Sun, 20 Apr 2003 19:06:35 -0400
+
+sdl-net1.2 (1.2.4-3) unstable; urgency=low
+
+  * New Maintainer (Closes: 188630)
+  * control: Changed -dev package to section libdevel. 
+  * rules: updated config* handling as guided by the autotools-dev
+    README.Debian.gz
+
+ -- Mike Furr <mfurr@debian.org>  Mon, 14 Apr 2003 22:19:50 -0400
+
+sdl-net1.2 (1.2.4-2) unstable; urgency=low
+
+  * rules: changed DEB_BUILD_OPTIONS to policy 3.5.7.0
+  * control: Standards-Version: 3.5.8.0
+  * watch: added uscan watch file
+  * control: removed superfluous automake, autoconf and libtool dependencies
+
+ -- Arthur Korn <arthur@korn.ch>  Thu, 12 Dec 2002 01:07:18 +0100
+
+sdl-net1.2 (1.2.4-1) unstable; urgency=low
+
+  * New upstream release
+    - now build depends on libsdl1.2-dev (>= 1.2.4)
+
+ -- Arthur Korn <arthur@korn.ch>  Wed, 30 Oct 2002 11:25:56 +0100
+
+sdl-net1.2 (1.2.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Arthur Korn <arthur@korn.ch>  Thu, 18 Oct 2001 19:46:18 +0200
+
+sdl-net1.2 (1.2.0-5.1) unstable; urgency=low
+
+  * NMU
+  * acinclude.m4: remove AM_PATH_SDL macro
+  * configure.in: don't add SDL_LIBS to LIBS
+  * re-ran libtoolize --force-copy; aclocal; automake --foreign; autoconf
+    with libsdl1.2-dev 1.2.2-3.1 installed
+  * debian/control: update relationships with libsdl1.2-dev to (>= 1.2.2-3.1)
+
+ -- Branden Robinson <branden@debian.org>  Mon, 15 Oct 2001 13:30:48 -0500
+
+sdl-net1.2 (1.2.0-5) unstable; urgency=low
+
+  * Standards-Version 3.5.4.0, no changes necessary.
+
+ -- Arthur Korn <arthur@korn.ch>  Sun,  3 Jun 2001 18:08:31 +0200
+
+sdl-net1.2 (1.2.0-4) unstable; urgency=low
+
+  * [brownbag] /usr/lib symlinks to -dev, actual .so to the libsdl-net1.2
+  * reverted that lack-of-coffeine symptom of crap I did last time with
+    that conflict ...
+
+ -- Arthur Korn <arthur@korn.ch>  Mon,  7 May 2001 23:40:49 +0200
+
+sdl-net1.2 (1.2.0-3) unstable; urgency=low
+
+  * changed section off the -dev package to "devel" (override disparity).
+  * added missing Conflicts: libsdl-net1.1 for libsdl-net1.2
+
+ -- Arthur Korn <arthur@korn.ch>  Mon,  7 May 2001 23:05:12 +0200
+
+sdl-net1.2 (1.2.0-2) unstable; urgency=low
+
+  * changed section to "libs", correcting override disparity.
+  * added Conflicts and Replaces on libsdl-net1.1-dev (common files).
+  * so this is libsdl-net1.2 then, closes: #94455.
+
+ -- Arthur Korn <arthur@korn.ch>  Thu, 26 Apr 2001 16:38:04 +0200
+
+sdl-net1.2 (1.2.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Arthur Korn <arthur@debian.org>  Sun, 22 Apr 2001 18:07:38 +0200
