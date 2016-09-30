@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file alias="myfile4">test.ring</file>
+        <file alias="myfile5">ring_qt.ring</file>
+        <file alias="myfile6">qt.rh</file>
+        <file alias="myfile7">guilib.ring</file>
+    </qresource>
+</RCC>
