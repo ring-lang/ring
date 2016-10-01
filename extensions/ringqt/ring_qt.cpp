@@ -181,15 +181,9 @@ extern "C" {
 
 extern "C" {
 
-	
-		#define RING_DLL __declspec(dllexport)
-	
-		#define RING_DLL extern
-	
+	RING_API void ring_qt_start(RingState *pRingState);
 
-	RING_DLL void ring_qt_start(RingState *pRingState);
-
-	RING_DLL void ringlib_init(RingState *pRingState)
+	RING_API void ringlib_init(RingState *pRingState)
 	{
 
 		new QApplication(pRingState->argc,pRingState->argv);
@@ -76266,7 +76260,7 @@ RING_FUNC(ring_QFontMetrics_delete)
 	}
 }
 
-RING_DLL void ring_qt_start(RingState *pRingState)
+RING_API void ring_qt_start(RingState *pRingState)
 {
 	ring_vm_funcregister("qapp_exec",ring_QApp_exec);
 	ring_vm_funcregister("qapp_quit",ring_QApp_quit);

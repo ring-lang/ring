@@ -194,15 +194,9 @@ extern "C" {
 
 extern "C" {
 
-	#ifdef _WIN32
-		#define RING_DLL __declspec(dllexport)
-	#else
-		#define RING_DLL extern
-	#endif
+	RING_API void ring_qt_start(RingState *pRingState);
 
-	RING_DLL void ring_qt_start(RingState *pRingState);
-
-	RING_DLL void ringlib_init(RingState *pRingState)
+	RING_API void ringlib_init(RingState *pRingState)
 	{
 
 		new QApplication(pRingState->argc,pRingState->argv);
