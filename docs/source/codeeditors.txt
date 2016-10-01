@@ -1,0 +1,110 @@
+.. index:: 
+	single: Using Other Code Editors; Introduction
+
+========================
+Using Other Code Editors
+========================
+
+In the Ring/Editor folder you will find extensions for the next editors
+
+* Notepad++
+* Geany
+* Atom
+* Sublime Text 2
+* Visual Studio IDE
+
+.. index:: 
+	pair: Using Other Code Editors; Using Notepad++
+
+
+Using Notepad++
+===============
+
+Folder : ring/editor/notepad_plus_plus
+
+* Open Notepad++
+* Open the "Language" menu
+* Select "Define your language..."
+* Click "Import..."
+* select `Ring.xml`
+* Select "OK" on the "Import successful" dialog and close the "User Defined Language" dialog/panel
+* You may need to restart notepad++
+
+.. image:: editor1.png
+	:alt: Using Notepad++
+
+.. index:: 
+	pair: Using Other Code Editors; Using Geany
+
+Using Geany
+===========
+
+Folder : ring/editor/geany
+
+* Run Geany editor
+* Click on "Tools -> configuration files -> filetypes_extensions.conf"  menu
+* Add this line "Ring=*.ring;" without quotes after [Extensions]
+* In unbuntu copy file "filetypes.Ring.conf" to folder "/home/USERNAME/filetypes.Ring.conf"
+* You can run your files by pressing F5 button
+
+.. image:: editor2.png
+	:alt: Using Geany
+
+
+.. index:: 
+	pair: Using Other Code Editors; Using Atom
+
+Using Atom
+==========
+
+Folder : ring/editor/atom
+
+Just Copy the folder atom-language-ring to the next path
+"C:\Users\{UserName}\.atom\Packages"
+
+.. image:: editor3.jpg
+	:alt: Using Atom
+
+.. index:: 
+	pair: Using Other Code Editors; Using Sublime Text 2
+
+Using Sublime Text 2
+====================
+
+Folder : ring/editor/sublime text 2
+
+In the folder Sublime_Text_2 you will find the next three files
+
+1 - ring.json-tmlanguage
+
+2 - ring.sublime-build
+
+3 - ring.tmlanguage
+
+Just Copy the files to the next path
+
+"C:\Users\{UserName}\AppData\Roaming\Sublime Text 2\Packages\User\"
+
+The file ring.sublime-build includes the next line
+
+"cmd": ["B:\\ring\\bin\\ring.exe","$file"],
+
+You can modify it according to the ring.exe path in your machine 
+
+
+.. image:: editor4.jpg
+	:alt: Using Sublime Text 2
+
+
+.. index:: 
+	pair: Using Other Code Editors; Using Visual Studio IDE
+
+Using Visual Studio IDE
+=======================
+
+Folder : ring/editor/visualstudio
+
+Check the ReadMe file for installation instructions.	
+
+.. image:: editor5.png
+	:alt: Using Visual Studio
