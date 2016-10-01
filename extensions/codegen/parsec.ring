@@ -370,15 +370,10 @@ Func GenCode aList
 
 Func GenDLLStart
 	if $lNodllstartup return "" ok
-	return 	'#include "ring.h"' + nl + nl +
-		'#ifdef _WIN32' + nl +
-		"#define RING_DLL __declspec(dllexport)" + nl + 
-		'#else' + nl +
-		"#define RING_DLL extern" + nl +
-		'#endif' + nl + nl 
+	return 	'#include "ring.h"' + nl + nl
 
 Func GenFuncPrototype aList
-	cCode = "RING_DLL void "+$cLibInitFunc+"(RingState *pRingState)" + nl +
+	cCode = "RING_API void "+$cLibInitFunc+"(RingState *pRingState)" + nl +
 		"{" + nl
 	for aFunc in aList
 		if aFunc[C_FUNC_INS] = C_INS_FUNCTION OR aFunc[C_FUNC_INS] = C_INS_REGISTER
