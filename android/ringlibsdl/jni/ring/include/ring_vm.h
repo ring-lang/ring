@@ -388,6 +388,8 @@ int ring_vm_oop_ismethod ( VM *pVM,List *pList,const char *cStr ) ;
 void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer ) ;
 
 void ring_vm_oop_movetobeforeobjstate ( VM *pVM ) ;
+
+void ring_vm_oop_setthethisvariable ( VM *pVM ) ;
 /* For Better Performance */
 
 void ring_vm_pushp ( VM *pVM ) ;
@@ -605,6 +607,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_ASCOPENEWOBJ_LISTSTART 2
 #define RING_ASCOPENEWOBJ_NESTEDLISTS 3
 #define RING_ASCOPENEWOBJ_SP 4
+#define RING_ASCOPENEWOBJ_FUNCSP 10
 /* State */
 #define RING_STATE_TRYCATCH 1
 #define RING_STATE_EXIT 2
@@ -664,4 +667,6 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VM_ERROR_ASSIGNNOTVARIABLE "Error (R34) : Variable is required for the assignment operation"
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 2
+/* Variables Location */
+#define RING_VM_STATICVAR_THIS 12
 #endif

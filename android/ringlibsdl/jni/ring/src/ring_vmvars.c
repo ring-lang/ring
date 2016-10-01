@@ -32,6 +32,10 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				pList = pVM->pActiveMem ;
 			}
 			else if ( x == 2 ) {
+				/* IF obj.attribute - we did the search in local scope - pass others */
+				if ( pVM->nGetSetProperty == 1 ) {
+					continue ;
+				}
 				if ( ring_list_getsize(pVM->pObjState) == 0 ) {
 					continue ;
 				}
@@ -50,6 +54,10 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 					}
 				}
 			} else {
+				/* IF obj.attribute - we did the search in local scope - pass others */
+				if ( pVM->nGetSetProperty == 1 ) {
+					continue ;
+				}
 				pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
 			}
 			if ( ring_list_getsize(pList) < 10 ) {
@@ -109,11 +117,9 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 	} else {
 		/* Check Private Attributes */
 		if ( ring_list_getint(pList2,RING_VAR_PRIVATEFLAG) == 1 ) {
-			if ( pVM->nVarScope != RING_VARSCOPE_OBJSTATE ) {
-				if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
-					ring_vm_error2(pVM,RING_VM_ERROR_USINGPRIVATEATTRIBUTE,cStr);
-					return 0 ;
-				}
+			if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
+				ring_vm_error2(pVM,RING_VM_ERROR_USINGPRIVATEATTRIBUTE,cStr);
+				return 0 ;
 			}
 		}
 		RING_VM_STACK_SETPVALUE(pList2);

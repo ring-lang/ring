@@ -8,6 +8,7 @@ typedef struct Parser {
 	int TokensCount  ;
 	char TokenType  ;
 	const char *TokenText  ;
+	int nTokenIndex  ;
 	int nLineNumber  ;
 	int nErrorLine  ;
 	int nErrorsCount  ;
@@ -36,6 +37,10 @@ typedef struct Parser {
 	char nNoAssignment  ;
 	/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
 	char nFuncCallOnly  ;
+	/* Flag to tell { } that we are inside control structure (if/for/while/...) expression */
+	int nControlStructureExpr  ;
+	/* Flag - We started using braces {} in control structure - we have { */
+	int nControlStructureBrace  ;
 	/* Ring State */
 	RingState *pRingState  ;
 } Parser ;
@@ -117,6 +122,10 @@ int ring_parser_passepslion ( Parser *pParser ) ;
 int ring_parser_namedotname ( Parser *pParser ) ;
 
 int ring_parser_ppmm ( Parser *pParser ) ;
+
+int ring_parser_csexpr ( Parser *pParser ) ;
+
+int ring_parser_csbraceend ( Parser *pParser ) ;
 /* Check Token */
 
 void ring_parser_loadtoken ( Parser *pParser ) ;
@@ -138,12 +147,16 @@ int ring_parser_isendline ( Parser *pParser ) ;
 int ring_parser_settoken ( Parser *pParser,int x ) ;
 
 int ring_parser_isanykeyword ( Parser *pParser ) ;
+
+int ring_parser_isoperator2 ( Parser *pParser,SCANNER_OPERATOR nType ) ;
 /* Display Errors */
 
 void ring_parser_error ( Parser *pParser,const char *cStr ) ;
 /* Generate Code */
 
 void ring_parser_gencall ( Parser *pParser,int nCallMethod ) ;
+
+void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod ) ;
 /* MACRO */
 #define RING_PARSER_IGNORENEWLINE while(ring_parser_epslion(pParser));
 #define RING_PARSER_PASSNEWLINE while(ring_parser_passepslion(pParser));

@@ -198,6 +198,10 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		ring_execute("ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,argc,argv);
 		exit(0);
 	}
+	if ( ring_fexists("ring.ringo") && argc == 1 ) {
+		ring_execute("ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,argc,argv);
+		exit(0);
+	}
 	/* Print Version */
 	if ( (argc == 1) || (cStr == NULL) ) {
 		ring_print_line();
@@ -228,6 +232,11 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 RING_API void ring_state_runfile ( RingState *pRingState,const char *cFileName )
 {
 	ring_scanner_readfile(cFileName,pRingState);
+}
+
+RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName )
+{
+	ring_scanner_runobjfile(cFileName,pRingState);
 }
 #if RING_TESTUNITS
 

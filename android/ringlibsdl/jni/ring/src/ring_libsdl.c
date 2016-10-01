@@ -1,18 +1,16 @@
 #include "ring.h"
 
-#ifdef _WIN32
-#define RING_DLL __declspec(dllexport)
-#else
-#define RING_DLL extern
-#endif
-
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
 #include "SDL_syswm.h"
-#include "SDL_image.h"
+#include "SDL_image.h"
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "SDL_net.h"
+#include "sdl2_gfxPrimitives.h"
+#include "sdl2_gfx\SDL2_gfxPrimitives.c"
+#include "sdl2_gfx\SDL2_rotozoom.c"
+
 RING_FUNC(ring_sdl_new_sdl_assert_data)
 {
 	SDL_assert_data *pMyPointer ;
@@ -16932,7 +16930,49 @@ RING_FUNC(ring_SDLNet_SocketReady)
 		free(RING_API_GETCPOINTER(1,"TCPsocket"));
 }
 
-RING_DLL void ringlib_init(RingState *pRingState)
+
+RING_FUNC(ring_circleRGBA)
+{
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(circleRGBA((SDL_Renderer *) RING_API_GETCPOINTER(1,"SDL_Renderer"), (Sint16 ) RING_API_GETNUMBER(2), (Sint16 ) RING_API_GETNUMBER(3), (Sint16 ) RING_API_GETNUMBER(4), (Uint8 ) RING_API_GETNUMBER(5), (Uint8 ) RING_API_GETNUMBER(6), (Uint8 ) RING_API_GETNUMBER(7), (Uint8 ) RING_API_GETNUMBER(8)));
+}
+
+RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
 	ring_vm_funcregister("sdl_delay",ring_SDL_Delay);
@@ -17514,6 +17554,7 @@ RING_DLL void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdlnet_udp_delsocket",ring_SDLNet_UDP_DelSocket);
 	ring_vm_funcregister("sdlnet_checksockets",ring_SDLNet_CheckSockets);
 	ring_vm_funcregister("sdlnet_socketready",ring_SDLNet_SocketReady);
+	ring_vm_funcregister("circlergba",ring_circleRGBA);
 	ring_vm_funcregister("sdl_new_sdl_assert_data",ring_sdl_new_sdl_assert_data);
 	ring_vm_funcregister("sdl_destroy_sdl_assert_data",ring_sdl_destroy_sdl_assert_data);
 	ring_vm_funcregister("sdl_new_sdl_version",ring_sdl_new_sdl_version);
