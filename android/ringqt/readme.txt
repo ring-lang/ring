@@ -40,10 +40,11 @@ Comments
 	add them (create projects with many files).
 
 (2) The next functions are missing from this Ring edition
-	* Database (ODBC & MySQL)
+	* Database (ODBC, SQLite & MySQL)
 	* Security and Internet functions (LibCurl & OpenSSL)
 	* RingAllegro (Allegro Library)
+	* RingLibSDL (LibSDL Library)
 	Just use Qt Classes through RingQt
 	For database access use the QSqlDatabase Class
 	Note: All of the missing libraries ((LibCurl, OpenSSL & Allegro) can be compiled for Android.
-	      But they are not included in this distribution.
+	      But they are not included in this Qt project.
