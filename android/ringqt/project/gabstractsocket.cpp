@@ -8,6 +8,7 @@ extern "C" {
 GAbstractSocket::GAbstractSocket(QAbstractSocket::SocketType x,QObject *parent,VM *pVM)  : QAbstractSocket(x,parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cconnectedEvent,"");
 	strcpy(this->cdisconnectedEvent,"");
 	strcpy(this->cerrorEvent,"");
@@ -23,6 +24,20 @@ GAbstractSocket::GAbstractSocket(QAbstractSocket::SocketType x,QObject *parent,V
 	QObject::connect(this, SIGNAL(stateChanged(QAbstractSocket::SocketState)),this, SLOT(stateChangedSlot()));
 
 }
+
+GAbstractSocket::~GAbstractSocket()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GAbstractSocket::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GAbstractSocket::setconnectedEvent(const char *cStr)
 {
@@ -65,6 +80,7 @@ void GAbstractSocket::connectedSlot()
 {
 	if (strcmp(this->cconnectedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cconnectedEvent);
 }
 
@@ -72,6 +88,7 @@ void GAbstractSocket::disconnectedSlot()
 {
 	if (strcmp(this->cdisconnectedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cdisconnectedEvent);
 }
 
@@ -79,6 +96,7 @@ void GAbstractSocket::errorSlot()
 {
 	if (strcmp(this->cerrorEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cerrorEvent);
 }
 
@@ -86,6 +104,7 @@ void GAbstractSocket::hostFoundSlot()
 {
 	if (strcmp(this->chostFoundEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->chostFoundEvent);
 }
 
@@ -93,6 +112,7 @@ void GAbstractSocket::proxyAuthenticationRequiredSlot()
 {
 	if (strcmp(this->cproxyAuthenticationRequiredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cproxyAuthenticationRequiredEvent);
 }
 
@@ -100,6 +120,7 @@ void GAbstractSocket::stateChangedSlot()
 {
 	if (strcmp(this->cstateChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cstateChangedEvent);
 }
 

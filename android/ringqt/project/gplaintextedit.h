@@ -1,14 +1,14 @@
 
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
-#ifndef GTEXTEDIT_H
-#define GTEXTEDIT_H
+#ifndef GPLAINTEXTEDIT_H
+#define GPLAINTEXTEDIT_H
 #include <QApplication>
-#include <QTextEdit>
+#include <QPlainTextEdit>
 extern "C" {
 #include "ring.h"
 }
 
-class GTextEdit : public QTextEdit
+class GPlainTextEdit : public QPlainTextEdit
 {
 
   Q_OBJECT
@@ -19,39 +19,45 @@ class GTextEdit : public QTextEdit
 
     List *pParaList;
 
+    char cblockCountChangedEvent[100];
     char ccopyAvailableEvent[100];
-    char ccurrentCharFormatChangedEvent[100];
     char ccursorPositionChangedEvent[100];
+    char cmodificationChangedEvent[100];
     char credoAvailableEvent[100];
     char cselectionChangedEvent[100];
     char ctextChangedEvent[100];
     char cundoAvailableEvent[100];
+    char cupdateRequestEvent[100];
 
 
-    GTextEdit(QWidget *parent,VM *pVM );
+    GPlainTextEdit(QWidget *parent,VM *pVM );
 
-    ~GTextEdit();
+    ~GPlainTextEdit();
 
     void geteventparameters(void) ;
 
+    void setblockCountChangedEvent(const char *cStr);
     void setcopyAvailableEvent(const char *cStr);
-    void setcurrentCharFormatChangedEvent(const char *cStr);
     void setcursorPositionChangedEvent(const char *cStr);
+    void setmodificationChangedEvent(const char *cStr);
     void setredoAvailableEvent(const char *cStr);
     void setselectionChangedEvent(const char *cStr);
     void settextChangedEvent(const char *cStr);
     void setundoAvailableEvent(const char *cStr);
+    void setupdateRequestEvent(const char *cStr);
 
 
   public slots:
 
+    void blockCountChangedSlot();
     void copyAvailableSlot();
-    void currentCharFormatChangedSlot();
     void cursorPositionChangedSlot();
+    void modificationChangedSlot();
     void redoAvailableSlot();
     void selectionChanged();
     void textChangedSlot();
     void undoAvailableSlot();
+    void updateRequestSlot();
 
 };
 

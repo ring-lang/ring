@@ -17,11 +17,17 @@ class GTabWidget : public QTabWidget
 
     VM *pVM;
 
+    List *pParaList;
+
     char ccurrentChangedEvent[100];
     char ctabCloseRequestedEvent[100];
 
 
     GTabWidget(QWidget *parent,VM *pVM );
+
+    ~GTabWidget();
+
+    void geteventparameters(void) ;
 
     void setcurrentChangedEvent(const char *cStr);
     void settabCloseRequestedEvent(const char *cStr);

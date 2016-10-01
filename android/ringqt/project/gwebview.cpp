@@ -5,9 +5,10 @@ extern "C" {
 }
 #include "gwebview.h"
 
-GWebView::GWebView(QObject *parent,VM *pVM)  : QWebView(parent)
+GWebView::GWebView(QWidget *parent,VM *pVM)  : QWebView(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cloadFinishedEvent,"");
 	strcpy(this->cloadProgressEvent,"");
 	strcpy(this->cloadStartedEvent,"");
@@ -23,6 +24,20 @@ GWebView::GWebView(QObject *parent,VM *pVM)  : QWebView(parent)
 	QObject::connect(this, SIGNAL(urlChanged(QUrl)),this, SLOT(urlChangedSlot()));
 
 }
+
+GWebView::~GWebView()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GWebView::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GWebView::setloadFinishedEvent(const char *cStr)
 {
@@ -65,6 +80,7 @@ void GWebView::loadFinishedSlot()
 {
 	if (strcmp(this->cloadFinishedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cloadFinishedEvent);
 }
 
@@ -72,6 +88,7 @@ void GWebView::loadProgressSlot()
 {
 	if (strcmp(this->cloadProgressEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cloadProgressEvent);
 }
 
@@ -79,6 +96,7 @@ void GWebView::loadStartedSlot()
 {
 	if (strcmp(this->cloadStartedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cloadStartedEvent);
 }
 
@@ -86,6 +104,7 @@ void GWebView::selectionChangedSlot()
 {
 	if (strcmp(this->cselectionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cselectionChangedEvent);
 }
 
@@ -93,6 +112,7 @@ void GWebView::titleChangedSlot()
 {
 	if (strcmp(this->ctitleChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctitleChangedEvent);
 }
 
@@ -100,6 +120,7 @@ void GWebView::urlChangedSlot()
 {
 	if (strcmp(this->curlChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->curlChangedEvent);
 }
 

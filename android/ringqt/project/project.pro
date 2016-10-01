@@ -41,6 +41,10 @@ SOURCES +=   \
     gtcpsocket.cpp \
     gallevents.cpp \
     gnetworkaccessmanager.cpp \
+    highlighter.cpp \
+    gthread.cpp \
+    gplaintextedit.cpp \
+    gheaderview.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -70,7 +74,11 @@ HEADERS  += \
     gabstractsocket.h \
     gtcpsocket.h \
     gallevents.h \
-    gnetworkaccessmanager.h
+    gnetworkaccessmanager.h \
+    highlighter.h \
+    gthread.h \
+    gplaintextedit.h \
+    gheaderview.h
 
 
 CONFIG += mobility

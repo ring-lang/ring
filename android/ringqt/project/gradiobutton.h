@@ -17,6 +17,8 @@ class GRadioButton : public QRadioButton
 
     VM *pVM;
 
+    List *pParaList;
+
     char cclickedEvent[100];
     char cpressedEvent[100];
     char creleasedEvent[100];
@@ -24,6 +26,10 @@ class GRadioButton : public QRadioButton
 
 
     GRadioButton(QWidget *parent,VM *pVM );
+
+    ~GRadioButton();
+
+    void geteventparameters(void) ;
 
     void setclickedEvent(const char *cStr);
     void setpressedEvent(const char *cStr);

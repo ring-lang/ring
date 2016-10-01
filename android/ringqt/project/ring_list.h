@@ -109,21 +109,23 @@ RING_API int ring_list_findstring ( List *pList,const char *str,int nColumn ) ;
 RING_API int ring_list_finddouble ( List *pList,double nNum1,int nColumn ) ;
 
 RING_API int ring_list_findpointer ( List *pList,void *pPointer ) ;
+
+RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute ) ;
 /* Sort and Binary Search */
 
-RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn ) ;
+RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
 
-RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn ) ;
+RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
 
-RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn ) ;
+RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn,const char *cAttribute ) ;
 
-RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColumn ) ;
+RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColumn,const char *cAttribute ) ;
 
 RING_API void ring_list_swap ( List *pList,int x,int y ) ;
 
-RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn ) ;
+RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
 
-RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn ) ;
+RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
 /* List Items to Array */
 
 RING_API void ring_list_genarray ( List *pList ) ;
@@ -155,4 +157,6 @@ RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem ) ;
 #define ring_list_getstringobject(pList,index) ( ring_item_getstring(ring_list_getitem(pList,index)) )
 #define ring_list_getstringsize(pList,index) ( ring_string_size(ring_item_getstring(ring_list_getitem(pList,index))) )
 #define ring_list_getsize(x) (x->nSize)
+#define RING_VM_LISTOFOBJS_FINDSTRING 1
+#define RING_VM_LISTOFOBJS_FINDNUMBER 0
 #endif

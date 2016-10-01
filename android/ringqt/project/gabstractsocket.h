@@ -17,6 +17,8 @@ class GAbstractSocket : public QAbstractSocket
 
     VM *pVM;
 
+    List *pParaList;
+
     char cconnectedEvent[100];
     char cdisconnectedEvent[100];
     char cerrorEvent[100];
@@ -26,6 +28,10 @@ class GAbstractSocket : public QAbstractSocket
 
 
     GAbstractSocket(QAbstractSocket::SocketType x,QObject *parent,VM *pVM );
+
+    ~GAbstractSocket();
+
+    void geteventparameters(void) ;
 
     void setconnectedEvent(const char *cStr);
     void setdisconnectedEvent(const char *cStr);

@@ -17,10 +17,16 @@ class GPushButton : public QPushButton
 
     VM *pVM;
 
+    List *pParaList;
+
     char cClickEvent[100];
 
 
     GPushButton(QWidget *parent,VM *pVM );
+
+    ~GPushButton();
+
+    void geteventparameters(void) ;
 
     void setClickEvent(const char *cStr);
 

@@ -17,6 +17,8 @@ class GIODevice : public QIODevice
 
     VM *pVM;
 
+    List *pParaList;
+
     char caboutToCloseEvent[100];
     char cbytesWrittenEvent[100];
     char creadChannelFinishedEvent[100];
@@ -24,6 +26,10 @@ class GIODevice : public QIODevice
 
 
     GIODevice(QObject *parent,VM *pVM );
+
+    ~GIODevice();
+
+    void geteventparameters(void) ;
 
     void setaboutToCloseEvent(const char *cStr);
     void setbytesWrittenEvent(const char *cStr);

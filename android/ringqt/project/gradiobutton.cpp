@@ -8,6 +8,7 @@ extern "C" {
 GRadioButton::GRadioButton(QWidget *parent,VM *pVM)  : QRadioButton(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cclickedEvent,"");
 	strcpy(this->cpressedEvent,"");
 	strcpy(this->creleasedEvent,"");
@@ -19,6 +20,20 @@ GRadioButton::GRadioButton(QWidget *parent,VM *pVM)  : QRadioButton(parent)
 	QObject::connect(this, SIGNAL(toggled(bool)),this, SLOT(toggledSlot()));
 
 }
+
+GRadioButton::~GRadioButton()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GRadioButton::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GRadioButton::setclickedEvent(const char *cStr)
 {
@@ -49,6 +64,7 @@ void GRadioButton::clickedSlot()
 {
 	if (strcmp(this->cclickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cclickedEvent);
 }
 
@@ -56,6 +72,7 @@ void GRadioButton::pressedSlot()
 {
 	if (strcmp(this->cpressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cpressedEvent);
 }
 
@@ -63,6 +80,7 @@ void GRadioButton::releasedSlot()
 {
 	if (strcmp(this->creleasedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creleasedEvent);
 }
 
@@ -70,6 +88,7 @@ void GRadioButton::toggledSlot()
 {
 	if (strcmp(this->ctoggledEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctoggledEvent);
 }
 

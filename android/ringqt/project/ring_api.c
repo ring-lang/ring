@@ -19,7 +19,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("len",ring_vmlib_len);
 	ring_vm_funcregister("add",ring_vmlib_add);
 	ring_vm_funcregister("del",ring_vmlib_del);
-	ring_vm_funcregister("get",ring_vmlib_get);
+	ring_vm_funcregister("sysget",ring_vmlib_get);
 	ring_vm_funcregister("clock",ring_vmlib_clock);
 	ring_vm_funcregister("lower",ring_vmlib_lower);
 	ring_vm_funcregister("upper",ring_vmlib_upper);
@@ -35,6 +35,8 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("timelist",ring_vmlib_timelist);
 	ring_vm_funcregister("adddays",ring_vmlib_adddays);
 	ring_vm_funcregister("diffdays",ring_vmlib_diffdays);
+	ring_vm_funcregister("version",ring_vmlib_version);
+	ring_vm_funcregister("clockspersecond",ring_vmlib_clockspersecond);
 	/* Check Data Type */
 	ring_vm_funcregister("isstring",ring_vmlib_isstring);
 	ring_vm_funcregister("isnumber",ring_vmlib_isnumber);
@@ -82,6 +84,10 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("callgc",ring_vmlib_callgc);
 	ring_vm_funcregister("varptr",ring_vmlib_varptr);
 	ring_vm_funcregister("intvalue",ring_vmlib_intvalue);
+	ring_vm_funcregister("object2pointer",ring_vmlib_object2pointer);
+	ring_vm_funcregister("pointer2object",ring_vmlib_pointer2object);
+	ring_vm_funcregister("nullpointer",ring_vmlib_nullpointer);
+	ring_vm_funcregister("space",ring_vmlib_space);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -183,6 +189,11 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 				RING_API_ERROR(RING_API_BADPARATYPE);
 				return NULL ;
 			}
+			else {
+				if ( strcmp(ring_list_getstring(pList,2),"NULLPOINTER") == 0 ) {
+					return NULL ;
+				}
+			}
 			RING_API_ERROR(RING_API_NULLPOINTER);
 			return NULL ;
 		}
@@ -238,6 +249,10 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
 			return &(pItem->data.iNumber) ;
 		}
 	}
+	else if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_STRING ) {
+		pItem = ring_list_getitem(pList,RING_VAR_VALUE);
+		return pItem->data.pString->cStr ;
+	}
 	return NULL ;
 }
 
@@ -263,6 +278,18 @@ RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
 		pItem = ring_list_getitem(pList,RING_VAR_VALUE);
 		pItem->data.dNumber = (double) pItem->data.iNumber ;
 	}
+}
+
+RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cType )
+{
+	/* create sub list */
+	pList = ring_list_newlist(pList);
+	/* The variable value will be a list contains the pointer */
+	ring_list_addpointer(pList,pGeneral);
+	/* Add the pointer type */
+	ring_list_addstring(pList,cType);
+	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
+	ring_list_addint(pList,2);
 }
 /*
 **  Library 
@@ -717,6 +744,16 @@ void ring_vmlib_diffdays ( void *pPointer )
 	RING_API_ERROR(RING_API_BADPARATYPE);
 	return ;
 }
+
+void ring_vmlib_version ( void *pPointer )
+{
+	RING_API_RETSTRING(RING_VERSION);
+}
+
+void ring_vmlib_clockspersecond ( void *pPointer )
+{
+	RING_API_RETNUMBER(CLOCKS_PER_SEC);
+}
 /* Check Data Type */
 
 void ring_vmlib_isstring ( void *pPointer )
@@ -980,7 +1017,12 @@ void ring_vmlib_str2list ( void *pPointer )
 		for ( x = 0 ; x < nSize ; x++ ) {
 			if ( cStr[x] == '\n' ) {
 				if ( x > nStart ) {
-					ring_list_addstring2(pList,cStr+nStart,x-nStart);
+					if ( cStr[x-1] == '\r' ) {
+						ring_list_addstring2(pList,cStr+nStart,x-nStart-1);
+					}
+					else {
+						ring_list_addstring2(pList,cStr+nStart,x-nStart);
+					}
 				} else {
 					ring_list_addstring(pList,"");
 				}
@@ -1137,6 +1179,7 @@ void ring_vmlib_trim ( void *pPointer )
 			cNewStr[x-nPos1] = cStr[x] ;
 		}
 		RING_API_RETSTRING2(cNewStr,nPos2-nPos1+1);
+		free( cNewStr ) ;
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -1525,6 +1568,53 @@ void ring_vmlib_intvalue ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1);
 		ring_vm_api_intvalue(pPointer,cStr);
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vmlib_object2pointer ( void *pPointer )
+{
+	List *pList  ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISLIST(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+	pList = RING_API_GETLIST(1) ;
+	RING_API_RETCPOINTER((void *) pList,"OBJECTPOINTER");
+}
+
+void ring_vmlib_pointer2object ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+	RING_API_RETLIST((List *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"));
+}
+
+void ring_vmlib_nullpointer ( void *pPointer )
+{
+	RING_API_RETCPOINTER(NULL,"NULLPOINTER");
+}
+
+void ring_vmlib_space ( void *pPointer )
+{
+	String *pString  ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		pString = ring_string_new2("",RING_API_GETNUMBER(1));
+		RING_API_RETSTRING2(ring_string_get(pString),RING_API_GETNUMBER(1));
+		ring_string_delete(pString);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

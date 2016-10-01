@@ -27,6 +27,8 @@ typedef struct RingState {
 	unsigned int nPrintRules : 1  ;
 	/* set to 1 if we need to print the  current instruction executed */
 	unsigned int nPrintInstruction : 1  ;
+	/* set to 1 if we need to generate the object file (ringo) */
+	unsigned int nGenObj : 1  ;
 	/* command line parameters */
 	int argc  ;
 	char  **argv  ;
@@ -56,8 +58,11 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr ) ;
 RING_API void ring_state_main ( int argc, char *argv[] ) ;
 
 RING_API void ring_state_runfile ( RingState *pRingState,const char *cFileName ) ;
+
+RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName ) ;
 /* MACRO */
 #define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
+#define RING_VERSION "1.1"
 /* General Functions */
 
 int ring_fexists ( const char *cFileName ) ;
@@ -69,4 +74,8 @@ int ring_exefilename ( char *cDirPath ) ;
 void ring_chdir ( const char *cDir ) ;
 
 void ring_exefolder ( char *cDirPath ) ;
+
+int ring_issourcefile ( const char *cStr ) ;
+
+int ring_isobjectfile ( const char *cStr ) ;
 #endif

@@ -17,10 +17,16 @@ class GSpinBox : public QSpinBox
 
     VM *pVM;
 
+    List *pParaList;
+
     char cvalueChangedEvent[100];
 
 
     GSpinBox(QWidget *parent,VM *pVM );
+
+    ~GSpinBox();
+
+    void geteventparameters(void) ;
 
     void setvalueChangedEvent(const char *cStr);
 

@@ -25,6 +25,9 @@ void ring_vm_pushv ( VM *pVM )
 					if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
 						if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"NULL") == 0 ) {
 							ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
+							if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
+								ring_list_deletelastitem(pVM->pActiveMem);
+							}
 							return ;
 						}
 					}
@@ -215,6 +218,7 @@ void ring_vm_loadapushv ( VM *pVM )
 
 void ring_vm_newline ( VM *pVM )
 {
+	List *pList  ;
 	pVM->nLineNumber = RING_VM_IR_READI ;
 }
 
@@ -228,8 +232,6 @@ void ring_vm_freestack ( VM *pVM )
 	/* Don't clear stack if we are in Class Init (using new) */
 	if ( (pVM->nBlockFlag >= 1) ) {
 		if ( ring_list_getsize(pVM->aScopeNewObj) > 0  && (pVM->nInsideBraceFlag==0) ) {
-			pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj)) ;
-			pVM->nSP = ring_list_getint(pList,RING_ASCOPENEWOBJ_SP) ;
 			return ;
 		}
 	}

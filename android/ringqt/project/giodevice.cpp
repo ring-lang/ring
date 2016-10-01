@@ -8,6 +8,7 @@ extern "C" {
 GIODevice::GIODevice(QObject *parent,VM *pVM)  : QIODevice(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->caboutToCloseEvent,"");
 	strcpy(this->cbytesWrittenEvent,"");
 	strcpy(this->creadChannelFinishedEvent,"");
@@ -19,6 +20,20 @@ GIODevice::GIODevice(QObject *parent,VM *pVM)  : QIODevice(parent)
 	QObject::connect(this, SIGNAL(readyRead()),this, SLOT(readyReadSlot()));
 
 }
+
+GIODevice::~GIODevice()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GIODevice::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GIODevice::setaboutToCloseEvent(const char *cStr)
 {
@@ -49,6 +64,7 @@ void GIODevice::aboutToCloseSlot()
 {
 	if (strcmp(this->caboutToCloseEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->caboutToCloseEvent);
 }
 
@@ -56,6 +72,7 @@ void GIODevice::bytesWrittenSlot()
 {
 	if (strcmp(this->cbytesWrittenEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbytesWrittenEvent);
 }
 
@@ -63,6 +80,7 @@ void GIODevice::readChannelFinishedSlot()
 {
 	if (strcmp(this->creadChannelFinishedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creadChannelFinishedEvent);
 }
 
@@ -70,6 +88,7 @@ void GIODevice::readyReadSlot()
 {
 	if (strcmp(this->creadyReadEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creadyReadEvent);
 }
 

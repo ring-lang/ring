@@ -17,6 +17,8 @@ class GListWidget : public QListWidget
 
     VM *pVM;
 
+    List *pParaList;
+
     char ccurrentItemChangedEvent[100];
     char ccurrentRowChangedEvent[100];
     char ccurrentTextChangedEvent[100];
@@ -30,6 +32,10 @@ class GListWidget : public QListWidget
 
 
     GListWidget(QWidget *parent,VM *pVM );
+
+    ~GListWidget();
+
+    void geteventparameters(void) ;
 
     void setcurrentItemChangedEvent(const char *cStr);
     void setcurrentRowChangedEvent(const char *cStr);

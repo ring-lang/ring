@@ -17,10 +17,16 @@ class GProgressBar : public QProgressBar
 
     VM *pVM;
 
+    List *pParaList;
+
     char cvalueChangedEvent[100];
 
 
     GProgressBar(QWidget *parent,VM *pVM );
+
+    ~GProgressBar();
+
+    void geteventparameters(void) ;
 
     void setvalueChangedEvent(const char *cStr);
 

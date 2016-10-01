@@ -17,17 +17,23 @@ class GNetworkAccessManager : public QNetworkAccessManager
 
     VM *pVM;
 
+    List *pParaList;
+
     char cfinishedEvent[100];
 
 
     GNetworkAccessManager(QObject *parent,VM *pVM );
+
+    ~GNetworkAccessManager();
+
+    void geteventparameters(void) ;
 
     void setfinishedEvent(const char *cStr);
 
 
   public slots:
 
-    void finishedSlot(QNetworkReply*);
+    void finishedSlot(QNetworkReply *p1);
 
 };
 

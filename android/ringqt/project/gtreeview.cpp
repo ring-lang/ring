@@ -8,6 +8,7 @@ extern "C" {
 GTreeView::GTreeView(QWidget *parent,VM *pVM)  : QTreeView(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccollapsedEvent,"");
 	strcpy(this->cexpandedEvent,"");
 	strcpy(this->cactivatedEvent,"");
@@ -27,6 +28,20 @@ GTreeView::GTreeView(QWidget *parent,VM *pVM)  : QTreeView(parent)
 	QObject::connect(this, SIGNAL(viewportEntered()),this, SLOT(viewportEnteredSlot()));
 
 }
+
+GTreeView::~GTreeView()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GTreeView::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTreeView::setcollapsedEvent(const char *cStr)
 {
@@ -81,6 +96,7 @@ void GTreeView::collapsedSlot()
 {
 	if (strcmp(this->ccollapsedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccollapsedEvent);
 }
 
@@ -88,6 +104,7 @@ void GTreeView::expandedSlot()
 {
 	if (strcmp(this->cexpandedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cexpandedEvent);
 }
 
@@ -95,6 +112,7 @@ void GTreeView::activatedSlot()
 {
 	if (strcmp(this->cactivatedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cactivatedEvent);
 }
 
@@ -102,6 +120,7 @@ void GTreeView::clickedSlot()
 {
 	if (strcmp(this->cclickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cclickedEvent);
 }
 
@@ -109,6 +128,7 @@ void GTreeView::doubleClickedSlot()
 {
 	if (strcmp(this->cdoubleClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cdoubleClickedEvent);
 }
 
@@ -116,6 +136,7 @@ void GTreeView::enteredSlot()
 {
 	if (strcmp(this->centeredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->centeredEvent);
 }
 
@@ -123,6 +144,7 @@ void GTreeView::pressedSlot()
 {
 	if (strcmp(this->cpressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cpressedEvent);
 }
 
@@ -130,6 +152,7 @@ void GTreeView::viewportEnteredSlot()
 {
 	if (strcmp(this->cviewportEnteredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cviewportEnteredEvent);
 }
 

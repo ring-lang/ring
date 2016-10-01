@@ -17,6 +17,8 @@ class GTreeWidget : public QTreeWidget
 
     VM *pVM;
 
+    List *pParaList;
+
     char ccollapsedEvent[100];
     char cexpandedEvent[100];
     char cactivatedEvent[100];
@@ -38,6 +40,10 @@ class GTreeWidget : public QTreeWidget
 
 
     GTreeWidget(QWidget *parent,VM *pVM );
+
+    ~GTreeWidget();
+
+    void geteventparameters(void) ;
 
     void setcollapsedEvent(const char *cStr);
     void setexpandedEvent(const char *cStr);

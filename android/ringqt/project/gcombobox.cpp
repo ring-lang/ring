@@ -8,6 +8,7 @@ extern "C" {
 GComboBox::GComboBox(QWidget *parent,VM *pVM)  : QComboBox(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cactivatedEvent,"");
 	strcpy(this->ccurrentIndexChangedEvent,"");
 	strcpy(this->ceditTextChangedEvent,"");
@@ -19,6 +20,20 @@ GComboBox::GComboBox(QWidget *parent,VM *pVM)  : QComboBox(parent)
 	QObject::connect(this, SIGNAL(highlighted(int)),this, SLOT(highlightedSlot()));
 
 }
+
+GComboBox::~GComboBox()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GComboBox::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GComboBox::setactivatedEvent(const char *cStr)
 {
@@ -49,6 +64,7 @@ void GComboBox::activatedSlot()
 {
 	if (strcmp(this->cactivatedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cactivatedEvent);
 }
 
@@ -56,6 +72,7 @@ void GComboBox::currentIndexChangedSlot()
 {
 	if (strcmp(this->ccurrentIndexChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentIndexChangedEvent);
 }
 
@@ -63,6 +80,7 @@ void GComboBox::editTextChangedSlot()
 {
 	if (strcmp(this->ceditTextChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ceditTextChangedEvent);
 }
 
@@ -70,6 +88,7 @@ void GComboBox::highlightedSlot()
 {
 	if (strcmp(this->chighlightedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->chighlightedEvent);
 }
 

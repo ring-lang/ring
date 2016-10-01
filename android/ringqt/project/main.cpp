@@ -54,6 +54,7 @@ extern "C" {
 #include "ring_hashlib.c"
 #include "ring_hashtable.c"
 #include "ring_vmgc.c"
+#include "ring_objfile.c"
 
 int main(int argc, char *argv[])
 {

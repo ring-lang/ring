@@ -8,6 +8,7 @@ extern "C" {
 GVideoWidget::GVideoWidget(QWidget *parent,VM *pVM)  : QVideoWidget(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cbrightnessChangedEvent,"");
 	strcpy(this->ccontrastChangedEvent,"");
 	strcpy(this->cfullScreenChangedEvent,"");
@@ -21,6 +22,20 @@ GVideoWidget::GVideoWidget(QWidget *parent,VM *pVM)  : QVideoWidget(parent)
 	QObject::connect(this, SIGNAL(saturationChanged(int)),this, SLOT(saturationChangedSlot()));
 
 }
+
+GVideoWidget::~GVideoWidget()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GVideoWidget::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GVideoWidget::setbrightnessChangedEvent(const char *cStr)
 {
@@ -57,6 +72,7 @@ void GVideoWidget::brightnessChangedSlot()
 {
 	if (strcmp(this->cbrightnessChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbrightnessChangedEvent);
 }
 
@@ -64,6 +80,7 @@ void GVideoWidget::contrastChangedSlot()
 {
 	if (strcmp(this->ccontrastChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccontrastChangedEvent);
 }
 
@@ -71,6 +88,7 @@ void GVideoWidget::fullScreenChangedSlot()
 {
 	if (strcmp(this->cfullScreenChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cfullScreenChangedEvent);
 }
 
@@ -78,6 +96,7 @@ void GVideoWidget::hueChangedSlot()
 {
 	if (strcmp(this->chueChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->chueChangedEvent);
 }
 
@@ -85,6 +104,7 @@ void GVideoWidget::saturationChangedSlot()
 {
 	if (strcmp(this->csaturationChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->csaturationChangedEvent);
 }
 

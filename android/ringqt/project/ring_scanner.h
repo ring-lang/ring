@@ -17,6 +17,8 @@ typedef struct Scanner {
 	char cMLComment  ;
 	/* Ring State */
 	RingState *pRingState  ;
+	/* Index of Keyword/Operator */
+	int nTokenIndex  ;
 } Scanner ;
 /* Keywords */
 typedef enum SCANNER_KEYWORD {
@@ -37,7 +39,6 @@ typedef enum SCANNER_KEYWORD {
 	K_WHILE ,
 	K_OK ,
 	K_CLASS ,
-	K_BREAK ,
 	K_RETURN ,
 	K_BUT ,
 	K_END ,
@@ -61,8 +62,41 @@ typedef enum SCANNER_KEYWORD {
 	K_STEP ,
 	K_DO ,
 	K_AGAIN ,
-	K_CALL 
+	K_CALL ,
+	K_ELSEIF ,
+	K_PUT ,
+	K_GET ,
+	K_CASE ,
+	K_DEF ,
+	K_CHANGERINGKEYWORD ,
+	K_CHANGERINGIOPERATOR ,
+	K_LOADSYNTAX 
 } SCANNER_KEYWORD ;
+/* Operators */
+typedef enum SCANNER_OPERATOR {
+	OP_PLUS = 1 ,
+	OP_MINUS ,
+	OP_MUL ,
+	OP_DIV ,
+	OP_REM ,
+	OP_DOT ,
+	OP_FOPEN ,
+	OP_FCLOSE ,
+	OP_EQUAL ,
+	OP_COMMA ,
+	OP_NOT ,
+	OP_GREATER ,
+	OP_LESS ,
+	OP_LOPEN ,
+	OP_LCLOSE ,
+	OP_RANGE ,
+	OP_BRACEOPEN ,
+	OP_BRACECLOSE ,
+	OP_BITAND ,
+	OP_BITOR ,
+	OP_BITNOT ,
+	OP_XOR 
+} SCANNER_OPERATOR ;
 /* Functions */
 
 Scanner * ring_scanner_new ( RingState *pRingState ) ;
@@ -103,9 +137,19 @@ void ring_scanner_addreturn3 ( RingState *pRingState,int aPara[3] ) ;
 
 void ring_scanner_printtokens ( Scanner *pScanner ) ;
 
-RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int argc,char *argv[] ) ;
+RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int argc,char *argv[] ) ;
 
 const char * ring_scanner_getkeywordtext ( const char *cStr ) ;
+
+void ring_scanner_runobjfile ( const char *cFileName,RingState *pRingState ) ;
+
+void ring_scanner_runprogram ( RingState *pRingState ) ;
+
+void ring_scanner_changekeyword ( Scanner *pScanner ) ;
+
+void ring_scanner_changeoperator ( Scanner *pScanner ) ;
+
+void ring_scanner_loadsyntax ( Scanner *pScanner ) ;
 /* MACRO */
 #define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem(pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
 /*
@@ -127,4 +171,11 @@ const char * ring_scanner_getkeywordtext ( const char *cStr ) ;
 #define SCANNER_STATE_LITERAL 1
 #define SCANNER_STATE_COMMENT 2
 #define SCANNER_STATE_MLCOMMENT 3
+#define SCANNER_STATE_CHANGEKEYWORD 4
+#define SCANNER_STATE_CHANGEOPERATOR 5
+#define SCANNER_STATE_LOADSYNTAX 6
+/* Change Ring Keyword/Operator */
+#define RING_SCANNER_CHANGERINGKEYWORD 44
+#define RING_SCANNER_CHANGERINGOPERATOR 45
+#define RING_SCANNER_LOADSYNTAX 46
 #endif

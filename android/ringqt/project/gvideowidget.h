@@ -17,6 +17,8 @@ class GVideoWidget : public QVideoWidget
 
     VM *pVM;
 
+    List *pParaList;
+
     char cbrightnessChangedEvent[100];
     char ccontrastChangedEvent[100];
     char cfullScreenChangedEvent[100];
@@ -25,6 +27,10 @@ class GVideoWidget : public QVideoWidget
 
 
     GVideoWidget(QWidget *parent,VM *pVM );
+
+    ~GVideoWidget();
+
+    void geteventparameters(void) ;
 
     void setbrightnessChangedEvent(const char *cStr);
     void setcontrastChangedEvent(const char *cStr);

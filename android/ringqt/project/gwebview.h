@@ -17,6 +17,8 @@ class GWebView : public QWebView
 
     VM *pVM;
 
+    List *pParaList;
+
     char cloadFinishedEvent[100];
     char cloadProgressEvent[100];
     char cloadStartedEvent[100];
@@ -25,7 +27,11 @@ class GWebView : public QWebView
     char curlChangedEvent[100];
 
 
-    GWebView(QObject *parent,VM *pVM );
+    GWebView(QWidget *parent,VM *pVM );
+
+    ~GWebView();
+
+    void geteventparameters(void) ;
 
     void setloadFinishedEvent(const char *cStr);
     void setloadProgressEvent(const char *cStr);

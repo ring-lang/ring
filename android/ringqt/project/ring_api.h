@@ -29,6 +29,8 @@ void ring_vm_extension ( RingState *pRingState ) ;
 RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char *cStr2 ) ;
 
 RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr ) ;
+
+RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cType ) ;
 /*
 **  Library 
 **  General 
@@ -71,6 +73,10 @@ void ring_vmlib_timelist ( void *pPointer ) ;
 void ring_vmlib_adddays ( void *pPointer ) ;
 
 void ring_vmlib_diffdays ( void *pPointer ) ;
+
+void ring_vmlib_version ( void *pPointer ) ;
+
+void ring_vmlib_clockspersecond ( void *pPointer ) ;
 /* Check Data Type */
 
 void ring_vmlib_isstring ( void *pPointer ) ;
@@ -156,6 +162,14 @@ void ring_vmlib_callgc ( void *pPointer ) ;
 void ring_vmlib_varptr ( void *pPointer ) ;
 
 void ring_vmlib_intvalue ( void *pPointer ) ;
+
+void ring_vmlib_object2pointer ( void *pPointer ) ;
+
+void ring_vmlib_pointer2object ( void *pPointer ) ;
+
+void ring_vmlib_nullpointer ( void *pPointer ) ;
+
+void ring_vmlib_space ( void *pPointer ) ;
 /* API For C Functions */
 #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)

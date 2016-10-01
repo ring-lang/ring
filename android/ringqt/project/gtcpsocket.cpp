@@ -8,6 +8,7 @@ extern "C" {
 GTcpSocket::GTcpSocket(QObject *parent,VM *pVM)  : QTcpSocket(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cconnectedEvent,"");
 	strcpy(this->cdisconnectedEvent,"");
 	strcpy(this->cerrorEvent,"");
@@ -31,6 +32,20 @@ GTcpSocket::GTcpSocket(QObject *parent,VM *pVM)  : QTcpSocket(parent)
 	QObject::connect(this, SIGNAL(readyRead()),this, SLOT(readyReadSlot()));
 
 }
+
+GTcpSocket::~GTcpSocket()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GTcpSocket::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTcpSocket::setconnectedEvent(const char *cStr)
 {
@@ -97,6 +112,7 @@ void GTcpSocket::connectedSlot()
 {
 	if (strcmp(this->cconnectedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cconnectedEvent);
 }
 
@@ -104,6 +120,7 @@ void GTcpSocket::disconnectedSlot()
 {
 	if (strcmp(this->cdisconnectedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cdisconnectedEvent);
 }
 
@@ -111,6 +128,7 @@ void GTcpSocket::errorSlot()
 {
 	if (strcmp(this->cerrorEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cerrorEvent);
 }
 
@@ -118,6 +136,7 @@ void GTcpSocket::hostFoundSlot()
 {
 	if (strcmp(this->chostFoundEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->chostFoundEvent);
 }
 
@@ -125,6 +144,7 @@ void GTcpSocket::proxyAuthenticationRequiredSlot()
 {
 	if (strcmp(this->cproxyAuthenticationRequiredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cproxyAuthenticationRequiredEvent);
 }
 
@@ -132,6 +152,7 @@ void GTcpSocket::stateChangedSlot()
 {
 	if (strcmp(this->cstateChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cstateChangedEvent);
 }
 
@@ -139,6 +160,7 @@ void GTcpSocket::aboutToCloseSlot()
 {
 	if (strcmp(this->caboutToCloseEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->caboutToCloseEvent);
 }
 
@@ -146,6 +168,7 @@ void GTcpSocket::bytesWrittenSlot()
 {
 	if (strcmp(this->cbytesWrittenEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbytesWrittenEvent);
 }
 
@@ -153,6 +176,7 @@ void GTcpSocket::readChannelFinishedSlot()
 {
 	if (strcmp(this->creadChannelFinishedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creadChannelFinishedEvent);
 }
 
@@ -160,6 +184,7 @@ void GTcpSocket::readyReadSlot()
 {
 	if (strcmp(this->creadyReadEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->creadyReadEvent);
 }
 

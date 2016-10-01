@@ -8,11 +8,26 @@ extern "C" {
 GProgressBar::GProgressBar(QWidget *parent,VM *pVM)  : QProgressBar(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cvalueChangedEvent,"");
 
 	QObject::connect(this, SIGNAL(valueChanged(int)),this, SLOT(valueChangedSlot()));
 
 }
+
+GProgressBar::~GProgressBar()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GProgressBar::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GProgressBar::setvalueChangedEvent(const char *cStr)
 {
@@ -25,6 +40,7 @@ void GProgressBar::valueChangedSlot()
 {
 	if (strcmp(this->cvalueChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cvalueChangedEvent);
 }
 

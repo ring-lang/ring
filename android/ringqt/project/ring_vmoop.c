@@ -81,7 +81,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 				ring_list_addpointer(pList2,pList);
 				/* Create List for the Object State */
 				pList3 = ring_list_newlist(pList2);
-				/* Create Self/this variable in the state list */
+				/* Create Self variable in the state list */
 				pSelf = ring_vm_newvar2("self",pList3);
 				ring_list_setint(pSelf,RING_VAR_TYPE,RING_VM_POINTER);
 				if ( nType == RING_OBJTYPE_VARIABLE ) {
@@ -123,6 +123,12 @@ void ring_vm_oop_newobj ( VM *pVM )
 				/* Save nCallClassInit */
 				ring_list_addint(pList4,pVM->nCallClassInit);
 				pVM->nCallClassInit = 0 ;
+				/* Save Line Number */
+				ring_list_addint(pList4,pVM->nLineNumber);
+				/* Save Function Stack */
+				ring_list_addint(pList4,pVM->nFuncSP);
+				/* Save Assignment Pointer */
+				ring_list_addpointer(pList4,pVM->pAssignment);
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3 ;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
@@ -130,12 +136,12 @@ void ring_vm_oop_newobj ( VM *pVM )
 				ring_list_addpointer(pList5,pList3);
 				ring_list_addpointer(pList5,NULL);
 				ring_list_addpointer(pList5,pList);
-				/* Support using Braces to access the object state */
-				pVM->pBraceObject = pList2 ;
 				/* Create the Super Virtual Object */
 				ring_vm_oop_newsuperobj(pVM,pList3,pList);
 				/* Enable NULL variables (To be class attributes) */
 				pVM->nCheckNULLVar++ ;
+				/* Support using Braces to access the object state */
+				pVM->pBraceObject = pList2 ;
 				return ;
 			}
 		}
@@ -211,7 +217,25 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
 void ring_vm_oop_newclass ( VM *pVM )
 {
 	List *pClass,*pList  ;
+	int x  ;
 	pClass = (List *) RING_VM_IR_READPVALUE(2) ;
+	/* Find the Class Pointer using the Class Name */
+	if ( pClass == NULL ) {
+		for ( x = 1 ; x <= ring_list_getsize(pVM->pRingState->pRingClassesMap) ; x++ ) {
+			pList = ring_list_getlist(pVM->pRingState->pRingClassesMap,x);
+			if ( strcmp(ring_list_getstring(pList,1),RING_VM_IR_READCVALUE(1)) == 0 ) {
+				if ( ring_list_getsize(pList) == 3 ) {
+					/* Here the class is stored inside a package - we have the class pointer (item 2) */
+					pClass = (List *) ring_list_getpointer(pList,2) ;
+				}
+				else {
+					pClass = pList ;
+				}
+				RING_VM_IR_READPVALUE(2) = (void *) pClass ;
+				break ;
+			}
+		}
+	}
 	pClass = ring_vm_oop_checkpointertoclassinpackage(pVM,pClass);
 	/* Make object methods visible while executing the Class Init method */
 	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
@@ -227,7 +251,10 @@ void ring_vm_oop_setscope ( VM *pVM )
 	List *pList  ;
 	/* This function called after creating new object and executing class init */
 	pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj)) ;
-	/* Restore Stack Information */
+	/*
+	**  Restore State 
+	**  Restore Stack Information 
+	*/
 	pVM->nSP = ring_list_getint(pList,4) ;
 	/* Restore FuncExecute */
 	pVM->nFuncExecute = ring_list_getint(pList,5) ;
@@ -238,6 +265,12 @@ void ring_vm_oop_setscope ( VM *pVM )
 	pVM->pBraceObject = (List *) ring_list_getpointer(pList,8) ;
 	/* Restore nCallClassInit */
 	pVM->nCallClassInit = ring_list_getint(pList,9) ;
+	/* Restore nLineNumber */
+	pVM->nLineNumber = ring_list_getint(pList,10) ;
+	/* Restore Function Stack */
+	pVM->nFuncSP = ring_list_getint(pList,11) ;
+	/* Restore Assignment Pointer */
+	pVM->pAssignment = (List *) ring_list_getpointer(pList,12) ;
 	/* Restore the scope (before creating the object using new) */
 	pVM->pActiveMem = (List *) ring_list_getpointer(pList,1) ;
 	/* Restore List Status */
@@ -320,8 +353,21 @@ void ring_vm_oop_property ( VM *pVM )
 	pVM->pActiveMem = ring_list_getlist(pVar,2);
 	pVM->nGetSetProperty = 1 ;
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
+		/* Create the attribute if we are in the class region after the class name */
+		if ( pVM->nCheckNULLVar ) {
+			ring_vm_newvar(pVM, RING_VM_IR_READC);
+			/* Support for Private Flag */
+			ring_list_setint((List *) RING_VM_STACK_READP,RING_VAR_PRIVATEFLAG,pVM->nPrivateFlag);
+			RING_VM_STACK_POP ;
+			ring_vm_findvar(pVM, RING_VM_IR_READC);
+			pVM->pActiveMem = pScope ;
+			pVM->nGetSetProperty = 0 ;
+			pVM->pGetSetObject = NULL ;
+			return ;
+		}
 		pVM->pActiveMem = pScope ;
 		pVM->nGetSetProperty = 0 ;
+		pVM->pGetSetObject = NULL ;
 		if ( pVM->nActiveCatch == 0 ) {
 			/*
 			**  We check nActiveCatch because we may have error "accessing private attribute' 
@@ -338,11 +384,6 @@ void ring_vm_oop_property ( VM *pVM )
 	pVM->pActiveMem = pScope ;
 	pVM->nGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
-	if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
-		/* Error Message */
-		ring_vm_error2(pVM,RING_VM_ERROR_PROPERTYNOTFOUND,RING_VM_IR_READC);
-		return ;
-	}
 }
 
 void ring_vm_oop_loadmethod ( VM *pVM )
@@ -804,9 +845,9 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	/* Create String */
 	pString = ring_string_new("if ismethod(ring_gettemp_var,'get");
 	ring_string_add(pString,ring_list_getstring(pVar,1));
-	ring_string_add(pString,"')\nreturn ring_gettemp_var.get");
+	ring_string_add(pString,"')\nreturn ring_gettemp_var.'get");
 	ring_string_add(pString,ring_list_getstring(pVar,1));
-	ring_string_add(pString,"() ok");
+	ring_string_add(pString,"'() ok");
 	/* Set Variable ring_gettemp_var  , Number 5 in Public Memory */
 	pList = ring_list_getlist(ring_list_getlist(pVM->pMem,1),5) ;
 	ring_list_setpointer(pList,RING_VAR_VALUE,pVM->pGetSetObject);
@@ -855,6 +896,11 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	Item *pItem,*pItem2  ;
 	String *pString  ;
 	/* To Access Property Data */
+	if ( ring_list_getsize(pVM->aSetProperty) < 1 ) {
+		/* This case happens when using This.Attribute inside nested braces in a class method */
+		ring_vm_assignment(pVM);
+		return ;
+	}
 	pList = ring_list_getlist(pVM->aSetProperty,ring_list_getsize(pVM->aSetProperty));
 	/* Add Before Equal Flag */
 	if ( ring_list_getsize(pList) == 4 ) {
@@ -895,9 +941,9 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			/* Create String */
 			pString = ring_string_new("if ismethod(ring_gettemp_var,'set");
 			ring_string_add(pString,ring_list_getstring(pList,3));
-			ring_string_add(pString,"')\nring_gettemp_var.set");
+			ring_string_add(pString,"')\nring_gettemp_var.'set");
 			ring_string_add(pString,ring_list_getstring(pList,3));
-			ring_string_add(pString,"(ring_settemp_var)\nring_tempflag_var = 0\nelse\nring_tempflag_var = 1\nok");
+			ring_string_add(pString,"'(ring_settemp_var)\nring_tempflag_var = 0\nelse\nring_tempflag_var = 1\nok");
 			/* Eval the string */
 			pItem = RING_VM_IR_ITEM(2) ;
 			pVM->nEvalCalledFromRingCode = 0 ;
@@ -1124,4 +1170,33 @@ void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer )
 	else if ( nType == RING_OBJTYPE_LISTITEM ) {
 		ring_list_setpointer(pList,3,(Item *) pContainer);
 	}
+}
+
+void ring_vm_oop_setthethisvariable ( VM *pVM )
+{
+	List *pList, *pThis  ;
+	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	if ( ring_list_getsize(pVM->pObjState) < 1 ) {
+		ring_list_setpointer(pThis,RING_VAR_VALUE,NULL);
+		ring_list_setint(pThis,RING_VAR_PVALUETYPE,0);
+		return ;
+	}
+	if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
+		ring_list_setpointer(pThis,RING_VAR_VALUE,NULL);
+		ring_list_setint(pThis,RING_VAR_PVALUETYPE,0);
+		return ;
+	}
+	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
+	/* Get Object Scope */
+	pList = ring_list_getlist(pList,RING_OBJSTATE_SCOPE);
+	if ( pList == NULL ) {
+		ring_list_setpointer(pThis,RING_VAR_VALUE,NULL);
+		ring_list_setint(pThis,RING_VAR_PVALUETYPE,0);
+		return ;
+	}
+	/* Get Self Attribute List */
+	pList = ring_list_getlist(pList,1);
+	/* Save this */
+	ring_list_setpointer(pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
+	ring_list_setint(pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
 }

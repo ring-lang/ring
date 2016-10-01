@@ -50,6 +50,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
 	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
 	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
+	ring_vm_addnewpointervar(pVM,"this",NULL,0);
 	/* Add Command Line Parameters */
 	pList = ring_vm_newvar2("sysargv",pVM->pActiveMem);
 	ring_list_setint(pList,RING_VAR_TYPE,RING_VM_LIST);
@@ -640,6 +641,20 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 {
 	int x  ;
 	List *pList  ;
+	/* Check BraceError() */
+	if ( (ring_list_getsize(pVM->pObjState) > 0) && (ring_vm_oop_callmethodinsideclass(pVM) == 0 ) ) {
+		if ( ring_vm_findvar(pVM,"self") ) {
+			pList = ring_vm_oop_getobj(pVM);
+			RING_VM_STACK_POP ;
+			if ( ring_vm_oop_isobject(pList) ) {
+				if ( ring_vm_oop_ismethod(pVM, pList,"braceerror") ) {
+					ring_list_setstring(ring_list_getlist(ring_list_getlist(pVM->pMem,1),6),3,cStr);
+					ring_vm_runcode(pVM,"braceerror()");
+					return ;
+				}
+			}
+		}
+	}
 	if ( ring_list_getsize(pVM->pTry) == 0 ) {
 		ring_state_cgiheader(pVM->pRingState);
 		printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;

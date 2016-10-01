@@ -17,6 +17,8 @@ class GCheckBox : public QCheckBox
 
     VM *pVM;
 
+    List *pParaList;
+
     char cstateChangedEvent[100];
     char cclickedEvent[100];
     char cpressedEvent[100];
@@ -25,6 +27,10 @@ class GCheckBox : public QCheckBox
 
 
     GCheckBox(QWidget *parent,VM *pVM );
+
+    ~GCheckBox();
+
+    void geteventparameters(void) ;
 
     void setstateChangedEvent(const char *cStr);
     void setclickedEvent(const char *cStr);

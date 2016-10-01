@@ -8,6 +8,7 @@ extern "C" {
 GTabWidget::GTabWidget(QWidget *parent,VM *pVM)  : QTabWidget(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccurrentChangedEvent,"");
 	strcpy(this->ctabCloseRequestedEvent,"");
 
@@ -15,6 +16,20 @@ GTabWidget::GTabWidget(QWidget *parent,VM *pVM)  : QTabWidget(parent)
 	QObject::connect(this, SIGNAL(tabCloseRequested(int)),this, SLOT(tabCloseRequestedSlot()));
 
 }
+
+GTabWidget::~GTabWidget()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GTabWidget::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTabWidget::setcurrentChangedEvent(const char *cStr)
 {
@@ -33,6 +48,7 @@ void GTabWidget::currentChangedSlot()
 {
 	if (strcmp(this->ccurrentChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentChangedEvent);
 }
 
@@ -40,6 +56,7 @@ void GTabWidget::tabCloseRequestedSlot()
 {
 	if (strcmp(this->ctabCloseRequestedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ctabCloseRequestedEvent);
 }
 

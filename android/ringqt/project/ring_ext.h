@@ -12,4 +12,10 @@
 #define RING_VM_OPENSSL 0
 #define RING_VM_CURL 0
 #define RING_VM_DLL 0
+#define RING_VM_SQLITE 0
+/* Compiler - Scanner - Reading Files Functions */
+#define RING_FILE FILE *
+#define RING_OPENFILE(x,y) fopen(x,y)
+#define RING_CLOSEFILE(x) fclose(x)
+#define RING_READCHAR(x,y,z) y = getc(x)  /* z is unused here = number of characters - default = 1 */
 #endif

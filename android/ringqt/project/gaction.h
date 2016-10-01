@@ -17,10 +17,16 @@ class GAction : public QAction
 
     VM *pVM;
 
+    List *pParaList;
+
     char cClickEvent[100];
 
 
     GAction(QWidget *parent,VM *pVM );
+
+    ~GAction();
+
+    void geteventparameters(void) ;
 
     void setClickEvent(const char *cStr);
 

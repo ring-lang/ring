@@ -8,6 +8,7 @@ extern "C" {
 GButtonGroup::GButtonGroup(QObject *parent,VM *pVM)  : QButtonGroup(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cbuttonClickedEvent,"");
 	strcpy(this->cbuttonPressedEvent,"");
 	strcpy(this->cbuttonReleasedEvent,"");
@@ -17,6 +18,20 @@ GButtonGroup::GButtonGroup(QObject *parent,VM *pVM)  : QButtonGroup(parent)
 	QObject::connect(this, SIGNAL(buttonReleased(int)),this, SLOT(buttonReleasedSlot()));
 
 }
+
+GButtonGroup::~GButtonGroup()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GButtonGroup::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GButtonGroup::setbuttonClickedEvent(const char *cStr)
 {
@@ -41,6 +56,7 @@ void GButtonGroup::buttonClickedSlot()
 {
 	if (strcmp(this->cbuttonClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbuttonClickedEvent);
 }
 
@@ -48,6 +64,7 @@ void GButtonGroup::buttonPressedSlot()
 {
 	if (strcmp(this->cbuttonPressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbuttonPressedEvent);
 }
 
@@ -55,6 +72,7 @@ void GButtonGroup::buttonReleasedSlot()
 {
 	if (strcmp(this->cbuttonReleasedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cbuttonReleasedEvent);
 }
 
