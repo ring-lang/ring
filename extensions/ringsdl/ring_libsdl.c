@@ -1,15 +1,9 @@
 #include "ring.h"
 
-#ifdef _WIN32
-#define RING_DLL __declspec(dllexport)
-#else
-#define RING_DLL extern
-#endif
-
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
 #include "SDL_syswm.h"
-#include "SDL_image.h"
+#include "SDL_image.h"
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "SDL_net.h"
@@ -16978,7 +16972,7 @@ RING_FUNC(ring_circleRGBA)
 	RING_API_RETNUMBER(circleRGBA((SDL_Renderer *) RING_API_GETCPOINTER(1,"SDL_Renderer"), (Sint16 ) RING_API_GETNUMBER(2), (Sint16 ) RING_API_GETNUMBER(3), (Sint16 ) RING_API_GETNUMBER(4), (Uint8 ) RING_API_GETNUMBER(5), (Uint8 ) RING_API_GETNUMBER(6), (Uint8 ) RING_API_GETNUMBER(7), (Uint8 ) RING_API_GETNUMBER(8)));
 }
 
-RING_DLL void ringlib_init(RingState *pRingState)
+RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("sdl_rendercopy2",ring_SDL_RenderCopy2);
 	ring_vm_funcregister("sdl_delay",ring_SDL_Delay);
