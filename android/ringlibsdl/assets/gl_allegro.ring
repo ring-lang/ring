@@ -59,6 +59,7 @@ func gl_game_start
 	al_install_audio()
 	al_init_acodec_addon()
 	al_reserve_samples(1)
+	al_init_primitives_addon()
 
 	# colors
 	GE_COLOR_WHITE = al_map_rgb(255,255,255)
@@ -190,3 +191,39 @@ func gl_mouse_x
 
 func gl_mouse_y 
 	return  al_get_allegro_event_mouse_y(GL_SYS_Event)
+
+func gl_draw_filled_rectangle(x1, y1,x2, y2, color)
+	al_draw_filled_rectangle(x1,y1,x2,y2,color)
+
+func gl_draw_line(x1,y1,x2,y2,color,thickness)
+	al_draw_line(x1,y1,x2,y2,color,thickness)
+
+func gl_draw_circle cx,cy,r,color,thickness
+	al_draw_circle(cx,cy,r,color,thickness)
+
+func gl_draw_filled_circle cx, cy, r, color
+	al_draw_filled_circle(cx, cy, r, color)
+
+func gl_draw_rectangle x1,y1,x2,y2,color,thickness 
+	al_draw_rectangle(x1,y1,x2,y2,color,thickness)
+
+func gl_draw_ellipse cx, cy, rx, ry,color, thickness
+	al_draw_ellipse(cx, cy, rx, ry,color, thickness)
+
+func gl_draw_arc cx,cy,r,start_theta,delta_theta,color,thickness
+	al_draw_arc(cx,cy,r,start_theta,delta_theta,color,thickness)
+
+func gl_draw_rounded_rectangle x1,y1,x2,y2,rx,ry,color,thickness
+	al_draw_rounded_rectangle(x1,y1,x2,y2,rx,ry,color,thickness)
+
+func gl_draw_filled_rounded_rectangle x1,y1,x2,y2,rx,ry,color
+	al_draw_filled_rounded_rectangle(x1,y1,x2,y2,rx,ry,color)
+
+func gl_draw_triangle x1,y1,x2,y2,x3,y3,color,thickness
+	al_draw_triangle(x1,y1,x2,y2,x3,y3,color,thickness)
+
+func gl_draw_filled_triangle x1, y1, x2, y2,x3,y3,color
+	al_draw_filled_triangle(x1, y1, x2, y2,x3,y3,color)
+
+func gl_draw_point x,y,color
+	al_draw_pixel(x,y,color)

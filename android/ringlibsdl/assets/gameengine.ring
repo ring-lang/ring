@@ -12,8 +12,7 @@ load "gameengine.rh"
 
 oresources = new resources
 
-func start_playing
-	gl_start_playing()
+gl_start_playing()
 
 class gamebase
 	title=""
@@ -69,6 +68,15 @@ class game from gamebase
 	aobjects = []
 	lbraceend = true
 	shutdown = false
+
+	width = screen_w
+	height = screen_h
+
+	nBracesCount = 0
+
+	# objects
+	sprite text progress animate sound map object
+
 	startup()
 
 	func refresh
@@ -81,9 +89,13 @@ class game from gamebase
 		title = cTitle
 		gl_set_window_title(display,title)
 
+	func bracestart
+		nBracesCount++
+
 	func braceend
+		nBracesCount--
 		# we check to call start() one time during the program life time
-		if lbraceend = true
+		if lbraceend = true and nBracesCount  = 0
 			lbraceend = false
 			start()
 		ok
@@ -105,6 +117,7 @@ class game from gamebase
 	func startup
 
 		#gl_set_new_display_flags(GL_FULLSCREEN)
+
 		display = gl_create_display(screen_w,screen_h)
 		gl_set_window_title(display,title)
 
@@ -254,25 +267,66 @@ class game from gamebase
 	func getmap
 		addobj(new map)
 		return aobjects[len(aobjects)]
-
-	private
-		sprite text progress animate sound map
 		
+	func getobject
+		addobj(new gameobject)
+		return aobjects[len(aobjects)]
 
 class gameobject from gamebase
-	lenabled = true
+	enabled = true
 	x=0 y=0	 width=0 height=0 nindex = 0
 	animate=true	move=false Scaled=false
 	temp = null
+	keypress = ""
+	mouse = ""
+	finger = ""
+	state = ""
+	draw = ""
+
 	func init
-	func draw
-	func animate
-	func delete
+
+	func draw oGame
+		if not draw = ""				 		
+				call draw(oGame,Self) 
+		ok
+
+	func animate oGame,oSelf
+		if not enabled return ok
+		if not state = ""				 		
+				call state(oGame,oSelf) 
+		ok
+		if not animate return ok
+
 	func keyboard oGame,nkey
+		if not enabled return ok
+		if not keypress = ""			
+			call keypress(oGame,self,nkey)
+		ok
+		if not move return ok
+		switch nkey
+		on key_up	y-=10
+		on key_down	y+=10
+		on key_left	x-=10
+		on key_right	x+=10
+		off
+
 	func mouse oGame,nType,aMouseList
+		if not enabled return ok
+		if not mouse = ""			
+			call mouse(oGame,self,nType,aMouseList)
+		ok
+
 	func finger oGame,nType
+		if not enabled return ok
+		if not finger = ""			
+			call finger(oGame,self,nType)
+		ok
+
 	func rgb r,g,b
 		return gl_map_rgb(r,g,b)
+
+	func delete
+
 
 class sprite from gameobject
 	image	point=400
@@ -280,13 +334,11 @@ class sprite from gameobject
 	ncounter = 0
 	r = 0
 	cimagefile = ""
-	keypress = ""
-	mouse = ""
-	finger = ""
-	state = ""
 	type = 0
 	transparent = false	transparentdone = false
 	transparentcolor = GE_COLOR_WHITE
+
+	file=0
 
 	func setfile cfilename
 		image = oresources.loadimage(cfilename)
@@ -296,7 +348,7 @@ class sprite from gameobject
 		gl_convert_mask_to_alpha(image,transparentcolor)
 
 	func draw oengine
-		if not lenabled return ok
+		if not enabled return ok
 		if transparent
 			if not transparentdone
 				transparentdone = true
@@ -311,7 +363,7 @@ class sprite from gameobject
 		ok
 
 	func animate oGame,oSelf
-		if not lenabled return ok
+		if not enabled return ok
 		if not state = ""				 		
 				call state(oGame,oSelf) 
 		ok
@@ -344,6 +396,18 @@ class sprite from gameobject
 			else
 				oGame.remove(nindex)
 			ok
+		but direction = ge_direction_inchorizontal
+			if x < point				
+				x+=nstep
+			else
+				oGame.remove(nindex)
+			ok
+		but direction = ge_direction_dechorizontal
+			if x > point				
+				x-=nstep
+			else
+				oGame.remove(nindex)
+			ok
 		but direction = ge_direction_random
 			if ncounter = 0
 				r = random(7)
@@ -367,36 +431,9 @@ class sprite from gameobject
 			off
 		ok
 
-	func keyboard oGame,nkey
-		if not lenabled return ok
-		if not keypress = ""			
-			call keypress(oGame,self,nkey)
-		ok
-		if not move return ok
-		switch nkey
-		on key_up	y-=10
-		on key_down	y+=10
-		on key_left	x-=10
-		on key_right	x+=10
-		off
-
-	func mouse oGame,nType,aMouseList
-		if not lenabled return ok
-		if not mouse = ""			
-			call mouse(oGame,self,nType,aMouseList)
-		ok
-
-	func finger oGame,nType
-		if not lenabled return ok
-		if not finger = ""			
-			call finger(oGame,self,nType)
-		ok
-
 	func delete
 		oresources.unloadimage(cimagefile)
 
-	private
-		file=0
 
 class text from sprite
 
@@ -422,7 +459,7 @@ Class Animate from Sprite
 	scaled = false
 
 	func draw oengine
-		if not lenabled return ok
+		if not enabled return ok
 		if transparent
 			if not transparentdone
 				transparentdone = true
@@ -464,6 +501,8 @@ Class Sound from gameobject
 			gl_destroy_glib_sample_id(sampleid)
 			gl_destroy_sample(sample)	
 		ok
+	func braceend
+		playsound()
 
 Class Map from Sprite
 
@@ -532,8 +571,14 @@ Class Map from Sprite
 
 	func getcol x1,y1
 		x2 = ceil(((-1*x) + x1)/blockwidth)
+		if x2 > len(aMap[1]) 
+			x2 = len(aMap[1])
+		ok
 		return x2
 		
 	func getrow x1,y1
 		y2 = ceil(((-1*y) + y1)/blockheight)
+		if y2 > len(aMap) 
+			x2 = len(aMap)
+		ok
 		return y2
