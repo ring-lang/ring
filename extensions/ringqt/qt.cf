@@ -189,6 +189,7 @@ extern "C" {
 #include <QCamera>
 #include <QCameraImageCapture>
 #include <QFontMetrics>
+#include <QList>
 
 #include "highlighter.h"
 
@@ -1855,6 +1856,8 @@ void openPersistentEditor(QTableWidgetItem *item)
 void removeCellWidget(int row, int column)
 int row(const QTableWidgetItem *item)
 int rowCount(void)
+QList<QTableWidgetItem *> selectedItems(void)
+QList<QTableWidgetSelectionRange> selectedRanges(void)
 void setCellWidget(int row, int column, QWidget *widget)
 void setColumnCount(int columns)
 void setCurrentCell(int row, int column)
@@ -5426,3 +5429,5 @@ int underlinePos(void)
 int width( QString   text, int len )
 int width@2(QChar ch)
 int xHeight(void)
+
+

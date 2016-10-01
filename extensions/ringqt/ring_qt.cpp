@@ -176,6 +176,7 @@ extern "C" {
 #include <QCamera>
 #include <QCameraImageCapture>
 #include <QFontMetrics>
+#include <QList>
 
 #include "highlighter.h"
 
@@ -22045,6 +22046,50 @@ RING_FUNC(ring_QTableWidget_rowCount)
 	}
 	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
 	RING_API_RETNUMBER(pObject->rowCount());
+}
+
+
+RING_FUNC(ring_QTableWidget_selectedItems)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	{
+		QList<QTableWidgetItem *> *pValue ; 
+		pValue = (QList<QTableWidgetItem *> *) malloc(sizeof(QList<QTableWidgetItem *>)) ;
+		*pValue = pObject->selectedItems();
+		RING_API_RETCPOINTER(pValue,"QList<QTableWidgetItem *>");
+	}
+}
+
+
+RING_FUNC(ring_QTableWidget_selectedRanges)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	{
+		QList<QTableWidgetSelectionRange> *pValue ; 
+		pValue = (QList<QTableWidgetSelectionRange> *) malloc(sizeof(QList<QTableWidgetSelectionRange>)) ;
+		*pValue = pObject->selectedRanges();
+		RING_API_RETCPOINTER(pValue,"QList<QTableWidgetSelectionRange>");
+	}
 }
 
 
@@ -77336,6 +77381,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtablewidget_removecellwidget",ring_QTableWidget_removeCellWidget);
 	ring_vm_funcregister("qtablewidget_row",ring_QTableWidget_row);
 	ring_vm_funcregister("qtablewidget_rowcount",ring_QTableWidget_rowCount);
+	ring_vm_funcregister("qtablewidget_selecteditems",ring_QTableWidget_selectedItems);
+	ring_vm_funcregister("qtablewidget_selectedranges",ring_QTableWidget_selectedRanges);
 	ring_vm_funcregister("qtablewidget_setcellwidget",ring_QTableWidget_setCellWidget);
 	ring_vm_funcregister("qtablewidget_setcolumncount",ring_QTableWidget_setColumnCount);
 	ring_vm_funcregister("qtablewidget_setcurrentcell",ring_QTableWidget_setCurrentCell);

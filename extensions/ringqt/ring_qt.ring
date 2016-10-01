@@ -3895,6 +3895,12 @@ Class QTableWidget from QTableView
 	Func rowCount 
 		return QTableWidget_rowCount(pObject)
 
+	Func selectedItems 
+		return QTableWidget_selectedItems(pObject)
+
+	Func selectedRanges 
+		return QTableWidget_selectedRanges(pObject)
+
 	Func setCellWidget P1,P2,P3
 		return QTableWidget_setCellWidget(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 
