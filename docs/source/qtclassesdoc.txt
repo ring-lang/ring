@@ -530,7 +530,7 @@ C++ Reference : http://doc.qt.io/qt-5/QTextEdit.html
 Parameters : QWidget *
 
 
-Parent Class : QWidget
+Parent Class : QAbstractScrollArea
 
 * bool acceptRichText(void)
 * int alignment(void)
@@ -614,6 +614,7 @@ Parent Class : QWidget
 * void setselectionChangedEvent(const char *)
 * void settextChangedEvent(const char *)
 * void setundoAvailableEvent(const char *)
+* void cyanline(QTextEdit *pObject)
 
 .. index::
 	pair: RingQt Classes Reference; QListWidget Class
@@ -1563,6 +1564,8 @@ Parent Class : QTableView
 * void removeCellWidget(int row, int column)
 * int row(const QTableWidgetItem *item)
 * int rowCount(void)
+* QList<QTableWidgetItem *> selectedItems(void)
+* QList<QTableWidgetSelectionRange> selectedRanges(void)
 * void setCellWidget(int row, int column, QWidget *widget)
 * void setColumnCount(int columns)
 * void setCurrentCell(int row, int column)
@@ -4947,7 +4950,7 @@ C++ Reference : http://doc.qt.io/qt-5/QPlainTextEdit.html
 Parameters : QWidget *
 
 
-Parent Class : QWidget
+Parent Class : QAbstractScrollArea
 
 * QString anchorAt(QPoint pos)
 * bool backgroundVisible(void)
@@ -5010,6 +5013,15 @@ Parent Class : QWidget
 * void undo(void)
 * void zoomIn(int range)
 * void zoomOut(int range)
+* void setblockCountChangedEvent(const char *cStr)
+* void setcopyAvailableEvent(const char *cStr)
+* void setcursorPositionChangedEvent(const char *cStr)
+* void setmodificationChangedEvent(const char *cStr)
+* void setredoAvailableEvent(const char *cStr)
+* void setselectionChangedEvent(const char *cStr)
+* void settextChangedEvent(const char *cStr)
+* void setundoAvailableEvent(const char *cStr)
+* void setupdateRequestEvent(const char *cStr)
 
 .. index::
 	pair: RingQt Classes Reference; QGridLayout Class

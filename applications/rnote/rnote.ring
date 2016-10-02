@@ -422,7 +422,7 @@ MyApp = New qApp {
 			setCursorPositionChangedevent("pCursorPositionChanged()")
 			setLineWrapMode(QTextEdit_NoWrap)
 			setAcceptRichText(false)
-			setTextChangedEvent("pTextChanged()")
+			setTextChangedEvent("pTextChanged()")			
 		}
 
 		new RingCodeHighLighter( textedit1.document() )
@@ -484,6 +484,7 @@ MyApp = New qApp {
 func pTextChanged
 	lAskToSave = true
 	pSetFont()
+	textedit1.cyanline(textedit1)
 
 func pWebGo
 	cWebsite = oWBText.text() 
@@ -532,6 +533,7 @@ func pCursorPositionChanged
 	status1.showmessage(" Line : "+(textedit1.textcursor().blocknumber()+1)+
 			    " Column : " +(textedit1.textcursor().columnnumber()+1) +
 			    " Total Lines : " + textedit1.document().linecount() ,0)
+	textedit1.cyanline(textedit1)
 
 func pGoto
 	
