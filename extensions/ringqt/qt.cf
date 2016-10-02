@@ -991,6 +991,34 @@ void setselectionChangedEvent(const char *)
 void settextChangedEvent(const char *)
 void setundoAvailableEvent(const char *)
 
+<register>
+void cyanline(QTextEdit *pObject)
+</register>
+
+<code>
+RING_FUNC(ring_QTextEdit_cyanline)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QTextEdit *editor;
+	editor = (QTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( Qt::cyan );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
+
+
 <class>
 name: QListWidget
 para: QWidget *

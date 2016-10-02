@@ -1487,6 +1487,9 @@ Class QTextEdit from QAbstractScrollArea
 	Func setundoAvailableEvent P1
 		return QTextEdit_setundoAvailableEvent(pObject,P1)
 
+	Func cyanline P1
+		return QTextEdit_cyanline(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QListWidget from QWidget
 
 	pObject

@@ -8557,6 +8557,26 @@ RING_FUNC(ring_QTextEdit_setundoAvailableEvent)
 	pObject->setundoAvailableEvent(RING_API_GETSTRING(2));
 }
 
+RING_FUNC(ring_QTextEdit_cyanline)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QTextEdit *editor;
+	editor = (QTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( Qt::cyan );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
 
 RING_FUNC(ring_QListWidget_addItem)
 {
@@ -76727,6 +76747,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextedit_setselectionchangedevent",ring_QTextEdit_setselectionChangedEvent);
 	ring_vm_funcregister("qtextedit_settextchangedevent",ring_QTextEdit_settextChangedEvent);
 	ring_vm_funcregister("qtextedit_setundoavailableevent",ring_QTextEdit_setundoAvailableEvent);
+	ring_vm_funcregister("qtextedit_cyanline",ring_QTextEdit_cyanline);
 	ring_vm_funcregister("qlistwidget_additem",ring_QListWidget_addItem);
 	ring_vm_funcregister("qlistwidget_count",ring_QListWidget_count);
 	ring_vm_funcregister("qlistwidget_currentrow",ring_QListWidget_currentRow);
