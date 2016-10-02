@@ -260,18 +260,25 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 void ring_vm_mainloop ( VM *pVM )
 {
 	#if RING_VMSHOWOPCODE
-	do {
-		if ( pVM->pRingState->nPrintInstruction ) {
+	/* Preprocessor Allows showing the OPCODE */
+	if ( pVM->pRingState->nPrintInstruction ) {
+		do {
 			ring_vm_fetch2(pVM);
-		}
-		else {
+			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+				pVM->nEvalReturnPC = 0 ;
+				break ;
+			}
+		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	}
+	else {
+		do {
 			ring_vm_fetch(pVM);
-		}
-		if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-			pVM->nEvalReturnPC = 0 ;
-			break ;
-		}
-	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+				pVM->nEvalReturnPC = 0 ;
+				break ;
+			}
+		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	}
 	#else
 	do {
 		ring_vm_fetch(pVM);
