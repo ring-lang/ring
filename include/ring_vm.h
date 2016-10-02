@@ -6,8 +6,9 @@
 **  Stack Size 
 */
 #define RING_VM_STACK_SIZE 256
+#define RING_VM_BC_ITEMS_COUNT 16
 typedef struct ByteCode {
-	Item *aData[16]  ;
+	Item *aData[RING_VM_BC_ITEMS_COUNT]  ;
 	char nSize  ;
 	List *pList  ;
 } ByteCode ;

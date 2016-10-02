@@ -230,6 +230,10 @@ RING_API void ring_vm_loadcode ( VM *pVM )
 	*/
 	nSize = (ring_list_getsize(pVM->pCode))*RING_VM_EXTRASIZE ;
 	pVM->pByteCode = (ByteCode *) calloc(nSize,sizeof(ByteCode)) ;
+	if ( pVM->pByteCode == NULL ) {
+		printf( RING_OOM ) ;
+		exit(0);
+	}
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pCode) ; x++ ) {
 		ring_vm_tobytecode(pVM,x);
 	}
@@ -773,7 +777,7 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 		pByteCode->aData[x2-1] = pItem ;
 	}
 	/* Clear Other Items */
-	for ( x2 = ring_list_getsize(pIR)+1 ; x2 <= 16 ; x2++ ) {
+	for ( x2 = ring_list_getsize(pIR)+1 ; x2 <= RING_VM_BC_ITEMS_COUNT ; x2++ ) {
 		pByteCode->aData[x2-1] = NULL ;
 	}
 }
