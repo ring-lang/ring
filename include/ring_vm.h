@@ -667,7 +667,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VM_ERROR_BADDECIMALNUMBER "Error (R33) : Bad decimals number (correct range >= 0 and <=14) !"
 #define RING_VM_ERROR_ASSIGNNOTVARIABLE "Error (R34) : Variable is required for the assignment operation"
 /* Extra Size (for eval) */
-#define RING_VM_EXTRASIZE 2
+#define RING_VM_EXTRASIZE 1
 /* Variables Location */
 #define RING_VM_STATICVAR_THIS 12
 #endif
