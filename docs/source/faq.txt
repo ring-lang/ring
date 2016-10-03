@@ -118,9 +118,9 @@ if you know how to use it correctly.
 
 
 .. index:: 
-	pair: Frequently Asked Questions; What are the advantages to using Ring over native Lisp or Smalltalk?
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Lisp or Smalltalk?
 
-What are the advantages to using Ring over native Lisp or Smalltalk?
+What are the advantages to using Ring over Lisp or Smalltalk?
 ====================================================================
 
 Smalltalk and Lisp are GREAT languages. I like many of the concepts behind them but I'm sure
@@ -1773,3 +1773,30 @@ Also you can connect to a Visual FoxPro database (requires installing Visual Fox
 	odbc_disconnect(pODBC)
 	odbc_close(pODBC)
 
+.. index:: 
+	pair: Frequently Asked Questions; Why setClickEvent() doesn't see the object methods directly?
+
+Why setClickEvent() doesn't see the object methods directly?
+============================================================
+
+setClickEvent(cCode) take a string contains code. The code will be executed when the event happens.
+
+Ring support Many Programming Paradigms like Procedural, OOP, Functional and others.
+
+But when you support many paradigms at the language level you can't know which paradigm will be used so you have two options
+
+(1) Provide General Solutions that works with many programming paradigms.
+
+(2) Provide Many Specific solutions where each one match a specific paradigm.
+
+setClickEvent() and others belong to (General Solutions that works with many programming paradigms).
+
+You just pass a string of code that will be executed without any care about classes and objects.
+
+This code could be anything like calling to a function, calling to a method and setting variable values.
+
+Some other languages force you to use OOP and call methods for events.
+Also some other languages uses anonymous functions that may get parameters like the current object.
+
+Now we have the general solution (not restricted with any paradigm), In the future we may 
+add specific solutions that match specific paradigms (OOP, Functional, Declarative and Natural).
