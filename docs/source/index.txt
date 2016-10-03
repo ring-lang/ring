@@ -54,7 +54,9 @@ Contents:
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Using RingLibSDL <libsdl>
    Demo Project - Game Engine for 2D Games <gameengine>	
+   Building Games For Android <gameengineandorid>
    Desktop and Mobile development using RingQt <qt>
+   Building RingQt Applications for Mobile <qtmobile>
    Scope Rules for Variables and Attributes <scope>
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>
