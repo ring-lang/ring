@@ -49,7 +49,7 @@ that we will use Ring to solve. Could you enable any one in the world without kn
 about computer programming concepts to create very powerful software? In science the answer
 is (Visual Programming) and (Natural Programming). In practical we still away from switching
 to these paradigms without introducing other problems. Ring is designed to solve this problem.
-It’s designed to provide Natural Programming in a practical way. And to create a powerful 
+It's designed to provide Natural Programming in a practical way. And to create a powerful 
 Visual Programming tool. Ring is designed to be a new world of programming after 10 years 
 of research in Visual Programming and Natural Languages.
 
@@ -72,16 +72,16 @@ that support these ideas.
 
 I agree that each programmer/developer has the freedom to form his opinions about any software
 including programming languages. Ring is not an exception but you may miss the idea behind the 
-language. It’s innovative and may help you to think different about how to solve your problems.
-Maybe this is not clear to many programmers because It’s practical language and includes many
+language. It's innovative and may help you to think different about how to solve your problems.
+Maybe this is not clear to many programmers because It's practical language and includes many
 features known to programmers and when a programmer look at a language he/she may think that 
-nothing new because it’s familiar. I created Ring to solve problems in a different way. Where I
+nothing new because it's familiar. I created Ring to solve problems in a different way. Where I
 will start programming just by describing the software using new natural interfaces that I will
 implement later when I move from the design stage to the implementation stage. 
-(I don’t determine the time to switch between stages, You are free to use Agile methods). 
+(I don't determine the time to switch between stages, You are free to use Agile methods). 
 Since Ring is a new language you have 3 options. 
 
-(1) Just don’t care.
+(1) Just don't care.
 
 (2) Think in the future of the language and help us if you understand the idea and want to contribute.
 
@@ -97,7 +97,7 @@ we have a plan to present a new paradigm for Network Programming and Concurrency
 new paradigm through simple prototypes during the last years and we will integrate it with Ring 
 in Future releases.
 
-(C) It’s a new language, just Ring version 1.1. A serious ecosystem comes along the way.
+(C) It's a new language, just Ring version 1.1. A serious ecosystem comes along the way.
 
 
 .. index:: 
@@ -106,7 +106,7 @@ in Future releases.
 Why Ring is weakly typed?
 =========================
 
-Because it’s more Natural, and Faster and this is important for the language goals. What
+Because it's more Natural, and Faster and this is important for the language goals. What
 comes first is what you want. When you type "Print : " + 5 , The String comes first then 5
 will be converted to a String. while when you type 5 + "10" The number comes first so "10"
 will be converted to 10. This help a lot to quickly convert between numbers and strings using
@@ -123,7 +123,7 @@ if you know how to use it correctly.
 What are the advantages to using Ring over native Lisp or Smalltalk?
 ====================================================================
 
-Smalltalk and Lisp are GREAT languages. I like many of the concepts behind them but I’m sure
+Smalltalk and Lisp are GREAT languages. I like many of the concepts behind them but I'm sure
 that selecting the right programming language is based on the problem and comes after the problem
 definition. I have a problem that I want to solve and these GREAT languages are not ideal for 
 this problem so I designed Ring.
@@ -146,7 +146,7 @@ to the window. The idea of Natural Programming is to get many things done like t
 Why Ring is largely focussed on UI creation?
 ============================================
 
-Yes UI creation is one of the important things in the language features because it’s designed
+Yes UI creation is one of the important things in the language features because it's designed
 to create a visual programming tool, But the language is a multi-paradigm language where we can
 select the programming paradigm based on the problem.
 
@@ -308,9 +308,9 @@ Output:
 
 The Answer:
 
-* It’s Anonymous Functions, i.e. Not Closures.
+* It's Anonymous Functions, i.e. Not Closures.
 
-* It’s Just Ring version 1.1 (Many developers asked about supporting Closures) and during language development we may add new features that doesn’t go against the language goals or sprite.
+* It's Just Ring version 1.1 (Many developers asked about supporting Closures) and during language development we may add new features that doesn't go against the language goals or sprite.
 
 * You can use classes and objects when you want to merge between the state and functions to provide a clear solution.
 
@@ -320,11 +320,11 @@ The Answer:
 
 * We protect you from other scopes when you define the function. In Ring we provided the Three Scopes Rule where at each point you have only at maximum three scopes (Global, Object Scope and Local Scope).
 
-* We don’t get everything from everywhere to be like others! We don’t need to do that. If we will think like that then we will create a very complex language or we will save our time and use other languages.
+* We don't get everything from everywhere to be like others! We don't need to do that. If we will think like that then we will create a very complex language or we will save our time and use other languages.
 
-* When you think about learning or studying a new language concentrate about (What is new?) and (What is better in this language?) to know when to use it. Don’t compare a new language just released little months ago with languages started many years ago and expect to find everything that you used to have.
+* When you think about learning or studying a new language concentrate about (What is new?) and (What is better in this language?) to know when to use it. Don't compare a new language just released little months ago with languages started many years ago and expect to find everything that you used to have.
 
-* Each programming language miss features in other languages. The idea is not the Features. it’s the sprite and ability behind all of the features together.
+* Each programming language miss features in other languages. The idea is not the Features. it's the sprite and ability behind all of the features together.
 
 
 
@@ -334,7 +334,7 @@ The Answer:
 Why the ability to define your own languages Instead of just handing over the syntax so you can parse it using whatever code you like?
 ======================================================================================================================================
 
-It’s innovation - You create natural statements without the need to learn about parsing. 
+It's innovation - You create natural statements without the need to learn about parsing. 
 You just use Classes which is intelligent decision (where later we can mix between classes to
  support more statements based on the context - We can change and translate the defined 
 statements and many more!). Also the statements are added in Ring World where you can use
@@ -353,7 +353,7 @@ the language design to prevent errors without causing other problems like killin
 
 Read some source code in the Linux Kernel and Ruby Implementation for example, You will find good
  usage for GOTO as a practical example that General Rules are not for All Use Cases and great
- programmers know when to break the rules. I’m not saying go and use GOTO or saying Ring add
+ programmers know when to break the rules. I'm not saying go and use GOTO or saying Ring add
  things like that. But the ability to break more than one loop and/or the ability to break the
  loop from sub functions is practical for small programs.
 
