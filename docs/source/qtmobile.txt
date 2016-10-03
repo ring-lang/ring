@@ -55,6 +55,10 @@ Install Qt for Android
 
 	You can modify the code then build and run for Desktop or Mobile.
 
+.. image:: ringqtandroid_shot1.png
+	:alt: RingQt for Android
+
+
 Comments about developing for Android using RingQt
 ==================================================
 
