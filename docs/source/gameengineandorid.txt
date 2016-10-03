@@ -40,7 +40,7 @@ Open the project folder : ring/android/ringlibsdl/project
 
 You can add the source code (*.ring) and Images/Sound Files to the assets folder.
 
-.. image:: ringlibsdlandroid_shot1.png
+.. image:: ringlibsdlandroid_shot2.png
 	:alt: RingLibSDL for Android
 
 You will find the Flappy Bird 3000 Game ready for building.
