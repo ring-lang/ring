@@ -1,3 +1,79 @@
 ==========================
 Building Games For Android
 ==========================
+
+In this chapter we will learn about Building RingLibSDL Games for Mobile.
+
+So we can create packages (*.apk) for the applications that are developed using Ring Game Engine for 2D Games.
+
+
+Download Requirements and Update the Android SDK
+================================================
+
+(1) Download 
+
+* The Android SDK Tools
+
+	https://developer.android.com/studio/index.html
+
+* The Android NDK 
+
+		https://developer.android.com/ndk/index.html
+
+* Apache Ant v1.8 or later 
+
+		http://ant.apache.org/bindownload.cgi
+
+* Java SE Development Kit (JDK) v6 or later
+
+		http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
+
+(2) Update
+
+Update the Android SDK to get the API and tools packages required for development
+
+
+Project Folder
+==============
+
+Open the project folder : ring/android/ringlibsdl/project
+
+.. image:: ringlibsdlandroid_shot1.png
+	:alt: RingLibSDL for Android
+
+
+You can add the source code (*.ring) and Images/Sound Files to the assets folder.
+
+.. image:: ringlibsdlandroid_shot1.png
+	:alt: RingLibSDL for Android
+
+You will find the Flappy Bird 3000 Game ready for building.
+
+The execution starts from the start.ring file
+
+.. code-block:: ring
+
+	load "game2.ring"
+
+
+
+Building the project
+====================
+
+You can build using the next command.
+
+You need to do this for one time only.
+
+.. code-block:: none
+
+	ndk-build
+
+
+You can create the package using the next command.
+
+.. code-block:: none
+
+	ant debug
+
+
+
