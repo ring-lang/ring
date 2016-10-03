@@ -161,7 +161,9 @@ This game could be played using mouse and keyboard as well, showing a message of
 Werdy Application
 =================
 
-URL : https://github.com/magdy-ragab/werdy
+URL : http://werdy.info
+
+Source Code : https://github.com/magdy-ragab/werdy
 
 Author : Magdy Ragab
 
