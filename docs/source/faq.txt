@@ -89,15 +89,15 @@ Since Ring is a new language you have 3 options.
 
 Summary:
 
-(A) Ring is designed based on a need to develop a new version of the PWCT software. 
+* Ring is designed based on a need to develop a new version of the PWCT software. 
 Once we finish PWCT 2.0 we will have good and large software developed using Ring.
 
-(B) We will push Declarative and Natural paradigms many steps forward. Also in next versions 
+* We will push Declarative and Natural paradigms many steps forward. Also in next versions 
 we have a plan to present a new paradigm for Network Programming and Concurrency. We tested this
 new paradigm through simple prototypes during the last years and we will integrate it with Ring 
 in Future releases.
 
-(C) It's a new language, just Ring version 1.1. A serious ecosystem comes along the way.
+* It's a new language, just Ring version 1.1. A serious ecosystem comes along the way.
 
 
 .. index:: 
