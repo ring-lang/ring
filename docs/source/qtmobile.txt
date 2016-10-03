@@ -87,7 +87,7 @@ Comments about developing for Android using RingQt
 
 	For database access use the QSqlDatabase Class
 
-..note:: All of the missing libraries ((LibCurl, OpenSSL & Allegro) can be compiled for Android, but they are not included in this Qt project.
+.. note:: All of the missing libraries ((LibCurl, OpenSSL & Allegro) can be compiled for Android, but they are not included in this Qt project.
 
 (3) use if isandroid() when you want to modify the code just for android
 
