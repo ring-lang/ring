@@ -1,3 +1,6 @@
+.. index:: 
+	single: Building Games For Android; Introduction
+
 ==========================
 Building Games For Android
 ==========================
@@ -6,6 +9,9 @@ In this chapter we will learn about Building RingLibSDL Games for Mobile.
 
 So we can create packages (*.apk) for the applications that are developed using Ring Game Engine for 2D Games.
 
+
+.. index:: 
+	pair: Building Games For Android; Download Requirements and Update the Android SDK
 
 Download Requirements and Update the Android SDK
 ================================================
@@ -29,6 +35,9 @@ Download Requirements and Update the Android SDK
 * Update the Android SDK to get the API and tools packages required for development
 
 
+.. index:: 
+	pair: Building Games For Android; Project Folder
+
 Project Folder
 ==============
 
@@ -51,6 +60,9 @@ The execution starts from the start.ring file
 
 	load "game2.ring"
 
+
+.. index:: 
+	pair: Building Games For Android; Building the project
 
 Building the project
 ====================

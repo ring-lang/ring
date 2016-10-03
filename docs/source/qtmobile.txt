@@ -1,9 +1,15 @@
+.. index:: 
+	single: Building RingQt Applications for Mobile; Introduction
+
 =======================================
 Building RingQt Applications for Mobile
 =======================================
 
 In this chapter we will learn about Building RingQt Applications for Mobile.
 
+
+.. index:: 
+	pair: Building RingQt Applications for Mobile; Download Requirements
 
 Download Requirements
 =====================
@@ -28,10 +34,16 @@ Download
 
 		http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
 
+.. index:: 
+	pair: Building RingQt Applications for Mobile; Update the Android SDK
+
 Update the Android SDK
 ======================
 
 Update the Android SDK to get the API and tools packages required for development
+
+.. index:: 
+	pair: Building RingQt Applications for Mobile; Install Qt for Android
 
 Install Qt for Android
 ======================
@@ -58,6 +70,8 @@ Install Qt for Android
 .. image:: ringqtandroid_shot1.png
 	:alt: RingQt for Android
 
+.. index:: 
+	pair: Building RingQt Applications for Mobile; Comments about developing for Android using RingQt
 
 Comments about developing for Android using RingQt
 ==================================================
