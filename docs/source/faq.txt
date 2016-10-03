@@ -336,9 +336,9 @@ Why the ability to define your own languages Instead of just handing over the sy
 
 It's innovation - You create natural statements without the need to learn about parsing. 
 You just use Classes which is intelligent decision (where later we can mix between classes to
- support more statements based on the context - We can change and translate the defined 
+support more statements based on the context - We can change and translate the defined 
 statements and many more!). Also the statements are added in Ring World where you can use
- any Ring statement.
+any Ring statement.
 
 .. index:: 
 	pair: Frequently Asked Questions; Why you can specify the number of loops you want to break out of?
@@ -347,15 +347,15 @@ Why you can specify the number of loops you want to break out of?
 =================================================================
 
 The language support programming in the small and programming in the large. The selection
- of what features to use is based on what are you going to do. Any programmer can write 
+of what features to use is based on what are you going to do. Any programmer can write 
 bad code in any language if he/she wants to do that. The idea is what must be done from 
 the language design to prevent errors without causing other problems like killing flexibility.
 
 Read some source code in the Linux Kernel and Ruby Implementation for example, You will find good
- usage for GOTO as a practical example that General Rules are not for All Use Cases and great
- programmers know when to break the rules. I'm not saying go and use GOTO or saying Ring add
- things like that. But the ability to break more than one loop and/or the ability to break the
- loop from sub functions is practical for small programs.
+usage for GOTO as a practical example that General Rules are not for All Use Cases and great
+programmers know when to break the rules. I'm not saying go and use GOTO or saying Ring add
+things like that. But the ability to break more than one loop and/or the ability to break the
+loop from sub functions is practical for small programs.
 
 Anyway these are some of the small new things added by the language (Not the big idea).
 
