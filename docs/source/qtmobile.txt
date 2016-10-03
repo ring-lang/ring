@@ -88,3 +88,50 @@ Comments about developing for Android using RingQt
 	For database access use the QSqlDatabase Class
 
 ..note:: All of the missing libraries ((LibCurl, OpenSSL & Allegro) can be compiled for Android, but they are not included in this Qt project.
+
+(3) use if isandroid() when you want to modify the code just for android
+
+Example:
+
+.. code-block:: ring
+
+	if isandroid()
+		// Android code
+	else
+  		// other platforms
+	ok
+
+(4) Sometimes you will find that the button text/image is repeated in drawing !
+it's Qt problem that you can avoid using the next code.
+
+.. code-block:: ring
+
+	if isandroid()
+		setStyleSheet("
+			border-style: outset;
+			border-width: 2px;
+			border-radius: 4px;
+			border-color: black;
+			padding: 6px;")
+	 ok
+
+(5)  Always use Layouts instead of manual setting of controls position and size. 
+
+This is the best way to get the expected user interface to avoid problems like (controls with small/extra size)
+
+(6) When you deal with Qt Classes you can determine the images from resources (you don't need to copy them using main.cpp)
+
+
+Example: 
+
+.. code-block:: ring
+
+	if isandroid()
+	    mypic = new QPixmap(":/resources/cardsimage")
+	else
+	    mypic = new QPixmap("cards.jpg")
+	ok
+
+In the previous example, cards.jpg  is added to the resources then we write the "cardsimage" as alias for "cards.jpg"
+
+
