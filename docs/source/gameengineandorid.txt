@@ -10,8 +10,6 @@ So we can create packages (*.apk) for the applications that are developed using 
 Download Requirements and Update the Android SDK
 ================================================
 
-(1) Download 
-
 * The Android SDK Tools
 
 	https://developer.android.com/studio/index.html
@@ -28,9 +26,7 @@ Download Requirements and Update the Android SDK
 
 		http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
 
-(2) Update
-
-Update the Android SDK to get the API and tools packages required for development
+* Update the Android SDK to get the API and tools packages required for development
 
 
 Project Folder
@@ -56,24 +52,20 @@ The execution starts from the start.ring file
 	load "game2.ring"
 
 
-
 Building the project
 ====================
 
-You can build using the next command.
+Move to the ring/android/ringlibsdl/project folder 
 
-You need to do this for one time only.
+We can build using the next command (We need to do this for one time only).
 
 .. code-block:: none
 
 	ndk-build
 
 
-You can create the package using the next command.
+Then we can create the package (*.apk) using the next command.
 
 .. code-block:: none
 
 	ant debug
-
-
-
