@@ -395,6 +395,7 @@ MyApp = New qApp {
 				myfiles.append("*.css")
 				myfiles.append("*.js")
 				myfiles.append("*.xml")
+				myfiles.append("*.data")
 				setnamefilters(myfiles)	
 				setNameFilterDisables(false)
 			}
