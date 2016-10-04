@@ -5513,3 +5513,24 @@ Parent Class : QGradient
 * void setStart(QPointF start)
 * void setStart_2(qreal x,qreal y)
 * QPointF start(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGradient Class
+
+QGradient Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QGradient.html
+
+
+Parameters : void
+
+* QGradient::CoordinateMode coordinateMode(void)
+* void setColorAt(qreal position,  QColor   color)
+* void setCoordinateMode(QGradient::CoordinateMode mode)
+* void setSpread(QGradient::Spread method)
+* void setStops(QGradientStops stopPoints)
+* QGradient::Spread spread(void)
+* QGradientStops stops(void)
+* QGradient::Type type(void)
