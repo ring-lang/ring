@@ -5417,3 +5417,77 @@ Parent Class : QWidget
 * void setPixmap(QPixmap pixmap)
 * void clearMessage(void)
 * void showMessage(QString message, int alignment ,QColor color)
+
+.. index::
+	pair: RingQt Classes Reference; QBoxLayout Class
+
+QBoxLayout Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBoxLayout.html
+
+
+Parameters : QBoxLayout::Direction dir, QWidget *parent
+
+
+Parent Class : QLayout
+
+* void  addLayout(QLayout * layout, int stretch )
+* void  addSpacerItem(QSpacerItem * spacerItem)
+* void  addSpacing(int size)
+* void  addStretch(int stretch )
+* void  addStrut(int size)
+* void  addWidget(QWidget * widget, int stretch , Qt::Alignment alignment )
+* QBoxLayout::Direction  direction(void)
+* void  insertLayout(int index, QLayout * layout, int stretch )
+* void  insertSpacerItem(int index, QSpacerItem * spacerItem)
+* void  insertSpacing(int index, int size)
+* void  insertStretch(int index, int stretch )
+* void  insertWidget(int index, QWidget * widget, int stretch , Qt::Alignment alignment )
+* void  setDirection(QBoxLayout::Direction direction)
+* void  setSpacing(int spacing)
+* void  setStretch(int index, int stretch)
+* bool  setStretchFactor(QWidget * widget, int stretch)
+* bool  setStretchFactor_2(QLayout * layout, int stretch)
+* int  spacing(void)
+* int  stretch(int index)
+
+.. index::
+	pair: RingQt Classes Reference; QLayout Class
+
+QLayout Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QLayout.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QObject
+
+* bool activate(void)
+* void addWidget(QWidget *w)
+* QMargins contentsMargins(void)
+* QRect contentsRect(void)
+* void getContentsMargins(int *left, int *top, int *right, int *bottom)
+* bool isEnabled(void)
+* QWidget *menuBar(void)
+* QWidget *parentWidget(void)
+* void removeItem(QLayoutItem *item)
+* void removeWidget(QWidget *widget)
+* bool setAlignment(QWidget *w, Qt::Alignment alignment)
+* void setAlignment_2(Qt::Alignment alignment)
+* bool setAlignment_3(QLayout *l, Qt::Alignment alignment)
+* void setContentsMargins(int left, int top, int right, int bottom)
+* void setContentsMargins_2(QMargins margins)
+* void setEnabled(bool enable)
+* void setMenuBar(QWidget *widget)
+* void setSizeConstraint(QLayout::SizeConstraint)
+* void setSpacing(int)
+* QLayout::SizeConstraint sizeConstraint(void)
+* int spacing(void)
+* void update(void)
+* QSize  closestAcceptableSize( QWidget * widget,  QSize   size)
