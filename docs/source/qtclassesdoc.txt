@@ -5534,3 +5534,25 @@ Parameters : void
 * QGradient::Spread spread(void)
 * QGradientStops stops(void)
 * QGradient::Type type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QPointF Class
+
+QPointF Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPointF.html
+
+
+Parameters : void
+
+* bool isNull(void)
+* qreal manhattanLength(void)
+* qreal rx(void)
+* qreal ry(void)
+* void setX(qreal x)
+* void setY(qreal y)
+* QPoint toPoint(void)
+* qreal x(void)
+* qreal y(void)
