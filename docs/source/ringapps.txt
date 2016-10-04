@@ -167,11 +167,12 @@ Source Code : https://github.com/magdy-ragab/werdy
 
 Author : Magdy Ragab
 
+The applcation is provided for Windows, Linux and Android.
+
 .. image:: ringapps_shot1.png
 	:width: 300pt
 	:height: 300pt
 	:alt: Ring Application
-
 
 .. index:: 
 	pair: Applications developed in little hours; Samples in this book
