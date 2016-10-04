@@ -182,6 +182,7 @@ extern "C" {
 #include <QLayout>
 #include <QLinearGradient>
 #include <QGradient>
+#include <QPointF>
 
 #include "highlighter.h"
 
@@ -57890,7 +57891,7 @@ RING_FUNC(ring_QVariant_toPointF)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QPointF *pValue ; 
-		pValue = (QPointF *) malloc(sizeof(QPointF)) ;
+		pValue = new QPointF() ;
 		*pValue = pObject->toPointF();
 		RING_API_RETCPOINTER(pValue,"QPointF");
 	}
@@ -59737,7 +59738,7 @@ RING_FUNC(ring_QPainterPath_currentPosition)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	{
 		QPointF *pValue ; 
-		pValue = (QPointF *) malloc(sizeof(QPointF)) ;
+		pValue = new QPointF() ;
 		*pValue = pObject->currentPosition();
 		RING_API_RETCPOINTER(pValue,"QPointF");
 	}
@@ -59971,7 +59972,7 @@ RING_FUNC(ring_QPainterPath_pointAtPercent)
 	}
 	{
 		QPointF *pValue ; 
-		pValue = (QPointF *) malloc(sizeof(QPointF)) ;
+		pValue = new QPointF() ;
 		*pValue = pObject->pointAtPercent( (qreal ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QPointF");
 	}
@@ -69796,7 +69797,7 @@ RING_FUNC(ring_QGraphicsVideoItem_offset)
 	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
 	{
 		QPointF *pValue ; 
-		pValue = (QPointF *) malloc(sizeof(QPointF)) ;
+		pValue = new QPointF() ;
 		*pValue = pObject->offset();
 		RING_API_RETCPOINTER(pValue,"QPointF");
 	}
@@ -73929,7 +73930,7 @@ RING_FUNC(ring_QLinearGradient_finalStop)
 	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
 	{
 		QPointF *pValue ; 
-		pValue = (QPointF *) malloc(sizeof(QPointF)) ;
+		pValue = new QPointF() ;
 		*pValue = pObject->finalStop();
 		RING_API_RETCPOINTER(pValue,"QPointF");
 	}
@@ -74039,7 +74040,7 @@ RING_FUNC(ring_QLinearGradient_start)
 	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
 	{
 		QPointF *pValue ; 
-		pValue = (QPointF *) malloc(sizeof(QPointF)) ;
+		pValue = new QPointF() ;
 		*pValue = pObject->start();
 		RING_API_RETCPOINTER(pValue,"QPointF");
 	}
@@ -74200,6 +74201,172 @@ RING_FUNC(ring_QGradient_type)
 	}
 	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
 	RING_API_RETNUMBER(pObject->type());
+}
+
+
+RING_FUNC(ring_QPointF_isNull)
+{
+	QPointF *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QPointF_manhattanLength)
+{
+	QPointF *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
+	RING_API_RETNUMBER(pObject->manhattanLength());
+}
+
+
+RING_FUNC(ring_QPointF_rx)
+{
+	QPointF *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
+	RING_API_RETNUMBER(pObject->rx());
+}
+
+
+RING_FUNC(ring_QPointF_ry)
+{
+	QPointF *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
+	RING_API_RETNUMBER(pObject->ry());
+}
+
+
+RING_FUNC(ring_QPointF_setX)
+{
+	QPointF *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setX( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QPointF_setY)
+{
+	QPointF *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setY( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QPointF_toPoint)
+{
+	QPointF *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
+	{
+		QPoint *pValue ; 
+		pValue = (QPoint *) malloc(sizeof(QPoint)) ;
+		*pValue = pObject->toPoint();
+		RING_API_RETCPOINTER(pValue,"QPoint");
+	}
+}
+
+
+RING_FUNC(ring_QPointF_x)
+{
+	QPointF *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
+	RING_API_RETNUMBER(pObject->x());
+}
+
+
+RING_FUNC(ring_QPointF_y)
+{
+	QPointF *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
+	RING_API_RETNUMBER(pObject->y());
 }
 
 RING_FUNC(ring_QObject_new)
@@ -75870,6 +76037,17 @@ RING_FUNC(ring_QLinearGradient_new)
 	}
 	QLinearGradient *pObject = new QLinearGradient();
 	RING_API_RETCPOINTER(pObject,"QLinearGradient");
+}
+
+RING_FUNC(ring_QPointF_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QPointF *pObject = new QPointF();
+	RING_API_RETCPOINTER(pObject,"QPointF");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -77758,6 +77936,21 @@ RING_FUNC(ring_QLinearGradient_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QPointF_delete)
+{
+	QPointF *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QPointF *) RING_API_GETCPOINTER(1,"QPointF");
 		delete pObject ;
 	}
 }
@@ -81367,6 +81560,15 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qgradient_spread",ring_QGradient_spread);
 	ring_vm_funcregister("qgradient_stops",ring_QGradient_stops);
 	ring_vm_funcregister("qgradient_type",ring_QGradient_type);
+	ring_vm_funcregister("qpointf_isnull",ring_QPointF_isNull);
+	ring_vm_funcregister("qpointf_manhattanlength",ring_QPointF_manhattanLength);
+	ring_vm_funcregister("qpointf_rx",ring_QPointF_rx);
+	ring_vm_funcregister("qpointf_ry",ring_QPointF_ry);
+	ring_vm_funcregister("qpointf_setx",ring_QPointF_setX);
+	ring_vm_funcregister("qpointf_sety",ring_QPointF_setY);
+	ring_vm_funcregister("qpointf_topoint",ring_QPointF_toPoint);
+	ring_vm_funcregister("qpointf_x",ring_QPointF_x);
+	ring_vm_funcregister("qpointf_y",ring_QPointF_y);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -81493,6 +81695,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qsplashscreen_new",ring_QSplashScreen_new);
 	ring_vm_funcregister("qboxlayout_new",ring_QBoxLayout_new);
 	ring_vm_funcregister("qlineargradient_new",ring_QLinearGradient_new);
+	ring_vm_funcregister("qpointf_new",ring_QPointF_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -81619,4 +81822,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qsplashscreen_delete",ring_QSplashScreen_delete);
 	ring_vm_funcregister("qboxlayout_delete",ring_QBoxLayout_delete);
 	ring_vm_funcregister("qlineargradient_delete",ring_QLinearGradient_delete);
+	ring_vm_funcregister("qpointf_delete",ring_QPointF_delete);
 }

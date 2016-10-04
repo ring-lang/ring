@@ -10249,7 +10249,9 @@ Class QVariant
 		return QVariant_toPoint(pObject)
 
 	Func toPointF 
-		return QVariant_toPointF(pObject)
+		pTempObj = new QPointF
+		pTempObj.pObject = QVariant_toPointF(pObject)
+		return pTempObj
 
 	Func toReal P1
 		return QVariant_toReal(pObject,GetObjectPointerFromRingObject(P1))
@@ -10595,7 +10597,9 @@ Class QPainterPath
 		return QPainterPath_cubicTo(pObject,P1,P2,P3,P4,P5,P6)
 
 	Func currentPosition 
-		return QPainterPath_currentPosition(pObject)
+		pTempObj = new QPointF
+		pTempObj.pObject = QPainterPath_currentPosition(pObject)
+		return pTempObj
 
 	Func elementAt P1
 		return QPainterPath_elementAt(pObject,P1)
@@ -10630,7 +10634,9 @@ Class QPainterPath
 		return QPainterPath_percentAtLength(pObject,P1)
 
 	Func pointAtPercent P1
-		return QPainterPath_pointAtPercent(pObject,P1)
+		pTempObj = new QPointF
+		pTempObj.pObject = QPainterPath_pointAtPercent(pObject,P1)
+		return pTempObj
 
 	Func quadTo P1,P2,P3,P4
 		return QPainterPath_quadTo(pObject,P1,P2,P3,P4)
@@ -12437,7 +12443,9 @@ Class QGraphicsVideoItem
 		return QGraphicsVideoItem_nativeSize(pObject)
 
 	Func offset 
-		return QGraphicsVideoItem_offset(pObject)
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsVideoItem_offset(pObject)
+		return pTempObj
 
 	Func setAspectRatioMode P1
 		return QGraphicsVideoItem_setAspectRatioMode(pObject,P1)
@@ -13163,7 +13171,9 @@ Class QLinearGradient from QGradient
 		pObject = QLinearGradient_delete(pObject)
 
 	Func finalStop 
-		return QLinearGradient_finalStop(pObject)
+		pTempObj = new QPointF
+		pTempObj.pObject = QLinearGradient_finalStop(pObject)
+		return pTempObj
 
 	Func setFinalStop P1
 		return QLinearGradient_setFinalStop(pObject,GetObjectPointerFromRingObject(P1))
@@ -13178,7 +13188,9 @@ Class QLinearGradient from QGradient
 		return QLinearGradient_setStart_2(pObject,P1,P2)
 
 	Func start 
-		return QLinearGradient_start(pObject)
+		pTempObj = new QPointF
+		pTempObj.pObject = QLinearGradient_start(pObject)
+		return pTempObj
 
 Class QGradient
 
@@ -13214,6 +13226,44 @@ Class QGradient
 
 	Func type 
 		return QGradient_type(pObject)
+
+Class QPointF
+
+	pObject
+
+	Func init 
+		pObject = QPointF_new()
+		return self
+
+	Func delete
+		pObject = QPointF_delete(pObject)
+
+	Func isNull 
+		return QPointF_isNull(pObject)
+
+	Func manhattanLength 
+		return QPointF_manhattanLength(pObject)
+
+	Func rx 
+		return QPointF_rx(pObject)
+
+	Func ry 
+		return QPointF_ry(pObject)
+
+	Func setX P1
+		return QPointF_setX(pObject,P1)
+
+	Func setY P1
+		return QPointF_setY(pObject,P1)
+
+	Func toPoint 
+		return QPointF_toPoint(pObject)
+
+	Func x 
+		return QPointF_x(pObject)
+
+	Func y 
+		return QPointF_y(pObject)
 
 Class QIcon
 
