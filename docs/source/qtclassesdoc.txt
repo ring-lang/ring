@@ -5491,3 +5491,25 @@ Parent Class : QObject
 * int spacing(void)
 * void update(void)
 * QSize  closestAcceptableSize( QWidget * widget,  QSize   size)
+
+.. index::
+	pair: RingQt Classes Reference; QLinearGradient Class
+
+QLinearGradient Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QLinearGradient.html
+
+
+Parameters : void
+
+
+Parent Class : QGradient
+
+* QPointF finalStop(void)
+* void setFinalStop(QPointF stop)
+* void setFinalStop_2(qreal x,qreal y)
+* void setStart(QPointF start)
+* void setStart_2(qreal x,qreal y)
+* QPointF start(void)
