@@ -2135,6 +2135,6 @@ Check the next sample
 					if isSelected()
 						setText( "" + ( 10 + text()) )
 					ok
-			   }
-		   next
-	   next
+				}
+			next
+		next
