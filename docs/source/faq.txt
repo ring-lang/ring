@@ -1793,7 +1793,7 @@ setClickEvent() and others belong to (General Solutions that works with many pro
 
 You just pass a string of code that will be executed without any care about classes and objects.
 
-This code could be anything like calling to a function, calling to a method and setting variable values.
+This code could be anything like calling a function, calling a method and setting variable value.
 
 Some other languages force you to use OOP and call methods for events.
 Also some other languages uses anonymous functions that may get parameters like the current object.
