@@ -5395,3 +5395,25 @@ Parameters : QFont
 * int width( QString   text, int len )
 * int width_2(QChar ch)
 * int xHeight(void)
+
+.. index::
+	pair: RingQt Classes Reference; QSplashScreen Class
+
+QSplashScreen Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSplashScreen.html
+
+
+Parameters : QPixmap
+
+
+Parent Class : QWidget
+
+* void  finish(QWidget *mainWin)
+* QPixmap pixmap(void)
+* void repaint(void)
+* void setPixmap(QPixmap pixmap)
+* void clearMessage(void)
+* void showMessage(QString message, int alignment ,QColor color)
