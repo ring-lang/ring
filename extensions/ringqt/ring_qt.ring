@@ -12960,6 +12960,37 @@ Class QFontMetrics
 	Func xHeight 
 		return QFontMetrics_xHeight(pObject)
 
+Class QSplashScreen from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QSplashScreen_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSplashScreen_delete(pObject)
+
+	Func finish P1
+		return QSplashScreen_finish(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func pixmap 
+		pTempObj = new QPixmap
+		pTempObj.pObject = QSplashScreen_pixmap(pObject)
+		return pTempObj
+
+	Func repaint 
+		return QSplashScreen_repaint(pObject)
+
+	Func setPixmap P1
+		return QSplashScreen_setPixmap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func clearMessage 
+		return QSplashScreen_clearMessage(pObject)
+
+	Func showMessage P1,P2,P3
+		return QSplashScreen_showMessage(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
 Class QIcon
 
 	pObject

@@ -177,6 +177,7 @@ extern "C" {
 #include <QCameraImageCapture>
 #include <QFontMetrics>
 #include <QList>
+#include <QSplashScreen>
 
 #include "highlighter.h"
 
@@ -72847,6 +72848,129 @@ RING_FUNC(ring_QFontMetrics_xHeight)
 	RING_API_RETNUMBER(pObject->xHeight());
 }
 
+
+RING_FUNC(ring_QSplashScreen_finish)
+{
+	QSplashScreen *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSplashScreen *) RING_API_GETCPOINTER(1,"QSplashScreen");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->finish((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+}
+
+
+RING_FUNC(ring_QSplashScreen_pixmap)
+{
+	QSplashScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSplashScreen *) RING_API_GETCPOINTER(1,"QSplashScreen");
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->pixmap();
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QSplashScreen_repaint)
+{
+	QSplashScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSplashScreen *) RING_API_GETCPOINTER(1,"QSplashScreen");
+	pObject->repaint();
+}
+
+
+RING_FUNC(ring_QSplashScreen_setPixmap)
+{
+	QSplashScreen *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSplashScreen *) RING_API_GETCPOINTER(1,"QSplashScreen");
+	pObject->setPixmap(* (QPixmap  *) RING_API_GETCPOINTER(2,"QPixmap"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QPixmap"));
+}
+
+
+RING_FUNC(ring_QSplashScreen_clearMessage)
+{
+	QSplashScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSplashScreen *) RING_API_GETCPOINTER(1,"QSplashScreen");
+	pObject->clearMessage();
+}
+
+
+RING_FUNC(ring_QSplashScreen_showMessage)
+{
+	QSplashScreen *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QSplashScreen *) RING_API_GETCPOINTER(1,"QSplashScreen");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->showMessage(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3),* (QColor  *) RING_API_GETCPOINTER(4,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		free(RING_API_GETCPOINTER(3,"QColor"));
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -74478,6 +74602,17 @@ RING_FUNC(ring_QFontMetrics_new)
 	}
 	QFontMetrics *pObject = new QFontMetrics(* (QFont *) RING_API_GETCPOINTER(1,"QFont"));
 	RING_API_RETCPOINTER(pObject,"QFontMetrics");
+}
+
+RING_FUNC(ring_QSplashScreen_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	QSplashScreen *pObject = new QSplashScreen(* (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap"));
+	RING_API_RETCPOINTER(pObject,"QSplashScreen");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -76321,6 +76456,21 @@ RING_FUNC(ring_QFontMetrics_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSplashScreen_delete)
+{
+	QSplashScreen *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QSplashScreen *) RING_API_GETCPOINTER(1,"QSplashScreen");
 		delete pObject ;
 	}
 }
@@ -79868,6 +80018,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qfontmetrics_width",ring_QFontMetrics_width);
 	ring_vm_funcregister("qfontmetrics_width_2",ring_QFontMetrics_width_2);
 	ring_vm_funcregister("qfontmetrics_xheight",ring_QFontMetrics_xHeight);
+	ring_vm_funcregister("qsplashscreen_finish",ring_QSplashScreen_finish);
+	ring_vm_funcregister("qsplashscreen_pixmap",ring_QSplashScreen_pixmap);
+	ring_vm_funcregister("qsplashscreen_repaint",ring_QSplashScreen_repaint);
+	ring_vm_funcregister("qsplashscreen_setpixmap",ring_QSplashScreen_setPixmap);
+	ring_vm_funcregister("qsplashscreen_clearmessage",ring_QSplashScreen_clearMessage);
+	ring_vm_funcregister("qsplashscreen_showmessage",ring_QSplashScreen_showMessage);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -79991,6 +80147,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcameraimagecapture_new",ring_QCameraImageCapture_new);
 	ring_vm_funcregister("qheaderview_new",ring_QHeaderView_new);
 	ring_vm_funcregister("qfontmetrics_new",ring_QFontMetrics_new);
+	ring_vm_funcregister("qsplashscreen_new",ring_QSplashScreen_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -80114,4 +80271,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcameraimagecapture_delete",ring_QCameraImageCapture_delete);
 	ring_vm_funcregister("qheaderview_delete",ring_QHeaderView_delete);
 	ring_vm_funcregister("qfontmetrics_delete",ring_QFontMetrics_delete);
+	ring_vm_funcregister("qsplashscreen_delete",ring_QSplashScreen_delete);
 }
