@@ -194,6 +194,7 @@ extern "C" {
 #include <QBoxLayout>
 #include <QLayout>
 #include <QLinearGradient>
+#include <QGradient>
 
 #include "highlighter.h"
 
@@ -432,7 +433,9 @@ aEnumTypes + "QCameraImageCapture::DriveMode"
 aEnumTypes + "QCameraImageCapture::Error"
 aEnumTypes + "QHeaderView::ResizeMode"
 aEnumTypes + "QLayout::SizeConstraint"
-
+aEnumTypes + "QGradient::CoordinateMode"
+aEnumTypes + "QGradient::Spread"
+aEnumTypes + "QGradient::Type"
 </runcode>
 
 <class>
@@ -5552,3 +5555,18 @@ void setStart@2(qreal x,qreal y)
 QPointF start(void)
 
 
+<class>
+name: QGradient
+para: void
+abstract
+</class>
+
+
+QGradient::CoordinateMode coordinateMode(void)
+void setColorAt(qreal position,  QColor   color)
+void setCoordinateMode(QGradient::CoordinateMode mode)
+void setSpread(QGradient::Spread method)
+void setStops(QGradientStops stopPoints)
+QGradient::Spread spread(void)
+QGradientStops stops(void)
+QGradient::Type type(void)

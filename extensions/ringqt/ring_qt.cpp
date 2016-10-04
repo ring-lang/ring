@@ -181,6 +181,7 @@ extern "C" {
 #include <QBoxLayout>
 #include <QLayout>
 #include <QLinearGradient>
+#include <QGradient>
 
 #include "highlighter.h"
 
@@ -74044,6 +74045,163 @@ RING_FUNC(ring_QLinearGradient_start)
 	}
 }
 
+
+RING_FUNC(ring_QGradient_coordinateMode)
+{
+	QGradient *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
+	RING_API_RETNUMBER(pObject->coordinateMode());
+}
+
+
+RING_FUNC(ring_QGradient_setColorAt)
+{
+	QGradient *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColorAt( (qreal ) RING_API_GETNUMBER(2),* (QColor    *) RING_API_GETCPOINTER(3,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QColor"));
+}
+
+
+RING_FUNC(ring_QGradient_setCoordinateMode)
+{
+	QGradient *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCoordinateMode( (QGradient::CoordinateMode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGradient_setSpread)
+{
+	QGradient *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSpread( (QGradient::Spread )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGradient_setStops)
+{
+	QGradient *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
+	pObject->setStops(* (QGradientStops  *) RING_API_GETCPOINTER(2,"QGradientStops"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QGradientStops"));
+}
+
+
+RING_FUNC(ring_QGradient_spread)
+{
+	QGradient *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
+	RING_API_RETNUMBER(pObject->spread());
+}
+
+
+RING_FUNC(ring_QGradient_stops)
+{
+	QGradient *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
+	{
+		QGradientStops *pValue ; 
+		pValue = (QGradientStops *) malloc(sizeof(QGradientStops)) ;
+		*pValue = pObject->stops();
+		RING_API_RETCPOINTER(pValue,"QGradientStops");
+	}
+}
+
+
+RING_FUNC(ring_QGradient_type)
+{
+	QGradient *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
+	RING_API_RETNUMBER(pObject->type());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -81201,6 +81359,14 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlineargradient_setstart",ring_QLinearGradient_setStart);
 	ring_vm_funcregister("qlineargradient_setstart_2",ring_QLinearGradient_setStart_2);
 	ring_vm_funcregister("qlineargradient_start",ring_QLinearGradient_start);
+	ring_vm_funcregister("qgradient_coordinatemode",ring_QGradient_coordinateMode);
+	ring_vm_funcregister("qgradient_setcolorat",ring_QGradient_setColorAt);
+	ring_vm_funcregister("qgradient_setcoordinatemode",ring_QGradient_setCoordinateMode);
+	ring_vm_funcregister("qgradient_setspread",ring_QGradient_setSpread);
+	ring_vm_funcregister("qgradient_setstops",ring_QGradient_setStops);
+	ring_vm_funcregister("qgradient_spread",ring_QGradient_spread);
+	ring_vm_funcregister("qgradient_stops",ring_QGradient_stops);
+	ring_vm_funcregister("qgradient_type",ring_QGradient_type);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);

@@ -6897,7 +6897,9 @@ Class QBrush
 		return pTempObj
 
 	Func gradient 
-		return QBrush_gradient(pObject)
+		pTempObj = new QGradient
+		pTempObj.pObject = QBrush_gradient(pObject)
+		return pTempObj
 
 	Func isOpaque 
 		return QBrush_isOpaque(pObject)
@@ -13177,6 +13179,41 @@ Class QLinearGradient from QGradient
 
 	Func start 
 		return QLinearGradient_start(pObject)
+
+Class QGradient
+
+	pObject
+
+	Func init 
+		pObject = QGradient_new()
+		return self
+
+	Func delete
+		pObject = QGradient_delete(pObject)
+
+	Func coordinateMode 
+		return QGradient_coordinateMode(pObject)
+
+	Func setColorAt P1,P2
+		return QGradient_setColorAt(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setCoordinateMode P1
+		return QGradient_setCoordinateMode(pObject,P1)
+
+	Func setSpread P1
+		return QGradient_setSpread(pObject,P1)
+
+	Func setStops P1
+		return QGradient_setStops(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func spread 
+		return QGradient_spread(pObject)
+
+	Func stops 
+		return QGradient_stops(pObject)
+
+	Func type 
+		return QGradient_type(pObject)
 
 Class QIcon
 
