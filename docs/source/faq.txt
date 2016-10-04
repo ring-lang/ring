@@ -1878,3 +1878,217 @@ To the batch file to support Windows XP
 See : https://github.com/ring-lang/ring/blob/master/src/buildvccomplete.bat
 
 
+.. index:: 
+	pair: Frequently Asked Questions; How to extend RingQt and add more classes?
+
+How to extend RingQt and add more classes?
+==========================================
+
+You have many options
+
+In general you can extend Ring using C or C++ code
+
+Ring from Ring code you can call C Functions or use C++ Classes & Methods
+
+This chapter in the documentation explains this part in the language
+http://ring-lang.sourceforge.net/doc/extension.html
+
+For example the next code in *.c file can be compiled to a DLL file using the Ring library (*.lib)
+
+.. code-block:: c
+
+	#include "ring.h"
+
+	RING_FUNC(ring_ringlib_dlfunc)
+	{
+        	printf("Message from dlfunc");
+	}
+
+	RING_API void ringlib_init(RingState *pRingState)
+	{
+        	ring_vm_funcregister("dlfunc",ring_ringlib_dlfunc);
+	}
+
+Then from Ring you can load the DLL file using LoadLib() function then call the C function that called dlfunc() as any Ring function.
+
+.. code-block:: ring
+
+	See "Dynamic DLL" + NL
+	LoadLib("ringlib.dll")
+	dlfunc()
+
+Output
+
+.. code-block:: none
+
+	Dynamic DLL
+	Message from dlfunc
+
+When you read the documentation you will know about how to get parameters like (strings, numbers, lists and objects)
+
+And how to return a value (any type) from you function.
+
+From experience, when we support a C library or C++ Library
+
+We discovered that a lot of functions share a lot of code 
+
+To save our time, and to quickly generate wrappers for C/C++ Libraries to be used in Ring
+
+We have this code generator
+
+https://github.com/ring-lang/ring/blob/master/extensions/codegen/parsec.ring
+
+The code generator is just a Ring program < 1200 lines of Ring code
+
+The generator take as input a configuration file contains the C/C++ library information
+
+like Functions Prototype, Classes and Methods, Constants, Enum, Structures and members , etc.
+
+Then the generator will generate
+
+*.C File for C libraries (to be able to use the library functions)
+
+*.CPP File for C++ libraries (to be able to use C++ classes and methods)
+
+*.Ring File (to be able to use C++ classes as Ring classes)
+
+*.RH file (Constants)
+
+To understand how the generator work check this extension for the Allegro game programming library
+
+https://github.com/ring-lang/ring/tree/master/extensions/ringallegro
+
+At first we have the configuration file
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf
+
+To write this file, i just used the Allegro documentation + the Ring code generator rules
+
+Then after executing the generator using this batch file
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.bat
+
+or using this script
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.sh
+
+I get the generated source code file
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/ring_allegro.c
+
+The generated source code file (ring_allegro.c) is around 12,000 Lines of code (12 KLOC)
+
+While the configuration file is less than 1 KLOC
+
+To build the library (create the DLL files)
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/buildvc.bat
+
+Also you can check this extension for the LibSDL Library
+
+https://github.com/ring-lang/ring/tree/master/extensions/ringsdl
+
+After this know you should know about
+
+1 - Writing the configuration file 
+
+2 - Using the Code Generator 
+
+3 - Building your library/extension
+
+4 - Using your library/extension from Ring code
+
+Let us move now to you question about Qt
+
+We have RingQt which is just an extension to ring (ringqt.dll)
+
+You don't need to modify Ring.
+
+(1) You just need to modify RingQt
+
+(2) Or extend Ring with another extension based on Qt (but the same Qt version)
+
+For the first option see the RingQt extension
+
+https://github.com/ring-lang/ring/tree/master/extensions/ringqt
+
+Configuration file
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/qt.cf
+
+To generate the source code
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencode.bat
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencode.sh
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencodeandroid.bat
+
+To build the DLL/so/Dylib files
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildmingw32.bat
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildgcc.sh
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildclang.sh
+
+Study RingQt
+
+Learn about the options that you have 
+
+(1) wrapping a Qt class directly
+
+(2) Creating a new class then wrapping your new class 
+
+For the second option (in the previous two points or in the two points before that)
+
+You will create new classes in C++ code
+
+Then you merge these classes to RingQt or provide special DLL for them (your decision)
+
+If your work is general (will help others) just put it to RingQt.
+
+if your work is special (to specific application) just put it in another extension.
+
+.. index:: 
+	pair: Frequently Asked Questions; How to add Combobox and other elements to the cells of a QTableWidget?
+
+How to add Combobox and other elements to the cells of a QTableWidget?
+======================================================================
+
+Check the next code
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	New qApp 
+	{
+		win1 = new qMainWindow() {
+			setGeometry(100,100,1100,370)
+			setwindowtitle("Using QTableWidget")
+
+			Table1 = new qTableWidget(win1) {
+				setrowcount(10) setcolumncount(10)
+				setGeometry(0,0,800,400)
+				setselectionbehavior(QAbstractItemView_SelectRows)
+				
+				for x = 1 to 10
+					for y = 1 to 10
+							item1 = new qtablewidgetitem("R"+X+"C"+Y)
+							setitem(x-1,y-1, item1)
+					next
+				next
+
+				cmb = new QComboBox(Table1) {
+					alist = ["one","two","three","four","five"]
+					for x in aList additem(x,0) next   
+				}
+					setCellWidget(5, 5, cmb)
+			}
+
+			setcentralwidget(table1)
+			show()
+		}
+		exec()
+	}
+	
