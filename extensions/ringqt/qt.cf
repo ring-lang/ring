@@ -191,6 +191,7 @@ extern "C" {
 #include <QFontMetrics>
 #include <QList>
 #include <QSplashScreen>
+#include <QBoxLayout>
 
 #include "highlighter.h"
 
@@ -5474,5 +5475,30 @@ void setPixmap(QPixmap pixmap)
 void clearMessage(void)
 void showMessage(QString message, int alignment ,QColor color)
 
+<class>
+name: QBoxLayout
+para: QBoxLayout::Direction dir, QWidget *parent
+parent: QLayout
+</class>
+
+void  addLayout(QLayout * layout, int stretch )
+void  addSpacerItem(QSpacerItem * spacerItem)
+void  addSpacing(int size)
+void  addStretch(int stretch )
+void  addStrut(int size)
+void  addWidget(QWidget * widget, int stretch , Qt::Alignment alignment )
+QBoxLayout::Direction  direction(void)
+void  insertLayout(int index, QLayout * layout, int stretch )
+void  insertSpacerItem(int index, QSpacerItem * spacerItem)
+void  insertSpacing(int index, int size)
+void  insertStretch(int index, int stretch )
+void  insertWidget(int index, QWidget * widget, int stretch , Qt::Alignment alignment )
+void  setDirection(QBoxLayout::Direction direction)
+void  setSpacing(int spacing)
+void  setStretch(int index, int stretch)
+bool  setStretchFactor(QWidget * widget, int stretch)
+bool  setStretchFactor(QLayout * layout, int stretch)
+int  spacing(void)
+int  stretch(int index)
 
 

@@ -12991,6 +12991,74 @@ Class QSplashScreen from QWidget
 	Func showMessage P1,P2,P3
 		return QSplashScreen_showMessage(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 
+Class QBoxLayout from QLayout
+
+	pObject
+
+	Func init P1,P2
+		pObject = QBoxLayout_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QBoxLayout_delete(pObject)
+
+	Func addLayout P1,P2
+		return QBoxLayout_addLayout(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func addSpacerItem P1
+		return QBoxLayout_addSpacerItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addSpacing P1
+		return QBoxLayout_addSpacing(pObject,P1)
+
+	Func addStretch P1
+		return QBoxLayout_addStretch(pObject,P1)
+
+	Func addStrut P1
+		return QBoxLayout_addStrut(pObject,P1)
+
+	Func addWidget P1,P2,P3
+		return QBoxLayout_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+
+	Func direction 
+		return QBoxLayout_direction(pObject)
+
+	Func insertLayout P1,P2,P3
+		return QBoxLayout_insertLayout(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func insertSpacerItem P1,P2
+		return QBoxLayout_insertSpacerItem(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func insertSpacing P1,P2
+		return QBoxLayout_insertSpacing(pObject,P1,P2)
+
+	Func insertStretch P1,P2
+		return QBoxLayout_insertStretch(pObject,P1,P2)
+
+	Func insertWidget P1,P2,P3,P4
+		return QBoxLayout_insertWidget(pObject,P1,GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func setDirection P1
+		return QBoxLayout_setDirection(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSpacing P1
+		return QBoxLayout_setSpacing(pObject,P1)
+
+	Func setStretch P1,P2
+		return QBoxLayout_setStretch(pObject,P1,P2)
+
+	Func setStretchFactor P1,P2
+		return QBoxLayout_setStretchFactor(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setStretchFactor P1,P2
+		return QBoxLayout_setStretchFactor(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func spacing 
+		return QBoxLayout_spacing(pObject)
+
+	Func stretch P1
+		return QBoxLayout_stretch(pObject,P1)
+
 Class QIcon
 
 	pObject
