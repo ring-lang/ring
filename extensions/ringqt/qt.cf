@@ -192,6 +192,7 @@ extern "C" {
 #include <QList>
 #include <QSplashScreen>
 #include <QBoxLayout>
+#include <QLayout>
 
 #include "highlighter.h"
 
@@ -429,6 +430,7 @@ aEnumTypes + "QCameraImageCapture::CaptureDestinations"
 aEnumTypes + "QCameraImageCapture::DriveMode"
 aEnumTypes + "QCameraImageCapture::Error"
 aEnumTypes + "QHeaderView::ResizeMode"
+aEnumTypes + "QLayout::SizeConstraint"
 
 </runcode>
 
@@ -5497,8 +5499,39 @@ void  setDirection(QBoxLayout::Direction direction)
 void  setSpacing(int spacing)
 void  setStretch(int index, int stretch)
 bool  setStretchFactor(QWidget * widget, int stretch)
-bool  setStretchFactor(QLayout * layout, int stretch)
+bool  setStretchFactor@2(QLayout * layout, int stretch)
 int  spacing(void)
 int  stretch(int index)
 
 
+<class>
+name: QLayout
+para: QWidget *
+parent: QObject
+abstract
+</class>
+
+bool activate(void)
+void addWidget(QWidget *w)
+QMargins contentsMargins(void)
+QRect contentsRect(void)
+void getContentsMargins(int *left, int *top, int *right, int *bottom)
+bool isEnabled(void)
+QWidget *menuBar(void)
+QWidget *parentWidget(void)
+void removeItem(QLayoutItem *item)
+void removeWidget(QWidget *widget)
+bool setAlignment(QWidget *w, Qt::Alignment alignment)
+void setAlignment@2(Qt::Alignment alignment)
+bool setAlignment@3(QLayout *l, Qt::Alignment alignment)
+void setContentsMargins(int left, int top, int right, int bottom)
+void setContentsMargins@2(QMargins margins)
+void setEnabled(bool enable)
+void setMenuBar(QWidget *widget)
+void setSizeConstraint(QLayout::SizeConstraint)
+void setSpacing(int)
+QLayout::SizeConstraint sizeConstraint(void)
+int spacing(void)
+void update(void)
+
+QSize  closestAcceptableSize( QWidget * widget,  QSize   size)

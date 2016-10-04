@@ -306,7 +306,9 @@ Class QWidget from QObject
 		return QWidget_isWindowModified(pObject)
 
 	Func layout 
-		return QWidget_layout(pObject)
+		pTempObj = new QLayout
+		pTempObj.pObject = QWidget_layout(pObject)
+		return pTempObj
 
 	Func layoutDirection 
 		return QWidget_layoutDirection(pObject)
@@ -13050,14 +13052,102 @@ Class QBoxLayout from QLayout
 	Func setStretchFactor P1,P2
 		return QBoxLayout_setStretchFactor(pObject,GetObjectPointerFromRingObject(P1),P2)
 
-	Func setStretchFactor P1,P2
-		return QBoxLayout_setStretchFactor(pObject,GetObjectPointerFromRingObject(P1),P2)
+	Func setStretchFactor_2 P1,P2
+		return QBoxLayout_setStretchFactor_2(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func spacing 
 		return QBoxLayout_spacing(pObject)
 
 	Func stretch P1
 		return QBoxLayout_stretch(pObject,P1)
+
+Class QLayout from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QLayout_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QLayout_delete(pObject)
+
+	Func activate 
+		return QLayout_activate(pObject)
+
+	Func addWidget P1
+		return QLayout_addWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func contentsMargins 
+		return QLayout_contentsMargins(pObject)
+
+	Func contentsRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QLayout_contentsRect(pObject)
+		return pTempObj
+
+	Func getContentsMargins P1,P2,P3,P4
+		return QLayout_getContentsMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func isEnabled 
+		return QLayout_isEnabled(pObject)
+
+	Func menuBar 
+		pTempObj = new QWidget
+		pTempObj.pObject = QLayout_menuBar(pObject)
+		return pTempObj
+
+	Func parentWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QLayout_parentWidget(pObject)
+		return pTempObj
+
+	Func removeItem P1
+		return QLayout_removeItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeWidget P1
+		return QLayout_removeWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setAlignment P1,P2
+		return QLayout_setAlignment(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setAlignment_2 P1
+		return QLayout_setAlignment_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setAlignment_3 P1,P2
+		return QLayout_setAlignment_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setContentsMargins P1,P2,P3,P4
+		return QLayout_setContentsMargins(pObject,P1,P2,P3,P4)
+
+	Func setContentsMargins_2 P1
+		return QLayout_setContentsMargins_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setEnabled P1
+		return QLayout_setEnabled(pObject,P1)
+
+	Func setMenuBar P1
+		return QLayout_setMenuBar(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSizeConstraint P1
+		return QLayout_setSizeConstraint(pObject,P1)
+
+	Func setSpacing P1
+		return QLayout_setSpacing(pObject,P1)
+
+	Func sizeConstraint 
+		return QLayout_sizeConstraint(pObject)
+
+	Func spacing 
+		return QLayout_spacing(pObject)
+
+	Func update 
+		return QLayout_update(pObject)
+
+	Func closestAcceptableSize P1,P2
+		pTempObj = new QSize
+		pTempObj.pObject = QLayout_closestAcceptableSize(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 Class QIcon
 
