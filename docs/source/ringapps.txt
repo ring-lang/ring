@@ -167,6 +167,8 @@ Source Code : https://github.com/magdy-ragab/werdy
 
 Author : Magdy Ragab
 
+Quran application includes reading suras, searching and bookmarking.
+
 The applcation is provided for Windows, Linux and Android.
 
 .. image:: ringapps_shot1.png

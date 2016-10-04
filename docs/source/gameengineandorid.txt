@@ -46,7 +46,6 @@ Open the project folder : ring/android/ringlibsdl/project
 .. image:: ringlibsdlandroid_shot1.png
 	:alt: RingLibSDL for Android
 
-
 You can add the source code (*.ring) and Images/Sound Files to the assets folder.
 
 .. image:: ringlibsdlandroid_shot2.png
@@ -59,7 +58,6 @@ The execution starts from the start.ring file
 .. code-block:: ring
 
 	load "game2.ring"
-
 
 .. index:: 
 	pair: Building Games For Android; Building the project
@@ -74,7 +72,6 @@ We can build using the next command (We need to do this for one time only).
 .. code-block:: none
 
 	ndk-build
-
 
 Then we can create the package (*.apk) using the next command.
 
