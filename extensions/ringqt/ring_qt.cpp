@@ -180,6 +180,7 @@ extern "C" {
 #include <QSplashScreen>
 #include <QBoxLayout>
 #include <QLayout>
+#include <QLinearGradient>
 
 #include "highlighter.h"
 
@@ -73911,6 +73912,138 @@ RING_FUNC(ring_QLayout_closestAcceptableSize)
 	}
 }
 
+
+RING_FUNC(ring_QLinearGradient_finalStop)
+{
+	QLinearGradient *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
+	{
+		QPointF *pValue ; 
+		pValue = (QPointF *) malloc(sizeof(QPointF)) ;
+		*pValue = pObject->finalStop();
+		RING_API_RETCPOINTER(pValue,"QPointF");
+	}
+}
+
+
+RING_FUNC(ring_QLinearGradient_setFinalStop)
+{
+	QLinearGradient *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
+	pObject->setFinalStop(* (QPointF  *) RING_API_GETCPOINTER(2,"QPointF"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QPointF"));
+}
+
+
+RING_FUNC(ring_QLinearGradient_setFinalStop_2)
+{
+	QLinearGradient *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFinalStop( (qreal ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QLinearGradient_setStart)
+{
+	QLinearGradient *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
+	pObject->setStart(* (QPointF  *) RING_API_GETCPOINTER(2,"QPointF"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QPointF"));
+}
+
+
+RING_FUNC(ring_QLinearGradient_setStart_2)
+{
+	QLinearGradient *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setStart( (qreal ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QLinearGradient_start)
+{
+	QLinearGradient *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
+	{
+		QPointF *pValue ; 
+		pValue = (QPointF *) malloc(sizeof(QPointF)) ;
+		*pValue = pObject->start();
+		RING_API_RETCPOINTER(pValue,"QPointF");
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -75568,6 +75701,17 @@ RING_FUNC(ring_QBoxLayout_new)
 	}
 	QBoxLayout *pObject = new QBoxLayout(* (QBoxLayout::Direction  *) RING_API_GETCPOINTER(1,"QBoxLayout::Direction"),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
 	RING_API_RETCPOINTER(pObject,"QBoxLayout");
+}
+
+RING_FUNC(ring_QLinearGradient_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QLinearGradient *pObject = new QLinearGradient();
+	RING_API_RETCPOINTER(pObject,"QLinearGradient");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -77441,6 +77585,21 @@ RING_FUNC(ring_QBoxLayout_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QBoxLayout *) RING_API_GETCPOINTER(1,"QBoxLayout");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QLinearGradient_delete)
+{
+	QLinearGradient *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
 		delete pObject ;
 	}
 }
@@ -81036,6 +81195,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlayout_spacing",ring_QLayout_spacing);
 	ring_vm_funcregister("qlayout_update",ring_QLayout_update);
 	ring_vm_funcregister("qlayout_closestacceptablesize",ring_QLayout_closestAcceptableSize);
+	ring_vm_funcregister("qlineargradient_finalstop",ring_QLinearGradient_finalStop);
+	ring_vm_funcregister("qlineargradient_setfinalstop",ring_QLinearGradient_setFinalStop);
+	ring_vm_funcregister("qlineargradient_setfinalstop_2",ring_QLinearGradient_setFinalStop_2);
+	ring_vm_funcregister("qlineargradient_setstart",ring_QLinearGradient_setStart);
+	ring_vm_funcregister("qlineargradient_setstart_2",ring_QLinearGradient_setStart_2);
+	ring_vm_funcregister("qlineargradient_start",ring_QLinearGradient_start);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -81161,6 +81326,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qfontmetrics_new",ring_QFontMetrics_new);
 	ring_vm_funcregister("qsplashscreen_new",ring_QSplashScreen_new);
 	ring_vm_funcregister("qboxlayout_new",ring_QBoxLayout_new);
+	ring_vm_funcregister("qlineargradient_new",ring_QLinearGradient_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -81286,4 +81452,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qfontmetrics_delete",ring_QFontMetrics_delete);
 	ring_vm_funcregister("qsplashscreen_delete",ring_QSplashScreen_delete);
 	ring_vm_funcregister("qboxlayout_delete",ring_QBoxLayout_delete);
+	ring_vm_funcregister("qlineargradient_delete",ring_QLinearGradient_delete);
 }

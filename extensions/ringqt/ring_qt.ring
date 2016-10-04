@@ -13149,6 +13149,35 @@ Class QLayout from QObject
 		pTempObj.pObject = QLayout_closestAcceptableSize(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
+Class QLinearGradient from QGradient
+
+	pObject
+
+	Func init 
+		pObject = QLinearGradient_new()
+		return self
+
+	Func delete
+		pObject = QLinearGradient_delete(pObject)
+
+	Func finalStop 
+		return QLinearGradient_finalStop(pObject)
+
+	Func setFinalStop P1
+		return QLinearGradient_setFinalStop(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFinalStop_2 P1,P2
+		return QLinearGradient_setFinalStop_2(pObject,P1,P2)
+
+	Func setStart P1
+		return QLinearGradient_setStart(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setStart_2 P1,P2
+		return QLinearGradient_setStart_2(pObject,P1,P2)
+
+	Func start 
+		return QLinearGradient_start(pObject)
+
 Class QIcon
 
 	pObject

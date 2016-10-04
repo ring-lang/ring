@@ -193,6 +193,7 @@ extern "C" {
 #include <QSplashScreen>
 #include <QBoxLayout>
 #include <QLayout>
+#include <QLinearGradient>
 
 #include "highlighter.h"
 
@@ -5535,3 +5536,19 @@ int spacing(void)
 void update(void)
 
 QSize  closestAcceptableSize( QWidget * widget,  QSize   size)
+
+
+<class>
+name: QLinearGradient
+para: void
+parent: QGradient
+</class>
+
+QPointF finalStop(void)
+void setFinalStop(QPointF stop)
+void setFinalStop@2(qreal x,qreal y)
+void setStart(QPointF start)
+void setStart@2(qreal x,qreal y)
+QPointF start(void)
+
+
