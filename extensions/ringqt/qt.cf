@@ -196,6 +196,7 @@ extern "C" {
 #include <QLinearGradient>
 #include <QGradient>
 #include <QPointF>
+#include <QPoint>
 
 #include "highlighter.h"
 
@@ -5586,4 +5587,19 @@ void setY(qreal y)
 QPoint toPoint(void)
 qreal x(void)
 qreal y(void)
+
+<class>
+name: QPoint
+para: void
+</class>
+
+bool isNull(void)
+int manhattanLength(void)
+int rx(void)
+int ry(void)
+void setX(int x)
+void setY(int y)
+int x(void)
+int y(void)
+
 
