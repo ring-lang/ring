@@ -1800,3 +1800,53 @@ Also some other languages uses anonymous functions that may get parameters like 
 
 Now we have the general solution (not restricted with any paradigm), In the future we may 
 add specific solutions that match specific paradigms (OOP, Functional, Declarative and Natural).
+
+Why I get Calling Function without definition Error?
+====================================================
+
+Each program follow the next order 
+
+1 - Loading Files
+2 - Global Variables and Statements
+3 - Functions
+4 - Packages, Classes and Methods
+
+So what does that mean ?
+
+(1) **** No Functions comes After Classes ****
+(2) **** No command is required to end functions/methods/classes/packages ****
+
+Look at this example
+
+.. code-block:: ring
+
+	See "Hello"
+	test()
+	func test 
+	    see "message from the test function!" + nl
+	class test 
+ 
+In the previous example we have a function called test() so we can call it directly using test()
+
+In the next example, test() will become a method
+
+.. code-block:: ring
+
+	See"Hello"
+	test()    # runtime error message
+	class test
+		func test # Test() now is a method (not a function)
+			see "message from the test method!" + nl
+
+The errors comes when you define a method then try calling it directly as a function.
+
+The previous program must be
+
+.. code-block:: ring
+
+	See"Hello"
+	new test { test() }   # now will call the method
+	class test
+		func test # Test() now is a method (not a function)
+			see "message from the test method!" + nl
+
