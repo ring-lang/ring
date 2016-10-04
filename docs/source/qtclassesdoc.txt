@@ -5556,3 +5556,24 @@ Parameters : void
 * QPoint toPoint(void)
 * qreal x(void)
 * qreal y(void)
+
+.. index::
+	pair: RingQt Classes Reference; QPoint Class
+
+QPoint Class
+============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPoint.html
+
+
+Parameters : void
+
+* bool isNull(void)
+* int manhattanLength(void)
+* int rx(void)
+* int ry(void)
+* void setX(int x)
+* void setY(int y)
+* int x(void)
+* int y(void)
