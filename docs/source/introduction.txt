@@ -86,9 +86,9 @@ In 12 September 2015, most of the documentation was written. Before releasing th
 writing a post in Arabic language about it to my facebook profile page asking for contributors interested in the language 
 idea after reading a short description, in the same day i got a lot of emails from developers and friends interested to contribute!
 
-The first version of the language Ring 1.0 is released in January 25, 2016
+The first version of the language Ring 1.0 is released on January 25, 2016
 
-The current version is Ring 1.1 
+The current version of the language Ring 1.1 is released on October 6, 2016
 
 .. index:: 
 	pair: Introduction; Features
