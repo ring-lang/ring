@@ -298,7 +298,7 @@ Example:
 	oString.left(5).println()
 	oString.right(6).println()
 
-example:
+Example:
 
 .. code-block:: ring
 
@@ -308,7 +308,7 @@ example:
 	oList.Add(4)
 	oList.print()
 
-example:
+Example:
 
 .. code-block:: ring
 
@@ -320,7 +320,7 @@ example:
 	oStack.push(3)
 	see oStack.pop() + nl
 
-example:
+Example:
 
 .. code-block:: ring
 
@@ -333,7 +333,7 @@ example:
 	see oQueue.remove() + nl
 
 
-example:
+Example:
 
 .. code-block:: ring
 
@@ -355,7 +355,7 @@ example:
 		print()
 	}
 
-example:
+Example:
 
 .. code-block:: ring
 
@@ -589,7 +589,7 @@ Also Check the Weight History Application in GUI Development using RingQt chapte
 Better Documentation
 ====================
 
-Ring 1.1 documentation (over 700 pages) is better than Ring 1.0 documentation (340 pages)
+Ring 1.1 documentation (800 pages) is better than Ring 1.0 documentation (340 pages)
 
 Many chapters are added for providing better information about the language like
 
