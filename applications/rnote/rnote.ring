@@ -20,10 +20,7 @@ aBrowserLinks = [
 	["Ring Website","http://ring-lang.sf.net"],
 	["Ring Group (Google Groups)","https://groups.google.com/forum/#!forum/ring-lang"],
 	["Ring Source Code (GitHub)","https://github.com/ring-lang/ring"],
-	["Ring Article (Codeproject)","http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language"],
 	["Ring Samples (Rosetta Code)","https://rosettacode.org/wiki/Category:Ring"],
-	["Ring Page (Facebook)","https://www.facebook.com/ringprogramminglanguage"],
-	["Ring Download Statistics (Sourceforge)","https://sourceforge.net/projects/ring-lang/files/stats/timeline?dates=2016-01-21+to+"+GetDateForSF()],
 	["Ring Resources","http://ring-lang.sourceforge.net/resources.html"],
 	["Ring Team","http://ring-lang.sourceforge.net/team.html"]
 ]
@@ -1030,9 +1027,3 @@ Func pBrowserLink x
 
 	oDock3.Show()
 
-Func GetDateForSF
-	cDate = date()
- 	cDay = left(cDate,2)
-	cYear = right(cDate,4)
-	cMonth = substr(cDate,4,2)
-	return cYear+"-"+cMonth+"-"+cDay
