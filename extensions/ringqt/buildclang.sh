@@ -1,3 +1,3 @@
-/usr/local/Cellar/qt52/5.2.1/bin/qmake ring_qt.pro -r -spec macx-clang
+/usr/local/Cellar/qt55/5.5.1/bin/qmake ring_qt.pro -r -spec macx-clang
 make
 cp *.dylib ../../lib
