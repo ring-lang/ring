@@ -16,7 +16,7 @@ install:
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install unixodbc ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install mysql-connector-c ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install allegro ; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt52 ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt55 ; fi
  
 script: 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd src && ./buildusingtravis.sh ; fi
