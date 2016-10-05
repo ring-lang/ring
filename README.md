@@ -125,7 +125,7 @@ The next steps explains building using scripts.
 	
 ### Install Libraries 
 	
-	brew install unixodbc mysql-connector-c allegro homebrew/versions/qt52
+	brew install unixodbc mysql-connector-c allegro openssl homebrew/versions/qt55
 	
 ### Build Ring (Compiler/VM)
 	
