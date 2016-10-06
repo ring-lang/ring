@@ -2745,7 +2745,7 @@ The next sample help in recording (Date, Time and Weight).
 		  exec(cStr)
 		  delete()
 		}
-		ShowRecords
+		ShowRecords()
 		Table1.selectrow(table1.rowcount()-1)
 
 
