@@ -447,7 +447,7 @@ MyApp = New qApp {
 				setText("Back")
 				setClickEvent("pWebBack()")
 			}
-			oWBLayout1 = new qHBoxLayout(win1) {
+			oWBLayout1 = new qHBoxLayout() {
 				addWidget(oWBLabel)
 				addWidget(oWBText)
 				addWidget(oWBGo)
@@ -456,7 +456,7 @@ MyApp = New qApp {
 			oWebView = new qWebView(win1) {
 				loadpage(new qurl(cWebSite))
 			}
-			oWBlayout2 = new qVBoxLayout(win1) {
+			oWBlayout2 = new qVBoxLayout() {
 				addLayout(oWBLayout1)
 				addWidget(oWebView)
 			}
@@ -574,7 +574,7 @@ func pFind
 			setText(cSearchText)
 			setReturnPressedEvent("pFindValue()")
 		}
-		oLayout1 = new qHBoxLayout(oSearch)
+		oLayout1 = new qHBoxLayout()
 		{
 			addWidget(oLblFindWhat)
 			addWidget(oSearchValue)
@@ -588,7 +588,7 @@ func pFind
 			setText(cReplaceText)
 		}
 
-		oLayout2 = new qHBoxLayout(oSearch)
+		oLayout2 = new qHBoxLayout()
 		{
 			addWidget(oLblReplaceWith)
 			addWidget(oReplaceValue)
@@ -597,7 +597,7 @@ func pFind
 		{
 			setText("Case Sensitive")
 		}
-		oLayout3 = new qHBoxLayout(oSearch)
+		oLayout3 = new qHBoxLayout()
 		{
 			addWidget(oSearchCase)			
 		}
@@ -621,14 +621,14 @@ func pFind
 			setText("Close")
 			setclickevent("pSearchClose()")
 		}
-		oLayout4 = new qHBoxLayout(oSearch)
+		oLayout4 = new qHBoxLayout()
 		{
 			addWidget(oBtnFind)
 			addWidget(oBtnReplace)
 			addWidget(oBtnReplaceAll)
 			addWidget(oBtnClose)
 		}
-		oLayout5 = new qVBoxLayout(oSearch)
+		oLayout5 = new qVBoxLayout()
 		{
 			AddLayout(oLayout1)
 			AddLayout(oLayout2)
