@@ -228,7 +228,7 @@ class game from gamebase
 
 	func drawobjs
 		gl_set_target_bitmap(gl_get_backbuffer(display))
-		gl_clear_to_color(GE_COLOR_WHITE)
+		gl_clear_to_color(GE_COLOR_BLACK)
 		for t in aobjects t.draw(self) next		
 		gl_flip_display()
 
