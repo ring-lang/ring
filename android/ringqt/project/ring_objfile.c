@@ -34,7 +34,7 @@ void ring_objfile_writefile ( RingState *pRingState )
 void ring_objfile_writelist ( List *pList,FILE *fObj )
 {
 	List *pList2  ;
-	int x,x2,x3  ;
+	int x,x2  ;
 	char *cString  ;
 	char cKey[11]  ;
 	strcpy(cKey,"ringstring");
@@ -78,7 +78,7 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 	FILE *fObj;
 	signed char c  ;
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack  ;
-	int nActiveList,nValue,nBraceEnd,x3  ;
+	int nActiveList,nValue,nBraceEnd  ;
 	double dValue  ;
 	char *cString  ;
 	char cKey[11]  ;

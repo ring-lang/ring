@@ -839,7 +839,7 @@ void ring_scanner_runprogram ( RingState *pRingState )
 void ring_scanner_changekeyword ( Scanner *pScanner )
 {
 	char *cStr  ;
-	int x,nSize,nResult  ;
+	int x,nResult  ;
 	String *word1, *word2, *activeword  ;
 	char cStr2[2]  ;
 	cStr2[1] = '\0' ;
@@ -884,7 +884,7 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 void ring_scanner_changeoperator ( Scanner *pScanner )
 {
 	char *cStr  ;
-	int x,nSize,nResult  ;
+	int x,nResult  ;
 	String *word1, *word2, *activeword  ;
 	char cStr2[2]  ;
 	cStr2[1] = '\0' ;
@@ -932,8 +932,9 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 	RING_FILE fp  ;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
 	signed char c  ;
-	int x,nSize  ;
+	int nSize  ;
 	char cFileName2[200]  ;
+	unsigned int x  ;
 	cFileName = ring_string_get(pScanner->ActiveToken) ;
 	/* Remove Spaces and " " from file name */
 	x = 0 ;

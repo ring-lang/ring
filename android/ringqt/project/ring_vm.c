@@ -224,12 +224,16 @@ RING_API void ring_vm_loadcode ( VM *pVM )
 {
 	int x,nSize  ;
 	/*
-	**  We allocation double of the size that we need to avoid reallocation when we use eval() 
+	**  We may allocation double of the size that we need to avoid reallocation when we use eval() 
 	**  eval() will check if there is a need to reallocation or not 
 	**  This optimization increase the performance of applications that uses eval() 
 	*/
 	nSize = (ring_list_getsize(pVM->pCode))*RING_VM_EXTRASIZE ;
 	pVM->pByteCode = (ByteCode *) calloc(nSize,sizeof(ByteCode)) ;
+	if ( pVM->pByteCode == NULL ) {
+		printf( RING_OOM ) ;
+		exit(0);
+	}
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pCode) ; x++ ) {
 		ring_vm_tobytecode(pVM,x);
 	}
@@ -256,18 +260,25 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 void ring_vm_mainloop ( VM *pVM )
 {
 	#if RING_VMSHOWOPCODE
-	do {
-		if ( pVM->pRingState->nPrintInstruction ) {
+	/* Preprocessor Allows showing the OPCODE */
+	if ( pVM->pRingState->nPrintInstruction ) {
+		do {
 			ring_vm_fetch2(pVM);
-		}
-		else {
+			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+				pVM->nEvalReturnPC = 0 ;
+				break ;
+			}
+		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	}
+	else {
+		do {
 			ring_vm_fetch(pVM);
-		}
-		if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-			pVM->nEvalReturnPC = 0 ;
-			break ;
-		}
-	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+				pVM->nEvalReturnPC = 0 ;
+				break ;
+			}
+		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+	}
 	#else
 	do {
 		ring_vm_fetch(pVM);
@@ -773,7 +784,7 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 		pByteCode->aData[x2-1] = pItem ;
 	}
 	/* Clear Other Items */
-	for ( x2 = ring_list_getsize(pIR)+1 ; x2 <= 16 ; x2++ ) {
+	for ( x2 = ring_list_getsize(pIR)+1 ; x2 <= RING_VM_BC_ITEMS_COUNT ; x2++ ) {
 		pByteCode->aData[x2-1] = NULL ;
 	}
 }

@@ -1019,8 +1019,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 
 int ring_parser_mixer ( Parser *pParser )
 {
-	int x,nCallMethod,nStatus,nFlag,nMark1  ;
-	List *pMark  ;
+	int x,nCallMethod,nStatus,nFlag  ;
 	/* { . Identifier } */
 	while ( ring_parser_isoperator2(pParser,OP_DOT) ) {
 		ring_parser_nexttoken(pParser);
