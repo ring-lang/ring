@@ -354,7 +354,7 @@ In this example we will learn about using the QTreeWidget and QTreeWidgetItem cl
 			setwindowtitle("TreeWidget")
 			setGeometry(100,100,400,400)
 
-			layout1 = new qvboxlayout(win1)
+			layout1 = new qvboxlayout()
 
 			tree1 = new qtreewidget(win1) {
 				setGeometry(00,00,400,400)
@@ -2637,7 +2637,7 @@ The next sample help in recording (Date, Time and Weight).
 	  {
 		setWindowTitle("Weight History")
 		resize(600,600)
-		layoutButtons = new qhboxlayout(win1)
+		layoutButtons = new qhboxlayout()
 		{
 		  label1 = new qLabel(win1) { setText("Weight") }
 		  text1 = new qlineedit(win1)
@@ -2654,7 +2654,7 @@ The next sample help in recording (Date, Time and Weight).
 		  addwidget(btnAdd)
 		  addwidget(btnDelete)
 		}
-		layoutData  = new qhboxlayout(win1)
+		layoutData  = new qhboxlayout()
 		{
 		  Table1 = new qTableWidget(win1) {
 			setrowcount(0)
@@ -2670,7 +2670,7 @@ The next sample help in recording (Date, Time and Weight).
 		  }
 		  addWidget(Table1)
 		}
-		layoutClose = new qhboxlayout(win1)
+		layoutClose = new qhboxlayout()
 		{
 		  btnclose = new qpushbutton(win1) { 
 		    setText("Close") 
@@ -2678,7 +2678,7 @@ The next sample help in recording (Date, Time and Weight).
 		  }
 		  addwidget(btnClose)
 		}
-		layoutMain = new qvboxlayout(win1)
+		layoutMain = new qvboxlayout()
 		{
 		  addlayout(layoutButtons)
 		  addLayout(LayoutData)
@@ -3158,7 +3158,7 @@ In the next example we will see simple Notepad developed using the RingQt
 					setText("Back")
 					setClickEvent("pWebBack()")
 				}
-				oWBLayout1 = new qHBoxLayout(win1) {
+				oWBLayout1 = new qHBoxLayout() {
 					addWidget(oWBLabel)
 					addWidget(oWBText)
 					addWidget(oWBGo)
@@ -3167,7 +3167,7 @@ In the next example we will see simple Notepad developed using the RingQt
 				oWebView = new qWebView(win1) {
 					loadpage(new qurl(cWebSite))
 				}
-				oWBlayout2 = new qVBoxLayout(win1) {
+				oWBlayout2 = new qVBoxLayout() {
 					addLayout(oWBLayout1)
 					addWidget(oWebView)
 				}
