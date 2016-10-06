@@ -389,9 +389,9 @@ void ring_vm_newfunc ( VM *pVM )
 				break ;
 			}
 		}
-		if ( nSP < pVM->nSP ) {
-			ring_vm_error(pVM,RING_VM_ERROR_EXTRAPARAMETERSCOUNT);
-		}
+	}
+	if ( nSP < pVM->nSP ) {
+		ring_vm_error(pVM,RING_VM_ERROR_EXTRAPARAMETERSCOUNT);
 	}
 	/* Support this in the method */
 	ring_vm_oop_setthethisvariable(pVM);
