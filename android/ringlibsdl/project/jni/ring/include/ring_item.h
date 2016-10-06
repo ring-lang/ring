@@ -4,14 +4,14 @@
 /* Data */
 typedef struct Item {
 	/* Item Type */
-	char nType  ;
-	/* The number type, 1 = int , 2 = double */
-	char NumberFlag  ;
+	unsigned int nType:3  ;
+	/* The number type, 0 = Nothing , 1 = int , 2 = double */
+	unsigned int NumberFlag:2  ;
 	/*
 	**  what is the type of the object that the pointer refer to 
 	**  Used when putting the item in the stack to refer to list or listitem 
 	*/
-	char nObjectType  ;
+	unsigned int nObjectType:2  ;
 	/* Data */
 	union {
 		struct String *pString  ;

@@ -218,13 +218,11 @@ void ring_vm_loadapushv ( VM *pVM )
 
 void ring_vm_newline ( VM *pVM )
 {
-	List *pList  ;
 	pVM->nLineNumber = RING_VM_IR_READI ;
 }
 
 void ring_vm_freestack ( VM *pVM )
 {
-	List *pList  ;
 	/* Clear Assignment Pointer */
 	pVM->pAssignment = NULL ;
 	/* Clear Load Address Result Scope Array */

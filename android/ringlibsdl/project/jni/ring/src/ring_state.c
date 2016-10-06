@@ -175,7 +175,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 			else if ( strcmp(argv[x],"-ins") == 0 ) {
 				nIns = 1 ;
 			}
-			else if ( strcmp(argv[x],"-performance") == 0 ) {
+			else if ( strcmp(argv[x],"-clock") == 0 ) {
 				nPerformance = 1 ;
 			}
 			else if ( strcmp(argv[x],"-go") == 0 ) {
