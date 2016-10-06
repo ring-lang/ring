@@ -1,1 +1,1 @@
-see get("path")         # print system path information
+see sysget("path")         # print system path information
