@@ -208,7 +208,7 @@ ring_scanner_changekeyword
 Type: char *
 cStr
 Type: int
-x,nSize,nResult
+x,nResult
 Type: String *
 word1, *word2, *activeword
 Type: char
@@ -217,7 +217,7 @@ ring_scanner_changeoperator
 Type: char *
 cStr
 Type: int
-x,nSize,nResult
+x,nResult
 Type: String *
 word1, *word2, *activeword
 Type: char
@@ -232,3 +232,5 @@ Type: int
 x,nSize
 Type: char
 cFileName2[200]
+Type: unsigned int
+x

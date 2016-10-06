@@ -8,7 +8,7 @@ ring_objfile_writelist
 Type: List *
 pList2
 Type: int
-x,x2,x3
+x,x2
 Type: char *
 cString
 Type: char
