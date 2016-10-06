@@ -114,10 +114,10 @@ int main(int argc, char *argv[])
 
     // Delete the application files
 
-    ringapp_delete_file(path,"/test.ring");
-    ringapp_delete_file(path,"/ring_qt.ring");
-    ringapp_delete_file(path,"/qt.rh");
-    ringapp_delete_file(path,"/guilib.ring");
+    ringapp_delete_file(path,"test.ring");
+    ringapp_delete_file(path,"ring_qt.ring");
+    ringapp_delete_file(path,"qt.rh");
+    ringapp_delete_file(path,"guilib.ring");
 
     return 0;
 
@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
 void ringapp_delete_file(QString path,const char *cFile)
 {
     char mytarget[100];
-    sprintf(mytarget,"%s%s",path.toStdString().c_str(),cFile);
+    sprintf(mytarget,"%s/%s",path.toStdString().c_str(),cFile);
     QFile myfile;
     myfile.setFileName(mytarget);
     myfile.setPermissions(QFile::ReadOther | QFile::WriteOther);
