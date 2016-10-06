@@ -530,7 +530,7 @@ Class Map from Sprite
 			gl_convert_mask_to_alpha(image,transparentcolor)
 		next
 
-	func draw
+	func draw oGame
 		nX = X
 		nY = Y
 		for y1 in aMap
