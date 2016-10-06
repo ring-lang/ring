@@ -10,21 +10,21 @@ New qApp
 	win1 = new qWidget() {
 
 		setWindowTitle("Convert Help to Wikibooks style!")
-		layout1 = new qhboxlayout(win1) {
+		layout1 = new qhboxlayout() {
                        lbl1 = new qlabel(win1)  { settext("Help Source") }
                        lbl2 = new qlabel(win1) { settext("Wiki Source (output)") }
                        addwidget(lbl1)
                        addwidget(lbl2)
                 }
   
-               layout2 = new qhboxlayout(win1) {
+               layout2 = new qhboxlayout() {
                         textedit1 = new qtextedit(win1)
                         textedit2 = new qtextedit(win1)
                         addwidget(textedit1)
                         addwidget(textedit2)
                 }
 
-                layout3 = new qvboxlayout(win1) {
+                layout3 = new qvboxlayout() {
                         addlayout(layout1)
                         addlayout(layout2)
                         btn1 = new qpushbutton(win1) {
