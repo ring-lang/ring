@@ -66,6 +66,7 @@ func gl_game_start
 	GE_COLOR_RED = al_map_rgb(255,0,0)
 	GE_COLOR_GREEN = al_map_rgb(0,255,0)
 	GE_COLOR_BLUE = al_map_rgb(0,0,255)
+	GE_COLOR_BLACK = al_map_rgb(0,0,0)
 
 func gl_load_bitmap cFileName
 	return al_load_bitmap(cFileName)

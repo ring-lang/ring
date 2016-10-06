@@ -75,6 +75,7 @@ func gl_game_start
 	GE_COLOR_RED = gl_map_rgb(255,0,0)
 	GE_COLOR_GREEN = gl_map_rgb(0,255,0)
 	GE_COLOR_BLUE = gl_map_rgb(0,0,255)
+	GE_COLOR_BLACK = al_map_rgb(0,0,0)
 
 func gl_map_rgb r,g,b
 	color = sdl_new_sdl_color()
