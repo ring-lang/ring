@@ -7,7 +7,7 @@ New qApp {
                 setwindowtitle("TreeWidget")
                 setGeometry(100,100,400,400)
 
-                layout1 = new qvboxlayout(win1)
+                layout1 = new qvboxlayout()
 
                 tree1 = new qtreewidget(win1) {
                         setGeometry(00,00,400,400)
