@@ -56,6 +56,8 @@ extern "C" {
 #include "ring_vmgc.c"
 #include "ring_objfile.c"
 
+void ringapp_delete_file(QString path,const char *cFile) ;
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc,argv);
@@ -102,8 +104,7 @@ int main(int argc, char *argv[])
 
     ring_state_main(2,files);
 
-    // Free Memory and delete the application files
-    // Here we don't delete the library files (We keep the files that will not be changed)
+    // Free Memory 
 
     ring_state_delete(pRingState);
 
@@ -111,17 +112,23 @@ int main(int argc, char *argv[])
     free(files[0]);
     free(files);
 
-    char mytarget[100];
-    sprintf(mytarget,"%s%s",path.toStdString().c_str(),"/test.ring");
-    QFile myfile;
-    myfile.setFileName(mytarget);
-    myfile.setPermissions(QFile::ReadOther | QFile::WriteOther);
-    myfile.remove();
+    // Delete the application files
+
+    ringapp_delete_file(path,"/test.ring");
+    ringapp_delete_file(path,"/ring_qt.ring");
+    ringapp_delete_file(path,"/qt.rh");
+    ringapp_delete_file(path,"/guilib.ring");
 
     return 0;
 
 }
 
-
-
-
+void ringapp_delete_file(QString path,const char *cFile)
+{
+    char mytarget[100];
+    sprintf(mytarget,"%s%s",path.toStdString().c_str(),cFile);
+    QFile myfile;
+    myfile.setFileName(mytarget);
+    myfile.setPermissions(QFile::ReadOther | QFile::WriteOther);
+    myfile.remove();
+}
