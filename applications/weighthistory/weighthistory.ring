@@ -21,7 +21,7 @@ class App
 	{
 		setWindowTitle("Weight History")
 		resize(600,600)
-		layoutButtons = new qhboxlayout(win1)
+		layoutButtons = new qhboxlayout()
 		{
 			label1 = new qLabel(win1) { setText("Weight") }
 			text1 = new qlineedit(win1)
@@ -38,7 +38,7 @@ class App
 			addwidget(btnAdd)
 			addwidget(btnDelete)
 		}
-		layoutData  = new qhboxlayout(win1)
+		layoutData  = new qhboxlayout()
 		{
 			Table1 = new qTableWidget(win1) {
 				setrowcount(0)
@@ -54,12 +54,12 @@ class App
                 		}
 			addWidget(Table1)
 		}
-		layoutClose = new qhboxlayout(win1)
+		layoutClose = new qhboxlayout()
 		{
 			btnclose = new qpushbutton(win1) { setText("Close") setClickEvent("MyApp.Quit()") }
 			addwidget(btnClose)
 		}
-		layoutMain = new qvboxlayout(win1)
+		layoutMain = new qvboxlayout()
 		{
 			addlayout(layoutButtons)
 			addLayout(LayoutData)
