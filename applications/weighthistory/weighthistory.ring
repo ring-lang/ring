@@ -123,11 +123,12 @@ class App
 			exec(cStr)
 			delete()
 		}
-		ShowRecords(cDate,cTime,cWeight)
+		ShowRecords()
 		Table1.selectrow(table1.rowcount()-1)
 
 
 	Func ShowRecords
+		table1.setitemChangedEvent("")
 		aIDs = []
 		query = new QSqlQuery() {
 			exec("select * from weighthistory")
@@ -147,6 +148,7 @@ class App
 			end
 			delete()
 		}
+		table1.setitemChangedEvent($ApplicationObject+".ItemChanged()")
 	 
 	Func ItemChanged
 		nRow =  table1.currentrow()
