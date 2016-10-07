@@ -829,7 +829,7 @@ func pPaste
 	status1.showmessage("Paste!",0)		
 
 func pFont
-	oFontDialog = new qfontdialog(win1) {
+	oFontDialog = new qfontdialog() {
 
 		myfont = new qfont("",0,0,0)
 		myfont.fromstring(cFont)
