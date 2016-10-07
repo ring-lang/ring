@@ -82,7 +82,7 @@ After that i spent three months testing the language again, trying to discover a
 by the end of August 2015, all know bugs were fixed, Writing many tests and testing automation helped a lot in 
 getting a stable product.
 
-In 12 September 2015, most of the documentation was written. Before releasing the language i started the marketing by
+In September 12, 2015, most of the documentation was written. Before releasing the language i started the marketing by
 writing a post in Arabic language about it to my facebook profile page asking for contributors interested in the language 
 idea after reading a short description, in the same day i got a lot of emails from developers and friends interested to contribute!
 
