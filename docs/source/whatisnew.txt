@@ -98,7 +98,7 @@ Check the "command line options" chapter to know more about this feature.
 Syntax Flexibility and different styles for I/O and Control Structures
 ======================================================================
 
-Programmers are sensitive to the programming language syntax. Great programmers know to how work
+Programmers are sensitive to the programming language syntax. Great programmers know how to work
 using many different styles but each programmer may have his/her favorite style.
 
 Each programming language comes with a style that you may like or not. Ring is just one of these
