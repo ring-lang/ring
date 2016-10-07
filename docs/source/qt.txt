@@ -3466,7 +3466,7 @@ In the next example we will see simple Notepad developed using the RingQt
 		status1.showmessage("Paste!",0)		
 
 	func pFont
-		oFontDialog = new qfontdialog(win1) {
+		oFontDialog = new qfontdialog() {
 			aFont = getfont()
 		}
 		textedit1.selectall()
