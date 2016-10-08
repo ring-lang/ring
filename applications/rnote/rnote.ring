@@ -847,6 +847,9 @@ func pFont
 Func pSetFont
 	myfont = new qfont("",0,0,0)
 	myfont.fromstring(cFont)
+	oCursor = textedit1.textCursor()
+	oCursor.clearselection()
+	textedit1.settextcursor(oCursor)
 	textedit1.setcurrentfont(myfont)
 
 Func pColor
