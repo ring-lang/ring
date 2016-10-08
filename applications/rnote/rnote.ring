@@ -541,8 +541,10 @@ func pGoto
 		setgeometry(100,100,400,50)
 		setlabeltext("Line")
 		settextvalue("1")
-		exec()
+		r = exec()
 	}
+
+	if r=0 return ok
 
 	nLine = 0 + oInput.textvalue()	
 	nLine--
@@ -1006,9 +1008,9 @@ Func pTabWidth
 		setgeometry(100,100,400,50)
 		setlabeltext("Spaces Count")
 		settextvalue("1")
-		exec()
+		r = exec()
 	}
-
+	if r=0 return ok
 	nTabSpaces = 0 + oInput.textvalue()	
 	pSetTabSpaces()
 
