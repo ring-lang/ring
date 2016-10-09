@@ -876,7 +876,6 @@ Func pColor2
 		b = oColor.blue()
 		aBackColor = [r,g,b]
 	}	
-	see aBackcolor
 	pSetColors()
 	
 Func pSetColors
