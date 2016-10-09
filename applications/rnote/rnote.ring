@@ -855,11 +855,28 @@ Func pSetFont
 	textedit1.setcurrentfont(myfont)
 
 Func pColor
-	new qcolordialog() { aTextColor = GetColor() }	
+	new qcolordialog() { 
+		r = exec()		
+		if r = 0 return ok
+		oColor = currentcolor()
+		r = oColor.red()
+		g = oColor.green()
+		b = oColor.blue()
+		aTextColor = [r,g,b]
+	}	
 	pSetColors()
 
 Func pColor2
-	new qcolordialog() { aBackColor = GetColor() }	
+	new qcolordialog() { 
+		r = exec()		
+		if r = 0 return ok
+		oColor = currentcolor()
+		r = oColor.red()
+		g = oColor.green()
+		b = oColor.blue()
+		aBackColor = [r,g,b]
+	}	
+	see aBackcolor
 	pSetColors()
 	
 Func pSetColors
