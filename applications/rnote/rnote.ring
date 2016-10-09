@@ -257,7 +257,7 @@ MyApp = New qApp {
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+t"))
+					setShortcut(new QKeySequence("Ctrl+h"))
 					settext("Set Tab Width")
 					setclickevent("pTabWidth()")
 				}
