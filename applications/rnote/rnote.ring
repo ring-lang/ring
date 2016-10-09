@@ -265,7 +265,7 @@ MyApp = New qApp {
 			}				
 			subView {
 				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+p"))
+					setShortcut(new QKeySequence("Ctrl+j"))
 					setbtnimage(self,"image/project.png")
 					settext("Project Files")
 					setclickevent("pProject()")
