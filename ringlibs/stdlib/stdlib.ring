@@ -159,8 +159,30 @@ Func Filter alist,cFunc
 	output		: new list 
 */
 
-Func Split cstring , delimiter
-	return str2list(substr(cstring, delimiter, nl))
+Func Split(cString, delimiter)
+
+    doubleSpace = "  "
+    singleSpace = " "
+    singleTab   = char(9)
+	
+    if ( (delimiter = singleTab) or (delimiter = singleSpace) )
+        delimiter = singleSpace
+    ok
+
+    if ( delimiter = singleSpace )
+        do
+            cString = substr(cstring, singleTab, singleSpace)   ### Replace Tab with Space
+        again substr(cString, singleTab)
+
+        do
+            cString = substr(cString, doubleSpace, singleSpace) ### Replace DoubleSpace with Space
+        again substr(cString, doubleSpace)
+    ok
+	
+	cString = trim(cString) ### Remove leading and trailing spaces
+    cStrList = str2list(substr(cString, delimiter, nl))
+
+return cStrList
 
 	
 /*
