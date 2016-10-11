@@ -404,7 +404,9 @@ Func GenFuncPrototype aList
 	return cCode
 
 Func GenFuncCode aList
-	cCode = nl+"RING_FUNC(" + "ring_"+aList[C_FUNC_NAME] + ")" + nl +
+	cFuncName = aList[C_FUNC_NAME]
+	cFuncName = substr(cFuncName,"@","_")
+	cCode = nl+"RING_FUNC(" + "ring_"+cFuncName + ")" + nl +
 	 	"{" + nl +
 	 	GenFuncCodeCheckParaCount(aList) +
 	 	GenFuncCodeCheckParaType(aList) +
@@ -501,7 +503,14 @@ Func GenFuncCodeCallFunc aList
 			lRet = false
 			lUNKNOWN = true
 	off
-	cCode += aList[C_FUNC_NAME] + "(" +
+
+	cFuncName = aList[C_FUNC_NAME]
+	nPos = SubStr(cFuncName,"@")
+	if nPos > 0
+		cFuncName = left(cFuncName,nPos-1)
+	ok
+
+	cCode += cFuncName + "(" +
 		GenFuncCodeGetParaValues(aList) + ")"
 	if lRet		
 		if lRetPointer
