@@ -98,6 +98,7 @@ Func pProcess aList
         aList + "**** End of Text ****"
         aList + nl
         aList + "The next links to be used in the Table of contents"
+        if len(aSubTitles) < 2 return ok
         cFirst = substr(aSubTitles[1]," ","_")  
         for t=2 to len(aSubTitles)
                 x = aSubTitles[t]
