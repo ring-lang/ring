@@ -75,6 +75,7 @@ Example:
 
 	aList = ["one","two"]
 	add(aList,"three")
+	see aList
 
 Also we can do that using the + operator.
 
