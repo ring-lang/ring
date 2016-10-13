@@ -12,10 +12,10 @@ install:
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq libmysqlclient-dev   ; fi
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq libcurl4-gnutls-dev  ; fi
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq libssl-dev  ; fi
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install liballegro5-dev  ; fi
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qtbase5-dev  ; fi
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qtmobility-dev  ; fi
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qtmultimedia5-dev  ; fi
+# - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install liballegro5-dev  ; fi
+# - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qtbase5-dev  ; fi
+# - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qtmobility-dev  ; fi
+# - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qtmultimedia5-dev  ; fi
  
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install unixodbc ; fi
@@ -26,9 +26,8 @@ install:
  
 script: 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd src && sudo ./buildgcccomplete.sh ; fi
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildgcc.sh ; fi
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../extensions/ringallegro && ./gencode.sh  ; fi
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringqt && ./gencode.sh && ./buildgcc.sh ; fi
+ # - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildgcc.sh ; fi
+ # - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringqt && ./gencode.sh && ./buildgcc.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd src && ./buildclangcomplete.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringqt && ./gencode.sh && ./buildclang.sh ; fi
