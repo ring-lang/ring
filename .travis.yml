@@ -21,7 +21,8 @@ install:
  
 script: 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd src && sudo ./buildgcccomplete.sh ; fi
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildgcc.sh ; fi
+ # - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildgcc.sh ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringqt && ./gencode.sh && ./buildgcc.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd src && ./buildclangcomplete.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringqt && ./gencode.sh && ./buildclang.sh ; fi
