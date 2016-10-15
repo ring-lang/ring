@@ -7,18 +7,18 @@
  	    Basic <br> <br>
 
             <ul>
-              <li><a href="doc/introduction.html">Introduction</a></li>
-              <li><a href="doc/getting_started.html">Getting Started</a></li>
-              <li><a href="doc/variables.html">Variables</a></li>
-              <li><a href="doc/operators.html">Operators</a></li>
-              <li><a href="doc/controlstructures.html">Control Structures</a></li>
-              <li><a href="doc/getinput.html">Getting Input</a></li>
-              <li><a href="doc/functions.html">Functions</a></li>
-              <li><a href="doc/lists.html">Lists</a></li>
-              <li><a href="doc/strings.html">Strings</a></li>
-              <li><a href="doc/dateandtime.html">Date and Time</a></li>
-              <li><a href="doc/checkandconvert.html">Check Data Type and Conversion</a></li>
-              <li><a href="doc/mathfunc.html">Mathematical Functions</a></li>
+              <li><a href="doc1.1/introduction.html">Introduction</a></li>
+              <li><a href="doc1.1/getting_started.html">Getting Started</a></li>
+              <li><a href="doc1.1/variables.html">Variables</a></li>
+              <li><a href="doc1.1/operators.html">Operators</a></li>
+              <li><a href="doc1.1/controlstructures.html">Control Structures</a></li>
+              <li><a href="doc1.1/getinput.html">Getting Input</a></li>
+              <li><a href="doc1.1/functions.html">Functions</a></li>
+              <li><a href="doc1.1/lists.html">Lists</a></li>
+              <li><a href="doc1.1/strings.html">Strings</a></li>
+              <li><a href="doc1.1/dateandtime.html">Date and Time</a></li>
+              <li><a href="doc1.1/checkandconvert.html">Check Data Type and Conversion</a></li>
+              <li><a href="doc1.1/mathfunc.html">Mathematical Functions</a></li>
             </ul>
 	</div>
 
@@ -26,13 +26,13 @@
  	    Intermediate <br> <br>
 
             <ul>
-              <li><a href="doc/files.html">Files</a></li>
-              <li><a href="doc/systemfunc.html">System Functions</a></li>
-              <li><a href="doc/evaldebug.html">Eval() and Debugging</a></li>
-              <li><a href="doc/demo.html">Demo Programs</a></li>
-              <li><a href="doc/odbc.html">ODBC Functions</a></li>
-              <li><a href="doc/mysql.html">MYSQL Functions</a></li>
-              <li><a href="doc/secfunc.html">Security and Internet Functions</a></li>
+              <li><a href="doc1.1/files.html">Files</a></li>
+              <li><a href="doc1.1/systemfunc.html">System Functions</a></li>
+              <li><a href="doc1.1/evaldebug.html">Eval() and Debugging</a></li>
+              <li><a href="doc1.1/demo.html">Demo Programs</a></li>
+              <li><a href="doc1.1/odbc.html">ODBC Functions</a></li>
+              <li><a href="doc1.1/mysql.html">MYSQL Functions</a></li>
+              <li><a href="doc1.1/secfunc.html">Security and Internet Functions</a></li>
             </ul>
 	</div>
 
@@ -40,18 +40,18 @@
  	    Advanced <br> <br>
 
             <ul>
-              <li><a href="doc/oop.html">Object Oriented Programming</a></li>
-              <li><a href="doc/declarative.html">Declarative Programming using Nested Structures</a></li>
-              <li><a href="doc/natural.html">Natural language programming</a></li>
-              <li><a href="doc/fp.html">Functional Programming (FP)</a></li>
-              <li><a href="doc/metaprog.html">Reflection and Meta-programming</a></li>
-              <li><a href="doc/extension.html">Extension using the C/C++ languages</a></li>
-              <li><a href="doc/embedding.html">Embedding Ring Interpreter in C/C++ Programs</a></li>
-              <li><a href="doc/interpreter.html">Command Line Options</a></li>
-              <li><a href="doc/web.html">Web Development (CGI Library)</a></li>
-              <li><a href="doc/codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
-	      <li><a href="doc/allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
-	      <li><a href="doc/qt.html">Desktop and Mobile development using RingQt</a></li>
+              <li><a href="doc1.1/oop.html">Object Oriented Programming</a></li>
+              <li><a href="doc1.1/declarative.html">Declarative Programming using Nested Structures</a></li>
+              <li><a href="doc1.1/natural.html">Natural language programming</a></li>
+              <li><a href="doc1.1/fp.html">Functional Programming (FP)</a></li>
+              <li><a href="doc1.1/metaprog.html">Reflection and Meta-programming</a></li>
+              <li><a href="doc1.1/extension.html">Extension using the C/C++ languages</a></li>
+              <li><a href="doc1.1/embedding.html">Embedding Ring Interpreter in C/C++ Programs</a></li>
+              <li><a href="doc1.1/interpreter.html">Command Line Options</a></li>
+              <li><a href="doc1.1/web.html">Web Development (CGI Library)</a></li>
+              <li><a href="doc1.1/codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+	      <li><a href="doc1.1/allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+	      <li><a href="doc1.1/qt.html">Desktop and Mobile development using RingQt</a></li>
             </ul>
 	</div>
 
