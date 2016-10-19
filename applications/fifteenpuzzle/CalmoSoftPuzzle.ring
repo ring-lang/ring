@@ -10,13 +10,6 @@ App1 = new qApp {
                    resize(370,480)
                    setWindowTitle("CalmoSoft Fifteen Puzzle Game")
 
-                new qPushButton(win1)
-                {
-                       setgeometry(100,300,160,40)
-                       settext("Scramble")
-                       setclickevent("scramble()")                        
-                }
-
                 for n = 1 to 16
                       col = n%4
                       if col = 0 col = 4 ok
@@ -50,6 +43,13 @@ App1 = new qApp {
                                      setgeometry(220,260,40,40)
                                      settext("->")
                                      setclickevent("rotateRight()")
+                }
+
+                scramblebtn = new qPushButton(win1)
+                {
+                       setgeometry(100,300,160,40)
+                       settext("Scramble")
+                       setclickevent("scramble()")                        
                 }
 
                 resetbtn = new qPushButton(win1)   
@@ -114,6 +114,8 @@ func pHere
                  button[n].setEnabled(false)
            next  
            button[15].setEnabled(true)
+           scramblebtn.setEnabled(false)
+           resetbtn.setEnabled(false)
            button[15]  {settext("Back")}
            return ok
 
@@ -124,6 +126,8 @@ func pBack
         for n = 1 to 16
               button[n].setEnabled(true)
         next 
+        scramblebtn.setEnabled(true)
+        resetbtn.setEnabled(true)
         return
 
 func rotateLeft
@@ -135,3 +139,4 @@ func rotateRight
         if button[18].text() != "Here"  
            button[18] {settext(string(number(button[18].text())+1))}
            return ok
+
