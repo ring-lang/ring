@@ -67,7 +67,7 @@ before calling it, Ruby usage of Object-Orientation and message passing is more 
 decrease performance, Python syntax (indentation, using self, :, pass & _) is not good for my goals.
 
 All of these languages are successful languages, and very good for their domains, but what I need 
-is a different language that comes with new ideas and intelligent implementation (Innovative, Ready, Simple, Small, Flexiable and Fast).
+is a different language that comes with new ideas and intelligent implementation (Innovative, Ready, Simple, Small, Flexible and Fast).
 
 .. index:: 
 	pair: Introduction ; History
