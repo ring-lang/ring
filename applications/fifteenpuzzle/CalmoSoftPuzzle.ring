@@ -1,75 +1,87 @@
 load "guilib.ring"
 
-App1 = new qApp {
+app1 = new qapp {
 
-        empty = 16   
-        button = list(19)   
+        empty = 16  
+        nrold = 4 
+        button = list(52)   
+        sizebtn = list(7)
 
-        win1 = new qWidget() {
+        win1 = new qwidget() {
                    move(0,0)
-                   resize(370,480)
-                   setWindowTitle("CalmoSoft Fifteen Puzzle Game")
+                   resize(380,480)
+                   setwindowtitle("Calmosoft Fifteen Puzzle Game")
 
-                for n = 1 to 16
-                      col = n%4
-                      if col = 0 col = 4 ok
-                      row = ceil(n/4)
-                      button[n] = new qPushButton (win1)
-                     {
-                                         setgeometry(60+col*40,60+row*40,40,40)
-                                         button[n] {settext(string(n))}
-                                         setclickevent("moveTile(" + string(n) +")")                   
-                      }                
-                next
+                   for n = 1 to 16
+                         col = n%4
+                         if col = 0 col = 4 ok
+                         row = ceil(n/4)
+                         button[n] = new qpushbutton (win1)
+                        {
+                                            setgeometry(60+col*40,60+row*40,40,40)
+                                            settext(string(n))
+                                            setclickevent("movetile(" + string(n) +")")   
+                        }                
+                   next
 
-                button[16] {settext("")}                     
+                   button[16] {settext("")}
 
-                button[17] = new qPushButton(win1)   
-                {
-                                     setgeometry(140,260,40,40)
-                                     settext("<-")
-                                     setclickevent("rotateLeft()")
-                }
+                   for n = 4 to 7
+                               sizebtn[n] = new qpushbutton(win1)   
+                               {
+                                                  col = n%4
+                                                  setgeometry(100+col*40,60,40,40)
+                                                  settext(string(n) + "x" + string(n))
+                                                  setclickevent("size(" + string(n) + ")")
+                               } 
+                   next    
 
-                button[18] = new qPushButton(win1)   
-                {
-                                     setgeometry(180,260,40,40)
-                                     settext("Here")
-                                     setclickevent("pHere()")
-                }
+                   button[17] = new qpushbutton(win1)   
+                   {
+                                        setgeometry(140,260,40,40)
+                                        settext("<-")
+                                        setclickevent("rotateleft()")
+                   }
 
-                button[19] = new qPushButton(win1)   
-                {
-                                     setgeometry(220,260,40,40)
-                                     settext("->")
-                                     setclickevent("rotateRight()")
-                }
+                   button[18] = new qpushbutton(win1)   
+                   {
+                                        setgeometry(180,260,40,40)
+                                        settext("Here")
+                                        setclickevent("pHere()")
+                   }
 
-                scramblebtn = new qPushButton(win1)
-                {
-                       setgeometry(100,300,160,40)
-                       settext("Scramble")
-                       setclickevent("scramble()")                        
-                }
+                   button[19] = new qpushbutton(win1)   
+                  {
+                                        setgeometry(220,260,40,40)
+                                        settext("->")
+                                        setclickevent("rotateright()")
+                   }
 
-                resetbtn = new qPushButton(win1)   
-                {
-                                 setgeometry(100,340,160,40)
-                                 settext("Reset")
-                                 setclickevent("resetTiles()")
-                }
-                show()
+                   scramblebtn = new qpushbutton(win1)
+                   {
+                                         setgeometry(100,300,160,40)
+                                         settext("Scramble")
+                                         setclickevent("scramble()")                        
+                   }
+
+                   resetbtn = new qpushbutton(win1)   
+                   {
+                                    setgeometry(100,340,160,40)
+                                    settext("Reset")
+                                    setclickevent("resettiles()")
+                   }
+                   show()
         }
         exec()
 }
- 
+
 func scramble
-       for n= 1 to 300   
-            nr=random(16)
-            up = (empty = (nr - 4))
-            down = (empty = (nr + 4))
-            left = ((empty = (nr - 1)) and ((nr % 4) != 1))
-            right = ((empty = (nr + 1)) and ((nr % 4) != 0))
+       for n= 1 to 10000   
+            nr=random(nrold*nrold)
+            up = (empty = (nr - nrold))
+            down = (empty = (nr + nrold))
+            left = ((empty = (nr - 1)) and ((nr % nrold) != 1))
+            right = ((empty = (nr + 1)) and ((nr % nrold) != 0))
             move = up or down or left  or right
             if move = 1 and (nr != 0)
                button[nr] { temp = text() }
@@ -80,14 +92,14 @@ func scramble
        next
        return
 
-func moveTile nr2
-       if (nr2 = 15 and button[nr2].text() = "Back")
+func movetile nr2
+       if (nr2 = nrold*nrold-1 and button[nr2].text() = "Back")
            pBack()
        else
-           up = (empty = (nr2 - 4))
-           down = (empty = (nr2 + 4))
-           left = ((empty = (nr2- 1)) and ((nr2 % 4) != 1))
-           right = ((empty = (nr2 + 1)) and ((nr2 % 4) != 0))
+           up = (empty = (nr2 - nrold))
+           down = (empty = (nr2 + nrold))
+           left = ((empty = (nr2- 1)) and ((nr2 % nrold) != 1))
+           right = ((empty = (nr2 + 1)) and ((nr2 % nrold) != 0))
            move = up or down or left  or right
            if move = 1    
               button[nr2] { temp2 = text() }
@@ -98,45 +110,114 @@ func moveTile nr2
       ok 
       return
 
-func resetTiles
-        empty = 16
-        for i = 1 to 15
+func resettiles
+        empty = nrold*nrold
+        for i = 1 to nrold*nrold-1
              button[i] {settext(string(i))}
         next
-        button[16] {settext("")}
+        button[nrold*nrold] {settext("")}
         return
 
 func pHere
-        if button[15].text() != "" and button[18].text() = "Here"
-           button[15] { temp = text() }
-           button[18] {settext(temp)}
-           for n = 1 to 16
-                 button[n].setEnabled(false)
+        if button[nrold*nrold-1].text() != "" and button[nrold*nrold+2].text() = "Here"
+           button[nrold*nrold-1] { temp = text() }
+           button[nrold*nrold+2] {settext(temp)}
+           for n = 1 to nrold*nrold
+                 button[n].setenabled(false)
            next  
-           button[15].setEnabled(true)
-           scramblebtn.setEnabled(false)
-           resetbtn.setEnabled(false)
-           button[15]  {settext("Back")}
+           button[nrold*nrold-1].setenabled(true)
+           scramblebtn.setenabled(false)
+           resetbtn.setenabled(false)
+           button[nrold*nrold-1]  {settext("Back")}
            return ok
 
 func pBack
-        button[18] { temp = text() }
-        button[15] {settext(temp)}
-        button[18] {settext("Here")}
-        for n = 1 to 16
-              button[n].setEnabled(true)
+        button[nrold*nrold+2] { temp = text() }
+        button[nrold*nrold-1] {settext(temp)}
+        button[nrold*nrold+2] {settext("Here")}
+        for n = 1 to nrold*nrold
+              button[n].setenabled(true)
         next 
-        scramblebtn.setEnabled(true)
-        resetbtn.setEnabled(true)
+        scramblebtn.setenabled(true)
+        resetbtn.setenabled(true)
         return
 
-func rotateLeft
-        if button[18].text() != "Here"  
-           button[18] {settext(string(number(button[18].text())-1))}
+func rotateleft
+        if button[nrold*nrold+2].text() != "Here"  
+           button[nrold*nrold+2] {settext(string(number(button[nrold*nrold+2].text())-1))}
            return ok
 
-func rotateRight
-        if button[18].text() != "Here"  
-           button[18] {settext(string(number(button[18].text())+1))}
+func rotateright
+        if button[nrold*nrold+2].text() != "Here"  
+           button[nrold*nrold+2] {settext(string(number(button[nrold*nrold+2].text())+1))}
            return ok
 
+func size nr
+        win1{
+                newsize = nr%4
+                win1.resize(380+newsize*40,480+newsize*40)
+
+                for n = 1 to nrold*nrold+3
+                      button[n].close()
+                next
+                scramblebtn.close()
+                resetbtn.close()
+
+                for n = 1 to nr*nr
+                     col = n%nr
+                     if col = 0 col = nr ok
+                     row = ceil(n/nr)
+
+                     button[n] = new qpushbutton(win1)
+                     {
+                                        setgeometry(60+col*40,60+row*40,40,40)
+                                        settext(string(n))
+                                        setclickevent("movetile(" + string(n) +")")   
+                                        show() 
+                     } 
+
+                next
+
+                button[nr*nr+1] = new qpushbutton(win1)
+                {
+                                              setgeometry(60+(nr-2)*40,60+(nr+1)*40,40,40)
+                                              settext("<-")
+                                              setclickevent("rotateLeft()")   
+                                              show() 
+                } 
+               
+                button[nr*nr+2] = new qpushbutton(win1)
+                {
+                                             setgeometry(60+(nr-1)*40,60+(nr+1)*40,40,40)
+                                             settext("Here")
+                                             setclickevent("pHere()")   
+                                             show() 
+                } 
+
+                button[nr*nr+3] = new qpushbutton(win1)
+                {
+                                             setgeometry(60+nr*40,60+(nr+1)*40,40,40)
+                                             settext("->")
+                                             setclickevent("rotateRight()")   
+                                             show() 
+                     } 
+
+                scramblebtn = new qpushbutton(win1)
+                {
+                                      setgeometry(100,100+(nr+1)*40,nr*40,40)
+                                      settext("Scramble")
+                                      setclickevent("scramble()")
+                                      show()                        
+                }
+
+                resetbtn = new qpushbutton(win1)   
+                {
+                                 setgeometry(100,100+(nr+2)*40,nr*40,40)
+                                 settext("Reset")
+                                 setclickevent("resettiles()")
+                                 show() 
+                }
+                button[nr*nr] {settext("")}
+                empty = nr*nr
+                nrold = nr
+                }
