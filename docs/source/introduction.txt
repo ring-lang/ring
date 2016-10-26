@@ -28,10 +28,10 @@ In this chapter we are going to discuss the goals behind the language design and
 Motivation
 ==========
 
-In Nov. 2011, I started to think about creating a new version of the 
+In Nov. 2011, We started to think about creating a new version of the 
 `Programming Without Coding Technology (PWCT) <http://doublesvsoop.sf.net/>`_ software from scratch.
 
-I was interested in creating multi-platform edition of the software beside adding support for
+We were interested in creating multi-platform edition of the software beside adding support for
 Web & Mobile development.
 Most of the PWCT source code was written in VFP and the software comes with a simple scripting language for creating the components called (RPWI). 
 The software contains components that support code generation in programming languages 
