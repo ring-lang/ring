@@ -199,3 +199,6 @@ Type: VM *
 pVM
 Type: char *
 cStr, *cStr2
+ring_vm_refmeta_ringvmfileslist
+Type: VM *
+pVM

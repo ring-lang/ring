@@ -60,4 +60,7 @@ void ring_vm_refmeta_getattribute ( void *pPointer ) ;
 void ring_vm_refmeta_setattribute ( void *pPointer ) ;
 
 void ring_vm_refmeta_mergemethods ( void *pPointer ) ;
+/* VM */
+
+void ring_vm_refmeta_ringvmfileslist ( void *pPointer ) ;
 #endif
