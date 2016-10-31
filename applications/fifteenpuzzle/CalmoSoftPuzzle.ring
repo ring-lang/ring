@@ -4,6 +4,7 @@ app1 = new qapp {
 
         empty = 16  
         nrold = 4 
+        flag = 0
         button = list(52)   
         sizebtn = list(7)
 
@@ -12,19 +13,7 @@ app1 = new qapp {
                    resize(380,480)
                    setwindowtitle("Calmosoft Fifteen Puzzle Game")
 
-                   for n = 1 to 16
-                         col = n%4
-                         if col = 0 col = 4 ok
-                         row = ceil(n/4)
-                         button[n] = new qpushbutton (win1)
-                        {
-                                            setgeometry(60+col*40,60+row*40,40,40)
-                                            settext(string(n))
-                                            setclickevent("movetile(" + string(n) +")")   
-                        }                
-                   next
-
-                   button[16] {settext("")}
+                   newsize(4)
 
                    for n = 4 to 7
                                sizebtn[n] = new qpushbutton(win1)   
@@ -32,30 +21,9 @@ app1 = new qapp {
                                                   col = n%4
                                                   setgeometry(100+col*40,60,40,40)
                                                   settext(string(n) + "x" + string(n))
-                                                  setclickevent("size(" + string(n) + ")")
+                                                  setclickevent("newsize(" + string(n) + ")")
                                } 
                    next    
-
-                   button[17] = new qpushbutton(win1)   
-                   {
-                                        setgeometry(140,260,40,40)
-                                        settext("<-")
-                                        setclickevent("rotateleft()")
-                   }
-
-                   button[18] = new qpushbutton(win1)   
-                   {
-                                        setgeometry(180,260,40,40)
-                                        settext("Here")
-                                        setclickevent("pHere()")
-                   }
-
-                   button[19] = new qpushbutton(win1)   
-                  {
-                                        setgeometry(220,260,40,40)
-                                        settext("->")
-                                        setclickevent("rotateright()")
-                   }
 
                    scramblebtn = new qpushbutton(win1)
                    {
@@ -152,17 +120,17 @@ func rotateright
            button[nrold*nrold+2] {settext(string(number(button[nrold*nrold+2].text())+1))}
            return ok
 
-func size nr
+func newsize nr
         win1{
-                newsize = nr%4
-                win1.resize(380+newsize*40,480+newsize*40)
-
+                sizenew = nr%4
+                win1.resize(380+sizenew*40,480+sizenew*40)
+if flag != 0
                 for n = 1 to nrold*nrold+3
                       button[n].close()
                 next
                 scramblebtn.close()
                 resetbtn.close()
-
+ok
                 for n = 1 to nr*nr
                      col = n%nr
                      if col = 0 col = nr ok
@@ -220,4 +188,6 @@ func size nr
                 button[nr*nr] {settext("")}
                 empty = nr*nr
                 nrold = nr
+                flag = flag + 1
                 }
+
