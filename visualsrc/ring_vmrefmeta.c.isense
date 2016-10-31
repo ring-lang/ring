@@ -202,3 +202,6 @@ cStr, *cStr2
 ring_vm_refmeta_ringvmfileslist
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmcalllist
+Type: VM *
+pVM

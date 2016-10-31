@@ -63,4 +63,6 @@ void ring_vm_refmeta_mergemethods ( void *pPointer ) ;
 /* VM */
 
 void ring_vm_refmeta_ringvmfileslist ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmcalllist ( void *pPointer ) ;
 #endif

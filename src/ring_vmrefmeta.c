@@ -39,6 +39,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("mergemethods",ring_vm_refmeta_mergemethods);
 	/* VM */
 	ring_vm_funcregister("ringvm_fileslist",ring_vm_refmeta_ringvmfileslist);
+	ring_vm_funcregister("ringvm_calllist",ring_vm_refmeta_ringvmcalllist);
 }
 /* Functions */
 
@@ -813,4 +814,11 @@ void ring_vm_refmeta_ringvmfileslist ( void *pPointer )
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	RING_API_RETLIST(pVM->pRingState->pRingFilesList);
+}
+
+void ring_vm_refmeta_ringvmcalllist ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETLIST(pVM->pFuncCallList);
 }
