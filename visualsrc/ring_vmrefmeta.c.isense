@@ -210,3 +210,6 @@ Type: VM *
 pVM
 Type: List *
 pList, *pList2
+ring_vm_refmeta_ringvmfunctionslist
+Type: VM *
+pVM
