@@ -205,3 +205,8 @@ pVM
 ring_vm_refmeta_ringvmcalllist
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmmemorylist
+Type: VM *
+pVM
+Type: List *
+pList, *pList2
