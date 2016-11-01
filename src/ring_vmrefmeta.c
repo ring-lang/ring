@@ -43,6 +43,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_memorylist",ring_vm_refmeta_ringvmmemorylist);
 	ring_vm_funcregister("ringvm_functionslist",ring_vm_refmeta_ringvmfunctionslist);
 	ring_vm_funcregister("ringvm_classeslist",ring_vm_refmeta_ringvmclasseslist);
+	ring_vm_funcregister("ringvm_packageslist",ring_vm_refmeta_ringvmpackageslist);
 }
 /* Functions */
 
@@ -851,4 +852,11 @@ void ring_vm_refmeta_ringvmclasseslist ( void *pPointer )
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	RING_API_RETLIST(pVM->pClassesMap);
+}
+
+void ring_vm_refmeta_ringvmpackageslist ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETLIST(pVM->pPackagesMap);
 }

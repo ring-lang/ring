@@ -216,3 +216,6 @@ pVM
 ring_vm_refmeta_ringvmclasseslist
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmpackageslist
+Type: VM *
+pVM

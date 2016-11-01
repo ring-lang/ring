@@ -71,4 +71,6 @@ void ring_vm_refmeta_ringvmmemorylist ( void *pPointer ) ;
 void ring_vm_refmeta_ringvmfunctionslist ( void *pPointer ) ;
 
 void ring_vm_refmeta_ringvmclasseslist ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmpackageslist ( void *pPointer ) ;
 #endif
