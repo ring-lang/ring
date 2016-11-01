@@ -124,13 +124,13 @@ func newsize nr
         win1{
                 sizenew = nr%4
                 win1.resize(380+sizenew*40,480+sizenew*40)
-if flag != 0
-                for n = 1 to nrold*nrold+3
-                      button[n].close()
-                next
-                scramblebtn.close()
-                resetbtn.close()
-ok
+                if flag != 0
+                   for n = 1 to nrold*nrold+3
+                       button[n].close()
+                   next
+                   scramblebtn.close()
+                   resetbtn.close()
+                ok
                 for n = 1 to nr*nr
                      col = n%nr
                      if col = 0 col = nr ok
