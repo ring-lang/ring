@@ -5577,27 +5577,3 @@ Parameters : void
 * void setY(int y)
 * int x(void)
 * int y(void)
-
-.. index::
-	pair: RingQt Classes Reference; QModelIndex Class
-
-QModelIndex Class
-=================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QModelIndex.html
-
-
-Parameters : void
-
-* QModelIndex child(int row, int column)
-* int column(void)
-* QVariant data(int role )
-* Qt::ItemFlags flags(void)
-* qint64 internalId(void)
-* void *internalPointer(void)
-* bool isValid(void)
-* QAbstractItemModel *model(void)
-* QModelIndex parent(void)
-* int row(void)
-* QModelIndex sibling(int row, int column)
