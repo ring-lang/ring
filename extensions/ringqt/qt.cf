@@ -438,6 +438,10 @@ aEnumTypes + "QLayout::SizeConstraint"
 aEnumTypes + "QGradient::CoordinateMode"
 aEnumTypes + "QGradient::Spread"
 aEnumTypes + "QGradient::Type"
+
+
+$aMallocClassesList + "QModelIndex"
+
 </runcode>
 
 <class>

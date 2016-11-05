@@ -9370,7 +9370,7 @@ RING_FUNC(ring_QTreeView_indexAbove)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->indexAbove(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QModelIndex"));
@@ -9394,7 +9394,7 @@ RING_FUNC(ring_QTreeView_indexBelow)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->indexBelow(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QModelIndex"));
@@ -10048,7 +10048,7 @@ RING_FUNC(ring_QTreeView_indexAt)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->indexAt(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QPoint"));
@@ -10723,7 +10723,7 @@ RING_FUNC(ring_QFileSystemModel_index)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->index(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -10809,7 +10809,7 @@ RING_FUNC(ring_QFileSystemModel_mkdir)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->mkdir(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"),RING_API_GETSTRING(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QModelIndex"));
@@ -11139,7 +11139,7 @@ RING_FUNC(ring_QFileSystemModel_setRootPath)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->setRootPath(RING_API_GETSTRING(2));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -11430,7 +11430,7 @@ RING_FUNC(ring_QFileSystemModel_parent)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->parent(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QModelIndex"));
@@ -14290,7 +14290,7 @@ RING_FUNC(ring_QComboBox_rootModelIndex)
 	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->rootModelIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -19746,7 +19746,7 @@ RING_FUNC(ring_QAbstractItemView_currentIndex)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->currentIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -19909,7 +19909,7 @@ RING_FUNC(ring_QAbstractItemView_indexAt)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->indexAt(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QPoint"));
@@ -20070,7 +20070,7 @@ RING_FUNC(ring_QAbstractItemView_rootIndex)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->rootIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -44827,7 +44827,7 @@ RING_FUNC(ring_QDirModel_index)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->index(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -44906,7 +44906,7 @@ RING_FUNC(ring_QDirModel_mkdir)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->mkdir(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex"),RING_API_GETSTRING(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QModelIndex"));
@@ -57848,7 +57848,7 @@ RING_FUNC(ring_QVariant_toModelIndex)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->toModelIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -74538,7 +74538,7 @@ RING_FUNC(ring_QModelIndex_child)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->child( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -74688,7 +74688,7 @@ RING_FUNC(ring_QModelIndex_parent)
 	pObject = (QModelIndex *) RING_API_GETCPOINTER(1,"QModelIndex");
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->parent();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -74735,7 +74735,7 @@ RING_FUNC(ring_QModelIndex_sibling)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = new QModelIndex() ;
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
 		*pValue = pObject->sibling( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
