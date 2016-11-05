@@ -310,6 +310,14 @@ RING_API int ring_vm_api_iscpointer ( void *pPointer,int x )
 	}
 	return 0 ;
 }
+
+RING_API int ring_vm_api_isobject ( void *pPointer,int x )
+{
+	if ( RING_API_ISLIST(x) ) {
+		return ring_vm_oop_isobject(RING_API_GETLIST(x)) ;
+	}
+	return 0 ;
+}
 /*
 **  Library 
 **  General 
@@ -823,6 +831,7 @@ void ring_vmlib_type ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
+	/* The order of checking C Pointer and OBJECT before List is important because the list can be both of them */
 	if ( RING_API_ISSTRING(1) ) {
 		RING_API_RETSTRING("STRING");
 	}
@@ -833,13 +842,11 @@ void ring_vmlib_type ( void *pPointer )
 		pList = RING_API_GETLIST(1) ;
 		RING_API_RETSTRING(ring_list_getstring(pList,RING_CPOINTER_TYPE));
 	}
+	else if ( RING_API_ISOBJECT(1) ) {
+		RING_API_RETSTRING("OBJECT");
+	}
 	else if ( RING_API_ISLIST(1) ) {
-		if ( ring_vm_oop_isobject(RING_API_GETLIST(1) ) == 0 ) {
-			RING_API_RETSTRING("LIST");
-		}
-		else {
-			RING_API_RETSTRING("OBJECT");
-		}
+		RING_API_RETSTRING("LIST");
 	} else {
 		RING_API_RETSTRING("UNKNOWN");
 	}

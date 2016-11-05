@@ -213,3 +213,4 @@ call ring scripts/dynamicmethods.ring
 call ring scripts/accesssetget.ring
 call ring scripts/functionsscope.ring
 call ring scripts/functionsscope2.ring
+call ring scripts/type2.ring
