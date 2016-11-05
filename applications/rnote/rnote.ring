@@ -514,11 +514,10 @@ func pWebBrowser
 
 func pChangeFile
 	pSaveCurrentFolder()
-	myitem = tree1.currentindex()
-	if ofile.isdir(myitem)
+	if ofile.isdir(tree1.currentindex())
 		return
 	ok
-	cActiveFileName = ofile.filepath(myitem)
+	cActiveFileName = ofile.filepath(tree1.currentindex())
 	textedit1.settext(read(cActiveFileName))
 	textedit1.setfocus(0)
 	pCursorPositionChanged()
