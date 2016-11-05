@@ -1652,14 +1652,10 @@ Class QTreeView from QAbstractItemView
 		return QTreeView_indentation(pObject)
 
 	Func indexAbove P1
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QTreeView_indexAbove(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
+		return QTreeView_indexAbove(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func indexBelow P1
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QTreeView_indexBelow(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
+		return QTreeView_indexBelow(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func isAnimated 
 		return QTreeView_isAnimated(pObject)
@@ -1752,9 +1748,7 @@ Class QTreeView from QAbstractItemView
 		return QTreeView_dataChanged(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func indexAt P1
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QTreeView_indexAt(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
+		return QTreeView_indexAt(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func keyboardSearch P1
 		return QTreeView_keyboardSearch(pObject,P1)
@@ -1881,9 +1875,7 @@ Class QFileSystemModel
 		return QFileSystemModel_iconProvider(pObject)
 
 	Func index P1,P2
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QFileSystemModel_index(pObject,P1,P2)
-		return pTempObj
+		return QFileSystemModel_index(pObject,P1,P2)
 
 	Func isDir P1
 		return QFileSystemModel_isDir(pObject,GetObjectPointerFromRingObject(P1))
@@ -1895,9 +1887,7 @@ Class QFileSystemModel
 		return QFileSystemModel_lastModified(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func mkdir P1,P2
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QFileSystemModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
-		return pTempObj
+		return QFileSystemModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func myComputer P1
 		pTempObj = new QVariant
@@ -1951,9 +1941,7 @@ Class QFileSystemModel
 		return QFileSystemModel_setResolveSymlinks(pObject,P1)
 
 	Func setRootPath P1
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QFileSystemModel_setRootPath(pObject,P1)
-		return pTempObj
+		return QFileSystemModel_setRootPath(pObject,P1)
 
 	Func size P1
 		return QFileSystemModel_size(pObject,GetObjectPointerFromRingObject(P1))
@@ -1998,9 +1986,7 @@ Class QFileSystemModel
 		return pTempObj
 
 	Func parent P1
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QFileSystemModel_parent(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
+		return QFileSystemModel_parent(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func rowCount P1
 		return QFileSystemModel_rowCount(pObject,GetObjectPointerFromRingObject(P1))
@@ -2488,9 +2474,7 @@ Class QComboBox from QWidget
 		return QComboBox_removeItem(pObject,P1)
 
 	Func rootModelIndex 
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QComboBox_rootModelIndex(pObject)
-		return pTempObj
+		return QComboBox_rootModelIndex(pObject)
 
 	Func setCompleter P1
 		return QComboBox_setCompleter(pObject,GetObjectPointerFromRingObject(P1))
@@ -3540,9 +3524,7 @@ Class QAbstractItemView from QAbstractScrollArea
 		return QAbstractItemView_closePersistentEditor(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func currentIndex 
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QAbstractItemView_currentIndex(pObject)
-		return pTempObj
+		return QAbstractItemView_currentIndex(pObject)
 
 	Func defaultDropAction 
 		return QAbstractItemView_defaultDropAction(pObject)
@@ -3571,9 +3553,7 @@ Class QAbstractItemView from QAbstractScrollArea
 		return pTempObj
 
 	Func indexAt P1
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QAbstractItemView_indexAt(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
+		return QAbstractItemView_indexAt(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func indexWidget P1
 		pTempObj = new QWidget
@@ -3599,9 +3579,7 @@ Class QAbstractItemView from QAbstractScrollArea
 		return QAbstractItemView_openPersistentEditor(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func rootIndex 
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QAbstractItemView_rootIndex(pObject)
-		return pTempObj
+		return QAbstractItemView_rootIndex(pObject)
 
 	Func scrollTo P1,P2
 		return QAbstractItemView_scrollTo(pObject,GetObjectPointerFromRingObject(P1),P2)
@@ -7906,9 +7884,7 @@ Class QDirModel
 		return QDirModel_iconProvider(pObject)
 
 	Func index P1,P2
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QDirModel_index(pObject,P1,P2)
-		return pTempObj
+		return QDirModel_index(pObject,P1,P2)
 
 	Func isDir P1
 		return QDirModel_isDir(pObject,GetObjectPointerFromRingObject(P1))
@@ -7920,9 +7896,7 @@ Class QDirModel
 		return QDirModel_lazyChildCount(pObject)
 
 	Func mkdir P1,P2
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QDirModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
-		return pTempObj
+		return QDirModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func nameFilters 
 		pTempObj = new QStringList
@@ -10295,9 +10269,7 @@ Class QVariant
 		return QVariant_toLongLong(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func toModelIndex 
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QVariant_toModelIndex(pObject)
-		return pTempObj
+		return QVariant_toModelIndex(pObject)
 
 	Func toPoint 
 		pTempObj = new QPoint
@@ -13359,58 +13331,6 @@ Class QPoint
 
 	Func y 
 		return QPoint_y(pObject)
-
-Class QModelIndex
-
-	pObject
-
-	Func init 
-		pObject = QModelIndex_new()
-		return self
-
-	Func delete
-		pObject = QModelIndex_delete(pObject)
-
-	Func child P1,P2
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QModelIndex_child(pObject,P1,P2)
-		return pTempObj
-
-	Func column 
-		return QModelIndex_column(pObject)
-
-	Func data P1
-		pTempObj = new QVariant
-		pTempObj.pObject = QModelIndex_data(pObject,P1)
-		return pTempObj
-
-	Func flags 
-		return QModelIndex_flags(pObject)
-
-	Func internalId 
-		return QModelIndex_internalId(pObject)
-
-	Func internalPointer 
-		return QModelIndex_internalPointer(pObject)
-
-	Func isValid 
-		return QModelIndex_isValid(pObject)
-
-	Func model 
-		return QModelIndex_model(pObject)
-
-	Func parent 
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QModelIndex_parent(pObject)
-		return pTempObj
-
-	Func row 
-		return QModelIndex_row(pObject)
-
-	Func sibling P1,P2
-		pTempObj = new QModelIndex
-		pTempObj.pObject = QModelIndex_sibling(pObject,P1,P2)
-		return pTempObj
 
 Class QIcon
 

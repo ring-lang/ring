@@ -5606,10 +5606,12 @@ void setY(int y)
 int x(void)
 int y(void)
 
-<class>
+<comment>
+
+//<class>
 name: QModelIndex
 para: void
-</class>
+//</class>
 
 QModelIndex child(int row, int column)
 int column(void)
@@ -5622,3 +5624,5 @@ QAbstractItemModel *model(void)
 QModelIndex parent(void)
 int row(void)
 QModelIndex sibling(int row, int column)
+
+</comment>

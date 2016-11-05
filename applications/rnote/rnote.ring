@@ -941,11 +941,11 @@ Func pAbout
 		"2016, Mahmoud Fayed <msfclipper@yahoo.com>")		
 
 Func pSaveCurrentFolder
-	nIndex = tree1.currentindex()
-	if ofile.isdir(nIndex)
-		cStartupFolder = ofile.filepath(nIndex)
+	oItem = tree1.currentindex()
+	if ofile.isdir(oItem)
+		cStartupFolder = ofile.filepath(oItem)
 	else
-		cFile = ofile.filepath(nIndex)
+		cFile = ofile.filepath(oItem)
 		for t = len(cFile) to 1 step -1
 			if cFile[t] = "/" or cFile[t] = "\"
 				cFile = left(cFile,t-1)
