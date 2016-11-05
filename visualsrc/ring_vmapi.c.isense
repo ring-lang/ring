@@ -323,6 +323,9 @@ ring_vmlib_nullpointer
 ring_vmlib_space
 Type: String *
 pString
+ring_vmlib_ptrcmp
+Type: List *
+pList, *pList2
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
