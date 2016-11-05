@@ -31,6 +31,7 @@ RING_API_GETINTPOINTER(x)
 RING_API_ACCEPTINTVALUE(x)
 RING_API_GETDOUBLEPOINTER(x)
 RING_API_IGNORECPOINTERTYPE
+RING_API_ISCPOINTER(x)
 RING_API_MISS1PARA
 RING_API_MISS2PARA
 RING_API_MISS3PARA
@@ -92,6 +93,8 @@ pList
 Type: Item *
 pItem
 ring_list_addcpointer
+ring_vm_api_iscpointerlist
+ring_vm_api_iscpointer
 ring_vmlib_len
 Type: VM *
 pVM
@@ -181,6 +184,8 @@ ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist
 ring_vmlib_type
+Type: List *
+pList
 ring_vmlib_isnull
 ring_vmlib_isobject
 ring_vmlib_hex

@@ -291,6 +291,25 @@ RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cTy
 	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
 	ring_list_addint(pList,2);
 }
+
+RING_API int ring_vm_api_iscpointerlist ( List *pList )
+{
+	if ( ring_list_getsize(pList) != 3 ) {
+		return 0 ;
+	}
+	if ( ring_list_ispointer(pList,1) && ring_list_isstring(pList,2) && ring_list_isnumber(pList,3) ) {
+		return 1 ;
+	}
+	return 0 ;
+}
+
+RING_API int ring_vm_api_iscpointer ( void *pPointer,int x )
+{
+	if ( RING_API_ISLIST(x) ) {
+		return ring_vm_api_iscpointerlist(RING_API_GETLIST(x)) ;
+	}
+	return 0 ;
+}
 /*
 **  Library 
 **  General 
@@ -799,6 +818,7 @@ void ring_vmlib_islist ( void *pPointer )
 
 void ring_vmlib_type ( void *pPointer )
 {
+	List *pList  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -809,6 +829,10 @@ void ring_vmlib_type ( void *pPointer )
 	else if ( RING_API_ISNUMBER(1) ) {
 		RING_API_RETSTRING("NUMBER");
 	}
+	else if ( RING_API_ISCPOINTER(1) ) {
+		pList = RING_API_GETLIST(1) ;
+		RING_API_RETSTRING(ring_list_getstring(pList,RING_CPOINTER_TYPE));
+	}
 	else if ( RING_API_ISLIST(1) ) {
 		if ( ring_vm_oop_isobject(RING_API_GETLIST(1) ) == 0 ) {
 			RING_API_RETSTRING("LIST");
@@ -816,9 +840,6 @@ void ring_vmlib_type ( void *pPointer )
 		else {
 			RING_API_RETSTRING("OBJECT");
 		}
-	}
-	else if ( RING_API_ISPOINTER(1) ) {
-		RING_API_RETSTRING(ring_list_getstring(RING_API_GETLIST(1),RING_CPOINTER_TYPE));
 	} else {
 		RING_API_RETSTRING("UNKNOWN");
 	}

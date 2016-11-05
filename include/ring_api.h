@@ -31,6 +31,10 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
 RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr ) ;
 
 RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cType ) ;
+
+RING_API int ring_vm_api_iscpointerlist ( List *pList ) ;
+
+RING_API int ring_vm_api_iscpointer ( void *pPointer,int x ) ;
 /*
 **  Library 
 **  General 
@@ -203,6 +207,7 @@ void ring_vmlib_space ( void *pPointer ) ;
 #define RING_API_ACCEPTINTVALUE(x) RING_API_INTVALUE(RING_API_GETSTRING(x))
 #define RING_API_GETDOUBLEPOINTER(x) RING_API_VARPOINTER(RING_API_GETSTRING(x),"double")
 #define RING_API_IGNORECPOINTERTYPE ((VM *) pPointer)->nIgnoreCPointerTypeCheck = 1
+#define RING_API_ISCPOINTER(x) ring_vm_api_iscpointer(pPointer,x)
 /* Constants/MACRO */
 #define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
 #define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"
