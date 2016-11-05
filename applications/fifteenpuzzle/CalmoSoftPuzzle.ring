@@ -7,13 +7,13 @@ app1 = new qapp {
         flag = 0
         button = list(52)   
         sizebtn = list(7)
+        table = [] 
+        table2 = [] 
 
         win1 = new qwidget() {
                    move(0,0)
-                   resize(380,480)
+                   resize(380,680)
                    setwindowtitle("Calmosoft Fifteen Puzzle Game")
-
-                   newsize(4)
 
                    for n = 4 to 7
                                sizebtn[n] = new qpushbutton(win1)   
@@ -38,12 +38,36 @@ app1 = new qapp {
                                     settext("Reset")
                                     setclickevent("resettiles()")
                    }
+
+                   savebtn = new qpushbutton(win1)   
+                   {
+                                   setgeometry(100,380,160,40)  
+                                   settext("Save Game")  
+                                   setclickevent("pSave()")
+                   }
+
+                   playbtn = new qpushbutton(win1)   
+                   {
+                                   setgeometry(100,420,160,40)  
+                                   settext("Play Game")  
+                                   setclickevent("pPlay()")
+                   }
+
+                   newsize(4)
+
                    show()
         }
         exec()
 }
 
+func sleep x
+       nTime = x * 1000
+       oTest = new qTest
+       oTest.qsleep(nTime)
+return
+
 func scramble
+       resettiles()
        for n= 1 to 10000   
             nr=random(nrold*nrold)
             up = (empty = (nr - nrold))
@@ -53,11 +77,22 @@ func scramble
             move = up or down or left  or right
             if move = 1 and (nr != 0)
                button[nr] { temp = text() }
-               button[empty]  {settext(temp)}
-               button[nr]  {settext("")}
+               button[empty].settext(temp)
+               button[nr].settext("")
                empty = nr
             ok
        next
+       table = []
+       table2 = []
+       for n = 1 to nrold*nrold
+             add(table, button[n].text())
+       next
+       add(table, string(empty))
+
+       for n = 1 to nrold*nrold
+             add(table2, button[n].text())
+       next
+       add(table2, string(empty))
        return
 
 func movetile nr2
@@ -69,12 +104,14 @@ func movetile nr2
            left = ((empty = (nr2- 1)) and ((nr2 % nrold) != 1))
            right = ((empty = (nr2 + 1)) and ((nr2 % nrold) != 0))
            move = up or down or left  or right
-           if move = 1    
+           if move = 1 
               button[nr2] { temp2 = text() }
+              add(table, temp2)
+              add(table2, string(nr2))
               button[empty]  {settext(temp2)}
               button[nr2]  {settext("")}
               empty = nr2
-           ok
+          ok
       ok 
       return
 
@@ -123,14 +160,17 @@ func rotateright
 func newsize nr
         win1{
                 sizenew = nr%4
-                win1.resize(380+sizenew*40,480+sizenew*40)
+                win1.resize(380+sizenew*40,520+sizenew*40)
                 if flag != 0
                    for n = 1 to nrold*nrold+3
-                       button[n].close()
+                         button[n].close()
                    next
-                   scramblebtn.close()
-                   resetbtn.close()
                 ok
+                scramblebtn.close()
+                resetbtn.close()
+                savebtn.close()
+                playbtn.close()
+
                 for n = 1 to nr*nr
                      col = n%nr
                      if col = 0 col = nr ok
@@ -143,7 +183,6 @@ func newsize nr
                                         setclickevent("movetile(" + string(n) +")")   
                                         show() 
                      } 
-
                 next
 
                 button[nr*nr+1] = new qpushbutton(win1)
@@ -185,9 +224,61 @@ func newsize nr
                                  setclickevent("resettiles()")
                                  show() 
                 }
+
+                savebtn = new qpushbutton(win1)   
+                {
+                                 setgeometry(100,100+(nr+3)*40,nr*40,40)
+                                 settext("Save Game")
+                                 setclickevent("pSave()")
+                                 show() 
+                }
+
+                playbtn = new qpushbutton(win1)   
+                {
+                               setgeometry(100,100+(nr+4)*40,nr*40,40)  
+                               settext("Play Game")  
+                               setclickevent("pPlay()")
+                               show()
+                }
+
                 button[nr*nr] {settext("")}
                 empty = nr*nr
                 nrold = nr
                 flag = flag + 1
                 }
+
+func pSave
+        textedit1 = list2str(table)
+        textedit2 = list2str(table2)
+      	cName = "C:\Ring\bin\CalmoSoftPuzzle.txt"
+      	cName2 = "C:\Ring\bin\CalmoSoftPuzzle2.txt"
+		write(cName,textedit1)
+		write(cName2,textedit2)
+        return
+
+func pPlay
+      	cName = "C:\Ring\bin\CalmoSoftPuzzle.txt"
+		textedit1 = read(cName)
+        table = str2list(textedit1)
+
+      	cName2 = "C:\Ring\bin\CalmoSoftPuzzle2.txt"
+		textedit2 = read(cName2)
+        table2 = str2list(textedit2)
+
+        for n = 1 to nrold*nrold
+              button[n] {settext(table[n])}
+        next
+
+        empty = table[nrold*nrold + 1]
+
+        for n = nrold*nrold + 2 to len(table)
+             tmp = table[n]
+             tmp2 = table2[n]
+             button[number(empty)].settext(tmp)
+             button[number(tmp2)].settext("")
+             empty = tmp2
+             sleep(1)
+        next
+        return     
+
 
