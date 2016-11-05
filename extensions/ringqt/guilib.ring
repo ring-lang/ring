@@ -14,6 +14,7 @@ func setwinicon pWindow,cImage
 func setbtnimage pBtn,cImage
 	pBtn.setIcon(new qicon(new qpixmap(cImage)))
 
+func objcmp o1,o2
+	return ptrcmp(o1.pObject,o2.pObject)
+
 #Class QWebView from QWebEngineView
-
-
