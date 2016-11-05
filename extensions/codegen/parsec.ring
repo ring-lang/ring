@@ -101,6 +101,8 @@ $cLibInitFunc = "ringlib_init"
 
 $lIgnoreCPointerTypeCheck = false
 
+$aMallocClassesList = []   # list contains classes to use malloc() instead of new when we return objects of this type (not pointer)
+
 Func Main
 	if len(sysargv) < 3
 		See "Input : filename.cf is missing!" + nl
@@ -909,7 +911,7 @@ Func GenMethodCodeCallFunc aList
 			lRetPointer = true
 			cCode += "RING_API_RETCPOINTER("
 		on C_TYPE_UNKNOWN
-			if find($aClassesList,aList[C_FUNC_OUTPUT],1) > 0
+			if ( find($aClassesList,aList[C_FUNC_OUTPUT],1) > 0 ) and ( find($aMallocClassesList,aList[C_FUNC_OUTPUT]) = 0 )
 				cCode += "{" + nl + 
 				GenTabs(2) + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
 				GenTabs(2) + "pValue = new " + aList[C_FUNC_OUTPUT] + 
