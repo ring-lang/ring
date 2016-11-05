@@ -1215,7 +1215,7 @@ int supportedDropActions(void)
 <class>
 name: QTreeWidget
 para: QWidget *
-parent: QWidget
+parent: QTreeView
 codename: GTreeWidget
 passvmpointer
 </class>
@@ -5602,4 +5602,19 @@ void setY(int y)
 int x(void)
 int y(void)
 
+<class>
+name: QModelIndex
+para: void
+</class>
 
+QModelIndex child(int row, int column)
+int column(void)
+QVariant data(int role )
+Qt::ItemFlags flags(void)
+qint64 internalId(void)
+void *internalPointer(void)
+bool isValid(void)
+QAbstractItemModel *model(void)
+QModelIndex parent(void)
+int row(void)
+QModelIndex sibling(int row, int column)
