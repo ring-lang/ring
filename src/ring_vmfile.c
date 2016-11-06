@@ -607,6 +607,9 @@ void ring_vm_file_write ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		if ( RING_API_ISSTRING(2) ) {
 			fp = fopen(RING_API_GETSTRING(1) , "w+b" );
+			if ( fp == NULL ) {
+				RING_API_ERROR(RING_VM_ERROR_CANTOPENFILE);
+			}
 			fwrite( RING_API_GETSTRING(2) , RING_API_GETSTRINGSIZE(2) , 1 , fp );
 			fclose( fp ) ;
 		} else {

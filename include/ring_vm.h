@@ -666,6 +666,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VM_ERROR_BADCALLPARA "Error (R32) : The CALL command expect a variable contains string!"
 #define RING_VM_ERROR_BADDECIMALNUMBER "Error (R33) : Bad decimals number (correct range >= 0 and <=14) !"
 #define RING_VM_ERROR_ASSIGNNOTVARIABLE "Error (R34) : Variable is required for the assignment operation"
+#define RING_VM_ERROR_CANTOPENFILE "Error (R35) : Can't create/open the file!"
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 1
 /* Variables Location */

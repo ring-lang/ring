@@ -1,5 +1,6 @@
 Load "qt.rh"
 Load "ring_qt.ring"
+
 if iswindows()
 	LoadLib("ringqt.dll")
 but ismacosx()
@@ -17,4 +18,3 @@ func setbtnimage pBtn,cImage
 func objcmp o1,o2
 	return ptrcmp(o1.pObject,o2.pObject)
 
-#Class QWebView from QWebEngineView
