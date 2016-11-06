@@ -59,6 +59,12 @@ Func std_del aList,nIndex
 Func std_find aList,vValue
 	return Find(aList,vValue)
 
+Func std_find2 aList,vValue,nColumn
+	return Find(aList,vValue,nColumn)
+
+Func std_find3 aList,vValue,nColumn,cAttribute
+	return Find(aList,vValue,nColumn,cAttribute)
+
 Func std_findincolumn aList,nCol,vValue
 	return Find(aList,nCol,vValue)
 
