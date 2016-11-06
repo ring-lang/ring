@@ -25,6 +25,7 @@ aBrowserLinks = [
 	["Ring Team","http://ring-lang.sourceforge.net/team.html"]
 ]
 
+cSettingsFile = cCurrentDir + "ringnotepad.ini"
 LoadSettings()
 
 oSearch = NULL
@@ -967,7 +968,7 @@ Func pSaveSettingsToFile
 		    "lShowBrowser = " + oDock3.isvisible() + nl +
 		    "nTabSpaces = " + nTabSpaces + nl
 	cSettings = substr(cSettings,nl,char(13)+char(10))
-	write("ringnotepad.ini",cSettings)
+	write(cSettingsFile,cSettings)
 
 Func pSaveSettings
 	pSaveSettingsToFile()
@@ -994,8 +995,10 @@ Func pSetWebsite
 	oWebView { loadpage(new qurl(cWebSite)) }	
 	oWBText  { setText(cWebSite) }		
 
-Func LoadSettings
-	eval(read("ringnotepad.ini"))
+Func LoadSettings	
+	if fexists(cSettingsFile)
+		eval(read(cSettingsFile))
+	ok
 
 Func RestoreSettings
 	LoadSettings()
