@@ -4,3 +4,7 @@ fp3 = fopen("ptrcmp.ring","r")
 
 see ptrcmp(fp,fp2) + nl
 see ptrcmp(fp,fp3) + nl
+
+fclose(fp)
+fclose(fp2)
+fclose(fp3)

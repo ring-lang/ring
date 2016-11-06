@@ -7,3 +7,8 @@ aList = [fp,fp2,fp3]
 see find(aList,fp) + nl
 see find(aList,fp3) + nl
 see find(aList,fp2) + nl
+
+fclose(fp)
+fclose(fp2)
+fclose(fp3)
+
