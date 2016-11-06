@@ -175,6 +175,11 @@ Type: int
 x,nCount,nPos
 Type: List *
 pList2
+ring_list_findcpointer
+Type: int
+x,nCount
+Type: List *
+pList2, *pList3
 ring_list_sortnum
 Type: int
 x,y,mid

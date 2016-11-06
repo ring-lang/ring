@@ -111,6 +111,8 @@ RING_API int ring_list_finddouble ( List *pList,double nNum1,int nColumn ) ;
 RING_API int ring_list_findpointer ( List *pList,void *pPointer ) ;
 
 RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute ) ;
+
+RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn ) ;
 /* Sort and Binary Search */
 
 RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;

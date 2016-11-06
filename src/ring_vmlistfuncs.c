@@ -94,6 +94,9 @@ void ring_vmlib_find ( void *pPointer )
 				else if ( RING_API_ISNUMBER(2) ) {
 					nNum1 = ring_list_finddouble(pList,RING_API_GETNUMBER(2),nColumn);
 				}
+				else if ( RING_API_ISCPOINTER(2) ) {
+					nNum1 = ring_list_findcpointer(pList,RING_API_GETLIST(2),nColumn);
+				}
 				else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 				}
