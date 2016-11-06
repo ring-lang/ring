@@ -97,6 +97,7 @@ ring_list_addcpointer
 ring_vm_api_iscpointerlist
 ring_vm_api_iscpointer
 ring_vm_api_isobject
+ring_vm_api_cpointercmp
 ring_vmlib_len
 Type: VM *
 pVM

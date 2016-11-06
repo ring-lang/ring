@@ -37,6 +37,8 @@ RING_API int ring_vm_api_iscpointerlist ( List *pList ) ;
 RING_API int ring_vm_api_iscpointer ( void *pPointer,int x ) ;
 
 RING_API int ring_vm_api_isobject ( void *pPointer,int x ) ;
+
+RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 ) ;
 /*
 **  Library 
 **  General 

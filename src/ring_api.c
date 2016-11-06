@@ -319,6 +319,16 @@ RING_API int ring_vm_api_isobject ( void *pPointer,int x )
 	}
 	return 0 ;
 }
+
+RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 )
+{
+	if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ) {
+		return 1 ;
+	}
+	else {
+		return 0 ;
+	}
+}
 /*
 **  Library 
 **  General 
@@ -1659,12 +1669,7 @@ void ring_vmlib_ptrcmp ( void *pPointer )
 	if ( RING_API_ISCPOINTER(1) && RING_API_ISCPOINTER(2) ) {
 		pList = RING_API_GETLIST(1) ;
 		pList2 = RING_API_GETLIST(2) ;
-		if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ) {
-			RING_API_RETNUMBER(1);
-		}
-		else {
-			RING_API_RETNUMBER(0);
-		}
+		RING_API_RETNUMBER(ring_vm_api_cpointercmp(pList,pList2));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
