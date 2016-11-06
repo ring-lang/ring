@@ -578,6 +578,7 @@ void ring_vm_file_read ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		fp = fopen(RING_API_GETSTRING(1) , "rb" );
 		if ( fp == NULL ) {
+			RING_API_ERROR(RING_VM_ERROR_CANTOPENFILE);
 			return ;
 		}
 		fseek( fp , 0 , SEEK_END );
@@ -609,6 +610,7 @@ void ring_vm_file_write ( void *pPointer )
 			fp = fopen(RING_API_GETSTRING(1) , "w+b" );
 			if ( fp == NULL ) {
 				RING_API_ERROR(RING_VM_ERROR_CANTOPENFILE);
+				return ;
 			}
 			fwrite( RING_API_GETSTRING(2) , RING_API_GETSTRINGSIZE(2) , 1 , fp );
 			fclose( fp ) ;
