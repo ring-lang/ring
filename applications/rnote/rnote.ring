@@ -476,6 +476,7 @@ MyApp = New qApp {
 		setwinicon(self,cCurrentDir + "/image/notepad.png")
 		showmaximized()	
 	}
+
 	RestoreSettings()
 	exec()
 }

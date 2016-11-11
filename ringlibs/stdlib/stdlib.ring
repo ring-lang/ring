@@ -630,7 +630,7 @@ Func IsMainSourceFile
 		return true
 	ok
 	return false
-	
+
 /*
 	Function Name	: Substring
 	Usage		: Return a position of a substring starting from a given position in a string.

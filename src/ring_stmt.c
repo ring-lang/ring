@@ -1185,7 +1185,7 @@ int ring_parser_step ( Parser *pParser,int *nMark1 )
 	if ( ring_parser_iskeyword(pParser,K_STEP) ) {
 		ring_parser_nexttoken(pParser);
 		pParser->nAssignmentFlag = 0 ;
-		if ( ring_parser_expr(pParser) ) {
+		if ( ring_parser_csexpr(pParser) ) {
 			pParser->nAssignmentFlag = 1 ;
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);
