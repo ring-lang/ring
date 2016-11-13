@@ -2541,6 +2541,18 @@ Class QComboBox from QWidget
 		pTempObj.pObject = QComboBox_view(pObject)
 		return pTempObj
 
+	Func clear 
+		return QComboBox_clear(pObject)
+
+	Func clearEditText 
+		return QComboBox_clearEditText(pObject)
+
+	Func setCurrentIndex P1
+		return QComboBox_setCurrentIndex(pObject,P1)
+
+	Func setEditText P1
+		return QComboBox_setEditText(pObject,P1)
+
 	Func setactivatedEvent P1
 		return QComboBox_setactivatedEvent(pObject,P1)
 

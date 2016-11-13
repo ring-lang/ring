@@ -14734,6 +14734,82 @@ RING_FUNC(ring_QComboBox_view)
 }
 
 
+RING_FUNC(ring_QComboBox_clear)
+{
+	GComboBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QComboBox_clearEditText)
+{
+	GComboBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
+	pObject->clearEditText();
+}
+
+
+RING_FUNC(ring_QComboBox_setCurrentIndex)
+{
+	GComboBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCurrentIndex( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QComboBox_setEditText)
+{
+	GComboBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setEditText(RING_API_GETSTRING(2));
+}
+
+
 RING_FUNC(ring_QComboBox_setactivatedEvent)
 {
 	GComboBox *pObject ;
@@ -78841,6 +78917,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcombobox_showpopup",ring_QComboBox_showPopup);
 	ring_vm_funcregister("qcombobox_validator",ring_QComboBox_validator);
 	ring_vm_funcregister("qcombobox_view",ring_QComboBox_view);
+	ring_vm_funcregister("qcombobox_clear",ring_QComboBox_clear);
+	ring_vm_funcregister("qcombobox_clearedittext",ring_QComboBox_clearEditText);
+	ring_vm_funcregister("qcombobox_setcurrentindex",ring_QComboBox_setCurrentIndex);
+	ring_vm_funcregister("qcombobox_setedittext",ring_QComboBox_setEditText);
 	ring_vm_funcregister("qcombobox_setactivatedevent",ring_QComboBox_setactivatedEvent);
 	ring_vm_funcregister("qcombobox_setcurrentindexchangedevent",ring_QComboBox_setcurrentIndexChangedEvent);
 	ring_vm_funcregister("qcombobox_setedittextchangedevent",ring_QComboBox_seteditTextChangedEvent);

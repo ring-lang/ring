@@ -1430,6 +1430,11 @@ SizeAdjustPolicy sizeAdjustPolicy(void)
 QValidator *validator(void)
 QAbstractItemView *view(void)
 
+void clear(void)
+void clearEditText(void)
+void setCurrentIndex(int index)
+void setEditText(QString)
+
 void setactivatedEvent(const char *)
 void setcurrentIndexChangedEvent(const char *)
 void seteditTextChangedEvent(const char *)
