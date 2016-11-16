@@ -677,3 +677,44 @@ Func DirExists cDir
 
 Func MakeDir cDir
 	system("mkdir " + cDir )
+	
+	/*
+	Function Name	: sortFirst
+	Usage		: Sort a list on first index
+	Parameters	: list to sort
+	output          : sorted list 
+*/ 
+
+func sortFirst aList
+     aList = sort(aList,1)
+
+     for n=1 to len(alist)-1
+         for m=n to len(aList)-1 
+             if alist[m+1][1] = alist[m][1] and alist[m+1][2] < alist[m][2]
+                temp = alist[m+1]
+                alist[m+1] = alist[m]
+                alist[m] = temp ok
+         next
+     next
+     return aList
+
+/*
+	Function Name	: sortSecond
+	Usage		: Sort a list on second index
+	Parameters	: list to sort
+	output          : sorted list 
+*/
+
+func sortSecond aList
+     aList = sort(aList,2)
+
+     for n=1 to len(alist)-1
+         for m=n to len(aList)-1 
+             if alist[m+1][2] = alist[m][2] and alist[m+1][1] < alist[m][1]
+                temp = alist[m+1]
+                alist[m+1] = alist[m]
+               alist[m] = temp ok
+         next
+     next
+     return aList
+
