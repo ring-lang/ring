@@ -220,3 +220,27 @@ See "Enter your Age? "
 nAge = getnumber()
 nAge++
 See "Your age after 1 year : " + nAge + nl
+
+# Sort a two-dimensional list on the first index.
+Puts("Test sortFirst()")
+aList = [[2,2], [1,2], [3,2], [3,1], [1,1]]
+sortFirst(aList)
+
+for n=1 to len(aList)
+    for m=1 to 2
+        see string(aList[n][m]) + " "
+    next
+    see nl
+next
+
+# Sort a two-dimensional list on the second index.
+Puts("Test sortSecond()")
+aList = [[2,2], [1,2], [3,2], [3,1], [1,1]]
+sortSecond(aList)
+
+for n=1 to len(aList)
+    for m=1 to 2
+        see string(aList[n][m]) + " "
+    next
+    see nl
+next
