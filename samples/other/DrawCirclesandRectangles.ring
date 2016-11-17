@@ -43,7 +43,7 @@ New qapp {
         win1 =  new qwidget() 
         {
                 setwindowtitle("Circle - Draw and Fill -- using QPainter")
-                setgeometry(100, 100, horzSize +100, vertSize +100)
+                setgeometry(100, 100, horzSize +100, vertSize +200)
 
                 label1 = new qlabel(win1) 
                 {
@@ -74,6 +74,13 @@ New qapp {
                         setgeometry(horzSize / 2+150, vertSize +50, 100, 30)
                         settext("Draw rectangles")
                         setclickevent("draw(2)")  ###  ===>>> Func
+                }
+
+                new qpushbutton(win1) 
+                {
+                        setgeometry(horzSize / 2+75, vertSize +100, 100, 30)
+                        settext("Draw mixed")
+                        setclickevent("draw(3)")  ###  ===>>> Func
                 }
 
                 show()
@@ -147,16 +154,23 @@ Func draw nr
 
                         ### Circle - Solid
                         setBrush(brushS)
+                         
                         if nr = 1
-                           drawellipse(horz,vert,rad,rad)  
-                        else
+                           drawellipse(horz,vert,rad-10,rad-10)  
+                        but nr = 2
                            drawrect(horz,vert,rad-10,rad-10)
+                        else
+                           flag = random(1)
+                           if flag = 1
+                              drawellipse(horz,vert,rad-10,rad-10)
+                           else
+                             drawrect(horz,vert,rad-10,rad-10)
+                           ok
                         ok
-           
+                   
                     else
                         #See "Overlap: "+ ReturnCode +" "+ Count +" "+ posCol +" "+ horz +" "+ vert +" "+ rad  +nl
                     ok
-                    
                 ok  
             end
             See "Finished Circles" +nl
