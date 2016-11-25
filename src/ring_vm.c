@@ -852,6 +852,11 @@ void ring_vm_newbytecodeitem ( VM *pVM,int x )
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 {
+	int nEvalReturnPC,nEvalReallocationFlag,nPC  ;
+	/* Save state to take in mind nested events execution */
+	nEvalReturnPC = pVM->nEvalReturnPC ;
+	nEvalReallocationFlag = pVM->nEvalReallocationFlag ;
+	nPC = pVM->nPC ;
 	ring_vm_mutexlock(pVM);
 	pVM->nEvalCalledFromRingCode = 1 ;
 	pVM->nRetEvalDontDelete = 0 ;
@@ -859,6 +864,10 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	pVM->nEvalCalledFromRingCode = 0 ;
 	ring_vm_mutexunlock(pVM);
 	ring_vm_mainloop(pVM);
+	/* Restore state to take in mind nested events execution */
+	pVM->nEvalReturnPC = nEvalReturnPC ;
+	pVM->nEvalReallocationFlag = nEvalReallocationFlag ;
+	pVM->nPC = nPC ;
 }
 
 void ring_vm_init ( RingState *pRingState )
