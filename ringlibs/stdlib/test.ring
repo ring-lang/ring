@@ -224,7 +224,7 @@ See "Your age after 1 year : " + nAge + nl
 # Sort a two-dimensional list on the first index.
 Puts("Test sortFirstSecond()")
 aList = [[2,2], [1,2], [3,2], [3,1], [1,1]]
-sortFirst(aList, 1)
+sortFirstSecond(aList, 1)
 
 for n=1 to len(aList)
     for m=1 to 2
@@ -236,7 +236,7 @@ next
 # Sort a two-dimensional list on the second index.
 Puts("Test sortFirstSecond()")
 aList = [[2,2], [1,2], [3,2], [3,1], [1,1]]
-sortSecond(aList, 2)
+sortFirstSecond(aList, 2)
 
 for n=1 to len(aList)
     for m=1 to 2
