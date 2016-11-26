@@ -291,7 +291,7 @@
 			]
 			],
 			
-	        	["Arabic Tutorials by Mr. Alaa Mohammed (YouTube) ", [
+	        	["Arabic Tutorials by Mr. Alaa Mohammed (علاء العكل )(YouTube) ", [
 			        [
 					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw" target="_blank"> 01 Ring introduction in Arabic</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
@@ -809,7 +809,12 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=tR79cjCFtgc&feature=youtu.be" target="_blank"> 108 Conversion Str2hex() AND Hex2str() Function</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
-                ] 
+                                ] 
+				,
+				[
+					'<a href="https://www.youtube.com/watch?v=mL6Sqj3wYP4&feature=youtu.be"> 109 Mathematical Functions</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                               ] 
 			]
 		],
 		
