@@ -39,6 +39,10 @@ cReplaceText = ""
 
 lAskToSave = false
 
+# Hash Table contains the File Name and the Line Number 
+
+aFilesLines = []	# Used to remember the current line when we switch between many files
+
 MyApp = New qApp {
 	win1 = new qMainWindow() {
 		oFilter = new qAllEvents(win1)
@@ -521,19 +525,28 @@ func pChangeFile
 		return
 	ok
 	cActiveFileName = ofile.filepath(oItem)
+	# We get nLine before using textedit1.settext() to get the value before aFilesLines update
+		nLine =  aFilesLines[cActiveFileName]
 	textedit1.settext(read(cActiveFileName))
 	textedit1.setfocus(0)
 	pCursorPositionChanged()
 	pSetActiveFileName()
 
+	if nLine != NULL
+		gotoline(nLine)
+	ok
+
+
 func pSetActiveFileName
 	oDock2.setWindowTitle("Source Code : " + cActiveFileName)
 
 func pCursorPositionChanged
-	status1.showmessage(" Line : "+(textedit1.textcursor().blocknumber()+1)+
+	nLine = textedit1.textcursor().blocknumber()+1
+	status1.showmessage(" Line : "+nLine+
 			    " Column : " +(textedit1.textcursor().columnnumber()+1) +
 			    " Total Lines : " + textedit1.document().linecount() ,0)
 	textedit1.cyanline(textedit1)
+	aFilesLines[cActiveFileName] = nLine
 
 func pGoto
 	
@@ -549,6 +562,9 @@ func pGoto
 	if r=0 return ok
 
 	nLine = 0 + oInput.textvalue()	
+	gotoline(nLine)
+
+func gotoline nLine
 	nLine--
 	cStr = textedit1.toPlainText()
 	nSize = len(cStr)
