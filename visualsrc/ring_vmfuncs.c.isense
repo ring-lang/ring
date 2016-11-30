@@ -43,3 +43,5 @@ ring_vm_anonymous
 Type: const char *
 cStr
 ring_vm_isstackpointertoobjstate
+Type: int
+nScope
