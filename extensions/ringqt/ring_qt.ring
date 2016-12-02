@@ -1584,6 +1584,12 @@ Class QListWidget from QWidget
 		pTempObj.pObject = QListWidget_visualItemRect(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
+	Func clear 
+		return QListWidget_clear(pObject)
+
+	Func scrollToItem P1,P2
+		return QListWidget_scrollToItem(pObject,GetObjectPointerFromRingObject(P1),P2)
+
 	Func setcurrentItemChangedEvent P1
 		return QListWidget_setcurrentItemChangedEvent(pObject,P1)
 

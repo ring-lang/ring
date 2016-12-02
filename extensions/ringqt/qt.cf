@@ -444,6 +444,7 @@ $aMallocClassesList + "QModelIndex"
 
 </runcode>
 
+
 <class>
 name: QApp
 nonew
@@ -1069,6 +1070,9 @@ void setSortingEnabled(bool enable)
 void sortItems(Qt::SortOrder order)
 QListWidgetItem *takeItem(int row)
 QRect visualItemRect(QListWidgetItem *item)
+
+void clear(void)
+void scrollToItem(QListWidgetItem *item,QAbstractItemView::ScrollHint hint)
 
 void setcurrentItemChangedEvent(const char *)
 void setcurrentRowChangedEvent(const char *)

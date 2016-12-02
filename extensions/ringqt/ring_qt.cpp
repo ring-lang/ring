@@ -8997,6 +8997,48 @@ RING_FUNC(ring_QListWidget_visualItemRect)
 }
 
 
+RING_FUNC(ring_QListWidget_clear)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QListWidget_scrollToItem)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->scrollToItem((QListWidgetItem *) RING_API_GETCPOINTER(2,"QListWidgetItem"), (QAbstractItemView::ScrollHint )  (int) RING_API_GETNUMBER(3));
+}
+
+
 RING_FUNC(ring_QListWidget_setcurrentItemChangedEvent)
 {
 	GListWidget *pObject ;
@@ -78644,6 +78686,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistwidget_sortitems",ring_QListWidget_sortItems);
 	ring_vm_funcregister("qlistwidget_takeitem",ring_QListWidget_takeItem);
 	ring_vm_funcregister("qlistwidget_visualitemrect",ring_QListWidget_visualItemRect);
+	ring_vm_funcregister("qlistwidget_clear",ring_QListWidget_clear);
+	ring_vm_funcregister("qlistwidget_scrolltoitem",ring_QListWidget_scrollToItem);
 	ring_vm_funcregister("qlistwidget_setcurrentitemchangedevent",ring_QListWidget_setcurrentItemChangedEvent);
 	ring_vm_funcregister("qlistwidget_setcurrentrowchangedevent",ring_QListWidget_setcurrentRowChangedEvent);
 	ring_vm_funcregister("qlistwidget_setcurrenttextchangedevent",ring_QListWidget_setcurrentTextChangedEvent);
