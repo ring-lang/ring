@@ -49,7 +49,7 @@ func pDecrement
      pdial{val=value()}
      pdial.setvalue(val-1)   
      lineedit1{settext(string(val-1))
-     pb.setvalue(val+1)}   
+     pb.setvalue(val-1)}   
 
 func pPress
      lineedit1{val=text()}
