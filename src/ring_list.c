@@ -649,6 +649,9 @@ RING_API int ring_list_findstring ( List *pList,const char *str,int nColumn )
 					continue ;
 				}
 				pList2 = ring_list_getlist(pList,x);
+				if ( ring_list_getsize(pList2)< nColumn ) {
+					return -1 ;
+				}
 				if ( ring_list_isstring(pList2,nColumn) ) {
 					if ( strcmp(str,ring_list_getstring(pList2,nColumn)) == 0 ) {
 						return x ;
@@ -683,6 +686,9 @@ RING_API int ring_list_finddouble ( List *pList,double nNum1,int nColumn )
 					continue ;
 				}
 				pList2 = ring_list_getlist(pList,x);
+				if ( ring_list_getsize(pList2)< nColumn ) {
+					return -1 ;
+				}
 				if ( ring_list_isdouble(pList2,nColumn) ) {
 					if ( ring_list_getdouble(pList2,nColumn) == nNum1 ) {
 						return x ;

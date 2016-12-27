@@ -667,6 +667,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VM_ERROR_BADDECIMALNUMBER "Error (R33) : Bad decimals number (correct range >= 0 and <=14) !"
 #define RING_VM_ERROR_ASSIGNNOTVARIABLE "Error (R34) : Variable is required for the assignment operation"
 #define RING_VM_ERROR_CANTOPENFILE "Error (R35) : Can't create/open the file!"
+#define RING_VM_ERROR_BADCOLUMNNUMBER "Error (R36) : The column number is not correct! It's greater than the number of columns in the list"
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 1
 /* Variables Location */

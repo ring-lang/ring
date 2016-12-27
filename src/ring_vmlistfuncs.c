@@ -100,6 +100,9 @@ void ring_vmlib_find ( void *pPointer )
 				else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 				}
+				if ( nNum1 == -1 ) {
+					RING_API_ERROR(RING_VM_ERROR_BADCOLUMNNUMBER);
+				}
 			}
 		}
 		RING_API_RETNUMBER(nNum1);
