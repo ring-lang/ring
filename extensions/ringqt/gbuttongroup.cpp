@@ -51,6 +51,22 @@ void GButtonGroup::setbuttonReleasedEvent(const char *cStr)
 		strcpy(this->cbuttonReleasedEvent,cStr);
 }
 
+ 
+const char *GButtonGroup::getbuttonClickedEvent(void)
+{
+	return this->cbuttonClickedEvent;
+}
+
+const char *GButtonGroup::getbuttonPressedEvent(void)
+{
+	return this->cbuttonPressedEvent;
+}
+
+const char *GButtonGroup::getbuttonReleasedEvent(void)
+{
+	return this->cbuttonReleasedEvent;
+}
+
 
 void GButtonGroup::buttonClickedSlot()
 {

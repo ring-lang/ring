@@ -31,6 +31,9 @@ class GTimer : public QTimer
     void settimeoutEvent(const char *cStr);
 
 
+    const char *gettimeoutEvent(void);
+
+
   public slots:
 
     void timeoutSlot();

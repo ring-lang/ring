@@ -41,6 +41,14 @@ class GDial : public QDial
     void setvalueChangedEvent(const char *cStr);
 
 
+    const char *getactionTriggeredEvent(void);
+    const char *getrangeChangedEvent(void);
+    const char *getsliderMovedEvent(void);
+    const char *getsliderPressedEvent(void);
+    const char *getsliderReleasedEvent(void);
+    const char *getvalueChangedEvent(void);
+
+
   public slots:
 
     void actionTriggeredSlot();

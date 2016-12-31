@@ -39,6 +39,13 @@ class GCheckBox : public QCheckBox
     void settoggledEvent(const char *cStr);
 
 
+    const char *getstateChangedEvent(void);
+    const char *getclickedEvent(void);
+    const char *getpressedEvent(void);
+    const char *getreleasedEvent(void);
+    const char *gettoggledEvent(void);
+
+
   public slots:
 
     void stateChangedSlot();

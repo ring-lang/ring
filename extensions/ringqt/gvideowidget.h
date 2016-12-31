@@ -39,6 +39,13 @@ class GVideoWidget : public QVideoWidget
     void setsaturationChangedEvent(const char *cStr);
 
 
+    const char *getbrightnessChangedEvent(void);
+    const char *getcontrastChangedEvent(void);
+    const char *getfullScreenChangedEvent(void);
+    const char *gethueChangedEvent(void);
+    const char *getsaturationChangedEvent(void);
+
+
   public slots:
 
     void brightnessChangedSlot();

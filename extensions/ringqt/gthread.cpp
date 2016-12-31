@@ -43,6 +43,17 @@ void GThread::setFinishedEvent(const char *cStr)
 		strcpy(this->cFinishedEvent,cStr);
 }
 
+ 
+const char *GThread::getStartedEvent(void)
+{
+	return this->cStartedEvent;
+}
+
+const char *GThread::getFinishedEvent(void)
+{
+	return this->cFinishedEvent;
+}
+
 
 void GThread::startedSlot()
 {

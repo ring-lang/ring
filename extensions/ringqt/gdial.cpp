@@ -75,6 +75,37 @@ void GDial::setvalueChangedEvent(const char *cStr)
 		strcpy(this->cvalueChangedEvent,cStr);
 }
 
+ 
+const char *GDial::getactionTriggeredEvent(void)
+{
+	return this->cactionTriggeredEvent;
+}
+
+const char *GDial::getrangeChangedEvent(void)
+{
+	return this->crangeChangedEvent;
+}
+
+const char *GDial::getsliderMovedEvent(void)
+{
+	return this->csliderMovedEvent;
+}
+
+const char *GDial::getsliderPressedEvent(void)
+{
+	return this->csliderPressedEvent;
+}
+
+const char *GDial::getsliderReleasedEvent(void)
+{
+	return this->csliderReleasedEvent;
+}
+
+const char *GDial::getvalueChangedEvent(void)
+{
+	return this->cvalueChangedEvent;
+}
+
 
 void GDial::actionTriggeredSlot()
 {

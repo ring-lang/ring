@@ -33,6 +33,10 @@ class GThread : public QThread
     void setFinishedEvent(const char *cStr);
 
 
+    const char *getStartedEvent(void);
+    const char *getFinishedEvent(void);
+
+
   public slots:
 
     void startedSlot();

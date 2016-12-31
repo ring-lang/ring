@@ -83,6 +83,42 @@ void GTextEdit::setundoAvailableEvent(const char *cStr)
 		strcpy(this->cundoAvailableEvent,cStr);
 }
 
+ 
+const char *GTextEdit::getcopyAvailableEvent(void)
+{
+	return this->ccopyAvailableEvent;
+}
+
+const char *GTextEdit::getcurrentCharFormatChangedEvent(void)
+{
+	return this->ccurrentCharFormatChangedEvent;
+}
+
+const char *GTextEdit::getcursorPositionChangedEvent(void)
+{
+	return this->ccursorPositionChangedEvent;
+}
+
+const char *GTextEdit::getredoAvailableEvent(void)
+{
+	return this->credoAvailableEvent;
+}
+
+const char *GTextEdit::getselectionChangedEvent(void)
+{
+	return this->cselectionChangedEvent;
+}
+
+const char *GTextEdit::gettextChangedEvent(void)
+{
+	return this->ctextChangedEvent;
+}
+
+const char *GTextEdit::getundoAvailableEvent(void)
+{
+	return this->cundoAvailableEvent;
+}
+
 
 void GTextEdit::copyAvailableSlot()
 {

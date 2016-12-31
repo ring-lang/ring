@@ -75,6 +75,37 @@ void GLineEdit::settextEditedEvent(const char *cStr)
 		strcpy(this->ctextEditedEvent,cStr);
 }
 
+ 
+const char *GLineEdit::getTextChangedEvent(void)
+{
+	return this->cTextChangedEvent;
+}
+
+const char *GLineEdit::getcursorPositionChangedEvent(void)
+{
+	return this->ccursorPositionChangedEvent;
+}
+
+const char *GLineEdit::geteditingFinishedEvent(void)
+{
+	return this->ceditingFinishedEvent;
+}
+
+const char *GLineEdit::getreturnPressedEvent(void)
+{
+	return this->creturnPressedEvent;
+}
+
+const char *GLineEdit::getselectionChangedEvent(void)
+{
+	return this->cselectionChangedEvent;
+}
+
+const char *GLineEdit::gettextEditedEvent(void)
+{
+	return this->ctextEditedEvent;
+}
+
 
 void GLineEdit::textChangedSlot()
 {

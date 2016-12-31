@@ -37,6 +37,12 @@ class GIODevice : public QIODevice
     void setreadyReadEvent(const char *cStr);
 
 
+    const char *getaboutToCloseEvent(void);
+    const char *getbytesWrittenEvent(void);
+    const char *getreadChannelFinishedEvent(void);
+    const char *getreadyReadEvent(void);
+
+
   public slots:
 
     void aboutToCloseSlot();

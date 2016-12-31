@@ -75,6 +75,37 @@ void GAbstractSocket::setstateChangedEvent(const char *cStr)
 		strcpy(this->cstateChangedEvent,cStr);
 }
 
+ 
+const char *GAbstractSocket::getconnectedEvent(void)
+{
+	return this->cconnectedEvent;
+}
+
+const char *GAbstractSocket::getdisconnectedEvent(void)
+{
+	return this->cdisconnectedEvent;
+}
+
+const char *GAbstractSocket::geterrorEvent(void)
+{
+	return this->cerrorEvent;
+}
+
+const char *GAbstractSocket::gethostFoundEvent(void)
+{
+	return this->chostFoundEvent;
+}
+
+const char *GAbstractSocket::getproxyAuthenticationRequiredEvent(void)
+{
+	return this->cproxyAuthenticationRequiredEvent;
+}
+
+const char *GAbstractSocket::getstateChangedEvent(void)
+{
+	return this->cstateChangedEvent;
+}
+
 
 void GAbstractSocket::connectedSlot()
 {

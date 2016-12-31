@@ -43,6 +43,17 @@ void GColorDialog::setcurrentColorChangedEvent(const char *cStr)
 		strcpy(this->ccurrentColorChangedEvent,cStr);
 }
 
+ 
+const char *GColorDialog::getcolorSelectedEvent(void)
+{
+	return this->ccolorSelectedEvent;
+}
+
+const char *GColorDialog::getcurrentColorChangedEvent(void)
+{
+	return this->ccurrentColorChangedEvent;
+}
+
 
 void GColorDialog::colorSelectedSlot()
 {

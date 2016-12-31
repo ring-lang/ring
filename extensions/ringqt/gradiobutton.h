@@ -37,6 +37,12 @@ class GRadioButton : public QRadioButton
     void settoggledEvent(const char *cStr);
 
 
+    const char *getclickedEvent(void);
+    const char *getpressedEvent(void);
+    const char *getreleasedEvent(void);
+    const char *gettoggledEvent(void);
+
+
   public slots:
 
     void clickedSlot();

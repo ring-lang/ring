@@ -41,6 +41,14 @@ class GWebView : public QWebView
     void seturlChangedEvent(const char *cStr);
 
 
+    const char *getloadFinishedEvent(void);
+    const char *getloadProgressEvent(void);
+    const char *getloadStartedEvent(void);
+    const char *getselectionChangedEvent(void);
+    const char *gettitleChangedEvent(void);
+    const char *geturlChangedEvent(void);
+
+
   public slots:
 
     void loadFinishedSlot();

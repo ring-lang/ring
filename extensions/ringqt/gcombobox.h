@@ -37,6 +37,12 @@ class GComboBox : public QComboBox
     void sethighlightedEvent(const char *cStr);
 
 
+    const char *getactivatedEvent(void);
+    const char *getcurrentIndexChangedEvent(void);
+    const char *geteditTextChangedEvent(void);
+    const char *gethighlightedEvent(void);
+
+
   public slots:
 
     void activatedSlot();

@@ -33,6 +33,10 @@ class GTcpServer : public QTcpServer
     void setnewConnectionEvent(const char *cStr);
 
 
+    const char *getacceptErrorEvent(void);
+    const char *getnewConnectionEvent(void);
+
+
   public slots:
 
     void acceptErrorSlot();

@@ -67,6 +67,32 @@ void GVideoWidget::setsaturationChangedEvent(const char *cStr)
 		strcpy(this->csaturationChangedEvent,cStr);
 }
 
+ 
+const char *GVideoWidget::getbrightnessChangedEvent(void)
+{
+	return this->cbrightnessChangedEvent;
+}
+
+const char *GVideoWidget::getcontrastChangedEvent(void)
+{
+	return this->ccontrastChangedEvent;
+}
+
+const char *GVideoWidget::getfullScreenChangedEvent(void)
+{
+	return this->cfullScreenChangedEvent;
+}
+
+const char *GVideoWidget::gethueChangedEvent(void)
+{
+	return this->chueChangedEvent;
+}
+
+const char *GVideoWidget::getsaturationChangedEvent(void)
+{
+	return this->csaturationChangedEvent;
+}
+
 
 void GVideoWidget::brightnessChangedSlot()
 {

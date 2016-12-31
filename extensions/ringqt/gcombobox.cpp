@@ -59,6 +59,27 @@ void GComboBox::sethighlightedEvent(const char *cStr)
 		strcpy(this->chighlightedEvent,cStr);
 }
 
+ 
+const char *GComboBox::getactivatedEvent(void)
+{
+	return this->cactivatedEvent;
+}
+
+const char *GComboBox::getcurrentIndexChangedEvent(void)
+{
+	return this->ccurrentIndexChangedEvent;
+}
+
+const char *GComboBox::geteditTextChangedEvent(void)
+{
+	return this->ceditTextChangedEvent;
+}
+
+const char *GComboBox::gethighlightedEvent(void)
+{
+	return this->chighlightedEvent;
+}
+
 
 void GComboBox::activatedSlot()
 {

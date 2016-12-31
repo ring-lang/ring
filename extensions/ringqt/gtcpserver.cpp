@@ -43,6 +43,17 @@ void GTcpServer::setnewConnectionEvent(const char *cStr)
 		strcpy(this->cnewConnectionEvent,cStr);
 }
 
+ 
+const char *GTcpServer::getacceptErrorEvent(void)
+{
+	return this->cacceptErrorEvent;
+}
+
+const char *GTcpServer::getnewConnectionEvent(void)
+{
+	return this->cnewConnectionEvent;
+}
+
 
 void GTcpServer::acceptErrorSlot()
 {

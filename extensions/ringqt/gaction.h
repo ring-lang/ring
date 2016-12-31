@@ -31,6 +31,9 @@ class GAction : public QAction
     void setClickEvent(const char *cStr);
 
 
+    const char *getClickEvent(void);
+
+
   public slots:
 
     void clickedSlot();

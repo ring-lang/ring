@@ -49,6 +49,18 @@ class GListWidget : public QListWidget
     void setitemSelectionChangedEvent(const char *cStr);
 
 
+    const char *getcurrentItemChangedEvent(void);
+    const char *getcurrentRowChangedEvent(void);
+    const char *getcurrentTextChangedEvent(void);
+    const char *getitemActivatedEvent(void);
+    const char *getitemChangedEvent(void);
+    const char *getitemClickedEvent(void);
+    const char *getitemDoubleClickedEvent(void);
+    const char *getitemEnteredEvent(void);
+    const char *getitemPressedEvent(void);
+    const char *getitemSelectionChangedEvent(void);
+
+
   public slots:
 
     void currentItemChangedSlot();

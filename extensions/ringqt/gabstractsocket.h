@@ -41,6 +41,14 @@ class GAbstractSocket : public QAbstractSocket
     void setstateChangedEvent(const char *cStr);
 
 
+    const char *getconnectedEvent(void);
+    const char *getdisconnectedEvent(void);
+    const char *geterrorEvent(void);
+    const char *gethostFoundEvent(void);
+    const char *getproxyAuthenticationRequiredEvent(void);
+    const char *getstateChangedEvent(void);
+
+
   public slots:
 
     void connectedSlot();

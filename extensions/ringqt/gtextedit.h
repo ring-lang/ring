@@ -43,6 +43,15 @@ class GTextEdit : public QTextEdit
     void setundoAvailableEvent(const char *cStr);
 
 
+    const char *getcopyAvailableEvent(void);
+    const char *getcurrentCharFormatChangedEvent(void);
+    const char *getcursorPositionChangedEvent(void);
+    const char *getredoAvailableEvent(void);
+    const char *getselectionChangedEvent(void);
+    const char *gettextChangedEvent(void);
+    const char *getundoAvailableEvent(void);
+
+
   public slots:
 
     void copyAvailableSlot();

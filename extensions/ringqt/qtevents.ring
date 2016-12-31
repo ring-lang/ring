@@ -845,6 +845,8 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
 <T_SETEVENTS>
 
+<T_GETEVENTS>
+
   public slots:
 
 <T_SLOTS>
@@ -873,13 +875,15 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 	ok
 
 	aEvents = aClass[:events]
-	cEventsAttributes = "" cSetEvents = ""  cEventsSlots = ""
+	cEventsAttributes = "" cSetEvents = ""  cGetEvents = "" cEventsSlots = ""
 
 	for aEvent in aEvents
 		# Events Attributes
 		cEventsAttributes += cSpace+"char c"+aEvent[:event]+"Event[100];"+nl
 		# Set Events
 		cSetEvents += cSpace+"void set"+aEvent[:event]+"Event(const char *cStr);"+nl
+		# Get Events
+		cGetEvents += cSpace+"const char *get"+aEvent[:event]+"Event(void);"+nl
 		# Events Slots
 
 		cSlot = aEvent[:slot]
@@ -892,6 +896,7 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
 	cCode = substr(cCode,"<T_EVENTSATTRIBUTES>", cEventsAttributes)
 	cCode = substr(cCode,"<T_SETEVENTS>", cSetEvents)
+	cCode = substr(cCode,"<T_GETEVENTS>", cGetEvents)
 	cCode = substr(cCode,"<T_SLOTS>", cEventsSlots)
 
 	cFileName = lower(aClass[:name]) + ".h"
@@ -929,6 +934,7 @@ void <T_CLASSNAME>::geteventparameters(void)
 
 
 <T_SETEVENTS>
+<T_GETEVENTS>
 <T_SLOTS>
 `	# End of Code String
 
@@ -950,7 +956,7 @@ void <T_CLASSNAME>::geteventparameters(void)
 	ok
 
 	aEvents = aClass[:events]
-	cClearEvents = "" cConnect = ""  cSetEvents = " " cSlots = ""
+	cClearEvents = "" cConnect = ""  cSetEvents = " " cGetEvents = " " cSlots = ""
 
 	for aEvent in aEvents
 
@@ -971,6 +977,13 @@ void "+aClass[:name]+"::set"+aEvent[:event]+"Event(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->c"+aEvent[:event]+"Event,cStr);
+}" + nl
+
+		# Get Events
+		cGetEvents += "
+const char *"+aClass[:name]+"::get"+aEvent[:event]+"Event(void)
+{
+	return this->c"+aEvent[:event]+"Event;
 }" + nl
 
 		# Slots
@@ -1003,6 +1016,7 @@ void '+aClass[:name]+'::'
 	cCode = substr(cCode,"<T_CLEAREVENTS>", cClearEvents)
 	cCode = substr(cCode,"<T_CONNECT>", cConnect)
 	cCode = substr(cCode,"<T_SETEVENTS>", cSetEvents)
+	cCode = substr(cCode,"<T_GETEVENTS>", cGetEvents)
 	cCode = substr(cCode,"<T_SLOTS>", cSlots)
 
 	cFileName = lower(aClass[:name]) + ".cpp"

@@ -33,6 +33,10 @@ class GColorDialog : public QColorDialog
     void setcurrentColorChangedEvent(const char *cStr);
 
 
+    const char *getcolorSelectedEvent(void);
+    const char *getcurrentColorChangedEvent(void);
+
+
   public slots:
 
     void colorSelectedSlot();

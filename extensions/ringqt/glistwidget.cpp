@@ -107,6 +107,57 @@ void GListWidget::setitemSelectionChangedEvent(const char *cStr)
 		strcpy(this->citemSelectionChangedEvent,cStr);
 }
 
+ 
+const char *GListWidget::getcurrentItemChangedEvent(void)
+{
+	return this->ccurrentItemChangedEvent;
+}
+
+const char *GListWidget::getcurrentRowChangedEvent(void)
+{
+	return this->ccurrentRowChangedEvent;
+}
+
+const char *GListWidget::getcurrentTextChangedEvent(void)
+{
+	return this->ccurrentTextChangedEvent;
+}
+
+const char *GListWidget::getitemActivatedEvent(void)
+{
+	return this->citemActivatedEvent;
+}
+
+const char *GListWidget::getitemChangedEvent(void)
+{
+	return this->citemChangedEvent;
+}
+
+const char *GListWidget::getitemClickedEvent(void)
+{
+	return this->citemClickedEvent;
+}
+
+const char *GListWidget::getitemDoubleClickedEvent(void)
+{
+	return this->citemDoubleClickedEvent;
+}
+
+const char *GListWidget::getitemEnteredEvent(void)
+{
+	return this->citemEnteredEvent;
+}
+
+const char *GListWidget::getitemPressedEvent(void)
+{
+	return this->citemPressedEvent;
+}
+
+const char *GListWidget::getitemSelectionChangedEvent(void)
+{
+	return this->citemSelectionChangedEvent;
+}
+
 
 void GListWidget::currentItemChangedSlot()
 {

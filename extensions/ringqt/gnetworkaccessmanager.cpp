@@ -35,6 +35,12 @@ void GNetworkAccessManager::setfinishedEvent(const char *cStr)
 		strcpy(this->cfinishedEvent,cStr);
 }
 
+ 
+const char *GNetworkAccessManager::getfinishedEvent(void)
+{
+	return this->cfinishedEvent;
+}
+
 
 void GNetworkAccessManager::finishedSlot(QNetworkReply *p1)
 {

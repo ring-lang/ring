@@ -43,6 +43,17 @@ void GTabWidget::settabCloseRequestedEvent(const char *cStr)
 		strcpy(this->ctabCloseRequestedEvent,cStr);
 }
 
+ 
+const char *GTabWidget::getcurrentChangedEvent(void)
+{
+	return this->ccurrentChangedEvent;
+}
+
+const char *GTabWidget::gettabCloseRequestedEvent(void)
+{
+	return this->ctabCloseRequestedEvent;
+}
+
 
 void GTabWidget::currentChangedSlot()
 {

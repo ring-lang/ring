@@ -31,6 +31,9 @@ class GSpinBox : public QSpinBox
     void setvalueChangedEvent(const char *cStr);
 
 
+    const char *getvalueChangedEvent(void);
+
+
   public slots:
 
     void valueChangedSlot();

@@ -67,6 +67,32 @@ void GCheckBox::settoggledEvent(const char *cStr)
 		strcpy(this->ctoggledEvent,cStr);
 }
 
+ 
+const char *GCheckBox::getstateChangedEvent(void)
+{
+	return this->cstateChangedEvent;
+}
+
+const char *GCheckBox::getclickedEvent(void)
+{
+	return this->cclickedEvent;
+}
+
+const char *GCheckBox::getpressedEvent(void)
+{
+	return this->cpressedEvent;
+}
+
+const char *GCheckBox::getreleasedEvent(void)
+{
+	return this->creleasedEvent;
+}
+
+const char *GCheckBox::gettoggledEvent(void)
+{
+	return this->ctoggledEvent;
+}
+
 
 void GCheckBox::stateChangedSlot()
 {

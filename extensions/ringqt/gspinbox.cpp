@@ -35,6 +35,12 @@ void GSpinBox::setvalueChangedEvent(const char *cStr)
 		strcpy(this->cvalueChangedEvent,cStr);
 }
 
+ 
+const char *GSpinBox::getvalueChangedEvent(void)
+{
+	return this->cvalueChangedEvent;
+}
+
 
 void GSpinBox::valueChangedSlot()
 {

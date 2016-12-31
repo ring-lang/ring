@@ -35,6 +35,12 @@ void GPushButton::setClickEvent(const char *cStr)
 		strcpy(this->cClickEvent,cStr);
 }
 
+ 
+const char *GPushButton::getClickEvent(void)
+{
+	return this->cClickEvent;
+}
+
 
 void GPushButton::clickedSlot()
 {

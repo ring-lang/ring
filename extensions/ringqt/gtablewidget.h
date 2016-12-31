@@ -59,6 +59,23 @@ class GTableWidget : public QTableWidget
     void setitemSelectionChangedEvent(const char *cStr);
 
 
+    const char *getcellActivatedEvent(void);
+    const char *getcellChangedEvent(void);
+    const char *getcellClickedEvent(void);
+    const char *getcellDoubleClickedEvent(void);
+    const char *getcellEnteredEvent(void);
+    const char *getcellPressedEvent(void);
+    const char *getcurrentCellChangedEvent(void);
+    const char *getcurrentItemChangedEvent(void);
+    const char *getitemActivatedEvent(void);
+    const char *getitemChangedEvent(void);
+    const char *getitemClickedEvent(void);
+    const char *getitemDoubleClickedEvent(void);
+    const char *getitemEnteredEvent(void);
+    const char *getitemPressedEvent(void);
+    const char *getitemSelectionChangedEvent(void);
+
+
   public slots:
 
     void cellActivatedSlot();

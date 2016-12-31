@@ -91,6 +91,47 @@ void GTreeView::setviewportEnteredEvent(const char *cStr)
 		strcpy(this->cviewportEnteredEvent,cStr);
 }
 
+ 
+const char *GTreeView::getcollapsedEvent(void)
+{
+	return this->ccollapsedEvent;
+}
+
+const char *GTreeView::getexpandedEvent(void)
+{
+	return this->cexpandedEvent;
+}
+
+const char *GTreeView::getactivatedEvent(void)
+{
+	return this->cactivatedEvent;
+}
+
+const char *GTreeView::getclickedEvent(void)
+{
+	return this->cclickedEvent;
+}
+
+const char *GTreeView::getdoubleClickedEvent(void)
+{
+	return this->cdoubleClickedEvent;
+}
+
+const char *GTreeView::getenteredEvent(void)
+{
+	return this->centeredEvent;
+}
+
+const char *GTreeView::getpressedEvent(void)
+{
+	return this->cpressedEvent;
+}
+
+const char *GTreeView::getviewportEnteredEvent(void)
+{
+	return this->cviewportEnteredEvent;
+}
+
 
 void GTreeView::collapsedSlot()
 {

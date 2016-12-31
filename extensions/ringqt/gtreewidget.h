@@ -65,6 +65,26 @@ class GTreeWidget : public QTreeWidget
     void setitemSelectionChangedEvent(const char *cStr);
 
 
+    const char *getcollapsedEvent(void);
+    const char *getexpandedEvent(void);
+    const char *getactivatedEvent(void);
+    const char *getclickedEvent(void);
+    const char *getdoubleClickedEvent(void);
+    const char *getenteredEvent(void);
+    const char *getpressedEvent(void);
+    const char *getviewportEnteredEvent(void);
+    const char *getcurrentItemChangedEvent(void);
+    const char *getitemActivatedEvent(void);
+    const char *getitemChangedEvent(void);
+    const char *getitemClickedEvent(void);
+    const char *getitemCollapsedEvent(void);
+    const char *getitemDoubleClickedEvent(void);
+    const char *getitemEnteredEvent(void);
+    const char *getitemExpandedEvent(void);
+    const char *getitemPressedEvent(void);
+    const char *getitemSelectionChangedEvent(void);
+
+
   public slots:
 
     void collapsedSlot();

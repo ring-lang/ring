@@ -45,6 +45,16 @@ class GTreeView : public QTreeView
     void setviewportEnteredEvent(const char *cStr);
 
 
+    const char *getcollapsedEvent(void);
+    const char *getexpandedEvent(void);
+    const char *getactivatedEvent(void);
+    const char *getclickedEvent(void);
+    const char *getdoubleClickedEvent(void);
+    const char *getenteredEvent(void);
+    const char *getpressedEvent(void);
+    const char *getviewportEnteredEvent(void);
+
+
   public slots:
 
     void collapsedSlot();

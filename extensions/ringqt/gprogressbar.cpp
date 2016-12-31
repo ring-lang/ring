@@ -35,6 +35,12 @@ void GProgressBar::setvalueChangedEvent(const char *cStr)
 		strcpy(this->cvalueChangedEvent,cStr);
 }
 
+ 
+const char *GProgressBar::getvalueChangedEvent(void)
+{
+	return this->cvalueChangedEvent;
+}
+
 
 void GProgressBar::valueChangedSlot()
 {

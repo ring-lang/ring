@@ -41,6 +41,14 @@ class GLineEdit : public QLineEdit
     void settextEditedEvent(const char *cStr);
 
 
+    const char *getTextChangedEvent(void);
+    const char *getcursorPositionChangedEvent(void);
+    const char *geteditingFinishedEvent(void);
+    const char *getreturnPressedEvent(void);
+    const char *getselectionChangedEvent(void);
+    const char *gettextEditedEvent(void);
+
+
   public slots:
 
     void textChangedSlot();

@@ -75,6 +75,37 @@ void GWebView::seturlChangedEvent(const char *cStr)
 		strcpy(this->curlChangedEvent,cStr);
 }
 
+ 
+const char *GWebView::getloadFinishedEvent(void)
+{
+	return this->cloadFinishedEvent;
+}
+
+const char *GWebView::getloadProgressEvent(void)
+{
+	return this->cloadProgressEvent;
+}
+
+const char *GWebView::getloadStartedEvent(void)
+{
+	return this->cloadStartedEvent;
+}
+
+const char *GWebView::getselectionChangedEvent(void)
+{
+	return this->cselectionChangedEvent;
+}
+
+const char *GWebView::gettitleChangedEvent(void)
+{
+	return this->ctitleChangedEvent;
+}
+
+const char *GWebView::geturlChangedEvent(void)
+{
+	return this->curlChangedEvent;
+}
+
 
 void GWebView::loadFinishedSlot()
 {

@@ -47,6 +47,17 @@ class GPlainTextEdit : public QPlainTextEdit
     void setupdateRequestEvent(const char *cStr);
 
 
+    const char *getblockCountChangedEvent(void);
+    const char *getcopyAvailableEvent(void);
+    const char *getcursorPositionChangedEvent(void);
+    const char *getmodificationChangedEvent(void);
+    const char *getredoAvailableEvent(void);
+    const char *getselectionChangedEvent(void);
+    const char *gettextChangedEvent(void);
+    const char *getundoAvailableEvent(void);
+    const char *getupdateRequestEvent(void);
+
+
   public slots:
 
     void blockCountChangedSlot();

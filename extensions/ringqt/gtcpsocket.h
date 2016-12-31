@@ -49,6 +49,18 @@ class GTcpSocket : public QTcpSocket
     void setreadyReadEvent(const char *cStr);
 
 
+    const char *getconnectedEvent(void);
+    const char *getdisconnectedEvent(void);
+    const char *geterrorEvent(void);
+    const char *gethostFoundEvent(void);
+    const char *getproxyAuthenticationRequiredEvent(void);
+    const char *getstateChangedEvent(void);
+    const char *getaboutToCloseEvent(void);
+    const char *getbytesWrittenEvent(void);
+    const char *getreadChannelFinishedEvent(void);
+    const char *getreadyReadEvent(void);
+
+
   public slots:
 
     void connectedSlot();

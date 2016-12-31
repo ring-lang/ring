@@ -35,6 +35,12 @@ void GAction::setClickEvent(const char *cStr)
 		strcpy(this->cClickEvent,cStr);
 }
 
+ 
+const char *GAction::getClickEvent(void)
+{
+	return this->cClickEvent;
+}
+
 
 void GAction::clickedSlot()
 {

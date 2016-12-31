@@ -59,6 +59,27 @@ void GRadioButton::settoggledEvent(const char *cStr)
 		strcpy(this->ctoggledEvent,cStr);
 }
 
+ 
+const char *GRadioButton::getclickedEvent(void)
+{
+	return this->cclickedEvent;
+}
+
+const char *GRadioButton::getpressedEvent(void)
+{
+	return this->cpressedEvent;
+}
+
+const char *GRadioButton::getreleasedEvent(void)
+{
+	return this->creleasedEvent;
+}
+
+const char *GRadioButton::gettoggledEvent(void)
+{
+	return this->ctoggledEvent;
+}
+
 
 void GRadioButton::clickedSlot()
 {

@@ -59,6 +59,27 @@ void GIODevice::setreadyReadEvent(const char *cStr)
 		strcpy(this->creadyReadEvent,cStr);
 }
 
+ 
+const char *GIODevice::getaboutToCloseEvent(void)
+{
+	return this->caboutToCloseEvent;
+}
+
+const char *GIODevice::getbytesWrittenEvent(void)
+{
+	return this->cbytesWrittenEvent;
+}
+
+const char *GIODevice::getreadChannelFinishedEvent(void)
+{
+	return this->creadChannelFinishedEvent;
+}
+
+const char *GIODevice::getreadyReadEvent(void)
+{
+	return this->creadyReadEvent;
+}
+
 
 void GIODevice::aboutToCloseSlot()
 {

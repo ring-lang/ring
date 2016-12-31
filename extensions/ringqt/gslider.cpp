@@ -75,6 +75,37 @@ void GSlider::setvalueChangedEvent(const char *cStr)
 		strcpy(this->cvalueChangedEvent,cStr);
 }
 
+ 
+const char *GSlider::getactionTriggeredEvent(void)
+{
+	return this->cactionTriggeredEvent;
+}
+
+const char *GSlider::getrangeChangedEvent(void)
+{
+	return this->crangeChangedEvent;
+}
+
+const char *GSlider::getsliderMovedEvent(void)
+{
+	return this->csliderMovedEvent;
+}
+
+const char *GSlider::getsliderPressedEvent(void)
+{
+	return this->csliderPressedEvent;
+}
+
+const char *GSlider::getsliderReleasedEvent(void)
+{
+	return this->csliderReleasedEvent;
+}
+
+const char *GSlider::getvalueChangedEvent(void)
+{
+	return this->cvalueChangedEvent;
+}
+
 
 void GSlider::actionTriggeredSlot()
 {

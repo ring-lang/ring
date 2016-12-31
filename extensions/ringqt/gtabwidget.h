@@ -33,6 +33,10 @@ class GTabWidget : public QTabWidget
     void settabCloseRequestedEvent(const char *cStr);
 
 
+    const char *getcurrentChangedEvent(void);
+    const char *gettabCloseRequestedEvent(void);
+
+
   public slots:
 
     void currentChangedSlot();

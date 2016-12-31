@@ -107,6 +107,57 @@ void GTcpSocket::setreadyReadEvent(const char *cStr)
 		strcpy(this->creadyReadEvent,cStr);
 }
 
+ 
+const char *GTcpSocket::getconnectedEvent(void)
+{
+	return this->cconnectedEvent;
+}
+
+const char *GTcpSocket::getdisconnectedEvent(void)
+{
+	return this->cdisconnectedEvent;
+}
+
+const char *GTcpSocket::geterrorEvent(void)
+{
+	return this->cerrorEvent;
+}
+
+const char *GTcpSocket::gethostFoundEvent(void)
+{
+	return this->chostFoundEvent;
+}
+
+const char *GTcpSocket::getproxyAuthenticationRequiredEvent(void)
+{
+	return this->cproxyAuthenticationRequiredEvent;
+}
+
+const char *GTcpSocket::getstateChangedEvent(void)
+{
+	return this->cstateChangedEvent;
+}
+
+const char *GTcpSocket::getaboutToCloseEvent(void)
+{
+	return this->caboutToCloseEvent;
+}
+
+const char *GTcpSocket::getbytesWrittenEvent(void)
+{
+	return this->cbytesWrittenEvent;
+}
+
+const char *GTcpSocket::getreadChannelFinishedEvent(void)
+{
+	return this->creadChannelFinishedEvent;
+}
+
+const char *GTcpSocket::getreadyReadEvent(void)
+{
+	return this->creadyReadEvent;
+}
+
 
 void GTcpSocket::connectedSlot()
 {

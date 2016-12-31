@@ -35,6 +35,12 @@ void GTimer::settimeoutEvent(const char *cStr)
 		strcpy(this->ctimeoutEvent,cStr);
 }
 
+ 
+const char *GTimer::gettimeoutEvent(void)
+{
+	return this->ctimeoutEvent;
+}
+
 
 void GTimer::timeoutSlot()
 {

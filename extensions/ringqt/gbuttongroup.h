@@ -35,6 +35,11 @@ class GButtonGroup : public QButtonGroup
     void setbuttonReleasedEvent(const char *cStr);
 
 
+    const char *getbuttonClickedEvent(void);
+    const char *getbuttonPressedEvent(void);
+    const char *getbuttonReleasedEvent(void);
+
+
   public slots:
 
     void buttonClickedSlot();

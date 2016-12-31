@@ -31,6 +31,9 @@ class GNetworkAccessManager : public QNetworkAccessManager
     void setfinishedEvent(const char *cStr);
 
 
+    const char *getfinishedEvent(void);
+
+
   public slots:
 
     void finishedSlot(QNetworkReply *p1);
