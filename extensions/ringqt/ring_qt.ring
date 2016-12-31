@@ -4344,6 +4344,24 @@ Class QSlider from QAbstractSlider
 	Func setvalueChangedEvent P1
 		return QSlider_setvalueChangedEvent(pObject,P1)
 
+	Func getactionTriggeredEvent 
+		return QSlider_getactionTriggeredEvent(pObject)
+
+	Func getrangeChangedEvent 
+		return QSlider_getrangeChangedEvent(pObject)
+
+	Func getsliderMovedEvent 
+		return QSlider_getsliderMovedEvent(pObject)
+
+	Func getsliderPressedEvent 
+		return QSlider_getsliderPressedEvent(pObject)
+
+	Func getsliderReleasedEvent 
+		return QSlider_getsliderReleasedEvent(pObject)
+
+	Func getvalueChangedEvent 
+		return QSlider_getvalueChangedEvent(pObject)
+
 Class QDateTimeEdit from QAbstractSpinBox
 
 	pObject

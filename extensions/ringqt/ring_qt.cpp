@@ -24591,6 +24591,108 @@ RING_FUNC(ring_QSlider_setvalueChangedEvent)
 }
 
 
+RING_FUNC(ring_QSlider_getactionTriggeredEvent)
+{
+	GSlider *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSlider *) RING_API_GETCPOINTER(1,"QSlider");
+	RING_API_RETSTRING(pObject->getactionTriggeredEvent());
+}
+
+
+RING_FUNC(ring_QSlider_getrangeChangedEvent)
+{
+	GSlider *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSlider *) RING_API_GETCPOINTER(1,"QSlider");
+	RING_API_RETSTRING(pObject->getrangeChangedEvent());
+}
+
+
+RING_FUNC(ring_QSlider_getsliderMovedEvent)
+{
+	GSlider *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSlider *) RING_API_GETCPOINTER(1,"QSlider");
+	RING_API_RETSTRING(pObject->getsliderMovedEvent());
+}
+
+
+RING_FUNC(ring_QSlider_getsliderPressedEvent)
+{
+	GSlider *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSlider *) RING_API_GETCPOINTER(1,"QSlider");
+	RING_API_RETSTRING(pObject->getsliderPressedEvent());
+}
+
+
+RING_FUNC(ring_QSlider_getsliderReleasedEvent)
+{
+	GSlider *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSlider *) RING_API_GETCPOINTER(1,"QSlider");
+	RING_API_RETSTRING(pObject->getsliderReleasedEvent());
+}
+
+
+RING_FUNC(ring_QSlider_getvalueChangedEvent)
+{
+	GSlider *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSlider *) RING_API_GETCPOINTER(1,"QSlider");
+	RING_API_RETSTRING(pObject->getvalueChangedEvent());
+}
+
+
 RING_FUNC(ring_QDateTimeEdit_calendarPopup)
 {
 	QDateTimeEdit *pObject ;
@@ -79445,6 +79547,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qslider_setsliderpressedevent",ring_QSlider_setsliderPressedEvent);
 	ring_vm_funcregister("qslider_setsliderreleasedevent",ring_QSlider_setsliderReleasedEvent);
 	ring_vm_funcregister("qslider_setvaluechangedevent",ring_QSlider_setvalueChangedEvent);
+	ring_vm_funcregister("qslider_getactiontriggeredevent",ring_QSlider_getactionTriggeredEvent);
+	ring_vm_funcregister("qslider_getrangechangedevent",ring_QSlider_getrangeChangedEvent);
+	ring_vm_funcregister("qslider_getslidermovedevent",ring_QSlider_getsliderMovedEvent);
+	ring_vm_funcregister("qslider_getsliderpressedevent",ring_QSlider_getsliderPressedEvent);
+	ring_vm_funcregister("qslider_getsliderreleasedevent",ring_QSlider_getsliderReleasedEvent);
+	ring_vm_funcregister("qslider_getvaluechangedevent",ring_QSlider_getvalueChangedEvent);
 	ring_vm_funcregister("qdatetimeedit_calendarpopup",ring_QDateTimeEdit_calendarPopup);
 	ring_vm_funcregister("qdatetimeedit_calendarwidget",ring_QDateTimeEdit_calendarWidget);
 	ring_vm_funcregister("qdatetimeedit_clearmaximumdate",ring_QDateTimeEdit_clearMaximumDate);
