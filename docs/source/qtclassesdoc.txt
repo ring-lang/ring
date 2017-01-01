@@ -340,6 +340,7 @@ Parent Class : QAbstractButton
 * void setClickEvent(const char *)
 * void setIcon(QIcon)
 * void setIconSize(QSize)
+* const char *getClickEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QBitmap Class
@@ -488,6 +489,12 @@ Parent Class : QWidget
 * void setreturnPressedEvent(const char *)
 * void setselectionChangedEvent(const char *)
 * void settextEditedEvent(const char *)
+* const char *getTextChangedEvent(void)
+* const char *getcursorPositionChangedEvent(void)
+* const char *geteditingFinishedEvent(void)
+* const char *getreturnPressedEvent(void)
+* const char *getselectionChangedEvent(void)
+* const char *gettextEditedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QVBoxLayout Class
@@ -647,6 +654,8 @@ Parent Class : QWidget
 * void sortItems(Qt::SortOrder order)
 * QListWidgetItem *takeItem(int row)
 * QRect visualItemRect(QListWidgetItem *item)
+* void clear(void)
+* void scrollToItem(QListWidgetItem *item,QAbstractItemView::ScrollHint hint)
 * void setcurrentItemChangedEvent(const char *)
 * void setcurrentRowChangedEvent(const char *)
 * void setcurrentTextChangedEvent(const char *)
@@ -1002,6 +1011,10 @@ Parent Class : QWidget
 * void setView(QAbstractItemView *itemView)
 * void showPopup(void)
 * QAbstractItemView *view(void)
+* void clear(void)
+* void clearEditText(void)
+* void setCurrentIndex(int index)
+* void setEditText(QString)
 * void setactivatedEvent(const char *)
 * void setcurrentIndexChangedEvent(const char *)
 * void seteditTextChangedEvent(const char *)
@@ -1745,6 +1758,12 @@ Parent Class : QAbstractSlider
 * void setsliderPressedEvent(const char *)
 * void setsliderReleasedEvent(const char *)
 * void setvalueChangedEvent(const char *)
+* const char *getactionTriggeredEvent(void)
+* const char *getrangeChangedEvent(void)
+* const char *getsliderMovedEvent(void)
+* const char *getsliderPressedEvent(void)
+* const char *getsliderReleasedEvent(void)
+* const char *getvalueChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QDateEdit Class
