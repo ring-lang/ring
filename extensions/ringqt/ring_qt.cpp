@@ -5264,6 +5264,23 @@ RING_FUNC(ring_QPushButton_setIconSize)
 }
 
 
+RING_FUNC(ring_QPushButton_getClickEvent)
+{
+	GPushButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPushButton *) RING_API_GETCPOINTER(1,"QPushButton");
+	RING_API_RETSTRING(pObject->getClickEvent());
+}
+
+
 RING_FUNC(ring_QBitmap_clear)
 {
 	QBitmap *pObject ;
@@ -6862,6 +6879,108 @@ RING_FUNC(ring_QLineEdit_settextEditedEvent)
 		return ;
 	}
 	pObject->settextEditedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLineEdit_getTextChangedEvent)
+{
+	GLineEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLineEdit *) RING_API_GETCPOINTER(1,"QLineEdit");
+	RING_API_RETSTRING(pObject->getTextChangedEvent());
+}
+
+
+RING_FUNC(ring_QLineEdit_getcursorPositionChangedEvent)
+{
+	GLineEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLineEdit *) RING_API_GETCPOINTER(1,"QLineEdit");
+	RING_API_RETSTRING(pObject->getcursorPositionChangedEvent());
+}
+
+
+RING_FUNC(ring_QLineEdit_geteditingFinishedEvent)
+{
+	GLineEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLineEdit *) RING_API_GETCPOINTER(1,"QLineEdit");
+	RING_API_RETSTRING(pObject->geteditingFinishedEvent());
+}
+
+
+RING_FUNC(ring_QLineEdit_getreturnPressedEvent)
+{
+	GLineEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLineEdit *) RING_API_GETCPOINTER(1,"QLineEdit");
+	RING_API_RETSTRING(pObject->getreturnPressedEvent());
+}
+
+
+RING_FUNC(ring_QLineEdit_getselectionChangedEvent)
+{
+	GLineEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLineEdit *) RING_API_GETCPOINTER(1,"QLineEdit");
+	RING_API_RETSTRING(pObject->getselectionChangedEvent());
+}
+
+
+RING_FUNC(ring_QLineEdit_gettextEditedEvent)
+{
+	GLineEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLineEdit *) RING_API_GETCPOINTER(1,"QLineEdit");
+	RING_API_RETSTRING(pObject->gettextEditedEvent());
 }
 
 
@@ -78604,6 +78723,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpushbutton_setclickevent",ring_QPushButton_setClickEvent);
 	ring_vm_funcregister("qpushbutton_seticon",ring_QPushButton_setIcon);
 	ring_vm_funcregister("qpushbutton_seticonsize",ring_QPushButton_setIconSize);
+	ring_vm_funcregister("qpushbutton_getclickevent",ring_QPushButton_getClickEvent);
 	ring_vm_funcregister("qbitmap_clear",ring_QBitmap_clear);
 	ring_vm_funcregister("qbitmap_swap",ring_QBitmap_swap);
 	ring_vm_funcregister("qbitmap_transformed",ring_QBitmap_transformed);
@@ -78682,6 +78802,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlineedit_setreturnpressedevent",ring_QLineEdit_setreturnPressedEvent);
 	ring_vm_funcregister("qlineedit_setselectionchangedevent",ring_QLineEdit_setselectionChangedEvent);
 	ring_vm_funcregister("qlineedit_settexteditedevent",ring_QLineEdit_settextEditedEvent);
+	ring_vm_funcregister("qlineedit_gettextchangedevent",ring_QLineEdit_getTextChangedEvent);
+	ring_vm_funcregister("qlineedit_getcursorpositionchangedevent",ring_QLineEdit_getcursorPositionChangedEvent);
+	ring_vm_funcregister("qlineedit_geteditingfinishedevent",ring_QLineEdit_geteditingFinishedEvent);
+	ring_vm_funcregister("qlineedit_getreturnpressedevent",ring_QLineEdit_getreturnPressedEvent);
+	ring_vm_funcregister("qlineedit_getselectionchangedevent",ring_QLineEdit_getselectionChangedEvent);
+	ring_vm_funcregister("qlineedit_gettexteditedevent",ring_QLineEdit_gettextEditedEvent);
 	ring_vm_funcregister("qvboxlayout_addwidget",ring_QVBoxLayout_addWidget);
 	ring_vm_funcregister("qvboxlayout_addlayout",ring_QVBoxLayout_addLayout);
 	ring_vm_funcregister("qhboxlayout_addwidget",ring_QHBoxLayout_addWidget);

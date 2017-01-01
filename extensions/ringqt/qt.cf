@@ -786,7 +786,7 @@ void setText(const char *)
 void setClickEvent(const char *)
 void setIcon(QIcon)
 void setIconSize(QSize)
-
+const char *getClickEvent(void)
 
 <class>
 name: QBitmap
@@ -898,6 +898,14 @@ void seteditingFinishedEvent(const char *)
 void setreturnPressedEvent(const char *)
 void setselectionChangedEvent(const char *)
 void settextEditedEvent(const char *)
+
+const char *getTextChangedEvent(void)
+const char *getcursorPositionChangedEvent(void)
+const char *geteditingFinishedEvent(void)
+const char *getreturnPressedEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettextEditedEvent(void)
+
 
 <class>
 name: QVBoxLayout

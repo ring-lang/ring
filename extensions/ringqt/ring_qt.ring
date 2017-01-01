@@ -909,6 +909,9 @@ Class QPushButton from QAbstractButton
 	Func setIconSize P1
 		return QPushButton_setIconSize(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func getClickEvent 
+		return QPushButton_getClickEvent(pObject)
+
 Class QBitmap from QPixmap
 
 	pObject
@@ -1193,6 +1196,24 @@ Class QLineEdit from QWidget
 
 	Func settextEditedEvent P1
 		return QLineEdit_settextEditedEvent(pObject,P1)
+
+	Func getTextChangedEvent 
+		return QLineEdit_getTextChangedEvent(pObject)
+
+	Func getcursorPositionChangedEvent 
+		return QLineEdit_getcursorPositionChangedEvent(pObject)
+
+	Func geteditingFinishedEvent 
+		return QLineEdit_geteditingFinishedEvent(pObject)
+
+	Func getreturnPressedEvent 
+		return QLineEdit_getreturnPressedEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QLineEdit_getselectionChangedEvent(pObject)
+
+	Func gettextEditedEvent 
+		return QLineEdit_gettextEditedEvent(pObject)
 
 Class QVBoxLayout
 
