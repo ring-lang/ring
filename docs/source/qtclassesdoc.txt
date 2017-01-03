@@ -1062,6 +1062,10 @@ Parent Class : QWidget
 * void setcurrentIndexChangedEvent(const char *)
 * void seteditTextChangedEvent(const char *)
 * void sethighlightedEvent(const char *)
+* const char *getactivatedEvent(void)
+* const char *getcurrentIndexChangedEvent(void)
+* const char *geteditTextChangedEvent(void)
+* const char *gethighlightedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QMenuBar Class
