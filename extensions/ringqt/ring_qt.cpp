@@ -30298,6 +30298,57 @@ RING_FUNC(ring_QButtonGroup_setbuttonReleasedEvent)
 }
 
 
+RING_FUNC(ring_QButtonGroup_getbuttonClickedEvent)
+{
+	GButtonGroup *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GButtonGroup *) RING_API_GETCPOINTER(1,"QButtonGroup");
+	RING_API_RETSTRING(pObject->getbuttonClickedEvent());
+}
+
+
+RING_FUNC(ring_QButtonGroup_getbuttonPressedEvent)
+{
+	GButtonGroup *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GButtonGroup *) RING_API_GETCPOINTER(1,"QButtonGroup");
+	RING_API_RETSTRING(pObject->getbuttonPressedEvent());
+}
+
+
+RING_FUNC(ring_QButtonGroup_getbuttonReleasedEvent)
+{
+	GButtonGroup *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GButtonGroup *) RING_API_GETCPOINTER(1,"QButtonGroup");
+	RING_API_RETSTRING(pObject->getbuttonReleasedEvent());
+}
+
+
 RING_FUNC(ring_QMediaPlayer_bufferStatus)
 {
 	QMediaPlayer *pObject ;
@@ -81447,6 +81498,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbuttongroup_setbuttonclickedevent",ring_QButtonGroup_setbuttonClickedEvent);
 	ring_vm_funcregister("qbuttongroup_setbuttonpressedevent",ring_QButtonGroup_setbuttonPressedEvent);
 	ring_vm_funcregister("qbuttongroup_setbuttonreleasedevent",ring_QButtonGroup_setbuttonReleasedEvent);
+	ring_vm_funcregister("qbuttongroup_getbuttonclickedevent",ring_QButtonGroup_getbuttonClickedEvent);
+	ring_vm_funcregister("qbuttongroup_getbuttonpressedevent",ring_QButtonGroup_getbuttonPressedEvent);
+	ring_vm_funcregister("qbuttongroup_getbuttonreleasedevent",ring_QButtonGroup_getbuttonReleasedEvent);
 	ring_vm_funcregister("qmediaplayer_bufferstatus",ring_QMediaPlayer_bufferStatus);
 	ring_vm_funcregister("qmediaplayer_currentmedia",ring_QMediaPlayer_currentMedia);
 	ring_vm_funcregister("qmediaplayer_currentnetworkconfiguration",ring_QMediaPlayer_currentNetworkConfiguration);

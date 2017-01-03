@@ -2522,6 +2522,11 @@ void setbuttonClickedEvent(const char *)
 void setbuttonPressedEvent(const char *)
 void setbuttonReleasedEvent(const char *)
 
+const char *getbuttonClickedEvent(void)
+const char *getbuttonPressedEvent(void)
+const char *getbuttonReleasedEvent(void)
+
+
 <class>
 name: QMediaPlayer
 para: void

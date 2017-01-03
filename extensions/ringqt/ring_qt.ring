@@ -5393,6 +5393,15 @@ Class QButtonGroup
 	Func setbuttonReleasedEvent P1
 		return QButtonGroup_setbuttonReleasedEvent(pObject,P1)
 
+	Func getbuttonClickedEvent 
+		return QButtonGroup_getbuttonClickedEvent(pObject)
+
+	Func getbuttonPressedEvent 
+		return QButtonGroup_getbuttonPressedEvent(pObject)
+
+	Func getbuttonReleasedEvent 
+		return QButtonGroup_getbuttonReleasedEvent(pObject)
+
 Class QMediaPlayer
 
 	pObject
