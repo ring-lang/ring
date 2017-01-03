@@ -24759,6 +24759,23 @@ RING_FUNC(ring_QProgressBar_setvalueChangedEvent)
 }
 
 
+RING_FUNC(ring_QProgressBar_getvalueChangedEvent)
+{
+	GProgressBar *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GProgressBar *) RING_API_GETCPOINTER(1,"QProgressBar");
+	RING_API_RETSTRING(pObject->getvalueChangedEvent());
+}
+
+
 RING_FUNC(ring_QSpinBox_cleanText)
 {
 	GSpinBox *pObject ;
@@ -80772,6 +80789,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprogressbar_setrange",ring_QProgressBar_setRange);
 	ring_vm_funcregister("qprogressbar_setvalue",ring_QProgressBar_setValue);
 	ring_vm_funcregister("qprogressbar_setvaluechangedevent",ring_QProgressBar_setvalueChangedEvent);
+	ring_vm_funcregister("qprogressbar_getvaluechangedevent",ring_QProgressBar_getvalueChangedEvent);
 	ring_vm_funcregister("qspinbox_cleantext",ring_QSpinBox_cleanText);
 	ring_vm_funcregister("qspinbox_displayintegerbase",ring_QSpinBox_displayIntegerBase);
 	ring_vm_funcregister("qspinbox_maximum",ring_QSpinBox_maximum);

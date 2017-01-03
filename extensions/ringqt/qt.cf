@@ -2014,21 +2014,21 @@ void setitemEnteredEvent(const char *)
 void setitemPressedEvent(const char *)
 void setitemSelectionChangedEvent(const char *)
 
-const char * getcellActivatedEvent(void)
-const char * getcellChangedEvent(void)
-const char * getcellClickedEvent(void)
-const char * getcellDoubleClickedEvent(void)
-const char * getcellEnteredEvent(void)
-const char * getcellPressedEvent(void)
-const char * getcurrentCellChangedEvent(void)
-const char * getcurrentItemChangedEvent(void)
-const char * getitemActivatedEvent(void)
-const char * getitemChangedEvent(void)
-const char * getitemClickedEvent(void)
-const char * getitemDoubleClickedEvent(void)
-const char * getitemEnteredEvent(void)
-const char * getitemPressedEvent(void)
-const char * getitemSelectionChangedEvent(void)
+const char *getcellActivatedEvent(void)
+const char *getcellChangedEvent(void)
+const char *getcellClickedEvent(void)
+const char *getcellDoubleClickedEvent(void)
+const char *getcellEnteredEvent(void)
+const char *getcellPressedEvent(void)
+const char *getcurrentCellChangedEvent(void)
+const char *getcurrentItemChangedEvent(void)
+const char *getitemActivatedEvent(void)
+const char *getitemChangedEvent(void)
+const char *getitemClickedEvent(void)
+const char *getitemDoubleClickedEvent(void)
+const char *getitemEnteredEvent(void)
+const char *getitemPressedEvent(void)
+const char *getitemSelectionChangedEvent(void)
 
 
 <class>
@@ -2063,6 +2063,8 @@ void setRange(int minimum, int maximum)
 void setValue(int value)
 
 void setvalueChangedEvent(const char *)
+
+const char *getvalueChangedEvent(void)
 
 <class>
 name: QSpinBox

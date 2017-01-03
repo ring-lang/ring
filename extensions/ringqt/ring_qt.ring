@@ -4361,6 +4361,9 @@ Class QProgressBar from QWidget
 	Func setvalueChangedEvent P1
 		return QProgressBar_setvalueChangedEvent(pObject,P1)
 
+	Func getvalueChangedEvent 
+		return QProgressBar_getvalueChangedEvent(pObject)
+
 Class QSpinBox from QWidget
 
 	pObject
