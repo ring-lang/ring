@@ -3474,11 +3474,21 @@ void seterrorEvent(const char *)
 void sethostFoundEvent(const char *)
 void setproxyAuthenticationRequiredEvent(const char *)
 void setstateChangedEvent(const char *)
-
 void setaboutToCloseEvent(const char *)
 void setbytesWrittenEvent(const char *)
 void setreadChannelFinishedEvent(const char *)
 void setreadyReadEvent(const char *)
+
+const char *getconnectedEvent(void)
+const char *getdisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *gethostFoundEvent(void)
+const char *getproxyAuthenticationRequiredEvent(void)
+const char *getstateChangedEvent(void)
+const char *getaboutToCloseEvent(void)
+const char *getbytesWrittenEvent(void)
+const char *getreadChannelFinishedEvent(void)
+const char *getreadyReadEvent(void)
 
 
 <class>

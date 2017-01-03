@@ -7914,6 +7914,36 @@ Class QTcpSocket from QAbstractSocket
 	Func setreadyReadEvent P1
 		return QTcpSocket_setreadyReadEvent(pObject,P1)
 
+	Func getconnectedEvent 
+		return QTcpSocket_getconnectedEvent(pObject)
+
+	Func getdisconnectedEvent 
+		return QTcpSocket_getdisconnectedEvent(pObject)
+
+	Func geterrorEvent 
+		return QTcpSocket_geterrorEvent(pObject)
+
+	Func gethostFoundEvent 
+		return QTcpSocket_gethostFoundEvent(pObject)
+
+	Func getproxyAuthenticationRequiredEvent 
+		return QTcpSocket_getproxyAuthenticationRequiredEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QTcpSocket_getstateChangedEvent(pObject)
+
+	Func getaboutToCloseEvent 
+		return QTcpSocket_getaboutToCloseEvent(pObject)
+
+	Func getbytesWrittenEvent 
+		return QTcpSocket_getbytesWrittenEvent(pObject)
+
+	Func getreadChannelFinishedEvent 
+		return QTcpSocket_getreadChannelFinishedEvent(pObject)
+
+	Func getreadyReadEvent 
+		return QTcpSocket_getreadyReadEvent(pObject)
+
 Class QTcpServer
 
 	pObject

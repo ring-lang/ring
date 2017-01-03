@@ -45240,6 +45240,176 @@ RING_FUNC(ring_QTcpSocket_setreadyReadEvent)
 }
 
 
+RING_FUNC(ring_QTcpSocket_getconnectedEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->getconnectedEvent());
+}
+
+
+RING_FUNC(ring_QTcpSocket_getdisconnectedEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->getdisconnectedEvent());
+}
+
+
+RING_FUNC(ring_QTcpSocket_geterrorEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->geterrorEvent());
+}
+
+
+RING_FUNC(ring_QTcpSocket_gethostFoundEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->gethostFoundEvent());
+}
+
+
+RING_FUNC(ring_QTcpSocket_getproxyAuthenticationRequiredEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->getproxyAuthenticationRequiredEvent());
+}
+
+
+RING_FUNC(ring_QTcpSocket_getstateChangedEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->getstateChangedEvent());
+}
+
+
+RING_FUNC(ring_QTcpSocket_getaboutToCloseEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->getaboutToCloseEvent());
+}
+
+
+RING_FUNC(ring_QTcpSocket_getbytesWrittenEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->getbytesWrittenEvent());
+}
+
+
+RING_FUNC(ring_QTcpSocket_getreadChannelFinishedEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->getreadChannelFinishedEvent());
+}
+
+
+RING_FUNC(ring_QTcpSocket_getreadyReadEvent)
+{
+	GTcpSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpSocket *) RING_API_GETCPOINTER(1,"QTcpSocket");
+	RING_API_RETSTRING(pObject->getreadyReadEvent());
+}
+
+
 RING_FUNC(ring_QTcpServer_close)
 {
 	GTcpServer *pObject ;
@@ -82492,6 +82662,16 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtcpsocket_setbyteswrittenevent",ring_QTcpSocket_setbytesWrittenEvent);
 	ring_vm_funcregister("qtcpsocket_setreadchannelfinishedevent",ring_QTcpSocket_setreadChannelFinishedEvent);
 	ring_vm_funcregister("qtcpsocket_setreadyreadevent",ring_QTcpSocket_setreadyReadEvent);
+	ring_vm_funcregister("qtcpsocket_getconnectedevent",ring_QTcpSocket_getconnectedEvent);
+	ring_vm_funcregister("qtcpsocket_getdisconnectedevent",ring_QTcpSocket_getdisconnectedEvent);
+	ring_vm_funcregister("qtcpsocket_geterrorevent",ring_QTcpSocket_geterrorEvent);
+	ring_vm_funcregister("qtcpsocket_gethostfoundevent",ring_QTcpSocket_gethostFoundEvent);
+	ring_vm_funcregister("qtcpsocket_getproxyauthenticationrequiredevent",ring_QTcpSocket_getproxyAuthenticationRequiredEvent);
+	ring_vm_funcregister("qtcpsocket_getstatechangedevent",ring_QTcpSocket_getstateChangedEvent);
+	ring_vm_funcregister("qtcpsocket_getabouttocloseevent",ring_QTcpSocket_getaboutToCloseEvent);
+	ring_vm_funcregister("qtcpsocket_getbyteswrittenevent",ring_QTcpSocket_getbytesWrittenEvent);
+	ring_vm_funcregister("qtcpsocket_getreadchannelfinishedevent",ring_QTcpSocket_getreadChannelFinishedEvent);
+	ring_vm_funcregister("qtcpsocket_getreadyreadevent",ring_QTcpSocket_getreadyReadEvent);
 	ring_vm_funcregister("qtcpserver_close",ring_QTcpServer_close);
 	ring_vm_funcregister("qtcpserver_errorstring",ring_QTcpServer_errorString);
 	ring_vm_funcregister("qtcpserver_haspendingconnections",ring_QTcpServer_hasPendingConnections);
