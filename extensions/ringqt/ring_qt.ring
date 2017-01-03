@@ -9134,6 +9134,87 @@ Class QAllEvents from QWidget
 	Func setWindowUnblockedEvent P1
 		return QAllEvents_setWindowUnblockedEvent(pObject,P1)
 
+	Func getKeyPressEvent 
+		return QAllEvents_getKeyPressEvent(pObject)
+
+	Func getMouseButtonPressEvent 
+		return QAllEvents_getMouseButtonPressEvent(pObject)
+
+	Func getMouseButtonReleaseEvent 
+		return QAllEvents_getMouseButtonReleaseEvent(pObject)
+
+	Func getMouseButtonDblClickEvent 
+		return QAllEvents_getMouseButtonDblClickEvent(pObject)
+
+	Func getMouseMoveEvent 
+		return QAllEvents_getMouseMoveEvent(pObject)
+
+	Func getCloseEvent 
+		return QAllEvents_getCloseEvent(pObject)
+
+	Func getContextMenuEvent 
+		return QAllEvents_getContextMenuEvent(pObject)
+
+	Func getDragEnterEvent 
+		return QAllEvents_getDragEnterEvent(pObject)
+
+	Func getDragLeaveEvent 
+		return QAllEvents_getDragLeaveEvent(pObject)
+
+	Func getDragMoveEvent 
+		return QAllEvents_getDragMoveEvent(pObject)
+
+	Func getDropEvent 
+		return QAllEvents_getDropEvent(pObject)
+
+	Func getEnterEvent 
+		return QAllEvents_getEnterEvent(pObject)
+
+	Func getFocusInEvent 
+		return QAllEvents_getFocusInEvent(pObject)
+
+	Func getFocusOutEvent 
+		return QAllEvents_getFocusOutEvent(pObject)
+
+	Func getKeyReleaseEvent 
+		return QAllEvents_getKeyReleaseEvent(pObject)
+
+	Func getLeaveEvent 
+		return QAllEvents_getLeaveEvent(pObject)
+
+	Func getNonClientAreaMouseButtonDblClickEvent 
+		return QAllEvents_getNonClientAreaMouseButtonDblClickEvent(pObject)
+
+	Func getNonClientAreaMouseButtonPressEvent 
+		return QAllEvents_getNonClientAreaMouseButtonPressEvent(pObject)
+
+	Func getNonClientAreaMouseButtonReleaseEvent 
+		return QAllEvents_getNonClientAreaMouseButtonReleaseEvent(pObject)
+
+	Func getNonClientAreaMouseMoveEvent 
+		return QAllEvents_getNonClientAreaMouseMoveEvent(pObject)
+
+	Func getMoveEvent 
+		return QAllEvents_getMoveEvent(pObject)
+
+	Func getResizeEvent 
+		return QAllEvents_getResizeEvent(pObject)
+
+	Func getWindowActivateEvent 
+		return QAllEvents_getWindowActivateEvent(pObject)
+
+	Func getWindowBlockedEvent 
+		return QAllEvents_getWindowBlockedEvent(pObject)
+
+	Func getWindowDeactivateEvent 
+		return QAllEvents_getWindowDeactivateEvent(pObject)
+
+	Func getWindowStateChangeEvent 
+		return QAllEvents_getWindowStateChangeEvent(pObject)
+
+	Func getWindowUnblockedEvent 
+		return QAllEvents_getWindowUnblockedEvent(pObject)
+
 Class QDesktopWidget from QWidget
 
 	pObject
@@ -12609,32 +12690,32 @@ Class QPlainTextEdit from QAbstractScrollArea
 	Func setupdateRequestEvent P1
 		return QPlainTextEdit_setupdateRequestEvent(pObject,P1)
 
-	Func getblockCountChangedEvent P1
-		return QPlainTextEdit_getblockCountChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+	Func getblockCountChangedEvent 
+		return QPlainTextEdit_getblockCountChangedEvent(pObject)
 
-	Func getcopyAvailableEvent P1
-		return QPlainTextEdit_getcopyAvailableEvent(pObject,GetObjectPointerFromRingObject(P1))
+	Func getcopyAvailableEvent 
+		return QPlainTextEdit_getcopyAvailableEvent(pObject)
 
-	Func getcursorPositionChangedEvent P1
-		return QPlainTextEdit_getcursorPositionChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+	Func getcursorPositionChangedEvent 
+		return QPlainTextEdit_getcursorPositionChangedEvent(pObject)
 
-	Func getmodificationChangedEvent P1
-		return QPlainTextEdit_getmodificationChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+	Func getmodificationChangedEvent 
+		return QPlainTextEdit_getmodificationChangedEvent(pObject)
 
-	Func getredoAvailableEvent P1
-		return QPlainTextEdit_getredoAvailableEvent(pObject,GetObjectPointerFromRingObject(P1))
+	Func getredoAvailableEvent 
+		return QPlainTextEdit_getredoAvailableEvent(pObject)
 
-	Func getselectionChangedEvent P1
-		return QPlainTextEdit_getselectionChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+	Func getselectionChangedEvent 
+		return QPlainTextEdit_getselectionChangedEvent(pObject)
 
-	Func gettextChangedEvent P1
-		return QPlainTextEdit_gettextChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+	Func gettextChangedEvent 
+		return QPlainTextEdit_gettextChangedEvent(pObject)
 
-	Func getundoAvailableEvent P1
-		return QPlainTextEdit_getundoAvailableEvent(pObject,GetObjectPointerFromRingObject(P1))
+	Func getundoAvailableEvent 
+		return QPlainTextEdit_getundoAvailableEvent(pObject)
 
-	Func getupdateRequestEvent P1
-		return QPlainTextEdit_getupdateRequestEvent(pObject,GetObjectPointerFromRingObject(P1))
+	Func getupdateRequestEvent 
+		return QPlainTextEdit_getupdateRequestEvent(pObject)
 
 Class QGridLayout
 

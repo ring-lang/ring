@@ -5,7 +5,7 @@
 <ignorecpointertype>
 
 <code>
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 extern "C" {
 	#include "ring.h"
@@ -3985,6 +3985,34 @@ void setWindowDeactivateEvent(const char *cStr)
 void setWindowStateChangeEvent(const char *cStr)
 void setWindowUnblockedEvent(const char *cStr)
 
+const char *getKeyPressEvent(void)
+const char *getMouseButtonPressEvent(void)
+const char *getMouseButtonReleaseEvent(void)
+const char *getMouseButtonDblClickEvent(void)
+const char *getMouseMoveEvent(void)
+const char *getCloseEvent(void)
+const char *getContextMenuEvent(void)
+const char *getDragEnterEvent(void)
+const char *getDragLeaveEvent(void)
+const char *getDragMoveEvent(void)
+const char *getDropEvent(void)
+const char *getEnterEvent(void)
+const char *getFocusInEvent(void)
+const char *getFocusOutEvent(void)
+const char *getKeyReleaseEvent(void)
+const char *getLeaveEvent(void)
+const char *getNonClientAreaMouseButtonDblClickEvent(void)
+const char *getNonClientAreaMouseButtonPressEvent(void)
+const char *getNonClientAreaMouseButtonReleaseEvent(void)
+const char *getNonClientAreaMouseMoveEvent(void)
+const char *getMoveEvent(void)
+const char *getResizeEvent(void)
+const char *getWindowActivateEvent(void)
+const char *getWindowBlockedEvent(void)
+const char *getWindowDeactivateEvent(void)
+const char *getWindowStateChangeEvent(void)
+const char *getWindowUnblockedEvent(void)
+
 <class>
 name: QDesktopWidget
 para: void
@@ -5315,15 +5343,15 @@ void settextChangedEvent(const char *cStr)
 void setundoAvailableEvent(const char *cStr)
 void setupdateRequestEvent(const char *cStr)
 
-const char *getblockCountChangedEvent(voidcStr)
-const char *getcopyAvailableEvent(voidcStr)
-const char *getcursorPositionChangedEvent(voidcStr)
-const char *getmodificationChangedEvent(voidcStr)
-const char *getredoAvailableEvent(voidcStr)
-const char *getselectionChangedEvent(voidcStr)
-const char *gettextChangedEvent(voidcStr)
-const char *getundoAvailableEvent(voidcStr)
-const char *getupdateRequestEvent(voidcStr)
+const char *getblockCountChangedEvent(void)
+const char *getcopyAvailableEvent(void)
+const char *getcursorPositionChangedEvent(void)
+const char *getmodificationChangedEvent(void)
+const char *getredoAvailableEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettextChangedEvent(void)
+const char *getundoAvailableEvent(void)
+const char *getupdateRequestEvent(void)
 
 
 <class>

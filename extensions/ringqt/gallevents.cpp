@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 extern "C" {
 #include "ring.h"
@@ -567,4 +567,139 @@ void GAllEvents::callWindowUnblockedEvent(void)
 	if (strcmp(this->cWindowUnblockedEvent,"")==0)
 		return ;
 	ring_vm_runcode(this->pVM,this->cWindowUnblockedEvent);
+}
+
+const char *GAllEvents::getKeyPressEvent(void)
+{
+	return this->cKeyPressEvent  ;
+}
+
+const char *GAllEvents::getMouseButtonPressEvent(void)
+{
+	return this->cMouseButtonPressEvent  ;
+}
+
+const char *GAllEvents::getMouseButtonReleaseEvent(void)
+{
+	return this->cMouseButtonReleaseEvent  ;
+}
+
+const char *GAllEvents::getMouseButtonDblClickEvent(void)
+{
+	return this->cMouseButtonDblClickEvent  ;
+}
+
+const char *GAllEvents::getMouseMoveEvent(void)
+{
+	return this->cMouseMoveEvent  ;
+}
+
+const char *GAllEvents::getCloseEvent(void)
+{
+	return this->cCloseEvent  ;
+}
+
+const char *GAllEvents::getContextMenuEvent(void)
+{
+	return this->cContextMenuEvent  ;
+}
+
+const char *GAllEvents::getDragEnterEvent(void)
+{
+	return this->cDragEnterEvent  ;
+}
+
+const char *GAllEvents::getDragLeaveEvent(void)
+{
+	return this->cDragLeaveEvent ;
+}
+
+const char *GAllEvents::getDragMoveEvent(void)
+{
+	return this->cDragMoveEvent  ;
+}
+
+const char *GAllEvents::getDropEvent(void)
+{
+	return this->cDropEvent  ;
+}
+
+const char *GAllEvents::getEnterEvent(void)
+{
+	return this->cEnterEvent  ;
+}
+
+const char *GAllEvents::getFocusInEvent(void)
+{
+	return this->cFocusInEvent  ;
+}
+
+const char *GAllEvents::getFocusOutEvent(void)
+{
+	return this->cFocusOutEvent  ;
+}
+
+const char *GAllEvents::getKeyReleaseEvent(void)
+{
+	return this->cKeyReleaseEvent  ;
+}
+
+const char *GAllEvents::getLeaveEvent(void)
+{
+	return this->cLeaveEvent  ;
+}
+
+const char *GAllEvents::getNonClientAreaMouseButtonDblClickEvent(void)
+{
+	return this->cNonClientAreaMouseButtonDblClickEvent  ;
+}
+
+const char *GAllEvents::getNonClientAreaMouseButtonPressEvent(void)
+{
+	return this->cNonClientAreaMouseButtonPressEvent  ;
+}
+
+const char *GAllEvents::getNonClientAreaMouseButtonReleaseEvent(void)
+{
+	return this->cNonClientAreaMouseButtonReleaseEvent  ;
+}
+
+const char *GAllEvents::getNonClientAreaMouseMoveEvent(void)
+{
+	return this->cNonClientAreaMouseMoveEvent  ;
+}
+
+const char *GAllEvents::getMoveEvent(void)
+{
+	return this->cMoveEvent  ;
+}
+
+const char *GAllEvents::getResizeEvent(void)
+{
+	return this->cResizeEvent  ;
+}
+
+const char *GAllEvents::getWindowActivateEvent(void)
+{
+	return this->cWindowActivateEvent  ;
+}
+
+const char *GAllEvents::getWindowBlockedEvent(void)
+{
+	return this->cWindowBlockedEvent  ;
+}
+
+const char *GAllEvents::getWindowDeactivateEvent(void)
+{
+	return this->cWindowDeactivateEvent  ;
+}
+
+const char *GAllEvents::getWindowStateChangeEvent(void)
+{
+	return this->cWindowStateChangeEvent  ;
+}
+
+const char *GAllEvents::getWindowUnblockedEvent(void)
+{
+	return this->cWindowUnblockedEvent  ;
 }

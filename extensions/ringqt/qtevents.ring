@@ -815,7 +815,7 @@ Func GenHeader aClass
 
 	# Start of code string
 	cCode = `
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef <T_HEADER>
 #define <T_HEADER>
 #include <QApplication>
@@ -906,7 +906,7 @@ Func GenSource aClass
 
 # Start of code string
 	cCode = `
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
