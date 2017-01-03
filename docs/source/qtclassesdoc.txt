@@ -1756,6 +1756,7 @@ Parent Class : QWidget
 * int value(void)
 * void setValue(int val)
 * void setvalueChangedEvent(const char *)
+* const char *getvalueChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QAbstractSlider Class
