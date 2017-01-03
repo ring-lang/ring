@@ -9487,6 +9487,176 @@ RING_FUNC(ring_QListWidget_setitemSelectionChangedEvent)
 }
 
 
+RING_FUNC(ring_QListWidget_getcurrentItemChangedEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getcurrentItemChangedEvent());
+}
+
+
+RING_FUNC(ring_QListWidget_getcurrentRowChangedEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getcurrentRowChangedEvent());
+}
+
+
+RING_FUNC(ring_QListWidget_getcurrentTextChangedEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getcurrentTextChangedEvent());
+}
+
+
+RING_FUNC(ring_QListWidget_getitemActivatedEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getitemActivatedEvent());
+}
+
+
+RING_FUNC(ring_QListWidget_getitemChangedEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getitemChangedEvent());
+}
+
+
+RING_FUNC(ring_QListWidget_getitemClickedEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getitemClickedEvent());
+}
+
+
+RING_FUNC(ring_QListWidget_getitemDoubleClickedEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getitemDoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QListWidget_getitemEnteredEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getitemEnteredEvent());
+}
+
+
+RING_FUNC(ring_QListWidget_getitemPressedEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getitemPressedEvent());
+}
+
+
+RING_FUNC(ring_QListWidget_getitemSelectionChangedEvent)
+{
+	GListWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
+	RING_API_RETSTRING(pObject->getitemSelectionChangedEvent());
+}
+
+
 RING_FUNC(ring_QTreeView_allColumnsShowFocus)
 {
 	GTreeView *pObject ;
@@ -79052,6 +79222,16 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistwidget_setitementeredevent",ring_QListWidget_setitemEnteredEvent);
 	ring_vm_funcregister("qlistwidget_setitempressedevent",ring_QListWidget_setitemPressedEvent);
 	ring_vm_funcregister("qlistwidget_setitemselectionchangedevent",ring_QListWidget_setitemSelectionChangedEvent);
+	ring_vm_funcregister("qlistwidget_getcurrentitemchangedevent",ring_QListWidget_getcurrentItemChangedEvent);
+	ring_vm_funcregister("qlistwidget_getcurrentrowchangedevent",ring_QListWidget_getcurrentRowChangedEvent);
+	ring_vm_funcregister("qlistwidget_getcurrenttextchangedevent",ring_QListWidget_getcurrentTextChangedEvent);
+	ring_vm_funcregister("qlistwidget_getitemactivatedevent",ring_QListWidget_getitemActivatedEvent);
+	ring_vm_funcregister("qlistwidget_getitemchangedevent",ring_QListWidget_getitemChangedEvent);
+	ring_vm_funcregister("qlistwidget_getitemclickedevent",ring_QListWidget_getitemClickedEvent);
+	ring_vm_funcregister("qlistwidget_getitemdoubleclickedevent",ring_QListWidget_getitemDoubleClickedEvent);
+	ring_vm_funcregister("qlistwidget_getitementeredevent",ring_QListWidget_getitemEnteredEvent);
+	ring_vm_funcregister("qlistwidget_getitempressedevent",ring_QListWidget_getitemPressedEvent);
+	ring_vm_funcregister("qlistwidget_getitemselectionchangedevent",ring_QListWidget_getitemSelectionChangedEvent);
 	ring_vm_funcregister("qtreeview_allcolumnsshowfocus",ring_QTreeView_allColumnsShowFocus);
 	ring_vm_funcregister("qtreeview_autoexpanddelay",ring_QTreeView_autoExpandDelay);
 	ring_vm_funcregister("qtreeview_columnat",ring_QTreeView_columnAt);

@@ -1662,6 +1662,36 @@ Class QListWidget from QWidget
 	Func setitemSelectionChangedEvent P1
 		return QListWidget_setitemSelectionChangedEvent(pObject,P1)
 
+	Func getcurrentItemChangedEvent 
+		return QListWidget_getcurrentItemChangedEvent(pObject)
+
+	Func getcurrentRowChangedEvent 
+		return QListWidget_getcurrentRowChangedEvent(pObject)
+
+	Func getcurrentTextChangedEvent 
+		return QListWidget_getcurrentTextChangedEvent(pObject)
+
+	Func getitemActivatedEvent 
+		return QListWidget_getitemActivatedEvent(pObject)
+
+	Func getitemChangedEvent 
+		return QListWidget_getitemChangedEvent(pObject)
+
+	Func getitemClickedEvent 
+		return QListWidget_getitemClickedEvent(pObject)
+
+	Func getitemDoubleClickedEvent 
+		return QListWidget_getitemDoubleClickedEvent(pObject)
+
+	Func getitemEnteredEvent 
+		return QListWidget_getitemEnteredEvent(pObject)
+
+	Func getitemPressedEvent 
+		return QListWidget_getitemPressedEvent(pObject)
+
+	Func getitemSelectionChangedEvent 
+		return QListWidget_getitemSelectionChangedEvent(pObject)
+
 Class QTreeView from QAbstractItemView
 
 	pObject
