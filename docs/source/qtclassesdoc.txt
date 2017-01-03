@@ -3085,6 +3085,12 @@ Parent Class : QIODevice
 * void sethostFoundEvent(const char *)
 * void setproxyAuthenticationRequiredEvent(const char *)
 * void setstateChangedEvent(const char *)
+* const char *getconnectedEvent(void)
+* const char *getdisconnectedEvent(void)
+* const char *geterrorEvent(void)
+* const char *gethostFoundEvent(void)
+* const char *getproxyAuthenticationRequiredEvent(void)
+* const char *getstateChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QNetworkProxy Class
