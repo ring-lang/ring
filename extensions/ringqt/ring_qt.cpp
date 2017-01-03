@@ -45790,6 +45790,40 @@ RING_FUNC(ring_QTcpServer_setnewConnectionEvent)
 }
 
 
+RING_FUNC(ring_QTcpServer_getacceptErrorEvent)
+{
+	GTcpServer *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpServer *) RING_API_GETCPOINTER(1,"QTcpServer");
+	RING_API_RETSTRING(pObject->getacceptErrorEvent());
+}
+
+
+RING_FUNC(ring_QTcpServer_getnewConnectionEvent)
+{
+	GTcpServer *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTcpServer *) RING_API_GETCPOINTER(1,"QTcpServer");
+	RING_API_RETSTRING(pObject->getnewConnectionEvent());
+}
+
+
 RING_FUNC(ring_QHostAddress_clear)
 {
 	QHostAddress *pObject ;
@@ -60909,6 +60943,23 @@ RING_FUNC(ring_QNetworkAccessManager_setfinishedEvent)
 }
 
 
+RING_FUNC(ring_QNetworkAccessManager_getfinishedEvent)
+{
+	GNetworkAccessManager *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
+	RING_API_RETSTRING(pObject->getfinishedEvent());
+}
+
+
 RING_FUNC(ring_QNetworkAccessManager_activeConfiguration)
 {
 	GNetworkAccessManager *pObject ;
@@ -66571,6 +66622,40 @@ RING_FUNC(ring_QThread_setFinishedEvent)
 }
 
 
+RING_FUNC(ring_QThread_getStartedEvent)
+{
+	GThread *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
+	RING_API_RETSTRING(pObject->getStartedEvent());
+}
+
+
+RING_FUNC(ring_QThread_getFinishedEvent)
+{
+	GThread *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
+	RING_API_RETSTRING(pObject->getFinishedEvent());
+}
+
+
 RING_FUNC(ring_QThreadPool_activeThreadCount)
 {
 	QThreadPool *pObject ;
@@ -70403,6 +70488,177 @@ RING_FUNC(ring_QPlainTextEdit_setupdateRequestEvent)
 		return ;
 	}
 	pObject->setupdateRequestEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_getblockCountChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->getblockCountChangedEvent(* (voidcStr *) RING_API_GETCPOINTER(2,"voidcStr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"voidcStr"));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_getcopyAvailableEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->getcopyAvailableEvent(* (voidcStr *) RING_API_GETCPOINTER(2,"voidcStr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"voidcStr"));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_getcursorPositionChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->getcursorPositionChangedEvent(* (voidcStr *) RING_API_GETCPOINTER(2,"voidcStr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"voidcStr"));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_getmodificationChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->getmodificationChangedEvent(* (voidcStr *) RING_API_GETCPOINTER(2,"voidcStr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"voidcStr"));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_getredoAvailableEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->getredoAvailableEvent(* (voidcStr *) RING_API_GETCPOINTER(2,"voidcStr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"voidcStr"));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_getselectionChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->getselectionChangedEvent(* (voidcStr *) RING_API_GETCPOINTER(2,"voidcStr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"voidcStr"));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_gettextChangedEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->gettextChangedEvent(* (voidcStr *) RING_API_GETCPOINTER(2,"voidcStr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"voidcStr"));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_getundoAvailableEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->getundoAvailableEvent(* (voidcStr *) RING_API_GETCPOINTER(2,"voidcStr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"voidcStr"));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_getupdateRequestEvent)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->getupdateRequestEvent(* (voidcStr *) RING_API_GETCPOINTER(2,"voidcStr")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"voidcStr"));
 }
 
 
@@ -82692,6 +82948,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtcpserver_waitfornewconnection",ring_QTcpServer_waitForNewConnection);
 	ring_vm_funcregister("qtcpserver_setaccepterrorevent",ring_QTcpServer_setacceptErrorEvent);
 	ring_vm_funcregister("qtcpserver_setnewconnectionevent",ring_QTcpServer_setnewConnectionEvent);
+	ring_vm_funcregister("qtcpserver_getaccepterrorevent",ring_QTcpServer_getacceptErrorEvent);
+	ring_vm_funcregister("qtcpserver_getnewconnectionevent",ring_QTcpServer_getnewConnectionEvent);
 	ring_vm_funcregister("qhostaddress_clear",ring_QHostAddress_clear);
 	ring_vm_funcregister("qhostaddress_isinsubnet",ring_QHostAddress_isInSubnet);
 	ring_vm_funcregister("qhostaddress_isnull",ring_QHostAddress_isNull);
@@ -83445,6 +83703,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qnetworkrequest_swap",ring_QNetworkRequest_swap);
 	ring_vm_funcregister("qnetworkrequest_url",ring_QNetworkRequest_url);
 	ring_vm_funcregister("qnetworkaccessmanager_setfinishedevent",ring_QNetworkAccessManager_setfinishedEvent);
+	ring_vm_funcregister("qnetworkaccessmanager_getfinishedevent",ring_QNetworkAccessManager_getfinishedEvent);
 	ring_vm_funcregister("qnetworkaccessmanager_activeconfiguration",ring_QNetworkAccessManager_activeConfiguration);
 	ring_vm_funcregister("qnetworkaccessmanager_cache",ring_QNetworkAccessManager_cache);
 	ring_vm_funcregister("qnetworkaccessmanager_clearaccesscache",ring_QNetworkAccessManager_clearAccessCache);
@@ -83710,6 +83969,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qthread_yieldcurrentthread",ring_QThread_yieldCurrentThread);
 	ring_vm_funcregister("qthread_setstartedevent",ring_QThread_setStartedEvent);
 	ring_vm_funcregister("qthread_setfinishedevent",ring_QThread_setFinishedEvent);
+	ring_vm_funcregister("qthread_getstartedevent",ring_QThread_getStartedEvent);
+	ring_vm_funcregister("qthread_getfinishedevent",ring_QThread_getFinishedEvent);
 	ring_vm_funcregister("qthreadpool_activethreadcount",ring_QThreadPool_activeThreadCount);
 	ring_vm_funcregister("qthreadpool_clear",ring_QThreadPool_clear);
 	ring_vm_funcregister("qthreadpool_expirytimeout",ring_QThreadPool_expiryTimeout);
@@ -83901,6 +84162,15 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_settextchangedevent",ring_QPlainTextEdit_settextChangedEvent);
 	ring_vm_funcregister("qplaintextedit_setundoavailableevent",ring_QPlainTextEdit_setundoAvailableEvent);
 	ring_vm_funcregister("qplaintextedit_setupdaterequestevent",ring_QPlainTextEdit_setupdateRequestEvent);
+	ring_vm_funcregister("qplaintextedit_getblockcountchangedevent",ring_QPlainTextEdit_getblockCountChangedEvent);
+	ring_vm_funcregister("qplaintextedit_getcopyavailableevent",ring_QPlainTextEdit_getcopyAvailableEvent);
+	ring_vm_funcregister("qplaintextedit_getcursorpositionchangedevent",ring_QPlainTextEdit_getcursorPositionChangedEvent);
+	ring_vm_funcregister("qplaintextedit_getmodificationchangedevent",ring_QPlainTextEdit_getmodificationChangedEvent);
+	ring_vm_funcregister("qplaintextedit_getredoavailableevent",ring_QPlainTextEdit_getredoAvailableEvent);
+	ring_vm_funcregister("qplaintextedit_getselectionchangedevent",ring_QPlainTextEdit_getselectionChangedEvent);
+	ring_vm_funcregister("qplaintextedit_gettextchangedevent",ring_QPlainTextEdit_gettextChangedEvent);
+	ring_vm_funcregister("qplaintextedit_getundoavailableevent",ring_QPlainTextEdit_getundoAvailableEvent);
+	ring_vm_funcregister("qplaintextedit_getupdaterequestevent",ring_QPlainTextEdit_getupdateRequestEvent);
 	ring_vm_funcregister("qgridlayout_additem",ring_QGridLayout_addItem);
 	ring_vm_funcregister("qgridlayout_addlayout",ring_QGridLayout_addLayout);
 	ring_vm_funcregister("qgridlayout_addlayout_2",ring_QGridLayout_addLayout_2);

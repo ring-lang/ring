@@ -8021,6 +8021,12 @@ Class QTcpServer
 	Func setnewConnectionEvent P1
 		return QTcpServer_setnewConnectionEvent(pObject,P1)
 
+	Func getacceptErrorEvent 
+		return QTcpServer_getacceptErrorEvent(pObject)
+
+	Func getnewConnectionEvent 
+		return QTcpServer_getnewConnectionEvent(pObject)
+
 Class QHostAddress
 
 	pObject
@@ -10829,6 +10835,9 @@ Class QNetworkAccessManager from QObject
 	Func setfinishedEvent P1
 		return QNetworkAccessManager_setfinishedEvent(pObject,P1)
 
+	Func getfinishedEvent 
+		return QNetworkAccessManager_getfinishedEvent(pObject)
+
 	Func activeConfiguration 
 		return QNetworkAccessManager_activeConfiguration(pObject)
 
@@ -11829,6 +11838,12 @@ Class QThread from QObject
 	Func setFinishedEvent P1
 		return QThread_setFinishedEvent(pObject,P1)
 
+	Func getStartedEvent 
+		return QThread_getStartedEvent(pObject)
+
+	Func getFinishedEvent 
+		return QThread_getFinishedEvent(pObject)
+
 Class QThreadPool from QObject
 
 	pObject
@@ -12593,6 +12608,33 @@ Class QPlainTextEdit from QAbstractScrollArea
 
 	Func setupdateRequestEvent P1
 		return QPlainTextEdit_setupdateRequestEvent(pObject,P1)
+
+	Func getblockCountChangedEvent P1
+		return QPlainTextEdit_getblockCountChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func getcopyAvailableEvent P1
+		return QPlainTextEdit_getcopyAvailableEvent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func getcursorPositionChangedEvent P1
+		return QPlainTextEdit_getcursorPositionChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func getmodificationChangedEvent P1
+		return QPlainTextEdit_getmodificationChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func getredoAvailableEvent P1
+		return QPlainTextEdit_getredoAvailableEvent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func getselectionChangedEvent P1
+		return QPlainTextEdit_getselectionChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func gettextChangedEvent P1
+		return QPlainTextEdit_gettextChangedEvent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func getundoAvailableEvent P1
+		return QPlainTextEdit_getundoAvailableEvent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func getupdateRequestEvent P1
+		return QPlainTextEdit_getupdateRequestEvent(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QGridLayout
 
