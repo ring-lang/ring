@@ -5185,6 +5185,21 @@ Class QCheckBox from QAbstractButton
 	Func settoggledEvent P1
 		return QCheckBox_settoggledEvent(pObject,P1)
 
+	Func getstateChangedEvent 
+		return QCheckBox_getstateChangedEvent(pObject)
+
+	Func getclickedEvent 
+		return QCheckBox_getclickedEvent(pObject)
+
+	Func getpressedEvent 
+		return QCheckBox_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QCheckBox_getreleasedEvent(pObject)
+
+	Func gettoggledEvent 
+		return QCheckBox_gettoggledEvent(pObject)
+
 Class QAbstractButton from QWidget
 
 	pObject

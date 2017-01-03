@@ -29270,6 +29270,91 @@ RING_FUNC(ring_QCheckBox_settoggledEvent)
 }
 
 
+RING_FUNC(ring_QCheckBox_getstateChangedEvent)
+{
+	GCheckBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCheckBox *) RING_API_GETCPOINTER(1,"QCheckBox");
+	RING_API_RETSTRING(pObject->getstateChangedEvent());
+}
+
+
+RING_FUNC(ring_QCheckBox_getclickedEvent)
+{
+	GCheckBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCheckBox *) RING_API_GETCPOINTER(1,"QCheckBox");
+	RING_API_RETSTRING(pObject->getclickedEvent());
+}
+
+
+RING_FUNC(ring_QCheckBox_getpressedEvent)
+{
+	GCheckBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCheckBox *) RING_API_GETCPOINTER(1,"QCheckBox");
+	RING_API_RETSTRING(pObject->getpressedEvent());
+}
+
+
+RING_FUNC(ring_QCheckBox_getreleasedEvent)
+{
+	GCheckBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCheckBox *) RING_API_GETCPOINTER(1,"QCheckBox");
+	RING_API_RETSTRING(pObject->getreleasedEvent());
+}
+
+
+RING_FUNC(ring_QCheckBox_gettoggledEvent)
+{
+	GCheckBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GCheckBox *) RING_API_GETCPOINTER(1,"QCheckBox");
+	RING_API_RETSTRING(pObject->gettoggledEvent());
+}
+
+
 RING_FUNC(ring_QAbstractButton_autoExclusive)
 {
 	QAbstractButton *pObject ;
@@ -81241,6 +81326,11 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcheckbox_setpressedevent",ring_QCheckBox_setpressedEvent);
 	ring_vm_funcregister("qcheckbox_setreleasedevent",ring_QCheckBox_setreleasedEvent);
 	ring_vm_funcregister("qcheckbox_settoggledevent",ring_QCheckBox_settoggledEvent);
+	ring_vm_funcregister("qcheckbox_getstatechangedevent",ring_QCheckBox_getstateChangedEvent);
+	ring_vm_funcregister("qcheckbox_getclickedevent",ring_QCheckBox_getclickedEvent);
+	ring_vm_funcregister("qcheckbox_getpressedevent",ring_QCheckBox_getpressedEvent);
+	ring_vm_funcregister("qcheckbox_getreleasedevent",ring_QCheckBox_getreleasedEvent);
+	ring_vm_funcregister("qcheckbox_gettoggledevent",ring_QCheckBox_gettoggledEvent);
 	ring_vm_funcregister("qabstractbutton_autoexclusive",ring_QAbstractButton_autoExclusive);
 	ring_vm_funcregister("qabstractbutton_autorepeat",ring_QAbstractButton_autoRepeat);
 	ring_vm_funcregister("qabstractbutton_autorepeatdelay",ring_QAbstractButton_autoRepeatDelay);
