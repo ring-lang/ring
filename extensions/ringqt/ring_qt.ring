@@ -4996,6 +4996,24 @@ Class QWebView from QWidget
 	Func seturlChangedEvent P1
 		return QWebView_seturlChangedEvent(pObject,P1)
 
+	Func getloadFinishedEvent 
+		return QWebView_getloadFinishedEvent(pObject)
+
+	Func getloadProgressEvent 
+		return QWebView_getloadProgressEvent(pObject)
+
+	Func getloadStartedEvent 
+		return QWebView_getloadStartedEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QWebView_getselectionChangedEvent(pObject)
+
+	Func gettitleChangedEvent 
+		return QWebView_gettitleChangedEvent(pObject)
+
+	Func geturlChangedEvent 
+		return QWebView_geturlChangedEvent(pObject)
+
 Class QUrl
 
 	pObject

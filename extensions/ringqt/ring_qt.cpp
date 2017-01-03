@@ -28187,6 +28187,108 @@ RING_FUNC(ring_QWebView_seturlChangedEvent)
 }
 
 
+RING_FUNC(ring_QWebView_getloadFinishedEvent)
+{
+	GWebView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
+	RING_API_RETSTRING(pObject->getloadFinishedEvent());
+}
+
+
+RING_FUNC(ring_QWebView_getloadProgressEvent)
+{
+	GWebView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
+	RING_API_RETSTRING(pObject->getloadProgressEvent());
+}
+
+
+RING_FUNC(ring_QWebView_getloadStartedEvent)
+{
+	GWebView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
+	RING_API_RETSTRING(pObject->getloadStartedEvent());
+}
+
+
+RING_FUNC(ring_QWebView_getselectionChangedEvent)
+{
+	GWebView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
+	RING_API_RETSTRING(pObject->getselectionChangedEvent());
+}
+
+
+RING_FUNC(ring_QWebView_gettitleChangedEvent)
+{
+	GWebView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
+	RING_API_RETSTRING(pObject->gettitleChangedEvent());
+}
+
+
+RING_FUNC(ring_QWebView_geturlChangedEvent)
+{
+	GWebView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
+	RING_API_RETSTRING(pObject->geturlChangedEvent());
+}
+
+
 RING_FUNC(ring_QUrl_authority)
 {
 	QUrl *pObject ;
@@ -81086,6 +81188,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwebview_setselectionchangedevent",ring_QWebView_setselectionChangedEvent);
 	ring_vm_funcregister("qwebview_settitlechangedevent",ring_QWebView_settitleChangedEvent);
 	ring_vm_funcregister("qwebview_seturlchangedevent",ring_QWebView_seturlChangedEvent);
+	ring_vm_funcregister("qwebview_getloadfinishedevent",ring_QWebView_getloadFinishedEvent);
+	ring_vm_funcregister("qwebview_getloadprogressevent",ring_QWebView_getloadProgressEvent);
+	ring_vm_funcregister("qwebview_getloadstartedevent",ring_QWebView_getloadStartedEvent);
+	ring_vm_funcregister("qwebview_getselectionchangedevent",ring_QWebView_getselectionChangedEvent);
+	ring_vm_funcregister("qwebview_gettitlechangedevent",ring_QWebView_gettitleChangedEvent);
+	ring_vm_funcregister("qwebview_geturlchangedevent",ring_QWebView_geturlChangedEvent);
 	ring_vm_funcregister("qurl_authority",ring_QUrl_authority);
 	ring_vm_funcregister("qurl_clear",ring_QUrl_clear);
 	ring_vm_funcregister("qurl_errorstring",ring_QUrl_errorString);

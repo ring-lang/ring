@@ -2353,6 +2353,14 @@ void setstatusBarMessageEvent(const char *)
 void settitleChangedEvent(const char *)
 void seturlChangedEvent(const char *)
 
+const char *getloadFinishedEvent(void)
+const char *getloadProgressEvent(void)
+const char *getloadStartedEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettitleChangedEvent(void)
+const char *geturlChangedEvent(void)
+
+
 </filter>
 
 <class>
