@@ -1,5 +1,5 @@
-# Application  : Help2Wiki
-# Usage        : convert Sphinix source code style to Wikibooks style
+# Application  : SetEvents2GetEvents
+# Usage        : Convert SetEvent() Methods prototype to GetEvent()
 # Author       : Mahmoud Fayed <msfclipper@yahoo.com>
 
 Load "guilib.ring"
