@@ -31631,6 +31631,91 @@ RING_FUNC(ring_QVideoWidget_setsaturationChangedEvent)
 }
 
 
+RING_FUNC(ring_QVideoWidget_getbrightnessChangedEvent)
+{
+	GVideoWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GVideoWidget *) RING_API_GETCPOINTER(1,"QVideoWidget");
+	RING_API_RETSTRING(pObject->getbrightnessChangedEvent());
+}
+
+
+RING_FUNC(ring_QVideoWidget_getcontrastChangedEvent)
+{
+	GVideoWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GVideoWidget *) RING_API_GETCPOINTER(1,"QVideoWidget");
+	RING_API_RETSTRING(pObject->getcontrastChangedEvent());
+}
+
+
+RING_FUNC(ring_QVideoWidget_getfullScreenChangedEvent)
+{
+	GVideoWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GVideoWidget *) RING_API_GETCPOINTER(1,"QVideoWidget");
+	RING_API_RETSTRING(pObject->getfullScreenChangedEvent());
+}
+
+
+RING_FUNC(ring_QVideoWidget_gethueChangedEvent)
+{
+	GVideoWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GVideoWidget *) RING_API_GETCPOINTER(1,"QVideoWidget");
+	RING_API_RETSTRING(pObject->gethueChangedEvent());
+}
+
+
+RING_FUNC(ring_QVideoWidget_getsaturationChangedEvent)
+{
+	GVideoWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GVideoWidget *) RING_API_GETCPOINTER(1,"QVideoWidget");
+	RING_API_RETSTRING(pObject->getsaturationChangedEvent());
+}
+
+
 RING_FUNC(ring_QAction_actionGroup)
 {
 	GAction *pObject ;
@@ -81568,6 +81653,11 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvideowidget_setfullscreenchangedevent",ring_QVideoWidget_setfullScreenChangedEvent);
 	ring_vm_funcregister("qvideowidget_sethuechangedevent",ring_QVideoWidget_sethueChangedEvent);
 	ring_vm_funcregister("qvideowidget_setsaturationchangedevent",ring_QVideoWidget_setsaturationChangedEvent);
+	ring_vm_funcregister("qvideowidget_getbrightnesschangedevent",ring_QVideoWidget_getbrightnessChangedEvent);
+	ring_vm_funcregister("qvideowidget_getcontrastchangedevent",ring_QVideoWidget_getcontrastChangedEvent);
+	ring_vm_funcregister("qvideowidget_getfullscreenchangedevent",ring_QVideoWidget_getfullScreenChangedEvent);
+	ring_vm_funcregister("qvideowidget_gethuechangedevent",ring_QVideoWidget_gethueChangedEvent);
+	ring_vm_funcregister("qvideowidget_getsaturationchangedevent",ring_QVideoWidget_getsaturationChangedEvent);
 	ring_vm_funcregister("qaction_actiongroup",ring_QAction_actionGroup);
 	ring_vm_funcregister("qaction_activate",ring_QAction_activate);
 	ring_vm_funcregister("qaction_autorepeat",ring_QAction_autoRepeat);

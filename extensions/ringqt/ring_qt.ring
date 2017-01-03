@@ -5640,6 +5640,21 @@ Class QVideoWidget from QWidget
 	Func setsaturationChangedEvent P1
 		return QVideoWidget_setsaturationChangedEvent(pObject,P1)
 
+	Func getbrightnessChangedEvent 
+		return QVideoWidget_getbrightnessChangedEvent(pObject)
+
+	Func getcontrastChangedEvent 
+		return QVideoWidget_getcontrastChangedEvent(pObject)
+
+	Func getfullScreenChangedEvent 
+		return QVideoWidget_getfullScreenChangedEvent(pObject)
+
+	Func gethueChangedEvent 
+		return QVideoWidget_gethueChangedEvent(pObject)
+
+	Func getsaturationChangedEvent 
+		return QVideoWidget_getsaturationChangedEvent(pObject)
+
 Class QAction
 
 	pObject
