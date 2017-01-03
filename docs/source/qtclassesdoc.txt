@@ -3152,6 +3152,16 @@ Parent Class : QAbstractSocket
 * void setbytesWrittenEvent(const char *)
 * void setreadChannelFinishedEvent(const char *)
 * void setreadyReadEvent(const char *)
+* const char *getconnectedEvent(void)
+* const char *getdisconnectedEvent(void)
+* const char *geterrorEvent(void)
+* const char *gethostFoundEvent(void)
+* const char *getproxyAuthenticationRequiredEvent(void)
+* const char *getstateChangedEvent(void)
+* const char *getaboutToCloseEvent(void)
+* const char *getbytesWrittenEvent(void)
+* const char *getreadChannelFinishedEvent(void)
+* const char *getreadyReadEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QTcpServer Class
