@@ -27576,6 +27576,108 @@ RING_FUNC(ring_QDial_setvalueChangedEvent)
 }
 
 
+RING_FUNC(ring_QDial_getactionTriggeredEvent)
+{
+	GDial *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDial *) RING_API_GETCPOINTER(1,"QDial");
+	RING_API_RETSTRING(pObject->getactionTriggeredEvent());
+}
+
+
+RING_FUNC(ring_QDial_getrangeChangedEvent)
+{
+	GDial *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDial *) RING_API_GETCPOINTER(1,"QDial");
+	RING_API_RETSTRING(pObject->getrangeChangedEvent());
+}
+
+
+RING_FUNC(ring_QDial_getsliderMovedEvent)
+{
+	GDial *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDial *) RING_API_GETCPOINTER(1,"QDial");
+	RING_API_RETSTRING(pObject->getsliderMovedEvent());
+}
+
+
+RING_FUNC(ring_QDial_getsliderPressedEvent)
+{
+	GDial *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDial *) RING_API_GETCPOINTER(1,"QDial");
+	RING_API_RETSTRING(pObject->getsliderPressedEvent());
+}
+
+
+RING_FUNC(ring_QDial_getsliderReleasedEvent)
+{
+	GDial *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDial *) RING_API_GETCPOINTER(1,"QDial");
+	RING_API_RETSTRING(pObject->getsliderReleasedEvent());
+}
+
+
+RING_FUNC(ring_QDial_getvalueChangedEvent)
+{
+	GDial *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDial *) RING_API_GETCPOINTER(1,"QDial");
+	RING_API_RETSTRING(pObject->getvalueChangedEvent());
+}
+
+
 RING_FUNC(ring_QWebView_hasSelection)
 {
 	GWebView *pObject ;
@@ -80952,6 +81054,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdial_setsliderpressedevent",ring_QDial_setsliderPressedEvent);
 	ring_vm_funcregister("qdial_setsliderreleasedevent",ring_QDial_setsliderReleasedEvent);
 	ring_vm_funcregister("qdial_setvaluechangedevent",ring_QDial_setvalueChangedEvent);
+	ring_vm_funcregister("qdial_getactiontriggeredevent",ring_QDial_getactionTriggeredEvent);
+	ring_vm_funcregister("qdial_getrangechangedevent",ring_QDial_getrangeChangedEvent);
+	ring_vm_funcregister("qdial_getslidermovedevent",ring_QDial_getsliderMovedEvent);
+	ring_vm_funcregister("qdial_getsliderpressedevent",ring_QDial_getsliderPressedEvent);
+	ring_vm_funcregister("qdial_getsliderreleasedevent",ring_QDial_getsliderReleasedEvent);
+	ring_vm_funcregister("qdial_getvaluechangedevent",ring_QDial_getvalueChangedEvent);
 	ring_vm_funcregister("qwebview_hasselection",ring_QWebView_hasSelection);
 	ring_vm_funcregister("qwebview_history",ring_QWebView_history);
 	ring_vm_funcregister("qwebview_load",ring_QWebView_load);

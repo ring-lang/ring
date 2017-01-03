@@ -2276,6 +2276,14 @@ void setsliderPressedEvent(const char *)
 void setsliderReleasedEvent(const char *)
 void setvalueChangedEvent(const char *)
 
+const char *getactionTriggeredEvent(void)
+const char *getrangeChangedEvent(void)
+const char *getsliderMovedEvent(void)
+const char *getsliderPressedEvent(void)
+const char *getsliderReleasedEvent(void)
+const char *getvalueChangedEvent(void)
+
+
 <filter> (sysget("RINGQT_ANDROID") = "")
 <class>
 name: QWebView

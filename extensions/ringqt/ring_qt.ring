@@ -4885,6 +4885,24 @@ Class QDial from QAbstractSlider
 	Func setvalueChangedEvent P1
 		return QDial_setvalueChangedEvent(pObject,P1)
 
+	Func getactionTriggeredEvent 
+		return QDial_getactionTriggeredEvent(pObject)
+
+	Func getrangeChangedEvent 
+		return QDial_getrangeChangedEvent(pObject)
+
+	Func getsliderMovedEvent 
+		return QDial_getsliderMovedEvent(pObject)
+
+	Func getsliderPressedEvent 
+		return QDial_getsliderPressedEvent(pObject)
+
+	Func getsliderReleasedEvent 
+		return QDial_getsliderReleasedEvent(pObject)
+
+	Func getvalueChangedEvent 
+		return QDial_getvalueChangedEvent(pObject)
+
 Class QWebView from QWidget
 
 	pObject
