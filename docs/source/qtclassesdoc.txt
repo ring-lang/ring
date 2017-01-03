@@ -2296,6 +2296,11 @@ Parent Class : QWidget
 * void setfullScreenChangedEvent(const char *)
 * void sethueChangedEvent(const char *)
 * void setsaturationChangedEvent(const char *)
+* const char *getbrightnessChangedEvent(void)
+* const char *getcontrastChangedEvent(void)
+* const char *getfullScreenChangedEvent(void)
+* const char *gethueChangedEvent(void)
+* const char *getsaturationChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QAction Class
