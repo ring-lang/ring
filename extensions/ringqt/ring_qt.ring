@@ -4426,6 +4426,9 @@ Class QSpinBox from QWidget
 	Func setvalueChangedEvent P1
 		return QSpinBox_setvalueChangedEvent(pObject,P1)
 
+	Func getvalueChangedEvent 
+		return QSpinBox_getvalueChangedEvent(pObject)
+
 Class QAbstractSlider from QWidget
 
 	pObject

@@ -2093,6 +2093,8 @@ void setValue(int val)
 
 void setvalueChangedEvent(const char *)
 
+const char *getvalueChangedEvent(void)
+
 <class>
 name: QAbstractSlider
 para: QWidget *parent

@@ -25105,6 +25105,23 @@ RING_FUNC(ring_QSpinBox_setvalueChangedEvent)
 }
 
 
+RING_FUNC(ring_QSpinBox_getvalueChangedEvent)
+{
+	GSpinBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSpinBox *) RING_API_GETCPOINTER(1,"QSpinBox");
+	RING_API_RETSTRING(pObject->getvalueChangedEvent());
+}
+
+
 RING_FUNC(ring_QAbstractSlider_hasTracking)
 {
 	QAbstractSlider *pObject ;
@@ -80807,6 +80824,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qspinbox_value",ring_QSpinBox_value);
 	ring_vm_funcregister("qspinbox_setvalue",ring_QSpinBox_setValue);
 	ring_vm_funcregister("qspinbox_setvaluechangedevent",ring_QSpinBox_setvalueChangedEvent);
+	ring_vm_funcregister("qspinbox_getvaluechangedevent",ring_QSpinBox_getvalueChangedEvent);
 	ring_vm_funcregister("qabstractslider_hastracking",ring_QAbstractSlider_hasTracking);
 	ring_vm_funcregister("qabstractslider_invertedappearance",ring_QAbstractSlider_invertedAppearance);
 	ring_vm_funcregister("qabstractslider_invertedcontrols",ring_QAbstractSlider_invertedControls);
