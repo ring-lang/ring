@@ -2289,6 +2289,60 @@ Class QTreeWidget from QTreeView
 	Func setitemSelectionChangedEvent P1
 		return QTreeWidget_setitemSelectionChangedEvent(pObject,P1)
 
+	Func getcollapsedEvent 
+		return QTreeWidget_getcollapsedEvent(pObject)
+
+	Func getexpandedEvent 
+		return QTreeWidget_getexpandedEvent(pObject)
+
+	Func getactivatedEvent 
+		return QTreeWidget_getactivatedEvent(pObject)
+
+	Func getclickedEvent 
+		return QTreeWidget_getclickedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QTreeWidget_getdoubleClickedEvent(pObject)
+
+	Func getenteredEvent 
+		return QTreeWidget_getenteredEvent(pObject)
+
+	Func getpressedEvent 
+		return QTreeWidget_getpressedEvent(pObject)
+
+	Func getviewportEnteredEvent 
+		return QTreeWidget_getviewportEnteredEvent(pObject)
+
+	Func getcurrentItemChangedEvent 
+		return QTreeWidget_getcurrentItemChangedEvent(pObject)
+
+	Func getitemActivatedEvent 
+		return QTreeWidget_getitemActivatedEvent(pObject)
+
+	Func getitemChangedEvent 
+		return QTreeWidget_getitemChangedEvent(pObject)
+
+	Func getitemClickedEvent 
+		return QTreeWidget_getitemClickedEvent(pObject)
+
+	Func getitemCollapsedEvent 
+		return QTreeWidget_getitemCollapsedEvent(pObject)
+
+	Func getitemDoubleClickedEvent 
+		return QTreeWidget_getitemDoubleClickedEvent(pObject)
+
+	Func getitemEnteredEvent 
+		return QTreeWidget_getitemEnteredEvent(pObject)
+
+	Func getitemExpandedEvent 
+		return QTreeWidget_getitemExpandedEvent(pObject)
+
+	Func getitemPressedEvent 
+		return QTreeWidget_getitemPressedEvent(pObject)
+
+	Func getitemSelectionChangedEvent 
+		return QTreeWidget_getitemSelectionChangedEvent(pObject)
+
 Class QTreeWidgetItem
 
 	pObject

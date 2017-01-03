@@ -13228,6 +13228,312 @@ RING_FUNC(ring_QTreeWidget_setitemSelectionChangedEvent)
 }
 
 
+RING_FUNC(ring_QTreeWidget_getcollapsedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getcollapsedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getexpandedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getexpandedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getactivatedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getactivatedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getclickedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getclickedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getdoubleClickedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getdoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getenteredEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getenteredEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getpressedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getpressedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getviewportEnteredEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getviewportEnteredEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getcurrentItemChangedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getcurrentItemChangedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getitemActivatedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getitemActivatedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getitemChangedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getitemChangedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getitemClickedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getitemClickedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getitemCollapsedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getitemCollapsedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getitemDoubleClickedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getitemDoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getitemEnteredEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getitemEnteredEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getitemExpandedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getitemExpandedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getitemPressedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getitemPressedEvent());
+}
+
+
+RING_FUNC(ring_QTreeWidget_getitemSelectionChangedEvent)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	RING_API_RETSTRING(pObject->getitemSelectionChangedEvent());
+}
+
+
 RING_FUNC(ring_QTreeWidgetItem_addChild)
 {
 	QTreeWidgetItem *pObject ;
@@ -79539,6 +79845,24 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtreewidget_setitemexpandedevent",ring_QTreeWidget_setitemExpandedEvent);
 	ring_vm_funcregister("qtreewidget_setitempressedevent",ring_QTreeWidget_setitemPressedEvent);
 	ring_vm_funcregister("qtreewidget_setitemselectionchangedevent",ring_QTreeWidget_setitemSelectionChangedEvent);
+	ring_vm_funcregister("qtreewidget_getcollapsedevent",ring_QTreeWidget_getcollapsedEvent);
+	ring_vm_funcregister("qtreewidget_getexpandedevent",ring_QTreeWidget_getexpandedEvent);
+	ring_vm_funcregister("qtreewidget_getactivatedevent",ring_QTreeWidget_getactivatedEvent);
+	ring_vm_funcregister("qtreewidget_getclickedevent",ring_QTreeWidget_getclickedEvent);
+	ring_vm_funcregister("qtreewidget_getdoubleclickedevent",ring_QTreeWidget_getdoubleClickedEvent);
+	ring_vm_funcregister("qtreewidget_getenteredevent",ring_QTreeWidget_getenteredEvent);
+	ring_vm_funcregister("qtreewidget_getpressedevent",ring_QTreeWidget_getpressedEvent);
+	ring_vm_funcregister("qtreewidget_getviewportenteredevent",ring_QTreeWidget_getviewportEnteredEvent);
+	ring_vm_funcregister("qtreewidget_getcurrentitemchangedevent",ring_QTreeWidget_getcurrentItemChangedEvent);
+	ring_vm_funcregister("qtreewidget_getitemactivatedevent",ring_QTreeWidget_getitemActivatedEvent);
+	ring_vm_funcregister("qtreewidget_getitemchangedevent",ring_QTreeWidget_getitemChangedEvent);
+	ring_vm_funcregister("qtreewidget_getitemclickedevent",ring_QTreeWidget_getitemClickedEvent);
+	ring_vm_funcregister("qtreewidget_getitemcollapsedevent",ring_QTreeWidget_getitemCollapsedEvent);
+	ring_vm_funcregister("qtreewidget_getitemdoubleclickedevent",ring_QTreeWidget_getitemDoubleClickedEvent);
+	ring_vm_funcregister("qtreewidget_getitementeredevent",ring_QTreeWidget_getitemEnteredEvent);
+	ring_vm_funcregister("qtreewidget_getitemexpandedevent",ring_QTreeWidget_getitemExpandedEvent);
+	ring_vm_funcregister("qtreewidget_getitempressedevent",ring_QTreeWidget_getitemPressedEvent);
+	ring_vm_funcregister("qtreewidget_getitemselectionchangedevent",ring_QTreeWidget_getitemSelectionChangedEvent);
 	ring_vm_funcregister("qtreewidgetitem_addchild",ring_QTreeWidgetItem_addChild);
 	ring_vm_funcregister("qtreewidgetitem_background",ring_QTreeWidgetItem_background);
 	ring_vm_funcregister("qtreewidgetitem_checkstate",ring_QTreeWidgetItem_checkState);
