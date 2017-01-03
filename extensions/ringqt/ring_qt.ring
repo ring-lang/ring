@@ -5330,6 +5330,18 @@ Class QRadioButton from QAbstractButton
 	Func settoggledEvent P1
 		return QRadioButton_settoggledEvent(pObject,P1)
 
+	Func getclickedEvent 
+		return QRadioButton_getclickedEvent(pObject)
+
+	Func getpressedEvent 
+		return QRadioButton_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QRadioButton_getreleasedEvent(pObject)
+
+	Func gettoggledEvent 
+		return QRadioButton_gettoggledEvent(pObject)
+
 Class QButtonGroup
 
 	pObject

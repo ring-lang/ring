@@ -29982,6 +29982,74 @@ RING_FUNC(ring_QRadioButton_settoggledEvent)
 }
 
 
+RING_FUNC(ring_QRadioButton_getclickedEvent)
+{
+	GRadioButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GRadioButton *) RING_API_GETCPOINTER(1,"QRadioButton");
+	RING_API_RETSTRING(pObject->getclickedEvent());
+}
+
+
+RING_FUNC(ring_QRadioButton_getpressedEvent)
+{
+	GRadioButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GRadioButton *) RING_API_GETCPOINTER(1,"QRadioButton");
+	RING_API_RETSTRING(pObject->getpressedEvent());
+}
+
+
+RING_FUNC(ring_QRadioButton_getreleasedEvent)
+{
+	GRadioButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GRadioButton *) RING_API_GETCPOINTER(1,"QRadioButton");
+	RING_API_RETSTRING(pObject->getreleasedEvent());
+}
+
+
+RING_FUNC(ring_QRadioButton_gettoggledEvent)
+{
+	GRadioButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GRadioButton *) RING_API_GETCPOINTER(1,"QRadioButton");
+	RING_API_RETSTRING(pObject->gettoggledEvent());
+}
+
+
 RING_FUNC(ring_QButtonGroup_addButton)
 {
 	GButtonGroup *pObject ;
@@ -81363,6 +81431,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qradiobutton_setpressedevent",ring_QRadioButton_setpressedEvent);
 	ring_vm_funcregister("qradiobutton_setreleasedevent",ring_QRadioButton_setreleasedEvent);
 	ring_vm_funcregister("qradiobutton_settoggledevent",ring_QRadioButton_settoggledEvent);
+	ring_vm_funcregister("qradiobutton_getclickedevent",ring_QRadioButton_getclickedEvent);
+	ring_vm_funcregister("qradiobutton_getpressedevent",ring_QRadioButton_getpressedEvent);
+	ring_vm_funcregister("qradiobutton_getreleasedevent",ring_QRadioButton_getreleasedEvent);
+	ring_vm_funcregister("qradiobutton_gettoggledevent",ring_QRadioButton_gettoggledEvent);
 	ring_vm_funcregister("qbuttongroup_addbutton",ring_QButtonGroup_addButton);
 	ring_vm_funcregister("qbuttongroup_button",ring_QButtonGroup_button);
 	ring_vm_funcregister("qbuttongroup_checkedbutton",ring_QButtonGroup_checkedButton);
