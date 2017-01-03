@@ -1499,6 +1499,11 @@ void setcurrentIndexChangedEvent(const char *)
 void seteditTextChangedEvent(const char *)
 void sethighlightedEvent(const char *)
 
+const char *getactivatedEvent(void)
+const char *getcurrentIndexChangedEvent(void)
+const char *geteditTextChangedEvent(void)
+const char *gethighlightedEvent(void)
+
 <class>
 name: QMenuBar
 para: QWidget *

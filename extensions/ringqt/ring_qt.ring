@@ -2721,6 +2721,18 @@ Class QComboBox from QWidget
 	Func sethighlightedEvent P1
 		return QComboBox_sethighlightedEvent(pObject,P1)
 
+	Func getactivatedEvent 
+		return QComboBox_getactivatedEvent(pObject)
+
+	Func getcurrentIndexChangedEvent 
+		return QComboBox_getcurrentIndexChangedEvent(pObject)
+
+	Func geteditTextChangedEvent 
+		return QComboBox_geteditTextChangedEvent(pObject)
+
+	Func gethighlightedEvent 
+		return QComboBox_gethighlightedEvent(pObject)
+
 Class QMenuBar from QWidget
 
 	pObject
