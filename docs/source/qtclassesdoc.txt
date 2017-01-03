@@ -2193,6 +2193,9 @@ Parameters : QObject *parent
 * void setbuttonClickedEvent(const char *)
 * void setbuttonPressedEvent(const char *)
 * void setbuttonReleasedEvent(const char *)
+* const char *getbuttonClickedEvent(void)
+* const char *getbuttonPressedEvent(void)
+* const char *getbuttonReleasedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QMediaPlayer Class
