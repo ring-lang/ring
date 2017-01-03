@@ -1014,6 +1014,15 @@ void setselectionChangedEvent(const char *)
 void settextChangedEvent(const char *)
 void setundoAvailableEvent(const char *)
 
+const char *getcopyAvailableEvent(void)
+const char *getcurrentCharFormatChangedEvent(void)
+const char *getcursorPositionChangedEvent(void)
+const char *getredoAvailableEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettextChangedEvent(void)
+const char *getundoAvailableEvent(void)
+
+
 <register>
 void cyanline(QTextEdit *pObject)
 </register>

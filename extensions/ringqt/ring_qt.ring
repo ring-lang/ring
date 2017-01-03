@@ -1524,6 +1524,27 @@ Class QTextEdit from QAbstractScrollArea
 	Func setundoAvailableEvent P1
 		return QTextEdit_setundoAvailableEvent(pObject,P1)
 
+	Func getcopyAvailableEvent 
+		return QTextEdit_getcopyAvailableEvent(pObject)
+
+	Func getcurrentCharFormatChangedEvent 
+		return QTextEdit_getcurrentCharFormatChangedEvent(pObject)
+
+	Func getcursorPositionChangedEvent 
+		return QTextEdit_getcursorPositionChangedEvent(pObject)
+
+	Func getredoAvailableEvent 
+		return QTextEdit_getredoAvailableEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QTextEdit_getselectionChangedEvent(pObject)
+
+	Func gettextChangedEvent 
+		return QTextEdit_gettextChangedEvent(pObject)
+
+	Func getundoAvailableEvent 
+		return QTextEdit_getundoAvailableEvent(pObject)
+
 	Func cyanline P1
 		return QTextEdit_cyanline(pObject,GetObjectPointerFromRingObject(P1))
 

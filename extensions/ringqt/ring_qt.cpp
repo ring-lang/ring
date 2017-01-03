@@ -8683,6 +8683,125 @@ RING_FUNC(ring_QTextEdit_setundoAvailableEvent)
 	pObject->setundoAvailableEvent(RING_API_GETSTRING(2));
 }
 
+
+RING_FUNC(ring_QTextEdit_getcopyAvailableEvent)
+{
+	GTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
+	RING_API_RETSTRING(pObject->getcopyAvailableEvent());
+}
+
+
+RING_FUNC(ring_QTextEdit_getcurrentCharFormatChangedEvent)
+{
+	GTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
+	RING_API_RETSTRING(pObject->getcurrentCharFormatChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextEdit_getcursorPositionChangedEvent)
+{
+	GTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
+	RING_API_RETSTRING(pObject->getcursorPositionChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextEdit_getredoAvailableEvent)
+{
+	GTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
+	RING_API_RETSTRING(pObject->getredoAvailableEvent());
+}
+
+
+RING_FUNC(ring_QTextEdit_getselectionChangedEvent)
+{
+	GTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
+	RING_API_RETSTRING(pObject->getselectionChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextEdit_gettextChangedEvent)
+{
+	GTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
+	RING_API_RETSTRING(pObject->gettextChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextEdit_getundoAvailableEvent)
+{
+	GTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
+	RING_API_RETSTRING(pObject->getundoAvailableEvent());
+}
+
 RING_FUNC(ring_QTextEdit_cyanline)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -78894,6 +79013,13 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextedit_setselectionchangedevent",ring_QTextEdit_setselectionChangedEvent);
 	ring_vm_funcregister("qtextedit_settextchangedevent",ring_QTextEdit_settextChangedEvent);
 	ring_vm_funcregister("qtextedit_setundoavailableevent",ring_QTextEdit_setundoAvailableEvent);
+	ring_vm_funcregister("qtextedit_getcopyavailableevent",ring_QTextEdit_getcopyAvailableEvent);
+	ring_vm_funcregister("qtextedit_getcurrentcharformatchangedevent",ring_QTextEdit_getcurrentCharFormatChangedEvent);
+	ring_vm_funcregister("qtextedit_getcursorpositionchangedevent",ring_QTextEdit_getcursorPositionChangedEvent);
+	ring_vm_funcregister("qtextedit_getredoavailableevent",ring_QTextEdit_getredoAvailableEvent);
+	ring_vm_funcregister("qtextedit_getselectionchangedevent",ring_QTextEdit_getselectionChangedEvent);
+	ring_vm_funcregister("qtextedit_gettextchangedevent",ring_QTextEdit_gettextChangedEvent);
+	ring_vm_funcregister("qtextedit_getundoavailableevent",ring_QTextEdit_getundoAvailableEvent);
 	ring_vm_funcregister("qtextedit_cyanline",ring_QTextEdit_cyanline);
 	ring_vm_funcregister("qlistwidget_additem",ring_QListWidget_addItem);
 	ring_vm_funcregister("qlistwidget_count",ring_QListWidget_count);
