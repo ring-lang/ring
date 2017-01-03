@@ -56,5 +56,6 @@ Func pProcess aList
 		cFuncPrototype = substr(cFuncPrototype,"void","const char *")
 		cFuncPrototype = substr(cFuncPrototype,"vvvv","void")
 		cFuncPrototype = substr(cFuncPrototype,"set","get")
+		cFuncPrototype = substr(cFuncPrototype,"* ","*")
 	next
 
