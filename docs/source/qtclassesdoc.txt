@@ -2016,6 +2016,12 @@ Parent Class : QWidget
 * void setloadStartedEvent(const char *)
 * void setselectionChangedEvent(const char *)
 * void seturlChangedEvent(const char *)
+* const char *getloadFinishedEvent(void)
+* const char *getloadProgressEvent(void)
+* const char *getloadStartedEvent(void)
+* const char *getselectionChangedEvent(void)
+* const char *gettitleChangedEvent(void)
+* const char *geturlChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QUrl Class
