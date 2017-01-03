@@ -2365,6 +2365,7 @@ Parameters : QWidget *parent
 * void toggle(void)
 * void trigger(void)
 * void setClickEvent(const char *)
+* const char *getClickEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QEvent Class
@@ -2454,6 +2455,7 @@ Parameters : QObject *parent
 * void start(void)
 * void stop(void)
 * void settimeoutEvent(const char *)
+* const char *gettimeoutEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QFileDialog Class
@@ -3022,6 +3024,10 @@ Parameters : void
 * void setbytesWrittenEvent(const char *)
 * void setreadChannelFinishedEvent(const char *)
 * void setreadyReadEvent(const char *)
+* const char *getaboutToCloseEvent(void)
+* const char *getbytesWrittenEvent(void)
+* const char *getreadChannelFinishedEvent(void)
+* const char *getreadyReadEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QAbstractSocket Class
