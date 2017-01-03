@@ -7772,6 +7772,24 @@ Class QAbstractSocket from QIODevice
 	Func setstateChangedEvent P1
 		return QAbstractSocket_setstateChangedEvent(pObject,P1)
 
+	Func getconnectedEvent 
+		return QAbstractSocket_getconnectedEvent(pObject)
+
+	Func getdisconnectedEvent 
+		return QAbstractSocket_getdisconnectedEvent(pObject)
+
+	Func geterrorEvent 
+		return QAbstractSocket_geterrorEvent(pObject)
+
+	Func gethostFoundEvent 
+		return QAbstractSocket_gethostFoundEvent(pObject)
+
+	Func getproxyAuthenticationRequiredEvent 
+		return QAbstractSocket_getproxyAuthenticationRequiredEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QAbstractSocket_getstateChangedEvent(pObject)
+
 Class QNetworkProxy
 
 	pObject

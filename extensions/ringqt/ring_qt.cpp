@@ -44493,6 +44493,108 @@ RING_FUNC(ring_QAbstractSocket_setstateChangedEvent)
 }
 
 
+RING_FUNC(ring_QAbstractSocket_getconnectedEvent)
+{
+	GAbstractSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSocket *) RING_API_GETCPOINTER(1,"QAbstractSocket");
+	RING_API_RETSTRING(pObject->getconnectedEvent());
+}
+
+
+RING_FUNC(ring_QAbstractSocket_getdisconnectedEvent)
+{
+	GAbstractSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSocket *) RING_API_GETCPOINTER(1,"QAbstractSocket");
+	RING_API_RETSTRING(pObject->getdisconnectedEvent());
+}
+
+
+RING_FUNC(ring_QAbstractSocket_geterrorEvent)
+{
+	GAbstractSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSocket *) RING_API_GETCPOINTER(1,"QAbstractSocket");
+	RING_API_RETSTRING(pObject->geterrorEvent());
+}
+
+
+RING_FUNC(ring_QAbstractSocket_gethostFoundEvent)
+{
+	GAbstractSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSocket *) RING_API_GETCPOINTER(1,"QAbstractSocket");
+	RING_API_RETSTRING(pObject->gethostFoundEvent());
+}
+
+
+RING_FUNC(ring_QAbstractSocket_getproxyAuthenticationRequiredEvent)
+{
+	GAbstractSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSocket *) RING_API_GETCPOINTER(1,"QAbstractSocket");
+	RING_API_RETSTRING(pObject->getproxyAuthenticationRequiredEvent());
+}
+
+
+RING_FUNC(ring_QAbstractSocket_getstateChangedEvent)
+{
+	GAbstractSocket *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAbstractSocket *) RING_API_GETCPOINTER(1,"QAbstractSocket");
+	RING_API_RETSTRING(pObject->getstateChangedEvent());
+}
+
+
 RING_FUNC(ring_QNetworkProxy_capabilities)
 {
 	QNetworkProxy *pObject ;
@@ -82352,6 +82454,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qabstractsocket_sethostfoundevent",ring_QAbstractSocket_sethostFoundEvent);
 	ring_vm_funcregister("qabstractsocket_setproxyauthenticationrequiredevent",ring_QAbstractSocket_setproxyAuthenticationRequiredEvent);
 	ring_vm_funcregister("qabstractsocket_setstatechangedevent",ring_QAbstractSocket_setstateChangedEvent);
+	ring_vm_funcregister("qabstractsocket_getconnectedevent",ring_QAbstractSocket_getconnectedEvent);
+	ring_vm_funcregister("qabstractsocket_getdisconnectedevent",ring_QAbstractSocket_getdisconnectedEvent);
+	ring_vm_funcregister("qabstractsocket_geterrorevent",ring_QAbstractSocket_geterrorEvent);
+	ring_vm_funcregister("qabstractsocket_gethostfoundevent",ring_QAbstractSocket_gethostFoundEvent);
+	ring_vm_funcregister("qabstractsocket_getproxyauthenticationrequiredevent",ring_QAbstractSocket_getproxyAuthenticationRequiredEvent);
+	ring_vm_funcregister("qabstractsocket_getstatechangedevent",ring_QAbstractSocket_getstateChangedEvent);
 	ring_vm_funcregister("qnetworkproxy_capabilities",ring_QNetworkProxy_capabilities);
 	ring_vm_funcregister("qnetworkproxy_hasrawheader",ring_QNetworkProxy_hasRawHeader);
 	ring_vm_funcregister("qnetworkproxy_header",ring_QNetworkProxy_header);
