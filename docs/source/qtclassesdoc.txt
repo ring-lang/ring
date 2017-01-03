@@ -3195,6 +3195,8 @@ Parameters : QWidget *
 * bool waitForNewConnection(int msec, bool *timedOut)
 * void setacceptErrorEvent(const char *)
 * void setnewConnectionEvent(const char *)
+* const char *getacceptErrorEvent(void)
+* const char *getnewConnectionEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QHostAddress Class
@@ -4396,6 +4398,7 @@ Parameters : QObject *
 Parent Class : QObject
 
 * void setfinishedEvent(const char *)
+* const char *getfinishedEvent(void)
 * QNetworkConfiguration activeConfiguration(void)
 * QAbstractNetworkCache *cache(void)
 * void clearAccessCache(void)
@@ -4831,6 +4834,8 @@ Parent Class : QObject
 * void yieldCurrentThread(void)
 * void setStartedEvent(const char *)
 * void setFinishedEvent(const char *)
+* const char *getStartedEvent(void)
+* const char *getFinishedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QThreadPool Class
@@ -5158,6 +5163,15 @@ Parent Class : QAbstractScrollArea
 * void settextChangedEvent(const char *cStr)
 * void setundoAvailableEvent(const char *cStr)
 * void setupdateRequestEvent(const char *cStr)
+* const char *getblockCountChangedEvent(voidcStr)
+* const char *getcopyAvailableEvent(voidcStr)
+* const char *getcursorPositionChangedEvent(voidcStr)
+* const char *getmodificationChangedEvent(voidcStr)
+* const char *getredoAvailableEvent(voidcStr)
+* const char *getselectionChangedEvent(voidcStr)
+* const char *gettextChangedEvent(voidcStr)
+* const char *getundoAvailableEvent(voidcStr)
+* const char *getupdateRequestEvent(voidcStr)
 
 .. index::
 	pair: RingQt Classes Reference; QGridLayout Class
