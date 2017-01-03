@@ -5620,6 +5620,17 @@ void setsectionPressedEvent(const char *)
 void setsectionResizedEvent(const char *)
 void setsortIndicatorChangedEvent(const char *)
 
+const char *getgeometriesChangedEvent(void)
+const char *getsectionClickedEvent(void)
+const char *getsectionCountChangedEvent(void)
+const char *getsectionDoubleClickedEvent(void)
+const char *getsectionEnteredEvent(void)
+const char *getsectionHandleDoubleClickedEvent(void)
+const char *getsectionMovedEvent(void)
+const char *getsectionPressedEvent(void)
+const char *getsectionResizedEvent(void)
+const char *getsortIndicatorChangedEvent(void)
+
 void geteventparameters(void)
 
 <class>

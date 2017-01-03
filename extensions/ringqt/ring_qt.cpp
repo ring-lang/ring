@@ -74820,6 +74820,176 @@ RING_FUNC(ring_QHeaderView_setsortIndicatorChangedEvent)
 }
 
 
+RING_FUNC(ring_QHeaderView_getgeometriesChangedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getgeometriesChangedEvent());
+}
+
+
+RING_FUNC(ring_QHeaderView_getsectionClickedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getsectionClickedEvent());
+}
+
+
+RING_FUNC(ring_QHeaderView_getsectionCountChangedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getsectionCountChangedEvent());
+}
+
+
+RING_FUNC(ring_QHeaderView_getsectionDoubleClickedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getsectionDoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QHeaderView_getsectionEnteredEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getsectionEnteredEvent());
+}
+
+
+RING_FUNC(ring_QHeaderView_getsectionHandleDoubleClickedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getsectionHandleDoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QHeaderView_getsectionMovedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getsectionMovedEvent());
+}
+
+
+RING_FUNC(ring_QHeaderView_getsectionPressedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getsectionPressedEvent());
+}
+
+
+RING_FUNC(ring_QHeaderView_getsectionResizedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getsectionResizedEvent());
+}
+
+
+RING_FUNC(ring_QHeaderView_getsortIndicatorChangedEvent)
+{
+	GHeaderView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
+	RING_API_RETSTRING(pObject->getsortIndicatorChangedEvent());
+}
+
+
 RING_FUNC(ring_QHeaderView_geteventparameters)
 {
 	GHeaderView *pObject ;
@@ -84375,6 +84545,16 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qheaderview_setsectionpressedevent",ring_QHeaderView_setsectionPressedEvent);
 	ring_vm_funcregister("qheaderview_setsectionresizedevent",ring_QHeaderView_setsectionResizedEvent);
 	ring_vm_funcregister("qheaderview_setsortindicatorchangedevent",ring_QHeaderView_setsortIndicatorChangedEvent);
+	ring_vm_funcregister("qheaderview_getgeometrieschangedevent",ring_QHeaderView_getgeometriesChangedEvent);
+	ring_vm_funcregister("qheaderview_getsectionclickedevent",ring_QHeaderView_getsectionClickedEvent);
+	ring_vm_funcregister("qheaderview_getsectioncountchangedevent",ring_QHeaderView_getsectionCountChangedEvent);
+	ring_vm_funcregister("qheaderview_getsectiondoubleclickedevent",ring_QHeaderView_getsectionDoubleClickedEvent);
+	ring_vm_funcregister("qheaderview_getsectionenteredevent",ring_QHeaderView_getsectionEnteredEvent);
+	ring_vm_funcregister("qheaderview_getsectionhandledoubleclickedevent",ring_QHeaderView_getsectionHandleDoubleClickedEvent);
+	ring_vm_funcregister("qheaderview_getsectionmovedevent",ring_QHeaderView_getsectionMovedEvent);
+	ring_vm_funcregister("qheaderview_getsectionpressedevent",ring_QHeaderView_getsectionPressedEvent);
+	ring_vm_funcregister("qheaderview_getsectionresizedevent",ring_QHeaderView_getsectionResizedEvent);
+	ring_vm_funcregister("qheaderview_getsortindicatorchangedevent",ring_QHeaderView_getsortIndicatorChangedEvent);
 	ring_vm_funcregister("qheaderview_geteventparameters",ring_QHeaderView_geteventparameters);
 	ring_vm_funcregister("qfontmetrics_ascent",ring_QFontMetrics_ascent);
 	ring_vm_funcregister("qfontmetrics_averagecharwidth",ring_QFontMetrics_averageCharWidth);

@@ -13345,6 +13345,36 @@ Class QHeaderView from QAbstractItemView
 	Func setsortIndicatorChangedEvent P1
 		return QHeaderView_setsortIndicatorChangedEvent(pObject,P1)
 
+	Func getgeometriesChangedEvent 
+		return QHeaderView_getgeometriesChangedEvent(pObject)
+
+	Func getsectionClickedEvent 
+		return QHeaderView_getsectionClickedEvent(pObject)
+
+	Func getsectionCountChangedEvent 
+		return QHeaderView_getsectionCountChangedEvent(pObject)
+
+	Func getsectionDoubleClickedEvent 
+		return QHeaderView_getsectionDoubleClickedEvent(pObject)
+
+	Func getsectionEnteredEvent 
+		return QHeaderView_getsectionEnteredEvent(pObject)
+
+	Func getsectionHandleDoubleClickedEvent 
+		return QHeaderView_getsectionHandleDoubleClickedEvent(pObject)
+
+	Func getsectionMovedEvent 
+		return QHeaderView_getsectionMovedEvent(pObject)
+
+	Func getsectionPressedEvent 
+		return QHeaderView_getsectionPressedEvent(pObject)
+
+	Func getsectionResizedEvent 
+		return QHeaderView_getsectionResizedEvent(pObject)
+
+	Func getsortIndicatorChangedEvent 
+		return QHeaderView_getsortIndicatorChangedEvent(pObject)
+
 	Func geteventparameters 
 		return QHeaderView_geteventparameters(pObject)
 
