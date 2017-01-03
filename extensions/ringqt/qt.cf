@@ -1743,6 +1743,9 @@ void setCurrentWidget(QWidget *widget)
 void setcurrentChangedEvent(const char *)
 void settabCloseRequestedEvent(const char *)
 
+const char *getcurrentChangedEvent(void)
+const char *gettabCloseRequestedEvent(void)
+
 <class>
 name: QTableWidgetItem
 para: QString

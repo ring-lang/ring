@@ -3432,6 +3432,12 @@ Class QTabWidget from QWidget
 	Func settabCloseRequestedEvent P1
 		return QTabWidget_settabCloseRequestedEvent(pObject,P1)
 
+	Func getcurrentChangedEvent 
+		return QTabWidget_getcurrentChangedEvent(pObject)
+
+	Func gettabCloseRequestedEvent 
+		return QTabWidget_gettabCloseRequestedEvent(pObject)
+
 Class QTableWidgetItem
 
 	pObject
