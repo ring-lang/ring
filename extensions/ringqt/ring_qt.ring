@@ -5831,6 +5831,9 @@ Class QAction
 	Func setClickEvent P1
 		return QAction_setClickEvent(pObject,P1)
 
+	Func getClickEvent 
+		return QAction_getClickEvent(pObject)
+
 Class QEvent
 
 	pObject
@@ -6014,6 +6017,9 @@ Class QTimer
 
 	Func settimeoutEvent P1
 		return QTimer_settimeoutEvent(pObject,P1)
+
+	Func gettimeoutEvent 
+		return QTimer_gettimeoutEvent(pObject)
 
 Class QFileDialog from QWidget
 
@@ -7611,6 +7617,18 @@ Class QIODevice
 
 	Func setreadyReadEvent P1
 		return QIODevice_setreadyReadEvent(pObject,P1)
+
+	Func getaboutToCloseEvent 
+		return QIODevice_getaboutToCloseEvent(pObject)
+
+	Func getbytesWrittenEvent 
+		return QIODevice_getbytesWrittenEvent(pObject)
+
+	Func getreadChannelFinishedEvent 
+		return QIODevice_getreadChannelFinishedEvent(pObject)
+
+	Func getreadyReadEvent 
+		return QIODevice_getreadyReadEvent(pObject)
 
 Class QAbstractSocket from QIODevice
 

@@ -32699,6 +32699,23 @@ RING_FUNC(ring_QAction_setClickEvent)
 }
 
 
+RING_FUNC(ring_QAction_getClickEvent)
+{
+	GAction *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAction *) RING_API_GETCPOINTER(1,"QAction");
+	RING_API_RETSTRING(pObject->getClickEvent());
+}
+
+
 RING_FUNC(ring_QEvent_accept)
 {
 	QEvent *pObject ;
@@ -33686,6 +33703,23 @@ RING_FUNC(ring_QTimer_settimeoutEvent)
 		return ;
 	}
 	pObject->settimeoutEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTimer_gettimeoutEvent)
+{
+	GTimer *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTimer *) RING_API_GETCPOINTER(1,"QTimer");
+	RING_API_RETSTRING(pObject->gettimeoutEvent());
 }
 
 
@@ -43575,6 +43609,74 @@ RING_FUNC(ring_QIODevice_setreadyReadEvent)
 		return ;
 	}
 	pObject->setreadyReadEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QIODevice_getaboutToCloseEvent)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	RING_API_RETSTRING(pObject->getaboutToCloseEvent());
+}
+
+
+RING_FUNC(ring_QIODevice_getbytesWrittenEvent)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	RING_API_RETSTRING(pObject->getbytesWrittenEvent());
+}
+
+
+RING_FUNC(ring_QIODevice_getreadChannelFinishedEvent)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	RING_API_RETSTRING(pObject->getreadChannelFinishedEvent());
+}
+
+
+RING_FUNC(ring_QIODevice_getreadyReadEvent)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	RING_API_RETSTRING(pObject->getreadyReadEvent());
 }
 
 
@@ -81709,6 +81811,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qaction_toggle",ring_QAction_toggle);
 	ring_vm_funcregister("qaction_trigger",ring_QAction_trigger);
 	ring_vm_funcregister("qaction_setclickevent",ring_QAction_setClickEvent);
+	ring_vm_funcregister("qaction_getclickevent",ring_QAction_getClickEvent);
 	ring_vm_funcregister("qevent_accept",ring_QEvent_accept);
 	ring_vm_funcregister("qevent_ignore",ring_QEvent_ignore);
 	ring_vm_funcregister("qevent_isaccepted",ring_QEvent_isAccepted);
@@ -81756,6 +81859,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtimer_start",ring_QTimer_start);
 	ring_vm_funcregister("qtimer_stop",ring_QTimer_stop);
 	ring_vm_funcregister("qtimer_settimeoutevent",ring_QTimer_settimeoutEvent);
+	ring_vm_funcregister("qtimer_gettimeoutevent",ring_QTimer_gettimeoutEvent);
 	ring_vm_funcregister("qfiledialog_acceptmode",ring_QFileDialog_acceptMode);
 	ring_vm_funcregister("qfiledialog_defaultsuffix",ring_QFileDialog_defaultSuffix);
 	ring_vm_funcregister("qfiledialog_directory",ring_QFileDialog_directory);
@@ -82203,6 +82307,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qiodevice_setbyteswrittenevent",ring_QIODevice_setbytesWrittenEvent);
 	ring_vm_funcregister("qiodevice_setreadchannelfinishedevent",ring_QIODevice_setreadChannelFinishedEvent);
 	ring_vm_funcregister("qiodevice_setreadyreadevent",ring_QIODevice_setreadyReadEvent);
+	ring_vm_funcregister("qiodevice_getabouttocloseevent",ring_QIODevice_getaboutToCloseEvent);
+	ring_vm_funcregister("qiodevice_getbyteswrittenevent",ring_QIODevice_getbytesWrittenEvent);
+	ring_vm_funcregister("qiodevice_getreadchannelfinishedevent",ring_QIODevice_getreadChannelFinishedEvent);
+	ring_vm_funcregister("qiodevice_getreadyreadevent",ring_QIODevice_getreadyReadEvent);
 	ring_vm_funcregister("qabstractsocket_abort",ring_QAbstractSocket_abort);
 	ring_vm_funcregister("qabstractsocket_bind",ring_QAbstractSocket_bind);
 	ring_vm_funcregister("qabstractsocket_connecttohost",ring_QAbstractSocket_connectToHost);

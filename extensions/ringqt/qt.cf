@@ -2711,6 +2711,8 @@ void trigger(void)
 
 void setClickEvent(const char *)
 
+const char *getClickEvent(void)
+
 <class>
 name: QEvent
 para: QEvent::Type Type
@@ -2780,6 +2782,8 @@ void start(void)
 void stop(void)
 
 void settimeoutEvent(const char *)
+
+const char *gettimeoutEvent(void)
 
 <class>
 name: QFileDialog
@@ -3351,6 +3355,11 @@ void setaboutToCloseEvent(const char *)
 void setbytesWrittenEvent(const char *)
 void setreadChannelFinishedEvent(const char *)
 void setreadyReadEvent(const char *)
+
+const char *getaboutToCloseEvent(void)
+const char *getbytesWrittenEvent(void)
+const char *getreadChannelFinishedEvent(void)
+const char *getreadyReadEvent(void)
 
 <class>
 name: QAbstractSocket
