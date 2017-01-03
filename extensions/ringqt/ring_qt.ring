@@ -1902,6 +1902,30 @@ Class QTreeView from QAbstractItemView
 	Func setviewportEnteredEvent P1
 		return QTreeView_setviewportEnteredEvent(pObject,P1)
 
+	Func getcollapsedEvent 
+		return QTreeView_getcollapsedEvent(pObject)
+
+	Func getexpandedEvent 
+		return QTreeView_getexpandedEvent(pObject)
+
+	Func getactivatedEvent 
+		return QTreeView_getactivatedEvent(pObject)
+
+	Func getclickedEvent 
+		return QTreeView_getclickedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QTreeView_getdoubleClickedEvent(pObject)
+
+	Func getenteredEvent 
+		return QTreeView_getenteredEvent(pObject)
+
+	Func getpressedEvent 
+		return QTreeView_getpressedEvent(pObject)
+
+	Func getviewportEnteredEvent 
+		return QTreeView_getviewportEnteredEvent(pObject)
+
 Class QDir
 
 	pObject

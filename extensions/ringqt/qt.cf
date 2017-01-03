@@ -1188,6 +1188,15 @@ void setenteredEvent(const char *)
 void setpressedEvent(const char *)
 void setviewportEnteredEvent(const char *)
 
+const char *getcollapsedEvent(void)
+const char *getexpandedEvent(void)
+const char *getactivatedEvent(void)
+const char *getclickedEvent(void)
+const char *getdoubleClickedEvent(void)
+const char *getenteredEvent(void)
+const char *getpressedEvent(void)
+const char *getviewportEnteredEvent(void)
+
 <class>
 name: QDir
 para: void

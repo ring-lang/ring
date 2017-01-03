@@ -10994,6 +10994,142 @@ RING_FUNC(ring_QTreeView_setviewportEnteredEvent)
 }
 
 
+RING_FUNC(ring_QTreeView_getcollapsedEvent)
+{
+	GTreeView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
+	RING_API_RETSTRING(pObject->getcollapsedEvent());
+}
+
+
+RING_FUNC(ring_QTreeView_getexpandedEvent)
+{
+	GTreeView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
+	RING_API_RETSTRING(pObject->getexpandedEvent());
+}
+
+
+RING_FUNC(ring_QTreeView_getactivatedEvent)
+{
+	GTreeView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
+	RING_API_RETSTRING(pObject->getactivatedEvent());
+}
+
+
+RING_FUNC(ring_QTreeView_getclickedEvent)
+{
+	GTreeView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
+	RING_API_RETSTRING(pObject->getclickedEvent());
+}
+
+
+RING_FUNC(ring_QTreeView_getdoubleClickedEvent)
+{
+	GTreeView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
+	RING_API_RETSTRING(pObject->getdoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QTreeView_getenteredEvent)
+{
+	GTreeView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
+	RING_API_RETSTRING(pObject->getenteredEvent());
+}
+
+
+RING_FUNC(ring_QTreeView_getpressedEvent)
+{
+	GTreeView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
+	RING_API_RETSTRING(pObject->getpressedEvent());
+}
+
+
+RING_FUNC(ring_QTreeView_getviewportEnteredEvent)
+{
+	GTreeView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
+	RING_API_RETSTRING(pObject->getviewportEnteredEvent());
+}
+
+
 RING_FUNC(ring_QDir_currentPath)
 {
 	QDir *pObject ;
@@ -79297,6 +79433,14 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtreeview_setenteredevent",ring_QTreeView_setenteredEvent);
 	ring_vm_funcregister("qtreeview_setpressedevent",ring_QTreeView_setpressedEvent);
 	ring_vm_funcregister("qtreeview_setviewportenteredevent",ring_QTreeView_setviewportEnteredEvent);
+	ring_vm_funcregister("qtreeview_getcollapsedevent",ring_QTreeView_getcollapsedEvent);
+	ring_vm_funcregister("qtreeview_getexpandedevent",ring_QTreeView_getexpandedEvent);
+	ring_vm_funcregister("qtreeview_getactivatedevent",ring_QTreeView_getactivatedEvent);
+	ring_vm_funcregister("qtreeview_getclickedevent",ring_QTreeView_getclickedEvent);
+	ring_vm_funcregister("qtreeview_getdoubleclickedevent",ring_QTreeView_getdoubleClickedEvent);
+	ring_vm_funcregister("qtreeview_getenteredevent",ring_QTreeView_getenteredEvent);
+	ring_vm_funcregister("qtreeview_getpressedevent",ring_QTreeView_getpressedEvent);
+	ring_vm_funcregister("qtreeview_getviewportenteredevent",ring_QTreeView_getviewportEnteredEvent);
 	ring_vm_funcregister("qdir_currentpath",ring_QDir_currentPath);
 	ring_vm_funcregister("qdir_setnamefilters",ring_QDir_setNameFilters);
 	ring_vm_funcregister("qfilesystemmodel_fileicon",ring_QFileSystemModel_fileIcon);
