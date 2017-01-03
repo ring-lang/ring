@@ -1351,6 +1351,8 @@ Parent Class : QWidget
 * void setCurrentWidget(QWidget *widget)
 * void setcurrentChangedEvent(const char *)
 * void settabCloseRequestedEvent(const char *)
+* const char *getcurrentChangedEvent(void)
+* const char *gettabCloseRequestedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QTableWidgetItem Class
