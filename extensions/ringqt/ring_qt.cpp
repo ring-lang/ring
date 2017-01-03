@@ -24065,6 +24065,261 @@ RING_FUNC(ring_QTableWidget_setitemSelectionChangedEvent)
 }
 
 
+RING_FUNC(ring_QTableWidget_getcellActivatedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getcellActivatedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getcellChangedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getcellChangedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getcellClickedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getcellClickedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getcellDoubleClickedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getcellDoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getcellEnteredEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getcellEnteredEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getcellPressedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getcellPressedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getcurrentCellChangedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getcurrentCellChangedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getcurrentItemChangedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getcurrentItemChangedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getitemActivatedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getitemActivatedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getitemChangedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getitemChangedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getitemClickedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getitemClickedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getitemDoubleClickedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getitemDoubleClickedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getitemEnteredEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getitemEnteredEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getitemPressedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getitemPressedEvent());
+}
+
+
+RING_FUNC(ring_QTableWidget_getitemSelectionChangedEvent)
+{
+	GTableWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
+	RING_API_RETSTRING(pObject->getitemSelectionChangedEvent());
+}
+
+
 RING_FUNC(ring_QProgressBar_alignment)
 {
 	GProgressBar *pObject ;
@@ -80479,6 +80734,21 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtablewidget_setitementeredevent",ring_QTableWidget_setitemEnteredEvent);
 	ring_vm_funcregister("qtablewidget_setitempressedevent",ring_QTableWidget_setitemPressedEvent);
 	ring_vm_funcregister("qtablewidget_setitemselectionchangedevent",ring_QTableWidget_setitemSelectionChangedEvent);
+	ring_vm_funcregister("qtablewidget_getcellactivatedevent",ring_QTableWidget_getcellActivatedEvent);
+	ring_vm_funcregister("qtablewidget_getcellchangedevent",ring_QTableWidget_getcellChangedEvent);
+	ring_vm_funcregister("qtablewidget_getcellclickedevent",ring_QTableWidget_getcellClickedEvent);
+	ring_vm_funcregister("qtablewidget_getcelldoubleclickedevent",ring_QTableWidget_getcellDoubleClickedEvent);
+	ring_vm_funcregister("qtablewidget_getcellenteredevent",ring_QTableWidget_getcellEnteredEvent);
+	ring_vm_funcregister("qtablewidget_getcellpressedevent",ring_QTableWidget_getcellPressedEvent);
+	ring_vm_funcregister("qtablewidget_getcurrentcellchangedevent",ring_QTableWidget_getcurrentCellChangedEvent);
+	ring_vm_funcregister("qtablewidget_getcurrentitemchangedevent",ring_QTableWidget_getcurrentItemChangedEvent);
+	ring_vm_funcregister("qtablewidget_getitemactivatedevent",ring_QTableWidget_getitemActivatedEvent);
+	ring_vm_funcregister("qtablewidget_getitemchangedevent",ring_QTableWidget_getitemChangedEvent);
+	ring_vm_funcregister("qtablewidget_getitemclickedevent",ring_QTableWidget_getitemClickedEvent);
+	ring_vm_funcregister("qtablewidget_getitemdoubleclickedevent",ring_QTableWidget_getitemDoubleClickedEvent);
+	ring_vm_funcregister("qtablewidget_getitementeredevent",ring_QTableWidget_getitemEnteredEvent);
+	ring_vm_funcregister("qtablewidget_getitempressedevent",ring_QTableWidget_getitemPressedEvent);
+	ring_vm_funcregister("qtablewidget_getitemselectionchangedevent",ring_QTableWidget_getitemSelectionChangedEvent);
 	ring_vm_funcregister("qprogressbar_alignment",ring_QProgressBar_alignment);
 	ring_vm_funcregister("qprogressbar_format",ring_QProgressBar_format);
 	ring_vm_funcregister("qprogressbar_invertedappearance",ring_QProgressBar_invertedAppearance);

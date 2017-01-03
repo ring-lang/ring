@@ -4236,6 +4236,51 @@ Class QTableWidget from QTableView
 	Func setitemSelectionChangedEvent P1
 		return QTableWidget_setitemSelectionChangedEvent(pObject,P1)
 
+	Func getcellActivatedEvent 
+		return QTableWidget_getcellActivatedEvent(pObject)
+
+	Func getcellChangedEvent 
+		return QTableWidget_getcellChangedEvent(pObject)
+
+	Func getcellClickedEvent 
+		return QTableWidget_getcellClickedEvent(pObject)
+
+	Func getcellDoubleClickedEvent 
+		return QTableWidget_getcellDoubleClickedEvent(pObject)
+
+	Func getcellEnteredEvent 
+		return QTableWidget_getcellEnteredEvent(pObject)
+
+	Func getcellPressedEvent 
+		return QTableWidget_getcellPressedEvent(pObject)
+
+	Func getcurrentCellChangedEvent 
+		return QTableWidget_getcurrentCellChangedEvent(pObject)
+
+	Func getcurrentItemChangedEvent 
+		return QTableWidget_getcurrentItemChangedEvent(pObject)
+
+	Func getitemActivatedEvent 
+		return QTableWidget_getitemActivatedEvent(pObject)
+
+	Func getitemChangedEvent 
+		return QTableWidget_getitemChangedEvent(pObject)
+
+	Func getitemClickedEvent 
+		return QTableWidget_getitemClickedEvent(pObject)
+
+	Func getitemDoubleClickedEvent 
+		return QTableWidget_getitemDoubleClickedEvent(pObject)
+
+	Func getitemEnteredEvent 
+		return QTableWidget_getitemEnteredEvent(pObject)
+
+	Func getitemPressedEvent 
+		return QTableWidget_getitemPressedEvent(pObject)
+
+	Func getitemSelectionChangedEvent 
+		return QTableWidget_getitemSelectionChangedEvent(pObject)
+
 Class QProgressBar from QWidget
 
 	pObject
