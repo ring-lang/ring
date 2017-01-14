@@ -107,7 +107,7 @@ void ring_vm_execute ( VM *pVM ) ;
 
 RING_API void ring_vm_error ( VM *pVM,const char *cStr ) ;
 
-void ring_vm_eval ( VM *pVM,const char *cStr ) ;
+int ring_vm_eval ( VM *pVM,const char *cStr ) ;
 
 void ring_vm_tobytecode ( VM *pVM,int x ) ;
 
