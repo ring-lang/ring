@@ -41,9 +41,7 @@ Type: char
 cFuncName[100]
 ring_parser_mixer
 Type: int
-x,nCallMethod,nStatus,nFlag,nMark1
-Type: List *
-pMark
+x,nCallMethod,nStatus,nFlag
 ring_parser_gencall
 ring_parser_ppmm
 ring_parser_gencallbracemethod

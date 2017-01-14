@@ -1105,10 +1105,6 @@ int ring_parser_mixer ( Parser *pParser )
 			puts("Rule : Mixer -> '(' [Expr { ',' Expr} ] ')' ");
 			#endif
 			RING_PARSER_IGNORENEWLINE ;
-			/* Function Call Only */
-			if ( pParser->nFuncCallOnly == 1 ) {
-				return 1 ;
-			}
 			x = ring_parser_mixer(pParser);
 			return x ;
 		}
@@ -1130,10 +1126,6 @@ int ring_parser_mixer ( Parser *pParser )
 					ring_parser_nexttoken(pParser);
 					/* Generate Code */
 					ring_parser_gencall(pParser,nCallMethod);
-					/* Function Call Only */
-					if ( pParser->nFuncCallOnly == 1 ) {
-						return 1 ;
-					}
 					x = ring_parser_mixer(pParser);
 					return x ;
 				}
@@ -1147,6 +1139,10 @@ int ring_parser_mixer ( Parser *pParser )
 			}
 			RING_PARSER_IGNORENEWLINE ;
 		}
+	}
+	/* Function Call Only */
+	if ( pParser->nFuncCallOnly == 1 ) {
+		return 1 ;
 	}
 	/* '{' {Statement} '}' */
 	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) && pParser->nControlStructureExpr == 0 ) {
