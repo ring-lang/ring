@@ -248,7 +248,7 @@ int ring_parser_stmt ( Parser *pParser )
 					strcpy(cFileName,pParser->TokenText);
 				}
 			}
-			ring_scanner_readfile(cFileName,pParser->pRingState);
+			x = ring_scanner_readfile(cFileName,pParser->pRingState);
 			/*
 			**  Generate Code 
 			**  Return NULL 
@@ -261,7 +261,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 			ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 			ring_parser_nexttoken(pParser);
-			return 1 ;
+			return x ;
 		}
 		return 0 ;
 	}

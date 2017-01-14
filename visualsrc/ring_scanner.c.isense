@@ -229,7 +229,7 @@ Type: RING_FILE
 fp
 c
 Type: int
-x,nSize
+nSize
 Type: char
 cFileName2[200]
 Type: unsigned int
