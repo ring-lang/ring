@@ -10,15 +10,9 @@ ok
 
 
 func DExists path
-
-try
-
-dir(path)
-
-catch
-
-return 0
-
-done
-
-return 1
+	try 
+		dir(path)
+	catch
+		return 0
+	done
+	return 1

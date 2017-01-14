@@ -761,7 +761,7 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_PARSER_IGNORENEWLINE ;
 		if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 			ring_parser_nexttoken(pParser);
-			pParser->nControlStructureBrace = 1 ;
+			pParser->nControlStructureBrace++ ;
 		}
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_TRY);
