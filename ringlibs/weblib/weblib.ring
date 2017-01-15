@@ -129,7 +129,7 @@ Func htmlspecialchars cStr
 
 Func Template cFile,oObject
 
-	cStr = Read(cFile)
+	cStr = Read(cFile) 
 	aList = []
 	cResult = ""
 	cCode = ""
@@ -160,9 +160,7 @@ Func Template cFile,oObject
 			cCode += "cResult += aList[" + len(aList) + "]" + nl
 		ok
 	end
-	oObject { 
-		eval(cCode)
-	}
+	eval( " oObject { " + cCode + " } " )
 	return cResult
 
 Func Alert cMessage
