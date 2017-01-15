@@ -1003,9 +1003,7 @@ int ring_parser_stmt ( Parser *pParser )
 			nMark1 = ring_parser_icg_newlabel(pParser);
 			ring_parser_icg_addoperandint(pMark,nMark1);
 		}
-		if ( ring_parser_icg_getlastoperation(pParser) != ICO_BRACEEND ) {
-			ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
-		}
+		ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 		return 1 ;
 	}
 	return 0 ;

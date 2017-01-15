@@ -160,7 +160,9 @@ Func Template cFile,oObject
 			cCode += "cResult += aList[" + len(aList) + "]" + nl
 		ok
 	end
-	eval( " oObject { " + cCode + " } " )
+	oObject {
+		eval(cCode)
+	}
 	return cResult
 
 Func Alert cMessage
