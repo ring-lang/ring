@@ -221,3 +221,4 @@ call ring scripts/syntaxerror2.ring
 call ring scripts/t.ring
 call ring scripts/initsyntaxerror.ring
 call ring scripts/initinnewbug2.ring
+call ring scripts/returnscope.ring
