@@ -28,6 +28,8 @@ void ring_vm_liststart ( VM *pVM )
 			}
 			pVar = (List *) RING_VM_STACK_READP ;
 			nType = RING_VM_STACK_OBJTYPE ;
+			/* Set the Address Scope As Local */
+			ring_list_addint(pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
 		} else {
 			if ( RING_VM_STACK_ISPOINTER == 0 ) {
 				ring_vm_error(pVM,RING_VM_ERROR_NOTVARIABLE);
