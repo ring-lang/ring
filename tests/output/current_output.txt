@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4534
+Time 4645
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2348,7 +2348,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-00D4B7E8
+008DC798
 OBJECTPOINTER
 0
 1
@@ -2591,7 +2591,7 @@ nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
 date: 16/01/2017
-time: 00:47:01
+time: 00:50:49
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3176,3 +3176,7 @@ Can't open file scripts/returnlistfrommethod.ring
 
 B:\ring\tests>call ring scripts/evalbrace.ring 
 wow
+B:\ring\tests>call ring scripts/equalobjobj.ring 
+
+Line 4 Object does not support operator overloading 
+In raise in file scripts/equalobjobj.ring 
