@@ -1,5 +1,5 @@
 /*
-	Bug ID : 203
+	Bug ID : 190
 	Description : Using try { catch } inside if { } lead to syntax error !
 	Status : Fixed
 */

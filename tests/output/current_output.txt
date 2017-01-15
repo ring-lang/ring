@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 0
-147
-147
+162
+162
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4756
+Time 4605
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2348,7 +2348,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-002DDAA0
+012FA2B0
 OBJECTPOINTER
 0
 1
@@ -2590,8 +2590,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 14/01/2017
-time: 22:34:00
+date: 15/01/2017
+time: 14:54:10
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3128,3 +3128,34 @@ STRING
 LIST
 OBJECT
 file
+
+B:\ring\tests>call ring scripts/tryinsideif.ring 
+20
+
+B:\ring\tests>call ring scripts/dotcrash.ring 
+welcome
+
+eval Line (1) Syntax error
+eval errors count : 1 
+
+eval Line (1) Syntax error
+eval errors count : 1 
+
+B:\ring\tests>call ring scripts/braceinlist.ring 
+
+scripts/braceinlist.ring Line (22) Error (C7) : Error in list items
+scripts/braceinlist.ring errors count : 1 
+
+B:\ring\tests>call ring scripts/syntaxerror2.ring 
+
+Can't open file syntaxerror.ring 
+
+syntaxerror.ring Line (7) Syntax error
+syntaxerror.ring errors count : 1 
+
+B:\ring\tests>call ring scripts/t.ring 
+welcome
+B:\ring\tests>call ring scripts/initsyntaxerror.ring 
+welcome
+10
+done

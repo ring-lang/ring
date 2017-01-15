@@ -214,3 +214,9 @@ call ring scripts/accesssetget.ring
 call ring scripts/functionsscope.ring
 call ring scripts/functionsscope2.ring
 call ring scripts/type2.ring
+call ring scripts/tryinsideif.ring
+call ring scripts/dotcrash.ring
+call ring scripts/braceinlist.ring
+call ring scripts/syntaxerror2.ring
+call ring scripts/t.ring
+call ring scripts/initsyntaxerror.ring
