@@ -523,3 +523,9 @@ void ring_vm_assignmentpointer ( VM *pVM )
 		pVM->nNOAssignment = 0 ;
 	}
 }
+
+void ring_vm_freeloadaddressscope ( VM *pVM )
+{
+	/* Clear Load Address Result Scope Array */
+	ring_list_deleteallitems(pVM->aLoadAddressScope);
+}

@@ -727,6 +727,7 @@ int ring_parser_stmt ( Parser *pParser )
 		x = 1 ;
 		if ( ring_parser_isendline(pParser) == 0 ) {
 			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_FREELOADASCOPE);
 			ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
 			pParser->nAssignmentFlag = 0 ;
 			x = ring_parser_expr(pParser);

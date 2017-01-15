@@ -364,6 +364,9 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_FILENAME :
 			pVM->cFileName = RING_VM_IR_READC ;
 			break ;
+		case ICO_FREELOADASCOPE :
+			ring_vm_freeloadaddressscope(pVM);
+			break ;
 		/* Jump */
 		case ICO_JUMP :
 			ring_vm_jump(pVM);

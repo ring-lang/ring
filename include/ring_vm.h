@@ -149,6 +149,8 @@ void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 ) ;
 void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 ) ;
 
 void ring_vm_assignmentpointer ( VM *pVM ) ;
+
+void ring_vm_freeloadaddressscope ( VM *pVM ) ;
 /* Compare */
 
 void ring_vm_equal ( VM *pVM ) ;
