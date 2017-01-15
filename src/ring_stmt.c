@@ -270,7 +270,9 @@ int ring_parser_stmt ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
+		pParser->nAssignmentFlag = 0 ;
 		x = ring_parser_expr(pParser);
+		pParser->nAssignmentFlag = 1 ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PRINT);
 		#if RING_PARSERTRACE
