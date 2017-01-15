@@ -1,3 +1,9 @@
+/*
+	Bug ID : 194
+	Description : Syntax Error in Calling functions from init() after new
+	Status : Fixed
+*/
+
 new qmessagebox(parent().oView.win)
 see "done" + nl
 
