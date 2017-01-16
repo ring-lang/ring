@@ -30,8 +30,7 @@ func main
 			}
 			mouse = func ogame,oself,nType,aMouseList {
 				if nType = GE_MOUSE_UP
-					cFunc = oself.keypress
-					call cFunc(oGame,oSelf,Key_Space)
+					call oself.keypress(oGame,oSelf,Key_Space)
 				ok
 			}
 		}
@@ -264,8 +263,7 @@ func playstart oGame
 			}
 			mouse = func ogame,oself,nType,aMouseList {
 				if nType = GE_MOUSE_UP
-					cFunc = oself.keypress
-					call cFunc(oGame,oSelf,Key_Space)
+					call oself.keypress(oGame,oSelf,Key_Space)
 				ok
 			}
 		}
