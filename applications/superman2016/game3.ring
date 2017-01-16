@@ -293,18 +293,14 @@ func playstart oGame
 				ok
 				if oGameState.moveplayer = TRUE
 					if aMouseList[GE_MOUSE_X] < oSelf.X  # left
-						cFunc = oself.keypress	
-						call cFunc(oGame,oSelf,Key_left)
+						call oself.keypress(oGame,oSelf,Key_left)
 					else
-						cFunc = oself.keypress	
-						call cFunc(oGame,oSelf,Key_right)
+						call oself.keypress(oGame,oSelf,Key_right)
 					ok
 					if aMouseList[GE_MOUSE_Y] < oSelf.Y  # up
-						cFunc = oself.keypress	
-						call cFunc(oGame,oSelf,Key_up)
+						call oself.keypress(oGame,oSelf,Key_up)
 					else
-						cFunc = oself.keypress	
-						call cFunc(oGame,oSelf,Key_down)
+						call oself.keypress(oGame,oSelf,Key_down)
 					ok
 				ok				
 			}
