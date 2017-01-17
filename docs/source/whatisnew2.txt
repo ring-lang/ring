@@ -21,6 +21,7 @@ Ring 1.2  comes with many new features
 * Better Call Command
 * Better Find() Function
 * Better Type() Function
+* Using NULL instead of NULLPointer()
 * Better Stability
 * Better Documentation
 
@@ -84,6 +85,14 @@ Better Type() Function
 
 The type() function is updated to display the C pointers types (like the GUI Object Class
 Name).
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Using NULL instead of NULLPointer()
+
+Using NULL instead of NULLPointer()
+===================================
+
+We can pass NULL to functions instead of using NULLPointer()
 
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Stability
