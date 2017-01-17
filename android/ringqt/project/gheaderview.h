@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GHEADERVIEW_H
 #define GHEADERVIEW_H
 #include <QApplication>
@@ -47,6 +47,18 @@ class GHeaderView : public QHeaderView
     void setsectionPressedEvent(const char *cStr);
     void setsectionResizedEvent(const char *cStr);
     void setsortIndicatorChangedEvent(const char *cStr);
+
+
+    const char *getgeometriesChangedEvent(void);
+    const char *getsectionClickedEvent(void);
+    const char *getsectionCountChangedEvent(void);
+    const char *getsectionDoubleClickedEvent(void);
+    const char *getsectionEnteredEvent(void);
+    const char *getsectionHandleDoubleClickedEvent(void);
+    const char *getsectionMovedEvent(void);
+    const char *getsectionPressedEvent(void);
+    const char *getsectionResizedEvent(void);
+    const char *getsortIndicatorChangedEvent(void);
 
 
   public slots:

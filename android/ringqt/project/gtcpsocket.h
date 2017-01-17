@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GTCPSOCKET_H
 #define GTCPSOCKET_H
 #include <QApplication>
@@ -47,6 +47,18 @@ class GTcpSocket : public QTcpSocket
     void setbytesWrittenEvent(const char *cStr);
     void setreadChannelFinishedEvent(const char *cStr);
     void setreadyReadEvent(const char *cStr);
+
+
+    const char *getconnectedEvent(void);
+    const char *getdisconnectedEvent(void);
+    const char *geterrorEvent(void);
+    const char *gethostFoundEvent(void);
+    const char *getproxyAuthenticationRequiredEvent(void);
+    const char *getstateChangedEvent(void);
+    const char *getaboutToCloseEvent(void);
+    const char *getbytesWrittenEvent(void);
+    const char *getreadChannelFinishedEvent(void);
+    const char *getreadyReadEvent(void);
 
 
   public slots:

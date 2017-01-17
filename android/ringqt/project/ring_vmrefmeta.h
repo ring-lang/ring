@@ -60,4 +60,19 @@ void ring_vm_refmeta_getattribute ( void *pPointer ) ;
 void ring_vm_refmeta_setattribute ( void *pPointer ) ;
 
 void ring_vm_refmeta_mergemethods ( void *pPointer ) ;
+/* VM */
+
+void ring_vm_refmeta_ringvmfileslist ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmcalllist ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmmemorylist ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmfunctionslist ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmclasseslist ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmpackageslist ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmcfunctionslist ( void *pPointer ) ;
 #endif

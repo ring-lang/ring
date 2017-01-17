@@ -107,7 +107,7 @@ void ring_vm_execute ( VM *pVM ) ;
 
 RING_API void ring_vm_error ( VM *pVM,const char *cStr ) ;
 
-void ring_vm_eval ( VM *pVM,const char *cStr ) ;
+int ring_vm_eval ( VM *pVM,const char *cStr ) ;
 
 void ring_vm_tobytecode ( VM *pVM,int x ) ;
 
@@ -149,6 +149,8 @@ void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 ) ;
 void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 ) ;
 
 void ring_vm_assignmentpointer ( VM *pVM ) ;
+
+void ring_vm_freeloadaddressscope ( VM *pVM ) ;
 /* Compare */
 
 void ring_vm_equal ( VM *pVM ) ;
@@ -666,6 +668,8 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VM_ERROR_BADCALLPARA "Error (R32) : The CALL command expect a variable contains string!"
 #define RING_VM_ERROR_BADDECIMALNUMBER "Error (R33) : Bad decimals number (correct range >= 0 and <=14) !"
 #define RING_VM_ERROR_ASSIGNNOTVARIABLE "Error (R34) : Variable is required for the assignment operation"
+#define RING_VM_ERROR_CANTOPENFILE "Error (R35) : Can't create/open the file!"
+#define RING_VM_ERROR_BADCOLUMNNUMBER "Error (R36) : The column number is not correct! It's greater than the number of columns in the list"
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 1
 /* Variables Location */

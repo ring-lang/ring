@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GTREEVIEW_H
 #define GTREEVIEW_H
 #include <QApplication>
@@ -43,6 +43,16 @@ class GTreeView : public QTreeView
     void setenteredEvent(const char *cStr);
     void setpressedEvent(const char *cStr);
     void setviewportEnteredEvent(const char *cStr);
+
+
+    const char *getcollapsedEvent(void);
+    const char *getexpandedEvent(void);
+    const char *getactivatedEvent(void);
+    const char *getclickedEvent(void);
+    const char *getdoubleClickedEvent(void);
+    const char *getenteredEvent(void);
+    const char *getpressedEvent(void);
+    const char *getviewportEnteredEvent(void);
 
 
   public slots:

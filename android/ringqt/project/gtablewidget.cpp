@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -145,6 +145,82 @@ void GTableWidget::setitemSelectionChangedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->citemSelectionChangedEvent,cStr);
+}
+
+ 
+const char *GTableWidget::getcellActivatedEvent(void)
+{
+	return this->ccellActivatedEvent;
+}
+
+const char *GTableWidget::getcellChangedEvent(void)
+{
+	return this->ccellChangedEvent;
+}
+
+const char *GTableWidget::getcellClickedEvent(void)
+{
+	return this->ccellClickedEvent;
+}
+
+const char *GTableWidget::getcellDoubleClickedEvent(void)
+{
+	return this->ccellDoubleClickedEvent;
+}
+
+const char *GTableWidget::getcellEnteredEvent(void)
+{
+	return this->ccellEnteredEvent;
+}
+
+const char *GTableWidget::getcellPressedEvent(void)
+{
+	return this->ccellPressedEvent;
+}
+
+const char *GTableWidget::getcurrentCellChangedEvent(void)
+{
+	return this->ccurrentCellChangedEvent;
+}
+
+const char *GTableWidget::getcurrentItemChangedEvent(void)
+{
+	return this->ccurrentItemChangedEvent;
+}
+
+const char *GTableWidget::getitemActivatedEvent(void)
+{
+	return this->citemActivatedEvent;
+}
+
+const char *GTableWidget::getitemChangedEvent(void)
+{
+	return this->citemChangedEvent;
+}
+
+const char *GTableWidget::getitemClickedEvent(void)
+{
+	return this->citemClickedEvent;
+}
+
+const char *GTableWidget::getitemDoubleClickedEvent(void)
+{
+	return this->citemDoubleClickedEvent;
+}
+
+const char *GTableWidget::getitemEnteredEvent(void)
+{
+	return this->citemEnteredEvent;
+}
+
+const char *GTableWidget::getitemPressedEvent(void)
+{
+	return this->citemPressedEvent;
+}
+
+const char *GTableWidget::getitemSelectionChangedEvent(void)
+{
+	return this->citemSelectionChangedEvent;
 }
 
 

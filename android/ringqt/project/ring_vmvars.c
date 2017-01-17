@@ -64,8 +64,10 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				/* Search Using Linear Search */
 				nPos = ring_list_findstring(pList,cStr,1);
 				if ( nPos != 0 ) {
-					pList2 = ring_list_getlist(pList,nPos);
-					return ring_vm_findvar2(pVM,x,pList2,cStr) ;
+					if ( ring_list_islist(pList,nPos) ) {
+						pList2 = ring_list_getlist(pList,nPos);
+						return ring_vm_findvar2(pVM,x,pList2,cStr) ;
+					}
 				}
 			}
 			else {

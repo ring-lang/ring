@@ -279,7 +279,7 @@ int ring_issourcefile ( const char *cStr )
 {
 	int x  ;
 	x = strlen(cStr) - 1 ;
-	if ( x > 5 ) {
+	if ( x >= 5 ) {
 		if ( tolower(cStr[x]) == 'g' && tolower(cStr[x-1]) == 'n' && tolower(cStr[x-2]) == 'i' && tolower(cStr[x-3]) == 'r' && cStr[x-4] == '.' ) {
 			return 1 ;
 		}

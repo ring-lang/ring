@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -105,6 +105,57 @@ void GListWidget::setitemSelectionChangedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->citemSelectionChangedEvent,cStr);
+}
+
+ 
+const char *GListWidget::getcurrentItemChangedEvent(void)
+{
+	return this->ccurrentItemChangedEvent;
+}
+
+const char *GListWidget::getcurrentRowChangedEvent(void)
+{
+	return this->ccurrentRowChangedEvent;
+}
+
+const char *GListWidget::getcurrentTextChangedEvent(void)
+{
+	return this->ccurrentTextChangedEvent;
+}
+
+const char *GListWidget::getitemActivatedEvent(void)
+{
+	return this->citemActivatedEvent;
+}
+
+const char *GListWidget::getitemChangedEvent(void)
+{
+	return this->citemChangedEvent;
+}
+
+const char *GListWidget::getitemClickedEvent(void)
+{
+	return this->citemClickedEvent;
+}
+
+const char *GListWidget::getitemDoubleClickedEvent(void)
+{
+	return this->citemDoubleClickedEvent;
+}
+
+const char *GListWidget::getitemEnteredEvent(void)
+{
+	return this->citemEnteredEvent;
+}
+
+const char *GListWidget::getitemPressedEvent(void)
+{
+	return this->citemPressedEvent;
+}
+
+const char *GListWidget::getitemSelectionChangedEvent(void)
+{
+	return this->citemSelectionChangedEvent;
 }
 
 

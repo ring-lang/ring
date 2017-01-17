@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +57,27 @@ void GIODevice::setreadyReadEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->creadyReadEvent,cStr);
+}
+
+ 
+const char *GIODevice::getaboutToCloseEvent(void)
+{
+	return this->caboutToCloseEvent;
+}
+
+const char *GIODevice::getbytesWrittenEvent(void)
+{
+	return this->cbytesWrittenEvent;
+}
+
+const char *GIODevice::getreadChannelFinishedEvent(void)
+{
+	return this->creadChannelFinishedEvent;
+}
+
+const char *GIODevice::getreadyReadEvent(void)
+{
+	return this->creadyReadEvent;
 }
 
 

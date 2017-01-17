@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -33,6 +33,12 @@ void GTimer::settimeoutEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->ctimeoutEvent,cStr);
+}
+
+ 
+const char *GTimer::gettimeoutEvent(void)
+{
+	return this->ctimeoutEvent;
 }
 
 

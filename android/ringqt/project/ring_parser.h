@@ -126,6 +126,8 @@ int ring_parser_ppmm ( Parser *pParser ) ;
 int ring_parser_csexpr ( Parser *pParser ) ;
 
 int ring_parser_csbraceend ( Parser *pParser ) ;
+
+int ring_parser_objattributes ( Parser *pParser ) ;
 /* Check Token */
 
 void ring_parser_loadtoken ( Parser *pParser ) ;

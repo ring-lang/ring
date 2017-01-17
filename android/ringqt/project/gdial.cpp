@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +73,37 @@ void GDial::setvalueChangedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->cvalueChangedEvent,cStr);
+}
+
+ 
+const char *GDial::getactionTriggeredEvent(void)
+{
+	return this->cactionTriggeredEvent;
+}
+
+const char *GDial::getrangeChangedEvent(void)
+{
+	return this->crangeChangedEvent;
+}
+
+const char *GDial::getsliderMovedEvent(void)
+{
+	return this->csliderMovedEvent;
+}
+
+const char *GDial::getsliderPressedEvent(void)
+{
+	return this->csliderPressedEvent;
+}
+
+const char *GDial::getsliderReleasedEvent(void)
+{
+	return this->csliderReleasedEvent;
+}
+
+const char *GDial::getvalueChangedEvent(void)
+{
+	return this->cvalueChangedEvent;
 }
 
 

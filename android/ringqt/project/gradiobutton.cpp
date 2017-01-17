@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +57,27 @@ void GRadioButton::settoggledEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->ctoggledEvent,cStr);
+}
+
+ 
+const char *GRadioButton::getclickedEvent(void)
+{
+	return this->cclickedEvent;
+}
+
+const char *GRadioButton::getpressedEvent(void)
+{
+	return this->cpressedEvent;
+}
+
+const char *GRadioButton::getreleasedEvent(void)
+{
+	return this->creleasedEvent;
+}
+
+const char *GRadioButton::gettoggledEvent(void)
+{
+	return this->ctoggledEvent;
 }
 
 

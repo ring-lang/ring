@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GPLAINTEXTEDIT_H
 #define GPLAINTEXTEDIT_H
 #include <QApplication>
@@ -45,6 +45,17 @@ class GPlainTextEdit : public QPlainTextEdit
     void settextChangedEvent(const char *cStr);
     void setundoAvailableEvent(const char *cStr);
     void setupdateRequestEvent(const char *cStr);
+
+
+    const char *getblockCountChangedEvent(void);
+    const char *getcopyAvailableEvent(void);
+    const char *getcursorPositionChangedEvent(void);
+    const char *getmodificationChangedEvent(void);
+    const char *getredoAvailableEvent(void);
+    const char *getselectionChangedEvent(void);
+    const char *gettextChangedEvent(void);
+    const char *getundoAvailableEvent(void);
+    const char *getupdateRequestEvent(void);
 
 
   public slots:

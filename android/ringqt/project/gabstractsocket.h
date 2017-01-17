@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GABSTRACTSOCKET_H
 #define GABSTRACTSOCKET_H
 #include <QApplication>
@@ -39,6 +39,14 @@ class GAbstractSocket : public QAbstractSocket
     void sethostFoundEvent(const char *cStr);
     void setproxyAuthenticationRequiredEvent(const char *cStr);
     void setstateChangedEvent(const char *cStr);
+
+
+    const char *getconnectedEvent(void);
+    const char *getdisconnectedEvent(void);
+    const char *geterrorEvent(void);
+    const char *gethostFoundEvent(void);
+    const char *getproxyAuthenticationRequiredEvent(void);
+    const char *getstateChangedEvent(void);
 
 
   public slots:

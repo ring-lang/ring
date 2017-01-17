@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GLINEEDIT_H
 #define GLINEEDIT_H
 #include <QApplication>
@@ -39,6 +39,14 @@ class GLineEdit : public QLineEdit
     void setreturnPressedEvent(const char *cStr);
     void setselectionChangedEvent(const char *cStr);
     void settextEditedEvent(const char *cStr);
+
+
+    const char *getTextChangedEvent(void);
+    const char *getcursorPositionChangedEvent(void);
+    const char *geteditingFinishedEvent(void);
+    const char *getreturnPressedEvent(void);
+    const char *getselectionChangedEvent(void);
+    const char *gettextEditedEvent(void);
 
 
   public slots:

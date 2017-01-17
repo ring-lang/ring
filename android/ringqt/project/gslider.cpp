@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +73,37 @@ void GSlider::setvalueChangedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->cvalueChangedEvent,cStr);
+}
+
+ 
+const char *GSlider::getactionTriggeredEvent(void)
+{
+	return this->cactionTriggeredEvent;
+}
+
+const char *GSlider::getrangeChangedEvent(void)
+{
+	return this->crangeChangedEvent;
+}
+
+const char *GSlider::getsliderMovedEvent(void)
+{
+	return this->csliderMovedEvent;
+}
+
+const char *GSlider::getsliderPressedEvent(void)
+{
+	return this->csliderPressedEvent;
+}
+
+const char *GSlider::getsliderReleasedEvent(void)
+{
+	return this->csliderReleasedEvent;
+}
+
+const char *GSlider::getvalueChangedEvent(void)
+{
+	return this->cvalueChangedEvent;
 }
 
 

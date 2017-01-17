@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -105,6 +105,57 @@ void GHeaderView::setsortIndicatorChangedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->csortIndicatorChangedEvent,cStr);
+}
+
+ 
+const char *GHeaderView::getgeometriesChangedEvent(void)
+{
+	return this->cgeometriesChangedEvent;
+}
+
+const char *GHeaderView::getsectionClickedEvent(void)
+{
+	return this->csectionClickedEvent;
+}
+
+const char *GHeaderView::getsectionCountChangedEvent(void)
+{
+	return this->csectionCountChangedEvent;
+}
+
+const char *GHeaderView::getsectionDoubleClickedEvent(void)
+{
+	return this->csectionDoubleClickedEvent;
+}
+
+const char *GHeaderView::getsectionEnteredEvent(void)
+{
+	return this->csectionEnteredEvent;
+}
+
+const char *GHeaderView::getsectionHandleDoubleClickedEvent(void)
+{
+	return this->csectionHandleDoubleClickedEvent;
+}
+
+const char *GHeaderView::getsectionMovedEvent(void)
+{
+	return this->csectionMovedEvent;
+}
+
+const char *GHeaderView::getsectionPressedEvent(void)
+{
+	return this->csectionPressedEvent;
+}
+
+const char *GHeaderView::getsectionResizedEvent(void)
+{
+	return this->csectionResizedEvent;
+}
+
+const char *GHeaderView::getsortIndicatorChangedEvent(void)
+{
+	return this->csortIndicatorChangedEvent;
 }
 
 

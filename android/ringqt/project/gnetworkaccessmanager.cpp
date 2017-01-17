@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -33,6 +33,12 @@ void GNetworkAccessManager::setfinishedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->cfinishedEvent,cStr);
+}
+
+ 
+const char *GNetworkAccessManager::getfinishedEvent(void)
+{
+	return this->cfinishedEvent;
 }
 
 

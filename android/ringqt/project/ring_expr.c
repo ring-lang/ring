@@ -1000,9 +1000,13 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			ring_parser_icg_newoperand(pParser,pParser->TokenText);
 			/* Generate Location for nPC of Getter */
 			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_nexttoken(pParser);
+			/* Object Attributes */
+			if ( ring_parser_objattributes(pParser) == 0 ) {
+				return 0 ;
+			}
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			ring_parser_icg_newoperation(pParser,ICO_ANONYMOUS);
-			ring_parser_nexttoken(pParser);
 			if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 				return ring_parser_mixer(pParser) ;
 			}
@@ -1020,32 +1024,12 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 int ring_parser_mixer ( Parser *pParser )
 {
 	int x,nCallMethod,nStatus,nFlag  ;
-	/* { . Identifier } */
-	while ( ring_parser_isoperator2(pParser,OP_DOT) ) {
-		ring_parser_nexttoken(pParser);
-		RING_PARSER_IGNORENEWLINE ;
-		/* we support literal to be able to call methods contains operators in the name */
-		if ( ring_parser_isidentifier(pParser) || ring_parser_isliteral(pParser) ) {
-			/* Prevent Accessing the self reference from outside the object */
-			if ( strcmp(pParser->TokenText,"self") == 0 ) {
-				ring_parser_error(pParser,RING_PARSER_ERROR_ACCESSSELFREF);
-				return 0 ;
-			}
-			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_LOADSUBADDRESS);
-			ring_parser_icg_newoperand(pParser,pParser->TokenText);
-			/* Generate Location for nPC of Getter - When we access object attribute using { } */
-			ring_parser_icg_newoperandint(pParser,0);
-			#if RING_PARSERTRACE
-			RING_STATE_CHECKPRINTRULES 
-			
-			puts("Rule : Mixer -> '.' Identifier ");
-			#endif
-			ring_parser_nexttoken(pParser);
-		}
-		else {
-			return 0 ;
-		}
+	/*
+	**  { . Identifier } 
+	**  Object Attributes 
+	*/
+	if ( ring_parser_objattributes(pParser) == 0 ) {
+		return 0 ;
 	}
 	/* [Index]  to access array element, Index = Expression */
 	if ( ring_parser_isoperator2(pParser,OP_LOPEN) ) {
@@ -1105,10 +1089,6 @@ int ring_parser_mixer ( Parser *pParser )
 			puts("Rule : Mixer -> '(' [Expr { ',' Expr} ] ')' ");
 			#endif
 			RING_PARSER_IGNORENEWLINE ;
-			/* Function Call Only */
-			if ( pParser->nFuncCallOnly == 1 ) {
-				return 1 ;
-			}
 			x = ring_parser_mixer(pParser);
 			return x ;
 		}
@@ -1130,10 +1110,6 @@ int ring_parser_mixer ( Parser *pParser )
 					ring_parser_nexttoken(pParser);
 					/* Generate Code */
 					ring_parser_gencall(pParser,nCallMethod);
-					/* Function Call Only */
-					if ( pParser->nFuncCallOnly == 1 ) {
-						return 1 ;
-					}
 					x = ring_parser_mixer(pParser);
 					return x ;
 				}
@@ -1147,6 +1123,10 @@ int ring_parser_mixer ( Parser *pParser )
 			}
 			RING_PARSER_IGNORENEWLINE ;
 		}
+	}
+	/* Function Call Only */
+	if ( pParser->nFuncCallOnly == 1 ) {
+		return 1 ;
 	}
 	/* '{' {Statement} '}' */
 	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) && pParser->nControlStructureExpr == 0 ) {
@@ -1274,5 +1254,37 @@ void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
 	ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 	nMark1 = ring_parser_icg_newlabel(pParser);
 	ring_parser_icg_addoperandint(pMark,nMark1);
+}
+
+int ring_parser_objattributes ( Parser *pParser )
+{
+	/* { . Identifier } */
+	while ( ring_parser_isoperator2(pParser,OP_DOT) ) {
+		ring_parser_nexttoken(pParser);
+		RING_PARSER_IGNORENEWLINE ;
+		/* we support literal to be able to call methods contains operators in the name */
+		if ( ring_parser_isidentifier(pParser) || ring_parser_isliteral(pParser) ) {
+			/* Prevent Accessing the self reference from outside the object */
+			if ( strcmp(pParser->TokenText,"self") == 0 ) {
+				ring_parser_error(pParser,RING_PARSER_ERROR_ACCESSSELFREF);
+				return 0 ;
+			}
+			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_LOADSUBADDRESS);
+			ring_parser_icg_newoperand(pParser,pParser->TokenText);
+			/* Generate Location for nPC of Getter - When we access object attribute using { } */
+			ring_parser_icg_newoperandint(pParser,0);
+			#if RING_PARSERTRACE
+			RING_STATE_CHECKPRINTRULES 
+			
+			puts("Rule : Mixer -> '.' Identifier ");
+			#endif
+			ring_parser_nexttoken(pParser);
+		}
+		else {
+			return 0 ;
+		}
+	}
+	return 1 ;
 }
 

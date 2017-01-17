@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GBUTTONGROUP_H
 #define GBUTTONGROUP_H
 #include <QApplication>
@@ -33,6 +33,11 @@ class GButtonGroup : public QButtonGroup
     void setbuttonClickedEvent(const char *cStr);
     void setbuttonPressedEvent(const char *cStr);
     void setbuttonReleasedEvent(const char *cStr);
+
+
+    const char *getbuttonClickedEvent(void);
+    const char *getbuttonPressedEvent(void);
+    const char *getbuttonReleasedEvent(void);
 
 
   public slots:

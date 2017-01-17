@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +57,27 @@ void GComboBox::sethighlightedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->chighlightedEvent,cStr);
+}
+
+ 
+const char *GComboBox::getactivatedEvent(void)
+{
+	return this->cactivatedEvent;
+}
+
+const char *GComboBox::getcurrentIndexChangedEvent(void)
+{
+	return this->ccurrentIndexChangedEvent;
+}
+
+const char *GComboBox::geteditTextChangedEvent(void)
+{
+	return this->ceditTextChangedEvent;
+}
+
+const char *GComboBox::gethighlightedEvent(void)
+{
+	return this->chighlightedEvent;
 }
 
 

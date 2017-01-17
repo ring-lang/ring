@@ -909,6 +909,9 @@ Class QPushButton from QAbstractButton
 	Func setIconSize P1
 		return QPushButton_setIconSize(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func getClickEvent 
+		return QPushButton_getClickEvent(pObject)
+
 Class QBitmap from QPixmap
 
 	pObject
@@ -1193,6 +1196,24 @@ Class QLineEdit from QWidget
 
 	Func settextEditedEvent P1
 		return QLineEdit_settextEditedEvent(pObject,P1)
+
+	Func getTextChangedEvent 
+		return QLineEdit_getTextChangedEvent(pObject)
+
+	Func getcursorPositionChangedEvent 
+		return QLineEdit_getcursorPositionChangedEvent(pObject)
+
+	Func geteditingFinishedEvent 
+		return QLineEdit_geteditingFinishedEvent(pObject)
+
+	Func getreturnPressedEvent 
+		return QLineEdit_getreturnPressedEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QLineEdit_getselectionChangedEvent(pObject)
+
+	Func gettextEditedEvent 
+		return QLineEdit_gettextEditedEvent(pObject)
 
 Class QVBoxLayout
 
@@ -1503,6 +1524,27 @@ Class QTextEdit from QAbstractScrollArea
 	Func setundoAvailableEvent P1
 		return QTextEdit_setundoAvailableEvent(pObject,P1)
 
+	Func getcopyAvailableEvent 
+		return QTextEdit_getcopyAvailableEvent(pObject)
+
+	Func getcurrentCharFormatChangedEvent 
+		return QTextEdit_getcurrentCharFormatChangedEvent(pObject)
+
+	Func getcursorPositionChangedEvent 
+		return QTextEdit_getcursorPositionChangedEvent(pObject)
+
+	Func getredoAvailableEvent 
+		return QTextEdit_getredoAvailableEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QTextEdit_getselectionChangedEvent(pObject)
+
+	Func gettextChangedEvent 
+		return QTextEdit_gettextChangedEvent(pObject)
+
+	Func getundoAvailableEvent 
+		return QTextEdit_getundoAvailableEvent(pObject)
+
 	Func cyanline P1
 		return QTextEdit_cyanline(pObject,GetObjectPointerFromRingObject(P1))
 
@@ -1584,6 +1626,12 @@ Class QListWidget from QWidget
 		pTempObj.pObject = QListWidget_visualItemRect(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
+	Func clear 
+		return QListWidget_clear(pObject)
+
+	Func scrollToItem P1,P2
+		return QListWidget_scrollToItem(pObject,GetObjectPointerFromRingObject(P1),P2)
+
 	Func setcurrentItemChangedEvent P1
 		return QListWidget_setcurrentItemChangedEvent(pObject,P1)
 
@@ -1613,6 +1661,36 @@ Class QListWidget from QWidget
 
 	Func setitemSelectionChangedEvent P1
 		return QListWidget_setitemSelectionChangedEvent(pObject,P1)
+
+	Func getcurrentItemChangedEvent 
+		return QListWidget_getcurrentItemChangedEvent(pObject)
+
+	Func getcurrentRowChangedEvent 
+		return QListWidget_getcurrentRowChangedEvent(pObject)
+
+	Func getcurrentTextChangedEvent 
+		return QListWidget_getcurrentTextChangedEvent(pObject)
+
+	Func getitemActivatedEvent 
+		return QListWidget_getitemActivatedEvent(pObject)
+
+	Func getitemChangedEvent 
+		return QListWidget_getitemChangedEvent(pObject)
+
+	Func getitemClickedEvent 
+		return QListWidget_getitemClickedEvent(pObject)
+
+	Func getitemDoubleClickedEvent 
+		return QListWidget_getitemDoubleClickedEvent(pObject)
+
+	Func getitemEnteredEvent 
+		return QListWidget_getitemEnteredEvent(pObject)
+
+	Func getitemPressedEvent 
+		return QListWidget_getitemPressedEvent(pObject)
+
+	Func getitemSelectionChangedEvent 
+		return QListWidget_getitemSelectionChangedEvent(pObject)
 
 Class QTreeView from QAbstractItemView
 
@@ -1824,6 +1902,30 @@ Class QTreeView from QAbstractItemView
 	Func setviewportEnteredEvent P1
 		return QTreeView_setviewportEnteredEvent(pObject,P1)
 
+	Func getcollapsedEvent 
+		return QTreeView_getcollapsedEvent(pObject)
+
+	Func getexpandedEvent 
+		return QTreeView_getexpandedEvent(pObject)
+
+	Func getactivatedEvent 
+		return QTreeView_getactivatedEvent(pObject)
+
+	Func getclickedEvent 
+		return QTreeView_getclickedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QTreeView_getdoubleClickedEvent(pObject)
+
+	Func getenteredEvent 
+		return QTreeView_getenteredEvent(pObject)
+
+	Func getpressedEvent 
+		return QTreeView_getpressedEvent(pObject)
+
+	Func getviewportEnteredEvent 
+		return QTreeView_getviewportEnteredEvent(pObject)
+
 Class QDir
 
 	pObject
@@ -2000,7 +2102,7 @@ Class QFileSystemModel
 	Func supportedDropActions 
 		return QFileSystemModel_supportedDropActions(pObject)
 
-Class QTreeWidget from QWidget
+Class QTreeWidget from QTreeView
 
 	pObject
 
@@ -2186,6 +2288,60 @@ Class QTreeWidget from QWidget
 
 	Func setitemSelectionChangedEvent P1
 		return QTreeWidget_setitemSelectionChangedEvent(pObject,P1)
+
+	Func getcollapsedEvent 
+		return QTreeWidget_getcollapsedEvent(pObject)
+
+	Func getexpandedEvent 
+		return QTreeWidget_getexpandedEvent(pObject)
+
+	Func getactivatedEvent 
+		return QTreeWidget_getactivatedEvent(pObject)
+
+	Func getclickedEvent 
+		return QTreeWidget_getclickedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QTreeWidget_getdoubleClickedEvent(pObject)
+
+	Func getenteredEvent 
+		return QTreeWidget_getenteredEvent(pObject)
+
+	Func getpressedEvent 
+		return QTreeWidget_getpressedEvent(pObject)
+
+	Func getviewportEnteredEvent 
+		return QTreeWidget_getviewportEnteredEvent(pObject)
+
+	Func getcurrentItemChangedEvent 
+		return QTreeWidget_getcurrentItemChangedEvent(pObject)
+
+	Func getitemActivatedEvent 
+		return QTreeWidget_getitemActivatedEvent(pObject)
+
+	Func getitemChangedEvent 
+		return QTreeWidget_getitemChangedEvent(pObject)
+
+	Func getitemClickedEvent 
+		return QTreeWidget_getitemClickedEvent(pObject)
+
+	Func getitemCollapsedEvent 
+		return QTreeWidget_getitemCollapsedEvent(pObject)
+
+	Func getitemDoubleClickedEvent 
+		return QTreeWidget_getitemDoubleClickedEvent(pObject)
+
+	Func getitemEnteredEvent 
+		return QTreeWidget_getitemEnteredEvent(pObject)
+
+	Func getitemExpandedEvent 
+		return QTreeWidget_getitemExpandedEvent(pObject)
+
+	Func getitemPressedEvent 
+		return QTreeWidget_getitemPressedEvent(pObject)
+
+	Func getitemSelectionChangedEvent 
+		return QTreeWidget_getitemSelectionChangedEvent(pObject)
 
 Class QTreeWidgetItem
 
@@ -2541,6 +2697,18 @@ Class QComboBox from QWidget
 		pTempObj.pObject = QComboBox_view(pObject)
 		return pTempObj
 
+	Func clear 
+		return QComboBox_clear(pObject)
+
+	Func clearEditText 
+		return QComboBox_clearEditText(pObject)
+
+	Func setCurrentIndex P1
+		return QComboBox_setCurrentIndex(pObject,P1)
+
+	Func setEditText P1
+		return QComboBox_setEditText(pObject,P1)
+
 	Func setactivatedEvent P1
 		return QComboBox_setactivatedEvent(pObject,P1)
 
@@ -2552,6 +2720,18 @@ Class QComboBox from QWidget
 
 	Func sethighlightedEvent P1
 		return QComboBox_sethighlightedEvent(pObject,P1)
+
+	Func getactivatedEvent 
+		return QComboBox_getactivatedEvent(pObject)
+
+	Func getcurrentIndexChangedEvent 
+		return QComboBox_getcurrentIndexChangedEvent(pObject)
+
+	Func geteditTextChangedEvent 
+		return QComboBox_geteditTextChangedEvent(pObject)
+
+	Func gethighlightedEvent 
+		return QComboBox_gethighlightedEvent(pObject)
 
 Class QMenuBar from QWidget
 
@@ -3251,6 +3431,12 @@ Class QTabWidget from QWidget
 
 	Func settabCloseRequestedEvent P1
 		return QTabWidget_settabCloseRequestedEvent(pObject,P1)
+
+	Func getcurrentChangedEvent 
+		return QTabWidget_getcurrentChangedEvent(pObject)
+
+	Func gettabCloseRequestedEvent 
+		return QTabWidget_gettabCloseRequestedEvent(pObject)
 
 Class QTableWidgetItem
 
@@ -4050,6 +4236,51 @@ Class QTableWidget from QTableView
 	Func setitemSelectionChangedEvent P1
 		return QTableWidget_setitemSelectionChangedEvent(pObject,P1)
 
+	Func getcellActivatedEvent 
+		return QTableWidget_getcellActivatedEvent(pObject)
+
+	Func getcellChangedEvent 
+		return QTableWidget_getcellChangedEvent(pObject)
+
+	Func getcellClickedEvent 
+		return QTableWidget_getcellClickedEvent(pObject)
+
+	Func getcellDoubleClickedEvent 
+		return QTableWidget_getcellDoubleClickedEvent(pObject)
+
+	Func getcellEnteredEvent 
+		return QTableWidget_getcellEnteredEvent(pObject)
+
+	Func getcellPressedEvent 
+		return QTableWidget_getcellPressedEvent(pObject)
+
+	Func getcurrentCellChangedEvent 
+		return QTableWidget_getcurrentCellChangedEvent(pObject)
+
+	Func getcurrentItemChangedEvent 
+		return QTableWidget_getcurrentItemChangedEvent(pObject)
+
+	Func getitemActivatedEvent 
+		return QTableWidget_getitemActivatedEvent(pObject)
+
+	Func getitemChangedEvent 
+		return QTableWidget_getitemChangedEvent(pObject)
+
+	Func getitemClickedEvent 
+		return QTableWidget_getitemClickedEvent(pObject)
+
+	Func getitemDoubleClickedEvent 
+		return QTableWidget_getitemDoubleClickedEvent(pObject)
+
+	Func getitemEnteredEvent 
+		return QTableWidget_getitemEnteredEvent(pObject)
+
+	Func getitemPressedEvent 
+		return QTableWidget_getitemPressedEvent(pObject)
+
+	Func getitemSelectionChangedEvent 
+		return QTableWidget_getitemSelectionChangedEvent(pObject)
+
 Class QProgressBar from QWidget
 
 	pObject
@@ -4130,6 +4361,9 @@ Class QProgressBar from QWidget
 	Func setvalueChangedEvent P1
 		return QProgressBar_setvalueChangedEvent(pObject,P1)
 
+	Func getvalueChangedEvent 
+		return QProgressBar_getvalueChangedEvent(pObject)
+
 Class QSpinBox from QWidget
 
 	pObject
@@ -4191,6 +4425,9 @@ Class QSpinBox from QWidget
 
 	Func setvalueChangedEvent P1
 		return QSpinBox_setvalueChangedEvent(pObject,P1)
+
+	Func getvalueChangedEvent 
+		return QSpinBox_getvalueChangedEvent(pObject)
 
 Class QAbstractSlider from QWidget
 
@@ -4325,6 +4562,24 @@ Class QSlider from QAbstractSlider
 
 	Func setvalueChangedEvent P1
 		return QSlider_setvalueChangedEvent(pObject,P1)
+
+	Func getactionTriggeredEvent 
+		return QSlider_getactionTriggeredEvent(pObject)
+
+	Func getrangeChangedEvent 
+		return QSlider_getrangeChangedEvent(pObject)
+
+	Func getsliderMovedEvent 
+		return QSlider_getsliderMovedEvent(pObject)
+
+	Func getsliderPressedEvent 
+		return QSlider_getsliderPressedEvent(pObject)
+
+	Func getsliderReleasedEvent 
+		return QSlider_getsliderReleasedEvent(pObject)
+
+	Func getvalueChangedEvent 
+		return QSlider_getvalueChangedEvent(pObject)
 
 Class QDateTimeEdit from QAbstractSpinBox
 
@@ -4630,6 +4885,24 @@ Class QDial from QAbstractSlider
 	Func setvalueChangedEvent P1
 		return QDial_setvalueChangedEvent(pObject,P1)
 
+	Func getactionTriggeredEvent 
+		return QDial_getactionTriggeredEvent(pObject)
+
+	Func getrangeChangedEvent 
+		return QDial_getrangeChangedEvent(pObject)
+
+	Func getsliderMovedEvent 
+		return QDial_getsliderMovedEvent(pObject)
+
+	Func getsliderPressedEvent 
+		return QDial_getsliderPressedEvent(pObject)
+
+	Func getsliderReleasedEvent 
+		return QDial_getsliderReleasedEvent(pObject)
+
+	Func getvalueChangedEvent 
+		return QDial_getvalueChangedEvent(pObject)
+
 Class QUrl
 
 	pObject
@@ -4801,6 +5074,21 @@ Class QCheckBox from QAbstractButton
 	Func settoggledEvent P1
 		return QCheckBox_settoggledEvent(pObject,P1)
 
+	Func getstateChangedEvent 
+		return QCheckBox_getstateChangedEvent(pObject)
+
+	Func getclickedEvent 
+		return QCheckBox_getclickedEvent(pObject)
+
+	Func getpressedEvent 
+		return QCheckBox_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QCheckBox_getreleasedEvent(pObject)
+
+	Func gettoggledEvent 
+		return QCheckBox_gettoggledEvent(pObject)
+
 Class QAbstractButton from QWidget
 
 	pObject
@@ -4931,6 +5219,18 @@ Class QRadioButton from QAbstractButton
 	Func settoggledEvent P1
 		return QRadioButton_settoggledEvent(pObject,P1)
 
+	Func getclickedEvent 
+		return QRadioButton_getclickedEvent(pObject)
+
+	Func getpressedEvent 
+		return QRadioButton_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QRadioButton_getreleasedEvent(pObject)
+
+	Func gettoggledEvent 
+		return QRadioButton_gettoggledEvent(pObject)
+
 Class QButtonGroup
 
 	pObject
@@ -4981,6 +5281,15 @@ Class QButtonGroup
 
 	Func setbuttonReleasedEvent P1
 		return QButtonGroup_setbuttonReleasedEvent(pObject,P1)
+
+	Func getbuttonClickedEvent 
+		return QButtonGroup_getbuttonClickedEvent(pObject)
+
+	Func getbuttonPressedEvent 
+		return QButtonGroup_getbuttonPressedEvent(pObject)
+
+	Func getbuttonReleasedEvent 
+		return QButtonGroup_getbuttonReleasedEvent(pObject)
 
 Class QMediaPlayer
 
@@ -5220,6 +5529,21 @@ Class QVideoWidget from QWidget
 	Func setsaturationChangedEvent P1
 		return QVideoWidget_setsaturationChangedEvent(pObject,P1)
 
+	Func getbrightnessChangedEvent 
+		return QVideoWidget_getbrightnessChangedEvent(pObject)
+
+	Func getcontrastChangedEvent 
+		return QVideoWidget_getcontrastChangedEvent(pObject)
+
+	Func getfullScreenChangedEvent 
+		return QVideoWidget_getfullScreenChangedEvent(pObject)
+
+	Func gethueChangedEvent 
+		return QVideoWidget_gethueChangedEvent(pObject)
+
+	Func getsaturationChangedEvent 
+		return QVideoWidget_getsaturationChangedEvent(pObject)
+
 Class QAction
 
 	pObject
@@ -5395,6 +5719,9 @@ Class QAction
 
 	Func setClickEvent P1
 		return QAction_setClickEvent(pObject,P1)
+
+	Func getClickEvent 
+		return QAction_getClickEvent(pObject)
 
 Class QEvent
 
@@ -5579,6 +5906,9 @@ Class QTimer
 
 	Func settimeoutEvent P1
 		return QTimer_settimeoutEvent(pObject,P1)
+
+	Func gettimeoutEvent 
+		return QTimer_gettimeoutEvent(pObject)
 
 Class QFileDialog from QWidget
 
@@ -7177,6 +7507,18 @@ Class QIODevice
 	Func setreadyReadEvent P1
 		return QIODevice_setreadyReadEvent(pObject,P1)
 
+	Func getaboutToCloseEvent 
+		return QIODevice_getaboutToCloseEvent(pObject)
+
+	Func getbytesWrittenEvent 
+		return QIODevice_getbytesWrittenEvent(pObject)
+
+	Func getreadChannelFinishedEvent 
+		return QIODevice_getreadChannelFinishedEvent(pObject)
+
+	Func getreadyReadEvent 
+		return QIODevice_getreadyReadEvent(pObject)
+
 Class QAbstractSocket from QIODevice
 
 	pObject
@@ -7319,6 +7661,24 @@ Class QAbstractSocket from QIODevice
 	Func setstateChangedEvent P1
 		return QAbstractSocket_setstateChangedEvent(pObject,P1)
 
+	Func getconnectedEvent 
+		return QAbstractSocket_getconnectedEvent(pObject)
+
+	Func getdisconnectedEvent 
+		return QAbstractSocket_getdisconnectedEvent(pObject)
+
+	Func geterrorEvent 
+		return QAbstractSocket_geterrorEvent(pObject)
+
+	Func gethostFoundEvent 
+		return QAbstractSocket_gethostFoundEvent(pObject)
+
+	Func getproxyAuthenticationRequiredEvent 
+		return QAbstractSocket_getproxyAuthenticationRequiredEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QAbstractSocket_getstateChangedEvent(pObject)
+
 Class QNetworkProxy
 
 	pObject
@@ -7443,6 +7803,36 @@ Class QTcpSocket from QAbstractSocket
 	Func setreadyReadEvent P1
 		return QTcpSocket_setreadyReadEvent(pObject,P1)
 
+	Func getconnectedEvent 
+		return QTcpSocket_getconnectedEvent(pObject)
+
+	Func getdisconnectedEvent 
+		return QTcpSocket_getdisconnectedEvent(pObject)
+
+	Func geterrorEvent 
+		return QTcpSocket_geterrorEvent(pObject)
+
+	Func gethostFoundEvent 
+		return QTcpSocket_gethostFoundEvent(pObject)
+
+	Func getproxyAuthenticationRequiredEvent 
+		return QTcpSocket_getproxyAuthenticationRequiredEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QTcpSocket_getstateChangedEvent(pObject)
+
+	Func getaboutToCloseEvent 
+		return QTcpSocket_getaboutToCloseEvent(pObject)
+
+	Func getbytesWrittenEvent 
+		return QTcpSocket_getbytesWrittenEvent(pObject)
+
+	Func getreadChannelFinishedEvent 
+		return QTcpSocket_getreadChannelFinishedEvent(pObject)
+
+	Func getreadyReadEvent 
+		return QTcpSocket_getreadyReadEvent(pObject)
+
 Class QTcpServer
 
 	pObject
@@ -7519,6 +7909,12 @@ Class QTcpServer
 
 	Func setnewConnectionEvent P1
 		return QTcpServer_setnewConnectionEvent(pObject,P1)
+
+	Func getacceptErrorEvent 
+		return QTcpServer_getacceptErrorEvent(pObject)
+
+	Func getnewConnectionEvent 
+		return QTcpServer_getnewConnectionEvent(pObject)
 
 Class QHostAddress
 
@@ -8626,6 +9022,87 @@ Class QAllEvents from QWidget
 
 	Func setWindowUnblockedEvent P1
 		return QAllEvents_setWindowUnblockedEvent(pObject,P1)
+
+	Func getKeyPressEvent 
+		return QAllEvents_getKeyPressEvent(pObject)
+
+	Func getMouseButtonPressEvent 
+		return QAllEvents_getMouseButtonPressEvent(pObject)
+
+	Func getMouseButtonReleaseEvent 
+		return QAllEvents_getMouseButtonReleaseEvent(pObject)
+
+	Func getMouseButtonDblClickEvent 
+		return QAllEvents_getMouseButtonDblClickEvent(pObject)
+
+	Func getMouseMoveEvent 
+		return QAllEvents_getMouseMoveEvent(pObject)
+
+	Func getCloseEvent 
+		return QAllEvents_getCloseEvent(pObject)
+
+	Func getContextMenuEvent 
+		return QAllEvents_getContextMenuEvent(pObject)
+
+	Func getDragEnterEvent 
+		return QAllEvents_getDragEnterEvent(pObject)
+
+	Func getDragLeaveEvent 
+		return QAllEvents_getDragLeaveEvent(pObject)
+
+	Func getDragMoveEvent 
+		return QAllEvents_getDragMoveEvent(pObject)
+
+	Func getDropEvent 
+		return QAllEvents_getDropEvent(pObject)
+
+	Func getEnterEvent 
+		return QAllEvents_getEnterEvent(pObject)
+
+	Func getFocusInEvent 
+		return QAllEvents_getFocusInEvent(pObject)
+
+	Func getFocusOutEvent 
+		return QAllEvents_getFocusOutEvent(pObject)
+
+	Func getKeyReleaseEvent 
+		return QAllEvents_getKeyReleaseEvent(pObject)
+
+	Func getLeaveEvent 
+		return QAllEvents_getLeaveEvent(pObject)
+
+	Func getNonClientAreaMouseButtonDblClickEvent 
+		return QAllEvents_getNonClientAreaMouseButtonDblClickEvent(pObject)
+
+	Func getNonClientAreaMouseButtonPressEvent 
+		return QAllEvents_getNonClientAreaMouseButtonPressEvent(pObject)
+
+	Func getNonClientAreaMouseButtonReleaseEvent 
+		return QAllEvents_getNonClientAreaMouseButtonReleaseEvent(pObject)
+
+	Func getNonClientAreaMouseMoveEvent 
+		return QAllEvents_getNonClientAreaMouseMoveEvent(pObject)
+
+	Func getMoveEvent 
+		return QAllEvents_getMoveEvent(pObject)
+
+	Func getResizeEvent 
+		return QAllEvents_getResizeEvent(pObject)
+
+	Func getWindowActivateEvent 
+		return QAllEvents_getWindowActivateEvent(pObject)
+
+	Func getWindowBlockedEvent 
+		return QAllEvents_getWindowBlockedEvent(pObject)
+
+	Func getWindowDeactivateEvent 
+		return QAllEvents_getWindowDeactivateEvent(pObject)
+
+	Func getWindowStateChangeEvent 
+		return QAllEvents_getWindowStateChangeEvent(pObject)
+
+	Func getWindowUnblockedEvent 
+		return QAllEvents_getWindowUnblockedEvent(pObject)
 
 Class QDesktopWidget from QWidget
 
@@ -10328,6 +10805,9 @@ Class QNetworkAccessManager from QObject
 	Func setfinishedEvent P1
 		return QNetworkAccessManager_setfinishedEvent(pObject,P1)
 
+	Func getfinishedEvent 
+		return QNetworkAccessManager_getfinishedEvent(pObject)
+
 	Func activeConfiguration 
 		return QNetworkAccessManager_activeConfiguration(pObject)
 
@@ -11328,6 +11808,12 @@ Class QThread from QObject
 	Func setFinishedEvent P1
 		return QThread_setFinishedEvent(pObject,P1)
 
+	Func getStartedEvent 
+		return QThread_getStartedEvent(pObject)
+
+	Func getFinishedEvent 
+		return QThread_getFinishedEvent(pObject)
+
 Class QThreadPool from QObject
 
 	pObject
@@ -12093,6 +12579,33 @@ Class QPlainTextEdit from QAbstractScrollArea
 	Func setupdateRequestEvent P1
 		return QPlainTextEdit_setupdateRequestEvent(pObject,P1)
 
+	Func getblockCountChangedEvent 
+		return QPlainTextEdit_getblockCountChangedEvent(pObject)
+
+	Func getcopyAvailableEvent 
+		return QPlainTextEdit_getcopyAvailableEvent(pObject)
+
+	Func getcursorPositionChangedEvent 
+		return QPlainTextEdit_getcursorPositionChangedEvent(pObject)
+
+	Func getmodificationChangedEvent 
+		return QPlainTextEdit_getmodificationChangedEvent(pObject)
+
+	Func getredoAvailableEvent 
+		return QPlainTextEdit_getredoAvailableEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QPlainTextEdit_getselectionChangedEvent(pObject)
+
+	Func gettextChangedEvent 
+		return QPlainTextEdit_gettextChangedEvent(pObject)
+
+	Func getundoAvailableEvent 
+		return QPlainTextEdit_getundoAvailableEvent(pObject)
+
+	Func getupdateRequestEvent 
+		return QPlainTextEdit_getupdateRequestEvent(pObject)
+
 Class QGridLayout
 
 	pObject
@@ -12801,6 +13314,36 @@ Class QHeaderView from QAbstractItemView
 
 	Func setsortIndicatorChangedEvent P1
 		return QHeaderView_setsortIndicatorChangedEvent(pObject,P1)
+
+	Func getgeometriesChangedEvent 
+		return QHeaderView_getgeometriesChangedEvent(pObject)
+
+	Func getsectionClickedEvent 
+		return QHeaderView_getsectionClickedEvent(pObject)
+
+	Func getsectionCountChangedEvent 
+		return QHeaderView_getsectionCountChangedEvent(pObject)
+
+	Func getsectionDoubleClickedEvent 
+		return QHeaderView_getsectionDoubleClickedEvent(pObject)
+
+	Func getsectionEnteredEvent 
+		return QHeaderView_getsectionEnteredEvent(pObject)
+
+	Func getsectionHandleDoubleClickedEvent 
+		return QHeaderView_getsectionHandleDoubleClickedEvent(pObject)
+
+	Func getsectionMovedEvent 
+		return QHeaderView_getsectionMovedEvent(pObject)
+
+	Func getsectionPressedEvent 
+		return QHeaderView_getsectionPressedEvent(pObject)
+
+	Func getsectionResizedEvent 
+		return QHeaderView_getsectionResizedEvent(pObject)
+
+	Func getsortIndicatorChangedEvent 
+		return QHeaderView_getsortIndicatorChangedEvent(pObject)
 
 	Func geteventparameters 
 		return QHeaderView_geteventparameters(pObject)

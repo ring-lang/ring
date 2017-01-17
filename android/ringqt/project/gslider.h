@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GSLIDER_H
 #define GSLIDER_H
 #include <QApplication>
@@ -39,6 +39,14 @@ class GSlider : public QSlider
     void setsliderPressedEvent(const char *cStr);
     void setsliderReleasedEvent(const char *cStr);
     void setvalueChangedEvent(const char *cStr);
+
+
+    const char *getactionTriggeredEvent(void);
+    const char *getrangeChangedEvent(void);
+    const char *getsliderMovedEvent(void);
+    const char *getsliderPressedEvent(void);
+    const char *getsliderReleasedEvent(void);
+    const char *getvalueChangedEvent(void);
 
 
   public slots:

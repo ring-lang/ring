@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -169,6 +169,97 @@ void GTreeWidget::setitemSelectionChangedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->citemSelectionChangedEvent,cStr);
+}
+
+ 
+const char *GTreeWidget::getcollapsedEvent(void)
+{
+	return this->ccollapsedEvent;
+}
+
+const char *GTreeWidget::getexpandedEvent(void)
+{
+	return this->cexpandedEvent;
+}
+
+const char *GTreeWidget::getactivatedEvent(void)
+{
+	return this->cactivatedEvent;
+}
+
+const char *GTreeWidget::getclickedEvent(void)
+{
+	return this->cclickedEvent;
+}
+
+const char *GTreeWidget::getdoubleClickedEvent(void)
+{
+	return this->cdoubleClickedEvent;
+}
+
+const char *GTreeWidget::getenteredEvent(void)
+{
+	return this->centeredEvent;
+}
+
+const char *GTreeWidget::getpressedEvent(void)
+{
+	return this->cpressedEvent;
+}
+
+const char *GTreeWidget::getviewportEnteredEvent(void)
+{
+	return this->cviewportEnteredEvent;
+}
+
+const char *GTreeWidget::getcurrentItemChangedEvent(void)
+{
+	return this->ccurrentItemChangedEvent;
+}
+
+const char *GTreeWidget::getitemActivatedEvent(void)
+{
+	return this->citemActivatedEvent;
+}
+
+const char *GTreeWidget::getitemChangedEvent(void)
+{
+	return this->citemChangedEvent;
+}
+
+const char *GTreeWidget::getitemClickedEvent(void)
+{
+	return this->citemClickedEvent;
+}
+
+const char *GTreeWidget::getitemCollapsedEvent(void)
+{
+	return this->citemCollapsedEvent;
+}
+
+const char *GTreeWidget::getitemDoubleClickedEvent(void)
+{
+	return this->citemDoubleClickedEvent;
+}
+
+const char *GTreeWidget::getitemEnteredEvent(void)
+{
+	return this->citemEnteredEvent;
+}
+
+const char *GTreeWidget::getitemExpandedEvent(void)
+{
+	return this->citemExpandedEvent;
+}
+
+const char *GTreeWidget::getitemPressedEvent(void)
+{
+	return this->citemPressedEvent;
+}
+
+const char *GTreeWidget::getitemSelectionChangedEvent(void)
+{
+	return this->citemSelectionChangedEvent;
 }
 
 

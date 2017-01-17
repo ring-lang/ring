@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +49,22 @@ void GButtonGroup::setbuttonReleasedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->cbuttonReleasedEvent,cStr);
+}
+
+ 
+const char *GButtonGroup::getbuttonClickedEvent(void)
+{
+	return this->cbuttonClickedEvent;
+}
+
+const char *GButtonGroup::getbuttonPressedEvent(void)
+{
+	return this->cbuttonPressedEvent;
+}
+
+const char *GButtonGroup::getbuttonReleasedEvent(void)
+{
+	return this->cbuttonReleasedEvent;
 }
 
 

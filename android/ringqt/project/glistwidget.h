@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GLISTWIDGET_H
 #define GLISTWIDGET_H
 #include <QApplication>
@@ -47,6 +47,18 @@ class GListWidget : public QListWidget
     void setitemEnteredEvent(const char *cStr);
     void setitemPressedEvent(const char *cStr);
     void setitemSelectionChangedEvent(const char *cStr);
+
+
+    const char *getcurrentItemChangedEvent(void);
+    const char *getcurrentRowChangedEvent(void);
+    const char *getcurrentTextChangedEvent(void);
+    const char *getitemActivatedEvent(void);
+    const char *getitemChangedEvent(void);
+    const char *getitemClickedEvent(void);
+    const char *getitemDoubleClickedEvent(void);
+    const char *getitemEnteredEvent(void);
+    const char *getitemPressedEvent(void);
+    const char *getitemSelectionChangedEvent(void);
 
 
   public slots:

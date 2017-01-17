@@ -13,7 +13,7 @@ const char * RING_IC_OP[] = {"NewLine","FileName","Print","Class","Func","Dup","
 
 "JumpVarLENum","JumpVarPLENum","Try","Done","Range","LoadMethod","SetScope","AfterCallMethod", 
 
-"BraceStart","BraceEnd","LoadFuncP","Loop","IncLPJump","JumpVarLPLENum","Package","Import", 
+"BraceStart","BraceEnd","LoadFuncP","FreeLoadAScope","Loop","IncLPJump","JumpVarLPLENum","Package","Import", 
 
 "SetProperty","NoOperation","AfterCallMethod2","SetReference","KillReference","AssignmentPointer","BeforeEqual","++","--", 
 

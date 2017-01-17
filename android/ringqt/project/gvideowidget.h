@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GVIDEOWIDGET_H
 #define GVIDEOWIDGET_H
 #include <QApplication>
@@ -37,6 +37,13 @@ class GVideoWidget : public QVideoWidget
     void setfullScreenChangedEvent(const char *cStr);
     void sethueChangedEvent(const char *cStr);
     void setsaturationChangedEvent(const char *cStr);
+
+
+    const char *getbrightnessChangedEvent(void);
+    const char *getcontrastChangedEvent(void);
+    const char *getfullScreenChangedEvent(void);
+    const char *gethueChangedEvent(void);
+    const char *getsaturationChangedEvent(void);
 
 
   public slots:

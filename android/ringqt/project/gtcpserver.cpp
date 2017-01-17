@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +41,17 @@ void GTcpServer::setnewConnectionEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->cnewConnectionEvent,cStr);
+}
+
+ 
+const char *GTcpServer::getacceptErrorEvent(void)
+{
+	return this->cacceptErrorEvent;
+}
+
+const char *GTcpServer::getnewConnectionEvent(void)
+{
+	return this->cnewConnectionEvent;
 }
 
 

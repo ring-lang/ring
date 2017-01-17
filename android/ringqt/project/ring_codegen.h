@@ -90,6 +90,7 @@ typedef enum IC_OPERATIONS {
 	ICO_BRACESTART ,
 	ICO_BRACEEND ,
 	ICO_LOADFUNCP ,
+	ICO_FREELOADASCOPE ,
 	/* Loop */
 	ICO_LOOP ,
 	/* Loop optimization in functions (local scope) */

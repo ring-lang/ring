@@ -44,7 +44,7 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 	return NULL ;
 }
 
-void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
+int ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 {
 	RING_FILE fp  ;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
@@ -67,14 +67,14 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 			ring_list_addstring(pRingState->pRingFilesStack,cFileName);
 		} else {
 			printf( "\nWarning, Duplication in FileName, %s \n",cFileName ) ;
-			return ;
+			return 0 ;
 		}
 	}
 	fp = RING_OPENFILE(cFileName , "r");
 	/* Read File */
 	if ( fp==NULL ) {
 		printf( "\nCan't open file %s \n",cFileName ) ;
-		return ;
+		return 0 ;
 	}
 	RING_READCHAR(fp,c,nSize);
 	pScanner = ring_scanner_new(pRingState);
@@ -130,7 +130,7 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 	} else {
 		ring_list_deleteitem(pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 		ring_scanner_delete(pScanner);
-		return ;
+		return 0 ;
 	}
 	ring_scanner_delete(pScanner);
 	/* Files List */
@@ -149,7 +149,7 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 				ring_parser_icg_showoutput(pRingState->pRingGenCode,1);
 			}
 			if ( ! pRingState->nRun ) {
-				return ;
+				return 1 ;
 			}
 			pVM = ring_vm_new(pRingState);
 			ring_vm_start(pRingState,pVM);
@@ -161,6 +161,7 @@ void ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 			ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
 		}
 	}
+	return nRunVM ;
 }
 
 void ring_scanner_readchar ( char c,Scanner *pScanner )

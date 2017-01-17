@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #ifndef GALLEVENTS_H
 #define GALLEVENTS_H
@@ -103,6 +103,34 @@ class GAllEvents : public QWidget
     void setWindowDeactivateEvent(const char *cStr);
     void setWindowStateChangeEvent(const char *cStr);
     void setWindowUnblockedEvent(const char *cStr);
+
+    const char *getKeyPressEvent(void);
+    const char *getMouseButtonPressEvent(void);
+    const char *getMouseButtonReleaseEvent(void);
+    const char *getMouseButtonDblClickEvent(void);
+    const char *getMouseMoveEvent(void);
+    const char *getCloseEvent(void);
+    const char *getContextMenuEvent(void);
+    const char *getDragEnterEvent(void);
+    const char *getDragLeaveEvent(void);
+    const char *getDragMoveEvent(void);
+    const char *getDropEvent(void);
+    const char *getEnterEvent(void);
+    const char *getFocusInEvent(void);
+    const char *getFocusOutEvent(void);
+    const char *getKeyReleaseEvent(void);
+    const char *getLeaveEvent(void);
+    const char *getNonClientAreaMouseButtonDblClickEvent(void);
+    const char *getNonClientAreaMouseButtonPressEvent(void);
+    const char *getNonClientAreaMouseButtonReleaseEvent(void);
+    const char *getNonClientAreaMouseMoveEvent(void);
+    const char *getMoveEvent(void);
+    const char *getResizeEvent(void);
+    const char *getWindowActivateEvent(void);
+    const char *getWindowBlockedEvent(void);
+    const char *getWindowDeactivateEvent(void);
+    const char *getWindowStateChangeEvent(void);
+    const char *getWindowUnblockedEvent(void);
   
   private:
 

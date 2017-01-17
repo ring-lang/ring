@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +73,37 @@ void GAbstractSocket::setstateChangedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->cstateChangedEvent,cStr);
+}
+
+ 
+const char *GAbstractSocket::getconnectedEvent(void)
+{
+	return this->cconnectedEvent;
+}
+
+const char *GAbstractSocket::getdisconnectedEvent(void)
+{
+	return this->cdisconnectedEvent;
+}
+
+const char *GAbstractSocket::geterrorEvent(void)
+{
+	return this->cerrorEvent;
+}
+
+const char *GAbstractSocket::gethostFoundEvent(void)
+{
+	return this->chostFoundEvent;
+}
+
+const char *GAbstractSocket::getproxyAuthenticationRequiredEvent(void)
+{
+	return this->cproxyAuthenticationRequiredEvent;
+}
+
+const char *GAbstractSocket::getstateChangedEvent(void)
+{
+	return this->cstateChangedEvent;
 }
 
 

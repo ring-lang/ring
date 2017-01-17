@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +73,37 @@ void GWebView::seturlChangedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->curlChangedEvent,cStr);
+}
+
+ 
+const char *GWebView::getloadFinishedEvent(void)
+{
+	return this->cloadFinishedEvent;
+}
+
+const char *GWebView::getloadProgressEvent(void)
+{
+	return this->cloadProgressEvent;
+}
+
+const char *GWebView::getloadStartedEvent(void)
+{
+	return this->cloadStartedEvent;
+}
+
+const char *GWebView::getselectionChangedEvent(void)
+{
+	return this->cselectionChangedEvent;
+}
+
+const char *GWebView::gettitleChangedEvent(void)
+{
+	return this->ctitleChangedEvent;
+}
+
+const char *GWebView::geturlChangedEvent(void)
+{
+	return this->curlChangedEvent;
 }
 
 

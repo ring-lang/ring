@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -97,6 +97,52 @@ void GPlainTextEdit::setupdateRequestEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
 		strcpy(this->cupdateRequestEvent,cStr);
+}
+
+ 
+const char *GPlainTextEdit::getblockCountChangedEvent(void)
+{
+	return this->cblockCountChangedEvent;
+}
+
+const char *GPlainTextEdit::getcopyAvailableEvent(void)
+{
+	return this->ccopyAvailableEvent;
+}
+
+const char *GPlainTextEdit::getcursorPositionChangedEvent(void)
+{
+	return this->ccursorPositionChangedEvent;
+}
+
+const char *GPlainTextEdit::getmodificationChangedEvent(void)
+{
+	return this->cmodificationChangedEvent;
+}
+
+const char *GPlainTextEdit::getredoAvailableEvent(void)
+{
+	return this->credoAvailableEvent;
+}
+
+const char *GPlainTextEdit::getselectionChangedEvent(void)
+{
+	return this->cselectionChangedEvent;
+}
+
+const char *GPlainTextEdit::gettextChangedEvent(void)
+{
+	return this->ctextChangedEvent;
+}
+
+const char *GPlainTextEdit::getundoAvailableEvent(void)
+{
+	return this->cundoAvailableEvent;
+}
+
+const char *GPlainTextEdit::getupdateRequestEvent(void)
+{
+	return this->cupdateRequestEvent;
 }
 
 
