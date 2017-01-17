@@ -21,8 +21,7 @@ Ring 1.2  comes with many new features
 * Better RingQt
 * Better Call Command
 * Using NULL instead of NULLPointer()
-* Better Stability
-* Better Documentation
+* Better Quality
 
 .. index:: 
 	pair: What is new in Ring 1.2?; New Functions
@@ -123,20 +122,14 @@ Can be written as in the next line
 	SDL_RenderCopy(SDL_ren,tex,NULL,rect)
 
 .. index:: 
-	pair: What is new in Ring 1.2?; Better Stability
+	pair: What is new in Ring 1.2?; Better Quality
 
-Better Stability
-================
+Better Quality
+==============
 
 Ring 1.2 is more stable, We discovered and fixed more bugs during Ring usage everyday
 in practical projects. 
 
-.. index:: 
-	pair: What is new in Ring 1.2?; Better Documentation
-
-Better Documentation
-====================
-
-Ring 1.2 documentation is better than Ring 1.1 documentation (800 pages)
+Also the documentation is more better.
 
 And more!
