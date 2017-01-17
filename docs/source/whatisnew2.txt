@@ -19,8 +19,7 @@ Ring 1.2  comes with many new features
 * Better Ring Notepad
 * Better RingQt
 * Better Call Command
-* Better Find() Function
-* Better Type() Function
+* Better Functions
 * Using NULL instead of NULLPointer()
 * Better Stability
 * Better Documentation
@@ -91,21 +90,15 @@ Can be written in one line
 	call oself.keypress(oGame,oSelf,Key_Space)
 
 .. index:: 
-	pair: What is new in Ring 1.2?; Better Find() Function
+	pair: What is new in Ring 1.2?; Better Functions
 
-Better Find() Function
-======================
+Better Functions
+================
 
-The find() function is updated to support searching in lists using C pointers like GUI
+* The find() function is updated to support searching in lists using C pointers like GUI
 Objects.
 
-.. index:: 
-	pair: What is new in Ring 1.2?; Better Type() Function
-
-Better Type() Function
-======================
-
-The type() function is updated to display the C pointers types (like the GUI Object Class
+* The type() function is updated to display the C pointers types (like the GUI Object Class
 Name).
 
 .. index:: 
