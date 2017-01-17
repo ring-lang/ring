@@ -1,0 +1,35 @@
+.. index:: 
+	single: What is new in Ring 1.2?; Introduction
+
+========================
+What is new in Ring 1.2?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.2 release.
+
+.. index:: 
+	pair: What is new in Ring 1.2?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.2  comes with many new features 
+
+* Better Stability
+* Better Documentation
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Better Stability
+
+Better Stability
+================
+
+Ring 1.2 is more stable, We discovered and fixed more bugs during Ring usage everyday
+in practical projects. 
+
+Better Documentation
+====================
+
+Ring 1.2 documentation is better than Ring 1.1 documentation (800 pages)
+
+And more!
