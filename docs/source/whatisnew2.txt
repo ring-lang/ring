@@ -16,10 +16,10 @@ List of changes and new features
 Ring 1.2  comes with many new features 
 
 * New Functions
+* Better Functions
 * Better Ring Notepad
 * Better RingQt
 * Better Call Command
-* Better Functions
 * Using NULL instead of NULLPointer()
 * Better Stability
 * Better Documentation
@@ -38,6 +38,18 @@ New Functions
 * RingVM_MemoryList() Function is added to return a list of Memory Scopes and Variables.
 * RingVM_CallList() Function is added to return a list of the functions call list.
 * RingVM_FilesList() Function is added to return a list of the Ring Files.
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Better Functions
+
+Better Functions
+================
+
+The find() function is updated to support searching in lists using C pointers like GUI
+Objects.
+
+The type() function is updated to display the C pointers types (like the GUI Object Class
+Name).
 
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Ring Notepad
@@ -89,17 +101,6 @@ Can be written in one line
 
 	call oself.keypress(oGame,oSelf,Key_Space)
 
-.. index:: 
-	pair: What is new in Ring 1.2?; Better Functions
-
-Better Functions
-================
-
-* The find() function is updated to support searching in lists using C pointers like GUI
-Objects.
-
-* The type() function is updated to display the C pointers types (like the GUI Object Class
-Name).
 
 .. index:: 
 	pair: What is new in Ring 1.2?; Using NULL instead of NULLPointer()
