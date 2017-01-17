@@ -68,6 +68,19 @@ Better Call Command
 The Call command is updated to support calling functions from object attributes also (not
 only variables).
 
+For example the next code from the Stars Fighter Game
+
+.. code-block:: ring
+
+	cFunc = oself.keypress
+	call cFunc(oGame,oSelf,Key_Space)
+
+Can be written in one line
+
+.. code-block:: ring
+
+	call oself.keypress(oGame,oSelf,Key_Space)
+
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Find() Function
 
