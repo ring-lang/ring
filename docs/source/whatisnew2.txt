@@ -59,6 +59,15 @@ RingQt classes are updated to include methods to get events (The code that will 
 when an event is fired). This is necessary to enable/disable events for some time or to
 get the events information.
 
+For example the next code disable an event then call a method then enable the event again.
+
+.. code-block:: ring
+
+	cEvent = oView.oListResult.getCurrentItemChangedEvent()
+	oView.oListResult.setCurrentItemChangedEvent("")
+	FindValueAction()	# Call Method while an event is disabled
+	oView.oListResult.setCurrentItemChangedEvent(cEvent)
+
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Call Command
 
