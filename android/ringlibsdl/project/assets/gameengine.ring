@@ -228,7 +228,7 @@ class game from gamebase
 
 	func drawobjs
 		gl_set_target_bitmap(gl_get_backbuffer(display))
-		gl_clear_to_color(GE_COLOR_WHITE)
+		gl_draw_filled_rectangle(0,0,screen_w,screen_h,GE_COLOR_WHITE)
 		for t in aobjects t.draw(self) next		
 		gl_flip_display()
 
