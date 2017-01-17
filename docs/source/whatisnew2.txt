@@ -107,6 +107,18 @@ Using NULL instead of NULLPointer()
 
 We can pass NULL to functions instead of using NULLPointer()
 
+For example the next code from RingLibSDL
+
+.. code-block:: ring
+
+	SDL_RenderCopy(SDL_ren,tex,NULLPointer(),rect)
+
+Can be written as in the next line
+
+.. code-block:: ring
+
+	SDL_RenderCopy(SDL_ren,tex,NULL,rect)
+
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Stability
 
