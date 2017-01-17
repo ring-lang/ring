@@ -171,7 +171,7 @@ func gl_draw_bitmap image,x,y,nvalue
 	sdl_set_sdl_rect_y(rect,y)
 	sdl_set_sdl_rect_w(rect,gl_texture_width(tex))
 	sdl_set_sdl_rect_h(rect,gl_texture_height(tex))
-	SDL_RenderCopy(SDL_ren,tex,nullpointer(),rect)
+	SDL_RenderCopy(SDL_ren,tex,NULL,rect)
 	sdl_destroy_sdl_rect(rect)
 
 func gl_get_bitmap_height image
