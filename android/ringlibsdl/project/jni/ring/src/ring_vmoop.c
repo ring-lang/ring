@@ -129,6 +129,9 @@ void ring_vm_oop_newobj ( VM *pVM )
 				ring_list_addint(pList4,pVM->nFuncSP);
 				/* Save Assignment Pointer */
 				ring_list_addpointer(pList4,pVM->pAssignment);
+				/* Save the Object Pointer and Type */
+				ring_list_addpointer(pList4,RING_VM_STACK_READP);
+				ring_list_addint(pList4,RING_VM_STACK_OBJTYPE);
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3 ;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
@@ -279,6 +282,9 @@ void ring_vm_oop_setscope ( VM *pVM )
 		pVM->pNestedLists = ring_list_delete(pVM->pNestedLists);
 		pVM->pNestedLists = (List *) ring_list_getpointer(pList,3) ;
 	}
+	/* Restore the Object Pointer and The Object Type */
+	RING_VM_STACK_SETPVALUE(ring_list_getpointer(pList,13));
+	RING_VM_STACK_OBJTYPE = ring_list_getint(pList,14) ;
 	/* After init methods */
 	ring_vm_oop_aftercallmethod(pVM);
 	ring_list_deleteitem(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));

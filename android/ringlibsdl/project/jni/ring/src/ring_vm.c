@@ -364,6 +364,9 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_FILENAME :
 			pVM->cFileName = RING_VM_IR_READC ;
 			break ;
+		case ICO_FREELOADASCOPE :
+			ring_vm_freeloadaddressscope(pVM);
+			break ;
 		/* Jump */
 		case ICO_JUMP :
 			ring_vm_jump(pVM);
@@ -680,7 +683,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 	ring_vm_catch(pVM,cStr);
 }
 
-void ring_vm_eval ( VM *pVM,const char *cStr )
+int ring_vm_eval ( VM *pVM,const char *cStr )
 {
 	int nPC,nCont,nLastPC,nRunVM,x,nSize  ;
 	Scanner *pScanner  ;
@@ -688,7 +691,7 @@ void ring_vm_eval ( VM *pVM,const char *cStr )
 	ByteCode *pByteCode  ;
 	nSize = strlen( cStr ) ;
 	if ( nSize == 0 ) {
-		return ;
+		return 0 ;
 	}
 	nPC = pVM->nPC ;
 	/* Add virtual file name */
@@ -712,7 +715,7 @@ void ring_vm_eval ( VM *pVM,const char *cStr )
 	} else {
 		ring_vm_error(pVM,"Error in eval!");
 		ring_scanner_delete(pScanner);
-		return ;
+		return 0 ;
 	}
 	if ( nRunVM == 1 ) {
 		/*
@@ -765,6 +768,7 @@ void ring_vm_eval ( VM *pVM,const char *cStr )
 	ring_scanner_delete(pScanner);
 	ring_list_deletelastitem(pVM->pRingState->pRingFilesList);
 	ring_list_deletelastitem(pVM->pRingState->pRingFilesStack);
+	return nRunVM ;
 }
 
 void ring_vm_tobytecode ( VM *pVM,int x )
@@ -852,13 +856,24 @@ void ring_vm_newbytecodeitem ( VM *pVM,int x )
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 {
+	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM  ;
+	/* Save state to take in mind nested events execution */
+	nEvalReturnPC = pVM->nEvalReturnPC ;
+	nEvalReallocationFlag = pVM->nEvalReallocationFlag ;
+	nPC = pVM->nPC ;
 	ring_vm_mutexlock(pVM);
 	pVM->nEvalCalledFromRingCode = 1 ;
 	pVM->nRetEvalDontDelete = 0 ;
-	ring_vm_eval(pVM,cStr);
+	nRunVM = ring_vm_eval(pVM,cStr);
 	pVM->nEvalCalledFromRingCode = 0 ;
 	ring_vm_mutexunlock(pVM);
-	ring_vm_mainloop(pVM);
+	if ( nRunVM ) {
+		ring_vm_mainloop(pVM);
+	}
+	/* Restore state to take in mind nested events execution */
+	pVM->nEvalReturnPC = nEvalReturnPC ;
+	pVM->nEvalReallocationFlag = nEvalReallocationFlag ;
+	pVM->nPC = nPC ;
 }
 
 void ring_vm_init ( RingState *pRingState )

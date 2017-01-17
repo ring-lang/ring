@@ -34,10 +34,17 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 {
+	int x  ;
 	pList = ring_list_getlist(pList,nPos);
 	/* Set Scope */
 	pVM->pActiveMem = (List *) ring_list_getpointer(pList,19) ;
-	ring_vm_backstate(ring_list_getint(pList,1),pVM->pMem);
+	/*
+	**  Delete Scopes using the correct function 
+	**  We need to delete each scope using ring_vm_deletescope() - so don't use ring_vm_backstate 
+	*/
+	while ( ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)) != pVM->pActiveMem ) {
+		ring_vm_deletescope(pVM);
+	}
 	/* We also return to the function call list */
 	ring_vm_backstate(ring_list_getint(pList,2),pVM->pFuncCallList);
 	/* Stack & Executing Functions */

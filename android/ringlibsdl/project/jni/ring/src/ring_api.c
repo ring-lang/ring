@@ -88,6 +88,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("pointer2object",ring_vmlib_pointer2object);
 	ring_vm_funcregister("nullpointer",ring_vmlib_nullpointer);
 	ring_vm_funcregister("space",ring_vmlib_space);
+	ring_vm_funcregister("ptrcmp",ring_vmlib_ptrcmp);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -290,6 +291,68 @@ RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cTy
 	ring_list_addstring(pList,cType);
 	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
 	ring_list_addint(pList,2);
+}
+
+RING_API int ring_vm_api_iscpointerlist ( List *pList )
+{
+	if ( ring_list_getsize(pList) != 3 ) {
+		return 0 ;
+	}
+	if ( ring_list_ispointer(pList,1) && ring_list_isstring(pList,2) && ring_list_isnumber(pList,3) ) {
+		return 1 ;
+	}
+	return 0 ;
+}
+
+RING_API int ring_vm_api_iscpointer ( void *pPointer,int x )
+{
+	if ( RING_API_ISLIST(x) ) {
+		return ring_vm_api_iscpointerlist(RING_API_GETLIST(x)) ;
+	}
+	return 0 ;
+}
+
+RING_API int ring_vm_api_isobject ( void *pPointer,int x )
+{
+	if ( RING_API_ISLIST(x) ) {
+		return ring_vm_oop_isobject(RING_API_GETLIST(x)) ;
+	}
+	return 0 ;
+}
+
+RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 )
+{
+	if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ) {
+		return 1 ;
+	}
+	else {
+		return 0 ;
+	}
+}
+
+RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
+{
+	List *pList  ;
+	pList = ring_list_getlist(RING_API_PARALIST,x) ;
+	if ( ring_list_ispointer(pList,RING_VAR_VALUE) ) {
+		return 1 ;
+	}
+	else if ( ring_list_isstring(pList,RING_VAR_VALUE) ) {
+		/* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
+		if ( strcmp(ring_list_getstring(pList,RING_VAR_VALUE),"") == 0 ) {
+			/* Create the list for the NULL Pointer */
+			ring_list_setlist(pList,RING_VAR_VALUE);
+			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
+			/* The variable value will be a list contains the pointer */
+			ring_list_addpointer(pList,NULL);
+			/* Add the pointer type */
+			ring_list_addstring(pList,"NULLPOINTER");
+			/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
+			ring_list_addint(pList,2);
+			return 1 ;
+		}
+	}
+	return 0 ;
 }
 /*
 **  Library 
@@ -799,26 +862,27 @@ void ring_vmlib_islist ( void *pPointer )
 
 void ring_vmlib_type ( void *pPointer )
 {
+	List *pList  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
+	/* The order of checking C Pointer and OBJECT before List is important because the list can be both of them */
 	if ( RING_API_ISSTRING(1) ) {
 		RING_API_RETSTRING("STRING");
 	}
 	else if ( RING_API_ISNUMBER(1) ) {
 		RING_API_RETSTRING("NUMBER");
 	}
-	else if ( RING_API_ISLIST(1) ) {
-		if ( ring_vm_oop_isobject(RING_API_GETLIST(1) ) == 0 ) {
-			RING_API_RETSTRING("LIST");
-		}
-		else {
-			RING_API_RETSTRING("OBJECT");
-		}
+	else if ( RING_API_ISCPOINTER(1) ) {
+		pList = RING_API_GETLIST(1) ;
+		RING_API_RETSTRING(ring_list_getstring(pList,RING_CPOINTER_TYPE));
 	}
-	else if ( RING_API_ISPOINTER(1) ) {
-		RING_API_RETSTRING(ring_list_getstring(RING_API_GETLIST(1),RING_CPOINTER_TYPE));
+	else if ( RING_API_ISOBJECT(1) ) {
+		RING_API_RETSTRING("OBJECT");
+	}
+	else if ( RING_API_ISLIST(1) ) {
+		RING_API_RETSTRING("LIST");
 	} else {
 		RING_API_RETSTRING("UNKNOWN");
 	}
@@ -1615,6 +1679,22 @@ void ring_vmlib_space ( void *pPointer )
 		pString = ring_string_new2("",RING_API_GETNUMBER(1));
 		RING_API_RETSTRING2(ring_string_get(pString),RING_API_GETNUMBER(1));
 		ring_string_delete(pString);
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vmlib_ptrcmp ( void *pPointer )
+{
+	List *pList, *pList2  ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) && RING_API_ISCPOINTER(2) ) {
+		pList = RING_API_GETLIST(1) ;
+		pList2 = RING_API_GETLIST(2) ;
+		RING_API_RETNUMBER(ring_vm_api_cpointercmp(pList,pList2));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

@@ -248,7 +248,7 @@ int ring_parser_stmt ( Parser *pParser )
 					strcpy(cFileName,pParser->TokenText);
 				}
 			}
-			ring_scanner_readfile(cFileName,pParser->pRingState);
+			x = ring_scanner_readfile(cFileName,pParser->pRingState);
 			/*
 			**  Generate Code 
 			**  Return NULL 
@@ -261,7 +261,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 			ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 			ring_parser_nexttoken(pParser);
-			return 1 ;
+			return x ;
 		}
 		return 0 ;
 	}
@@ -270,7 +270,9 @@ int ring_parser_stmt ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
+		pParser->nAssignmentFlag = 0 ;
 		x = ring_parser_expr(pParser);
+		pParser->nAssignmentFlag = 1 ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PRINT);
 		#if RING_PARSERTRACE
@@ -727,6 +729,7 @@ int ring_parser_stmt ( Parser *pParser )
 		x = 1 ;
 		if ( ring_parser_isendline(pParser) == 0 ) {
 			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_FREELOADASCOPE);
 			ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
 			pParser->nAssignmentFlag = 0 ;
 			x = ring_parser_expr(pParser);
@@ -761,7 +764,7 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_PARSER_IGNORENEWLINE ;
 		if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 			ring_parser_nexttoken(pParser);
-			pParser->nControlStructureBrace = 1 ;
+			pParser->nControlStructureBrace++ ;
 		}
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_TRY);
@@ -1185,7 +1188,7 @@ int ring_parser_step ( Parser *pParser,int *nMark1 )
 	if ( ring_parser_iskeyword(pParser,K_STEP) ) {
 		ring_parser_nexttoken(pParser);
 		pParser->nAssignmentFlag = 0 ;
-		if ( ring_parser_expr(pParser) ) {
+		if ( ring_parser_csexpr(pParser) ) {
 			pParser->nAssignmentFlag = 1 ;
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);

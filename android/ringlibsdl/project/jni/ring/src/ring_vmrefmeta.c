@@ -37,6 +37,14 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("getattribute",ring_vm_refmeta_getattribute);
 	ring_vm_funcregister("setattribute",ring_vm_refmeta_setattribute);
 	ring_vm_funcregister("mergemethods",ring_vm_refmeta_mergemethods);
+	/* VM */
+	ring_vm_funcregister("ringvm_fileslist",ring_vm_refmeta_ringvmfileslist);
+	ring_vm_funcregister("ringvm_calllist",ring_vm_refmeta_ringvmcalllist);
+	ring_vm_funcregister("ringvm_memorylist",ring_vm_refmeta_ringvmmemorylist);
+	ring_vm_funcregister("ringvm_functionslist",ring_vm_refmeta_ringvmfunctionslist);
+	ring_vm_funcregister("ringvm_classeslist",ring_vm_refmeta_ringvmclasseslist);
+	ring_vm_funcregister("ringvm_packageslist",ring_vm_refmeta_ringvmpackageslist);
+	ring_vm_funcregister("ringvm_cfunctionslist",ring_vm_refmeta_ringvmcfunctionslist);
 }
 /* Functions */
 
@@ -803,4 +811,60 @@ void ring_vm_refmeta_mergemethods ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+/* VM */
+
+void ring_vm_refmeta_ringvmfileslist ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETLIST(pVM->pRingState->pRingFilesList);
+}
+
+void ring_vm_refmeta_ringvmcalllist ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETLIST(pVM->pFuncCallList);
+}
+
+void ring_vm_refmeta_ringvmmemorylist ( void *pPointer )
+{
+	VM *pVM  ;
+	List *pList, *pList2  ;
+	pVM = (VM *) pPointer ;
+	pList = ring_list_new(0) ;
+	ring_list_copy(pList,pVM->pMem);
+	pList2 = RING_API_NEWLIST ;
+	ring_list_copy(pList2,pList);
+	ring_list_delete(pList);
+	RING_API_RETLIST(pList2);
+}
+
+void ring_vm_refmeta_ringvmfunctionslist ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETLIST(pVM->pFunctionsMap);
+}
+
+void ring_vm_refmeta_ringvmclasseslist ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETLIST(pVM->pClassesMap);
+}
+
+void ring_vm_refmeta_ringvmpackageslist ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETLIST(pVM->pPackagesMap);
+}
+
+void ring_vm_refmeta_ringvmcfunctionslist ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETLIST(pVM->pCFunctionsList);
 }
