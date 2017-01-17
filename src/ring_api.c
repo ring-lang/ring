@@ -337,6 +337,21 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 	if ( ring_list_ispointer(pList,RING_VAR_VALUE) ) {
 		return 1 ;
 	}
+	else if ( ring_list_isstring(pList,RING_VAR_VALUE) ) {
+		/* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
+		if ( strcmp(ring_list_getstring(pList,RING_VAR_VALUE),"") == 0 ) {
+			/* Create the list for the NULL Pointer */
+			ring_list_setlist(pList,RING_VAR_VALUE);
+			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
+			/* The variable value will be a list contains the pointer */
+			ring_list_addpointer(pList,NULL);
+			/* Add the pointer type */
+			ring_list_addstring(pList,"NULLPOINTER");
+			/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
+			ring_list_addint(pList,2);
+			return 1 ;
+		}
+	}
 	return 0 ;
 }
 /*
