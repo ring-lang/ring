@@ -329,6 +329,16 @@ RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 )
 		return 0 ;
 	}
 }
+
+RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
+{
+	List *pList  ;
+	pList = ring_list_getlist(RING_API_PARALIST,x) ;
+	if ( ring_list_ispointer(pList,RING_VAR_VALUE) ) {
+		return 1 ;
+	}
+	return 0 ;
+}
 /*
 **  Library 
 **  General 

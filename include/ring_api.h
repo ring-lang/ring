@@ -39,6 +39,8 @@ RING_API int ring_vm_api_iscpointer ( void *pPointer,int x ) ;
 RING_API int ring_vm_api_isobject ( void *pPointer,int x ) ;
 
 RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 ) ;
+
+RING_API int ring_vm_api_ispointer ( void *pPointer,int x ) ;
 /*
 **  Library 
 **  General 
@@ -188,7 +190,7 @@ void ring_vmlib_ptrcmp ( void *pPointer ) ;
 #define RING_API_GETPOINTER(x) (ring_list_getpointer(ring_list_getlist(RING_API_PARALIST,x),3))
 #define RING_API_ISSTRING(x) (ring_list_isstring(ring_list_getlist(RING_API_PARALIST,x),3))
 #define RING_API_ISNUMBER(x) (ring_list_isnumber(ring_list_getlist(RING_API_PARALIST,x),3))
-#define RING_API_ISPOINTER(x) (ring_list_ispointer(ring_list_getlist(RING_API_PARALIST,x),3))
+#define RING_API_ISPOINTER(x) (ring_vm_api_ispointer((VM *) pPointer,x))
 #define RING_API_GETPOINTERTYPE(x) (ring_list_getint(ring_list_getlist(RING_API_PARALIST,x),4))
 #define RING_API_ERROR(x) (ring_vm_error((VM *) pPointer,x))
 #define RING_API_ISLIST(x) (ring_vm_api_islist((VM *) pPointer,x))

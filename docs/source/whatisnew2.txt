@@ -15,23 +15,14 @@ List of changes and new features
 
 Ring 1.2  comes with many new features 
 
-* Better Stability
 * New Functions
 * Better Ring Notepad
 * Better RingQt
 * Better Call Command
 * Better Find() Function
 * Better Type() Function
+* Better Stability
 * Better Documentation
-
-.. index:: 
-	pair: What is new in Ring 1.2?; Better Stability
-
-Better Stability
-================
-
-Ring 1.2 is more stable, We discovered and fixed more bugs during Ring usage everyday
-in practical projects. 
 
 .. index:: 
 	pair: What is new in Ring 1.2?; New Functions
@@ -54,7 +45,7 @@ New Functions
 Better Ring Notepad
 ===================
 
-* The Ring Notepad will save the current line number of opened file to be restored when
+The Ring Notepad will save the current line number of opened file to be restored when
 we switch between files.
 
 .. index:: 
@@ -63,9 +54,9 @@ we switch between files.
 Better RingQt
 =============
 
-RingQt classes are updated to include method to get events (The methods that will be called
+RingQt classes are updated to include methods to get events (The code that will be executed
 when an event is fired). This is necessary to enable/disable events for some time or to
-get the event information.
+get the events information.
 
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Call Command
@@ -85,7 +76,6 @@ Better Find() Function
 The find() function is updated to support searching in lists using C pointers like GUI
 Objects.
 
-
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Type() Function
 
@@ -94,6 +84,18 @@ Better Type() Function
 
 The type() function is updated to display the C pointers types (like the GUI Object Class
 Name).
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Better Stability
+
+Better Stability
+================
+
+Ring 1.2 is more stable, We discovered and fixed more bugs during Ring usage everyday
+in practical projects. 
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Better Documentation
 
 Better Documentation
 ====================
