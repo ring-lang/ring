@@ -291,7 +291,7 @@
 			]
 			],
 			
-	        	["Arabic Tutorials by Mr. Alaa Mohammed (علاء العكل )(YouTube) ", [
+	        	["Arabic Tutorials by Mr. Alaa Mohammed (YouTube) ", [
 			        [
 					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw" target="_blank"> 01 Ring introduction in Arabic</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
@@ -813,6 +813,24 @@
 				,
 				[
 					'<a href="https://www.youtube.com/watch?v=mL6Sqj3wYP4&feature=youtu.be"> 109 Mathematical Functions</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                               ] 
+			       
+			       ,
+				[
+					'<a href="https://www.youtube.com/watch?v=cWeSyBci2do&feature=youtu.be"> 110 Files Read() Functions</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                               ] 
+			       
+			       ,
+				[
+					'<a href="https://www.youtube.com/watch?v=6050rTHKooo&feature=youtu.be"> 111 Files Write() Functions</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                               ] 
+			       
+			       ,
+				[
+					'<a href="https://www.youtube.com/watch?v=hk6e-WEc8aA&feature=youtu.be"> 112 Files Dir() Functions</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
                                ] 
 			]
