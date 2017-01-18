@@ -37,6 +37,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("diffdays",ring_vmlib_diffdays);
 	ring_vm_funcregister("version",ring_vmlib_version);
 	ring_vm_funcregister("clockspersecond",ring_vmlib_clockspersecond);
+	ring_vm_funcregister("prevfilename",ring_vmlib_prevfilename);
 	/* Check Data Type */
 	ring_vm_funcregister("isstring",ring_vmlib_isstring);
 	ring_vm_funcregister("isnumber",ring_vmlib_isnumber);
@@ -816,6 +817,11 @@ void ring_vmlib_version ( void *pPointer )
 void ring_vmlib_clockspersecond ( void *pPointer )
 {
 	RING_API_RETNUMBER(CLOCKS_PER_SEC);
+}
+
+void ring_vmlib_prevfilename ( void *pPointer )
+{
+	RING_API_RETSTRING(((VM *) pPointer)->cPrevFileName);
 }
 /* Check Data Type */
 

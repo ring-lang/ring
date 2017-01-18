@@ -87,6 +87,8 @@ void ring_vmlib_diffdays ( void *pPointer ) ;
 void ring_vmlib_version ( void *pPointer ) ;
 
 void ring_vmlib_clockspersecond ( void *pPointer ) ;
+
+void ring_vmlib_prevfilename ( void *pPointer ) ;
 /* Check Data Type */
 
 void ring_vmlib_isstring ( void *pPointer ) ;

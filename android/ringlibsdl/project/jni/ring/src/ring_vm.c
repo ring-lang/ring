@@ -99,6 +99,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pPackagesMap = NULL ;
 	/* Set the main File Name */
 	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
+	pVM->cPrevFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
 	/* We keep information about active package to access its classes directly with new/from */
 	pVM->aActivePackage = ring_list_new(0);
 	/* Scope of class attribute ( 0 = public 1 = private ) */
@@ -362,6 +363,7 @@ void ring_vm_execute ( VM *pVM )
 			ring_vm_freestack(pVM);
 			break ;
 		case ICO_FILENAME :
+			pVM->cPrevFileName = pVM->cFileName ;
 			pVM->cFileName = RING_VM_IR_READC ;
 			break ;
 		case ICO_FREELOADASCOPE :
