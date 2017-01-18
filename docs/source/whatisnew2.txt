@@ -29,7 +29,8 @@ Ring 1.2  comes with many new features
 New Functions
 =============
 
-* PtrCmp() function is a new function that compare between C pointers like the GUI objects.
+* PtrCmp() Function is a new function that compare between C pointers like the GUI objects.
+* PrevFileName() Function is added to return the previous active source file name.
 * RingVM_CFunctionsList() Function is added to return a list of functions written in C.
 * RingVM_FunctionsList() Function is added to return a list of functions written in Ring.
 * RingVM_ClassesList() Function is added to return a list of Classes.
@@ -56,7 +57,7 @@ Name).
 Better Ring Notepad
 ===================
 
-The Ring Notepad will save the current line number of opened file to be restored when
+The Ring Notepad will save the current line number of opened files to be restored when
 we switch between files.
 
 .. index:: 
