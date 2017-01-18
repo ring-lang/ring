@@ -85,6 +85,7 @@ typedef struct VM {
 	char nIgnoreCPointerTypeCheck  ;
 	char nCallClassInit  ;
 	char nRetEvalDontDelete  ;
+	char *cPrevFileName  ;
 } VM ;
 /*
 **  Functions 

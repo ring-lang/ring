@@ -75,6 +75,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			ring_list_newlist(pList3);
 			/* File Name */
 			ring_list_addpointer(pList3,pVM->cFileName);
+			pVM->cPrevFileName = pVM->cFileName ;
 			pVM->cFileName = ring_list_getstring(pList2,RING_FUNCMAP_FILENAME) ;
 			/* Method or Function */
 			if ( (y == 1) && (pVM->nCallMethod != 1) ) {
@@ -313,6 +314,7 @@ void ring_vm_return ( VM *pVM )
 			pVM->pNestedLists = (List *) ring_list_getpointer(pList,RING_FUNCCL_NESTEDLISTS) ;
 		}
 		/* Restore File Name */
+		pVM->cPrevFileName = pVM->cFileName ;
 		pVM->cFileName = (char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ;
 		/* Move returned List to the previous scope */
 		if ( RING_VM_STACK_ISPOINTER ) {

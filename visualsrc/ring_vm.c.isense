@@ -156,6 +156,8 @@ Type: char
 nCallClassInit
 Type: char
 nRetEvalDontDelete
+Type: char *
+cCallerFileName
 END:
 Type: VM
 struct VM
