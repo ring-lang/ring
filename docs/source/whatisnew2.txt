@@ -132,5 +132,3 @@ Ring 1.2 is more stable, We discovered and fixed more bugs during Ring usage eve
 in practical projects. 
 
 Also the documentation is more better.
-
-And more!
