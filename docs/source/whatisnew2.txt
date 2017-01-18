@@ -21,6 +21,7 @@ Ring 1.2  comes with many new features
 * Better RingQt
 * Better Call Command
 * Using NULL instead of NULLPointer()
+* Display Warnings Option
 * Better Quality
 
 .. index:: 
@@ -121,6 +122,35 @@ Can be written as in the next line
 .. code-block:: ring
 
 	SDL_RenderCopy(SDL_ren,tex,NULL,rect)
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Display Warnings Option
+
+Display Warnings Option
+=======================
+
+In Ring 1.2 the Ring compiler is updated to include the Display Warnings option (-w)
+
+Example:
+
+.. code-block:: ring
+	
+	load "stdlib.ring"
+	load "stdlib.ring"
+
+compiling the program using the Display Warnings option will display the file duplication
+warning, While without that option the error will pass silent.
+
+This is a warning (not an error) because in large projects you may use the same file
+more than one time. For example it's common to start each file with the next code. where
+the function IsMainSourceFile() is part from the stdlib.ring
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	if IsMainSourceFile() 
+		// Testing
+	ok 
 
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Quality
