@@ -75,6 +75,7 @@ func dial()
               label{ temp3 = text() } 
               label.settext(temp3 + temp2)
               see temp3 + temp2 + nl
+              see char(7)
         next
 return
 
