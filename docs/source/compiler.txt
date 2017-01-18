@@ -20,6 +20,7 @@ Option		Description
 -ins		Print instruction operation code before execution
 -performance	Print clock before and after program execution
 -go		Generate Object File
+-w		Display Warnings 
 ============	=======================================================
 
 .. index:: 
