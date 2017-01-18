@@ -66,8 +66,10 @@ int ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 			ring_list_addstring(pRingState->pRingFilesList,cFileName);
 			ring_list_addstring(pRingState->pRingFilesStack,cFileName);
 		} else {
-			printf( "\nWarning, Duplication in FileName, %s \n",cFileName ) ;
-			return 0 ;
+			if ( pRingState->nWarning ) {
+				printf( "\nWarning, Duplication in FileName, %s \n",cFileName ) ;
+			}
+			return 1 ;
 		}
 	}
 	fp = RING_OPENFILE(cFileName , "r");
@@ -777,7 +779,7 @@ void ring_scanner_printtokens ( Scanner *pScanner )
 	ring_print_line();
 }
 
-RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int argc,char *argv[] )
+RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nWarn,int argc,char *argv[] )
 {
 	RingState *pRingState  ;
 	pRingState = ring_state_new();
@@ -789,6 +791,7 @@ RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPri
 	pRingState->nPrintRules = nRules ;
 	pRingState->nPrintInstruction = nIns ;
 	pRingState->nGenObj = nGenObj ;
+	pRingState->nWarning = nWarn ;
 	pRingState->argc = argc ;
 	pRingState->argv = argv ;
 	if ( ring_issourcefile(cFileName) ) {

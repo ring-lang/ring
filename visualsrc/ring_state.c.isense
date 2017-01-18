@@ -30,6 +30,8 @@ Type: unsigned int
 nPrintInstruction : 1
 Type: unsigned int
 nGenObj : 1
+Type: unsigned int
+nWarn : 1
 Type: int
 argc
 Type: char  **
@@ -73,7 +75,7 @@ Type: List *
 pList
 ring_state_main
 Type: int
-x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj
+x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nWarn
 Type: const char *
 cStr
 ring_state_runfile
