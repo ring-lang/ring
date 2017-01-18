@@ -894,18 +894,18 @@ void ring_vmlib_isnull ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( RING_API_ISPOINTER(1) ) {
-		if ( RING_API_GETPOINTER(1) == NULL ) {
-			RING_API_RETNUMBER(1);
-			return ;
-		}
-	}
-	else if ( RING_API_ISSTRING(1) ) {
+	if ( RING_API_ISSTRING(1) ) {
 		if ( strcmp(RING_API_GETSTRING(1),"") == 0 ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}
 		else if ( strcmp(RING_API_GETSTRING(1),"NULL") == 0 ) {
+			RING_API_RETNUMBER(1);
+			return ;
+		}
+	}
+	else if ( RING_API_ISPOINTER(1) ) {
+		if ( RING_API_GETPOINTER(1) == NULL ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}
