@@ -626,7 +626,7 @@ Func Readline fp
 	output		: True/False 
 */      
 Func IsMainSourceFile
-	if filename() = sysargv[2]
+	if PrevFileName() = sysargv[2]
 		return true
 	ok
 	return false

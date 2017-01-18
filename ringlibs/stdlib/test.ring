@@ -244,3 +244,9 @@ for n=1 to len(aList)
     next
     see nl
 next
+
+# Test Main Source File
+see "IsMainSourceFile() : " + ismainsourcefile() + nl
+See "Previous File Name : " + PrevFileName() + nl
+see "IsMainSourceFile() : " + ismainsourcefile() + nl
+
