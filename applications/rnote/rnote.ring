@@ -518,7 +518,13 @@ func pWebBrowser
 		oDock3.Show()
 	ok
 
+func pCheckSaveBeforeChange
+	if cActiveFileName = NULL return ok	
+	cStr1 = substr(read(cActiveFileName),WindowsNl(),Nl)
+	if cStr1 != textedit1.toPlainText() pSaveSettings() ok
+
 func pChangeFile
+	pCheckSaveBeforeChange()	# To ask to saving a file
 	pSaveCurrentFolder()
 	oItem = tree1.currentindex()
 	if ofile.isdir(oItem)
@@ -956,7 +962,7 @@ Func pGUI
 
 Func pAbout
 	MsgBox("About",
-		"2016, Mahmoud Fayed <msfclipper@yahoo.com>")		
+		"2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>")		
 
 Func pSaveCurrentFolder
 	oItem = tree1.currentindex()
