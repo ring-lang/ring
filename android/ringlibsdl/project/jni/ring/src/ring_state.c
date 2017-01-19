@@ -51,6 +51,7 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->nPrintRules = 0 ;
 	pRingState->nPrintInstruction = 0 ;
 	pRingState->nGenObj = 0 ;
+	pRingState->nWarning = 0 ;
 	pRingState->argc = 0 ;
 	pRingState->argv = NULL ;
 	pRingState->pVM = NULL ;
@@ -134,7 +135,7 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr )
 
 RING_API void ring_state_main ( int argc, char *argv[] )
 {
-	int x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj  ;
+	int x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nWarn  ;
 	const char *cStr  ;
 	/* Init Values */
 	nCGI = 0 ;
@@ -148,6 +149,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	cStr = NULL ;
 	nSRC = 0 ;
 	nGenObj = 0 ;
+	nWarn = 0 ;
 	signal(SIGSEGV,segfaultaction);
 	#if RING_TESTUNITS
 	ring_testallunits();
@@ -181,6 +183,9 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 			else if ( strcmp(argv[x],"-go") == 0 ) {
 				nGenObj = 1 ;
 			}
+			else if ( strcmp(argv[x],"-w") == 0 ) {
+				nWarn = 1 ;
+			}
 			else if ( ( ring_issourcefile(argv[x]) || ring_isobjectfile(argv[x])) && nSRC == 0 ) {
 				cStr = argv[x] ;
 				nSRC = 1 ;
@@ -195,11 +200,11 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	srand(time(NULL));
 	/* Check Startup ring.ring */
 	if ( ring_fexists("ring.ring") && argc == 1 ) {
-		ring_execute("ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,argc,argv);
+		ring_execute("ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
 		exit(0);
 	}
 	if ( ring_fexists("ring.ringo") && argc == 1 ) {
-		ring_execute("ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,argc,argv);
+		ring_execute("ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
 		exit(0);
 	}
 	/* Print Version */
@@ -218,10 +223,11 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		puts("-ins      :  Print instruction operation code before execution");
 		puts("-clock    :  Print clock before and after program execution");
 		puts("-go       :  Generate object file");
+		puts("-w        :  Display Warnings");
 		ring_print_line();
 		exit(0);
 	}
-	ring_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,argc,argv);
+	ring_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nWarn,argc,argv);
 	#if RING_TESTPERFORMANCE
 	if ( nPerformance ) {
 		ring_showtime();
