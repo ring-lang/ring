@@ -90,7 +90,7 @@ The first version of the language Ring 1.0 is released on January 25, 2016
 
 The second version of the language Ring 1.1 is released on October 6, 2016
 
-The current version of the language Ring 1.1 is released on 2017
+The current version of the language Ring 1.2 is released on January 25, 2017
 
 .. index:: 
 	pair: Introduction; Features
