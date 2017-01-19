@@ -13,6 +13,13 @@ In this chapter we will learn about the low level functions provided by Ring
 * nullpointer()
 * object2pointer()
 * pointer2object()
+* RingVM_CFunctionsList()
+* RingVM_FunctionsList()
+* RingVM_ClassesList()
+* RingVM_PackagesList()
+* RingVM_MemoryList()
+* RingVM_CallList()
+* RingVM_FilesList()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -206,3 +213,102 @@ Output:
 .. tip:: The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
          to create a reference for the parent node (object) in the child node (another object).
 
+.. index:: 
+	pair: Low Level Functions; RingVM_CFunctionsList()
+
+RingVM_CFunctionsList() function
+================================
+
+The Function is added to return a list of functions written in C.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_CFunctionsList() ---> List
+
+
+.. index:: 
+	pair: Low Level Functions; RingVM_FunctionsList()
+
+RingVM_FunctionsList() function
+===============================
+
+The Function is added to return a list of functions written in Ring.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_FunctionsList() ---> List
+
+.. index:: 
+	pair: Low Level Functions; RingVM_ClassesList()
+
+RingVM_ClassesList() function
+=============================
+
+The Function is added to return a list of Classes.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_ClassesList() ---> List
+
+.. index:: 
+	pair: Low Level Functions; RingVM_PackagesList()
+
+RingVM_PackagesList() function
+==============================
+
+The Function is added to return a list of Packages.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_PackagesList() ---> List
+
+.. index:: 
+	pair: Low Level Functions; RingVM_MemoryList()
+
+RingVM_MemoryList() function
+============================
+
+The Function is added to return a list of Memory Scopes and Variables.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_MemoryList() ---> List
+
+.. index:: 
+	pair: Low Level Functions; RingVM_CallList()
+
+RingVM_CallList() function
+==========================
+
+The Function is added to return a list of the functions call list.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_CallList() ---> List
+
+
+.. index:: 
+	pair: Low Level Functions; RingVM_FilesList()
+
+RingVM_FilesList() function
+===========================
+
+Function is added to return a list of the Ring Files.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_FilesList() ---> List
