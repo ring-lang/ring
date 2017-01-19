@@ -40,6 +40,40 @@ New Functions
 * RingVM_CallList() Function is added to return a list of the functions call list.
 * RingVM_FilesList() Function is added to return a list of the Ring Files.
 
+Example:
+
+.. code-block:: ring
+
+	fp = fopen("ptrcmp.ring","r")
+	fp2 = fp
+	fp3 = fopen("ptrcmp.ring","r")
+
+	see ptrcmp(fp,fp2) + nl
+	see ptrcmp(fp,fp3) + nl
+
+	fclose(fp)
+	fclose(fp3)
+
+Output:
+
+.. code-block:: ring
+
+	1
+	0
+
+Example:
+
+The next function in stdlib.ring uses the PrevFileName() to know if the file of the
+caller function is the main source file of the program or not.
+
+.. code-block:: ring
+
+	Func IsMainSourceFile
+		if PrevFileName() = sysargv[2]
+			return true
+		ok
+		return false
+
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Functions
 
