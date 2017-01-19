@@ -556,6 +556,20 @@ ringvm_calllist() function
 
 The Function return a list of the functions call list.
 
+Each List Member is a list contains the next items
+
+* Function Type
+* Function Name
+* Program Counter (PC)
+* Stack Pointer (SP)
+* Temp. Memory List
+* Method or Function Flag
+* Caller PC
+* FuncExec Flag
+* ListStart Flag
+* Nested Lists Pointer
+* State List
+
 Syntax:
 
 .. code-block:: ring
