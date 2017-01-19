@@ -186,7 +186,7 @@ Type: double
 nResult
 ring_vmlib_version
 ring_vmlib_clockspersecond
-ring_vmlib_callerfilename
+ring_vmlib_prevfilename
 ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist
@@ -278,10 +278,9 @@ cStr,*cStr2,*cStr3,*cString
 Type: double
 nNum1,nNum2
 Type: unsigned int
-x,nPos,nMark,nSize,nTransform,nSize2
+nPos,nMark,nSize,nTransform,nSize2
 Type: String *
 pString
-cTempStr
 ring_vmlib_lower
 ring_vmlib_upper
 ring_vmlib_lines

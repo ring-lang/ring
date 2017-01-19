@@ -520,7 +520,7 @@ func pWebBrowser
 
 func pCheckSaveBeforeChange
 	if cActiveFileName = NULL return ok	
-	cStr1 = substr(read(cActiveFileName),WindowsNl(),Nl)
+	cStr1 = substr(read(cActiveFileName),WindowsNl(),NL)
 	if cStr1 != textedit1.toPlainText() pSaveSettings() ok
 
 func pChangeFile

@@ -1289,7 +1289,6 @@ void ring_vmlib_substr ( void *pPointer )
 	double nNum1,nNum2  ;
 	unsigned int x,nPos,nMark,nSize,nTransform,nSize2  ;
 	String *pString  ;
-	char cTempStr[2]  ;
 	/*
 	**  Usage 
 	**  Substr(str,10) get substring from 10 to end 
@@ -1384,14 +1383,11 @@ void ring_vmlib_substr ( void *pPointer )
 		}
 		cStr3 = RING_API_GETSTRING(3) ;
 		nMark = 0 ;
-		cTempStr[1] = '\0' ;
 		pString = ring_string_new("");
 		while ( cString != NULL ) {
 			nPos = ((int) cString) - ((int) cStr) + 1 ;
-			for ( x = nMark ; x < nPos-1 ; x++ ) {
-				cTempStr[0] = cStr[x] ;
-				ring_string_add2(pString,cTempStr,1);
-			}
+			/* Add SubString to pString */
+			ring_string_add2(pString,cStr+nMark,nPos-1-nMark);
 			ring_string_add2(pString,cStr3,RING_API_GETSTRINGSIZE(3));
 			nMark = nPos + nSize2 -1 ;
 			/* Search */
@@ -1401,10 +1397,8 @@ void ring_vmlib_substr ( void *pPointer )
 				cString = ring_string_find3(cStr+((int) nMark),nSize-nMark,cStr2,nSize2) ;
 			}
 			if ( cString == NULL ) {
-				for ( x = nMark ; x < nSize ; x++ ) {
-					cTempStr[0] = cStr[x] ;
-					ring_string_add2(pString,cTempStr,1);
-				}
+				/* Add SubString to pString */
+				ring_string_add2(pString,cStr+nMark,nSize-nMark);
 			}
 		}
 		RING_API_RETSTRING2(ring_string_get(pString),ring_string_size(pString));
