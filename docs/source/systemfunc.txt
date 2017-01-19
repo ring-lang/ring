@@ -354,6 +354,37 @@ Example:
 		see "I'm a sub file in a program" + nl
 	ok
 
+
+.. index:: 
+	pair: System Functions; PrevFileName() Function
+
+PrevFileName() Function
+=======================
+
+Using the PrevFileName() function we can get the previous active source file name.
+
+The previous file would be the file of the caller function, Or the file of the function
+that we called before calling PrevFileName().
+
+Syntax:
+
+.. code-block:: ring
+
+	prevfilename() ---> String contains the previous source file name.
+
+Example:
+
+The next function in stdlib.ring uses the PrevFileName() to know if the file of the
+caller function is the main source file of the program or not.
+
+.. code-block:: ring
+
+	Func IsMainSourceFile
+		if PrevFileName() = sysargv[2]
+			return true
+		ok
+		return false
+
 .. index:: 
 	pair: System Functions; CurrentDir() Function
 
