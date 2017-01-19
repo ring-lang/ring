@@ -219,7 +219,7 @@ Output:
 ringvm_cfunctionslist() function
 ================================
 
-The Function is added to return a list of functions written in C.
+The Function return a list of functions written in C.
 
 Syntax:
 
@@ -234,7 +234,7 @@ Syntax:
 ringvm_functionslist() function
 ===============================
 
-The Function is added to return a list of functions written in Ring.
+The Function return a list of functions written in Ring.
 
 Syntax:
 
@@ -248,7 +248,7 @@ Syntax:
 ringvm_classeslist() function
 =============================
 
-The Function is added to return a list of Classes.
+The Function return a list of Classes.
 
 Syntax:
 
@@ -262,7 +262,7 @@ Syntax:
 ringvm_packageslist() function
 ==============================
 
-The Function is added to return a list of Packages.
+The Function return a list of Packages.
 
 Syntax:
 
@@ -276,7 +276,7 @@ Syntax:
 ringvm_memorylist() function
 ============================
 
-The Function is added to return a list of Memory Scopes and Variables.
+The Function return a list of Memory Scopes and Variables.
 
 Syntax:
 
@@ -290,7 +290,7 @@ Syntax:
 ringvm_calllist() function
 ==========================
 
-The Function is added to return a list of the functions call list.
+The Function return a list of the functions call list.
 
 Syntax:
 
@@ -305,7 +305,7 @@ Syntax:
 ringvm_fileslist() function
 ===========================
 
-Function is added to return a list of the Ring Files.
+Function return a list of the Ring Files.
 
 Syntax:
 
