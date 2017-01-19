@@ -266,6 +266,11 @@ Syntax:
 
 	RingVM_CFunctionsList() ---> List
 
+Example:
+
+.. code-block:: ring
+
+	See RingVM_CFunctionsList()
 
 .. index:: 
 	pair: Low Level Functions; RingVM_FunctionsList()
@@ -275,11 +280,36 @@ ringvm_functionslist() function
 
 The Function return a list of functions written in Ring.
 
+Each List Member is a list contains the next items
+
+* Function Name
+* Program Counter (PC) - Function Position in Byte Code.
+* Source Code File Name
+* Private Flag (For Private Methods in Classes)
+
 Syntax:
 
 .. code-block:: ring
 
 	RingVM_FunctionsList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	test()
+
+	func test
+		see ringvm_functionslist()
+
+Output:
+
+.. code-block:: ring
+
+	test
+	8
+	B:/ring/tests/scripts/functionslist.ring
+	0
 
 .. index:: 
 	pair: Low Level Functions; RingVM_ClassesList()
@@ -289,11 +319,55 @@ ringvm_classeslist() function
 
 The Function return a list of Classes.
 
+Each List Member is a list contains the next items
+
+* Class Name
+* Program Counter (PC) - Class Position in Byte Code.
+* Parent Class Name
+* Methods List
+* Flag (Is parent class information collected)
+* Pointer to the package (or NULL if no package is used)
+
 Syntax:
 
 .. code-block:: ring
 
 	RingVM_ClassesList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	see ringvm_classeslist()
+
+	class class1
+		func f1
+	class class2 from class1
+	class class3 from class1
+
+Output:
+
+.. code-block:: ring
+
+	class1
+	9
+
+	f1
+	13
+	B:/ring/tests/scripts/classeslist.ring
+	0
+	0
+	00000000
+	class2
+	16
+	class1
+	0
+	00000000
+	class3
+	20
+	class1
+	0
+	00000000
 
 .. index:: 
 	pair: Low Level Functions; RingVM_PackagesList()
@@ -303,11 +377,54 @@ ringvm_packageslist() function
 
 The Function return a list of Packages.
 
+Each List Member is a list contains the next items
+
+* Package Name
+* Classes List
+
 Syntax:
 
 .. code-block:: ring
 
 	RingVM_PackagesList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	see ringvm_packageslist()
+
+	package package1
+		class class1
+
+	package package2
+		class class1
+
+	package package3
+		class class1
+
+Output:
+
+.. code-block:: ring
+
+	package1
+	class1
+	11
+
+	0
+	00FEF838
+	package2
+	class1
+	17
+
+	0
+	00FEF978
+	package3
+	class1
+	23
+
+	0
+	00FEFF68
 
 .. index:: 
 	pair: Low Level Functions; RingVM_MemoryList()
@@ -323,6 +440,12 @@ Syntax:
 
 	RingVM_MemoryList() ---> List
 
+Example:
+
+.. code-block:: ring
+
+	See RingVM_MemoryList()
+
 .. index:: 
 	pair: Low Level Functions; RingVM_CallList()
 
@@ -337,6 +460,11 @@ Syntax:
 
 	RingVM_CallList() ---> List
 
+Example:
+
+.. code-block:: ring
+
+	See RingVM_CallList()
 
 .. index:: 
 	pair: Low Level Functions; RingVM_FilesList()
@@ -351,3 +479,9 @@ Syntax:
 .. code-block:: ring
 
 	RingVM_FilesList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	See RingVM_FilesList()
