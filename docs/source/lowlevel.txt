@@ -143,6 +143,8 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 
 .. note:: The previous code doesn't work alone, you need to learn how to use RingSDL first.
 
+.. tip:: We can pass NULL as parameter instead of using NULLPointer()
+
 .. index:: 
 	pair: Low Level Functions; object2pointer()
 
