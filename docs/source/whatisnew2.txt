@@ -196,6 +196,5 @@ Better Quality
 ==============
 
 Ring 1.2 is more stable, We discovered and fixed more bugs during Ring usage everyday
-in practical projects. 
-
+in practical projects. Some functions are optimized to be faster like the SubStr() function.
 Also the documentation is more better.
