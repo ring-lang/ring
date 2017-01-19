@@ -368,7 +368,10 @@ void ring_vmlib_len ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( RING_API_ISLIST(1) ) {
+	if ( RING_API_ISSTRING(1) ) {
+		RING_API_RETNUMBER(RING_API_GETSTRINGSIZE(1));
+	}
+	else if ( RING_API_ISLIST(1) ) {
 		if ( ring_vm_oop_isobject(RING_API_GETLIST(1)) == 0 ) {
 			RING_API_RETNUMBER(ring_list_getsize(RING_API_GETLIST(1)));
 		}
@@ -378,9 +381,6 @@ void ring_vmlib_len ( void *pPointer )
 			ring_vm_expr_npoo(pVM,"len",0);
 			pVM->nIgnoreNULL = 1 ;
 		}
-	}
-	else if ( RING_API_ISSTRING(1) ) {
-		RING_API_RETNUMBER(RING_API_GETSTRINGSIZE(1));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

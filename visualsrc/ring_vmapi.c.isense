@@ -278,7 +278,7 @@ cStr,*cStr2,*cStr3,*cString
 Type: double
 nNum1,nNum2
 Type: unsigned int
-nPos,nMark,nSize,nTransform,nSize2
+x,nPos,nMark,nSize,nTransform,nSize2
 Type: String *
 pString
 ring_vmlib_lower
