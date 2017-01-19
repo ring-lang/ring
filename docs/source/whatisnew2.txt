@@ -95,6 +95,9 @@ Better Ring Notepad
 The Ring Notepad will save the current line number of opened files to be restored when
 we switch between files.
 
+Also Ring Notepad will ask the user to save the file if the file content is changed when 
+the user switch between files.
+
 .. index:: 
 	pair: What is new in Ring 1.2?; Better RingQt
 
