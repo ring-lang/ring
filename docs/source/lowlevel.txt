@@ -434,6 +434,16 @@ ringvm_memorylist() function
 
 The Function return a list of Memory Scopes and Variables.
 
+Each List Member is a list contains variables in a different scope.
+
+Each Item in the scope list is a list contains the next items
+
+* Variable Name
+* Variable Type
+* Variable Value
+* Pointer Type (List/Item) if the value is a list
+* Private Flag (if the variable is an attribute in a Class)
+
 Syntax:
 
 .. code-block:: ring
@@ -444,7 +454,99 @@ Example:
 
 .. code-block:: ring
 
-	See RingVM_MemoryList()
+	x = 10
+	test()
+	func test
+		y = 20
+		see ringvm_memorylist()
+
+Output:
+
+.. code-block:: ring
+
+	true
+	2
+	1
+	0
+	0
+	false
+	2
+	0
+	0
+	0
+	nl
+	1
+
+
+	0
+	0
+	null
+	1
+
+	0
+	0
+	ring_gettemp_var
+	4
+	00000000
+	0
+	0
+	ccatcherror
+	1
+	NULL
+	0
+	0
+	ring_settemp_var
+	4
+	00000000
+	0
+	0
+	ring_tempflag_var
+	2
+	0
+	0
+	0
+	stdin
+	3
+	50512DB8
+	file
+	0
+	0
+	0
+	stdout
+	3
+	50512DD8
+	file
+	0
+	0
+	0
+	stderr
+	3
+	50512DF8
+	file
+	0
+	0
+	0
+	this
+	4
+	00000000
+	0
+	0
+	sysargv
+	3
+	B:\ring\bin/ring
+	B:/ring/tests/scripts/memorylist.ring
+	0
+	0
+	x
+	2
+	10
+	0
+	0
+	y
+	2
+	20
+	0
+	0
 
 .. index:: 
 	pair: Low Level Functions; RingVM_CallList()
@@ -464,7 +566,24 @@ Example:
 
 .. code-block:: ring
 
-	See RingVM_CallList()
+	hello()
+	func hello
+		test()
+
+	func test
+		mylist = ringvm_calllist()
+		for t in mylist see t[2] + nl next
+
+Output:
+
+.. code-block:: ring
+
+	function hello() in file B:/ring/tests/scripts/calllist.ring
+	called from line 1
+	function test() in file B:/ring/tests/scripts/calllist.ring
+	called from line 3
+	ringvm_calllist
+
 
 .. index:: 
 	pair: Low Level Functions; RingVM_FilesList()
@@ -484,4 +603,35 @@ Example:
 
 .. code-block:: ring
 
-	See RingVM_FilesList()
+	load "stdlib.ring"
+	see ringvm_fileslist()
+
+Output:
+
+.. code-block:: ring
+
+	B:/ring/tests/scripts/fileslist.ring
+	B:\ring\bin\stdlib.ring
+	eval
+	stdlib.ring
+	stdlib.rh
+	stdclasses.ring
+	stdfunctions.ring
+	stdbase.ring
+	stdstring.ring
+	stdlist.ring
+	stdstack.ring
+	stdqueue.ring
+	stdmath.ring
+	stddatetime.ring
+	stdfile.ring
+	stdsystem.ring
+	stddebug.ring
+	stddatatype.ring
+	stdconversion.ring
+	stdodbc.ring
+	stdmysql.ring
+	stdsecurity.ring
+	stdinternet.ring
+	stdhashtable.ring
+	stdtree.ring
