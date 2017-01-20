@@ -19,6 +19,7 @@ Ring 1.2  comes with many new features
 * Better Functions
 * Better Ring Notepad
 * Better RingQt
+* Objects Library for RingQt
 * Better Call Command
 * Using NULL instead of NULLPointer()
 * Display Warnings Option
@@ -116,6 +117,66 @@ For example the next code disable an event then call a method then enable the ev
 	oView.oListResult.setCurrentItemChangedEvent("")
 	FindValueAction()	# Call Method while an event is disabled
 	oView.oListResult.setCurrentItemChangedEvent(cEvent)
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Objects Library for RingQt
+
+Objects Library for RingQt
+==========================
+
+Ring 1.2 comes with the Objects library for RingQt applications. Instead of using gloabl
+variables for window objects and connecting events to objects using the object name, the
+Object Library will many the GUI objects and will provide a more natural API to quickly
+create one or many windows from the same class and defined methods to be executed when
+an event happens. Also the library provide a natural interface to quickly use parent or
+caller windows from the child or sub windows.
+
+The objects library is merged in RingQt so you can use it directly when you use RingQt
+
+Example :
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+		open_window( :MainWindowController )
+		exec()
+	}
+
+	class MainWindowController from WindowsControllerParent
+		oView = new MainWindowView
+		func SubWindowAction
+			open_window( :SubWindowController )
+			Last_Window().SetParentObject(self)
+
+	class MainWindowView
+		win = new qWidget() {
+			SetWindowTitle("Main Window")
+			btnSub = new qPushButton(win) {
+				setText("Sub Window")
+				setClickEvent( Method( :SubWindowAction ) )
+			}
+			resize(400,400)
+		}
+
+	class SubWindowController from WindowsControllerParent
+		oView = new SubWindowView
+		func SetMainWindowTitleAction
+			Parent().oView.win.SetWindowTitle("Message from the Sub Window")
+			oView.win.SetWindowTitle("Click Event Done!")
+
+	class SubWindowView
+		win = new qWidget() {
+			SetWindowTitle("Sub Window")
+			btnSub = new qPushButton(win) {
+				setText("Set Main Window Title")
+				setClickEvent( Method( :SetMainWindowTitleAction ) )
+			}
+			resize(400,400)
+		}
+
+
 
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Call Command
