@@ -24,6 +24,14 @@ The Objects Library is merged in RingQt so you can use it directly when you use 
 Example
 =======
 
+In the next example we will create two types of windows.
+
+* Main Window contains a button. When the user click on the button a sub window will be opened.
+* The User Can click on the button many times to open many sub windows.
+* Each Sub Window contains Two buttons.
+* The first button in the sub window change the Main and the Sub Windows Titles.
+* The second button in the sub window close the Sub Window.
+
 .. code-block:: ring
 
 	load "guilib.ring"
@@ -39,7 +47,7 @@ Example
 			Open_window( :SubWindowController )
 			Last_Window().SetParentObject(self)
 
-	class MainWindowView from WindowsViewBase
+	class MainWindowView from WindowsViewParent
 		win = new qWidget() {
 			SetWindowTitle("Main Window")
 			btnSub = new qPushButton(win) {
@@ -55,7 +63,7 @@ Example
 			Parent().oView.win.SetWindowTitle("Message from the Sub Window")
 			oView.win.SetWindowTitle("Click Event Done!")
 
-	class SubWindowView from WindowsViewBase
+	class SubWindowView from WindowsViewParent
 		win = new qWidget() {
 			SetWindowTitle("Sub Window")
 			btnMsg = new qPushButton(win) {
@@ -70,6 +78,22 @@ Example
 			resize(400,400)
 		}
 
+.. index:: 
+	pair: Objects Library for RingQt Application; Library Usage
+
+Library Usage
+=============
+
+* Use the Open_Window(cWindowControllerClassName) function to open new Windows
+* Create at least Two Classes for each window, The Controller Class and the View Class
+* Create each controller class from the WindowsControllerParent Class
+* Create each view class from the WindowsViewParent Class
+* Use the Last_Window() function to get the object of the last window created (The Controller object).
+* When you call a sub window, use the SetParentObject() method and pass the self object.
+* In the View Class, To determine the event method use the Method(cMethodName) function.
+* The Method(cMethodName) function determine the method in the controller class that will be executed.
+* Each controller class contains the CloseAction() method that you can call to close the window.
+* You don't need to call the Show() Method for each window, When you use Open_Window() It will be called.
 		
 .. index:: 
 	pair: Objects Library for RingQt Application; Object Library Source Code
@@ -176,6 +200,6 @@ The library source code is very simple, You can check the source code files
 			oView.Close()
 			Super.Close()
 
-	class WindowsViewBase
+	class WindowsViewParent
 		func Close
 			win.close()
