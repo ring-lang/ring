@@ -21,3 +21,7 @@ class WindowsControllerParent from WindowsControllerBase
 	func CloseAction
 		oView.Close()
 		Super.Close()
+
+class WindowsViewBase
+	func Close
+		win.close()
