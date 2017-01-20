@@ -124,14 +124,16 @@ For example the next code disable an event then call a method then enable the ev
 Objects Library for RingQt
 ==========================
 
-Ring 1.2 comes with the Objects library for RingQt applications. Instead of using gloabl
-variables for window objects and connecting events to objects using the object name, the
-Object Library will many the GUI objects and will provide a more natural API to quickly
-create one or many windows from the same class and defined methods to be executed when
-an event happens. Also the library provide a natural interface to quickly use parent or
-caller windows from the child or sub windows.
+Ring 1.2 comes with the Objects library for RingQt applications. Instead of using global
+variables for windows objects and connecting events to objects using the object name, the
+Objects Library will manage the GUI objects and will provide a more natural API to quickly
+create one or many windows from the same class and the library provide a way to quickly set methods
+to be executed when an event is fired. Also the library provide a natural interface to
+quickly use the parent or the caller windows from the child or sub windows.
 
-The objects library is merged in RingQt so you can use it directly when you use RingQt
+The Objects Library is designed to be used with the MVC Design Pattern.
+
+The Objects Library is merged in RingQt so you can use it directly when you use RingQt
 
 Example :
 
