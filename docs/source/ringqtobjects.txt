@@ -1,0 +1,71 @@
+.. index:: 
+	single: Objects Library for RingQt Application; Introduction
+
+============
+Introduction
+============
+
+In this chapter we will learn about the objects library for RingQt applications.
+
+Ring 1.2 comes with the Objects library for RingQt applications. Instead of using global
+variables for windows objects and connecting events to objects using the object name, the
+Objects Library will manage the GUI objects and will provide a more natural API to quickly
+create one or many windows from the same class and the library provide a way to quickly set methods
+to be executed when an event is fired. Also the library provide a natural interface to
+quickly use the parent or the caller windows from the child or sub windows.
+
+The Objects Library is designed to be used with the MVC Design Pattern.
+
+The Objects Library is merged in RingQt so you can use it directly when you use RingQt
+
+.. index:: 
+	pair: Objects Library for RingQt Application; Example
+
+Example
+=======
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+		open_window( :MainWindowController )
+		exec()
+	}
+
+	class MainWindowController from WindowsControllerParent
+		oView = new MainWindowView
+		func SubWindowAction
+			Open_window( :SubWindowController )
+			Last_Window().SetParentObject(self)
+
+	class MainWindowView from WindowsViewBase
+		win = new qWidget() {
+			SetWindowTitle("Main Window")
+			btnSub = new qPushButton(win) {
+				setText("Sub Window")
+				setClickEvent( Method( :SubWindowAction ) )
+			}
+			resize(400,400)
+		}
+
+	class SubWindowController from WindowsControllerParent
+		oView = new SubWindowView
+		func SetMainWindowTitleAction
+			Parent().oView.win.SetWindowTitle("Message from the Sub Window")
+			oView.win.SetWindowTitle("Click Event Done!")
+
+	class SubWindowView from WindowsViewBase
+		win = new qWidget() {
+			SetWindowTitle("Sub Window")
+			btnMsg = new qPushButton(win) {
+				setText("Set Main Window Title")
+				setClickEvent( Method( :SetMainWindowTitleAction ) )
+			}
+			btnClose = new qPushButton(win) {
+				Move(200,0)
+				setText("Close")
+				setClickEvent( Method( :CloseAction ) )
+			}
+			resize(400,400)
+		}

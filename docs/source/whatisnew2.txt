@@ -183,9 +183,6 @@ Example :
 			resize(400,400)
 		}
 
-
-
-
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Call Command
 
