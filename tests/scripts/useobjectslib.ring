@@ -11,7 +11,7 @@ class MainWindowController from WindowsControllerParent
 		Open_window( :SubWindowController )
 		Last_Window().SetParentObject(self)
 
-class MainWindowView from WindowsViewBase
+class MainWindowView from WindowsViewParent
 	win = new qWidget() {
 		SetWindowTitle("Main Window")
 		btnSub = new qPushButton(win) {
@@ -27,7 +27,7 @@ class SubWindowController from WindowsControllerParent
 		Parent().oView.win.SetWindowTitle("Message from the Sub Window")
 		oView.win.SetWindowTitle("Click Event Done!")
 
-class SubWindowView from WindowsViewBase
+class SubWindowView from WindowsViewParent
 	win = new qWidget() {
 		SetWindowTitle("Sub Window")
 		btnMsg = new qPushButton(win) {
