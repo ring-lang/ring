@@ -78,6 +78,16 @@ In the next example we will create two types of windows.
 			resize(400,400)
 		}
 
+The next screen shot after creating three sub windows.
+
+.. image:: objectslib1.png
+	:alt: Objects Library Example - Shot 1
+
+The next screen shot after clicking on the button in each sub window.
+
+.. image:: objectslib2.png
+	:alt: Objects Library Example - Shot 2
+
 .. index:: 
 	pair: Objects Library for RingQt Application; Library Usage
 
