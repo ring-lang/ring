@@ -18,6 +18,26 @@ The Objects Library is designed to be used with the MVC Design Pattern.
 
 The Objects Library is merged in RingQt so you can use it directly when you use RingQt
 
+
+.. index:: 
+	pair: Objects Library for RingQt Application; Library Usage
+
+Library Usage
+=============
+
+* Use the Open_Window(cWindowControllerClassName) function to open new Windows
+* Create at least Two Classes for each window, The Controller Class and the View Class
+* Create each controller class from the WindowsControllerParent Class
+* Create each view class from the WindowsViewParent Class
+* Use the Last_Window() function to get the object of the last window created (The Controller object).
+* When you call a sub window, use the SetParentObject() method and pass the self object.
+* In the View Class, To determine the event method use the Method(cMethodName) function.
+* The Method(cMethodName) function determine the method in the controller class that will be executed.
+* Each controller class contains by default the CloseAction() method that you can call to close the window.
+* You don't need to call the Show() Method for each window, When you use Open_Window() It will be called.
+* In the view class, Define the GUI window object as an attribute called win.
+		
+
 .. index:: 
 	pair: Objects Library for RingQt Application; Example
 
@@ -88,24 +108,6 @@ The next screen shot after clicking on the button in each sub window.
 .. image:: objectslib2.png
 	:alt: Objects Library Example - Shot 2
 
-.. index:: 
-	pair: Objects Library for RingQt Application; Library Usage
-
-Library Usage
-=============
-
-* Use the Open_Window(cWindowControllerClassName) function to open new Windows
-* Create at least Two Classes for each window, The Controller Class and the View Class
-* Create each controller class from the WindowsControllerParent Class
-* Create each view class from the WindowsViewParent Class
-* Use the Last_Window() function to get the object of the last window created (The Controller object).
-* When you call a sub window, use the SetParentObject() method and pass the self object.
-* In the View Class, To determine the event method use the Method(cMethodName) function.
-* The Method(cMethodName) function determine the method in the controller class that will be executed.
-* Each controller class contains by default the CloseAction() method that you can call to close the window.
-* You don't need to call the Show() Method for each window, When you use Open_Window() It will be called.
-* In the view class, Define the GUI window object as an attribute called win.
-		
 .. index:: 
 	pair: Objects Library for RingQt Application; Object Library Source Code
 
