@@ -8,10 +8,10 @@ new qApp {
 class MainWindowController from WindowsControllerParent
 	oView = new MainWindowView
 	func SubWindowAction
-		open_window( :SubWindowController )
+		Open_window( :SubWindowController )
 		Last_Window().SetParentObject(self)
 
-class MainWindowView
+class MainWindowView from WindowsViewBase
 	win = new qWidget() {
 		SetWindowTitle("Main Window")
 		btnSub = new qPushButton(win) {
@@ -27,12 +27,17 @@ class SubWindowController from WindowsControllerParent
 		Parent().oView.win.SetWindowTitle("Message from the Sub Window")
 		oView.win.SetWindowTitle("Click Event Done!")
 
-class SubWindowView
+class SubWindowView from WindowsViewBase
 	win = new qWidget() {
 		SetWindowTitle("Sub Window")
-		btnSub = new qPushButton(win) {
+		btnMsg = new qPushButton(win) {
 			setText("Set Main Window Title")
 			setClickEvent( Method( :SetMainWindowTitleAction ) )
+		}
+		btnClose = new qPushButton(win) {
+			Move(200,0)
+			setText("Close")
+			setClickEvent( Method( :CloseAction ) )
 		}
 		resize(400,400)
 	}
