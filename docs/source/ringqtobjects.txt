@@ -1,9 +1,9 @@
 .. index:: 
 	single: Objects Library for RingQt Application; Introduction
 
-============
-Introduction
-============
+======================================
+Objects Library for RingQt Application
+======================================
 
 In this chapter we will learn about the objects library for RingQt applications.
 
