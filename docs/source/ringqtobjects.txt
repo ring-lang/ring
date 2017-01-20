@@ -102,8 +102,9 @@ Library Usage
 * When you call a sub window, use the SetParentObject() method and pass the self object.
 * In the View Class, To determine the event method use the Method(cMethodName) function.
 * The Method(cMethodName) function determine the method in the controller class that will be executed.
-* Each controller class contains the CloseAction() method that you can call to close the window.
+* Each controller class contains by default the CloseAction() method that you can call to close the window.
 * You don't need to call the Show() Method for each window, When you use Open_Window() It will be called.
+* In the view class, Define the GUI window object as an attribute called win.
 		
 .. index:: 
 	pair: Objects Library for RingQt Application; Object Library Source Code
