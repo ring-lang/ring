@@ -1695,6 +1695,347 @@ RING_FUNC(ring_curl_getdate)
 }
 
 
+RING_FUNC(ring_curl_formadd)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLFORMcode *pValue ; 
+		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
+		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (CURLformoption)  (int) RING_API_GETNUMBER(7));
+		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
+	}
+}
+
+
+RING_FUNC(ring_curl_formadd_2)
+{
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLFORMcode *pValue ; 
+		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
+		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (CURLformoption)  (int) RING_API_GETNUMBER(7),RING_API_GETSTRING(8), (CURLformoption)  (int) RING_API_GETNUMBER(9));
+		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
+	}
+}
+
+
+RING_FUNC(ring_curl_formadd_3)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLFORMcode *pValue ; 
+		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
+		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(void *) RING_API_GETCPOINTER(6,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(7));
+		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
+	}
+}
+
+
+RING_FUNC(ring_curl_formadd_4)
+{
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLFORMcode *pValue ; 
+		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
+		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(void *) RING_API_GETCPOINTER(6,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(7),* (long *) RING_API_GETCPOINTER(8,"long"), (CURLformoption)  (int) RING_API_GETNUMBER(9));
+	if (RING_API_ISCPOINTERNOTASSIGNED(8))
+		free(RING_API_GETCPOINTER(8,"long"));
+		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
+	}
+}
+
+
+RING_FUNC(ring_curl_formadd_5)
+{
+	if ( RING_API_PARACOUNT != 11 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(11) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLFORMcode *pValue ; 
+		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
+		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(void *) RING_API_GETCPOINTER(6,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(7),* (long *) RING_API_GETCPOINTER(8,"long"), (CURLformoption)  (int) RING_API_GETNUMBER(9),(char *) RING_API_GETCPOINTER(10,"char"), (CURLformoption)  (int) RING_API_GETNUMBER(11));
+	if (RING_API_ISCPOINTERNOTASSIGNED(8))
+		free(RING_API_GETCPOINTER(8,"long"));
+		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
+	}
+}
+
+
+RING_FUNC(ring_curl_formadd_6)
+{
+	if ( RING_API_PARACOUNT != 11 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(11) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLFORMcode *pValue ; 
+		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
+		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (CURLformoption)  (int) RING_API_GETNUMBER(7),(void *) RING_API_GETCPOINTER(8,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(9),* (long *) RING_API_GETCPOINTER(10,"long"), (CURLformoption)  (int) RING_API_GETNUMBER(11));
+	if (RING_API_ISCPOINTERNOTASSIGNED(10))
+		free(RING_API_GETCPOINTER(10,"long"));
+		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
+	}
+}
+
+
+RING_FUNC(ring_curl_formadd_7)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLFORMcode *pValue ; 
+		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
+		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),* (struct curl_forms  *) RING_API_GETCPOINTER(6,"struct curl_forms"), (CURLformoption)  (int) RING_API_GETNUMBER(7));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		free(RING_API_GETCPOINTER(6,"struct curl_forms"));
+		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
+	}
+}
+
+
 RING_FUNC(ring_curl_formfree)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -1805,6 +2146,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("curl_easy_getinfo_6",ring_curl_easy_getinfo_6);
 	ring_vm_funcregister("curl_version",ring_curl_version);
 	ring_vm_funcregister("curl_getdate",ring_curl_getdate);
+	ring_vm_funcregister("curl_formadd",ring_curl_formadd);
+	ring_vm_funcregister("curl_formadd_2",ring_curl_formadd_2);
+	ring_vm_funcregister("curl_formadd_3",ring_curl_formadd_3);
+	ring_vm_funcregister("curl_formadd_4",ring_curl_formadd_4);
+	ring_vm_funcregister("curl_formadd_5",ring_curl_formadd_5);
+	ring_vm_funcregister("curl_formadd_6",ring_curl_formadd_6);
+	ring_vm_funcregister("curl_formadd_7",ring_curl_formadd_7);
 	ring_vm_funcregister("curl_formfree",ring_curl_formfree);
 	ring_vm_funcregister("curl_slist_append",ring_curl_slist_append);
 	ring_vm_funcregister("curl_slist_free_all",ring_curl_slist_free_all);
