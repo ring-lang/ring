@@ -1,4 +1,3 @@
-Load "ring_libcurl.rh"
 if iswindows()
 	LoadLib("ring_libcurl.dll")
 but ismacosx()
@@ -6,3 +5,5 @@ but ismacosx()
 else
 	LoadLib("ring_libcurl.so")
 ok
+
+Load "ring_libcurl.rh"
