@@ -2427,6 +2427,147 @@ The application during the runtime
 	:alt: Using QDesktopWidget Class
 
 .. index:: 
+	pair: Desktop and Mobile Development; Rotate Text
+
+Rotate Text
+===========
+
+The next example rotate text using a Timer.
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	nAngle  = 0
+
+	New qapp {
+		win1 = new qwidget() {
+			setwindowtitle("Rotate Text")
+			resize(800,600)
+			label1 = new qlabel(win1) {
+				settext("")
+				myfilter = new qallevents(win1)
+				myfilter.setMouseButtonPressevent("pClick()")
+				installeventfilter(myfilter)
+			}
+			new qtimer(win1) {
+				setinterval(50)
+				settimeoutevent("pTime()")
+				start()
+			}
+			pDraw()
+			L1 = new qVBoxLayout() { AddWidget(Label1) } SetLayout(L1)
+			showMaximized()
+		}
+		exec()
+	}
+
+	Func pDraw
+		p1 = new qpicture()
+		color = new qcolor() {
+			setrgb(0,0,255,255)
+		}
+		pen = new qpen() {
+			setcolor(color)
+			setwidth(50)
+		}
+		painter = new qpainter() {
+			begin(p1)		
+				setpen(pen)
+				myfont = font()
+				myfont.setpointsize(50)
+				setfont(myfont)
+				rotate(nAngle)
+				drawtext(350,0*nAngle,"welcome") 		 
+				drawtext(0,0*nAngle,"welcome") 		 
+			endpaint()
+			  }
+		label1 {
+			setpicture(p1)  
+			show() 
+		}
+
+	Func pClick
+		win1 { setwindowtitle("Click Event") } 
+
+	Func pTime
+		nAngle++
+		if nAngle = 90
+			nAngle = 10
+		ok
+		pDraw()
+
+The application during the runtime
+
+.. image:: shotrotatetext.png
+	:alt: Rotate Text Example
+
+.. index:: 
+	pair: Desktop and Mobile Development; Regular Expressions
+
+Regular Expressions
+===================
+
+The next example uses the Regular Expressions classes.
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp
+	{
+		see "Using Regular Expressions" + nl
+
+		exp = new qregularexpression() {
+			setPattern("\d\d \w+")
+			see pattern() + nl
+			match = match("33 one",0,0,0)
+			see match.hasmatch() + nl
+			match = match("3 one",0,0,0)
+			see match.hasmatch() + nl
+			match = match("welcome 11 one",0,0,0)
+			see match.hasmatch() + nl
+			matched = match.captured(0)
+			see matched + nl
+		}
+		exp = new qregularexpression() {
+			setPattern("^(\d\d)/(\d\d)/(\d\d\d\d)$")
+			see pattern() + nl
+			match = match("08/12/1985",0,0,0)
+			see match.hasmatch() + nl
+			day = match.captured(1)
+			month = match.captured(2)
+			year = match.captured(3)
+			see day + nl + month + nl + year + nl
+			see  "(" + match.capturedStart(1) + "," + match.capturedEnd(1)+ ")" + nl
+			see  "(" + match.capturedStart(2) + "," + match.capturedEnd(2)+ ")" + nl
+			see  "(" + match.capturedStart(3) + "," + match.capturedEnd(3)+ ")" + nl
+		}
+
+	}
+
+Output
+
+.. code-block:: ring
+
+	Using Regular Expressions
+	\d\d \w+
+	1
+	0
+	1
+	11 one
+	^(\d\d)/(\d\d)/(\d\d\d\d)$
+	1
+	08
+	12
+	1985
+	(0,2)
+	(3,5)
+	(6,10)
+
+
+
+.. index:: 
 	pair: Desktop and Mobile Development; Simple Client and Server Example
 
 Simple Client and Server Example

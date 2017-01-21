@@ -2,7 +2,7 @@ load "guilib.ring"
 
 new qApp
 {
-	see "Test Regular Expressions" + nl
+	see "Using Regular Expressions" + nl
 
 	exp = new qregularexpression() {
 		setPattern("\d\d \w+")
