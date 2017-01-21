@@ -1085,6 +1085,221 @@ RING_FUNC(ring_get_curle_not_built_in)
 	RING_API_RETNUMBER(CURLE_NOT_BUILT_IN);
 }
 
+RING_FUNC(ring_get_curlinfo_effective_url)
+{
+	RING_API_RETNUMBER(CURLINFO_EFFECTIVE_URL);
+}
+
+RING_FUNC(ring_get_curlinfo_response_code)
+{
+	RING_API_RETNUMBER(CURLINFO_RESPONSE_CODE);
+}
+
+RING_FUNC(ring_get_curlinfo_http_connectcode)
+{
+	RING_API_RETNUMBER(CURLINFO_HTTP_CONNECTCODE);
+}
+
+RING_FUNC(ring_get_curlinfo_filetime)
+{
+	RING_API_RETNUMBER(CURLINFO_FILETIME);
+}
+
+RING_FUNC(ring_get_curlinfo_total_time)
+{
+	RING_API_RETNUMBER(CURLINFO_TOTAL_TIME);
+}
+
+RING_FUNC(ring_get_curlinfo_namelookup_time)
+{
+	RING_API_RETNUMBER(CURLINFO_NAMELOOKUP_TIME);
+}
+
+RING_FUNC(ring_get_curlinfo_connect_time)
+{
+	RING_API_RETNUMBER(CURLINFO_CONNECT_TIME);
+}
+
+RING_FUNC(ring_get_curlinfo_appconnect_time)
+{
+	RING_API_RETNUMBER(CURLINFO_APPCONNECT_TIME);
+}
+
+RING_FUNC(ring_get_curlinfo_pretransfer_time)
+{
+	RING_API_RETNUMBER(CURLINFO_PRETRANSFER_TIME);
+}
+
+RING_FUNC(ring_get_curlinfo_starttransfer_time)
+{
+	RING_API_RETNUMBER(CURLINFO_STARTTRANSFER_TIME);
+}
+
+RING_FUNC(ring_get_curlinfo_redirect_time)
+{
+	RING_API_RETNUMBER(CURLINFO_REDIRECT_TIME);
+}
+
+RING_FUNC(ring_get_curlinfo_redirect_count)
+{
+	RING_API_RETNUMBER(CURLINFO_REDIRECT_COUNT);
+}
+
+RING_FUNC(ring_get_curlinfo_redirect_url)
+{
+	RING_API_RETNUMBER(CURLINFO_REDIRECT_URL);
+}
+
+RING_FUNC(ring_get_curlinfo_size_upload)
+{
+	RING_API_RETNUMBER(CURLINFO_SIZE_UPLOAD);
+}
+
+RING_FUNC(ring_get_curlinfo_size_download)
+{
+	RING_API_RETNUMBER(CURLINFO_SIZE_DOWNLOAD);
+}
+
+RING_FUNC(ring_get_curlinfo_speed_download)
+{
+	RING_API_RETNUMBER(CURLINFO_SPEED_DOWNLOAD);
+}
+
+RING_FUNC(ring_get_curlinfo_speed_upload)
+{
+	RING_API_RETNUMBER(CURLINFO_SPEED_UPLOAD);
+}
+
+RING_FUNC(ring_get_curlinfo_header_size)
+{
+	RING_API_RETNUMBER(CURLINFO_HEADER_SIZE);
+}
+
+RING_FUNC(ring_get_curlinfo_request_size)
+{
+	RING_API_RETNUMBER(CURLINFO_REQUEST_SIZE);
+}
+
+RING_FUNC(ring_get_curlinfo_ssl_verifyresult)
+{
+	RING_API_RETNUMBER(CURLINFO_SSL_VERIFYRESULT);
+}
+
+RING_FUNC(ring_get_curlinfo_ssl_engines)
+{
+	RING_API_RETNUMBER(CURLINFO_SSL_ENGINES);
+}
+
+RING_FUNC(ring_get_curlinfo_content_length_download)
+{
+	RING_API_RETNUMBER(CURLINFO_CONTENT_LENGTH_DOWNLOAD);
+}
+
+RING_FUNC(ring_get_curlinfo_content_length_upload)
+{
+	RING_API_RETNUMBER(CURLINFO_CONTENT_LENGTH_UPLOAD);
+}
+
+RING_FUNC(ring_get_curlinfo_content_type)
+{
+	RING_API_RETNUMBER(CURLINFO_CONTENT_TYPE);
+}
+
+RING_FUNC(ring_get_curlinfo_private)
+{
+	RING_API_RETNUMBER(CURLINFO_PRIVATE);
+}
+
+RING_FUNC(ring_get_curlinfo_httpauth_avail)
+{
+	RING_API_RETNUMBER(CURLINFO_HTTPAUTH_AVAIL);
+}
+
+RING_FUNC(ring_get_curlinfo_proxyauth_avail)
+{
+	RING_API_RETNUMBER(CURLINFO_PROXYAUTH_AVAIL);
+}
+
+RING_FUNC(ring_get_curlinfo_os_errno)
+{
+	RING_API_RETNUMBER(CURLINFO_OS_ERRNO);
+}
+
+RING_FUNC(ring_get_curlinfo_num_connects)
+{
+	RING_API_RETNUMBER(CURLINFO_NUM_CONNECTS);
+}
+
+RING_FUNC(ring_get_curlinfo_primary_ip)
+{
+	RING_API_RETNUMBER(CURLINFO_PRIMARY_IP);
+}
+
+RING_FUNC(ring_get_curlinfo_primary_port)
+{
+	RING_API_RETNUMBER(CURLINFO_PRIMARY_PORT);
+}
+
+RING_FUNC(ring_get_curlinfo_local_ip)
+{
+	RING_API_RETNUMBER(CURLINFO_LOCAL_IP);
+}
+
+RING_FUNC(ring_get_curlinfo_local_port)
+{
+	RING_API_RETNUMBER(CURLINFO_LOCAL_PORT);
+}
+
+RING_FUNC(ring_get_curlinfo_cookielist)
+{
+	RING_API_RETNUMBER(CURLINFO_COOKIELIST);
+}
+
+RING_FUNC(ring_get_curlinfo_lastsocket)
+{
+	RING_API_RETNUMBER(CURLINFO_LASTSOCKET);
+}
+
+RING_FUNC(ring_get_curlinfo_ftp_entry_path)
+{
+	RING_API_RETNUMBER(CURLINFO_FTP_ENTRY_PATH);
+}
+
+RING_FUNC(ring_get_curlinfo_certinfo)
+{
+	RING_API_RETNUMBER(CURLINFO_CERTINFO);
+}
+
+RING_FUNC(ring_get_curlinfo_tls_session)
+{
+	RING_API_RETNUMBER(CURLINFO_TLS_SESSION);
+}
+
+RING_FUNC(ring_get_curlinfo_condition_unmet)
+{
+	RING_API_RETNUMBER(CURLINFO_CONDITION_UNMET);
+}
+
+RING_FUNC(ring_get_curlinfo_rtsp_session_id)
+{
+	RING_API_RETNUMBER(CURLINFO_RTSP_SESSION_ID);
+}
+
+RING_FUNC(ring_get_curlinfo_rtsp_client_cseq)
+{
+	RING_API_RETNUMBER(CURLINFO_RTSP_CLIENT_CSEQ);
+}
+
+RING_FUNC(ring_get_curlinfo_rtsp_server_cseq)
+{
+	RING_API_RETNUMBER(CURLINFO_RTSP_SERVER_CSEQ);
+}
+
+RING_FUNC(ring_get_curlinfo_rtsp_cseq_recv)
+{
+	RING_API_RETNUMBER(CURLINFO_RTSP_CSEQ_RECV);
+}
+
 
 RING_FUNC(ring_curl_easy_init)
 {
@@ -1568,4 +1783,47 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_curle_ok",ring_get_curle_ok);
 	ring_vm_funcregister("get_curle_unknown_option",ring_get_curle_unknown_option);
 	ring_vm_funcregister("get_curle_not_built_in",ring_get_curle_not_built_in);
+	ring_vm_funcregister("get_curlinfo_effective_url",ring_get_curlinfo_effective_url);
+	ring_vm_funcregister("get_curlinfo_response_code",ring_get_curlinfo_response_code);
+	ring_vm_funcregister("get_curlinfo_http_connectcode",ring_get_curlinfo_http_connectcode);
+	ring_vm_funcregister("get_curlinfo_filetime",ring_get_curlinfo_filetime);
+	ring_vm_funcregister("get_curlinfo_total_time",ring_get_curlinfo_total_time);
+	ring_vm_funcregister("get_curlinfo_namelookup_time",ring_get_curlinfo_namelookup_time);
+	ring_vm_funcregister("get_curlinfo_connect_time",ring_get_curlinfo_connect_time);
+	ring_vm_funcregister("get_curlinfo_appconnect_time",ring_get_curlinfo_appconnect_time);
+	ring_vm_funcregister("get_curlinfo_pretransfer_time",ring_get_curlinfo_pretransfer_time);
+	ring_vm_funcregister("get_curlinfo_starttransfer_time",ring_get_curlinfo_starttransfer_time);
+	ring_vm_funcregister("get_curlinfo_redirect_time",ring_get_curlinfo_redirect_time);
+	ring_vm_funcregister("get_curlinfo_redirect_count",ring_get_curlinfo_redirect_count);
+	ring_vm_funcregister("get_curlinfo_redirect_url",ring_get_curlinfo_redirect_url);
+	ring_vm_funcregister("get_curlinfo_size_upload",ring_get_curlinfo_size_upload);
+	ring_vm_funcregister("get_curlinfo_size_download",ring_get_curlinfo_size_download);
+	ring_vm_funcregister("get_curlinfo_speed_download",ring_get_curlinfo_speed_download);
+	ring_vm_funcregister("get_curlinfo_speed_upload",ring_get_curlinfo_speed_upload);
+	ring_vm_funcregister("get_curlinfo_header_size",ring_get_curlinfo_header_size);
+	ring_vm_funcregister("get_curlinfo_request_size",ring_get_curlinfo_request_size);
+	ring_vm_funcregister("get_curlinfo_ssl_verifyresult",ring_get_curlinfo_ssl_verifyresult);
+	ring_vm_funcregister("get_curlinfo_ssl_engines",ring_get_curlinfo_ssl_engines);
+	ring_vm_funcregister("get_curlinfo_content_length_download",ring_get_curlinfo_content_length_download);
+	ring_vm_funcregister("get_curlinfo_content_length_upload",ring_get_curlinfo_content_length_upload);
+	ring_vm_funcregister("get_curlinfo_content_type",ring_get_curlinfo_content_type);
+	ring_vm_funcregister("get_curlinfo_private",ring_get_curlinfo_private);
+	ring_vm_funcregister("get_curlinfo_httpauth_avail",ring_get_curlinfo_httpauth_avail);
+	ring_vm_funcregister("get_curlinfo_proxyauth_avail",ring_get_curlinfo_proxyauth_avail);
+	ring_vm_funcregister("get_curlinfo_os_errno",ring_get_curlinfo_os_errno);
+	ring_vm_funcregister("get_curlinfo_num_connects",ring_get_curlinfo_num_connects);
+	ring_vm_funcregister("get_curlinfo_primary_ip",ring_get_curlinfo_primary_ip);
+	ring_vm_funcregister("get_curlinfo_primary_port",ring_get_curlinfo_primary_port);
+	ring_vm_funcregister("get_curlinfo_local_ip",ring_get_curlinfo_local_ip);
+	ring_vm_funcregister("get_curlinfo_local_port",ring_get_curlinfo_local_port);
+	ring_vm_funcregister("get_curlinfo_cookielist",ring_get_curlinfo_cookielist);
+	ring_vm_funcregister("get_curlinfo_lastsocket",ring_get_curlinfo_lastsocket);
+	ring_vm_funcregister("get_curlinfo_ftp_entry_path",ring_get_curlinfo_ftp_entry_path);
+	ring_vm_funcregister("get_curlinfo_certinfo",ring_get_curlinfo_certinfo);
+	ring_vm_funcregister("get_curlinfo_tls_session",ring_get_curlinfo_tls_session);
+	ring_vm_funcregister("get_curlinfo_condition_unmet",ring_get_curlinfo_condition_unmet);
+	ring_vm_funcregister("get_curlinfo_rtsp_session_id",ring_get_curlinfo_rtsp_session_id);
+	ring_vm_funcregister("get_curlinfo_rtsp_client_cseq",ring_get_curlinfo_rtsp_client_cseq);
+	ring_vm_funcregister("get_curlinfo_rtsp_server_cseq",ring_get_curlinfo_rtsp_server_cseq);
+	ring_vm_funcregister("get_curlinfo_rtsp_cseq_recv",ring_get_curlinfo_rtsp_cseq_recv);
 }
