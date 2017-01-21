@@ -6,5 +6,3 @@ curl_easy_setopt_2(curl, CURLOPT_URL, "http://localhost/ringapp/index.ring?page=
 curl_easy_setopt_2(curl, CURLOPT_POSTFIELDS, postthis)
 res = curl_easy_perform(curl)
 curl_easy_cleanup(curl)
-
-curl_global_cleanup()

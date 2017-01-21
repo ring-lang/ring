@@ -5,6 +5,35 @@
 */
 
 #include <curl/curl.h>
+
+typedef struct curl_slist CURLLIST ;
+RING_FUNC(ring_new_curllist)
+{
+	CURLLIST *pMyPointer ;
+	pMyPointer = (CURLLIST *) malloc(sizeof(CURLLIST)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"CURLLIST");
+}
+
+RING_FUNC(ring_destroy_curllist)
+{
+	CURLLIST *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"CURLLIST");
+	free(pMyPointer) ;
+}
+
 RING_FUNC(ring_get_curlopt_verbose)
 {
 	RING_API_RETNUMBER(CURLOPT_VERBOSE);
@@ -1602,7 +1631,7 @@ RING_FUNC(ring_curl_easy_getinfo_4)
 	{
 		CURLcode *pValue ; 
 		pValue = (CURLcode *) malloc(sizeof(CURLcode)) ;
-		*pValue = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO )  (int) RING_API_GETNUMBER(2),(struct curl_slist *) RING_API_GETCPOINTER(3,"struct curl_slist"));
+		*pValue = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO )  (int) RING_API_GETNUMBER(2),(CURLLIST *) RING_API_GETCPOINTER(3,"CURLLIST"));
 		RING_API_RETCPOINTER(pValue,"CURLcode");
 	}
 }
@@ -2064,7 +2093,7 @@ RING_FUNC(ring_curl_slist_append)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(curl_slist_append((struct curl_slist *) RING_API_GETCPOINTER(1,"struct curl_slist"),RING_API_GETSTRING(2)),"struct curl_slist");
+	RING_API_RETCPOINTER(curl_slist_append((CURLLIST *) RING_API_GETCPOINTER(1,"CURLLIST"),RING_API_GETSTRING(2)),"CURLLIST");
 }
 
 
@@ -2078,7 +2107,7 @@ RING_FUNC(ring_curl_slist_free_all)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	curl_slist_free_all((struct curl_slist *) RING_API_GETCPOINTER(1,"struct curl_slist"));
+	curl_slist_free_all((CURLLIST *) RING_API_GETCPOINTER(1,"CURLLIST"));
 }
 
 
@@ -2158,6 +2187,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("curl_slist_free_all",ring_curl_slist_free_all);
 	ring_vm_funcregister("curl_easy_escape",ring_curl_easy_escape);
 	ring_vm_funcregister("curl_easy_unescape",ring_curl_easy_unescape);
+	ring_vm_funcregister("new_curllist",ring_new_curllist);
+	ring_vm_funcregister("destroy_curllist",ring_destroy_curllist);
 	ring_vm_funcregister("get_curlopt_verbose",ring_get_curlopt_verbose);
 	ring_vm_funcregister("get_curlopt_header",ring_get_curlopt_header);
 	ring_vm_funcregister("get_curlopt_noprogress",ring_get_curlopt_noprogress);

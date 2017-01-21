@@ -4,7 +4,14 @@
 */
 
 #include <curl/curl.h>
+
+typedef struct curl_slist CURLLIST ;
 </code>
+
+<struct>
+CURLLIST
+</struct>
+
 
 <constant>
 CURLOPT_VERBOSE
@@ -334,7 +341,7 @@ CURLcode curl_easy_perform(CURL * easy_handle )
 CURLcode curl_easy_getinfo(CURL *handle, CURLINFO info, char **urlp)
 CURLcode curl_easy_getinfo@2(CURL *handle, CURLINFO info, long *codep)
 CURLcode curl_easy_getinfo@3(CURL *handle, CURLINFO info, double *timep)
-CURLcode curl_easy_getinfo@4(CURL *handle, CURLINFO info, struct curl_slist **engine_list)
+CURLcode curl_easy_getinfo@4(CURL *handle, CURLINFO info, CURLLIST **engine_list)
 CURLcode curl_easy_getinfo@5(CURL *handle, CURLINFO info, struct curl_certinfo *chainp)
 CURLcode curl_easy_getinfo@6(CURL *handle, CURLINFO info, struct curl_tlssessioninfo **session)
 
@@ -355,7 +362,8 @@ CURLFORMcode curl_formadd@7(struct curl_httppost **firstitem, struct curl_httppo
 
 void curl_formfree(struct curl_httppost * form)
 
-struct curl_slist *curl_slist_append(struct curl_slist * list, const char * string )
-void curl_slist_free_all(struct curl_slist * list)
+CURLLIST *curl_slist_append(CURLLIST * list, const char * string )
+void curl_slist_free_all(CURLLIST * list)
 char *curl_easy_escape( CURL * curl , const char * string , int length )
 char *curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )
+
