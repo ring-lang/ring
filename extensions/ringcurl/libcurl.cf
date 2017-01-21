@@ -301,6 +301,7 @@ CURLINFO_ACTIVESOCKET
 
 <runcode>
 aNumberTypes + "CURLoption"
+aEnumTypes + "CURLINFO"
 </runcode>
 
 CURL *curl_easy_init(void)
@@ -315,6 +316,13 @@ CURLcode curl_easy_perform(CURL * easy_handle )
 <comment>
 CURLcode curl_easy_getinfo(CURL *curl, CURLINFO info, ... );
 </comment>
+
+CURLcode curl_easy_getinfo(CURL *handle, CURLINFO info, char **urlp)
+CURLcode curl_easy_getinfo@2(CURL *handle, CURLINFO info, long *codep)
+CURLcode curl_easy_getinfo@3(CURL *handle, CURLINFO info, double *timep)
+CURLcode curl_easy_getinfo@4(CURL *handle, CURLINFO info, struct curl_slist **engine_list)
+CURLcode curl_easy_getinfo@5(CURL *handle, CURLINFO info, struct curl_certinfo *chainp)
+CURLcode curl_easy_getinfo@6(CURL *handle, CURLINFO info, struct curl_tlssessioninfo **session)
 
 char *curl_version(void)
 time_t curl_getdate(char * datestring , time_t *now )
