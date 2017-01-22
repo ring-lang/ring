@@ -333,7 +333,10 @@ RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 )
 
 RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 {
-	List *pList  ;
+	List *pList, *pList2  ;
+	VM *pVM  ;
+	Item *pItem  ;
+	pVM = (VM *) pPointer ;
 	pList = ring_list_getlist(RING_API_PARALIST,x) ;
 	if ( ring_list_ispointer(pList,RING_VAR_VALUE) ) {
 		return 1 ;
@@ -342,14 +345,17 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 		/* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
 		if ( strcmp(ring_list_getstring(pList,RING_VAR_VALUE),"") == 0 ) {
 			/* Create the list for the NULL Pointer */
-			ring_list_setlist(pList,RING_VAR_VALUE);
-			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
+			ring_list_setint(pList,RING_VAR_TYPE,RING_VM_POINTER);
+			pList2 = RING_API_NEWLIST ;
+			pItem = ring_list_getitem(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem));
+			ring_list_setpointer(pList,RING_VAR_VALUE,pItem);
+			ring_list_setint(pList,RING_VAR_PVALUETYPE,RING_OBJTYPE_LISTITEM);
 			/* The variable value will be a list contains the pointer */
-			ring_list_addpointer(pList,NULL);
+			ring_list_addpointer(pList2,NULL);
 			/* Add the pointer type */
-			ring_list_addstring(pList,"NULLPOINTER");
+			ring_list_addstring(pList2,"NULLPOINTER");
 			/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
-			ring_list_addint(pList,2);
+			ring_list_addint(pList2,2);
 			return 1 ;
 		}
 	}
