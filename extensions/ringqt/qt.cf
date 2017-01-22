@@ -4013,6 +4013,8 @@ const char *getWindowDeactivateEvent(void)
 const char *getWindowStateChangeEvent(void)
 const char *getWindowUnblockedEvent(void)
 
+void setEventOutput(bool x)
+
 <class>
 name: QDesktopWidget
 para: void

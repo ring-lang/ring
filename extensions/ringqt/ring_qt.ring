@@ -9215,6 +9215,9 @@ Class QAllEvents from QWidget
 	Func getWindowUnblockedEvent 
 		return QAllEvents_getWindowUnblockedEvent(pObject)
 
+	Func setEventOutput P1
+		return QAllEvents_setEventOutput(pObject,P1)
+
 Class QDesktopWidget from QWidget
 
 	pObject
