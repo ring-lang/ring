@@ -12,6 +12,7 @@ RingLibCurl Functions Reference
 * CURLcode curl_easy_setopt_3(CURL *handle, CURLoption option, void *)
 * CURLcode curl_easy_setopt_4(CURL *handle, CURLoption option, CURLLIST *)
 * CURLcode curl_easy_perform(CURL * easy_handle )
+* String *curl_easy_perform_2(CURL * easy_handle )
 * CURLcode curl_easy_getinfo_1(CURL *handle, CURLINFO info, char **urlp)
 * CURLcode curl_easy_getinfo_2(CURL *handle, CURLINFO info, long *codep)
 * CURLcode curl_easy_getinfo_3(CURL *handle, CURLINFO info, double *timep)
