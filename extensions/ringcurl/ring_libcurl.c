@@ -1411,6 +1411,7 @@ RING_FUNC(ring_curl_easy_init)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	RING_API_RETCPOINTER(curl_easy_init(),"CURL");
 }
 
@@ -1421,6 +1422,7 @@ RING_FUNC(ring_curl_easy_cleanup)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1435,6 +1437,7 @@ RING_FUNC(ring_curl_easy_setopt_1)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1462,6 +1465,7 @@ RING_FUNC(ring_curl_easy_setopt_2)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1489,6 +1493,7 @@ RING_FUNC(ring_curl_easy_setopt_3)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1516,6 +1521,7 @@ RING_FUNC(ring_curl_easy_setopt_4)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1543,6 +1549,7 @@ RING_FUNC(ring_curl_easy_perform)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1555,6 +1562,32 @@ RING_FUNC(ring_curl_easy_perform)
 	}
 }
 
+size_t ring_getcurldata ( void *buffer, size_t size, size_t nmemb, void *pString )
+{
+	ring_string_add2(pString,buffer,size*nmemb);
+	return size*nmemb ;
+}
+RING_FUNC(ring_curl_easy_perform_2)
+{
+	String *pString  ;
+	CURL *pCurl;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pString = ring_string_new("");
+	pCurl = (CURL *) RING_API_GETCPOINTER(1,"CURL") ;
+	curl_easy_setopt(pCurl, CURLOPT_WRITEFUNCTION,ring_getcurldata);
+	curl_easy_setopt(pCurl, CURLOPT_WRITEDATA,pString);
+	curl_easy_perform(pCurl);
+	RING_API_RETSTRING2(ring_string_get(pString),ring_string_size(pString));
+	ring_string_delete(pString);
+}
 
 RING_FUNC(ring_curl_easy_getinfo_1)
 {
@@ -1562,6 +1595,7 @@ RING_FUNC(ring_curl_easy_getinfo_1)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1589,6 +1623,7 @@ RING_FUNC(ring_curl_easy_getinfo_2)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1616,6 +1651,7 @@ RING_FUNC(ring_curl_easy_getinfo_3)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1643,6 +1679,7 @@ RING_FUNC(ring_curl_easy_getinfo_4)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1670,6 +1707,7 @@ RING_FUNC(ring_curl_easy_getinfo_5)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1697,6 +1735,7 @@ RING_FUNC(ring_curl_easy_getinfo_6)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1724,6 +1763,7 @@ RING_FUNC(ring_curl_version)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	RING_API_RETSTRING(curl_version());
 }
 
@@ -1734,6 +1774,7 @@ RING_FUNC(ring_curl_getdate)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1757,6 +1798,7 @@ RING_FUNC(ring_curl_formadd_1)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1800,6 +1842,7 @@ RING_FUNC(ring_curl_formadd_2)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1851,6 +1894,7 @@ RING_FUNC(ring_curl_formadd_3)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1894,6 +1938,7 @@ RING_FUNC(ring_curl_formadd_4)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1943,6 +1988,7 @@ RING_FUNC(ring_curl_formadd_5)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2000,6 +2046,7 @@ RING_FUNC(ring_curl_formadd_6)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2057,6 +2104,7 @@ RING_FUNC(ring_curl_formadd_7)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2098,6 +2146,7 @@ RING_FUNC(ring_curl_formfree)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2112,6 +2161,7 @@ RING_FUNC(ring_curl_slist_append_1)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2130,6 +2180,7 @@ RING_FUNC(ring_curl_slist_append_2)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2148,6 +2199,7 @@ RING_FUNC(ring_curl_slist_free_all)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2162,6 +2214,7 @@ RING_FUNC(ring_curl_easy_escape)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2184,6 +2237,7 @@ RING_FUNC(ring_curl_easy_unescape)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
+	RING_API_IGNORECPOINTERTYPE ;
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2213,6 +2267,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("curl_easy_setopt_3",ring_curl_easy_setopt_3);
 	ring_vm_funcregister("curl_easy_setopt_4",ring_curl_easy_setopt_4);
 	ring_vm_funcregister("curl_easy_perform",ring_curl_easy_perform);
+	ring_vm_funcregister("curl_easy_perform_2",ring_curl_easy_perform_2);
 	ring_vm_funcregister("curl_easy_getinfo_1",ring_curl_easy_getinfo_1);
 	ring_vm_funcregister("curl_easy_getinfo_2",ring_curl_easy_getinfo_2);
 	ring_vm_funcregister("curl_easy_getinfo_3",ring_curl_easy_getinfo_3);
