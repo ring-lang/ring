@@ -3721,6 +3721,7 @@ Parent Class : QWidget
 * const char *getWindowDeactivateEvent(void)
 * const char *getWindowStateChangeEvent(void)
 * const char *getWindowUnblockedEvent(void)
+* void setEventOutput(bool x)
 
 .. index::
 	pair: RingQt Classes Reference; QDesktopWidget Class
