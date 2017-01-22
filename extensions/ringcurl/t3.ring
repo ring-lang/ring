@@ -24,7 +24,7 @@ curl_easy_setopt(curl, CURLOPT_HTTPHEADER, mylist)
 
 curl_easy_setopt(curl, CURLOPT_COOKIESESSION, false)
 
-res = curl_easy_perform(curl)
+curl_easy_perform(curl)
 
 curl_easy_cleanup(curl)
 
