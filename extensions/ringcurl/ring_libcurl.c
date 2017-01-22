@@ -1429,7 +1429,7 @@ RING_FUNC(ring_curl_easy_cleanup)
 }
 
 
-RING_FUNC(ring_curl_easy_setopt)
+RING_FUNC(ring_curl_easy_setopt_1)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -1556,7 +1556,7 @@ RING_FUNC(ring_curl_easy_perform)
 }
 
 
-RING_FUNC(ring_curl_easy_getinfo)
+RING_FUNC(ring_curl_easy_getinfo_1)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -1751,7 +1751,7 @@ RING_FUNC(ring_curl_getdate)
 }
 
 
-RING_FUNC(ring_curl_formadd)
+RING_FUNC(ring_curl_formadd_1)
 {
 	if ( RING_API_PARACOUNT != 7 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -2106,7 +2106,7 @@ RING_FUNC(ring_curl_formfree)
 }
 
 
-RING_FUNC(ring_curl_slist_append)
+RING_FUNC(ring_curl_slist_append_1)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -2208,12 +2208,12 @@ RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("curl_easy_init",ring_curl_easy_init);
 	ring_vm_funcregister("curl_easy_cleanup",ring_curl_easy_cleanup);
-	ring_vm_funcregister("curl_easy_setopt",ring_curl_easy_setopt);
+	ring_vm_funcregister("curl_easy_setopt_1",ring_curl_easy_setopt_1);
 	ring_vm_funcregister("curl_easy_setopt_2",ring_curl_easy_setopt_2);
 	ring_vm_funcregister("curl_easy_setopt_3",ring_curl_easy_setopt_3);
 	ring_vm_funcregister("curl_easy_setopt_4",ring_curl_easy_setopt_4);
 	ring_vm_funcregister("curl_easy_perform",ring_curl_easy_perform);
-	ring_vm_funcregister("curl_easy_getinfo",ring_curl_easy_getinfo);
+	ring_vm_funcregister("curl_easy_getinfo_1",ring_curl_easy_getinfo_1);
 	ring_vm_funcregister("curl_easy_getinfo_2",ring_curl_easy_getinfo_2);
 	ring_vm_funcregister("curl_easy_getinfo_3",ring_curl_easy_getinfo_3);
 	ring_vm_funcregister("curl_easy_getinfo_4",ring_curl_easy_getinfo_4);
@@ -2221,7 +2221,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("curl_easy_getinfo_6",ring_curl_easy_getinfo_6);
 	ring_vm_funcregister("curl_version",ring_curl_version);
 	ring_vm_funcregister("curl_getdate",ring_curl_getdate);
-	ring_vm_funcregister("curl_formadd",ring_curl_formadd);
+	ring_vm_funcregister("curl_formadd_1",ring_curl_formadd_1);
 	ring_vm_funcregister("curl_formadd_2",ring_curl_formadd_2);
 	ring_vm_funcregister("curl_formadd_3",ring_curl_formadd_3);
 	ring_vm_funcregister("curl_formadd_4",ring_curl_formadd_4);
@@ -2229,7 +2229,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("curl_formadd_6",ring_curl_formadd_6);
 	ring_vm_funcregister("curl_formadd_7",ring_curl_formadd_7);
 	ring_vm_funcregister("curl_formfree",ring_curl_formfree);
-	ring_vm_funcregister("curl_slist_append",ring_curl_slist_append);
+	ring_vm_funcregister("curl_slist_append_1",ring_curl_slist_append_1);
 	ring_vm_funcregister("curl_slist_append_2",ring_curl_slist_append_2);
 	ring_vm_funcregister("curl_slist_free_all",ring_curl_slist_free_all);
 	ring_vm_funcregister("curl_easy_escape",ring_curl_easy_escape);

@@ -1,3 +1,5 @@
+<ignorecpointertype>
+
 <code>
 /*
 **  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
@@ -7,8 +9,6 @@
 
 typedef struct curl_slist CURLLIST ;
 </code>
-
-<ignorecpointertype>
 
 <struct>
 CURLLIST
@@ -334,14 +334,14 @@ aEnumTypes + "CURLformoption"
 CURL *curl_easy_init(void)
 void curl_easy_cleanup(CURL * handle )
 
-CURLcode curl_easy_setopt(CURL *handle, CURLoption option, int)
+CURLcode curl_easy_setopt@1(CURL *handle, CURLoption option, int)
 CURLcode curl_easy_setopt@2(CURL *handle, CURLoption option, const char *)
 CURLcode curl_easy_setopt@3(CURL *handle, CURLoption option, void *)
 CURLcode curl_easy_setopt@4(CURL *handle, CURLoption option, CURLLIST *)
 
 CURLcode curl_easy_perform(CURL * easy_handle )
 
-CURLcode curl_easy_getinfo(CURL *handle, CURLINFO info, char **urlp)
+CURLcode curl_easy_getinfo@1(CURL *handle, CURLINFO info, char **urlp)
 CURLcode curl_easy_getinfo@2(CURL *handle, CURLINFO info, long *codep)
 CURLcode curl_easy_getinfo@3(CURL *handle, CURLINFO info, double *timep)
 CURLcode curl_easy_getinfo@4(CURL *handle, CURLINFO info, CURLLIST **engine_list)
@@ -355,7 +355,7 @@ time_t curl_getdate(char * datestring , time_t *now )
 CURLFORMcode curl_formadd(struct curl_httppost ** firstitem, struct curl_httppost ** lastitem, ...)
 </comment>
 
-CURLFORMcode curl_formadd(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, const char *, CURLformoption)
+CURLFORMcode curl_formadd@1(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, const char *, CURLformoption)
 CURLFORMcode curl_formadd@2(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, const char *,CURLformoption, const char *, CURLformoption)
 CURLFORMcode curl_formadd@3(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, void *, CURLformoption)
 CURLFORMcode curl_formadd@4(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, void *,CURLformoption, long , CURLformoption)
@@ -365,7 +365,7 @@ CURLFORMcode curl_formadd@7(struct curl_httppost **firstitem, struct curl_httppo
 
 void curl_formfree(struct curl_httppost * form)
 
-CURLLIST *curl_slist_append(CURLLIST * list, const char * string )
+CURLLIST *curl_slist_append@1(CURLLIST * list, const char * string )
 CURLLIST *curl_slist_append@2(void * list, const char * string )
 void curl_slist_free_all(CURLLIST * list)
 char *curl_easy_escape( CURL * curl , const char * string , int length )
