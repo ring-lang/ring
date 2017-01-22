@@ -347,7 +347,7 @@ size_t ring_getcurldata ( void *buffer, size_t size, size_t nmemb, void *pString
 	ring_string_add2(pString,buffer,size*nmemb);
 	return size*nmemb ;
 }
-RING_FUNC(ring_curl_easy_perform_2)
+RING_FUNC(ring_curl_easy_perform_silent)
 {
 	String *pString  ;
 	CURL *pCurl;
@@ -371,7 +371,7 @@ RING_FUNC(ring_curl_easy_perform_2)
 </code>
 
 <register>
-String *curl_easy_perform_2(CURL * easy_handle )
+String *curl_easy_perform_silent(CURL * easy_handle )
 </register>
 
 CURLcode curl_easy_getinfo@1(CURL *handle, CURLINFO info, char **urlp)

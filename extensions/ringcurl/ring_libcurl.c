@@ -1567,7 +1567,7 @@ size_t ring_getcurldata ( void *buffer, size_t size, size_t nmemb, void *pString
 	ring_string_add2(pString,buffer,size*nmemb);
 	return size*nmemb ;
 }
-RING_FUNC(ring_curl_easy_perform_2)
+RING_FUNC(ring_curl_easy_perform_silent)
 {
 	String *pString  ;
 	CURL *pCurl;
@@ -2248,7 +2248,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("curl_easy_setopt_3",ring_curl_easy_setopt_3);
 	ring_vm_funcregister("curl_easy_setopt_4",ring_curl_easy_setopt_4);
 	ring_vm_funcregister("curl_easy_perform",ring_curl_easy_perform);
-	ring_vm_funcregister("curl_easy_perform_2",ring_curl_easy_perform_2);
+	ring_vm_funcregister("curl_easy_perform_silent",ring_curl_easy_perform_silent);
 	ring_vm_funcregister("curl_easy_getinfo_1",ring_curl_easy_getinfo_1);
 	ring_vm_funcregister("curl_easy_getinfo_2",ring_curl_easy_getinfo_2);
 	ring_vm_funcregister("curl_easy_getinfo_3",ring_curl_easy_getinfo_3);
