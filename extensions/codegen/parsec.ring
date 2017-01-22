@@ -554,7 +554,11 @@ Func GenFuncCodeGetParaValues aList
 				but GenPointerType(x) = "double"
 					cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
 				else
-					cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
+					if not IsPointer2Pointer(x)
+						cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
+					else
+						cCode += "(" + GenPointerType(x) + " **) RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'
+					ok
 				ok
 			on C_TYPE_UNKNOWN
 				cCode += "* (" + x + " *) RING_API_GETCPOINTER(" + t +',"'+trim(x)+'")'
@@ -594,6 +598,12 @@ Func GenFuncCodeFreeNotAssignedPointers aList
 		next
 	ok
 	return cCode
+
+Func IsPointer2Pointer x
+	if substr(x,"**")
+		return True
+	ok
+	return false
 
 Func GenPointerType x
 	x = substr(x,"const","")

@@ -33,6 +33,7 @@ RING_API_GETDOUBLEPOINTER(x)
 RING_API_IGNORECPOINTERTYPE
 RING_API_ISCPOINTER(x)
 RING_API_ISOBJECT(x)
+RING_API_GETCPOINTER2POINTER(x,y)
 RING_API_MISS1PARA
 RING_API_MISS2PARA
 RING_API_MISS3PARA
@@ -103,6 +104,13 @@ Type: List *
 pList, *pList2
 Type: VM *
 pVM
+Type: Item *
+pItem
+ring_vm_api_getcpointer2pointer
+Type: List *
+pList, *pList2
+Type: int
+y
 Type: Item *
 pItem
 ring_vmlib_len

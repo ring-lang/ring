@@ -1611,7 +1611,7 @@ RING_FUNC(ring_curl_easy_getinfo_1)
 	{
 		CURLcode *pValue ; 
 		pValue = (CURLcode *) malloc(sizeof(CURLcode)) ;
-		*pValue = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO )  (int) RING_API_GETNUMBER(2),(char *) RING_API_GETCPOINTER(3,"char"));
+		*pValue = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO )  (int) RING_API_GETNUMBER(2),(char **) RING_API_GETCPOINTER2POINTER(3,"char"));
 		RING_API_RETCPOINTER(pValue,"CURLcode");
 	}
 }
@@ -1695,7 +1695,7 @@ RING_FUNC(ring_curl_easy_getinfo_4)
 	{
 		CURLcode *pValue ; 
 		pValue = (CURLcode *) malloc(sizeof(CURLcode)) ;
-		*pValue = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO )  (int) RING_API_GETNUMBER(2),(CURLLIST *) RING_API_GETCPOINTER(3,"CURLLIST"));
+		*pValue = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO )  (int) RING_API_GETNUMBER(2),(CURLLIST **) RING_API_GETCPOINTER2POINTER(3,"CURLLIST"));
 		RING_API_RETCPOINTER(pValue,"CURLcode");
 	}
 }
@@ -1751,7 +1751,7 @@ RING_FUNC(ring_curl_easy_getinfo_6)
 	{
 		CURLcode *pValue ; 
 		pValue = (CURLcode *) malloc(sizeof(CURLcode)) ;
-		*pValue = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO )  (int) RING_API_GETNUMBER(2),(struct curl_tlssessioninfo *) RING_API_GETCPOINTER(3,"struct curl_tlssessioninfo"));
+		*pValue = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO )  (int) RING_API_GETNUMBER(2),(struct curl_tlssessioninfo **) RING_API_GETCPOINTER2POINTER(3,"struct curl_tlssessioninfo"));
 		RING_API_RETCPOINTER(pValue,"CURLcode");
 	}
 }
@@ -1830,7 +1830,7 @@ RING_FUNC(ring_curl_formadd_1)
 	{
 		CURLFORMcode *pValue ; 
 		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
-		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (CURLformoption)  (int) RING_API_GETNUMBER(7));
+		*pValue = curl_formadd((struct curl_httppost **) RING_API_GETCPOINTER2POINTER(1,"struct curl_httppost"),(struct curl_httppost **) RING_API_GETCPOINTER2POINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (CURLformoption)  (int) RING_API_GETNUMBER(7));
 		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
 	}
 }
@@ -1882,7 +1882,7 @@ RING_FUNC(ring_curl_formadd_2)
 	{
 		CURLFORMcode *pValue ; 
 		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
-		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (CURLformoption)  (int) RING_API_GETNUMBER(7),RING_API_GETSTRING(8), (CURLformoption)  (int) RING_API_GETNUMBER(9));
+		*pValue = curl_formadd((struct curl_httppost **) RING_API_GETCPOINTER2POINTER(1,"struct curl_httppost"),(struct curl_httppost **) RING_API_GETCPOINTER2POINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (CURLformoption)  (int) RING_API_GETNUMBER(7),RING_API_GETSTRING(8), (CURLformoption)  (int) RING_API_GETNUMBER(9));
 		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
 	}
 }
@@ -1926,7 +1926,7 @@ RING_FUNC(ring_curl_formadd_3)
 	{
 		CURLFORMcode *pValue ; 
 		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
-		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(void *) RING_API_GETCPOINTER(6,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(7));
+		*pValue = curl_formadd((struct curl_httppost **) RING_API_GETCPOINTER2POINTER(1,"struct curl_httppost"),(struct curl_httppost **) RING_API_GETCPOINTER2POINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(void *) RING_API_GETCPOINTER(6,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(7));
 		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
 	}
 }
@@ -1974,7 +1974,7 @@ RING_FUNC(ring_curl_formadd_4)
 	{
 		CURLFORMcode *pValue ; 
 		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
-		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(void *) RING_API_GETCPOINTER(6,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(7),* (long *) RING_API_GETCPOINTER(8,"long"), (CURLformoption)  (int) RING_API_GETNUMBER(9));
+		*pValue = curl_formadd((struct curl_httppost **) RING_API_GETCPOINTER2POINTER(1,"struct curl_httppost"),(struct curl_httppost **) RING_API_GETCPOINTER2POINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(void *) RING_API_GETCPOINTER(6,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(7),* (long *) RING_API_GETCPOINTER(8,"long"), (CURLformoption)  (int) RING_API_GETNUMBER(9));
 	if (RING_API_ISCPOINTERNOTASSIGNED(8))
 		free(RING_API_GETCPOINTER(8,"long"));
 		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
@@ -2032,7 +2032,7 @@ RING_FUNC(ring_curl_formadd_5)
 	{
 		CURLFORMcode *pValue ; 
 		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
-		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(void *) RING_API_GETCPOINTER(6,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(7),* (long *) RING_API_GETCPOINTER(8,"long"), (CURLformoption)  (int) RING_API_GETNUMBER(9),(char *) RING_API_GETCPOINTER(10,"char"), (CURLformoption)  (int) RING_API_GETNUMBER(11));
+		*pValue = curl_formadd((struct curl_httppost **) RING_API_GETCPOINTER2POINTER(1,"struct curl_httppost"),(struct curl_httppost **) RING_API_GETCPOINTER2POINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(void *) RING_API_GETCPOINTER(6,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(7),* (long *) RING_API_GETCPOINTER(8,"long"), (CURLformoption)  (int) RING_API_GETNUMBER(9),(char *) RING_API_GETCPOINTER(10,"char"), (CURLformoption)  (int) RING_API_GETNUMBER(11));
 	if (RING_API_ISCPOINTERNOTASSIGNED(8))
 		free(RING_API_GETCPOINTER(8,"long"));
 		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
@@ -2090,7 +2090,7 @@ RING_FUNC(ring_curl_formadd_6)
 	{
 		CURLFORMcode *pValue ; 
 		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
-		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (CURLformoption)  (int) RING_API_GETNUMBER(7),(void *) RING_API_GETCPOINTER(8,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(9),* (long *) RING_API_GETCPOINTER(10,"long"), (CURLformoption)  (int) RING_API_GETNUMBER(11));
+		*pValue = curl_formadd((struct curl_httppost **) RING_API_GETCPOINTER2POINTER(1,"struct curl_httppost"),(struct curl_httppost **) RING_API_GETCPOINTER2POINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (CURLformoption)  (int) RING_API_GETNUMBER(7),(void *) RING_API_GETCPOINTER(8,"void"), (CURLformoption)  (int) RING_API_GETNUMBER(9),* (long *) RING_API_GETCPOINTER(10,"long"), (CURLformoption)  (int) RING_API_GETNUMBER(11));
 	if (RING_API_ISCPOINTERNOTASSIGNED(10))
 		free(RING_API_GETCPOINTER(10,"long"));
 		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
@@ -2132,7 +2132,7 @@ RING_FUNC(ring_curl_formadd_7)
 	{
 		CURLFORMcode *pValue ; 
 		pValue = (CURLFORMcode *) malloc(sizeof(CURLFORMcode)) ;
-		*pValue = curl_formadd((struct curl_httppost *) RING_API_GETCPOINTER(1,"struct curl_httppost"),(struct curl_httppost *) RING_API_GETCPOINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),* (struct curl_forms  *) RING_API_GETCPOINTER(6,"struct curl_forms"), (CURLformoption)  (int) RING_API_GETNUMBER(7));
+		*pValue = curl_formadd((struct curl_httppost **) RING_API_GETCPOINTER2POINTER(1,"struct curl_httppost"),(struct curl_httppost **) RING_API_GETCPOINTER2POINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),* (struct curl_forms  *) RING_API_GETCPOINTER(6,"struct curl_forms"), (CURLformoption)  (int) RING_API_GETNUMBER(7));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
 		free(RING_API_GETCPOINTER(6,"struct curl_forms"));
 		RING_API_RETCPOINTER(pValue,"CURLFORMcode");
