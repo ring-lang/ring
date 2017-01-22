@@ -2155,7 +2155,7 @@ RING_FUNC(ring_curl_formfree)
 }
 
 
-RING_FUNC(ring_curl_slist_append_1)
+RING_FUNC(ring_curl_slist_append)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -2171,25 +2171,6 @@ RING_FUNC(ring_curl_slist_append_1)
 		return ;
 	}
 	RING_API_RETCPOINTER(curl_slist_append((CURLLIST *) RING_API_GETCPOINTER(1,"CURLLIST"),RING_API_GETSTRING(2)),"CURLLIST");
-}
-
-
-RING_FUNC(ring_curl_slist_append_2)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETCPOINTER(curl_slist_append((void *) RING_API_GETCPOINTER(1,"void"),RING_API_GETSTRING(2)),"CURLLIST");
 }
 
 
@@ -2284,8 +2265,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("curl_formadd_6",ring_curl_formadd_6);
 	ring_vm_funcregister("curl_formadd_7",ring_curl_formadd_7);
 	ring_vm_funcregister("curl_formfree",ring_curl_formfree);
-	ring_vm_funcregister("curl_slist_append_1",ring_curl_slist_append_1);
-	ring_vm_funcregister("curl_slist_append_2",ring_curl_slist_append_2);
+	ring_vm_funcregister("curl_slist_append",ring_curl_slist_append);
 	ring_vm_funcregister("curl_slist_free_all",ring_curl_slist_free_all);
 	ring_vm_funcregister("curl_easy_escape",ring_curl_easy_escape);
 	ring_vm_funcregister("curl_easy_unescape",ring_curl_easy_unescape);

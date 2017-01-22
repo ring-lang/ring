@@ -398,8 +398,7 @@ CURLFORMcode curl_formadd@7(struct curl_httppost **firstitem, struct curl_httppo
 
 void curl_formfree(struct curl_httppost * form)
 
-CURLLIST *curl_slist_append@1(CURLLIST * list, const char * string )
-CURLLIST *curl_slist_append@2(void * list, const char * string )
+CURLLIST *curl_slist_append(CURLLIST * list, const char * string )
 void curl_slist_free_all(CURLLIST * list)
 char *curl_easy_escape( CURL * curl , const char * string , int length )
 char *curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )

@@ -17,9 +17,9 @@ curl_easy_setopt_2(curl, CURLOPT_REFERER, "http://www.facebook.com")
 curl_easy_setopt_1(curl, CURLOPT_SSL_VERIFYPEER, FALSE)
 curl_easy_setopt_1(curl, CURLOPT_SSL_VERIFYHOST, 2)
 
-mylist = curl_slist_append_2(NULL,'Accept-Charset: utf-8')
-curl_slist_append_1(mylist,'Accept-Language: en-us,en;q=0.7,bn-bd;q=0.3')
-curl_slist_append_1(mylist,'Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5')
+mylist = curl_slist_append(NULL,'Accept-Charset: utf-8')
+curl_slist_append(mylist,'Accept-Language: en-us,en;q=0.7,bn-bd;q=0.3')
+curl_slist_append(mylist,'Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5')
 curl_easy_setopt_4(curl, CURLOPT_HTTPHEADER, mylist)
 
 curl_easy_setopt_1(curl, CURLOPT_COOKIESESSION, false)
