@@ -411,6 +411,7 @@ Func GenFuncCode aList
 	cCode = nl+"RING_FUNC(" + "ring_"+cFuncName + ")" + nl +
 	 	"{" + nl +
 	 	GenFuncCodeCheckParaCount(aList) +
+		GenMethodCodeCheckIgnorePointerType() +
 	 	GenFuncCodeCheckParaType(aList) +
 		GenFuncCodeCallFunc(aList)+
 	 	"}" + nl + nl 
