@@ -1,0 +1,35 @@
+.. index:: 
+     single: RingLibCurl Functions Reference; Introduction
+
+===============================
+RingLibCurl Functions Reference
+===============================
+
+* CURL *curl_easy_init(void)
+* void curl_easy_cleanup(CURL * handle )
+* CURLcode curl_easy_setopt_1(CURL *handle, CURLoption option, int)
+* CURLcode curl_easy_setopt_2(CURL *handle, CURLoption option, const char *)
+* CURLcode curl_easy_setopt_3(CURL *handle, CURLoption option, void *)
+* CURLcode curl_easy_setopt_4(CURL *handle, CURLoption option, CURLLIST *)
+* CURLcode curl_easy_perform(CURL * easy_handle )
+* CURLcode curl_easy_getinfo_1(CURL *handle, CURLINFO info, char **urlp)
+* CURLcode curl_easy_getinfo_2(CURL *handle, CURLINFO info, long *codep)
+* CURLcode curl_easy_getinfo_3(CURL *handle, CURLINFO info, double *timep)
+* CURLcode curl_easy_getinfo_4(CURL *handle, CURLINFO info, CURLLIST **engine_list)
+* CURLcode curl_easy_getinfo_5(CURL *handle, CURLINFO info, struct curl_certinfo *chainp)
+* CURLcode curl_easy_getinfo_6(CURL *handle, CURLINFO info, struct curl_tlssessioninfo **session)
+* char *curl_version(void)
+* time_t curl_getdate(char * datestring , time_t *now )
+* CURLFORMcode curl_formadd_1(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, const char *, CURLformoption)
+* CURLFORMcode curl_formadd_2(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, const char *,CURLformoption, const char *, CURLformoption)
+* CURLFORMcode curl_formadd_3(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, void *, CURLformoption)
+* CURLFORMcode curl_formadd_4(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, void *,CURLformoption, long , CURLformoption)
+* CURLFORMcode curl_formadd_5(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, void *,CURLformoption, long , CURLformoption, const char* , CURLformoption)
+* CURLFORMcode curl_formadd_6(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, const char *,CURLformoption, void * , CURLformoption, long , CURLformoption)
+* CURLFORMcode curl_formadd_7(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption,  struct curl_forms [], CURLformoption)
+* void curl_formfree(struct curl_httppost * form)
+* CURLLIST *curl_slist_append_1(CURLLIST * list, const char * string )
+* CURLLIST *curl_slist_append_2(void * list, const char * string )
+* void curl_slist_free_all(CURLLIST * list)
+* char *curl_easy_escape( CURL * curl , const char * string , int length )
+* char *curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )
