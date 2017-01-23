@@ -20,6 +20,7 @@ Ring 1.2  comes with many new features
 * Better Ring Notepad
 * Better RingQt
 * Objects Library for RingQt
+* RingLibCurl
 * Better Call Command
 * Using NULL instead of NULLPointer()
 * Display Warnings Option
@@ -182,6 +183,33 @@ Example :
 			}
 			resize(400,400)
 		}
+
+.. index:: 
+	pair: What is new in Ring 1.2?; RingLibCurl
+
+RingLibCurl
+===========
+
+The LibCurl library is used starting from Ring 1.0 for the Download() and SendEmail() 
+functions implementation. In Ring 1.2 more functions are added to provide a powerful
+library (RingLibCurl) around LibCurl.
+
+Example:
+
+.. code-block:: ring
+
+	load "libcurl.ring"
+
+	curl = curl_easy_init()
+
+	cPostThis = "page=4&Number1=4&Number2=5"
+	curl_easy_setopt(curl, CURLOPT_URL, "http://localhost/ringapp/index.ring?page=3")
+	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, cPostThis)
+
+	curl_easy_perform(curl)
+
+	curl_easy_cleanup(curl)
+
 
 .. index:: 
 	pair: What is new in Ring 1.2?; Better Call Command
