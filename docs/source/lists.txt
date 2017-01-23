@@ -340,15 +340,15 @@ Syntax:
 
 	Insert(List,Index,Item)
 
-The inserted item will be after the index
+The inserted item will be AFTER the Index
 
 Example:
 
 .. code-block:: ring
 
-	aList = [1,2,4,5]
-	insert(aList,2,3)
-	see aList	  # print 1 2 3 4 5 
+	aList = ["A","B","D","E"]
+	insert(aList,2,"C")    # Inserts AFTER Index 2, "C" into Position 3
+	see aList              # print A B C D E
 
 
 .. index:: 
