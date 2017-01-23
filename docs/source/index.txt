@@ -52,6 +52,7 @@ Contents:
    Declarative Programming using Nested Structures <declarative>
    Natural language programming	<natural>
    Web Development (CGI Library) <web>
+   Using RingLibCurl <libcurl>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Using RingLibSDL <libsdl>
    Demo Project - Game Engine for 2D Games <gameengine>	
