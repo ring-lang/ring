@@ -38,6 +38,14 @@ Generate RingAllegro Source Code and Build
 	gencode.bat
 	buildvc.bat
 
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	gencode.bat
+	buildvc.bat
+
 Install Qt 5.5 : https://download.qt.io/archive/qt/5.5/5.5.1/
 
 Generate RingQt Source Code and Build
@@ -107,6 +115,14 @@ Generate RingAllegro Source Code and Build
 	./gencode.sh
 	./buildgcc.sh
 
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildgcc.sh
+
 Generate RingQt Source Code and Build
 
 .. code-block:: ring
@@ -158,12 +174,20 @@ Build Ring (Compiler/VM)
 
 Generate RingAllegro Source Code and Build
 
-
 .. code-block:: ring
 
 	cd ../extensions/ringallegro
 	./gencode.sh
 	./buildclang.sh
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildclang.sh
+
 
 Generate RingQt Source Code and Build
 
