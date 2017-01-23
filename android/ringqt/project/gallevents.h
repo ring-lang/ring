@@ -58,6 +58,8 @@ class GAllEvents : public QWidget
     char cWindowStateChangeEvent[100];
     char cWindowUnblockedEvent[100];
 
+    bool lEventOutput ;	
+
     QEvent *pEvent;
 
     GAllEvents(QWidget *parent,VM *pVM );
@@ -131,6 +133,8 @@ class GAllEvents : public QWidget
     const char *getWindowDeactivateEvent(void);
     const char *getWindowStateChangeEvent(void);
     const char *getWindowUnblockedEvent(void);
+
+    void setEventOutput(bool x);
   
   private:
 

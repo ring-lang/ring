@@ -36,124 +36,126 @@ GAllEvents::GAllEvents(QWidget *parent,VM *pVM)  : QWidget()
 	strcpy(this->cWindowDeactivateEvent,"");
 	strcpy(this->cWindowStateChangeEvent,"");
 	strcpy(this->cWindowUnblockedEvent,"");
+	this->lEventOutput = true ;
 }
 
 bool GAllEvents::eventFilter(QObject *object, QEvent *event)
 {
 	this->pEvent = event ;
+	this->lEventOutput = true ;
 	if ((event->type() == QEvent::KeyPress) && (strcmp(this->cKeyPressEvent,"")!=0) ) {
 	        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 		this->nKeyCode = keyEvent->key();
 		this->callKeyPressEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::MouseButtonPress) && (strcmp(this->cMouseButtonPressEvent,"")!=0) ) {
 		this->storeMouseState(event);
 		this->callMouseButtonPressEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::MouseButtonRelease) && (strcmp(this->cMouseButtonReleaseEvent,"")!=0) ) {
 		this->storeMouseState(event);
 		this->callMouseButtonReleaseEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::MouseButtonDblClick) && (strcmp(this->cMouseButtonDblClickEvent,"")!=0) ) {
 		this->storeMouseState(event);
 		this->callMouseButtonDblClickEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::MouseMove) && (strcmp(this->cMouseMoveEvent,"")!=0) ) {
 		this->storeMouseState(event);
 		this->callMouseMoveEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::Close) && (strcmp(this->cCloseEvent,"")!=0) ) {
 		this->callCloseEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::ContextMenu) && (strcmp(this->cContextMenuEvent,"")!=0) ) {
 		this->callContextMenuEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::DragEnter) && (strcmp(this->cDragEnterEvent,"")!=0) ) {
 		this->callDragEnterEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::DragLeave) && (strcmp(this->cDragLeaveEvent,"")!=0) ) {
 		this->callDragLeaveEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::DragMove) && (strcmp(this->cDragMoveEvent,"")!=0) ) {
 		this->callDragMoveEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::Drop) && (strcmp(this->cDropEvent,"")!=0) ) {
 		this->callDropEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::Enter) && (strcmp(this->cEnterEvent,"")!=0) ) {
 		this->callEnterEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::FocusIn) && (strcmp(this->cFocusInEvent,"")!=0) ) {
 		this->callFocusInEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::FocusOut) && (strcmp(this->cFocusOutEvent,"")!=0) ) {
 		this->callFocusOutEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::KeyRelease) && (strcmp(this->cKeyReleaseEvent,"")!=0) ) {
 		this->callKeyReleaseEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::Leave) && (strcmp(this->cLeaveEvent,"")!=0) ) {
 		this->callLeaveEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::NonClientAreaMouseButtonDblClick) && (strcmp(this->cNonClientAreaMouseButtonDblClickEvent,"")!=0) ) {
 		this->callNonClientAreaMouseButtonDblClickEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::NonClientAreaMouseButtonPress) && (strcmp(this->cNonClientAreaMouseButtonPressEvent,"")!=0) ) {
 		this->callNonClientAreaMouseButtonPressEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::NonClientAreaMouseButtonRelease) && (strcmp(this->cNonClientAreaMouseButtonReleaseEvent,"")!=0) ) {
 		this->callNonClientAreaMouseButtonReleaseEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::NonClientAreaMouseMove) && (strcmp(this->cNonClientAreaMouseMoveEvent,"")!=0) ) {
 		this->callNonClientAreaMouseMoveEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::Move) && (strcmp(this->cMoveEvent,"")!=0) ) {
 		this->callMoveEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::Resize) && (strcmp(this->cResizeEvent,"")!=0) ) {
 		this->callResizeEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::WindowActivate) && (strcmp(this->cWindowActivateEvent,"")!=0) ) {
 		this->callWindowActivateEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::WindowBlocked) && (strcmp(this->cWindowBlockedEvent,"")!=0) ) {
 		this->callWindowBlockedEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::WindowDeactivate) && (strcmp(this->cWindowDeactivateEvent,"")!=0) ) {
 		this->callWindowDeactivateEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::WindowStateChange) && (strcmp(this->cWindowStateChangeEvent,"")!=0) ) {
 		this->callWindowStateChangeEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
         else if ((event->type() == QEvent::WindowUnblocked) && (strcmp(this->cWindowUnblockedEvent,"")!=0) ) {
 		this->callWindowUnblockedEvent();
- 		return true;
+ 		return this->lEventOutput;
     	}
 
 	return false;
@@ -702,4 +704,9 @@ const char *GAllEvents::getWindowStateChangeEvent(void)
 const char *GAllEvents::getWindowUnblockedEvent(void)
 {
 	return this->cWindowUnblockedEvent  ;
+}
+
+void GAllEvents::setEventOutput(bool x)
+{
+	this->lEventOutput = x ;
 }

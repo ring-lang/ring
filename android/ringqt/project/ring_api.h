@@ -41,6 +41,8 @@ RING_API int ring_vm_api_isobject ( void *pPointer,int x ) ;
 RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 ) ;
 
 RING_API int ring_vm_api_ispointer ( void *pPointer,int x ) ;
+
+RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const char *cType ) ;
 /*
 **  Library 
 **  General 
@@ -219,6 +221,7 @@ void ring_vmlib_ptrcmp ( void *pPointer ) ;
 #define RING_API_IGNORECPOINTERTYPE ((VM *) pPointer)->nIgnoreCPointerTypeCheck = 1
 #define RING_API_ISCPOINTER(x) ring_vm_api_iscpointer(pPointer,x)
 #define RING_API_ISOBJECT(x) ring_vm_api_isobject(pPointer,x)
+#define RING_API_GETCPOINTER2POINTER(x,y) (ring_vm_api_getcpointer2pointer((VM *) pPointer,x,y))
 /* Constants/MACRO */
 #define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
 #define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"
