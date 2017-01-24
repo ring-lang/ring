@@ -1034,6 +1034,18 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 				return ;
 			}
 		}
+		else if ( strcmp(cStr,"=") == 0 ) {
+			if ( ring_vm_api_iscpointerlist(pList) && ring_vm_api_iscpointerlist(pList2) ) {
+				RING_VM_STACK_POP ;
+				if ( ring_vm_api_cpointercmp(pList,pList2) ) {
+					RING_VM_STACK_PUSHNVALUE(1.0) ;
+				}
+				else {
+					RING_VM_STACK_PUSHNVALUE(0) ;
+				}
+				return ;
+			}
+		}
 		if ( ring_vm_oop_isobject(pList2) == 1 ) {
 			/* Operator Overloading */
 			ring_vm_oop_operatoroverloading(pVM,pList2,cStr,RING_OOPARA_POINTER,"",0,pPointer,nType);
