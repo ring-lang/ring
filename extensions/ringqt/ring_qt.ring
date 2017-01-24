@@ -9221,6 +9221,16 @@ Class QAllEvents from QWidget
 	Func setEventOutput P1
 		return QAllEvents_setEventOutput(pObject,P1)
 
+	Func getParentObject 
+		pTempObj = new QObject
+		pTempObj.pObject = QAllEvents_getParentObject(pObject)
+		return pTempObj
+
+	Func getParentWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QAllEvents_getParentWidget(pObject)
+		return pTempObj
+
 Class QDesktopWidget from QWidget
 
 	pObject

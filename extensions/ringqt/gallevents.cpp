@@ -9,6 +9,7 @@ GAllEvents::GAllEvents(QWidget *parent,VM *pVM)  : QWidget()
 {
 	this->pVM = pVM;
 	this->pEvent = NULL;
+	this->pParentWidget = parent;
 	strcpy(this->cKeyPressEvent,"");
 	strcpy(this->cMouseButtonPressEvent,"");
 	strcpy(this->cMouseButtonReleaseEvent,"");
@@ -43,6 +44,7 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
 {
 	this->pEvent = event ;
 	this->lEventOutput = true ;
+	this->pParentObject = object;
 	if ((event->type() == QEvent::KeyPress) && (strcmp(this->cKeyPressEvent,"")!=0) ) {
 	        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 		this->nKeyCode = keyEvent->key();
@@ -709,4 +711,14 @@ const char *GAllEvents::getWindowUnblockedEvent(void)
 void GAllEvents::setEventOutput(bool x)
 {
 	this->lEventOutput = x ;
+}
+
+QObject *GAllEvents::getParentObject(void)
+{
+	return this->pParentObject;
+}
+
+QWidget *GAllEvents::getParentWidget(void)
+{
+	return this->pParentWidget;
 }

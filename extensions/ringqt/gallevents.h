@@ -60,6 +60,9 @@ class GAllEvents : public QWidget
 
     bool lEventOutput ;	
 
+    QObject *pParentObject;
+    QWidget *pParentWidget;
+
     QEvent *pEvent;
 
     GAllEvents(QWidget *parent,VM *pVM );
@@ -135,6 +138,9 @@ class GAllEvents : public QWidget
     const char *getWindowUnblockedEvent(void);
 
     void setEventOutput(bool x);
+
+    QObject *getParentObject(void);
+    QWidget *getParentWidget(void);
   
   private:
 

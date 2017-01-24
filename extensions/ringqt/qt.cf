@@ -4012,6 +4012,8 @@ const char *getWindowStateChangeEvent(void)
 const char *getWindowUnblockedEvent(void)
 
 void setEventOutput(bool x)
+QObject *getParentObject(void)
+QWidget *getParentWidget(void)
 
 <class>
 name: QDesktopWidget
