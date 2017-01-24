@@ -1,1 +1,0 @@
-See "Time : " + time()

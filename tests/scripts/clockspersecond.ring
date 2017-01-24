@@ -1,1 +1,0 @@
-see clockspersecond() + nl

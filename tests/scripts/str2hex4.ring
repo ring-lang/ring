@@ -1,1 +1,0 @@
-see str2hex("hello")

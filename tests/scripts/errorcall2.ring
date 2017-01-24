@@ -1,6 +1,0 @@
-
-func great
-
-
-
-	one()
