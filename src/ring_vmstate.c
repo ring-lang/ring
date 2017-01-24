@@ -34,7 +34,6 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 {
-	int x  ;
 	pList = ring_list_getlist(pList,nPos);
 	/* Set Scope */
 	pVM->pActiveMem = (List *) ring_list_getpointer(pList,19) ;
