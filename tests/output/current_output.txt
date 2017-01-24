@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 0
-115
-115
+100
+100
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4617
+Time 4672
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2348,7 +2348,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-0148D2B0
+00D6E170
 OBJECTPOINTER
 0
 1
@@ -2590,8 +2590,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 24/01/2017
-time: 18:50:51
+date: 25/01/2017
+time: 00:34:51
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3181,3 +3181,9 @@ B:\ring\tests>call ring scripts/equalobjobj.ring
 Line 4 Object does not support operator overloading 
 In raise in file scripts/equalobjobj.ring 
 B:\ring\tests>call ring scripts/nullpointer.ring 
+
+B:\ring\tests>call ring scripts/ptrcmp2.ring 
+1
+1
+Line 7 Error in parameter, NULL pointer! 
+In fclose in file scripts/ptrcmp2.ring 

@@ -226,3 +226,4 @@ call ring scripts/returnlistfrommethod.ring
 call ring scripts/evalbrace.ring
 call ring scripts/equalobjobj.ring
 call ring scripts/nullpointer.ring
+call ring scripts/ptrcmp2.ring
