@@ -1,5 +1,10 @@
 Load "guilib.ring"
 
+See "
+Movies are not attached with this sample in Ring distribution
+You need to add them, Files : 1.mp4 2.mp4 3.mp4 4.avi
+So you can test using your files!
+"
 New qApp {
 
         win1 = new qMainWindow() {
@@ -11,6 +16,12 @@ New qApp {
                         settext("play")
                         setclickevent("player.play() player2.play()
                                                    player3.play() player4.play()")
+                }
+
+                btn1 = new qpushbutton(win1)    {
+                        setGeometry(150,0,100,30)
+                        settext("Close")
+                        setclickevent("win1.close()")
                 }
 
                 videowidget = new qvideowidget(win1) {
