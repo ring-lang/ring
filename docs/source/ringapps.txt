@@ -76,6 +76,38 @@ Quotes about Ring
 "Good Features of multi-use language on the Web, Mobile and Desktop."
 	, Abdelrhman Haider
 
+"Very interesting effort."
+	, Giannakakis Kostas (Greece)
+
+"I am too lazy to open comment window and write message.
+But in your case I must say "Perfect"
+Really, create new remarkable language like your Ring is
+really perfect job. Even create editor for your language
+in your language with only few rows...
+Even noticed in rosettacode.org !
+
+I read your previous articles and I tried these examples
+a few days ago and I will continue. I love Ring.
+
+P.S.: Anders Hejlsberg, Niklaus Wirth, Bjarne Stroustrup, Ada Lovelace
+Hall of fame is waiting...."
+	, Martin Nedopil (Czech Republic )
+
+"Ring seems very attractive to me through its very easy design and the Qt bindings. 
+I like its declarative approach and the generous documentation."
+	, Shalok Shalom (Austria)
+
+"Ring (and plenty of extension library + Qt) is wonderful."
+	, Kovacs Attila (Hungary)
+
+"Since two days I'm trying Ring and I'm really impressed, in add to power
+commands and easy use, it's really very efficient and very fast.
+
+Each day I hope to find the couple of the year PWCT+RING ... Maybe for my
+Christmas gift!!!!  HO HO HO HO
+
+Continue your fantastic job and congratulations."
+	, José Le Roux (France)
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
