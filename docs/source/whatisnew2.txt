@@ -119,6 +119,36 @@ For example the next code disable an event then call a method then enable the ev
 	FindValueAction()	# Call Method while an event is disabled
 	oView.oListResult.setCurrentItemChangedEvent(cEvent)
 
+Also the QAllEvents class is updated where we can set the output from the event function
+to be true or false using a new method added to the class called setEventOutput.
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	MyApp = New qApp {
+			win = new qWidget() {
+					setwindowtitle("Hello World")
+					setGeometry(100,100,370,250)
+					lineedit1 = new qlineedit(win) {
+						setGeometry(10,100,350,30)
+						setinputmask("9999;_") 
+						oFilter = new qallevents(lineedit1)
+						oFilter.setfocusoutEvent("pMove()")
+						installeventfilter(oFilter)
+					}
+					lineedit2 = new qlineedit(win) {
+							setGeometry(10,150,350,30)
+					}
+					show()
+			}
+			exec()
+	}
+	
+	func pMove
+		   win.setWindowTitle("xxxx")
+		   oFilter.setEventOutput(False)
+
 .. index:: 
 	pair: What is new in Ring 1.2?; Objects Library for RingQt
 
