@@ -7,6 +7,7 @@ RingLibCurl Functions Reference
 
 * CURL *curl_easy_init(void)
 * void curl_easy_cleanup(CURL * handle )
+* CURLcode curl_easy_setopt(CURL *handle, CURLoption option, PARAMETER)
 * CURLcode curl_easy_setopt_1(CURL *handle, CURLoption option, int)
 * CURLcode curl_easy_setopt_2(CURL *handle, CURLoption option, const char *)
 * CURLcode curl_easy_setopt_3(CURL *handle, CURLoption option, void *)
