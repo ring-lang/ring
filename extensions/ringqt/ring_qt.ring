@@ -4972,6 +4972,9 @@ Class QWebView from QWidget
 	Func forward 
 		return QWebView_forward(pObject)
 
+	Func print P1
+		return QWebView_print(pObject,GetObjectPointerFromRingObject(P1))
+
 	Func reload 
 		return QWebView_reload(pObject)
 

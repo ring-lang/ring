@@ -2333,9 +2333,7 @@ QUrl url(void)
 qreal zoomFactor(void)
 void back(void)
 void forward(void)
-<comment>
 void print(QPrinter *printer)
-</comment>
 void reload(void)
 void stop(void)
 

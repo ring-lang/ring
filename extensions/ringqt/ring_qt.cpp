@@ -28027,6 +28027,27 @@ RING_FUNC(ring_QWebView_forward)
 }
 
 
+RING_FUNC(ring_QWebView_print)
+{
+	GWebView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->print((QPrinter *) RING_API_GETCPOINTER(2,"QPrinter"));
+}
+
+
 RING_FUNC(ring_QWebView_reload)
 {
 	GWebView *pObject ;
@@ -82731,6 +82752,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwebview_zoomfactor",ring_QWebView_zoomFactor);
 	ring_vm_funcregister("qwebview_back",ring_QWebView_back);
 	ring_vm_funcregister("qwebview_forward",ring_QWebView_forward);
+	ring_vm_funcregister("qwebview_print",ring_QWebView_print);
 	ring_vm_funcregister("qwebview_reload",ring_QWebView_reload);
 	ring_vm_funcregister("qwebview_stop",ring_QWebView_stop);
 	ring_vm_funcregister("qwebview_setloadfinishedevent",ring_QWebView_setloadFinishedEvent);
