@@ -41,6 +41,8 @@ In this chapter we are going to learn about the system functions
 
 * ExeFolder()
 
+* Version()
+
 .. index:: 
 	pair: System Functions; System() Function
 
@@ -440,3 +442,23 @@ Syntax:
 .. code-block:: ring
 
 	exefolder() ---> String contains the Ring executable path
+
+.. index:: 
+	pair: System Functions; Version() Function
+
+Version() Function
+==================
+
+Return the Ring version
+
+Syntax:
+
+.. code-block:: ring
+
+	version() ---> String contains the Ring version
+
+Output:
+
+.. code-block:: ring
+
+	1.2
