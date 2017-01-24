@@ -2011,6 +2011,8 @@ Parent Class : QWidget
 * qreal zoomFactor(void)
 * void back(void)
 * void forward(void)
+* void print(QPrinter *printer)
+* void reload(void)
 * void stop(void)
 * void setloadProgressEvent(const char *)
 * void setloadStartedEvent(const char *)
@@ -3722,6 +3724,8 @@ Parent Class : QWidget
 * const char *getWindowStateChangeEvent(void)
 * const char *getWindowUnblockedEvent(void)
 * void setEventOutput(bool x)
+* QObject *getParentObject(void)
+* QWidget *getParentWidget(void)
 
 .. index::
 	pair: RingQt Classes Reference; QDesktopWidget Class
