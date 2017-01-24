@@ -109,6 +109,12 @@ Christmas gift!!!!  HO HO HO HO
 Continue your fantastic job and congratulations."
 	, Jose Le Roux (France)
 
+"I was taking a tour around Rosettacode and have found Ring. 
+I like the syntax a lot. It's clean and easy to understand.
+It looks like a very clean BASIC dialect without sigils.
+I can say that this is the easiest and the most BASIC-like language I've ever tried."
+	, Tomaaz 
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
