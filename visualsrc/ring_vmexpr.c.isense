@@ -130,8 +130,6 @@ Type: void *
 pPointer
 Type: int
 nType
-Type: int
-nTempObjFlag
 ring_vm_expr_npoo
 Type: List *
 pList

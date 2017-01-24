@@ -63,6 +63,29 @@ Output:
 	1
 	0
 
+Also we can compare between them using the '=' operator
+
+Example:
+
+.. code-block:: ring
+
+	fp = fopen("ptrcmp2.ring","r")
+	fp2 = fopen("ptrcmp2.ring","r")
+	fp3 = fp
+	see fp = fp2
+	see nl
+	see fp = fp3
+	fclose(fp)
+	fclose(fp2)
+
+Output:
+
+.. code-block:: ring
+
+	0
+	1
+
+
 Example:
 
 The next function in stdlib.ring uses the PrevFileName() to know if the file of the
