@@ -940,6 +940,7 @@ RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,c
 RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute )
 {
 	int nPos  ;
+	static char nullstring[] = "" ;
 	if ( nColumn == 0 ) {
 		return ring_list_getstring(pList,nIndex) ;
 	}
@@ -962,7 +963,7 @@ RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,c
 			}
 		}
 	}
-	return "" ;
+	return nullstring ;
 }
 /* List Items to Array */
 

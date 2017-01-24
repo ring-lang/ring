@@ -51863,6 +51863,40 @@ RING_FUNC(ring_QAllEvents_setEventOutput)
 }
 
 
+RING_FUNC(ring_QAllEvents_getParentObject)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETCPOINTER(pObject->getParentObject(),"QObject");
+}
+
+
+RING_FUNC(ring_QAllEvents_getParentWidget)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETCPOINTER(pObject->getParentWidget(),"QWidget");
+}
+
+
 RING_FUNC(ring_QDesktopWidget_availableGeometry)
 {
 	QDesktopWidget *pObject ;
@@ -83247,6 +83281,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qallevents_getwindowstatechangeevent",ring_QAllEvents_getWindowStateChangeEvent);
 	ring_vm_funcregister("qallevents_getwindowunblockedevent",ring_QAllEvents_getWindowUnblockedEvent);
 	ring_vm_funcregister("qallevents_seteventoutput",ring_QAllEvents_setEventOutput);
+	ring_vm_funcregister("qallevents_getparentobject",ring_QAllEvents_getParentObject);
+	ring_vm_funcregister("qallevents_getparentwidget",ring_QAllEvents_getParentWidget);
 	ring_vm_funcregister("qdesktopwidget_availablegeometry",ring_QDesktopWidget_availableGeometry);
 	ring_vm_funcregister("qdesktopwidget_isvirtualdesktop",ring_QDesktopWidget_isVirtualDesktop);
 	ring_vm_funcregister("qdesktopwidget_primaryscreen",ring_QDesktopWidget_primaryScreen);
