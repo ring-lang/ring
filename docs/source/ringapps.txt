@@ -107,7 +107,7 @@ Each day I hope to find the couple of the year PWCT+RING ... Maybe for my
 Christmas gift!!!!  HO HO HO HO
 
 Continue your fantastic job and congratulations."
-	, José Le Roux (France)
+	, Jose Le Roux (France)
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
