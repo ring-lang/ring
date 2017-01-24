@@ -90,6 +90,7 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 	pListPackages = ring_list_new(0);
 	pListCode = ring_list_new(0);
 	pListStack = ring_list_new(0);
+	pList = NULL ;
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
 	nActiveList = 0 ;
 	nBraceEnd = 0 ;

@@ -20,7 +20,7 @@ c
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack
 Type: int
-nActiveList,nValue,nBraceEnd,x3
+nActiveList,nValue,nBraceEnd
 Type: double
 dValue
 Type: char *
