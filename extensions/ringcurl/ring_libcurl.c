@@ -139,16 +139,6 @@ RING_FUNC(ring_get_curlopt_progressdata)
 	RING_API_RETNUMBER(CURLOPT_PROGRESSDATA);
 }
 
-RING_FUNC(ring_get_curlopt_xferinfofunction)
-{
-	RING_API_RETNUMBER(CURLOPT_XFERINFOFUNCTION);
-}
-
-RING_FUNC(ring_get_curlopt_xferinfodata)
-{
-	RING_API_RETNUMBER(CURLOPT_XFERINFODATA);
-}
-
 RING_FUNC(ring_get_curlopt_headerfunction)
 {
 	RING_API_RETNUMBER(CURLOPT_HEADERFUNCTION);
@@ -339,26 +329,6 @@ RING_FUNC(ring_get_curlopt_address_scope)
 	RING_API_RETNUMBER(CURLOPT_ADDRESS_SCOPE);
 }
 
-RING_FUNC(ring_get_curlopt_tcp_keepalive)
-{
-	RING_API_RETNUMBER(CURLOPT_TCP_KEEPALIVE);
-}
-
-RING_FUNC(ring_get_curlopt_tcp_keepidle)
-{
-	RING_API_RETNUMBER(CURLOPT_TCP_KEEPIDLE);
-}
-
-RING_FUNC(ring_get_curlopt_tcp_keepintvl)
-{
-	RING_API_RETNUMBER(CURLOPT_TCP_KEEPINTVL);
-}
-
-RING_FUNC(ring_get_curlopt_unix_socket_path)
-{
-	RING_API_RETNUMBER(CURLOPT_UNIX_SOCKET_PATH);
-}
-
 RING_FUNC(ring_get_curlopt_netrc)
 {
 	RING_API_RETNUMBER(CURLOPT_NETRC);
@@ -387,11 +357,6 @@ RING_FUNC(ring_get_curlopt_username)
 RING_FUNC(ring_get_curlopt_password)
 {
 	RING_API_RETNUMBER(CURLOPT_PASSWORD);
-}
-
-RING_FUNC(ring_get_curlopt_login_options)
-{
-	RING_API_RETNUMBER(CURLOPT_LOGIN_OPTIONS);
 }
 
 RING_FUNC(ring_get_curlopt_proxyusername)
@@ -427,16 +392,6 @@ RING_FUNC(ring_get_curlopt_tlsauth_type)
 RING_FUNC(ring_get_curlopt_proxyauth)
 {
 	RING_API_RETNUMBER(CURLOPT_PROXYAUTH);
-}
-
-RING_FUNC(ring_get_curlopt_sasl_ir)
-{
-	RING_API_RETNUMBER(CURLOPT_SASL_IR);
-}
-
-RING_FUNC(ring_get_curlopt_xoauth2_bearer)
-{
-	RING_API_RETNUMBER(CURLOPT_XOAUTH2_BEARER);
 }
 
 RING_FUNC(ring_get_curlopt_autoreferer)
@@ -524,16 +479,6 @@ RING_FUNC(ring_get_curlopt_httpheader)
 	RING_API_RETNUMBER(CURLOPT_HTTPHEADER);
 }
 
-RING_FUNC(ring_get_curlopt_headeropt)
-{
-	RING_API_RETNUMBER(CURLOPT_HEADEROPT);
-}
-
-RING_FUNC(ring_get_curlopt_proxyheader)
-{
-	RING_API_RETNUMBER(CURLOPT_PROXYHEADER);
-}
-
 RING_FUNC(ring_get_curlopt_http200aliases)
 {
 	RING_API_RETNUMBER(CURLOPT_HTTP200ALIASES);
@@ -589,11 +534,6 @@ RING_FUNC(ring_get_curlopt_http_transfer_decoding)
 	RING_API_RETNUMBER(CURLOPT_HTTP_TRANSFER_DECODING);
 }
 
-RING_FUNC(ring_get_curlopt_expect_100_timeout_ms)
-{
-	RING_API_RETNUMBER(CURLOPT_EXPECT_100_TIMEOUT_MS);
-}
-
 RING_FUNC(ring_get_curlopt_mail_from)
 {
 	RING_API_RETNUMBER(CURLOPT_MAIL_FROM);
@@ -602,11 +542,6 @@ RING_FUNC(ring_get_curlopt_mail_from)
 RING_FUNC(ring_get_curlopt_mail_rcpt)
 {
 	RING_API_RETNUMBER(CURLOPT_MAIL_RCPT);
-}
-
-RING_FUNC(ring_get_curlopt_mail_auth)
-{
-	RING_API_RETNUMBER(CURLOPT_MAIL_AUTH);
 }
 
 RING_FUNC(ring_get_curlopt_tftp_blksize)
@@ -884,31 +819,6 @@ RING_FUNC(ring_get_curlopt_resolve)
 	RING_API_RETNUMBER(CURLOPT_RESOLVE);
 }
 
-RING_FUNC(ring_get_curlopt_dns_interface)
-{
-	RING_API_RETNUMBER(CURLOPT_DNS_INTERFACE);
-}
-
-RING_FUNC(ring_get_curlopt_dns_local_ip4)
-{
-	RING_API_RETNUMBER(CURLOPT_DNS_LOCAL_IP4);
-}
-
-RING_FUNC(ring_get_curlopt_dns_local_ip6)
-{
-	RING_API_RETNUMBER(CURLOPT_DNS_LOCAL_IP6);
-}
-
-RING_FUNC(ring_get_curlopt_dns_servers)
-{
-	RING_API_RETNUMBER(CURLOPT_DNS_SERVERS);
-}
-
-RING_FUNC(ring_get_curlopt_accepttimeout_ms)
-{
-	RING_API_RETNUMBER(CURLOPT_ACCEPTTIMEOUT_MS);
-}
-
 RING_FUNC(ring_get_curlopt_sslcert)
 {
 	RING_API_RETNUMBER(CURLOPT_SSLCERT);
@@ -932,16 +842,6 @@ RING_FUNC(ring_get_curlopt_sslkeytype)
 RING_FUNC(ring_get_curlopt_keypasswd)
 {
 	RING_API_RETNUMBER(CURLOPT_KEYPASSWD);
-}
-
-RING_FUNC(ring_get_curlopt_ssl_enable_alpn)
-{
-	RING_API_RETNUMBER(CURLOPT_SSL_ENABLE_ALPN);
-}
-
-RING_FUNC(ring_get_curlopt_ssl_enable_npn)
-{
-	RING_API_RETNUMBER(CURLOPT_SSL_ENABLE_NPN);
 }
 
 RING_FUNC(ring_get_curlopt_sslengine)
@@ -969,11 +869,6 @@ RING_FUNC(ring_get_curlopt_ssl_verifypeer)
 	RING_API_RETNUMBER(CURLOPT_SSL_VERIFYPEER);
 }
 
-RING_FUNC(ring_get_curlopt_ssl_verifystatus)
-{
-	RING_API_RETNUMBER(CURLOPT_SSL_VERIFYSTATUS);
-}
-
 RING_FUNC(ring_get_curlopt_cainfo)
 {
 	RING_API_RETNUMBER(CURLOPT_CAINFO);
@@ -999,11 +894,6 @@ RING_FUNC(ring_get_curlopt_certinfo)
 	RING_API_RETNUMBER(CURLOPT_CERTINFO);
 }
 
-RING_FUNC(ring_get_curlopt_pinnedpublickey)
-{
-	RING_API_RETNUMBER(CURLOPT_PINNEDPUBLICKEY);
-}
-
 RING_FUNC(ring_get_curlopt_random_file)
 {
 	RING_API_RETNUMBER(CURLOPT_RANDOM_FILE);
@@ -1022,11 +912,6 @@ RING_FUNC(ring_get_curlopt_ssl_cipher_list)
 RING_FUNC(ring_get_curlopt_ssl_sessionid_cache)
 {
 	RING_API_RETNUMBER(CURLOPT_SSL_SESSIONID_CACHE);
-}
-
-RING_FUNC(ring_get_curlopt_ssl_options)
-{
-	RING_API_RETNUMBER(CURLOPT_SSL_OPTIONS);
 }
 
 RING_FUNC(ring_get_curlopt_krblevel)
@@ -1297,11 +1182,6 @@ RING_FUNC(ring_get_curlinfo_ftp_entry_path)
 RING_FUNC(ring_get_curlinfo_certinfo)
 {
 	RING_API_RETNUMBER(CURLINFO_CERTINFO);
-}
-
-RING_FUNC(ring_get_curlinfo_tls_session)
-{
-	RING_API_RETNUMBER(CURLINFO_TLS_SESSION);
 }
 
 RING_FUNC(ring_get_curlinfo_condition_unmet)
@@ -2292,8 +2172,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_curlopt_closesocketdata",ring_get_curlopt_closesocketdata);
 	ring_vm_funcregister("get_curlopt_progressfunction",ring_get_curlopt_progressfunction);
 	ring_vm_funcregister("get_curlopt_progressdata",ring_get_curlopt_progressdata);
-	ring_vm_funcregister("get_curlopt_xferinfofunction",ring_get_curlopt_xferinfofunction);
-	ring_vm_funcregister("get_curlopt_xferinfodata",ring_get_curlopt_xferinfodata);
 	ring_vm_funcregister("get_curlopt_headerfunction",ring_get_curlopt_headerfunction);
 	ring_vm_funcregister("get_curlopt_headerdata",ring_get_curlopt_headerdata);
 	ring_vm_funcregister("get_curlopt_debugfunction",ring_get_curlopt_debugfunction);
@@ -2332,17 +2210,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_curlopt_port",ring_get_curlopt_port);
 	ring_vm_funcregister("get_curlopt_tcp_nodelay",ring_get_curlopt_tcp_nodelay);
 	ring_vm_funcregister("get_curlopt_address_scope",ring_get_curlopt_address_scope);
-	ring_vm_funcregister("get_curlopt_tcp_keepalive",ring_get_curlopt_tcp_keepalive);
-	ring_vm_funcregister("get_curlopt_tcp_keepidle",ring_get_curlopt_tcp_keepidle);
-	ring_vm_funcregister("get_curlopt_tcp_keepintvl",ring_get_curlopt_tcp_keepintvl);
-	ring_vm_funcregister("get_curlopt_unix_socket_path",ring_get_curlopt_unix_socket_path);
 	ring_vm_funcregister("get_curlopt_netrc",ring_get_curlopt_netrc);
 	ring_vm_funcregister("get_curlopt_netrc_file",ring_get_curlopt_netrc_file);
 	ring_vm_funcregister("get_curlopt_userpwd",ring_get_curlopt_userpwd);
 	ring_vm_funcregister("get_curlopt_proxyuserpwd",ring_get_curlopt_proxyuserpwd);
 	ring_vm_funcregister("get_curlopt_username",ring_get_curlopt_username);
 	ring_vm_funcregister("get_curlopt_password",ring_get_curlopt_password);
-	ring_vm_funcregister("get_curlopt_login_options",ring_get_curlopt_login_options);
 	ring_vm_funcregister("get_curlopt_proxyusername",ring_get_curlopt_proxyusername);
 	ring_vm_funcregister("get_curlopt_proxypassword",ring_get_curlopt_proxypassword);
 	ring_vm_funcregister("get_curlopt_httpauth",ring_get_curlopt_httpauth);
@@ -2350,8 +2223,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_curlopt_tlsauth_password",ring_get_curlopt_tlsauth_password);
 	ring_vm_funcregister("get_curlopt_tlsauth_type",ring_get_curlopt_tlsauth_type);
 	ring_vm_funcregister("get_curlopt_proxyauth",ring_get_curlopt_proxyauth);
-	ring_vm_funcregister("get_curlopt_sasl_ir",ring_get_curlopt_sasl_ir);
-	ring_vm_funcregister("get_curlopt_xoauth2_bearer",ring_get_curlopt_xoauth2_bearer);
 	ring_vm_funcregister("get_curlopt_autoreferer",ring_get_curlopt_autoreferer);
 	ring_vm_funcregister("get_curlopt_accept_encoding",ring_get_curlopt_accept_encoding);
 	ring_vm_funcregister("get_curlopt_transfer_encoding",ring_get_curlopt_transfer_encoding);
@@ -2369,8 +2240,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_curlopt_referer",ring_get_curlopt_referer);
 	ring_vm_funcregister("get_curlopt_useragent",ring_get_curlopt_useragent);
 	ring_vm_funcregister("get_curlopt_httpheader",ring_get_curlopt_httpheader);
-	ring_vm_funcregister("get_curlopt_headeropt",ring_get_curlopt_headeropt);
-	ring_vm_funcregister("get_curlopt_proxyheader",ring_get_curlopt_proxyheader);
 	ring_vm_funcregister("get_curlopt_http200aliases",ring_get_curlopt_http200aliases);
 	ring_vm_funcregister("get_curlopt_cookie",ring_get_curlopt_cookie);
 	ring_vm_funcregister("get_curlopt_cookiefile",ring_get_curlopt_cookiefile);
@@ -2382,10 +2251,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_curlopt_ignore_content_length",ring_get_curlopt_ignore_content_length);
 	ring_vm_funcregister("get_curlopt_http_content_decoding",ring_get_curlopt_http_content_decoding);
 	ring_vm_funcregister("get_curlopt_http_transfer_decoding",ring_get_curlopt_http_transfer_decoding);
-	ring_vm_funcregister("get_curlopt_expect_100_timeout_ms",ring_get_curlopt_expect_100_timeout_ms);
 	ring_vm_funcregister("get_curlopt_mail_from",ring_get_curlopt_mail_from);
 	ring_vm_funcregister("get_curlopt_mail_rcpt",ring_get_curlopt_mail_rcpt);
-	ring_vm_funcregister("get_curlopt_mail_auth",ring_get_curlopt_mail_auth);
 	ring_vm_funcregister("get_curlopt_tftp_blksize",ring_get_curlopt_tftp_blksize);
 	ring_vm_funcregister("get_curlopt_ftpport",ring_get_curlopt_ftpport);
 	ring_vm_funcregister("get_curlopt_quote",ring_get_curlopt_quote);
@@ -2441,35 +2308,25 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_curlopt_connect_only",ring_get_curlopt_connect_only);
 	ring_vm_funcregister("get_curlopt_use_ssl",ring_get_curlopt_use_ssl);
 	ring_vm_funcregister("get_curlopt_resolve",ring_get_curlopt_resolve);
-	ring_vm_funcregister("get_curlopt_dns_interface",ring_get_curlopt_dns_interface);
-	ring_vm_funcregister("get_curlopt_dns_local_ip4",ring_get_curlopt_dns_local_ip4);
-	ring_vm_funcregister("get_curlopt_dns_local_ip6",ring_get_curlopt_dns_local_ip6);
-	ring_vm_funcregister("get_curlopt_dns_servers",ring_get_curlopt_dns_servers);
-	ring_vm_funcregister("get_curlopt_accepttimeout_ms",ring_get_curlopt_accepttimeout_ms);
 	ring_vm_funcregister("get_curlopt_sslcert",ring_get_curlopt_sslcert);
 	ring_vm_funcregister("get_curlopt_sslcerttype",ring_get_curlopt_sslcerttype);
 	ring_vm_funcregister("get_curlopt_sslkey",ring_get_curlopt_sslkey);
 	ring_vm_funcregister("get_curlopt_sslkeytype",ring_get_curlopt_sslkeytype);
 	ring_vm_funcregister("get_curlopt_keypasswd",ring_get_curlopt_keypasswd);
-	ring_vm_funcregister("get_curlopt_ssl_enable_alpn",ring_get_curlopt_ssl_enable_alpn);
-	ring_vm_funcregister("get_curlopt_ssl_enable_npn",ring_get_curlopt_ssl_enable_npn);
 	ring_vm_funcregister("get_curlopt_sslengine",ring_get_curlopt_sslengine);
 	ring_vm_funcregister("get_curlopt_sslengine_default",ring_get_curlopt_sslengine_default);
 	ring_vm_funcregister("get_curlopt_sslversion",ring_get_curlopt_sslversion);
 	ring_vm_funcregister("get_curlopt_ssl_verifyhost",ring_get_curlopt_ssl_verifyhost);
 	ring_vm_funcregister("get_curlopt_ssl_verifypeer",ring_get_curlopt_ssl_verifypeer);
-	ring_vm_funcregister("get_curlopt_ssl_verifystatus",ring_get_curlopt_ssl_verifystatus);
 	ring_vm_funcregister("get_curlopt_cainfo",ring_get_curlopt_cainfo);
 	ring_vm_funcregister("get_curlopt_issuercert",ring_get_curlopt_issuercert);
 	ring_vm_funcregister("get_curlopt_capath",ring_get_curlopt_capath);
 	ring_vm_funcregister("get_curlopt_crlfile",ring_get_curlopt_crlfile);
 	ring_vm_funcregister("get_curlopt_certinfo",ring_get_curlopt_certinfo);
-	ring_vm_funcregister("get_curlopt_pinnedpublickey",ring_get_curlopt_pinnedpublickey);
 	ring_vm_funcregister("get_curlopt_random_file",ring_get_curlopt_random_file);
 	ring_vm_funcregister("get_curlopt_egdsocket",ring_get_curlopt_egdsocket);
 	ring_vm_funcregister("get_curlopt_ssl_cipher_list",ring_get_curlopt_ssl_cipher_list);
 	ring_vm_funcregister("get_curlopt_ssl_sessionid_cache",ring_get_curlopt_ssl_sessionid_cache);
-	ring_vm_funcregister("get_curlopt_ssl_options",ring_get_curlopt_ssl_options);
 	ring_vm_funcregister("get_curlopt_krblevel",ring_get_curlopt_krblevel);
 	ring_vm_funcregister("get_curlopt_gssapi_delegation",ring_get_curlopt_gssapi_delegation);
 	ring_vm_funcregister("get_curlopt_ssh_auth_types",ring_get_curlopt_ssh_auth_types);
@@ -2524,7 +2381,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_curlinfo_lastsocket",ring_get_curlinfo_lastsocket);
 	ring_vm_funcregister("get_curlinfo_ftp_entry_path",ring_get_curlinfo_ftp_entry_path);
 	ring_vm_funcregister("get_curlinfo_certinfo",ring_get_curlinfo_certinfo);
-	ring_vm_funcregister("get_curlinfo_tls_session",ring_get_curlinfo_tls_session);
 	ring_vm_funcregister("get_curlinfo_condition_unmet",ring_get_curlinfo_condition_unmet);
 	ring_vm_funcregister("get_curlinfo_rtsp_session_id",ring_get_curlinfo_rtsp_session_id);
 	ring_vm_funcregister("get_curlinfo_rtsp_client_cseq",ring_get_curlinfo_rtsp_client_cseq);
