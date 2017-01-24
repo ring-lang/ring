@@ -207,6 +207,8 @@ nPos
 ring_list_getstringcolumn
 Type: int
 nPos
+Type: static char
+nullstring[]
 ring_list_genarray
 Type: int
 x
