@@ -283,7 +283,7 @@ void ring_vm_odbc_fetch ( void *pPointer )
 void ring_vm_odbc_getdata ( void *pPointer )
 {
 	ring_odbc *pODBC  ;
-	SQLINTEGER indicator  ;
+	SQLLEN indicator  ;
 	SQLUSMALLINT i  ;
 	SQLRETURN ret  ;
 	char *buf, *buf2  ;
