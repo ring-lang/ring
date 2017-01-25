@@ -55,7 +55,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Ring'
-copyright = u'2016, Eng. Mahmoud Fayed and Dr. Atif Alamri'
+copyright = u'2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri'
 author = u'Eng. Mahmoud Fayed and Dr. Atif Alamri'
 
 # The version info for the project you're documenting, acts as replacement for
