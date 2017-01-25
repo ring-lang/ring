@@ -45,7 +45,7 @@ Instead of using a mix of programming languages, I decided to use one programmin
 for creating the development environment, for components scripting & for creating the applications.
 
 I looked at many programming languages like C, C++, Java, C#, Lua, PHP, Python & Ruby. 
-I avoided using C or C++ directly because i want high-level of productivity more than the level
+I avoided using C or C++ directly because I want high-level of productivity more than the level
 provided by these languages, also a language behind visual programming environment for novice programmers
 or professionals must be easy to use & productive.
 
@@ -78,13 +78,13 @@ History
 In Sept. 2013 I started the design and the implementation of the Ring programming language.
 After 21 months of development, In May 2015 the language Compiler & Virtual Machine were ready for use!
 
-After that i spent three months testing the language again, trying to discover any bug to fix, writing better tests,
+After that I spent three months testing the language again, trying to discover any bug to fix, writing better tests,
 by the end of August 2015, all know bugs were fixed, Writing many tests and testing automation helped a lot in 
 getting a stable product.
 
-In September 12, 2015, most of the documentation was written. Before releasing the language i started the marketing by
+In September 12, 2015, most of the documentation was written. Before releasing the language I started the marketing by
 writing a post in Arabic language about it to my facebook profile page asking for contributors interested in the language 
-idea after reading a short description, in the same day i got a lot of emails from developers and friends interested to contribute!
+idea after reading a short description, In the same day I got a lot of emails from developers and friends interested to contribute!
 
 The first version of the language Ring 1.0 is released on January 25, 2016
 
