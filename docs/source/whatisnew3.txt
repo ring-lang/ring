@@ -1,0 +1,19 @@
+.. index:: 
+	single: What is new in Ring 1.3?; Introduction
+
+========================
+What is new in Ring 1.3?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.3 release.
+
+.. index:: 
+	pair: What is new in Ring 1.2?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.3  comes with many new features 
+
+* 
+
