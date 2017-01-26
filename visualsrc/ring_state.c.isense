@@ -31,7 +31,7 @@ nPrintInstruction : 1
 Type: unsigned int
 nGenObj : 1
 Type: unsigned int
-nWarn : 1
+nWarning : 1
 Type: int
 argc
 Type: char  **
