@@ -233,7 +233,7 @@ void ring_vm_openssl_decrypt ( void *pPointer )
 
 void ring_vm_openssl_randbytes ( void *pPointer )
 {
-	unsinged char *cStr  ;
+	unsigned char *cStr  ;
 	int nNum1  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);

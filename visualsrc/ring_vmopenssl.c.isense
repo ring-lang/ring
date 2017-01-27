@@ -70,7 +70,7 @@ nSize,buflen, tmplen, nSize2
 Type: EVP_CIPHER_CTX
 ctx
 ring_vm_openssl_randbytes
-Type: char *
+Type: unsinged char *
 cStr
 Type: int
 nNum1
