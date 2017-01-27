@@ -333,7 +333,7 @@ RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 )
 
 RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 {
-	List *pList, *pList2, *pListScope  ;
+	List *pList, *pList2  ;
 	VM *pVM  ;
 	Item *pItem  ;
 	pVM = (VM *) pPointer ;
@@ -346,9 +346,8 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 		if ( strcmp(ring_list_getstring(pList,RING_VAR_VALUE),"") == 0 ) {
 			/* Create the list for the NULL Pointer */
 			ring_list_setint(pList,RING_VAR_TYPE,RING_VM_POINTER);
-			pList2 = RING_API_NEWLIST2 ;
-			pListScope = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
-			pItem = ring_list_getitem(pListScope,ring_list_getsize(pVM->pActiveMem));
+			pList2 = RING_API_NEWLIST ;
+			pItem = ring_list_getitem(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem));
 			/* Increase the References count for the item */
 			ring_vm_gc_newitemreference(pItem);
 			ring_list_setpointer(pList,RING_VAR_VALUE,pItem);
@@ -410,18 +409,6 @@ RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const cha
 	}
 	RING_API_ERROR(RING_API_NOTPOINTER);
 	return NULL ;
-}
-
-RING_API List * ring_vm_api_newlist2 ( VM *pVM )
-{
-	List *pList, *pParent  ;
-	/*
-	**  Create Temp. List in a more longer scope that stay after the end of the function (The Caller Scope) 
-	**  This is required when we create Temp. List after we convert NULL string to NULL C Pointer List 
-	*/
-	pParent = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
-	pList = ring_list_newlist(pParent);
-	return pList ;
 }
 /*
 **  Library 
