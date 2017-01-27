@@ -1,9 +1,13 @@
 ring_vmos_h
 RING_VM_POINTER_LIBNAME
+Type: LPFN_ISWOW64PROCESS
+fnIsWow64Process
 ring_vm_os_loadfunctions
 ring_vm_os_ismsdos
 ring_vm_os_iswindows
 ring_vm_os_iswindows64
+Type: int
+bIsWow64
 ring_vm_os_isunix
 ring_vm_os_ismacosx
 ring_vm_os_islinux

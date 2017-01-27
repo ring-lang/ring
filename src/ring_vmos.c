@@ -2,6 +2,11 @@
 **  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
+#ifdef _WIN32
+#include "windows.h"
+typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
+LPFN_ISWOW64PROCESS fnIsWow64Process  ;
+#endif
 #include "ring.h"
 #include "ring_vmos.h"
 /* Functions */
@@ -43,20 +48,15 @@ void ring_vm_os_iswindows ( void *pPointer )
 
 void ring_vm_os_iswindows64 ( void *pPointer )
 {
-	#ifdef _WIN64
-	RING_API_RETNUMBER(1);
-	#else
+	int bIsWow64  ;
+	bIsWow64 = 0 ;
 	#ifdef _WIN32
-	if ( sizeof(void *) == 8 ) {
-		RING_API_RETNUMBER(1);
+	fnIsWow64Process = (LPFN_ISWOW64PROCESS) GetProcAddress(GetModuleHandle(TEXT("kernel32")),"IsWow64Process") ;
+	if ( fnIsWow64Process != NULL ) {
+		fnIsWow64Process(GetCurrentProcess(),&bIsWow64);
 	}
-	else {
-		RING_API_RETNUMBER(0);
-	}
-	#else
-	RING_API_RETNUMBER(0);
 	#endif
-	#endif
+	RING_API_RETNUMBER(bIsWow64);
 }
 
 void ring_vm_os_isunix ( void *pPointer )
