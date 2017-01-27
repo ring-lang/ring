@@ -244,7 +244,7 @@ void ring_vm_openssl_randbytes ( void *pPointer )
 		if ( nNum1 > 0 ) {
 			cStr =  malloc(nNum1+1) ;
 			if ( RAND_bytes(cStr,nNum1) ) {
-				RING_API_RETSTRING2(cStr,nNum1);
+				RING_API_RETSTRING2((const char *) cStr,nNum1);
 			}
 			else {
 				RING_API_RETNUMBER(0);
