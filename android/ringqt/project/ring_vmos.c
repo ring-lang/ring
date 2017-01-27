@@ -46,7 +46,16 @@ void ring_vm_os_iswindows64 ( void *pPointer )
 	#ifdef _WIN64
 	RING_API_RETNUMBER(1);
 	#else
+	#ifdef _WIN32
+	if ( sizeof(void *) == 8 ) {
+		RING_API_RETNUMBER(1);
+	}
+	else {
+		RING_API_RETNUMBER(0);
+	}
+	#else
 	RING_API_RETNUMBER(0);
+	#endif
 	#endif
 }
 

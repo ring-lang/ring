@@ -115,3 +115,8 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 	pScope->pHashTable = ring_hashtable_delete(pScope->pHashTable) ;
 	ring_list_genhashtable2(pScope);
 }
+
+void ring_vm_gc_newitemreference ( Item *pItem )
+{
+	pItem->gc.nReferenceCount++ ;
+}

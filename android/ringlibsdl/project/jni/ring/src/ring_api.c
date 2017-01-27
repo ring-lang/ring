@@ -348,6 +348,8 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 			ring_list_setint(pList,RING_VAR_TYPE,RING_VM_POINTER);
 			pList2 = RING_API_NEWLIST ;
 			pItem = ring_list_getitem(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem));
+			/* Increase the References count for the item */
+			ring_vm_gc_newitemreference(pItem);
 			ring_list_setpointer(pList,RING_VAR_VALUE,pItem);
 			ring_list_setint(pList,RING_VAR_PVALUETYPE,RING_OBJTYPE_LISTITEM);
 			/* The variable value will be a list contains the pointer */

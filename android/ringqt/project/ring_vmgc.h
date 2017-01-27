@@ -14,6 +14,8 @@ void ring_vm_gc_deleteitem ( Item *pItem ) ;
 void ring_vm_gc_killreference ( VM *pVM ) ;
 
 void ring_vm_gc_deletetemplists ( VM *pVM ) ;
+
+void ring_vm_gc_newitemreference ( Item *pItem ) ;
 /* Macro */
 #define ring_vm_gc_cleardata(pItem) (pItem->gc.nReferenceCount = 0)
 #define GCLog 0
