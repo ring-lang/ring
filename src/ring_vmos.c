@@ -5,7 +5,7 @@
 #ifdef _WIN32
 #include "windows.h"
 typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
-LPFN_ISWOW64PROCESS fnIsWow64Process  ;
+LPFN_ISWOW64PROCESS fnCheckWindows64  ;
 #endif
 #include "ring.h"
 #include "ring_vmos.h"
@@ -48,15 +48,15 @@ void ring_vm_os_iswindows ( void *pPointer )
 
 void ring_vm_os_iswindows64 ( void *pPointer )
 {
-	int bIsWow64  ;
-	bIsWow64 = 0 ;
+	int lSystem64  ;
+	lSystem64 = 0 ;
 	#ifdef _WIN32
-	fnIsWow64Process = (LPFN_ISWOW64PROCESS) GetProcAddress(GetModuleHandle(TEXT("kernel32")),"IsWow64Process") ;
-	if ( fnIsWow64Process != NULL ) {
-		fnIsWow64Process(GetCurrentProcess(),&bIsWow64);
+	fnCheckWindows64 = (LPFN_ISWOW64PROCESS) GetProcAddress(GetModuleHandle(TEXT("kernel32")),"IsWow64Process") ;
+	if ( fnCheckWindows64 != NULL ) {
+		fnCheckWindows64(GetCurrentProcess(),&lSystem64);
 	}
 	#endif
-	RING_API_RETNUMBER(bIsWow64);
+	RING_API_RETNUMBER(lSystem64);
 }
 
 void ring_vm_os_isunix ( void *pPointer )
