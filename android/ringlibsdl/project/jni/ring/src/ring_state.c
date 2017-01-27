@@ -330,7 +330,7 @@ int ring_currentdir ( char *cDirPath )
 
 int ring_exefilename ( char *cDirPath )
 {
-	int nSize  ;
+	unsigned int nSize  ;
 	nSize = 200 ;
 	#ifdef _WIN32
 	/* Windows only */

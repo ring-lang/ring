@@ -31,7 +31,7 @@ nPrintInstruction : 1
 Type: unsigned int
 nGenObj : 1
 Type: unsigned int
-nWarn : 1
+nWarning : 1
 Type: int
 argc
 Type: char  **
@@ -104,7 +104,7 @@ ring_currentdir
 Type: int
 nSize
 ring_exefilename
-Type: int
+Type: unsigned int
 nSize
 ring_chdir
 ring_exefolder
