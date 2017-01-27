@@ -171,9 +171,9 @@ void ring_vm_openssl_encrypt ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
-		in = RING_API_GETSTRING(1) ;
-		key = RING_API_GETSTRING(2) ;
-		iv = RING_API_GETSTRING(3) ;
+		in = (unsigned char *) RING_API_GETSTRING(1) ;
+		key = (unsigned char *) RING_API_GETSTRING(2) ;
+		iv = (unsigned char *) RING_API_GETSTRING(3) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
 		out = (unsigned char *) malloc(nSize*2) ;
 		EVP_CIPHER_CTX_init(&ctx);
@@ -187,7 +187,7 @@ void ring_vm_openssl_encrypt ( void *pPointer )
 			return ;
 		}
 		nSize2 = buflen + tmplen ;
-		RING_API_RETSTRING2(out,nSize2);
+		RING_API_RETSTRING2((const char *) out,nSize2);
 		EVP_CIPHER_CTX_cleanup(&ctx);
 		free( out ) ;
 	}
@@ -206,9 +206,9 @@ void ring_vm_openssl_decrypt ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
-		in = RING_API_GETSTRING(1) ;
-		key = RING_API_GETSTRING(2) ;
-		iv = RING_API_GETSTRING(3) ;
+		in = (unsigned char *) RING_API_GETSTRING(1) ;
+		key = (unsigned char *) RING_API_GETSTRING(2) ;
+		iv = (unsigned char *) RING_API_GETSTRING(3) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
 		out = (unsigned char *) malloc(nSize*2) ;
 		EVP_CIPHER_CTX_init(&ctx);
@@ -222,7 +222,7 @@ void ring_vm_openssl_decrypt ( void *pPointer )
 			return ;
 		}
 		nSize2 = buflen + tmplen ;
-		RING_API_RETSTRING2(out,nSize2);
+		RING_API_RETSTRING2((const char *) out,nSize2);
 		EVP_CIPHER_CTX_cleanup(&ctx);
 		free( out ) ;
 	}
@@ -233,7 +233,7 @@ void ring_vm_openssl_decrypt ( void *pPointer )
 
 void ring_vm_openssl_randbytes ( void *pPointer )
 {
-	char *cStr  ;
+	unsinged char *cStr  ;
 	int nNum1  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
