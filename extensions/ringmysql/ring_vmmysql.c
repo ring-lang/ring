@@ -155,7 +155,7 @@ void ring_vm_mysql_result ( void *pPointer )
 		}
 		pList = RING_API_NEWLIST ;
 		nColumns = mysql_num_fields(result);
-		while ( row = mysql_fetch_row(result) ) {
+		while ( ( row = mysql_fetch_row(result) ) ) {
 			lengths = mysql_fetch_lengths(result);
 			pList2 = ring_list_newlist(pList);
 			for ( x = 0 ; x < nColumns ; x++ ) {
@@ -213,8 +213,8 @@ void ring_vm_mysql_columns ( void *pPointer )
 		}
 		pList = RING_API_NEWLIST ;
 		nColumns = mysql_num_fields(result);
-		if ( row = mysql_fetch_row(result) ) {
-			while ( field = mysql_fetch_field(result) ) {
+		if ( ( row = mysql_fetch_row(result) ) ) {
+			while ( ( field = mysql_fetch_field(result) ) ) {
 				pList2 = ring_list_newlist(pList);
 				ring_list_addstring(pList2,field->name);
 				ring_list_adddouble(pList2,field->length);
@@ -255,12 +255,12 @@ void ring_vm_mysql_result2 ( void *pPointer )
 		pList = RING_API_NEWLIST ;
 		pList3 = ring_list_newlist(pList);
 		nColumns = mysql_num_fields(result);
-		while ( row = mysql_fetch_row(result) ) {
+		while ( ( row = mysql_fetch_row(result) ) ) {
 			lengths = mysql_fetch_lengths(result);
 			pList2 = ring_list_newlist(pList);
 			for ( x = 0 ; x < nColumns ; x++ ) {
 				if ( x == 0 ) {
-					while ( field = mysql_fetch_field(result) ) {
+					while ( ( field = mysql_fetch_field(result) ) ) {
 						ring_list_addstring(pList3,field->name);
 					}
 				}
