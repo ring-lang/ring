@@ -104,7 +104,7 @@ ring_currentdir
 Type: int
 nSize
 ring_exefilename
-Type: int
+Type: unsigned int
 nSize
 ring_chdir
 ring_exefolder
