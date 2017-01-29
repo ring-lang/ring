@@ -12619,6 +12619,9 @@ Class QPlainTextEdit from QAbstractScrollArea
 	Func getupdateRequestEvent 
 		return QPlainTextEdit_getupdateRequestEvent(pObject)
 
+	Func cyanline P1
+		return QPlainTextEdit_cyanline(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QGridLayout
 
 	pObject
