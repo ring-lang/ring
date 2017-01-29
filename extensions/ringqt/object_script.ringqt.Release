@@ -26,6 +26,7 @@ INPUT(
 ./release\gallevents.o
 ./release\gnetworkaccessmanager.o
 ./release\highlighter.o
+./release\codeeditor.o
 ./release\gthread.o
 ./release\gplaintextedit.o
 ./release\gheaderview.o
@@ -57,6 +58,7 @@ INPUT(
 ./release\moc_gallevents.o
 ./release\moc_gnetworkaccessmanager.o
 ./release\moc_highlighter.o
+./release\moc_codeeditor.o
 ./release\moc_gthread.o
 ./release\moc_gplaintextedit.o
 ./release\moc_gheaderview.o

@@ -43,6 +43,7 @@ extern "C" {
 #include "gthread.h"
 #include "gplaintextedit.h"
 #include "gheaderview.h"
+#include "codeeditor.h"
 
 #include <QApplication>
 #include <QObject>
@@ -5381,6 +5382,13 @@ RING_FUNC(ring_QPlainTextEdit_cyanline)
 	editor->setExtraSelections( extras );
 }
 </code>
+
+<class>
+name: CodeEditor
+para: QWidget *
+parent: QPlainTextEdit
+passvmpointer
+</class>
 
 <class>
 name: QGridLayout

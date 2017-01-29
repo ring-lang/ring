@@ -26,6 +26,7 @@ INPUT(
 ./debug\gallevents.o
 ./debug\gnetworkaccessmanager.o
 ./debug\highlighter.o
+./debug\codeeditor.o
 ./debug\gthread.o
 ./debug\gplaintextedit.o
 ./debug\gheaderview.o
@@ -57,6 +58,7 @@ INPUT(
 ./debug\moc_gallevents.o
 ./debug\moc_gnetworkaccessmanager.o
 ./debug\moc_highlighter.o
+./debug\moc_codeeditor.o
 ./debug\moc_gthread.o
 ./debug\moc_gplaintextedit.o
 ./debug\moc_gheaderview.o
