@@ -12,7 +12,6 @@ New qapp
             settext("")
         }
 
-        setwindowtitle("QLabel - Display image")
         imageStock = new qlabel(win1) 
         {               
             image = new qPixMap2(200,200)   
