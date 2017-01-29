@@ -13912,6 +13912,17 @@ Class QPoint
 	Func y 
 		return QPoint_y(pObject)
 
+Class QPixmap2 from QPixmap
+
+	pObject
+
+	Func init P1,P2
+		pObject = QPixmap2_new(P1,P2)
+		return self
+
+	Func delete
+		pObject = QPixmap2_delete(pObject)
+
 Class QIcon
 
 	pObject
@@ -13944,6 +13955,17 @@ Class QDateEdit from QDateTimeEdit
 
 	Func delete
 		pObject = QDateEdit_delete(pObject)
+
+Class QPainter2 from QPainter
+
+	pObject
+
+	Func init P1
+		pObject = QPainter2_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPainter2_delete(pObject)
 
 Class QKeySequence
 

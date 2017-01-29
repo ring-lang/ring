@@ -816,6 +816,13 @@ void fill(QColor)
 QPixmap fromImage(QImage,Qt::ImageConversionFlags)
 
 <class>
+name: QPixmap2
+para: int width, int height
+parent: QPixmap
+codename: QPixmap
+</class>
+
+<class>
 name: QIcon
 para: QPixmap
 </class>
@@ -2953,6 +2960,14 @@ QRect viewport(void)
 QRect window(void)
 bool worldMatrixEnabled(void)
 QTransform  worldTransform(void)
+
+<class>
+name: QPainter2
+para: QPaintDevice *
+parent: QPainter
+codename: QPainter
+</class>
+
 
 <class>
 name: QPicture
