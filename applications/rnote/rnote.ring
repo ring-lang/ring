@@ -421,7 +421,8 @@ MyApp = New qApp {
 			setwidget(tree1)
 		}
 
-		textedit1 = new qPlaintextedit(win1) {
+		#textedit1 = new qPlaintextedit(win1) {
+		textedit1 = new codeeditor(win1) {
 			setCursorPositionChangedevent("pCursorPositionChanged()")
 			setLineWrapMode(QTextEdit_NoWrap)
 			setTextChangedEvent("pTextChanged()")			
