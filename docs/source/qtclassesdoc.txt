@@ -5204,6 +5204,7 @@ Parent Class : QAbstractScrollArea
 * const char *gettextChangedEvent(void)
 * const char *getundoAvailableEvent(void)
 * const char *getupdateRequestEvent(void)
+* void cyanline(QPlainTextEdit *pObject)
 
 .. index::
 	pair: RingQt Classes Reference; QGridLayout Class
