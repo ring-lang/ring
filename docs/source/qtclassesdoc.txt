@@ -385,6 +385,22 @@ Parameters : const char *
 * QPixmap fromImage(QImage,Qt::ImageConversionFlags)
 
 .. index::
+	pair: RingQt Classes Reference; QPixmap2 Class
+
+QPixmap2 Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPixmap2.html
+
+
+Parameters : int width, int height
+
+
+Parent Class : QPixmap
+
+
+.. index::
 	pair: RingQt Classes Reference; QIcon Class
 
 QIcon Class
@@ -2615,6 +2631,22 @@ Parameters : void
 * QRect window(void)
 * bool worldMatrixEnabled(void)
 * QTransform  worldTransform(void)
+
+.. index::
+	pair: RingQt Classes Reference; QPainter2 Class
+
+QPainter2 Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QPainter2.html
+
+
+Parameters : QPaintDevice *
+
+
+Parent Class : QPainter
+
 
 .. index::
 	pair: RingQt Classes Reference; QPicture Class
