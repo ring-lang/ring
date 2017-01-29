@@ -71178,6 +71178,26 @@ RING_FUNC(ring_QPlainTextEdit_getupdateRequestEvent)
 	RING_API_RETSTRING(pObject->getupdateRequestEvent());
 }
 
+RING_FUNC(ring_QPlainTextEdit_cyanline)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QPlainTextEdit *editor;
+	editor = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( Qt::cyan );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
 
 RING_FUNC(ring_QGridLayout_addItem)
 {
@@ -84889,6 +84909,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_gettextchangedevent",ring_QPlainTextEdit_gettextChangedEvent);
 	ring_vm_funcregister("qplaintextedit_getundoavailableevent",ring_QPlainTextEdit_getundoAvailableEvent);
 	ring_vm_funcregister("qplaintextedit_getupdaterequestevent",ring_QPlainTextEdit_getupdateRequestEvent);
+	ring_vm_funcregister("qplaintextedit_cyanline",ring_QPlainTextEdit_cyanline);
 	ring_vm_funcregister("qgridlayout_additem",ring_QGridLayout_addItem);
 	ring_vm_funcregister("qgridlayout_addlayout",ring_QGridLayout_addLayout);
 	ring_vm_funcregister("qgridlayout_addlayout_2",ring_QGridLayout_addLayout_2);
