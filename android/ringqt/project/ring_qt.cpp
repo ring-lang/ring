@@ -33,6 +33,7 @@ extern "C" {
 #include "gthread.h"
 #include "gplaintextedit.h"
 #include "gheaderview.h"
+#include "codeeditor.h"
 
 #include <QApplication>
 #include <QObject>
@@ -78684,6 +78685,21 @@ RING_FUNC(ring_QPlainTextEdit_new)
 	RING_API_RETCPOINTER(pObject,"QPlainTextEdit");
 }
 
+RING_FUNC(ring_CodeEditor_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	CodeEditor *pObject = new CodeEditor((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"CodeEditor");
+}
+
 RING_FUNC(ring_QGridLayout_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -80553,6 +80569,21 @@ RING_FUNC(ring_QPlainTextEdit_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"GPlainTextEdit");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_CodeEditor_delete)
+{
+	CodeEditor *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
 		delete pObject ;
 	}
 }
@@ -84647,6 +84678,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qjsonparseerror_new",ring_QJsonParseError_new);
 	ring_vm_funcregister("qjsonvalue_new",ring_QJsonValue_new);
 	ring_vm_funcregister("qplaintextedit_new",ring_QPlainTextEdit_new);
+	ring_vm_funcregister("codeeditor_new",ring_CodeEditor_new);
 	ring_vm_funcregister("qgridlayout_new",ring_QGridLayout_new);
 	ring_vm_funcregister("qtextcharformat_new",ring_QTextCharFormat_new);
 	ring_vm_funcregister("qcameraviewfinder_new",ring_QCameraViewfinder_new);
@@ -84774,6 +84806,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qjsonparseerror_delete",ring_QJsonParseError_delete);
 	ring_vm_funcregister("qjsonvalue_delete",ring_QJsonValue_delete);
 	ring_vm_funcregister("qplaintextedit_delete",ring_QPlainTextEdit_delete);
+	ring_vm_funcregister("codeeditor_delete",ring_CodeEditor_delete);
 	ring_vm_funcregister("qgridlayout_delete",ring_QGridLayout_delete);
 	ring_vm_funcregister("qtextcharformat_delete",ring_QTextCharFormat_delete);
 	ring_vm_funcregister("qcameraviewfinder_delete",ring_QCameraViewfinder_delete);

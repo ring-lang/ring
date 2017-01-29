@@ -42,6 +42,7 @@ SOURCES +=   \
     gallevents.cpp \
     gnetworkaccessmanager.cpp \
     highlighter.cpp \
+	codeeditor.cpp \
     gthread.cpp \
     gplaintextedit.cpp \
     gheaderview.cpp \
@@ -76,6 +77,7 @@ HEADERS  += \
     gallevents.h \
     gnetworkaccessmanager.h \
     highlighter.h \
+	codeeditor.h \
     gthread.h \
     gplaintextedit.h \
     gheaderview.h

@@ -40,7 +40,7 @@
 
 /*
 	File is modified to include Ring Keywords and Ignore the Case
-	Updateed by : Mahmoud Fayed <msfclipper@yahoo.com>
+	Updated by : Mahmoud Fayed <msfclipper@yahoo.com>
 	Date	    : 2016.09.14
 */
 
