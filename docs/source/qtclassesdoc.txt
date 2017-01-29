@@ -5207,6 +5207,22 @@ Parent Class : QAbstractScrollArea
 * void cyanline(QPlainTextEdit *pObject)
 
 .. index::
+	pair: RingQt Classes Reference; CodeEditor Class
+
+CodeEditor Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/CodeEditor.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QPlainTextEdit
+
+
+.. index::
 	pair: RingQt Classes Reference; QGridLayout Class
 
 QGridLayout Class

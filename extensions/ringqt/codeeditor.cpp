@@ -124,7 +124,7 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
     font.setPointSize(fontMetrics().height()*1.5);
     painter.setFont(font);
 
-    painter.fillRect(event->rect(), Qt::lightGray);
+    painter.fillRect(event->rect(), Qt::cyan);
 
 
     QTextBlock block = firstVisibleBlock();
