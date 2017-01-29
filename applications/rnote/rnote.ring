@@ -421,10 +421,9 @@ MyApp = New qApp {
 			setwidget(tree1)
 		}
 
-		textedit1 = new qtextedit(win1) {
+		textedit1 = new qPlaintextedit(win1) {
 			setCursorPositionChangedevent("pCursorPositionChanged()")
 			setLineWrapMode(QTextEdit_NoWrap)
-			setAcceptRichText(false)
 			setTextChangedEvent("pTextChanged()")			
 		}
 
@@ -533,7 +532,7 @@ func pChangeFile
 	cActiveFileName = ofile.filepath(oItem)
 	# We get nLine before using textedit1.settext() to get the value before aFilesLines update
 		nLine =  aFilesLines[cActiveFileName]
-	textedit1.settext(read(cActiveFileName))
+	textedit1.setPlaintext(read(cActiveFileName))
 	textedit1.setfocus(0)
 	pCursorPositionChanged()
 	pSetActiveFileName()
@@ -708,7 +707,7 @@ Func pReplace
 	nEnd = oCursor.SelectionEnd()
 	cStr = textedit1.toPlainText()
 	cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
-	textedit1.setText(cStr)	
+	textedit1.setPlainText(cStr)	
 	return pFindValue()
 
 Func pReplaceAll
@@ -722,7 +721,7 @@ Func pReplaceAll
 		# Case Sensitive
 		cStr = SubStr(cStr,cOldValue,cNewValue)
 	ok
-	textedit1.setText(cStr)	
+	textedit1.setPlainText(cStr)	
 	new qMessagebox(oSearch)
 	{
 		SetWindowTitle("Replace All") 
@@ -867,7 +866,6 @@ func pFont
 	if aFont[1] != NULL
 		cFont = aFont[1]
 		pSetFont()	# set the new font
-		textedit1.settext(textedit1.toplaintext()) # use the next font		
 	ok	
 
 Func pSetFont
@@ -876,7 +874,8 @@ Func pSetFont
 	oCursor = textedit1.textCursor()
 	oCursor.clearselection()
 	textedit1.settextcursor(oCursor)
-	textedit1.setcurrentfont(myfont)
+	textedit1.Document().setdefaultfont(myfont)
+	
 
 Func pColor
 	new qcolordialog() { 
@@ -919,7 +918,7 @@ func pOpen
 		cName = getopenfilename(win1,"open file",cStartupFolder,"source files(*.ring)")			
 		if cName != NULL
 			cActiveFileName = cName
-			textedit1.settext(read(cActiveFileName))
+			textedit1.setPlaintext(read(cActiveFileName))
 			pSetActiveFileName()
 		ok
 	}
@@ -931,7 +930,7 @@ func pNew
 		if cName != NULL
 			write(cName,"")
 			cActiveFileName = cName
-			textedit1.settext(read(cActiveFileName))			
+			textedit1.setPlaintext(read(cActiveFileName))			
 			pSetActiveFileName()
 		ok	
 	}
