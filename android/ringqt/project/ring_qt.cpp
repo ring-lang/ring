@@ -77249,6 +77249,25 @@ RING_FUNC(ring_QPixmap_new)
 	RING_API_RETCPOINTER(pObject,"QPixmap");
 }
 
+RING_FUNC(ring_QPixmap2_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QPixmap *pObject = new QPixmap( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+	RING_API_RETCPOINTER(pObject,"QPixmap2");
+}
+
 RING_FUNC(ring_QIcon_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -77909,6 +77928,21 @@ RING_FUNC(ring_QPainter_new)
 	}
 	QPainter *pObject = new QPainter();
 	RING_API_RETCPOINTER(pObject,"QPainter");
+}
+
+RING_FUNC(ring_QPainter2_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QPainter *pObject = new QPainter((QPaintDevice *) RING_API_GETCPOINTER(1,"QPaintDevice"));
+	RING_API_RETCPOINTER(pObject,"QPainter2");
 }
 
 RING_FUNC(ring_QPicture_new)
@@ -78953,6 +78987,21 @@ RING_FUNC(ring_QPixmap_delete)
 	}
 }
 
+RING_FUNC(ring_QPixmap2_delete)
+{
+	QPixmap *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+		delete pObject ;
+	}
+}
+
 RING_FUNC(ring_QIcon_delete)
 {
 	QIcon *pObject ; 
@@ -79629,6 +79678,21 @@ RING_FUNC(ring_QFileDialog_delete)
 }
 
 RING_FUNC(ring_QPainter_delete)
+{
+	QPainter *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QPainter2_delete)
 {
 	QPainter *pObject ; 
 	if ( RING_API_PARACOUNT != 1 )
@@ -84570,6 +84634,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpushbutton_new",ring_QPushButton_new);
 	ring_vm_funcregister("qbitmap_new",ring_QBitmap_new);
 	ring_vm_funcregister("qpixmap_new",ring_QPixmap_new);
+	ring_vm_funcregister("qpixmap2_new",ring_QPixmap2_new);
 	ring_vm_funcregister("qicon_new",ring_QIcon_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qlineedit_new",ring_QLineEdit_new);
@@ -84616,6 +84681,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtimer_new",ring_QTimer_new);
 	ring_vm_funcregister("qfiledialog_new",ring_QFileDialog_new);
 	ring_vm_funcregister("qpainter_new",ring_QPainter_new);
+	ring_vm_funcregister("qpainter2_new",ring_QPainter2_new);
 	ring_vm_funcregister("qpicture_new",ring_QPicture_new);
 	ring_vm_funcregister("qpen_new",ring_QPen_new);
 	ring_vm_funcregister("qcolor_new",ring_QColor_new);
@@ -84698,6 +84764,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpushbutton_delete",ring_QPushButton_delete);
 	ring_vm_funcregister("qbitmap_delete",ring_QBitmap_delete);
 	ring_vm_funcregister("qpixmap_delete",ring_QPixmap_delete);
+	ring_vm_funcregister("qpixmap2_delete",ring_QPixmap2_delete);
 	ring_vm_funcregister("qicon_delete",ring_QIcon_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qlineedit_delete",ring_QLineEdit_delete);
@@ -84744,6 +84811,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtimer_delete",ring_QTimer_delete);
 	ring_vm_funcregister("qfiledialog_delete",ring_QFileDialog_delete);
 	ring_vm_funcregister("qpainter_delete",ring_QPainter_delete);
+	ring_vm_funcregister("qpainter2_delete",ring_QPainter2_delete);
 	ring_vm_funcregister("qpicture_delete",ring_QPicture_delete);
 	ring_vm_funcregister("qpen_delete",ring_QPen_delete);
 	ring_vm_funcregister("qcolor_delete",ring_QColor_delete);
