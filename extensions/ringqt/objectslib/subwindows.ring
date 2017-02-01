@@ -7,16 +7,16 @@
 
 class WindowsControllerParent from WindowsControllerBase
 
-	nParentID		# Goal Designer Object ID 
+	RingQt_nParentID		# Goal Designer Object ID 
 
 	func Start		
 		oView.win.Show()
 
 	func setParentObject oParent
-		nParentID = oParent.ObjectID()
+		RingQt_nParentID = oParent.ObjectID()
 
 	func Parent
-		return GetObjectByID(nParentID)
+		return GetObjectByID(RingQt_nParentID)
 
 	func CloseAction
 		oView.Close()

@@ -16,7 +16,7 @@
 	$RingQt_ObjName = ""
 
 # The next constants for the Objects List
-	C_RINGQT_OBJECTSLIST_ID 		= 1
+	C_RINGQT_OBJECTSLIST_ID 	= 1
 	C_RINGQT_OBJECTSLIST_OBJECT 	= 2
 
 /*
@@ -78,4 +78,4 @@ class WindowsControllerBase
 		return RingQt_nID
 
 	func GetObjectByID nID
-		return $RingQt_ObjectsList[RingQt_nID][C_RINGQT_OBJECTSLIST_OBJECT]
+		return $RingQt_ObjectsList[nID][C_RINGQT_OBJECTSLIST_OBJECT]
