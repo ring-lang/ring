@@ -524,6 +524,9 @@ C++ Reference : http://doc.qt.io/qt-5/QVBoxLayout.html
 
 Parameters : void
 
+
+Parent Class : QBoxLayout
+
 * void addLayout(QLayout *)
 
 .. index::
@@ -537,6 +540,9 @@ C++ Reference : http://doc.qt.io/qt-5/QHBoxLayout.html
 
 
 Parameters : void
+
+
+Parent Class : QBoxLayout
 
 * void addLayout(QLayout *)
 
