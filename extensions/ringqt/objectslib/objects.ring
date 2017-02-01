@@ -68,14 +68,14 @@ func Get_Window_Pos nID
 
 class WindowsControllerBase
 
-	nID = $RingQt_ObjectID
+	RingQt_nID = $RingQt_ObjectID
 
 	func Close
-		nPos = Get_Window_Pos(nID)
+		nPos = Get_Window_Pos(RingQt_nID)
 		del($RingQt_ObjectsList,nPos)
 
 	func ObjectID
-		return nID
+		return RingQt_nID
 
 	func GetObjectByID nID
-		return $RingQt_ObjectsList[nID][C_RINGQT_OBJECTSLIST_OBJECT]
+		return $RingQt_ObjectsList[RingQt_nID][C_RINGQT_OBJECTSLIST_OBJECT]
