@@ -915,9 +915,12 @@ const char *getselectionChangedEvent(void)
 const char *gettextEditedEvent(void)
 
 
+
+
 <class>
 name: QVBoxLayout
 para: void
+parent: QBoxLayout
 </class>
 void addWidget(QWidget *)
 void addLayout(QLayout *)
@@ -925,6 +928,7 @@ void addLayout(QLayout *)
 <class>
 name: QHBoxLayout
 para: void
+parent: QBoxLayout
 </class>
 void addWidget(QWidget *)
 void addLayout(QLayout *)

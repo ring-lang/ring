@@ -121,7 +121,7 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
     QPainter painter(lineNumberArea);
 
     QFont font = painter.font() ;
-    font.setPointSize(fontMetrics().height()*1.5);
+    font.setPointSize(fontMetrics().height()*1.2);
     painter.setFont(font);
 
     painter.fillRect(event->rect(), Qt::cyan);
