@@ -9038,6 +9038,9 @@ Class QAllEvents from QWidget
 	Func getKeyCode 
 		return QAllEvents_getKeyCode(pObject)
 
+	Func getModifiers 
+		return QAllEvents_getModifiers(pObject)
+
 	Func getx 
 		return QAllEvents_getx(pObject)
 

@@ -3968,6 +3968,7 @@ void accept(void)
 void ignore(void)
 
 int getKeyCode(void)
+int getModifiers(void)
 int getx(void)
 int gety(void)
 int getglobalx(void)
