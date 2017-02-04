@@ -50,39 +50,29 @@ Func pPress
 	Label1.raise()
 
 Func pRelease
-
         label1.hide()
-
-	nX2 = myfilter.getglobalx()
-        ny2 = myfilter.getglobaly()
-
-	top = min(Ny2,ny) - win.y() - C_TOPMARGIN
-	left = min(nX2,nx) - win.x() - C_LEFTMARGIN
-	
-	width = max(nX,nX2) - min(nX,nX2)  
-	height = max(nY,nY2) - min(nY,nY2)  
-
+	aRect = GetRectDim()
 	nButtons++
 	new qPushButton(win) {
-			move(left,top)
-			resize(width,height)
+			move(aRect[1],aRect[2])
+			resize(aRect[3],aRect[4])
 			settext("button [" + nButtons + "]")
 			show()
 	}
 
 func pMove
-
-	nX2 = myfilter.getglobalx()
-        ny2 = myfilter.getglobaly()
-
-	top = min(Ny2,ny) - win.y() - C_TOPMARGIN
-	left = min(nX2,nx) - win.x() - C_LEFTMARGIN
-	
-	width = max(nX,nX2) - min(nX,nX2)   
-	height = max(nY,nY2) - min(nY,nY2)   
-
+	aRect = GetRectDim()
         label1 {
-		move(left,top) resize(width,height)
+		move(aRect[1],aRect[2]) resize(aRect[3],aRect[4])
 		show()
        }
 	
+
+func GetRectDim
+	nX2 = myfilter.getglobalx()
+        ny2 = myfilter.getglobaly()
+	top = min(Ny2,ny) - win.y() - C_TOPMARGIN
+	left = min(nX2,nx) - win.x() - C_LEFTMARGIN
+	width = max(nX,nX2) - min(nX,nX2)  
+	height = max(nY,nY2) - min(nY,nY2)  
+	return [left,top,width,height]
