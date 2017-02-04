@@ -198,7 +198,7 @@ extern "C" {
 #include <QGradient>
 #include <QPointF>
 #include <QPoint>
-
+#include <QStyleFactory>
 #include "highlighter.h"
 
 extern "C" {
@@ -455,6 +455,8 @@ nonew
 void exec(void)
 void quit(void)
 void processEvents(void)
+void styleFusion(void)
+void styleFusionBlack(void)
 </register>
 
 <code>
@@ -476,6 +478,32 @@ RING_FUNC(ring_QApp_exec)
 	}
 	qApp->exec();
 }
+
+RING_FUNC(ring_QApp_styleFusion)
+{
+	qApp->setStyle(QStyleFactory::create("fusion"));
+}
+
+RING_FUNC(ring_QApp_styleFusionBlack)
+{
+	qApp->setStyle(QStyleFactory::create("fusion"));
+	QPalette palette;
+	palette.setColor(QPalette::Window, QColor(53,53,53));
+	palette.setColor(QPalette::WindowText, Qt::white);
+	palette.setColor(QPalette::Base, QColor(15,15,15));
+	palette.setColor(QPalette::AlternateBase, QColor(53,53,53));
+	palette.setColor(QPalette::ToolTipBase, Qt::white);
+	palette.setColor(QPalette::ToolTipText, Qt::white);
+	palette.setColor(QPalette::Text, Qt::white);
+	palette.setColor(QPalette::Button, QColor(53,53,53));
+	palette.setColor(QPalette::ButtonText, Qt::white);
+	palette.setColor(QPalette::BrightText, Qt::red);
+
+	palette.setColor(QPalette::Highlight, QColor(142,45,197).lighter());
+	palette.setColor(QPalette::HighlightedText, Qt::black);
+	qApp->setPalette(palette);
+}
+
 
 RING_FUNC(ring_QApp_processEvents)
 {

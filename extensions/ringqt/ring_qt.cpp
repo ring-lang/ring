@@ -185,7 +185,7 @@ extern "C" {
 #include <QGradient>
 #include <QPointF>
 #include <QPoint>
-
+#include <QStyleFactory>
 #include "highlighter.h"
 
 extern "C" {
@@ -218,6 +218,32 @@ RING_FUNC(ring_QApp_exec)
 	}
 	qApp->exec();
 }
+
+RING_FUNC(ring_QApp_styleFusion)
+{
+	qApp->setStyle(QStyleFactory::create("fusion"));
+}
+
+RING_FUNC(ring_QApp_styleFusionBlack)
+{
+	qApp->setStyle(QStyleFactory::create("fusion"));
+	QPalette palette;
+	palette.setColor(QPalette::Window, QColor(53,53,53));
+	palette.setColor(QPalette::WindowText, Qt::white);
+	palette.setColor(QPalette::Base, QColor(15,15,15));
+	palette.setColor(QPalette::AlternateBase, QColor(53,53,53));
+	palette.setColor(QPalette::ToolTipBase, Qt::white);
+	palette.setColor(QPalette::ToolTipText, Qt::white);
+	palette.setColor(QPalette::Text, Qt::white);
+	palette.setColor(QPalette::Button, QColor(53,53,53));
+	palette.setColor(QPalette::ButtonText, Qt::white);
+	palette.setColor(QPalette::BrightText, Qt::red);
+
+	palette.setColor(QPalette::Highlight, QColor(142,45,197).lighter());
+	palette.setColor(QPalette::HighlightedText, Qt::black);
+	qApp->setPalette(palette);
+}
+
 
 RING_FUNC(ring_QApp_processEvents)
 {
@@ -81534,6 +81560,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qapp_exec",ring_QApp_exec);
 	ring_vm_funcregister("qapp_quit",ring_QApp_quit);
 	ring_vm_funcregister("qapp_processevents",ring_QApp_processEvents);
+	ring_vm_funcregister("qapp_stylefusion",ring_QApp_styleFusion);
+	ring_vm_funcregister("qapp_stylefusionblack",ring_QApp_styleFusionBlack);
 	ring_vm_funcregister("qtest_qsleep",ring_QTest_qsleep);
 	ring_vm_funcregister("qobject_blocksignals",ring_QObject_blockSignals);
 	ring_vm_funcregister("qobject_children",ring_QObject_children);

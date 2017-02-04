@@ -21,6 +21,12 @@ Class QApp
 	Func processEvents 
 		return QApp_processEvents()
 
+	Func styleFusion 
+		return QApp_styleFusion()
+
+	Func styleFusionBlack 
+		return QApp_styleFusionBlack()
+
 Class QTest
 
 

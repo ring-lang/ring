@@ -3,7 +3,7 @@
 
 Load "guilib.ring"
 
-app1 = new qApp
+app1 = new qApp 
 
 if isandroid()
     nScale = 3

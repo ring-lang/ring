@@ -15,7 +15,7 @@ isXTurn=true
 
     app=new qApp
     {
-
+		
         frmMain=new qMainWindow()
 		{
 			setWindowTitle("TicTacToe!")
