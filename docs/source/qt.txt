@@ -2302,7 +2302,8 @@ In the next example we will learn how to program movable objects where the user 
 				myfilter.setEnterevent("pEnter()")
 				myfilter.setLeaveevent("pLeave()")
 				myfilter.setMouseButtonPressEvent("pPress()")
-				myfilter.setMouseButtonReleaseEvent("pRelease()")								myfilter.setMouseMoveEvent("pMove()")
+				myfilter.setMouseButtonReleaseEvent("pRelease()")
+				myfilter.setMouseMoveEvent("pMove()")
 				installeventfilter(myfilter)
 			}
 
