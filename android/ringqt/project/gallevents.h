@@ -23,6 +23,7 @@ class GAllEvents : public QWidget
     VM *pVM;
 
     int nKeyCode ;
+    int nModifiers ;
     int nX ;
     int nY ;
     int nGlobalX ;
@@ -73,6 +74,7 @@ class GAllEvents : public QWidget
     void ignore(void);
 
     int  getKeyCode(void);
+    int  getModifiers(void);
     int  getx(void);
     int  gety(void);
     int  getglobalx(void);

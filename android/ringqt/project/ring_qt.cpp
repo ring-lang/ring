@@ -50715,6 +50715,23 @@ RING_FUNC(ring_QAllEvents_getKeyCode)
 }
 
 
+RING_FUNC(ring_QAllEvents_getModifiers)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETNUMBER(pObject->getModifiers());
+}
+
+
 RING_FUNC(ring_QAllEvents_getx)
 {
 	GAllEvents *pObject ;
@@ -83335,6 +83352,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qallevents_accept",ring_QAllEvents_accept);
 	ring_vm_funcregister("qallevents_ignore",ring_QAllEvents_ignore);
 	ring_vm_funcregister("qallevents_getkeycode",ring_QAllEvents_getKeyCode);
+	ring_vm_funcregister("qallevents_getmodifiers",ring_QAllEvents_getModifiers);
 	ring_vm_funcregister("qallevents_getx",ring_QAllEvents_getx);
 	ring_vm_funcregister("qallevents_gety",ring_QAllEvents_gety);
 	ring_vm_funcregister("qallevents_getglobalx",ring_QAllEvents_getglobalx);

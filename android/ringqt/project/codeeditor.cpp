@@ -121,7 +121,7 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
     QPainter painter(lineNumberArea);
 
     QFont font = painter.font() ;
-    font.setPointSize(fontMetrics().height()*1.5);
+    font.setPointSize(fontMetrics().height());
     painter.setFont(font);
 
     painter.fillRect(event->rect(), Qt::cyan);
@@ -136,7 +136,7 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
         if (block.isVisible() && bottom >= event->rect().top()) {
             QString number = QString::number(blockNumber + 1);
             painter.setPen(Qt::black);
-            painter.drawText(0, top, lineNumberArea->width(), fontMetrics().height()*2,
+            painter.drawText(0, top, lineNumberArea->width(), bottom-top,
                              Qt::AlignCenter, number);
         }
 

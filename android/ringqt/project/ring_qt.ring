@@ -1215,7 +1215,7 @@ Class QLineEdit from QWidget
 	Func gettextEditedEvent 
 		return QLineEdit_gettextEditedEvent(pObject)
 
-Class QVBoxLayout
+Class QVBoxLayout from QBoxLayout
 
 	pObject
 
@@ -1232,7 +1232,7 @@ Class QVBoxLayout
 	Func addLayout P1
 		return QVBoxLayout_addLayout(pObject,GetObjectPointerFromRingObject(P1))
 
-Class QHBoxLayout
+Class QHBoxLayout from QBoxLayout
 
 	pObject
 
@@ -8923,6 +8923,9 @@ Class QAllEvents from QWidget
 
 	Func getKeyCode 
 		return QAllEvents_getKeyCode(pObject)
+
+	Func getModifiers 
+		return QAllEvents_getModifiers(pObject)
 
 	Func getx 
 		return QAllEvents_getx(pObject)
