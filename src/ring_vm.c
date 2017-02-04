@@ -182,6 +182,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	**  In this case we set this flag to avoid the delete operation and solve the problem 
 	*/
 	pVM->nRetEvalDontDelete = 0 ;
+	/* Counter to know if we are inside ring_vm_runcode() */
+	pVM->nRunCode = 0 ;
 	return pVM ;
 }
 
@@ -858,14 +860,26 @@ void ring_vm_newbytecodeitem ( VM *pVM,int x )
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 {
-	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM  ;
+	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP  ;
+	List *pStackList  ;
 	/* Save state to take in mind nested events execution */
+	pVM->nRunCode++ ;
 	nEvalReturnPC = pVM->nEvalReturnPC ;
 	nEvalReallocationFlag = pVM->nEvalReallocationFlag ;
 	nPC = pVM->nPC ;
+	nSP = pVM->nSP ;
+	nFuncSP = pVM->nFuncSP ;
+	pStackList = ring_vm_savestack(pVM);
 	ring_vm_mutexlock(pVM);
 	pVM->nEvalCalledFromRingCode = 1 ;
-	pVM->nRetEvalDontDelete = 0 ;
+	/* Check removing the new byte code */
+	if ( pVM->nRunCode == 1 ) {
+		pVM->nRetEvalDontDelete = 0 ;
+	}
+	else {
+		/* We have nested events that call this function */
+		pVM->nRetEvalDontDelete = 1 ;
+	}
 	nRunVM = ring_vm_eval(pVM,cStr);
 	pVM->nEvalCalledFromRingCode = 0 ;
 	ring_vm_mutexunlock(pVM);
@@ -873,9 +887,20 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 		ring_vm_mainloop(pVM);
 	}
 	/* Restore state to take in mind nested events execution */
+	pVM->nRunCode-- ;
 	pVM->nEvalReturnPC = nEvalReturnPC ;
 	pVM->nEvalReallocationFlag = nEvalReallocationFlag ;
 	pVM->nPC = nPC ;
+	if ( pVM->nRunCode != 0 ) {
+		/* It's a nested event (Here we don't care about the output and we can restore the stack) */
+		ring_vm_restorestack(pVM,pStackList);
+		pVM->nSP = nSP ;
+		pVM->nFuncSP = nFuncSP ;
+	}
+	else {
+		/* Here we free the list because, restorestack() that free it (is not called) */
+		ring_list_delete(pStackList);
+	}
 }
 
 void ring_vm_init ( RingState *pRingState )
