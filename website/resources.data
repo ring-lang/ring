@@ -225,9 +225,15 @@
 				]
 			]
 	     ],
-             ["Posts from the 'Watany Dev' blog",[
+         ["Posts from the 'Watany Dev' blog",[
 				[
 					'<a href="http://watanydev.blogspot.com.eg/2016/02/tutorial-how-to-configure-xampp-to.html" target="_blank">Tutorial: How to configure Xampp / Apache to serve Ring language files</a>'
+				]
+			]
+	     ],
+		 ["Posts from the 'Ring Programming For Arab' blog",[
+				[
+					'<a href="https://ringprogramming4arab.wordpress.com/2017/02/05/%D8%A3%D9%87%D9%84%D8%A7-%D8%A8%D9%83-%D9%81%D9%89-%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D9%84%D8%BA%D8%A9-%D8%B1%D9%8A%D9%86%D8%AC-welcome-to-ring-programming/" target="_blank">Tutorial: Welcome to Ring Programming!</a>'
 				]
 			]
 	     ],
