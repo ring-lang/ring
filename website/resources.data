@@ -747,77 +747,82 @@
 		],		
 			["Arabic Tutorials by Mr. Ahmed Hassouna (YouTube)",[
 				[
-					'<a href="https://www.youtube.com/watch?v=3YsdVicFv3Q" target="_blank">01 PWCT Introduction In Ring Programming Language</a>',
+					'<a href="https://www.youtube.com/watch?v=3YsdVicFv3Q" target="_blank">01 Introduction In Ring Programming Language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=ThPcTPyTkXc" target="_blank">02 PWCT Download And Install Ring Programming Language</a>',
+					'<a href="https://www.youtube.com/watch?v=ThPcTPyTkXc" target="_blank">02 Download And Install Ring Programming Language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=nvgzIfuOnFo&index" target="_blank">03 PWCT Download And Install Ring On Ubuntu Linux</a>',
+					'<a href="https://www.youtube.com/watch?v=nvgzIfuOnFo&index" target="_blank">03 Download And Install Ring On Ubuntu Linux</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=ibdTtHm_61I&index" target="_blank">04 PWCT Download And Install Ring On Mac OS X</a>',
+					'<a href="https://www.youtube.com/watch?v=ibdTtHm_61I&index" target="_blank">04 Download And Install Ring On Mac OS X</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=q09Or4KTzQs&index" target="_blank">05 PWCT features of ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=q09Or4KTzQs&index" target="_blank">05 Features of ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=k2vx3elMq2k&index" target="_blank">06 PWCT Output in ring programming language using see</a>',
+					'<a href="https://www.youtube.com/watch?v=k2vx3elMq2k&index" target="_blank">06 Output in ring programming language using see</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=xw3rX33obGM&index" target="_blank">07 PWCT Input in ring programming language using give</a>',
+					'<a href="https://www.youtube.com/watch?v=xw3rX33obGM&index" target="_blank">07 Input in ring programming language using give</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=Tezj0Rqi3Hk&index" target="_blank">08 PWCT Download And Install Notepad Plus Plus With Add ring language</a>',
+					'<a href="https://www.youtube.com/watch?v=Tezj0Rqi3Hk&index" target="_blank">08 Download And Install Notepad Plus Plus With Add ring language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=EDvde6hTG8s&index" target="_blank">09 PWCT Variable in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=EDvde6hTG8s&index" target="_blank">09 Variable in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=v0rkrg1hBOY&index" target="_blank">10 PWCT Comments in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=v0rkrg1hBOY&index" target="_blank">10 Comments in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=s2bQK3dTPsc&index" target="_blank">11 PWCT arithmetic operators in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=s2bQK3dTPsc&index" target="_blank">11 Arithmetic operators in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=fcduGjbJSL8&index" target="_blank">12 PWCT Logical operators in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=fcduGjbJSL8&index" target="_blank">12 Logical operators in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=jWoSCijesaY&index" target="_blank">13 PWCT Comparison Or Relational operators in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=jWoSCijesaY&index" target="_blank">13 Comparison Or Relational operators in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=LASgs4ppOsA&index" target="_blank">14 PWCT Assignment operators in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=LASgs4ppOsA&index" target="_blank">14 Assignment operators in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=WJe8rLBU7tQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=15" target="_blank">15 PWCT list instead of array in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=WJe8rLBU7tQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=15" target="_blank">15 List instead of array in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=eJi5_OkOaeg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=16" target="_blank">16 PWCT range list array in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=eJi5_OkOaeg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=16" target="_blank">16 Range list array in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=h5LUDUgYClA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=17" target="_blank">17 PWCT work in list part 1 in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=h5LUDUgYClA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=17" target="_blank">17 List part 1 in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=FPVx45VoWYw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=18" target="_blank">18 PWCT work in list part 2 in ring programming language</a>',
+					'<a href="https://www.youtube.com/watch?v=FPVx45VoWYw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=18" target="_blank">18 List part 2 in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Ru_J4lFE76c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=19" target="_blank">19 Nested List in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				]
+
 			]
 			],
 			["English Tutorials (YouTube)",[
