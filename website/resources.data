@@ -850,9 +850,13 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=6MquWkCeft8&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=1" target="_blank">Welcome to the Ring Programming Language </a>'					
 				],
-								[
+				[
 					'<a href="https://www.youtube.com/watch?v=-wogd8a3RSc&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=2" target="_blank">Hello World - Ring Programming Language - Lesson 1 </a>'					
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=RWeYWzcovEo&index=3&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Not Case-Sensitive - Ring Programming Language - Lesson 2 </a>'					
 				]
+
 
 			]			
 		]
