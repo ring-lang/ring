@@ -748,7 +748,19 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=hk6e-WEc8aA&feature=youtu.be"> 112 Files Dir() Functions</a>',
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
-                                ] 
+                              ] ,
+							  [
+					'<a href="https://www.youtube.com/watch?v=E343q9AxGoo"> 113 Rename() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                              ] ,
+							  [
+					'<a href="https://www.youtube.com/watch?v=l_qluT4LRvk"> 114 Remove() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                              ] ,
+							  [
+					'<a href="https://www.youtube.com/watch?v=IiZ_G7FGw2E"> 115 Fopen() Function</a>',
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang"><img src="http://tecit.info/alaa.jpg" width="40%" alt="Mr.alaa Mohammed" title="Support Team"></a>'
+                              ] 
 			]
 		],		
 			["Arabic Tutorials by Mr. Ahmed Hassouna (YouTube)",[
