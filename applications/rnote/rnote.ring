@@ -945,9 +945,10 @@ Func WriteFile cFileName,cCode
 	fclose(fp)
 
 Func MsgBox cTitle,cMessage
-	new qMessagebox(win1) {
+	win = new qMessagebox(win1) {
 		setwindowtitle(cTitle)
 		setText(cMessage)
+		setwinicon(win,cCurrentDir + "/image/notepad.png")
 		show()
 	}
 	
