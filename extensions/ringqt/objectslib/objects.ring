@@ -78,4 +78,5 @@ class WindowsControllerBase
 		return RingQt_nID
 
 	func GetObjectByID nID
-		return $RingQt_ObjectsList[nID][C_RINGQT_OBJECTSLIST_OBJECT]
+		nPos = Get_Window_Pos(nID)
+		return $RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT]
