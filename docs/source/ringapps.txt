@@ -115,6 +115,9 @@ It looks like a very clean BASIC dialect without sigils.
 I can say that this is the easiest and the most BASIC-like language I've ever tried."
 	, Tomaaz 
 
+"Thanks for this wonderful language"
+	, Vinod kc (India)
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
