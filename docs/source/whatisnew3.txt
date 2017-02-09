@@ -73,6 +73,16 @@ Screen Shot:
 .. image:: ringqtpixmap2.png
 	:alt: Using QPixMap2
 
+The Objects Library is updated to include the next functions
+
+* Last_WindowID()
+* Open_WindowNoShow()
+
+The next classes are added to RingQt
+
+* QScrollArea
+
+Many constants are defined in qt.rh (loaded by guilib.ring)
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better Ring Notepad
