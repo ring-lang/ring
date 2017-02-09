@@ -42,6 +42,13 @@ func Last_Window
 	return $RingQt_ObjectsList[len($RingQt_ObjectsList)][C_RINGQT_OBJECTSLIST_OBJECT]
 
 /*
+	The next function return the ID of the last window created
+*/
+
+func Last_WindowID
+	return $RingQt_ObjectsList[len($RingQt_ObjectsList)][C_RINGQT_OBJECTSLIST_ID]
+
+/*
 	The next function for using in GUI controls events
 */
 
