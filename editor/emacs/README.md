@@ -3,8 +3,10 @@
 This is Ring highlight syntax support for Emacs editor
 
 Please follow these steps
+
 1 - Copy ring-mode.el to emacs folder\lisp
-Example : C:\emacs-24.3\lisp
+
+	Example : C:\emacs-24.3\lisp
 
 2 - Run Emacs
 
