@@ -18,6 +18,8 @@ C++ Reference : http://doc.qt.io/qt-5/QApplication.html
 * void exec(void)
 * void quit(void)
 * void processEvents(void)
+* void styleFusion(void)
+* void styleFusionBlack(void)
 
 .. index::
 	pair: RingQt Classes Reference; QTest Class
@@ -5825,3 +5827,28 @@ Parameters : void
 * void setY(int y)
 * int x(void)
 * int y(void)
+
+.. index::
+	pair: RingQt Classes Reference; QScrollArea Class
+
+QScrollArea Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QScrollArea.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QAbstractScrollArea
+
+* Qt::Alignment alignment(void)
+* void ensureVisible(int x, int y, int xmargin , int ymargin )
+* void ensureWidgetVisible(QWidget *childWidget, int xmargin , int ymargin )
+* void setAlignment(Qt::Alignment)
+* void setWidget(QWidget *widget)
+* void setWidgetResizable(bool resizable)
+* QWidget *takeWidget(void)
+* QWidget *widget(void)
+* bool widgetResizable(void)
