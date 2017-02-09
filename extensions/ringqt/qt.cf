@@ -199,6 +199,7 @@ extern "C" {
 #include <QPointF>
 #include <QPoint>
 #include <QStyleFactory>
+#include <QScrollArea>
 #include "highlighter.h"
 
 extern "C" {
@@ -5932,3 +5933,21 @@ int row(void)
 QModelIndex sibling(int row, int column)
 
 </comment>
+
+
+<class>
+name:  QScrollArea 
+para: QWidget *parent 
+parent: QAbstractScrollArea
+</class>
+
+Qt::Alignment alignment(void)
+void ensureVisible(int x, int y, int xmargin , int ymargin )
+void ensureWidgetVisible(QWidget *childWidget, int xmargin , int ymargin )
+void setAlignment(Qt::Alignment)
+void setWidget(QWidget *widget)
+void setWidgetResizable(bool resizable)
+QWidget *takeWidget(void)
+QWidget *widget(void)
+bool widgetResizable(void)
+

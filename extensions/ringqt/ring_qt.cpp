@@ -186,6 +186,7 @@ extern "C" {
 #include <QPointF>
 #include <QPoint>
 #include <QStyleFactory>
+#include <QScrollArea>
 #include "highlighter.h"
 
 extern "C" {
@@ -77849,6 +77850,202 @@ RING_FUNC(ring_QPoint_y)
 	RING_API_RETNUMBER(pObject->y());
 }
 
+
+RING_FUNC(ring_QScrollArea_alignment)
+{
+	QScrollArea *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
+	{
+		Qt::Alignment *pValue ; 
+		pValue = (Qt::Alignment *) malloc(sizeof(Qt::Alignment)) ;
+		*pValue = pObject->alignment();
+		RING_API_RETCPOINTER(pValue,"Qt::Alignment");
+	}
+}
+
+
+RING_FUNC(ring_QScrollArea_ensureVisible)
+{
+	QScrollArea *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->ensureVisible( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QScrollArea_ensureWidgetVisible)
+{
+	QScrollArea *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->ensureWidgetVisible((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QScrollArea_setAlignment)
+{
+	QScrollArea *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
+	pObject->setAlignment(* (Qt::Alignment *) RING_API_GETCPOINTER(2,"Qt::Alignment"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"Qt::Alignment"));
+}
+
+
+RING_FUNC(ring_QScrollArea_setWidget)
+{
+	QScrollArea *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+}
+
+
+RING_FUNC(ring_QScrollArea_setWidgetResizable)
+{
+	QScrollArea *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWidgetResizable( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QScrollArea_takeWidget)
+{
+	QScrollArea *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
+	RING_API_RETCPOINTER(pObject->takeWidget(),"QWidget");
+}
+
+
+RING_FUNC(ring_QScrollArea_widget)
+{
+	QScrollArea *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
+	RING_API_RETCPOINTER(pObject->widget(),"QWidget");
+}
+
+
+RING_FUNC(ring_QScrollArea_widgetResizable)
+{
+	QScrollArea *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
+	RING_API_RETNUMBER(pObject->widgetResizable());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -79588,6 +79785,21 @@ RING_FUNC(ring_QPoint_new)
 	}
 	QPoint *pObject = new QPoint();
 	RING_API_RETCPOINTER(pObject,"QPoint");
+}
+
+RING_FUNC(ring_QScrollArea_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QScrollArea *pObject = new QScrollArea((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	RING_API_RETCPOINTER(pObject,"QScrollArea");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -81551,6 +81763,21 @@ RING_FUNC(ring_QPoint_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QPoint *) RING_API_GETCPOINTER(1,"QPoint");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QScrollArea_delete)
+{
+	QScrollArea *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
 		delete pObject ;
 	}
 }
@@ -85372,6 +85599,15 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpoint_sety",ring_QPoint_setY);
 	ring_vm_funcregister("qpoint_x",ring_QPoint_x);
 	ring_vm_funcregister("qpoint_y",ring_QPoint_y);
+	ring_vm_funcregister("qscrollarea_alignment",ring_QScrollArea_alignment);
+	ring_vm_funcregister("qscrollarea_ensurevisible",ring_QScrollArea_ensureVisible);
+	ring_vm_funcregister("qscrollarea_ensurewidgetvisible",ring_QScrollArea_ensureWidgetVisible);
+	ring_vm_funcregister("qscrollarea_setalignment",ring_QScrollArea_setAlignment);
+	ring_vm_funcregister("qscrollarea_setwidget",ring_QScrollArea_setWidget);
+	ring_vm_funcregister("qscrollarea_setwidgetresizable",ring_QScrollArea_setWidgetResizable);
+	ring_vm_funcregister("qscrollarea_takewidget",ring_QScrollArea_takeWidget);
+	ring_vm_funcregister("qscrollarea_widget",ring_QScrollArea_widget);
+	ring_vm_funcregister("qscrollarea_widgetresizable",ring_QScrollArea_widgetResizable);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -85503,6 +85739,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlineargradient_new",ring_QLinearGradient_new);
 	ring_vm_funcregister("qpointf_new",ring_QPointF_new);
 	ring_vm_funcregister("qpoint_new",ring_QPoint_new);
+	ring_vm_funcregister("qscrollarea_new",ring_QScrollArea_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -85634,4 +85871,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlineargradient_delete",ring_QLinearGradient_delete);
 	ring_vm_funcregister("qpointf_delete",ring_QPointF_delete);
 	ring_vm_funcregister("qpoint_delete",ring_QPoint_delete);
+	ring_vm_funcregister("qscrollarea_delete",ring_QScrollArea_delete);
 }

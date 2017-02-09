@@ -13921,6 +13921,48 @@ Class QPoint
 	Func y 
 		return QPoint_y(pObject)
 
+Class QScrollArea from QAbstractScrollArea
+
+	pObject
+
+	Func init P1
+		pObject = QScrollArea_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QScrollArea_delete(pObject)
+
+	Func alignment 
+		return QScrollArea_alignment(pObject)
+
+	Func ensureVisible P1,P2,P3,P4
+		return QScrollArea_ensureVisible(pObject,P1,P2,P3,P4)
+
+	Func ensureWidgetVisible P1,P2,P3
+		return QScrollArea_ensureWidgetVisible(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func setAlignment P1
+		return QScrollArea_setAlignment(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWidget P1
+		return QScrollArea_setWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWidgetResizable P1
+		return QScrollArea_setWidgetResizable(pObject,P1)
+
+	Func takeWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QScrollArea_takeWidget(pObject)
+		return pTempObj
+
+	Func widget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QScrollArea_widget(pObject)
+		return pTempObj
+
+	Func widgetResizable 
+		return QScrollArea_widgetResizable(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
