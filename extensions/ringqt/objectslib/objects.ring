@@ -34,6 +34,20 @@ func Open_Window cClass
 		  $RingQt_ObjName + ".start()"
 	eval(cCode)	
 
+
+/*
+	The next function create new object, add the object to the $RingQt_ObjectsList
+	Then set $RingQt_ObjName to the object in the $RingQt_ObjectsList
+*/
+
+func Open_WindowNoShow cClass
+	$RingQt_ObjectID++
+	$RingQt_ObjectsList + [$RingQt_ObjectID,""]	
+	$RingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+$RingQt_ObjectID+")]" +
+			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
+	cCode = $RingQt_ObjName + " = new " + cClass 
+	eval(cCode)	
+
 /*
 	The next function return the last window created
 */
