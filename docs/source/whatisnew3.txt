@@ -17,6 +17,7 @@ Ring 1.3  comes with many new features
 
 * Better RingQt
 * Better Ring Notepad
+* Ring mode for Emacs Editor
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better RingQt
@@ -87,4 +88,15 @@ Screen Shot:
 .. image:: rnotelinenumber.png
 	:alt: Ring Notepad - Line Number
 
+.. index:: 
+	pair: What is new in Ring 1.3?; Ring mode for Emacs Editor
 
+Ring mode for Emacs Editor
+==========================
+
+Ring 1.3 comes with Ring mode for Emacs Editor
+
+Screen Shot:
+
+.. image:: ringemacs.png
+	:alt: Ring mode for Emacs Editor
