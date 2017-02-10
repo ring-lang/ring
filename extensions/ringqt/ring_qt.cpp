@@ -71277,9 +71277,11 @@ RING_FUNC(ring_QGridLayout_addItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addItem((QLayoutItem *) RING_API_GETCPOINTER(2,"QLayoutItem"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),* (Qt::Alignment  *) RING_API_GETCPOINTER(7,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		free(RING_API_GETCPOINTER(6,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addItem((QLayoutItem *) RING_API_GETCPOINTER(2,"QLayoutItem"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (Qt::Alignment )  (int) RING_API_GETNUMBER(7));
 }
 
 
@@ -71308,9 +71310,11 @@ RING_FUNC(ring_QGridLayout_addLayout)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addLayout((QLayout *) RING_API_GETCPOINTER(2,"QLayout"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Qt::Alignment  *) RING_API_GETCPOINTER(5,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addLayout((QLayout *) RING_API_GETCPOINTER(2,"QLayout"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (Qt::Alignment )  (int) RING_API_GETNUMBER(5));
 }
 
 
@@ -71347,9 +71351,11 @@ RING_FUNC(ring_QGridLayout_addLayout_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addLayout((QLayout *) RING_API_GETCPOINTER(2,"QLayout"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),* (Qt::Alignment  *) RING_API_GETCPOINTER(7,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		free(RING_API_GETCPOINTER(6,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addLayout((QLayout *) RING_API_GETCPOINTER(2,"QLayout"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (Qt::Alignment )  (int) RING_API_GETNUMBER(7));
 }
 
 
@@ -71378,9 +71384,11 @@ RING_FUNC(ring_QGridLayout_addWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Qt::Alignment  *) RING_API_GETCPOINTER(5,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (Qt::Alignment )  (int) RING_API_GETNUMBER(5));
 }
 
 
@@ -71417,9 +71425,11 @@ RING_FUNC(ring_QGridLayout_addWidget_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),* (Qt::Alignment  *) RING_API_GETCPOINTER(7,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		free(RING_API_GETCPOINTER(6,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (Qt::Alignment )  (int) RING_API_GETNUMBER(7));
 }
 
 
@@ -74031,12 +74041,7 @@ RING_FUNC(ring_QHeaderView_defaultAlignment)
 		return ;
 	}
 	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
-	{
-		Qt::Alignment *pValue ; 
-		pValue = (Qt::Alignment *) malloc(sizeof(Qt::Alignment)) ;
-		*pValue = pObject->defaultAlignment();
-		RING_API_RETCPOINTER(pValue,"Qt::Alignment");
-	}
+	RING_API_RETNUMBER(pObject->defaultAlignment());
 }
 
 
@@ -74657,9 +74662,11 @@ RING_FUNC(ring_QHeaderView_setDefaultAlignment)
 		return ;
 	}
 	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
-	pObject->setDefaultAlignment(* (Qt::Alignment  *) RING_API_GETCPOINTER(2,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDefaultAlignment( (Qt::Alignment )  (int) RING_API_GETNUMBER(2));
 }
 
 
@@ -76444,9 +76451,11 @@ RING_FUNC(ring_QBoxLayout_addWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3),* (Qt::Alignment  *) RING_API_GETCPOINTER(4,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (int ) RING_API_GETNUMBER(3), (Qt::Alignment )  (int) RING_API_GETNUMBER(4));
 }
 
 
@@ -76601,9 +76610,11 @@ RING_FUNC(ring_QBoxLayout_insertWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->insertWidget( (int ) RING_API_GETNUMBER(2),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"), (int ) RING_API_GETNUMBER(4),* (Qt::Alignment  *) RING_API_GETCPOINTER(5,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->insertWidget( (int ) RING_API_GETNUMBER(2),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"), (int ) RING_API_GETNUMBER(4), (Qt::Alignment )  (int) RING_API_GETNUMBER(5));
 }
 
 
@@ -76989,9 +77000,11 @@ RING_FUNC(ring_QLayout_setAlignment)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->setAlignment((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),* (Qt::Alignment  *) RING_API_GETCPOINTER(3,"Qt::Alignment")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setAlignment((QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (Qt::Alignment )  (int) RING_API_GETNUMBER(3)));
 }
 
 
@@ -77008,9 +77021,11 @@ RING_FUNC(ring_QLayout_setAlignment_2)
 		return ;
 	}
 	pObject = (QLayout *) RING_API_GETCPOINTER(1,"QLayout");
-	pObject->setAlignment(* (Qt::Alignment  *) RING_API_GETCPOINTER(2,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAlignment( (Qt::Alignment )  (int) RING_API_GETNUMBER(2));
 }
 
 
@@ -77031,9 +77046,11 @@ RING_FUNC(ring_QLayout_setAlignment_3)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(pObject->setAlignment((QLayout *) RING_API_GETCPOINTER(2,"QLayout"),* (Qt::Alignment  *) RING_API_GETCPOINTER(3,"Qt::Alignment")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setAlignment((QLayout *) RING_API_GETCPOINTER(2,"QLayout"), (Qt::Alignment )  (int) RING_API_GETNUMBER(3)));
 }
 
 
@@ -77864,12 +77881,7 @@ RING_FUNC(ring_QScrollArea_alignment)
 		return ;
 	}
 	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
-	{
-		Qt::Alignment *pValue ; 
-		pValue = (Qt::Alignment *) malloc(sizeof(Qt::Alignment)) ;
-		*pValue = pObject->alignment();
-		RING_API_RETCPOINTER(pValue,"Qt::Alignment");
-	}
+	RING_API_RETNUMBER(pObject->alignment());
 }
 
 
@@ -77948,9 +77960,11 @@ RING_FUNC(ring_QScrollArea_setAlignment)
 		return ;
 	}
 	pObject = (QScrollArea *) RING_API_GETCPOINTER(1,"QScrollArea");
-	pObject->setAlignment(* (Qt::Alignment *) RING_API_GETCPOINTER(2,"Qt::Alignment"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"Qt::Alignment"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAlignment( (Qt::Alignment)  (int) RING_API_GETNUMBER(2));
 }
 
 
