@@ -21,6 +21,12 @@ Class QApp
 	Func processEvents 
 		return QApp_processEvents()
 
+	Func styleFusion 
+		return QApp_styleFusion()
+
+	Func styleFusionBlack 
+		return QApp_styleFusionBlack()
+
 Class QTest
 
 
@@ -12637,19 +12643,19 @@ Class QGridLayout
 		pObject = QGridLayout_delete(pObject)
 
 	Func addItem P1,P2,P3,P4,P5,P6
-		return QGridLayout_addItem(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,GetObjectPointerFromRingObject(P6))
+		return QGridLayout_addItem(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,P6)
 
 	Func addLayout P1,P2,P3,P4
-		return QGridLayout_addLayout(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QGridLayout_addLayout(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func addLayout_2 P1,P2,P3,P4,P5,P6
-		return QGridLayout_addLayout_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,GetObjectPointerFromRingObject(P6))
+		return QGridLayout_addLayout_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,P6)
 
 	Func addWidget P1,P2,P3,P4
-		return QGridLayout_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QGridLayout_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func addWidget_2 P1,P2,P3,P4,P5,P6
-		return QGridLayout_addWidget_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,GetObjectPointerFromRingObject(P6))
+		return QGridLayout_addWidget_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,P6)
 
 	Func cellRect P1,P2
 		pTempObj = new QRect
@@ -13227,7 +13233,7 @@ Class QHeaderView from QAbstractItemView
 		return QHeaderView_setCascadingSectionResizes(pObject,P1)
 
 	Func setDefaultAlignment P1
-		return QHeaderView_setDefaultAlignment(pObject,GetObjectPointerFromRingObject(P1))
+		return QHeaderView_setDefaultAlignment(pObject,P1)
 
 	Func setDefaultSectionSize P1
 		return QHeaderView_setDefaultSectionSize(pObject,P1)
@@ -13529,7 +13535,7 @@ Class QBoxLayout from QLayout
 		return QBoxLayout_addStrut(pObject,P1)
 
 	Func addWidget P1,P2,P3
-		return QBoxLayout_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+		return QBoxLayout_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
 
 	Func direction 
 		return QBoxLayout_direction(pObject)
@@ -13547,7 +13553,7 @@ Class QBoxLayout from QLayout
 		return QBoxLayout_insertStretch(pObject,P1,P2)
 
 	Func insertWidget P1,P2,P3,P4
-		return QBoxLayout_insertWidget(pObject,P1,GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+		return QBoxLayout_insertWidget(pObject,P1,GetObjectPointerFromRingObject(P2),P3,P4)
 
 	Func setDirection P1
 		return QBoxLayout_setDirection(pObject,GetObjectPointerFromRingObject(P1))
@@ -13618,13 +13624,13 @@ Class QLayout from QObject
 		return QLayout_removeWidget(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setAlignment P1,P2
-		return QLayout_setAlignment(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QLayout_setAlignment(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func setAlignment_2 P1
-		return QLayout_setAlignment_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QLayout_setAlignment_2(pObject,P1)
 
 	Func setAlignment_3 P1,P2
-		return QLayout_setAlignment_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QLayout_setAlignment_3(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func setContentsMargins P1,P2,P3,P4
 		return QLayout_setContentsMargins(pObject,P1,P2,P3,P4)
@@ -13800,6 +13806,48 @@ Class QPoint
 
 	Func y 
 		return QPoint_y(pObject)
+
+Class QScrollArea from QAbstractScrollArea
+
+	pObject
+
+	Func init P1
+		pObject = QScrollArea_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QScrollArea_delete(pObject)
+
+	Func alignment 
+		return QScrollArea_alignment(pObject)
+
+	Func ensureVisible P1,P2,P3,P4
+		return QScrollArea_ensureVisible(pObject,P1,P2,P3,P4)
+
+	Func ensureWidgetVisible P1,P2,P3
+		return QScrollArea_ensureWidgetVisible(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func setAlignment P1
+		return QScrollArea_setAlignment(pObject,P1)
+
+	Func setWidget P1
+		return QScrollArea_setWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWidgetResizable P1
+		return QScrollArea_setWidgetResizable(pObject,P1)
+
+	Func takeWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QScrollArea_takeWidget(pObject)
+		return pTempObj
+
+	Func widget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QScrollArea_widget(pObject)
+		return pTempObj
+
+	Func widgetResizable 
+		return QScrollArea_widgetResizable(pObject)
 
 Class QPixmap2 from QPixmap
 

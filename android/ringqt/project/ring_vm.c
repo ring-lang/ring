@@ -768,6 +768,10 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		**  Update ReallocationSize 
 		*/
 		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (ring_list_getsize(pVM->pCode)-nLastPC) ;
+	} else {
+		ring_vm_error(pVM,"Error in eval!");
+		ring_scanner_delete(pScanner);
+		return 0 ;
 	}
 	ring_scanner_delete(pScanner);
 	ring_list_deletelastitem(pVM->pRingState->pRingFilesList);
