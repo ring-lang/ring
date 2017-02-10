@@ -81,6 +81,7 @@ The Objects Library is updated to include the next functions
 The next classes are added to RingQt
 
 * QScrollArea
+* QSplitter
 
 Many constants are defined in qt.rh (loaded by guilib.ring)
 
