@@ -200,6 +200,7 @@ extern "C" {
 #include <QPoint>
 #include <QStyleFactory>
 #include <QScrollArea>
+#include <QSplitter>
 #include "highlighter.h"
 
 extern "C" {
@@ -5952,3 +5953,32 @@ QWidget *takeWidget(void)
 QWidget *widget(void)
 bool widgetResizable(void)
 
+<class>
+name:  QSplitter
+para: QWidget *parent 
+parent: QFrame
+</class>
+
+void addWidget(QWidget *widget)
+bool childrenCollapsible(void)
+int count(void)
+void getRange(int index, int *min, int *max)
+QSplitterHandle * handle(int index)
+int handleWidth(void)
+int indexOf(QWidget *widget)
+void insertWidget(int index, QWidget *widget)
+bool isCollapsible(int index)
+bool opaqueResize(void)
+Qt::Orientation orientation(void)
+void refresh(void)
+bool restoreState( QByteArray  state)
+QByteArray saveState(void)
+void setChildrenCollapsible(bool)
+void setCollapsible(int index, bool collapse)
+void setHandleWidth(int)
+void setOpaqueResize(bool opaque )
+void setOrientation(Qt::Orientation)
+void setSizes( QList<int>  list)
+void setStretchFactor(int index, int stretch)
+QList<int> sizes(void)
+QWidget * widget(int index)
