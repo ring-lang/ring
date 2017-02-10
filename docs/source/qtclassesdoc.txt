@@ -5852,3 +5852,42 @@ Parent Class : QAbstractScrollArea
 * QWidget *takeWidget(void)
 * QWidget *widget(void)
 * bool widgetResizable(void)
+
+.. index::
+	pair: RingQt Classes Reference; QSplitter Class
+
+QSplitter Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSplitter.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QFrame
+
+* void addWidget(QWidget *widget)
+* bool childrenCollapsible(void)
+* int count(void)
+* void getRange(int index, int *min, int *max)
+* QSplitterHandle * handle(int index)
+* int handleWidth(void)
+* int indexOf(QWidget *widget)
+* void insertWidget(int index, QWidget *widget)
+* bool isCollapsible(int index)
+* bool opaqueResize(void)
+* Qt::Orientation orientation(void)
+* void refresh(void)
+* bool restoreState( QByteArray  state)
+* QByteArray saveState(void)
+* void setChildrenCollapsible(bool)
+* void setCollapsible(int index, bool collapse)
+* void setHandleWidth(int)
+* void setOpaqueResize(bool opaque )
+* void setOrientation(Qt::Orientation)
+* void setSizes( QList<int>  list)
+* void setStretchFactor(int index, int stretch)
+* QList<int> sizes(void)
+* QWidget * widget(int index)
