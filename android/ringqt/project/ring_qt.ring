@@ -13849,6 +13849,90 @@ Class QScrollArea from QAbstractScrollArea
 	Func widgetResizable 
 		return QScrollArea_widgetResizable(pObject)
 
+Class QSplitter from QFrame
+
+	pObject
+
+	Func init P1
+		pObject = QSplitter_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSplitter_delete(pObject)
+
+	Func addWidget P1
+		return QSplitter_addWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func childrenCollapsible 
+		return QSplitter_childrenCollapsible(pObject)
+
+	Func count 
+		return QSplitter_count(pObject)
+
+	Func getRange P1,P2,P3
+		return QSplitter_getRange(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func handle P1
+		return QSplitter_handle(pObject,P1)
+
+	Func handleWidth 
+		return QSplitter_handleWidth(pObject)
+
+	Func indexOf P1
+		return QSplitter_indexOf(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func insertWidget P1,P2
+		return QSplitter_insertWidget(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func isCollapsible P1
+		return QSplitter_isCollapsible(pObject,P1)
+
+	Func opaqueResize 
+		return QSplitter_opaqueResize(pObject)
+
+	Func orientation 
+		return QSplitter_orientation(pObject)
+
+	Func refresh 
+		return QSplitter_refresh(pObject)
+
+	Func restoreState P1
+		return QSplitter_restoreState(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func saveState 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSplitter_saveState(pObject)
+		return pTempObj
+
+	Func setChildrenCollapsible P1
+		return QSplitter_setChildrenCollapsible(pObject,P1)
+
+	Func setCollapsible P1,P2
+		return QSplitter_setCollapsible(pObject,P1,P2)
+
+	Func setHandleWidth P1
+		return QSplitter_setHandleWidth(pObject,P1)
+
+	Func setOpaqueResize P1
+		return QSplitter_setOpaqueResize(pObject,P1)
+
+	Func setOrientation P1
+		return QSplitter_setOrientation(pObject,P1)
+
+	Func setSizes P1
+		return QSplitter_setSizes(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setStretchFactor P1,P2
+		return QSplitter_setStretchFactor(pObject,P1,P2)
+
+	Func sizes 
+		return QSplitter_sizes(pObject)
+
+	Func widget P1
+		pTempObj = new QWidget
+		pTempObj.pObject = QSplitter_widget(pObject,P1)
+		return pTempObj
+
 Class QPixmap2 from QPixmap
 
 	pObject
