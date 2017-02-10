@@ -12,6 +12,7 @@ In the Ring/Editor folder you will find extensions for the next editors
 * Atom
 * Sublime Text 2
 * Visual Studio IDE
+* Emacs
 
 .. index:: 
 	pair: Using Other Code Editors; Using Notepad++
@@ -108,3 +109,18 @@ Check the ReadMe file for installation instructions.
 
 .. image:: editor5.png
 	:alt: Using Visual Studio
+
+.. index:: 
+	pair: Using Other Code Editors; Using Emacs Editor
+
+Using Emacs Editor
+==================
+
+Folder : ring/editor/emacs
+
+Check the ReadMe file for installation instructions.	
+
+Screen Shot:
+
+.. image:: ringemacs.png
+	:alt: Ring mode for Emacs Editor
