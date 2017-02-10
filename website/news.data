@@ -1,6 +1,8 @@
   aNews = [
+  ["February 10, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/be0_jlfTyaU" target="_blank"> Ring is added to the TIOBE Index (Position 104 of 245)</a>'],
   ["February 9, 2017",'<a href="https://github.com/ring-lang/ring/tree/master/editor/emacs" target="_blank"> Ring mode for Emacs Editor</a>'],
   ["January 25, 2017",'<a href="download.html"> Ring 1.2 Released!</a>'],
+  ["January 18, 2017",'<a href="https://en.wikipedia.org/wiki/Ring_(programming_language)" target="_blank"> Ring Article (Wikipedia - English)</a>'],
   ["November 23, 2016",'<a href="http://www.youm7.com/story/2016/11/23/%D8%A8%D8%AF%D8%A1-%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%AC%D9%8A%D9%84-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF-%D9%85%D9%86-%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D8%AF%D9%88%D9%86-%D9%83%D9%88%D8%AF/2979508" target="_blank"> Arabic interview in the "Youm7" about using Ring in developing PWCT 2.0</a>'],
   ["October 13, 2016",'<a href="http://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi" target="_blank"> Article : Natural Language Programming</a>'],
   ["October 12, 2016",'<a href="http://www.codeproject.com/Articles/1138194/Build-Flappy-Bird-using-the-Ring-programming-langu" target="_blank"> Article : Flappy Bird 3000 Game</a>'],
@@ -16,6 +18,7 @@
   ["May 7, 2016",'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_FlappyBird3000_1.0_win32.zip/download" target="_blank"> Flappy Bird 3000 Game </a>'],
   ["May 3, 2016",'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_StarsFighter_1.0_win32.zip/download" target="_blank"> Stars Fighter Game </a>'],
   ["May 2, 2016",'<a href="http://www.codeproject.com/Articles/1096942/Squares-Puzzle-using-RingAllegro" target="_blank"> Article: Squares Puzzle using RingAllegro (CodeProject)</a>'],
+  ["April 21, 2016",'<a href="https://ar.wikipedia.org/wiki/%D8%B1%D9%8A%D9%86%D8%AC_(%D9%84%D8%BA%D8%A9_%D8%A8%D8%B1%D9%85%D8%AC%D8%A9)" target="_blank"> Ring Article (Wikipedia - Arabic)</a>'],
   ["April 3, 2016",'<a href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank"> Ring Article (CodeProject)</a>'],
   ["March 31, 2016",'<a href="http://github.com/ring-lang/ring" target="_blank"> Ring Source Code (GitHub)</a>'],
   ["March 28, 2016",'<a href="download.html#libs"> Ring extension for Atom Editor</a>'],
