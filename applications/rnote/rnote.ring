@@ -484,6 +484,7 @@ MyApp = New qApp {
 		aFunctionsPos = []	# Lines Numbers for each function
 		oFunctionsList = new qListwidget(win1) {
 			setitemdoubleclickedevent("pSelectFunction()")
+			setitemactivatedevent("pSelectFunction()")
 		}
 		oDock4 = new qDockwidget(win1,0) {
 			setWidget(oFunctionsList)
@@ -1159,16 +1160,19 @@ func DisplayFunctionsList
 			aList = Split(cLine," ")
 			if len(aList) >= 2
 				cFuncName = lower(trim(aList[2]))
-				if isalnum(cFuncName)
-					oFunctionsList.addItem(cFuncName+"()")
-					aFunctionsPos + nLineNumber
+				if isalnum(cFuncName)	and lower(trim(aList[1])) = "func"
+					aFunctionsPos + [cFuncName+"()" , nLineNumber] 
 				ok
 			ok
 		ok
+	next
+	aFunctionsPos = Sort(aFunctionsPos,1)
+	for cFunc in aFunctionsPos 
+		oFunctionsList.addItem(cFunc[1])
 	next
 	oDock4.setWindowTitle("Functions List("+oFunctionsList.Count()+")")
 
 func pSelectFunction
 	nIndex = oFunctionsList.currentrow() + 1
-	nLine = aFunctionsPos[nIndex]
+	nLine = aFunctionsPos[nIndex][2]
 	gotoline(nLine)
