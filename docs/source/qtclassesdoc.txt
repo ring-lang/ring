@@ -5262,6 +5262,8 @@ Parameters : QWidget *
 
 Parent Class : QPlainTextEdit
 
+* void setCompleter(QCompleter *c)
+* QCompleter *completer(void)
 
 .. index::
 	pair: RingQt Classes Reference; QGridLayout Class
