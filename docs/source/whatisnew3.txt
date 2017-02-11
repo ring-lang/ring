@@ -82,6 +82,7 @@ The next classes are added to RingQt
 
 * QScrollArea
 * QSplitter
+* QCompleter
 
 Many constants are defined in qt.rh (loaded by guilib.ring)
 
