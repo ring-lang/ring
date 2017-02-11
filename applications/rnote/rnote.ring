@@ -292,7 +292,14 @@ MyApp = New qApp {
 					setclickevent("pWebBrowser()")
 					settext("Web Browser")
 				}
-				addaction(oAction)	
+				addaction(oAction)
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+n"))
+					setbtnimage(self,"image/richtext.png")
+					setclickevent("pFunctionsList()")
+					settext("Functions List")
+				}
+				addaction(oAction)		
 			}
 			subProgram { 
 				oAction = new qAction(win1) {
@@ -474,8 +481,18 @@ MyApp = New qApp {
 			setwindowtitle("Web Browser")
 		}	
 
+		aFunctionsPos = []	# Lines Numbers for each function
+		oFunctionsList = new qListwidget(win1) {
+			setitemdoubleclickedevent("pSelectFunction()")
+		}
+		oDock4 = new qDockwidget(win1,0) {
+			setWidget(oFunctionsList)
+			setwindowtitle("Functions List")
+		}
+
 		adddockwidget(1,oDock1,1)
 		adddockwidget(2,oDock2,2)
+		adddockwidget(2,oDock4,1)
 		adddockwidget(2,oDock3,1)
 
 		setwinicon(self,cCurrentDir + "/image/notepad.png")
@@ -519,6 +536,13 @@ func pWebBrowser
 		oDock3.Show()
 	ok
 
+func pFunctionsList
+	if oDock4.isvisible()
+		oDock4.hide()
+	else
+		oDock4.Show()
+	ok
+
 func pCheckSaveBeforeChange
 	if cActiveFileName = NULL return ok	
 	cStr1 = substr(read(cActiveFileName),WindowsNl(),NL)
@@ -544,6 +568,8 @@ func pChangeFile
 	ok
 
 	AutoComplete()
+
+	DisplayFunctionsList()
 
 func pSetActiveFileName
 	oDock2.setWindowTitle("Source Code : " + cActiveFileName)
@@ -1116,3 +1142,33 @@ Func AutoComplete
 	oCompleter.popup().setFont(oFont)
 	textedit1.setCompleter(oCompleter)
 
+func DisplayFunctionsList
+	oFunctionsList.clear()
+	aFunctionsPos = []	# Lines numbers for each function 
+	if cActiveFileName = NULL return ok
+	# Set the font
+		oFont = new qfont("",0,0,0)
+		oFont.fromstring(cFont)
+		oFunctionsList.setFont(oFont)
+	aFileContent = str2list(read(cActiveFileName))
+	nLineNumber = 0
+	for cLine in aFileContent
+		nLineNumber++ 
+		cLine = lower(trim(cLine))
+		if substr(cLine,"func ") > 0
+			aList = Split(cLine," ")
+			if len(aList) >= 2
+				cFuncName = lower(trim(aList[2]))
+				if isalnum(cFuncName)
+					oFunctionsList.addItem(cFuncName+"()")
+					aFunctionsPos + nLineNumber
+				ok
+			ok
+		ok
+	next
+	oDock4.setWindowTitle("Functions List("+oFunctionsList.Count()+")")
+
+func pSelectFunction
+	nIndex = oFunctionsList.currentrow() + 1
+	nLine = aFunctionsPos[nIndex]
+	gotoline(nLine)
