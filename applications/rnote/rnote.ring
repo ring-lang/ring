@@ -14,6 +14,7 @@ cStartUpFolder = exefolder() + "/../applications/"
 lShowProject = True
 lShowSourceCode = True
 lShowBrowser = True
+lShowFunctionsList = False
 nTabSpaces = 0
 aBrowserLinks = [
 	["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
@@ -293,9 +294,10 @@ MyApp = New qApp {
 					settext("Web Browser")
 				}
 				addaction(oAction)
+				addseparator()	
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+n"))
-					setbtnimage(self,"image/richtext.png")
+					setbtnimage(self,"image/source.png")
 					setclickevent("pFunctionsList()")
 					settext("Functions List")
 				}
@@ -486,9 +488,11 @@ MyApp = New qApp {
 			setitemdoubleclickedevent("pSelectFunction()")
 			setitemactivatedevent("pSelectFunction()")
 		}
+
 		oDock4 = new qDockwidget(win1,0) {
 			setWidget(oFunctionsList)
 			setwindowtitle("Functions List")
+			hide()
 		}
 
 		adddockwidget(1,oDock1,1)
@@ -941,6 +945,7 @@ Func pSetWindows
 	if not lShowProject  	oDock1.close() ok
 	if not lShowSourceCode  oDock2.close() ok
 	if not lShowBrowser  	oDock3.close() ok
+	if not lShowFunctionsList  	oDock4.close() ok
 
 func pOpen
 	new qfiledialog(win1) {
@@ -1019,6 +1024,7 @@ Func pSaveSettingsToFile
 		    "lShowProject = " + oDock1.isvisible() + nl +
 		    "lShowSourceCode = " + oDock2.isvisible() + nl +
 		    "lShowBrowser = " + oDock3.isvisible() + nl +
+		    "lShowFunctionsList = " + oDock4.isvisible() + nl +
 		    "nTabSpaces = " + nTabSpaces + nl
 	cSettings = substr(cSettings,nl,char(13)+char(10))
 	write(cSettingsFile,cSettings)
