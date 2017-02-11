@@ -209,7 +209,7 @@ Syntax:
 
 .. code-block:: ring
 
-	Split(cstring,delimiter)
+	Split(cstring,delimiter) ---> List
 
 Example:
 
@@ -219,6 +219,30 @@ Example:
 
 	Puts("Test Split()")
 	See Split("one two three four five"," ")
+
+
+.. index:: 
+	pair: Stdlib Functions; splitmany()
+
+splitmany() function
+================
+
+Convert string words to list items. Allow many delimiters.
+
+Syntax:
+
+.. code-block:: ring
+
+	SplitMany(cstring,delimiters as string or list) --> List
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test SplitMany()")
+	See SplitMany("one,two,three,four and five"," ,")
 
 
 .. index:: 

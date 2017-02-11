@@ -18,6 +18,7 @@ Ring 1.3  comes with many new features
 * Better RingQt
 * Better Ring Notepad
 * Ring mode for Emacs Editor
+* Better StdLib
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better RingQt
@@ -121,3 +122,14 @@ Screen Shot:
 
 .. image:: ringemacs.png
 	:alt: Ring mode for Emacs Editor
+
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Better StdLib
+
+Better StdLib
+=============
+
+The StdLib is updated to include the next functions
+
+* SplitMany()
