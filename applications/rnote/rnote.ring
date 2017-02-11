@@ -1079,19 +1079,21 @@ Func pBrowserLink x
 
 Func AutoComplete
 	oList = new qStringList()
-	# Get Ring Functions in a List
-		aList = cFunctions()
 	# Create a functions to add Ring List to qStringList
 		AddItems = func aList,oList { 
 			for Item in aList 
 				oList.Append(Item)
 			next
 		}
-	Call AddItems(aList,oList)
-	if cActiveFileName != NULL and fexists(cActiveFileName)
-		aList = split(read(cActiveFileName)," ")
-		Call AddItems(aList,oList)
-	ok
+	# Add Ring Functions 
+		Call AddItems(cFunctions(),oList)
+	# Add Ring Classes
+		call AddItems(classes(),olist)
+	# Add words in the current file 
+		if cActiveFileName != NULL and fexists(cActiveFileName)
+			aList = split(read(cActiveFileName)," ")
+			Call AddItems(aList,oList)
+		ok
 	oList.RemoveDuplicates()
 	oCompleter = new qCompleter3(oList,win1)
 	oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
