@@ -6025,3 +6025,17 @@ bool wrapAround(void)
 void complete(QRect  rect)
 void setCompletionPrefix(QString prefix)
 void setWrapAround(bool wrap)
+
+<class>
+name: QCompleter2
+para: QAbstractItemModel *model, QObject *parent 
+parent: QCompleter
+codename: QCompleter
+</class>
+
+<class>
+name: QCompleter3
+para: QStringList list, QObject *parent
+parent: QCompleter
+codename: QCompleter
+</class>

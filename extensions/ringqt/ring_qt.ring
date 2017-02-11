@@ -14268,3 +14268,25 @@ Class QCameraViewfinder from QVideoWidget
 
 	Func delete
 		pObject = QCameraViewfinder_delete(pObject)
+
+Class QCompleter2 from QCompleter
+
+	pObject
+
+	Func init P1,P2
+		pObject = QCompleter2_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QCompleter2_delete(pObject)
+
+Class QCompleter3 from QCompleter
+
+	pObject
+
+	Func init P1,P2
+		pObject = QCompleter3_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QCompleter3_delete(pObject)

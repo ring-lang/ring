@@ -80913,6 +80913,40 @@ RING_FUNC(ring_QCompleter_new)
 	RING_API_RETCPOINTER(pObject,"QCompleter");
 }
 
+RING_FUNC(ring_QCompleter2_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QCompleter *pObject = new QCompleter((QAbstractItemModel *) RING_API_GETCPOINTER(1,"QAbstractItemModel"),(QObject *) RING_API_GETCPOINTER(2,"QObject"));
+	RING_API_RETCPOINTER(pObject,"QCompleter2");
+}
+
+RING_FUNC(ring_QCompleter3_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QCompleter *pObject = new QCompleter(* (QStringList  *) RING_API_GETCPOINTER(1,"QStringList"),(QObject *) RING_API_GETCPOINTER(2,"QObject"));
+	RING_API_RETCPOINTER(pObject,"QCompleter3");
+}
+
 RING_FUNC(ring_QObject_delete)
 {
 	QObject *pObject ; 
@@ -82909,6 +82943,36 @@ RING_FUNC(ring_QSplitter_delete)
 }
 
 RING_FUNC(ring_QCompleter_delete)
+{
+	QCompleter *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QCompleter2_delete)
+{
+	QCompleter *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QCompleter3_delete)
 {
 	QCompleter *pObject ; 
 	if ( RING_API_PARACOUNT != 1 )
@@ -86937,6 +87001,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qscrollarea_new",ring_QScrollArea_new);
 	ring_vm_funcregister("qsplitter_new",ring_QSplitter_new);
 	ring_vm_funcregister("qcompleter_new",ring_QCompleter_new);
+	ring_vm_funcregister("qcompleter2_new",ring_QCompleter2_new);
+	ring_vm_funcregister("qcompleter3_new",ring_QCompleter3_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -87071,4 +87137,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qscrollarea_delete",ring_QScrollArea_delete);
 	ring_vm_funcregister("qsplitter_delete",ring_QSplitter_delete);
 	ring_vm_funcregister("qcompleter_delete",ring_QCompleter_delete);
+	ring_vm_funcregister("qcompleter2_delete",ring_QCompleter2_delete);
+	ring_vm_funcregister("qcompleter3_delete",ring_QCompleter3_delete);
 }

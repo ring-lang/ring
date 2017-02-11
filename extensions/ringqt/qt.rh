@@ -202,3 +202,6 @@ QCompleter_UnfilteredPopupCompletion = 1
 QCompleter_UnsortedModel = 0
 QCompleter_CaseSensitivelySortedModel = 1
 QCompleter_CaseInsensitivelySortedModel = 2
+
+Qt_CaseInsensitive	= 0
+Qt_CaseSensitive	= 1
