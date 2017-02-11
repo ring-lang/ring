@@ -184,7 +184,21 @@ Func Split(cString, delimiter)
 
 return cStrList
 
-	
+/*
+	Function Name	: SplitMany
+	Usage		: convert string words to list items
+	Parameters	: the string to be converted , the delimiter characters
+			: delimiter can be many characters written in one string or List 
+	output		: new list 
+*/
+
+Func SplitMany cString,cCharacters
+	for t in cCharacters
+		cString = substr(cString,t,nl)
+	next 
+	return str2list(cString)
+
+
 /*
 	Function Name	: newlist
 	Usage		: create a two dimensional list
