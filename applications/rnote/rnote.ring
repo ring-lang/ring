@@ -1176,7 +1176,7 @@ func DisplayFunctionsList
 	for cFunc in aFunctionsPos 
 		oFunctionsList.addItem(cFunc[1])
 	next
-	oDock4.setWindowTitle("Functions List("+oFunctionsList.Count()+")")
+	oDock4.setWindowTitle("Functions List ("+oFunctionsList.Count()+")")
 
 func pSelectFunction
 	nIndex = oFunctionsList.currentrow() + 1
