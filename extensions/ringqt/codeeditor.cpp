@@ -59,7 +59,7 @@
 #include "codeeditor.h"
 #include "ring.h"
 
-CodeEditor::CodeEditor(QWidget *parent, VM *pVM) : GPlainTextEdit(parent,pVM)
+CodeEditor::CodeEditor(QWidget *parent, VM *pVM) : GPlainTextEdit(parent,pVM) , c(0)
 {
     lineNumberArea = new LineNumberArea(this);
 
@@ -190,7 +190,7 @@ void CodeEditor::focusInEvent(QFocusEvent *e)
 {
     if (c)
         c->setWidget(this);
-    CodeEditor::focusInEvent(e);
+    GPlainTextEdit::focusInEvent(e);
 }
 
 void CodeEditor::keyPressEvent(QKeyEvent *e)
@@ -212,7 +212,7 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
 
     bool isShortcut = ((e->modifiers() & Qt::ControlModifier) && e->key() == Qt::Key_E); // CTRL+E
     if (!c || !isShortcut) // do not process the shortcut when we have a completer
-        CodeEditor::keyPressEvent(e);
+        GPlainTextEdit::keyPressEvent(e);
 
 const bool ctrlOrShift = e->modifiers() & (Qt::ControlModifier | Qt::ShiftModifier);
     if (!c || (ctrlOrShift && e->text().isEmpty()))
