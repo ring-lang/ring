@@ -194,3 +194,11 @@ Qt_WA_AcceptTouchEvents = 121
 Qt_WA_TouchPadAcceptSingleTouchEvents = 123
 Qt_WA_X11DoNotAcceptFocus = 126
 Qt_WA_AlwaysStackOnTop = 128
+
+QCompleter_PopupCompletion = 0
+QCompleter_InlineCompletion = 2
+QCompleter_UnfilteredPopupCompletion = 1
+
+QCompleter_UnsortedModel = 0
+QCompleter_CaseSensitivelySortedModel = 1
+QCompleter_CaseInsensitivelySortedModel = 2

@@ -1016,7 +1016,9 @@ Class QLineEdit from QWidget
 		return QLineEdit_backspace(pObject)
 
 	Func completer 
-		return QLineEdit_completer(pObject)
+		pTempObj = new QCompleter
+		pTempObj.pObject = QLineEdit_completer(pObject)
+		return pTempObj
 
 	Func createStandardContextMenu 
 		pTempObj = new QMenu
@@ -2556,7 +2558,9 @@ Class QComboBox from QWidget
 		return QComboBox_addItem(pObject,P1,P2)
 
 	Func completer 
-		return QComboBox_completer(pObject)
+		pTempObj = new QCompleter
+		pTempObj.pObject = QComboBox_completer(pObject)
+		return pTempObj
 
 	Func count 
 		return QComboBox_count(pObject)
@@ -14046,6 +14050,114 @@ Class QSplitter from QFrame
 		pTempObj = new QWidget
 		pTempObj.pObject = QSplitter_widget(pObject,P1)
 		return pTempObj
+
+Class QCompleter from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QCompleter_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCompleter_delete(pObject)
+
+	Func caseSensitivity 
+		return QCompleter_caseSensitivity(pObject)
+
+	Func completionColumn 
+		return QCompleter_completionColumn(pObject)
+
+	Func completionCount 
+		return QCompleter_completionCount(pObject)
+
+	Func completionMode 
+		return QCompleter_completionMode(pObject)
+
+	Func completionModel 
+		return QCompleter_completionModel(pObject)
+
+	Func completionPrefix 
+		return QCompleter_completionPrefix(pObject)
+
+	Func completionRole 
+		return QCompleter_completionRole(pObject)
+
+	Func currentCompletion 
+		return QCompleter_currentCompletion(pObject)
+
+	Func currentIndex 
+		return QCompleter_currentIndex(pObject)
+
+	Func currentRow 
+		return QCompleter_currentRow(pObject)
+
+	Func filterMode 
+		return QCompleter_filterMode(pObject)
+
+	Func maxVisibleItems 
+		return QCompleter_maxVisibleItems(pObject)
+
+	Func model 
+		return QCompleter_model(pObject)
+
+	Func modelSorting 
+		return QCompleter_modelSorting(pObject)
+
+	Func popup 
+		pTempObj = new QAbstractItemView
+		pTempObj.pObject = QCompleter_popup(pObject)
+		return pTempObj
+
+	Func setCaseSensitivity P1
+		return QCompleter_setCaseSensitivity(pObject,P1)
+
+	Func setCompletionColumn P1
+		return QCompleter_setCompletionColumn(pObject,P1)
+
+	Func setCompletionMode P1
+		return QCompleter_setCompletionMode(pObject,P1)
+
+	Func setCompletionRole P1
+		return QCompleter_setCompletionRole(pObject,P1)
+
+	Func setCurrentRow P1
+		return QCompleter_setCurrentRow(pObject,P1)
+
+	Func setFilterMode P1
+		return QCompleter_setFilterMode(pObject,P1)
+
+	Func setMaxVisibleItems P1
+		return QCompleter_setMaxVisibleItems(pObject,P1)
+
+	Func setModel P1
+		return QCompleter_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setModelSorting P1
+		return QCompleter_setModelSorting(pObject,P1)
+
+	Func setPopup P1
+		return QCompleter_setPopup(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWidget P1
+		return QCompleter_setWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func widget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QCompleter_widget(pObject)
+		return pTempObj
+
+	Func wrapAround 
+		return QCompleter_wrapAround(pObject)
+
+	Func complete P1
+		return QCompleter_complete(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCompletionPrefix P1
+		return QCompleter_setCompletionPrefix(pObject,P1)
+
+	Func setWrapAround P1
+		return QCompleter_setWrapAround(pObject,P1)
 
 Class QPixmap2 from QPixmap
 

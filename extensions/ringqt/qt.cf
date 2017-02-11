@@ -201,6 +201,7 @@ extern "C" {
 #include <QStyleFactory>
 #include <QScrollArea>
 #include <QSplitter>
+#include <QCompleter>
 #include "highlighter.h"
 
 extern "C" {
@@ -442,7 +443,9 @@ aEnumTypes + "QLayout::SizeConstraint"
 aEnumTypes + "QGradient::CoordinateMode"
 aEnumTypes + "QGradient::Spread"
 aEnumTypes + "QGradient::Type"
-
+aEnumTypes + "Qt::MatchFlags"
+aEnumTypes + "QCompleter::CompletionMode"
+aEnumTypes + "QCompleter::ModelSorting"
 
 $aMallocClassesList + "QModelIndex"
 
@@ -5982,3 +5985,43 @@ void setSizes( QList<int>  list)
 void setStretchFactor(int index, int stretch)
 QList<int> sizes(void)
 QWidget * widget(int index)
+
+
+<class>
+name: QCompleter
+para: QObject *parent 
+parent: QObject
+</class>
+
+Qt::CaseSensitivity caseSensitivity(void)
+int completionColumn(void)
+int completionCount(void)
+QCompleter::CompletionMode completionMode(void)
+QAbstractItemModel *completionModel(void)
+QString completionPrefix(void)
+int completionRole(void)
+QString currentCompletion(void)
+QModelIndex currentIndex(void)
+int currentRow(void)
+Qt::MatchFlags filterMode(void)
+int maxVisibleItems(void)
+QAbstractItemModel * model(void)
+QCompleter::ModelSorting modelSorting(void)
+QAbstractItemView * popup(void)
+void setCaseSensitivity(Qt::CaseSensitivity caseSensitivity)
+void setCompletionColumn(int column)
+void setCompletionMode(QCompleter::CompletionMode mode)
+void setCompletionRole(int role)
+bool setCurrentRow(int row)
+void setFilterMode(Qt::MatchFlags filterMode)
+void setMaxVisibleItems(int maxItems)
+void setModel(QAbstractItemModel *model)
+void setModelSorting(QCompleter::ModelSorting sorting)
+void setPopup(QAbstractItemView *popup)
+void setWidget(QWidget *widget)
+QWidget * widget(void)
+bool wrapAround(void)
+
+void complete(QRect  rect)
+void setCompletionPrefix(QString prefix)
+void setWrapAround(bool wrap)

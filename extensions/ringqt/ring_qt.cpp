@@ -188,6 +188,7 @@ extern "C" {
 #include <QStyleFactory>
 #include <QScrollArea>
 #include <QSplitter>
+#include <QCompleter>
 #include "highlighter.h"
 
 extern "C" {
@@ -78540,6 +78541,592 @@ RING_FUNC(ring_QSplitter_widget)
 	RING_API_RETCPOINTER(pObject->widget( (int ) RING_API_GETNUMBER(2)),"QWidget");
 }
 
+
+RING_FUNC(ring_QCompleter_caseSensitivity)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->caseSensitivity());
+}
+
+
+RING_FUNC(ring_QCompleter_completionColumn)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->completionColumn());
+}
+
+
+RING_FUNC(ring_QCompleter_completionCount)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->completionCount());
+}
+
+
+RING_FUNC(ring_QCompleter_completionMode)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->completionMode());
+}
+
+
+RING_FUNC(ring_QCompleter_completionModel)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETCPOINTER(pObject->completionModel(),"QAbstractItemModel");
+}
+
+
+RING_FUNC(ring_QCompleter_completionPrefix)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETSTRING(pObject->completionPrefix().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QCompleter_completionRole)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->completionRole());
+}
+
+
+RING_FUNC(ring_QCompleter_currentCompletion)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETSTRING(pObject->currentCompletion().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QCompleter_currentIndex)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	{
+		QModelIndex *pValue ; 
+		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		*pValue = pObject->currentIndex();
+		RING_API_RETCPOINTER(pValue,"QModelIndex");
+	}
+}
+
+
+RING_FUNC(ring_QCompleter_currentRow)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->currentRow());
+}
+
+
+RING_FUNC(ring_QCompleter_filterMode)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->filterMode());
+}
+
+
+RING_FUNC(ring_QCompleter_maxVisibleItems)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->maxVisibleItems());
+}
+
+
+RING_FUNC(ring_QCompleter_model)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETCPOINTER(pObject->model(),"QAbstractItemModel");
+}
+
+
+RING_FUNC(ring_QCompleter_modelSorting)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->modelSorting());
+}
+
+
+RING_FUNC(ring_QCompleter_popup)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETCPOINTER(pObject->popup(),"QAbstractItemView");
+}
+
+
+RING_FUNC(ring_QCompleter_setCaseSensitivity)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCaseSensitivity( (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCompleter_setCompletionColumn)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCompletionColumn( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCompleter_setCompletionMode)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCompletionMode( (QCompleter::CompletionMode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCompleter_setCompletionRole)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCompletionRole( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCompleter_setCurrentRow)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setCurrentRow( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QCompleter_setFilterMode)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFilterMode( (Qt::MatchFlags )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCompleter_setMaxVisibleItems)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMaxVisibleItems( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCompleter_setModel)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setModel((QAbstractItemModel *) RING_API_GETCPOINTER(2,"QAbstractItemModel"));
+}
+
+
+RING_FUNC(ring_QCompleter_setModelSorting)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setModelSorting( (QCompleter::ModelSorting )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QCompleter_setPopup)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPopup((QAbstractItemView *) RING_API_GETCPOINTER(2,"QAbstractItemView"));
+}
+
+
+RING_FUNC(ring_QCompleter_setWidget)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+}
+
+
+RING_FUNC(ring_QCompleter_widget)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETCPOINTER(pObject->widget(),"QWidget");
+}
+
+
+RING_FUNC(ring_QCompleter_wrapAround)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	RING_API_RETNUMBER(pObject->wrapAround());
+}
+
+
+RING_FUNC(ring_QCompleter_complete)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	pObject->complete(* (QRect   *) RING_API_GETCPOINTER(2,"QRect"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QRect"));
+}
+
+
+RING_FUNC(ring_QCompleter_setCompletionPrefix)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCompletionPrefix(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QCompleter_setWrapAround)
+{
+	QCompleter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWrapAround( (bool ) RING_API_GETNUMBER(2));
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -80309,6 +80896,21 @@ RING_FUNC(ring_QSplitter_new)
 	}
 	QSplitter *pObject = new QSplitter((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
 	RING_API_RETCPOINTER(pObject,"QSplitter");
+}
+
+RING_FUNC(ring_QCompleter_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QCompleter *pObject = new QCompleter((QObject *) RING_API_GETCPOINTER(1,"QObject"));
+	RING_API_RETCPOINTER(pObject,"QCompleter");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -82302,6 +82904,21 @@ RING_FUNC(ring_QSplitter_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QSplitter *) RING_API_GETCPOINTER(1,"QSplitter");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QCompleter_delete)
+{
+	QCompleter *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
 		delete pObject ;
 	}
 }
@@ -86155,6 +86772,37 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qsplitter_setstretchfactor",ring_QSplitter_setStretchFactor);
 	ring_vm_funcregister("qsplitter_sizes",ring_QSplitter_sizes);
 	ring_vm_funcregister("qsplitter_widget",ring_QSplitter_widget);
+	ring_vm_funcregister("qcompleter_casesensitivity",ring_QCompleter_caseSensitivity);
+	ring_vm_funcregister("qcompleter_completioncolumn",ring_QCompleter_completionColumn);
+	ring_vm_funcregister("qcompleter_completioncount",ring_QCompleter_completionCount);
+	ring_vm_funcregister("qcompleter_completionmode",ring_QCompleter_completionMode);
+	ring_vm_funcregister("qcompleter_completionmodel",ring_QCompleter_completionModel);
+	ring_vm_funcregister("qcompleter_completionprefix",ring_QCompleter_completionPrefix);
+	ring_vm_funcregister("qcompleter_completionrole",ring_QCompleter_completionRole);
+	ring_vm_funcregister("qcompleter_currentcompletion",ring_QCompleter_currentCompletion);
+	ring_vm_funcregister("qcompleter_currentindex",ring_QCompleter_currentIndex);
+	ring_vm_funcregister("qcompleter_currentrow",ring_QCompleter_currentRow);
+	ring_vm_funcregister("qcompleter_filtermode",ring_QCompleter_filterMode);
+	ring_vm_funcregister("qcompleter_maxvisibleitems",ring_QCompleter_maxVisibleItems);
+	ring_vm_funcregister("qcompleter_model",ring_QCompleter_model);
+	ring_vm_funcregister("qcompleter_modelsorting",ring_QCompleter_modelSorting);
+	ring_vm_funcregister("qcompleter_popup",ring_QCompleter_popup);
+	ring_vm_funcregister("qcompleter_setcasesensitivity",ring_QCompleter_setCaseSensitivity);
+	ring_vm_funcregister("qcompleter_setcompletioncolumn",ring_QCompleter_setCompletionColumn);
+	ring_vm_funcregister("qcompleter_setcompletionmode",ring_QCompleter_setCompletionMode);
+	ring_vm_funcregister("qcompleter_setcompletionrole",ring_QCompleter_setCompletionRole);
+	ring_vm_funcregister("qcompleter_setcurrentrow",ring_QCompleter_setCurrentRow);
+	ring_vm_funcregister("qcompleter_setfiltermode",ring_QCompleter_setFilterMode);
+	ring_vm_funcregister("qcompleter_setmaxvisibleitems",ring_QCompleter_setMaxVisibleItems);
+	ring_vm_funcregister("qcompleter_setmodel",ring_QCompleter_setModel);
+	ring_vm_funcregister("qcompleter_setmodelsorting",ring_QCompleter_setModelSorting);
+	ring_vm_funcregister("qcompleter_setpopup",ring_QCompleter_setPopup);
+	ring_vm_funcregister("qcompleter_setwidget",ring_QCompleter_setWidget);
+	ring_vm_funcregister("qcompleter_widget",ring_QCompleter_widget);
+	ring_vm_funcregister("qcompleter_wraparound",ring_QCompleter_wrapAround);
+	ring_vm_funcregister("qcompleter_complete",ring_QCompleter_complete);
+	ring_vm_funcregister("qcompleter_setcompletionprefix",ring_QCompleter_setCompletionPrefix);
+	ring_vm_funcregister("qcompleter_setwraparound",ring_QCompleter_setWrapAround);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -86288,6 +86936,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpoint_new",ring_QPoint_new);
 	ring_vm_funcregister("qscrollarea_new",ring_QScrollArea_new);
 	ring_vm_funcregister("qsplitter_new",ring_QSplitter_new);
+	ring_vm_funcregister("qcompleter_new",ring_QCompleter_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -86421,4 +87070,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpoint_delete",ring_QPoint_delete);
 	ring_vm_funcregister("qscrollarea_delete",ring_QScrollArea_delete);
 	ring_vm_funcregister("qsplitter_delete",ring_QSplitter_delete);
+	ring_vm_funcregister("qcompleter_delete",ring_QCompleter_delete);
 }
