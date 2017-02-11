@@ -1095,6 +1095,7 @@ Func AutoComplete
 			Call AddItems(aList,oList)
 		ok
 	oList.RemoveDuplicates()
+	oList.Sort()
 	oCompleter = new qCompleter3(oList,win1)
 	oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
 	oCompleter.setCompletionMode(QCompleter_PopupCompletion)
