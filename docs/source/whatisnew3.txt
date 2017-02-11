@@ -80,9 +80,12 @@ The Objects Library is updated to include the next functions
 
 The next classes are added to RingQt
 
+* QPixMap2
 * QScrollArea
 * QSplitter
 * QCompleter
+* QCompleter2
+* QCompleter3
 
 Many constants are defined in qt.rh (loaded by guilib.ring)
 
@@ -92,16 +95,16 @@ Many constants are defined in qt.rh (loaded by guilib.ring)
 Better Ring Notepad
 ===================
 
-Ring Notepad is update to use QPlainTextEdit instead of QTextEdit and to display
-the line number for each line in the source code file.
+(1) Using QPlainTextEdit instead of QTextEdit
+
+(2) Displaying the line number for each line in the source code file.
 
 Screen Shot:
 
 .. image:: rnotelinenumber.png
 	:alt: Ring Notepad - Line Number
 
-Also Auto-Complete feature is added to quickly write the functions names and classes.
-Also the words in the opened file.
+(3) Auto-Complete for Ring functions names, classes and words in the opened file.
 
 .. image:: autocomplete.png
 	:alt: Ring Notepad - Auto Complete
