@@ -5444,6 +5444,9 @@ parent: QPlainTextEdit
 passvmpointer
 </class>
 
+void setCompleter(QCompleter *c)
+QCompleter *completer(void)
+
 <class>
 name: QGridLayout
 para: void

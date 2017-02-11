@@ -71246,6 +71246,44 @@ RING_FUNC(ring_QPlainTextEdit_cyanline)
 	editor->setExtraSelections( extras );
 }
 
+RING_FUNC(ring_CodeEditor_setCompleter)
+{
+	CodeEditor *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCompleter((QCompleter *) RING_API_GETCPOINTER(2,"QCompleter"));
+}
+
+
+RING_FUNC(ring_CodeEditor_completer)
+{
+	CodeEditor *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
+	RING_API_RETCPOINTER(pObject->completer(),"QCompleter");
+}
+
+
 RING_FUNC(ring_QGridLayout_addItem)
 {
 	QGridLayout *pObject ;
@@ -86483,6 +86521,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_getundoavailableevent",ring_QPlainTextEdit_getundoAvailableEvent);
 	ring_vm_funcregister("qplaintextedit_getupdaterequestevent",ring_QPlainTextEdit_getupdateRequestEvent);
 	ring_vm_funcregister("qplaintextedit_cyanline",ring_QPlainTextEdit_cyanline);
+	ring_vm_funcregister("codeeditor_setcompleter",ring_CodeEditor_setCompleter);
+	ring_vm_funcregister("codeeditor_completer",ring_CodeEditor_completer);
 	ring_vm_funcregister("qgridlayout_additem",ring_QGridLayout_addItem);
 	ring_vm_funcregister("qgridlayout_addlayout",ring_QGridLayout_addLayout);
 	ring_vm_funcregister("qgridlayout_addlayout_2",ring_QGridLayout_addLayout_2);
