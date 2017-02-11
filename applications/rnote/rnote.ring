@@ -1079,59 +1079,21 @@ Func pBrowserLink x
 
 Func AutoComplete
 	oList = new qStringList()
-	# Add Keywords
-		oList.Append('again ')
-		oList.Append('and ')
-		oList.Append('but ')
-		oList.Append('bye ')
-		oList.Append('call ')
-		oList.Append('case ')
-		oList.Append('catch ')
-		oList.Append('changeringkeyword ')
-		oList.Append('changeringoperator ')
-		oList.Append('class ')
-		oList.Append('def ')
-		oList.Append('do ')
-		oList.Append('done ')
-		oList.Append('else ')
-		oList.Append('elseif ')
-		oList.Append('end ')
-		oList.Append('exit ')
-		oList.Append('for ')
-		oList.Append('from ')
-		oList.Append('func ')
-		oList.Append('get ')
-		oList.Append('give ')
-		oList.Append('if ')
-		oList.Append('import ')
-		oList.Append('in ')
-		oList.Append('load ')
-		oList.Append('loadsyntax ')
-		oList.Append('loop ')
-		oList.Append('new ')
-		oList.Append('next ')
-		oList.Append('not ')
-		oList.Append('off ')
-		oList.Append('ok ')
-		oList.Append('on ')
-		oList.Append('or ')
-		oList.Append('other ')
-		oList.Append('package ')
-		oList.Append('private ')
-		oList.Append('put ')
-		oList.Append('return ')
-		oList.Append('see ')
-		oList.Append('step ')
-		oList.Append('switch ')
-		oList.Append('to ')
-		oList.Append('try ')
-		oList.Append('while ')
 	# Create a functions to add Ring List to qStringList
 		AddItems = func aList,oList { 
 			for Item in aList 
 				oList.Append(Item)
 			next
 		}
+	# Add Ring Keywords
+		aKeywords = ["again","and","but","bye","call","case","catch",
+					"changeringkeyword","changeringoperator","class",
+					"def","do","done","else","elseif","end","exit","for","from",
+					"func","get","give","if","import","in","load","loadsyntax",
+					"loop","new","next","not","off","ok","on","or","other",
+					"package","private","put","return","see","step","switch",
+					"to","try","while"]
+		call AddItems(aKeywords,oList)
 	# Add Ring Functions 
 		Call AddItems(cFunctions(),oList)
 	# Add Ring Classes
