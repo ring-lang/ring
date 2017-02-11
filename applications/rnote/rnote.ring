@@ -2,6 +2,7 @@
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
 Load "guilib.ring"
+Load "stdlib.ring"
 
 cActiveFileName = ""
 aTextColor = [0,0,0]  
@@ -421,12 +422,12 @@ MyApp = New qApp {
 			setwidget(tree1)
 		}
 
-		#textedit1 = new qPlaintextedit(win1) {
 		textedit1 = new codeeditor(win1) {
 			setCursorPositionChangedevent("pCursorPositionChanged()")
 			setLineWrapMode(QTextEdit_NoWrap)
 			setTextChangedEvent("pTextChanged()")			
 		}
+		AutoComplete()
 
 		new RingCodeHighLighter( textedit1.document() )
 
@@ -542,6 +543,7 @@ func pChangeFile
 		gotoline(nLine)
 	ok
 
+	AutoComplete()
 
 func pSetActiveFileName
 	oDock2.setWindowTitle("Source Code : " + cActiveFileName)
@@ -1075,3 +1077,23 @@ Func pBrowserLink x
 
 	oDock3.Show()
 
+Func AutoComplete
+	oList = new qStringList()
+	# Get Ring Functions in a List
+		aList = cFunctions()
+	# Create a functions to add Ring List to qStringList
+		AddItems = func aList,oList { 
+			for Item in aList 
+				oList.Append(Item)
+			next
+		}
+	Call AddItems(aList,oList)
+	if cActiveFileName != NULL and fexists(cActiveFileName)
+		aList = split(read(cActiveFileName)," ")
+		Call AddItems(aList,oList)
+	ok
+	oList.RemoveDuplicates()
+	oCompleter = new qCompleter3(oList,win1)
+	oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
+	oCompleter.setCompletionMode(QCompleter_PopupCompletion)
+	textedit1.setCompleter(oCompleter)
