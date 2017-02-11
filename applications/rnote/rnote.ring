@@ -492,7 +492,6 @@ MyApp = New qApp {
 		oDock4 = new qDockwidget(win1,0) {
 			setWidget(oFunctionsList)
 			setwindowtitle("Functions List")
-			hide()
 		}
 
 		adddockwidget(1,oDock1,1)
@@ -942,10 +941,10 @@ Func pSetColors
 				aBackColor[3] + ")")
 
 Func pSetWindows
-	if not lShowProject  	oDock1.close() ok
-	if not lShowSourceCode  oDock2.close() ok
-	if not lShowBrowser  	oDock3.close() ok
-	if not lShowFunctionsList  	oDock4.close() ok
+	if not lShowProject  	oDock1.close() else oDock1.show() ok
+	if not lShowSourceCode  oDock2.close() else oDock2.show() ok
+	if not lShowBrowser  	oDock3.close() else oDock3.show() ok
+	if not lShowFunctionsList oDock4.close() else oDock4.show() ok
 
 func pOpen
 	new qfiledialog(win1) {
