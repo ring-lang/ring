@@ -1093,7 +1093,7 @@ Func AutoComplete
 		if cActiveFileName != NULL and fexists(cActiveFileName)
 			cFileContent = read(cActiveFileName)
 			if len(cFileContent) < 30720  # 30 Kbyte
-				aList = split(read(cActiveFileName)," ")
+				aList = SplitMany(read(cActiveFileName),` ,()[]"'+-*/%`)
 				Call AddItems(aList,oList)
 			ok
 		ok
@@ -1106,3 +1106,9 @@ Func AutoComplete
 	oFont.fromstring(cFont)
 	oCompleter.popup().setFont(oFont)
 	textedit1.setCompleter(oCompleter)
+
+func SplitMany cString,cCharacters
+	for t in cCharacters
+		cString = substr(cString,t,nl)
+	next 
+	return str2list(cString)
