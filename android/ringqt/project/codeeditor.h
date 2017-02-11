@@ -54,6 +54,15 @@
 #include <QPlainTextEdit>
 #include <QObject>
 
+#include <QCompleter>
+#include <QKeyEvent>
+#include <QAbstractItemView>
+#include <QtDebug>
+#include <QApplication>
+#include <QModelIndex>
+#include <QAbstractItemModel>
+#include <QScrollBar>
+
 #include "ring.h"
 #include "gplaintextedit.h"
 
@@ -75,15 +84,28 @@ public:
     void lineNumberAreaPaintEvent(QPaintEvent *event);
     int lineNumberAreaWidth();
 
+    void setCompleter(QCompleter *c);
+    QCompleter *completer() const;
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
+
+    void keyPressEvent(QKeyEvent *e) override;
+    void focusInEvent(QFocusEvent *e) override;
 
 private slots:
     void updateLineNumberAreaWidth(int newBlockCount);
     void updateLineNumberArea(const QRect &, int);
 
+    void insertCompletion(const QString &completion);
+
 private:
+    QString textUnderCursor() const;
+
     QWidget *lineNumberArea;
+
+    QCompleter *c;
+
 };
 
 

@@ -12635,6 +12635,25 @@ Class QPlainTextEdit from QAbstractScrollArea
 	Func cyanline P1
 		return QPlainTextEdit_cyanline(pObject,GetObjectPointerFromRingObject(P1))
 
+Class CodeEditor from QPlainTextEdit
+
+	pObject
+
+	Func init P1
+		pObject = CodeEditor_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = CodeEditor_delete(pObject)
+
+	Func setCompleter P1
+		return CodeEditor_setCompleter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func completer 
+		pTempObj = new QCompleter
+		pTempObj.pObject = CodeEditor_completer(pObject)
+		return pTempObj
+
 Class QGridLayout
 
 	pObject
@@ -14132,17 +14151,6 @@ Class QXmlStreamEntityResolver
 
 	Func delete
 		pObject = QXmlStreamEntityResolver_delete(pObject)
-
-Class CodeEditor from QPlainTextEdit
-
-	pObject
-
-	Func init P1
-		pObject = CodeEditor_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = CodeEditor_delete(pObject)
 
 Class QCameraViewfinder from QVideoWidget
 

@@ -59,7 +59,7 @@
 #include "codeeditor.h"
 #include "ring.h"
 
-CodeEditor::CodeEditor(QWidget *parent, VM *pVM) : GPlainTextEdit(parent,pVM)
+CodeEditor::CodeEditor(QWidget *parent, VM *pVM) : GPlainTextEdit(parent,pVM) , c(0)
 {
     lineNumberArea = new LineNumberArea(this);
 
@@ -68,8 +68,6 @@ CodeEditor::CodeEditor(QWidget *parent, VM *pVM) : GPlainTextEdit(parent,pVM)
 
     updateLineNumberAreaWidth(0);
 }
-
-
 
 int CodeEditor::lineNumberAreaWidth()
 {
@@ -145,4 +143,97 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
         bottom = top + (int) blockBoundingRect(block).height();
         ++blockNumber;
     }
+}
+
+void CodeEditor::setCompleter(QCompleter *completer)
+{
+    if (c)
+        QObject::disconnect(c, 0, this, 0);
+
+    c = completer;
+
+    if (!c)
+        return;
+
+    c->setWidget(this);
+    c->setCompletionMode(QCompleter::PopupCompletion);
+    c->setCaseSensitivity(Qt::CaseInsensitive);
+    QObject::connect(c, SIGNAL(activated(QString)),
+                     this, SLOT(insertCompletion(QString)));
+}
+
+QCompleter *CodeEditor::completer() const
+{
+    return c;
+}
+
+void CodeEditor::insertCompletion(const QString& completion)
+{
+    if (c->widget() != this)
+        return;
+    QTextCursor tc = textCursor();
+    int extra = completion.length() - c->completionPrefix().length();
+    tc.movePosition(QTextCursor::Left);
+    tc.movePosition(QTextCursor::EndOfWord);
+    tc.insertText(completion.right(extra));
+    setTextCursor(tc);
+}
+
+QString CodeEditor::textUnderCursor() const
+{
+    QTextCursor tc = textCursor();
+    tc.select(QTextCursor::WordUnderCursor);
+    return tc.selectedText();
+}
+
+void CodeEditor::focusInEvent(QFocusEvent *e)
+{
+    if (c)
+        c->setWidget(this);
+    GPlainTextEdit::focusInEvent(e);
+}
+
+void CodeEditor::keyPressEvent(QKeyEvent *e)
+{
+    if (c && c->popup()->isVisible()) {
+        // The following keys are forwarded by the completer to the widget
+       switch (e->key()) {
+       case Qt::Key_Enter:
+       case Qt::Key_Return:
+       case Qt::Key_Escape:
+       case Qt::Key_Tab:
+       case Qt::Key_Backtab:
+            e->ignore();
+            return; // let the completer do default behavior
+       default:
+           break;
+       }
+    }
+
+    bool isShortcut = ((e->modifiers() & Qt::ControlModifier) && e->key() == Qt::Key_E); // CTRL+E
+    if (!c || !isShortcut) // do not process the shortcut when we have a completer
+        GPlainTextEdit::keyPressEvent(e);
+
+const bool ctrlOrShift = e->modifiers() & (Qt::ControlModifier | Qt::ShiftModifier);
+    if (!c || (ctrlOrShift && e->text().isEmpty()))
+        return;
+
+    static QString eow("~!@#$%^&*()_+{}|:\"<>?,./;'[]\\-="); // end of word
+    bool hasModifier = (e->modifiers() != Qt::NoModifier) && !ctrlOrShift;
+    QString completionPrefix = textUnderCursor();
+
+    if (!isShortcut && (hasModifier || e->text().isEmpty()|| completionPrefix.length() < 3
+                      || eow.contains(e->text().right(1)))) {
+        c->popup()->hide();
+        return;
+    }
+
+    if (completionPrefix != c->completionPrefix()) {
+        c->setCompletionPrefix(completionPrefix);
+        c->popup()->setCurrentIndex(c->completionModel()->index(0, 0));
+    }
+    QRect cr = cursorRect();
+    cr.setWidth(c->popup()->sizeHintForColumn(0)
+                + c->popup()->verticalScrollBar()->sizeHint().width());
+    c->complete(cr); // popup it up!
 }
