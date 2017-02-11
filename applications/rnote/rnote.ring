@@ -1091,8 +1091,11 @@ Func AutoComplete
 		call AddItems(classes(),olist)
 	# Add words in the current file 
 		if cActiveFileName != NULL and fexists(cActiveFileName)
-			aList = split(read(cActiveFileName)," ")
-			Call AddItems(aList,oList)
+			cFileContent = read(cActiveFileName)
+			if len(cFileContent) < 30720  # 30 Kbyte
+				aList = split(read(cActiveFileName)," ")
+				Call AddItems(aList,oList)
+			ok
 		ok
 	oList.RemoveDuplicates()
 	oList.Sort()
