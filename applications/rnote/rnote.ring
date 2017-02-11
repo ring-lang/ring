@@ -1102,4 +1102,7 @@ Func AutoComplete
 	oCompleter = new qCompleter3(oList,win1)
 	oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
 	oCompleter.setCompletionMode(QCompleter_PopupCompletion)
+	oFont = new qfont("",0,0,0)
+	oFont.fromstring(cFont)
+	oCompleter.popup().setFont(oFont)
 	textedit1.setCompleter(oCompleter)
