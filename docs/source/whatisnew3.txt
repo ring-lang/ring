@@ -110,6 +110,12 @@ Screen Shot:
 .. image:: autocomplete.png
 	:alt: Ring Notepad - Auto Complete
 
+(4) Functions and Methods List
+
+.. image:: functionslist.png
+	:alt: Ring Notepad - Functions List
+
+
 .. index:: 
 	pair: What is new in Ring 1.3?; Ring mode for Emacs Editor
 
