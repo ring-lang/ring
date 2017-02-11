@@ -5891,3 +5891,82 @@ Parent Class : QFrame
 * void setStretchFactor(int index, int stretch)
 * QList<int> sizes(void)
 * QWidget * widget(int index)
+
+.. index::
+	pair: RingQt Classes Reference; QCompleter Class
+
+QCompleter Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCompleter.html
+
+
+Parameters : QObject *parent
+
+
+Parent Class : QObject
+
+* Qt::CaseSensitivity caseSensitivity(void)
+* int completionColumn(void)
+* int completionCount(void)
+* QCompleter::CompletionMode completionMode(void)
+* QAbstractItemModel *completionModel(void)
+* QString completionPrefix(void)
+* int completionRole(void)
+* QString currentCompletion(void)
+* QModelIndex currentIndex(void)
+* int currentRow(void)
+* Qt::MatchFlags filterMode(void)
+* int maxVisibleItems(void)
+* QAbstractItemModel * model(void)
+* QCompleter::ModelSorting modelSorting(void)
+* QAbstractItemView * popup(void)
+* void setCaseSensitivity(Qt::CaseSensitivity caseSensitivity)
+* void setCompletionColumn(int column)
+* void setCompletionMode(QCompleter::CompletionMode mode)
+* void setCompletionRole(int role)
+* bool setCurrentRow(int row)
+* void setFilterMode(Qt::MatchFlags filterMode)
+* void setMaxVisibleItems(int maxItems)
+* void setModel(QAbstractItemModel *model)
+* void setModelSorting(QCompleter::ModelSorting sorting)
+* void setPopup(QAbstractItemView *popup)
+* void setWidget(QWidget *widget)
+* QWidget * widget(void)
+* bool wrapAround(void)
+* void complete(QRect  rect)
+* void setCompletionPrefix(QString prefix)
+* void setWrapAround(bool wrap)
+
+.. index::
+	pair: RingQt Classes Reference; QCompleter2 Class
+
+QCompleter2 Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCompleter2.html
+
+
+Parameters : QAbstractItemModel *model, QObject *parent
+
+
+Parent Class : QCompleter
+
+
+.. index::
+	pair: RingQt Classes Reference; QCompleter3 Class
+
+QCompleter3 Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCompleter3.html
+
+
+Parameters : QStringList list, QObject *parent
+
+
+Parent Class : QCompleter
+
