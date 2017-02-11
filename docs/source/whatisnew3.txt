@@ -100,6 +100,12 @@ Screen Shot:
 .. image:: rnotelinenumber.png
 	:alt: Ring Notepad - Line Number
 
+Also Auto-Complete feature is added to quickly write the functions names and classes.
+Also the words in the opened file.
+
+.. image:: autocomplete.png
+	:alt: Ring Notepad - Auto Complete
+
 .. index:: 
 	pair: What is new in Ring 1.3?; Ring mode for Emacs Editor
 
