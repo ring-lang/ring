@@ -1116,8 +1116,3 @@ Func AutoComplete
 	oCompleter.popup().setFont(oFont)
 	textedit1.setCompleter(oCompleter)
 
-func SplitMany cString,cCharacters
-	for t in cCharacters
-		cString = substr(cString,t,nl)
-	next 
-	return str2list(cString)
