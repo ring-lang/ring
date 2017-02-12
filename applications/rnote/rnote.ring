@@ -848,7 +848,7 @@ func pSave
 	lAskToSave = false
 	AutoComplete()
 	displayFunctionsList()
-	StatusMessage("Ready!",0)
+	StatusMessage("Ready!")
 
 func pSaveAs
 	new qfiledialog(win1) {
