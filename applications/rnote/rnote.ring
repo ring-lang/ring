@@ -580,9 +580,9 @@ func pSetActiveFileName
 
 func pCursorPositionChanged
 	nLine = textedit1.textcursor().blocknumber()+1
-	status1.showmessage(" Line : "+nLine+
+	StatusMessage(" Line : "+nLine+
 			    " Column : " +(textedit1.textcursor().columnnumber()+1) +
-			    " Total Lines : " + textedit1.document().linecount() ,0)
+			    " Total Lines : " + textedit1.document().linecount())
 	textedit1.cyanline(textedit1)
 	aFilesLines[cActiveFileName] = nLine
 
@@ -844,8 +844,10 @@ func pRunNoConsole
 func pSave
 	if cActiveFileName = NULL return pSaveAs() ok
 	writefile(cActiveFileName,textedit1.toplaintext())
-	status1.showmessage("File : " + cActiveFileName + " saved!",0)
+	StatusMessage("File : " + cActiveFileName + " saved!")
 	lAskToSave = false
+	AutoComplete()
+	displayFunctionsList()
 
 func pSaveAs
 	new qfiledialog(win1) {
@@ -854,37 +856,37 @@ func pSaveAs
 		if cName != NULL
 			cActiveFileName = cName
 			writefile(cActiveFileName,textedit1.toplaintext())
-			status1.showmessage("File : " + cActiveFileName + " saved!",0)	
+			StatusMessage("File : " + cActiveFileName + " saved!")	
 			pSetActiveFileName()
 			lAskToSave = false
 		ok	
 	}
 
 func pPrint
-	status1.showmessage("Printing to File : RingDoc.pdf",0)
+	StatusMessage("Printing to File : RingDoc.pdf")
 	printer1 = new qPrinter(0) {
 		setoutputformat(1)	# 1 = pdf
 		setoutputfilename("RingDoc.pdf")
 		textedit1.print(printer1)
 	}
-	status1.showmessage("Done!",0)
+	StatusMessage("Done!")
 	system("RingDoc.pdf")
 
 func pUndo
 	textedit1.undo()
-	status1.showmessage("Undo!",0)
+	StatusMessage("Undo!")
 
 func pCut
 	textedit1.cut()
-	status1.showmessage("Cut!",0)		
+	StatusMessage("Cut!")	
 
 func pCopy
 	textedit1.copy()
-	status1.showmessage("Copy!",0)		
+	StatusMessage("Copy!")		
 
 func pPaste
 	textedit1.paste()
-	status1.showmessage("Paste!",0)		
+	StatusMessage("Paste!")		
 
 func pFont
 	oFontDialog = new qfontdialog() {
@@ -1110,6 +1112,7 @@ Func pBrowserLink x
 	oDock3.Show()
 
 Func AutoComplete
+	StatusMessage("Prepare Auto-Complete ... Please Wait!")
 	oList = new qStringList()
 	# Create a functions to add Ring List to qStringList
 		AddItems = func aList,oList { 
@@ -1147,6 +1150,7 @@ Func AutoComplete
 	oFont.fromstring(cFont)
 	oCompleter.popup().setFont(oFont)
 	textedit1.setCompleter(oCompleter)
+	StatusMessage("Prepare Auto-Complete ... Done!")
 
 func DisplayFunctionsList
 	oFunctionsList.clear()
@@ -1156,6 +1160,7 @@ func DisplayFunctionsList
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring(cFont)
 		oFunctionsList.setFont(oFont)
+	StatusMessage("Creating functions list ... Please Wait!")
 	aFileContent = str2list(read(cActiveFileName))
 	nLineNumber = 0
 	for cLine in aFileContent
@@ -1176,8 +1181,12 @@ func DisplayFunctionsList
 		oFunctionsList.addItem(cFunc[1])
 	next
 	oDock4.setWindowTitle("Functions List ("+oFunctionsList.Count()+")")
+	StatusMessage("Creating functions list ... Done!")
 
 func pSelectFunction
 	nIndex = oFunctionsList.currentrow() + 1
 	nLine = aFunctionsPos[nIndex][2]
 	gotoline(nLine)
+
+func StatusMessage cMsg
+	status1.showmessage(cMsg,0)
