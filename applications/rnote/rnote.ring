@@ -573,7 +573,7 @@ func pChangeFile
 
 	AutoComplete()
 	DisplayFunctionsList()
-	showmessage("Ready!",0)
+	StatusMessage("Ready!",0)
 
 func pSetActiveFileName
 	oDock2.setWindowTitle("Source Code : " + cActiveFileName)
@@ -848,7 +848,7 @@ func pSave
 	lAskToSave = false
 	AutoComplete()
 	displayFunctionsList()
-	showmessage("Ready!",0)
+	StatusMessage("Ready!",0)
 
 func pSaveAs
 	new qfiledialog(win1) {
