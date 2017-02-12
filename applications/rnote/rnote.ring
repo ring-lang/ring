@@ -1138,6 +1138,9 @@ Func PrepareAutoComplete
 		AddItems(aKeywords,oAutoCompleteList)
 	# Add Ring Functions 
 		aCFunctionsList = cfunctions()
+		for cFunction in aCFunctionsList
+			cFunction += "()"
+		next
 		AddItems(aCFunctionsList,oAutoCompleteList)
 	# Add Ring Methods
 		aCMethodsList = aCFunctionsList
@@ -1145,7 +1148,7 @@ Func PrepareAutoComplete
 			cMethod = aCMethodsList[x]
 			nPos = substr(cMethod,"_") 
 			if nPos
-				aCMethodsList[x] = substr(aCMethodsList[x],nPos+1) + "()"
+				aCMethodsList[x] = substr(aCMethodsList[x],nPos+1) 
 			else	
 				del(aCMethodsList,x)
 			ok
@@ -1158,6 +1161,8 @@ Func PrepareAutoComplete
 		for cClass in aClassesList 
 			if find(aClassesNoInit,cClass) = 0
 				cClass = cClass + "() {" + nl + "}"
+			else
+				cClass = cClass + " {" + nl + "}"
 			ok
 		next 
 		AddItems(aClassesList,oAutoCompleteList)
