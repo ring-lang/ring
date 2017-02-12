@@ -572,8 +572,8 @@ func pChangeFile
 	ok
 
 	AutoComplete()
-
 	DisplayFunctionsList()
+	showmessage("Ready!",0)
 
 func pSetActiveFileName
 	oDock2.setWindowTitle("Source Code : " + cActiveFileName)
@@ -848,6 +848,7 @@ func pSave
 	lAskToSave = false
 	AutoComplete()
 	displayFunctionsList()
+	showmessage("Ready!",0)
 
 func pSaveAs
 	new qfiledialog(win1) {
@@ -1137,8 +1138,11 @@ Func AutoComplete
 		if cActiveFileName != NULL and fexists(cActiveFileName)
 			cFileContent = read(cActiveFileName)
 			if len(cFileContent) < 30720  # 30 Kbyte
-				aList = SplitMany(read(cActiveFileName),` ,()[]"'+-*/%`)
-				Call AddItems(aList,oList)
+				aFileContent = str2list(cFileContent)
+				for cLine in aFileContent
+					aList = SplitMany(cLine,` ,()[]"'+-*/%`)
+					Call AddItems(aList,oList)
+				next
 			ok
 		ok
 	oList.RemoveDuplicates()
