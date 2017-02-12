@@ -1139,6 +1139,18 @@ Func PrepareAutoComplete
 	# Add Ring Functions 
 		aCFunctionsList = cfunctions()
 		AddItems(aCFunctionsList,oAutoCompleteList)
+		aCMethodsList = aCFunctionsList
+		for x = len(aCMethodsList) to 1 step -1 
+			cMethod = aCMethodsList[x]
+			nPos = substr(cMethod,"_") 
+			if nPos
+				aCMethodsList[x] = substr(aCMethodsList[x],nPos+1) + "()"
+			else	
+				del(aCMethodsList,x)
+			ok
+		next 
+		AddItems(aCMethodsList,oAutoCompleteList)
+		oAutoCompleteList.RemoveDuplicates()
 	# Add Ring Classes
 		aClassesList = classes()
 		AddItems(aClassesList,oAutoCompleteList)
