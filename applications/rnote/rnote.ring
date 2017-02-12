@@ -1112,15 +1112,15 @@ Func pBrowserLink x
 
 	oDock3.Show()
 
+# Create a function to add Ring List to qStringList
+func AddItems aList,oList 
+	for Item in aList 
+		oList.Append(Item)
+	next
+
 Func AutoComplete
 	StatusMessage("Prepare Auto-Complete ... Please Wait!")
 	oList = new qStringList()
-	# Create a functions to add Ring List to qStringList
-		AddItems = func aList,oList { 
-			for Item in aList 
-				oList.Append(Item)
-			next
-		}
 	# Add Ring Keywords
 		aKeywords = ["again","and","but","bye","call","case","catch",
 					"changeringkeyword","changeringoperator","class",
@@ -1129,25 +1129,29 @@ Func AutoComplete
 					"loop","new","next","not","off","ok","on","or","other",
 					"package","private","put","return","see","step","switch",
 					"to","try","while"]
-		call AddItems(aKeywords,oList)
+		AddItems(aKeywords,oList)
 	# Add Ring Functions 
-		Call AddItems(cFunctions(),oList)
+		AddItems(cFunctions(),oList)
 	# Add Ring Classes
-		call AddItems(classes(),olist)
+		AddItems(classes(),olist)
 	# Add words in the current file 		
 		if cActiveFileName != NULL and fexists(cActiveFileName)
 			cFileContent = read(cActiveFileName)
 			if len(cFileContent) < 30720  # 30 Kbyte
+				StatusMessage("Prepare Auto-Complete ... Get File Words!")
 				aList = Split(cFileContent," ")
+				StatusMessage("Prepare Auto-Complete ... Filter!")
 				for x = len(aList) to 1 step -1 
 					if not isalnum(aList[x])
 						del(aList,x)
 					ok
 				next
-				Call AddItems(aList,oList)
+				AddItems(aList,oList)
 			ok
 		ok		
+	StatusMessage("Prepare Auto-Complete ... Remove Duplicates!")
 	oList.RemoveDuplicates()
+	StatusMessage("Prepare Auto-Complete ... Sort!")
 	oList.Sort()
 	oCompleter = new qCompleter3(oList,textedit1)
 	oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
