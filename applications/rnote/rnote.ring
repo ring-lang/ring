@@ -1157,7 +1157,7 @@ Func PrepareAutoComplete
 		AddItems(aClassesList,oAutoCompleteList)
 	# Add Ring Libraries
 		aLibsList = ['load "guilib.ring"' , 'load "stdlib.ring"' , 
-				'load "weblib.ring"']
+				'load "weblib.ring"', "load "ringlibcurl.ring"]
 		AddItems(aLibsList,oAutoCompleteList)
 	# Save the List Size
 		oAutoCompleteListSize = oAutoCompleteList.Count()
