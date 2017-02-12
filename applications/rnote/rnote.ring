@@ -573,7 +573,7 @@ func pChangeFile
 
 	AutoComplete()
 	DisplayFunctionsList()
-	StatusMessage("Ready!",0)
+	StatusMessage("Ready!")
 
 func pSetActiveFileName
 	oDock2.setWindowTitle("Source Code : " + cActiveFileName)
