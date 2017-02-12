@@ -1125,24 +1125,24 @@ func AddItems aList,oList
 	next
 
 Func PrepareAutoComplete
-	# for Auto-complete
-	aKeywords = ["again","and","but","bye","call","case","catch",
+	oAutoCompleteList = new qStringList()
+	# Add Ring Keywords
+		aKeywords = ["again","and","but","bye","call","case","catch",
 			"changeringkeyword","changeringoperator","class",
 			"def","do","done","else","elseif","end","exit","for","from",
 			"func","get","give","if","import","in","load","loadsyntax",
 			"loop","new","next","not","off","ok","on","or","other",
 			"package","private","put","return","see","step","switch",
 			"to","try","while"]
-	aCFunctionsList = cfunctions()
-	aClassesList = classes()
-	oAutoCompleteList = new qStringList()
-	# Add Ring Keywords
 		AddItems(aKeywords,oAutoCompleteList)
 	# Add Ring Functions 
+		aCFunctionsList = cfunctions()
 		AddItems(aCFunctionsList,oAutoCompleteList)
 	# Add Ring Classes
+		aClassesList = classes()
 		AddItems(aClassesList,oAutoCompleteList)
-	oAutoCompleteListSize = oAutoCompleteList.Count()
+	# Save the List Size
+		oAutoCompleteListSize = oAutoCompleteList.Count()
 
 Func AutoComplete
 	StatusMessage("Prepare Auto-Complete ... Please Wait!")
