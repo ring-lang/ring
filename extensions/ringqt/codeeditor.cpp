@@ -147,8 +147,10 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
 
 void CodeEditor::setCompleter(QCompleter *completer)
 {
-    if (c)
+    if (c) {
         QObject::disconnect(c, 0, this, 0);
+	delete c;
+    }
 
     c = completer;
 
