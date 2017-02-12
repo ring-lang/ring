@@ -1139,6 +1139,7 @@ Func PrepareAutoComplete
 	# Add Ring Functions 
 		aCFunctionsList = cfunctions()
 		AddItems(aCFunctionsList,oAutoCompleteList)
+	# Add Ring Methods
 		aCMethodsList = aCFunctionsList
 		for x = len(aCMethodsList) to 1 step -1 
 			cMethod = aCMethodsList[x]
@@ -1154,6 +1155,10 @@ Func PrepareAutoComplete
 	# Add Ring Classes
 		aClassesList = classes()
 		AddItems(aClassesList,oAutoCompleteList)
+	# Add Ring Libraries
+		aLibsList = ['load "guilib.ring"' , 'load "stdlib.ring"' , 
+				'load "weblib.ring"']
+		AddItems(aLibsList,oAutoCompleteList)
 	# Save the List Size
 		oAutoCompleteListSize = oAutoCompleteList.Count()
 
