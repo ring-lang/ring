@@ -1148,7 +1148,7 @@ Func AutoComplete
 	StatusMessage("Prepare Auto-Complete ... Please Wait!")
 	# Prepare the list
 		while oAutoCompleteList.Count() > oAutoCompleteListSize
-			oAutoCompleteList.RemoveAt(oAutoCompleteList.Count())
+			oAutoCompleteList.RemoveAt(oAutoCompleteList.Count()-1)
 		end 
 	# Add words in the current file 		
 		if cActiveFileName != NULL and fexists(cActiveFileName)
