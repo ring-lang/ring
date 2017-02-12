@@ -1154,10 +1154,16 @@ Func PrepareAutoComplete
 		oAutoCompleteList.RemoveDuplicates()
 	# Add Ring Classes
 		aClassesList = classes()
+		aClassesNoInit = ["qapp"]
+		for cClass in aClassesList 
+			if find(aClassesNoInit,cClass) = 0
+				cClass = cClass + "() {" + nl + "}"
+			ok
+		next 
 		AddItems(aClassesList,oAutoCompleteList)
 	# Add Ring Libraries
 		aLibsList = ['load "guilib.ring"' , 'load "stdlib.ring"' , 
-				'load "weblib.ring"', "load "ringlibcurl.ring"]
+				'load "weblib.ring"', 'load "ringlibcurl.ring"']
 		AddItems(aLibsList,oAutoCompleteList)
 	# Save the List Size
 		oAutoCompleteListSize = oAutoCompleteList.Count()
