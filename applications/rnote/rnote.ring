@@ -551,6 +551,7 @@ func pFunctionsList
 		oDock4.hide()
 	else
 		oDock4.Show()
+		DisplayFunctionsList()
 	ok
 
 func pCheckSaveBeforeChange
@@ -1180,6 +1181,7 @@ Func AutoComplete
 
 func DisplayFunctionsList
 	oFunctionsList.clear()
+	if oDock4.isvisible() = false return ok 
 	aFunctionsPos = []	# Lines numbers for each function 
 	if cActiveFileName = NULL return ok
 	# Set the font
