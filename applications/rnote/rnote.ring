@@ -45,6 +45,17 @@ lAskToSave = false
 
 aFilesLines = []	# Used to remember the current line when we switch between many files
 
+# for Auto-complete
+aKeywords = ["again","and","but","bye","call","case","catch",
+			"changeringkeyword","changeringoperator","class",
+			"def","do","done","else","elseif","end","exit","for","from",
+			"func","get","give","if","import","in","load","loadsyntax",
+			"loop","new","next","not","off","ok","on","or","other",
+			"package","private","put","return","see","step","switch",
+			"to","try","while"]
+aCFunctionsList = cfunctions()
+aClassesList = classes()
+
 MyApp = New qApp {
 	win1 = new qMainWindow() {
 		oFilter = new qAllEvents(win1)
@@ -1122,18 +1133,14 @@ Func AutoComplete
 	StatusMessage("Prepare Auto-Complete ... Please Wait!")
 	oList = new qStringList()
 	# Add Ring Keywords
-		aKeywords = ["again","and","but","bye","call","case","catch",
-					"changeringkeyword","changeringoperator","class",
-					"def","do","done","else","elseif","end","exit","for","from",
-					"func","get","give","if","import","in","load","loadsyntax",
-					"loop","new","next","not","off","ok","on","or","other",
-					"package","private","put","return","see","step","switch",
-					"to","try","while"]
+		StatusMessage("Prepare Auto-Complete ... Keywords!")
 		AddItems(aKeywords,oList)
 	# Add Ring Functions 
-		AddItems(cFunctions(),oList)
+		StatusMessage("Prepare Auto-Complete ... Functions!")
+		AddItems(aCFunctionsList,oList)
 	# Add Ring Classes
-		AddItems(classes(),olist)
+		StatusMessage("Prepare Auto-Complete ... Classes!")
+		AddItems(aClassesList,olist)
 	# Add words in the current file 		
 		if cActiveFileName != NULL and fexists(cActiveFileName)
 			cFileContent = read(cActiveFileName)
