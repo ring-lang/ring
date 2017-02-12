@@ -45,18 +45,12 @@ lAskToSave = false
 
 aFilesLines = []	# Used to remember the current line when we switch between many files
 
-# for Auto-complete
-aKeywords = ["again","and","but","bye","call","case","catch",
-			"changeringkeyword","changeringoperator","class",
-			"def","do","done","else","elseif","end","exit","for","from",
-			"func","get","give","if","import","in","load","loadsyntax",
-			"loop","new","next","not","off","ok","on","or","other",
-			"package","private","put","return","see","step","switch",
-			"to","try","while"]
-aCFunctionsList = cfunctions()
-aClassesList = classes()
+# For Auto-Complete
+oAutoCompleteList = NULL
+oAutoCompleteListSize = 0
 
 MyApp = New qApp {
+	PrepareAutoComplete()
 	win1 = new qMainWindow() {
 		oFilter = new qAllEvents(win1)
 		oFilter.setCloseEvent("pSaveSettingsToFile()")
@@ -515,6 +509,7 @@ MyApp = New qApp {
 	}
 
 	RestoreSettings()
+
 	exec()
 }
 
@@ -1129,18 +1124,32 @@ func AddItems aList,oList
 		oList.Append(Item)
 	next
 
+Func PrepareAutoComplete
+	# for Auto-complete
+	aKeywords = ["again","and","but","bye","call","case","catch",
+			"changeringkeyword","changeringoperator","class",
+			"def","do","done","else","elseif","end","exit","for","from",
+			"func","get","give","if","import","in","load","loadsyntax",
+			"loop","new","next","not","off","ok","on","or","other",
+			"package","private","put","return","see","step","switch",
+			"to","try","while"]
+	aCFunctionsList = cfunctions()
+	aClassesList = classes()
+	oAutoCompleteList = new qStringList()
+	# Add Ring Keywords
+		AddItems(aKeywords,oAutoCompleteList)
+	# Add Ring Functions 
+		AddItems(aCFunctionsList,oAutoCompleteList)
+	# Add Ring Classes
+		AddItems(aClassesList,oAutoCompleteList)
+	oAutoCompleteListSize = oAutoCompleteList.Count()
+
 Func AutoComplete
 	StatusMessage("Prepare Auto-Complete ... Please Wait!")
-	oList = new qStringList()
-	# Add Ring Keywords
-		StatusMessage("Prepare Auto-Complete ... Keywords!")
-		AddItems(aKeywords,oList)
-	# Add Ring Functions 
-		StatusMessage("Prepare Auto-Complete ... Functions!")
-		AddItems(aCFunctionsList,oList)
-	# Add Ring Classes
-		StatusMessage("Prepare Auto-Complete ... Classes!")
-		AddItems(aClassesList,olist)
+	# Prepare the list
+		while oAutoCompleteList.Count() > oAutoCompleteListSize
+			oAutoCompleteList.RemoveAt(oAutoCompleteList.Count())
+		end 
 	# Add words in the current file 		
 		if cActiveFileName != NULL and fexists(cActiveFileName)
 			cFileContent = read(cActiveFileName)
@@ -1153,21 +1162,20 @@ Func AutoComplete
 						del(aList,x)
 					ok
 				next
-				AddItems(aList,oList)
+				AddItems(aList,oAutoCompleteList)
 			ok
 		ok		
 	StatusMessage("Prepare Auto-Complete ... Remove Duplicates!")
-	oList.RemoveDuplicates()
+	oAutoCompleteList.RemoveDuplicates()
 	StatusMessage("Prepare Auto-Complete ... Sort!")
-	oList.Sort()
-	oCompleter = new qCompleter3(oList,textedit1)
+	oAutoCompleteList.Sort()
+	oCompleter = new qCompleter3(oAutoCompleteList,textedit1)
 	oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
 	oCompleter.setCompletionMode(QCompleter_PopupCompletion)
 	oFont = new qfont("",0,0,0)
 	oFont.fromstring(cFont)
 	oCompleter.popup().setFont(oFont)
 	textedit1.setCompleter(oCompleter)
-	oList.delete()
 	StatusMessage("Prepare Auto-Complete ... Done!")
 
 func DisplayFunctionsList
@@ -1208,3 +1216,4 @@ func pSelectFunction
 
 func StatusMessage cMsg
 	status1.showmessage(cMsg,0)
+
