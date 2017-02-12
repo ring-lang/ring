@@ -1140,20 +1140,26 @@ Func AutoComplete
 			if len(cFileContent) < 30720  # 30 Kbyte
 				aFileContent = str2list(cFileContent)
 				for cLine in aFileContent
-					aList = SplitMany(cLine,` ,()[]"'+-*/%`)
+					aList = Split(cLine," ")
+					for x = len(aList) to 1 step -1 
+						if not isalnum(aList[x])
+							del(aList,x)
+						ok
+					next
 					Call AddItems(aList,oList)
 				next
 			ok
 		ok
 	oList.RemoveDuplicates()
 	oList.Sort()
-	oCompleter = new qCompleter3(oList,win1)
+	oCompleter = new qCompleter3(oList,textedit1)
 	oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
 	oCompleter.setCompletionMode(QCompleter_PopupCompletion)
 	oFont = new qfont("",0,0,0)
 	oFont.fromstring(cFont)
 	oCompleter.popup().setFont(oFont)
 	textedit1.setCompleter(oCompleter)
+	oList.delete()
 	StatusMessage("Prepare Auto-Complete ... Done!")
 
 func DisplayFunctionsList
