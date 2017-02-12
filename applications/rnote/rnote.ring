@@ -1134,22 +1134,19 @@ Func AutoComplete
 		Call AddItems(cFunctions(),oList)
 	# Add Ring Classes
 		call AddItems(classes(),olist)
-	# Add words in the current file 
+	# Add words in the current file 		
 		if cActiveFileName != NULL and fexists(cActiveFileName)
 			cFileContent = read(cActiveFileName)
 			if len(cFileContent) < 30720  # 30 Kbyte
-				aFileContent = str2list(cFileContent)
-				for cLine in aFileContent
-					aList = Split(cLine," ")
-					for x = len(aList) to 1 step -1 
-						if not isalnum(aList[x])
-							del(aList,x)
-						ok
-					next
-					Call AddItems(aList,oList)
+				aList = Split(cFileContent," ")
+				for x = len(aList) to 1 step -1 
+					if not isalnum(aList[x])
+						del(aList,x)
+					ok
 				next
+				Call AddItems(aList,oList)
 			ok
-		ok
+		ok		
 	oList.RemoveDuplicates()
 	oList.Sort()
 	oCompleter = new qCompleter3(oList,textedit1)
