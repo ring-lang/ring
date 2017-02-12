@@ -205,3 +205,6 @@ QCompleter_CaseInsensitivelySortedModel = 2
 
 Qt_CaseInsensitive	= 0
 Qt_CaseSensitive	= 1
+
+QString_KeepEmptyParts	= 0
+QString_SkipEmptyParts	= 1

@@ -14178,6 +14178,40 @@ Class QCompleter from QObject
 	Func setWrapAround P1
 		return QCompleter_setWrapAround(pObject,P1)
 
+Class QString2
+
+	pObject
+
+	Func init 
+		pObject = QString2_new()
+		return self
+
+	Func delete
+		pObject = QString2_delete(pObject)
+
+	Func append P1
+		return QString2_append(pObject,P1)
+
+	Func split P1,P2,P3
+		pTempObj = new QStringList
+		pTempObj.pObject = QString2_split(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func split_2 P1,P2,P3
+		pTempObj = new QStringList
+		pTempObj.pObject = QString2_split_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+		return pTempObj
+
+	Func split_3 P1,P2
+		pTempObj = new QStringList
+		pTempObj.pObject = QString2_split_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func split_4 P1,P2
+		pTempObj = new QStringList
+		pTempObj.pObject = QString2_split_4(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
 Class QPixmap2 from QPixmap
 
 	pObject
