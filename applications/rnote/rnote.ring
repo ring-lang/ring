@@ -511,6 +511,7 @@ MyApp = New qApp {
 		# Output Window 
 
 		oProcess = NULL
+
 		oProcessWindow = new qWidget()
 
 		oProcessLabel = new qLabel(oProcessWindow) {
@@ -892,6 +893,7 @@ func pRunNoConsole
 	if cActiveFileName = Null return pNofileopened() ok
 	pSave()
 	if iswindows()
+		oProcessEditbox.setplaintext("")
 		oProcess = pRunProcess(cCurrentDir+"run2.bat",cActiveFileName,"pGetProcessData(oProcess,oProcessEditbox)")
 		#cCode = 'start /b '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl 		
 	else
