@@ -46,6 +46,7 @@ SOURCES +=   \
     gthread.cpp \
     gplaintextedit.cpp \
     gheaderview.cpp \
+    gprocess.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -80,7 +81,8 @@ HEADERS  += \
 	codeeditor.h \
     gthread.h \
     gplaintextedit.h \
-    gheaderview.h
+    gheaderview.h \
+    gprocess.h
 
 
 CONFIG += mobility
