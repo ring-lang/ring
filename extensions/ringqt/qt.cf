@@ -6271,6 +6271,7 @@ QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
 <class>
 name: QProcess
 para: QObject *
+parent: QIODevice
 codename: GProcess
 passvmpointer
 </class>

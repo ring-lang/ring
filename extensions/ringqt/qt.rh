@@ -231,4 +231,11 @@ QProcess_NotRunning = 0
 QProcess_Starting = 1
 QProcess_Running = 2
 
-
+QIODevice_NotOpen = 0
+QIODevice_ReadOnly = 1
+QIODevice_WriteOnly = 2
+QIODevice_ReadWrite = QIODevice_ReadOnly | QIODevice_WriteOnly
+QIODevice_Append = 4
+QIODevice_Truncate = 8
+QIODevice_Text = dec("10")
+QIODevice_Unbuffered = dec("20")

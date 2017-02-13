@@ -14212,7 +14212,7 @@ Class QString2
 		pTempObj.pObject = QString2_split_4(pObject,GetObjectPointerFromRingObject(P1),P2)
 		return pTempObj
 
-Class QProcess
+Class QProcess from QIODevice
 
 	pObject
 
