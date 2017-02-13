@@ -14212,6 +14212,125 @@ Class QString2
 		pTempObj.pObject = QString2_split_4(pObject,GetObjectPointerFromRingObject(P1),P2)
 		return pTempObj
 
+Class QProcess
+
+	pObject
+
+	Func init 
+		pObject = QProcess_new()
+		return self
+
+	Func delete
+		pObject = QProcess_delete(pObject)
+
+	Func arguments 
+		pTempObj = new QStringList
+		pTempObj.pObject = QProcess_arguments(pObject)
+		return pTempObj
+
+	Func closeReadChannel P1
+		return QProcess_closeReadChannel(pObject,P1)
+
+	Func closeWriteChannel 
+		return QProcess_closeWriteChannel(pObject)
+
+	Func error 
+		return QProcess_error(pObject)
+
+	Func exitCode 
+		return QProcess_exitCode(pObject)
+
+	Func exitStatus 
+		return QProcess_exitStatus(pObject)
+
+	Func inputChannelMode 
+		return QProcess_inputChannelMode(pObject)
+
+	Func nativeArguments 
+		return QProcess_nativeArguments(pObject)
+
+	Func processChannelMode 
+		return QProcess_processChannelMode(pObject)
+
+	Func processEnvironment 
+		return QProcess_processEnvironment(pObject)
+
+	Func processId 
+		return QProcess_processId(pObject)
+
+	Func program 
+		return QProcess_program(pObject)
+
+	Func readAllStandardError 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QProcess_readAllStandardError(pObject)
+		return pTempObj
+
+	Func readAllStandardOutput 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QProcess_readAllStandardOutput(pObject)
+		return pTempObj
+
+	Func readChannel 
+		return QProcess_readChannel(pObject)
+
+	Func setArguments P1
+		return QProcess_setArguments(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setInputChannelMode P1
+		return QProcess_setInputChannelMode(pObject,P1)
+
+	Func setNativeArguments P1
+		return QProcess_setNativeArguments(pObject,P1)
+
+	Func setProcessChannelMode P1
+		return QProcess_setProcessChannelMode(pObject,P1)
+
+	Func setProcessEnvironment P1
+		return QProcess_setProcessEnvironment(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setProgram P1
+		return QProcess_setProgram(pObject,P1)
+
+	Func setReadChannel P1
+		return QProcess_setReadChannel(pObject,P1)
+
+	Func setStandardErrorFile P1,P2
+		return QProcess_setStandardErrorFile(pObject,P1,P2)
+
+	Func setStandardInputFile P1
+		return QProcess_setStandardInputFile(pObject,P1)
+
+	Func setStandardOutputFile P1,P2
+		return QProcess_setStandardOutputFile(pObject,P1,P2)
+
+	Func setStandardOutputProcess P1
+		return QProcess_setStandardOutputProcess(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWorkingDirectory P1
+		return QProcess_setWorkingDirectory(pObject,P1)
+
+	Func start P1,P2,P3
+		return QProcess_start(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func start_2 P1,P2
+		return QProcess_start_2(pObject,P1,P2)
+
+	Func start_3 P1
+		return QProcess_start_3(pObject,P1)
+
+	Func state 
+		return QProcess_state(pObject)
+
+	Func waitForFinished P1
+		return QProcess_waitForFinished(pObject,P1)
+
+	Func waitForStarted P1
+		return QProcess_waitForStarted(pObject,P1)
+
+	Func workingDirectory 
+		return QProcess_workingDirectory(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

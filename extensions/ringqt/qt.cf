@@ -203,6 +203,7 @@ extern "C" {
 #include <QSplitter>
 #include <QCompleter>
 #include <QString>
+#include <QProcess>
 #include "highlighter.h"
 
 extern "C" {
@@ -357,6 +358,7 @@ aEnumTypes + "QWebSettings::WebGraphic"
 aEnumTypes + "Qt::BrushStyle"
 aEnumTypes + "QAbstractSocket::BindFlag"
 aEnumTypes + "QIODevice::OpenModeFlag"
+aEnumTypes + "QIODevice::OpenMode"
 aEnumTypes + "QAbstractSocket::NetworkLayerProtocol"
 aEnumTypes + "QAbstractSocket::PauseMode"
 aEnumTypes + "QAbstractSocket::SocketState"
@@ -448,7 +450,12 @@ aEnumTypes + "Qt::MatchFlags"
 aEnumTypes + "QCompleter::CompletionMode"
 aEnumTypes + "QCompleter::ModelSorting"
 aEnumTypes + "QString::SplitBehavior"
-
+aEnumTypes + "QProcess::ExitStatus"
+aEnumTypes + "QProcess::InputChannelMode"
+aEnumTypes + "QProcess::ProcessChannel"
+aEnumTypes + "QProcess::ProcessChannelMode"
+aEnumTypes + "QProcess::ProcessError"
+aEnumTypes + "QProcess::ProcessState"
 $aMallocClassesList + "QModelIndex"
 
 </runcode>
@@ -6257,3 +6264,45 @@ QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensi
 QStringList split@2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
 QStringList split@3( QRegExp  rx, QString::SplitBehavior behavior )
 QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
+
+
+<class>
+name: QProcess
+para: void
+</class>
+
+QStringList arguments(void)
+void closeReadChannel(QProcess::ProcessChannel channel)
+void closeWriteChannel(void)
+QProcess::ProcessError error(void)
+int exitCode(void)
+QProcess::ExitStatus exitStatus(void)
+QProcess::InputChannelMode inputChannelMode(void)
+QString nativeArguments(void)
+QProcess::ProcessChannelMode processChannelMode(void)
+QProcessEnvironment processEnvironment(void)
+qint64 processId(void)
+QString program(void)
+QByteArray readAllStandardError(void)
+QByteArray readAllStandardOutput(void)
+QProcess::ProcessChannel readChannel(void)
+void setArguments( QStringList  arguments)
+void setInputChannelMode(QProcess::InputChannelMode mode)
+void setNativeArguments( QString  arguments)
+void setProcessChannelMode(QProcess::ProcessChannelMode mode)
+void setProcessEnvironment( QProcessEnvironment  environment)
+void setProgram( QString  program)
+void setReadChannel(QProcess::ProcessChannel channel)
+void setStandardErrorFile( QString  fileName, QIODevice::OpenMode mode )
+void setStandardInputFile( QString  fileName)
+void setStandardOutputFile( QString  fileName, QIODevice::OpenMode mode )
+void setStandardOutputProcess(QProcess *destination)
+void setWorkingDirectory( QString  dir)
+void start( QString  program,  QStringList  arguments, QIODevice::OpenMode mode )
+void start@2( QString  command, QIODevice::OpenMode mode )
+void start@3(QIODevice::OpenMode mode )
+QProcess::ProcessState state(void)
+bool waitForFinished(int msecs )
+bool waitForStarted(int msecs )
+QString workingDirectory(void)
+
