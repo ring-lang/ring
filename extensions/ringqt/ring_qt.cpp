@@ -80030,6 +80030,158 @@ RING_FUNC(ring_QProcess_terminate)
 	pObject->terminate();
 }
 
+
+RING_FUNC(ring_QProcess_seterrorOccurredEvent)
+{
+	GProcess *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->seterrorOccurredEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QProcess_setreadyReadStandardErrorEvent)
+{
+	GProcess *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setreadyReadStandardErrorEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QProcess_setreadyReadStandardOutputEvent)
+{
+	GProcess *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setreadyReadStandardOutputEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QProcess_setstateChangedEvent)
+{
+	GProcess *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setstateChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QProcess_geterrorOccurredEvent)
+{
+	GProcess *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
+	RING_API_RETSTRING(pObject->geterrorOccurredEvent());
+}
+
+
+RING_FUNC(ring_QProcess_getreadyReadStandardErrorEvent)
+{
+	GProcess *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
+	RING_API_RETSTRING(pObject->getreadyReadStandardErrorEvent());
+}
+
+
+RING_FUNC(ring_QProcess_getreadyReadStandardOutputEvent)
+{
+	GProcess *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
+	RING_API_RETSTRING(pObject->getreadyReadStandardOutputEvent());
+}
+
+
+RING_FUNC(ring_QProcess_getstateChangedEvent)
+{
+	GProcess *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
+	RING_API_RETSTRING(pObject->getstateChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -87869,6 +88021,14 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprocess_workingdirectory",ring_QProcess_workingDirectory);
 	ring_vm_funcregister("qprocess_kill",ring_QProcess_kill);
 	ring_vm_funcregister("qprocess_terminate",ring_QProcess_terminate);
+	ring_vm_funcregister("qprocess_seterroroccurredevent",ring_QProcess_seterrorOccurredEvent);
+	ring_vm_funcregister("qprocess_setreadyreadstandarderrorevent",ring_QProcess_setreadyReadStandardErrorEvent);
+	ring_vm_funcregister("qprocess_setreadyreadstandardoutputevent",ring_QProcess_setreadyReadStandardOutputEvent);
+	ring_vm_funcregister("qprocess_setstatechangedevent",ring_QProcess_setstateChangedEvent);
+	ring_vm_funcregister("qprocess_geterroroccurredevent",ring_QProcess_geterrorOccurredEvent);
+	ring_vm_funcregister("qprocess_getreadyreadstandarderrorevent",ring_QProcess_getreadyReadStandardErrorEvent);
+	ring_vm_funcregister("qprocess_getreadyreadstandardoutputevent",ring_QProcess_getreadyReadStandardOutputEvent);
+	ring_vm_funcregister("qprocess_getstatechangedevent",ring_QProcess_getstateChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);

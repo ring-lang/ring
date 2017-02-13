@@ -6312,3 +6312,13 @@ QString workingDirectory(void)
 
 void kill(void)
 void terminate(void)
+
+void seterrorOccurredEvent(const char *)
+void setreadyReadStandardErrorEvent(const char *)
+void setreadyReadStandardOutputEvent(const char *)
+void setstateChangedEvent(const char *)
+
+const char *geterrorOccurredEvent(void)
+const char *getreadyReadStandardErrorEvent(void)
+const char *getreadyReadStandardOutputEvent(void)
+const char *getstateChangedEvent(void)
