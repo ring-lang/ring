@@ -307,6 +307,15 @@ MyApp = New qApp {
 					settext("Functions List")
 				}
 				addaction(oAction)		
+				addseparator()	
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+o"))
+					setbtnimage(self,"image/source.png")
+					setclickevent("pOutputWindow()")
+					settext("Output Window")
+				}
+				addaction(oAction)		
+
 			}
 			subProgram { 
 				oAction = new qAction(win1) {
@@ -499,10 +508,45 @@ MyApp = New qApp {
 			setwindowtitle("Functions List")
 		}
 
+		# Output Window 
+
+		oProcess = NULL
+		oProcessWindow = new qWidget()
+
+		oProcessLabel = new qLabel(oProcessWindow) {
+			setText("Input :")
+		}
+		oProcessText = new qlineEdit(oProcessWindow) 
+
+		oProcessbtnSend = new qpushbutton(oProcessWindow) {
+			setText("Send")
+			setClickevent("pSendProcessData(oProcess,oProcessText,oProcessEditbox)")
+		}
+
+		oProcessLayout1 = new qhboxlayout() {
+			AddWidget(oProcessLabel)
+			AddWidget(oProcessText)
+			Addwidget(oProcessbtnSend)
+		}
+		oProcessEditbox = new qPlaintextedit(oProcessWindow) 
+
+		oProcessLayout2 = new qvboxlayout() {
+			addWidget(oProcesseditbox)
+			addlayout(oProcesslayout1)
+		}
+
+		oProcessWindow.setlayout(oProcessLayout2)			
+	
+		oDock5 = new qDockWidget(win1,0) {
+			setwidget( oProcessWindow )		
+			setwindowtitle("Output Window")
+		}
+
 		adddockwidget(1,oDock1,1)
 		adddockwidget(2,oDock2,2)
 		adddockwidget(2,oDock4,1)
 		adddockwidget(2,oDock3,1)
+		adddockwidget(2,oDock5,1)
 
 		setwinicon(self,cCurrentDir + "/image/notepad.png")
 		showmaximized()	
@@ -552,6 +596,13 @@ func pFunctionsList
 	else
 		oDock4.Show()
 		DisplayFunctionsList()
+	ok
+
+func pOutputWindow
+	if oDock5.isvisible()
+		oDock5.hide()
+	else
+		oDock5.Show()
 	ok
 
 func pCheckSaveBeforeChange
@@ -1247,3 +1298,25 @@ func pSelectFunction
 func StatusMessage cMsg
 	status1.showmessage(cMsg,0)
 
+func pRunProcess cProgram,cArg,cGetDataFunc
+	oStringList = new qStringlist() {
+		append(cArg)
+	}
+	oProcess = new qprocess(win) {
+		setprogram( cProgram)
+		setarguments(ostringlist)
+		setreadyreadstandardoutputevent(cGetDataFunc)
+		start_3(  QIODevice_ReadWrite )
+	} 
+	return oProcess
+
+func pGetProcessData oProcess,oEditBox
+	if ISNULL(oProcess) return ok
+	cText = oProcess.readallstandardoutput().data()
+	oeditbox.insertplaintext(	cText)
+
+func pSendProcessData oProcess,oText,oEditbox
+	if ISNULL(oProcess) return ok
+	cText = oText.text() + windowsnl()
+	oeditbox.clear()
+	oProcess.write(cText ,len(cText))
