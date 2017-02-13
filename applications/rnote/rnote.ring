@@ -1322,5 +1322,4 @@ func pGetProcessData oProcess,oEditBox
 func pSendProcessData oProcess,oText,oEditbox
 	if ISNULL(oProcess) return ok
 	cText = oText.text() + windowsnl()
-	oeditbox.clear()
 	oProcess.write(cText ,len(cText))
