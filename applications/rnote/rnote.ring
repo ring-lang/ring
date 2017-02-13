@@ -517,7 +517,9 @@ MyApp = New qApp {
 		oProcessLabel = new qLabel(oProcessWindow) {
 			setText("Input :")
 		}
-		oProcessText = new qlineEdit(oProcessWindow) 
+		oProcessText = new qlineEdit(oProcessWindow) {
+			setreturnPressedEvent("pSendProcessData(oProcess,oProcessText,oProcessEditbox)")
+		}
 
 		oProcessbtnSend = new qpushbutton(oProcessWindow) {
 			setText("Send")
