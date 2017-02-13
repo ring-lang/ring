@@ -79441,23 +79441,6 @@ RING_FUNC(ring_QProcess_inputChannelMode)
 }
 
 
-RING_FUNC(ring_QProcess_nativeArguments)
-{
-	GProcess *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
-	RING_API_RETSTRING(pObject->nativeArguments().toStdString().c_str());
-}
-
-
 RING_FUNC(ring_QProcess_processChannelMode)
 {
 	GProcess *pObject ;
@@ -79629,27 +79612,6 @@ RING_FUNC(ring_QProcess_setInputChannelMode)
 		return ;
 	}
 	pObject->setInputChannelMode( (QProcess::InputChannelMode )  (int) RING_API_GETNUMBER(2));
-}
-
-
-RING_FUNC(ring_QProcess_setNativeArguments)
-{
-	GProcess *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setNativeArguments(RING_API_GETSTRING(2));
 }
 
 
@@ -87916,7 +87878,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprocess_exitcode",ring_QProcess_exitCode);
 	ring_vm_funcregister("qprocess_exitstatus",ring_QProcess_exitStatus);
 	ring_vm_funcregister("qprocess_inputchannelmode",ring_QProcess_inputChannelMode);
-	ring_vm_funcregister("qprocess_nativearguments",ring_QProcess_nativeArguments);
 	ring_vm_funcregister("qprocess_processchannelmode",ring_QProcess_processChannelMode);
 	ring_vm_funcregister("qprocess_processenvironment",ring_QProcess_processEnvironment);
 	ring_vm_funcregister("qprocess_processid",ring_QProcess_processId);
@@ -87926,7 +87887,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprocess_readchannel",ring_QProcess_readChannel);
 	ring_vm_funcregister("qprocess_setarguments",ring_QProcess_setArguments);
 	ring_vm_funcregister("qprocess_setinputchannelmode",ring_QProcess_setInputChannelMode);
-	ring_vm_funcregister("qprocess_setnativearguments",ring_QProcess_setNativeArguments);
 	ring_vm_funcregister("qprocess_setprocesschannelmode",ring_QProcess_setProcessChannelMode);
 	ring_vm_funcregister("qprocess_setprocessenvironment",ring_QProcess_setProcessEnvironment);
 	ring_vm_funcregister("qprocess_setprogram",ring_QProcess_setProgram);

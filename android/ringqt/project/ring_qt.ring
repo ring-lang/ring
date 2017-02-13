@@ -14132,9 +14132,6 @@ Class QProcess from QIODevice
 	Func inputChannelMode 
 		return QProcess_inputChannelMode(pObject)
 
-	Func nativeArguments 
-		return QProcess_nativeArguments(pObject)
-
 	Func processChannelMode 
 		return QProcess_processChannelMode(pObject)
 
@@ -14165,9 +14162,6 @@ Class QProcess from QIODevice
 
 	Func setInputChannelMode P1
 		return QProcess_setInputChannelMode(pObject,P1)
-
-	Func setNativeArguments P1
-		return QProcess_setNativeArguments(pObject,P1)
 
 	Func setProcessChannelMode P1
 		return QProcess_setProcessChannelMode(pObject,P1)
