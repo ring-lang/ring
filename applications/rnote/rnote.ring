@@ -47,7 +47,7 @@ aFilesLines = []	# Used to remember the current line when we switch between many
 
 # For Auto-Complete
 oAutoCompleteList = NULL
-oAutoCompleteListSize = 0
+nAutoCompleteListSize = 0
 
 MyApp = New qApp {
 	PrepareAutoComplete()
@@ -1171,12 +1171,12 @@ Func PrepareAutoComplete
 				'load "weblib.ring"', 'load "ringlibcurl.ring"']
 		AddItems(aLibsList,oAutoCompleteList)
 	# Save the List Size
-		oAutoCompleteListSize = oAutoCompleteList.Count()
+		nAutoCompleteListSize = oAutoCompleteList.Count()
 
 Func AutoComplete
 	StatusMessage("Prepare Auto-Complete ... Please Wait!")
 	# Prepare the list
-		while oAutoCompleteList.Count() > oAutoCompleteListSize
+		while oAutoCompleteList.Count() > nAutoCompleteListSize
 			oAutoCompleteList.RemoveAt(oAutoCompleteList.Count()-1)
 		end 
 	# Add words in the current file 		
