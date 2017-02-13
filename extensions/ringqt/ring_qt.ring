@@ -14337,29 +14337,17 @@ Class QProcess
 	Func terminate 
 		return QProcess_terminate(pObject)
 
-	Func seterrorOccurredEvent P1
-		return QProcess_seterrorOccurredEvent(pObject,P1)
-
 	Func setreadyReadStandardErrorEvent P1
 		return QProcess_setreadyReadStandardErrorEvent(pObject,P1)
 
 	Func setreadyReadStandardOutputEvent P1
 		return QProcess_setreadyReadStandardOutputEvent(pObject,P1)
 
-	Func setstateChangedEvent P1
-		return QProcess_setstateChangedEvent(pObject,P1)
-
-	Func geterrorOccurredEvent 
-		return QProcess_geterrorOccurredEvent(pObject)
-
 	Func getreadyReadStandardErrorEvent 
 		return QProcess_getreadyReadStandardErrorEvent(pObject)
 
 	Func getreadyReadStandardOutputEvent 
 		return QProcess_getreadyReadStandardOutputEvent(pObject)
-
-	Func getstateChangedEvent 
-		return QProcess_getstateChangedEvent(pObject)
 
 Class QPixmap2 from QPixmap
 

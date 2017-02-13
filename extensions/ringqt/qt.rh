@@ -208,3 +208,27 @@ Qt_CaseSensitive	= 1
 
 QString_KeepEmptyParts	= 0
 QString_SkipEmptyParts	= 1
+
+QProcess_NormalExit = 0
+QProcess_CrashExit = 1
+QProcess_ManagedInputChannel = 0
+QProcess_ForwardedInputChannel = 1
+QProcess_StandardOutput = 0
+QProcess_StandardError = 1
+QProcess_SeparateChannels = 0
+QProcess_MergedChannels = 1
+QProcess_ForwardedChannels = 1
+QProcess_ForwardedErrorChannel = 4
+QProcess_ForwardedOutputChannel = 6
+
+QProcess_FailedToStart = 0
+QProcess_Crashed = 1
+QProcess_Timedout = 2
+QProcess_WriteError = 4
+QProcess_ReadError = 3
+QProcess_UnknownError = 5
+QProcess_NotRunning = 0
+QProcess_Starting = 1
+QProcess_Running = 2
+
+

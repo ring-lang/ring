@@ -793,10 +793,6 @@ aclasses = [
 			:realname = "QProcess" ,
 			:initpara = "QObject *",
 			:events = [
-					[ 	:signal = "errorOccurred(QProcess::ProcessError error)" ,
-						:slot = "errorOccurredSlot()" ,
-						:event = "errorOccurred"
-					] ,
 					[ 	:signal = "readyReadStandardError()" ,
 						:slot = "readyReadStandardErrorSlot()" ,
 						:event = "readyReadStandardError"
@@ -804,10 +800,6 @@ aclasses = [
 					[ 	:signal = "readyReadStandardOutput()" ,
 						:slot = "readyReadStandardOutputSlot()" ,
 						:event = "readyReadStandardOutput"
-					] ,
-					[ 	:signal = "stateChanged()" ,
-						:slot = "stateChangedSlot()" ,
-						:event = "stateChanged"
 					] 
 				  ]
 		]
