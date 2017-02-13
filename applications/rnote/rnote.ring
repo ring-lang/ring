@@ -892,11 +892,13 @@ func pRunNoConsole
 	if cActiveFileName = Null return pNofileopened() ok
 	pSave()
 	if iswindows()
-		cCode = 'start /b '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl 		
+		oProcess = pRunProcess(cCurrentDir+"run2.bat",cActiveFileName,"pGetProcessData(oProcess,oProcessEditbox)")
+		#cCode = 'start /b '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl 		
 	else
 		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
+		system(cCode)
 	ok
-	system(cCode)
+
 	
 
 func pSave
@@ -1302,7 +1304,7 @@ func pRunProcess cProgram,cArg,cGetDataFunc
 	oStringList = new qStringlist() {
 		append(cArg)
 	}
-	oProcess = new qprocess(win) {
+	oProcess = new qprocess(NULL) {
 		setprogram( cProgram)
 		setarguments(ostringlist)
 		setreadyreadstandardoutputevent(cGetDataFunc)
