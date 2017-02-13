@@ -1319,6 +1319,13 @@ func pRunProcess cProgram,cArg,cGetDataFunc
 func pGetProcessData oProcess,oEditBox
 	if ISNULL(oProcess) return ok
 	cText = oProcess.readallstandardoutput().data()
+	aText = str2list(cText)
+	for x = len(aText) to 1 step -1
+		if substr(aText[x],"echo off") or trim(aText[x]) = NULL
+			del(aText,x)			
+		ok
+	next
+	cText = list2str(aText)
 	# Set the font
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring(cFont)
