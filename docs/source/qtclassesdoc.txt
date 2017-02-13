@@ -5972,3 +5972,68 @@ Parameters : QStringList list, QObject *parent
 
 Parent Class : QCompleter
 
+
+.. index::
+	pair: RingQt Classes Reference; QString2 Class
+
+QString2 Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QString2.html
+
+
+Parameters : void
+
+* QString append( QString  str)
+* QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+* QStringList split_2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+* QStringList split_3( QRegExp  rx, QString::SplitBehavior behavior )
+* QStringList split_4( QRegularExpression  re, QString::SplitBehavior behavior )
+
+.. index::
+	pair: RingQt Classes Reference; QProcess Class
+
+QProcess Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QProcess.html
+
+
+Parameters : void
+
+* QStringList arguments(void)
+* void closeReadChannel(QProcess::ProcessChannel channel)
+* void closeWriteChannel(void)
+* QProcess::ProcessError error(void)
+* int exitCode(void)
+* QProcess::ExitStatus exitStatus(void)
+* QProcess::InputChannelMode inputChannelMode(void)
+* QString nativeArguments(void)
+* QProcess::ProcessChannelMode processChannelMode(void)
+* QProcessEnvironment processEnvironment(void)
+* qint64 processId(void)
+* QString program(void)
+* QByteArray readAllStandardError(void)
+* QByteArray readAllStandardOutput(void)
+* QProcess::ProcessChannel readChannel(void)
+* void setArguments( QStringList  arguments)
+* void setInputChannelMode(QProcess::InputChannelMode mode)
+* void setNativeArguments( QString  arguments)
+* void setProcessChannelMode(QProcess::ProcessChannelMode mode)
+* void setProcessEnvironment( QProcessEnvironment  environment)
+* void setProgram( QString  program)
+* void setReadChannel(QProcess::ProcessChannel channel)
+* void setStandardErrorFile( QString  fileName, QIODevice::OpenMode mode )
+* void setStandardInputFile( QString  fileName)
+* void setStandardOutputFile( QString  fileName, QIODevice::OpenMode mode )
+* void setStandardOutputProcess(QProcess *destination)
+* void setWorkingDirectory( QString  dir)
+* void start( QString  program,  QStringList  arguments, QIODevice::OpenMode mode )
+* void start_2( QString  command, QIODevice::OpenMode mode )
+* void start_3(QIODevice::OpenMode mode )
+* QProcess::ProcessState state(void)
+* bool waitForFinished(int msecs )
+* bool waitForStarted(int msecs )
+* QString workingDirectory(void)
