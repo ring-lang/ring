@@ -15,6 +15,7 @@ lShowProject = True
 lShowSourceCode = True
 lShowBrowser = True
 lShowFunctionsList = False
+lShowOutputWindow = False
 nTabSpaces = 0
 aBrowserLinks = [
 	["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
@@ -1012,6 +1013,7 @@ Func pSetWindows
 	if not lShowSourceCode  oDock2.close() else oDock2.show() ok
 	if not lShowBrowser  	oDock3.close() else oDock3.show() ok
 	if not lShowFunctionsList oDock4.close() else oDock4.show() ok
+	if not lShowOutputWindow oDock5.close() else oDock5.show() ok
 
 func pOpen
 	new qfiledialog(win1) {
@@ -1091,6 +1093,7 @@ Func pSaveSettingsToFile
 		    "lShowSourceCode = " + oDock2.isvisible() + nl +
 		    "lShowBrowser = " + oDock3.isvisible() + nl +
 		    "lShowFunctionsList = " + oDock4.isvisible() + nl +
+		    "lShowOutputWindow = " + oDock5.isvisible() + nl +
 		    "nTabSpaces = " + nTabSpaces + nl
 	cSettings = substr(cSettings,nl,char(13)+char(10))
 	write(cSettingsFile,cSettings)
