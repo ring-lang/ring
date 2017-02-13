@@ -87,6 +87,7 @@ The next classes are added to RingQt
 * QCompleter
 * QCompleter2
 * QCompleter3
+* QProcess
 
 Many constants are defined in qt.rh (loaded by guilib.ring)
 
@@ -115,6 +116,10 @@ Screen Shot:
 .. image:: functionslist.png
 	:alt: Ring Notepad - Functions List
 
+(4) Output Window
+
+.. image:: outputwin.png
+	:alt: Ring Notepad - Output Window
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Ring mode for Emacs Editor
