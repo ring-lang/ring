@@ -1317,6 +1317,10 @@ func pRunProcess cProgram,cArg,cGetDataFunc
 func pGetProcessData oProcess,oEditBox
 	if ISNULL(oProcess) return ok
 	cText = oProcess.readallstandardoutput().data()
+	# Set the font
+		oFont = new qfont("",0,0,0)
+		oFont.fromstring(cFont)
+		oProcessEditbox.setFont(oFont)
 	oeditbox.insertplaintext(	cText)
 
 func pSendProcessData oProcess,oText,oEditbox
