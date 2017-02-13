@@ -30,6 +30,7 @@ INPUT(
 ./debug\gthread.o
 ./debug\gplaintextedit.o
 ./debug\gheaderview.o
+./debug\gprocess.o
 ./debug\ring_qt.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
@@ -61,5 +62,6 @@ INPUT(
 ./debug\moc_codeeditor.o
 ./debug\moc_gthread.o
 ./debug\moc_gplaintextedit.o
+./debug\moc_gprocess.o
 ./debug\moc_gheaderview.o
 );

@@ -14216,8 +14216,8 @@ Class QProcess
 
 	pObject
 
-	Func init 
-		pObject = QProcess_new()
+	Func init P1
+		pObject = QProcess_new(GetObjectPointerFromRingObject(P1))
 		return self
 
 	Func delete
@@ -14330,6 +14330,12 @@ Class QProcess
 
 	Func workingDirectory 
 		return QProcess_workingDirectory(pObject)
+
+	Func kill 
+		return QProcess_kill(pObject)
+
+	Func terminate 
+		return QProcess_terminate(pObject)
 
 Class QPixmap2 from QPixmap
 

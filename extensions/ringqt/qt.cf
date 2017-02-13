@@ -43,7 +43,9 @@ extern "C" {
 #include "gthread.h"
 #include "gplaintextedit.h"
 #include "gheaderview.h"
+#include "gprocess.h"
 #include "codeeditor.h"
+
 
 #include <QApplication>
 #include <QObject>
@@ -6268,7 +6270,9 @@ QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
 
 <class>
 name: QProcess
-para: void
+para: QObject *
+codename: GProcess
+passvmpointer
 </class>
 
 QStringList arguments(void)
@@ -6306,3 +6310,5 @@ bool waitForFinished(int msecs )
 bool waitForStarted(int msecs )
 QString workingDirectory(void)
 
+void kill(void)
+void terminate(void)

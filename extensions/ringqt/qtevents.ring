@@ -788,7 +788,21 @@ aclasses = [
 						:event = "sortIndicatorChanged"
 					] 		
 			  ]
-		] 
+		] ,
+		[	:name = "GProcess" ,
+			:realname = "QProcess" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "started()" ,
+						:slot = "startedSlot()" ,
+						:event = "Started"
+					] ,
+					[ 	:signal = "finished(int exitCode, QProcess::ExitStatus exitStatus)" ,
+						:slot = "finishedSlot()" ,
+						:event = "Finished"
+					] 
+				  ]
+		]
 	    ]
 
 Func Main
