@@ -1338,3 +1338,4 @@ func pSendProcessData oProcess,oText,oEditbox
 	if ISNULL(oProcess) return ok
 	cText = oText.text() + windowsnl()
 	oProcess.write(cText ,len(cText))
+	oeditbox.insertplaintext(	cText)
