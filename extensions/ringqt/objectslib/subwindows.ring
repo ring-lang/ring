@@ -7,7 +7,7 @@
 
 class WindowsControllerParent from WindowsControllerBase
 
-	RingQt_nParentID=0		# Goal Designer Object ID 
+	RingQt_nParentID=0		# Parent Object ID 
 
 	func Start		
 		oView.win.Show()

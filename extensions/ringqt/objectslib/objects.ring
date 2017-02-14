@@ -101,3 +101,12 @@ class WindowsControllerBase
 	func GetObjectByID nID
 		nPos = Get_Window_Pos(nID)
 		return $RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT]
+
+	func Method cMethod 
+		cMethod = Trim(cMethod)
+		if right(cMethod,1) != ")" {
+			cMethod += "()"
+		}
+		cRingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+RingQt_nID+")]" +
+			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
+		return cRingQt_objname+"."+cMethod

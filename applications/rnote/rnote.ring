@@ -899,13 +899,10 @@ func pRunNoConsole
 		oProcessEditbox.setplaintext("")
 		oProcessText.setFocus(0)
 		oProcess = pRunProcess(cCurrentDir+"run2.bat",cActiveFileName,"pGetProcessData(oProcess,oProcessEditbox)")
-		#cCode = 'start /b '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl 		
 	else
 		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 		system(cCode)
 	ok
-
-	
 
 func pSave
 	if cActiveFileName = NULL return pSaveAs() ok
