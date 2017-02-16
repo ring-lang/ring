@@ -839,8 +839,11 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=Ru_J4lFE76c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=19" target="_blank">19 Nested List in ring programming language</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=JZxwsWP7GeE" target="_blank">20 Convert String To Number in ring programming language</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				]
-
 			]
 			],
 			["English Tutorials (YouTube)",[
@@ -1218,6 +1221,21 @@
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=7F9o1-NqdI4&index=124&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">decimals() Function - Ring Programming Language - Lesson 123  </a>'					
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=VK6h3GdInYg&index=125&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">read() Function - Ring Programming Language - Lesson 124  </a>'					
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=KLuEejIRXqs&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=126" target="_blank">write() Function - Ring Programming Language - Lesson 125  </a>'					
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=sQbGtrcBT4I&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=127" target="_blank">dir() Function - Ring Programming Language - Lesson 126 </a>'					
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=wTAo3MTQOfA&index=128&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">rename() Function - Ring Programming Language - Lesson 127 </a>'					
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=3_TYYnF9FTs&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=129" target="_blank">remove() Function - Ring Programming Language - Lesson 128  </a>'					
 				]
 			]			
 		]
