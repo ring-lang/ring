@@ -302,7 +302,7 @@ MyApp = New qApp {
 				addaction(oAction)
 				addseparator()	
 				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+n"))
+					setShortcut(new QKeySequence("Alt+f"))
 					setbtnimage(self,"image/source.png")
 					setclickevent("pFunctionsList()")
 					settext("Functions List")
@@ -310,7 +310,7 @@ MyApp = New qApp {
 				addaction(oAction)		
 				addseparator()	
 				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+o"))
+					setShortcut(new QKeySequence("Alt+o"))
 					setbtnimage(self,"image/source.png")
 					setclickevent("pOutputWindow()")
 					settext("Output Window")
