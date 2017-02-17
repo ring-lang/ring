@@ -10,6 +10,7 @@ load "guilib.ring"
 cCurrentDir = CurrentDir() + "/"
 
 new qApp {
+	StyleFusion()
 	Open_Window(:FormDesignerController)
 	exec()
 }
@@ -51,14 +52,8 @@ Class FormDesignerView from WindowsViewParent
 		}	
 		setwinicon(win,cCurrentDir + "/image/project.png")
 	# Create the ToolBox
-		oToolBox = new qWidget() {
-			
-		}
-		oToolBoxDock = new qdockwidget(NULL,0) {
-			setWindowTitle("ToolBox")
-			setWidget(oToolBox)
-		}
-		win.Adddockwidget(1,oToolBoxDock,1)
+		CreateToolBox()
+
 	# Create Properties Window
 		oProperties = new qWidget() {
 		}
@@ -161,3 +156,79 @@ Class FormDesignerView from WindowsViewParent
 		tool1 = win.addtoolbar("files")  {
 	  		for x in aBtns addwidget(x) addseparator() next
 		}
+
+	func CreateToolBox
+		oToolBox = new qWidget() {
+ 			btn1 = new qPushButton(oToolBox) {
+					setText("Select")
+					setCheckable(True)
+					setChecked(True)
+			}
+ 			btn2 = new qPushButton(oToolBox) {
+					setText("Label")
+					setCheckable(True)
+			}
+ 			btn3 = new qPushButton(oToolBox) {
+					setText("Button")
+					setCheckable(True)
+			}
+ 			btn4 = new qPushButton(oToolBox) {
+					setText("LineEdit")
+					setCheckable(True)
+			}
+ 			btn5 = new qPushButton(oToolBox) {
+					setText("TextEdit")
+					setCheckable(True)
+			}
+ 			btn6 = new qPushButton(oToolBox) {
+					setText("ListWidget")
+					setCheckable(True)
+			}
+ 			btn7 = new qPushButton(oToolBox) {
+					setText("Checkbox")
+					setCheckable(True)
+			}
+ 			btn8 = new qPushButton(oToolBox) {
+					setText("Image")
+					setCheckable(True)
+			}
+ 			btn9 = new qPushButton(oToolBox) {
+					setText("Slider")
+					setCheckable(True)
+			}
+ 			btn10 = new qPushButton(oToolBox) {
+					setText("Progressbar")
+					setCheckable(True)
+			}
+			Layout1 = new qVBoxLayout() {
+				AddWidget(btn1)
+				AddWidget(btn2)
+				AddWidget(btn3)
+				AddWidget(btn4)
+				AddWidget(btn5)
+				AddWidget(btn6)
+				AddWidget(btn7)
+				AddWidget(btn8)
+				AddWidget(btn9)
+				AddWidget(btn10)
+				insertStretch( -1, 1 )
+			}
+			btnsGroup = new qButtonGroup(oToolBox) {
+				AddButton(btn1,0)
+				AddButton(btn2,1)
+				AddButton(btn3,2)
+				AddButton(btn4,3)
+				AddButton(btn5,4)
+				AddButton(btn6,5)
+				AddButton(btn7,6)
+				AddButton(btn8,7)
+				AddButton(btn9,8)
+				AddButton(btn10,9)
+			}
+			setLayout(Layout1)
+		}
+		oToolBoxDock = new qdockwidget(NULL,0) {
+			setWindowTitle("ToolBox")
+			setWidget(oToolBox)
+		}
+		win.Adddockwidget(1,oToolBoxDock,1)
