@@ -17,6 +17,17 @@ new qApp {
 Class FormDesignerController from WindowsControllerParent
 	oView = new FormDesignerView
 
+	func NewAction
+
+	func OpenAction
+
+	func SaveAction
+
+	func SaveAsAction
+
+	func ExitAction
+		Super.CloseAction()
+
 Class FormDesignerView from WindowsViewParent
 	# Create the form 
 		oForm = new qWidget() {
@@ -56,3 +67,53 @@ Class FormDesignerView from WindowsViewParent
 			setWidget(oProperties)
 		}
 		win.Adddockwidget(2,oPropertiesDock,2)
+	# Create the Menubar
+		CreateMenuBar()
+
+
+	func CreateMenuBar
+		menu1 = new qmenubar(win) {		
+			subFile = addmenu("File")
+			subFile { 
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+n"))
+					setbtnimage(self,"image/new.png")
+					settext("New")
+					setclickevent(Method(:NewAction))
+				}
+				addaction(oAction)
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+o"))
+					setbtnimage(self,"image/open.png") 
+					settext("Open")
+					setclickevent(Method(:OpenAction))
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+s"))
+					setbtnimage(self,"image/save.png")
+					settext("Save")
+					setclickevent(Method(:SaveAction))
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+e"))
+					setbtnimage(self,"image/saveas.png")
+					settext("Save As")
+					setclickevent(Method(:SaveAsAction))
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qaction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+q"))
+					setbtnimage(self,"image/close.png") 
+					settext("Exit")
+					setstatustip("Exit")
+					setclickevent(Method(:ExitAction))
+				}
+				addaction(oAction)
+			}
+		}
+		win.setmenubar(menu1)
