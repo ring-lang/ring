@@ -14244,10 +14244,14 @@ Class QMdiArea from QAbstractScrollArea
 		return QMdiArea_activationOrder(pObject)
 
 	Func activeSubWindow 
-		return QMdiArea_activeSubWindow(pObject)
+		pTempObj = new QMdiSubWindow
+		pTempObj.pObject = QMdiArea_activeSubWindow(pObject)
+		return pTempObj
 
 	Func addSubWindow P1,P2
-		return QMdiArea_addSubWindow(pObject,GetObjectPointerFromRingObject(P1),P2)
+		pTempObj = new QMdiSubWindow
+		pTempObj.pObject = QMdiArea_addSubWindow(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
 
 	Func background 
 		pTempObj = new QBrush
@@ -14255,7 +14259,9 @@ Class QMdiArea from QAbstractScrollArea
 		return pTempObj
 
 	Func currentSubWindow 
-		return QMdiArea_currentSubWindow(pObject)
+		pTempObj = new QMdiSubWindow
+		pTempObj.pObject = QMdiArea_currentSubWindow(pObject)
+		return pTempObj
 
 	Func documentMode 
 		return QMdiArea_documentMode(pObject)
@@ -14331,6 +14337,65 @@ Class QMdiArea from QAbstractScrollArea
 
 	Func tileSubWindows 
 		return QMdiArea_tileSubWindows(pObject)
+
+Class QMdiSubWindow from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QMdiSubWindow_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMdiSubWindow_delete(pObject)
+
+	Func isShaded 
+		return QMdiSubWindow_isShaded(pObject)
+
+	Func keyboardPageStep 
+		return QMdiSubWindow_keyboardPageStep(pObject)
+
+	Func keyboardSingleStep 
+		return QMdiSubWindow_keyboardSingleStep(pObject)
+
+	Func mdiArea 
+		pTempObj = new QMdiArea
+		pTempObj.pObject = QMdiSubWindow_mdiArea(pObject)
+		return pTempObj
+
+	Func setKeyboardPageStep P1
+		return QMdiSubWindow_setKeyboardPageStep(pObject,P1)
+
+	Func setKeyboardSingleStep P1
+		return QMdiSubWindow_setKeyboardSingleStep(pObject,P1)
+
+	Func setOption P1,P2
+		return QMdiSubWindow_setOption(pObject,P1,P2)
+
+	Func setSystemMenu P1
+		return QMdiSubWindow_setSystemMenu(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWidget P1
+		return QMdiSubWindow_setWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func systemMenu 
+		pTempObj = new QMenu
+		pTempObj.pObject = QMdiSubWindow_systemMenu(pObject)
+		return pTempObj
+
+	Func testOption P1
+		return QMdiSubWindow_testOption(pObject,P1)
+
+	Func widget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QMdiSubWindow_widget(pObject)
+		return pTempObj
+
+	Func showShaded 
+		return QMdiSubWindow_showShaded(pObject)
+
+	Func showSystemMenu 
+		return QMdiSubWindow_showSystemMenu(pObject)
 
 Class QPixmap2 from QPixmap
 
