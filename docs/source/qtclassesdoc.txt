@@ -6044,3 +6044,49 @@ Parent Class : QIODevice
 * void setreadyReadStandardOutputEvent(const char *)
 * const char *getreadyReadStandardErrorEvent(void)
 * const char *getreadyReadStandardOutputEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QMdiArea Class
+
+QMdiArea Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMdiArea.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QAbstractScrollArea
+
+* QMdiArea::WindowOrder activationOrder(void)
+* QMdiSubWindow * activeSubWindow(void)
+* QMdiSubWindow * addSubWindow(QWidget * widget, Qt::WindowFlags windowFlags )
+* QBrush background(void)
+* QMdiSubWindow * currentSubWindow(void)
+* bool documentMode(void)
+* void removeSubWindow(QWidget * widget)
+* void setActivationOrder(QMdiArea::WindowOrder order)
+* void setBackground( QBrush   background)
+* void setDocumentMode(bool enabled)
+* void setOption(QMdiArea::AreaOption option, bool on )
+* void setTabPosition(QTabWidget::TabPosition position)
+* void setTabShape(QTabWidget::TabShape shape)
+* void setTabsClosable(bool closable)
+* void setTabsMovable(bool movable)
+* void setViewMode(QMdiArea::ViewMode mode)
+* QList<QMdiSubWindow *> subWindowList(QMdiArea::WindowOrder order )
+* QTabWidget::TabPosition tabPosition(void)
+* QTabWidget::TabShape tabShape(void)
+* bool tabsClosable(void)
+* bool tabsMovable(void)
+* bool testOption(QMdiArea::AreaOption option)
+* QMdiArea::ViewMode viewMode(void)
+* void activateNextSubWindow(void)
+* void activatePreviousSubWindow(void)
+* void cascadeSubWindows(void)
+* void closeActiveSubWindow(void)
+* void closeAllSubWindows(void)
+* void setActiveSubWindow(QMdiSubWindow * window)
+* void tileSubWindows(void)
