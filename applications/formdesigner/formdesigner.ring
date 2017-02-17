@@ -70,6 +70,9 @@ Class FormDesignerView from WindowsViewParent
 	# Create the Menubar
 		CreateMenuBar()
 
+	# Create the Toolbar 
+		CreateToolBar()
+
 	# Create the Statusbar 
 		CreateStatusBar()
 
@@ -125,3 +128,36 @@ Class FormDesignerView from WindowsViewParent
 			showmessage("Ready!",0)
 		}
 		win.setstatusbar(status1)
+
+	func CreateToolBar
+		aBtns = [
+				new qpushbutton(win) { 
+					setbtnimage(self,"image/new.png") 
+					setclickevent(Method(:NewAction))
+					settooltip("New File")
+				} ,
+				new qpushbutton(win) { 
+					setbtnimage(self,"image/open.png") 
+					setclickevent(Method(:OpenAction))
+					settooltip("Open File")
+				} ,
+				new qpushbutton(win) { 
+					setbtnimage(self,"image/save.png")
+					setclickevent(Method(:SaveAction))
+					settooltip("Save")
+				 } ,
+				new qpushbutton(win) { 
+					setbtnimage(self,"image/saveas.png")
+					setclickevent(Method(:SaveAsAction))
+					settooltip("Save As")
+				 } ,				
+				new qpushbutton(win) { 
+					setbtnimage(self,"image/close.png") 
+					setclickevent(Method(:ExitAction))
+					settooltip("Exit")
+				} 
+			]
+
+		tool1 = win.addtoolbar("files")  {
+	  		for x in aBtns addwidget(x) addseparator() next
+		}
