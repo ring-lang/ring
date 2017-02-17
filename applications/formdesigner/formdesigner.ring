@@ -70,6 +70,8 @@ Class FormDesignerView from WindowsViewParent
 	# Create the Menubar
 		CreateMenuBar()
 
+	# Create the Statusbar 
+		CreateStatusBar()
 
 	func CreateMenuBar
 		menu1 = new qmenubar(win) {		
@@ -117,3 +119,9 @@ Class FormDesignerView from WindowsViewParent
 			}
 		}
 		win.setmenubar(menu1)
+
+	func CreateStatusBar
+		status1 = new qstatusbar(win) {
+			showmessage("Ready!",0)
+		}
+		win.setstatusbar(status1)
