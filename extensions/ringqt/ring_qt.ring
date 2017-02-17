@@ -14343,6 +14343,109 @@ Class QProcess from QIODevice
 	Func getreadyReadStandardOutputEvent 
 		return QProcess_getreadyReadStandardOutputEvent(pObject)
 
+Class QMdiArea from QAbstractScrollArea
+
+	pObject
+
+	Func init P1
+		pObject = QMdiArea_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMdiArea_delete(pObject)
+
+	Func activationOrder 
+		return QMdiArea_activationOrder(pObject)
+
+	Func activeSubWindow 
+		return QMdiArea_activeSubWindow(pObject)
+
+	Func addSubWindow P1,P2
+		return QMdiArea_addSubWindow(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func background 
+		pTempObj = new QBrush
+		pTempObj.pObject = QMdiArea_background(pObject)
+		return pTempObj
+
+	Func currentSubWindow 
+		return QMdiArea_currentSubWindow(pObject)
+
+	Func documentMode 
+		return QMdiArea_documentMode(pObject)
+
+	Func removeSubWindow P1
+		return QMdiArea_removeSubWindow(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setActivationOrder P1
+		return QMdiArea_setActivationOrder(pObject,P1)
+
+	Func setBackground P1
+		return QMdiArea_setBackground(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDocumentMode P1
+		return QMdiArea_setDocumentMode(pObject,P1)
+
+	Func setOption P1,P2
+		return QMdiArea_setOption(pObject,P1,P2)
+
+	Func setTabPosition P1
+		return QMdiArea_setTabPosition(pObject,P1)
+
+	Func setTabShape P1
+		return QMdiArea_setTabShape(pObject,P1)
+
+	Func setTabsClosable P1
+		return QMdiArea_setTabsClosable(pObject,P1)
+
+	Func setTabsMovable P1
+		return QMdiArea_setTabsMovable(pObject,P1)
+
+	Func setViewMode P1
+		return QMdiArea_setViewMode(pObject,P1)
+
+	Func subWindowList P1
+		return QMdiArea_subWindowList(pObject,P1)
+
+	Func tabPosition 
+		return QMdiArea_tabPosition(pObject)
+
+	Func tabShape 
+		return QMdiArea_tabShape(pObject)
+
+	Func tabsClosable 
+		return QMdiArea_tabsClosable(pObject)
+
+	Func tabsMovable 
+		return QMdiArea_tabsMovable(pObject)
+
+	Func testOption P1
+		return QMdiArea_testOption(pObject,P1)
+
+	Func viewMode 
+		return QMdiArea_viewMode(pObject)
+
+	Func activateNextSubWindow 
+		return QMdiArea_activateNextSubWindow(pObject)
+
+	Func activatePreviousSubWindow 
+		return QMdiArea_activatePreviousSubWindow(pObject)
+
+	Func cascadeSubWindows 
+		return QMdiArea_cascadeSubWindows(pObject)
+
+	Func closeActiveSubWindow 
+		return QMdiArea_closeActiveSubWindow(pObject)
+
+	Func closeAllSubWindows 
+		return QMdiArea_closeAllSubWindows(pObject)
+
+	Func setActiveSubWindow P1
+		return QMdiArea_setActiveSubWindow(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func tileSubWindows 
+		return QMdiArea_tileSubWindows(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
