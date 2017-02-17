@@ -207,6 +207,7 @@ extern "C" {
 #include <QString>
 #include <QProcess>
 #include <QMdiArea>
+#include <QMdiSubWindow>
 #include "highlighter.h"
 
 extern "C" {
@@ -462,6 +463,7 @@ aEnumTypes + "QProcess::ProcessState"
 aEnumTypes + "QMdiArea::ViewMode"
 aEnumTypes + "QMdiArea::WindowOrder"
 aEnumTypes + "QMdiArea::AreaOption"
+aEnumTypes + "QMdiSubWindow::SubWindowOption"
 $aMallocClassesList + "QModelIndex"
 
 </runcode>
@@ -6358,3 +6360,25 @@ void closeActiveSubWindow(void)
 void closeAllSubWindows(void)
 void setActiveSubWindow(QMdiSubWindow * window)
 void tileSubWindows(void)
+
+<class>
+name: QMdiSubWindow
+para: QWidget *
+parent: QWidget
+</class>
+
+bool isShaded(void)
+int keyboardPageStep(void)
+int keyboardSingleStep(void)
+QMdiArea * mdiArea(void)
+void setKeyboardPageStep(int step)
+void setKeyboardSingleStep(int step)
+void setOption(QMdiSubWindow::SubWindowOption option, bool on )
+void setSystemMenu(QMenu * systemMenu)
+void setWidget(QWidget * widget)
+QMenu * systemMenu(void)
+bool testOption(QMdiSubWindow::SubWindowOption option)
+QWidget * widget(void)
+
+void showShaded(void)
+void showSystemMenu(void)

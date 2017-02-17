@@ -194,6 +194,7 @@ extern "C" {
 #include <QString>
 #include <QProcess>
 #include <QMdiArea>
+#include <QMdiSubWindow>
 #include "highlighter.h"
 
 extern "C" {
@@ -80651,6 +80652,272 @@ RING_FUNC(ring_QMdiArea_tileSubWindows)
 	pObject->tileSubWindows();
 }
 
+
+RING_FUNC(ring_QMdiSubWindow_isShaded)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	RING_API_RETNUMBER(pObject->isShaded());
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_keyboardPageStep)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	RING_API_RETNUMBER(pObject->keyboardPageStep());
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_keyboardSingleStep)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	RING_API_RETNUMBER(pObject->keyboardSingleStep());
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_mdiArea)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	RING_API_RETCPOINTER(pObject->mdiArea(),"QMdiArea");
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_setKeyboardPageStep)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setKeyboardPageStep( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_setKeyboardSingleStep)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setKeyboardSingleStep( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_setOption)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setOption( (QMdiSubWindow::SubWindowOption )  (int) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_setSystemMenu)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSystemMenu((QMenu *) RING_API_GETCPOINTER(2,"QMenu"));
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_setWidget)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_systemMenu)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	RING_API_RETCPOINTER(pObject->systemMenu(),"QMenu");
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_testOption)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->testOption( (QMdiSubWindow::SubWindowOption )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_widget)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	RING_API_RETCPOINTER(pObject->widget(),"QWidget");
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_showShaded)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	pObject->showShaded();
+}
+
+
+RING_FUNC(ring_QMdiSubWindow_showSystemMenu)
+{
+	QMdiSubWindow *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
+	pObject->showSystemMenu();
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -82510,6 +82777,21 @@ RING_FUNC(ring_QMdiArea_new)
 	}
 	QMdiArea *pObject = new QMdiArea((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
 	RING_API_RETCPOINTER(pObject,"QMdiArea");
+}
+
+RING_FUNC(ring_QMdiSubWindow_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QMdiSubWindow *pObject = new QMdiSubWindow((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	RING_API_RETCPOINTER(pObject,"QMdiSubWindow");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -84593,6 +84875,21 @@ RING_FUNC(ring_QMdiArea_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QMdiArea *) RING_API_GETCPOINTER(1,"QMdiArea");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QMdiSubWindow_delete)
+{
+	QMdiSubWindow *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QMdiSubWindow *) RING_API_GETCPOINTER(1,"QMdiSubWindow");
 		delete pObject ;
 	}
 }
@@ -88552,6 +88849,20 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmdiarea_closeallsubwindows",ring_QMdiArea_closeAllSubWindows);
 	ring_vm_funcregister("qmdiarea_setactivesubwindow",ring_QMdiArea_setActiveSubWindow);
 	ring_vm_funcregister("qmdiarea_tilesubwindows",ring_QMdiArea_tileSubWindows);
+	ring_vm_funcregister("qmdisubwindow_isshaded",ring_QMdiSubWindow_isShaded);
+	ring_vm_funcregister("qmdisubwindow_keyboardpagestep",ring_QMdiSubWindow_keyboardPageStep);
+	ring_vm_funcregister("qmdisubwindow_keyboardsinglestep",ring_QMdiSubWindow_keyboardSingleStep);
+	ring_vm_funcregister("qmdisubwindow_mdiarea",ring_QMdiSubWindow_mdiArea);
+	ring_vm_funcregister("qmdisubwindow_setkeyboardpagestep",ring_QMdiSubWindow_setKeyboardPageStep);
+	ring_vm_funcregister("qmdisubwindow_setkeyboardsinglestep",ring_QMdiSubWindow_setKeyboardSingleStep);
+	ring_vm_funcregister("qmdisubwindow_setoption",ring_QMdiSubWindow_setOption);
+	ring_vm_funcregister("qmdisubwindow_setsystemmenu",ring_QMdiSubWindow_setSystemMenu);
+	ring_vm_funcregister("qmdisubwindow_setwidget",ring_QMdiSubWindow_setWidget);
+	ring_vm_funcregister("qmdisubwindow_systemmenu",ring_QMdiSubWindow_systemMenu);
+	ring_vm_funcregister("qmdisubwindow_testoption",ring_QMdiSubWindow_testOption);
+	ring_vm_funcregister("qmdisubwindow_widget",ring_QMdiSubWindow_widget);
+	ring_vm_funcregister("qmdisubwindow_showshaded",ring_QMdiSubWindow_showShaded);
+	ring_vm_funcregister("qmdisubwindow_showsystemmenu",ring_QMdiSubWindow_showSystemMenu);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -88691,6 +89002,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qstring2_new",ring_QString2_new);
 	ring_vm_funcregister("qprocess_new",ring_QProcess_new);
 	ring_vm_funcregister("qmdiarea_new",ring_QMdiArea_new);
+	ring_vm_funcregister("qmdisubwindow_new",ring_QMdiSubWindow_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -88830,4 +89142,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qstring2_delete",ring_QString2_delete);
 	ring_vm_funcregister("qprocess_delete",ring_QProcess_delete);
 	ring_vm_funcregister("qmdiarea_delete",ring_QMdiArea_delete);
+	ring_vm_funcregister("qmdisubwindow_delete",ring_QMdiSubWindow_delete);
 }
