@@ -39,3 +39,20 @@ Class FormDesignerView from WindowsViewParent
 			showmaximized()
 		}	
 		setwinicon(win,cCurrentDir + "/image/project.png")
+	# Create the ToolBox
+		oToolBox = new qWidget() {
+			
+		}
+		oToolBoxDock = new qdockwidget(NULL,0) {
+			setWindowTitle("ToolBox")
+			setWidget(oToolBox)
+		}
+		win.Adddockwidget(1,oToolBoxDock,1)
+	# Create Properties Window
+		oProperties = new qWidget() {
+		}
+		oPropertiesDock = new qDockWidget(NULL,0) {
+			setWindowTitle("Properties")
+			setWidget(oProperties)
+		}
+		win.Adddockwidget(2,oPropertiesDock,2)
