@@ -1281,6 +1281,7 @@ func DisplayFunctionsList
 		nLineNumber++ 
 		cLine = lower(trim(cLine))
 		if substr(cLine,"func ") > 0
+			cLine = substr(cLine,"("," (")
 			aList = Split(cLine," ")
 			if len(aList) >= 2
 				cFuncName = lower(trim(aList[2]))
