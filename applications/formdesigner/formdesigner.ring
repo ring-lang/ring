@@ -17,6 +17,7 @@ new qApp {
 }
 
 Class FormDesignerController from WindowsControllerParent
+
 	oView = new FormDesignerView
 	oModel = new FormDesignerModel
 
@@ -24,10 +25,17 @@ Class FormDesignerController from WindowsControllerParent
 		oView.win.Show()
 		oModel.AddObject("Window",oView.win,"qwidget")
 		AddObjectsToCombo()
+		AddObjectProperties()
 
 	func AddObjectsToCombo
 		for item in oModel.GetObjects() {
 			oView.oObjectsCombo.AddItem(item[1],0)
+		}
+
+	func AddObjectProperties
+		aProperties = ["X","Y","Width","Height","Title","Text Color","Back Color","Font"]
+		for Item in aProperties {
+			oView.AddProperty(Item)
 		}
 
 	func NewAction
@@ -42,6 +50,7 @@ Class FormDesignerController from WindowsControllerParent
 		Super.CloseAction()
 
 Class FormDesignerView from WindowsViewParent
+
 	# Create the form 
 		oForm = new qWidget() {
 			setWindowTitle("Form1")
@@ -68,6 +77,7 @@ Class FormDesignerView from WindowsViewParent
 
 	# Create Properties Window
 		oObjectsCombo
+		oPropertiesTable
 		CreateProperties()
 
 	# Create the Menubar
@@ -268,7 +278,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(oLabelObject)
 				AddWidget(this.oObjectsCombo)
 			}
-			oPropertiesTable = new qTableWidget(oProperties) {				
+			this.oPropertiesTable = new qTableWidget(oProperties) {				
 				setrowcount(0)
 				setcolumncount(2)
 				setselectionbehavior(QAbstractItemView_SelectRows)
@@ -280,7 +290,7 @@ Class FormDesignerView from WindowsViewParent
 			}
 			oLayout2 = new qVBoxLayout() {
 				AddLayout(oLayout1)
-				AddWidget(oPropertiesTable)
+				AddWidget(this.oPropertiesTable)
 			}
 			setLayout(oLayout2)
 		}
@@ -290,6 +300,11 @@ Class FormDesignerView from WindowsViewParent
 		}
 		win.Adddockwidget(2,oPropertiesDock,2)
 
+	func AddProperty cItem
+		nRow = oPropertiesTable.rowcount()
+		oPropertiesTable.insertrow(nRow)
+		item = new qTableWidgetItem(cItem)
+		oPropertiesTable.setItem(nRow,0,item)
 
 Class FormDesignerModel
 
