@@ -202,7 +202,8 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			btn10 = new qPushButton(oToolBox) {
-					setText("Progressbar")
+					setText(cSpace + "Progressbar")
+					setbtnimage(self,"image/progressbar.png") 
 					setCheckable(True)
 			}
 			Layout1 = new qVBoxLayout() {
