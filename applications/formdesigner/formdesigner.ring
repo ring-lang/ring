@@ -257,6 +257,14 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(oObjectsCombo)
 			}
 			oPropertiesTable = new qTableWidget(oProperties) {				
+				setrowcount(0)
+				setcolumncount(2)
+				setselectionbehavior(QAbstractItemView_SelectRows)
+				setHorizontalHeaderItem(0, new QTableWidgetItem("Property"))
+				setHorizontalHeaderItem(1, new QTableWidgetItem("Value"))
+				setAlternatingRowColors(true)
+				horizontalHeader().setStyleSheet("color: blue")
+				verticalHeader().setStyleSheet("color: red")
 			}
 			oLayout2 = new qVBoxLayout() {
 				AddLayout(oLayout1)
