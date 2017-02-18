@@ -194,7 +194,8 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			btn8 = new qPushButton(oToolBox) {
-					setText("Image")
+					setText(cSpace+"Image")
+					setbtnimage(self,"image/image.png") 
 					setCheckable(True)
 			}
  			btn9 = new qPushButton(oToolBox) {
