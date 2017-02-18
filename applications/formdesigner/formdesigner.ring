@@ -198,7 +198,8 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			btn9 = new qPushButton(oToolBox) {
-					setText("Slider")
+					setText(cSpace+"Slider")
+					setbtnimage(self,"image/slider.png") 
 					setCheckable(True)
 			}
  			btn10 = new qPushButton(oToolBox) {
