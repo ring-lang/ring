@@ -161,6 +161,7 @@ Class FormDesignerView from WindowsViewParent
 		oToolBox = new qWidget() {
  			btn1 = new qPushButton(oToolBox) {
 					setText("Select")
+					setbtnimage(self,"image/select.png") 
 					setCheckable(True)
 					setChecked(True)
 			}
