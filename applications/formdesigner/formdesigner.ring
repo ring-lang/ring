@@ -19,13 +19,17 @@ new qApp {
 Class FormDesignerController from WindowsControllerParent
 	oView = new FormDesignerView
 
-	aObjectsList = [ ["Window",oView.win] ]
+	aObjectsList = []
 
 	func Start
 		oView.win.Show()
-		AddObjects()
+		AddObject("Window",oView.win,"qwidget")
+		AddObjectsToCombo()
 
-	func AddObjects
+	func AddObject cName,oObject,cType
+		aObjectsList + [cName,oObject,cType]
+
+	func AddObjectsToCombo
 		for item in aObjectsList {
 			oView.oObjectsCombo.AddItem(item[1],0)
 		}
