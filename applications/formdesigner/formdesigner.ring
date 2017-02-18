@@ -6,6 +6,7 @@
 */
 
 load "guilib.ring"
+load "stdlib.ring"
 
 cCurrentDir = CurrentDir() + "/"
 
@@ -159,14 +160,16 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateToolBox
 		oToolBox = new qWidget() {
+			cSpace = "   "
  			btn1 = new qPushButton(oToolBox) {
-					setText("Select")
+					setText(cSpace+"Select")
 					setbtnimage(self,"image/select.png") 
 					setCheckable(True)
 					setChecked(True)
 			}
  			btn2 = new qPushButton(oToolBox) {
-					setText("Label")
+					setText(cSpace+"Label")
+					setbtnimage(self,"image/label.png") 
 					setCheckable(True)
 			}
  			btn3 = new qPushButton(oToolBox) {
