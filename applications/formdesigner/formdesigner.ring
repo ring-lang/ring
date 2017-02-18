@@ -163,6 +163,7 @@ Class FormDesignerView from WindowsViewParent
  			btn1 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Select",20))
 					setbtnimage(self,"image/select.png") 
+					setminimumwidth(150)
 					setCheckable(True)
 					setChecked(True)
 			}
@@ -172,32 +173,32 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			btn3 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Button",20))
+					setText(this.TextSize("Button",18))
 					setbtnimage(self,"image/pushbutton.png") 
 					setCheckable(True)
 			}
  			btn4 = new qPushButton(oToolBox) {
-					setText(this.TextSize("LineEdit",20))
+					setText(this.TextSize("LineEdit",19))
 					setbtnimage(self,"image/textfield.png") 
 					setCheckable(True)
 			}
  			btn5 = new qPushButton(oToolBox) {
-					setText(this.TextSize("TextEdit",20))
+					setText(this.TextSize("TextEdit",19))
 					setbtnimage(self,"image/textarea.png") 
 					setCheckable(True)
 			}
  			btn6 = new qPushButton(oToolBox) {
-					setText(this.TextSize("ListWidget",20))
+					setText(this.TextSize("ListWidget",17))
 					setbtnimage(self,"image/listview.png") 
 					setCheckable(True)
 			}
  			btn7 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Checkbox",20))
+					setText(this.TextSize("Checkbox",16))
 					setbtnimage(self,"image/checkbox.png") 
 					setCheckable(True)
 			}
  			btn8 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Image",20))
+					setText(this.TextSize("Image",19))
 					setbtnimage(self,"image/image.png") 
 					setCheckable(True)
 			}
@@ -207,7 +208,7 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			btn10 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Progressbar",20))
+					setText(this.TextSize("Progressbar",15))
 					setbtnimage(self,"image/progressbar.png") 
 					setCheckable(True)
 			}
