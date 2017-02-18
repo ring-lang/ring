@@ -178,11 +178,12 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			btn4 = new qPushButton(oToolBox) {
-					setText("LineEdit")
+					setText(cSpace+"LineEdit")
+					setbtnimage(self,"image/textfield.png") 
 					setCheckable(True)
 			}
  			btn5 = new qPushButton(oToolBox) {
-					setText("TextEdit")
+					setText(cSpace+"TextEdit")
 					setCheckable(True)
 			}
  			btn6 = new qPushButton(oToolBox) {
