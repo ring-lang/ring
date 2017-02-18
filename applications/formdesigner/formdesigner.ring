@@ -160,54 +160,54 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateToolBox
 		oToolBox = new qWidget() {
-			cSpace = "   "
  			btn1 = new qPushButton(oToolBox) {
-					setText(cSpace+"Select")
+					setText(this.TextSize("Select",20))
 					setbtnimage(self,"image/select.png") 
 					setCheckable(True)
 					setChecked(True)
 			}
  			btn2 = new qPushButton(oToolBox) {
-					setText(cSpace+"Label")
+					setText(this.TextSize("Label",20))
 					setbtnimage(self,"image/label.png") 
 					setCheckable(True)
 			}
  			btn3 = new qPushButton(oToolBox) {
-					setText(cSpace+"Button")
+					setText(this.TextSize("Button",20))
 					setbtnimage(self,"image/pushbutton.png") 
 					setCheckable(True)
 			}
  			btn4 = new qPushButton(oToolBox) {
-					setText(cSpace+"LineEdit")
+					setText(this.TextSize("LineEdit",20))
 					setbtnimage(self,"image/textfield.png") 
 					setCheckable(True)
 			}
  			btn5 = new qPushButton(oToolBox) {
-					setText(cSpace+"TextEdit")
+					setText(this.TextSize("TextEdit",20))
+					setbtnimage(self,"image/textarea.png") 
 					setCheckable(True)
 			}
  			btn6 = new qPushButton(oToolBox) {
-					setText(cSpace+"ListWidget")
+					setText(this.TextSize("ListWidget",20))
 					setbtnimage(self,"image/listview.png") 
 					setCheckable(True)
 			}
  			btn7 = new qPushButton(oToolBox) {
-					setText(cSpace+"Checkbox")
+					setText(this.TextSize("Checkbox",20))
 					setbtnimage(self,"image/checkbox.png") 
 					setCheckable(True)
 			}
  			btn8 = new qPushButton(oToolBox) {
-					setText(cSpace+"Image")
+					setText(this.TextSize("Image",20))
 					setbtnimage(self,"image/image.png") 
 					setCheckable(True)
 			}
  			btn9 = new qPushButton(oToolBox) {
-					setText(cSpace+"Slider")
+					setText(this.TextSize("Slider",20))
 					setbtnimage(self,"image/slider.png") 
 					setCheckable(True)
 			}
  			btn10 = new qPushButton(oToolBox) {
-					setText(cSpace + "Progressbar")
+					setText(this.TextSize("Progressbar",20))
 					setbtnimage(self,"image/progressbar.png") 
 					setCheckable(True)
 			}
@@ -243,3 +243,7 @@ Class FormDesignerView from WindowsViewParent
 			setWidget(oToolBox)
 		}
 		win.Adddockwidget(1,oToolBoxDock,1)
+
+	func TextSize cText,nSize
+		nSpaces = (nSize - len(cText))/2
+		return copy(" ",nSpaces)+cText+Copy(" ",nSpaces)
