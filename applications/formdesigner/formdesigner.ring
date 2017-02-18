@@ -19,6 +19,17 @@ new qApp {
 Class FormDesignerController from WindowsControllerParent
 	oView = new FormDesignerView
 
+	aObjectsList = [ ["Window",oView.win] ]
+
+	func Start
+		oView.win.Show()
+		AddObjects()
+
+	func AddObjects
+		for item in aObjectsList {
+			oView.oObjectsCombo.AddItem(item[1],0)
+		}
+
 	func NewAction
 
 	func OpenAction
@@ -56,6 +67,7 @@ Class FormDesignerView from WindowsViewParent
 		CreateToolBox()
 
 	# Create Properties Window
+		oObjectsCombo
 		CreateProperties()
 
 	# Create the Menubar
@@ -250,11 +262,11 @@ Class FormDesignerView from WindowsViewParent
 				setText("Object")
 				setMaximumWidth(50)
 			}
-			oObjectsCombo = new qCombobox(oProperties) {
+			this.oObjectsCombo = new qCombobox(oProperties) {
 			}
 			oLayout1 = new qHBoxlayout() {
 				AddWidget(oLabelObject)
-				AddWidget(oObjectsCombo)
+				AddWidget(this.oObjectsCombo)
 			}
 			oPropertiesTable = new qTableWidget(oProperties) {				
 				setrowcount(0)
