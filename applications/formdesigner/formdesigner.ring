@@ -56,13 +56,8 @@ Class FormDesignerView from WindowsViewParent
 		CreateToolBox()
 
 	# Create Properties Window
-		oProperties = new qWidget() {
-		}
-		oPropertiesDock = new qDockWidget(NULL,0) {
-			setWindowTitle("Properties")
-			setWidget(oProperties)
-		}
-		win.Adddockwidget(2,oPropertiesDock,2)
+		CreateProperties()
+
 	# Create the Menubar
 		CreateMenuBar()
 
@@ -248,3 +243,29 @@ Class FormDesignerView from WindowsViewParent
 	func TextSize cText,nSize
 		nSpaces = (nSize - len(cText))/2
 		return copy(" ",nSpaces)+cText+Copy(" ",nSpaces)
+
+	func CreateProperties
+		oProperties = new qWidget() {
+			oLabelObject = new qLabel(oProperties) {
+				setText("Object")
+				setMaximumWidth(50)
+			}
+			oObjectsCombo = new qCombobox(oProperties) {
+			}
+			oLayout1 = new qHBoxlayout() {
+				AddWidget(oLabelObject)
+				AddWidget(oObjectsCombo)
+			}
+			oPropertiesTable = new qTableWidget(oProperties) {				
+			}
+			oLayout2 = new qVBoxLayout() {
+				AddLayout(oLayout1)
+				AddWidget(oPropertiesTable)
+			}
+			setLayout(oLayout2)
+		}
+		oPropertiesDock = new qDockWidget(NULL,0) {
+			setWindowTitle("Properties")
+			setWidget(oProperties)
+		}
+		win.Adddockwidget(2,oPropertiesDock,2)
