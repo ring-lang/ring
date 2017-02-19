@@ -21,12 +21,9 @@ Class FormDesignerController from WindowsControllerParent
 	oView = new FormDesignerView
 	oModel = new FormDesignerModel
 
-	oActiveObject 
-
 	func Start
-		oView.win.Show()
-		oModel.AddObject("Window",oView.oForm)
-		oActiveObject  = oView.oForm
+		oView.CreateMainWindow(oModel)
+		oView.win.Show()		
 		AddObjectsToCombo()
 		AddObjectProperties()
 		DisplayObjectProperties()		
@@ -39,26 +36,26 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func AddObjectProperties  
-		oActiveObject.AddObjectProperties(self)
+		oModel.ActiveObject().AddObjectProperties(self)
 
 	func DisplayObjectProperties 
-		oActiveObject.DisplayProperties(self)	
+		oModel.ActiveObject().DisplayProperties(self)	
 
 	func UpdateProperties
 		nRow = oView.oPropertiesTable.Currentrow()
 		nCol = oView.oPropertiesTable.Currentcolumn() 
 		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
-		oActiveObject.UpdateProperties(self,nRow,nCol,cValue)
+		oModel.ActiveObject().UpdateProperties(self,nRow,nCol,cValue)
 
 	func ResizeWindowAction
-		oView.oForm.DisplayProperties(self)	
+		oModel.FormObject().DisplayProperties(self)	
 		oView.oFilter.seteventoutput(False)
 
 	func MoveWindowAction
-		oView.oForm.DisplayProperties(self)	
+		oModel.FormObject().DisplayProperties(self)	
 
 	func DialogButtonAction nRow 
-		oActiveObject.DialogButtonAction(self,nRow)
+		oModel.ActiveObject().DialogButtonAction(self,nRow)
 
 	func NewAction
 
@@ -73,29 +70,34 @@ Class FormDesignerController from WindowsControllerParent
 
 Class FormDesignerView from WindowsViewParent
 
+	oForm oSub oFilter oArea win  oObjectsCombo 	oPropertiesTable
+
+	func CreateMainWindow oModel
+
 	# Create the form 
-		oForm = new FormDesigner_qWidget() {
-			setWindowTitle("Form1")
-		}
-	# Add the form to the Sub Window
-		oFilter 
+		oModel.AddObject("Window",
+			 new FormDesigner_qWidget() {
+				setWindowTitle("Form1")
+			}
+		)
+	# Add the form to the Sub Window 
 		oSub =  new QMdiSubWindow(null) {
 			move(100,100)
 			resize(400,400)
-			setwidget(oForm)
-			oForm.setSubWindow(oSub)
+			setwidget(oModel.ActiveObject())
+			oModel.ActiveObject().setSubWindow(this.oSub)
 			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint ) 
 		}
 	# Add the sub Window to the Mdi Area
 		oArea = new qMdiArea(null) {
-			addSubWindow(oSub,0)
+			addSubWindow(this.oSub,0)
 			setHorizontalScrollBarPolicy(Qt_ScrollBarAlwaysOn)
 			setVerticalScrollbarpolicy(Qt_ScrollBarAlwaysOn)
 		}
 	# Create the Main Window and use the Mdi Area
 		win = new qMainwindow() {
 			setWindowTitle("Form Designer")		
-			setcentralWidget(oArea)
+			setcentralWidget(this.oArea)
 			showmaximized()
 		}	
 		setwinicon(win,cCurrentDir + "/image/project.png")
@@ -103,8 +105,7 @@ Class FormDesignerView from WindowsViewParent
 		CreateToolBox()
 
 	# Create Properties Window
-		oObjectsCombo
-		oPropertiesTable
+
 		CreateProperties()
 
 	# Create the Menubar
@@ -363,11 +364,20 @@ Class FormDesignerModel
 
 	aObjectsList = []
 
+	nActiveObject = 0
+
 	func AddObject cName,oObject
 		aObjectsList + [cName,oObject]
+		nActiveObject++
 
 	func GetObjects
 		return aObjectsList
+
+	func ActiveObject
+		return aObjectsList[nActiveObject][2]
+
+	func FormObject
+		return aObjectsList[1][2]
 
 class FormDesigner_QWidget from QWidget 
 
@@ -413,7 +423,7 @@ class FormDesigner_QWidget from QWidget
 				case 4  	# Title 			
 					setWindowTitle(cValue)
 				case 5	# back color
-					oDesigner.oView.oForm.setBackColor(cValue)
+					setBackColor(cValue)
 			}
 		}
 
@@ -431,7 +441,7 @@ class FormDesigner_QWidget from QWidget
 		# Set the Title
 			oPropertiesTable.item(4,1).settext(windowtitle())
 		# Set the BackColor
-			oPropertiesTable.item(5,1).settext(oDesigner.oView.oForm.backcolor())
+			oPropertiesTable.item(5,1).settext(backcolor())
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
@@ -443,6 +453,6 @@ class FormDesigner_QWidget from QWidget
 			if len(g) < 2 { g = "0" + g }
 			if len(b) < 2 { b = "0" + b }			
 			cColor = "#" + r + g + b
-			oDesigner.oView.oForm.setBackColor(cColor)
+			setBackColor(cColor)
 			DisplayProperties(oDesigner)
 		}
