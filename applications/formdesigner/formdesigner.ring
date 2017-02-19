@@ -30,6 +30,7 @@ Class FormDesignerController from WindowsControllerParent
 		AddObjectsToCombo()
 		AddObjectProperties()
 		DisplayObjectProperties()		
+		oView.WindowMoveResizeEvents()
 
 	func AddObjectsToCombo
 		aObjects = oModel.GetObjects() 
@@ -52,6 +53,13 @@ Class FormDesignerController from WindowsControllerParent
 		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
 		oActiveObject.UpdateProperties(nRow,cValue)
 
+	func ResizeWindowAction
+		oView.oForm.DisplayProperties(oView.oPropertiesTable)	
+		oView.oFilter.seteventoutput(False)
+
+	func MoveWindowAction
+		oView.oForm.DisplayProperties(oView.oPropertiesTable)	
+
 	func NewAction
 
 	func OpenAction
@@ -70,6 +78,7 @@ Class FormDesignerView from WindowsViewParent
 			setWindowTitle("Form1")
 		}
 	# Add the form to the Sub Window
+		oFilter 
 		oSub =  new QMdiSubWindow(null) {
 			move(100,100)
 			resize(400,400)
@@ -106,6 +115,12 @@ Class FormDesignerView from WindowsViewParent
 
 	# Create the Statusbar 
 		CreateStatusBar()
+
+	func WindowMoveResizeEvents
+		oFilter = new qAllEvents(oSub)
+                oFilter.setResizeEvent(Method(:ResizeWindowAction))
+       	        oFilter.setMoveEvent(Method(:MoveWindowAction))
+                oSub.installeventfilter(oFilter)
 
 	func CreateMenuBar
 		menu1 = new qmenubar(win) {		
