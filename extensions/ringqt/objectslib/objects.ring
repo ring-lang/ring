@@ -34,7 +34,9 @@ func Open_Window cClass
 	cCode = $RingQt_ObjName + " = new " + cClass + nl + 
 		  $RingQt_ObjName + ".start()"
 	eval(cCode)	
-	$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
+	if cRingQt_ObjName != NULL {
+		$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
+	}
 
 /*
 	The next function create new object, add the object to the $RingQt_ObjectsList
