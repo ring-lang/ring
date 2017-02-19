@@ -100,10 +100,11 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func ChangeObjectAction
-		nIndex = oView.oObjectsCombo.currentindex() - 1
-		if nIndex > 0 {
-			oModel.nActiveObject = nIndex
-		}
+		if oView.oObjectsCombo.count() = 0 { return }
+		nIndex = oView.oObjectsCombo.currentindex()  
+		oModel.nActiveObject = nIndex + 1
+		ObjectProperties()
+		
 
 	func NewAction
 
