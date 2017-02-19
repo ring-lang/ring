@@ -23,9 +23,10 @@ Class FormDesignerController from WindowsControllerParent
 
 	func Start
 		oView.win.Show()
-		oModel.AddObject("Window",oView.win,"qwidget")
+		oModel.AddObject("Window",oView.oForm)
 		AddObjectsToCombo()
 		AddObjectProperties()
+		SetObjectProperties(oView.oForm)
 
 	func AddObjectsToCombo
 		for item in oModel.GetObjects() {
@@ -33,10 +34,20 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func AddObjectProperties
-		aProperties = ["X","Y","Width","Height","Title","Text Color","Back Color","Font"]
+		aProperties = ["X","Y","Width","Height","Title","Text Color","Back Color","Font-Name","Font-Size"]
 		for Item in aProperties {
 			oView.AddProperty(Item)
 		}
+
+	func SetObjectProperties oObject
+		cClass = classname(oObject) 
+		switch cClass {
+			case "formdesigner_qwidget"
+			 	setWindowObjectProperties(oObject)
+		}
+
+	func SetWindowObjectProperties oObject 
+		oView.SetWindowObjectProperties(oObject)
 
 	func UpdateProperties
 		nRow = oView.oPropertiesTable.Currentrow()
@@ -59,7 +70,7 @@ Class FormDesignerController from WindowsControllerParent
 Class FormDesignerView from WindowsViewParent
 
 	# Create the form 
-		oForm = new qWidget() {
+		oForm = new FormDesigner_qWidget() {
 			setWindowTitle("Form1")
 		}
 	# Add the form to the Sub Window
@@ -319,12 +330,44 @@ Class FormDesignerView from WindowsViewParent
 		oPropertiesTable.setItem(nRow,1,item)
 		oPropertiesTable.blocksignals(false)
 
+	func SetWindowObjectProperties oObject 
+		# Set the X
+			oPropertiesTable.item(0,1).settext(""+oObject.x())
+		# Set the Y
+			oPropertiesTable.item(1,1).settext(""+oObject.y())
+		# Set the Width
+			oPropertiesTable.item(2,1).settext(""+oObject.width())
+		# Set the Height
+			oPropertiesTable.item(3,1).settext(""+oObject.height())
+		# Set the Title
+			oPropertiesTable.item(4,1).settext(oObject.windowtitle())
+		# Set the Color
+			oPropertiesTable.item(5,1).settext(oObject.color())
+		# Set the BackColor
+			oPropertiesTable.item(6,1).settext(oObject.backcolor())
+		# Set the Font Name
+			oPropertiesTable.item(7,1).settext(oObject.fontname())
+		# Set the Font Size
+			oPropertiesTable.item(8,1).settext(oObject.fontsize())
+
+
 Class FormDesignerModel
 
 	aObjectsList = []
 
-	func AddObject cName,oObject,cType
-		aObjectsList + [cName,oObject,cType]
+	func AddObject cName,oObject
+		aObjectsList + [cName,oObject]
 
 	func GetObjects
 		return aObjectsList
+
+class FormDesigner_QWidget from QWidget 
+	cTextColor = "black"
+	cBackColor = "silver"
+	cFontName = "arial"
+	nFontSize = "10"
+
+	func color return cTextColor
+	func BackColor return cBackColor
+	func FontName return cFontName
+	func FontSize return nFontSize
