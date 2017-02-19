@@ -41,7 +41,7 @@ Class FormDesignerController from WindowsControllerParent
 		cClass = classname(oObject) 
 		switch cClass {
 			case "formdesigner_qwidget"
-				aProperties = ["X","Y","Width","Height","Title","Text Color","Back Color","Font-Name","Font-Size"]
+				aProperties = ["X","Y","Width","Height","Title","Back Color"]
 		}
 		for Item in aProperties {
 			oView.AddProperty(Item)
@@ -350,14 +350,8 @@ Class FormDesignerView from WindowsViewParent
 			oPropertiesTable.item(3,1).settext(""+oObject.oSubWindow.height())
 		# Set the Title
 			oPropertiesTable.item(4,1).settext(oObject.windowtitle())
-		# Set the Color
-			oPropertiesTable.item(5,1).settext(oObject.color())
 		# Set the BackColor
-			oPropertiesTable.item(6,1).settext(oObject.backcolor())
-		# Set the Font Name
-			oPropertiesTable.item(7,1).settext(oObject.fontname())
-		# Set the Font Size
-			oPropertiesTable.item(8,1).settext(""+oObject.fontsize())
+			oPropertiesTable.item(5,1).settext(oObject.backcolor())
 		oPropertiesTable.Blocksignals(False)
 
 Class FormDesignerModel
@@ -372,25 +366,15 @@ Class FormDesignerModel
 
 class FormDesigner_QWidget from QWidget 
 
-	cTextColor = "black"
 	cBackColor = "silver"
-	cFontName = "arial"
-	nFontSize = "10"
 
 	oSubWindow
 
-	func color return cTextColor
 	func BackColor return cBackColor
-	func FontName return cFontName
-	func FontSize return nFontSize
-
-	func setcolor cValue cTextColor=cValue  		updatestylesheets()
 	func setBackColor cValue cBackColor=cValue	updatestylesheets()
-	func setFontName cValue cFontName=cValue	updatestylesheets()
-	func setFontSize nValue nFontSize = nValue	updatestylesheets()
 
 	func updatestylesheets
-		setstylesheet("background-color:"+cBackColor+";font-size:"+nFontSize+";")
+		setstylesheet("background-color:"+cBackColor+";")
 
 	func setSubWindow oObject 
 		oSubWindow = oObject
@@ -407,12 +391,6 @@ class FormDesigner_QWidget from QWidget
 				oSubWindow.resize(oSubWindow.width(),0+cValue)
 			case 4  	# Title 			
 				setWindowTitle(cValue)
-			case 5	# color
-				setColor(cValue)
-			case 6	# back color
+			case 5	# back color
 				setBackColor(cValue)
-			case 7	# font name
-				setFontName(cValue)
-			case 8	# font size 
-				setFontSize(0+cValue)
 		}
