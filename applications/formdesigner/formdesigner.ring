@@ -44,7 +44,7 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func DisplayObjectProperties 
-		oActiveObject.setProperties(oView.oPropertiesTable)	
+		oActiveObject.DisplayProperties(oView.oPropertiesTable)	
 
 	func UpdateProperties
 		nRow = oView.oPropertiesTable.Currentrow()
@@ -342,7 +342,7 @@ Class FormDesignerModel
 
 class FormDesigner_QWidget from QWidget 
 
-	cBackColor = "silver"
+	cBackColor = ""
 
 	oSubWindow
 
@@ -374,7 +374,7 @@ class FormDesigner_QWidget from QWidget
 				setBackColor(cValue)
 		}
 
-	func SetProperties oPropertiesTable
+	func DisplayProperties oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
 		# Set the X
 			oPropertiesTable.item(0,1).settext(""+oSubWindow.x())
