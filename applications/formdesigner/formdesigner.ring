@@ -313,6 +313,7 @@ Class FormDesignerView from WindowsViewParent
 		nRow = oPropertiesTable.rowcount()
 		oPropertiesTable.insertrow(nRow)
 		item = new qTableWidgetItem(cItem)
+		item.setFlags(False)	# Can't Edit the Item
 		oPropertiesTable.setItem(nRow,0,item)
 		item = new qTableWidgetItem("")
 		oPropertiesTable.setItem(nRow,1,item)
