@@ -53,6 +53,18 @@ Class FormDesignerController from WindowsControllerParent
 	func MoveWindowAction
 		oModel.FormObject().DisplayProperties(self)	
 
+	func MousePressAction
+		oModel.FormObject().MousePressAction(self)
+		oView.oFilter.seteventoutput(False)
+
+	func MouseReleaseAction
+		oModel.FormObject().MouseReleaseAction(self)
+		oView.oFilter.seteventoutput(False)
+
+	func MouseMoveAction
+		oModel.FormObject().MouseMoveAction(self)
+		oView.oFilter.seteventoutput(False)
+
 	func DialogButtonAction nRow 
 		oModel.ActiveObject().DialogButtonAction(self,nRow)
 
@@ -69,7 +81,7 @@ Class FormDesignerController from WindowsControllerParent
 
 Class FormDesignerView from WindowsViewParent
 
-	oForm oSub oFilter oArea win  oObjectsCombo 	oPropertiesTable
+	oForm oSub oFilter oArea win  oObjectsCombo 	oPropertiesTable oLabelSelect
 
 	func CreateMainWindow oModel
 
@@ -80,11 +92,22 @@ Class FormDesignerView from WindowsViewParent
 				}
 			)
 
+		# Create the Select/Draw Label
+			oLabelSelect = new qlabel(oModel.FormObject()) {
+				setGeometry(100,100,400,400)
+		 		setstylesheet("background-color:transparent;border: 1px solid black")				 
+				setautoFillBackground(false)
+				settext("")
+				setmousetracking(false)
+				hide()
+			}
+
+
 		# Add the form to the Sub Window 
 			oSub =  new QMdiSubWindow(null) {
 				move(100,100)
 				resize(400,400)
-				setwidget(oModel.ActiveObject())
+				setwidget(oModel.FormObject())
 				oModel.ActiveObject().setSubWindow(this.oSub)
 				setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint ) 
 			}
@@ -123,6 +146,9 @@ Class FormDesignerView from WindowsViewParent
 		oFilter = new qAllEvents(oSub)
                 oFilter.setResizeEvent(Method(:ResizeWindowAction))
        	        oFilter.setMoveEvent(Method(:MoveWindowAction))
+		oFilter.setMouseButtonPressEvent(Method(:MousePressAction))
+		oFilter.setMouseButtonReleaseEvent(Method(:MouseReleaseAction))
+		oFilter.setMouseMoveEvent(Method(:MouseMoveAction))
                 oSub.installeventfilter(oFilter)
 
 	func CreateMenuBar
@@ -387,6 +413,8 @@ class FormDesigner_QWidget from QWidget
 
 	oSubWindow
 
+	nX=0 nY=0		# for Select/Draw
+
 	func BackColor
 		return cBackColor
 
@@ -458,3 +486,30 @@ class FormDesigner_QWidget from QWidget
 			setBackColor(cColor)
 			DisplayProperties(oDesigner)
 		}
+
+	func MousePressAction oDesigner
+		nX = oDesigner.oView.oFilter.getglobalx()  
+		ny = oDesigner.oView.oFilter.getglobaly()  
+		oDesigner.oView.oLabelSelect.raise()
+
+	func MouseReleaseAction oDesigner
+	        oDesigner.oView.oLabelSelect.hide()
+		aRect = GetRectDim(oDesigner)
+
+	func MouseMoveAction oDesigner 
+		aRect = GetRectDim(oDesigner)
+		oDesigner.oView.oLabelSelect {
+			move(aRect[1],aRect[2]) 
+			resize(aRect[3],aRect[4])
+			show()
+		}
+
+	func GetRectDim oDesigner
+		C_TOPMARGIN = 25 
+		nX2 = oDesigner.oView.oFilter.getglobalx()
+		ny2 = oDesigner.oView.oFilter.getglobaly()
+		top = min(nY2,nY) - oDesigner.oView.oArea.y() - oSubWindow.y() - y() - C_TOPMARGIN
+		left = min(nX2,nX) - oDesigner.oView.oArea.x()  - oSubWindow.x() - x() 
+		width = max(nX,nX2) - min(nX,nX2)  
+		height = max(nY,nY2) - min(nY,nY2)  
+		return [left,top,width,height]
