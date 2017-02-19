@@ -85,6 +85,7 @@ Class FormDesignerView from WindowsViewParent
 			move(100,100)
 			resize(400,400)
 			setwidget(oForm)
+			oForm.setSubWindow(oSub)
 		}
 	# Add the sub Window to the Mdi Area
 		oArea = new qMdiArea(null) {
@@ -340,13 +341,13 @@ Class FormDesignerView from WindowsViewParent
 	func SetWindowObjectProperties oObject 
 		oPropertiesTable.Blocksignals(True)
 		# Set the X
-			oPropertiesTable.item(0,1).settext(""+oObject.x())
+			oPropertiesTable.item(0,1).settext(""+oObject.oSubWindow.x())
 		# Set the Y
-			oPropertiesTable.item(1,1).settext(""+oObject.y())
+			oPropertiesTable.item(1,1).settext(""+oObject.oSubWindow.y())
 		# Set the Width
-			oPropertiesTable.item(2,1).settext(""+oObject.width())
+			oPropertiesTable.item(2,1).settext(""+oObject.oSubWindow.width())
 		# Set the Height
-			oPropertiesTable.item(3,1).settext(""+oObject.height())
+			oPropertiesTable.item(3,1).settext(""+oObject.oSubWindow.height())
 		# Set the Title
 			oPropertiesTable.item(4,1).settext(oObject.windowtitle())
 		# Set the Color
@@ -376,6 +377,8 @@ class FormDesigner_QWidget from QWidget
 	cFontName = "arial"
 	nFontSize = "10"
 
+	oSubWindow
+
 	func color return cTextColor
 	func BackColor return cBackColor
 	func FontName return cFontName
@@ -389,16 +392,19 @@ class FormDesigner_QWidget from QWidget
 	func updatestylesheets
 		setstylesheet("background-color:"+cBackColor+";font-size:"+nFontSize+";")
 
+	func setSubWindow oObject 
+		oSubWindow = oObject
+
 	func UpdateProperties nRow,cValue
 		switch nRow {
 			case 0 	# x
-				move(0+cValue,y())
+				oSubWindow.move(0+cValue,oSubWindow.y())
 			case 1 	# y
-				move(x(),0+cValue)
+				oSubWindow.move(oSubWindow.x(),0+cValue)
 			case 2	# width
-				resize(0+cValue,height())
+				oSubWindow.resize(0+cValue,oSubWindow.height())
 			case 3 	# height
-				resize(width(),0+cValue)
+				oSubWindow.resize(oSubWindow.width(),0+cValue)
 			case 4  	# Title 			
 				setWindowTitle(cValue)
 			case 5	# color
