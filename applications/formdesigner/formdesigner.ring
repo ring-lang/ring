@@ -58,6 +58,7 @@ Class FormDesignerController from WindowsControllerParent
 		oModel.ActiveObject().DisplayProperties(self)	
 
 	func UpdateProperties
+		oView.oToolBtn1.setChecked(2)
 		nRow = oView.oPropertiesTable.Currentrow()
 		nCol = oView.oPropertiesTable.Currentcolumn() 
 		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
