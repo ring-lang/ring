@@ -21,12 +21,15 @@ Class FormDesignerController from WindowsControllerParent
 	oView = new FormDesignerView
 	oModel = new FormDesignerModel
 
+	oActiveObject 
+
 	func Start
 		oView.win.Show()
 		oModel.AddObject("Window",oView.oForm)
 		AddObjectsToCombo()
 		AddObjectProperties(oView.oForm)
 		SetObjectProperties(oView.oForm)
+		oActiveObject  = oView.oForm
 
 	func AddObjectsToCombo
 		aObjects = oModel.GetObjects() 
@@ -57,8 +60,17 @@ Class FormDesignerController from WindowsControllerParent
 	func UpdateProperties
 		nRow = oView.oPropertiesTable.Currentrow()
 		nCol = oView.oPropertiesTable.Currentcolumn() 
-		if nRow = 4 and nCol = 1 {	# Title 			
-			oView.oForm.setWindowTitle(oView.oPropertiesTable.item(nRow,nCol).text())
+		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
+		cClass = classname(oActiveObject)
+		switch cClass {
+			case "formdesigner_qwidget"
+				UpdateWindowObjectProperties(nRow,cValue)
+		}
+
+	func UpdateWindowObjectProperties nRow,cValue
+		Switch nRow {
+			Case 4  	# Title 			
+				oActiveObject.setWindowTitle(cValue)
 		}
 
 	func NewAction
