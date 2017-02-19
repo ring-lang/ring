@@ -29,6 +29,7 @@ Class FormDesignerController from WindowsControllerParent
 		oView.WindowMoveResizeEvents()
 
 	func AddObjectsToCombo
+		oView.oObjectsCombo.Clear()
 		aObjects = oModel.GetObjects() 
 		for item in aObjects {
 			oView.oObjectsCombo.AddItem(item[1],0)
@@ -72,16 +73,15 @@ Class FormDesignerController from WindowsControllerParent
 
 	func SelectDrawAction aRect 
 		if oView.oToolBtn2.ischecked()  { # Create Label 
-			oModel.AddObject("Label",
-				 new FormDesigner_QLabel(oModel.FormObject()) {
+			oModel.AddLabel(new FormDesigner_QLabel(oModel.FormObject()) {
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
-					setText("Label")
-					show()
 				}
 			)
+			oModel.ActiveObject().setText("Label"+oModel.LabelsCount())
+			oModel.ActiveObject().Show()
+			AddObjectsToCombo()
 		}
-
 
 	func NewAction
 
@@ -412,6 +412,8 @@ Class FormDesignerModel
 
 	nActiveObject = 0
 
+	nLabelsCount = 0
+
 	func AddObject cName,oObject
 		aObjectsList + [cName,oObject]
 		nActiveObject++
@@ -424,6 +426,16 @@ Class FormDesignerModel
 
 	func FormObject
 		return aObjectsList[1][2]
+ 
+	func ObjectsCount
+		return len(aObjectsList)
+
+	func AddLabel oObject
+		nLabelsCount++
+		AddObject("Label"+nLabelsCount,oObject)
+
+	func LabelsCount
+		return nLabelsCount
 
 class FormDesigner_QWidget from QWidget 
 
