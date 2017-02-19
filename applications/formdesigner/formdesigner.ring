@@ -48,7 +48,7 @@ Class FormDesignerController from WindowsControllerParent
 		nRow = oView.oPropertiesTable.Currentrow()
 		nCol = oView.oPropertiesTable.Currentcolumn() 
 		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
-		oActiveObject.UpdateProperties(nRow,cValue)
+		oActiveObject.UpdateProperties(nRow,nCol,cValue)
 
 	func ResizeWindowAction
 		oView.oForm.DisplayProperties(oView.oPropertiesTable)	
@@ -310,10 +310,11 @@ Class FormDesignerView from WindowsViewParent
 			}
 			this.oPropertiesTable = new qTableWidget(oProperties) {				
 				setrowcount(0)
-				setcolumncount(2)
+				setcolumncount(3)
 				setselectionbehavior(QAbstractItemView_SelectRows)
 				setHorizontalHeaderItem(0, new QTableWidgetItem("Property"))
 				setHorizontalHeaderItem(1, new QTableWidgetItem("Value"))
+				setHorizontalHeaderItem(2, new QTableWidgetItem(""))
 				setAlternatingRowColors(true)
 				horizontalHeader().setStyleSheet("color: blue")
 				verticalHeader().setStyleSheet("color: red")
@@ -340,6 +341,9 @@ Class FormDesignerView from WindowsViewParent
 		oPropertiesTable.setItem(nRow,0,item)
 		item = new qTableWidgetItem("")
 		oPropertiesTable.setItem(nRow,1,item)
+		item = new qTableWidgetItem("")
+		item.setFlags(False)	# Can't Edit the Item
+		oPropertiesTable.setItem(nRow,2,item)
 		oPropertiesTable.blocksignals(false)
 
 Class FormDesignerModel
@@ -376,20 +380,22 @@ class FormDesigner_QWidget from QWidget
 			oDesigner.oView.AddProperty(Item)
 		}
 
-	func UpdateProperties nRow,cValue
-		switch nRow {
-			case 0 	# x
-				oSubWindow.move(0+cValue,oSubWindow.y())
-			case 1 	# y
-				oSubWindow.move(oSubWindow.x(),0+cValue)
-			case 2	# width
-				oSubWindow.resize(0+cValue,oSubWindow.height())
-			case 3 	# height
-				oSubWindow.resize(oSubWindow.width(),0+cValue)
-			case 4  	# Title 			
-				setWindowTitle(cValue)
-			case 5	# back color
-				setBackColor(cValue)
+	func UpdateProperties nRow,nCol,cValue
+		if nCol = 1 {
+			switch nRow {
+				case 0 	# x
+					oSubWindow.move(0+cValue,oSubWindow.y())
+				case 1 	# y
+					oSubWindow.move(oSubWindow.x(),0+cValue)
+				case 2	# width
+					oSubWindow.resize(0+cValue,oSubWindow.height())
+				case 3 	# height
+					oSubWindow.resize(oSubWindow.width(),0+cValue)
+				case 4  	# Title 			
+					setWindowTitle(cValue)
+				case 5	# back color
+					setBackColor(cValue)
+			}
 		}
 
 	func DisplayProperties oPropertiesTable
