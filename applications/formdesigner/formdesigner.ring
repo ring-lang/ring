@@ -86,6 +86,7 @@ Class FormDesignerView from WindowsViewParent
 			resize(400,400)
 			setwidget(oForm)
 			oForm.setSubWindow(oSub)
+			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint ) 
 		}
 	# Add the sub Window to the Mdi Area
 		oArea = new qMdiArea(null) {
