@@ -47,10 +47,12 @@ Class FormDesignerController from WindowsControllerParent
 		oModel.ActiveObject().UpdateProperties(self,nRow,nCol,cValue)
 
 	func ResizeWindowAction
+		oView.oLabelSelect.Hide()
 		oModel.FormObject().DisplayProperties(self)	
 		oView.oFilter.seteventoutput(False)
 
 	func MoveWindowAction
+		oView.oLabelSelect.Hide()
 		oModel.FormObject().DisplayProperties(self)	
 
 	func MousePressAction
@@ -67,6 +69,8 @@ Class FormDesignerController from WindowsControllerParent
 
 	func DialogButtonAction nRow 
 		oModel.ActiveObject().DialogButtonAction(self,nRow)
+
+	func SelectDrawAction aRect 
 
 	func NewAction
 
@@ -495,6 +499,7 @@ class FormDesigner_QWidget from QWidget
 	func MouseReleaseAction oDesigner
 	        oDesigner.oView.oLabelSelect.hide()
 		aRect = GetRectDim(oDesigner)
+		oDesigner.SelectDrawAction(aRect)
 
 	func MouseMoveAction oDesigner 
 		aRect = GetRectDim(oDesigner)
