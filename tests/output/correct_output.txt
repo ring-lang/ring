@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 0
-115
-115
+114
+114
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4629
+Time 4727
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -1929,7 +1929,6 @@ Content-type: text/html
 <header>
 		
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
 	<title>
 		Test
 	</title>
@@ -2348,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-011ACD78
+00CEBB58
 OBJECTPOINTER
 0
 1
@@ -2590,8 +2589,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 25/01/2017
-time: 00:33:18
+date: 19/02/2017
+time: 14:15:11
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3138,9 +3137,8 @@ welcome
 eval Line (1) Syntax error
 eval errors count : 1 
 
-eval Line (1) Syntax error
-eval errors count : 1 
-
+Line 11 Error in eval! 
+In eval in file scripts/dotcrash.ring 
 B:\ring\tests>call ring scripts/braceinlist.ring 
 
 scripts/braceinlist.ring Line (22) Error (C7) : Error in list items
@@ -3187,3 +3185,14 @@ B:\ring\tests>call ring scripts/ptrcmp2.ring
 1
 Line 7 Error in parameter, NULL pointer! 
 In fclose in file scripts/ptrcmp2.ring 
+B:\ring\tests>call ring scripts/listandstrconversion.ring 
+Items : 4
+Item : Hello
+Item : How are you ?
+Item : are you fine ?
+Item : ok
+list2Str result = Hello
+How are you ?
+are you fine ?
+ok
+Done

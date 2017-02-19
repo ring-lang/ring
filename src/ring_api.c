@@ -1181,9 +1181,6 @@ void ring_vmlib_list2str ( void *pPointer )
 					ring_string_add(pString,"\n");
 				}
 				ring_string_add(pString,ring_list_getstring(pList,x));
-				if ( x == ring_list_getsize(pList) ) {
-					ring_string_add(pString,"\n");
-				}
 			}
 		}
 		RING_API_RETSTRING(ring_string_get(pString));
