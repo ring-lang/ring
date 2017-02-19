@@ -598,13 +598,13 @@ class FormDesigner_QLabel from QLabel
 		if nCol = 1 {
 			switch nRow {
 				case 0 	# x
-					oSubWindow.move(0+cValue,oSubWindow.y())
+					oSubWindow.move(0+cValue,y())
 				case 1 	# y
-					oSubWindow.move(oSubWindow.x(),0+cValue)
+					oSubWindow.move(x(),0+cValue)
 				case 2	# width
-					oSubWindow.resize(0+cValue,oSubWindow.height())
+					oSubWindow.resize(0+cValue,height())
 				case 3 	# height
-					oSubWindow.resize(oSubWindow.width(),0+cValue)
+					oSubWindow.resize(width(),0+cValue)
 				case 4  	# Title 			
 					setText(cValue)
 				case 5	# back color
