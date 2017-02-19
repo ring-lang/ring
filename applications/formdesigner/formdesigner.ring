@@ -98,9 +98,12 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oFilter = new qAllevents(oModel.ActiveObject()) {
-				setmousebuttonpressevent(Method(:ChangeActiveObject+"("+this.oModel.nActiveObject+")"))
+				setmousebuttonpressevent(Method(:ActiveObjectMousePress+"("+this.oModel.nActiveObject+")"))
+				setMouseButtonReleaseEvent(Method(:ActiveObjectMouseRelease+"("+this.oModel.nActiveObject+")")) 
+				setMouseMoveEvent(Method(:ActiveObjectMouseMove+"("+this.oModel.nActiveObject+")"))
 			}
 			oModel.ActiveObject().installeventfilter(oFilter)
+			oModel.ActiveObject().oFilter = oFilter
 			oModel.ActiveObject().setText("Label"+oModel.LabelsCount())
 			oModel.ActiveObject().Show()
 			AddObjectsToCombo()
@@ -113,8 +116,15 @@ Class FormDesignerController from WindowsControllerParent
 		oModel.nActiveObject = nIndex + 1
 		ObjectProperties()
 
-	func ChangeActiveObject nObjectIndex
+	func ActiveObjectMousePress nObjectIndex
 		oView.oObjectsCombo.setcurrentindex(nObjectIndex-1)  
+		oModel.ActiveObject().MousePress()
+
+	func ActiveObjectMouseRelease nObjectIndex
+		oModel.ActiveObject().MouseRelease()
+
+	func ActiveObjectMouseMove nObjectIndex
+		oModel.ActiveObject().MouseMove()
 
 	func NewAction
 
@@ -590,6 +600,8 @@ class FormDesigner_QLabel from QLabel
 
 	cBackColor = ""
 
+	nX nY lPress oFilter	# Movement Event 
+
 	func BackColor
 		return cBackColor
 
@@ -651,4 +663,23 @@ class FormDesigner_QLabel from QLabel
 			cColor = oDesigner.oGeneral.SelectColor()
 			setBackColor(cColor)
 			DisplayProperties(oDesigner)
+		}
+
+	Func MousePress
+	        lPress = True
+        	nX = oFilter.getglobalx()
+	        ny = oFilter.getglobaly()
+
+	Func MouseRelease
+	        lPress = False
+
+	Func MouseMove
+		nX2 = oFilter.getglobalx()
+		ny2 = oFilter.getglobaly()
+		ndiffx = nX2 - nX
+		ndiffy = nY2 - nY
+		if lPress {
+			move(x()+ndiffx,y()+ndiffy)
+			nX = nX2
+			ny = nY2
 		}
