@@ -495,6 +495,8 @@ class FormDesigner_QWidget from QWidget
 		nX = oDesigner.oView.oFilter.getglobalx()  
 		ny = oDesigner.oView.oFilter.getglobaly()  
 		oDesigner.oView.oLabelSelect.raise()
+		oDesigner.oView.oLabelSelect.resize(1,1)
+		oDesigner.oView.oLabelSelect.show()
 
 	func MouseReleaseAction oDesigner
 	        oDesigner.oView.oLabelSelect.hide()
@@ -506,7 +508,6 @@ class FormDesigner_QWidget from QWidget
 		oDesigner.oView.oLabelSelect {
 			move(aRect[1],aRect[2]) 
 			resize(aRect[3],aRect[4])
-			show()
 		}
 
 	func GetRectDim oDesigner
