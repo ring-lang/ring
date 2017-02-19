@@ -38,6 +38,13 @@ Class FormDesignerController from WindowsControllerParent
 			oView.AddProperty(Item)
 		}
 
+	func UpdateProperties
+		nRow = oView.oPropertiesTable.Currentrow()
+		nCol = oView.oPropertiesTable.Currentcolumn() 
+		if nRow = 4 and nCol = 1 {	# Title 
+			oView.oForm.setWindowTitle(oView.oPropertiesTable.item(nRow,nCol).text())
+		}
+
 	func NewAction
 
 	func OpenAction
@@ -287,6 +294,7 @@ Class FormDesignerView from WindowsViewParent
 				setAlternatingRowColors(true)
 				horizontalHeader().setStyleSheet("color: blue")
 				verticalHeader().setStyleSheet("color: red")
+				setitemChangedEvent(Method(:UpdateProperties))
 			}
 			oLayout2 = new qVBoxLayout() {
 				AddLayout(oLayout1)
@@ -301,10 +309,14 @@ Class FormDesignerView from WindowsViewParent
 		win.Adddockwidget(2,oPropertiesDock,2)
 
 	func AddProperty cItem
+		oPropertiesTable.blocksignals(True)
 		nRow = oPropertiesTable.rowcount()
 		oPropertiesTable.insertrow(nRow)
 		item = new qTableWidgetItem(cItem)
 		oPropertiesTable.setItem(nRow,0,item)
+		item = new qTableWidgetItem("")
+		oPropertiesTable.setItem(nRow,1,item)
+		oPropertiesTable.blocksignals(false)
 
 Class FormDesignerModel
 
