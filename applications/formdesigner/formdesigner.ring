@@ -57,6 +57,9 @@ Class FormDesignerController from WindowsControllerParent
 	func MoveWindowAction
 		oView.oForm.DisplayProperties(oView.oPropertiesTable)	
 
+	func DialogButtonAction nRow 
+		oActiveObject.DialogButtonAction(nRow)
+
 	func NewAction
 
 	func OpenAction
@@ -349,6 +352,7 @@ Class FormDesignerView from WindowsViewParent
 			oBtn = new qPushButton(NULL) { 
 				setText("::") 
 				setfixedwidth(30)
+				setClickEvent(Method(:DialogButtonAction+"("+nRow+")"))
 			}
 			oPropertiesTable.setCellwidget(nRow,2,oBtn)
 		}
@@ -424,3 +428,15 @@ class FormDesigner_QWidget from QWidget
 		# Set the BackColor
 			oPropertiesTable.item(5,1).settext(backcolor())
 		oPropertiesTable.Blocksignals(False)
+
+	func DialogButtonAction nRow 
+		if nRow = 5 {	# Back Color
+			oColor = new qColorDialog()
+                	aColor = oColor.GetColor()
+                	r=hex(acolor[1]) g=hex(acolor[2]) b=hex(acolor[3])
+			if len(r) < 2 { r = "0" + r }
+			if len(g) < 2 { g = "0" + g }
+			if len(b) < 2 { b = "0" + b }			
+			cColor = "#" + r + g + b
+			setBackColor(cColor)
+		}
