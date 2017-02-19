@@ -598,9 +598,17 @@ class FormDesigner_QWidget from QWidget
 
 class FormDesigner_QLabel from QLabel
 
+	cTextColor = ""
 	cBackColor = ""
 
 	nX nY lPress oFilter	# Movement Event 
+
+	func TextColor
+		return cTextColor
+
+	func setTextColor cValue 
+		cTextColor=cValue	
+		updatestylesheets()
 
 	func BackColor
 		return cBackColor
@@ -610,10 +618,10 @@ class FormDesigner_QLabel from QLabel
 		updatestylesheets()
 
 	func updatestylesheets
-		setstylesheet("background-color:"+cBackColor+";")
+		setstylesheet("color:"+cTextColor+";background-color:"+cBackColor+";")
 
 	func GetPropertiesList
-		return  ["X","Y","Width","Height","Title","Back Color"]
+		return  ["X","Y","Width","Height","Text","Text Color","Back Color"]
 
 	func AddObjectProperties  oDesigner
 		oDesigner.oView.AddProperty("X",False)
@@ -621,6 +629,7 @@ class FormDesigner_QLabel from QLabel
 		oDesigner.oView.AddProperty("Width",False)
 		oDesigner.oView.AddProperty("Height",False)
 		oDesigner.oView.AddProperty("Text",False)
+		oDesigner.oView.AddProperty("Text Color",True)
 		oDesigner.oView.AddProperty("Back Color",True)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
@@ -634,9 +643,11 @@ class FormDesigner_QLabel from QLabel
 					resize(0+cValue,height())
 				case 3 	# height
 					resize(width(),0+cValue)
-				case 4  	# Title 			
+				case 4  	# Text			
 					setText(cValue)
 				case 5	# back color
+					setTextColor(cValue)
+				case 6	# back color
 					setBackColor(cValue)
 			}
 		}
@@ -654,12 +665,18 @@ class FormDesigner_QLabel from QLabel
 			oPropertiesTable.item(3,1).settext(""+height())
 		# Set the Title
 			oPropertiesTable.item(4,1).settext(text())
+		# Set the Text Color
+			oPropertiesTable.item(5,1).settext(textcolor())
 		# Set the BackColor
-			oPropertiesTable.item(5,1).settext(backcolor())
+			oPropertiesTable.item(6,1).settext(backcolor())
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
-		if nRow = 5 {	# Back Color
+		if nRow = 5 {	# Text Color
+			cColor = oDesigner.oGeneral.SelectColor()
+			setTextColor(cColor)
+			DisplayProperties(oDesigner)
+		elseif nRow = 6 	# Back Color
 			cColor = oDesigner.oGeneral.SelectColor()
 			setBackColor(cColor)
 			DisplayProperties(oDesigner)
