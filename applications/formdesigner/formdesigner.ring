@@ -71,6 +71,17 @@ Class FormDesignerController from WindowsControllerParent
 		oModel.ActiveObject().DialogButtonAction(self,nRow)
 
 	func SelectDrawAction aRect 
+		if oView.oToolBtn2.ischecked()  { # Create Label 
+			oModel.AddObject("Label",
+				 new FormDesigner_QLabel(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setText("Label")
+					show()
+				}
+			)
+		}
+
 
 	func NewAction
 
@@ -86,6 +97,9 @@ Class FormDesignerController from WindowsControllerParent
 Class FormDesignerView from WindowsViewParent
 
 	oForm oSub oFilter oArea win  oObjectsCombo 	oPropertiesTable oLabelSelect
+
+	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
+	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
 
 	func CreateMainWindow oModel
 
@@ -243,82 +257,82 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateToolBox
 		oToolBox = new qWidget() {
- 			btn1 = new qPushButton(oToolBox) {
+ 			this.oToolbtn1 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Select",20))
 					setbtnimage(self,"image/select.png") 
 					setminimumwidth(150)
 					setCheckable(True)
 					setChecked(True)
 			}
- 			btn2 = new qPushButton(oToolBox) {
+ 			this.oToolbtn2 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Label",20))
 					setbtnimage(self,"image/label.png") 
 					setCheckable(True)
 			}
- 			btn3 = new qPushButton(oToolBox) {
+ 			this.oToolbtn3 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Button",18))
 					setbtnimage(self,"image/pushbutton.png") 
 					setCheckable(True)
 			}
- 			btn4 = new qPushButton(oToolBox) {
+ 			this.oToolbtn4 = new qPushButton(oToolBox) {
 					setText(this.TextSize("LineEdit",19))
 					setbtnimage(self,"image/textfield.png") 
 					setCheckable(True)
 			}
- 			btn5 = new qPushButton(oToolBox) {
+ 			this.oToolbtn5 = new qPushButton(oToolBox) {
 					setText(this.TextSize("TextEdit",19))
 					setbtnimage(self,"image/textarea.png") 
 					setCheckable(True)
 			}
- 			btn6 = new qPushButton(oToolBox) {
+ 			this.oToolbtn6 = new qPushButton(oToolBox) {
 					setText(this.TextSize("ListWidget",17))
 					setbtnimage(self,"image/listview.png") 
 					setCheckable(True)
 			}
- 			btn7 = new qPushButton(oToolBox) {
+ 			this.oToolbtn7 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Checkbox",16))
 					setbtnimage(self,"image/checkbox.png") 
 					setCheckable(True)
 			}
- 			btn8 = new qPushButton(oToolBox) {
+ 			this.oToolbtn8 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Image",19))
 					setbtnimage(self,"image/image.png") 
 					setCheckable(True)
 			}
- 			btn9 = new qPushButton(oToolBox) {
+ 			this.oToolbtn9 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Slider",20))
 					setbtnimage(self,"image/slider.png") 
 					setCheckable(True)
 			}
- 			btn10 = new qPushButton(oToolBox) {
+ 			this.oToolbtn10 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Progressbar",15))
 					setbtnimage(self,"image/progressbar.png") 
 					setCheckable(True)
 			}
 			Layout1 = new qVBoxLayout() {
-				AddWidget(btn1)
-				AddWidget(btn2)
-				AddWidget(btn3)
-				AddWidget(btn4)
-				AddWidget(btn5)
-				AddWidget(btn6)
-				AddWidget(btn7)
-				AddWidget(btn8)
-				AddWidget(btn9)
-				AddWidget(btn10)
+				AddWidget(this.oToolbtn1)
+				AddWidget(this.oToolbtn2)
+				AddWidget(this.oToolbtn3)
+				AddWidget(this.oToolbtn4)
+				AddWidget(this.oToolbtn5)
+				AddWidget(this.oToolbtn6)
+				AddWidget(this.oToolbtn7)
+				AddWidget(this.oToolbtn8)
+				AddWidget(this.oToolbtn9)
+				AddWidget(this.oToolbtn10)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
-				AddButton(btn1,0)
-				AddButton(btn2,1)
-				AddButton(btn3,2)
-				AddButton(btn4,3)
-				AddButton(btn5,4)
-				AddButton(btn6,5)
-				AddButton(btn7,6)
-				AddButton(btn8,7)
-				AddButton(btn9,8)
-				AddButton(btn10,9)
+				AddButton(this.oToolbtn1,0)
+				AddButton(this.oToolbtn2,1)
+				AddButton(this.oToolbtn3,2)
+				AddButton(this.oToolbtn4,3)
+				AddButton(this.oToolbtn5,4)
+				AddButton(this.oToolbtn6,5)
+				AddButton(this.oToolbtn7,6)
+				AddButton(this.oToolbtn8,7)
+				AddButton(this.oToolbtn9,8)
+				AddButton(this.oToolbtn10,9)
 			}
 			setLayout(Layout1)
 		}
@@ -519,3 +533,76 @@ class FormDesigner_QWidget from QWidget
 		width = max(nX,nX2) - min(nX,nX2)  
 		height = max(nY,nY2) - min(nY,nY2)  
 		return [left,top,width,height]
+
+class FormDesigner_QLabel from QLabel
+
+	cBackColor = ""
+
+	func BackColor
+		return cBackColor
+
+	func setBackColor cValue 
+		cBackColor=cValue	
+		updatestylesheets()
+
+	func updatestylesheets
+		setstylesheet("background-color:"+cBackColor+";")
+
+	func GetPropertiesList
+		return  ["X","Y","Width","Height","Title","Back Color"]
+
+	func AddObjectProperties  oDesigner
+		oDesigner.oView.AddProperty("X",False)
+		oDesigner.oView.AddProperty("Y",False)
+		oDesigner.oView.AddProperty("Width",False)
+		oDesigner.oView.AddProperty("Height",False)
+		oDesigner.oView.AddProperty("Text",False)
+		oDesigner.oView.AddProperty("Back Color",True)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		if nCol = 1 {
+			switch nRow {
+				case 0 	# x
+					oSubWindow.move(0+cValue,oSubWindow.y())
+				case 1 	# y
+					oSubWindow.move(oSubWindow.x(),0+cValue)
+				case 2	# width
+					oSubWindow.resize(0+cValue,oSubWindow.height())
+				case 3 	# height
+					oSubWindow.resize(oSubWindow.width(),0+cValue)
+				case 4  	# Title 			
+					setText(cValue)
+				case 5	# back color
+					setBackColor(cValue)
+			}
+		}
+
+	func DisplayProperties oDesigner
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Set the X
+			oPropertiesTable.item(0,1).settext(""+x())
+		# Set the Y
+			oPropertiesTable.item(1,1).settext(""+y())
+		# Set the Width
+			oPropertiesTable.item(2,1).settext(""+width())
+		# Set the Height
+			oPropertiesTable.item(3,1).settext(""+height())
+		# Set the Title
+			oPropertiesTable.item(4,1).settext(text())
+		# Set the BackColor
+			oPropertiesTable.item(5,1).settext(backcolor())
+		oPropertiesTable.Blocksignals(False)
+
+	func DialogButtonAction oDesigner,nRow 
+		if nRow = 5 {	# Back Color
+			oColor = new qColorDialog()
+                	aColor = oColor.GetColor()
+                	r=hex(acolor[1]) g=hex(acolor[2]) b=hex(acolor[3])
+			if len(r) < 2 { r = "0" + r }
+			if len(g) < 2 { g = "0" + g }
+			if len(b) < 2 { b = "0" + b }			
+			cColor = "#" + r + g + b
+			setBackColor(cColor)
+			DisplayProperties(oDesigner)
+		}
