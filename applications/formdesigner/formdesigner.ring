@@ -42,23 +42,23 @@ Class FormDesignerController from WindowsControllerParent
 		oActiveObject.AddObjectProperties(self)
 
 	func DisplayObjectProperties 
-		oActiveObject.DisplayProperties(oView.oPropertiesTable)	
+		oActiveObject.DisplayProperties(self)	
 
 	func UpdateProperties
 		nRow = oView.oPropertiesTable.Currentrow()
 		nCol = oView.oPropertiesTable.Currentcolumn() 
 		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
-		oActiveObject.UpdateProperties(nRow,nCol,cValue)
+		oActiveObject.UpdateProperties(self,nRow,nCol,cValue)
 
 	func ResizeWindowAction
-		oView.oForm.DisplayProperties(oView.oPropertiesTable)	
+		oView.oForm.DisplayProperties(self)	
 		oView.oFilter.seteventoutput(False)
 
 	func MoveWindowAction
-		oView.oForm.DisplayProperties(oView.oPropertiesTable)	
+		oView.oForm.DisplayProperties(self)	
 
 	func DialogButtonAction nRow 
-		oActiveObject.DialogButtonAction(nRow)
+		oActiveObject.DialogButtonAction(self,nRow)
 
 	func NewAction
 
@@ -375,8 +375,12 @@ class FormDesigner_QWidget from QWidget
 
 	oSubWindow
 
-	func BackColor return cBackColor
-	func setBackColor cValue cBackColor=cValue	updatestylesheets()
+	func BackColor
+		return cBackColor
+
+	func setBackColor cValue 
+		cBackColor=cValue	
+		updatestylesheets()
 
 	func updatestylesheets
 		setstylesheet("background-color:"+cBackColor+";")
@@ -395,7 +399,7 @@ class FormDesigner_QWidget from QWidget
 		oDesigner.oView.AddProperty("Title",False)
 		oDesigner.oView.AddProperty("Back Color",True)
 
-	func UpdateProperties nRow,nCol,cValue
+	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
 			switch nRow {
 				case 0 	# x
@@ -409,11 +413,12 @@ class FormDesigner_QWidget from QWidget
 				case 4  	# Title 			
 					setWindowTitle(cValue)
 				case 5	# back color
-					setBackColor(cValue)
+					oDesigner.oView.oForm.setBackColor(cValue)
 			}
 		}
 
-	func DisplayProperties oPropertiesTable
+	func DisplayProperties oDesigner
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
 		# Set the X
 			oPropertiesTable.item(0,1).settext(""+oSubWindow.x())
@@ -426,10 +431,10 @@ class FormDesigner_QWidget from QWidget
 		# Set the Title
 			oPropertiesTable.item(4,1).settext(windowtitle())
 		# Set the BackColor
-			oPropertiesTable.item(5,1).settext(backcolor())
+			oPropertiesTable.item(5,1).settext(oDesigner.oView.oForm.backcolor())
 		oPropertiesTable.Blocksignals(False)
 
-	func DialogButtonAction nRow 
+	func DialogButtonAction oDesigner,nRow 
 		if nRow = 5 {	# Back Color
 			oColor = new qColorDialog()
                 	aColor = oColor.GetColor()
@@ -438,5 +443,6 @@ class FormDesigner_QWidget from QWidget
 			if len(g) < 2 { g = "0" + g }
 			if len(b) < 2 { b = "0" + b }			
 			cColor = "#" + r + g + b
-			setBackColor(cColor)
+			oDesigner.oView.oForm.setBackColor(cColor)
+			DisplayProperties(oDesigner)
 		}
