@@ -97,6 +97,10 @@ Class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 				}
 			)
+			oFilter = new qAllevents(oModel.ActiveObject()) {
+				setmousebuttonpressevent(Method(:ChangeActiveObject+"("+this.oModel.nActiveObject+")"))
+			}
+			oModel.ActiveObject().installeventfilter(oFilter)
 			oModel.ActiveObject().setText("Label"+oModel.LabelsCount())
 			oModel.ActiveObject().Show()
 			AddObjectsToCombo()
@@ -108,7 +112,10 @@ Class FormDesignerController from WindowsControllerParent
 		nIndex = oView.oObjectsCombo.currentindex()  
 		oModel.nActiveObject = nIndex + 1
 		ObjectProperties()
-		
+
+	func ChangeActiveObject nObjectIndex
+		oView.oObjectsCombo.setcurrentindex(nObjectIndex-1)  
+
 	func NewAction
 
 	func OpenAction
