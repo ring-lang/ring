@@ -27,9 +27,9 @@ Class FormDesignerController from WindowsControllerParent
 		oView.win.Show()
 		oModel.AddObject("Window",oView.oForm)
 		AddObjectsToCombo()
-		AddObjectProperties(oView.oForm)
-		SetObjectProperties(oView.oForm)
 		oActiveObject  = oView.oForm
+		AddObjectProperties()
+		DisplayObjectProperties()		
 
 	func AddObjectsToCombo
 		aObjects = oModel.GetObjects() 
@@ -37,8 +37,8 @@ Class FormDesignerController from WindowsControllerParent
 			oView.oObjectsCombo.AddItem(item[1],0)
 		}
 
-	func AddObjectProperties oObject
-		cClass = classname(oObject) 
+	func AddObjectProperties  
+		cClass = classname(oActiveObject) 
 		switch cClass {
 			case "formdesigner_qwidget"
 				aProperties = ["X","Y","Width","Height","Title","Back Color"]
@@ -47,11 +47,11 @@ Class FormDesignerController from WindowsControllerParent
 			oView.AddProperty(Item)
 		}
 
-	func SetObjectProperties oObject
-		cClass = classname(oObject) 
+	func DisplayObjectProperties 
+		cClass = classname(oActiveObject) 
 		switch cClass {
 			case "formdesigner_qwidget"
-			 	setWindowObjectProperties(oObject)
+			 	setWindowObjectProperties(oActiveObject)
 		}
 
 	func SetWindowObjectProperties oObject 
@@ -342,20 +342,7 @@ Class FormDesignerView from WindowsViewParent
 		oPropertiesTable.blocksignals(false)
 
 	func SetWindowObjectProperties oObject 
-		oPropertiesTable.Blocksignals(True)
-		# Set the X
-			oPropertiesTable.item(0,1).settext(""+oObject.oSubWindow.x())
-		# Set the Y
-			oPropertiesTable.item(1,1).settext(""+oObject.oSubWindow.y())
-		# Set the Width
-			oPropertiesTable.item(2,1).settext(""+oObject.oSubWindow.width())
-		# Set the Height
-			oPropertiesTable.item(3,1).settext(""+oObject.oSubWindow.height())
-		# Set the Title
-			oPropertiesTable.item(4,1).settext(oObject.windowtitle())
-		# Set the BackColor
-			oPropertiesTable.item(5,1).settext(oObject.backcolor())
-		oPropertiesTable.Blocksignals(False)
+		oObject.setProperties(oPropertiesTable)		
 
 Class FormDesignerModel
 
@@ -397,3 +384,19 @@ class FormDesigner_QWidget from QWidget
 			case 5	# back color
 				setBackColor(cValue)
 		}
+
+	func SetProperties oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Set the X
+			oPropertiesTable.item(0,1).settext(""+oSubWindow.x())
+		# Set the Y
+			oPropertiesTable.item(1,1).settext(""+oSubWindow.y())
+		# Set the Width
+			oPropertiesTable.item(2,1).settext(""+oSubWindow.width())
+		# Set the Height
+			oPropertiesTable.item(3,1).settext(""+oSubWindow.height())
+		# Set the Title
+			oPropertiesTable.item(4,1).settext(windowtitle())
+		# Set the BackColor
+			oPropertiesTable.item(5,1).settext(backcolor())
+		oPropertiesTable.Blocksignals(False)
