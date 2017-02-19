@@ -332,7 +332,7 @@ Class FormDesignerView from WindowsViewParent
 		}
 		win.Adddockwidget(2,oPropertiesDock,2)
 
-	func AddProperty cItem
+	func AddProperty cItem,lButton
 		oPropertiesTable.blocksignals(True)
 		nRow = oPropertiesTable.rowcount()
 		oPropertiesTable.insertrow(nRow)
@@ -341,9 +341,18 @@ Class FormDesignerView from WindowsViewParent
 		oPropertiesTable.setItem(nRow,0,item)
 		item = new qTableWidgetItem("")
 		oPropertiesTable.setItem(nRow,1,item)
-		item = new qTableWidgetItem("")
-		item.setFlags(False)	# Can't Edit the Item
-		oPropertiesTable.setItem(nRow,2,item)
+		if lButton = False {
+			item = new qTableWidgetItem("")
+			item.setFlags(False)	# Can't Edit the Item
+			oPropertiesTable.setItem(nRow,2,item)
+		else
+			oBtn = new qPushButton(NULL) { 
+				setText("::") 
+				setfixedwidth(30)
+			}
+			oPropertiesTable.setCellwidget(nRow,2,oBtn)
+		}
+
 		oPropertiesTable.blocksignals(false)
 
 Class FormDesignerModel
@@ -375,10 +384,12 @@ class FormDesigner_QWidget from QWidget
 		return  ["X","Y","Width","Height","Title","Back Color"]
 
 	func AddObjectProperties  oDesigner
-		aProperties = GetPropertiesList()
-		for Item in aProperties {
-			oDesigner.oView.AddProperty(Item)
-		}
+		oDesigner.oView.AddProperty("X",False)
+		oDesigner.oView.AddProperty("Y",False)
+		oDesigner.oView.AddProperty("Width",False)
+		oDesigner.oView.AddProperty("Height",False)
+		oDesigner.oView.AddProperty("Title",False)
+		oDesigner.oView.AddProperty("Back Color",True)
 
 	func UpdateProperties nRow,nCol,cValue
 		if nCol = 1 {
