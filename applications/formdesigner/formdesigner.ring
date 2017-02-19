@@ -34,6 +34,7 @@ Class FormDesignerController from WindowsControllerParent
 		for item in aObjects {
 			oView.oObjectsCombo.AddItem(item[1],0)
 		}
+		oView.oObjectsCombo.setcurrentindex(len(aObjects)-1)
 
 	func AddObjectProperties  
 		oModel.ActiveObject().AddObjectProperties(self)
