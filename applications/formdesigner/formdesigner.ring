@@ -20,6 +20,7 @@ Class FormDesignerController from WindowsControllerParent
 
 	oView = new FormDesignerView
 	oModel = new FormDesignerModel
+	oGeneral = new FormDesignerGeneral
 
 	func Start
 		oView.CreateMainWindow(oModel)
@@ -462,6 +463,18 @@ Class FormDesignerModel
 	func LabelsCount
 		return nLabelsCount
 
+Class FormDesignerGeneral
+
+	func SelectColor
+		oColor = new qColorDialog()
+		aColor = oColor.GetColor()
+		r=hex(acolor[1]) g=hex(acolor[2]) b=hex(acolor[3])
+		if len(r) < 2 { r = "0" + r }
+		if len(g) < 2 { g = "0" + g }
+		if len(b) < 2 { b = "0" + b }			
+		cColor = "#" + r + g + b
+		return cColor
+
 class FormDesigner_QWidget from QWidget 
 
 	cBackColor = ""
@@ -531,13 +544,7 @@ class FormDesigner_QWidget from QWidget
 
 	func DialogButtonAction oDesigner,nRow 
 		if nRow = 5 {	# Back Color
-			oColor = new qColorDialog()
-                	aColor = oColor.GetColor()
-                	r=hex(acolor[1]) g=hex(acolor[2]) b=hex(acolor[3])
-			if len(r) < 2 { r = "0" + r }
-			if len(g) < 2 { g = "0" + g }
-			if len(b) < 2 { b = "0" + b }			
-			cColor = "#" + r + g + b
+			cColor = oDesigner.oGeneral.SelectColor()
 			setBackColor(cColor)
 			DisplayProperties(oDesigner)
 		}
@@ -633,13 +640,7 @@ class FormDesigner_QLabel from QLabel
 
 	func DialogButtonAction oDesigner,nRow 
 		if nRow = 5 {	# Back Color
-			oColor = new qColorDialog()
-                	aColor = oColor.GetColor()
-                	r=hex(acolor[1]) g=hex(acolor[2]) b=hex(acolor[3])
-			if len(r) < 2 { r = "0" + r }
-			if len(g) < 2 { g = "0" + g }
-			if len(b) < 2 { b = "0" + b }			
-			cColor = "#" + r + g + b
+			cColor = oDesigner.oGeneral.SelectColor()
 			setBackColor(cColor)
 			DisplayProperties(oDesigner)
 		}
