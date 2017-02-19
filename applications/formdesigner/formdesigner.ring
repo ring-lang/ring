@@ -44,14 +44,7 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func DisplayObjectProperties 
-		cClass = classname(oActiveObject) 
-		switch cClass {
-			case "formdesigner_qwidget"
-			 	setWindowObjectProperties(oActiveObject)
-		}
-
-	func SetWindowObjectProperties oObject 
-		oView.SetWindowObjectProperties(oObject)
+		oActiveObject.setProperties(oView.oPropertiesTable)	
 
 	func UpdateProperties
 		nRow = oView.oPropertiesTable.Currentrow()
@@ -336,9 +329,6 @@ Class FormDesignerView from WindowsViewParent
 		item = new qTableWidgetItem("")
 		oPropertiesTable.setItem(nRow,1,item)
 		oPropertiesTable.blocksignals(false)
-
-	func SetWindowObjectProperties oObject 
-		oObject.setProperties(oPropertiesTable)		
 
 Class FormDesignerModel
 
