@@ -96,7 +96,7 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.ActiveObject().setText("Label"+oModel.LabelsCount())
 			oModel.ActiveObject().Show()
 			AddObjectsToCombo()
-			AddObjectProperties()
+			ObjectProperties()
 		}
 
 	func ChangeObjectAction
@@ -598,13 +598,13 @@ class FormDesigner_QLabel from QLabel
 		if nCol = 1 {
 			switch nRow {
 				case 0 	# x
-					oSubWindow.move(0+cValue,y())
+					move(0+cValue,y())
 				case 1 	# y
-					oSubWindow.move(x(),0+cValue)
+					move(x(),0+cValue)
 				case 2	# width
-					oSubWindow.resize(0+cValue,height())
+					resize(0+cValue,height())
 				case 3 	# height
-					oSubWindow.resize(width(),0+cValue)
+					resize(width(),0+cValue)
 				case 4  	# Title 			
 					setText(cValue)
 				case 5	# back color
