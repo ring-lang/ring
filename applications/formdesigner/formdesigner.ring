@@ -23,7 +23,6 @@ Class FormDesignerController from WindowsControllerParent
 
 	func Start
 		oView.CreateMainWindow(oModel)
-		oView.win.Show()		
 		AddObjectsToCombo()
 		AddObjectProperties()
 		DisplayObjectProperties()		
@@ -74,48 +73,51 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateMainWindow oModel
 
-	# Create the form 
-		oModel.AddObject("Window",
-			 new FormDesigner_qWidget() {
-				setWindowTitle("Form1")
+		# Create the form 
+			oModel.AddObject("Window",
+				 new FormDesigner_qWidget() {
+					setWindowTitle("Form1")
+				}
+			)
+
+		# Add the form to the Sub Window 
+			oSub =  new QMdiSubWindow(null) {
+				move(100,100)
+				resize(400,400)
+				setwidget(oModel.ActiveObject())
+				oModel.ActiveObject().setSubWindow(this.oSub)
+				setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint ) 
 			}
-		)
-	# Add the form to the Sub Window 
-		oSub =  new QMdiSubWindow(null) {
-			move(100,100)
-			resize(400,400)
-			setwidget(oModel.ActiveObject())
-			oModel.ActiveObject().setSubWindow(this.oSub)
-			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint ) 
-		}
-	# Add the sub Window to the Mdi Area
-		oArea = new qMdiArea(null) {
-			addSubWindow(this.oSub,0)
-			setHorizontalScrollBarPolicy(Qt_ScrollBarAlwaysOn)
-			setVerticalScrollbarpolicy(Qt_ScrollBarAlwaysOn)
-		}
-	# Create the Main Window and use the Mdi Area
-		win = new qMainwindow() {
-			setWindowTitle("Form Designer")		
-			setcentralWidget(this.oArea)
-			showmaximized()
-		}	
-		setwinicon(win,cCurrentDir + "/image/project.png")
-	# Create the ToolBox
-		CreateToolBox()
 
-	# Create Properties Window
+		# Add the sub Window to the Mdi Area
+			oArea = new qMdiArea(null) {
+				addSubWindow(this.oSub,0)
+				setHorizontalScrollBarPolicy(Qt_ScrollBarAlwaysOn)
+				setVerticalScrollbarpolicy(Qt_ScrollBarAlwaysOn)
+			}
 
-		CreateProperties()
+		# Create the Main Window and use the Mdi Area
+			win = new qMainwindow() {
+				setWindowTitle("Form Designer")		
+				setcentralWidget(this.oArea)
+				showmaximized()
+			}	
+			setwinicon(win,cCurrentDir + "/image/project.png")
 
-	# Create the Menubar
-		CreateMenuBar()
+		# Create the ToolBox
+			CreateToolBox()
 
-	# Create the Toolbar 
-		CreateToolBar()
+		# Create Properties Window
+			CreateProperties()
 
-	# Create the Statusbar 
-		CreateStatusBar()
+		# Create the Menubar
+			CreateMenuBar()
+
+		# Create the Toolbar 
+			CreateToolBar()
+
+		# Create the Statusbar 
+			CreateStatusBar()
 
 	func WindowMoveResizeEvents
 		oFilter = new qAllEvents(oSub)
