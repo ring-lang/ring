@@ -39,10 +39,7 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func AddObjectProperties  
-		aProperties = oActiveObject.GetPropertiesList()
-		for Item in aProperties {
-			oView.AddProperty(Item)
-		}
+		oActiveObject.AddObjectProperties(self)
 
 	func DisplayObjectProperties 
 		oActiveObject.DisplayProperties(oView.oPropertiesTable)	
@@ -372,6 +369,12 @@ class FormDesigner_QWidget from QWidget
 
 	func GetPropertiesList
 		return  ["X","Y","Width","Height","Title","Back Color"]
+
+	func AddObjectProperties  oDesigner
+		aProperties = GetPropertiesList()
+		for Item in aProperties {
+			oDesigner.oView.AddProperty(Item)
+		}
 
 	func UpdateProperties nRow,cValue
 		switch nRow {
