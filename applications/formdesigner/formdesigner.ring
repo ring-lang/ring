@@ -598,7 +598,7 @@ class FormDesigner_QWidget from QWidget
 
 class FormDesigner_QLabel from QLabel
 
-	cTextColor = ""
+	cTextColor = "black"
 	cBackColor = ""
 
 	nX nY lPress oFilter	# Movement Event 
@@ -645,7 +645,7 @@ class FormDesigner_QLabel from QLabel
 					resize(width(),0+cValue)
 				case 4  	# Text			
 					setText(cValue)
-				case 5	# back color
+				case 5	# Text color
 					setTextColor(cValue)
 				case 6	# back color
 					setBackColor(cValue)
