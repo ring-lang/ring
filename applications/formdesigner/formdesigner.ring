@@ -28,6 +28,10 @@ Class FormDesignerController from WindowsControllerParent
 		DisplayObjectProperties()		
 		oView.WindowMoveResizeEvents()
 
+	func ObjectProperties
+		AddObjectProperties()
+		DisplayObjectProperties()	
+
 	func AddObjectsToCombo
 		oView.oObjectsCombo.Clear()
 		aObjects = oModel.GetObjects() 
@@ -37,6 +41,16 @@ Class FormDesignerController from WindowsControllerParent
 		oView.oObjectsCombo.setcurrentindex(len(aObjects)-1)
 
 	func AddObjectProperties  
+		oView.oPropertiesTable   {	
+			# Remove Rows
+				nCount = rowcount()
+				for t = 1 to nCount {
+					removerow(0)
+				}
+			setHorizontalHeaderItem(0, new QTableWidgetItem("Property"))
+			setHorizontalHeaderItem(1, new QTableWidgetItem("Value"))
+			setHorizontalHeaderItem(2, new QTableWidgetItem(""))
+		}
 		oModel.ActiveObject().AddObjectProperties(self)
 
 	func DisplayObjectProperties 
@@ -82,6 +96,13 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.ActiveObject().setText("Label"+oModel.LabelsCount())
 			oModel.ActiveObject().Show()
 			AddObjectsToCombo()
+			AddObjectProperties()
+		}
+
+	func ChangeObjectAction
+		nIndex = oView.oObjectsCombo.currentindex() - 1
+		if nIndex > 0 {
+			oModel.nActiveObject = nIndex
 		}
 
 	func NewAction
@@ -354,6 +375,7 @@ Class FormDesignerView from WindowsViewParent
 				setMaximumWidth(50)
 			}
 			this.oObjectsCombo = new qCombobox(oProperties) {
+				setcurrentIndexChangedEvent(Method(:ChangeObjectAction))
 			}
 			oLayout1 = new qHBoxlayout() {
 				AddWidget(oLabelObject)
