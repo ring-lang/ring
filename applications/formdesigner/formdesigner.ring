@@ -91,6 +91,8 @@ Class FormDesignerView from WindowsViewParent
 	# Add the sub Window to the Mdi Area
 		oArea = new qMdiArea(null) {
 			addSubWindow(oSub,0)
+			setHorizontalScrollBarPolicy(Qt_ScrollBarAlwaysOn)
+			setVerticalScrollbarpolicy(Qt_ScrollBarAlwaysOn)
 		}
 	# Create the Main Window and use the Mdi Area
 		win = new qMainwindow() {
