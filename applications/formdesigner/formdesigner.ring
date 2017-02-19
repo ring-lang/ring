@@ -61,33 +61,7 @@ Class FormDesignerController from WindowsControllerParent
 		nRow = oView.oPropertiesTable.Currentrow()
 		nCol = oView.oPropertiesTable.Currentcolumn() 
 		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
-		cClass = classname(oActiveObject)
-		switch cClass {
-			case "formdesigner_qwidget"
-				UpdateWindowObjectProperties(nRow,cValue)
-		}
-
-	func UpdateWindowObjectProperties nRow,cValue
-		switch nRow {
-			case 0 	# x
-				oActiveObject.move(0+cValue,oActiveObject.y())
-			case 1 	# y
-				oActiveObject.move(oActiveObject.x(),0+cValue)
-			case 2	# width
-				oActiveObject.resize(0+cValue,oActiveObject.height())
-			case 3 	# height
-				oActiveObject.resize(oActiveObject.width(),0+cValue)
-			case 4  	# Title 			
-				oActiveObject.setWindowTitle(cValue)
-			case 5	# color
-				oActiveObject.setColor(cValue)
-			case 6	# back color
-				oActiveObject.setBackColor(cValue)
-			case 7	# font name
-				oActiveObject.setFontName(cValue)
-			case 8	# font size 
-				oActiveObject.setFontSize(0+cValue)
-		}
+		oActiveObject.UpdateProperties(nRow,cValue)
 
 	func NewAction
 
@@ -414,3 +388,25 @@ class FormDesigner_QWidget from QWidget
 
 	func updatestylesheets
 		setstylesheet("background-color:"+cBackColor+";font-size:"+nFontSize+";")
+
+	func UpdateProperties nRow,cValue
+		switch nRow {
+			case 0 	# x
+				move(0+cValue,y())
+			case 1 	# y
+				move(x(),0+cValue)
+			case 2	# width
+				resize(0+cValue,height())
+			case 3 	# height
+				resize(width(),0+cValue)
+			case 4  	# Title 			
+				setWindowTitle(cValue)
+			case 5	# color
+				setColor(cValue)
+			case 6	# back color
+				setBackColor(cValue)
+			case 7	# font name
+				setFontName(cValue)
+			case 8	# font size 
+				setFontSize(0+cValue)
+		}
