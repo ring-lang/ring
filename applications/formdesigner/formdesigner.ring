@@ -99,7 +99,7 @@ Class FormDesignerView from WindowsViewParent
 		# Create the Select/Draw Label
 			oLabelSelect = new qlabel(oModel.FormObject()) {
 				setGeometry(100,100,400,400)
-		 		setstylesheet("background-color:transparent;border: 1px solid black")				 
+		 		setstylesheet("background-color:rgba(50,150,255,0.3);border: 1px solid black")				 
 				setautoFillBackground(false)
 				settext("")
 				setmousetracking(false)
