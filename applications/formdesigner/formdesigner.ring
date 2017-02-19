@@ -25,16 +25,21 @@ Class FormDesignerController from WindowsControllerParent
 		oView.win.Show()
 		oModel.AddObject("Window",oView.oForm)
 		AddObjectsToCombo()
-		AddObjectProperties()
+		AddObjectProperties(oView.oForm)
 		SetObjectProperties(oView.oForm)
 
 	func AddObjectsToCombo
-		for item in oModel.GetObjects() {
+		aObjects = oModel.GetObjects() 
+		for item in aObjects {
 			oView.oObjectsCombo.AddItem(item[1],0)
 		}
 
-	func AddObjectProperties
-		aProperties = ["X","Y","Width","Height","Title","Text Color","Back Color","Font-Name","Font-Size"]
+	func AddObjectProperties oObject
+		cClass = classname(oObject) 
+		switch cClass {
+			case "formdesigner_qwidget"
+				aProperties = ["X","Y","Width","Height","Title","Text Color","Back Color","Font-Name","Font-Size"]
+		}
 		for Item in aProperties {
 			oView.AddProperty(Item)
 		}
@@ -52,7 +57,7 @@ Class FormDesignerController from WindowsControllerParent
 	func UpdateProperties
 		nRow = oView.oPropertiesTable.Currentrow()
 		nCol = oView.oPropertiesTable.Currentcolumn() 
-		if nRow = 4 and nCol = 1 {	# Title 
+		if nRow = 4 and nCol = 1 {	# Title 			
 			oView.oForm.setWindowTitle(oView.oPropertiesTable.item(nRow,nCol).text())
 		}
 
@@ -331,6 +336,7 @@ Class FormDesignerView from WindowsViewParent
 		oPropertiesTable.blocksignals(false)
 
 	func SetWindowObjectProperties oObject 
+		oPropertiesTable.Blocksignals(True)
 		# Set the X
 			oPropertiesTable.item(0,1).settext(""+oObject.x())
 		# Set the Y
@@ -348,8 +354,8 @@ Class FormDesignerView from WindowsViewParent
 		# Set the Font Name
 			oPropertiesTable.item(7,1).settext(oObject.fontname())
 		# Set the Font Size
-			oPropertiesTable.item(8,1).settext(oObject.fontsize())
-
+			oPropertiesTable.item(8,1).settext(""+oObject.fontsize())
+		oPropertiesTable.Blocksignals(False)
 
 Class FormDesignerModel
 
@@ -362,6 +368,7 @@ Class FormDesignerModel
 		return aObjectsList
 
 class FormDesigner_QWidget from QWidget 
+
 	cTextColor = "black"
 	cBackColor = "silver"
 	cFontName = "arial"
