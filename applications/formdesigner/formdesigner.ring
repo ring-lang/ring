@@ -64,11 +64,13 @@ Class FormDesignerController from WindowsControllerParent
 
 	func ResizeWindowAction
 		oView.oLabelSelect.Hide()
+		oView.oToolBtn1.setChecked(2)
 		oModel.FormObject().DisplayProperties(self)	
 		oView.oFilter.seteventoutput(False)
 
 	func MoveWindowAction
 		oView.oLabelSelect.Hide()
+		oView.oToolBtn1.setChecked(2)
 		oModel.FormObject().DisplayProperties(self)	
 
 	func MousePressAction
@@ -105,7 +107,6 @@ Class FormDesignerController from WindowsControllerParent
 		oModel.nActiveObject = nIndex + 1
 		ObjectProperties()
 		
-
 	func NewAction
 
 	func OpenAction
