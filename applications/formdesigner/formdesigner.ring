@@ -26,8 +26,8 @@ Class FormDesignerController from WindowsControllerParent
 	func Start
 		oView.win.Show()
 		oModel.AddObject("Window",oView.oForm)
-		AddObjectsToCombo()
 		oActiveObject  = oView.oForm
+		AddObjectsToCombo()
 		AddObjectProperties()
 		DisplayObjectProperties()		
 
@@ -38,11 +38,7 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func AddObjectProperties  
-		cClass = classname(oActiveObject) 
-		switch cClass {
-			case "formdesigner_qwidget"
-				aProperties = ["X","Y","Width","Height","Title","Back Color"]
-		}
+		aProperties = oActiveObject.GetPropertiesList()
 		for Item in aProperties {
 			oView.AddProperty(Item)
 		}
@@ -368,6 +364,9 @@ class FormDesigner_QWidget from QWidget
 
 	func setSubWindow oObject 
 		oSubWindow = oObject
+
+	func GetPropertiesList
+		return  ["X","Y","Width","Height","Title","Back Color"]
 
 	func UpdateProperties nRow,cValue
 		switch nRow {
