@@ -34,12 +34,14 @@ Class FormDesignerController from WindowsControllerParent
 		DisplayObjectProperties()	
 
 	func AddObjectsToCombo
+		oView.oObjectsCombo.blocksignals(True)
 		oView.oObjectsCombo.Clear()
 		aObjects = oModel.GetObjects() 
 		for item in aObjects {
 			oView.oObjectsCombo.AddItem(item[1],0)
 		}
 		oView.oObjectsCombo.setcurrentindex(len(aObjects)-1)
+		oView.oObjectsCombo.blocksignals(False)
 
 	func AddObjectProperties  
 		oView.oPropertiesTable   {	
@@ -77,7 +79,9 @@ Class FormDesignerController from WindowsControllerParent
 
 	func MousePressAction
 		oModel.FormObject().MousePressAction(self)
-		oView.oObjectsCombo.setcurrentindex(0)  # Activate the Window Object 
+		if oView.oToolBtn1.ischecked() {
+			oView.oObjectsCombo.setcurrentindex(0)  # Activate the Window Object 
+		}
 		oView.oFilter.seteventoutput(False)
 
 	func MouseReleaseAction
