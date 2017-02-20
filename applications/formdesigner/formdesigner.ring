@@ -178,11 +178,9 @@ Class FormDesignerController from WindowsControllerParent
 					case Qt_Key_Right
 						oModel.ActiveObject().resize( oModel.ActiveObject().width() + 10 , oModel.ActiveObject().height() )
 					case Qt_Key_Left
-						oModel.ActiveObject().move( oModel.ActiveObject().x() - 10 , oModel.ActiveObject().y() )
-						oModel.ActiveObject().resize( oModel.ActiveObject().width() + 10 , oModel.ActiveObject().height() )
+						oModel.ActiveObject().resize( oModel.ActiveObject().width() - 10 , oModel.ActiveObject().height() )
 					case Qt_Key_Up
-						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  - 10)
-						oModel.ActiveObject().resize( oModel.ActiveObject().width()  , oModel.ActiveObject().height() + 10)
+						oModel.ActiveObject().resize( oModel.ActiveObject().width()  , oModel.ActiveObject().height() - 10)
 					case Qt_Key_Down
 						oModel.ActiveObject().resize( oModel.ActiveObject().width()  , oModel.ActiveObject().height() + 10)
 				}	
