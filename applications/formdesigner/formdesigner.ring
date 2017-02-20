@@ -493,6 +493,16 @@ Class FormDesignerGeneral
 		cColor = "#" + r + g + b
 		return cColor
 
+	func SelectFont
+		cFont = ""
+		oFontDialog = new qfontdialog() {
+			aFont = getfont()
+		}
+		if aFont[1] != NULL {
+			cFont = aFont[1]
+		}
+		return cFont
+
 class FormDesigner_QWidget from QWidget 
 
 	cBackColor = ""
@@ -600,6 +610,7 @@ class FormDesigner_QLabel from QLabel
 
 	cTextColor = "black"
 	cBackColor = ""
+	cFontProperty = ""
 
 	nX nY lPress oFilter	# Movement Event 
 
@@ -617,11 +628,20 @@ class FormDesigner_QLabel from QLabel
 		cBackColor=cValue	
 		updatestylesheets()
 
+	func FontProperty
+		return cFontProperty
+
+	func setFontProperty cValue 
+		cFontProperty = cValue 
+		oFont = new qfont("",0,0,0)
+		oFont.fromstring(cValue)
+		setfont(oFont)
+
 	func updatestylesheets
 		setstylesheet("color:"+cTextColor+";background-color:"+cBackColor+";")
 
 	func GetPropertiesList
-		return  ["X","Y","Width","Height","Text","Text Color","Back Color"]
+		return  ["X","Y","Width","Height","Text","Text Color","Back Color","Font"]
 
 	func AddObjectProperties  oDesigner
 		oDesigner.oView.AddProperty("X",False)
@@ -631,6 +651,7 @@ class FormDesigner_QLabel from QLabel
 		oDesigner.oView.AddProperty("Text",False)
 		oDesigner.oView.AddProperty("Text Color",True)
 		oDesigner.oView.AddProperty("Back Color",True)
+		oDesigner.oView.AddProperty("Font",True)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
@@ -649,6 +670,9 @@ class FormDesigner_QLabel from QLabel
 					setTextColor(cValue)
 				case 6	# back color
 					setBackColor(cValue)
+				case 7	# font
+					setFontProperty(cValue)
+
 			}
 		}
 
@@ -669,6 +693,8 @@ class FormDesigner_QLabel from QLabel
 			oPropertiesTable.item(5,1).settext(textcolor())
 		# Set the BackColor
 			oPropertiesTable.item(6,1).settext(backcolor())
+		# Set the Font
+			oPropertiesTable.item(7,1).settext(fontproperty())
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
@@ -680,6 +706,10 @@ class FormDesigner_QLabel from QLabel
 			cColor = oDesigner.oGeneral.SelectColor()
 			setBackColor(cColor)
 			DisplayProperties(oDesigner)
+		elseif nRow = 7 	# Font
+			cFont = oDesigner.oGeneral.SelectFont()
+			setFontProperty(cFont)
+			DisplayProperties(oDesigner) 
 		}
 
 	Func MousePress
