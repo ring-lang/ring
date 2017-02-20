@@ -106,6 +106,7 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.AddLabel(new FormDesigner_QLabel(oModel.FormObject()) {
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
+					setMouseTracking(True)
 				}
 			)
 			oFilter = new qAllevents(oModel.ActiveObject()) {
@@ -678,9 +679,9 @@ class FormDesigner_QLabel from QLabel
 	cBackColor = ""
 	cFontProperty = ""
 
-	nX nY lPress oFilter	# Movement Event 
+	nX nY lPress=False oFilter	# Movement Event 
 
-	lResize  nResizeMode			# Resize Event
+	lResize=False  nResizeMode=0			# Resize Event
 
 	func TextColor
 		return cTextColor
@@ -791,14 +792,14 @@ class FormDesigner_QLabel from QLabel
 	        lPress = False
 		lResize = False
 		nResizeMode = 0
-		setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
+		#setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
 
 	func MouseMove
 
 		# Resize Event
 			nXPos =  oFilter.getx()	
 			nYPos = ofilter.gety() 
-			if nResizeMode = 0 {
+			if nResizeMode = 0 or lPress = False {
 				if nXPos < 5 {
 					if nYPos < 5 {	# Top + Left
 						setCursor(new qCursor() { setShape(Qt_SizeFDiagCursor) } )
@@ -819,7 +820,7 @@ class FormDesigner_QLabel from QLabel
 						setCursor(new qCursor() { setShape(Qt_SizeVerCursor) } )
 						nResizeMode = 5
 					}
-					lResize = True
+					if lPress { 	lResize = True } 
 				elseif nYPos > Height() - 5		 
 					if nXPos > Width() - 5 {	# Bottom+Width
 						setCursor(new qCursor() { setShape(Qt_SizeFDiagCursor) } )
@@ -828,10 +829,19 @@ class FormDesigner_QLabel from QLabel
 						setCursor(new qCursor() { setShape(Qt_SizeVerCursor) } )
 						nResizeMode = 7
 					}
-					lResize = True
+					if lPress { 	lResize = True } 
+				elseif nXPos > Width() - 5		# Left+Width
+					setCursor(new qCursor() { setShape(Qt_SizeHorCursor) } )
+					nResizeMode = 8
+					if lPress { 	lResize = True } 
+				else
+ 					lResizeMode = 0
+					lResize = False				
+					setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
 				}
 			}
-			if lResize {
+
+			if lResize and lPress {
 				switch nResizeMode {
 					case 1	# Top+Left
 						move(x()+nXPos,y()+nYPos)
@@ -854,17 +864,19 @@ class FormDesigner_QLabel from QLabel
 					case 7	# Bottom
 						move(x(), y() )
 						resize(width() , nYPos )
-
+					case 8	# Left+Width
+						move(x(), y() )
+						resize(nXPos , height() )
 				}
 				return 
 			}
 
 		# Move Event
-		nX2 = oFilter.getglobalx()
-		ny2 = oFilter.getglobaly()
-		ndiffx = nX2 - nX
-		ndiffy = nY2 - nY
 		if lPress {
+			nX2 = oFilter.getglobalx()
+			ny2 = oFilter.getglobaly()
+			ndiffx = nX2 - nX
+			ndiffy = nY2 - nY
 			move(x()+ndiffx,y()+ndiffy)
 			nX = nX2
 			ny = nY2
