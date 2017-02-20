@@ -77,6 +77,7 @@ Class FormDesignerController from WindowsControllerParent
 
 	func MousePressAction
 		oModel.FormObject().MousePressAction(self)
+		oView.oObjectsCombo.setcurrentindex(0)  # Activate the Window Object 
 		oView.oFilter.seteventoutput(False)
 
 	func MouseReleaseAction
