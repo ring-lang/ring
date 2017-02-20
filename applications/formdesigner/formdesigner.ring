@@ -481,7 +481,7 @@ Class FormDesignerModel
 
 	func AddObject cName,oObject
 		aObjectsList + [cName,oObject]
-		nActiveObject++
+		nActiveObject = len(aObjectsList)
 
 	func GetObjects
 		return aObjectsList
