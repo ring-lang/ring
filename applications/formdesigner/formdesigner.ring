@@ -124,14 +124,20 @@ Class FormDesignerController from WindowsControllerParent
 		ObjectProperties()
 
 	func ActiveObjectMousePress nObjectIndex
-		oView.oObjectsCombo.setcurrentindex(nObjectIndex-1)  
-		oModel.ActiveObject().MousePress()
+		if oView.oToolBtn1.ischecked() {	# Select Mode
+			oView.oObjectsCombo.setcurrentindex(nObjectIndex-1)  
+			oModel.ActiveObject().MousePress()
+		}
 
 	func ActiveObjectMouseRelease nObjectIndex
-		oModel.ActiveObject().MouseRelease()
+		if oView.oToolBtn1.ischecked() {	# Select Mode
+			oModel.ActiveObject().MouseRelease()
+		}
 
 	func ActiveObjectMouseMove nObjectIndex
-		oModel.ActiveObject().MouseMove()
+		if oView.oToolBtn1.ischecked() {	# Select Mode
+			oModel.ActiveObject().MouseMove()
+		}
 
 	func NewAction
 
