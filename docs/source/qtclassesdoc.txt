@@ -6120,3 +6120,22 @@ Parent Class : QWidget
 * QWidget * widget(void)
 * void showShaded(void)
 * void showSystemMenu(void)
+
+.. index::
+	pair: RingQt Classes Reference; QCursor Class
+
+QCursor Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCursor.html
+
+
+Parameters : void
+
+* QBitmap *bitmap(void)
+* QPoint hotSpot(void)
+* QBitmap *mask(void)
+* QPixmap pixmap(void)
+* void setShape(Qt::CursorShape shape)
+* Qt::CursorShape shape(void)

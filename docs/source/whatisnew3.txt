@@ -90,6 +90,7 @@ The next classes are added to RingQt
 * QProcess
 * QMdiArea
 * QMdiSubWindow
+* QCursor
 
 Many constants are defined in qt.rh (loaded by guilib.ring)
 
