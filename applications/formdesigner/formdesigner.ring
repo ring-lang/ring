@@ -822,6 +822,10 @@ class FormDesigner_QLabel from QLabel
 		setCursor(oDesigner.oGeneral.oCursorA())
 
 	func MouseMove oDesigner
+		if not resizeEvent(oDesigner) { return }
+		MoveEvent(oDesigner) 
+		
+	func ResizeEvent oDesigner
 		# Resize Event
 			nXPos =  oFilter.getx()	
 			nYPos = ofilter.gety() 
@@ -894,9 +898,11 @@ class FormDesigner_QLabel from QLabel
 						move(x(), y() )
 						resize(nXPos , height() )
 				}
-				return 
+				return false
 			}
+			return True 
 
+	func MoveEvent oDesigner
 		# Move Event
 		if lPress {
 			lMoveEvent=True	
