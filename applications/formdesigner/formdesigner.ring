@@ -184,7 +184,6 @@ Class FormDesignerController from WindowsControllerParent
 					case Qt_Key_Down
 						oModel.ActiveObject().resize( oModel.ActiveObject().width()  , oModel.ActiveObject().height() + 10)
 				}	
-
 		}
 
 	func NewAction
@@ -273,7 +272,6 @@ Class FormDesignerView from WindowsViewParent
 		oFilter.setMouseMoveEvent(Method(:MouseMoveAction))
 		oFilter.setKeyPressevent(Method(:KeyPressAction))
                 oSub.installeventfilter(oFilter)
-		oSub.	setFocusPolicy(2)	
 
 	func CreateMenuBar
 		menu1 = new qmenubar(win) {		
@@ -682,6 +680,8 @@ class FormDesigner_QLabel from QLabel
 
 	nX nY lPress oFilter	# Movement Event 
 
+	lResize  nResizeMode			# Resize Event
+
 	func TextColor
 		return cTextColor
 
@@ -780,15 +780,55 @@ class FormDesigner_QLabel from QLabel
 			DisplayProperties(oDesigner) 
 		}
 
-	Func MousePress
+	func MousePress
 	        lPress = True
+		lResize = False
+		nResizeMode = 0
         	nX = oFilter.getglobalx()
 	        ny = oFilter.getglobaly()
 
-	Func MouseRelease
+	func MouseRelease
 	        lPress = False
+		lResize = False
+		nResizeMode = 0
+		setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
 
-	Func MouseMove
+	func MouseMove
+
+		# Resize Event
+			nXPos =  oFilter.getx()	
+			nYPos = ofilter.gety() 
+			if nResizeMode = 0 {
+			if nXPos < 5 {
+				if nYPos < 5 {	# Top + Left
+					setCursor(new qCursor() { setShape(Qt_SizeFDiagCursor) } )
+					nResizeMode = 1
+				elseif nYPos > Height() - 5	# Left + Bottom
+					setCursor(new qCursor() { setShape(Qt_SizeBDiagCursor) } )
+					nResizeMode = 3
+				else 			# Left 
+					setCursor(new qCursor() { setShape(Qt_SizeHorCursor) } )
+					nResizeMode = 2
+				}
+				lResize = True
+			}
+			}
+			if lResize {
+				switch nResizeMode {
+					case 1	# Top+Left
+						move(x()+nXPos,y()+nYPos)
+						resize(width() + (-1) * nXPos , height() + (-1) * nYPos)
+					case 2	# Left
+						move(x()+nXPos,y())
+						resize(width() + (-1) * nXPos , height() )
+					case 3	# Left + Bottom 
+						move(x()+ nXPos,y())
+						resize(width() + (-1) *  nXPos , nYPos)
+				}
+				return 
+			}
+
+		# Move Event
 		nX2 = oFilter.getglobalx()
 		ny2 = oFilter.getglobaly()
 		ndiffx = nX2 - nX
