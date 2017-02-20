@@ -79,8 +79,9 @@ Class FormDesignerController from WindowsControllerParent
 
 	func MousePressAction
 		oModel.FormObject().MousePressAction(self)
-		if oView.oToolBtn1.ischecked() {
-			oView.oObjectsCombo.setcurrentindex(0)  # Activate the Window Object 
+		if oView.oToolBtn1.ischecked() {	# Select Mode
+			# Activate the Window Object 
+			oView.oObjectsCombo.setcurrentindex(0)  
 		}
 		oView.oFilter.seteventoutput(False)
 
