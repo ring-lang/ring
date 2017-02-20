@@ -703,7 +703,7 @@ class FormDesigner_QLabel from QLabel
 	cBackColor = ""
 	cFontProperty = ""
 
-	nX nY lPress=False oFilter	# Movement Event 
+	nX nY lPress=False oFilter   lMoveEvent=False	# Movement Event 
 
 	lResize=False  nResizeMode=0			# Resize Event
 
@@ -807,6 +807,7 @@ class FormDesigner_QLabel from QLabel
 
 	func MousePress oDesigner
 	        lPress = True
+		lMoveEvent=False
 		lResize = False
 		nResizeMode = 0
         	nX = oFilter.getglobalx()
@@ -815,6 +816,7 @@ class FormDesigner_QLabel from QLabel
 
 	func MouseRelease oDesigner
 	        lPress = False
+		lMoveEvent=False
 		lResize = False
 		nResizeMode = 0
 		setCursor(oDesigner.oGeneral.oCursorA())
@@ -823,7 +825,7 @@ class FormDesigner_QLabel from QLabel
 		# Resize Event
 			nXPos =  oFilter.getx()	
 			nYPos = ofilter.gety() 
-			if nResizeMode = 0 or lPress = False {
+			if (nResizeMode = 0 or lPress = False) and lMoveEvent=False  {
 				if nXPos < 5 {
 					if nYPos < 5 {	# Top + Left
 						setCursor(oDesigner.oGeneral.oCursorF() )
@@ -865,7 +867,7 @@ class FormDesigner_QLabel from QLabel
 				}
 			}
 
-			if lResize and lPress {
+			if lResize and lPress and lMoveEvent=False {
 				switch nResizeMode {
 					case 1	# Top+Left
 						move(x()+nXPos,y()+nYPos)
@@ -897,6 +899,7 @@ class FormDesigner_QLabel from QLabel
 
 		# Move Event
 		if lPress {
+			lMoveEvent=True	
 			nX2 = oFilter.getglobalx()
 			ny2 = oFilter.getglobaly()
 			ndiffx = nX2 - nX
