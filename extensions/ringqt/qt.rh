@@ -67,16 +67,6 @@ Qt_PartiallyChecked = 1
 Qt_Checked = 2
 
 
-Qt_Key_Escape = dec("1000000")	 
-Qt_Key_Tab = dec("1000001")	 
-Qt_Key_Backtab  = dec("1000002")	 
-Qt_Key_Backspace= dec("1000003") 
-Qt_Key_Return = dec("1000004")
-Qt_Key_Enter  = dec("1000005")
-Qt_Key_Insert = dec("1000006")	 
-Qt_Key_Delete = dec("1000007")	 
-Qt_Key_Pause  = dec("1000008")
-
 QDockWidget_DocWidgetClosable = 1
 QDockWidget_DockWidgetMovable = 2
 QDockWidget_DockWidgetFloatable = 4
@@ -267,3 +257,28 @@ Qt_DragMoveCursor	=	20
 Qt_DragCopyCursor	=	19
 Qt_DragLinkCursor	=	21
 Qt_BitmapCursor		=	24	
+
+
+Qt_Key_Escape = dec("1000000")	 
+Qt_Key_Tab = dec("1000001")	 
+Qt_Key_Backtab  = dec("1000002")	 
+Qt_Key_Backspace= dec("1000003") 
+Qt_Key_Return = dec("1000004")
+Qt_Key_Enter  = dec("1000005")
+Qt_Key_Insert = dec("1000006")	 
+Qt_Key_Delete = dec("1000007")	 
+Qt_Key_Pause  = dec("1000008")
+
+Qt_Key_Print	= dec("01000009")
+Qt_Key_SysReq	= dec("0100000a")
+Qt_Key_Clear	= dec("0100000b")	 
+Qt_Key_Home	= dec("01000010")
+Qt_Key_End	= dec("01000011")
+Qt_Key_Left	= dec("01000012")
+Qt_Key_Up	= dec("01000013")
+Qt_Key_Right	= dec("01000014")
+Qt_Key_Down	= dec("01000015")
+Qt_Key_PageUp	= dec("01000016")
+Qt_Key_PageDown	= dec("01000017")
+Qt_Key_Shift	= dec("01000020")
+Qt_Key_Control	= dec("01000021")
