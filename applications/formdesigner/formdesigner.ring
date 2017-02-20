@@ -81,7 +81,7 @@ Class FormDesignerController from WindowsControllerParent
 		oModel.FormObject().MousePressAction(self)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			# Activate the Window Object 
-			oView.oObjectsCombo.setcurrentindex(0)  
+			ChangeObjectByCode(0)
 		}
 		oView.oFilter.seteventoutput(False)
 
@@ -123,9 +123,16 @@ Class FormDesignerController from WindowsControllerParent
 		oModel.nActiveObject = nIndex + 1
 		ObjectProperties()
 
+	func ChangeObjectByCode nIndex 
+		oView.oObjectsCombo.blocksignals(True)
+		oView.oObjectsCombo.setcurrentindex(nIndex)  
+		oModel.nActiveObject = nIndex + 1
+		ObjectProperties()
+		oView.oObjectsCombo.blocksignals(False)
+
 	func ActiveObjectMousePress nObjectIndex
 		if oView.oToolBtn1.ischecked() {	# Select Mode
-			oView.oObjectsCombo.setcurrentindex(nObjectIndex-1)  
+			ChangeObjectByCode(nObjectIndex-1)  
 			oModel.ActiveObject().MousePress()
 		}
 
