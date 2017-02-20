@@ -88,6 +88,7 @@ Class FormDesignerController from WindowsControllerParent
 		oView.oFilter.seteventoutput(False)
 
 	func DialogButtonAction nRow 
+		oView.oToolBtn1.setChecked(2)
 		oModel.ActiveObject().DialogButtonAction(self,nRow)
 
 	func SelectDrawAction aRect 
