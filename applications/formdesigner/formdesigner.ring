@@ -172,7 +172,21 @@ Class FormDesignerController from WindowsControllerParent
 						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  - 10)
 					case Qt_Key_Down
 						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  + 10)
-				}			
+				}	
+			case 33554432	# Shift	
+				switch nkey {
+					case Qt_Key_Right
+						oModel.ActiveObject().resize( oModel.ActiveObject().width() + 10 , oModel.ActiveObject().height() )
+					case Qt_Key_Left
+						oModel.ActiveObject().move( oModel.ActiveObject().x() - 10 , oModel.ActiveObject().y() )
+						oModel.ActiveObject().resize( oModel.ActiveObject().width() + 10 , oModel.ActiveObject().height() )
+					case Qt_Key_Up
+						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  - 10)
+						oModel.ActiveObject().resize( oModel.ActiveObject().width()  , oModel.ActiveObject().height() + 10)
+					case Qt_Key_Down
+						oModel.ActiveObject().resize( oModel.ActiveObject().width()  , oModel.ActiveObject().height() + 10)
+				}	
+
 		}
 
 	func NewAction
@@ -261,6 +275,7 @@ Class FormDesignerView from WindowsViewParent
 		oFilter.setMouseMoveEvent(Method(:MouseMoveAction))
 		oFilter.setKeyPressevent(Method(:KeyPressAction))
                 oSub.installeventfilter(oFilter)
+		oSub.	setFocusPolicy(2)	
 
 	func CreateMenuBar
 		menu1 = new qmenubar(win) {		
