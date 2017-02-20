@@ -181,7 +181,9 @@ Class QWidget from QObject
 		return QWidget_contextMenuPolicy(pObject)
 
 	Func cursor 
-		return QWidget_cursor(pObject)
+		pTempObj = new QCursor
+		pTempObj.pObject = QWidget_cursor(pObject)
+		return pTempObj
 
 	Func effectiveWinId 
 		return QWidget_effectiveWinId(pObject)
@@ -14396,6 +14398,43 @@ Class QMdiSubWindow from QWidget
 
 	Func showSystemMenu 
 		return QMdiSubWindow_showSystemMenu(pObject)
+
+Class QCursor
+
+	pObject
+
+	Func init 
+		pObject = QCursor_new()
+		return self
+
+	Func delete
+		pObject = QCursor_delete(pObject)
+
+	Func bitmap 
+		pTempObj = new QBitmap
+		pTempObj.pObject = QCursor_bitmap(pObject)
+		return pTempObj
+
+	Func hotSpot 
+		pTempObj = new QPoint
+		pTempObj.pObject = QCursor_hotSpot(pObject)
+		return pTempObj
+
+	Func mask 
+		pTempObj = new QBitmap
+		pTempObj.pObject = QCursor_mask(pObject)
+		return pTempObj
+
+	Func pixmap 
+		pTempObj = new QPixmap
+		pTempObj.pObject = QCursor_pixmap(pObject)
+		return pTempObj
+
+	Func setShape P1
+		return QCursor_setShape(pObject,P1)
+
+	Func shape 
+		return QCursor_shape(pObject)
 
 Class QPixmap2 from QPixmap
 
