@@ -106,7 +106,6 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.AddLabel(new FormDesigner_QLabel(oModel.FormObject()) {
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
-					setMouseTracking(True)
 				}
 			)
 			oFilter = new qAllevents(oModel.ActiveObject()) {
@@ -138,17 +137,17 @@ Class FormDesignerController from WindowsControllerParent
 	func ActiveObjectMousePress nObjectIndex
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			ChangeObjectByCode(nObjectIndex-1)  
-			oModel.ActiveObject().MousePress()
+			oModel.ActiveObject().MousePress(self)
 		}
 
 	func ActiveObjectMouseRelease nObjectIndex
 		if oView.oToolBtn1.ischecked() {	# Select Mode
-			oModel.ActiveObject().MouseRelease()
+			oModel.ActiveObject().MouseRelease(self)
 		}
 
 	func ActiveObjectMouseMove nObjectIndex
 		if oView.oToolBtn1.ischecked() {	# Select Mode
-			oModel.ActiveObject().MouseMove()
+			oModel.ActiveObject().MouseMove(self)
 		}
 
 	func ChangeToolBoxAction
@@ -550,6 +549,31 @@ Class FormDesignerModel
 
 Class FormDesignerGeneral
 
+	func oCursorA
+		oCursor =  new qCursor() 
+		oCursor.setShape(Qt_ArrowCursor) 
+		return oCursor 
+
+	func oCursorF 	
+		oCursor =  new qCursor() 
+		oCursor.setShape(Qt_SizeFDiagCursor) 
+		return oCursor 
+
+	func oCursorB 
+		oCursor =  new qCursor() 
+		oCursor.setShape(Qt_SizeBDiagCursor) 
+		return oCursor 
+
+	func oCursorH 
+		oCursor =  new qCursor()
+		oCursor.setShape(Qt_SizeHorCursor) 
+		return oCursor 
+
+	func oCursorV 
+		oCursor =  new qCursor()  
+		oCursor.setShape(Qt_SizeVerCursor) 
+		return oCursor 
+
 	func SelectColor
 		oColor = new qColorDialog()
 		aColor = oColor.GetColor()
@@ -781,63 +805,63 @@ class FormDesigner_QLabel from QLabel
 			DisplayProperties(oDesigner) 
 		}
 
-	func MousePress
+	func MousePress oDesigner
 	        lPress = True
 		lResize = False
 		nResizeMode = 0
         	nX = oFilter.getglobalx()
 	        ny = oFilter.getglobaly()
+		setCursor(oDesigner.oGeneral.oCursorA())
 
-	func MouseRelease
+	func MouseRelease oDesigner
 	        lPress = False
 		lResize = False
 		nResizeMode = 0
-		#setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
+		setCursor(oDesigner.oGeneral.oCursorA())
 
-	func MouseMove
-
+	func MouseMove oDesigner
 		# Resize Event
 			nXPos =  oFilter.getx()	
 			nYPos = ofilter.gety() 
 			if nResizeMode = 0 or lPress = False {
 				if nXPos < 5 {
 					if nYPos < 5 {	# Top + Left
-						setCursor(new qCursor() { setShape(Qt_SizeFDiagCursor) } )
+						setCursor(oDesigner.oGeneral.oCursorF() )
 						nResizeMode = 1
 					elseif nYPos > Height() - 5	# Left + Bottom
-						setCursor(new qCursor() { setShape(Qt_SizeBDiagCursor) } )
+						setCursor(oDesigner.oGeneral.oCursorB() )
 						nResizeMode = 2
 					else 			# Left 
-						setCursor(new qCursor() { setShape(Qt_SizeHorCursor) } )
+						setCursor(oDesigner.oGeneral.oCursorH() )
 						nResizeMode = 3
 					}
 					lResize = True
 				elseif nYPos < 5 		
 					if nXPos > Width() - 5 {	# Top+Width
-						setCursor(new qCursor() { setShape(Qt_SizeBDiagCursor) } )
+						setCursor(oDesigner.oGeneral.oCursorB() )
 						nResizeMode = 4
 					else					# Top 
-						setCursor(new qCursor() { setShape(Qt_SizeVerCursor) } )
+						setCursor(oDesigner.oGeneral.oCursorV() )
 						nResizeMode = 5
 					}
 					if lPress { 	lResize = True } 
 				elseif nYPos > Height() - 5		 
 					if nXPos > Width() - 5 {	# Bottom+Width
-						setCursor(new qCursor() { setShape(Qt_SizeFDiagCursor) } )
+						setCursor(oDesigner.oGeneral.oCursorF() )
 						nResizeMode = 6
 					else					# Bottom 
-						setCursor(new qCursor() { setShape(Qt_SizeVerCursor) } )
+						setCursor(oDesigner.oGeneral.oCursorV())
 						nResizeMode = 7
 					}
 					if lPress { 	lResize = True } 
 				elseif nXPos > Width() - 5		# Left+Width
-					setCursor(new qCursor() { setShape(Qt_SizeHorCursor) } )
+					setCursor(oDesigner.oGeneral.oCursorH() )
 					nResizeMode = 8
 					if lPress { 	lResize = True } 
 				else
  					lResizeMode = 0
 					lResize = False				
-					setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
+					setCursor(oDesigner.oGeneral.oCursorA())
 				}
 			}
 
