@@ -820,6 +820,15 @@ class FormDesigner_QLabel from QLabel
 						nResizeMode = 5
 					}
 					lResize = True
+				elseif nYPos > Height() - 5		 
+					if nXPos > Width() - 5 {	# Bottom+Width
+						setCursor(new qCursor() { setShape(Qt_SizeFDiagCursor) } )
+						nResizeMode = 6
+					else					# Bottom 
+						setCursor(new qCursor() { setShape(Qt_SizeVerCursor) } )
+						nResizeMode = 7
+					}
+					lResize = True
 				}
 			}
 			if lResize {
@@ -839,6 +848,12 @@ class FormDesigner_QLabel from QLabel
 					case 5	# Top
 						move(x(), y() + nYPos)
 						resize(width() , height() + (-1) *  nYPos )
+					case 6	# Bottom+Width
+						move(x(), y())
+						resize(nXPos , nYPos )
+					case 7	# Bottom
+						move(x(), y() )
+						resize(width() , nYPos )
 
 				}
 				return 
