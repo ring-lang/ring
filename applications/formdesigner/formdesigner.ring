@@ -59,8 +59,12 @@ Class FormDesignerController from WindowsControllerParent
 	func DisplayObjectProperties 
 		oModel.ActiveObject().DisplayProperties(self)	
 
-	func UpdateProperties
+	func SetToolboxModeToSelect
 		oView.oToolBtn1.setChecked(2)
+		ChangeToolBoxAction()
+	
+	func UpdateProperties
+		SetToolboxModeToSelect()
 		nRow = oView.oPropertiesTable.Currentrow()
 		nCol = oView.oPropertiesTable.Currentcolumn() 
 		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
@@ -68,13 +72,13 @@ Class FormDesignerController from WindowsControllerParent
 
 	func ResizeWindowAction
 		oView.oLabelSelect.Hide()
-		oView.oToolBtn1.setChecked(2)
+		SetToolboxModeToSelect()
 		oModel.FormObject().DisplayProperties(self)	
 		oView.oFilter.seteventoutput(False)
 
 	func MoveWindowAction
 		oView.oLabelSelect.Hide()
-		oView.oToolBtn1.setChecked(2)
+		SetToolboxModeToSelect()
 		oModel.FormObject().DisplayProperties(self)	
 
 	func MousePressAction
@@ -94,7 +98,7 @@ Class FormDesignerController from WindowsControllerParent
 		oView.oFilter.seteventoutput(False)
 
 	func DialogButtonAction nRow 
-		oView.oToolBtn1.setChecked(2)
+		SetToolboxModeToSelect()
 		oModel.ActiveObject().DialogButtonAction(self,nRow)
 
 	func SelectDrawAction aRect 
@@ -144,6 +148,13 @@ Class FormDesignerController from WindowsControllerParent
 	func ActiveObjectMouseMove nObjectIndex
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			oModel.ActiveObject().MouseMove()
+		}
+
+	func ChangeToolBoxAction
+		if oView.oToolBtn1.ischecked() {	# Select Mode 
+			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
+		else
+			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_CrossCursor) } )
 		}
 
 	func NewAction
@@ -386,6 +397,7 @@ Class FormDesignerView from WindowsViewParent
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
+				setbuttonClickedEvent(Method(:ChangeToolBoxAction))
 				AddButton(this.oToolbtn1,0)
 				AddButton(this.oToolbtn2,1)
 				AddButton(this.oToolbtn3,2)
