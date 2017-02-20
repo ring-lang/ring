@@ -157,6 +157,24 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_CrossCursor) } )
 		}
 
+	func KeyPressAction
+		if oModel.IsFormActive() { return }
+		nKey = oView.oFilter.getkeycode()
+		nModifier = oView.oFilter.getmodifiers()
+		switch nModifier  {
+			case 	0 # No CTRL Key is pressed
+				switch nkey {
+					case Qt_Key_Right
+						oModel.ActiveObject().move( oModel.ActiveObject().x() + 10 , oModel.ActiveObject().y() )
+					case Qt_Key_Left
+						oModel.ActiveObject().move( oModel.ActiveObject().x() - 10 , oModel.ActiveObject().y() )
+					case Qt_Key_Up
+						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  - 10)
+					case Qt_Key_Down
+						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  + 10)
+				}			
+		}
+
 	func NewAction
 
 	func OpenAction
@@ -241,6 +259,7 @@ Class FormDesignerView from WindowsViewParent
 		oFilter.setMouseButtonPressEvent(Method(:MousePressAction))
 		oFilter.setMouseButtonReleaseEvent(Method(:MouseReleaseAction))
 		oFilter.setMouseMoveEvent(Method(:MouseMoveAction))
+		oFilter.setKeyPressevent(Method(:KeyPressAction))
                 oSub.installeventfilter(oFilter)
 
 	func CreateMenuBar
@@ -513,6 +532,9 @@ Class FormDesignerModel
 
 	func LabelsCount
 		return nLabelsCount
+
+	func IsFormActive
+		return nActiveObject = 1
 
 Class FormDesignerGeneral
 
