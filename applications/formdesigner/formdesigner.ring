@@ -799,31 +799,47 @@ class FormDesigner_QLabel from QLabel
 			nXPos =  oFilter.getx()	
 			nYPos = ofilter.gety() 
 			if nResizeMode = 0 {
-			if nXPos < 5 {
-				if nYPos < 5 {	# Top + Left
-					setCursor(new qCursor() { setShape(Qt_SizeFDiagCursor) } )
-					nResizeMode = 1
-				elseif nYPos > Height() - 5	# Left + Bottom
-					setCursor(new qCursor() { setShape(Qt_SizeBDiagCursor) } )
-					nResizeMode = 3
-				else 			# Left 
-					setCursor(new qCursor() { setShape(Qt_SizeHorCursor) } )
-					nResizeMode = 2
+				if nXPos < 5 {
+					if nYPos < 5 {	# Top + Left
+						setCursor(new qCursor() { setShape(Qt_SizeFDiagCursor) } )
+						nResizeMode = 1
+					elseif nYPos > Height() - 5	# Left + Bottom
+						setCursor(new qCursor() { setShape(Qt_SizeBDiagCursor) } )
+						nResizeMode = 2
+					else 			# Left 
+						setCursor(new qCursor() { setShape(Qt_SizeHorCursor) } )
+						nResizeMode = 3
+					}
+					lResize = True
+				elseif nYPos < 5 		
+					if nXPos > Width() - 5 {	# Top+Width
+						setCursor(new qCursor() { setShape(Qt_SizeBDiagCursor) } )
+						nResizeMode = 4
+					else					# Top 
+						setCursor(new qCursor() { setShape(Qt_SizeVerCursor) } )
+						nResizeMode = 5
+					}
+					lResize = True
 				}
-				lResize = True
-			}
 			}
 			if lResize {
 				switch nResizeMode {
 					case 1	# Top+Left
 						move(x()+nXPos,y()+nYPos)
 						resize(width() + (-1) * nXPos , height() + (-1) * nYPos)
-					case 2	# Left
-						move(x()+nXPos,y())
-						resize(width() + (-1) * nXPos , height() )
-					case 3	# Left + Bottom 
+					case 2	# Left + Bottom 
 						move(x()+ nXPos,y())
 						resize(width() + (-1) *  nXPos , nYPos)
+					case 3	# Left
+						move(x()+nXPos,y())
+						resize(width() + (-1) * nXPos , height() )
+					case 4	# Top+Width 
+						move(x(), y() + nYPos)
+						resize(   nXPos , height() + (-1) *  nYPos )
+					case 5	# Top
+						move(x(), y() + nYPos)
+						resize(width() , height() + (-1) *  nYPos )
+
 				}
 				return 
 			}
