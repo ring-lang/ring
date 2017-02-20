@@ -208,6 +208,7 @@ extern "C" {
 #include <QProcess>
 #include <QMdiArea>
 #include <QMdiSubWindow>
+#include <QCursor>
 #include "highlighter.h"
 
 extern "C" {
@@ -464,6 +465,7 @@ aEnumTypes + "QMdiArea::ViewMode"
 aEnumTypes + "QMdiArea::WindowOrder"
 aEnumTypes + "QMdiArea::AreaOption"
 aEnumTypes + "QMdiSubWindow::SubWindowOption"
+aEnumTypes + "Qt::CursorShape"
 $aMallocClassesList + "QModelIndex"
 
 </runcode>
@@ -6382,3 +6384,15 @@ QWidget * widget(void)
 
 void showShaded(void)
 void showSystemMenu(void)
+
+<class>
+name: QCursor
+para: void
+</class>
+
+QBitmap *bitmap(void)
+QPoint hotSpot(void)
+QBitmap *mask(void)
+QPixmap pixmap(void)
+void setShape(Qt::CursorShape shape)
+Qt::CursorShape shape(void)
