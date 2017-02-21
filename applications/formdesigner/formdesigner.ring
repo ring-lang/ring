@@ -151,7 +151,8 @@ Class FormDesignerController from WindowsControllerParent
 		if pointinbox(nX,nY,nSX,nSY,nSX2,nSY2) or 
 			pointinbox(nX,nY2,nSX,nSY,nSX2,nSY2) or 
 			pointinbox(nX2,nY,nSX,nSY,nSX2,nSY2) or 
-			pointinbox(nX2,nY2,nSX,nSY,nSX2,nSY2) {
+			pointinbox(nX2,nY2,nSX,nSY,nSX2,nSY2) or
+			IntersectionLikePlusOperator(nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2 ) { 
 			return True
 		}
 		return False 
@@ -161,6 +162,15 @@ Class FormDesignerController from WindowsControllerParent
 			return True
 		}
 		return False
+
+	func intersectionlikeplusOperator nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2 
+		if ( nY < nSY and nY2 >  nSY2 and 
+			nX > nSX and nX2 <  nSX2 ) or 
+		( nSY < nY and nSY2 > nY2 and 
+			nSX > nX and nSX2 <  nX2 )  {
+			return True
+		}
+		return False 
 
 	func CancelSelectedObjects
 		aObjects = oModel.getselectedObjects()
