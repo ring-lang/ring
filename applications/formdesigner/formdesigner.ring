@@ -131,7 +131,8 @@ Class FormDesignerController from WindowsControllerParent
 		nSX2 = nSX + aRect[3]
 		nSY2 = nSY + aRect[4]
 		aObjects = oModel.GetObjects() 
-		for item in aObjects {		
+		for x = 2 to len(aObjects) {	# Start from 2 to avoid the Form Object	
+			item = aObjects[x]
 			oObject = item[2]	
 			nX = oObject.x() 
 			nY = oObject.y()
