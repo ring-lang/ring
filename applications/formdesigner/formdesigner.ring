@@ -103,6 +103,7 @@ Class FormDesignerController from WindowsControllerParent
 
 	func SelectDrawAction aRect 
 		if oView.oToolBtn2.ischecked()  { # Create Label 
+			HideCorners()
 			oModel.AddLabel(new FormDesigner_QLabel(oModel.FormObject()) {
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
@@ -129,11 +130,23 @@ Class FormDesignerController from WindowsControllerParent
 		ObjectProperties()
 
 	func ChangeObjectByCode nIndex 
+		HideCorners()
 		oView.oObjectsCombo.blocksignals(True)
 		oView.oObjectsCombo.setcurrentindex(nIndex)  
 		oModel.nActiveObject = nIndex + 1
 		ObjectProperties()
 		oView.oObjectsCombo.blocksignals(False)
+		ShowCorners()
+
+	func HideCorners
+		if isattribute(oModel.activeObject(),"oCorners") {
+			oModel.activeObject().oCorners.Hide()
+		}
+
+	func ShowCorners
+		if isattribute(oModel.activeObject(),"oCorners") {
+			oModel.activeObject().oCorners.Show()
+		}
 
 	func ActiveObjectMousePress nObjectIndex
 		if oView.oToolBtn1.ischecked() {	# Select Mode
