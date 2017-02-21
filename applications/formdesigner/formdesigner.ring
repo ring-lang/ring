@@ -904,6 +904,7 @@ class FormDesigner_QLabel from QLabel
 						move(x(), y() )
 						resize(nXPos , height() )
 				}
+				oCorners.refresh(oDesigner.oModel.ActiveObject())
 				return false
 			}
 			return True 
@@ -919,6 +920,7 @@ class FormDesigner_QLabel from QLabel
 			move(x()+ndiffx,y()+ndiffy)
 			nX = nX2
 			ny = nY2
+			oCorners.refresh(oDesigner.oModel.ActiveObject())
 		}
 
 class ObjectCorners
@@ -954,3 +956,39 @@ class ObjectCorners
 			setStyleSheet("background-color:black;")
 			show()
 		}		
+
+	func refresh  oParent 
+
+		oCorner1  {
+			move(oParent.x(),oParent.y())
+			resize(5,5)
+		}		
+
+		oCorner2  {
+			move(oParent.x(),oParent.y()+oParent.height()-5)
+			resize(5,5)
+		}		
+
+		oCorner3  {
+			move(oParent.x()+oParent.Width()-5,oParent.y())
+			resize(5,5)
+		}		
+
+		oCorner4 {
+			move(oParent.x()+oParent.width()-5,oParent.y()+oParent.height()-5)
+			resize(5,5)
+		}		
+
+	func show
+
+		oCorner1.show()
+		oCorner2.show()
+		oCorner3.show()
+		oCorner4.show()
+
+	func hide 
+	
+		oCorner1.hide()
+		oCorner2.hide()
+		oCorner3.hide()
+		oCorner4.hide()
