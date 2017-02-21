@@ -514,6 +514,13 @@ Class FormDesignerController from WindowsControllerParent
 	func MSVerSpacingMakeEqual
 
 	func MSVerSpacingIncrease
+		aObjects = oModel.GetSelectedObjects()		 
+		for x = 2 to len(aObjects) {
+			item = aObjects[x]
+			oObject = item[2]
+			oObject.move(oObject.x() , oObject.y() + (10*(x-1))  )
+			oObject.oCorners.Refresh(oObject)
+		}
 
 	func MSVerSpacingDecrease
 
