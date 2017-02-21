@@ -548,6 +548,12 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSFont
+		cFont = oGeneral.SelectFont()
+		aObjects = oModel.GetSelectedObjects()		 
+		for item in aObjects {
+			oObject = item[2]
+			oObject.setFontProperty(cFont)
+		}
 
 	func NewAction
 
