@@ -451,6 +451,18 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSSizeToWidest
+		aObjects = oModel.GetSelectedObjects()
+		nWidth = 0
+		for item in aObjects {
+			oObject = item[2]
+			nWidth = max( nWidth , oObject.width() )
+		}
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( nWidth, oObject.Height() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
 
 	func MSSizeToNarrowest
 
