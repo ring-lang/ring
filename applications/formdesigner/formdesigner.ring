@@ -102,7 +102,9 @@ Class FormDesignerController from WindowsControllerParent
 		oModel.ActiveObject().DialogButtonAction(self,nRow)
 
 	func SelectDrawAction aRect 
-		if oView.oToolBtn2.ischecked()  { # Create Label 
+		if oView.oToolBtn1.ischecked()  { # Select
+			SelectObjects(aRect)
+		elseif oView.oToolBtn2.ischecked()   # Create Label 
 			HideCorners()
 			oModel.AddLabel(new FormDesigner_QLabel(oModel.FormObject()) {
 					move(aRect[1],aRect[2]) 
@@ -122,6 +124,38 @@ Class FormDesignerController from WindowsControllerParent
 			AddObjectsToCombo()
 			ObjectProperties()
 		}
+
+	func SelectObjects aRect
+		nSX = aRect[1]
+		nSY = aRect[2]
+		nSX2 = nSX + aRect[3]
+		nSY2 = nSY + aRect[4]
+		aObjects = oModel.GetObjects() 
+		for item in aObjects {		
+			oObject = item[2]	
+			nX = oObject.x() 
+			nY = oObject.y()
+			nX2 = nX + oObject.Width()
+			nY2 = nY + oObject.Height() 		
+			if Intersection(nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2) {
+				oObject.oCorners.Show()
+			}	 
+		}
+
+	func Intersection nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2 
+		if pointinbox(nX,nY,nSX,nSY,nSX2,nSY2) or 
+			pointinbox(nX,nY2,nSX,nSY,nSX2,nSY2) or 
+			pointinbox(nX2,nY,nSX,nSY,nSX2,nSY2) or 
+			pointinbox(nX2,nY2,nSX,nSY,nSX2,nSY2) {
+			return True
+		}
+		return False 
+
+	func pointinbox nX,nY,nSX,nSY,nSX2,nSY2 
+		if nX >= nSX and nX <= nSX2 and nY >= nSY and nY <= nSY2 {
+			return True
+		}
+		return False
 
 	func ChangeObjectAction
 		if oView.oObjectsCombo.count() = 0 { return }
