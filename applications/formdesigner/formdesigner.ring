@@ -107,6 +107,11 @@ Class FormDesignerController from WindowsControllerParent
 		if oView.oToolBtn1.ischecked()  { # Select
 			oModel.ClearSelectedObjects()
 			SelectObjects(aRect)
+			if oModel.IsManySelected() {
+				oView.oPropertiesDock.setWidget(oView.oProperties2)
+			else
+				oView.oPropertiesDock.setWidget(oView.oProperties)
+			}
 		elseif oView.oToolBtn2.ischecked()   # Create Label 
 			HideCorners()
 			oModel.AddLabel(new FormDesigner_QLabel(oModel.FormObject()) {
@@ -373,7 +378,10 @@ Class FormDesignerController from WindowsControllerParent
 
 Class FormDesignerView from WindowsViewParent
 
-	oForm oSub oFilter oArea win  oObjectsCombo 	oPropertiesTable oLabelSelect
+	oForm oSub oFilter oArea win  
+
+	oPropertiesDock oProperties oProperties2 
+	oObjectsCombo 	oPropertiesTable oLabelSelect
 
 	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
@@ -627,18 +635,18 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateProperties
 		oProperties = new qWidget() {
-			oLabelObject = new qLabel(oProperties) {
+			oLabelObject = new qLabel(this.oProperties) {
 				setText("Object")
 				setMaximumWidth(50)
 			}
-			this.oObjectsCombo = new qCombobox(oProperties) {
+			this.oObjectsCombo = new qCombobox(this.oProperties) {
 				setcurrentIndexChangedEvent(Method(:ChangeObjectAction))
 			}
 			oLayout1 = new qHBoxlayout() {
 				AddWidget(oLabelObject)
 				AddWidget(this.oObjectsCombo)
 			}
-			this.oPropertiesTable = new qTableWidget(oProperties) {				
+			this.oPropertiesTable = new qTableWidget(this.oProperties) {				
 				setrowcount(0)
 				setcolumncount(3)
 				setselectionbehavior(QAbstractItemView_SelectRows)
@@ -657,9 +665,97 @@ Class FormDesignerView from WindowsViewParent
 			}
 			setLayout(oLayout2)
 		}
+		oProperties2 = new qWidget() {
+			oLabel = new qLabel(this.oProperties2) {
+				setText("Multiple Selection")
+				setalignment(Qt_AlignHCenter |  Qt_AlignVCenter )
+				setStylesheet("color:White;background-color:purple;")
+			}
+			oBtn1 = new qPushbutton(this.oProperties2) {
+				setText("Align - Left Sides")
+			}
+			oBtn2 = new qPushbutton(this.oProperties2) {
+				setText("Align - Right Sides")
+			}
+			oBtn3 = new qPushbutton(this.oProperties2) {
+				setText("Align - Top Sides")
+			}
+			oBtn4 = new qPushbutton(this.oProperties2) {
+				setText("Align - Bottom Sides")
+			}
+			oBtn5 = new qPushbutton(this.oProperties2) {
+				setText("Center Vertically")
+			}
+			oBtn6 = new qPushbutton(this.oProperties2) {
+				setText("Center Horizontally")
+			}
+			oBtn7 = new qPushbutton(this.oProperties2) {
+				setText("Size - To Tallest")
+			}
+			oBtn8 = new qPushbutton(this.oProperties2) {
+				setText("Size - To Shortest")
+			}
+			oBtn9 = new qPushbutton(this.oProperties2) {
+				setText("Size - To Widest")
+			}
+			oBtn10 = new qPushbutton(this.oProperties2) {
+				setText("Size - To Narrowest")
+			}
+			oBtn11 = new qPushbutton(this.oProperties2) {
+				setText("Horizontal Spacing - Make Equal")
+			}
+			oBtn12 = new qPushbutton(this.oProperties2) {
+				setText("Horizontal Spacing - Increase")
+			}
+			oBtn13 = new qPushbutton(this.oProperties2) {
+				setText("Horizontal Spacing - Decrease")
+			}
+			oBtn14 = new qPushbutton(this.oProperties2) {
+				setText("Vertical Spacing - Make Equal")
+			}
+			oBtn15 = new qPushbutton(this.oProperties2) {
+				setText("Vertical Spacing - Increase")
+			}
+			oBtn16 = new qPushbutton(this.oProperties2) {
+				setText("Vertical Spacing - Decrease")
+			}
+			oBtn17 = new qPushbutton(this.oProperties2) {
+				setText("Text Color")
+			}
+			oBtn18 = new qPushbutton(this.oProperties2) {
+				setText("Back Color")
+			}
+			oBtn19 = new qPushbutton(this.oProperties2) {
+				setText("Font")
+			}
+			oLayout = new qVBoxLayout() {
+				AddWidget(oLabel)
+				AddWidget(oBtn1)
+				AddWidget(oBtn2)
+				AddWidget(oBtn3)
+				AddWidget(oBtn4)
+				AddWidget(oBtn5)
+				AddWidget(oBtn6)
+				AddWidget(oBtn7)
+				AddWidget(oBtn8)
+				AddWidget(oBtn9)
+				AddWidget(oBtn10)
+				AddWidget(oBtn11)
+				AddWidget(oBtn12)
+				AddWidget(oBtn13)
+				AddWidget(oBtn14)
+				AddWidget(oBtn15)
+				AddWidget(oBtn16)
+				AddWidget(oBtn17)
+				AddWidget(oBtn18)
+				AddWidget(oBtn19)
+				insertStretch( -1, 1 )
+			}
+			setLayout(oLayout)		
+		}
 		oPropertiesDock = new qDockWidget(NULL,0) {
 			setWindowTitle("Properties")
-			setWidget(oProperties)
+			setWidget(this.oProperties)
 		}
 		win.Adddockwidget(2,oPropertiesDock,2)
 
