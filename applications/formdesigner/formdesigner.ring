@@ -37,7 +37,7 @@ Class FormDesignerController from WindowsControllerParent
 		oView.oObjectsCombo.blocksignals(True)
 		oView.oObjectsCombo.Clear()
 		aObjects = oModel.GetObjects() 
-		for item in aObjects {
+		for item in aObjects {			
 			oView.oObjectsCombo.AddItem(item[1],0)
 		}
 		oView.oObjectsCombo.setcurrentindex(len(aObjects)-1)
@@ -110,9 +110,9 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oFilter = new qAllevents(oModel.ActiveObject()) {
-				setmousebuttonpressevent(Method(:ActiveObjectMousePress+"("+this.oModel.nActiveObject+")"))
-				setMouseButtonReleaseEvent(Method(:ActiveObjectMouseRelease+"("+this.oModel.nActiveObject+")")) 
-				setMouseMoveEvent(Method(:ActiveObjectMouseMove+"("+this.oModel.nActiveObject+")"))
+				setmousebuttonpressevent(Method(:ActiveObjectMousePress+"("+this.oModel.GetCurrentID()+")"))
+				setMouseButtonReleaseEvent(Method(:ActiveObjectMouseRelease+"("+this.oModel.GetCurrentID()+")")) 
+				setMouseMoveEvent(Method(:ActiveObjectMouseMove+"("+this.oModel.GetCurrentID()+")"))
 			}
 			oModel.ActiveObject().installeventfilter(oFilter)
 			oModel.ActiveObject().oFilter = oFilter
@@ -148,18 +148,19 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.activeObject().oCorners.Show()
 		}
 
-	func ActiveObjectMousePress nObjectIndex
+	func ActiveObjectMousePress nObjectID
+		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			ChangeObjectByCode(nObjectIndex-1)  
 			oModel.ActiveObject().MousePress(self)
 		}
 
-	func ActiveObjectMouseRelease nObjectIndex
+	func ActiveObjectMouseRelease nObjectID
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			oModel.ActiveObject().MouseRelease(self)
 		}
 
-	func ActiveObjectMouseMove nObjectIndex
+	func ActiveObjectMouseMove nObjectID
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			oModel.ActiveObject().MouseMove(self)
 		}
@@ -191,6 +192,7 @@ Class FormDesignerController from WindowsControllerParent
 						oModel.ActiveObject().close() 
 						oModel.deleteactiveObject()
 						ShowCorners()
+						AddObjectsToCombo()
 				}	
 			case 33554432	# Shift	
 				switch nkey {
@@ -538,14 +540,20 @@ Class FormDesignerView from WindowsViewParent
 Class FormDesignerModel
 
 	aObjectsList = []
-
 	nActiveObject = 0
-
 	nLabelsCount = 0
+	nIDCounter = 0
 
 	func AddObject cName,oObject
-		aObjectsList + [cName,oObject]
+		nIDCounter++
+		aObjectsList + [cName,oObject,nIDCounter]
 		nActiveObject = len(aObjectsList)
+
+	func getCurrentID
+		return nIDCounter
+
+	func IDToIndex nID
+		return find(aObjectsList,nID,3)
 
 	func GetObjects
 		return aObjectsList
@@ -570,8 +578,7 @@ Class FormDesignerModel
 		return nActiveObject = 1
 
 	func DeleteActiveObject	
-		aObjectsList[nActiveObject][1] = NULL
-		aObjectsList[nActiveObject][2] = NULL
+		del(aObjectsList,nActiveObject)
 		nActiveObject = 1
 
 Class FormDesignerGeneral
