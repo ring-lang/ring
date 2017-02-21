@@ -9152,6 +9152,9 @@ Class QAllEvents from QWidget
 	Func setWindowUnblockedEvent P1
 		return QAllEvents_setWindowUnblockedEvent(pObject,P1)
 
+	Func setPaintEvent P1
+		return QAllEvents_setPaintEvent(pObject,P1)
+
 	Func getKeyPressEvent 
 		return QAllEvents_getKeyPressEvent(pObject)
 
@@ -9232,6 +9235,9 @@ Class QAllEvents from QWidget
 
 	Func getWindowUnblockedEvent 
 		return QAllEvents_getWindowUnblockedEvent(pObject)
+
+	Func getPaintEvent 
+		return QAllEvents_getPaintEvent(pObject)
 
 	Func setEventOutput P1
 		return QAllEvents_setEventOutput(pObject,P1)
