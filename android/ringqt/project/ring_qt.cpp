@@ -51437,6 +51437,27 @@ RING_FUNC(ring_QAllEvents_setWindowUnblockedEvent)
 }
 
 
+RING_FUNC(ring_QAllEvents_setPaintEvent)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPaintEvent(RING_API_GETSTRING(2));
+}
+
+
 RING_FUNC(ring_QAllEvents_getKeyPressEvent)
 {
 	GAllEvents *pObject ;
@@ -51893,6 +51914,23 @@ RING_FUNC(ring_QAllEvents_getWindowUnblockedEvent)
 	}
 	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
 	RING_API_RETSTRING(pObject->getWindowUnblockedEvent());
+}
+
+
+RING_FUNC(ring_QAllEvents_getPaintEvent)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getPaintEvent());
 }
 
 
@@ -86896,6 +86934,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qallevents_setwindowdeactivateevent",ring_QAllEvents_setWindowDeactivateEvent);
 	ring_vm_funcregister("qallevents_setwindowstatechangeevent",ring_QAllEvents_setWindowStateChangeEvent);
 	ring_vm_funcregister("qallevents_setwindowunblockedevent",ring_QAllEvents_setWindowUnblockedEvent);
+	ring_vm_funcregister("qallevents_setpaintevent",ring_QAllEvents_setPaintEvent);
 	ring_vm_funcregister("qallevents_getkeypressevent",ring_QAllEvents_getKeyPressEvent);
 	ring_vm_funcregister("qallevents_getmousebuttonpressevent",ring_QAllEvents_getMouseButtonPressEvent);
 	ring_vm_funcregister("qallevents_getmousebuttonreleaseevent",ring_QAllEvents_getMouseButtonReleaseEvent);
@@ -86923,6 +86962,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qallevents_getwindowdeactivateevent",ring_QAllEvents_getWindowDeactivateEvent);
 	ring_vm_funcregister("qallevents_getwindowstatechangeevent",ring_QAllEvents_getWindowStateChangeEvent);
 	ring_vm_funcregister("qallevents_getwindowunblockedevent",ring_QAllEvents_getWindowUnblockedEvent);
+	ring_vm_funcregister("qallevents_getpaintevent",ring_QAllEvents_getPaintEvent);
 	ring_vm_funcregister("qallevents_seteventoutput",ring_QAllEvents_setEventOutput);
 	ring_vm_funcregister("qallevents_getparentobject",ring_QAllEvents_getParentObject);
 	ring_vm_funcregister("qallevents_getparentwidget",ring_QAllEvents_getParentWidget);

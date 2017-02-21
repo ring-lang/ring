@@ -58,6 +58,7 @@ class GAllEvents : public QWidget
     char cWindowDeactivateEvent[100];
     char cWindowStateChangeEvent[100];
     char cWindowUnblockedEvent[100];
+    char cPaintEvent[100];
 
     bool lEventOutput ;	
 
@@ -110,6 +111,7 @@ class GAllEvents : public QWidget
     void setWindowDeactivateEvent(const char *cStr);
     void setWindowStateChangeEvent(const char *cStr);
     void setWindowUnblockedEvent(const char *cStr);
+    void setPaintEvent(const char *cStr);
 
     const char *getKeyPressEvent(void);
     const char *getMouseButtonPressEvent(void);
@@ -138,6 +140,7 @@ class GAllEvents : public QWidget
     const char *getWindowDeactivateEvent(void);
     const char *getWindowStateChangeEvent(void);
     const char *getWindowUnblockedEvent(void);
+    const char *getPaintEvent(void);
 
     void setEventOutput(bool x);
 
@@ -174,6 +177,7 @@ class GAllEvents : public QWidget
     void callWindowDeactivateEvent(void);
     void callWindowStateChangeEvent(void);
     void callWindowUnblockedEvent(void);
+    void callPaintEvent(void);
 	
 };
 

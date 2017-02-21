@@ -37,6 +37,7 @@ GAllEvents::GAllEvents(QWidget *parent,VM *pVM)  : QWidget()
 	strcpy(this->cWindowDeactivateEvent,"");
 	strcpy(this->cWindowStateChangeEvent,"");
 	strcpy(this->cWindowUnblockedEvent,"");
+	strcpy(this->cPaintEvent,"");
 	this->lEventOutput = true ;
 }
 
@@ -158,6 +159,10 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
     	}
         else if ((event->type() == QEvent::WindowUnblocked) && (strcmp(this->cWindowUnblockedEvent,"")!=0) ) {
 		this->callWindowUnblockedEvent();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::Paint) && (strcmp(this->cPaintEvent,"")!=0) ) {
+		this->callPaintEvent();
  		return this->lEventOutput;
     	}
 
@@ -580,6 +585,19 @@ void GAllEvents::callWindowUnblockedEvent(void)
 	ring_vm_runcode(this->pVM,this->cWindowUnblockedEvent);
 }
 
+void GAllEvents::setPaintEvent(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cPaintEvent,cStr);
+}
+
+void GAllEvents::callPaintEvent(void)
+{
+	if (strcmp(this->cPaintEvent,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cPaintEvent);
+}
+
 const char *GAllEvents::getKeyPressEvent(void)
 {
 	return this->cKeyPressEvent  ;
@@ -713,6 +731,11 @@ const char *GAllEvents::getWindowStateChangeEvent(void)
 const char *GAllEvents::getWindowUnblockedEvent(void)
 {
 	return this->cWindowUnblockedEvent  ;
+}
+
+const char *GAllEvents::getPaintEvent(void)
+{
+	return this->cPaintEvent  ;
 }
 
 void GAllEvents::setEventOutput(bool x)
