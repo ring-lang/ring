@@ -505,7 +505,6 @@ Class FormDesignerController from WindowsControllerParent
 			oObject.oCorners.Refresh(oObject)
 		}
 
-
 	func MSHorSpacingIncrease
 		aObjects = oModel.GetSelectedObjects()		 
 		for x = 2 to len(aObjects) {
@@ -526,6 +525,19 @@ Class FormDesignerController from WindowsControllerParent
 
 
 	func MSVerSpacingMakeEqual
+		aObjects = oModel.GetSelectedObjects()		
+		nLastTop = 0 
+		for x = 1 to len(aObjects) {
+			item = aObjects[x]
+			oObject = item[2]
+			if x = 1 {
+				nLastTop = oObject.y() + oObject.Height() + 10
+				loop 
+			}
+			oObject.move( oObject.x() , nLastTop )
+			nLastTop = oObject.y() + oObject.Height() + 10
+			oObject.oCorners.Refresh(oObject)
+		}
 
 	func MSVerSpacingIncrease
 		aObjects = oModel.GetSelectedObjects()		 
