@@ -536,7 +536,7 @@ Class FormDesignerController from WindowsControllerParent
 		aObjects = oModel.GetSelectedObjects()		 
 		for item in aObjects {
 			oObject = item[2]
-			oObject.setTextColor(cColor)
+			oModel.GetObjectByID(item[3]).setTextColor(cColor)
 		}
 	
 	func MSBackColor
@@ -544,7 +544,7 @@ Class FormDesignerController from WindowsControllerParent
 		aObjects = oModel.GetSelectedObjects()		 
 		for item in aObjects {
 			oObject = item[2]
-			oObject.setBackColor(cColor)
+			oModel.GetObjectByID(item[3]).setBackColor(cColor)
 		}
 
 	func MSFont
@@ -552,7 +552,7 @@ Class FormDesignerController from WindowsControllerParent
 		aObjects = oModel.GetSelectedObjects()		 
 		for item in aObjects {
 			oObject = item[2]
-			oObject.setFontProperty(cFont)
+			oModel.GetObjectByID(item[3]).setFontProperty(cFont)
 		}
 
 	func NewAction
@@ -1019,6 +1019,9 @@ Class FormDesignerModel
 
 	func GetObjectByIndex nIndex 
 		return aObjectsList[nIndex][2]
+
+	func GetObjectByID nID
+		return GetObjectByIndex(IDToIndex(nID))
 
 	func FormObject
 		return aObjectsList[1][2]
