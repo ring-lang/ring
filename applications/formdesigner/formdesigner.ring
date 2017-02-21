@@ -117,6 +117,7 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.ActiveObject().oFilter = oFilter
 			oModel.ActiveObject().setText("Label"+oModel.LabelsCount())
 			oModel.ActiveObject().Show()
+			oModel.ActiveObject().CreateCorners()
 			AddObjectsToCombo()
 			ObjectProperties()
 		}
@@ -707,6 +708,11 @@ class FormDesigner_QLabel from QLabel
 
 	lResize=False  nResizeMode=0			# Resize Event
 
+	oCorners		# Resize Labels
+
+	func CreateCorners
+		oCorners = new ObjectCorners(self)
+
 	func TextColor
 		return cTextColor
 
@@ -914,3 +920,37 @@ class FormDesigner_QLabel from QLabel
 			nX = nX2
 			ny = nY2
 		}
+
+class ObjectCorners
+
+	oCorner1 oCorner2 oCorner3 oCorner4
+
+	func init oParent
+
+		oCorner1 = new qLabel(oParent.ParentWidget()) {
+			move(oParent.x(),oParent.y())
+			resize(5,5)
+			setStyleSheet("background-color:black;")
+			show()
+		}		
+
+		oCorner2 = new qLabel(oParent.ParentWidget()) {
+			move(oParent.x(),oParent.y()+oParent.height()-5)
+			resize(5,5)
+			setStyleSheet("background-color:black;")
+			show()
+		}		
+
+		oCorner3 = new qLabel(oParent.ParentWidget()) {
+			move(oParent.x()+oParent.Width()-5,oParent.y())
+			resize(5,5)
+			setStyleSheet("background-color:black;")
+			show()
+		}		
+
+		oCorner4 = new qLabel(oParent.ParentWidget()) {
+			move(oParent.x()+oParent.width()-5,oParent.y()+oParent.height()-5)
+			resize(5,5)
+			setStyleSheet("background-color:black;")
+			show()
+		}		
