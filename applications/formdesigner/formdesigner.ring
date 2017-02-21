@@ -222,6 +222,7 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func KeyPressAction
+		if oModel.IsManySelected() { KeyPressManyAction() return }
 		if oModel.IsFormActive() { return }
 		nKey = oView.oFilter.getkeycode()
 		nModifier = oView.oFilter.getmodifiers()
@@ -258,6 +259,76 @@ Class FormDesignerController from WindowsControllerParent
 		if ismethod(oModel.ActiveObject(),"refreshcorners") {
 			oModel.ActiveObject().refreshCorners(oModel.ActiveObject())
 		}
+
+	func KeyPressManyAction
+		nKey = oView.oFilter.getkeycode()
+		nModifier = oView.oFilter.getmodifiers()
+		aObjects = oModel.getselectedObjects()
+		switch nModifier  {
+			case 	0 # No CTRL Key is pressed
+				switch nkey {
+					case Qt_Key_Right
+						for item in aObjects {
+							oObject = item[2]
+							oObject.move( oObject.x() + 10 , oObject.y() )
+							oObject.oCorners.refresh(oObject)
+						}
+					case Qt_Key_Left
+						for item in aObjects {
+							oObject = item[2]
+							oObject.move( oObject.x() - 10 , oObject.y() )
+							oObject.oCorners.refresh(oObject)
+						}
+					case Qt_Key_Up
+						for item in aObjects {
+							oObject = item[2]
+							oObject.move( oObject.x()  , oObject.y()  - 10)
+							oObject.oCorners.refresh(oObject)
+						}
+					case Qt_Key_Down
+						for item in aObjects {
+							oObject = item[2]
+							oObject.move( oObject.x()  , oObject.y()  + 10)
+							oObject.oCorners.refresh(oObject)
+						}
+					case Qt_Key_Delete
+						for item in aObjects {
+							oObject = item[2]
+							oObject.oCorners.Hide() 
+							oObject.Close() 
+						}
+						oModel.deleteselectedObjects()
+						AddObjectsToCombo()						
+				}	
+			case 33554432	# Shift	
+				switch nkey {
+					case Qt_Key_Right
+						for item in aObjects {
+							oObject = item[2]
+							oObject.resize( oObject.width() + 10 , oObject.height() )
+							oObject.oCorners.refresh(oObject)
+						}
+					case Qt_Key_Left
+						for item in aObjects {
+							oObject = item[2]
+							oObject.resize( oObject.width() - 10 , oObject.height() )
+							oObject.oCorners.refresh(oObject)
+						}
+					case Qt_Key_Up
+						for item in aObjects {
+							oObject = item[2]
+							oObject.resize( oObject.width()  , oObject.height() - 10)
+							oObject.oCorners.refresh(oObject)
+						}
+					case Qt_Key_Down
+						for item in aObjects {
+							oObject = item[2]
+							oObject.resize( oObject.width()  , oObject.height() + 10)
+							oObject.oCorners.refresh(oObject)
+						}
+				}	
+		}
+
 
 	func NewAction
 
@@ -639,6 +710,17 @@ Class FormDesignerModel
 
 	func GetSelectedObjects
 		return aManySelectedObjects
+
+	func IsManySelected
+		return len(aManySelectedObjects) 	# 0=False  & other values = True
+
+	func DeleteSelectedObjects
+		for item in aManySelectedObjects {
+			nPos = find(aObjectsList,item[3],3)
+			del(aObjectsList,nPos)
+		}
+		ClearSelectedObjects()
+
 
 Class FormDesignerGeneral
 
