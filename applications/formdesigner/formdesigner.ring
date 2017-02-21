@@ -430,6 +430,13 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSCenterHor
+		aObjects = oModel.GetSelectedObjects()
+		for item in aObjects {
+			oObject = item[2]
+			nLeft = (oObject.ParentWidget().Width() - oObject.Width() ) / 2
+			oObject.move(nLeft,oObject.y())
+			oObject.oCorners.Refresh(oObject)
+		}
 
 	func MSSizeToTallest
 		aObjects = oModel.GetSelectedObjects()
