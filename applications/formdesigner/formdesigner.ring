@@ -531,9 +531,14 @@ Class FormDesignerController from WindowsControllerParent
 			oObject.oCorners.Refresh(oObject)
 		}
 
-
 	func MSTextColor
-
+		cColor = oGeneral.SelectColor()
+		aObjects = oModel.GetSelectedObjects()		 
+		for item in aObjects {
+			oObject = item[2]
+			oObject.setTextColor(cColor)
+		}
+	
 	func MSBackColor
 
 	func MSFont
