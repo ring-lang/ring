@@ -216,7 +216,7 @@ Class FormDesignerController from WindowsControllerParent
 	func ActiveObjectMousePress nObjectID
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
-			if oModel.IsManySelected() { 
+			if oModel.IsManySelected() and oModel.IsObjectSelected(nObjectID) { 
 				oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self) 
 				return 
 			}
@@ -754,6 +754,11 @@ Class FormDesignerModel
 		}
 		ClearSelectedObjects()
 
+	func IsObjectSelected nObjectID
+		if find(aManySelectedObjects,nObjectID,3) {
+			return True
+		}
+		return False
 
 Class FormDesignerGeneral
 
