@@ -463,8 +463,18 @@ Class FormDesignerController from WindowsControllerParent
 			oObject.oCorners.Refresh(oObject)
 		}
 
-
 	func MSSizeToNarrowest
+		aObjects = oModel.GetSelectedObjects()
+		nWidth = 5000
+		for item in aObjects {
+			oObject = item[2]
+			nWidth = min( nWidth , oObject.width() )
+		}
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( nWidth, oObject.Height() )
+			oObject.oCorners.Refresh(oObject)
+		}
 
 	func MSHorSpacingMakeEqual
 
