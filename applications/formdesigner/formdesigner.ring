@@ -382,6 +382,18 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSAlignRight
+		aObjects = oModel.GetSelectedObjects()
+		nRight = 0
+		for item in aObjects {
+			oObject = item[2]
+			nRight = max( nRight , oObject.x() + oObject.width() )
+		}
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( nRight  - oObject.width() , oObject.y() )
+			oObject.oCorners.Refresh(oObject)
+		}
+
 
 	func MSAlignTop
 		aObjects = oModel.GetSelectedObjects()
