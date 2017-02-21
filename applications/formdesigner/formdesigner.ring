@@ -570,6 +570,8 @@ Class FormDesignerModel
 		return nActiveObject = 1
 
 	func DeleteActiveObject	
+		aObjectsList[nActiveObject][1] = NULL
+		aObjectsList[nActiveObject][2] = NULL
 		nActiveObject = 1
 
 Class FormDesignerGeneral
