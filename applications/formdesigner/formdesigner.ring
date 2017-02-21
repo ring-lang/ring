@@ -425,6 +425,17 @@ Class FormDesignerController from WindowsControllerParent
 	func MSCenterHor
 
 	func MSSizeToTallest
+		aObjects = oModel.GetSelectedObjects()
+		nHeight = 0
+		for item in aObjects {
+			oObject = item[2]
+			nHeight = max( nHeight , oObject.height() )
+		}
+		for item in aObjects {
+			oObject = item[2]
+			oObject.resize( oObject.width() , nHeight )
+			oObject.oCorners.Refresh(oObject)
+		}
 
 	func MSSizeToShortest
 
