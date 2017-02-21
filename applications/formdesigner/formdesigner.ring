@@ -895,18 +895,8 @@ class FormDesigner_QLabel from QLabel
 	cBackColor = ""
 	cFontProperty = ""
 
-	nX nY lPress=False oFilter   lMoveEvent=False	# Movement Event 
-
-	lResize=False  nResizeMode=0			# Resize Event
-
-	oCorners		# Resize Labels
-
-	func CreateCorners
-		oCorners = new ObjectCorners(self)
-
-	func RefreshCorners oParent 
-		oCorners.refresh(oParent)
-
+	CreateMoveResizeCornersAttributes()
+	
 	func TextColor
 		return cTextColor
 
@@ -1004,6 +994,31 @@ class FormDesigner_QLabel from QLabel
 			setFontProperty(cFont)
 			DisplayProperties(oDesigner) 
 		}
+
+
+	func CreateMoveResizeCornersAttributes
+		# Movement Event 
+			AddAttribute(self,:nX)
+			AddAttribute(self,:nY)
+			AddAttribute(self,:lPress)
+			AddAttribute(self,:oFilter)
+			AddAttribute(self,:lMoveEvent)
+		# Resize Event
+			AddAttribute(self,:lResize)
+			AddAttribute(self,:nResizeMode)
+		# Corners
+			AddAttribute(self,:oCorners)
+		# Default Values
+			lPress=False
+			lMoveEvent=False
+			lResize=False
+			nResizeMode=0
+
+	func CreateCorners
+		oCorners = new ObjectCorners(self)
+
+	func RefreshCorners oParent 
+		oCorners.refresh(oParent)
 
 	func MousePress oDesigner
 	        lPress = True
