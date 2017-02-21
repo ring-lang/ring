@@ -125,9 +125,11 @@ Class FormDesignerController from WindowsControllerParent
 
 	func ChangeObjectAction
 		if oView.oObjectsCombo.count() = 0 { return }
+		HideCorners()
 		nIndex = oView.oObjectsCombo.currentindex()  
 		oModel.nActiveObject = nIndex + 1
 		ObjectProperties()
+		ShowCorners()
 
 	func ChangeObjectByCode nIndex 
 		HideCorners()
