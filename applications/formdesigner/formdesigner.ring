@@ -103,6 +103,7 @@ Class FormDesignerController from WindowsControllerParent
 
 	func SelectDrawAction aRect 
 		if oView.oToolBtn1.ischecked()  { # Select
+			oModel.ClearSelectedObjects()
 			SelectObjects(aRect)
 		elseif oView.oToolBtn2.ischecked()   # Create Label 
 			HideCorners()
@@ -140,6 +141,7 @@ Class FormDesignerController from WindowsControllerParent
 			nY2 = nY + oObject.Height() 		
 			if Intersection(nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2) {
 				oObject.oCorners.Show()
+				oModel.AddSelectedObject(x)
 			}	 
 		}
 
@@ -157,6 +159,15 @@ Class FormDesignerController from WindowsControllerParent
 			return True
 		}
 		return False
+
+	func CancelSelectedObjects
+		aObjects = oModel.getselectedObjects()
+		if len(aObjects) = 0 { return }
+		for item in aObjects {
+			oObject = item[2]
+			oObject.oCorners.Hide()
+		}
+		oModel.clearSelectedObjects()
 
 	func ChangeObjectAction
 		if oView.oObjectsCombo.count() = 0 { return }
@@ -176,6 +187,7 @@ Class FormDesignerController from WindowsControllerParent
 		ShowCorners()
 
 	func HideCorners
+		CancelSelectedObjects()
 		if isattribute(oModel.activeObject(),"oCorners") {
 			oModel.activeObject().oCorners.Hide()
 		}
@@ -580,6 +592,7 @@ Class FormDesignerModel
 	nActiveObject = 0
 	nLabelsCount = 0
 	nIDCounter = 0
+	aManySelectedObjects = []
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -617,6 +630,15 @@ Class FormDesignerModel
 	func DeleteActiveObject	
 		del(aObjectsList,nActiveObject)
 		nActiveObject = 1
+
+	func ClearSelectedObjects
+		aManySelectedObjects = []
+
+	func AddSelectedObject nIndex 
+		aManySelectedObjects + aObjectsList[nIndex]
+
+	func GetSelectedObjects
+		return aManySelectedObjects
 
 Class FormDesignerGeneral
 
