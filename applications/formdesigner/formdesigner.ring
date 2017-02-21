@@ -394,7 +394,6 @@ Class FormDesignerController from WindowsControllerParent
 			oObject.oCorners.Refresh(oObject)
 		}
 
-
 	func MSAlignTop
 		aObjects = oModel.GetSelectedObjects()
 		nY = 5000
@@ -408,8 +407,18 @@ Class FormDesignerController from WindowsControllerParent
 			oObject.oCorners.Refresh(oObject)
 		}
 
-
 	func MSAlignBottom
+		aObjects = oModel.GetSelectedObjects()
+		nBottom = 0
+		for item in aObjects {
+			oObject = item[2]
+			nBottom = max( nBottom , oObject.y() + oObject.height() )
+		}
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move( oObject.x() , nbottom  - oObject.height() )
+			oObject.oCorners.Refresh(oObject)
+		}
 
 	func MSCenterVer
 
