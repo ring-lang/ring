@@ -152,6 +152,10 @@ Class FormDesignerController from WindowsControllerParent
 			pointinbox(nX,nY2,nSX,nSY,nSX2,nSY2) or 
 			pointinbox(nX2,nY,nSX,nSY,nSX2,nSY2) or 
 			pointinbox(nX2,nY2,nSX,nSY,nSX2,nSY2) or
+			pointinbox(nSX,nSY,nX,nY,nX2,nY2) or 
+			pointinbox(nSX,nSY2,nX,nY,nX2,nY2) or 
+			pointinbox(nSX2,nSY,nX,nY,nX2,nY2) or 
+			pointinbox(nSX2,nSY2,nX,nY,nX2,nY2) or
 			IntersectionLikePlusOperator(nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2 ) { 
 			return True
 		}
