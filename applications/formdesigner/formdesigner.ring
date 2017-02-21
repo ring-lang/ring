@@ -368,6 +368,44 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 
+	func MSAlignLeft
+
+	func MSAlignRight
+
+	func MSAlignTop
+
+	func MSAlignBottom
+
+	func MSCenterVer
+
+	func MSCenterHor
+
+	func MSSizeToTallest
+
+	func MSSizeToShortest
+
+	func MSSizeToWidest
+
+	func MSSizeToNarrowest
+
+	func MSHorSpacingMakeEqual
+
+	func MSHorSpacingIncrease
+
+	func MSHorSpacingDecrease
+
+	func MSVerSpacingMakeEqual
+
+	func MSVerSpacingIncrease
+
+	func MSVerSpacingDecrease
+
+	func MSTextColor
+
+	func MSBackColor
+
+	func MSFont
+
 	func NewAction
 
 	func OpenAction
@@ -676,60 +714,79 @@ Class FormDesignerView from WindowsViewParent
 			}
 			oBtn1 = new qPushbutton(this.oProperties2) {
 				setText("Align - Left Sides")
+				setClickEvent(Method(:MSAlignLeft))
 			}
 			oBtn2 = new qPushbutton(this.oProperties2) {
 				setText("Align - Right Sides")
+				setClickEvent(Method(:MSAlignRight))
 			}
 			oBtn3 = new qPushbutton(this.oProperties2) {
 				setText("Align - Top Sides")
+				setClickEvent(Method(:MSAlignTop))
 			}
 			oBtn4 = new qPushbutton(this.oProperties2) {
 				setText("Align - Bottom Sides")
+				setClickEvent(Method(:MSAlignBottom))
 			}
 			oBtn5 = new qPushbutton(this.oProperties2) {
 				setText("Center Vertically")
+				setClickEvent(Method(:MSCenterVer))
 			}
 			oBtn6 = new qPushbutton(this.oProperties2) {
 				setText("Center Horizontally")
+				setClickEvent(Method(:MSCenterHor))
 			}
 			oBtn7 = new qPushbutton(this.oProperties2) {
 				setText("Size - To Tallest")
+				setClickEvent(Method(:MSSizeToTallest))
 			}
 			oBtn8 = new qPushbutton(this.oProperties2) {
 				setText("Size - To Shortest")
+				setClickEvent(Method(:MSSizeToShortest))
 			}
 			oBtn9 = new qPushbutton(this.oProperties2) {
 				setText("Size - To Widest")
+				setClickEvent(Method(:MSSizeToWidest))
 			}
 			oBtn10 = new qPushbutton(this.oProperties2) {
 				setText("Size - To Narrowest")
+				setClickEvent(Method(:MSSizeToNarrowest))
 			}
 			oBtn11 = new qPushbutton(this.oProperties2) {
 				setText("Horizontal Spacing - Make Equal")
+				setClickEvent(Method(:MSHorSpacingMakeEqual))
 			}
 			oBtn12 = new qPushbutton(this.oProperties2) {
 				setText("Horizontal Spacing - Increase")
+				setClickEvent(Method(:MSHorSpacingIncrease))
 			}
 			oBtn13 = new qPushbutton(this.oProperties2) {
 				setText("Horizontal Spacing - Decrease")
+				setClickEvent(Method(:MSHorSpacingDecrease))
 			}
 			oBtn14 = new qPushbutton(this.oProperties2) {
 				setText("Vertical Spacing - Make Equal")
+				setClickEvent(Method(:MSVerSpacingMakeEqual))
 			}
 			oBtn15 = new qPushbutton(this.oProperties2) {
 				setText("Vertical Spacing - Increase")
+				setClickEvent(Method(:MSVerSpacingIncrease))
 			}
 			oBtn16 = new qPushbutton(this.oProperties2) {
 				setText("Vertical Spacing - Decrease")
+				setClickEvent(Method(:MSVerSpacingDecrease))
 			}
 			oBtn17 = new qPushbutton(this.oProperties2) {
 				setText("Text Color")
+				setClickEvent(Method(:MSTextColor))
 			}
 			oBtn18 = new qPushbutton(this.oProperties2) {
 				setText("Back Color")
+				setClickEvent(Method(:MSBackColor))
 			}
 			oBtn19 = new qPushbutton(this.oProperties2) {
 				setText("Font")
+				setClickEvent(Method(:MSFont))
 			}
 			oLayout = new qVBoxLayout() {
 				AddWidget(oLabel)
