@@ -200,17 +200,31 @@ Class FormDesignerController from WindowsControllerParent
 	func ActiveObjectMousePress nObjectID
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
+			if oModel.IsManySelected() { 
+				oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self) 
+				return 
+			}
 			ChangeObjectByCode(nObjectIndex-1)  
 			oModel.ActiveObject().MousePress(self)
 		}
 
 	func ActiveObjectMouseRelease nObjectID
+		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
+			if oModel.IsManySelected() { 
+				oModel.GetObjectByIndex(nObjectIndex).MouseReleaseMany(self) 
+				return 
+			}
 			oModel.ActiveObject().MouseRelease(self)
 		}
 
 	func ActiveObjectMouseMove nObjectID
+		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
+			if oModel.IsManySelected() { 
+				oModel.GetObjectByIndex(nObjectIndex).MouseMoveMany(self) 
+				return 
+			}
 			oModel.ActiveObject().MouseMove(self)
 		}
 
@@ -682,6 +696,9 @@ Class FormDesignerModel
 	func ActiveObject
 		return aObjectsList[nActiveObject][2]
 
+	func GetObjectByIndex nIndex 
+		return aObjectsList[nIndex][2]
+
 	func FormObject
 		return aObjectsList[1][2]
  
@@ -1099,6 +1116,31 @@ class FormDesigner_QLabel from QLabel
 			ny = nY2
 			oCorners.refresh(oDesigner.oModel.ActiveObject())
 		}
+
+	func MousePressMany oDesigner
+		MousePress(oDesigner)
+
+	func MouseMoveMany oDesigner
+		if lPress {
+			lMoveEvent=True	
+			nX2 = oFilter.getglobalx()
+			ny2 = oFilter.getglobaly()
+			ndiffx = nX2 - nX
+			ndiffy = nY2 - nY
+			nX = nX2
+			ny = nY2
+			# Move the objects together 
+			aObjects = oDesigner.oModel.getselectedObjects()
+			for item in aObjects {
+				oObject = item[2]
+				oObject.move(oObject.x()+ndiffx,oObject.y()+ndiffy)
+				oObject.oCorners.refresh(oObject)
+			}
+		}
+
+	func MouseReleaseMany oDesigner
+		MouseRelease(oDesigner)
+
 
 class ObjectCorners
 
