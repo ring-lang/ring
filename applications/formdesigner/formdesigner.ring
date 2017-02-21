@@ -186,6 +186,11 @@ Class FormDesignerController from WindowsControllerParent
 						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  - 10)
 					case Qt_Key_Down
 						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  + 10)
+					case Qt_Key_Delete
+						HideCorners()
+						oModel.ActiveObject().close() 
+						oModel.deleteactiveObject()
+						ShowCorners()
 				}	
 			case 33554432	# Shift	
 				switch nkey {
@@ -563,6 +568,9 @@ Class FormDesignerModel
 
 	func IsFormActive
 		return nActiveObject = 1
+
+	func DeleteActiveObject	
+		nActiveObject = 1
 
 Class FormDesignerGeneral
 
