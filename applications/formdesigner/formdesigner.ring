@@ -199,6 +199,9 @@ Class FormDesignerController from WindowsControllerParent
 						oModel.ActiveObject().resize( oModel.ActiveObject().width()  , oModel.ActiveObject().height() + 10)
 				}	
 		}
+		if ismethod(oModel.ActiveObject(),"refreshcorners") {
+			oModel.ActiveObject().refreshCorners(oModel.ActiveObject())
+		}
 
 	func NewAction
 
@@ -725,6 +728,9 @@ class FormDesigner_QLabel from QLabel
 
 	func CreateCorners
 		oCorners = new ObjectCorners(self)
+
+	func RefreshCorners oParent 
+		oCorners.refresh(oParent)
 
 	func TextColor
 		return cTextColor
