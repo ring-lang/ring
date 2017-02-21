@@ -108,8 +108,11 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.ClearSelectedObjects()
 			SelectObjects(aRect)
 			if oModel.IsManySelected() {
+				nWidth = oView.oPropertiesDock.width()
 				oView.oPropertiesDock.setWidget(oView.oProperties2)
+				oView.oPropertiesDock.setminimumwidth(nWidth)
 			else
+				oView.oPropertiesDock.setminimumwidth(10)
 				oView.oPropertiesDock.setWidget(oView.oProperties)
 			}
 		elseif oView.oToolBtn2.ischecked()   # Create Label 
