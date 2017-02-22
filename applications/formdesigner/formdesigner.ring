@@ -523,7 +523,6 @@ Class FormDesignerController from WindowsControllerParent
 			oObject.oCorners.Refresh(oObject)
 		}
 
-
 	func MSVerSpacingMakeEqual
 		aObjects = oModel.GetSelectedObjects()		
 		nLastTop = 0 
