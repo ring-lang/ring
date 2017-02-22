@@ -854,8 +854,7 @@ void ring_vmlib_diffdays ( void *pPointer )
 					return ;
 				}
 				nResult = difftime(timer,timer2);
-				nResult  /= 86400 ;
-				nResult = floor(nResult);
+				nResult  = floor( (long int) nResult / 86400 ) ;
 				RING_API_RETNUMBER(nResult);
 				return ;
 			}
