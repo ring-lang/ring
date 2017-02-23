@@ -10,6 +10,7 @@ load "stdlib.ring"
 
 cCurrentDir = CurrentDir() + "/"
 
+mergemethods(:FormDesigner_QLabel,:CommonAttributesMethods)
 mergemethods(:FormDesigner_QLabel,:MoveResizeCorners)
 
 mergemethods(:FormDesigner_QPushButton,:MoveResizeCorners)
@@ -1560,6 +1561,9 @@ class CommonAttributesMethods
 		setstylesheet("color:"+cTextColor+";background-color:"+cBackColor+";")
 
 	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+
+	func AddObjectCommonProperties  oDesigner
 		oDesigner.oView.AddProperty("X",False)
 		oDesigner.oView.AddProperty("Y",False)
 		oDesigner.oView.AddProperty("Width",False)
@@ -1593,6 +1597,9 @@ class CommonAttributesMethods
 		}
 
 	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+
+	func DisplayCommonProperties oDesigner
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
 		# Set the X
@@ -1631,35 +1638,10 @@ class CommonAttributesMethods
 
 class FormDesigner_QLabel from QLabel
 
-	cTextColor = "black"
-	cBackColor = ""
-	cFontProperty = ""
 	nTextAlign = 0
 
+	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
-	
-	func TextColor
-		return cTextColor
-
-	func setTextColor cValue 
-		cTextColor=cValue	
-		updatestylesheets()
-
-	func BackColor
-		return cBackColor
-
-	func setBackColor cValue 
-		cBackColor=cValue	
-		updatestylesheets()
-
-	func FontProperty
-		return cFontProperty
-
-	func setFontProperty cValue 
-		cFontProperty = cValue 
-		oFont = new qfont("",0,0,0)
-		oFont.fromstring(cValue)
-		setfont(oFont)
 
 	func SetTextAlign nIndex
 		nTextAlign = nIndex
@@ -1672,85 +1654,18 @@ class FormDesigner_QLabel from QLabel
 				setalignment(Qt_AlignRight |  Qt_AlignVCenter )
 		}
 
-
-	func updatestylesheets
-		setstylesheet("color:"+cTextColor+";background-color:"+cBackColor+";")
-
 	func AddObjectProperties  oDesigner
-		oDesigner.oView.AddProperty("X",False)
-		oDesigner.oView.AddProperty("Y",False)
-		oDesigner.oView.AddProperty("Width",False)
-		oDesigner.oView.AddProperty("Height",False)
-		oDesigner.oView.AddProperty("Text",False)
-		oDesigner.oView.AddProperty("Text Color",True)
-		oDesigner.oView.AddProperty("Back Color",True)
-		oDesigner.oView.AddProperty("Font",True)
+		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddPropertyCombobox("Text Align",["Left","Center","Right"])
 
-	func UpdateProperties oDesigner,nRow,nCol,cValue
-		if nCol = 1 {
-			switch nRow {
-				case 0 	# x
-					move(0+cValue,y())
-				case 1 	# y
-					move(x(),0+cValue)
-				case 2	# width
-					resize(0+cValue,height())
-				case 3 	# height
-					resize(width(),0+cValue)
-				case 4  	# Text			
-					setText(cValue)
-				case 5	# Text color
-					setTextColor(cValue)
-				case 6	# back color
-					setBackColor(cValue)
-				case 7	# font
-					setFontProperty(cValue)
-
-			}
-		}
-
 	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True)
-		# Set the X
-			oPropertiesTable.item(0,1).settext(""+x())
-		# Set the Y
-			oPropertiesTable.item(1,1).settext(""+y())
-		# Set the Width
-			oPropertiesTable.item(2,1).settext(""+width())
-		# Set the Height
-			oPropertiesTable.item(3,1).settext(""+height())
-		# Set the Title
-			oPropertiesTable.item(4,1).settext(text())
-		# Set the Text Color
-			oPropertiesTable.item(5,1).settext(textcolor())
-		# Set the BackColor
-			oPropertiesTable.item(6,1).settext(backcolor())
-		# Set the Font
-			oPropertiesTable.item(7,1).settext(fontproperty())
 		# Text Align 
 			oWidget = oPropertiesTable.cellwidget(8,1)
 			oCombo = new qCombobox 
 			oCombo.pObject = oWidget.pObject 
 			oCombo.setCurrentIndex(nTextAlign)
-
-		oPropertiesTable.Blocksignals(False)
-
-	func DialogButtonAction oDesigner,nRow 
-		if nRow = 5 {	# Text Color
-			cColor = oDesigner.oGeneral.SelectColor()
-			setTextColor(cColor)
-			DisplayProperties(oDesigner)
-		elseif nRow = 6 	# Back Color
-			cColor = oDesigner.oGeneral.SelectColor()
-			setBackColor(cColor)
-			DisplayProperties(oDesigner)
-		elseif nRow = 7 	# Font
-			cFont = oDesigner.oGeneral.SelectFont()
-			setFontProperty(cFont)
-			DisplayProperties(oDesigner) 
-		}
 
 	func ComboItemAction oDesigner,nRow
 		if nRow = 8 {		# Text Align 
@@ -1760,7 +1675,6 @@ class FormDesigner_QLabel from QLabel
 			nIndex = oCombo.CurrentIndex()
 			setTextAlign(nIndex)
 		}
-
 
 class FormDesigner_QPushButton from QPushButton 
 
