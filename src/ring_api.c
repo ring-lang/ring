@@ -800,7 +800,7 @@ void ring_vmlib_adddays ( void *pPointer )
 void ring_vmlib_diffdays ( void *pPointer )
 {
 	const char *cStr, *cStr2  ;
-	struct tm tm_info  ;
+	struct tm tm_info,tm_info2  ;
 	time_t timer,timer2  ;
 	char buffer[5]  ;
 	double nResult  ;
@@ -835,17 +835,17 @@ void ring_vmlib_diffdays ( void *pPointer )
 				return ;
 			}
 			if ( isalnum(cStr2[0]) && isalnum(cStr2[1]) && isalnum(cStr2[3]) && isalnum(cStr2[4]) && isalnum(cStr2[6]) && isalnum(cStr2[7]) && isalnum(cStr2[8]) && isalnum(cStr2[9]) ) {
-				tm_info.tm_hour = 0 ;
-				tm_info.tm_min = 0 ;
-				tm_info.tm_sec = 0 ;
+				tm_info2.tm_hour = 0 ;
+				tm_info2.tm_min = 0 ;
+				tm_info2.tm_sec = 0 ;
 				sprintf( buffer , "%c%c" , cStr2[0],cStr2[1] ) ;
-				tm_info.tm_mday = atoi(buffer) ;
+				tm_info2.tm_mday = atoi(buffer) ;
 				sprintf( buffer , "%c%c" , cStr2[3],cStr2[4] ) ;
-				tm_info.tm_mon = atoi(buffer)-1 ;
+				tm_info2.tm_mon = atoi(buffer)-1 ;
 				sprintf( buffer , "%c%c%c%c" , cStr2[6],cStr2[7],cStr2[8],cStr2[9] ) ;
-				tm_info.tm_year = atoi(buffer) - 1900 ;
-				timer2 = mktime(&tm_info);
-				if ( tm_info.tm_year > 1097 ) {
+				tm_info2.tm_year = atoi(buffer) - 1900 ;
+				timer2 = mktime(&tm_info2);
+				if ( tm_info2.tm_year > 1097 ) {
 					/*
 					**  1097 + 1900 = 2997 
 					**  Values over limit may cause crash 

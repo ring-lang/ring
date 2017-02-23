@@ -189,7 +189,7 @@ ring_vmlib_diffdays
 Type: const char *
 cStr, *cStr2
 Type: struct tm
-tm_info
+tm_info,tm_info2
 Type: time_t
 timer,timer2
 Type: char
