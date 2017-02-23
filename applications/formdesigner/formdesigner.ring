@@ -16,6 +16,8 @@ PrepareControlClass(:FormDesigner_QLineEdit)
 PrepareControlClass(:FormDesigner_QTextEdit)
 PrepareControlClass(:FormDesigner_QListWidget)
 PrepareControlClass(:FormDesigner_QCheckBox)
+PrepareControlClass(:FormDesigner_QImage)
+
 
 new qApp {
 	StyleFusion()
@@ -185,6 +187,15 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("CheckBox",oModel.CheckBoxesCount())
+		elseif oView.oToolBtn8.ischecked()   # Create QImage
+			HideCorners()
+			oModel.AddImage(new FormDesigner_QImage(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+				}
+			)
+			NewControlEvents("Image",oModel.ImagesCount())
 
 		}
 
@@ -1116,6 +1127,7 @@ Class FormDesignerModel
 	nTextEditsCount = 0
 	nListWidgetsCount = 0
 	nCheckBoxesCount = 0
+	nImagesCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1220,6 +1232,12 @@ Class FormDesignerModel
 	func CheckBoxesCount
 		return nCheckBoxesCount
 
+	func AddImage oObject
+		nImagesCount++
+		AddObject("Image"+nImagesCount,oObject)
+
+	func ImagesCount
+		return nImagesCount
 
 Class FormDesignerGeneral
 
@@ -1786,3 +1804,7 @@ class FormDesigner_QCheckBox from QCheckBox
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+class FormDesigner_QImage from QLabel
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
