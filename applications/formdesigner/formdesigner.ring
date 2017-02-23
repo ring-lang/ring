@@ -1186,9 +1186,6 @@ class FormDesigner_QWidget from QWidget
 	func setSubWindow oObject 
 		oSubWindow = oObject
 
-	func GetPropertiesList
-		return  ["X","Y","Width","Height","Title","Back Color"]
-
 	func AddObjectProperties  oDesigner
 		oDesigner.oView.AddProperty("X",False)
 		oDesigner.oView.AddProperty("Y",False)
@@ -1549,9 +1546,6 @@ class FormDesigner_QLabel from QLabel
 
 	func updatestylesheets
 		setstylesheet("color:"+cTextColor+";background-color:"+cBackColor+";")
-
-	func GetPropertiesList
-		return  ["X","Y","Width","Height","Text","Text Color","Back Color","Font"]
 
 	func AddObjectProperties  oDesigner
 		oDesigner.oView.AddProperty("X",False)
