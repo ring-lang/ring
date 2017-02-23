@@ -17,7 +17,7 @@ PrepareControlClass(:FormDesigner_QTextEdit)
 PrepareControlClass(:FormDesigner_QListWidget)
 PrepareControlClass(:FormDesigner_QCheckBox)
 PrepareControlClass(:FormDesigner_QImage)
-
+PrepareControlClass(:FormDesigner_QSlider)
 
 new qApp {
 	StyleFusion()
@@ -196,6 +196,15 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Image",oModel.ImagesCount())
+		elseif oView.oToolBtn9.ischecked()   # Create QSlider
+			HideCorners()
+			oModel.AddSlider(new FormDesigner_QSlider(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+				}
+			)
+			NewControlEvents("Slider",oModel.SlidersCount())
 
 		}
 
@@ -1128,6 +1137,7 @@ Class FormDesignerModel
 	nListWidgetsCount = 0
 	nCheckBoxesCount = 0
 	nImagesCount = 0
+	nSlidersCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1238,6 +1248,14 @@ Class FormDesignerModel
 
 	func ImagesCount
 		return nImagesCount
+
+	func AddSlider oObject
+		nSlidersCount++
+		AddObject("Slider"+nSlidersCount,oObject)
+
+	func SlidersCount
+		return nSlidersCount
+
 
 Class FormDesignerGeneral
 
@@ -1808,3 +1826,13 @@ class FormDesigner_QImage from QLabel
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
+
+class FormDesigner_QSlider from QSlider
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	func text 
+		return ""
+
+	func settext cValue 
