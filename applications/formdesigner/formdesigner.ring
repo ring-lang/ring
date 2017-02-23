@@ -1525,6 +1525,14 @@ class ObjectCorners
 class CommonAttributesMethods
 
 	
+	func CreateCommonAttributes	
+		AddAttribute(self,:cTextColor)
+		AddAttribute(self,:cBackColor)
+		AddAttribute(self,:cFontProperty)
+		cTextColor = "black"
+		cBackColor = ""
+		cFontProperty = ""
+
 	func TextColor
 		return cTextColor
 
@@ -1756,8 +1764,5 @@ class FormDesigner_QLabel from QLabel
 
 class FormDesigner_QPushButton from QPushButton 
 
-	cTextColor = "black"
-	cBackColor = ""
-	cFontProperty = ""
-
+	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
