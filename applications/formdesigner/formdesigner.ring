@@ -15,6 +15,7 @@ PrepareControlClass(:FormDesigner_QPushButton)
 PrepareControlClass(:FormDesigner_QLineEdit)
 PrepareControlClass(:FormDesigner_QTextEdit)
 PrepareControlClass(:FormDesigner_QListWidget)
+PrepareControlClass(:FormDesigner_QCheckBox)
 
 new qApp {
 	StyleFusion()
@@ -174,6 +175,16 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("ListWidget",oModel.ListWidgetsCount())
+		elseif oView.oToolBtn7.ischecked()   # Create QCheckBox
+			HideCorners()
+			oModel.AddCheckBox(new FormDesigner_QCheckBox(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(False)
+				}
+			)
+			NewControlEvents("CheckBox",oModel.CheckBoxesCount())
 
 		}
 
@@ -1104,6 +1115,7 @@ Class FormDesignerModel
 	nLineEditsCount = 0
 	nTextEditsCount = 0
 	nListWidgetsCount = 0
+	nCheckBoxesCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1201,6 +1213,12 @@ Class FormDesignerModel
 	func ListWidgetsCount
 		return nListWidgetsCount
 
+	func AddCheckBox oObject
+		nCheckBoxesCount++
+		AddObject("CheckBox"+nCheckBoxesCount,oObject)
+
+	func CheckBoxesCount
+		return nCheckBoxesCount
 
 
 Class FormDesignerGeneral
@@ -1759,6 +1777,11 @@ class FormDesigner_QTextEdit from QLineEdit
 
 # We use QLineEdit as parent - We need just the looking (not functionality)
 class FormDesigner_QListWidget from QLineEdit 
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+class FormDesigner_QCheckBox from QCheckBox
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
