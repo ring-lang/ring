@@ -14,6 +14,7 @@ PrepareControlClass(:FormDesigner_QLabel)
 PrepareControlClass(:FormDesigner_QPushButton)
 PrepareControlClass(:FormDesigner_QLineEdit)
 PrepareControlClass(:FormDesigner_QTextEdit)
+PrepareControlClass(:FormDesigner_QListWidget)
 
 new qApp {
 	StyleFusion()
@@ -163,6 +164,17 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("TextEdit",oModel.TextEditsCount())
+		elseif oView.oToolBtn6.ischecked()   # Create QListWidget
+			HideCorners()
+			oModel.AddListWidget(new FormDesigner_QListWidget(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(False)
+				}
+			)
+			NewControlEvents("ListWidget",oModel.ListWidgetsCount())
+
 		}
 
 	func NewControlEvents cName,nCount
@@ -1091,6 +1103,7 @@ Class FormDesignerModel
 	nPushButtonsCount = 0
 	nLineEditsCount = 0
 	nTextEditsCount = 0
+	nListWidgetsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1180,6 +1193,14 @@ Class FormDesignerModel
 
 	func TextEditsCount
 		return nTextEditsCount
+
+	func AddListWidget oObject
+		nListWidgetsCount++
+		AddObject("ListWidget"+nListWidgetsCount,oObject)
+
+	func ListWidgetsCount
+		return nListWidgetsCount
+
 
 
 Class FormDesignerGeneral
@@ -1730,13 +1751,15 @@ class FormDesigner_QLineEdit from QLineEdit
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
-class FormDesigner_QTextEdit from QTextEdit
+# We use QLineEdit as parent - We need just the looking (not functionality)
+class FormDesigner_QTextEdit from QLineEdit 
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
-	func text 
-		return toplaintext()
+# We use QLineEdit as parent - We need just the looking (not functionality)
+class FormDesigner_QListWidget from QLineEdit 
 
-	func SetText cValue
-		setPlainText(cValue)
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
