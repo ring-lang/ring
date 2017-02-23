@@ -137,6 +137,7 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.AddPushButton(new FormDesigner_QPushButton(oModel.FormObject()) {
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
 				}
 			)
 			NewControlEvents("Button",oModel.PushButtonsCount())
