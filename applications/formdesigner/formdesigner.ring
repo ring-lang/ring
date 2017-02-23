@@ -148,6 +148,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
+					setMouseTracking(False)
 				}
 			)
 			NewControlEvents("TextBox",oModel.LineEditsCount())
