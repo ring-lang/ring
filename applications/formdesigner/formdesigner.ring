@@ -997,11 +997,13 @@ Class FormDesignerView from WindowsViewParent
 		oPropertiesTable.blocksignals(True)
 		nRow = oPropertiesTable.rowcount()
 		oPropertiesTable.insertrow(nRow)
-		item = new qTableWidgetItem(cItem)
-		item.setFlags(False)	# Can't Edit the Item
-		oPropertiesTable.setItem(nRow,0,item)
-		item = new qTableWidgetItem("")
-		oPropertiesTable.setItem(nRow,1,item)
+		# Property Name
+			item = new qTableWidgetItem(cItem)
+			item.setFlags(False)	# Can't Edit the Item
+			oPropertiesTable.setItem(nRow,0,item)
+		# Property Value
+			item = new qTableWidgetItem("")
+			oPropertiesTable.setItem(nRow,1,item)
 		if lButton = False {
 			item = new qTableWidgetItem("")
 			item.setFlags(False)	# Can't Edit the Item
@@ -1014,7 +1016,25 @@ Class FormDesignerView from WindowsViewParent
 			}
 			oPropertiesTable.setCellwidget(nRow,2,oBtn)
 		}
+		oPropertiesTable.blocksignals(false)
 
+	func AddPropertyCombobox cItem,aList
+		oPropertiesTable.blocksignals(True)
+		nRow = oPropertiesTable.rowcount()
+		oPropertiesTable.insertrow(nRow)
+		# Property Name
+			item = new qTableWidgetItem(cItem)
+			item.setFlags(False)	# Can't Edit the Item
+			oPropertiesTable.setItem(nRow,0,item)
+		# Combobox
+			oCombo = new qCombobox(NULL) {
+				for cValue in aList { AddItem(cValue,0) }
+			}
+			oPropertiesTable.setCellwidget(nRow,1,oCombo)
+		# No Button
+			item = new qTableWidgetItem("")
+			item.setFlags(False)	# Can't Edit the Item
+			oPropertiesTable.setItem(nRow,2,item)
 		oPropertiesTable.blocksignals(false)
 
 Class FormDesignerModel
@@ -1524,6 +1544,7 @@ class FormDesigner_QLabel from QLabel
 		oDesigner.oView.AddProperty("Text Color",True)
 		oDesigner.oView.AddProperty("Back Color",True)
 		oDesigner.oView.AddProperty("Font",True)
+		oDesigner.oView.AddPropertyCombobox("Text Align",["Left","Right","Center"])
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
