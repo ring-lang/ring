@@ -12,6 +12,7 @@ cCurrentDir = CurrentDir() + "/"
 
 PrepareControlClass(:FormDesigner_QLabel)
 PrepareControlClass(:FormDesigner_QPushButton)
+PrepareControlClass(:FormDesigner_QLineEdit)
 
 new qApp {
 	StyleFusion()
@@ -141,6 +142,15 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Button",oModel.PushButtonsCount())
+		elseif oView.oToolBtn4.ischecked()   # Create QLineEdit
+			HideCorners()
+			oModel.AddLineEdit(new FormDesigner_QLineEdit(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+				}
+			)
+			NewControlEvents("TextBox",oModel.LineEditsCount())
 		}
 
 	func NewControlEvents cName,nCount
@@ -1067,6 +1077,7 @@ Class FormDesignerModel
 	nIDCounter = 0
 	aManySelectedObjects = []
 	nPushButtonsCount = 0
+	nLineEditsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1143,6 +1154,12 @@ Class FormDesignerModel
 	func PushButtonsCount
 		return nPushButtonsCount
 
+	func AddLineEdit oObject
+		nLineEditsCount++
+		AddObject("LineEdit"+nLineEditsCount,oObject)
+
+	func LineEditsCount
+		return nLineEditsCount
 
 Class FormDesignerGeneral
 
@@ -1679,6 +1696,11 @@ class FormDesigner_QLabel from QLabel
 		}
 
 class FormDesigner_QPushButton from QPushButton 
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+class FormDesigner_QLineEdit from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
