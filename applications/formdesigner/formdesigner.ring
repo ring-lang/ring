@@ -1680,11 +1680,15 @@ class FormDesigner_QLabel from QLabel
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
 		# Text Align 
 			oWidget = oPropertiesTable.cellwidget(8,1)
 			oCombo = new qCombobox 
 			oCombo.pObject = oWidget.pObject 
+			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(nTextAlign)
+			oCombo.BlockSignals(False)
+		oPropertiesTable.Blocksignals(False)
 
 	func ComboItemAction oDesigner,nRow
 		if nRow = 8 {		# Text Align 
