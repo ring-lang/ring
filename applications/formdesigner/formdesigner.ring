@@ -1549,7 +1549,7 @@ class FormDesigner_QLabel from QLabel
 		oDesigner.oView.AddProperty("Text Color",True)
 		oDesigner.oView.AddProperty("Back Color",True)
 		oDesigner.oView.AddProperty("Font",True)
-		oDesigner.oView.AddPropertyCombobox("Text Align",["Left","Right","Center"])
+		oDesigner.oView.AddPropertyCombobox("Text Align",["Left","Center","Right"])
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
@@ -1616,4 +1616,12 @@ class FormDesigner_QLabel from QLabel
 			oCombo = new qCombobox 
 			oCombo.pObject = oWidget.pObject 
 			nIndex = oCombo.CurrentIndex()
+			Switch nIndex {
+				case 0
+					setalignment(Qt_AlignLeft |  Qt_AlignVCenter )
+				case 1
+					setalignment(Qt_AlignHCenter |  Qt_AlignVCenter )			
+				case 2
+					setalignment(Qt_AlignRight |  Qt_AlignVCenter )
+			}
 		}
