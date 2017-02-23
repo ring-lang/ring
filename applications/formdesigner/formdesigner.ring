@@ -10,17 +10,18 @@ load "stdlib.ring"
 
 cCurrentDir = CurrentDir() + "/"
 
-mergemethods(:FormDesigner_QLabel,:CommonAttributesMethods)
-mergemethods(:FormDesigner_QLabel,:MoveResizeCorners)
-
-mergemethods(:FormDesigner_QPushButton,:MoveResizeCorners)
-mergemethods(:FormDesigner_QPushButton,:CommonAttributesMethods)
+PrepareControlClass(:FormDesigner_QLabel)
+PrepareControlClass(:FormDesigner_QPushButton)
 
 new qApp {
 	StyleFusion()
 	Open_Window(:FormDesignerController)
 	exec()
 }
+
+func PrepareControlClass cClassName
+	mergemethods(cClassName,:MoveResizeCorners)
+	mergemethods(cClassName,:CommonAttributesMethods)
 
 Class FormDesignerController from WindowsControllerParent
 
