@@ -1508,6 +1508,7 @@ class FormDesigner_QLabel from QLabel
 	cTextColor = "black"
 	cBackColor = ""
 	cFontProperty = ""
+	nTextAlign = 0
 
 	CreateMoveResizeCornersAttributes()
 	
@@ -1533,6 +1534,18 @@ class FormDesigner_QLabel from QLabel
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring(cValue)
 		setfont(oFont)
+
+	func SetTextAlign nIndex
+		nTextAlign = nIndex
+		Switch nIndex {
+			case 0
+				setalignment(Qt_AlignLeft |  Qt_AlignVCenter )
+			case 1
+				setalignment(Qt_AlignHCenter |  Qt_AlignVCenter )			
+			case 2
+				setalignment(Qt_AlignRight |  Qt_AlignVCenter )
+		}
+
 
 	func updatestylesheets
 		setstylesheet("color:"+cTextColor+";background-color:"+cBackColor+";")
@@ -1593,6 +1606,12 @@ class FormDesigner_QLabel from QLabel
 			oPropertiesTable.item(6,1).settext(backcolor())
 		# Set the Font
 			oPropertiesTable.item(7,1).settext(fontproperty())
+		# Text Align 
+			oWidget = oPropertiesTable.cellwidget(8,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			oCombo.setCurrentIndex(nTextAlign)
+
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
@@ -1616,12 +1635,5 @@ class FormDesigner_QLabel from QLabel
 			oCombo = new qCombobox 
 			oCombo.pObject = oWidget.pObject 
 			nIndex = oCombo.CurrentIndex()
-			Switch nIndex {
-				case 0
-					setalignment(Qt_AlignLeft |  Qt_AlignVCenter )
-				case 1
-					setalignment(Qt_AlignHCenter |  Qt_AlignVCenter )			
-				case 2
-					setalignment(Qt_AlignRight |  Qt_AlignVCenter )
-			}
+			setTextAlign(nIndex)
 		}
