@@ -103,6 +103,10 @@ Class FormDesignerController from WindowsControllerParent
 		SetToolboxModeToSelect()
 		oModel.ActiveObject().DialogButtonAction(self,nRow)
 
+	func ComboItemAction nRow 
+		SetToolboxModeToSelect()
+		oModel.ActiveObject().ComboItemAction(self,nRow)
+
 	func SelectDrawAction aRect 
 		if oView.oToolBtn1.ischecked()  { # Select
 			oModel.ClearSelectedObjects()
@@ -1029,6 +1033,7 @@ Class FormDesignerView from WindowsViewParent
 		# Combobox
 			oCombo = new qCombobox(NULL) {
 				for cValue in aList { AddItem(cValue,0) }
+				setCurrentIndexchangedevent(Method(:ComboItemAction+"("+nRow+")"))
 			}
 			oPropertiesTable.setCellwidget(nRow,1,oCombo)
 		# No Button
@@ -1603,4 +1608,12 @@ class FormDesigner_QLabel from QLabel
 			cFont = oDesigner.oGeneral.SelectFont()
 			setFontProperty(cFont)
 			DisplayProperties(oDesigner) 
+		}
+
+	func ComboItemAction oDesigner,nRow
+		if nRow = 8 {		# Text Align 
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(8,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			nIndex = oCombo.CurrentIndex()
 		}
