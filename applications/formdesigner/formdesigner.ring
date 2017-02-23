@@ -18,6 +18,8 @@ PrepareControlClass(:FormDesigner_QListWidget)
 PrepareControlClass(:FormDesigner_QCheckBox)
 PrepareControlClass(:FormDesigner_QImage)
 PrepareControlClass(:FormDesigner_QSlider)
+PrepareControlClass(:FormDesigner_QProgressbar)
+
 
 new qApp {
 	StyleFusion()
@@ -205,6 +207,15 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Slider",oModel.SlidersCount())
+		elseif oView.oToolBtn10.ischecked()   # Create QProgressBar
+			HideCorners()
+			oModel.AddProgressbar(new FormDesigner_QProgressbar(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+				}
+			)
+			NewControlEvents("Progressbar",oModel.ProgressbarsCount())
 
 		}
 
@@ -1138,6 +1149,7 @@ Class FormDesignerModel
 	nCheckBoxesCount = 0
 	nImagesCount = 0
 	nSlidersCount = 0
+	nProgressbarsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1255,6 +1267,13 @@ Class FormDesignerModel
 
 	func SlidersCount
 		return nSlidersCount
+
+	func AddProgressbar oObject
+		nProgressbarsCount++
+		AddObject("Progressbar"+nProgressbarsCount,oObject)
+
+	func ProgressbarsCount
+		return nProgressbarsCount
 
 
 Class FormDesignerGeneral
@@ -1832,7 +1851,16 @@ class FormDesigner_QSlider from QSlider
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
-	func text 
-		return ""
+	func text return ""
 
 	func settext cValue 
+
+class FormDesigner_QProgressbar from QProgressbar
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	func text return ""
+
+	func settext cValue 
+
