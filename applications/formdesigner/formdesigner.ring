@@ -981,22 +981,27 @@ Class FormDesignerView from WindowsViewParent
 			}
  			this.oToolbtn11 = new qPushButton(oToolBox) {
 					setText(this.TextSize("SpinBox",15))
+					setbtnimage(self,"image/spinner.bmp") 
 					setCheckable(True)
 			}
  			this.oToolbtn12 = new qPushButton(oToolBox) {
 					setText(this.TextSize("ComboBox",15))
+					setbtnimage(self,"image/combobox.bmp") 
 					setCheckable(True)
 			}
  			this.oToolbtn13 = new qPushButton(oToolBox) {
 					setText(this.TextSize("DateTimeEdit",15))
+					setbtnimage(self,"image/datepicker.bmp") 
 					setCheckable(True)
 			}
  			this.oToolbtn14 = new qPushButton(oToolBox) {
 					setText(this.TextSize("TableWidget",15))
+					setbtnimage(self,"image/grid.bmp") 
 					setCheckable(True)
 			}
  			this.oToolbtn15 = new qPushButton(oToolBox) {
 					setText(this.TextSize("TreeWidget",15))
+					setbtnimage(self,"image/tree.bmp") 
 					setCheckable(True)
 			}
  			this.oToolbtn16 = new qPushButton(oToolBox) {
