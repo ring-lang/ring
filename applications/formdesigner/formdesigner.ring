@@ -697,6 +697,7 @@ Class FormDesignerView from WindowsViewParent
 
 	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
+	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 oToolBtn15 
 
 	func CreateMainWindow oModel
 
@@ -738,7 +739,6 @@ Class FormDesignerView from WindowsViewParent
 			win = new qMainwindow() {
 				setWindowTitle("Form Designer")		
 				setcentralWidget(this.oArea)
-				showmaximized()
 			}	
 			setwinicon(win,cCurrentDir + "/image/project.png")
 
@@ -756,6 +756,9 @@ Class FormDesignerView from WindowsViewParent
 
 		# Create the Statusbar 
 			CreateStatusBar()
+
+		# Show the Window 
+			win.showmaximized()
 
 	func WindowMoveResizeEvents
 		oFilter = new qAllEvents(oSub)
@@ -907,6 +910,26 @@ Class FormDesignerView from WindowsViewParent
 					setbtnimage(self,"image/progressbar.png") 
 					setCheckable(True)
 			}
+ 			this.oToolbtn11 = new qPushButton(oToolBox) {
+					setText(this.TextSize("Spinner",15))
+					setCheckable(True)
+			}
+ 			this.oToolbtn12 = new qPushButton(oToolBox) {
+					setText(this.TextSize("ComboBox",15))
+					setCheckable(True)
+			}
+ 			this.oToolbtn13 = new qPushButton(oToolBox) {
+					setText(this.TextSize("Date Picker",15))
+					setCheckable(True)
+			}
+ 			this.oToolbtn14 = new qPushButton(oToolBox) {
+					setText(this.TextSize("TableWidget",15))
+					setCheckable(True)
+			}
+ 			this.oToolbtn15 = new qPushButton(oToolBox) {
+					setText(this.TextSize("TreeWidget",15))
+					setCheckable(True)
+			}
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolbtn1)
 				AddWidget(this.oToolbtn2)
@@ -918,6 +941,11 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn8)
 				AddWidget(this.oToolbtn9)
 				AddWidget(this.oToolbtn10)
+				AddWidget(this.oToolbtn11)
+				AddWidget(this.oToolbtn12)
+				AddWidget(this.oToolbtn13)
+				AddWidget(this.oToolbtn14)
+				AddWidget(this.oToolbtn15)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -932,6 +960,11 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn8,7)
 				AddButton(this.oToolbtn9,8)
 				AddButton(this.oToolbtn10,9)
+				AddButton(this.oToolbtn11,10)
+				AddButton(this.oToolbtn12,11)
+				AddButton(this.oToolbtn13,12)
+				AddButton(this.oToolbtn14,13)
+				AddButton(this.oToolbtn15,14)
 			}
 			setLayout(Layout1)
 		}
