@@ -21,6 +21,7 @@ PrepareControlClass(:FormDesigner_QSlider)
 PrepareControlClass(:FormDesigner_QProgressbar)
 PrepareControlClass(:FormDesigner_QSpinBox)
 PrepareControlClass(:FormDesigner_QComboBox)
+PrepareControlClass(:FormDesigner_QDateTimeEdit)
 
 new qApp {
 	StyleFusion()
@@ -237,6 +238,16 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("ComboBox",oModel.ComboBoxesCount())
+		elseif oView.oToolBtn13.ischecked()   # Create QDateTimeEdit
+			HideCorners()
+			oModel.AddDateTimeEdit(new FormDesigner_QDateTimeEdit(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(False)
+				}
+			)
+			NewControlEvents("DateTimeEdit",oModel.DateTimeEditsCount())
 
 
 		}
@@ -1207,6 +1218,7 @@ Class FormDesignerModel
 	nProgressbarsCount = 0
 	nSpinBoxesCount = 0
 	nComboBoxesCount = 0
+	nDateTimeEditsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1345,6 +1357,14 @@ Class FormDesignerModel
 
 	func ComboBoxesCount
 		return nComboBoxesCount
+
+	func AddDateTimeEdit oObject
+		nDateTimeEditsCount++
+		AddObject("Datetimeedit"+nDateTimeEditsCount,oObject)
+
+	func DateTimeEditsCount
+		return nDateTimeEditsCount
+
 
 Class FormDesignerGeneral
 
@@ -1944,6 +1964,15 @@ class FormDesigner_QSpinBox from QSpinBox
 	func settext cValue 
 
 class FormDesigner_QComboBox from QComboBox
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	func text return ""
+
+	func settext cValue 
+
+class FormDesigner_QDateTimeEdit from QDateTimeedit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
