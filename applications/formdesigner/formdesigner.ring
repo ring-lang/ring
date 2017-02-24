@@ -1000,6 +1000,7 @@ Class FormDesignerView from WindowsViewParent
 			}
  			this.oToolbtn16 = new qPushButton(oToolBox) {
 					setText(this.TextSize("RadioButton",15))
+					setbtnimage(self,"image/radiobutton.png") 
 					setCheckable(True)
 			}
 
