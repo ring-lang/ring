@@ -19,7 +19,7 @@ PrepareControlClass(:FormDesigner_QCheckBox)
 PrepareControlClass(:FormDesigner_QImage)
 PrepareControlClass(:FormDesigner_QSlider)
 PrepareControlClass(:FormDesigner_QProgressbar)
-
+PrepareControlClass(:FormDesigner_QSpinBox)
 
 new qApp {
 	StyleFusion()
@@ -216,6 +216,17 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Progressbar",oModel.ProgressbarsCount())
+		elseif oView.oToolBtn11.ischecked()   # Create QSpinBox
+			HideCorners()
+			oModel.AddSpinBox(new FormDesigner_QSpinBox(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(False)
+				}
+			)
+			NewControlEvents("SpinBox",oModel.SpinBoxesCount())
+
 
 		}
 
@@ -1183,6 +1194,7 @@ Class FormDesignerModel
 	nImagesCount = 0
 	nSlidersCount = 0
 	nProgressbarsCount = 0
+	nSpinBoxesCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1307,6 +1319,13 @@ Class FormDesignerModel
 
 	func ProgressbarsCount
 		return nProgressbarsCount
+
+	func AddSpinBox oObject
+		nSpinBoxesCount++
+		AddObject("Spinbox"+nSpinBoxesCount,oObject)
+
+	func SpinBoxesCount
+		return nSpinBoxesCount
 
 
 Class FormDesignerGeneral
@@ -1897,3 +1916,11 @@ class FormDesigner_QProgressbar from QProgressbar
 
 	func settext cValue 
 
+class FormDesigner_QSpinBox from QSpinBox
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	func text return ""
+
+	func settext cValue 
