@@ -1044,9 +1044,12 @@ Class FormDesignerView from WindowsViewParent
 			}
 			setLayout(Layout1)
 		}
-		oToolBoxDock = new qdockwidget(NULL,0) {
-			setWindowTitle("ToolBox")
+		oScroll = new qScrollArea(null) {
 			setWidget(oToolBox)
+		}
+		oToolBoxDock = new qdockwidget(NULL,0) {
+			setWindowTitle("ToolBox")			
+			setWidget(oScroll)
 		}
 		win.Adddockwidget(1,oToolBoxDock,1)
 
