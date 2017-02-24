@@ -24,6 +24,8 @@ PrepareControlClass(:FormDesigner_QComboBox)
 PrepareControlClass(:FormDesigner_QDateTimeEdit)
 PrepareControlClass(:FormDesigner_QTableWidget)
 PrepareControlClass(:FormDesigner_QTreeWidget)
+PrepareControlClass(:FormDesigner_QRadioButton)
+
 
 new qApp {
 	StyleFusion()
@@ -270,6 +272,17 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("TreeWidget",oModel.TreeWidgetsCount())
+		elseif oView.oToolBtn16.ischecked()   # Create QRadioButton  
+			HideCorners()
+			oModel.AddRadioButton(new FormDesigner_QRadioButton(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(False)
+				}
+			)
+			NewControlEvents("RadioButton",oModel.RadioButtonsCount())
+
 
 		}
 
@@ -751,7 +764,8 @@ Class FormDesignerView from WindowsViewParent
 
 	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
-	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 oToolBtn15 
+	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
+	oToolBtn15  oToolBtn16
 
 	func CreateMainWindow oModel
 
@@ -984,6 +998,11 @@ Class FormDesignerView from WindowsViewParent
 					setText(this.TextSize("TreeWidget",15))
 					setCheckable(True)
 			}
+ 			this.oToolbtn16 = new qPushButton(oToolBox) {
+					setText(this.TextSize("RadioButton",15))
+					setCheckable(True)
+			}
+
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolbtn1)
 				AddWidget(this.oToolbtn2)
@@ -1000,6 +1019,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn13)
 				AddWidget(this.oToolbtn14)
 				AddWidget(this.oToolbtn15)
+				AddWidget(this.oToolbtn16)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1019,6 +1039,7 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn13,12)
 				AddButton(this.oToolbtn14,13)
 				AddButton(this.oToolbtn15,14)
+				AddButton(this.oToolbtn16,15)
 			}
 			setLayout(Layout1)
 		}
@@ -1242,6 +1263,7 @@ Class FormDesignerModel
 	nDateTimeEditsCount = 0
 	nTableWidgetsCount = 0
 	nTreeWidgetsCount = 0
+	nRadioButtonsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1401,6 +1423,13 @@ Class FormDesignerModel
 
 	func TreeWidgetsCount
 		return nTreeWidgetsCount
+
+	func AddRadioButton oObject
+		nRadioButtonsCount++
+		AddObject("RadioButton"+nRadioButtonsCount,oObject)
+
+	func RadioButtonsCount
+		return nRadioButtonsCount
 
 
 Class FormDesignerGeneral
@@ -2035,3 +2064,10 @@ class FormDesigner_QTreeWidget from QTreeWidget
 	func text return ""
 
 	func settext cValue 
+
+class FormDesigner_QRadioButton from QRadioButton
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+
