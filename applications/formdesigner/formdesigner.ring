@@ -23,6 +23,7 @@ PrepareControlClass(:FormDesigner_QSpinBox)
 PrepareControlClass(:FormDesigner_QComboBox)
 PrepareControlClass(:FormDesigner_QDateTimeEdit)
 PrepareControlClass(:FormDesigner_QTableWidget)
+PrepareControlClass(:FormDesigner_QTreeWidget)
 
 new qApp {
 	StyleFusion()
@@ -259,7 +260,16 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("TableWidget",oModel.TableWidgetsCount())
-
+		elseif oView.oToolBtn15.ischecked()   # Create QTreeWidget 
+			HideCorners()
+			oModel.AddTreeWidget(new FormDesigner_QTreeWidget(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(False)
+				}
+			)
+			NewControlEvents("TreeWidget",oModel.TreeWidgetsCount())
 
 		}
 
@@ -1231,6 +1241,7 @@ Class FormDesignerModel
 	nComboBoxesCount = 0
 	nDateTimeEditsCount = 0
 	nTableWidgetsCount = 0
+	nTreeWidgetsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1383,6 +1394,13 @@ Class FormDesignerModel
 
 	func TableWidgetsCount
 		return nTableWidgetsCount
+
+	func AddTreeWidget oObject
+		nTreeWidgetsCount++
+		AddObject("TreeWidget"+nTreeWidgetsCount,oObject)
+
+	func TreeWidgetsCount
+		return nTreeWidgetsCount
 
 
 Class FormDesignerGeneral
@@ -2001,6 +2019,15 @@ class FormDesigner_QDateTimeEdit from QDateTimeedit
 	func settext cValue 
 
 class FormDesigner_QTableWidget from QTableWidget 
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	func text return ""
+
+	func settext cValue 
+
+class FormDesigner_QTreeWidget from QTreeWidget
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
