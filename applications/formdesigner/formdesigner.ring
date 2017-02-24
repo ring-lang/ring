@@ -20,6 +20,7 @@ PrepareControlClass(:FormDesigner_QImage)
 PrepareControlClass(:FormDesigner_QSlider)
 PrepareControlClass(:FormDesigner_QProgressbar)
 PrepareControlClass(:FormDesigner_QSpinBox)
+PrepareControlClass(:FormDesigner_QComboBox)
 
 new qApp {
 	StyleFusion()
@@ -226,6 +227,16 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("SpinBox",oModel.SpinBoxesCount())
+		elseif oView.oToolBtn12.ischecked()   # Create QComboBox
+			HideCorners()
+			oModel.AddComboBox(new FormDesigner_QComboBox(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(False)
+				}
+			)
+			NewControlEvents("ComboBox",oModel.ComboBoxesCount())
 
 
 		}
@@ -1195,6 +1206,7 @@ Class FormDesignerModel
 	nSlidersCount = 0
 	nProgressbarsCount = 0
 	nSpinBoxesCount = 0
+	nComboBoxesCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1327,6 +1339,12 @@ Class FormDesignerModel
 	func SpinBoxesCount
 		return nSpinBoxesCount
 
+	func AddComboBox oObject
+		nComboBoxesCount++
+		AddObject("Combobox"+nComboBoxesCount,oObject)
+
+	func ComboBoxesCount
+		return nComboBoxesCount
 
 Class FormDesignerGeneral
 
@@ -1917,6 +1935,15 @@ class FormDesigner_QProgressbar from QProgressbar
 	func settext cValue 
 
 class FormDesigner_QSpinBox from QSpinBox
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	func text return ""
+
+	func settext cValue 
+
+class FormDesigner_QComboBox from QComboBox
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
