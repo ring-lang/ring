@@ -10,22 +10,23 @@ load "stdlib.ring"
 
 cCurrentDir = CurrentDir() + "/"
 
-PrepareControlClass(:FormDesigner_QLabel)
-PrepareControlClass(:FormDesigner_QPushButton)
-PrepareControlClass(:FormDesigner_QLineEdit)
-PrepareControlClass(:FormDesigner_QTextEdit)
-PrepareControlClass(:FormDesigner_QListWidget)
-PrepareControlClass(:FormDesigner_QCheckBox)
-PrepareControlClass(:FormDesigner_QImage)
-PrepareControlClass(:FormDesigner_QSlider)
-PrepareControlClass(:FormDesigner_QProgressbar)
-PrepareControlClass(:FormDesigner_QSpinBox)
-PrepareControlClass(:FormDesigner_QComboBox)
-PrepareControlClass(:FormDesigner_QDateTimeEdit)
-PrepareControlClass(:FormDesigner_QTableWidget)
-PrepareControlClass(:FormDesigner_QTreeWidget)
-PrepareControlClass(:FormDesigner_QRadioButton)
-
+PrepareControlsClasses([
+	:FormDesigner_QLabel,
+	:FormDesigner_QPushButton,
+	:FormDesigner_QLineEdit,
+	:FormDesigner_QTextEdit,
+	:FormDesigner_QListWidget,
+	:FormDesigner_QCheckBox,
+	:FormDesigner_QImage,
+	:FormDesigner_QSlider,
+	:FormDesigner_QProgressbar,
+	:FormDesigner_QSpinBox,
+	:FormDesigner_QComboBox,
+	:FormDesigner_QDateTimeEdit,
+	:FormDesigner_QTableWidget,
+	:FormDesigner_QTreeWidget,
+	:FormDesigner_QRadioButton
+])
 
 new qApp {
 	StyleFusion()
@@ -33,9 +34,11 @@ new qApp {
 	exec()
 }
 
-func PrepareControlClass cClassName
-	mergemethods(cClassName,:MoveResizeCorners)
-	mergemethods(cClassName,:CommonAttributesMethods)
+func PrepareControlsClasses aClasses
+	for cClassName in aClasses {
+		mergemethods(cClassName,:MoveResizeCorners)
+		mergemethods(cClassName,:CommonAttributesMethods)
+	}
 
 Class FormDesignerController from WindowsControllerParent
 
