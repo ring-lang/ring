@@ -22,6 +22,7 @@ PrepareControlClass(:FormDesigner_QProgressbar)
 PrepareControlClass(:FormDesigner_QSpinBox)
 PrepareControlClass(:FormDesigner_QComboBox)
 PrepareControlClass(:FormDesigner_QDateTimeEdit)
+PrepareControlClass(:FormDesigner_QTableWidget)
 
 new qApp {
 	StyleFusion()
@@ -248,6 +249,16 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("DateTimeEdit",oModel.DateTimeEditsCount())
+		elseif oView.oToolBtn14.ischecked()   # Create QTableWidget 
+			HideCorners()
+			oModel.AddTableWidget(new FormDesigner_QTableWidget(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(False)
+				}
+			)
+			NewControlEvents("TableWidget",oModel.TableWidgetsCount())
 
 
 		}
@@ -944,7 +955,7 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			this.oToolbtn11 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Spinner",15))
+					setText(this.TextSize("SpinBox",15))
 					setCheckable(True)
 			}
  			this.oToolbtn12 = new qPushButton(oToolBox) {
@@ -952,7 +963,7 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			this.oToolbtn13 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Date Picker",15))
+					setText(this.TextSize("DateTimeEdit",15))
 					setCheckable(True)
 			}
  			this.oToolbtn14 = new qPushButton(oToolBox) {
@@ -1219,6 +1230,7 @@ Class FormDesignerModel
 	nSpinBoxesCount = 0
 	nComboBoxesCount = 0
 	nDateTimeEditsCount = 0
+	nTableWidgetsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1364,6 +1376,13 @@ Class FormDesignerModel
 
 	func DateTimeEditsCount
 		return nDateTimeEditsCount
+
+	func AddTableWidget oObject
+		nTableWidgetsCount++
+		AddObject("TableWidget"+nTableWidgetsCount,oObject)
+
+	func TableWidgetsCount
+		return nTableWidgetsCount
 
 
 Class FormDesignerGeneral
@@ -1973,6 +1992,15 @@ class FormDesigner_QComboBox from QComboBox
 	func settext cValue 
 
 class FormDesigner_QDateTimeEdit from QDateTimeedit
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	func text return ""
+
+	func settext cValue 
+
+class FormDesigner_QTableWidget from QTableWidget 
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
