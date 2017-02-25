@@ -1769,53 +1769,61 @@ class ObjectCorners
 
 	func init oParent
 
-		oCorner1 = new qLabel(oParent.ParentWidget()) {
-			move(oParent.x(),oParent.y())
+		oCorner1 = new qPushButton(oParent.ParentWidget()) {
+			move(oParent.x()-5,oParent.y()-5)
 			resize(5,5)
 			setStyleSheet("background-color:black;")
+			setEnabled(False)
+			setMouseTracking(False)
 			show()
 		}		
 
-		oCorner2 = new qLabel(oParent.ParentWidget()) {
-			move(oParent.x(),oParent.y()+oParent.height()-5)
+		oCorner2 = new qPushButton(oParent.ParentWidget()) {
+			move(oParent.x()-5,oParent.y()+oParent.height())
 			resize(5,5)
 			setStyleSheet("background-color:black;")
+			setEnabled(False)
+			setMouseTracking(False)
 			show()
 		}		
 
-		oCorner3 = new qLabel(oParent.ParentWidget()) {
-			move(oParent.x()+oParent.Width()-5,oParent.y())
+		oCorner3 = new qPushButton(oParent.ParentWidget()) {
+			move(oParent.x()+oParent.Width(),oParent.y()-5)
 			resize(5,5)
 			setStyleSheet("background-color:black;")
+			setEnabled(False)
+			setMouseTracking(False)
 			show()
 		}		
 
-		oCorner4 = new qLabel(oParent.ParentWidget()) {
-			move(oParent.x()+oParent.width()-5,oParent.y()+oParent.height()-5)
+		oCorner4 = new qPushButton(oParent.ParentWidget()) {
+			move(oParent.x()+oParent.width(),oParent.y()+oParent.height())
 			resize(5,5)
 			setStyleSheet("background-color:black;")
+			setEnabled(False)
+			setMouseTracking(False)
 			show()
 		}		
 
 	func refresh  oParent 
 
 		oCorner1  {
-			move(oParent.x(),oParent.y())
+			move(oParent.x()-5,oParent.y()-5)
 			resize(5,5)
 		}		
 
 		oCorner2  {
-			move(oParent.x(),oParent.y()+oParent.height()-5)
+			move(oParent.x()-5,oParent.y()+oParent.height())
 			resize(5,5)
 		}		
 
 		oCorner3  {
-			move(oParent.x()+oParent.Width()-5,oParent.y())
+			move(oParent.x()+oParent.Width(),oParent.y()-5)
 			resize(5,5)
 		}		
 
 		oCorner4 {
-			move(oParent.x()+oParent.width()-5,oParent.y()+oParent.height()-5)
+			move(oParent.x()+oParent.width(),oParent.y()+oParent.height())
 			resize(5,5)
 		}		
 
