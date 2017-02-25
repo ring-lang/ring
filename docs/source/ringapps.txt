@@ -118,6 +118,9 @@ I can say that this is the easiest and the most BASIC-like language I've ever tr
 "Thanks for this wonderful language"
 	, Vinod kc (India)
 
+"Very enlightening. good job!"
+	, Southmountain (United States)
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
