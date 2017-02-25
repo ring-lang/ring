@@ -772,7 +772,7 @@ void ring_vmlib_adddays ( void *pPointer )
 			tm_info.tm_min = 0 ;
 			tm_info.tm_sec = 0 ;
 			sprintf( buffer , "%c%c" , cStr[0],cStr[1] ) ;
-			tm_info.tm_mday = atoi(buffer)  +  ( (int) ceil(RING_API_GETNUMBER(2)) ) ;
+			tm_info.tm_mday = atoi(buffer)  +  ( (int) floor(RING_API_GETNUMBER(2)) ) ;
 			sprintf( buffer , "%c%c" , cStr[3],cStr[4] ) ;
 			tm_info.tm_mon = atoi(buffer)-1 ;
 			sprintf( buffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
