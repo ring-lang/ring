@@ -152,6 +152,7 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.AddPushButton(new FormDesigner_QPushButton(oModel.FormObject()) {
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
+					setMouseTracking(True)
 					setFocusPolicy(0)
 				}
 			)
@@ -162,7 +163,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("LineEdit",oModel.LineEditsCount())
@@ -172,7 +173,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("TextEdit",oModel.TextEditsCount())
@@ -182,7 +183,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("ListWidget",oModel.ListWidgetsCount())
@@ -192,7 +193,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("CheckBox",oModel.CheckBoxesCount())
@@ -202,6 +203,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("Image",oModel.ImagesCount())
@@ -211,6 +213,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("Slider",oModel.SlidersCount())
@@ -220,6 +223,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("Progressbar",oModel.ProgressbarsCount())
@@ -229,7 +233,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("SpinBox",oModel.SpinBoxesCount())
@@ -239,7 +243,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("ComboBox",oModel.ComboBoxesCount())
@@ -249,7 +253,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("DateTimeEdit",oModel.DateTimeEditsCount())
@@ -259,7 +263,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("TableWidget",oModel.TableWidgetsCount())
@@ -269,7 +273,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("TreeWidget",oModel.TreeWidgetsCount())
@@ -279,7 +283,7 @@ Class FormDesignerController from WindowsControllerParent
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
-					setMouseTracking(False)
+					setMouseTracking(True)
 				}
 			)
 			NewControlEvents("RadioButton",oModel.RadioButtonsCount())
