@@ -394,7 +394,9 @@ Class FormDesignerController from WindowsControllerParent
 				return 
 			}
 			ChangeObjectByCode(nObjectIndex-1)  
-			oModel.ActiveObject().MousePress(self)
+			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
+				oModel.ActiveObject().MousePress(self)
+			}
 		}
 
 	func ActiveObjectMouseRelease nObjectID
@@ -404,7 +406,9 @@ Class FormDesignerController from WindowsControllerParent
 				oModel.GetObjectByIndex(nObjectIndex).MouseReleaseMany(self) 
 				return 
 			}
-			oModel.ActiveObject().MouseRelease(self)
+			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
+				oModel.ActiveObject().MouseRelease(self)
+			}
 		}
 
 	func ActiveObjectMouseMove nObjectID
@@ -414,7 +418,9 @@ Class FormDesignerController from WindowsControllerParent
 				oModel.GetObjectByIndex(nObjectIndex).MouseMoveMany(self) 
 				return 
 			}
-			oModel.ActiveObject().MouseMove(self)
+			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
+				oModel.ActiveObject().MouseMove(self)
+			}
 		}
 
 	func ChangeToolBoxAction
