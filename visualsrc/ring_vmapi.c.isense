@@ -185,6 +185,10 @@ Type: struct tm
 tm_info
 Type: char
 buffer[25]
+Type: time_t
+timer
+Type: int
+x
 ring_vmlib_diffdays
 Type: const char *
 cStr, *cStr2

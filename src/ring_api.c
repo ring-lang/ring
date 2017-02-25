@@ -757,6 +757,8 @@ void ring_vmlib_adddays ( void *pPointer )
 	const char *cStr  ;
 	struct tm tm_info  ;
 	char buffer[25]  ;
+	time_t timer  ;
+	int x  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -772,12 +774,13 @@ void ring_vmlib_adddays ( void *pPointer )
 			tm_info.tm_min = 0 ;
 			tm_info.tm_sec = 0 ;
 			sprintf( buffer , "%c%c" , cStr[0],cStr[1] ) ;
-			tm_info.tm_mday = atoi(buffer)  +  ( (int) floor(RING_API_GETNUMBER(2)) ) ;
+			tm_info.tm_mday = atoi(buffer) + ((int) RING_API_GETNUMBER(2)) + 1 ;
 			sprintf( buffer , "%c%c" , cStr[3],cStr[4] ) ;
 			tm_info.tm_mon = atoi(buffer)-1 ;
 			sprintf( buffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
 			tm_info.tm_year = atoi(buffer) - 1900 ;
-			mktime(&tm_info);
+			timer = mktime(&tm_info);
+			tm_info = *gmtime(&timer) ;
 			if ( tm_info.tm_year > 1097 ) {
 				/*
 				**  1097 + 1900 = 2997 
@@ -786,7 +789,12 @@ void ring_vmlib_adddays ( void *pPointer )
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return ;
 			}
-			strftime(buffer,25,"%d/%m/%Y", &tm_info);
+			sprintf(buffer,"%2d/%2d/%4d", tm_info.tm_mday,tm_info.tm_mon+1,tm_info.tm_year+1900);
+			for ( x = 0 ; x <= 9 ; x++ ) {
+				if ( buffer[x] == ' ' ) {
+					buffer[x] = '0' ;
+				}
+			}
 			RING_API_RETSTRING(buffer);
 			return ;
 		}
