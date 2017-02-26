@@ -79,6 +79,8 @@ The Objects Library is updated to include the next functions
 * Last_WindowID()
 * Open_WindowNoShow()
 
+Also the class name (WindowViewBase) is changed to (WindowsViewParent).
+
 The next classes are added to RingQt
 
 * QPixMap2
