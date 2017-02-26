@@ -774,13 +774,12 @@ void ring_vmlib_adddays ( void *pPointer )
 			tm_info.tm_min = 0 ;
 			tm_info.tm_sec = 0 ;
 			sprintf( buffer , "%c%c" , cStr[0],cStr[1] ) ;
-			tm_info.tm_mday = atoi(buffer) + ((int) RING_API_GETNUMBER(2)) + 1 ;
+			tm_info.tm_mday = atoi(buffer) + ((int) RING_API_GETNUMBER(2)) ;
 			sprintf( buffer , "%c%c" , cStr[3],cStr[4] ) ;
 			tm_info.tm_mon = atoi(buffer)-1 ;
 			sprintf( buffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
 			tm_info.tm_year = atoi(buffer) - 1900 ;
 			timer = mktime(&tm_info);
-			tm_info = *gmtime(&timer) ;
 			if ( tm_info.tm_year > 1097 ) {
 				/*
 				**  1097 + 1900 = 2997 
