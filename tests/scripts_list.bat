@@ -228,3 +228,4 @@ call ring scripts/equalobjobj.ring
 call ring scripts/nullpointer.ring
 call ring scripts/ptrcmp2.ring
 call ring scripts/listandstrconversion.ring
+call ring scripts/objmethodnobraceerror.ring
