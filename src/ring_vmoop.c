@@ -395,6 +395,7 @@ void ring_vm_oop_property ( VM *pVM )
 void ring_vm_oop_loadmethod ( VM *pVM )
 {
 	List *pVar,*pList,*pList2,*pList3,*pSuper  ;
+	int lResult  ;
 	/* Check calling method related to Parent Class */
 	pSuper = ring_vm_oop_getsuperobj(pVM);
 	if ( pSuper != NULL ) {
@@ -428,11 +429,13 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	pVar = pVM->pFunctionsMap ;
 	pVM->pFunctionsMap = pList3 ;
 	pVM->nCallMethod = 1 ;
-	ring_vm_loadfunc(pVM);
+	lResult = ring_vm_loadfunc(pVM);
 	pVM->nCallMethod = 0 ;
 	pVM->pFunctionsMap = pVar ;
 	/* Move list from pObjState to aBeforeObjState */
-	ring_vm_oop_movetobeforeobjstate(pVM);
+	if ( lResult ) {
+		ring_vm_oop_movetobeforeobjstate(pVM);
+	}
 }
 
 void ring_vm_oop_movetobeforeobjstate ( VM *pVM )

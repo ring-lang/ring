@@ -257,7 +257,7 @@ void ring_vm_listassignment ( VM *pVM ) ;
 void ring_vm_listgetvalue ( VM *pVM,List *pVar,const char *cStr ) ;
 /* Functions */
 
-void ring_vm_loadfunc ( VM *pVM ) ;
+int ring_vm_loadfunc ( VM *pVM ) ;
 
 int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance ) ;
 

@@ -2,9 +2,9 @@
 #include "ring.h"
 /* Functions */
 
-void ring_vm_loadfunc ( VM *pVM )
+int ring_vm_loadfunc ( VM *pVM )
 {
-	ring_vm_loadfunc2(pVM,RING_VM_IR_READC,1);
+	return ring_vm_loadfunc2(pVM,RING_VM_IR_READC,1) ;
 }
 
 int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
@@ -117,6 +117,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 	}
 	/* For OOP Support - Check Method not found! */
 	if ( pVM->nCallMethod == 1 ) {
+		/* Pass The Call Instruction and the AfterCallMethod Instruction */
+		pVM->nPC += 2 ;
 		ring_vm_error2(pVM,RING_VM_ERROR_METHODNOTFOUND,cStr);
 		return 0 ;
 	}
