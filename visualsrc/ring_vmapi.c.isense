@@ -181,14 +181,12 @@ pList
 ring_vmlib_adddays
 Type: const char *
 cStr
-Type: struct tm
-tm_info
 Type: char
 buffer[25]
-Type: time_t
-timer
 Type: int
-x
+x,nDay,nMonth,nYear,nDaysInMonth
+Type: int
+aDaysInMonth[12]
 ring_vmlib_diffdays
 Type: const char *
 cStr, *cStr2
@@ -203,6 +201,7 @@ nResult
 ring_vmlib_version
 ring_vmlib_clockspersecond
 ring_vmlib_prevfilename
+ring_vmlib_adddays_isleapyear
 ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist
