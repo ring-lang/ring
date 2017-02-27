@@ -2282,7 +2282,7 @@ class FormDesignerFileSystem
 		# Set Variables 
 			oDesigner.oModel.nIDCounter = nIDCounter
 			oDesigner.oModel.nLabelsCount = nLabelsCount
-			oDesigner.oModel.nPushButtonsCount = nPushButtonsCount
+			#oDesigner.oModel.nPushButtonsCount = nPushButtonsCount
 			oDesigner.oModel.nLineEditsCount = nLineEditsCount
 			oDesigner.oModel.nTextEditsCount = nTextEditsCount
 			oDesigner.oModel.nListWidgetsCount = nListWidgetsCount
@@ -2296,3 +2296,31 @@ class FormDesignerFileSystem
 			oDesigner.oModel.nTableWidgetsCount = nTableWidgetsCount
 			oDesigner.oModel.nTreeWidgetsCount = nTreeWidgetsCount
 			oDesigner.oModel.nRadioButtonsCount = nRadioButtonsCount
+		# Create Objects 
+			for item in aObjectsList {
+				cClass = item[:classname] 	
+				switch cClass {
+					case "formdesigner_qwidget" 
+						oDesigner.oView.oSub {
+							blocksignals(True)
+							move(item[:data][:x],item[:data][:y]) 
+							resize(item[:data][:width],item[:data][:height])
+							show()
+							blocksignals(False)
+						}
+						oDesigner.oModel.FormObject().setBackColor(item[:data][:backcolor])
+					case "formdesigner_qpushbutton" 
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()) {
+								move(item[:data][:x],item[:data][:y]) 
+								resize(item[:data][:width],item[:data][:height])
+								setTextColor(item[:data][:textcolor])
+								setBackColor(item[:data][:backcolor])
+								setFontProperty(item[:data][:font])
+								setMouseTracking(True)
+								setFocusPolicy(0)
+							}
+						)
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.PushButtonsCount())
+				}				
+			}
