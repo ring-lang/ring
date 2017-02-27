@@ -2109,13 +2109,42 @@ class FormDesignerFileSystem
 	cFileName = "noname.rform"
 
 	func NewAction oDesigner
+		# Set the file Name
+			new qfiledialog(oDesigner.oView.win) {
+				cInputFileName = getsavefilename(oDesigner.oView.win,"New Form",currentdir(),"*.rform")
+			}
+			if cInputFileName = NULL { return }
+			cFileName = cInputFileName
 
 	func OpenAction oDesigner
+		# Get the file Name
+			new qfiledialog(oDesigner.oView.win) {
+				cInputFileName = getopenfilename(oDesigner.oView.win,"Open Form",currentdir(),"*.rform")
+			}
+			if cInputFileName = NULL { return }
 
 	func SaveAction oDesigner
+		# Check file not saved before 
+			if cFileName = "noname.rform" {
+				SaveFile(oDesigner)
+				return 
+			}
+		SaveFile2(oDesigner)
 
-	func SaveAsAction oDesigner
+	func SaveAsAction oDesigner	
+		SaveFile(oDesigner)
 
-	func SaveForm oDesigner
+	func SaveFile oDesigner
+		# Set the file Name
+			new qfiledialog(oDesigner.oView.win) {
+				cInputFileName = getsavefilename(oDesigner.oView.win,"Save Form",currentdir(),"*.rform")
+			}
+			if cInputFileName = NULL { return }
+			cFileName = cInputFileName
+			SaveFile2(oDesigner)
 
-	func LoadForm oDesigner
+	func SaveFile2 oDesigner 
+
+	func SaveFormToFile oDesigner
+
+	func LoadFormFromFile oDesigner
