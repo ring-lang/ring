@@ -2277,7 +2277,8 @@ class FormDesignerFileSystem
 			}
 			oDesigner.oModel.DeleteAllObjects()
 			oDesigner.AddObjectsToCombo()		
-		eval(read(cFileName))		# Load the Form Data 
+		# Load the Form Data 
+			eval(read(cFileName))		
 		# Set Variables 
 			oDesigner.oModel.nIDCounter = nIDCounter
 			oDesigner.oModel.nLabelsCount = nLabelsCount
