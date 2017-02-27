@@ -2201,45 +2201,11 @@ class FormDesignerFileSystem
 	func SaveFormToFile oDesigner
 		cHeader = "# Start Form Designer File" + nl
 		cEnd = nl + "# End Form Designer File"
-		cContent = "
-			nIDCounter = #{f1}
-			nLabelsCount = #{f2}
-			nPushButtonsCount = #{f3}
-			nLineEditsCount = #{f4}
-			nTextEditsCount = #{f5}
-			nListWidgetsCount = #{f6}
-			nCheckBoxesCount = #{f7}
-			nImagesCount = #{f8}
-			nSlidersCount = #{f9}
-			nProgressbarsCount = #{f10}
-			nSpinBoxesCount = #{f11}
-			nComboBoxesCount = #{f12}
-			nDateTimeEditsCount = #{f13}
-			nTableWidgetsCount = #{f14}
-			nTreeWidgetsCount = #{f15}
-			nRadioButtonsCount = #{f16}
-		"
-		cContent = substr(cContent,"#{f1}",""+oDesigner.oModel.nIDCounter)
-		cContent = substr(cContent,"#{f2}",""+oDesigner.oModel.nLabelsCount)
-		cContent = substr(cContent,"#{f3}",""+oDesigner.oModel.nPushButtonsCount)
-		cContent = substr(cContent,"#{f4}",""+oDesigner.oModel.nLineEditsCount)
-		cContent = substr(cContent,"#{f5}",""+oDesigner.oModel.nTextEditsCount)
-		cContent = substr(cContent,"#{f6}",""+oDesigner.oModel.nListWidgetsCount)
-		cContent = substr(cContent,"#{f7}",""+oDesigner.oModel.nCheckBoxesCount)
-		cContent = substr(cContent,"#{f8}",""+oDesigner.oModel.nImagesCount)
-		cContent = substr(cContent,"#{f9}",""+oDesigner.oModel.nSlidersCount)
-		cContent = substr(cContent,"#{f10}",""+oDesigner.oModel.nProgressbarsCount)
-		cContent = substr(cContent,"#{f11}",""+oDesigner.oModel.nSpinBoxesCount)
-		cContent = substr(cContent,"#{f12}",""+oDesigner.oModel.nComboBoxesCount)
-		cContent = substr(cContent,"#{f13}",""+oDesigner.oModel.nDateTimeEditsCount)
-		cContent = substr(cContent,"#{f14}",""+oDesigner.oModel.nTableWidgetsCount)
-		cContent = substr(cContent,"#{f15}",""+oDesigner.oModel.nTreeWidgetsCount)
-		cContent = substr(cContent,"#{f16}",""+oDesigner.oModel.nRadioButtonsCount)
 
 		# Save the Objects Data 
 
 			# Start of The List
-				cContent += "
+				cContent = "
 					aObjectsList = [" + nl
 
 			# Objects 
@@ -2279,23 +2245,6 @@ class FormDesignerFileSystem
 			oDesigner.AddObjectsToCombo()		
 		# Load the Form Data 
 			eval(read(cFileName))		
-		# Set Variables 
-			oDesigner.oModel.nIDCounter = nIDCounter
-			oDesigner.oModel.nLabelsCount = nLabelsCount
-			#oDesigner.oModel.nPushButtonsCount = nPushButtonsCount
-			oDesigner.oModel.nLineEditsCount = nLineEditsCount
-			oDesigner.oModel.nTextEditsCount = nTextEditsCount
-			oDesigner.oModel.nListWidgetsCount = nListWidgetsCount
-			oDesigner.oModel.nCheckBoxesCount = nCheckBoxesCount
-			oDesigner.oModel.nImagesCount = nImagesCount
-			oDesigner.oModel.nSlidersCount = nSlidersCount
-			oDesigner.oModel.nProgressbarsCount = nProgressbarsCount
-			oDesigner.oModel.nSpinBoxesCount = nSpinBoxesCount
-			oDesigner.oModel.nComboBoxesCount = nComboBoxesCount
-			oDesigner.oModel.nDateTimeEditsCount = nDateTimeEditsCount
-			oDesigner.oModel.nTableWidgetsCount = nTableWidgetsCount
-			oDesigner.oModel.nTreeWidgetsCount = nTreeWidgetsCount
-			oDesigner.oModel.nRadioButtonsCount = nRadioButtonsCount
 		# Create Objects 
 			for item in aObjectsList {
 				cClass = item[:classname] 	
