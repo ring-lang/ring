@@ -2185,11 +2185,18 @@ class FormDesignerFileSystem
 
 			# Start of The List
 				cContent += "
-					aObjectsList = [
-				"
+					aObjectsList = [" + nl
 
 			# Objects 
-				
+				for aObject in oDesigner.oModel.aObjectsList {
+					cObjContent = Copy(char(9),6) + 
+					'[ :name = "#{f1}" , :id = #{f2} , :classname = "#{f3}" , :data = [' + nl
+					cObjContent += Copy(char(9),7) +	"]" + nl + Copy(char(9),6) + "]" + nl
+					cObjContent = substr(cObjContent,"#{f1}",aObject[1])
+					cObjContent = substr(cObjContent,"#{f2}",""+aObject[3])
+					cObjContent = substr(cObjContent,"#{f3}",classname(aObject[2]))
+					cContent += cObjContent
+				}
 
 			# End of The List 
 				cContent += "
