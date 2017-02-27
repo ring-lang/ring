@@ -2151,6 +2151,8 @@ class FormDesignerFileSystem
 				cInputFileName = getopenfilename(oDesigner.oView.win,"Open Form",currentdir(),"*.rform")
 			}
 			if cInputFileName = NULL { return }
+			cFileName = cInputFileName
+			LoadFormFromFile(oDesigner)
 
 	func SaveAction oDesigner
 		# Check file not saved before 
@@ -2242,4 +2244,8 @@ class FormDesignerFileSystem
 			write(cFileName,cHeader+cContent+cEnd)
 			
 	func LoadFormFromFile oDesigner
+
+		cCode = read(cFileName)		
+		eval(cCode)		# Load the Form Data 
+
 
