@@ -1555,7 +1555,9 @@ void ring_vmlib_eval ( void *pPointer )
 		cStr = RING_API_GETSTRING(1);
 		pVM = (VM *) pPointer ;
 		pVM->nEvalCalledFromRingCode = 1 ;
-		ring_vm_eval(pVM,cStr);
+		if ( ring_vm_eval(pVM,cStr) == 0 ) {
+			pVM->nEvalCalledFromRingCode = 0 ;
+		}
 		/*
 		**  The CALL instruction will check nEvalCalledFromRingCode to execute the main loop again 
 		**  Before executing the main loop again, The CALL instruction will set nEvalCalledFromRingCode to 0 
