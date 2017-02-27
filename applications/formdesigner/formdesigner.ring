@@ -43,6 +43,7 @@ Class FormDesignerController from WindowsControllerParent
 	oView = new FormDesignerView
 	oModel = new FormDesignerModel
 	oGeneral = new FormDesignerGeneral
+	oFile = new FormDesignerFileSystem
 
 	func Start
 		oView.CreateMainWindow(oModel)
@@ -756,12 +757,16 @@ Class FormDesignerController from WindowsControllerParent
 		}
 
 	func NewAction
+		oFile.NewAction(self)
 
 	func OpenAction
+		oFile.OpenAction(self)
 
 	func SaveAction
+		oFile.SaveAction(self)
 
 	func SaveAsAction
+		oFile.SaveAsAction(self)
 
 	func ExitAction
 		Super.CloseAction()
@@ -2099,3 +2104,18 @@ class FormDesigner_QRadioButton from QRadioButton
 	CreateMoveResizeCornersAttributes()
 
 
+class FormDesignerFileSystem
+
+	cFileName = "noname.rform"
+
+	func NewAction oDesigner
+
+	func OpenAction oDesigner
+
+	func SaveAction oDesigner
+
+	func SaveAsAction oDesigner
+
+	func SaveForm oDesigner
+
+	func LoadForm oDesigner
