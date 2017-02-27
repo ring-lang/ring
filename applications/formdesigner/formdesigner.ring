@@ -1634,10 +1634,10 @@ class FormDesigner_QWidget from QWidget
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
 		cOutput += cTabs + ' :title =  "#{f5}" , ' + nl
 		cOutput += cTabs + ' :backcolor =  "#{f6}" '
-		cOutput = substr(cOutput,"#{f1}",""+x())
-		cOutput = substr(cOutput,"#{f2}",""+y())
-		cOutput = substr(cOutput,"#{f3}",""+width())
-		cOutput = substr(cOutput,"#{f4}",""+height())
+		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
+		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
+		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
+		cOutput = substr(cOutput,"#{f4}",""+parentwidget().height())
 		cOutput = substr(cOutput,"#{f5}",windowtitle())
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		return cOutput 
@@ -2254,6 +2254,7 @@ class FormDesignerFileSystem
 							blocksignals(True)
 							move(item[:data][:x],item[:data][:y]) 
 							resize(item[:data][:width],item[:data][:height])
+							setWindowTitle(item[:data][:title])
 							show()
 							blocksignals(False)
 						}
