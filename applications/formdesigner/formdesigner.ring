@@ -1456,6 +1456,30 @@ Class FormDesignerModel
 	func RadioButtonsCount
 		return nRadioButtonsCount
 
+	func DeleteAllObjects
+		aManySelectedObjects = []
+		nActiveObject = 1
+		nIDCounter = 1
+		nLabelsCount = 0
+		nPushButtonsCount = 0
+		nLineEditsCount = 0
+		nTextEditsCount = 0
+		nListWidgetsCount = 0
+		nCheckBoxesCount = 0
+		nImagesCount = 0
+		nSlidersCount = 0
+		nProgressbarsCount = 0
+		nSpinBoxesCount = 0
+		nComboBoxesCount = 0
+		nDateTimeEditsCount = 0
+		nTableWidgetsCount = 0
+		nTreeWidgetsCount = 0
+		nRadioButtonsCount = 0
+		# Delete Objects but Keep the Form Object
+		while  len(aObjectsList) > 1 {
+			del(aObjectsList,2)
+		}
+		
 
 Class FormDesignerGeneral
 
@@ -2244,8 +2268,13 @@ class FormDesignerFileSystem
 			write(cFileName,cHeader+cContent+cEnd)
 			
 	func LoadFormFromFile oDesigner
-
-		cCode = read(cFileName)		
-		eval(cCode)		# Load the Form Data 
-
-
+		# Delete objects
+			for x = 2 to len(oDesigner.oModel.aObjectsList) {
+				item = oDesigner.oModel.aObjectsList[x]
+				oObject = item[2]
+				oObject.oCorners.Hide() 
+				oObject.Close() 
+			}
+			oDesigner.oModel.DeleteAllObjects()
+			oDesigner.AddObjectsToCombo()		
+		eval(read(cFileName))		# Load the Form Data 

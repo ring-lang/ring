@@ -309,6 +309,8 @@ Type: const char *
 cStr
 Type: VM *
 pVM
+Type: int
+lStatus
 ring_vmlib_raise
 ring_vmlib_assert
 ring_vmlib_isfunc
