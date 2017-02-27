@@ -1604,6 +1604,19 @@ class FormDesigner_QWidget from QWidget
 		height = max(nY,nY2) - min(nY,nY2)  
 		return [left,top,width,height]
 
+	func ObjectDataAsString nTabsCount
+		cTabs = copy(char(9),nTabsCount) 
+		cOutput = cTabs + " :x = #{f1} , : y = #{f2}  , " + nl
+		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
+		cOutput += cTabs + ' :title =  "#{f5}" , ' + nl
+		cOutput += cTabs + ' :backcolor =  "#{f6}" '
+		cOutput = substr(cOutput,"#{f1}",""+x())
+		cOutput = substr(cOutput,"#{f2}",""+y())
+		cOutput = substr(cOutput,"#{f3}",""+width())
+		cOutput = substr(cOutput,"#{f4}",""+height())
+		cOutput = substr(cOutput,"#{f5}",windowtitle())
+		cOutput = substr(cOutput,"#{f6}",backcolor())
+		return cOutput 
 
 Class MoveResizeCorners 
 
@@ -1959,6 +1972,22 @@ class CommonAttributesMethods
 			DisplayProperties(oDesigner) 
 		}
 
+	func ObjectDataAsString nTabsCount
+		cTabs = copy(char(9),nTabsCount) 
+		cOutput = cTabs + " :x = #{f1} , : y = #{f2}  , " + nl
+		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
+		cOutput += cTabs + ' :textcolor =  "#{f5}" , ' + nl
+		cOutput += cTabs + ' :backcolor =  "#{f6}" , ' + nl
+		cOutput += cTabs + ' :font =  "#{f7}"'
+		cOutput = substr(cOutput,"#{f1}",""+x())
+		cOutput = substr(cOutput,"#{f2}",""+y())
+		cOutput = substr(cOutput,"#{f3}",""+width())
+		cOutput = substr(cOutput,"#{f4}",""+height())
+		cOutput = substr(cOutput,"#{f5}",textcolor())
+		cOutput = substr(cOutput,"#{f6}",backcolor())
+		cOutput = substr(cOutput,"#{f7}",fontproperty())
+		return cOutput 
+
 class FormDesigner_QLabel from QLabel
 
 	nTextAlign = 0
@@ -2188,13 +2217,19 @@ class FormDesignerFileSystem
 					aObjectsList = [" + nl
 
 			# Objects 
-				for aObject in oDesigner.oModel.aObjectsList {
+				for x = 1 to len(oDesigner.oModel.aObjectsList) {
+					aObject  = oDesigner.oModel.aObjectsList[x]
 					cObjContent = Copy(char(9),6) + 
 					'[ :name = "#{f1}" , :id = #{f2} , :classname = "#{f3}" , :data = [' + nl
-					cObjContent += Copy(char(9),7) +	"]" + nl + Copy(char(9),6) + "]" + nl
+					cObjContent += aObject[2].ObjectDataAsString(7) + nl
+					cObjContent += Copy(char(9),7) +	"]" + nl + Copy(char(9),6) + "]" 
 					cObjContent = substr(cObjContent,"#{f1}",aObject[1])
 					cObjContent = substr(cObjContent,"#{f2}",""+aObject[3])
 					cObjContent = substr(cObjContent,"#{f3}",classname(aObject[2]))
+					if x != len(oDesigner.oModel.aObjectsList) {
+						cObjContent += ","
+					}
+					cObjContent += nl
 					cContent += cObjContent
 				}
 
