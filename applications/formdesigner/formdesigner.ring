@@ -1973,7 +1973,7 @@ class CommonAttributesMethods
 		}
 
 	func ObjectDataAsString nTabsCount
-		cTabs = copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput = cTabs + " :x = #{f1} , : y = #{f2}  , " + nl
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
 		cOutput += cTabs + ' :textcolor =  "#{f5}" , ' + nl
