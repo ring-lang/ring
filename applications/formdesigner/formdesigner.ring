@@ -2278,3 +2278,20 @@ class FormDesignerFileSystem
 			oDesigner.oModel.DeleteAllObjects()
 			oDesigner.AddObjectsToCombo()		
 		eval(read(cFileName))		# Load the Form Data 
+		# Set Variables 
+			oDesigner.oModel.nIDCounter = nIDCounter
+			oDesigner.oModel.nLabelsCount = nLabelsCount
+			oDesigner.oModel.nPushButtonsCount = nPushButtonsCount
+			oDesigner.oModel.nLineEditsCount = nLineEditsCount
+			oDesigner.oModel.nTextEditsCount = nTextEditsCount
+			oDesigner.oModel.nListWidgetsCount = nListWidgetsCount
+			oDesigner.oModel.nCheckBoxesCount = nCheckBoxesCount
+			oDesigner.oModel.nImagesCount = nImagesCount
+			oDesigner.oModel.nSlidersCount = nSlidersCount
+			oDesigner.oModel.nProgressbarsCount = nProgressbarsCount
+			oDesigner.oModel.nSpinBoxesCount = nSpinBoxesCount
+			oDesigner.oModel.nComboBoxesCount = nComboBoxesCount
+			oDesigner.oModel.nDateTimeEditsCount = nDateTimeEditsCount
+			oDesigner.oModel.nTableWidgetsCount = nTableWidgetsCount
+			oDesigner.oModel.nTreeWidgetsCount = nTreeWidgetsCount
+			oDesigner.oModel.nRadioButtonsCount = nRadioButtonsCount
