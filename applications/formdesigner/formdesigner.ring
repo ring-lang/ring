@@ -2002,7 +2002,8 @@ class CommonAttributesMethods
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
 		cOutput += cTabs + ' :textcolor =  "#{f5}" , ' + nl
 		cOutput += cTabs + ' :backcolor =  "#{f6}" , ' + nl
-		cOutput += cTabs + ' :font =  "#{f7}"'
+		cOutput += cTabs + ' :font =  "#{f7}" , ' + nl
+		cOutput += cTabs + ' :text =  "#{f8}"'
 		cOutput = substr(cOutput,"#{f1}",""+x())
 		cOutput = substr(cOutput,"#{f2}",""+y())
 		cOutput = substr(cOutput,"#{f3}",""+width())
@@ -2010,6 +2011,7 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f5}",textcolor())
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",fontproperty())
+		cOutput = substr(cOutput,"#{f8}",text())
 		return cOutput 
 
 class FormDesigner_QLabel from QLabel
@@ -2264,13 +2266,15 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()) {
 								move(item[:data][:x],item[:data][:y]) 
 								resize(item[:data][:width],item[:data][:height])
-								setTextColor(item[:data][:textcolor])
-								setBackColor(item[:data][:backcolor])
-								setFontProperty(item[:data][:font])
 								setMouseTracking(True)
 								setFocusPolicy(0)
 							}
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.PushButtonsCount())
+						oDesigner.oModel.ActiveObject().setText(item[:data][:text])
+						oDesigner.oModel.ActiveObject().setTextColor(item[:data][:textcolor])
+						oDesigner.oModel.ActiveObject().setBackColor(item[:data][:backcolor])
+						oDesigner.oModel.ActiveObject().setFontProperty(item[:data][:font])
+						oDesigner.ObjectProperties()
 				}				
 			}
