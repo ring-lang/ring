@@ -87,6 +87,7 @@ typedef struct VM {
 	char nRetEvalDontDelete  ;
 	char *cPrevFileName  ;
 	char nRunCode  ;
+	char nActiveError  ;
 } VM ;
 /*
 **  Functions 

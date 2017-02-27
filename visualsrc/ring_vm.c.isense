@@ -160,6 +160,8 @@ Type: char *
 cPrevFileName
 Type: char
 nRunCode
+Type: char
+nActiveError
 END:
 Type: VM
 struct VM
