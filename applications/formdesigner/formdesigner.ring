@@ -2144,6 +2144,8 @@ class FormDesignerFileSystem
 			SaveFormToFile(oDesigner)
 
 	func SaveFormToFile oDesigner
+		cHeader = "# Start Form Designer File" + nl
+		cEnd = nl + "# End Form Designer File"
 		cContent = "
 			nIDCounter = #{f1}
 			nLabelsCount = #{f2}
@@ -2180,7 +2182,7 @@ class FormDesignerFileSystem
 		cContent = substr(cContent,"#{f16}",""+oDesigner.oModel.nRadioButtonsCount)
 
 		# Write the Form File 
-			write(cFileName,cContent)
+			write(cFileName,cHeader+cContent+cEnd)
 			
 	func LoadFormFromFile oDesigner
 
