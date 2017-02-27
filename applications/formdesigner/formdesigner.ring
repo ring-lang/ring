@@ -2181,6 +2181,21 @@ class FormDesignerFileSystem
 		cContent = substr(cContent,"#{f15}",""+oDesigner.oModel.nTreeWidgetsCount)
 		cContent = substr(cContent,"#{f16}",""+oDesigner.oModel.nRadioButtonsCount)
 
+		# Save the Objects Data 
+
+			# Start of The List
+				cContent += "
+					aObjectsList = [
+				"
+
+			# Objects 
+				
+
+			# End of The List 
+				cContent += "
+					]
+				"
+
 		# Write the Form File 
 			write(cFileName,cHeader+cContent+cEnd)
 			
