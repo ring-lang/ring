@@ -2129,7 +2129,7 @@ class FormDesignerFileSystem
 				SaveFile(oDesigner)
 				return 
 			}
-		SaveFile2(oDesigner)
+		SaveFormToFile(oDesigner)
 
 	func SaveAsAction oDesigner	
 		SaveFile(oDesigner)
@@ -2141,9 +2141,7 @@ class FormDesignerFileSystem
 			}
 			if cInputFileName = NULL { return }
 			cFileName = cInputFileName
-			SaveFile2(oDesigner)
-
-	func SaveFile2 oDesigner 
+			SaveFormToFile(oDesigner)
 
 	func SaveFormToFile oDesigner
 
