@@ -2170,6 +2170,12 @@ class FormDesignerFileSystem
 			}
 			if cInputFileName = NULL { return }
 			cFileName = cInputFileName
+		# Delete Objects 
+			DeleteAllObjects(oDesigner)
+		# Save Form 
+			SaveFormToFile(oDesigner)
+		# Properties 
+			oDesigner.ObjectProperties()
 
 	func OpenAction oDesigner
 		# Get the file Name
