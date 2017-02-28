@@ -2251,7 +2251,8 @@ class FormDesignerFileSystem
 			for item in aObjectsList {
 				cClass = item[:classname] 	
 				switch cClass {
-					case "formdesigner_qwidget" 
+
+					case :formdesigner_qwidget
 						oDesigner.oView.oSub {
 							blocksignals(True)
 							move(item[:data][:x],item[:data][:y]) 
@@ -2261,7 +2262,14 @@ class FormDesignerFileSystem
 							blocksignals(False)
 						}
 						oDesigner.oModel.FormObject().setBackColor(item[:data][:backcolor])
-					case "formdesigner_qpushbutton" 
+
+					case :FormDesigner_QLabel
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddLabel(new FormDesigner_QLabel(oDesigner.oModel.FormObject()) 	)
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LabelsCount())
+						RestoreCommonProperties(oDesigner,item)
+
+					case :FormDesigner_QPushButton
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()) {
 								setMouseTracking(True)
@@ -2269,13 +2277,43 @@ class FormDesignerFileSystem
 							}
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.PushButtonsCount())
-						oDesigner.oModel.ActiveObject().move(item[:data][:x],item[:data][:y]) 
-						oDesigner.oModel.ActiveObject().resize(item[:data][:width],item[:data][:height])
-						oDesigner.oModel.ActiveObject().setText(item[:data][:text])
-						oDesigner.oModel.ActiveObject().setTextColor(item[:data][:textcolor])
-						oDesigner.oModel.ActiveObject().setBackColor(item[:data][:backcolor])
-						oDesigner.oModel.ActiveObject().setFontProperty(item[:data][:font])
-						oDesigner.oModel.ActiveObject().refreshCorners(oDesigner.oModel.ActiveObject())
-						oDesigner.ObjectProperties()
+						RestoreCommonProperties(oDesigner,item)
+
+					case :FormDesigner_QLineEdit
+
+					case :FormDesigner_QTextEdit
+
+					case :FormDesigner_QListWidget
+
+					case :FormDesigner_QCheckBox
+
+					case :FormDesigner_QImage
+
+					case :FormDesigner_QSlider
+
+					case :FormDesigner_QProgressbar
+
+					case :FormDesigner_QSpinBox
+
+					case :FormDesigner_QComboBox
+
+					case :FormDesigner_QDateTimeEdit
+
+					case :FormDesigner_QTableWidget
+
+					case :FormDesigner_QTreeWidget
+
+					case :FormDesigner_QRadioButton
+
 				}				
 			}
+
+		func RestoreCommonProperties oDesigner,item 
+			oDesigner.oModel.ActiveObject().move(item[:data][:x],item[:data][:y]) 
+			oDesigner.oModel.ActiveObject().resize(item[:data][:width],item[:data][:height])
+			oDesigner.oModel.ActiveObject().setText(item[:data][:text])
+			oDesigner.oModel.ActiveObject().setTextColor(item[:data][:textcolor])
+			oDesigner.oModel.ActiveObject().setBackColor(item[:data][:backcolor])
+			oDesigner.oModel.ActiveObject().setFontProperty(item[:data][:font])
+			oDesigner.oModel.ActiveObject().refreshCorners(oDesigner.oModel.ActiveObject())
+			oDesigner.ObjectProperties()
