@@ -2172,6 +2172,15 @@ class FormDesignerFileSystem
 			cFileName = cInputFileName
 		# Delete Objects 
 			DeleteAllObjects(oDesigner)
+		# Set Default Form Properties 
+			oDesigner.oView.oSub {
+				blocksignals(True)
+				move(100,100) 
+				resize(400,400)
+				setWindowTitle("Form1")
+				blocksignals(False)
+			}
+			oDesigner.oModel.FormObject().setBackColor("")
 		# Save Form 
 			SaveFormToFile(oDesigner)
 		# Properties 
