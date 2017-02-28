@@ -270,11 +270,19 @@ RING_API void ring_list_deleteitem ( List *pList,int index )
 	assert(pList != NULL);
 	/* Goto the Item */
 	if ( index > 0 && ( ring_list_getsize(pList) > 0 ) && index <= ring_list_getsize(pList) ) {
-		pItems = pList->pFirst ;
-		pItemsPrev = NULL ;
-		for ( x = 1 ; x < index ; x++ ) {
-			pItemsPrev = pItems ;
-			pItems = pItems->pNext ;
+		/* Quickly Get the Last Item */
+		if ( index == ring_list_getsize(pList) ) {
+			pItems = pList->pLast ;
+			pItemsPrev = pItems->pPrev ;
+		}
+		/* Linear Search */
+		else {
+			pItems = pList->pFirst ;
+			pItemsPrev = NULL ;
+			for ( x = 1 ; x < index ; x++ ) {
+				pItemsPrev = pItems ;
+				pItems = pItems->pNext ;
+			}
 		}
 		/* Delete The Item */
 		if ( index == 1 ) {
