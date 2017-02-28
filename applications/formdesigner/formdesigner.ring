@@ -2367,14 +2367,16 @@ class FormDesignerFileSystem
 
 		func RestoreCommonProperties oDesigner,item 
 			itemdata = item[:data]
-			oDesigner.oModel.ActiveObject().blocksignals(true)
-			oDesigner.oModel.ActiveObject().setMouseTracking(True)
-			oDesigner.oModel.ActiveObject().setFocusPolicy(0)
-			oDesigner.oModel.ActiveObject().move(itemdata[:x],itemdata[:y]) 
-			oDesigner.oModel.ActiveObject().resize(itemdata[:width],itemdata[:height])
-			oDesigner.oModel.ActiveObject().setText(itemdata[:text])
-			oDesigner.oModel.ActiveObject().setTextColor(itemdata[:textcolor])
-			oDesigner.oModel.ActiveObject().setBackColor(itemdata[:backcolor])
-			oDesigner.oModel.ActiveObject().setFontProperty(itemdata[:font])
-			oDesigner.oModel.ActiveObject().refreshCorners(oDesigner.oModel.ActiveObject())			
-			oDesigner.oModel.ActiveObject().blocksignals(false)
+			oDesigner.oModel.ActiveObject() { 
+				blocksignals(true)
+				setMouseTracking(True)
+				setFocusPolicy(0)
+				move(itemdata[:x],itemdata[:y]) 
+				resize(itemdata[:width],itemdata[:height])
+				setText(itemdata[:text])
+				setTextColor(itemdata[:textcolor])
+				setBackColor(itemdata[:backcolor])
+				setFontProperty(itemdata[:font])
+				refreshCorners(oDesigner.oModel.ActiveObject())			
+				blocksignals(false)
+			}
