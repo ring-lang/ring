@@ -2231,17 +2231,20 @@ class FormDesignerFileSystem
 
 		# Write the Form File 
 			write(cFileName,cHeader+cContent+cEnd)
+
+	func DeleteAllobjects oDesigner
+		for x = 2 to len(oDesigner.oModel.aObjectsList) {
+			item = oDesigner.oModel.aObjectsList[x]
+			oObject = item[2]
+			oObject.oCorners.Hide() 
+			oObject.Close() 
+		}
+		oDesigner.oModel.DeleteAllObjects()
+		oDesigner.AddObjectsToCombo()		
 			
 	func LoadFormFromFile oDesigner
 		# Delete objects
-			for x = 2 to len(oDesigner.oModel.aObjectsList) {
-				item = oDesigner.oModel.aObjectsList[x]
-				oObject = item[2]
-				oObject.oCorners.Hide() 
-				oObject.Close() 
-			}
-			oDesigner.oModel.DeleteAllObjects()
-			oDesigner.AddObjectsToCombo()		
+			DeleteAllObjects(oDesigner)
 		# Load the Form Data 
 			eval(read(cFileName))		
 		# Create Objects 
