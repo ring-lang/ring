@@ -1996,7 +1996,10 @@ class CommonAttributesMethods
 			DisplayProperties(oDesigner) 
 		}
 
-	func ObjectDataAsString nTabsCount
+	func  ObjectDataAsString nTabsCount
+		return ObjectDataAsString2(nTabsCount)
+
+	func ObjectDataAsString2 nTabsCount
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput = cTabs + " :x = #{f1} , : y = #{f2}  , " + nl
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
@@ -2020,6 +2023,9 @@ class FormDesigner_QLabel from QLabel
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
+
+	func TextAlign
+		return nTextAlign
 
 	func SetTextAlign nIndex
 		nTextAlign = nIndex
@@ -2057,6 +2063,12 @@ class FormDesigner_QLabel from QLabel
 			nIndex = oCombo.CurrentIndex()
 			setTextAlign(nIndex)
 		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign() 
+		return cOutput
 
 class FormDesigner_QPushButton from QPushButton 
 
@@ -2276,6 +2288,7 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddLabel(new FormDesigner_QLabel(oDesigner.oModel.FormObject()) 	)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LabelsCount())
 						RestoreCommonProperties(oDesigner,item)
+						oDesigner.oModel.ActiveObject().setTextAlign(0+item[:data][:textalign])
 					case :FormDesigner_QPushButton
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()) {
