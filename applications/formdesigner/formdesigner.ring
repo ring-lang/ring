@@ -2207,16 +2207,15 @@ class FormDesignerFileSystem
 		# Save the Objects Data 
 
 			# Start of The List
-				cContent = "
-					aObjectsList = [" + nl
+				cContent = "aObjectsList = [" + nl
 
 			# Objects 
 				for x = 1 to len(oDesigner.oModel.aObjectsList) {
 					aObject  = oDesigner.oModel.aObjectsList[x]
-					cObjContent = Copy(char(9),6) + 
+					cObjContent = Copy(char(9),1) + 
 					'[ :name = "#{f1}" , :id = #{f2} , :classname = "#{f3}" , :data = [' + nl
-					cObjContent += aObject[2].ObjectDataAsString(7) + nl
-					cObjContent += Copy(char(9),7) +	"]" + nl + Copy(char(9),6) + "]" 
+					cObjContent += aObject[2].ObjectDataAsString(2) + nl
+					cObjContent += Copy(char(9),2) +	"]" + nl + Copy(char(9),1) + "]" 
 					cObjContent = substr(cObjContent,"#{f1}",aObject[1])
 					cObjContent = substr(cObjContent,"#{f2}",""+aObject[3])
 					cObjContent = substr(cObjContent,"#{f3}",classname(aObject[2]))
@@ -2228,9 +2227,7 @@ class FormDesignerFileSystem
 				}
 
 			# End of The List 
-				cContent += "
-					]
-				"
+				cContent += "]" + nl
 
 		# Write the Form File 
 			write(cFileName,cHeader+cContent+cEnd)
