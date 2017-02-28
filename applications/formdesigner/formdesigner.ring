@@ -2264,17 +2264,18 @@ class FormDesignerFileSystem
 					case "formdesigner_qpushbutton" 
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()) {
-								move(item[:data][:x],item[:data][:y]) 
-								resize(item[:data][:width],item[:data][:height])
 								setMouseTracking(True)
 								setFocusPolicy(0)
 							}
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.PushButtonsCount())
+						oDesigner.oModel.ActiveObject().move(item[:data][:x],item[:data][:y]) 
+						oDesigner.oModel.ActiveObject().resize(item[:data][:width],item[:data][:height])
 						oDesigner.oModel.ActiveObject().setText(item[:data][:text])
 						oDesigner.oModel.ActiveObject().setTextColor(item[:data][:textcolor])
 						oDesigner.oModel.ActiveObject().setBackColor(item[:data][:backcolor])
 						oDesigner.oModel.ActiveObject().setFontProperty(item[:data][:font])
+						oDesigner.oModel.ActiveObject().refreshCorners(oDesigner.oModel.ActiveObject())
 						oDesigner.ObjectProperties()
 				}				
 			}
