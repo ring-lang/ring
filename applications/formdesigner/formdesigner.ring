@@ -2280,6 +2280,16 @@ class FormDesignerFileSystem
 						RestoreCommonProperties(oDesigner,item)
 
 					case :FormDesigner_QLineEdit
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddLineEdit(new FormDesigner_QLineEdit(oDesigner.oModel.FormObject()) {
+								setMouseTracking(True)
+								setFocusPolicy(0)
+							}
+						)
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LineEditsCount())
+						RestoreCommonProperties(oDesigner,item)
+
+
 
 					case :FormDesigner_QTextEdit
 
