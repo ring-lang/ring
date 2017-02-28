@@ -2217,7 +2217,7 @@ class FormDesignerFileSystem
 
 	func SaveFormToFile oDesigner
 		cHeader = "# Start Form Designer File" + nl
-		cEnd = nl + "# End Form Designer File"
+		cEnd = "# End Form Designer File"
 
 		# Save the Objects Data 
 
