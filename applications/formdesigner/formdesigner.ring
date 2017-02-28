@@ -2218,12 +2218,9 @@ class FormDesignerFileSystem
 	func SaveFormToFile oDesigner
 		cHeader = "# Start Form Designer File" + nl
 		cEnd = "# End Form Designer File"
-
 		# Save the Objects Data 
-
 			# Start of The List
 				cContent = "aObjectsList = [" + nl
-
 			# Objects 
 				for x = 1 to len(oDesigner.oModel.aObjectsList) {
 					aObject  = oDesigner.oModel.aObjectsList[x]
@@ -2240,10 +2237,8 @@ class FormDesignerFileSystem
 					cObjContent += nl
 					cContent += cObjContent
 				}
-
 			# End of The List 
 				cContent += "]" + nl
-
 		# Write the Form File 
 			write(cFileName,cHeader+cContent+cEnd)
 
@@ -2266,7 +2261,6 @@ class FormDesignerFileSystem
 			for item in aObjectsList {
 				cClass = item[:classname] 	
 				switch cClass {
-
 					case :formdesigner_qwidget
 						oDesigner.oView.oSub {
 							blocksignals(True)
@@ -2277,13 +2271,11 @@ class FormDesignerFileSystem
 							blocksignals(False)
 						}
 						oDesigner.oModel.FormObject().setBackColor(item[:data][:backcolor])
-
 					case :FormDesigner_QLabel
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddLabel(new FormDesigner_QLabel(oDesigner.oModel.FormObject()) 	)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LabelsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QPushButton
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()) {
@@ -2293,7 +2285,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.PushButtonsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QLineEdit
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddLineEdit(new FormDesigner_QLineEdit(oDesigner.oModel.FormObject()) {
@@ -2303,7 +2294,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LineEditsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QTextEdit
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddLineEdit(new FormDesigner_QTextEdit(oDesigner.oModel.FormObject()) {
@@ -2313,7 +2303,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TextEditsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QListWidget
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddListWidget(new FormDesigner_QListWidget(oDesigner.oModel.FormObject()) {
@@ -2323,7 +2312,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ListWidgetsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QCheckBox
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddCheckBox(new FormDesigner_QCheckBox(oDesigner.oModel.FormObject()) {
@@ -2333,7 +2321,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.CheckBoxesCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QImage
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddImage(new FormDesigner_QImage(oDesigner.oModel.FormObject()) {
@@ -2343,7 +2330,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ImagesCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QSlider
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddSlider(new FormDesigner_QSlider(oDesigner.oModel.FormObject()) {
@@ -2353,7 +2339,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.SlidersCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QProgressbar
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddProgressBar(new FormDesigner_QProgressBar(oDesigner.oModel.FormObject()) {
@@ -2363,7 +2348,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ProgressBarsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QSpinBox
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddSpinBox(new FormDesigner_QSpinBox(oDesigner.oModel.FormObject()) {
@@ -2373,7 +2357,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.SpinBoxesCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QComboBox
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddComboBox(new FormDesigner_QCombobox(oDesigner.oModel.FormObject()) {
@@ -2383,7 +2366,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ComboBoxesCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QDateTimeEdit
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddDateTimeEdit(new FormDesigner_QDateTimeEdit(oDesigner.oModel.FormObject()) {
@@ -2393,7 +2375,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.DateTimeEditsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QTableWidget
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddTableWidget(new FormDesigner_QTableWidget(oDesigner.oModel.FormObject()) {
@@ -2403,7 +2384,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TableWidgetsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QTreeWidget
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddTreeWidget(new FormDesigner_QTreeWidget(oDesigner.oModel.FormObject()) {
@@ -2413,7 +2393,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TreeWidgetsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 					case :FormDesigner_QRadioButton
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddRadioButton(new FormDesigner_QRadioButton(oDesigner.oModel.FormObject()) {
@@ -2423,7 +2402,6 @@ class FormDesignerFileSystem
 						)
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.RadioButtonsCount())
 						RestoreCommonProperties(oDesigner,item)
-
 				}				
 			}
 
