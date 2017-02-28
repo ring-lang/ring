@@ -145,6 +145,8 @@ Class FormDesignerController from WindowsControllerParent
 			oModel.AddLabel(new FormDesigner_QLabel(oModel.FormObject()) {
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
+					setMouseTracking(True)
+					setFocusPolicy(0)
 				}
 			)
 			NewControlEvents("Label",oModel.LabelsCount())
@@ -288,8 +290,6 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("RadioButton",oModel.RadioButtonsCount())
-
-
 		}
 
 	func NewControlEvents cName,nCount
@@ -2268,162 +2268,113 @@ class FormDesignerFileSystem
 		# Delete objects
 			DeleteAllObjects(oDesigner)
 		# Load the Form Data 
-			eval(read(cFileName))		
+			eval(read(cFileName))	
 		# Create Objects 
 			for item in aObjectsList {
 				cClass = item[:classname] 	
 				switch cClass {
 					case :formdesigner_qwidget
+						itemdata = item[:data]
 						oDesigner.oView.oSub {
 							blocksignals(True)
-							move(item[:data][:x],item[:data][:y]) 
-							resize(item[:data][:width],item[:data][:height])
-							setWindowTitle(item[:data][:title])
+							move(itemdata[:x],itemdata[:y]) 
+							resize(itemdata[:width],itemdata[:height])
+							setWindowTitle(itemdata[:title])
 							show()
 							blocksignals(False)
 						}
-						oDesigner.oModel.FormObject().setBackColor(item[:data][:backcolor])
+						oDesigner.oModel.FormObject().setBackColor(itemdata[:backcolor])
 					case :FormDesigner_QLabel
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddLabel(new FormDesigner_QLabel(oDesigner.oModel.FormObject()) 	)
+						oDesigner.oModel.AddLabel(new FormDesigner_QLabel(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LabelsCount())
 						RestoreCommonProperties(oDesigner,item)
-						oDesigner.oModel.ActiveObject().setTextAlign(0+item[:data][:textalign])
+						oDesigner.oModel.ActiveObject().setTextAlign(0+itemdata[:textalign])
 					case :FormDesigner_QPushButton
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.PushButtonsCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QLineEdit
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddLineEdit(new FormDesigner_QLineEdit(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddLineEdit(new FormDesigner_QLineEdit(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LineEditsCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QTextEdit
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddLineEdit(new FormDesigner_QTextEdit(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddLineEdit(new FormDesigner_QTextEdit(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TextEditsCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QListWidget
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddListWidget(new FormDesigner_QListWidget(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddListWidget(new FormDesigner_QListWidget(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ListWidgetsCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QCheckBox
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddCheckBox(new FormDesigner_QCheckBox(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddCheckBox(new FormDesigner_QCheckBox(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.CheckBoxesCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QImage
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddImage(new FormDesigner_QImage(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddImage(new FormDesigner_QImage(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ImagesCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QSlider
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddSlider(new FormDesigner_QSlider(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddSlider(new FormDesigner_QSlider(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.SlidersCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QProgressbar
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddProgressBar(new FormDesigner_QProgressBar(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddProgressBar(new FormDesigner_QProgressBar(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ProgressBarsCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QSpinBox
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddSpinBox(new FormDesigner_QSpinBox(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddSpinBox(new FormDesigner_QSpinBox(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.SpinBoxesCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QComboBox
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddComboBox(new FormDesigner_QCombobox(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddComboBox(new FormDesigner_QCombobox(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ComboBoxesCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QDateTimeEdit
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddDateTimeEdit(new FormDesigner_QDateTimeEdit(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddDateTimeEdit(new FormDesigner_QDateTimeEdit(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.DateTimeEditsCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QTableWidget
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddTableWidget(new FormDesigner_QTableWidget(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddTableWidget(new FormDesigner_QTableWidget(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TableWidgetsCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QTreeWidget
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddTreeWidget(new FormDesigner_QTreeWidget(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddTreeWidget(new FormDesigner_QTreeWidget(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TreeWidgetsCount())
 						RestoreCommonProperties(oDesigner,item)
 					case :FormDesigner_QRadioButton
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddRadioButton(new FormDesigner_QRadioButton(oDesigner.oModel.FormObject()) {
-								setMouseTracking(True)
-								setFocusPolicy(0)
-							}
-						)
+						oDesigner.oModel.AddRadioButton(new FormDesigner_QRadioButton(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.RadioButtonsCount())
 						RestoreCommonProperties(oDesigner,item)
 				}				
 			}
+			# Object Properties
+				oDesigner.ObjectProperties()
 
 		func RestoreCommonProperties oDesigner,item 
-			oDesigner.oModel.ActiveObject().move(item[:data][:x],item[:data][:y]) 
-			oDesigner.oModel.ActiveObject().resize(item[:data][:width],item[:data][:height])
-			oDesigner.oModel.ActiveObject().setText(item[:data][:text])
-			oDesigner.oModel.ActiveObject().setTextColor(item[:data][:textcolor])
-			oDesigner.oModel.ActiveObject().setBackColor(item[:data][:backcolor])
-			oDesigner.oModel.ActiveObject().setFontProperty(item[:data][:font])
-			oDesigner.oModel.ActiveObject().refreshCorners(oDesigner.oModel.ActiveObject())
-			oDesigner.ObjectProperties()
+			itemdata = item[:data]
+			oDesigner.oModel.ActiveObject().blocksignals(true)
+			oDesigner.oModel.ActiveObject().setMouseTracking(True)
+			oDesigner.oModel.ActiveObject().setFocusPolicy(0)
+			oDesigner.oModel.ActiveObject().move(itemdata[:x],itemdata[:y]) 
+			oDesigner.oModel.ActiveObject().resize(itemdata[:width],itemdata[:height])
+			oDesigner.oModel.ActiveObject().setText(itemdata[:text])
+			oDesigner.oModel.ActiveObject().setTextColor(itemdata[:textcolor])
+			oDesigner.oModel.ActiveObject().setBackColor(itemdata[:backcolor])
+			oDesigner.oModel.ActiveObject().setFontProperty(itemdata[:font])
+			oDesigner.oModel.ActiveObject().refreshCorners(oDesigner.oModel.ActiveObject())			
+			oDesigner.oModel.ActiveObject().blocksignals(false)
