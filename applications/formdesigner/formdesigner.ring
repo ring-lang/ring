@@ -2283,6 +2283,7 @@ class FormDesignerFileSystem
 							show()
 							blocksignals(False)
 						}
+						oDesigner.oModel.FormObject().setWindowTitle(itemdata[:title])
 						oDesigner.oModel.FormObject().setBackColor(itemdata[:backcolor])
 					case :FormDesigner_QLabel
 						oDesigner.HideCorners()
