@@ -194,6 +194,8 @@ VM * ring_vm_new ( RingState *pRingState )
 VM * ring_vm_delete ( VM *pVM )
 {
 	int x  ;
+	List *pRecord  ;
+	Item *pItem  ;
 	assert(pVM);
 	pVM->pMem = ring_list_delete(pVM->pMem);
 	pVM->pNestedLists = ring_list_delete(pVM->pNestedLists);
@@ -222,6 +224,16 @@ VM * ring_vm_delete ( VM *pVM )
 	free( pVM->pByteCode ) ;
 	/* Delete Mutex */
 	ring_vm_mutexdestroy(pVM);
+	/*
+	**  Remove Dynamic Self Items 
+	**  Delete Items 
+	*/
+	for ( x = 1 ; x <= ring_list_getsize(pVM->aDynamicSelfItems) ; x++ ) {
+		pRecord = ring_list_getlist(pVM->aDynamicSelfItems,x);
+		pItem = (Item *) ring_list_getpointer(pRecord,2);
+		free( pItem ) ;
+	}
+	/* Delete List */
 	pVM->aDynamicSelfItems = ring_list_delete(pVM->aDynamicSelfItems);
 	free( pVM ) ;
 	pVM = NULL ;

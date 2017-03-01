@@ -342,6 +342,10 @@ pList
 ring_vm_delete
 Type: int
 x
+Type: List *
+pRecord
+Type: Item *
+pItem
 ring_vm_loadcode
 Type: int
 x,nSize
