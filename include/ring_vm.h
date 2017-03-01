@@ -88,6 +88,7 @@ typedef struct VM {
 	char *cPrevFileName  ;
 	char nRunCode  ;
 	char nActiveError  ;
+	Item *pDynamicSelfItem  ;
 } VM ;
 /*
 **  Functions 
@@ -396,6 +397,8 @@ void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer ) ;
 void ring_vm_oop_movetobeforeobjstate ( VM *pVM ) ;
 
 void ring_vm_oop_setthethisvariable ( VM *pVM ) ;
+
+void ring_vm_oop_updateselfpointer2 ( VM *pVM,List *pObj ) ;
 /* For Better Performance */
 
 void ring_vm_pushp ( VM *pVM ) ;

@@ -161,3 +161,6 @@ pList
 ring_vm_oop_setthethisvariable
 Type: List *
 pList, *pThis
+ring_vm_oop_updateselfpointer2
+Type: Item *
+pItem

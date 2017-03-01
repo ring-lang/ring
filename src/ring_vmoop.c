@@ -409,6 +409,8 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	if ( pVar == NULL ) {
 		return ;
 	}
+	/* Update Self Pointer Using Temp. Item */
+	ring_vm_oop_updateselfpointer2(pVM,pVar);
 	/* Get Object Class */
 	pList = (List *) ring_list_getpointer(pVar,1);
 	/* Push Class Package */
@@ -567,6 +569,8 @@ void ring_vm_oop_bracestart ( VM *pVM )
 	ring_list_addpointer(pList,pVM->pNestedLists);
 	pVM->nListStart = 0 ;
 	pVM->pNestedLists = ring_list_new(0);
+	/* Update Self Pointer Using Temp. Item */
+	ring_vm_oop_updateselfpointer2(pVM,pVM->pBraceObject);
 	pVM->pBraceObject = NULL ;
 	pVM->nInsideBraceFlag = 1 ;
 }
@@ -1208,4 +1212,26 @@ void ring_vm_oop_setthethisvariable ( VM *pVM )
 	/* Save this */
 	ring_list_setpointer(pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
 	ring_list_setint(pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
+}
+
+void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
+{
+	Item *pItem  ;
+	/*
+	**  This function will create new variable in the temp memory 
+	**  Then Add the Object List Pointer to this temp variable 
+	**  Then update the self pointer to use this variable 
+	**  This fix the self pointer before usage using braces { } or methods calls 
+	**  This is important because there are use cases where updateselfpointer is not enough 
+	**  So we need updateselfpointer2 to avoid dangling pointer problems as a result of 
+	**  Self pointer that point to deleted items/variables/objects 
+	**  Create The Temp. Variable 
+	*/
+	pItem = ring_item_new(ITEMTYPE_NOTHING);
+	ring_item_settype(pItem,ITEMTYPE_LIST);
+	free(pItem->data.pList);
+	pItem->gc.nReferenceCount++ ;
+	pItem->data.pList = pList ;
+	/* Update The Self Pointer */
+	ring_vm_oop_updateselfpointer(pList,RING_OBJTYPE_LISTITEM,pItem);
 }

@@ -162,6 +162,8 @@ Type: char
 nRunCode
 Type: char
 nActiveError
+Type: Item *
+pDynamicSelfItem
 END:
 Type: VM
 struct VM
