@@ -186,6 +186,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nRunCode = 0 ;
 	/* Flag that we have runtime error to avoid calling the error function again */
 	pVM->nActiveError = 0 ;
+	/* Dynamic List of Self Items and PC */
+	pVM->aDynamicSelfItems = ring_list_new(0);
 	return pVM ;
 }
 
@@ -220,6 +222,7 @@ VM * ring_vm_delete ( VM *pVM )
 	free( pVM->pByteCode ) ;
 	/* Delete Mutex */
 	ring_vm_mutexdestroy(pVM);
+	pVM->aDynamicSelfItems = ring_list_delete(pVM->aDynamicSelfItems);
 	free( pVM ) ;
 	pVM = NULL ;
 	return pVM ;

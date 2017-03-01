@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  pClassesMap ( cClass Name ,  iPC , cParentClass, aMethodsList , nFlagIsParentClassInformation 
 **  pClassesMap ( cClass Name, Pointer to List that represent class inside a Package, Pointer to File 
 **  pFunctionsMap ( Name, PC, FileName, Private Flag ) 
@@ -1212,6 +1212,8 @@ void ring_vm_oop_setthethisvariable ( VM *pVM )
 void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 {
 	Item *pItem  ;
+	int x,lFound  ;
+	List *pRecord  ;
 	/*
 	**  This function will create new variable in the temp memory 
 	**  Then Add the Object List Pointer to this temp variable 
@@ -1221,11 +1223,27 @@ void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 	**  So we need updateselfpointer2 to avoid dangling pointer problems as a result of 
 	**  Self pointer that point to deleted items/variables/objects 
 	**  Create The Temp. Variable 
+	**  Try to find the item, or create it if it's not found 
 	*/
-	pItem = ring_item_new(ITEMTYPE_NOTHING);
-	ring_item_settype(pItem,ITEMTYPE_LIST);
-	free(pItem->data.pList);
-	pItem->gc.nReferenceCount++ ;
+	lFound = 0 ;
+	for ( x = 1 ; x <= ring_list_getsize(pVM->aDynamicSelfItems) ; x++ ) {
+		pRecord = ring_list_getlist(pVM->aDynamicSelfItems,x);
+		if ( ring_list_getint(pRecord,1) == pVM->nPC ) {
+			pItem = (Item *) ring_list_getpointer(pRecord,2);
+			lFound = 1 ;
+			break ;
+		}
+	}
+	if ( lFound == 0 ) {
+		pRecord = ring_list_newlist(pVM->aDynamicSelfItems);
+		ring_list_addint(pRecord,pVM->nPC);
+		pItem = ring_item_new(ITEMTYPE_NOTHING);
+		ring_list_addpointer(pRecord,pItem);
+		ring_item_settype(pItem,ITEMTYPE_LIST);
+		free(pItem->data.pList);
+		pItem->gc.nReferenceCount++ ;
+	}
+	/* Set the pointer */
 	pItem->data.pList = pList ;
 	/* Update The Self Pointer */
 	ring_vm_oop_updateselfpointer(pList,RING_OBJTYPE_LISTITEM,pItem);

@@ -88,7 +88,7 @@ typedef struct VM {
 	char *cPrevFileName  ;
 	char nRunCode  ;
 	char nActiveError  ;
-	Item *pDynamicSelfItem  ;
+	List *aDynamicSelfItems  ;
 } VM ;
 /*
 **  Functions 
