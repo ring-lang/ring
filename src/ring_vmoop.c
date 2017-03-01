@@ -1174,15 +1174,10 @@ void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer )
 	pList = ring_list_getlist(pObj,2);
 	/* Get Self Attribute */
 	pList = ring_list_getlist(pList,1);
+	/* Set Object Pointer */
+	ring_list_setpointer(pList,3, pContainer);
 	/* Set Object Type */
 	ring_list_setint(pList,4,nType);
-	/* Set Object Pointer */
-	if ( nType == RING_OBJTYPE_VARIABLE ) {
-		ring_list_setpointer(pList,3,(List *) pContainer);
-	}
-	else if ( nType == RING_OBJTYPE_LISTITEM ) {
-		ring_list_setpointer(pList,3,(Item *) pContainer);
-	}
 }
 
 void ring_vm_oop_setthethisvariable ( VM *pVM )
