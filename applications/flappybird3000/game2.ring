@@ -318,7 +318,7 @@ func checkwin ogame
 				state = func ogame,oself {
 					if oself.y >= 400
 						ogame.shutdown = true
-						oGameState.value = 0
+						oGameState.Score = 0
 					ok
 				}
 			}
