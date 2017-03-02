@@ -2032,7 +2032,19 @@ class CommonAttributesMethods
 		return cOutput 
 
 	func GenerateCode
-		cOutput = ""
+		cOutput = char(9) + char(9) + 
+		'new #{f1}(win) {
+			move(#{f2},#{f3})
+			resize(#{f4},#{f5})
+			setstylesheet("color:#{f6};background-color:#{f7};")
+		}' + nl
+		cOutput = substr(cOutput,"#{f1}",substr(classname(self),"formdesigner_",""))
+		cOutput = substr(cOutput,"#{f2}",""+x())
+		cOutput = substr(cOutput,"#{f3}",""+y())
+		cOutput = substr(cOutput,"#{f4}",""+width())
+		cOutput = substr(cOutput,"#{f5}",""+height())
+		cOutput = substr(cOutput,"#{f6}",textcolor())
+		cOutput = substr(cOutput,"#{f7}",backcolor())
 		return cOutput
 
 class FormDesigner_QLabel from QLabel
