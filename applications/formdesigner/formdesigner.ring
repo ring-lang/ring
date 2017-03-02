@@ -2155,6 +2155,11 @@ class FormDesigner_QCheckBox from QCheckBox
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	func GenerateCustomCode
+		cOutput = 'setText("#{f1}")' + nl 
+		cOutput = substr(cOutput,"#{f1}",text())
+		return cOutput
+
 class FormDesigner_QImage from QLabel
 
 	CreateCommonAttributes()
@@ -2228,6 +2233,10 @@ class FormDesigner_QRadioButton from QRadioButton
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	func GenerateCustomCode
+		cOutput = 'setText("#{f1}")' + nl 
+		cOutput = substr(cOutput,"#{f1}",text())
+		return cOutput
 
 class FormDesignerFileSystem
 
