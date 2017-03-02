@@ -2037,6 +2037,10 @@ class CommonAttributesMethods
 			move(#{f2},#{f3})
 			resize(#{f4},#{f5})
 			setstylesheet("color:#{f6};background-color:#{f7};")
+			oFont = new qfont("",0,0,0)
+			oFont.fromstring("#{f8}")
+			setfont(oFont)
+			#{f9}
 		}' + nl
 		cOutput = substr(cOutput,"#{f1}",substr(classname(self),"formdesigner_",""))
 		cOutput = substr(cOutput,"#{f2}",""+x())
@@ -2045,7 +2049,12 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f5}",""+height())
 		cOutput = substr(cOutput,"#{f6}",textcolor())
 		cOutput = substr(cOutput,"#{f7}",backcolor())
+		cOutput = substr(cOutput,"#{f8}",fontproperty())
+		cOutput = substr(cOutput,"#{f9}",GenerateCustomCode())
 		return cOutput
+
+	func GenerateCustomCode
+		return ""
 
 class FormDesigner_QLabel from QLabel
 
@@ -2098,6 +2107,11 @@ class FormDesigner_QLabel from QLabel
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign() 
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = 'setText("#{f1}")'
+		cOutput = substr(cOutput,"#{f1}",text())
 		return cOutput
 
 class FormDesigner_QPushButton from QPushButton 
