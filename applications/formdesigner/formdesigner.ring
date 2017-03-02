@@ -2110,8 +2110,17 @@ class FormDesigner_QLabel from QLabel
 		return cOutput
 
 	func GenerateCustomCode
-		cOutput = 'setText("#{f1}")'
+		cOutput = 'setText("#{f1}")' + nl +
+				'setAlignment(#{f2})'
 		cOutput = substr(cOutput,"#{f1}",text())
+		Switch nTextAlign {
+			case 0
+				cOutput = substr(cOutput,"#{f2}","Qt_AlignLeft |  Qt_AlignVCenter")
+			case 1
+				cOutput = substr(cOutput,"#{f2}","Qt_AlignHCenter |  Qt_AlignVCenter" )			
+			case 2
+				cOutput = substr(cOutput,"#{f2}","Qt_AlignRight |  Qt_AlignVCenter" )
+		}
 		return cOutput
 
 class FormDesigner_QPushButton from QPushButton 
