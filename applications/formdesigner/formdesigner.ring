@@ -2407,10 +2407,11 @@ class FormDesignerCodeGenerator
 					char(9) + char(9) + "new " + cClassName +  nl + 
 					char(9) + char(9) + "exec()" + nl +
 					char(9) + "}" + nl + 
-					 "}" + nl
+					 "}" + nl + nl
 		# Write the Class 
 			cOutput += "class " + cClassName + " from WindowsViewParent" + nl +
 					char(9) + "win = new qWidget() { " + nl +
+					GenerateWindowCode(oDesigner) +
 					GenerateObjectsCode(oDesigner) +
 					char(9) + char(9) + "show()" + nl +
 					char(9) + "}" + nl + nl	
@@ -2429,5 +2430,7 @@ class FormDesignerCodeGenerator
 			nCount++
 		}
 		return cFN
+
+	func GenerateWindowCode oDesigner
 
 	func GenerateObjectsCode oDesigner
