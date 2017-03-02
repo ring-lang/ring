@@ -2174,6 +2174,7 @@ class FormDesigner_QRadioButton from QRadioButton
 class FormDesignerFileSystem
 
 	cFileName = "noname.rform"
+	oGenerator = new FormDesignerCodeGenerator
 
 	func NewAction oDesigner
 		# Set the file Name
@@ -2253,6 +2254,8 @@ class FormDesignerFileSystem
 				cContent += "]" + nl
 		# Write the Form File 
 			write(cFileName,cHeader+cContent+cEnd)
+		# Generate Code 
+			oGenerator.Generate(oDesigner,cFileName)
 
 	func DeleteAllobjects oDesigner
 		for x = 2 to len(oDesigner.oModel.aObjectsList) {
@@ -2384,5 +2387,10 @@ class FormDesignerFileSystem
 				blocksignals(false)
 			}
 
+class FormDesignerCodeGenerator
+	
+	cSourceFileName 
 
+	func Generate oDesigner,cFormFileName
 
+		cSourceFileName = substr(cFormFileName,"rform","ring")
