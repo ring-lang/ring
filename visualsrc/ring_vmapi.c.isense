@@ -184,7 +184,7 @@ cStr
 Type: char
 buffer[25]
 Type: int
-x,nDay,nMonth,nYear,nDaysInMonth,nPrevMonth
+x,nDay,nMonth,nYear,nDaysInMonth
 Type: int
 aDaysInMonth[12]
 ring_vmlib_diffdays

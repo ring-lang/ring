@@ -756,7 +756,7 @@ void ring_vmlib_adddays ( void *pPointer )
 {
 	const char *cStr  ;
 	char buffer[25]  ;
-	int x,nDay,nMonth,nYear,nDaysInMonth,nPrevMonth  ;
+	int x,nDay,nMonth,nYear,nDaysInMonth  ;
 	int aDaysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -795,21 +795,17 @@ void ring_vmlib_adddays ( void *pPointer )
 				}
 			}
 			while ( nDay < 1 ) {
-				nPrevMonth = nMonth-1 ;
-				if ( nPrevMonth == 0 ) {
-					nPrevMonth = 12 ;
-				}
-				nDaysInMonth = aDaysInMonth[nPrevMonth-1] ;
-				/* Fix Leap Year */
-				if ( (nPrevMonth == 2) && (ring_vmlib_adddays_isleapyear(nYear)) ) {
-					nDaysInMonth = 29 ;
-				}
-				nDay = nDaysInMonth - abs(nDay) ;
 				nMonth-- ;
 				if ( nMonth == 0 ) {
 					nMonth = 12 ;
 					nYear-- ;
 				}
+				nDaysInMonth = aDaysInMonth[nMonth-1] ;
+				/* Fix Leap Year */
+				if ( (nMonth == 2) && (ring_vmlib_adddays_isleapyear(nYear)) ) {
+					nDaysInMonth = 29 ;
+				}
+				nDay = nDaysInMonth - abs(nDay) ;
 			}
 			sprintf(buffer,"%2d/%2d/%4d", nDay,nMonth,nYear);
 			for ( x = 0 ; x <= 9 ; x++ ) {
