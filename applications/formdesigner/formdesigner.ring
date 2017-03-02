@@ -1642,6 +1642,10 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		return cOutput 
 
+	func GenerateCode
+		cOutput = ""
+		return cOutput
+
 Class MoveResizeCorners 
 
 	func CreateMoveResizeCornersAttributes
@@ -2016,6 +2020,10 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f7}",fontproperty())
 		cOutput = substr(cOutput,"#{f8}",text())
 		return cOutput 
+
+	func GenerateCode
+		cOutput = ""
+		return cOutput
 
 class FormDesigner_QLabel from QLabel
 
@@ -2432,5 +2440,12 @@ class FormDesignerCodeGenerator
 		return cFN
 
 	func GenerateWindowCode oDesigner
+		return oDesigner.oModel.FormObject().GenerateCode()
 
 	func GenerateObjectsCode oDesigner
+		cCode = ""
+		for aObject in oDesigner.oModel.GetObjects() {
+			oObject = aObject[2]
+			cCode += oObject.GenerateCode()
+		}
+		return cCode
