@@ -2399,7 +2399,7 @@ class FormDesignerCodeGenerator
 					"# Date : " + date() + nl +
 					"# Time : " + time() + nl + nl
 		# Write the Class 
-			cClassName = substr(cFormFileName,".rform","")
+			cClassName = GetFileNameOnlyWithoutPath(substr(cFormFileName,".rform",""))
 			cOutput += "class " + cClassName + "View from WindowsViewParent" + nl
 			cOutput += char(9) + "win = new qWidget() { " + nl
 			cOutput += GenerateObjectsCode(oDesigner)
@@ -2407,5 +2407,17 @@ class FormDesignerCodeGenerator
 		# Add the End of file 
 			cOutput += "# End of the Generated Source Code File..."
 			write(cSourceFileName,cOutput)
+
+	func GetFileNameOnlyWithoutPath cFileName
+		cFN = cFileName
+		nCount = 0
+		for x = len(cFileName) to 1 step -1 {
+			if cFileName[x] = "/" or cFileName[x] = "\" {
+				cFN = right(cFileName,nCount)
+				exit 	
+			}
+			nCount++
+		}
+		return cFN
 
 	func GenerateObjectsCode oDesigner
