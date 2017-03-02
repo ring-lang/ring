@@ -2042,7 +2042,11 @@ class CommonAttributesMethods
 			setfont(oFont)
 			#{f9}
 		}' + nl
-		cOutput = substr(cOutput,"#{f1}",substr(classname(self),"formdesigner_",""))
+		cClass = substr(classname(self),"formdesigner_","")
+		if cClass = "qimage" {
+			cClass = "qlabel"
+		}
+		cOutput = substr(cOutput,"#{f1}",cClass)
 		cOutput = substr(cOutput,"#{f2}",""+x())
 		cOutput = substr(cOutput,"#{f3}",""+y())
 		cOutput = substr(cOutput,"#{f4}",""+width())
