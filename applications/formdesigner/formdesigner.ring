@@ -2111,7 +2111,7 @@ class FormDesigner_QLabel from QLabel
 
 	func GenerateCustomCode
 		cOutput = 'setText("#{f1}")' + nl +
-				'setAlignment(#{f2})'
+				copy(char(9),3)+'setAlignment(#{f2})'
 		cOutput = substr(cOutput,"#{f1}",text())
 		Switch nTextAlign {
 			case 0
@@ -2127,6 +2127,11 @@ class FormDesigner_QPushButton from QPushButton
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
+
+	func GenerateCustomCode
+		cOutput = 'setText("#{f1}")' + nl 
+		cOutput = substr(cOutput,"#{f1}",text())
+		return cOutput
 
 class FormDesigner_QLineEdit from QLineEdit
 
