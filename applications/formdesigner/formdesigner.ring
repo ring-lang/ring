@@ -2471,6 +2471,7 @@ class FormDesignerCodeGenerator
 					'Load "guilib.ring"' + nl + nl +
 					"if IsMainSourceFile() { " + nl + 
 					char(9) + "new qApp {" + nl + 
+					char(9) + char(9) + "StyleFusion()" + nl + 
 					char(9) + char(9) + "new " + cClassName +  nl + 
 					char(9) + char(9) + "exec()" + nl +
 					char(9) + "}" + nl + 
