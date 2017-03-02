@@ -1643,7 +1643,17 @@ class FormDesigner_QWidget from QWidget
 		return cOutput 
 
 	func GenerateCode
-		cOutput = ""
+		cOutput = char(9) + char(9) + 
+		'move(#{f1},#{f2})
+		resize(#{f3},#{f4})
+		setWindowTitle("#{f5}")
+		setstylesheet("background-color:#{f6};")' + nl
+		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
+		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
+		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
+		cOutput = substr(cOutput,"#{f4}",""+parentwidget().height())
+		cOutput = substr(cOutput,"#{f5}",windowtitle())
+		cOutput = substr(cOutput,"#{f6}",backcolor())
 		return cOutput
 
 Class MoveResizeCorners 
@@ -2444,8 +2454,8 @@ class FormDesignerCodeGenerator
 
 	func GenerateObjectsCode oDesigner
 		cCode = ""
-		for aObject in oDesigner.oModel.GetObjects() {
-			oObject = aObject[2]
+		for x = 2 to len( oDesigner.oModel.GetObjects() ) {
+			oObject = oDesigner.oModel.GetObjects()[x][2]
 			cCode += oObject.GenerateCode()
 		}
 		return cCode
