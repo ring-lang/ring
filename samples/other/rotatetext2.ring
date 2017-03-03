@@ -32,7 +32,7 @@ Func draw
 			myfont = font()
 			myfont.setpointsize(20)
 			setfont(myfont)
-			rotate(x)
+			rotate(30)
 			drawtext(100,0,"welcome") 		 
 		endpaint()
           }
