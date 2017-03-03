@@ -444,13 +444,17 @@ Class FormDesignerController from WindowsControllerParent
 			case 	0 # No CTRL Key is pressed
 				switch nkey {
 					case Qt_Key_Right
-						oModel.ActiveObject().move( oModel.ActiveObject().x() + 10 , oModel.ActiveObject().y() )
+						oModel.ActiveObject().move( oModel.ActiveObject().x() + 10 ,
+											oModel.ActiveObject().y() )
 					case Qt_Key_Left
-						oModel.ActiveObject().move( oModel.ActiveObject().x() - 10 , oModel.ActiveObject().y() )
+						oModel.ActiveObject().move( oModel.ActiveObject().x() - 10 ,
+											oModel.ActiveObject().y() )
 					case Qt_Key_Up
-						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  - 10)
+						oModel.ActiveObject().move( oModel.ActiveObject().x()  ,
+											oModel.ActiveObject().y()  - 10)
 					case Qt_Key_Down
-						oModel.ActiveObject().move( oModel.ActiveObject().x()  , oModel.ActiveObject().y()  + 10)
+						oModel.ActiveObject().move( oModel.ActiveObject().x()  ,
+											oModel.ActiveObject().y()  + 10)
 					case Qt_Key_Delete
 						HideCorners()
 						oModel.ActiveObject().close() 
@@ -461,13 +465,17 @@ Class FormDesignerController from WindowsControllerParent
 			case 33554432	# Shift	
 				switch nkey {
 					case Qt_Key_Right
-						oModel.ActiveObject().resize( oModel.ActiveObject().width() + 10 , oModel.ActiveObject().height() )
+						oModel.ActiveObject().resize( oModel.ActiveObject().width() + 10 ,
+											oModel.ActiveObject().height() )
 					case Qt_Key_Left
-						oModel.ActiveObject().resize( oModel.ActiveObject().width() - 10 , oModel.ActiveObject().height() )
+						oModel.ActiveObject().resize( oModel.ActiveObject().width() - 10 ,
+											oModel.ActiveObject().height() )
 					case Qt_Key_Up
-						oModel.ActiveObject().resize( oModel.ActiveObject().width()  , oModel.ActiveObject().height() - 10)
+						oModel.ActiveObject().resize( oModel.ActiveObject().width()  ,
+											oModel.ActiveObject().height() - 10)
 					case Qt_Key_Down
-						oModel.ActiveObject().resize( oModel.ActiveObject().width()  , oModel.ActiveObject().height() + 10)
+						oModel.ActiveObject().resize( oModel.ActiveObject().width()  ,
+											oModel.ActiveObject().height() + 10)
 				}	
 		}
 		if ismethod(oModel.ActiveObject(),"refreshcorners") {
