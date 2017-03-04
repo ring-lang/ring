@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Grammar */
 
@@ -842,13 +842,18 @@ int ring_parser_stmt ( Parser *pParser )
 		
 		puts("Rule : Statement  --> 'Exit' ");
 		#endif
+		/* Check Number  (Exit from more than one loop) */
+		if ( ring_parser_isnumber(pParser) || ring_parser_isidentifier(pParser) ) {
+			if ( ! ring_parser_expr(pParser) ) {
+				return 0 ;
+			}
+		}
+		else {
+			ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+			ring_parser_icg_newoperanddouble(pParser,1.0);
+		}
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_EXIT);
-		/* Check Number  (Exit from more than one loop) */
-		if ( ring_parser_isnumber(pParser) ) {
-			ring_parser_icg_newoperanddouble(pParser,atof(pParser->TokenText));
-			ring_parser_nexttoken(pParser);
-		}
 		return 1 ;
 	}
 	/* Statement --> Loop (Continue) */
@@ -859,13 +864,18 @@ int ring_parser_stmt ( Parser *pParser )
 		
 		puts("Rule : Statement  --> 'Loop'");
 		#endif
+		/* Check Number  (Continue from more than one loop) */
+		if ( ring_parser_isnumber(pParser) || ring_parser_isidentifier(pParser) ) {
+			if ( ! ring_parser_expr(pParser) ) {
+				return 0 ;
+			}
+		}
+		else {
+			ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+			ring_parser_icg_newoperanddouble(pParser,1.0);
+		}
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_LOOP);
-		/* Check Number  (Continue from more than one loop) */
-		if ( ring_parser_isnumber(pParser) ) {
-			ring_parser_icg_newoperanddouble(pParser,atof(pParser->TokenText));
-			ring_parser_nexttoken(pParser);
-		}
 		return 1 ;
 	}
 	/* Statement --> Switch  Expr { ON|CASE Expr {Statement} } OFF */
