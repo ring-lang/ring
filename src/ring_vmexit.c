@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* End Program / Exit from Loop / Loop (Continue) */
 
@@ -31,29 +31,36 @@ void ring_vm_popexitmark ( VM *pVM )
 void ring_vm_exit ( VM *pVM,int nType )
 {
 	List *pList,*pActiveList  ;
-	int x,y  ;
+	int x,y,nStep  ;
 	/* Set Active List */
 	if ( nType == 1 ) {
 		pActiveList = pVM->pExitMark ;
 	} else {
 		pActiveList = pVM->pLoopMark ;
 	}
+	/* Get the Number from the Stack */
+	if ( RING_VM_STACK_ISNUMBER ) {
+		nStep = RING_VM_STACK_READN ;
+		RING_VM_STACK_POP ;
+	}
+	else {
+		ring_vm_error(pVM,RING_VM_ERROR_LOOPNUMBEROUTSIDERANGE);
+	}
 	if ( ring_list_getsize(pActiveList) > 0 ) {
 		x = ring_list_getsize(pActiveList) ;
-		if ( RING_VM_IR_PARACOUNT > 1 ) {
-			if ( (RING_VM_IR_READD > 0) && ( RING_VM_IR_READD <= ring_list_getsize(pActiveList) ) ) {
-				x = ring_list_getsize(pActiveList) - RING_VM_IR_READD + 1 ;
-				for ( y = x + 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
-					ring_list_deleteitem(pActiveList,y);
-				}
-			} else {
-				if ( nType == 1 ) {
-					ring_vm_error(pVM,RING_VM_ERROR_EXITNUMBEROUTSIDERANGE);
-				} else {
-					ring_vm_error(pVM,RING_VM_ERROR_LOOPNUMBEROUTSIDERANGE);
-				}
-				return ;
+		/* Do Operation */
+		if ( (nStep > 0) && (nStep <= ring_list_getsize(pActiveList) ) ) {
+			x = ring_list_getsize(pActiveList) - nStep + 1 ;
+			for ( y = x + 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
+				ring_list_deleteitem(pActiveList,y);
 			}
+		} else {
+			if ( nType == 1 ) {
+				ring_vm_error(pVM,RING_VM_ERROR_EXITNUMBEROUTSIDERANGE);
+			} else {
+				ring_vm_error(pVM,RING_VM_ERROR_LOOPNUMBEROUTSIDERANGE);
+			}
+			return ;
 		}
 		pList = ring_list_getlist(pActiveList,x);
 		pVM->nPC = ring_list_getint(pList,1) ;

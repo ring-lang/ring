@@ -7,7 +7,7 @@ ring_vm_exit
 Type: List *
 pList,*pActiveList
 Type: int
-x,y
+x,y,nStep
 ring_vm_stepnumber
 Type: double
 nNum1
