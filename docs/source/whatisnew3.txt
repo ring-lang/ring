@@ -19,6 +19,7 @@ Ring 1.3  comes with many new features
 * Better Ring Notepad
 * Ring mode for Emacs Editor
 * Better StdLib
+* Better Loop/Exit Command
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better RingQt
@@ -149,3 +150,38 @@ Better StdLib
 The StdLib is updated to include the next functions
 
 * SplitMany()
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Better Loop|Exit Command
+
+Better Loop|Exit Command
+========================
+
+The Loop|Exit command is updated to accept Expressions after the command (not only numbers).
+
+The syntax:
+
+.. code-block:: ring
+
+	Loop|Exit [Number]
+
+Changed to
+
+.. code-block:: ring
+
+	Loop|Exit [Expression]
+
+Example
+
+.. code-block:: ring
+
+	XLoop = 2	# The outer loop 
+	YLoop = 1	# The first inner loop
+	for x = 1 to 10
+        	for y = 1 to 10
+                	see "x=" + x + " y=" + y + nl
+	                if x = 3 and y = 5
+        	                exit XLoop  
+                	ok
+	        next
+	next
