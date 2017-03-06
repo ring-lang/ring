@@ -91,6 +91,8 @@ void ring_vmlib_version ( void *pPointer ) ;
 void ring_vmlib_clockspersecond ( void *pPointer ) ;
 
 void ring_vmlib_prevfilename ( void *pPointer ) ;
+
+int ring_vmlib_adddays_isleapyear ( int nYear ) ;
 /* Check Data Type */
 
 void ring_vmlib_isstring ( void *pPointer ) ;

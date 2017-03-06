@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  pClassesMap ( cClass Name ,  iPC , cParentClass, aMethodsList , nFlagIsParentClassInformation 
 **  pClassesMap ( cClass Name, Pointer to List that represent class inside a Package, Pointer to File 
 **  pFunctionsMap ( Name, PC, FileName, Private Flag ) 
@@ -395,6 +395,7 @@ void ring_vm_oop_property ( VM *pVM )
 void ring_vm_oop_loadmethod ( VM *pVM )
 {
 	List *pVar,*pList,*pList2,*pList3,*pSuper  ;
+	int lResult  ;
 	/* Check calling method related to Parent Class */
 	pSuper = ring_vm_oop_getsuperobj(pVM);
 	if ( pSuper != NULL ) {
@@ -408,6 +409,8 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	if ( pVar == NULL ) {
 		return ;
 	}
+	/* Update Self Pointer Using Temp. Item */
+	ring_vm_oop_updateselfpointer2(pVM,pVar);
 	/* Get Object Class */
 	pList = (List *) ring_list_getpointer(pVar,1);
 	/* Push Class Package */
@@ -428,11 +431,13 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	pVar = pVM->pFunctionsMap ;
 	pVM->pFunctionsMap = pList3 ;
 	pVM->nCallMethod = 1 ;
-	ring_vm_loadfunc(pVM);
+	lResult = ring_vm_loadfunc(pVM);
 	pVM->nCallMethod = 0 ;
 	pVM->pFunctionsMap = pVar ;
 	/* Move list from pObjState to aBeforeObjState */
-	ring_vm_oop_movetobeforeobjstate(pVM);
+	if ( lResult ) {
+		ring_vm_oop_movetobeforeobjstate(pVM);
+	}
 }
 
 void ring_vm_oop_movetobeforeobjstate ( VM *pVM )
@@ -564,6 +569,8 @@ void ring_vm_oop_bracestart ( VM *pVM )
 	ring_list_addpointer(pList,pVM->pNestedLists);
 	pVM->nListStart = 0 ;
 	pVM->pNestedLists = ring_list_new(0);
+	/* Update Self Pointer Using Temp. Item */
+	ring_vm_oop_updateselfpointer2(pVM,pVM->pBraceObject);
 	pVM->pBraceObject = NULL ;
 	pVM->nInsideBraceFlag = 1 ;
 }
@@ -1167,15 +1174,10 @@ void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer )
 	pList = ring_list_getlist(pObj,2);
 	/* Get Self Attribute */
 	pList = ring_list_getlist(pList,1);
+	/* Set Object Pointer */
+	ring_list_setpointer(pList,3, pContainer);
 	/* Set Object Type */
 	ring_list_setint(pList,4,nType);
-	/* Set Object Pointer */
-	if ( nType == RING_OBJTYPE_VARIABLE ) {
-		ring_list_setpointer(pList,3,(List *) pContainer);
-	}
-	else if ( nType == RING_OBJTYPE_LISTITEM ) {
-		ring_list_setpointer(pList,3,(Item *) pContainer);
-	}
 }
 
 void ring_vm_oop_setthethisvariable ( VM *pVM )
@@ -1205,4 +1207,44 @@ void ring_vm_oop_setthethisvariable ( VM *pVM )
 	/* Save this */
 	ring_list_setpointer(pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
 	ring_list_setint(pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
+}
+
+void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
+{
+	Item *pItem  ;
+	int x,lFound  ;
+	List *pRecord  ;
+	/*
+	**  This function will create new item 
+	**  Then Add the Object List Pointer to this temp item 
+	**  Then update the self pointer to use this item pointer 
+	**  This fix the self pointer before usage using braces { } or methods calls 
+	**  This is important because there are use cases where updateselfpointer is not enough 
+	**  So we need updateselfpointer2 to avoid dangling pointer problems as a result of 
+	**  Self pointer that point to deleted items/variables/objects 
+	**  Create The Temp. Item 
+	**  Try to find the item, or create it if it's not found 
+	*/
+	lFound = 0 ;
+	for ( x = 1 ; x <= ring_list_getsize(pVM->aDynamicSelfItems) ; x++ ) {
+		pRecord = ring_list_getlist(pVM->aDynamicSelfItems,x);
+		if ( ring_list_getint(pRecord,1) == pVM->nPC ) {
+			pItem = (Item *) ring_list_getpointer(pRecord,2);
+			lFound = 1 ;
+			break ;
+		}
+	}
+	if ( lFound == 0 ) {
+		pRecord = ring_list_newlist(pVM->aDynamicSelfItems);
+		ring_list_addint(pRecord,pVM->nPC);
+		pItem = ring_item_new(ITEMTYPE_NOTHING);
+		ring_list_addpointer(pRecord,pItem);
+		ring_item_settype(pItem,ITEMTYPE_LIST);
+		free(pItem->data.pList);
+		pItem->gc.nReferenceCount++ ;
+	}
+	/* Set the pointer */
+	pItem->data.pList = pList ;
+	/* Update The Self Pointer */
+	ring_vm_oop_updateselfpointer(pList,RING_OBJTYPE_LISTITEM,pItem);
 }

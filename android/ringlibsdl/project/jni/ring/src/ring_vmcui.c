@@ -45,6 +45,7 @@ void ring_vm_see ( VM *pVM )
 	}
 	RING_VM_STACK_POP ;
 	ring_vm_freestack(pVM);
+	fflush(stdout);
 }
 
 void ring_vm_give ( VM *pVM )

@@ -755,8 +755,9 @@ void ring_vmlib_timelist ( void *pPointer )
 void ring_vmlib_adddays ( void *pPointer )
 {
 	const char *cStr  ;
-	struct tm tm_info  ;
 	char buffer[25]  ;
+	int x,nDay,nMonth,nYear,nDaysInMonth  ;
+	int aDaysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -768,27 +769,50 @@ void ring_vmlib_adddays ( void *pPointer )
 	cStr = RING_API_GETSTRING(1);
 	if ( (RING_API_GETSTRINGSIZE(1) == 10) ) {
 		if ( isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) && isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9]) ) {
-			tm_info.tm_hour = 0 ;
-			tm_info.tm_min = 0 ;
-			tm_info.tm_sec = 0 ;
 			sprintf( buffer , "%c%c" , cStr[0],cStr[1] ) ;
-			tm_info.tm_mday = atoi(buffer) ;
+			nDay = atoi(buffer) + ((int) RING_API_GETNUMBER(2)) ;
 			sprintf( buffer , "%c%c" , cStr[3],cStr[4] ) ;
-			tm_info.tm_mon = atoi(buffer)-1 ;
+			nMonth = atoi(buffer) ;
 			sprintf( buffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
-			tm_info.tm_year = atoi(buffer) - 1900 ;
-			mktime(&tm_info);
-			tm_info.tm_mday  += RING_API_GETNUMBER(2) ;
-			mktime(&tm_info);
-			if ( tm_info.tm_year > 1097 ) {
-				/*
-				**  1097 + 1900 = 2997 
-				**  Values over limit may cause crash 
-				*/
-				RING_API_ERROR(RING_API_BADPARARANGE);
-				return ;
+			nYear = atoi(buffer) ;
+			/* Fix Day Number */
+			nDaysInMonth = aDaysInMonth[nMonth-1] ;
+			/* Fix Leap Year */
+			if ( (nMonth == 2) && (ring_vmlib_adddays_isleapyear(nYear)) ) {
+				nDaysInMonth = 29 ;
 			}
-			strftime(buffer,25,"%d/%m/%Y", &tm_info);
+			while ( nDay > nDaysInMonth ) {
+				nDay = nDay - nDaysInMonth ;
+				nMonth++ ;
+				if ( nMonth == 13 ) {
+					nMonth = 1 ;
+					nYear++ ;
+				}
+				nDaysInMonth = aDaysInMonth[nMonth-1] ;
+				/* Fix Leap Year */
+				if ( (nMonth == 2) && (ring_vmlib_adddays_isleapyear(nYear)) ) {
+					nDaysInMonth = 29 ;
+				}
+			}
+			while ( nDay < 1 ) {
+				nMonth-- ;
+				if ( nMonth == 0 ) {
+					nMonth = 12 ;
+					nYear-- ;
+				}
+				nDaysInMonth = aDaysInMonth[nMonth-1] ;
+				/* Fix Leap Year */
+				if ( (nMonth == 2) && (ring_vmlib_adddays_isleapyear(nYear)) ) {
+					nDaysInMonth = 29 ;
+				}
+				nDay = nDaysInMonth - abs(nDay) ;
+			}
+			sprintf(buffer,"%2d/%2d/%4d", nDay,nMonth,nYear);
+			for ( x = 0 ; x <= 9 ; x++ ) {
+				if ( buffer[x] == ' ' ) {
+					buffer[x] = '0' ;
+				}
+			}
 			RING_API_RETSTRING(buffer);
 			return ;
 		}
@@ -800,7 +824,7 @@ void ring_vmlib_adddays ( void *pPointer )
 void ring_vmlib_diffdays ( void *pPointer )
 {
 	const char *cStr, *cStr2  ;
-	struct tm tm_info  ;
+	struct tm tm_info,tm_info2  ;
 	time_t timer,timer2  ;
 	char buffer[5]  ;
 	double nResult  ;
@@ -835,17 +859,17 @@ void ring_vmlib_diffdays ( void *pPointer )
 				return ;
 			}
 			if ( isalnum(cStr2[0]) && isalnum(cStr2[1]) && isalnum(cStr2[3]) && isalnum(cStr2[4]) && isalnum(cStr2[6]) && isalnum(cStr2[7]) && isalnum(cStr2[8]) && isalnum(cStr2[9]) ) {
-				tm_info.tm_hour = 0 ;
-				tm_info.tm_min = 0 ;
-				tm_info.tm_sec = 0 ;
+				tm_info2.tm_hour = 0 ;
+				tm_info2.tm_min = 0 ;
+				tm_info2.tm_sec = 0 ;
 				sprintf( buffer , "%c%c" , cStr2[0],cStr2[1] ) ;
-				tm_info.tm_mday = atoi(buffer) ;
+				tm_info2.tm_mday = atoi(buffer) ;
 				sprintf( buffer , "%c%c" , cStr2[3],cStr2[4] ) ;
-				tm_info.tm_mon = atoi(buffer)-1 ;
+				tm_info2.tm_mon = atoi(buffer)-1 ;
 				sprintf( buffer , "%c%c%c%c" , cStr2[6],cStr2[7],cStr2[8],cStr2[9] ) ;
-				tm_info.tm_year = atoi(buffer) - 1900 ;
-				timer2 = mktime(&tm_info);
-				if ( tm_info.tm_year > 1097 ) {
+				tm_info2.tm_year = atoi(buffer) - 1900 ;
+				timer2 = mktime(&tm_info2);
+				if ( tm_info2.tm_year > 1097 ) {
 					/*
 					**  1097 + 1900 = 2997 
 					**  Values over limit may cause crash 
@@ -854,7 +878,7 @@ void ring_vmlib_diffdays ( void *pPointer )
 					return ;
 				}
 				nResult = difftime(timer,timer2);
-				nResult  /= 86400 ;
+				nResult  = ceil(ceil(nResult) / 86400 ) ;
 				RING_API_RETNUMBER(nResult);
 				return ;
 			}
@@ -877,6 +901,17 @@ void ring_vmlib_clockspersecond ( void *pPointer )
 void ring_vmlib_prevfilename ( void *pPointer )
 {
 	RING_API_RETSTRING(((VM *) pPointer)->cPrevFileName);
+}
+
+int ring_vmlib_adddays_isleapyear ( int nYear )
+{
+	if ( nYear%400 == 0 ) {
+		return 1 ;
+	}
+	if ( nYear%100 == 0 ) {
+		return 0 ;
+	}
+	return nYear % 4 == 0 ;
 }
 /* Check Data Type */
 
@@ -1181,9 +1216,6 @@ void ring_vmlib_list2str ( void *pPointer )
 					ring_string_add(pString,"\n");
 				}
 				ring_string_add(pString,ring_list_getstring(pList,x));
-				if ( x == ring_list_getsize(pList) ) {
-					ring_string_add(pString,"\n");
-				}
 			}
 		}
 		RING_API_RETSTRING(ring_string_get(pString));
@@ -1536,7 +1568,9 @@ void ring_vmlib_eval ( void *pPointer )
 		cStr = RING_API_GETSTRING(1);
 		pVM = (VM *) pPointer ;
 		pVM->nEvalCalledFromRingCode = 1 ;
-		ring_vm_eval(pVM,cStr);
+		if ( ring_vm_eval(pVM,cStr) == 0 ) {
+			pVM->nEvalCalledFromRingCode = 0 ;
+		}
 		/*
 		**  The CALL instruction will check nEvalCalledFromRingCode to execute the main loop again 
 		**  Before executing the main loop again, The CALL instruction will set nEvalCalledFromRingCode to 0 

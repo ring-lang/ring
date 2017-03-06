@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_vm_h
 #define ring_vm_h
 /*
@@ -87,6 +87,8 @@ typedef struct VM {
 	char nRetEvalDontDelete  ;
 	char *cPrevFileName  ;
 	char nRunCode  ;
+	char nActiveError  ;
+	List *aDynamicSelfItems  ;
 } VM ;
 /*
 **  Functions 
@@ -257,7 +259,7 @@ void ring_vm_listassignment ( VM *pVM ) ;
 void ring_vm_listgetvalue ( VM *pVM,List *pVar,const char *cStr ) ;
 /* Functions */
 
-void ring_vm_loadfunc ( VM *pVM ) ;
+int ring_vm_loadfunc ( VM *pVM ) ;
 
 int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance ) ;
 
@@ -395,6 +397,8 @@ void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer ) ;
 void ring_vm_oop_movetobeforeobjstate ( VM *pVM ) ;
 
 void ring_vm_oop_setthethisvariable ( VM *pVM ) ;
+
+void ring_vm_oop_updateselfpointer2 ( VM *pVM,List *pObj ) ;
 /* For Better Performance */
 
 void ring_vm_pushp ( VM *pVM ) ;
@@ -673,7 +677,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 #define RING_VM_ERROR_CANTOPENFILE "Error (R35) : Can't create/open the file!"
 #define RING_VM_ERROR_BADCOLUMNNUMBER "Error (R36) : The column number is not correct! It's greater than the number of columns in the list"
 /* Extra Size (for eval) */
-#define RING_VM_EXTRASIZE 1
+#define RING_VM_EXTRASIZE 2
 /* Variables Location */
 #define RING_VM_STATICVAR_THIS 12
 #endif

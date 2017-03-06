@@ -184,12 +184,18 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nRetEvalDontDelete = 0 ;
 	/* Counter to know if we are inside ring_vm_runcode() */
 	pVM->nRunCode = 0 ;
+	/* Flag that we have runtime error to avoid calling the error function again */
+	pVM->nActiveError = 0 ;
+	/* Dynamic List of Self Items and PC */
+	pVM->aDynamicSelfItems = ring_list_new(0);
 	return pVM ;
 }
 
 VM * ring_vm_delete ( VM *pVM )
 {
 	int x  ;
+	List *pRecord  ;
+	Item *pItem  ;
 	assert(pVM);
 	pVM->pMem = ring_list_delete(pVM->pMem);
 	pVM->pNestedLists = ring_list_delete(pVM->pNestedLists);
@@ -218,6 +224,17 @@ VM * ring_vm_delete ( VM *pVM )
 	free( pVM->pByteCode ) ;
 	/* Delete Mutex */
 	ring_vm_mutexdestroy(pVM);
+	/*
+	**  Remove Dynamic Self Items 
+	**  Delete Items 
+	*/
+	for ( x = 1 ; x <= ring_list_getsize(pVM->aDynamicSelfItems) ; x++ ) {
+		pRecord = ring_list_getlist(pVM->aDynamicSelfItems,x);
+		pItem = (Item *) ring_list_getpointer(pRecord,2);
+		free( pItem ) ;
+	}
+	/* Delete List */
+	pVM->aDynamicSelfItems = ring_list_delete(pVM->aDynamicSelfItems);
 	free( pVM ) ;
 	pVM = NULL ;
 	return pVM ;
@@ -659,8 +676,13 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 {
 	int x  ;
 	List *pList  ;
+	/* Check if we have active error */
+	if ( pVM->nActiveError ) {
+		return ;
+	}
+	pVM->nActiveError = 1 ;
 	/* Check BraceError() */
-	if ( (ring_list_getsize(pVM->pObjState) > 0) && (ring_vm_oop_callmethodinsideclass(pVM) == 0 ) ) {
+	if ( (ring_list_getsize(pVM->pObjState) > 0) && (ring_vm_oop_callmethodinsideclass(pVM) == 0 ) && (pVM->nCallMethod == 0) ) {
 		if ( ring_vm_findvar(pVM,"self") ) {
 			pList = ring_vm_oop_getobj(pVM);
 			RING_VM_STACK_POP ;
@@ -668,6 +690,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 				if ( ring_vm_oop_ismethod(pVM, pList,"braceerror") ) {
 					ring_list_setstring(ring_list_getlist(ring_list_getlist(pVM->pMem,1),6),3,cStr);
 					ring_vm_runcode(pVM,"braceerror()");
+					pVM->nActiveError = 0 ;
 					return ;
 				}
 			}
@@ -685,6 +708,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		exit(0);
 	}
 	ring_vm_catch(pVM,cStr);
+	pVM->nActiveError = 0 ;
 }
 
 int ring_vm_eval ( VM *pVM,const char *cStr )
