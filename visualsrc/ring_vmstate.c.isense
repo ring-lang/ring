@@ -1,7 +1,5 @@
 ring_vm_savestate
 ring_vm_restorestate
-Type: int
-x
 ring_vm_savestate2
 Type: List *
 pThis

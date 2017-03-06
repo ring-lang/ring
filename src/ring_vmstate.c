@@ -86,6 +86,10 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	}
 	pVM->nInsideBraceFlag = ring_list_getint(pList,22) ;
 	ring_vm_backstate(ring_list_getint(pList,24),pVM->aBeforeObjState);
+	/* Update Self Object if we are inside braces */
+	if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
+		ring_vm_oop_updateselfpointer2(pVM,(List *) ring_list_getpointer(ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)),1));
+	}
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
@@ -178,6 +182,10 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer(pThis,RING_VAR_VALUE,ring_list_getpointer(pList,x+28));
 	ring_list_setint(pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,x+29));
+	/* Update Self Object if we are inside braces */
+	if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
+		ring_vm_oop_updateselfpointer2(pVM,(List *) ring_list_getpointer(ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)),1));
+	}
 }
 /* Return to a Specific position in the array, delete all items after that position */
 

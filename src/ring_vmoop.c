@@ -1215,14 +1215,14 @@ void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 	int x,lFound  ;
 	List *pRecord  ;
 	/*
-	**  This function will create new variable in the temp memory 
-	**  Then Add the Object List Pointer to this temp variable 
-	**  Then update the self pointer to use this variable 
+	**  This function will create new item 
+	**  Then Add the Object List Pointer to this temp item 
+	**  Then update the self pointer to use this item pointer 
 	**  This fix the self pointer before usage using braces { } or methods calls 
 	**  This is important because there are use cases where updateselfpointer is not enough 
 	**  So we need updateselfpointer2 to avoid dangling pointer problems as a result of 
 	**  Self pointer that point to deleted items/variables/objects 
-	**  Create The Temp. Variable 
+	**  Create The Temp. Item 
 	**  Try to find the item, or create it if it's not found 
 	*/
 	lFound = 0 ;
