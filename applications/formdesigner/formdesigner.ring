@@ -1958,6 +1958,9 @@ class CommonAttributesMethods
 		oDesigner.oView.AddProperty("Font",True)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+
+	func UpdateCommonProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
 			switch nRow {
 				case 0 	# x
@@ -1976,7 +1979,6 @@ class CommonAttributesMethods
 					setBackColor(cValue)
 				case 7	# font
 					setFontProperty(cValue)
-
 			}
 		}
 
@@ -2141,6 +2143,12 @@ class FormDesigner_QPushButton from QPushButton
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
+
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
 
 	func GenerateCustomCode
 		cOutput = 'setText("#{f1}")' + nl 
