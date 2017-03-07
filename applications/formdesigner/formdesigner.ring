@@ -2144,15 +2144,40 @@ class FormDesigner_QPushButton from QPushButton
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cClickEvent = ""
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Set Click Event",False)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Set the Click Event 
+			oPropertiesTable.item(8,1).settext(clickeventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case 8 	# Click Event 
+					setClickEventCode(cValue)
+			}
+		}
+
+	func SetClickEventCode cValue
+		cClickEvent = cValue
+
+	func ClickEventCode
+		return cClickEvent
 
 	func GenerateCustomCode
 		cOutput = 'setText("#{f1}")' + nl 
+		cOutput += 'setClickEvent("#{f2}")' + nl
 		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = substr(cOutput,"#{f2}",ClickEventCode())
 		return cOutput
 
 class FormDesigner_QLineEdit from QLineEdit
