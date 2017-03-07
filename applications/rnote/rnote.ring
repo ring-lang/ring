@@ -16,6 +16,7 @@ lShowSourceCode = True
 lShowBrowser = True
 lShowFunctionsList = False
 lShowOutputWindow = False
+lShowClassesList = False
 nTabSpaces = 0
 aBrowserLinks = [
 	["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
@@ -310,6 +311,14 @@ MyApp = New qApp {
 				addaction(oAction)		
 				addseparator()	
 				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Alt+c"))
+					setbtnimage(self,"image/source.png")
+					setclickevent("pClassesList()")
+					settext("Classes List")
+				}
+				addaction(oAction)		
+				addseparator()	
+				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Alt+o"))
 					setbtnimage(self,"image/source.png")
 					setclickevent("pOutputWindow()")
@@ -498,6 +507,8 @@ MyApp = New qApp {
 			setwindowtitle("Web Browser")
 		}	
 
+		# Functions List 
+
 		aFunctionsPos = []	# Lines Numbers for each function
 		oFunctionsList = new qListwidget(win1) {
 			setitemdoubleclickedevent("pSelectFunction()")
@@ -507,6 +518,19 @@ MyApp = New qApp {
 		oDock4 = new qDockwidget(win1,0) {
 			setWidget(oFunctionsList)
 			setwindowtitle("Functions List")
+		}
+
+		# Classes List 
+
+		aClassesPos = []	# Lines Numbers for each class
+		oClassesList = new qListwidget(win1) {
+			setitemdoubleclickedevent("pSelectClass()")
+			setitemactivatedevent("pSelectClass()")
+		}
+
+		oDock6 = new qDockwidget(win1,0) {
+			setWidget(oClassesList)
+			setwindowtitle("Classes List")
 		}
 
 		# Output Window 
@@ -549,6 +573,7 @@ MyApp = New qApp {
 		adddockwidget(1,oDock1,1)
 		adddockwidget(2,oDock2,2)
 		adddockwidget(2,oDock4,1)
+		adddockwidget(2,oDock6,1)
 		adddockwidget(2,oDock3,1)
 		adddockwidget(2,oDock5,1)
 
@@ -602,6 +627,14 @@ func pFunctionsList
 		DisplayFunctionsList()
 	ok
 
+func pClassesList
+	if oDock6.isvisible()
+		oDock6.hide()
+	else
+		oDock6.Show()
+		DisplayClassesList()
+	ok
+
 func pOutputWindow
 	if oDock5.isvisible()
 		oDock5.hide()
@@ -635,6 +668,7 @@ func pChangeFile
 
 	AutoComplete()
 	DisplayFunctionsList()
+	DisplayClassesList()
 	StatusMessage("Ready!")
 
 func pSetActiveFileName
@@ -911,6 +945,7 @@ func pSave
 	lAskToSave = false
 	AutoComplete()
 	displayFunctionsList()
+	displayClassesList()
 	StatusMessage("Ready!")
 
 func pSaveAs
@@ -1011,6 +1046,7 @@ Func pSetWindows
 	if not lShowSourceCode  oDock2.close() else oDock2.show() ok
 	if not lShowBrowser  	oDock3.close() else oDock3.show() ok
 	if not lShowFunctionsList oDock4.close() else oDock4.show() ok
+	if not lShowClassesList oDock6.close() else oDock6.show() ok
 	if not lShowOutputWindow oDock5.close() else oDock5.show() ok
 
 func pOpen
@@ -1091,6 +1127,7 @@ Func pSaveSettingsToFile
 		    "lShowSourceCode = " + oDock2.isvisible() + nl +
 		    "lShowBrowser = " + oDock3.isvisible() + nl +
 		    "lShowFunctionsList = " + oDock4.isvisible() + nl +
+		    "lShowClassesList = " + oDock6.isvisible() + nl +
 		    "lShowOutputWindow = " + oDock5.isvisible() + nl +
 		    "nTabSpaces = " + nTabSpaces + nl
 	cSettings = substr(cSettings,nl,char(13)+char(10))
@@ -1301,6 +1338,43 @@ func DisplayFunctionsList
 func pSelectFunction
 	nIndex = oFunctionsList.currentrow() + 1
 	nLine = aFunctionsPos[nIndex][2]
+	gotoline(nLine)
+
+func DisplayClassesList
+	oClassesList.clear()
+	if oDock6.isvisible() = false return ok 
+	aClassesPos = []	# Lines numbers for each class 
+	if cActiveFileName = NULL return ok
+	# Set the font
+		oFont = new qfont("",0,0,0)
+		oFont.fromstring(cFont)
+		oClassesList.setFont(oFont)
+	StatusMessage("Creating Classes list ... Please Wait!")
+	aFileContent = str2list(read(cActiveFileName))
+	nLineNumber = 0
+	for cLine in aFileContent
+		nLineNumber++ 
+		cLine = lower(trim(cLine))
+		if substr(cLine,"class ") > 0
+			aList = Split(cLine," ")
+			if len(aList) >= 2
+				cClassName = lower(trim(aList[2]))
+				if lower(trim(aList[1])) = "class"
+					aClassesPos + [cClassName , nLineNumber] 
+				ok
+			ok
+		ok
+	next
+	aClassesPos = Sort(aClassesPos,1)
+	for cClass in aClassesPos 
+		oClassesList.addItem(cClass[1])
+	next
+	oDock5.setWindowTitle("Classes List ("+oClassesList.Count()+")")
+	StatusMessage("Creating classes list ... Done!")
+
+func pSelectClass
+	nIndex = oClassesList.currentrow() + 1
+	nLine = aClassesPos[nIndex][2]
 	gotoline(nLine)
 
 func StatusMessage cMsg
