@@ -32,10 +32,12 @@ cCurrentDir = CurrentDir() + "/"
 		mergemethods(cClassName,:CommonAttributesMethods)
 	}
 
-new qApp {
-	StyleFusion()
-	Open_Window(:FormDesignerController)
-	exec()
+if IsMainSourceFile() { 
+	new qApp {
+		StyleFusion()
+		Open_Window(:FormDesignerController)
+		exec()
+	}
 }
 
 Class FormDesignerController from WindowsControllerParent
