@@ -1369,7 +1369,7 @@ func DisplayClassesList
 	for cClass in aClassesPos 
 		oClassesList.addItem(cClass[1])
 	next
-	oDock5.setWindowTitle("Classes List ("+oClassesList.Count()+")")
+	oDock6.setWindowTitle("Classes List ("+oClassesList.Count()+")")
 	StatusMessage("Creating classes list ... Done!")
 
 func pSelectClass
