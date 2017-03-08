@@ -2980,6 +2980,52 @@ class FormDesigner_QSpinBox from QSpinBox
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cvalueChangedEvent = ""
+
+	func SetvalueChangedEventCode cValue
+		cvalueChangedEvent = cValue
+
+	func valueChangedEventCode
+		return cvalueChangedEvent
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("valueChangedEvent",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.item(8,1).settext(valueChangedEventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case 8
+					setvalueChangedEventCode(cValue)
+
+			}
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = ""
+		cOutput += 'setvalueChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
+
 	func text return ""
 
 	func settext cValue 
