@@ -2350,6 +2350,142 @@ class FormDesigner_QTextEdit from QLineEdit
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	ccopyAvailableEvent = ""
+	ccurrentCharFormatChangedEvent = ""
+	ccursorPositionChangedEvent = ""
+	credoAvailableEvent = ""
+	cselectionChangedEvent = ""
+	ctextChangedEvent = ""
+	cundoAvailableEvent = ""
+
+	func SetcopyAvailableEventCode cValue
+		ccopyAvailableEvent = cValue
+
+	func copyAvailableEventCode
+		return ccopyAvailableEvent
+			
+	func SetcurrentCharFormatChangedEventCode cValue
+		ccurrentCharFormatChangedEvent = cValue
+
+	func currentCharFormatChangedEventCode
+		return ccurrentCharFormatChangedEvent
+			
+	func SetcursorPositionChangedEventCode cValue
+		ccursorPositionChangedEvent = cValue
+
+	func cursorPositionChangedEventCode
+		return ccursorPositionChangedEvent
+			
+	func SetredoAvailableEventCode cValue
+		credoAvailableEvent = cValue
+
+	func redoAvailableEventCode
+		return credoAvailableEvent
+			
+	func SetselectionChangedEventCode cValue
+		cselectionChangedEvent = cValue
+
+	func selectionChangedEventCode
+		return cselectionChangedEvent
+			
+	func SettextChangedEventCode cValue
+		ctextChangedEvent = cValue
+
+	func textChangedEventCode
+		return ctextChangedEvent
+			
+	func SetundoAvailableEventCode cValue
+		cundoAvailableEvent = cValue
+
+	func undoAvailableEventCode
+		return cundoAvailableEvent
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("copyAvailableEvent",False)
+		oDesigner.oView.AddProperty("currentCharFormatChangedEvent",False)
+		oDesigner.oView.AddProperty("cursorPositionChangedEvent",False)
+		oDesigner.oView.AddProperty("redoAvailableEvent",False)
+		oDesigner.oView.AddProperty("selectionChangedEvent",False)
+		oDesigner.oView.AddProperty("textChangedEvent",False)
+		oDesigner.oView.AddProperty("undoAvailableEvent",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.item(8,1).settext(copyAvailableEventcode())
+		oPropertiesTable.item(9,1).settext(currentCharFormatChangedEventcode())
+		oPropertiesTable.item(10,1).settext(cursorPositionChangedEventcode())
+		oPropertiesTable.item(11,1).settext(redoAvailableEventcode())
+		oPropertiesTable.item(12,1).settext(selectionChangedEventcode())
+		oPropertiesTable.item(13,1).settext(textChangedEventcode())
+		oPropertiesTable.item(14,1).settext(undoAvailableEventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case 8
+					setcopyAvailableEventCode(cValue)
+				case 9
+					setcurrentCharFormatChangedEventCode(cValue)
+				case 10
+					setcursorPositionChangedEventCode(cValue)
+				case 11
+					setredoAvailableEventCode(cValue)
+				case 12
+					setselectionChangedEventCode(cValue)
+				case 13
+					settextChangedEventCode(cValue)
+				case 14
+					setundoAvailableEventCode(cValue)
+
+			}
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :setcopyAvailableEvent =  "' + copyAvailableEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentCharFormatChangedEvent =  "' + currentCharFormatChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcursorPositionChangedEvent =  "' + cursorPositionChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setredoAvailableEvent =  "' + redoAvailableEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setselectionChangedEvent =  "' + selectionChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :settextChangedEvent =  "' + textChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setundoAvailableEvent =  "' + undoAvailableEventCode() + '"'
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = ""
+		cOutput += 'setcopyAvailableEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",copyAvailableEventCode())
+		cOutput += 'setcurrentCharFormatChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",currentCharFormatChangedEventCode())
+		cOutput += 'setcursorPositionChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",cursorPositionChangedEventCode())
+		cOutput += 'setredoAvailableEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",redoAvailableEventCode())
+		cOutput += 'setselectionChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",selectionChangedEventCode())
+		cOutput += 'settextChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",textChangedEventCode())
+		cOutput += 'setundoAvailableEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",undoAvailableEventCode())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		SetcopyAvailableEventCode(itemdata[:setcopyAvailableEvent])
+		SetcurrentCharFormatChangedEventCode(itemdata[:setcurrentCharFormatChangedEvent])
+		SetcursorPositionChangedEventCode(itemdata[:setcursorPositionChangedEvent])
+		SetredoAvailableEventCode(itemdata[:setredoAvailableEvent])
+		SetselectionChangedEventCode(itemdata[:setselectionChangedEvent])
+		SettextChangedEventCode(itemdata[:settextChangedEvent])
+		SetundoAvailableEventCode(itemdata[:setundoAvailableEvent])
+
 # We use QLineEdit as parent - We need just the looking (not functionality)
 class FormDesigner_QListWidget from QLineEdit 
 
