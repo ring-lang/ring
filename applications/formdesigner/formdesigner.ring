@@ -2795,6 +2795,127 @@ class FormDesigner_QSlider from QSlider
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cactionTriggeredEvent = ""
+	crangeChangedEvent = ""
+	csliderMovedEvent = ""
+	csliderPressedEvent = ""
+	csliderReleasedEvent = ""
+	cvalueChangedEvent = ""
+
+	func SetactionTriggeredEventCode cValue
+		cactionTriggeredEvent = cValue
+
+	func actionTriggeredEventCode
+		return cactionTriggeredEvent
+			
+	func SetrangeChangedEventCode cValue
+		crangeChangedEvent = cValue
+
+	func rangeChangedEventCode
+		return crangeChangedEvent
+			
+	func SetsliderMovedEventCode cValue
+		csliderMovedEvent = cValue
+
+	func sliderMovedEventCode
+		return csliderMovedEvent
+			
+	func SetsliderPressedEventCode cValue
+		csliderPressedEvent = cValue
+
+	func sliderPressedEventCode
+		return csliderPressedEvent
+			
+	func SetsliderReleasedEventCode cValue
+		csliderReleasedEvent = cValue
+
+	func sliderReleasedEventCode
+		return csliderReleasedEvent
+			
+	func SetvalueChangedEventCode cValue
+		cvalueChangedEvent = cValue
+
+	func valueChangedEventCode
+		return cvalueChangedEvent
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("actionTriggeredEvent",False)
+		oDesigner.oView.AddProperty("rangeChangedEvent",False)
+		oDesigner.oView.AddProperty("sliderMovedEvent",False)
+		oDesigner.oView.AddProperty("sliderPressedEvent",False)
+		oDesigner.oView.AddProperty("sliderReleasedEvent",False)
+		oDesigner.oView.AddProperty("valueChangedEvent",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.item(8,1).settext(actionTriggeredEventcode())
+		oPropertiesTable.item(9,1).settext(rangeChangedEventcode())
+		oPropertiesTable.item(10,1).settext(sliderMovedEventcode())
+		oPropertiesTable.item(11,1).settext(sliderPressedEventcode())
+		oPropertiesTable.item(12,1).settext(sliderReleasedEventcode())
+		oPropertiesTable.item(13,1).settext(valueChangedEventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case 8
+					setactionTriggeredEventCode(cValue)
+				case 9
+					setrangeChangedEventCode(cValue)
+				case 10
+					setsliderMovedEventCode(cValue)
+				case 11
+					setsliderPressedEventCode(cValue)
+				case 12
+					setsliderReleasedEventCode(cValue)
+				case 13
+					setvalueChangedEventCode(cValue)
+
+			}
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :setactionTriggeredEvent =  "' + actionTriggeredEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setrangeChangedEvent =  "' + rangeChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setsliderMovedEvent =  "' + sliderMovedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setsliderPressedEvent =  "' + sliderPressedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setsliderReleasedEvent =  "' + sliderReleasedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = ""
+		cOutput += 'setactionTriggeredEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",actionTriggeredEventCode())
+		cOutput += 'setrangeChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",rangeChangedEventCode())
+		cOutput += 'setsliderMovedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",sliderMovedEventCode())
+		cOutput += 'setsliderPressedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",sliderPressedEventCode())
+		cOutput += 'setsliderReleasedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",sliderReleasedEventCode())
+		cOutput += 'setvalueChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		SetactionTriggeredEventCode(itemdata[:setactionTriggeredEvent])
+		SetrangeChangedEventCode(itemdata[:setrangeChangedEvent])
+		SetsliderMovedEventCode(itemdata[:setsliderMovedEvent])
+		SetsliderPressedEventCode(itemdata[:setsliderPressedEvent])
+		SetsliderReleasedEventCode(itemdata[:setsliderReleasedEvent])
+		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
+
 	func text return ""
 
 	func settext cValue 
