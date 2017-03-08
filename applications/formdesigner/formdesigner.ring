@@ -2168,6 +2168,12 @@ class FormDesigner_QPushButton from QPushButton
 
 	cClickEvent = ""
 
+	func SetClickEventCode cValue
+		cClickEvent = cValue
+
+	func ClickEventCode
+		return cClickEvent
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Set Click Event",False)
@@ -2188,12 +2194,6 @@ class FormDesigner_QPushButton from QPushButton
 					setClickEventCode(cValue)
 			}
 		}
-
-	func SetClickEventCode cValue
-		cClickEvent = cValue
-
-	func ClickEventCode
-		return cClickEvent
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
@@ -2217,6 +2217,126 @@ class FormDesigner_QLineEdit from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
+
+	cTextChangedEvent = ""
+	ccursorPositionChangedEvent = ""
+	ceditingFinishedEvent = ""
+	creturnPressedEvent = ""
+	cselectionChangedEvent = ""
+	ctextEditedEvent = ""
+
+	func SetTextChangedEventCode cValue
+		cTextChangedEvent = cValue
+
+	func TextChangedEventCode
+		return cTextChangedEvent
+			
+	func SetcursorPositionChangedEventCode cValue
+		ccursorPositionChangedEvent = cValue
+
+	func cursorPositionChangedEventCode
+		return ccursorPositionChangedEvent
+			
+	func SeteditingFinishedEventCode cValue
+		ceditingFinishedEvent = cValue
+
+	func editingFinishedEventCode
+		return ceditingFinishedEvent
+			
+	func SetreturnPressedEventCode cValue
+		creturnPressedEvent = cValue
+
+	func returnPressedEventCode
+		return creturnPressedEvent
+			
+	func SetselectionChangedEventCode cValue
+		cselectionChangedEvent = cValue
+
+	func selectionChangedEventCode
+		return cselectionChangedEvent
+			
+	func SettextEditedEventCode cValue
+		ctextEditedEvent = cValue
+
+	func textEditedEventCode
+		return ctextEditedEvent
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("TextChangedEvent",False)
+		oDesigner.oView.AddProperty("cursorPositionChangedEvent",False)
+		oDesigner.oView.AddProperty("editingFinishedEvent",False)
+		oDesigner.oView.AddProperty("returnPressedEvent",False)
+		oDesigner.oView.AddProperty("selectionChangedEvent",False)
+		oDesigner.oView.AddProperty("textEditedEvent",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.item(8,1).settext(TextChangedEventcode())
+		oPropertiesTable.item(9,1).settext(cursorPositionChangedEventcode())
+		oPropertiesTable.item(10,1).settext(editingFinishedEventcode())
+		oPropertiesTable.item(11,1).settext(returnPressedEventcode())
+		oPropertiesTable.item(12,1).settext(selectionChangedEventcode())
+		oPropertiesTable.item(13,1).settext(textEditedEventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case 8
+					setTextChangedEventCode(cValue)
+				case 9
+					setcursorPositionChangedEventCode(cValue)
+				case 10
+					seteditingFinishedEventCode(cValue)
+				case 11
+					setreturnPressedEventCode(cValue)
+				case 12
+					setselectionChangedEventCode(cValue)
+				case 13
+					settextEditedEventCode(cValue)
+			}
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :setTextChangedEvent =  "' + TextChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcursorPositionChangedEvent =  "' + cursorPositionChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :seteditingFinishedEvent =  "' + editingFinishedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setreturnPressedEvent =  "' + returnPressedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setselectionChangedEvent =  "' + selectionChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :settextEditedEvent =  "' + textEditedEventCode() + '"'
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = ""
+		cOutput += 'setTextChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",TextChangedEventCode())
+		cOutput += 'setcursorPositionChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",cursorPositionChangedEventCode())
+		cOutput += 'seteditingFinishedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",editingFinishedEventCode())
+		cOutput += 'setreturnPressedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",returnPressedEventCode())
+		cOutput += 'setselectionChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",selectionChangedEventCode())
+		cOutput += 'settextEditedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",textEditedEventCode())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		SetTextChangedEventCode(itemdata[:setTextChangedEvent])
+		SetcursorPositionChangedEventCode(itemdata[:setcursorPositionChangedEvent])
+		SeteditingFinishedEventCode(itemdata[:seteditingFinishedEvent])
+		SetreturnPressedEventCode(itemdata[:setreturnPressedEvent])
+		SetselectionChangedEventCode(itemdata[:setselectionChangedEvent])
+		SettextEditedEventCode(itemdata[:settextEditedEvent])
 
 # We use QLineEdit as parent - We need just the looking (not functionality)
 class FormDesigner_QTextEdit from QLineEdit 
