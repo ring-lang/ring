@@ -2678,10 +2678,112 @@ class FormDesigner_QCheckBox from QCheckBox
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cstateChangedEvent = ""
+	cclickedEvent = ""
+	cpressedEvent = ""
+	creleasedEvent = ""
+	ctoggledEvent = ""
+
+	func SetstateChangedEventCode cValue
+		cstateChangedEvent = cValue
+
+	func stateChangedEventCode
+		return cstateChangedEvent
+			
+	func SetclickedEventCode cValue
+		cclickedEvent = cValue
+
+	func clickedEventCode
+		return cclickedEvent
+			
+	func SetpressedEventCode cValue
+		cpressedEvent = cValue
+
+	func pressedEventCode
+		return cpressedEvent
+			
+	func SetreleasedEventCode cValue
+		creleasedEvent = cValue
+
+	func releasedEventCode
+		return creleasedEvent
+			
+	func SettoggledEventCode cValue
+		ctoggledEvent = cValue
+
+	func toggledEventCode
+		return ctoggledEvent
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("stateChangedEvent",False)
+		oDesigner.oView.AddProperty("clickedEvent",False)
+		oDesigner.oView.AddProperty("pressedEvent",False)
+		oDesigner.oView.AddProperty("releasedEvent",False)
+		oDesigner.oView.AddProperty("toggledEvent",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.item(8,1).settext(stateChangedEventcode())
+		oPropertiesTable.item(9,1).settext(clickedEventcode())
+		oPropertiesTable.item(10,1).settext(pressedEventcode())
+		oPropertiesTable.item(11,1).settext(releasedEventcode())
+		oPropertiesTable.item(12,1).settext(toggledEventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case 8
+					setstateChangedEventCode(cValue)
+				case 9
+					setclickedEventCode(cValue)
+				case 10
+					setpressedEventCode(cValue)
+				case 11
+					setreleasedEventCode(cValue)
+				case 12
+					settoggledEventCode(cValue)
+
+			}
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :setstateChangedEvent =  "' + stateChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setclickedEvent =  "' + clickedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setpressedEvent =  "' + pressedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setreleasedEvent =  "' + releasedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :settoggledEvent =  "' + toggledEventCode() + '"'
+		return cOutput
+
 	func GenerateCustomCode
 		cOutput = 'setText("#{f1}")' + nl 
 		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput += 'setstateChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",stateChangedEventCode())
+		cOutput += 'setclickedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",clickedEventCode())
+		cOutput += 'setpressedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",pressedEventCode())
+		cOutput += 'setreleasedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",releasedEventCode())
+		cOutput += 'settoggledEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",toggledEventCode())
 		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		SetstateChangedEventCode(itemdata[:setstateChangedEvent])
+		SetclickedEventCode(itemdata[:setclickedEvent])
+		SetpressedEventCode(itemdata[:setpressedEvent])
+		SetreleasedEventCode(itemdata[:setreleasedEvent])
+		SettoggledEventCode(itemdata[:settoggledEvent])
 
 class FormDesigner_QImage from QLabel
 
