@@ -102,17 +102,15 @@ func UpdateProperties oDesigner,nRow,nCol,cValue
 	UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 	if nCol = 1 {
 		switch nRow {
-			#{f1}
+#{f1}
 		}
 	}
 `
 	cCode3 = ""
 	nIndex = 8
 	for cEvent in aEvents
-	cCode2 = "
-			case #{f1}
-				set#{f2}Code(cValue)
-"
+		cCode2 = copy(char(9),3) + "case #{f1}
+				set#{f2}Code(cValue)" + nl
 		cCode2 = substr(cCode2,"#{f1}",""+nIndex)
 		cCode2 = substr(cCode2,"#{f2}",cEvent)
 		nIndex++
