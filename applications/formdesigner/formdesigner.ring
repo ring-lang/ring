@@ -1108,11 +1108,13 @@ Class FormDesignerView from WindowsViewParent
 				setHorizontalHeaderItem(0, new QTableWidgetItem("Property"))
 				setHorizontalHeaderItem(1, new QTableWidgetItem("Value"))
 				setHorizontalHeaderItem(2,  new QTableWidgetItem(""))
+				setColumnwidth(0,180)
 				setColumnwidth(2,40)
 				setAlternatingRowColors(true)
 				horizontalHeader().setStyleSheet("color: blue")
 				verticalHeader().setStyleSheet("color: red")
 				setitemChangedEvent(Method(:UpdateProperties))
+				setminimumwidth(370)
 			}
 			oLayout2 = new qVBoxLayout() {
 				AddLayout(oLayout1)
