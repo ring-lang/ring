@@ -3439,6 +3439,307 @@ class FormDesigner_QTreeWidget from QTreeWidget
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	ccollapsedEvent = ""
+	cexpandedEvent = ""
+	cactivatedEvent = ""
+	cclickedEvent = ""
+	cdoubleClickedEvent = ""
+	centeredEvent = ""
+	cpressedEvent = ""
+	cviewportEnteredEvent = ""
+	ccurrentItemChangedEvent = ""
+	citemActivatedEvent = ""
+	citemChangedEvent = ""
+	citemClickedEvent = ""
+	citemCollapsedEvent = ""
+	citemDoubleClickedEvent = ""
+	citemEnteredEvent = ""
+	citemExpandedEvent = ""
+	citemPressedEvent = ""
+	citemSelectionChangedEvent = ""
+
+	func SetcollapsedEventCode cValue
+		ccollapsedEvent = cValue
+
+	func collapsedEventCode
+		return ccollapsedEvent
+			
+	func SetexpandedEventCode cValue
+		cexpandedEvent = cValue
+
+	func expandedEventCode
+		return cexpandedEvent
+			
+	func SetactivatedEventCode cValue
+		cactivatedEvent = cValue
+
+	func activatedEventCode
+		return cactivatedEvent
+			
+	func SetclickedEventCode cValue
+		cclickedEvent = cValue
+
+	func clickedEventCode
+		return cclickedEvent
+			
+	func SetdoubleClickedEventCode cValue
+		cdoubleClickedEvent = cValue
+
+	func doubleClickedEventCode
+		return cdoubleClickedEvent
+			
+	func SetenteredEventCode cValue
+		centeredEvent = cValue
+
+	func enteredEventCode
+		return centeredEvent
+			
+	func SetpressedEventCode cValue
+		cpressedEvent = cValue
+
+	func pressedEventCode
+		return cpressedEvent
+			
+	func SetviewportEnteredEventCode cValue
+		cviewportEnteredEvent = cValue
+
+	func viewportEnteredEventCode
+		return cviewportEnteredEvent
+			
+	func SetcurrentItemChangedEventCode cValue
+		ccurrentItemChangedEvent = cValue
+
+	func currentItemChangedEventCode
+		return ccurrentItemChangedEvent
+			
+	func SetitemActivatedEventCode cValue
+		citemActivatedEvent = cValue
+
+	func itemActivatedEventCode
+		return citemActivatedEvent
+			
+	func SetitemChangedEventCode cValue
+		citemChangedEvent = cValue
+
+	func itemChangedEventCode
+		return citemChangedEvent
+			
+	func SetitemClickedEventCode cValue
+		citemClickedEvent = cValue
+
+	func itemClickedEventCode
+		return citemClickedEvent
+			
+	func SetitemCollapsedEventCode cValue
+		citemCollapsedEvent = cValue
+
+	func itemCollapsedEventCode
+		return citemCollapsedEvent
+			
+	func SetitemDoubleClickedEventCode cValue
+		citemDoubleClickedEvent = cValue
+
+	func itemDoubleClickedEventCode
+		return citemDoubleClickedEvent
+			
+	func SetitemEnteredEventCode cValue
+		citemEnteredEvent = cValue
+
+	func itemEnteredEventCode
+		return citemEnteredEvent
+			
+	func SetitemExpandedEventCode cValue
+		citemExpandedEvent = cValue
+
+	func itemExpandedEventCode
+		return citemExpandedEvent
+			
+	func SetitemPressedEventCode cValue
+		citemPressedEvent = cValue
+
+	func itemPressedEventCode
+		return citemPressedEvent
+			
+	func SetitemSelectionChangedEventCode cValue
+		citemSelectionChangedEvent = cValue
+
+	func itemSelectionChangedEventCode
+		return citemSelectionChangedEvent
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("collapsedEvent",False)
+		oDesigner.oView.AddProperty("expandedEvent",False)
+		oDesigner.oView.AddProperty("activatedEvent",False)
+		oDesigner.oView.AddProperty("clickedEvent",False)
+		oDesigner.oView.AddProperty("doubleClickedEvent",False)
+		oDesigner.oView.AddProperty("enteredEvent",False)
+		oDesigner.oView.AddProperty("pressedEvent",False)
+		oDesigner.oView.AddProperty("viewportEnteredEvent",False)
+		oDesigner.oView.AddProperty("currentItemChangedEvent",False)
+		oDesigner.oView.AddProperty("itemActivatedEvent",False)
+		oDesigner.oView.AddProperty("itemChangedEvent",False)
+		oDesigner.oView.AddProperty("itemClickedEvent",False)
+		oDesigner.oView.AddProperty("itemCollapsedEvent",False)
+		oDesigner.oView.AddProperty("itemDoubleClickedEvent",False)
+		oDesigner.oView.AddProperty("itemEnteredEvent",False)
+		oDesigner.oView.AddProperty("itemExpandedEvent",False)
+		oDesigner.oView.AddProperty("itemPressedEvent",False)
+		oDesigner.oView.AddProperty("itemSelectionChangedEvent",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.item(8,1).settext(collapsedEventcode())
+		oPropertiesTable.item(9,1).settext(expandedEventcode())
+		oPropertiesTable.item(10,1).settext(activatedEventcode())
+		oPropertiesTable.item(11,1).settext(clickedEventcode())
+		oPropertiesTable.item(12,1).settext(doubleClickedEventcode())
+		oPropertiesTable.item(13,1).settext(enteredEventcode())
+		oPropertiesTable.item(14,1).settext(pressedEventcode())
+		oPropertiesTable.item(15,1).settext(viewportEnteredEventcode())
+		oPropertiesTable.item(16,1).settext(currentItemChangedEventcode())
+		oPropertiesTable.item(17,1).settext(itemActivatedEventcode())
+		oPropertiesTable.item(18,1).settext(itemChangedEventcode())
+		oPropertiesTable.item(19,1).settext(itemClickedEventcode())
+		oPropertiesTable.item(20,1).settext(itemCollapsedEventcode())
+		oPropertiesTable.item(21,1).settext(itemDoubleClickedEventcode())
+		oPropertiesTable.item(22,1).settext(itemEnteredEventcode())
+		oPropertiesTable.item(23,1).settext(itemExpandedEventcode())
+		oPropertiesTable.item(24,1).settext(itemPressedEventcode())
+		oPropertiesTable.item(25,1).settext(itemSelectionChangedEventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case 8
+					setcollapsedEventCode(cValue)
+				case 9
+					setexpandedEventCode(cValue)
+				case 10
+					setactivatedEventCode(cValue)
+				case 11
+					setclickedEventCode(cValue)
+				case 12
+					setdoubleClickedEventCode(cValue)
+				case 13
+					setenteredEventCode(cValue)
+				case 14
+					setpressedEventCode(cValue)
+				case 15
+					setviewportEnteredEventCode(cValue)
+				case 16
+					setcurrentItemChangedEventCode(cValue)
+				case 17
+					setitemActivatedEventCode(cValue)
+				case 18
+					setitemChangedEventCode(cValue)
+				case 19
+					setitemClickedEventCode(cValue)
+				case 20
+					setitemCollapsedEventCode(cValue)
+				case 21
+					setitemDoubleClickedEventCode(cValue)
+				case 22
+					setitemEnteredEventCode(cValue)
+				case 23
+					setitemExpandedEventCode(cValue)
+				case 24
+					setitemPressedEventCode(cValue)
+				case 25
+					setitemSelectionChangedEventCode(cValue)
+
+			}
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :setcollapsedEvent =  "' + collapsedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setexpandedEvent =  "' + expandedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setactivatedEvent =  "' + activatedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setclickedEvent =  "' + clickedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setdoubleClickedEvent =  "' + doubleClickedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setenteredEvent =  "' + enteredEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setpressedEvent =  "' + pressedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setviewportEnteredEvent =  "' + viewportEnteredEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentItemChangedEvent =  "' + currentItemChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemActivatedEvent =  "' + itemActivatedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemChangedEvent =  "' + itemChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemClickedEvent =  "' + itemClickedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemCollapsedEvent =  "' + itemCollapsedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemDoubleClickedEvent =  "' + itemDoubleClickedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemEnteredEvent =  "' + itemEnteredEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemExpandedEvent =  "' + itemExpandedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemPressedEvent =  "' + itemPressedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemSelectionChangedEvent =  "' + itemSelectionChangedEventCode() + '"'
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = ""
+		cOutput += 'setcollapsedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",collapsedEventCode())
+		cOutput += 'setexpandedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",expandedEventCode())
+		cOutput += 'setactivatedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",activatedEventCode())
+		cOutput += 'setclickedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",clickedEventCode())
+		cOutput += 'setdoubleClickedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",doubleClickedEventCode())
+		cOutput += 'setenteredEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",enteredEventCode())
+		cOutput += 'setpressedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",pressedEventCode())
+		cOutput += 'setviewportEnteredEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",viewportEnteredEventCode())
+		cOutput += 'setcurrentItemChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",currentItemChangedEventCode())
+		cOutput += 'setitemActivatedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemActivatedEventCode())
+		cOutput += 'setitemChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemChangedEventCode())
+		cOutput += 'setitemClickedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemClickedEventCode())
+		cOutput += 'setitemCollapsedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemCollapsedEventCode())
+		cOutput += 'setitemDoubleClickedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemDoubleClickedEventCode())
+		cOutput += 'setitemEnteredEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemEnteredEventCode())
+		cOutput += 'setitemExpandedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemExpandedEventCode())
+		cOutput += 'setitemPressedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemPressedEventCode())
+		cOutput += 'setitemSelectionChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemSelectionChangedEventCode())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		SetcollapsedEventCode(itemdata[:setcollapsedEvent])
+		SetexpandedEventCode(itemdata[:setexpandedEvent])
+		SetactivatedEventCode(itemdata[:setactivatedEvent])
+		SetclickedEventCode(itemdata[:setclickedEvent])
+		SetdoubleClickedEventCode(itemdata[:setdoubleClickedEvent])
+		SetenteredEventCode(itemdata[:setenteredEvent])
+		SetpressedEventCode(itemdata[:setpressedEvent])
+		SetviewportEnteredEventCode(itemdata[:setviewportEnteredEvent])
+		SetcurrentItemChangedEventCode(itemdata[:setcurrentItemChangedEvent])
+		SetitemActivatedEventCode(itemdata[:setitemActivatedEvent])
+		SetitemChangedEventCode(itemdata[:setitemChangedEvent])
+		SetitemClickedEventCode(itemdata[:setitemClickedEvent])
+		SetitemCollapsedEventCode(itemdata[:setitemCollapsedEvent])
+		SetitemDoubleClickedEventCode(itemdata[:setitemDoubleClickedEvent])
+		SetitemEnteredEventCode(itemdata[:setitemEnteredEvent])
+		SetitemExpandedEventCode(itemdata[:setitemExpandedEvent])
+		SetitemPressedEventCode(itemdata[:setitemPressedEvent])
+		SetitemSelectionChangedEventCode(itemdata[:setitemSelectionChangedEvent])
+
 	func text return ""
 
 	func settext cValue 
