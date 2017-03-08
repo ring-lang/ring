@@ -97,18 +97,33 @@ func DisplayProperties oDesigner
 	cCode = char(9) + "oPropertiesTable.Blocksignals(False)" + nl
 	cGeneratedCode += cCode 
 
+	cCode = `
+func UpdateProperties oDesigner,nRow,nCol,cValue
+	UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+	if nCol = 1 {
+		switch nRow {
+			#{f1}
+		}
+	}
+`
+	cCode3 = ""
+	nIndex = 8
+	for cEvent in aEvents
+	cCode2 = "
+			case #{f1}
+				set#{f2}Code(cValue)
+"
+		cCode2 = substr(cCode2,"#{f1}",""+nIndex)
+		cCode2 = substr(cCode2,"#{f2}",cEvent)
+		nIndex++
+		cCode3 += cCode2
+	next 
+	cCode = substr(cCode,"#{f1}",cCode3)
+	cGeneratedCode += cCode 
+
 	aList = str2list(cGeneratedCode)
 
 	cCode = `
-	func UpdateProperties oDesigner,nRow,nCol,cValue
-		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
-		if nCol = 1 {
-			switch nRow {
-				case 8 	# Click Event 
-					setClickEventCode(cValue)
-			}
-		}
-
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
