@@ -138,16 +138,25 @@ func ObjectDataAsString nTabsCount
 
 	cGeneratedCode += cCode 
 
+	cCode = `
+func GenerateCustomCode
+	cOutput = ""
+`
+	cGeneratedCode += cCode 
+
+	for cEvent in aEvents
+		cCode = char(9) + `cOutput += 'set#{f2}("#{f1}")' + nl
+	cOutput = substr(cOutput,"#{f1}",#{f2}Code())` + nl
+		cCode = substr(cCode,"#{f2}",cEvent)
+		cGeneratedCode += cCode 
+	next
+
+	cCode = Char(9) + "return cOutput" + nl
+	cGeneratedCode += cCode 
+
 	aList = str2list(cGeneratedCode)
 
 	cCode = `
-	func GenerateCustomCode
-		cOutput = 'setText("#{f1}")' + nl 
-		cOutput += 'setClickEvent("#{f2}")' + nl
-		cOutput = substr(cOutput,"#{f1}",text())
-		cOutput = substr(cOutput,"#{f2}",ClickEventCode())
-		return cOutput
-
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
