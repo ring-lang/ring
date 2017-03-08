@@ -2156,6 +2156,11 @@ class FormDesigner_QLabel from QLabel
 		}
 		return cOutput
 
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setTextAlign(0+itemdata[:textalign])
+
 class FormDesigner_QPushButton from QPushButton 
 
 	CreateCommonAttributes()
@@ -2432,7 +2437,6 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddLabel(new FormDesigner_QLabel(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LabelsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
-						oDesigner.oModel.ActiveObject().setTextAlign(0+itemdata[:textalign])
 					case :FormDesigner_QPushButton
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()))
