@@ -54,6 +54,7 @@ func pProcess aList
 	for cEvent in aEvents
 		cEvent = Substr(cEvent,"void set","")
 		cEvent = Substr(cEvent,"(const char *)","")
+#===========================#
 		cCode = `
 c#{f1} = ""
 
@@ -63,8 +64,20 @@ func Set#{f1}Code cValue
 func #{f1}Code
 	return c#{f1}
 		`
+#===========================#
 		cGeneratedCode += substr(cCode,"#{f1}",cEvent)
 	next
+
+	cCode = `
+func AddObjectProperties  oDesigner
+	AddObjectCommonProperties(oDesigner)
+	`
+	cGeneratedCode += cCode 
+	for cEvent in aEvents
+		cCode = Char(9) + 'oDesigner.oView.AddProperty("#{f1}",False)' + nl
+		cGeneratedCode += substr(cCode,"#{f1}",cEvent)
+	next 
+
 	aList = str2list(cGeneratedCode)
 
 	cCode = `
