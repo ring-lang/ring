@@ -78,21 +78,28 @@ func AddObjectProperties  oDesigner
 		cGeneratedCode += substr(cCode,"#{f1}",cEvent)
 	next 
 
+	cCode = `
+func DisplayProperties oDesigner
+	DisplayCommonProperties(oDesigner)
+	oPropertiesTable = oDesigner.oView.oPropertiesTable
+	oPropertiesTable.Blocksignals(True) 
+`
+	cGeneratedCode += cCode 
+	nIndex = 8
+	for cEvent in aEvents
+		cCode = char(9) + 'oPropertiesTable.item(#{f1},1).settext(#{f2}code())' + nl
+		cCode = substr(cCode,"#{f1}",""+nIndex)
+		cCode = substr(cCode,"#{f2}",cEvent)
+		nIndex++
+		cGeneratedCode += cCode 
+	next
+
+	cCode = char(9) + "oPropertiesTable.Blocksignals(False)" + nl
+	cGeneratedCode += cCode 
+
 	aList = str2list(cGeneratedCode)
 
 	cCode = `
-	func AddObjectProperties  oDesigner
-		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Set Click Event",False)
-
-	func DisplayProperties oDesigner
-		DisplayCommonProperties(oDesigner)
-		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True)
-		# Set the Click Event 
-			oPropertiesTable.item(8,1).settext(clickeventcode())
-		oPropertiesTable.Blocksignals(False)
-
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
