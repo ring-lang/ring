@@ -121,15 +121,26 @@ func UpdateProperties oDesigner,nRow,nCol,cValue
 	cCode = substr(cCode,"#{f1}",cCode3)
 	cGeneratedCode += cCode 
 
+	cCode = `
+func ObjectDataAsString nTabsCount
+	cOutput = ObjectDataAsString2(nTabsCount)
+	cTabs = std_copy(char(9),nTabsCount) 
+`
+	cGeneratedCode += cCode 
+
+	for cEvent in aEvents 
+		cCode = char(9) + `cOutput += "," + nl + cTabs + ' :set#{f1} =  "' + #{f1}Code() + '"'` + nl
+		cCode = substr(cCode,"#{f1}",cEvent)
+		cGeneratedCode += cCode 
+	next 
+	
+	cCode = char(9) +  `return cOutput` + nl
+
+	cGeneratedCode += cCode 
+
 	aList = str2list(cGeneratedCode)
 
 	cCode = `
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
-		cOutput += "," + nl + cTabs + ' :setClickEvent =  "' + ClickEventCode() + '"'
-		return cOutput
-
 	func GenerateCustomCode
 		cOutput = 'setText("#{f1}")' + nl 
 		cOutput += 'setClickEvent("#{f2}")' + nl
