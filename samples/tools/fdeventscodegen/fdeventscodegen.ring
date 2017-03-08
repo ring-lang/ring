@@ -154,12 +154,17 @@ func GenerateCustomCode
 	cCode = Char(9) + "return cOutput" + nl
 	cGeneratedCode += cCode 
 
-	aList = str2list(cGeneratedCode)
-
 	cCode = `
-	func RestoreProperties oDesigner,Item 
-		RestoreCommonProperties(oDesigner,item)
-		itemdata = item[:data]
-		SetClickEventCode(itemdata[:setClickEvent])
-
+func RestoreProperties oDesigner,Item 
+	RestoreCommonProperties(oDesigner,item)
+	itemdata = item[:data]
 `
+	cGeneratedCode += cCode 
+	
+	for cEvent in aEvents
+		cCode = char(9) + "Set#{f1}Code(itemdata[:set#{f1}])" + nl
+		cCode = substr(cCode,"#{f1}",cEvent)
+		cGeneratedCode += cCode 
+	next 
+
+	aList = str2list(cGeneratedCode)
