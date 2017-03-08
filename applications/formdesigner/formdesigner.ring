@@ -2208,6 +2208,11 @@ class FormDesigner_QPushButton from QPushButton
 		cOutput = substr(cOutput,"#{f2}",ClickEventCode())
 		return cOutput
 
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		SetClickEventCode(itemdata[:setClickEvent])
+
 class FormDesigner_QLineEdit from QLineEdit
 
 	CreateCommonAttributes()
