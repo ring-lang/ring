@@ -3035,6 +3035,127 @@ class FormDesigner_QComboBox from QComboBox
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cCurrentIndex(int index) = ""
+	cEditText(QString) = ""
+	cactivatedEvent = ""
+	ccurrentIndexChangedEvent = ""
+	ceditTextChangedEvent = ""
+	chighlightedEvent = ""
+
+	func SetCurrentIndex(int index)Code cValue
+		cCurrentIndex(int index) = cValue
+
+	func CurrentIndex(int index)Code
+		return cCurrentIndex(int index)
+			
+	func SetEditText(QString)Code cValue
+		cEditText(QString) = cValue
+
+	func EditText(QString)Code
+		return cEditText(QString)
+			
+	func SetactivatedEventCode cValue
+		cactivatedEvent = cValue
+
+	func activatedEventCode
+		return cactivatedEvent
+			
+	func SetcurrentIndexChangedEventCode cValue
+		ccurrentIndexChangedEvent = cValue
+
+	func currentIndexChangedEventCode
+		return ccurrentIndexChangedEvent
+			
+	func SeteditTextChangedEventCode cValue
+		ceditTextChangedEvent = cValue
+
+	func editTextChangedEventCode
+		return ceditTextChangedEvent
+			
+	func SethighlightedEventCode cValue
+		chighlightedEvent = cValue
+
+	func highlightedEventCode
+		return chighlightedEvent
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("CurrentIndex(int index)",False)
+		oDesigner.oView.AddProperty("EditText(QString)",False)
+		oDesigner.oView.AddProperty("activatedEvent",False)
+		oDesigner.oView.AddProperty("currentIndexChangedEvent",False)
+		oDesigner.oView.AddProperty("editTextChangedEvent",False)
+		oDesigner.oView.AddProperty("highlightedEvent",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.item(8,1).settext(CurrentIndex(int index)code())
+		oPropertiesTable.item(9,1).settext(EditText(QString)code())
+		oPropertiesTable.item(10,1).settext(activatedEventcode())
+		oPropertiesTable.item(11,1).settext(currentIndexChangedEventcode())
+		oPropertiesTable.item(12,1).settext(editTextChangedEventcode())
+		oPropertiesTable.item(13,1).settext(highlightedEventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case 8
+					setCurrentIndex(int index)Code(cValue)
+				case 9
+					setEditText(QString)Code(cValue)
+				case 10
+					setactivatedEventCode(cValue)
+				case 11
+					setcurrentIndexChangedEventCode(cValue)
+				case 12
+					seteditTextChangedEventCode(cValue)
+				case 13
+					sethighlightedEventCode(cValue)
+
+			}
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :setCurrentIndex(int index) =  "' + CurrentIndex(int index)Code() + '"'
+		cOutput += "," + nl + cTabs + ' :setEditText(QString) =  "' + EditText(QString)Code() + '"'
+		cOutput += "," + nl + cTabs + ' :setactivatedEvent =  "' + activatedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentIndexChangedEvent =  "' + currentIndexChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :seteditTextChangedEvent =  "' + editTextChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :sethighlightedEvent =  "' + highlightedEventCode() + '"'
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = ""
+		cOutput += 'setCurrentIndex(int index)("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",CurrentIndex(int index)Code())
+		cOutput += 'setEditText(QString)("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",EditText(QString)Code())
+		cOutput += 'setactivatedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",activatedEventCode())
+		cOutput += 'setcurrentIndexChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",currentIndexChangedEventCode())
+		cOutput += 'seteditTextChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",editTextChangedEventCode())
+		cOutput += 'sethighlightedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",highlightedEventCode())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		SetCurrentIndex(int index)Code(itemdata[:setCurrentIndex(int index)])
+		SetEditText(QString)Code(itemdata[:setEditText(QString)])
+		SetactivatedEventCode(itemdata[:setactivatedEvent])
+		SetcurrentIndexChangedEventCode(itemdata[:setcurrentIndexChangedEvent])
+		SeteditTextChangedEventCode(itemdata[:seteditTextChangedEvent])
+		SethighlightedEventCode(itemdata[:sethighlightedEvent])
+
 	func text return ""
 
 	func settext cValue 
