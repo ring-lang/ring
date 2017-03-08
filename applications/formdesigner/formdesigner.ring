@@ -3174,6 +3174,262 @@ class FormDesigner_QTableWidget from QTableWidget
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	ccellActivatedEvent = ""
+	ccellChangedEvent = ""
+	ccellClickedEvent = ""
+	ccellDoubleClickedEvent = ""
+	ccellEnteredEvent = ""
+	ccellPressedEvent = ""
+	ccurrentCellChangedEvent = ""
+	ccurrentItemChangedEvent = ""
+	citemActivatedEvent = ""
+	citemChangedEvent = ""
+	citemClickedEvent = ""
+	citemDoubleClickedEvent = ""
+	citemEnteredEvent = ""
+	citemPressedEvent = ""
+	citemSelectionChangedEvent = ""
+
+	func SetcellActivatedEventCode cValue
+		ccellActivatedEvent = cValue
+
+	func cellActivatedEventCode
+		return ccellActivatedEvent
+			
+	func SetcellChangedEventCode cValue
+		ccellChangedEvent = cValue
+
+	func cellChangedEventCode
+		return ccellChangedEvent
+			
+	func SetcellClickedEventCode cValue
+		ccellClickedEvent = cValue
+
+	func cellClickedEventCode
+		return ccellClickedEvent
+			
+	func SetcellDoubleClickedEventCode cValue
+		ccellDoubleClickedEvent = cValue
+
+	func cellDoubleClickedEventCode
+		return ccellDoubleClickedEvent
+			
+	func SetcellEnteredEventCode cValue
+		ccellEnteredEvent = cValue
+
+	func cellEnteredEventCode
+		return ccellEnteredEvent
+			
+	func SetcellPressedEventCode cValue
+		ccellPressedEvent = cValue
+
+	func cellPressedEventCode
+		return ccellPressedEvent
+			
+	func SetcurrentCellChangedEventCode cValue
+		ccurrentCellChangedEvent = cValue
+
+	func currentCellChangedEventCode
+		return ccurrentCellChangedEvent
+			
+	func SetcurrentItemChangedEventCode cValue
+		ccurrentItemChangedEvent = cValue
+
+	func currentItemChangedEventCode
+		return ccurrentItemChangedEvent
+			
+	func SetitemActivatedEventCode cValue
+		citemActivatedEvent = cValue
+
+	func itemActivatedEventCode
+		return citemActivatedEvent
+			
+	func SetitemChangedEventCode cValue
+		citemChangedEvent = cValue
+
+	func itemChangedEventCode
+		return citemChangedEvent
+			
+	func SetitemClickedEventCode cValue
+		citemClickedEvent = cValue
+
+	func itemClickedEventCode
+		return citemClickedEvent
+			
+	func SetitemDoubleClickedEventCode cValue
+		citemDoubleClickedEvent = cValue
+
+	func itemDoubleClickedEventCode
+		return citemDoubleClickedEvent
+			
+	func SetitemEnteredEventCode cValue
+		citemEnteredEvent = cValue
+
+	func itemEnteredEventCode
+		return citemEnteredEvent
+			
+	func SetitemPressedEventCode cValue
+		citemPressedEvent = cValue
+
+	func itemPressedEventCode
+		return citemPressedEvent
+			
+	func SetitemSelectionChangedEventCode cValue
+		citemSelectionChangedEvent = cValue
+
+	func itemSelectionChangedEventCode
+		return citemSelectionChangedEvent
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("cellActivatedEvent",False)
+		oDesigner.oView.AddProperty("cellChangedEvent",False)
+		oDesigner.oView.AddProperty("cellClickedEvent",False)
+		oDesigner.oView.AddProperty("cellDoubleClickedEvent",False)
+		oDesigner.oView.AddProperty("cellEnteredEvent",False)
+		oDesigner.oView.AddProperty("cellPressedEvent",False)
+		oDesigner.oView.AddProperty("currentCellChangedEvent",False)
+		oDesigner.oView.AddProperty("currentItemChangedEvent",False)
+		oDesigner.oView.AddProperty("itemActivatedEvent",False)
+		oDesigner.oView.AddProperty("itemChangedEvent",False)
+		oDesigner.oView.AddProperty("itemClickedEvent",False)
+		oDesigner.oView.AddProperty("itemDoubleClickedEvent",False)
+		oDesigner.oView.AddProperty("itemEnteredEvent",False)
+		oDesigner.oView.AddProperty("itemPressedEvent",False)
+		oDesigner.oView.AddProperty("itemSelectionChangedEvent",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.item(8,1).settext(cellActivatedEventcode())
+		oPropertiesTable.item(9,1).settext(cellChangedEventcode())
+		oPropertiesTable.item(10,1).settext(cellClickedEventcode())
+		oPropertiesTable.item(11,1).settext(cellDoubleClickedEventcode())
+		oPropertiesTable.item(12,1).settext(cellEnteredEventcode())
+		oPropertiesTable.item(13,1).settext(cellPressedEventcode())
+		oPropertiesTable.item(14,1).settext(currentCellChangedEventcode())
+		oPropertiesTable.item(15,1).settext(currentItemChangedEventcode())
+		oPropertiesTable.item(16,1).settext(itemActivatedEventcode())
+		oPropertiesTable.item(17,1).settext(itemChangedEventcode())
+		oPropertiesTable.item(18,1).settext(itemClickedEventcode())
+		oPropertiesTable.item(19,1).settext(itemDoubleClickedEventcode())
+		oPropertiesTable.item(20,1).settext(itemEnteredEventcode())
+		oPropertiesTable.item(21,1).settext(itemPressedEventcode())
+		oPropertiesTable.item(22,1).settext(itemSelectionChangedEventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case 8
+					setcellActivatedEventCode(cValue)
+				case 9
+					setcellChangedEventCode(cValue)
+				case 10
+					setcellClickedEventCode(cValue)
+				case 11
+					setcellDoubleClickedEventCode(cValue)
+				case 12
+					setcellEnteredEventCode(cValue)
+				case 13
+					setcellPressedEventCode(cValue)
+				case 14
+					setcurrentCellChangedEventCode(cValue)
+				case 15
+					setcurrentItemChangedEventCode(cValue)
+				case 16
+					setitemActivatedEventCode(cValue)
+				case 17
+					setitemChangedEventCode(cValue)
+				case 18
+					setitemClickedEventCode(cValue)
+				case 19
+					setitemDoubleClickedEventCode(cValue)
+				case 20
+					setitemEnteredEventCode(cValue)
+				case 21
+					setitemPressedEventCode(cValue)
+				case 22
+					setitemSelectionChangedEventCode(cValue)
+
+			}
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :setcellActivatedEvent =  "' + cellActivatedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcellChangedEvent =  "' + cellChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcellClickedEvent =  "' + cellClickedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcellDoubleClickedEvent =  "' + cellDoubleClickedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcellEnteredEvent =  "' + cellEnteredEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcellPressedEvent =  "' + cellPressedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentCellChangedEvent =  "' + currentCellChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentItemChangedEvent =  "' + currentItemChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemActivatedEvent =  "' + itemActivatedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemChangedEvent =  "' + itemChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemClickedEvent =  "' + itemClickedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemDoubleClickedEvent =  "' + itemDoubleClickedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemEnteredEvent =  "' + itemEnteredEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemPressedEvent =  "' + itemPressedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setitemSelectionChangedEvent =  "' + itemSelectionChangedEventCode() + '"'
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = ""
+		cOutput += 'setcellActivatedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",cellActivatedEventCode())
+		cOutput += 'setcellChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",cellChangedEventCode())
+		cOutput += 'setcellClickedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",cellClickedEventCode())
+		cOutput += 'setcellDoubleClickedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",cellDoubleClickedEventCode())
+		cOutput += 'setcellEnteredEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",cellEnteredEventCode())
+		cOutput += 'setcellPressedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",cellPressedEventCode())
+		cOutput += 'setcurrentCellChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",currentCellChangedEventCode())
+		cOutput += 'setcurrentItemChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",currentItemChangedEventCode())
+		cOutput += 'setitemActivatedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemActivatedEventCode())
+		cOutput += 'setitemChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemChangedEventCode())
+		cOutput += 'setitemClickedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemClickedEventCode())
+		cOutput += 'setitemDoubleClickedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemDoubleClickedEventCode())
+		cOutput += 'setitemEnteredEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemEnteredEventCode())
+		cOutput += 'setitemPressedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemPressedEventCode())
+		cOutput += 'setitemSelectionChangedEvent("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",itemSelectionChangedEventCode())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		SetcellActivatedEventCode(itemdata[:setcellActivatedEvent])
+		SetcellChangedEventCode(itemdata[:setcellChangedEvent])
+		SetcellClickedEventCode(itemdata[:setcellClickedEvent])
+		SetcellDoubleClickedEventCode(itemdata[:setcellDoubleClickedEvent])
+		SetcellEnteredEventCode(itemdata[:setcellEnteredEvent])
+		SetcellPressedEventCode(itemdata[:setcellPressedEvent])
+		SetcurrentCellChangedEventCode(itemdata[:setcurrentCellChangedEvent])
+		SetcurrentItemChangedEventCode(itemdata[:setcurrentItemChangedEvent])
+		SetitemActivatedEventCode(itemdata[:setitemActivatedEvent])
+		SetitemChangedEventCode(itemdata[:setitemChangedEvent])
+		SetitemClickedEventCode(itemdata[:setitemClickedEvent])
+		SetitemDoubleClickedEventCode(itemdata[:setitemDoubleClickedEvent])
+		SetitemEnteredEventCode(itemdata[:setitemEnteredEvent])
+		SetitemPressedEventCode(itemdata[:setitemPressedEvent])
+		SetitemSelectionChangedEventCode(itemdata[:setitemSelectionChangedEvent])
+
 	func text return ""
 
 	func settext cValue 
