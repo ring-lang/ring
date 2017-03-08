@@ -2052,7 +2052,7 @@ class CommonAttributesMethods
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("#{f8}")
 			setfont(oFont)
-			#{f9}
+#{f9}
 		}' + nl
 		cClass = substr(classname(self),"formdesigner_","")
 		if cClass = "qimage" {
@@ -2066,8 +2066,14 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f6}",textcolor())
 		cOutput = substr(cOutput,"#{f7}",backcolor())
 		cOutput = substr(cOutput,"#{f8}",fontproperty())
-		cOutput = substr(cOutput,"#{f9}",GenerateCustomCode())
+		cOutput = substr(cOutput,"#{f9}",AddTabs(GenerateCustomCode(),3))
 		return cOutput
+
+	func AddTabs cText,nCount
+		cTabs = std_copy(char(9),nCount)
+		cText = cTabs + cText
+		cText = substr(cText,nl,nl+cTabs)
+		return cText
 
 	func GenerateCustomCode
 		return ""
