@@ -781,6 +781,20 @@ Class FormDesignerController from WindowsControllerParent
 	func ExitAction
 		Super.CloseAction()
 
+	func Toolbox
+		if oView.oToolBoxDock.isvisible() {
+			oView.oToolBoxDock.hide()
+		else
+			oView.oToolBoxDock.Show()
+		}
+
+	func Properties
+		if oView.oPropertiesDock.isvisible() {
+			oView.oPropertiesDock.hide()
+		else
+			oView.oPropertiesDock.Show()
+		}
+
 Class FormDesignerView from WindowsViewParent
 
 	oForm oSub oFilter oArea win  
@@ -788,6 +802,7 @@ Class FormDesignerView from WindowsViewParent
 	oPropertiesDock oProperties oProperties2 
 	oObjectsCombo 	oPropertiesTable oLabelSelect
 
+	oToolBoxDock
 	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
@@ -856,8 +871,8 @@ Class FormDesignerView from WindowsViewParent
 
 	func WindowMoveResizeEvents
 		oFilter = new qAllEvents(oSub)
-                oFilter.setResizeEvent(Method(:ResizeWindowAction))
-       	        oFilter.setMoveEvent(Method(:MoveWindowAction))
+		oFilter.setResizeEvent(Method(:ResizeWindowAction))
+		oFilter.setMoveEvent(Method(:MoveWindowAction))
 		oFilter.setMouseButtonPressEvent(Method(:MousePressAction))
 		oFilter.setMouseButtonReleaseEvent(Method(:MouseReleaseAction))
 		oFilter.setMouseMoveEvent(Method(:MouseMoveAction))
@@ -907,6 +922,23 @@ Class FormDesignerView from WindowsViewParent
 					setclickevent(Method(:ExitAction))
 				}
 				addaction(oAction)
+			}
+			subView = addmenu("View")
+			subView {
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+t"))
+					settext("ToolBox")
+					setclickevent(Method(:ToolBox))
+				}
+				addaction(oAction)			
+				addseparator()	
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+p"))
+					setclickevent(Method(:Properties))
+					settext("Properties")
+				}
+				addaction(oAction)	
+				addseparator()	
 			}
 		}
 		win.setmenubar(menu1)
