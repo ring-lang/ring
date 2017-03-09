@@ -2159,8 +2159,7 @@ class FormDesigner_QLabel from QLabel
 		return cOutput
 
 	func GenerateCustomCode
-		cOutput = 'setText("#{f1}")' + nl +
-				copy(char(9),3)+'setAlignment(#{f2})'
+		cOutput = 'setText("#{f1}")' + nl + 'setAlignment(#{f2})'
 		cOutput = substr(cOutput,"#{f1}",text())
 		Switch nTextAlign {
 			case 0
