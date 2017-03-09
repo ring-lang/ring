@@ -2932,16 +2932,22 @@ class FormDesigner_QSlider from QSlider
 	func GenerateCustomCode
 		cOutput = ""
 		cOutput += 'setactionTriggeredEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,actionTriggeredEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",actionTriggeredEventCode())
 		cOutput += 'setrangeChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,rangeChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",rangeChangedEventCode())
 		cOutput += 'setsliderMovedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,sliderMovedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",sliderMovedEventCode())
 		cOutput += 'setsliderPressedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,sliderPressedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",sliderPressedEventCode())
 		cOutput += 'setsliderReleasedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,sliderReleasedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",sliderReleasedEventCode())
 		cOutput += 'setvalueChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,valueChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
 		return cOutput
 
