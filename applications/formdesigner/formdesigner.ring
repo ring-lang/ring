@@ -2799,14 +2799,19 @@ class FormDesigner_QCheckBox from QCheckBox
 		cOutput = 'setText("#{f1}")' + nl 
 		cOutput = substr(cOutput,"#{f1}",text())
 		cOutput += 'setstateChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,stateChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",stateChangedEventCode())
 		cOutput += 'setclickedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,clickedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",clickedEventCode())
 		cOutput += 'setpressedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,pressedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",pressedEventCode())
 		cOutput += 'setreleasedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,releasedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",releasedEventCode())
 		cOutput += 'settoggledEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,toggledEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",toggledEventCode())
 		return cOutput
 
