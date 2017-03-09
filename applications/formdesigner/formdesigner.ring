@@ -3428,7 +3428,7 @@ class FormDesigner_QTableWidget from QTableWidget
 		cOutput = PrepareEvent(cOutput,itemActivatedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemActivatedEventCode())
 		cOutput += 'setitemChangedEvent("#{f1}")' + nl
-		cOutput = PrepareEvent(cOutput,temChangedEventCode(),"#{f1}")
+		cOutput = PrepareEvent(cOutput,itemChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemChangedEventCode())
 		cOutput += 'setitemClickedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,itemClickedEventCode(),"#{f1}")
@@ -3443,7 +3443,7 @@ class FormDesigner_QTableWidget from QTableWidget
 		cOutput = PrepareEvent(cOutput,itemPressedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemPressedEventCode())
 		cOutput += 'setitemSelectionChangedEvent("#{f1}")' + nl
-		cOutput = PrepareEvent(cOutput,temSelectionChangedEventCode(),"#{f1}")
+		cOutput = PrepareEvent(cOutput,itemSelectionChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemSelectionChangedEventCode())
 		return cOutput
 
@@ -3747,7 +3747,7 @@ class FormDesigner_QTreeWidget from QTreeWidget
 		cOutput = PrepareEvent(cOutput,itemActivatedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemActivatedEventCode())
 		cOutput += 'setitemChangedEvent("#{f1}")' + nl
-		cOutput = PrepareEvent(cOutput,temChangedEventCode(),"#{f1}")
+		cOutput = PrepareEvent(cOutput,itemChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemChangedEventCode())
 		cOutput += 'setitemClickedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,itemClickedEventCode(),"#{f1}")
