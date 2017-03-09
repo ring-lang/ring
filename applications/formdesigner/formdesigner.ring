@@ -1492,6 +1492,13 @@ Class FormDesignerModel
 			del(aObjectsList,2)
 		}
 		
+	func GetObjectName oObject
+		for Item in aObjectsList {
+			if PtrCmp( Item[2].pObject , oObject.pObject ) {
+				return Item[1]
+			}
+		}
+		raise("Can't find the object!")
 
 Class FormDesignerGeneral
 
@@ -1654,7 +1661,7 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		return cOutput 
 
-	func GenerateCode
+	func GenerateCode oDesigner
 		cOutput = char(9) + char(9) + 
 		'move(#{f1},#{f2})
 		resize(#{f3},#{f4})
@@ -2045,8 +2052,9 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f8}",text())
 		return cOutput 
 
-	func GenerateCode
+	func GenerateCode oDesigner
 		cOutput = char(9) + char(9) + 
+		oDesigner.oModel.GetObjectName(self) + " = " +
 		'new #{f1}(win) {
 			move(#{f2},#{f3})
 			resize(#{f4},#{f5})
@@ -4143,12 +4151,12 @@ class FormDesignerCodeGenerator
 		return cFN
 
 	func GenerateWindowCode oDesigner
-		return oDesigner.oModel.FormObject().GenerateCode()
+		return oDesigner.oModel.FormObject().GenerateCode(oDesigner)
 
 	func GenerateObjectsCode oDesigner
 		cCode = ""
 		for x = 2 to len( oDesigner.oModel.GetObjects() ) {
 			oObject = oDesigner.oModel.GetObjects()[x][2]
-			cCode += oObject.GenerateCode()
+			cCode += oObject.GenerateCode(oDesigner)
 		}
 		return cCode
