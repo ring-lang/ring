@@ -3156,12 +3156,16 @@ class FormDesigner_QComboBox from QComboBox
 	func GenerateCustomCode
 		cOutput = ""
 		cOutput += 'setactivatedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,activatedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",activatedEventCode())
 		cOutput += 'setcurrentIndexChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,currentIndexChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",currentIndexChangedEventCode())
 		cOutput += 'seteditTextChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,editTextChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",editTextChangedEventCode())
 		cOutput += 'sethighlightedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,highlightedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",highlightedEventCode())
 		return cOutput
 
