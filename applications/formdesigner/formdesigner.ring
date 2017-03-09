@@ -2332,16 +2332,22 @@ class FormDesigner_QLineEdit from QLineEdit
 	func GenerateCustomCode
 		cOutput = ""
 		cOutput += 'setTextChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,TextChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",TextChangedEventCode())
 		cOutput += 'setcursorPositionChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,setcursorPositionChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",cursorPositionChangedEventCode())
 		cOutput += 'seteditingFinishedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,seteditingFinishedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",editingFinishedEventCode())
 		cOutput += 'setreturnPressedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,setreturnPressedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",returnPressedEventCode())
 		cOutput += 'setselectionChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,setselectionChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",selectionChangedEventCode())
 		cOutput += 'settextEditedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,settextEditedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",textEditedEventCode())
 		return cOutput
 
