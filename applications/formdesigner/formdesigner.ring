@@ -2099,7 +2099,7 @@ class CommonAttributesMethods
 
 	func PrepareEvent cCode,cEvent,cReplace 
 		# Remove " " around event if we uses Method()		
-		cEvent = lower(cEvent)
+		cEvent = std_lower(cEvent)
 		if substr(cEvent,"method(") > 0 {
 			cCode = substr(cCode,char(34)+cReplace+char(34),cReplace)
 		}
@@ -2220,6 +2220,7 @@ class FormDesigner_QPushButton from QPushButton
 	func GenerateCustomCode
 		cOutput = 'setText("#{f1}")' + nl 
 		cOutput += 'setClickEvent("#{f2}")' + nl
+		cOutput = PrepareEvent(cOutput,ClickEventCode(),"#{f2}")
 		cOutput = substr(cOutput,"#{f1}",text())
 		cOutput = substr(cOutput,"#{f2}",ClickEventCode())
 		return cOutput
