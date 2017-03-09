@@ -2335,19 +2335,19 @@ class FormDesigner_QLineEdit from QLineEdit
 		cOutput = PrepareEvent(cOutput,TextChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",TextChangedEventCode())
 		cOutput += 'setcursorPositionChangedEvent("#{f1}")' + nl
-		cOutput = PrepareEvent(cOutput,setcursorPositionChangedEventCode(),"#{f1}")
+		cOutput = PrepareEvent(cOutput,cursorPositionChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",cursorPositionChangedEventCode())
 		cOutput += 'seteditingFinishedEvent("#{f1}")' + nl
-		cOutput = PrepareEvent(cOutput,seteditingFinishedEventCode(),"#{f1}")
+		cOutput = PrepareEvent(cOutput,editingFinishedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",editingFinishedEventCode())
 		cOutput += 'setreturnPressedEvent("#{f1}")' + nl
-		cOutput = PrepareEvent(cOutput,setreturnPressedEventCode(),"#{f1}")
+		cOutput = PrepareEvent(cOutput,returnPressedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",returnPressedEventCode())
 		cOutput += 'setselectionChangedEvent("#{f1}")' + nl
-		cOutput = PrepareEvent(cOutput,setselectionChangedEventCode(),"#{f1}")
+		cOutput = PrepareEvent(cOutput,selectionChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",selectionChangedEventCode())
 		cOutput += 'settextEditedEvent("#{f1}")' + nl
-		cOutput = PrepareEvent(cOutput,settextEditedEventCode(),"#{f1}")
+		cOutput = PrepareEvent(cOutput,textEditedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",textEditedEventCode())
 		return cOutput
 
@@ -2477,18 +2477,25 @@ class FormDesigner_QTextEdit from QLineEdit
 	func GenerateCustomCode
 		cOutput = ""
 		cOutput += 'setcopyAvailableEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,copyAvailableEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",copyAvailableEventCode())
 		cOutput += 'setcurrentCharFormatChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,currentCharFormatChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",currentCharFormatChangedEventCode())
 		cOutput += 'setcursorPositionChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,cursorPositionChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",cursorPositionChangedEventCode())
 		cOutput += 'setredoAvailableEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,redoAvailableEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",redoAvailableEventCode())
 		cOutput += 'setselectionChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,selectionChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",selectionChangedEventCode())
 		cOutput += 'settextChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,textChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",textChangedEventCode())
 		cOutput += 'setundoAvailableEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,undoAvailableEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",undoAvailableEventCode())
 		return cOutput
 
