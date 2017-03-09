@@ -2097,6 +2097,14 @@ class CommonAttributesMethods
 		refreshCorners(oDesigner.oModel.ActiveObject())			
 		blocksignals(false)
 
+	func PrepareEvent cCode,cEvent
+		# Remove " " around event if we uses Method()		
+		cEvent = lower(cEvent)
+		if substr(cEvent,"method(") > 0 {
+			cCode = substr(cCode,'"#{f1}"','#{f1}')
+		}
+		return cCode
+
 class FormDesigner_QLabel from QLabel
 
 	nTextAlign = 0
