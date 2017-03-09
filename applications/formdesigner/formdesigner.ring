@@ -3008,6 +3008,7 @@ class FormDesigner_QProgressbar from QProgressbar
 	func GenerateCustomCode
 		cOutput = ""
 		cOutput += 'setvalueChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,valueChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
 		return cOutput
 
