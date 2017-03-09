@@ -2097,11 +2097,11 @@ class CommonAttributesMethods
 		refreshCorners(oDesigner.oModel.ActiveObject())			
 		blocksignals(false)
 
-	func PrepareEvent cCode,cEvent
+	func PrepareEvent cCode,cEvent,cReplace 
 		# Remove " " around event if we uses Method()		
 		cEvent = lower(cEvent)
 		if substr(cEvent,"method(") > 0 {
-			cCode = substr(cCode,'"#{f1}"','#{f1}')
+			cCode = substr(cCode,char(34)+cReplace+char(34),cReplace)
 		}
 		return cCode
 
