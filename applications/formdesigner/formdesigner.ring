@@ -2662,24 +2662,34 @@ class FormDesigner_QListWidget from QLineEdit
 	func GenerateCustomCode
 		cOutput = ""
 		cOutput += 'setcurrentItemChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,currentItemChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",currentItemChangedEventCode())
 		cOutput += 'setcurrentRowChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,currentRowChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",currentRowChangedEventCode())
 		cOutput += 'setcurrentTextChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,currentTextChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",currentTextChangedEventCode())
 		cOutput += 'setitemActivatedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,itemActivatedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemActivatedEventCode())
 		cOutput += 'setitemChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,itemChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemChangedEventCode())
 		cOutput += 'setitemClickedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,itemClickedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemClickedEventCode())
 		cOutput += 'setitemDoubleClickedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,itemDoubleClickedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemDoubleClickedEventCode())
 		cOutput += 'setitemEnteredEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,itemEnteredEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemEnteredEventCode())
 		cOutput += 'setitemPressedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,itemPressedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemPressedEventCode())
 		cOutput += 'setitemSelectionChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,itemSelectionChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",itemSelectionChangedEventCode())
 		return cOutput
 
