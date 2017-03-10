@@ -31,7 +31,7 @@ load "stdlib.ring"
 	}
 
 # Constants and Public Variables 
-	C_AFTERCOMMON  = 8			# Index After common properties
+	C_AFTERCOMMON  = 9			# Index After common properties
 	cCurrentDir = CurrentDir() + "/"
 
 # Start the Application
@@ -1535,6 +1535,13 @@ Class FormDesignerModel
 		}
 		raise("Can't find the object!")
 
+	func SetObjectName oObject,cValue
+		for Item in aObjectsList {
+			if PtrCmp( Item[2].pObject , oObject.pObject ) {
+				Item[1] = cValue
+			}
+		}
+
 Class FormDesignerGeneral
 
 	func oCursorA
@@ -1992,6 +1999,7 @@ class CommonAttributesMethods
 		AddObjectCommonProperties(oDesigner)
 
 	func AddObjectCommonProperties  oDesigner
+		oDesigner.oView.AddProperty("Name",False)
 		oDesigner.oView.AddProperty("X",False)
 		oDesigner.oView.AddProperty("Y",False)
 		oDesigner.oView.AddProperty("Width",False)
@@ -2007,21 +2015,24 @@ class CommonAttributesMethods
 	func UpdateCommonProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
 			switch nRow {
-				case 0 	# x
+				case 0	# Name
+					oDesigner.oModel.SetObjectName(self,cValue)
+					oDesigner.AddObjectsToCombo()
+				case 1 	# x
 					move(0+cValue,y())
-				case 1 	# y
+				case 2 	# y
 					move(x(),0+cValue)
-				case 2	# width
+				case 3	# width
 					resize(0+cValue,height())
-				case 3 	# height
+				case 4 	# height
 					resize(width(),0+cValue)
-				case 4	# Text color
+				case 5	# Text color
 					setTextColor(cValue)
-				case 5	# back color
+				case 6	# back color
 					setBackColor(cValue)
-				case 6	# font
+				case 7	# font
 					setFontProperty(cValue)
-				case 7  	# Text			
+				case 8  	# Text			
 					setText(cValue)
 			}
 		}
@@ -2032,35 +2043,38 @@ class CommonAttributesMethods
 	func DisplayCommonProperties oDesigner
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
+		# Set the Name 
+			oPropertiesTable.item(0,1).settext(
+				oDesigner.oModel.GetObjectName(self))
 		# Set the X
-			oPropertiesTable.item(0,1).settext(""+x())
+			oPropertiesTable.item(1,1).settext(""+x())
 		# Set the Y
-			oPropertiesTable.item(1,1).settext(""+y())
+			oPropertiesTable.item(2,1).settext(""+y())
 		# Set the Width
-			oPropertiesTable.item(2,1).settext(""+width())
+			oPropertiesTable.item(3,1).settext(""+width())
 		# Set the Height
-			oPropertiesTable.item(3,1).settext(""+height())
+			oPropertiesTable.item(4,1).settext(""+height())
 		# Set the Text Color
-			oPropertiesTable.item(4,1).settext(textcolor())
+			oPropertiesTable.item(5,1).settext(textcolor())
 		# Set the BackColor
-			oPropertiesTable.item(5,1).settext(backcolor())
+			oPropertiesTable.item(6,1).settext(backcolor())
 		# Set the Font
-			oPropertiesTable.item(6,1).settext(fontproperty())
+			oPropertiesTable.item(7,1).settext(fontproperty())
 		# Set the Text
-			oPropertiesTable.item(7,1).settext(text())
+			oPropertiesTable.item(8,1).settext(text())
 
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
-		if nRow = 4 {	# Text Color
+		if nRow = 5 {	# Text Color
 			cColor = oDesigner.oGeneral.SelectColor()
 			setTextColor(cColor)
 			DisplayProperties(oDesigner)
-		elseif nRow = 5 	# Back Color
+		elseif nRow = 6 	# Back Color
 			cColor = oDesigner.oGeneral.SelectColor()
 			setBackColor(cColor)
 			DisplayProperties(oDesigner)
-		elseif nRow = 6 	# Font
+		elseif nRow = 7	# Font
 			cFont = oDesigner.oGeneral.SelectFont()
 			setFontProperty(cFont)
 			DisplayProperties(oDesigner) 
