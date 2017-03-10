@@ -2138,10 +2138,14 @@ class CommonAttributesMethods
 		blocksignals(false)
 
 	func PrepareEvent cCode,cEvent,cReplace 
-		# Remove " " around event if we uses Method()		
+		# Remove " " around event if we uses Code		
 		cEvent = std_lower(cEvent)
-		if substr(cEvent,"method(") > 0 {
+		if substr(cEvent,"(") > 0 {
 			cCode = substr(cCode,char(34)+cReplace+char(34),cReplace)
+		else
+			if cEvent != "" {
+				cCode = substr(cCode,char(34)+cReplace+char(34),"Method(:"+cReplace+")")
+			}
 		}
 		return cCode
 
