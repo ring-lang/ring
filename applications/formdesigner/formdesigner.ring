@@ -1993,10 +1993,10 @@ class CommonAttributesMethods
 		oDesigner.oView.AddProperty("Y",False)
 		oDesigner.oView.AddProperty("Width",False)
 		oDesigner.oView.AddProperty("Height",False)
-		oDesigner.oView.AddProperty("Text",False)
 		oDesigner.oView.AddProperty("Text Color",True)
 		oDesigner.oView.AddProperty("Back Color",True)
 		oDesigner.oView.AddProperty("Font",True)
+		oDesigner.oView.AddProperty("Text",False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -2012,14 +2012,14 @@ class CommonAttributesMethods
 					resize(0+cValue,height())
 				case 3 	# height
 					resize(width(),0+cValue)
-				case 4  	# Text			
-					setText(cValue)
-				case 5	# Text color
+				case 4	# Text color
 					setTextColor(cValue)
-				case 6	# back color
+				case 5	# back color
 					setBackColor(cValue)
-				case 7	# font
+				case 6	# font
 					setFontProperty(cValue)
+				case 7  	# Text			
+					setText(cValue)
 			}
 		}
 
@@ -2037,14 +2037,14 @@ class CommonAttributesMethods
 			oPropertiesTable.item(2,1).settext(""+width())
 		# Set the Height
 			oPropertiesTable.item(3,1).settext(""+height())
-		# Set the Title
-			oPropertiesTable.item(4,1).settext(text())
 		# Set the Text Color
-			oPropertiesTable.item(5,1).settext(textcolor())
+			oPropertiesTable.item(4,1).settext(textcolor())
 		# Set the BackColor
-			oPropertiesTable.item(6,1).settext(backcolor())
+			oPropertiesTable.item(5,1).settext(backcolor())
 		# Set the Font
-			oPropertiesTable.item(7,1).settext(fontproperty())
+			oPropertiesTable.item(6,1).settext(fontproperty())
+		# Set the Text
+			oPropertiesTable.item(7,1).settext(text())
 
 		oPropertiesTable.Blocksignals(False)
 
