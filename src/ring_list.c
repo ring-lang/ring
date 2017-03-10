@@ -208,9 +208,11 @@ RING_API Item * ring_list_getitem ( List *pList,int index )
 		}
 		/* Quickly get the next item */
 		else if ( ( index == pList->nNextItemAfterLastAccess ) && ( pList->pLastItemLastAccess != NULL ) ) {
-			pList->pLastItemLastAccess = pList->pLastItemLastAccess->pNext ;
-			pList->nNextItemAfterLastAccess++ ;
-			return pList->pLastItemLastAccess->pValue ;
+			if ( pList->pLastItemLastAccess->pNext  != NULL ) {
+				pList->pLastItemLastAccess = pList->pLastItemLastAccess->pNext ;
+				pList->nNextItemAfterLastAccess++ ;
+				return pList->pLastItemLastAccess->pValue ;
+			}
 		}
 		/* Quickly get the current item */
 		else if ( (index == pList->nNextItemAfterLastAccess - 1) && ( pList->pLastItemLastAccess != NULL ) ) {
