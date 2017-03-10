@@ -8,8 +8,6 @@
 load "guilib.ring"
 load "stdlib.ring"
 
-cCurrentDir = CurrentDir() + "/"
-
 # Prepare Controls Classes 
 	for cClassName in [
 		:FormDesigner_QLabel,
@@ -32,13 +30,18 @@ cCurrentDir = CurrentDir() + "/"
 		mergemethods(cClassName,:CommonAttributesMethods)
 	}
 
-if IsMainSourceFile() { 
-	new qApp {
-		StyleFusion()
-		Open_Window(:FormDesignerController)
-		exec()
+# Constants and Public Variables 
+	C_AFTERCOMMON  = 8			# Index After common properties
+	cCurrentDir = CurrentDir() + "/"
+
+# Start the Application
+	if IsMainSourceFile() { 
+		new qApp {
+			StyleFusion()
+			Open_Window(:FormDesignerController)
+			exec()
+		}
 	}
-}
 
 Class FormDesignerController from WindowsControllerParent
 
@@ -2049,15 +2052,15 @@ class CommonAttributesMethods
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
-		if nRow = 5 {	# Text Color
+		if nRow = 4 {	# Text Color
 			cColor = oDesigner.oGeneral.SelectColor()
 			setTextColor(cColor)
 			DisplayProperties(oDesigner)
-		elseif nRow = 6 	# Back Color
+		elseif nRow = 5 	# Back Color
 			cColor = oDesigner.oGeneral.SelectColor()
 			setBackColor(cColor)
 			DisplayProperties(oDesigner)
-		elseif nRow = 7 	# Font
+		elseif nRow = 6 	# Font
 			cFont = oDesigner.oGeneral.SelectFont()
 			setFontProperty(cFont)
 			DisplayProperties(oDesigner) 
@@ -2179,7 +2182,7 @@ class FormDesigner_QLabel from QLabel
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
 		# Text Align 
-			oWidget = oPropertiesTable.cellwidget(8,1)
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON ,1)
 			oCombo = new qCombobox 
 			oCombo.pObject = oWidget.pObject 
 			oCombo.BlockSignals(True)
@@ -2188,8 +2191,8 @@ class FormDesigner_QLabel from QLabel
 		oPropertiesTable.Blocksignals(False)
 
 	func ComboItemAction oDesigner,nRow
-		if nRow = 8 {		# Text Align 
-			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(8,1)
+		if nRow = C_AFTERCOMMON  {		# Text Align 
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(C_AFTERCOMMON ,1)
 			oCombo = new qCombobox 
 			oCombo.pObject = oWidget.pObject 
 			nIndex = oCombo.CurrentIndex()
@@ -2242,14 +2245,14 @@ class FormDesigner_QPushButton from QPushButton
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
 		# Set the Click Event 
-			oPropertiesTable.item(8,1).settext(clickeventcode())
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(clickeventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8 	# Click Event 
+				case C_AFTERCOMMON  	# Click Event 
 					setClickEventCode(cValue)
 			}
 		}
@@ -2334,29 +2337,29 @@ class FormDesigner_QLineEdit from QLineEdit
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(TextChangedEventcode())
-		oPropertiesTable.item(9,1).settext(cursorPositionChangedEventcode())
-		oPropertiesTable.item(10,1).settext(editingFinishedEventcode())
-		oPropertiesTable.item(11,1).settext(returnPressedEventcode())
-		oPropertiesTable.item(12,1).settext(selectionChangedEventcode())
-		oPropertiesTable.item(13,1).settext(textEditedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(TextChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(cursorPositionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(editingFinishedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(returnPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(selectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(textEditedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setTextChangedEventCode(cValue)
-				case 9
+				case C_AFTERCOMMON+1
 					setcursorPositionChangedEventCode(cValue)
-				case 10
+				case C_AFTERCOMMON+2
 					seteditingFinishedEventCode(cValue)
-				case 11
+				case C_AFTERCOMMON+3
 					setreturnPressedEventCode(cValue)
-				case 12
+				case C_AFTERCOMMON+4
 					setselectionChangedEventCode(cValue)
-				case 13
+				case C_AFTERCOMMON+5
 					settextEditedEventCode(cValue)
 			}
 		}
@@ -2474,34 +2477,33 @@ class FormDesigner_QTextEdit from QLineEdit
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(copyAvailableEventcode())
-		oPropertiesTable.item(9,1).settext(currentCharFormatChangedEventcode())
-		oPropertiesTable.item(10,1).settext(cursorPositionChangedEventcode())
-		oPropertiesTable.item(11,1).settext(redoAvailableEventcode())
-		oPropertiesTable.item(12,1).settext(selectionChangedEventcode())
-		oPropertiesTable.item(13,1).settext(textChangedEventcode())
-		oPropertiesTable.item(14,1).settext(undoAvailableEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(copyAvailableEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(currentCharFormatChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(cursorPositionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(redoAvailableEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(selectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(textChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(undoAvailableEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setcopyAvailableEventCode(cValue)
-				case 9
+				case C_AFTERCOMMON+1
 					setcurrentCharFormatChangedEventCode(cValue)
-				case 10
+				case C_AFTERCOMMON+2
 					setcursorPositionChangedEventCode(cValue)
-				case 11
+				case C_AFTERCOMMON+3
 					setredoAvailableEventCode(cValue)
-				case 12
+				case C_AFTERCOMMON+4
 					setselectionChangedEventCode(cValue)
-				case 13
+				case C_AFTERCOMMON+5
 					settextChangedEventCode(cValue)
-				case 14
+				case C_AFTERCOMMON+6
 					setundoAvailableEventCode(cValue)
-
 			}
 		}
 
@@ -2647,41 +2649,41 @@ class FormDesigner_QListWidget from QLineEdit
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(currentItemChangedEventcode())
-		oPropertiesTable.item(9,1).settext(currentRowChangedEventcode())
-		oPropertiesTable.item(10,1).settext(currentTextChangedEventcode())
-		oPropertiesTable.item(11,1).settext(itemActivatedEventcode())
-		oPropertiesTable.item(12,1).settext(itemChangedEventcode())
-		oPropertiesTable.item(13,1).settext(itemClickedEventcode())
-		oPropertiesTable.item(14,1).settext(itemDoubleClickedEventcode())
-		oPropertiesTable.item(15,1).settext(itemEnteredEventcode())
-		oPropertiesTable.item(16,1).settext(itemPressedEventcode())
-		oPropertiesTable.item(17,1).settext(itemSelectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(currentItemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(currentRowChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(currentTextChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(itemActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(itemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(itemClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(itemDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(itemEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(itemPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setcurrentItemChangedEventCode(cValue)
-				case 9
+				case C_AFTERCOMMON+1
 					setcurrentRowChangedEventCode(cValue)
-				case 10
+				case C_AFTERCOMMON+2
 					setcurrentTextChangedEventCode(cValue)
-				case 11
+				case C_AFTERCOMMON+3
 					setitemActivatedEventCode(cValue)
-				case 12
+				case C_AFTERCOMMON+4
 					setitemChangedEventCode(cValue)
-				case 13
+				case C_AFTERCOMMON+5
 					setitemClickedEventCode(cValue)
-				case 14
+				case C_AFTERCOMMON+6
 					setitemDoubleClickedEventCode(cValue)
-				case 15
+				case C_AFTERCOMMON+7
 					setitemEnteredEventCode(cValue)
-				case 16
+				case C_AFTERCOMMON+8
 					setitemPressedEventCode(cValue)
-				case 17
+				case C_AFTERCOMMON+9
 					setitemSelectionChangedEventCode(cValue)
 
 			}
@@ -2803,28 +2805,27 @@ class FormDesigner_QCheckBox from QCheckBox
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(stateChangedEventcode())
-		oPropertiesTable.item(9,1).settext(clickedEventcode())
-		oPropertiesTable.item(10,1).settext(pressedEventcode())
-		oPropertiesTable.item(11,1).settext(releasedEventcode())
-		oPropertiesTable.item(12,1).settext(toggledEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(stateChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(clickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(pressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(releasedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(toggledEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setstateChangedEventCode(cValue)
-				case 9
+				case C_AFTERCOMMON+1
 					setclickedEventCode(cValue)
-				case 10
+				case C_AFTERCOMMON+2
 					setpressedEventCode(cValue)
-				case 11
+				case C_AFTERCOMMON+3
 					setreleasedEventCode(cValue)
-				case 12
+				case C_AFTERCOMMON+4
 					settoggledEventCode(cValue)
-
 			}
 		}
 
@@ -2933,29 +2934,29 @@ class FormDesigner_QSlider from QSlider
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(actionTriggeredEventcode())
-		oPropertiesTable.item(9,1).settext(rangeChangedEventcode())
-		oPropertiesTable.item(10,1).settext(sliderMovedEventcode())
-		oPropertiesTable.item(11,1).settext(sliderPressedEventcode())
-		oPropertiesTable.item(12,1).settext(sliderReleasedEventcode())
-		oPropertiesTable.item(13,1).settext(valueChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(actionTriggeredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(rangeChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(sliderMovedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(sliderPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(sliderReleasedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setactionTriggeredEventCode(cValue)
-				case 9
+				case C_AFTERCOMMON+1
 					setrangeChangedEventCode(cValue)
-				case 10
+				case C_AFTERCOMMON+2
 					setsliderMovedEventCode(cValue)
-				case 11
+				case C_AFTERCOMMON+3
 					setsliderPressedEventCode(cValue)
-				case 12
+				case C_AFTERCOMMON+4
 					setsliderReleasedEventCode(cValue)
-				case 13
+				case C_AFTERCOMMON+5
 					setvalueChangedEventCode(cValue)
 
 			}
@@ -3029,14 +3030,14 @@ class FormDesigner_QProgressbar from QProgressbar
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(valueChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setvalueChangedEventCode(cValue)
 
 			}
@@ -3085,14 +3086,14 @@ class FormDesigner_QSpinBox from QSpinBox
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(valueChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setvalueChangedEventCode(cValue)
 
 			}
@@ -3165,23 +3166,23 @@ class FormDesigner_QComboBox from QComboBox
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(activatedEventcode())
-		oPropertiesTable.item(9,1).settext(currentIndexChangedEventcode())
-		oPropertiesTable.item(10,1).settext(editTextChangedEventcode())
-		oPropertiesTable.item(11,1).settext(highlightedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(activatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(currentIndexChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(editTextChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(highlightedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setactivatedEventCode(cValue)
-				case 9
+				case C_AFTERCOMMON+1
 					setcurrentIndexChangedEventCode(cValue)
-				case 10
+				case C_AFTERCOMMON+2
 					seteditTextChangedEventCode(cValue)
-				case 11
+				case C_AFTERCOMMON+3
 					sethighlightedEventCode(cValue)
 
 			}
@@ -3366,56 +3367,56 @@ class FormDesigner_QTableWidget from QTableWidget
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(cellActivatedEventcode())
-		oPropertiesTable.item(9,1).settext(cellChangedEventcode())
-		oPropertiesTable.item(10,1).settext(cellClickedEventcode())
-		oPropertiesTable.item(11,1).settext(cellDoubleClickedEventcode())
-		oPropertiesTable.item(12,1).settext(cellEnteredEventcode())
-		oPropertiesTable.item(13,1).settext(cellPressedEventcode())
-		oPropertiesTable.item(14,1).settext(currentCellChangedEventcode())
-		oPropertiesTable.item(15,1).settext(currentItemChangedEventcode())
-		oPropertiesTable.item(16,1).settext(itemActivatedEventcode())
-		oPropertiesTable.item(17,1).settext(itemChangedEventcode())
-		oPropertiesTable.item(18,1).settext(itemClickedEventcode())
-		oPropertiesTable.item(19,1).settext(itemDoubleClickedEventcode())
-		oPropertiesTable.item(20,1).settext(itemEnteredEventcode())
-		oPropertiesTable.item(21,1).settext(itemPressedEventcode())
-		oPropertiesTable.item(22,1).settext(itemSelectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(cellActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(cellChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(cellClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(cellDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(cellEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(cellPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(currentCellChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(currentItemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(itemActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(itemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(itemClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(itemDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+12,1).settext(itemEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+13,1).settext(itemPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+14,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setcellActivatedEventCode(cValue)
-				case 9
+				case C_AFTERCOMMON+1
 					setcellChangedEventCode(cValue)
-				case 10
+				case C_AFTERCOMMON+2
 					setcellClickedEventCode(cValue)
-				case 11
+				case C_AFTERCOMMON+3
 					setcellDoubleClickedEventCode(cValue)
-				case 12
+				case C_AFTERCOMMON+4
 					setcellEnteredEventCode(cValue)
-				case 13
+				case C_AFTERCOMMON+5
 					setcellPressedEventCode(cValue)
-				case 14
+				case C_AFTERCOMMON+6
 					setcurrentCellChangedEventCode(cValue)
-				case 15
+				case C_AFTERCOMMON+7
 					setcurrentItemChangedEventCode(cValue)
-				case 16
+				case C_AFTERCOMMON+8
 					setitemActivatedEventCode(cValue)
-				case 17
+				case C_AFTERCOMMON+9
 					setitemChangedEventCode(cValue)
-				case 18
+				case C_AFTERCOMMON+10
 					setitemClickedEventCode(cValue)
-				case 19
+				case C_AFTERCOMMON+11
 					setitemDoubleClickedEventCode(cValue)
-				case 20
+				case C_AFTERCOMMON+12
 					setitemEnteredEventCode(cValue)
-				case 21
+				case C_AFTERCOMMON+13
 					setitemPressedEventCode(cValue)
-				case 22
+				case C_AFTERCOMMON+14
 					setitemSelectionChangedEventCode(cValue)
 
 			}
@@ -3670,65 +3671,65 @@ class FormDesigner_QTreeWidget from QTreeWidget
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(collapsedEventcode())
-		oPropertiesTable.item(9,1).settext(expandedEventcode())
-		oPropertiesTable.item(10,1).settext(activatedEventcode())
-		oPropertiesTable.item(11,1).settext(clickedEventcode())
-		oPropertiesTable.item(12,1).settext(doubleClickedEventcode())
-		oPropertiesTable.item(13,1).settext(enteredEventcode())
-		oPropertiesTable.item(14,1).settext(pressedEventcode())
-		oPropertiesTable.item(15,1).settext(viewportEnteredEventcode())
-		oPropertiesTable.item(16,1).settext(currentItemChangedEventcode())
-		oPropertiesTable.item(17,1).settext(itemActivatedEventcode())
-		oPropertiesTable.item(18,1).settext(itemChangedEventcode())
-		oPropertiesTable.item(19,1).settext(itemClickedEventcode())
-		oPropertiesTable.item(20,1).settext(itemCollapsedEventcode())
-		oPropertiesTable.item(21,1).settext(itemDoubleClickedEventcode())
-		oPropertiesTable.item(22,1).settext(itemEnteredEventcode())
-		oPropertiesTable.item(23,1).settext(itemExpandedEventcode())
-		oPropertiesTable.item(24,1).settext(itemPressedEventcode())
-		oPropertiesTable.item(25,1).settext(itemSelectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(collapsedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(expandedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(activatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(clickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(doubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(enteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(pressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(viewportEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(currentItemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(itemActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(itemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(itemClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+12,1).settext(itemCollapsedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+13,1).settext(itemDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+14,1).settext(itemEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+15,1).settext(itemExpandedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+16,1).settext(itemPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+17,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setcollapsedEventCode(cValue)
-				case 9
+				case C_AFTERCOMMON+1
 					setexpandedEventCode(cValue)
-				case 10
+				case C_AFTERCOMMON+2
 					setactivatedEventCode(cValue)
-				case 11
+				case C_AFTERCOMMON+3
 					setclickedEventCode(cValue)
-				case 12
+				case C_AFTERCOMMON+4
 					setdoubleClickedEventCode(cValue)
-				case 13
+				case C_AFTERCOMMON+5
 					setenteredEventCode(cValue)
-				case 14
+				case C_AFTERCOMMON+6
 					setpressedEventCode(cValue)
-				case 15
+				case C_AFTERCOMMON+7
 					setviewportEnteredEventCode(cValue)
-				case 16
+				case C_AFTERCOMMON+8
 					setcurrentItemChangedEventCode(cValue)
-				case 17
+				case C_AFTERCOMMON+9
 					setitemActivatedEventCode(cValue)
-				case 18
+				case C_AFTERCOMMON+10
 					setitemChangedEventCode(cValue)
-				case 19
+				case C_AFTERCOMMON+11
 					setitemClickedEventCode(cValue)
-				case 20
+				case C_AFTERCOMMON+12
 					setitemCollapsedEventCode(cValue)
-				case 21
+				case C_AFTERCOMMON+13
 					setitemDoubleClickedEventCode(cValue)
-				case 22
+				case C_AFTERCOMMON+14
 					setitemEnteredEventCode(cValue)
-				case 23
+				case C_AFTERCOMMON+15
 					setitemExpandedEventCode(cValue)
-				case 24
+				case C_AFTERCOMMON+16
 					setitemPressedEventCode(cValue)
-				case 25
+				case C_AFTERCOMMON+17
 					setitemSelectionChangedEventCode(cValue)
 
 			}
@@ -3886,23 +3887,23 @@ class FormDesigner_QRadioButton from QRadioButton
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(8,1).settext(clickedEventcode())
-		oPropertiesTable.item(9,1).settext(pressedEventcode())
-		oPropertiesTable.item(10,1).settext(releasedEventcode())
-		oPropertiesTable.item(11,1).settext(toggledEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(clickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(pressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(releasedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(toggledEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case 8
+				case C_AFTERCOMMON
 					setclickedEventCode(cValue)
-				case 9
+				case C_AFTERCOMMON+1
 					setpressedEventCode(cValue)
-				case 10
+				case C_AFTERCOMMON+2
 					setreleasedEventCode(cValue)
-				case 11
+				case C_AFTERCOMMON+3
 					settoggledEventCode(cValue)
 
 			}
