@@ -181,6 +181,9 @@ RING_API void ring_list_newitem ( List *pList )
 		pList->pLast = pItems ;
 	}
 	pList->nSize = pList->nSize + 1 ;
+	/* Refresh The Cache */
+	pList->nNextItemAfterLastAccess = 0 ;
+	pList->pLastItemLastAccess = NULL ;
 }
 
 RING_API Item * ring_list_getitem ( List *pList,int index )
@@ -295,9 +298,9 @@ RING_API void ring_list_deleteitem ( List *pList,int index )
 		}
 		if ( pItemsPrev != NULL ) {
 			pItemsPrev->pNext = pItems->pNext ;
-			if ( pItems->pNext != NULL ) {
-				pItems->pNext->pPrev = pItemsPrev ;
-			}
+		}
+		if ( pItems->pNext != NULL ) {
+			pItems->pNext->pPrev = pItemsPrev ;
 		}
 		ring_items_delete(pItems);
 		pList->nSize = pList->nSize - 1 ;
