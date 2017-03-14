@@ -31,7 +31,7 @@ load "stdlib.ring"
 	}
 
 # Constants and Public Variables 
-	C_AFTERCOMMON  = 9			# Index After common properties
+	C_AFTERCOMMON  = 8			# Index After common properties
 	cCurrentDir = CurrentDir() + "/"
 
 # Start the Application
@@ -2007,7 +2007,6 @@ class CommonAttributesMethods
 		oDesigner.oView.AddProperty("Text Color",True)
 		oDesigner.oView.AddProperty("Back Color",True)
 		oDesigner.oView.AddProperty("Font",True)
-		oDesigner.oView.AddProperty("Text",False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -2032,8 +2031,6 @@ class CommonAttributesMethods
 					setBackColor(cValue)
 				case 7	# font
 					setFontProperty(cValue)
-				case 8  	# Text			
-					setText(cValue)
 			}
 		}
 
@@ -2060,8 +2057,6 @@ class CommonAttributesMethods
 			oPropertiesTable.item(6,1).settext(backcolor())
 		# Set the Font
 			oPropertiesTable.item(7,1).settext(fontproperty())
-		# Set the Text
-			oPropertiesTable.item(8,1).settext(text())
 
 		oPropertiesTable.Blocksignals(False)
 
@@ -2089,8 +2084,7 @@ class CommonAttributesMethods
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
 		cOutput += cTabs + ' :textcolor =  "#{f5}" , ' + nl
 		cOutput += cTabs + ' :backcolor =  "#{f6}" , ' + nl
-		cOutput += cTabs + ' :font =  "#{f7}" , ' + nl
-		cOutput += cTabs + ' :text =  "#{f8}"'
+		cOutput += cTabs + ' :font =  "#{f7}"  ' + nl
 		cOutput = substr(cOutput,"#{f1}",""+x())
 		cOutput = substr(cOutput,"#{f2}",""+y())
 		cOutput = substr(cOutput,"#{f3}",""+width())
@@ -2098,7 +2092,6 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f5}",textcolor())
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",fontproperty())
-		cOutput = substr(cOutput,"#{f8}",text())
 		return cOutput 
 
 	func GenerateCode oDesigner
@@ -2147,7 +2140,6 @@ class CommonAttributesMethods
 		setFocusPolicy(0)
 		move(itemdata[:x],itemdata[:y]) 
 		resize(itemdata[:width],itemdata[:height])
-		setText(itemdata[:text])
 		setTextColor(itemdata[:textcolor])
 		setBackColor(itemdata[:backcolor])
 		setFontProperty(itemdata[:font])
@@ -2189,14 +2181,17 @@ class FormDesigner_QLabel from QLabel
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Text",False)
 		oDesigner.oView.AddPropertyCombobox("Text Align",["Left","Center","Right"])
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
+		# Set the Text
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
 		# Text Align 
-			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON ,1)
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON+1,1)
 			oCombo = new qCombobox 
 			oCombo.pObject = oWidget.pObject 
 			oCombo.BlockSignals(True)
@@ -2204,9 +2199,16 @@ class FormDesigner_QLabel from QLabel
 			oCombo.BlockSignals(False)
 		oPropertiesTable.Blocksignals(False)
 
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nRow = C_AFTERCOMMON { 
+			setText(cValue)
+		}
+
 	func ComboItemAction oDesigner,nRow
-		if nRow = C_AFTERCOMMON  {		# Text Align 
-			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(C_AFTERCOMMON ,1)
+		nTextAlignPos = C_AFTERCOMMON+1
+		if nRow = nTextAlignPos  {		# Text Align 
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nTextAlignPos,1)
 			oCombo = new qCombobox 
 			oCombo.pObject = oWidget.pObject 
 			nIndex = oCombo.CurrentIndex()
@@ -2216,6 +2218,7 @@ class FormDesigner_QLabel from QLabel
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign() 
 		return cOutput
 
@@ -2235,6 +2238,7 @@ class FormDesigner_QLabel from QLabel
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setText(itemdata[:text])
 		setTextAlign(0+itemdata[:textalign])
 
 class FormDesigner_QPushButton from QPushButton 
