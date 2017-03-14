@@ -305,7 +305,11 @@ Class FormDesignerController from WindowsControllerParent
 			}
 			oModel.ActiveObject().installeventfilter(oFilter)
 			oModel.ActiveObject().oFilter = oFilter
-			if isAttribute(oModel.ActiveObject(),:text) {
+			if find([:formdesigner_qlabel,
+				 :formdesigner_qpushbutton,
+				 :formdesigner_qcheckbox,
+				 :formdesigner_qradiobutton
+				],classname(oModel.ActiveObject())) {
 				oModel.ActiveObject().setText(cName+nCount)
 			}
 			oModel.ActiveObject().Show()
