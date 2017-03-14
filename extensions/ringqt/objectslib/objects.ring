@@ -76,7 +76,9 @@ func Method cMethod
 	if right(cMethod,1) != ")" {
 		cMethod += "()"
 	}
-	return $RingQt_objname+"."+cMethod
+	if $RingQt_objname != NULL {
+		return $RingQt_objname+"."+cMethod
+	}
 
 /*
 	The next function get the Window ID
