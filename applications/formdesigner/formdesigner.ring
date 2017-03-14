@@ -2820,6 +2820,7 @@ class FormDesigner_QCheckBox from QCheckBox
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Text",False)
 		oDesigner.oView.AddProperty("stateChangedEvent",False)
 		oDesigner.oView.AddProperty("clickedEvent",False)
 		oDesigner.oView.AddProperty("pressedEvent",False)
@@ -2830,26 +2831,30 @@ class FormDesigner_QCheckBox from QCheckBox
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(stateChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(clickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(pressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(releasedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(toggledEventcode())
+		# Set the Text
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(stateChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(clickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(pressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(releasedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(toggledEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON
-					setstateChangedEventCode(cValue)
+				case C_AFTERCOMMON 
+					setText(cValue)
 				case C_AFTERCOMMON+1
-					setclickedEventCode(cValue)
+					setstateChangedEventCode(cValue)
 				case C_AFTERCOMMON+2
-					setpressedEventCode(cValue)
+					setclickedEventCode(cValue)
 				case C_AFTERCOMMON+3
-					setreleasedEventCode(cValue)
+					setpressedEventCode(cValue)
 				case C_AFTERCOMMON+4
+					setreleasedEventCode(cValue)
+				case C_AFTERCOMMON+5
 					settoggledEventCode(cValue)
 			}
 		}
@@ -2857,6 +2862,7 @@ class FormDesigner_QCheckBox from QCheckBox
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :setstateChangedEvent =  "' + stateChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setclickedEvent =  "' + clickedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setpressedEvent =  "' + pressedEventCode() + '"'
@@ -2887,6 +2893,7 @@ class FormDesigner_QCheckBox from QCheckBox
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setText(itemdata[:text])
 		SetstateChangedEventCode(itemdata[:setstateChangedEvent])
 		SetclickedEventCode(itemdata[:setclickedEvent])
 		SetpressedEventCode(itemdata[:setpressedEvent])
