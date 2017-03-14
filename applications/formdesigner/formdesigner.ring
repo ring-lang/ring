@@ -3892,6 +3892,7 @@ class FormDesigner_QRadioButton from QRadioButton
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Text",False)
 		oDesigner.oView.AddProperty("clickedEvent",False)
 		oDesigner.oView.AddProperty("pressedEvent",False)
 		oDesigner.oView.AddProperty("releasedEvent",False)
@@ -3901,23 +3902,27 @@ class FormDesigner_QRadioButton from QRadioButton
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(clickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(pressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(releasedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(toggledEventcode())
+		# Set the Text
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(clickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(pressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(releasedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(toggledEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON
-					setclickedEventCode(cValue)
+				case C_AFTERCOMMON 
+					setText(cValue)
 				case C_AFTERCOMMON+1
-					setpressedEventCode(cValue)
+					setclickedEventCode(cValue)
 				case C_AFTERCOMMON+2
-					setreleasedEventCode(cValue)
+					setpressedEventCode(cValue)
 				case C_AFTERCOMMON+3
+					setreleasedEventCode(cValue)
+				case C_AFTERCOMMON+4
 					settoggledEventCode(cValue)
 
 			}
@@ -3926,6 +3931,7 @@ class FormDesigner_QRadioButton from QRadioButton
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :setclickedEvent =  "' + clickedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setpressedEvent =  "' + pressedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setreleasedEvent =  "' + releasedEventCode() + '"'
@@ -3952,6 +3958,7 @@ class FormDesigner_QRadioButton from QRadioButton
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setText(itemdata[:text])
 		SetclickedEventCode(itemdata[:setclickedEvent])
 		SetpressedEventCode(itemdata[:setpressedEvent])
 		SetreleasedEventCode(itemdata[:setreleasedEvent])
