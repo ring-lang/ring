@@ -4199,6 +4199,7 @@ class FormDesignerCodeGenerator
 					char(9) + "}" + nl + nl	
 		# Add the End of file 
 			cOutput += "# End of the Generated Source Code File..."
+			cOutput = substr(cOutput,nl,WindowsNL())
 			write(cSourceFileName,cOutput)
 		# Write the Controller Source File
 			cSourceFileName = substr(cFormFileName,".rform","Controller.ring")
