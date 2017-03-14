@@ -2256,21 +2256,26 @@ class FormDesigner_QPushButton from QPushButton
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Text",False)
 		oDesigner.oView.AddProperty("Set Click Event",False)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
+		# Set the Text
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
 		# Set the Click Event 
-			oPropertiesTable.item(C_AFTERCOMMON,1).settext(clickeventcode())
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(clickeventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON  	# Click Event 
+				case C_AFTERCOMMON 
+					setText(cValue)
+				case C_AFTERCOMMON+1  	# Click Event 
 					setClickEventCode(cValue)
 			}
 		}
@@ -2278,6 +2283,7 @@ class FormDesigner_QPushButton from QPushButton
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :setClickEvent =  "' + ClickEventCode() + '"'
 		return cOutput
 
@@ -2292,6 +2298,7 @@ class FormDesigner_QPushButton from QPushButton
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setText(itemdata[:text])
 		SetClickEventCode(itemdata[:setClickEvent])
 
 class FormDesigner_QLineEdit from QLineEdit
