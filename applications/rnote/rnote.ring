@@ -369,7 +369,7 @@ MyApp = New qApp {
 			}
 			subTools {
 				oAction = new qAction(win1) {
-					settext("FormDesigner")
+					settext("Form Designer")
 					setclickevent("pFormDesigner()")
 				}
 				addaction(oAction)			
