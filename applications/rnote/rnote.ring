@@ -151,7 +151,8 @@ MyApp = New qApp {
 			subEdit = addmenu("Edit")
 			subView = addmenu("View")
 			subProgram = addmenu("Program")
-			subBrowser = addmenu("Browser")
+			subBrowser = addmenu("Browser")	
+			subTools = addmenu("Tools")
 			subHelp = addmenu("Help")
 			subFile { 
 				oAction = new qAction(win1) {
@@ -365,6 +366,13 @@ MyApp = New qApp {
 						addseparator()	
 					ok
 				next
+			}
+			subTools {
+				oAction = new qAction(win1) {
+					settext("FormDesigner")
+					setclickevent("pFormDesigner()")
+				}
+				addaction(oAction)			
 			}
 
 			subHelp { 
@@ -1414,3 +1422,14 @@ func pSendProcessData oProcess,oText,oEditbox
 	cText = oText.text() + windowsnl()
 	oProcess.write(cText ,len(cText))
 	oeditbox.insertplaintext(	cText)
+
+func pFormDesigner
+	cFormFileName = cCurrentDir + "../formdesigner/formdesigner.ring"
+	if iswindows()
+		oProcessEditbox.setplaintext("")
+		oProcessText.setFocus(0)
+		oProcess = pRunProcess(cCurrentDir+"run2.bat",cFormFileName,"pGetProcessData(oProcess,oProcessEditbox)")
+	else
+		cCode = 'cd $(dirname "'+cFormFileName+'") ; ' + ' ring "' + cFormFileName + '"' + nl 
+		system(cCode)
+	ok
