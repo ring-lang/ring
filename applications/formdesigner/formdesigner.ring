@@ -305,7 +305,9 @@ Class FormDesignerController from WindowsControllerParent
 			}
 			oModel.ActiveObject().installeventfilter(oFilter)
 			oModel.ActiveObject().oFilter = oFilter
-			oModel.ActiveObject().setText(cName+nCount)
+			if isAttribute(oModel.ActiveObject(),:text) {
+				oModel.ActiveObject().setText(cName+nCount)
+			}
 			oModel.ActiveObject().Show()
 			oModel.ActiveObject().CreateCorners()
 			AddObjectsToCombo()
@@ -3149,10 +3151,6 @@ class FormDesigner_QSpinBox from QSpinBox
 		itemdata = item[:data]
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
-	func text return ""
-
-	func settext cValue 
-
 class FormDesigner_QComboBox from QComboBox
 
 	CreateCommonAttributes()
@@ -3253,18 +3251,10 @@ class FormDesigner_QComboBox from QComboBox
 		SeteditTextChangedEventCode(itemdata[:seteditTextChangedEvent])
 		SethighlightedEventCode(itemdata[:sethighlightedEvent])
 
-	func text return ""
-
-	func settext cValue 
-
 class FormDesigner_QDateTimeEdit from QDateTimeedit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
-
-	func text return ""
-
-	func settext cValue 
 
 class FormDesigner_QTableWidget from QTableWidget 
 
@@ -3541,10 +3531,6 @@ class FormDesigner_QTableWidget from QTableWidget
 		SetitemEnteredEventCode(itemdata[:setitemEnteredEvent])
 		SetitemPressedEventCode(itemdata[:setitemPressedEvent])
 		SetitemSelectionChangedEventCode(itemdata[:setitemSelectionChangedEvent])
-
-	func text return ""
-
-	func settext cValue 
 
 class FormDesigner_QTreeWidget from QTreeWidget
 
@@ -3869,10 +3855,6 @@ class FormDesigner_QTreeWidget from QTreeWidget
 		SetitemExpandedEventCode(itemdata[:setitemExpandedEvent])
 		SetitemPressedEventCode(itemdata[:setitemPressedEvent])
 		SetitemSelectionChangedEventCode(itemdata[:setitemSelectionChangedEvent])
-
-	func text return ""
-
-	func settext cValue 
 
 class FormDesigner_QRadioButton from QRadioButton
 
