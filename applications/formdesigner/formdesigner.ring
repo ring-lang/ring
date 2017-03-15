@@ -2958,6 +2958,7 @@ class FormDesigner_QImage from QLabel
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setImageFile(itemdata[:imagefile])
+		DisplayProperties(oDesigner)
 
 	func GenerateCustomCode
 		cOutput = ""
