@@ -1595,6 +1595,12 @@ Class FormDesignerGeneral
 		}
 		return cFont
 
+	func SelectFile oDesigner
+		new qfiledialog(oDesigner.oView.win) {
+			cInputFileName = getopenfilename(oDesigner.oView.win,"Open File",currentdir(),"*.*")
+		}
+		return cInputFileName
+
 class FormDesigner_QWidget from QWidget 
 
 	cBackColor = ""
@@ -2067,6 +2073,9 @@ class CommonAttributesMethods
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
+		CommonDialogButtonAction(oDesigner,nRow)
+
+	func CommonDialogButtonAction oDesigner,nRow 
 		if nRow = 5 {	# Text Color
 			cColor = oDesigner.oGeneral.SelectColor()
 			setTextColor(cColor)
@@ -2921,7 +2930,7 @@ class FormDesigner_QImage from QLabel
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Image File",False)
+		oDesigner.oView.AddProperty("Image File",True)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
@@ -2955,6 +2964,14 @@ class FormDesigner_QImage from QLabel
 		cOutput += 'setPixMap(New qPixMap("#{f1}"))' + nl
 		cOutput = substr(cOutput,"#{f1}",ImageFile())
 		return cOutput
+
+	func DialogButtonAction oDesigner,nRow 
+		CommonDialogButtonAction(oDesigner,nRow)
+		if nRow = C_AFTERCOMMON {	# Image File
+			cFile = oDesigner.oGeneral.SelectFile(oDesigner)
+			setImageFile(cFile)
+			DisplayProperties(oDesigner)
+		}
 
 class FormDesigner_QSlider from QSlider
 
