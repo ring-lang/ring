@@ -2911,6 +2911,14 @@ class FormDesigner_QImage from QLabel
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cImageFile = ""
+
+	func SetImageFile cValue
+		cImageFile = cValue
+
+	func ImageFile 
+		return cImageFile
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Image File",False)
@@ -2920,24 +2928,33 @@ class FormDesigner_QImage from QLabel
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
 		# Set the Image File
-			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(ImageFile())
+			setpixmap(new qpixmap(ImageFile()))
 		oPropertiesTable.Blocksignals(False) 
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nRow = C_AFTERCOMMON { 
-			setText(cValue)
+			setImageFile(cValue)
+			setpixmap(new qpixmap(ImageFile()))
 		}
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
-		cOutput += "," + nl + cTabs + ' :imagefile =  "' + Text() + '"'
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :imagefile =  "' + ImageFile() + '"'
 		return cOutput
 
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
-		setText(itemdata[:imagefile])
+		setImageFile(itemdata[:imagefile])
+
+	func GenerateCustomCode
+		cOutput = ""
+		cOutput += 'setPixMap(New qPixMap("#{f1}"))' + nl
+		cOutput = substr(cOutput,"#{f1}",ImageFile())
+		return cOutput
 
 class FormDesigner_QSlider from QSlider
 
