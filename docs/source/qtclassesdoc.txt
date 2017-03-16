@@ -377,6 +377,7 @@ C++ Reference : http://doc.qt.io/qt-5/QPixmap.html
 
 Parameters : const char *
 
+* QPixmap copy(int x, int y, int width, int height)
 * QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode)
 * int width(void)
 * int height(void)
@@ -385,6 +386,7 @@ Parameters : const char *
 * void setMask(QBitmap)
 * void fill(QColor)
 * QPixmap fromImage(QImage,Qt::ImageConversionFlags)
+* bool load(QString, const char *, Qt::ImageConversionFlags )
 
 .. index::
 	pair: RingQt Classes Reference; QPixmap2 Class
