@@ -4295,7 +4295,7 @@ class FormDesignerCodeGenerator
 					"if IsMainSourceFile() { " + nl + 
 					char(9) + "new qApp {" + nl + 
 					char(9) + char(9) + "StyleFusion()" + nl + 
-					char(9) + char(9) + "new " + cClassName +  nl + 
+					char(9) + char(9) + "new " + cClassName + " { win.show() } " + nl + 
 					char(9) + char(9) + "exec()" + nl +
 					char(9) + "}" + nl + 
 					 "}" + nl + nl
@@ -4304,7 +4304,6 @@ class FormDesignerCodeGenerator
 					char(9) + "win = new qWidget() { " + nl +
 					GenerateWindowCode(oDesigner) +
 					GenerateObjectsCode(oDesigner) +
-					char(9) + char(9) + "show()" + nl +
 					char(9) + "}" + nl + nl	
 		# Add the End of file 
 			cOutput += "# End of the Generated Source Code File..."
