@@ -2994,12 +2994,21 @@ class FormDesigner_QSlider from QSlider
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	nOrientation = 0
+
 	cactionTriggeredEvent = ""
 	crangeChangedEvent = ""
 	csliderMovedEvent = ""
 	csliderPressedEvent = ""
 	csliderReleasedEvent = ""
 	cvalueChangedEvent = ""
+
+	func OrientationValue
+		return nOrientation
+
+	func SetOrientationValue nIndex
+		nOrientation = nIndex
+		setOrientation(nIndex)
 
 	func SetactionTriggeredEventCode cValue
 		cactionTriggeredEvent = cValue
@@ -3039,6 +3048,7 @@ class FormDesigner_QSlider from QSlider
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddPropertyCombobox("Set Orientation",["Vertical","Horizontal"])
 		oDesigner.oView.AddProperty("actionTriggeredEvent",False)
 		oDesigner.oView.AddProperty("rangeChangedEvent",False)
 		oDesigner.oView.AddProperty("sliderMovedEvent",False)
@@ -3050,29 +3060,46 @@ class FormDesigner_QSlider from QSlider
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(actionTriggeredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(rangeChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(sliderMovedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(sliderPressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(sliderReleasedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(valueChangedEventcode())
+		# Orientation
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(OrientationValue())
+			oCombo.BlockSignals(False)
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(actionTriggeredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(rangeChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(sliderMovedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(sliderPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(sliderReleasedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
+
+	func ComboItemAction oDesigner,nRow
+		nOrientationPos = C_AFTERCOMMON
+		if nRow = nOrientationPos  {		# Orientation
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nOrientationPos,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			nIndex = oCombo.CurrentIndex()
+			setOrientationValue(nIndex)
+		}
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON
-					setactionTriggeredEventCode(cValue)
 				case C_AFTERCOMMON+1
-					setrangeChangedEventCode(cValue)
+					setactionTriggeredEventCode(cValue)
 				case C_AFTERCOMMON+2
-					setsliderMovedEventCode(cValue)
+					setrangeChangedEventCode(cValue)
 				case C_AFTERCOMMON+3
-					setsliderPressedEventCode(cValue)
+					setsliderMovedEventCode(cValue)
 				case C_AFTERCOMMON+4
-					setsliderReleasedEventCode(cValue)
+					setsliderPressedEventCode(cValue)
 				case C_AFTERCOMMON+5
+					setsliderReleasedEventCode(cValue)
+				case C_AFTERCOMMON+6
 					setvalueChangedEventCode(cValue)
 
 			}
@@ -3081,6 +3108,7 @@ class FormDesigner_QSlider from QSlider
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :orientation =  ' + OrientationValue() 
 		cOutput += "," + nl + cTabs + ' :setactionTriggeredEvent =  "' + actionTriggeredEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setrangeChangedEvent =  "' + rangeChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setsliderMovedEvent =  "' + sliderMovedEventCode() + '"'
@@ -3091,6 +3119,8 @@ class FormDesigner_QSlider from QSlider
 
 	func GenerateCustomCode
 		cOutput = ""
+		cOutput += 'setOrientation("#{f1}")' + nl
+		cOutput = substr(cOutput,"#{f1}",""+OrientationValue())
 		cOutput += 'setactionTriggeredEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,actionTriggeredEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",actionTriggeredEventCode())
@@ -3114,6 +3144,7 @@ class FormDesigner_QSlider from QSlider
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setOrientationValue(0+itemdata[:orientation])
 		SetactionTriggeredEventCode(itemdata[:setactionTriggeredEvent])
 		SetrangeChangedEventCode(itemdata[:setrangeChangedEvent])
 		SetsliderMovedEventCode(itemdata[:setsliderMovedEvent])
