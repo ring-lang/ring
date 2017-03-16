@@ -1000,6 +1000,9 @@ Class QPixmap
 		pTempObj.pObject = QPixmap_fromImage(pObject,GetObjectPointerFromRingObject(P1),P2)
 		return pTempObj
 
+	Func loadpixmap P1,P2,P3
+		return QPixmap_load(pObject,P1,P2,P3)
+
 Class QLineEdit from QWidget
 
 	pObject

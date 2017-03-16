@@ -245,6 +245,7 @@ aNewMethodName + ["QNetworkAccessManager","put","putvalue"]
 aNewMethodName + ["QThread","exit","exitfromthread"]
 aNewMethodName + ["QRegularExpressionMatchIterator","next","nextitem"]
 aNewMethodName + ["QCamera","load","loadcamera"]
+aNewMethodName + ["QPixmap","load","loadpixmap"]
 
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
@@ -858,6 +859,7 @@ QBitmap fromImage(QImage, Qt::ImageConversionFlags flags)
 name: QPixmap
 para: const char *
 </class>
+
 QPixmap copy(int x, int y, int width, int height)
 QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) 
 int width(void)
@@ -867,6 +869,7 @@ QBitmap mask(void)
 void setMask(QBitmap)
 void fill(QColor)
 QPixmap fromImage(QImage,Qt::ImageConversionFlags)
+bool load(QString, const char *, Qt::ImageConversionFlags )
 
 <class>
 name: QPixmap2
