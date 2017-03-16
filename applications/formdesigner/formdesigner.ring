@@ -3119,7 +3119,7 @@ class FormDesigner_QSlider from QSlider
 
 	func GenerateCustomCode
 		cOutput = ""
-		cOutput += 'setOrientation("#{f1}")' + nl
+		cOutput += 'setOrientation(#{f1})' + nl
 		cOutput = substr(cOutput,"#{f1}",""+OrientationValue())
 		cOutput += 'setactionTriggeredEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,actionTriggeredEventCode(),"#{f1}")
