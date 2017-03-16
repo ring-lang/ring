@@ -155,6 +155,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Label",oModel.LabelsCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn3.ischecked()   # Create QPushButton
 			HideCorners()
 			oModel.AddPushButton(new FormDesigner_QPushButton(oModel.FormObject()) {
@@ -165,6 +166,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Button",oModel.PushButtonsCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn4.ischecked()   # Create QLineEdit
 			HideCorners()
 			oModel.AddLineEdit(new FormDesigner_QLineEdit(oModel.FormObject()) {
@@ -175,6 +177,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("LineEdit",oModel.LineEditsCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn5.ischecked()   # Create QTextEdit
 			HideCorners()
 			oModel.AddTextEdit(new FormDesigner_QTextEdit(oModel.FormObject()) {
@@ -185,6 +188,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("TextEdit",oModel.TextEditsCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn6.ischecked()   # Create QListWidget
 			HideCorners()
 			oModel.AddListWidget(new FormDesigner_QListWidget(oModel.FormObject()) {
@@ -195,6 +199,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("ListWidget",oModel.ListWidgetsCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn7.ischecked()   # Create QCheckBox
 			HideCorners()
 			oModel.AddCheckBox(new FormDesigner_QCheckBox(oModel.FormObject()) {
@@ -205,6 +210,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("CheckBox",oModel.CheckBoxesCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn8.ischecked()   # Create QImage
 			HideCorners()
 			oModel.AddImage(new FormDesigner_QImage(oModel.FormObject()) {
@@ -215,6 +221,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Image",oModel.ImagesCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn9.ischecked()   # Create QSlider
 			HideCorners()
 			oModel.AddSlider(new FormDesigner_QSlider(oModel.FormObject()) {
@@ -225,6 +232,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Slider",oModel.SlidersCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn10.ischecked()   # Create QProgressBar
 			HideCorners()
 			oModel.AddProgressbar(new FormDesigner_QProgressbar(oModel.FormObject()) {
@@ -235,6 +243,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Progressbar",oModel.ProgressbarsCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn11.ischecked()   # Create QSpinBox
 			HideCorners()
 			oModel.AddSpinBox(new FormDesigner_QSpinBox(oModel.FormObject()) {
@@ -245,6 +254,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("SpinBox",oModel.SpinBoxesCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn12.ischecked()   # Create QComboBox
 			HideCorners()
 			oModel.AddComboBox(new FormDesigner_QComboBox(oModel.FormObject()) {
@@ -255,6 +265,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("ComboBox",oModel.ComboBoxesCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn13.ischecked()   # Create QDateTimeEdit
 			HideCorners()
 			oModel.AddDateTimeEdit(new FormDesigner_QDateTimeEdit(oModel.FormObject()) {
@@ -265,6 +276,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("DateTimeEdit",oModel.DateTimeEditsCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn14.ischecked()   # Create QTableWidget 
 			HideCorners()
 			oModel.AddTableWidget(new FormDesigner_QTableWidget(oModel.FormObject()) {
@@ -275,6 +287,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("TableWidget",oModel.TableWidgetsCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn15.ischecked()   # Create QTreeWidget 
 			HideCorners()
 			oModel.AddTreeWidget(new FormDesigner_QTreeWidget(oModel.FormObject()) {
@@ -285,6 +298,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("TreeWidget",oModel.TreeWidgetsCount())
+			SetToolboxModeToSelect()
 		elseif oView.oToolBtn16.ischecked()   # Create QRadioButton  
 			HideCorners()
 			oModel.AddRadioButton(new FormDesigner_QRadioButton(oModel.FormObject()) {
@@ -295,6 +309,7 @@ Class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("RadioButton",oModel.RadioButtonsCount())
+			SetToolboxModeToSelect()
 		}
 
 	func NewControlEvents cName,nCount
