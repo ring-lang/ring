@@ -55,7 +55,7 @@ next
 fclose(fp)
 
 see "testing fread() " + nl
-fp = fopen(exefilename(),"r")
+fp = fopen(exefilename(),"rb")
 r = fread(fp,100)
 see r + nl
 fclose(fp)
