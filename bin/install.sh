@@ -3,7 +3,7 @@
 
 # To be able to call ring from any folder 
 
-echo "`pwd`/ring \$0" > /usr/bin/ring
+echo "`pwd`/ring \$1" > /usr/bin/ring
 chmod +x /usr/bin/ring
 
 cd ..
