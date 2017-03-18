@@ -6019,7 +6019,6 @@ Parent Class : QIODevice
 * QProcess::InputChannelMode inputChannelMode(void)
 * QProcess::ProcessChannelMode processChannelMode(void)
 * QProcessEnvironment processEnvironment(void)
-* qint64 processId(void)
 * QString program(void)
 * QByteArray readAllStandardError(void)
 * QByteArray readAllStandardOutput(void)
