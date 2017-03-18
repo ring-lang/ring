@@ -8,7 +8,6 @@ chmod +x /usr/bin/ring
 
 cd ..
 	
-cp bin/ring /usr/bin
 if [ -f lib/libring.dylib ];
 then
 cp lib/libring.dylib /usr/lib
