@@ -3290,10 +3290,18 @@ class FormDesigner_QComboBox from QComboBox
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cItems = ""
+
 	cactivatedEvent = ""
 	ccurrentIndexChangedEvent = ""
 	ceditTextChangedEvent = ""
 	chighlightedEvent = ""
+
+	func SetcItems cValue
+		cItems = cValue
+
+	func cItemsValue
+		return cItems
 
 	func SetactivatedEventCode cValue
 		cactivatedEvent = cValue
@@ -3321,6 +3329,7 @@ class FormDesigner_QComboBox from QComboBox
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Items separated by comma",False)
 		oDesigner.oView.AddProperty("activatedEvent",False)
 		oDesigner.oView.AddProperty("currentIndexChangedEvent",False)
 		oDesigner.oView.AddProperty("editTextChangedEvent",False)
@@ -3330,10 +3339,11 @@ class FormDesigner_QComboBox from QComboBox
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(activatedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(currentIndexChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(editTextChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(highlightedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(cItemsValue())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(activatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(currentIndexChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(editTextChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(highlightedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
@@ -3341,12 +3351,14 @@ class FormDesigner_QComboBox from QComboBox
 		if nCol = 1 {
 			switch nRow {
 				case C_AFTERCOMMON
-					setactivatedEventCode(cValue)
+					setcItems(cValue)
 				case C_AFTERCOMMON+1
-					setcurrentIndexChangedEventCode(cValue)
+					setactivatedEventCode(cValue)
 				case C_AFTERCOMMON+2
-					seteditTextChangedEventCode(cValue)
+					setcurrentIndexChangedEventCode(cValue)
 				case C_AFTERCOMMON+3
+					seteditTextChangedEventCode(cValue)
+				case C_AFTERCOMMON+4
 					sethighlightedEventCode(cValue)
 
 			}
@@ -3355,6 +3367,7 @@ class FormDesigner_QComboBox from QComboBox
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :cItems =  "' + cItemsValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setactivatedEvent =  "' + activatedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcurrentIndexChangedEvent =  "' + currentIndexChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :seteditTextChangedEvent =  "' + editTextChangedEventCode() + '"'
@@ -3363,6 +3376,13 @@ class FormDesigner_QComboBox from QComboBox
 
 	func GenerateCustomCode
 		cOutput = ""
+		if cItemsValue() != NULL {
+			aItems = split(cItemsValue(),",")
+			for item in aItems {
+				cOutput += 'AddItem("#{f1}",0)' + nl
+				cOutput = substr(cOutput,"#{f1}",Item)
+			}
+		}
 		cOutput += 'setactivatedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,activatedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",activatedEventCode())
@@ -3380,6 +3400,7 @@ class FormDesigner_QComboBox from QComboBox
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		SetcItems(itemdata[:cItems])
 		SetactivatedEventCode(itemdata[:setactivatedEvent])
 		SetcurrentIndexChangedEventCode(itemdata[:setcurrentIndexChangedEvent])
 		SeteditTextChangedEventCode(itemdata[:seteditTextChangedEvent])
