@@ -14263,9 +14263,6 @@ Class QProcess from QIODevice
 	Func processEnvironment 
 		return QProcess_processEnvironment(pObject)
 
-	Func processId 
-		return QProcess_processId(pObject)
-
 	Func program 
 		return QProcess_program(pObject)
 
