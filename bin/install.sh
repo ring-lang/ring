@@ -3,6 +3,9 @@
 
 # To be able to call ring from any folder 
 
+echo "`pwd`/ring \$0" > /usr/bin/ring
+chmod +x /usr/bin/ring
+
 cd ..
 	
 cp bin/ring /usr/bin
@@ -29,9 +32,6 @@ then
 cp lib/libringallegro.so /usr/lib
 fi
 
-cp extensions/ringallegro/gamelib.ring /usr/bin
-cp extensions/ringallegro/allegro.rh /usr/bin
-	
 # Make the RingQt library ready for use directly
 	
 if [ -f lib/libringqt.dylib ];
@@ -44,7 +44,4 @@ then
 cp lib/libringqt.so /usr/lib
 fi
 
-cp extensions/ringqt/guilib.ring /usr/bin
-cp extensions/ringqt/ring_qt.ring /usr/bin
-cp extensions/ringqt/qt.rh /usr/bin
 	
