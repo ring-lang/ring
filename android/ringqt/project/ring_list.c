@@ -181,6 +181,9 @@ RING_API void ring_list_newitem ( List *pList )
 		pList->pLast = pItems ;
 	}
 	pList->nSize = pList->nSize + 1 ;
+	/* Refresh The Cache */
+	pList->nNextItemAfterLastAccess = 0 ;
+	pList->pLastItemLastAccess = NULL ;
 }
 
 RING_API Item * ring_list_getitem ( List *pList,int index )
@@ -208,9 +211,11 @@ RING_API Item * ring_list_getitem ( List *pList,int index )
 		}
 		/* Quickly get the next item */
 		else if ( ( index == pList->nNextItemAfterLastAccess ) && ( pList->pLastItemLastAccess != NULL ) ) {
-			pList->pLastItemLastAccess = pList->pLastItemLastAccess->pNext ;
-			pList->nNextItemAfterLastAccess++ ;
-			return pList->pLastItemLastAccess->pValue ;
+			if ( pList->pLastItemLastAccess->pNext  != NULL ) {
+				pList->pLastItemLastAccess = pList->pLastItemLastAccess->pNext ;
+				pList->nNextItemAfterLastAccess++ ;
+				return pList->pLastItemLastAccess->pValue ;
+			}
 		}
 		/* Quickly get the current item */
 		else if ( (index == pList->nNextItemAfterLastAccess - 1) && ( pList->pLastItemLastAccess != NULL ) ) {
@@ -293,9 +298,9 @@ RING_API void ring_list_deleteitem ( List *pList,int index )
 		}
 		if ( pItemsPrev != NULL ) {
 			pItemsPrev->pNext = pItems->pNext ;
-			if ( pItems->pNext != NULL ) {
-				pItems->pNext->pPrev = pItemsPrev ;
-			}
+		}
+		if ( pItems->pNext != NULL ) {
+			pItems->pNext->pPrev = pItemsPrev ;
 		}
 		ring_items_delete(pItems);
 		pList->nSize = pList->nSize - 1 ;

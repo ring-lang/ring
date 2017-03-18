@@ -5661,6 +5661,35 @@ RING_FUNC(ring_QPixmap_fromImage)
 }
 
 
+RING_FUNC(ring_QPixmap_load)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->load(RING_API_GETSTRING(2),RING_API_GETSTRING(3), (Qt::ImageConversionFlags)  (int) RING_API_GETNUMBER(4)));
+}
+
+
 RING_FUNC(ring_QLineEdit_alignment)
 {
 	GLineEdit *pObject ;
@@ -78886,23 +78915,6 @@ RING_FUNC(ring_QProcess_processEnvironment)
 }
 
 
-RING_FUNC(ring_QProcess_processId)
-{
-	GProcess *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
-	RING_API_RETNUMBER(pObject->processId());
-}
-
-
 RING_FUNC(ring_QProcess_program)
 {
 	GProcess *pObject ;
@@ -84685,6 +84697,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpixmap_setmask",ring_QPixmap_setMask);
 	ring_vm_funcregister("qpixmap_fill",ring_QPixmap_fill);
 	ring_vm_funcregister("qpixmap_fromimage",ring_QPixmap_fromImage);
+	ring_vm_funcregister("qpixmap_load",ring_QPixmap_load);
 	ring_vm_funcregister("qlineedit_alignment",ring_QLineEdit_alignment);
 	ring_vm_funcregister("qlineedit_backspace",ring_QLineEdit_backspace);
 	ring_vm_funcregister("qlineedit_completer",ring_QLineEdit_completer);
@@ -88275,7 +88288,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qprocess_inputchannelmode",ring_QProcess_inputChannelMode);
 	ring_vm_funcregister("qprocess_processchannelmode",ring_QProcess_processChannelMode);
 	ring_vm_funcregister("qprocess_processenvironment",ring_QProcess_processEnvironment);
-	ring_vm_funcregister("qprocess_processid",ring_QProcess_processId);
 	ring_vm_funcregister("qprocess_program",ring_QProcess_program);
 	ring_vm_funcregister("qprocess_readallstandarderror",ring_QProcess_readAllStandardError);
 	ring_vm_funcregister("qprocess_readallstandardoutput",ring_QProcess_readAllStandardOutput);

@@ -1000,6 +1000,9 @@ Class QPixmap
 		pTempObj.pObject = QPixmap_fromImage(pObject,GetObjectPointerFromRingObject(P1),P2)
 		return pTempObj
 
+	Func loadpixmap P1,P2,P3
+		return QPixmap_load(pObject,P1,P2,P3)
+
 Class QLineEdit from QWidget
 
 	pObject
@@ -14145,9 +14148,6 @@ Class QProcess from QIODevice
 
 	Func processEnvironment 
 		return QProcess_processEnvironment(pObject)
-
-	Func processId 
-		return QProcess_processId(pObject)
 
 	Func program 
 		return QProcess_program(pObject)
