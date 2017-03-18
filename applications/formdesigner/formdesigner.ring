@@ -2616,6 +2616,8 @@ class FormDesigner_QListWidget from QLineEdit
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cItems = ""
+
 	ccurrentItemChangedEvent = ""
 	ccurrentRowChangedEvent = ""
 	ccurrentTextChangedEvent = ""
@@ -2626,6 +2628,12 @@ class FormDesigner_QListWidget from QLineEdit
 	citemEnteredEvent = ""
 	citemPressedEvent = ""
 	citemSelectionChangedEvent = ""
+
+	func SetcItems cValue
+		cItems = cValue
+
+	func cItemsValue
+		return cItems
 
 	func SetcurrentItemChangedEventCode cValue
 		ccurrentItemChangedEvent = cValue
@@ -2689,6 +2697,7 @@ class FormDesigner_QListWidget from QLineEdit
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Items separated by comma",False)
 		oDesigner.oView.AddProperty("currentItemChangedEvent",False)
 		oDesigner.oView.AddProperty("currentRowChangedEvent",False)
 		oDesigner.oView.AddProperty("currentTextChangedEvent",False)
@@ -2704,16 +2713,17 @@ class FormDesigner_QListWidget from QLineEdit
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(currentItemChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(currentRowChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(currentTextChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(itemActivatedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(itemChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(itemClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(itemDoubleClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(itemEnteredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(itemPressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(itemSelectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(cItemsValue())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(currentItemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(currentRowChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(currentTextChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(itemActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(itemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(itemClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(itemDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(itemEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(itemPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
@@ -2721,24 +2731,26 @@ class FormDesigner_QListWidget from QLineEdit
 		if nCol = 1 {
 			switch nRow {
 				case C_AFTERCOMMON
-					setcurrentItemChangedEventCode(cValue)
+					setcItems(cValue)
 				case C_AFTERCOMMON+1
-					setcurrentRowChangedEventCode(cValue)
+					setcurrentItemChangedEventCode(cValue)
 				case C_AFTERCOMMON+2
-					setcurrentTextChangedEventCode(cValue)
+					setcurrentRowChangedEventCode(cValue)
 				case C_AFTERCOMMON+3
-					setitemActivatedEventCode(cValue)
+					setcurrentTextChangedEventCode(cValue)
 				case C_AFTERCOMMON+4
-					setitemChangedEventCode(cValue)
+					setitemActivatedEventCode(cValue)
 				case C_AFTERCOMMON+5
-					setitemClickedEventCode(cValue)
+					setitemChangedEventCode(cValue)
 				case C_AFTERCOMMON+6
-					setitemDoubleClickedEventCode(cValue)
+					setitemClickedEventCode(cValue)
 				case C_AFTERCOMMON+7
-					setitemEnteredEventCode(cValue)
+					setitemDoubleClickedEventCode(cValue)
 				case C_AFTERCOMMON+8
-					setitemPressedEventCode(cValue)
+					setitemEnteredEventCode(cValue)
 				case C_AFTERCOMMON+9
+					setitemPressedEventCode(cValue)
+				case C_AFTERCOMMON+10
 					setitemSelectionChangedEventCode(cValue)
 
 			}
@@ -2747,6 +2759,7 @@ class FormDesigner_QListWidget from QLineEdit
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :cItems =  "' + cItemsValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setcurrentItemChangedEvent =  "' + currentItemChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcurrentRowChangedEvent =  "' + currentRowChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcurrentTextChangedEvent =  "' + currentTextChangedEventCode() + '"'
@@ -2761,6 +2774,13 @@ class FormDesigner_QListWidget from QLineEdit
 
 	func GenerateCustomCode
 		cOutput = ""
+		if cItemsValue() != NULL {
+			aItems = split(cItemsValue(),",")
+			for item in aItems {
+				cOutput += 'AddItem("#{f1}")' + nl
+				cOutput = substr(cOutput,"#{f1}",Item)
+			}
+		}
 		cOutput += 'setcurrentItemChangedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,currentItemChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",currentItemChangedEventCode())
@@ -2796,6 +2816,7 @@ class FormDesigner_QListWidget from QLineEdit
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		SetcItems(itemdata[:cItems])
 		SetcurrentItemChangedEventCode(itemdata[:setcurrentItemChangedEvent])
 		SetcurrentRowChangedEventCode(itemdata[:setcurrentRowChangedEvent])
 		SetcurrentTextChangedEventCode(itemdata[:setcurrentTextChangedEvent])
