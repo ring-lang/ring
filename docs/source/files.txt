@@ -654,3 +654,23 @@ The next program test some of the file functions
 	fwrite(fp,r)
 	fclose(fp)
 
+The next example print part of the content of a binary file
+
+.. code-block:: ring
+
+	see "Testing: fread()" +" FileName: "+ exefilename() +nl +nl
+	fp = fopen(exefilename(),"rb")
+	r = fread(fp,800)
+	for n =1 to len(r)
+		if isprint(substr(r, n, 1)) 
+			see substr(r, n, 1) 
+		else
+			see "." 
+		ok
+		### 80 char per line
+		if n % 80 = 0  
+			see nl
+		ok
+	next
+	fclose(fp)
+
