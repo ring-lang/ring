@@ -2336,12 +2336,20 @@ class FormDesigner_QLineEdit from QLineEdit
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cText = ""
+
 	cTextChangedEvent = ""
 	ccursorPositionChangedEvent = ""
 	ceditingFinishedEvent = ""
 	creturnPressedEvent = ""
 	cselectionChangedEvent = ""
 	ctextEditedEvent = ""
+
+	func TextValue 
+		return cText
+
+	func SetTextValue value 
+		cText = value 
 
 	func SetTextChangedEventCode cValue
 		cTextChangedEvent = cValue
@@ -2381,6 +2389,7 @@ class FormDesigner_QLineEdit from QLineEdit
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Text",False)
 		oDesigner.oView.AddProperty("TextChangedEvent",False)
 		oDesigner.oView.AddProperty("cursorPositionChangedEvent",False)
 		oDesigner.oView.AddProperty("editingFinishedEvent",False)
@@ -2392,29 +2401,33 @@ class FormDesigner_QLineEdit from QLineEdit
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(TextChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(cursorPositionChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(editingFinishedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(returnPressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(selectionChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(textEditedEventcode())
+		# Set the Text
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(TextValue())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(TextChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(cursorPositionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(editingFinishedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(returnPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(selectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(textEditedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON
-					setTextChangedEventCode(cValue)
+				case C_AFTERCOMMON  
+					setTextValue(cValue)
 				case C_AFTERCOMMON+1
-					setcursorPositionChangedEventCode(cValue)
+					setTextChangedEventCode(cValue)
 				case C_AFTERCOMMON+2
-					seteditingFinishedEventCode(cValue)
+					setcursorPositionChangedEventCode(cValue)
 				case C_AFTERCOMMON+3
-					setreturnPressedEventCode(cValue)
+					seteditingFinishedEventCode(cValue)
 				case C_AFTERCOMMON+4
-					setselectionChangedEventCode(cValue)
+					setreturnPressedEventCode(cValue)
 				case C_AFTERCOMMON+5
+					setselectionChangedEventCode(cValue)
+				case C_AFTERCOMMON+6
 					settextEditedEventCode(cValue)
 			}
 		}
@@ -2422,6 +2435,7 @@ class FormDesigner_QLineEdit from QLineEdit
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :text =  "' + TextValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setTextChangedEvent =  "' + TextChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcursorPositionChangedEvent =  "' + cursorPositionChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :seteditingFinishedEvent =  "' + editingFinishedEventCode() + '"'
@@ -2432,6 +2446,8 @@ class FormDesigner_QLineEdit from QLineEdit
 
 	func GenerateCustomCode
 		cOutput = ""
+		cOutput += 'setText("#{f1}")' + nl  
+		cOutput = substr(cOutput,"#{f1}",textValue())
 		cOutput += 'setTextChangedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,TextChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",TextChangedEventCode())
@@ -2455,6 +2471,7 @@ class FormDesigner_QLineEdit from QLineEdit
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setTextValue(itemdata[:text])
 		SetTextChangedEventCode(itemdata[:setTextChangedEvent])
 		SetcursorPositionChangedEventCode(itemdata[:setcursorPositionChangedEvent])
 		SeteditingFinishedEventCode(itemdata[:seteditingFinishedEvent])
