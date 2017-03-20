@@ -1180,7 +1180,7 @@ Class FormDesignerView from WindowsViewParent
 		}
 		oProperties2 = new qWidget() {
 			oLabel = new qLabel(this.oProperties2) {
-				setText("Multiple Selection")
+				setText("Options")
 				setalignment(Qt_AlignHCenter |  Qt_AlignVCenter )
 				setStylesheet("color:White;background-color:purple;")
 			}
