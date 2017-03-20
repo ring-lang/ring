@@ -3313,7 +3313,7 @@ class FormDesigner_QSlider from QSlider
 		SetsliderReleasedEventCode(itemdata[:setsliderReleasedEvent])
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
-class FormDesigner_QProgressbar from QProgressbar
+class FormDesigner_QProgressbar from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -3391,6 +3391,8 @@ class FormDesigner_QProgressbar from QProgressbar
 			oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(ValueValue())
 		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ComboItemAction oDesigner,nRow
 		nOrientationPos = C_AFTERCOMMON
@@ -3419,6 +3421,8 @@ class FormDesigner_QProgressbar from QProgressbar
 
 			}
 		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
@@ -3730,7 +3734,7 @@ class FormDesigner_QDateTimeEdit from QDateTimeedit
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
-class FormDesigner_QTableWidget from QTableWidget 
+class FormDesigner_QTableWidget from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -3879,6 +3883,8 @@ class FormDesigner_QTableWidget from QTableWidget
 		oPropertiesTable.item(C_AFTERCOMMON+13,1).settext(itemPressedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+14,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -3917,6 +3923,8 @@ class FormDesigner_QTableWidget from QTableWidget
 
 			}
 		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
@@ -4006,7 +4014,7 @@ class FormDesigner_QTableWidget from QTableWidget
 		SetitemPressedEventCode(itemdata[:setitemPressedEvent])
 		SetitemSelectionChangedEventCode(itemdata[:setitemSelectionChangedEvent])
 
-class FormDesigner_QTreeWidget from QTreeWidget
+class FormDesigner_QTreeWidget from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -4182,6 +4190,8 @@ class FormDesigner_QTreeWidget from QTreeWidget
 		oPropertiesTable.item(C_AFTERCOMMON+16,1).settext(itemPressedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+17,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -4226,6 +4236,8 @@ class FormDesigner_QTreeWidget from QTreeWidget
 
 			}
 		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
