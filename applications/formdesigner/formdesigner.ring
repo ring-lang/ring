@@ -2485,6 +2485,8 @@ class FormDesigner_QTextEdit from QLineEdit
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cText = ""
+
 	ccopyAvailableEvent = ""
 	ccurrentCharFormatChangedEvent = ""
 	ccursorPositionChangedEvent = ""
@@ -2492,6 +2494,12 @@ class FormDesigner_QTextEdit from QLineEdit
 	cselectionChangedEvent = ""
 	ctextChangedEvent = ""
 	cundoAvailableEvent = ""
+
+	func TextValue 
+		return cText
+
+	func SetTextValue value 
+		cText = value 
 
 	func SetcopyAvailableEventCode cValue
 		ccopyAvailableEvent = cValue
@@ -2537,6 +2545,7 @@ class FormDesigner_QTextEdit from QLineEdit
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Text",False)
 		oDesigner.oView.AddProperty("copyAvailableEvent",False)
 		oDesigner.oView.AddProperty("currentCharFormatChangedEvent",False)
 		oDesigner.oView.AddProperty("cursorPositionChangedEvent",False)
@@ -2549,32 +2558,36 @@ class FormDesigner_QTextEdit from QLineEdit
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(copyAvailableEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(currentCharFormatChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(cursorPositionChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(redoAvailableEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(selectionChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(textChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(undoAvailableEventcode())
+		# Set the Text
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(TextValue())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(copyAvailableEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(currentCharFormatChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(cursorPositionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(redoAvailableEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(selectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(textChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(undoAvailableEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON
-					setcopyAvailableEventCode(cValue)
+				case C_AFTERCOMMON 
+					setTextValue(cValue)
 				case C_AFTERCOMMON+1
-					setcurrentCharFormatChangedEventCode(cValue)
+					setcopyAvailableEventCode(cValue)
 				case C_AFTERCOMMON+2
-					setcursorPositionChangedEventCode(cValue)
+					setcurrentCharFormatChangedEventCode(cValue)
 				case C_AFTERCOMMON+3
-					setredoAvailableEventCode(cValue)
+					setcursorPositionChangedEventCode(cValue)
 				case C_AFTERCOMMON+4
-					setselectionChangedEventCode(cValue)
+					setredoAvailableEventCode(cValue)
 				case C_AFTERCOMMON+5
-					settextChangedEventCode(cValue)
+					setselectionChangedEventCode(cValue)
 				case C_AFTERCOMMON+6
+					settextChangedEventCode(cValue)
+				case C_AFTERCOMMON+7
 					setundoAvailableEventCode(cValue)
 			}
 		}
@@ -2582,6 +2595,7 @@ class FormDesigner_QTextEdit from QLineEdit
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :text =  "' + TextValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setcopyAvailableEvent =  "' + copyAvailableEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcurrentCharFormatChangedEvent =  "' + currentCharFormatChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcursorPositionChangedEvent =  "' + cursorPositionChangedEventCode() + '"'
@@ -2593,6 +2607,8 @@ class FormDesigner_QTextEdit from QLineEdit
 
 	func GenerateCustomCode
 		cOutput = ""
+		cOutput += 'setText("#{f1}")' + nl  
+		cOutput = substr(cOutput,"#{f1}",textValue())
 		cOutput += 'setcopyAvailableEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,copyAvailableEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",copyAvailableEventCode())
@@ -2619,6 +2635,7 @@ class FormDesigner_QTextEdit from QLineEdit
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setTextValue(itemdata[:text])
 		SetcopyAvailableEventCode(itemdata[:setcopyAvailableEvent])
 		SetcurrentCharFormatChangedEventCode(itemdata[:setcurrentCharFormatChangedEvent])
 		SetcursorPositionChangedEventCode(itemdata[:setcursorPositionChangedEvent])
