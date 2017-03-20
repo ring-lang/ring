@@ -3418,7 +3418,36 @@ class FormDesigner_QSpinBox from QSpinBox
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cMinimum = ""
+	cMaximum = ""
+	cRange = ""
+	cValue = ""
+
 	cvalueChangedEvent = ""
+
+	func MinimumValue
+		return cMinimum
+
+	func SetMinimumValue Value
+		cMinimum = Value 
+
+	func MaximumValue
+		return cMaximum
+
+	func SetMaximumValue Value
+		cMaximum = Value 
+
+	func RangeValue
+		return cRange
+
+	func SetRangeValue Value
+		cRange = Value 
+
+	func ValueValue
+		return cValue
+
+	func SetValueValue Value
+		cValue = Value 
 
 	func SetvalueChangedEventCode cValue
 		cvalueChangedEvent = cValue
@@ -3428,13 +3457,22 @@ class FormDesigner_QSpinBox from QSpinBox
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Set Minimum",False)
+		oDesigner.oView.AddProperty("Set Maximum",False)
+		oDesigner.oView.AddProperty("Set Range",False)
+		oDesigner.oView.AddProperty("Set Value",False)
 		oDesigner.oView.AddProperty("valueChangedEvent",False)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(valueChangedEventcode())
+		# Minimum, Maximum, Range and Value 
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(MinimumValue())
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(MaximumValue())
+			oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(RangeValue())
+			oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(ValueValue())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
@@ -3442,19 +3480,46 @@ class FormDesigner_QSpinBox from QSpinBox
 		if nCol = 1 {
 			switch nRow {
 				case C_AFTERCOMMON
+					setMinimumValue(cValue)
+				case C_AFTERCOMMON+1
+					setMaximumValue(cValue)
+				case C_AFTERCOMMON+2
+					setRangeValue(cValue)
+				case C_AFTERCOMMON+3
+					setValueValue(cValue)
+				case C_AFTERCOMMON+4
 					setvalueChangedEventCode(cValue)
-
 			}
 		}
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :range =  "' + RangeValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :value =  "' + ValueValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
 		return cOutput
 
 	func GenerateCustomCode
 		cOutput = ""
+		if Minimumvalue() != NULL {
+			cOutput += 'setMinimum(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+MinimumValue())
+		}
+		if Maximumvalue() != NULL {
+			cOutput += 'setMaximum(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+MaximumValue())
+		}
+		if Rangevalue() != NULL {
+			cOutput += 'setRange(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+RangeValue())
+		}
+		if ValueValue() != NULL {
+			cOutput += 'setValue(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+ValueValue())
+		}
 		cOutput += 'setvalueChangedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,valueChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
@@ -3463,6 +3528,10 @@ class FormDesigner_QSpinBox from QSpinBox
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setMinimumValue(itemdata[:minimum])
+		setMaximumValue(itemdata[:maximum])
+		setRangeValue(itemdata[:range])
+		setValueValue(itemdata[:value])
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
 class FormDesigner_QComboBox from QComboBox
