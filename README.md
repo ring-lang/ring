@@ -11,9 +11,8 @@
 |Try |[![Try](http://ring-lang.sourceforge.net/interactive%20ring-use%20online-green.svg)](http://ring-lang.sourceforge.net/cgi-bin/ringlang.cgi)|**MacOS X (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
 |Support |[![Support](http://ring-lang.sourceforge.net/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 
-=============
-Description
-=============
+# Description
+
 
 The Ring is an Innovative and practical general-purpose multi-paradigm scripting language that
 can be embedded in C/C++ projects, extended using C/C++ code and/or used as standalone language.
@@ -26,7 +25,7 @@ Its Dynamic Language (Dynamic Typing and Weakly Typed) that compile the source c
 byte code then execute it by the Ring Virtual Machine, which is integrated with the
 Ring Compiler in one program. [Read more!](http://ring-lang.sourceforge.net/#why)
 
-#Building from source code
+# Building from source code
 
 You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
 
