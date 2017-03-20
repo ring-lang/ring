@@ -2410,6 +2410,8 @@ class FormDesigner_QLineEdit from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(selectionChangedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(textEditedEventcode())
 		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -2431,6 +2433,8 @@ class FormDesigner_QLineEdit from QLineEdit
 					settextEditedEventCode(cValue)
 			}
 		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
@@ -2568,6 +2572,8 @@ class FormDesigner_QTextEdit from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(textChangedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(undoAvailableEventcode())
 		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -2591,6 +2597,8 @@ class FormDesigner_QTextEdit from QLineEdit
 					setundoAvailableEventCode(cValue)
 			}
 		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
