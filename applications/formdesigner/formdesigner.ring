@@ -3242,10 +3242,6 @@ class FormDesigner_QProgressbar from QProgressbar
 		itemdata = item[:data]
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
-	func text return ""
-
-	func settext cValue 
-
 class FormDesigner_QSpinBox from QSpinBox
 
 	CreateCommonAttributes()
