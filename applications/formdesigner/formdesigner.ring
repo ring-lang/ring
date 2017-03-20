@@ -3034,6 +3034,11 @@ class FormDesigner_QSlider from QSlider
 
 	nOrientation = 0
 
+	cMinimum = ""
+	cMaximum = ""
+	cRange = ""
+	cValue = ""
+
 	cactionTriggeredEvent = ""
 	crangeChangedEvent = ""
 	csliderMovedEvent = ""
@@ -3047,6 +3052,30 @@ class FormDesigner_QSlider from QSlider
 	func SetOrientationValue nIndex
 		nOrientation = nIndex
 		setOrientation(nIndex)
+
+	func MinimumValue
+		return cMinimum
+
+	func SetMinimumValue Value
+		cMinimum = Value 
+
+	func MaximumValue
+		return cMaximum
+
+	func SetMaximumValue Value
+		cMaximum = Value 
+
+	func RangeValue
+		return cRange
+
+	func SetRangeValue Value
+		cRange = Value 
+
+	func ValueValue
+		return cValue
+
+	func SetValueValue Value
+		cValue = Value 
 
 	func SetactionTriggeredEventCode cValue
 		cactionTriggeredEvent = cValue
@@ -3087,6 +3116,10 @@ class FormDesigner_QSlider from QSlider
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddPropertyCombobox("Set Orientation",["Vertical","Horizontal"])
+		oDesigner.oView.AddProperty("Set Minimum",False)
+		oDesigner.oView.AddProperty("Set Maximum",False)
+		oDesigner.oView.AddProperty("Set Range",False)
+		oDesigner.oView.AddProperty("Set Value",False)
 		oDesigner.oView.AddProperty("actionTriggeredEvent",False)
 		oDesigner.oView.AddProperty("rangeChangedEvent",False)
 		oDesigner.oView.AddProperty("sliderMovedEvent",False)
@@ -3105,12 +3138,18 @@ class FormDesigner_QSlider from QSlider
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(OrientationValue())
 			oCombo.BlockSignals(False)
-		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(actionTriggeredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(rangeChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(sliderMovedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(sliderPressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(sliderReleasedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(valueChangedEventcode())
+		# Minimum, Maximum, Range and Value 
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(MinimumValue())
+			oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(MaximumValue())
+			oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(RangeValue())
+			oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(ValueValue())
+		# Events 
+			oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(actionTriggeredEventcode())
+			oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(rangeChangedEventcode())
+			oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(sliderMovedEventcode())
+			oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(sliderPressedEventcode())
+			oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(sliderReleasedEventcode())
+			oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 
 	func ComboItemAction oDesigner,nRow
@@ -3128,18 +3167,25 @@ class FormDesigner_QSlider from QSlider
 		if nCol = 1 {
 			switch nRow {
 				case C_AFTERCOMMON+1
-					setactionTriggeredEventCode(cValue)
+					setMinimumValue(cValue)
 				case C_AFTERCOMMON+2
-					setrangeChangedEventCode(cValue)
+					setMaximumValue(cValue)
 				case C_AFTERCOMMON+3
-					setsliderMovedEventCode(cValue)
+					setRangeValue(cValue)
 				case C_AFTERCOMMON+4
-					setsliderPressedEventCode(cValue)
+					setValueValue(cValue)
 				case C_AFTERCOMMON+5
-					setsliderReleasedEventCode(cValue)
+					setactionTriggeredEventCode(cValue)
 				case C_AFTERCOMMON+6
+					setrangeChangedEventCode(cValue)
+				case C_AFTERCOMMON+7
+					setsliderMovedEventCode(cValue)
+				case C_AFTERCOMMON+8
+					setsliderPressedEventCode(cValue)
+				case C_AFTERCOMMON+9
+					setsliderReleasedEventCode(cValue)
+				case C_AFTERCOMMON+10
 					setvalueChangedEventCode(cValue)
-
 			}
 		}
 
@@ -3147,6 +3193,10 @@ class FormDesigner_QSlider from QSlider
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :orientation =  ' + OrientationValue() 
+		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :range =  "' + RangeValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :value =  "' + ValueValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :setactionTriggeredEvent =  "' + actionTriggeredEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setrangeChangedEvent =  "' + rangeChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setsliderMovedEvent =  "' + sliderMovedEventCode() + '"'
@@ -3159,6 +3209,22 @@ class FormDesigner_QSlider from QSlider
 		cOutput = ""
 		cOutput += 'setOrientation(#{f1})' + nl
 		cOutput = substr(cOutput,"#{f1}",""+OrientationValue())
+		if Minimumvalue() != NULL {
+			cOutput += 'setMinimum(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+MinimumValue())
+		}
+		if Maximumvalue() != NULL {
+			cOutput += 'setMaximum(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+MaximumValue())
+		}
+		if Rangevalue() != NULL {
+			cOutput += 'setRange(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+RangeValue())
+		}
+		if ValueValue() != NULL {
+			cOutput += 'setValue(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+ValueValue())
+		}
 		cOutput += 'setactionTriggeredEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,actionTriggeredEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",actionTriggeredEventCode())
@@ -3183,6 +3249,10 @@ class FormDesigner_QSlider from QSlider
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setOrientationValue(0+itemdata[:orientation])
+		setMinimumValue(itemdata[:minimum])
+		setMaximumValue(itemdata[:maximum])
+		setRangeValue(itemdata[:range])
+		setValueValue(itemdata[:value])
 		SetactionTriggeredEventCode(itemdata[:setactionTriggeredEvent])
 		SetrangeChangedEventCode(itemdata[:setrangeChangedEvent])
 		SetsliderMovedEventCode(itemdata[:setsliderMovedEvent])
