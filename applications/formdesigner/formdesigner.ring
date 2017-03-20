@@ -2653,7 +2653,7 @@ class FormDesigner_QTextEdit from QLineEdit
 		SetundoAvailableEventCode(itemdata[:setundoAvailableEvent])
 
 # We use QLineEdit as parent - We need just the looking (not functionality)
-class FormDesigner_QListWidget from QLineEdit 
+class FormDesigner_QListWidget from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -2776,6 +2776,8 @@ class FormDesigner_QListWidget from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(itemPressedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -2805,9 +2807,10 @@ class FormDesigner_QListWidget from QLineEdit
 					setitemPressedEventCode(cValue)
 				case C_AFTERCOMMON+11
 					setitemSelectionChangedEventCode(cValue)
-
 			}
 		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
