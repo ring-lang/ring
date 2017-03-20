@@ -3195,7 +3195,16 @@ class FormDesigner_QProgressbar from QProgressbar
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	nOrientation = 0
+
 	cvalueChangedEvent = ""
+
+	func OrientationValue
+		return nOrientation
+
+	func SetOrientationValue nIndex
+		nOrientation = nIndex
+		setOrientation(nIndex)
 
 	func SetvalueChangedEventCode cValue
 		cvalueChangedEvent = cValue
@@ -3205,20 +3214,38 @@ class FormDesigner_QProgressbar from QProgressbar
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddPropertyCombobox("Set Orientation",["Horizontal","Vertical"])
 		oDesigner.oView.AddProperty("valueChangedEvent",False)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(valueChangedEventcode())
+		# Orientation
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(OrientationValue())
+			oCombo.BlockSignals(False)
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
+
+	func ComboItemAction oDesigner,nRow
+		nOrientationPos = C_AFTERCOMMON
+		if nRow = nOrientationPos  {		# Orientation
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nOrientationPos,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			nIndex = oCombo.CurrentIndex()
+			setOrientationValue(nIndex)
+		}
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON
+				case C_AFTERCOMMON+1
 					setvalueChangedEventCode(cValue)
 
 			}
@@ -3227,11 +3254,14 @@ class FormDesigner_QProgressbar from QProgressbar
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :orientation =  ' + OrientationValue() 
 		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
 		return cOutput
 
 	func GenerateCustomCode
 		cOutput = ""
+		cOutput += 'setOrientation(#{f1})' + nl
+		cOutput = substr(cOutput,"#{f1}",""+(OrientationValue()+1))
 		cOutput += 'setvalueChangedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,valueChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
@@ -3240,6 +3270,7 @@ class FormDesigner_QProgressbar from QProgressbar
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setOrientationValue(0+itemdata[:orientation])
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
 class FormDesigner_QSpinBox from QSpinBox
