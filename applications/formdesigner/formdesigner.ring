@@ -3190,10 +3190,6 @@ class FormDesigner_QSlider from QSlider
 		SetsliderReleasedEventCode(itemdata[:setsliderReleasedEvent])
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
-	func text return ""
-
-	func settext cValue 
-
 class FormDesigner_QProgressbar from QProgressbar
 
 	CreateCommonAttributes()
