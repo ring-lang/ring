@@ -3,6 +3,15 @@ Load "guilib.ring"
 color1  = new qcolor() { setrgb( 255,0,0,255 ) }
 pen1    = new qpen()   { setcolor(color1)  setwidth(2) }
 
+color2  = new qcolor() { setrgb( 0,255,0,255 ) }
+pen2    = new qpen()   { setcolor(color2)  setwidth(2) }
+
+color3  = new qcolor() { setrgb( 0,0,255,255 ) }
+pen3    = new qpen()   { setcolor(color3)  setwidth(2) }
+
+penArray = [pen1, pen2, pen3]
+penNbr   =  1
+
 New qapp
 {
    win1 =  new qwidget()
@@ -27,7 +36,7 @@ New qapp
              }       
 	nCounter = 0
 	oTimer = new qTimer(win1) {
-		setinterval(1000)
+		setinterval(500)
 		settimeoutevent("DrawCounter()")
 		start()
 	} 
@@ -40,14 +49,19 @@ DrawCounter()
 func DrawCounter()
         nCounter++
         if nCounter < 15
-           Draw()
-        else
-           oTimer.stop()
+           Draw(penArray[penNbr])
+        elseif nCounter % 15 = 0
+            nCounter = 0
+            penNbr++
+            if penNbr > 3
+               penNbr = 1
+            ok       
+            Draw(penArray[penNbr])
         ok
 return
  
-Func Draw()
-         daVinci.setpen(pen1)
+Func Draw(pen1)
+         daVinci.setpen(penArray[penNbr])
          daVinci.drawrect(50+nCounter*10, 50+nCounter*10, 300-nCounter*20, 300-nCounter*20)
          Canvas.setpixmap(MonaLisa)      
          win1.show()                     
