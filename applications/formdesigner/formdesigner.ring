@@ -3660,6 +3660,9 @@ class FormDesigner_QComboBox from QComboBox
 		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(editTextChangedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(highlightedEventcode())
 		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			clear() AddItem(oDesigner.oModel.GetObjectName(self),0)
+
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -3677,9 +3680,11 @@ class FormDesigner_QComboBox from QComboBox
 					seteditTextChangedEventCode(cValue)
 				case C_AFTERCOMMON+5
 					sethighlightedEventCode(cValue)
-
 			}
 		}
+		# Set the object name 
+			clear() AddItem(oDesigner.oModel.GetObjectName(self),0)
+
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
