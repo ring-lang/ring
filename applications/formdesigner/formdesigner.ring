@@ -2746,7 +2746,7 @@ class FormDesigner_QListWidget from QLineEdit
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Items separated by comma",False)
+		oDesigner.oView.AddProperty("Items (S: Comma)",False)
 		oDesigner.oView.AddProperty("Current Row",False)
 		oDesigner.oView.AddProperty("currentItemChangedEvent",False)
 		oDesigner.oView.AddProperty("currentRowChangedEvent",False)
@@ -3642,7 +3642,7 @@ class FormDesigner_QComboBox from QComboBox
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Items separated by comma",False)
+		oDesigner.oView.AddProperty("Items (S: Comma)",False)
 		oDesigner.oView.AddProperty("Current Index",False)
 		oDesigner.oView.AddProperty("activatedEvent",False)
 		oDesigner.oView.AddProperty("currentIndexChangedEvent",False)
@@ -3744,6 +3744,13 @@ class FormDesigner_QTableWidget from QLineEdit
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cRowCount = ""
+	cColumnCount = ""
+	cHorizontalHeaders = ""
+	cColumnsWidth = ""
+	cHorizontalHeaderStyle = ""
+	cVerticalHeaderStyle = ""
+
 	ccellActivatedEvent = ""
 	ccellChangedEvent = ""
 	ccellClickedEvent = ""
@@ -3759,6 +3766,42 @@ class FormDesigner_QTableWidget from QLineEdit
 	citemEnteredEvent = ""
 	citemPressedEvent = ""
 	citemSelectionChangedEvent = ""
+
+	func RowCountValue 
+		return cRowCount
+
+	func setRowCountValue Value 
+		cRowCount = Value 
+
+	func ColumnCountValue
+		return cColumnCount
+
+	func SetColumnCountValue Value 
+		cColumnCount = Value 
+
+	func HorizontalHeadersValue
+		return cHorizontalHeaders
+
+	func SetHorizontalHeadersValue Value
+		cHorizontalHeaders = Value 
+
+	func ColumnsWidthValue 
+		return cColumnsWidth
+
+	func SetColumnsWidthValue Value 
+		cColumnsWidth = Value
+		
+	func HorizontalHeaderStyleValue 
+		return cHorizontalHeaderStyle
+
+	func SetHorizontalHeaderStyleValue Value 
+		cVerticalHeaderStyle = Value 
+
+	func VerticalHeaderStyleValue 
+		return cVerticalHeaderStyle
+
+	func SetVerticalHeaderStyleValue Value 
+		cVerticalHeaderStyle = Value 
 
 	func SetcellActivatedEventCode cValue
 		ccellActivatedEvent = cValue
@@ -3852,6 +3895,12 @@ class FormDesigner_QTableWidget from QLineEdit
 			
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Row Count",False)
+		oDesigner.oView.AddProperty("Column Count",False)
+		oDesigner.oView.AddProperty("Horizontal Headers (S: Comma)",False)
+		oDesigner.oView.AddProperty("Columns Width (S: Comma)",False)
+		oDesigner.oView.AddProperty("Horizontal Header Style",False)
+		oDesigner.oView.AddProperty("Vertical Header Style",False)
 		oDesigner.oView.AddProperty("cellActivatedEvent",False)
 		oDesigner.oView.AddProperty("cellChangedEvent",False)
 		oDesigner.oView.AddProperty("cellClickedEvent",False)
@@ -3872,21 +3921,27 @@ class FormDesigner_QTableWidget from QLineEdit
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True) 
-		oPropertiesTable.item(C_AFTERCOMMON,1).settext(cellActivatedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(cellChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(cellClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(cellDoubleClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(cellEnteredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(cellPressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(currentCellChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(currentItemChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(itemActivatedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(itemChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(itemClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(itemDoubleClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+12,1).settext(itemEnteredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+13,1).settext(itemPressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+14,1).settext(itemSelectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON,1).settext(RowCountValue())
+		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(ColumnCountValue())
+		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(HorizontalHeadersValue())
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(ColumnsWidthValue())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(HorizontalHeaderStyleValue())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(VerticalHeaderStyleValue())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(cellActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(cellChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(cellClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(cellDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(cellEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(cellPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+12,1).settext(currentCellChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+13,1).settext(currentItemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+14,1).settext(itemActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+15,1).settext(itemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+16,1).settext(itemClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+17,1).settext(itemDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+18,1).settext(itemEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+19,1).settext(itemPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+20,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
@@ -3896,36 +3951,47 @@ class FormDesigner_QTableWidget from QLineEdit
 		if nCol = 1 {
 			switch nRow {
 				case C_AFTERCOMMON
-					setcellActivatedEventCode(cValue)
+					setRowCountValue(cValue)
 				case C_AFTERCOMMON+1
-					setcellChangedEventCode(cValue)
+					setColumnCountValue(cValue)
 				case C_AFTERCOMMON+2
-					setcellClickedEventCode(cValue)
+					setHorizontalHeadersValue(cValue)
 				case C_AFTERCOMMON+3
-					setcellDoubleClickedEventCode(cValue)
+					setColumnsWidthValue(cValue)
 				case C_AFTERCOMMON+4
-					setcellEnteredEventCode(cValue)
+					setHorizontalHeaderStyleValue(cValue)
 				case C_AFTERCOMMON+5
-					setcellPressedEventCode(cValue)
+					setVerticalHeaderStyleValue(cValue)
 				case C_AFTERCOMMON+6
-					setcurrentCellChangedEventCode(cValue)
+					setcellActivatedEventCode(cValue)
 				case C_AFTERCOMMON+7
-					setcurrentItemChangedEventCode(cValue)
+					setcellChangedEventCode(cValue)
 				case C_AFTERCOMMON+8
-					setitemActivatedEventCode(cValue)
+					setcellClickedEventCode(cValue)
 				case C_AFTERCOMMON+9
-					setitemChangedEventCode(cValue)
+					setcellDoubleClickedEventCode(cValue)
 				case C_AFTERCOMMON+10
-					setitemClickedEventCode(cValue)
+					setcellEnteredEventCode(cValue)
 				case C_AFTERCOMMON+11
-					setitemDoubleClickedEventCode(cValue)
+					setcellPressedEventCode(cValue)
 				case C_AFTERCOMMON+12
-					setitemEnteredEventCode(cValue)
+					setcurrentCellChangedEventCode(cValue)
 				case C_AFTERCOMMON+13
-					setitemPressedEventCode(cValue)
+					setcurrentItemChangedEventCode(cValue)
 				case C_AFTERCOMMON+14
+					setitemActivatedEventCode(cValue)
+				case C_AFTERCOMMON+15
+					setitemChangedEventCode(cValue)
+				case C_AFTERCOMMON+16
+					setitemClickedEventCode(cValue)
+				case C_AFTERCOMMON+17
+					setitemDoubleClickedEventCode(cValue)
+				case C_AFTERCOMMON+18
+					setitemEnteredEventCode(cValue)
+				case C_AFTERCOMMON+19
+					setitemPressedEventCode(cValue)
+				case C_AFTERCOMMON+20
 					setitemSelectionChangedEventCode(cValue)
-
 			}
 		}
 		# Set the object name 
@@ -3934,6 +4000,12 @@ class FormDesigner_QTableWidget from QLineEdit
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :RowCount =  "' + RowCountValue() + '"'
+		cOutput += "," + nl + cTabs + ' :ColumnCount =  "' + ColumnCountValue() + '"'
+		cOutput += "," + nl + cTabs + ' :HorizontalHeaders =  "' + HorizontalHeadersValue() + '"'
+		cOutput += "," + nl + cTabs + ' :ColumnsWidth =  "' + ColumnsWidthValue() + '"'
+		cOutput += "," + nl + cTabs + ' :HorizontalHeaderStyle =  "' + HorizontalHeaderStyleValue() + '"'
+		cOutput += "," + nl + cTabs + ' :VerticalHeaderStyle =  "' + VerticalHeaderStyleValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setcellActivatedEvent =  "' + cellActivatedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcellChangedEvent =  "' + cellChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcellClickedEvent =  "' + cellClickedEventCode() + '"'
@@ -3953,6 +4025,42 @@ class FormDesigner_QTableWidget from QLineEdit
 
 	func GenerateCustomCode
 		cOutput = ""
+		if RowCountValue() != NULL {
+			cOutput += 'setRowCount(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",RowCountValue())
+		}
+		if ColumnCountValue() != NULL {
+			cOutput += 'setColumnCount(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",ColumnCountValue())
+		}
+		if HorizontalHeadersValue() != NULL {
+			aTempList = Split(HorizontalHeadersValue(),",")
+			nPos = 0
+			for item in aTempList {
+				cOutput += 'setHorizontalHeaderItem(#{f1}, new QTableWidgetItem("#{f2}"))' + nl
+				cOutput = substr(cOutput,"#{f1}",""+nPos)
+				cOutput = substr(cOutput,"#{f2}",item)
+				nPos++
+			}
+		}
+		if ColumnsWidthValue() != NULL {
+			aTempList = Split(ColumnsWidthValue(),",")
+			nPos = 0
+			for item in aTempList {
+				cOutput += 'setColumnwidth(#{f1},#{f2})' + nl
+				cOutput = substr(cOutput,"#{f1}",""+nPos)
+				cOutput = substr(cOutput,"#{f2}",item)
+				nPos++
+			}
+		}
+		if HorizontalHeaderStyleValue() != NULL {
+			cOutput += 'horizontalHeader().setStyleSheet("#{f1}")' + nl
+			cOutput = substr(cOutput,"#{f1}",HorizontalHeaderStyle())
+		}
+		if VerticalHeaderStyleValue() != NULL {
+			cOutput += 'verticalHeader().setStyleSheet("#{f1}")' + nl
+			cOutput = substr(cOutput,"#{f1}",VerticalHeaderStyleValue())
+		}
 		cOutput += 'setcellActivatedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,cellActivatedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",cellActivatedEventCode())
@@ -4003,6 +4111,12 @@ class FormDesigner_QTableWidget from QLineEdit
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		SetRowCountValue(itemdata[:RowCount])
+		SetColumnCountValue(itemdata[:ColumnCount])
+		SetHorizontalHeadersValue(itemdata[:HorizontalHeaders])
+		SetColumnsWidthValue(itemdata[:ColumnsWidth])
+		SetHorizontalHeaderStyleValue(itemdata[:HorizontalHeaderStyle])
+		SetVerticalHeaderStyleValue(itemdata[:VerticalHeaderStyle])
 		SetcellActivatedEventCode(itemdata[:setcellActivatedEvent])
 		SetcellChangedEventCode(itemdata[:setcellChangedEvent])
 		SetcellClickedEventCode(itemdata[:setcellClickedEvent])
