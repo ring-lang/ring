@@ -1354,6 +1354,7 @@ void setCurrentItem(QTreeWidgetItem * item, QItemSelectionModel::SelectionFlag c
 void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
 void setHeaderItem(QTreeWidgetItem *item)
 void setHeaderLabel(QString)
+void setHeaderLabels(QStringList)
 void setItemWidget(QTreeWidgetItem *item, int column, QWidget * widget)
 int sortColumn(void) 
 void sortItems(int column, Qt::SortOrder order)

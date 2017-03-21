@@ -12655,6 +12655,25 @@ RING_FUNC(ring_QTreeWidget_setHeaderLabel)
 }
 
 
+RING_FUNC(ring_QTreeWidget_setHeaderLabels)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	pObject->setHeaderLabels(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QStringList"));
+}
+
+
 RING_FUNC(ring_QTreeWidget_setItemWidget)
 {
 	GTreeWidget *pObject ;
@@ -85709,6 +85728,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtreewidget_setfirstitemcolumnspanned",ring_QTreeWidget_setFirstItemColumnSpanned);
 	ring_vm_funcregister("qtreewidget_setheaderitem",ring_QTreeWidget_setHeaderItem);
 	ring_vm_funcregister("qtreewidget_setheaderlabel",ring_QTreeWidget_setHeaderLabel);
+	ring_vm_funcregister("qtreewidget_setheaderlabels",ring_QTreeWidget_setHeaderLabels);
 	ring_vm_funcregister("qtreewidget_setitemwidget",ring_QTreeWidget_setItemWidget);
 	ring_vm_funcregister("qtreewidget_sortcolumn",ring_QTreeWidget_sortColumn);
 	ring_vm_funcregister("qtreewidget_sortitems",ring_QTreeWidget_sortItems);

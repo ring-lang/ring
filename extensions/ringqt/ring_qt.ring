@@ -2206,6 +2206,9 @@ Class QTreeWidget from QTreeView
 	Func setHeaderLabel P1
 		return QTreeWidget_setHeaderLabel(pObject,P1)
 
+	Func setHeaderLabels P1
+		return QTreeWidget_setHeaderLabels(pObject,GetObjectPointerFromRingObject(P1))
+
 	Func setItemWidget P1,P2,P3
 		return QTreeWidget_setItemWidget(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
 
