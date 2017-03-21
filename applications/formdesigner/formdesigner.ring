@@ -3971,8 +3971,8 @@ class FormDesigner_QTableWidget from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+18,1).settext(itemClickedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+19,1).settext(itemDoubleClickedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+20,1).settext(itemEnteredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+19,1).settext(itemPressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+20,1).settext(itemSelectionChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+21,1).settext(itemPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+22,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
