@@ -3751,6 +3751,9 @@ class FormDesigner_QTableWidget from QLineEdit
 	cHorizontalHeaderStyle = ""
 	cVerticalHeaderStyle = ""
 
+	nSelectionBehavior = 0
+	nAlternatingColors = 0
+
 	ccellActivatedEvent = ""
 	ccellChangedEvent = ""
 	ccellClickedEvent = ""
@@ -3802,6 +3805,18 @@ class FormDesigner_QTableWidget from QLineEdit
 
 	func SetVerticalHeaderStyleValue Value 
 		cVerticalHeaderStyle = Value 
+		
+	func SelectionBahviorValue
+		return nSelectionBehavior
+
+	func SetSelectionBehaviorValue Value 
+		nSelectionBehavior = Value 
+
+	func AlternatingColorsValue
+		return nAlternatingColors
+
+	func SetAlternatingColorsValue Value 
+		nAlternatingColors = Value 
 
 	func SetcellActivatedEventCode cValue
 		ccellActivatedEvent = cValue
@@ -3901,6 +3916,8 @@ class FormDesigner_QTableWidget from QLineEdit
 		oDesigner.oView.AddProperty("Columns Width (S: Comma)",False)
 		oDesigner.oView.AddProperty("Horizontal Header Style",False)
 		oDesigner.oView.AddProperty("Vertical Header Style",False)
+		oDesigner.oView.AddPropertyCombobox("Selection Behavior",["Items","Rows","Columns"])
+		oDesigner.oView.AddPropertyCombobox("Alternating Row Colors",["True","False"])
 		oDesigner.oView.AddProperty("cellActivatedEvent",False)
 		oDesigner.oView.AddProperty("cellChangedEvent",False)
 		oDesigner.oView.AddProperty("cellClickedEvent",False)
@@ -3927,24 +3944,56 @@ class FormDesigner_QTableWidget from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(ColumnsWidthValue())
 		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(HorizontalHeaderStyleValue())
 		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(VerticalHeaderStyleValue())
-		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(cellActivatedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(cellChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(cellClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(cellDoubleClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(cellEnteredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(cellPressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+12,1).settext(currentCellChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+13,1).settext(currentItemChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+14,1).settext(itemActivatedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+15,1).settext(itemChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+16,1).settext(itemClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+17,1).settext(itemDoubleClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+18,1).settext(itemEnteredEventcode())
+		# Selection Behaviour
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON+6,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(SelectionBahviorValue())
+			oCombo.BlockSignals(False)
+		# Alternating Colors 
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON+7,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(AlternatingColorsValue())
+			oCombo.BlockSignals(False)
+		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(cellActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(cellChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(cellClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(cellDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+12,1).settext(cellEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+13,1).settext(cellPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+14,1).settext(currentCellChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+15,1).settext(currentItemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+16,1).settext(itemActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+17,1).settext(itemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+18,1).settext(itemClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+19,1).settext(itemDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+20,1).settext(itemEnteredEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+19,1).settext(itemPressedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+20,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
+
+	func ComboItemAction oDesigner,nRow
+		nSelectionBehaviorPos = C_AFTERCOMMON+6
+		nAlternatingColorsPos = C_AFTERCOMMON+7
+		switch nRow   {		
+			case nSelectionBehaviorPos
+				oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nSelectionBehaviorPos,1)
+				oCombo = new qCombobox 
+				oCombo.pObject = oWidget.pObject 
+				nIndex = oCombo.CurrentIndex()
+				setSelectionBehaviorValue(nIndex)
+			case nAlternatingColorsPos 
+				oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nAlternatingColorsPos,1)
+				oCombo = new qCombobox 
+				oCombo.pObject = oWidget.pObject 
+				nIndex = oCombo.CurrentIndex()
+				setAlternatingColorsValue(nIndex)
+		}
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -3963,34 +4012,38 @@ class FormDesigner_QTableWidget from QLineEdit
 				case C_AFTERCOMMON+5
 					setVerticalHeaderStyleValue(cValue)
 				case C_AFTERCOMMON+6
-					setcellActivatedEventCode(cValue)
+					setSelectionbehaviorValue(cValue)
 				case C_AFTERCOMMON+7
-					setcellChangedEventCode(cValue)
+					setAlternatingrowcolorsValue(cValue)
 				case C_AFTERCOMMON+8
-					setcellClickedEventCode(cValue)
+					setcellActivatedEventCode(cValue)
 				case C_AFTERCOMMON+9
-					setcellDoubleClickedEventCode(cValue)
+					setcellChangedEventCode(cValue)
 				case C_AFTERCOMMON+10
-					setcellEnteredEventCode(cValue)
+					setcellClickedEventCode(cValue)
 				case C_AFTERCOMMON+11
-					setcellPressedEventCode(cValue)
+					setcellDoubleClickedEventCode(cValue)
 				case C_AFTERCOMMON+12
-					setcurrentCellChangedEventCode(cValue)
+					setcellEnteredEventCode(cValue)
 				case C_AFTERCOMMON+13
-					setcurrentItemChangedEventCode(cValue)
+					setcellPressedEventCode(cValue)
 				case C_AFTERCOMMON+14
-					setitemActivatedEventCode(cValue)
+					setcurrentCellChangedEventCode(cValue)
 				case C_AFTERCOMMON+15
-					setitemChangedEventCode(cValue)
+					setcurrentItemChangedEventCode(cValue)
 				case C_AFTERCOMMON+16
-					setitemClickedEventCode(cValue)
+					setitemActivatedEventCode(cValue)
 				case C_AFTERCOMMON+17
-					setitemDoubleClickedEventCode(cValue)
+					setitemChangedEventCode(cValue)
 				case C_AFTERCOMMON+18
-					setitemEnteredEventCode(cValue)
+					setitemClickedEventCode(cValue)
 				case C_AFTERCOMMON+19
-					setitemPressedEventCode(cValue)
+					setitemDoubleClickedEventCode(cValue)
 				case C_AFTERCOMMON+20
+					setitemEnteredEventCode(cValue)
+				case C_AFTERCOMMON+21
+					setitemPressedEventCode(cValue)
+				case C_AFTERCOMMON+22
 					setitemSelectionChangedEventCode(cValue)
 			}
 		}
@@ -4006,6 +4059,8 @@ class FormDesigner_QTableWidget from QLineEdit
 		cOutput += "," + nl + cTabs + ' :ColumnsWidth =  "' + ColumnsWidthValue() + '"'
 		cOutput += "," + nl + cTabs + ' :HorizontalHeaderStyle =  "' + HorizontalHeaderStyleValue() + '"'
 		cOutput += "," + nl + cTabs + ' :VerticalHeaderStyle =  "' + VerticalHeaderStyleValue() + '"'
+		cOutput += "," + nl + cTabs + ' :selectionbehavior =  ' + SelectionBahviorValue() 
+		cOutput += "," + nl + cTabs + ' :alternatingcolors =  ' + AlternatingColorsValue() 
 		cOutput += "," + nl + cTabs + ' :setcellActivatedEvent =  "' + cellActivatedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcellChangedEvent =  "' + cellChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcellClickedEvent =  "' + cellClickedEventCode() + '"'
@@ -4061,6 +4116,24 @@ class FormDesigner_QTableWidget from QLineEdit
 			cOutput += 'verticalHeader().setStyleSheet("#{f1}")' + nl
 			cOutput = substr(cOutput,"#{f1}",VerticalHeaderStyleValue())
 		}
+		# Selection Behavior
+			cOutput += 'setSelectionBehavior(#{f1})' + nl
+			switch SelectionBahviorValue() {
+			case 0
+				cOutput = substr(cOutput,"#{f1}","QAbstractItemView_SelectItems" )
+			case 1
+				cOutput = substr(cOutput,"#{f1}","QAbstractItemView_SelectRows" )
+			case 2
+				cOutput = substr(cOutput,"#{f1}","QAbstractItemView_SelectColumns" )
+			}
+		# Alternating Row Colors
+			cOutput += 'setAlternatingRowColors(#{f1})' + nl
+			switch AlternatingColorsValue() {
+			case 0
+				cOutput = substr(cOutput,"#{f1}","True")
+			case 1
+				cOutput = substr(cOutput,"#{f1}","False")
+			}
 		cOutput += 'setcellActivatedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,cellActivatedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",cellActivatedEventCode())
@@ -4117,6 +4190,8 @@ class FormDesigner_QTableWidget from QLineEdit
 		SetColumnsWidthValue(itemdata[:ColumnsWidth])
 		SetHorizontalHeaderStyleValue(itemdata[:HorizontalHeaderStyle])
 		SetVerticalHeaderStyleValue(itemdata[:VerticalHeaderStyle])
+		SetSelectionbehaviorValue(itemdata[:SelectionBehavior])
+		SetAlternatingColorsValue(itemdata[:AlternatingColors])
 		SetcellActivatedEventCode(itemdata[:setcellActivatedEvent])
 		SetcellChangedEventCode(itemdata[:setcellChangedEvent])
 		SetcellClickedEventCode(itemdata[:setcellClickedEvent])
