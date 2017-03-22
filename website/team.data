@@ -27,6 +27,20 @@
 					'Active',
 					'<img src="UmbertoMariani.png">'
 				  ],
+  				  [
+					'Ahmed Hassouna',
+					'mr.ahmed_hassouna@yahoo.com',
+					'Video Tutorials',
+					'Active',
+					'<img src="AhmedHassouna.jpg">'
+				  ],
+				  [
+					'Ahmed Omar',
+					'ahmad3omar@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="AhmedOmar.jpg">'
+				  ],
 				  [
 					'Majdi Sobain',
 					'MajdiSobain@gmail.com',
@@ -115,12 +129,6 @@
 				  [
 					'Ebrahim ELgeded',
 					'ebrahim.elgeded301@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Ahmed Omar',
-					'ahmad3omar@gmail.com',
 					'Tester',
 					'Active'
 				  ],
@@ -343,12 +351,6 @@
 				  [
 					'Alaa Mohammed Elockle',
 					'Mr.alaaelockle@hotmail.com',
-					'Video Tutorials',
-					'Active'
-				  ],
-				  [
-					'Ahmed Hassouna',
-					'mr.ahmed_hassouna@yahoo.com',
 					'Video Tutorials',
 					'Active'
 				  ],
