@@ -4215,6 +4215,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 
 	cColumnCount = ""
 	cHeaderLabels = ""
+	nHeaderHidden = 0
 
 	ccollapsedEvent = ""
 	cexpandedEvent = ""
@@ -4246,6 +4247,12 @@ class FormDesigner_QTreeWidget from QLineEdit
 
 	func HeaderLabelsValue
 		return cHeaderLabels
+
+	func HeaderHiddenValue
+		return nHeaderHidden
+
+	func SetHeaderHiddenValue Value 
+		nHeaderHidden = Value 
 
 	func SetcollapsedEventCode cValue
 		ccollapsedEvent = cValue
@@ -4359,6 +4366,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Column Count",False)
 		oDesigner.oView.AddProperty("Header Labels (S: Comma)",False)
+		oDesigner.oView.AddPropertyCombobox("Header Hidden",["True","False"])
 		oDesigner.oView.AddProperty("collapsedEvent",False)
 		oDesigner.oView.AddProperty("expandedEvent",False)
 		oDesigner.oView.AddProperty("activatedEvent",False)
@@ -4384,24 +4392,31 @@ class FormDesigner_QTreeWidget from QLineEdit
 		oPropertiesTable.Blocksignals(True) 
 		oPropertiesTable.item(C_AFTERCOMMON,1).settext(ColumnCountValue())
 		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(HeaderLabelsValue())
-		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(collapsedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(expandedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(activatedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(clickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(doubleClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(enteredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(pressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(viewportEnteredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(currentItemChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(itemActivatedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+12,1).settext(itemChangedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+13,1).settext(itemClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+14,1).settext(itemCollapsedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+15,1).settext(itemDoubleClickedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+16,1).settext(itemEnteredEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+17,1).settext(itemExpandedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+18,1).settext(itemPressedEventcode())
-		oPropertiesTable.item(C_AFTERCOMMON+19,1).settext(itemSelectionChangedEventcode())
+		# Header Hidden
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON+2,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(HeaderHiddenValue())
+			oCombo.BlockSignals(False)
+		oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(collapsedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(expandedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(activatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(clickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(doubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+8,1).settext(enteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+9,1).settext(pressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(viewportEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(currentItemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+12,1).settext(itemActivatedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+13,1).settext(itemChangedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+14,1).settext(itemClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+15,1).settext(itemCollapsedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+16,1).settext(itemDoubleClickedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+17,1).settext(itemEnteredEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+18,1).settext(itemExpandedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+19,1).settext(itemPressedEventcode())
+		oPropertiesTable.item(C_AFTERCOMMON+20,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
@@ -4415,40 +4430,42 @@ class FormDesigner_QTreeWidget from QLineEdit
 				case C_AFTERCOMMON+1
 					setHeaderLabelsValue(cValue)
 				case C_AFTERCOMMON+2
-					setcollapsedEventCode(cValue)
+					setHeaderHiddenValue(cValue)
 				case C_AFTERCOMMON+3
-					setexpandedEventCode(cValue)
+					setcollapsedEventCode(cValue)
 				case C_AFTERCOMMON+4
-					setactivatedEventCode(cValue)
+					setexpandedEventCode(cValue)
 				case C_AFTERCOMMON+5
-					setclickedEventCode(cValue)
+					setactivatedEventCode(cValue)
 				case C_AFTERCOMMON+6
-					setdoubleClickedEventCode(cValue)
+					setclickedEventCode(cValue)
 				case C_AFTERCOMMON+7
-					setenteredEventCode(cValue)
+					setdoubleClickedEventCode(cValue)
 				case C_AFTERCOMMON+8
-					setpressedEventCode(cValue)
+					setenteredEventCode(cValue)
 				case C_AFTERCOMMON+9
-					setviewportEnteredEventCode(cValue)
+					setpressedEventCode(cValue)
 				case C_AFTERCOMMON+10
-					setcurrentItemChangedEventCode(cValue)
+					setviewportEnteredEventCode(cValue)
 				case C_AFTERCOMMON+11
-					setitemActivatedEventCode(cValue)
+					setcurrentItemChangedEventCode(cValue)
 				case C_AFTERCOMMON+12
-					setitemChangedEventCode(cValue)
+					setitemActivatedEventCode(cValue)
 				case C_AFTERCOMMON+13
-					setitemClickedEventCode(cValue)
+					setitemChangedEventCode(cValue)
 				case C_AFTERCOMMON+14
-					setitemCollapsedEventCode(cValue)
+					setitemClickedEventCode(cValue)
 				case C_AFTERCOMMON+15
-					setitemDoubleClickedEventCode(cValue)
+					setitemCollapsedEventCode(cValue)
 				case C_AFTERCOMMON+16
-					setitemEnteredEventCode(cValue)
+					setitemDoubleClickedEventCode(cValue)
 				case C_AFTERCOMMON+17
-					setitemExpandedEventCode(cValue)
+					setitemEnteredEventCode(cValue)
 				case C_AFTERCOMMON+18
-					setitemPressedEventCode(cValue)
+					setitemExpandedEventCode(cValue)
 				case C_AFTERCOMMON+19
+					setitemPressedEventCode(cValue)
+				case C_AFTERCOMMON+20
 					setitemSelectionChangedEventCode(cValue)
 
 			}
@@ -4456,11 +4473,22 @@ class FormDesigner_QTreeWidget from QLineEdit
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
+	func ComboItemAction oDesigner,nRow
+		nHeaderHiddenPos = C_AFTERCOMMON+2
+		if nRow = nHeaderHiddenPos  {		 
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nHeaderHiddenPos,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			nIndex = oCombo.CurrentIndex()
+			setHeaderHiddenValue(nIndex)
+		}
+
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :columncount =  "' + ColumnCountValue() + '"'
 		cOutput += "," + nl + cTabs + ' :headerlabels =  "' + HeaderLabelsValue() + '"'
+		cOutput += "," + nl + cTabs + ' :HeaderHidden =  ' + HeaderHiddenValue() 
 		cOutput += "," + nl + cTabs + ' :setcollapsedEvent =  "' + collapsedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setexpandedEvent =  "' + expandedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setactivatedEvent =  "' + activatedEventCode() + '"'
@@ -4494,6 +4522,14 @@ class FormDesigner_QTreeWidget from QLineEdit
 			}
 			cOutput += '}' + nl +"setheaderlabels(oList)" + nl
 		}
+		# Header Hidden
+			cOutput += 'setHeaderHidden(#{f1})' + nl
+			switch HeaderHiddenValue() {
+			case 0
+				cOutput = substr(cOutput,"#{f1}","True")
+			case 1
+				cOutput = substr(cOutput,"#{f1}","False")
+			}
 		cOutput += 'setcollapsedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,collapsedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",collapsedEventCode())
@@ -4555,6 +4591,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 		itemdata = item[:data]
 		SetColumnCountValue(itemdata[:columncount])
 		SetHeaderLabelsValue(itemdata[:headerlabels])
+		SetHeaderHiddenValue(itemdata[:HeaderHidden])
 		SetcollapsedEventCode(itemdata[:setcollapsedEvent])
 		SetexpandedEventCode(itemdata[:setexpandedEvent])
 		SetactivatedEventCode(itemdata[:setactivatedEvent])
