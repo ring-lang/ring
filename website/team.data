@@ -41,6 +41,13 @@
 					'Active',
 					'<img src="AhmedOmar.jpg">'
 				  ],
+  				  [
+					'Magdy Ragab',
+					'developer.eye1@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="MagdyRagab.jpg">'
+				  ],
 				  [
 					'Majdi Sobain',
 					'MajdiSobain@gmail.com',
@@ -207,12 +214,6 @@
 				  [
 					'Ragab Mustafa',
 					'ragab.eng@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Magdy Ragab',
-					'developer.eye1@gmail.com',
 					'Tester',
 					'Active'
 				  ],
