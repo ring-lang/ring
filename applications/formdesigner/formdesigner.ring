@@ -4358,7 +4358,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Column Count",False)
-		oDesigner.oView.AddProperty("Header Labels",False)
+		oDesigner.oView.AddProperty("Header Labels (S: Comma)",False)
 		oDesigner.oView.AddProperty("collapsedEvent",False)
 		oDesigner.oView.AddProperty("expandedEvent",False)
 		oDesigner.oView.AddProperty("activatedEvent",False)
