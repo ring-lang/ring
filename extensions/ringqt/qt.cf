@@ -2958,7 +2958,9 @@ void drawPixmapFragments( PixmapFragment *fragments, int fragmentCount,  QPixmap
 </comment>
 void drawPoint(int x, int y)
 void drawPoints( QPointF * points, int pointCount)
+<comment>
 void drawPolygon( QPointF * points, int pointCount, Qt::FillRule fillRule)
+</comment>
 void drawPolyline( QPointF * points, int pointCount)
 void drawRect(int x, int y, int width, int height)
 void drawRects( QRectF * rectangles, int rectCount)
@@ -3021,6 +3023,46 @@ QRect viewport(void)
 QRect window(void)
 bool worldMatrixEnabled(void)
 QTransform  worldTransform(void)
+
+<register>
+void drawPolygon(QPainter *pObject, Qt::FillRule fillRule )
+</register>
+
+<code>
+RING_FUNC(ring_QPainter_drawPolygon)
+{
+	QPainter *pObject;
+	List *pList,*pList2;
+	int x,nSize;
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF points[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPolygon(points, nSize, (Qt::FillRule )  (int) RING_API_GETNUMBER(3));
+}
+</code>
 
 <class>
 name: QPainter2

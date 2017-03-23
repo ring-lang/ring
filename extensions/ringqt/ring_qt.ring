@@ -6322,9 +6322,6 @@ Class QPainter
 	Func drawPoints P1,P2
 		return QPainter_drawPoints(pObject,GetObjectPointerFromRingObject(P1),P2)
 
-	Func drawPolygon P1,P2,P3
-		return QPainter_drawPolygon(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
-
 	Func drawPolyline P1,P2
 		return QPainter_drawPolyline(pObject,GetObjectPointerFromRingObject(P1),P2)
 
@@ -6503,6 +6500,9 @@ Class QPainter
 
 	Func worldTransform 
 		return QPainter_worldTransform(pObject)
+
+	Func drawPolygon P1,P2
+		return QPainter_drawPolygon(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 Class QPicture
 
