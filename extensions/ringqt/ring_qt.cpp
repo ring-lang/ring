@@ -36970,13 +36970,14 @@ RING_FUNC(ring_QPainter_drawPolygon)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pList = (List *) RING_API_GETLIST(2);
 	nSize = ring_list_getsize(pList);
-	QPointF points[nSize];
+	QPointF *points = new QPointF[nSize];
 	for (x=0 ; x < nSize ; x++) {
 		pList2 = ring_list_getlist(pList,x+1);
 		points[x].setX((float) ring_list_getdouble(pList2,1));
 		points[x].setY((float) ring_list_getdouble(pList2,2));
 	}
-	pObject->drawPolygon(points, nSize, (Qt::FillRule )  (int) RING_API_GETNUMBER(3));
+	pObject->drawPolygon(points, nSize, (Qt::FillRule )  (int) RING_API_GETNUMBER(3));	
+	delete [] points;
 }
 
 RING_FUNC(ring_QPicture_boundingRect)
