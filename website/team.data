@@ -35,18 +35,18 @@
 					'<img src="AhmedHassouna.jpg">'
 				  ],
 				  [
-					'Ahmed Omar',
-					'ahmad3omar@gmail.com',
-					'Tester',
-					'Active',
-					'<img src="AhmedOmar.jpg">'
-				  ],
-  				  [
 					'Magdy Ragab',
 					'developer.eye1@gmail.com',
 					'Tester',
 					'Active',
 					'<img src="MagdyRagab.jpg">'
+				  ],
+				  [
+					'Ahmed Omar',
+					'ahmad3omar@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="AhmedOmar.jpg">'
 				  ],
 				  [
 					'Majdi Sobain',
