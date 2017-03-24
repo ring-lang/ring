@@ -483,6 +483,8 @@ void quit(void)
 void processEvents(void)
 void styleFusion(void)
 void styleFusionBlack(void)
+void closeAllWindows(void)
+Qt::KeyboardModifiers keyboardModifiers(void)
 </register>
 
 <code>
@@ -538,6 +540,24 @@ RING_FUNC(ring_QApp_processEvents)
 		return ;
 	}
 	qApp->processEvents();
+}
+
+RING_FUNC(ring_QApp_closeAllWindows)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	qApp->closeAllWindows();
+}
+
+RING_FUNC(ring_QApp_keyboardModifiers)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
 }
 
 </code>

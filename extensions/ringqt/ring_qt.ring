@@ -27,6 +27,12 @@ Class QApp
 	Func styleFusionBlack 
 		return QApp_styleFusionBlack()
 
+	Func closeAllWindows 
+		return QApp_closeAllWindows()
+
+	Func keyboardModifiers 
+		return QApp_keyboardModifiers()
+
 Class QTest
 
 

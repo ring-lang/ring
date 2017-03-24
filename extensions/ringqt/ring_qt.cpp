@@ -264,6 +264,24 @@ RING_FUNC(ring_QApp_processEvents)
 	qApp->processEvents();
 }
 
+RING_FUNC(ring_QApp_closeAllWindows)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	qApp->closeAllWindows();
+}
+
+RING_FUNC(ring_QApp_keyboardModifiers)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
+}
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -85118,6 +85136,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qapp_processevents",ring_QApp_processEvents);
 	ring_vm_funcregister("qapp_stylefusion",ring_QApp_styleFusion);
 	ring_vm_funcregister("qapp_stylefusionblack",ring_QApp_styleFusionBlack);
+	ring_vm_funcregister("qapp_closeallwindows",ring_QApp_closeAllWindows);
+	ring_vm_funcregister("qapp_keyboardmodifiers",ring_QApp_keyboardModifiers);
 	ring_vm_funcregister("qtest_qsleep",ring_QTest_qsleep);
 	ring_vm_funcregister("qobject_blocksignals",ring_QObject_blockSignals);
 	ring_vm_funcregister("qobject_children",ring_QObject_children);
