@@ -63,6 +63,13 @@
 					'<img src="abdelrahman.jpg">'
 				  ],
 				  [
+					'Hany Salah',
+					'hanyhani@hotmail.com',
+					'Marketing',
+					'Active',
+					'<img src="hany.jpg">'
+				  ],
+				  [
 					'Majdi Sobain',
 					'MajdiSobain@gmail.com',
 					'Senior Tester',
@@ -73,13 +80,7 @@
 					'amressam01@gmail.com',
 					'Tutorials Master',
 					'Active'
-				  ],
-				  [
-					'Hany Salah',
-					'hanyhani@hotmail.com',
-					'Marketing',
-					'Active'
-				  ],
+				  ],				  
 				  [
 					'Mohammed Fayed',
 					'ms_fayed@hotmail.com',
