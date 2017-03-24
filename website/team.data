@@ -49,6 +49,20 @@
 					'<img src="AhmedOmar.jpg">'
 				  ],
 				  [
+					'Hebat Alla Ismail',
+					'Heba.imail26@gmail.com',
+					'Voice Master',
+					'Active',
+					'<img src="heba.jpg">'
+				  ],
+  				  [
+					'Abdelrahman mahmoud',
+					'alarb.alarb@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="abdelrahman.jpg">'
+				  ],
+				  [
 					'Majdi Sobain',
 					'MajdiSobain@gmail.com',
 					'Senior Tester',
@@ -58,12 +72,6 @@
 					'Amr Essam',
 					'amressam01@gmail.com',
 					'Tutorials Master',
-					'Active'
-				  ],
-				  [
-					'Hebat Alla Ismail',
-					'Heba.imail26@gmail.com',
-					'Voice Master',
 					'Active'
 				  ],
 				  [
@@ -262,12 +270,6 @@
 				  [
 					'Ayyad Shenouda ayyad',
 					'ayyaadshenoda15@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Abdelrahman mahmoud',
-					'alarb.alarb@gmail.com',
 					'Tester',
 					'Active'
 				  ],
