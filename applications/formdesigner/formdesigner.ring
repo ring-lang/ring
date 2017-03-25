@@ -420,9 +420,24 @@ Class FormDesignerController from WindowsControllerParent
 	func ActiveObjectMousePress nObjectID
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
-			if oModel.IsManySelected() and oModel.IsObjectSelected(nObjectID) { 
-				oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self) 
-				return 
+			if oModel.IsManySelected() {
+				if oModel.IsObjectSelected(nObjectID) { 
+					if oFDApp.keyboardmodifiers() {
+						oModel.RemoveSelectedObject(nObjectIndex)
+						oModel.GetObjectByIndex(nObjectIndex).oCorners.Hide()
+						return 
+					else 
+						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self) 
+						return 
+					}
+				else 
+					if oFDApp.keyboardmodifiers() {
+						oModel.AddSelectedObject(nObjectIndex)
+						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self) 
+						oModel.GetObjectByIndex(nObjectIndex).oCorners.Show()
+						return 			
+					}					
+				}
 			}
 			ChangeObjectByCode(nObjectIndex-1)  
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
@@ -1426,6 +1441,12 @@ Class FormDesignerModel
 		}
 		return False
 
+	func RemoveSelectedObject nObjectID
+		nPos = find(aManySelectedObjects,nObjectID,3) 
+		if nPos {
+			del(aManySelectedObjects,nPos)
+		}
+
 	func AddPushButton oObject
 		nPushButtonsCount++
 		AddObject("Button"+nPushButtonsCount,oObject)
@@ -1771,16 +1792,16 @@ Class MoveResizeCorners
 		oCorners.refresh(oParent)
 
 	func MousePress oDesigner
-	        lPress = True
+		lPress = True
 		lMoveEvent=False
 		lResize = False
 		nResizeMode = 0
-        	nX = oFilter.getglobalx()
-	        ny = oFilter.getglobaly()
+		nX = oFilter.getglobalx()
+		ny = oFilter.getglobaly()
 		setCursor(oDesigner.oGeneral.oCursorA())
 
 	func MouseRelease oDesigner
-	        lPress = False
+		lPress = False
 		lMoveEvent=False
 		lResize = False
 		nResizeMode = 0
