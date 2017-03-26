@@ -20,6 +20,7 @@ Ring 1.3  comes with many new features
 * Ring mode for Emacs Editor
 * Better StdLib
 * Better Loop/Exit Command
+* New Functions
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better RingQt
@@ -191,3 +192,11 @@ Example
                 	ok
 	        next
 	next
+
+.. index:: 
+	pair: What is new in Ring 1.3?; New Functions
+
+New Functions
+=============
+
+* packagename() function

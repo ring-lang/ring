@@ -152,7 +152,7 @@ Output:
 
 .. code-block:: ring
 
-	Count : 217
+	Count : 218
 	len() 
 	add() 
 	del() 
@@ -1208,3 +1208,26 @@ Output:
 	two
 	one
 	********************
+
+.. index:: 
+	pair: Reflection and Meta-programming; packagename()
+
+packagename() Function
+====================
+		
+We can know the package name of the latest sucessful import command using the packagename() function
+
+Syntax:
+
+.. code-block:: ring
+
+	packagename() --> Returns the package name of the latest sucessful import
+
+
+Example:
+
+.. code-block:: ring
+
+	load "weblib.ring"
+	import System.web
+	see packagename()	# system.web

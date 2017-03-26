@@ -75,7 +75,7 @@ Keywords Count : 46
 Language Functions
 ==================
 
-Functions Count : 217
+Functions Count : 218
 
 .. code-block:: ring
 
@@ -112,7 +112,7 @@ Functions Count : 217
 	odbc_autocommit() odbc_close() odbc_colcount() odbc_columns()
 	odbc_commit() odbc_connect() odbc_datasources() 
 	odbc_disconnect() odbc_drivers() odbc_execute() odbc_fetch() odbc_getdata()
-	odbc_init() odbc_rollback() odbc_tables() packageclasses() 
+	odbc_init() odbc_rollback() odbc_tables() packageclasses() packagename()
 	packages() perror() pointer2object() pow()
 	prevfilename() ptrcmp() raise() randbytes() random() 
 	read() remove() rename()
