@@ -8,6 +8,8 @@
 load "guilib.ring"
 load "stdlib.ring"
 
+import formdesigner
+
 # Prepare Controls Classes 
 	for cClassName in [
 		:FormDesigner_QLabel,
@@ -43,7 +45,9 @@ load "stdlib.ring"
 		}
 	}
 
-Class FormDesignerController from WindowsControllerParent
+package formdesigner  
+
+class FormDesignerController from WindowsControllerParent
 
 	oView = new FormDesignerView
 	oModel = new FormDesignerModel
