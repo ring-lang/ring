@@ -164,6 +164,8 @@ Type: char
 nActiveError
 Type: List *
 aDynamicSelfItems
+Type: String *
+cPackageName
 END:
 Type: VM
 struct VM
