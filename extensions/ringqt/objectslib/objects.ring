@@ -53,7 +53,11 @@ func Open_WindowNoShow cClass
 	$RingQt_ObjectsList + [$RingQt_ObjectID,""]	
 	$RingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+$RingQt_ObjectID+")]" +
 			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
-	cCode = $RingQt_ObjName + " = new " + cClass 
+	cCode = ""
+	if packagename() != NULL {
+		cCode += "import " + packagename()  + nl
+	}
+	cCode += $RingQt_ObjName + " = new " + cClass 
 	eval(cCode)	
 	$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
 
