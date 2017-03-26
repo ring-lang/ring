@@ -31,7 +31,11 @@ func Open_Window cClass
 	$RingQt_ObjectsList + [$RingQt_ObjectID,""]	
 	$RingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+$RingQt_ObjectID+")]" +
 			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
-	cCode = $RingQt_ObjName + " = new " + cClass + nl + 
+	cCode = ""
+	if packagename() != NULL {
+		cCode += "import " + packagename()  + nl
+	}
+	cCode += $RingQt_ObjName + " = new " + cClass + nl + 
 		  $RingQt_ObjName + ".start()"
 	eval(cCode)	
 	if cRingQt_ObjName != NULL {
