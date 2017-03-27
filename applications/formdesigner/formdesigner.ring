@@ -2257,7 +2257,7 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f6}",textcolor())
 		cOutput = substr(cOutput,"#{f7}",backcolor())
 		cOutput = substr(cOutput,"#{f8}",fontproperty())
-		cOutput = substr(cOutput,"#{f9}",AddTabs(GenerateCustomCode(),3))
+		cOutput = substr(cOutput,"#{f9}",AddTabs(GenerateCustomCode(oDesigner),3))
 		return cOutput
 
 	func AddTabs cText,nCount
@@ -2266,7 +2266,7 @@ class CommonAttributesMethods
 		cText = substr(cText,nl,nl+cTabs)
 		return cText
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		return ""
 
 	func RestoreProperties oDesigner,Item 
@@ -2361,7 +2361,7 @@ class FormDesigner_QLabel from QLabel
 		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign() 
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl + 'setAlignment(#{f2})'
 		cOutput = substr(cOutput,"#{f1}",text())
 		Switch nTextAlign {
@@ -2426,7 +2426,7 @@ class FormDesigner_QPushButton from QPushButton
 		cOutput += "," + nl + cTabs + ' :setClickEvent =  "' + ClickEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl 
 		cOutput += 'setClickEvent("#{f2}")' + nl
 		cOutput = PrepareEvent(cOutput,ClickEventCode(),"#{f2}")
@@ -2557,7 +2557,7 @@ class FormDesigner_QLineEdit from QLineEdit
 		cOutput += "," + nl + cTabs + ' :settextEditedEvent =  "' + textEditedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setText("#{f1}")' + nl  
 		cOutput = substr(cOutput,"#{f1}",textValue())
@@ -2722,7 +2722,7 @@ class FormDesigner_QTextEdit from QLineEdit
 		cOutput += "," + nl + cTabs + ' :setundoAvailableEvent =  "' + undoAvailableEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setText("#{f1}")' + nl  
 		cOutput = substr(cOutput,"#{f1}",textValue())
@@ -2938,7 +2938,7 @@ class FormDesigner_QListWidget from QLineEdit
 		cOutput += "," + nl + cTabs + ' :setitemSelectionChangedEvent =  "' + itemSelectionChangedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		if cItemsValue() != NULL {
 			aItems = split(cItemsValue(),",")
@@ -3092,7 +3092,7 @@ class FormDesigner_QCheckBox from QCheckBox
 		cOutput += "," + nl + cTabs + ' :settoggledEvent =  "' + toggledEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl 
 		cOutput = substr(cOutput,"#{f1}",text())
 		cOutput += 'setstateChangedEvent("#{f1}")' + nl
@@ -3175,7 +3175,7 @@ class FormDesigner_QImage from QLabel
 		setImageFile(itemdata[:imagefile])
 		DisplayProperties(oDesigner)
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setPixMap(New qPixMap("#{f1}"))' + nl
 		cOutput = substr(cOutput,"#{f1}",ImageFile())
@@ -3367,7 +3367,7 @@ class FormDesigner_QSlider from QSlider
 		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setOrientation(#{f1})' + nl
 		cOutput = substr(cOutput,"#{f1}",""+OrientationValue())
@@ -3544,7 +3544,7 @@ class FormDesigner_QProgressbar from QLineEdit
 		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setOrientation(#{f1})' + nl
 		cOutput = substr(cOutput,"#{f1}",""+(OrientationValue()+1))
@@ -3668,7 +3668,7 @@ class FormDesigner_QSpinBox from QSpinBox
 		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		if Minimumvalue() != NULL {
 			cOutput += 'setMinimum(#{f1})' + nl
@@ -3806,7 +3806,7 @@ class FormDesigner_QComboBox from QComboBox
 		cOutput += "," + nl + cTabs + ' :sethighlightedEvent =  "' + highlightedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		if cItemsValue() != NULL {
 			aItems = split(cItemsValue(),",")
@@ -4187,7 +4187,7 @@ class FormDesigner_QTableWidget from QLineEdit
 		cOutput += "," + nl + cTabs + ' :setitemSelectionChangedEvent =  "' + itemSelectionChangedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		if RowCountValue() != NULL {
 			cOutput += 'setRowCount(#{f1})' + nl
@@ -4618,7 +4618,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 		cOutput += "," + nl + cTabs + ' :setitemSelectionChangedEvent =  "' + itemSelectionChangedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setColumnCount(#{f1})' + nl
 		cOutput = substr(cOutput,"#{f1}",ColumnCountValue())
@@ -4802,7 +4802,7 @@ class FormDesigner_QRadioButton from QRadioButton
 		cOutput += "," + nl + cTabs + ' :settoggledEvent =  "' + toggledEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl 
 		cOutput = substr(cOutput,"#{f1}",text())
 		cOutput += 'setclickedEvent("#{f1}")' + nl
@@ -4921,7 +4921,7 @@ class FormDesigner_QWebView from QLineEdit
 		cOutput += "," + nl + cTabs + ' :seturlChangedEvent  =  "' + urlChangedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'loadpage(new qURL("#{f1}"))' + nl  
 		cOutput = substr(cOutput,"#{f1}",URLValue())
@@ -5033,7 +5033,7 @@ class FormDesigner_QDial from QDial
 		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
 		return cOutput
 
-	func GenerateCustomCode
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		if Minimumvalue() != NULL {
 			cOutput += 'setMinimum(#{f1})' + nl
@@ -5069,6 +5069,72 @@ class FormDesigner_QVideoWidget from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
+
+	cVideoFile = ""
+
+	func SetVideoFile cValue
+		cVideoFile = cValue
+
+	func VideoFile 
+		return cVideoFile
+
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Video File",True)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		# Set the Image File
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(VideoFile())
+		oPropertiesTable.Blocksignals(False) 
+		# Set the object name 
+			if cVideoFile = NULL {
+				setText(oDesigner.oModel.GetObjectName(self))
+			}
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nRow = C_AFTERCOMMON { 
+			setVideoFile(cValue)
+		}
+		# Set the object name 
+			if cVideoFile = NULL {
+				setText(oDesigner.oModel.GetObjectName(self))
+			}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :Videofile =  "' + VideoFile() + '"'
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setVideoFile(itemdata[:Videofile])
+		DisplayProperties(oDesigner)
+
+	func GenerateCustomCode oDesigner
+		cOutput = ""
+		cOutput += 'player#{f2} = new qmediaplayer() { ' + nl +
+			'setmedia(new qurl("#{f1}"))' + nl +
+			' setvideooutput(#{f2})' + nl +
+			'}' + nl
+		cOutput = substr(cOutput,"#{f1}",VideoFile())
+		cObjName = oDesigner.oModel.GetObjectName(self)
+		cOutput = substr(cOutput,"#{f2}",cObjName)
+		return cOutput
+
+	func DialogButtonAction oDesigner,nRow 
+		CommonDialogButtonAction(oDesigner,nRow)
+		if nRow = C_AFTERCOMMON {	# Video File
+			cFile = oDesigner.oGeneral.SelectFile(oDesigner)
+			setVideoFile(cFile)
+			DisplayProperties(oDesigner)
+		}
+
 
 class FormDesignerFileSystem
 
