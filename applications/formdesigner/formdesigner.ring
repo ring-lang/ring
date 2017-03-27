@@ -28,7 +28,8 @@ import formdesigner
 		:FormDesigner_QTreeWidget,
 		:FormDesigner_QRadioButton,
 		:FormDesigner_QWebView,
-		:FormDesigner_QDial
+		:FormDesigner_QDial,
+		:FormDesigner_QVideoWidget
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -337,6 +338,17 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Dial",oModel.DialsCount())
+			SetToolboxModeToSelect()
+		elseif oView.oToolBtn19.ischecked()   # Create QVideoWidget
+			HideCorners()
+			oModel.AddVideoWidget(new FormDesigner_QVideoWidget(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+				}
+			)
+			NewControlEvents("VideoWidget",oModel.VideoWidgetsCount())
 			SetToolboxModeToSelect()
 		}
 
@@ -873,7 +885,7 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
-	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18
+	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 oToolBtn19
 
 	func CreateMainWindow oModel
 
@@ -1143,6 +1155,11 @@ Class FormDesignerView from WindowsViewParent
 					setbtnimage(self,"image/dial.png") 
 					setCheckable(True)
 			}
+ 			this.oToolbtn19 = new qPushButton(oToolBox) {
+					setText(this.TextSize("Video Widget",17))
+					setbtnimage(self,"image/videowidget.png") 
+					setCheckable(True)
+			}
 
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolbtn1)
@@ -1163,6 +1180,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn16)
 				AddWidget(this.oToolbtn17)
 				AddWidget(this.oToolbtn18)
+				AddWidget(this.oToolbtn19)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1185,6 +1203,7 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn16,15)
 				AddButton(this.oToolbtn17,16)
 				AddButton(this.oToolbtn18,17)
+				AddButton(this.oToolbtn19,18)
 			}
 			setLayout(Layout1)
 		}
@@ -1416,6 +1435,7 @@ Class FormDesignerModel
 	nRadioButtonsCount = 0
 	nWebViewsCount = 0
 	nDialsCount = 0
+	nVideoWidgetsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1603,6 +1623,13 @@ Class FormDesignerModel
 	func DialsCount
 		return nDialsCount
 
+	func AddVideoWidget oObject
+		nVideoWidgetsCount++
+		AddObject("VideoWidget"+nVideoWidgetsCount,oObject)
+
+	func VideoWidgetsCount
+		return nVideoWidgetsCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -1624,6 +1651,7 @@ Class FormDesignerModel
 		nRadioButtonsCount = 0
 		nWebViewsCount = 0
 		nDialsCount = 0
+		nVideoWidgetsCount = 0
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -5037,6 +5065,11 @@ class FormDesigner_QDial from QDial
 		setValueValue(itemdata[:value])
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
+class FormDesigner_QVideoWidget from QLineEdit 
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
 class FormDesignerFileSystem
 
 	cFileName = "noname.rform"
@@ -5240,6 +5273,11 @@ class FormDesignerFileSystem
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddDial(new FormDesigner_QDial(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.DialsCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+					case :FormDesigner_QVideoWidget
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddVideoWidget(new FormDesigner_QVideoWidget(oDesigner.oModel.FormObject()))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.VideoWidgetsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
