@@ -261,6 +261,24 @@ RING_FUNC(ring_QApp_processEvents)
 	qApp->processEvents();
 }
 
+RING_FUNC(ring_QApp_closeAllWindows)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	qApp->closeAllWindows();
+}
+
+RING_FUNC(ring_QApp_keyboardModifiers)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
+}
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -12649,6 +12667,25 @@ RING_FUNC(ring_QTreeWidget_setHeaderLabel)
 		return ;
 	}
 	pObject->setHeaderLabel(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTreeWidget_setHeaderLabels)
+{
+	GTreeWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
+	pObject->setHeaderLabels(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -34974,35 +35011,6 @@ RING_FUNC(ring_QPainter_drawPoints)
 }
 
 
-RING_FUNC(ring_QPainter_drawPolygon)
-{
-	QPainter *pObject ;
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->drawPolygon((QPointF *) RING_API_GETCPOINTER(2,"QPointF"), (int ) RING_API_GETNUMBER(3), (Qt::FillRule )  (int) RING_API_GETNUMBER(4));
-}
-
-
 RING_FUNC(ring_QPainter_drawPolyline)
 {
 	QPainter *pObject ;
@@ -36320,6 +36328,40 @@ RING_FUNC(ring_QPainter_worldTransform)
 	}
 }
 
+RING_FUNC(ring_QPainter_drawPolygon)
+{
+	QPainter *pObject;
+	List *pList,*pList2;
+	int x,nSize;
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF *points = new QPointF[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPolygon(points, nSize, (Qt::FillRule )  (int) RING_API_GETNUMBER(3));	
+	delete [] points;
+}
 
 RING_FUNC(ring_QPicture_boundingRect)
 {
@@ -84429,6 +84471,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qapp_processevents",ring_QApp_processEvents);
 	ring_vm_funcregister("qapp_stylefusion",ring_QApp_styleFusion);
 	ring_vm_funcregister("qapp_stylefusionblack",ring_QApp_styleFusionBlack);
+	ring_vm_funcregister("qapp_closeallwindows",ring_QApp_closeAllWindows);
+	ring_vm_funcregister("qapp_keyboardmodifiers",ring_QApp_keyboardModifiers);
 	ring_vm_funcregister("qtest_qsleep",ring_QTest_qsleep);
 	ring_vm_funcregister("qobject_blocksignals",ring_QObject_blockSignals);
 	ring_vm_funcregister("qobject_children",ring_QObject_children);
@@ -85044,6 +85088,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtreewidget_setfirstitemcolumnspanned",ring_QTreeWidget_setFirstItemColumnSpanned);
 	ring_vm_funcregister("qtreewidget_setheaderitem",ring_QTreeWidget_setHeaderItem);
 	ring_vm_funcregister("qtreewidget_setheaderlabel",ring_QTreeWidget_setHeaderLabel);
+	ring_vm_funcregister("qtreewidget_setheaderlabels",ring_QTreeWidget_setHeaderLabels);
 	ring_vm_funcregister("qtreewidget_setitemwidget",ring_QTreeWidget_setItemWidget);
 	ring_vm_funcregister("qtreewidget_sortcolumn",ring_QTreeWidget_sortColumn);
 	ring_vm_funcregister("qtreewidget_sortitems",ring_QTreeWidget_sortItems);
@@ -86147,7 +86192,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpainter_drawpixmap",ring_QPainter_drawPixmap);
 	ring_vm_funcregister("qpainter_drawpoint",ring_QPainter_drawPoint);
 	ring_vm_funcregister("qpainter_drawpoints",ring_QPainter_drawPoints);
-	ring_vm_funcregister("qpainter_drawpolygon",ring_QPainter_drawPolygon);
 	ring_vm_funcregister("qpainter_drawpolyline",ring_QPainter_drawPolyline);
 	ring_vm_funcregister("qpainter_drawrect",ring_QPainter_drawRect);
 	ring_vm_funcregister("qpainter_drawrects",ring_QPainter_drawRects);
@@ -86205,6 +86249,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpainter_window",ring_QPainter_window);
 	ring_vm_funcregister("qpainter_worldmatrixenabled",ring_QPainter_worldMatrixEnabled);
 	ring_vm_funcregister("qpainter_worldtransform",ring_QPainter_worldTransform);
+	ring_vm_funcregister("qpainter_drawpolygon",ring_QPainter_drawPolygon);
 	ring_vm_funcregister("qpicture_boundingrect",ring_QPicture_boundingRect);
 	ring_vm_funcregister("qpicture_data",ring_QPicture_data);
 	ring_vm_funcregister("qpicture_isnull",ring_QPicture_isNull);

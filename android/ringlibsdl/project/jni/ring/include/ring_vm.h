@@ -89,6 +89,7 @@ typedef struct VM {
 	char nRunCode  ;
 	char nActiveError  ;
 	List *aDynamicSelfItems  ;
+	String *pPackageName  ;
 } VM ;
 /*
 **  Functions 

@@ -27,6 +27,12 @@ Class QApp
 	Func styleFusionBlack 
 		return QApp_styleFusionBlack()
 
+	Func closeAllWindows 
+		return QApp_closeAllWindows()
+
+	Func keyboardModifiers 
+		return QApp_keyboardModifiers()
+
 Class QTest
 
 
@@ -2205,6 +2211,9 @@ Class QTreeWidget from QTreeView
 
 	Func setHeaderLabel P1
 		return QTreeWidget_setHeaderLabel(pObject,P1)
+
+	Func setHeaderLabels P1
+		return QTreeWidget_setHeaderLabels(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setItemWidget P1,P2,P3
 		return QTreeWidget_setItemWidget(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
@@ -6205,9 +6214,6 @@ Class QPainter
 	Func drawPoints P1,P2
 		return QPainter_drawPoints(pObject,GetObjectPointerFromRingObject(P1),P2)
 
-	Func drawPolygon P1,P2,P3
-		return QPainter_drawPolygon(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
-
 	Func drawPolyline P1,P2
 		return QPainter_drawPolyline(pObject,GetObjectPointerFromRingObject(P1),P2)
 
@@ -6386,6 +6392,9 @@ Class QPainter
 
 	Func worldTransform 
 		return QPainter_worldTransform(pObject)
+
+	Func drawPolygon P1,P2
+		return QPainter_drawPolygon(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 Class QPicture
 

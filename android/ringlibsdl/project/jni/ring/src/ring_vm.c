@@ -188,6 +188,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nActiveError = 0 ;
 	/* Dynamic List of Self Items and PC */
 	pVM->aDynamicSelfItems = ring_list_new(0);
+	/* The active package name (after using import command) */
+	pVM->pPackageName = ring_string_new("");
 	return pVM ;
 }
 
@@ -235,6 +237,7 @@ VM * ring_vm_delete ( VM *pVM )
 	}
 	/* Delete List */
 	pVM->aDynamicSelfItems = ring_list_delete(pVM->aDynamicSelfItems);
+	pVM->pPackageName = ring_string_delete(pVM->pPackageName);
 	free( pVM ) ;
 	pVM = NULL ;
 	return pVM ;
