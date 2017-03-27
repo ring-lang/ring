@@ -27,7 +27,8 @@ import formdesigner
 		:FormDesigner_QTableWidget,
 		:FormDesigner_QTreeWidget,
 		:FormDesigner_QRadioButton,
-		:FormDesigner_QWebView
+		:FormDesigner_QWebView,
+		:FormDesigner_QDial
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -325,6 +326,17 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("WebView",oModel.WebViewsCount())
+			SetToolboxModeToSelect()
+		elseif oView.oToolBtn18.ischecked()   # Create QDial
+			HideCorners()
+			oModel.AddDial(new FormDesigner_QDial(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+				}
+			)
+			NewControlEvents("Dial",oModel.DialsCount())
 			SetToolboxModeToSelect()
 		}
 
@@ -861,7 +873,7 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
-	oToolBtn15  oToolBtn16 oToolBtn17
+	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18
 
 	func CreateMainWindow oModel
 
@@ -1126,6 +1138,11 @@ Class FormDesignerView from WindowsViewParent
 					setbtnimage(self,"image/webview.png") 
 					setCheckable(True)
 			}
+ 			this.oToolbtn18 = new qPushButton(oToolBox) {
+					setText(this.TextSize("Dial Slider",17))
+					setbtnimage(self,"image/dial.png") 
+					setCheckable(True)
+			}
 
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolbtn1)
@@ -1145,6 +1162,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn15)
 				AddWidget(this.oToolbtn16)
 				AddWidget(this.oToolbtn17)
+				AddWidget(this.oToolbtn18)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1165,7 +1183,8 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn14,13)
 				AddButton(this.oToolbtn15,14)
 				AddButton(this.oToolbtn16,15)
-				AddButton(this.oToolbtn17,15)
+				AddButton(this.oToolbtn17,16)
+				AddButton(this.oToolbtn18,17)
 			}
 			setLayout(Layout1)
 		}
@@ -1396,6 +1415,7 @@ Class FormDesignerModel
 	nTreeWidgetsCount = 0
 	nRadioButtonsCount = 0
 	nWebViewsCount = 0
+	nDialsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1576,6 +1596,13 @@ Class FormDesignerModel
 	func WebViewsCount
 		return nWebViewsCount
 
+	func AddDial oObject
+		nDialsCount++
+		AddObject("Dial"+nDialsCount,oObject)
+
+	func DialsCount
+		return nDialsCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -1596,6 +1623,7 @@ Class FormDesignerModel
 		nTreeWidgetsCount = 0
 		nRadioButtonsCount = 0
 		nWebViewsCount = 0
+		nDialsCount = 0
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -4888,6 +4916,127 @@ class FormDesigner_QWebView from QLineEdit
 		SetselectionChangedEventCode(itemdata[:setselectionChangedEvent ])
 		SeturlChangedEventCode(itemdata[:seturlChangedEvent ])
 
+class FormDesigner_QDial from QDial
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	cMinimum = ""
+	cMaximum = ""
+	cRange = ""
+	cValue = ""
+
+	cvalueChangedEvent = ""
+
+	func MinimumValue
+		return cMinimum
+
+	func SetMinimumValue Value
+		cMinimum = Value 
+
+	func MaximumValue
+		return cMaximum
+
+	func SetMaximumValue Value
+		cMaximum = Value 
+
+	func RangeValue
+		return cRange
+
+	func SetRangeValue Value
+		cRange = Value 
+
+	func ValueValue
+		return cValue
+
+	func SetValueValue Value
+		cValue = Value 
+
+	func SetvalueChangedEventCode cValue
+		cvalueChangedEvent = cValue
+
+	func valueChangedEventCode
+		return cvalueChangedEvent
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Set Minimum",False)
+		oDesigner.oView.AddProperty("Set Maximum",False)
+		oDesigner.oView.AddProperty("Set Range",False)
+		oDesigner.oView.AddProperty("Set Value",False)
+		oDesigner.oView.AddProperty("valueChangedEvent",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		# Minimum, Maximum, Range and Value 
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(MinimumValue())
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(MaximumValue())
+			oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(RangeValue())
+			oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(ValueValue())
+		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(valueChangedEventcode())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case C_AFTERCOMMON
+					setMinimumValue(cValue)
+				case C_AFTERCOMMON+1
+					setMaximumValue(cValue)
+				case C_AFTERCOMMON+2
+					setRangeValue(cValue)
+				case C_AFTERCOMMON+3
+					setValueValue(cValue)
+				case C_AFTERCOMMON+4
+					setvalueChangedEventCode(cValue)
+			}
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :range =  "' + RangeValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :value =  "' + ValueValue()  + '"'
+		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = ""
+		if Minimumvalue() != NULL {
+			cOutput += 'setMinimum(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+MinimumValue())
+		}
+		if Maximumvalue() != NULL {
+			cOutput += 'setMaximum(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+MaximumValue())
+		}
+		if Rangevalue() != NULL {
+			cOutput += 'setRange(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+RangeValue())
+		}
+		if ValueValue() != NULL {
+			cOutput += 'setValue(#{f1})' + nl
+			cOutput = substr(cOutput,"#{f1}",""+ValueValue())
+		}
+		cOutput += 'setvalueChangedEvent("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,valueChangedEventCode(),"#{f1}")
+		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setMinimumValue(itemdata[:minimum])
+		setMaximumValue(itemdata[:maximum])
+		setRangeValue(itemdata[:range])
+		setValueValue(itemdata[:value])
+		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
+
 class FormDesignerFileSystem
 
 	cFileName = "noname.rform"
@@ -5086,6 +5235,11 @@ class FormDesignerFileSystem
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddWebView(new FormDesigner_QWebView(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.WebViewsCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+					case :FormDesigner_QDial
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddDial(new FormDesigner_QDial(oDesigner.oModel.FormObject()))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.DialsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
