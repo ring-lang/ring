@@ -4772,7 +4772,7 @@ class FormDesigner_QRadioButton from QRadioButton
 		SetreleasedEventCode(itemdata[:setreleasedEvent])
 		SettoggledEventCode(itemdata[:settoggledEvent])
 
-class FormDesigner_QWebView from QTextEdit 
+class FormDesigner_QWebView from QLineEdit 
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
