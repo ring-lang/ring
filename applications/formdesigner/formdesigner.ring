@@ -26,7 +26,8 @@ import formdesigner
 		:FormDesigner_QDateTimeEdit,
 		:FormDesigner_QTableWidget,
 		:FormDesigner_QTreeWidget,
-		:FormDesigner_QRadioButton
+		:FormDesigner_QRadioButton,
+		:FormDesigner_QWebView
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -313,6 +314,17 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("RadioButton",oModel.RadioButtonsCount())
+			SetToolboxModeToSelect()
+		elseif oView.oToolBtn17.ischecked()   # Create QWebView 
+			HideCorners()
+			oModel.AddWebView(new FormDesigner_QWebView(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+				}
+			)
+			NewControlEvents("WebView",oModel.WebViewsCount())
 			SetToolboxModeToSelect()
 		}
 
@@ -849,7 +861,7 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
-	oToolBtn15  oToolBtn16
+	oToolBtn15  oToolBtn16 oToolBtn17
 
 	func CreateMainWindow oModel
 
@@ -1109,6 +1121,11 @@ Class FormDesignerView from WindowsViewParent
 					setbtnimage(self,"image/radiobutton.png") 
 					setCheckable(True)
 			}
+ 			this.oToolbtn17 = new qPushButton(oToolBox) {
+					setText(this.TextSize("WebView",17))
+					setbtnimage(self,"image/webview.png") 
+					setCheckable(True)
+			}
 
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolbtn1)
@@ -1127,6 +1144,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn14)
 				AddWidget(this.oToolbtn15)
 				AddWidget(this.oToolbtn16)
+				AddWidget(this.oToolbtn17)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1147,6 +1165,7 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn14,13)
 				AddButton(this.oToolbtn15,14)
 				AddButton(this.oToolbtn16,15)
+				AddButton(this.oToolbtn17,15)
 			}
 			setLayout(Layout1)
 		}
@@ -1376,6 +1395,7 @@ Class FormDesignerModel
 	nTableWidgetsCount = 0
 	nTreeWidgetsCount = 0
 	nRadioButtonsCount = 0
+	nWebViewsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1549,6 +1569,13 @@ Class FormDesignerModel
 	func RadioButtonsCount
 		return nRadioButtonsCount
 
+	func AddWebView oObject
+		nWebViewsCount++
+		AddObject("WebView"+nWebViewsCount,oObject)
+
+	func WebViewsCount
+		return nWebViewsCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -1568,6 +1595,7 @@ Class FormDesignerModel
 		nTableWidgetsCount = 0
 		nTreeWidgetsCount = 0
 		nRadioButtonsCount = 0
+		nWebViewsCount = 0
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -4744,6 +4772,61 @@ class FormDesigner_QRadioButton from QRadioButton
 		SetreleasedEventCode(itemdata[:setreleasedEvent])
 		SettoggledEventCode(itemdata[:settoggledEvent])
 
+class FormDesigner_QWebView from QTextEdit 
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	cURL = ""
+
+	func URLValue 
+		return cURL
+
+	func SetURLvalue value 
+		cURL = value 
+			
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("URL",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True) 
+		# Set the Text
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(URLValue())
+		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nCol = 1 {
+			switch nRow {
+				case C_AFTERCOMMON  
+					setURLValue(cValue)
+			}
+		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :URL =  "' + URLValue() + '"'
+		return cOutput
+
+	func GenerateCustomCode
+		cOutput = ""
+		cOutput += 'loadpage(new qURL("#{f1}"))' + nl  
+		cOutput = substr(cOutput,"#{f1}",URLValue())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setURLValue(itemdata[:URL])
+
 class FormDesignerFileSystem
 
 	cFileName = "noname.rform"
@@ -4937,6 +5020,11 @@ class FormDesignerFileSystem
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddRadioButton(new FormDesigner_QRadioButton(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.RadioButtonsCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+					case :FormDesigner_QWebView
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddWebView(new FormDesigner_QWebView(oDesigner.oModel.FormObject()))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.WebViewsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
