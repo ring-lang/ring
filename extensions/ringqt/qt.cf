@@ -1904,6 +1904,14 @@ codename: QFrame
 </class>
 
 <class>
+name: QFrame3
+para: QWidget *parent
+parent: QFrame
+codename: QFrame
+</class>
+
+
+<class>
 name: QAbstractScrollArea
 para: QWidget *parent
 parent: QFrame

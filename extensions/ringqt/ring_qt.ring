@@ -14609,6 +14609,17 @@ Class QFrame2 from QFrame
 	Func delete
 		pObject = QFrame2_delete(pObject)
 
+Class QFrame3 from QFrame
+
+	pObject
+
+	Func init P1
+		pObject = QFrame3_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QFrame3_delete(pObject)
+
 Class QDateEdit from QDateTimeEdit
 
 	pObject
