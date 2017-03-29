@@ -1897,6 +1897,13 @@ void setMidLineWidth(int)
 QSize sizeHint(void)
 
 <class>
+name: QFrame2
+para: void
+parent: QFrame
+codename: QFrame
+</class>
+
+<class>
 name: QAbstractScrollArea
 para: QWidget *parent
 parent: QFrame

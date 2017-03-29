@@ -81538,6 +81538,17 @@ RING_FUNC(ring_QFrame_new)
 	RING_API_RETCPOINTER(pObject,"QFrame");
 }
 
+RING_FUNC(ring_QFrame2_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QFrame *pObject = new QFrame();
+	RING_API_RETCPOINTER(pObject,"QFrame2");
+}
+
 RING_FUNC(ring_QAbstractScrollArea_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -83435,6 +83446,21 @@ RING_FUNC(ring_QTableWidgetItem_delete)
 }
 
 RING_FUNC(ring_QFrame_delete)
+{
+	QFrame *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QFrame *) RING_API_GETCPOINTER(1,"QFrame");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QFrame2_delete)
 {
 	QFrame *pObject ; 
 	if ( RING_API_PARACOUNT != 1 )
@@ -89138,6 +89164,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtabwidget_new",ring_QTabWidget_new);
 	ring_vm_funcregister("qtablewidgetitem_new",ring_QTableWidgetItem_new);
 	ring_vm_funcregister("qframe_new",ring_QFrame_new);
+	ring_vm_funcregister("qframe2_new",ring_QFrame2_new);
 	ring_vm_funcregister("qabstractscrollarea_new",ring_QAbstractScrollArea_new);
 	ring_vm_funcregister("qtableview_new",ring_QTableView_new);
 	ring_vm_funcregister("qtablewidget_new",ring_QTableWidget_new);
@@ -89279,6 +89306,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtabwidget_delete",ring_QTabWidget_delete);
 	ring_vm_funcregister("qtablewidgetitem_delete",ring_QTableWidgetItem_delete);
 	ring_vm_funcregister("qframe_delete",ring_QFrame_delete);
+	ring_vm_funcregister("qframe2_delete",ring_QFrame2_delete);
 	ring_vm_funcregister("qabstractscrollarea_delete",ring_QAbstractScrollArea_delete);
 	ring_vm_funcregister("qtableview_delete",ring_QTableView_delete);
 	ring_vm_funcregister("qtablewidget_delete",ring_QTableWidget_delete);

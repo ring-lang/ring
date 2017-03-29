@@ -14598,6 +14598,17 @@ Class QSize
 	Func delete
 		pObject = QSize_delete(pObject)
 
+Class QFrame2 from QFrame
+
+	pObject
+
+	Func init 
+		pObject = QFrame2_new()
+		return self
+
+	Func delete
+		pObject = QFrame2_delete(pObject)
+
 Class QDateEdit from QDateTimeEdit
 
 	pObject
