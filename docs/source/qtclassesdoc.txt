@@ -1477,6 +1477,22 @@ Parent Class : QFrame
 
 
 .. index::
+	pair: RingQt Classes Reference; QFrame3 Class
+
+QFrame3 Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFrame3.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QFrame
+
+
+.. index::
 	pair: RingQt Classes Reference; QAbstractScrollArea Class
 
 QAbstractScrollArea Class
