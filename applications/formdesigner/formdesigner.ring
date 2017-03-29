@@ -30,7 +30,8 @@ import formdesigner
 		:FormDesigner_QWebView,
 		:FormDesigner_QDial,
 		:FormDesigner_QVideoWidget,
-		:FormDesigner_QFrame3
+		:FormDesigner_QFrame3,
+		:FormDesigner_QLCDNumber
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -361,6 +362,17 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Frame",oModel.FramesCount())
+			SetToolboxModeToSelect()
+		elseif oView.oToolBtn21.ischecked()   # Create QLCDNumber
+			HideCorners()
+			oModel.AddFrame(new FormDesigner_QLCDNumber(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+				}
+			)
+			NewControlEvents("LCDNumber",oModel.LCDNumbersCount())
 			SetToolboxModeToSelect()
 		}
 
@@ -898,7 +910,7 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
 	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 
-	oToolBtn19 oToolBtn20
+	oToolBtn19 oToolBtn20 oToolBtn21
 
 	func CreateMainWindow oModel
 
@@ -1164,7 +1176,7 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			this.oToolbtn18 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Dial Slider",17))
+					setText(this.TextSize("Dial Slider",20))
 					setbtnimage(self,"image/dial.png") 
 					setCheckable(True)
 			}
@@ -1174,8 +1186,13 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			this.oToolbtn20 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Frame",17))
+					setText(this.TextSize("Frame",20))
 					setbtnimage(self,"image/frame.png") 
+					setCheckable(True)
+			}
+ 			this.oToolbtn21 = new qPushButton(oToolBox) {
+					setText(this.TextSize("LCD Number",17))
+					setbtnimage(self,"image/lcdnumber.png") 
 					setCheckable(True)
 			}
 
@@ -1200,6 +1217,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn18)
 				AddWidget(this.oToolbtn19)
 				AddWidget(this.oToolbtn20)
+				AddWidget(this.oToolbtn21)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1224,6 +1242,7 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn18,17)
 				AddButton(this.oToolbtn19,18)
 				AddButton(this.oToolbtn20,19)
+				AddButton(this.oToolbtn21,20)
 			}
 			setLayout(Layout1)
 		}
@@ -1458,6 +1477,7 @@ Class FormDesignerModel
 	nDialsCount = 0
 	nVideoWidgetsCount = 0
 	nFramesCount = 0
+	nLCDNumbersCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1659,6 +1679,13 @@ Class FormDesignerModel
 	func FramesCount
 		return nFramesCount
 
+	func AddLCDNumber oObject
+		nLCDNumbersCount++
+		AddObject("LCDNumber"+nLCDNumbersCount,oObject)
+
+	func LCDNumbersCount
+		return nLCDNumbersCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -1682,6 +1709,7 @@ Class FormDesignerModel
 		nDialsCount = 0
 		nVideoWidgetsCount = 0
 		nFramesCount = 0
+		nLCDNumbersCount = 0
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -5239,6 +5267,53 @@ class FormDesigner_QFrame3 from QFrame3
 		itemdata = item[:data]
 		setFrameType(0+itemdata[:FrameType])
 
+class FormDesigner_QLCDNumber from QLCDNumber
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	nDisplay  = 0
+
+	func DisplayValue
+		return nDisplay
+
+	func SetDisplayValue nValue
+		nDisplay = nValue	
+		Display(nDisplay)	
+
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Display",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Set the Display Value
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(""+DisplayValue())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		if nRow = C_AFTERCOMMON { 
+			setDisplayValue(0+cValue)
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :display =  ' + DisplayValue()
+		return cOutput
+
+	func GenerateCustomCode oDesigner
+		cOutput = 'Display(#{f1})' + nl 
+		cOutput = substr(cOutput,"#{f1}",""+DisplayValue())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setDisplayValue(itemdata[:Display])
 
 class FormDesignerFileSystem
 
@@ -5453,6 +5528,11 @@ class FormDesignerFileSystem
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddFrame(new FormDesigner_QFrame3(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.FramesCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+					case :FormDesigner_QLCDNumber
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddLCDNumber(new FormDesigner_QLCDNumber(oDesigner.oModel.FormObject()))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LCDNumbersCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 
 				}				
