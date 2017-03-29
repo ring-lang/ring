@@ -29,7 +29,8 @@ import formdesigner
 		:FormDesigner_QRadioButton,
 		:FormDesigner_QWebView,
 		:FormDesigner_QDial,
-		:FormDesigner_QVideoWidget
+		:FormDesigner_QVideoWidget,
+		:FormDesigner_QFrame3
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -349,6 +350,17 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("VideoWidget",oModel.VideoWidgetsCount())
+			SetToolboxModeToSelect()
+		elseif oView.oToolBtn20.ischecked()   # Create QFrame
+			HideCorners()
+			oModel.AddFrame(new FormDesigner_QFrame3(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+				}
+			)
+			NewControlEvents("Frame",oModel.FramesCount())
 			SetToolboxModeToSelect()
 		}
 
@@ -885,7 +897,8 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
-	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 oToolBtn19
+	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 
+	oToolBtn19 oToolBtn20
 
 	func CreateMainWindow oModel
 
@@ -1160,6 +1173,11 @@ Class FormDesignerView from WindowsViewParent
 					setbtnimage(self,"image/videowidget.png") 
 					setCheckable(True)
 			}
+ 			this.oToolbtn20 = new qPushButton(oToolBox) {
+					setText(this.TextSize("Frame",17))
+					setbtnimage(self,"image/frame.png") 
+					setCheckable(True)
+			}
 
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolbtn1)
@@ -1181,6 +1199,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn17)
 				AddWidget(this.oToolbtn18)
 				AddWidget(this.oToolbtn19)
+				AddWidget(this.oToolbtn20)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1204,11 +1223,13 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn17,16)
 				AddButton(this.oToolbtn18,17)
 				AddButton(this.oToolbtn19,18)
+				AddButton(this.oToolbtn20,19)
 			}
 			setLayout(Layout1)
 		}
 		oScroll = new qScrollArea(null) {
 			setWidget(oToolBox)
+			setMiniMumWidth(185)
 		}
 		oToolBoxDock = new qdockwidget(NULL,0) {
 			setWindowTitle("ToolBox")			
@@ -1436,6 +1457,7 @@ Class FormDesignerModel
 	nWebViewsCount = 0
 	nDialsCount = 0
 	nVideoWidgetsCount = 0
+	nFramesCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1630,6 +1652,13 @@ Class FormDesignerModel
 	func VideoWidgetsCount
 		return nVideoWidgetsCount
 
+	func AddFrame oObject
+		nFramesCount++
+		AddObject("Frame"+nFramesCount,oObject)
+
+	func FramesCount
+		return nFramesCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -1652,6 +1681,7 @@ Class FormDesignerModel
 		nWebViewsCount = 0
 		nDialsCount = 0
 		nVideoWidgetsCount = 0
+		nFramesCount = 0
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -3441,7 +3471,6 @@ class FormDesigner_QProgressbar from QLineEdit
 
 	func SetOrientationValue nIndex
 		nOrientation = nIndex
-		setOrientation(nIndex)
 
 	func MinimumValue
 		return cMinimum
@@ -5135,6 +5164,81 @@ class FormDesigner_QVideoWidget from QLineEdit
 			DisplayProperties(oDesigner)
 		}
 
+class FormDesigner_QFrame3 from QFrame3
+
+	nFrameType = 0
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	func FrameType
+		return nFrameType
+
+	func SetFrameType nIndex
+		nFrameType = nIndex
+		Switch nIndex {
+			case 0
+				setFrameStyle(QFrame_Plain | QFrame_WinPanel )
+			case 1
+				setFrameStyle(QFrame_Raised | QFrame_WinPanel)			
+			case 2
+				setFrameStyle(QFrame_Sunken | QFrame_WinPanel)
+		}
+
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddPropertyCombobox("Frame Style",["Plain","Raised","Sunken"])
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Frame Type
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(nFrameType)
+			oCombo.BlockSignals(False)
+		oPropertiesTable.Blocksignals(False)
+		SetFrameType(nFrameType)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+
+	func ComboItemAction oDesigner,nRow
+		nFrameStylePos = C_AFTERCOMMON
+		if nRow = nFrameStylePos  {		 
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nFrameStylePos,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			nIndex = oCombo.CurrentIndex()
+			setFrameType(nIndex)
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :FrameType =  ' + FrameType() 
+		return cOutput
+
+	func GenerateCustomCode oDesigner
+		cOutput = 'setFrameStyle(#{f2})'
+		Switch nFrameType {
+			case 0
+				cOutput = substr(cOutput,"#{f2}","QFrame_Plain | QFrame_WinPanel")
+			case 1
+				cOutput = substr(cOutput,"#{f2}","QFrame_Raised | QFrame_WinPanel" )			
+			case 2
+				cOutput = substr(cOutput,"#{f2}","QFrame_Sunken | QFrame_WinPanel" )
+		}
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setFrameType(0+itemdata[:FrameType])
+
 
 class FormDesignerFileSystem
 
@@ -5345,6 +5449,12 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddVideoWidget(new FormDesigner_QVideoWidget(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.VideoWidgetsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+					case :FormDesigner_QFrame3
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddFrame(new FormDesigner_QFrame3(oDesigner.oModel.FormObject()))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.FramesCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+
 				}				
 			}
 			# Object Properties
