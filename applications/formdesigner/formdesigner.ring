@@ -31,7 +31,8 @@ import formdesigner
 		:FormDesigner_QDial,
 		:FormDesigner_QVideoWidget,
 		:FormDesigner_QFrame3,
-		:FormDesigner_QLCDNumber
+		:FormDesigner_QLCDNumber,
+		:FormDesigner_QHyperLink
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -373,6 +374,17 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("LCDNumber",oModel.LCDNumbersCount())
+			SetToolboxModeToSelect()
+		elseif oView.oToolBtn22.ischecked()   # Create QHyperLink
+			HideCorners()
+			oModel.AddHyperLink(new FormDesigner_QHyperLink(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+				}
+			)
+			NewControlEvents("HyperLink",oModel.HyperLinksCount())
 			SetToolboxModeToSelect()
 		}
 
@@ -910,7 +922,7 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
 	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 
-	oToolBtn19 oToolBtn20 oToolBtn21
+	oToolBtn19 oToolBtn20 oToolBtn21 oToolBtn22
 
 	func CreateMainWindow oModel
 
@@ -981,7 +993,7 @@ Class FormDesignerView from WindowsViewParent
 		oFilter.setMouseButtonReleaseEvent(Method(:MouseReleaseAction))
 		oFilter.setMouseMoveEvent(Method(:MouseMoveAction))
 		oFilter.setKeyPressevent(Method(:KeyPressAction))
-                oSub.installeventfilter(oFilter)
+		oSub.installeventfilter(oFilter)
 
 	func CreateMenuBar
 		menu1 = new qmenubar(win) {		
@@ -1195,6 +1207,11 @@ Class FormDesignerView from WindowsViewParent
 					setbtnimage(self,"image/lcdnumber.png") 
 					setCheckable(True)
 			}
+ 			this.oToolbtn22 = new qPushButton(oToolBox) {
+					setText(this.TextSize("HyperLink",17))
+					setbtnimage(self,"image/hyperlink.png") 
+					setCheckable(True)
+			}
 
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolbtn1)
@@ -1218,6 +1235,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn19)
 				AddWidget(this.oToolbtn20)
 				AddWidget(this.oToolbtn21)
+				AddWidget(this.oToolbtn22)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1243,6 +1261,7 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn19,18)
 				AddButton(this.oToolbtn20,19)
 				AddButton(this.oToolbtn21,20)
+				AddButton(this.oToolbtn22,21)
 			}
 			setLayout(Layout1)
 		}
@@ -1478,6 +1497,7 @@ Class FormDesignerModel
 	nVideoWidgetsCount = 0
 	nFramesCount = 0
 	nLCDNumbersCount = 0
+	nHyperLinksCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1686,6 +1706,13 @@ Class FormDesignerModel
 	func LCDNumbersCount
 		return nLCDNumbersCount
 
+	func AddHyperLink oObject
+		nHyperLinksCount++
+		AddObject("HyperLink"+nHyperLinksCount,oObject)
+
+	func HyperLinksCount
+		return nHyperLinksCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -1710,6 +1737,7 @@ Class FormDesignerModel
 		nVideoWidgetsCount = 0
 		nFramesCount = 0
 		nLCDNumbersCount = 0
+		nHyperLinksCount = 0
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -2304,7 +2332,7 @@ class CommonAttributesMethods
 #{f9}
 		}' + nl
 		cClass = substr(classname(self),"formdesigner_","")
-		if cClass = "qimage" {
+		if cClass  = "qimage" or cClass = "qhyperlink"  {
 			cClass = "qlabel"
 		}
 		cOutput = substr(cOutput,"#{f1}",cClass)
@@ -5315,6 +5343,74 @@ class FormDesigner_QLCDNumber from QLCDNumber
 		itemdata = item[:data]
 		setDisplayValue(itemdata[:Display])
 
+class FormDesigner_QHyperLink from QLabel
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	cLink = "http://www.ring-lang.net"
+	cText = "Ring Language Website"
+
+	func LinkValue
+		return cLink
+
+	func SetLinkValue cValue
+		cLink = cValue	
+
+	func TextValue
+		return cText
+
+	func SetTextValue cValue
+		cText = cValue	
+		cOutput = '<a href="#{f1}">#{f2}</a>'
+		cOutput = substr(cOutput,"#{f1}",LinkValue())
+		cOutput = substr(cOutput,"#{f2}",TextValue())
+		setText(cOutput)
+
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Link",False)
+		oDesigner.oView.AddProperty("Text",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Set the Link Value
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(LinkValue())
+		# Set the Text Value
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(TextValue())
+		oPropertiesTable.Blocksignals(False)
+		setTextValue(cText) 
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		switch nRow {
+			case C_AFTERCOMMON 
+				setLinkValue(cValue)
+			case C_AFTERCOMMON + 1
+				setTextValue(cValue)
+		}
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :Link =  "' + LinkValue() + '"'
+		cOutput += "," + nl + cTabs + ' :Text =  "' + TextValue() + '"'
+		return cOutput
+
+	func GenerateCustomCode oDesigner
+		cOutput = `setText('<a href="#{f1}">#{f2}</a>')` + nl 
+		cOutput = substr(cOutput,"#{f1}",LinkValue())
+		cOutput = substr(cOutput,"#{f2}",TextValue())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setLinkValue(itemdata[:Link])
+		setTextValue(itemdata[:Text])
+
 class FormDesignerFileSystem
 
 	cFileName = "noname.rform"
@@ -5534,7 +5630,11 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddLCDNumber(new FormDesigner_QLCDNumber(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LCDNumbersCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
-
+					case :FormDesigner_QHyperLink
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddHyperLink(new FormDesigner_QHyperLink(oDesigner.oModel.FormObject()))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.HyperLinksCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
 			# Object Properties
