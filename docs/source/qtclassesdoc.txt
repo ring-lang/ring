@@ -20,6 +20,8 @@ C++ Reference : http://doc.qt.io/qt-5/QApplication.html
 * void processEvents(void)
 * void styleFusion(void)
 * void styleFusionBlack(void)
+* void closeAllWindows(void)
+* Qt::KeyboardModifiers keyboardModifiers(void)
 
 .. index::
 	pair: RingQt Classes Reference; QTest Class
@@ -1457,6 +1459,22 @@ Parent Class : QWidget
 * void setLineWidth(int)
 * void setMidLineWidth(int)
 * QSize sizeHint(void)
+
+.. index::
+	pair: RingQt Classes Reference; QFrame2 Class
+
+QFrame2 Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QFrame2.html
+
+
+Parameters : void
+
+
+Parent Class : QFrame
+
 
 .. index::
 	pair: RingQt Classes Reference; QAbstractScrollArea Class
