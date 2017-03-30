@@ -32,7 +32,8 @@ import formdesigner
 		:FormDesigner_QVideoWidget,
 		:FormDesigner_QFrame3,
 		:FormDesigner_QLCDNumber,
-		:FormDesigner_QHyperLink
+		:FormDesigner_QHyperLink,
+		:FormDesigner_QTimer
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -385,6 +386,17 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("HyperLink",oModel.HyperLinksCount())
+			SetToolboxModeToSelect()
+		elseif oView.oToolBtn23.ischecked()   # Create QTimer
+			HideCorners()
+			oModel.AddTimer(new FormDesigner_QTimer(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+				}
+			)
+			NewControlEvents("Timer",oModel.TimersCount())
 			SetToolboxModeToSelect()
 		}
 
@@ -922,7 +934,7 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
 	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 
-	oToolBtn19 oToolBtn20 oToolBtn21 oToolBtn22
+	oToolBtn19 oToolBtn20 oToolBtn21 oToolBtn22 oToolBtn23
 
 	func CreateMainWindow oModel
 
@@ -1208,8 +1220,13 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 			}
  			this.oToolbtn22 = new qPushButton(oToolBox) {
-					setText(this.TextSize("HyperLink",17))
+					setText(this.TextSize("HyperLink",20))
 					setbtnimage(self,"image/hyperlink.png") 
+					setCheckable(True)
+			}
+ 			this.oToolbtn23 = new qPushButton(oToolBox) {
+					setText(this.TextSize("Timer",22))
+					setbtnimage(self,"image/timer.png") 
 					setCheckable(True)
 			}
 
@@ -1236,6 +1253,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn20)
 				AddWidget(this.oToolbtn21)
 				AddWidget(this.oToolbtn22)
+				AddWidget(this.oToolbtn23)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1262,6 +1280,7 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn20,19)
 				AddButton(this.oToolbtn21,20)
 				AddButton(this.oToolbtn22,21)
+				AddButton(this.oToolbtn23,22)
 			}
 			setLayout(Layout1)
 		}
@@ -1498,6 +1517,7 @@ Class FormDesignerModel
 	nFramesCount = 0
 	nLCDNumbersCount = 0
 	nHyperLinksCount = 0
+	nTimersCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1713,6 +1733,13 @@ Class FormDesignerModel
 	func HyperLinksCount
 		return nHyperLinksCount
 
+	func AddTimer oObject
+		nTimersCount++
+		AddObject("Timer"+nTimersCount,oObject)
+
+	func TimersCount
+		return nTimersCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -1738,6 +1765,7 @@ Class FormDesignerModel
 		nFramesCount = 0
 		nLCDNumbersCount = 0
 		nHyperLinksCount = 0
+		nTimersCount = 0
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -5411,6 +5439,88 @@ class FormDesigner_QHyperLink from QLabel
 		setLinkValue(itemdata[:Link])
 		setTextValue(itemdata[:Text])
 
+class FormDesigner_QTimer from QLabel
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	cInterval = "1000"
+	cTimeOut = ""
+
+	func IntervalValue
+		return cInterval
+
+	func SetIntervalValue cValue
+		cInterval = cValue	
+
+	func TimeOutValue
+		return cTimeOut
+
+	func SetTimeOutValue cValue
+		cTimeOut = cValue	
+
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Interval",False)
+		oDesigner.oView.AddProperty("Timeout Event",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Set the Interval Value
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(IntervalValue())
+		# Set the Timeout Event Value
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(TimeOutValue())
+		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		switch nRow {
+			case C_AFTERCOMMON 
+				setIntervalValue(cValue)
+			case C_AFTERCOMMON + 1
+				setTimeOutValue(cValue)
+		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
+	func ObjectDataAsString nTabsCount
+		cOutput = ObjectDataAsString2(nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :Interval =  "' + IntervalValue() + '"'
+		cOutput += "," + nl + cTabs + ' :Timeout =  "' + TimeoutValue() + '"'
+		return cOutput
+
+	func GenerateCode oDesigner
+		cOutput = char(9) + char(9) + 
+		oDesigner.oModel.GetObjectName(self) + " = " +
+		'new #{f1}(win) {			
+#{f2}
+		}' + nl
+		cClass = substr(classname(self),"formdesigner_","")
+		cOutput = substr(cOutput,"#{f1}",cClass)
+		cOutput = substr(cOutput,"#{f2}",AddTabs(GenerateCustomCode(oDesigner),3))
+		return cOutput
+
+	func GenerateCustomCode oDesigner
+		cOutput = 'setInterval(#{f1})' + nl +
+				'setTimeoutevent("#{f2}")' + nl +
+				'start()' + nl
+		cOutput = substr(cOutput,"#{f1}",IntervalValue())
+		cOutput = PrepareEvent(cOutput,TimeoutValue(),"#{f2}")
+		cOutput = substr(cOutput,"#{f2}",TimeoutValue())
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setIntervalValue(itemdata[:Interval])
+		setTimeoutValue(itemdata[:Timeout])
+
+
 class FormDesignerFileSystem
 
 	cFileName = "noname.rform"
@@ -5634,6 +5744,11 @@ class FormDesignerFileSystem
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddHyperLink(new FormDesigner_QHyperLink(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.HyperLinksCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+					case :FormDesigner_QTimer
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddTimer(new FormDesigner_QTimer(oDesigner.oModel.FormObject()))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TimersCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
