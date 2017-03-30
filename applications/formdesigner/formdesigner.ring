@@ -2543,8 +2543,8 @@ class FormDesigner_QPushButton from QPushButton
 	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl 
 		cOutput += 'setClickEvent("#{f2}")' + nl
-		cOutput = PrepareEvent(cOutput,ClickEventCode(),"#{f2}")
 		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = PrepareEvent(cOutput,ClickEventCode(),"#{f2}")
 		cOutput = substr(cOutput,"#{f2}",ClickEventCode())
 		return cOutput
 
@@ -5039,12 +5039,16 @@ class FormDesigner_QWebView from QLineEdit
 		cOutput += 'loadpage(new qURL("#{f1}"))' + nl  
 		cOutput = substr(cOutput,"#{f1}",URLValue())
 		cOutput += 'setloadProgressEvent ("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,loadProgressEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",loadProgressEventCode())
 		cOutput += 'setloadStartedEvent ("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,loadStartedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",loadStartedEventCode())
 		cOutput += 'setselectionChangedEvent ("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,selectionChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",selectionChangedEventCode())
 		cOutput += 'seturlChangedEvent ("#{f1}")' + nl
+		cOutput = PrepareEvent(cOutput,urlChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",urlChangedEventCode())
 		return cOutput
 
