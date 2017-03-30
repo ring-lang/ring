@@ -3707,7 +3707,7 @@ class FormDesigner_QProgressbar from QLineEdit
 		setValueValue(itemdata[:value])
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
-class FormDesigner_QSpinBox from QSpinBox
+class FormDesigner_QSpinBox from QLineEdit 
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -3768,6 +3768,8 @@ class FormDesigner_QSpinBox from QSpinBox
 			oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(ValueValue())
 		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
@@ -3785,6 +3787,8 @@ class FormDesigner_QSpinBox from QSpinBox
 					setvalueChangedEventCode(cValue)
 			}
 		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString nTabsCount
 		cOutput = ObjectDataAsString2(nTabsCount)
@@ -3971,10 +3975,21 @@ class FormDesigner_QComboBox from QComboBox
 		SeteditTextChangedEventCode(itemdata[:seteditTextChangedEvent])
 		SethighlightedEventCode(itemdata[:sethighlightedEvent])
 
-class FormDesigner_QDateTimeEdit from QDateTimeedit
+class FormDesigner_QDateTimeEdit from QLineEdit 
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
 
 class FormDesigner_QTableWidget from QLineEdit
 
