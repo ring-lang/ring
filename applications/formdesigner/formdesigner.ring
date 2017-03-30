@@ -1918,7 +1918,7 @@ class FormDesigner_QWidget from QWidget
 		oDesigner.oView.oLabelSelect.show()
 
 	func MouseReleaseAction oDesigner
-	        oDesigner.oView.oLabelSelect.hide()
+		oDesigner.oView.oLabelSelect.hide()
 		aRect = GetRectDim(oDesigner)
 		oDesigner.SelectDrawAction(aRect)
 
@@ -2008,6 +2008,7 @@ Class MoveResizeCorners
 		lResize = False
 		nResizeMode = 0
 		setCursor(oDesigner.oGeneral.oCursorA())
+		DisplayProperties(oDesigner)
 
 	func MouseMove oDesigner
 		if not resizeEvent(oDesigner) { return }
