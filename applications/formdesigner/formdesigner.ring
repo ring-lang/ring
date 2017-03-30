@@ -2020,7 +2020,9 @@ Class MoveResizeCorners
 		lResize = False
 		nResizeMode = 0
 		setCursor(oDesigner.oGeneral.oCursorA())
-		DisplayProperties(oDesigner)
+		if not oDesigner.oModel.IsManySelected() {
+			DisplayProperties(oDesigner)
+		}
 
 	func MouseMove oDesigner
 		if not resizeEvent(oDesigner) { return }
