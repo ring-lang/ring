@@ -761,12 +761,25 @@ class FormDesignerController from WindowsControllerParent
 
 	func MSCenterHor
 		aObjects = oModel.GetSelectedObjects()
+		# Get Minimum Left and Maximum Left+Width
+		nMinLeft = 5000
+		nMaxLeftWidth = 0
 		for item in aObjects {
 			oObject = item[2]
-			nLeft = (oObject.ParentWidget().Width() - oObject.Width() ) / 2
-			oObject.move(nLeft,oObject.y())
+			nMinLeft = min(nMinLeft,oObject.x())
+			nMaxLeftWidth = max(nMaxLeftWidth,oObject.x()+oObject.Width())
+		}
+		# Get Left Difference 
+			nDiff = nMaxLeftWidth - nMinLeft
+			nLeft = (oObject.ParentWidget().Width() - nDiff ) / 2
+			nDiff = nMinLeft - nLeft
+		# Apply the Left difference to all controls 
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move(oObject.x()-nDiff,oObject.y())
 			oObject.oCorners.Refresh(oObject)
 		}
+
 
 	func MSSizeToTallest
 		aObjects = oModel.GetSelectedObjects()
