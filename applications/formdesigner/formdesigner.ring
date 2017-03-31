@@ -740,10 +740,22 @@ class FormDesignerController from WindowsControllerParent
 
 	func MSCenterVer
 		aObjects = oModel.GetSelectedObjects()
+		# Get Minimum Top and Maximum Top+Height 
+		nMinTop = 5000
+		nMaxTopHeight = 0
 		for item in aObjects {
 			oObject = item[2]
-			nTop = (oObject.ParentWidget().Height() - oObject.height() ) / 2
-			oObject.move(oObject.x() , nTop)
+			nMinTop = min(nMinTop,oObject.y())
+			nMaxTopHeight = max(nMaxTopHeight,oObject.y()+oObject.Height())
+		}
+		# Get Top Difference 
+			nDiff = nMaxTopHeight - nMinTop
+			nTop = (oObject.ParentWidget().Height() - nDiff ) / 2
+			nDiff = nMinTop - nTop
+		# Apply the Top difference to all controls 
+		for item in aObjects {
+			oObject = item[2]
+			oObject.move(oObject.x() ,oObject.y()-nDiff)
 			oObject.oCorners.Refresh(oObject)
 		}
 
