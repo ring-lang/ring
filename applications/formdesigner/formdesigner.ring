@@ -5566,6 +5566,7 @@ class FormDesignerFileSystem
 				cInputFileName = getsavefilename(oDesigner.oView.win,"New Form",currentdir(),"*.rform")
 			}
 			if cInputFileName = NULL { return }
+			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
 		# Delete Objects 
 			DeleteAllObjects(oDesigner)
@@ -5582,6 +5583,12 @@ class FormDesignerFileSystem
 			SaveFormToFile(oDesigner)
 		# Properties 
 			oDesigner.ObjectProperties()
+
+	func AddExtensionToName cInputFileName
+		if not right(lower(cInputFileName),5) = "rform" {
+			cInputFileName += ".rform"
+		}
+		return cInputFileName
 
 	func OpenAction oDesigner
 		# Get the file Name
@@ -5609,6 +5616,7 @@ class FormDesignerFileSystem
 				cInputFileName = getsavefilename(oDesigner.oView.win,"Save Form",currentdir(),"*.rform")
 			}
 			if cInputFileName = NULL { return }
+			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
 			SaveFormToFile(oDesigner)
 
