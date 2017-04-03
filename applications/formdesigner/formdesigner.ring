@@ -2005,7 +2005,7 @@ class FormDesigner_QWidget from QWidget
 		height = max(nY,nY2) - min(nY,nY2)  
 		return [left,top,width,height]
 
-	func ObjectDataAsString nTabsCount
+	func ObjectDataAsString oDesigner,nTabsCount
 		cTabs = copy(char(9),nTabsCount) 
 		cOutput = cTabs + " :x = #{f1} , : y = #{f2}  , " + nl
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
@@ -2397,10 +2397,10 @@ class CommonAttributesMethods
 			DisplayProperties(oDesigner) 
 		}
 
-	func  ObjectDataAsString nTabsCount
-		return ObjectDataAsString2(nTabsCount)
+	func  ObjectDataAsString oDesigner,nTabsCount
+		return ObjectDataAsString2(oDesigner,nTabsCount)
 
-	func ObjectDataAsString2 nTabsCount
+	func ObjectDataAsString2 oDesigner,nTabsCount
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput = cTabs + " :x = #{f1} , : y = #{f2}  , " + nl
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
@@ -2460,6 +2460,7 @@ class CommonAttributesMethods
 		blocksignals(true)
 		setMouseTracking(True)
 		setFocusPolicy(0)
+		oDesigner.oModel.SetObjectName(self,item[:name])
 		move(itemdata[:x],itemdata[:y]) 
 		resize(itemdata[:width],itemdata[:height])
 		setTextColor(itemdata[:textcolor])
@@ -2537,8 +2538,8 @@ class FormDesigner_QLabel from QLabel
 			setTextAlign(nIndex)
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign() 
@@ -2602,8 +2603,8 @@ class FormDesigner_QPushButton from QPushButton
 			}
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :setClickEvent =  "' + ClickEventCode() + '"'
@@ -2728,8 +2729,8 @@ class FormDesigner_QLineEdit from QLineEdit
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :text =  "' + TextValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setTextChangedEvent =  "' + TextChangedEventCode() + '"'
@@ -2892,8 +2893,8 @@ class FormDesigner_QTextEdit from QLineEdit
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :text =  "' + TextValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setcopyAvailableEvent =  "' + copyAvailableEventCode() + '"'
@@ -3104,8 +3105,8 @@ class FormDesigner_QListWidget from QLineEdit
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :cItems =  "' + cItemsValue() + '"'
 		cOutput += "," + nl + cTabs + ' :cCurrentRow =  "' + cCurrentRowValue() + '"'
@@ -3264,8 +3265,8 @@ class FormDesigner_QCheckBox from QCheckBox
 			}
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :setstateChangedEvent =  "' + stateChangedEventCode() + '"'
@@ -3346,8 +3347,8 @@ class FormDesigner_QImage from QLabel
 				setText(oDesigner.oModel.GetObjectName(self))
 			}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :imagefile =  "' + ImageFile() + '"'
 		return cOutput
@@ -3534,8 +3535,8 @@ class FormDesigner_QSlider from QSlider
 			}
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :orientation =  ' + OrientationValue() 
 		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
@@ -3715,8 +3716,8 @@ class FormDesigner_QProgressbar from QLineEdit
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :orientation =  ' + OrientationValue() 
 		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
@@ -3844,8 +3845,8 @@ class FormDesigner_QSpinBox from QLineEdit
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
@@ -3981,8 +3982,8 @@ class FormDesigner_QComboBox from QComboBox
 			clear() AddItem(oDesigner.oModel.GetObjectName(self),0)
 
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :cItems =  "' + cItemsValue() + '"'
 		cOutput += "," + nl + cTabs + ' :cCurrentIndex =  "' + cCurrentIndexValue() + '"'
@@ -4356,8 +4357,8 @@ class FormDesigner_QTableWidget from QLineEdit
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :RowCount =  "' + RowCountValue() + '"'
 		cOutput += "," + nl + cTabs + ' :ColumnCount =  "' + ColumnCountValue() + '"'
@@ -4789,8 +4790,8 @@ class FormDesigner_QTreeWidget from QLineEdit
 			setHeaderHiddenValue(nIndex)
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :columncount =  "' + ColumnCountValue() + '"'
 		cOutput += "," + nl + cTabs + ' :headerlabels =  "' + HeaderLabelsValue() + '"'
@@ -4989,8 +4990,8 @@ class FormDesigner_QRadioButton from QRadioButton
 			}
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :setclickedEvent =  "' + clickedEventCode() + '"'
@@ -5108,8 +5109,8 @@ class FormDesigner_QWebView from QLineEdit
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :URL =  "' + URLValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setloadProgressEvent  =  "' + loadProgressEventCode() + '"'
@@ -5224,8 +5225,8 @@ class FormDesigner_QDial from QDial
 			}
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
@@ -5305,8 +5306,8 @@ class FormDesigner_QVideoWidget from QLineEdit
 				setText(oDesigner.oModel.GetObjectName(self))
 			}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :Videofile =  "' + VideoFile() + '"'
 		return cOutput
@@ -5388,8 +5389,8 @@ class FormDesigner_QFrame3 from QFrame3
 			setFrameType(nIndex)
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :FrameType =  ' + FrameType() 
 		return cOutput
@@ -5443,8 +5444,8 @@ class FormDesigner_QLCDNumber from QLCDNumber
 			setDisplayValue(0+cValue)
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :display =  ' + DisplayValue()
 		return cOutput
@@ -5508,8 +5509,8 @@ class FormDesigner_QHyperLink from QLabel
 				setTextValue(cValue)
 		}
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :Link =  "' + LinkValue() + '"'
 		cOutput += "," + nl + cTabs + ' :Text =  "' + TextValue() + '"'
@@ -5575,8 +5576,8 @@ class FormDesigner_QTimer from QLabel
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :Interval =  "' + IntervalValue() + '"'
 		cOutput += "," + nl + cTabs + ' :Timeout =  "' + TimeoutValue() + '"'
@@ -5954,8 +5955,8 @@ class FormDesigner_QAllEvents from QLabel
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ObjectDataAsString nTabsCount
-		cOutput = ObjectDataAsString2(nTabsCount)
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
 		cOutput += "," + nl + cTabs + ' :controlname =  "' + ControlNameValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setKeyPressEvent =  "' + KeyPressEventCode() + '"'
@@ -6201,7 +6202,7 @@ class FormDesignerFileSystem
 					aObject  = oDesigner.oModel.aObjectsList[x]
 					cObjContent = Copy(char(9),1) + 
 					'[ :name = "#{f1}" , :id = #{f2} , :classname = "#{f3}" , :data = [' + nl
-					cObjContent += aObject[2].ObjectDataAsString(2) + nl
+					cObjContent += aObject[2].ObjectDataAsString(oDesigner,2) + nl
 					cObjContent += Copy(char(9),2) +	"]" + nl + Copy(char(9),1) + "]" 
 					cObjContent = substr(cObjContent,"#{f1}",aObject[1])
 					cObjContent = substr(cObjContent,"#{f2}",""+aObject[3])
@@ -6369,6 +6370,8 @@ class FormDesignerFileSystem
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
+			# Objects List 
+				oDesigner.AddObjectsToCombo()
 			# Object Properties
 				oDesigner.ObjectProperties()
 
