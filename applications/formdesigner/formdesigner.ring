@@ -6453,7 +6453,6 @@ class #{f1}controller from windowsControllerParent
 		}
 		return cCode
 
-
 class windowflagsView from WindowsViewParent
 	win = new qWidget() { 
 		move(64,40)
@@ -6536,3 +6535,42 @@ class windowflagsView from WindowsViewParent
 			setClickEvent(Method(:CancelAction))
 		}
 	}
+
+class windowflagscontroller from windowsControllerParent
+
+	oView = new windowflagsView {
+		win.setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint )
+		ListHints.setselectionmode(QAbstractItemView_MultiSelection)
+		win.setwindowmodality(True)
+	}
+
+	aTypeList = [ "Qt_Window"  , "Qt_dialog"  , "Qt_sheet"  ,
+			"Qt_Drawer"  , "Qt_popup"  , "Qt_Tool"  , "Qt_ToolTip"  , 
+			"Qt_SplashScreen"  ]
+
+	aHintsList = ["Qt_WindowTitleHint"  , 
+			"Qt_WindowSystemMenuHint"  ,
+			"Qt_WindowMinimizeButtonHint"  , 
+			"Qt_WindowMaximizeButtonHint"  ,
+			"Qt_WindowCloseButtonHint" ,
+			"Qt_WindowContextHelpButtonHint"  ,
+			"Qt_WindowShadeButtonHint" ,
+			"Qt_WindowStaysOnTopHint"  ,
+			"Qt_WindowStaysOnBottomHint"  ,
+			"Qt_CustomizeWindowHint" ]
+
+	cFlags = ""	# The window output 
+
+	func OkAction
+		cFlags = ""
+		nType = oView.ListType.currentrow() + 1
+		cFlags += aTypeList[nType]
+		for x = 1 to len(aHintsList) {
+			if oView.ListHints.item(x-1).isSelected() {
+				cFlags += " | " + aHintsList[x]
+			}
+		}		
+		oView.Close()
+
+	func CancelAction
+		oView.Close()
