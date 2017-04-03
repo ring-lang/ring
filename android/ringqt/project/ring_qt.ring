@@ -1567,7 +1567,7 @@ Class QTextEdit from QAbstractScrollArea
 	Func cyanline P1
 		return QTextEdit_cyanline(pObject,GetObjectPointerFromRingObject(P1))
 
-Class QListWidget from QWidget
+Class QListWidget from QListView
 
 	pObject
 
@@ -14451,6 +14451,106 @@ Class QCursor
 	Func shape 
 		return QCursor_shape(pObject)
 
+Class QListView from QAbstractItemView
+
+	pObject
+
+	Func init P1
+		pObject = QListView_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QListView_delete(pObject)
+
+	Func batchSize 
+		return QListView_batchSize(pObject)
+
+	Func clearPropertyFlags 
+		return QListView_clearPropertyFlags(pObject)
+
+	Func flow 
+		return QListView_flow(pObject)
+
+	Func gridSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QListView_gridSize(pObject)
+		return pTempObj
+
+	Func isRowHidden P1
+		return QListView_isRowHidden(pObject,P1)
+
+	Func isSelectionRectVisible 
+		return QListView_isSelectionRectVisible(pObject)
+
+	Func isWrapping 
+		return QListView_isWrapping(pObject)
+
+	Func layoutMode 
+		return QListView_layoutMode(pObject)
+
+	Func modelColumn 
+		return QListView_modelColumn(pObject)
+
+	Func movement 
+		return QListView_movement(pObject)
+
+	Func resizeMode 
+		return QListView_resizeMode(pObject)
+
+	Func setBatchSize P1
+		return QListView_setBatchSize(pObject,P1)
+
+	Func setFlow P1
+		return QListView_setFlow(pObject,P1)
+
+	Func setGridSize P1
+		return QListView_setGridSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLayoutMode P1
+		return QListView_setLayoutMode(pObject,P1)
+
+	Func setModelColumn P1
+		return QListView_setModelColumn(pObject,P1)
+
+	Func setMovement P1
+		return QListView_setMovement(pObject,P1)
+
+	Func setResizeMode P1
+		return QListView_setResizeMode(pObject,P1)
+
+	Func setRowHidden P1,P2
+		return QListView_setRowHidden(pObject,P1,P2)
+
+	Func setSelectionRectVisible P1
+		return QListView_setSelectionRectVisible(pObject,P1)
+
+	Func setSpacing P1
+		return QListView_setSpacing(pObject,P1)
+
+	Func setUniformItemSizes P1
+		return QListView_setUniformItemSizes(pObject,P1)
+
+	Func setViewMode P1
+		return QListView_setViewMode(pObject,P1)
+
+	Func setWordWrap P1
+		return QListView_setWordWrap(pObject,P1)
+
+	Func setWrapping P1
+		return QListView_setWrapping(pObject,P1)
+
+	Func spacing 
+		return QListView_spacing(pObject)
+
+	Func uniformItemSizes 
+		return QListView_uniformItemSizes(pObject)
+
+	Func viewMode 
+		return QListView_viewMode(pObject)
+
+	Func wordWrap 
+		return QListView_wordWrap(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
@@ -14483,6 +14583,28 @@ Class QSize
 
 	Func delete
 		pObject = QSize_delete(pObject)
+
+Class QFrame2 from QFrame
+
+	pObject
+
+	Func init 
+		pObject = QFrame2_new()
+		return self
+
+	Func delete
+		pObject = QFrame2_delete(pObject)
+
+Class QFrame3 from QFrame
+
+	pObject
+
+	Func init P1
+		pObject = QFrame3_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QFrame3_delete(pObject)
 
 Class QDateEdit from QDateTimeEdit
 
