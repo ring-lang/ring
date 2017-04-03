@@ -282,3 +282,9 @@ Qt_Key_PageUp	= dec("01000016")
 Qt_Key_PageDown	= dec("01000017")
 Qt_Key_Shift	= dec("01000020")
 Qt_Key_Control	= dec("01000021")
+
+QAbstractItemView_SingleSelection = 1
+QAbstractItemView_ContiguousSelection = 4
+QAbstractItemView_ExtendedSelection = 3
+QAbstractItemView_MultiSelection = 2
+QAbstractItemView_NoSelection = 0
