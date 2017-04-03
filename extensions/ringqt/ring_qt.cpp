@@ -197,6 +197,7 @@ extern "C" {
 #include <QMdiSubWindow>
 #include <QCursor>
 #include "highlighter.h"
+#include <QListView>
 
 extern "C" {
 
@@ -81127,6 +81128,566 @@ RING_FUNC(ring_QCursor_shape)
 	RING_API_RETNUMBER(pObject->shape());
 }
 
+
+RING_FUNC(ring_QListView_batchSize)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->batchSize());
+}
+
+
+RING_FUNC(ring_QListView_clearPropertyFlags)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	pObject->clearPropertyFlags();
+}
+
+
+RING_FUNC(ring_QListView_flow)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->flow());
+}
+
+
+RING_FUNC(ring_QListView_gridSize)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	{
+		QSize  *pValue ; 
+		pValue = (QSize  *) malloc(sizeof(QSize )) ;
+		*pValue = pObject->gridSize();
+		RING_API_RETCPOINTER(pValue,"QSize");
+	}
+}
+
+
+RING_FUNC(ring_QListView_isRowHidden)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isRowHidden( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QListView_isSelectionRectVisible)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->isSelectionRectVisible());
+}
+
+
+RING_FUNC(ring_QListView_isWrapping)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->isWrapping());
+}
+
+
+RING_FUNC(ring_QListView_layoutMode)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->layoutMode());
+}
+
+
+RING_FUNC(ring_QListView_modelColumn)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->modelColumn());
+}
+
+
+RING_FUNC(ring_QListView_movement)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->movement());
+}
+
+
+RING_FUNC(ring_QListView_resizeMode)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->resizeMode());
+}
+
+
+RING_FUNC(ring_QListView_setBatchSize)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setBatchSize( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setFlow)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFlow( (QListView::Flow )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setGridSize)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	pObject->setGridSize(* (QSize    *) RING_API_GETCPOINTER(2,"QSize"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSize"));
+}
+
+
+RING_FUNC(ring_QListView_setLayoutMode)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLayoutMode( (QListView::LayoutMode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setModelColumn)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setModelColumn( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setMovement)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMovement( (QListView::Movement )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setResizeMode)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setResizeMode( (QListView::ResizeMode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setRowHidden)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowHidden( (int ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QListView_setSelectionRectVisible)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSelectionRectVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setSpacing)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSpacing( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setUniformItemSizes)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setUniformItemSizes( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setViewMode)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setViewMode( (QListView::ViewMode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setWordWrap)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWordWrap( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_setWrapping)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWrapping( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QListView_spacing)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->spacing());
+}
+
+
+RING_FUNC(ring_QListView_uniformItemSizes)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->uniformItemSizes());
+}
+
+
+RING_FUNC(ring_QListView_viewMode)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->viewMode());
+}
+
+
+RING_FUNC(ring_QListView_wordWrap)
+{
+	QListView *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
+	RING_API_RETNUMBER(pObject->wordWrap());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -83038,6 +83599,21 @@ RING_FUNC(ring_QCursor_new)
 	}
 	QCursor *pObject = new QCursor();
 	RING_API_RETCPOINTER(pObject,"QCursor");
+}
+
+RING_FUNC(ring_QListView_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QListView *pObject = new QListView((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	RING_API_RETCPOINTER(pObject,"QListView");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -85181,6 +85757,21 @@ RING_FUNC(ring_QCursor_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QListView_delete)
+{
+	QListView *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
 		delete pObject ;
 	}
 }
@@ -89165,6 +89756,35 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcursor_pixmap",ring_QCursor_pixmap);
 	ring_vm_funcregister("qcursor_setshape",ring_QCursor_setShape);
 	ring_vm_funcregister("qcursor_shape",ring_QCursor_shape);
+	ring_vm_funcregister("qlistview_batchsize",ring_QListView_batchSize);
+	ring_vm_funcregister("qlistview_clearpropertyflags",ring_QListView_clearPropertyFlags);
+	ring_vm_funcregister("qlistview_flow",ring_QListView_flow);
+	ring_vm_funcregister("qlistview_gridsize",ring_QListView_gridSize);
+	ring_vm_funcregister("qlistview_isrowhidden",ring_QListView_isRowHidden);
+	ring_vm_funcregister("qlistview_isselectionrectvisible",ring_QListView_isSelectionRectVisible);
+	ring_vm_funcregister("qlistview_iswrapping",ring_QListView_isWrapping);
+	ring_vm_funcregister("qlistview_layoutmode",ring_QListView_layoutMode);
+	ring_vm_funcregister("qlistview_modelcolumn",ring_QListView_modelColumn);
+	ring_vm_funcregister("qlistview_movement",ring_QListView_movement);
+	ring_vm_funcregister("qlistview_resizemode",ring_QListView_resizeMode);
+	ring_vm_funcregister("qlistview_setbatchsize",ring_QListView_setBatchSize);
+	ring_vm_funcregister("qlistview_setflow",ring_QListView_setFlow);
+	ring_vm_funcregister("qlistview_setgridsize",ring_QListView_setGridSize);
+	ring_vm_funcregister("qlistview_setlayoutmode",ring_QListView_setLayoutMode);
+	ring_vm_funcregister("qlistview_setmodelcolumn",ring_QListView_setModelColumn);
+	ring_vm_funcregister("qlistview_setmovement",ring_QListView_setMovement);
+	ring_vm_funcregister("qlistview_setresizemode",ring_QListView_setResizeMode);
+	ring_vm_funcregister("qlistview_setrowhidden",ring_QListView_setRowHidden);
+	ring_vm_funcregister("qlistview_setselectionrectvisible",ring_QListView_setSelectionRectVisible);
+	ring_vm_funcregister("qlistview_setspacing",ring_QListView_setSpacing);
+	ring_vm_funcregister("qlistview_setuniformitemsizes",ring_QListView_setUniformItemSizes);
+	ring_vm_funcregister("qlistview_setviewmode",ring_QListView_setViewMode);
+	ring_vm_funcregister("qlistview_setwordwrap",ring_QListView_setWordWrap);
+	ring_vm_funcregister("qlistview_setwrapping",ring_QListView_setWrapping);
+	ring_vm_funcregister("qlistview_spacing",ring_QListView_spacing);
+	ring_vm_funcregister("qlistview_uniformitemsizes",ring_QListView_uniformItemSizes);
+	ring_vm_funcregister("qlistview_viewmode",ring_QListView_viewMode);
+	ring_vm_funcregister("qlistview_wordwrap",ring_QListView_wordWrap);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -89308,6 +89928,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmdiarea_new",ring_QMdiArea_new);
 	ring_vm_funcregister("qmdisubwindow_new",ring_QMdiSubWindow_new);
 	ring_vm_funcregister("qcursor_new",ring_QCursor_new);
+	ring_vm_funcregister("qlistview_new",ring_QListView_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -89451,4 +90072,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmdiarea_delete",ring_QMdiArea_delete);
 	ring_vm_funcregister("qmdisubwindow_delete",ring_QMdiSubWindow_delete);
 	ring_vm_funcregister("qcursor_delete",ring_QCursor_delete);
+	ring_vm_funcregister("qlistview_delete",ring_QListView_delete);
 }
