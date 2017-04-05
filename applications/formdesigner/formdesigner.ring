@@ -1880,6 +1880,16 @@ Class FormDesignerModel
 			}
 		}
 
+	func GetObjectClassByName cName
+		cOutput = ""
+		for Item in aObjectsList {
+			if lower(trim(Item[1])) = lower(trim(cName))  {
+				cOutput = lower(classname(Item[2]))
+				exit 
+			}
+		}
+		return cOutput
+
 Class FormDesignerGeneral
 
 	func oCursorA
@@ -6288,7 +6298,11 @@ class FormDesigner_QLayout from QLabel
 		if LayoutObjectsValue() != NULL {
 			aItems = split(LayoutObjectsValue(),",")
 			for item in aItems {
-				cOutput += 'AddWidget(#{f1})' + nl
+				if not oDesigner.oModel.GetObjectClassByName(item) = "formdesigner_qlayout" {
+					cOutput += 'AddWidget(#{f1})' + nl
+				else
+					cOutput += 'AddLayout(#{f1})' + nl
+				}
 				cOutput = substr(cOutput,"#{f1}",Item)
 			}
 		}
