@@ -1890,6 +1890,13 @@ Class FormDesignerModel
 		}
 		return cOutput
 
+	func GetObjectsNames 
+		aList = []
+		for Item in aObjectsList {
+			aList + Item[1]
+		}
+		return aList
+
 Class FormDesignerGeneral
 
 	func oCursorA
@@ -6230,7 +6237,7 @@ class FormDesigner_QLayout from QLabel
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddPropertyCombobox("Type",["Vertical","Horizontal"])
-		oDesigner.oView.AddProperty("Objects (S: Comma)",False)
+		oDesigner.oView.AddProperty("Objects (S: Comma)",True)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
@@ -6268,6 +6275,19 @@ class FormDesigner_QLayout from QLabel
 			oCombo.pObject = oWidget.pObject 
 			nIndex = oCombo.CurrentIndex()
 			setLayoutTypeValue(nIndex)
+		}
+
+	func DialogButtonAction oDesigner,nRow 
+		switch nRow {
+			case C_AFTERCOMMON + 1 	# Layout Objects
+				open_window(:WindowObjectsController)
+				Last_Window().setParentObject(oDesigner)
+				aList = oDesigner.oModel.GetObjectsNames()
+				# Remove the window Object name
+					del(aList,1)	
+				# Remove the current layout object name 
+					del(aList,std_find(aList,oDesigner.oModel.GetObjectName(self))) 
+				Last_Window().LoadObjectsData(aList)
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
@@ -6779,3 +6799,89 @@ class windowflagscontroller from windowsControllerParent
 
 	func CancelAction
 		oView.Close()
+
+class windowObjectsView from WindowsViewParent
+	win = new qWidget() { 
+		move(64,40)
+		resize(395,376)
+		setWindowTitle("Window Objects")
+		setstylesheet("background-color:;")
+		LabelObjects = new qlabel(win) {
+			move(10,13)
+			resize(41,26)
+			setstylesheet("color:black;background-color:;")
+			oFont = new qfont("",0,0,0)
+			oFont.fromstring("")
+			setfont(oFont)
+			setText("Objects")
+			setAlignment(Qt_AlignRight |  Qt_AlignVCenter)
+		}
+		ListObjects = new qlistwidget(win) {
+			move(56,13)
+			resize(321,290)
+			setstylesheet("color:black;background-color:;")
+			oFont = new qfont("",0,0,0)
+			oFont.fromstring("")
+			setfont(oFont)
+		}
+		BtnOk = new qpushbutton(win) {
+			move(236,315)
+			resize(68,25)
+			setstylesheet("color:black;background-color:;")
+			oFont = new qfont("",0,0,0)
+			oFont.fromstring("")
+			setfont(oFont)
+			setText("Ok")
+			setClickEvent(Method(:okAction))
+			
+		}
+		BtnCancel = new qpushbutton(win) {
+			move(309,315)
+			resize(68,25)
+			setstylesheet("color:black;background-color:;")
+			oFont = new qfont("",0,0,0)
+			oFont.fromstring("")
+			setfont(oFont)
+			setText("Cancel")
+			setClickEvent(Method(:CancelAction))
+		}
+	}
+
+class windowObjectscontroller from windowsControllerParent
+
+	oView = new windowObjectsView {
+		win.setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint )
+		ListObjects.setselectionmode(QAbstractItemView_MultiSelection)
+		win.setwindowmodality(2)
+	}
+
+	aObjectsList = []
+
+	func LoadObjectsData aList
+		aObjectsList = aList 
+		for item in aObjectsList {
+			oView.ListObjects.AddItem(item)
+		}
+
+	func OkAction
+		cObjects = ""
+		for x = 1 to len(aObjectsList) {
+			if oView.ListObjects.item(x-1).isSelected() {
+				if not cObjects = NULL {
+					cObjects += "," + aObjectsList[x]
+				else 
+					cObjects += aObjectsList[x]
+				}
+			}
+		}		
+		oPropertiesTable = parent().oView.oPropertiesTable
+		# Set the Window Flags
+			oPropertiesTable.Blocksignals(True)
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(cObjects)
+			oPropertiesTable.Blocksignals(False)
+		parent().oModel.ActiveObject().setLayoutObjectsValue(cObjects)
+		oView.Close()
+
+	func CancelAction
+		oView.Close()
+
