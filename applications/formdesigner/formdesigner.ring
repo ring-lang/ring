@@ -34,7 +34,8 @@ import formdesigner
 		:FormDesigner_QLCDNumber,
 		:FormDesigner_QHyperLink,
 		:FormDesigner_QTimer,
-		:FormDesigner_QAllEvents
+		:FormDesigner_QAllEvents,
+		:FormDesigner_QLayout
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -414,6 +415,17 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("AllEvents",oModel.AllEventsCount())
+			SetToolboxModeToSelectAfterDraw()
+		elseif oView.oToolBtn25.ischecked()   # Create QLayout 
+			HideCorners()
+			oModel.AddLayout(new FormDesigner_QLayout(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+				}
+			)
+			NewControlEvents("Layout",oModel.LayoutsCount())
 			SetToolboxModeToSelectAfterDraw()
 		}
 
@@ -977,7 +989,7 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
 	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 
 	oToolBtn19 oToolBtn20 oToolBtn21 oToolBtn22 oToolBtn23
-	oToolBtn24
+	oToolBtn24 oToolBtn25
 
 	func CreateMainWindow oModel
 
@@ -1283,6 +1295,11 @@ Class FormDesignerView from WindowsViewParent
 					setbtnimage(self,"image/allevents.png") 
 					setCheckable(True)
 			}
+ 			this.oToolbtn25 = new qPushButton(oToolBox) {
+					setText(this.TextSize("Layout",20))
+					setbtnimage(self,"image/layout.png") 
+					setCheckable(True)
+			}
 
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolLock)
@@ -1310,6 +1327,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn22)
 				AddWidget(this.oToolbtn23)
 				AddWidget(this.oToolbtn24)
+				AddWidget(this.oToolbtn25)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1338,6 +1356,7 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn22,21)
 				AddButton(this.oToolbtn23,22)
 				AddButton(this.oToolbtn24,23)
+				AddButton(this.oToolbtn25,24)
 			}
 			setLayout(Layout1)
 		}
@@ -1576,6 +1595,7 @@ Class FormDesignerModel
 	nHyperLinksCount = 0
 	nTimersCount = 0
 	nAllEventsCount = 0
+	nLayoutsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1805,6 +1825,13 @@ Class FormDesignerModel
 	func AllEventsCount
 		return nAllEventsCount
 
+	func AddLayout oObject
+		nLayoutsCount++
+		AddObject("Layout"+nLayoutsCount,oObject)
+
+	func LayoutsCount
+		return nLayoutsCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -1832,6 +1859,7 @@ Class FormDesignerModel
 		nHyperLinksCount = 0
 		nTimersCount = 0
 		nAllEventsCount = 0
+		nLayoutsCount = 0
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -1911,6 +1939,7 @@ class FormDesigner_QWidget from QWidget
 	oSubWindow
 	nX=0 nY=0		# for Select/Draw
 	cWindowFlags = ""
+	cMainLayout = ""
 
 	func BackColor
 		return cBackColor
@@ -1931,6 +1960,12 @@ class FormDesigner_QWidget from QWidget
 	func SetWindowFlagsValue cValue 
 		cWindowFlags = cValue
 
+	func MainLayoutValue 
+		return cMainLayout
+
+	func SetMainLayoutValue cValue 
+		cMainLayout = cValue 
+
 	func AddObjectProperties  oDesigner
 		oDesigner.oView.AddProperty("X",False)
 		oDesigner.oView.AddProperty("Y",False)
@@ -1939,6 +1974,7 @@ class FormDesigner_QWidget from QWidget
 		oDesigner.oView.AddProperty("Title",False)
 		oDesigner.oView.AddProperty("Back Color",True)
 		oDesigner.oView.AddProperty("Window Flags",True)
+		oDesigner.oView.AddProperty("Set Layout",False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
@@ -1957,6 +1993,8 @@ class FormDesigner_QWidget from QWidget
 					setBackColor(cValue)
 				case 6	# Window Flags
 					setWindowFlagsValue(cValue)
+				case 7  	# Main Layout
+					setMainLayoutValue(cValue)
 			}
 		}
 
@@ -1977,6 +2015,8 @@ class FormDesigner_QWidget from QWidget
 			oPropertiesTable.item(5,1).settext(backcolor())
 		# Set the Window Flags
 			oPropertiesTable.item(6,1).settext(WindowFlagsValue())
+		# Set the Main Layout
+			oPropertiesTable.item(7,1).settext(MainLayoutValue())
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
@@ -2025,7 +2065,8 @@ class FormDesigner_QWidget from QWidget
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
 		cOutput += cTabs + ' :title =  "#{f5}" , ' + nl
 		cOutput += cTabs + ' :backcolor =  "#{f6}" , '
-		cOutput += cTabs + ' :windowflags =  "#{f7}" '
+		cOutput += cTabs + ' :windowflags =  "#{f7}" , '
+		cOutput += cTabs + ' :mainlayout =  "#{f8}" ' + nl
 		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
 		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
@@ -2033,6 +2074,7 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f5}",windowtitle())
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",WindowFlagsValue())
+		cOutput = substr(cOutput,"#{f8}",MainLayoutValue())
 		return cOutput 
 
 	func GenerateCode oDesigner
@@ -2040,8 +2082,11 @@ class FormDesigner_QWidget from QWidget
 		'move(#{f1},#{f2})
 		resize(#{f3},#{f4})
 		setWindowTitle("#{f5}")
-		setstylesheet("background-color:#{f6};")
+		setstylesheet("background-color:#{f6};") ' + nl
+		if not WindowFlagsValue() = NULL {
+			cOutput += '
 		setWindowFlags(#{f7}) ' + nl
+		}
 		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
 		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
@@ -2050,6 +2095,15 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",WindowFlagsValue())
 		return cOutput
+
+	func GenerateCodeAfterObjects oDesigner
+		cOutput = ""
+		if not MainLayoutValue() = NULL {
+			cOutput += '
+		setLayout(#{f1}) ' + nl
+			cOutput = substr(cOutput,"#{f1}",MainLayoutValue())
+		}
+		return cOutput 
 
 Class MoveResizeCorners 
 
@@ -6143,6 +6197,108 @@ class FormDesigner_QAllEvents from QLabel
 		SetWindowUnblockedEventCode(itemdata[:setWindowUnblockedEvent])
 		SetPaintEventCode(itemdata[:setPaintEvent])
 
+class FormDesigner_QLayout from QLabel
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	nLayoutType = 0
+	cLayoutObjects = ""
+
+	func LayoutTypeValue
+		return nLayoutType
+
+	func SetLayoutTypeValue Value 
+		nLayoutType = Value 
+
+	func LayoutObjectsValue
+		return cLayoutObjects
+
+	func SetLayoutObjectsValue cValue
+		cLayoutObjects = cValue	
+
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddPropertyCombobox("Type",["Vertical","Horizontal"])
+		oDesigner.oView.AddProperty("Objects (S: Comma)",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Set the Layout Type
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(LayoutTypeValue())
+			oCombo.BlockSignals(False)
+		# Set the Layout Objects
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(LayoutObjectsValue())
+		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		switch nRow {
+			case C_AFTERCOMMON 
+				setLayoutTypeValue(cValue)
+			case C_AFTERCOMMON + 1
+				setLayoutObjectsValue(cValue)
+		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
+	func ComboItemAction oDesigner,nRow
+		nLayoutTypePos = C_AFTERCOMMON
+		if nRow = nLayoutTypePos  {		# Layout Type
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nLayoutTypePos,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			nIndex = oCombo.CurrentIndex()
+			setLayoutTypeValue(nIndex)
+		}
+
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :LayoutType =  ' + LayoutTypeValue()
+		cOutput += "," + nl + cTabs + ' :LayoutObjects =  "' + LayoutObjectsValue() + '"'
+		return cOutput
+
+	func GenerateCode oDesigner
+		cOutput = char(9) + char(9) + 
+		oDesigner.oModel.GetObjectName(self) + " = " +
+		'new #{f1}() {			
+#{f2}
+		}' + nl
+		switch LayoutTypeValue()	{
+			case 0
+				cClass = "QVBoxLayout"
+			case 1 
+				cClass = "QHBoxLayout"
+		}
+		cOutput = substr(cOutput,"#{f1}",cClass)
+		cOutput = substr(cOutput,"#{f2}",AddTabs(GenerateCustomCode(oDesigner),3))
+		return cOutput
+
+	func GenerateCustomCode oDesigner
+		cOutput = ""
+		if LayoutObjectsValue() != NULL {
+			aItems = split(LayoutObjectsValue(),",")
+			for item in aItems {
+				cOutput += 'AddWidget(#{f1})' + nl
+				cOutput = substr(cOutput,"#{f1}",Item)
+			}
+		}
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setLayoutTypeValue(itemdata[:LayoutType])
+		setLayoutObjectsValue(itemdata[:LayoutObjects])
 
 class FormDesignerFileSystem
 
@@ -6271,6 +6427,7 @@ class FormDesignerFileSystem
 							setWindowTitle(itemdata[:title])
 						 	setBackColor(itemdata[:backcolor])
 							setWindowFlagsValue(itemdata[:windowflags])
+							setMainLayoutValue(itemdata[:MainLayout])
 						}
 					case :FormDesigner_QLabel
 						oDesigner.HideCorners()
@@ -6387,6 +6544,11 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddAllEvents(new FormDesigner_QAllEvents(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.AllEventsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+					case :FormDesigner_QLayout
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddLayout(new FormDesigner_QLayout(oDesigner.oModel.FormObject()))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LayoutsCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
 			# Objects List 
@@ -6422,6 +6584,7 @@ class FormDesignerCodeGenerator
 					char(9) + "win = new qWidget() { " + nl +
 					GenerateWindowCode(oDesigner) +
 					GenerateObjectsCode(oDesigner) +
+					GenerateWindowCodeAfterObjects(oDesigner) +
 					char(9) + "}" + nl + nl	
 		# Add the End of file 
 			cOutput += "# End of the Generated Source Code File..."
@@ -6463,6 +6626,9 @@ class #{f1}controller from windowsControllerParent
 
 	func GenerateWindowCode oDesigner
 		return oDesigner.oModel.FormObject().GenerateCode(oDesigner)
+
+	func GenerateWindowCodeAfterObjects oDesigner
+		return oDesigner.oModel.FormObject().GenerateCodeAfterObjects(oDesigner)
 
 	func GenerateObjectsCode oDesigner
 		cCode = ""
