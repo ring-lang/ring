@@ -1957,6 +1957,7 @@ class FormDesigner_QWidget from QWidget
 	nX=0 nY=0		# for Select/Draw
 	cWindowFlags = ""
 	cMainLayout = ""
+	cWindowIcon = ""
 
 	func BackColor
 		return cBackColor
@@ -1983,6 +1984,12 @@ class FormDesigner_QWidget from QWidget
 	func SetMainLayoutValue cValue 
 		cMainLayout = cValue 
 
+	func WindowIconValue
+		return cWindowIcon
+
+	func SetWindowIconValue cValue 
+		cWindowIcon = cValue 
+
 	func AddObjectProperties  oDesigner
 		oDesigner.oView.AddProperty("X",False)
 		oDesigner.oView.AddProperty("Y",False)
@@ -1992,6 +1999,7 @@ class FormDesigner_QWidget from QWidget
 		oDesigner.oView.AddProperty("Back Color",True)
 		oDesigner.oView.AddProperty("Window Flags",True)
 		oDesigner.oView.AddProperty("Set Layout",False)
+		oDesigner.oView.AddProperty("Window Icon",True)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
@@ -2012,6 +2020,8 @@ class FormDesigner_QWidget from QWidget
 					setWindowFlagsValue(cValue)
 				case 7  	# Main Layout
 					setMainLayoutValue(cValue)
+				case 8  	# Window Icon
+					setWindowIconValue(cValue)
 			}
 		}
 
@@ -2034,6 +2044,8 @@ class FormDesigner_QWidget from QWidget
 			oPropertiesTable.item(6,1).settext(WindowFlagsValue())
 		# Set the Main Layout
 			oPropertiesTable.item(7,1).settext(MainLayoutValue())
+		# Set the Window Icon 
+			oPropertiesTable.item(8,1).settext(WindowIconValue())
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
@@ -2045,6 +2057,10 @@ class FormDesigner_QWidget from QWidget
 			case 6	# Window Flags 				
 				open_window(:WindowFlagsController)
 				Last_Window().setParentObject(oDesigner)
+			case 8	# Window Icon 
+				cFile = oDesigner.oGeneral.SelectFile(oDesigner)
+				setWindowIconValue(cFile)
+				DisplayProperties(oDesigner)
 		}
 
 	func MousePressAction oDesigner
@@ -2083,7 +2099,8 @@ class FormDesigner_QWidget from QWidget
 		cOutput += cTabs + ' :title =  "#{f5}" , ' + nl
 		cOutput += cTabs + ' :backcolor =  "#{f6}" , '
 		cOutput += cTabs + ' :windowflags =  "#{f7}" , '
-		cOutput += cTabs + ' :mainlayout =  "#{f8}" ' + nl
+		cOutput += cTabs + ' :mainlayout =  "#{f8}" ,' + nl
+		cOutput += cTabs + ' :WindowIcon =  "#{f9}" ' + nl
 		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
 		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
@@ -2092,6 +2109,7 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",WindowFlagsValue())
 		cOutput = substr(cOutput,"#{f8}",MainLayoutValue())
+		cOutput = substr(cOutput,"#{f9}",WindowIconValue())
 		return cOutput 
 
 	func GenerateCode oDesigner
@@ -2104,6 +2122,10 @@ class FormDesigner_QWidget from QWidget
 			cOutput += '
 		setWindowFlags(#{f7}) ' + nl
 		}
+		if not WindowIconValue() = NULL {
+			cOutput += '
+		setWinIcon(win,"#{f8}") ' + nl
+		}
 		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
 		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
@@ -2111,6 +2133,7 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f5}",windowtitle())
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",WindowFlagsValue())
+		cOutput = substr(cOutput,"#{f8}",WindowIconValue())
 		return cOutput
 
 	func GenerateCodeAfterObjects oDesigner
@@ -6462,6 +6485,7 @@ class FormDesignerFileSystem
 						 	setBackColor(itemdata[:backcolor])
 							setWindowFlagsValue(itemdata[:windowflags])
 							setMainLayoutValue(itemdata[:MainLayout])
+							setWindowIconValue(itemdata[:WindowIcon])
 						}
 					case :FormDesigner_QLabel
 						oDesigner.HideCorners()
