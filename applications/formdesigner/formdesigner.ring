@@ -35,7 +35,8 @@ import formdesigner
 		:FormDesigner_QHyperLink,
 		:FormDesigner_QTimer,
 		:FormDesigner_QAllEvents,
-		:FormDesigner_QLayout
+		:FormDesigner_QLayout,
+		:FormDesigner_QTab
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -426,6 +427,17 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			NewControlEvents("Layout",oModel.LayoutsCount())
+			SetToolboxModeToSelectAfterDraw()
+		elseif oView.oToolBtn26.ischecked()   # Create QTab
+			HideCorners()
+			oModel.AddTab(new FormDesigner_QTab(oModel.FormObject()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+				}
+			)
+			NewControlEvents("Tab",oModel.TabsCount())
 			SetToolboxModeToSelectAfterDraw()
 		}
 
@@ -989,7 +1001,7 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
 	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 
 	oToolBtn19 oToolBtn20 oToolBtn21 oToolBtn22 oToolBtn23
-	oToolBtn24 oToolBtn25
+	oToolBtn24 oToolBtn25 oToolBtn26 oToolBtn27
 
 	func CreateMainWindow oModel
 
@@ -1300,6 +1312,11 @@ Class FormDesignerView from WindowsViewParent
 					setbtnimage(self,"image/layout.png") 
 					setCheckable(True)
 			}
+ 			this.oToolbtn26 = new qPushButton(oToolBox) {
+					setText(this.TextSize("Tab Widget",18))
+					setbtnimage(self,"image/tab.png") 
+					setCheckable(True)
+			}
 
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolLock)
@@ -1328,6 +1345,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn23)
 				AddWidget(this.oToolbtn24)
 				AddWidget(this.oToolbtn25)
+				AddWidget(this.oToolbtn26)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1357,6 +1375,7 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn23,22)
 				AddButton(this.oToolbtn24,23)
 				AddButton(this.oToolbtn25,24)
+				AddButton(this.oToolbtn26,25)
 			}
 			setLayout(Layout1)
 		}
@@ -1596,6 +1615,7 @@ Class FormDesignerModel
 	nTimersCount = 0
 	nAllEventsCount = 0
 	nLayoutsCount = 0
+	nTabsCount = 0
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1832,6 +1852,13 @@ Class FormDesignerModel
 	func LayoutsCount
 		return nLayoutsCount
 
+	func AddTab oObject
+		nTabsCount++
+		AddObject("Tab"+nTabsCount,oObject)
+
+	func TabsCount
+		return nTabsCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -1860,6 +1887,7 @@ Class FormDesignerModel
 		nTimersCount = 0
 		nAllEventsCount = 0
 		nLayoutsCount = 0
+		nTabsCount = 0
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -6386,6 +6414,68 @@ class FormDesigner_QLayout from QLabel
 		setLayoutTypeValue(itemdata[:LayoutType])
 		setLayoutObjectsValue(itemdata[:LayoutObjects])
 
+class FormDesigner_QTab from QTabWidget 
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	cPagesCount = "0"
+	cPagesTitles = ""
+
+	func PagesCountValue
+		return cPagesCount
+
+	func SetPagesCountValue cValue
+		cPagesCount = cValue	
+
+	func PagesTitlesValue
+		return cPagesTitles
+
+	func SetPagesTitlesValue cValue
+		cPagesTitles = cValue	
+
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddProperty("Pages Count",False)
+		oDesigner.oView.AddProperty("Pages Titles (S: Comma)",False)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Set the Pages Count Value
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(PagesCountValue())
+		# Set the Pages Titles Value
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(PagesTitlesValue())
+		oPropertiesTable.Blocksignals(False)
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		switch nRow {
+			case C_AFTERCOMMON 
+				setPagesCountValue(cValue)
+			case C_AFTERCOMMON + 1
+				setPagesTitlesValue(cValue)
+		}
+
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :PagesCount =  "' + PagesCountValue() + '"'
+		cOutput += "," + nl + cTabs + ' :PagesTitles =  "' + PagesTitlesValue() + '"'
+		return cOutput
+
+	func GenerateCustomCode oDesigner
+		cOutput = ""
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setIntervalValue(itemdata[:PagesCount])
+		setTimeoutValue(itemdata[:PagesTitles])
+
+
 class FormDesignerFileSystem
 
 	cFileName = "noname.rform"
@@ -6635,6 +6725,11 @@ class FormDesignerFileSystem
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddLayout(new FormDesigner_QLayout(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LayoutsCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+					case :FormDesigner_QTab	
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddTab(new FormDesigner_QTab(oDesigner.oModel.FormObject()))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TabsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
