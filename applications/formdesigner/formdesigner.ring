@@ -6472,8 +6472,8 @@ class FormDesigner_QTab from QTabWidget
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
-		setIntervalValue(itemdata[:PagesCount])
-		setTimeoutValue(itemdata[:PagesTitles])
+		setPagesCountValue(itemdata[:PagesCount])
+		setPagesTitlesValue(itemdata[:PagesTitles])
 
 
 class FormDesignerFileSystem
