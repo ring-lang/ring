@@ -36,7 +36,7 @@ import formdesigner
 		:FormDesigner_QTimer,
 		:FormDesigner_QAllEvents,
 		:FormDesigner_QLayout,
-		:FormDesigner_QTab
+		:FormDesigner_QTabWidget
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -430,7 +430,7 @@ class FormDesignerController from WindowsControllerParent
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn26.ischecked()   # Create QTab
 			HideCorners()
-			oModel.AddTab(new FormDesigner_QTab(oModel.FormObject()) {
+			oModel.AddTab(new FormDesigner_QTabWidget(oModel.FormObject()) {
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -6414,7 +6414,7 @@ class FormDesigner_QLayout from QLabel
 		setLayoutTypeValue(itemdata[:LayoutType])
 		setLayoutObjectsValue(itemdata[:LayoutObjects])
 
-class FormDesigner_QTab from QTabWidget 
+class FormDesigner_QTabWidget from QTabWidget 
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -6463,7 +6463,6 @@ class FormDesigner_QTab from QTabWidget
 			}
 		}
 
-
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Pages Count",False)
@@ -6497,6 +6496,17 @@ class FormDesigner_QTab from QTabWidget
 
 	func GenerateCustomCode oDesigner
 		cOutput = ""
+		for x = 1 to len(aTabs) {
+			cOutput += '	#{f1}page#{f2} = new qwidget()' + nl +
+                       	'inserttab(#{f3},#{f1}page#{f2},"#{f4}")'
+			if not x = len(aTabs) {
+				cOutput += nl
+			}
+			cOutput  = substr(cOutput,"#{f1}",oDesigner.oModel.GetObjectName(self))
+			cOutput  = substr(cOutput,"#{f2}",""+x)
+			cOutput  = substr(cOutput,"#{f3}",""+(x-1))
+			cOutput  = substr(cOutput,"#{f4}",aTabs[x][2])
+		}
 		return cOutput
 
 	func RestoreProperties oDesigner,Item 
@@ -6756,9 +6766,9 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddLayout(new FormDesigner_QLayout(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LayoutsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
-					case :FormDesigner_QTab	
+					case :FormDesigner_QTabWidget	
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddTab(new FormDesigner_QTab(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddTab(new FormDesigner_QTabWidget(oDesigner.oModel.FormObject()))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TabsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
