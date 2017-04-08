@@ -6450,12 +6450,19 @@ class FormDesigner_QTab from QTabWidget
 			aTabs = [] 
 		}
 
-
 	func PagesTitlesValue
 		return cPagesTitles
 
 	func SetPagesTitlesValue cValue
 		cPagesTitles = cValue	
+		aItems = split(cPagesTitles,",")
+		for x = 1 to len(aItems) {
+			if x <= len(aTabs) { 
+				aTabs[x][2] = aItems[x]
+				setTabText(x-1,aItems[x])
+			}
+		}
+
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
