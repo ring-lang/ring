@@ -6419,14 +6419,14 @@ class FormDesigner_QTab from QTabWidget
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
-	cPagesCount = "0"
+	nPagesCount = 0
 	cPagesTitles = ""
 
 	func PagesCountValue
-		return cPagesCount
+		return ""+nPagesCount
 
 	func SetPagesCountValue cValue
-		cPagesCount = cValue	
+		nPagesCount = 0+cValue	
 
 	func PagesTitlesValue
 		return cPagesTitles
