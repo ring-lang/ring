@@ -288,3 +288,5 @@ QAbstractItemView_ContiguousSelection = 4
 QAbstractItemView_ExtendedSelection = 3
 QAbstractItemView_MultiSelection = 2
 QAbstractItemView_NoSelection = 0
+
+Qt_WA_TransparentForMouseEvents = 51
