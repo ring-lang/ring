@@ -104,21 +104,30 @@ class FormDesignerController from WindowsControllerParent
 	func ToolBtnChangeAction
 		if oView.oToolBtn1.isChecked() { # Select Mode 
 			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
-			aObjects = oModel.GetObjects() 
-			for x = 2 to len(aObjects) {			
-				aObjects[x][2].setAttribute(Qt_WA_TransparentForMouseEvents,False)
-			}
+			EnableMouseEventsForControls()
 		else 
 			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_CrossCursor) } )
-			aObjects = oModel.GetObjects() 
-			for x = 2 to len(aObjects) {			
-				aObjects[x][2].setAttribute(Qt_WA_TransparentForMouseEvents,True)
-			}
+			DisableMouseEventsForControls()
+		}
+
+	func DisableMouseEventsForControls
+		aObjects = oModel.GetObjects() 
+		for x = 2 to len(aObjects) {			
+			aObjects[x][2].setAttribute(Qt_WA_TransparentForMouseEvents,True)
+		}
+
+	func EnableMouseEventsForControls
+		aObjects = oModel.GetObjects() 
+		for x = 2 to len(aObjects) {			
+			aObjects[x][2].setAttribute(Qt_WA_TransparentForMouseEvents,False)
 		}
 
 	func SetToolboxModeToSelectAfterDraw
 		if not oView.oToolLock.isChecked() {
 			SetToolboxModeToSelect()
+		else 
+			# To include the latest control 
+				DisableMouseEventsForControls()
 		}
 
 	func SetToolboxModeToSelect
