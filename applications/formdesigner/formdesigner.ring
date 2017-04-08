@@ -6430,11 +6430,26 @@ class FormDesigner_QTab from QTabWidget
 	func SetPagesCountValue cValue
 		nPagesCount = 0+cValue	
 		if nPagesCount > 0 {
-			for x = 1 to nPagesCount {
-				aTabs + [new qWidget(),"Page 1"]
+			for x = len(aTabs) + 1 to nPagesCount {
+				aTabs + [new qWidget(),"Page " + x]
 				inserttab(len(aTabs)-1,aTabs[len(aTabs)][1],aTabs[len(aTabs)][2])
 			}
+			if nPagesCount < len(aTabs) {	# Delete Tabs
+				nCount = len(aTabs)-nPagesCount
+				for x = 1  to nCount {
+					removeTab(len(aTabs)-1)
+					del(aTabs,len(aTabs))
+				}
+			}
 		}
+		if nPagesCount = 0 and len(aTabs) > 0 {
+			nCount = len(aTabs)
+			for x = nCount to 1 step -1 {
+				removeTab(x-1)
+			}
+			aTabs = [] 
+		}
+
 
 	func PagesTitlesValue
 		return cPagesTitles
