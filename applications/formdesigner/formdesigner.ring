@@ -2730,6 +2730,7 @@ class FormDesigner_QPushButton from QPushButton
 		}
 
 	func DialogButtonAction oDesigner,nRow 
+		CommonDialogButtonAction(oDesigner,nRow)
 		switch nRow {
 			case C_AFTERCOMMON+1	# Button Image
 				cFile = oDesigner.oGeneral.SelectFile(oDesigner)
@@ -6328,6 +6329,7 @@ class FormDesigner_QLayout from QLabel
 		}
 
 	func DialogButtonAction oDesigner,nRow 
+		CommonDialogButtonAction(oDesigner,nRow)
 		switch nRow {
 			case C_AFTERCOMMON + 1 	# Layout Objects
 				open_window(:WindowObjectsController)
