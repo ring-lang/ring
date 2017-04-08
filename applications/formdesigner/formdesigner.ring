@@ -102,12 +102,14 @@ class FormDesignerController from WindowsControllerParent
 		oModel.ActiveObject().DisplayProperties(self)	
 
 	func ToolBtnChangeAction
-		if oView.oToolBtn1.isChecked() {
+		if oView.oToolBtn1.isChecked() { # Select Mode 
+			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
 			aObjects = oModel.GetObjects() 
 			for x = 2 to len(aObjects) {			
 				aObjects[x][2].setAttribute(Qt_WA_TransparentForMouseEvents,False)
 			}
 		else 
+			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_CrossCursor) } )
 			aObjects = oModel.GetObjects() 
 			for x = 2 to len(aObjects) {			
 				aObjects[x][2].setAttribute(Qt_WA_TransparentForMouseEvents,True)
@@ -121,7 +123,6 @@ class FormDesignerController from WindowsControllerParent
 
 	func SetToolboxModeToSelect
 		oView.oToolBtn1.setChecked(2)
-		ChangeToolBoxAction()
 		ToolBtnChangeAction()
 	
 	func UpdateProperties
@@ -610,13 +611,6 @@ class FormDesignerController from WindowsControllerParent
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
 				oModel.ActiveObject().MouseMove(self)
 			}
-		}
-
-	func ChangeToolBoxAction
-		if oView.oToolBtn1.ischecked() {	# Select Mode 
-			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
-		else
-			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_CrossCursor) } )
 		}
 
 	func KeyPressAction
@@ -1389,7 +1383,7 @@ Class FormDesignerView from WindowsViewParent
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
-				setbuttonClickedEvent(Method(:ChangeToolBoxAction))
+				setbuttonClickedEvent(Method(:ToolBtnChangeAction))
 				AddButton(this.oToolbtn1,0)
 				AddButton(this.oToolbtn2,1)
 				AddButton(this.oToolbtn3,2)
