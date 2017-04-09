@@ -126,7 +126,7 @@ class FormDesignerController from WindowsControllerParent
 		if not oView.oToolLock.isChecked() {
 			SetToolboxModeToSelect()
 		else 
-			# To include the latest control 
+			# To include the latest created control 
 				DisableMouseEventsForControls()
 		}
 
@@ -1692,6 +1692,8 @@ Class FormDesignerModel
 	nLayoutsCount = 0
 	nTabsCount = 0
 
+	cCurrentParent = ""
+
 	func AddObject cName,oObject
 		nIDCounter++
 		aObjectsList + [cName,oObject,nIDCounter]
@@ -1721,10 +1723,16 @@ Class FormDesignerModel
 	func CurrentParent
 		if ClassName(ActiveObject()) = "formdesigner_qtabwidget" {
 			if len(ActiveObject().aTabs) > 0 {
+				cCurrentParent = GetObjectName(ActiveObject())+"Page"+(ActiveObject().CurrentIndex()+1)
+				see cCurrentParent 
 				return ActiveObject().aTabs[ActiveObject().CurrentIndex()+1][1]
 			}
 		}
+		cCurrentParent = "win"	# Window Object (Generated Name)
 		return FormObject()
+
+	func CurrentParentName
+		return cCurrentParent 
 
 	func ObjectsCount
 		return len(aObjectsList)
