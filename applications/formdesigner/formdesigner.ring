@@ -191,6 +191,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn2.ischecked()   # Create Label 
 			HideCorners()
 			oModel.AddLabel(new FormDesigner_QLabel(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setMouseTracking(True)
@@ -202,6 +203,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn3.ischecked()   # Create QPushButton
 			HideCorners()
 			oModel.AddPushButton(new FormDesigner_QPushButton(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setMouseTracking(True)
@@ -213,6 +215,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn4.ischecked()   # Create QLineEdit
 			HideCorners()
 			oModel.AddLineEdit(new FormDesigner_QLineEdit(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -224,6 +227,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn5.ischecked()   # Create QTextEdit
 			HideCorners()
 			oModel.AddTextEdit(new FormDesigner_QTextEdit(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -235,6 +239,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn6.ischecked()   # Create QListWidget
 			HideCorners()
 			oModel.AddListWidget(new FormDesigner_QListWidget(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -246,6 +251,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn7.ischecked()   # Create QCheckBox
 			HideCorners()
 			oModel.AddCheckBox(new FormDesigner_QCheckBox(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -257,6 +263,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn8.ischecked()   # Create QImage
 			HideCorners()
 			oModel.AddImage(new FormDesigner_QImage(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -268,6 +275,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn9.ischecked()   # Create QSlider
 			HideCorners()
 			oModel.AddSlider(new FormDesigner_QSlider(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -279,6 +287,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn10.ischecked()   # Create QProgressBar
 			HideCorners()
 			oModel.AddProgressbar(new FormDesigner_QProgressbar(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -290,6 +299,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn11.ischecked()   # Create QSpinBox
 			HideCorners()
 			oModel.AddSpinBox(new FormDesigner_QSpinBox(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -301,6 +311,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn12.ischecked()   # Create QComboBox
 			HideCorners()
 			oModel.AddComboBox(new FormDesigner_QComboBox(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -312,6 +323,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn13.ischecked()   # Create QDateTimeEdit
 			HideCorners()
 			oModel.AddDateTimeEdit(new FormDesigner_QDateTimeEdit(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -323,6 +335,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn14.ischecked()   # Create QTableWidget 
 			HideCorners()
 			oModel.AddTableWidget(new FormDesigner_QTableWidget(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -334,6 +347,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn15.ischecked()   # Create QTreeWidget 
 			HideCorners()
 			oModel.AddTreeWidget(new FormDesigner_QTreeWidget(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -345,6 +359,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn16.ischecked()   # Create QRadioButton  
 			HideCorners()
 			oModel.AddRadioButton(new FormDesigner_QRadioButton(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -356,6 +371,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn17.ischecked()   # Create QWebView 
 			HideCorners()
 			oModel.AddWebView(new FormDesigner_QWebView(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -367,6 +383,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn18.ischecked()   # Create QDial
 			HideCorners()
 			oModel.AddDial(new FormDesigner_QDial(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -378,6 +395,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn19.ischecked()   # Create QVideoWidget
 			HideCorners()
 			oModel.AddVideoWidget(new FormDesigner_QVideoWidget(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -389,6 +407,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn20.ischecked()   # Create QFrame
 			HideCorners()
 			oModel.AddFrame(new FormDesigner_QFrame3(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -400,6 +419,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn21.ischecked()   # Create QLCDNumber
 			HideCorners()
 			oModel.AddFrame(new FormDesigner_QLCDNumber(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -411,6 +431,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn22.ischecked()   # Create QHyperLink
 			HideCorners()
 			oModel.AddHyperLink(new FormDesigner_QHyperLink(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -422,6 +443,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn23.ischecked()   # Create QTimer
 			HideCorners()
 			oModel.AddTimer(new FormDesigner_QTimer(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -433,6 +455,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn24.ischecked()   # Create QAllEvents
 			HideCorners()
 			oModel.AddAllEvents(new FormDesigner_QAllEvents(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -444,6 +467,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn25.ischecked()   # Create QLayout 
 			HideCorners()
 			oModel.AddLayout(new FormDesigner_QLayout(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -455,6 +479,7 @@ class FormDesignerController from WindowsControllerParent
 		elseif oView.oToolBtn26.ischecked()   # Create QTab
 			HideCorners()
 			oModel.AddTab(new FormDesigner_QTabWidget(oModel.CurrentParent()) {
+					this.UpdatePositionForParent(aRect)
 					move(aRect[1],aRect[2]) 
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
@@ -463,6 +488,12 @@ class FormDesignerController from WindowsControllerParent
 			)
 			NewControlEvents("Tab",oModel.TabsCount())
 			SetToolboxModeToSelectAfterDraw()
+		}
+
+	func UpdatePositionForParent aRect
+		if classname(oModel.ActiveObject()) = "formdesigner_qtabwidget" {
+			aRect[1] -= oModel.ActiveObject().x()
+			aRect[2] -= oModel.ActiveObject().y() + 28
 		}
 
 	func NewControlEvents cName,nCount
