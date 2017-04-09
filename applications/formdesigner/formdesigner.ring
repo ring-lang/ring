@@ -1788,6 +1788,12 @@ Class FormDesignerModel
 			return FormObject()
 		}
 		# Here Control belong to a Tab Page 
+			aList = split(cName,"Page")
+			# aList[1] = Tab Control Name 
+			# aList[2] = Tab Index (start from 1)
+			nPos = find(aObjectsList,aList[1],1)
+			oTab = aObjectsList[nPos][2] 
+			return oTab.aTabs[0+aList[2]][1]
 		return FormObject()
 
 	func ObjectsCount
@@ -6786,9 +6792,9 @@ class FormDesignerFileSystem
 		# Create Objects 
 			for item in aObjectsList {
 				cClass = item[:classname] 	
+				itemdata = item[:data]
 				switch cClass {
 					case :formdesigner_qwidget
-						itemdata = item[:data]
 						oDesigner.oView.oSub {
 							blocksignals(True)
 							move(itemdata[:x],itemdata[:y]) 
