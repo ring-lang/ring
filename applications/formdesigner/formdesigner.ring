@@ -493,7 +493,8 @@ class FormDesignerController from WindowsControllerParent
 	func UpdatePositionForParent aRect
 		if classname(oModel.ActiveObject()) = "formdesigner_qtabwidget" {
 			aRect[1] -= oModel.ActiveObject().x()
-			aRect[2] -= oModel.ActiveObject().y() + 28
+			# 28 for the tab title height
+				aRect[2] -= oModel.ActiveObject().y() + 28 
 		}
 
 	func NewControlEvents cName,nCount
