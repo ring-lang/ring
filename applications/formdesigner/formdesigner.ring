@@ -1783,6 +1783,13 @@ Class FormDesignerModel
 	func CurrentParentName
 		return cCurrentParent 
 
+	func CurrentParentByName cName
+		if (cName = NULL) or (cName = "win") {
+			return FormObject()
+		}
+		# Here Control belong to a Tab Page 
+		return FormObject()
+
 	func ObjectsCount
 		return len(aObjectsList)
 
@@ -6799,127 +6806,127 @@ class FormDesignerFileSystem
 						}
 					case :FormDesigner_QLabel
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddLabel(new FormDesigner_QLabel(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddLabel(new FormDesigner_QLabel(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LabelsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QPushButton
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddPushButton(new FormDesigner_QPushButton(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.PushButtonsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QLineEdit
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddLineEdit(new FormDesigner_QLineEdit(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddLineEdit(new FormDesigner_QLineEdit(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LineEditsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QTextEdit
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddLineEdit(new FormDesigner_QTextEdit(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddLineEdit(new FormDesigner_QTextEdit(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TextEditsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QListWidget
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddListWidget(new FormDesigner_QListWidget(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddListWidget(new FormDesigner_QListWidget(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ListWidgetsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QCheckBox
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddCheckBox(new FormDesigner_QCheckBox(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddCheckBox(new FormDesigner_QCheckBox(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.CheckBoxesCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QImage
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddImage(new FormDesigner_QImage(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddImage(new FormDesigner_QImage(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ImagesCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QSlider
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddSlider(new FormDesigner_QSlider(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddSlider(new FormDesigner_QSlider(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.SlidersCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QProgressbar
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddProgressBar(new FormDesigner_QProgressBar(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddProgressBar(new FormDesigner_QProgressBar(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ProgressBarsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QSpinBox
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddSpinBox(new FormDesigner_QSpinBox(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddSpinBox(new FormDesigner_QSpinBox(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.SpinBoxesCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QComboBox
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddComboBox(new FormDesigner_QCombobox(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddComboBox(new FormDesigner_QCombobox(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ComboBoxesCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QDateTimeEdit
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddDateTimeEdit(new FormDesigner_QDateTimeEdit(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddDateTimeEdit(new FormDesigner_QDateTimeEdit(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.DateTimeEditsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QTableWidget
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddTableWidget(new FormDesigner_QTableWidget(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddTableWidget(new FormDesigner_QTableWidget(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TableWidgetsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QTreeWidget
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddTreeWidget(new FormDesigner_QTreeWidget(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddTreeWidget(new FormDesigner_QTreeWidget(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TreeWidgetsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QRadioButton
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddRadioButton(new FormDesigner_QRadioButton(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddRadioButton(new FormDesigner_QRadioButton(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.RadioButtonsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QWebView
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddWebView(new FormDesigner_QWebView(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddWebView(new FormDesigner_QWebView(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.WebViewsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QDial
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddDial(new FormDesigner_QDial(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddDial(new FormDesigner_QDial(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.DialsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QVideoWidget
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddVideoWidget(new FormDesigner_QVideoWidget(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddVideoWidget(new FormDesigner_QVideoWidget(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.VideoWidgetsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QFrame3
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddFrame(new FormDesigner_QFrame3(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddFrame(new FormDesigner_QFrame3(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.FramesCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QLCDNumber
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddLCDNumber(new FormDesigner_QLCDNumber(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddLCDNumber(new FormDesigner_QLCDNumber(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LCDNumbersCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QHyperLink
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddHyperLink(new FormDesigner_QHyperLink(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddHyperLink(new FormDesigner_QHyperLink(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.HyperLinksCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QTimer
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddTimer(new FormDesigner_QTimer(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddTimer(new FormDesigner_QTimer(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TimersCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QAllEvents
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddAllEvents(new FormDesigner_QAllEvents(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddAllEvents(new FormDesigner_QAllEvents(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.AllEventsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QLayout
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddLayout(new FormDesigner_QLayout(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddLayout(new FormDesigner_QLayout(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LayoutsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 					case :FormDesigner_QTabWidget	
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddTab(new FormDesigner_QTabWidget(oDesigner.oModel.FormObject()))
+						oDesigner.oModel.AddTab(new FormDesigner_QTabWidget(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TabsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
