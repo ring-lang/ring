@@ -155,8 +155,9 @@ class FormDesignerController from WindowsControllerParent
 	func MousePressAction
 		oModel.FormObject().MousePressAction(self)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
+			oModel.RemoveCurrentParentCache()
 			# Activate the Window Object 
-			ChangeObjectByCode(0)
+				ChangeObjectByCode(0)
 		}
 		oView.oFilter.seteventoutput(False)
 
@@ -545,6 +546,10 @@ class FormDesignerController from WindowsControllerParent
 			aRect[1] -= oModel.ActiveObject().x()
 			# 28 for the tab title height
 				aRect[2] -= oModel.ActiveObject().y() + 28 
+		elseif isObject(oModel.CurrentParentCache()) 
+			aRect[1] -= oModel.CurrentParentCache().x()
+			# 28 for the tab title height
+				aRect[2] -= oModel.CurrentParentCache().y() + 28 
 		}
 
 	func NewControlEvents cName,nCount
@@ -1743,6 +1748,7 @@ Class FormDesignerModel
 	nTabsCount = 0
 
 	cCurrentParent = ""
+	oCurrentParentCache = NULL
 
 	func AddObject cName,oObject
 		nIDCounter++
@@ -1774,11 +1780,22 @@ Class FormDesignerModel
 		if ClassName(ActiveObject()) = "formdesigner_qtabwidget" {
 			if len(ActiveObject().aTabs) > 0 {
 				cCurrentParent = GetObjectName(ActiveObject())+"Page"+(ActiveObject().CurrentIndex()+1)
+				oCurrentParentCache = ActiveObject()
 				return ActiveObject().aTabs[ActiveObject().CurrentIndex()+1][1]
 			}
 		}
+		if isObject(oCurrentParentCache) {
+				cCurrentParent = GetObjectName(oCurrentParentCache)+"Page"+(oCurrentParentCache.CurrentIndex()+1)
+				return oCurrentParentCache.aTabs[oCurrentParentCache.CurrentIndex()+1][1]
+		}
 		cCurrentParent = "win"	# Window Object (Generated Name)
 		return FormObject()
+
+	func CurrentParentCache 
+		return oCurrentParentCache
+
+	func RemoveCurrentParentCache
+		oCurrentParentCache = NULL
 
 	func CurrentParentName
 		return cCurrentParent 
