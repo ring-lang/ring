@@ -4371,7 +4371,7 @@ class FormDesigner_QTableWidget from QLineEdit
 	CreateMoveResizeCornersAttributes()
 
 	cRowCount = ""
-	cColumnCount = ""
+	cColumnCount = "0"
 	cHorizontalHeaders = ""
 	cColumnsWidth = ""
 	cHorizontalHeaderStyle = ""
@@ -4839,7 +4839,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
-	cColumnCount = ""
+	cColumnCount = "0"
 	cHeaderLabels = ""
 	nHeaderHidden = 0
 
