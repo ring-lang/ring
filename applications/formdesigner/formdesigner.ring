@@ -196,9 +196,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setMouseTracking(True)
 					setFocusPolicy(0)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Label",oModel.LabelsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn3.ischecked()   # Create QPushButton
@@ -209,9 +210,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setMouseTracking(True)
 					setFocusPolicy(0)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Button",oModel.PushButtonsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn4.ischecked()   # Create QLineEdit
@@ -222,9 +224,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("LineEdit",oModel.LineEditsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn5.ischecked()   # Create QTextEdit
@@ -235,9 +238,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("TextEdit",oModel.TextEditsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn6.ischecked()   # Create QListWidget
@@ -248,9 +252,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("ListWidget",oModel.ListWidgetsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn7.ischecked()   # Create QCheckBox
@@ -261,9 +266,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("CheckBox",oModel.CheckBoxesCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn8.ischecked()   # Create QImage
@@ -274,9 +280,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Image",oModel.ImagesCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn9.ischecked()   # Create QSlider
@@ -287,9 +294,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Slider",oModel.SlidersCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn10.ischecked()   # Create QProgressBar
@@ -300,9 +308,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Progressbar",oModel.ProgressbarsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn11.ischecked()   # Create QSpinBox
@@ -313,9 +322,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("SpinBox",oModel.SpinBoxesCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn12.ischecked()   # Create QComboBox
@@ -326,9 +336,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("ComboBox",oModel.ComboBoxesCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn13.ischecked()   # Create QDateTimeEdit
@@ -339,9 +350,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("DateTimeEdit",oModel.DateTimeEditsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn14.ischecked()   # Create QTableWidget 
@@ -352,9 +364,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("TableWidget",oModel.TableWidgetsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn15.ischecked()   # Create QTreeWidget 
@@ -365,9 +378,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("TreeWidget",oModel.TreeWidgetsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn16.ischecked()   # Create QRadioButton  
@@ -378,9 +392,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("RadioButton",oModel.RadioButtonsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn17.ischecked()   # Create QWebView 
@@ -391,9 +406,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("WebView",oModel.WebViewsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn18.ischecked()   # Create QDial
@@ -404,9 +420,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Dial",oModel.DialsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn19.ischecked()   # Create QVideoWidget
@@ -417,9 +434,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("VideoWidget",oModel.VideoWidgetsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn20.ischecked()   # Create QFrame
@@ -430,9 +448,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Frame",oModel.FramesCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn21.ischecked()   # Create QLCDNumber
@@ -443,9 +462,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("LCDNumber",oModel.LCDNumbersCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn22.ischecked()   # Create QHyperLink
@@ -456,9 +476,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("HyperLink",oModel.HyperLinksCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn23.ischecked()   # Create QTimer
@@ -469,9 +490,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Timer",oModel.TimersCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn24.ischecked()   # Create QAllEvents
@@ -482,9 +504,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("AllEvents",oModel.AllEventsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn25.ischecked()   # Create QLayout 
@@ -495,9 +518,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Layout",oModel.LayoutsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn26.ischecked()   # Create QTab
@@ -508,9 +532,10 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
-					setCurrentParentName(this.oModel.CurrentParentName())
+					cParent = this.oModel.CurrentParentName()
 				}
 			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("Tab",oModel.TabsCount())
 			SetToolboxModeToSelectAfterDraw()
 		}
@@ -1749,7 +1774,6 @@ Class FormDesignerModel
 		if ClassName(ActiveObject()) = "formdesigner_qtabwidget" {
 			if len(ActiveObject().aTabs) > 0 {
 				cCurrentParent = GetObjectName(ActiveObject())+"Page"+(ActiveObject().CurrentIndex()+1)
-				see cCurrentParent 
 				return ActiveObject().aTabs[ActiveObject().CurrentIndex()+1][1]
 			}
 		}
@@ -2544,6 +2568,7 @@ class CommonAttributesMethods
 		cTextColor = "black"
 		cBackColor = ""
 		cFontProperty = ""
+		cCurrentParentName = "win"
 
 	func TextColor
 		return cTextColor
@@ -2669,7 +2694,8 @@ class CommonAttributesMethods
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
 		cOutput += cTabs + ' :textcolor =  "#{f5}" , ' + nl
 		cOutput += cTabs + ' :backcolor =  "#{f6}" , ' + nl
-		cOutput += cTabs + ' :font =  "#{f7}"  ' + nl
+		cOutput += cTabs + ' :font =  "#{f7}" , ' + nl
+		cOutput += cTabs + ' :parent =  "#{f8}"  ' + nl
 		cOutput = substr(cOutput,"#{f1}",""+x())
 		cOutput = substr(cOutput,"#{f2}",""+y())
 		cOutput = substr(cOutput,"#{f3}",""+width())
@@ -2677,12 +2703,13 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f5}",textcolor())
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",fontproperty())
+		cOutput = substr(cOutput,"#{f8}",CurrentParentName())
 		return cOutput 
 
 	func GenerateCode oDesigner
 		cOutput = char(9) + char(9) + 
 		oDesigner.oModel.GetObjectName(self) + " = " +
-		'new #{f1}(win) {
+		'new #{f1}(#{f10}) {
 			move(#{f2},#{f3})
 			resize(#{f4},#{f5})
 			setstylesheet("color:#{f6};background-color:#{f7};")
@@ -2704,6 +2731,7 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f7}",backcolor())
 		cOutput = substr(cOutput,"#{f8}",fontproperty())
 		cOutput = substr(cOutput,"#{f9}",AddTabs(GenerateCustomCode(oDesigner),3))
+		cOutput = substr(cOutput,"#{f10}",CurrentParentName())
 		return cOutput
 
 	func AddTabs cText,nCount
