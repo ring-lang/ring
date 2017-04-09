@@ -2770,6 +2770,7 @@ class CommonAttributesMethods
 		setTextColor(itemdata[:textcolor])
 		setBackColor(itemdata[:backcolor])
 		setFontProperty(itemdata[:font])
+		setCurrentParentName(itemdata[:parent])
 		refreshCorners(oDesigner.oModel.ActiveObject())			
 		blocksignals(false)
 
