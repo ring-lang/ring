@@ -1687,6 +1687,11 @@ Class FormDesignerModel
 		return aObjectsList[1][2]
  
 	func CurrentParent
+		if ClassName(ActiveObject()) = "formdesigner_qtabwidget" {
+			if len(ActiveObject().aTabs) > 0 {
+				return ActiveObject().aTabs[ActiveObject().CurrentIndex()+1][1]
+			}
+		}
 		return FormObject()
 
 	func ObjectsCount
