@@ -196,6 +196,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setMouseTracking(True)
 					setFocusPolicy(0)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Label",oModel.LabelsCount())
@@ -208,6 +209,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setMouseTracking(True)
 					setFocusPolicy(0)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Button",oModel.PushButtonsCount())
@@ -220,6 +222,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("LineEdit",oModel.LineEditsCount())
@@ -232,6 +235,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("TextEdit",oModel.TextEditsCount())
@@ -244,6 +248,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("ListWidget",oModel.ListWidgetsCount())
@@ -256,6 +261,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("CheckBox",oModel.CheckBoxesCount())
@@ -268,6 +274,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Image",oModel.ImagesCount())
@@ -280,6 +287,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Slider",oModel.SlidersCount())
@@ -292,6 +300,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Progressbar",oModel.ProgressbarsCount())
@@ -304,6 +313,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("SpinBox",oModel.SpinBoxesCount())
@@ -316,6 +326,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("ComboBox",oModel.ComboBoxesCount())
@@ -328,6 +339,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("DateTimeEdit",oModel.DateTimeEditsCount())
@@ -340,6 +352,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("TableWidget",oModel.TableWidgetsCount())
@@ -352,6 +365,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("TreeWidget",oModel.TreeWidgetsCount())
@@ -364,6 +378,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("RadioButton",oModel.RadioButtonsCount())
@@ -376,6 +391,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("WebView",oModel.WebViewsCount())
@@ -388,6 +404,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Dial",oModel.DialsCount())
@@ -400,6 +417,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("VideoWidget",oModel.VideoWidgetsCount())
@@ -412,6 +430,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Frame",oModel.FramesCount())
@@ -424,6 +443,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("LCDNumber",oModel.LCDNumbersCount())
@@ -436,6 +456,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("HyperLink",oModel.HyperLinksCount())
@@ -448,6 +469,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Timer",oModel.TimersCount())
@@ -460,6 +482,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("AllEvents",oModel.AllEventsCount())
@@ -472,6 +495,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Layout",oModel.LayoutsCount())
@@ -484,6 +508,7 @@ class FormDesignerController from WindowsControllerParent
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
+					setCurrentParentName(this.oModel.CurrentParentName())
 				}
 			)
 			NewControlEvents("Tab",oModel.TabsCount())
@@ -2515,6 +2540,7 @@ class CommonAttributesMethods
 		AddAttribute(self,:cTextColor)
 		AddAttribute(self,:cBackColor)
 		AddAttribute(self,:cFontProperty)
+		AddAttribute(self,:cCurrentParentName)
 		cTextColor = "black"
 		cBackColor = ""
 		cFontProperty = ""
@@ -2541,6 +2567,12 @@ class CommonAttributesMethods
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring(cValue)
 		setfont(oFont)
+
+	func CurrentParentName
+		return cCurrentParentName
+
+	func SetCurrentParentName cValue
+		cCurrentParentName = cValue
 
 	func updatestylesheets
 		setstylesheet("color:"+cTextColor+";background-color:"+cBackColor+";")
