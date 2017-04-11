@@ -1093,6 +1093,11 @@ class FormDesignerController from WindowsControllerParent
 		}
 		cCode  = oFile.Objects2String(self,aObjects)
 		eval(cCode)
+		# Update Position
+			for item in aObjectsList {
+				item[:data][:x] += 10
+				item[:data][:y] += 10
+			}
 		oFile.CreateFormObjects(self,aObjectsList)
 
 	func Toolbox
