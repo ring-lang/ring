@@ -1091,6 +1091,9 @@ class FormDesignerController from WindowsControllerParent
 			}
 			return 
 		}
+		cCode  = oFile.Objects2String(self,aObjects)
+		eval(cCode)
+		oFile.CreateFormObjects(self,aObjectsList)
 
 	func Toolbox
 		if oView.oToolBoxDock.isvisible() {
