@@ -38,6 +38,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("version",ring_vmlib_version);
 	ring_vm_funcregister("clockspersecond",ring_vmlib_clockspersecond);
 	ring_vm_funcregister("prevfilename",ring_vmlib_prevfilename);
+	ring_vm_funcregister("swap",ring_vmlib_swap);
 	/* Check Data Type */
 	ring_vm_funcregister("isstring",ring_vmlib_isstring);
 	ring_vm_funcregister("isnumber",ring_vmlib_isnumber);
@@ -912,6 +913,35 @@ int ring_vmlib_adddays_isleapyear ( int nYear )
 		return 0 ;
 	}
 	return nYear % 4 == 0 ;
+}
+
+void ring_vmlib_swap ( void *pPointer )
+{
+	List *pList  ;
+	int nNum1,nNum2,nSize  ;
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( RING_API_ISLIST(1) ) {
+		pList = RING_API_GETLIST(1) ;
+		if ( RING_API_ISNUMBER(2)  && RING_API_ISNUMBER(3) ) {
+			nNum1 = (int) RING_API_GETNUMBER(1) ;
+			nNum2 = (int) RING_API_GETNUMBER(2) ;
+			nSize = ring_list_getsize(pList);
+			if ( (nNum1 > 0) && (nNum2 > 0) && (nNum1!= nNum2) && (nNum1<= nSize) && (nNum2 <= nSize) ) {
+				ring_list_swap(pList,nNum1, nNum2);
+			} else {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+			}
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
 }
 /* Check Data Type */
 
