@@ -200,4 +200,30 @@ Example
 New Functions
 =============
 
-* packagename() function
+* PackageName() function
+* Swap() function
+
+Example:
+
+.. code-block:: ring
+
+	aList = [:one,:two,:four,:three]
+	see aList
+	see copy("*",50) + nl
+	swap(aList,3,4)
+	see aList
+
+Output
+
+.. code-block:: ring
+
+	one
+	two
+	four
+	three
+	**************************************************
+	one
+	two
+	three
+	four
+
