@@ -1079,7 +1079,18 @@ class FormDesignerController from WindowsControllerParent
 		Super.CloseAction()
 
 	func Duplicate 
-
+		aObjects = oModel.GetSelectedObjects() 
+		if len(aObjects) = 0 {
+			new qmessagebox(oView.win)
+			{
+				setwindowtitle("Sorry!")
+				settext("No objects are selected")
+				setInformativeText("Select objects first to be duplicated")
+				setstandardbuttons(QMessageBox_Ok)
+				exec()
+			}
+			return 
+		}
 
 	func Toolbox
 		if oView.oToolBoxDock.isvisible() {
