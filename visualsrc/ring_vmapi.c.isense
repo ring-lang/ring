@@ -202,6 +202,13 @@ ring_vmlib_version
 ring_vmlib_clockspersecond
 ring_vmlib_prevfilename
 ring_vmlib_adddays_isleapyear
+ring_vmlib_swap
+Type: List *
+pList
+Type: int
+nNum1,nNum2,nSize
+Type: VM *
+pVM
 ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist
