@@ -1080,6 +1080,9 @@ class FormDesignerController from WindowsControllerParent
 
 	func Duplicate 
 		aObjects = oModel.GetSelectedObjects() 
+		if  len(aObjects) = 0  and not oModel.IsFormActive()  {
+			aObjects = oModel.ActiveObjectItemAsList() 
+		}
 		if len(aObjects) = 0 {
 			new qmessagebox(oView.win)
 			{
@@ -1093,7 +1096,7 @@ class FormDesignerController from WindowsControllerParent
 		}
 		cCode  = oFile.Objects2String(self,aObjects)
 		eval(cCode)
-		# Update Position
+		# Update Name and Position
 			for item in aObjectsList {
 				item[:name] += "_2"
 				item[:data][:x] += 10
@@ -2127,6 +2130,9 @@ Class FormDesignerModel
 			aList + Item[1]
 		}
 		return aList
+
+	func ActiveObjectItemAsList
+		return [ aObjectsList[nActiveObject] ] 
 
 Class FormDesignerGeneral
 
