@@ -1095,6 +1095,7 @@ class FormDesignerController from WindowsControllerParent
 		eval(cCode)
 		# Update Position
 			for item in aObjectsList {
+				item[:name] += "_2"
 				item[:data][:x] += 10
 				item[:data][:y] += 10
 			}
