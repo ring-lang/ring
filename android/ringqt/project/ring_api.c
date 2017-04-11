@@ -928,8 +928,8 @@ void ring_vmlib_swap ( void *pPointer )
 	if ( RING_API_ISLIST(1) ) {
 		pList = RING_API_GETLIST(1) ;
 		if ( RING_API_ISNUMBER(2)  && RING_API_ISNUMBER(3) ) {
-			nNum1 = (int) RING_API_GETNUMBER(1) ;
-			nNum2 = (int) RING_API_GETNUMBER(2) ;
+			nNum1 = (int) RING_API_GETNUMBER(2) ;
+			nNum2 = (int) RING_API_GETNUMBER(3) ;
 			nSize = ring_list_getsize(pList);
 			if ( (nNum1 > 0) && (nNum2 > 0) && (nNum1!= nNum2) && (nNum1<= nSize) && (nNum2 <= nSize) ) {
 				ring_list_swap(pList,nNum1, nNum2);
