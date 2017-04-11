@@ -1078,6 +1078,9 @@ class FormDesignerController from WindowsControllerParent
 	func ExitAction
 		Super.CloseAction()
 
+	func Duplicate 
+
+
 	func Toolbox
 		if oView.oToolBoxDock.isvisible() {
 			oView.oToolBoxDock.hide()
@@ -1220,6 +1223,16 @@ Class FormDesignerView from WindowsViewParent
 					setclickevent(Method(:ExitAction))
 				}
 				addaction(oAction)
+			}
+			subEdit = addmenu("Edit")
+			subEdit {
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+v"))
+					settext("Duplicate")
+					setclickevent(Method(:Duplicate))
+				}
+				addaction(oAction)			
+				addseparator()	
 			}
 			subView = addmenu("View")
 			subView {

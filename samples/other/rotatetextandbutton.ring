@@ -4,13 +4,13 @@ New qapp {
                 setwindowtitle("Label and Button - Rotate Text")
                 setgeometry(100,100,500,500)
                 btn1 = new qPushButton(win1) {
-		setgeometry(100,100,400,400)
-		settext("")
+			setgeometry(100,100,400,400)
+			settext("")
                 }
                 label1 = new qlabel(win1) {
-		setgeometry(100,100,400,400)
-                    settext("")
-		setAttribute(Qt_WA_TransparentForMouseEvents,True)
+			setgeometry(100,100,400,400)
+			settext("")
+			setAttribute(Qt_WA_TransparentForMouseEvents,True)
                 }
 
 	draw()
