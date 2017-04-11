@@ -6791,30 +6791,34 @@ class FormDesignerFileSystem
 		cHeader = "# Start Form Designer File" + nl
 		cEnd = "# End Form Designer File"
 		# Save the Objects Data 
-			# Start of The List
-				cContent = "aObjectsList = [" + nl
-			# Objects 
-				for x = 1 to len(oDesigner.oModel.aObjectsList) {
-					aObject  = oDesigner.oModel.aObjectsList[x]
-					cObjContent = Copy(char(9),1) + 
-					'[ :name = "#{f1}" , :id = #{f2} , :classname = "#{f3}" , :data = [' + nl
-					cObjContent += aObject[2].ObjectDataAsString(oDesigner,2) + nl
-					cObjContent += Copy(char(9),2) +	"]" + nl + Copy(char(9),1) + "]" 
-					cObjContent = substr(cObjContent,"#{f1}",aObject[1])
-					cObjContent = substr(cObjContent,"#{f2}",""+aObject[3])
-					cObjContent = substr(cObjContent,"#{f3}",classname(aObject[2]))
-					if x != len(oDesigner.oModel.aObjectsList) {
-						cObjContent += ","
-					}
-					cObjContent += nl
-					cContent += cObjContent
-				}
-			# End of The List 
-				cContent += "]" + nl
+			cContent = Objects2String(oDesigner,oDesigner.oModel.aObjectsList)
 		# Write the Form File 
 			write(cFileName,cHeader+cContent+cEnd)
 		# Generate Code 
 			oGenerator.Generate(oDesigner,cFileName)
+
+	func Objects2String oDesigner,aObjectsList
+		# Start of The List
+			cContent = "aObjectsList = [" + nl
+		# Objects 
+			for x = 1 to len(aObjectsList) {
+				aObject  = aObjectsList[x]
+				cObjContent = Copy(char(9),1) + 
+				'[ :name = "#{f1}" , :id = #{f2} , :classname = "#{f3}" , :data = [' + nl
+				cObjContent += aObject[2].ObjectDataAsString(oDesigner,2) + nl
+				cObjContent += Copy(char(9),2) +	"]" + nl + Copy(char(9),1) + "]" 
+				cObjContent = substr(cObjContent,"#{f1}",aObject[1])
+				cObjContent = substr(cObjContent,"#{f2}",""+aObject[3])
+				cObjContent = substr(cObjContent,"#{f3}",classname(aObject[2]))
+				if x != len(aObjectsList) {
+					cObjContent += ","
+				}
+				cObjContent += nl
+				cContent += cObjContent
+			}
+		# End of The List 
+			cContent += "]" + nl
+		return cContent
 
 	func DeleteAllobjects oDesigner
 		for x = 2 to len(oDesigner.oModel.aObjectsList) {
