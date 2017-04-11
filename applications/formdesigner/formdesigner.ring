@@ -6832,6 +6832,10 @@ class FormDesignerFileSystem
 		# Load the Form Data 
 			eval(read(cFileName))	
 		# Create Objects 
+			CreateFormObjects(oDesigner,aObjectsList)
+
+	func CreateFormObjects oDesigner,aObjectsList
+		# Use the List data to create the objects 
 			for item in aObjectsList {
 				cClass = item[:classname] 	
 				itemdata = item[:data]
@@ -6979,10 +6983,10 @@ class FormDesignerFileSystem
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
-			# Objects List 
-				oDesigner.AddObjectsToCombo()
-			# Object Properties
-				oDesigner.ObjectProperties()
+		# Objects List 
+			oDesigner.AddObjectsToCombo()
+		# Object Properties
+			oDesigner.ObjectProperties()
 
 class FormDesignerCodeGenerator
 	
