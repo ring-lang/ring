@@ -1101,10 +1101,22 @@ class FormDesignerController from WindowsControllerParent
 			cCode  = oFile.Objects2String(self,aObjects)
 			eval(cCode)
 			# Update Name and Position
+				nIndex = 0
 				for item in aObjectsList {
-					item[:name] += "_2"
-					item[:data][:x] += 10
-					item[:data][:y] += 10
+					nIndex++
+					# Remove Numbers from the name 
+						for char in item[:name] {
+							if not isalpha(char) and isalnum(char) {
+								char = " "
+							}
+						}
+						item[:name] = substr(item[:name]," ","")
+					# Add New number to the name 
+						# -1 to avoid counting the window object 
+							item[:name] += "" + (oModel.ObjectsCount()+nIndex-1)
+					# Update Position
+						item[:data][:x] += 10
+						item[:data][:y] += 10
 				}
 			oFile.CreateFormObjects(self,aObjectsList)
 
