@@ -1118,7 +1118,16 @@ class FormDesignerController from WindowsControllerParent
 						item[:data][:x] += 10
 						item[:data][:y] += 10
 				}
+			nCount = oModel.ObjectsCount()
 			oFile.CreateFormObjects(self,aObjectsList)
+			# Select the new objects 
+				aObjects = oModel.GetObjects() 
+				for x = nCount+1 to len(aObjects) {	
+					item = aObjects[x]
+					oObject = item[2]	
+					oObject.oCorners.Show()
+					oModel.AddSelectedObject(x)	 
+				}
 
 	func Toolbox
 		if oView.oToolBoxDock.isvisible() {
