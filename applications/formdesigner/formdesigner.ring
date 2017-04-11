@@ -1079,30 +1079,34 @@ class FormDesignerController from WindowsControllerParent
 		Super.CloseAction()
 
 	func Duplicate 
-		aObjects = oModel.GetSelectedObjects() 
-		if  len(aObjects) = 0  and not oModel.IsFormActive()  {
-			aObjects = oModel.ActiveObjectItemAsList() 
-		}
-		if len(aObjects) = 0 {
-			new qmessagebox(oView.win)
-			{
-				setwindowtitle("Sorry!")
-				settext("No objects are selected")
-				setInformativeText("Select objects first to be duplicated")
-				setstandardbuttons(QMessageBox_Ok)
-				exec()
+		# Selected objects - if we have many objects selected 
+			aObjects = oModel.GetSelectedObjects()
+		# Support duplication of one selected object  
+			if  len(aObjects) = 0  and not oModel.IsFormActive()  {
+				aObjects = oModel.ActiveObjectItemAsList() 
 			}
-			return 
-		}
-		cCode  = oFile.Objects2String(self,aObjects)
-		eval(cCode)
-		# Update Name and Position
-			for item in aObjectsList {
-				item[:name] += "_2"
-				item[:data][:x] += 10
-				item[:data][:y] += 10
+		# Display messagebox if not objects are selected 
+			if len(aObjects) = 0 {
+				new qmessagebox(oView.win)
+				{
+					setwindowtitle("Sorry!")
+					settext("No objects are selected")
+					setInformativeText("Select objects first to be duplicated")
+					setstandardbuttons(QMessageBox_Ok)
+					exec()
+				}
+				return 
 			}
-		oFile.CreateFormObjects(self,aObjectsList)
+		# Duplication of selected objects 
+			cCode  = oFile.Objects2String(self,aObjects)
+			eval(cCode)
+			# Update Name and Position
+				for item in aObjectsList {
+					item[:name] += "_2"
+					item[:data][:x] += 10
+					item[:data][:y] += 10
+				}
+			oFile.CreateFormObjects(self,aObjectsList)
 
 	func Toolbox
 		if oView.oToolBoxDock.isvisible() {
