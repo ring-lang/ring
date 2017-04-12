@@ -1129,6 +1129,10 @@ class FormDesignerController from WindowsControllerParent
 					oModel.AddSelectedObject(x)	 
 				}
 
+	func BringToFront
+
+	func SendToBack
+
 	func Toolbox
 		if oView.oToolBoxDock.isvisible() {
 			oView.oToolBoxDock.hide()
@@ -1281,6 +1285,19 @@ Class FormDesignerView from WindowsViewParent
 				}
 				addaction(oAction)			
 				addseparator()	
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+f"))
+					settext("Bring to front")
+					setclickevent(Method(:BringToFront))
+				}
+				addaction(oAction)			
+				addseparator()	
+				oAction = new qAction(this.win) {
+					setShortcut(new QKeySequence("Ctrl+b"))
+					settext("Send to back")
+					setclickevent(Method(:SendToBack))
+				}
+				addaction(oAction)			
 			}
 			subView = addmenu("View")
 			subView {
