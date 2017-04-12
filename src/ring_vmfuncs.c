@@ -514,6 +514,8 @@ void ring_vm_anonymous ( VM *pVM )
 int ring_vm_isstackpointertoobjstate ( VM *pVM )
 {
 	int nScope  ;
+	Item *pItem  ;
+	List *pList  ;
 	/* if the variable belong to the object state, return 1 */
 	if ( ring_list_getsize(pVM->aLoadAddressScope)  >= 1 ) {
 		nScope = ring_list_getint(pVM->aLoadAddressScope,1) ;
