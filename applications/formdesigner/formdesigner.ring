@@ -1087,7 +1087,7 @@ class FormDesignerController from WindowsControllerParent
 			}
 		# Display messagebox if not objects are selected 
 			if len(aObjects) = 0 {
-				ShowMsgNoObjIsSelected()
+				ShowMsg("Sorry!","No objects are selected","Select objects first to be duplicated")
 				return 
 			}
 		# Duplication of selected objects 
@@ -1122,19 +1122,27 @@ class FormDesignerController from WindowsControllerParent
 					oModel.AddSelectedObject(x)	 
 				}
 
-	func ShowMsgNoObjIsSelected
+	func ShowMsg cTitle,cText,cText2
 		new qmessagebox(oView.win)
 		{
-			setwindowtitle("Sorry!")
-			settext("No objects are selected")
-			setInformativeText("Select objects first to be duplicated")
+			setwindowtitle(cTitle)
+			settext(cText)
+			setInformativeText(cText2)
 			setstandardbuttons(QMessageBox_Ok)
 			exec()
 		}
 
 	func BringToFront
+		if oModel.IsFormActive() {
+			ShowMsg("Sorry!","No object is selected","Select object first!")
+			return 
+		}
 
 	func SendToBack
+		if oModel.IsFormActive() {
+			ShowMsg("Sorry!","No object is selected","Select object first!")
+			return 
+		}
 
 	func Toolbox
 		if oView.oToolBoxDock.isvisible() {
