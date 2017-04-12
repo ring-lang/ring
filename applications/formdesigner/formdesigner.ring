@@ -1133,14 +1133,14 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func BringToFront
-		if oModel.IsFormActive() {
-			ShowMsg("Sorry!","No object is selected","Select object first!")
+		if oModel.IsFormActive()  or oModel.IsManySelected() {
+			ShowMsg("Sorry!","Object selection is not correct","Select one object first!")
 			return 
 		}
 
 	func SendToBack
-		if oModel.IsFormActive() {
-			ShowMsg("Sorry!","No object is selected","Select object first!")
+		if oModel.IsFormActive()  or oModel.IsManySelected() {
+			ShowMsg("Sorry!","Object selection is not correct","Select one object first!")
 			return 
 		}
 
