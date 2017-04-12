@@ -3,8 +3,7 @@ New qapp {
         win1 = new qwidget() {
                 setwindowtitle("Label and Button - Rotate Text")
                 setgeometry(100,100,500,500)
-                btn1 = new ButtonWithRotatedText(win1) 
-		btn1 {
+                btn1 = new ButtonWithRotatedText(win1) {
 			setgeometry(100,100,400,400)
 			settext("Test")
 			setClickEvent("see btn1.text()")
@@ -22,6 +21,7 @@ Class ButtonWithRotatedText
 		oButton = new qPushButton(oParent)
 		oLabel = new qLabel(oParent)
 		oLabel.setAttribute(Qt_WA_TransparentForMouseEvents,True)
+		return self 
 
 	func setgeometry x,y,width,height
 		oButton.setgeometry(x,y,width,height)
