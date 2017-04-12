@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-0
-122
-122
+15
+116
+101
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4686
+Time 4657
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-00AC6740
+009B4EC8
 OBJECTPOINTER
 0
 1
@@ -2590,7 +2590,7 @@ nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
 date: 12/04/2017
-time: 05:29:38
+time: 05:37:37
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3202,3 +3202,7 @@ BEFORE o.what()
 Line 13 Error (R14) : Calling Method without definition !: what 
 In method test() in file scripts/objmethodnobraceerror.ring
 called from line 2  in file scripts/objmethodnobraceerror.ring 
+B:\ring\tests>call ring scripts/retselfbyref.ring 
+x: 15.000000
+x: 20.000000
+x: 20.000000
