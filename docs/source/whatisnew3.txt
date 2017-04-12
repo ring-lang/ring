@@ -21,6 +21,7 @@ Ring 1.3  comes with many new features
 * Better StdLib
 * Better Loop/Exit Command
 * New Functions
+* Return Self by Reference
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better RingQt
@@ -227,3 +228,36 @@ Output
 	three
 	four
 
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Return Self by Reference
+
+Return Self by Reference
+========================
+
+In this release, using Return Self in class methods will return the object by reference.
+
+Example:
+
+.. code-block:: ring
+
+	mylist = [new mytest() {
+		see self
+		x = 20
+		see self
+	}]
+
+	see mylist 
+
+	class mytest
+		x = 15
+		func init 
+			return self	# Return by reference
+
+Output
+
+.. code-block:: ring
+
+	x: 15.000000
+	x: 20.000000
+	x: 20.000000
