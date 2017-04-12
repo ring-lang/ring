@@ -4,7 +4,7 @@ New qapp {
                 setwindowtitle("Label and Button - Rotate Text")
                 setgeometry(100,100,500,500)
                 btn1 = new ButtonWithRotatedText(win1) 
-	      btn1 {
+		btn1 {
 			setgeometry(100,100,400,400)
 			settext("Test")
 			setClickEvent("see btn1.text()")
@@ -46,15 +46,15 @@ Class ButtonWithRotatedText
 		draw() 
 
 	Func draw
-	                p1 = new qpicture()
-          	      color = new qcolor() {
-	                   	    setrgb(0,0,255,255)
-          	      }
-	                pen = new qpen() {
-          	              setcolor(color)
-                    	    setwidth(10)
-	                }
-          	      painter = new qpainter() {
+		p1 = new qpicture()
+		color = new qcolor() {
+			setrgb(0,0,255,255)
+		}
+		pen = new qpen() {
+			setcolor(color)
+			setwidth(10)
+		}
+		painter = new qpainter() {
 			begin(p1)		
 				setpen(pen)
 				oFont = font()
@@ -63,9 +63,9 @@ Class ButtonWithRotatedText
 				rotate(this.RotationDegree())
 				drawtext(0,0,this.Text()) 		 
 			endpaint()
-	                }
-          	      oLabel {
+		}
+		oLabel {
 			setpicture(p1)  
 			show() 
-		      }
+		}
 
