@@ -7,7 +7,6 @@ mylist = [new mytest() {
 see mylist 
 
 class mytest
-	x = 10
+	x = 15
 	func init 
-		x = 15
 		return self
