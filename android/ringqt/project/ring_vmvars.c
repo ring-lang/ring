@@ -114,8 +114,11 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 		**  Here we don't know the correct scope of the result 
 		**  becauase a global variable may be a reference to local variable 
 		**  And this case happens with setter/getter of the attributes using eval() 
+		**  Here we avoid this change if the variable name is "Self" to return self by reference 
 		*/
-		pVM->nVarScope = RING_VARSCOPE_NOTHING ;
+		if ( strcmp(cStr,"self") != 0 ) {
+			pVM->nVarScope = RING_VARSCOPE_NOTHING ;
+		}
 	} else {
 		/* Check Private Attributes */
 		if ( ring_list_getint(pList2,RING_VAR_PRIVATEFLAG) == 1 ) {
