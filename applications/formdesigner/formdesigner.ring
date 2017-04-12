@@ -1135,11 +1135,15 @@ class FormDesignerController from WindowsControllerParent
 	func BringToFront
 		if CheckOneObject() { 
 			oModel.ActiveObject().raise()
+			oModel.RaiseActiveObject()
+			AddObjectsToCombo()
 		}
 
 	func SendToBack
 		if CheckOneObject() { 
 			oModel.ActiveObject().lower()
+			oModel.LowerActiveObject()
+			AddObjectsToCombo()
 		}
 
 	func CheckOneObject 
@@ -2191,6 +2195,12 @@ Class FormDesignerModel
 
 	func ActiveObjectItemAsList
 		return [ aObjectsList[nActiveObject] ] 
+
+	func RaiseActiveObject
+		swap(aObjectsList,nActiveObject,len(aObjectsList))
+
+	func LowerActiveObject
+		swap(aObjectsList,nActiveObject,2)
 
 Class FormDesignerGeneral
 
