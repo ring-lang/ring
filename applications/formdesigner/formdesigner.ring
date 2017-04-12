@@ -1133,18 +1133,21 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func BringToFront
-		if oModel.IsFormActive()  or oModel.IsManySelected() {
-			ShowMsg("Sorry!","Object selection is not correct","Select one object first!")
-			return 
+		if CheckOneObject() { 
+			oModel.ActiveObject().raise()
 		}
-		oModel.ActiveObject().raise()
 
 	func SendToBack
+		if CheckOneObject() { 
+			oModel.ActiveObject().lower()
+		}
+
+	func CheckOneObject 
 		if oModel.IsFormActive()  or oModel.IsManySelected() {
 			ShowMsg("Sorry!","Object selection is not correct","Select one object first!")
-			return 
+			return False
 		}
-		oModel.ActiveObject().lower()
+		return True
 
 	func Toolbox
 		if oView.oToolBoxDock.isvisible() {
