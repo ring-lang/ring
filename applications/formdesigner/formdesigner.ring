@@ -1083,6 +1083,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func Duplicate 
 		# Selected objects - if we have many objects selected 
+			oModel.RefreshSelectedObjects()
 			aObjects = oModel.GetSelectedObjects()
 		# Support duplication of one selected object  
 			if  len(aObjects) = 0  and not oModel.IsFormActive()  {
@@ -1939,6 +1940,16 @@ Class FormDesignerModel
 
 	func GetSelectedObjects
 		return aManySelectedObjects
+
+	func RefreshSelectedObjects
+		# Refresh objects to update properties after updates to the group 
+		# We need this when we select group, update font and color for them
+		# Then Click Duplicate  (Copy and Paste) 
+		if len(aManySelectedObjects) < 1 { return }
+		for oObject in aManySelectedObjects {
+			nPos = find(aObjectsList,oObject[3],3)
+			oObject = aObjectsList[nPos]
+		}	
 
 	func IsManySelected
 		return len(aManySelectedObjects) 	# 0=False  & other values = True
