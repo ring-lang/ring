@@ -668,11 +668,10 @@ class FormDesignerController from WindowsControllerParent
 					if oFDApp.keyboardmodifiers() {
 						oModel.RemoveSelectedObject(nObjectIndex)
 						oModel.GetObjectByIndex(nObjectIndex).oCorners.Hide()
-						return 
 					else 
 						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self) 
-						return 
 					}
+					return 
 				else 
 					if oFDApp.keyboardmodifiers() {
 						oModel.AddSelectedObject(nObjectIndex)
