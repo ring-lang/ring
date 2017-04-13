@@ -2433,8 +2433,8 @@ class FormDesigner_QWidget from QWidget
 		cOutput = cTabs + " :x = #{f1} , : y = #{f2}  , " + nl
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
 		cOutput += cTabs + ' :title =  "#{f5}" , ' + nl
-		cOutput += cTabs + ' :backcolor =  "#{f6}" , '
-		cOutput += cTabs + ' :windowflags =  "#{f7}" , '
+		cOutput += cTabs + ' :backcolor =  "#{f6}" , ' + nl
+		cOutput += cTabs + ' :windowflags =  "#{f7}" , ' + nl
 		cOutput += cTabs + ' :mainlayout =  "#{f8}" ,' + nl
 		cOutput += cTabs + ' :WindowIcon =  "#{f9}" ' + nl
 		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
