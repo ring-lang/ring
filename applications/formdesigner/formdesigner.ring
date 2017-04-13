@@ -680,6 +680,18 @@ class FormDesignerController from WindowsControllerParent
 						return 			
 					}					
 				}
+			else 
+				# Here we don't have many objects selected 
+				if oFDApp.keyboardmodifiers() {
+					oModel.ClearSelectedObjects()
+					ChangeObjectByCode(nObjectIndex-1)  
+					oModel.ActiveObject().oCorners.Show()
+					oModel.AddSelectedObject(nObjectIndex)						
+					nWidth = oView.oPropertiesDock.width()
+					oView.oPropertiesDock.setWidget(oView.oProperties2)
+					oView.oPropertiesDock.setminimumwidth(nWidth)
+					return 
+				}
 			}
 			ChangeObjectByCode(nObjectIndex-1)  
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
