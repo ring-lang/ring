@@ -2865,7 +2865,7 @@ class CommonAttributesMethods
 		cOutput += cTabs + ' :textcolor =  "#{f5}" , ' + nl
 		cOutput += cTabs + ' :backcolor =  "#{f6}" , ' + nl
 		cOutput += cTabs + ' :font =  "#{f7}" , ' + nl
-		cOutput += cTabs + ' :parent =  "#{f8}"  ' + nl
+		cOutput += cTabs + ' :parent =  "#{f8}"  ' 
 		cOutput = substr(cOutput,"#{f1}",""+x())
 		cOutput = substr(cOutput,"#{f2}",""+y())
 		cOutput = substr(cOutput,"#{f3}",""+width())
