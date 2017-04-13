@@ -1171,6 +1171,31 @@ class FormDesignerController from WindowsControllerParent
 			oView.oPropertiesDock.Show()
 		}
 
+	func OpenCHMAction
+		System( "start " + exefolder()+"/../docs/ring.chm" )
+
+	func OpenPDFAction
+		System( "start " + exefolder()+"/../docs/ring.pdf" )
+
+	Func MsgBox cTitle,cMessage
+		new qMessagebox(NULL) {
+			setwindowtitle(cTitle)
+			setText(cMessage)
+			show()
+		}
+	
+	func LangAction
+		MsgBox("Programming Language",
+			"This application developed using the Ring programming language")
+
+	func GUIAction
+		MsgBox("GUI Library",
+			"This application uses the Qt GUI Library through RingQt")
+
+	func AboutAction
+		MsgBox("About",
+		"2017, Mahmoud Fayed <msfclipper@yahoo.com>")		
+
 Class FormDesignerView from WindowsViewParent
 
 	oForm oSub oFilter oArea win  
@@ -1339,6 +1364,42 @@ Class FormDesignerView from WindowsViewParent
 				}
 				addaction(oAction)	
 				addseparator()	
+			}
+			subHelp = addmenu("Help")
+			subHelp { 
+				subHelpLF = addmenu("Language Reference")
+				subHelpLF { 
+					oAction = new qAction(this.win) {
+						settext("CHM File")
+						setclickevent(Method(:OpenCHMAction))
+					}
+					addaction(oAction)
+					oAction = new qAction(this.win) {
+						settext("PDF File")
+						setclickevent(Method(:OpenPDFAction))
+					}
+					addaction(oAction)
+				}
+				addseparator()
+				subHelpTools = addmenu("Development Tools")
+				subHelpTools { 
+					oAction = new qAction(this.win) {
+						settext("Programming Language")
+						setclickevent(Method(:LangAction))
+					}
+					addaction(oAction)
+					oAction = new qAction(this.win) {
+						settext("GUI Library")
+						setclickevent(Method(:GUIAction))
+					}
+					addaction(oAction)
+				}
+				addseparator()
+				oAction = new qAction(this.win) {
+					settext("About")
+					setclickevent(Method(:AboutAction))
+				}
+				addaction(oAction)			
 			}
 		}
 		win.setmenubar(menu1)
