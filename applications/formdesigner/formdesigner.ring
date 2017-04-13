@@ -2183,7 +2183,16 @@ Class FormDesignerModel
 		}
 		raise("Can't find the object!")
 
-	func SetObjectName oObject,cValue
+	func SetObjectName oDesigner,oObject,cValue
+		# Check duplication 
+		for Item in aObjectsList {
+			if lower(trim(Item[1])) = lower(trim(cValue)) {
+				if not PtrCmp( Item[2].pObject , oObject.pObject ) {
+					oDesigner.ShowMsg("Sorry","Name Duplication!","Write another Name!")
+				}
+				return 
+			}
+		}
 		for Item in aObjectsList {
 			if PtrCmp( Item[2].pObject , oObject.pObject ) {
 				Item[1] = cValue
@@ -2781,8 +2790,10 @@ class CommonAttributesMethods
 		if nCol = 1 {
 			switch nRow {
 				case 0	# Name
-					oDesigner.oModel.SetObjectName(self,cValue)
+					oDesigner.oModel.SetObjectName(oDesigner,self,cValue)
 					oDesigner.AddObjectsToCombo()
+					# Because we may prevent name change (duplication)
+						DisplayCommonProperties(oDesigner)
 				case 1 	# x
 					move(0+cValue,y())
 				case 2 	# y
@@ -2910,7 +2921,7 @@ class CommonAttributesMethods
 		blocksignals(true)
 		setMouseTracking(True)
 		setFocusPolicy(0)
-		oDesigner.oModel.SetObjectName(self,item[:name])
+		oDesigner.oModel.SetObjectName(oDesigner,self,item[:name])
 		move(itemdata[:x],itemdata[:y]) 
 		resize(itemdata[:width],itemdata[:height])
 		setTextColor(itemdata[:textcolor])
