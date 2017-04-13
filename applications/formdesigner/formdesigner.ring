@@ -580,7 +580,10 @@ class FormDesignerController from WindowsControllerParent
 		aObjects = oModel.GetObjects() 
 		for x = 2 to len(aObjects) {	# Start from 2 to avoid the Form Object	
 			item = aObjects[x]
-			oObject = item[2]	
+			oObject = item[2]
+			if not oObject.CurrentParentName() = "win" {
+				loop
+			}
 			nX = oObject.x() 
 			nY = oObject.y()
 			nX2 = nX + oObject.Width()
