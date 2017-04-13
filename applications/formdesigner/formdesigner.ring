@@ -2461,7 +2461,7 @@ class FormDesigner_QWidget from QWidget
 		}
 
 	func MousePressAction oDesigner
-		# 8, 6 to start drawing from the center of the cursor 
+		# 8, 6 to start drawing from the center of the Mouse Cursor 
 			nX = oDesigner.oView.oFilter.getglobalx() - 8
 			ny = oDesigner.oView.oFilter.getglobaly() - 6
 		oDesigner.oView.oLabelSelect.raise()
