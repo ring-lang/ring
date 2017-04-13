@@ -682,6 +682,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			else 
 				# Here we don't have many objects selected 
+				# Support starting multiple selection operation using the keyboard 
 				if oFDApp.keyboardmodifiers() {
 					oModel.ClearSelectedObjects()
 					ChangeObjectByCode(nObjectIndex-1)  
