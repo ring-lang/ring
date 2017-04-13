@@ -6909,7 +6909,9 @@ class FormDesignerFileSystem
 		# Save the Objects Data 
 			cContent = Objects2String(oDesigner,oDesigner.oModel.aObjectsList)
 		# Write the Form File 
-			write(cFileName,cHeader+cContent+cEnd)
+			cFileContent = cHeader+cContent+cEnd
+			cFileContent = substr(cFileContent,nl,windowsnl())
+			write(cFileName,cFileContent)
 		# Generate Code 
 			oGenerator.Generate(oDesigner,cFileName)
 
