@@ -581,7 +581,7 @@ class FormDesignerController from WindowsControllerParent
 		for x = 2 to len(aObjects) {	# Start from 2 to avoid the Form Object	
 			item = aObjects[x]
 			oObject = item[2]
-			if not oObject.CurrentParentName() = "win" {
+			if not (oObject.CurrentParentName() = "win" or oObject.CurrentParentName() = "") {
 				loop
 			}
 			nX = oObject.x() 
