@@ -2200,7 +2200,15 @@ Class FormDesignerModel
 		swap(aObjectsList,nActiveObject,len(aObjectsList))
 
 	func LowerActiveObject
-		swap(aObjectsList,nActiveObject,2)
+		cParentValue = ActiveObject().CurrentParentName()
+		for x = 2 to len(aObjectsList) {
+				if aObjectsList[x][2].CurrentParentName() = cParentValue {
+					exit 
+				}
+		}
+		if not x = nActiveObject {
+			swap(aObjectsList,nActiveObject,x)
+		}
 
 Class FormDesignerGeneral
 
