@@ -7298,7 +7298,7 @@ class FormDesignerCodeGenerator
 					 "}" + nl + nl
 		# Write the Class 
 			cOutput += "class " + cClassName + " from WindowsViewParent" + nl +
-					char(9) + "win = new qWidget() { " + nl +
+					char(9) + "win = new qMainWindow() { " + nl +
 					GenerateWindowCode(oDesigner) +
 					GenerateObjectsCode(oDesigner) +
 					GenerateWindowCodeAfterObjects(oDesigner) +
