@@ -6948,39 +6948,47 @@ class FormDesigner_QStatusbar from QLabel
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cMessage = ""
+
+	func MessageValue 
+		return cMessage
+
+	func SetMessageValue cValue 
+		cMessage = cValue 
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Text",False)
+		oDesigner.oView.AddProperty("Message",False)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
 		# Set the Text
-			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(MessageValue())
 		oPropertiesTable.Blocksignals(False)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nRow = C_AFTERCOMMON { 
-			setText(cValue)
+			setMessageValue(cValue)
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
-		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
+		cOutput += "," + nl + cTabs + ' :Message =  "' + MessageValue() + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl 
-		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = substr(cOutput,"#{f1}",MessageValue())
 		return cOutput
 
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
-		setText(itemdata[:text])
+		setMessageValue(itemdata[:Message])
 
 class FormDesignerFileSystem
 
