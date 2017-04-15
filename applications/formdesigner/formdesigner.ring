@@ -6967,12 +6967,16 @@ class FormDesigner_QStatusbar from QLabel
 		# Set the Text
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(MessageValue())
 		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nRow = C_AFTERCOMMON { 
 			setMessageValue(cValue)
 		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
