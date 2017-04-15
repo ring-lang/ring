@@ -68,7 +68,15 @@ Class ButtonWithRotatedText
         oButton = new qPushButton(oParent)
         oLabel  = new qLabel(oParent)
         oLabel.setAttribute(Qt_WA_TransparentForMouseEvents,True)
+        oLabel.setAttribute(Qt_WA_DeleteOnClose, True)
+        oButton.setAttribute(Qt_WA_DeleteOnClose, True)
     return
+    
+    func close()
+        See "Close: "+ nl
+        #oButton.close()     ### Comment out - Will leave button active
+        oLabel.close()       ### This will erase text
+    return    
     
     func setgeometry( x,y,width,height)
         See "SetGeometry: "+ x  +" "+ y +" "+ width +" "+ height +nl
