@@ -1638,7 +1638,7 @@ Class FormDesignerView from WindowsViewParent
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn27 = new qPushButton(oToolBox) {
-					setText(this.TextSize("Statusbar",18))
+					setText(this.TextSize("Statusbar",20))
 					setbtnimage(self,"image/statusbar.png") 
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
