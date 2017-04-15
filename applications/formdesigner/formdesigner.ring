@@ -1452,7 +1452,7 @@ Class FormDesignerView from WindowsViewParent
 			]
 
 		tool1 = win.addtoolbar("files")  {
-	  		for x in aBtns addwidget(x) addseparator() next
+	  		for x in aBtns { addwidget(x) addseparator() }
 		}
 
 	func CreateToolBox
