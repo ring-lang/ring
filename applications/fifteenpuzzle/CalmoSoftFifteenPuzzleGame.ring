@@ -1,3 +1,4 @@
+# author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Magdy Ragab, Mahmoud Fayed
 load "guilib.ring"
 
 app1 = new qapp {
@@ -250,10 +251,8 @@ func newsize nr
                 sizenew = nr%4
                 win1.resize(380+sizenew*40,520+sizenew*40)
                 if flag != 0
-                   see "nrold = " + nrold + nl
                    for n = 1 to nrold*nrold+3
                          button[n].close()
-                         see n + nl
                    next
                 ok
                 scramblebtn.close()
@@ -265,15 +264,14 @@ func newsize nr
                      col = n%nr
                      if col = 0 col = nr ok
                      row = ceil(n/nr)
-
-                button[n] = new ButtonWithRotatedText(win1)
-                       button[n] {
-                       setgeometry(60+col*40,60+row*40,40,40)
-                       nDegree = 0
-                       settext(string(n))
-                       setClickEvent("movetile(" + string(n) +")")
-                       }
-               
+                     button[n] = new ButtonWithRotatedText(win1)
+                     button[n] {
+                     setgeometry(60+col*40,60+row*40,40,40)
+                     setstylesheet("color:Red;background-color:Yellow;")
+                     nDegree = 0
+                     settext(string(n))
+                     setClickEvent("movetile(" + string(n) +")")
+                     }
                 next
 
                 button[nr*nr+1] = new qpushbutton(win1)
@@ -338,6 +336,7 @@ func newsize nr
                 button[nr*nr] = new ButtonWithRotatedText(win1)
                                        button[nr*nr] {
                                        setgeometry(60+col*40,60+row*40,40,40)
+                                       setstylesheet("color:Red;background-color:Yellow;")
                                        settext("")
                                        setClickEvent("movetile(" + string(nr*nr) +")")
                                        }
@@ -400,6 +399,9 @@ Class ButtonWithRotatedText
             oLabel.close()
             //oButton.close()
             return
+
+    func setstylesheet(x)
+            oButton.setstylesheet(x)
 
     func setgeometry( x,y,width,height)
         oButton.setgeometry(x,y,width,height)
