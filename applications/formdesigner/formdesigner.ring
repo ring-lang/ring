@@ -7102,7 +7102,7 @@ class FormDesigner_QToolBar from QLabel
 	func GenerateCode oDesigner
 		cOutput = char(9) + char(9) + 
 		oDesigner.oModel.GetObjectName(self) + " = " +
-		'new win.addtoolbar("#{f1}") {			
+		'win.AddToolbar("#{f1}") {			
 #{f2}
 		}' + nl
 		cOutput = substr(cOutput,"#{f1}",TitleValue())
