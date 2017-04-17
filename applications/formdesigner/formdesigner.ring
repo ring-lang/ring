@@ -37,7 +37,8 @@ import formdesigner
 		:FormDesigner_QAllEvents,
 		:FormDesigner_QLayout,
 		:FormDesigner_QTabWidget,
-		:FormDesigner_QStatusBar
+		:FormDesigner_QStatusBar,
+		:FormDesigner_QToolbar
 	] {
 		mergemethods(cClassName,:MoveResizeCorners)
 		mergemethods(cClassName,:CommonAttributesMethods)
@@ -553,6 +554,20 @@ class FormDesignerController from WindowsControllerParent
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("StatusBar",oModel.StatusBarsCount())
+			SetToolboxModeToSelectAfterDraw()
+		elseif oView.oToolBtn28.ischecked()   # Create QToolbar
+			HideCorners()
+			UpdatePositionForParent(aRect)
+			oModel.AddToolBar(new FormDesigner_QToolbar(oModel.CurrentParent()) {
+					move(aRect[1],aRect[2]) 
+					resize(aRect[3],aRect[4])
+					setFocusPolicy(0)
+					setMouseTracking(True)
+					cParent = this.oModel.CurrentParentName()
+				}
+			)
+			oModel.ActiveObject().setCurrentParentName(cParent)
+			NewControlEvents("ToolBar",oModel.ToolBarsCount())
 			SetToolboxModeToSelectAfterDraw()
 		}
 
@@ -1236,7 +1251,7 @@ Class FormDesignerView from WindowsViewParent
 	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
 	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 
 	oToolBtn19 oToolBtn20 oToolBtn21 oToolBtn22 oToolBtn23
-	oToolBtn24 oToolBtn25 oToolBtn26 oToolBtn27 
+	oToolBtn24 oToolBtn25 oToolBtn26 oToolBtn27  oToolBtn28
 
 	func CreateMainWindow oModel
 
@@ -1643,6 +1658,12 @@ Class FormDesignerView from WindowsViewParent
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
+ 			this.oToolbtn28 = new qPushButton(oToolBox) {
+					setText(this.TextSize("Toolbar",20))
+					setbtnimage(self,"image/toolbar.png") 
+					setCheckable(True)
+					setClickEvent(Method(:ToolBtnChangeAction))
+			}
 
 			Layout1 = new qVBoxLayout() {
 				AddWidget(this.oToolLock)
@@ -1673,6 +1694,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(this.oToolbtn25)
 				AddWidget(this.oToolbtn26)
 				AddWidget(this.oToolbtn27)
+				AddWidget(this.oToolbtn28)
 				insertStretch( -1, 1 )
 			}
 			btnsGroup = new qButtonGroup(oToolBox) {
@@ -1704,6 +1726,7 @@ Class FormDesignerView from WindowsViewParent
 				AddButton(this.oToolbtn25,24)
 				AddButton(this.oToolbtn26,25)
 				AddButton(this.oToolbtn27,26)
+				AddButton(this.oToolbtn28,27)
 			}
 			setLayout(Layout1)
 		}
@@ -1945,6 +1968,7 @@ Class FormDesignerModel
 	nLayoutsCount = 0
 	nTabsCount = 0
 	nStatusbarsCount = 0
+	nToolbarsCount = 0
 
 	cCurrentParent = ""
 	oCurrentParentCache = NULL
@@ -2245,6 +2269,13 @@ Class FormDesignerModel
 	func StatusbarsCount
 		return nStatusbarsCount
 
+	func AddToolbar oObject
+		nToolbarsCount++
+		AddObject("Toolbar"+nToolbarsCount,oObject)
+
+	func ToolbarsCount
+		return nToolbarsCount
+
 	func DeleteAllObjects
 		aManySelectedObjects = []
 		nActiveObject = 1
@@ -2275,6 +2306,8 @@ Class FormDesignerModel
 		nLayoutsCount = 0
 		nTabsCount = 0
 		nStatusbarsCount = 0
+		nToolbarsCount = 0
+
 		# Delete Objects but Keep the Form Object
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
@@ -6996,6 +7029,128 @@ class FormDesigner_QStatusbar from QLabel
 		itemdata = item[:data]
 		setMessageValue(itemdata[:Message])
 
+class FormDesigner_QToolBar from QLabel
+
+	CreateCommonAttributes()
+	CreateMoveResizeCornersAttributes()
+
+	nLayoutType = 0
+	cLayoutObjects = ""
+
+	func LayoutTypeValue
+		return nLayoutType
+
+	func SetLayoutTypeValue Value 
+		nLayoutType = Value 
+
+	func LayoutObjectsValue
+		return cLayoutObjects
+
+	func SetLayoutObjectsValue cValue
+		cLayoutObjects = cValue	
+
+	func AddObjectProperties  oDesigner
+		AddObjectCommonProperties(oDesigner)
+		oDesigner.oView.AddPropertyCombobox("Type",["Vertical","Horizontal"])
+		oDesigner.oView.AddProperty("Objects (S: Comma)",True)
+
+	func DisplayProperties oDesigner
+		DisplayCommonProperties(oDesigner)
+		oPropertiesTable = oDesigner.oView.oPropertiesTable
+		oPropertiesTable.Blocksignals(True)
+		# Set the Layout Type
+			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(LayoutTypeValue())
+			oCombo.BlockSignals(False)
+		# Set the Layout Objects
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(LayoutObjectsValue())
+		oPropertiesTable.Blocksignals(False)
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
+	func UpdateProperties oDesigner,nRow,nCol,cValue
+		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
+		switch nRow {
+			case C_AFTERCOMMON 
+				setLayoutTypeValue(cValue)
+			case C_AFTERCOMMON + 1
+				setLayoutObjectsValue(cValue)
+		}
+		# Set the object name 
+			setText(oDesigner.oModel.GetObjectName(self))
+
+	func ComboItemAction oDesigner,nRow
+		nLayoutTypePos = C_AFTERCOMMON
+		if nRow = nLayoutTypePos  {		# Layout Type
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nLayoutTypePos,1)
+			oCombo = new qCombobox 
+			oCombo.pObject = oWidget.pObject 
+			nIndex = oCombo.CurrentIndex()
+			setLayoutTypeValue(nIndex)
+		}
+
+	func DialogButtonAction oDesigner,nRow 
+		CommonDialogButtonAction(oDesigner,nRow)
+		switch nRow {
+			case C_AFTERCOMMON + 1 	# Layout Objects
+				open_window(:WindowObjectsController)
+				Last_Window().setParentObject(oDesigner)
+				aList = oDesigner.oModel.GetObjectsNames()
+				# Remove the window Object name
+					del(aList,1)	
+				# Remove the current layout object name 
+					del(aList,std_find(aList,oDesigner.oModel.GetObjectName(self))) 
+				Last_Window().LoadObjectsData(aList)
+		}
+
+	func ObjectDataAsString oDesigner,nTabsCount
+		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
+		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :LayoutType =  ' + LayoutTypeValue()
+		cOutput += "," + nl + cTabs + ' :LayoutObjects =  "' + LayoutObjectsValue() + '"'
+		return cOutput
+
+	func GenerateCode oDesigner
+		cOutput = char(9) + char(9) + 
+		oDesigner.oModel.GetObjectName(self) + " = " +
+		'new #{f1}() {			
+#{f2}
+		}' + nl
+		switch LayoutTypeValue()	{
+			case 0
+				cClass = "QVBoxLayout"
+			case 1 
+				cClass = "QHBoxLayout"
+		}
+		cOutput = substr(cOutput,"#{f1}",cClass)
+		cOutput = substr(cOutput,"#{f2}",AddTabs(GenerateCustomCode(oDesigner),3))
+		return cOutput
+
+	func GenerateCustomCode oDesigner
+		cOutput = ""
+		if LayoutObjectsValue() != NULL {
+			aItems = split(LayoutObjectsValue(),",")
+			for item in aItems {
+				if not oDesigner.oModel.GetObjectClassByName(item) = "formdesigner_qlayout" {
+					cOutput += 'AddWidget(#{f1})' + nl
+				else
+					cOutput += 'AddLayout(#{f1})' + nl
+				}
+				cOutput = substr(cOutput,"#{f1}",Item)
+			}
+		}
+		return cOutput
+
+	func RestoreProperties oDesigner,Item 
+		RestoreCommonProperties(oDesigner,item)
+		itemdata = item[:data]
+		setLayoutTypeValue(itemdata[:LayoutType])
+		setLayoutObjectsValue(itemdata[:LayoutObjects])
+
+
 class FormDesignerFileSystem
 
 	cFileName = "noname.rform"
@@ -7265,6 +7420,11 @@ class FormDesignerFileSystem
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddStatusbar(new FormDesigner_QStatusBar(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.StatusBarsCount())
+						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
+					case :FormDesigner_QToolba
+						oDesigner.HideCorners()
+						oDesigner.oModel.AddToolbar(new FormDesigner_QStatusBar(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
+						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ToolbarsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
 			}
