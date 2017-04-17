@@ -1,4 +1,4 @@
-# author: Gal Zsolt (~CalmoSoft ~)
+# author: Gal Zsolt (~ CalmoSoft ~)
 
 load "guilib.ring"
 
