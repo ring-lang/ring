@@ -1,5 +1,3 @@
-# author: Gal Zsolt (~ CalmoSoft ~)
-
 load "guilib.ring"
 
 app1 = new qapp {
@@ -198,7 +196,7 @@ func pHere
            button[nrold*nrold+2] = new ButtonWithRotatedText(win1)
            button[nrold*nrold+2] {
            setgeometry(60+(nrold-1)*40,60+(nrold+1)*40,40,40)
-           nDegree = btnDegree[nrold*nrold+2][2]    
+           nDegree = btnDegree[nrold*nrold+2][2]
            settext(temp)
            }
            nDegree = 0
@@ -224,7 +222,6 @@ func pBack
                 setclickevent("pHere()")   
                 show() 
                 } 
-               
         /*for n = 1 to nrold*nrold
               button[n]{setenabled = true}
         next*/
@@ -262,8 +259,10 @@ func newsize nr
                 sizenew = nr%4
                 win1.resize(380+sizenew*40,520+sizenew*40)
                 if flag != 0
+                   see "nrold = " + nrold + nl
                    for n = 1 to nrold*nrold+3
                          button[n].close()
+                         see n + nl
                    next
                 ok
                 scramblebtn.close()
@@ -271,10 +270,10 @@ func newsize nr
                 savebtn.close()
                 playbtn.close()
 
-                for n = 1 to nrold*nrold
-                     col = n%nrold
-                     if col = 0 col = nrold ok
-                     row = ceil(n/nrold)
+                for n = 1 to nr*nr-1
+                     col = n%nr
+                     if col = 0 col = nr ok
+                     row = ceil(n/nr)
 
                 button[n] = new ButtonWithRotatedText(win1)
                        button[n] {
@@ -369,7 +368,7 @@ chdir(exefolder()+"../extensions/ringallegro")
 
 func pPlay
 
-      	cName = exefolder()+"../CalmoSoftPuzzle.txt"
+      	cName = cName = exefolder()+"../CalmoSoftPuzzle.txt"
 		textedit1 = read(cName)
         table = str2list(textedit1)
 
@@ -408,7 +407,7 @@ Class ButtonWithRotatedText
     
     func close()
             oLabel.close()
-            oButton.close()
+            //oButton.close()
             return
 
     func setgeometry( x,y,width,height)
