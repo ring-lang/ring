@@ -7034,39 +7034,25 @@ class FormDesigner_QToolBar from QLabel
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
-	nLayoutType = 0
-	cLayoutObjects = ""
+	cToolbarObjects = ""
 
-	func LayoutTypeValue
-		return nLayoutType
+	func ToolbarObjectsValue
+		return cToolbarObjects
 
-	func SetLayoutTypeValue Value 
-		nLayoutType = Value 
-
-	func LayoutObjectsValue
-		return cLayoutObjects
-
-	func SetLayoutObjectsValue cValue
-		cLayoutObjects = cValue	
+	func SetToolbarObjectsValue cValue
+		cToolbarObjects = cValue	
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddPropertyCombobox("Type",["Vertical","Horizontal"])
+		oDesigner.oView.AddProperty("Title",True)
 		oDesigner.oView.AddProperty("Objects (S: Comma)",True)
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
-		# Set the Layout Type
-			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
-			oCombo.BlockSignals(True)
-			oCombo.setCurrentIndex(LayoutTypeValue())
-			oCombo.BlockSignals(False)
-		# Set the Layout Objects
-			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(LayoutObjectsValue())
+		# Set the Toolbar Objects
+			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(ToolbarObjectsValue())
 		oPropertiesTable.Blocksignals(False)
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
@@ -7074,28 +7060,17 @@ class FormDesigner_QToolBar from QLabel
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		switch nRow {
-			case C_AFTERCOMMON 
-				setLayoutTypeValue(cValue)
-			case C_AFTERCOMMON + 1
-				setLayoutObjectsValue(cValue)
+			case C_AFTERCOMMON+1
+				setToolbarObjectsValue(cValue)
 		}
 		# Set the object name 
 			setText(oDesigner.oModel.GetObjectName(self))
 
-	func ComboItemAction oDesigner,nRow
-		nLayoutTypePos = C_AFTERCOMMON
-		if nRow = nLayoutTypePos  {		# Layout Type
-			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nLayoutTypePos,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
-			nIndex = oCombo.CurrentIndex()
-			setLayoutTypeValue(nIndex)
-		}
 
 	func DialogButtonAction oDesigner,nRow 
 		CommonDialogButtonAction(oDesigner,nRow)
 		switch nRow {
-			case C_AFTERCOMMON + 1 	# Layout Objects
+			case C_AFTERCOMMON+1  	# Toolbar Objects
 				open_window(:WindowObjectsController)
 				Last_Window().setParentObject(oDesigner)
 				aList = oDesigner.oModel.GetObjectsNames()
@@ -7109,36 +7084,24 @@ class FormDesigner_QToolBar from QLabel
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
-		cOutput += "," + nl + cTabs + ' :LayoutType =  ' + LayoutTypeValue()
-		cOutput += "," + nl + cTabs + ' :LayoutObjects =  "' + LayoutObjectsValue() + '"'
+		cOutput += "," + nl + cTabs + ' :ToolbarObjects =  "' + ToolbarObjectsValue() + '"'
 		return cOutput
 
 	func GenerateCode oDesigner
 		cOutput = char(9) + char(9) + 
 		oDesigner.oModel.GetObjectName(self) + " = " +
-		'new #{f1}() {			
+		'new QToolbar() {			
 #{f2}
 		}' + nl
-		switch LayoutTypeValue()	{
-			case 0
-				cClass = "QVBoxLayout"
-			case 1 
-				cClass = "QHBoxLayout"
-		}
-		cOutput = substr(cOutput,"#{f1}",cClass)
 		cOutput = substr(cOutput,"#{f2}",AddTabs(GenerateCustomCode(oDesigner),3))
 		return cOutput
 
 	func GenerateCustomCode oDesigner
 		cOutput = ""
-		if LayoutObjectsValue() != NULL {
-			aItems = split(LayoutObjectsValue(),",")
+		if ToolbarObjectsValue() != NULL {
+			aItems = split(ToolbarObjectsValue(),",")
 			for item in aItems {
-				if not oDesigner.oModel.GetObjectClassByName(item) = "formdesigner_qlayout" {
-					cOutput += 'AddWidget(#{f1})' + nl
-				else
-					cOutput += 'AddLayout(#{f1})' + nl
-				}
+				cOutput += 'AddWidget(#{f1})' + nl
 				cOutput = substr(cOutput,"#{f1}",Item)
 			}
 		}
@@ -7147,8 +7110,7 @@ class FormDesigner_QToolBar from QLabel
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
-		setLayoutTypeValue(itemdata[:LayoutType])
-		setLayoutObjectsValue(itemdata[:LayoutObjects])
+		setToolbarObjectsValue(itemdata[:ToolbarObjects])
 
 
 class FormDesignerFileSystem
