@@ -7034,7 +7034,14 @@ class FormDesigner_QToolBar from QLabel
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
+	cTitle = ""
 	cToolbarObjects = ""
+
+	func TitleValue
+		return cTitle
+
+	func SetTitleValue cValue
+		cTitle = cValue 
 
 	func ToolbarObjectsValue
 		return cToolbarObjects
@@ -7051,6 +7058,8 @@ class FormDesigner_QToolBar from QLabel
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
+		# The Title
+			oPropertiesTable.item(C_AFTERCOMMON,1).settext(TitleValue())
 		# Set the Toolbar Objects
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(ToolbarObjectsValue())
 		oPropertiesTable.Blocksignals(False)
@@ -7060,6 +7069,8 @@ class FormDesigner_QToolBar from QLabel
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		switch nRow {
+			case C_AFTERCOMMON
+				setTitleValue(cValue)
 			case C_AFTERCOMMON+1
 				setToolbarObjectsValue(cValue)
 		}
@@ -7084,15 +7095,17 @@ class FormDesigner_QToolBar from QLabel
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount) 
+		cOutput += "," + nl + cTabs + ' :Title =  "' + TitleValue() + '"'
 		cOutput += "," + nl + cTabs + ' :ToolbarObjects =  "' + ToolbarObjectsValue() + '"'
 		return cOutput
 
 	func GenerateCode oDesigner
 		cOutput = char(9) + char(9) + 
 		oDesigner.oModel.GetObjectName(self) + " = " +
-		'new QToolbar() {			
+		'new win.addtoolbar("#{f1}") {			
 #{f2}
 		}' + nl
+		cOutput = substr(cOutput,"#{f1}",TitleValue())
 		cOutput = substr(cOutput,"#{f2}",AddTabs(GenerateCustomCode(oDesigner),3))
 		return cOutput
 
@@ -7110,6 +7123,7 @@ class FormDesigner_QToolBar from QLabel
 	func RestoreProperties oDesigner,Item 
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setTitleValue(itemdata[:Title])
 		setToolbarObjectsValue(itemdata[:ToolbarObjects])
 
 
