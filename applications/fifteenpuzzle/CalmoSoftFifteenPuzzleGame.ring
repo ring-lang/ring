@@ -1,3 +1,4 @@
+# author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Magdy Ragab, Mahmoud Fayed
 load "guilib.ring"
 
 app1 = new qapp {
@@ -17,7 +18,7 @@ app1 = new qapp {
         offSetX    = LabelSizeX / 2
         nDegreeRight = 0
         nDegreeLeft = 0
-        btnDegree = newlist(49,2)
+        btnDegree = newlist(52,2)
 
         win1 = new qwidget() {
                    move(0,0)
@@ -179,16 +180,6 @@ func resettiles
                 } 
         return
 
-func resettiles2
-        nDegree = 0  
-        empty = nrold*nrold
-        for i = 1 to nrold*nrold-1
-             button[i] {settext("")}
-        next
-        button[nrold*nrold] {settext("")}
-        button[nrold*nrold+2]{settext("Here")}
-        return
-
 func pHere
         if button[nrold*nrold-1].text() != "" and button[nrold*nrold+2].text() = "Here"
            button[nrold*nrold-1] { temp = text() }
@@ -196,6 +187,7 @@ func pHere
            button[nrold*nrold+2] = new ButtonWithRotatedText(win1)
            button[nrold*nrold+2] {
            setgeometry(60+(nrold-1)*40,60+(nrold+1)*40,40,40)
+           btnDegree[nrold*nrold+2][2] = btnDegree[nrold*nrold-1][2]
            nDegree = btnDegree[nrold*nrold+2][2]
            settext(temp)
            }
@@ -212,12 +204,12 @@ func pHere
 func pBack
         button[nrold*nrold+2] { temp = text() }
         nDegree = btnDegree[nrold*nrold+2][2]
+        btnDegree[nrold*nrold-1][2] = btnDegree[nrold*nrold+2][2]
         button[nrold*nrold-1] {settext(temp)}
         button[nrold*nrold+2].close()
         button[nrold*nrold+2] = new qpushbutton(win1)
                 {
                 setgeometry(60+(nrold-1)*40,60+(nrold+1)*40,40,40)
-                nDegree = btnDegree[nrold*nrold+2][2]
                 settext("Here")
                 setclickevent("pHere()")   
                 show() 
@@ -259,10 +251,8 @@ func newsize nr
                 sizenew = nr%4
                 win1.resize(380+sizenew*40,520+sizenew*40)
                 if flag != 0
-                   see "nrold = " + nrold + nl
                    for n = 1 to nrold*nrold+3
                          button[n].close()
-                         see n + nl
                    next
                 ok
                 scramblebtn.close()
@@ -274,15 +264,14 @@ func newsize nr
                      col = n%nr
                      if col = 0 col = nr ok
                      row = ceil(n/nr)
-
-                button[n] = new ButtonWithRotatedText(win1)
-                       button[n] {
-                       setgeometry(60+col*40,60+row*40,40,40)
-                       nDegree = 0
-                       settext(string(n))
-                       setClickEvent("movetile(" + string(n) +")")
-                       }
-               
+                     button[n] = new ButtonWithRotatedText(win1)
+                     button[n] {
+                     setgeometry(60+col*40,60+row*40,40,40)
+                     setstylesheet("color:Red;background-color:Yellow;")
+                     nDegree = 0
+                     settext(string(n))
+                     setClickEvent("movetile(" + string(n) +")")
+                     }
                 next
 
                 button[nr*nr+1] = new qpushbutton(win1)
@@ -347,6 +336,7 @@ func newsize nr
                 button[nr*nr] = new ButtonWithRotatedText(win1)
                                        button[nr*nr] {
                                        setgeometry(60+col*40,60+row*40,40,40)
+                                       setstylesheet("color:Red;background-color:Yellow;")
                                        settext("")
                                        setClickEvent("movetile(" + string(nr*nr) +")")
                                        }
@@ -409,6 +399,9 @@ Class ButtonWithRotatedText
             oLabel.close()
             //oButton.close()
             return
+
+    func setstylesheet(x)
+            oButton.setstylesheet(x)
 
     func setgeometry( x,y,width,height)
         oButton.setgeometry(x,y,width,height)
