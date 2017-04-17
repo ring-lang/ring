@@ -17,7 +17,7 @@ app1 = new qapp {
         offSetX    = LabelSizeX / 2
         nDegreeRight = 0
         nDegreeLeft = 0
-        btnDegree = newlist(49,2)
+        btnDegree = newlist(52,2)
 
         win1 = new qwidget() {
                    move(0,0)
@@ -179,16 +179,6 @@ func resettiles
                 } 
         return
 
-func resettiles2
-        nDegree = 0  
-        empty = nrold*nrold
-        for i = 1 to nrold*nrold-1
-             button[i] {settext("")}
-        next
-        button[nrold*nrold] {settext("")}
-        button[nrold*nrold+2]{settext("Here")}
-        return
-
 func pHere
         if button[nrold*nrold-1].text() != "" and button[nrold*nrold+2].text() = "Here"
            button[nrold*nrold-1] { temp = text() }
@@ -196,6 +186,7 @@ func pHere
            button[nrold*nrold+2] = new ButtonWithRotatedText(win1)
            button[nrold*nrold+2] {
            setgeometry(60+(nrold-1)*40,60+(nrold+1)*40,40,40)
+           btnDegree[nrold*nrold+2][2] = btnDegree[nrold*nrold-1][2]
            nDegree = btnDegree[nrold*nrold+2][2]
            settext(temp)
            }
@@ -212,12 +203,12 @@ func pHere
 func pBack
         button[nrold*nrold+2] { temp = text() }
         nDegree = btnDegree[nrold*nrold+2][2]
+        btnDegree[nrold*nrold-1][2] = btnDegree[nrold*nrold+2][2]
         button[nrold*nrold-1] {settext(temp)}
         button[nrold*nrold+2].close()
         button[nrold*nrold+2] = new qpushbutton(win1)
                 {
                 setgeometry(60+(nrold-1)*40,60+(nrold+1)*40,40,40)
-                nDegree = btnDegree[nrold*nrold+2][2]
                 settext("Here")
                 setclickevent("pHere()")   
                 show() 
