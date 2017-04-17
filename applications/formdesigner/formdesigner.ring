@@ -6823,6 +6823,8 @@ class FormDesigner_QLayout from QLabel
 			case C_AFTERCOMMON + 1 	# Layout Objects
 				open_window(:WindowObjectsController)
 				Last_Window().setParentObject(oDesigner)
+				Last_Window().setPropertyIndex(C_AFTERCOMMON+1)
+				Last_Window().setMethodName("setLayoutObjectsValue")
 				aList = oDesigner.oModel.GetObjectsNames()
 				# Remove the window Object name
 					del(aList,1)	
@@ -7084,6 +7086,8 @@ class FormDesigner_QToolBar from QLabel
 			case C_AFTERCOMMON+1  	# Toolbar Objects
 				open_window(:WindowObjectsController)
 				Last_Window().setParentObject(oDesigner)
+				Last_Window().setPropertyIndex(C_AFTERCOMMON+1)
+				Last_Window().setMethodName("setToolbarObjectsValue")
 				aList = oDesigner.oModel.GetObjectsNames()
 				# Remove the window Object name
 					del(aList,1)	
@@ -7676,6 +7680,15 @@ class windowObjectscontroller from windowsControllerParent
 
 	aObjectsList = []
 
+	nPropertyIndex = C_AFTERCOMMON+1
+	cMethodName = "setLayoutObjectsValue"
+
+	func SetPropertyIndex nValue
+		nPropertyIndex = nValue
+
+	func SetMethodName cName
+		cMethodName = cName
+
 	func LoadObjectsData aList
 		aObjectsList = aList 
 		for item in aObjectsList {
@@ -7696,9 +7709,10 @@ class windowObjectscontroller from windowsControllerParent
 		oPropertiesTable = parent().oView.oPropertiesTable
 		# Set the Window Flags
 			oPropertiesTable.Blocksignals(True)
-			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(cObjects)
+			oPropertiesTable.item(nPropertyIndex,1).settext(cObjects)
 			oPropertiesTable.Blocksignals(False)
-		parent().oModel.ActiveObject().setLayoutObjectsValue(cObjects)
+		cCode = "parent().oModel.ActiveObject()."+cMethodName+"(cObjects)"
+		eval(cCode)
 		oView.Close()
 
 	func CancelAction
