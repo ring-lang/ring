@@ -7397,9 +7397,9 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddStatusbar(new FormDesigner_QStatusBar(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.StatusBarsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
-					case :FormDesigner_QToolba
+					case :FormDesigner_QToolbar
 						oDesigner.HideCorners()
-						oDesigner.oModel.AddToolbar(new FormDesigner_QStatusBar(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
+						oDesigner.oModel.AddToolbar(new FormDesigner_QToolbar(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ToolbarsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
 				}				
