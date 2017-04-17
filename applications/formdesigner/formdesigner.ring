@@ -7118,7 +7118,7 @@ class FormDesigner_QToolBar from QLabel
 		if ToolbarObjectsValue() != NULL {
 			aItems = split(ToolbarObjectsValue(),",")
 			for item in aItems {
-				if not lower(Item) = "separator" {
+				if not std_lower(Item) = "separator" {
 					cOutput += 'AddWidget(#{f1})' + nl
 					cOutput = substr(cOutput,"#{f1}",Item)
 				else 
