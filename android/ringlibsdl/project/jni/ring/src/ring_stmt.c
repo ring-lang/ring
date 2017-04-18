@@ -27,7 +27,7 @@ int ring_parser_class ( Parser *pParser )
 			ring_parser_icg_newoperandpointer(pParser,pList);
 			ring_parser_nexttoken(pParser);
 			/* [From Identifer] */
-			if ( ring_parser_iskeyword(pParser,K_FROM) ) {
+			if ( ring_parser_iskeyword(pParser,K_FROM) || ring_parser_isoperator2(pParser,OP_RANGE) || ring_parser_isoperator2(pParser,OP_LESS) ) {
 				ring_parser_nexttoken(pParser);
 				if ( ring_parser_namedotname(pParser) ) {
 					/* Generate Code */

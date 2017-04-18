@@ -11342,6 +11342,20 @@ Class QImage
 	Func width 
 		return QImage_width(pObject)
 
+Class RingCodeHighlighter
+
+	pObject
+
+	Func init P1
+		pObject = RingCodeHighlighter_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = RingCodeHighlighter_delete(pObject)
+
+	Func setColors P1,P2,P3,P4,P5
+		return RingCodeHighlighter_setColors(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+
 Class QXmlStreamReader
 
 	pObject
@@ -14638,17 +14652,6 @@ Class QKeySequence
 
 	Func delete
 		pObject = QKeySequence_delete(pObject)
-
-Class RingCodeHighlighter
-
-	pObject
-
-	Func init P1
-		pObject = RingCodeHighlighter_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = RingCodeHighlighter_delete(pObject)
 
 Class QXmlStreamEntityResolver
 

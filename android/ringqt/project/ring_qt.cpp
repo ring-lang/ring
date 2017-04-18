@@ -63882,6 +63882,33 @@ RING_FUNC(ring_QImage_width)
 }
 
 
+RING_FUNC(ring_RingCodeHighlighter_setColors)
+{
+	Highlighter *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Highlighter *) RING_API_GETCPOINTER(1,"RingCodeHighlighter");
+	pObject->setColors(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"),* (QColor  *) RING_API_GETCPOINTER(3,"QColor"),* (QColor  *) RING_API_GETCPOINTER(4,"QColor"),* (QColor  *) RING_API_GETCPOINTER(5,"QColor"),* (QColor  *) RING_API_GETCPOINTER(6,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		free(RING_API_GETCPOINTER(3,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		free(RING_API_GETCPOINTER(4,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		free(RING_API_GETCPOINTER(5,"QColor"));
+}
+
+
 RING_FUNC(ring_QXmlStreamReader_addData)
 {
 	QXmlStreamReader *pObject ;
@@ -88239,6 +88266,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qimage_transformed",ring_QImage_transformed);
 	ring_vm_funcregister("qimage_valid",ring_QImage_valid);
 	ring_vm_funcregister("qimage_width",ring_QImage_width);
+	ring_vm_funcregister("ringcodehighlighter_setcolors",ring_RingCodeHighlighter_setColors);
 	ring_vm_funcregister("qxmlstreamreader_adddata",ring_QXmlStreamReader_addData);
 	ring_vm_funcregister("qxmlstreamreader_adddata_2",ring_QXmlStreamReader_addData_2);
 	ring_vm_funcregister("qxmlstreamreader_adddata_3",ring_QXmlStreamReader_addData_3);
