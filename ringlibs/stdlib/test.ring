@@ -250,3 +250,9 @@ see "IsMainSourceFile() : " + ismainsourcefile() + nl
 See "Previous File Name : " + PrevFileName() + nl
 see "IsMainSourceFile() : " + ismainsourcefile() + nl
 
+# Change substring from given position for given position with a substring.
+Puts("Test Changestring()")
+see Changestring("Rmasdg",2,4,"in")
+
+
+
