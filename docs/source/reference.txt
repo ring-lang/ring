@@ -213,7 +213,7 @@ Program ---> {statement}
 
 Statement ---> 'package' <Identifier> { '.' <Identifier> }
 
-Statement ---> 'class' <Identifier> [ 'from' <Identifier> ]
+Statement ---> 'class' <Identifier> [ 'from'|':'|'<' <Identifier> ]
 
 Statement ---> 'func'|'def' <Identifier> [ParaList]
 
