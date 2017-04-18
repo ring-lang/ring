@@ -202,11 +202,13 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
        switch (e->key()) {
        case Qt::Key_Enter:
        case Qt::Key_Return:
+		e->ignore();
+		return; // let the completer do default behavior
        case Qt::Key_Escape:
        case Qt::Key_Tab:
        case Qt::Key_Backtab:
-            e->ignore();
-            return; // let the completer do default behavior
+		c->popup()->hide();
+		return; // let the completer do default behavior
        default:
            break;
        }
