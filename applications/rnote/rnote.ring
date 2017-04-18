@@ -470,7 +470,14 @@ MyApp = New qApp {
 		}
 		AutoComplete()
 
-		new RingCodeHighLighter( textedit1.document() )
+		new RingCodeHighLighter( textedit1.document() ) {
+			colordarkBlue   = new qcolor() { setrgb(0,0,128,255) }  
+			colordarkMagenta  = new qcolor() { setrgb(128,0,128,255) }
+			colorRed    = new qcolor() { setrgb(255,000,000,255) }
+			colorDarkGreen  = new qcolor() { setrgb(000,128,000,255) }
+			colorBlue   = new qcolor() { setrgb(000,000,255,255) }
+			setColors(colordarkBlue,ColordarkMagenta,ColorRed,ColorDarkGreen,ColorBlue)
+		}
 
 		oDock2 = new qdockwidget(win1,0) {
 			setwidget(textedit1)
