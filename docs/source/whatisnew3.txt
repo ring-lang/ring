@@ -22,6 +22,7 @@ Ring 1.3  comes with many new features
 * Better Loop/Exit Command
 * New Functions
 * Return Self by Reference
+* Using '<' and ':' operators as 'from' keyword
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better RingQt
@@ -261,3 +262,29 @@ Output
 	x: 15.000000
 	x: 20.000000
 	x: 20.000000
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Using '<' and ':' operators as 'from' keyword
+
+Using '<' and ':' operators as 'from' keyword
+=============================================
+
+In this release of the Ring language we can use the '<' and ':' operators as the 'from' keyword
+
+Syntax (1):
+
+.. code-block:: ring
+	
+	class Cat from Animal
+
+Syntax (2):
+	
+.. code-block:: ring
+	
+	class Cat < Animal
+
+Syntax (3):
+
+.. code-block:: ring
+	
+	class Cat : Animal
