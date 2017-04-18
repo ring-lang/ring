@@ -39,7 +39,7 @@ Syntax:
 
 .. code-block:: ring
 
-	Class <Class Name> [From <Parent Class Name>]
+	Class <Class Name> [From|<|: <Parent Class Name>]
 		[Attributes]
 		[Methods]
 		[Private
