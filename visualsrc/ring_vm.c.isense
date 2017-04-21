@@ -165,7 +165,7 @@ nActiveError
 Type: List *
 aDynamicSelfItems
 Type: String *
-cPackageName
+pPackageName
 END:
 Type: VM
 struct VM
