@@ -230,3 +230,4 @@ call ring scripts/ptrcmp2.ring
 call ring scripts/listandstrconversion.ring
 call ring scripts/objmethodnobraceerror.ring
 call ring scripts/retselfbyref.ring
+call ring scripts/passtemplisttoinitmethod.ring 
