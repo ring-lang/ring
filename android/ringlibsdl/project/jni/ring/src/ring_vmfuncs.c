@@ -152,8 +152,11 @@ void ring_vm_call ( VM *pVM )
 {
 	List *pList, *pActiveMem  ;
 	int x,nSP,nMax1,nFuncEx  ;
-	pVM->nFuncExecute-- ;
-	pVM->nFuncExecute2-- ;
+	/* Decrement FuncExecute Counter */
+	if ( pVM->nFuncExecute > 0 ) {
+		pVM->nFuncExecute-- ;
+		pVM->nFuncExecute2-- ;
+	}
 	/* Restore aLoadAddressScope from pLoadAddressScope */
 	ring_vm_restoreloadaddressscope(pVM);
 	/* Check if we call method using ObjName.MethodName() */

@@ -1186,12 +1186,7 @@ void ring_vm_oop_setthethisvariable ( VM *pVM )
 {
 	List *pList, *pThis  ;
 	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
-	if ( ring_list_getsize(pVM->pObjState) < 1 ) {
-		ring_list_setpointer(pThis,RING_VAR_VALUE,NULL);
-		ring_list_setint(pThis,RING_VAR_PVALUETYPE,0);
-		return ;
-	}
-	if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
+	if ( (ring_list_getsize(pVM->pObjState) < 1) || (ring_vm_oop_callmethodinsideclass(pVM) == 0) ) {
 		ring_list_setpointer(pThis,RING_VAR_VALUE,NULL);
 		ring_list_setint(pThis,RING_VAR_PVALUETYPE,0);
 		return ;

@@ -345,6 +345,7 @@ void ring_vm_fetch2 ( VM *pVM )
 	#if RING_VMSHOWOPCODE
 	if ( pVM->pRingState->nPrintInstruction ) {
 		printf( "\nSP (After) : %d  - FuncSP : %d \n LineNumber %d \n" , (int) pVM->nSP,pVM->nFuncSP,pVM->nLineNumber ) ;
+		printf( "\nnFuncExecute Counter : %d  \n" , (int) pVM->nFuncExecute ) ;
 		ring_print_line();
 	}
 	#endif
@@ -506,7 +507,9 @@ void ring_vm_execute ( VM *pVM )
 			pVM->nFuncExecute++ ;
 			break ;
 		case ICO_ENDFUNCEXE :
-			pVM->nFuncExecute-- ;
+			if ( pVM->nFuncExecute > 0 ) {
+				pVM->nFuncExecute-- ;
+			}
 			break ;
 		case ICO_ANONYMOUS :
 			ring_vm_anonymous(pVM);
