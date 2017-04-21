@@ -8,6 +8,14 @@ LabelSizeX = 100
 LabelSizeY = 100
 offSetX    = LabelSizeX / 2
 
+###----------------------------------------------------------------------------
+# @section Predefined Colors There are 20 predefined QColors: 
+# Qt::white,     Qt::black,       Qt::red,      Qt::darkRed,    Qt::green, 
+# Qt::darkGreen, Qt::blue,        Qt::darkBlue, Qt::cyan,       Qt::darkCyan, 
+# Qt::magenta,   Qt::darkMagenta, Qt::yellow,   Qt::darkYellow, Qt::gray, 
+# Qt::darkGray,  Qt::lightGray,   Qt::color0,   Qt::color1, and Qt::transparent
+###-----------------------------------------------------------------------------
+
 New qapp {
         win1 = new qwidget() 
         {
@@ -21,6 +29,7 @@ New qapp {
                     settext("A-1")
                     setTranslate(offSetX, 0)
                     setRotationDegree( 45)
+                    setButtonColor("Magenta") 
                     setClickEvent("see btn1.text() +nl")
                  }
                  
@@ -30,6 +39,7 @@ New qapp {
                     settext("B-2")
                     setTranslate(offSetX, 0)
                     setRotationDegree( 90)
+                    setButtonColor("Green") 
                     setClickEvent("see btn2.text() +nl")
                  }
                  
@@ -39,6 +49,7 @@ New qapp {
                     settext("C-3")
                     setTranslate(offSetX, 0)
                     setRotationDegree( 180)
+                    setButtonColor("Cyan") 
                     setClickEvent("see btn3.text() +nl")
                  }
                  
@@ -48,6 +59,7 @@ New qapp {
                     settext("D-4")
                     setTranslate(offSetX, 0)
                     setRotationDegree( 270)
+                    setButtonColor("Yellow")                    
                     setClickEvent("see btn4.text() +nl")
                  }               
                  
@@ -64,19 +76,28 @@ Class ButtonWithRotatedText
     oButton oLabel  cText="We are here"  nDegree = 30  nTransX = 50   nTransY = 0
 
     func init( oParent) 
-        See nl +"Init oParent"+ nl
         oButton = new qPushButton(oParent)
         oLabel  = new qLabel(oParent)
+        
         oLabel.setAttribute(Qt_WA_TransparentForMouseEvents,True)
         oLabel.setAttribute(Qt_WA_DeleteOnClose, True)
         oButton.setAttribute(Qt_WA_DeleteOnClose, True)
     return
     
     func close()
-        See "Close: "+ nl
-        #oButton.close()     ### Comment out - Will leave button active
-        oLabel.close()       ### This will erase text
-    return    
+            oLabel.close()
+            # oButton.close()
+    return
+
+    ###---------------------------------------
+    ### Call format: setButtonColor("Yellow")                    
+                    
+    func setButtonColor(color)  
+        colorIt = "background-color: "+ color  
+        oButton.setstylesheet(colorIt ) 
+    return
+    
+    ###-------------------------
     
     func setgeometry( x,y,width,height)
         See "SetGeometry: "+ x  +" "+ y +" "+ width +" "+ height +nl
@@ -124,22 +145,24 @@ Class ButtonWithRotatedText
     
     func braceend()
         See "BraceEnd"+ nl
-        draw() 
+        Draw()                ### ==>>>  Draw
     return
     
     ###--------------------------------------------
     
-    Func draw()
+    Func Draw()
         See "Draw: "+ nDegree  +" "+ cText +nl
         
                     picture = new qpicture()
-                    color   = new qcolor() { setrgb(0,0,255,255) }
+                    color   = new qcolor() { setrgb(0,0,255,255) }           ### Blue Color
                     pen     = new qpen()   { setcolor(color) setwidth(10) }
                     
                     painter = new qpainter() 
                     {
-                        begin(picture)        
-                            setpen(pen)
+                        begin(picture)     
+                        
+                            ### Pen - Font Color Size to draw text
+                            setpen(pen)    
                             oFont = font()
                             oFont.setpointsize(20)
                             setfont(oFont)
@@ -157,4 +180,5 @@ Class ButtonWithRotatedText
                     }
     return
     
+###--------------------------------------------
     
