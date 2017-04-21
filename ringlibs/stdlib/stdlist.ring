@@ -105,3 +105,6 @@ Class List From StdBase
 				return vValue[para]
 		off
 		return result
+
+	Func swap nItem1,nItem2
+		std_swap(vValue,nItem1,nItem2)
