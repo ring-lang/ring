@@ -1,10 +1,11 @@
-# author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Magdy Ragab, Mahmoud Fayed
+# author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
+
 load "guilib.ring"
 
 app1 = new qapp {
 
         empty = 16  
-        nrold = 4 
+        nrold = 0 
         nr = 0
         temp = 0
         flag = 0
@@ -25,7 +26,7 @@ app1 = new qapp {
                    resize(380,680)
                    setwindowtitle("Calmosoft Fifteen Puzzle Game")
 
-                  for n=1 to 49
+                  for n=1 to 52
                         for m=1 to 2
                              btnDegree[n][m] = 0
                         next
@@ -68,7 +69,7 @@ app1 = new qapp {
                                    settext("Play Game")  
                                    setclickevent("pPlay()")
                    }
-                   newsize(4)
+                   newsize(4) 
                    show()
         }
         exec()
@@ -90,29 +91,31 @@ Func newlist x, y
      return alist	
 
 func scramble
-       resettiles()
        for n= 1 to 1000   
-            nr=random(nrold*nrold)
+            nr=random(nrold*nrold-1)+1
             up = (empty = (nr - nrold))
             down = (empty = (nr + nrold))
             left = ((empty = (nr - 1)) and ((nr % nrold) != 1))
             right = ((empty = (nr + 1)) and ((nr % nrold) != 0))
             move = up or down or left  or right
-            if move = 1 and (nr != 0)
+            if move = 1 
                button[nr] { temp2 = text() }
                col = empty%nrold
-               if col = 0 col = nrold ok
+               //if col = 0 col = nrold ok
                row = ceil(empty/nrold)
                button[empty] = new ButtonWithRotatedText(win1)
                        button[empty] {
                        setgeometry(60+col*40,60+row*40,40,40)
                        rnd = random(6)+1
                        nDegree = nrDegree[rnd]
-                       settext(temp2)
+                       button[empty].setbuttoncolor("yellow")
+                       button[empty].settext(temp2)
+                       button[empty].setClickEvent("movetile(" + string(empty) +")")
                        btnDegree[empty] [1] = temp2
                        btnDegree[empty] [2] = nDegree
                        }
-               button[nr]  {settext("")}
+               button[nr].setbuttoncolor("yellow")
+               button[nr]{settext("")}
                btnDegree[nr][2] = 0
                empty = nr
             ok
@@ -141,7 +144,7 @@ func movetile nr2
            right = ((empty = (nr2 + 1)) and ((nr2 % nrold) != 0))
            move = up or down or left  or right
            if move = 1 
-              button[nr2] { temp2 = text() }
+              temp2 = button[nr2].text() 
               add(table, temp2)
               add(table2, string(nr2))              
               col = empty%nrold
@@ -151,10 +154,12 @@ func movetile nr2
               button[empty] {
                                    setgeometry(60+col*40,60+row*40,40,40)
                                    nDegree = btnDegree[nr2][2]
-                                   btnDegree[empty][2] = btnDegree[nr2][2]
-                                   button[empty]{settext(temp2)}
+                                   btnDegree[empty][2] = nDegree
+                                   button[empty].setbuttoncolor("yellow")
+                                   button[empty].settext(temp2)
                                    setClickEvent("movetile(" + string(empty) +")")
               }
+              button[nr2].setbuttoncolor("yellow")
               button[nr2] {settext("")}
               empty = nr2
           ok
@@ -166,18 +171,12 @@ func resettiles
         empty = nrold*nrold
         for i = 1 to nrold*nrold-1
              btnDegree[i][2] = 0
+             nDegree = 0
+             button[i].setstylesheet("background-color:yellow")
              button[i] {settext(string(i))}
         next
+        button[nrold*nrold].setstylesheet("background-color:yellow")
         button[nrold*nrold] {settext("")}
-        button[nrold*nrold+2].close()
-
-        button[nrold*nrold+2] = new qpushbutton(win1)
-                {
-                setgeometry(60+(nrold-1)*40,60+(nrold+1)*40,40,40)
-                settext("Here")
-                setclickevent("pHere()")   
-                show() 
-                } 
         return
 
 func pHere
@@ -195,10 +194,10 @@ func pHere
            button[nrold*nrold-1]{settext("In")}
            /*for n = 1 to nrold*nrold
                  button[n]{setenabled = false}
-           next*/
+           next
            button[nrold*nrold-1]{setenabled = true}
            scramblebtn{setenabled = false}
-           resetbtn{setenabled = false}
+           resetbtn{setenabled = false}*/
            ok
 
 func pBack
@@ -216,9 +215,9 @@ func pBack
                 } 
         /*for n = 1 to nrold*nrold
               button[n]{setenabled = true}
-        next*/
+        next
         scramblebtn{setenabled = true}
-        resetbtn{setenabled = true}
+        resetbtn{setenabled = true}*/
 
 func rotateleft
         if button[nrold*nrold+2].text() != "Here" 
@@ -247,7 +246,7 @@ func rotateright
         ok
 
 func newsize nr
-        win1{
+        win1{ 
                 sizenew = nr%4
                 win1.resize(380+sizenew*40,520+sizenew*40)
                 if flag != 0
@@ -260,18 +259,22 @@ func newsize nr
                 savebtn.close()
                 playbtn.close()
 
-                for n = 1 to nr*nr-1
+                for n = 1 to nr*nr
                      col = n%nr
                      if col = 0 col = nr ok
                      row = ceil(n/nr)
                      button[n] = new ButtonWithRotatedText(win1)
-                     button[n] {
-                     setgeometry(60+col*40,60+row*40,40,40)
-                     setstylesheet("color:Red;background-color:Yellow;")
-                     nDegree = 0
-                     settext(string(n))
-                     setClickEvent("movetile(" + string(n) +")")
-                     }
+                                       button[n] {
+                                       setgeometry(60+col*40,60+row*40,40,40)
+                                       button[n].setbuttoncolor("yellow")                                       
+                                       nDegree = 0
+                                       if n < nr*nr
+                                          settext(string(n))
+                                       else
+                                          settext("")
+                                       ok 
+                                       setClickEvent("movetile(" + string(n) +")")
+                                       }
                 next
 
                 button[nr*nr+1] = new qpushbutton(win1)
@@ -329,18 +332,6 @@ func newsize nr
                                setclickevent("pPlay()")
                                show()
                 }
-
-                col = nr*nr%nrold
-                if col = 0 col = nrold ok
-                row = ceil(nr*nr/nrold)
-                button[nr*nr] = new ButtonWithRotatedText(win1)
-                                       button[nr*nr] {
-                                       setgeometry(60+col*40,60+row*40,40,40)
-                                       setstylesheet("color:Red;background-color:Yellow;")
-                                       settext("")
-                                       setClickEvent("movetile(" + string(nr*nr) +")")
-                                       }
-
                 empty = nr*nr
                 nrold = nr
                 flag = flag + 1
@@ -349,21 +340,21 @@ func newsize nr
 func pSave
         textedit1 = list2str(table)
         textedit2 = list2str(table2)
-chdir(exefolder()+"../extensions/ringallegro")
-      	cName = exefolder()+"../CalmoSoftPuzzle.txt"
-      	cName2 = exefolder()+"../CalmoSoftPuzzle2.txt"
-		write(cName,textedit1)
-		write(cName2,textedit2)
+        chdir(exefolder()+"../extensions/ringallegro")
+        cName = exefolder()+"../CalmoSoftPuzzle.txt"
+        cName2 = exefolder()+"../CalmoSoftPuzzle2.txt"
+        write(cName,textedit1)
+        write(cName2,textedit2)
         return
 
 func pPlay
 
-      	cName = cName = exefolder()+"../CalmoSoftPuzzle.txt"
-		textedit1 = read(cName)
+        cName = cName = exefolder()+"../CalmoSoftPuzzle.txt"
+        textedit1 = read(cName)
         table = str2list(textedit1)
 
-      	cName2 = "C:\Ring\bin\CalmoSoftPuzzle2.txt"
-		textedit2 = read(cName2)
+        cName2 = "C:\Ring\bin\CalmoSoftPuzzle2.txt"
+        textedit2 = read(cName2)
         table2 = str2list(textedit2)
 
         for n = 1 to nrold*nrold
@@ -393,11 +384,13 @@ Class ButtonWithRotatedText
         oLabel.setAttribute(Qt_WA_TransparentForMouseEvents,True)
         oLabel.setAttribute(Qt_WA_DeleteOnClose, True)
         oButton.setAttribute(Qt_WA_DeleteOnClose, True)
+        oButton.Show()
+
     return
     
     func close()
             oLabel.close()
-            //oButton.close()
+            oButton.close()  
             return
 
     func setstylesheet(x)
@@ -440,8 +433,13 @@ Class ButtonWithRotatedText
         draw() 
     return
 
-func setenabled()
+    func setenabled()
         oButton.setenabled()
+
+    func setButtonColor(color)  
+        colorIt = "background-color:" + color  
+        oButton.setstylesheet(colorIt) 
+    return
     	
     Func draw()
                     picture = new qpicture()
