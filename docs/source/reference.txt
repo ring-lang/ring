@@ -75,7 +75,7 @@ Keywords Count : 46
 Language Functions
 ==================
 
-Functions Count : 218
+Functions Count : 219
 
 .. code-block:: ring
 
@@ -124,7 +124,7 @@ Functions Count : 218
 	sha512() sin() sinh() sort() space() sqlite_close() 
 	sqlite_errmsg() sqlite_execute()
 	sqlite_init() sqlite_open() sqrt() str2hex() str2list() 
-	strcmp() string() substr()
+	strcmp() string() substr() swap()
 	sysget() system() tan() tanh() tempfile() tempname() time() timelist()
 	trim() type() ungetc() unsigned() upper() varptr() version() windowsnl()
 
