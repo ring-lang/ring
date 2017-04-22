@@ -476,6 +476,7 @@ MyApp = New qApp {
 			colorRed    = new qcolor() { setrgb(255,000,000,255) }
 			colorDarkGreen  = new qcolor() { setrgb(000,128,000,255) }
 			colorBlue   = new qcolor() { setrgb(000,000,255,255) }
+			colorCyan   = new qcolor() { setrgb(000,255,255,255) }
 			setColors(colordarkBlue,ColordarkMagenta,ColorRed,ColorDarkGreen,ColorBlue)
 		}
 
@@ -601,10 +602,13 @@ MyApp = New qApp {
 	exec()
 }
 
+func pSetActiveLineColor
+	textedit1.SetActiveLineColor(colorCyan)
+
 func pTextChanged
 	lAskToSave = true
 	pSetFont()
-	textedit1.cyanline(textedit1)
+	pSetActiveLineColor()
 
 func pWebGo
 	cWebsite = oWBText.text() 
@@ -694,7 +698,7 @@ func pCursorPositionChanged
 	StatusMessage(" Line : "+nLine+
 			    " Column : " +(textedit1.textcursor().columnnumber()+1) +
 			    " Total Lines : " + textedit1.document().linecount())
-	textedit1.cyanline(textedit1)
+	pSetActiveLineColor()
 	aFilesLines[cActiveFileName] = nLine
 
 func pGoto
