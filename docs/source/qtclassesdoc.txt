@@ -656,7 +656,8 @@ Parent Class : QAbstractScrollArea
 * const char *getselectionChangedEvent(void)
 * const char *gettextChangedEvent(void)
 * const char *getundoAvailableEvent(void)
-* void cyanline(QTextEdit *pObject)
+* void cyanline(void)
+* void setactivelinecolor(QColor)
 
 .. index::
 	pair: RingQt Classes Reference; QListWidget Class
@@ -5284,7 +5285,8 @@ Parent Class : QAbstractScrollArea
 * const char *gettextChangedEvent(void)
 * const char *getundoAvailableEvent(void)
 * const char *getupdateRequestEvent(void)
-* void cyanline(QPlainTextEdit *pObject)
+* void cyanline(void)
+* void setactivelinecolor(QColor)
 
 .. index::
 	pair: RingQt Classes Reference; CodeEditor Class
