@@ -34,12 +34,14 @@ aBrowserLinks = [
 	colordarkMagenta 	= new qcolor() { setrgb(128,0,128,255) }
 	colorRed    		= new qcolor() { setrgb(255,000,000,255) }
 	colorDarkGreen  	= new qcolor() { setrgb(000,128,000,255) }
+	colorGreen	  	= new qcolor() { setrgb(000,255,000,255) }
 	colorBlue   		= new qcolor() { setrgb(000,000,255,255) }
 	colorCyan   		= new qcolor() { setrgb(000,255,255,255) }
 	colorWhite  		= new qColor() { setrgb(255,255,255,255) }
 	colorBlack  		= new qColor() { setrgb(0,0,0,255) }
+	colorSilver 		= new qColor() { setrgb(128,128,128,255) }
 
-# Editor Style Colors
+# Default Editor Style Colors
 	aStyleColors = [
 		:LineNumbersAreaColor 		= colorBlack ,
 		:LineNumbersAreaBackColor 	= colorCyan,
@@ -50,6 +52,23 @@ aBrowserLinks = [
 		:SyntaxColor4 			= ColorDarkGreen,
 		:SyntaxColor5 			= ColorBlue
 	]
+
+# Custom Editor Style Color
+	# Switch to Use the Style or Not
+		lUseCustomStyleColors = False
+	aCustomStyleColors = [
+		:LineNumbersAreaColor 		= colorWhite ,
+		:LineNumbersAreaBackColor 	= colordarkBlue,
+		:ActiveLineBackColor 		= colordarkBlue,
+		:SyntaxColor1			= colorWhite,
+		:SyntaxColor2 			= ColorWhite,
+		:SyntaxColor3 			= ColorWhite,
+		:SyntaxColor4 			= ColorWhite,
+		:SyntaxColor5 			= ColorWhite
+	]
+	if lUseCustomStyleColors
+		aStyleColors = aCustomStyleColors
+	ok
 
 cSettingsFile = cCurrentDir + "ringnotepad.ini"
 LoadSettings()
