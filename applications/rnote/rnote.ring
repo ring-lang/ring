@@ -30,14 +30,26 @@ aBrowserLinks = [
 ]
 
 # Define Colors
-	colordarkBlue   = new qcolor() { setrgb(0,0,128,255) }  
-	colordarkMagenta  = new qcolor() { setrgb(128,0,128,255) }
-	colorRed    = new qcolor() { setrgb(255,000,000,255) }
-	colorDarkGreen  = new qcolor() { setrgb(000,128,000,255) }
-	colorBlue   = new qcolor() { setrgb(000,000,255,255) }
-	colorCyan   = new qcolor() { setrgb(000,255,255,255) }
-	colorWhite  = new qColor() { setrgb(255,255,255,255) }
-	colorBlack  = new qColor() { setrgb(0,0,0,255) }
+	colordarkBlue   	= new qcolor() { setrgb(0,0,128,255) }  
+	colordarkMagenta 	= new qcolor() { setrgb(128,0,128,255) }
+	colorRed    		= new qcolor() { setrgb(255,000,000,255) }
+	colorDarkGreen  	= new qcolor() { setrgb(000,128,000,255) }
+	colorBlue   		= new qcolor() { setrgb(000,000,255,255) }
+	colorCyan   		= new qcolor() { setrgb(000,255,255,255) }
+	colorWhite  		= new qColor() { setrgb(255,255,255,255) }
+	colorBlack  		= new qColor() { setrgb(0,0,0,255) }
+
+# Editor Style Colors
+	aStyleColors = [
+		:LineNumbersAreaColor 		= colorBlack ,
+		:LineNumbersAreaBackColor 	= colorCyan,
+		:ActiveLineBackColor 		= colorCyan,
+		:SyntaxColor1			= colordarkBlue,
+		:SyntaxColor2 			= ColordarkMagenta,
+		:SyntaxColor3 			= ColorRed,
+		:SyntaxColor4 			= ColorDarkGreen,
+		:SyntaxColor5 			= ColorBlue
+	]
 
 cSettingsFile = cCurrentDir + "ringnotepad.ini"
 LoadSettings()
@@ -477,13 +489,19 @@ MyApp = New qApp {
 			setCursorPositionChangedevent("pCursorPositionChanged()")
 			setLineWrapMode(QTextEdit_NoWrap)
 			setTextChangedEvent("pTextChanged()")
-			setLineNumbersAreaColor(colorBlack)
-			setLineNumbersAreaBackColor(colorCyan)
+			setLineNumbersAreaColor(aStyleColors[:LineNumbersAreaColor])
+			setLineNumbersAreaBackColor(aStyleColors[:LineNumbersAreaBackColor])
 		}
 		AutoComplete()
 
 		new RingCodeHighLighter( textedit1.document() ) {
-			setColors(colordarkBlue,ColordarkMagenta,ColorRed,ColorDarkGreen,ColorBlue)
+			setColors(
+				aStyleColors[:SyntaxColor1],
+				aStyleColors[:SyntaxColor2],
+				aStyleColors[:SyntaxColor3],
+				aStyleColors[:SyntaxColor4],
+				aStyleColors[:SyntaxColor5]
+			)
 		}
 
 		oDock2 = new qdockwidget(win1,0) {
@@ -609,7 +627,7 @@ MyApp = New qApp {
 }
 
 func pSetActiveLineColor
-	textedit1.SetActiveLineColor(colorCyan)
+	textedit1.SetActiveLineColor(aStyleColors[:ActiveLineBackColor])
 
 func pTextChanged
 	lAskToSave = true
