@@ -1564,8 +1564,11 @@ Class QTextEdit from QAbstractScrollArea
 	Func getundoAvailableEvent 
 		return QTextEdit_getundoAvailableEvent(pObject)
 
-	Func cyanline P1
-		return QTextEdit_cyanline(pObject,GetObjectPointerFromRingObject(P1))
+	Func cyanline 
+		return QTextEdit_cyanline(pObject)
+
+	Func setactivelinecolor P1
+		return QTextEdit_setactivelinecolor(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QListWidget from QListView
 
@@ -12780,8 +12783,11 @@ Class QPlainTextEdit from QAbstractScrollArea
 	Func getupdateRequestEvent 
 		return QPlainTextEdit_getupdateRequestEvent(pObject)
 
-	Func cyanline P1
-		return QPlainTextEdit_cyanline(pObject,GetObjectPointerFromRingObject(P1))
+	Func cyanline 
+		return QPlainTextEdit_cyanline(pObject)
+
+	Func setactivelinecolor P1
+		return QPlainTextEdit_setactivelinecolor(pObject,GetObjectPointerFromRingObject(P1))
 
 Class CodeEditor from QPlainTextEdit
 

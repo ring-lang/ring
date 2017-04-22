@@ -1118,13 +1118,17 @@ const char *getundoAvailableEvent(void)
 
 
 <register>
-void cyanline(QTextEdit *pObject)
+void cyanline(void)
 </register>
 
 <code>
 RING_FUNC(ring_QTextEdit_cyanline)
 {
 	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1144,6 +1148,37 @@ RING_FUNC(ring_QTextEdit_cyanline)
 }
 </code>
 
+
+<register>
+void setactivelinecolor(QColor)
+</register>
+
+<code>
+RING_FUNC(ring_QTextEdit_setactivelinecolor)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QTextEdit *editor;
+	editor = (QTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( * (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
 
 <class>
 name: QListWidget
@@ -5521,7 +5556,7 @@ const char *getundoAvailableEvent(void)
 const char *getupdateRequestEvent(void)
 
 <register>
-void cyanline(QPlainTextEdit *pObject)
+void cyanline(void)
 </register>
 
 <code>
@@ -5540,6 +5575,37 @@ RING_FUNC(ring_QPlainTextEdit_cyanline)
 	highlight.cursor = editor->textCursor();
 	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
 	highlight.format.setBackground( Qt::cyan );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
+
+<register>
+void setactivelinecolor(QColor)
+</register>
+
+<code>
+RING_FUNC(ring_QPlainTextEdit_setactivelinecolor)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QPlainTextEdit *editor;
+	editor = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( * (QColor *) RING_API_GETCPOINTER(2,"QColor") );
 
 	QList<QTextEdit::ExtraSelection> extras;
 	extras << highlight;
