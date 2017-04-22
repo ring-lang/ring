@@ -29,6 +29,16 @@ aBrowserLinks = [
 	["Ring Team","http://ring-lang.sourceforge.net/team.html"]
 ]
 
+# Define Colors
+	colordarkBlue   = new qcolor() { setrgb(0,0,128,255) }  
+	colordarkMagenta  = new qcolor() { setrgb(128,0,128,255) }
+	colorRed    = new qcolor() { setrgb(255,000,000,255) }
+	colorDarkGreen  = new qcolor() { setrgb(000,128,000,255) }
+	colorBlue   = new qcolor() { setrgb(000,000,255,255) }
+	colorCyan   = new qcolor() { setrgb(000,255,255,255) }
+	colorWhite  = new qColor() { setrgb(255,255,255,255) }
+	colorBlack  = new qColor() { setrgb(0,0,0,255) }
+
 cSettingsFile = cCurrentDir + "ringnotepad.ini"
 LoadSettings()
 
@@ -466,17 +476,13 @@ MyApp = New qApp {
 		textedit1 = new codeeditor(win1) {
 			setCursorPositionChangedevent("pCursorPositionChanged()")
 			setLineWrapMode(QTextEdit_NoWrap)
-			setTextChangedEvent("pTextChanged()")			
+			setTextChangedEvent("pTextChanged()")
+			setLineNumbersAreaColor(colorBlack)
+			setLineNumbersAreaBackColor(colorCyan)
 		}
 		AutoComplete()
 
 		new RingCodeHighLighter( textedit1.document() ) {
-			colordarkBlue   = new qcolor() { setrgb(0,0,128,255) }  
-			colordarkMagenta  = new qcolor() { setrgb(128,0,128,255) }
-			colorRed    = new qcolor() { setrgb(255,000,000,255) }
-			colorDarkGreen  = new qcolor() { setrgb(000,128,000,255) }
-			colorBlue   = new qcolor() { setrgb(000,000,255,255) }
-			colorCyan   = new qcolor() { setrgb(000,255,255,255) }
 			setColors(colordarkBlue,ColordarkMagenta,ColorRed,ColorDarkGreen,ColorBlue)
 		}
 
