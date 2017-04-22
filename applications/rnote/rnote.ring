@@ -46,11 +46,11 @@ aBrowserLinks = [
 		:LineNumbersAreaColor 		= colorBlack ,
 		:LineNumbersAreaBackColor 	= colorCyan,
 		:ActiveLineBackColor 		= colorCyan,
-		:SyntaxColor1			= colordarkBlue,
-		:SyntaxColor2 			= ColordarkMagenta,
-		:SyntaxColor3 			= ColorRed,
-		:SyntaxColor4 			= ColorDarkGreen,
-		:SyntaxColor5 			= ColorBlue
+		:SyntaxKeywordsColor		= colordarkBlue,
+		:SyntaxClassNamesColor 		= ColordarkMagenta,
+		:SyntaxCommentsColor 		= ColorRed,
+		:SyntaxLiteralsColor 		= ColorDarkGreen,
+		:SyntaxFunctionCallsColor 	= ColorBlue
 	]
 
 # Custom Editor Style Color
@@ -60,11 +60,11 @@ aBrowserLinks = [
 		:LineNumbersAreaColor 		= colorWhite ,
 		:LineNumbersAreaBackColor 	= colordarkBlue,
 		:ActiveLineBackColor 		= colordarkBlue,
-		:SyntaxColor1			= colorWhite,
-		:SyntaxColor2 			= ColorWhite,
-		:SyntaxColor3 			= ColorWhite,
-		:SyntaxColor4 			= ColorWhite,
-		:SyntaxColor5 			= ColorWhite
+		:SyntaxKeywordsColor		= colorWhite,	
+		:SyntaxClassNamesColor 		= ColorWhite,		
+		:SyntaxCommentsColor 		= ColorSilver,	
+		:SyntaxLiteralsColor 		= ColorCyan,	
+		:SyntaxFunctionCallsColor 	= ColorGreen	
 	]
 	if lUseCustomStyleColors
 		aStyleColors = aCustomStyleColors
@@ -515,11 +515,11 @@ MyApp = New qApp {
 
 		new RingCodeHighLighter( textedit1.document() ) {
 			setColors(
-				aStyleColors[:SyntaxColor1],
-				aStyleColors[:SyntaxColor2],
-				aStyleColors[:SyntaxColor3],
-				aStyleColors[:SyntaxColor4],
-				aStyleColors[:SyntaxColor5]
+				aStyleColors[:SyntaxKeywordsColor],
+				aStyleColors[:SyntaxClassNamesColor],
+				aStyleColors[:SyntaxCommentsColor],
+				aStyleColors[:SyntaxLiteralsColor],
+				aStyleColors[:SyntaxFunctionCallsColor]
 			)
 		}
 
