@@ -8887,6 +8887,10 @@ RING_FUNC(ring_QTextEdit_getundoAvailableEvent)
 RING_FUNC(ring_QTextEdit_cyanline)
 {
 	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
 	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -8899,6 +8903,30 @@ RING_FUNC(ring_QTextEdit_cyanline)
 	highlight.cursor = editor->textCursor();
 	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
 	highlight.format.setBackground( Qt::cyan );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+RING_FUNC(ring_QTextEdit_setactivelinecolor)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QTextEdit *editor;
+	editor = (QTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( * (QColor *) RING_API_GETCPOINTER(2,"QColor") );
 
 	QList<QTextEdit::ExtraSelection> extras;
 	extras << highlight;
@@ -70754,6 +70782,30 @@ RING_FUNC(ring_QPlainTextEdit_cyanline)
 	extras << highlight;
 	editor->setExtraSelections( extras );
 }
+RING_FUNC(ring_QPlainTextEdit_setactivelinecolor)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QPlainTextEdit *editor;
+	editor = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( * (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
 
 RING_FUNC(ring_CodeEditor_setCompleter)
 {
@@ -70790,6 +70842,44 @@ RING_FUNC(ring_CodeEditor_completer)
 	}
 	pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
 	RING_API_RETCPOINTER(pObject->completer(),"QCompleter");
+}
+
+
+RING_FUNC(ring_CodeEditor_setLineNumbersAreaColor)
+{
+	CodeEditor *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
+	pObject->setLineNumbersAreaColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QColor"));
+}
+
+
+RING_FUNC(ring_CodeEditor_setLineNumbersAreaBackColor)
+{
+	CodeEditor *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
+	pObject->setLineNumbersAreaBackColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -85580,6 +85670,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextedit_gettextchangedevent",ring_QTextEdit_gettextChangedEvent);
 	ring_vm_funcregister("qtextedit_getundoavailableevent",ring_QTextEdit_getundoAvailableEvent);
 	ring_vm_funcregister("qtextedit_cyanline",ring_QTextEdit_cyanline);
+	ring_vm_funcregister("qtextedit_setactivelinecolor",ring_QTextEdit_setactivelinecolor);
 	ring_vm_funcregister("qlistwidget_additem",ring_QListWidget_addItem);
 	ring_vm_funcregister("qlistwidget_count",ring_QListWidget_count);
 	ring_vm_funcregister("qlistwidget_currentrow",ring_QListWidget_currentRow);
@@ -88608,8 +88699,11 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_getundoavailableevent",ring_QPlainTextEdit_getundoAvailableEvent);
 	ring_vm_funcregister("qplaintextedit_getupdaterequestevent",ring_QPlainTextEdit_getupdateRequestEvent);
 	ring_vm_funcregister("qplaintextedit_cyanline",ring_QPlainTextEdit_cyanline);
+	ring_vm_funcregister("qplaintextedit_setactivelinecolor",ring_QPlainTextEdit_setactivelinecolor);
 	ring_vm_funcregister("codeeditor_setcompleter",ring_CodeEditor_setCompleter);
 	ring_vm_funcregister("codeeditor_completer",ring_CodeEditor_completer);
+	ring_vm_funcregister("codeeditor_setlinenumbersareacolor",ring_CodeEditor_setLineNumbersAreaColor);
+	ring_vm_funcregister("codeeditor_setlinenumbersareabackcolor",ring_CodeEditor_setLineNumbersAreaBackColor);
 	ring_vm_funcregister("qgridlayout_additem",ring_QGridLayout_addItem);
 	ring_vm_funcregister("qgridlayout_addlayout",ring_QGridLayout_addLayout);
 	ring_vm_funcregister("qgridlayout_addlayout_2",ring_QGridLayout_addLayout_2);

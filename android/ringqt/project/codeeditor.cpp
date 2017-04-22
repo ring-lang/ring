@@ -62,11 +62,22 @@
 CodeEditor::CodeEditor(QWidget *parent, VM *pVM) : GPlainTextEdit(parent,pVM) , c(0)
 {
     lineNumberArea = new LineNumberArea(this);
-
+    this->areaColor = Qt::black;
+    this->areaBackColor = Qt::cyan;
     connect(this, SIGNAL(blockCountChanged(int)), this, SLOT(updateLineNumberAreaWidth(int)));
     connect(this, SIGNAL(updateRequest(QRect,int)), this, SLOT(updateLineNumberArea(QRect,int)));
 
     updateLineNumberAreaWidth(0);
+}
+
+void CodeEditor::setLineNumbersAreaColor(QColor oColor) 
+{
+    this->areaColor = oColor;
+}
+
+void CodeEditor::setLineNumbersAreaBackColor(QColor oColor) 
+{
+    this->areaBackColor = oColor;
 }
 
 int CodeEditor::lineNumberAreaWidth()
@@ -122,7 +133,7 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
     font.setPointSize(fontMetrics().height());
     painter.setFont(font);
 
-    painter.fillRect(event->rect(), Qt::cyan);
+    painter.fillRect(event->rect(), this->areaBackColor);
 
 
     QTextBlock block = firstVisibleBlock();
@@ -133,7 +144,7 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
     while (block.isValid() && top <= event->rect().bottom()) {
         if (block.isVisible() && bottom >= event->rect().top()) {
             QString number = QString::number(blockNumber + 1);
-            painter.setPen(Qt::black);
+            painter.setPen(this->areaColor);
             painter.drawText(0, top, lineNumberArea->width(), bottom-top,
                              Qt::AlignCenter, number);
         }

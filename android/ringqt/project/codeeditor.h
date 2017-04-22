@@ -62,6 +62,7 @@
 #include <QModelIndex>
 #include <QAbstractItemModel>
 #include <QScrollBar>
+#include <QColor>
 
 #include "ring.h"
 #include "gplaintextedit.h"
@@ -86,6 +87,9 @@ public:
 
     void setCompleter(QCompleter *c);
     QCompleter *completer() const;
+    
+    void setLineNumbersAreaColor(QColor oColor);
+    void setLineNumbersAreaBackColor(QColor oColor);
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
@@ -106,12 +110,15 @@ private:
 
     QCompleter *c;
 
+    QColor areaColor;
+    QColor areaBackColor;
 };
 
 
 class LineNumberArea : public QWidget
 {
 public:
+
     LineNumberArea(CodeEditor *editor) : QWidget(editor) {
         codeEditor = editor;
     }
@@ -127,6 +134,7 @@ protected:
 
 private:
     CodeEditor *codeEditor;
+
 };
 
 
