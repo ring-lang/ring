@@ -5622,6 +5622,9 @@ passvmpointer
 
 void setCompleter(QCompleter *c)
 QCompleter *completer(void)
+void setLineNumbersAreaColor(QColor oColor)
+void setLineNumbersAreaBackColor(QColor oColor)
+
 
 <class>
 name: QGridLayout

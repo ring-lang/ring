@@ -12808,6 +12808,12 @@ Class CodeEditor from QPlainTextEdit
 		pTempObj.pObject = CodeEditor_completer(pObject)
 		return pTempObj
 
+	Func setLineNumbersAreaColor P1
+		return CodeEditor_setLineNumbersAreaColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLineNumbersAreaBackColor P1
+		return CodeEditor_setLineNumbersAreaBackColor(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QGridLayout
 
 	pObject

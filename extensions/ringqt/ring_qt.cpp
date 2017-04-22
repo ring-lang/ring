@@ -71480,6 +71480,44 @@ RING_FUNC(ring_CodeEditor_completer)
 }
 
 
+RING_FUNC(ring_CodeEditor_setLineNumbersAreaColor)
+{
+	CodeEditor *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
+	pObject->setLineNumbersAreaColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QColor"));
+}
+
+
+RING_FUNC(ring_CodeEditor_setLineNumbersAreaBackColor)
+{
+	CodeEditor *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
+	pObject->setLineNumbersAreaBackColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QColor"));
+}
+
+
 RING_FUNC(ring_QGridLayout_addItem)
 {
 	QGridLayout *pObject ;
@@ -89362,6 +89400,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qplaintextedit_setactivelinecolor",ring_QPlainTextEdit_setactivelinecolor);
 	ring_vm_funcregister("codeeditor_setcompleter",ring_CodeEditor_setCompleter);
 	ring_vm_funcregister("codeeditor_completer",ring_CodeEditor_completer);
+	ring_vm_funcregister("codeeditor_setlinenumbersareacolor",ring_CodeEditor_setLineNumbersAreaColor);
+	ring_vm_funcregister("codeeditor_setlinenumbersareabackcolor",ring_CodeEditor_setLineNumbersAreaBackColor);
 	ring_vm_funcregister("qgridlayout_additem",ring_QGridLayout_addItem);
 	ring_vm_funcregister("qgridlayout_addlayout",ring_QGridLayout_addLayout);
 	ring_vm_funcregister("qgridlayout_addlayout_2",ring_QGridLayout_addLayout_2);
