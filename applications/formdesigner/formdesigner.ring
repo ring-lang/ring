@@ -2432,6 +2432,7 @@ class FormDesigner_QWidget from QWidget
 	cWindowFlags = ""
 	cMainLayout = ""
 	cWindowIcon = ""
+	cMenubar = ""
 
 	func BackColor
 		return cBackColor
@@ -2464,6 +2465,12 @@ class FormDesigner_QWidget from QWidget
 	func SetWindowIconValue cValue 
 		cWindowIcon = cValue 
 
+	func MenubarValue
+		return cMenubar
+
+	func SetMenubarValue cValue 
+		cMenubar = cValue 
+
 	func AddObjectProperties  oDesigner
 		oDesigner.oView.AddProperty("X",False)
 		oDesigner.oView.AddProperty("Y",False)
@@ -2474,6 +2481,7 @@ class FormDesigner_QWidget from QWidget
 		oDesigner.oView.AddProperty("Window Flags",True)
 		oDesigner.oView.AddProperty("Set Layout",False)
 		oDesigner.oView.AddProperty("Window Icon",True)
+		oDesigner.oView.AddProperty("Menubar",True)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
@@ -2496,6 +2504,9 @@ class FormDesigner_QWidget from QWidget
 					setMainLayoutValue(cValue)
 				case 8  	# Window Icon
 					setWindowIconValue(cValue)
+				case 9	# Menubar
+					setMenubarValue(cValue)
+
 			}
 		}
 
@@ -2520,6 +2531,8 @@ class FormDesigner_QWidget from QWidget
 			oPropertiesTable.item(7,1).settext(MainLayoutValue())
 		# Set the Window Icon 
 			oPropertiesTable.item(8,1).settext(WindowIconValue())
+		# Set the Menubar
+			oPropertiesTable.item(9,1).settext(MenubarValue())
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow 
@@ -2535,6 +2548,9 @@ class FormDesigner_QWidget from QWidget
 				cFile = oDesigner.oGeneral.SelectFile(oDesigner)
 				setWindowIconValue(cFile)
 				DisplayProperties(oDesigner)
+			case 9	# Menubar			
+				open_window(:MenubarDesignerController)
+				Last_Window().setParentObject(oDesigner)
 		}
 
 	func MousePressAction oDesigner
@@ -7918,7 +7934,10 @@ class MenubarDesignerView from WindowsViewParent
 
 class MenubarDesignerController from windowsControllerParent
 
-	oView = new menubardesignerView 
+	oView = new menubardesignerView  {
+		win.setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint )
+		win.setwindowmodality(2)
+	}
 	oRoot = new qtreewidgetitem()
 	oRoot.settext(0,"The Menubar Tree")
 	oView.TreeWidget1.addtoplevelitem(oRoot)
