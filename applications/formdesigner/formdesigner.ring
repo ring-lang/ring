@@ -10,7 +10,7 @@ load "stdlib.ring"
 
 import formdesigner
 
-# Prepare Controls Classes 
+# Prepare Controls Classes
 	for cClassName in [
 		:FormDesigner_QLabel,
 		:FormDesigner_QPushButton,
@@ -44,12 +44,12 @@ import formdesigner
 		mergemethods(cClassName,:CommonAttributesMethods)
 	}
 
-# Constants and Public Variables 
+# Constants and Public Variables
 	C_AFTERCOMMON  = 8			# Index After common properties
 	cCurrentDir = CurrentDir() + "/"
 
 # Start the Application
-	if IsMainSourceFile() { 
+	if IsMainSourceFile() {
 		oFDApp = new qApp {
 			StyleFusion()
 			Open_Window(:FormDesignerController)
@@ -57,7 +57,7 @@ import formdesigner
 		}
 	}
 
-package formdesigner  
+package formdesigner
 
 class FormDesignerController from WindowsControllerParent
 
@@ -70,25 +70,25 @@ class FormDesignerController from WindowsControllerParent
 		oView.CreateMainWindow(oModel)
 		AddObjectsToCombo()
 		AddObjectProperties()
-		DisplayObjectProperties()		
+		DisplayObjectProperties()
 		oView.WindowMoveResizeEvents()
 
 	func ObjectProperties
 		AddObjectProperties()
-		DisplayObjectProperties()	
+		DisplayObjectProperties()
 
 	func AddObjectsToCombo
 		oView.oObjectsCombo.blocksignals(True)
 		oView.oObjectsCombo.Clear()
-		aObjects = oModel.GetObjects() 
-		for item in aObjects {			
+		aObjects = oModel.GetObjects()
+		for item in aObjects {
 			oView.oObjectsCombo.AddItem(item[1],0)
 		}
 		oView.oObjectsCombo.setcurrentindex(len(aObjects)-1)
 		oView.oObjectsCombo.blocksignals(False)
 
-	func AddObjectProperties  
-		oView.oPropertiesTable   {	
+	func AddObjectProperties
+		oView.oPropertiesTable   {
 			# Remove Rows
 				nCount = rowcount()
 				for t = 1 to nCount {
@@ -100,65 +100,65 @@ class FormDesignerController from WindowsControllerParent
 		}
 		oModel.ActiveObject().AddObjectProperties(self)
 
-	func DisplayObjectProperties 
-		oModel.ActiveObject().DisplayProperties(self)	
+	func DisplayObjectProperties
+		oModel.ActiveObject().DisplayProperties(self)
 
 	func ToolBtnChangeAction
-		if oView.oToolBtn1.isChecked() { # Select Mode 
+		if oView.oToolBtn1.isChecked() { # Select Mode
 			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_ArrowCursor) } )
 			EnableMouseEventsForControls()
-		else 
+		else
 			oModel.FormObject().setCursor(new qCursor() { setShape(Qt_CrossCursor) } )
 			DisableMouseEventsForControls()
 		}
 
 	func DisableMouseEventsForControls
-		aObjects = oModel.GetObjects() 
-		for x = 2 to len(aObjects) {			
+		aObjects = oModel.GetObjects()
+		for x = 2 to len(aObjects) {
 			aObjects[x][2].setAttribute(Qt_WA_TransparentForMouseEvents,True)
 		}
 
 	func EnableMouseEventsForControls
-		aObjects = oModel.GetObjects() 
-		for x = 2 to len(aObjects) {			
+		aObjects = oModel.GetObjects()
+		for x = 2 to len(aObjects) {
 			aObjects[x][2].setAttribute(Qt_WA_TransparentForMouseEvents,False)
 		}
 
 	func SetToolboxModeToSelectAfterDraw
 		if not oView.oToolLock.isChecked() {
 			SetToolboxModeToSelect()
-		else 
-			# To include the latest created control 
+		else
+			# To include the latest created control
 				DisableMouseEventsForControls()
 		}
 
 	func SetToolboxModeToSelect
 		oView.oToolBtn1.setChecked(2)
 		ToolBtnChangeAction()
-	
+
 	func UpdateProperties
 		SetToolboxModeToSelect()
 		nRow = oView.oPropertiesTable.Currentrow()
-		nCol = oView.oPropertiesTable.Currentcolumn() 
+		nCol = oView.oPropertiesTable.Currentcolumn()
 		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
 		oModel.ActiveObject().UpdateProperties(self,nRow,nCol,cValue)
 
 	func ResizeWindowAction
 		oView.oLabelSelect.Hide()
 		SetToolboxModeToSelect()
-		oModel.FormObject().DisplayProperties(self)	
+		oModel.FormObject().DisplayProperties(self)
 		oView.oFilter.seteventoutput(False)
 
 	func MoveWindowAction
 		oView.oLabelSelect.Hide()
 		SetToolboxModeToSelect()
-		oModel.FormObject().DisplayProperties(self)	
+		oModel.FormObject().DisplayProperties(self)
 
 	func MousePressAction
 		oModel.FormObject().MousePressAction(self)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			oModel.RemoveCurrentParentCache()
-			# Activate the Window Object 
+			# Activate the Window Object
 				ChangeObjectByCode(0)
 		}
 		oView.oFilter.seteventoutput(False)
@@ -171,15 +171,15 @@ class FormDesignerController from WindowsControllerParent
 		oModel.FormObject().MouseMoveAction(self)
 		oView.oFilter.seteventoutput(False)
 
-	func DialogButtonAction nRow 
+	func DialogButtonAction nRow
 		SetToolboxModeToSelect()
 		oModel.ActiveObject().DialogButtonAction(self,nRow)
 
-	func ComboItemAction nRow 
+	func ComboItemAction nRow
 		SetToolboxModeToSelect()
 		oModel.ActiveObject().ComboItemAction(self,nRow)
 
-	func SelectDrawAction aRect 
+	func SelectDrawAction aRect
 		if oView.oToolBtn1.ischecked()  { # Select
 			oModel.ClearSelectedObjects()
 			SelectObjects(aRect)
@@ -191,11 +191,11 @@ class FormDesignerController from WindowsControllerParent
 				oView.oPropertiesDock.setminimumwidth(10)
 				oView.oPropertiesDock.setWidget(oView.oProperties)
 			}
-		elseif oView.oToolBtn2.ischecked()   # Create Label 
+		elseif oView.oToolBtn2.ischecked()   # Create Label
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddLabel(new FormDesigner_QLabel(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setMouseTracking(True)
 					setFocusPolicy(0)
@@ -209,7 +209,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddPushButton(new FormDesigner_QPushButton(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setMouseTracking(True)
 					setFocusPolicy(0)
@@ -223,7 +223,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddLineEdit(new FormDesigner_QLineEdit(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -237,7 +237,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddTextEdit(new FormDesigner_QTextEdit(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -251,7 +251,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddListWidget(new FormDesigner_QListWidget(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -265,7 +265,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddCheckBox(new FormDesigner_QCheckBox(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -279,7 +279,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddImage(new FormDesigner_QImage(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -293,7 +293,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddSlider(new FormDesigner_QSlider(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -307,7 +307,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddProgressbar(new FormDesigner_QProgressbar(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -321,7 +321,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddSpinBox(new FormDesigner_QSpinBox(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -335,7 +335,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddComboBox(new FormDesigner_QComboBox(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -349,7 +349,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddDateTimeEdit(new FormDesigner_QDateTimeEdit(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -359,11 +359,11 @@ class FormDesignerController from WindowsControllerParent
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("DateTimeEdit",oModel.DateTimeEditsCount())
 			SetToolboxModeToSelectAfterDraw()
-		elseif oView.oToolBtn14.ischecked()   # Create QTableWidget 
+		elseif oView.oToolBtn14.ischecked()   # Create QTableWidget
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddTableWidget(new FormDesigner_QTableWidget(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -373,11 +373,11 @@ class FormDesignerController from WindowsControllerParent
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("TableWidget",oModel.TableWidgetsCount())
 			SetToolboxModeToSelectAfterDraw()
-		elseif oView.oToolBtn15.ischecked()   # Create QTreeWidget 
+		elseif oView.oToolBtn15.ischecked()   # Create QTreeWidget
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddTreeWidget(new FormDesigner_QTreeWidget(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -387,11 +387,11 @@ class FormDesignerController from WindowsControllerParent
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("TreeWidget",oModel.TreeWidgetsCount())
 			SetToolboxModeToSelectAfterDraw()
-		elseif oView.oToolBtn16.ischecked()   # Create QRadioButton  
+		elseif oView.oToolBtn16.ischecked()   # Create QRadioButton
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddRadioButton(new FormDesigner_QRadioButton(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -401,11 +401,11 @@ class FormDesignerController from WindowsControllerParent
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("RadioButton",oModel.RadioButtonsCount())
 			SetToolboxModeToSelectAfterDraw()
-		elseif oView.oToolBtn17.ischecked()   # Create QWebView 
+		elseif oView.oToolBtn17.ischecked()   # Create QWebView
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddWebView(new FormDesigner_QWebView(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -419,7 +419,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddDial(new FormDesigner_QDial(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -433,7 +433,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddVideoWidget(new FormDesigner_QVideoWidget(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -447,7 +447,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddFrame(new FormDesigner_QFrame3(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -461,7 +461,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddLCDNumber(new FormDesigner_QLCDNumber(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -475,7 +475,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddHyperLink(new FormDesigner_QHyperLink(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -489,7 +489,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddTimer(new FormDesigner_QTimer(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -503,7 +503,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddAllEvents(new FormDesigner_QAllEvents(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -513,11 +513,11 @@ class FormDesignerController from WindowsControllerParent
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("AllEvents",oModel.AllEventsCount())
 			SetToolboxModeToSelectAfterDraw()
-		elseif oView.oToolBtn25.ischecked()   # Create QLayout 
+		elseif oView.oToolBtn25.ischecked()   # Create QLayout
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddLayout(new FormDesigner_QLayout(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -531,7 +531,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddTab(new FormDesigner_QTabWidget(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -545,7 +545,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddStatusBar(new FormDesigner_QStatusBar(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -559,7 +559,7 @@ class FormDesignerController from WindowsControllerParent
 			HideCorners()
 			UpdatePositionForParent(aRect)
 			oModel.AddToolBar(new FormDesigner_QToolbar(oModel.CurrentParent()) {
-					move(aRect[1],aRect[2]) 
+					move(aRect[1],aRect[2])
 					resize(aRect[3],aRect[4])
 					setFocusPolicy(0)
 					setMouseTracking(True)
@@ -575,17 +575,17 @@ class FormDesignerController from WindowsControllerParent
 		if classname(oModel.ActiveObject()) = "formdesigner_qtabwidget" {
 			aRect[1] -= oModel.ActiveObject().x()
 			# 28 for the tab title height
-				aRect[2] -= oModel.ActiveObject().y() + 28 
-		elseif isObject(oModel.CurrentParentCache()) 
+				aRect[2] -= oModel.ActiveObject().y() + 28
+		elseif isObject(oModel.CurrentParentCache())
 			aRect[1] -= oModel.CurrentParentCache().x()
 			# 28 for the tab title height
-				aRect[2] -= oModel.CurrentParentCache().y() + 28 
+				aRect[2] -= oModel.CurrentParentCache().y() + 28
 		}
 
 	func NewControlEvents cName,nCount
 			oFilter = new qAllevents(oModel.ActiveObject()) {
 				setmousebuttonpressevent(Method(:ActiveObjectMousePress+"("+this.oModel.GetCurrentID()+")"))
-				setMouseButtonReleaseEvent(Method(:ActiveObjectMouseRelease+"("+this.oModel.GetCurrentID()+")")) 
+				setMouseButtonReleaseEvent(Method(:ActiveObjectMouseRelease+"("+this.oModel.GetCurrentID()+")"))
 				setMouseMoveEvent(Method(:ActiveObjectMouseMove+"("+this.oModel.GetCurrentID()+")"))
 			}
 			oModel.ActiveObject().installeventfilter(oFilter)
@@ -607,51 +607,51 @@ class FormDesignerController from WindowsControllerParent
 		nSY = aRect[2]
 		nSX2 = nSX + aRect[3]
 		nSY2 = nSY + aRect[4]
-		aObjects = oModel.GetObjects() 
-		for x = 2 to len(aObjects) {	# Start from 2 to avoid the Form Object	
+		aObjects = oModel.GetObjects()
+		for x = 2 to len(aObjects) {	# Start from 2 to avoid the Form Object
 			item = aObjects[x]
 			oObject = item[2]
 			if not (oObject.CurrentParentName() = "win" or oObject.CurrentParentName() = "") {
 				loop
 			}
-			nX = oObject.x() 
+			nX = oObject.x()
 			nY = oObject.y()
 			nX2 = nX + oObject.Width()
-			nY2 = nY + oObject.Height() 		
+			nY2 = nY + oObject.Height()
 			if Intersection(nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2) {
 				oObject.oCorners.Show()
 				oModel.AddSelectedObject(x)
-			}	 
+			}
 		}
 
-	func Intersection nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2 
-		if pointinbox(nX,nY,nSX,nSY,nSX2,nSY2) or 
-			pointinbox(nX,nY2,nSX,nSY,nSX2,nSY2) or 
-			pointinbox(nX2,nY,nSX,nSY,nSX2,nSY2) or 
+	func Intersection nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2
+		if pointinbox(nX,nY,nSX,nSY,nSX2,nSY2) or
+			pointinbox(nX,nY2,nSX,nSY,nSX2,nSY2) or
+			pointinbox(nX2,nY,nSX,nSY,nSX2,nSY2) or
 			pointinbox(nX2,nY2,nSX,nSY,nSX2,nSY2) or
-			pointinbox(nSX,nSY,nX,nY,nX2,nY2) or 
-			pointinbox(nSX,nSY2,nX,nY,nX2,nY2) or 
-			pointinbox(nSX2,nSY,nX,nY,nX2,nY2) or 
+			pointinbox(nSX,nSY,nX,nY,nX2,nY2) or
+			pointinbox(nSX,nSY2,nX,nY,nX2,nY2) or
+			pointinbox(nSX2,nSY,nX,nY,nX2,nY2) or
 			pointinbox(nSX2,nSY2,nX,nY,nX2,nY2) or
-			IntersectionLikePlusOperator(nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2 ) { 
+			IntersectionLikePlusOperator(nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2 ) {
 			return True
 		}
-		return False 
+		return False
 
-	func pointinbox nX,nY,nSX,nSY,nSX2,nSY2 
+	func pointinbox nX,nY,nSX,nSY,nSX2,nSY2
 		if nX >= nSX and nX <= nSX2 and nY >= nSY and nY <= nSY2 {
 			return True
 		}
 		return False
 
-	func intersectionlikeplusOperator nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2 
-		if ( nY < nSY and nY2 >  nSY2 and 
-			nX > nSX and nX2 <  nSX2 ) or 
-		( nSY < nY and nSY2 > nY2 and 
+	func intersectionlikeplusOperator nX,nY,nX2,nY2,nSX,nSY,nSX2,nSY2
+		if ( nY < nSY and nY2 >  nSY2 and
+			nX > nSX and nX2 <  nSX2 ) or
+		( nSY < nY and nSY2 > nY2 and
 			nSX > nX and nSX2 <  nX2 )  {
 			return True
 		}
-		return False 
+		return False
 
 	func CancelSelectedObjects
 		aObjects = oModel.getselectedObjects()
@@ -665,15 +665,15 @@ class FormDesignerController from WindowsControllerParent
 	func ChangeObjectAction
 		if oView.oObjectsCombo.count() = 0 { return }
 		HideCorners()
-		nIndex = oView.oObjectsCombo.currentindex()  
+		nIndex = oView.oObjectsCombo.currentindex()
 		oModel.nActiveObject = nIndex + 1
 		ObjectProperties()
 		ShowCorners()
 
-	func ChangeObjectByCode nIndex 
+	func ChangeObjectByCode nIndex
 		HideCorners()
 		oView.oObjectsCombo.blocksignals(True)
-		oView.oObjectsCombo.setcurrentindex(nIndex)  
+		oView.oObjectsCombo.setcurrentindex(nIndex)
 		oModel.nActiveObject = nIndex + 1
 		ObjectProperties()
 		oView.oObjectsCombo.blocksignals(False)
@@ -694,37 +694,37 @@ class FormDesignerController from WindowsControllerParent
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
 			if oModel.IsManySelected() {
-				if oModel.IsObjectSelected(nObjectID) { 
+				if oModel.IsObjectSelected(nObjectID) {
 					if oFDApp.keyboardmodifiers() {
 						oModel.RemoveSelectedObject(nObjectIndex)
 						oModel.GetObjectByIndex(nObjectIndex).oCorners.Hide()
-					else 
-						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self) 
+					else
+						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self)
 					}
-					return 
-				else 
+					return
+				else
 					if oFDApp.keyboardmodifiers() {
 						oModel.AddSelectedObject(nObjectIndex)
-						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self) 
+						oModel.GetObjectByIndex(nObjectIndex).MousePressMany(self)
 						oModel.GetObjectByIndex(nObjectIndex).oCorners.Show()
-						return 			
-					}					
+						return
+					}
 				}
-			else 
-				# Here we don't have many objects selected 
-				# Support starting multiple selection operation using the keyboard 
+			else
+				# Here we don't have many objects selected
+				# Support starting multiple selection operation using the keyboard
 				if oFDApp.keyboardmodifiers() {
 					oModel.ClearSelectedObjects()
-					ChangeObjectByCode(nObjectIndex-1)  
+					ChangeObjectByCode(nObjectIndex-1)
 					oModel.ActiveObject().oCorners.Show()
-					oModel.AddSelectedObject(nObjectIndex)						
+					oModel.AddSelectedObject(nObjectIndex)
 					nWidth = oView.oPropertiesDock.width()
 					oView.oPropertiesDock.setWidget(oView.oProperties2)
 					oView.oPropertiesDock.setminimumwidth(nWidth)
-					return 
+					return
 				}
 			}
-			ChangeObjectByCode(nObjectIndex-1)  
+			ChangeObjectByCode(nObjectIndex-1)
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
 				oModel.ActiveObject().MousePress(self)
 			}
@@ -733,9 +733,9 @@ class FormDesignerController from WindowsControllerParent
 	func ActiveObjectMouseRelease nObjectID
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
-			if oModel.IsManySelected() { 
-				oModel.GetObjectByIndex(nObjectIndex).MouseReleaseMany(self) 
-				return 
+			if oModel.IsManySelected() {
+				oModel.GetObjectByIndex(nObjectIndex).MouseReleaseMany(self)
+				return
 			}
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
 				oModel.ActiveObject().MouseRelease(self)
@@ -745,9 +745,9 @@ class FormDesignerController from WindowsControllerParent
 	func ActiveObjectMouseMove nObjectID
 		nObjectIndex = oModel.IDToIndex(nObjectID)
 		if oView.oToolBtn1.ischecked() {	# Select Mode
-			if oModel.IsManySelected() { 
-				oModel.GetObjectByIndex(nObjectIndex).MouseMoveMany(self) 
-				return 
+			if oModel.IsManySelected() {
+				oModel.GetObjectByIndex(nObjectIndex).MouseMoveMany(self)
+				return
 			}
 			if classname(oModel.ActiveObject()) != "formdesigner_qwidget" {
 				oModel.ActiveObject().MouseMove(self)
@@ -776,12 +776,12 @@ class FormDesignerController from WindowsControllerParent
 											oModel.ActiveObject().y()  + 10)
 					case Qt_Key_Delete
 						HideCorners()
-						oModel.ActiveObject().close() 
+						oModel.ActiveObject().close()
 						oModel.deleteactiveObject()
 						ShowCorners()
 						AddObjectsToCombo()
-				}	
-			case 33554432	# Shift	
+				}
+			case 33554432	# Shift
 				switch nkey {
 					case Qt_Key_Right
 						oModel.ActiveObject().resize( oModel.ActiveObject().width() + 10 ,
@@ -795,7 +795,7 @@ class FormDesignerController from WindowsControllerParent
 					case Qt_Key_Down
 						oModel.ActiveObject().resize( oModel.ActiveObject().width()  ,
 											oModel.ActiveObject().height() + 10)
-				}	
+				}
 		}
 		if ismethod(oModel.ActiveObject(),"refreshcorners") {
 			oModel.ActiveObject().refreshCorners(oModel.ActiveObject())
@@ -835,13 +835,13 @@ class FormDesignerController from WindowsControllerParent
 					case Qt_Key_Delete
 						for item in aObjects {
 							oObject = item[2]
-							oObject.oCorners.Hide() 
-							oObject.Close() 
+							oObject.oCorners.Hide()
+							oObject.Close()
 						}
 						oModel.deleteselectedObjects()
-						AddObjectsToCombo()						
-				}	
-			case 33554432	# Shift	
+						AddObjectsToCombo()
+				}
+			case 33554432	# Shift
 				switch nkey {
 					case Qt_Key_Right
 						for item in aObjects {
@@ -867,7 +867,7 @@ class FormDesignerController from WindowsControllerParent
 							oObject.resize( oObject.width()  , oObject.height() + 10)
 							oObject.oCorners.refresh(oObject)
 						}
-				}	
+				}
 		}
 
 
@@ -925,7 +925,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func MSCenterVer
 		aObjects = oModel.GetSelectedObjects()
-		# Get Minimum Top and Maximum Top+Height 
+		# Get Minimum Top and Maximum Top+Height
 		nMinTop = 5000
 		nMaxTopHeight = 0
 		for item in aObjects {
@@ -933,11 +933,11 @@ class FormDesignerController from WindowsControllerParent
 			nMinTop = min(nMinTop,oObject.y())
 			nMaxTopHeight = max(nMaxTopHeight,oObject.y()+oObject.Height())
 		}
-		# Get Top Difference 
+		# Get Top Difference
 			nDiff = nMaxTopHeight - nMinTop
 			nTop = (oObject.ParentWidget().Height() - nDiff ) / 2
 			nDiff = nMinTop - nTop
-		# Apply the Top difference to all controls 
+		# Apply the Top difference to all controls
 		for item in aObjects {
 			oObject = item[2]
 			oObject.move(oObject.x() ,oObject.y()-nDiff)
@@ -954,11 +954,11 @@ class FormDesignerController from WindowsControllerParent
 			nMinLeft = min(nMinLeft,oObject.x())
 			nMaxLeftWidth = max(nMaxLeftWidth,oObject.x()+oObject.Width())
 		}
-		# Get Left Difference 
+		# Get Left Difference
 			nDiff = nMaxLeftWidth - nMinLeft
 			nLeft = (oObject.ParentWidget().Width() - nDiff ) / 2
 			nDiff = nMinLeft - nLeft
-		# Apply the Left difference to all controls 
+		# Apply the Left difference to all controls
 		for item in aObjects {
 			oObject = item[2]
 			oObject.move(oObject.x()-nDiff,oObject.y())
@@ -1019,14 +1019,14 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSHorSpacingMakeEqual
-		aObjects = oModel.GetSelectedObjects()		
-		nLastLeft = 0 
+		aObjects = oModel.GetSelectedObjects()
+		nLastLeft = 0
 		for x = 1 to len(aObjects) {
 			item = aObjects[x]
 			oObject = item[2]
 			if x = 1 {
 				nLastLeft = oObject.x() + oObject.Width() + 10
-				loop 
+				loop
 			}
 			oObject.move( nLastLeft  , oObject.y() )
 			nLastLeft = oObject.x() + oObject.Width() + 10
@@ -1034,7 +1034,7 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSHorSpacingIncrease
-		aObjects = oModel.GetSelectedObjects()		 
+		aObjects = oModel.GetSelectedObjects()
 		for x = 2 to len(aObjects) {
 			item = aObjects[x]
 			oObject = item[2]
@@ -1043,7 +1043,7 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSHorSpacingDecrease
-		aObjects = oModel.GetSelectedObjects()		 
+		aObjects = oModel.GetSelectedObjects()
 		for x = 2 to len(aObjects) {
 			item = aObjects[x]
 			oObject = item[2]
@@ -1052,14 +1052,14 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSVerSpacingMakeEqual
-		aObjects = oModel.GetSelectedObjects()		
-		nLastTop = 0 
+		aObjects = oModel.GetSelectedObjects()
+		nLastTop = 0
 		for x = 1 to len(aObjects) {
 			item = aObjects[x]
 			oObject = item[2]
 			if x = 1 {
 				nLastTop = oObject.y() + oObject.Height() + 10
-				loop 
+				loop
 			}
 			oObject.move( oObject.x() , nLastTop )
 			nLastTop = oObject.y() + oObject.Height() + 10
@@ -1067,7 +1067,7 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSVerSpacingIncrease
-		aObjects = oModel.GetSelectedObjects()		 
+		aObjects = oModel.GetSelectedObjects()
 		for x = 2 to len(aObjects) {
 			item = aObjects[x]
 			oObject = item[2]
@@ -1076,7 +1076,7 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSVerSpacingDecrease
-		aObjects = oModel.GetSelectedObjects()		 
+		aObjects = oModel.GetSelectedObjects()
 		for x = 2 to len(aObjects) {
 			item = aObjects[x]
 			oObject = item[2]
@@ -1086,15 +1086,15 @@ class FormDesignerController from WindowsControllerParent
 
 	func MSTextColor
 		cColor = oGeneral.SelectColor()
-		aObjects = oModel.GetSelectedObjects()		 
+		aObjects = oModel.GetSelectedObjects()
 		for item in aObjects {
 			oObject = item[2]
 			oModel.GetObjectByID(item[3]).setTextColor(cColor)
 		}
-	
+
 	func MSBackColor
 		cColor = oGeneral.SelectColor()
-		aObjects = oModel.GetSelectedObjects()		 
+		aObjects = oModel.GetSelectedObjects()
 		for item in aObjects {
 			oObject = item[2]
 			oModel.GetObjectByID(item[3]).setBackColor(cColor)
@@ -1102,7 +1102,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func MSFont
 		cFont = oGeneral.SelectFont()
-		aObjects = oModel.GetSelectedObjects()		 
+		aObjects = oModel.GetSelectedObjects()
 		for item in aObjects {
 			oObject = item[2]
 			oModel.GetObjectByID(item[3]).setFontProperty(cFont)
@@ -1123,35 +1123,35 @@ class FormDesignerController from WindowsControllerParent
 	func ExitAction
 		Super.CloseAction()
 
-	func Duplicate 
-		# Selected objects - if we have many objects selected 
+	func Duplicate
+		# Selected objects - if we have many objects selected
 			oModel.RefreshSelectedObjects()
 			aObjects = oModel.GetSelectedObjects()
-		# Support duplication of one selected object  
+		# Support duplication of one selected object
 			if  len(aObjects) = 0  and not oModel.IsFormActive()  {
-				aObjects = oModel.ActiveObjectItemAsList() 
+				aObjects = oModel.ActiveObjectItemAsList()
 			}
-		# Display messagebox if not objects are selected 
+		# Display messagebox if not objects are selected
 			if len(aObjects) = 0 {
 				ShowMsg("Sorry!","No objects are selected","Select objects first to be duplicated")
-				return 
+				return
 			}
-		# Duplication of selected objects 
+		# Duplication of selected objects
 			cCode  = oFile.Objects2String(self,aObjects)
 			eval(cCode)
 			# Update Name and Position
 				nIndex = 0
 				for item in aObjectsList {
 					nIndex++
-					# Remove Numbers from the name 
+					# Remove Numbers from the name
 						for char in item[:name] {
 							if not isalpha(char) and isalnum(char) {
 								char = " "
 							}
 						}
 						item[:name] = substr(item[:name]," ","")
-					# Add New number to the name 
-						# -1 to avoid counting the window object 
+					# Add New number to the name
+						# -1 to avoid counting the window object
 							item[:name] += "" + (oModel.ObjectsCount()+nIndex-1)
 					# Update Position
 						item[:data][:x] += 10
@@ -1159,13 +1159,13 @@ class FormDesignerController from WindowsControllerParent
 				}
 			nCount = oModel.ObjectsCount()
 			oFile.CreateFormObjects(self,aObjectsList)
-			# Select the new objects 
-				aObjects = oModel.GetObjects() 
-				for x = nCount+1 to len(aObjects) {	
+			# Select the new objects
+				aObjects = oModel.GetObjects()
+				for x = nCount+1 to len(aObjects) {
 					item = aObjects[x]
-					oObject = item[2]	
+					oObject = item[2]
 					oObject.oCorners.Show()
-					oModel.AddSelectedObject(x)	 
+					oModel.AddSelectedObject(x)
 				}
 
 	func ShowMsg cTitle,cText,cText2
@@ -1179,20 +1179,20 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func BringToFront
-		if CheckOneObject() { 
+		if CheckOneObject() {
 			oModel.ActiveObject().raise()
 			oModel.RaiseActiveObject()
 			AddObjectsToCombo()
 		}
 
 	func SendToBack
-		if CheckOneObject() { 
+		if CheckOneObject() {
 			oModel.ActiveObject().lower()
 			oModel.LowerActiveObject()
 			AddObjectsToCombo()
 		}
 
-	func CheckOneObject 
+	func CheckOneObject
 		if oModel.IsFormActive()  or oModel.IsManySelected() {
 			ShowMsg("Sorry!","Object selection is not correct","Select one object first!")
 			return False
@@ -1225,7 +1225,7 @@ class FormDesignerController from WindowsControllerParent
 			setText(cMessage)
 			show()
 		}
-	
+
 	func LangAction
 		MsgBox("Programming Language",
 			"This application developed using the Ring programming language")
@@ -1236,26 +1236,26 @@ class FormDesignerController from WindowsControllerParent
 
 	func AboutAction
 		MsgBox("About",
-		"2017, Mahmoud Fayed <msfclipper@yahoo.com>")		
+		"2017, Mahmoud Fayed <msfclipper@yahoo.com>")
 
 Class FormDesignerView from WindowsViewParent
 
-	oForm oSub oFilter oArea win  
+	oForm oSub oFilter oArea win
 
-	oPropertiesDock oProperties oProperties2 
+	oPropertiesDock oProperties oProperties2
 	oObjectsCombo 	oPropertiesTable oLabelSelect
 
 	oToolBoxDock	oToolLock
-	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5 
-	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10 
-	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14 
-	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18 
+	oToolBtn1 oToolBtn2 oToolBtn3 oToolBtn4 oToolBtn5
+	oToolBtn6 oToolBtn7 oToolBtn8 oToolBtn9 oToolBtn10
+	oToolBtn11 oToolBtn12 oToolBtn13 oToolBtn14
+	oToolBtn15  oToolBtn16 oToolBtn17 oToolBtn18
 	oToolBtn19 oToolBtn20 oToolBtn21 oToolBtn22 oToolBtn23
 	oToolBtn24 oToolBtn25 oToolBtn26 oToolBtn27  oToolBtn28
 
 	func CreateMainWindow oModel
 
-		# Create the form 
+		# Create the form
 			oModel.AddObject("Window",
 				 new FormDesigner_qWidget() {
 					setWindowTitle("Form1")
@@ -1265,20 +1265,20 @@ Class FormDesignerView from WindowsViewParent
 		# Create the Select/Draw Label
 			oLabelSelect = new qlabel(oModel.FormObject()) {
 				setGeometry(100,100,400,400)
-		 		setstylesheet("background-color:rgba(50,150,255,0.3);border: 1px solid black")				 
+		 		setstylesheet("background-color:rgba(50,150,255,0.3);border: 1px solid black")
 				setautoFillBackground(false)
 				settext("")
 				setmousetracking(false)
 				hide()
 			}
-	
-		# Add the form to the Sub Window 
+
+		# Add the form to the Sub Window
 			oSub =  new QMdiSubWindow(null) {
 				move(100,100)
 				resize(400,400)
 				setwidget(oModel.FormObject())
 				oModel.ActiveObject().setSubWindow(this.oSub)
-				setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint ) 
+				setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint )
 			}
 
 		# Add the sub Window to the Mdi Area
@@ -1290,9 +1290,9 @@ Class FormDesignerView from WindowsViewParent
 
 		# Create the Main Window and use the Mdi Area
 			win = new qMainwindow() {
-				setWindowTitle("Form Designer")		
+				setWindowTitle("Form Designer")
 				setcentralWidget(this.oArea)
-			}	
+			}
 			setwinicon(win,cCurrentDir + "/image/project.png")
 
 		# Create the ToolBox
@@ -1304,13 +1304,13 @@ Class FormDesignerView from WindowsViewParent
 		# Create the Menubar
 			CreateMenuBar()
 
-		# Create the Toolbar 
+		# Create the Toolbar
 			CreateToolBar()
 
-		# Create the Statusbar 
+		# Create the Statusbar
 			CreateStatusBar()
 
-		# Show the Window 
+		# Show the Window
 			win.showmaximized()
 
 	func WindowMoveResizeEvents
@@ -1324,9 +1324,9 @@ Class FormDesignerView from WindowsViewParent
 		oSub.installeventfilter(oFilter)
 
 	func CreateMenuBar
-		menu1 = new qmenubar(win) {		
+		menu1 = new qmenubar(win) {
 			subFile = addmenu("File")
-			subFile { 
+			subFile {
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+n"))
 					setbtnimage(self,"image/new.png")
@@ -1336,7 +1336,7 @@ Class FormDesignerView from WindowsViewParent
 				addaction(oAction)
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+o"))
-					setbtnimage(self,"image/open.png") 
+					setbtnimage(self,"image/open.png")
 					settext("Open")
 					setclickevent(Method(:OpenAction))
 				}
@@ -1360,7 +1360,7 @@ Class FormDesignerView from WindowsViewParent
 				addseparator()
 				oAction = new qaction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+q"))
-					setbtnimage(self,"image/close.png") 
+					setbtnimage(self,"image/close.png")
 					settext("Exit")
 					setstatustip("Exit")
 					setclickevent(Method(:ExitAction))
@@ -1374,21 +1374,21 @@ Class FormDesignerView from WindowsViewParent
 					settext("Duplicate")
 					setclickevent(Method(:Duplicate))
 				}
-				addaction(oAction)			
-				addseparator()	
+				addaction(oAction)
+				addseparator()
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+f"))
 					settext("Bring to front")
 					setclickevent(Method(:BringToFront))
 				}
-				addaction(oAction)			
-				addseparator()	
+				addaction(oAction)
+				addseparator()
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+b"))
 					settext("Send to back")
 					setclickevent(Method(:SendToBack))
 				}
-				addaction(oAction)			
+				addaction(oAction)
 			}
 			subView = addmenu("View")
 			subView {
@@ -1397,20 +1397,20 @@ Class FormDesignerView from WindowsViewParent
 					settext("ToolBox")
 					setclickevent(Method(:ToolBox))
 				}
-				addaction(oAction)			
-				addseparator()	
+				addaction(oAction)
+				addseparator()
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+p"))
 					setclickevent(Method(:Properties))
 					settext("Properties")
 				}
-				addaction(oAction)	
-				addseparator()	
+				addaction(oAction)
+				addseparator()
 			}
 			subHelp = addmenu("Help")
-			subHelp { 
+			subHelp {
 				subHelpLF = addmenu("Language Reference")
-				subHelpLF { 
+				subHelpLF {
 					oAction = new qAction(this.win) {
 						settext("CHM File")
 						setclickevent(Method(:OpenCHMAction))
@@ -1424,7 +1424,7 @@ Class FormDesignerView from WindowsViewParent
 				}
 				addseparator()
 				subHelpTools = addmenu("Development Tools")
-				subHelpTools { 
+				subHelpTools {
 					oAction = new qAction(this.win) {
 						settext("Programming Language")
 						setclickevent(Method(:LangAction))
@@ -1441,7 +1441,7 @@ Class FormDesignerView from WindowsViewParent
 					settext("About")
 					setclickevent(Method(:AboutAction))
 				}
-				addaction(oAction)			
+				addaction(oAction)
 			}
 		}
 		win.setmenubar(menu1)
@@ -1454,31 +1454,31 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateToolBar
 		aBtns = [
-				new qpushbutton(win) { 
-					setbtnimage(self,"image/new.png") 
+				new qpushbutton(win) {
+					setbtnimage(self,"image/new.png")
 					setclickevent(Method(:NewAction))
 					settooltip("New File")
 				} ,
-				new qpushbutton(win) { 
-					setbtnimage(self,"image/open.png") 
+				new qpushbutton(win) {
+					setbtnimage(self,"image/open.png")
 					setclickevent(Method(:OpenAction))
 					settooltip("Open File")
 				} ,
-				new qpushbutton(win) { 
+				new qpushbutton(win) {
 					setbtnimage(self,"image/save.png")
 					setclickevent(Method(:SaveAction))
 					settooltip("Save")
 				 } ,
-				new qpushbutton(win) { 
+				new qpushbutton(win) {
 					setbtnimage(self,"image/saveas.png")
 					setclickevent(Method(:SaveAsAction))
 					settooltip("Save As")
-				 } ,				
-				new qpushbutton(win) { 
-					setbtnimage(self,"image/close.png") 
+				 } ,
+				new qpushbutton(win) {
+					setbtnimage(self,"image/close.png")
 					setclickevent(Method(:ExitAction))
 					settooltip("Exit")
-				} 
+				}
 			]
 
 		tool1 = win.addtoolbar("files")  {
@@ -1489,14 +1489,14 @@ Class FormDesignerView from WindowsViewParent
 		oToolBox = new qWidget() {
  			this.oToolLock = new qPushButton(oToolBox) {
 					setText(this.TextSize("Lock",20))
-					setbtnimage(self,"image/lock.png") 
+					setbtnimage(self,"image/lock.png")
 					setCheckable(True)
 					setChecked(false)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn1 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Select",20))
-					setbtnimage(self,"image/select.png") 
+					setbtnimage(self,"image/select.png")
 					setminimumwidth(150)
 					setCheckable(True)
 					setChecked(True)
@@ -1504,163 +1504,163 @@ Class FormDesignerView from WindowsViewParent
 			}
  			this.oToolbtn2 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Label",20))
-					setbtnimage(self,"image/label.png") 
+					setbtnimage(self,"image/label.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn3 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Button",18))
-					setbtnimage(self,"image/pushbutton.png") 
+					setbtnimage(self,"image/pushbutton.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn4 = new qPushButton(oToolBox) {
 					setText(this.TextSize("LineEdit",19))
-					setbtnimage(self,"image/textfield.png") 
+					setbtnimage(self,"image/textfield.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn5 = new qPushButton(oToolBox) {
 					setText(this.TextSize("TextEdit",19))
-					setbtnimage(self,"image/textarea.png") 
+					setbtnimage(self,"image/textarea.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn6 = new qPushButton(oToolBox) {
 					setText(this.TextSize("ListWidget",17))
-					setbtnimage(self,"image/listview.png") 
+					setbtnimage(self,"image/listview.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn7 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Checkbox",16))
-					setbtnimage(self,"image/checkbox.png") 
+					setbtnimage(self,"image/checkbox.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn8 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Image",19))
-					setbtnimage(self,"image/image.png") 
+					setbtnimage(self,"image/image.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn9 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Slider",20))
-					setbtnimage(self,"image/slider.png") 
+					setbtnimage(self,"image/slider.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn10 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Progressbar",15))
-					setbtnimage(self,"image/progressbar.png") 
+					setbtnimage(self,"image/progressbar.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn11 = new qPushButton(oToolBox) {
 					setText(this.TextSize("SpinBox",17))
-					setbtnimage(self,"image/spinner.bmp") 
+					setbtnimage(self,"image/spinner.bmp")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn12 = new qPushButton(oToolBox) {
 					setText(this.TextSize("ComboBox",17))
-					setbtnimage(self,"image/combobox.bmp") 
+					setbtnimage(self,"image/combobox.bmp")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn13 = new qPushButton(oToolBox) {
 					setText(this.TextSize("DateTimeEdit",17))
-					setbtnimage(self,"image/datepicker.bmp") 
+					setbtnimage(self,"image/datepicker.bmp")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn14 = new qPushButton(oToolBox) {
 					setText(this.TextSize("TableWidget",17))
-					setbtnimage(self,"image/grid.bmp") 
+					setbtnimage(self,"image/grid.bmp")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn15 = new qPushButton(oToolBox) {
 					setText(this.TextSize("TreeWidget",17))
-					setbtnimage(self,"image/tree.bmp") 
+					setbtnimage(self,"image/tree.bmp")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn16 = new qPushButton(oToolBox) {
 					setText(this.TextSize("RadioButton",17))
-					setbtnimage(self,"image/radiobutton.png") 
+					setbtnimage(self,"image/radiobutton.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn17 = new qPushButton(oToolBox) {
 					setText(this.TextSize("WebView",17))
-					setbtnimage(self,"image/webview.png") 
+					setbtnimage(self,"image/webview.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn18 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Dial Slider",20))
-					setbtnimage(self,"image/dial.png") 
+					setbtnimage(self,"image/dial.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn19 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Video Widget",17))
-					setbtnimage(self,"image/videowidget.png") 
+					setbtnimage(self,"image/videowidget.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn20 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Frame",20))
-					setbtnimage(self,"image/frame.png") 
+					setbtnimage(self,"image/frame.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn21 = new qPushButton(oToolBox) {
 					setText(this.TextSize("LCD Number",17))
-					setbtnimage(self,"image/lcdnumber.png") 
+					setbtnimage(self,"image/lcdnumber.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn22 = new qPushButton(oToolBox) {
 					setText(this.TextSize("HyperLink",20))
-					setbtnimage(self,"image/hyperlink.png") 
+					setbtnimage(self,"image/hyperlink.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn23 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Timer",22))
-					setbtnimage(self,"image/timer.png") 
+					setbtnimage(self,"image/timer.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn24 = new qPushButton(oToolBox) {
 					setText(this.TextSize("All Events",20))
-					setbtnimage(self,"image/allevents.png") 
+					setbtnimage(self,"image/allevents.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn25 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Layout",20))
-					setbtnimage(self,"image/layout.png") 
+					setbtnimage(self,"image/layout.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn26 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Tab Widget",18))
-					setbtnimage(self,"image/tab.png") 
+					setbtnimage(self,"image/tab.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn27 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Statusbar",20))
-					setbtnimage(self,"image/statusbar.png") 
+					setbtnimage(self,"image/statusbar.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
  			this.oToolbtn28 = new qPushButton(oToolBox) {
 					setText(this.TextSize("Toolbar",20))
-					setbtnimage(self,"image/toolbar.png") 
+					setbtnimage(self,"image/toolbar.png")
 					setCheckable(True)
 					setClickEvent(Method(:ToolBtnChangeAction))
 			}
@@ -1735,7 +1735,7 @@ Class FormDesignerView from WindowsViewParent
 			setMiniMumWidth(185)
 		}
 		oToolBoxDock = new qdockwidget(NULL,0) {
-			setWindowTitle("ToolBox")			
+			setWindowTitle("ToolBox")
 			setWidget(oScroll)
 		}
 		win.Adddockwidget(1,oToolBoxDock,1)
@@ -1757,7 +1757,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(oLabelObject)
 				AddWidget(this.oObjectsCombo)
 			}
-			this.oPropertiesTable = new qTableWidget(this.oProperties) {				
+			this.oPropertiesTable = new qTableWidget(this.oProperties) {
 				setrowcount(0)
 				setcolumncount(3)
 				setselectionbehavior(QAbstractItemView_SelectRows)
@@ -1883,7 +1883,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(oBtn19)
 				insertStretch( -1, 1 )
 			}
-			setLayout(oLayout)		
+			setLayout(oLayout)
 		}
 		oPropertiesDock = new qDockWidget(NULL,0) {
 			setWindowTitle("Properties")
@@ -1907,8 +1907,8 @@ Class FormDesignerView from WindowsViewParent
 			item.setFlags(False)	# Can't Edit the Item
 			oPropertiesTable.setItem(nRow,2,item)
 		else
-			oBtn = new qPushButton(NULL) { 
-				setText("::") 
+			oBtn = new qPushButton(NULL) {
+				setText("::")
 				setfixedwidth(30)
 				setClickEvent(Method(:DialogButtonAction+"("+nRow+")"))
 			}
@@ -1990,7 +1990,7 @@ Class FormDesignerModel
 	func ActiveObject
 		return aObjectsList[nActiveObject][2]
 
-	func GetObjectByIndex nIndex 
+	func GetObjectByIndex nIndex
 		return aObjectsList[nIndex][2]
 
 	func GetObjectByID nID
@@ -1998,7 +1998,7 @@ Class FormDesignerModel
 
 	func FormObject
 		return aObjectsList[1][2]
- 
+
 	func CurrentParent
 		if ClassName(ActiveObject()) = "formdesigner_qtabwidget" {
 			if len(ActiveObject().aTabs) > 0 {
@@ -2014,25 +2014,25 @@ Class FormDesignerModel
 		cCurrentParent = "win"	# Window Object (Generated Name)
 		return FormObject()
 
-	func CurrentParentCache 
+	func CurrentParentCache
 		return oCurrentParentCache
 
 	func RemoveCurrentParentCache
 		oCurrentParentCache = NULL
 
 	func CurrentParentName
-		return cCurrentParent 
+		return cCurrentParent
 
 	func CurrentParentByName cName
 		if (cName = NULL) or (cName = "win") {
 			return FormObject()
 		}
-		# Here Control belong to a Tab Page 
+		# Here Control belong to a Tab Page
 			aList = split(cName,"Page")
-			# aList[1] = Tab Control Name 
+			# aList[1] = Tab Control Name
 			# aList[2] = Tab Index (start from 1)
 			nPos = find(aObjectsList,aList[1],1)
-			oTab = aObjectsList[nPos][2] 
+			oTab = aObjectsList[nPos][2]
 			return oTab.aTabs[0+aList[2]][1]
 		return FormObject()
 
@@ -2049,28 +2049,28 @@ Class FormDesignerModel
 	func IsFormActive
 		return nActiveObject = 1
 
-	func DeleteActiveObject	
+	func DeleteActiveObject
 		del(aObjectsList,nActiveObject)
 		nActiveObject = 1
 
 	func ClearSelectedObjects
 		aManySelectedObjects = []
 
-	func AddSelectedObject nIndex 
+	func AddSelectedObject nIndex
 		aManySelectedObjects + aObjectsList[nIndex]
 
 	func GetSelectedObjects
 		return aManySelectedObjects
 
 	func RefreshSelectedObjects
-		# Refresh objects to update properties after updates to the group 
+		# Refresh objects to update properties after updates to the group
 		# We need this when we select group, update font and color for them
-		# Then Click Duplicate  (Copy and Paste) 
+		# Then Click Duplicate  (Copy and Paste)
 		if len(aManySelectedObjects) < 1 { return }
 		for oObject in aManySelectedObjects {
 			nPos = find(aObjectsList,oObject[3],3)
 			oObject = aObjectsList[nPos]
-		}	
+		}
 
 	func IsManySelected
 		return len(aManySelectedObjects) 	# 0=False  & other values = True
@@ -2089,7 +2089,7 @@ Class FormDesignerModel
 		return False
 
 	func RemoveSelectedObject nObjectID
-		nPos = find(aManySelectedObjects,nObjectID,3) 
+		nPos = find(aManySelectedObjects,nObjectID,3)
 		if nPos {
 			del(aManySelectedObjects,nPos)
 		}
@@ -2312,7 +2312,7 @@ Class FormDesignerModel
 		while  len(aObjectsList) > 1 {
 			del(aObjectsList,2)
 		}
-		
+
 	func GetObjectName oObject
 		for Item in aObjectsList {
 			if PtrCmp( Item[2].pObject , oObject.pObject ) {
@@ -2322,13 +2322,13 @@ Class FormDesignerModel
 		raise("Can't find the object!")
 
 	func SetObjectName oDesigner,oObject,cValue
-		# Check duplication 
+		# Check duplication
 		for Item in aObjectsList {
 			if lower(trim(Item[1])) = lower(trim(cValue)) {
 				if not PtrCmp( Item[2].pObject , oObject.pObject ) {
 					oDesigner.ShowMsg("Sorry","Name Duplication!","Write another Name!")
 				}
-				return 
+				return
 			}
 		}
 		for Item in aObjectsList {
@@ -2342,12 +2342,12 @@ Class FormDesignerModel
 		for Item in aObjectsList {
 			if lower(trim(Item[1])) = lower(trim(cName))  {
 				cOutput = lower(classname(Item[2]))
-				exit 
+				exit
 			}
 		}
 		return cOutput
 
-	func GetObjectsNames 
+	func GetObjectsNames
 		aList = []
 		for Item in aObjectsList {
 			aList + Item[1]
@@ -2355,7 +2355,7 @@ Class FormDesignerModel
 		return aList
 
 	func ActiveObjectItemAsList
-		return [ aObjectsList[nActiveObject] ] 
+		return [ aObjectsList[nActiveObject] ]
 
 	func RaiseActiveObject
 		swap(aObjectsList,nActiveObject,len(aObjectsList))
@@ -2364,7 +2364,7 @@ Class FormDesignerModel
 		cParentValue = ActiveObject().CurrentParentName()
 		for x = 2 to len(aObjectsList) {
 				if aObjectsList[x][2].CurrentParentName() = cParentValue {
-					exit 
+					exit
 				}
 		}
 		if not x = nActiveObject {
@@ -2374,29 +2374,29 @@ Class FormDesignerModel
 Class FormDesignerGeneral
 
 	func oCursorA
-		oCursor =  new qCursor() 
-		oCursor.setShape(Qt_ArrowCursor) 
-		return oCursor 
-
-	func oCursorF 	
-		oCursor =  new qCursor() 
-		oCursor.setShape(Qt_SizeFDiagCursor) 
-		return oCursor 
-
-	func oCursorB 
-		oCursor =  new qCursor() 
-		oCursor.setShape(Qt_SizeBDiagCursor) 
-		return oCursor 
-
-	func oCursorH 
 		oCursor =  new qCursor()
-		oCursor.setShape(Qt_SizeHorCursor) 
-		return oCursor 
+		oCursor.setShape(Qt_ArrowCursor)
+		return oCursor
 
-	func oCursorV 
-		oCursor =  new qCursor()  
-		oCursor.setShape(Qt_SizeVerCursor) 
-		return oCursor 
+	func oCursorF
+		oCursor =  new qCursor()
+		oCursor.setShape(Qt_SizeFDiagCursor)
+		return oCursor
+
+	func oCursorB
+		oCursor =  new qCursor()
+		oCursor.setShape(Qt_SizeBDiagCursor)
+		return oCursor
+
+	func oCursorH
+		oCursor =  new qCursor()
+		oCursor.setShape(Qt_SizeHorCursor)
+		return oCursor
+
+	func oCursorV
+		oCursor =  new qCursor()
+		oCursor.setShape(Qt_SizeVerCursor)
+		return oCursor
 
 	func SelectColor
 		oColor = new qColorDialog()
@@ -2404,7 +2404,7 @@ Class FormDesignerGeneral
 		r=hex(acolor[1]) g=hex(acolor[2]) b=hex(acolor[3])
 		if len(r) < 2 { r = "0" + r }
 		if len(g) < 2 { g = "0" + g }
-		if len(b) < 2 { b = "0" + b }			
+		if len(b) < 2 { b = "0" + b }
 		cColor = "#" + r + g + b
 		return cColor
 
@@ -2424,7 +2424,7 @@ Class FormDesignerGeneral
 		}
 		return cInputFileName
 
-class FormDesigner_QWidget from QWidget 
+class FormDesigner_QWidget from QWidget
 
 	cBackColor = ""
 	oSubWindow
@@ -2437,39 +2437,39 @@ class FormDesigner_QWidget from QWidget
 	func BackColor
 		return cBackColor
 
-	func setBackColor cValue 
-		cBackColor=cValue	
+	func setBackColor cValue
+		cBackColor=cValue
 		updatestylesheets()
 
 	func updatestylesheets
 		setstylesheet("background-color:"+cBackColor+";")
 
-	func setSubWindow oObject 
+	func setSubWindow oObject
 		oSubWindow = oObject
 
 	func WindowFlagsValue
 		return cWindowFlags
 
-	func SetWindowFlagsValue cValue 
+	func SetWindowFlagsValue cValue
 		cWindowFlags = cValue
 
-	func MainLayoutValue 
+	func MainLayoutValue
 		return cMainLayout
 
-	func SetMainLayoutValue cValue 
-		cMainLayout = cValue 
+	func SetMainLayoutValue cValue
+		cMainLayout = cValue
 
 	func WindowIconValue
 		return cWindowIcon
 
-	func SetWindowIconValue cValue 
-		cWindowIcon = cValue 
+	func SetWindowIconValue cValue
+		cWindowIcon = cValue
 
 	func MenubarValue
 		return cMenubar
 
-	func SetMenubarValue cValue 
-		cMenubar = cValue 
+	func SetMenubarValue cValue
+		cMenubar = cValue
 
 	func AddObjectProperties  oDesigner
 		oDesigner.oView.AddProperty("X",False)
@@ -2494,7 +2494,7 @@ class FormDesigner_QWidget from QWidget
 					oSubWindow.resize(0+cValue,oSubWindow.height())
 				case 3 	# height
 					oSubWindow.resize(oSubWindow.width(),0+cValue)
-				case 4  	# Title 			
+				case 4  	# Title
 					setWindowTitle(cValue)
 				case 5	# back color
 					setBackColor(cValue)
@@ -2529,32 +2529,33 @@ class FormDesigner_QWidget from QWidget
 			oPropertiesTable.item(6,1).settext(WindowFlagsValue())
 		# Set the Main Layout
 			oPropertiesTable.item(7,1).settext(MainLayoutValue())
-		# Set the Window Icon 
+		# Set the Window Icon
 			oPropertiesTable.item(8,1).settext(WindowIconValue())
 		# Set the Menubar
 			oPropertiesTable.item(9,1).settext(MenubarValue())
 		oPropertiesTable.Blocksignals(False)
 
-	func DialogButtonAction oDesigner,nRow 
+	func DialogButtonAction oDesigner,nRow
 		switch nRow {
 			case 5 	# Back Color
 				cColor = oDesigner.oGeneral.SelectColor()
 				setBackColor(cColor)
 				DisplayProperties(oDesigner)
-			case 6	# Window Flags 				
+			case 6	# Window Flags
 				open_window(:WindowFlagsController)
 				Last_Window().setParentObject(oDesigner)
-			case 8	# Window Icon 
+			case 8	# Window Icon
 				cFile = oDesigner.oGeneral.SelectFile(oDesigner)
 				setWindowIconValue(cFile)
 				DisplayProperties(oDesigner)
-			case 9	# Menubar			
+			case 9	# Menubar
 				open_window(:MenubarDesignerController)
 				Last_Window().setParentObject(oDesigner)
+				Last_Window().setMenubar(MenubarValue())
 		}
 
 	func MousePressAction oDesigner
-		# 8, 6 to start drawing from the center of the Mouse Cursor 
+		# 8, 6 to start drawing from the center of the Mouse Cursor
 			nX = oDesigner.oView.oFilter.getglobalx() - 8
 			ny = oDesigner.oView.oFilter.getglobaly() - 6
 		oDesigner.oView.oLabelSelect.raise()
@@ -2566,25 +2567,25 @@ class FormDesigner_QWidget from QWidget
 		aRect = GetRectDim(oDesigner)
 		oDesigner.SelectDrawAction(aRect)
 
-	func MouseMoveAction oDesigner 
+	func MouseMoveAction oDesigner
 		aRect = GetRectDim(oDesigner)
 		oDesigner.oView.oLabelSelect {
-			move(aRect[1],aRect[2]) 
+			move(aRect[1],aRect[2])
 			resize(aRect[3],aRect[4])
 		}
 
 	func GetRectDim oDesigner
-		C_TOPMARGIN = 25 
+		C_TOPMARGIN = 25
 		nX2 = oDesigner.oView.oFilter.getglobalx()
 		ny2 = oDesigner.oView.oFilter.getglobaly()
 		top = min(nY2,nY) - oDesigner.oView.oArea.y() - oSubWindow.y() - y() - C_TOPMARGIN - oDesigner.oView.win.y()
 		left = min(nX2,nX) - oDesigner.oView.oArea.x()  - oSubWindow.x() - x() - oDesigner.oView.win.x()
-		width = max(nX,nX2) - min(nX,nX2)  
-		height = max(nY,nY2) - min(nY,nY2)  
+		width = max(nX,nX2) - min(nX,nX2)
+		height = max(nY,nY2) - min(nY,nY2)
 		return [left,top,width,height]
 
 	func ObjectDataAsString oDesigner,nTabsCount
-		cTabs = copy(char(9),nTabsCount) 
+		cTabs = copy(char(9),nTabsCount)
 		cOutput = cTabs + " :x = #{f1} , : y = #{f2}  , " + nl
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
 		cOutput += cTabs + ' :title =  "#{f5}" , ' + nl
@@ -2601,10 +2602,10 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f7}",WindowFlagsValue())
 		cOutput = substr(cOutput,"#{f8}",MainLayoutValue())
 		cOutput = substr(cOutput,"#{f9}",WindowIconValue())
-		return cOutput 
+		return cOutput
 
 	func GenerateCode oDesigner
-		cOutput = char(9) + char(9) + 
+		cOutput = char(9) + char(9) +
 		'move(#{f1},#{f2})
 		resize(#{f3},#{f4})
 		setWindowTitle("#{f5}")
@@ -2634,12 +2635,12 @@ class FormDesigner_QWidget from QWidget
 		setLayout(#{f1}) ' + nl
 			cOutput = substr(cOutput,"#{f1}",MainLayoutValue())
 		}
-		return cOutput 
+		return cOutput
 
-Class MoveResizeCorners 
+Class MoveResizeCorners
 
 	func CreateMoveResizeCornersAttributes
-		# Movement Event 
+		# Movement Event
 			AddAttribute(self,:nX)
 			AddAttribute(self,:nY)
 			AddAttribute(self,:lPress)
@@ -2659,7 +2660,7 @@ Class MoveResizeCorners
 	func CreateCorners
 		oCorners = new ObjectCorners(self)
 
-	func RefreshCorners oParent 
+	func RefreshCorners oParent
 		oCorners.refresh(oParent)
 
 	func MousePress oDesigner
@@ -2683,12 +2684,12 @@ Class MoveResizeCorners
 
 	func MouseMove oDesigner
 		if not resizeEvent(oDesigner) { return }
-		MoveEvent(oDesigner) 
-		
+		MoveEvent(oDesigner)
+
 	func ResizeEvent oDesigner
 		# Resize Event
-			nXPos =  oFilter.getx()	
-			nYPos = ofilter.gety() 
+			nXPos =  oFilter.getx()
+			nYPos = ofilter.gety()
 			if (nResizeMode = 0 or lPress = False) and lMoveEvent=False  {
 				if nXPos < 5 {
 					if nYPos < 5 {	# Top + Left
@@ -2697,36 +2698,36 @@ Class MoveResizeCorners
 					elseif nYPos > Height() - 5	# Left + Bottom
 						setCursor(oDesigner.oGeneral.oCursorB() )
 						nResizeMode = 2
-					else 			# Left 
+					else 			# Left
 						setCursor(oDesigner.oGeneral.oCursorH() )
 						nResizeMode = 3
 					}
 					lResize = True
-				elseif nYPos < 5 		
+				elseif nYPos < 5
 					if nXPos > Width() - 5 {	# Top+Width
 						setCursor(oDesigner.oGeneral.oCursorB() )
 						nResizeMode = 4
-					else					# Top 
+					else					# Top
 						setCursor(oDesigner.oGeneral.oCursorV() )
 						nResizeMode = 5
 					}
-					if lPress { 	lResize = True } 
-				elseif nYPos > Height() - 5		 
+					if lPress { 	lResize = True }
+				elseif nYPos > Height() - 5
 					if nXPos > Width() - 5 {	# Bottom+Width
 						setCursor(oDesigner.oGeneral.oCursorF() )
 						nResizeMode = 6
-					else					# Bottom 
+					else					# Bottom
 						setCursor(oDesigner.oGeneral.oCursorV())
 						nResizeMode = 7
 					}
-					if lPress { 	lResize = True } 
+					if lPress { 	lResize = True }
 				elseif nXPos > Width() - 5		# Left+Width
 					setCursor(oDesigner.oGeneral.oCursorH() )
 					nResizeMode = 8
-					if lPress { 	lResize = True } 
+					if lPress { 	lResize = True }
 				else
  					lResizeMode = 0
-					lResize = False				
+					lResize = False
 					setCursor(oDesigner.oGeneral.oCursorA())
 				}
 			}
@@ -2736,13 +2737,13 @@ Class MoveResizeCorners
 					case 1	# Top+Left
 						move(x()+nXPos,y()+nYPos)
 						resize(width() + (-1) * nXPos , height() + (-1) * nYPos)
-					case 2	# Left + Bottom 
+					case 2	# Left + Bottom
 						move(x()+ nXPos,y())
 						resize(width() + (-1) *  nXPos , nYPos)
 					case 3	# Left
 						move(x()+nXPos,y())
 						resize(width() + (-1) * nXPos , height() )
-					case 4	# Top+Width 
+					case 4	# Top+Width
 						move(x(), y() + nYPos)
 						resize(   nXPos , height() + (-1) *  nYPos )
 					case 5	# Top
@@ -2761,12 +2762,12 @@ Class MoveResizeCorners
 				oCorners.refresh(oDesigner.oModel.ActiveObject())
 				return false
 			}
-			return True 
+			return True
 
 	func MoveEvent oDesigner
 		# Move Event
 		if lPress {
-			lMoveEvent=True	
+			lMoveEvent=True
 			nX2 = oFilter.getglobalx()
 			ny2 = oFilter.getglobaly()
 			ndiffx = nX2 - nX
@@ -2782,14 +2783,14 @@ Class MoveResizeCorners
 
 	func MouseMoveMany oDesigner
 		if lPress {
-			lMoveEvent=True	
+			lMoveEvent=True
 			nX2 = oFilter.getglobalx()
 			ny2 = oFilter.getglobaly()
 			ndiffx = nX2 - nX
 			ndiffy = nY2 - nY
 			nX = nX2
 			ny = nY2
-			# Move the objects together 
+			# Move the objects together
 			aObjects = oDesigner.oModel.getselectedObjects()
 			for item in aObjects {
 				oObject = item[2]
@@ -2815,7 +2816,7 @@ class ObjectCorners
 			setEnabled(False)
 			setMouseTracking(False)
 			show()
-		}		
+		}
 
 		oCorner2 = new qPushButton(oParent.ParentWidget()) {
 			move(oParent.x()-5,oParent.y()+oParent.height())
@@ -2824,7 +2825,7 @@ class ObjectCorners
 			setEnabled(False)
 			setMouseTracking(False)
 			show()
-		}		
+		}
 
 		oCorner3 = new qPushButton(oParent.ParentWidget()) {
 			move(oParent.x()+oParent.Width(),oParent.y()-5)
@@ -2833,7 +2834,7 @@ class ObjectCorners
 			setEnabled(False)
 			setMouseTracking(False)
 			show()
-		}		
+		}
 
 		oCorner4 = new qPushButton(oParent.ParentWidget()) {
 			move(oParent.x()+oParent.width(),oParent.y()+oParent.height())
@@ -2842,29 +2843,29 @@ class ObjectCorners
 			setEnabled(False)
 			setMouseTracking(False)
 			show()
-		}		
+		}
 
-	func refresh  oParent 
+	func refresh  oParent
 
 		oCorner1  {
 			move(oParent.x()-5,oParent.y()-5)
 			resize(5,5)
-		}		
+		}
 
 		oCorner2  {
 			move(oParent.x()-5,oParent.y()+oParent.height())
 			resize(5,5)
-		}		
+		}
 
 		oCorner3  {
 			move(oParent.x()+oParent.Width(),oParent.y()-5)
 			resize(5,5)
-		}		
+		}
 
 		oCorner4 {
 			move(oParent.x()+oParent.width(),oParent.y()+oParent.height())
 			resize(5,5)
-		}		
+		}
 
 	func show
 
@@ -2873,8 +2874,8 @@ class ObjectCorners
 		oCorner3.show()
 		oCorner4.show()
 
-	func hide 
-	
+	func hide
+
 		oCorner1.hide()
 		oCorner2.hide()
 		oCorner3.hide()
@@ -2882,8 +2883,8 @@ class ObjectCorners
 
 class CommonAttributesMethods
 
-	
-	func CreateCommonAttributes	
+
+	func CreateCommonAttributes
 		AddAttribute(self,:cTextColor)
 		AddAttribute(self,:cBackColor)
 		AddAttribute(self,:cFontProperty)
@@ -2896,22 +2897,22 @@ class CommonAttributesMethods
 	func TextColor
 		return cTextColor
 
-	func setTextColor cValue 
-		cTextColor=cValue	
+	func setTextColor cValue
+		cTextColor=cValue
 		updatestylesheets()
 
 	func BackColor
 		return cBackColor
 
-	func setBackColor cValue 
-		cBackColor=cValue	
+	func setBackColor cValue
+		cBackColor=cValue
 		updatestylesheets()
 
 	func FontProperty
 		return cFontProperty
 
-	func setFontProperty cValue 
-		cFontProperty = cValue 
+	func setFontProperty cValue
+		cFontProperty = cValue
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring(cValue)
 		setfont(oFont)
@@ -2972,7 +2973,7 @@ class CommonAttributesMethods
 	func DisplayCommonProperties oDesigner
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
-		# Set the Name 
+		# Set the Name
 			oPropertiesTable.item(0,1).settext(
 				oDesigner.oModel.GetObjectName(self))
 		# Set the X
@@ -2992,10 +2993,10 @@ class CommonAttributesMethods
 
 		oPropertiesTable.Blocksignals(False)
 
-	func DialogButtonAction oDesigner,nRow 
+	func DialogButtonAction oDesigner,nRow
 		CommonDialogButtonAction(oDesigner,nRow)
 
-	func CommonDialogButtonAction oDesigner,nRow 
+	func CommonDialogButtonAction oDesigner,nRow
 		if nRow = 5 {	# Text Color
 			cColor = oDesigner.oGeneral.SelectColor()
 			setTextColor(cColor)
@@ -3007,20 +3008,20 @@ class CommonAttributesMethods
 		elseif nRow = 7	# Font
 			cFont = oDesigner.oGeneral.SelectFont()
 			setFontProperty(cFont)
-			DisplayProperties(oDesigner) 
+			DisplayProperties(oDesigner)
 		}
 
 	func  ObjectDataAsString oDesigner,nTabsCount
 		return ObjectDataAsString2(oDesigner,nTabsCount)
 
 	func ObjectDataAsString2 oDesigner,nTabsCount
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput = cTabs + " :x = #{f1} , : y = #{f2}  , " + nl
 		cOutput += cTabs + " :width =  #{f3} , :height = #{f4} , " + nl
 		cOutput += cTabs + ' :textcolor =  "#{f5}" , ' + nl
 		cOutput += cTabs + ' :backcolor =  "#{f6}" , ' + nl
 		cOutput += cTabs + ' :font =  "#{f7}" , ' + nl
-		cOutput += cTabs + ' :parent =  "#{f8}"  ' 
+		cOutput += cTabs + ' :parent =  "#{f8}"  '
 		cOutput = substr(cOutput,"#{f1}",""+x())
 		cOutput = substr(cOutput,"#{f2}",""+y())
 		cOutput = substr(cOutput,"#{f3}",""+width())
@@ -3029,10 +3030,10 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",fontproperty())
 		cOutput = substr(cOutput,"#{f8}",CurrentParentName())
-		return cOutput 
+		return cOutput
 
 	func GenerateCode oDesigner
-		cOutput = char(9) + char(9) + 
+		cOutput = char(9) + char(9) +
 		oDesigner.oModel.GetObjectName(self) + " = " +
 		'new #{f1}(#{f10}) {
 			move(#{f2},#{f3})
@@ -3068,26 +3069,26 @@ class CommonAttributesMethods
 	func GenerateCustomCode oDesigner
 		return ""
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 
-	func RestoreCommonProperties oDesigner,item 
+	func RestoreCommonProperties oDesigner,item
 		itemdata = item[:data]
 		blocksignals(true)
 		setMouseTracking(True)
 		setFocusPolicy(0)
 		oDesigner.oModel.SetObjectName(oDesigner,self,item[:name])
-		move(itemdata[:x],itemdata[:y]) 
+		move(itemdata[:x],itemdata[:y])
 		resize(itemdata[:width],itemdata[:height])
 		setTextColor(itemdata[:textcolor])
 		setBackColor(itemdata[:backcolor])
 		setFontProperty(itemdata[:font])
 		setCurrentParentName(itemdata[:parent])
-		refreshCorners(oDesigner.oModel.ActiveObject())			
+		refreshCorners(oDesigner.oModel.ActiveObject())
 		blocksignals(false)
 
-	func PrepareEvent cCode,cEvent,cReplace 
-		# Remove " " around event if we uses Code		
+	func PrepareEvent cCode,cEvent,cReplace
+		# Remove " " around event if we uses Code
 		cEvent = std_lower(cEvent)
 		if substr(cEvent,"(") > 0 {
 			cCode = substr(cCode,char(34)+cReplace+char(34),cReplace)
@@ -3114,7 +3115,7 @@ class FormDesigner_QLabel from QLabel
 			case 0
 				setalignment(Qt_AlignLeft |  Qt_AlignVCenter )
 			case 1
-				setalignment(Qt_AlignHCenter |  Qt_AlignVCenter )			
+				setalignment(Qt_AlignHCenter |  Qt_AlignVCenter )
 			case 2
 				setalignment(Qt_AlignRight |  Qt_AlignVCenter )
 		}
@@ -3130,10 +3131,10 @@ class FormDesigner_QLabel from QLabel
 		oPropertiesTable.Blocksignals(True)
 		# Set the Text
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
-		# Text Align 
+		# Text Align
 			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON+1,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(nTextAlign)
 			oCombo.BlockSignals(False)
@@ -3141,25 +3142,25 @@ class FormDesigner_QLabel from QLabel
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
-		if nRow = C_AFTERCOMMON { 
+		if nRow = C_AFTERCOMMON {
 			setText(cValue)
 		}
 
 	func ComboItemAction oDesigner,nRow
 		nTextAlignPos = C_AFTERCOMMON+1
-		if nRow = nTextAlignPos  {		# Text Align 
+		if nRow = nTextAlignPos  {		# Text Align
 			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nTextAlignPos,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			nIndex = oCombo.CurrentIndex()
 			setTextAlign(nIndex)
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
-		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign() 
+		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign()
 		return cOutput
 
 	func GenerateCustomCode oDesigner
@@ -3169,19 +3170,19 @@ class FormDesigner_QLabel from QLabel
 			case 0
 				cOutput = substr(cOutput,"#{f2}","Qt_AlignLeft |  Qt_AlignVCenter")
 			case 1
-				cOutput = substr(cOutput,"#{f2}","Qt_AlignHCenter |  Qt_AlignVCenter" )			
+				cOutput = substr(cOutput,"#{f2}","Qt_AlignHCenter |  Qt_AlignVCenter" )
 			case 2
 				cOutput = substr(cOutput,"#{f2}","Qt_AlignRight |  Qt_AlignVCenter" )
 		}
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setText(itemdata[:text])
 		setTextAlign(0+itemdata[:textalign])
 
-class FormDesigner_QPushButton from QPushButton 
+class FormDesigner_QPushButton from QPushButton
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -3216,7 +3217,7 @@ class FormDesigner_QPushButton from QPushButton
 		# Set the Button Image
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(BtnImageValue())
 			setBtnImage(self,BtnImageValue())
-		# Set the Click Event 
+		# Set the Click Event
 			oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(clickeventcode())
 		oPropertiesTable.Blocksignals(False)
 
@@ -3224,17 +3225,17 @@ class FormDesigner_QPushButton from QPushButton
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON 
+				case C_AFTERCOMMON
 					setText(cValue)
 				case C_AFTERCOMMON+1
 					setBtnImageValue(cValue)
 					setBtnImage(self,cValue)
-				case C_AFTERCOMMON+2  	# Click Event 
+				case C_AFTERCOMMON+2  	# Click Event
 					setClickEventCode(cValue)
 			}
 		}
 
-	func DialogButtonAction oDesigner,nRow 
+	func DialogButtonAction oDesigner,nRow
 		CommonDialogButtonAction(oDesigner,nRow)
 		switch nRow {
 			case C_AFTERCOMMON+1	# Button Image
@@ -3245,14 +3246,14 @@ class FormDesigner_QPushButton from QPushButton
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :BtnImage =  "' + BtnImageValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setClickEvent =  "' + ClickEventCode() + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
-		cOutput = 'setText("#{f1}")' + nl 
+		cOutput = 'setText("#{f1}")' + nl
 		cOutput += 'setClickEvent("#{f2}")' + nl
 		cOutput += 'setBtnImage(#{f3},"#{f4}")' + nl
 		cOutput = substr(cOutput,"#{f1}",text())
@@ -3262,7 +3263,7 @@ class FormDesigner_QPushButton from QPushButton
 		cOutput = substr(cOutput,"#{f4}",BtnImageValue())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setText(itemdata[:text])
@@ -3283,48 +3284,48 @@ class FormDesigner_QLineEdit from QLineEdit
 	cselectionChangedEvent = ""
 	ctextEditedEvent = ""
 
-	func TextValue 
+	func TextValue
 		return cText
 
-	func SetTextValue value 
-		cText = value 
+	func SetTextValue value
+		cText = value
 
 	func SetTextChangedEventCode cValue
 		cTextChangedEvent = cValue
 
 	func TextChangedEventCode
 		return cTextChangedEvent
-			
+
 	func SetcursorPositionChangedEventCode cValue
 		ccursorPositionChangedEvent = cValue
 
 	func cursorPositionChangedEventCode
 		return ccursorPositionChangedEvent
-			
+
 	func SeteditingFinishedEventCode cValue
 		ceditingFinishedEvent = cValue
 
 	func editingFinishedEventCode
 		return ceditingFinishedEvent
-			
+
 	func SetreturnPressedEventCode cValue
 		creturnPressedEvent = cValue
 
 	func returnPressedEventCode
 		return creturnPressedEvent
-			
+
 	func SetselectionChangedEventCode cValue
 		cselectionChangedEvent = cValue
 
 	func selectionChangedEventCode
 		return cselectionChangedEvent
-			
+
 	func SettextEditedEventCode cValue
 		ctextEditedEvent = cValue
 
 	func textEditedEventCode
 		return ctextEditedEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Text",False)
@@ -3338,7 +3339,7 @@ class FormDesigner_QLineEdit from QLineEdit
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		# Set the Text
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(TextValue())
 		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(TextChangedEventcode())
@@ -3348,14 +3349,14 @@ class FormDesigner_QLineEdit from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(selectionChangedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(textEditedEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON  
+				case C_AFTERCOMMON
 					setTextValue(cValue)
 				case C_AFTERCOMMON+1
 					setTextChangedEventCode(cValue)
@@ -3371,12 +3372,12 @@ class FormDesigner_QLineEdit from QLineEdit
 					settextEditedEventCode(cValue)
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :text =  "' + TextValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setTextChangedEvent =  "' + TextChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcursorPositionChangedEvent =  "' + cursorPositionChangedEventCode() + '"'
@@ -3388,7 +3389,7 @@ class FormDesigner_QLineEdit from QLineEdit
 
 	func GenerateCustomCode oDesigner
 		cOutput = ""
-		cOutput += 'setText("#{f1}")' + nl  
+		cOutput += 'setText("#{f1}")' + nl
 		cOutput = substr(cOutput,"#{f1}",textValue())
 		cOutput += 'setTextChangedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,TextChangedEventCode(),"#{f1}")
@@ -3410,7 +3411,7 @@ class FormDesigner_QLineEdit from QLineEdit
 		cOutput = substr(cOutput,"#{f1}",textEditedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setTextValue(itemdata[:text])
@@ -3422,7 +3423,7 @@ class FormDesigner_QLineEdit from QLineEdit
 		SettextEditedEventCode(itemdata[:settextEditedEvent])
 
 # We use QLineEdit as parent - We need just the looking (not functionality)
-class FormDesigner_QTextEdit from QLineEdit 
+class FormDesigner_QTextEdit from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -3437,54 +3438,54 @@ class FormDesigner_QTextEdit from QLineEdit
 	ctextChangedEvent = ""
 	cundoAvailableEvent = ""
 
-	func TextValue 
+	func TextValue
 		return cText
 
-	func SetTextValue value 
-		cText = value 
+	func SetTextValue value
+		cText = value
 
 	func SetcopyAvailableEventCode cValue
 		ccopyAvailableEvent = cValue
 
 	func copyAvailableEventCode
 		return ccopyAvailableEvent
-			
+
 	func SetcurrentCharFormatChangedEventCode cValue
 		ccurrentCharFormatChangedEvent = cValue
 
 	func currentCharFormatChangedEventCode
 		return ccurrentCharFormatChangedEvent
-			
+
 	func SetcursorPositionChangedEventCode cValue
 		ccursorPositionChangedEvent = cValue
 
 	func cursorPositionChangedEventCode
 		return ccursorPositionChangedEvent
-			
+
 	func SetredoAvailableEventCode cValue
 		credoAvailableEvent = cValue
 
 	func redoAvailableEventCode
 		return credoAvailableEvent
-			
+
 	func SetselectionChangedEventCode cValue
 		cselectionChangedEvent = cValue
 
 	func selectionChangedEventCode
 		return cselectionChangedEvent
-			
+
 	func SettextChangedEventCode cValue
 		ctextChangedEvent = cValue
 
 	func textChangedEventCode
 		return ctextChangedEvent
-			
+
 	func SetundoAvailableEventCode cValue
 		cundoAvailableEvent = cValue
 
 	func undoAvailableEventCode
 		return cundoAvailableEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Text",False)
@@ -3499,7 +3500,7 @@ class FormDesigner_QTextEdit from QLineEdit
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		# Set the Text
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(TextValue())
 		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(copyAvailableEventcode())
@@ -3510,14 +3511,14 @@ class FormDesigner_QTextEdit from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(textChangedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(undoAvailableEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON 
+				case C_AFTERCOMMON
 					setTextValue(cValue)
 				case C_AFTERCOMMON+1
 					setcopyAvailableEventCode(cValue)
@@ -3535,12 +3536,12 @@ class FormDesigner_QTextEdit from QLineEdit
 					setundoAvailableEventCode(cValue)
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :text =  "' + TextValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setcopyAvailableEvent =  "' + copyAvailableEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcurrentCharFormatChangedEvent =  "' + currentCharFormatChangedEventCode() + '"'
@@ -3553,7 +3554,7 @@ class FormDesigner_QTextEdit from QLineEdit
 
 	func GenerateCustomCode oDesigner
 		cOutput = ""
-		cOutput += 'setText("#{f1}")' + nl  
+		cOutput += 'setText("#{f1}")' + nl
 		cOutput = substr(cOutput,"#{f1}",textValue())
 		cOutput += 'setcopyAvailableEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,copyAvailableEventCode(),"#{f1}")
@@ -3578,7 +3579,7 @@ class FormDesigner_QTextEdit from QLineEdit
 		cOutput = substr(cOutput,"#{f1}",undoAvailableEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setTextValue(itemdata[:text])
@@ -3618,7 +3619,7 @@ class FormDesigner_QListWidget from QLineEdit
 
 	func setcCurrentRow cValue
 		cCurrentRow = cValue
-	
+
 	func cCurrentRowValue
 		return cCurrentRow
 
@@ -3627,61 +3628,61 @@ class FormDesigner_QListWidget from QLineEdit
 
 	func currentItemChangedEventCode
 		return ccurrentItemChangedEvent
-			
+
 	func SetcurrentRowChangedEventCode cValue
 		ccurrentRowChangedEvent = cValue
 
 	func currentRowChangedEventCode
 		return ccurrentRowChangedEvent
-			
+
 	func SetcurrentTextChangedEventCode cValue
 		ccurrentTextChangedEvent = cValue
 
 	func currentTextChangedEventCode
 		return ccurrentTextChangedEvent
-			
+
 	func SetitemActivatedEventCode cValue
 		citemActivatedEvent = cValue
 
 	func itemActivatedEventCode
 		return citemActivatedEvent
-			
+
 	func SetitemChangedEventCode cValue
 		citemChangedEvent = cValue
 
 	func itemChangedEventCode
 		return citemChangedEvent
-			
+
 	func SetitemClickedEventCode cValue
 		citemClickedEvent = cValue
 
 	func itemClickedEventCode
 		return citemClickedEvent
-			
+
 	func SetitemDoubleClickedEventCode cValue
 		citemDoubleClickedEvent = cValue
 
 	func itemDoubleClickedEventCode
 		return citemDoubleClickedEvent
-			
+
 	func SetitemEnteredEventCode cValue
 		citemEnteredEvent = cValue
 
 	func itemEnteredEventCode
 		return citemEnteredEvent
-			
+
 	func SetitemPressedEventCode cValue
 		citemPressedEvent = cValue
 
 	func itemPressedEventCode
 		return citemPressedEvent
-			
+
 	func SetitemSelectionChangedEventCode cValue
 		citemSelectionChangedEvent = cValue
 
 	func itemSelectionChangedEventCode
 		return citemSelectionChangedEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Items (S: Comma)",False)
@@ -3700,7 +3701,7 @@ class FormDesigner_QListWidget from QLineEdit
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		oPropertiesTable.item(C_AFTERCOMMON,1).settext(cItemsValue())
  		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(cCurrentRowValue())
 		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(currentItemChangedEventcode())
@@ -3714,7 +3715,7 @@ class FormDesigner_QListWidget from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+10,1).settext(itemPressedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+11,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
@@ -3747,12 +3748,12 @@ class FormDesigner_QListWidget from QLineEdit
 					setitemSelectionChangedEventCode(cValue)
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :cItems =  "' + cItemsValue() + '"'
 		cOutput += "," + nl + cTabs + ' :cCurrentRow =  "' + cCurrentRowValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setcurrentItemChangedEvent =  "' + currentItemChangedEventCode() + '"'
@@ -3812,7 +3813,7 @@ class FormDesigner_QListWidget from QLineEdit
 		cOutput = substr(cOutput,"#{f1}",itemSelectionChangedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		SetcItems(itemdata[:cItems])
@@ -3844,31 +3845,31 @@ class FormDesigner_QCheckBox from QCheckBox
 
 	func stateChangedEventCode
 		return cstateChangedEvent
-			
+
 	func SetclickedEventCode cValue
 		cclickedEvent = cValue
 
 	func clickedEventCode
 		return cclickedEvent
-			
+
 	func SetpressedEventCode cValue
 		cpressedEvent = cValue
 
 	func pressedEventCode
 		return cpressedEvent
-			
+
 	func SetreleasedEventCode cValue
 		creleasedEvent = cValue
 
 	func releasedEventCode
 		return creleasedEvent
-			
+
 	func SettoggledEventCode cValue
 		ctoggledEvent = cValue
 
 	func toggledEventCode
 		return ctoggledEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Text",False)
@@ -3881,7 +3882,7 @@ class FormDesigner_QCheckBox from QCheckBox
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		# Set the Text
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
 		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(stateChangedEventcode())
@@ -3895,7 +3896,7 @@ class FormDesigner_QCheckBox from QCheckBox
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON 
+				case C_AFTERCOMMON
 					setText(cValue)
 				case C_AFTERCOMMON+1
 					setstateChangedEventCode(cValue)
@@ -3912,7 +3913,7 @@ class FormDesigner_QCheckBox from QCheckBox
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :setstateChangedEvent =  "' + stateChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setclickedEvent =  "' + clickedEventCode() + '"'
@@ -3922,7 +3923,7 @@ class FormDesigner_QCheckBox from QCheckBox
 		return cOutput
 
 	func GenerateCustomCode oDesigner
-		cOutput = 'setText("#{f1}")' + nl 
+		cOutput = 'setText("#{f1}")' + nl
 		cOutput = substr(cOutput,"#{f1}",text())
 		cOutput += 'setstateChangedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,stateChangedEventCode(),"#{f1}")
@@ -3941,7 +3942,7 @@ class FormDesigner_QCheckBox from QCheckBox
 		cOutput = substr(cOutput,"#{f1}",toggledEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setText(itemdata[:text])
@@ -3961,7 +3962,7 @@ class FormDesigner_QImage from QLabel
 	func SetImageFile cValue
 		cImageFile = cValue
 
-	func ImageFile 
+	func ImageFile
 		return cImageFile
 
 	func AddObjectProperties  oDesigner
@@ -3971,34 +3972,34 @@ class FormDesigner_QImage from QLabel
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		# Set the Image File
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(ImageFile())
 			setpixmap(new qpixmap(ImageFile()))
-		oPropertiesTable.Blocksignals(False) 
-		# Set the object name 
+		oPropertiesTable.Blocksignals(False)
+		# Set the object name
 			if cImageFile = NULL {
 				setText(oDesigner.oModel.GetObjectName(self))
 			}
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
-		if nRow = C_AFTERCOMMON { 
+		if nRow = C_AFTERCOMMON {
 			setImageFile(cValue)
 			setpixmap(new qpixmap(ImageFile()))
 		}
-		# Set the object name 
+		# Set the object name
 			if cImageFile = NULL {
 				setText(oDesigner.oModel.GetObjectName(self))
 			}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :imagefile =  "' + ImageFile() + '"'
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setImageFile(itemdata[:imagefile])
@@ -4010,7 +4011,7 @@ class FormDesigner_QImage from QLabel
 		cOutput = substr(cOutput,"#{f1}",ImageFile())
 		return cOutput
 
-	func DialogButtonAction oDesigner,nRow 
+	func DialogButtonAction oDesigner,nRow
 		CommonDialogButtonAction(oDesigner,nRow)
 		if nRow = C_AFTERCOMMON {	# Image File
 			cFile = oDesigner.oGeneral.SelectFile(oDesigner)
@@ -4048,62 +4049,62 @@ class FormDesigner_QSlider from QSlider
 		return cMinimum
 
 	func SetMinimumValue Value
-		cMinimum = Value 
+		cMinimum = Value
 
 	func MaximumValue
 		return cMaximum
 
 	func SetMaximumValue Value
-		cMaximum = Value 
+		cMaximum = Value
 
 	func RangeValue
 		return cRange
 
 	func SetRangeValue Value
-		cRange = Value 
+		cRange = Value
 
 	func ValueValue
 		return cValue
 
 	func SetValueValue Value
-		cValue = Value 
+		cValue = Value
 
 	func SetactionTriggeredEventCode cValue
 		cactionTriggeredEvent = cValue
 
 	func actionTriggeredEventCode
 		return cactionTriggeredEvent
-			
+
 	func SetrangeChangedEventCode cValue
 		crangeChangedEvent = cValue
 
 	func rangeChangedEventCode
 		return crangeChangedEvent
-			
+
 	func SetsliderMovedEventCode cValue
 		csliderMovedEvent = cValue
 
 	func sliderMovedEventCode
 		return csliderMovedEvent
-			
+
 	func SetsliderPressedEventCode cValue
 		csliderPressedEvent = cValue
 
 	func sliderPressedEventCode
 		return csliderPressedEvent
-			
+
 	func SetsliderReleasedEventCode cValue
 		csliderReleasedEvent = cValue
 
 	func sliderReleasedEventCode
 		return csliderReleasedEvent
-			
+
 	func SetvalueChangedEventCode cValue
 		cvalueChangedEvent = cValue
 
 	func valueChangedEventCode
 		return cvalueChangedEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddPropertyCombobox("Set Orientation",["Vertical","Horizontal"])
@@ -4121,20 +4122,20 @@ class FormDesigner_QSlider from QSlider
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		# Orientation
 			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(OrientationValue())
 			oCombo.BlockSignals(False)
-		# Minimum, Maximum, Range and Value 
+		# Minimum, Maximum, Range and Value
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(MinimumValue())
 			oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(MaximumValue())
 			oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(RangeValue())
 			oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(ValueValue())
-		# Events 
+		# Events
 			oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(actionTriggeredEventcode())
 			oPropertiesTable.item(C_AFTERCOMMON+6,1).settext(rangeChangedEventcode())
 			oPropertiesTable.item(C_AFTERCOMMON+7,1).settext(sliderMovedEventcode())
@@ -4147,8 +4148,8 @@ class FormDesigner_QSlider from QSlider
 		nOrientationPos = C_AFTERCOMMON
 		if nRow = nOrientationPos  {		# Orientation
 			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nOrientationPos,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			nIndex = oCombo.CurrentIndex()
 			setOrientationValue(nIndex)
 		}
@@ -4182,8 +4183,8 @@ class FormDesigner_QSlider from QSlider
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
-		cOutput += "," + nl + cTabs + ' :orientation =  ' + OrientationValue() 
+		cTabs = std_copy(char(9),nTabsCount)
+		cOutput += "," + nl + cTabs + ' :orientation =  ' + OrientationValue()
 		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :range =  "' + RangeValue()  + '"'
@@ -4236,7 +4237,7 @@ class FormDesigner_QSlider from QSlider
 		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setOrientationValue(0+itemdata[:orientation])
@@ -4275,32 +4276,32 @@ class FormDesigner_QProgressbar from QLineEdit
 		return cMinimum
 
 	func SetMinimumValue Value
-		cMinimum = Value 
+		cMinimum = Value
 
 	func MaximumValue
 		return cMaximum
 
 	func SetMaximumValue Value
-		cMaximum = Value 
+		cMaximum = Value
 
 	func RangeValue
 		return cRange
 
 	func SetRangeValue Value
-		cRange = Value 
+		cRange = Value
 
 	func ValueValue
 		return cValue
 
 	func SetValueValue Value
-		cValue = Value 
+		cValue = Value
 
 	func SetvalueChangedEventCode cValue
 		cvalueChangedEvent = cValue
 
 	func valueChangedEventCode
 		return cvalueChangedEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddPropertyCombobox("Set Orientation",["Horizontal","Vertical"])
@@ -4313,30 +4314,30 @@ class FormDesigner_QProgressbar from QLineEdit
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		# Orientation
 			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(OrientationValue())
 			oCombo.BlockSignals(False)
-		# Minimum, Maximum, Range and Value 
+		# Minimum, Maximum, Range and Value
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(MinimumValue())
 			oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(MaximumValue())
 			oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(RangeValue())
 			oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(ValueValue())
 		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ComboItemAction oDesigner,nRow
 		nOrientationPos = C_AFTERCOMMON
 		if nRow = nOrientationPos  {		# Orientation
 			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nOrientationPos,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			nIndex = oCombo.CurrentIndex()
 			setOrientationValue(nIndex)
 		}
@@ -4358,13 +4359,13 @@ class FormDesigner_QProgressbar from QLineEdit
 
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
-		cOutput += "," + nl + cTabs + ' :orientation =  ' + OrientationValue() 
+		cTabs = std_copy(char(9),nTabsCount)
+		cOutput += "," + nl + cTabs + ' :orientation =  ' + OrientationValue()
 		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :range =  "' + RangeValue()  + '"'
@@ -4397,7 +4398,7 @@ class FormDesigner_QProgressbar from QLineEdit
 		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setOrientationValue(0+itemdata[:orientation])
@@ -4407,7 +4408,7 @@ class FormDesigner_QProgressbar from QLineEdit
 		setValueValue(itemdata[:value])
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
-class FormDesigner_QSpinBox from QLineEdit 
+class FormDesigner_QSpinBox from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -4423,32 +4424,32 @@ class FormDesigner_QSpinBox from QLineEdit
 		return cMinimum
 
 	func SetMinimumValue Value
-		cMinimum = Value 
+		cMinimum = Value
 
 	func MaximumValue
 		return cMaximum
 
 	func SetMaximumValue Value
-		cMaximum = Value 
+		cMaximum = Value
 
 	func RangeValue
 		return cRange
 
 	func SetRangeValue Value
-		cRange = Value 
+		cRange = Value
 
 	func ValueValue
 		return cValue
 
 	func SetValueValue Value
-		cValue = Value 
+		cValue = Value
 
 	func SetvalueChangedEventCode cValue
 		cvalueChangedEvent = cValue
 
 	func valueChangedEventCode
 		return cvalueChangedEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Set Minimum",False)
@@ -4460,15 +4461,15 @@ class FormDesigner_QSpinBox from QLineEdit
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
-		# Minimum, Maximum, Range and Value 
+		oPropertiesTable.Blocksignals(True)
+		# Minimum, Maximum, Range and Value
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(MinimumValue())
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(MaximumValue())
 			oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(RangeValue())
 			oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(ValueValue())
 		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(valueChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
@@ -4487,12 +4488,12 @@ class FormDesigner_QSpinBox from QLineEdit
 					setvalueChangedEventCode(cValue)
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :range =  "' + RangeValue()  + '"'
@@ -4523,7 +4524,7 @@ class FormDesigner_QSpinBox from QLineEdit
 		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setMinimumValue(itemdata[:minimum])
@@ -4553,7 +4554,7 @@ class FormDesigner_QComboBox from QComboBox
 
 	func setcCurrentIndex cValue
 		cCurrentIndex = cValue
-	
+
 	func cCurrentIndexValue
 		return cCurrentIndex
 
@@ -4562,25 +4563,25 @@ class FormDesigner_QComboBox from QComboBox
 
 	func activatedEventCode
 		return cactivatedEvent
-			
+
 	func SetcurrentIndexChangedEventCode cValue
 		ccurrentIndexChangedEvent = cValue
 
 	func currentIndexChangedEventCode
 		return ccurrentIndexChangedEvent
-			
+
 	func SeteditTextChangedEventCode cValue
 		ceditTextChangedEvent = cValue
 
 	func editTextChangedEventCode
 		return ceditTextChangedEvent
-			
+
 	func SethighlightedEventCode cValue
 		chighlightedEvent = cValue
 
 	func highlightedEventCode
 		return chighlightedEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Items (S: Comma)",False)
@@ -4593,7 +4594,7 @@ class FormDesigner_QComboBox from QComboBox
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		oPropertiesTable.item(C_AFTERCOMMON,1).settext(cItemsValue())
 		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(cCurrentIndexValue())
 		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(activatedEventcode())
@@ -4601,7 +4602,7 @@ class FormDesigner_QComboBox from QComboBox
 		oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(editTextChangedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(highlightedEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			clear() AddItem(oDesigner.oModel.GetObjectName(self),0)
 
 
@@ -4623,13 +4624,13 @@ class FormDesigner_QComboBox from QComboBox
 					sethighlightedEventCode(cValue)
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			clear() AddItem(oDesigner.oModel.GetObjectName(self),0)
 
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :cItems =  "' + cItemsValue() + '"'
 		cOutput += "," + nl + cTabs + ' :cCurrentIndex =  "' + cCurrentIndexValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setactivatedEvent =  "' + activatedEventCode() + '"'
@@ -4665,7 +4666,7 @@ class FormDesigner_QComboBox from QComboBox
 		cOutput = substr(cOutput,"#{f1}",highlightedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		SetcItems(itemdata[:cItems])
@@ -4675,19 +4676,19 @@ class FormDesigner_QComboBox from QComboBox
 		SeteditTextChangedEventCode(itemdata[:seteditTextChangedEvent])
 		SethighlightedEventCode(itemdata[:sethighlightedEvent])
 
-class FormDesigner_QDateTimeEdit from QLineEdit 
+class FormDesigner_QDateTimeEdit from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 
@@ -4722,144 +4723,144 @@ class FormDesigner_QTableWidget from QLineEdit
 	citemPressedEvent = ""
 	citemSelectionChangedEvent = ""
 
-	func RowCountValue 
+	func RowCountValue
 		return cRowCount
 
-	func setRowCountValue Value 
-		cRowCount = Value 
+	func setRowCountValue Value
+		cRowCount = Value
 
 	func ColumnCountValue
 		return cColumnCount
 
-	func SetColumnCountValue Value 
-		cColumnCount = Value 
+	func SetColumnCountValue Value
+		cColumnCount = Value
 
 	func HorizontalHeadersValue
 		return cHorizontalHeaders
 
 	func SetHorizontalHeadersValue Value
-		cHorizontalHeaders = Value 
+		cHorizontalHeaders = Value
 
-	func ColumnsWidthValue 
+	func ColumnsWidthValue
 		return cColumnsWidth
 
-	func SetColumnsWidthValue Value 
+	func SetColumnsWidthValue Value
 		cColumnsWidth = Value
-		
-	func HorizontalHeaderStyleValue 
+
+	func HorizontalHeaderStyleValue
 		return cHorizontalHeaderStyle
 
-	func SetHorizontalHeaderStyleValue Value 
-		cVerticalHeaderStyle = Value 
+	func SetHorizontalHeaderStyleValue Value
+		cVerticalHeaderStyle = Value
 
-	func VerticalHeaderStyleValue 
+	func VerticalHeaderStyleValue
 		return cVerticalHeaderStyle
 
-	func SetVerticalHeaderStyleValue Value 
-		cVerticalHeaderStyle = Value 
-		
+	func SetVerticalHeaderStyleValue Value
+		cVerticalHeaderStyle = Value
+
 	func SelectionBahviorValue
 		return nSelectionBehavior
 
-	func SetSelectionBehaviorValue Value 
-		nSelectionBehavior = Value 
+	func SetSelectionBehaviorValue Value
+		nSelectionBehavior = Value
 
 	func AlternatingColorsValue
 		return nAlternatingColors
 
-	func SetAlternatingColorsValue Value 
-		nAlternatingColors = Value 
+	func SetAlternatingColorsValue Value
+		nAlternatingColors = Value
 
 	func SetcellActivatedEventCode cValue
 		ccellActivatedEvent = cValue
 
 	func cellActivatedEventCode
 		return ccellActivatedEvent
-			
+
 	func SetcellChangedEventCode cValue
 		ccellChangedEvent = cValue
 
 	func cellChangedEventCode
 		return ccellChangedEvent
-			
+
 	func SetcellClickedEventCode cValue
 		ccellClickedEvent = cValue
 
 	func cellClickedEventCode
 		return ccellClickedEvent
-			
+
 	func SetcellDoubleClickedEventCode cValue
 		ccellDoubleClickedEvent = cValue
 
 	func cellDoubleClickedEventCode
 		return ccellDoubleClickedEvent
-			
+
 	func SetcellEnteredEventCode cValue
 		ccellEnteredEvent = cValue
 
 	func cellEnteredEventCode
 		return ccellEnteredEvent
-			
+
 	func SetcellPressedEventCode cValue
 		ccellPressedEvent = cValue
 
 	func cellPressedEventCode
 		return ccellPressedEvent
-			
+
 	func SetcurrentCellChangedEventCode cValue
 		ccurrentCellChangedEvent = cValue
 
 	func currentCellChangedEventCode
 		return ccurrentCellChangedEvent
-			
+
 	func SetcurrentItemChangedEventCode cValue
 		ccurrentItemChangedEvent = cValue
 
 	func currentItemChangedEventCode
 		return ccurrentItemChangedEvent
-			
+
 	func SetitemActivatedEventCode cValue
 		citemActivatedEvent = cValue
 
 	func itemActivatedEventCode
 		return citemActivatedEvent
-			
+
 	func SetitemChangedEventCode cValue
 		citemChangedEvent = cValue
 
 	func itemChangedEventCode
 		return citemChangedEvent
-			
+
 	func SetitemClickedEventCode cValue
 		citemClickedEvent = cValue
 
 	func itemClickedEventCode
 		return citemClickedEvent
-			
+
 	func SetitemDoubleClickedEventCode cValue
 		citemDoubleClickedEvent = cValue
 
 	func itemDoubleClickedEventCode
 		return citemDoubleClickedEvent
-			
+
 	func SetitemEnteredEventCode cValue
 		citemEnteredEvent = cValue
 
 	func itemEnteredEventCode
 		return citemEnteredEvent
-			
+
 	func SetitemPressedEventCode cValue
 		citemPressedEvent = cValue
 
 	func itemPressedEventCode
 		return citemPressedEvent
-			
+
 	func SetitemSelectionChangedEventCode cValue
 		citemSelectionChangedEvent = cValue
 
 	func itemSelectionChangedEventCode
 		return citemSelectionChangedEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Row Count",False)
@@ -4889,7 +4890,7 @@ class FormDesigner_QTableWidget from QLineEdit
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		oPropertiesTable.item(C_AFTERCOMMON,1).settext(RowCountValue())
 		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(ColumnCountValue())
 		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(HorizontalHeadersValue())
@@ -4898,15 +4899,15 @@ class FormDesigner_QTableWidget from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+5,1).settext(VerticalHeaderStyleValue())
 		# Selection Behaviour
 			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON+6,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(SelectionBahviorValue())
 			oCombo.BlockSignals(False)
-		# Alternating Colors 
+		# Alternating Colors
 			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON+7,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(AlternatingColorsValue())
 			oCombo.BlockSignals(False)
@@ -4926,23 +4927,23 @@ class FormDesigner_QTableWidget from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+21,1).settext(itemPressedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+22,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ComboItemAction oDesigner,nRow
 		nSelectionBehaviorPos = C_AFTERCOMMON+6
 		nAlternatingColorsPos = C_AFTERCOMMON+7
-		switch nRow   {		
+		switch nRow   {
 			case nSelectionBehaviorPos
 				oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nSelectionBehaviorPos,1)
-				oCombo = new qCombobox 
-				oCombo.pObject = oWidget.pObject 
+				oCombo = new qCombobox
+				oCombo.pObject = oWidget.pObject
 				nIndex = oCombo.CurrentIndex()
 				setSelectionBehaviorValue(nIndex)
-			case nAlternatingColorsPos 
+			case nAlternatingColorsPos
 				oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nAlternatingColorsPos,1)
-				oCombo = new qCombobox 
-				oCombo.pObject = oWidget.pObject 
+				oCombo = new qCombobox
+				oCombo.pObject = oWidget.pObject
 				nIndex = oCombo.CurrentIndex()
 				setAlternatingColorsValue(nIndex)
 		}
@@ -4999,20 +5000,20 @@ class FormDesigner_QTableWidget from QLineEdit
 					setitemSelectionChangedEventCode(cValue)
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :RowCount =  "' + RowCountValue() + '"'
 		cOutput += "," + nl + cTabs + ' :ColumnCount =  "' + ColumnCountValue() + '"'
 		cOutput += "," + nl + cTabs + ' :HorizontalHeaders =  "' + HorizontalHeadersValue() + '"'
 		cOutput += "," + nl + cTabs + ' :ColumnsWidth =  "' + ColumnsWidthValue() + '"'
 		cOutput += "," + nl + cTabs + ' :HorizontalHeaderStyle =  "' + HorizontalHeaderStyleValue() + '"'
 		cOutput += "," + nl + cTabs + ' :VerticalHeaderStyle =  "' + VerticalHeaderStyleValue() + '"'
-		cOutput += "," + nl + cTabs + ' :selectionbehavior =  ' + SelectionBahviorValue() 
-		cOutput += "," + nl + cTabs + ' :alternatingcolors =  ' + AlternatingColorsValue() 
+		cOutput += "," + nl + cTabs + ' :selectionbehavior =  ' + SelectionBahviorValue()
+		cOutput += "," + nl + cTabs + ' :alternatingcolors =  ' + AlternatingColorsValue()
 		cOutput += "," + nl + cTabs + ' :setcellActivatedEvent =  "' + cellActivatedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcellChangedEvent =  "' + cellChangedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setcellClickedEvent =  "' + cellClickedEventCode() + '"'
@@ -5133,7 +5134,7 @@ class FormDesigner_QTableWidget from QLineEdit
 		cOutput = substr(cOutput,"#{f1}",itemSelectionChangedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		SetRowCountValue(itemdata[:RowCount])
@@ -5191,7 +5192,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 	func SetColumnCountValue cValue
 		cColumnCount = cValue
 
-	func ColumnCountValue 
+	func ColumnCountValue
 		return cColumnCount
 
 	func SetHeaderLabelsValue cValue
@@ -5203,117 +5204,117 @@ class FormDesigner_QTreeWidget from QLineEdit
 	func HeaderHiddenValue
 		return nHeaderHidden
 
-	func SetHeaderHiddenValue Value 
-		nHeaderHidden = Value 
+	func SetHeaderHiddenValue Value
+		nHeaderHidden = Value
 
 	func SetcollapsedEventCode cValue
 		ccollapsedEvent = cValue
 
 	func collapsedEventCode
 		return ccollapsedEvent
-			
+
 	func SetexpandedEventCode cValue
 		cexpandedEvent = cValue
 
 	func expandedEventCode
 		return cexpandedEvent
-			
+
 	func SetactivatedEventCode cValue
 		cactivatedEvent = cValue
 
 	func activatedEventCode
 		return cactivatedEvent
-			
+
 	func SetclickedEventCode cValue
 		cclickedEvent = cValue
 
 	func clickedEventCode
 		return cclickedEvent
-			
+
 	func SetdoubleClickedEventCode cValue
 		cdoubleClickedEvent = cValue
 
 	func doubleClickedEventCode
 		return cdoubleClickedEvent
-			
+
 	func SetenteredEventCode cValue
 		centeredEvent = cValue
 
 	func enteredEventCode
 		return centeredEvent
-			
+
 	func SetpressedEventCode cValue
 		cpressedEvent = cValue
 
 	func pressedEventCode
 		return cpressedEvent
-			
+
 	func SetviewportEnteredEventCode cValue
 		cviewportEnteredEvent = cValue
 
 	func viewportEnteredEventCode
 		return cviewportEnteredEvent
-			
+
 	func SetcurrentItemChangedEventCode cValue
 		ccurrentItemChangedEvent = cValue
 
 	func currentItemChangedEventCode
 		return ccurrentItemChangedEvent
-			
+
 	func SetitemActivatedEventCode cValue
 		citemActivatedEvent = cValue
 
 	func itemActivatedEventCode
 		return citemActivatedEvent
-			
+
 	func SetitemChangedEventCode cValue
 		citemChangedEvent = cValue
 
 	func itemChangedEventCode
 		return citemChangedEvent
-			
+
 	func SetitemClickedEventCode cValue
 		citemClickedEvent = cValue
 
 	func itemClickedEventCode
 		return citemClickedEvent
-			
+
 	func SetitemCollapsedEventCode cValue
 		citemCollapsedEvent = cValue
 
 	func itemCollapsedEventCode
 		return citemCollapsedEvent
-			
+
 	func SetitemDoubleClickedEventCode cValue
 		citemDoubleClickedEvent = cValue
 
 	func itemDoubleClickedEventCode
 		return citemDoubleClickedEvent
-			
+
 	func SetitemEnteredEventCode cValue
 		citemEnteredEvent = cValue
 
 	func itemEnteredEventCode
 		return citemEnteredEvent
-			
+
 	func SetitemExpandedEventCode cValue
 		citemExpandedEvent = cValue
 
 	func itemExpandedEventCode
 		return citemExpandedEvent
-			
+
 	func SetitemPressedEventCode cValue
 		citemPressedEvent = cValue
 
 	func itemPressedEventCode
 		return citemPressedEvent
-			
+
 	func SetitemSelectionChangedEventCode cValue
 		citemSelectionChangedEvent = cValue
 
 	func itemSelectionChangedEventCode
 		return citemSelectionChangedEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Column Count",False)
@@ -5341,13 +5342,13 @@ class FormDesigner_QTreeWidget from QLineEdit
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		oPropertiesTable.item(C_AFTERCOMMON,1).settext(ColumnCountValue())
 		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(HeaderLabelsValue())
 		# Header Hidden
 			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON+2,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(HeaderHiddenValue())
 			oCombo.BlockSignals(False)
@@ -5370,7 +5371,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 		oPropertiesTable.item(C_AFTERCOMMON+19,1).settext(itemPressedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+20,1).settext(itemSelectionChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
@@ -5422,25 +5423,25 @@ class FormDesigner_QTreeWidget from QLineEdit
 
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ComboItemAction oDesigner,nRow
 		nHeaderHiddenPos = C_AFTERCOMMON+2
-		if nRow = nHeaderHiddenPos  {		 
+		if nRow = nHeaderHiddenPos  {
 			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nHeaderHiddenPos,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			nIndex = oCombo.CurrentIndex()
 			setHeaderHiddenValue(nIndex)
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :columncount =  "' + ColumnCountValue() + '"'
 		cOutput += "," + nl + cTabs + ' :headerlabels =  "' + HeaderLabelsValue() + '"'
-		cOutput += "," + nl + cTabs + ' :HeaderHidden =  ' + HeaderHiddenValue() 
+		cOutput += "," + nl + cTabs + ' :HeaderHidden =  ' + HeaderHiddenValue()
 		cOutput += "," + nl + cTabs + ' :setcollapsedEvent =  "' + collapsedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setexpandedEvent =  "' + expandedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setactivatedEvent =  "' + activatedEventCode() + '"'
@@ -5538,7 +5539,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 		cOutput = substr(cOutput,"#{f1}",itemSelectionChangedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		SetColumnCountValue(itemdata[:columncount])
@@ -5578,25 +5579,25 @@ class FormDesigner_QRadioButton from QRadioButton
 
 	func clickedEventCode
 		return cclickedEvent
-			
+
 	func SetpressedEventCode cValue
 		cpressedEvent = cValue
 
 	func pressedEventCode
 		return cpressedEvent
-			
+
 	func SetreleasedEventCode cValue
 		creleasedEvent = cValue
 
 	func releasedEventCode
 		return creleasedEvent
-			
+
 	func SettoggledEventCode cValue
 		ctoggledEvent = cValue
 
 	func toggledEventCode
 		return ctoggledEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Text",False)
@@ -5608,7 +5609,7 @@ class FormDesigner_QRadioButton from QRadioButton
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		# Set the Text
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
 		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(clickedEventcode())
@@ -5621,7 +5622,7 @@ class FormDesigner_QRadioButton from QRadioButton
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON 
+				case C_AFTERCOMMON
 					setText(cValue)
 				case C_AFTERCOMMON+1
 					setclickedEventCode(cValue)
@@ -5637,7 +5638,7 @@ class FormDesigner_QRadioButton from QRadioButton
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
 		cOutput += "," + nl + cTabs + ' :setclickedEvent =  "' + clickedEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setpressedEvent =  "' + pressedEventCode() + '"'
@@ -5646,7 +5647,7 @@ class FormDesigner_QRadioButton from QRadioButton
 		return cOutput
 
 	func GenerateCustomCode oDesigner
-		cOutput = 'setText("#{f1}")' + nl 
+		cOutput = 'setText("#{f1}")' + nl
 		cOutput = substr(cOutput,"#{f1}",text())
 		cOutput += 'setclickedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,clickedEventCode(),"#{f1}")
@@ -5662,7 +5663,7 @@ class FormDesigner_QRadioButton from QRadioButton
 		cOutput = substr(cOutput,"#{f1}",toggledEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setText(itemdata[:text])
@@ -5671,7 +5672,7 @@ class FormDesigner_QRadioButton from QRadioButton
 		SetreleasedEventCode(itemdata[:setreleasedEvent])
 		SettoggledEventCode(itemdata[:settoggledEvent])
 
-class FormDesigner_QWebView from QLineEdit 
+class FormDesigner_QWebView from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -5683,36 +5684,36 @@ class FormDesigner_QWebView from QLineEdit
 	cselectionChangedEvent  = ""
 	curlChangedEvent  = ""
 
-	func URLValue 
+	func URLValue
 		return cURL
 
-	func SetURLvalue value 
-		cURL = value 
+	func SetURLvalue value
+		cURL = value
 
 	func SetloadProgressEventCode cValue
 		cloadProgressEvent  = cValue
 
 	func loadProgressEventCode
-		return cloadProgressEvent 
-		
+		return cloadProgressEvent
+
 	func SetloadStartedEventCode cValue
 		cloadStartedEvent  = cValue
 
 	func loadStartedEventCode
-		return cloadStartedEvent 
-		
+		return cloadStartedEvent
+
 	func SetselectionChangedEventCode cValue
 		cselectionChangedEvent  = cValue
 
 	func selectionChangedEventCode
-		return cselectionChangedEvent 
-		
+		return cselectionChangedEvent
+
 	func SeturlChangedEventCode cValue
 		curlChangedEvent  = cValue
 
 	func urlChangedEventCode
-		return curlChangedEvent 
-			
+		return curlChangedEvent
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("URL",False)
@@ -5724,7 +5725,7 @@ class FormDesigner_QWebView from QLineEdit
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		# Set the Text
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(URLValue())
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(loadProgressEventcode())
@@ -5732,14 +5733,14 @@ class FormDesigner_QWebView from QLineEdit
 			oPropertiesTable.item(C_AFTERCOMMON+3,1).settext(selectionChangedEventcode())
 			oPropertiesTable.item(C_AFTERCOMMON+4,1).settext(urlChangedEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nCol = 1 {
 			switch nRow {
-				case C_AFTERCOMMON  
+				case C_AFTERCOMMON
 					setURLValue(cValue)
 				case C_AFTERCOMMON+1
 					setloadProgressEventCode(cValue)
@@ -5751,12 +5752,12 @@ class FormDesigner_QWebView from QLineEdit
 					seturlChangedEventCode(cValue)
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :URL =  "' + URLValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setloadProgressEvent  =  "' + loadProgressEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setloadStartedEvent  =  "' + loadStartedEventCode() + '"'
@@ -5766,7 +5767,7 @@ class FormDesigner_QWebView from QLineEdit
 
 	func GenerateCustomCode oDesigner
 		cOutput = ""
-		cOutput += 'loadpage(new qURL("#{f1}"))' + nl  
+		cOutput += 'loadpage(new qURL("#{f1}"))' + nl
 		cOutput = substr(cOutput,"#{f1}",URLValue())
 		cOutput += 'setloadProgressEvent ("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,loadProgressEventCode(),"#{f1}")
@@ -5782,7 +5783,7 @@ class FormDesigner_QWebView from QLineEdit
 		cOutput = substr(cOutput,"#{f1}",urlChangedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setURLValue(itemdata[:URL])
@@ -5807,32 +5808,32 @@ class FormDesigner_QDial from QDial
 		return cMinimum
 
 	func SetMinimumValue Value
-		cMinimum = Value 
+		cMinimum = Value
 
 	func MaximumValue
 		return cMaximum
 
 	func SetMaximumValue Value
-		cMaximum = Value 
+		cMaximum = Value
 
 	func RangeValue
 		return cRange
 
 	func SetRangeValue Value
-		cRange = Value 
+		cRange = Value
 
 	func ValueValue
 		return cValue
 
 	func SetValueValue Value
-		cValue = Value 
+		cValue = Value
 
 	func SetvalueChangedEventCode cValue
 		cvalueChangedEvent = cValue
 
 	func valueChangedEventCode
 		return cvalueChangedEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Set Minimum",False)
@@ -5844,8 +5845,8 @@ class FormDesigner_QDial from QDial
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
-		# Minimum, Maximum, Range and Value 
+		oPropertiesTable.Blocksignals(True)
+		# Minimum, Maximum, Range and Value
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(MinimumValue())
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(MaximumValue())
 			oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(RangeValue())
@@ -5872,7 +5873,7 @@ class FormDesigner_QDial from QDial
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
 		cOutput += "," + nl + cTabs + ' :range =  "' + RangeValue()  + '"'
@@ -5903,7 +5904,7 @@ class FormDesigner_QDial from QDial
 		cOutput = substr(cOutput,"#{f1}",valueChangedEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setMinimumValue(itemdata[:minimum])
@@ -5912,7 +5913,7 @@ class FormDesigner_QDial from QDial
 		setValueValue(itemdata[:value])
 		SetvalueChangedEventCode(itemdata[:setvalueChangedEvent])
 
-class FormDesigner_QVideoWidget from QLineEdit 
+class FormDesigner_QVideoWidget from QLineEdit
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -5922,7 +5923,7 @@ class FormDesigner_QVideoWidget from QLineEdit
 	func SetVideoFile cValue
 		cVideoFile = cValue
 
-	func VideoFile 
+	func VideoFile
 		return cVideoFile
 
 	func AddObjectProperties  oDesigner
@@ -5932,32 +5933,32 @@ class FormDesigner_QVideoWidget from QLineEdit
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		# Set the Image File
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(VideoFile())
-		oPropertiesTable.Blocksignals(False) 
-		# Set the object name 
+		oPropertiesTable.Blocksignals(False)
+		# Set the object name
 			if cVideoFile = NULL {
 				setText(oDesigner.oModel.GetObjectName(self))
 			}
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
-		if nRow = C_AFTERCOMMON { 
+		if nRow = C_AFTERCOMMON {
 			setVideoFile(cValue)
 		}
-		# Set the object name 
+		# Set the object name
 			if cVideoFile = NULL {
 				setText(oDesigner.oModel.GetObjectName(self))
 			}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :Videofile =  "' + VideoFile() + '"'
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setVideoFile(itemdata[:Videofile])
@@ -5974,7 +5975,7 @@ class FormDesigner_QVideoWidget from QLineEdit
 		cOutput = substr(cOutput,"#{f2}",cObjName)
 		return cOutput
 
-	func DialogButtonAction oDesigner,nRow 
+	func DialogButtonAction oDesigner,nRow
 		CommonDialogButtonAction(oDesigner,nRow)
 		if nRow = C_AFTERCOMMON {	# Video File
 			cFile = oDesigner.oGeneral.SelectFile(oDesigner)
@@ -5998,7 +5999,7 @@ class FormDesigner_QFrame3 from QFrame3
 			case 0
 				setFrameStyle(QFrame_Plain | QFrame_WinPanel )
 			case 1
-				setFrameStyle(QFrame_Raised | QFrame_WinPanel)			
+				setFrameStyle(QFrame_Raised | QFrame_WinPanel)
 			case 2
 				setFrameStyle(QFrame_Sunken | QFrame_WinPanel)
 		}
@@ -6013,8 +6014,8 @@ class FormDesigner_QFrame3 from QFrame3
 		oPropertiesTable.Blocksignals(True)
 		# Frame Type
 			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(nFrameType)
 			oCombo.BlockSignals(False)
@@ -6026,18 +6027,18 @@ class FormDesigner_QFrame3 from QFrame3
 
 	func ComboItemAction oDesigner,nRow
 		nFrameStylePos = C_AFTERCOMMON
-		if nRow = nFrameStylePos  {		 
+		if nRow = nFrameStylePos  {
 			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nFrameStylePos,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			nIndex = oCombo.CurrentIndex()
 			setFrameType(nIndex)
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
-		cOutput += "," + nl + cTabs + ' :FrameType =  ' + FrameType() 
+		cTabs = std_copy(char(9),nTabsCount)
+		cOutput += "," + nl + cTabs + ' :FrameType =  ' + FrameType()
 		return cOutput
 
 	func GenerateCustomCode oDesigner
@@ -6046,13 +6047,13 @@ class FormDesigner_QFrame3 from QFrame3
 			case 0
 				cOutput = substr(cOutput,"#{f2}","QFrame_Plain | QFrame_WinPanel")
 			case 1
-				cOutput = substr(cOutput,"#{f2}","QFrame_Raised | QFrame_WinPanel" )			
+				cOutput = substr(cOutput,"#{f2}","QFrame_Raised | QFrame_WinPanel" )
 			case 2
 				cOutput = substr(cOutput,"#{f2}","QFrame_Sunken | QFrame_WinPanel" )
 		}
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setFrameType(0+itemdata[:FrameType])
@@ -6068,8 +6069,8 @@ class FormDesigner_QLCDNumber from QLCDNumber
 		return nDisplay
 
 	func SetDisplayValue nValue
-		nDisplay = nValue	
-		Display(nDisplay)	
+		nDisplay = nValue
+		Display(nDisplay)
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
@@ -6085,22 +6086,22 @@ class FormDesigner_QLCDNumber from QLCDNumber
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
-		if nRow = C_AFTERCOMMON { 
+		if nRow = C_AFTERCOMMON {
 			setDisplayValue(0+cValue)
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :display =  ' + DisplayValue()
 		return cOutput
 
 	func GenerateCustomCode oDesigner
-		cOutput = 'Display(#{f1})' + nl 
+		cOutput = 'Display(#{f1})' + nl
 		cOutput = substr(cOutput,"#{f1}",""+DisplayValue())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setDisplayValue(itemdata[:Display])
@@ -6117,13 +6118,13 @@ class FormDesigner_QHyperLink from QLabel
 		return cLink
 
 	func SetLinkValue cValue
-		cLink = cValue	
+		cLink = cValue
 
 	func TextValue
 		return cText
 
 	func SetTextValue cValue
-		cText = cValue	
+		cText = cValue
 		cOutput = '<a href="#{f1}">#{f2}</a>'
 		cOutput = substr(cOutput,"#{f1}",LinkValue())
 		cOutput = substr(cOutput,"#{f2}",TextValue())
@@ -6143,12 +6144,12 @@ class FormDesigner_QHyperLink from QLabel
 		# Set the Text Value
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(TextValue())
 		oPropertiesTable.Blocksignals(False)
-		setTextValue(cText) 
+		setTextValue(cText)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		switch nRow {
-			case C_AFTERCOMMON 
+			case C_AFTERCOMMON
 				setLinkValue(cValue)
 			case C_AFTERCOMMON + 1
 				setTextValue(cValue)
@@ -6156,18 +6157,18 @@ class FormDesigner_QHyperLink from QLabel
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :Link =  "' + LinkValue() + '"'
 		cOutput += "," + nl + cTabs + ' :Text =  "' + TextValue() + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
-		cOutput = `setText('<a href="#{f1}">#{f2}</a>')` + nl 
+		cOutput = `setText('<a href="#{f1}">#{f2}</a>')` + nl
 		cOutput = substr(cOutput,"#{f1}",LinkValue())
 		cOutput = substr(cOutput,"#{f2}",TextValue())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setLinkValue(itemdata[:Link])
@@ -6185,13 +6186,13 @@ class FormDesigner_QTimer from QLabel
 		return cInterval
 
 	func SetIntervalValue cValue
-		cInterval = cValue	
+		cInterval = cValue
 
 	func TimeOutValue
 		return cTimeOut
 
 	func SetTimeOutValue cValue
-		cTimeOut = cValue	
+		cTimeOut = cValue
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
@@ -6207,31 +6208,31 @@ class FormDesigner_QTimer from QLabel
 		# Set the Timeout Event Value
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(TimeOutValue())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		switch nRow {
-			case C_AFTERCOMMON 
+			case C_AFTERCOMMON
 				setIntervalValue(cValue)
 			case C_AFTERCOMMON + 1
 				setTimeOutValue(cValue)
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :Interval =  "' + IntervalValue() + '"'
 		cOutput += "," + nl + cTabs + ' :Timeout =  "' + TimeoutValue() + '"'
 		return cOutput
 
 	func GenerateCode oDesigner
-		cOutput = char(9) + char(9) + 
+		cOutput = char(9) + char(9) +
 		oDesigner.oModel.GetObjectName(self) + " = " +
-		'new #{f1}(win) {			
+		'new #{f1}(win) {
 #{f2}
 		}' + nl
 		cClass = substr(classname(self),"formdesigner_","")
@@ -6248,7 +6249,7 @@ class FormDesigner_QTimer from QLabel
 		cOutput = substr(cOutput,"#{f2}",TimeoutValue())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setIntervalValue(itemdata[:Interval])
@@ -6290,10 +6291,10 @@ class FormDesigner_QAllEvents from QLabel
 	cWindowUnblockedEvent = ""
 	cPaintEvent = ""
 
-	func ControlNameValue 
+	func ControlNameValue
 		return cControlName
 
-	func SetControlNameValue  cValue 
+	func SetControlNameValue  cValue
 		cControlName = cValue
 
 	func SetKeyPressEventCode cValue
@@ -6301,169 +6302,169 @@ class FormDesigner_QAllEvents from QLabel
 
 	func KeyPressEventCode
 		return cKeyPressEvent
-			
+
 	func SetMouseButtonPressEventCode cValue
 		cMouseButtonPressEvent = cValue
 
 	func MouseButtonPressEventCode
 		return cMouseButtonPressEvent
-			
+
 	func SetMouseButtonReleaseEventCode cValue
 		cMouseButtonReleaseEvent = cValue
 
 	func MouseButtonReleaseEventCode
 		return cMouseButtonReleaseEvent
-			
+
 	func SetMouseButtonDblClickEventCode cValue
 		cMouseButtonDblClickEvent = cValue
 
 	func MouseButtonDblClickEventCode
 		return cMouseButtonDblClickEvent
-			
+
 	func SetMouseMoveEventCode cValue
 		cMouseMoveEvent = cValue
 
 	func MouseMoveEventCode
 		return cMouseMoveEvent
-			
+
 	func SetCloseEventCode cValue
 		cCloseEvent = cValue
 
 	func CloseEventCode
 		return cCloseEvent
-			
+
 	func SetContextMenuEventCode cValue
 		cContextMenuEvent = cValue
 
 	func ContextMenuEventCode
 		return cContextMenuEvent
-			
+
 	func SetDragEnterEventCode cValue
 		cDragEnterEvent = cValue
 
 	func DragEnterEventCode
 		return cDragEnterEvent
-			
+
 	func SetDragLeaveEventCode cValue
 		cDragLeaveEvent = cValue
 
 	func DragLeaveEventCode
 		return cDragLeaveEvent
-			
+
 	func SetDragMoveEventCode cValue
 		cDragMoveEvent = cValue
 
 	func DragMoveEventCode
 		return cDragMoveEvent
-			
+
 	func SetDropEventCode cValue
 		cDropEvent = cValue
 
 	func DropEventCode
 		return cDropEvent
-			
+
 	func SetEnterEventCode cValue
 		cEnterEvent = cValue
 
 	func EnterEventCode
 		return cEnterEvent
-			
+
 	func SetFocusInEventCode cValue
 		cFocusInEvent = cValue
 
 	func FocusInEventCode
 		return cFocusInEvent
-			
+
 	func SetFocusOutEventCode cValue
 		cFocusOutEvent = cValue
 
 	func FocusOutEventCode
 		return cFocusOutEvent
-			
+
 	func SetKeyReleaseEventCode cValue
 		cKeyReleaseEvent = cValue
 
 	func KeyReleaseEventCode
 		return cKeyReleaseEvent
-			
+
 	func SetLeaveEventCode cValue
 		cLeaveEvent = cValue
 
 	func LeaveEventCode
 		return cLeaveEvent
-			
+
 	func SetNonClientAreaMouseButtonDblClickEventCode cValue
 		cNonClientAreaMouseButtonDblClickEvent = cValue
 
 	func NonClientAreaMouseButtonDblClickEventCode
 		return cNonClientAreaMouseButtonDblClickEvent
-			
+
 	func SetNonClientAreaMouseButtonPressEventCode cValue
 		cNonClientAreaMouseButtonPressEvent = cValue
 
 	func NonClientAreaMouseButtonPressEventCode
 		return cNonClientAreaMouseButtonPressEvent
-			
+
 	func SetNonClientAreaMouseButtonReleaseEventCode cValue
 		cNonClientAreaMouseButtonReleaseEvent = cValue
 
 	func NonClientAreaMouseButtonReleaseEventCode
 		return cNonClientAreaMouseButtonReleaseEvent
-			
+
 	func SetNonClientAreaMouseMoveEventCode cValue
 		cNonClientAreaMouseMoveEvent = cValue
 
 	func NonClientAreaMouseMoveEventCode
 		return cNonClientAreaMouseMoveEvent
-			
+
 	func SetMoveEventCode cValue
 		cMoveEvent = cValue
 
 	func MoveEventCode
 		return cMoveEvent
-			
+
 	func SetResizeEventCode cValue
 		cResizeEvent = cValue
 
 	func ResizeEventCode
 		return cResizeEvent
-			
+
 	func SetWindowActivateEventCode cValue
 		cWindowActivateEvent = cValue
 
 	func WindowActivateEventCode
 		return cWindowActivateEvent
-			
+
 	func SetWindowBlockedEventCode cValue
 		cWindowBlockedEvent = cValue
 
 	func WindowBlockedEventCode
 		return cWindowBlockedEvent
-			
+
 	func SetWindowDeactivateEventCode cValue
 		cWindowDeactivateEvent = cValue
 
 	func WindowDeactivateEventCode
 		return cWindowDeactivateEvent
-			
+
 	func SetWindowStateChangeEventCode cValue
 		cWindowStateChangeEvent = cValue
 
 	func WindowStateChangeEventCode
 		return cWindowStateChangeEvent
-			
+
 	func SetWindowUnblockedEventCode cValue
 		cWindowUnblockedEvent = cValue
 
 	func WindowUnblockedEventCode
 		return cWindowUnblockedEvent
-			
+
 	func SetPaintEventCode cValue
 		cPaintEvent = cValue
 
 	func PaintEventCode
 		return cPaintEvent
-			
+
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
 		oDesigner.oView.AddProperty("Control Name",False)
@@ -6499,7 +6500,7 @@ class FormDesigner_QAllEvents from QLabel
 	func DisplayProperties oDesigner
 		DisplayCommonProperties(oDesigner)
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True) 
+		oPropertiesTable.Blocksignals(True)
 		oPropertiesTable.item(C_AFTERCOMMON,1).settext(ControlNameValue())
 		oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(KeyPressEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(MouseButtonPressEventcode())
@@ -6530,7 +6531,7 @@ class FormDesigner_QAllEvents from QLabel
 		oPropertiesTable.item(C_AFTERCOMMON+27,1).settext(WindowUnblockedEventcode())
 		oPropertiesTable.item(C_AFTERCOMMON+28,1).settext(PaintEventcode())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
@@ -6597,12 +6598,12 @@ class FormDesigner_QAllEvents from QLabel
 					setPaintEventCode(cValue)
 			}
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :controlname =  "' + ControlNameValue() + '"'
 		cOutput += "," + nl + cTabs + ' :setKeyPressEvent =  "' + KeyPressEventCode() + '"'
 		cOutput += "," + nl + cTabs + ' :setMouseButtonPressEvent =  "' + MouseButtonPressEventCode() + '"'
@@ -6635,13 +6636,13 @@ class FormDesigner_QAllEvents from QLabel
 		return cOutput
 
 	func GenerateCode oDesigner
-		cOutput = char(9) + char(9) + 
+		cOutput = char(9) + char(9) +
 		"#{f4} = " +
-		'new #{f1}(win) {			
+		'new #{f1}(win) {
 #{f2}
 		}
 		#{f3}.installEventFilter(#{f4})' + nl
-		
+
 		cClass = substr(classname(self),"formdesigner_","")
 		cOutput = substr(cOutput,"#{f1}",cClass)
 		cOutput = substr(cOutput,"#{f2}",AddTabs(GenerateCustomCode(oDesigner),3))
@@ -6649,7 +6650,7 @@ class FormDesigner_QAllEvents from QLabel
 		cOutput = substr(cOutput,"#{f4}",oDesigner.oModel.GetObjectName(self))
 		return cOutput
 
-	func GenerateCustomCode oDesigner 
+	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setKeyPressEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,KeyPressEventCode(),"#{f1}")
@@ -6737,7 +6738,7 @@ class FormDesigner_QAllEvents from QLabel
 		cOutput = substr(cOutput,"#{f1}",PaintEventCode())
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		SetControlNameValue(itemdata[:ControlName])
@@ -6781,14 +6782,14 @@ class FormDesigner_QLayout from QLabel
 	func LayoutTypeValue
 		return nLayoutType
 
-	func SetLayoutTypeValue Value 
-		nLayoutType = Value 
+	func SetLayoutTypeValue Value
+		nLayoutType = Value
 
 	func LayoutObjectsValue
 		return cLayoutObjects
 
 	func SetLayoutObjectsValue cValue
-		cLayoutObjects = cValue	
+		cLayoutObjects = cValue
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
@@ -6801,39 +6802,39 @@ class FormDesigner_QLayout from QLabel
 		oPropertiesTable.Blocksignals(True)
 		# Set the Layout Type
 			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(LayoutTypeValue())
 			oCombo.BlockSignals(False)
 		# Set the Layout Objects
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(LayoutObjectsValue())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		switch nRow {
-			case C_AFTERCOMMON 
+			case C_AFTERCOMMON
 				setLayoutTypeValue(cValue)
 			case C_AFTERCOMMON + 1
 				setLayoutObjectsValue(cValue)
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ComboItemAction oDesigner,nRow
 		nLayoutTypePos = C_AFTERCOMMON
 		if nRow = nLayoutTypePos  {		# Layout Type
 			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nLayoutTypePos,1)
-			oCombo = new qCombobox 
-			oCombo.pObject = oWidget.pObject 
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
 			nIndex = oCombo.CurrentIndex()
 			setLayoutTypeValue(nIndex)
 		}
 
-	func DialogButtonAction oDesigner,nRow 
+	func DialogButtonAction oDesigner,nRow
 		CommonDialogButtonAction(oDesigner,nRow)
 		switch nRow {
 			case C_AFTERCOMMON + 1 	# Layout Objects
@@ -6843,29 +6844,29 @@ class FormDesigner_QLayout from QLabel
 				Last_Window().setMethodName("setLayoutObjectsValue")
 				aList = oDesigner.oModel.GetObjectsNames()
 				# Remove the window Object name
-					del(aList,1)	
-				# Remove the current layout object name 
-					del(aList,std_find(aList,oDesigner.oModel.GetObjectName(self))) 
+					del(aList,1)
+				# Remove the current layout object name
+					del(aList,std_find(aList,oDesigner.oModel.GetObjectName(self)))
 				Last_Window().LoadObjectsData(aList)
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :LayoutType =  ' + LayoutTypeValue()
 		cOutput += "," + nl + cTabs + ' :LayoutObjects =  "' + LayoutObjectsValue() + '"'
 		return cOutput
 
 	func GenerateCode oDesigner
-		cOutput = char(9) + char(9) + 
+		cOutput = char(9) + char(9) +
 		oDesigner.oModel.GetObjectName(self) + " = " +
-		'new #{f1}() {			
+		'new #{f1}() {
 #{f2}
 		}' + nl
 		switch LayoutTypeValue()	{
 			case 0
 				cClass = "QVBoxLayout"
-			case 1 
+			case 1
 				cClass = "QHBoxLayout"
 		}
 		cOutput = substr(cOutput,"#{f1}",cClass)
@@ -6887,13 +6888,13 @@ class FormDesigner_QLayout from QLabel
 		}
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setLayoutTypeValue(itemdata[:LayoutType])
 		setLayoutObjectsValue(itemdata[:LayoutObjects])
 
-class FormDesigner_QTabWidget from QTabWidget 
+class FormDesigner_QTabWidget from QTabWidget
 
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
@@ -6907,7 +6908,7 @@ class FormDesigner_QTabWidget from QTabWidget
 		return ""+nPagesCount
 
 	func SetPagesCountValue cValue
-		nPagesCount = 0+cValue	
+		nPagesCount = 0+cValue
 		if nPagesCount > 0 {
 			for x = len(aTabs) + 1 to nPagesCount {
 				aTabs + [new qWidget(),"Page " + x]
@@ -6926,17 +6927,17 @@ class FormDesigner_QTabWidget from QTabWidget
 			for x = nCount to 1 step -1 {
 				removeTab(x-1)
 			}
-			aTabs = [] 
+			aTabs = []
 		}
 
 	func PagesTitlesValue
 		return cPagesTitles
 
 	func SetPagesTitlesValue cValue
-		cPagesTitles = cValue	
+		cPagesTitles = cValue
 		aItems = split(cPagesTitles,",")
 		for x = 1 to len(aItems) {
-			if x <= len(aTabs) { 
+			if x <= len(aTabs) {
 				aTabs[x][2] = aItems[x]
 				setTabText(x-1,aItems[x])
 			}
@@ -6960,7 +6961,7 @@ class FormDesigner_QTabWidget from QTabWidget
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		switch nRow {
-			case C_AFTERCOMMON 
+			case C_AFTERCOMMON
 				setPagesCountValue(cValue)
 			case C_AFTERCOMMON + 1
 				setPagesTitlesValue(cValue)
@@ -6968,7 +6969,7 @@ class FormDesigner_QTabWidget from QTabWidget
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :PagesCount =  "' + PagesCountValue() + '"'
 		cOutput += "," + nl + cTabs + ' :PagesTitles =  "' + PagesTitlesValue() + '"'
 		return cOutput
@@ -6988,7 +6989,7 @@ class FormDesigner_QTabWidget from QTabWidget
 		}
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setPagesCountValue(itemdata[:PagesCount])
@@ -7001,11 +7002,11 @@ class FormDesigner_QStatusbar from QLabel
 
 	cMessage = ""
 
-	func MessageValue 
+	func MessageValue
 		return cMessage
 
-	func SetMessageValue cValue 
-		cMessage = cValue 
+	func SetMessageValue cValue
+		cMessage = cValue
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
@@ -7018,20 +7019,20 @@ class FormDesigner_QStatusbar from QLabel
 		# Set the Text
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(MessageValue())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
-		if nRow = C_AFTERCOMMON { 
+		if nRow = C_AFTERCOMMON {
 			setMessageValue(cValue)
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :Message =  "' + MessageValue() + '"'
 		return cOutput
 
@@ -7042,7 +7043,7 @@ class FormDesigner_QStatusbar from QLabel
 		cOutput = substr(cOutput,"#{f2}",oDesigner.oModel.GetObjectName(self))
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setMessageValue(itemdata[:Message])
@@ -7059,13 +7060,13 @@ class FormDesigner_QToolBar from QLabel
 		return cTitle
 
 	func SetTitleValue cValue
-		cTitle = cValue 
+		cTitle = cValue
 
 	func ToolbarObjectsValue
 		return cToolbarObjects
 
 	func SetToolbarObjectsValue cValue
-		cToolbarObjects = cValue	
+		cToolbarObjects = cValue
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
@@ -7081,7 +7082,7 @@ class FormDesigner_QToolBar from QLabel
 		# Set the Toolbar Objects
 			oPropertiesTable.item(C_AFTERCOMMON+1,1).settext(ToolbarObjectsValue())
 		oPropertiesTable.Blocksignals(False)
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
@@ -7092,11 +7093,11 @@ class FormDesigner_QToolBar from QLabel
 			case C_AFTERCOMMON+1
 				setToolbarObjectsValue(cValue)
 		}
-		# Set the object name 
+		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))
 
 
-	func DialogButtonAction oDesigner,nRow 
+	func DialogButtonAction oDesigner,nRow
 		CommonDialogButtonAction(oDesigner,nRow)
 		switch nRow {
 			case C_AFTERCOMMON+1  	# Toolbar Objects
@@ -7106,23 +7107,23 @@ class FormDesigner_QToolBar from QLabel
 				Last_Window().setMethodName("setToolbarObjectsValue")
 				aList = oDesigner.oModel.GetObjectsNames()
 				# Remove the window Object name
-					del(aList,1)	
-				# Remove the current layout object name 
-					del(aList,std_find(aList,oDesigner.oModel.GetObjectName(self))) 
+					del(aList,1)
+				# Remove the current layout object name
+					del(aList,std_find(aList,oDesigner.oModel.GetObjectName(self)))
 				Last_Window().LoadObjectsData(aList)
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount) 
+		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :Title =  "' + TitleValue() + '"'
 		cOutput += "," + nl + cTabs + ' :ToolbarObjects =  "' + ToolbarObjectsValue() + '"'
 		return cOutput
 
 	func GenerateCode oDesigner
-		cOutput = char(9) + char(9) + 
+		cOutput = char(9) + char(9) +
 		oDesigner.oModel.GetObjectName(self) + " = " +
-		'win.AddToolbar("#{f1}") {			
+		'win.AddToolbar("#{f1}") {
 #{f2}
 		}' + nl
 		cOutput = substr(cOutput,"#{f1}",TitleValue())
@@ -7137,14 +7138,14 @@ class FormDesigner_QToolBar from QLabel
 				if not std_lower(Item) = "separator" {
 					cOutput += 'AddWidget(#{f1})' + nl
 					cOutput = substr(cOutput,"#{f1}",Item)
-				else 
+				else
 					cOutput += 'AddSeparator()' + nl
 				}
 			}
 		}
 		return cOutput
 
-	func RestoreProperties oDesigner,Item 
+	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setTitleValue(itemdata[:Title])
@@ -7164,20 +7165,20 @@ class FormDesignerFileSystem
 			if cInputFileName = NULL { return }
 			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
-		# Delete Objects 
+		# Delete Objects
 			DeleteAllObjects(oDesigner)
-		# Set Default Form Properties 
+		# Set Default Form Properties
 			oDesigner.oView.oSub {
 				blocksignals(True)
-				move(100,100) 
+				move(100,100)
 				resize(400,400)
 				setWindowTitle("Form1")
 				blocksignals(False)
 			}
 			oDesigner.oModel.FormObject().setBackColor("")
-		# Save Form 
+		# Save Form
 			SaveFormToFile(oDesigner)
-		# Properties 
+		# Properties
 			oDesigner.ObjectProperties()
 
 	func AddExtensionToName cInputFileName
@@ -7196,14 +7197,14 @@ class FormDesignerFileSystem
 			LoadFormFromFile(oDesigner)
 
 	func SaveAction oDesigner
-		# Check file not saved before 
+		# Check file not saved before
 			if cFileName = "noname.rform" {
 				SaveFile(oDesigner)
-				return 
+				return
 			}
 		SaveFormToFile(oDesigner)
 
-	func SaveAsAction oDesigner	
+	func SaveAsAction oDesigner
 		SaveFile(oDesigner)
 
 	func SaveFile oDesigner
@@ -7219,25 +7220,25 @@ class FormDesignerFileSystem
 	func SaveFormToFile oDesigner
 		cHeader = "# Start Form Designer File" + nl
 		cEnd = "# End Form Designer File"
-		# Save the Objects Data 
+		# Save the Objects Data
 			cContent = Objects2String(oDesigner,oDesigner.oModel.aObjectsList)
-		# Write the Form File 
+		# Write the Form File
 			cFileContent = cHeader+cContent+cEnd
 			cFileContent = substr(cFileContent,nl,windowsnl())
 			write(cFileName,cFileContent)
-		# Generate Code 
+		# Generate Code
 			oGenerator.Generate(oDesigner,cFileName)
 
 	func Objects2String oDesigner,aObjectsList
 		# Start of The List
 			cContent = "aObjectsList = [" + nl
-		# Objects 
+		# Objects
 			for x = 1 to len(aObjectsList) {
 				aObject  = aObjectsList[x]
-				cObjContent = Copy(char(9),1) + 
+				cObjContent = Copy(char(9),1) +
 				'[ :name = "#{f1}" , :id = #{f2} , :classname = "#{f3}" , :data = [' + nl
 				cObjContent += aObject[2].ObjectDataAsString(oDesigner,2) + nl
-				cObjContent += Copy(char(9),2) +	"]" + nl + Copy(char(9),1) + "]" 
+				cObjContent += Copy(char(9),2) +	"]" + nl + Copy(char(9),1) + "]"
 				cObjContent = substr(cObjContent,"#{f1}",aObject[1])
 				cObjContent = substr(cObjContent,"#{f2}",""+aObject[3])
 				cObjContent = substr(cObjContent,"#{f3}",classname(aObject[2]))
@@ -7247,7 +7248,7 @@ class FormDesignerFileSystem
 				cObjContent += nl
 				cContent += cObjContent
 			}
-		# End of The List 
+		# End of The List
 			cContent += "]" + nl
 		return cContent
 
@@ -7255,36 +7256,36 @@ class FormDesignerFileSystem
 		for x = 2 to len(oDesigner.oModel.aObjectsList) {
 			item = oDesigner.oModel.aObjectsList[x]
 			oObject = item[2]
-			oObject.oCorners.Hide() 
-			oObject.Close() 
+			oObject.oCorners.Hide()
+			oObject.Close()
 		}
 		oDesigner.oModel.DeleteAllObjects()
-		oDesigner.AddObjectsToCombo()		
-			
+		oDesigner.AddObjectsToCombo()
+
 	func LoadFormFromFile oDesigner
 		# Delete objects
 			DeleteAllObjects(oDesigner)
-		# Load the Form Data 
-			eval(read(cFileName))	
-		# Create Objects 
+		# Load the Form Data
+			eval(read(cFileName))
+		# Create Objects
 			CreateFormObjects(oDesigner,aObjectsList)
 
 	func CreateFormObjects oDesigner,aObjectsList
-		# Use the List data to create the objects 
+		# Use the List data to create the objects
 			for item in aObjectsList {
-				cClass = item[:classname] 	
+				cClass = item[:classname]
 				itemdata = item[:data]
 				switch cClass {
 					case :formdesigner_qwidget
 						oDesigner.oView.oSub {
 							blocksignals(True)
-							move(itemdata[:x],itemdata[:y]) 
+							move(itemdata[:x],itemdata[:y])
 							resize(itemdata[:width],itemdata[:height])
 							setWindowTitle(itemdata[:title])
 							show()
 							blocksignals(False)
-						}						
-						oDesigner.oModel.FormObject() { 
+						}
+						oDesigner.oModel.FormObject() {
 							setWindowTitle(itemdata[:title])
 						 	setBackColor(itemdata[:backcolor])
 							setWindowFlagsValue(itemdata[:windowflags])
@@ -7411,12 +7412,12 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddLayout(new FormDesigner_QLayout(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.LayoutsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
-					case :FormDesigner_QTabWidget	
+					case :FormDesigner_QTabWidget
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddTab(new FormDesigner_QTabWidget(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.TabsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
-					case :FormDesigner_QStatusbar	
+					case :FormDesigner_QStatusbar
 						oDesigner.HideCorners()
 						oDesigner.oModel.AddStatusbar(new FormDesigner_QStatusBar(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.StatusBarsCount())
@@ -7426,44 +7427,44 @@ class FormDesignerFileSystem
 						oDesigner.oModel.AddToolbar(new FormDesigner_QToolbar(oDesigner.oModel.CurrentParentByName(itemdata[:parent])))
 						oDesigner.NewControlEvents(item[:name],oDesigner.oModel.ToolbarsCount())
 						oDesigner.oModel.ActiveObject().RestoreProperties(oDesigner,item)
-				}				
+				}
 			}
-		# Objects List 
+		# Objects List
 			oDesigner.AddObjectsToCombo()
 		# Object Properties
 			oDesigner.ObjectProperties()
 
 class FormDesignerCodeGenerator
-	
-	cSourceFileName 
+
+	cSourceFileName
 
 	func Generate oDesigner,cFormFileName
 		cSourceFileName = substr(cFormFileName,".rform","View.ring")
 		cFormName = GetFileNameOnlyWithoutPath(substr(cFormFileName,".rform",""))
 		cClassName = cFormName + "View"
-		# Add the File Header 
+		# Add the File Header
 			cOutput = "# Form/Window View - Generated Source Code File " + nl +
 					"# Generated by the Ring "+version()+" Form Designer" + nl +
 					"# Date : " + date() + nl +
 					"# Time : " + time() + nl + nl
-		# Write general code to show the window 
-			cOutput += 'Load "stdlib.ring"' + nl + 
+		# Write general code to show the window
+			cOutput += 'Load "stdlib.ring"' + nl +
 					'Load "guilib.ring"' + nl + nl +
-					"if IsMainSourceFile() { " + nl + 
-					char(9) + "new qApp {" + nl + 
-					char(9) + char(9) + "StyleFusion()" + nl + 
-					char(9) + char(9) + "new " + cClassName + " { win.show() } " + nl + 
+					"if IsMainSourceFile() { " + nl +
+					char(9) + "new qApp {" + nl +
+					char(9) + char(9) + "StyleFusion()" + nl +
+					char(9) + char(9) + "new " + cClassName + " { win.show() } " + nl +
 					char(9) + char(9) + "exec()" + nl +
-					char(9) + "}" + nl + 
+					char(9) + "}" + nl +
 					 "}" + nl + nl
-		# Write the Class 
+		# Write the Class
 			cOutput += "class " + cClassName + " from WindowsViewParent" + nl +
 					char(9) + "win = new qMainWindow() { " + nl +
 					GenerateWindowCode(oDesigner) +
 					GenerateObjectsCode(oDesigner) +
 					GenerateWindowCodeAfterObjects(oDesigner) +
-					char(9) + "}" + nl + nl	
-		# Add the End of file 
+					char(9) + "}" + nl + nl
+		# Add the End of file
 			cOutput += "# End of the Generated Source Code File..."
 			cOutput = substr(cOutput,nl,WindowsNL())
 			write(cSourceFileName,cOutput)
@@ -7474,7 +7475,7 @@ class FormDesignerCodeGenerator
 
 load "#{f1}View.ring"
 
-if IsMainSourceFile() { 
+if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
 		open_window(:#{f1}Controller)
@@ -7484,10 +7485,10 @@ if IsMainSourceFile() {
 
 class #{f1}controller from windowsControllerParent
 
-	oView = new #{f1}View 
+	oView = new #{f1}View
 `
 			cOutput = substr(cOutput,"#{f1}",cFormName)
-			write(cSourceFileName,cOutput)		
+			write(cSourceFileName,cOutput)
 
 	func GetFileNameOnlyWithoutPath cFileName
 		cFN = cFileName
@@ -7495,7 +7496,7 @@ class #{f1}controller from windowsControllerParent
 		for x = len(cFileName) to 1 step -1 {
 			if cFileName[x] = "/" or cFileName[x] = "\" {
 				cFN = right(cFileName,nCount)
-				exit 	
+				exit
 			}
 			nCount++
 		}
@@ -7517,7 +7518,7 @@ class #{f1}controller from windowsControllerParent
 
 
 class windowflagsView from WindowsViewParent
-	win = new qWidget() { 
+	win = new qWidget() {
 		move(64,40)
 		resize(395,376)
 		setWindowTitle("Window Flags")
@@ -7585,7 +7586,7 @@ class windowflagsView from WindowsViewParent
 			setfont(oFont)
 			setText("Ok")
 			setClickEvent(Method(:okAction))
-			
+
 		}
 		BtnCancel = new qpushbutton(win) {
 			move(309,315)
@@ -7608,12 +7609,12 @@ class windowflagscontroller from windowsControllerParent
 	}
 
 	aTypeList = [ "Qt_Window"  , "Qt_dialog"  , "Qt_sheet"  ,
-			"Qt_Drawer"  , "Qt_popup"  , "Qt_Tool"  , "Qt_ToolTip"  , 
+			"Qt_Drawer"  , "Qt_popup"  , "Qt_Tool"  , "Qt_ToolTip"  ,
 			"Qt_SplashScreen"  ]
 
-	aHintsList = ["Qt_WindowTitleHint"  , 
+	aHintsList = ["Qt_WindowTitleHint"  ,
 			"Qt_WindowSystemMenuHint"  ,
-			"Qt_WindowMinimizeButtonHint"  , 
+			"Qt_WindowMinimizeButtonHint"  ,
 			"Qt_WindowMaximizeButtonHint"  ,
 			"Qt_WindowCloseButtonHint" ,
 			"Qt_WindowContextHelpButtonHint"  ,
@@ -7622,7 +7623,7 @@ class windowflagscontroller from windowsControllerParent
 			"Qt_WindowStaysOnBottomHint"  ,
 			"Qt_CustomizeWindowHint" ]
 
-	cFlags = ""	# The window output 
+	cFlags = ""	# The window output
 
 	func OkAction
 		cFlags = ""
@@ -7632,7 +7633,7 @@ class windowflagscontroller from windowsControllerParent
 			if oView.ListHints.item(x-1).isSelected() {
 				cFlags += " | " + aHintsList[x]
 			}
-		}		
+		}
 		oPropertiesTable = parent().oView.oPropertiesTable
 		# Set the Window Flags
 			oPropertiesTable.Blocksignals(True)
@@ -7645,7 +7646,7 @@ class windowflagscontroller from windowsControllerParent
 		oView.Close()
 
 class windowObjectsView from WindowsViewParent
-	win = new qWidget() { 
+	win = new qWidget() {
 		move(64,40)
 		resize(395,376)
 		setWindowTitle("Window Objects")
@@ -7677,7 +7678,7 @@ class windowObjectsView from WindowsViewParent
 			setfont(oFont)
 			setText("Ok")
 			setClickEvent(Method(:okAction))
-			
+
 		}
 		BtnCancel = new qpushbutton(win) {
 			move(309,315)
@@ -7711,7 +7712,7 @@ class windowObjectscontroller from windowsControllerParent
 		cMethodName = cName
 
 	func LoadObjectsData aList
-		aObjectsList = aList 
+		aObjectsList = aList
 		for item in aObjectsList {
 			oView.ListObjects.AddItem(item)
 		}
@@ -7722,11 +7723,11 @@ class windowObjectscontroller from windowsControllerParent
 			if oView.ListObjects.item(x-1).isSelected() {
 				if not cObjects = NULL {
 					cObjects += "," + aObjectsList[x]
-				else 
+				else
 					cObjects += aObjectsList[x]
 				}
 			}
-		}		
+		}
 		oPropertiesTable = parent().oView.oPropertiesTable
 		# Set the Window Flags
 			oPropertiesTable.Blocksignals(True)
@@ -7740,13 +7741,13 @@ class windowObjectscontroller from windowsControllerParent
 		oView.Close()
 
 class MenubarDesignerView from WindowsViewParent
-	win = new qMainWindow() { 
+	win = new qMainWindow() {
 		move(13,15)
 		resize(740,575)
 		setWindowTitle("Menubar Designer")
-		setstylesheet("background-color:;") 
+		setstylesheet("background-color:;")
 
-		setWindowFlags(Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint) 
+		setWindowFlags(Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint)
 		Label1 = new qlabel(win) {
 			move(8,24)
 			resize(64,27)
@@ -7788,7 +7789,7 @@ class MenubarDesignerView from WindowsViewParent
 			setitemExpandedEvent("")
 			setitemPressedEvent("")
 			setitemSelectionChangedEvent("")
-			
+
 		}
 		Button1 = new qpushbutton(win) {
 			move(595,29)
@@ -7800,7 +7801,7 @@ class MenubarDesignerView from WindowsViewParent
 			setText("New")
 			setClickEvent(Method(:NewAction))
 			setBtnImage(Button1,"")
-			
+
 		}
 		Button2 = new qpushbutton(win) {
 			move(595,73)
@@ -7812,7 +7813,7 @@ class MenubarDesignerView from WindowsViewParent
 			setText("Delete")
 			setClickEvent(Method(:DeleteAction))
 			setBtnImage(Button2,"")
-			
+
 		}
 		Label2 = new qlabel(win) {
 			move(9,362)
@@ -7868,7 +7869,7 @@ class MenubarDesignerView from WindowsViewParent
 			setreturnPressedEvent(Method(:ItemTextChangeAction))
 			setselectionChangedEvent("")
 			settextEditedEvent("")
-			
+
 		}
 		ItemImage = new qlineedit(win) {
 			move(86,405)
@@ -7884,7 +7885,7 @@ class MenubarDesignerView from WindowsViewParent
 			setreturnPressedEvent(Method(:ItemImageChangeAction))
 			setselectionChangedEvent("")
 			settextEditedEvent("")
-			
+
 		}
 		ItemShortcut = new qlineedit(win) {
 			move(86,445)
@@ -7900,7 +7901,7 @@ class MenubarDesignerView from WindowsViewParent
 			setreturnPressedEvent(Method(:ItemShortCutChangeAction))
 			setselectionChangedEvent("")
 			settextEditedEvent("")
-			
+
 		}
 		ItemAction = new qlineedit(win) {
 			move(86,485)
@@ -7916,7 +7917,7 @@ class MenubarDesignerView from WindowsViewParent
 			setreturnPressedEvent(Method(:ItemActionChangeAction))
 			setselectionChangedEvent("")
 			settextEditedEvent("")
-			
+
 		}
 		Button3 = new qpushbutton(win) {
 			move(595,117)
@@ -7928,7 +7929,7 @@ class MenubarDesignerView from WindowsViewParent
 			setText("Close")
 			setClickEvent(Method(:CloseAction))
 			setBtnImage(Button3,"")
-			
+
 		}
 	}
 
@@ -7943,10 +7944,7 @@ class MenubarDesignerController from windowsControllerParent
 	oView.TreeWidget1.addtoplevelitem(oRoot)
 
 	# Object-Text-Image-ShortCut-Action
-		aTreeItems = [[oRoot.pObject,"The Menubar","","",""]] 
-
-	# Menubar String (Input/Output)
-		cMenuString = ""
+		aTreeItems = [[oRoot.pObject,"The Menubar","","",""]]
 
 	// String2Tree( MenuStringforTest() )
 
@@ -7959,7 +7957,7 @@ class MenubarDesignerController from windowsControllerParent
 		oItem.setText(0,cText)
 		oParent.AddChild(oItem)
 		aTreeItems + [oItem.pObject,cText,cImage,cShortcut,cAction]
-		return oItem 
+		return oItem
 
 	func IsRoot
 		oItem = oView.TreeWidget1.currentitem()
@@ -7977,7 +7975,7 @@ class MenubarDesignerController from windowsControllerParent
 
 	func DeleteItemFromList oItem
 		if oItem.ChildCount() > 0 {
-			nCount = oItem.ChildCount() 
+			nCount = oItem.ChildCount()
 			for x=nCount to 1 step -1 {
 				DeleteItemFromList(oItem.child(x-1))
 			}
@@ -7992,9 +7990,9 @@ class MenubarDesignerController from windowsControllerParent
 
 	func ItemClickAction
 		oItem = oView.TreeWidget1.currentitem()
-		if IsRoot() { 
+		if IsRoot() {
 			CleanTextBoxes()
-			return 
+			return
 		}
 		nPos = find(aTreeItems,oItem.pObject,1)
 		oView.	ItemText.setText(aTreeItems[nPos][2])
@@ -8006,20 +8004,20 @@ class MenubarDesignerController from windowsControllerParent
 		oItem = oView.TreeWidget1.currentitem()
 		nPos = find(aTreeItems,oItem.pObject,1)
 		cText = oView.ItemText.Text()
-		if IsRoot() { 
+		if IsRoot() {
 			CleanTextBoxes()
-			return 
+			return
 		}
 		aTreeItems[nPos][2] = cText
-		oItem.setText(0,cText) 
+		oItem.setText(0,cText)
 
-	func ItemImageChangeAction 
+	func ItemImageChangeAction
 		oItem = oView.TreeWidget1.currentitem()
 		nPos = find(aTreeItems,oItem.pObject,1)
 		cText = oView.ItemImage.Text()
-		if IsRoot() { 
+		if IsRoot() {
 			CleanTextBoxes()
-			return 
+			return
 		}
 		aTreeItems[nPos][3] = cText
 
@@ -8027,9 +8025,9 @@ class MenubarDesignerController from windowsControllerParent
 		oItem = oView.TreeWidget1.currentitem()
 		nPos = find(aTreeItems,oItem.pObject,1)
 		cText = oView.ItemShortcut.Text()
-		if IsRoot() { 
+		if IsRoot() {
 			CleanTextBoxes()
-			return 
+			return
 		}
 		aTreeItems[nPos][4] = cText
 
@@ -8038,24 +8036,24 @@ class MenubarDesignerController from windowsControllerParent
 		oItem = oView.TreeWidget1.currentitem()
 		nPos = find(aTreeItems,oItem.pObject,1)
 		cText = oView.ItemAction.Text()
-		if IsRoot() { 
+		if IsRoot() {
 			CleanTextBoxes()
-			return 
+			return
 		}
 		aTreeItems[nPos][5] = cText
 
-	func CloseAction 
-		cMenuString = Tree2String()
-		oView.Close() 
+	func CloseAction
+		parent().oModel.FormObject().setMenubarValue(Tree2String())
+		oView.Close()
 
 	func Tree2String
 		cString = "aMenuData = " + ItemAsString(oRoot)
-		return cString 
+		return cString
 
 	func ItemAsString oItem
 		nPos = find(aTreeItems,oItem.pObject,1)
 		cString = "[ :Text = '#{f1}' , :Image = '#{f2}' ,
-			         :Shortcut = '#{f3}' , :Action = '#{f4}' , 
+			         :Shortcut = '#{f3}' , :Action = '#{f4}' ,
 				:Children = [#{f5}] ]"
 		cString = substr(cString,"#{f1}",aTreeItems[nPos][2])
 		cString = substr(cString,"#{f2}",aTreeItems[nPos][3])
@@ -8070,15 +8068,15 @@ class MenubarDesignerController from windowsControllerParent
 			}
 		}
 		cString = substr(cString,"#{f5}",cChildren)
-		return cString 
+		return cString
 
-	func String2Tree cString 
+	func String2Tree cString
 		cString = Trim(cString)
 		if cString = NULL { return }
 		eval(cString)
 		AddChildren(oRoot,aMenuData[:Children])
 
-	func AddChildren oParent,aChildren 
+	func AddChildren oParent,aChildren
 		for Item in aChildren {
 			cText = Item[:Text]
 			cImage = Item[:Image]
@@ -8117,3 +8115,6 @@ class MenubarDesignerController from windowsControllerParent
                                 :Children = [] ]] ]] ]
 		`
 		return cMenu
+
+	func SetMenubar cMenu
+		String2Tree(cMenu)
