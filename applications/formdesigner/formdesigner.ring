@@ -7949,8 +7949,6 @@ class MenubarDesignerController from windowsControllerParent
 	# Object-Text-Image-ShortCut-Action
 		aTreeItems = [[oRoot.pObject,"The Menubar","","",""]]
 
-	// String2Tree( MenuStringforTest() )
-
 	func NewAction
 		oParent = oView.TreeWidget1.currentitem()
 		AddChild(oParent,"New Item","","","")
@@ -8088,36 +8086,6 @@ class MenubarDesignerController from windowsControllerParent
 			oItem = AddChild(oParent,cText,cImage,cShortcut,cAction)
 			AddChildren(oItem,Item[:Children])
 		}
-
-	func MenuStringforTest
-		cMenu = `
-		aMenuData = [ :Text = 'The Menubar Tree' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [[ :Text = 'File' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [[ :Text = 'New' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [] ],[ :Text = 'Open' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [] ],[ :Text = 'Save' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [] ]] ],[ :Text = 'Edit' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [[ :Text = 'Cut' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [] ],[ :Text = 'Copy' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [] ],[ :Text = 'Paste' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [] ]] ],[ :Text = 'Help' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [[ :Text = 'PDF' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [] ],[ :Text = 'CHM' , :Image = '' ,
-                                 :Shortcut = '' , :Action = '' ,
-                                :Children = [] ]] ]] ]
-		`
-		return cMenu
 
 	func SetMenubar cMenu
 		String2Tree(cMenu)
