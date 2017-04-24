@@ -475,12 +475,11 @@ TimeForFun = <font color="purple">new</font> journey
 }</b>
 <font color="green"># Our Class</font>
 <font color="purple">Class</font> journey
+	hello=0 it=0 is=0 me=0
 	<font color="purple">func</font> GetHello
 		<font color="purple">See</font> "Hello" + nl
 	<font color="purple">func</font> braceEnd
-		<font color="purple">See</font> "Goodbye!" + nl
-	<font color="purple">private</font>
-		hello=0 it=0 is=0 me=0
+		<font color="purple">See</font> "Goodbye!" + nl	
 </pre>
 </p>
 
@@ -530,6 +529,16 @@ aWords = ["hello","it","is","me"]
 
 <font color="purple">Class</font> App
 
+	<font color="green"># Attributes for the instruction I want window</font>
+			i want window
+			nIwantwindow = 0
+	<font color="green"># Attributes for the instruction Window title</font>
+	<font color="green"># Here we don't define the window attribute again</font>
+			title
+			nWindowTitle = 0
+	<font color="green"># Keywords to ignore, just give them any value</font>
+			the=0
+
         <font color="purple">func</font> geti
                 <font color="purple">if</font> nIwantwindow = 0
                         nIwantwindow++
@@ -555,17 +564,7 @@ aWords = ["hello","it","is","me"]
                         <font color="purple">see</font> "Instruction : Window Title = " + cValue + nl
                 <font color="purple">ok</font>
 
-        <font color="purple">private</font>
-
-                <font color="green"># Attributes for the instruction I want window</font>
-                        i want window
-                        nIwantwindow = 0
-                <font color="green"># Attributes for the instruction Window title</font>
-                <font color="green"># Here we don't define the window attribute again</font>
-                        title
-                        nWindowTitle = 0
-                <font color="green"># Keywords to ignore, just give them any value</font>
-                        the=0
+        
 </pre>
 </p>
 
@@ -741,7 +740,7 @@ aList = "nice"
 		<ul>
 		<li>Interpreter-Hybrid Implementation (Compiler+VM)</li>
 		<li>The compiler + The Virtual Machine are 15,000 lines of C code</li>
-		<li>The other 85,000 lines of code are related to libraries!</li>
+		<li>The other 185,000 lines of code are related to libraries!</li>
 		<li>Written in ANSI C (The code is generated)</li>
 		<li>Developed using Visual Programming (PWCT)</li>
 		<li>Portable (Windows, Linux &amp; Mac OS X, Android, etc.)</li>

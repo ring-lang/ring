@@ -25,6 +25,12 @@ INPUT(
 ./release\gtcpsocket.o
 ./release\gallevents.o
 ./release\gnetworkaccessmanager.o
+./release\highlighter.o
+./release\codeeditor.o
+./release\gthread.o
+./release\gplaintextedit.o
+./release\gheaderview.o
+./release\gprocess.o
 ./release\ring_qt.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
@@ -52,4 +58,10 @@ INPUT(
 ./release\moc_gtcpsocket.o
 ./release\moc_gallevents.o
 ./release\moc_gnetworkaccessmanager.o
+./release\moc_highlighter.o
+./release\moc_codeeditor.o
+./release\moc_gthread.o
+./release\moc_gplaintextedit.o
+./release\moc_gprocess.o
+./release\moc_gheaderview.o
 );

@@ -1,8 +1,14 @@
+.. index:: 
+	single: Resources; Introduction
+
 =========
 Resources
 =========
 
 In this section you will find resources about the language
+
+.. index:: 
+	pair: Resources; Ring Language Website
 
 Ring Language Website 
 =====================
@@ -13,6 +19,9 @@ For news about the language check the website
 
 	 http://ring-lang.sf.net
 
+.. index:: 
+	pair: Resources; Ring Group
+
 Ring Group
 ==========
 
@@ -21,10 +30,13 @@ For questions use the Ring Group (English)
 	https://groups.google.com/forum/#!forum/ring-lang
 
 
-Contact the Author
-==================
+.. index:: 
+	pair: Resources; Contact the Autor
 
-Name       : Mahmoud Samir Fayed 
+Contact the Authors
+===================
+
+Name       : Eng. Mahmoud Samir Fayed 
 
 Country    : Egypt
 
@@ -32,4 +44,14 @@ Email      : msfclipper@yahoo.com
 
 Facebook   : https://facebook.com/mahmoudfayed1986
 
-Linkedin   : https://sa.linkedin.com/in/mahmoudfayed1986
+LinkedIn   : https://sa.linkedin.com/in/mahmoudfayed1986
+
+Name       : Dr. Atif M. Alamri
+
+Country    : Saudi Arabia
+
+Email      : atif@ksu.edu.sa
+
+LinkedIn   : https://sa.linkedin.com/in/dr-atif-alamri-8b341747
+
+Ring Team  : http://ring-lang.sourceforge.net/team.html

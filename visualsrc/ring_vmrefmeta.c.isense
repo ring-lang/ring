@@ -199,3 +199,33 @@ Type: VM *
 pVM
 Type: char *
 cStr, *cStr2
+ring_vm_refmeta_packagename
+Type: List *
+pList
+Type: char *
+cStr
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmfileslist
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmcalllist
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmmemorylist
+Type: VM *
+pVM
+Type: List *
+pList, *pList2
+ring_vm_refmeta_ringvmfunctionslist
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmclasseslist
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmpackageslist
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmcfunctionslist
+Type: VM *
+pVM

@@ -1,0 +1,277 @@
+.. index:: 
+	single: Applications developed in little hours; Introduction
+
+=================================================
+Applications developed in little hours
+=================================================
+
+Ring is a new programming language that focuses on the Natural Language Programming and Declarative Programming paradigms 
+and will let you think different about programming and how to solve your problems in a better way. It's just released in 2016.01.25!  
+In little days we got thousands of downloads and many developers started learning and 
+using the language. Their feedback are the secret behind the language progress and success. 
+They said that Ring is powerful, beautiful and easy to learn, Some of them provided good examples about what can be done using Ring in little hours. 
+They are very happy with the language productivity.
+
+.. index:: 
+	pair: Applications developed in little hours; Quotes about Ring
+
+Quotes about Ring
+=================
+
+"I like Smalltalk very much but now I like Ring better!"
+	, Gal Zsolt (Hungary)
+
+"I find the language and its syntax very natural and easy to follow."
+	, Bhudda (United States)
+
+"Very nice approach for a new language."
+	, Matth Moestl (Austria)
+
+"Very interesting! I will keep an eye on it.!"
+	, Eslipak (Argentina)
+
+"I'd like to see some benchmarks. Otherwise, at first glance, it looks really promising."
+	, Alex Deva (Sweden)
+
+"Excellent"
+	, Liju Sankar (United States)
+
+"I wish you the best with this project."
+	, David O'Neil (United States)
+
+"Just fantastic."
+	, Jose Antonio (Mexico)
+
+"This looks like it was developed by some very competent people."
+	, Jim Clack (United States)
+
+"The Ring programming language seems pretty interesting so far."
+	, Eric Johnson (United States)
+
+"Thank you for this awesome language and wonderful ready to use Qt binding."
+	, Martial FAESSEL
+
+"I think it's great what he does for the community of developers and novice programming."
+	, Marino Esteban 
+
+"Ring is just awesome. The language is so cool and fluent. I am sure it's going to be BIG."
+	, Ahmed Zain
+
+"What a proud, really wish you Eng. Mahmoud Samir and Your Team  moving forward  ^_^
+ and from now , considered me a big  fan of the Ring programming language."
+	, Zainab Mahmoud
+
+"Well guys I love this language and it appears that you have created perfect language."
+	, Moemen Ghulmi
+
+"Good work Mahmoud, I've installed ring pl, and it's very perfect language."
+	, Ahmed Omar (Egypt)
+
+"Thanks for this great startup programming language. I wish you best of luck."
+	, Elkhouaja Khalid
+
+"Congratulations! I am very happy and I wish you Success and good luck."
+	, Abobasmla Hassan
+
+"Good Features of multi-use language on the Web, Mobile and Desktop."
+	, Abdelrhman Haider
+
+"Very interesting effort."
+	, Giannakakis Kostas (Greece)
+
+"I am too lazy to open comment window and write message.
+But in your case I must say "Perfect"
+Really, create new remarkable language like your Ring is
+really perfect job. Even create editor for your language
+in your language with only few rows...
+Even noticed in rosettacode.org !
+
+I read your previous articles and I tried these examples
+a few days ago and I will continue. I love Ring.
+
+P.S.: Anders Hejlsberg, Niklaus Wirth, Bjarne Stroustrup, Ada Lovelace
+Hall of fame is waiting...."
+	, Martin Nedopil (Czech Republic )
+
+"Ring seems very attractive to me through its very easy design and the Qt bindings. 
+I like its declarative approach and the generous documentation."
+	, Shalok Shalom (Austria)
+
+"Ring (and plenty of extension library + Qt) is wonderful."
+	, Kovacs Attila (Hungary)
+
+"Since two days I'm trying Ring and I'm really impressed, in add to power
+commands and easy use, it's really very efficient and very fast.
+
+Each day I hope to find the couple of the year PWCT+RING ... Maybe for my
+Christmas gift!!!!  HO HO HO HO
+
+Continue your fantastic job and congratulations."
+	, Jose Le Roux (France)
+
+"I was taking a tour around Rosettacode and have found Ring. 
+I like the syntax a lot. It's clean and easy to understand.
+It looks like a very clean BASIC dialect without sigils.
+I can say that this is the easiest and the most BASIC-like language I've ever tried."
+	, Tomaaz 
+
+"Thanks for this wonderful language"
+	, Vinod kc (India)
+
+"Very enlightening. good job!"
+	, Southmountain (United States)
+
+"The thing I liked was the loop exiting"
+	, leon de boer (Australia)
+
+.. index:: 
+	pair: Applications developed in little hours; FetchStockData Application
+
+FetchStockData Application
+==========================
+
+URL : https://groups.google.com/forum/#!topic/ring-lang/-fa1U_SXSjo
+
+Author : Bert Mariani
+
+This App is written in Ring. 
+
+It will fetch stock data from Yahoo and draw various types of charts.
+Any valid stock ticker can be entered, or selected from the drop down list - Select Symbol.
+
+It will not guarantee that you make money in the stock market.
+But it will visualize the history of the stock.
+
+
+.. image:: ringapps_shot3.png
+	:alt: Ring Application
+
+
+.. index:: 
+	pair: Applications developed in little hours; Fifteen Puzzle Game
+
+Fifteen Puzzle Game
+===================
+
+URL : https://github.com/CalmoSoft/CalmoSoft-Fifteen-Puzzle-Game/blob/gh-pages/CalmoSoftPuzzle.ring
+
+Author : Gal Zsolt (CalmoSoft)
+
+.. image:: ringapps_shot6.jpg
+	:width: 200pt
+	:height: 200pt
+	:alt: Ring Application
+
+
+.. index:: 
+	pair: Applications developed in little hours; TicTacToe Game
+
+TicTacToe Game
+==============
+
+URL : https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/TecTacToe.ring
+
+Author : Abdelrahman Mohammed
+
+.. image:: ringapps_shot5.jpg
+	:width: 200pt
+	:height: 200pt
+	:alt: Ring Application
+
+
+.. index:: 
+	pair: Applications developed in little hours; Squares Puzzle Game
+
+Squares Puzzle Game
+===================
+
+URL : https://github.com/MajdiSobain/RingAllegro_SquaresPuzzle
+
+Author : Majdi Sobain
+
+This project is about (Squares Puzzle) popular game that I have programmed using
+ring language with its RingAllegro Library. The principle of this game is very known to all of us, 
+which is moving squares to get the real full shape of the original picture.
+
+This game could be played using mouse and keyboard as well, showing a message of congratulations at the successful solving.
+
+.. image:: ringapps_shot2.png
+	:width: 200pt
+	:height: 200pt
+	:alt: Ring Application
+
+
+.. index:: 
+	pair: Applications developed in little hours; Werdy Application
+
+
+Werdy Application
+=================
+
+URL : http://werdy.info
+
+Source Code : https://github.com/magdy-ragab/werdy
+
+Author : Magdy Ragab
+
+Quran application includes reading suras, searching and bookmarking.
+
+The applcation is provided for Windows, Linux and Android.
+
+.. image:: ringapps_shot1.png
+	:width: 300pt
+	:height: 300pt
+	:alt: Ring Application
+
+.. index:: 
+	pair: Applications developed in little hours; Samples in this book
+
+Samples in this book
+====================
+
+The next samples are developed in little hours and we will introduce them through this book.
+
+The next screen shot for he Ring Notepad application
+
+.. image:: shotringnotepad.png
+	:alt: Ring Application
+
+The next screen shot for the Cards Game
+
+.. image:: ringapps_shot4.png
+	:alt: Ring Application
+
+The next screen shot for the Cards Game (Android)
+
+.. image:: ringqt_shot52.jpg
+	:alt: Ring Application
+
+The next screen shot from the Web Development chapter
+
+.. image:: ex24_2.jpg
+	:alt: Ring Application
+
+The next screen shots for simple 2D Games that we will present in the Game Engine Chapter.
+
+Stars Fighter Game
+
+.. image:: starsfighter.png
+	:width: 250pt
+	:height: 150pt
+	:alt: Ring Application
+
+Flappy Bird 3000 Game
+
+.. image:: flappybird.png
+	:width: 250pt
+	:height: 150pt
+	:alt: Ring Application
+
+Super Man 2016 Game
+
+.. image:: superman.png
+	:width: 250pt
+	:height: 150pt
+	:alt: Ring Application
+
+

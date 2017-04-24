@@ -1,21 +1,117 @@
+.. index:: 
+	single: Web Development (CGI Library); Introduction
+
 =============================
 Web Development (CGI Library)
 =============================
 
 In this chapter we will learn about developing Web applications using a CGI Library written in the Ring language.
 
+
+.. index:: 
+	pair: Web Development (CGI Library); Configure the Apache web server
+
+Configure the Apache web server
+===============================
+
+We can use Ring with any web server that support CGI. 
+In this section we will learn about using Ring with the Apache HTTP Server.
+
+You can download Apache from : http://httpd.apache.org/
+
+Or you can get it included with other projects like 
+
+XAMPP : https://www.apachefriends.org/download.html
+
+Install then open the file: 
+
+.. code-block:: none
+
+	xampp\apache\conf\httpd.conf
+
+search for 
+
+.. code-block:: none
+
+	<Directory />
+
+Then after it add
+
+.. code-block:: none
+	
+	Options FollowSymLinks +ExecCGI
+
+So we have
+
+.. code-block:: none
+
+	<Directory />
+	Options FollowSymLinks +ExecCGI
+
+Search for the next line and be sure that it's not commented
+
+.. code-block:: none
+
+	LoadModule cgi_module modules/mod_cgi.so
+
+Search for : AddHandler cgi-script
+
+Then add ".ring" to the supported cgi extensions 
+
+Example
+
+.. code-block:: none
+
+	AddHandler cgi-script .cgi .ring
+
+Example
+
+.. code-block:: none
+
+	AddHandler cgi-script .cgi .pl .asp .ring
+
+Run/Start the server 
+
+Create your web applications in a directory supported by the web server.
+
+Example: 
+
+.. code-block:: none
+
+	Apache2.2\htdocs\mywebapplicationfolder
+
+Example: 
+
+.. code-block:: none
+
+	xampp\htdocs\mywebapplicationfolder
+
+Inside the source code file (*.ring), Add this line
+
+.. code-block:: ring
+
+	#!c:\ring\bin\ring.exe -cgi
+
+.. note:: Change the previous line based on the path to ring.exe in your machine
+
+.. index:: 
+	pair: Web Development (CGI Library); Ring CGI Hello World Program
+
 Ring CGI Hello World Program
 ============================
 
 The next program is the Hello World program 
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 
 	See "content-type : text/html" +nl+nl+
 	    "Hello World!" + nl
 
+
+.. index:: 
+	pair: Web Development (CGI Library); Hello World Program using the Web Library 
 
 Hello World Program using the Web Library 
 =========================================
@@ -24,9 +120,9 @@ We can use the web library to write CGI Web applications quickly
 
 Example (1) :
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 
 	Load "weblib.ring"
 
@@ -40,9 +136,9 @@ Example (1) :
 
 Example (2) :
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 
 	Load "weblib.ring"
 
@@ -55,6 +151,9 @@ Example (2) :
 
 .. tip:: the difference between ex. 1 and ex. 2 is using WebPage() function to
 	 return the page object instead of creating the object using new statement.
+
+.. index:: 
+	pair: Web Development (CGI Library); Web Library Features
 
 Web Library Features
 ====================
@@ -71,14 +170,17 @@ The next features are provided by the Web library to quickly create web applicat
 * CRUD MVC Sample
 * Users Logic & Registration Sample
 
+.. index:: 
+	pair: Web Development (CGI Library); HTTP Get Example
+
 HTTP Get Example
 ================
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New Page
@@ -190,9 +292,9 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New Page
@@ -250,14 +352,17 @@ Screen Shot:
 .. image:: ex5.jpg
 	:alt: HTTP Get
 
+.. index:: 
+	pair: Web Development (CGI Library); HTTP POST Example
+
 HTTP POST Example
 =================
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New Page 
@@ -289,9 +394,9 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New Page 
@@ -316,14 +421,17 @@ Screen Shot:
 .. image:: ex7.jpg
 	:alt: HTTP Post
 
+.. index:: 
+	pair: Web Development (CGI Library); Upload Files
+
 Upload Files
 ============
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 	New page 
@@ -352,9 +460,9 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -400,15 +508,17 @@ Screen Shot:
 .. image:: ex9.jpg
 	:alt: Upload File
 
+.. index:: 
+	pair: Web Development (CGI Library); Cookies
 
 Cookies
 =======
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -431,9 +541,9 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -458,14 +568,17 @@ Screen Shot:
 .. image:: ex11.jpg
 	:alt: Cookies
 
+.. index:: 
+	pair: Web Development (CGI Library); URL Encode
+
 URL Encode
 ==========
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -490,6 +603,9 @@ Screen Shot:
 .. image:: ex12r.jpg
 	:alt: URL Encode
 
+
+.. index:: 
+	pair: Web Development (CGI Library); Templates
 
 Templates
 =========
@@ -526,9 +642,9 @@ The HTML Code
 
 The Ring Code
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -573,6 +689,9 @@ Screen Shot:
 .. image:: ex13.jpg
 	:alt: Templates
 
+.. index:: 
+	pair: Web Development (CGI Library); HTML Special Characters
+
 HTML Special Characters
 =======================
 
@@ -580,9 +699,9 @@ The text() function display HTML special characters.
 
 If you want to write html code, use the html() function.
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -607,14 +726,17 @@ Screen Shot:
 	:alt: HTML Special Characters
 
 
+.. index:: 
+	pair: Web Development (CGI Library); Hash Functions
+
 Hash Functions
 ==============
 
 The Page User Interface
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -646,9 +768,9 @@ Screen Shot:
 
 The Response
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -682,12 +804,15 @@ Screen Shot:
 .. image:: ex16.jpg
 	:alt: Hash Functions
 
+.. index:: 
+	pair: Web Development (CGI Library); Random Image
+
 Random Image
 ============
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -719,6 +844,9 @@ Screen Shot:
 .. image:: ex17.jpg
 	:alt: Random Image
 
+.. index:: 
+	pair: Web Development (CGI Library); HTML Lists
+
 HTML Lists
 ==========
 
@@ -735,9 +863,9 @@ To end the list we uses the ulend() function.
 
 We uses listart() and liend() to determine the list item.
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -768,6 +896,9 @@ Screen Shot:
 .. image:: ex18.jpg
 	:alt: HTML Lists
 
+.. index:: 
+	pair: Web Development (CGI Library); HTML Tables
+
 HTML Tables
 ===========
 
@@ -775,9 +906,9 @@ In this example we will learn how to generate HTML tables using the
 tablestart(), tableend(), rowstart(), rowend() ,headerstart(), headerend(), cellstart()
 and cellend() functions.
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -807,6 +938,9 @@ Screen Shot:
 	:alt: HTML Tables
 
 
+.. index:: 
+	pair: Web Development (CGI Library); Gradient
+
 Gradient
 ========
 
@@ -814,9 +948,9 @@ In this example we will learn how to use the StyleGradient() function.
 
 The function takes the style number as input (range from 1 to 60).
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -841,6 +975,9 @@ Screen Shot:
 .. image:: ex20.jpg
 	:alt: Gradient
 
+.. index:: 
+	pair: Web Development (CGI Library); Generating Pages using Objects
+
 Generating Pages using Objects
 ==============================
 
@@ -852,9 +989,9 @@ This choice means more beautiful code but slower.
 The fastest method is to print HTML code directly, then using functions then using
 templates then using objects (slower).
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -1004,15 +1141,17 @@ Screen Shot:
 .. image:: ex21_2.jpg
 	:alt: Using Objects - part 2
 
+.. index:: 
+	pair: Web Development (CGI Library); Using Bootstrap Library using Functions
 
 Using Bootstrap Library using Functions
 =======================================
 
 The next example uses the Bootstrap JavaScript Library when generating the HTML page.
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -1045,6 +1184,9 @@ Screen Shot:
 .. image:: ex22.jpg
 	:alt: Bootstrap
 
+.. index:: 
+	pair: Web Development (CGI Library); Using Bootstrap Library using Objects
+
 Using Bootstrap Library using Objects
 =======================================
 
@@ -1052,9 +1194,9 @@ The next example uses the Bootstrap JavaScript Library when generating the HTML 
 
 Instead of using functions to generate the HTML elements, we will use objects.
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Import System.Web
 
@@ -1176,6 +1318,9 @@ Screen Shot:
 .. image:: ex23.jpg
 	:alt: Bootstrap Page using Objects
 
+.. index:: 
+	pair: Web Development (CGI Library); CRUD Example using MVC
+
 CRUD Example using MVC
 ======================
 
@@ -1199,9 +1344,9 @@ The method AddFuncScript is used to call the form for adding/modifying record da
 The method FormViewContent is used to determine the controls in the form when we add or
 modify a record.
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Import System.Web
@@ -1257,6 +1402,9 @@ Screen Shot:
 .. image:: ex24_2.jpg
 	:alt: Salary Table - Search
 
+.. index:: 
+	pair: Web Development (CGI Library); Users registration and Login
+
 Users registration and Login
 ============================
 
@@ -1265,7 +1413,7 @@ like username & email.
 
 The next code is stored in ex25_users.ring
 
-.. code-block:: none
+.. code-block:: ring
 
 	Class UsersModel from ModelBase
 	  cSearchColumn = "username"
@@ -1317,9 +1465,9 @@ In the file ex25.ring we load ex25_users.ring then create an object from UsersCo
 
 Using the created object, we call the routing method.
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Load "ex25_users.ring"
@@ -1335,9 +1483,9 @@ Screen Shot:
 	
 See the next code for the registration page
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Import System.Web
@@ -1401,9 +1549,9 @@ Screen Shot:
 
 The Registration response
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Load "ex25_users.ring"
@@ -1440,9 +1588,9 @@ The Registration response
 
 See the next code for the Login page
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 
@@ -1499,9 +1647,9 @@ Screen Shot:
 
 The response page
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Load "ex25_users.ring"
@@ -1529,9 +1677,9 @@ The response page
 
 The next code for checking if the user needs to login or not
 
-.. code-block:: none
+.. code-block:: ring
 
-	#!b:\mahmoud\apps\ring\ring.exe -cgi
+	#!c:\ring\bin\ring.exe -cgi
 	Load "weblib.ring"
 	Load "datalib.ring"
 	Load "ex25_users.ring"
@@ -1550,6 +1698,9 @@ The next code for checking if the user needs to login or not
 	}
 	oUser.Disconnect()
 
+.. index:: 
+	pair: Web Development (CGI Library); Database, ModelBase & ControllerBase classes
+
 Database, ModelBase & ControllerBase classes
 ============================================
 
@@ -1557,7 +1708,7 @@ In this section we will see some code from datalib.ring
 
 The next code presents the Database, ModelBase & ControllerBase classes
 
-.. code-block:: none
+.. code-block:: ring
 
 	Import System.Web
 
@@ -1841,6 +1992,9 @@ The next code presents the Database, ModelBase & ControllerBase classes
 
 		oModel.Disconnect()
 
+.. index:: 
+	pair: Web Development (CGI Library); WebLib API
+
 WebLib API
 ==========
 
@@ -1903,6 +2057,9 @@ Span			Wraps HTML Span.
 Button			Wraps HTML Button.
 =====================	========================================================	
 
+.. index:: 
+	pair: Web Development (CGI Library); Application Class
+
 Application Class
 =================
 
@@ -1931,6 +2088,9 @@ The methods SetCookie, Cookie & GetCookies are used for adding and reading cooki
 The methods StartHTML, ScriptsLibs, Style & Print are used for page structure and JS/CSS support.
 
 The method URLEncode is used to encode a URL to be used in HTML pages.
+
+.. index:: 
+	pair: Web Development (CGI Library); Page Class
 
 Page Class
 ==========
@@ -1997,7 +2157,7 @@ HeaderEnd		None					HTML </th>
 aPara in the page methods is a list contains attributes and values.
 Using aPara we can set values for the next attributes
 
-.. code-block:: none 
+.. code-block:: ring 
 
 	classname id name align style dir value onclick oncontextmenu ondblclick
 	onmousedown onmouseenter onmouseleave onmousemove onmouseover onmouseout
@@ -2053,6 +2213,9 @@ Using aPara we can set values for the next attributes
 	dataride datatarget dataslideto dataslide datadismiss dataplacement datacontent
 	datatrigger dataspy dataoffset dataoffsettop
 
+.. index:: 
+	pair: Web Development (CGI Library); ScriptFunctions Class
+
 ScriptFunctions Class
 =====================
 
@@ -2073,6 +2236,9 @@ ScriptFuncClean		cFuncName,cDiv						Define function cFuncName that clear the cD
 ScriptFuncSelect	cF,aL,cD,cR,cGR,cFC,nTO,cL1,cL2				Used to Edit/Delete Grid Record
 ScriptScrollFixed 	cDiv,nSize						Set cDiv as Fixed Div with Size = nSize
 ==================	==============================================		============================================================
+
+.. index:: 
+	pair: Web Development (CGI Library); StyleFunctions Class
 
 StyleFunctions Class
 ====================

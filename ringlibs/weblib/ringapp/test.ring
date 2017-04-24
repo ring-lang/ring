@@ -1,4 +1,5 @@
 #!b:\ring\bin\ring.exe -cgi
+
 Load "weblib.ring"
 
 webpage() {

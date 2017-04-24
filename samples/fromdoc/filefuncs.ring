@@ -1,10 +1,10 @@
-See "Testing file functions" + nl
+See "testing file functions" + nl
 
 See "open file" + nl
-fp = fopen("tests\s65.ring","r")
+fp = fopen(exefolder() + "../tests/scripts/s65.ring","r")
 
 See "reopen" + nl
-fp = freopen("tests\s78.ring","r",fp)
+fp = freopen(exefolder() + "../tests/scripts/s78.ring","r",fp)
 See "close file" + nl
 fclose(fp)
 
@@ -15,12 +15,12 @@ fclose(fp)
 see "temp name" + nl
 see tempname() + nl
 
-remove("tests\mytest1.txt")
-write("tests\test1.txt","hello")
-rename("tests\test1.txt","tests\mytest2.txt")
+remove(exefolder() + "../tests/scripts/mytest2.txt")
+write(exefolder() + "../tests/scripts/tests1.txt","hello")
+rename(exefolder() + "../tests/scripts/test1.txt",exefolder() + "../tests/scripts/mytests2.txt")
 
 see "print file" + nl
-fp = fopen("tests\file.ring","r")
+fp = fopen(exefolder() + "../samples/fromdoc/filefuncs.ring","r")
 r = fgetc(fp)
 while isstring(r)
         see r
@@ -29,24 +29,23 @@ end
 fclose(fp)
 
 see nl+"print line from the file" + nl
-fp = fopen("tests\file.ring","r")
-r = fgets(fp,100)
-see r
+fp = fopen(exefolder() + "../samples/fromdoc/filefuncs.ring","r")
+r = fgets(fp,33)
+see r + nl
 fclose(fp)
-
-fp = fopen("tests\myfile.txt","rw+")
+fp = fopen(exefolder() + "../tests/scripts/test78.txt","w+")
 fseek(fp,0,2) # goto end of file
 fputc(fp,"t")
 fputc(fp,"e")
 fputc(fp,"s")
 fputc(fp,"t")
-fputs(fp,"test2")
+fputs(fp,"tests2")
 fclose(fp)
 
 see "print file" + nl
-see read("tests\myfile.txt")
+see read(exefolder() + "../tests/scripts/test78.txt")
 
-fp = fopen("tests\myfile.txt","r")
+fp = fopen(exefolder() + "../tests/scripts/test78.txt","r")
 see "testing ungetc() " + nl
 for x = 1 to 3
         r = fgetc(fp)
@@ -56,12 +55,12 @@ next
 fclose(fp)
 
 see "testing fread() " + nl
-fp = fopen("ring.exe","r")
+fp = fopen(exefilename(),"rb")
 r = fread(fp,100)
 see r + nl
 fclose(fp)
 
 see "testing fwrite() " + nl
-fp = fopen("tests\myfile.txt","wb")
+fp = fopen(exefolder() + "../tests/scripts/test1.txt","wb")
 fwrite(fp,r)
 fclose(fp)

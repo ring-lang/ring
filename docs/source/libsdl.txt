@@ -1,3 +1,6 @@
+.. index:: 
+	single: RingLibSDL; Introduction
+
 =================
 Using RingLibSDL
 =================
@@ -5,12 +8,19 @@ Using RingLibSDL
 In this chapter we will learn about using RingLibSDL to create games based on the
 LibSDL, SDLImage, SDLTTF and SDLMixer libraries.
 
+.. tip:: RingLibSDL is not distributed with the binary releases for desktop which uses RingAllegro
+
+.. note:: To use RingLibSDL, Check ring/android/ringlibsdl folder.
+
+.. index:: 
+	pair: RingLibSDL; Create Window
+
 Create Window
 =============
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -20,12 +30,15 @@ Example:
 	SDL_DestroyWindow(win)
 	SDL_Quit()
 
+.. index:: 
+	pair: RingLibSDL; Display Image
+
 Display Image
 =============
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -44,12 +57,15 @@ Example:
 	SDL_DestroyWindow(win)
 	SDL_Quit()
 
+.. index:: 
+	pair: RingLibSDL; Switch Between Two Images
+
 Switch between two images
 =========================
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -77,12 +93,15 @@ Example:
 		SDL_RenderPresent(ren)
 		SDL_Delay(200)
 
+.. index:: 
+	pair: RingLibSDL; Draw Rectangle
+
 Draw Rectangle
 ==============
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -104,12 +123,15 @@ Example:
 	SDL_DestroyWindow(win)
 	SDL_Quit()
 
+.. index:: 
+	pair: RingLibSDL; Display PNG Images
+
 Display PNG Images
 ==================
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -128,12 +150,15 @@ Example:
 	SDL_DestroyWindow(win)
 	SDL_Quit()
 
+.. index:: 
+	pair: RingLibSDL; Use TTF Fonts
+
 Use TTF Fonts
 =============
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -161,12 +186,15 @@ Example:
 	SDL_DestroyWindow(win)
 	SDL_Quit()
 
+.. index:: 
+	pair: RingLibSDL; Display Transparent Images
+
 Display Transparent Images
 ==========================
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -217,12 +245,15 @@ Example:
 	SDL_DestroyWindow(win)
 	SDL_Quit()
 
+.. index:: 
+	pair: RingLibSDL; Close Window Event
+
 Close Window Event
 ==================
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -245,12 +276,15 @@ Example:
 	SDL_DestroyWindow(win)
 	SDL_Quit()
 
+.. index:: 
+	pair: RingLibSDL; Mouse Events
+
 Mouse Events
 ============
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 
@@ -314,12 +348,15 @@ Example:
 		SDL_UpdateWindowSurface(win)
 		SDL_FreeSurface(text)
 
+.. index:: 
+	pair: RingLibSDL; Play Sound
+
 Play Sound
 ==========
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "libsdl.ring"
 

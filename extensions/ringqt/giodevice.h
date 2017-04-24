@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GIODEVICE_H
 #define GIODEVICE_H
 #include <QApplication>
@@ -17,6 +17,8 @@ class GIODevice : public QIODevice
 
     VM *pVM;
 
+    List *pParaList;
+
     char caboutToCloseEvent[100];
     char cbytesWrittenEvent[100];
     char creadChannelFinishedEvent[100];
@@ -25,10 +27,20 @@ class GIODevice : public QIODevice
 
     GIODevice(QObject *parent,VM *pVM );
 
+    ~GIODevice();
+
+    void geteventparameters(void) ;
+
     void setaboutToCloseEvent(const char *cStr);
     void setbytesWrittenEvent(const char *cStr);
     void setreadChannelFinishedEvent(const char *cStr);
     void setreadyReadEvent(const char *cStr);
+
+
+    const char *getaboutToCloseEvent(void);
+    const char *getbytesWrittenEvent(void);
+    const char *getreadChannelFinishedEvent(void);
+    const char *getreadyReadEvent(void);
 
 
   public slots:

@@ -8,7 +8,7 @@ ring_objfile_writelist
 Type: List *
 pList2
 Type: int
-x,x2,x3
+x,x2
 Type: char *
 cString
 Type: char
@@ -20,7 +20,7 @@ c
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack
 Type: int
-nActiveList,nValue,nBraceEnd,x3
+nActiveList,nValue,nBraceEnd
 Type: double
 dValue
 Type: char *

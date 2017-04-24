@@ -2,17 +2,75 @@
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
 Load "guilib.ring"
+Load "stdlib.ring"
 
 cActiveFileName = ""
 aTextColor = [0,0,0]  
 aBackColor = [255,255,255]
 cFont = "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0"
 cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
-cStartUpFolder = exefolder()
+cCurrentDir = CurrentDir() + "/"	# The Ring Notepad Folder
+cStartUpFolder = exefolder() + "/../applications/"
 lShowProject = True
 lShowSourceCode = True
 lShowBrowser = True
+lShowFunctionsList = False
+lShowOutputWindow = False
+lShowClassesList = False
+nTabSpaces = 0
+aBrowserLinks = [
+	["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
+	["Localhost","http://localhost"],
+	["Ring Website","http://ring-lang.sf.net"],
+	["Ring Group (Google Groups)","https://groups.google.com/forum/#!forum/ring-lang"],
+	["Ring Source Code (GitHub)","https://github.com/ring-lang/ring"],
+	["Ring Samples (Rosetta Code)","https://rosettacode.org/wiki/Category:Ring"],
+	["Ring Resources","http://ring-lang.sourceforge.net/resources.html"],
+	["Ring Team","http://ring-lang.sourceforge.net/team.html"]
+]
 
+# Define Colors
+	colordarkBlue   	= new qcolor() { setrgb(0,0,128,255) }  
+	colordarkMagenta 	= new qcolor() { setrgb(128,0,128,255) }
+	colorRed    		= new qcolor() { setrgb(255,000,000,255) }
+	colorDarkGreen  	= new qcolor() { setrgb(000,128,000,255) }
+	colorGreen	  	= new qcolor() { setrgb(000,255,000,255) }
+	colorBlue   		= new qcolor() { setrgb(000,000,255,255) }
+	colorCyan   		= new qcolor() { setrgb(000,255,255,255) }
+	colorWhite  		= new qColor() { setrgb(255,255,255,255) }
+	colorBlack  		= new qColor() { setrgb(0,0,0,255) }
+	colorSilver 		= new qColor() { setrgb(128,128,128,255) }
+
+# Default Editor Style Colors
+	aStyleColors = [
+		:LineNumbersAreaColor 		= colorBlack ,
+		:LineNumbersAreaBackColor 	= colorCyan,
+		:ActiveLineBackColor 		= colorCyan,
+		:SyntaxKeywordsColor		= colordarkBlue,
+		:SyntaxClassNamesColor 		= ColordarkMagenta,
+		:SyntaxCommentsColor 		= ColorRed,
+		:SyntaxLiteralsColor 		= ColorDarkGreen,
+		:SyntaxFunctionCallsColor 	= ColorBlue
+	]
+
+# Custom Editor Style Color
+	# Switch to Use the Style or Not
+		lUseCustomStyleColors = False
+	aCustomStyleColors = [
+		:LineNumbersAreaColor 		= colorWhite ,
+		:LineNumbersAreaBackColor 	= colordarkBlue,
+		:ActiveLineBackColor 		= colordarkBlue,
+		:SyntaxKeywordsColor		= colorWhite,	
+		:SyntaxClassNamesColor 		= ColorWhite,		
+		:SyntaxCommentsColor 		= ColorSilver,	
+		:SyntaxLiteralsColor 		= ColorCyan,	
+		:SyntaxFunctionCallsColor 	= ColorGreen	
+	]
+	if lUseCustomStyleColors
+		aStyleColors = aCustomStyleColors
+	ok
+
+cSettingsFile = cCurrentDir + "ringnotepad.ini"
 LoadSettings()
 
 oSearch = NULL
@@ -21,9 +79,21 @@ oSearchCase = NULL
 oSearchFilter = NULL
 oReplaceValue = NULL
 
+cSearchText = ""
+cReplaceText = ""
+
 lAskToSave = false
 
+# Hash Table contains the File Name and the Line Number 
+
+aFilesLines = []	# Used to remember the current line when we switch between many files
+
+# For Auto-Complete
+oAutoCompleteList = NULL
+nAutoCompleteListSize = 0
+
 MyApp = New qApp {
+	PrepareAutoComplete()
 	win1 = new qMainWindow() {
 		oFilter = new qAllEvents(win1)
 		oFilter.setCloseEvent("pSaveSettingsToFile()")
@@ -51,6 +121,11 @@ MyApp = New qApp {
 					setclickevent("pSaveAs()")
 					settooltip("Save As")
 				 } ,
+				new qpushbutton(win1) { 
+					setbtnimage(self,"image/undo.png") 
+					setclickevent("pUndo()")
+					settooltip("Undo")
+				} ,
 				new qpushbutton(win1) { 
 					setbtnimage(self,"image/cut.png")
 					setclickevent("pCut()")
@@ -113,11 +188,14 @@ MyApp = New qApp {
 		}
 
 		menu1 = new qmenubar(win1) {		
-			sub1 = addmenu("File")
-			sub2 = addmenu("Edit")
-			sub3 = addmenu("View")
-			sub4 = addmenu("Help")
-			sub1 { 
+			subFile = addmenu("File")
+			subEdit = addmenu("Edit")
+			subView = addmenu("View")
+			subProgram = addmenu("Program")
+			subBrowser = addmenu("Browser")	
+			subTools = addmenu("Tools")
+			subHelp = addmenu("Help")
+			subFile { 
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+n"))
 					setbtnimage(self,"image/new.png")
@@ -157,30 +235,6 @@ MyApp = New qApp {
 				}
 				addaction(oAction)
 				addseparator()
-				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+d"))
-					setbtnimage(self,"image/debug.png")
-					settext("Debug (Run then wait!)")
-					setclickevent("pDebug()")
-				}
-				addaction(oAction)
-				addseparator()
-				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+r"))
-					setbtnimage(self,"image/run.png")
-					settext("Run")
-					setclickevent("pRun()")
-				}
-				addaction(oAction)
-				addseparator()
-				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+F5"))
-					setbtnimage(self,"image/run.png")
-					settext("Run GUI Application (No Console)")
-					setclickevent("pRunNoConsole()")
-				}
-				addaction(oAction)	
-				addseparator()
 				oAction = new qaction(win1) {
 					setShortcut(new QKeySequence("Ctrl+q"))
 					setbtnimage(self,"image/close.png") 
@@ -190,7 +244,15 @@ MyApp = New qApp {
 				}
 				addaction(oAction)
 			}
-			sub2 { 
+			subEdit { 
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+z"))
+					setbtnimage(self,"image/undo.png")
+					settext("Undo")
+					setclickevent("pUndo()")
+				}
+				addaction(oAction)
+				addseparator()
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+x"))
 					setbtnimage(self,"image/cut.png")
@@ -249,15 +311,23 @@ MyApp = New qApp {
 					setclickevent("pFind()")
 				}
 				addaction(oAction)
-			}				
-			sub3 {
+				addseparator()
 				oAction = new qAction(win1) {
-					setShortcut(new QKeySequence("Ctrl+p"))
+					setShortcut(new QKeySequence("Ctrl+h"))
+					settext("Set Tab Width")
+					setclickevent("pTabWidth()")
+				}
+				addaction(oAction)
+			}				
+			subView {
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+j"))
 					setbtnimage(self,"image/project.png")
 					settext("Project Files")
 					setclickevent("pProject()")
 				}
 				addaction(oAction)			
+				addseparator()	
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+u"))
 					setbtnimage(self,"image/source.png")
@@ -265,17 +335,105 @@ MyApp = New qApp {
 					settext("Source Code")
 				}
 				addaction(oAction)	
+				addseparator()	
 				oAction = new qAction(win1) {
 					setShortcut(new QKeySequence("Ctrl+w"))
 					setbtnimage(self,"image/richtext.png")
 					setclickevent("pWebBrowser()")
 					settext("Web Browser")
 				}
+				addaction(oAction)
+				addseparator()	
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Alt+f"))
+					setbtnimage(self,"image/source.png")
+					setclickevent("pFunctionsList()")
+					settext("Functions List")
+				}
+				addaction(oAction)		
+				addseparator()	
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Alt+c"))
+					setbtnimage(self,"image/source.png")
+					setclickevent("pClassesList()")
+					settext("Classes List")
+				}
+				addaction(oAction)		
+				addseparator()	
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Alt+o"))
+					setbtnimage(self,"image/source.png")
+					setclickevent("pOutputWindow()")
+					settext("Output Window")
+				}
+				addaction(oAction)		
+
+			}
+			subProgram { 
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+d"))
+					setbtnimage(self,"image/debug.png")
+					settext("Debug (Run then wait!)")
+					setclickevent("pDebug()")
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+r"))
+					setbtnimage(self,"image/run.png")
+					settext("Run")
+					setclickevent("pRun()")
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qAction(win1) {
+					setShortcut(new QKeySequence("Ctrl+F5"))
+					setbtnimage(self,"image/run.png")
+					settext("Run GUI Application (No Console)")
+					setclickevent("pRunNoConsole()")
+				}
 				addaction(oAction)	
 			}
-			sub4 { 
-				sub5 = addmenu("Development Tools")
-				sub5 { 
+			subBrowser { 
+
+				for x=1 to len(aBrowserLinks)
+					item = aBrowserLinks[x]
+					oAction = new qAction(win1) {
+						settext(item[1])
+						setclickevent("pBrowserLink("+x+")")
+					}
+					addaction(oAction)	
+					if x != len(aBrowserLinks)
+						addseparator()	
+					ok
+				next
+			}
+			subTools {
+				oAction = new qAction(win1) {
+					settext("Form Designer")
+					setclickevent("pFormDesigner()")
+				}
+				addaction(oAction)			
+			}
+
+			subHelp { 
+
+				subHelpLF = addmenu("Language Reference")
+				subHelpLF { 
+					oAction = new qAction(win1) {
+						settext("CHM File")
+						setclickevent("pOpenCHM()")
+					}
+					addaction(oAction)
+					oAction = new qAction(win1) {
+						settext("PDF File")
+						setclickevent("pOpenPDF()")
+					}
+					addaction(oAction)
+				}
+				addseparator()
+				subHelpTools = addmenu("Development Tools")
+				subHelpTools { 
 
 					oAction = new qAction(win1) {
 						settext("Programming Language")
@@ -316,6 +474,13 @@ MyApp = New qApp {
 				myfiles = new qstringlist()
 				myfiles.append("*.ring")
 				myfiles.append("*.rh")
+				myfiles.append("*.txt")
+				myfiles.append("*.html")
+				myfiles.append("*.rhtml")
+				myfiles.append("*.css")
+				myfiles.append("*.js")
+				myfiles.append("*.xml")
+				myfiles.append("*.data")
 				setnamefilters(myfiles)	
 				setNameFilterDisables(false)
 			}
@@ -329,7 +494,7 @@ MyApp = New qApp {
 			header().hide()			
 			chdir(exefolder())
 			if not ismacosx()
-				cWebsite = "file:///"+oDir.CurrentPath() + "/../html/index.html"
+				cWebsite = "file:///"+oDir.CurrentPath() + "/../docs/build/html/index.html"
 			ok
 		}
 
@@ -339,13 +504,24 @@ MyApp = New qApp {
 			setwidget(tree1)
 		}
 
-		textedit1 = new qtextedit(win1) {
+		textedit1 = new codeeditor(win1) {
 			setCursorPositionChangedevent("pCursorPositionChanged()")
 			setLineWrapMode(QTextEdit_NoWrap)
-			setAcceptRichText(false)
 			setTextChangedEvent("pTextChanged()")
+			setLineNumbersAreaColor(aStyleColors[:LineNumbersAreaColor])
+			setLineNumbersAreaBackColor(aStyleColors[:LineNumbersAreaBackColor])
 		}
+		AutoComplete()
 
+		new RingCodeHighLighter( textedit1.document() ) {
+			setColors(
+				aStyleColors[:SyntaxKeywordsColor],
+				aStyleColors[:SyntaxClassNamesColor],
+				aStyleColors[:SyntaxCommentsColor],
+				aStyleColors[:SyntaxLiteralsColor],
+				aStyleColors[:SyntaxFunctionCallsColor]
+			)
+		}
 
 		oDock2 = new qdockwidget(win1,0) {
 			setwidget(textedit1)
@@ -369,7 +545,7 @@ MyApp = New qApp {
 				setText("Back")
 				setClickEvent("pWebBack()")
 			}
-			oWBLayout1 = new qHBoxLayout(win1) {
+			oWBLayout1 = new qHBoxLayout() {
 				addWidget(oWBLabel)
 				addWidget(oWBText)
 				addWidget(oWBGo)
@@ -378,7 +554,7 @@ MyApp = New qApp {
 			oWebView = new qWebView(win1) {
 				loadpage(new qurl(cWebSite))
 			}
-			oWBlayout2 = new qVBoxLayout(win1) {
+			oWBlayout2 = new qVBoxLayout() {
 				addLayout(oWBLayout1)
 				addWidget(oWebView)
 			}
@@ -390,20 +566,92 @@ MyApp = New qApp {
 			setwindowtitle("Web Browser")
 		}	
 
+		# Functions List 
+
+		aFunctionsPos = []	# Lines Numbers for each function
+		oFunctionsList = new qListwidget(win1) {
+			setitemdoubleclickedevent("pSelectFunction()")
+			setitemactivatedevent("pSelectFunction()")
+		}
+
+		oDock4 = new qDockwidget(win1,0) {
+			setWidget(oFunctionsList)
+			setwindowtitle("Functions List")
+		}
+
+		# Classes List 
+
+		aClassesPos = []	# Lines Numbers for each class
+		oClassesList = new qListwidget(win1) {
+			setitemdoubleclickedevent("pSelectClass()")
+			setitemactivatedevent("pSelectClass()")
+		}
+
+		oDock6 = new qDockwidget(win1,0) {
+			setWidget(oClassesList)
+			setwindowtitle("Classes List")
+		}
+
+		# Output Window 
+
+		oProcess = NULL
+
+		oProcessWindow = new qWidget()
+
+		oProcessLabel = new qLabel(oProcessWindow) {
+			setText("Input :")
+		}
+		oProcessText = new qlineEdit(oProcessWindow) {
+			setreturnPressedEvent("pSendProcessData(oProcess,oProcessText,oProcessEditbox)")
+		}
+
+		oProcessbtnSend = new qpushbutton(oProcessWindow) {
+			setText("Send")
+			setClickevent("pSendProcessData(oProcess,oProcessText,oProcessEditbox)")
+		}
+
+		oProcessLayout1 = new qhboxlayout() {
+			AddWidget(oProcessLabel)
+			AddWidget(oProcessText)
+			Addwidget(oProcessbtnSend)
+		}
+		oProcessEditbox = new qPlaintextedit(oProcessWindow) 
+
+		oProcessLayout2 = new qvboxlayout() {
+			addWidget(oProcesseditbox)
+			addlayout(oProcesslayout1)
+		}
+
+		oProcessWindow.setlayout(oProcessLayout2)			
+	
+		oDock5 = new qDockWidget(win1,0) {
+			setwidget( oProcessWindow )		
+			setwindowtitle("Output Window")
+		}
+
 		adddockwidget(1,oDock1,1)
 		adddockwidget(2,oDock2,2)
+		adddockwidget(2,oDock4,1)
+		adddockwidget(2,oDock6,1)
 		adddockwidget(2,oDock3,1)
+		adddockwidget(2,oDock5,1)
 
-		setwinicon(self,"image/notepad.png")
+		setwinicon(self,cCurrentDir + "/image/notepad.png")
 		showmaximized()	
 	}
+
 	RestoreSettings()
+
 	exec()
 }
+
+func pSetActiveLineColor
+	textedit1.SetActiveLineColor(aStyleColors[:ActiveLineBackColor])
 
 func pTextChanged
 	lAskToSave = true
 	pSetFont()
+	pSetActiveLineColor()
 
 func pWebGo
 	cWebsite = oWBText.text() 
@@ -413,33 +661,88 @@ func pWebBack
 	oWebView.Back()
 
 func pProject
-	oDock1.Show()
+	if oDock1.isvisible()
+		oDock1.hide()
+	else
+		oDock1.Show()
+	ok
 	
 func pSourceCode
-	oDock2.Show()
+	if oDock2.isvisible()
+		oDock2.hide()
+	else
+		oDock2.Show()
+	ok
 
 func pWebBrowser
-	oDock3.Show()
+	if oDock3.isvisible()
+		oDock3.hide()
+	else
+		oDock3.Show()
+	ok
+
+func pFunctionsList
+	if oDock4.isvisible()
+		oDock4.hide()
+	else
+		oDock4.Show()
+		DisplayFunctionsList()
+	ok
+
+func pClassesList
+	if oDock6.isvisible()
+		oDock6.hide()
+	else
+		oDock6.Show()
+		DisplayClassesList()
+	ok
+
+func pOutputWindow
+	if oDock5.isvisible()
+		oDock5.hide()
+	else
+		oDock5.Show()
+	ok
+
+func pCheckSaveBeforeChange
+	if cActiveFileName = NULL return ok	
+	cStr1 = substr(read(cActiveFileName),WindowsNl(),NL)
+	if cStr1 != textedit1.toPlainText() pSaveSettings() ok
 
 func pChangeFile
+	pCheckSaveBeforeChange()	# To ask to saving a file
 	pSaveCurrentFolder()
-	myitem = tree1.currentindex()
-	if ofile.isdir(myitem)
+	oItem = tree1.currentindex()
+	if ofile.isdir(oItem)
 		return
 	ok
-	cActiveFileName = ofile.filepath(myitem)
-	textedit1.settext(read(cActiveFileName))
+	cActiveFileName = ofile.filepath(oItem)
+	# We get nLine before using textedit1.settext() to get the value before aFilesLines update
+		nLine =  aFilesLines[cActiveFileName]
+	textedit1.setPlaintext(read(cActiveFileName))
 	textedit1.setfocus(0)
 	pCursorPositionChanged()
 	pSetActiveFileName()
+
+	if nLine != NULL
+		gotoline(nLine)
+	ok
+
+	AutoComplete()
+	DisplayFunctionsList()
+	DisplayClassesList()
+	StatusMessage("Ready!")
 
 func pSetActiveFileName
 	oDock2.setWindowTitle("Source Code : " + cActiveFileName)
 
 func pCursorPositionChanged
-	status1.showmessage(" Line : "+(textedit1.textcursor().blocknumber()+1)+
+	nLine = textedit1.textcursor().blocknumber()+1
+	StatusMessage(" Line : "+nLine+
 			    " Column : " +(textedit1.textcursor().columnnumber()+1) +
-			    " Total Lines : " + textedit1.document().linecount() ,0)
+			    " Total Lines : " + textedit1.document().linecount())
+	pSetActiveLineColor()
+	aFilesLines[cActiveFileName] = nLine
 
 func pGoto
 	
@@ -449,10 +752,15 @@ func pGoto
 		setgeometry(100,100,400,50)
 		setlabeltext("Line")
 		settextvalue("1")
-		exec()
+		r = exec()
 	}
 
+	if r=0 return ok
+
 	nLine = 0 + oInput.textvalue()	
+	gotoline(nLine)
+
+func gotoline nLine
 	nLine--
 	cStr = textedit1.toPlainText()
 	nSize = len(cStr)
@@ -479,9 +787,10 @@ func pFind
 		}
 		oSearchValue = new qlineedit(oSearch)
 		{
+			setText(cSearchText)
 			setReturnPressedEvent("pFindValue()")
 		}
-		oLayout1 = new qHBoxLayout(oSearch)
+		oLayout1 = new qHBoxLayout()
 		{
 			addWidget(oLblFindWhat)
 			addWidget(oSearchValue)
@@ -491,8 +800,11 @@ func pFind
 			setText("Replace with ")
 		}
 		oReplaceValue = new qlineedit(oSearch)
+		{
+			setText(cReplaceText)
+		}
 
-		oLayout2 = new qHBoxLayout(oSearch)
+		oLayout2 = new qHBoxLayout()
 		{
 			addWidget(oLblReplaceWith)
 			addWidget(oReplaceValue)
@@ -501,7 +813,7 @@ func pFind
 		{
 			setText("Case Sensitive")
 		}
-		oLayout3 = new qHBoxLayout(oSearch)
+		oLayout3 = new qHBoxLayout()
 		{
 			addWidget(oSearchCase)			
 		}
@@ -525,14 +837,14 @@ func pFind
 			setText("Close")
 			setclickevent("pSearchClose()")
 		}
-		oLayout4 = new qHBoxLayout(oSearch)
+		oLayout4 = new qHBoxLayout()
 		{
 			addWidget(oBtnFind)
 			addWidget(oBtnReplace)
 			addWidget(oBtnReplaceAll)
 			addWidget(oBtnClose)
 		}
-		oLayout5 = new qVBoxLayout(oSearch)
+		oLayout5 = new qVBoxLayout()
 		{
 			AddLayout(oLayout1)
 			AddLayout(oLayout2)
@@ -586,7 +898,7 @@ Func pReplace
 	nEnd = oCursor.SelectionEnd()
 	cStr = textedit1.toPlainText()
 	cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
-	textedit1.setText(cStr)	
+	textedit1.setPlainText(cStr)	
 	return pFindValue()
 
 Func pReplaceAll
@@ -600,7 +912,7 @@ Func pReplaceAll
 		# Case Sensitive
 		cStr = SubStr(cStr,cOldValue,cNewValue)
 	ok
-	textedit1.setText(cStr)	
+	textedit1.setPlainText(cStr)	
 	new qMessagebox(oSearch)
 	{
 		SetWindowTitle("Replace All") 
@@ -611,6 +923,9 @@ Func pReplaceAll
 Func pSearchClose
 	oSearch.close() 
 	oSearch = NULL
+	cSearchText = oSearchValue.text()
+	cReplaceText = oReplaceValue.text()
+
 
 func pSearchKeyPress
 	if oSearchFilter.getKeyCode() = Qt_Key_Escape
@@ -657,7 +972,7 @@ func pDebug
 	if cActiveFileName = Null return pNofileopened() ok
 	pSave()
 	if iswindows()
-		cCode = 'start run "' + cActiveFileName + '"' + nl 
+		cCode = 'start '+cCurrentDir+'run "' + cActiveFileName + '"' + nl 
 	else
 		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 	ok
@@ -667,7 +982,7 @@ func pRun
 	if cActiveFileName = Null return pNofileopened() ok
 	pSave()
 	if iswindows()
-		cCode = 'start run2 "' + cActiveFileName + '"' + nl 
+		cCode = 'start '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl 
 	else
 		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
 	ok
@@ -677,54 +992,65 @@ func pRunNoConsole
 	if cActiveFileName = Null return pNofileopened() ok
 	pSave()
 	if iswindows()
-		cCode = 'start /b run2 "' + cActiveFileName + '"' + nl 
+		oProcessEditbox.setplaintext("")
+		oProcessText.setFocus(0)
+		oProcess = pRunProcess(cCurrentDir+"run2.bat",cActiveFileName,"pGetProcessData(oProcess,oProcessEditbox)")
 	else
 		cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl 
+		system(cCode)
 	ok
-	system(cCode)
 
 func pSave
 	if cActiveFileName = NULL return pSaveAs() ok
 	writefile(cActiveFileName,textedit1.toplaintext())
-	status1.showmessage("File : " + cActiveFileName + " saved!",0)
+	StatusMessage("File : " + cActiveFileName + " saved!")
 	lAskToSave = false
+	AutoComplete()
+	displayFunctionsList()
+	displayClassesList()
+	StatusMessage("Ready!")
 
 func pSaveAs
 	new qfiledialog(win1) {
-		cName = getsavefilename(win1,"Save As","","source files(*.ring)")
+		pSaveCurrentFolder()
+		cName = getsavefilename(win1,"Save As",cStartupFolder,"source files(*.ring)")
 		if cName != NULL
 			cActiveFileName = cName
 			writefile(cActiveFileName,textedit1.toplaintext())
-			status1.showmessage("File : " + cActiveFileName + " saved!",0)	
+			StatusMessage("File : " + cActiveFileName + " saved!")	
 			pSetActiveFileName()
 			lAskToSave = false
 		ok	
 	}
 
 func pPrint
-	status1.showmessage("Printing to File : RingDoc.pdf",0)
+	StatusMessage("Printing to File : RingDoc.pdf")
 	printer1 = new qPrinter(0) {
 		setoutputformat(1)	# 1 = pdf
 		setoutputfilename("RingDoc.pdf")
 		textedit1.print(printer1)
 	}
-	status1.showmessage("Done!",0)
+	StatusMessage("Done!")
 	system("RingDoc.pdf")
+
+func pUndo
+	textedit1.undo()
+	StatusMessage("Undo!")
 
 func pCut
 	textedit1.cut()
-	status1.showmessage("Cut!",0)		
+	StatusMessage("Cut!")	
 
 func pCopy
 	textedit1.copy()
-	status1.showmessage("Copy!",0)		
+	StatusMessage("Copy!")		
 
 func pPaste
 	textedit1.paste()
-	status1.showmessage("Paste!",0)		
+	StatusMessage("Paste!")		
 
 func pFont
-	oFontDialog = new qfontdialog(win1) {
+	oFontDialog = new qfontdialog() {
 
 		myfont = new qfont("",0,0,0)
 		myfont.fromstring(cFont)
@@ -736,20 +1062,39 @@ func pFont
 	if aFont[1] != NULL
 		cFont = aFont[1]
 		pSetFont()	# set the new font
-		textedit1.settext(textedit1.toplaintext()) # use the next font		
 	ok	
 
 Func pSetFont
 	myfont = new qfont("",0,0,0)
 	myfont.fromstring(cFont)
-	textedit1.setcurrentfont(myfont)
+	oCursor = textedit1.textCursor()
+	oCursor.clearselection()
+	textedit1.settextcursor(oCursor)
+	textedit1.Document().setdefaultfont(myfont)
+	
 
 Func pColor
-	new qcolordialog() { aTextColor = GetColor() }	
+	new qcolordialog() { 
+		r = exec()		
+		if r = 0 return ok
+		oColor = currentcolor()
+		r = oColor.red()
+		g = oColor.green()
+		b = oColor.blue()
+		aTextColor = [r,g,b]
+	}	
 	pSetColors()
 
 Func pColor2
-	new qcolordialog() { aBackColor = GetColor() }	
+	new qcolordialog() { 
+		r = exec()		
+		if r = 0 return ok
+		oColor = currentcolor()
+		r = oColor.red()
+		g = oColor.green()
+		b = oColor.blue()
+		aBackColor = [r,g,b]
+	}	
 	pSetColors()
 	
 Func pSetColors
@@ -759,27 +1104,32 @@ Func pSetColors
 				aBackColor[3] + ")")
 
 Func pSetWindows
-	if not lShowProject  	oDock1.close() ok
-	if not lShowSourceCode  oDock2.close() ok
-	if not lShowBrowser  	oDock3.close() ok
+	if not lShowProject  	oDock1.close() else oDock1.show() ok
+	if not lShowSourceCode  oDock2.close() else oDock2.show() ok
+	if not lShowBrowser  	oDock3.close() else oDock3.show() ok
+	if not lShowFunctionsList oDock4.close() else oDock4.show() ok
+	if not lShowClassesList oDock6.close() else oDock6.show() ok
+	if not lShowOutputWindow oDock5.close() else oDock5.show() ok
 
 func pOpen
 	new qfiledialog(win1) {
-		cName = getopenfilename(win1,"open file","","source files(*.ring)")			
+		pSaveCurrentFolder()
+		cName = getopenfilename(win1,"open file",cStartupFolder,"source files(*.ring)")			
 		if cName != NULL
 			cActiveFileName = cName
-			textedit1.settext(read(cActiveFileName))
+			textedit1.setPlaintext(read(cActiveFileName))
 			pSetActiveFileName()
 		ok
 	}
 	
 func pNew
 	new qfiledialog(win1) {
-		cName = getsavefilename(win1,"New file","","source files(*.ring)")
+		pSaveCurrentFolder()
+		cName = getsavefilename(win1,"New file",cStartupFolder,"source files(*.ring)")
 		if cName != NULL
 			write(cName,"")
 			cActiveFileName = cName
-			textedit1.settext(read(cActiveFileName))			
+			textedit1.setPlaintext(read(cActiveFileName))			
 			pSetActiveFileName()
 		ok	
 	}
@@ -793,9 +1143,10 @@ Func WriteFile cFileName,cCode
 	fclose(fp)
 
 Func MsgBox cTitle,cMessage
-	new qMessagebox(win1) {
+	win = new qMessagebox(win1) {
 		setwindowtitle(cTitle)
 		setText(cMessage)
+		setwinicon(win,cCurrentDir + "/image/notepad.png")
 		show()
 	}
 	
@@ -810,14 +1161,14 @@ Func pGUI
 
 Func pAbout
 	MsgBox("About",
-		"2016, Mahmoud Fayed <msfclipper@yahoo.com>")		
+		"2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>")		
 
 Func pSaveCurrentFolder
-	nIndex = tree1.currentindex()
-	if ofile.isdir(nIndex)
-		cStartupFolder = ofile.filepath(nIndex)
+	oItem = tree1.currentindex()
+	if ofile.isdir(oItem)
+		cStartupFolder = ofile.filepath(oItem)
 	else
-		cFile = ofile.filepath(nIndex)
+		cFile = ofile.filepath(oItem)
 		for t = len(cFile) to 1 step -1
 			if cFile[t] = "/" or cFile[t] = "\"
 				cFile = left(cFile,t-1)
@@ -836,9 +1187,13 @@ Func pSaveSettingsToFile
 		    "cStartupFolder = '" + cStartupFolder + "'" + nl + 
 		    "lShowProject = " + oDock1.isvisible() + nl +
 		    "lShowSourceCode = " + oDock2.isvisible() + nl +
-		    "lShowBrowser = " + oDock3.isvisible()
+		    "lShowBrowser = " + oDock3.isvisible() + nl +
+		    "lShowFunctionsList = " + oDock4.isvisible() + nl +
+		    "lShowClassesList = " + oDock6.isvisible() + nl +
+		    "lShowOutputWindow = " + oDock5.isvisible() + nl +
+		    "nTabSpaces = " + nTabSpaces + nl
 	cSettings = substr(cSettings,nl,char(13)+char(10))
-	write("ringnotepad.ini",cSettings)
+	write(cSettingsFile,cSettings)
 
 Func pSaveSettings
 	pSaveSettingsToFile()
@@ -865,8 +1220,10 @@ Func pSetWebsite
 	oWebView { loadpage(new qurl(cWebSite)) }	
 	oWBText  { setText(cWebSite) }		
 
-Func LoadSettings
-	eval(read("ringnotepad.ini"))
+Func LoadSettings	
+	if fexists(cSettingsFile)
+		eval(read(cSettingsFile))
+	ok
 
 Func RestoreSettings
 	LoadSettings()
@@ -874,8 +1231,259 @@ Func RestoreSettings
 	pSetFont()
 	pSetWebsite()
 	pSetWindows()
+	pSetTabSpaces()
 
 Func pQuit
 	if pSaveSettings() 
 		myapp.quit()
+	ok
+
+Func pOpenCHM
+	System( "start " + exefolder()+"/../docs/ring.chm" )
+
+Func pOpenPDF
+	System( "start " + exefolder()+"/../docs/ring.pdf" )
+
+Func pTabWidth
+	
+	oInput = New QInputDialog(win1)
+	{
+		setwindowtitle("Set the Tab Width")
+		setgeometry(100,100,400,50)
+		setlabeltext("Spaces Count")
+		settextvalue("1")
+		r = exec()
+	}
+	if r=0 return ok
+	nTabSpaces = 0 + oInput.textvalue()	
+	pSetTabSpaces()
+
+Func pSetTabSpaces
+
+	oFont = new qfont("",0,0,0)
+	oFont.fromstring(cFont)
+	oFontMetrics = new QFontMetrics(oFont)
+	nSpaceWidth = oFontMetrics.Width(" ",1)
+	textedit1.setTabStopWidth(nTabSpaces*nSpaceWidth)
+
+
+Func pBrowserLink x
+
+	cLink = aBrowserLinks[x][2]
+
+	oWebView { loadpage(new qurl(cLink)) }	
+	oWBText  { setText(cLink) }		
+
+	oDock3.Show()
+
+# Create a function to add Ring List to qStringList
+func AddItems aList,oList 
+	for Item in aList 
+		oList.Append(Item)
+	next
+
+Func PrepareAutoComplete
+	oAutoCompleteList = new qStringList()
+	# Add Ring Keywords
+		aKeywords = ["again","and","but","bye","call","case","catch",
+			"changeringkeyword","changeringoperator","class",
+			"def","do","done","else","elseif","end","exit","for","from",
+			"func","get","give","if","import","in","load","loadsyntax",
+			"loop","new","next","not","off","ok","on","or","other",
+			"package","private","put","return","see","step","switch",
+			"to","try","while"]
+		AddItems(aKeywords,oAutoCompleteList)
+	# Add Ring Functions 
+		aCFunctionsList = cfunctions()
+		for cFunction in aCFunctionsList
+			cFunction += "()"
+		next
+		AddItems(aCFunctionsList,oAutoCompleteList)
+	# Add Ring Methods
+		aCMethodsList = aCFunctionsList
+		for x = len(aCMethodsList) to 1 step -1 
+			cMethod = aCMethodsList[x]
+			nPos = substr(cMethod,"_") 
+			if nPos
+				aCMethodsList[x] = substr(aCMethodsList[x],nPos+1) 
+			else	
+				del(aCMethodsList,x)
+			ok
+		next 
+		AddItems(aCMethodsList,oAutoCompleteList)
+		oAutoCompleteList.RemoveDuplicates()
+	# Add Ring Classes
+		aClassesList = classes()
+		aClassesNoInit = ["qapp"]
+		for cClass in aClassesList 
+			if find(aClassesNoInit,cClass) = 0
+				cClass = cClass + "() {" + nl + "}"
+			else
+				cClass = cClass + " {" + nl + "}"
+			ok
+		next 
+		AddItems(aClassesList,oAutoCompleteList)
+	# Add Ring Libraries
+		aLibsList = ['load "guilib.ring"' , 'load "stdlib.ring"' , 
+				'load "weblib.ring"', 'load "ringlibcurl.ring"']
+		AddItems(aLibsList,oAutoCompleteList)
+	# Save the List Size
+		nAutoCompleteListSize = oAutoCompleteList.Count()
+
+Func AutoComplete
+	StatusMessage("Prepare Auto-Complete ... Please Wait!")
+	# Prepare the list
+		while oAutoCompleteList.Count() > nAutoCompleteListSize
+			oAutoCompleteList.RemoveAt(oAutoCompleteList.Count()-1)
+		end 
+	# Add words in the current file 		
+		if cActiveFileName != NULL and fexists(cActiveFileName)
+			cFileContent = read(cActiveFileName)
+			if len(cFileContent) < 30720  # 30 Kbyte
+				StatusMessage("Prepare Auto-Complete ... Get File Words!")
+				aList = Split(cFileContent," ")
+				StatusMessage("Prepare Auto-Complete ... Filter!")
+				for x = len(aList) to 1 step -1 
+					if not isalnum(aList[x])
+						del(aList,x)
+					ok
+				next
+				AddItems(aList,oAutoCompleteList)
+			ok
+		ok		
+	StatusMessage("Prepare Auto-Complete ... Remove Duplicates!")
+	oAutoCompleteList.RemoveDuplicates()
+	StatusMessage("Prepare Auto-Complete ... Sort!")
+	oAutoCompleteList.Sort()
+	oCompleter = new qCompleter3(oAutoCompleteList,textedit1)
+	oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
+	oCompleter.setCompletionMode(QCompleter_PopupCompletion)
+	oFont = new qfont("",0,0,0)
+	oFont.fromstring(cFont)
+	oCompleter.popup().setFont(oFont)
+	textedit1.setCompleter(oCompleter)
+	StatusMessage("Prepare Auto-Complete ... Done!")
+
+func DisplayFunctionsList
+	oFunctionsList.clear()
+	if oDock4.isvisible() = false return ok 
+	aFunctionsPos = []	# Lines numbers for each function 
+	if cActiveFileName = NULL return ok
+	# Set the font
+		oFont = new qfont("",0,0,0)
+		oFont.fromstring(cFont)
+		oFunctionsList.setFont(oFont)
+	StatusMessage("Creating functions list ... Please Wait!")
+	aFileContent = str2list(read(cActiveFileName))
+	nLineNumber = 0
+	for cLine in aFileContent
+		nLineNumber++ 
+		cLine = lower(trim(cLine))
+		if substr(cLine,"func ") > 0
+			cLine = substr(cLine,"("," (")
+			aList = Split(cLine," ")
+			if len(aList) >= 2
+				cFuncName = lower(trim(aList[2]))
+				if isalnum(cFuncName)	and lower(trim(aList[1])) = "func"
+					aFunctionsPos + [cFuncName+"()" , nLineNumber] 
+				ok
+			ok
+		ok
+	next
+	aFunctionsPos = Sort(aFunctionsPos,1)
+	for cFunc in aFunctionsPos 
+		oFunctionsList.addItem(cFunc[1])
+	next
+	oDock4.setWindowTitle("Functions List ("+oFunctionsList.Count()+")")
+	StatusMessage("Creating functions list ... Done!")
+
+func pSelectFunction
+	nIndex = oFunctionsList.currentrow() + 1
+	nLine = aFunctionsPos[nIndex][2]
+	gotoline(nLine)
+
+func DisplayClassesList
+	oClassesList.clear()
+	if oDock6.isvisible() = false return ok 
+	aClassesPos = []	# Lines numbers for each class 
+	if cActiveFileName = NULL return ok
+	# Set the font
+		oFont = new qfont("",0,0,0)
+		oFont.fromstring(cFont)
+		oClassesList.setFont(oFont)
+	StatusMessage("Creating Classes list ... Please Wait!")
+	aFileContent = str2list(read(cActiveFileName))
+	nLineNumber = 0
+	for cLine in aFileContent
+		nLineNumber++ 
+		cLine = lower(trim(cLine))
+		if substr(cLine,"class ") > 0
+			aList = Split(cLine," ")
+			if len(aList) >= 2
+				cClassName = lower(trim(aList[2]))
+				if lower(trim(aList[1])) = "class"
+					aClassesPos + [cClassName , nLineNumber] 
+				ok
+			ok
+		ok
+	next
+	aClassesPos = Sort(aClassesPos,1)
+	for cClass in aClassesPos 
+		oClassesList.addItem(cClass[1])
+	next
+	oDock6.setWindowTitle("Classes List ("+oClassesList.Count()+")")
+	StatusMessage("Creating classes list ... Done!")
+
+func pSelectClass
+	nIndex = oClassesList.currentrow() + 1
+	nLine = aClassesPos[nIndex][2]
+	gotoline(nLine)
+
+func StatusMessage cMsg
+	status1.showmessage(cMsg,0)
+
+func pRunProcess cProgram,cArg,cGetDataFunc
+	oStringList = new qStringlist() {
+		append(cArg)
+	}
+	oProcess = new qprocess(NULL) {
+		setprogram( cProgram)
+		setarguments(ostringlist)
+		setreadyreadstandardoutputevent(cGetDataFunc)
+		start_3(  QIODevice_ReadWrite )
+	} 
+	return oProcess
+
+func pGetProcessData oProcess,oEditBox
+	if ISNULL(oProcess) return ok
+	cText = oProcess.readallstandardoutput().data()
+	aText = str2list(cText)
+	for x = len(aText) to 1 step -1
+		if substr(aText[x],"echo off") or trim(aText[x]) = NULL or isprint(aText[x]) = false
+			del(aText,x)			
+		ok
+	next
+	cText = list2str(aText)
+	see cText
+	# Set the font
+		oFont = new qfont("",0,0,0)
+		oFont.fromstring(cFont)
+		oProcessEditbox.setFont(oFont)
+	oeditbox.insertplaintext(	cText)
+
+func pSendProcessData oProcess,oText,oEditbox
+	if ISNULL(oProcess) return ok
+	cText = oText.text() + windowsnl()
+	oProcess.write(cText ,len(cText))
+	oeditbox.insertplaintext(	cText)
+
+func pFormDesigner
+	cFormFileName = cCurrentDir + "../formdesigner/formdesigner.ring"
+	if iswindows()
+		oProcessEditbox.setplaintext("")
+		oProcessText.setFocus(0)
+		oProcess = pRunProcess(cCurrentDir+"run2.bat",cFormFileName,"pGetProcessData(oProcess,oProcessEditbox)")
+	else
+		cCode = 'cd $(dirname "'+cFormFileName+'") ; ' + ' ring "' + cFormFileName + '"' + nl 
+		system(cCode)
 	ok

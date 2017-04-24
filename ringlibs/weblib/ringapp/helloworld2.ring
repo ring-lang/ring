@@ -1,4 +1,4 @@
-#!b:\mahmoud\apps\ring\ring.exe -cgi
+#!b:\ring\bin\ring.exe -cgi
 
 load "weblib.ring"
 
@@ -6,7 +6,7 @@ Import System.Web
 
 new page {
 
-	text("hello world")
+	text("Hello, World!")
 
 }
 

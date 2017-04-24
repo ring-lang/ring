@@ -38,6 +38,8 @@ pVar,*pScope
 ring_vm_oop_loadmethod
 Type: List *
 pVar,*pList,*pList2,*pList3,*pSuper
+Type: int
+lResult
 ring_vm_oop_movetobeforeobjstate
 Type: List *
 pList, *pList2
@@ -156,3 +158,13 @@ x
 ring_vm_oop_updateselfpointer
 Type: List *
 pList
+ring_vm_oop_setthethisvariable
+Type: List *
+pList, *pThis
+ring_vm_oop_updateselfpointer2
+Type: Item *
+pItem
+Type: int
+x,lFound
+Type: List *
+pRecord

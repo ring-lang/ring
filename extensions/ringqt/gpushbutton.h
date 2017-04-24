@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GPUSHBUTTON_H
 #define GPUSHBUTTON_H
 #include <QApplication>
@@ -17,12 +17,21 @@ class GPushButton : public QPushButton
 
     VM *pVM;
 
+    List *pParaList;
+
     char cClickEvent[100];
 
 
     GPushButton(QWidget *parent,VM *pVM );
 
+    ~GPushButton();
+
+    void geteventparameters(void) ;
+
     void setClickEvent(const char *cStr);
+
+
+    const char *getClickEvent(void);
 
 
   public slots:

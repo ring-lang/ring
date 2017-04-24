@@ -1,0 +1,601 @@
+.. index:: 
+	single: What is new in Ring 1.1?; Introduction
+
+========================
+What is new in Ring 1.1?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.1 release.
+
+.. index:: 
+	pair: What is new in Ring 1.1?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.1  comes with many new features 
+
+* Better Natural Language Programming Support
+* Generate/Execute Ring Object Files (*.ringo)
+* Syntax Flexibility and different styles for I/O and Control Structures
+* New Functions and Changes
+* StdLib functions and classes written in Ring
+* RingLibSDL 
+* Demo Project - Game Engine for 2D Games
+* RingSQLite
+* Better Code Generator for Extensions 
+* Using Self.Attribute in the Class Region to define new attributes
+* Using This.Attribute in nested Braces inside the Class Methods
+* Better Documentation
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Better Natural Language Programming Support
+
+Better Natural Language Programming Support
+===========================================
+
+Ring is an innovative language because of it's compact syntax, smart implementation (small, transparent & visual)
+and it's ability to create declarative and natural domain specific languages in a fraction of time.
+
+This release add support for calling methods when an expression is evaluated
+
+check this example:
+
+.. code-block:: ring
+
+	# Natural Code
+	new program {
+		Accept 2 numbers then print the sum
+	}
+
+	# Natural Code Implementation
+	class program
+		# Keywords
+			Accept=0 numbers=0 then=0 print=0 the=0 sum=0
+
+		# Execution
+		func braceexpreval x
+			value = x
+		func getnumbers
+			for x=1 to value
+				see "Enter Number ("+x+") :" give nNumber
+				aNumbers + nNumber
+			next
+		func getsum
+			nSUm = 0
+			for x in aNumbers nSum+= x next
+			see "The Sum : " + nSum
+		private
+			value=0	aNumbers=[]
+		
+Output: 
+
+.. code-block:: ring
+
+	Enter Number (1) :3
+	Enter Number (2) :4
+	The Sum : 7
+
+for more information see the "Natural Language Programming" chapter.
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Generate/Execute Ring Object Files (*.ringo)
+
+Generate/Execute Ring Object Files (*.ringo)
+============================================
+
+This feature enable you to distribute your applications without distributing
+the source code. Also it makes application distribution a simple process where
+you get one Ring object file for the complete project (many source code files).
+Also using Ring object file remove the loading time required for compiling the application.
+
+Check the "command line options" chapter to know more about this feature.
+
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Syntax Flexibility
+
+Syntax Flexibility and different styles for I/O and Control Structures
+======================================================================
+
+Programmers are sensitive to the programming language syntax. Great programmers know how to work
+using many different styles but each programmer may have his/her favorite style.
+
+Each programming language comes with a style that you may like or not. Ring is just one of these
+languages, but as a response to many programmers asking for a better syntax we decided to provide
+more options.
+
+Also some of these features are very necessary for Natural Language Programming.
+
+Example : 
+
+We have two commands to change language keywords and operators.
+
+.. code-block:: ring
+
+	ChangeRingOperator + plus 
+	ChangeRingKeyword see print
+
+	Print 5 plus 5  
+
+	ChangeRingOperator plus +
+	ChangeRingKeyword print see
+
+We have new styles (Optional) for Input/Output.
+
+Example :
+
+.. code-block:: ring
+
+	Put "What is your name? "
+	Get cName
+	Put "Hello " + cName
+
+Example : 
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Print("What is your name? ") 	# print message on screen
+	cName=GetString()		# get input from the user
+	print("Hello #{cName}")		# say hello!
+
+We have new styles (optional) for control structures.
+
+Example :
+
+.. code-block:: ring
+
+	While True
+
+		Put " 
+			Main Menu
+			---------
+			(1) Say Hello
+			(2) About
+			(3) Exit
+
+		    " Get nOption
+
+		Switch nOption
+		Case 1 
+			Put "Enter your name : " 
+			Get name 
+			Put "Hello " + name + nl
+		Case 2 
+			Put "Sample : using while loop" + nl
+		Case 3 
+			Bye
+		Else 
+			Put "bad option..." + nl
+		End
+	End
+
+Example :
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	While True {
+
+		print(" 
+			Main Menu
+			---------
+			(1) Say Hello
+			(2) About
+			(3) Exit
+
+			  ")
+
+		nOption = GetString()
+
+		switch nOption {
+		case 1 
+			print("Enter your name : ")
+			name = getstring()
+			print("Hello #{name}\n")
+		case 2 
+			print("Sample : using switch statement\n")
+		case 3 
+			Bye
+		else 
+			print("bad option...\n")
+		}
+
+	}
+
+Check the next chapters:-
+
+* Getting Started - Second Style
+* Getting Started - Third Style
+* Control Structures - Second Style - May looks like Lua and Ruby
+* Control Structures - Third Style - May looks like C (uses braces)
+* Syntax Flexibility
+
+.. note:: All of these styles are provided automatically by the compiler at the same time, It's better to select one style for the same project (you can create your style as a mix from these styles) for example you can use Put/Get and Braces.
+
+.. index:: 
+	pair: What is new in Ring 1.1?; New Functions and Changes
+ 
+New Functions and Changes
+=========================
+
+Changed:
+
+* get() function : changed to sysget()
+* sort() function : can now work on list of objects
+* find() function : can now work on list of objects
+
+Added:
+
+* clockspersecond()
+* CurrentDir()
+* ExeFileName()
+* ChDir()
+* ExeFolder()
+* varptr()
+* space()
+* nullpointer()
+* object2pointer()
+* pointer2object()
+
+Check the next chapters 
+
+* System Functions
+* Object Oriented Programming (OOP) 
+* Low Level Functions
+
+.. index:: 
+	pair: What is new in Ring 1.1?; StdLib functions and classes written in Ring
+
+StdLib functions and classes written in Ring
+============================================
+
+Ring 1.1 comes with a library called StdLib, it's written in Ring by the help of Ring Team
+
+The library provide a useful group of new functions and classes
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Times()")
+	Times ( 3 , func { see "Hello, World!" + nl } )
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Map()")
+	See Map( 1:10, func x { return x*x } )
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Filter()")
+	See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	See "Testing the String Class" + nl
+	oString = new string("Hello, World!")
+	oString.println()
+	oString.upper().println()
+	oString.lower().println()
+	oString.left(5).println()
+	oString.right(6).println()
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	oList = new list ( [1,2,3] )
+	oList.Add(4)
+	oList.print()
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	oStack = new Stack
+	oStack.push(1)
+	oStack.push(2)
+	oStack.push(3)
+	see oStack.pop() + nl
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	oQueue = new Queue
+	oQueue.add(1)
+	oQueue.add(2)
+	oQueue.add(3)
+	see oQueue.remove() + nl
+
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	ohashtable = new hashtable
+	See "Test the hashtable Class Methods" + nl
+	ohashtable { 
+		Add("Egypt","Cairo")
+		Add("KSA","Riyadh")
+		see self["Egypt"] + nl
+		see self["KSA"] + nl
+		see contains("Egypt") + nl
+		see contains("USA") + nl
+		see index("KSA")  + NL
+		print()
+		delete(index("KSA"))
+		see copy("*",60) + nl
+		print()
+	}
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	otree = new tree
+	See "Test the tree Class Methods" + nl
+	otree {
+		set("The first step")	# set the root node value
+		see value() + nl
+		Add("one")
+		Add("two")
+		Add("three") {
+			Add("3.1")
+			Add("3.2")
+			Add("3.3")
+			see children
+		}
+		see children
+		oTree.children[2] {
+			Add("2.1") Add("2.2") Add("2.3") {
+				Add("2.3.1") Add("2.3.2") Add("test")
+			}
+		}
+		oTree.children[2].children[3].children[3].set("2.3.3")
+	}
+	see copy("*",60) + nl
+	oTree.print()
+
+Check the next chapters:
+
+* StdLib Functions
+* StdLib Classes
+
+.. index:: 
+	pair: What is new in Ring 1.1?; RingLibSDL 
+
+RingLibSDL 
+==========
+
+Ring 1.0 provided RingAllegro to be able to create games using the Allegro game programming library
+
+Now Ring 1.1 provide RingLibSDL also so we can have the choice between Allegro or LibSDL
+
+Example:
+
+.. code-block:: ring
+
+	Load "libsdl.ring"
+
+	SDL_Init(SDL_INIT_EVERYTHING)
+	win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN)
+	SDL_Delay(2000)
+	SDL_DestroyWindow(win)
+	SDL_Quit()
+
+
+See the RingLibSDL Chapter.
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Game Engine for 2D Games
+
+Demo Project - Game Engine for 2D Games
+=======================================
+
+In practice we would create a game engine in a language like C/C++ to get the best performance 
+then provide Ring classes to use the engine.
+
+But many 2D Games are simple and creating a game engine in Ring will be fast enough in many cases
+
+Also this would be a good demo project to learn about the language concepts where we build things
+using Object Oriented Programming (OOP) then access the power that we have using declarative programming
+using nested structures or using natural programming.
+
+In this project we selected the first way (declarative programming using nested structures)
+
+Example:
+
+.. code-block:: ring
+
+	Load "gameengine.ring"	# Give Control to the Game Engine
+
+	func main		# Called by the Game Engine
+
+		oGame = New Game	# Create the Game Object
+		{
+			title = "My First Game"
+			text {
+				x = 10	y=50
+				animate = false
+				size = 20
+				file = "fonts/pirulen.ttf"
+				text = "game development using ring is very fun!"
+				color = rgb(0,0,0)	# Color = black	
+			}
+			text {
+				x = 10	y=150
+				# Animation Part ======================================
+				animate = true				# Use Animation
+				direction = GE_DIRECTION_INCVERTICAL	# Increase y
+				point = 400	 	# Continue until y=400
+				nStep = 3		# Each time y+= 3
+				#======================================================
+				size = 20
+				file = "fonts/pirulen.ttf"
+				text = "welcome to the real world!"
+				color = rgb(0,0,255)	# Color = Blue 	
+			}
+			Sound {					# Play Sound
+				file = "sound/music1.wav"	# Sound File Name
+			}		
+		}					# Start the Events Loop	
+
+See the "Demo Project - Game Engine for 2D Games" chapter.
+
+
+.. index:: 
+	pair: What is new in Ring 1.1?; RingSQLite
+
+RingSQLite
+==========
+
+Ring 1.0 provided support for ODBC to use any database and provided native support for MySQL.
+
+Now Ring 1.1 provide native support for SQLite database too.
+
+Example:
+
+.. code-block:: ring
+
+	oSQLite = sqlite_init()
+
+	sqlite_open(oSQLite,"mytest.db") 
+
+	sql = "CREATE TABLE COMPANY("  +
+	         "ID INT PRIMARY KEY     NOT NULL," +
+        	 "NAME           TEXT    NOT NULL," +
+	         "AGE            INT     NOT NULL," +
+        	 "ADDRESS        CHAR(50)," +
+	         "SALARY         REAL );"
+
+	sqlite_execute(oSQLite,sql) 
+
+	sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  +
+        	 "VALUES (1, 'Mahmoud', 29, 'Jeddah', 20000.00 ); " +
+	         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) "  +
+        	 "VALUES (2, 'Ahmed', 27, 'Jeddah', 15000.00 ); "     +
+	         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" +
+        	 "VALUES (3, 'Mohammed', 31, 'Egypt', 20000.00 );" +
+	         "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)" +
+        	 "VALUES (4, 'Ibrahim', 24, 'Egypt ', 65000.00 );"
+
+	sqlite_execute(oSQLite,sql)
+
+	aResult =  sqlite_execute(oSQLite,"select * from COMPANY") 
+	for x in aResult
+		for t in x
+			see t[2] + nl
+		next
+	next
+	see copy("*",50)  + nl
+	for x in aResult
+		see x["name"] + nl
+	next
+	sqlite_close(oSQLite) 
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Better Code Generator for Extensions 
+
+
+Better Code Generator for Extensions 
+====================================
+
+We are using the code generator (written in Ring) every day to add new libraries to Ring.
+
+The generator is used to create RingQt and RingAllegro 
+
+Also in Ring 1.1 it's used to create RingLibSDL.
+
+more features are added like 
+
+* Set/Get structure members (numbers & pointers)
+* Using constants 
+* Better Generated Code
+
+See the Code Generator chapter.
+
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Using Self.Attribute in the Class Region to define new attributes
+
+
+Using Self.Attribute in the Class Region to define new attributes
+=================================================================
+
+We can use Self.Attribute in the Class Region (after the class name and before any methods)
+to define new attributes.
+
+
+.. code-block:: ring
+
+	class Person
+		name		# Define name as attribute if it's not a global variable
+		address
+		phone
+
+	class person2
+        	self.name	# Must Define the attribute
+	        self.address
+	        self.phone
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Using This.Attribute in nested Braces inside the Class Methods
+
+
+Using This.Attribute in nested Braces inside the Class Methods
+==============================================================
+
+We can use nested braces {} while we are inside methods to access another objects, In this case 
+the current object scope will be changed while we are inside the brace and Self will point to the object
+that we access using braces {}. In this case we can use This.Attribute and This.Method() to access the object
+that will be created from the current class.
+
+Check the Object Oriented Programming chapter for more information.
+
+Also Check the Weight History Application in GUI Development using RingQt chapter.
+
+.. index:: 
+	pair: What is new in Ring 1.1?; Better Documentation
+
+Better Documentation
+====================
+
+Ring 1.1 documentation (800 pages) is better than Ring 1.0 documentation (340 pages)
+
+Many chapters are added for providing better information about the language like
+
+* Language Reference
+* Scope Rules
+* FAQ
+
+And more!
+

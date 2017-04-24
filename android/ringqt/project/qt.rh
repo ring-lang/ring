@@ -1,0 +1,115 @@
+Qt_AlignLeft = 1
+Qt_AlignRight = 2
+Qt_AlignHCenter = 4
+Qt_AlignJustify = 8
+Qt_AlignTop = dec("20")
+Qt_AlignBottom = dec("40")
+Qt_AlignVCenter = dec("80")
+
+QMessageBox_Ok = dec("00000400")	 
+QMessageBox_Open = dec("00002000") 
+QMessageBox_Save = dec("00000800") 
+QMessageBox_Cancel = dec("00400000") 
+QMessageBox_Close = dec("00200000") 
+QMessageBox_Discard = dec("00800000") 
+QMessageBox_Apply = dec("02000000") 
+QMessageBox_Reset = dec("04000000") 
+QMessageBox_RestoreDefaults = dec("08000000")	 
+QMessageBox_Help = dec("01000000")
+QMessageBox_SaveAll = dec("00001000") 
+QMessageBox_Yes	= dec("00004000") 
+QMessageBox_YesToAll = dec("00008000") 
+QMessageBox_No = dec("00010000")	 
+QMessageBox_NoToAll = dec("00020000") 
+QMessageBox_Abort = dec("00040000") 
+QMessageBox_Retry = dec("00080000") 
+QMessageBox_Ignore = dec("00100000") 
+QMessageBox_NoButton = dec("00000000") 
+
+Qt_Widget = 0
+Qt_Window = 1
+Qt_dialog = 2 | Qt_Window
+Qt_sheet = 4 | Qt_Window
+Qt_Drawer = Qt_sheet | Qt_Dialog
+Qt_popup = 8 | Qt_Window
+Qt_Tool = Qt_popup | Qt_Dialog
+Qt_ToolTip = Qt_Popup | Qt_Sheet
+Qt_SplashScreen = Qt_ToolTip | Qt_Dialog
+Qt_Desktop = dec("10") | Qt_Window
+Qt_SubWindow = dec("12") 
+Qt_ForeignWindow = dec("20") | Qt_Window
+Qt_CoverWindow = dec("40") | Qt_Window
+
+Qt_CustomizeWindowHint = dec("2000000")
+Qt_WindowTitleHint  = dec("1000")
+Qt_WindowSystemMenuHint  = dec("2000")
+Qt_WindowMinimizeButtonHint  = dec("4000")
+Qt_WindowMaximizeButtonHint  = dec("8000")
+Qt_WindowMinMaxButtonsHint = Qt_WindowMinimizeButtonHint | Qt_WindowMaximizeButtonHint 
+Qt_WindowCloseButtonHint  = dec("8000000")
+Qt_WindowContextHelpButtonHint  = dec("10000")
+Qt_MacWindowToolBarButtonHint  = dec("10000000")
+Qt_WindowFullscreenButtonHint  = dec("80000000")
+Qt_BypassGraphicsProxyWidget = dec("20000000")
+Qt_WindowShadeButtonHint = dec("20000")
+Qt_WindowStaysOnTopHint = dec("40000")
+Qt_WindowStaysOnBottomHint = dec("4000000")
+Qt_windowOkButtonHint = dec("80000")
+Qt_WindowCancelButtonHint = dec("100000")
+Qt_WindowTransparentForInput = dec("80000")
+Qt_WindowOverridesSystemGestures = dec("100000")
+Qt_WindowDoesNotAcceptFocus = dec("200000")
+Qt_MaximizeUsingFullscreenGeometryHint = dec("400000")
+Qt_WindowType_Mask = dec("ff")
+
+Qt_Unchecked = 0
+Qt_PartiallyChecked = 1
+Qt_Checked = 2
+
+
+Qt_Key_Escape = dec("1000000")	 
+Qt_Key_Tab = dec("1000001")	 
+Qt_Key_Backtab  = dec("1000002")	 
+Qt_Key_Backspace= dec("1000003") 
+Qt_Key_Return = dec("1000004")
+Qt_Key_Enter  = dec("1000005")
+Qt_Key_Insert = dec("1000006")	 
+Qt_Key_Delete = dec("1000007")	 
+Qt_Key_Pause  = dec("1000008")
+
+QDockWidget_DocWidgetClosable = 1
+QDockWidget_DockWidgetMovable = 2
+QDockWidget_DockWidgetFloatable = 4
+QDockWidget_DockWidgetVerticalTitleBar = 8
+QDockWidget_AllDockWidgetFeatures = QDockWidget_DocWidgetClosable | QDockWidget_DockWidgetMovable | QDockWidget_DockWidgetFloatable
+QDockWidget_NoDockWidgetFeatures = 0
+
+QTextEdit_NoWrap = 0
+QTextEdit_WidgetWidth = 1
+QTextEdit_FixedPixelWidth = 2
+QTextEdit_FixedColumnWidth = 3
+
+Qt_LeftDockWidgetArea = 1
+Qt_RightDockWidgetArea = 2
+Qt_TopDockWidgetArea = 4
+Qt_BottomDockWidgetArea = 8
+Qt_NoDockWidgetArea = 0
+
+Qt_Horizontal = 1
+Qt_Vertical = 2
+
+QAbstractItemView_SelectItems = 0
+QAbstractItemView_SelectRows = 1
+QAbstractItemView_SelectColumns = 2
+
+QFrame_Plain = dec("10")
+QFrame_Raised = dec("20")
+QFrame_Sunken = dec("30")
+
+QFrame_NoFrame = 0
+QFrame_Box = 1
+QFrame_Panel = 2
+QFrame_StyledPanel = 6
+QFrame_HLine = 4
+QFrame_VLine = 5
+QFrame_WinPanel = 3

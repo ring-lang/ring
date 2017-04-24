@@ -1,3 +1,6 @@
+.. index:: 
+	single: Functions; Introduction
+
 =========
 Functions
 =========
@@ -16,8 +19,6 @@ In this chapter we are going to learn about the next topics :-
 
 * Variables Scope
 
-* Program structure
-
 * Return Value
 
 * Recursion
@@ -33,7 +34,7 @@ To define new function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func <function_name> [parameters]
 		Block of statements
@@ -43,7 +44,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func hello
 		see "Hello from function" + nl
@@ -61,7 +62,7 @@ To call function without parameters, we type the function name then ()
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	hello()
 
@@ -71,7 +72,7 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	first()  second()
 
@@ -79,6 +80,8 @@ Example:
 
 	func second  see "message from the second function" + nl
 
+.. index:: 
+	pair: Functions; Declare parameters
 
 Declare parameters
 ==================
@@ -88,10 +91,13 @@ of identifiers separated by comma.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	func sum x,y
 		see x+y+nl
+
+.. index:: 
+	pair: Functions; Send Parameters
 
 Send Parameters
 ===============
@@ -100,13 +106,13 @@ To send parameters to function, type the parameters inside () after the function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	funcname(parameters)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	/* output
 	** 8
@@ -116,6 +122,9 @@ Example:
 	sum(3,5) sum(1000,2000)
 
 	func sum x,y see x+y+nl
+
+.. index:: 
+	pair: Functions; Main Function
 
 Main Function
 =============
@@ -127,7 +136,7 @@ if no other statements comes alone, the main function will be the first `entry p
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# this program will print the hello world message first then execute the main function
 
@@ -135,6 +144,9 @@ Example:
 
 	func main
 		see "Message from the main function" + nl
+
+.. index:: 
+	pair: Functions; Variables Scope
 
 Variables Scope
 ===============
@@ -149,7 +161,7 @@ Inside any function we can access the variables defined inside this function bes
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# the program will print numbers from 10 to 1
 
@@ -171,49 +183,8 @@ Example:
 	  It's recommended to use the main functions instead of typing the instructions directly to set the scope
 	  of the new variables to local.
 
-
-Program Structure
-=================
-
-+--------------------------------+
-| Source Code File Sections	 |
-+================================+
-| Load Files			 |
-+--------------------------------+
-| Statements and Global Variables|
-+--------------------------------+
-| Functions 			 |
-+--------------------------------+
-| Packages and Classes		 |
-+--------------------------------+
-
-The application maybe one or more of files.
-
-to include another source file in the project, just use the load command.
-
-
-Syntax:
-
-.. code-block:: none
-
-	Load  "filename.ring"
-
-Example:
-
-.. code-block:: none
-
-	# File : Start.ring
-
-	Load "sub.ring"
-
-	sayhello("Mahmoud")
-
-.. code-block:: none
-
-	# File : sub.ring
-
-	func sayhello cName
-		see "Hello " + cName + nl
+.. index:: 
+	pair: Functions; Return Value
 
 Return Value
 ============
@@ -222,7 +193,7 @@ The function can return a value using the Return command.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Return [Expression]
 
@@ -233,13 +204,16 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	if novalue() = NULL	
 		See "the function doesn't return a value" + nl
 	ok
 
 	func novalue
+
+.. index:: 
+	pair: Functions; Recursion
 
 Recursion
 =========
@@ -249,7 +223,7 @@ and the function can call itself using different parameters.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see fact(5)  	# output = 120
 

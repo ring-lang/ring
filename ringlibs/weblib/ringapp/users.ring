@@ -1,4 +1,4 @@
-import system.web
+Import system.web
 
 func testregister
 	new page {

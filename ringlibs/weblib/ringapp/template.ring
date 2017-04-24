@@ -27,7 +27,7 @@ class bookscontroller
 		next	  
 
 		cTemp = Template("mytemplate.html",self)
-
+		 
 		new Page 
 		{ 			
 			boxstart()

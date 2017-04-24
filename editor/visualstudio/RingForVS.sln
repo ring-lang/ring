@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ring.VisualStudio.Editor", "Ring.VisualStudio.Editor\Ring.VisualStudio.Editor.csproj", "{0DEF4507-1805-4F25-B400-8D2048DDBB30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RingVSIX", "RingVSIX\RingVSIX.csproj", "{DD7ABC58-7ED5-4510-8ACD-143589713ED0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VSIX File", "VSIX File", "{AA2DD460-989E-480C-8658-CE207E822AF9}"
+	ProjectSection(SolutionItems) = preProject
+		RingVSIX\bin\Debug\RingVSIX.vsix = RingVSIX\bin\Debug\RingVSIX.vsix
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DEF4507-1805-4F25-B400-8D2048DDBB30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DEF4507-1805-4F25-B400-8D2048DDBB30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DEF4507-1805-4F25-B400-8D2048DDBB30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DEF4507-1805-4F25-B400-8D2048DDBB30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD7ABC58-7ED5-4510-8ACD-143589713ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD7ABC58-7ED5-4510-8ACD-143589713ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD7ABC58-7ED5-4510-8ACD-143589713ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD7ABC58-7ED5-4510-8ACD-143589713ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

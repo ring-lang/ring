@@ -1,0 +1,27 @@
+/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+#ifndef ring_vmopenssl_h
+#define ring_vmopenssl_h
+/* Functions */
+
+void ring_vm_openssl_loadfunctions ( RingState *pRingState ) ;
+
+void ring_vm_openssl_md5 ( void *pPointer ) ;
+
+void ring_vm_openssl_sha1 ( void *pPointer ) ;
+
+void ring_vm_openssl_sha256 ( void *pPointer ) ;
+
+void ring_vm_openssl_sha512 ( void *pPointer ) ;
+
+void ring_vm_openssl_sha384 ( void *pPointer ) ;
+
+void ring_vm_openssl_sha224 ( void *pPointer ) ;
+
+void ring_vm_openssl_encrypt ( void *pPointer ) ;
+
+void ring_vm_openssl_decrypt ( void *pPointer ) ;
+
+void ring_vm_openssl_randbytes ( void *pPointer ) ;
+/* Constants */
+#define RING_VM_POINTER_OPENSSL "openssl"
+#endif

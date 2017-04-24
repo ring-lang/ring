@@ -36,3 +36,4 @@ Type: int
 x
 Type: List *
 pScope,*pList
+ring_vm_gc_newitemreference

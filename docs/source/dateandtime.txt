@@ -1,3 +1,6 @@
+.. index:: 
+	single: Date and Time; Introduction
+
 =============
 Date and Time
 =============
@@ -13,18 +16,40 @@ Clock() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	 Clock() ---> The number of clock ticks from program start
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	See "Calculate performance" + nl
 	t1 = clock()
 	for x = 1 to 1000000 next
 	see clock() - t1 
+
+.. index:: 
+	pair: Date and Time; ClosPerSecond()
+
+ClocksPerSecond() Function
+==========================
+
+Return how many clocks in one second
+
+Syntax:
+
+.. code-block:: ring
+
+	clockspersecond() ---> Number of clocks in one second
+
+Example:
+
+.. code-block:: ring
+
+	# Wait 1 second
+	t = clock()
+	while clock() - t <= clockspersecond() end
 
 .. index:: 
 	pair: Date and Time; Time()
@@ -36,7 +61,7 @@ We can get the system time using the Time() function.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	See "Time : " + time()
 
@@ -51,13 +76,13 @@ We can get the date using the Date() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	 Date() ---> String represent the date "dd/mm/yyyy"
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Date : " + date()  # Date : 24/05/2015
 
@@ -72,7 +97,7 @@ We can print the date and the time information using the TimeList() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	TimeList() ---> List contains the time and date information.
 
@@ -106,7 +131,7 @@ index	value
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	/* Output:
 	** Sun			abbreviated weekday name 
@@ -136,13 +161,13 @@ Example:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Day Name : " + TimeList()[2]	# Sunday
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Month Name : " + TimeList()[4]	# May
 
@@ -154,13 +179,13 @@ AddDays() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	AddDays(cDate,nDays) ---> Date from cDate and after nDays
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cDate = date()
 	see cDate + nl			# 24/05/2015
@@ -175,13 +200,13 @@ DiffDays() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	DiffDays(cDate1,cDate2) ---> number of days (Date1 - Date2)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cDate1 = date()
 	see cDate1 + nl						# 24/05/2015

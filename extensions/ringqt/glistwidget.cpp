@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -8,6 +8,7 @@ extern "C" {
 GListWidget::GListWidget(QWidget *parent,VM *pVM)  : QListWidget(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccurrentItemChangedEvent,"");
 	strcpy(this->ccurrentRowChangedEvent,"");
 	strcpy(this->ccurrentTextChangedEvent,"");
@@ -31,6 +32,20 @@ GListWidget::GListWidget(QWidget *parent,VM *pVM)  : QListWidget(parent)
 	QObject::connect(this, SIGNAL(itemSelectionChanged()),this, SLOT(itemSelectionChangedSlot()));
 
 }
+
+GListWidget::~GListWidget()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GListWidget::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GListWidget::setcurrentItemChangedEvent(const char *cStr)
 {
@@ -92,11 +107,63 @@ void GListWidget::setitemSelectionChangedEvent(const char *cStr)
 		strcpy(this->citemSelectionChangedEvent,cStr);
 }
 
+ 
+const char *GListWidget::getcurrentItemChangedEvent(void)
+{
+	return this->ccurrentItemChangedEvent;
+}
+
+const char *GListWidget::getcurrentRowChangedEvent(void)
+{
+	return this->ccurrentRowChangedEvent;
+}
+
+const char *GListWidget::getcurrentTextChangedEvent(void)
+{
+	return this->ccurrentTextChangedEvent;
+}
+
+const char *GListWidget::getitemActivatedEvent(void)
+{
+	return this->citemActivatedEvent;
+}
+
+const char *GListWidget::getitemChangedEvent(void)
+{
+	return this->citemChangedEvent;
+}
+
+const char *GListWidget::getitemClickedEvent(void)
+{
+	return this->citemClickedEvent;
+}
+
+const char *GListWidget::getitemDoubleClickedEvent(void)
+{
+	return this->citemDoubleClickedEvent;
+}
+
+const char *GListWidget::getitemEnteredEvent(void)
+{
+	return this->citemEnteredEvent;
+}
+
+const char *GListWidget::getitemPressedEvent(void)
+{
+	return this->citemPressedEvent;
+}
+
+const char *GListWidget::getitemSelectionChangedEvent(void)
+{
+	return this->citemSelectionChangedEvent;
+}
+
 
 void GListWidget::currentItemChangedSlot()
 {
 	if (strcmp(this->ccurrentItemChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentItemChangedEvent);
 }
 
@@ -104,6 +171,7 @@ void GListWidget::currentRowChangedSlot()
 {
 	if (strcmp(this->ccurrentRowChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentRowChangedEvent);
 }
 
@@ -111,6 +179,7 @@ void GListWidget::currentTextChangedSlot()
 {
 	if (strcmp(this->ccurrentTextChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentTextChangedEvent);
 }
 
@@ -118,6 +187,7 @@ void GListWidget::itemActivatedSlot()
 {
 	if (strcmp(this->citemActivatedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemActivatedEvent);
 }
 
@@ -125,6 +195,7 @@ void GListWidget::itemChangedSlot()
 {
 	if (strcmp(this->citemChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemChangedEvent);
 }
 
@@ -132,6 +203,7 @@ void GListWidget::itemClickedSlot()
 {
 	if (strcmp(this->citemClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemClickedEvent);
 }
 
@@ -139,6 +211,7 @@ void GListWidget::itemDoubleClickedSlot()
 {
 	if (strcmp(this->citemDoubleClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemDoubleClickedEvent);
 }
 
@@ -146,6 +219,7 @@ void GListWidget::itemEnteredSlot()
 {
 	if (strcmp(this->citemEnteredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemEnteredEvent);
 }
 
@@ -153,6 +227,7 @@ void GListWidget::itemPressedSlot()
 {
 	if (strcmp(this->citemPressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemPressedEvent);
 }
 
@@ -160,6 +235,7 @@ void GListWidget::itemSelectionChangedSlot()
 {
 	if (strcmp(this->citemSelectionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemSelectionChangedEvent);
 }
 

@@ -101,6 +101,8 @@ $cLibInitFunc = "ringlib_init"
 
 $lIgnoreCPointerTypeCheck = false
 
+$aMallocClassesList = []   # list contains classes to use malloc() instead of new when we return objects of this type (not pointer)
+
 Func Main
 	if len(sysargv) < 3
 		See "Input : filename.cf is missing!" + nl
@@ -108,14 +110,17 @@ Func Main
 	ok
 	cFile = sysargv[3]
 	cStr = read(cFile)
-	if iswindows()
-		cStr = substr(cStr,char(13)+char(10),nl)
-	ok
 	aList = str2list(cStr)
 	aData = []
 	lFlag = C_INS_FUNCTION
 	for cLine in aList
 		cLine = trim(cLine)
+		nPos = substr(cLine,"#")
+		if nPos > 0  
+			if (substr(cLine,"#include") = 0 ) and ( substr(cLine,"#define") = 0 )
+			cLine = trim(left(cLine,nPos-1))
+			ok
+		ok
 		see "ReadLine : " + cLine + nl
 		if cLine = NULL and lflag != C_INS_CODE
 			loop
@@ -211,6 +216,14 @@ Func Main
 	if len(sysargv) = 5  # Generate Ring Classes for C++ Classes
 		cCode = GenRingCode(aData)
 		WriteFile(sysargv[5],cCode)
+	ok
+
+	if len($aClassesList) > 0
+		cCode = ""
+		for x in $aClassesList
+			cCode += x[1] + nl
+		next
+		WriteFile("classes.txt",cCode)
 	ok
 
 Func WriteFile cFileName,cCode
@@ -359,15 +372,10 @@ Func GenCode aList
 
 Func GenDLLStart
 	if $lNodllstartup return "" ok
-	return 	'#include "ring.h"' + nl + nl +
-		'#ifdef _WIN32' + nl +
-		"#define RING_DLL __declspec(dllexport)" + nl + 
-		'#else' + nl +
-		"#define RING_DLL extern" + nl +
-		'#endif' + nl + nl 
+	return 	'#include "ring.h"' + nl + nl
 
 Func GenFuncPrototype aList
-	cCode = "RING_DLL void "+$cLibInitFunc+"(RingState *pRingState)" + nl +
+	cCode = "RING_API void "+$cLibInitFunc+"(RingState *pRingState)" + nl +
 		"{" + nl
 	for aFunc in aList
 		if aFunc[C_FUNC_INS] = C_INS_FUNCTION OR aFunc[C_FUNC_INS] = C_INS_REGISTER
@@ -398,9 +406,12 @@ Func GenFuncPrototype aList
 	return cCode
 
 Func GenFuncCode aList
-	cCode = nl+"RING_FUNC(" + "ring_"+aList[C_FUNC_NAME] + ")" + nl +
+	cFuncName = aList[C_FUNC_NAME]
+	cFuncName = substr(cFuncName,"@","_")
+	cCode = nl+"RING_FUNC(" + "ring_"+cFuncName + ")" + nl +
 	 	"{" + nl +
 	 	GenFuncCodeCheckParaCount(aList) +
+		GenMethodCodeCheckIgnorePointerType() +
 	 	GenFuncCodeCheckParaType(aList) +
 		GenFuncCodeCallFunc(aList)+
 	 	"}" + nl + nl 
@@ -495,7 +506,14 @@ Func GenFuncCodeCallFunc aList
 			lRet = false
 			lUNKNOWN = true
 	off
-	cCode += aList[C_FUNC_NAME] + "(" +
+
+	cFuncName = aList[C_FUNC_NAME]
+	nPos = SubStr(cFuncName,"@")
+	if nPos > 0
+		cFuncName = left(cFuncName,nPos-1)
+	ok
+
+	cCode += cFuncName + "(" +
 		GenFuncCodeGetParaValues(aList) + ")"
 	if lRet		
 		if lRetPointer
@@ -536,7 +554,11 @@ Func GenFuncCodeGetParaValues aList
 				but GenPointerType(x) = "double"
 					cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
 				else
-					cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
+					if not IsPointer2Pointer(x)
+						cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
+					else
+						cCode += "(" + GenPointerType(x) + " **) RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'
+					ok
 				ok
 			on C_TYPE_UNKNOWN
 				cCode += "* (" + x + " *) RING_API_GETCPOINTER(" + t +',"'+trim(x)+'")'
@@ -576,6 +598,12 @@ Func GenFuncCodeFreeNotAssignedPointers aList
 		next
 	ok
 	return cCode
+
+Func IsPointer2Pointer x
+	if substr(x,"**")
+		return True
+	ok
+	return false
 
 Func GenPointerType x
 	x = substr(x,"const","")
@@ -894,7 +922,7 @@ Func GenMethodCodeCallFunc aList
 			lRetPointer = true
 			cCode += "RING_API_RETCPOINTER("
 		on C_TYPE_UNKNOWN
-			if find($aClassesList,aList[C_FUNC_OUTPUT],1) > 0
+			if ( find($aClassesList,aList[C_FUNC_OUTPUT],1) > 0 ) and ( find($aMallocClassesList,aList[C_FUNC_OUTPUT]) = 0 )
 				cCode += "{" + nl + 
 				GenTabs(2) + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
 				GenTabs(2) + "pValue = new " + aList[C_FUNC_OUTPUT] + 
@@ -993,7 +1021,9 @@ Func GenNewFuncForClasses aList
 		aList + mylist
 		cCode += "RING_FUNC(" + cFuncName + ")" + nl + 
 			"{" + nl +
-				GenTabs(1) + GenMethodCodeCheckIgnorePointerType() +
+				GenMethodCodeCheckIgnorePointerType() +
+			 	GenFuncCodeCheckParaCount(myList) +
+	 			GenFuncCodeCheckParaType(myList) +
 				GenTabs(1) + cCodeName + " *pObject = " +
 				"new " + cCodeName + "(" + 				
 				GenFuncCodeGetParaValues(myList) 

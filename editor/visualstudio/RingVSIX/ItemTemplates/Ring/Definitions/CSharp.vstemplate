@@ -1,0 +1,19 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <ProjectType>Ring</ProjectType>
+    
+    <DefaultName>NewFile.ring</DefaultName>
+    <Name>Ring File</Name>
+    <Description>Ring File</Description>    
+    <Icon>ringlogo.jpg</Icon>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+  </TemplateData>
+  <TemplateContent>
+    <References />
+    <ProjectItem TargetFileName="$fileinputname$.ring" ItemType="EmbeddedResource" ReplaceParameters="true">
+      Item/NewFile.ring
+    </ProjectItem>
+    
+  </TemplateContent>
+  
+</VSTemplate>

@@ -1,0 +1,347 @@
+.. index:: 
+	single: What is new in Ring 1.2?; Introduction
+
+========================
+What is new in Ring 1.2?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.2 release.
+
+.. index:: 
+	pair: What is new in Ring 1.2?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.2  comes with many new features 
+
+* New Functions
+* Better Functions
+* Better Ring Notepad
+* Better RingQt
+* Objects Library for RingQt
+* RingLibCurl
+* Better Call Command
+* Using NULL instead of NULLPointer()
+* Display Warnings Option
+* Better Quality
+
+.. index:: 
+	pair: What is new in Ring 1.2?; New Functions
+
+New Functions
+=============
+
+* PtrCmp() Function is a new function that compare between C pointers like the GUI objects.
+* PrevFileName() Function is added to return the previous active source file name.
+* RingVM_CFunctionsList() Function is added to return a list of functions written in C.
+* RingVM_FunctionsList() Function is added to return a list of functions written in Ring.
+* RingVM_ClassesList() Function is added to return a list of Classes.
+* RingVM_PackagesList() Function is added to return a list of Packages.
+* RingVM_MemoryList() Function is added to return a list of Memory Scopes and Variables.
+* RingVM_CallList() Function is added to return a list of the functions call list.
+* RingVM_FilesList() Function is added to return a list of the Ring Files.
+
+Example:
+
+.. code-block:: ring
+
+	fp = fopen("ptrcmp.ring","r")
+	fp2 = fp
+	fp3 = fopen("ptrcmp.ring","r")
+
+	see ptrcmp(fp,fp2) + nl
+	see ptrcmp(fp,fp3) + nl
+
+	fclose(fp)
+	fclose(fp3)
+
+Output:
+
+.. code-block:: ring
+
+	1
+	0
+
+Also we can compare between them using the '=' operator
+
+Example:
+
+.. code-block:: ring
+
+	fp = fopen("ptrcmp2.ring","r")
+	fp2 = fopen("ptrcmp2.ring","r")
+	fp3 = fp
+	see fp = fp2
+	see nl
+	see fp = fp3
+	fclose(fp)
+	fclose(fp2)
+
+Output:
+
+.. code-block:: ring
+
+	0
+	1
+
+
+Example:
+
+The next function in stdlib.ring uses the PrevFileName() to know if the file of the
+caller function is the main source file of the program or not.
+
+.. code-block:: ring
+
+	Func IsMainSourceFile
+		if PrevFileName() = sysargv[2]
+			return true
+		ok
+		return false
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Better Functions
+
+Better Functions
+================
+
+The find() function is updated to support searching in lists using C pointers like GUI
+Objects.
+
+The type() function is updated to display the C pointers types (like the GUI Object Class
+Name).
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Better Ring Notepad
+
+Better Ring Notepad
+===================
+
+The Ring Notepad will save the current line number of opened files to be restored when
+we switch between files.
+
+Also Ring Notepad will ask the user to save the file if the file content is changed when 
+the user switch between files.
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Better RingQt
+
+Better RingQt
+=============
+
+RingQt classes are updated to include methods to get events (The code that will be executed
+when an event is fired). This is necessary to enable/disable events for some time or to
+get the events information.
+
+For example the next code disable an event then call a method then enable the event again.
+
+.. code-block:: ring
+
+	cEvent = oView.oListResult.getCurrentItemChangedEvent()
+	oView.oListResult.setCurrentItemChangedEvent("")
+	FindValueAction()	# Call Method while an event is disabled
+	oView.oListResult.setCurrentItemChangedEvent(cEvent)
+
+Also the QAllEvents class is updated where we can set the output from the event function
+to be true or false using a new method added to the class called setEventOutput.
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	MyApp = New qApp {
+			win = new qWidget() {
+					setwindowtitle("Hello World")
+					setGeometry(100,100,370,250)
+					lineedit1 = new qlineedit(win) {
+						setGeometry(10,100,350,30)
+						setinputmask("9999;_") 
+						oFilter = new qallevents(lineedit1)
+						oFilter.setfocusoutEvent("pMove()")
+						installeventfilter(oFilter)
+					}
+					lineedit2 = new qlineedit(win) {
+							setGeometry(10,150,350,30)
+					}
+					show()
+			}
+			exec()
+	}
+	
+	func pMove
+		   win.setWindowTitle("xxxx")
+		   oFilter.setEventOutput(False)
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Objects Library for RingQt
+
+Objects Library for RingQt
+==========================
+
+Ring 1.2 comes with the Objects library for RingQt applications. Instead of using global
+variables for windows objects and connecting events to objects using the object name, the
+Objects Library will manage the GUI objects and will provide a more natural API to quickly
+create one or many windows from the same class and the library provide a way to quickly set methods
+to be executed when an event is fired. Also the library provide a natural interface to
+quickly use the parent or the caller windows from the child or sub windows.
+
+The Objects Library is designed to be used with the MVC Design Pattern.
+
+The Objects Library is merged in RingQt so you can use it directly when you use RingQt
+
+Example :
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+		open_window( :MainWindowController )
+		exec()
+	}
+
+	class MainWindowController from WindowsControllerParent
+		oView = new MainWindowView
+		func SubWindowAction
+			Open_window( :SubWindowController )
+			Last_Window().SetParentObject(self)
+
+	class MainWindowView from WindowsViewParent
+		win = new qWidget() {
+			SetWindowTitle("Main Window")
+			btnSub = new qPushButton(win) {
+				setText("Sub Window")
+				setClickEvent( Method( :SubWindowAction ) )
+			}
+			resize(400,400)
+		}
+
+	class SubWindowController from WindowsControllerParent
+		oView = new SubWindowView
+		func SetMainWindowTitleAction
+			Parent().oView.win.SetWindowTitle("Message from the Sub Window")
+			oView.win.SetWindowTitle("Click Event Done!")
+
+	class SubWindowView from WindowsViewParent
+		win = new qWidget() {
+			SetWindowTitle("Sub Window")
+			btnMsg = new qPushButton(win) {
+				setText("Set Main Window Title")
+				setClickEvent( Method( :SetMainWindowTitleAction ) )
+			}
+			btnClose = new qPushButton(win) {
+				Move(200,0)
+				setText("Close")
+				setClickEvent( Method( :CloseAction ) )
+			}
+			resize(400,400)
+		}
+
+.. index:: 
+	pair: What is new in Ring 1.2?; RingLibCurl
+
+RingLibCurl
+===========
+
+The LibCurl library is used starting from Ring 1.0 for the Download() and SendEmail() 
+functions implementation. In Ring 1.2 more functions are added to provide a powerful
+library (RingLibCurl) around LibCurl.
+
+Example:
+
+.. code-block:: ring
+
+	load "libcurl.ring"
+
+	curl = curl_easy_init()
+
+	cPostThis = "page=4&Number1=4&Number2=5"
+	curl_easy_setopt(curl, CURLOPT_URL, "http://localhost/ringapp/index.ring?page=3")
+	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, cPostThis)
+
+	curl_easy_perform(curl)
+
+	curl_easy_cleanup(curl)
+
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Better Call Command
+
+Better Call Command
+===================
+
+The Call command is updated to support calling functions from object attributes also (not
+only variables).
+
+For example the next code from the Stars Fighter Game
+
+.. code-block:: ring
+
+	cFunc = oself.keypress
+	call cFunc(oGame,oSelf,Key_Space)
+
+Can be written in one line
+
+.. code-block:: ring
+
+	call oself.keypress(oGame,oSelf,Key_Space)
+
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Using NULL instead of NULLPointer()
+
+Using NULL instead of NULLPointer()
+===================================
+
+We can pass NULL to functions instead of using NULLPointer()
+
+For example the next code from RingLibSDL
+
+.. code-block:: ring
+
+	SDL_RenderCopy(SDL_ren,tex,NULLPointer(),rect)
+
+Can be written as in the next line
+
+.. code-block:: ring
+
+	SDL_RenderCopy(SDL_ren,tex,NULL,rect)
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Display Warnings Option
+
+Display Warnings Option
+=======================
+
+In Ring 1.2 the Ring compiler is updated to include the Display Warnings option (-w)
+
+Example:
+
+.. code-block:: ring
+	
+	load "stdlib.ring"
+	load "stdlib.ring"
+
+compiling the program using the Display Warnings option will display the file duplication
+warning, While without that option the error will pass silent.
+
+This is a warning (not an error) because in large projects you may use the same file
+more than one time. For example it's common to start each file with the next code. where
+the function IsMainSourceFile() is part from the stdlib.ring
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	if IsMainSourceFile() 
+		// Testing
+	ok 
+
+.. index:: 
+	pair: What is new in Ring 1.2?; Better Quality
+
+Better Quality
+==============
+
+Ring 1.2 is more stable, We discovered and fixed more bugs during Ring usage everyday
+in practical projects. Some functions are optimized to be faster like the SubStr() function.
+Also the documentation is more better.

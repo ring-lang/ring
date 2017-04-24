@@ -1,1 +1,0 @@
-load "tests\filename2.ring"

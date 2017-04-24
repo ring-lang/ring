@@ -17,6 +17,8 @@ Type: char
 cMLComment
 Type: RingState *
 pRingState
+Type: int
+nTokenIndex
 END:
 Type: Scanner
 struct Scanner
@@ -43,7 +45,6 @@ K_SEE
 K_WHILE
 K_OK
 K_CLASS
-K_BREAK
 K_RETURN
 K_BUT
 K_END
@@ -66,9 +67,43 @@ K_STEP
 K_DO
 K_AGAIN
 K_CALL
+K_ELSEIF
+K_PUT
+K_GET
+K_CASE
+K_DEF
+K_CHANGERINGKEYWORD
+K_CHANGERINGIOPERATOR
+K_LOADSYNTAX
 END:
 Type: SCANNER_KEYWORD
 SCANNER_KEYWORD
+Parent: SCANNER_OPERATOR
+OP_PLUS = 1
+OP_MINUS
+OP_MUL
+OP_DIV
+OP_REM
+OP_DOT
+OP_FOPEN
+OP_FCLOSE
+OP_EQUAL
+OP_COMMA
+OP_NOT
+OP_GREATER
+OP_LESS
+OP_LOPEN
+OP_LCLOSE
+OP_RANGE
+OP_BRACEOPEN
+OP_BRACECLOSE
+OP_BITAND
+OP_BITOR
+OP_BITNOT
+OP_XOR
+END:
+Type: SCANNER_OPERATOR
+SCANNER_OPERATOR
 RING_SCANNER_DELETELASTTOKEN
 RING_SCANNER_TOKENTYPE
 RING_SCANNER_TOKENVALUE
@@ -83,6 +118,12 @@ SCANNER_STATE_GENERAL
 SCANNER_STATE_LITERAL
 SCANNER_STATE_COMMENT
 SCANNER_STATE_MLCOMMENT
+SCANNER_STATE_CHANGEKEYWORD
+SCANNER_STATE_CHANGEOPERATOR
+SCANNER_STATE_LOADSYNTAX
+RING_SCANNER_CHANGERINGKEYWORD
+RING_SCANNER_CHANGERINGOPERATOR
+RING_SCANNER_LOADSYNTAX
 ring_scanner_new
 Type: Scanner *
 pScanner
@@ -106,6 +147,8 @@ Type: List *
 pList
 Type: String *
 pString
+Type: int
+nTokenIndex
 ring_scanner_keywords
 ring_scanner_addtoken
 Type: List *
@@ -120,6 +163,8 @@ Type: unsigned int
 x
 ring_scanner_checklasttoken
 ring_scanner_isoperator
+Type: int
+nPos
 ring_scanner_operators
 ring_scanner_lasttokentype
 x
@@ -159,3 +204,33 @@ ring_scanner_runobjfile
 ring_scanner_runprogram
 Type: VM *
 pVM
+ring_scanner_changekeyword
+Type: char *
+cStr
+Type: int
+x,nResult
+Type: String *
+word1, *word2, *activeword
+Type: char
+cStr2[2]
+ring_scanner_changeoperator
+Type: char *
+cStr
+Type: int
+x,nResult
+Type: String *
+word1, *word2, *activeword
+Type: char
+cStr2[2]
+ring_scanner_loadsyntax
+Type: char *
+cFileName
+Type: RING_FILE
+fp
+c
+Type: int
+nSize
+Type: char
+cFileName2[200]
+Type: unsigned int
+x

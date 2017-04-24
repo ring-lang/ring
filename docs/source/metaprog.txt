@@ -1,3 +1,6 @@
+.. index:: 
+	single: Reflection and Meta-programming; Introduction
+
 ===============================
 Reflection and Meta-programming
 ===============================
@@ -7,6 +10,9 @@ the program code and we can modify our code during the runtime.
 
 In this chapter we will learn about this and the available functions to use.
 
+.. index:: 
+	pair: Reflection and Meta-programming; locals()
+
 locals() Function
 =================
 
@@ -14,13 +20,13 @@ We can get a list of variables names in the current scope using the locals() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	locals() --> a list contains the variables names in the current scope
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	test("hello")
 
@@ -36,13 +42,16 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	hello
 	cmsg
 	x
 	y
 	z
+
+.. index:: 
+	pair: Reflection and Meta-programming; globals()
 
 globals() Function
 ==================
@@ -51,13 +60,13 @@ We can get a list of variables names in the global scope using the globals() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	globals() --> a list contains variables names in the global scope
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x=10 y=20 z=30
 	test()
@@ -69,7 +78,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	message from test()
@@ -78,6 +87,9 @@ Output:
 	y
 	z
 
+.. index:: 
+	pair: Reflection and Meta-programming; functions()
+
 functions() Function
 ====================
 
@@ -85,13 +97,13 @@ We can get a list of functions names written in the Ring language using the func
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	functions() --> a list contains functions names
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see functions()
 
@@ -106,11 +118,14 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	f1
 	f2
 	f3
+
+.. index:: 
+	pair: Reflection and Meta-programming; cfunctions()
 
 cfunctions() Function
 =====================
@@ -119,13 +134,13 @@ We can get a list of functions names written in the C language using the cfuncti
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cfunctions() --> a list contains functions names
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	aList =  cfunctions()
 	See "Count : " + len(aList) + nl
@@ -135,9 +150,9 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
-	Count : 186
+	Count : 219
 	len() 
 	add() 
 	del() 
@@ -147,6 +162,9 @@ Output:
 
 .. note:: The complete list is removed from the previous output.
 
+.. index:: 
+	pair: Reflection and Meta-programming; islocal()
+
 islocal() Function
 ==================
 
@@ -154,14 +172,14 @@ We can check if a variable is defined in the local scope or not using the isloca
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	islocal(cVariableName) --> returns 1 if the variable is defined in the local scope
 				   returns 0 if the variable is not defined in the local scope
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	test()
 
@@ -173,12 +191,15 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	1
 	0
 
+
+.. index:: 
+	pair: Reflection and Meta-programming; isglobal()
 
 isglobal() Function
 ===================
@@ -187,14 +208,14 @@ We can check if a variable is defined in the global scope or not using the isglo
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	isglobal(cVariableName) --> returns 1 if the variable is defined in the global scope
 				    returns 0 if the variable is not defined in the global scope
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x=10 y=20
 
@@ -207,11 +228,14 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	1
 	0
+
+.. index:: 
+	pair: Reflection and Meta-programming; isfunction()
 
 isfunction() Function
 =====================
@@ -220,14 +244,14 @@ We can check if a Ring function is defined or not using the isfunction() functio
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	isfunction(cFunctionName) --> returns 1 if the Ring function is defined
 				      returns 0 if the Ring function is not defined
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isfunction("f1") + nl + 
 	    isfunction("f2") + nl + 
@@ -241,11 +265,14 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	1
 	0
+
+.. index:: 
+	pair: Reflection and Meta-programming; iscfunction()
 
 iscfunction() Function
 ======================
@@ -254,14 +281,14 @@ We can check if a C function is defined or not using the iscfunction() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	iscfunction(cFunctionName) --> returns 1 if the C function is defined
 				       returns 0 if the C function is not defined
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see iscfunction("len") + nl + 
   	    iscfunction("add") + nl + 
@@ -269,12 +296,14 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	1
 	0
 
+.. index:: 
+	pair: Reflection and Meta-programming; packages()
 
 packages() Function
 ===================
@@ -283,13 +312,13 @@ We can get a list of packages names using the packages() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	packages() --> a list contains packages names
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See packages()
 
@@ -311,13 +340,15 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	package1
 	package2
 	package3
 	package4
 
+.. index:: 
+	pair: Reflection and Meta-programming; ispackage()
 
 ispackage() Function
 ====================
@@ -326,14 +357,14 @@ We can check if a package is defined or not using the ispackage() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ispackage(cPackageName) --> returns 1 if the Package is defined
 				    returns 0 if the Package is not defined
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See ispackage("package1") + nl + 
 	    ispackage("package4") + nl + 
@@ -358,13 +389,15 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	1
 	0
 	1
 
+.. index:: 
+	pair: Reflection and Meta-programming; classes()
 
 classes() Function
 ==================
@@ -373,13 +406,13 @@ We can get a list of classes names using the classes() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	classes() --> a list contains classes names
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See classes()
 
@@ -394,11 +427,14 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	class1
 	class2
 	class3
+
+.. index:: 
+	pair: Reflection and Meta-programming; isclass()
 
 isclass() Function
 ==================
@@ -407,14 +443,14 @@ We can check if a class is defined or not using the isclass() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	isclass(cClassName) -->  returns 1 if the Class is defined
 				 returns 0 if the Class is not defined
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isclass("class4") + nl + 
 	    isclass("class3") + nl +
@@ -431,11 +467,14 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	0
 	1
 	1
+
+.. index:: 
+	pair: Reflection and Meta-programming; packagesclasses()
 
 packageclasses() Function
 =========================
@@ -444,13 +483,13 @@ We can get a list of classes names inside a package using the packageclasses() f
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	packageclasses(cPackageName) --> a list contains classes names inside the package
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "classes in Package1" + nl
 	see packageclasses("Package1")
@@ -472,7 +511,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	classes in Package1
 	class1
@@ -481,6 +520,8 @@ Output:
 	class2
 	class3
 
+.. index:: 
+	pair: Reflection and Meta-programming; ispackagesclass()
 
 ispackageclass() Function
 =========================
@@ -489,14 +530,14 @@ We can check if a class is defined inside package or not using the ispackageclas
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ispackageclass(cPackageName,cClassName) -->  returns 1 if the Class is defined  
 		  				     returns 0 if the Class is not defined 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see ispackageclass("package1","class1") + nl +
 	    ispackageclass("package1","class2") + nl +
@@ -517,12 +558,15 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	0
 	1
 	1
+
+.. index:: 
+	pair: Reflection and Meta-programming; classname()
 
 classname() Function
 ====================
@@ -531,14 +575,14 @@ We can know the class name of an object using the classname() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	classname(object) --> Returns the object class name
 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point
 	o2 = new rect
@@ -549,6 +593,9 @@ Example:
 	class point
 	class rect
 
+.. index:: 
+	pair: Reflection and Meta-programming; objectid()
+
 objectid() Function
 ===================
 
@@ -556,13 +603,13 @@ We can know the object id using the objectid() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	objectid(object) --> Returns the object id
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point
 	see objectid(o1) + nl
@@ -575,11 +622,14 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	021B5808
 	021B5808
 		
+.. index:: 
+	pair: Reflection and Meta-programming; isobject()
+
 isobject() Function
 ===================
 
@@ -587,11 +637,14 @@ We can check the variable to know if it's an object or not using the isobject() 
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	isobject(variable) --> Returns True if it's an object, False if it's not
 
 		
+.. index:: 
+	pair: Reflection and Meta-programming; attributes()
+
 attributes() Function
 =====================
 
@@ -599,19 +652,22 @@ We can get the object attributes using the attributes() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	attributes(object) --> Returns a list contains the object attributes
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point
 	aList = attributes(o1)		# we can use see attributes(o1)
 	for t in aList see t next	# print xyz 
 	Class Point x y z
 		
+.. index:: 
+	pair: Reflection and Meta-programming; methods()
+
 methods() Function
 ==================
 
@@ -619,14 +675,14 @@ We can get the object methods using the methods() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	methods(object) --> Returns a list contains the object methods
 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new test
 	aList = methods(o1)
@@ -648,13 +704,16 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	hello from f1
 	hello from f2
 	hello from f3
 	hello from f4
 
+
+.. index:: 
+	pair: Reflection and Meta-programming; isattribute()
 
 isattribute() Function
 ======================
@@ -663,13 +722,13 @@ We can test if the object contains an attribute or not using the isattribute() f
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	isattribute(object,cAttributeName) --> Returns True if the object contains the attribute
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point
 
@@ -680,6 +739,9 @@ Example:
 
 	class point x y z
 
+.. index:: 
+	pair: Reflection and Meta-programming; isprivateattribute()
+
 isprivateattribute() Function
 =============================
 
@@ -687,14 +749,14 @@ We can test if the object contains a private attribute or not using the isprivat
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	isprivateattribute(object,cAttributeName) --> Returns True if the object 
 						      contains the private attribute
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new person
 
@@ -711,7 +773,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	0
 	0
@@ -719,6 +781,8 @@ Output:
 	1
 	1
 
+.. index:: 
+	pair: Reflection and Meta-programming; ismethod()
 	
 ismethod() Function
 ===================
@@ -727,13 +791,13 @@ We can test if the object class contains a method or not using the ismethod() fu
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	ismethod(object,cMethodName) --> Returns True if the object class contains the method
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point
 
@@ -748,6 +812,8 @@ Example:
 		func print
 			see x + nl + y + nl + z + nl
 
+.. index:: 
+	pair: Reflection and Meta-programming; isprivatemethod()
 
 isprivatemethod() Function
 ==========================
@@ -756,14 +822,14 @@ We can test if the object class contains a private method or not using the ispri
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	isprivatemethod(object,cMethodName) --> Returns True if the object class contains 
 						the private method
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new Test
 
@@ -779,10 +845,13 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	0
 	1
+
+.. index:: 
+	pair: Reflection and Meta-programming; addattribute()
 
 addattribute() Function
 =======================
@@ -792,13 +861,13 @@ the addattribute() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	AddAttribute(object,cAttributeName|aAttributesList)
 
 Example(1):
 
-.. code-block:: none
+.. code-block:: ring
 
 	see new point {x=10 y=20 z=30}
 	Class Point 
@@ -806,7 +875,7 @@ Example(1):
 
 Example(2):
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point
 	addattribute(o1,"x")
@@ -818,13 +887,15 @@ Example(2):
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	x: 10.000000
 	y: 20.000000
 	z: 30.000000
 
 
+.. index:: 
+	pair: Reflection and Meta-programming; addmethod()
 
 
 addmethod() Function
@@ -835,13 +906,13 @@ This method can be used with any object from the same class.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	AddMethod(Object,cNewMethodName,cMethodName|AnonymousFunction)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point { x=10 y=20 z=30 }
 
@@ -854,7 +925,7 @@ Example:
 	
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	10
 	20
@@ -864,7 +935,7 @@ Instead of using anonymous function to add new method to the class, we can use t
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point { x=10 y=20 z=30 }
 
@@ -884,7 +955,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	10
 	20
@@ -900,7 +971,7 @@ Since we add the method to the class, any object from that class can use this me
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point { x=10 y=20 z=30 }
 	o2 = new point { x=100 y=200 z=300 }
@@ -917,7 +988,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	10
 	20
@@ -929,6 +1000,9 @@ Output:
 	150
 	250
 
+.. index:: 
+	pair: Reflection and Meta-programming; getattribute()
+
 getattribute() function
 =======================
 
@@ -936,13 +1010,13 @@ We can get the object attribute value using the getattribute() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	GetAttribute(oObject,cAttributeName) ---> Attribute Value
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new point
 
@@ -957,7 +1031,7 @@ Example:
 	
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	3D-Point
 	10
@@ -970,7 +1044,7 @@ Example:
 We can Find a Class List Member using GetAttribute() using a function findclass()
 The Find uses the member name, rather than the column number
 
-.. code-block:: none
+.. code-block:: ring
 
 	myList =
 	          [new Company {position=3 name="Mahmoud" symbol="MHD"},
@@ -1011,7 +1085,7 @@ The Find uses the member name, rather than the column number
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Pos: 1 | 3 | Mahmoud | MHD |
 	Pos: 2 | 2 | Bert | BRT |
@@ -1026,6 +1100,8 @@ Output:
 	1
 
 	
+.. index:: 
+	pair: Reflection and Meta-programming; setattribute()
 
 setattribute() function
 =======================
@@ -1034,13 +1110,13 @@ We can set the object attribute value using the setattribute() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	SetAttribute(oObject,cAttributeName,Value)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	o1 = new person
 	setattribute(o1,"cName","Mahmoud")
@@ -1057,7 +1133,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cname: Mahmoud
 	nsalary: 1000000.000000
@@ -1066,6 +1142,8 @@ Output:
 	blue
 	yellow
 
+.. index:: 
+	pair: Reflection and Meta-programming; mergemethods()
 
 mergemethods() Function
 =======================
@@ -1076,13 +1154,13 @@ This function merge class methods to another class.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	MergeMethods(cClassNameDestination,cClassNameSource)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	mergemethods("count","share")
 	mergemethods("count2","share")
@@ -1119,7 +1197,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	********************
 	one
@@ -1130,3 +1208,26 @@ Output:
 	two
 	one
 	********************
+
+.. index:: 
+	pair: Reflection and Meta-programming; packagename()
+
+packagename() Function
+====================
+		
+We can know the package name of the latest sucessful import command using the packagename() function
+
+Syntax:
+
+.. code-block:: ring
+
+	packagename() --> Returns the package name of the latest sucessful import
+
+
+Example:
+
+.. code-block:: ring
+
+	load "weblib.ring"
+	import System.web
+	see packagename()	# system.web

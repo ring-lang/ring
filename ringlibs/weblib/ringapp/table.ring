@@ -1,4 +1,4 @@
-import System.Web
+Import System.Web
 
 func testtables
 

@@ -26,7 +26,12 @@ Class MyApp
 
 
         Func pColor
-                myobj = new qcolordialog()
-                aColor = myobj.GetColor()
-                r=acolor[1] g=acolor[2] b=acolor[3]
-                win1.setstylesheet("background-color: rgb("+r+", " + g+ "," + b + ")")
+	myobj = new qcolordialog() { 
+		r = exec()		
+		if r = 0 return ok
+		oColor = currentcolor()
+		r = oColor.red()
+		g = oColor.green()
+		b = oColor.blue()
+	}	
+             win1.setstylesheet("background-color: rgb("+r+", " + g+ "," + b + ")")

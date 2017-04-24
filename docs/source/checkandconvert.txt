@@ -1,3 +1,6 @@
+.. index:: 
+	single: Data Type; Introduction
+
 ==============================
 Check Data Type and Conversion
 ==============================
@@ -32,13 +35,13 @@ Using the IsString() function we can know if the value is a string or not
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsString(value) ---> 1 if the value is a string or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isstring(5) + nl +		# print 0
 	    isstring("hello") + nl	# print 1
@@ -53,13 +56,13 @@ Using the IsNumber() function we can know if the value is a number or not
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsNumber(value) ---> 1 if the value is a number or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isnumber(5) + nl +		# print 1
 	    isnumber("hello") + nl	# print 0
@@ -74,13 +77,13 @@ Using the IsList() function we can know if the value is a list or not
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsList(value) ---> 1 if the value is a list or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see islist(5) + nl +		# print 0
 	    islist("hello") + nl +	# print 0
@@ -97,13 +100,13 @@ We can know the type of a value using the Type() Function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Type(value) ---> The Type as String 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	    see Type(5) + nl +		# print NUMBER
 	    Type("hello") + nl +	# print STRING
@@ -119,13 +122,13 @@ We can check the value to know if it's null or not using the IsNULL() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsNULL(value) ---> 1 if the value is NULL or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	    see isnull(5) + nl +	# print 0
 	    isnull("hello") + nl +	# print 0
@@ -153,6 +156,9 @@ The next functions can be used to check character
 * isupper()
 * isxdigit()
 
+.. index:: 
+	pair: Data Type; IsAlNum()
+
 IsAlNum() Function
 ==================
 
@@ -160,18 +166,21 @@ We can test a character or a string using the IsAlNum() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsAlNum(value) ---> 1 if the value is digit/letter or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isalnum("Hello") + nl +	# print 1
 	    isalnum("123456") + nl +	# print 1
 	    isalnum("ABCabc123") + nl +	# print 1
 	    isalnum("How are you")  	# print 0 because of spaces
+
+.. index:: 
+	pair: Data Type; IsAlpha()
 
 IsAlpha() Function
 ==================
@@ -180,18 +189,21 @@ We can test a character or a string using the IsAlpha() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsAlpha(value) ---> 1 if the value is a letter or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isalpha("Hello") + nl +	# print 1
 	    isalpha("123456") + nl +	# print 0
 	    isalpha("ABCabc123") + nl +	# print 0
 	    isalpha("How are you")  	# print 0
+
+.. index:: 
+	pair: Data Type; IsCntrl()
 
 IsCntrl() Function
 ==================
@@ -200,16 +212,19 @@ We can test a character or a string using the IsCntrl() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsCntrl(value) ---> 1 if the value is a control character (no printing position) or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See iscntrl("hello") + nl +	# print 0 
 	    iscntrl(nl)			# print 1
+
+.. index:: 
+	pair: Data Type; IsDigit()
 
 IsDigit() Function
 ==================
@@ -218,16 +233,19 @@ We can test a character or a string using the IsDigit() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsDigit(value) ---> 1 if the value is a digit or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isdigit("0123456789") + nl +	# print 1
 	    isdigit("0123a") 			# print 0
+
+.. index:: 
+	pair: Data Type; IsGraph()
 
 IsGraph() Function
 ==================
@@ -236,17 +254,20 @@ We can test a character or a string using the IsGraph() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsGraph(value) ---> 1 if the value can be printed (Except space) or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isgraph("abcdef") + nl +	# print 1
 	    isgraph("abc def") 		# print 0
 
+
+.. index:: 
+	pair: Data Type; IsLower()
 
 IsLower() Function 
 ==================
@@ -255,17 +276,20 @@ We can test a character or a string using the IsLower() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsLower(value) ---> 1 if the value is lowercase letter or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see islower("abcDEF") + nl + 	# print 0
 	    islower("ghi")		# print 1
 
+
+.. index:: 
+	pair: Data Type; IsPrint()
 
 IsPrint() Function
 ==================
@@ -274,18 +298,20 @@ We can test a character or a string using the IsPrint() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsPrint(value) ---> 1 if the value occupies a printing position or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isprint("Hello") + nl + 		# print 1
 	    isprint("Nice to see you") + nl +   # print 1
 	    isprint(nl)				# print 0
 
+.. index:: 
+	pair: Data Type; IsPunct()
 
 IsPunct() Function
 ==================
@@ -294,17 +320,19 @@ We can test a character or a string using the IsPunct() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsPunct(value) ---> 1 if the value is a punctuation character or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see ispunct("hello") + nl +	# print 0
 	    ispunct(",") 		# print 1
 
+.. index:: 
+	pair: Data Type; IsSpace()
 
 IsSpace() Function
 ==================
@@ -313,17 +341,20 @@ We can test a character or a string using the IsSpace() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsSpace(value) ---> 1 if the value is a white-space or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isspace("   ") + nl +	# print 1
 	    isspace("test") 		# print 0
 
+
+.. index:: 
+	pair: Data Type; IsUpper()
 
 IsUpper() Function
 ==================
@@ -332,17 +363,20 @@ We can test a character or a string using the IsUpper() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsUpper(value) ---> 1 if the value is an uppercase alphabetic letter or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isupper("welcome") + nl +	 # print 0 
 	    isupper("WELCOME") 		 # print 1
 
+
+.. index:: 
+	pair: Data Type; IsXdigit()
 
 IsXdigit() Function
 ===================
@@ -351,13 +385,13 @@ We can test a character or a string using the IsXdigit() Function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsXdigit(value) ---> 1 if the value is a hexdecimal digit character or 0 if not	
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see isxdigit("0123456789abcdef") + nl +  # print 1
 	    isxdigit("123z") 			 # print 0
@@ -380,6 +414,9 @@ The next functions can be used for conversion
 * str2hex()
 * hex2str()
 
+.. index:: 
+	pair: Data Type; Number()
+
 Number() Function
 =================
 
@@ -387,17 +424,20 @@ We can convert strings to numbers using the Number() function or the + operator.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Number(string) ---> Number
 	0 + string ---> Number
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see number("5") + 5 + nl 	# print 10
 	see 0 + "10" + 2		# print 12	
+
+.. index:: 
+	pair: Data Type; String()
 
 String() Function
 =================
@@ -406,18 +446,20 @@ We can convert numbers to strings using the String() function or the + operator.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	String(number) ---> String
 	"" + number ---> String
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see string(5) + 5 + nl 		# print 55
 	see "" + 10 + 2			# print 102	
 
+.. index:: 
+	pair: Data Type; Ascii()
 
 Ascii() Function
 ================
@@ -426,16 +468,19 @@ We can get the ASCII code for a letter using the Ascii() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Ascii(character) ---> ASCII Code
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See ascii("m") + nl + 	# print 109
 	    ascii("M") 		# print 77
+
+.. index:: 
+	pair: Data Type; Char()
 
 Char() Function
 ===============
@@ -444,17 +489,20 @@ We can convert the ASCII code to character using the Char() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Char(ASCII Code) ---> character
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See char(109) + nl + 	# print m
 	    char(77) 		# print M
 
+
+.. index:: 
+	pair: Data Type; Hex()
 
 Hex() Function
 ==============
@@ -463,16 +511,19 @@ We can convert decimal to hexadecimal using the Hex() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Hex(decimal) ---> hexadecimal
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See hex(10) + nl + 	# print a
 	    hex(200)		# print c8
+
+.. index:: 
+	pair: Data Type; Dec()
 
 Dec() Function
 ==============
@@ -481,16 +532,19 @@ We can convert hexadecimal to decimal using the Dec() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Dec(hexadecimal) ---> decimal
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See dec("a") + nl + 	# print 10
 	    dec("c8")		# print 200
+
+.. index:: 
+	pair: Data Type; Str2Hex()
 
 Str2hex() Function
 ==================
@@ -499,16 +553,18 @@ We can convert string characters to hexadecimal characters using the Str2hex() f
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Str2hex(string) ---> hexadecimal string
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See str2hex("hello")  	# print 68656c6c6f
 
+.. index:: 
+	pair: Data Type; Hex2str()
 
 Hex2str() Function
 ==================
@@ -517,12 +573,12 @@ We can convert hexadecimal characters to string using the Hex2str() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Hex2Str(Hexadecimal string) ---> string
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	See hex2str("68656c6c6f")  	# print hello

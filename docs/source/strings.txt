@@ -1,20 +1,29 @@
+.. index:: 
+	single: Strings; Introduction
+
 =======
 Strings
 =======
 
 In this chapter we are going to learn about strings creation and manipulation.
 
+.. index:: 
+	pair: Strings; String Literals
+
 String Literals
 ===============
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = "This is a string"
 	cStr2 = 'Another string'
 	cStr3 = :JustAnotherString
 	cStr4 = `Yet "another" 'string' ! `
+
+.. index:: 
+	pair: Strings; Get String Length
 
 Get String Length
 =================
@@ -23,34 +32,40 @@ We can get the string length (letters count inside a string) using the len() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	len(string) ---> string length
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = "How are you?"
 	see cStr + nl
 	see "String size : " + len(cStr) + nl
+
+.. index:: 
+	pair: Strings; Convert Letters Case
 
 Convert Letters Case
 ====================
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	lower(string) ---> convert string letters to lower case
 	upper(string) ---> convert string letters to UPPER case
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = "Welcome To The Ring Programming Language"
 	see cStr + nl + upper(cStr) + nl + lower(cStr) 		
+
+.. index:: 
+	pair: Strings; Access String Letters
 
 Access String Letters
 =====================
@@ -59,14 +74,14 @@ We can access a letter inside a string by the letter index
 
 Syntax:	
 
-.. code-block:: none
+.. code-block:: ring
 
 	string[index] ---> get string letter
 	string[index] = letter  # set string letter
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print user name letter by letter (each letter in new line)
 
@@ -80,7 +95,7 @@ We can use for in to get string letters.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# print user name letter by letter (each letter in new line)
 
@@ -93,13 +108,16 @@ We can modify the string letters
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	# convert the first letter to UPPER case
 
 	See "Enter your name : " give cName
 	cName[1] = upper(cName[1])
 	see "Hello " + cName
+
+.. index:: 
+	pair: Strings; Left()
 
 Left() Function
 ===============
@@ -110,15 +128,18 @@ The starting position is 1.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Left(string,count)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see left("Hello World!",5) # print Hello
+
+.. index:: 
+	pair: Strings; Right()
 
 Right() Function
 ================
@@ -129,15 +150,18 @@ The starting position is the last character on the right.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Right(string,count)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see Right("Hello World!",6) # print World!
+
+.. index:: 
+	pair: Strings; Trim()
 
 Trim() Function
 ===============
@@ -146,16 +170,19 @@ We can remove all leading and trailing spaces from a string using the Trim() fun
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	trim(string)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cMsg = "     Welcome      "
 	see trim(cMsg)			# print Welcome
+
+.. index:: 
+	pair: Strings; Copy()
 
 Copy() Function
 ===============
@@ -164,15 +191,18 @@ We can duplicate a string more than one time using the copy() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	copy(string,nCount) ---> string replicated nCount times
 
 Example
 
-.. code-block:: none
+.. code-block:: ring
 
 	see copy("***hello***",3) # print ***hello******hello******hello***
+
+.. index:: 
+	pair: Strings; Lines()
 
 Lines() Function
 ================
@@ -181,18 +211,21 @@ We can count the number of lines inside a string using the Lines() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	lines(string) ---> Number of lines inside the string
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = "Hello
 	How are you?
 	are you fine?"
 	see lines(cStr)		# print 3
+
+.. index:: 
+	pair: Strings; Substr()
 
 Substr() Function
 =================
@@ -208,73 +241,88 @@ Using Substr() we can
 
 * Transform Substring To Another Substring 
 
+.. index:: 
+	pair: Strings; Find SubString
+
 Find substring
 ==============
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	substr(string,substring)  ---> the starting position of substring in string
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = "Welcome to the Ring programming language"
 	see substr(cStr,"Ring")		# print 16
+
+.. index:: 
+	pair: Strings; Get Substring from position to end
 
 Get substring from position to end
 ==================================
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	substr(string,position)  ---> Get substring starting from position to end
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = "Welcome to the Ring programming language"
 	nPos = substr(cStr,"Ring")	# nPos = 16
 	see substr(cStr,nPos)		# print Ring programming language
+
+.. index:: 
+	pair: Strings; Get Number of Characters from position
 
 Get Number of Characters From Position
 ======================================
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	substr(string,position,count)  ---> Get characters starting from position
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = "Welcome to the Ring programming language"
 	nPos = substr(cStr,"Ring")	# nPos = 16
 	see substr(cStr,nPos,4)		# print Ring 
+
+.. index:: 
+	pair: Strings; Transform Substring To Another Substring
 
 Transform Substring To Another Substring
 ========================================
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	substr(string,substring,newsubstring)  ---> Transformed string (Match case)
 	substr(string,substring,newsubstring,1)  ---> Transformed string (Ignore case)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = "Welcome to the New programming language"
 	see substr(cStr,"New","Ring") + nl  # print Welcome to the Ring programming language 
 	see substr(cStr,"new","Ring",1)+ nl # print Welcome to the Ring programming language 
+
+.. index:: 
+	pair: Strings; strcmp()
 
 strcmp() Function
 =================
@@ -283,7 +331,7 @@ We can compare between two strings using the strcmp() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	strcmp(cString1,cString2) ---> value = 0 if cString1 = cString2
 				       value < 0 if cString1 < cString2
@@ -291,7 +339,7 @@ Syntax:
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see strcmp("hello","hello") + nl +
   	    strcmp("abc","bcd") + nl + 
@@ -299,11 +347,14 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	0
 	-1
 	1
+
+.. index:: 
+	pair: Strings; str2list() and list2str()
 
 str2list() and list2str() Functions
 ===================================
@@ -313,14 +364,14 @@ Also we can convert the list to a string using list2str() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	str2list(string) ---> list contains the string lines 
 	list2str(list)   ---> string contains the list items
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	/* output:
 	** Items : 4

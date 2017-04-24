@@ -42,7 +42,7 @@ Class hashtable from list
 	Func Set cKey,cValue
 		Add(cKey,cValue)
 
-	Func Get cKey
+	Func GetValue cKey
 		return self[cKey]
 
 	Func Contains cKey

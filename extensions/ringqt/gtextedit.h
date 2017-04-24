@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GTEXTEDIT_H
 #define GTEXTEDIT_H
 #include <QApplication>
@@ -17,6 +17,8 @@ class GTextEdit : public QTextEdit
 
     VM *pVM;
 
+    List *pParaList;
+
     char ccopyAvailableEvent[100];
     char ccurrentCharFormatChangedEvent[100];
     char ccursorPositionChangedEvent[100];
@@ -28,6 +30,10 @@ class GTextEdit : public QTextEdit
 
     GTextEdit(QWidget *parent,VM *pVM );
 
+    ~GTextEdit();
+
+    void geteventparameters(void) ;
+
     void setcopyAvailableEvent(const char *cStr);
     void setcurrentCharFormatChangedEvent(const char *cStr);
     void setcursorPositionChangedEvent(const char *cStr);
@@ -35,6 +41,15 @@ class GTextEdit : public QTextEdit
     void setselectionChangedEvent(const char *cStr);
     void settextChangedEvent(const char *cStr);
     void setundoAvailableEvent(const char *cStr);
+
+
+    const char *getcopyAvailableEvent(void);
+    const char *getcurrentCharFormatChangedEvent(void);
+    const char *getcursorPositionChangedEvent(void);
+    const char *getredoAvailableEvent(void);
+    const char *getselectionChangedEvent(void);
+    const char *gettextChangedEvent(void);
+    const char *getundoAvailableEvent(void);
 
 
   public slots:

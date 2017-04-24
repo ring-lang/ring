@@ -1,4 +1,5 @@
-﻿#!b:\mahmoud\apps\ring\ring.exe -cgi
+﻿#!b:\ring\bin\ring.exe -cgi
+
 Load "weblib.ring"
 Import System.Web
 New page 

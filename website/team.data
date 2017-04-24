@@ -17,13 +17,57 @@
 					'CalmoSoft',
 					'calmosoft@gmail.com',
 					'Samples Master',
-					'Active'
+					'Active',
+					'<img src="GalZsolt.png">'
+				  ],
+				  [
+					'Bert Mariani',
+					'bert.mariani@gmail.com',
+					'Tester/Samples',
+					'Active',
+					'<img src="UmbertoMariani.png">'
+				  ],
+  				  [
+					'Ahmed Hassouna',
+					'mr.ahmed_hassouna@yahoo.com',
+					'Video Tutorials',
+					'Active',
+					'<img src="AhmedHassouna.jpg">'
+				  ],
+				  [
+					'Magdy Ragab',
+					'developer.eye1@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="MagdyRagab.jpg">'
+				  ],
+				  [
+					'Ahmed Omar',
+					'ahmad3omar@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="AhmedOmar.jpg">'
 				  ],
 				  [
 					'Hebat Alla Ismail',
 					'Heba.imail26@gmail.com',
 					'Voice Master',
-					'Active'
+					'Active',
+					'<img src="heba.jpg">'
+				  ],
+  				  [
+					'Abdelrahman mahmoud',
+					'alarb.alarb@gmail.com',
+					'Tester',
+					'Active',
+					'<img src="abdelrahman.jpg">'
+				  ],
+				  [
+					'Hany Salah',
+					'hanyhani@hotmail.com',
+					'Marketing',
+					'Active',
+					'<img src="hany.jpg">'
 				  ],
 				  [
 					'Majdi Sobain',
@@ -36,19 +80,7 @@
 					'amressam01@gmail.com',
 					'Tutorials Master',
 					'Active'
-				  ],
-				  [
-					'Bert Mariani',
-					'bert.mariani@gmail.com',
-					'Tester/Samples',
-					'Active'
-				  ],
-				  [
-					'Hany Salah',
-					'hanyhani@hotmail.com',
-					'Marketing',
-					'Active'
-				  ],
+				  ],				  
 				  [
 					'Mohammed Fayed',
 					'ms_fayed@hotmail.com',
@@ -113,12 +145,6 @@
 				  [
 					'Ebrahim ELgeded',
 					'ebrahim.elgeded301@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Ahmed Omar',
-					'ahmad3omar@gmail.com',
 					'Tester',
 					'Active'
 				  ],
@@ -201,12 +227,6 @@
 					'Active'
 				  ],
 				  [
-					'Magdy Ragab',
-					'developer.eye1@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
 					'Ahmed Ramzy',
 					'ahmedramzyha@gmail.com',
 					'Tester',
@@ -251,12 +271,6 @@
 				  [
 					'Ayyad Shenouda ayyad',
 					'ayyaadshenoda15@gmail.com',
-					'Tester',
-					'Active'
-				  ],
-				  [
-					'Abdelrahman mahmoud',
-					'alarb.alarb@gmail.com',
 					'Tester',
 					'Active'
 				  ],
@@ -345,12 +359,6 @@
 					'Active'
 				  ],
 				  [
-					'Ahmed Hassouna',
-					'mr.ahmed_hassouna@yahoo.com',
-					'Video Tutorials',
-					'Active'
-				  ],
-				  [
 					'Mohamed Elkehlawy Mahmoud',
 					'mohamedelkehlawy@gmail.com',
 					'Arabic Tutorials',
@@ -385,5 +393,24 @@
                     'h.a.m.a.n.y.1995f@gmail.com',
                     'Tester/Samples',
                     'Active'
+                  ],
+		  [
+                    'Matthias Schuster',
+                    'shalokshalom@protonmail.ch',
+                    'Tester',
+                    'Active'
+                  ],
+		  [
+                    'Ramy Elganzorey',
+                    'ramy_mix@live.com',
+                    'Video Tutorials',
+                    'Active'
+                  ],
+				  [
+                    'Kovács Attila ',
+                    'befektabc@gmail.com',
+                    'Tester',
+                    'Active'
                   ]
+
 ]

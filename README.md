@@ -4,16 +4,15 @@
 
 ## Innovative and practical general-purpose multi-paradigm language
 
-||*Resources*|*Operating System*|*Status*|
+| |*Resources*|*Operating System*|*Status*|
 |---|---|---|---|             																															 
-|Download |[![Download](http://ring-lang.sourceforge.net/binary%20release-version%201.0-brightgreen.svg)](http://ring-lang.sourceforge.net/download.html)|**MacOS X (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Help |[![Help](http://ring-lang.sourceforge.net/documentation-version%201.0-orange.svg)](http://ring-lang.sourceforge.net/doc/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Download |[![Download](http://ring-lang.sourceforge.net/binaryrelease.svg)](http://ring-lang.sourceforge.net/download.html)|**MacOS X (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
+|Help |[![Help](http://ring-lang.sourceforge.net/documentation.svg)](http://ring-lang.sourceforge.net/doc1.2/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 |Try |[![Try](http://ring-lang.sourceforge.net/interactive%20ring-use%20online-green.svg)](http://ring-lang.sourceforge.net/cgi-bin/ringlang.cgi)|**MacOS X (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
 |Support |[![Support](http://ring-lang.sourceforge.net/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 
-=============
-Description
-=============
+# Description
+
 
 The Ring is an Innovative and practical general-purpose multi-paradigm scripting language that
 can be embedded in C/C++ projects, extended using C/C++ code and/or used as standalone language.
@@ -26,7 +25,7 @@ Its Dynamic Language (Dynamic Typing and Weakly Typed) that compile the source c
 byte code then execute it by the Ring Virtual Machine, which is integrated with the
 Ring Compiler in one program. [Read more!](http://ring-lang.sourceforge.net/#why)
 
-#Building from source code
+# Building from source code
 
 You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
 
@@ -38,18 +37,6 @@ The next steps explains building using scripts.
 
 	git clone http://github.com/ring-lang/ring.git
 	
-### Install Libraries 
-	
-	MySQL     : https://dev.mysql.com/downloads/connector/c/
-	LibCurl   : https://curl.haxx.se/libcurl/
-	OpenSSL   : https://www.openssl.org
-	Allegro 5 : http://liballeg.org/download.html#windows
-	Qt 5.5    : https://download.qt.io/archive/qt/5.5/5.5.1/
-	
-	You can quickly install MySQL, LibCurl, OpenSSL and Allegro libraries 
-	from this link : https://sourceforge.net/projects/ring-lang/files/Ring%201.0/libdepwin.zip/download
-	Then extract and copy the libraries folders to Ring/libdepwin
-	
 ### Build Ring (Compiler/VM)
 	
 	cd ring/src
@@ -60,8 +47,16 @@ The next steps explains building using scripts.
 	cd ../extensions/ringallegro
 	gencode.bat
 	buildvc.bat
+
+### Generate RingLibCurl Source Code and Build 
+	
+	cd ../extensions/ringcurl
+	gencode.bat
+	buildvc.bat
 	
 ### Generate RingQt Source Code and Build
+
+	Install Qt 5.5 : https://download.qt.io/archive/qt/5.5/5.5.1/
 	
 	cd ../ringqt
 	gencode.bat
@@ -108,7 +103,12 @@ The next steps explains building using scripts.
 	./gencode.sh
 	./buildgcc.sh
 
+### Generate RingLibCurl Source Code and Build 
 	
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildgcc.sh
+
 ### Generate RingQt Source Code and Build
 	
 	cd ../ringqt
@@ -135,7 +135,8 @@ The next steps explains building using scripts.
 	
 ### Install Libraries 
 	
-	brew install unixodbc mysql-connector-c allegro homebrew/versions/qt52
+	brew install unixodbc mysql-connector-c allegro openssl homebrew/versions/qt55
+	brew link --force qt55
 	
 ### Build Ring (Compiler/VM)
 	
@@ -149,6 +150,11 @@ The next steps explains building using scripts.
 	./gencode.sh
 	./buildclang.sh
 
+### Generate RingLibCurl Source Code and Build 
+	
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildclang.sh
 	
 ### Generate RingQt Source Code and Build
 	

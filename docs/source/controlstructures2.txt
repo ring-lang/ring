@@ -1,0 +1,219 @@
+.. index:: 
+	single: Control Structures - Second Style; Introduction
+
+=================================
+Control Structures - Second Style
+=================================
+
+In this chapter we are going to learn about the second style of control structures
+provided by the Ring programming language.
+
+.. index:: 
+	pair: Control Structures - Second Style; Branching
+
+
+Branching
+=========
+
+.. index:: 
+	pair: Control Structures - Second Style; If Statement
+
+* If Statement
+
+Syntax:
+
+.. code-block:: ring
+
+	if Expression
+		Block of statements
+	elseif Expression
+		Block of statements
+	else
+		Block of statements
+	end
+
+Example:
+
+.. code-block:: ring
+
+	put " 
+		Main Menu
+		---------
+		(1) Say Hello
+		(2) About
+		(3) Exit
+
+	    " get nOption
+
+	if nOption = 1	put "Enter your name : " get name put "Hello " + name + nl
+	elseif nOption = 2 put "Sample : using if statement" + nl
+	elseif nOption = 3 bye
+	else put "bad option..." + nl
+	end
+
+.. index:: 
+	pair: Control Structures - Second Style; Switch Statement
+
+* Switch Statement
+
+Syntax:
+
+.. code-block:: ring
+
+	switch Expression
+	case Expression
+		Block of statements
+	else
+		Block of statements
+	end		
+
+Example:
+
+.. code-block:: ring
+
+	Put " 
+		Main Menu
+		---------
+		(1) Say Hello
+		(2) About
+		(3) Exit
+
+	    " Get nOption
+
+	Switch nOption
+	Case 1 Put "Enter your name : " Get name Put "Hello " + name + nl
+	Case 2 Put "Sample : using switch statement" + nl
+	Case 3 Bye
+	Else Put "bad option..." + nl
+	End
+
+.. index:: 
+	pair: Control Structures - Second Style; Looping
+
+Looping
+=======
+
+* While Loop
+
+Syntax:
+
+.. code-block:: ring
+
+	while Expression
+		Block of statements
+	end
+
+
+Example:
+
+.. code-block:: ring
+
+	While True
+
+		Put " 
+			Main Menu
+			---------
+			(1) Say Hello
+			(2) About
+			(3) Exit
+
+		    " Get nOption
+
+		Switch nOption
+		Case 1 
+			Put "Enter your name : " 
+			Get name 
+			Put "Hello " + name + nl
+		Case 2 
+			Put "Sample : using while loop" + nl
+		Case 3 
+			Bye
+		Else 
+			Put "bad option..." + nl
+		End
+	End
+.. index:: 
+	pair: Control Structures - Second Style; For Loop
+
+
+* For Loop
+
+Syntax:
+
+.. code-block:: ring
+
+	for identifier=expression to expression [step expression]
+		Block of statements
+	end
+
+Example:
+
+.. code-block:: ring
+
+	# print numbers from 1 to 10
+	for x = 1 to 10	 put x + nl  end
+
+Example:
+
+.. code-block:: ring
+
+	# Dynamic loop
+	Put "Start : " get nStart       
+	Put "End   : " get nEnd
+	Put "Step  : " get nStep
+	For x = nStart to nEnd Step nStep
+		Put x + nl
+	End
+
+Example:
+
+.. code-block:: ring
+
+	# print even numbers from 0 to 10
+	for x = 0 to 10 step 2
+		Put x + nl
+	end
+
+Example:
+
+.. code-block:: ring
+
+	# print even numbers from 10 to 0
+	for x = 10 to 0 step -2
+		put x + nl
+	end
+
+
+.. index:: 
+	pair: Control Structures - Second Style; For In Loop
+
+* For in Loop
+
+Syntax:
+
+.. code-block:: ring
+
+	for identifier in List/String  [step expression]
+		Block of statements
+	end
+
+Example:
+
+.. code-block:: ring
+
+	aList = 1:10	# create list contains numbers from 1 to 10
+	for x in aList  put x + nl  end  # print numbers from 1 to 10
+
+.. index:: 
+	pair: Control Structures - Second Style; Exceptions
+
+Exceptions
+==========
+
+.. code-block:: ring
+
+	try
+		Block of statements
+	catch
+		Block of statements
+	end

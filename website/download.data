@@ -1,5 +1,41 @@
 ﻿aDownload = [
-		["Binary Release",[
+		["Ring 1.2 All Platforms",[
+						 [
+							'Ring 1.2 (All Platforms)',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.2/Fayed_Ring_1.2_All_Platforms.zip/download" target="_blank">Download</a>',
+							'<img src="ring12.jpg" width="40%">'
+						 ],
+						 [
+							'Ring 1.2 Documentation (PDF)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.2/Fayed_RingDoc_1.2.pdf/download" target="_blank">Download</a>',
+							'<img src="book5.jpg" width="40%">'
+						 ],
+						 [
+							'Ring 1.2 Documentation (CHM)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.2/Fayed_RingDoc_1.2.chm/download" target="_blank">Download</a>',
+							'<img src="book6.jpg" width="40%">'
+						 ]
+			]
+		],
+		["Ring 1.1 All Platforms",[
+						 [
+							'Ring 1.1 (All Platforms)',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.1/Fayed_Ring_1.1_All_Platforms.zip/download" target="_blank">Download</a>',
+							'<img src="ring11.jpg" width="40%">'
+						 ],
+						 [
+							'Ring 1.1 Documentation (PDF)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.1/Fayed_RingDoc_1.1.pdf/download" target="_blank">Download</a>',
+							'<img src="book3.jpg" width="40%">'
+						 ],
+						 [
+							'Ring 1.1 Documentation (CHM)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.1/Fayed_RingDoc_1.1.chm/download" target="_blank">Download</a>',
+							'<img src="book4.jpg" width="40%">'
+						 ]
+			]
+		],
+		["Ring 1.0 Binary Release",[
 				 [
 					'Ring 1.0 for Microsoft Windows',
 					'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_win32_binary_release.zip/download" target="_blank">Download</a>',
@@ -22,7 +58,7 @@
 				 ]
 				]
 		],
-		["Source Code",[
+		["Ring 1.0 Source Code",[
 						 [
 							'Ring 1.0 Source Code',
 							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_Source_Code.zip/download" target="_blank">Download</a>',
@@ -30,7 +66,7 @@
 						 ]
 					      ]
 		],
-		["Documentation",[
+		["Ring 1.0 Documentation",[
 						 [
 							'Ring 1.0 Documentation (PDF)',
 							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_RingDoc_1.0.pdf/download" target="_blank">Download</a>',
@@ -43,7 +79,7 @@
 						 ]
 					      ]
 		],
-		["Libraries and Tools",[
+		["Ring 1.0 Libraries and Tools",[
 				 [
 					'WebLib 1.0 source code (CGI Library for Ring)',
 					'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_WebLib_1.0_source_code_release.zip/download" target="_blank">Download</a>',

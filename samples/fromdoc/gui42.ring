@@ -21,7 +21,8 @@ new qApp {
                         myfilter.setEnterevent("pEnter()")
                         myfilter.setLeaveevent("pLeave()")
                         myfilter.setMouseButtonPressEvent("pPress()")
-                        myfilter.setMouseButtonReleaseEvent("pRelease()")                                                               myfilter.setMouseMoveEvent("pMove()")
+                        myfilter.setMouseButtonReleaseEvent("pRelease()") 
+			myfilter.setMouseMoveEvent("pMove()")
                         installeventfilter(myfilter)
                 }
 

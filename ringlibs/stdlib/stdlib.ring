@@ -16,11 +16,11 @@ Func Puts vvalue
 	see nl
 
 /*
-	Function Name	: printf
+	Function Name	: print
 	Usage		: print string - support \n \t \r \\
 	Parameters	: the string
 */
-Func Printf vValue
+Func Print vValue
 	for t = 1 to len(vValue)
 		switch vValue[t]
 		on "\"
@@ -54,6 +54,25 @@ Func Printf vValue
 		off
 	next
 
+
+/*
+	Function Name	: getstring
+	Usage		: get input using the keyboard
+	Parameters	: no Parameters
+*/
+Func GetString
+	Give _temp_get_string
+	return _temp_get_string
+
+
+/*
+	Function Name	: getnumber
+	Usage		: get input using the keyboard - return number
+	Parameters	: no Parameters
+*/
+Func GetNumber
+	Give _temp_get_number
+	return 0 + _temp_get_number
 
 /*
 	Function Name	: apppath
@@ -140,10 +159,46 @@ Func Filter alist,cFunc
 	output		: new list 
 */
 
-Func Split cstring , delimiter
-	return str2list(substr(cstring, delimiter, nl))
+Func Split(cString, delimiter)
 
+    doubleSpace = "  "
+    singleSpace = " "
+    singleTab   = char(9)
 	
+    if ( (delimiter = singleTab) or (delimiter = singleSpace) )
+        delimiter = singleSpace
+    ok
+
+    if ( delimiter = singleSpace )
+        do
+            cString = substr(cstring, singleTab, singleSpace)   ### Replace Tab with Space
+        again substr(cString, singleTab)
+
+        do
+            cString = substr(cString, doubleSpace, singleSpace) ### Replace DoubleSpace with Space
+        again substr(cString, doubleSpace)
+    ok
+	
+	cString = trim(cString) ### Remove leading and trailing spaces
+    cStrList = str2list(substr(cString, delimiter, nl))
+
+return cStrList
+
+/*
+	Function Name	: SplitMany
+	Usage		: convert string words to list items
+	Parameters	: the string to be converted , the delimiter characters
+			: delimiter can be many characters written in one string or List 
+	output		: new list 
+*/
+
+Func SplitMany cString,cCharacters
+	for t in cCharacters
+		cString = substr(cString,t,nl)
+	next 
+	return str2list(cString)
+
+
 /*
 	Function Name	: newlist
 	Usage		: create a two dimensional list
@@ -561,13 +616,8 @@ Func permutationReverse a, first, last
      
 Func Sleep x
 	nTime = x * C_SECONDSIZE
-	if isclass("qTest")
-		oTest = new qTest
-		oTest.qsleep(nTime)
-	else
-		nClock = clock()
-		while clock() - nClock < nTime end
-	ok
+	nClock = clock()
+	while clock() - nClock < nTime end
      
 /*
 	Function Name	: Readline
@@ -590,11 +640,11 @@ Func Readline fp
 	output		: True/False 
 */      
 Func IsMainSourceFile
-	if filename() = sysargv[2]
+	if PrevFileName() = sysargv[2]
 		return true
 	ok
 	return false
-	
+
 /*
 	Function Name	: Substring
 	Usage		: Return a position of a substring starting from a given position in a string.
@@ -641,3 +691,24 @@ Func DirExists cDir
 
 Func MakeDir cDir
 	system("mkdir " + cDir )
+	
+	/*
+	Function Name	: sortFirstSecond
+	Usage		: Sort a list on first or second index
+	Parameters	: list to sort
+	output          : sorted list 
+*/ 
+
+func sortFirstSecond aList, ind
+        aList = sort(aList,ind)
+
+        for n=1 to len(alist)-1
+             for m=n to len(aList)-1 
+                   if ind = 1 nr = 2 else nr = 1 ok
+                   if alist[m+1][ind] = alist[m][ind] and alist[m+1][nr] < alist[m][nr]
+                      temp = alist[m+1]
+                      alist[m+1] = alist[m]
+                      alist[m] = temp ok
+             next
+       next
+       return aList

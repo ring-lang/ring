@@ -31,6 +31,9 @@ RING_API_GETINTPOINTER(x)
 RING_API_ACCEPTINTVALUE(x)
 RING_API_GETDOUBLEPOINTER(x)
 RING_API_IGNORECPOINTERTYPE
+RING_API_ISCPOINTER(x)
+RING_API_ISOBJECT(x)
+RING_API_GETCPOINTER2POINTER(x,y)
 RING_API_MISS1PARA
 RING_API_MISS2PARA
 RING_API_MISS3PARA
@@ -89,6 +92,25 @@ Type: VM *
 pVM
 Type: List *
 pList
+Type: Item *
+pItem
+ring_list_addcpointer
+ring_vm_api_iscpointerlist
+ring_vm_api_iscpointer
+ring_vm_api_isobject
+ring_vm_api_cpointercmp
+ring_vm_api_ispointer
+Type: List *
+pList, *pList2
+Type: VM *
+pVM
+Type: Item *
+pItem
+ring_vm_api_getcpointer2pointer
+Type: List *
+pList, *pList2
+Type: int
+y
 Type: Item *
 pItem
 ring_vmlib_len
@@ -159,15 +181,17 @@ pList
 ring_vmlib_adddays
 Type: const char *
 cStr
-Type: struct tm
-tm_info
 Type: char
 buffer[25]
+Type: int
+x,nDay,nMonth,nYear,nDaysInMonth
+Type: int
+aDaysInMonth[12]
 ring_vmlib_diffdays
 Type: const char *
 cStr, *cStr2
 Type: struct tm
-tm_info
+tm_info,tm_info2
 Type: time_t
 timer,timer2
 Type: char
@@ -176,10 +200,21 @@ Type: double
 nResult
 ring_vmlib_version
 ring_vmlib_clockspersecond
+ring_vmlib_prevfilename
+ring_vmlib_adddays_isleapyear
+ring_vmlib_swap
+Type: List *
+pList
+Type: int
+nNum1,nNum2,nSize
+Type: VM *
+pVM
 ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist
 ring_vmlib_type
+Type: List *
+pList
 ring_vmlib_isnull
 ring_vmlib_isobject
 ring_vmlib_hex
@@ -268,7 +303,6 @@ Type: unsigned int
 x,nPos,nMark,nSize,nTransform,nSize2
 Type: String *
 pString
-cTempStr
 ring_vmlib_lower
 ring_vmlib_upper
 ring_vmlib_lines
@@ -308,11 +342,16 @@ ring_vmlib_intvalue
 Type: const char *
 cStr
 ring_vmlib_object2pointer
+Type: List *
+pList
 ring_vmlib_pointer2object
 ring_vmlib_nullpointer
 ring_vmlib_space
 Type: String *
 pString
+ring_vmlib_ptrcmp
+Type: List *
+pList, *pList2
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA

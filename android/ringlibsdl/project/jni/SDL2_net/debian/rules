@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+
+export DEB_CFLAGS_MAINT_APPEND = -pipe -Wall
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--no-undefined -Wl,-Bsymbolic -Wl,--as-needed
+
+
+# according to help: speeds up one-time build
+confflags = --disable-dependency-tracking
+# GUI needed only for examples, don't even try to support it
+confflags += --disable-gui
+
+
+%:
+	dh $@ --with autoreconf --parallel
+
+override_dh_autoreconf:
+	dh_autoreconf ./autogen.sh
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(confflags)
+
+override_dh_auto_installchangelogs:
+	dh_auto_installchangelogs -- CHANGES
+
+override_dh_compress:
+	dh_compress -Xchatd.c -Xchat.cpp -Xchat.h

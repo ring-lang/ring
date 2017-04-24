@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GTIMER_H
 #define GTIMER_H
 #include <QApplication>
@@ -17,12 +17,21 @@ class GTimer : public QTimer
 
     VM *pVM;
 
+    List *pParaList;
+
     char ctimeoutEvent[100];
 
 
     GTimer(QObject *parent,VM *pVM );
 
+    ~GTimer();
+
+    void geteventparameters(void) ;
+
     void settimeoutEvent(const char *cStr);
+
+
+    const char *gettimeoutEvent(void);
 
 
   public slots:

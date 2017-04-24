@@ -1,0 +1,41 @@
+# Makefile to build the SDL2_gfx tests
+
+srcdir  = @srcdir@
+
+CC      = @CC@
+EXE	= @EXE@
+CFLAGS  = @CFLAGS@ -g
+LIBS	= @LIBS@ 
+
+TARGETS = \
+	testgfx$(EXE) \
+	testrotozoom$(EXE) \
+	testimagefilter$(EXE) \
+
+all: Makefile $(TARGETS)
+
+Makefile: $(srcdir)/Makefile.in
+	$(SHELL) config.status $@
+
+testgfx$(EXE): $(srcdir)/testgfx.c
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) @MATHLIB@
+
+testrotozoom$(EXE): $(srcdir)/testrotozoom.c
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) @MATHLIB@
+
+testimagefilter$(EXE): $(srcdir)/testimagefilter.c
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) @MATHLIB@
+
+clean:
+	rm -f $(TARGETS)
+	rm -f *~
+	rm -f *.user
+	rm -f *.stackdump
+
+distclean: clean
+	rm -f Makefile
+	rm -f config.status config.cache config.log
+	rm -rf $(srcdir)/autom4te*
+	rm -rf TestGfx TestRotozoom TestImageFilter Win32
+	
+

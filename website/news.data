@@ -1,10 +1,25 @@
   aNews = [
+  ["March 9, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/jZI51wKx0lU" target="_blank"> In TIOBE Index, The Ring programming language enters the top 100 for the first time</a>'],
+  ["February 10, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/be0_jlfTyaU" target="_blank"> Ring is added to the TIOBE Index (Position 104 of 245)</a>'],
+  ["February 9, 2017",'<a href="https://github.com/ring-lang/ring/tree/master/editor/emacs" target="_blank"> Ring mode for Emacs Editor</a>'],
+  ["January 25, 2017",'<a href="download.html"> Ring 1.2 Released!</a>'],
+  ["January 18, 2017",'<a href="https://en.wikipedia.org/wiki/Ring_(programming_language)" target="_blank"> Ring Article (Wikipedia - English)</a>'],
+  ["November 23, 2016",'<a href="http://www.youm7.com/story/2016/11/23/%D8%A8%D8%AF%D8%A1-%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%AC%D9%8A%D9%84-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF-%D9%85%D9%86-%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D8%AF%D9%88%D9%86-%D9%83%D9%88%D8%AF/2979508" target="_blank"> Arabic interview in the "Youm7" about using Ring in developing PWCT 2.0</a>'],
+  ["October 13, 2016",'<a href="http://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi" target="_blank"> Article : Natural Language Programming</a>'],
+  ["October 12, 2016",'<a href="http://www.codeproject.com/Articles/1138194/Build-Flappy-Bird-using-the-Ring-programming-langu" target="_blank"> Article : Flappy Bird 3000 Game</a>'],
+  ["October 12, 2016",'<a href="http://www.codeproject.com/Articles/1138108/Developing-the-Stars-Fighter-Game-for-Desktop-and" target="_blank"> Article : Stars Fighter Game</a>'],
+  ["October 10, 2016",'<a href="http://www.codeproject.com/Articles/1137570/Weight-History-Application-for-Desktop-and-Android" target="_blank"> Article : Weight History Application</a>'],
+  ["October 9, 2016",'<a href="http://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Programming-Languag" target="_blank"> Article : Syntax Flexibility</a>'],
+  ["October 6, 2016",'<a href="download.html"> Ring 1.1 Released!</a>'],
+  ["October 4, 2016",'<a href="https://github.com/MajdiSobain/ring_wincreg" target="_blank"> Ring_WinCReg Extension  </a>'],
+  ["October 4, 2016",'<a href="http://werdy.info" target="_blank"> Werdy Application </a>'],
   ["June 6, 2016",'<a href="download.html#binary" target="_blank"> Ring 1.0 for Mobile App Development using Qt  </a>'],
   ["May 26, 2016",'<a href="download.html#binary" target="_blank"> Ring 1.0 for MacOS X Released!  </a>'],
   ["May 11, 2016",'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_SuperMan2016_1.0_win32.zip/download" target="_blank"> Super Man 2016 Game </a>'],
   ["May 7, 2016",'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_FlappyBird3000_1.0_win32.zip/download" target="_blank"> Flappy Bird 3000 Game </a>'],
   ["May 3, 2016",'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_StarsFighter_1.0_win32.zip/download" target="_blank"> Stars Fighter Game </a>'],
   ["May 2, 2016",'<a href="http://www.codeproject.com/Articles/1096942/Squares-Puzzle-using-RingAllegro" target="_blank"> Article: Squares Puzzle using RingAllegro (CodeProject)</a>'],
+  ["April 21, 2016",'<a href="https://ar.wikipedia.org/wiki/%D8%B1%D9%8A%D9%86%D8%AC_(%D9%84%D8%BA%D8%A9_%D8%A8%D8%B1%D9%85%D8%AC%D8%A9)" target="_blank"> Ring Article (Wikipedia - Arabic)</a>'],
   ["April 3, 2016",'<a href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank"> Ring Article (CodeProject)</a>'],
   ["March 31, 2016",'<a href="http://github.com/ring-lang/ring" target="_blank"> Ring Source Code (GitHub)</a>'],
   ["March 28, 2016",'<a href="download.html#libs"> Ring extension for Atom Editor</a>'],
@@ -26,13 +41,7 @@
 						<a href="https://www.facebook.com/Youm7/posts/1331818946888764" target="_blank">Facebook</a>
 						<a href="http://www.youm7.com/story/2016/1/11/%D9%81%D9%89-25-%D9%8A%D9%86%D8%A7%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A8%D9%84-%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D9%85%D9%88%D8%A7%D8%B5%D9%81%D8%A7%D8%AA-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D9%85%D9%86-%D8%A5%D8%A8%D8%AA%D9%83%D8%A7%D8%B1/2532713#.VqNi6U-RZVV" target="_blank"> Website </a> '],
   ["December 13, 2015",'Arabic Interview about the language in the "Muslim Researchers" : 
-							<a href="https://www.facebook.com/mahmoudfayed1986/posts/10153408447760345" target="_blank">Facebook</a>
-							<a href="http://muslims-res.com/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1.html" target="_blank">Website </a>'],
-  ["November 27, 2015",'<p>						
-						<a href="https://www.facebook.com/mahmoudfayed1986/posts/10153380320410345" target="_blank">In this post</a> 
-						I said that when the likes count reach 1000 we will see a new 
-						programming language. <b>Thanks to my friends!</b>
-						</p>'],
+							<a href="http://muslims-res.com/ar/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1.html" target="_blank">Website </a>'],  
   ["September, 2015",'Most of the Documentation was written!'],
   ["August, 2015",'Most of the Testing was done!'],
   ["May, 2015",'Most of the work in the Compiler and The Virtual Machine was done!'],

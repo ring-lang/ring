@@ -1,3 +1,6 @@
+.. index:: 
+	Single: Desktop and Mobile Development;  Introduction
+
 ===========================================
 Desktop and Mobile development using RingQt
 ===========================================
@@ -16,7 +19,7 @@ In this example we will create an application to ask the user about his/her name
 When the user type the name in the textbox then click on "Say Hello" button, the textbox
 value will be updated by adding "Hello " to the name.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -73,12 +76,15 @@ Then we click on the say hello button
 .. image:: ringqt_shot2.jpg
 	:alt: Click on the button
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using Layout
+
 Using Layout
 ============
 
 The next example is just an upgrade to the previous application to use the vertical layout.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -131,12 +137,15 @@ The application during the runtime!
 .. image:: ringqt_shot3.jpg
 	:alt: Vertical Layout
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QTextEdit Class
+
 Using the QTextEdit Class
 =========================
 
 In this example we will use the QTextEdit Class 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -163,12 +172,67 @@ During the runtime we can paste rich text in the qtextedit widget
 .. image:: ringqt_shot4.jpg
 	:alt: QTextEdit Class
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QListWidget Class
+
 Using the QListWidget Class
 ===========================
 
 In this example we will use the QListWidget Class 
 
-.. code-block:: none
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	New qApp {
+
+	        win1 = new qWidget() {
+
+	                setGeometry(100,100,400,400)
+
+	                list1 = new qlistwidget(win1) {
+        	                setGeometry(150,100,200,200)
+                	        alist = ["one","two","three","four","five"]
+                        	for x in alist additem(x) next
+	                        setcurrentrow(3,2)
+        	                win1.setwindowtitle("Items Count : " + count() )
+                	}
+
+	                btn1 = new qpushbutton(win1) {
+        	                setGeometry(10,200,100,30)
+                	        settext("selected item")
+                        	setclickevent("pWork()")
+	                }
+
+	                btn2 = new qpushbutton(win1) {
+        	                setGeometry(10,240,100,30)
+                	        settext("Delete item")
+                        	setclickevent("pWork2()")
+	                }
+
+	                show()
+        	}
+
+	        exec()
+	}
+
+	func pWork
+        	btn1.settext(string(list1.currentrow()))
+
+	func pWork2
+        	list1 {
+         	       takeitem(currentrow())
+	        }
+
+The application during the runtime
+
+.. image:: ringqt_shot5.jpg
+	:alt: QListWidget Class
+
+
+Another Example:
+
+.. code-block:: ring
 
         Load "guilib.ring"
 
@@ -211,10 +275,6 @@ In this example we will use the QListWidget Class
                 curItemNbr = list1.currentrow()
                 curValue   = list1.item(list1.currentrow()).text()
                 
-                See "After Select - NbrOfItems: " + nbrOfItems +
-			" CurItemNbr: " + curItemNbr +
-			" CurValue: " + curValue + nl
-                        
                 win1.setwindowtitle( "After Select - NbrOfItems: " + nbrOfItems +
 			" CurItemNbr: " + curItemNbr + " CurValue: " + curValue )
                 
@@ -231,26 +291,21 @@ In this example we will use the QListWidget Class
                         curItemNbr = currentrow()
                         curValue   = item(currentrow()).text()
                     
-                        See "After Delete - NbrOfItems: " + nbrOfItems +
-				" CurItemNbr: " + curItemNbr +
-				" CurValue: " + curValue + nl
-                        
                         win1.setwindowtitle("After Delete - NbrOfItems: " + nbrOfItems +
 				" CurItemNbr: " + curItemNbr +" CurValue: " + curValue )
                 }
 
-        
-The application during the runtime
+       
 
-.. image:: ringqt_shot5.jpg
-	:alt: QListWidget Class
+.. index:: 
+	pair: Desktop and Mobile Development; Using QTreeView and QFileSystemModel
 
 Using QTreeView and QFileSystemModel
 ====================================
 
 In this example we will learn how to use the QTreeView widget to represent the File System
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -280,12 +335,15 @@ The application during the runtime
 .. image:: ringqt_shot6.jpg
 	:alt: QTreeView and QFileSystemModel
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QTreeWidget and QTreeWidgetItem
+
 Using QTreeWidget and QTreeWidgetItem
 =====================================
 
 In this example we will learn about using the QTreeWidget and QTreeWidgetItem classes
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -296,7 +354,7 @@ In this example we will learn about using the QTreeWidget and QTreeWidgetItem cl
 			setwindowtitle("TreeWidget")
 			setGeometry(100,100,400,400)
 
-			layout1 = new qvboxlayout(win1)
+			layout1 = new qvboxlayout()
 
 			tree1 = new qtreewidget(win1) {
 				setGeometry(00,00,400,400)
@@ -331,56 +389,53 @@ The application during the runtime
 .. image:: ringqt_shot7.jpg
 	:alt: QTreeWidget and QTreeWidgetItem
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QComboBox Class
+
 Using QComboBox Class
 =====================
 
 In this example we will learn about using the QComboBox class
 
-.. code-block:: none
+.. code-block:: ring
 
-        Load "guilib.ring"
+	Load "guilib.ring"
 
-        New qApp {
-                win1 = new qMainWindow() {
-                        setGeometry(100,100,400,300)
-                        setwindowtitle("Using QCheckBox")
-                        
-                        ### 0-Unchecked  1-Checked
-                        
-                        CheckBox = new qcheckbox(win1) {
-                                setGeometry(100,100,160,30)
-                                settext("New Customer!")
-                                setclickedEvent("HandleClickEvent()")
-                        }                   
-                                    
-                        show()                            
-                }
-                exec()
-        }
+	New qApp {
 
-        Func HandleClickEvent
-            See "HandleClick - CheckBox " + CheckBox.isChecked()  +nl   
+	        win1 = new qWidget() {
+
+        	        setwindowtitle("Using QComboBox")
+	                setGeometry(100,100,400,400)
+
+	                New QComboBox(win1) {
+        	                setGeometry(150,100,200,30)
+                	        alist = ["one","two","three","four","five"]
+                        	for x in aList additem(x,0) next
+	                }
+
+	                show()
+        	}
+
+	        exec()
+	}
+
             
-            if CheckBox.isChecked() = 1 
-                CheckBox.settext("New Customer. Check 1-ON")
-            else
-                CheckBox.settext("New Customer. Check 0-OFF")
-            ok
-            
-        return
-
 The application during the runtime
 
 .. image:: ringqt_shot8.jpg
 	:alt: QComboBox
 
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Creating Menubar
+
 Creating Menubar
 ================
 
 In this example we will learn about using the QMenuBar class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -475,13 +530,15 @@ The application during the runtime
 .. image:: ringqt_shot9.jpg
 	:alt: QMenuBar
 
+.. index:: 
+	pair: Desktop and Mobile Development; Creating Toolbar
 	
 Creating Toolbar
 ================
 
 In this example we will learn about using the QToolBar class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -519,13 +576,15 @@ The application during the runtime
 .. image:: ringqt_shot10.jpg
 	:alt: QToolBar
 
+.. index:: 
+	pair: Desktop and Mobile Development; Creating StatusBar
 	
 Creating StatusBar
 ==================
 
 In this example we will learn about using the QStatusBar class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -553,12 +612,15 @@ The application during the runtime
 	:alt: QStatusBar
 
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QDockWidget
+
 Using QDockWidget
 =================
 
 In this example we will learn about using the QDockWidget class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -602,12 +664,15 @@ The application during the runtime
 .. image:: ringqt_shot12.jpg
 	:alt: QDockWidget
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QTabWidget
+
 Using QTabWidget
 =================
 
 In this example we will learn about using the QTabWidget class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -659,12 +724,15 @@ The application during the runtime
 .. image:: ringqt_shot13.jpg
 	:alt: QTabWidget
 
-Using QTableView
-=================
+.. index:: 
+	pair: Desktop and Mobile Development; Using QTableWidget
 
-In this example we will learn about using the QTableView class
+Using QTableWidget
+==================
 
-.. code-block:: none
+In this example we will learn about using the QTableWidget class
+
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -702,15 +770,17 @@ In this example we will learn about using the QTableView class
 The application during the runtime
 
 .. image:: ringqt_shot14.jpg
-	:alt: QTableView
+	:alt: QTableWidget
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QProgressBar
 	
 Using QProgressBar
 ==================
 
 In this example we will learn about using the QProgressBar class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -737,74 +807,15 @@ The application during the runtime
 .. image:: ringqt_shot15.jpg
 	:alt: QProgressBar
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QSpinBox
 
-Using QProgressBar and Timer
-============================
-
-In this example we will learn about using the "animated" QProgressBar class and Timer
-
-.. code-block:: none	
-
-	###------------------------------------
-	### ProgressBar and Timer Example
-	
-	Load "guilib.ring"
-	
-	new qApp
-	{
-	    win1 = new qwidget()
-	    {
-	        setgeometry(100,100,400,100)
-	        setwindowtitle("Timer and ProgressBar")
-	
-	        LabelMan = new qlabel(win1)
-	        {
-	            setgeometry(10,10,200,30)
-	            settext(theTime())          ### ==>> func
-	        }
-	
-	        TimerMan = new qtimer(win1)
-	        {
-	            setinterval(1000)
-	            settimeoutevent("pTime()")  ### ==>> func
-	            start()
-	        }
-	
-	        BarMan = new qprogressbar(win1)
-	        {
-	            setGeometry(100,50,300,10)  ###  Position X y, Length, Thickness
-	            setvalue(0)                 ###  Percent filled
-	        }
-	
-	        show()
-	    }
-	    exec()
-	}
-	
-	func pTime
-	        LabelMan.settext(theTime())     ### ==>> func
-	
-	        See "BarMan value: " + Barman.value() +nl
-	        Increment = 10
-	        if BarMan.value() >= 100        ### ProgressBar start over.
-	            BarMan.setvalue(0)
-	            See "BarMan value Reset: " + Barman.value() +nl
-	        ok
-	        BarMan{ setvalue(value() + Increment) }
-	return
-	
-	Func theTime
-	return "Time : " + Time()
-
-.. image:: ringqt_shot15-B.jpg
-	:alt: QProgressBar
-	
 Using QSpinBox
 ==============
 
 In this example we will learn about using the QSpinBox class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -826,12 +837,15 @@ The application during the runtime
 .. image:: ringqt_shot16.jpg
 	:alt: QSpinBox
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QSlider
+
 Using QSlider
 =============
 
 In this example we will learn about using the QSlider class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -865,12 +879,15 @@ The application during the runtime
 .. image:: ringqt_shot17.jpg
 	:alt: QSlider
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QDateEdit
+
 Using QDateEdit
 ==================
 
 In this example we will learn about using the QDateEdit class
 
-.. code-block:: none
+.. code-block:: ring
 	
 	Load "guilib.ring"
 
@@ -891,13 +908,16 @@ The application during the runtime
 .. image:: ringqt_shot18.jpg
 	:alt: QDateEdit
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QDial
 	
+
 Using QDial
 ==================
 
 In this example we will learn about using the QDial class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -918,12 +938,76 @@ The application during the runtime
 .. image:: ringqt_shot19.jpg
 	:alt: QDial
 
+Another Example
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	New qApp {
+			 win1 = new qMainWindow() 
+			{
+				setGeometry(100,100,450,500)
+				setwindowtitle("Using QDial")
+				button1 = new QPushButton(win1){
+					setGeometry(100,350,100,30)
+					settext("Increment")
+					setClickEvent("pIncrement()")
+				}
+
+				button2 = new QPushButton(win1){
+					setGeometry(250,350,100,30)
+					settext("Decrement")
+					setClickEvent("pDecrement()")										   
+				} 
+				pdial = new qdial(win1) {
+					setGeometry(100,50,250,300)
+					setNotchesVisible(true)
+					setValue(50)
+					SetValueChangedEvent("pDialMove()")
+				}
+				lineedit1 = new qlineedit(win1) {
+					setGeometry(200,400,50,30)
+					setalignment(Qt_AlignHCenter)
+					settext(string(pdial.value()))
+					setreturnPressedEvent("pPress()") 
+				} 
+				show()
+			  }
+		exec()
+	}
+
+	func pIncrement
+		pdial{val=value()}
+		pdial.setvalue(val+1)  
+		lineedit1{settext(string(val+1))}   
+
+	func pDecrement
+		pdial{val=value()}
+		pdial.setvalue(val-1)   
+		lineedit1{settext(string(val-1))}  
+
+	func pPress
+		lineedit1{val=text()}
+		pdial.setvalue(number(val)) 
+
+	func pDialMove
+		lineedit1.settext(""+pdial.value())
+
+
+.. image:: usingqdial.png
+	:alt: QDial - Second Example
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; Using QWebView
+
 Using QWebView
 ==============
 
 In this example we will learn about using the QWebView class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -945,13 +1029,16 @@ The application during the runtime
 .. image:: ringqt_shot20.jpg
 	:alt: QWebView
 
+
+.. index:: 
+	pair: Desktop and Mobile Development; Using QCheckBox
 	
 Using QCheckBox
 ===============
 
 In this example we will learn about using the QCheckBox class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -972,13 +1059,49 @@ The application during the runtime
 .. image:: ringqt_shot21.jpg
 	:alt: QCheckBox
 
+
+Another Example:
+
+.. code-block:: ring
+
+        Load "guilib.ring"
+
+        New qApp {
+                win1 = new qMainWindow() {
+                        setGeometry(100,100,400,300)
+                        setwindowtitle("Using QCheckBox")
+                        
+                        ### 0-Unchecked  1-Checked
+                        
+                        CheckBox = new qcheckbox(win1) {
+                                setGeometry(100,100,160,30)
+                                settext("New Customer!")
+                                setclickedEvent("HandleClickEvent()")
+                        }                   
+                                    
+                        show()                            
+                }
+                exec()
+        }
+
+        Func HandleClickEvent
+            
+            if CheckBox.isChecked() = 1 
+                CheckBox.settext("New Customer. Check 1-ON")
+            else
+                CheckBox.settext("New Customer. Check 0-OFF")
+            ok
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; Using QRadioButton and QButtonGroup
 	
 Using QRadioButton and QButtonGroup
 ====================================
 
 In this example we will learn about using the QRadioButton and QButtonGroup classes
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1027,12 +1150,15 @@ The application during the runtime
 .. image:: ringqt_shot22.jpg
 	:alt:  QRadioButton and QButtonGroup classes
 
+.. index:: 
+	pair: Desktop and Mobile Development; Adding Hyperlink to QLabel
+
 Adding Hyperlink to QLabel
 ==========================
 
 In this example we will learn about creating Hyperlink using the QLabel class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1054,6 +1180,9 @@ The application during the runtime
 .. image:: ringqt_shot23.jpg
 	:alt: Hyperlink
 	
+.. index:: 
+	pair: Desktop and Mobile Development; QVideoWidget and QMediaPlayer
+
 QVideoWidget and QMediaPlayer
 =============================
 
@@ -1061,7 +1190,7 @@ In this example we will learn about using the QVideoWidget and QMediaPlayer clas
 a group of movies from different positions at the same time
 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1139,12 +1268,15 @@ The application during the runtime
 	:alt: QVideoWidget
 
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QFrame
+
 Using QFrame
 ============
 
 In this example we will learn about using the QFrame class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1168,13 +1300,16 @@ The application during the runtime
 .. image:: ringqt_shot25.jpg
 	:alt: QFrame
 
+
+.. index:: 
+	pair: Desktop and Mobile Development; Display Image using QLabel
 	
 Display Image using QLabel
 ==========================
 
 In this example we will learn about displaying an image using the QLabel widget
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1195,102 +1330,17 @@ The application during the runtime
 
 .. image:: ringqt_shot26.jpg
 	:alt: Display Image
-	
-Display Scaled Image using QLabel
-=================================
-
-In this example we will learn about displaying and scaling an image so that it looks "animated" using the QLabel widget
-
-.. code-block:: none
-
-	Load "guilib.ring"
-
-	#----------------------------------------------------
-	# REQUIRES: image = "C:\RING\bin\stock.jpg"
-
-	# imageStock: start dimensions for growing image
-
-	imageW = 200 ;  imageH = 200 ; GrowBy = 4
-
-	###----------------------------------------------------
-	### Window and Box Size dimensions
-
-	WinWidth = 1280 ; WinHeight = 960
-	BoxWidth = WinWidth -80 ; BoxHeight = WinHeight -80
-
-	###----------------------------------------------------
-
-	New qapp {
-
-		win1 = new qwidget() {
-
-			setgeometry(50,50, WinWidth,WinHeight)
-			setwindowtitle("Animated Image - Display Image Scaled and Resized")
-
-			imageStock = new qlabel(win1) {
-
-				image = new qpixmap("C:\RING\bin\stock.jpg")
-				AspectRatio = image.width() / image.height()
-
-				imageW = 200
-				imageH = imageH / AspectRatio
-
-				### Size-H, Size-V, Aspect, Transform
-				setpixmap(image.scaled(imageW , imageH ,0,0))   
-
-				PosLeft = (BoxWidth  - imageW ) / 2
-				PosTop  = (BoxHeight - imageH ) / 2
-				setGeometry(PosLeft,PosTop,imageW,imageH)
-
-			}
-
-			TimerMan = new qtimer(win1) {
-				setinterval(100)            ### interval 100 millisecs.
-				settimeoutevent("pTime()")  ### ==>> func
-				start()
-			}
-
-			show()
-		}
-	exec()
-	}
-
-
-	###------------------------------------------------------
-	### Fuction TimerMan: calling interval 100 milliseconds
-
-	func pTime
-
-	### Stop Timer when image is size of Window area
-	if imageW > BoxWidth
-		TimerMan.stop()
-		imageStock.clear()      ### Will clear the image
-	ok
-
-	### Grow image
-	imageW += GrowBy
-	imageH  = imageW / AspectRatio
-
-	### Scaled Image: Size-H, Size-V, Aspect, Transform
-	imageStock.setpixmap(image.scaled(imageW , imageH ,0,0))
-
-	### Center the image
-	PosLeft = (WinWidth  - imageW ) / 2
-	PosTop  = (WinHeight - imageH ) / 2
-	imageStock.setGeometry(PosLeft,PosTop,imageW,imageH)
-
-	#See "Windows: iW: "+ imageW +" iH: "+ imageH +" bW: "+ BoxWidth +" bH: "+ BoxHeight +nl
-
-	return
-	###-------------
 
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Menubar and StyleSheet Example
+
 Menubar and StyleSheet Example
 ==============================
 
 In this example we will learn about creating menubar and setting the window stylesheet
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1352,13 +1402,15 @@ The application during the runtime
 .. image:: ringqt_shot27.jpg
 	:alt: Menubar
 
+.. index:: 
+	pair: Desktop and Mobile Development; QLineEdit Events and QMessageBox
 
 QLineEdit Events and QMessageBox
 ================================
 
 In this example we will learn about using QLineEdit Events and displaying a Messagebox
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1425,6 +1477,9 @@ The application during the runtime
 .. image:: ringqt_shot29.jpg
 	:alt: qLineEdit events and qMessagebox
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Other Widgets Events
+
 Other Widgets Events
 ====================
 
@@ -1436,7 +1491,7 @@ To use it just use the function setValueChangedEvent()
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1477,7 +1532,7 @@ The application during the runtime
 
 Another example for the stateChanged event of the QCheckBox class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1507,12 +1562,15 @@ The application during the runtime
 .. image:: ringqt_shot31.jpg
 	:alt: qProgressBar valueChanged event
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QTimer Class
+
 Using the QTimer Class
 ======================
 
 In this example we will learn about using the QTimer class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1546,12 +1604,163 @@ The application during the runtime
 .. image:: ringqt_shot32.jpg
 	:alt: QTimer Class
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QProgressBar and Timer
+
+Using QProgressBar and Timer
+============================
+
+In this example we will learn about using the "animated" QProgressBar class and Timer
+
+.. code-block:: ring	
+
+	###------------------------------------
+	### ProgressBar and Timer Example
+	
+	Load "guilib.ring"
+	
+	new qApp
+	{
+	    win1 = new qwidget()
+	    {
+	        setgeometry(100,100,400,100)
+	        setwindowtitle("Timer and ProgressBar")
+	
+	        LabelMan = new qlabel(win1)
+	        {
+	            setgeometry(10,10,200,30)
+	            settext(theTime())          ### ==>> func
+	        }
+	
+	        TimerMan = new qtimer(win1)
+	        {
+	            setinterval(1000)
+	            settimeoutevent("pTime()")  ### ==>> func
+	            start()
+	        }
+	
+	        BarMan = new qprogressbar(win1)
+	        {
+	            setGeometry(100,50,300,10)  ###  Position X y, Length, Thickness
+	            setvalue(0)                 ###  Percent filled
+	        }
+	
+	        show()
+	    }
+	    exec()
+	}
+	
+	func pTime
+	        LabelMan.settext(theTime())     ### ==>> func
+	
+	        Increment = 10
+	        if BarMan.value() >= 100        ### ProgressBar start over.
+	            BarMan.setvalue(0)
+	        ok
+	        BarMan{ setvalue(value() + Increment) }
+	
+	Func theTime
+		return "Time : " + Time()
+
+.. image:: ringqt_shot15-B.jpg
+	:alt: QProgressBar
+
+.. index:: 
+	pair: Desktop and Mobile Development; Display Scaled Image using QLabel
+
+Display Scaled Image using QLabel
+=================================
+
+In this example we will learn about displaying and scaling an image so that it looks "animated" using the QLabel widget
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	#----------------------------------------------------
+	# REQUIRES: image = "C:\RING\bin\stock.jpg"
+
+	# imageStock: start dimensions for growing image
+
+	imageW = 200 ;  imageH = 200 ; GrowBy = 4
+
+	###----------------------------------------------------
+	### Window and Box Size dimensions
+
+	WinWidth = 1280 ; WinHeight = 960
+	BoxWidth = WinWidth -80 ; BoxHeight = WinHeight -80
+
+	###----------------------------------------------------
+
+	New qapp {
+
+		win1 = new qwidget() {
+
+			setgeometry(50,50, WinWidth,WinHeight)
+			setwindowtitle("Animated Image - Display Image Scaled and Resized")
+
+			imageStock = new qlabel(win1) {
+
+				image = new qpixmap("C:\RING\bin\stock.jpg")
+				AspectRatio = image.width() / image.height()
+
+				imageW = 200
+				imageH = imageH / AspectRatio
+
+				### Size-H, Size-V, Aspect, Transform
+				setpixmap(image.scaled(imageW , imageH ,0,0))   
+
+				PosLeft = (BoxWidth  - imageW ) / 2
+				PosTop  = (BoxHeight - imageH ) / 2
+				setGeometry(PosLeft,PosTop,imageW,imageH)
+
+			}
+
+			TimerMan = new qtimer(win1) {
+				setinterval(100)            ### interval 100 millisecs.
+				settimeoutevent("pTime()")  ### ==>> func
+				start()
+			}
+
+			show()
+		}
+	exec()
+	}
+
+
+	###------------------------------------------------------
+	### Fuction TimerMan: calling interval 100 milliseconds
+
+	func pTime
+
+		### Stop Timer when image is size of Window area
+		if imageW > BoxWidth
+			TimerMan.stop()
+			imageStock.clear()      ### Will clear the image
+		ok
+
+		### Grow image
+		imageW += GrowBy
+		imageH  = imageW / AspectRatio
+
+		### Scaled Image: Size-H, Size-V, Aspect, Transform
+		imageStock.setpixmap(image.scaled(imageW , imageH ,0,0))
+
+		### Center the image
+		PosLeft = (WinWidth  - imageW ) / 2
+		PosTop  = (WinHeight - imageH ) / 2
+		imageStock.setGeometry(PosLeft,PosTop,imageW,imageH)
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QFileDialog Class
+
 Using the QFileDialog Class
 ===========================
 
 Example
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1580,12 +1789,15 @@ The application during the runtime
 .. image:: ringqt_shot33.jpg
 	:alt: QFileDialog Class
 
+.. index:: 
+	pair: Desktop and Mobile Development; Drawing using QPainter
+
 Drawing using QPainter
 ======================
 
 In this example we will learn about drawing using the QPainter class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 	New qapp {
@@ -1630,12 +1842,15 @@ The application during the runtime
 .. image:: ringqt_shot34.jpg
 	:alt: QPainter Class
 
+.. index:: 
+	pair: Desktop and Mobile Development; Printing using QPrinter
+
 Printing using QPrinter
 =======================
 
 In this example we will learn how to print to PDF file using QPrinter
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 	new qApp {
@@ -1681,12 +1896,15 @@ In this example we will learn how to print to PDF file using QPrinter
 		system ("test.pdf")
 		system ("test2.pdf")
 
+.. index:: 
+	pair: Desktop and Mobile Development; Creating more than one window
+
 Creating More than one Window
 =============================
 
 The next example demonstrates how to create more than one window
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 	app1 = new qapp {
@@ -1724,31 +1942,37 @@ The application during the runtime
 .. image:: ringqt_shot35.jpg
 	:alt: More than one window
 
+.. index:: 
+	pair: Desktop and Mobile Development; Playing Sound
+
 Playing Sound
 =============
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 	new qapp {
 		win1 = new qwidget() {
 			setwindowtitle("play sound!") show()	
 		}
-		new qmediaplayer(win1)	{
+		new qmediaplayer()	{
 			setmedia(new qurl("footstep.wav"))
 			setvolume(50) play()	
 		}
 		exec()
 	}
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using the QColorDialog Class
+
 Using the QColorDialog Class
 ============================
 
 Example: 
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1788,12 +2012,15 @@ The application during the runtime
 .. image:: ringqt_shot37.jpg
 	:alt: QColorDialog Class
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using qLCDNumber
+
 Using qLCDNumber Class
 ======================
 
 In this example we will learn about using the qLCDNumber class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1829,10 +2056,13 @@ The application during the runtime
 .. image:: ringqt_shot38.jpg
 	:alt: QLCDNumber Class
 
+.. index:: 
+	pair: Desktop and Mobile Development; Movable Label Example
+
 Movable Label Example
 =====================
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1880,12 +2110,15 @@ The application during the runtime
 .. image:: ringqt_shot39.jpg
 	:alt: Movable label
 	
+.. index:: 
+	pair: Desktop and Mobile Development; QMessagebox Example
+
 QMessagebox Example
 ===================
 
 In this section we will learn how to check the output of the Message box
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1931,12 +2164,15 @@ The application during the runtime
 .. image:: ringqt_shot40.jpg
 	:alt: QMessageBox output
 
+.. index:: 
+	pair: Desktop and Mobile Development; Using QInputDialog Class
+
 Using QInputDialog Class
 ========================
 
 In the next example we will learn about using the QInputDialog class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -1978,13 +2214,16 @@ The application during the runtime
 .. image:: ringqt_shot41.jpg
 	:alt: QInputDialog
 
+.. index:: 
+	pair: Desktop and Mobile Development; KeyPress and Mouse Move Events
+
 KeyPress and Mouse Move Events
 ==============================
 
 In this example we will learn how to use the Events Filter to know about KeyPress and Mouse Move
 Events
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2030,12 +2269,15 @@ The application during the runtime
 .. image:: ringqt_shot42.jpg
 	:alt: KeyPress and Mouse Move Events
 
+.. index:: 
+	pair: Desktop and Mobile Development; Moving Objects using the Mouse
+
 Moving Objects using the Mouse
 ==============================
 
 In the next example we will learn how to program movable objects where the user can move a label
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2060,7 +2302,8 @@ In the next example we will learn how to program movable objects where the user 
 				myfilter.setEnterevent("pEnter()")
 				myfilter.setLeaveevent("pLeave()")
 				myfilter.setMouseButtonPressEvent("pPress()")
-				myfilter.setMouseButtonReleaseEvent("pRelease()")								myfilter.setMouseMoveEvent("pMove()")
+				myfilter.setMouseButtonReleaseEvent("pRelease()")
+				myfilter.setMouseMoveEvent("pMove()")
 				installeventfilter(myfilter)
 			}
 
@@ -2113,12 +2356,15 @@ The application during the runtime
 .. image:: ringqt_shot45.jpg
 	:alt: Moving object using the mouse
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Inheritance from GUI Classes
+
 Inheritance from GUI Classes
 ============================
 
 Example :
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2140,12 +2386,15 @@ The application during the runtime
 .. image:: ringqt_shot46.jpg
 	:alt: Inheritance from GUI Classes
 	
+.. index:: 
+	pair: Desktop and Mobile Development; Using QDesktopWidget Class
+
 Using QDesktopWidget Class
 ==========================
 
 In the next example we will learn about using the QDesktopWidget class
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2178,12 +2427,208 @@ The application during the runtime
 .. image:: ringqt_shot47.jpg
 	:alt: Using QDesktopWidget Class
 
+.. index:: 
+	pair: Desktop and Mobile Development; Rotate Text
+
+Rotate Text
+===========
+
+The next example rotate text using a Timer.
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	nAngle  = 0
+
+	New qapp {
+		win1 = new qwidget() {
+			setwindowtitle("Rotate Text")
+			resize(800,600)
+			label1 = new qlabel(win1) {
+				settext("")
+				myfilter = new qallevents(win1)
+				myfilter.setMouseButtonPressevent("pClick()")
+				installeventfilter(myfilter)
+			}
+			new qtimer(win1) {
+				setinterval(50)
+				settimeoutevent("pTime()")
+				start()
+			}
+			pDraw()
+			L1 = new qVBoxLayout() { AddWidget(Label1) } SetLayout(L1)
+			showMaximized()
+		}
+		exec()
+	}
+
+	Func pDraw
+		p1 = new qpicture()
+		color = new qcolor() {
+			setrgb(0,0,255,255)
+		}
+		pen = new qpen() {
+			setcolor(color)
+			setwidth(50)
+		}
+		painter = new qpainter() {
+			begin(p1)		
+				setpen(pen)
+				myfont = font()
+				myfont.setpointsize(50)
+				setfont(myfont)
+				rotate(nAngle)
+				drawtext(350,0*nAngle,"welcome") 		 
+				drawtext(0,0*nAngle,"welcome") 		 
+			endpaint()
+			  }
+		label1 {
+			setpicture(p1)  
+			show() 
+		}
+
+	Func pClick
+		win1 { setwindowtitle("Click Event") } 
+
+	Func pTime
+		nAngle++
+		if nAngle = 90
+			nAngle = 10
+		ok
+		pDraw()
+
+The application during the runtime
+
+.. image:: shotrotatetext.png
+	:alt: Rotate Text Example
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; Change Focus
+
+Change Focus
+============
+
+The next example change the focus using the ENTER key.
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+		win = new qWidget() {
+			resize(600,600)
+			SetWindowTitle("Change Focus")
+			text1 = new qLineEdit(win)
+			text2 = new qLineEdit(win)
+			text3 = new qLineEdit(win)
+			text4 = new qLineEdit(win)
+			layout1 = new qVBoxLayout() {
+				AddWidget(text1)
+				AddWidget(text2)
+				AddWidget(text3)
+				AddWidget(text4)
+
+			}
+			setLayout(Layout1)
+			aList = [text1,text2,text3,text4]
+			oFilter = new qallevents(win)
+			oFilter.setKeyPressEvent("pWork()")
+			installeventfilter(oFilter)
+			show()
+		}
+		exec()
+	}
+
+	func pWork
+		nCode =  oFilter.getkeycode()
+		if nCode = 16777220 	# ENTER Key
+			for x=1 to len(aList) 
+				if aList[x].HasFocus() 
+					t = x+1
+					if t > len(aList) t=1 ok
+					aList[t].SetFocus(0)
+					exit
+				ok
+			next
+		ok
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; Regular Expressions
+
+Regular Expressions
+===================
+
+The next example uses the Regular Expressions classes.
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp
+	{
+		see "Using Regular Expressions" + nl
+
+		exp = new qregularexpression() {
+			setPattern("\d\d \w+")
+			see pattern() + nl
+			match = match("33 one",0,0,0)
+			see match.hasmatch() + nl
+			match = match("3 one",0,0,0)
+			see match.hasmatch() + nl
+			match = match("welcome 11 one",0,0,0)
+			see match.hasmatch() + nl
+			matched = match.captured(0)
+			see matched + nl
+		}
+		exp = new qregularexpression() {
+			setPattern("^(\d\d)/(\d\d)/(\d\d\d\d)$")
+			see pattern() + nl
+			match = match("08/12/1985",0,0,0)
+			see match.hasmatch() + nl
+			day = match.captured(1)
+			month = match.captured(2)
+			year = match.captured(3)
+			see day + nl + month + nl + year + nl
+			see  "(" + match.capturedStart(1) + "," + match.capturedEnd(1)+ ")" + nl
+			see  "(" + match.capturedStart(2) + "," + match.capturedEnd(2)+ ")" + nl
+			see  "(" + match.capturedStart(3) + "," + match.capturedEnd(3)+ ")" + nl
+		}
+
+	}
+
+Output
+
+.. code-block:: ring
+
+	Using Regular Expressions
+	\d\d \w+
+	1
+	0
+	1
+	11 one
+	^(\d\d)/(\d\d)/(\d\d\d\d)$
+	1
+	08
+	12
+	1985
+	(0,2)
+	(3,5)
+	(6,10)
+
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; Simple Client and Server Example
+
 Simple Client and Server Example
 ================================
 
 In this section we will learn about creating simple Client and Server Application
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2290,14 +2735,273 @@ The application during the runtime
 	:alt: Client and Server Example
 
 .. index:: 
-	pair: Demo Programs; Notepad Application
+	pair: Desktop and Mobile Development; Dynamic Objects
+
+Dynamic Objects
+===============
+
+We may create objects in the runtime and add them to windows.
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	oFormDesigner = new FormDesigner { start("oFormDesigner") }
+
+	Class FormDesigner
+
+		winToolBox  winForm
+
+		aObjects = []
+
+		func start cObjectName
+
+			oApp = new qApp
+
+			winToolBox = new qWidget() 
+			winToolBox.setWindowTitle("ToolBox")
+			winToolBox.move(10,10)
+			winToolBox.resize(300,600)
+			
+			btn = new qPushButton(winToolBox) 
+			btn.resize(300,30)
+			btn.setText("Create Button")
+			btn.setClickEvent(cObjectName+".pCreateButton()")
+			btn.show()		
+
+			winToolBox.show()
+
+			winForm = new qWidget() {
+				move(400,50)
+				setWindowTitle("Form Designer")
+				resize(600,600)
+				show()	
+			}
+
+			oApp.exec()
+
+
+		func pCreateButton		
+
+			nCount = len(aObjects)
+
+			aObjects + new MyButton(winForm) 
+			{
+				nIndex = nCount + 1
+				setText("Button"+ nIndex) 
+				Move(30*nIndex,30*nIndex)
+				resize(100,30)
+				show()
+			}
+
+
+	Class MyButton from qPushButton
+		nIndex = 0
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; Weight History Application
+
+Weight History Application
+==========================
+
+The next sample help in recording (Date, Time and Weight).
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	MyApp = new qApp
+	{  
+	  $ApplicationObject = "oApp"   # To be used when calling events
+	  oApp = new App     
+	  exec()
+	  oApp.CloseDatabase()
+	}
+
+	class App
+
+	  cDir = currentdir() + "/"
+	  oCon 
+	  aIDs = []
+
+	  win1 = new qWidget()
+	  {
+		setWindowTitle("Weight History")
+		resize(600,600)
+		layoutButtons = new qhboxlayout()
+		{
+		  label1 = new qLabel(win1) { setText("Weight") }
+		  text1 = new qlineedit(win1)
+		  btnAdd = new qpushbutton(win1) { 
+			  setText("Add") 
+			  setClickEvent($ApplicationObject+".AddWeight()") 
+		  }
+		  btnDelete = new qpushbutton(win1) { 
+			  setText("Delete") 
+			  setClickEvent($ApplicationObject+".Deleteweight()") 
+		  }
+		  addwidget(label1)
+		  addwidget(text1)
+		  addwidget(btnAdd)
+		  addwidget(btnDelete)
+		}
+		layoutData  = new qhboxlayout()
+		{
+		  Table1 = new qTableWidget(win1) {
+			setrowcount(0)
+			setcolumncount(3)
+			setselectionbehavior(QAbstractItemView_SelectRows)
+			setHorizontalHeaderItem(0, new QTableWidgetItem("Date"))
+			setHorizontalHeaderItem(1, new QTableWidgetItem("Time"))
+			setHorizontalHeaderItem(2, new QTableWidgetItem("Weight"))
+			setitemChangedEvent($ApplicationObject+".ItemChanged()")
+					   setAlternatingRowColors(true)    
+					   horizontalHeader().setStyleSheet("color: blue")
+					   verticalHeader().setStyleSheet("color: red") 
+		  }
+		  addWidget(Table1)
+		}
+		layoutClose = new qhboxlayout()
+		{
+		  btnclose = new qpushbutton(win1) { 
+		    setText("Close") 
+		    setClickEvent("MyApp.Quit()") 
+		  }
+		  addwidget(btnClose)
+		}
+		layoutMain = new qvboxlayout()
+		{
+		  addlayout(layoutButtons)
+		  addLayout(LayoutData)
+		  addLayout(layoutClose)
+		}
+		setlayout(layoutMain)
+		self.OpenDatabase()
+		self.ShowRecords()        
+		show()  
+	  }
+		
+	  Func OpenDatabase
+		lCreate = False
+		if not fexists(cDir + "weighthistory.db")
+		  lCreate = True
+		ok
+		new QSqlDatabase() {
+		  this.oCon = addDatabase("QSQLITE") {
+			setDatabaseName("weighthistory.db")
+			Open()      
+		  }
+		}  
+		if lCreate
+		  new QSqlQuery( ) {
+			exec("create table weighthistory (id integer primary key,"+
+                             " f_date varchar(10),"+
+			     " f_time varchar(8), f_weight varchar(8) );")
+			delete()
+		  }
+		ok
+
+
+	  Func CloseDatabase
+		oCon.Close()
+
+	  Func AddWeight
+		cWeight = text1.text()
+		AddRecord(cWeight)
+
+	  Func DeleteWeight
+		Table1 {
+		   nRow = CurrentRow() 
+		  if nRow >= 0
+			nID = this.aIDs[nROW+1] 
+			new QSqlQuery( ) {
+			  exec("delete from weighthistory where id = " + nID )
+			}
+			Del(this.aIDs,nRow+1)
+			removerow(nRow)  
+			selectrow(nRow)
+		  ok
+		}
+		
+
+	  Func AddRecord cWeight
+		new QSqlQuery( ) {
+		  cStr = "insert into weighthistory (f_date,f_time,f_weight) values"+
+		  " ('%f1','%f2','%f3')"
+		  cDate = Date()
+		  cTime = Time()
+		  cStr = substr(cStr,"%f1",cDate)
+		  cStr = substr(cStr,"%f2",cTime)
+		  cStr = substr(cStr,"%f3",cWeight)
+		  exec(cStr)
+		  delete()
+		}
+		ShowRecords()
+		Table1.selectrow(table1.rowcount()-1)
+
+
+	  Func ShowRecords
+		table1.setitemChangedEvent("")
+		aIDs = []
+		query = new QSqlQuery() {
+		  exec("select * from weighthistory")
+		  nRows = 0
+		  this.Table1.setrowcount(0)
+		  while movenext() 
+			this.table1 {
+			  insertRow(nRows)
+			  this.aIDs + query.value(0).tostring()
+			  for x = 1 to 3 
+				cStr = query.value(x).tostring()
+				item = new qTableWidgetItem(cStr)
+				setItem(nRows,x-1,item)
+			  next
+			}
+			nRows++
+		  end
+		  delete()
+		}
+		table1.setitemChangedEvent($ApplicationObject+".ItemChanged()")
+	   
+	  Func ItemChanged
+		nRow =  table1.currentrow()
+		if nRow >= 0 
+		  myitem = Table1.item(table1.currentrow(),0)
+		  cDate = myitem.text()
+		  myitem = Table1.item(table1.currentrow(),1)
+		  cTime = myitem.text()
+		  myitem = Table1.item(table1.currentrow(),2)
+		  cWeight = myitem.text()
+		  new QSqlQuery( ) {
+			cStr = "update weighthistory set f_date ='%f1' , f_time = '%f2' , "+
+			"f_weight ='%f3' where id = " +  this.aIDs[nROW+1] 
+			cStr = substr(cStr,"%f1",cDate)
+			cStr = substr(cStr,"%f2",cTime)
+			cStr = substr(cStr,"%f3",cWeight)  
+			exec(cStr)
+			delete()
+		  }
+		ok
+
+
+The next screen shot for the application during the runtime
+
+.. image:: weighthistory_app.png
+	:alt: Weight History Application
+
+.. index:: 
+	pair: Desktop and Mobile Development; Notepad Application
+
 
 Notepad Application
 ===================
 
 In the next example we will see simple Notepad developed using the RingQt
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -2648,7 +3352,7 @@ In the next example we will see simple Notepad developed using the RingQt
 					setText("Back")
 					setClickEvent("pWebBack()")
 				}
-				oWBLayout1 = new qHBoxLayout(win1) {
+				oWBLayout1 = new qHBoxLayout() {
 					addWidget(oWBLabel)
 					addWidget(oWBText)
 					addWidget(oWBGo)
@@ -2657,7 +3361,7 @@ In the next example we will see simple Notepad developed using the RingQt
 				oWebView = new qWebView(win1) {
 					loadpage(new qurl(cWebSite))
 				}
-				oWBlayout2 = new qVBoxLayout(win1) {
+				oWBlayout2 = new qVBoxLayout() {
 					addLayout(oWBLayout1)
 					addWidget(oWebView)
 				}
@@ -2956,7 +3660,7 @@ In the next example we will see simple Notepad developed using the RingQt
 		status1.showmessage("Paste!",0)		
 
 	func pFont
-		oFontDialog = new qfontdialog(win1) {
+		oFontDialog = new qfontdialog() {
 			aFont = getfont()
 		}
 		textedit1.selectall()
@@ -3099,6 +3803,9 @@ The next screen shot demonstrates the application main window
 .. index:: 
 	pair: Demo Programs; The Cards Game
 	  
+.. index:: 
+	pair: Desktop and Mobile Development; The Cards Game
+
 The Cards Game
 ==============
 
@@ -3108,7 +3815,7 @@ Each player get 5 cards, the cards are unknown to any one. each time one player 
 to see it. if the card is identical to another card the play get point for each card.
 if the card value is "5" the player get points for all visible cards.
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "guilib.ring"
 
@@ -3370,3 +4077,260 @@ The next screen shot while running the game using a Mobile (Android)
 	:alt: The Cards Game
 
 .. note:: using Qt we can run the same application on other Mobile systems 
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; Classes and their Methods to use the default events
+
+
+Classes and their Methods to use the default events
+===================================================
+
+The next table present the class name and the methods that we have to use the default events.
+
+==============================	===========================================================
+Class Name			Methods to use the default Events
+==============================	===========================================================
+QPushButton			SetClickEvent()
+QAction				SetClickEvent()
+QLineEdit			SetTextChangedEvent()
+..				SetCursorPositionChangedEvent()
+..				SetEditingFinishedEvent()
+..				SetReturnPressedEvent()
+..				SetSelectionChangedEvent()
+..				SetTextEditedEvent()
+QTextEdit			SetCopyAvailableEvent()
+..				SetCurrentCharFormatChangedEvent()
+..				SetCursorPositionChangedEvent()
+..				SetRedoAvailableEvent()
+..				SetSelectionChangedEvent()
+..				SetTextChangedEvent()
+..				SetUndoAvailableEvent()
+QListWidget			SetCurrentItemChangedEvent()
+..				SetCurrentRowChangedEvent()
+..				SetCurrentTextChangedEvent()
+..				SetItemActivatedEvent()
+..				SetItemChangedEvent()
+..				SetItemClickedEvent()
+..				SetItemDoubleClickedEvent()
+..				SetItemEnteredEvent()
+..				SetItemPressedEvent()
+..				SetItemSelectionChangedEvent()
+QTreeView			SetCollapseEvent()
+..				SetExpandedEvent()
+..				SetActivatedEvent()
+..				SetClickedEvent()
+..				SetDoubleClickedEvent()
+..				SetEnteredEvent()
+..				SetPressedEvent()
+..				SetViewportEnteredEvent()
+QTreeWidget			SetCollapsedEvent()
+..				SetExpandedEvent()
+..				SetActivatedEvent()
+..				SetClickedEvent()
+..				SetDoubleClickedEvent()
+..				SetEnteredEvent()
+..				SetPressedEvent()
+..				SetViewportEnteredEvent()
+..				SetCurrentItemChangedEvent()
+..				SetItemActivatedEvent()
+..				SetItemChangedEvent()
+..				SetItemClickedEvent()
+..				SetItemCollapsedEvent()
+..				SetItemDoubleClickedEvent()
+..				SetItemEnteredEvent()
+..				SetItemExpandedEvent()
+..				SetItemPressedEvent()
+..				SetItemSelectionChangedEvent()
+QComboBox 			SetActivatedEvent()
+..				SetCurrentIndexChangedEvent()
+..				SetEditTextChangedEvent()
+..				SetHighlightedEvent()
+QTabWidget 			SetCurrentChangedEvent()
+..				SetTabCloseRequestedEvent()
+QTableWidget 			SetCellActivatedEvent()
+..				SetCellChangedEvent()
+..				SetCellClickedEvent()
+..				SetCellDoubleClickedEvent()
+..				SetCellEnteredEvent()
+..				SetCellPressedEvent()
+..				SetCurrentCellChangedEvent()
+..				SetCurrentItemChangedEvent()
+..				SetItemActivatedEvent()
+..				SetItemChangedEvent()
+..				SetItemClickedEvent()
+..				SetItemDoubleClickedEvent()
+..				SetItemEnteredEvent()
+..				SetItemPressedEvent()
+..				SetItemSelectionChangedEvent()
+QProgressBar 			SetValueChangedEvent()
+QSpinBox 			SetValueChangedEvent()
+QSlider 			SetActionTriggeredEvent()
+..				SetRangeChangedEvent()
+..				SetSliderMovedEvent()
+..				SetSliderPressedEvent()
+..				SetSliderReleasedEvent()
+..				SetValueChangedEvent()
+QDial 				SetActionTriggeredEvent()
+..				SetRangeChangedEvent()
+..				SetSliderMovedEvent()
+..				SetSliderPressedEvent()
+..				SetSliderReleasedEvent()
+..				SetValueChangedEvent()
+QWebView 			SetLoadFinishedEvent()
+..				SetLoadProgressEvent()
+..				SetLoadStartedEvent()
+..				SetSelectionChangedEvent()
+..				SetTitleChangedEvent()
+..				SetUrlChangedEvent()
+QCheckBox 			SetStateChangedEvent()
+..				SetClickedEvent()
+..				SetPressedEvent()
+..				SetReleasedEvent()
+..				SetToggledEvent()
+QRadioButton 			SetClickedEvent()
+..				SetPressedEvent()
+..				SetReleasedEvent()
+..				SetToggledEvent()
+QButtonGroup 			SetButtonClickedEvent()
+..				SetButtonPressedEvent()
+..				SetButtonReleasedEvent()
+QVideoWidget 			SetBrightnessChangedEvent()
+..				SetContrastChangedEvent()
+..				SetFullScreenChangedEvent()
+..				SetHueChangedEvent()
+..				SetSaturationChangedEvent()
+QTimer 				SetTimeoutEvent()
+QTcpServer 			SetAcceptErrorEvent()
+..				SetNewConnectionEvent()
+QIODevice 			SetAboutToCloseEvent()
+..				SetBytesWrittenEvent()
+..				SetReadChannelFinishedEvent()
+..				SetReadyReadEvent()
+QAbstractSocket 		SetConnectedEvent()
+..				SetDisconnectedEvent()
+..				SetErrorEvent()
+..				SetHostFoundEvent()
+..				SetProxyAuthenticationRequiredEvent()
+..				SetStateChangedEvent()
+QTcpSocket 			SetConnectedEvent()
+..				SetDisconnectedEvent()
+..				SetErrorEvent()
+..				SetHostFoundEvent()
+..				SetProxyAuthenticationRequiredEvent()
+..				SetStateChangedEvent()
+..				SetAboutToCloseEvent()
+..				SetBytesWrittenEvent()
+..				SetReadChannelFinishedEvent()
+..				SetReadyReadEvent()
+QColorDialog 			SetColorSelectedEvent()
+..				SetCurrentColorChangedEvent()
+QNetworkAccessManager 		SetFinishedEvent()
+QThread				SetStartedEvent()
+..				SetFinishedEvent()
+==============================	===========================================================
+
+.. index:: 
+	pair: Desktop and Mobile Development; Methods to use Events with Events Filter 
+
+Methods to use Events with Events Filter 
+========================================
+
+RingQt define a new class called QAllEvents that help you in using Events Filter
+
+The next table presents the methods that we have
+
+================================	======================
+Methods to get parameters		Class Name
+================================	======================
+getKeyCode() 	--> Number		QAllEvents
+getx()		--> Number
+gety()		--> Number
+getglobalx()	--> Number
+getglobaly()	--> Number
+getbutton()	--> Number
+getbuttons()	--> Number
+================================	======================
+
+The next table presents the methods that we have to use events.
+
+===================================================	======================
+Method Name						Class Name
+===================================================	======================
+setKeyPressEvent(cEvent)				QAllEvents
+setMouseButtonPressEvent(cEvent)
+setMouseButtonReleaseEvent(cEvent)
+setMouseButtonDblClickEvent(cEvent)
+setMouseMoveEvent(cEvent)
+setCloseEvent(cEvent)
+setContextMenuEvent(cEvent)
+setDragEnterEvent(cEvent)
+setDragLeaveEvent(cEvent)
+setDragMoveEvent(cEvent)
+setDropEvent(cEvent)
+setEnterEvent(cEvent)
+setFocusInEvent(cEvent)
+setFocusOutEvent(cEvent)
+setKeyReleaseEvent(cEvent)
+setLeaveEvent(cEvent)
+setNonClientAreaMouseButtonDblClickEvent(cEvent)
+setNonClientAreaMouseButtonPressEvent(cEvent)
+setNonClientAreaMouseButtonReleaseEvent(cEvent)
+setNonClientAreaMouseMoveEvent(cEvent)
+setMoveEvent(cEvent)
+setResizeEvent(cEvent)
+setWindowActivateEvent(cEvent)
+setWindowBlockedEvent(cEvent)
+setWindowDeactivateEvent(cEvent)
+setWindowStateChangeEvent(cEvent)
+setWindowUnblockedEvent(cEvent)
+===================================================	======================
+
+.. index:: 
+	pair: Desktop and Mobile Development; The Difference between Qt and RingQt
+
+The Difference between Qt and RingQt
+====================================
+
+(1) RingQt use simple methods to set the code that will be executed for events.
+
+Syntax:
+
+.. code-block:: none
+
+	Set<Event_Name>Event(cEventCode)
+	
+(2) RingQt change the name of some methods to avoid conflict with Ring Keywords.
+
+The next table present these little changes
+
+===============================		======================		===================
+Class Name				Qt Method Name			RingQt Method Name
+===============================		======================		===================
+QWebView				load				loadpage
+QMediaPlaylist				load				loadfile
+QMediaPlaylist				next				movenext
+QPainter				end				endpaint
+QPicture				load				loadfile
+QLineEdit				end				endtext
+QDialog					done				donedialog
+QTextDocument				end				enddoc
+QTextBlock				next				nextblock
+QSqlQuery				next				movenext
+QImage					load				loadimage
+QNetworkAccessManager			get				getvalue
+QNetworkAccessManager			put				putvalue
+QThread					exit				exitfromthread
+QRegularExpressionMatchIterator		next				nextitem
+QCamera					load				loadcamera
+===============================		======================		===================
+
+.. index:: 
+	pair: Desktop and Mobile Development; RingQt Classes and their Qt Documentation
+
+RingQt Classes and their Qt Documentation
+=========================================
+
+Qt Documentation : http://doc.qt.io/qt-5/classes.html
+
+See the "RingQt Classes and Methods Reference" chapter for supported classes and methods.

@@ -30,6 +30,8 @@ Type: unsigned int
 nPrintInstruction : 1
 Type: unsigned int
 nGenObj : 1
+Type: unsigned int
+nWarning : 1
 Type: int
 argc
 Type: char  **
@@ -73,10 +75,11 @@ Type: List *
 pList
 ring_state_main
 Type: int
-x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nObj
+x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nWarn
 Type: const char *
 cStr
 ring_state_runfile
+ring_state_runobjectfile
 ring_testallunits
 ring_showtime
 Type: time_t
@@ -101,7 +104,7 @@ ring_currentdir
 Type: int
 nSize
 ring_exefilename
-Type: int
+Type: unsigned int
 nSize
 ring_chdir
 ring_exefolder

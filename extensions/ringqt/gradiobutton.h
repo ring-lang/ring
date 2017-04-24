@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GRADIOBUTTON_H
 #define GRADIOBUTTON_H
 #include <QApplication>
@@ -17,6 +17,8 @@ class GRadioButton : public QRadioButton
 
     VM *pVM;
 
+    List *pParaList;
+
     char cclickedEvent[100];
     char cpressedEvent[100];
     char creleasedEvent[100];
@@ -25,10 +27,20 @@ class GRadioButton : public QRadioButton
 
     GRadioButton(QWidget *parent,VM *pVM );
 
+    ~GRadioButton();
+
+    void geteventparameters(void) ;
+
     void setclickedEvent(const char *cStr);
     void setpressedEvent(const char *cStr);
     void setreleasedEvent(const char *cStr);
     void settoggledEvent(const char *cStr);
+
+
+    const char *getclickedEvent(void);
+    const char *getpressedEvent(void);
+    const char *getreleasedEvent(void);
+    const char *gettoggledEvent(void);
 
 
   public slots:

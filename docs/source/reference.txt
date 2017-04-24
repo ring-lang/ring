@@ -1,6 +1,9 @@
-==============
-Reference
-==============
+.. index:: 
+	single: Reference; Introduction
+
+==================
+Language Reference
+==================
 
 In this chapter we will learn about
 
@@ -8,32 +11,44 @@ In this chapter we will learn about
 * Language Functions
 * Compiler Errors
 * Runtime Errors
+* Language Grammar
+* Virtual Machine (VM) Instructions
+
+.. index:: 
+	pair: Reference; Language Keywords
 
 Language Keywords
 =================
 
-Keywords Count : 38
+Keywords Count : 46
 
 * again
 * and
 * but
 * bye
 * call
+* case
 * catch
+* changeringkeyword
+* changeringoperator
 * class
+* def
 * do
 * done
 * else
+* elseif
 * end
 * exit
 * for
 * from
 * func
+* get
 * give
 * if
 * import
 * in
 * load
+* loadsyntax
 * loop
 * new
 * next
@@ -45,6 +60,7 @@ Keywords Count : 38
 * other
 * package
 * private
+* put
 * return
 * see
 * step
@@ -53,47 +69,67 @@ Keywords Count : 38
 * try
 * while
 
+.. index:: 
+	pair: Reference; Language Functions
+
 Language Functions
 ==================
 
-Functions Count : 207
+Functions Count : 219
 
-.. code-block:: none
+.. code-block:: ring
 
-	acos() add() addattribute() adddays() addmethod() ascii() asin() assert()
-	atan() atan2() attributes() binarysearch() callgc() ceil() cfunctions() char()
-	chdir() classes() classname() clearerr() clock() closelib() copy() cos()
-	cosh() currentdir() date() dec() decimals() decrypt() del() diffdays()
-	dir() download() encrypt() eval() exefilename() exefolder() exp() fabs()
-	fclose() feof() ferror() fexists() fflush() fgetc() fgetpos() fgets()
-	filename() find() floor() fopen() fputc() fputs() fread() freopen()
-	fseek() fsetpos() ftell() functions() fwrite() get() getattribute() getchar()
+	acos() add() addattribute() adddays() addmethod() ascii() 
+	asin() assert()
+	atan() atan2() attributes() binarysearch() callgc() ceil() 
+	cfunctions() char()
+	chdir() classes() classname() clearerr() clock() clockspersecond()
+	closelib() copy()
+	cos() cosh() currentdir() date() dec() decimals() decrypt() del()
+	diffdays() dir() download() encrypt() eval() exefilename() 
+	exefolder() exp()
+	fabs() fclose() feof() ferror() fexists() fflush() fgetc() fgetpos()
+	fgets() filename() find() floor() fopen() fputc() fputs() fread()
+	freopen() fseek() fsetpos() ftell() functions() fwrite() 
+	getattribute() getchar()
 	globals() hex() hex2str() input() insert() intvalue() isalnum() isalpha()
-	isandroid() isattribute() iscfunction() isclass() iscntrl() isdigit() 
-	isfreebsd() isfunction()  isglobal() isgraph() islinux() islist() islocal()
-	islower() ismacosx() ismethod() ismsdos() isnull() isnumber() isobject() 
-	ispackage() ispackageclass() isprint() isprivateattribute() isprivatemethod()
-	ispunct() isspace() isstring() isunix() isupper() iswindows() iswindows64()
+	isandroid() isattribute() iscfunction() isclass() iscntrl() 
+	isdigit() isfreebsd() isfunction()
+	isglobal() isgraph() islinux() islist() islocal() 
+	islower() ismacosx() ismethod()
+	ismsdos() isnull() isnumber() isobject() ispackage() 
+	ispackageclass() isprint() isprivateattribute()
+	isprivatemethod() ispunct() isspace() isstring() 
+	isunix() isupper() iswindows() iswindows64()
 	isxdigit() left() len() lines() list() list2str() loadlib() locals()
 	log() log10() lower() max() md5() mergemethods() methods() min()
-	murmur3hash() mysql_autocommit() mysql_close() mysql_columns() mysql_commit()
-	mysql_connect() mysql_error() mysql_escape_string()
-	mysql_info() mysql_init() mysql_insert_id() mysql_next_result() mysql_query()
-	mysql_result() mysql_result2() mysql_rollback()
-	nullpointer() number() object2pointer() objectid() odbc_autocommit() 
-	odbc_close() odbc_colcount() odbc_columns()
-	odbc_commit() odbc_connect() odbc_datasources() odbc_disconnect() 
-	odbc_drivers() odbc_execute() odbc_fetch() odbc_getdata()
-	odbc_init() odbc_rollback() odbc_tables() packageclasses() packages()
-	perror() pointer2object() pow()
-	raise() randbytes() random() read() remove() rename() reverse() rewind()
-	right() sendemail() setattribute() sha1() sha224() sha256() sha384() sha512()
-	sin() sinh() sort() space() sqlite_close() 
-	sqlite_errmsg() sqlite_execute() sqlite_init()
-	sqlite_open() sqrt() str2hex() str2list() strcmp() 
-	string() substr() system() tan() tanh() tempfile() tempname() time() 
-	timelist() trim() type() ungetc() unsigned() upper() varptr() 
-	version() windowsnl() write()
+	murmur3hash() mysql_autocommit() mysql_close() 
+	mysql_columns() mysql_commit() mysql_connect() mysql_error()
+	mysql_escape_string()
+	mysql_info() mysql_init() mysql_insert_id() mysql_next_result()
+	 mysql_query() mysql_result() mysql_result2() mysql_rollback()
+	nullpointer() number() object2pointer() objectid() 
+	odbc_autocommit() odbc_close() odbc_colcount() odbc_columns()
+	odbc_commit() odbc_connect() odbc_datasources() 
+	odbc_disconnect() odbc_drivers() odbc_execute() odbc_fetch() odbc_getdata()
+	odbc_init() odbc_rollback() odbc_tables() packageclasses() packagename()
+	packages() perror() pointer2object() pow()
+	prevfilename() ptrcmp() raise() randbytes() random() 
+	read() remove() rename()
+	reverse() rewind() right() ringvm_calllist() 
+	ringvm_cfunctionslist() ringvm_classeslist() 
+	ringvm_fileslist() ringvm_functionslist()
+	ringvm_memorylist() ringvm_packageslist() sendemail() 
+	setattribute() sha1() sha224() sha256() sha384()
+	sha512() sin() sinh() sort() space() sqlite_close() 
+	sqlite_errmsg() sqlite_execute()
+	sqlite_init() sqlite_open() sqrt() str2hex() str2list() 
+	strcmp() string() substr() swap()
+	sysget() system() tan() tanh() tempfile() tempname() time() timelist()
+	trim() type() ungetc() unsigned() upper() varptr() version() windowsnl()
+
+.. index:: 
+	pair: Reference; Compiler Errors
 
 Compiler Errors
 ===============
@@ -123,6 +159,9 @@ Compiler Errors
 * Error (C23) : Using '(' after number!
 * Error (C24) : The parent class name is identical to the subclass name
 * Error (C25) : Trying to access the self reference after the object name"
+
+.. index:: 
+	pair: Reference; Runtime Errors
 
 Runtime Errors
 ==============
@@ -161,3 +200,343 @@ Runtime Errors
 * Error (R32) : The CALL command expect a variable contains string!
 * Error (R33) : Bad decimals number (correct range >= 0 and <=14) !
 * Error (R34) : Variable is required for the assignment operation
+* Error (R35) : Can't create/open the file!
+* Error (R36) : The column number is not correct! It's greater than the number of columns in the list
+
+.. index:: 
+	pair: Reference; Language Grammar
+
+Language Grammar
+================
+
+Program ---> {statement}
+
+Statement ---> 'package' <Identifier> { '.' <Identifier> }
+
+Statement ---> 'class' <Identifier> [ 'from'|':'|'<' <Identifier> ]
+
+Statement ---> 'func'|'def' <Identifier> [ParaList]
+
+Statement ---> 'import' <Identifier> { '.' <Identifier> }
+
+Statement ---> 'private'
+
+Statement ---> 'load' <Literal>
+
+Statement ---> 'loadsyntax' <Literal>
+
+Statement ---> 'changeringkeyword' <OldKeyword> <NewKeyword>
+
+Statement ---> 'changeringoperator' <OldOperator> <NewOperator>
+
+Statement ---> 'see'|'put' <Expr>
+
+Statement ---> 'give'|'get' <Identifier>
+
+Statement ---> 'if' <Expr> ['{'] {statement} [ {'but'|'elseif' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'|'end'|'}'
+
+Statement ---> 'Switch' <Expr> ['{'] { 'on'|'case' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'
+
+Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] ['{'] {Statement} 'next'|'end'|'}'
+
+Statement ---> 'for' <Identifier> 'in' <Expr>  [ 'step' <Expr> ] ['{'] {statement} 'next'|'end'|'}'
+
+Statement ---> 'while' <Expr> ['{'] {statement} 'end'|'}'
+
+Statement ---> 'do' {statement} 'again' <Expr> 
+
+Statement ---> 'try' {statement} ['{'] 'catch' {statement} 'done'|'end'|'}'
+
+Statement ---> 'return' <Expr>
+
+Statement ---> 'bye'
+
+Statement ---> 'exit'
+
+Statement ---> 'loop'
+
+Statement ---> <Expr>
+
+Statement ---> epslion
+
+ParaList ---> epslion
+
+ParaList ---> ['('] <Identifier> [{ ',' <Identifier> }] [')']
+
+Expr ---> <LogicNot> [{ 'and'|'or' <LogicNot> }]
+
+LogicNot --> ['not'] <EqualOrNot> 
+
+EqualOrNot --> [ '='|'!=' ] <Compare>
+
+Compare ---> <BitOrXor> [ { '<' | '>' | '<=' | '>=' <BitOrXor> } ]
+
+BitOrXor ---> <BitAnd> [ { '|' | '^' <BitAnd> } ]
+
+BitAnd ---> <BitShift> [ { '&' <BitShift> } ]
+
+BitShift ---> <Arithmetic> [ { '<<' | '>>' <Arithmetic> } ]
+
+Arithmetic ---> <Term> [ { '+' | '-'  <Term>  } ]
+
+Term ---> <Range> [ { '*' | '/' | '%' <Range> } ]
+
+Range ---> <Factor> [ ':' <Factor> ]
+
+Factor ---> <Identifier> [ {Mixer} ] [ '=' <Expr> ]
+
+Factor ---> <Number>
+
+Factor ---> <Literal>
+
+Factor ---> ':' <Identifier>
+
+Factor ---> '-' <Expr>
+
+Factor ---> '(' <Expr> ')'
+
+Factor ---> <List>
+
+Factor ---> 'new' <Identifier>
+
+Factor ---> <AnonymousFunction>
+
+Factor ---> 'call' <identifier> { '.' <Identifier> } '(' <Parameters> ')'
+
+List ---> '[' [ <Expr> { ',' <Expr> } ] ']'
+
+Mixer ---> { '.' <Identifier> }
+
+Mixer ---> '[' <Expr> ']'
+
+Mixer ---> '(' [ <Expr> [ { ',' <Expr> }] ]  ')'
+
+Mixer ---> '{' {Statement} '}'
+
+AnonymousFunction ---> 'func'|'def'| [<ParaList>] '{' {Statement} '}'
+
+.. index:: 
+	pair: Reference; Virtual Machine Instructions
+
+Virtual Machine (VM) Instructions
+=================================
+
+Definitions :-
+
+* VM : Virtual Machine
+* Stack : VM Stack
+* IR : Instruction Register
+* PC : Program Counter
+* VP : Variable Pointer
+* Stack[nSize] : Last Item in the Stack (Last In - First Out)
+* VV : Variable Value (We have a Pointer to a variable, And we access this variable value)
+(Stack and Variables)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_PUSHC 		Add string from the IR to the stack
+* ICO_PUSHN 		Add number from the IR to the stack
+* ICO_PUSHV 		Replace VP in the stack[nSize] with the variable value 
+* ICO_LOADADDRESS 	Read variable name from the IR, push VP to the stack
+* ICO_ASSIGNMENT 	Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]
+* ICO_INC 		Increment Number in Stack[nSize] by 1
+* ICO_LOADAPUSHV	The same as ICO_LOADADDRESS then ICO_PUSHV
+* ICO_NEWLINE		Store new line number (debug info)
+* ICO_FREESTACK		Remove all items from the stack , nSize = 0
+* ICO_FILENAME		Store the source code file name (debug info)
+* ICO_FREELOADASCOPE	Free the Scope List of the current Expression
+=======================	============================================================================
+
+(Jump)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_JUMP		Set PC to new value from the IR 
+* ICO_JUMPZERO		If Stack[nSize] is a number = 0 then Set PC to new value from the IR 
+* ICO_JUMPFOR		End of for loop
+* ICO_JUMPONE		If Stack[nSize] is a number = 1 then Set PC to new value from the IR 
+* ICO_JUMPZERO2		As ICO_JUMPZERO but add 1 to the stack (required for many 'AND' conditions)
+* ICO_JUMPONE2		As ICO_JUMPONE but add 1 to the stack (required for many 'OR' conditions)
+=======================	============================================================================
+
+(Compare)
+
+=======================	==========================================================================================================
+Operation			Description
+=======================	==========================================================================================================
+* ICO_LESSEQUAL		If stack[nSize-1] <= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_EQUAL		If stack[nSize-1] = stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_LESS		If stack[nSize-1] < stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_GREATER		If stack[nSize-1] > stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_GREATEREQUAL	If stack[nSize-1] >= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+* ICO_NOTEQUAL		If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+=======================	==========================================================================================================
+
+(Math)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_SUM		Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]
+* ICO_SUB		Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]
+* ICO_MUL		Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]
+* ICO_DIV		Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]
+* ICO_MOD		Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]
+* ICO_NEG		Stack[nSize] = - Stack[nSize-1]
+* ICO_PLUSPLUS		Stack[nSize] = Stack[nSize] + 1
+* ICO_MINUSMINUS	Stack[nSize] = Stack[nSize] - 1
+=======================	============================================================================
+
+(Logic)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_AND		Stack[nSize-1] = Stack[nSize-1] && Stack[nSize] , POP stack[nSize]
+* ICO_OR		Stack[nSize-1] = Stack[nSize-1] || Stack[nSize] , POP stack[nSize]
+* ICO_NOT		Stack[nSize]   = ! Stack[nSize]  
+=======================	============================================================================
+
+(Lists)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_LISTSTART		Start New List in Temp. Memory
+* ICO_LISTITEM		Add List Item
+* ICO_LISTEND		End List
+* ICO_LOADINDEXADDRESS	Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]
+=======================	============================================================================
+
+(Functions)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_LOADFUNC		Find function
+* ICO_CALL		Call function
+* ICO_RETURN		Return from function
+* ICO_RETNULL		Return NULl from function
+* ICO_RETFROMEVAL	Return after eval() 
+* ICO_RETITEMREF	Return the list item reference - not the value
+* ICO_NEWFUNC		Start new function
+* ICO_BLOCKFLAG		Flag to determine where to jump later (after ICO_RETURN)
+* ICO_FUNCEXE		Start executing function
+* ICO_ENDFUNCEXE	End function execution
+* ICO_ANONYMOUS		Anonymous function
+=======================	============================================================================
+
+(User Interface)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_PRINT		Print value to the standard output
+* ICO_GIVE		Get input from the keyboard
+=======================	============================================================================
+
+(End Program/Loop)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_BYE		End execution of VM
+* ICO_EXITMARK		Place to exit to from a loop	
+* ICO_POPEXITMARK	Remove exit mark
+* ICO_EXIT		Break from one loop or more 
+* ICO_LOOP		Continue to next loop 
+=======================	============================================================================
+
+(For Better Performance)
+
+========================	============================================================================
+Operation			Description
+========================	============================================================================
+* ICO_PUSHP			Push pointer to the stack
+* ICO_INCP			Increment variable value using pointer
+* ICO_PUSHPV			Push value of variable using variable pointer
+* ICO_INCJUMP			Increment then jump
+* ICO_INCPJUMP			Increment using pointer then jump
+* ICO_JUMPVARLENUM		Jump if variable value is <= numeric value
+* ICO_JUMPVARPLENUM		Jump if variable value (using pointer) <= numeric value 
+* ICO_LOADFUNCP			Push function pointer
+* ICO_PUSHPLOCAL		Push pointer to local variable
+* ICO_INCLPJUMP			Increment value using pointer to local variable then jump
+* ICO_JUMPVARLPLENUM		Jump if the variable value (using pointer) <= numeric value
+* ICO_INCPJUMPSTEP1	 	Increment value using variable pointer then jump (for loop step = 1)
+* ICO_JUMPVARPLENUMSTEP1	Increment value using variable pointer then jump (for loop step = 1)
+========================	============================================================================
+
+(Try-Catch-Done)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_TRY		Start try region
+* ICO_DONE		End try region
+=======================	============================================================================
+
+(Duplicate and Range)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_DUPLICATE		Duplicate stack value
+* ICO_RANGE		Create list from value to value
+=======================	============================================================================
+
+(OOP)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_NEWOBJ		Create new object, get class name from the IR, push object pointer to the stack.
+* ICO_SETSCOPE		Called after creating new object, set the active scope to be the object scope.
+* ICO_LOADSUBADDRESS	Get object attribute, push the pointer to the stack.
+* ICO_LOADMETHOD	Find object method 
+* ICO_AFTERCALLMETHOD	Used after calling a method - normal case
+* ICO_AFTERCALLMETHOD2  Used after calling a method - second case
+* ICO_NEWCLASS		Start new class region
+* ICO_BRACESTART	Open brace
+* ICO_BRACEEND		End brace
+* ICO_IMPORT		Import package
+* ICO_PRIVATE		start private attributes region
+* ICO_SETPROPERTY	set attribute value - check for setter.	
+* ICO_CALLCLASSINIT	call call init() method.
+=======================	============================================================================
+
+(Other)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_SETREFERENCE	Copy by reference
+* ICO_KILLREFERENCE	Remove reference
+* ICO_ASSIGNMENTPOINTER Determine the left side variable
+* ICO_BEFOREEQUAL	Determine operators like += , -= , ... etc
+=======================	============================================================================
+
+(Bitwise Operators)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_BITAND		Stack[nSize-1] = Stack[nSize-1] & Stack[nSize] , POP stack[nSize]
+* ICO_BITOR		Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]
+* ICO_BITXOR		Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
+* ICO_BITNOT		Stack[nSize] = ! Stack[nSize] 
+* ICO_BITSHL		Stack[nSize-1] = Stack[nSize-1] << Stack[nSize] , POP stack[nSize]
+* ICO_BITSHR		Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
+=======================	============================================================================
+
+(For Step)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+* ICO_STEPNUMBER	Determine step number in for loop
+* ICO_POPSTEP		POP step number from steps stack
+* ICO_LOADAFIRST	Load the first address of variable name 
+=======================	============================================================================

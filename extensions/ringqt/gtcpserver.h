@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GTCPSERVER_H
 #define GTCPSERVER_H
 #include <QApplication>
@@ -17,14 +17,24 @@ class GTcpServer : public QTcpServer
 
     VM *pVM;
 
+    List *pParaList;
+
     char cacceptErrorEvent[100];
     char cnewConnectionEvent[100];
 
 
     GTcpServer(QObject *parent,VM *pVM );
 
+    ~GTcpServer();
+
+    void geteventparameters(void) ;
+
     void setacceptErrorEvent(const char *cStr);
     void setnewConnectionEvent(const char *cStr);
+
+
+    const char *getacceptErrorEvent(void);
+    const char *getnewConnectionEvent(void);
 
 
   public slots:

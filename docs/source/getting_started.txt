@@ -1,21 +1,24 @@
-===============
-Getting Started
-===============
+.. index:: 
+	single: Getting Started - First Style; Introduction
+
+=============================
+Getting Started - First Style
+=============================
 
 .. index:: 
-	pair: Getting Started; Hello World
+	pair: Getting Started - First Style; Hello World
 
 Hello World
 ===========
 
 The next program prints the Hello World message on the screen (std-out).
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "Hello World"
 
 .. index:: 
-	pair: Getting Started; Run the program
+	pair: Getting Started - First Style; Run the program
 
 Run the program
 ===============
@@ -23,12 +26,12 @@ Run the program
 to run the program, save the code in a file, for example : hello.ring
 then from the command line or terminal, run it using the ring interpreter
 
-.. code-block:: none
+.. code-block:: ring
 
 	ring hello.ring
 
 .. index:: 
-	pair: Getting Started; Not Case-Sensitive
+	pair: Getting Started - First Style; Not Case-Sensitive
 
 Not Case-Sensitive
 ==================
@@ -38,24 +41,24 @@ be written in different styles
 
 .. tip:: It's better to select one style and use it in all of the program source code
 
-.. code-block:: none
+.. code-block:: ring
 
 	SEE "Hello World"
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Hello World"
 
 
 .. index:: 
-	pair: Getting Started; Multi-Line literals
+	pair: Getting Started - First Style; Multi-Line literals
 
 Multi-Line literals
 ===================
 
 Using Ring we can write multi-line literal, see the next example
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "
 		Hello 
@@ -70,27 +73,27 @@ and you can use the + operator to concatenate strings
 .. note:: nl value means a new line and the actual codes that
 	 represent a newline is different between operating systems
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "Hello" + nl + "Welcome to the Ring programming language" + 
 	    nl + "How are you?"
 
 .. index:: 
-	pair: Getting Started; Getting Input
+	pair: Getting Started - First Style; Getting Input
 
 Getting Input
 =============
 
 You can get the input from the user using the give command
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "What is your name? "
 	Give cName
 	See "Hello " + cName
 
 .. index:: 
-	pair: Getting Started; No Explicit End For Statements
+	pair: Getting Started - First Style; No Explicit End For Statements
 
 No Explicit End For Statements
 ==============================
@@ -98,12 +101,12 @@ No Explicit End For Statements
 You don't need to use ';' or press ENTER to separate statements.
 The previous program can be written in one line.
 
-.. code-block:: none
+.. code-block:: ring
 
 	See "What is your name? " give cName see "Hello " + cName
 
 .. index:: 
-	pair: Getting Started; Writing Comments
+	pair: Getting Started - First Style; Writing Comments
 
 Writing Comments
 ================
@@ -114,12 +117,12 @@ The comment starts with # or //
 
 Multi-lines comments are written between /* and */
 
-.. code-block:: none
+.. code-block:: ring
 
 
 	/* 
 		Program Name : My first program using Ring
-		Date         : 2015.05.08
+		Date         : 2016.09.09
 		Author       : Mahmoud Fayed
 	*/
 

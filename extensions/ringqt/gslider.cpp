@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -8,6 +8,7 @@ extern "C" {
 GSlider::GSlider(QWidget *parent,VM *pVM)  : QSlider(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->cactionTriggeredEvent,"");
 	strcpy(this->crangeChangedEvent,"");
 	strcpy(this->csliderMovedEvent,"");
@@ -23,6 +24,20 @@ GSlider::GSlider(QWidget *parent,VM *pVM)  : QSlider(parent)
 	QObject::connect(this, SIGNAL(valueChanged(int)),this, SLOT(valueChangedSlot()));
 
 }
+
+GSlider::~GSlider()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GSlider::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GSlider::setactionTriggeredEvent(const char *cStr)
 {
@@ -60,11 +75,43 @@ void GSlider::setvalueChangedEvent(const char *cStr)
 		strcpy(this->cvalueChangedEvent,cStr);
 }
 
+ 
+const char *GSlider::getactionTriggeredEvent(void)
+{
+	return this->cactionTriggeredEvent;
+}
+
+const char *GSlider::getrangeChangedEvent(void)
+{
+	return this->crangeChangedEvent;
+}
+
+const char *GSlider::getsliderMovedEvent(void)
+{
+	return this->csliderMovedEvent;
+}
+
+const char *GSlider::getsliderPressedEvent(void)
+{
+	return this->csliderPressedEvent;
+}
+
+const char *GSlider::getsliderReleasedEvent(void)
+{
+	return this->csliderReleasedEvent;
+}
+
+const char *GSlider::getvalueChangedEvent(void)
+{
+	return this->cvalueChangedEvent;
+}
+
 
 void GSlider::actionTriggeredSlot()
 {
 	if (strcmp(this->cactionTriggeredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cactionTriggeredEvent);
 }
 
@@ -72,6 +119,7 @@ void GSlider::rangeChangedSlot()
 {
 	if (strcmp(this->crangeChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->crangeChangedEvent);
 }
 
@@ -79,6 +127,7 @@ void GSlider::sliderMovedSlot()
 {
 	if (strcmp(this->csliderMovedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->csliderMovedEvent);
 }
 
@@ -86,6 +135,7 @@ void GSlider::sliderPressedSlot()
 {
 	if (strcmp(this->csliderPressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->csliderPressedEvent);
 }
 
@@ -93,6 +143,7 @@ void GSlider::sliderReleasedSlot()
 {
 	if (strcmp(this->csliderReleasedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->csliderReleasedEvent);
 }
 
@@ -100,6 +151,7 @@ void GSlider::valueChangedSlot()
 {
 	if (strcmp(this->cvalueChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cvalueChangedEvent);
 }
 

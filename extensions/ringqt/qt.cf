@@ -5,7 +5,7 @@
 <ignorecpointertype>
 
 <code>
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 extern "C" {
 	#include "ring.h"
@@ -25,7 +25,7 @@ extern "C" {
 #include "gspinbox.h"
 #include "gslider.h"
 #include "gdial.h"
-<filter> (get("RINGQT_ANDROID") = "")
+<filter> (sysget("RINGQT_ANDROID") = "")
 #include "gwebview.h"
 </filter>
 #include "gnetworkaccessmanager.h"
@@ -40,6 +40,13 @@ extern "C" {
 #include "gtcpsocket.h"
 #include "gcolordialog.h"
 #include "gallevents.h"
+#include "gthread.h"
+#include "gplaintextedit.h"
+#include "gheaderview.h"
+#include "gprocess.h"
+#include "codeeditor.h"
+
+
 #include <QApplication>
 #include <QObject>
 #include <QWidget>
@@ -82,7 +89,7 @@ extern "C" {
 #include <QDateTimeEdit>
 #include <QAbstractSpinBox>
 #include <QDial>
-<filter> (get("RINGQT_ANDROID") = "")
+<filter> (sysget("RINGQT_ANDROID") = "")
 #include <QWebView>
 </filter>
 #include <QUrl>
@@ -104,7 +111,7 @@ extern "C" {
 #include <QColor>
 #include <QPrinter>
 #include <QFont>
-<filter> (get("RINGQT_ANDROID") = "")
+<filter> (sysget("RINGQT_ANDROID") = "")
 #include <QWebSettings>
 </filter>
 #include <QBrush>
@@ -156,18 +163,60 @@ extern "C" {
 #include <QImage>
 #include <QBitmap>
 #include <QMediaContent>
+#include <QTableView>
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
+#include <QXmlStreamNotationDeclaration>
+#include <QXmlStreamNamespaceDeclaration>
+#include <QXmlStreamEntityResolver>
+#include <QXmlStreamEntityDeclaration>
+#include <QXmlStreamAttributes>
+#include <QXmlStreamAttribute>
+#include <QThread>
+#include <QThreadPool>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include <QRegularExpressionMatchIterator>
+#include <QJsonValue>
+#include <QJsonParseError>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <iterator>
+#include <QPlainTextEdit>
+#include <QGridLayout>
+#include <QTextCharFormat>
+#include <QCameraViewfinder>
+#include <QGraphicsVideoItem>
+#include <QVideoWidgetControl>
+#include <QCamera>
+#include <QCameraImageCapture>
+#include <QFontMetrics>
+#include <QList>
+#include <QSplashScreen>
+#include <QBoxLayout>
+#include <QLayout>
+#include <QLinearGradient>
+#include <QGradient>
+#include <QPointF>
+#include <QPoint>
+#include <QStyleFactory>
+#include <QScrollArea>
+#include <QSplitter>
+#include <QCompleter>
+#include <QString>
+#include <QProcess>
+#include <QMdiArea>
+#include <QMdiSubWindow>
+#include <QCursor>
+#include "highlighter.h"
+#include <QListView>
 
 extern "C" {
 
-	#ifdef _WIN32
-		#define RING_DLL __declspec(dllexport)
-	#else
-		#define RING_DLL extern
-	#endif
+	RING_API void ring_qt_start(RingState *pRingState);
 
-	RING_DLL void ring_qt_start(RingState *pRingState);
-
-	RING_DLL void ringlib_init(RingState *pRingState)
+	RING_API void ringlib_init(RingState *pRingState)
 	{
 
 		new QApplication(pRingState->argc,pRingState->argv);
@@ -192,6 +241,13 @@ aNewMethodName + ["QTextDocument","end","enddoc"]
 aNewMethodName + ["QTextBlock","next","nextblock"]
 aNewMethodName + ["QSqlQuery","next","movenext"]
 aNewMethodName + ["QImage","load","loadimage"]
+aNewMethodName + ["QNetworkAccessManager","get","getvalue"]
+aNewMethodName + ["QNetworkAccessManager","put","putvalue"]
+aNewMethodName + ["QThread","exit","exitfromthread"]
+aNewMethodName + ["QRegularExpressionMatchIterator","next","nextitem"]
+aNewMethodName + ["QCamera","load","loadcamera"]
+aNewMethodName + ["QPixmap","load","loadpixmap"]
+
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
 aEnumTypes + "Qt::GestureType"
@@ -212,6 +268,7 @@ aEnumTypes + "Qt::WindowType"
 aEnumTypes + "Qt::WindowModality"
 aEnumTypes + "Qt::WindowState"
 aEnumTypes + "Qt::AlignmentFlag"
+aEnumTypes + "Qt::Alignment"
 aEnumTypes + "Qt::TextFormat"
 aEnumTypes + "Qt::TextInteractionFlag"
 aEnumTypes + "Qt::AspectRatioMode"
@@ -308,6 +365,7 @@ aEnumTypes + "QWebSettings::WebGraphic"
 aEnumTypes + "Qt::BrushStyle"
 aEnumTypes + "QAbstractSocket::BindFlag"
 aEnumTypes + "QIODevice::OpenModeFlag"
+aEnumTypes + "QIODevice::OpenMode"
 aEnumTypes + "QAbstractSocket::NetworkLayerProtocol"
 aEnumTypes + "QAbstractSocket::PauseMode"
 aEnumTypes + "QAbstractSocket::SocketState"
@@ -359,10 +417,69 @@ aEnumTypes + "Qt::ImageConversionFlags"
 aEnumTypes + "Qt::MaskMode"
 aEnumTypes + "QImage::Format"
 aEnumTypes + "QImage::InvertMode"
+aEnumTypes + "Error"
+aEnumTypes + "ReadElementTextBehaviour"
+aEnumTypes + "TokenType"
+aEnumTypes + "QXmlStreamReader::ReadElementTextBehaviour"
+aEnumTypes + "QThread::Priority"
+aEnumTypes + "QRegularExpression::MatchOption"
+aEnumTypes + "QRegularExpression::MatchType"
+aEnumTypes + "QRegularExpression::PatternOption"
+aEnumTypes + "QRegularExpression::MatchOptions"
+aEnumTypes + "QRegularExpression::PatternOptions"
+aEnumTypes + "QJsonDocument::DataValidation"
+aEnumTypes + "QJsonDocument::JsonFormat"
+aEnumTypes + "QPlainTextEdit::LineWrapMode"
+aEnumTypes + "QTextCharFormat::FontPropertiesInheritanceBehavior"
+aEnumTypes + "QTextCharFormat::UnderlineStyle"
+aEnumTypes + "QTextCharFormat::VerticalAlignment"
+aEnumTypes + "QCamera::FrameRateRange"
+aEnumTypes + "QCamera::CaptureMode"
+aEnumTypes + "QCamera::CaptureModes"
+aEnumTypes + "QCamera::Error"
+aEnumTypes + "QCamera::LockChangeReason"
+aEnumTypes + "QCamera::LockQCamera::Status"
+aEnumTypes + "QCamera::LockType"
+aEnumTypes + "QCamera::LockTypes"
+aEnumTypes + "QCamera::Position"
+aEnumTypes + "QCamera::State"
+aEnumTypes + "QCamera::Status"
+aEnumTypes + "QCameraImageCapture::CaptureDestination"
+aEnumTypes + "QCameraImageCapture::CaptureDestinations"
+aEnumTypes + "QCameraImageCapture::DriveMode"
+aEnumTypes + "QCameraImageCapture::Error"
+aEnumTypes + "QHeaderView::ResizeMode"
+aEnumTypes + "QLayout::SizeConstraint"
+aEnumTypes + "QGradient::CoordinateMode"
+aEnumTypes + "QGradient::Spread"
+aEnumTypes + "QGradient::Type"
+aEnumTypes + "Qt::MatchFlags"
+aEnumTypes + "QCompleter::CompletionMode"
+aEnumTypes + "QCompleter::ModelSorting"
+aEnumTypes + "QString::SplitBehavior"
+aEnumTypes + "QProcess::ExitStatus"
+aEnumTypes + "QProcess::InputChannelMode"
+aEnumTypes + "QProcess::ProcessChannel"
+aEnumTypes + "QProcess::ProcessChannelMode"
+aEnumTypes + "QProcess::ProcessError"
+aEnumTypes + "QProcess::ProcessState"
+aEnumTypes + "QMdiArea::ViewMode"
+aEnumTypes + "QMdiArea::WindowOrder"
+aEnumTypes + "QMdiArea::AreaOption"
+aEnumTypes + "QMdiSubWindow::SubWindowOption"
+aEnumTypes + "Qt::CursorShape"
+aEnumTypes + "QListView::LayoutMode"
+aEnumTypes + "QListView::Movement"
+aEnumTypes + "QListView::ResizeMode"
+aEnumTypes + "QListView::ViewMode"
+aEnumTypes + "QListView::Flow"
+$aMallocClassesList + "QModelIndex"
+
 </runcode>
 
+
 <class>
-name: qApp
+name: QApp
 nonew
 </class>
 
@@ -370,11 +487,15 @@ nonew
 void exec(void)
 void quit(void)
 void processEvents(void)
+void styleFusion(void)
+void styleFusionBlack(void)
+void closeAllWindows(void)
+Qt::KeyboardModifiers keyboardModifiers(void)
 </register>
 
 <code>
 
-RING_FUNC(ring_qApp_quit)
+RING_FUNC(ring_QApp_quit)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -383,7 +504,7 @@ RING_FUNC(ring_qApp_quit)
 	qApp->quit();
 }
 
-RING_FUNC(ring_qApp_exec)
+RING_FUNC(ring_QApp_exec)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -392,7 +513,33 @@ RING_FUNC(ring_qApp_exec)
 	qApp->exec();
 }
 
-RING_FUNC(ring_qApp_processEvents)
+RING_FUNC(ring_QApp_styleFusion)
+{
+	qApp->setStyle(QStyleFactory::create("fusion"));
+}
+
+RING_FUNC(ring_QApp_styleFusionBlack)
+{
+	qApp->setStyle(QStyleFactory::create("fusion"));
+	QPalette palette;
+	palette.setColor(QPalette::Window, QColor(53,53,53));
+	palette.setColor(QPalette::WindowText, Qt::white);
+	palette.setColor(QPalette::Base, QColor(15,15,15));
+	palette.setColor(QPalette::AlternateBase, QColor(53,53,53));
+	palette.setColor(QPalette::ToolTipBase, Qt::white);
+	palette.setColor(QPalette::ToolTipText, Qt::white);
+	palette.setColor(QPalette::Text, Qt::white);
+	palette.setColor(QPalette::Button, QColor(53,53,53));
+	palette.setColor(QPalette::ButtonText, Qt::white);
+	palette.setColor(QPalette::BrightText, Qt::red);
+
+	palette.setColor(QPalette::Highlight, QColor(142,45,197).lighter());
+	palette.setColor(QPalette::HighlightedText, Qt::black);
+	qApp->setPalette(palette);
+}
+
+
+RING_FUNC(ring_QApp_processEvents)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -401,10 +548,28 @@ RING_FUNC(ring_qApp_processEvents)
 	qApp->processEvents();
 }
 
+RING_FUNC(ring_QApp_closeAllWindows)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	qApp->closeAllWindows();
+}
+
+RING_FUNC(ring_QApp_keyboardModifiers)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
+}
+
 </code>
 
 <class>
-name: qTest
+name: QTest
 nonew
 </class>
 
@@ -413,7 +578,7 @@ void qsleep(int)
 </register>
 
 <code>
-RING_FUNC(ring_qTest_qsleep)
+RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
 }
@@ -476,7 +641,11 @@ QWidget *focusProxy(void)
 QWidget *focusWidget(void)
 QFont font(void)
 QFontInfo fontInfo(void)
+
+<comment>
 QFontMetrics fontMetrics(void)
+</comment>
+
 int foregroundRole(void)
 QRect frameGeometry(void)
 QSize frameSize(void)
@@ -698,7 +867,7 @@ void setText(const char *)
 void setClickEvent(const char *)
 void setIcon(QIcon)
 void setIconSize(QSize)
-
+const char *getClickEvent(void)
 
 <class>
 name: QBitmap
@@ -716,6 +885,7 @@ QBitmap fromImage(QImage, Qt::ImageConversionFlags flags)
 name: QPixmap
 para: const char *
 </class>
+
 QPixmap copy(int x, int y, int width, int height)
 QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) 
 int width(void)
@@ -725,6 +895,14 @@ QBitmap mask(void)
 void setMask(QBitmap)
 void fill(QColor)
 QPixmap fromImage(QImage,Qt::ImageConversionFlags)
+bool load(QString, const char *, Qt::ImageConversionFlags )
+
+<class>
+name: QPixmap2
+para: int width, int height
+parent: QPixmap
+codename: QPixmap
+</class>
 
 <class>
 name: QIcon
@@ -760,7 +938,7 @@ void deselect(void)
 QString displayText(void)
 bool dragEnabled(void)
 int echoMode(void)
-void end(bool mark)
+void end(bool mark) # In RingQt use : void endtext(bool mark)
 void getTextMargins(int *left, int *top, int *right, int *bottom)
 bool hasAcceptableInput(void)
 bool hasFrame(void)
@@ -811,9 +989,20 @@ void setreturnPressedEvent(const char *)
 void setselectionChangedEvent(const char *)
 void settextEditedEvent(const char *)
 
+const char *getTextChangedEvent(void)
+const char *getcursorPositionChangedEvent(void)
+const char *geteditingFinishedEvent(void)
+const char *getreturnPressedEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettextEditedEvent(void)
+
+
+
+
 <class>
 name: QVBoxLayout
 para: void
+parent: QBoxLayout
 </class>
 void addWidget(QWidget *)
 void addLayout(QLayout *)
@@ -821,6 +1010,7 @@ void addLayout(QLayout *)
 <class>
 name: QHBoxLayout
 para: void
+parent: QBoxLayout
 </class>
 void addWidget(QWidget *)
 void addLayout(QLayout *)
@@ -828,7 +1018,7 @@ void addLayout(QLayout *)
 <class>
 name: QTextEdit
 para: QWidget *
-parent: QWidget
+parent: QAbstractScrollArea
 codename: GTextEdit
 passvmpointer
 </class>
@@ -918,10 +1108,82 @@ void setselectionChangedEvent(const char *)
 void settextChangedEvent(const char *)
 void setundoAvailableEvent(const char *)
 
+const char *getcopyAvailableEvent(void)
+const char *getcurrentCharFormatChangedEvent(void)
+const char *getcursorPositionChangedEvent(void)
+const char *getredoAvailableEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettextChangedEvent(void)
+const char *getundoAvailableEvent(void)
+
+
+<register>
+void cyanline(void)
+</register>
+
+<code>
+RING_FUNC(ring_QTextEdit_cyanline)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QTextEdit *editor;
+	editor = (QTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( Qt::cyan );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
+
+
+<register>
+void setactivelinecolor(QColor)
+</register>
+
+<code>
+RING_FUNC(ring_QTextEdit_setactivelinecolor)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QTextEdit *editor;
+	editor = (QTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( * (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
+
 <class>
 name: QListWidget
 para: QWidget *
-parent: QWidget
+parent: QListView
 codename: GListWidget
 passvmpointer
 </class>
@@ -955,6 +1217,9 @@ void sortItems(Qt::SortOrder order)
 QListWidgetItem *takeItem(int row)
 QRect visualItemRect(QListWidgetItem *item)
 
+void clear(void)
+void scrollToItem(QListWidgetItem *item,QAbstractItemView::ScrollHint hint)
+
 void setcurrentItemChangedEvent(const char *)
 void setcurrentRowChangedEvent(const char *)
 void setcurrentTextChangedEvent(const char *)
@@ -966,6 +1231,16 @@ void setitemEnteredEvent(const char *)
 void setitemPressedEvent(const char *)
 void setitemSelectionChangedEvent(const char *)
 
+const char *getcurrentItemChangedEvent(void)
+const char *getcurrentRowChangedEvent(void)
+const char *getcurrentTextChangedEvent(void)
+const char *getitemActivatedEvent(void)
+const char *getitemChangedEvent(void)
+const char *getitemClickedEvent(void)
+const char *getitemDoubleClickedEvent(void)
+const char *getitemEnteredEvent(void)
+const char *getitemPressedEvent(void)
+const char *getitemSelectionChangedEvent(void)
 
 <class>
 name: QTreeView
@@ -1042,6 +1317,15 @@ void setenteredEvent(const char *)
 void setpressedEvent(const char *)
 void setviewportEnteredEvent(const char *)
 
+const char *getcollapsedEvent(void)
+const char *getexpandedEvent(void)
+const char *getactivatedEvent(void)
+const char *getclickedEvent(void)
+const char *getdoubleClickedEvent(void)
+const char *getenteredEvent(void)
+const char *getpressedEvent(void)
+const char *getviewportEnteredEvent(void)
+
 <class>
 name: QDir
 para: void
@@ -1104,7 +1388,7 @@ int supportedDropActions(void)
 <class>
 name: QTreeWidget
 para: QWidget *
-parent: QWidget
+parent: QTreeView
 codename: GTreeWidget
 passvmpointer
 </class>
@@ -1131,6 +1415,7 @@ void setCurrentItem(QTreeWidgetItem * item, QItemSelectionModel::SelectionFlag c
 void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
 void setHeaderItem(QTreeWidgetItem *item)
 void setHeaderLabel(QString)
+void setHeaderLabels(QStringList)
 void setItemWidget(QTreeWidgetItem *item, int column, QWidget * widget)
 int sortColumn(void) 
 void sortItems(int column, Qt::SortOrder order)
@@ -1152,7 +1437,6 @@ void setdoubleClickedEvent(const char *)
 void setenteredEvent(const char *)
 void setpressedEvent(const char *)
 void setviewportEnteredEvent(const char *)
-
 void setcurrentItemChangedEvent(const char *)
 void setitemActivatedEvent(const char *)
 void setitemChangedEvent(const char *)
@@ -1163,6 +1447,26 @@ void setitemEnteredEvent(const char *)
 void setitemExpandedEvent(const char *)
 void setitemPressedEvent(const char *)
 void setitemSelectionChangedEvent(const char *)
+
+const char *getcollapsedEvent(void)
+const char *getexpandedEvent(void)
+const char *getactivatedEvent(void)
+const char *getclickedEvent(void)
+const char *getdoubleClickedEvent(void)
+const char *getenteredEvent(void)
+const char *getpressedEvent(void)
+const char *getviewportEnteredEvent(void)
+const char *getcurrentItemChangedEvent(void)
+const char *getitemActivatedEvent(void)
+const char *getitemChangedEvent(void)
+const char *getitemClickedEvent(void)
+const char *getitemCollapsedEvent(void)
+const char *getitemDoubleClickedEvent(void)
+const char *getitemEnteredEvent(void)
+const char *getitemExpandedEvent(void)
+const char *getitemPressedEvent(void)
+const char *getitemSelectionChangedEvent(void)
+
 
 
 <class>
@@ -1315,10 +1619,20 @@ SizeAdjustPolicy sizeAdjustPolicy(void)
 QValidator *validator(void)
 QAbstractItemView *view(void)
 
+void clear(void)
+void clearEditText(void)
+void setCurrentIndex(int index)
+void setEditText(QString)
+
 void setactivatedEvent(const char *)
 void setcurrentIndexChangedEvent(const char *)
 void seteditTextChangedEvent(const char *)
 void sethighlightedEvent(const char *)
+
+const char *getactivatedEvent(void)
+const char *getcurrentIndexChangedEvent(void)
+const char *geteditTextChangedEvent(void)
+const char *gethighlightedEvent(void)
 
 <class>
 name: QMenuBar
@@ -1559,6 +1873,9 @@ void setCurrentWidget(QWidget *widget)
 void setcurrentChangedEvent(const char *)
 void settabCloseRequestedEvent(const char *)
 
+const char *getcurrentChangedEvent(void)
+const char *gettabCloseRequestedEvent(void)
+
 <class>
 name: QTableWidgetItem
 para: QString
@@ -1619,6 +1936,21 @@ void setFrameStyle(int style)
 void setLineWidth(int)
 void setMidLineWidth(int)
 QSize sizeHint(void)
+
+<class>
+name: QFrame2
+para: void
+parent: QFrame
+codename: QFrame
+</class>
+
+<class>
+name: QFrame3
+para: QWidget *parent
+parent: QFrame
+codename: QFrame
+</class>
+
 
 <class>
 name: QAbstractScrollArea
@@ -1712,9 +2044,57 @@ void setCurrentIndex(QModelIndex)
 void update(QModelIndex)
 
 <class>
-name: QTableWidget
+name: QTableView
 para: QWidget *parent
 parent: QAbstractItemView
+</class>
+
+void clearSpans(void)
+int columnAt(int x)
+int columnSpan(int row, int column)
+int columnViewportPosition(int column)
+int columnWidth(int column)
+Qt::PenStyle gridStyle(void)
+QHeaderView *horizontalHeader(void)
+bool isColumnHidden(int column)
+bool isCornerButtonEnabled(void)
+bool isRowHidden(int row)
+bool isSortingEnabled(void)
+int rowAt(int y)
+int rowHeight(int row)
+int rowSpan(int row, int column)
+int rowViewportPosition(int row)
+void setColumnHidden(int column, bool hide)
+void setColumnWidth(int column, int width)
+void setCornerButtonEnabled(bool enable)
+void setGridStyle(Qt::PenStyle style)
+void setHorizontalHeader(QHeaderView *header)
+void setRowHeight(int row, int height)
+void setRowHidden(int row, bool hide)
+void setSortingEnabled(bool enable)
+void setSpan(int row, int column, int rowSpanCount, int columnSpanCount)
+void setVerticalHeader(QHeaderView *header)
+void setWordWrap(bool on)
+bool showGrid(void)
+void sortByColumn(int column, Qt::SortOrder order)
+QHeaderView *verticalHeader(void)
+bool wordWrap(void)
+void hideColumn(int column)
+void hideRow(int row)
+void resizeColumnToContents(int column)
+void resizeColumnsToContents(void)
+void resizeRowToContents(int row)
+void resizeRowsToContents(void)
+void selectColumn(int column)
+void selectRow(int row)
+void setShowGrid(bool show)
+void showColumn(int column)
+void showRow(int row)
+
+<class>
+name: QTableWidget
+para: QWidget *parent
+parent: QTableView
 codename: GTableWidget
 passvmpointer
 </class>
@@ -1735,11 +2115,14 @@ void openPersistentEditor(QTableWidgetItem *item)
 void removeCellWidget(int row, int column)
 int row(const QTableWidgetItem *item)
 int rowCount(void)
+QList<QTableWidgetItem *> selectedItems(void)
+QList<QTableWidgetSelectionRange> selectedRanges(void)
 void setCellWidget(int row, int column, QWidget *widget)
 void setColumnCount(int columns)
 void setCurrentCell(int row, int column)
 void setCurrentItem(QTableWidgetItem * item)
 void setHorizontalHeaderItem(int column, QTableWidgetItem *item)
+void setHorizontalHeaderLabels(QStringList)
 void setItem(int row, int column, QTableWidgetItem *item)
 void setItemPrototype(QTableWidgetItem *item)
 void setRowCount(int rows)
@@ -1776,6 +2159,22 @@ void setitemEnteredEvent(const char *)
 void setitemPressedEvent(const char *)
 void setitemSelectionChangedEvent(const char *)
 
+const char *getcellActivatedEvent(void)
+const char *getcellChangedEvent(void)
+const char *getcellClickedEvent(void)
+const char *getcellDoubleClickedEvent(void)
+const char *getcellEnteredEvent(void)
+const char *getcellPressedEvent(void)
+const char *getcurrentCellChangedEvent(void)
+const char *getcurrentItemChangedEvent(void)
+const char *getitemActivatedEvent(void)
+const char *getitemChangedEvent(void)
+const char *getitemClickedEvent(void)
+const char *getitemDoubleClickedEvent(void)
+const char *getitemEnteredEvent(void)
+const char *getitemPressedEvent(void)
+const char *getitemSelectionChangedEvent(void)
+
 
 <class>
 name: QProgressBar
@@ -1810,6 +2209,8 @@ void setValue(int value)
 
 void setvalueChangedEvent(const char *)
 
+const char *getvalueChangedEvent(void)
+
 <class>
 name: QSpinBox
 para: QWidget *parent
@@ -1836,6 +2237,8 @@ int value(void)
 void setValue(int val)
 
 void setvalueChangedEvent(const char *)
+
+const char *getvalueChangedEvent(void)
 
 <class>
 name: QAbstractSlider
@@ -1888,6 +2291,14 @@ void setsliderMovedEvent(const char *)
 void setsliderPressedEvent(const char *)
 void setsliderReleasedEvent(const char *)
 void setvalueChangedEvent(const char *)
+
+const char *getactionTriggeredEvent(void)
+const char *getrangeChangedEvent(void)
+const char *getsliderMovedEvent(void)
+const char *getsliderPressedEvent(void)
+const char *getsliderReleasedEvent(void)
+const char *getvalueChangedEvent(void)
+
 
 <class>
 name: QDateEdit
@@ -2010,7 +2421,15 @@ void setsliderPressedEvent(const char *)
 void setsliderReleasedEvent(const char *)
 void setvalueChangedEvent(const char *)
 
-<filter> (get("RINGQT_ANDROID") = "")
+const char *getactionTriggeredEvent(void)
+const char *getrangeChangedEvent(void)
+const char *getsliderMovedEvent(void)
+const char *getsliderPressedEvent(void)
+const char *getsliderReleasedEvent(void)
+const char *getvalueChangedEvent(void)
+
+
+<filter> (sysget("RINGQT_ANDROID") = "")
 <class>
 name: QWebView
 para: QWidget *parent
@@ -2028,7 +2447,7 @@ QWebHistory *history(void)
 QIcon icon(void)
 bool isModified(void)
 </comment>
-void load(QUrl)
+void load(QUrl) # In RingQt use : void loadpage(QUrl) 
 <comment>
 void load(QNetworkRequest , int operation, QByteArray))
 </comment>
@@ -2059,9 +2478,7 @@ QUrl url(void)
 qreal zoomFactor(void)
 void back(void)
 void forward(void)
-<comment>
 void print(QPrinter *printer)
-</comment>
 void reload(void)
 void stop(void)
 
@@ -2078,6 +2495,14 @@ void setstatusBarMessageEvent(const char *)
 </comment>
 void settitleChangedEvent(const char *)
 void seturlChangedEvent(const char *)
+
+const char *getloadFinishedEvent(void)
+const char *getloadProgressEvent(void)
+const char *getloadStartedEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettitleChangedEvent(void)
+const char *geturlChangedEvent(void)
+
 
 </filter>
 
@@ -2156,6 +2581,13 @@ void setpressedEvent(const char *)
 void setreleasedEvent(const char *)
 void settoggledEvent(const char *)
 
+const char *getstateChangedEvent(void)
+const char *getclickedEvent(void)
+const char *getpressedEvent(void)
+const char *getreleasedEvent(void)
+const char *gettoggledEvent(void)
+
+
 <class>
 name: QAbstractButton
 para: QWidget *parent
@@ -2206,6 +2638,12 @@ void setpressedEvent(const char *)
 void setreleasedEvent(const char *)
 void settoggledEvent(const char *)
 
+const char *getclickedEvent(void)
+const char *getpressedEvent(void)
+const char *getreleasedEvent(void)
+const char *gettoggledEvent(void)
+
+
 <class>
 name: QButtonGroup
 para: QObject *parent
@@ -2226,6 +2664,11 @@ void setId(QAbstractButton *button, int id)
 void setbuttonClickedEvent(const char *)
 void setbuttonPressedEvent(const char *)
 void setbuttonReleasedEvent(const char *)
+
+const char *getbuttonClickedEvent(void)
+const char *getbuttonPressedEvent(void)
+const char *getbuttonReleasedEvent(void)
+
 
 <class>
 name: QMediaPlayer
@@ -2298,7 +2741,7 @@ bool isReadOnly(void)
 void load(QNetworkRequest, const char * format)
 void load(QIODevice *device, const char *format)
 </comment>
-void load(QUrl, const char * format)
+void load(QUrl, const char *format) # In RingQt use : void loadfile(QUrl, const char *format)
 QMediaContent media(int index)
 int mediaCount(void)
 int nextIndex(int steps)
@@ -2313,7 +2756,7 @@ bool save(QUrl, const char * format)
 bool save(QIODevice *device, const char *format)
 </comment>
 void setPlaybackMode(QMediaPlaylist::PlaybackMode mode)
-void next(void)
+void next(void) # In RingQt use : void movenext(void)
 void previous(void)
 void setCurrentIndex(int playlistPosition)
 void shuffle(void)
@@ -2344,6 +2787,12 @@ void setcontrastChangedEvent(const char *)
 void setfullScreenChangedEvent(const char *)
 void sethueChangedEvent(const char *)
 void setsaturationChangedEvent(const char *)
+
+const char *getbrightnessChangedEvent(void)
+const char *getcontrastChangedEvent(void)
+const char *getfullScreenChangedEvent(void)
+const char *gethueChangedEvent(void)
+const char *getsaturationChangedEvent(void)
 
 <class>
 name: QAction
@@ -2404,6 +2853,8 @@ void toggle(void)
 void trigger(void)
 
 void setClickEvent(const char *)
+
+const char *getClickEvent(void)
 
 <class>
 name: QEvent
@@ -2474,6 +2925,8 @@ void start(void)
 void stop(void)
 
 void settimeoutEvent(const char *)
+
+const char *gettimeoutEvent(void)
 
 <class>
 name: QFileDialog
@@ -2581,7 +3034,9 @@ void drawPixmapFragments( PixmapFragment *fragments, int fragmentCount,  QPixmap
 </comment>
 void drawPoint(int x, int y)
 void drawPoints( QPointF * points, int pointCount)
+<comment>
 void drawPolygon( QPointF * points, int pointCount, Qt::FillRule fillRule)
+</comment>
 void drawPolyline( QPointF * points, int pointCount)
 void drawRect(int x, int y, int width, int height)
 void drawRects( QRectF * rectangles, int rectCount)
@@ -2589,14 +3044,18 @@ void drawRoundedRect(int x, int y, int w, int h, qreal xRadius, qreal yRadius, Q
 void drawStaticText(int left, int top,  QStaticText  staticText)
 void drawText(int x, int y, QString  text)
 void drawTiledPixmap(int x, int y, int width, int height,  QPixmap  pixmap, int sx, int sy)
-bool end(void)
+bool end(void) # In RingQt use : bool endpaint(void)
 void endNativePainting(void)
 void eraseRect(int x, int y, int width, int height)
 void fillPath( QPainterPath  path,  QBrush  brush)
 void fillRect(int x, int y, int width, int height, QBrush)
 QFont font(void)
 QFontInfo fontInfo(void)
+
+<comment>
 QFontMetrics fontMetrics(void)
+</comment>
+
 bool hasClipping(void)
 void initFrom( QWidget *widget)
 bool isActive(void)
@@ -2641,6 +3100,55 @@ QRect window(void)
 bool worldMatrixEnabled(void)
 QTransform  worldTransform(void)
 
+<register>
+void drawPolygon(QPainter *pObject, Qt::FillRule fillRule )
+</register>
+
+<code>
+RING_FUNC(ring_QPainter_drawPolygon)
+{
+	QPainter *pObject;
+	List *pList,*pList2;
+	int x,nSize;
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	QPointF *points = new QPointF[nSize];
+	for (x=0 ; x < nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x+1);
+		points[x].setX((float) ring_list_getdouble(pList2,1));
+		points[x].setY((float) ring_list_getdouble(pList2,2));
+	}
+	pObject->drawPolygon(points, nSize, (Qt::FillRule )  (int) RING_API_GETNUMBER(3));	
+	delete [] points;
+}
+</code>
+
+<class>
+name: QPainter2
+para: QPaintDevice *
+parent: QPainter
+codename: QPainter
+</class>
+
+
 <class>
 name: QPicture
 para: void
@@ -2649,7 +3157,7 @@ para: void
 QRect boundingRect(void)
 const char *data(void)
 bool isNull(void)
-bool load(QString, const char *format)
+bool load(QString, const char *format) # In RingQt use : bool loadfile(QString, const char *format)
 bool play(QPainter *painter)
 bool save(QString , const char *format)
 void setBoundingRect(QRect)
@@ -2902,56 +3410,6 @@ QString substitute(QString)
 QStringList substitutes(QString)
 QStringList substitutions(void)
 
-<filter> (get("RINGQT_ANDROID") = "")
-<class>
-name: QWebSettings
-abstract
-</class>
-
-<comment>
-QString cssMediaType(void)
-QString defaultTextEncoding(void)
-QString fontFamily(QWebSettings::FontFamily which)
-int fontSize(QWebSettings::FontSize type)
-QString localStoragePath(void)
-void resetAttribute(QWebSettings::WebAttribute attribute)
-void resetFontFamily(QWebSettings::FontFamily which)
-void resetFontSize(QWebSettings::FontSize type)
-void setAttribute(QWebSettings::WebAttribute attribute, bool on)
-void setCSSMediaType(QString)
-void setDefaultTextEncoding(QString)
-void setFontFamily(QWebSettings::FontFamily which, QString)
-void setFontSize(QWebSettings::FontSize type, int size)
-void setLocalStoragePath(QString)
-void setThirdPartyCookiePolicy(QWebSettings::ThirdPartyCookiePolicy policy)
-void setUserStyleSheetUrl(QUrl)
-bool testAttribute(QWebSettings::WebAttribute attribute)
-int thirdPartyCookiePolicy(void)
-QUrl userStyleSheetUrl(void)
-void clearIconDatabase(void)
-void clearMemoryCaches(void)
-void enablePersistentStorage(QString)
-QWebSettings *globalSettings(void)
-QString iconDatabasePath(void)
-QIcon iconForUrl(QUrl)
-int maximumPagesInCache(void)
-int offlineStorageDefaultQuota(void)
-QString offlineStoragePath(void)
-QString offlineWebApplicationCachePath(void)
-int offlineWebApplicationCacheQuota(void)
-void setIconDatabasePath(QString)
-void setMaximumPagesInCache(int pages)
-void setObjectCacheCapacities(int cacheMinDeadCapacity, int cacheMaxDead, int totalCapacity)
-void setOfflineStorageDefaultQuota(int maximumSize)
-void setOfflineStoragePath(QString)
-void setOfflineWebApplicationCachePath(QString)
-void setOfflineWebApplicationCacheQuota(int maximumSize)
-void setWebGraphic(QWebSettings::WebGraphic type, QPixmap)
-QPixmap webGraphic(QWebSettings::WebGraphic type)
-</comment>
-
-</filter>
-
 <class>
 name: QBrush
 para: void
@@ -3092,6 +3550,11 @@ void setbytesWrittenEvent(const char *)
 void setreadChannelFinishedEvent(const char *)
 void setreadyReadEvent(const char *)
 
+const char *getaboutToCloseEvent(void)
+const char *getbytesWrittenEvent(void)
+const char *getreadChannelFinishedEvent(void)
+const char *getreadyReadEvent(void)
+
 <class>
 name: QAbstractSocket
 para: void
@@ -3156,6 +3619,13 @@ void sethostFoundEvent(const char *)
 void setproxyAuthenticationRequiredEvent(const char *)
 void setstateChangedEvent(const char *)
 
+const char *getconnectedEvent(void)
+const char *getdisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *gethostFoundEvent(void)
+const char *getproxyAuthenticationRequiredEvent(void)
+const char *getstateChangedEvent(void)
+
 <class>
 name: QNetworkProxy
 para: void
@@ -3198,11 +3668,21 @@ void seterrorEvent(const char *)
 void sethostFoundEvent(const char *)
 void setproxyAuthenticationRequiredEvent(const char *)
 void setstateChangedEvent(const char *)
-
 void setaboutToCloseEvent(const char *)
 void setbytesWrittenEvent(const char *)
 void setreadChannelFinishedEvent(const char *)
 void setreadyReadEvent(const char *)
+
+const char *getconnectedEvent(void)
+const char *getdisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *gethostFoundEvent(void)
+const char *getproxyAuthenticationRequiredEvent(void)
+const char *getstateChangedEvent(void)
+const char *getaboutToCloseEvent(void)
+const char *getbytesWrittenEvent(void)
+const char *getreadChannelFinishedEvent(void)
+const char *getreadyReadEvent(void)
 
 
 <class>
@@ -3233,6 +3713,9 @@ bool waitForNewConnection(int msec, bool *timedOut)
 
 void setacceptErrorEvent(const char *)
 void setnewConnectionEvent(const char *)
+
+const char *getacceptErrorEvent(void)
+const char *getnewConnectionEvent(void)
 
 <class>
 name: QHostAddress
@@ -3405,7 +3888,7 @@ void setModal(bool modal)
 void setResult(int i)
 void setSizeGripEnabled(bool)
 void accept(void)
-void done(int r)
+void done(int r) # In RingQt use : void donedialog(int r)
 int exec(void)
 void open(void)
 void reject(void)
@@ -3513,12 +3996,6 @@ RING_FUNC(ring_QColorDialog_getcolor)
 }
 </code>
 
-
-<class>
-name: QHeaderView
-para: Qt::Orientation, QWidget *
-parent: QAbstractItemView
-</class>
 
 <class>
 name: QStringList
@@ -3667,6 +4144,7 @@ void accept(void)
 void ignore(void)
 
 int getKeyCode(void)
+int getModifiers(void)
 int getx(void)
 int gety(void)
 int getglobalx(void)
@@ -3701,6 +4179,40 @@ void setWindowBlockedEvent(const char *cStr)
 void setWindowDeactivateEvent(const char *cStr)
 void setWindowStateChangeEvent(const char *cStr)
 void setWindowUnblockedEvent(const char *cStr)
+void setPaintEvent(const char *cStr)
+
+const char *getKeyPressEvent(void)
+const char *getMouseButtonPressEvent(void)
+const char *getMouseButtonReleaseEvent(void)
+const char *getMouseButtonDblClickEvent(void)
+const char *getMouseMoveEvent(void)
+const char *getCloseEvent(void)
+const char *getContextMenuEvent(void)
+const char *getDragEnterEvent(void)
+const char *getDragLeaveEvent(void)
+const char *getDragMoveEvent(void)
+const char *getDropEvent(void)
+const char *getEnterEvent(void)
+const char *getFocusInEvent(void)
+const char *getFocusOutEvent(void)
+const char *getKeyReleaseEvent(void)
+const char *getLeaveEvent(void)
+const char *getNonClientAreaMouseButtonDblClickEvent(void)
+const char *getNonClientAreaMouseButtonPressEvent(void)
+const char *getNonClientAreaMouseButtonReleaseEvent(void)
+const char *getNonClientAreaMouseMoveEvent(void)
+const char *getMoveEvent(void)
+const char *getResizeEvent(void)
+const char *getWindowActivateEvent(void)
+const char *getWindowBlockedEvent(void)
+const char *getWindowDeactivateEvent(void)
+const char *getWindowStateChangeEvent(void)
+const char *getWindowUnblockedEvent(void)
+const char *getPaintEvent(void)
+
+void setEventOutput(bool x)
+QObject *getParentObject(void)
+QWidget *getParentWidget(void)
 
 <class>
 name: QDesktopWidget
@@ -3801,7 +4313,7 @@ QTextOption defaultTextOption(void)
 QAbstractTextDocumentLayout *documentLayout(void)
 double documentMargin(void)
 void drawContents(QPainter *p, QRectF rect)
-QTextBlock end(void)
+QTextBlock end(void) # In RingQt use : QTextBlock enddoc(void)
 QTextCursor find(QString subString, QTextCursor cursor, QTextDocument::FindFlag options )
 QTextBlock findBlock(int pos)
 QTextBlock findBlockByLineNumber(int lineNumber)
@@ -3876,7 +4388,7 @@ bool isVisible(void)
 QTextLayout * layout(void)
 int length(void)
 int lineCount(void)
-QTextBlock next(void)
+QTextBlock next(void) # In RingQt use :  QTextBlock nextblock(void)
 int position(void)
 QTextBlock previous(void)
 int revision(void)
@@ -4115,7 +4627,7 @@ bool last(void)
 QSqlError lastError(void)
 QVariant lastInsertId(void)
 QString lastQuery(void)
-bool next(void)
+bool next(void) # In RingQt use : bool movenext(void)
 bool nextResult(void)
 int numRowsAffected(void)
 QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
@@ -4307,6 +4819,8 @@ passvmpointer
 
 void setfinishedEvent(const char *)
 
+const char *getfinishedEvent(void)
+
 QNetworkConfiguration activeConfiguration(void)
 QAbstractNetworkCache *cache(void)
 void clearAccessCache(void)
@@ -4317,13 +4831,13 @@ void connectToHostEncrypted(QString, quint16, QSslConfiguration)
 </comment>
 QNetworkCookieJar *cookieJar(void)
 QNetworkReply *deleteResource(QNetworkRequest)
-QNetworkReply *get(QNetworkRequest)
+QNetworkReply *get(QNetworkRequest) # In RingQt use : QNetworkReply *getvalue(QNetworkRequest)
 QNetworkReply *head(QNetworkRequest)
 QNetworkAccessManager::NetworkAccessibility networkAccessible(void)
 QNetworkReply *post(QNetworkRequest, QByteArray)
 QNetworkProxy proxy(void)
 QNetworkProxyFactory *proxyFactory(void)
-QNetworkReply *put(QNetworkRequest, QByteArray)
+QNetworkReply *put(QNetworkRequest, QByteArray) # In RingQt use : QNetworkReply *putvalue(QNetworkRequest, QByteArray)
 QNetworkReply *sendCustomRequest(QNetworkRequest, QByteArray, QIODevice *)
 void setCache(QAbstractNetworkCache *cache)
 void setConfiguration(QNetworkConfiguration)
@@ -4332,6 +4846,8 @@ void setNetworkAccessible(QNetworkAccessManager::NetworkAccessibility accessible
 void setProxy(QNetworkProxy)
 void setProxyFactory(QNetworkProxyFactory *factory)
 QStringList supportedSchemes(void)
+
+void geteventparameters(void)
 
 <class>
 name: QNetworkReply
@@ -4433,7 +4949,7 @@ int height(void)
 void invertPixels(QImage::InvertMode mode)
 bool isGrayscale(void)
 bool isNull(void)
-bool load(QString, const char * format)
+bool load(QString, const char *format) # In RingQt use : bool loadimage(QString, const char *format)
 bool loadFromData(QByteArray, const char * format)
 QImage mirrored(bool horizontal, bool vertical)
 QPoint offset(void)
@@ -4462,3 +4978,1616 @@ bool valid(int x, int y)
 int width(void)
 
 
+<class>
+name: RingCodeHighlighter
+para: QTextDocument *parent
+codename: Highlighter
+</class>
+
+void setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5)
+
+<class>
+name: QXmlStreamReader
+para: void
+</class>
+
+void addData(QByteArray)
+void addData@2(QString)
+void addData@3(const char * data)
+void addExtraNamespaceDeclaration(QXmlStreamNamespaceDeclaration)
+void addExtraNamespaceDeclarations(QXmlStreamNamespaceDeclarations)
+bool atEnd(void)
+QXmlStreamAttributes attributes(void)
+qint64 characterOffset(void)
+void clear(void)
+qint64 columnNumber(void)
+QIODevice *device(void) 
+QStringRef documentEncoding(void)
+QStringRef documentVersion(void)
+QStringRef dtdName(void)
+QStringRef dtdPublicId(void)
+QStringRef dtdSystemId(void)
+QXmlStreamEntityDeclarations entityDeclarations(void)
+QXmlStreamEntityResolver *entityResolver(void)
+Error error(void)
+QString errorString(void)
+bool hasError(void)
+bool isCDATA(void)
+bool isCharacters(void)
+bool isComment(void)
+bool isDTD(void)
+bool isEndDocument(void)
+bool isEndElement(void)
+bool isEntityReference(void)
+bool isProcessingInstruction(void)
+bool isStandaloneDocument(void)
+bool isStartDocument(void)
+bool isStartElement(void)
+bool isWhitespace(void)
+qint64 lineNumber(void)
+QStringRef name(void)
+QXmlStreamNamespaceDeclarations namespaceDeclarations(void)
+bool namespaceProcessing(void)
+QStringRef namespaceUri(void)
+QXmlStreamNotationDeclarations notationDeclarations(void)
+QStringRef prefix(void)
+QStringRef processingInstructionData(void)
+QStringRef processingInstructionTarget(void)
+QStringRef qualifiedName(void)
+void raiseError(QString)
+QString readElementText(QXmlStreamReader::ReadElementTextBehaviour)
+TokenType readNext(void)
+bool readNextStartElement(void)
+void setDevice(QIODevice *device)
+void setEntityResolver(QXmlStreamEntityResolver *resolver)
+void setNamespaceProcessing(bool)
+void skipCurrentElement(void)
+QStringRef text(void)
+QString tokenString(void)
+TokenType tokenType(void)
+
+
+<class>
+name: QXmlStreamWriter
+para: void
+</class>
+
+bool autoFormatting(void)
+int autoFormattingIndent(void)
+QTextCodec *codec(void)
+QIODevice *device(void)
+bool hasError(void)
+void setAutoFormatting(bool enable)
+void setAutoFormattingIndent(int spacesOrTabs)
+void setCodec(QTextCodec *codec)
+void setCodec@2(const char *codecName)
+void setDevice(QIODevice *device)
+void writeAttribute(QString, QString,QString)
+void writeAttribute@2(QString, QString)
+void writeAttribute@3(QXmlStreamAttribute)
+void writeAttributes(QXmlStreamAttributes)
+void writeCDATA(QString text)
+void writeCharacters(QString text)
+void writeComment(QString text)
+void writeCurrentToken(QXmlStreamReader reader)
+void writeDTD(QString dtd)
+void writeDefaultNamespace(QString namespaceUri)
+void writeEmptyElement(QString namespaceUri, QString name)
+void writeEmptyElement@2(QString qualifiedName)
+void writeEndDocument(void)
+void writeEndElement(void)
+void writeEntityReference(QString name)
+void writeNamespace(QString namespaceUri, QString prefix)
+void writeProcessingInstruction(QString target, QString data)
+void writeStartDocument(QString version)
+void writeStartDocument@2(QString version, bool standalone)
+void writeStartDocument@3(void)
+void writeStartElement(QString namespaceUri, QString name)
+void writeStartElement@2(QString qualifiedName)
+void writeTextElement(QString namespaceUri, QString name, QString text)
+void writeTextElement@2(QString qualifiedName, QString text)
+
+<class>
+name: QXmlStreamNotationDeclaration
+para: void
+</class>
+
+QStringRef name(void)
+QStringRef publicId(void)
+QStringRef systemId(void)
+
+<class>
+name: QXmlStreamNamespaceDeclaration
+para: void
+</class>
+
+QStringRef namespaceUri(void)
+QStringRef prefix(void)
+
+<class>
+name: QXmlStreamEntityResolver
+para: void
+</class>
+
+<class>
+name: QXmlStreamEntityDeclaration
+para: void
+</class>
+
+QStringRef name(void)
+QStringRef notationName(void)
+QStringRef publicId(void)
+QStringRef systemId(void)
+QStringRef value(void)
+
+<class>
+name: QXmlStreamAttributes
+para: void
+</class>
+
+void append(QString  namespaceUri, QString  name, QString  value)
+void append@2(QString  qualifiedName, QString  value)
+bool hasAttribute(QString  qualifiedName)
+bool hasAttribute@2(QLatin1String qualifiedName)
+bool hasAttribute@3(QString  namespaceUri, QString  name)
+QStringRef value(QString  namespaceUri, QString  name)
+QStringRef value@2(QString  namespaceUri, QLatin1String name)
+QStringRef value@3(QLatin1String namespaceUri, QLatin1String name)
+QStringRef value@4(QString  qualifiedName)
+QStringRef value@5(QLatin1String qualifiedName)
+
+
+<class>
+name: QXmlStreamAttribute
+para: void
+</class>
+
+bool isDefault(void)
+QStringRef name(void)
+QStringRef namespaceUri(void)
+QStringRef prefix(void)
+QStringRef qualifiedName(void)
+QStringRef value(void)
+
+<class>
+name: QThread
+para: QObject *
+parent: QObject
+codename: GThread
+passvmpointer
+</class>
+
+QAbstractEventDispatcher *eventDispatcher(void)
+void exit(int returnCode) # In RingQt use : void exitfromthread(int returnCode)
+bool isFinished(void)
+bool isInterruptionRequested(void)
+bool isRunning(void)
+
+<comment>
+int loopLevel(void)
+</comment>
+
+QThread::Priority priority(void)
+void requestInterruption(void)
+void setEventDispatcher(QAbstractEventDispatcher *eventDispatcher)
+void setPriority(QThread::Priority priority)
+void setStackSize(uint stackSize)
+uint stackSize(void)
+bool wait(unsigned long time)
+void quit(void)
+void start(QThread::Priority priority)
+void terminate(void)
+QThread *currentThread(void)
+Qt::HANDLE currentThreadId(void)
+int idealThreadCount(void)
+void msleep(unsigned long msecs)
+void sleep(unsigned long secs)
+void usleep(unsigned long usecs)
+void yieldCurrentThread(void)
+
+void setStartedEvent(const char *)
+void setFinishedEvent(const char *)
+
+const char *getStartedEvent(void)
+const char *getFinishedEvent(void)
+
+<class>
+name: QThreadPool
+para: void
+parent: QObject
+</class>
+
+int activeThreadCount(void)
+
+<comment>
+void cancel(QRunnable * runnable)
+</comment>
+
+void clear(void)
+int expiryTimeout(void)
+int maxThreadCount(void)
+void releaseThread(void)
+void reserveThread(void)
+void setExpiryTimeout(int expiryTimeout)
+void setMaxThreadCount(int maxThreadCount)
+void start(QRunnable * runnable, int priority)
+bool tryStart(QRunnable * runnable)
+bool waitForDone(int msecs)
+QThreadPool *globalInstance(void)
+
+
+<class>
+name: QRegularExpression
+para: void
+</class>
+
+int captureCount(void)
+QString errorString(void)
+QRegularExpressionMatchIterator globalMatch(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+
+<comment>
+QRegularExpressionMatchIterator globalMatch@2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+</comment>
+
+bool isValid(void)
+QRegularExpressionMatch match(QString  subject, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+
+<comment>
+QRegularExpressionMatch match@2(QStringRef  subjectRef, int offset, QRegularExpression::MatchType matchType, QRegularExpression::MatchOptions matchOptions)
+</comment>
+
+QStringList namedCaptureGroups(void)
+
+<comment>
+void optimize(void)
+</comment>
+
+QString pattern(void)
+int patternErrorOffset(void)
+QRegularExpression::PatternOptions patternOptions(void)
+void setPattern(QString  pattern)
+void setPatternOptions(QRegularExpression::PatternOptions options)
+void swap(QRegularExpression  other)
+
+<class>
+name: QRegularExpressionMatch
+para: void
+</class>
+
+QString captured(int nth)
+QString captured@2(const QString  name)
+int capturedEnd(int nth)
+int capturedEnd@2(const QString  name)
+int capturedLength(int nth)
+int capturedLength@2(const QString  name)
+QStringRef capturedRef(int nth)
+QStringRef capturedRef@2(const QString  name)
+int capturedStart(int nth)
+int capturedStart@2(const QString  name)
+QStringList capturedTexts(void)
+bool hasMatch(void)
+bool hasPartialMatch(void)
+bool isValid(void)
+int lastCapturedIndex(void)
+QRegularExpression::MatchOptions matchOptions(void)
+QRegularExpression::MatchType matchType(void)
+QRegularExpression regularExpression(void)
+void swap(QRegularExpressionMatch  other)
+
+<class>
+name: QRegularExpressionMatchIterator
+para: void
+</class>
+
+bool hasNext(void)
+bool isValid(void)
+QRegularExpression::MatchOptions matchOptions(void)
+QRegularExpression::MatchType matchType(void)
+QRegularExpressionMatch next(void) # In RingQt use : QRegularExpressionMatch nextitem(void)
+QRegularExpressionMatch peekNext(void)
+QRegularExpression regularExpression(void)
+void swap(QRegularExpressionMatchIterator other)
+
+<class>
+name: QJsonArray 
+para: void
+</class>
+
+void append(QJsonValue  value)
+QJsonValue at(int i)
+
+<comment>
+iterator begin(void)
+const_iterator begin(void)
+const_iterator constBegin(void)
+const_iterator constEnd(void)
+</comment>
+
+bool contains(QJsonValue  value)
+int count(void)
+bool empty(void)
+
+<comment>
+iterator end(void)
+const_iterator end@2(void)
+iterator erase(iterator it)
+</comment>
+
+QJsonValue first(void)
+void insert(int i, QJsonValue  value)
+
+<comment>
+iterator insert@2(iterator before, QJsonValue  value)
+</comment>
+
+bool isEmpty(void)
+QJsonValue last(void)
+void pop_back(void)
+void pop_front(void)
+void prepend(QJsonValue  value)
+void push_back(QJsonValue  value)
+void push_front(QJsonValue  value)
+void removeAt(int i)
+void removeFirst(void)
+void removeLast(void)
+void replace(int i, QJsonValue  value)
+int size(void)
+QJsonValue takeAt(int i)
+QVariantList toVariantList(void)
+QJsonArray fromStringList(QStringList  list)
+QJsonArray fromVariantList(QVariantList  list)
+
+
+<class>
+name: QJsonDocument
+para: void
+</class>
+
+QJsonArray array(void)
+bool isArray(void)
+bool isEmpty(void)
+bool isNull(void)
+bool isObject(void)
+QJsonObject object(void)
+const char * rawData(int * size)
+void setArray(QJsonArray  array)
+void setObject(QJsonObject  object)
+QByteArray toBinaryData(void)
+QByteArray toJson(QJsonDocument::JsonFormat format)
+QVariant toVariant(void)
+
+QJsonDocument fromBinaryData( QByteArray  data, QJsonDocument::DataValidation validation)
+QJsonDocument fromJson( QByteArray  json, QJsonParseError * error)
+QJsonDocument fromRawData( char * data, int size, QJsonDocument::DataValidation validation)
+QJsonDocument fromVariant( QVariant  variant)
+
+
+<class>
+name: QJsonObject
+para: void
+</class>
+
+
+<comment>
+iterator begin(void)
+const_iterator begin@2(void)
+const_iterator constBegin(void)
+const_iterator constEnd(void)
+const_iterator constFind(QString  key)
+</comment>
+
+bool contains(QString  key)
+int count(void)
+bool empty(void)
+
+<comment>
+iterator end(void)
+const_iterator end(void)
+iterator erase(iterator it)
+iterator find(QString  key)
+const_iterator find(QString  key)
+iterator insert(QString  key, QJsonValue  value)
+</comment>
+
+bool isEmpty(void)
+QStringList keys(void)
+int length(void)
+void remove(QString  key)
+int size(void)
+QJsonValue take(QString  key)
+
+<comment>
+QVariantHash toVariantHash(void)
+QJsonObject fromVariantHash(QVariantHash  hash)
+</comment>
+
+QVariantMap toVariantMap(void)
+QJsonValue value(QString  key)
+
+QJsonObject fromVariantMap(QVariantMap  map)
+
+
+<class>
+name: QJsonParseError
+para: void
+</class>
+
+QString errorString(void)
+
+<class>
+name: QJsonValue
+para: void
+</class>
+
+bool isArray(void)
+bool isBool(void)
+bool isDouble(void)
+bool isNull(void)
+bool isObject(void)
+bool isString(void)
+bool isUndefined(void)
+QJsonArray toArray(QJsonArray  defaultValue)
+QJsonArray toArray@2(void)
+bool toBool(bool defaultValue  )
+double toDouble(double defaultValue )
+int toInt(int defaultValue )
+QJsonObject toObject(QJsonObject  defaultValue)
+QJsonObject toObject@2(void)
+QString toString(QString  defaultValue  )
+QVariant toVariant(void)
+QJsonValue::Type type(void)
+QJsonValue fromVariant(QVariant  variant)
+
+
+<class>
+name: QPlainTextEdit
+para: QWidget *
+parent: QAbstractScrollArea
+codename: GPlainTextEdit
+passvmpointer
+</class>
+
+QString anchorAt(QPoint pos)
+bool backgroundVisible(void)
+int blockCount(void)
+bool canPaste(void)
+bool centerOnScroll(void)
+QMenu * createStandardContextMenu(void)
+
+<comment>
+QMenu * createStandardContextMenu@2(QPoint position)
+</comment>
+
+QTextCharFormat currentCharFormat(void)
+QTextCursor cursorForPosition(QPoint pos)
+QRect cursorRect(QTextCursor cursor)
+QRect cursorRect@2(void)
+int cursorWidth(void)
+QTextDocument * document(void)
+QString documentTitle(void)
+void ensureCursorVisible(void)
+QList<QTextEdit::ExtraSelection> extraSelections(void)
+bool find(QString exp, QTextDocument::FindFlags options)
+
+<comment>
+bool find@2(QRegExp exp, QTextDocument::FindFlags options)
+</comment>
+
+bool isReadOnly(void)
+bool isUndoRedoEnabled(void)
+QPlainTextEdit::LineWrapMode lineWrapMode(void)
+
+<comment>
+virtual QVariant loadResource(int type, QUrl name)
+</comment>
+
+int maximumBlockCount(void)
+void mergeCurrentCharFormat(QTextCharFormat modifier)
+void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
+bool overwriteMode(void)
+
+<comment>
+QString placeholderText(void)
+</comment>
+
+void print(QPagedPaintDevice *printer)
+void setBackgroundVisible(bool visible)
+void setCenterOnScroll(bool enabled)
+void setCurrentCharFormat(QTextCharFormat format)
+void setCursorWidth(int width)
+void setDocument(QTextDocument *document)
+void setDocumentTitle(QString title)
+void setExtraSelections(QList<QTextEdit::ExtraSelection> selections)
+void setLineWrapMode(QPlainTextEdit::LineWrapMode mode)
+void setMaximumBlockCount(int maximum)
+void setOverwriteMode(bool overwrite)
+
+<comment>
+void setPlaceholderText(QString placeholderText)
+</comment>
+
+void setReadOnly(bool ro)
+void setTabChangesFocus(bool b)
+void setTabStopWidth(int width)
+void setTextCursor(QTextCursor cursor)
+void setTextInteractionFlags(Qt::TextInteractionFlags flags)
+void setUndoRedoEnabled(bool enable)
+void setWordWrapMode(QTextOption::WrapMode policy)
+bool tabChangesFocus(void)
+int tabStopWidth(void)
+QTextCursor textCursor(void)
+Qt::TextInteractionFlags textInteractionFlags(void)
+QString toPlainText(void)
+QTextOption::WrapMode wordWrapMode(void)
+
+void appendHtml(QString html)
+void appendPlainText(QString text)
+void centerCursor(void)
+void clear(void)
+void copy(void)
+void cut(void)
+void insertPlainText(QString text)
+void paste(void)
+void redo(void)
+void selectAll(void)
+void setPlainText(QString text)
+void undo(void)
+void zoomIn(int range)
+void zoomOut(int range)
+
+void setblockCountChangedEvent(const char *cStr)
+void setcopyAvailableEvent(const char *cStr)
+void setcursorPositionChangedEvent(const char *cStr)
+void setmodificationChangedEvent(const char *cStr)
+void setredoAvailableEvent(const char *cStr)
+void setselectionChangedEvent(const char *cStr)
+void settextChangedEvent(const char *cStr)
+void setundoAvailableEvent(const char *cStr)
+void setupdateRequestEvent(const char *cStr)
+
+const char *getblockCountChangedEvent(void)
+const char *getcopyAvailableEvent(void)
+const char *getcursorPositionChangedEvent(void)
+const char *getmodificationChangedEvent(void)
+const char *getredoAvailableEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettextChangedEvent(void)
+const char *getundoAvailableEvent(void)
+const char *getupdateRequestEvent(void)
+
+<register>
+void cyanline(void)
+</register>
+
+<code>
+RING_FUNC(ring_QPlainTextEdit_cyanline)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QPlainTextEdit *editor;
+	editor = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( Qt::cyan );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
+
+<register>
+void setactivelinecolor(QColor)
+</register>
+
+<code>
+RING_FUNC(ring_QPlainTextEdit_setactivelinecolor)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	QPlainTextEdit *editor;
+	editor = (QPlainTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit *");
+
+	QTextEdit::ExtraSelection highlight;
+	highlight.cursor = editor->textCursor();
+	highlight.format.setProperty(QTextFormat::FullWidthSelection, true);
+	highlight.format.setBackground( * (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+
+	QList<QTextEdit::ExtraSelection> extras;
+	extras << highlight;
+	editor->setExtraSelections( extras );
+}
+</code>
+
+<class>
+name: CodeEditor
+para: QWidget *
+parent: QPlainTextEdit
+passvmpointer
+</class>
+
+void setCompleter(QCompleter *c)
+QCompleter *completer(void)
+void setLineNumbersAreaColor(QColor oColor)
+void setLineNumbersAreaBackColor(QColor oColor)
+
+
+<class>
+name: QGridLayout
+para: void
+</class>
+
+
+void addItem(QLayoutItem * item, int row, int column, int rowSpan , int columnSpan , Qt::Alignment alignment )
+void addLayout(QLayout * layout, int row, int column, Qt::Alignment alignment )
+void addLayout@2(QLayout * layout, int row, int column, int rowSpan, int columnSpan, Qt::Alignment alignment )
+void addWidget(QWidget * widget, int row, int column, Qt::Alignment alignment )
+void addWidget@2(QWidget * widget, int fromRow, int fromColumn, int rowSpan, int columnSpan, Qt::Alignment alignment )
+QRect cellRect(int row, int column)
+int columnCount(void)
+int columnMinimumWidth(int column)
+int columnStretch(int column)
+void getItemPosition(int index, int * row, int * column, int * rowSpan, int * columnSpan)
+int horizontalSpacing(void)
+QLayoutItem * itemAtPosition(int row, int column)
+Qt::Corner originCorner(void)
+int rowCount(void)
+int rowMinimumHeight(int row)
+int rowStretch(int row)
+void setColumnMinimumWidth(int column, int minSize)
+void setColumnStretch(int column, int stretch)
+void setHorizontalSpacing(int spacing)
+void setOriginCorner(Qt::Corner corner)
+void setRowMinimumHeight(int row, int minSize)
+void setRowStretch(int row, int stretch)
+void setSpacing(int spacing)
+void setVerticalSpacing(int spacing)
+int spacing(void)
+int verticalSpacing(void)
+
+<class>
+name: QTextCharFormat 
+para: void
+</class>
+
+QString anchorHref(void)
+QStringList anchorNames(void)
+QFont font(void)
+QFont::Capitalization fontCapitalization(void)
+QString fontFamily(void)
+bool fontFixedPitch(void)
+QFont::HintingPreference fontHintingPreference(void)
+bool fontItalic(void)
+bool fontKerning(void)
+qreal fontLetterSpacing(void)
+QFont::SpacingType fontLetterSpacingType(void)
+bool fontOverline(void)
+qreal fontPointSize(void)
+int fontStretch(void)
+bool fontStrikeOut(void)
+QFont::StyleHint fontStyleHint(void)
+QFont::StyleStrategy fontStyleStrategy(void)
+bool fontUnderline(void)
+int fontWeight(void)
+qreal fontWordSpacing(void)
+bool isAnchor(void)
+bool isValid(void)
+void setAnchor(bool anchor)
+void setAnchorHref( QString   value)
+void setAnchorNames( QStringList   names)
+<comment>
+void setFont( QFont   font, QTextCharFormat::FontPropertiesInheritanceBehavior behavior)
+</comment>
+void setFont@2( QFont   font)
+void setFontCapitalization(QFont::Capitalization capitalization)
+void setFontFamily( QString   family)
+void setFontFixedPitch(bool fixedPitch)
+void setFontHintingPreference(QFont::HintingPreference hintingPreference)
+void setFontItalic(bool italic)
+void setFontKerning(bool enable)
+void setFontLetterSpacing(qreal spacing)
+void setFontLetterSpacingType(QFont::SpacingType letterSpacingType)
+void setFontOverline(bool overline)
+void setFontPointSize(qreal size)
+void setFontStretch(int factor)
+void setFontStrikeOut(bool strikeOut)
+void setFontStyleHint(QFont::StyleHint hint, QFont::StyleStrategy strategy )
+void setFontStyleStrategy(QFont::StyleStrategy strategy)
+void setFontUnderline(bool underline)
+void setFontWeight(int weight)
+void setFontWordSpacing(qreal spacing)
+void setTextOutline( QPen   pen)
+void setToolTip( QString   text)
+void setUnderlineColor( QColor   color)
+void setUnderlineStyle(QTextCharFormat::UnderlineStyle style)
+void setVerticalAlignment(QTextCharFormat::VerticalAlignment alignment)
+QPen textOutline(void)
+QString toolTip(void)
+QColor underlineColor(void)
+QTextCharFormat::UnderlineStyle underlineStyle(void)
+QTextCharFormat::VerticalAlignment verticalAlignment(void)
+
+
+<class>
+name: QCameraViewfinder
+para: QWidget *
+parent: QVideoWidget
+</class>
+
+
+<class>
+name: QGraphicsVideoItem
+para: void
+</class>
+
+Qt::AspectRatioMode aspectRatioMode(void)
+QSizeF nativeSize(void)
+QPointF offset(void)
+void setAspectRatioMode(Qt::AspectRatioMode mode)
+void setOffset(QPointF offset)
+void setSize(QSizeF size)
+QSizeF size(void)
+
+<class>
+name: QVideoWidgetControl
+parent: QMediaControl
+abstract
+</class>
+
+<class>
+name: QCamera
+para: void
+parent: QMediaObject
+</class>
+
+QCamera::CaptureModes captureMode(void)
+QCamera::Error error(void)
+QString errorString(void)
+QCameraExposure * exposure(void)
+QCameraFocus * focus(void)
+QCameraImageProcessing * imageProcessing(void)
+bool isCaptureModeSupported(QCamera::CaptureModes mode)
+QCamera::LockStatus lockStatus(void)
+QCamera::LockStatus lockStatus@2(QCamera::LockType lockType)
+QCamera::LockTypes requestedLocks(void)
+void setViewfinder(QVideoWidget * viewfinder)
+void setViewfinder@2(QGraphicsVideoItem * viewfinder)
+void setViewfinder@3(QAbstractVideoSurface * surface)
+
+<comment>
+void setViewfinderSettings( QCameraViewfinderSettings   settings)
+</comment>
+
+QCamera::State state(void)
+QCamera::Status status(void)
+QCamera::LockTypes supportedLocks(void)
+
+<comment>
+QList<QCamera::FrameRateRange> supportedViewfinderFrameRateRanges( QCameraViewfinderSettings   settings )
+QList<QVideoFrame::PixelFormat> supportedViewfinderPixelFormats( QCameraViewfinderSettings   settings )
+QList<QSize> supportedViewfinderResolutions( QCameraViewfinderSettings   settings )
+QList<QCameraViewfinderSettings> supportedViewfinderSettings( QCameraViewfinderSettings   settings )
+QCameraViewfinderSettings viewfinderSettings(void)
+</comment>
+
+void load(void)
+void searchAndLock(void)
+void searchAndLock@2(QCamera::LockTypes locks)
+void setCaptureMode(QCamera::CaptureModes mode)
+void start(void)
+void stop(void)
+void unload(void)
+void unlock(void)
+void unlock@2(QCamera::LockTypes locks)
+
+
+<class>
+name: QCameraImageCapture
+para: QMediaObject * mediaObject
+</class>
+
+QMultimedia::AvailabilityStatus availability(void)
+QVideoFrame::PixelFormat bufferFormat(void)
+QCameraImageCapture::CaptureDestinations captureDestination(void)
+QImageEncoderSettings encodingSettings(void)
+QCameraImageCapture::Error error(void)
+QString errorString(void)
+QString imageCodecDescription( QString   codec)
+bool isAvailable(void)
+bool isCaptureDestinationSupported(QCameraImageCapture::CaptureDestinations destination)
+bool isReadyForCapture(void)
+void setBufferFormat( QVideoFrame::PixelFormat format)
+void setCaptureDestination(QCameraImageCapture::CaptureDestinations destination)
+void setEncodingSettings( QImageEncoderSettings   settings)
+QList<QVideoFrame::PixelFormat> supportedBufferFormats(void)
+QStringList supportedImageCodecs(void)
+QList<QSize> supportedResolutions( QImageEncoderSettings   settings , bool * continuous )
+void cancelCapture(void)
+int capture( QString   file )
+
+
+<class>
+name: QMediaObject
+para: void
+parent: QWidget
+abstract
+</class>
+
+QStringList availableMetaData(void)
+bool isMetaDataAvailable(void)
+QVariant metaData( QString   key)
+int notifyInterval(void)
+void setNotifyInterval(int milliSeconds)
+
+
+<class>
+name: QHeaderView
+para: Qt::Orientation, QWidget *
+parent: QAbstractItemView
+codename: GHeaderView
+passvmpointer
+</class>
+
+bool cascadingSectionResizes(void)
+int count(void)
+Qt::Alignment defaultAlignment(void)
+int defaultSectionSize(void)
+int hiddenSectionCount(void)
+void hideSection(int logicalIndex)
+bool highlightSections(void)
+bool isSectionHidden(int logicalIndex)
+bool isSortIndicatorShown(void)
+int length(void)
+int logicalIndex(int visualIndex)
+int logicalIndexAt(int position)
+int logicalIndexAt@2(int x, int y)
+int logicalIndexAt@3( QPoint   pos)
+int maximumSectionSize(void)
+int minimumSectionSize@2(void)
+void moveSection(int from, int to)
+int offset(void)
+Qt::Orientation orientation(void)
+
+<comment>
+void resetDefaultSectionSize(void)
+</comment>
+
+int resizeContentsPrecision(void)
+void resizeSection(int logicalIndex, int size)
+void resizeSections(QHeaderView::ResizeMode mode)
+bool restoreState( QByteArray   state)
+QByteArray saveState(void)
+int sectionPosition(int logicalIndex)
+QHeaderView::ResizeMode sectionResizeMode(int logicalIndex)
+int sectionSize(int logicalIndex)
+int sectionSizeHint(int logicalIndex)
+int sectionViewportPosition(int logicalIndex)
+bool sectionsClickable(void)
+bool sectionsHidden(void)
+bool sectionsMovable(void)
+bool sectionsMoved(void)
+void setCascadingSectionResizes(bool enable)
+void setDefaultAlignment(Qt::Alignment alignment)
+void setDefaultSectionSize(int size)
+void setHighlightSections(bool highlight)
+void setMaximumSectionSize(int size)
+void setMinimumSectionSize(int size)
+void setResizeContentsPrecision(int precision)
+void setSectionHidden(int logicalIndex, bool hide)
+void setSectionResizeMode(QHeaderView::ResizeMode mode)
+void setSectionResizeMode@2(int logicalIndex, QHeaderView::ResizeMode mode)
+void setSectionsClickable(bool clickable)
+void setSectionsMovable(bool movable)
+void setSortIndicator(int logicalIndex, Qt::SortOrder order)
+void setSortIndicatorShown(bool show)
+void setStretchLastSection(bool stretch)
+void showSection(int logicalIndex)
+Qt::SortOrder sortIndicatorOrder(void)
+int sortIndicatorSection(void)
+bool stretchLastSection(void)
+int stretchSectionCount(void)
+void swapSections(int first, int second)
+int visualIndex(int logicalIndex)
+int visualIndexAt(int position)
+
+void headerDataChanged(Qt::Orientation orientation, int logicalFirst, int logicalLast)
+void setOffset(int offset)
+void setOffsetToLastSection(void)
+void setOffsetToSectionPosition(int visualSectionNumber)
+
+void setgeometriesChangedEvent(const char *)
+void setsectionClickedEvent(const char *)
+void setsectionCountChangedEvent(const char *)
+void setsectionDoubleClickedEvent(const char *)
+void setsectionEnteredEvent(const char *)
+void setsectionHandleDoubleClickedEvent(const char *)
+void setsectionMovedEvent(const char *)
+void setsectionPressedEvent(const char *)
+void setsectionResizedEvent(const char *)
+void setsortIndicatorChangedEvent(const char *)
+
+const char *getgeometriesChangedEvent(void)
+const char *getsectionClickedEvent(void)
+const char *getsectionCountChangedEvent(void)
+const char *getsectionDoubleClickedEvent(void)
+const char *getsectionEnteredEvent(void)
+const char *getsectionHandleDoubleClickedEvent(void)
+const char *getsectionMovedEvent(void)
+const char *getsectionPressedEvent(void)
+const char *getsectionResizedEvent(void)
+const char *getsortIndicatorChangedEvent(void)
+
+void geteventparameters(void)
+
+<class>
+name: QFontMetrics
+para: QFont
+</class>
+
+int ascent(void)
+int averageCharWidth(void)
+QRect boundingRect(QChar ch)
+QRect boundingRect@2( QString   text)
+QRect boundingRect@3(int x, int y, int width, int height, int flags,  QString   text, int tabStops , int * tabArray )
+QRect boundingRect@4( QRect   rect, int flags,  QString   text, int tabStops , int * tabArray )
+int descent(void)
+QString elidedText( QString   text, Qt::TextElideMode mode, int width, int flags )
+int height(void)
+bool inFont(QChar ch)
+bool inFontUcs4(uint character)
+int leading(void)
+int leftBearing(QChar ch)
+int lineSpacing(void)
+int lineWidth(void)
+int maxWidth(void)
+int minLeftBearing(void)
+int minRightBearing(void)
+int overlinePos(void)
+int rightBearing(QChar ch)
+QSize size(int flags,  QString   text, int tabStops , int * tabArray )
+int strikeOutPos(void)
+QRect tightBoundingRect( QString   text)
+int underlinePos(void)
+int width( QString   text, int len )
+int width@2(QChar ch)
+int xHeight(void)
+
+
+<class>
+name: QSplashScreen
+para: QPixmap
+parent: QWidget
+</class>
+
+void  finish(QWidget *mainWin)
+QPixmap pixmap(void)
+void repaint(void)
+void setPixmap(QPixmap pixmap)
+
+void clearMessage(void)
+void showMessage(QString message, int alignment ,QColor color)
+
+<class>
+name: QBoxLayout
+para: QBoxLayout::Direction dir, QWidget *parent
+parent: QLayout
+</class>
+
+void  addLayout(QLayout * layout, int stretch )
+void  addSpacerItem(QSpacerItem * spacerItem)
+void  addSpacing(int size)
+void  addStretch(int stretch )
+void  addStrut(int size)
+void  addWidget(QWidget * widget, int stretch , Qt::Alignment alignment )
+QBoxLayout::Direction  direction(void)
+void  insertLayout(int index, QLayout * layout, int stretch )
+void  insertSpacerItem(int index, QSpacerItem * spacerItem)
+void  insertSpacing(int index, int size)
+void  insertStretch(int index, int stretch )
+void  insertWidget(int index, QWidget * widget, int stretch , Qt::Alignment alignment )
+void  setDirection(QBoxLayout::Direction direction)
+void  setSpacing(int spacing)
+void  setStretch(int index, int stretch)
+bool  setStretchFactor(QWidget * widget, int stretch)
+bool  setStretchFactor@2(QLayout * layout, int stretch)
+int  spacing(void)
+int  stretch(int index)
+
+
+<class>
+name: QLayout
+para: QWidget *
+parent: QObject
+abstract
+</class>
+
+bool activate(void)
+void addWidget(QWidget *w)
+QMargins contentsMargins(void)
+QRect contentsRect(void)
+void getContentsMargins(int *left, int *top, int *right, int *bottom)
+bool isEnabled(void)
+QWidget *menuBar(void)
+QWidget *parentWidget(void)
+void removeItem(QLayoutItem *item)
+void removeWidget(QWidget *widget)
+bool setAlignment(QWidget *w, Qt::Alignment alignment)
+void setAlignment@2(Qt::Alignment alignment)
+bool setAlignment@3(QLayout *l, Qt::Alignment alignment)
+void setContentsMargins(int left, int top, int right, int bottom)
+void setContentsMargins@2(QMargins margins)
+void setEnabled(bool enable)
+void setMenuBar(QWidget *widget)
+void setSizeConstraint(QLayout::SizeConstraint)
+void setSpacing(int)
+QLayout::SizeConstraint sizeConstraint(void)
+int spacing(void)
+void update(void)
+
+QSize  closestAcceptableSize( QWidget * widget,  QSize   size)
+
+
+<class>
+name: QLinearGradient
+para: void
+parent: QGradient
+</class>
+
+QPointF finalStop(void)
+void setFinalStop(QPointF stop)
+void setFinalStop@2(qreal x,qreal y)
+void setStart(QPointF start)
+void setStart@2(qreal x,qreal y)
+QPointF start(void)
+
+
+<class>
+name: QGradient
+para: void
+abstract
+</class>
+
+
+QGradient::CoordinateMode coordinateMode(void)
+void setColorAt(qreal position,  QColor   color)
+void setCoordinateMode(QGradient::CoordinateMode mode)
+void setSpread(QGradient::Spread method)
+void setStops(QGradientStops stopPoints)
+QGradient::Spread spread(void)
+QGradientStops stops(void)
+QGradient::Type type(void)
+
+<class>
+name: QPointF
+para: void
+</class>
+
+bool isNull(void)
+qreal manhattanLength(void)
+qreal rx(void)
+qreal ry(void)
+void setX(qreal x)
+void setY(qreal y)
+QPoint toPoint(void)
+qreal x(void)
+qreal y(void)
+
+<class>
+name: QPoint
+para: void
+</class>
+
+bool isNull(void)
+int manhattanLength(void)
+int rx(void)
+int ry(void)
+void setX(int x)
+void setY(int y)
+int x(void)
+int y(void)
+
+<comment>
+
+//<class>
+name: QModelIndex
+para: void
+//</class>
+
+QModelIndex child(int row, int column)
+int column(void)
+QVariant data(int role )
+Qt::ItemFlags flags(void)
+qint64 internalId(void)
+void *internalPointer(void)
+bool isValid(void)
+QAbstractItemModel *model(void)
+QModelIndex parent(void)
+int row(void)
+QModelIndex sibling(int row, int column)
+
+</comment>
+
+
+<class>
+name:  QScrollArea 
+para: QWidget *parent 
+parent: QAbstractScrollArea
+</class>
+
+Qt::Alignment alignment(void)
+void ensureVisible(int x, int y, int xmargin , int ymargin )
+void ensureWidgetVisible(QWidget *childWidget, int xmargin , int ymargin )
+void setAlignment(Qt::Alignment)
+void setWidget(QWidget *widget)
+void setWidgetResizable(bool resizable)
+QWidget *takeWidget(void)
+QWidget *widget(void)
+bool widgetResizable(void)
+
+<class>
+name:  QSplitter
+para: QWidget *parent 
+parent: QFrame
+</class>
+
+void addWidget(QWidget *widget)
+bool childrenCollapsible(void)
+int count(void)
+void getRange(int index, int *min, int *max)
+QSplitterHandle * handle(int index)
+int handleWidth(void)
+int indexOf(QWidget *widget)
+void insertWidget(int index, QWidget *widget)
+bool isCollapsible(int index)
+bool opaqueResize(void)
+Qt::Orientation orientation(void)
+void refresh(void)
+bool restoreState( QByteArray  state)
+QByteArray saveState(void)
+void setChildrenCollapsible(bool)
+void setCollapsible(int index, bool collapse)
+void setHandleWidth(int)
+void setOpaqueResize(bool opaque )
+void setOrientation(Qt::Orientation)
+void setSizes( QList<int>  list)
+void setStretchFactor(int index, int stretch)
+QList<int> sizes(void)
+QWidget * widget(int index)
+
+
+<class>
+name: QCompleter
+para: QObject *parent 
+parent: QObject
+</class>
+
+Qt::CaseSensitivity caseSensitivity(void)
+int completionColumn(void)
+int completionCount(void)
+QCompleter::CompletionMode completionMode(void)
+QAbstractItemModel *completionModel(void)
+QString completionPrefix(void)
+int completionRole(void)
+QString currentCompletion(void)
+QModelIndex currentIndex(void)
+int currentRow(void)
+Qt::MatchFlags filterMode(void)
+int maxVisibleItems(void)
+QAbstractItemModel * model(void)
+QCompleter::ModelSorting modelSorting(void)
+QAbstractItemView * popup(void)
+void setCaseSensitivity(Qt::CaseSensitivity caseSensitivity)
+void setCompletionColumn(int column)
+void setCompletionMode(QCompleter::CompletionMode mode)
+void setCompletionRole(int role)
+bool setCurrentRow(int row)
+void setFilterMode(Qt::MatchFlags filterMode)
+void setMaxVisibleItems(int maxItems)
+void setModel(QAbstractItemModel *model)
+void setModelSorting(QCompleter::ModelSorting sorting)
+void setPopup(QAbstractItemView *popup)
+void setWidget(QWidget *widget)
+QWidget * widget(void)
+bool wrapAround(void)
+
+void complete(QRect  rect)
+void setCompletionPrefix(QString prefix)
+void setWrapAround(bool wrap)
+
+<class>
+name: QCompleter2
+para: QAbstractItemModel *model, QObject *parent 
+parent: QCompleter
+codename: QCompleter
+</class>
+
+<class>
+name: QCompleter3
+para: QStringList list, QObject *parent
+parent: QCompleter
+codename: QCompleter
+</class>
+
+<class>
+name: QString2
+para: void
+codename: QString
+</class>
+
+QString append( QString  str)
+<comment>
+QString append2( QChar *str, int len)
+QString append3( QChar ch)
+QString append( QStringRef  reference)
+QString append( QLatin1String str)
+QString append( char *str)
+QString append( QByteArray  ba)
+QString arg( QString  a, int fieldWidth , QChar fillChar ))
+QString arg(qulonglong a, int fieldWidth , int base , QChar fillChar ))
+QString arg(long a, int fieldWidth , int base , QChar fillChar ))
+QString arg(ulong a, int fieldWidth , int base , QChar fillChar ))
+QString arg(int a, int fieldWidth , int base , QChar fillChar ))
+QString arg(uint a, int fieldWidth , int base , QChar fillChar ))
+QString arg(short a, int fieldWidth , int base , QChar fillChar ))
+QString arg(ushort a, int fieldWidth , int base , QChar fillChar ))
+QString arg(double a, int fieldWidth , char format , int precision , QChar fillChar ))
+QString arg(char a, int fieldWidth , QChar fillChar ))
+QString arg(QChar a, int fieldWidth , QChar fillChar ))
+QString arg(qlonglong a, int fieldWidth , int base , QChar fillChar ))
+QString arg( QString  a1,  QString  a2)
+QString arg( QString  a1,  QString  a2,  QString  a3)
+QString arg( QString  a1,  QString  a2,  QString  a3,  QString  a4)
+QString arg( QString  a1,  QString  a2,  QString  a3,  QString  a4,  QString  a5)
+QString arg( QString  a1,  QString  a2,  QString  a3,  QString  a4,  QString  a5,  QString  a6)
+QString arg( QString  a1,  QString  a2,  QString  a3,  QString  a4,  QString  a5,  QString  a6,  QString  a7)
+QString arg( QString  a1,  QString  a2,  QString  a3,  QString  a4,  QString  a5,  QString  a6,  QString  a7,  QString  a8)
+QString arg( QString  a1,  QString  a2,  QString  a3,  QString  a4,  QString  a5,  QString  a6,  QString  a7,  QString  a8,  QString  a9)
+QChar at(int position)
+iterator begin(void)
+const_iterator begin(void)
+int capacity(void)
+const_iterator cbegin(void)
+const_iterator cend(void)
+void chop(int n)
+void clear(void)
+int compare(QLatin1String other, Qt::CaseSensitivity cs )
+int compare( QString  other, Qt::CaseSensitivity cs )
+int compare( QStringRef  ref, Qt::CaseSensitivity cs )
+const_iterator constBegin(void)
+ QChar * constData(void)
+const_iterator constEnd(void)
+bool contains( QString  str, Qt::CaseSensitivity cs )
+bool contains(QChar ch, Qt::CaseSensitivity cs )
+bool contains(QLatin1String str, Qt::CaseSensitivity cs )
+bool contains( QStringRef  str, Qt::CaseSensitivity cs )
+bool contains( QRegExp  rx)
+bool contains(QRegExp  rx)
+bool contains( QRegularExpression  re)
+bool contains( QRegularExpression  re, QRegularExpressionMatch *match)
+int count( QString  str, Qt::CaseSensitivity cs )
+int count(QChar ch, Qt::CaseSensitivity cs )
+int count(void)
+int count( QStringRef  str, Qt::CaseSensitivity cs )
+int count( QRegExp  rx)
+int count( QRegularExpression  re)
+const_reverse_iterator crbegin(void)
+const_reverse_iterator crend(void)
+QChar * data(void)
+ QChar * data(void)
+iterator end(void)
+const_iterator end(void)
+bool endsWith( QString  s, Qt::CaseSensitivity cs )
+bool endsWith( QStringRef  s, Qt::CaseSensitivity cs )
+bool endsWith(QLatin1String s, Qt::CaseSensitivity cs )
+bool endsWith(QChar c, Qt::CaseSensitivity cs )
+QString fill(QChar ch, int size )
+int indexOf( QString  str, int from , Qt::CaseSensitivity cs )
+int indexOf(QChar ch, int from , Qt::CaseSensitivity cs )
+int indexOf(QLatin1String str, int from , Qt::CaseSensitivity cs )
+int indexOf( QStringRef  str, int from , Qt::CaseSensitivity cs )
+int indexOf( QRegExp  rx, int from )
+int indexOf(QRegExp  rx, int from )
+int indexOf( QRegularExpression  re, int from )
+int indexOf( QRegularExpression  re, int from, QRegularExpressionMatch *rmatch)
+QString insert(int position,  QString  str)
+QString insert(int position,  QChar *unicode, int size)
+QString insert(int position, QChar ch)
+QString insert(int position,  QStringRef  str)
+QString insert(int position, QLatin1String str)
+QString insert(int position,  char *str)
+QString insert(int position,  QByteArray  str)
+bool isEmpty(void)
+bool isNull(void)
+bool isRightToLeft(void)
+int lastIndexOf( QString  str, int from , Qt::CaseSensitivity cs )
+int lastIndexOf(QChar ch, int from , Qt::CaseSensitivity cs )
+int lastIndexOf(QLatin1String str, int from , Qt::CaseSensitivity cs )
+int lastIndexOf( QStringRef  str, int from , Qt::CaseSensitivity cs )
+int lastIndexOf( QRegExp  rx, int from )
+int lastIndexOf(QRegExp  rx, int from )
+int lastIndexOf( QRegularExpression  re, int from )
+int lastIndexOf( QRegularExpression  re, int from, QRegularExpressionMatch *rmatch)
+QString left(int n)
+QString leftJustified(int width, QChar fill , bool truncate )
+QStringRef leftRef(int n)
+int length(void)
+int localeAwareCompare( QString  other)
+int localeAwareCompare( QStringRef  other)
+QString mid(int position, int n )
+QStringRef midRef(int position, int n )
+QString normalized(NormalizationForm mode, QChar::UnicodeVersion version )
+QString prepend( QString  str)
+QString prepend( QChar *str, int len)
+QString prepend(QChar ch)
+QString prepend( QStringRef  str)
+QString prepend(QLatin1String str)
+QString prepend( char *str)
+QString prepend( QByteArray  ba)
+void push_back( QString  other)
+void push_back(QChar ch)
+void push_front( QString  other)
+void push_front(QChar ch)
+reverse_iterator rbegin(void)
+const_reverse_iterator rbegin(void)
+QString remove(int position, int n)
+QString remove(QChar ch, Qt::CaseSensitivity cs )
+QString remove( QString  str, Qt::CaseSensitivity cs )
+QString remove( QRegExp  rx)
+QString remove( QRegularExpression  re)
+reverse_iterator rend(void)
+const_reverse_iterator rend(void)
+QString repeated(int times)
+QString replace(int position, int n,  QString  after)
+QString replace(int position, int n,  QChar *unicode, int size)
+QString replace(int position, int n, QChar after)
+QString replace(QChar before, QChar after, Qt::CaseSensitivity cs )
+QString replace( QChar *before, int blen,  QChar *after, int alen, Qt::CaseSensitivity cs )
+QString replace(QLatin1String before, QLatin1String after, Qt::CaseSensitivity cs )
+QString replace(QLatin1String before,  QString  after, Qt::CaseSensitivity cs )
+QString replace( QString  before, QLatin1String after, Qt::CaseSensitivity cs )
+QString replace( QString  before,  QString  after, Qt::CaseSensitivity cs )
+QString replace(QChar ch,  QString  after, Qt::CaseSensitivity cs )
+QString replace(QChar c, QLatin1String after, Qt::CaseSensitivity cs )
+QString replace( QRegExp  rx,  QString  after)
+QString replace( QRegularExpression  re,  QString  after)
+void reserve(int size)
+void resize(int size)
+void resize(int size, QChar fillChar)
+QString right(int n)
+QString rightJustified(int width, QChar fill , bool truncate )
+QStringRef rightRef(int n)
+QString section(QChar sep, int start, int end , SectionFlags flags )
+QString section( QString  sep, int start, int end , SectionFlags flags )
+QString section( QRegExp  reg, int start, int end , SectionFlags flags )
+QString section( QRegularExpression  re, int start, int end , SectionFlags flags )
+QString setNum(int n, int base )
+QString setNum(ushort n, int base )
+QString setNum(short n, int base )
+QString setNum(uint n, int base )
+QString setNum(long n, int base )
+QString setNum(ulong n, int base )
+QString setNum(qlonglong n, int base )
+QString setNum(qulonglong n, int base )
+QString setNum(float n, char format , int precision )
+QString setNum(double n, char format , int precision )
+QString setRawData( QChar *unicode, int size)
+QString setUnicode( QChar *unicode, int size)
+QString setUtf16( ushort *unicode, int size)
+QString simplified(void)
+int size(void)
+QVector<QStringRef> splitRef( QString  sep, SplitBehavior behavior , Qt::CaseSensitivity cs )
+QVector<QStringRef> splitRef(QChar sep, SplitBehavior behavior , Qt::CaseSensitivity cs )
+QVector<QStringRef> splitRef( QRegExp  rx, SplitBehavior behavior )
+QVector<QStringRef> splitRef( QRegularExpression  re, SplitBehavior behavior )
+void squeeze(void)
+bool startsWith( QString  s, Qt::CaseSensitivity cs )
+bool startsWith( QStringRef  s, Qt::CaseSensitivity cs )
+bool startsWith(QLatin1String s, Qt::CaseSensitivity cs )
+bool startsWith(QChar c, Qt::CaseSensitivity cs )
+void swap(QString  other)
+CFStringRef toCFString(void)
+QString toCaseFolded(void)
+double toDouble(bool *ok )
+float toFloat(bool *ok )
+QString toHtmlEscaped(void)
+int toInt(bool *ok , int base )
+QByteArray toLatin1(void)
+QByteArray toLocal8Bit(void)
+long toLong(bool *ok , int base )
+qlonglong toLongLong(bool *ok , int base )
+QString toLower(void)
+NSString * toNSString(void)
+short toShort(bool *ok , int base )
+std::string toStdString(void)
+std::u16string toStdU16String(void)
+std::u32string toStdU32String(void)
+std::wstring toStdWString(void)
+uint toUInt(bool *ok , int base )
+ulong toULong(bool *ok , int base )
+qulonglong toULongLong(bool *ok , int base )
+ushort toUShort(bool *ok , int base )
+QVector<uint> toUcs4(void)
+QString toUpper(void)
+QByteArray toUtf8(void)
+int toWCharArray(wchar_t *array)
+QString trimmed(void)
+void truncate(int position)
+QChar * unicode(void)
+ushort * utf16(void)
+</comment>
+
+QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+QStringList split@2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+QStringList split@3( QRegExp  rx, QString::SplitBehavior behavior )
+QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
+
+
+<class>
+name: QProcess
+para: QObject *
+parent: QIODevice
+codename: GProcess
+passvmpointer
+</class>
+
+QStringList arguments(void)
+void closeReadChannel(QProcess::ProcessChannel channel)
+void closeWriteChannel(void)
+QProcess::ProcessError error(void)
+int exitCode(void)
+QProcess::ExitStatus exitStatus(void)
+QProcess::InputChannelMode inputChannelMode(void)
+QProcess::ProcessChannelMode processChannelMode(void)
+QProcessEnvironment processEnvironment(void)
+QString program(void)
+QByteArray readAllStandardError(void)
+QByteArray readAllStandardOutput(void)
+QProcess::ProcessChannel readChannel(void)
+void setArguments( QStringList  arguments)
+void setInputChannelMode(QProcess::InputChannelMode mode)
+void setProcessChannelMode(QProcess::ProcessChannelMode mode)
+void setProcessEnvironment( QProcessEnvironment  environment)
+void setProgram( QString  program)
+void setReadChannel(QProcess::ProcessChannel channel)
+void setStandardErrorFile( QString  fileName, QIODevice::OpenMode mode )
+void setStandardInputFile( QString  fileName)
+void setStandardOutputFile( QString  fileName, QIODevice::OpenMode mode )
+void setStandardOutputProcess(QProcess *destination)
+void setWorkingDirectory( QString  dir)
+void start( QString  program,  QStringList  arguments, QIODevice::OpenMode mode )
+void start@2( QString  command, QIODevice::OpenMode mode )
+void start@3(QIODevice::OpenMode mode )
+QProcess::ProcessState state(void)
+bool waitForFinished(int msecs )
+bool waitForStarted(int msecs )
+QString workingDirectory(void)
+
+void kill(void)
+void terminate(void)
+
+void setreadyReadStandardErrorEvent(const char *)
+void setreadyReadStandardOutputEvent(const char *)
+
+const char *getreadyReadStandardErrorEvent(void)
+const char *getreadyReadStandardOutputEvent(void)
+
+<class>
+name: QMdiArea
+para: QWidget *
+parent: QAbstractScrollArea
+</class>
+
+QMdiArea::WindowOrder activationOrder(void)
+QMdiSubWindow * activeSubWindow(void)
+QMdiSubWindow * addSubWindow(QWidget * widget, Qt::WindowFlags windowFlags )
+QBrush background(void)
+QMdiSubWindow * currentSubWindow(void)
+bool documentMode(void)
+void removeSubWindow(QWidget * widget)
+void setActivationOrder(QMdiArea::WindowOrder order)
+void setBackground( QBrush   background)
+void setDocumentMode(bool enabled)
+void setOption(QMdiArea::AreaOption option, bool on )
+void setTabPosition(QTabWidget::TabPosition position)
+void setTabShape(QTabWidget::TabShape shape)
+void setTabsClosable(bool closable)
+void setTabsMovable(bool movable)
+void setViewMode(QMdiArea::ViewMode mode)
+QList<QMdiSubWindow *> subWindowList(QMdiArea::WindowOrder order )
+QTabWidget::TabPosition tabPosition(void)
+QTabWidget::TabShape tabShape(void)
+bool tabsClosable(void)
+bool tabsMovable(void)
+bool testOption(QMdiArea::AreaOption option)
+QMdiArea::ViewMode viewMode(void)
+void activateNextSubWindow(void)
+void activatePreviousSubWindow(void)
+void cascadeSubWindows(void)
+void closeActiveSubWindow(void)
+void closeAllSubWindows(void)
+void setActiveSubWindow(QMdiSubWindow * window)
+void tileSubWindows(void)
+
+<class>
+name: QMdiSubWindow
+para: QWidget *
+parent: QWidget
+</class>
+
+bool isShaded(void)
+int keyboardPageStep(void)
+int keyboardSingleStep(void)
+QMdiArea * mdiArea(void)
+void setKeyboardPageStep(int step)
+void setKeyboardSingleStep(int step)
+void setOption(QMdiSubWindow::SubWindowOption option, bool on )
+void setSystemMenu(QMenu * systemMenu)
+void setWidget(QWidget * widget)
+QMenu * systemMenu(void)
+bool testOption(QMdiSubWindow::SubWindowOption option)
+QWidget * widget(void)
+
+void showShaded(void)
+void showSystemMenu(void)
+
+<class>
+name: QCursor
+para: void
+</class>
+
+QBitmap *bitmap(void)
+QPoint hotSpot(void)
+QBitmap *mask(void)
+QPixmap pixmap(void)
+void setShape(Qt::CursorShape shape)
+Qt::CursorShape shape(void)
+
+<class>
+name: QListView
+para: QWidget *
+parent: QAbstractItemView
+</class>
+
+int  batchSize(void)
+void  clearPropertyFlags(void)
+QListView::Flow  flow(void)
+QSize  gridSize(void)
+bool  isRowHidden(int row)
+bool  isSelectionRectVisible(void)
+bool  isWrapping(void)
+QListView::LayoutMode  layoutMode(void)
+int  modelColumn(void)
+QListView::Movement  movement(void)
+QListView::ResizeMode  resizeMode(void)
+void  setBatchSize(int batchSize)
+void  setFlow(QListView::Flow flow)
+void  setGridSize( QSize   size)
+void  setLayoutMode(QListView::LayoutMode mode)
+void  setModelColumn(int column)
+void  setMovement(QListView::Movement movement)
+void  setResizeMode(QListView::ResizeMode mode)
+void  setRowHidden(int row, bool hide)
+void  setSelectionRectVisible(bool show)
+void  setSpacing(int space)
+void  setUniformItemSizes(bool enable)
+void  setViewMode(QListView::ViewMode mode)
+void  setWordWrap(bool on)
+void  setWrapping(bool enable)
+int  spacing(void)
+bool  uniformItemSizes(void)
+QListView::ViewMode  viewMode(void)
+bool  wordWrap(void)

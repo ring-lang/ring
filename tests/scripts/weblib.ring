@@ -8,10 +8,10 @@ Func LoadVars
 
 	New Application
 	{
-	    	if get("REQUEST_METHOD") = "GET"
-			cInput = get("QUERY_STRING")
+	    	if sysget("REQUEST_METHOD") = "GET"
+			cInput = sysget("QUERY_STRING")
 		else
-			cInput = input(get("CONTENT_LENGTH"))
+			cInput = input(sysget("CONTENT_LENGTH"))
 		ok
 		
 		aPageVars = decode(cInput)
@@ -140,7 +140,7 @@ Package System.Web
 			return aOutput
 
 		Func Decode cInput
-			if left(get("CONTENT_TYPE"),20) != "multipart/form-data;"
+			if left(sysget("CONTENT_TYPE"),20) != "multipart/form-data;"
 				return decodestring(cInput)
 			ok
 
@@ -222,7 +222,7 @@ Package System.Web
 			cCookies += "Set-Cookie: "+name+"="+value+";" + nl
 
 		Func getcookies 
-			cStr = get("HTTP_COOKIE")
+			cStr = sysget("HTTP_COOKIE")
 			if cStr = "NULL" 	return 	OK 
 			# var1=value; var2=value; var3=value
 			cStr += ";"

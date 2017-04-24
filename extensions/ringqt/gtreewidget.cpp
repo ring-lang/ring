@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -8,6 +8,7 @@ extern "C" {
 GTreeWidget::GTreeWidget(QWidget *parent,VM *pVM)  : QTreeWidget(parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 	strcpy(this->ccollapsedEvent,"");
 	strcpy(this->cexpandedEvent,"");
 	strcpy(this->cactivatedEvent,"");
@@ -47,6 +48,20 @@ GTreeWidget::GTreeWidget(QWidget *parent,VM *pVM)  : QTreeWidget(parent)
 	QObject::connect(this, SIGNAL(itemSelectionChanged()),this, SLOT(itemSelectionChangedSlot()));
 
 }
+
+GTreeWidget::~GTreeWidget()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void GTreeWidget::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
  
 void GTreeWidget::setcollapsedEvent(const char *cStr)
 {
@@ -156,11 +171,103 @@ void GTreeWidget::setitemSelectionChangedEvent(const char *cStr)
 		strcpy(this->citemSelectionChangedEvent,cStr);
 }
 
+ 
+const char *GTreeWidget::getcollapsedEvent(void)
+{
+	return this->ccollapsedEvent;
+}
+
+const char *GTreeWidget::getexpandedEvent(void)
+{
+	return this->cexpandedEvent;
+}
+
+const char *GTreeWidget::getactivatedEvent(void)
+{
+	return this->cactivatedEvent;
+}
+
+const char *GTreeWidget::getclickedEvent(void)
+{
+	return this->cclickedEvent;
+}
+
+const char *GTreeWidget::getdoubleClickedEvent(void)
+{
+	return this->cdoubleClickedEvent;
+}
+
+const char *GTreeWidget::getenteredEvent(void)
+{
+	return this->centeredEvent;
+}
+
+const char *GTreeWidget::getpressedEvent(void)
+{
+	return this->cpressedEvent;
+}
+
+const char *GTreeWidget::getviewportEnteredEvent(void)
+{
+	return this->cviewportEnteredEvent;
+}
+
+const char *GTreeWidget::getcurrentItemChangedEvent(void)
+{
+	return this->ccurrentItemChangedEvent;
+}
+
+const char *GTreeWidget::getitemActivatedEvent(void)
+{
+	return this->citemActivatedEvent;
+}
+
+const char *GTreeWidget::getitemChangedEvent(void)
+{
+	return this->citemChangedEvent;
+}
+
+const char *GTreeWidget::getitemClickedEvent(void)
+{
+	return this->citemClickedEvent;
+}
+
+const char *GTreeWidget::getitemCollapsedEvent(void)
+{
+	return this->citemCollapsedEvent;
+}
+
+const char *GTreeWidget::getitemDoubleClickedEvent(void)
+{
+	return this->citemDoubleClickedEvent;
+}
+
+const char *GTreeWidget::getitemEnteredEvent(void)
+{
+	return this->citemEnteredEvent;
+}
+
+const char *GTreeWidget::getitemExpandedEvent(void)
+{
+	return this->citemExpandedEvent;
+}
+
+const char *GTreeWidget::getitemPressedEvent(void)
+{
+	return this->citemPressedEvent;
+}
+
+const char *GTreeWidget::getitemSelectionChangedEvent(void)
+{
+	return this->citemSelectionChangedEvent;
+}
+
 
 void GTreeWidget::collapsedSlot()
 {
 	if (strcmp(this->ccollapsedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccollapsedEvent);
 }
 
@@ -168,6 +275,7 @@ void GTreeWidget::expandedSlot()
 {
 	if (strcmp(this->cexpandedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cexpandedEvent);
 }
 
@@ -175,6 +283,7 @@ void GTreeWidget::activatedSlot()
 {
 	if (strcmp(this->cactivatedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cactivatedEvent);
 }
 
@@ -182,6 +291,7 @@ void GTreeWidget::clickedSlot()
 {
 	if (strcmp(this->cclickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cclickedEvent);
 }
 
@@ -189,6 +299,7 @@ void GTreeWidget::doubleClickedSlot()
 {
 	if (strcmp(this->cdoubleClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cdoubleClickedEvent);
 }
 
@@ -196,6 +307,7 @@ void GTreeWidget::enteredSlot()
 {
 	if (strcmp(this->centeredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->centeredEvent);
 }
 
@@ -203,6 +315,7 @@ void GTreeWidget::pressedSlot()
 {
 	if (strcmp(this->cpressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cpressedEvent);
 }
 
@@ -210,6 +323,7 @@ void GTreeWidget::viewportEnteredSlot()
 {
 	if (strcmp(this->cviewportEnteredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->cviewportEnteredEvent);
 }
 
@@ -217,6 +331,7 @@ void GTreeWidget::currentItemChangedSlot()
 {
 	if (strcmp(this->ccurrentItemChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->ccurrentItemChangedEvent);
 }
 
@@ -224,6 +339,7 @@ void GTreeWidget::itemActivatedSlot()
 {
 	if (strcmp(this->citemActivatedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemActivatedEvent);
 }
 
@@ -231,6 +347,7 @@ void GTreeWidget::itemChangedSlot()
 {
 	if (strcmp(this->citemChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemChangedEvent);
 }
 
@@ -238,6 +355,7 @@ void GTreeWidget::itemClickedSlot()
 {
 	if (strcmp(this->citemClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemClickedEvent);
 }
 
@@ -245,6 +363,7 @@ void GTreeWidget::itemCollapsedSlot()
 {
 	if (strcmp(this->citemCollapsedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemCollapsedEvent);
 }
 
@@ -252,6 +371,7 @@ void GTreeWidget::itemDoubleClickedSlot()
 {
 	if (strcmp(this->citemDoubleClickedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemDoubleClickedEvent);
 }
 
@@ -259,6 +379,7 @@ void GTreeWidget::itemEnteredSlot()
 {
 	if (strcmp(this->citemEnteredEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemEnteredEvent);
 }
 
@@ -266,6 +387,7 @@ void GTreeWidget::itemExpandedSlot()
 {
 	if (strcmp(this->citemExpandedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemExpandedEvent);
 }
 
@@ -273,6 +395,7 @@ void GTreeWidget::itemPressedSlot()
 {
 	if (strcmp(this->citemPressedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemPressedEvent);
 }
 
@@ -280,6 +403,7 @@ void GTreeWidget::itemSelectionChangedSlot()
 {
 	if (strcmp(this->citemSelectionChangedEvent,"")==0)
 		return ;
+
 	ring_vm_runcode(this->pVM,this->citemSelectionChangedEvent);
 }
 

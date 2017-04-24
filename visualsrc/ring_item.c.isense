@@ -1,11 +1,11 @@
 ring_item_h
 Parent: Item
-Type: char
-nType
-Type: char
-NumberFlag
-Type: char
-nObjectType
+Type: unsigned int
+nType:3
+Type: unsigned int
+NumberFlag:2
+Type: unsigned int
+nObjectType:3
 Parent: data
 Type: struct String *
 pString

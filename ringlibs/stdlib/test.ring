@@ -196,10 +196,10 @@ see substring(a,b,i)
 Puts("Test Changestring()")
 see Changestring("Rmasdg",2,5,"in")
 
-# Test printf()
-printf("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
+# Test print()
+print("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
 x=10 y=20
-printf("\nx value = #{x} , y value = #{y} \n")
+print("\nx value = #{x} , y value = #{y} \n")
 
 # Check directory
 see "Check dir : b:\ring " 
@@ -210,3 +210,43 @@ Puts( DirExists("C:\ring") )
 # Create Directory
 puts("create Directory : myfolder")
 makedir("myfolder")
+
+# Test GetString() and GetNumber()
+See "Test getstring() and getnumber()"+nl
+See "Enter your name ?" 
+cName = getstring()
+see "Your name is : " + cName + nl
+See "Enter your Age? "
+nAge = getnumber()
+nAge++
+See "Your age after 1 year : " + nAge + nl
+
+# Sort a two-dimensional list on the first index.
+Puts("Test sortFirstSecond()")
+aList = [[2,2], [1,2], [3,2], [3,1], [1,1]]
+sortFirstSecond(aList, 1)
+
+for n=1 to len(aList)
+    for m=1 to 2
+        see string(aList[n][m]) + " "
+    next
+    see nl
+next
+
+# Sort a two-dimensional list on the second index.
+Puts("Test sortFirstSecond()")
+aList = [[2,2], [1,2], [3,2], [3,1], [1,1]]
+sortFirstSecond(aList, 2)
+
+for n=1 to len(aList)
+    for m=1 to 2
+        see string(aList[n][m]) + " "
+    next
+    see nl
+next
+
+# Test Main Source File
+see "IsMainSourceFile() : " + ismainsourcefile() + nl
+See "Previous File Name : " + PrevFileName() + nl
+see "IsMainSourceFile() : " + ismainsourcefile() + nl
+

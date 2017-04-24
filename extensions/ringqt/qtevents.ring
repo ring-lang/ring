@@ -676,8 +676,130 @@ aclasses = [
 			:initpara = "QObject *",
 			:events = [
 					[ 	:signal = "finished(QNetworkReply*)" ,
-						:slot = "finishedSlot(QNetworkReply*)" ,
-						:event = "finished"
+						:slot = "finishedSlot()" ,
+						:event = "finished",
+						:slotparaconnect = "QNetworkReply*",
+						:slotparafunction = "QNetworkReply *p1",
+						:slotparacode = SlotParaGetPointer("QNetworkReply *")
+					] 
+				  ]
+		],
+		[	:name = "GThread" ,
+			:realname = "QThread" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "started()" ,
+						:slot = "startedSlot()" ,
+						:event = "Started"
+					] ,
+					[ 	:signal = "finished()" ,
+						:slot = "finishedSlot()" ,
+						:event = "Finished"
+					] 
+				  ]
+		],
+		[	:name = "GPlainTextEdit" ,
+			:realname = "QPlainTextEdit" ,
+			:events = [
+					[ 	:signal = "blockCountChanged(int)" ,
+						:slot = "blockCountChangedSlot()" ,
+						:event = "blockCountChanged"
+					] ,
+					[ 	:signal = "copyAvailable(bool)" ,
+						:slot = "copyAvailableSlot()" ,
+						:event = "copyAvailable"
+					] ,
+					[ 	:signal = "cursorPositionChanged()" ,
+						:slot = "cursorPositionChangedSlot()" ,
+						:event = "cursorPositionChanged"
+					] ,
+					[ 	:signal = "modificationChanged(bool)" ,
+						:slot = "modificationChangedSlot()" ,
+						:event = "modificationChanged"
+					] ,
+					[ 	:signal = "redoAvailable(bool)" ,
+						:slot = "redoAvailableSlot()" ,
+						:event = "redoAvailable"
+					] ,
+					[ 	:signal = "selectionChanged()" ,
+						:slot = "selectionChanged()" ,
+						:event = "selectionChanged"
+					] ,
+					[ 	:signal = "textChanged()" ,
+						:slot = "textChangedSlot()" ,
+						:event = "textChanged"
+					] ,
+					[ 	:signal = "undoAvailable(bool)" ,
+						:slot = "undoAvailableSlot()" ,
+						:event = "undoAvailable"
+					],
+					[ 	:signal = "updateRequest(const QRect, int)" ,
+						:slot = "updateRequestSlot()" ,
+						:event = "updateRequest"
+					]
+				  ]
+		] ,
+		[	:name = "GHeaderView" ,
+			:initpara = "Qt::Orientation x, QWidget *",
+			:initparaparent = "x,",
+			:realname = "QHeaderView" ,
+			:events = [
+					[ 	:signal = "geometriesChanged()" ,
+						:slot = "geometriesChangedSlot()" ,
+						:event = "geometriesChanged"
+					] ,
+					[ 	:signal = "sectionClicked(int)" ,
+						:slot = "sectionClickedSlot()" ,
+						:event = "sectionClicked",
+						:slotparaconnect = "int",
+						:slotparafunction = "int p1",
+						:slotparacode = SlotParaGetNumber()
+					],
+					[ 	:signal = "sectionCountChanged(int, int)" ,
+						:slot = "sectionCountChangedSlot()" ,
+						:event = "sectionCountChanged"
+					] ,			
+					[ 	:signal = "sectionDoubleClicked(int)" ,
+						:slot = "sectionDoubleClickedSlot()" ,
+						:event = "sectionDoubleClicked"
+					] ,			
+					[ 	:signal = "sectionEntered(int)" ,
+						:slot = "sectionEnteredSlot()" ,
+						:event = "sectionEntered"
+					] ,			
+					[ 	:signal = "sectionHandleDoubleClicked(int)" ,
+						:slot = "sectionHandleDoubleClickedSlot()" ,
+						:event = "sectionHandleDoubleClicked"
+					] ,		
+					[ 	:signal = "sectionMoved(int, int, int)" ,
+						:slot = "sectionMovedSlot()" ,
+						:event = "sectionMoved"
+					] ,		
+					[ 	:signal = "sectionPressed(int)" ,
+						:slot = "sectionPressedSlot()" ,
+						:event = "sectionPressed"
+					] ,		
+					[ 	:signal = "sectionResized(int, int, int)" ,
+						:slot = "sectionResizedSlot()" ,
+						:event = "sectionResized"
+					] ,		
+					[ 	:signal = "sortIndicatorChanged(int, Qt::SortOrder)" ,
+						:slot = "sortIndicatorChangedSlot()" ,
+						:event = "sortIndicatorChanged"
+					] 		
+			  ]
+		] ,
+		[	:name = "GProcess" ,
+			:realname = "QProcess" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "readyReadStandardError()" ,
+						:slot = "readyReadStandardErrorSlot()" ,
+						:event = "readyReadStandardError"
+					] ,
+					[ 	:signal = "readyReadStandardOutput()" ,
+						:slot = "readyReadStandardOutputSlot()" ,
+						:event = "readyReadStandardOutput"
 					] 
 				  ]
 		]
@@ -685,15 +807,29 @@ aclasses = [
 
 Func Main
 
+	# DocFuncs() bye
 	for aClass in aClasses
 		GenHeader(aClass)	GenSource(aClass)
 	next
+
+Func DocFuncs
+	for aClass in aClasses
+		see copy("=",50)  + nl
+		see aClass[:realname] + " Class " + nl +copy("=",50) +nl
+		aEvents  = aClass[:events]
+		for aEvent in aEvents
+			cEvent = aEvent[:event]
+			see "Set" + upper(left(cEvent,1))+substr(cEvent,2)+"Event()" + nl
+		next		
+		see copy("=",50)  + nl	
+	next
+	
 
 Func GenHeader aClass
 
 	# Start of code string
 	cCode = `
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef <T_HEADER>
 #define <T_HEADER>
 #include <QApplication>
@@ -711,11 +847,19 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
     VM *pVM;
 
+    List *pParaList;
+
 <T_EVENTSATTRIBUTES>
 
 <T_CLASSNAMEMETHOD>(<T_INITPARA>parent,VM *pVM );
 
+<T_CLASSNAMEMETHOD2>();
+
+<T_GETEVENTPARAMETERS>
+
 <T_SETEVENTS>
+
+<T_GETEVENTS>
 
   public slots:
 
@@ -734,6 +878,8 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 	# Set the class name and the parent class name
 	cCode = substr(cCode,"<T_CLASSNAME>", aClass[:name])
 	cCode = substr(cCode,"<T_CLASSNAMEMETHOD>", cSpace+aClass[:name])
+	cCode = substr(cCode,"<T_CLASSNAMEMETHOD2>", cSpace+"~"+aClass[:name])
+	cCode = substr(cCode,"<T_GETEVENTPARAMETERS>", cSpace+"void geteventparameters(void) ;")
 	cCode = substr(cCode,"<T_REALCLASSNAME>", aClass[:realname])
 
 	if aClass[:initpara] != NULL
@@ -743,19 +889,28 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 	ok
 
 	aEvents = aClass[:events]
-	cEventsAttributes = "" cSetEvents = ""  cEventsSlots = ""
+	cEventsAttributes = "" cSetEvents = ""  cGetEvents = "" cEventsSlots = ""
 
 	for aEvent in aEvents
 		# Events Attributes
 		cEventsAttributes += cSpace+"char c"+aEvent[:event]+"Event[100];"+nl
 		# Set Events
 		cSetEvents += cSpace+"void set"+aEvent[:event]+"Event(const char *cStr);"+nl
+		# Get Events
+		cGetEvents += cSpace+"const char *get"+aEvent[:event]+"Event(void);"+nl
 		# Events Slots
-		cEventsSlots += cSpace+"void "+aEvent[:slot]+";"+nl
+
+		cSlot = aEvent[:slot]
+		if aEvent[:slotparafunction] != NULL
+			cSlot = substr(cSlot,"()","("+aEvent[:slotparafunction]+")")
+		ok
+
+		cEventsSlots += cSpace+"void "+cSlot+";"+nl
 	Next
 
 	cCode = substr(cCode,"<T_EVENTSATTRIBUTES>", cEventsAttributes)
 	cCode = substr(cCode,"<T_SETEVENTS>", cSetEvents)
+	cCode = substr(cCode,"<T_GETEVENTS>", cGetEvents)
 	cCode = substr(cCode,"<T_SLOTS>", cEventsSlots)
 
 	cFileName = lower(aClass[:name]) + ".h"
@@ -765,7 +920,7 @@ Func GenSource aClass
 
 # Start of code string
 	cCode = `
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 extern "C" {
 #include "ring.h"
 }
@@ -774,10 +929,26 @@ extern "C" {
 <T_CLASSNAME>::<T_CLASSNAME>(<T_INITPARA>parent,VM *pVM)  : <T_REALCLASSNAME>(<T_INITPARAPARENT>parent)
 {
 	this->pVM = pVM;
+	this->pParaList = ring_list_new(0);
 <T_CLEAREVENTS>
 <T_CONNECT>
 }
+
+<T_CLASSNAME>::~<T_CLASSNAME>()
+{
+	ring_list_delete(this->pParaList);
+}
+
+void <T_CLASSNAME>::geteventparameters(void)
+{
+	void *pPointer;
+	pPointer = this->pVM;
+	RING_API_RETLIST(this->pParaList);
+}
+
+
 <T_SETEVENTS>
+<T_GETEVENTS>
 <T_SLOTS>
 `	# End of Code String
 
@@ -799,7 +970,7 @@ extern "C" {
 	ok
 
 	aEvents = aClass[:events]
-	cClearEvents = "" cConnect = ""  cSetEvents = " " cSlots = ""
+	cClearEvents = "" cConnect = ""  cSetEvents = " " cGetEvents = " " cSlots = ""
 
 	for aEvent in aEvents
 
@@ -807,8 +978,13 @@ extern "C" {
 		cClearEvents += char(9) + 'strcpy(this->c'+aEvent[:event]+'Event,"");'+nl
 
 		# Connect
+		cSlot = aEvent[:slot]
+		if aEvent[:slotparaconnect] != NULL
+			cSlot = substr(cSlot,"()","("+aEvent[:slotparaconnect]+")")
+		ok
+
 		cConnect += char(9) + "QObject::connect(this, SIGNAL("+aEvent[:signal]+
-				"),this, SLOT("+aEvent[:slot]+"));"+nl
+				"),this, SLOT("+cSlot+"));"+nl
 		# Set Events
 		cSetEvents += "
 void "+aClass[:name]+"::set"+aEvent[:event]+"Event(const char *cStr)
@@ -817,25 +993,44 @@ void "+aClass[:name]+"::set"+aEvent[:event]+"Event(const char *cStr)
 		strcpy(this->c"+aEvent[:event]+"Event,cStr);
 }" + nl
 
+		# Get Events
+		cGetEvents += "
+const char *"+aClass[:name]+"::get"+aEvent[:event]+"Event(void)
+{
+	return this->c"+aEvent[:event]+"Event;
+}" + nl
+
 		# Slots
 		cSlots += '
 void '+aClass[:name]+'::'
 
-		cSlots += aEvent[:slot]
+
+		cSlot = aEvent[:slot]
+		if aEvent[:slotparafunction] != NULL
+			cSlot = substr(cSlot,"()","("+aEvent[:slotparafunction]+")")
+		ok
+
+		cSlots += cSlot
 
 		cSlots +='
 {
 	if (strcmp(this->c'+aEvent[:event]+'Event,"")==0)
 		return ;
+'
+		cSlots += aEvent[:slotparacode]
+
+		cSlots +='
 	ring_vm_runcode(this->pVM,this->c'+aEvent[:event]+'Event);
 }
 '
+
 
 	Next
 
 	cCode = substr(cCode,"<T_CLEAREVENTS>", cClearEvents)
 	cCode = substr(cCode,"<T_CONNECT>", cConnect)
 	cCode = substr(cCode,"<T_SETEVENTS>", cSetEvents)
+	cCode = substr(cCode,"<T_GETEVENTS>", cGetEvents)
 	cCode = substr(cCode,"<T_SLOTS>", cSlots)
 
 	cFileName = lower(aClass[:name]) + ".cpp"
@@ -850,3 +1045,16 @@ Func WriteFile cFileName,cCode
 		fwrite(fp,cLine+char(13)+char(10))
 	next
 	fclose(fp)
+
+
+Func SlotParaGetNumber 
+	return "
+		ring_list_deleteallitems(this->pParaList);
+		ring_list_adddouble(this->pParaList, (double) p1 ) ;	
+	"
+
+Func SlotParaGetPointer cType
+	return "
+		ring_list_deleteallitems(this->pParaList);
+		ring_list_addcpointer(this->pParaList, p1, "+'"'+cType+'"'+" ) ;	
+	"

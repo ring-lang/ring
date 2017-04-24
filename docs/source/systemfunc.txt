@@ -1,3 +1,6 @@
+.. index:: 
+	single: System Functions; Introduction
+
 ================
 System Functions
 ================
@@ -6,7 +9,7 @@ In this chapter we are going to learn about the system functions
 
 * System()
 
-* Get()
+* SysGet()
 
 * IsMSDOS()
 
@@ -30,6 +33,19 @@ In this chapter we are going to learn about the system functions
 
 * Get Active Source File Name
 
+* CurrentDir()
+
+* ExeFileName()
+
+* ChDir()
+
+* ExeFolder()
+
+* Version()
+
+.. index:: 
+	pair: System Functions; System() Function
+
 System() Function
 =================
 
@@ -37,134 +53,164 @@ We can execute system commands using the system() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	System(cCommand)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	System("myapp.exe") 	# Run myapp.exe
 	System("ls")		# print list of files
 
-Get() Function
-==============
+.. index:: 
+	pair: System Functions; SysGet() Function
+
+SysGet() Function
+=================
 
 We can get environment variables using the Get() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
-	Get(cVariable)
+	SysGet(cVariable)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
-	see get("path")		# print system path information
+	see sysget("path")		# print system path information
 
 
-IsMSDOS()
-=========
+.. index:: 
+	pair: System Functions; IsMSDOS() Function
+
+IsMSDOS() Function
+==================
 
 We can check if the operating system is MSDOS or not using the IsMSDOS() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsMSDOS() ---> Returns 1 if the operating system is MS-DOS, Returns 0 if it's not
 		       
 
-IsWindows()
-===========
+.. index:: 
+	pair: System Functions; IsWindows() Function
+
+IsWindows() Function
+====================
 
 We can check if the operating system is Windows or not using the IsWindows() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsWindows() ---> Returns 1 if the operating system is Windows, Returns 0 if it's not
 
 
-IsWindows64()
-=============
+.. index:: 
+	pair: System Functions; IsWindows64() Function
+
+IsWindows64() Function
+======================
 
 We can check if the operating system is Windows 64bit or not using the IsWindows64() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsWindows64() ---> Returns 1 if the operating system is Windows64, Returns 0 if it's not
 
 
-IsUnix()
-========
+.. index:: 
+	pair: System Functions; IsUnix() Function
+
+IsUnix() Function
+=================
 
 We can check if the operating system is Unix or not using the IsUnix() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsUnix() ---> Returns 1 if the operating system is Unix, Returns 0 if it's not
 
 
-IsMacOSX()
-==========
+.. index:: 
+	pair: System Functions; IsMacOSX() Function
+
+IsMacOSX() Function
+===================
 
 We can check if the operating system is Mac OS X or not using the IsMacOSX() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsMacOSX() ---> Returns 1 if the operating system is Mac OS X, Returns 0 if it's not
 
 
-IsLinux()
-=========
+.. index:: 
+	pair: System Functions; IsLinux() Function
+
+IsLinux() Function
+==================
 
 We can check if the operating system is Linux or not using the IsLinux() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsLinux() ---> Returns 1 if the operating system is Linux, Returns 0 if it's not
 
 
-IsFreeBSD()
-===========
+.. index:: 
+	pair: System Functions; IsFreeBSD() Function
+
+IsFreeBSD() Function
+====================
 
 We can check if the operating system is FreeBSD or not using the IsFreeBSD() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsFreeBSD() ---> Returns 1 if the operating system is FreeBSD, Returns 0 if it's not
 
 
-IsAndroid()
-===========
+.. index:: 
+	pair: System Functions; IsAndroid() Function
+
+IsAndroid() Function
+====================
 
 We can check if the operating system is Android or not using the IsAndroid() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsAndroid() ---> Returns 1 if the operating system is Android, Returns 0 if it's not
+
+.. index:: 
+	pair: System Functions; Example
 
 Example
 =======
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "IsMSDOS()     --> " + ismsdos()     + nl
 	see "IsWindows()   --> " + iswindows()   + nl
@@ -177,7 +223,7 @@ Example
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	IsMSDOS()     --> 0
 	IsWindows()   --> 1
@@ -188,20 +234,23 @@ Output:
 	IsFreeBSD()   --> 0
 	IsAndroid()   --> 0
 
-Windowsnl()
-===========
+.. index:: 
+	pair: System Functions; Windowsnl() Function
+
+Windowsnl() Function
+====================
 
 We can get the windows new line string using the Windowsnl() function.
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	WindowsNL() ---> Returns a string contains CR+LF = CHAR(13) + CHAR(10)
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	cStr = read("input.txt")
 
@@ -219,6 +268,9 @@ Example:
 
 	write("ouput.txt",cStr)
 
+.. index:: 
+	pair: System Functions; Get Command Line Arguments
+
 Get Command Line Arguments
 ==========================
 
@@ -228,13 +280,14 @@ The sysargv variable is a list contains the command line parameters.
 
 Example
 
-.. code-block:: none
+.. code-block:: ring
 
 	see copy("=",30) + nl
 	see "Command Line Parameters" + nl
 	see "Size : " + len(sysargv) + nl
 	see sysargv
 	see copy("=",30) + nl
+	if len(sysargv) < 4 return ok
 	nStart = sysargv[3]
 	nEnd = sysargv[4]
 	for x = nStart to nEnd
@@ -243,7 +296,7 @@ Example
 
 Output
 
-.. code-block:: none
+.. code-block:: ring
 
 	b:\mahmoud\apps\ring>ring tests\syspara.ring 1 10
 	==============================
@@ -265,6 +318,9 @@ Output
 	9
 	10
 
+.. index:: 
+	pair: System Functions; Get Active Source File Name
+
 Get Active Source File Name
 ===========================
 
@@ -272,26 +328,26 @@ We can get the active source file name (*.ring) using the filename() function
 
 Syntax:
 
-.. code-block:: none
+.. code-block:: ring
 
 	filename() ---> String contains the active source file name.
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	see "Active Source File Name : " + filename() + nl
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Active Source File Name : tests\filename.ring
 
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	if sysargv[2] = filename()
 		see "I'm the main program file!" + nl
@@ -300,3 +356,109 @@ Example:
 		see "I'm a sub file in a program" + nl
 	ok
 
+
+.. index:: 
+	pair: System Functions; PrevFileName() Function
+
+PrevFileName() Function
+=======================
+
+Using the PrevFileName() function we can get the previous active source file name.
+
+The previous file would be the file of the caller function, Or the file of the function
+that we called before calling PrevFileName().
+
+Syntax:
+
+.. code-block:: ring
+
+	prevfilename() ---> String contains the previous source file name.
+
+Example:
+
+The next function in stdlib.ring uses the PrevFileName() to know if the file of the
+caller function is the main source file of the program or not.
+
+.. code-block:: ring
+
+	Func IsMainSourceFile
+		if PrevFileName() = sysargv[2]
+			return true
+		ok
+		return false
+
+.. index:: 
+	pair: System Functions; CurrentDir() Function
+
+CurrentDir() Function
+=====================
+
+Return the path of the current directory
+
+Syntax:
+
+.. code-block:: ring
+
+	CurrenDir() ---> String contains the path of the currect directory 
+
+.. index:: 
+	pair: System Functions; ExeFileName() Function
+
+ExeFileName() Function
+======================
+
+Return the Ring executable file name
+
+Syntax:
+
+.. code-block:: ring
+
+	exefilename() ---> String contains the Ring executable file name
+
+.. index:: 
+	pair: System Functions; ChDir() Function
+
+ChDir() Function
+================
+
+Change the current directory
+
+Syntax:
+
+.. code-block:: ring
+
+	ChDir(cNewPath)
+
+.. index:: 
+	pair: System Functions; ExeFolder() Function
+
+ExeFolder() Function
+====================
+
+Return the Ring executable file path
+
+Syntax:
+
+.. code-block:: ring
+
+	exefolder() ---> String contains the Ring executable path
+
+.. index:: 
+	pair: System Functions; Version() Function
+
+Version() Function
+==================
+
+Return the Ring version
+
+Syntax:
+
+.. code-block:: ring
+
+	version() ---> String contains the Ring version
+
+Output:
+
+.. code-block:: ring
+
+	1.3

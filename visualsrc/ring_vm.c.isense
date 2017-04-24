@@ -1,8 +1,9 @@
 ring_vm_h
 RING_VM_STACK_SIZE
+RING_VM_BC_ITEMS_COUNT
 Parent: ByteCode
 Type: Item *
-aData[16]
+aData[RING_VM_BC_ITEMS_COUNT]
 Type: char
 nSize
 Type: List *
@@ -155,6 +156,16 @@ Type: char
 nCallClassInit
 Type: char
 nRetEvalDontDelete
+Type: char *
+cPrevFileName
+Type: char
+nRunCode
+Type: char
+nActiveError
+Type: List *
+aDynamicSelfItems
+Type: String *
+pPackageName
 END:
 Type: VM
 struct VM
@@ -268,6 +279,7 @@ RING_ASCOPENEWOBJ_PREVSCOPE
 RING_ASCOPENEWOBJ_LISTSTART
 RING_ASCOPENEWOBJ_NESTEDLISTS
 RING_ASCOPENEWOBJ_SP
+RING_ASCOPENEWOBJ_FUNCSP
 RING_STATE_TRYCATCH
 RING_STATE_EXIT
 RING_STATE_RETURN
@@ -318,7 +330,10 @@ RING_VM_ERROR_TRYINGTOMODIFYTHESELFPOINTER
 RING_VM_ERROR_BADCALLPARA
 RING_VM_ERROR_BADDECIMALNUMBER
 RING_VM_ERROR_ASSIGNNOTVARIABLE
+RING_VM_ERROR_CANTOPENFILE
+RING_VM_ERROR_BADCOLUMNNUMBER
 RING_VM_EXTRASIZE
+RING_VM_STATICVAR_THIS
 ring_vm_new
 Type: VM *
 pVM
@@ -329,6 +344,10 @@ pList
 ring_vm_delete
 Type: int
 x
+Type: List *
+pRecord
+Type: Item *
+pItem
 ring_vm_loadcode
 Type: int
 x,nSize
@@ -371,6 +390,10 @@ ring_vm_newbytecodeitem
 Type: Item *
 pItem
 ring_vm_runcode
+Type: int
+nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP
+Type: List *
+pStackList
 ring_vm_init
 Type: Scanner *
 pScanner

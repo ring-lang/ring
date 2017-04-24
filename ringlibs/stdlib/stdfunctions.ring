@@ -59,6 +59,12 @@ Func std_del aList,nIndex
 Func std_find aList,vValue
 	return Find(aList,vValue)
 
+Func std_find2 aList,vValue,nColumn
+	return Find(aList,vValue,nColumn)
+
+Func std_find3 aList,vValue,nColumn,cAttribute
+	return Find(aList,vValue,nColumn,cAttribute)
+
 Func std_findincolumn aList,nCol,vValue
 	return Find(aList,nCol,vValue)
 
@@ -237,7 +243,7 @@ Func std_system cCommand
 	system(cCommand)
 
 Func std_get cVariable
-	return get(cVariable)
+	return sysget(cVariable)
 
 Func std_ismsdos
 	return ismsdos()
@@ -476,4 +482,5 @@ Func std_download cURL
 Func std_sendemail cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent
 	sendemail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
 
-
+Func std_swap aList,nItem1,nItem2
+	swap(aList,nItem1,nItem2)

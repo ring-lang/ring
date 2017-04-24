@@ -1,9 +1,13 @@
-﻿==============
+﻿.. index:: 
+	single: Stdlib Classes; Introduction
+
+==============
 Stdlib Classes
 ==============
 
 In this chapter we are going to learn about the classes in the stdlib.ring
 
+* StdBase Class
 * String Class
 * List Class
 * Stack Class
@@ -23,9 +27,37 @@ In this chapter we are going to learn about the classes in the stdlib.ring
 * Security Class
 * Internet Class
 
+.. index:: 
+	pair: Stdlib Classes; StdBase Class
+
+StdBase Class
+=============
+
+Attributes:
+
+* vValue : Object Value
+
+Methods:
+
+===========================	======================================================================
+Method				Description/Output
+===========================	======================================================================
+Init(x)				Set vValue Attribute to x value
+Print()				Print vValue
+PrintLn()			Print vValue then New Line
+Size()				return number represent the size of vValue
+Value()				return vValue
+Set(x)				Call Init(x)
+===========================	======================================================================
+
+
+.. index:: 
+	pair: Stdlib Classes; String Class
 
 String Class
 ============
+
+Parent Class : StdBase Class
 
 Methods:
 
@@ -43,15 +75,17 @@ Copy(x)  			New String - repeat string x times
 strcmp(cString)   		Compare string with cString  
 tolist()	  		List (String Lines to String Items)
 tofile(cFileName) 		Write string to file
-get(nPos1,nPos2)  		New String - from nPos1 to nPos2
+mid(nPos1,nPos2)  		New String - from nPos1 to nPos2
 getfrom(nPos1)	  		New String - from nPos1 to the end of the string
 replace(cStr1,cStr2,lCase) 	New String - Replace cStr1 with cStr2 , lCase (True=Math Case)
 split()		  		List - Each Word as list item
+startswith(substring)		Return true if the start starts with a substring 
+endswith(substring)		Return true if the start ends with a substring
 ===========================	======================================================================
 
 Example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -84,7 +118,7 @@ Example:
 	See "the - position : " + oString.pos("the") + nl
 	oString = oString.getfrom(oString.pos("Ring"))
 	oString.println()
-	oString.get(1,4).println()
+	oString.mid(1,4).println()
 	oString = oString.replace("Ring","***Ring***",true)
 	oString.println()
 	oString = oString.replace("ring","***Ring***",false)
@@ -107,7 +141,7 @@ Example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Testing the String Class
 	Hello, World!
@@ -145,9 +179,13 @@ Output:
 	Hello
 	How are you?
 
+.. index:: 
+	pair: Stdlib Classes; List Class
 	
 List Class
 ==========
+
+Parent Class : StdBase Class
 
 Methods:
 
@@ -170,7 +208,7 @@ Insert(nIndex,Value)		Inset Item after nIndex
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -208,7 +246,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	2
@@ -258,9 +296,13 @@ output:
 	three
 	four
 
+.. index:: 
+	pair: Stdlib Classes; Stack Class
 	
 Stack Class
 ===========
+
+Parent Class : List Class
 
 Methods:
 
@@ -275,7 +317,7 @@ Print()						Print the stack items
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -293,7 +335,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	3
 	2
@@ -303,6 +345,8 @@ output:
 	two
 	one
 	
+.. index:: 
+	pair: Stdlib Classes; Queue Class
 	
 Queue Class
 ===========
@@ -320,7 +364,7 @@ Remove()					Remove item from the Queue.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -338,7 +382,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	1
 	2
@@ -347,6 +391,9 @@ output:
 	one
 	two
 	three
+
+.. index:: 
+	pair: Stdlib Classes; HashTable Class
 
 HashTable Class
 ===============
@@ -361,14 +408,14 @@ Method						Description/Output
 Init(List)
 Add(cKey,Value)				Add item to the HashTable
 Set(cKey,Value)				Set item value using the Key
-Get(cKey)					Get item value using the Key
+GetValue(cKey)				Get item value using the Key
 Contains(cKey)				Check if the HashTable contains item using the Key
 Index(cKey)					Get the item index using the Key
 ===========================	======================================================================
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -390,7 +437,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the hashtable Class Methods
 	Cairo
@@ -406,6 +453,9 @@ output:
 	Egypt
 	Cairo
 
+
+.. index:: 
+	pair: Stdlib Classes; Tree Class
 
 Tree Class
 ==========
@@ -433,7 +483,7 @@ print()						Print the tree nodes.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -463,7 +513,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the tree Class Methods
 	The first step
@@ -499,6 +549,9 @@ output:
 	3.2
 	3.3
 
+.. index:: 
+	pair: Stdlib Classes; Math Class
+
 Math Class
 ==========
 
@@ -532,7 +585,7 @@ decimals(n)		Determine the decimals digits after the point in float/double numbe
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -613,7 +666,7 @@ example:
 	
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the Math Class Methods
 	Sin(0) = 0
@@ -687,6 +740,9 @@ output:
 	1.12345678901230
 	Hash : 3372029979.00000000000000
 
+.. index:: 
+	pair: Stdlib Classes; DateTime Class
+
 DateTime Class
 ==============
 
@@ -705,7 +761,7 @@ diffdays(cDate1,cDate2)		Return the Number of days (cDate1 - cDate2)
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -741,7 +797,7 @@ example:
 
 output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the datetime Class Methods
 	Calculate performance
@@ -777,6 +833,9 @@ output:
 	DiffDays = 10
 
 	
+.. index:: 
+	pair: Stdlib Classes; File Class
+
 File Class
 ==========
 
@@ -816,7 +875,7 @@ exists(cFileName)			Check if a file exists
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -830,6 +889,9 @@ example:
 	see ofile.gets(100) + nl
 	ofile.close()
 
+.. index:: 
+	pair: Stdlib Classes; System Class
+
 System Class
 ============
 
@@ -839,7 +901,7 @@ Methods:
 Method						Description/Output
 ===========================	======================================================================
 system()					Execute system commands
-get()						Get environment variables 
+sysget()					Get environment variables 
 ismsdos()					Check if the operating system is MSDOS or not
 iswindows()					Check if the operating system is Windows or not
 iswindows64()				Check if the operating system is Windows 64bit or not 
@@ -855,7 +917,7 @@ filename()					Get the active source file
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -864,7 +926,7 @@ example:
 	See "Test the System Class Methods" + nl
  	
 	oSystem.system("dir")
-	see oSystem.get("path") + nl
+	see oSystem.sysget("path") + nl
 	see oSystem.ismsdos() + nl
 	see oSystem.iswindows() + nl
 	see oSystem.iswindows64() + nl
@@ -876,6 +938,9 @@ example:
 	see oSystem.windowsnl() + nl
 	see oSystem.sysargv() + nl
 	see oSystem.filename() + nl
+
+.. index:: 
+	pair: Stdlib Classes; Debug Class
 
 Debug Class
 ===========
@@ -892,7 +957,7 @@ assert(cCondition)			Test condition before executing the code.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -905,6 +970,9 @@ example:
 	catch see "assert" + nl done
 	raise("Error!")
 	
+
+.. index:: 
+	pair: Stdlib Classes; DataType Class
 
 DataType Class
 ==============
@@ -934,7 +1002,7 @@ isxdigit(vValue)			1 if the value is a hexdecimal digit character or 0 if not
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -973,7 +1041,7 @@ example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the DataType Class Methods
 	1
@@ -1005,6 +1073,9 @@ Output:
 	1
 	0	
 
+.. index:: 
+	pair: Stdlib Classes; Conversion Class
+
 Conversion Class
 ================
 
@@ -1025,7 +1096,7 @@ hex2str(vValue)				Convert hexadecimal characters to string.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1043,7 +1114,7 @@ example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the conversion Class Methods
 	8
@@ -1054,6 +1125,9 @@ Output:
 	162
 	48656c6c6f
 	Hello
+
+.. index:: 
+	pair: Stdlib Classes; ODBC Class
 
 ODBC Class
 ==========
@@ -1081,7 +1155,7 @@ rollback()					Rollback updates to the database
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1107,6 +1181,9 @@ example:
 		close()
 	}
 	
+.. index:: 
+	pair: Stdlib Classes; MySQL Class
+
 MySQL Class
 ===========
 
@@ -1133,7 +1210,7 @@ rollback()								Rollback updates to the database.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 	
@@ -1152,7 +1229,7 @@ example:
 	
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 	
 	Test the MySQL Class Methods
 	5.5.30
@@ -1172,6 +1249,8 @@ Output:
 	17000
 	Close database
 
+.. index:: 
+	pair: Stdlib Classes; SQLite Class
 
 SQLite Class
 ============
@@ -1189,7 +1268,7 @@ execute(cSQL)							Execute Query.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1232,7 +1311,7 @@ example:
 
 Output:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Test the sqlite Class Methods
 	1
@@ -1262,6 +1341,9 @@ Output:
 	Ibrahim
 
 
+.. index:: 
+	pair: Stdlib Classes; Security Class
+
 Security Class
 ==============
 
@@ -1284,7 +1366,7 @@ randbytes(nSize)						Generate a string of pseudo-random bytes.
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 
@@ -1302,6 +1384,8 @@ example:
 	}
 
 	
+.. index:: 
+	pair: Stdlib Classes; Internet Class
 
 Internet Class
 ==============
@@ -1313,7 +1397,7 @@ Methods:
 
 example:
 
-.. code-block:: none
+.. code-block:: ring
 
 	Load "stdlib.ring"
 

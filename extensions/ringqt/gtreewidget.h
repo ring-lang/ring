@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GTREEWIDGET_H
 #define GTREEWIDGET_H
 #include <QApplication>
@@ -16,6 +16,8 @@ class GTreeWidget : public QTreeWidget
   public:
 
     VM *pVM;
+
+    List *pParaList;
 
     char ccollapsedEvent[100];
     char cexpandedEvent[100];
@@ -39,6 +41,10 @@ class GTreeWidget : public QTreeWidget
 
     GTreeWidget(QWidget *parent,VM *pVM );
 
+    ~GTreeWidget();
+
+    void geteventparameters(void) ;
+
     void setcollapsedEvent(const char *cStr);
     void setexpandedEvent(const char *cStr);
     void setactivatedEvent(const char *cStr);
@@ -57,6 +63,26 @@ class GTreeWidget : public QTreeWidget
     void setitemExpandedEvent(const char *cStr);
     void setitemPressedEvent(const char *cStr);
     void setitemSelectionChangedEvent(const char *cStr);
+
+
+    const char *getcollapsedEvent(void);
+    const char *getexpandedEvent(void);
+    const char *getactivatedEvent(void);
+    const char *getclickedEvent(void);
+    const char *getdoubleClickedEvent(void);
+    const char *getenteredEvent(void);
+    const char *getpressedEvent(void);
+    const char *getviewportEnteredEvent(void);
+    const char *getcurrentItemChangedEvent(void);
+    const char *getitemActivatedEvent(void);
+    const char *getitemChangedEvent(void);
+    const char *getitemClickedEvent(void);
+    const char *getitemCollapsedEvent(void);
+    const char *getitemDoubleClickedEvent(void);
+    const char *getitemEnteredEvent(void);
+    const char *getitemExpandedEvent(void);
+    const char *getitemPressedEvent(void);
+    const char *getitemSelectionChangedEvent(void);
 
 
   public slots:
