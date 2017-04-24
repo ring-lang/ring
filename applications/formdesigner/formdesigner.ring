@@ -2592,7 +2592,8 @@ class FormDesigner_QWidget from QWidget
 		cOutput += cTabs + ' :backcolor =  "#{f6}" , ' + nl
 		cOutput += cTabs + ' :windowflags =  "#{f7}" , ' + nl
 		cOutput += cTabs + ' :mainlayout =  "#{f8}" ,' + nl
-		cOutput += cTabs + ' :WindowIcon =  "#{f9}" ' + nl
+		cOutput += cTabs + ' :WindowIcon =  "#{f9}" , ' + nl
+		cOutput += cTabs + ' :Menubar =  "#{f10}"  ' + nl
 		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
 		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
@@ -2602,6 +2603,7 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f7}",WindowFlagsValue())
 		cOutput = substr(cOutput,"#{f8}",MainLayoutValue())
 		cOutput = substr(cOutput,"#{f9}",WindowIconValue())
+		cOutput = substr(cOutput,"#{f10}",MenubarValue())
 		return cOutput
 
 	func GenerateCode oDesigner
@@ -7289,6 +7291,7 @@ class FormDesignerFileSystem
 							setWindowTitle(itemdata[:title])
 						 	setBackColor(itemdata[:backcolor])
 							setWindowFlagsValue(itemdata[:windowflags])
+							setMenubarValue(itemdata[:Menubar])
 							setMainLayoutValue(itemdata[:MainLayout])
 							setWindowIconValue(itemdata[:WindowIcon])
 						}
