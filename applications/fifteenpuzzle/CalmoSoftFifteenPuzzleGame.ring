@@ -57,7 +57,7 @@ app1 = new qapp {
                                     setclickevent("resettiles()")
                    }
 
-                   savebtn = new qpushbutton(win1)   
+                   /*savebtn = new qpushbutton(win1)   
                    {
                                    setgeometry(100,380,160,40)  
                                    settext("Save Game")  
@@ -69,7 +69,7 @@ app1 = new qapp {
                                    setgeometry(100,420,160,40)  
                                    settext("Play Game")  
                                    setclickevent("pPlay()")
-                   }
+                   }*/
                    newsize(4) 
                    show()
         }
@@ -92,6 +92,7 @@ Func newlist x, y
      return alist	
 
 func scramble
+       resettiles()
        for n= 1 to 1000   
             nr=random(nrold*nrold-1)+1
             up = (empty = (nr - nrold))
@@ -249,7 +250,7 @@ func rotateright
 func newsize nr
         win1{ 
                 sizenew = nr%4
-                win1.resize(380+sizenew*40,520+sizenew*40)
+                win1.resize(380+sizenew*40,440+sizenew*40)
                 if flag != 0
                    for nb = 1 to nrold*nrold+3
                          button[nb] {close()}
@@ -257,8 +258,8 @@ func newsize nr
                 ok
                 scramblebtn.close()
                 resetbtn.close()
-                savebtn.close()
-                playbtn.close()
+                /*savebtn.close()
+                playbtn.close()*/
 
                 for n = 1 to nr*nr
                      col = n%nr
@@ -318,7 +319,7 @@ func newsize nr
                                  show() 
                 }
 
-                savebtn = new qpushbutton(win1)   
+                /*savebtn = new qpushbutton(win1)   
                 {
                                  setgeometry(100,100+(nr+3)*40,nr*40,40)
                                  settext("Save Game")
@@ -332,7 +333,7 @@ func newsize nr
                                settext("Play Game")  
                                setclickevent("pPlay()")
                                show()
-                }
+                }*/
                 empty = nr*nr
                 nrold = nr
                 flag = flag + 1
@@ -366,12 +367,14 @@ func pPlay
         for n = nrold*nrold + 2 to len(table)
              tmp = table[n]
              tmp2 = table2[n]
+             nDegree = 0
              button[number(empty)].settext(tmp)
              button[number(tmp2)].settext("")
              empty = tmp2
              sleep(1)
         next
-        return 
+        return     
+
 
 Class ButtonWithRotatedText
 
