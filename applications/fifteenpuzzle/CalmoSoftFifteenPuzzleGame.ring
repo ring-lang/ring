@@ -121,6 +121,9 @@ func scramble
             ok
        next
        button[nrold*nrold+2]{settext("Here")}
+       for n=1 to nrold*nrold
+             button[n].setbuttoncolor("yellow")
+       next
        table = []
        table2 = []
        for n = 1 to nrold*nrold
@@ -339,16 +342,14 @@ show()
 func pSave
         textedit1 = list2str(table)
         textedit2 = list2str(table2)
-        chdir(exefolder()+"../extensions/ringallegro")
-        cName = exefolder()+"../CalmoSoftPuzzle.txt"
-        cName2 = exefolder()+"../CalmoSoftPuzzle2.txt"
+        cName = "C:\Ring\bin\CalmoSoftPuzzle.txt"
+        cName2 = "C:\Ring\bin\CalmoSoftPuzzle2.txt"
         write(cName,textedit1)
         write(cName2,textedit2)
         return
 
 func pPlay
-
-        cName = cName = exefolder()+"../CalmoSoftPuzzle.txt"
+        cName = "C:\Ring\bin\CalmoSoftPuzzle.txt"
         textedit1 = read(cName)
         table = str2list(textedit1)
 
@@ -368,8 +369,7 @@ func pPlay
              button[number(empty)].settext(tmp)
              button[number(tmp2)].settext("")
              empty = tmp2
-             t = clock()
-             while clock() - t <= clockspersecond() end
+             sleep(1)
         next
         return 
 
