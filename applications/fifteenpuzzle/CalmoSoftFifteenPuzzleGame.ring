@@ -1,12 +1,13 @@
-# author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
+# Project : CalmoSoft Fifteen Puzzle Game 
+# Author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
 
 load "guilib.ring"
 
 app1 = new qapp {
 
         empty = 16  
-        nrold = 0 
-        nr = 0
+        nrold = 4 
+        nr = 4
         temp = 0
         flag = 0
         button = list(52)   
@@ -101,10 +102,9 @@ func scramble
             if move = 1 
                button[nr] { temp2 = text() }
                col = empty%nrold
-               //if col = 0 col = nrold ok
+               if col = 0 col = nrold ok
                row = ceil(empty/nrold)
-               button[empty] = new ButtonWithRotatedText(win1)
-                       button[empty] {
+               button[empty] {
                        setgeometry(60+col*40,60+row*40,40,40)
                        rnd = random(6)+1
                        nDegree = nrDegree[rnd]
@@ -150,17 +150,15 @@ func movetile nr2
               col = empty%nrold
               if col = 0 col = nrold ok
               row = ceil(empty/nrold)
-              button[empty] = new ButtonWithRotatedText(win1)
               button[empty] {
                                    setgeometry(60+col*40,60+row*40,40,40)
                                    nDegree = btnDegree[nr2][2]
                                    btnDegree[empty][2] = nDegree
-                                   button[empty].setbuttoncolor("yellow")
+                                   button[empty].setbuttoncolor("orange")
                                    button[empty].settext(temp2)
-                                   setClickEvent("movetile(" + string(empty) +")")
               }
-              button[nr2].setbuttoncolor("yellow")
-              button[nr2] {settext("")}
+              button[nr2].setbuttoncolor("cyan")
+              button[nr2]{settext("")}
               empty = nr2
           ok
       ok 
@@ -250,8 +248,8 @@ func newsize nr
                 sizenew = nr%4
                 win1.resize(380+sizenew*40,520+sizenew*40)
                 if flag != 0
-                   for n = 1 to nrold*nrold+3
-                         button[n].close()
+                   for nb = 1 to nrold*nrold+3
+                         button[nb] {close()}
                    next
                 ok
                 scramblebtn.close()
@@ -269,9 +267,9 @@ func newsize nr
                                        button[n].setbuttoncolor("yellow")                                       
                                        nDegree = 0
                                        if n < nr*nr
-                                          settext(string(n))
-                                       else
-                                          settext("")
+                                          button[n].settext(string(n))
+                                       but n = nr*nr
+                                          button[n].settext("")
                                        ok 
                                        setClickEvent("movetile(" + string(n) +")")
                                        }
@@ -284,14 +282,14 @@ func newsize nr
                                               setclickevent("rotateLeft()")   
                                               show() 
                 } 
-               
+
                 button[nr*nr+2] = new qpushbutton(win1)
                 {
                                              setgeometry(60+(nr-1)*40,60+(nr+1)*40,40,40)
                                              settext("Here")
                                              setclickevent("pHere()")   
                                              show() 
-                } 
+                }
 
                 button[nr*nr+3] = new qpushbutton(win1)
                 {
@@ -299,7 +297,7 @@ func newsize nr
                                              settext("->")
                                              setclickevent("rotateRight()")   
                                              show() 
-                     } 
+                 }
 
                 scramblebtn = new qpushbutton(win1)
                 {
@@ -335,6 +333,7 @@ func newsize nr
                 empty = nr*nr
                 nrold = nr
                 flag = flag + 1
+show()
                 }
 
 func pSave
@@ -390,7 +389,7 @@ Class ButtonWithRotatedText
     
     func close()
             oLabel.close()
-            oButton.close()  
+            oButton.close()
             return
 
     func setstylesheet(x)
