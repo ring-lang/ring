@@ -194,13 +194,13 @@ func pHere
            }
            nDegree = 0
            button[nrold*nrold-1]{settext("In")}
-           /*for n = 1 to nrold*nrold
-                 button[n]{setenabled = false}
+           for n = 1 to nrold*nrold
+	   button[n].setenabled(false)
            next
-           button[nrold*nrold-1]{setenabled = true}
-           scramblebtn{setenabled = false}
-           resetbtn{setenabled = false}*/
-           ok
+           button[nrold*nrold-1].setenabled(true)
+           scramblebtn.setenabled(false)
+           resetbtn.setenabled(false)
+        ok
 
 func pBack
         button[nrold*nrold+2] { temp = text() }
@@ -215,11 +215,11 @@ func pBack
                 setclickevent("pHere()")   
                 show() 
                 } 
-        /*for n = 1 to nrold*nrold
-              button[n]{setenabled = true}
+        for n = 1 to nrold*nrold
+              button[n].setenabled(true)
         next
-        scramblebtn{setenabled = true}
-        resetbtn{setenabled = true}*/
+        scramblebtn.setenabled(true)
+        resetbtn.setenabled(true)
 
 func rotateleft
         if button[nrold*nrold+2].text() != "Here" 
@@ -250,7 +250,7 @@ func rotateright
 func newsize nr
         win1{ 
                 sizenew = nr%4
-                win1.resize(380+sizenew*40,440+sizenew*40)
+                win1.resize(360+sizenew*40,440+sizenew*40)
                 if flag != 0
                    for nb = 1 to nrold*nrold+3
                          button[nb] {close()}
@@ -337,7 +337,6 @@ func newsize nr
                 empty = nr*nr
                 nrold = nr
                 flag = flag + 1
-show()
                 }
 
 func pSave
@@ -435,8 +434,9 @@ Class ButtonWithRotatedText
         draw() 
     return
 
-    func setenabled()
-        oButton.setenabled()
+func setEnabled(value)        
+         oButton.setenabled(value)
+         return		
 
     func setButtonColor(color)  
         colorIt = "background-color:" + color  
