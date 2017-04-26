@@ -2682,7 +2682,7 @@ class FormDesigner_QWidget from QWidget
 				cTempCode = `
 				oAction#{f5}_#{f6} = new qAction(win) {
 					setShortcut(new QKeySequence("#{f1}"))
-					//setbtnimage(self,"#{f2}")
+					setbtnimage(self,"#{f2}")
 					settext("#{f3}")
 					setclickevent(Method(:#{f4}))
 				}
