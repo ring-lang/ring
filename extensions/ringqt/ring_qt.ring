@@ -27,6 +27,9 @@ Class QApp
 	Func styleFusionBlack 
 		return QApp_styleFusionBlack()
 
+	Func styleFusionCustom P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12
+		return QApp_styleFusionCustom(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7),GetObjectPointerFromRingObject(P8),GetObjectPointerFromRingObject(P9),GetObjectPointerFromRingObject(P10),GetObjectPointerFromRingObject(P11),GetObjectPointerFromRingObject(P12))
+
 	Func closeAllWindows 
 		return QApp_closeAllWindows()
 
@@ -10192,7 +10195,7 @@ Class QTextCodec
 		return QTextCodec_codecForName(P1)
 
 	Func setCodecForLocale P1
-		return QTextCodec_setCodecForLocale(P1)
+		return QTextCodec_setCodecForLocale(GetObjectPointerFromRingObject(P1))
 
 Class QSqlDatabase
 
