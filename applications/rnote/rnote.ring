@@ -93,6 +93,22 @@ oAutoCompleteList = NULL
 nAutoCompleteListSize = 0
 
 MyApp = New qApp {
+	if lUseCustomStyleColors
+		StylefusionCustom(
+			new qColor() { setrgb(0,0,128,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(0,50,128,255) },
+			new qColor() { setrgb(53,150,128,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(53,150,128,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(255,0,0,255) },
+			new qColor() { setrgb(142,45,197,255) },
+			new qColor() { setrgb(0,0,128,255)}
+		)
+	ok
 	PrepareAutoComplete()
 	win1 = new qMainWindow() {
 		oFilter = new qAllEvents(win1)
@@ -856,7 +872,6 @@ func pFind
 
 		setwinicon(oSearch,"image/notepad.png")
 		setWindowTitle("Find/Replace")		
-		setStyleSheet("background-color:white;")
 		setFixedsize(550,160)
 		setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint) 
 
