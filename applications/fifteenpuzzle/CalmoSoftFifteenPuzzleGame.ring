@@ -1,12 +1,13 @@
-# author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
+# Project : CalmoSoft Fifteen Puzzle Game 
+# Author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
 
 load "guilib.ring"
 
 app1 = new qapp {
 
         empty = 16  
-        nrold = 0 
-        nr = 0
+        nrold = 4 
+        nr = 4
         temp = 0
         flag = 0
         button = list(52)   
@@ -56,7 +57,7 @@ app1 = new qapp {
                                     setclickevent("resettiles()")
                    }
 
-                   savebtn = new qpushbutton(win1)   
+                   /*savebtn = new qpushbutton(win1)   
                    {
                                    setgeometry(100,380,160,40)  
                                    settext("Save Game")  
@@ -68,7 +69,7 @@ app1 = new qapp {
                                    setgeometry(100,420,160,40)  
                                    settext("Play Game")  
                                    setclickevent("pPlay()")
-                   }
+                   }*/
                    newsize(4) 
                    show()
         }
@@ -91,6 +92,7 @@ Func newlist x, y
      return alist	
 
 func scramble
+       resettiles()
        for n= 1 to 1000   
             nr=random(nrold*nrold-1)+1
             up = (empty = (nr - nrold))
@@ -101,10 +103,9 @@ func scramble
             if move = 1 
                button[nr] { temp2 = text() }
                col = empty%nrold
-               //if col = 0 col = nrold ok
+               if col = 0 col = nrold ok
                row = ceil(empty/nrold)
-               button[empty] = new ButtonWithRotatedText(win1)
-                       button[empty] {
+               button[empty] {
                        setgeometry(60+col*40,60+row*40,40,40)
                        rnd = random(6)+1
                        nDegree = nrDegree[rnd]
@@ -121,6 +122,9 @@ func scramble
             ok
        next
        button[nrold*nrold+2]{settext("Here")}
+       for n=1 to nrold*nrold
+             button[n].setbuttoncolor("yellow")
+       next
        table = []
        table2 = []
        for n = 1 to nrold*nrold
@@ -150,17 +154,15 @@ func movetile nr2
               col = empty%nrold
               if col = 0 col = nrold ok
               row = ceil(empty/nrold)
-              button[empty] = new ButtonWithRotatedText(win1)
               button[empty] {
                                    setgeometry(60+col*40,60+row*40,40,40)
                                    nDegree = btnDegree[nr2][2]
                                    btnDegree[empty][2] = nDegree
-                                   button[empty].setbuttoncolor("yellow")
+                                   button[empty].setbuttoncolor("orange")
                                    button[empty].settext(temp2)
-                                   setClickEvent("movetile(" + string(empty) +")")
               }
-              button[nr2].setbuttoncolor("yellow")
-              button[nr2] {settext("")}
+              button[nr2].setbuttoncolor("cyan")
+              button[nr2]{settext("")}
               empty = nr2
           ok
       ok 
@@ -192,13 +194,13 @@ func pHere
            }
            nDegree = 0
            button[nrold*nrold-1]{settext("In")}
-           /*for n = 1 to nrold*nrold
-                 button[n]{setenabled = false}
+           for n = 1 to nrold*nrold
+	   button[n].setenabled(false)
            next
-           button[nrold*nrold-1]{setenabled = true}
-           scramblebtn{setenabled = false}
-           resetbtn{setenabled = false}*/
-           ok
+           button[nrold*nrold-1].setenabled(true)
+           scramblebtn.setenabled(false)
+           resetbtn.setenabled(false)
+        ok
 
 func pBack
         button[nrold*nrold+2] { temp = text() }
@@ -213,11 +215,11 @@ func pBack
                 setclickevent("pHere()")   
                 show() 
                 } 
-        /*for n = 1 to nrold*nrold
-              button[n]{setenabled = true}
+        for n = 1 to nrold*nrold
+              button[n].setenabled(true)
         next
-        scramblebtn{setenabled = true}
-        resetbtn{setenabled = true}*/
+        scramblebtn.setenabled(true)
+        resetbtn.setenabled(true)
 
 func rotateleft
         if button[nrold*nrold+2].text() != "Here" 
@@ -248,16 +250,16 @@ func rotateright
 func newsize nr
         win1{ 
                 sizenew = nr%4
-                win1.resize(380+sizenew*40,520+sizenew*40)
+                win1.resize(360+sizenew*40,440+sizenew*40)
                 if flag != 0
-                   for n = 1 to nrold*nrold+3
-                         button[n].close()
+                   for nb = 1 to nrold*nrold+3
+                         button[nb] {close()}
                    next
                 ok
                 scramblebtn.close()
                 resetbtn.close()
-                savebtn.close()
-                playbtn.close()
+                /*savebtn.close()
+                playbtn.close()*/
 
                 for n = 1 to nr*nr
                      col = n%nr
@@ -269,9 +271,9 @@ func newsize nr
                                        button[n].setbuttoncolor("yellow")                                       
                                        nDegree = 0
                                        if n < nr*nr
-                                          settext(string(n))
-                                       else
-                                          settext("")
+                                          button[n].settext(string(n))
+                                       but n = nr*nr
+                                          button[n].settext("")
                                        ok 
                                        setClickEvent("movetile(" + string(n) +")")
                                        }
@@ -284,14 +286,14 @@ func newsize nr
                                               setclickevent("rotateLeft()")   
                                               show() 
                 } 
-               
+
                 button[nr*nr+2] = new qpushbutton(win1)
                 {
                                              setgeometry(60+(nr-1)*40,60+(nr+1)*40,40,40)
                                              settext("Here")
                                              setclickevent("pHere()")   
                                              show() 
-                } 
+                }
 
                 button[nr*nr+3] = new qpushbutton(win1)
                 {
@@ -299,7 +301,7 @@ func newsize nr
                                              settext("->")
                                              setclickevent("rotateRight()")   
                                              show() 
-                     } 
+                 }
 
                 scramblebtn = new qpushbutton(win1)
                 {
@@ -317,7 +319,7 @@ func newsize nr
                                  show() 
                 }
 
-                savebtn = new qpushbutton(win1)   
+                /*savebtn = new qpushbutton(win1)   
                 {
                                  setgeometry(100,100+(nr+3)*40,nr*40,40)
                                  settext("Save Game")
@@ -331,7 +333,7 @@ func newsize nr
                                settext("Play Game")  
                                setclickevent("pPlay()")
                                show()
-                }
+                }*/
                 empty = nr*nr
                 nrold = nr
                 flag = flag + 1
@@ -340,16 +342,14 @@ func newsize nr
 func pSave
         textedit1 = list2str(table)
         textedit2 = list2str(table2)
-        chdir(exefolder()+"../extensions/ringallegro")
-        cName = exefolder()+"../CalmoSoftPuzzle.txt"
-        cName2 = exefolder()+"../CalmoSoftPuzzle2.txt"
+        cName = "C:\Ring\bin\CalmoSoftPuzzle.txt"
+        cName2 = "C:\Ring\bin\CalmoSoftPuzzle2.txt"
         write(cName,textedit1)
         write(cName2,textedit2)
         return
 
 func pPlay
-
-        cName = cName = exefolder()+"../CalmoSoftPuzzle.txt"
+        cName = "C:\Ring\bin\CalmoSoftPuzzle.txt"
         textedit1 = read(cName)
         table = str2list(textedit1)
 
@@ -366,13 +366,14 @@ func pPlay
         for n = nrold*nrold + 2 to len(table)
              tmp = table[n]
              tmp2 = table2[n]
+             nDegree = 0
              button[number(empty)].settext(tmp)
              button[number(tmp2)].settext("")
              empty = tmp2
-             t = clock()
-             while clock() - t <= clockspersecond() end
+             sleep(1)
         next
-        return 
+        return     
+
 
 Class ButtonWithRotatedText
 
@@ -390,7 +391,7 @@ Class ButtonWithRotatedText
     
     func close()
             oLabel.close()
-            oButton.close()  
+            oButton.close()
             return
 
     func setstylesheet(x)
@@ -433,8 +434,9 @@ Class ButtonWithRotatedText
         draw() 
     return
 
-    func setenabled()
-        oButton.setenabled()
+func setEnabled(value)        
+         oButton.setenabled(value)
+         return		
 
     func setButtonColor(color)  
         colorIt = "background-color:" + color  
