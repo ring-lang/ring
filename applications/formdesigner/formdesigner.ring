@@ -2651,13 +2651,14 @@ class FormDesigner_QWidget from QWidget
 
 	func GenerateMenubarCode cMenu
 		eval(cMenu)	
-		nMenubarCounter = [1,0]
-		cCode = "menu1 = new qmenubar(win) {" + nl
+		nMenubarCounter = [0,0]
+		cCode = "oMenuBar = new qmenubar(win) {" + nl
 		aChild = aMenuData[:Children]
 		if len(aChild) > 0 {
 			cCode += GenerateSubMenuCode(aChild)
 		}
 		cCode += Copy(Char(9),2) +  "}" + nl
+		cCode += Copy(Char(9),2) + "win.SetMenuBar(oMenuBar)" + nl
 		return cCode
 
 	func GenerateSubMenuCode aChild
@@ -2666,7 +2667,7 @@ class FormDesigner_QWidget from QWidget
 		cCode = ""
 		for Item in aChild {
 			nMenubarCounter[2]++
-			if ( len(Item[:Children]) > 0 ) or (nMenuID =1) {
+			if ( len(Item[:Children]) > 0 ) or (nMenuID = 0) {
 				# Menu 
 				nMenubarCounter[1]++
 				cTempCode = Copy(Char(9),3) + 'subMenu#{f1} = addmenu("#{f2}")' + nl
