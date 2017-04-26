@@ -2657,7 +2657,7 @@ class FormDesigner_QWidget from QWidget
 		if len(aChild) > 0 {
 			cCode += GenerateSubMenuCode(aChild)
 		}
-		cCode += "}" + nl
+		cCode += Copy(Char(9),2) +  "}" + nl
 		return cCode
 
 	func GenerateSubMenuCode aChild
@@ -2669,10 +2669,10 @@ class FormDesigner_QWidget from QWidget
 			if ( len(Item[:Children]) > 0 ) or (nMenuID =1) {
 				# Menu 
 				nMenubarCounter[1]++
-				cTempCode = 'subMenu#{f1} = addmenu("#{f2}")' + nl
-				cTempCode += 'subMenu#{f1} {' + nl
+				cTempCode = Copy(Char(9),3) + 'subMenu#{f1} = addmenu("#{f2}")' + nl
+				cTempCode += Copy(Char(9),3) + 'subMenu#{f1} {' + nl
 				cTempCode += GenerateSubMenuCode(Item[:Children])
-				cTempCode += '}' + nl
+				cTempCode += Copy(Char(9),3) + '}' + nl
 				cTempCode = SubStr(cTempCode,"#{f1}",""+nMenubarCounter[1])
 				cTempCode = SubStr(cTempCode,"#{f2}",Item[:Text])
 				cCode += cTempCode
@@ -2685,8 +2685,7 @@ class FormDesigner_QWidget from QWidget
 					settext("#{f3}")
 					setclickevent(Method(:#{f4}))
 				}
-				addaction(oAction#{f5}_#{f6})
-				`
+				addaction(oAction#{f5}_#{f6})`+nl
 				cTempCode = SubStr(cTempCode,"#{f1}",Item[:ShortCut])
 				cTempCode = SubStr(cTempCode,"#{f2}",Item[:Image])
 				cTempCode = SubStr(cTempCode,"#{f3}",Item[:Text])
