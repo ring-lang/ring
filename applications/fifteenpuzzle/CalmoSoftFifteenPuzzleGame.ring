@@ -1,4 +1,4 @@
-# Project : CalmoSoft Fifteen Puzzle Game 
+# Project : CalmoSoft Fifteen Puzzle Game (Under Development)
 # Author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
 
 load "guilib.ring"
@@ -12,8 +12,9 @@ app1 = new qapp {
         flag = 0
         button = list(52)   
         sizebtn = list(7)
-        table = [] 
+        table1 = [] 
         table2 = [] 
+        table3 = []
         nDegree = 0
         nrDegree = [0,90,180,270 ,-90,-180,-270]
         LabelSizeX = 100
@@ -57,7 +58,7 @@ app1 = new qapp {
                                     setclickevent("resettiles()")
                    }
 
-                   /*savebtn = new qpushbutton(win1)   
+                   savebtn = new qpushbutton(win1)   
                    {
                                    setgeometry(100,380,160,40)  
                                    settext("Save Game")  
@@ -69,7 +70,7 @@ app1 = new qapp {
                                    setgeometry(100,420,160,40)  
                                    settext("Play Game")  
                                    setclickevent("pPlay()")
-                   }*/
+                   }
                    newsize(4) 
                    show()
         }
@@ -125,17 +126,22 @@ func scramble
        for n=1 to nrold*nrold
              button[n].setbuttoncolor("yellow")
        next
-       table = []
+       table1 = []
        table2 = []
+       table3 = []   
        for n = 1 to nrold*nrold
-             add(table, button[n].text())
-       next
-       add(table, string(empty))
-
-       for n = 1 to nrold*nrold
+             see btnDegree[n][2] + nl
+             add(table1, button[n].text())
              add(table2, button[n].text())
+             add(table3, string(btnDegree[n][2]))
        next
+       add(table1, string(empty))
        add(table2, string(empty))
+       add(table3, string(empty))
+       add(table1, "OK")
+       add(table2, "OK")
+       add(table3, "OK")
+
        return
 
 func movetile nr2
@@ -149,7 +155,7 @@ func movetile nr2
            move = up or down or left  or right
            if move = 1 
               temp2 = button[nr2].text() 
-              add(table, temp2)
+              add(table1, temp2)
               add(table2, string(nr2))              
               col = empty%nrold
               if col = 0 col = nrold ok
@@ -161,6 +167,7 @@ func movetile nr2
                                    button[empty].setbuttoncolor("orange")
                                    button[empty].settext(temp2)
               }
+              add(table3, string(nDegree))
               button[nr2].setbuttoncolor("cyan")
               button[nr2]{settext("")}
               empty = nr2
@@ -200,6 +207,8 @@ func pHere
            button[nrold*nrold-1].setenabled(true)
            scramblebtn.setenabled(false)
            resetbtn.setenabled(false)
+           savebtn.setenabled(false)
+           playbtn.setenabled(false)
         ok
 
 func pBack
@@ -220,6 +229,8 @@ func pBack
         next
         scramblebtn.setenabled(true)
         resetbtn.setenabled(true)
+        savebtn.setenabled(true)
+        playbtn.setenabled(true)
 
 func rotateleft
         if button[nrold*nrold+2].text() != "Here" 
@@ -250,7 +261,7 @@ func rotateright
 func newsize nr
         win1{ 
                 sizenew = nr%4
-                win1.resize(360+sizenew*40,440+sizenew*40)
+                win1.resize(360+sizenew*40,520+sizenew*40)
                 if flag != 0
                    for nb = 1 to nrold*nrold+3
                          button[nb] {close()}
@@ -258,8 +269,8 @@ func newsize nr
                 ok
                 scramblebtn.close()
                 resetbtn.close()
-                /*savebtn.close()
-                playbtn.close()*/
+                savebtn.close()
+                playbtn.close()
 
                 for n = 1 to nr*nr
                      col = n%nr
@@ -319,7 +330,7 @@ func newsize nr
                                  show() 
                 }
 
-                /*savebtn = new qpushbutton(win1)   
+                savebtn = new qpushbutton(win1)   
                 {
                                  setgeometry(100,100+(nr+3)*40,nr*40,40)
                                  settext("Save Game")
@@ -333,47 +344,62 @@ func newsize nr
                                settext("Play Game")  
                                setclickevent("pPlay()")
                                show()
-                }*/
+                }
+                table1 = []
+                table2 = []
+                table3 = []   
+                for n = 1 to nrold*nrold
+                      add(table1, button[n].text())
+                      add(table2, button[n].text())
+                      add(table3, string(0))
+                next
+                add(table1, string(empty))
+                add(table2, string(empty))
+                add(table3, string(empty))
+                add(table1, "OK")
+                add(table2, "OK")
+                add(table3, "OK")
                 empty = nr*nr
                 nrold = nr
                 flag = flag + 1
                 }
 
 func pSave
-        textedit1 = list2str(table)
+        textedit1 = list2str(table1)
         textedit2 = list2str(table2)
-        cName = "C:\Ring\bin\CalmoSoftPuzzle.txt"
+        textedit3 = list2str(table3)
+        cName1 = "C:\Ring\bin\CalmoSoftPuzzle1.txt"
         cName2 = "C:\Ring\bin\CalmoSoftPuzzle2.txt"
-        write(cName,textedit1)
+        cName3 = "C:\Ring\bin\CalmoSoftPuzzle3.txt"
+        write(cName1,textedit1)
         write(cName2,textedit2)
+        write(cName3,textedit3)
         return
 
 func pPlay
-        cName = "C:\Ring\bin\CalmoSoftPuzzle.txt"
-        textedit1 = read(cName)
-        table = str2list(textedit1)
-
+        cName1 = "C:\Ring\bin\CalmoSoftPuzzle1.txt"
+        textedit1 = read(cName1)
+        table1 = str2list(textedit1)
         cName2 = "C:\Ring\bin\CalmoSoftPuzzle2.txt"
         textedit2 = read(cName2)
         table2 = str2list(textedit2)
-
+        cName3 = "C:\Ring\bin\CalmoSoftPuzzle3.txt"
+        textedit3 = read(cName3)
+        table3 = str2list(textedit3)
         for n = 1 to nrold*nrold
-              button[n] {settext(table[n])}
+              nDegree = number(table3[n])
+              button[n] {settext(table1[n])}
         next
-
-        empty = table[nrold*nrold + 1]
-
-        for n = nrold*nrold + 2 to len(table)
-             tmp = table[n]
-             tmp2 = table2[n]
-             nDegree = 0
-             button[number(empty)].settext(tmp)
-             button[number(tmp2)].settext("")
-             empty = tmp2
-             sleep(1)
+        empty = number(table1[nrold*nrold + 1])
+        for n = nrold*nrold+3 to len(table1)
+             value = table1[n]
+             place = table2[n]
+             nDegree = number(table3[empty])
+             button[empty]{settext(value)}
+             button[number(place)]{settext("")}
+             empty = number(place)
         next
-        return     
-
+        return    
 
 Class ButtonWithRotatedText
 
@@ -435,8 +461,8 @@ Class ButtonWithRotatedText
     return
 
 func setEnabled(value)        
-         oButton.setenabled(value)
-         return		
+        oButton.setenabled(value)
+        return	
 
     func setButtonColor(color)  
         colorIt = "background-color:" + color  
