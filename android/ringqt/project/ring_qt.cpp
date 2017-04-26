@@ -252,6 +252,39 @@ RING_FUNC(ring_QApp_styleFusionBlack)
 	qApp->setPalette(palette);
 }
 
+RING_FUNC(ring_QApp_styleFusionCustom)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 12 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( (! RING_API_ISPOINTER(1)) || (! RING_API_ISPOINTER(2)) ||
+		(! RING_API_ISPOINTER(3)) || (! RING_API_ISPOINTER(4)) ||
+		(! RING_API_ISPOINTER(5)) || (! RING_API_ISPOINTER(6)) ||
+		(! RING_API_ISPOINTER(7)) || (! RING_API_ISPOINTER(8)) ||
+		(! RING_API_ISPOINTER(9)) || (! RING_API_ISPOINTER(10)) ||
+		(! RING_API_ISPOINTER(11)) || (! RING_API_ISPOINTER(12)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	qApp->setStyle(QStyleFactory::create("fusion"));
+	QPalette palette;
+	palette.setColor(QPalette::Window, 		* (QColor *) RING_API_GETCPOINTER(1,"QColor") );
+	palette.setColor(QPalette::WindowText, 		* (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+	palette.setColor(QPalette::Base, 		* (QColor *) RING_API_GETCPOINTER(3,"QColor") );
+	palette.setColor(QPalette::AlternateBase, 	* (QColor *) RING_API_GETCPOINTER(4,"QColor") );
+	palette.setColor(QPalette::ToolTipBase, 	* (QColor *) RING_API_GETCPOINTER(5,"QColor") );
+	palette.setColor(QPalette::ToolTipText, 	* (QColor *) RING_API_GETCPOINTER(6,"QColor") );
+	palette.setColor(QPalette::Text,		* (QColor *) RING_API_GETCPOINTER(7,"QColor") );
+	palette.setColor(QPalette::Button, 		* (QColor *) RING_API_GETCPOINTER(8,"QColor") );
+	palette.setColor(QPalette::ButtonText, 		* (QColor *) RING_API_GETCPOINTER(9,"QColor") );
+	palette.setColor(QPalette::BrightText, 		* (QColor *) RING_API_GETCPOINTER(10,"QColor") );
+	palette.setColor(QPalette::Highlight, 		* (QColor *) RING_API_GETCPOINTER(11,"QColor") );
+	palette.setColor(QPalette::HighlightedText, 	* (QColor *) RING_API_GETCPOINTER(12,"QColor") );
+	qApp->setPalette(palette);
+}
+
 
 RING_FUNC(ring_QApp_processEvents)
 {
@@ -85235,6 +85268,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qapp_processevents",ring_QApp_processEvents);
 	ring_vm_funcregister("qapp_stylefusion",ring_QApp_styleFusion);
 	ring_vm_funcregister("qapp_stylefusionblack",ring_QApp_styleFusionBlack);
+	ring_vm_funcregister("qapp_stylefusioncustom",ring_QApp_styleFusionCustom);
 	ring_vm_funcregister("qapp_closeallwindows",ring_QApp_closeAllWindows);
 	ring_vm_funcregister("qapp_keyboardmodifiers",ring_QApp_keyboardModifiers);
 	ring_vm_funcregister("qtest_qsleep",ring_QTest_qsleep);
