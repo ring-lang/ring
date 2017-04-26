@@ -2670,11 +2670,12 @@ class FormDesigner_QWidget from QWidget
 			if ( len(Item[:Children]) > 0 ) or (nMenuID = 0) {
 				# Menu 
 				nMenubarCounter[1]++
+				nMenuID2 = nMenubarCounter[1]
 				cTempCode = Copy(Char(9),3) + 'subMenu#{f1} = addmenu("#{f2}")' + nl
 				cTempCode += Copy(Char(9),3) + 'subMenu#{f1} {' + nl
 				cTempCode += GenerateSubMenuCode(Item[:Children])
 				cTempCode += Copy(Char(9),3) + '}' + nl
-				cTempCode = SubStr(cTempCode,"#{f1}",""+nMenubarCounter[1])
+				cTempCode = SubStr(cTempCode,"#{f1}",""+nMenuID2)
 				cTempCode = SubStr(cTempCode,"#{f2}",Item[:Text])
 				cCode += cTempCode
 			else 
