@@ -20,6 +20,7 @@ C++ Reference : http://doc.qt.io/qt-5/QApplication.html
 * void processEvents(void)
 * void styleFusion(void)
 * void styleFusionBlack(void)
+* void styleFusionCustom(QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor)
 * void closeAllWindows(void)
 * Qt::KeyboardModifiers keyboardModifiers(void)
 
