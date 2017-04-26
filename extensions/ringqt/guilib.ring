@@ -13,10 +13,12 @@ ok
 
 GUILib = new GUILib
 
-func setwinicon pWindow,cImage		
+func setwinicon pWindow,cImage
+	if cImage = NULL return ok		
 	pWindow.setWindowIcon(new qicon(new qpixmap(cImage)))
 		
 func setbtnimage pBtn,cImage
+	if cImage = NULL return ok		
 	pBtn.setIcon(new qicon(new qpixmap(cImage)))
 
 Class GUILib
