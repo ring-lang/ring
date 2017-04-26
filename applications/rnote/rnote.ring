@@ -77,35 +77,7 @@ nAutoCompleteListSize = 0
 
 MyApp = New qApp {
 	# Custom Editor Style Color
-	if False	# Switch to Use the Style or Not
-		aCustomStyleColors = [
-			:LineNumbersAreaColor 		= colorWhite ,
-			:LineNumbersAreaBackColor 	= colordarkBlue,
-			:ActiveLineBackColor 		= colordarkBlue,
-			:SyntaxKeywordsColor		= colorWhite,	
-			:SyntaxClassNamesColor 		= ColorWhite,		
-			:SyntaxCommentsColor 		= ColorSilver,	
-			:SyntaxLiteralsColor 		= ColorCyan,	
-			:SyntaxFunctionCallsColor 		= ColorGreen	
-		]
-		aStyleColors = aCustomStyleColors
-		aTextColor = [255,255,255]  
-		aBackColor = [0,0,135]
-		StylefusionCustom(
-			new qColor() { setrgb(0,0,128,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(0,0,128,255) },
-			new qColor() { setrgb(0,0,128,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(0,0,128,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(255,0,0,255) },
-			new qColor() { setrgb(142,45,197,255) },
-			new qColor() { setrgb(0,0,128,255)}
-		)
-	ok
+	pCheckCustomColors()
 	PrepareAutoComplete()
 	win1 = new qMainWindow() {
 		oFilter = new qAllEvents(win1)
@@ -1497,4 +1469,35 @@ func pFormDesigner
 	else
 		cCode = 'cd $(dirname "'+cFormFileName+'") ; ' + ' ring "' + cFormFileName + '"' + nl 
 		system(cCode)
+	ok
+
+func pCheckCustomColors
+	if False	# Switch to Use the Style or Not
+		aCustomStyleColors = [
+			:LineNumbersAreaColor 		= colorWhite ,
+			:LineNumbersAreaBackColor 	= colordarkBlue,
+			:ActiveLineBackColor 		= colordarkBlue,
+			:SyntaxKeywordsColor		= colorWhite,	
+			:SyntaxClassNamesColor 		= ColorWhite,		
+			:SyntaxCommentsColor 		= ColorSilver,	
+			:SyntaxLiteralsColor 		= ColorCyan,	
+			:SyntaxFunctionCallsColor 		= ColorGreen	
+		]
+		aStyleColors = aCustomStyleColors
+		aTextColor = [255,255,255]  
+		aBackColor = [0,0,135]
+		MyApp.StylefusionCustom(
+			new qColor() { setrgb(0,0,128,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(0,0,128,255) },
+			new qColor() { setrgb(0,0,128,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(0,0,128,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(255,0,0,255) },
+			new qColor() { setrgb(142,45,197,255) },
+			new qColor() { setrgb(0,0,128,255)}
+		)
 	ok
