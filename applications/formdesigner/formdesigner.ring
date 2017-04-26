@@ -2433,6 +2433,7 @@ class FormDesigner_QWidget from QWidget
 	cMainLayout = ""
 	cWindowIcon = ""
 	cMenubar = ""
+	nMenubarCounter = [0,0]	# For [Menus,Items] Names
 
 	func BackColor
 		return cBackColor
@@ -2620,6 +2621,10 @@ class FormDesigner_QWidget from QWidget
 			cOutput += '
 		setWinIcon(win,"#{f8}") ' + nl
 		}
+		if not MenubarValue() = NULL {
+			cOutput += '
+		#{f9} ' + nl
+		}
 		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
 		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
@@ -2628,6 +2633,7 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",WindowFlagsValue())
 		cOutput = substr(cOutput,"#{f8}",WindowIconValue())
+		cOutput = substr(cOutput,"#{f9}",MenubarCode())
 		return cOutput
 
 	func GenerateCodeAfterObjects oDesigner
@@ -2638,6 +2644,63 @@ class FormDesigner_QWidget from QWidget
 			cOutput = substr(cOutput,"#{f1}",MainLayoutValue())
 		}
 		return cOutput
+
+	func MenubarCode
+		cCode = GenerateMenubarCode(MenubarValue())	
+		return cCode 
+
+	func GenerateMenubarCode cMenu
+		eval(cMenu)	
+		nMenubarCounter = [1,0]
+		cCode = "menu1 = new qmenubar(win) {" + nl
+		aChild = aMenuData[:Children]
+		if len(aChild) > 0 {
+			cCode += GenerateSubMenuCode(aChild)
+		}
+		cCode += "}" + nl
+		return cCode
+
+	func GenerateSubMenuCode aChild
+		nMenubarCounter[2]=0
+		nMenuID = nMenubarCounter[1]
+		cCode = ""
+		for Item in aChild {
+			nMenubarCounter[2]++
+			if ( len(Item[:Children]) > 0 ) or (nMenuID =1) {
+				# Menu 
+				nMenubarCounter[1]++
+				cTempCode = 'subMenu#{f1} = addmenu("#{f2}")' + nl
+				cTempCode += 'subMenu#{f1} {' + nl
+				cTempCode += GenerateSubMenuCode(Item[:Children])
+				cTempCode += '}' + nl
+				cTempCode = SubStr(cTempCode,"#{f1}",""+nMenubarCounter[1])
+				cTempCode = SubStr(cTempCode,"#{f2}",Item[:Text])
+				cCode += cTempCode
+			else 
+				# Action 
+				cTempCode = `
+				oAction#{f5}_#{f6} = new qAction(win) {
+					setShortcut(new QKeySequence("#{f1}"))
+					//setbtnimage(self,"#{f2}")
+					settext("#{f3}")
+					setclickevent(Method(:#{f4}))
+				}
+				addaction(oAction#{f5}_#{f6})
+				`
+				cTempCode = SubStr(cTempCode,"#{f1}",Item[:ShortCut])
+				cTempCode = SubStr(cTempCode,"#{f2}",Item[:Image])
+				cTempCode = SubStr(cTempCode,"#{f3}",Item[:Text])
+				if Item[:Action] = NULL {
+					Item[:Action] = "NoAction"
+				}
+				cTempCode = SubStr(cTempCode,"#{f4}",Item[:Action])
+				cTempCode = SubStr(cTempCode,"#{f5}",""+nMenubarCounter[1])
+				cTempCode = SubStr(cTempCode,"#{f6}",""+nMenubarCounter[2])
+				cCode += cTempCode
+			}
+		}
+		return cCode 
+
 
 Class MoveResizeCorners
 
@@ -8089,3 +8152,4 @@ class MenubarDesignerController from windowsControllerParent
 
 	func SetMenubar cMenu
 		String2Tree(cMenu)
+
