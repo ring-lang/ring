@@ -53,23 +53,6 @@ aBrowserLinks = [
 		:SyntaxFunctionCallsColor 	= ColorBlue
 	]
 
-# Custom Editor Style Color
-	# Switch to Use the Style or Not
-		lUseCustomStyleColors = False
-	aCustomStyleColors = [
-		:LineNumbersAreaColor 		= colorWhite ,
-		:LineNumbersAreaBackColor 	= colordarkBlue,
-		:ActiveLineBackColor 		= colordarkBlue,
-		:SyntaxKeywordsColor		= colorWhite,	
-		:SyntaxClassNamesColor 		= ColorWhite,		
-		:SyntaxCommentsColor 		= ColorSilver,	
-		:SyntaxLiteralsColor 		= ColorCyan,	
-		:SyntaxFunctionCallsColor 	= ColorGreen	
-	]
-	if lUseCustomStyleColors
-		aStyleColors = aCustomStyleColors
-	ok
-
 cSettingsFile = cCurrentDir + "ringnotepad.ini"
 LoadSettings()
 
@@ -93,7 +76,21 @@ oAutoCompleteList = NULL
 nAutoCompleteListSize = 0
 
 MyApp = New qApp {
-	if lUseCustomStyleColors
+	# Custom Editor Style Color
+	if False	# Switch to Use the Style or Not
+		aCustomStyleColors = [
+			:LineNumbersAreaColor 		= colorWhite ,
+			:LineNumbersAreaBackColor 	= colordarkBlue,
+			:ActiveLineBackColor 		= colordarkBlue,
+			:SyntaxKeywordsColor		= colorWhite,	
+			:SyntaxClassNamesColor 		= ColorWhite,		
+			:SyntaxCommentsColor 		= ColorSilver,	
+			:SyntaxLiteralsColor 		= ColorCyan,	
+			:SyntaxFunctionCallsColor 		= ColorGreen	
+		]
+		aStyleColors = aCustomStyleColors
+		aTextColor = [255,255,255]  
+		aBackColor = [0,0,135]
 		StylefusionCustom(
 			new qColor() { setrgb(0,0,128,255) },
 			new qColor() { setrgb(255,255,255,255) },
@@ -1241,7 +1238,6 @@ Func LoadSettings
 	ok
 
 Func RestoreSettings
-	LoadSettings()
 	pSetColors()
 	pSetFont()
 	pSetWebsite()
