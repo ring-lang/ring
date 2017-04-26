@@ -1148,7 +1148,7 @@ Func GenRingCode aList
 				ok
 			else
 				cCode += cClassName + "_" + cMethodName + "(" +
-				GenRingCodeParaList(aPara)			
+				GenRingCodeParaListUse(aPara)			
 			ok
 			cCode += ")" + nl
 			if lRetObj
