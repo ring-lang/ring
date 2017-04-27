@@ -1,7 +1,7 @@
 Load "qt.rh"
 Load "ring_qt.ring"
-Load "objectslib/objects.ring"
-Load "objectslib/subwindows.ring"
+Load "objects.ring"
+Load "subwindows.ring"
 
 if iswindows()
 	LoadLib("ringqt.dll")

@@ -9,7 +9,6 @@ cd ..\..\..\extensions\ringqt\
 call gencodeandroid.bat
 copy *.cpp ..\..\android\ringqt\project\
 copy *.h ..\..\android\ringqt\project\
-copy guilib.ring ..\..\android\ringqt\project\
 copy ring_qt.ring ..\..\android\ringqt\project\
 copy qt.rh ..\..\android\ringqt\project\
 call gencode.bat

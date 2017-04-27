@@ -89,6 +89,17 @@ int main(int argc, char *argv[])
     QFile::copy(":/resources/myfile7",path5);
 
 
+	// Add objects.ring
+    QString path6 ;
+    path6 = path+"/objects.ring";
+    QFile::copy(":/resources/myfile8",path6);
+
+	// Add subwindows.ring
+    QString path7 ;
+    path7 = path+"/subwindows.ring";
+    QFile::copy(":/resources/myfile9",path7);
+
+	
     // Call Ring and run the Application
 
     RingState *pRingState;
@@ -118,6 +129,8 @@ int main(int argc, char *argv[])
     ringapp_delete_file(path,"ring_qt.ring");
     ringapp_delete_file(path,"qt.rh");
     ringapp_delete_file(path,"guilib.ring");
+	ringapp_delete_file(path,"objects.ring");
+	ringapp_delete_file(path,"subwindows.ring");
 
     return 0;
 
