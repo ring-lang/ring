@@ -76,7 +76,7 @@ pList
 ring_state_main
 Type: int
 x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nWarn
-Type: const char *
+Type: char *
 cStr
 ring_state_runfile
 ring_state_runobjectfile
@@ -114,3 +114,12 @@ Type: char
 cDir2[200]
 Type: int
 x,x2,nSize
+ring_switchtofilefolder
+Type: char
+cFileName2[200]
+ring_justfilepath
+Type: int
+x,nSize
+ring_justfilename
+Type: int
+x,nSize,r

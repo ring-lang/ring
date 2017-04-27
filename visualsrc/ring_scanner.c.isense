@@ -140,6 +140,8 @@ nCont,nRunVM,nFreeFilesList
 cStartup
 Type: int
 x,nSize
+Type: char
+cFileName2[200]
 ring_scanner_readchar
 Type: char
 cStr[2]

@@ -59,7 +59,7 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr ) ;
 
 RING_API void ring_state_main ( int argc, char *argv[] ) ;
 
-RING_API void ring_state_runfile ( RingState *pRingState,const char *cFileName ) ;
+RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
 
 RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName ) ;
 /* MACRO */
@@ -80,4 +80,10 @@ void ring_exefolder ( char *cDirPath ) ;
 int ring_issourcefile ( const char *cStr ) ;
 
 int ring_isobjectfile ( const char *cStr ) ;
+
+void ring_switchtofilefolder ( char *cFileName ) ;
+
+int ring_justfilepath ( char *cFileName ) ;
+
+void ring_justfilename ( char *cFileName ) ;
 #endif

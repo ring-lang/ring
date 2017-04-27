@@ -223,14 +223,24 @@ int ring_parser_stmt ( Parser *pParser )
 	char cStr[50]  ;
 	char cFileName[200]  ;
 	nPerformanceLocations = 0 ;
+	char cCurrentDir[200]  ;
 	assert(pParser != NULL);
 	/* Statement --> Load Literal */
 	if ( ring_parser_iskeyword(pParser,K_LOAD) ) {
 		ring_parser_nexttoken(pParser);
 		if ( ring_parser_isliteral(pParser) ) {
+			/* Check File in the Ring/bin folder */
+			strcpy(cFileName,pParser->TokenText);
+			if ( ring_fexists(pParser->TokenText) == 0 ) {
+				ring_exefolder(cFileName);
+				strcat(cFileName,pParser->TokenText);
+				if ( ring_fexists(cFileName) == 0 ) {
+					strcpy(cFileName,pParser->TokenText);
+				}
+			}
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
-			ring_parser_icg_newoperand(pParser,pParser->TokenText);
+			ring_parser_icg_newoperand(pParser,cFileName);
 			ring_parser_icg_newoperation(pParser,ICO_BLOCKFLAG);
 			pMark = ring_parser_icg_getactiveoperation(pParser);
 			#if RING_PARSERTRACE
@@ -240,15 +250,12 @@ int ring_parser_stmt ( Parser *pParser )
 			#endif
 			/* No package at the start of the file */
 			pParser->ClassesMap = pParser->pRingState->pRingClassesMap ;
-			strcpy(cFileName,pParser->TokenText);
-			if ( ring_fexists(pParser->TokenText) == 0 ) {
-				ring_exefolder(cFileName);
-				strcat(cFileName,pParser->TokenText);
-				if ( ring_fexists(cFileName) == 0 ) {
-					strcpy(cFileName,pParser->TokenText);
-				}
-			}
+			/* Save the Current Directory */
+			ring_currentdir(cCurrentDir);
+			/* Read The File */
 			x = ring_scanner_readfile(cFileName,pParser->pRingState);
+			/* Restore the Current Directory */
+			ring_chdir(cCurrentDir);
 			/*
 			**  Generate Code 
 			**  Return NULL 
