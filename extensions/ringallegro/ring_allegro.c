@@ -1,11 +1,5 @@
 #include "ring.h"
 
-#ifdef _WIN32
-#define RING_DLL __declspec(dllexport)
-#else
-#define RING_DLL extern
-#endif
-
 /* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define ALLEGRO_NO_MAGIC_MAIN
@@ -491,7 +485,7 @@ RING_FUNC(ring_al_get_first_config_section)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(al_get_first_config_section((ALLEGRO_CONFIG *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG"),(ALLEGRO_CONFIG_SECTION *) RING_API_GETCPOINTER(2,"ALLEGRO_CONFIG_SECTION")));
+	RING_API_RETSTRING(al_get_first_config_section((ALLEGRO_CONFIG *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG"),(ALLEGRO_CONFIG_SECTION **) RING_API_GETCPOINTER2POINTER(2,"ALLEGRO_CONFIG_SECTION")));
 }
 
 
@@ -505,7 +499,7 @@ RING_FUNC(ring_al_get_next_config_section)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(al_get_next_config_section((ALLEGRO_CONFIG_SECTION *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG_SECTION")));
+	RING_API_RETSTRING(al_get_next_config_section((ALLEGRO_CONFIG_SECTION **) RING_API_GETCPOINTER2POINTER(1,"ALLEGRO_CONFIG_SECTION")));
 }
 
 
@@ -527,7 +521,7 @@ RING_FUNC(ring_al_get_first_config_entry)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(al_get_first_config_entry((ALLEGRO_CONFIG *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG"),RING_API_GETSTRING(2),(ALLEGRO_CONFIG_ENTRY *) RING_API_GETCPOINTER(3,"ALLEGRO_CONFIG_ENTRY")));
+	RING_API_RETSTRING(al_get_first_config_entry((ALLEGRO_CONFIG *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG"),RING_API_GETSTRING(2),(ALLEGRO_CONFIG_ENTRY **) RING_API_GETCPOINTER2POINTER(3,"ALLEGRO_CONFIG_ENTRY")));
 }
 
 
@@ -541,7 +535,7 @@ RING_FUNC(ring_al_get_next_config_entry)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(al_get_next_config_entry((ALLEGRO_CONFIG_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_CONFIG_ENTRY")));
+	RING_API_RETSTRING(al_get_next_config_entry((ALLEGRO_CONFIG_ENTRY **) RING_API_GETCPOINTER2POINTER(1,"ALLEGRO_CONFIG_ENTRY")));
 }
 
 
@@ -1981,7 +1975,7 @@ RING_FUNC(ring_al_make_temp_file)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(al_make_temp_file(RING_API_GETSTRING(1),(ALLEGRO_PATH *) RING_API_GETCPOINTER(2,"ALLEGRO_PATH")),"ALLEGRO_FILE");
+	RING_API_RETCPOINTER(al_make_temp_file(RING_API_GETSTRING(1),(ALLEGRO_PATH **) RING_API_GETCPOINTER2POINTER(2,"ALLEGRO_PATH")),"ALLEGRO_FILE");
 }
 
 
@@ -5686,7 +5680,7 @@ RING_FUNC(ring_al_join_thread)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	al_join_thread((ALLEGRO_THREAD *) RING_API_GETCPOINTER(1,"ALLEGRO_THREAD"),(void *) RING_API_GETCPOINTER(2,"void"));
+	al_join_thread((ALLEGRO_THREAD *) RING_API_GETCPOINTER(1,"ALLEGRO_THREAD"),(void **) RING_API_GETCPOINTER2POINTER(2,"void"));
 }
 
 
@@ -11750,7 +11744,7 @@ RING_FUNC(ring_al_destroy_vertex_decl)
 	al_destroy_vertex_decl((ALLEGRO_VERTEX_DECL *) RING_API_GETCPOINTER(1,"ALLEGRO_VERTEX_DECL"));
 }
 
-RING_DLL void ringlib_init(RingState *pRingState)
+RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("al_exit",ring_al_exit);
 	ring_vm_funcregister("al_run_main",ring_al_run_main);

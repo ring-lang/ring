@@ -76,7 +76,10 @@ int ring_scanner_readfile ( char *cFileName,RingState *pRingState )
 	/* Switch To File Folder */
 	strcpy(cFileName2,cFileName);
 	fp = RING_OPENFILE(cFileName , "r");
-	ring_switchtofilefolder(cFileName2);
+	/* Avoid switching if it's the first file */
+	if ( nFreeFilesList == 0 ) {
+		ring_switchtofilefolder(cFileName2);
+	}
 	/* Read File */
 	if ( fp==NULL ) {
 		printf( "\nCan't open file %s \n",cFileName ) ;
