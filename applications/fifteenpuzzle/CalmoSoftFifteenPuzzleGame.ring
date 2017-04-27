@@ -10,6 +10,7 @@ app1 = new qapp {
         nr = 4
         temp = 0
         flag = 0
+        flag2 = 0
         button = list(52)   
         sizebtn = list(7)
         table1 = [] 
@@ -79,9 +80,10 @@ app1 = new qapp {
 
 func sleep x
        nTime = x * 1000
+       see "Sleep: "+ nTime + nl
        oTest = new qTest
        oTest.qsleep(nTime)
-return
+       return
 
 Func newlist x, y
      if isstring(x) x=0+x ok
@@ -130,7 +132,6 @@ func scramble
        table2 = []
        table3 = []   
        for n = 1 to nrold*nrold
-             see btnDegree[n][2] + nl
              add(table1, button[n].text())
              add(table2, button[n].text())
              add(table3, string(btnDegree[n][2]))
@@ -141,6 +142,7 @@ func scramble
        add(table1, "OK")
        add(table2, "OK")
        add(table3, "OK")
+       flag2 = 1
 
        return
 
@@ -377,6 +379,7 @@ func pSave
         return
 
 func pPlay
+        if flag2 != 0
         cName1 = "C:\Ring\bin\CalmoSoftPuzzle1.txt"
         textedit1 = read(cName1)
         table1 = str2list(textedit1)
@@ -392,14 +395,16 @@ func pPlay
         next
         empty = number(table1[nrold*nrold + 1])
         for n = nrold*nrold+3 to len(table1)
+             sleep(1)
              value = table1[n]
              place = table2[n]
-             nDegree = number(table3[empty])
+             nDegree = number(table3[n])
              button[empty]{settext(value)}
              button[number(place)]{settext("")}
              empty = number(place)
         next
-        return    
+        ok
+        return 
 
 Class ButtonWithRotatedText
 
