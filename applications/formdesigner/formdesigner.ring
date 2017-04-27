@@ -2651,6 +2651,7 @@ class FormDesigner_QWidget from QWidget
 		return cOutput
 
 	func MenubarCode
+		if MenubarValue() = NULL { return }
 		cCode = GenerateMenubarCode(MenubarValue())	
 		return cCode 
 
