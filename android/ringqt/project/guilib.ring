@@ -3,14 +3,6 @@ Load "ring_qt.ring"
 Load "objects.ring"
 Load "subwindows.ring"
 
-if iswindows()
-	LoadLib("ringqt.dll")
-but ismacosx()
-	LoadLib("libringqt.dylib")
-else
-	LoadLib("libringqt.so")
-ok
-
 GUILib = new GUILib
 
 func setwinicon pWindow,cImage
