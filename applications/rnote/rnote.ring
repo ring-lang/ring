@@ -459,6 +459,7 @@ MyApp = New qApp {
 				myfiles = new qstringlist()
 				myfiles.append("*.ring")
 				myfiles.append("*.rh")
+				myfiles.append("*.rform")
 				myfiles.append("*.txt")
 				myfiles.append("*.html")
 				myfiles.append("*.rhtml")
