@@ -379,7 +379,9 @@ func pSave
         return
 
 func pPlay
-        if flag2 != 0
+        if flag2 = 0
+        see "First you must 'Scramble' the tiles and play and save the game." + nl
+        else
         cName1 = "C:\Ring\bin\CalmoSoftPuzzle1.txt"
         textedit1 = read(cName1)
         table1 = str2list(textedit1)
@@ -505,7 +507,6 @@ func setEnabled(value)
 		      drawtext(0,0,this.Text())          
                                  endpaint()
                     }
-                    
                     oLabel {
                             setpicture(picture)  
                             show() 
