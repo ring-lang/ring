@@ -623,7 +623,8 @@ MyApp = New qApp {
 
 		win1.tabifydockwidget(oDock5,oDock4)
 		win1.tabifydockwidget(oDock5,oDock6)
-		win1.tabifydockwidget(oDock3,oDock2)
+		win1.tabifydockwidget(oDock5,oDock3)
+
 
 		setwinicon(self,cCurrentDir + "/image/notepad.png")
 		showmaximized()	
