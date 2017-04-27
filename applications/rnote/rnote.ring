@@ -621,6 +621,10 @@ MyApp = New qApp {
 		adddockwidget(2,oDock3,1)
 		adddockwidget(2,oDock5,1)
 
+		win1.tabifydockwidget(oDock5,oDock4)
+		win1.tabifydockwidget(oDock5,oDock6)
+		win1.tabifydockwidget(oDock3,oDock2)
+
 		setwinicon(self,cCurrentDir + "/image/notepad.png")
 		showmaximized()	
 	}
