@@ -1,4 +1,9 @@
-# Form/Window Controller - Source Code File
+/*
+**	Project : Form Designer 
+**	File Purpose :  Window Flags Window
+**	Date : 2017.04.27
+**	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
+*/
 
 load "windowflagsView.ring"
 
