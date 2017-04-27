@@ -12,6 +12,8 @@
 # Load Sub Windows/Systems 
 	load "menubardesigner/menubarDesignerController.ring"
 	load "windowflags/windowflagscontroller.ring"
+	load "windowobjects/windowobjectscontroller.ring"
+
 
 # Access the package classes 
 	import formdesigner
@@ -7589,99 +7591,3 @@ class #{f1}controller from windowsControllerParent
 			cCode += oObject.GenerateCode(oDesigner)
 		}
 		return cCode
-
-
-class windowObjectsView from WindowsViewParent
-	win = new qWidget() {
-		move(64,40)
-		resize(395,376)
-		setWindowTitle("Window Objects")
-		setstylesheet("background-color:;")
-		LabelObjects = new qlabel(win) {
-			move(10,13)
-			resize(41,26)
-			setstylesheet("color:black;background-color:;")
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring("")
-			setfont(oFont)
-			setText("Objects")
-			setAlignment(Qt_AlignRight |  Qt_AlignVCenter)
-		}
-		ListObjects = new qlistwidget(win) {
-			move(56,13)
-			resize(321,290)
-			setstylesheet("color:black;background-color:;")
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring("")
-			setfont(oFont)
-		}
-		BtnOk = new qpushbutton(win) {
-			move(236,315)
-			resize(68,25)
-			setstylesheet("color:black;background-color:;")
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring("")
-			setfont(oFont)
-			setText("Ok")
-			setClickEvent(Method(:okAction))
-
-		}
-		BtnCancel = new qpushbutton(win) {
-			move(309,315)
-			resize(68,25)
-			setstylesheet("color:black;background-color:;")
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring("")
-			setfont(oFont)
-			setText("Cancel")
-			setClickEvent(Method(:CancelAction))
-		}
-	}
-
-class windowObjectscontroller from windowsControllerParent
-
-	oView = new windowObjectsView {
-		win.setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint )
-		ListObjects.setselectionmode(QAbstractItemView_MultiSelection)
-		win.setwindowmodality(2)
-	}
-
-	aObjectsList = []
-
-	nPropertyIndex = C_AFTERCOMMON+1
-	cMethodName = "setLayoutObjectsValue"
-
-	func SetPropertyIndex nValue
-		nPropertyIndex = nValue
-
-	func SetMethodName cName
-		cMethodName = cName
-
-	func LoadObjectsData aList
-		aObjectsList = aList
-		for item in aObjectsList {
-			oView.ListObjects.AddItem(item)
-		}
-
-	func OkAction
-		cObjects = ""
-		for x = 1 to len(aObjectsList) {
-			if oView.ListObjects.item(x-1).isSelected() {
-				if not cObjects = NULL {
-					cObjects += "," + aObjectsList[x]
-				else
-					cObjects += aObjectsList[x]
-				}
-			}
-		}
-		oPropertiesTable = parent().oView.oPropertiesTable
-		# Set the Window Flags
-			oPropertiesTable.Blocksignals(True)
-			oPropertiesTable.item(nPropertyIndex,1).settext(cObjects)
-			oPropertiesTable.Blocksignals(False)
-		cCode = "parent().oModel.ActiveObject()."+cMethodName+"(cObjects)"
-		eval(cCode)
-		oView.Close()
-
-	func CancelAction
-		oView.Close()
