@@ -130,7 +130,6 @@ func scramble
        table2 = []
        table3 = []   
        for n = 1 to nrold*nrold
-             see btnDegree[n][2] + nl
              add(table1, button[n].text())
              add(table2, button[n].text())
              add(table3, string(btnDegree[n][2]))
@@ -392,9 +391,10 @@ func pPlay
         next
         empty = number(table1[nrold*nrold + 1])
         for n = nrold*nrold+3 to len(table1)
+             sleep(1)
              value = table1[n]
              place = table2[n]
-             nDegree = number(table3[empty])
+             nDegree = number(table3[n])
              button[empty]{settext(value)}
              button[number(place)]{settext("")}
              empty = number(place)
