@@ -205,6 +205,8 @@ void ring_vmlib_state_findvar ( void *pPointer ) ;
 void ring_vmlib_state_newvar ( void *pPointer ) ;
 
 void ring_vmlib_state_runobjectfile ( void *pPointer ) ;
+
+void ring_vmlib_state_main ( void *pPointer ) ;
 /* API For C Functions */
 #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)

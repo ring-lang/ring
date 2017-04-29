@@ -99,6 +99,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_findvar",ring_vmlib_state_findvar);
 	ring_vm_funcregister("ring_state_newvar",ring_vmlib_state_newvar);
 	ring_vm_funcregister("ring_state_runobjectfile",ring_vmlib_state_runobjectfile);
+	ring_vm_funcregister("ring_state_main",ring_vmlib_state_main);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -1889,4 +1890,20 @@ void ring_vmlib_state_runobjectfile ( void *pPointer )
 		return ;
 	}
 	ring_state_runobjectfile(RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+}
+
+void ring_vmlib_state_main ( void *pPointer )
+{
+	char *cStr  ;
+	int argc  ;
+	char *argv[2]  ;
+	argv[0] = (char *) malloc(100) ;
+	argv[1] = (char *) malloc(100) ;
+	cStr = RING_API_GETSTRING(1);
+	argc = 2 ;
+	strcpy(argv[0],"ring");
+	strcpy(argv[1],cStr);
+	ring_execute(cStr,0,1,0,0,0,0,0,0,0,argc,argv);
+	free( argv[0] ) ;
+	free( argv[1] ) ;
 }
