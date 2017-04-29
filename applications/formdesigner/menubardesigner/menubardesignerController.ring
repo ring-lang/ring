@@ -7,7 +7,10 @@
 
 load "menubardesignerView.ring"
 
+import formdesigner
+
 if IsMainSourceFile() { 
+
 	new qApp {
 		StyleFusion()
 		open_window(:menubardesignerController)

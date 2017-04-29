@@ -7,6 +7,8 @@
 
 load "windowflagsView.ring"
 
+import formdesigner
+
 if IsMainSourceFile() { 
 	new qApp {
 		StyleFusion()

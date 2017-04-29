@@ -6,6 +6,8 @@
 Load "stdlib.ring"
 Load "guilib.ring"
 
+import formdesigner
+
 if IsMainSourceFile() { 
 	new qApp {
 		StyleFusion()
