@@ -352,6 +352,13 @@ pString
 ring_vmlib_ptrcmp
 Type: List *
 pList, *pList2
+ring_vmlib_state_init
+ring_vmlib_state_runcode
+ring_vmlib_state_delete
+ring_vmlib_state_runfile
+ring_vmlib_state_findvar
+Type: List *
+pList
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
