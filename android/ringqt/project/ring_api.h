@@ -190,6 +190,17 @@ void ring_vmlib_nullpointer ( void *pPointer ) ;
 void ring_vmlib_space ( void *pPointer ) ;
 
 void ring_vmlib_ptrcmp ( void *pPointer ) ;
+/* Ring State */
+
+void ring_vmlib_state_init ( void *pPointer ) ;
+
+void ring_vmlib_state_runcode ( void *pPointer ) ;
+
+void ring_vmlib_state_delete ( void *pPointer ) ;
+
+void ring_vmlib_state_runfile ( void *pPointer ) ;
+
+void ring_vmlib_state_findvar ( void *pPointer ) ;
 /* API For C Functions */
 #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)
