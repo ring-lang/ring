@@ -301,9 +301,11 @@ From Ring 1.0 we already have functions for embedding Ring in the C language. Al
 can execute Ring code inside Ring programs using the eval() function. In this release
 we provide functions for embedding Ring in Ring programs without sharing the state.
 
-Advantages
-* Quick integration for Ring programs and applications together without conflicts.
-* Execute and run Ring code in safe environments that we can trace.
+Advantages:
+
+(1) Quick integration for Ring programs and applications together without conflicts.
+
+(2) Execute and run Ring code in safe environments that we can trace.
 
 Example:
 
