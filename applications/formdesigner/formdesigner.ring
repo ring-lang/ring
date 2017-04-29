@@ -9,13 +9,42 @@
 	load "guilib.ring"
 	load "stdlib.ring"
 
-# Load Sub Windows/Systems 
+# Load Sub Windows/Systems
 	load "menubardesigner/menubarDesignerController.ring"
 	load "windowflags/windowflagscontroller.ring"
 	load "windowobjects/windowobjectscontroller.ring"
 
+# Load Controls
+	load "controls/qlabel.ring"
+	load "controls/qpushbutton.ring"
+	load "controls/qlineedit.ring"
+	load "controls/qtextedit.ring"
+	load "controls/qlistwidget.ring"
+	load "controls/qcheckbox.ring"
+	load "controls/qimage.ring"
+	load "controls/qslider.ring"
+	load "controls/qprogressbar.ring"
+	load "controls/qspinbox.ring"
+	load "controls/qcombobox.ring"
+	load "controls/qdatetimeedit.ring"
+	load "controls/qtablewidget.ring"
+	load "controls/qtreewidget.ring"
+	load "controls/qradiobutton.ring"
+	load "controls/qwebview.ring"
+	load "controls/qdial.ring"
+	load "controls/qvideowidget.ring"
+	load "controls/qframe3.ring"
+	load "controls/qlcdnumber.ring"
+	load "controls/qhyperlink.ring"
+	load "controls/qtimer.ring"
+	load "controls/qallevents.ring"
+	load "controls/qlayout.ring"
+	load "controls/qtabwidget.ring"
+	load "controls/qstatusbar.ring"
+	load "controls/qtoolbar.ring"
 
-# Access the package classes 
+
+# Access the package classes
 	import formdesigner
 
 # Prepare Controls Classes
@@ -2655,11 +2684,11 @@ class FormDesigner_QWidget from QWidget
 
 	func MenubarCode
 		if MenubarValue() = NULL { return }
-		cCode = GenerateMenubarCode(MenubarValue())	
-		return cCode 
+		cCode = GenerateMenubarCode(MenubarValue())
+		return cCode
 
 	func GenerateMenubarCode cMenu
-		eval(cMenu)	
+		eval(cMenu)
 		nMenubarCounter = [0,0]
 		cCode = "oMenuBar = new qmenubar(win) {" + nl
 		aChild = aMenuData[:Children]
@@ -2677,7 +2706,7 @@ class FormDesigner_QWidget from QWidget
 		for Item in aChild {
 			nMenubarCounter[2]++
 			if ( len(Item[:Children]) > 0 ) or (nMenuID = 0) {
-				# Menu 
+				# Menu
 				nMenubarCounter[1]++
 				nMenuID2 = nMenubarCounter[1]
 				cTempCode = Copy(Char(9),3) + 'subMenu#{f1} = addmenu("#{f2}")' + nl
@@ -2687,8 +2716,8 @@ class FormDesigner_QWidget from QWidget
 				cTempCode = SubStr(cTempCode,"#{f1}",""+nMenuID2)
 				cTempCode = SubStr(cTempCode,"#{f2}",Item[:Text])
 				cCode += cTempCode
-			else 
-				# Action 
+			else
+				# Action
 				cTempCode = `
 				oAction#{f5}_#{f6} = new qAction(win) {
 					setShortcut(new QKeySequence("#{f1}"))
@@ -2709,7 +2738,7 @@ class FormDesigner_QWidget from QWidget
 				cCode += cTempCode
 			}
 		}
-		return cCode 
+		return cCode
 
 
 Class MoveResizeCorners
@@ -3173,89 +3202,6 @@ class CommonAttributesMethods
 			}
 		}
 		return cCode
-
-class FormDesigner_QLabel from QLabel
-
-	nTextAlign = 0
-
-	CreateCommonAttributes()
-	CreateMoveResizeCornersAttributes()
-
-	func TextAlign
-		return nTextAlign
-
-	func SetTextAlign nIndex
-		nTextAlign = nIndex
-		Switch nIndex {
-			case 0
-				setalignment(Qt_AlignLeft |  Qt_AlignVCenter )
-			case 1
-				setalignment(Qt_AlignHCenter |  Qt_AlignVCenter )
-			case 2
-				setalignment(Qt_AlignRight |  Qt_AlignVCenter )
-		}
-
-	func AddObjectProperties  oDesigner
-		AddObjectCommonProperties(oDesigner)
-		oDesigner.oView.AddProperty("Text",False)
-		oDesigner.oView.AddPropertyCombobox("Text Align",["Left","Center","Right"])
-
-	func DisplayProperties oDesigner
-		DisplayCommonProperties(oDesigner)
-		oPropertiesTable = oDesigner.oView.oPropertiesTable
-		oPropertiesTable.Blocksignals(True)
-		# Set the Text
-			oPropertiesTable.item(C_AFTERCOMMON,1).settext(text())
-		# Text Align
-			oWidget = oPropertiesTable.cellwidget(C_AFTERCOMMON+1,1)
-			oCombo = new qCombobox
-			oCombo.pObject = oWidget.pObject
-			oCombo.BlockSignals(True)
-			oCombo.setCurrentIndex(nTextAlign)
-			oCombo.BlockSignals(False)
-		oPropertiesTable.Blocksignals(False)
-
-	func UpdateProperties oDesigner,nRow,nCol,cValue
-		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
-		if nRow = C_AFTERCOMMON {
-			setText(cValue)
-		}
-
-	func ComboItemAction oDesigner,nRow
-		nTextAlignPos = C_AFTERCOMMON+1
-		if nRow = nTextAlignPos  {		# Text Align
-			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nTextAlignPos,1)
-			oCombo = new qCombobox
-			oCombo.pObject = oWidget.pObject
-			nIndex = oCombo.CurrentIndex()
-			setTextAlign(nIndex)
-		}
-
-	func ObjectDataAsString oDesigner,nTabsCount
-		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
-		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
-		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign()
-		return cOutput
-
-	func GenerateCustomCode oDesigner
-		cOutput = 'setText("#{f1}")' + nl + 'setAlignment(#{f2})'
-		cOutput = substr(cOutput,"#{f1}",text())
-		Switch nTextAlign {
-			case 0
-				cOutput = substr(cOutput,"#{f2}","Qt_AlignLeft |  Qt_AlignVCenter")
-			case 1
-				cOutput = substr(cOutput,"#{f2}","Qt_AlignHCenter |  Qt_AlignVCenter" )
-			case 2
-				cOutput = substr(cOutput,"#{f2}","Qt_AlignRight |  Qt_AlignVCenter" )
-		}
-		return cOutput
-
-	func RestoreProperties oDesigner,Item
-		RestoreCommonProperties(oDesigner,item)
-		itemdata = item[:data]
-		setText(itemdata[:text])
-		setTextAlign(0+itemdata[:textalign])
 
 class FormDesigner_QPushButton from QPushButton
 
