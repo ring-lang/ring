@@ -363,6 +363,13 @@ ring_vmlib_state_newvar
 Type: List *
 pList
 ring_vmlib_state_runobjectfile
+ring_vmlib_state_main
+Type: char *
+cStr
+Type: int
+argc
+Type: char *
+argv[2]
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
