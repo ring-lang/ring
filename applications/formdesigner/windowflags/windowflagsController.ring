@@ -15,6 +15,8 @@ if IsMainSourceFile() {
 	}
 }
 
+package formdesigner
+
 class windowflagscontroller from windowsControllerParent
 
 	oView = new windowflagsView {

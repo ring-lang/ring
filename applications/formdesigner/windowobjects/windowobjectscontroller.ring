@@ -7,6 +7,8 @@
 
 load "windowobjectsView.ring"
 
+package formdesigner
+
 class windowObjectscontroller from windowsControllerParent
 
 	oView = new windowObjectsView {

@@ -14,6 +14,8 @@ if IsMainSourceFile() {
 	}
 }
 
+package formdesigner
+
 class windowflagsView from WindowsViewParent
 	win = new qMainWindow() { 
 		move(64,40)

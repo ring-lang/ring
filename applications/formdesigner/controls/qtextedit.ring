@@ -5,6 +5,8 @@
 **	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+package formdesigner
+
 # We use QLineEdit as parent - We need just the looking (not functionality)
 class FormDesigner_QTextEdit from QLineEdit
 

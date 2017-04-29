@@ -5,6 +5,8 @@
 **	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+package formdesigner
+
 class FormDesigner_QLabel from QLabel
 
 	nTextAlign = 0

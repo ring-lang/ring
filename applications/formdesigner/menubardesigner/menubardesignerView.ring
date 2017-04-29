@@ -14,6 +14,8 @@ if IsMainSourceFile() {
 	}
 }
 
+package formdesigner
+
 class MenubarDesignerView from WindowsViewParent
 	win = new qMainWindow() {
 		move(13,15)

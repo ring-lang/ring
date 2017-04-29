@@ -15,6 +15,8 @@ if IsMainSourceFile() {
 	}
 }
 
+package formdesigner
+
 class MenubarDesignerController from windowsControllerParent
 
 	oView = new menubardesignerView  {

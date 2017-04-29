@@ -5,6 +5,8 @@
 **	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+package formdesigner
+
 class FormDesigner_QFrame3 from QFrame3
 
 	nFrameType = 0

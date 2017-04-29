@@ -5,6 +5,8 @@
 **	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+package formdesigner
+
 class FormDesigner_QToolBar from QLabel
 
 	CreateCommonAttributes()
