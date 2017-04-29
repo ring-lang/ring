@@ -359,6 +359,10 @@ ring_vmlib_state_runfile
 ring_vmlib_state_findvar
 Type: List *
 pList
+ring_vmlib_state_newvar
+Type: List *
+pList
+ring_vmlib_state_runobjectfile
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
