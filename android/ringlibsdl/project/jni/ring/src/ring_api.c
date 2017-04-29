@@ -97,6 +97,8 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_delete",ring_vmlib_state_delete);
 	ring_vm_funcregister("ring_state_runfile",ring_vmlib_state_runfile);
 	ring_vm_funcregister("ring_state_findvar",ring_vmlib_state_findvar);
+	ring_vm_funcregister("ring_state_newvar",ring_vmlib_state_newvar);
+	ring_vm_funcregister("ring_state_runobjectfile",ring_vmlib_state_runobjectfile);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -1867,4 +1869,24 @@ void ring_vmlib_state_findvar ( void *pPointer )
 	}
 	pList = ring_state_findvar(RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
 	RING_API_RETLIST(pList);
+}
+
+void ring_vmlib_state_newvar ( void *pPointer )
+{
+	List *pList  ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	pList = ring_state_newvar(RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	RING_API_RETLIST(pList);
+}
+
+void ring_vmlib_state_runobjectfile ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	ring_state_runobjectfile(RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
 }
