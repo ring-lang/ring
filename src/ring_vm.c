@@ -927,13 +927,14 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	if ( pVM->nRunCode != 0 ) {
 		/* It's a nested event (Here we don't care about the output and we can restore the stack) */
 		ring_vm_restorestack(pVM,pStackList);
-		pVM->nSP = nSP ;
-		pVM->nFuncSP = nFuncSP ;
 	}
 	else {
 		/* Here we free the list because, restorestack() that free it (is not called) */
 		ring_list_delete(pStackList);
 	}
+	/* Restore Stack to avoid Stack Overflow */
+	pVM->nSP = nSP ;
+	pVM->nFuncSP = nFuncSP ;
 }
 
 void ring_vm_init ( RingState *pRingState )
