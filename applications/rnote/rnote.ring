@@ -660,8 +660,8 @@ Class RNote
 
 			this.win1.tabifydockwidget(this.oDock5,this.oDock4)
 			this.win1.tabifydockwidget(this.oDock5,this.oDock6)
-			this.win1.tabifydockwidget(this.oDock2,this.oDock3)
 			this.win1.tabifydockwidget(this.oDock2,this.oDock7)
+			this.win1.tabifydockwidget(this.oDock2,this.oDock3)
 
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 			showmaximized()
