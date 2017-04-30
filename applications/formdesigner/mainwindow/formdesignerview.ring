@@ -97,14 +97,14 @@ Class FormDesignerView from WindowsViewParent
 			subFile = addmenu("File")
 			subFile {
 				oAction = new qAction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+n"))
+					setShortcut(new QKeySequence("Ctrl+shift+n"))
 					setbtnimage(self,"image/new.png")
 					settext("New")
 					setclickevent(Method(:NewAction))
 				}
 				addaction(oAction)
 				oAction = new qAction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+o"))
+					setShortcut(new QKeySequence("Ctrl+shift+o"))
 					setbtnimage(self,"image/open.png")
 					settext("Open")
 					setclickevent(Method(:OpenAction))
@@ -112,7 +112,7 @@ Class FormDesignerView from WindowsViewParent
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+s"))
+					setShortcut(new QKeySequence("Ctrl+shift+s"))
 					setbtnimage(self,"image/save.png")
 					settext("Save")
 					setclickevent(Method(:SaveAction))
@@ -120,7 +120,7 @@ Class FormDesignerView from WindowsViewParent
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+e"))
+					setShortcut(new QKeySequence("Ctrl+shift+e"))
 					setbtnimage(self,"image/saveas.png")
 					settext("Save As")
 					setclickevent(Method(:SaveAsAction))
@@ -128,7 +128,7 @@ Class FormDesignerView from WindowsViewParent
 				addaction(oAction)
 				addseparator()
 				oAction = new qaction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+q"))
+					setShortcut(new QKeySequence("Ctrl+shift+q"))
 					setbtnimage(self,"image/close.png")
 					settext("Exit")
 					setstatustip("Exit")
@@ -139,21 +139,21 @@ Class FormDesignerView from WindowsViewParent
 			subEdit = addmenu("Edit")
 			subEdit {
 				oAction = new qAction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+v"))
+					setShortcut(new QKeySequence("Ctrl+shift+v"))
 					settext("Duplicate")
 					setclickevent(Method(:Duplicate))
 				}
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+f"))
+					setShortcut(new QKeySequence("Ctrl+shift+f"))
 					settext("Bring to front")
 					setclickevent(Method(:BringToFront))
 				}
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+b"))
+					setShortcut(new QKeySequence("Ctrl+shift+b"))
 					settext("Send to back")
 					setclickevent(Method(:SendToBack))
 				}
@@ -162,14 +162,14 @@ Class FormDesignerView from WindowsViewParent
 			subView = addmenu("View")
 			subView {
 				oAction = new qAction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+t"))
+					setShortcut(new QKeySequence("Ctrl+shift+t"))
 					settext("ToolBox")
 					setclickevent(Method(:ToolBox))
 				}
 				addaction(oAction)
 				addseparator()
 				oAction = new qAction(this.win) {
-					setShortcut(new QKeySequence("Ctrl+p"))
+					setShortcut(new QKeySequence("Ctrl+shift+p"))
 					setclickevent(Method(:Properties))
 					settext("Properties")
 				}
