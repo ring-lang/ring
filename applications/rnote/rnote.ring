@@ -660,7 +660,7 @@ Class RNote
 
 			this.win1.tabifydockwidget(this.oDock5,this.oDock4)
 			this.win1.tabifydockwidget(this.oDock5,this.oDock6)
-			this.win1.tabifydockwidget(this.oDock5,this.oDock3)
+			this.win1.tabifydockwidget(this.oDock2,this.oDock3)
 			this.win1.tabifydockwidget(this.oDock2,this.oDock7)
 
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
@@ -1531,7 +1531,7 @@ Class RNote
 
 	func pCheckCustomColors
 		if True	# Switch to Use the Style or Not
-			pStyleWhite()
+			pStyleBlue()
 		ok
 
 	func pStyleBlue()
