@@ -98,14 +98,15 @@
 
 # Constants and Public Variables
 	C_AFTERCOMMON  = 8			# Index After common properties
-	cCurrentDir = CurrentDir() + "/"
+	$cCurrentDir = CurrentDir() + "/"
 
 # Start the Application
-	if IsMainSourceFile() {
-		oFDApp = new qApp {
+	oFDApp = new qApp {
+		if IsMainSourceFile() {	# Because oFDApp is used in other classes 
 			StyleFusion()
 			Open_Window(:FormDesignerController)
 			exec()
 		}
 	}
+
 
