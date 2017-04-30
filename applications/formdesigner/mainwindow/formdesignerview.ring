@@ -548,11 +548,6 @@ Class FormDesignerView from WindowsViewParent
 			setLayout(oLayout2)
 		}
 		oProperties2 = new qWidget() {
-			oLabel = new qLabel(this.oProperties2) {
-				setText("Options")
-				setalignment(Qt_AlignHCenter |  Qt_AlignVCenter )
-				setStylesheet("color:White;background-color:purple;")
-			}
 			oBtn1 = new qPushbutton(this.oProperties2) {
 				setText("Align - Left Sides")
 				setClickEvent(Method(:MSAlignLeft))
@@ -630,7 +625,6 @@ Class FormDesignerView from WindowsViewParent
 				setClickEvent(Method(:MSFont))
 			}
 			oLayout = new qVBoxLayout() {
-				AddWidget(oLabel)
 				AddWidget(oBtn1)
 				AddWidget(oBtn2)
 				AddWidget(oBtn3)
