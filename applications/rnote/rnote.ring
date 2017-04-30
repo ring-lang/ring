@@ -1,10 +1,16 @@
 # The Ring Notepad Application (RNote)
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-Load "guilib.ring"
-Load "stdlib.ring"
+# Load Standard Libraries
+	Load "guilib.ring"
+	Load "stdlib.ring"
 
-RNote = new RNote
+# Load the Form Designer 
+	Load "../formdesigner/formdesigner.ring"
+	import formdesigner 
+
+# Create the Ring Notepad Object
+	RNote = new RNote
 
 Class RNote
 
@@ -21,6 +27,7 @@ Class RNote
 	lShowFunctionsList = False
 	lShowOutputWindow = False
 	lShowClassesList = False
+	lShowFormDesigner = False
 	nTabSpaces = 0
 	aBrowserLinks = [
 		["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
@@ -80,7 +87,7 @@ Class RNote
 	nAutoCompleteListSize = 0
 
 	MyApp win1 oFilter aBtns tool1 menu1 status1
-	Tree1 TextEdit1 oDock1 oDock2 oDock3 oDock4 oDock5 oDock6
+	Tree1 TextEdit1 oDock1 oDock2 oDock3 oDock4 oDock5 oDock6 oDock7
 	oWebBrowser oWebView  oWBText 
 	oFile oFunctionsList oClassesList
 	oProcessEditbox oProcessText oProcess
@@ -367,6 +374,14 @@ Class RNote
 						settext("Output Window")
 					}
 					addaction(oAction)
+					addseparator()
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Alt+f"))
+						setbtnimage(self,"image/source.png")
+						setclickevent("RNote.pFormDesignerWindow()")
+						settext("Form Designer Window")
+					}
+					addaction(oAction)
 
 				}
 				subProgram {
@@ -630,17 +645,23 @@ Class RNote
 				setwindowtitle("Output Window")
 			}
 
+			this.oDock7 = new qDockwidget(this.win1,0) {
+				setwindowtitle("Form Designer")
+			}
+			this.pformdesignerdock()
+
 			adddockwidget(1,this.oDock1,1)
 			adddockwidget(2,this.oDock2,2)
 			adddockwidget(2,this.oDock4,1)
 			adddockwidget(2,this.oDock6,1)
 			adddockwidget(2,this.oDock3,1)
 			adddockwidget(2,this.oDock5,1)
+			adddockwidget(2,this.oDock7,1)
 
 			this.win1.tabifydockwidget(this.oDock5,this.oDock4)
 			this.win1.tabifydockwidget(this.oDock5,this.oDock6)
 			this.win1.tabifydockwidget(this.oDock5,this.oDock3)
-
+			this.win1.tabifydockwidget(this.oDock2,this.oDock7)
 
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 			showmaximized()
@@ -708,6 +729,13 @@ Class RNote
 			oDock5.hide()
 		else
 			oDock5.Show()
+		ok
+
+	func pFormDesignerWindow
+		if oDock7.isvisible()
+			oDock7.hide()
+		else
+			oDock7.Show()
 		ok
 
 	func pCheckSaveBeforeChange
@@ -1115,6 +1143,7 @@ Class RNote
 		if not lShowFunctionsList oDock4.close() else oDock4.show() ok
 		if not lShowClassesList oDock6.close() else oDock6.show() ok
 		if not lShowOutputWindow oDock5.close() else oDock5.show() ok
+		if not lShowFormDesigner oDock7.close() else oDock7.show() ok
 
 	func pOpen
 		new qfiledialog(this.win1) {
@@ -1196,6 +1225,7 @@ Class RNote
 				"lShowFunctionsList = " + oDock4.isvisible() + nl +
 				"lShowClassesList = " + oDock6.isvisible() + nl +
 				"lShowOutputWindow = " + oDock5.isvisible() + nl +
+				"lShowFormDesigner = " + oDock7.isvisible() + nl +
 				"nTabSpaces = " + nTabSpaces + nl
 		cSettings = substr(cSettings,nl,char(13)+char(10))
 		write(cSettingsFile,cSettings)
@@ -1481,7 +1511,7 @@ Class RNote
 		oProcess.write(cText ,len(cText))
 		oeditbox.insertplaintext(	cText)
 
-	func pFormDesigner
+	func pFormDesigner		
 		cFormFileName = cCurrentDir + "../formdesigner/formdesigner.ring"
 		if iswindows()
 			oProcessEditbox.setplaintext("")
@@ -1490,11 +1520,18 @@ Class RNote
 		else
 			cCode = 'cd $(dirname "'+cFormFileName+'") ; ' + ' ring "' + cFormFileName + '"' + nl
 			system(cCode)
-		ok
+		ok		
+
+	func pFormDesignerDock
+		cDir = CurrentDir()
+		chdir(exefolder() + "/../applications/formdesigner")
+		open_window(:FormDesignerController)
+		oDock7.setWidget(Last_Window().oView.win)
+		chdir(cDir)
 
 	func pCheckCustomColors
-		if False	# Switch to Use the Style or Not
-			pStyleBlue()
+		if True	# Switch to Use the Style or Not
+			pStyleWhite()
 		ok
 
 	func pStyleBlue()
