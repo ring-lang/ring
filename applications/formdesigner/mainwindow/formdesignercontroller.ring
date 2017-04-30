@@ -1069,6 +1069,11 @@ class FormDesignerController from WindowsControllerParent
 		oFile.SaveAsAction(self)
 
 	func ExitAction
+		if HasParent() {
+			# The form designer is embedded in Dockable widget
+			oView.win.parentwidget().Hide()
+			return 
+		}
 		Super.CloseAction()
 
 	func Duplicate
