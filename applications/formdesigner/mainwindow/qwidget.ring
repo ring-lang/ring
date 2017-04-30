@@ -165,8 +165,7 @@ class FormDesigner_QWidget from QWidget
 		top = min(nY2,nY) - oDesigner.oView.oArea.y() - oSubWindow.y() - y() - C_TOPMARGIN - oDesigner.oView.win.y()
 		left = min(nX2,nX) - oDesigner.oView.oArea.x()  - oSubWindow.x() - x() - oDesigner.oView.win.x()
 		# Take in mind embedding the Designer in another Window like RNote
-			oParent = oDesigner.oView.win.parentwidget()
-			if not oParent.pObject = NULLPointer() {
+			if oDesigner.HasParent() {
 				top -= oDesigner.oView.win.parentwidget().y()
 				left -= oDesigner.oView.win.parentwidget().x()
 			}

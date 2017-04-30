@@ -1186,3 +1186,9 @@ class FormDesignerController from WindowsControllerParent
 		MsgBox("About",
 		"2017, Mahmoud Fayed <msfclipper@yahoo.com>")
 
+	func HasParent 
+		oParent = oView.win.parentwidget()
+		if not oParent.pObject = NULLPointer() {
+			return True
+		}
+		return False
