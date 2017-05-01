@@ -58,8 +58,12 @@ void zip_extract_allfiles(const char *cFile, const char *cFolder) {
 	zip_extract(cFile,cFolder, on_extract_entry, &arg);
 }
 
+ZIP_T *zip_openfile(const char *cFile, int status, const char *cMode) {
+	return zip_open(cFile, status, cMode[0]);
+}
 
-RING_FUNC(ring_zip_open)
+
+RING_FUNC(ring_zip_openfile)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -74,9 +78,11 @@ RING_FUNC(ring_zip_open)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(zip_open(RING_API_GETSTRING(1), (int) RING_API_GETNUMBER(2),* (char *) RING_API_GETCPOINTER(3,"char")),"ZIP_T");
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"char"));
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(zip_openfile(RING_API_GETSTRING(1), (int) RING_API_GETNUMBER(2),RING_API_GETSTRING(3)),"ZIP_T");
 }
 
 
@@ -252,7 +258,7 @@ RING_FUNC(ring_zip_close)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("zip_open",ring_zip_open);
+	ring_vm_funcregister("zip_openfile",ring_zip_openfile);
 	ring_vm_funcregister("zip_entry_open",ring_zip_entry_open);
 	ring_vm_funcregister("zip_entry_write",ring_zip_entry_write);
 	ring_vm_funcregister("zip_entry_fwrite",ring_zip_entry_fwrite);

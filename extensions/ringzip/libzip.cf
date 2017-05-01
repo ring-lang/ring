@@ -59,9 +59,13 @@ void zip_extract_allfiles(const char *cFile, const char *cFolder) {
 	zip_extract(cFile,cFolder, on_extract_entry, &arg);
 }
 
+ZIP_T *zip_openfile(const char *cFile, int status, const char *cMode) {
+	return zip_open(cFile, status, cMode[0]);
+}
+
 </code>
 
-ZIP_T *zip_open(const char *, int, char)
+ZIP_T *zip_openfile(const char *, int, const char *)
 int zip_entry_open(ZIP_T*, const char *)
 int zip_entry_write(ZIP_T*, const char *,int)
 int zip_entry_fwrite(ZIP_T*, const char *)
