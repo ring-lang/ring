@@ -1531,7 +1531,7 @@ Class RNote
 
 	func pCheckCustomColors
 		if True	# Switch to Use the Style or Not
-			pStyleBlue()
+			pStyleWhite()
 		ok
 
 	func pStyleBlue()
