@@ -231,6 +231,25 @@ RING_FUNC(ring_zip_entry_read)
 	RING_API_RETNUMBER(zip_entry_read((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T"),(void *) RING_API_GETCPOINTER(2,"void"),(size_t *) RING_API_GETCPOINTER(3,"size_t")));
 }
 
+
+RING_FUNC(ring_zip_entry_fread)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(zip_entry_fread((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T"),RING_API_GETSTRING(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("zip_open",ring_zip_open);
@@ -242,4 +261,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("zip_entry_fwrite",ring_zip_entry_fwrite);
 	ring_vm_funcregister("zip_extract_allfiles",ring_zip_extract_allfiles);
 	ring_vm_funcregister("zip_entry_read",ring_zip_entry_read);
+	ring_vm_funcregister("zip_entry_fread",ring_zip_entry_fread);
 }
