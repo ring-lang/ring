@@ -27,7 +27,23 @@ RING_FUNC(ring_zip_open)
 		free(RING_API_GETCPOINTER(3,"char"));
 }
 
+
+RING_FUNC(ring_zip_close)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	zip_close((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("zip_open",ring_zip_open);
+	ring_vm_funcregister("zip_close",ring_zip_close);
 }
