@@ -24,6 +24,7 @@ Ring 1.3  comes with many new features
 * Return Self by Reference
 * Using '<' and ':' operators as 'from' keyword
 * Embedding Ring in Ring without sharing the State
+* RingZip Library
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better RingQt
@@ -341,3 +342,43 @@ Output:
 	20
 	10
 	20
+
+
+.. index:: 
+	pair: What is new in Ring 1.3?; RingZip Library
+
+RingZip Library
+===============
+
+Ring 1.3 comes with the RingZip library for creating, modifying and extracting *.zip files.
+
+Example (1):  Create myfile.zip contains 4 files 
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+	oZip = zip_openfile("myfile.zip",'w')
+	zip_addfile(oZip,"test.c")
+	zip_addfile(oZip,"zip.c")
+	zip_addfile(oZip,"zip.h")
+	zip_addfile(oZip,"miniz.h")
+	zip_close(oZip)
+
+Example (2): Extract myfile.zip to myfolder folder.
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+	zip_extract_allfiles("myfile.zip","myfolder")
+
+Example (3): Print file names in the myfile.zip
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+	oZip = zip_openfile("myfile.zip",'r')
+	for x=1 to zip_filescount(oZip)
+	       see zip_getfilenamebyindex(oZip,x) + nl
+	next
+	zip_close(oZip)
+
