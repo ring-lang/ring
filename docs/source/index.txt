@@ -68,6 +68,7 @@ Contents:
    Distributing Ring Applications <distribute>
    Command Line Options	<compiler>
    Low Level Functions <lowlevel>
+   Embedding Ring Language in Ring Programs <ringemb>
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
