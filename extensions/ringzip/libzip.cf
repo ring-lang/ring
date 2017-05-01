@@ -11,3 +11,4 @@ typedef struct zip_t ZIP_T ;
 
 ZIP_T*zip_open(const char *, int, char)
 void zip_close(ZIP_T*)
+int zip_entry_open(ZIP_T*, const char *)
