@@ -58,15 +58,15 @@ void zip_extract_allfiles(const char *cFile, const char *cFolder) {
 	zip_extract(cFile,cFolder, on_extract_entry, &arg);
 }
 
-ZIP_T *zip_openfile(const char *cFile, int status, const char *cMode) {
-	return zip_open(cFile, status, cMode[0]);
+ZIP_T *zip_openfile(const char *cFile, const char *cMode) {
+	return zip_open(cFile, ZIP_DEFAULT_COMPRESSION_LEVEL, cMode[0]);
 }
 
 
 RING_FUNC(ring_zip_openfile)
 {
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
@@ -74,15 +74,11 @@ RING_FUNC(ring_zip_openfile)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISNUMBER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETCPOINTER(zip_openfile(RING_API_GETSTRING(1), (int) RING_API_GETNUMBER(2),RING_API_GETSTRING(3)),"ZIP_T");
+	RING_API_RETCPOINTER(zip_openfile(RING_API_GETSTRING(1),RING_API_GETSTRING(2)),"ZIP_T");
 }
 
 
