@@ -66,6 +66,15 @@ int zip_filescount(ZIP_T *pZip) {
 	return mz_zip_reader_get_num_files((mz_zip_archive *) pZip);
 }
 
+const char *zip_getfilenamebyindex(ZIP_T *pZip,int index) {
+	mz_zip_archive_file_stat info;
+	if (!mz_zip_reader_file_stat((mz_zip_archive *) pZip, index-1, &info)) {
+// Cannot get information about zip archive;
+return NULL;
+}	
+return info.m_filename ;
+}
+
 
 RING_FUNC(ring_zip_openfile)
 {
@@ -271,6 +280,25 @@ RING_FUNC(ring_zip_filescount)
 	RING_API_RETNUMBER(zip_filescount((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T")));
 }
 
+
+RING_FUNC(ring_zip_getfilenamebyindex)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(zip_getfilenamebyindex((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T"), (int ) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("zip_openfile",ring_zip_openfile);
@@ -284,4 +312,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("zip_extract_allfiles",ring_zip_extract_allfiles);
 	ring_vm_funcregister("zip_close",ring_zip_close);
 	ring_vm_funcregister("zip_filescount",ring_zip_filescount);
+	ring_vm_funcregister("zip_getfilenamebyindex",ring_zip_getfilenamebyindex);
 }

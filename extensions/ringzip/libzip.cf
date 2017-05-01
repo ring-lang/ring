@@ -67,6 +67,15 @@ int zip_filescount(ZIP_T *pZip) {
 	return mz_zip_reader_get_num_files((mz_zip_archive *) pZip);
 }
 
+const char *zip_getfilenamebyindex(ZIP_T *pZip,int index) {
+	mz_zip_archive_file_stat info;
+	if (!mz_zip_reader_file_stat((mz_zip_archive *) pZip, index-1, &info)) {
+            // Cannot get information about zip archive;
+            return NULL;
+    }	
+    return info.m_filename ;
+}
+
 </code>
 
 ZIP_T *zip_openfile(const char *, const char *)
@@ -80,3 +89,4 @@ void zip_extract_file(const char *cZIPFile,const char *cFile)
 void zip_extract_allfiles(const char *cFile, const char *cFolder)
 void zip_close(ZIP_T*)
 int zip_filescount(ZIP_T *)
+const char *zip_getfilenamebyindex(ZIP_T *pZip,int index)
