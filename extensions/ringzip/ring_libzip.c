@@ -84,10 +84,26 @@ RING_FUNC(ring_zip_entry_write)
 	RING_API_RETNUMBER(zip_entry_write((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T"),RING_API_GETSTRING(2), (int) RING_API_GETNUMBER(3)));
 }
 
+
+RING_FUNC(ring_zip_entry_close)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(zip_entry_close((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T")));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("zip_open",ring_zip_open);
 	ring_vm_funcregister("zip_close",ring_zip_close);
 	ring_vm_funcregister("zip_entry_open",ring_zip_entry_open);
 	ring_vm_funcregister("zip_entry_write",ring_zip_entry_write);
+	ring_vm_funcregister("zip_entry_close",ring_zip_entry_close);
 }
