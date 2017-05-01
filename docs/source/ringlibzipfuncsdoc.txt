@@ -5,7 +5,7 @@
 RingLibZip Functions Reference
 ==============================
 
-* ZIP_T *zip_open(const char *, int, char)
+* ZIP_T *zip_openfile(const char *, const char *)
 * int zip_entry_open(ZIP_T*, const char *)
 * int zip_entry_write(ZIP_T*, const char *,int)
 * int zip_entry_fwrite(ZIP_T*, const char *)
@@ -15,3 +15,5 @@ RingLibZip Functions Reference
 * void zip_extract_file(const char *cZIPFile,const char *cFile)
 * void zip_extract_allfiles(const char *cFile, const char *cFolder)
 * void zip_close(ZIP_T*)
+* int zip_filescount(ZIP_T *)
+* const char *zip_getfilenamebyindex(ZIP_T *pZip,int index)
