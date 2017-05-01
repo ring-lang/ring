@@ -4,8 +4,53 @@
 **  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+#include <zip.h>
+
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include <zip.c>
+
 typedef struct zip_t ZIP_T ;
+
+struct buffer_t {
+char *data;
+size_t size;
+};
+
+static size_t on_extract(void *arg, unsigned long long offset, const void *data,size_t size) {
+struct buffer_t *buf = (struct buffer_t *) arg;
+buf->data = realloc(buf->data, buf->size + size + 1);
+assert(NULL != buf->data);
+
+memcpy(&(buf->data[buf->size]), data, size);
+buf->size += size;
+buf->data[buf->size] = 0;
+
+return size;
+}
+
+void zip_extract_file(const char *cZIPFile,const char *cFile) {
+struct buffer_t buf = {0};
+
+struct zip_t *zip = zip_open(cZIPFile, 0, 'r');
+assert(zip != NULL);
+
+assert(0 == zip_entry_open(zip, cFile));
+assert(0 == zip_entry_extract(zip, on_extract, &buf));
+
+assert(0 == zip_entry_close(zip));
+free(buf.data);
+buf.data = NULL;
+buf.size = 0;
+
+zip_close(zip);
+}
+
+
+
 
 RING_FUNC(ring_zip_open)
 {
@@ -99,6 +144,25 @@ RING_FUNC(ring_zip_entry_close)
 	RING_API_RETNUMBER(zip_entry_close((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T")));
 }
 
+
+RING_FUNC(ring_zip_extract_file)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	zip_extract_file(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("zip_open",ring_zip_open);
@@ -106,4 +170,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("zip_entry_open",ring_zip_entry_open);
 	ring_vm_funcregister("zip_entry_write",ring_zip_entry_write);
 	ring_vm_funcregister("zip_entry_close",ring_zip_entry_close);
+	ring_vm_funcregister("zip_extract_file",ring_zip_extract_file);
 }
