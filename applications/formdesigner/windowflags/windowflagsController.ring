@@ -44,6 +44,26 @@ class windowflagscontroller from windowsControllerParent
 
 	cFlags = ""	# The window output
 
+	nPropertyIndex = 6
+
+	func LoadSelectedItems
+		oPropertiesTable = parent().oView.oPropertiesTable
+		cItems = oPropertiesTable.item(nPropertyIndex,1).Text()
+		aItems = split(cItems,"|")
+		for item in aItems {
+			item = trim(item)	
+			nPos = find(aTypeList,item)
+			if nPos {
+				oView.ListType.item(nPos-1).setSelected(True)
+				loop 
+			}	
+			nPos = find(aHintsList,item)
+			if nPos {
+				oView.ListHints.item(nPos-1).setSelected(True)
+				loop 
+			}					
+		}
+
 	func OkAction
 		cFlags = ""
 		nType = oView.ListType.currentrow() + 1
@@ -56,7 +76,7 @@ class windowflagscontroller from windowsControllerParent
 		oPropertiesTable = parent().oView.oPropertiesTable
 		# Set the Window Flags
 			oPropertiesTable.Blocksignals(True)
-			oPropertiesTable.item(6,1).settext(cFlags)
+			oPropertiesTable.item(nPropertyIndex,1).settext(cFlags)
 			oPropertiesTable.Blocksignals(False)
 		parent().oModel.FormObject().setWindowFlagsValue(cFlags)
 		oView.Close()

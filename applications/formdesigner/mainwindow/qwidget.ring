@@ -128,6 +128,7 @@ class FormDesigner_QWidget from QWidget
 			case 6	# Window Flags
 				open_window(:WindowFlagsController)
 				Last_Window().setParentObject(oDesigner)
+				Last_Window().LoadSelectedItems()
 			case 8	# Window Icon
 				cFile = oDesigner.oGeneral.SelectFile(oDesigner)
 				setWindowIconValue(cFile)
