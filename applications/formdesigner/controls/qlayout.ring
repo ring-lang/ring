@@ -84,6 +84,7 @@ class FormDesigner_QLayout from QLabel
 				# Remove the current layout object name
 					del(aList,std_find(aList,oDesigner.oModel.GetObjectName(self)))
 				Last_Window().LoadObjectsData(aList)
+				Last_Window().LoadSelectedItems()
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount

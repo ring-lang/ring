@@ -22,6 +22,19 @@ class windowObjectscontroller from windowsControllerParent
 	nPropertyIndex = C_AFTERCOMMON+1
 	cMethodName = "setLayoutObjectsValue"
 
+	func LoadSelectedItems
+		oPropertiesTable = parent().oView.oPropertiesTable
+		cItems = oPropertiesTable.item(nPropertyIndex,1).Text()
+		aItems = split(cItems,",")
+		for item in aItems {
+			item = trim(item)	
+			for x = 1 to oView.ListObjects.count() {
+				if oView.ListObjects.item(x-1).text() = item  {
+					oView.ListObjects.item(x-1).setSelected(True)
+				}
+			}
+		}
+
 	func SetPropertyIndex nValue
 		nPropertyIndex = nValue
 
