@@ -8,4 +8,4 @@ cls
 
 cd applications
 cd rnote
-"../../bin/ring.exe" rnote.ring
+start ../../bin/ringw.exe rnote.ring
