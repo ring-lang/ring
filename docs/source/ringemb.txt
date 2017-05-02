@@ -57,3 +57,20 @@ Output:
 	20
 	10
 	20
+
+.. index:: 
+	pair: Embedding Ring in Ring; Serial Execution of Programs
+
+Serial Execution of Programs
+============================
+
+We can execute application after another application using ring_state_main()
+
+Example:
+
+.. code-block:: ring
+
+	chdir(exefolder()+"/../applications/formdesigner")
+	ring_state_main('formdesigner.ring')
+	chdir(exefolder()+"/../applications/cards")
+	ring_state_main('cards.ring')
