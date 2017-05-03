@@ -12,7 +12,7 @@
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNote)
 
-Class RNote
+Class RNote from WindowsControllerParent 
 
 	cActiveFileName = ""
 	aTextColor = [0,0,0]
@@ -1529,6 +1529,7 @@ Class RNote
 		cDir = CurrentDir()
 		chdir(exefolder() + "/../applications/formdesigner")
 		open_window(:FormDesignerController)
+		Last_Window().setParentObject(self)
 		oDock7.setWidget(Last_Window().oView.win)
 		chdir(cDir)
 
