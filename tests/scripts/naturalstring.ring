@@ -1,12 +1,9 @@
 	ChangeRingKeyword	and  _and
-	ChangeRingOperator	=    is
 
 	New App
 	{
 			I want window and the window title is hello world
 	}
-
-	ChangeRingOperator	is    =
 
 	Class App
 
@@ -15,7 +12,7 @@
 					nIwantwindow = 0
 			# Attributes for the instruction Window title
 			# Here we don't define the window attribute again
-					title
+					title is 
 					nWindowTitle = 0
 			# Keywords to ignore, just give them any value
 					the=0  and=0
@@ -43,13 +40,18 @@
 					nWindowTitle++
 				ok
 
-			func settitle cValue
+			func gettitle
 				if nWindowTitle = 1
 					nWindowTitle=2
 				ok
+			
+			func getis
+				if nWindowTitle = 2
+					nWindowTitle=3
+				ok			
 
 			func braceend
-				if nWindowTitle = 2
+				if nWindowTitle = 3
 					see "Instruction : Window Title = " + literal + nl
 					nWindowTitle = 0
 				ok
