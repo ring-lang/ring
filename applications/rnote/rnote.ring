@@ -770,6 +770,12 @@ Class RNote from WindowsControllerParent
 		AutoComplete()
 		DisplayFunctionsList()
 		DisplayClassesList()
+
+		# Open Form Designer File 
+		if right(cActiveFileName,6) = ".rform"
+			FormDesignerObject().OpenFile(cActiveFileName)
+		ok
+
 		StatusMessage("Ready!")
 
 	func pSetActiveFileName
