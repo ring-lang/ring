@@ -15,6 +15,7 @@ class FormDesignerController from WindowsControllerParent
 	oFile = new FormDesignerFileSystem
 
 	func Start
+		oView.SetParentObject(self)
 		oView.CreateMainWindow(oModel)
 		AddObjectsToCombo()
 		AddObjectProperties()

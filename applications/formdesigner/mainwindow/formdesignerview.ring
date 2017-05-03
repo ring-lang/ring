@@ -673,7 +673,7 @@ Class FormDesignerView from WindowsViewParent
 			oBtn = new qPushButton(NULL) {
 				setText("::")
 				setfixedwidth(30)
-				setClickEvent(Method(:DialogButtonAction+"("+nRow+")"))
+				setClickEvent(this.Parent().Method(:DialogButtonAction+"("+nRow+")"))
 			}
 			oPropertiesTable.setCellwidget(nRow,2,oBtn)
 		}
@@ -690,7 +690,7 @@ Class FormDesignerView from WindowsViewParent
 		# Combobox
 			oCombo = new qCombobox(NULL) {
 				for cValue in aList { AddItem(cValue,0) }
-				setCurrentIndexchangedevent(Method(:ComboItemAction+"("+nRow+")"))
+				setCurrentIndexchangedevent(this.Parent().Method(:ComboItemAction+"("+nRow+")"))
 			}
 			oPropertiesTable.setCellwidget(nRow,1,oCombo)
 		# No Button
