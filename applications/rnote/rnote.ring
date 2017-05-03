@@ -1533,6 +1533,9 @@ Class RNote from WindowsControllerParent
 		oDock7.setWidget(Last_Window().oView.win)
 		chdir(cDir)
 
+	func GetActiveFolder
+		return cStartUpFolder
+
 	func pCheckCustomColors
 		if True	# Switch to Use the Style or Not
 			pStyleWhite()

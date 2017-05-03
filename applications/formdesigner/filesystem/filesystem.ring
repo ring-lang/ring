@@ -12,10 +12,18 @@ class FormDesignerFileSystem
 	cFileName = "noname.rform"
 	oGenerator = new FormDesignerCodeGenerator
 
+	func ActiveDir oDesigner
+		cDir = CurrentDir()
+		if oDesigner.IsParent() {
+			cDir = oDesigner.Parent().GetActiveFolder()
+		}
+		return cDir
+
 	func NewAction oDesigner
 		# Set the file Name
+			cDir = ActiveDir(oDesigner)
 			new qfiledialog(oDesigner.oView.win) {
-				cInputFileName = getsavefilename(oDesigner.oView.win,"New Form",currentdir(),"*.rform")
+				cInputFileName = getsavefilename(oDesigner.oView.win,"New Form",cDir,"*.rform")
 			}
 			if cInputFileName = NULL { return }
 			cInputFileName = AddExtensionToName(cInputFileName)
@@ -44,8 +52,9 @@ class FormDesignerFileSystem
 
 	func OpenAction oDesigner
 		# Get the file Name
+			cDir = ActiveDir(oDesigner)
 			new qfiledialog(oDesigner.oView.win) {
-				cInputFileName = getopenfilename(oDesigner.oView.win,"Open Form",currentdir(),"*.rform")
+				cInputFileName = getopenfilename(oDesigner.oView.win,"Open Form",cDir,"*.rform")
 			}
 			if cInputFileName = NULL { return }
 			cFileName = cInputFileName
