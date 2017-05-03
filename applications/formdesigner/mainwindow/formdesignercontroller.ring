@@ -95,13 +95,18 @@ class FormDesignerController from WindowsControllerParent
 	func ResizeWindowAction
 		oView.oLabelSelect.Hide()
 		SetToolboxModeToSelect()
-		oModel.FormObject().DisplayProperties(self)
+		DisplayFormProperties()		
 		oView.oFilter.seteventoutput(False)
 
 	func MoveWindowAction
 		oView.oLabelSelect.Hide()
 		SetToolboxModeToSelect()
-		oModel.FormObject().DisplayProperties(self)
+		DisplayFormProperties()
+
+	func DisplayFormProperties
+		if oModel.IsFormActive() {
+			oModel.FormObject().DisplayProperties(self)
+		}
 
 	func MousePressAction
 		oModel.FormObject().MousePressAction(self)
