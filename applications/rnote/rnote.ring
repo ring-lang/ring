@@ -755,6 +755,13 @@ Class RNote from WindowsControllerParent
 		if ofile.isdir(oItem)
 			return
 		ok
+		# Open Form Designer File 
+		if right(ofile.filepath(oItem),6) = ".rform"
+			StatusMessage("Open the form file...")
+			FormDesignerObject().OpenFile(ofile.filepath(oItem))
+			StatusMessage("Ready!")
+			return
+		ok
 		cActiveFileName = ofile.filepath(oItem)
 		# We get nLine before using textedit1.settext() to get the value before aFilesLines update
 			nLine =  aFilesLines[cActiveFileName]
@@ -770,11 +777,6 @@ Class RNote from WindowsControllerParent
 		AutoComplete()
 		DisplayFunctionsList()
 		DisplayClassesList()
-
-		# Open Form Designer File 
-		if right(cActiveFileName,6) = ".rform"
-			FormDesignerObject().OpenFile(cActiveFileName)
-		ok
 
 		StatusMessage("Ready!")
 
