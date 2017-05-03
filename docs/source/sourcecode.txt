@@ -29,6 +29,7 @@ Build Ring (Compiler/VM)
 
 	cd ring/src
 	buildvccomplete.bat
+	buildvccompletew.bat
 
 Generate RingAllegro Source Code and Build
 
@@ -43,6 +44,14 @@ Generate RingLibCurl Source Code and Build
 .. code-block:: ring
 
 	cd ../extensions/ringcurl
+	gencode.bat
+	buildvc.bat
+
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
 	gencode.bat
 	buildvc.bat
 
@@ -123,6 +132,14 @@ Generate RingLibCurl Source Code and Build
 	./gencode.sh
 	./buildgcc.sh
 
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
 Generate RingQt Source Code and Build
 
 .. code-block:: ring
@@ -188,6 +205,13 @@ Generate RingLibCurl Source Code and Build
 	./gencode.sh
 	./buildclang.sh
 
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildclang.sh
 
 Generate RingQt Source Code and Build
 
