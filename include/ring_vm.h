@@ -258,6 +258,8 @@ void ring_vm_listpushv ( VM *pVM ) ;
 void ring_vm_listassignment ( VM *pVM ) ;
 
 void ring_vm_listgetvalue ( VM *pVM,List *pVar,const char *cStr ) ;
+
+int ring_vm_strcmpnotcasesensitive ( const char *cStr1,const char *cStr2 ) ;
 /* Functions */
 
 int ring_vm_loadfunc ( VM *pVM ) ;
