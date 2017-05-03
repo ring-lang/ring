@@ -532,9 +532,21 @@ class FormDesignerController from WindowsControllerParent
 
 	func NewControlEvents cName,nCount
 			oFilter = new qAllevents(oModel.ActiveObject()) {
-				setmousebuttonpressevent(Method(:ActiveObjectMousePress+"("+this.oModel.GetCurrentID()+")"))
-				setMouseButtonReleaseEvent(Method(:ActiveObjectMouseRelease+"("+this.oModel.GetCurrentID()+")"))
-				setMouseMoveEvent(Method(:ActiveObjectMouseMove+"("+this.oModel.GetCurrentID()+")"))
+				/*
+				  Here we uses This.Method() to access the
+				  Method() method in WindowsControllerParent class
+				  Because we are inside braces { } and to access qAllevents
+				  Using Method() without This.Method() will access the Method() Function 
+				  The difference between Method() Function and Method() Method is that
+				  the Method() Method define the event for the current object (This instance)
+				  While Method() function define the event for the current active object 
+				  The current active object maybe changed by using open_window() or 
+				  open_windownoshow() functions.
+				  This happened when we merged the Form Designer with Ring Notepad. 
+				*/
+				setmousebuttonpressevent(This.Method(:ActiveObjectMousePress+"("+this.oModel.GetCurrentID()+")"))
+				setMouseButtonReleaseEvent(This.Method(:ActiveObjectMouseRelease+"("+this.oModel.GetCurrentID()+")"))
+				setMouseMoveEvent(This.Method(:ActiveObjectMouseMove+"("+this.oModel.GetCurrentID()+")"))
 			}
 			oModel.ActiveObject().installeventfilter(oFilter)
 			oModel.ActiveObject().oFilter = oFilter
