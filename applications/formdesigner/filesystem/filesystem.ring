@@ -133,6 +133,7 @@ class FormDesignerFileSystem
 		}
 		oDesigner.oModel.DeleteAllObjects()
 		oDesigner.AddObjectsToCombo()
+		oDesigner.AddObjectProperties()
 
 	func LoadFormFromFile oDesigner
 		# Delete objects
