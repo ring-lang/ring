@@ -138,5 +138,44 @@ Example (5):
 		Close()
 	}
 
+.. index:: 
+	pair: RingZip; Zip Class Reference
+
+Zip Class Reference
+===================
+
+Methods:
+
+===========================	======================================================================
+Method				Description/Output
+===========================	======================================================================
+SetFileName(cName)		Set the Zip file name
+GetFileName()			Return the Zip file name
+Open(cMode)			Open File, cMode = "a", "w" or "r"
+Close() 			Close the Zip File
+AddFile(cFileName)		Add file to the Zip file
+ExtractAllFiles(cFolder)	Extract all files from the Zip file
+FilesCount()			Return files count in the Zip file
+GetFileNameByIndex(nIndex)	Return file name in the Zip file by file index
+NewEntry()			Create new ZipEntry object
+===========================	======================================================================
+
+
+.. index:: 
+	pair: RingZip; ZipEntry Class Reference
+
+ZipEntry Class Reference
+========================
+
+Methods:
+
+===========================	======================================================================
+Method				Description/Output
+===========================	======================================================================
+Open(cFileName) 		Open new Entry
+WriteFile(cFileName) 		Write File to the Entry
+WriteString(cString)		Write String to the Entry
+Close()				Close the Entry
+===========================	======================================================================
 
 
