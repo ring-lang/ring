@@ -83,13 +83,14 @@ Class FormDesignerView from WindowsViewParent
 			win.showmaximized()
 
 	func WindowMoveResizeEvents
-		oFilter = new qAllEvents(oSub)
-		oFilter.setResizeEvent(Method(:ResizeWindowAction))
-		oFilter.setMoveEvent(Method(:MoveWindowAction))
-		oFilter.setMouseButtonPressEvent(Method(:MousePressAction))
-		oFilter.setMouseButtonReleaseEvent(Method(:MouseReleaseAction))
-		oFilter.setMouseMoveEvent(Method(:MouseMoveAction))
-		oFilter.setKeyPressevent(Method(:KeyPressAction))
+		oFilter = new qAllEvents(oSub) {
+			setResizeEvent(this.Method(:ResizeWindowAction))
+			setMoveEvent(this.Method(:MoveWindowAction))
+			setMouseButtonPressEvent(this.Method(:MousePressAction))
+			setMouseButtonReleaseEvent(this.Method(:MouseReleaseAction))
+			setMouseMoveEvent(this.Method(:MouseMoveAction))
+			setKeyPressevent(this.Method(:KeyPressAction))
+		}
 		oSub.installeventfilter(oFilter)
 
 	func CreateMenuBar
