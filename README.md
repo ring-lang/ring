@@ -41,6 +41,7 @@ The next steps explains building using scripts.
 	
 	cd ring/src
 	buildvccomplete.bat
+	buildvccompletew.bat
 	
 ### Generate RingAllegro Source Code and Build 
 	
@@ -51,6 +52,12 @@ The next steps explains building using scripts.
 ### Generate RingLibCurl Source Code and Build 
 	
 	cd ../extensions/ringcurl
+	gencode.bat
+	buildvc.bat
+	
+### Generate RingZip Source Code and Build 
+	
+	cd ../extensions/ringzip
 	gencode.bat
 	buildvc.bat
 	
@@ -108,6 +115,12 @@ The next steps explains building using scripts.
 	cd ../extensions/ringcurl
 	./gencode.sh
 	./buildgcc.sh
+	
+### Generate RingZip Source Code and Build 
+	
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
 
 ### Generate RingQt Source Code and Build
 	
@@ -153,6 +166,12 @@ The next steps explains building using scripts.
 ### Generate RingLibCurl Source Code and Build 
 	
 	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildclang.sh
+	
+### Generate RingZip Source Code and Build 
+	
+	cd ../extensions/ringzip
 	./gencode.sh
 	./buildclang.sh
 	
