@@ -15,7 +15,9 @@ class FormDesignerFileSystem
 	func ActiveDir oDesigner
 		cDir = CurrentDir()
 		if oDesigner.IsParent() {
-			cDir = oDesigner.Parent().GetActiveFolder()
+			if isMethod(oDesigner.Parent(),"getactivefolder") {
+				cDir = oDesigner.Parent().GetActiveFolder()
+			}
 		}
 		return cDir
 
