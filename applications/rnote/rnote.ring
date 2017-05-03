@@ -592,7 +592,7 @@ Class RNote
 
 			this.oDock4 = new qDockwidget(this.win1,0) {
 				setWidget(this.oFunctionsList)
-				setwindowtitle("Functions List")
+				setwindowtitle("Functions")
 			}
 
 			# Classes List
@@ -605,7 +605,7 @@ Class RNote
 
 			this.oDock6 = new qDockwidget(this.win1,0) {
 				setWidget(this.oClassesList)
-				setwindowtitle("Classes List")
+				setwindowtitle("Classes")
 			}
 
 			# Output Window
@@ -642,7 +642,7 @@ Class RNote
 
 			this.oDock5 = new qDockWidget(this.win1,0) {
 				setwidget( oProcessWindow )
-				setwindowtitle("Output Window")
+				setwindowtitle("Output")
 			}
 
 			this.oDock7 = new qDockwidget(this.win1,0) {
@@ -1428,7 +1428,7 @@ Class RNote
 		for cFunc in aFunctionsPos
 			oFunctionsList.addItem(cFunc[1])
 		next
-		oDock4.setWindowTitle("Functions List ("+oFunctionsList.Count()+")")
+		oDock4.setWindowTitle("Functions ("+oFunctionsList.Count()+")")
 		StatusMessage("Creating functions list ... Done!")
 
 	func pSelectFunction
@@ -1465,7 +1465,7 @@ Class RNote
 		for cClass in aClassesPos
 			oClassesList.addItem(cClass[1])
 		next
-		oDock6.setWindowTitle("Classes List ("+oClassesList.Count()+")")
+		oDock6.setWindowTitle("Classes ("+oClassesList.Count()+")")
 		StatusMessage("Creating classes list ... Done!")
 
 	func pSelectClass
