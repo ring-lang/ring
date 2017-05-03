@@ -46,6 +46,7 @@ class FormDesignerFileSystem
 				setWindowTitle("Form1")
 				blocksignals(False)
 			}
+			oDesigner.oModel.FormObject().setWindowTitle("Form1")
 			oDesigner.oModel.FormObject().setBackColor("")
 		# Save Form
 			SaveFormToFile(oDesigner)

@@ -80,6 +80,10 @@ class FormDesigner_QWidget from QWidget
 					oSubWindow.resize(oSubWindow.width(),0+cValue)
 				case 4  	# Title
 					setWindowTitle(cValue)
+					oDesigner.oView.oSub {
+						setWindowTitle(cValue)
+						show()
+					}
 				case 5	# back color
 					setBackColor(cValue)
 				case 6	# Window Flags
