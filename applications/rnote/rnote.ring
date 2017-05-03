@@ -10,7 +10,7 @@
 	import formdesigner 
 
 # Create the Ring Notepad Object
-	RNote = new RNote
+	Open_WindowNoShow(:RNote)
 
 Class RNote
 
@@ -93,6 +93,9 @@ Class RNote
 	oProcessEditbox oProcessText oProcess
 	aFunctionsPos aClassesPos
 
+	# Methods 
+	   cpGetProcessData = Method(:pGetProcessData)
+
 	CreateMainWindow()
 
 	func CreateMainWindow 
@@ -103,89 +106,89 @@ Class RNote
 		this.PrepareAutoComplete()
 		this.win1 = new qMainWindow() {
 			oFilter = new qAllEvents(this.win1)
-			oFilter.setCloseEvent("RNote.pSaveSettingsToFile()")
+			oFilter.setCloseEvent(Method(:pSaveSettingsToFile))
 			installEventFilter(oFilter)
 			setwindowtitle("Ring Notepad")
 			setGeometry(100,100,400,400)
 			aBtns = [
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/new.png")
-						setclickevent("RNote.pNew()")
+						setclickEvent(Method(:pNew))
 						settooltip("New File")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/open.png")
-						setclickevent("RNote.pOpen()")
+						setclickEvent(Method(:pOpen))
 						settooltip("Open File")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/save.png")
-						setclickevent("RNote.pSave()")
+						setclickEvent(Method(:pSave))
 						settooltip("Save")
 					 } ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/saveas.png")
-						setclickevent("RNote.pSaveAs()")
+						setclickEvent(Method(:pSaveAs))
 						settooltip("Save As")
 					 } ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/undo.png")
-						setclickevent("RNote.pUndo()")
+						setclickEvent(Method(:pUndo))
 						settooltip("Undo")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/cut.png")
-						setclickevent("RNote.pCut()")
+						setclickEvent(Method(:pCut))
 						settooltip("Cut")
 					 } ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/copy.png")
-						setclickevent("RNote.pCopy()")
+						setclickEvent(Method(:pCopy))
 						settooltip("Copy")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/paste.png")
-						setclickevent("RNote.pPaste()")
+						setclickEvent(Method(:pPaste))
 						settooltip("Paste")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/font.png")
-						setclickevent("RNote.pFont()")
+						setclickEvent(Method(:pFont))
 						settooltip("Font")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/colors.jpg")
-						setclickevent("RNote.pColor()")
+						setclickEvent(Method(:pColor))
 						settooltip("Text Color")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/search.png")
-						setclickevent("RNote.pFind()")
+						setclickEvent(Method(:pFind))
 						settooltip("Find and Replace")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/print.png")
-						setclickevent("RNote.pPrint()")
+						setclickEvent(Method(:pPrint))
 						settooltip("Print")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
-						setclickevent("RNote.pDebug()")
+						setclickEvent(Method(:pDebug))
 						settooltip("Debug (Run then wait!)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/run.png")
-						setclickevent("RNote.pRun()")
+						setclickEvent(Method(:pRun))
 						settooltip("Run the program")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/rungui.bmp")
-						setclickevent("RNote.pRunNoConsole()")
+						setclickEvent(Method(:pRunNoConsole))
 						settooltip("Run GUI Application (No Console)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/close.png")
-						setclickevent("RNote.pQuit()")
+						setclickEvent(Method(:pQuit))
 						settooltip("Quit")
 					}
 				]
@@ -207,14 +210,14 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+n"))
 						setbtnimage(self,"image/new.png")
 						settext("New")
-						setclickevent("RNote.pNew()")
+						setclickEvent(Method(:pNew))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+o"))
 						setbtnimage(self,"image/open.png")
 						settext("Open")
-						setclickevent("RNote.pOpen()")
+						setclickEvent(Method(:pOpen))
 					}
 					addaction(oAction)
 					addseparator()
@@ -222,7 +225,7 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+s"))
 						setbtnimage(self,"image/save.png")
 						settext("Save")
-						setclickevent("RNote.pSave()")
+						setclickEvent(Method(:pSave))
 					}
 					addaction(oAction)
 					addseparator()
@@ -230,7 +233,7 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+e"))
 						setbtnimage(self,"image/saveas.png")
 						settext("Save As")
-						setclickevent("RNote.pSaveAs()")
+						setclickEvent(Method(:pSaveAs))
 					}
 					addaction(oAction)
 					addseparator()
@@ -238,7 +241,7 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+p"))
 						setbtnimage(self,"image/print.png")
 						settext("Print to PDF")
-						setclickevent("RNote.pPrint()")
+						setclickEvent(Method(:pPrint))
 					}
 					addaction(oAction)
 					addseparator()
@@ -247,7 +250,7 @@ Class RNote
 						setbtnimage(self,"image/close.png")
 						settext("Exit")
 						setstatustip("Exit")
-						setclickevent("RNote.pQuit()")
+						setclickEvent(Method(:pQuit))
 					}
 					addaction(oAction)
 				}
@@ -256,7 +259,7 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+z"))
 						setbtnimage(self,"image/undo.png")
 						settext("Undo")
-						setclickevent("RNote.pUndo()")
+						setclickEvent(Method(:pUndo))
 					}
 					addaction(oAction)
 					addseparator()
@@ -264,21 +267,21 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+x"))
 						setbtnimage(self,"image/cut.png")
 						settext("Cut")
-						setclickevent("RNote.pCut()")
+						setclickEvent(Method(:pCut))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+c"))
 						setbtnimage(self,"image/copy.png")
 						settext("Copy")
-						setclickevent("RNote.pCopy()")
+						setclickEvent(Method(:pCopy))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+v"))
 						setbtnimage(self,"image/paste.png")
 						settext("Paste")
-						setclickevent("RNote.pPaste()")
+						setclickEvent(Method(:pPaste))
 					}
 					addaction(oAction)
 					addseparator()
@@ -286,7 +289,7 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+i"))
 						setbtnimage(self,"image/font.png")
 						settext("Font")
-						setclickevent("RNote.pFont()")
+						setclickEvent(Method(:pFont))
 					}
 					addseparator()
 					addaction(oAction)
@@ -294,35 +297,35 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+t"))
 						setbtnimage(self,"image/colors.jpg")
 						settext("Text Color")
-						setclickevent("RNote.pColor()")
+						setclickEvent(Method(:pColor))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+b"))
 						setbtnimage(self,"image/colors.jpg")
 						settext("Back Color")
-						setclickevent("RNote.pColor2()")
+						setclickEvent(Method(:pColor2))
 					}
 					addaction(oAction)
 					addseparator()
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+g"))
 						settext("Go to line")
-						setclickevent("RNote.pGoto()")
+						setclickEvent(Method(:pGoto))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+f"))
 						setbtnimage(self,"image/search.png")
 						settext("Find and Replace")
-						setclickevent("RNote.pFind()")
+						setclickEvent(Method(:pFind))
 					}
 					addaction(oAction)
 					addseparator()
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+h"))
 						settext("Set Tab Width")
-						setclickevent("RNote.pTabWidth()")
+						setclickEvent(Method(:pTabWidth))
 					}
 					addaction(oAction)
 				}
@@ -331,14 +334,14 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+j"))
 						setbtnimage(self,"image/project.png")
 						settext("Project Files")
-						setclickevent("RNote.pProject()")
+						setclickEvent(Method(:pProject))
 					}
 					addaction(oAction)
 					addseparator()
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+u"))
 						setbtnimage(self,"image/source.png")
-						setclickevent("RNote.pSourceCode()")
+						setclickEvent(Method(:pSourceCode))
 						settext("Source Code")
 					}
 					addaction(oAction)
@@ -346,7 +349,7 @@ Class RNote
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+w"))
 						setbtnimage(self,"image/richtext.png")
-						setclickevent("RNote.pWebBrowser()")
+						setclickEvent(Method(:pWebBrowser))
 						settext("Web Browser")
 					}
 					addaction(oAction)
@@ -354,7 +357,7 @@ Class RNote
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Alt+f"))
 						setbtnimage(self,"image/source.png")
-						setclickevent("RNote.pFunctionsList()")
+						setclickEvent(Method(:pFunctionsList))
 						settext("Functions List")
 					}
 					addaction(oAction)
@@ -362,7 +365,7 @@ Class RNote
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Alt+c"))
 						setbtnimage(self,"image/source.png")
-						setclickevent("RNote.pClassesList()")
+						setclickEvent(Method(:pClassesList))
 						settext("Classes List")
 					}
 					addaction(oAction)
@@ -370,7 +373,7 @@ Class RNote
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Alt+o"))
 						setbtnimage(self,"image/source.png")
-						setclickevent("RNote.pOutputWindow()")
+						setclickEvent(Method(:pOutputWindow))
 						settext("Output Window")
 					}
 					addaction(oAction)
@@ -378,7 +381,7 @@ Class RNote
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Alt+f"))
 						setbtnimage(self,"image/formdesigner.png")
-						setclickevent("RNote.pFormDesignerWindow()")
+						setclickEvent(Method(:pFormDesignerWindow))
 						settext("Form Designer Window")
 					}
 					addaction(oAction)
@@ -389,7 +392,7 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+d"))
 						setbtnimage(self,"image/debug.png")
 						settext("Debug (Run then wait!)")
-						setclickevent("RNote.pDebug()")
+						setclickEvent(Method(:pDebug))
 					}
 					addaction(oAction)
 					addseparator()
@@ -397,7 +400,7 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+r"))
 						setbtnimage(self,"image/run.png")
 						settext("Run")
-						setclickevent("RNote.pRun()")
+						setclickEvent(Method(:pRun))
 					}
 					addaction(oAction)
 					addseparator()
@@ -405,7 +408,7 @@ Class RNote
 						setShortcut(new QKeySequence("Ctrl+F5"))
 						setbtnimage(self,"image/run.png")
 						settext("Run GUI Application (No Console)")
-						setclickevent("RNote.pRunNoConsole()")
+						setclickEvent(Method(:pRunNoConsole))
 					}
 					addaction(oAction)
 				}
@@ -415,7 +418,7 @@ Class RNote
 						item = this.aBrowserLinks[x]
 						oAction = new qAction(this.win1) {
 							settext(item[1])
-							setclickevent("RNote.pBrowserLink("+x+")")
+							setclickEvent(Method(:pBrowserLink+"("+x+")"))
 						}
 						addaction(oAction)
 						if x != len(this.aBrowserLinks)
@@ -426,7 +429,7 @@ Class RNote
 				subTools {
 					oAction = new qAction(this.win1) {
 						settext("Form Designer")
-						setclickevent("RNote.pFormDesigner()")
+						setclickEvent(Method(:pFormDesigner))
 					}
 					addaction(oAction)
 				}
@@ -437,12 +440,12 @@ Class RNote
 					subHelpLF {
 						oAction = new qAction(this.win1) {
 							settext("CHM File")
-							setclickevent("RNote.pOpenCHM()")
+							setclickEvent(Method(:pOpenCHM))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							settext("PDF File")
-							setclickevent("RNote.pOpenPDF()")
+							setclickEvent(Method(:pOpenPDF))
 						}
 						addaction(oAction)
 					}
@@ -452,19 +455,19 @@ Class RNote
 
 						oAction = new qAction(this.win1) {
 							settext("Programming Language")
-							setclickevent("RNote.pLang()")
+							setclickEvent(Method(:pLang))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							settext("GUI Library")
-							setclickevent("RNote.pGUI()")
+							setclickEvent(Method(:pGUI))
 						}
 						addaction(oAction)
 					}
 					addseparator()
 						oAction = new qAction(this.win1) {
 							settext("About")
-							setclickevent("RNote.pAbout()")
+							setclickEvent(Method(:pAbout))
 						}
 						addaction(oAction)
 				}
@@ -479,7 +482,7 @@ Class RNote
 			setstatusbar(this.status1)
 
 			this.tree1 = new qtreeview(this.win1) {
-				setclickedevent("RNote.pChangeFile()")
+				setclickedEvent(Method(:pChangeFile))
 				setGeometry(00,00,200,400)
 				setmaximumwidth(300)
 				chdir(this.cStartUpFolder)
@@ -521,9 +524,9 @@ Class RNote
 			}
 
 			this.textedit1 = new codeeditor(this.win1) {
-				setCursorPositionChangedevent("RNote.pCursorPositionChanged()")
+				setCursorPositionChangedEvent(Method(:pCursorPositionChanged))
 				setLineWrapMode(QTextEdit_NoWrap)
-				setTextChangedEvent("RNote.pTextChanged()")
+				setTextChangedEvent(Method(:pTextChanged))
 				setLineNumbersAreaColor(this.aStyleColors[:LineNumbersAreaColor])
 				setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
 			}
@@ -551,15 +554,15 @@ Class RNote
 				}
 				this.oWBText = new qLineEdit(this.win1) {
 					setText(this.cWebSite)
-					setReturnPressedEvent("RNote.pWebGo()")
+					setReturnPressedEvent(Method(:pWebGo))
 				}
 				oWBGo = new qPushButton(this.win1) {
 					setText("Go")
-					setClickEvent("RNote.pWebGo()")
+					setClickEvent(Method(:pWebGo))
 				}
 				oWBBack = new qPushButton(this.win1) {
 					setText("Back")
-					setClickEvent("RNote.pWebBack()")
+					setClickEvent(Method(:pWebBack))
 				}
 				oWBLayout1 = new qHBoxLayout() {
 					addWidget(oWBLabel)
@@ -586,8 +589,8 @@ Class RNote
 
 			this.aFunctionsPos = []	# Lines Numbers for each function
 			this.oFunctionsList = new qListwidget(this.win1) {
-				setitemdoubleclickedevent("RNote.pSelectFunction()")
-				setitemactivatedevent("RNote.pSelectFunction()")
+				setitemdoubleclickedEvent(Method(:pSelectFunction))
+				setitemactivatedEvent(Method(:pSelectFunction))
 			}
 
 			this.oDock4 = new qDockwidget(this.win1,0) {
@@ -599,8 +602,8 @@ Class RNote
 
 			this.aClassesPos = []	# Lines Numbers for each class
 			this.oClassesList = new qListwidget(this.win1) {
-				setitemdoubleclickedevent("RNote.pSelectClass()")
-				setitemactivatedevent("RNote.pSelectClass()")
+				setitemdoubleclickedEvent(Method(:pSelectClass))
+				setitemactivatedEvent(Method(:pSelectClass))
 			}
 
 			this.oDock6 = new qDockwidget(this.win1,0) {
@@ -618,12 +621,12 @@ Class RNote
 				setText("Input :")
 			}
 			this.oProcessText = new qlineEdit(oProcessWindow) {
-				setreturnPressedEvent("RNote.pSendProcessData(RNote.oProcess,RNote.oProcessText,RNote.oProcessEditbox)")
+				setreturnPressedEvent(Method(:pSendProcessData))
 			}
 
 			oProcessbtnSend = new qpushbutton(oProcessWindow) {
 				setText("Send")
-				setClickevent("RNote.pSendProcessData(RNote.oProcess,RNote.oProcessText,RNote.oProcessEditbox)")
+				setClickEvent(Method(:pSendProcessData))
 			}
 
 			oProcessLayout1 = new qhboxlayout() {
@@ -822,7 +825,7 @@ Class RNote
 			this.oSearchValue = new qlineedit(this.oSearch)
 			{
 				setText(this.cSearchText)
-				setReturnPressedEvent("RNote.pFindValue()")
+				setReturnPressedEvent(Method(:pFindValue))
 			}
 			oLayout1 = new qHBoxLayout()
 			{
@@ -854,22 +857,22 @@ Class RNote
 			oBtnFind = new qPushButton(this.oSearch)
 			{
 				setText("Find/Find Next")
-				setclickevent("RNote.pFindValue()")
+				setclickEvent(Method(:pFindValue))
 			}
 			oBtnReplace = new qPushButton(this.oSearch)
 			{
 				setText("Replace")
-				setclickevent("RNote.pReplace()")
+				setclickEvent(Method(:pReplace))
 			}
 			oBtnReplaceAll = new qPushButton(this.oSearch)
 			{
 				setText("Replace All")
-				setclickevent("RNote.pReplaceAll()")
+				setclickEvent(Method(:pReplaceAll))
 			}
 			oBtnClose = new qPushButton(this.oSearch)
 			{
 				setText("Close")
-				setclickevent("RNote.pSearchClose()")
+				setclickEvent(Method(:pSearchClose))
 			}
 			oLayout4 = new qHBoxLayout()
 			{
@@ -894,7 +897,7 @@ Class RNote
 			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint)
 
 			this.oSearchFilter = new qallevents(this.oSearch)
-			this.oSearchFilter.setKeyPressEvent("RNote.pSearchKeyPress()")
+			this.oSearchFilter.setKeyPressEvent(Method(:pSearchKeyPress))
 			installeventfilter(this.oSearchFilter)
 
 			show()
@@ -1027,7 +1030,7 @@ Class RNote
 		if iswindows()
 			oProcessEditbox.setplaintext("")
 			oProcessText.setFocus(0)
-			oProcess = pRunProcess(cCurrentDir+"run2.bat",cActiveFileName,"RNote.pGetProcessData(RNote.oProcess,RNote.oProcessEditbox)")
+			oProcess = pRunProcess(cCurrentDir+"run2.bat",cActiveFileName,cpGetProcessData)
 		else
 			cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
 			system(cCode)
@@ -1488,7 +1491,7 @@ Class RNote
 		}
 		return oProcess
 
-	func pGetProcessData oProcess,oEditBox
+	func pGetProcessData 
 		if ISNULL(oProcess) return ok
 		cText = oProcess.readallstandardoutput().data()
 		aText = str2list(cText)
@@ -1503,20 +1506,20 @@ Class RNote
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring(cFont)
 			oProcessEditbox.setFont(oFont)
-		oeditbox.insertplaintext(	cText)
+		oProcessEditbox.insertplaintext(cText)
 
-	func pSendProcessData oProcess,oText,oEditbox
+	func pSendProcessData
 		if ISNULL(oProcess) return ok
-		cText = oText.text() + windowsnl()
+		cText = oProcessText.text() + windowsnl()
 		oProcess.write(cText ,len(cText))
-		oeditbox.insertplaintext(	cText)
+		oProcessEditbox.insertplaintext(cText)
 
 	func pFormDesigner		
 		cFormFileName = cCurrentDir + "../formdesigner/formdesigner.ring"
 		if iswindows()
 			oProcessEditbox.setplaintext("")
 			oProcessText.setFocus(0)
-			oProcess = pRunProcess(cCurrentDir+"run2.bat",cFormFileName,"RNote.pGetProcessData(RNote.oProcess,RNote.oProcessEditbox)")
+			oProcess = pRunProcess(cCurrentDir+"run2.bat",cFormFileName,cpGetProcessData)
 		else
 			cCode = 'cd $(dirname "'+cFormFileName+'") ; ' + ' ring "' + cFormFileName + '"' + nl
 			system(cCode)
