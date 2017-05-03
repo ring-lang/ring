@@ -12,6 +12,12 @@ class FormDesignerFileSystem
 	cFileName = "noname.rform"
 	oGenerator = new FormDesignerCodeGenerator
 
+	func SetFileName cFile 
+		cFileName = cFile 
+	
+	func GetFileName 
+		return cFileName
+
 	func ActiveDir oDesigner
 		cDir = CurrentDir()
 		if oDesigner.IsParent() {

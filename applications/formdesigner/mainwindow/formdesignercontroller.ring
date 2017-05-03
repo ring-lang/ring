@@ -1213,3 +1213,9 @@ class FormDesignerController from WindowsControllerParent
 			return True
 		}
 		return False
+
+	func OpenFile cFileName 
+		oFile {
+			SetFileName(cFileName)
+			LoadFormFromFile(this)
+		}
