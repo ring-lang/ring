@@ -102,9 +102,7 @@ func Get_Window_Pos nID
 	When you close the window just use Super.Close()
 */
 
-class WindowsControllerBase
-
-	RingQt_nID = $RingQt_ObjectID
+class WindowsControllerBase from ObjectsLibParent
 
 	func Close
 		nPos = Get_Window_Pos(RingQt_nID)
@@ -113,9 +111,11 @@ class WindowsControllerBase
 	func ObjectID
 		return RingQt_nID
 
-	func GetObjectByID nID
-		nPos = Get_Window_Pos(nID)
-		return $RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT]
+class ObjectsLibParent
+
+	RingQt_nID = $RingQt_ObjectID
+
+	RingQt_nParentID=0		# Parent Object ID 
 
 	func Method cMethod 
 		cMethod = Trim(cMethod)
@@ -125,3 +125,16 @@ class WindowsControllerBase
 		cRingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+RingQt_nID+")]" +
 			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
 		return cRingQt_objname+"."+cMethod
+
+	func setParentObject oParent
+		RingQt_nParentID = oParent.ObjectID()
+
+	func Parent
+		return GetObjectByID(RingQt_nParentID)
+
+	func IsParent
+		return RingQt_nParentID
+
+	func GetObjectByID nID
+		nPos = Get_Window_Pos(nID)
+		return $RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT]
