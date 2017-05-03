@@ -62,7 +62,7 @@ Class FormDesignerView from WindowsViewParent
 				setWindowTitle("Form Designer")
 				setcentralWidget(this.oArea)
 			}
-			setwinicon(win,$cCurrentDir + "/image/project.png")
+			setwinicon(win,$cCurrentDir + "/image/formdesigner.png")
 
 		# Create the ToolBox
 			CreateToolBox()
