@@ -343,23 +343,18 @@ void ring_vm_listgetvalue ( VM *pVM,List *pVar,const char *cStr )
 	int x  ;
 	List *pList  ;
 	Item *pItem  ;
-	String *pString,*pString2  ;
-	pString = ring_string_new("");
-	pString2 = ring_string_new(cStr);
+	const char *cStr2  ;
 	if ( ring_list_getsize(pVar) > 0 ) {
 		for ( x = 1 ; x <= ring_list_getsize(pVar) ; x++ ) {
 			if ( ring_list_islist(pVar,x) ) {
 				pList = ring_list_getlist(pVar,x);
 				if ( ring_list_getsize(pList)  >= RING_LISTHASH_SIZE ) {
 					if ( ring_list_isstring(pList,RING_LISTHASH_KEY) ) {
-						ring_string_set(pString,ring_list_getstring(pList,RING_LISTHASH_KEY));
-						if ( strcmp(ring_string_lower(ring_string_get(pString)),ring_string_lower(ring_string_get(pString2))) == 0 ) {
+						cStr2 = ring_list_getstring(pList,RING_LISTHASH_KEY);
+						if ( ring_vm_strcmpnotcasesensitive(cStr,cStr2)  == 0 ) {
 							pItem = ring_list_getitem(pList,RING_LISTHASH_VALUE);
 							RING_VM_STACK_PUSHPVALUE(pItem);
 							RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
-							/* Delete Strings */
-							ring_string_delete(pString);
-							ring_string_delete(pString2);
 							return ;
 						}
 					}
@@ -374,7 +369,17 @@ void ring_vm_listgetvalue ( VM *pVM,List *pVar,const char *cStr )
 	pItem = ring_list_getitem(pList,RING_LISTHASH_VALUE);
 	RING_VM_STACK_PUSHPVALUE(pItem);
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
-	/* Delete Strings */
-	ring_string_delete(pString);
-	ring_string_delete(pString2);
+}
+
+int ring_vm_strcmpnotcasesensitive ( const char *cStr1,const char *cStr2 )
+{
+	int nNum1  ;
+	while ( 1 ) {
+		nNum1 = tolower(*cStr1) - tolower(*cStr2) ;
+		if ( nNum1 != 0 || !*cStr1 || !*cStr2 ) {
+			return nNum1 ;
+		}
+		cStr1++ ;
+		cStr2++ ;
+	}
 }
