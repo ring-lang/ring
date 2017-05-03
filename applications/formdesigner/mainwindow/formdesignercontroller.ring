@@ -534,15 +534,19 @@ class FormDesignerController from WindowsControllerParent
 			oFilter = new qAllevents(oModel.ActiveObject()) {
 				/*
 				  Here we uses This.Method() to access the
-				  Method() method in WindowsControllerParent class
-				  Because we are inside braces { } and to access qAllevents
-				  Using Method() without This.Method() will access the Method() Function 
+				  Method() method in the WindowsControllerParent class
+				  Because we are inside braces { } to access qAllevents Methods
+				  Using Method() without This.Method() will access
+				  the Method() Function (Not the Method() Method)
 				  The difference between Method() Function and Method() Method is that
 				  the Method() Method define the event for the current object (This instance)
 				  While Method() function define the event for the current active object 
-				  The current active object maybe changed by using open_window() or 
-				  open_windownoshow() functions.
-				  This happened when we merged the Form Designer with Ring Notepad. 
+				  The current active object maybe changed by using 
+				  open_window() or open_windownoshow() functions.
+				  This happened when we merged the Form Designer with Ring Notepad.
+				  So to avoid defining the events for other objects, We uses This.Method() to
+				  be sure that the event will be defined for the correct object that will be
+				  created from this class. 
 				*/
 				setmousebuttonpressevent(This.Method(:ActiveObjectMousePress+"("+this.oModel.GetCurrentID()+")"))
 				setMouseButtonReleaseEvent(This.Method(:ActiveObjectMouseRelease+"("+this.oModel.GetCurrentID()+")"))
