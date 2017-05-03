@@ -93,6 +93,8 @@ Class RNote from WindowsControllerParent
 	oProcessEditbox oProcessText oProcess
 	aFunctionsPos aClassesPos
 
+	nFormDesignerWindowID 
+
 	# Methods 
 	   cpGetProcessData = Method(:pGetProcessData)
 
@@ -1530,8 +1532,12 @@ Class RNote from WindowsControllerParent
 		chdir(exefolder() + "/../applications/formdesigner")
 		open_window(:FormDesignerController)
 		Last_Window().setParentObject(self)
+		nFormDesignerWindowID = Last_WindowID()
 		oDock7.setWidget(Last_Window().oView.win)
 		chdir(cDir)
+
+	func FormDesignerObject
+		return GetObjectByID(nFormDesignerWindowID)
 
 	func GetActiveFolder
 		return cStartUpFolder
