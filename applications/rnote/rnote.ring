@@ -377,7 +377,7 @@ Class RNote
 					addseparator()
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Alt+f"))
-						setbtnimage(self,"image/source.png")
+						setbtnimage(self,"image/formdesigner.png")
 						setclickevent("RNote.pFormDesignerWindow()")
 						settext("Form Designer Window")
 					}
