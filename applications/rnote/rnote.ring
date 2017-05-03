@@ -760,6 +760,7 @@ Class RNote from WindowsControllerParent
 			StatusMessage("Open the form file...")
 			FormDesignerObject().OpenFile(ofile.filepath(oItem))
 			StatusMessage("Ready!")
+			oDock7.raise()
 			return
 		ok
 		cActiveFileName = ofile.filepath(oItem)
@@ -777,6 +778,8 @@ Class RNote from WindowsControllerParent
 		AutoComplete()
 		DisplayFunctionsList()
 		DisplayClassesList()
+
+		oDock2.raise()
 
 		StatusMessage("Ready!")
 
