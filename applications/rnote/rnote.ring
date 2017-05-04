@@ -758,6 +758,7 @@ Class RNote from WindowsControllerParent
 			return
 		ok
 		# Open Form Designer File 
+		lActivateFormDesigner = False
 		if right(ofile.filepath(oItem),6) = ".rform"
 			StatusMessage("Open the form file...")
 			if ofile.filepath(oItem) != cFormFile 
@@ -766,9 +767,16 @@ Class RNote from WindowsControllerParent
 			ok
 			StatusMessage("Ready!")
 			oDock7.raise()
-			return
+			cSourceFile = substr(cFormFile,".rform","controller.ring")
+			if fexists(cSourceFile)
+				cActiveFileName = cSourceFile
+			else 
+				return 
+			ok
+			lActivateFormDesigner = True
+		else 
+			cActiveFileName = ofile.filepath(oItem)
 		ok
-		cActiveFileName = ofile.filepath(oItem)
 		# We get nLine before using textedit1.settext() to get the value before aFilesLines update
 			nLine =  aFilesLines[cActiveFileName]
 		textedit1.setPlaintext(read(cActiveFileName))
@@ -784,8 +792,13 @@ Class RNote from WindowsControllerParent
 		DisplayFunctionsList()
 		DisplayClassesList()
 
-		oDock2.raise()
-		tree1.setFocus(0)
+		if lActivateFormDesigner
+			oDock7.raise()
+		else 
+			oDock2.raise()
+			tree1.setFocus(0)
+		ok
+
 		StatusMessage("Ready!")
 
 	func pSetActiveFileName
