@@ -485,6 +485,7 @@ Class RNote from WindowsControllerParent
 
 			this.tree1 = new qtreeview(this.win1) {
 				setclickedEvent(Method(:pChangeFile))
+				setActivatedEvent(Method(:pChangeFile))
 				setGeometry(00,00,200,400)
 				setmaximumwidth(300)
 				chdir(this.cStartUpFolder)
@@ -780,7 +781,7 @@ Class RNote from WindowsControllerParent
 		DisplayClassesList()
 
 		oDock2.raise()
-
+		tree1.setFocus(0)
 		StatusMessage("Ready!")
 
 	func pSetActiveFileName
