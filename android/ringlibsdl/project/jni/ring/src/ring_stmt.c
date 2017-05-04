@@ -176,18 +176,6 @@ int ring_parser_class ( Parser *pParser )
 			return 0 ;
 		}
 	}
-	/* Statement --> Import Identifier { '.' Identifier } */
-	if ( ring_parser_iskeyword(pParser,K_IMPORT) ) {
-		ring_parser_nexttoken(pParser);
-		/* Generate Code */
-		ring_parser_icg_newoperation(pParser,ICO_IMPORT);
-		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
-		puts("Rule : Statement  --> 'Import' Identifier{'.'identifier}");
-		#endif
-		return ring_parser_namedotname(pParser) ;
-	}
 	/* Statement --> Private */
 	if ( ring_parser_iskeyword(pParser,K_PRIVATE) ) {
 		ring_parser_nexttoken(pParser);
@@ -979,6 +967,18 @@ int ring_parser_stmt ( Parser *pParser )
 		} else {
 			ring_parser_error(pParser,RING_PARSER_ERROR_SWITCHEXPR);
 		}
+	}
+	/* Statement --> Import Identifier { '.' Identifier } */
+	if ( ring_parser_iskeyword(pParser,K_IMPORT) ) {
+		ring_parser_nexttoken(pParser);
+		/* Generate Code */
+		ring_parser_icg_newoperation(pParser,ICO_IMPORT);
+		#if RING_PARSERTRACE
+		RING_STATE_CHECKPRINTRULES 
+		
+		puts("Rule : Statement  --> 'Import' Identifier{'.'identifier}");
+		#endif
+		return ring_parser_namedotname(pParser) ;
 	}
 	/* Statement --> epslion */
 	if ( ring_parser_epslion(pParser) ) {
