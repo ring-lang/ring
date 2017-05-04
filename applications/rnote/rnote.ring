@@ -94,6 +94,7 @@ Class RNote from WindowsControllerParent
 	aFunctionsPos aClassesPos
 
 	nFormDesignerWindowID 
+	cFormFile = ""
 
 	# Methods 
 	   cpGetProcessData = Method(:pGetProcessData)
@@ -759,7 +760,10 @@ Class RNote from WindowsControllerParent
 		# Open Form Designer File 
 		if right(ofile.filepath(oItem),6) = ".rform"
 			StatusMessage("Open the form file...")
-			FormDesignerObject().OpenFile(ofile.filepath(oItem))
+			if ofile.filepath(oItem) != cFormFile 
+				cFormFile = ofile.filepath(oItem)
+				FormDesignerObject().OpenFile(ofile.filepath(oItem))
+			ok
 			StatusMessage("Ready!")
 			oDock7.raise()
 			return
