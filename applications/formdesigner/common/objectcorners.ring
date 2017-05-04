@@ -14,7 +14,9 @@ class ObjectCorners
 	lCornersCreated = False
 
 	func init oParent
+
 		lCornersCreated = True
+
 		oCorner1 = new qPushButton(oParent.ParentWidget()) {
 			move(oParent.x()-5,oParent.y()-5)
 			resize(5,5)
@@ -57,7 +59,9 @@ class ObjectCorners
 		}
 
 	func refresh  oParent
+
 		CheckInit(oParent)
+
 		oCorner1  {
 			move(oParent.x()-5,oParent.y()-5)
 			resize(5,5)
