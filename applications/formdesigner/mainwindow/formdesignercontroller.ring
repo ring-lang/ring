@@ -538,8 +538,13 @@ class FormDesignerController from WindowsControllerParent
 
 	func NewControlEvents cName,nCount
 			CreateControlEvents(cName,nCount)
+			oModel.ActiveObject().CreateCorners()
 			AddObjectsToCombo()
 			ObjectProperties()
+
+	func CreateControlEventsCornersNoInit cName,nCount
+		CreateControlEvents(cName,nCount)
+		oModel.ActiveObject().CreateCornersNoInit()
 
 	func CreateControlEvents cName,nCount
 			oFilter = new qAllevents(oModel.ActiveObject()) {
@@ -573,7 +578,7 @@ class FormDesignerController from WindowsControllerParent
 				oModel.ActiveObject().setText(cName+nCount)
 			}
 			oModel.ActiveObject().Show()
-			oModel.ActiveObject().CreateCorners()
+			
 
 	func SelectObjects aRect
 		nSX = aRect[1]

@@ -30,6 +30,9 @@ Class MoveResizeCorners
 	func CreateCorners
 		oCorners = new ObjectCorners(self)
 
+	func CreateCornersNoInit 	
+		oCorners = new ObjectCorners
+
 	func RefreshCorners oParent
 		oCorners.refresh(oParent)
 

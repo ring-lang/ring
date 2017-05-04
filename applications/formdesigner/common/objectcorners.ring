@@ -11,8 +11,10 @@ class ObjectCorners
 
 	oCorner1 oCorner2 oCorner3 oCorner4
 
-	func init oParent
+	lCornersCreated = False
 
+	func init oParent
+		lCornersCreated = True
 		oCorner1 = new qPushButton(oParent.ParentWidget()) {
 			move(oParent.x()-5,oParent.y()-5)
 			resize(5,5)
@@ -49,8 +51,13 @@ class ObjectCorners
 			show()
 		}
 
-	func refresh  oParent
+	func CheckInit oParent
+		if lCornersCreated = False {
+			init(oParent)
+		}
 
+	func refresh  oParent
+		CheckInit(oParent)
 		oCorner1  {
 			move(oParent.x()-5,oParent.y()-5)
 			resize(5,5)
@@ -72,14 +79,12 @@ class ObjectCorners
 		}
 
 	func show
-
 		oCorner1.show()
 		oCorner2.show()
 		oCorner3.show()
 		oCorner4.show()
 
 	func hide
-
 		oCorner1.hide()
 		oCorner2.hide()
 		oCorner3.hide()
