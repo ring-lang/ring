@@ -1326,6 +1326,7 @@ Class RNote from WindowsControllerParent
 		oWBText  { setText(cLink) }
 
 		oDock3.Show()
+		oDock3.raise()
 
 	# Create a function to add Ring List to qStringList
 	func AddItems aList,oList
