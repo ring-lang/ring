@@ -295,6 +295,8 @@ void ring_vm_anonymous ( VM *pVM ) ;
 int ring_vm_isstackpointertoobjstate ( VM *pVM ) ;
 
 void ring_vm_retitemref ( VM *pVM ) ;
+
+void ring_vm_callclassinit ( VM *pVM ) ;
 /* User Interface */
 
 void ring_vm_see ( VM *pVM ) ;

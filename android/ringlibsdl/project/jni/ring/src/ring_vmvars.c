@@ -46,8 +46,8 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 					continue ;
 				}
 				/* Pass Braces for Class Init() method */
-				if ( (ring_list_getsize(pVM->pObjState) > 1) && (pVM->nCallClassInit) ) {
-					pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-1) ;
+				if ( (ring_list_getsize(pVM->pObjState) > pVM->nCallClassInit) && (pVM->nCallClassInit) ) {
+					pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-pVM->nCallClassInit) ;
 					pList = (List *) ring_list_getpointer(pList,RING_OBJSTATE_SCOPE) ;
 					if ( pList == NULL ) {
 						continue ;

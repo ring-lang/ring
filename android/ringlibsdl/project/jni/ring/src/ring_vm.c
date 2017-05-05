@@ -628,7 +628,7 @@ void ring_vm_execute ( VM *pVM )
 			ring_vm_oop_setproperty(pVM);
 			break ;
 		case ICO_CALLCLASSINIT :
-			pVM->nCallClassInit = ! pVM->nCallClassInit ;
+			ring_vm_callclassinit(pVM);
 			break ;
 		/* Other */
 		case ICO_SETREFERENCE :
@@ -1023,6 +1023,16 @@ void ring_vm_printstack ( VM *pVM )
 			RING_VM_STACK_POP ;
 			printf( "\n*****************************************\n" ) ;
 		}
+	}
+}
+
+void ring_vm_callclassinit ( VM *pVM )
+{
+	if ( RING_VM_IR_READIVALUE(1) ) {
+		pVM->nCallClassInit++ ;
+	}
+	else {
+		pVM->nCallClassInit-- ;
 	}
 }
 /* Threads */
