@@ -18,6 +18,15 @@ void ring_vm_liststart ( VM *pVM )
 			if ( pVM->pAssignment != RING_VM_STACK_READP ) {
 				nCont = 1 ;
 			}
+			else {
+				/* Be Sure that we are modifying Object Attribute (Not Global/Local Variable) */
+				if ( pVM->nVarScope == RING_VARSCOPE_NEWOBJSTATE ) {
+					/* When we access object attribute from braces then create temp. variable for set property operation */
+					if ( (ring_list_getsize(pVM->aBraceObjects) > 0) && ( ! ring_vm_oop_callmethodinsideclass(pVM)) ) {
+						nCont = 1 ;
+					}
+				}
+			}
 		}
 		if ( (pVM->nFuncExecute > 0)  || ( nCont == 1 ) ) {
 			if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
