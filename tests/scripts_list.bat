@@ -233,3 +233,4 @@ call ring scripts/retselfbyref.ring
 call ring scripts/passtemplisttoinitmethod.ring 
 call ring scripts/importinsideif.ring 
 call ring scripts/liststartinbraces.ring
+call ring scripts/privateinnew.ring

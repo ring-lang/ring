@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 0
-115
-115
+100
+100
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4761
+Time 4763
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-009EE1A0
+01301278
 OBJECTPOINTER
 0
 1
@@ -2590,7 +2590,7 @@ nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
 date: 05/05/2017
-time: 07:27:56
+time: 11:16:04
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3258,3 +3258,16 @@ B:\ring\tests>call ring scripts/importinsideif.ring
 wow
 B:\ring\tests>call ring scripts/liststartinbraces.ring 
 test3
+
+B:\ring\tests>call ring scripts/privateinnew.ring 
+point class
+20
+point class
+10
+point class
+20
+we must get runtime error (using private attribute)!
+
+Line 6 Error (R27) : Using private attribute from outside the class : number 
+In method init() in file scripts/privateinnew.ring
+called from line 6  in file scripts/privateinnew.ring 
