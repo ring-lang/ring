@@ -40,9 +40,7 @@ class zip
 		return zip_getfilenamebyindex(oZip,nIndex)
 
 	func NewEntry
-		oEntry = new ZipEntry
-		oEntry.SetZipObject(oZip)
-		return oEntry
+		return new ZipEntry(oZip)
 
 	private 
 
@@ -51,7 +49,7 @@ class zip
 
 class ZipEntry
 
-	func SetZipObject oZipPara
+	func init oZipPara
 		oZip = oZipPara
 
 	func Open cFileName 
