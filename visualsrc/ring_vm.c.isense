@@ -406,6 +406,7 @@ pList
 ring_vm_printstack
 Type: int
 x,nSP
+ring_vm_callclassinit
 ring_vm_mutexfunctions
 ring_vm_mutexlock
 ring_vm_mutexunlock
