@@ -152,6 +152,7 @@ Class FormDesignerModel
 			del(aObjectsList,nPos)
 		}
 		ClearSelectedObjects()
+		nActiveObject = 1
 
 	func IsObjectSelected nObjectID
 		if find(aManySelectedObjects,nObjectID,3) {
