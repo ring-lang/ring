@@ -61,6 +61,59 @@ func Open_WindowNoShow cClass
 	eval(cCode)	
 	$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
 
+
+/*
+	The next function create new object, add the object to the $RingQt_ObjectsList
+	Then set $RingQt_ObjName to the object in the $RingQt_ObjectsList
+	Then call the start() method
+	The function link between the parent window and the child window
+	And define methods automatically to use the windows from each other
+*/
+
+func Open_WindowAndLink cClass,oParent
+	Open_Window(cClass)
+	cClass = lower(cClass)
+	cParentClass = classname(oParent)
+	cClassNameWithoutController = substr(cClass,"controller","")
+	cParentClassNameWithoutController = substr(cParentClass,"controller","")
+	cCode = `
+		# Let the parent know about the child
+		if not isattribute(oParent,"n#{f1}ID")
+			AddAttribute(oParent,"n#{f1}ID")
+		ok
+		oParent.n#{f1}ID = last_windowID()
+		if not ismethod(oParent,"Is#{f1}")
+			AddMethod(oParent,"Is#{f1}", func {
+				return n#{f1}ID
+			})
+		ok
+		if not ismethod(oParent,"#{f1}") 
+			AddMethod(oParent,"#{f1}", func {
+				return GetObjectByID(n#{f1}ID)
+			})
+		ok
+		# Let the child know about the parent
+		if not isattribute(last_window(),"n#{f2}ID")
+			AddAttribute(last_window(),"n#{f2}ID")
+		ok
+		last_window().n#{f2}ID = oParent.ObjectID()
+		if not ismethod(last_window(),"Is#{f2}")
+			AddMethod(last_window(),"Is#{f2}", func {
+				return n#{f2}ID
+			})
+		ok
+		if not ismethod(last_window(),"#{f2}") 
+			AddMethod(last_window(),"#{f2}", func {
+				return GetObjectByID(n#{f2}ID)
+			})
+		ok
+	`
+	cCode = SubStr(cCode,"#{f1}",cClassNameWithoutController)
+	cCode = SubStr(cCode,"#{f2}",cParentClassNameWithoutController)
+	eval(cCode)
+	
+
+
 /*
 	The next function return the last window created
 */
