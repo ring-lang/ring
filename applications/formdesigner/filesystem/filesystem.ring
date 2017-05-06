@@ -82,8 +82,9 @@ class FormDesignerFileSystem
 
 	func SaveFile oDesigner
 		# Set the file Name
+			cDir = ActiveDir(oDesigner)
 			new qfiledialog(oDesigner.oView.win) {
-				cInputFileName = getsavefilename(oDesigner.oView.win,"Save Form",currentdir(),"*.rform")
+				cInputFileName = getsavefilename(oDesigner.oView.win,"Save Form",cDir,"*.rform")
 			}
 			if cInputFileName = NULL { return }
 			cInputFileName = AddExtensionToName(cInputFileName)

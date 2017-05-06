@@ -14,7 +14,6 @@ class secondwindowController from windowsControllerParent
 
 	oView = new secondwindowView
 
-
 	func CloseWindow 
 		oView.win.Close()
 
