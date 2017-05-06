@@ -74,6 +74,11 @@ func Open_WindowAndLink cClass,oParent
 	Open_Window(cClass)
 	cClass = lower(cClass)
 	cParentClass = classname(oParent)
+	if  ( right(cClass,10) != "controller" ) or 
+		( right(cParentClass,10) != "controller" )
+		raise("Error in Open_WindowAndLink() the classes names must end with 'controller'")
+	ok
+
 	cClassNameWithoutController = substr(cClass,"controller","")
 	cParentClassNameWithoutController = substr(cParentClass,"controller","")
 	cCode = `
