@@ -1470,6 +1470,7 @@ Class RNote from WindowsControllerParent
 		nIndex = oFunctionsList.currentrow() + 1
 		nLine = aFunctionsPos[nIndex][2]
 		gotoline(nLine)
+		oDock2.Raise()
 
 	func DisplayClassesList
 		oClassesList.clear()
@@ -1507,6 +1508,7 @@ Class RNote from WindowsControllerParent
 		nIndex = oClassesList.currentrow() + 1
 		nLine = aClassesPos[nIndex][2]
 		gotoline(nLine)
+		oDock2.Raise()
 
 	func StatusMessage cMsg
 		status1.showmessage(cMsg,0)
