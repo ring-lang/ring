@@ -48,6 +48,8 @@ class FormDesignerFileSystem
 			}
 			oDesigner.oModel.FormObject().setWindowTitle("Form1")
 			oDesigner.oModel.FormObject().setBackColor("")
+			oDesigner.oModel.FormObject().setWindowFlagsValue("")
+			oDesigner.oModel.FormObject().setMenubarValue("")
 		# Save Form
 			SaveFormToFile(oDesigner)
 		# Properties
