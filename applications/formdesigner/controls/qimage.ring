@@ -78,6 +78,13 @@ class FormDesigner_QImage from QLabel
 		CommonDialogButtonAction(oDesigner,nRow)
 		if nRow = C_AFTERCOMMON {	# Image File
 			cFile = oDesigner.oGeneral.SelectFile(oDesigner)
+			# Use Relative Path
+				cFormPath = JustFilePath(oDesigner.oFile.GetFileName())+ImageFile()				
+				if len(cFile) > len(cFormPath) {
+					if left(cFile,len(cFormPath)) = cFormPath {
+						cFile = substr(cFile,len(cFormPath)+1)
+					}
+				} 
 			setImageFile(cFile)
 			DisplayProperties(oDesigner)
 		}
