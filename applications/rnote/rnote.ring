@@ -1307,10 +1307,10 @@ Class RNote from WindowsControllerParent
 		ok
 
 	Func pOpenCHM
-		System( "start " + exefolder()+"/../docs/ring.chm" )
+		System( "start /b " + exefolder()+"/../docs/ring.chm" )
 
 	Func pOpenPDF
-		System( "start " + exefolder()+"/../docs/ring.pdf" )
+		System( "start /b " + exefolder()+"/../docs/ring.pdf" )
 
 	Func pTabWidth
 
