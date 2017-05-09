@@ -30,7 +30,7 @@ class FormDesigner_QImage from QLabel
 		oPropertiesTable.Blocksignals(True)
 		# Set the Image File
 			oPropertiesTable.item(C_AFTERCOMMON,1).settext(ImageFile())
-			setpixmap(new qpixmap(ImageFile()))
+			DisplayTheImage(oDesigner)
 		oPropertiesTable.Blocksignals(False)
 		# Set the object name
 			if cImageFile = NULL {
@@ -41,12 +41,20 @@ class FormDesigner_QImage from QLabel
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nRow = C_AFTERCOMMON {
 			setImageFile(cValue)
-			setpixmap(new qpixmap(ImageFile()))
+			DisplayTheImage(oDesigner)
 		}
 		# Set the object name
 			if cImageFile = NULL {
 				setText(oDesigner.oModel.GetObjectName(self))
 			}
+
+	func DisplayTheImage oDesigner
+		if fexists(ImageFile()) {
+			setpixmap(new qpixmap(ImageFile()))	
+		else 
+			cFileAndPath = JustFilePath(oDesigner.oFile.GetFileName())+ImageFile()				
+			setpixmap(new qpixmap(cFileAndPath))
+		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
