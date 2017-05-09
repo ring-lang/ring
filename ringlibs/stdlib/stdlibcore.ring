@@ -99,6 +99,21 @@ Func AppPath
 	return cpath
 
 /*
+	Function Name	: JustFilePath
+	Usage			: get the path of the file only - remove file name
+	Parameters		: File Name
+*/
+
+func JustFilePath cFile
+	for x = len(cfile) to 1 step -1
+		if cfile[x] = "\" or cfile[x] = "/"
+			cfile = left(cfile,x)
+			exit
+		ok
+	next
+	return cFile 
+
+/*
 	Function Name	: value
 	Usage		: create a copy from a list or object
 	Parameters	: the list or the object
