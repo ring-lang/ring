@@ -212,6 +212,12 @@ extern "C" {
 #include "highlighter.h"
 #include <QListView>
 
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+#include <QAxObject>
+</filter>
+
+#include <QUuid>
+
 extern "C" {
 
 	RING_API void ring_qt_start(RingState *pRingState);
@@ -473,6 +479,7 @@ aEnumTypes + "QListView::Movement"
 aEnumTypes + "QListView::ResizeMode"
 aEnumTypes + "QListView::ViewMode"
 aEnumTypes + "QListView::Flow"
+aEnumTypes + "QAxBase::PropertyBag"
 $aMallocClassesList + "QModelIndex"
 
 </runcode>
@@ -6625,3 +6632,46 @@ int  spacing(void)
 bool  uniformItemSizes(void)
 QListView::ViewMode  viewMode(void)
 bool  wordWrap(void)
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+
+<class>
+name: QAxObject
+para: QString, QObject *
+parent: QAxBase
+</class>
+
+<class>
+name: QAxBase
+para: QWidget *
+parent: QObject
+abstract
+</class>
+
+QVariant asVariant(void)
+QString control(void)
+void disableClassInfo(void)
+void disableEventSink(void)
+void disableMetaObject(void)
+QVariant dynamicCall( char *function, QList<QVariant>  vars)
+QString generateDocumentation(void)
+bool isNull(void)
+QAxObject * querySubObject( char *name, QList<QVariant>  vars)
+bool setControl( QString  )
+QStringList verbs(void)
+
+<comment>
+QAxBase::PropertyBag propertyBag(void)
+void setPropertyBag(QAxBase::PropertyBag bag)
+long queryInterface( QUuid  uuid, void **iface)
+</comment>
+
+</filter>
+
+<class>
+name: QUuid
+para: void
+</class>
+
+QString toString(void) 
+

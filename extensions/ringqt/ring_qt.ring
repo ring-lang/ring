@@ -10880,7 +10880,9 @@ Class QVariant
 		return pTempObj
 
 	Func toUuid 
-		return QVariant_toUuid(pObject)
+		pTempObj = new QUuid
+		pTempObj.pObject = QVariant_toUuid(pObject)
+		return pTempObj
 
 	Func type 
 		return QVariant_type(pObject)
@@ -14694,6 +14696,72 @@ Class QListView from QAbstractItemView
 	Func wordWrap 
 		return QListView_wordWrap(pObject)
 
+Class QAxBase from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QAxBase_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAxBase_delete(pObject)
+
+	Func asVariant 
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_asVariant(pObject)
+		return pTempObj
+
+	Func control 
+		return QAxBase_control(pObject)
+
+	Func disableClassInfo 
+		return QAxBase_disableClassInfo(pObject)
+
+	Func disableEventSink 
+		return QAxBase_disableEventSink(pObject)
+
+	Func disableMetaObject 
+		return QAxBase_disableMetaObject(pObject)
+
+	Func dynamicCall P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_dynamicCall(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func generateDocumentation 
+		return QAxBase_generateDocumentation(pObject)
+
+	Func isNull 
+		return QAxBase_isNull(pObject)
+
+	Func querySubObject P1,P2
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func setControl P1
+		return QAxBase_setControl(pObject,P1)
+
+	Func verbs 
+		pTempObj = new QStringList
+		pTempObj.pObject = QAxBase_verbs(pObject)
+		return pTempObj
+
+Class QUuid
+
+	pObject
+
+	Func init 
+		pObject = QUuid_new()
+		return self
+
+	Func delete
+		pObject = QUuid_delete(pObject)
+
+	Func toString 
+		return QUuid_toString(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
@@ -14825,3 +14893,14 @@ Class QCompleter3 from QCompleter
 
 	Func delete
 		pObject = QCompleter3_delete(pObject)
+
+Class QAxObject from QAxBase
+
+	pObject
+
+	Func init P1,P2
+		pObject = QAxObject_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QAxObject_delete(pObject)
