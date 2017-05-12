@@ -50,6 +50,7 @@ class FormDesignerFileSystem
 			oDesigner.oModel.FormObject().setBackColor("")
 			oDesigner.oModel.FormObject().setWindowFlagsValue("")
 			oDesigner.oModel.FormObject().setMenubarValue("")
+			oDesigner.oModel.FormObject().setMainLayoutValue("")
 		# Save Form
 			SaveFormToFile(oDesigner)
 		# Properties
