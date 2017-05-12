@@ -14724,9 +14724,14 @@ Class QAxBase from QObject
 	Func disableMetaObject 
 		return QAxBase_disableMetaObject(pObject)
 
-	Func dynamicCall P1,P2
+	Func dynamicCall P1
 		pTempObj = new QVariant
-		pTempObj.pObject = QAxBase_dynamicCall(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QAxBase_dynamicCall(pObject,P1)
+		return pTempObj
+
+	Func dynamicCall_2 P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_dynamicCall_2(pObject,P1,P2)
 		return pTempObj
 
 	Func generateDocumentation 
@@ -14735,9 +14740,9 @@ Class QAxBase from QObject
 	Func isNull 
 		return QAxBase_isNull(pObject)
 
-	Func querySubObject P1,P2
+	Func querySubObject P1
 		pTempObj = new QAxObject
-		pTempObj.pObject = QAxBase_querySubObject(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QAxBase_querySubObject(pObject,P1)
 		return pTempObj
 
 	Func setControl P1
@@ -14898,8 +14903,8 @@ Class QAxObject from QAxBase
 
 	pObject
 
-	Func init P1,P2
-		pObject = QAxObject_new(P1,GetObjectPointerFromRingObject(P2))
+	Func init P1
+		pObject = QAxObject_new(P1)
 		return self
 
 	Func delete
