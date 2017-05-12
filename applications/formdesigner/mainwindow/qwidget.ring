@@ -233,7 +233,8 @@ class FormDesigner_QWidget from QWidget
 		cOutput = ""
 		if not MainLayoutValue() = NULL {
 			cOutput += '
-		setLayout(#{f1}) ' + nl
+		oMWLayoutWidget = new qWidget() { setLayout(#{f1}) }
+		setCentralWidget(oMWLayoutWidget) ' + nl
 			cOutput = substr(cOutput,"#{f1}",MainLayoutValue())
 		}
 		return cOutput
