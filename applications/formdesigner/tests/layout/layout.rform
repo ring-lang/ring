@@ -8,7 +8,8 @@ aObjectsList = [
 		 :windowflags =  "" , 
 		 :mainlayout =  "Layout1" ,
 		 :WindowIcon =  "" , 
-		 :Menubar =  ""  
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
 
 		]
 	],

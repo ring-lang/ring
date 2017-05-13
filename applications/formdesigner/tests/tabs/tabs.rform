@@ -8,7 +8,8 @@ aObjectsList = [
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
-		 :Menubar =  ""  
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
 
 		]
 	],
@@ -82,7 +83,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button10" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "Button10" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 104 , : y = 47  , 
 		 :width =  119 , :height = 31 , 
 		 :textcolor =  "black" , 
@@ -94,7 +95,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button11" , :id = 14 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "Button11" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 95 , : y = 44  , 
 		 :width =  121 , :height = 39 , 
 		 :textcolor =  "black" , 
@@ -106,7 +107,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button12" , :id = 15 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "Button12" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 98 , : y = 45  , 
 		 :width =  144 , :height = 39 , 
 		 :textcolor =  "black" , 

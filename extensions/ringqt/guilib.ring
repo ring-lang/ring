@@ -248,6 +248,10 @@ package System.GUI
 
 	class Frame from qFrame
 
+	class Frame2 from qFrame2
+
+	class Frame3 from qFrame3
+
 	class LCDNumber from qLCDNumber
 
 	class Timer from qTimer

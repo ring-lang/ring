@@ -8,7 +8,8 @@ aObjectsList = [
 		 :windowflags =  "Qt_Window | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
-		 :Menubar =  ""  
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
 
 		]
 	]
