@@ -1577,6 +1577,7 @@ Class RNote from WindowsControllerParent
 	func pCheckCustomColors
 		if True	# Switch to Use the Style or Not
 			pStyleWhite()
+			LoadSettings()
 		ok
 
 	func pStyleBlue()
