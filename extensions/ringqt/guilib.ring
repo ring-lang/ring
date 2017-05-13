@@ -57,7 +57,7 @@ package System.GUI
 	class ListWidget from qListWidget
 
 		func CurrentRow
-			return 1+Super.CurrentRow()
+			return Super.CurrentRow()+1
 
 		func SetCurrentRow nIndex,nOptions
 			return Super.SetCurrentRow(nIndex-1,nOptions)

@@ -28,7 +28,7 @@ class FormDesignerCodeGenerator
 					'Load "guilib.ring"' + nl + nl +
 					'import System.GUI' + nl + nl + 
 					"if IsMainSourceFile() { " + nl +
-					char(9) + "new qApp {" + nl +
+					char(9) + "new App {" + nl +
 					char(9) + char(9) + "StyleFusion()" + nl +
 					char(9) + char(9) + "new " + cClassName + " { win.show() } " + nl +
 					char(9) + char(9) + "exec()" + nl +
@@ -36,7 +36,7 @@ class FormDesignerCodeGenerator
 					 "}" + nl + nl
 		# Write the Class
 			cOutput += "class " + cClassName + " from WindowsViewParent" + nl +
-					char(9) + "win = new qMainWindow() { " + nl +
+					char(9) + "win = new MainWindow() { " + nl +
 					GenerateWindowCode(oDesigner) +
 					GenerateObjectsCode(oDesigner) +
 					GenerateWindowCodeAfterObjects(oDesigner) +
@@ -55,7 +55,7 @@ load "#{f1}View.ring"
 import System.GUI
 
 if IsMainSourceFile() {
-	new qApp {
+	new App {
 		StyleFusion()
 		open_window(:#{f2})
 		exec()
