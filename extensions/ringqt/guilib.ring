@@ -48,13 +48,13 @@ package System.GUI
 
 	class label from qLabel
 
-	class button from qPushButton
+	class PushButton from qPushButton
 
-	class textbox from qLineEdit
+	class LineEdit from qLineEdit
 
-	class editbox from qTextEdit
+	class TextEdit from qTextEdit
 
-	class listbox from qListWidget
+	class ListWidget from qListWidget
 
 		func CurrentRow
 			return 1+Super.CurrentRow()
