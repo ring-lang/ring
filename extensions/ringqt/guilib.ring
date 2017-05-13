@@ -77,9 +77,9 @@ package System.GUI
 
 	class Grid from TableWidget
 
-	class TreeView from TreeView
+	class TreeView from qTreeView
 
-	class TreeWidget from TreeWidget
+	class TreeWidget from qTreeWidget
 
 	class RadioButton from qRadioButton
 
