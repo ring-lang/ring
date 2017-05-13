@@ -37,6 +37,11 @@ Class GUILib
 
 package System.GUI
 
+	class App from qApp 
+
+		func init 	# To allow using new App() 
+			return self 
+
 	class window from qWidget
 
 	class mainwindow from qMainWindow
@@ -120,7 +125,7 @@ package System.GUI
 
 	class DateTimeEdit from qDateTimeEdit
 
-	class Grid from TableWidget
+	class TableWidget from qTableWidget
 
 	class TreeView from qTreeView
 
@@ -142,10 +147,18 @@ package System.GUI
 
 	class hboxlayour from qHBoxLayout
 
-	class Tab from qTabWidget
+	class TabWidget from qTabWidget
 
 	class Statusbar from qStatusBar
 
 	class ToolBar from qToolBar
+
+	class MenuBar from qMenubar 
+
+	class Menu from qMenu 
+
+	class DockWidget from qDockWidget 
+
+	class TableWidgetItem from qTableWidgetItem 
 
 	
