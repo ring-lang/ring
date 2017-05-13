@@ -237,6 +237,7 @@ RING_FUNC(ring_QApp_exec)
 
 RING_FUNC(ring_QApp_styleFusion)
 {
+	qApp->setPalette(qApp->style()->standardPalette());
 	qApp->setStyle(QStyleFactory::create("fusion"));
 }
 
