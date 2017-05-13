@@ -18,6 +18,14 @@ class FormDesigner_QWidget from QWidget
 	cMenubar = ""
 	nMenubarCounter = [0,0]	# For [Menus,Items] Names
 
+	nIndexType = 0
+
+	func IndexTypeValue
+		return nIndexType
+
+	func SetIndexTypeValue Value
+		nIndexType = Value
+
 	func BackColor
 		return cBackColor
 
@@ -66,6 +74,7 @@ class FormDesigner_QWidget from QWidget
 		oDesigner.oView.AddProperty("Set Layout",False)
 		oDesigner.oView.AddProperty("Window Icon",True)
 		oDesigner.oView.AddProperty("Menubar",True)
+		oDesigner.oView.AddPropertyCombobox("Index Type",["Start from 1","Start from 0"])
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
@@ -98,6 +107,16 @@ class FormDesigner_QWidget from QWidget
 			}
 		}
 
+	func ComboItemAction oDesigner,nRow
+		nIndexTypePos = 10
+		if nRow = nIndexTypePos  {		
+			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nIndexTypePos,1)
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
+			nIndex = oCombo.CurrentIndex()
+			setIndexTypeValue(nIndex)
+		}
+
 	func DisplayProperties oDesigner
 		oPropertiesTable = oDesigner.oView.oPropertiesTable
 		oPropertiesTable.Blocksignals(True)
@@ -121,6 +140,13 @@ class FormDesigner_QWidget from QWidget
 			oPropertiesTable.item(8,1).settext(WindowIconValue())
 		# Set the Menubar
 			oPropertiesTable.item(9,1).settext(MenubarValue())
+		# Index Type 
+			oWidget = oPropertiesTable.cellwidget(10,1)
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(IndexTypeValue())
+			oCombo.BlockSignals(False)
 		oPropertiesTable.Blocksignals(False)
 
 	func DialogButtonAction oDesigner,nRow
@@ -187,7 +213,8 @@ class FormDesigner_QWidget from QWidget
 		cOutput += cTabs + ' :windowflags =  "#{f7}" , ' + nl
 		cOutput += cTabs + ' :mainlayout =  "#{f8}" ,' + nl
 		cOutput += cTabs + ' :WindowIcon =  "#{f9}" , ' + nl
-		cOutput += cTabs + ' :Menubar =  "#{f10}"  ' + nl
+		cOutput += cTabs + ' :Menubar =  "#{f10}"  ,' + nl
+		cOutput += cTabs + ' :IndexType =  #{f11}  ' + nl
 		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
 		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
@@ -198,6 +225,7 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f8}",MainLayoutValue())
 		cOutput = substr(cOutput,"#{f9}",WindowIconValue())
 		cOutput = substr(cOutput,"#{f10}",MenubarValue())
+		cOutput = substr(cOutput,"#{f11}",""+IndexTypeValue())
 		return cOutput
 
 	func GenerateCode oDesigner

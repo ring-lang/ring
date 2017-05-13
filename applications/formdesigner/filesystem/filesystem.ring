@@ -170,6 +170,11 @@ class FormDesignerFileSystem
 							setMenubarValue(itemdata[:Menubar])
 							setMainLayoutValue(itemdata[:MainLayout])
 							setWindowIconValue(itemdata[:WindowIcon])
+							if itemdata[:IndexType] != NULL {
+								setIndexTypeValue(itemdata[:IndexType])
+							else 
+								setIndexTypeValue(0)
+							}
 						}
 					case :FormDesigner_QLabel
 						oDesigner.HideCorners()
