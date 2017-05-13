@@ -55,7 +55,7 @@ package System.GUI
 			return 1+Super.CurrentRow()
 
 		func SetCurrentRow nIndex,nOptions
-			Super.SetCurrentRow(nIndex-1,nOptions)
+			return Super.SetCurrentRow(nIndex-1,nOptions)
 
 		func item nIndex 
 			return super.item(nIndex-1)
@@ -67,9 +67,7 @@ package System.GUI
 			return super.row(oItem)+1
 
 		func TakeItem nIndex 
-			return super.TakeItem(nIndex-1)
-
-		
+			return super.TakeItem(nIndex-1)		
 
 	class checkbox from qCheckBox
 
@@ -85,7 +83,40 @@ package System.GUI
 			return Super.CurrentIndex() + 1
 
 		func SetCurrentIndex nIndex
-			Super.SetCurrentIndex(nIndex - 1)
+			return Super.SetCurrentIndex(nIndex - 1)
+
+		func FindData p1,p2,p3
+			return Super.FindData(p1,p2,p3)+1
+
+		func FindText p1,p2
+			return Super.FindText(p1,p2)+1
+
+		func InsertItem nIndex,p2,p3
+			return Super.InsertItem(nIndex-1,p2,p3)	
+
+		func ItemData nIndex,p2
+			return Super.ItemData(nIndex-1,p2)
+
+		func ItemIcon nIndex 
+			return Super.ItemIcon(nIndex-1)
+
+		func ItemText nIndex 
+			return Super.ItemText(nIndex-1)
+
+		func RemoveItem nIndex 
+			return Super.RemoveItem(nIndex-1)
+
+		func SetItemIcon nIndex,p2
+			return Super.SetItemIcon(nIndex-1,p2)
+
+		func SetItemText nIndex,p2
+			return Super.SetItemText(nIndex-1,p2)
+
+		func ModelColumn 
+			return Super.ModelColumn()+1
+
+		func SetModelColumn nIndex
+			return Super.SetModelColumn(nIndex-1)		
 
 	class DateTimeEdit from qDateTimeEdit
 
