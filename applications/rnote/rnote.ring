@@ -388,7 +388,27 @@ Class RNote from WindowsControllerParent
 						settext("Form Designer Window")
 					}
 					addaction(oAction)
-
+					addseparator()
+					subStyle = addmenu("Style")
+					subStyle {
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method(:pStyleWhite))
+							settext("Style : White")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method(:pStyleBlue))
+							settext("Style : Blue")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method(:pStyleBlack))
+							settext("Style : Black")
+						}
+						addaction(oAction)
+					}
 				}
 				subProgram {
 					oAction = new qAction(this.win1) {
@@ -468,11 +488,11 @@ Class RNote from WindowsControllerParent
 						addaction(oAction)
 					}
 					addseparator()
-						oAction = new qAction(this.win1) {
-							settext("About")
-							setclickEvent(Method(:pAbout))
-						}
-						addaction(oAction)
+					oAction = new qAction(this.win1) {
+						settext("About")
+						setclickEvent(Method(:pAbout))
+					}
+					addaction(oAction)
 				}
 			}
 
@@ -1640,3 +1660,4 @@ Class RNote from WindowsControllerParent
 			aStyleColors = aCustomStyleColors
 			aTextColor = [0,0,0]
 			aBackColor = [255,255,255]
+
