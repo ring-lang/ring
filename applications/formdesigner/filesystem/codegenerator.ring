@@ -26,6 +26,7 @@ class FormDesignerCodeGenerator
 		# Write general code to show the window
 			cOutput += 'Load "stdlib.ring"' + nl +
 					'Load "guilib.ring"' + nl + nl +
+					'import System.GUI' + nl + nl + 
 					"if IsMainSourceFile() { " + nl +
 					char(9) + "new qApp {" + nl +
 					char(9) + char(9) + "StyleFusion()" + nl +
@@ -50,6 +51,8 @@ class FormDesignerCodeGenerator
 			cOutput = `# Form/Window Controller - Source Code File
 
 load "#{f1}View.ring"
+
+import System.GUI
 
 if IsMainSourceFile() {
 	new qApp {

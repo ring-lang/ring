@@ -174,6 +174,11 @@ class CommonAttributesMethods
 		if cClass  = "qimage" or cClass = "qhyperlink"  {
 			cClass = "qlabel"
 		}
+		# Index start from 1
+		if  oDesigner.oModel.FormObject().IndexTypeValue() = 0 {
+			# Remove the 'q' letter from the class name 
+				cClass = substr(cClass,2)	
+		}
 		cOutput = substr(cOutput,"#{f1}",cClass)
 		cOutput = substr(cOutput,"#{f2}",""+x())
 		cOutput = substr(cOutput,"#{f3}",""+y())
