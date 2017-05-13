@@ -392,19 +392,19 @@ Class RNote from WindowsControllerParent
 					subStyle = addmenu("Style")
 					subStyle {
 						oAction = new qAction(this.win1) {
-							setclickEvent(Method(:pStyleWhite))
+							setclickEvent(Method("pSetStyleColor(1)"))
 							settext("Style : White")
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
-							setclickEvent(Method(:pStyleBlue))
+							setclickEvent(Method("pSetStyleColor(2)"))
 							settext("Style : Blue")
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
-							setclickEvent(Method(:pStyleBlack))
+							setclickEvent(Method("pSetStyleColor(3)"))
 							settext("Style : Black")
 						}
 						addaction(oAction)
@@ -1600,6 +1600,28 @@ Class RNote from WindowsControllerParent
 			LoadSettings()
 		ok
 
+	func pSetStyleColor(nStyle)
+		switch nStyle
+		on 1 pStyleWhite()
+		on 2 pStyleBlue()
+		on 3 pStyleBlack()
+		off
+		RestoreSettings()
+		pSetEditorColors()
+
+	func pSetEditorColors
+		textedit1.setLineNumbersAreaColor(aStyleColors[:LineNumbersAreaColor])
+		textedit1.setLineNumbersAreaBackColor(aStyleColors[:LineNumbersAreaBackColor])
+		new RingCodeHighLighter(textedit1.document() ) {
+			setColors(
+				this.aStyleColors[:SyntaxKeywordsColor],
+				this.aStyleColors[:SyntaxClassNamesColor],
+				this.aStyleColors[:SyntaxCommentsColor],
+				this.aStyleColors[:SyntaxLiteralsColor],
+				this.aStyleColors[:SyntaxFunctionCallsColor]
+			)
+		}
+
 	func pStyleBlue()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
@@ -1660,4 +1682,3 @@ Class RNote from WindowsControllerParent
 			aStyleColors = aCustomStyleColors
 			aTextColor = [0,0,0]
 			aBackColor = [255,255,255]
-
