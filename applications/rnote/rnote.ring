@@ -64,6 +64,12 @@ Class RNote from WindowsControllerParent
 			:SyntaxFunctionCallsColor 	= ColorBlue
 		]
 
+	# Default Style 
+		STYLECOLOR_WHITE = 1
+		STYLECOLOR_BLUE = 2
+		STYLECOLOR_BLACK = 3
+		nDefaultStyle  = STYLECOLOR_WHITE 
+
 	cSettingsFile = cCurrentDir + "ringnotepad.ini"
 	LoadSettings()
 
@@ -1280,7 +1286,8 @@ Class RNote from WindowsControllerParent
 				"lShowClassesList = " + oDock6.isvisible() + nl +
 				"lShowOutputWindow = " + oDock5.isvisible() + nl +
 				"lShowFormDesigner = " + oDock7.isvisible() + nl +
-				"nTabSpaces = " + nTabSpaces + nl
+				"nTabSpaces = " + nTabSpaces + nl +
+				"nDefaultStyle = " + nDefaultStyle + nl
 		cSettings = substr(cSettings,nl,char(13)+char(10))
 		write(cSettingsFile,cSettings)
 
@@ -1596,18 +1603,21 @@ Class RNote from WindowsControllerParent
 
 	func pCheckCustomColors
 		if True	# Switch to Use the Style or Not
-			pStyleWhite()
+			pSelectStyleColor(nDefaultStyle)
 			LoadSettings()
 		ok
 
 	func pSetStyleColor(nStyle)
+		pSelectStyleColor(nStyle)
+		RestoreSettings()
+		pSetEditorColors()
+
+	func pSelectStyleColor nStyle
 		switch nStyle
 		on 1 pStyleWhite()
 		on 2 pStyleBlue()
 		on 3 pStyleBlack()
 		off
-		RestoreSettings()
-		pSetEditorColors()
 
 	func pSetEditorColors
 		textedit1.setLineNumbersAreaColor(aStyleColors[:LineNumbersAreaColor])
@@ -1623,6 +1633,7 @@ Class RNote from WindowsControllerParent
 		}
 
 	func pStyleBlue()
+			nDefaultStyle  = STYLECOLOR_BLUE
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
 				:LineNumbersAreaBackColor 	= colordarkBlue,
@@ -1652,6 +1663,7 @@ Class RNote from WindowsControllerParent
 			)
 
 	func pStyleBlack()
+			nDefaultStyle  = STYLECOLOR_BLACK
 			MyApp.StyleFusionBlack()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
@@ -1668,6 +1680,7 @@ Class RNote from WindowsControllerParent
 			aBackColor = [0,0,0]
 
 	func pStyleWhite()
+			nDefaultStyle  = STYLECOLOR_WHITE 
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorBlack ,
