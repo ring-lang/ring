@@ -42,6 +42,18 @@ Class QApp
 	Func keyboardModifiers 
 		return QApp_keyboardModifiers()
 
+Class QDesktopServices
+
+
+	Func openUrl P1
+		return QDesktopServices_openUrl(GetObjectPointerFromRingObject(P1))
+
+	Func setUrlHandler P1,P2,P3
+		return QDesktopServices_setUrlHandler(P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func unsetUrlHandler P1
+		return QDesktopServices_unsetUrlHandler(P1)
+
 Class QTest
 
 

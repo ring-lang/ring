@@ -198,11 +198,11 @@ extern "C" {
 #include <QCursor>
 #include "highlighter.h"
 #include <QListView>
-
 #include <QAxObject>
 #include <QAxBase>
-
 #include <QUuid>
+#include <QDesktopServices>
+
 
 extern "C" {
 
@@ -334,6 +334,32 @@ RING_FUNC(ring_QApp_keyboardModifiers)
 	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
 }
 
+RING_FUNC(ring_QDesktopServices_openUrl)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(QDesktopServices::openUrl(* (QUrl *) RING_API_GETCPOINTER(1,"QUrl"))) ;
+}
+RING_FUNC(ring_QDesktopServices_setUrlHandler)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDesktopServices::setUrlHandler(RING_API_GETSTRING(1),(QObject *) RING_API_GETCPOINTER(2,"QObject *"),RING_API_GETSTRING(3));
+}
+RING_FUNC(ring_QDesktopServices_unsetUrlHandler)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDesktopServices::unsetUrlHandler(RING_API_GETSTRING(1));
+}
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -86273,6 +86299,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qapp_stylefusioncustom",ring_QApp_styleFusionCustom);
 	ring_vm_funcregister("qapp_closeallwindows",ring_QApp_closeAllWindows);
 	ring_vm_funcregister("qapp_keyboardmodifiers",ring_QApp_keyboardModifiers);
+	ring_vm_funcregister("qdesktopservices_openurl",ring_QDesktopServices_openUrl);
+	ring_vm_funcregister("qdesktopservices_seturlhandler",ring_QDesktopServices_setUrlHandler);
+	ring_vm_funcregister("qdesktopservices_unseturlhandler",ring_QDesktopServices_unsetUrlHandler);
 	ring_vm_funcregister("qtest_qsleep",ring_QTest_qsleep);
 	ring_vm_funcregister("qobject_blocksignals",ring_QObject_blockSignals);
 	ring_vm_funcregister("qobject_children",ring_QObject_children);
