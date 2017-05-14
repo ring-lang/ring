@@ -100,6 +100,9 @@ Class RNote from WindowsControllerParent
 	oProcessEditbox oProcessText oProcess
 	aFunctionsPos aClassesPos
 
+	oACTimer			# Auto-Complete Timer 
+	oCompleter=NULL 		# The completer object
+
 	nFormDesignerWindowID 
 	cFormFile = ""
 
@@ -569,6 +572,12 @@ Class RNote from WindowsControllerParent
 				setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
 			}
 			this.AutoComplete()
+
+			this.oACTimer = new qtimer(this.win1) {
+				setinterval(5000)
+				settimeoutevent(Method(:AutoCompleteTimer))
+				start()
+			}
 
 			new RingCodeHighLighter(this.textedit1.document() ) {
 				setColors(
@@ -1446,26 +1455,34 @@ Class RNote from WindowsControllerParent
 		# Save the List Size
 			nAutoCompleteListSize = oAutoCompleteList.Count()
 
+	func AutoCompleteTimer
+ 		cFileContent = textedit1.toplaintext() # read(cActiveFileName)
+		if len(cFileContent) > 3 and len(cFileContent) < 1024  # 1 Kbyte
+			if isObject(oCompleter)
+				if oCompleter.popup().isvisible() = false
+					AutoComplete()
+				ok
+			ok
+		ok
+
 	Func AutoComplete
 		StatusMessage("Prepare Auto-Complete ... Please Wait!")
-		# Prepare the list
-			while oAutoCompleteList.Count() > nAutoCompleteListSize
-				oAutoCompleteList.RemoveAt(oAutoCompleteList.Count()-1)
-			end
+		# Prepare the list - The Sort Will change the order!
+		#	while oAutoCompleteList.Count() > nAutoCompleteListSize
+		#		oAutoCompleteList.takelast()
+		#	end
 		# Add words in the current file
-			if cActiveFileName != NULL and fexists(cActiveFileName)
-				cFileContent = read(cActiveFileName)
-				if len(cFileContent) < 30720  # 30 Kbyte
-					StatusMessage("Prepare Auto-Complete ... Get File Words!")
-					aList = Split(cFileContent," ")
-					StatusMessage("Prepare Auto-Complete ... Filter!")
-					for x = len(aList) to 1 step -1
-						if not isalnum(aList[x])
-							del(aList,x)
-						ok
-					next
-					AddItems(aList,oAutoCompleteList)
-				ok
+			cFileContent = textedit1.toplaintext() # read(cActiveFileName)
+			if len(cFileContent) < 30720  # 30 Kbyte
+				StatusMessage("Prepare Auto-Complete ... Get File Words!")
+				aList = Split(cFileContent," ")
+				StatusMessage("Prepare Auto-Complete ... Filter!")
+				for x = len(aList) to 1 step -1
+					if not isalnum(aList[x])
+						del(aList,x)
+					ok
+				next
+				AddItems(aList,oAutoCompleteList)
 			ok
 		StatusMessage("Prepare Auto-Complete ... Remove Duplicates!")
 		oAutoCompleteList.RemoveDuplicates()
@@ -1479,6 +1496,7 @@ Class RNote from WindowsControllerParent
 		oCompleter.popup().setFont(oFont)
 		textedit1.setCompleter(oCompleter)
 		StatusMessage("Prepare Auto-Complete ... Done!")
+		StatusMessage("Ready...")
 
 	func DisplayFunctionsList
 		oFunctionsList.clear()
