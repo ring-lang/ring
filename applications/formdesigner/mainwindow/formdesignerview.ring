@@ -537,8 +537,6 @@ Class FormDesignerView from WindowsViewParent
 				setColumnwidth(0,190)
 				setColumnwidth(2,40)
 				setAlternatingRowColors(true)
-				horizontalHeader().setStyleSheet("color: blue")
-				verticalHeader().setStyleSheet("color: red")
 				setitemChangedEvent(Method(:UpdateProperties))
 				setminimumwidth(370)
 			}
