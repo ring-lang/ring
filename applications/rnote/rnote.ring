@@ -1710,5 +1710,9 @@ Class RNote from WindowsControllerParent
 
 	func pStyleWindows
 			nDefaultStyle  = STYLECOLOR_WINDOWS
-			MyApp.StyleWindows()
+			if isWindows()
+				MyApp.StyleWindowsVista()
+			else 
+				MyApp.StyleWindows()
+			ok
 			pStyleWhiteColors()
