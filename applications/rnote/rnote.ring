@@ -397,21 +397,22 @@ Class RNote from WindowsControllerParent
 					addseparator()
 					subStyle = addmenu("Style")
 					subStyle {
+						setbtnimage(self,"image/colors.jpg")
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(1)"))
-							settext("Style : White")
+							settext("Fusion : White")
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(2)"))
-							settext("Style : Blue")
+							settext("Fusion : Blue")
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(3)"))
-							settext("Style : Black")
+							settext("Fusion : Black")
 						}
 						addaction(oAction)
 					}
