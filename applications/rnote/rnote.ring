@@ -1342,10 +1342,22 @@ Class RNote from WindowsControllerParent
 		ok
 
 	Func pOpenCHM
-		System( "start /B " + exefolder()+"/../docs/ring.chm" )
+		if iswindows()
+			new QDesktopServices {
+				OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.chm") )
+			}
+		else
+			System( "start /B " + exefolder()+"/../docs/ring.chm" )
+		ok
 
 	Func pOpenPDF
-		System( "start /B " + exefolder()+"/../docs/ring.pdf" )
+		if iswindows()
+			new QDesktopServices {
+				OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.pdf") )
+			}
+		else
+			System( "start /B " + exefolder()+"/../docs/ring.pdf" )
+		ok
 
 	Func pTabWidth
 
