@@ -21,6 +21,9 @@ Class QApp
 	Func processEvents 
 		return QApp_processEvents()
 
+	Func styleWindows 
+		return QApp_styleWindows()
+
 	Func styleFusion 
 		return QApp_styleFusion()
 

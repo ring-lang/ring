@@ -235,6 +235,12 @@ RING_FUNC(ring_QApp_exec)
 	qApp->exec();
 }
 
+RING_FUNC(ring_QApp_styleWindows)
+{
+	qApp->setPalette(qApp->style()->standardPalette());
+	qApp->setStyle(QStyleFactory::create("windows"));
+}
+
 RING_FUNC(ring_QApp_styleFusion)
 {
 	qApp->setPalette(qApp->style()->standardPalette());
@@ -86254,6 +86260,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qapp_exec",ring_QApp_exec);
 	ring_vm_funcregister("qapp_quit",ring_QApp_quit);
 	ring_vm_funcregister("qapp_processevents",ring_QApp_processEvents);
+	ring_vm_funcregister("qapp_stylewindows",ring_QApp_styleWindows);
 	ring_vm_funcregister("qapp_stylefusion",ring_QApp_styleFusion);
 	ring_vm_funcregister("qapp_stylefusionblack",ring_QApp_styleFusionBlack);
 	ring_vm_funcregister("qapp_stylefusioncustom",ring_QApp_styleFusionCustom);

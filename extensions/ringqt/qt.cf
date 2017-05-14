@@ -495,6 +495,7 @@ nonew
 void exec(void)
 void quit(void)
 void processEvents(void)
+void styleWindows(void)
 void styleFusion(void)
 void styleFusionBlack(void)
 void styleFusionCustom(QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor)
@@ -520,6 +521,12 @@ RING_FUNC(ring_QApp_exec)
 		return ;
 	}
 	qApp->exec();
+}
+
+RING_FUNC(ring_QApp_styleWindows)
+{
+	qApp->setPalette(qApp->style()->standardPalette());
+	qApp->setStyle(QStyleFactory::create("windows"));
 }
 
 RING_FUNC(ring_QApp_styleFusion)
