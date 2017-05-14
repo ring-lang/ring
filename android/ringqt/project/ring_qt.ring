@@ -21,6 +21,12 @@ Class QApp
 	Func processEvents 
 		return QApp_processEvents()
 
+	Func styleWindows 
+		return QApp_styleWindows()
+
+	Func styleWindowsVista 
+		return QApp_styleWindowsVista()
+
 	Func styleFusion 
 		return QApp_styleFusion()
 
@@ -35,6 +41,18 @@ Class QApp
 
 	Func keyboardModifiers 
 		return QApp_keyboardModifiers()
+
+Class QDesktopServices
+
+
+	Func openUrl P1
+		return QDesktopServices_openUrl(GetObjectPointerFromRingObject(P1))
+
+	Func setUrlHandler P1,P2,P3
+		return QDesktopServices_setUrlHandler(P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func unsetUrlHandler P1
+		return QDesktopServices_unsetUrlHandler(P1)
 
 Class QTest
 
@@ -10766,7 +10784,9 @@ Class QVariant
 		return pTempObj
 
 	Func toUuid 
-		return QVariant_toUuid(pObject)
+		pTempObj = new QUuid
+		pTempObj.pObject = QVariant_toUuid(pObject)
+		return pTempObj
 
 	Func type 
 		return QVariant_type(pObject)
@@ -14579,6 +14599,20 @@ Class QListView from QAbstractItemView
 
 	Func wordWrap 
 		return QListView_wordWrap(pObject)
+
+Class QUuid
+
+	pObject
+
+	Func init 
+		pObject = QUuid_new()
+		return self
+
+	Func delete
+		pObject = QUuid_delete(pObject)
+
+	Func toString 
+		return QUuid_toString(pObject)
 
 Class QPixmap2 from QPixmap
 
