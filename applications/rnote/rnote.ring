@@ -65,6 +65,7 @@ Class RNote from WindowsControllerParent
 		]
 
 	# Default Style 
+		STYLECOLOR_WINDOWS = 0
 		STYLECOLOR_WHITE = 1
 		STYLECOLOR_BLUE = 2
 		STYLECOLOR_BLACK = 3
@@ -398,6 +399,12 @@ Class RNote from WindowsControllerParent
 					subStyle = addmenu("Style")
 					subStyle {
 						setbtnimage(self,"image/colors.jpg")
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(0)"))
+							settext("Windows")
+						}
+						addaction(oAction)
+						addseparator()
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(1)"))
 							settext("Fusion : White")
@@ -1615,6 +1622,7 @@ Class RNote from WindowsControllerParent
 
 	func pSelectStyleColor nStyle
 		switch nStyle
+		on 0 pStyleWindows()
 		on 1 pStyleWhite()
 		on 2 pStyleBlue()
 		on 3 pStyleBlack()
@@ -1683,6 +1691,9 @@ Class RNote from WindowsControllerParent
 	func pStyleWhite()
 			nDefaultStyle  = STYLECOLOR_WHITE 
 			MyApp.StyleFusion()
+			pStyleWhiteColors()
+
+	func pStyleWhiteColors
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorBlack ,
 				:LineNumbersAreaBackColor 	= colorCyan,
@@ -1696,3 +1707,8 @@ Class RNote from WindowsControllerParent
 			aStyleColors = aCustomStyleColors
 			aTextColor = [0,0,0]
 			aBackColor = [255,255,255]
+
+	func pStyleWindows
+			nDefaultStyle  = STYLECOLOR_WINDOWS
+			MyApp.StyleWindows()
+			pStyleWhiteColors()
