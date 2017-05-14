@@ -24,6 +24,9 @@ Class QApp
 	Func styleWindows 
 		return QApp_styleWindows()
 
+	Func styleWindowsVista 
+		return QApp_styleWindowsVista()
+
 	Func styleFusion 
 		return QApp_styleFusion()
 
