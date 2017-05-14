@@ -1595,12 +1595,11 @@ Class RNote from WindowsControllerParent
 		cText = oProcess.readallstandardoutput().data()
 		aText = str2list(cText)
 		for x = len(aText) to 1 step -1
-			if substr(aText[x],"echo off") or trim(aText[x]) = NULL or isprint(aText[x]) = false
+			if substr(aText[x],"echo off") or trim(aText[x]) = NULL 
 				del(aText,x)
 			ok
 		next
 		cText = list2str(aText)
-		see cText
 		# Set the font
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring(cFont)
