@@ -114,6 +114,21 @@ func JustFilePath cFile
 	return cFile 
 
 /*
+	Function Name	: JustFileName
+	Usage			: get the Name of the file only - remove file path
+	Parameters		: File Name
+*/
+
+func JustFileName cFile
+	for x = len(cfile) to 1 step -1
+		if cfile[x] = "\" or cfile[x] = "/"
+			cfile = substr(cfile,x+1)
+			exit
+		ok
+	next
+	return cFile 
+
+/*
 	Function Name	: value
 	Usage		: create a copy from a list or object
 	Parameters	: the list or the object
