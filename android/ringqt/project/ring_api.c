@@ -1840,7 +1840,7 @@ void ring_vmlib_state_runcode ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	ring_state_runcode(RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	ring_state_runcode((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
 }
 
 void ring_vmlib_state_delete ( void *pPointer )
@@ -1849,7 +1849,7 @@ void ring_vmlib_state_delete ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	ring_state_delete(RING_API_GETCPOINTER(1,"RINGSTATE"));
+	ring_state_delete((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"));
 }
 
 void ring_vmlib_state_runfile ( void *pPointer )
@@ -1858,7 +1858,7 @@ void ring_vmlib_state_runfile ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	ring_state_runfile(RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	ring_state_runfile((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
 }
 
 void ring_vmlib_state_findvar ( void *pPointer )
@@ -1868,7 +1868,7 @@ void ring_vmlib_state_findvar ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	pList = ring_state_findvar(RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	pList = ring_state_findvar((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
 	RING_API_RETLIST(pList);
 }
 
@@ -1879,7 +1879,7 @@ void ring_vmlib_state_newvar ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	pList = ring_state_newvar(RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	pList = ring_state_newvar((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
 	RING_API_RETLIST(pList);
 }
 
@@ -1889,7 +1889,7 @@ void ring_vmlib_state_runobjectfile ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	ring_state_runobjectfile(RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	ring_state_runobjectfile((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
 }
 
 void ring_vmlib_state_main ( void *pPointer )
