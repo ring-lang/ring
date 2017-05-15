@@ -7,3 +7,25 @@ Form Designer
 
 In this chapter we will learn about using the Form Designer.
 
+We can run the From Designer from Ring Notepad
+
+.. image:: rnotefd.png
+	:alt: Form Desigenr - Inside Ring Notepad
+
+Also we can run the Form Designer in another window.
+
+.. image:: formdesigner.png
+	:alt: Form Desigenr
+
+
+.. index:: 
+	pair: Form Designer; The Designer Windows
+
+The Designer Windows
+====================
+
+* Toolbox : To select controls to be added to the window.
+
+* Properties : To set the properties of the active window or controls.
+
+* Design Region : To select, move and resize the window and the controls.
