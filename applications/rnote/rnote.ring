@@ -24,10 +24,10 @@ Class RNote from WindowsControllerParent
 	lShowProject = True
 	lShowSourceCode = True
 	lShowBrowser = True
-	lShowFunctionsList = False
-	lShowOutputWindow = False
-	lShowClassesList = False
-	lShowFormDesigner = False
+	lShowFunctionsList = True
+	lShowOutputWindow = True
+	lShowClassesList = True
+	lShowFormDesigner = True
 	nTabSpaces = 0
 	aBrowserLinks = [
 		["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
@@ -69,7 +69,7 @@ Class RNote from WindowsControllerParent
 		STYLECOLOR_WHITE = 1
 		STYLECOLOR_BLUE = 2
 		STYLECOLOR_BLACK = 3
-		nDefaultStyle  = STYLECOLOR_WHITE 
+		nDefaultStyle  = STYLECOLOR_WHITE
 
 	cSettingsFile = cCurrentDir + "ringnotepad.ini"
 	LoadSettings()
@@ -714,6 +714,8 @@ Class RNote from WindowsControllerParent
 			this.win1.tabifydockwidget(this.oDock2,this.oDock3)
 
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
+			this.oDock2.raise()
+			this.oDock4.raise()
 			showmaximized()
 		}
 
@@ -1230,6 +1232,7 @@ Class RNote from WindowsControllerParent
 				this.cActiveFileName = cName
 				this.textedit1.setPlaintext(read(this.cActiveFileName))
 				this.pSetActiveFileName()
+				this.oDock2.raise()
 			ok
 		}
 
@@ -1242,6 +1245,7 @@ Class RNote from WindowsControllerParent
 				this.cActiveFileName = cName
 				this.textedit1.setPlaintext(read(this.cActiveFileName))
 				this.pSetActiveFileName()
+				this.oDock2.raise()
 			ok
 		}
 
