@@ -194,8 +194,8 @@ Using Layout
 .. index:: 
 	pair: Form Designer; More Samples and Tests
 
-More Sample and Tests
-=====================
+More Samples and Tests
+======================
 
 Check the folder : ring/applications/formdesigner/tests
 
