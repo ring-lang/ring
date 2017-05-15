@@ -142,6 +142,8 @@ Screen Shot:
 
 (7) Change the Current Style
 
+.. image:: rnotestylemenu.png
+	:alt: Ring Notepad - Style Menu
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Ring mode for Emacs Editor
