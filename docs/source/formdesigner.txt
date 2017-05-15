@@ -9,14 +9,17 @@ In this chapter we will learn about using the Form Designer.
 
 We can run the From Designer from Ring Notepad
 
+From the Menubar in Ring Notepad - View Menu - We can Show/Hide the Form Designer window.
+
 .. image:: rnotefd.png
-	:alt: Form Desigenr - Inside Ring Notepad
+	:alt: Form Designer - Inside Ring Notepad
 
 Also we can run the Form Designer in another window.
 
+From the Ring Notepad - Tools Menu - Select the Form Designer.
+
 .. image:: formdesigner.png
 	:alt: Form Desigenr
-
 
 .. index:: 
 	pair: Form Designer; The Designer Windows
@@ -29,3 +32,30 @@ The Designer Windows
 * Properties : To set the properties of the active window or controls.
 
 * Design Region : To select, move and resize the window and the controls.
+
+.. index:: 
+	pair: Form Designer; The Designer Windows
+
+The Toolbox
+===========
+
+We have many buttons.
+
+* Lock : We can use it to draw many controls of the same type quickly.
+
+* Select : We can use it to select a control in the Design Region
+
+* Controls Buttons : Select a control to be added to the window.
+
+.. index:: 
+	pair: Form Designer; The Properties
+
+The Properties
+==============
+
+When we select the window or one control, We will have the selected object properties.
+
+When we select more than one control, We will have options for multi-selection
+
+.. image:: fdms.png
+	:alt: Form Designer - Multiple-Selection
