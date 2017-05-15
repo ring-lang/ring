@@ -85,7 +85,8 @@ HEADERS  += \
     gprocess.h
 
 
-CONFIG += mobility
+CONFIG += mobility c++11
+QMAKE_CXXFLAGS = -Wno-write-strings -Wno-unused-parameter
 
 RESOURCES = project.qrc
 
