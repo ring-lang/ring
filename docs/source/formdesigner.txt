@@ -181,8 +181,8 @@ For some controls like the List Widget we can enter items separated by comma ','
 .. index:: 
 	pair: Form Designer; Using Layouts
 
-Using Layout
-============
+Using Layouts
+=============
 
 (1) To use layouts, At first add the layout control to the window.
 
