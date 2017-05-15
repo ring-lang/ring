@@ -152,3 +152,53 @@ From the Window properties we can open the Menubar Designer
 
 .. image:: menubardesigner.png
 	:alt: Form Designer - Menubar Designer
+
+.. index:: 
+	pair: Form Designer; Window Flags
+
+Window Flags
+============
+
+From the Window properties we can open the Window Flags window.
+
+
+.. image:: windowflags.png
+	:alt: Form Designer - Window Flags
+
+
+.. index:: 
+	pair: Form Designer; Entering Items
+
+Entering Items
+==============
+
+For some controls like the List Widget we can enter items separated by comma ','
+
+.. image:: fdlistitems.png
+	:alt: Form Designer - List Items
+
+
+.. index:: 
+	pair: Form Designer; Using Layouts
+
+Using Layout
+============
+
+(1) To use layouts, At first add the layout control to the window.
+
+(2) Use the window "Set Layout" property to determine the main layout.
+
+(3) From the layout properties determine the controls and the layout type.
+
+
+.. index:: 
+	pair: Form Designer; More Samples and Tests
+
+More Sample and Tests
+=====================
+
+Check the folder : ring/applications/formdesigner/tests
+
+Online : https://github.com/ring-lang/ring/tree/master/applications/formdesigner/tests
+
+
