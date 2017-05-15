@@ -137,12 +137,17 @@ In the next code for example (from FirstWindowController.ring)
 
 The Open_WindowAndLink() will create an object from the SecondWindowController Class
 
-Then will add the Method : SecondWindow() to the FirstWindowController Class
+Then will add the Method : SecondWindow(), IsSecondWindow() Methods
+to the FirstWindowController Class
 
-Also will add the Method : FirstWindow() to the SecondWindowController Class
+Also will add the Method : FirstWindow(), IsFirstWindow() Methods
+to the SecondWindowController Class
 
 So the SendMessage() method in FirstWindowController class can
 use the SecondWindow() method to access the object.
+
+This is more simple than using Last_Window(), Parent() and
+SetParentObject() methods.
 
 .. code-block:: ring
 
