@@ -108,3 +108,17 @@ In this example we write
 
 Where inside the controller class, We uses the oView object to access the form.
 
+Another Example : 
+
+.. image:: fdsayhello1.png
+	:alt: Form Designer - Say Hello
+
+The Event Code
+
+.. code-block:: ring
+
+	func SayHello 
+		oView {
+			LineEdit2.setText("Hello "+ LineEdit1.text() )
+		}
+
