@@ -57,8 +57,7 @@ The Properties
 
 * Also In the properties window we have a combobox to select the active control.
 
-* Some properties provide a button next to the property value. 
-We can click on the button to get more options.
+* Some properties provide a button next to the property value. We can click on the button to get more options.
 
 * When we select more than one control, We will have options for multi-selection
 
@@ -76,11 +75,16 @@ When we save the form file (*.rform), The Form Designer will create two Ring fil
 * The Controller Class
 * The View Class
 
+For example, if the form file is helloworld.rform 
+
+The form designer will generate two files
+
+* helloworldcontroller.ring
+* helloworldview.ring
+
 To run the program, Open the controller class file then click the Run button (CTRL+F5)
 
-Note : When you open a form using Ring Notepad, the controller class will be opened 
-automatically, So we can press (CTRL+F5) or click on the Run button while the form 
-designer window is active.
+.. tip:: When you open a form using Ring Notepad, the controller class will be opened automatically, So we can press (CTRL+F5) or click on the Run button while the form designer window is active.
 
 .. index:: 
 	pair: Form Designer; Events Code
