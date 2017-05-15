@@ -928,8 +928,6 @@ void ring_vmlib_swap ( void *pPointer )
 {
 	List *pList  ;
 	int nNum1,nNum2,nSize  ;
-	VM *pVM  ;
-	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
