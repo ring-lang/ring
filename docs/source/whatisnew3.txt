@@ -32,7 +32,7 @@ Ring 1.3  comes with many new features
 Better RingQt
 =============
 
-Another version of QPixMap class is added (QPixMap2) which takes (int width,int height)
+(1) Another version of QPixMap class is added (QPixMap2) which takes (int width,int height)
 during object init. 
 
 Example:
@@ -80,7 +80,7 @@ Screen Shot:
 .. image:: ringqtpixmap2.png
 	:alt: Using QPixMap2
 
-The Objects Library is updated to include the next functions
+(2) The Objects Library is updated to include the next functions
 
 * Last_WindowID()
 * Open_WindowNoShow()
@@ -88,7 +88,33 @@ The Objects Library is updated to include the next functions
 
 Also the class name (WindowViewBase) is changed to (WindowsViewParent).
 
-The next classes are added to RingQt
+In The next code for example the Open_WindowAndLink() will create an object
+from the SecondWindowController Class Then will add the Method
+SecondWindow() to the FirstWindowController Class
+Also will add the Method FirstWindow() to the SecondWindowController Class
+
+So the SendMessage() method in FirstWindowController class can use the
+SecondWindow() method to access the object.
+
+.. code-block:: ring
+
+	class firstwindowController from windowsControllerParent
+
+	    oView = new firstwindowView
+
+	    func OpenSecondWindow
+        	Open_WindowAndLink(:SecondWindowController,self)
+
+	    func SendMessage
+        	if IsSecondWindow() 
+	            SecondWindow().setMessage("Message from the first window")
+        	ok
+
+	    func setMessage cMessage
+        	oView.Label1.setText(cMessage)
+
+
+(3) The next classes are added to RingQt
 
 * QPixMap2
 * QScrollArea
@@ -103,7 +129,38 @@ The next classes are added to RingQt
 * QListView
 * QDesktopServices
 
-Many constants are defined in qt.rh (loaded by guilib.ring)
+(4) Many constants are defined in qt.rh (loaded by guilib.ring)
+
+(5) New Classes names - Index Start from 1
+
+We added new classes to RingQt - another version of classes where the class names doesn't start with the "q" letter
+Also updated methods so the index start from 1 when we deal with the GUI controls like
+
+* ComboBox
+* ListWidget
+* TableWidget
+* TreeWidget
+
+These classes are inside guilib.ring under the package name : System.GUI
+
+To use it
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	import System.GUI
+
+This doesn't have any effect on our previous code, It's just another choice for better code that is consistent with Ring rules.
+
+Also the form designer is updated to provide us the choice between using classes where (index start from 0) or (index start from 1)
+
+Example  (Uses the Form Designer)
+
+(1) https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/indexstart/indexstartView.ring
+
+(2) https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/indexstart/indexstartController.ring 
+
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better Ring Notepad
