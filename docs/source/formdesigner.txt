@@ -53,9 +53,58 @@ We have many buttons.
 The Properties
 ==============
 
-When we select the window or one control, We will have the selected object properties.
+* When we select the window or one control, We will have the selected object properties.
 
-When we select more than one control, We will have options for multi-selection
+* Also In the properties window we have a combobox to select the active control.
+
+* Some properties provide a button next to the property value. 
+We can click on the button to get more options.
+
+* When we select more than one control, We will have options for multi-selection
 
 .. image:: fdms.png
 	:alt: Form Designer - Multiple-Selection
+
+.. index:: 
+	pair: Form Designer; Running Forms
+
+Running Forms
+=============
+
+When we save the form file (*.rform), The Form Designer will create two Ring files
+
+* The Controller Class
+* The View Class
+
+To run the program, Open the controller class file then click the Run button (CTRL+F5)
+
+Note : When you open a form using Ring Notepad, the controller class will be opened 
+automatically, So we can press (CTRL+F5) or click on the Run button while the form 
+designer window is active.
+
+.. index:: 
+	pair: Form Designer; Events Code
+
+Events Code
+===========
+
+(1) Just type the method name in the event property. 
+
+.. image:: fdeventmethod.png
+	:alt: Form Designer - Event Method
+
+(2) Then write the method code in the
+controller class.
+
+.. image:: fdeventcode.png
+	:alt: Form Designer - Event Code
+
+In this example we write
+
+.. code-block:: ring
+
+	func CloseWindow
+		oView.win.close()
+
+Where inside the controller class, We uses the oView object to access the form.
+
