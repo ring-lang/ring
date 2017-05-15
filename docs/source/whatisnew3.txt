@@ -25,6 +25,7 @@ Ring 1.3  comes with many new features
 * Using '<' and ':' operators as 'from' keyword
 * Embedding Ring in Ring without sharing the State
 * RingZip Library
+* Form Designer
 
 .. index:: 
 	pair: What is new in Ring 1.3?; Better RingQt
@@ -462,3 +463,25 @@ Example (4) : Using Classes instead of Functions
 		AddFile("miniz.h")
 		Close()
 	}
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Form Designer
+
+Form Designer
+=============
+
+Ring 1.3 comes with the Form Designer to quickly design your GUI application windows/forms
+and generate the Ring source code.
+
+It's written in Ring (Around 8000 Lines of code) using Object-Oriented Programming and
+Meta-Programming.
+
+We can run the From Designer from Ring Notepad
+
+.. image:: rnotefd.png
+	:alt: Form Desigenr - Inside Ring Notepad
+
+Also we can run the Form Designer in another window.
+
+.. image:: formdesigner.png
+	:alt: Form Desigenr
