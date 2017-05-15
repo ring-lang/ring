@@ -84,6 +84,7 @@ The Objects Library is updated to include the next functions
 
 * Last_WindowID()
 * Open_WindowNoShow()
+* Open_WindowAndLink()
 
 Also the class name (WindowViewBase) is changed to (WindowsViewParent).
 
@@ -138,6 +139,8 @@ Screen Shot:
 
 .. image:: classeslist.png
 	:alt: Ring Notepad - Classes List
+
+(7) Change the Current Style
 
 
 .. index:: 
