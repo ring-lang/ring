@@ -1,9 +1,9 @@
 .. index:: 
 	single: Form Designer; Introduction
 
-=============
-Form Designer
-=============
+=======================
+Using the Form Designer
+=======================
 
 In this chapter we will learn about using the Form Designer.
 
@@ -126,3 +126,29 @@ The Event Code
 			LineEdit2.setText("Hello "+ LineEdit1.text() )
 		}
 
+
+.. index:: 
+	pair: Form Designer; Keyboard Shortcuts
+
+Keyboard Shortcuts
+==================
+
+After selecting one or group of controls
+
+* Use the Arrows (Up, Down, Left and Right) to move them around.
+* Shift + the Arrows (Up, Down, Left and Right) to Resize the controls.
+* Del button to delete the controls.
+* CTRL+SHIFT+V to Duplicate the controls.
+
+
+.. index:: 
+	pair: Form Designer; Menubar Designer
+
+Menubar Designer
+================
+
+From the Window properties we can open the Menubar Designer
+
+
+.. image:: menubardesigner.png
+	:alt: Form Designer - Menubar Designer
