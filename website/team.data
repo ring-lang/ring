@@ -407,8 +407,14 @@
                     'Active'
                   ],
 				  [
-                    'Kovács Attila ',
+                    'Kovács Attila',
                     'befektabc@gmail.com',
+                    'Tester',
+                    'Active'
+                  ],
+				  [
+                    'Robert Philippe',
+                    'rphilippe777@gmail.com',
                     'Tester',
                     'Active'
                   ]
