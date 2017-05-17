@@ -70,6 +70,13 @@
 					'<img src="hany.jpg">'
 				  ],
 				  [
+                    'Amin Najah (Najahdev.com)',
+                    'Najahdev.amine@gmail.com ',
+                    'Marketing',
+                    'Active',
+					'<img src="amine.jpg">'
+                  ],				  
+				  [
 					'Majdi Sobain',
 					'MajdiSobain@gmail.com',
 					'Senior Tester',
@@ -418,5 +425,4 @@
                     'Tester',
                     'Active'
                   ]
-
 ]
