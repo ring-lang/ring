@@ -6,7 +6,6 @@ load "guilib.ring"
 app1 = new qapp {
 
         empty = 16  
-        emptysave = 0
         nrMoves = 0
         OldButSize = 4 
         CurButSize = 4
@@ -254,7 +253,7 @@ func pHere
            resetbtn.setenabled(false)
            savebtn.setenabled(false)
            playbtn.setenabled(false)
-empty = emptysave 
+           empty = emptysave
         ok
 
 func pBack
@@ -315,7 +314,6 @@ func rotateright
                       }
                       empty = emptysave
         ok
-
 
 func newsize CurButSize
         win1{ 
@@ -589,7 +587,7 @@ func draw()
                        oFont.setpointsize(20)
                        setfont(oFont)
                        if nDegree = 0
-                          if btnDegree[empty] [1] = "In" p1=-8 p2=0
+                          if btnDegree[empty] [1]="In" p1 = -8 p2=0 
                           translate(p1,p2) ok ok
                        if nDegree = 0
                           if btnDegree[empty] [1]<10 p1 = 10 p2=10 else p1=5 p2=10 ok
