@@ -77,6 +77,13 @@
 					'<img src="amine.jpg">'
                   ],				  
 				  [
+					'Alaa Mohammed Elockle',
+					'Mr.alaaelockle@hotmail.com',
+					'Video Tutorials',
+					'Active',
+					'<img src="alaa.jpg">'
+				  ],
+				  [
 					'Majdi Sobain',
 					'MajdiSobain@gmail.com',
 					'Senior Tester',
@@ -356,12 +363,6 @@
 				  [
 					'Ali Aliraqi',
 					'wwssr11wwss11@gmail.com',
-					'Video Tutorials',
-					'Active'
-				  ],
-				  [
-					'Alaa Mohammed Elockle',
-					'Mr.alaaelockle@hotmail.com',
 					'Video Tutorials',
 					'Active'
 				  ],
