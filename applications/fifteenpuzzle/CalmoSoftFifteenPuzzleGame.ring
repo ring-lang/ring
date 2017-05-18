@@ -107,7 +107,6 @@ Func newlist x, y
      return alist
 
 func scramble
-       //resettiles()
        for n= 1 to 1000   
             CurButSize=random(OldButSize*OldButSize-1)+1
             up = (empty = (CurButSize - OldButSize))
@@ -237,9 +236,14 @@ func pHere
            setgeometry(60+(OldButSize-1)*40,60+(OldButSize+1)*40,40,40)
            btnDegree[OldButSize*OldButSize+2][2] = btnDegree[OldButSize*OldButSize-1][2]
            nDegree = btnDegree[OldButSize*OldButSize+2][2]
+           emptysave = empty
+           empty = OldButSize*OldButSize+2
+           btnDegree[empty][1] = temp
            settext(temp)
            }
            nDegree = 0
+           empty = OldButSize*OldButSize-1
+           btnDegree[empty][1] = "In"
            button[OldButSize*OldButSize-1]{settext("In")}
            for n = 1 to OldButSize*OldButSize
 	   button[n].setenabled(false)
@@ -249,12 +253,16 @@ func pHere
            resetbtn.setenabled(false)
            savebtn.setenabled(false)
            playbtn.setenabled(false)
+           empty = emptysave
         ok
 
 func pBack
         button[OldButSize*OldButSize+2] { temp = text() }
         nDegree = btnDegree[OldButSize*OldButSize+2][2]
         btnDegree[OldButSize*OldButSize-1][2] = btnDegree[OldButSize*OldButSize+2][2]
+        emptysave = empty
+        empty = OldButSize*OldButSize-1
+        btnDegree[empty][1] = temp
         button[OldButSize*OldButSize-1] {settext(temp)}
         button[OldButSize*OldButSize+2].close()
         button[OldButSize*OldButSize+2] = new qpushbutton(win1)
@@ -271,6 +279,7 @@ func pBack
         resetbtn.setenabled(true)
         savebtn.setenabled(true)
         playbtn.setenabled(true)
+        empty = emptysave
 
 func rotateleft
         if button[OldButSize*OldButSize+2].text() != "Here" 
@@ -281,8 +290,12 @@ func rotateleft
                       nDegreeLeft = (nDegreeLeft-90)%360
                       nDegree = nDegreeLeft
                       btnDegree[OldButSize*OldButSize+2][2] = nDegree
+                      emptysave = empty
+                      empty = OldButSize*OldButSize+2
+                      btnDegree[empty][1] = temp
                       button[OldButSize*OldButSize+2]{settext(temp)}
                       } 
+                      empty = emptysave
         ok
 
 func rotateright
@@ -294,8 +307,12 @@ func rotateright
                       nDegreeRight = (nDegreeRight+90)%360
                       nDegree = nDegreeRight
                       btnDegree[OldButSize*OldButSize+2][2] = nDegree
+                      emptysave = empty
+                      empty = OldButSize*OldButSize+2
+                      btnDegree[empty][1] = temp
                       button[OldButSize*OldButSize+2]{settext(temp)}
                       }
+                      empty = emptysave
         ok
 
 func newsize CurButSize
@@ -445,11 +462,6 @@ func pPlay
            cName3 = "CalmoSoftPuzzle3.txt"
            textedit3 = read(cName3)
            table3 = str2list(textedit3)
-           /*for n = 1 to OldButSize*OldButSize
-                button[n].setbuttoncolor("yellow") 
-                nDegree = number(table3[n])
-                button[n] {settext(table1[n])}
-           next*/
            for empty = 1 to OldButSize*OldButSize
                 button[empty].setbuttoncolor("yellow") 
                 nDegree = number(table3[empty])
@@ -571,9 +583,12 @@ func draw()
          {
                        begin(picture)        
                        setpen(pen)
-                       oFont = font()
+                       oFont = new qfont("Courier New",12,0,0)
                        oFont.setpointsize(20)
                        setfont(oFont)
+                       if nDegree = 0
+                          if btnDegree[empty] [1]="In" p1 = -8 p2=0 
+                          translate(p1,p2) ok ok
                        if nDegree = 0
                           if btnDegree[empty] [1]<10 p1 = 10 p2=10 else p1=5 p2=10 ok
                           translate(p1,p2)
