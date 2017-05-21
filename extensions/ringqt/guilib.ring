@@ -159,6 +159,9 @@ package System.GUI
 		func setCurrentCell p1,p2
 			return Super.setCurrentCell(p1-1,p2-1)
 
+		func setColumnWidth P1,P2
+			return Super.setColumnWidth(p1-1,p2)
+
 		func setHorizontalHeaderItem p1,p2
 			return Super.setHorizontalHeaderItem(p1-1,p2)
 
