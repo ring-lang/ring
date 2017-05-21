@@ -7,6 +7,7 @@ app1 = new qapp {
 
         empty = 16  
         nrMoves = 0
+        nrSleep = 1
         OldButSize = 4 
         CurButSize = 4
         temp = 0
@@ -84,6 +85,27 @@ app1 = new qapp {
                                    settext("Resume Game")  
                                    setclickevent("pPlay()")
                    }
+
+                   sleepbtn = new qpushbutton(win1)   
+                   {
+                                   setgeometry(100,460,160,40)  
+                                   settext("Sleep Time: ")  
+
+                   }
+
+                decbtn = new qpushbutton(win1)   
+                {
+                               setgeometry(220,460,40,40)  
+                               settext("<-")  
+                               setclickevent("pDecSleep()")
+                }
+
+                incbtn = new qpushbutton(win1)   
+                {
+                               setgeometry(260,460,40,40)  
+                               settext("->")  
+                               setclickevent("pIncSleep()")
+                }
 
             TimerMan = new qtimer(win1)
             {
@@ -318,7 +340,7 @@ func rotateright
 func newsize CurButSize
         win1{ 
                 sizenew = CurButSize%4
-                win1.resize(360+sizenew*40,520+sizenew*40)
+                win1.resize(360+sizenew*40,560+sizenew*40)
                 if flaginit != 0
                    for nb = 1 to OldButSize*OldButSize+3
                          button[nb] {close()}
@@ -329,6 +351,10 @@ func newsize CurButSize
                 resetbtn.close()
                 savebtn.close()
                 playbtn.close()
+                btnMoves.close()
+                sleepbtn.close()
+                decbtn.close()
+                incbtn.close()
 
                 for n = 1 to CurButSize*CurButSize
                      col = n%CurButSize
@@ -411,6 +437,30 @@ func newsize CurButSize
                                setclickevent("pPlay()")
                                show()
                 }
+
+                sleepbtn = new qpushbutton(win1)   
+                {
+                               setgeometry(100,100+(CurButSize+5)*40,(CurButSize-2)*40,40)  
+                               settext("Sleep Time: " + string(nrSleep) + " s")  
+                               show()
+                }
+
+                decbtn = new qpushbutton(win1)   
+                {
+                               setgeometry(100+(CurButSize-2)*40,100+(CurButSize+5)*40,40,40)  
+                               settext("<-")  
+                               setclickevent("pDecSleep()")
+                               show()
+                }
+
+                incbtn = new qpushbutton(win1)   
+                {
+                               setgeometry(100+(CurButSize-1)*40,100+(CurButSize+5)*40,40,40)  
+                               settext("->")  
+                               setclickevent("pIncSleep()")
+                               show()
+                }
+
                 table1 = []
                 table2 = []
                 table3 = []   
@@ -480,7 +530,7 @@ func pTime()
         else
            CounterMan++
            pPlaySleep()
-           sleep(1000) 
+           sleep(nrSleep*1000) 
            if CounterMan = len(table1)
               TimerMan.stop()
            ok
@@ -500,7 +550,17 @@ func pPlaySleep
         see char(7)
         nrMoves = nrMoves + 1
         btnMoves.settext(string(nrMoves))
-     
+
+func pIncSleep
+        nrSleep = nrSleep + 1 
+        sleepbtn.settext("Sleep Time: " + string(nrSleep) + " s")
+
+func pDecSleep
+        if nrSleep > 1 
+           nrSleep = nrSleep - 1
+           sleepbtn.settext("Sleep Time: " + string(nrSleep) + " s")
+        ok
+
 func sleep(x)
         nTime = x 
         oTest = new qTest
@@ -583,7 +643,7 @@ func draw()
          {
                        begin(picture)        
                        setpen(pen)
-                       oFont = new qfont("Courier New",12,0,0)
+                       oFont = new qfont("Courier New",12,75,0)
                        oFont.setpointsize(20)
                        setfont(oFont)
                        if nDegree = 0
