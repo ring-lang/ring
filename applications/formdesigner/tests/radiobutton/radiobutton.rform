@@ -1,0 +1,59 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 55 , : y = 63  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "RadioButton" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "RadioButton1" , :id = 2 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 22 , : y = 87  , 
+		 :width =  123 , :height = 39 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "One",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "RadioButton2" , :id = 3 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 22 , : y = 156  , 
+		 :width =  138 , :height = 33 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Two",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	],
+	[ :name = "RadioButton3" , :id = 4 , :classname = "formdesigner_qradiobutton" , :data = [
+		 :x = 22 , : y = 210  , 
+		 :width =  147 , :height = 35 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :text =  "Three",
+		 :setclickedEvent =  "",
+		 :setpressedEvent =  "",
+		 :setreleasedEvent =  "",
+		 :settoggledEvent =  ""
+		]
+	]
+]
+# End Form Designer File

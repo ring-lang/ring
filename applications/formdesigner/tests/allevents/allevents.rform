@@ -1,0 +1,55 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 49 , : y = 67  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "All Events" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "AllEvents1" , :id = 2 , :classname = "formdesigner_qallevents" , :data = [
+		 :x = 29 , : y = 54  , 
+		 :width =  170 , :height = 49 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :controlname =  "win",
+		 :setKeyPressEvent =  "",
+		 :setMouseButtonPressEvent =  "clickonwindow",
+		 :setMouseButtonReleaseEvent =  "",
+		 :setMouseButtonDblClickEvent =  "",
+		 :setMouseMoveEvent =  "",
+		 :setCloseEvent =  "",
+		 :setContextMenuEvent =  "",
+		 :setDragEnterEvent =  "",
+		 :setDragLeaveEvent =  "",
+		 :setDragMoveEvent =  "",
+		 :setDropEvent =  "",
+		 :setEnterEvent =  "",
+		 :setFocusInEvent =  "",
+		 :setFocusOutEvent =  "",
+		 :setKeyReleaseEvent =  "",
+		 :setLeaveEvent =  "",
+		 :setNonClientAreaMouseButtonDblClickEvent =  "",
+		 :setNonClientAreaMouseButtonPressEvent =  "",
+		 :setNonClientAreaMouseButtonReleaseEvent =  "",
+		 :setNonClientAreaMouseMoveEvent =  "",
+		 :setMoveEvent =  "",
+		 :setResizeEvent =  "",
+		 :setWindowActivateEvent =  "",
+		 :setWindowBlockedEvent =  "",
+		 :setWindowDeactivateEvent =  "",
+		 :setWindowStateChangeEvent =  "",
+		 :setWindowUnblockedEvent =  "",
+		 :setPaintEvent =  ""
+		]
+	]
+]
+# End Form Designer File

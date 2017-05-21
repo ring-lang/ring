@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Keywords */
 const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC", 
@@ -44,7 +44,7 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 	return NULL ;
 }
 
-int ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
+int ring_scanner_readfile ( char *cFileName,RingState *pRingState )
 {
 	RING_FILE fp  ;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
@@ -54,6 +54,7 @@ int ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 	int nCont,nRunVM,nFreeFilesList = 0 ;
 	char cStartup[30]  ;
 	int x,nSize  ;
+	char cFileName2[200]  ;
 	/* Check file */
 	if ( pRingState->pRingFilesList == NULL ) {
 		pRingState->pRingFilesList = ring_list_new(0);
@@ -72,7 +73,13 @@ int ring_scanner_readfile ( const char *cFileName,RingState *pRingState )
 			return 1 ;
 		}
 	}
+	/* Switch To File Folder */
+	strcpy(cFileName2,cFileName);
 	fp = RING_OPENFILE(cFileName , "r");
+	/* Avoid switching if it's the first file */
+	if ( nFreeFilesList == 0 ) {
+		ring_switchtofilefolder(cFileName2);
+	}
 	/* Read File */
 	if ( fp==NULL ) {
 		printf( "\nCan't open file %s \n",cFileName ) ;
@@ -779,7 +786,7 @@ void ring_scanner_printtokens ( Scanner *pScanner )
 	ring_print_line();
 }
 
-RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nWarn,int argc,char *argv[] )
+RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nWarn,int argc,char *argv[] )
 {
 	RingState *pRingState  ;
 	pRingState = ring_state_new();

@@ -908,6 +908,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				ring_parser_icg_newoperation(pParser,ICO_BRACESTART);
 				ring_parser_icg_newoperation(pParser,ICO_CALLCLASSINIT);
+				ring_parser_icg_newoperandint(pParser,1);
 				/* Generate Code ( Call Function ) */
 				ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
 				ring_parser_icg_newoperand(pParser,"init");
@@ -919,6 +920,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				pParser->nFuncCallOnly = 0 ;
 				/* Generate Code (End Brace) */
 				ring_parser_icg_newoperation(pParser,ICO_CALLCLASSINIT);
+				ring_parser_icg_newoperandint(pParser,0);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_mixer(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_BRACEEND);

@@ -1,0 +1,27 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 35 , : y = 73  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Using Statusbar" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Statusbar1" , :id = 2 , :classname = "formdesigner_qstatusbar" , :data = [
+		 :x = 5 , : y = 309  , 
+		 :width =  193 , :height = 24 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "#00007f" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :Message =  "Ready"
+		]
+	]
+]
+# End Form Designer File

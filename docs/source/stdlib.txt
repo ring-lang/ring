@@ -105,6 +105,64 @@ Example:
 	See AppPath() + nl
 
 .. index:: 
+	pair: Stdlib Functions; JustFilePath()
+
+JustFilePath() function
+=======================
+
+Get the path of the file, remove the file name.
+
+Syntax:
+
+.. code-block:: ring
+
+	JustFilePath(cFile) ---> The path as String
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+ 
+	see  justfilePath("b:\ring\applications\rnote\rnote.ring")
+
+Output:
+
+.. code-block:: ring
+
+	b:\ring\applications\rnote\
+
+
+.. index:: 
+	pair: Stdlib Functions; JustFileName()
+
+JustFileName() function
+=======================
+
+Get the file, remove the file path.
+
+Syntax:
+
+.. code-block:: ring
+
+	JustFileName(cFile) ---> The file name as String
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+ 
+	see justfileName("b:\ring\applications\rnote\rnote.ring") 
+
+Output:
+
+.. code-block:: ring
+
+	rnote.ring
+
+
+.. index:: 
 	pair: Stdlib Functions; value()
 
 value() function

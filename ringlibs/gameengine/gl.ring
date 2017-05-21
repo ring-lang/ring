@@ -1,0 +1,1 @@
+load "gl_allegro.ring"

@@ -211,6 +211,13 @@ extern "C" {
 #include <QCursor>
 #include "highlighter.h"
 #include <QListView>
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+#include <QAxObject>
+#include <QAxBase>
+</filter>
+#include <QUuid>
+#include <QDesktopServices>
+
 
 extern "C" {
 
@@ -473,6 +480,7 @@ aEnumTypes + "QListView::Movement"
 aEnumTypes + "QListView::ResizeMode"
 aEnumTypes + "QListView::ViewMode"
 aEnumTypes + "QListView::Flow"
+aEnumTypes + "QAxBase::PropertyBag"
 $aMallocClassesList + "QModelIndex"
 
 </runcode>
@@ -487,8 +495,11 @@ nonew
 void exec(void)
 void quit(void)
 void processEvents(void)
+void styleWindows(void)
+void styleWindowsVista(void)
 void styleFusion(void)
 void styleFusionBlack(void)
+void styleFusionCustom(QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor)
 void closeAllWindows(void)
 Qt::KeyboardModifiers keyboardModifiers(void)
 </register>
@@ -513,8 +524,21 @@ RING_FUNC(ring_QApp_exec)
 	qApp->exec();
 }
 
+RING_FUNC(ring_QApp_styleWindows)
+{
+	qApp->setPalette(qApp->style()->standardPalette());
+	qApp->setStyle(QStyleFactory::create("windows"));
+}
+
+RING_FUNC(ring_QApp_styleWindowsVista)
+{
+	qApp->setPalette(qApp->style()->standardPalette());
+	qApp->setStyle(QStyleFactory::create("windowsvista"));
+}
+
 RING_FUNC(ring_QApp_styleFusion)
 {
+	qApp->setPalette(qApp->style()->standardPalette());
 	qApp->setStyle(QStyleFactory::create("fusion"));
 }
 
@@ -535,6 +559,39 @@ RING_FUNC(ring_QApp_styleFusionBlack)
 
 	palette.setColor(QPalette::Highlight, QColor(142,45,197).lighter());
 	palette.setColor(QPalette::HighlightedText, Qt::black);
+	qApp->setPalette(palette);
+}
+
+RING_FUNC(ring_QApp_styleFusionCustom)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 12 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( (! RING_API_ISPOINTER(1)) || (! RING_API_ISPOINTER(2)) || 
+		(! RING_API_ISPOINTER(3)) || (! RING_API_ISPOINTER(4)) || 
+		(! RING_API_ISPOINTER(5)) || (! RING_API_ISPOINTER(6)) ||
+		(! RING_API_ISPOINTER(7)) || (! RING_API_ISPOINTER(8)) ||
+		(! RING_API_ISPOINTER(9)) || (! RING_API_ISPOINTER(10)) ||
+		(! RING_API_ISPOINTER(11)) || (! RING_API_ISPOINTER(12)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	qApp->setStyle(QStyleFactory::create("fusion"));
+	QPalette palette;
+	palette.setColor(QPalette::Window, 		* (QColor *) RING_API_GETCPOINTER(1,"QColor") );
+	palette.setColor(QPalette::WindowText, 		* (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+	palette.setColor(QPalette::Base, 		* (QColor *) RING_API_GETCPOINTER(3,"QColor") );
+	palette.setColor(QPalette::AlternateBase, 	* (QColor *) RING_API_GETCPOINTER(4,"QColor") );
+	palette.setColor(QPalette::ToolTipBase, 	* (QColor *) RING_API_GETCPOINTER(5,"QColor") );
+	palette.setColor(QPalette::ToolTipText, 	* (QColor *) RING_API_GETCPOINTER(6,"QColor") );
+	palette.setColor(QPalette::Text,		* (QColor *) RING_API_GETCPOINTER(7,"QColor") );
+	palette.setColor(QPalette::Button, 		* (QColor *) RING_API_GETCPOINTER(8,"QColor") );
+	palette.setColor(QPalette::ButtonText, 		* (QColor *) RING_API_GETCPOINTER(9,"QColor") );
+	palette.setColor(QPalette::BrightText, 		* (QColor *) RING_API_GETCPOINTER(10,"QColor") );
+	palette.setColor(QPalette::Highlight, 		* (QColor *) RING_API_GETCPOINTER(11,"QColor") );
+	palette.setColor(QPalette::HighlightedText, 	* (QColor *) RING_API_GETCPOINTER(12,"QColor") );
 	qApp->setPalette(palette);
 }
 
@@ -566,6 +623,46 @@ RING_FUNC(ring_QApp_keyboardModifiers)
 	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
 }
 
+</code>
+
+<class>
+name: QDesktopServices
+nonew
+</class>
+
+<register>
+bool openUrl(QUrl)
+void setUrlHandler(QString, QObject *receiver, const char *method)
+void unsetUrlHandler(QString)
+</register>
+
+<code>
+RING_FUNC(ring_QDesktopServices_openUrl)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(QDesktopServices::openUrl(* (QUrl *) RING_API_GETCPOINTER(1,"QUrl"))) ;
+}
+RING_FUNC(ring_QDesktopServices_setUrlHandler)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDesktopServices::setUrlHandler(RING_API_GETSTRING(1),(QObject *) RING_API_GETCPOINTER(2,"QObject *"),RING_API_GETSTRING(3));
+}
+RING_FUNC(ring_QDesktopServices_unsetUrlHandler)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDesktopServices::unsetUrlHandler(RING_API_GETSTRING(1));
+}
 </code>
 
 <class>
@@ -6591,3 +6688,47 @@ int  spacing(void)
 bool  uniformItemSizes(void)
 QListView::ViewMode  viewMode(void)
 bool  wordWrap(void)
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+
+<class>
+name: QAxObject
+para: QString
+parent: QAxBase
+</class>
+
+<class>
+name: QAxBase
+para: QWidget *
+parent: QObject
+abstract
+</class>
+
+QVariant asVariant(void)
+QString control(void)
+void disableClassInfo(void)
+void disableEventSink(void)
+void disableMetaObject(void)
+QVariant dynamicCall( char *function)
+QVariant dynamicCall@2( char *function,QString)
+QString generateDocumentation(void)
+bool isNull(void)
+QAxObject * querySubObject( char *name)
+bool setControl( QString  )
+QStringList verbs(void)
+
+<comment>
+QAxBase::PropertyBag propertyBag(void)
+void setPropertyBag(QAxBase::PropertyBag bag)
+long queryInterface( QUuid  uuid, void **iface)
+</comment>
+
+</filter>
+
+<class>
+name: QUuid
+para: void
+</class>
+
+QString toString(void) 
+

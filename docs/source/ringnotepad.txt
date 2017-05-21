@@ -15,11 +15,15 @@ Ring Notepad is just a simple application developed using the Ring language.
 Ring Notepad - Main Window
 ==========================
 
-When we run the Ring Notepad we get three dockable windows
+When we run the Ring Notepad we get the next dockable windows
 
 * Project Files Window : where we can select and open any ring file (*.ring) quickly.
 * Source Code Window : Where we write the source code. 
+* Form Designer Window : The Form Designer to create GUI application forms.
 * Web Browser Window : Where we read the documentation or quickly open any website.
+* Output Window : Output when we run programs that print to the standard output
+* Function Window : List of functions in the current source file
+* Classes Window : List of classes in the current source file
 
 .. image:: urn_shot1.png
 	:alt: Using Ring Notepad

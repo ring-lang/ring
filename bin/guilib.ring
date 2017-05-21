@@ -1,4 +1,1 @@
-cDir = currentdir()
-chdir(exefolder()+"../extensions/ringqt")
-eval('load "guilib.ring"')
-chdir(cDir)
+load "/../extensions/ringqt/guilib.ring"

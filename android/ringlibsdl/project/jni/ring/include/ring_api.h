@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_api_h
 #define ring_api_h
 /*
@@ -190,6 +190,23 @@ void ring_vmlib_nullpointer ( void *pPointer ) ;
 void ring_vmlib_space ( void *pPointer ) ;
 
 void ring_vmlib_ptrcmp ( void *pPointer ) ;
+/* Ring State */
+
+void ring_vmlib_state_init ( void *pPointer ) ;
+
+void ring_vmlib_state_runcode ( void *pPointer ) ;
+
+void ring_vmlib_state_delete ( void *pPointer ) ;
+
+void ring_vmlib_state_runfile ( void *pPointer ) ;
+
+void ring_vmlib_state_findvar ( void *pPointer ) ;
+
+void ring_vmlib_state_newvar ( void *pPointer ) ;
+
+void ring_vmlib_state_runobjectfile ( void *pPointer ) ;
+
+void ring_vmlib_state_main ( void *pPointer ) ;
 /* API For C Functions */
 #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)

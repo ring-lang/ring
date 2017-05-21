@@ -195,6 +195,9 @@ extern "C" {
 #include <QCursor>
 #include "highlighter.h"
 #include <QListView>
+#include <QUuid>
+#include <QDesktopServices>
+
 
 extern "C" {
 
@@ -227,8 +230,21 @@ RING_FUNC(ring_QApp_exec)
 	qApp->exec();
 }
 
+RING_FUNC(ring_QApp_styleWindows)
+{
+	qApp->setPalette(qApp->style()->standardPalette());
+	qApp->setStyle(QStyleFactory::create("windows"));
+}
+
+RING_FUNC(ring_QApp_styleWindowsVista)
+{
+	qApp->setPalette(qApp->style()->standardPalette());
+	qApp->setStyle(QStyleFactory::create("windowsvista"));
+}
+
 RING_FUNC(ring_QApp_styleFusion)
 {
+	qApp->setPalette(qApp->style()->standardPalette());
 	qApp->setStyle(QStyleFactory::create("fusion"));
 }
 
@@ -249,6 +265,39 @@ RING_FUNC(ring_QApp_styleFusionBlack)
 
 	palette.setColor(QPalette::Highlight, QColor(142,45,197).lighter());
 	palette.setColor(QPalette::HighlightedText, Qt::black);
+	qApp->setPalette(palette);
+}
+
+RING_FUNC(ring_QApp_styleFusionCustom)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 12 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( (! RING_API_ISPOINTER(1)) || (! RING_API_ISPOINTER(2)) ||
+		(! RING_API_ISPOINTER(3)) || (! RING_API_ISPOINTER(4)) ||
+		(! RING_API_ISPOINTER(5)) || (! RING_API_ISPOINTER(6)) ||
+		(! RING_API_ISPOINTER(7)) || (! RING_API_ISPOINTER(8)) ||
+		(! RING_API_ISPOINTER(9)) || (! RING_API_ISPOINTER(10)) ||
+		(! RING_API_ISPOINTER(11)) || (! RING_API_ISPOINTER(12)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	qApp->setStyle(QStyleFactory::create("fusion"));
+	QPalette palette;
+	palette.setColor(QPalette::Window, 		* (QColor *) RING_API_GETCPOINTER(1,"QColor") );
+	palette.setColor(QPalette::WindowText, 		* (QColor *) RING_API_GETCPOINTER(2,"QColor") );
+	palette.setColor(QPalette::Base, 		* (QColor *) RING_API_GETCPOINTER(3,"QColor") );
+	palette.setColor(QPalette::AlternateBase, 	* (QColor *) RING_API_GETCPOINTER(4,"QColor") );
+	palette.setColor(QPalette::ToolTipBase, 	* (QColor *) RING_API_GETCPOINTER(5,"QColor") );
+	palette.setColor(QPalette::ToolTipText, 	* (QColor *) RING_API_GETCPOINTER(6,"QColor") );
+	palette.setColor(QPalette::Text,		* (QColor *) RING_API_GETCPOINTER(7,"QColor") );
+	palette.setColor(QPalette::Button, 		* (QColor *) RING_API_GETCPOINTER(8,"QColor") );
+	palette.setColor(QPalette::ButtonText, 		* (QColor *) RING_API_GETCPOINTER(9,"QColor") );
+	palette.setColor(QPalette::BrightText, 		* (QColor *) RING_API_GETCPOINTER(10,"QColor") );
+	palette.setColor(QPalette::Highlight, 		* (QColor *) RING_API_GETCPOINTER(11,"QColor") );
+	palette.setColor(QPalette::HighlightedText, 	* (QColor *) RING_API_GETCPOINTER(12,"QColor") );
 	qApp->setPalette(palette);
 }
 
@@ -280,6 +329,32 @@ RING_FUNC(ring_QApp_keyboardModifiers)
 	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
 }
 
+RING_FUNC(ring_QDesktopServices_openUrl)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(QDesktopServices::openUrl(* (QUrl *) RING_API_GETCPOINTER(1,"QUrl"))) ;
+}
+RING_FUNC(ring_QDesktopServices_setUrlHandler)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDesktopServices::setUrlHandler(RING_API_GETSTRING(1),(QObject *) RING_API_GETCPOINTER(2,"QObject *"),RING_API_GETSTRING(3));
+}
+RING_FUNC(ring_QDesktopServices_unsetUrlHandler)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDesktopServices::unsetUrlHandler(RING_API_GETSTRING(1));
+}
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -60639,7 +60714,7 @@ RING_FUNC(ring_QVariant_toUuid)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QUuid *pValue ; 
-		pValue = (QUuid *) malloc(sizeof(QUuid)) ;
+		pValue = new QUuid() ;
 		*pValue = pObject->toUuid();
 		RING_API_RETCPOINTER(pValue,"QUuid");
 	}
@@ -81170,6 +81245,23 @@ RING_FUNC(ring_QListView_wordWrap)
 	RING_API_RETNUMBER(pObject->wordWrap());
 }
 
+
+RING_FUNC(ring_QUuid_toString)
+{
+	QUuid *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QUuid *) RING_API_GETCPOINTER(1,"QUuid");
+	RING_API_RETSTRING(pObject->toString().toStdString().c_str());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -83081,6 +83173,17 @@ RING_FUNC(ring_QListView_new)
 	}
 	QListView *pObject = new QListView((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
 	RING_API_RETCPOINTER(pObject,"QListView");
+}
+
+RING_FUNC(ring_QUuid_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QUuid *pObject = new QUuid();
+	RING_API_RETCPOINTER(pObject,"QUuid");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -85228,15 +85331,36 @@ RING_FUNC(ring_QListView_delete)
 	}
 }
 
+RING_FUNC(ring_QUuid_delete)
+{
+	QUuid *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QUuid *) RING_API_GETCPOINTER(1,"QUuid");
+		delete pObject ;
+	}
+}
+
 RING_API void ring_qt_start(RingState *pRingState)
 {
 	ring_vm_funcregister("qapp_exec",ring_QApp_exec);
 	ring_vm_funcregister("qapp_quit",ring_QApp_quit);
 	ring_vm_funcregister("qapp_processevents",ring_QApp_processEvents);
+	ring_vm_funcregister("qapp_stylewindows",ring_QApp_styleWindows);
+	ring_vm_funcregister("qapp_stylewindowsvista",ring_QApp_styleWindowsVista);
 	ring_vm_funcregister("qapp_stylefusion",ring_QApp_styleFusion);
 	ring_vm_funcregister("qapp_stylefusionblack",ring_QApp_styleFusionBlack);
+	ring_vm_funcregister("qapp_stylefusioncustom",ring_QApp_styleFusionCustom);
 	ring_vm_funcregister("qapp_closeallwindows",ring_QApp_closeAllWindows);
 	ring_vm_funcregister("qapp_keyboardmodifiers",ring_QApp_keyboardModifiers);
+	ring_vm_funcregister("qdesktopservices_openurl",ring_QDesktopServices_openUrl);
+	ring_vm_funcregister("qdesktopservices_seturlhandler",ring_QDesktopServices_setUrlHandler);
+	ring_vm_funcregister("qdesktopservices_unseturlhandler",ring_QDesktopServices_unsetUrlHandler);
 	ring_vm_funcregister("qtest_qsleep",ring_QTest_qsleep);
 	ring_vm_funcregister("qobject_blocksignals",ring_QObject_blockSignals);
 	ring_vm_funcregister("qobject_children",ring_QObject_children);
@@ -89209,6 +89333,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistview_uniformitemsizes",ring_QListView_uniformItemSizes);
 	ring_vm_funcregister("qlistview_viewmode",ring_QListView_viewMode);
 	ring_vm_funcregister("qlistview_wordwrap",ring_QListView_wordWrap);
+	ring_vm_funcregister("quuid_tostring",ring_QUuid_toString);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -89352,6 +89477,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmdisubwindow_new",ring_QMdiSubWindow_new);
 	ring_vm_funcregister("qcursor_new",ring_QCursor_new);
 	ring_vm_funcregister("qlistview_new",ring_QListView_new);
+	ring_vm_funcregister("quuid_new",ring_QUuid_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -89495,4 +89621,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmdisubwindow_delete",ring_QMdiSubWindow_delete);
 	ring_vm_funcregister("qcursor_delete",ring_QCursor_delete);
 	ring_vm_funcregister("qlistview_delete",ring_QListView_delete);
+	ring_vm_funcregister("quuid_delete",ring_QUuid_delete);
 }

@@ -14,6 +14,7 @@ Contents:
    Applications developed in little hours <ringapps>
    Introduction <introduction>
    Language Design <languagedesign>
+   What is new in Ring 1.4? <whatisnew4>
    What is new in Ring 1.3? <whatisnew3>
    What is new in Ring 1.2? <whatisnew2>
    What is new in Ring 1.1? <whatisnew>
@@ -54,6 +55,7 @@ Contents:
    Natural language programming	<natural>
    Web Development (CGI Library) <web>
    Using RingLibCurl <libcurl>
+   Using RingZip <ringzip>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Using RingLibSDL <libsdl>
    Demo Project - Game Engine for 2D Games <gameengine>	
@@ -61,16 +63,19 @@ Contents:
    Desktop and Mobile development using RingQt <qt>
    Building RingQt Applications for Mobile <qtmobile>
    Objects Library for RingQt Application <ringqtobjects>
+   Using the Form Designer <formdesigner>
    Scope Rules for Variables and Attributes <scope>
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>
    Distributing Ring Applications <distribute>
    Command Line Options	<compiler>
    Low Level Functions <lowlevel>
+   Embedding Ring Language in Ring Programs <ringemb>
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
+   RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>

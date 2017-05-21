@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-15
-131
-116
+0
+100
+100
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4676
+Time 4763
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-00DB5158
+01301278
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 22/04/2017
-time: 01:17:38
+date: 05/05/2017
+time: 11:16:04
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3181,10 +3181,8 @@ In raise in file scripts/equalobjobj.ring
 B:\ring\tests>call ring scripts/nullpointer.ring 
 
 B:\ring\tests>call ring scripts/ptrcmp2.ring 
+0
 1
-1
-Line 7 Error in parameter, NULL pointer! 
-In fclose in file scripts/ptrcmp2.ring 
 B:\ring\tests>call ring scripts/listandstrconversion.ring 
 Items : 4
 Item : Hello
@@ -3255,3 +3253,21 @@ one
 two
 three
 four
+
+B:\ring\tests>call ring scripts/importinsideif.ring  
+wow
+B:\ring\tests>call ring scripts/liststartinbraces.ring 
+test3
+
+B:\ring\tests>call ring scripts/privateinnew.ring 
+point class
+20
+point class
+10
+point class
+20
+we must get runtime error (using private attribute)!
+
+Line 6 Error (R27) : Using private attribute from outside the class : number 
+In method init() in file scripts/privateinnew.ring
+called from line 6  in file scripts/privateinnew.ring 

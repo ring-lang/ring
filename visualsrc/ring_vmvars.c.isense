@@ -6,7 +6,7 @@ Type: List *
 pList,*pList2
 ring_vm_findvar2
 Type: int
-nPC,nType
+nPC,nType,lPrivateError
 Type: Item *
 pItem
 Type: List *

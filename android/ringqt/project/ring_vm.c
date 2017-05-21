@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Functions 
@@ -628,7 +628,7 @@ void ring_vm_execute ( VM *pVM )
 			ring_vm_oop_setproperty(pVM);
 			break ;
 		case ICO_CALLCLASSINIT :
-			pVM->nCallClassInit = ! pVM->nCallClassInit ;
+			ring_vm_callclassinit(pVM);
 			break ;
 		/* Other */
 		case ICO_SETREFERENCE :
@@ -927,13 +927,14 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	if ( pVM->nRunCode != 0 ) {
 		/* It's a nested event (Here we don't care about the output and we can restore the stack) */
 		ring_vm_restorestack(pVM,pStackList);
-		pVM->nSP = nSP ;
-		pVM->nFuncSP = nFuncSP ;
 	}
 	else {
 		/* Here we free the list because, restorestack() that free it (is not called) */
 		ring_list_delete(pStackList);
 	}
+	/* Restore Stack to avoid Stack Overflow */
+	pVM->nSP = nSP ;
+	pVM->nFuncSP = nFuncSP ;
 }
 
 void ring_vm_init ( RingState *pRingState )
@@ -1022,6 +1023,16 @@ void ring_vm_printstack ( VM *pVM )
 			RING_VM_STACK_POP ;
 			printf( "\n*****************************************\n" ) ;
 		}
+	}
+}
+
+void ring_vm_callclassinit ( VM *pVM )
+{
+	if ( RING_VM_IR_READIVALUE(1) ) {
+		pVM->nCallClassInit++ ;
+	}
+	else {
+		pVM->nCallClassInit-- ;
 	}
 }
 /* Threads */

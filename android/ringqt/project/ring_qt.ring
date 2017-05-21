@@ -21,17 +21,38 @@ Class QApp
 	Func processEvents 
 		return QApp_processEvents()
 
+	Func styleWindows 
+		return QApp_styleWindows()
+
+	Func styleWindowsVista 
+		return QApp_styleWindowsVista()
+
 	Func styleFusion 
 		return QApp_styleFusion()
 
 	Func styleFusionBlack 
 		return QApp_styleFusionBlack()
 
+	Func styleFusionCustom P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12
+		return QApp_styleFusionCustom(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7),GetObjectPointerFromRingObject(P8),GetObjectPointerFromRingObject(P9),GetObjectPointerFromRingObject(P10),GetObjectPointerFromRingObject(P11),GetObjectPointerFromRingObject(P12))
+
 	Func closeAllWindows 
 		return QApp_closeAllWindows()
 
 	Func keyboardModifiers 
 		return QApp_keyboardModifiers()
+
+Class QDesktopServices
+
+
+	Func openUrl P1
+		return QDesktopServices_openUrl(GetObjectPointerFromRingObject(P1))
+
+	Func setUrlHandler P1,P2,P3
+		return QDesktopServices_setUrlHandler(P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func unsetUrlHandler P1
+		return QDesktopServices_unsetUrlHandler(P1)
 
 Class QTest
 
@@ -10078,7 +10099,7 @@ Class QTextCodec
 		return QTextCodec_codecForName(P1)
 
 	Func setCodecForLocale P1
-		return QTextCodec_setCodecForLocale(P1)
+		return QTextCodec_setCodecForLocale(GetObjectPointerFromRingObject(P1))
 
 Class QSqlDatabase
 
@@ -10763,7 +10784,9 @@ Class QVariant
 		return pTempObj
 
 	Func toUuid 
-		return QVariant_toUuid(pObject)
+		pTempObj = new QUuid
+		pTempObj.pObject = QVariant_toUuid(pObject)
+		return pTempObj
 
 	Func type 
 		return QVariant_type(pObject)
@@ -14576,6 +14599,20 @@ Class QListView from QAbstractItemView
 
 	Func wordWrap 
 		return QListView_wordWrap(pObject)
+
+Class QUuid
+
+	pObject
+
+	Func init 
+		pObject = QUuid_new()
+		return self
+
+	Func delete
+		pObject = QUuid_delete(pObject)
+
+	Func toString 
+		return QUuid_toString(pObject)
 
 Class QPixmap2 from QPixmap
 

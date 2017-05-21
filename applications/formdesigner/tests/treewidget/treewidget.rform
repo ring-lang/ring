@@ -1,0 +1,47 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 38 , : y = 70  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "TreeWidget" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "TreeWidget1" , :id = 2 , :classname = "formdesigner_qtreewidget" , :data = [
+		 :x = 27 , : y = 53  , 
+		 :width =  338 , :height = 259 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :columncount =  "0",
+		 :headerlabels =  "",
+		 :HeaderHidden =  0,
+		 :setcollapsedEvent =  "",
+		 :setexpandedEvent =  "",
+		 :setactivatedEvent =  "",
+		 :setclickedEvent =  "",
+		 :setdoubleClickedEvent =  "",
+		 :setenteredEvent =  "",
+		 :setpressedEvent =  "",
+		 :setviewportEnteredEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemCollapsedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemExpandedEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	]
+]
+# End Form Designer File

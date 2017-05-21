@@ -2,8 +2,10 @@
 # Common Functions and classes for applications
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-if filename() = sysargv[2]
-	eval("Load 'stdfunctions.ring'")
+Load "stdfunctions.ring"
+Load "stdlibcore.ring"
+
+if IsMainSourceFile() 
 	sqlite_class_test()
 ok
 

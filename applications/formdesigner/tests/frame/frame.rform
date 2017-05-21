@@ -1,0 +1,47 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 29 , : y = 81  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Frame" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Frame1" , :id = 2 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 26 , : y = 110  , 
+		 :width =  340 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Frame2" , :id = 3 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 26 , : y = 164  , 
+		 :width =  340 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :FrameType =  2
+		]
+	],
+	[ :name = "Frame3" , :id = 4 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 26 , : y = 218  , 
+		 :width =  340 , :height = 44 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "" , 
+		 :parent =  "win"  ,
+		 :FrameType =  1
+		]
+	]
+]
+# End Form Designer File

@@ -1,5 +1,5 @@
 # The first method
-load "scripts\oop24.ring"
+load "scripts/oop24.ring"
 
 import System.output
 x = new console

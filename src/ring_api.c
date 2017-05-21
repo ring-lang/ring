@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Support for C Functions */
 
@@ -91,6 +91,15 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("nullpointer",ring_vmlib_nullpointer);
 	ring_vm_funcregister("space",ring_vmlib_space);
 	ring_vm_funcregister("ptrcmp",ring_vmlib_ptrcmp);
+	/* Ring State */
+	ring_vm_funcregister("ring_state_init",ring_vmlib_state_init);
+	ring_vm_funcregister("ring_state_runcode",ring_vmlib_state_runcode);
+	ring_vm_funcregister("ring_state_delete",ring_vmlib_state_delete);
+	ring_vm_funcregister("ring_state_runfile",ring_vmlib_state_runfile);
+	ring_vm_funcregister("ring_state_findvar",ring_vmlib_state_findvar);
+	ring_vm_funcregister("ring_state_newvar",ring_vmlib_state_newvar);
+	ring_vm_funcregister("ring_state_runobjectfile",ring_vmlib_state_runobjectfile);
+	ring_vm_funcregister("ring_state_main",ring_vmlib_state_main);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -919,8 +928,6 @@ void ring_vmlib_swap ( void *pPointer )
 {
 	List *pList  ;
 	int nNum1,nNum2,nSize  ;
-	VM *pVM  ;
-	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -1817,4 +1824,84 @@ void ring_vmlib_ptrcmp ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+/* Ring State */
+
+void ring_vmlib_state_init ( void *pPointer )
+{
+	RING_API_RETCPOINTER(ring_state_init(),"RINGSTATE");
+}
+
+void ring_vmlib_state_runcode ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	ring_state_runcode((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+}
+
+void ring_vmlib_state_delete ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	ring_state_delete((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"));
+}
+
+void ring_vmlib_state_runfile ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	ring_state_runfile((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+}
+
+void ring_vmlib_state_findvar ( void *pPointer )
+{
+	List *pList  ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	pList = ring_state_findvar((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	RING_API_RETLIST(pList);
+}
+
+void ring_vmlib_state_newvar ( void *pPointer )
+{
+	List *pList  ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	pList = ring_state_newvar((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	RING_API_RETLIST(pList);
+}
+
+void ring_vmlib_state_runobjectfile ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	ring_state_runobjectfile((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+}
+
+void ring_vmlib_state_main ( void *pPointer )
+{
+	char *cStr  ;
+	int argc  ;
+	char *argv[2]  ;
+	argv[0] = (char *) malloc(100) ;
+	argv[1] = (char *) malloc(100) ;
+	cStr = RING_API_GETSTRING(1);
+	argc = 2 ;
+	strcpy(argv[0],"ring");
+	strcpy(argv[1],cStr);
+	ring_execute(cStr,0,1,0,0,0,0,0,0,0,argc,argv);
+	free( argv[0] ) ;
+	free( argv[1] ) ;
 }

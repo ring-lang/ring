@@ -18,10 +18,26 @@ C++ Reference : http://doc.qt.io/qt-5/QApplication.html
 * void exec(void)
 * void quit(void)
 * void processEvents(void)
+* void styleWindows(void)
+* void styleWindowsVista(void)
 * void styleFusion(void)
 * void styleFusionBlack(void)
+* void styleFusionCustom(QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor)
 * void closeAllWindows(void)
 * Qt::KeyboardModifiers keyboardModifiers(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDesktopServices Class
+
+QDesktopServices Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDesktopServices.html
+
+* bool openUrl(QUrl)
+* void setUrlHandler(QString, QObject *receiver, const char *method)
+* void unsetUrlHandler(QString)
 
 .. index::
 	pair: RingQt Classes Reference; QTest Class
@@ -6226,3 +6242,61 @@ Parent Class : QAbstractItemView
 * bool  uniformItemSizes(void)
 * QListView::ViewMode  viewMode(void)
 * bool  wordWrap(void)
+
+.. index::
+	pair: RingQt Classes Reference; QAxObject Class
+
+QAxObject Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAxObject.html
+
+
+Parameters : QString
+
+
+Parent Class : QAxBase
+
+
+.. index::
+	pair: RingQt Classes Reference; QAxBase Class
+
+QAxBase Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QAxBase.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QObject
+
+* QVariant asVariant(void)
+* QString control(void)
+* void disableClassInfo(void)
+* void disableEventSink(void)
+* void disableMetaObject(void)
+* QVariant dynamicCall( char *function)
+* QVariant dynamicCall_2( char *function,QString)
+* QString generateDocumentation(void)
+* bool isNull(void)
+* QAxObject * querySubObject( char *name)
+* bool setControl( QString  )
+* QStringList verbs(void)
+
+.. index::
+	pair: RingQt Classes Reference; QUuid Class
+
+QUuid Class
+===========
+
+
+C++ Reference : http://doc.qt.io/qt-5/QUuid.html
+
+
+Parameters : void
+
+* QString toString(void)

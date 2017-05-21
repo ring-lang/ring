@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_scanner_h
 #define ring_scanner_h
 /* Data */
@@ -103,7 +103,7 @@ Scanner * ring_scanner_new ( RingState *pRingState ) ;
 
 Scanner * ring_scanner_delete ( Scanner *pScanner ) ;
 
-int ring_scanner_readfile ( const char *cFileName,RingState *pRingState ) ;
+int ring_scanner_readfile ( char *cFileName,RingState *pRingState ) ;
 
 void ring_scanner_readchar ( char c ,Scanner *pScanner ) ;
 
@@ -137,7 +137,7 @@ void ring_scanner_addreturn3 ( RingState *pRingState,int aPara[3] ) ;
 
 void ring_scanner_printtokens ( Scanner *pScanner ) ;
 
-RING_API void ring_execute ( const char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nWarn,int argc,char *argv[] ) ;
+RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nWarn,int argc,char *argv[] ) ;
 
 const char * ring_scanner_getkeywordtext ( const char *cStr ) ;
 

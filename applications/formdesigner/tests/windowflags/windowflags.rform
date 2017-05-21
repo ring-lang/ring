@@ -1,0 +1,17 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = -42 , : y = 100  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Using Window Flags" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "Qt_Window | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	]
+]
+# End Form Designer File

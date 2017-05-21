@@ -136,7 +136,7 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr )
 RING_API void ring_state_main ( int argc, char *argv[] )
 {
 	int x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nWarn  ;
-	const char *cStr  ;
+	char *cStr  ;
 	/* Init Values */
 	nCGI = 0 ;
 	nRun = 1 ;
@@ -235,7 +235,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	#endif
 }
 
-RING_API void ring_state_runfile ( RingState *pRingState,const char *cFileName )
+RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName )
 {
 	ring_scanner_readfile(cFileName,pRingState);
 }
@@ -366,4 +366,45 @@ void ring_exefolder ( char *cDirPath )
 		}
 	}
 	strcpy(cDirPath,cDir2);
+}
+
+void ring_switchtofilefolder ( char *cFileName )
+{
+	char cFileName2[200]  ;
+	strcpy(cFileName2,cFileName);
+	if ( ring_justfilepath(cFileName2) ) {
+		ring_chdir(cFileName2);
+		/* Remove The Path from the file Name - Keep the File Name Only */
+		ring_justfilename(cFileName);
+		return ;
+	}
+}
+
+int ring_justfilepath ( char *cFileName )
+{
+	int x,nSize  ;
+	nSize = strlen( cFileName ) ;
+	for ( x = nSize-1 ; x >= 0 ; x-- ) {
+		if ( (cFileName[x] == '\\') || (cFileName[x] == '/') ) {
+			cFileName[x+1] = '\0' ;
+			return 1 ;
+		}
+	}
+	return 0 ;
+}
+
+void ring_justfilename ( char *cFileName )
+{
+	int x,nSize,r  ;
+	nSize = strlen( cFileName ) ;
+	for ( x = nSize-1 ; x >= 0 ; x-- ) {
+		if ( (cFileName[x] == '\\') || (cFileName[x] == '/') ) {
+			r = 0 ;
+			for ( x = x+1 ; x <= nSize+1 ; x++ ) {
+				cFileName[r] = cFileName[x] ;
+				r++ ;
+			}
+			break ;
+		}
+	}
 }

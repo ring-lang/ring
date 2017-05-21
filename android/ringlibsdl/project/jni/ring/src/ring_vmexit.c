@@ -32,6 +32,7 @@ void ring_vm_exit ( VM *pVM,int nType )
 {
 	List *pList,*pActiveList  ;
 	int x,y,nStep  ;
+	nStep = 0 ;
 	/* Set Active List */
 	if ( nType == 1 ) {
 		pActiveList = pVM->pExitMark ;

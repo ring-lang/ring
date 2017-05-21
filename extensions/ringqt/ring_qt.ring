@@ -21,17 +21,38 @@ Class QApp
 	Func processEvents 
 		return QApp_processEvents()
 
+	Func styleWindows 
+		return QApp_styleWindows()
+
+	Func styleWindowsVista 
+		return QApp_styleWindowsVista()
+
 	Func styleFusion 
 		return QApp_styleFusion()
 
 	Func styleFusionBlack 
 		return QApp_styleFusionBlack()
 
+	Func styleFusionCustom P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12
+		return QApp_styleFusionCustom(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6),GetObjectPointerFromRingObject(P7),GetObjectPointerFromRingObject(P8),GetObjectPointerFromRingObject(P9),GetObjectPointerFromRingObject(P10),GetObjectPointerFromRingObject(P11),GetObjectPointerFromRingObject(P12))
+
 	Func closeAllWindows 
 		return QApp_closeAllWindows()
 
 	Func keyboardModifiers 
 		return QApp_keyboardModifiers()
+
+Class QDesktopServices
+
+
+	Func openUrl P1
+		return QDesktopServices_openUrl(GetObjectPointerFromRingObject(P1))
+
+	Func setUrlHandler P1,P2,P3
+		return QDesktopServices_setUrlHandler(P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func unsetUrlHandler P1
+		return QDesktopServices_unsetUrlHandler(P1)
 
 Class QTest
 
@@ -10192,7 +10213,7 @@ Class QTextCodec
 		return QTextCodec_codecForName(P1)
 
 	Func setCodecForLocale P1
-		return QTextCodec_setCodecForLocale(P1)
+		return QTextCodec_setCodecForLocale(GetObjectPointerFromRingObject(P1))
 
 Class QSqlDatabase
 
@@ -10877,7 +10898,9 @@ Class QVariant
 		return pTempObj
 
 	Func toUuid 
-		return QVariant_toUuid(pObject)
+		pTempObj = new QUuid
+		pTempObj.pObject = QVariant_toUuid(pObject)
+		return pTempObj
 
 	Func type 
 		return QVariant_type(pObject)
@@ -14691,6 +14714,77 @@ Class QListView from QAbstractItemView
 	Func wordWrap 
 		return QListView_wordWrap(pObject)
 
+Class QAxBase from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QAxBase_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAxBase_delete(pObject)
+
+	Func asVariant 
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_asVariant(pObject)
+		return pTempObj
+
+	Func control 
+		return QAxBase_control(pObject)
+
+	Func disableClassInfo 
+		return QAxBase_disableClassInfo(pObject)
+
+	Func disableEventSink 
+		return QAxBase_disableEventSink(pObject)
+
+	Func disableMetaObject 
+		return QAxBase_disableMetaObject(pObject)
+
+	Func dynamicCall P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_dynamicCall(pObject,P1)
+		return pTempObj
+
+	Func dynamicCall_2 P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QAxBase_dynamicCall_2(pObject,P1,P2)
+		return pTempObj
+
+	Func generateDocumentation 
+		return QAxBase_generateDocumentation(pObject)
+
+	Func isNull 
+		return QAxBase_isNull(pObject)
+
+	Func querySubObject P1
+		pTempObj = new QAxObject
+		pTempObj.pObject = QAxBase_querySubObject(pObject,P1)
+		return pTempObj
+
+	Func setControl P1
+		return QAxBase_setControl(pObject,P1)
+
+	Func verbs 
+		pTempObj = new QStringList
+		pTempObj.pObject = QAxBase_verbs(pObject)
+		return pTempObj
+
+Class QUuid
+
+	pObject
+
+	Func init 
+		pObject = QUuid_new()
+		return self
+
+	Func delete
+		pObject = QUuid_delete(pObject)
+
+	Func toString 
+		return QUuid_toString(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
@@ -14822,3 +14916,14 @@ Class QCompleter3 from QCompleter
 
 	Func delete
 		pObject = QCompleter3_delete(pObject)
+
+Class QAxObject from QAxBase
+
+	pObject
+
+	Func init P1
+		pObject = QAxObject_new(P1)
+		return self
+
+	Func delete
+		pObject = QAxObject_delete(pObject)

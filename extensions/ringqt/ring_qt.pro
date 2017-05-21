@@ -84,6 +84,7 @@ INCLUDEPATH += ../../include
 
 win32 {
 	LIBS +=  ../../lib/ring.lib
+	QT   += axcontainer
 }
 
 macx {

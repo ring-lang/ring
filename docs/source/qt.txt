@@ -4334,3 +4334,40 @@ RingQt Classes and their Qt Documentation
 Qt Documentation : http://doc.qt.io/qt-5/classes.html
 
 See the "RingQt Classes and Methods Reference" chapter for supported classes and methods.
+
+
+.. index:: 
+	pair: Desktop and Mobile Development; New Classes names - Index Start from 1
+
+New Classes names - Index Start from 1
+======================================
+
+We added new classes to RingQt - another version of classes where the class names doesn't start with the "q" letter
+Also updated methods so the index start from 1 when we deal with the GUI controls like
+
+* ComboBox
+* ListWidget
+* TableWidget
+* TreeWidget
+
+These classes are inside guilib.ring under the package name : System.GUI
+
+To use it
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	import System.GUI
+
+This doesn't have any effect on our previous code, It's just another choice for better code that is consistent with Ring rules.
+
+Also the form designer is updated to provide us the choice between using classes where (index start from 0) or (index start from 1)
+
+Example  (Uses the Form Designer)
+
+(1) https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/indexstart/indexstartView.ring
+
+(2) https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/indexstart/indexstartController.ring 
+
+
