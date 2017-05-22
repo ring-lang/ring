@@ -26,6 +26,12 @@ class FormDesigner_QWidget from QWidget
 	func SetIndexTypeValue Value
 		nIndexType = Value
 
+	func IndexStart
+		if IndexTypeValue() = 0 {
+			return 1
+		}
+		return 0
+
 	func BackColor
 		return cBackColor
 

@@ -358,7 +358,7 @@ class FormDesigner_QTableWidget from QLineEdit
 		}
 		if HorizontalHeadersValue() != NULL {
 			aTempList = Split(HorizontalHeadersValue(),",")
-			nPos = 1
+			nPos = oDesigner.oModel.FormObject().IndexStart()
 			for item in aTempList {
 				cOutput += 'setHorizontalHeaderItem(#{f1}, new QTableWidgetItem("#{f2}"))' + nl
 				cOutput = substr(cOutput,"#{f1}",""+nPos)
@@ -368,7 +368,7 @@ class FormDesigner_QTableWidget from QLineEdit
 		}
 		if ColumnsWidthValue() != NULL {
 			aTempList = Split(ColumnsWidthValue(),",")
-			nPos = 1
+			nPos = oDesigner.oModel.FormObject().IndexStart()
 			for item in aTempList {
 				cOutput += 'setColumnwidth(#{f1},#{f2})' + nl
 				cOutput = substr(cOutput,"#{f1}",""+nPos)
