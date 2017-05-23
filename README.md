@@ -21,6 +21,9 @@ The language is portable (Windows, Linux, Mac OS X, Android, etc.) and can be us
 Console, GUI, Web, Games and Mobile applications. 
 The language is designed to be Simple, Small, Flexible and Fast. [Read more!](http://ring-lang.sourceforge.net/#why)
 
+
+![Ring](http://ring-lang.sourceforge.net/ringdemo12.png)
+
 # Building from source code
 
 You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
