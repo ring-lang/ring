@@ -17,8 +17,8 @@
 	load "mainwindow/formdesignergeneral.ring"
 
 # Load Sub Windows/Systems
-	load "menubardesigner/menubarDesignerController.ring"
-	load "windowflags/windowflagscontroller.ring"
+	load "menubardesigner/menubardesignerController.ring"
+	load "windowflags/windowflagsController.ring"
 	load "windowobjects/windowobjectscontroller.ring"
 
 # Load Controls
