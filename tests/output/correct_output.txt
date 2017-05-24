@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 0
-100
-100
+115
+115
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4763
+Time 4666
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-01301278
+00E6FB30
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 05/05/2017
-time: 11:16:04
+date: 25/05/2017
+time: 02:36:01
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3271,3 +3271,16 @@ we must get runtime error (using private attribute)!
 Line 6 Error (R27) : Using private attribute from outside the class : number 
 In method init() in file scripts/privateinnew.ring
 called from line 6  in file scripts/privateinnew.ring 
+B:\ring\tests>call ring scripts/numbers2bytes.ring 
+Test Int2Bytes() and Bytes2Int() - Value : 77
+Int Size : 4
+M   
+77
+Test Float2Bytes() and Bytes2Float() - Value 77.12
+Float Size : 4
+q=šB
+77.12
+Test Double2Bytes() and Bytes2Double() - Value 9999977.12345
+Double Size : 8
+jMó#ÍcA
+9999977.12345
