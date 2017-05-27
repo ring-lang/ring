@@ -22,7 +22,7 @@ Console, GUI, Web, Games and Mobile applications.
 The language is designed to be Simple, Small, Flexible and Fast. [Read more!](http://ring-lang.sourceforge.net/#why)
 
 
-![Ring](http://ring-lang.sourceforge.net/ringdemo12.png)
+![Ring](http://ring-lang.sourceforge.net/ringshots.gif)
 
 # Building from source code
 
