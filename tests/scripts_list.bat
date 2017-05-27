@@ -234,3 +234,4 @@ call ring scripts/passtemplisttoinitmethod.ring
 call ring scripts/importinsideif.ring 
 call ring scripts/liststartinbraces.ring
 call ring scripts/privateinnew.ring
+call ring scripts/numbers2bytes.ring

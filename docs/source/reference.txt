@@ -75,7 +75,7 @@ Keywords Count : 46
 Language Functions
 ==================
 
-Functions Count : 227
+Functions Count : 233
 
 .. code-block:: ring
 
@@ -91,6 +91,8 @@ Functions Count : 227
 	fabs() fclose() feof() ferror() fexists() fflush() fgetc() fgetpos()
 	fgets() filename() find() floor() fopen() fputc() fputs() fread()
 	freopen() fseek() fsetpos() ftell() functions() fwrite() 
+	int2bytes() float2bytes() double2bytes() 
+	bytes2int() bytes2float() bytes2double()
 	getattribute() getchar()
 	globals() hex() hex2str() input() insert() intvalue() isalnum() isalpha()
 	isandroid() isattribute() iscfunction() isclass() iscntrl() 
