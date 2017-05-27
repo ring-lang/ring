@@ -728,7 +728,7 @@ Func MakeDir cDir
 	output          : sorted list 
 */ 
 
-func sortFirstSecond aList, ind
+Func sortFirstSecond aList, ind
         aList = sort(aList,ind)
 
         for n=1 to len(alist)-1
@@ -742,8 +742,8 @@ func sortFirstSecond aList, ind
        next
        return aList
 
-func Fsize(fh)
+Func Fsize(fh)
 	Fseek(fh,0,2)
 	size = Ftell(fh)
 	Fseek(fh,0,0)
-return size
+	return size
