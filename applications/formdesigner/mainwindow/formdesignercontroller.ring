@@ -13,6 +13,7 @@ class FormDesignerController from WindowsControllerParent
 	oModel = new FormDesignerModel
 	oGeneral = new FormDesignerGeneral
 	oFile = new FormDesignerFileSystem
+	PropertyCellEdited = [/* CellContent, RowIndex, ColumnIndex */]
 
 	func Start
 		oView.SetParentObject(self)
@@ -85,8 +86,27 @@ class FormDesignerController from WindowsControllerParent
 		oView.oToolBtn1.setChecked(2)
 		ToolBtnChangeAction()
 
+	func StartEditingProperty
+		PropertyCellEdited = []
+		Add(PropertyCellEdited, oView.oPropertiesTable.Item(oView.oPropertiesTable.currentRow(), oView.oPropertiesTable.currentColumn()).Text())
+		Add(PropertyCellEdited, oView.oPropertiesTable.currentRow())
+		Add(PropertyCellEdited, oView.oPropertiesTable.currentColumn())
+
 	func UpdateProperties
 		SetToolboxModeToSelect()
+		if Len(PropertyCellEdited) 
+			CellContent = oView.oPropertiesTable.item(PropertyCellEdited[2], PropertyCellEdited[3]).text()
+			For i = 1 to Len(CellContent)
+				if CellContent[i] = '"'
+					new qMessageBox(oView.win) {
+						Warning(self, "Warning!!!", 'Warning : Its not allowed to use (") character in Properties', QMessageBox_Ok, QMessageBox_NoButton)
+					}
+					oView.oPropertiesTable.item(PropertyCellEdited[2], PropertyCellEdited[3]).setText(PropertyCellEdited[1])
+					Exit
+				Ok
+			Next
+			PropertyCellEdited = []
+		Ok
 		nRow = oView.oPropertiesTable.Currentrow()
 		nCol = oView.oPropertiesTable.Currentcolumn()
 		cValue = oView.oPropertiesTable.item(nRow,nCol).text()
