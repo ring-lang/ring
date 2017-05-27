@@ -741,3 +741,9 @@ func sortFirstSecond aList, ind
              next
        next
        return aList
+
+func Fsize(fh)
+	Fseek(fh,0,2)
+	size = Ftell(fh)
+	Fseek(fh,0,0)
+return size
