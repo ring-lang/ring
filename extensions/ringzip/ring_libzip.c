@@ -4,14 +4,14 @@
 **  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-#include <zip.h>
+#include "zip.h"
 
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include <zip.c>
+#include "zip.c"
 
 typedef struct zip_t ZIP_T ;
 
