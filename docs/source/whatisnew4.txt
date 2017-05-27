@@ -16,7 +16,7 @@ List of changes and new features
 Ring 1.4  comes with many new features 
 
 * Convert between Numbers and Bytes
-
+* Better StdLib
 
 .. index:: 
 	pair: What is new in Ring 1.4?; Convert between Numbers and Bytes
@@ -53,3 +53,14 @@ Example:
 	see r + nl
 	decimals(5)
 	see Bytes2Double(r) + nl
+
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Better StdLib
+
+Better StdLib
+=============
+
+The StdLib is updated to include the next functions
+
+* FSize()

@@ -1130,3 +1130,17 @@ Example:
 	puts("create Directory : myfolder")
 	makedir("myfolder")
 
+
+.. index:: 
+	pair: Stdlib Functions; FSize()
+
+fsize() function
+==================
+
+The function return the file size in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	FSize(File Handle) ---> Number (File Size in Bytes)
