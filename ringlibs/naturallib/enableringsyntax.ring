@@ -3,6 +3,8 @@
 	2017, Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+# Enable Keywords
+
 changeringkeyword _again 		again
 changeringkeyword _and  		and
 changeringkeyword _but 		but

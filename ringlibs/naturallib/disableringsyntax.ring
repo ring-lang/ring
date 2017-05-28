@@ -3,6 +3,8 @@
 	2017, Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+# Disable Keywords
+
 changeringkeyword again 		_again
 changeringkeyword and  		_and
 changeringkeyword but 		_but
@@ -46,3 +48,28 @@ changeringkeyword switch 		_switch
 changeringkeyword to 			_to
 changeringkeyword try 		_try
 changeringkeyword while 		_while
+
+# Disable Operators
+
+changeringoperator +		_+
+changeringoperator -		_-
+changeringoperator *		_*
+changeringoperator /		_/
+changeringoperator %		_%
+changeringoperator =		_=
+changeringoperator !		_!
+changeringoperator <		_<
+changeringoperator >		_>
+changeringoperator &		_&
+changeringoperator |		_|
+changeringoperator ^		_^
+changeringoperator ~		_~
+changeringoperator =		_=
+changeringoperator :		_:
+changeringoperator [		_[
+changeringoperator ]		_]
+changeringoperator (		_(
+changeringoperator )		_)
+changeringoperator .		_.
+
+
