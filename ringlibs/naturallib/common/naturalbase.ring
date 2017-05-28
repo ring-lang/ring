@@ -3,11 +3,11 @@
 
 func RunNaturalCode cFile
 	cCode = '
-	loadsyntax "syntax/naturalsyntaxon.ring"
+	loadsyntax "../ringlibs/naturallib/syntax/naturalsyntaxon.ring"
 	Talk Natural {
 		#{naturalcode}
 	}
-	loadsyntax "syntax/naturalsyntaxoff.ring"
+	loadsyntax "../ringlibs/naturallib/syntax/naturalsyntaxoff.ring"
 	'
 	cCode = substr(cCode,"#{naturalcode}",read(cFile))
 	eval(cCode)
