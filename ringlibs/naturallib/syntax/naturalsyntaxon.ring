@@ -1,8 +1,6 @@
 # The Ring Natural Library
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
-changeringkeyword talk _new
+loadsyntax "syntax/disableringsyntax.ring"
 
-loadsyntax "enableringsyntax.ring"
-
-
+changeringkeyword _new talk
