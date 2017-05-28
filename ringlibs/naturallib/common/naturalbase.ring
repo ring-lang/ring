@@ -1,7 +1,7 @@
 # The Ring Natural Library
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
-func RunNaturalCode cFile
+func RunNaturalFile cFile
 	cCode = '
 	loadsyntax "../ringlibs/naturallib/syntax/naturalsyntaxon.ring"
 	Talk Natural {

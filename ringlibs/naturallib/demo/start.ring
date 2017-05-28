@@ -1,4 +1,4 @@
 load "naturallib.ring"
 
-RunNaturalCode("program.ring")
+RunNaturalFile("program.ring")
 
