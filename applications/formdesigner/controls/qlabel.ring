@@ -67,7 +67,7 @@ class FormDesigner_QLabel from QLabel
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
+		cOutput += "," + nl + cTabs + ' :text =  "' + oDesigner.PrepareStringForFormFile(Text()) + '"'
 		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign()
 		return cOutput
 

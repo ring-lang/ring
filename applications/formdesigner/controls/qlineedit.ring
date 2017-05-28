@@ -115,13 +115,13 @@ class FormDesigner_QLineEdit from QLineEdit
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :text =  "' + TextValue() + '"'
-		cOutput += "," + nl + cTabs + ' :setTextChangedEvent =  "' + TextChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcursorPositionChangedEvent =  "' + cursorPositionChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :seteditingFinishedEvent =  "' + editingFinishedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setreturnPressedEvent =  "' + returnPressedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setselectionChangedEvent =  "' + selectionChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :settextEditedEvent =  "' + textEditedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :text =  "' + oDesigner.PrepareStringForFormFile(TextValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :setTextChangedEvent =  "' + oDesigner.PrepareStringForFormFile(TextChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcursorPositionChangedEvent =  "' + oDesigner.PrepareStringForFormFile(cursorPositionChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :seteditingFinishedEvent =  "' + oDesigner.PrepareStringForFormFile(editingFinishedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setreturnPressedEvent =  "' + oDesigner.PrepareStringForFormFile(returnPressedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setselectionChangedEvent =  "' + oDesigner.PrepareStringForFormFile(selectionChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :settextEditedEvent =  "' + oDesigner.PrepareStringForFormFile(textEditedEventCode()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner

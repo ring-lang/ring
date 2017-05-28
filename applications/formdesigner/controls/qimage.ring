@@ -59,7 +59,7 @@ class FormDesigner_QImage from QLabel
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :imagefile =  "' + ImageFile() + '"'
+		cOutput += "," + nl + cTabs + ' :imagefile =  "' + oDesigner.PrepareStringForFormFile(ImageFile()) + '"'
 		return cOutput
 
 	func RestoreProperties oDesigner,Item

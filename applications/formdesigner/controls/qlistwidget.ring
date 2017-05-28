@@ -170,18 +170,18 @@ class FormDesigner_QListWidget from QLineEdit
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :cItems =  "' + cItemsValue() + '"'
-		cOutput += "," + nl + cTabs + ' :cCurrentRow =  "' + cCurrentRowValue() + '"'
-		cOutput += "," + nl + cTabs + ' :setcurrentItemChangedEvent =  "' + currentItemChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcurrentRowChangedEvent =  "' + currentRowChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcurrentTextChangedEvent =  "' + currentTextChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemActivatedEvent =  "' + itemActivatedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemChangedEvent =  "' + itemChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemClickedEvent =  "' + itemClickedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemDoubleClickedEvent =  "' + itemDoubleClickedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemEnteredEvent =  "' + itemEnteredEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemPressedEvent =  "' + itemPressedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemSelectionChangedEvent =  "' + itemSelectionChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :cItems =  "' + oDesigner.PrepareStringForFormFile(cItemsValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :cCurrentRow =  "' + oDesigner.PrepareStringForFormFile(cCurrentRowValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentItemChangedEvent =  "' + oDesigner.PrepareStringForFormFile(currentItemChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentRowChangedEvent =  "' + oDesigner.PrepareStringForFormFile(currentRowChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentTextChangedEvent =  "' + oDesigner.PrepareStringForFormFile(currentTextChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemActivatedEvent =  "' + oDesigner.PrepareStringForFormFile(itemActivatedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemChangedEvent =  "' + oDesigner.PrepareStringForFormFile(itemChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemClickedEvent =  "' + oDesigner.PrepareStringForFormFile(itemClickedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemDoubleClickedEvent =  "' + oDesigner.PrepareStringForFormFile(itemDoubleClickedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemEnteredEvent =  "' + oDesigner.PrepareStringForFormFile(itemEnteredEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemPressedEvent =  "' + oDesigner.PrepareStringForFormFile(itemPressedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemSelectionChangedEvent =  "' + oDesigner.PrepareStringForFormFile(itemSelectionChangedEventCode()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner

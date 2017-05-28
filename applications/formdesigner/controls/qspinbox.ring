@@ -93,11 +93,11 @@ class FormDesigner_QSpinBox from QLineEdit
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :minimum =  "' + MinimumValue()  + '"'
-		cOutput += "," + nl + cTabs + ' :maximum =  "' + MaximumValue()  + '"'
-		cOutput += "," + nl + cTabs + ' :range =  "' + RangeValue()  + '"'
-		cOutput += "," + nl + cTabs + ' :value =  "' + ValueValue()  + '"'
-		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + valueChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :minimum =  "' + oDesigner.PrepareStringForFormFile(MinimumValue())  + '"'
+		cOutput += "," + nl + cTabs + ' :maximum =  "' + oDesigner.PrepareStringForFormFile(MaximumValue())  + '"'
+		cOutput += "," + nl + cTabs + ' :range =  "' + oDesigner.PrepareStringForFormFile(RangeValue())  + '"'
+		cOutput += "," + nl + cTabs + ' :value =  "' + oDesigner.PrepareStringForFormFile(ValueValue())  + '"'
+		cOutput += "," + nl + cTabs + ' :setvalueChangedEvent =  "' + oDesigner.PrepareStringForFormFile(valueChangedEventCode()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner

@@ -93,11 +93,11 @@ class FormDesigner_QWebView from QLineEdit
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :URL =  "' + URLValue() + '"'
-		cOutput += "," + nl + cTabs + ' :setloadProgressEvent  =  "' + loadProgressEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setloadStartedEvent  =  "' + loadStartedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setselectionChangedEvent  =  "' + selectionChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :seturlChangedEvent  =  "' + urlChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :URL =  "' + oDesigner.PrepareStringForFormFile(URLValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :setloadProgressEvent  =  "' + oDesigner.PrepareStringForFormFile(loadProgressEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setloadStartedEvent  =  "' + oDesigner.PrepareStringForFormFile(loadStartedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setselectionChangedEvent  =  "' + oDesigner.PrepareStringForFormFile(selectionChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :seturlChangedEvent  =  "' + oDesigner.PrepareStringForFormFile(urlChangedEventCode()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
