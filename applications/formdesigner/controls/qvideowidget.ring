@@ -64,7 +64,7 @@ class FormDesigner_QVideoWidget from QLineEdit
 			'setmedia(new qurl("#{f1}"))' + nl +
 			' setvideooutput(#{f2})' + nl +
 			'}' + nl
-		cOutput = substr(cOutput,"#{f1}",VideoFile())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(VideoFile()))
 		cObjName = oDesigner.oModel.GetObjectName(self)
 		cOutput = substr(cOutput,"#{f2}",cObjName)
 		return cOutput

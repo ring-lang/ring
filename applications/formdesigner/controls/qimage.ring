@@ -71,7 +71,7 @@ class FormDesigner_QImage from QLabel
 	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setPixMap(New qPixMap("#{f1}"))' + nl
-		cOutput = substr(cOutput,"#{f1}",ImageFile())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(ImageFile()))
 		return cOutput
 
 	func DialogButtonAction oDesigner,nRow

@@ -81,7 +81,7 @@ class FormDesigner_QPushButton from QPushButton
 		cOutput = 'setText("#{f1}")' + nl
 		cOutput += 'setClickEvent("#{f2}")' + nl
 		cOutput += 'setBtnImage(#{f3},"#{f4}")' + nl
-		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(text()))
 		cOutput = PrepareEvent(cOutput,ClickEventCode(),"#{f2}")
 		cOutput = substr(cOutput,"#{f2}",ClickEventCode())
 		cOutput = substr(cOutput,"#{f3}",oDesigner.oModel.GetObjectName(self))

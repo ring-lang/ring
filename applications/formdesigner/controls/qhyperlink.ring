@@ -65,7 +65,7 @@ class FormDesigner_QHyperLink from QLabel
 
 	func GenerateCustomCode oDesigner
 		cOutput = `setText('<a href="#{f1}">#{f2}</a>')` + nl
-		cOutput = substr(cOutput,"#{f1}",LinkValue())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(LinkValue()))
 		cOutput = substr(cOutput,"#{f2}",TextValue())
 		return cOutput
 

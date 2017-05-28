@@ -91,7 +91,7 @@ class FormDesigner_QRadioButton from QRadioButton
 
 	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl
-		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(text()))
 		cOutput += 'setclickedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,clickedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",clickedEventCode())

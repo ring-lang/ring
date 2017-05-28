@@ -73,7 +73,7 @@ class FormDesigner_QLabel from QLabel
 
 	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl + 'setAlignment(#{f2})'
-		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(text()))
 		Switch nTextAlign {
 			case 0
 				cOutput = substr(cOutput,"#{f2}","Qt_AlignLeft |  Qt_AlignVCenter")

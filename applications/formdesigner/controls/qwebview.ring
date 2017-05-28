@@ -103,7 +103,7 @@ class FormDesigner_QWebView from QLineEdit
 	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'loadpage(new qURL("#{f1}"))' + nl
-		cOutput = substr(cOutput,"#{f1}",URLValue())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(URLValue()))
 		cOutput += 'setloadProgressEvent ("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,loadProgressEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",loadProgressEventCode())

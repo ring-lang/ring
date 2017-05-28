@@ -119,7 +119,7 @@ class FormDesigner_QComboBox from QComboBox
 			aItems = split(cItemsValue(),",")
 			for item in aItems {
 				cOutput += 'AddItem("#{f1}",0)' + nl
-				cOutput = substr(cOutput,"#{f1}",Item)
+				cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(Item))
 			}
 		}
 		if cCurrentIndexValue() != NULL {

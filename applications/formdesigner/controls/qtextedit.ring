@@ -140,7 +140,7 @@ class FormDesigner_QTextEdit from QLineEdit
 	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setText("#{f1}")' + nl
-		cOutput = substr(cOutput,"#{f1}",textValue())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(textValue()))
 		cOutput += 'setcopyAvailableEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,copyAvailableEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",copyAvailableEventCode())

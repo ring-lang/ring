@@ -190,7 +190,7 @@ class FormDesigner_QListWidget from QLineEdit
 			aItems = split(cItemsValue(),",")
 			for item in aItems {
 				cOutput += 'AddItem("#{f1}")' + nl
-				cOutput = substr(cOutput,"#{f1}",Item)
+				cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(Item))
 			}
 		}
 		if cCurrentRowValue() != NULL {

@@ -362,7 +362,7 @@ class FormDesigner_QTableWidget from QLineEdit
 			for item in aTempList {
 				cOutput += 'setHorizontalHeaderItem(#{f1}, new QTableWidgetItem("#{f2}"))' + nl
 				cOutput = substr(cOutput,"#{f1}",""+nPos)
-				cOutput = substr(cOutput,"#{f2}",item)
+				cOutput = substr(cOutput,"#{f2}",oDesigner.PrepareStringForFormFile(item))
 				nPos++
 			}
 		}

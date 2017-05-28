@@ -98,7 +98,7 @@ class FormDesigner_QTabWidget from QTabWidget
 			cOutput  = substr(cOutput,"#{f1}",oDesigner.oModel.GetObjectName(self))
 			cOutput  = substr(cOutput,"#{f2}",""+x)
 			cOutput  = substr(cOutput,"#{f3}",""+(x-1))
-			cOutput  = substr(cOutput,"#{f4}",aTabs[x][2])
+			cOutput  = substr(cOutput,"#{f4}",oDesigner.PrepareStringForFormFile(aTabs[x][2]))
 		}
 		return cOutput
 

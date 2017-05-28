@@ -102,7 +102,7 @@ class FormDesigner_QCheckBox from QCheckBox
 
 	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl
-		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(text()))
 		cOutput += 'setstateChangedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,stateChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",stateChangedEventCode())

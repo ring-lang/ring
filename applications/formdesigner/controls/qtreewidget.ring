@@ -317,7 +317,7 @@ class FormDesigner_QTreeWidget from QLineEdit
 			aItems = split(HeaderLabelsValue(),",")
 			for item in aItems {
 				cOutput += char(9) + 'Append("#{f1}")' + nl
-				cOutput = substr(cOutput,"#{f1}",Item)
+				cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(Item))
 			}
 			cOutput += '}' + nl +"setheaderlabels(oList)" + nl
 		}

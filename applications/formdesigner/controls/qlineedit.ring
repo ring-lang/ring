@@ -127,7 +127,7 @@ class FormDesigner_QLineEdit from QLineEdit
 	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setText("#{f1}")' + nl
-		cOutput = substr(cOutput,"#{f1}",textValue())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(textValue()))
 		cOutput += 'setTextChangedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,TextChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",TextChangedEventCode())
