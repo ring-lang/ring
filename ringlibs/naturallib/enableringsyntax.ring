@@ -64,7 +64,6 @@ changeringoperator _&			&
 changeringoperator _|			|
 changeringoperator _^			^
 changeringoperator _~			~
-changeringoperator _=			=
 changeringoperator _:			:
 changeringoperator _[			[
 changeringoperator _]			]
