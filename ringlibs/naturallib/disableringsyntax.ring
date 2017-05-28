@@ -1,3 +1,8 @@
+/*
+	The Ring Natural Library
+	2017, Mahmoud Fayed <msfclipper@yahoo.com>
+*/
+
 changeringkeyword again 		_again
 changeringkeyword and  		_and
 changeringkeyword but 		_but
