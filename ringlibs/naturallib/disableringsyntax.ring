@@ -1,7 +1,5 @@
-/*
-	The Ring Natural Library
-	2017, Mahmoud Fayed <msfclipper@yahoo.com>
-*/
+# The Ring Natural Library
+# 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
 # Disable Keywords
 
@@ -71,5 +69,5 @@ changeringoperator ]			_]
 changeringoperator (			_(
 changeringoperator )			_)
 changeringoperator .			_.
-
+changeringoperator ,			_,
 
