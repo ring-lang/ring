@@ -166,7 +166,7 @@ package System.GUI
 			return Super.setHorizontalHeaderItem(p1-1,p2)
 
 		func setItem p1,p2,p3
-			return Super.setItem(p1-1,p2-2,p3)
+			return Super.setItem(p1-1,p2-1,p3)
 
 		func setVerticalHeaderItem p1,p2
 			return Super.setVerticalHeaderItem(p1-1,p2)
