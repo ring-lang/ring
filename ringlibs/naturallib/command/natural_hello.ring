@@ -9,4 +9,4 @@ class Natural_Hello from NaturalCommand
 		AddAttribute(self,:hello)
 
 	func GetHello   
-		See  "Hello, Sire!" +nl  +nl
+		See  "Hello, Sire!" + nl + nl
