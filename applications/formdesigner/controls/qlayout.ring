@@ -91,7 +91,7 @@ class FormDesigner_QLayout from QLabel
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
 		cOutput += "," + nl + cTabs + ' :LayoutType =  ' + LayoutTypeValue()
-		cOutput += "," + nl + cTabs + ' :LayoutObjects =  "' + LayoutObjectsValue() + '"'
+		cOutput += "," + nl + cTabs + ' :LayoutObjects =  "' + oDesigner.PrepareStringForFormFile(LayoutObjectsValue()) + '"'
 		return cOutput
 
 	func GenerateCode oDesigner

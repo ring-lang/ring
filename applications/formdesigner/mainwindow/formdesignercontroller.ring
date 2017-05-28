@@ -1233,3 +1233,10 @@ class FormDesignerController from WindowsControllerParent
 			SetFileName(cFileName)
 			LoadFormFromFile(this)
 		}
+
+	func PrepareStringForFormFile  cString
+		# To allow writing " in properties 
+		if isString(cString) {
+			cString = SubStr(cString,'"', '"+char(34)+"')
+		}
+		return cString

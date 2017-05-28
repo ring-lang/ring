@@ -5,7 +5,7 @@
 **	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-load "windowobjectsView.ring"
+load "windowobjectsview.ring"
 
 package formdesigner
 

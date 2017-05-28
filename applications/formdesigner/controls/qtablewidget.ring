@@ -321,29 +321,29 @@ class FormDesigner_QTableWidget from QLineEdit
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :RowCount =  "' + RowCountValue() + '"'
-		cOutput += "," + nl + cTabs + ' :ColumnCount =  "' + ColumnCountValue() + '"'
-		cOutput += "," + nl + cTabs + ' :HorizontalHeaders =  "' + HorizontalHeadersValue() + '"'
-		cOutput += "," + nl + cTabs + ' :ColumnsWidth =  "' + ColumnsWidthValue() + '"'
-		cOutput += "," + nl + cTabs + ' :HorizontalHeaderStyle =  "' + HorizontalHeaderStyleValue() + '"'
-		cOutput += "," + nl + cTabs + ' :VerticalHeaderStyle =  "' + VerticalHeaderStyleValue() + '"'
+		cOutput += "," + nl + cTabs + ' :RowCount =  "' + oDesigner.PrepareStringForFormFile(RowCountValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :ColumnCount =  "' + oDesigner.PrepareStringForFormFile(ColumnCountValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :HorizontalHeaders =  "' + oDesigner.PrepareStringForFormFile(HorizontalHeadersValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :ColumnsWidth =  "' + oDesigner.PrepareStringForFormFile(ColumnsWidthValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :HorizontalHeaderStyle =  "' + oDesigner.PrepareStringForFormFile(HorizontalHeaderStyleValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :VerticalHeaderStyle =  "' + oDesigner.PrepareStringForFormFile(VerticalHeaderStyleValue()) + '"'
 		cOutput += "," + nl + cTabs + ' :selectionbehavior =  ' + SelectionBahviorValue()
 		cOutput += "," + nl + cTabs + ' :alternatingcolors =  ' + AlternatingColorsValue()
-		cOutput += "," + nl + cTabs + ' :setcellActivatedEvent =  "' + cellActivatedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcellChangedEvent =  "' + cellChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcellClickedEvent =  "' + cellClickedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcellDoubleClickedEvent =  "' + cellDoubleClickedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcellEnteredEvent =  "' + cellEnteredEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcellPressedEvent =  "' + cellPressedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcurrentCellChangedEvent =  "' + currentCellChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcurrentItemChangedEvent =  "' + currentItemChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemActivatedEvent =  "' + itemActivatedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemChangedEvent =  "' + itemChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemClickedEvent =  "' + itemClickedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemDoubleClickedEvent =  "' + itemDoubleClickedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemEnteredEvent =  "' + itemEnteredEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemPressedEvent =  "' + itemPressedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setitemSelectionChangedEvent =  "' + itemSelectionChangedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :setcellActivatedEvent =  "' + oDesigner.PrepareStringForFormFile(cellActivatedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcellChangedEvent =  "' + oDesigner.PrepareStringForFormFile(cellChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcellClickedEvent =  "' + oDesigner.PrepareStringForFormFile(cellClickedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcellDoubleClickedEvent =  "' + oDesigner.PrepareStringForFormFile(cellDoubleClickedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcellEnteredEvent =  "' + oDesigner.PrepareStringForFormFile(cellEnteredEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcellPressedEvent =  "' + oDesigner.PrepareStringForFormFile(cellPressedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentCellChangedEvent =  "' + oDesigner.PrepareStringForFormFile(currentCellChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentItemChangedEvent =  "' + oDesigner.PrepareStringForFormFile(currentItemChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemActivatedEvent =  "' + oDesigner.PrepareStringForFormFile(itemActivatedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemChangedEvent =  "' + oDesigner.PrepareStringForFormFile(itemChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemClickedEvent =  "' + oDesigner.PrepareStringForFormFile(itemClickedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemDoubleClickedEvent =  "' + oDesigner.PrepareStringForFormFile(itemDoubleClickedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemEnteredEvent =  "' + oDesigner.PrepareStringForFormFile(itemEnteredEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemPressedEvent =  "' + oDesigner.PrepareStringForFormFile(itemPressedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setitemSelectionChangedEvent =  "' + oDesigner.PrepareStringForFormFile(itemSelectionChangedEventCode()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
@@ -362,7 +362,7 @@ class FormDesigner_QTableWidget from QLineEdit
 			for item in aTempList {
 				cOutput += 'setHorizontalHeaderItem(#{f1}, new QTableWidgetItem("#{f2}"))' + nl
 				cOutput = substr(cOutput,"#{f1}",""+nPos)
-				cOutput = substr(cOutput,"#{f2}",item)
+				cOutput = substr(cOutput,"#{f2}",oDesigner.PrepareStringForFormFile(item))
 				nPos++
 			}
 		}

@@ -58,8 +58,8 @@ class FormDesigner_QTimer from QLabel
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :Interval =  "' + IntervalValue() + '"'
-		cOutput += "," + nl + cTabs + ' :Timeout =  "' + TimeoutValue() + '"'
+		cOutput += "," + nl + cTabs + ' :Interval =  "' + oDesigner.PrepareStringForFormFile(IntervalValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :Timeout =  "' + oDesigner.PrepareStringForFormFile(TimeoutValue()) + '"'
 		return cOutput
 
 	func GenerateCode oDesigner

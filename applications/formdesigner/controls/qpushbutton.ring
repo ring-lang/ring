@@ -72,16 +72,16 @@ class FormDesigner_QPushButton from QPushButton
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
-		cOutput += "," + nl + cTabs + ' :BtnImage =  "' + BtnImageValue() + '"'
-		cOutput += "," + nl + cTabs + ' :setClickEvent =  "' + ClickEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :text =  "' + oDesigner.PrepareStringForFormFile(Text()) + '"'
+		cOutput += "," + nl + cTabs + ' :BtnImage =  "' + oDesigner.PrepareStringForFormFile(BtnImageValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :setClickEvent =  "' + oDesigner.PrepareStringForFormFile(ClickEventCode()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl
 		cOutput += 'setClickEvent("#{f2}")' + nl
 		cOutput += 'setBtnImage(#{f3},"#{f4}")' + nl
-		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(text()))
 		cOutput = PrepareEvent(cOutput,ClickEventCode(),"#{f2}")
 		cOutput = substr(cOutput,"#{f2}",ClickEventCode())
 		cOutput = substr(cOutput,"#{f3}",oDesigner.oModel.GetObjectName(self))

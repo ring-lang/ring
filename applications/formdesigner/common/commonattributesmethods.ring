@@ -148,14 +148,14 @@ class CommonAttributesMethods
 		cOutput += cTabs + ' :backcolor =  "#{f6}" , ' + nl
 		cOutput += cTabs + ' :font =  "#{f7}" , ' + nl
 		cOutput += cTabs + ' :parent =  "#{f8}"  '
-		cOutput = substr(cOutput,"#{f1}",""+x())
-		cOutput = substr(cOutput,"#{f2}",""+y())
-		cOutput = substr(cOutput,"#{f3}",""+width())
-		cOutput = substr(cOutput,"#{f4}",""+height())
-		cOutput = substr(cOutput,"#{f5}",textcolor())
-		cOutput = substr(cOutput,"#{f6}",backcolor())
-		cOutput = substr(cOutput,"#{f7}",fontproperty())
-		cOutput = substr(cOutput,"#{f8}",CurrentParentName())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(""+x()))
+		cOutput = substr(cOutput,"#{f2}",oDesigner.PrepareStringForFormFile(""+y()))
+		cOutput = substr(cOutput,"#{f3}",oDesigner.PrepareStringForFormFile(""+width()))
+		cOutput = substr(cOutput,"#{f4}",oDesigner.PrepareStringForFormFile(""+height()))
+		cOutput = substr(cOutput,"#{f5}",oDesigner.PrepareStringForFormFile(textcolor()))
+		cOutput = substr(cOutput,"#{f6}",oDesigner.PrepareStringForFormFile(backcolor()))
+		cOutput = substr(cOutput,"#{f7}",oDesigner.PrepareStringForFormFile(fontproperty()))
+		cOutput = substr(cOutput,"#{f8}",oDesigner.PrepareStringForFormFile(CurrentParentName()))
 		return cOutput
 
 	func GenerateCode oDesigner

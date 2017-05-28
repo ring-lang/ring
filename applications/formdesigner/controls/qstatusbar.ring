@@ -45,13 +45,13 @@ class FormDesigner_QStatusbar from QLabel
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :Message =  "' + MessageValue() + '"'
+		cOutput += "," + nl + cTabs + ' :Message =  "' + oDesigner.PrepareStringForFormFile(MessageValue()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
 		cOutput = 'ShowMessage("#{f1}",0)' + nl +
 				'win.setStatusBar(#{f2})'
-		cOutput = substr(cOutput,"#{f1}",MessageValue())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(MessageValue()))
 		cOutput = substr(cOutput,"#{f2}",oDesigner.oModel.GetObjectName(self))
 		return cOutput
 

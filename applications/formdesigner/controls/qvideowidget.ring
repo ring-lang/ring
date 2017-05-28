@@ -49,7 +49,7 @@ class FormDesigner_QVideoWidget from QLineEdit
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :Videofile =  "' + VideoFile() + '"'
+		cOutput += "," + nl + cTabs + ' :Videofile =  "' + oDesigner.PrepareStringForFormFile(VideoFile()) + '"'
 		return cOutput
 
 	func RestoreProperties oDesigner,Item
@@ -64,7 +64,7 @@ class FormDesigner_QVideoWidget from QLineEdit
 			'setmedia(new qurl("#{f1}"))' + nl +
 			' setvideooutput(#{f2})' + nl +
 			'}' + nl
-		cOutput = substr(cOutput,"#{f1}",VideoFile())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(VideoFile()))
 		cObjName = oDesigner.oModel.GetObjectName(self)
 		cOutput = substr(cOutput,"#{f2}",cObjName)
 		return cOutput

@@ -83,8 +83,8 @@ class FormDesigner_QTabWidget from QTabWidget
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :PagesCount =  "' + PagesCountValue() + '"'
-		cOutput += "," + nl + cTabs + ' :PagesTitles =  "' + PagesTitlesValue() + '"'
+		cOutput += "," + nl + cTabs + ' :PagesCount =  "' + oDesigner.PrepareStringForFormFile(PagesCountValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :PagesTitles =  "' + oDesigner.PrepareStringForFormFile(PagesTitlesValue()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
@@ -98,7 +98,7 @@ class FormDesigner_QTabWidget from QTabWidget
 			cOutput  = substr(cOutput,"#{f1}",oDesigner.oModel.GetObjectName(self))
 			cOutput  = substr(cOutput,"#{f2}",""+x)
 			cOutput  = substr(cOutput,"#{f3}",""+(x-1))
-			cOutput  = substr(cOutput,"#{f4}",aTabs[x][2])
+			cOutput  = substr(cOutput,"#{f4}",oDesigner.PrepareStringForFormFile(aTabs[x][2]))
 		}
 		return cOutput
 

@@ -92,17 +92,17 @@ class FormDesigner_QCheckBox from QCheckBox
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
-		cOutput += "," + nl + cTabs + ' :setstateChangedEvent =  "' + stateChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setclickedEvent =  "' + clickedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setpressedEvent =  "' + pressedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setreleasedEvent =  "' + releasedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :settoggledEvent =  "' + toggledEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :text =  "' + oDesigner.PrepareStringForFormFile(Text()) + '"'
+		cOutput += "," + nl + cTabs + ' :setstateChangedEvent =  "' + oDesigner.PrepareStringForFormFile(stateChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setclickedEvent =  "' + oDesigner.PrepareStringForFormFile(clickedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setpressedEvent =  "' + oDesigner.PrepareStringForFormFile(pressedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setreleasedEvent =  "' + oDesigner.PrepareStringForFormFile(releasedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :settoggledEvent =  "' + oDesigner.PrepareStringForFormFile(toggledEventCode()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl
-		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(text()))
 		cOutput += 'setstateChangedEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,stateChangedEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",stateChangedEventCode())

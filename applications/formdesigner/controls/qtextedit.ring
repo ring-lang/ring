@@ -127,20 +127,20 @@ class FormDesigner_QTextEdit from QLineEdit
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :text =  "' + TextValue() + '"'
-		cOutput += "," + nl + cTabs + ' :setcopyAvailableEvent =  "' + copyAvailableEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcurrentCharFormatChangedEvent =  "' + currentCharFormatChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcursorPositionChangedEvent =  "' + cursorPositionChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setredoAvailableEvent =  "' + redoAvailableEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setselectionChangedEvent =  "' + selectionChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :settextChangedEvent =  "' + textChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setundoAvailableEvent =  "' + undoAvailableEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :text =  "' + oDesigner.PrepareStringForFormFile(TextValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcopyAvailableEvent =  "' + oDesigner.PrepareStringForFormFile(copyAvailableEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentCharFormatChangedEvent =  "' + oDesigner.PrepareStringForFormFile(currentCharFormatChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcursorPositionChangedEvent =  "' + oDesigner.PrepareStringForFormFile(cursorPositionChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setredoAvailableEvent =  "' + oDesigner.PrepareStringForFormFile(redoAvailableEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setselectionChangedEvent =  "' + oDesigner.PrepareStringForFormFile(selectionChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :settextChangedEvent =  "' + oDesigner.PrepareStringForFormFile(textChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setundoAvailableEvent =  "' + oDesigner.PrepareStringForFormFile(undoAvailableEventCode()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
 		cOutput = ""
 		cOutput += 'setText("#{f1}")' + nl
-		cOutput = substr(cOutput,"#{f1}",textValue())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(textValue()))
 		cOutput += 'setcopyAvailableEvent("#{f1}")' + nl
 		cOutput = PrepareEvent(cOutput,copyAvailableEventCode(),"#{f1}")
 		cOutput = substr(cOutput,"#{f1}",copyAvailableEventCode())

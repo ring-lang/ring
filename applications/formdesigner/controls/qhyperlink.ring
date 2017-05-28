@@ -59,13 +59,13 @@ class FormDesigner_QHyperLink from QLabel
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :Link =  "' + LinkValue() + '"'
-		cOutput += "," + nl + cTabs + ' :Text =  "' + TextValue() + '"'
+		cOutput += "," + nl + cTabs + ' :Link =  "' + oDesigner.PrepareStringForFormFile(LinkValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :Text =  "' + oDesigner.PrepareStringForFormFile(TextValue()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
 		cOutput = `setText('<a href="#{f1}">#{f2}</a>')` + nl
-		cOutput = substr(cOutput,"#{f1}",LinkValue())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(LinkValue()))
 		cOutput = substr(cOutput,"#{f2}",TextValue())
 		return cOutput
 

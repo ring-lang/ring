@@ -67,13 +67,13 @@ class FormDesigner_QLabel from QLabel
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :text =  "' + Text() + '"'
+		cOutput += "," + nl + cTabs + ' :text =  "' + oDesigner.PrepareStringForFormFile(Text()) + '"'
 		cOutput += "," + nl + cTabs + ' :textalign =  ' + TextAlign()
 		return cOutput
 
 	func GenerateCustomCode oDesigner
 		cOutput = 'setText("#{f1}")' + nl + 'setAlignment(#{f2})'
-		cOutput = substr(cOutput,"#{f1}",text())
+		cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(text()))
 		Switch nTextAlign {
 			case 0
 				cOutput = substr(cOutput,"#{f2}","Qt_AlignLeft |  Qt_AlignVCenter")

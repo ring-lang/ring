@@ -105,12 +105,12 @@ class FormDesigner_QComboBox from QComboBox
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :cItems =  "' + cItemsValue() + '"'
-		cOutput += "," + nl + cTabs + ' :cCurrentIndex =  "' + cCurrentIndexValue() + '"'
-		cOutput += "," + nl + cTabs + ' :setactivatedEvent =  "' + activatedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :setcurrentIndexChangedEvent =  "' + currentIndexChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :seteditTextChangedEvent =  "' + editTextChangedEventCode() + '"'
-		cOutput += "," + nl + cTabs + ' :sethighlightedEvent =  "' + highlightedEventCode() + '"'
+		cOutput += "," + nl + cTabs + ' :cItems =  "' + oDesigner.PrepareStringForFormFile(cItemsValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :cCurrentIndex =  "' + oDesigner.PrepareStringForFormFile(cCurrentIndexValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :setactivatedEvent =  "' + oDesigner.PrepareStringForFormFile(activatedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :setcurrentIndexChangedEvent =  "' + oDesigner.PrepareStringForFormFile(currentIndexChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :seteditTextChangedEvent =  "' + oDesigner.PrepareStringForFormFile(editTextChangedEventCode()) + '"'
+		cOutput += "," + nl + cTabs + ' :sethighlightedEvent =  "' + oDesigner.PrepareStringForFormFile(highlightedEventCode()) + '"'
 		return cOutput
 
 	func GenerateCustomCode oDesigner
@@ -119,7 +119,7 @@ class FormDesigner_QComboBox from QComboBox
 			aItems = split(cItemsValue(),",")
 			for item in aItems {
 				cOutput += 'AddItem("#{f1}",0)' + nl
-				cOutput = substr(cOutput,"#{f1}",Item)
+				cOutput = substr(cOutput,"#{f1}",oDesigner.PrepareStringForFormFile(Item))
 			}
 		}
 		if cCurrentIndexValue() != NULL {

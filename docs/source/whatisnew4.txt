@@ -15,3 +15,52 @@ List of changes and new features
 
 Ring 1.4  comes with many new features 
 
+* Convert between Numbers and Bytes
+* Better StdLib
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Convert between Numbers and Bytes
+
+Convert between Numbers and Bytes
+=================================
+
+Ring 1.4 comes with the next functions to convert between Numbers and Bytes.
+
+* Int2Bytes()
+* Float2Bytes()
+* Double2Bytes()
+* Bytes2Int()
+* Bytes2Float()
+* Bytes2Double()
+
+Example:
+
+.. code-block:: ring
+
+	see "Test Int2Bytes() and Bytes2Int() - Value : 77" + nl
+	r = Int2Bytes(77)
+	see "Int Size : " + len(r) + nl
+	see r + nl
+	see Bytes2Int(r) + nl
+	see "Test Float2Bytes() and Bytes2Float() - Value 77.12" + nl
+	r = Float2Bytes(77.12)
+	see "Float Size : " + len(r) + nl
+	see r + nl
+	see Bytes2Float(r) + nl
+	see "Test Double2Bytes() and Bytes2Double() - Value 9999977.12345" + nl
+	r = Double2Bytes(9999977.12345)
+	see "Double Size : " + len(r) + nl
+	see r + nl
+	decimals(5)
+	see Bytes2Double(r) + nl
+
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Better StdLib
+
+Better StdLib
+=============
+
+The StdLib is updated to include the next functions
+
+* FSize()

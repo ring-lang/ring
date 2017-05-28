@@ -76,8 +76,8 @@ class FormDesigner_QToolBar from QLabel
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)
-		cOutput += "," + nl + cTabs + ' :Title =  "' + TitleValue() + '"'
-		cOutput += "," + nl + cTabs + ' :ToolbarObjects =  "' + ToolbarObjectsValue() + '"'
+		cOutput += "," + nl + cTabs + ' :Title =  "' + oDesigner.PrepareStringForFormFile(TitleValue()) + '"'
+		cOutput += "," + nl + cTabs + ' :ToolbarObjects =  "' + oDesigner.PrepareStringForFormFile(ToolbarObjectsValue()) + '"'
 		return cOutput
 
 	func GenerateCode oDesigner
