@@ -1603,18 +1603,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 		
 		Func braceend
 
-			See cCookies + cStart + "<html>" + nl +
-			"<header>"+nl+CHAR(9)+scriptlibs()+nl+
-			CHAR(9)+"<title>"+nl+CHAR(9)+Char(9)+Title+nl+Char(9)+"</title>"+nl
+			See cCookies + cStart +"<!DOCTYPE html>" + WindowsNL() +
+			nl+ '<html lang="en">' + nl +
+			"<head>"+nl+CHAR(9)+"<title>"+Title+"</title>"+nl+
+			"<meta charset='UTF-8'>" + nl+
+			nl+CHAR(9)+scriptlibs()+nl			
 			if cCSS != NULL
 				See Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl
 			ok
-			see nl+"</header>" + nl +
+			see nl+"</head>" + nl +
 			"<body"+ cBody + "> " + nl 
 			for x in aObjs
 				see x.getdata() + nl
 			next
 			see nl + "</body>" + nl + "</html>" + nl
+
+
 
 	Class BootStrapWebPage from WebPage
 		lBootStrap = True
