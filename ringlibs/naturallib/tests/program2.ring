@@ -5,7 +5,7 @@ load "naturallib.ring"
 load "commands.ring"
 loadsyntax "../syntax/naturalsyntaxon.ring"
 
-Talk Natural {
+Talk MyLanguage {
 
 	Hello
 	Count 1 10 Count 10 1

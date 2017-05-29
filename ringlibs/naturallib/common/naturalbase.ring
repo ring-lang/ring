@@ -1,7 +1,7 @@
 # The Ring Natural Library
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
-class NaturalProgram
+class NaturalLanguage
 
 	cLibraryPath = "../ringlibs/naturallib"
 	cLanguageName = ""

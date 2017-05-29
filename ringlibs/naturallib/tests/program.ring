@@ -5,7 +5,7 @@ load "naturallib.ring"
 load "commands.ring"
 loadsyntax "../syntax/naturalsyntaxon.ring"
 
-Talk Natural {
+Talk MyLanguage {
 
 	Welcome to the Ring programming language!
 	What you are reading now is not comments, I swear!
