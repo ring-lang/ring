@@ -2863,12 +2863,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 			cOutput = TabMLString(cOutput)
 
 	Class Form from ObjsBase 
-		action method
+		action method target
 		Func braceend
 			cOutput += nl+'<form'
 			addattributes()
 			elementattribute(:action)
 			elementattribute(:method)
+			elementattribute(:target)
 			AddStyle()
 			getobjsdata()
 			cOutput += nl+"</form>" + nl
