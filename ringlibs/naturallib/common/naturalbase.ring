@@ -4,14 +4,16 @@
 class NaturalProgram
 
 	cLibraryPath = "../ringlibs/naturallib"
-	cLanguageName 
+	cLanguageName = ""
 	setLanguageName(:Natural)
 
 	func SetLanguageName cName
-		cLanguageName = cName
-		cCode = "class #{langname} from NaturalBase"
-		cCode = substr(cCode,"#{langname}",cLanguageName)
-		eval(cCode)
+		if cLanguageName != cName {
+			cLanguageName = cName
+			cCode = "class #{langname} from NaturalBase"
+			cCode = substr(cCode,"#{langname}",cLanguageName)
+			eval(cCode)
+		}
 
 	func RunFile cFile
 		cCode = '
