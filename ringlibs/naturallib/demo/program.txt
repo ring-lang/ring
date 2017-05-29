@@ -1,5 +1,3 @@
-To run this program, run start.ring 
-
 Welcome to the Ring programming language!
 What you are reading now is not comments, I swear!
 

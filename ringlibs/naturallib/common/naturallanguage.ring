@@ -16,6 +16,9 @@ class NaturalLanguage
 		}
 
 	func RunFile cFile
+		if not fexists(cFile) {
+			raise("Error (NaturalLib-1) : Can't open the file :"+cFile)
+		}
 		cCode = '
 		loadsyntax "#{libpath}/syntax/naturalsyntaxon.ring"
 		Talk #{langname} {

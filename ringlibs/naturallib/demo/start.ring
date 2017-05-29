@@ -4,5 +4,5 @@ New NaturalLanguage {
 	SetLanguageName(:MyLanguage)
 	UseCommand(:Hello)
 	UseCommand(:Count)
-	RunFile("program.ring")
+	RunFile("program.txt")
 }
