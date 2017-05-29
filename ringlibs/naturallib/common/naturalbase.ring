@@ -3,19 +3,23 @@
 
 class NaturalProgram
 
+	cLibraryPath = "../ringlibs/naturallib"
+
 	func RunFile cFile
 		cCode = '
-		loadsyntax "../ringlibs/naturallib/syntax/naturalsyntaxon.ring"
+		loadsyntax "#{libpath}/syntax/naturalsyntaxon.ring"
 		Talk Natural {
 			#{naturalcode}
 		}
-		loadsyntax "../ringlibs/naturallib/syntax/naturalsyntaxoff.ring"
+		loadsyntax "#{libpath}/syntax/naturalsyntaxoff.ring"
 		'
+		cCode = substr(cCode,"#{libpath}",cLibraryPath)
 		cCode = substr(cCode,"#{naturalcode}",read(cFile))
 		eval(cCode)
 
 	func UseCommand cCommand
-		cCode = `load "../ringlibs/naturallib/command/natural_#{command}.ring"`
+		cCode = `load "#{libpath}/command/natural_#{command}.ring"`
+		cCode = substr(cCode,"#{libpath}",cLibraryPath)
 		cCode = substr(cCode,"#{command}",cCommand)
 		eval(cCode)
 
