@@ -88,7 +88,9 @@ mergemethods("webpage","newobjectsfunctions")
 loadvars()
 
 Func LoadVars
-
+	if sysget("REQUEST_METHOD") = NULL
+		raise("Error (WebLib-1) : REQUEST_METHOD is empty ! - Run this script from the browser")
+	ok
 	New Application
 	{
 	    	if sysget("REQUEST_METHOD") = "GET"
