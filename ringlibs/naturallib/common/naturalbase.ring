@@ -22,6 +22,8 @@ class NaturalProgram
 		cCode = substr(cCode,"#{libpath}",cLibraryPath)
 		cCode = substr(cCode,"#{command}",cCommand)
 		eval(cCode)
+		mergemethods(:natural,:natural_ + cCommand)
+
 
 class Natural from NaturalBase
 

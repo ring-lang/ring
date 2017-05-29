@@ -1,8 +1,6 @@
 # The Ring Natural Library
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
-mergemethods(:natural,:natural_count)
-
 class Natural_Count from NaturalCommand
            
 	func Getcount
