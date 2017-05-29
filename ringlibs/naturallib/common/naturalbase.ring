@@ -12,6 +12,11 @@ func RunNaturalFile cFile
 	cCode = substr(cCode,"#{naturalcode}",read(cFile))
 	eval(cCode)
 
+func UseCommand cCommand
+	cCode = `load "../ringlibs/naturallib/command/natural_#{command}.ring"`
+	cCode = substr(cCode,"#{command}",cCommand)
+	eval(cCode)
+
 class Natural from NaturalBase
 
 class NaturalCommand

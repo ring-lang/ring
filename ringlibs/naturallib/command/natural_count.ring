@@ -13,7 +13,7 @@ class Natural_Count from NaturalCommand
 			count_data[:nExpr]++     
 			count_data[:aExpr] + nValue
 			if count_data[:nExpr] = 2 and count_data[:nCmd] = 1 {
-				if count_data[:aExpr][1] > count_data[:aExpr][2]{ 
+				if count_data[:aExpr][1] > count_data[:aExpr][2] { 
 					nStep = -1 
 				else 
 					nStep = 1
@@ -28,7 +28,6 @@ class Natural_Count from NaturalCommand
 					see nl+x+nl 
 				}
 				ClearState()
-
 			}
 		}
 
