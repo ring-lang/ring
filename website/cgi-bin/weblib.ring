@@ -88,7 +88,9 @@ mergemethods("webpage","newobjectsfunctions")
 loadvars()
 
 Func LoadVars
-
+	if sysget("REQUEST_METHOD") = NULL
+		raise("Error (WebLib-1) : REQUEST_METHOD is empty ! - Run this script from the browser")
+	ok
 	New Application
 	{
 	    	if sysget("REQUEST_METHOD") = "GET"
@@ -129,7 +131,7 @@ Func htmlspecialchars cStr
 
 Func Template cFile,oObject
 
-	cStr = Read(cFile)
+	cStr = Read(cFile) 
 	aList = []
 	cResult = ""
 	cCode = ""
@@ -160,13 +162,13 @@ Func Template cFile,oObject
 			cCode += "cResult += aList[" + len(aList) + "]" + nl
 		ok
 	end
-	if not isnull(oObject)
-		oObject { 
-			eval(cCode)
-		}
-	else
-		eval(cCode)
-	ok
+        if not isnull(oObject)
+                oObject {
+                        eval(cCode)
+                }
+        else
+                eval(cCode)
+        ok
 	return cResult
 
 Func Alert cMessage
@@ -354,8 +356,8 @@ Package System.Web
 			return TabMLString(cStr)
 
 		Func Print
-			See cCookies + cStart +"<!DOCTYPE html>
-"+nl+'<html lang="en">' + nl +
+			See cCookies + cStart +"<!DOCTYPE html>"+WindowsNL()+
+			nl+'<html lang="en">' + nl +
 			"<head>"+nl+CHAR(9)+scriptlibs()+nl+
 			CHAR(9)+"<title>"+Title+"</title>"+nl+
 			"<meta charset='UTF-8'>" + nl
@@ -365,13 +367,14 @@ Package System.Web
 			see nl+"</head>" + nl +
 			"<body"+ cBody + "> " + nl + cOutput + nl + "</body>" + nl + "</html>"
 
+
 		Func style cStyle
 			cCSS += cStyle 
 
 		Func starthtml 
 
-			cStart = "Content-type: text/html" + nl + nl 
-				  
+			cStart = "Content-type: text/html" + nl + nl +
+				   "<meta charset='UTF-8'>" + nl
 
 		Private
 
@@ -1600,11 +1603,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 		
 		Func braceend
 
-			See cCookies + cStart +"<!DOCTYPE html>
-"+nl+ '<html lang="en">' + nl +
+			See cCookies + cStart +"<!DOCTYPE html>" + WindowsNL() +
+			nl+ '<html lang="en">' + nl +
 			"<head>"+nl+CHAR(9)+"<title>"+Title+"</title>"+nl+
-				"<meta charset='UTF-8'>" + nl+
-				nl+CHAR(9)+scriptlibs()+nl			
+			"<meta charset='UTF-8'>" + nl+
+			nl+CHAR(9)+scriptlibs()+nl			
 			if cCSS != NULL
 				See Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl
 			ok
@@ -1614,6 +1617,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 				see x.getdata() + nl
 			next
 			see nl + "</body>" + nl + "</html>" + nl
+
+
 
 	Class BootStrapWebPage from WebPage
 		lBootStrap = True
