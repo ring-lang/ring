@@ -1,21 +1,23 @@
 # The Ring Natural Library
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
-func RunNaturalFile cFile
-	cCode = '
-	loadsyntax "../ringlibs/naturallib/syntax/naturalsyntaxon.ring"
-	Talk Natural {
-		#{naturalcode}
-	}
-	loadsyntax "../ringlibs/naturallib/syntax/naturalsyntaxoff.ring"
-	'
-	cCode = substr(cCode,"#{naturalcode}",read(cFile))
-	eval(cCode)
+class NaturalProgram
 
-func UseCommand cCommand
-	cCode = `load "../ringlibs/naturallib/command/natural_#{command}.ring"`
-	cCode = substr(cCode,"#{command}",cCommand)
-	eval(cCode)
+	func RunFile cFile
+		cCode = '
+		loadsyntax "../ringlibs/naturallib/syntax/naturalsyntaxon.ring"
+		Talk Natural {
+			#{naturalcode}
+		}
+		loadsyntax "../ringlibs/naturallib/syntax/naturalsyntaxoff.ring"
+		'
+		cCode = substr(cCode,"#{naturalcode}",read(cFile))
+		eval(cCode)
+
+	func UseCommand cCommand
+		cCode = `load "../ringlibs/naturallib/command/natural_#{command}.ring"`
+		cCode = substr(cCode,"#{command}",cCommand)
+		eval(cCode)
 
 class Natural from NaturalBase
 
