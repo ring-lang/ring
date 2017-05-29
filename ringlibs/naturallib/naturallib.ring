@@ -1,3 +1,1 @@
 load "common/naturalbase.ring"
-
-

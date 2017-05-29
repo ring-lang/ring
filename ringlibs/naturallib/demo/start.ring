@@ -5,4 +5,3 @@ New NaturalProgram {
 	UseCommand(:Count)
 	RunFile("program.ring")
 }
-

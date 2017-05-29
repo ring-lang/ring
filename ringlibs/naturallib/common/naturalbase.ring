@@ -4,16 +4,25 @@
 class NaturalProgram
 
 	cLibraryPath = "../ringlibs/naturallib"
+	cLanguageName 
+	setLanguageName(:Natural)
+
+	func SetLanguageName cName
+		cLanguageName = cName
+		cCode = "class #{langname} from NaturalBase"
+		cCode = substr(cCode,"#{langname}",cLanguageName)
+		eval(cCode)
 
 	func RunFile cFile
 		cCode = '
 		loadsyntax "#{libpath}/syntax/naturalsyntaxon.ring"
-		Talk Natural {
+		Talk #{langname} {
 			#{naturalcode}
 		}
 		loadsyntax "#{libpath}/syntax/naturalsyntaxoff.ring"
 		'
 		cCode = substr(cCode,"#{libpath}",cLibraryPath)
+		cCode = substr(cCode,"#{langname}",cLanguageName)
 		cCode = substr(cCode,"#{naturalcode}",read(cFile))
 		eval(cCode)
 
@@ -22,10 +31,7 @@ class NaturalProgram
 		cCode = substr(cCode,"#{libpath}",cLibraryPath)
 		cCode = substr(cCode,"#{command}",cCommand)
 		eval(cCode)
-		mergemethods(:natural,:natural_ + cCommand)
-
-
-class Natural from NaturalBase
+		mergemethods(cLanguageName,:natural_ + cCommand)
 
 class NaturalCommand
 
