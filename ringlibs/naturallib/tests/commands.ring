@@ -1,7 +1,7 @@
 load "stdlib.ring"
 load "naturallib.ring"
 
-New NaturalLanguage {
+MyLanguage = New NaturalLanguage {
 	SetLanguageName(:MyLanguage)
 	setCommandsPath(CurrentDir()+"/../command")
 	SetPackageName("MyLanguage.Natural")
