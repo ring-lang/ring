@@ -35,9 +35,12 @@ class NaturalLanguage
 		eval(cCode)
 
 	func UseCommand cCommand
-		cCode = `load "#{commandspath}/#{command}.ring"`
-		cCode = substr(cCode,"#{commandspath}",cCommandsPath)
-		cCode = substr(cCode,"#{command}",cCommand)
+		cCommandFile = cCommandsPath+"/"+cCommand+".ring"
+		if not fexists(cCommandFile) and not fexists(exefolder()+cCommandFile) {
+			raise("Error (NaturalLib) : Can't open the command file : " + cCommandFile)
+		}
+		cCode = `load "#{commandfile}"`
+		cCode = substr(cCode,"#{commandfile}",cCommandFile)
 		eval(cCode)
 		mergemethods(cLanguageName,cCommand)
 
