@@ -4,8 +4,15 @@
 class NaturalLanguage
 
 	cLibraryPath = "../ringlibs/naturallib"
+	cCommandsPath = "../ringlibs/naturallib/command"
 	cLanguageName = ""
 	setLanguageName(:Natural)
+
+	func SetLibraryPath cPath
+		cLibraryPath = cPath
+
+	func SetCommandsPath cPath
+		cCommandsPath = cPath
 
 	func SetLanguageName cName
 		if cLanguageName != cName {
@@ -32,8 +39,8 @@ class NaturalLanguage
 		eval(cCode)
 
 	func UseCommand cCommand
-		cCode = `load "#{libpath}/command/#{command}.ring"`
-		cCode = substr(cCode,"#{libpath}",cLibraryPath)
+		cCode = `load "#{commandspath}/#{command}.ring"`
+		cCode = substr(cCode,"#{commandspath}",cCommandsPath)
 		cCode = substr(cCode,"#{command}",cCommand)
 		eval(cCode)
 		mergemethods(cLanguageName,cCommand)
