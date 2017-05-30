@@ -6,6 +6,7 @@ class NaturalLanguage
 	cLanguageName = ""
 	setLanguageName(:Natural)
 	cCommandsPath = "../ringlibs/naturallib/command"
+	cPackageName = ""
 
 	func SetLanguageName cName
 		if cLanguageName != cName {
@@ -17,6 +18,9 @@ class NaturalLanguage
 
 	func SetCommandsPath cPath
 		cCommandsPath = cPath
+
+	func SetPackageName cName
+		cPackageName = cName
 
 	func RunFile cFile
 		if not fexists(cFile) {
@@ -42,6 +46,10 @@ class NaturalLanguage
 		cCode = `load "#{commandfile}"`
 		cCode = substr(cCode,"#{commandfile}",cCommandFile)
 		eval(cCode)
+		if not cPackageName = NULL {
+			cCode = "import " + cPackageName 
+			eval(cCode)
+		}
 		mergemethods(cLanguageName,cCommand)
 
 	private 

@@ -3,7 +3,8 @@ load "naturallib.ring"
 
 New NaturalLanguage {
 	SetLanguageName(:MyLanguage)
-	setCommandsPath(CurrentDir()+"/../command")
+	SetCommandsPath(CurrentDir()+"/../command")
+	SetPackageName("MyLanguage.Natural")
 	UseCommand(:Hello)
 	UseCommand(:Count)
 	RunFile("program.txt")
