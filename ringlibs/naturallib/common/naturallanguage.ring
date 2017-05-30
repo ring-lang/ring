@@ -3,16 +3,9 @@
 
 class NaturalLanguage
 
-	cLibraryPath = "../ringlibs/naturallib"
-	cCommandsPath = "../ringlibs/naturallib/command"
 	cLanguageName = ""
 	setLanguageName(:Natural)
-
-	func SetLibraryPath cPath
-		cLibraryPath = cPath
-
-	func SetCommandsPath cPath
-		cCommandsPath = cPath
+	cCommandsPath = "../ringlibs/naturallib/command"
 
 	func SetLanguageName cName
 		if cLanguageName != cName {
@@ -21,6 +14,9 @@ class NaturalLanguage
 			cCode = substr(cCode,"#{langname}",cLanguageName)
 			eval(cCode)
 		}
+
+	func SetCommandsPath cPath
+		cCommandsPath = cPath
 
 	func RunFile cFile
 		if not fexists(cFile) {
@@ -45,4 +41,6 @@ class NaturalLanguage
 		eval(cCode)
 		mergemethods(cLanguageName,cCommand)
 
-class NaturalCommand
+	private 
+
+		cLibraryPath = "../ringlibs/naturallib"		
