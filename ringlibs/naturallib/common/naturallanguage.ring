@@ -32,7 +32,7 @@ class NaturalLanguage
 		eval(cCode)
 
 	func UseCommand cCommand
-		cCode = `load "#{libpath}/command/natural_#{command}.ring"`
+		cCode = `load "#{libpath}/command/#{command}.ring"`
 		cCode = substr(cCode,"#{libpath}",cLibraryPath)
 		cCode = substr(cCode,"#{command}",cCommand)
 		eval(cCode)
