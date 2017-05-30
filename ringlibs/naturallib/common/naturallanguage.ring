@@ -36,6 +36,6 @@ class NaturalLanguage
 		cCode = substr(cCode,"#{libpath}",cLibraryPath)
 		cCode = substr(cCode,"#{command}",cCommand)
 		eval(cCode)
-		mergemethods(cLanguageName,:natural_ + cCommand)
+		mergemethods(cLanguageName,cCommand)
 
 class NaturalCommand
