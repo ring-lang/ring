@@ -26,6 +26,9 @@ class NaturalLanguage
 		if not fexists(cFile) {
 			raise("Error (NaturalLib-1) : Can't open the file :"+cFile)
 		}
+		RunString(read(cFile))
+
+	func RunString cString
 		cCode = '
 		loadsyntax "#{libpath}/syntax/naturalsyntaxon.ring"
 		Talk #{langname} {
@@ -35,7 +38,7 @@ class NaturalLanguage
 		'
 		cCode = substr(cCode,"#{libpath}",cLibraryPath)
 		cCode = substr(cCode,"#{langname}",cLanguageName)
-		cCode = substr(cCode,"#{naturalcode}",read(cFile))
+		cCode = substr(cCode,"#{naturalcode}",cString)
 		eval(cCode)
 
 	func UseCommand cCommand
