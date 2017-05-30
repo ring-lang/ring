@@ -2,7 +2,7 @@
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
 load "naturallib.ring"
-load "commands.ring"
+load "mylanguage.ring"
 loadsyntax "../syntax/naturalsyntaxon.ring"
 
 Talk MyLanguage {
