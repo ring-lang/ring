@@ -1,7 +1,7 @@
 # The Ring Natural Library
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
-class Natural_Count from NaturalCommand
+class Natural_Count
            
 	func Getcount
 		count_data[:nCmd] = 1   
