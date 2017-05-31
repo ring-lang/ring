@@ -7,17 +7,17 @@ class Count
            
 	func Getcount
 		StartCommand()
-		ActiveCommandData()[:cCmd] = :Count
-		ActiveCommandData()[:nExpr] = 0
-		ActiveCommandData()[:aExpr] = []
+		CommandData()[:name] = :Count
+		CommandData()[:nExpr] = 0
+		CommandData()[:aExpr] = []
 
 	func BraceExprEval_Count nValue
-		if isActiveCommand() and ActiveCommandData()[:cCmd] = :Count {
+		if isCommand() and CommandData()[:name] = :Count {
 			if isNumber(nValue) {
-				ActiveCommandData()[:nExpr]++     
-				ActiveCommandData()[:aExpr] + nValue
-				if ActiveCommandData()[:nExpr] = 2 {
-					if ActiveCommandData()[:aExpr][1] > ActiveCommandData()[:aExpr][2] { 
+				CommandData()[:nExpr]++     
+				CommandData()[:aExpr] + nValue
+				if CommandData()[:nExpr] = 2 {
+					if CommandData()[:aExpr][1] > CommandData()[:aExpr][2] { 
 						nStep = -1 
 					else 
 						nStep = 1
@@ -28,7 +28,7 @@ class Count
 					else 
 						see nl + "I will count Again!" +nl 
 					}
-					for x = ActiveCommandData()[:aExpr][1] to ActiveCommandData()[:aExpr][2] step nStep {
+					for x = CommandData()[:aExpr][1] to CommandData()[:aExpr][2] step nStep {
 						see nl+x+nl 
 					}
 					EndCommand()

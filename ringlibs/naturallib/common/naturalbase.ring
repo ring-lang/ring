@@ -38,11 +38,11 @@ Class NaturalBase
 	func EndCommand 
 		del(aCommandsStack,len(aCommandsStack))
 
-	func ActiveCommandID
+	func CommandID
 		return aCommandsStack[len(acommandsStack)][1]
 
-	func ActiveCommandData
+	func CommandData
 		return aCommandsStack[len(acommandsStack)][2]
 
-	func IsActiveCommand
+	func IsCommand
 		return nCommandID
