@@ -1,7 +1,12 @@
 # The Ring Natural Library
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
+load "stdlib.ring"
+
 Class NaturalBase
+
+	aCommandsStack = []
+	nCommandID = 0
 
 	func BraceStart
 		aMethods = methods(self)	
@@ -24,3 +29,20 @@ Class NaturalBase
 		}
 
 	func BraceError
+
+	func StartCommand 
+		nCommandID++
+		aCommandsStack + [nCommandID,[/*command data*/]] 
+		return nCommandID
+
+	func EndCommand 
+		del(aCommandsStack,len(aCommandsStack))
+
+	func ActiveCommandID
+		return aCommandsStack[len(acommandsStack)][1]
+
+	func ActiveCommandData
+		return aCommandsStack[len(acommandsStack)][2]
+
+	func IsActiveCommand
+		return nCommandID

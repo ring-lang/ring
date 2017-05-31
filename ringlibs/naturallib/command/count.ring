@@ -6,41 +6,37 @@ Package MyLanguage.Natural
 class Count
            
 	func Getcount
-		count_data[:nCmd] = 1   
+		nID = StartCommand()
+		ActiveCommandData()[:cCmd] = :Count
+		ActiveCommandData()[:nExpr] = 0
+		ActiveCommandData()[:aExpr] = []
 
 	func BraceExprEval_Count nValue
-		if count_data[:nCmd] {
+		if isActiveCommand() and ActiveCommandData()[:cCmd] = :Count {
 			if isNumber(nValue) {
-				count_data[:nExpr]++     
-				count_data[:aExpr] + nValue
-				if count_data[:nExpr] = 2 and count_data[:nCmd] = 1 {
-					if count_data[:aExpr][1] > count_data[:aExpr][2] { 
+				ActiveCommandData()[:nExpr]++     
+				ActiveCommandData()[:aExpr] + nValue
+				if ActiveCommandData()[:nExpr] = 2 {
+					if ActiveCommandData()[:aExpr][1] > ActiveCommandData()[:aExpr][2] { 
 						nStep = -1 
 					else 
 						nStep = 1
 					}
-					if count_data[:nTime] = 0 { 
+					if Count_Times = 0 { 
 						see nl+"The Numbers!" + nl 
-						count_data[:nTime]++
+						Count_Times++
 					else 
 						see nl + "I will count Again!" +nl 
 					}
-					for x = count_data[:aExpr][1] to count_data[:aExpr][2] step nStep {
+					for x = ActiveCommandData()[:aExpr][1] to ActiveCommandData()[:aExpr][2] step nStep {
 						see nl+x+nl 
 					}
-					ClearState()
+					EndCommand()
 				}
 			}
 		}
 
 	func AddAttributes_Count	
 		AddAttribute(self,:count)
-		AddAttribute(self,:count_data)
-		count_data = []
-		ClearState()
-		count_data[:nTime] = 0
-
-	func ClearState
-		count_data[:nCmd] = 0
-		count_data[:nExpr] = 0
-		count_data[:aExpr] = []   	
+		AddAttribute(self,:count_times)
+		Count_Times = 0
