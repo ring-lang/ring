@@ -6,7 +6,7 @@ Package MyLanguage.Natural
 class Count
            
 	func Getcount
-		nID = StartCommand()
+		StartCommand()
 		ActiveCommandData()[:cCmd] = :Count
 		ActiveCommandData()[:nExpr] = 0
 		ActiveCommandData()[:aExpr] = []
