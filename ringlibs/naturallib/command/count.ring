@@ -31,7 +31,7 @@ class Count
 					for x = CommandData()[:aExpr][1] to CommandData()[:aExpr][2] step nStep {
 						see nl+x+nl 
 					}
-					CommandReturn(fabs(CommandData()[:aExpr][1]-CommandData()[:aExpr][2]))				
+					CommandReturn(fabs(CommandData()[:aExpr][1]-CommandData()[:aExpr][2])+1)				
 				}
 			}
 		}
