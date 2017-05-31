@@ -4,5 +4,5 @@
 load "mylanguage.ring"
 
 MyLanguage.RunString("
-	count 2 count 1 4 3
+	count 2 count 10 4 
 ")
