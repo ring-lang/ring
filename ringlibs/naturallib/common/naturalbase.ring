@@ -47,5 +47,9 @@ Class NaturalBase
 	func IsCommand
 		return len(aCommandsStack)
 
-	func CommandOutput cValue
-		BraceExprEval(cValue)
+	func CommandOutput vValue
+		BraceExprEval(vValue)
+
+	func CommandReturn vValue
+		EndCommand()
+		BraceExprEval(vValue)
