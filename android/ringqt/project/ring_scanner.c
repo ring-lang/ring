@@ -885,6 +885,7 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 		}
 		else {
 			puts("Warning : Compiler command ChangeRingKeyword - Keyword not found !");
+			printf( "Keyword :  %s\n",ring_string_get(word1) ) ;
 		}
 	}
 	/* Delete Strings */
@@ -930,6 +931,7 @@ void ring_scanner_changeoperator ( Scanner *pScanner )
 		}
 		else {
 			puts("Warning : Compiler command ChangeRingOperator - Operator not found !");
+			printf( "Operator :  %s\n",ring_string_get(word1) ) ;
 		}
 	}
 	/* Delete Strings */

@@ -207,8 +207,6 @@ Type: List *
 pList
 Type: int
 nNum1,nNum2,nSize
-Type: VM *
-pVM
 ring_vmlib_isstring
 ring_vmlib_isnumber
 ring_vmlib_islist

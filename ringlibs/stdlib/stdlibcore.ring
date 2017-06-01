@@ -42,7 +42,21 @@ Func Print vValue
 						exit
 					ok					
 				next
-				cCode = "See " + cVar
+				# Access Local Variables in the Caller
+				if not find(globals(),lower(cVar))
+					aMem = ringvm_memorylist()
+					if len(aMem) > 1
+						# -2 to avoid two scopes 
+						# scope used by ringvm_memorylist() 
+						# scope used by print() 
+						aList = aMem[len(aMem)-2]
+						nPos = find(aList,lower(cVar),1)
+						if nPos 
+							cVar = "aList[nPos][3]"
+						ok
+					ok
+				ok
+				cCode = "See " + cVar				
 				eval(cCode)
 				t = r
 			ok

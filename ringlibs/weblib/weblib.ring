@@ -88,7 +88,9 @@ mergemethods("webpage","newobjectsfunctions")
 loadvars()
 
 Func LoadVars
-
+	if sysget("REQUEST_METHOD") = NULL
+		raise("Error (WebLib-1) : REQUEST_METHOD is empty ! - Run this script from the browser")
+	ok
 	New Application
 	{
 	    	if sysget("REQUEST_METHOD") = "GET"
@@ -160,9 +162,13 @@ Func Template cFile,oObject
 			cCode += "cResult += aList[" + len(aList) + "]" + nl
 		ok
 	end
-	oObject {
-		eval(cCode)
-	}
+        if not isnull(oObject)
+                oObject {
+                        eval(cCode)
+                }
+        else
+                eval(cCode)
+        ok
 	return cResult
 
 Func Alert cMessage
@@ -350,14 +356,17 @@ Package System.Web
 			return TabMLString(cStr)
 
 		Func Print
-			See cCookies + cStart + "<html>" + nl +
-			"<header>"+nl+CHAR(9)+scriptlibs()+nl+
-			CHAR(9)+"<title>"+nl+CHAR(9)+Char(9)+Title+nl+Char(9)+"</title>"+nl
+			See cCookies + cStart +"<!DOCTYPE html>"+WindowsNL()+
+			nl+'<html lang="en">' + nl +
+			"<head>"+nl+CHAR(9)+scriptlibs()+nl+
+			CHAR(9)+"<title>"+Title+"</title>"+nl+
+			"<meta charset='UTF-8'>" + nl
 			if cCSS != NULL
 				See Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl
 			ok
-			see nl+"</header>" + nl +
+			see nl+"</head>" + nl +
 			"<body"+ cBody + "> " + nl + cOutput + nl + "</body>" + nl + "</html>"
+
 
 		Func style cStyle
 			cCSS += cStyle 
@@ -1594,18 +1603,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 		
 		Func braceend
 
-			See cCookies + cStart + "<html>" + nl +
-			"<header>"+nl+CHAR(9)+scriptlibs()+nl+
-			CHAR(9)+"<title>"+nl+CHAR(9)+Char(9)+Title+nl+Char(9)+"</title>"+nl
+			See cCookies + cStart +"<!DOCTYPE html>" + WindowsNL() +
+			nl+ '<html lang="en">' + nl +
+			"<head>"+nl+CHAR(9)+"<title>"+Title+"</title>"+nl+
+			"<meta charset='UTF-8'>" + nl+
+			nl+CHAR(9)+scriptlibs()+nl			
 			if cCSS != NULL
 				See Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl
 			ok
-			see nl+"</header>" + nl +
+			see nl+"</head>" + nl +
 			"<body"+ cBody + "> " + nl 
 			for x in aObjs
 				see x.getdata() + nl
 			next
 			see nl + "</body>" + nl + "</html>" + nl
+
+
 
 	Class BootStrapWebPage from WebPage
 		lBootStrap = True
@@ -2861,12 +2874,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 			cOutput = TabMLString(cOutput)
 
 	Class Form from ObjsBase 
-		action method
+		action method target
 		Func braceend
 			cOutput += nl+'<form'
 			addattributes()
 			elementattribute(:action)
 			elementattribute(:method)
+			elementattribute(:target)
 			AddStyle()
 			getobjsdata()
 			cOutput += nl+"</form>" + nl

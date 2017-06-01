@@ -122,7 +122,13 @@ I can say that this is the easiest and the most BASIC-like language I've ever tr
 	, Southmountain (United States)
 
 "The thing I liked was the loop exiting"
-	, leon de boer (Australia)
+	, Leon de boer (Australia)
+
+"An outstanding and easy language to program with."
+	, Kenneth Burgo (Philippines)
+
+"I chose your language as I feel I can understand it better than other languages"
+	, Harry Singh
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application

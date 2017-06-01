@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-0
-115
-115
+1
+114
+113
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4666
+Time 4966
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-00E6FB30
+015E0488
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 25/05/2017
-time: 02:36:01
+date: 02/06/2017
+time: 01:02:20
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3284,3 +3284,13 @@ Test Double2Bytes() and Bytes2Double() - Value 9999977.12345
 Double Size : 8
 jMó#ÍcA
 9999977.12345
+
+B:\ring\tests>call ring scripts/trimerror.ring 
+len of trimed(j) is : 1
+trimed J is : "n"
+len of trimed(j2) is : 0
+trimed J2 is : ""
+len of trimed(j3) is : 5
+trimed J3 is : "Majdi"
+len of trimed(j4) is : 15
+trimed J4 is : "Majdi    Sobain"
