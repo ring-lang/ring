@@ -1348,9 +1348,13 @@ void ring_vmlib_trim ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
+		if ( nSize == 0 ) {
+			RING_API_RETSTRING("");
+			return ;
+		}
 		/* Get Limits */
 		nPos1 = 0 ;
-		nPos2 = nSize ;
+		nPos2 = nSize-1 ;
 		for ( x = 0 ; x < nSize ; x++ ) {
 			if ( cStr[x] != ' ' ) {
 				nPos1 = x ;
@@ -1363,8 +1367,8 @@ void ring_vmlib_trim ( void *pPointer )
 				break ;
 			}
 		}
-		if ( nPos1 == nPos2 ) {
-			RING_API_RETSTRING2(cStr,nSize);
+		if ( (nPos1 == 0) && (nPos2 == nSize-1) && (cStr[0] == ' ') ) {
+			RING_API_RETSTRING("");
 			return ;
 		}
 		/* Create New String */
