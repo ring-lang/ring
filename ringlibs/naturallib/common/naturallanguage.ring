@@ -7,6 +7,7 @@ class NaturalLanguage
 	setLanguageName(:Natural)
 	cCommandsPath = "../ringlibs/naturallib/command"
 	cPackageName = ""
+	cOperators = ""
 
 	func SetLanguageName cName
 		if cLanguageName != cName {
@@ -26,7 +27,9 @@ class NaturalLanguage
 		if not fexists(cFile) {
 			raise("Error (NaturalLib-1) : Can't open the file :"+cFile)
 		}
-		RunString(read(cFile))
+		cCode = read(cFile)
+		cCode = CheckOperators(cCode)
+		RunString(cCode)
 
 	func RunString cString
 		cCode = '
@@ -39,7 +42,19 @@ class NaturalLanguage
 		cCode = substr(cCode,"#{libpath}",cLibraryPath)
 		cCode = substr(cCode,"#{langname}",cLanguageName)
 		cCode = substr(cCode,"#{naturalcode}",cString)
+		cCode = CheckOperators(cCode)
 		eval(cCode)
+
+	func Execute cString
+		runstring(cString)
+
+	func CheckOperators cCode 
+		if len(cOperators) > 0 {
+			for cLetter in cOperators {
+				cCode = substr(cCode,cLetter, " " + cLetter + " ")
+			}
+		}
+		return cCode
 
 	func UseCommand cCommand
 		cCommandFile = cCommandsPath+"/"+cCommand+".ring"
@@ -54,6 +69,9 @@ class NaturalLanguage
 			eval(cCode)
 		}
 		mergemethods(cLanguageName,cCommand)
+
+	func SetOperators Operators
+		cOperators = Operators
 
 	private 
 
