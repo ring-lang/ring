@@ -3,10 +3,12 @@
 
 load "mylanguage.ring"
 
-MyLanguage.SetOperators("()")
-MyLanguage.RunString("
+MyLanguage {
+	SetOperators("()")
+	RunString("
 	Here we will play and will try something
 	that looks like Lisp Syntax
 	(count  (count 1 5)  (count 20 15))
 	Just for fun!
-")
+	")
+}
