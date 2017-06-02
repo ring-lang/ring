@@ -18,6 +18,7 @@ Ring 1.4  comes with many new features
 * Convert between Numbers and Bytes
 * Better StdLib
 * Better WebLib
+* Qt Class Convertor
 
 .. index:: 
 	pair: What is new in Ring 1.4?; Convert between Numbers and Bytes
@@ -158,3 +159,20 @@ The web library is updated
 		html(template("footer.rhtml",NULL))
 	}
 
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Qt Class Convertor
+
+Qt Class Convertor
+==================
+
+Ring 1.4 comes with a simple to that help in porting Qt classes to RingQt.
+
+You will find it in ring/samples/tools/QtClassConverter
+
+Online : https://github.com/ring-lang/ring/tree/master/samples/tools/QtClassConverter
+
+Screen Shot: 
+
+.. image:: qtclassconvertor.png
+	:alt: Qt Class convertor to RingQt
