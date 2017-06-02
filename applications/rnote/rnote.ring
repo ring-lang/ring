@@ -721,10 +721,6 @@ Class RNote from WindowsControllerParent
 
 		this.RestoreSettings()
 
-		if ismacosx() 
-			win1.setmenubar(menu1)
-		ok
-
 		exec()
 	}
 
