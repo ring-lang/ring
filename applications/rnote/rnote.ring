@@ -1635,6 +1635,10 @@ Class RNote from WindowsControllerParent
 		nFormDesignerWindowID = Last_WindowID()
 		oDock7.setWidget(Last_Window().oView.win)
 		chdir(cDir)
+		if ismacosx() 
+			win1.setmenubar(menu1)
+		ok
+
 
 	func FormDesignerObject
 		return GetObjectByID(nFormDesignerWindowID)
