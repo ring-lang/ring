@@ -525,7 +525,7 @@ Class RNote from WindowsControllerParent
 				setclickedEvent(Method(:pChangeFile))
 				setActivatedEvent(Method(:pChangeFile))
 				setGeometry(00,00,200,400)
-				setminimumwidth(300)
+				setminimumwidth(250)
 				chdir(this.cStartUpFolder)
 				oDir = new QDir()
 				this.ofile = new QFileSystemModel() {
@@ -681,7 +681,9 @@ Class RNote from WindowsControllerParent
 				AddWidget(this.oProcessText)
 				Addwidget(oProcessbtnSend)
 			}
-			this.oProcessEditbox = new qPlaintextedit(oProcessWindow)
+			this.oProcessEditbox = new qPlaintextedit(oProcessWindow) {
+				setminimumwidth(200)
+			}
 
 			oProcessLayout2 = new qvboxlayout() {
 				addWidget(this.oProcesseditbox)
