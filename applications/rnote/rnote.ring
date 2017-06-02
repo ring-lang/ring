@@ -525,7 +525,7 @@ Class RNote from WindowsControllerParent
 				setclickedEvent(Method(:pChangeFile))
 				setActivatedEvent(Method(:pChangeFile))
 				setGeometry(00,00,200,400)
-				setmaximumwidth(300)
+				setminimumwidth(300)
 				chdir(this.cStartUpFolder)
 				oDir = new QDir()
 				this.ofile = new QFileSystemModel() {
