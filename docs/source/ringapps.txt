@@ -130,6 +130,9 @@ I can say that this is the easiest and the most BASIC-like language I've ever tr
 "I chose your language as I feel I can understand it better than other languages"
 	, Harry Singh
 
+"I like the totality of the language, far more features than expected and the freedom of expressiveness is unique."
+	, Evikone
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
