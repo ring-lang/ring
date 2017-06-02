@@ -1636,7 +1636,7 @@ Class RNote from WindowsControllerParent
 		oDock7.setWidget(Last_Window().oView.win)
 		chdir(cDir)
 		if ismacosx() 
-			win1.setmenubar(menu1)
+			win1.setmenubar(this.menu1)
 		ok
 
 
