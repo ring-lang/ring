@@ -71,7 +71,9 @@ Class FormDesignerView from WindowsViewParent
 			CreateProperties()
 
 		# Create the Menubar
-			CreateMenuBar()
+			if not (ismacosx() and $FDSubApp) {
+				CreateMenuBar()
+			}
 
 		# Create the Toolbar
 			CreateToolBar()
