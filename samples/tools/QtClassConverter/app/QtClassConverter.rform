@@ -43,7 +43,7 @@ aObjectsList = [
 		 :font =  "MS Shell Dlg 2,10,-1,5,50,0,0,0,0,0" , 
 		 :parent =  "win"  ,
 		 :text =  "",
-		 :setTextChangedEvent =  "Method("+char(34)+"ClassNameLEChangedAction"+char(34)+")",
+		 :setTextChangedEvent =  "ClassNameLEChangedAction",
 		 :setcursorPositionChangedEvent =  "",
 		 :seteditingFinishedEvent =  "",
 		 :setreturnPressedEvent =  "",
@@ -89,7 +89,7 @@ aObjectsList = [
 		 :setclickedEvent =  "",
 		 :setpressedEvent =  "",
 		 :setreleasedEvent =  "",
-		 :settoggledEvent =  "Method("+char(34)+"RBNormalAction"+char(34)+")"
+		 :settoggledEvent =  "RBNormalAction"
 		]
 	],
 	[ :name = "RBNoNew" , :id = 8 , :classname = "formdesigner_qradiobutton" , :data = [
@@ -103,7 +103,7 @@ aObjectsList = [
 		 :setclickedEvent =  "",
 		 :setpressedEvent =  "",
 		 :setreleasedEvent =  "",
-		 :settoggledEvent =  "Method("+char(34)+"RBNoNewAction"+char(34)+")"
+		 :settoggledEvent =  "RBNoNewAction"
 		]
 	],
 	[ :name = "RBAbstract" , :id = 9 , :classname = "formdesigner_qradiobutton" , :data = [
@@ -117,7 +117,7 @@ aObjectsList = [
 		 :setclickedEvent =  "",
 		 :setpressedEvent =  "",
 		 :setreleasedEvent =  "",
-		 :settoggledEvent =  "Method("+char(34)+"RBAbstractAction"+char(34)+")"
+		 :settoggledEvent =  "RBAbstractAction"
 		]
 	],
 	[ :name = "PassVMPointerCB" , :id = 10 , :classname = "formdesigner_qcheckbox" , :data = [
@@ -213,7 +213,7 @@ aObjectsList = [
 		 :setcursorPositionChangedEvent =  "",
 		 :setredoAvailableEvent =  "",
 		 :setselectionChangedEvent =  "",
-		 :settextChangedEvent =  "Method("+char(34)+"FunctionsTEChangedAction"+char(34)+")",
+		 :settextChangedEvent =  "FunctionsTEChangedAction",
 		 :setundoAvailableEvent =  ""
 		]
 	],
@@ -241,7 +241,7 @@ aObjectsList = [
 		 :setcursorPositionChangedEvent =  "",
 		 :setredoAvailableEvent =  "",
 		 :setselectionChangedEvent =  "",
-		 :settextChangedEvent =  "Method("+char(34)+"FunctionsTEChangedAction"+char(34)+")",
+		 :settextChangedEvent =  "FunctionsTEChangedAction",
 		 :setundoAvailableEvent =  ""
 		]
 	],
@@ -332,7 +332,7 @@ aObjectsList = [
 		 :parent =  "win"  ,
 		 :text =  "Convert",
 		 :BtnImage =  "",
-		 :setClickEvent =  "Method("+char(34)+"ConvertBtnAction"+char(34)+")"
+		 :setClickEvent =  "ConvertBtnAction"
 		]
 	],
 	[ :name = "SignalsTE" , :id = 26 , :classname = "formdesigner_qtextedit" , :data = [
@@ -348,7 +348,7 @@ aObjectsList = [
 		 :setcursorPositionChangedEvent =  "",
 		 :setredoAvailableEvent =  "",
 		 :setselectionChangedEvent =  "",
-		 :settextChangedEvent =  "Method("+char(34)+"SignalsTEChangedAction"+char(34)+")",
+		 :settextChangedEvent =  "SignalsTEChangedAction",
 		 :setundoAvailableEvent =  ""
 		]
 	],
