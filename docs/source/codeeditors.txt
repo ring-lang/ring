@@ -61,7 +61,10 @@ Using Atom
 Folder : ring/editor/atom
 
 Just Copy the folder atom-language-ring to the next path
-"C:\Users\{UserName}\.atom\Packages"
+
+.. code-block:: none
+
+	"C:\Users\{UserName}\.atom\Packages"
 
 .. image:: editor3.jpg
 	:alt: Using Atom
@@ -84,11 +87,15 @@ In the folder Sublime_Text_2 you will find the next three files
 
 Just Copy the files to the next path
 
-"C:\Users\{UserName}\AppData\Roaming\Sublime Text 2\Packages\User\"
+.. code-block:: none
+
+	"C:\Users\{UserName}\AppData\Roaming\Sublime Text 2\Packages\User\"
 
 The file ring.sublime-build includes the next line
 
-"cmd": ["B:\\ring\\bin\\ring.exe","$file"],
+.. code-block:: none
+
+	"cmd": ["B:\\ring\\bin\\ring.exe","$file"],
 
 You can modify it according to the ring.exe path in your machine 
 
