@@ -1,3 +1,1 @@
-cd app
-
-start ..\..\..\..\bin\ringw.exe QtClassConverterController.ring
+start ..\..\..\bin\ringw.exe QtClassConverter.ring

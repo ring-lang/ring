@@ -22,81 +22,111 @@ class QtClassConverterController from windowsControllerParent
 
 
 func PrepareMainWindow
-	oView.RBNormal.setChecked(True)
-	oView.ClassCodeNameLE.setEnabled(False)
-	oView.QtEventsOutputTE.SetEnabled(False)
-	oView.QtcfOutputTE.SetEnabled(False)
-	oView.QtEventsOutputTE.setAcceptRichText(False)
-	oView.QtcfOutputTE.setAcceptRichText(False)
-	oView.SignalsTE.setAcceptRichText(False)
-	oView.EnumsFlagsTE.setAcceptRichText(False)
-	oView.FunctionsTE.setAcceptRichText(False)
+	oView{
+		RBNormal.setChecked(True)
+		ClassCodeNameLE.setEnabled(False)
+		QtEventsOutputTE.SetEnabled(False)
+		QtcfOutputTE.SetEnabled(False)
+		QtEventsOutputTE.setAcceptRichText(False)
+		QtcfOutputTE.setAcceptRichText(False)
+		SignalsTE.setAcceptRichText(False)
+		EnumsFlagsTE.setAcceptRichText(False)
+		FunctionsTE.setAcceptRichText(False)
+		PassVMPointerCB.SetEnabled(False)
+	}
 
 func RBNormalAction
-	oView.ClassParaLE.SetEnabled(True)
-	oView.PassVMPointerCB.SetEnabled(True)
+	oView{
+		ClassParaLE.SetEnabled(True)
+		SignalsTE.SetEnabled(True)
+	}
 
 func RBNoNewAction
-	oView.ClassParaLE.SetEnabled(False)
-	oView.PassVMPointerCB.SetEnabled(False)
-	oView.PassVMPointerCB.SetChecked(False)
+	oView{
+		ClassParaLE.SetEnabled(False)
+		SignalsTE.setText("")
+		SignalsTE.SetEnabled(False)
+	}
 
 func RBAbstractAction
-	oView.ClassParaLE.SetEnabled(True)
-	oView.PassVMPointerCB.SetEnabled(True)
+	oView{
+		ClassParaLE.SetEnabled(True)
+		SignalsTE.SetEnabled(True)
+	}
 
 func SignalsTEChangedAction
-	if TrimAll(oView.SignalsTE.toPlaintext()) = NULL 
-		oView.ClassCodeNameLE.SetEnabled(False)
-		oView.QtEventsOutputTE.SetEnabled(False)
-		if TrimAll(oView.EnumsFlagsTE.toPlaintext()) = NULL and TrimAll(oView.FunctionsTE.toPlaintext()) = NULL
-			oView.QtcfOutputTE.SetEnabled(False)
+	oView{
+		if this.TrimAll(SignalsTE.toPlaintext()) = NULL 
+			ClassCodeNameLE.SetEnabled(False)
+			QtEventsOutputTE.SetEnabled(False)
+			PassVMPointerCB.SetEnabled(False)
+			PassVMPointerCB.SetChecked(False)
+			if this.TrimAll(EnumsFlagsTE.toPlaintext()) = NULL and this.TrimAll(FunctionsTE.toPlaintext()) = NULL
+				QtcfOutputTE.SetEnabled(False)
+			ok
+		else
+			ClassCodeNameLE.SetEnabled(True)
+			QtEventsOutputTE.SetEnabled(True)
+			QtcfOutputTE.SetEnabled(True)
+			PassVMPointerCB.SetEnabled(True)
 		ok
-	else
-		oView.ClassCodeNameLE.SetEnabled(True)
-		oView.QtEventsOutputTE.SetEnabled(True)
-		oView.QtcfOutputTE.SetEnabled(True)
-	ok
+	}
 
 func ClassNameLEChangedAction
-	if TrimAll(oView.ClassNameLE.text()) = NULL
-		oView.ClassParaL.setText("")
-		oView.ClassCodeNameLE.setText("")
-	else
-		oView.ClassParaL.setText("Parameters of first :  " + oView.ClassNameLE.text() + "() Function")
-		if len(oView.ClassNameLE.text()) > 2
-			oView.ClassCodeNameLE.setText("G" + right(oView.ClassNameLE.text(), len(oView.ClassNameLE.text())-1) )
+	oView{
+		if this.TrimAll(ClassNameLE.text()) = NULL
+			ClassParaL.setText("")
+			ClassCodeNameLE.setText("")
 		else
-			oView.ClassCodeNameLE.setText("G" + oView.ClassNameLE.text() )
+			ClassParaL.setText("Parameters of first :  " + ClassNameLE.text() + "() Function")
+			if len(ClassNameLE.text()) > 2
+				ClassCodeNameLE.setText("G" + right(ClassNameLE.text(), len(ClassNameLE.text())-1) )
+			else
+				ClassCodeNameLE.setText("G" + ClassNameLE.text() )
+			ok
 		ok
-	ok
+	}
 
 func FunctionsTEChangedAction
-	if TrimAll(oView.FunctionsTE.toPlaintext()) = NULL And TrimAll(oView.EnumsFlagsTE.toPlaintext()) = NULL 
-		oView.QtcfOutputTE.SetEnabled(False)
-	else
-		oView.QtcfOutputTE.SetEnabled(True)
-	ok
+	oView {
+		if this.TrimAll(FunctionsTE.toPlaintext()) = NULL And this.TrimAll(EnumsFlagsTE.toPlaintext()) = NULL 
+			QtcfOutputTE.SetEnabled(False)
+		else
+			QtcfOutputTE.SetEnabled(True)
+		ok
+	}
 
 func ConvertBtnAction
-	oView.QtcfOutputTE.setText("")
-	oView.QtEventsOutputTE.setText("")
-	cStr1 = ""
-	if TrimAll(oView.EnumsFlagsTE.toPlaintext()) != NULL
-		cStr1 = oView.EnumsFlagsTE.toPlaintext() + nl
-	ok
-	if TrimAll(oView.FunctionsTE.toPlaintext()) != NULL
-		cStr1 = cStr1 + oView.FunctionsTE.toPlaintext()
-	ok
-	aList1 = str2list(cStr1)
-	pFunctionsProcess(aList1)
-	cStr2 = oView.SignalsTE.toPlainText()
-        aList2 = str2List(cStr2)
-        pSignalsProcess(aList2)
-
+	oView{
+		QtcfOutputTE.setText("")
+		QtEventsOutputTE.setText("")
+		cStr1 = ""
+		if this.TrimAll(EnumsFlagsTE.toPlaintext()) != NULL
+			cStr1 = EnumsFlagsTE.toPlaintext() + nl
+		ok
+		if this.TrimAll(FunctionsTE.toPlaintext()) != NULL
+			cStr1 = cStr1 + FunctionsTE.toPlaintext()
+		ok
+		aList1 = str2list(cStr1)
+		this.pFunctionsProcess(aList1)
+		cStr2 = SignalsTE.toPlainText()
+		aList2 = str2List(cStr2)
+		this.pSignalsProcess(aList2)
+	}
 
 func TrimAll str 
 	return substr(substr(substr(str,char(9), ""), nl, ""), " ", "")
+
+/*func TrimAll str 		# This will be activated at ring 1.4 release
+	str = substr(substr(str,char(9), ""), nl, "")
+	while True
+		if substr(str, "  ") 
+			str = substr(str, "  ", " ")
+		else
+			exit
+		ok
+	end
+	return trim(str)*/
 
 Func pFunctionsProcess aList
 	if TrimAll(oView.FunctionsTE.toPlaintext()) = NULL And TrimAll(oView.EnumsFlagsTE.toPlaintext()) = NULL
@@ -109,7 +139,7 @@ Func pFunctionsProcess aList
 
 	for itr = len(aList) to 1 step -1
 		curFunc = TrimAll(left(aList[itr], substr(aList[itr], "(")-1))
-		if (curFunc = cClassName) Or (curFunc = "~" + cClassName) Or (substr(aList[itr], "operator"))
+		if (curFunc = NULL) Or (curFunc = cClassName) Or (curFunc = "~" + cClassName) Or (substr(aList[itr], "operator"))
 			del(aList, itr)
 		ok
 	next
@@ -286,8 +316,15 @@ Func pSignalsProcess aList
 	cGetEvent =  "const char *get<name>Event(void)"
 	cGetEvents = ""
 
-	cClassName = oView.ClassCodeNameLE.text()
-	cClassRealName = oView.ClassNameLE.text()
+	cClassName = TrimAll(oView.ClassCodeNameLE.text())
+	cClassRealName = TrimAll(oView.ClassNameLE.text())
+
+	for itr = len(aList) to 1 step -1
+		if TrimAll(left(aList[itr], substr(aList[itr], "(")-1)) = NULL
+			del(aList, itr)
+		ok
+	next
+
 	cOutput = ',
 		[	:name = "<classcodename>" ,
 			:realname = "<realclassname>" ,<classparas>
@@ -360,10 +397,13 @@ Func pSignalsProcess aList
 		cGetEvents += substr(cGetEvent,"<name>",cName) + nl
 	next
 	
-	oView.QtEventsOutputTE.setText(oView.QtEventsOutputTE.toPlainText() + '
+	oView{
+		QtEventsOutputTE.setText(QtEventsOutputTE.toPlainText() + '
 					  ]
 		]')
 
-	oView.QtcfOutputTE.setText(oView.QtcfOutputTE.toPlainText() + nl + nl + cSetEvents + nl + cGetEvents)
+		QtcfOutputTE.setText(QtcfOutputTE.toPlainText() + nl + nl + cSetEvents + nl + cGetEvents)
+	}
+
 
 

@@ -87,7 +87,7 @@ This tool has been made to reduce pain for those who are new to the Ring Extensi
 
 16. Run the "gencode.bat" or "gencode.sh" to generate "ringqt" extension code with your new class included.
 
-17. Build the extension. In case you want to build using "buildmingw32.bat" file you have to add filenames of new generated class "classname.cpp" and "classcodename.h" files into "ring_qt.pro" file (these files will only be generated if there's "codename" attribute in class definition). And be careful at adding ".cpp" filename that should be added before "ring_qt.cpp" line.
+17. Build the extension. In case you want to build using "buildmingw32.bat" file you have to add filenames of new generated class "classcodename.cpp" and "classcodename.h" files into "ring_qt.pro" file (these files will only be generated if there's "codename" attribute in class definition). And be careful at adding ".cpp" filename that should be added before "ring_qt.cpp" line.
 
 18. And You Are Done  :smiley:
 
