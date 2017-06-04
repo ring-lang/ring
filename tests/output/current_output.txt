@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
 0
-100
-100
+115
+115
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4684
+Time 4631
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-00E6FB18
+00E30740
 OBJECTPOINTER
 0
 1
@@ -2590,7 +2590,7 @@ nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
 date: 04/06/2017
-time: 14:15:33
+time: 14:26:02
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3294,3 +3294,6 @@ len of trimed(j3) is : 5
 trimed J3 is : "Majdi"
 len of trimed(j4) is : 15
 trimed J4 is : "Majdi    Sobain"
+
+B:\ring\tests>call ring scripts/anoninhash.ring 
+wow
