@@ -21,8 +21,11 @@ void ring_vm_liststart ( VM *pVM )
 			else {
 				/* Be Sure that we are modifying Object Attribute (Not Global/Local Variable) */
 				if ( pVM->nVarScope == RING_VARSCOPE_NEWOBJSTATE ) {
-					/* When we access object attribute from braces then create temp. variable for set property operation */
-					if ( (ring_list_getsize(pVM->aBraceObjects) > 0) && ( ! ring_vm_oop_callmethodinsideclass(pVM)) ) {
+					/*
+					**  When we access object attribute from braces then create temp. variable for set property operation 
+					**  We do this if we are not inside the class region (after the class name where we define attributes) 
+					*/
+					if ( (ring_list_getsize(pVM->aBraceObjects) > 0) && ( ! ring_vm_oop_callmethodinsideclass(pVM)) && (! pVM->nCheckNULLVar) ) {
 						nCont = 1 ;
 					}
 				}
