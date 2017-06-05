@@ -69,6 +69,7 @@ func SignalsTEChangedAction
 			QtEventsOutputTE.SetEnabled(True)
 			QtcfOutputTE.SetEnabled(True)
 			PassVMPointerCB.SetEnabled(True)
+			PassVMPointerCB.SetChecked(True)
 		ok
 	}
 
@@ -139,7 +140,7 @@ Func pFunctionsProcess aList
 
 	for itr = len(aList) to 1 step -1
 		curFunc = TrimAll(left(aList[itr], substr(aList[itr], "(")-1))
-		if (curFunc = NULL) Or (curFunc = cClassName) Or (curFunc = "~" + cClassName) Or (substr(aList[itr], "operator"))
+		if (curFunc = cClassName) Or (curFunc = "~" + cClassName) Or (substr(aList[itr], "operator"))
 			del(aList, itr)
 		ok
 	next
@@ -228,6 +229,9 @@ Func pFunctionsProcess aList
 			ok
 		end
 		if  left(cLine,4) = "enum"  
+			if not substr(cLine,"{")
+				loop		# ignore invalid Enums
+			ok
 			cItem = trim(substr(cLine,5,substr(cLine,"{")-5))
 			cItem = cClassName + "::" + cItem
 			aEnum + cItem
@@ -253,6 +257,10 @@ Func pFunctionsProcess aList
 
 	for i = 1 to Len(aFunctions)
 		s1Func = left(aFunctions[i], substr(aFunctions[i], "(")-1) 
+		if s1Func = NULL 
+			del(aFunctions, i)
+			loop
+		ok
 		Counter = 2
 		for j = 1 to len(aFunctions)
 			if i = j	 loop 	ok
@@ -263,6 +271,17 @@ Func pFunctionsProcess aList
 			ok
 		next
 	next
+
+	if len(aEnum)
+		for num in aEnum
+			for fun in aFunctions
+				jnum = right(num, len(num) - (substr(num, "::") + 1))
+				if substr(fun, jnum)
+					fun = substr(fun, jnum, num)
+				ok
+			next
+		next
+	ok
 
 	if len(aFunctions)
 		for cfunc in aFunctions
