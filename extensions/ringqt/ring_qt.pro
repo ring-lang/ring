@@ -44,6 +44,7 @@ SOURCES +=   \
     gplaintextedit.cpp \
     gheaderview.cpp \
     gprocess.cpp \
+    gtoolbutton.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -78,6 +79,7 @@ HEADERS  += \
     gthread.h \
     gplaintextedit.h \
     gprocess.h  \
+    gtoolbutton.h \
     gheaderview.h 
 
 INCLUDEPATH += ../../include

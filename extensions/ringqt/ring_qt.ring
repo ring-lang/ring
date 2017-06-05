@@ -14785,6 +14785,66 @@ Class QUuid
 	Func toString 
 		return QUuid_toString(pObject)
 
+Class QToolButton from QAbstractButton
+
+	pObject
+
+	Func init P1
+		pObject = QToolButton_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QToolButton_delete(pObject)
+
+	Func arrowType 
+		return QToolButton_arrowType(pObject)
+
+	Func autoRaise 
+		return QToolButton_autoRaise(pObject)
+
+	Func defaultAction 
+		pTempObj = new QAction
+		pTempObj.pObject = QToolButton_defaultAction(pObject)
+		return pTempObj
+
+	Func menu 
+		pTempObj = new QMenu
+		pTempObj.pObject = QToolButton_menu(pObject)
+		return pTempObj
+
+	Func popupMode 
+		return QToolButton_popupMode(pObject)
+
+	Func setArrowType P1
+		return QToolButton_setArrowType(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setAutoRaise P1
+		return QToolButton_setAutoRaise(pObject,P1)
+
+	Func setMenu P1
+		return QToolButton_setMenu(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPopupMode P1
+		return QToolButton_setPopupMode(pObject,P1)
+
+	Func toolButtonStyle 
+		return QToolButton_toolButtonStyle(pObject)
+
+	Func setDefaultAction P1
+		return QToolButton_setDefaultAction(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setToolButtonStyle P1
+		return QToolButton_setToolButtonStyle(pObject,P1)
+
+	Func showMenu 
+		return QToolButton_showMenu(pObject)
+
+	Func settriggeredEvent P1
+		return QToolButton_settriggeredEvent(pObject,P1)
+
+	Func gettriggeredEvent 
+		return QToolButton_gettriggeredEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

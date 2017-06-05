@@ -203,6 +203,9 @@ extern "C" {
 #include <QUuid>
 #include <QDesktopServices>
 
+#include <QToolButton>
+#include "GToolButton.h"
+
 
 extern "C" {
 
@@ -82143,6 +82146,292 @@ RING_FUNC(ring_QUuid_toString)
 	RING_API_RETSTRING(pObject->toString().toStdString().c_str());
 }
 
+
+RING_FUNC(ring_QToolButton_arrowType)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	{
+		Qt::ArrowType *pValue ; 
+		pValue = (Qt::ArrowType *) malloc(sizeof(Qt::ArrowType)) ;
+		*pValue = pObject->arrowType();
+		RING_API_RETCPOINTER(pValue,"Qt::ArrowType");
+	}
+}
+
+
+RING_FUNC(ring_QToolButton_autoRaise)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	RING_API_RETNUMBER(pObject->autoRaise());
+}
+
+
+RING_FUNC(ring_QToolButton_defaultAction)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	RING_API_RETCPOINTER(pObject->defaultAction(),"QAction");
+}
+
+
+RING_FUNC(ring_QToolButton_menu)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	RING_API_RETCPOINTER(pObject->menu(),"QMenu");
+}
+
+
+RING_FUNC(ring_QToolButton_popupMode)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	RING_API_RETNUMBER(pObject->popupMode());
+}
+
+
+RING_FUNC(ring_QToolButton_setArrowType)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	pObject->setArrowType(* (Qt::ArrowType  *) RING_API_GETCPOINTER(2,"Qt::ArrowType"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"Qt::ArrowType"));
+}
+
+
+RING_FUNC(ring_QToolButton_setAutoRaise)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAutoRaise( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QToolButton_setMenu)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMenu((QMenu *) RING_API_GETCPOINTER(2,"QMenu"));
+}
+
+
+RING_FUNC(ring_QToolButton_setPopupMode)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPopupMode( (QToolButton::ToolButtonPopupMode )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QToolButton_toolButtonStyle)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	RING_API_RETNUMBER(pObject->toolButtonStyle());
+}
+
+
+RING_FUNC(ring_QToolButton_setDefaultAction)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDefaultAction((QAction *) RING_API_GETCPOINTER(2,"QAction"));
+}
+
+
+RING_FUNC(ring_QToolButton_setToolButtonStyle)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setToolButtonStyle( (Qt::ToolButtonStyle )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QToolButton_showMenu)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	pObject->showMenu();
+}
+
+
+RING_FUNC(ring_QToolButton_settriggeredEvent)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->settriggeredEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QToolButton_gettriggeredEvent)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	RING_API_RETSTRING(pObject->gettriggeredEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -84095,6 +84384,21 @@ RING_FUNC(ring_QUuid_new)
 	}
 	QUuid *pObject = new QUuid();
 	RING_API_RETCPOINTER(pObject,"QUuid");
+}
+
+RING_FUNC(ring_QToolButton_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GToolButton *pObject = new GToolButton((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QToolButton");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -86283,6 +86587,21 @@ RING_FUNC(ring_QUuid_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QUuid *) RING_API_GETCPOINTER(1,"QUuid");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QToolButton_delete)
+{
+	GToolButton *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GToolButton *) RING_API_GETCPOINTER(1,"GToolButton");
 		delete pObject ;
 	}
 }
@@ -90320,6 +90639,21 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qaxbase_setcontrol",ring_QAxBase_setControl);
 	ring_vm_funcregister("qaxbase_verbs",ring_QAxBase_verbs);
 	ring_vm_funcregister("quuid_tostring",ring_QUuid_toString);
+	ring_vm_funcregister("qtoolbutton_arrowtype",ring_QToolButton_arrowType);
+	ring_vm_funcregister("qtoolbutton_autoraise",ring_QToolButton_autoRaise);
+	ring_vm_funcregister("qtoolbutton_defaultaction",ring_QToolButton_defaultAction);
+	ring_vm_funcregister("qtoolbutton_menu",ring_QToolButton_menu);
+	ring_vm_funcregister("qtoolbutton_popupmode",ring_QToolButton_popupMode);
+	ring_vm_funcregister("qtoolbutton_setarrowtype",ring_QToolButton_setArrowType);
+	ring_vm_funcregister("qtoolbutton_setautoraise",ring_QToolButton_setAutoRaise);
+	ring_vm_funcregister("qtoolbutton_setmenu",ring_QToolButton_setMenu);
+	ring_vm_funcregister("qtoolbutton_setpopupmode",ring_QToolButton_setPopupMode);
+	ring_vm_funcregister("qtoolbutton_toolbuttonstyle",ring_QToolButton_toolButtonStyle);
+	ring_vm_funcregister("qtoolbutton_setdefaultaction",ring_QToolButton_setDefaultAction);
+	ring_vm_funcregister("qtoolbutton_settoolbuttonstyle",ring_QToolButton_setToolButtonStyle);
+	ring_vm_funcregister("qtoolbutton_showmenu",ring_QToolButton_showMenu);
+	ring_vm_funcregister("qtoolbutton_settriggeredevent",ring_QToolButton_settriggeredEvent);
+	ring_vm_funcregister("qtoolbutton_gettriggeredevent",ring_QToolButton_gettriggeredEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -90466,6 +90800,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistview_new",ring_QListView_new);
 	ring_vm_funcregister("qaxobject_new",ring_QAxObject_new);
 	ring_vm_funcregister("quuid_new",ring_QUuid_new);
+	ring_vm_funcregister("qtoolbutton_new",ring_QToolButton_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -90612,4 +90947,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistview_delete",ring_QListView_delete);
 	ring_vm_funcregister("qaxobject_delete",ring_QAxObject_delete);
 	ring_vm_funcregister("quuid_delete",ring_QUuid_delete);
+	ring_vm_funcregister("qtoolbutton_delete",ring_QToolButton_delete);
 }
