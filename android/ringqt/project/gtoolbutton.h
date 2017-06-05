@@ -20,6 +20,7 @@ class GToolButton : public QToolButton
     List *pParaList;
 
     char ctriggeredEvent[100];
+    char cClickEvent[100];
 
 
     GToolButton(QWidget *parent,VM *pVM );
@@ -29,14 +30,17 @@ class GToolButton : public QToolButton
     void geteventparameters(void) ;
 
     void settriggeredEvent(const char *cStr);
+    void setClickEvent(const char *cStr);
 
 
     const char *gettriggeredEvent(void);
+    const char *getClickEvent(void);
 
 
   public slots:
 
     void triggeredSlot();
+    void clickedSlot();
 
 };
 
