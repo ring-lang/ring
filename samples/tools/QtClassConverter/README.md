@@ -8,7 +8,7 @@ This tool has been made to reduce pain for those who are new to the Ring Extensi
 
 ## Features
 
-1. Give the all required code for ringqt code generator in one place.
+1. Give all required code for ringqt code generator in one place.
 
 2. Auto creation of class codename.
 
