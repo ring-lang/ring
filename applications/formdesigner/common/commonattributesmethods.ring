@@ -17,7 +17,7 @@ class CommonAttributesMethods
 		AddAttribute(self,:cCurrentParentName)
 		cTextColor = "black"
 		cBackColor = ""
-		cFontProperty = ""
+		cFontProperty = "Arial"
 		cCurrentParentName = "win"
 
 	func TextColor
