@@ -810,6 +810,10 @@ aclasses = [
 					[ 	:signal = "triggered(QAction *)" ,
 						:slot = "triggeredSlot()" ,
 						:event = "triggered"
+					],
+					[ 	:signal = "clicked()" ,
+						:slot = "clickedSlot()" ,
+						:event = "Click"
 					]
 				  ]
 		]

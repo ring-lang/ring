@@ -82432,6 +82432,44 @@ RING_FUNC(ring_QToolButton_gettriggeredEvent)
 	RING_API_RETSTRING(pObject->gettriggeredEvent());
 }
 
+
+RING_FUNC(ring_QToolButton_setClickEvent)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setClickEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QToolButton_getClickEvent)
+{
+	GToolButton *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
+	RING_API_RETSTRING(pObject->getClickEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -90654,6 +90692,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtoolbutton_showmenu",ring_QToolButton_showMenu);
 	ring_vm_funcregister("qtoolbutton_settriggeredevent",ring_QToolButton_settriggeredEvent);
 	ring_vm_funcregister("qtoolbutton_gettriggeredevent",ring_QToolButton_gettriggeredEvent);
+	ring_vm_funcregister("qtoolbutton_setclickevent",ring_QToolButton_setClickEvent);
+	ring_vm_funcregister("qtoolbutton_getclickevent",ring_QToolButton_getClickEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);

@@ -14845,6 +14845,12 @@ Class QToolButton from QAbstractButton
 	Func gettriggeredEvent 
 		return QToolButton_gettriggeredEvent(pObject)
 
+	Func setClickEvent P1
+		return QToolButton_setClickEvent(pObject,P1)
+
+	Func getClickEvent 
+		return QToolButton_getClickEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

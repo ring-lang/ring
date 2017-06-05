@@ -6761,3 +6761,6 @@ void showMenu(void)
 
 void settriggeredEvent(const char *)
 const char *gettriggeredEvent(void)
+
+void setClickEvent(const char *)
+const char *getClickEvent(void)
