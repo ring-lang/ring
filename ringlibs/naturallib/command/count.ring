@@ -24,10 +24,12 @@ class Count
 
 	func AddAttributes_Count	
 		AddAttribute(self,:count)
-		AddAttribute(self,:count_times)
-		Count_Times = 0
 
 	func Count_Execute
+		if not isattribute(self,:count_times) {
+			AddAttribute(self,:count_times)
+			Count_Times = 0
+		}
 		if Expr(1) > Expr(2) { 
 			nStep = -1 
 		else 
