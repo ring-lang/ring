@@ -16,7 +16,11 @@ class NaturalCommand
 				See  "Hello, Sire!" + nl + nl
 	*/
 
-	func SyntaxIsKeyword  cPackage,cKeyword,fFunc
+	func SyntaxIsKeyword  aPara
+
+		cPackage = aPara[:Package]
+		cKeyword = aPara[:Keyword]
+		fFunc = aPara[:Function]
 
 		cCode = "
 			oObject = new #{f1}.#{f2}
