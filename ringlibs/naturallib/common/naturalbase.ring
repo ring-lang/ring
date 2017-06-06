@@ -53,3 +53,6 @@ Class NaturalBase
 	func CommandReturn vValue
 		EndCommand()
 		BraceExprEval(vValue)
+
+	func Expr nIndex
+		return CommandData()[:aExpr][nIndex]

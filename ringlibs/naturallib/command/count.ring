@@ -28,7 +28,7 @@ class Count
 		Count_Times = 0
 
 	func Count_Execute
-		if CommandData()[:aExpr][1] > CommandData()[:aExpr][2] { 
+		if Expr(1) > Expr(2) { 
 			nStep = -1 
 		else 
 			nStep = 1
@@ -39,7 +39,7 @@ class Count
 		else 
 			see nl + "I will count Again!" +nl 
 		}
-		for x = CommandData()[:aExpr][1] to CommandData()[:aExpr][2] step nStep {
+		for x = Expr(1) to Expr(2) step nStep {
 			see nl+x+nl 
 		}
-		CommandReturn(fabs(CommandData()[:aExpr][1]-CommandData()[:aExpr][2])+1)				
+		CommandReturn(fabs(Expr(1)-Expr(2))+1)				
