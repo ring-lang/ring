@@ -1766,8 +1766,8 @@ Class RNote from WindowsControllerParent
 			nDefaultStyle  = STYLECOLOR_MODERN
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(143,144,138,255) },
-				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(39,40,34,255) },
-				:ActiveLineBackColor 		= new qcolor() { setrgb(39,40,34,255) },
+				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(39,60,64,255) },
+				:ActiveLineBackColor 		= new qcolor() { setrgb(39,60,64,255) },
 				:SyntaxKeywordsColor		= new qcolor() { setrgb(80,187,177,255) },
 				:SyntaxClassNamesColor 		= new qcolor() { setrgb(166,226,46,255) },
 				:SyntaxCommentsColor 		= new qcolor() { setrgb(117,113,94,255) },
@@ -1776,18 +1776,18 @@ Class RNote from WindowsControllerParent
 			]
 			aStyleColors = aCustomStyleColors
 			aTextColor = [248,248,242]
-			aBackColor = [39,40,34]
+			aBackColor = [39,60,64]
 			MyApp.StylefusionCustom(
-				new qColor() { setrgb(230,230,230,255) },
-				new qColor() { setrgb(0,0,0,255) },
-				new qColor() { setrgb(230,230,230,255) },
-				new qColor() { setrgb(230,230,230,255) },
-				new qColor() { setrgb(0,0,0,255) },
-				new qColor() { setrgb(0,0,0,255) },
-				new qColor() { setrgb(0,0,0,255) },
-				new qColor() { setrgb(230,230,230,255) },
-				new qColor() { setrgb(0,0,0,255) },
+				new qColor() { setrgb(39,60,64,255) },
+				new qColor() { setrgb(255,255,255,255) },
+				new qColor() { setrgb(39,60,64,255) },
+				new qColor() { setrgb(39,60,64,255) },
+				new qColor() { setrgb(255,255,255,255) },
+				new qColor() { setrgb(255,255,255,255) },
+				new qColor() { setrgb(255,255,255,255) },
+				new qColor() { setrgb(39,60,64,255) },
+				new qColor() { setrgb(255,255,255,255) },
 				new qColor() { setrgb(255,0,0,255) },
 				new qColor() { setrgb(142,45,197,255) },
-				new qColor() { setrgb(230,230,230,255)}
+				new qColor() { setrgb(39,60,64,255)}
 			)
