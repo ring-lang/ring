@@ -57,7 +57,7 @@ class NaturalCommand
 			}
 		} "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
-		cCode = SubStr(cCode,"#{f1}",nCount)
+		cCode = SubStr(cCode,"#{f2}",""+nCount)
 		eval(cCode)	
 		AddMethod(oObject,"BraceExprEval_"+cKeyword,f1)
 
@@ -65,17 +65,17 @@ class NaturalCommand
 		PrepareNewClass(aPara)
 		AddMethod(oObject,"Get"+cKeyword,fFunc)
 
-	func SyntaxIsKeywordNumberNumber  aPara
+	func SyntaxIsKeywordNumbers aPara,nCount
 		PrepareNewClass(aPara)
 		PrepareCommandExpr()		
-		GetExprNumbers(2)
+		GetExprNumbers(nCount)
 		AddMethod(oobject,"BraceExecute_"+cKeyword,fFunc)
+
+	func SyntaxIsKeywordNumberNumber  aPara
+		SyntaxIsKeywordNumbers(aPara,2)
 
 	func SyntaxIsKeywordNumber  aPara
+		SyntaxIsKeywordNumbers(aPara,1)
 
-		PrepareNewClass(aPara)
-		PrepareCommandExpr()		
-		GetExprNumbers(1)
-		AddMethod(oobject,"BraceExecute_"+cKeyword,fFunc)
 
 
