@@ -44,22 +44,42 @@ class NaturalCommand
 		eval(cCode)	
 		AddMethod(oObject,"Get"+cKeyword,f1)
 
-	func GetExprNumbers nCount
+	func GetExpr nCount,cType
 		cCode = " 	f1 = func nValue { 
 			if isCommand() and CommandData()[:name] = :#{f1} {
-				if isNumber(nValue) {
+				#{f3}
 					CommandData()[:nExpr]++     
 					CommandData()[:aExpr] + nValue
 					if CommandData()[:nExpr] = #{f2} {
 						BraceExecute_#{f1}()
 					}
-				}
+				#{f4}
 			}
 		} "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
 		cCode = SubStr(cCode,"#{f2}",""+nCount)
+		switch cType {
+			case :string
+				cCode = SubStr(cCode,"#{f3}","if isString(nValue) {")
+				cCode = SubStr(cCode,"#{f4}","}")
+			case :number 
+				cCode = SubStr(cCode,"#{f3}","if isNumber(nValue) {")
+				cCode = SubStr(cCode,"#{f4}","}")
+			# When we don't set #{f3} and #{f4} then they are comments!
+			# So we don't have to type a case for :Any
+		}
+
 		eval(cCode)	
 		AddMethod(oObject,"BraceExprEval_"+cKeyword,f1)
+
+	func GetExprNumbers nCount
+		GetExpr(nCount,:Number)
+
+	func GetExprStrings nCount
+		GetExpr(nCount,:String)
+
+	func GetExprAny nCount
+		GetExpr(nCount,:Any)
 
 	func SyntaxIsKeyword  aPara
 		PrepareNewClass(aPara)
@@ -69,13 +89,10 @@ class NaturalCommand
 		PrepareNewClass(aPara)
 		PrepareCommandExpr()		
 		GetExprNumbers(nCount)
-		AddMethod(oobject,"BraceExecute_"+cKeyword,fFunc)
+		AddMethod(oObject,"BraceExecute_"+cKeyword,fFunc)
 
 	func SyntaxIsKeywordNumberNumber  aPara
 		SyntaxIsKeywordNumbers(aPara,2)
 
 	func SyntaxIsKeywordNumber  aPara
 		SyntaxIsKeywordNumbers(aPara,1)
-
-
-
