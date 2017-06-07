@@ -39,14 +39,7 @@ class NaturalCommand
 
 		Para2Attributes(aPara)
 
-		cCode = "
-			oObject = new #{f1}.#{f2}
-			Package #{f1}
-			Class #{f2}
-		"
-		cCode = substr(cCode,"#{f1}",cPackage)
-		cCode = substr(cCode,"#{f2}",cKeyword)
-		eval(cCode)
+		oObject = CreateTheTempClass()
 
 		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
@@ -85,14 +78,7 @@ class NaturalCommand
 
 		Para2Attributes(aPara)
 
-		cCode = "
-			oObject = new #{f1}.#{f2}
-			Package #{f1}
-			Class #{f2}
-		"
-		cCode = substr(cCode,"#{f1}",cPackage)
-		cCode = substr(cCode,"#{f2}",cKeyword)
-		eval(cCode)
+		oObject = CreateTheTempClass()
 
 		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
