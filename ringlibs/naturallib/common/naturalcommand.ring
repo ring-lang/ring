@@ -39,6 +39,7 @@ class NaturalCommand
 			CommandData()[:name] = :#{f1}
 			CommandData()[:nExpr] = 0
 			CommandData()[:aExpr] = []
+			return :NATURAL_NULL
 		} "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
 		eval(cCode)	
@@ -60,13 +61,13 @@ class NaturalCommand
 		cCode = SubStr(cCode,"#{f2}",""+nCount)
 		switch cType {
 			case :string
-				cCode = SubStr(cCode,"#{f3}","if isString(ExprValue) and ExprValue != NULL {")
+				cCode = SubStr(cCode,"#{f3}","if isString(ExprValue) and ExprValue != :NATURAL_NULL {")
 				cCode = SubStr(cCode,"#{f4}","}")
 			case :number 
 				cCode = SubStr(cCode,"#{f3}","if isNumber(ExprValue) {")
 				cCode = SubStr(cCode,"#{f4}","}")
 			case :any 
-				cCode = SubStr(cCode,"#{f3}","if (isString(ExprValue) and ExprValue != NULL) or isNumber(ExprValue) {")
+				cCode = SubStr(cCode,"#{f3}","if (isString(ExprValue) and ExprValue != :NATURAL_NULL) or isNumber(ExprValue) {")
 				cCode = SubStr(cCode,"#{f4}","}")
 		}
 		eval(cCode)	
