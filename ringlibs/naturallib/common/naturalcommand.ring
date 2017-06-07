@@ -22,17 +22,19 @@ class NaturalCommand
 		cCode = substr(cCode,"#{f2}",cKeyword)
 		eval(cCode)
 
+	func DefineAddAttributes
+		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
+		cCode = SubStr(cCode,"#{f1}",cKeyword)
+		eval(cCode)	
+		AddMethod(oObject,"AddAttributes_"+cKeyword,f1)
+
 	func SyntaxIsKeyword  aPara
 
 		Para2Attributes(aPara)
 
 		CreateTheTempClass()
 
-		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
-		cCode = SubStr(cCode,"#{f1}",cKeyword)
-		eval(cCode)	
-		AddMethod(oObject,"AddAttributes_"+cKeyword,f1)
-		AddMethod(oobject,"Get"+cKeyword,fFunc)
+		DefineAddAttributes()
 
 	func SyntaxIsKeywordNumberNumber  aPara
 
@@ -40,10 +42,7 @@ class NaturalCommand
 
 		CreateTheTempClass()
 
-		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
-		cCode = SubStr(cCode,"#{f1}",cKeyword)
-		eval(cCode)	
-		AddMethod(oObject,"AddAttributes_"+cKeyword,f1)
+		DefineAddAttributes()
 
 		cCode = " 	f1 = func { 
 			StartCommand()
@@ -79,10 +78,7 @@ class NaturalCommand
 
 		CreateTheTempClass()
 
-		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
-		cCode = SubStr(cCode,"#{f1}",cKeyword)
-		eval(cCode)	
-		AddMethod(oObject,"AddAttributes_"+cKeyword,f1)
+		DefineAddAttributes()
 
 		cCode = " 	f1 = func { 
 			StartCommand()
