@@ -31,17 +31,14 @@ class NaturalCommand
 	func SyntaxIsKeyword  aPara
 
 		Para2Attributes(aPara)
-
 		CreateTheTempClass()
-
 		DefineAddAttributes()
+		AddMethod(oObject,"Get"+cKeyword,fFunc)
 
 	func SyntaxIsKeywordNumberNumber  aPara
 
 		Para2Attributes(aPara)
-
 		CreateTheTempClass()
-
 		DefineAddAttributes()
 
 		cCode = " 	f1 = func { 
