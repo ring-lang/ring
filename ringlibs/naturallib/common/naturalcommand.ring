@@ -5,7 +5,7 @@ DefineNaturalCommand = new NaturalCommand
 
 class NaturalCommand
 
-	cPackage cKeyword  fFunc
+	cPackage cKeyword  fFunc oObject
 
 	func Para2Attributes aPara
 		cPackage = aPara[:Package]
@@ -21,13 +21,12 @@ class NaturalCommand
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cKeyword)
 		eval(cCode)
-		return oObject 
 
 	func SyntaxIsKeyword  aPara
 
 		Para2Attributes(aPara)
 
-		oObject = CreateTheTempClass()
+		CreateTheTempClass()
 
 		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
@@ -39,7 +38,7 @@ class NaturalCommand
 
 		Para2Attributes(aPara)
 
-		oObject = CreateTheTempClass()
+		CreateTheTempClass()
 
 		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
@@ -78,7 +77,7 @@ class NaturalCommand
 
 		Para2Attributes(aPara)
 
-		oObject = CreateTheTempClass()
+		CreateTheTempClass()
 
 		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
