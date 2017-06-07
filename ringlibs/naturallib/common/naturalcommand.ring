@@ -28,18 +28,19 @@ class NaturalCommand
 		eval(cCode)	
 		AddMethod(oObject,"AddAttributes_"+cKeyword,f1)
 
-	func SyntaxIsKeyword  aPara
-
+	func PrepareNewClass aPara 
 		Para2Attributes(aPara)
 		CreateTheTempClass()
 		DefineAddAttributes()
+
+	func SyntaxIsKeyword  aPara
+
+		PrepareNewClass(aPara)
 		AddMethod(oObject,"Get"+cKeyword,fFunc)
 
 	func SyntaxIsKeywordNumberNumber  aPara
 
-		Para2Attributes(aPara)
-		CreateTheTempClass()
-		DefineAddAttributes()
+		PrepareNewClass(aPara)
 
 		cCode = " 	f1 = func { 
 			StartCommand()
@@ -71,11 +72,7 @@ class NaturalCommand
 
 	func SyntaxIsKeywordNumber  aPara
 
-		Para2Attributes(aPara)
-
-		CreateTheTempClass()
-
-		DefineAddAttributes()
+		PrepareNewClass(aPara)
 
 		cCode = " 	f1 = func { 
 			StartCommand()
