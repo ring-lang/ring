@@ -5,17 +5,6 @@ DefineNaturalCommand = new NaturalCommand
 
 class NaturalCommand
 
-	/*
-		The next Method will create a similar class during the Runtime 
-
-		Package MyLanguage.Natural
-		class Hello
-			func AddAttributes_Hello	
-				AddAttribute(self,:hello)
-			func GetHello   
-				See  "Hello, Sire!" + nl + nl
-	*/
-
 	func SyntaxIsKeyword  aPara
 
 		cPackage = aPara[:Package]
@@ -36,37 +25,6 @@ class NaturalCommand
 		eval(cCode)	
 		AddMethod(oObject,"AddAttributes_"+cKeyword,f1)
 		AddMethod(oobject,"Get"+cKeyword,fFunc)
-
-	/*
-		The next method will create a similar class during the runtime
-
-	Package MyLanguage.Natural
-
-	class Count
-           
-		func Getcount
-			StartCommand()
-			CommandData()[:name] = :Count
-			CommandData()[:nExpr] = 0
-			CommandData()[:aExpr] = []
-
-		func BraceExprEval_Count nValue
-			if isCommand() and CommandData()[:name] = :Count {
-				if isNumber(nValue) {
-					CommandData()[:nExpr]++     
-					CommandData()[:aExpr] + nValue
-					if CommandData()[:nExpr] = 2 {
-						Count_Execute()
-					}
-				}
-			}
-
-		func AddAttributes_Count	
-			AddAttribute(self,:count)
-
-		func Count_Execute
-	*/
-
 
 	func SyntaxIsKeywordNumberNumber  aPara
 
