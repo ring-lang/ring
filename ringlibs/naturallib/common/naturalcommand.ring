@@ -96,3 +96,17 @@ class NaturalCommand
 
 	func SyntaxIsKeywordNumber  aPara
 		SyntaxIsKeywordNumbers(aPara,1)
+
+	func SyntaxIsKeywordStrings aPara,nCount
+		PrepareNewClass(aPara)
+		PrepareCommandExpr()		
+		GetExprStrings(nCount)
+		AddMethod(oObject,"BraceExecute_"+cKeyword,fFunc)
+
+	func SyntaxIsKeywordStringString  aPara
+		SyntaxIsKeywordStrings(aPara,2)
+
+	func SyntaxIsKeywordString  aPara
+		SyntaxIsKeywordStrings(aPara,1)
+
+
