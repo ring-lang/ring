@@ -7,6 +7,7 @@ MyLanguage = New NaturalLanguage {
 	SetPackageName("MyLanguage.Natural")
 	UseCommand(:Hello)
 	UseCommand(:Count)
+	UseCommand(:Print)
 }
 
  

@@ -45,11 +45,11 @@ class NaturalCommand
 		AddMethod(oObject,"Get"+cKeyword,f1)
 
 	func GetExpr nCount,cType
-		cCode = " 	f1 = func nValue { 
+		cCode = " 	f1 = func ExprValue { 
 			if isCommand() and CommandData()[:name] = :#{f1} {
 				#{f3}
-					CommandData()[:nExpr]++     
-					CommandData()[:aExpr] + nValue
+					CommandData()[:nExpr]++   
+					CommandData()[:aExpr] + ExprValue
 					if CommandData()[:nExpr] = #{f2} {
 						BraceExecute_#{f1}()
 					}
@@ -60,15 +60,15 @@ class NaturalCommand
 		cCode = SubStr(cCode,"#{f2}",""+nCount)
 		switch cType {
 			case :string
-				cCode = SubStr(cCode,"#{f3}","if isString(nValue) {")
+				cCode = SubStr(cCode,"#{f3}","if isString(ExprValue) and ExprValue != NULL {")
 				cCode = SubStr(cCode,"#{f4}","}")
 			case :number 
-				cCode = SubStr(cCode,"#{f3}","if isNumber(nValue) {")
+				cCode = SubStr(cCode,"#{f3}","if isNumber(ExprValue) {")
 				cCode = SubStr(cCode,"#{f4}","}")
-			# When we don't set #{f3} and #{f4} then they are comments!
-			# So we don't have to type a case for :Any
+			case :any 
+				cCode = SubStr(cCode,"#{f3}","if (isString(ExprValue) and ExprValue != NULL) or isNumber(ExprValue) {")
+				cCode = SubStr(cCode,"#{f4}","}")
 		}
-
 		eval(cCode)	
 		AddMethod(oObject,"BraceExprEval_"+cKeyword,f1)
 
@@ -85,11 +85,14 @@ class NaturalCommand
 		PrepareNewClass(aPara)
 		AddMethod(oObject,"Get"+cKeyword,fFunc)
 
+	func DefineExecute
+		AddMethod(oObject,"BraceExecute_"+cKeyword,fFunc)
+
 	func SyntaxIsKeywordNumbers aPara,nCount
 		PrepareNewClass(aPara)
 		PrepareCommandExpr()		
 		GetExprNumbers(nCount)
-		AddMethod(oObject,"BraceExecute_"+cKeyword,fFunc)
+		DefineExecute()
 
 	func SyntaxIsKeywordNumberNumber  aPara
 		SyntaxIsKeywordNumbers(aPara,2)
@@ -101,7 +104,7 @@ class NaturalCommand
 		PrepareNewClass(aPara)
 		PrepareCommandExpr()		
 		GetExprStrings(nCount)
-		AddMethod(oObject,"BraceExecute_"+cKeyword,fFunc)
+		DefineExecute()
 
 	func SyntaxIsKeywordStringString  aPara
 		SyntaxIsKeywordStrings(aPara,2)
@@ -113,7 +116,7 @@ class NaturalCommand
 		PrepareNewClass(aPara)
 		PrepareCommandExpr()		
 		GetExprAny(nCount)
-		AddMethod(oObject,"BraceExecute_"+cKeyword,fFunc)
+		DefineExecute()
 
 	func SyntaxIsKeywordExpressionExpression  aPara
 		SyntaxIsKeywordExpressions(aPara,2)
