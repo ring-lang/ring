@@ -5,6 +5,8 @@ DefineNaturalCommand = new NaturalCommand
 
 class NaturalCommand
 
+	cPackage cKeyword  fFunc
+
 	func SyntaxIsKeyword  aPara
 
 		cPackage = aPara[:Package]
