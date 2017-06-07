@@ -33,9 +33,7 @@ class NaturalCommand
 
 	func SyntaxIsKeywordNumberNumber  aPara
 
-		cPackage = aPara[:Package]
-		cKeyword = aPara[:Keyword]
-		fFunc = aPara[:Function]
+		Para2Attributes(aPara)
 
 		cCode = "
 			oObject = new #{f1}.#{f2}
@@ -81,9 +79,7 @@ class NaturalCommand
 
 	func SyntaxIsKeywordNumber  aPara
 
-		cPackage = aPara[:Package]
-		cKeyword = aPara[:Keyword]
-		fFunc = aPara[:Function]
+		Para2Attributes(aPara)
 
 		cCode = "
 			oObject = new #{f1}.#{f2}
