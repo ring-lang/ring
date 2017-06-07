@@ -7,11 +7,14 @@ class NaturalCommand
 
 	cPackage cKeyword  fFunc
 
-	func SyntaxIsKeyword  aPara
-
+	func Para2Attributes aPara
 		cPackage = aPara[:Package]
 		cKeyword = aPara[:Keyword]
 		fFunc = aPara[:Function]
+
+	func SyntaxIsKeyword  aPara
+
+		Para2Attributes(aPara)
 
 		cCode = "
 			oObject = new #{f1}.#{f2}
