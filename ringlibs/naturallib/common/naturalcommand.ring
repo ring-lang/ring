@@ -33,15 +33,7 @@ class NaturalCommand
 		CreateTheTempClass()
 		DefineAddAttributes()
 
-	func SyntaxIsKeyword  aPara
-
-		PrepareNewClass(aPara)
-		AddMethod(oObject,"Get"+cKeyword,fFunc)
-
-	func SyntaxIsKeywordNumberNumber  aPara
-
-		PrepareNewClass(aPara)
-
+	func PrepareCommandExpr
 		cCode = " 	f1 = func { 
 			StartCommand()
 			CommandData()[:name] = :#{f1}
@@ -51,6 +43,15 @@ class NaturalCommand
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
 		eval(cCode)	
 		AddMethod(oObject,"Get"+cKeyword,f1)
+
+	func SyntaxIsKeyword  aPara
+		PrepareNewClass(aPara)
+		AddMethod(oObject,"Get"+cKeyword,fFunc)
+
+	func SyntaxIsKeywordNumberNumber  aPara
+		PrepareNewClass(aPara)
+
+		PrepareCommandExpr()
 		
 		cCode = " 	f1 = func nValue { 
 			if isCommand() and CommandData()[:name] = :#{f1} {
@@ -74,15 +75,7 @@ class NaturalCommand
 
 		PrepareNewClass(aPara)
 
-		cCode = " 	f1 = func { 
-			StartCommand()
-			CommandData()[:name] = :#{f1}
-			CommandData()[:nExpr] = 0
-			CommandData()[:aExpr] = []
-		} "
-		cCode = SubStr(cCode,"#{f1}",cKeyword)
-		eval(cCode)	
-		AddMethod(oObject,"Get"+cKeyword,f1)
+		PrepareCommandExpr()
 		
 		cCode = " 	f1 = func nValue { 
 			if isCommand() and CommandData()[:name] = :#{f1} {
