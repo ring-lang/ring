@@ -39,6 +39,9 @@ class NaturalCommand
 			CommandData()[:name] = :#{f1}
 			CommandData()[:nExpr] = 0
 			CommandData()[:aExpr] = []
+			# We return :Natural_Null because the values returned
+			# From this function will call braceexpr() !
+			# And we need unique value to avoid it.
 			return :NATURAL_NULL
 		} "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
