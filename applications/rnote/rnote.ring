@@ -479,6 +479,12 @@ Class RNote from WindowsControllerParent
 						setclickEvent(Method(:pFormDesigner))
 					}
 					addaction(oAction)
+					addseparator()
+					oAction = new qAction(this.win1) {
+						settext("REPL - Console")
+						setclickEvent(Method(:pREPLConsole))
+					}
+					addaction(oAction)
 				}
 
 				subHelp {
@@ -1629,14 +1635,29 @@ Class RNote from WindowsControllerParent
 
 	func pFormDesigner		
 		cFormFileName = cCurrentDir + "../formdesigner/formdesigner.ring"
+		RunTool(cFormFileName)
+
+	func RunTool cFileName
 		if iswindows()
 			oProcessEditbox.setplaintext("")
 			oProcessText.setFocus(0)
-			oProcess = pRunProcess(cCurrentDir+"run2.bat",cFormFileName,cpGetProcessData)
+			oProcess = pRunProcess(cCurrentDir+"run2.bat",cFileName,cpGetProcessData)
 		else
-			cCode = 'cd $(dirname "'+cFormFileName+'") ; ' + ' ring "' + cFormFileName + '"' + nl
+			cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
 			system(cCode)
 		ok		
+
+	func RunToolConsole cFileName
+		if iswindows()
+			System('start '+cCurrentDir+'run "' + cFileName + '"' + nl)
+		else
+			cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
+			system(cCode)
+		ok
+
+	func pREPLConsole
+		cAppFileName = cCurrentDir + "../ringrepl/repl.ring"
+		RunToolConsole(cAppFileName)
 
 	func pFormDesignerDock
 		cDir = CurrentDir()
