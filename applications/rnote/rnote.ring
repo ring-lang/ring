@@ -481,6 +481,7 @@ Class RNote from WindowsControllerParent
 					addaction(oAction)
 					addseparator()
 					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Alt+R"))
 						settext("REPL - Console")
 						setclickEvent(Method(:pREPLConsole))
 					}
@@ -1649,7 +1650,7 @@ Class RNote from WindowsControllerParent
 
 	func RunToolConsole cFileName
 		if iswindows()
-			System('start '+cCurrentDir+'run "' + cFileName + '"' + nl)
+			System('start '+exefolder()+'ring "' + cFileName + '"' + nl)
 		else
 			cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
 			system(cCode)
