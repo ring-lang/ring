@@ -482,7 +482,7 @@ Class RNote from WindowsControllerParent
 					addseparator()
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Alt+R"))
-						settext("REPL - Console")
+						settext("RingREPL - Console")
 						setclickEvent(Method(:pREPLConsole))
 					}
 					addaction(oAction)
