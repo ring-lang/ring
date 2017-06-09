@@ -66,6 +66,6 @@ func pRunProcess cProgram,cArg,cGetDataFunc
 	return oProcess
 
 func pGetProcessData 
-	if ISNULL(oProcess) return ok
+	if ISNULL(oProcess) { return }
 	cText = oProcess.readallstandardoutput().data()
 	oProcessEditbox.insertplaintext(cText)
