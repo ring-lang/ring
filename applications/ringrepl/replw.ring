@@ -51,6 +51,7 @@ func pSendProcessData
 	if ISNULL(oProcess) { return }
 	cText = oProcessText.text() + windowsnl()
 	oProcess.write(cText ,len(cText))
+	oProcessText.setText(NULL)
 
 func pRunProcess cProgram,cArg,cGetDataFunc
 	oStringList = new qStringlist() {
