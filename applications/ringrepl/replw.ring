@@ -13,6 +13,7 @@ new qApp  {
 
 				setwindowtitle("RingREPL (Read - Eval - Print - Loop)")
 				resize(600,500)
+				setwinicon(self,"source.png")
 
 				oProcessLabel = new qLabel(oProcessWindow) {
 					setText("Ring :")
