@@ -486,6 +486,12 @@ Class RNote from WindowsControllerParent
 						setclickEvent(Method(:pREPLConsole))
 					}
 					addaction(oAction)
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Alt+Shift+R"))
+						settext("RingREPL - GUI")
+						setclickEvent(Method(:pREPLGUI))
+					}
+					addaction(oAction)
 				}
 
 				subHelp {
@@ -1659,6 +1665,10 @@ Class RNote from WindowsControllerParent
 	func pREPLConsole
 		cAppFileName = cCurrentDir + "../ringrepl/repl.ring"
 		RunToolConsole(cAppFileName)
+
+	func pREPLGUI
+		cAppFileName = cCurrentDir + "../ringrepl/replw.ring"
+		RunTool(cAppFileName)
 
 	func pFormDesignerDock
 		cDir = CurrentDir()
