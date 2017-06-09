@@ -15,11 +15,41 @@ List of changes and new features
 
 Ring 1.4  comes with many new features 
 
+* New Style to Ring Notepad
+* RingREPL
 * Convert between Numbers and Bytes
 * Better StdLib
 * Better WebLib
 * Better RingQt
 * Qt Class Convertor
+
+.. index:: 
+	pair: What is new in Ring 1.4?; New Style to Ring Notepad
+
+New Style to Ring Notepad
+=========================
+
+In Ring Notepad - From View - Styles - Select the (Modern) Style
+
+Screen Shot:
+
+.. image:: rnotemodernstyle.png
+	:alt: Using Ring Notepad - Modern Style
+
+.. index:: 
+	pair: What is new in Ring 1.4?; RingREPL
+
+RingREPL
+========
+
+In the application folder, You will find RingREPL (Read-Eval-Print-Loop)
+
+Also you can run it from Ring Notepad (Menubar - Tools)
+
+Screen Shot:
+
+.. image:: ringrepl.png
+	:alt: Using RingREPL
 
 .. index:: 
 	pair: What is new in Ring 1.4?; Convert between Numbers and Bytes
