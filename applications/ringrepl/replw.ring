@@ -44,6 +44,9 @@ new qApp  {
 func pSendProcessData
 	if ISNULL(oProcess) { return }
 	oCommandsEditbox.insertplaintext(oProcessText.text()+nl)
+	oCursor = oCommandsEditbox.textcursor()
+	oCursor.setposition(len(oCommandsEditbox.toplaintext()),0)
+	oCommandsEditbox.settextcursor(oCursor)
 	switch lower(trim(oProcessText.text())) {
 		case "exit"
 			oApp.Quit()
@@ -72,6 +75,10 @@ func pGetProcessData
 	if ISNULL(oProcess) { return }
 	cText = oProcess.readallstandardoutput().data()
 	oProcessEditbox.insertplaintext(cText)
+	oCursor = oProcessEditbox.textcursor()
+	oCursor.setposition(len(oProcessEditbox.toplaintext()),0)
+	oProcessEditbox.settextcursor(oCursor)
+
 
 func pHistory
 	if oCommandsEditbox.isvisible()  {
