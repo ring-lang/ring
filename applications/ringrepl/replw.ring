@@ -17,21 +17,24 @@ new qApp  {
 				oProcessText = new qLineEdit(oProcessWindow) {
 					setreturnPressedEvent("pSendProcessData()")
 				}
-				oProcessbtnSend = new qpushbutton(oProcessWindow) {
-					setText("Execute")
-					setClickEvent("pSendProcessData()")
+				oProcessbtnHistory = new qpushbutton(oProcessWindow) {
+					setText("History")
+					setClickEvent("pHistory()")
 				}
 				oProcessLayout1 = new qhboxlayout() {
 					AddWidget(oProcessLabel)
 					AddWidget(oProcessText)
-					Addwidget(oProcessbtnSend)
+					Addwidget(oProcessbtnHistory)
 				}
 				oProcessEditbox = new qPlaintextedit(oProcessWindow) 
+				oCommandsEditbox = new qPlaintextedit(oProcessWindow) 
 				oProcessLayout2 = new qvboxlayout() {
 					addWidget(oProcesseditbox)
 					addlayout(oProcesslayout1)
+					addWidget(oCommandseditbox)
 				}
 				setlayout(oProcessLayout2)
+				oCommandsEditbox.hide()
 				show()
 			}
 			oProcess = pRunProcess(exefolder()+"ring","replwscript.ring","pGetProcessData()")
@@ -40,6 +43,7 @@ new qApp  {
 
 func pSendProcessData
 	if ISNULL(oProcess) { return }
+	oCommandsEditbox.insertplaintext(oProcessText.text()+nl)
 	switch lower(trim(oProcessText.text())) {
 		case "exit"
 			oApp.Quit()
@@ -68,3 +72,10 @@ func pGetProcessData
 	if ISNULL(oProcess) { return }
 	cText = oProcess.readallstandardoutput().data()
 	oProcessEditbox.insertplaintext(cText)
+
+func pHistory
+	if oCommandsEditbox.isvisible()  {
+		oCommandsEditbox.hide()
+	else 
+		oCommandsEditbox.show()
+	}
