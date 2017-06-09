@@ -6,42 +6,32 @@ load "guilib.ring"
 oProcess = NULL
 
 new qApp  {
-
 			StyleFusionBlack()
-
 			oProcessWindow = new qWidget()  {
-
 				setwindowtitle("RingREPL (Read - Eval - Print - Loop)")
 				resize(600,500)
 				setwinicon(self,"source.png")
-
 				oProcessLabel = new qLabel(oProcessWindow) {
 					setText("Ring :")
 				}
-				oProcessText = new qlineEdit(oProcessWindow) {
+				oProcessText = new qLineEdit(oProcessWindow) {
 					setreturnPressedEvent("pSendProcessData()")
 				}
-
 				oProcessbtnSend = new qpushbutton(oProcessWindow) {
 					setText("Execute")
 					setClickEvent("pSendProcessData()")
 				}
-
 				oProcessLayout1 = new qhboxlayout() {
 					AddWidget(oProcessLabel)
 					AddWidget(oProcessText)
 					Addwidget(oProcessbtnSend)
 				}
-
 				oProcessEditbox = new qPlaintextedit(oProcessWindow) 
-	
 				oProcessLayout2 = new qvboxlayout() {
 					addWidget(oProcesseditbox)
 					addlayout(oProcesslayout1)
 				}
-
 				setlayout(oProcessLayout2)
-
 				show()
 			}
 			oProcess = pRunProcess(exefolder()+"ring","replwscript.ring","pGetProcessData()")
@@ -50,6 +40,14 @@ new qApp  {
 
 func pSendProcessData
 	if ISNULL(oProcess) { return }
+	switch lower(trim(oProcessText.text())) {
+		case "exit"
+			oApp.Quit()
+		case "clear"
+			oProcessEditbox.clear()		
+			oProcessText.setText(NULL)
+			return 
+	}
 	cText = oProcessText.text() + windowsnl()
 	oProcess.write(cText ,len(cText))
 	oProcessText.setText(NULL)
