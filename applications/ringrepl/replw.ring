@@ -35,6 +35,7 @@ new qApp  {
 				}
 				setlayout(oProcessLayout2)
 				oCommandsEditbox.hide()
+				oProcessText.setfocus(0)
 				show()
 			}
 			oProcess = pRunProcess(exefolder()+"ring","replwscript.ring","pGetProcessData()")
@@ -78,7 +79,6 @@ func pGetProcessData
 	oCursor = oProcessEditbox.textcursor()
 	oCursor.setposition(len(oProcessEditbox.toplaintext()),0)
 	oProcessEditbox.settextcursor(oCursor)
-
 
 func pHistory
 	if oCommandsEditbox.isvisible()  {
