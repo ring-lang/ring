@@ -1,6 +1,8 @@
 # The Ring Natural Library
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
+load "stdlib.ring"
+
 DefineNaturalCommand = new NaturalCommand
 
 class NaturalCommand
@@ -127,3 +129,61 @@ class NaturalCommand
 
 	func SyntaxIsKeywordExpression  aPara
 		SyntaxIsKeywordExpressions(aPara,1)
+
+	func SyntaxIsCommand  aPara
+		cPackage = aPara[:Package]
+		cCommand = aPara[:Command]
+		cCommandNoSpaces = substr(cCommand," ","")
+		fFunc = aPara[:Function]		
+		
+		aKeywords = split(cCommand," ")
+
+		# Create the Class
+		cCode = "
+			oObject = new #{f1}.#{f2}
+			Package #{f1}
+			Class #{f2}
+		"
+		cCode = substr(cCode,"#{f1}",cPackage)
+		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
+		eval(cCode)
+
+		# Add Attributes 
+		cCode = " 	f1 = func { " + nl
+		for cKeyword in aKeywords {
+			cCode += "AddAttribute(self,:#{f1})" + nl 
+			cCode = SubStr(cCode,"#{f1}",cKeyword)
+		}
+		cCode += "} "
+		eval(cCode)	
+		AddMethod(oObject,"AddAttributes_"+cCommandNoSpaces,f1)
+
+		# Command Keywords Methods 
+
+		cCode = " 	f1 = func { 
+			StartCommand()
+			CommandData()[:nKeyword] = 1
+		} "
+		eval(cCode)	
+		AddMethod(oObject,"Get"+aKeywords[1],f1)
+
+		for t = 2 to len(aKeywords) {
+			cCode = " 	f1 = func { 		
+				if CommandData()[:nKeyword] = #{f1} - 1 {
+					CommandData()[:nKeyword] = #{f1}
+					#{f2}
+				}
+			} "
+			cCode = substr(cCode,"#{f1}",""+t)
+			cExecuteMethod = "BraceExecute_"+cCommandNoSpaces
+			if t = len(aKeywords) {
+				cCode = substr(cCode,"#{f2}",cExecuteMethod+"()")
+			else
+				cCode = substr(cCode,"#{f2}","")
+			}
+			eval(cCode)	
+			AddMethod(oObject,"Get"+aKeywords[t],f1)
+		}
+
+		# Define BraceExecute
+		AddMethod(oObject,cExecuteMethod,fFunc)

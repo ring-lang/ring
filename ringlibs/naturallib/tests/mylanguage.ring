@@ -8,6 +8,7 @@ MyLanguage = New NaturalLanguage {
 	UseCommand(:Hello)
 	UseCommand(:Count)
 	UseCommand(:Print)
+	UseCommand(:IWantWindow)
 }
 
  
