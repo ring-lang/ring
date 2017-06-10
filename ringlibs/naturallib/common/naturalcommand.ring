@@ -7,7 +7,7 @@ DefineNaturalCommand = new NaturalCommand
 
 class NaturalCommand
 
-	cPackage cKeyword  fFunc oObject
+	cPackage cKeyword  fFunc oObject aAllKeywords=[]
 
 	func Para2Attributes aPara
 		cPackage = aPara[:Package]
@@ -130,6 +130,23 @@ class NaturalCommand
 	func SyntaxIsKeywordExpression  aPara
 		SyntaxIsKeywordExpressions(aPara,1)
 
+	func DefineCommandKeyword oObject,cKeyword
+		if find(aAllKeywords,cKeyword) { return }
+		aAllKeywords + cKeyword 
+		cCode = '
+			f1 = func {
+				aMethods = methods(self)	
+				for cMethod in aMethods {
+					if right(cMethod,len("getkeyword_#{f1}")) = "getkeyword_#{f1}" {
+							eval(cMethod+"()")
+					}
+				}
+			}
+		'
+		cCode = substr(cCode,"#{f1}",cKeyword)
+		eval(cCode)
+		AddMethod(oObject,"Get"+cKeyword,f1)
+
 	func SyntaxIsCommand  aPara
 		cPackage = aPara[:Package]
 		cCommand = aPara[:Command]
@@ -162,6 +179,12 @@ class NaturalCommand
 		eval(cCode)	
 		AddMethod(oObject,"AddAttributes_"+cCommandNoSpaces,f1)
 
+		# Define keywords 
+
+		for cKeyword in aKeywords {
+			DefineCommandKeyword(oObject,cKeyword)
+		}
+
 		# Command Keywords Methods 
 
 		cCode = " 	f1 = func { 
@@ -169,8 +192,7 @@ class NaturalCommand
 			CommandData()[:nKeyword] = 1
 		} "
 		eval(cCode)	
-		AddMethod(oObject,"Get"+aKeywords[1],f1)
-
+		AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[1],f1)
 		for t = 2 to len(aKeywords) {
 			cCode = " 	f1 = func { 
 				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
@@ -187,7 +209,7 @@ class NaturalCommand
 				cCode = substr(cCode,"#{f2}","")
 			}
 			eval(cCode)	
-			AddMethod(oObject,"Get"+aKeywords[t],f1)
+			AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[t],f1)
 		}
 
 		# Define BraceExecute
