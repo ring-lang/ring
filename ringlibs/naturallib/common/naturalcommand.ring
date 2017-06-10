@@ -168,7 +168,8 @@ class NaturalCommand
 		AddMethod(oObject,"Get"+aKeywords[1],f1)
 
 		for t = 2 to len(aKeywords) {
-			cCode = " 	f1 = func { 		
+			cCode = " 	f1 = func { 
+				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
 				if CommandData()[:nKeyword] = #{f1} - 1 {
 					CommandData()[:nKeyword] = #{f1}
 					#{f2}
