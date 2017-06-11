@@ -8,6 +8,8 @@ DefineNaturalCommand = new NaturalCommand
 class NaturalCommand
 
 	cPackage cKeyword  fFunc oObject aAllKeywords=[]
+	cCommand cCommandNoSpaces aKeywords
+
 
 	func Para2Attributes aPara
 		cPackage = aPara[:Package]
@@ -150,13 +152,15 @@ class NaturalCommand
 		eval(cCode)
 		AddMethod(oObject,"Get"+cKeyword,f1)
 
-	func SyntaxIsCommand  aPara
+	func CommandPara2Attributes aPara
 		cPackage = aPara[:Package]
 		cCommand = aPara[:Command]
 		cCommandNoSpaces = substr(cCommand," ","")
-		fFunc = aPara[:Function]		
-		
+		fFunc = aPara[:Function]				
 		aKeywords = split(cCommand," ")
+
+	func SyntaxIsCommand  aPara
+		CommandPara2Attributes(aPara)
 
 		# Create the Class
 		cCode = "
@@ -275,7 +279,7 @@ class NaturalCommand
 			} "
 			cCode = substr(cCode,"#{f1}",""+t)
 			cExecuteMethod = "BraceExecute_"+cCommandNoSpaces
-			# cExecuteMethod+"()"
+
 			if t = len(aKeywords) {
 				cCode2 = '
 					CommandData()[:name] = :#{f1}
