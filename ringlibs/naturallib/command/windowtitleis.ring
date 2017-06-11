@@ -3,8 +3,8 @@
 
 DefineNaturalCommand.SyntaxIsCommand([
 	:Package = "MyLanguage.Natural",
-	:Command = "i want window", 
+	:Command = "window title is", 
 	:Function = func {
-		See  "Command: I want window" + nl
+		See  "Command: Window title is" + nl
 	}
 ])
