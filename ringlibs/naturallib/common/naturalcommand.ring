@@ -159,10 +159,7 @@ class NaturalCommand
 		fFunc = aPara[:Function]				
 		aKeywords = split(cCommand," ")
 
-	func SyntaxIsCommand  aPara
-		CommandPara2Attributes(aPara)
-
-		# Create the Class
+	func CreateCommandClass 
 		cCode = "
 			oObject = new #{f1}.#{f2}
 			Package #{f1}
@@ -171,6 +168,12 @@ class NaturalCommand
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
 		eval(cCode)
+
+	func SyntaxIsCommand  aPara
+		CommandPara2Attributes(aPara)
+
+		# Create the Class
+		CreateCommandClass()
 
 		# Add Attributes 
 		cCode = " 	f1 = func { " + nl
@@ -227,14 +230,7 @@ class NaturalCommand
 		CommandPara2Attributes(aPara)
 
 		# Create the Class
-		cCode = "
-			oObject = new #{f1}.#{f2}
-			Package #{f1}
-			Class #{f2}
-		"
-		cCode = substr(cCode,"#{f1}",cPackage)
-		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
-		eval(cCode)
+		CreateCommandClass()
 
 		# Add Attributes 
 		cCode = " 	f1 = func { " + nl
