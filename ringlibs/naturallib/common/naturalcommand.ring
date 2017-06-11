@@ -169,13 +169,7 @@ class NaturalCommand
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
 		eval(cCode)
 
-	func SyntaxIsCommand  aPara
-		CommandPara2Attributes(aPara)
-
-		# Create the Class
-		CreateCommandClass()
-
-		# Add Attributes 
+	func DefineCommandAttributes
 		cCode = " 	f1 = func { " + nl
 		for cKeyword in aKeywords {
 			cCode += "
@@ -194,6 +188,15 @@ class NaturalCommand
 		for cKeyword in aKeywords {
 			DefineCommandKeyword(oObject,cKeyword)
 		}
+
+	func SyntaxIsCommand  aPara
+		CommandPara2Attributes(aPara)
+
+		# Create the Class
+		CreateCommandClass()
+
+		# Add Attributes 
+		DefineCommandAttributes()
 
 		# Command Keywords Methods 
 
@@ -233,24 +236,7 @@ class NaturalCommand
 		CreateCommandClass()
 
 		# Add Attributes 
-		cCode = " 	f1 = func { " + nl
-		for cKeyword in aKeywords {
-			cCode += "
-				if not isAttribute(self,:#{f1}) {
-					AddAttribute(self,:#{f1})
-				}
-			"
-			cCode = SubStr(cCode,"#{f1}",cKeyword)
-		}
-		cCode += "} "
-		eval(cCode)	
-		AddMethod(oObject,"AddAttributes_"+cCommandNoSpaces,f1)
-
-		# Define keywords 
-
-		for cKeyword in aKeywords {
-			DefineCommandKeyword(oObject,cKeyword)
-		}
+		DefineCommandAttributes()
 
 		# Command Keywords Methods 
 
