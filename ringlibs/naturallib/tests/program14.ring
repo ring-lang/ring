@@ -4,5 +4,5 @@
 load "mylanguage.ring"
 
 MyLanguage.RunString('
- 	i want window and the 	window title is
+ 	i want window and the 	window title is "Hello World"
 ')

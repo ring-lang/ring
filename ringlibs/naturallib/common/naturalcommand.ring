@@ -131,6 +131,8 @@ class NaturalCommand
 		SyntaxIsKeywordExpressions(aPara,1)
 
 	func DefineCommandKeyword oObject,cKeyword
+		# We uses this method
+		# To be able to share keywords between commands 		
 		if find(aAllKeywords,cKeyword) { return }
 		aAllKeywords + cKeyword 
 		cCode = '
@@ -141,6 +143,7 @@ class NaturalCommand
 							eval(cMethod+"()")
 					}
 				}
+				return :NATURAL_NULL
 			}
 		'
 		cCode = substr(cCode,"#{f1}",cKeyword)
@@ -214,3 +217,86 @@ class NaturalCommand
 
 		# Define BraceExecute
 		AddMethod(oObject,cExecuteMethod,fFunc)
+
+	func SyntaxIsCommandExpressions  aPara,nCount
+
+		cPackage = aPara[:Package]
+		cCommand = aPara[:Command]
+		cCommandNoSpaces = substr(cCommand," ","")
+		fFunc = aPara[:Function]		
+		
+		aKeywords = split(cCommand," ")
+
+		# Create the Class
+		cCode = "
+			oObject = new #{f1}.#{f2}
+			Package #{f1}
+			Class #{f2}
+		"
+		cCode = substr(cCode,"#{f1}",cPackage)
+		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
+		eval(cCode)
+
+		# Add Attributes 
+		cCode = " 	f1 = func { " + nl
+		for cKeyword in aKeywords {
+			cCode += "
+				if not isAttribute(self,:#{f1}) {
+					AddAttribute(self,:#{f1})
+				}
+			"
+			cCode = SubStr(cCode,"#{f1}",cKeyword)
+		}
+		cCode += "} "
+		eval(cCode)	
+		AddMethod(oObject,"AddAttributes_"+cCommandNoSpaces,f1)
+
+		# Define keywords 
+
+		for cKeyword in aKeywords {
+			DefineCommandKeyword(oObject,cKeyword)
+		}
+
+		# Command Keywords Methods 
+
+		cCode = " 	f1 = func { 
+			StartCommand()
+			CommandData()[:nKeyword] = 1
+		} "
+		eval(cCode)	
+		AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[1],f1)
+		for t = 2 to len(aKeywords) {
+			cCode = " 	f1 = func { 
+				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
+				if CommandData()[:nKeyword] = #{f1} - 1 {
+					CommandData()[:nKeyword] = #{f1}
+					#{f2}
+				}
+			} "
+			cCode = substr(cCode,"#{f1}",""+t)
+			cExecuteMethod = "BraceExecute_"+cCommandNoSpaces
+			# cExecuteMethod+"()"
+			if t = len(aKeywords) {
+				cCode2 = '
+					CommandData()[:name] = :#{f1}
+					CommandData()[:nExpr] = 0
+					CommandData()[:aExpr] = []
+				'
+				cCode2 = substr(cCode2,"#{f1}",cCommandNoSpaces)
+				cCode = substr(cCode,"#{f2}",cCode2)
+			else
+				cCode = substr(cCode,"#{f2}","")
+			}
+			eval(cCode)	
+			AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[t],f1)
+		}
+
+		# Command Expressions
+		cKeyword = cCommandNoSpaces
+		GetExpr(nCount,:Any)
+
+		# Define BraceExecute
+		AddMethod(oObject,cExecuteMethod,fFunc)
+
+	func SyntaxIsCommandExpression  aPara
+		SyntaxIsCommandExpressions(aPara,1)
