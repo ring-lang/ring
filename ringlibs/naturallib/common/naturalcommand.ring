@@ -224,12 +224,7 @@ class NaturalCommand
 
 	func SyntaxIsCommandExpressions  aPara,nCount
 
-		cPackage = aPara[:Package]
-		cCommand = aPara[:Command]
-		cCommandNoSpaces = substr(cCommand," ","")
-		fFunc = aPara[:Function]		
-		
-		aKeywords = split(cCommand," ")
+		CommandPara2Attributes(aPara)
 
 		# Create the Class
 		cCode = "
