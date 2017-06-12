@@ -10,6 +10,7 @@ MyLanguage = New NaturalLanguage {
 	UseCommand(:Print)
 	UseCommand(:IWantWindow)
 	UseCommand(:WindowTitleIs)
+	UseCommand(:IWantButton)
 }
 
  
