@@ -383,6 +383,7 @@ New qapp {
                         ### .yahoo.com              TRUE    /   FALSE   1527878113  B   16abcdefghijklmnopq
 
                         cFileName = "cookies.txt"
+						/*
                         cStr = Read(cFileName)
 
                         myList = str2list(cStr)
@@ -393,6 +394,7 @@ New qapp {
                                 See "myCookie: |"+ myCookie +"|" +nl
                             ok
                         next
+						*/
                 else
                     See "No Connectivity to Yahoo. Looking for Cookie and Crumb." +nl +nl
                 ok
@@ -1270,7 +1272,9 @@ Func FetchData $thisSymbol, TypeOfData
                 $url = $urlA + $symbol + $urlB + $urlC + $urlD + $urlE +$urlF
                 #See "URL: "+ $url +nl
 
+							/*
                           curl_easy_setopt(curl, CURLOPT_COOKIE, myCookie);    ###Oonly needed for 1st stock
+							*/
                           curl_easy_setopt(curl, CURLOPT_URL, $url);
                 cStr = curl_easy_perform_silent(curl)
 
