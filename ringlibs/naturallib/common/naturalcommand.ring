@@ -228,7 +228,7 @@ class NaturalCommand
 		# Define BraceExecute
 		AddMethod(oObject,cExecuteMethod,fFunc)
 
-	func SyntaxIsCommandExpressions  aPara,cExprType,nCount
+	func SyntaxIsCommandExpressions_  aPara,cExprType,nCount
 
 		CommandPara2Attributes(aPara)
 
@@ -280,20 +280,28 @@ class NaturalCommand
 		AddMethod(oObject,cExecuteMethod,fFunc)
 
 	func SyntaxIsCommandExpression  aPara
-		SyntaxIsCommandExpressions(aPara,:Any,1)
+		SyntaxIsCommandExpressions_(aPara,:Any,1)
 
 	func SyntaxIsCommandExpressionExpression  aPara
-		SyntaxIsCommandExpressions(aPara,:Any,2)
+		SyntaxIsCommandExpressions_(aPara,:Any,2)
 
 	func SyntaxIsCommandString  aPara
-		SyntaxIsCommandExpressions(aPara,:String,1)
+		SyntaxIsCommandExpressions_(aPara,:String,1)
 
 	func SyntaxIsCommandStringString  aPara
-		SyntaxIsCommandExpressions(aPara,:String,2)
+		SyntaxIsCommandExpressions_(aPara,:String,2)
+
+	func SyntaxIsCommandStrings  aPara,nCount
+		SyntaxIsCommandExpressions_(aPara,:String,nCount)
 
 	func SyntaxIsCommandNumber  aPara
-		SyntaxIsCommandExpressions(aPara,:Number,1)
+		SyntaxIsCommandExpressions_(aPara,:Number,1)
 
 	func SyntaxIsCommandNumberNumber  aPara
-		SyntaxIsCommandExpressions(aPara,:Number,2)
+		SyntaxIsCommandExpressions_(aPara,:Number,2)
 
+	func SyntaxIsCommandNumbers  aPara,nCount
+		SyntaxIsCommandExpressions_(aPara,:Number,nCount)
+
+	func SyntaxIsCommandExpressions  aPara,nCount
+		SyntaxIsCommandExpressions_(aPara,:any,nCount)
