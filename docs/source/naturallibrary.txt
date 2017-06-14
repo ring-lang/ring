@@ -56,6 +56,37 @@ We will write the natural code in a Text file, for example program.txt
 
 	This Goal is not new, but the Ring language comes with an innovative solution to this problem. 	
 
+Output:
+
+code-block:: none
+
+	Hello, Sire!
+
+
+	The Numbers!
+
+	1
+
+	2
+
+	3
+
+	4
+
+	5
+
+	I will count Again!
+
+	5
+
+	4
+
+	3
+
+	2
+
+	1
+
 
 To execute the natural code, We have start.ring
 
@@ -202,6 +233,11 @@ Usage:
  		print "Hello, World!"
 	')
 
+Output:
+
+.. code-block:: none
+
+	Hello, World!
 
 Example (2)
 
@@ -217,7 +253,6 @@ File: iwantwindow.ring
 		}
 	])
 
-
 Usage:
 
 .. code-block:: ring
@@ -227,6 +262,12 @@ Usage:
 	MyLanguage.RunString('
  		i want window
 	')
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
 
 Example (3)
 
@@ -251,3 +292,10 @@ Usage:
 	MyLanguage.RunString('
  		I want window and the window title is "Hello World"
 	')
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: Window title is Hello World
