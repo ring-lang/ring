@@ -299,3 +299,128 @@ Output:
 
 	Command: I want window
 	Command: Window title is Hello World
+
+
+.. index:: 
+	pair: Using the Natural Library; Operators
+
+Natural Library - Operators
+===========================
+
+In the next example we uses the Count command without using operators
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString("
+		Hello	
+		Count 1 5
+		Count 5 1
+	")
+
+We can add more description
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString("
+		Hello, Please 	Count from 1 to 5 then count from 5 to 1
+	")
+
+Also we can use operators like "(" and ")" around the instruction
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage {
+		SetOperators("()")
+		RunString("
+			Here we will play and will try something
+			that looks like Lisp Syntax
+			(count  (count 1 5)  (count 20 15))
+			Just for fun!
+		")
+	}
+
+
+.. index:: 
+	pair: Using the Natural Library; Defining commands using classes
+
+Defining commands using classes
+===============================
+
+This section is relation to the implementation details.
+
+When we define new command, Each command is defined by the Natural Library as a class.
+
+This class is defined during the runtime.
+
+We have the choice to define commands using the simple interface provided by the
+DefineNaturalCommand object or by defining new class as in the next examples.
+
+File: hello.ring
+
+.. code-block:: ring
+
+	Package MyLanguage.Natural
+
+	class Hello
+
+		func AddAttributes_Hello	
+			AddAttribute(self,:hello)
+
+		func GetHello   
+			See  "Hello, Sire!" + nl + nl
+
+
+File: count.ring
+
+.. code-block:: ring
+
+	Package MyLanguage.Natural
+
+	class Count
+           
+		func Getcount
+			StartCommand()
+			CommandData()[:name] = :Count
+			CommandData()[:nExpr] = 0
+			CommandData()[:aExpr] = []
+
+		func BraceExprEval_Count nValue
+			if isCommand() and CommandData()[:name] = :Count {
+				if isNumber(nValue) {
+					CommandData()[:nExpr]++     
+					CommandData()[:aExpr] + nValue
+					if CommandData()[:nExpr] = 2 {
+						Count_Execute()
+					}
+				}
+			}
+
+		func AddAttributes_Count	
+			AddAttribute(self,:count)
+	
+		func Count_Execute
+			if not isattribute(self,:count_times) {
+				AddAttribute(self,:count_times)
+				Count_Times = 0
+			}
+			if Expr(1) > Expr(2) { 
+				nStep = -1 
+			else 
+				nStep = 1
+			}
+			if Count_Times = 0 { 
+				see nl+"The Numbers!" + nl 
+				Count_Times++
+			else 
+				see nl + "I will count Again!" +nl 
+			}
+			for x = Expr(1) to Expr(2) step nStep {
+				see nl+x+nl 
+			}
+			CommandReturn(fabs(Expr(1)-Expr(2))+1)				
