@@ -84,7 +84,7 @@ We will define two commands, Hello and Count.
 
 So we must have two files for defining the commands in the CurrentDir()+"/../command" folder
 
-Hello.ring
+File: hello.ring
 
 .. code-block:: ring
 
@@ -96,7 +96,7 @@ Hello.ring
 		}
 	])
 
-Count.ring
+File: count.ring
 
 .. code-block:: ring
 
@@ -125,3 +125,54 @@ Count.ring
 			CommandReturn(fabs(Expr(1)-Expr(2))+1)				
 		}
 	])
+
+
+.. index:: 
+	pair: Using the Natural Library; Defining Commands
+
+Defining Commands
+=================
+
+Example (1)
+
+File: print.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsKeywordExpression([
+		:Package = "MyLanguage.Natural",
+		:Keyword = :print, 
+		:Function = func {
+			See  Expr(1)  
+		}
+	])
+
+Example (2)
+
+File: iwantwindow.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsCommand([
+		:Package = "MyLanguage.Natural",
+		:Command = "i want window", 
+		:Function = func {
+			See  "Command: I want window" + nl
+		}
+	])
+
+
+Example (3)
+
+File: windowtitleis.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsCommandString([
+		:Package = "MyLanguage.Natural",
+		:Command = "window title is", 
+		:Function = func {
+			See  "Command: Window title is " + Expr(1) + nl
+		}	
+	])
+
