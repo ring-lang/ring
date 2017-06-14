@@ -53,6 +53,7 @@ Contents:
    Stdlib Classes <stdlibclasses>
    Declarative Programming using Nested Structures <declarative>
    Natural language programming	<natural>
+   Using the Natural Library <naturallibrary>
    Web Development (CGI Library) <web>
    Using RingLibCurl <libcurl>
    Using RingZip <ringzip>
