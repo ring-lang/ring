@@ -4,3 +4,24 @@
 =========================
 Using the Natural Library
 =========================
+
+In this chapter we will learn how to use the Natural Library to quickly define a language
+that contains a group of commands.
+
+To start using the library, We need to call naturallib.ring
+
+.. code-block:: ring
+
+	load "naturallib.ring"
+
+After loading the library, We can use the NaturalLanguage class that contains the 
+next methods :-
+
+* SetLanguageName(cLanguageName)
+* setCommandsPath(cFolder)
+* SetPackageName(cPackageName)
+* UseCommand(cCommandName)
+* SetOperators(cOperators)
+* RunFile(cFileName)
+* RunString(cString)
+
