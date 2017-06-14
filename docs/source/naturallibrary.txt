@@ -58,7 +58,7 @@ We will write the natural code in a Text file, for example program.txt
 
 Output:
 
-code-block:: none
+.. code-block:: none
 
 	Hello, Sire!
 
