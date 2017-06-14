@@ -352,14 +352,14 @@ Also we can use operators like "(" and ")" around the instruction
 Defining commands using classes
 ===============================
 
-This section is relation to the implementation details.
+This section is related to the implementation details.
 
 When we define new command, Each command is defined by the Natural Library as a class.
 
-This class is defined during the runtime.
-
 We have the choice to define commands using the simple interface provided by the
 DefineNaturalCommand object or by defining new class as in the next examples.
+
+If we used DefineNaturalCommand (More Simple), The class will be defined during the runtime.
 
 File: hello.ring
 
