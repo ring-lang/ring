@@ -33,6 +33,8 @@ Natural Library - Demo Program
 
 We will write the natural code in a Text file, for example program.txt
 
+File: program.txt
+
 .. code-block:: none
 
 	Welcome to the Ring programming language!
@@ -91,6 +93,8 @@ Output:
 To execute the natural code, We have start.ring
 
 In start.ring we define the language and the commands.
+
+File: start.ring
 
 .. code-block:: ring
 
