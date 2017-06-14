@@ -133,6 +133,51 @@ File: count.ring
 Defining Commands
 =================
 
+To define new command we can use the DefineNaturalCommand object
+
+This object provides the next methods :-
+
+* SyntaxIsKeyword(aPara)
+* SyntaxIsKeywordNumber(aPara)
+* SyntaxIsKeywordNumberNumber(aPara)
+* SyntaxIsKeywordNumbers(aPara,nCount)
+* SyntaxIsKeywordString(aPara)
+* SyntaxIsKeywordStringString(aPara)
+* SyntaxIsKeywordStrings(aPara,nCount)
+* SyntaxIsKeywordExpression(aPara)
+* SyntaxIsKeywordExpressionExpression(aPara)
+* SyntaxIsKeywordExpressions(aPara,nCount)
+* SyntaxIsCommand(aPara)
+* SyntaxIsCommandNumber(aPara)
+* SyntaxIsCommandNumberNumber(aPara)
+* SyntaxIsCommandNumbers(aPara,nCount)
+* SyntaxIsCommandString(aPara)
+* SyntaxIsCommandStringString(aPara)
+* SyntaxIsCommandStrings(aPara,nCount)
+* SyntaxIsCommandExpression(aPara)
+* SyntaxIsCommandExpressionExpression(aPara)
+* SyntaxIsCommandExpressions(aPara,nCount)
+
+File: mylanguage.ring
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	load "naturallib.ring"
+
+	MyLanguage = New NaturalLanguage {
+		SetLanguageName(:MyLanguage)
+		setCommandsPath(CurrentDir()+"/../command")
+		SetPackageName("MyLanguage.Natural")
+		UseCommand(:Hello)
+		UseCommand(:Count)
+		UseCommand(:Print)
+		UseCommand(:IWantWindow)
+		UseCommand(:WindowTitleIs)
+		UseCommand(:IWantButton)
+	}
+
+
 Example (1)
 
 File: print.ring
@@ -204,5 +249,5 @@ Usage:
 	load "mylanguage.ring"
 
 	MyLanguage.RunString('
- 		i want window and the window title is "Hello World"
+ 		I want window and the window title is "Hello World"
 	')
