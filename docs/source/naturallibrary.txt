@@ -147,6 +147,17 @@ File: print.ring
 		}
 	])
 
+Usage:
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString('
+ 		print "Hello, World!"
+	')
+
+
 Example (2)
 
 File: iwantwindow.ring
@@ -162,6 +173,16 @@ File: iwantwindow.ring
 	])
 
 
+Usage:
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString('
+ 		i want window
+	')
+
 Example (3)
 
 File: windowtitleis.ring
@@ -176,3 +197,12 @@ File: windowtitleis.ring
 		}	
 	])
 
+Usage:
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString('
+ 		i want window and the window title is "Hello World"
+	')
