@@ -16,7 +16,7 @@ List of changes and new features
 Ring 1.4  comes with many new features 
 
 * The Natural Library
-* New Style to Ring Notepad
+* New Style is added to Ring Notepad
 * RingREPL
 * Convert between Numbers and Bytes
 * Better StdLib
@@ -170,8 +170,8 @@ File: count.ring
 .. index:: 
 	pair: What is new in Ring 1.4?; New Style to Ring Notepad
 
-New Style to Ring Notepad
-=========================
+New Style is added to Ring Notepad
+==================================
 
 In Ring Notepad - From View - Styles - Select the (Modern) Style
 
