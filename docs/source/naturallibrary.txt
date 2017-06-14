@@ -223,6 +223,16 @@ File: mylanguage.ring
 
 Example (1)
 
+In the next example we will define the Print command.
+
+We will use the SyntaxIsKeywordExpression() Method.
+
+We pass list (as Hash) to the method. We determine the package name, the keyword and
+the function that will be executed.
+
+Inside this function we uses the Expr(nExprNumber) function to get the expression value that the
+user will write after the keyword.
+
 File: print.ring
 
 .. code-block:: ring
