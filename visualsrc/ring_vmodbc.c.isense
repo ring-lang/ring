@@ -88,7 +88,7 @@ pODBC
 ring_vm_odbc_getdata
 Type: ring_odbc *
 pODBC
-Type: SQLINTEGER
+Type: SQLLEN
 indicator
 Type: SQLUSMALLINT
 i

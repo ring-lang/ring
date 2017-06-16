@@ -97,23 +97,8 @@
 #ifdef RING_VM_REFMETA
 #include "ring_vmrefmeta.h"
 #endif
-#ifdef RING_VM_MYSQL
-#include "ring_vmmysql.h"
-#endif
-#ifdef RING_VM_ODBC
-#include "ring_vmodbc.h"
-#endif
-#ifdef RING_VM_OPENSSL
-#include "ring_vmopenssl.h"
-#endif
-#ifdef RING_VM_CURL
-#include "ring_vmcurl.h"
-#endif
 #ifdef RING_VM_DLL
 #include "ring_vmdll.h"
-#endif
-#ifdef RING_VM_SQLITE
-#include "ring_vmsqlite.h"
 #endif
 #include "ring_hashlib.h"
 #include "ring_hashtable.h"
