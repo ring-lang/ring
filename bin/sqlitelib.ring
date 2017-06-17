@@ -1,1 +1,1 @@
-load "/../extensions/ringsqllite/sqllitelib.ring"
+load "/../extensions/ringsqlite/sqlitelib.ring"
