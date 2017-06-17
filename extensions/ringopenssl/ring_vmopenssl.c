@@ -11,7 +11,7 @@
 #include "ring_vmopenssl.h"
 /* Functions */
 
-void ring_vm_openssl_loadfunctions ( RingState *pRingState )
+RING_API void ringlib_init ( RingState *pRingState )
 {
 	ring_vm_funcregister("md5",ring_vm_openssl_md5);
 	ring_vm_funcregister("sha1",ring_vm_openssl_sha1);
