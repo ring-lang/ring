@@ -8,6 +8,7 @@
 #include <sql.h>
 #include <sqlext.h>
 #include "ring.h"
+#include "ring_vmodbc.h"
 /* Data */
 typedef struct ring_odbc {
 	SQLHENV env  ;
