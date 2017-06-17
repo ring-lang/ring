@@ -1,3 +1,5 @@
+Load "mysqllib.ring"
+
 Import System.Web
 
 Class Database

@@ -1,6 +1,7 @@
 ﻿#!b:\ring\bin\ring.exe -cgi
 
 Load "weblib.ring"
+Load "openssllib.ring"
 Import System.Web
 
 New Page 

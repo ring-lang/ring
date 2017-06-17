@@ -2,6 +2,7 @@
 
 Load "weblib.ring"
 Load "datalib.ring"
+Load "openssllib.ring"
 Load "ex25_users.ring"
 
 Import System.Web
