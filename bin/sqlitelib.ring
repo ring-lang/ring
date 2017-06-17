@@ -1,0 +1,1 @@
+load "/../extensions/ringsqllite/sqllitelib.ring"
