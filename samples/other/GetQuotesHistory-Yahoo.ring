@@ -1,7 +1,7 @@
 ### http://ring-lang.net/
 ### Yahoo changed their interface 2017-05-15 to get historical quote data for a stock
 ### They now send a Cookie and Crumb and expect the Request to provide those values
-
+load "internetlib.ring"
 load "libcurl.ring"
 load "Stdlib.ring"
 

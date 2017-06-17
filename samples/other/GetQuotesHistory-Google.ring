@@ -1,6 +1,6 @@
 ### Works with Google Finance only
 ### For Yahoo use GetQuotesHistory-Yahoo.ring  uses Cookie and Crumb
-
+load "internetlib.ring"
 /*
  +--------------------------------------------------------------------------
  +        Program Name : GetQuotesHistory.ring

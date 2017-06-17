@@ -1,5 +1,5 @@
 Load "guilib.ring"
-
+load "internetlib.ring"
 /*
  +------------------------------------------------------------------------------------------
  +        Program Name : GetQuotesHistoryDraw.ring
