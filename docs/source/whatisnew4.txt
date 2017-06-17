@@ -26,10 +26,10 @@ Ring 1.4  comes with many new features
 * Qt Class Convertor
 
 .. index:: 
-	pair: What is new in Ring 1.4?; Basic Extensions are separated from RingVM
+	pair: What is new in Ring 1.4?; Change: Basic Extensions are separated from RingVM
 
-Basic Extensions are separated from RingVM
-==========================================
+Change: Basic Extensions are separated from RingVM
+==================================================
 
 In Ring 1.4 the next libraries are separated from RingVM
 

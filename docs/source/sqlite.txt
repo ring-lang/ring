@@ -7,6 +7,13 @@ SQLite Functions
 
 In this chapter we will learn about using the SQLite database in the Ring programming language.
 
+Before using the next function load the sqlitelib.ring library
+
+.. code-block:: ring
+
+	load sqlitelib.ring
+	# Use SQLite functions
+
 .. index:: 
 	pair: SQLite; sqlite_init()
 
