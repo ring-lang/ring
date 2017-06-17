@@ -8,6 +8,7 @@
 #include "openssl/sha.h"
 #include "openssl/evp.h"
 #include "openssl/rand.h"
+#include "ring_vmopenssl.h"
 /* Functions */
 
 void ring_vm_openssl_loadfunctions ( RingState *pRingState )
