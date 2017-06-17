@@ -3,7 +3,7 @@
 #define ring_vmmysql_h
 /* Functions */
 
-void ring_vm_mysql_loadfunctions ( RingState *pRingState ) ;
+RING_API void ringlib_init ( RingState *pRingState ) ;
 
 void ring_vm_mysql_get_client_info ( void *pPointer ) ;
 

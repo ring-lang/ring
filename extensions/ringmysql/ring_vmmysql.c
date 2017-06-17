@@ -5,7 +5,7 @@
 #include "ring_vmmysql.h"
 /* Functions */
 
-void ring_vm_mysql_loadfunctions ( RingState *pRingState )
+RING_API void ringlib_init ( RingState *pRingState )
 {
 	ring_vm_funcregister("mysql_info",ring_vm_mysql_get_client_info);
 	ring_vm_funcregister("mysql_init",ring_vm_mysql_init);
