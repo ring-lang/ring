@@ -214,7 +214,7 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 	return NULL ;
 }
 
-void ring_vm_api_setcpointernull ( void *pPointer,int x )
+RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x )
 {
 	List *pList, *pList2  ;
 	int y  ;
