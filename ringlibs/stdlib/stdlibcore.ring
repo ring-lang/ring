@@ -3,6 +3,8 @@
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 # 2016, CalmoSoft <calmosoft@gmail.com>
 
+Load "stdlib.rh"
+
 /*
 	Function Name	: puts
 	Usage		: print the value then print new line (nl)
