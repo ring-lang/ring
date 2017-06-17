@@ -18,6 +18,65 @@ then
 cp lib/libring.so /usr/local/lib
 fi
 	
+# Make the RingODBC library ready for use directly
+
+if [ -f lib/libring_odbclib.dylib ];
+then
+cp lib/libring_odbclib.dylib /usr/local/lib
+fi
+
+if [ -f lib/libring_odbclib.so ];
+then
+cp lib/libring_odbclib.so /usr/local/lib
+fi
+
+# Make the RingMySQL library ready for use directly
+
+if [ -f lib/libring_mysqllib.dylib ];
+then
+cp lib/libring_mysqllib.dylib /usr/local/lib
+fi
+
+if [ -f lib/libring_mysqllib.so ];
+then
+cp lib/libring_mysqllib.so /usr/local/lib
+fi
+
+# Make the RingSQLite library ready for use directly
+
+if [ -f lib/libring_sqlitelib.dylib ];
+then
+cp lib/libring_sqlitelib.dylib /usr/local/lib
+fi
+
+if [ -f lib/libring_sqlitelib.so ];
+then
+cp lib/libring_sqlitelib.so /usr/local/lib
+fi
+
+# Make the RingInternet library ready for use directly
+
+if [ -f lib/libring_internetlib.dylib ];
+then
+cp lib/libring_internetlib.dylib /usr/local/lib
+fi
+
+if [ -f lib/libring_internetlib.so ];
+then
+cp lib/libring_internetlib.so /usr/local/lib
+fi
+
+# Make the RingOpenSSL library ready for use directly
+
+if [ -f lib/libring_openssllib.dylib ];
+then
+cp lib/libring_openssllib.dylib /usr/local/lib
+fi
+
+if [ -f lib/libring_openssllib.so ];
+then
+cp lib/libring_openssllib.so /usr/local/lib
+fi
 
 # Make the RingAllegro library ready for use directly
 	
@@ -54,3 +113,16 @@ if [ -f lib/libring_libcurl.so ];
 then
 cp lib/libring_libcurl.so /usr/local/lib
 fi
+
+# Make the RingZipLib library ready for use directly
+
+if [ -f lib/libring_ziplib.dylib ];
+then
+cp lib/libring_ziplib.dylib /usr/local/lib
+fi
+
+if [ -f lib/libring_ziplib.so ];
+then
+cp lib/libring_ziplib.so /usr/local/lib
+fi
+
