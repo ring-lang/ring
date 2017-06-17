@@ -4,6 +4,7 @@
 */
 #include "ring.h"
 #include "sqlite3.h"
+#include "ring_vmsqlite.h"
 /* Data */
 typedef struct ring_sqlite {
 	sqlite3 *db  ;
