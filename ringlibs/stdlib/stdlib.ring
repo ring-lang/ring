@@ -6,3 +6,11 @@
 Load "stdlib.rh"
 Load "stdclasses.ring"
 Load "stdlibcore.ring"
+
+# Load Basic Extensions
+
+Load "odbclib.ring"
+Load "mysqllib.ring"
+Load "sqlitelib.ring"
+Load "internetlib.ring"
+Load "openssllib.ring"
