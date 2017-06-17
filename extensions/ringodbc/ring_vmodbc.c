@@ -18,7 +18,7 @@ typedef struct ring_odbc {
 } ring_odbc ;
 /* Functions */
 
-void ring_vm_odbc_loadfunctions ( RingState *pRingState )
+RING_API void ringlib_init ( RingState *pRingState )
 {
 	ring_vm_funcregister("odbc_init",ring_vm_odbc_init);
 	ring_vm_funcregister("odbc_drivers",ring_vm_odbc_drivers);

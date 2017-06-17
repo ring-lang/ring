@@ -3,7 +3,7 @@
 #define ring_vmodbc_h
 /* Functions */
 
-void ring_vm_odbc_loadfunctions ( RingState *pRingState ) ;
+RING_API void ringlib_init ( RingState *pRingState ) ;
 
 void ring_vm_odbc_init ( void *pPointer ) ;
 
