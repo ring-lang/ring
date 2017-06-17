@@ -3,7 +3,7 @@
 #define ring_vmsqlite_h
 /* Functions */
 
-void ring_vm_sqlite_loadfunctions ( RingState *pRingState ) ;
+RING_API void ringlib_init ( RingState *pRingState ) ;
 
 void ring_vm_sqlite_init ( void *pPointer ) ;
 
