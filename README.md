@@ -41,6 +41,31 @@ The next steps explains building using scripts.
 	cd ring/src
 	buildvccomplete.bat
 	buildvccompletew.bat
+
+### Build RingODBC
+	
+	cd ../extensions/ringodbc
+	buildvc.bat
+
+### Build RingMySQL
+	
+	cd ../extensions/ringmysql
+	buildvc.bat
+
+### Build RingSQLite
+	
+	cd ../extensions/ringsqlite
+	buildvc.bat
+
+### Build RingOpenSSL
+	
+	cd ../extensions/ringopenssl
+	buildvc.bat
+
+### Build RingInternet
+	
+	cd ../extensions/ringinternet
+	buildvc.bat
 	
 ### Generate RingAllegro Source Code and Build 
 	
@@ -102,6 +127,31 @@ The next steps explains building using scripts.
 ### Build Ring (Compiler/VM)
 	
 	sudo ./buildgcccomplete.sh
+
+### Build RingODBC
+	
+	cd ../extensions/ringodbc
+	./buildgcc.sh
+
+### Build RingMySQL
+	
+	cd ../extensions/ringmysql
+	./buildgcc.sh
+
+### Build RingSQLite
+	
+	cd ../extensions/ringsqlite
+	./buildgcc.sh
+
+### Build RingOpenSSL
+	
+	cd ../extensions/ringopenssl
+	./buildgcc.sh
+
+### Build RingInternet
+	
+	cd ../extensions/ringinternet
+	./buildgcc.sh
 	
 ### Generate RingAllegro Source Code and Build 
 	
@@ -155,6 +205,30 @@ The next steps explains building using scripts.
 	cd ring/src
 	./buildclangcomplete.sh
 	
+### Build RingODBC
+	
+	cd ../extensions/ringodbc
+	./buildclang.sh
+
+### Build RingMySQL
+	
+	cd ../extensions/ringmysql
+	./buildclang.sh
+
+### Build RingSQLite
+	
+	cd ../extensions/ringsqlite
+	./buildclang.sh
+
+### Build RingOpenSSL
+	
+	cd ../extensions/ringopenssl
+	./buildclang.sh
+
+### Build RingInternet
+	
+	cd ../extensions/ringinternet
+	./buildclang.sh
 	
 ### Generate RingAllegro Source Code and Build 
 	
@@ -188,11 +262,9 @@ The next steps explains building using scripts.
 	
 	cd applications/rnote
 	sudo ring rnote.ring
-	
+
 
 ## Building using CMake 
-
-Install libraries (MySQL Client, OpenSSL, LibCurl, Allegro 5 and Qt 5.5)
 
 	cmake .
 	make
