@@ -2,6 +2,7 @@
 #include <my_global.h>
 #include <mysql.h>
 #include "ring.h"
+#include "ring_vmmysql.h"
 /* Functions */
 
 void ring_vm_mysql_loadfunctions ( RingState *pRingState )
