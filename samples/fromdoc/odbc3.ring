@@ -1,3 +1,5 @@
+load "odbclib.ring"
+
 See "ODBC test 3" + nl
 pODBC = odbc_init()
 See "Connect to database" + nl

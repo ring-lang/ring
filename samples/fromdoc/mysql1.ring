@@ -1,3 +1,4 @@
+load "mysqllib.ring"
 See "MySQL Test - Create Database" + nl
 con = mysql_init()
 

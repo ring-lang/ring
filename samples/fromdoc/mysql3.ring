@@ -1,3 +1,5 @@
+load "mysqllib.ring"
+
 con = mysql_init()
 see "connect to database" + nl
 mysql_connect(con,"localhost","root","root","mahdb")

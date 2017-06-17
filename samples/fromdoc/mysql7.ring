@@ -1,3 +1,5 @@
+load "mysqllib.ring"
+
 See "Read file" + nl
 cFile = read("tests\mahmoud.jpg")
 con = mysql_init()

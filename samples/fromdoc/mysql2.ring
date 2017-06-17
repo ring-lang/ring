@@ -1,3 +1,5 @@
+load "mysqllib.ring"
+
 func main
         see "Create Table and Insert Records" + nl
         con = mysql_init()

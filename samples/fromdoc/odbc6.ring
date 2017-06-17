@@ -1,3 +1,5 @@
+load "odbclib.ring"
+
 See "ODBC test - Get Table Columns" + nl
 pODBC = odbc_init()
 See "Connect to database" + nl
