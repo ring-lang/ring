@@ -8,6 +8,13 @@ Security and Internet Functions
 This chapter contains the security and internet functions provided by the Ring programming language
 for Hashing, Encryption & Decryption.
 
+Before using the next function load the openssllib.ring library
+
+.. code-block:: ring
+
+	load "openssllib.ring"
+	# Use OpenSSL functions
+
 * MD5()
 * SHA1()
 * SHA256()
@@ -17,6 +24,14 @@ for Hashing, Encryption & Decryption.
 * Encrypt()
 * Decrypt()
 * Randbytes()
+
+Before using the next function load the internetlib.ring library
+
+.. code-block:: ring
+
+	load "internetlib.ring"
+	# Use the Internet functions
+
 * Download()
 * SendEmail()
 
