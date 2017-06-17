@@ -23,6 +23,13 @@ In this chapter we are going to learn about the MySQL functions provided by the 
 * MySQL_Commit()
 * MySQL_Rollback()
 
+Before using the next function load the mysqllib.ring library
+
+.. code-block:: ring
+
+	load "mysqllib.ring"
+	# Use MySQL functions
+
 .. index:: 
 	pair: MySQL Functions; MySQL_Info()
 

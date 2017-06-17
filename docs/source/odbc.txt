@@ -27,7 +27,7 @@ Before using the next function load the odbclib.ring library
 
 .. code-block:: ring
 
-	load odbclib.ring
+	load "odbclib.ring"
 	# Use ODBC functions
 
 .. index:: 

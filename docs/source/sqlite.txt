@@ -11,7 +11,7 @@ Before using the next function load the sqlitelib.ring library
 
 .. code-block:: ring
 
-	load sqlitelib.ring
+	load "sqlitelib.ring"
 	# Use SQLite functions
 
 .. index:: 
