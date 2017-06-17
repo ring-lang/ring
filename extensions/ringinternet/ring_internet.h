@@ -3,7 +3,7 @@
 #define ring_internet_h
 /* Functions */
 
-void ring_vm_curl_loadfunctions ( RingState *pRingState ) ;
+RING_API void ringlib_init ( RingState *pRingState ) ;
 
 size_t ring_getcurldata ( void *buffer, size_t size, size_t nmemb, void *pString ) ;
 

@@ -1,4 +1,4 @@
-ring_vmcurl_h
+ring_internet_h
 RING_VM_POINTER_CURL
 Parent: upload_status
 Type: int
