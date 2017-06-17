@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.4  comes with many new features 
 
+* Change: Basic Extensions are separated from RingVM
 * The Natural Library
 * New Style is added to Ring Notepad
 * RingREPL
@@ -24,7 +25,54 @@ Ring 1.4  comes with many new features
 * Better RingQt
 * Qt Class Convertor
 
+.. index:: 
+	pair: What is new in Ring 1.4?; Basic Extensions are separated from RingVM
 
+Basic Extensions are separated from RingVM
+==========================================
+
+In Ring 1.4 the next libraries are separated from RingVM
+
+* RingODBC
+* RingMySQL
+* RingSQLite
+* RingOpenSSL
+* RingInternet
+
+To use these libraries, Use the Load command.
+
+.. code-block:: none
+
+	load "odbclib.ring"
+	# use ODBC Functions
+
+.. code-block:: none
+
+	load "mysqllib.ring"
+	# use MySQL Functions
+
+.. code-block:: none
+
+	load "sqlitelib.ring"
+	# use SQLite Functions
+
+.. code-block:: none
+
+	load "openssllib.ring"
+	# use OpenSSL Functions  ( Hash and Security functions)
+
+.. code-block:: none
+
+	load "internetlib.ring"
+	# use Internet Functions ( Download() and SendEmail)
+
+If you will use all of these libraries, You can just use stdlib.ring
+And the stdlib.ring will load odbclib.ring, mysqllib.ring, sqlitelib.ring,
+opensslib.ring and internetlib.ring files.
+
+.. code-block:: none
+
+	load "stdlib.ring"
 
 .. index:: 
 	pair: What is new in Ring 1.4?; The Natural Library
