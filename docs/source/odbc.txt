@@ -23,6 +23,13 @@ This chapter contains the ODBC functions provided by the Ring programming langua
 * odbc_commit()
 * odbc_rollback()
 
+Before using the next function load the odbclib.ring library
+
+.. code-block:: ring
+
+	load odbclib.ring
+	# Use ODBC functions
+
 .. index:: 
 	pair: ODBC Functions; odbc_init()
 
