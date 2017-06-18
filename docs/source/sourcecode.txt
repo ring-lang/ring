@@ -31,6 +31,41 @@ Build Ring (Compiler/VM)
 	buildvccomplete.bat
 	buildvccompletew.bat
 
+Build RingODBC
+
+.. code-block:: ring
+	
+	cd ../extensions/ringodbc
+	buildvc.bat
+
+Build RingMySQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmysql
+	buildvc.bat
+
+Build RingSQLite
+
+.. code-block:: ring
+	
+	cd ../extensions/ringsqlite
+	buildvc.bat
+
+Build RingOpenSSL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopenssl
+	buildvc.bat
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	buildvc.bat
+
 Generate RingAllegro Source Code and Build
 
 .. code-block:: ring
@@ -116,6 +151,41 @@ Build Ring (Compiler/VM)
 
 	sudo ./buildgcccomplete.sh
 
+Build RingODBC
+
+.. code-block:: ring
+	
+	cd ../extensions/ringodbc
+	./buildgcc.sh
+
+Build RingMySQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmysql
+	./buildgcc.sh
+
+Build RingSQLite
+
+.. code-block:: ring
+	
+	cd ../extensions/ringsqlite
+	./buildgcc.sh
+
+Build RingOpenSSL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopenssl
+	./buildgcc.sh
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	./buildgcc.sh
+	
 Generate RingAllegro Source Code and Build
 
 .. code-block:: ring
@@ -189,6 +259,41 @@ Build Ring (Compiler/VM)
 	cd ring/src
 	./buildclangcomplete.sh
 
+Build RingODBC
+
+.. code-block:: ring
+	
+	cd ../extensions/ringodbc
+	./buildclang.sh
+
+Build RingMySQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmysql
+	./buildclang.sh
+
+Build RingSQLite
+
+.. code-block:: ring
+	
+	cd ../extensions/ringsqlite
+	./buildclang.sh
+
+Build RingOpenSSL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopenssl
+	./buildclang.sh
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	./buildclang.sh
+	
 Generate RingAllegro Source Code and Build
 
 .. code-block:: ring
