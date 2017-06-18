@@ -25,29 +25,9 @@ void ring_vm_extension ( RingState *pRingState )
 	#if RING_VM_OS
 	ring_vm_os_loadfunctions(pRingState);
 	#endif
-	/* MySQL */
-	#if RING_VM_MYSQL
-	ring_vm_mysql_loadfunctions(pRingState);
-	#endif
-	/* ODBC */
-	#if RING_VM_ODBC
-	ring_vm_odbc_loadfunctions(pRingState);
-	#endif
-	/* OPENSSL */
-	#if RING_VM_OPENSSL
-	ring_vm_openssl_loadfunctions(pRingState);
-	#endif
-	/* CURL */
-	#if RING_VM_CURL
-	ring_vm_curl_loadfunctions(pRingState);
-	#endif
 	/* DLL */
 	#if RING_VM_DLL
 	ring_vm_dll_loadfunctions(pRingState);
-	#endif
-	/* SQLITE */
-	#if RING_VM_SQLITE
-	ring_vm_sqlite_loadfunctions(pRingState);
 	#endif
 
 	ringlib_init(pRingState);
