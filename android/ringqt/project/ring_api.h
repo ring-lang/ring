@@ -22,7 +22,7 @@ RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char
 
 RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType ) ;
 
-void ring_vm_api_setcpointernull ( void *pPointer,int x ) ;
+RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x ) ;
 
 void ring_vm_extension ( RingState *pRingState ) ;
 
