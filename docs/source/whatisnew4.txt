@@ -64,7 +64,7 @@ To use these libraries, Use the Load command.
 .. code-block:: none
 
 	load "internetlib.ring"
-	# use Internet Functions ( Download() and SendEmail)
+	# use Internet Functions ( Download() and SendEmail() )
 
 If you will use all of these libraries, You can just use stdlib.ring
 And the stdlib.ring will load odbclib.ring, mysqllib.ring, sqlitelib.ring,
