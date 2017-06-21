@@ -32,6 +32,7 @@ INPUT(
 ./release\gheaderview.o
 ./release\gprocess.o
 ./release\gtoolbutton.o
+./release\gserialport.o
 ./release\ring_qt.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
@@ -66,4 +67,5 @@ INPUT(
 ./release\moc_gprocess.o
 ./release\moc_gtoolbutton.o
 ./release\moc_gheaderview.o
+./release\moc_gserialport.o
 );

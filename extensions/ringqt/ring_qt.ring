@@ -14851,6 +14851,152 @@ Class QToolButton from QAbstractButton
 	Func getClickEvent 
 		return QToolButton_getClickEvent(pObject)
 
+Class QSerialPort from QIODevice
+
+	pObject
+
+	Func init P1
+		pObject = QSerialPort_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSerialPort_delete(pObject)
+
+	Func baudRate P1
+		return QSerialPort_baudRate(pObject,P1)
+
+	Func clear P1
+		return QSerialPort_clear(pObject,P1)
+
+	Func clearError 
+		return QSerialPort_clearError(pObject)
+
+	Func dataBits 
+		return QSerialPort_dataBits(pObject)
+
+	Func error 
+		return QSerialPort_error(pObject)
+
+	Func flowControl 
+		return QSerialPort_flowControl(pObject)
+
+	Func flush 
+		return QSerialPort_flush(pObject)
+
+	Func handle 
+		return QSerialPort_handle(pObject)
+
+	Func isBreakEnabled 
+		return QSerialPort_isBreakEnabled(pObject)
+
+	Func isDataTerminalReady 
+		return QSerialPort_isDataTerminalReady(pObject)
+
+	Func isRequestToSend 
+		return QSerialPort_isRequestToSend(pObject)
+
+	Func parity 
+		return QSerialPort_parity(pObject)
+
+	Func pinoutSignals 
+		return QSerialPort_pinoutSignals(pObject)
+
+	Func portName 
+		return QSerialPort_portName(pObject)
+
+	Func readBufferSize 
+		return QSerialPort_readBufferSize(pObject)
+
+	Func setBaudRate P1,P2
+		return QSerialPort_setBaudRate(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setBreakEnabled P1
+		return QSerialPort_setBreakEnabled(pObject,P1)
+
+	Func setDataBits P1
+		return QSerialPort_setDataBits(pObject,P1)
+
+	Func setDataTerminalReady P1
+		return QSerialPort_setDataTerminalReady(pObject,P1)
+
+	Func setFlowControl P1
+		return QSerialPort_setFlowControl(pObject,P1)
+
+	Func setParity P1
+		return QSerialPort_setParity(pObject,P1)
+
+	Func setPort P1
+		return QSerialPort_setPort(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPortName P1
+		return QSerialPort_setPortName(pObject,P1)
+
+	Func setReadBufferSize P1
+		return QSerialPort_setReadBufferSize(pObject,P1)
+
+	Func setRequestToSend P1
+		return QSerialPort_setRequestToSend(pObject,P1)
+
+	Func setStopBits P1
+		return QSerialPort_setStopBits(pObject,P1)
+
+	Func stopBits 
+		return QSerialPort_stopBits(pObject)
+
+	Func setbaudRateChangedEvent P1
+		return QSerialPort_setbaudRateChangedEvent(pObject,P1)
+
+	Func setbreakEnabledChangedEvent P1
+		return QSerialPort_setbreakEnabledChangedEvent(pObject,P1)
+
+	Func setdataBitsChangedEvent P1
+		return QSerialPort_setdataBitsChangedEvent(pObject,P1)
+
+	Func setdataTerminalReadyChangedEvent P1
+		return QSerialPort_setdataTerminalReadyChangedEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QSerialPort_seterrorEvent(pObject,P1)
+
+	Func setflowControlChangedEvent P1
+		return QSerialPort_setflowControlChangedEvent(pObject,P1)
+
+	Func setparityChangedEvent P1
+		return QSerialPort_setparityChangedEvent(pObject,P1)
+
+	Func setrequestToSendChangedEvent P1
+		return QSerialPort_setrequestToSendChangedEvent(pObject,P1)
+
+	Func setstopBitsChangedEvent P1
+		return QSerialPort_setstopBitsChangedEvent(pObject,P1)
+
+	Func getbaudRateChangedEvent 
+		return QSerialPort_getbaudRateChangedEvent(pObject)
+
+	Func getbreakEnabledChangedEvent 
+		return QSerialPort_getbreakEnabledChangedEvent(pObject)
+
+	Func getdataBitsChangedEvent 
+		return QSerialPort_getdataBitsChangedEvent(pObject)
+
+	Func getdataTerminalReadyChangedEvent 
+		return QSerialPort_getdataTerminalReadyChangedEvent(pObject)
+
+	Func geterrorEvent 
+		return QSerialPort_geterrorEvent(pObject)
+
+	Func getflowControlChangedEvent 
+		return QSerialPort_getflowControlChangedEvent(pObject)
+
+	Func getparityChangedEvent 
+		return QSerialPort_getparityChangedEvent(pObject)
+
+	Func getrequestToSendChangedEvent 
+		return QSerialPort_getrequestToSendChangedEvent(pObject)
+
+	Func getstopBitsChangedEvent 
+		return QSerialPort_getstopBitsChangedEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

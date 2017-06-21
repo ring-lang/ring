@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets
+QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets serialport
 
 TARGET = ringqt
 TEMPLATE = lib
@@ -45,6 +45,7 @@ SOURCES +=   \
     gheaderview.cpp \
     gprocess.cpp \
     gtoolbutton.cpp \
+    gserialport.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -80,7 +81,8 @@ HEADERS  += \
     gplaintextedit.h \
     gprocess.h  \
     gtoolbutton.h \
-    gheaderview.h 
+    gheaderview.h \
+    gserialport.h 
 
 INCLUDEPATH += ../../include
 

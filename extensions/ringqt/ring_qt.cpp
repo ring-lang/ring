@@ -206,6 +206,8 @@ extern "C" {
 #include <QToolButton>
 #include "GToolButton.h"
 
+#include <QSerialPort>
+#include "gserialport.h"
 
 extern "C" {
 
@@ -82470,6 +82472,864 @@ RING_FUNC(ring_QToolButton_getClickEvent)
 	RING_API_RETSTRING(pObject->getClickEvent());
 }
 
+
+RING_FUNC(ring_QSerialPort_baudRate)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		qint32 *pValue ; 
+		pValue = (qint32 *) malloc(sizeof(qint32)) ;
+		*pValue = pObject->baudRate( (QSerialPort::Directions )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"qint32");
+	}
+}
+
+
+RING_FUNC(ring_QSerialPort_clear)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->clear( (QSerialPort::Directions )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSerialPort_clearError)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	pObject->clearError();
+}
+
+
+RING_FUNC(ring_QSerialPort_dataBits)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->dataBits());
+}
+
+
+RING_FUNC(ring_QSerialPort_error)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->error());
+}
+
+
+RING_FUNC(ring_QSerialPort_flowControl)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->flowControl());
+}
+
+
+RING_FUNC(ring_QSerialPort_flush)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->flush());
+}
+
+
+RING_FUNC(ring_QSerialPort_handle)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETCPOINTER(pObject->handle(),"void");
+}
+
+
+RING_FUNC(ring_QSerialPort_isBreakEnabled)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->isBreakEnabled());
+}
+
+
+RING_FUNC(ring_QSerialPort_isDataTerminalReady)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->isDataTerminalReady());
+}
+
+
+RING_FUNC(ring_QSerialPort_isRequestToSend)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->isRequestToSend());
+}
+
+
+RING_FUNC(ring_QSerialPort_parity)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->parity());
+}
+
+
+RING_FUNC(ring_QSerialPort_pinoutSignals)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->pinoutSignals());
+}
+
+
+RING_FUNC(ring_QSerialPort_portName)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->portName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QSerialPort_readBufferSize)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->readBufferSize());
+}
+
+
+RING_FUNC(ring_QSerialPort_setBaudRate)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setBaudRate(* (qint32  *) RING_API_GETCPOINTER(2,"qint32"), (QSerialPort::Directions )  (int) RING_API_GETNUMBER(3)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"qint32"));
+}
+
+
+RING_FUNC(ring_QSerialPort_setBreakEnabled)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setBreakEnabled( (bool ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSerialPort_setDataBits)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setDataBits( (QSerialPort::DataBits )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSerialPort_setDataTerminalReady)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setDataTerminalReady( (bool ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSerialPort_setFlowControl)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setFlowControl( (QSerialPort::FlowControl )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSerialPort_setParity)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setParity( (QSerialPort::Parity )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSerialPort_setPort)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	pObject->setPort(* (QSerialPortInfo  *) RING_API_GETCPOINTER(2,"QSerialPortInfo"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QSerialPortInfo"));
+}
+
+
+RING_FUNC(ring_QSerialPort_setPortName)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPortName(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_setReadBufferSize)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setReadBufferSize( (qint64 ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_setRequestToSend)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setRequestToSend( (bool ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSerialPort_setStopBits)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->setStopBits( (QSerialPort::StopBits )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QSerialPort_stopBits)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETNUMBER(pObject->stopBits());
+}
+
+
+RING_FUNC(ring_QSerialPort_setbaudRateChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setbaudRateChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_setbreakEnabledChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setbreakEnabledChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_setdataBitsChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdataBitsChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_setdataTerminalReadyChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdataTerminalReadyChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_seterrorEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->seterrorEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_setflowControlChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setflowControlChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_setparityChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setparityChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_setrequestToSendChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setrequestToSendChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_setstopBitsChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setstopBitsChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QSerialPort_getbaudRateChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->getbaudRateChangedEvent());
+}
+
+
+RING_FUNC(ring_QSerialPort_getbreakEnabledChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->getbreakEnabledChangedEvent());
+}
+
+
+RING_FUNC(ring_QSerialPort_getdataBitsChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->getdataBitsChangedEvent());
+}
+
+
+RING_FUNC(ring_QSerialPort_getdataTerminalReadyChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->getdataTerminalReadyChangedEvent());
+}
+
+
+RING_FUNC(ring_QSerialPort_geterrorEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->geterrorEvent());
+}
+
+
+RING_FUNC(ring_QSerialPort_getflowControlChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->getflowControlChangedEvent());
+}
+
+
+RING_FUNC(ring_QSerialPort_getparityChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->getparityChangedEvent());
+}
+
+
+RING_FUNC(ring_QSerialPort_getrequestToSendChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->getrequestToSendChangedEvent());
+}
+
+
+RING_FUNC(ring_QSerialPort_getstopBitsChangedEvent)
+{
+	GSerialPort *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
+	RING_API_RETSTRING(pObject->getstopBitsChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -84437,6 +85297,21 @@ RING_FUNC(ring_QToolButton_new)
 	}
 	GToolButton *pObject = new GToolButton((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QToolButton");
+}
+
+RING_FUNC(ring_QSerialPort_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GSerialPort *pObject = new GSerialPort((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QSerialPort");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -86640,6 +87515,21 @@ RING_FUNC(ring_QToolButton_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GToolButton *) RING_API_GETCPOINTER(1,"GToolButton");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSerialPort_delete)
+{
+	GSerialPort *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"GSerialPort");
 		delete pObject ;
 	}
 }
@@ -90694,6 +91584,51 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtoolbutton_gettriggeredevent",ring_QToolButton_gettriggeredEvent);
 	ring_vm_funcregister("qtoolbutton_setclickevent",ring_QToolButton_setClickEvent);
 	ring_vm_funcregister("qtoolbutton_getclickevent",ring_QToolButton_getClickEvent);
+	ring_vm_funcregister("qserialport_baudrate",ring_QSerialPort_baudRate);
+	ring_vm_funcregister("qserialport_clear",ring_QSerialPort_clear);
+	ring_vm_funcregister("qserialport_clearerror",ring_QSerialPort_clearError);
+	ring_vm_funcregister("qserialport_databits",ring_QSerialPort_dataBits);
+	ring_vm_funcregister("qserialport_error",ring_QSerialPort_error);
+	ring_vm_funcregister("qserialport_flowcontrol",ring_QSerialPort_flowControl);
+	ring_vm_funcregister("qserialport_flush",ring_QSerialPort_flush);
+	ring_vm_funcregister("qserialport_handle",ring_QSerialPort_handle);
+	ring_vm_funcregister("qserialport_isbreakenabled",ring_QSerialPort_isBreakEnabled);
+	ring_vm_funcregister("qserialport_isdataterminalready",ring_QSerialPort_isDataTerminalReady);
+	ring_vm_funcregister("qserialport_isrequesttosend",ring_QSerialPort_isRequestToSend);
+	ring_vm_funcregister("qserialport_parity",ring_QSerialPort_parity);
+	ring_vm_funcregister("qserialport_pinoutsignals",ring_QSerialPort_pinoutSignals);
+	ring_vm_funcregister("qserialport_portname",ring_QSerialPort_portName);
+	ring_vm_funcregister("qserialport_readbuffersize",ring_QSerialPort_readBufferSize);
+	ring_vm_funcregister("qserialport_setbaudrate",ring_QSerialPort_setBaudRate);
+	ring_vm_funcregister("qserialport_setbreakenabled",ring_QSerialPort_setBreakEnabled);
+	ring_vm_funcregister("qserialport_setdatabits",ring_QSerialPort_setDataBits);
+	ring_vm_funcregister("qserialport_setdataterminalready",ring_QSerialPort_setDataTerminalReady);
+	ring_vm_funcregister("qserialport_setflowcontrol",ring_QSerialPort_setFlowControl);
+	ring_vm_funcregister("qserialport_setparity",ring_QSerialPort_setParity);
+	ring_vm_funcregister("qserialport_setport",ring_QSerialPort_setPort);
+	ring_vm_funcregister("qserialport_setportname",ring_QSerialPort_setPortName);
+	ring_vm_funcregister("qserialport_setreadbuffersize",ring_QSerialPort_setReadBufferSize);
+	ring_vm_funcregister("qserialport_setrequesttosend",ring_QSerialPort_setRequestToSend);
+	ring_vm_funcregister("qserialport_setstopbits",ring_QSerialPort_setStopBits);
+	ring_vm_funcregister("qserialport_stopbits",ring_QSerialPort_stopBits);
+	ring_vm_funcregister("qserialport_setbaudratechangedevent",ring_QSerialPort_setbaudRateChangedEvent);
+	ring_vm_funcregister("qserialport_setbreakenabledchangedevent",ring_QSerialPort_setbreakEnabledChangedEvent);
+	ring_vm_funcregister("qserialport_setdatabitschangedevent",ring_QSerialPort_setdataBitsChangedEvent);
+	ring_vm_funcregister("qserialport_setdataterminalreadychangedevent",ring_QSerialPort_setdataTerminalReadyChangedEvent);
+	ring_vm_funcregister("qserialport_seterrorevent",ring_QSerialPort_seterrorEvent);
+	ring_vm_funcregister("qserialport_setflowcontrolchangedevent",ring_QSerialPort_setflowControlChangedEvent);
+	ring_vm_funcregister("qserialport_setparitychangedevent",ring_QSerialPort_setparityChangedEvent);
+	ring_vm_funcregister("qserialport_setrequesttosendchangedevent",ring_QSerialPort_setrequestToSendChangedEvent);
+	ring_vm_funcregister("qserialport_setstopbitschangedevent",ring_QSerialPort_setstopBitsChangedEvent);
+	ring_vm_funcregister("qserialport_getbaudratechangedevent",ring_QSerialPort_getbaudRateChangedEvent);
+	ring_vm_funcregister("qserialport_getbreakenabledchangedevent",ring_QSerialPort_getbreakEnabledChangedEvent);
+	ring_vm_funcregister("qserialport_getdatabitschangedevent",ring_QSerialPort_getdataBitsChangedEvent);
+	ring_vm_funcregister("qserialport_getdataterminalreadychangedevent",ring_QSerialPort_getdataTerminalReadyChangedEvent);
+	ring_vm_funcregister("qserialport_geterrorevent",ring_QSerialPort_geterrorEvent);
+	ring_vm_funcregister("qserialport_getflowcontrolchangedevent",ring_QSerialPort_getflowControlChangedEvent);
+	ring_vm_funcregister("qserialport_getparitychangedevent",ring_QSerialPort_getparityChangedEvent);
+	ring_vm_funcregister("qserialport_getrequesttosendchangedevent",ring_QSerialPort_getrequestToSendChangedEvent);
+	ring_vm_funcregister("qserialport_getstopbitschangedevent",ring_QSerialPort_getstopBitsChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -90841,6 +91776,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qaxobject_new",ring_QAxObject_new);
 	ring_vm_funcregister("quuid_new",ring_QUuid_new);
 	ring_vm_funcregister("qtoolbutton_new",ring_QToolButton_new);
+	ring_vm_funcregister("qserialport_new",ring_QSerialPort_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -90988,4 +91924,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qaxobject_delete",ring_QAxObject_delete);
 	ring_vm_funcregister("quuid_delete",ring_QUuid_delete);
 	ring_vm_funcregister("qtoolbutton_delete",ring_QToolButton_delete);
+	ring_vm_funcregister("qserialport_delete",ring_QSerialPort_delete);
 }
