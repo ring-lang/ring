@@ -487,3 +487,4 @@ package System.GUI
 
 	class Test from qTest 
 
+	class SerialPort from qSerialPort
