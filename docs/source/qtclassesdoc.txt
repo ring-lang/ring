@@ -6333,3 +6333,64 @@ Parent Class : QAbstractButton
 * const char *gettriggeredEvent(void)
 * void setClickEvent(const char *)
 * const char *getClickEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QSerialPort Class
+
+QSerialPort Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSerialPort.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QIODevice
+
+* qint32 baudRate(QSerialPort::Directions directions)
+* bool clear(QSerialPort::Directions directions)
+* void clearError(void)
+* QSerialPort::DataBits dataBits(void)
+* QSerialPort::SerialPortError error(void)
+* QSerialPort::FlowControl flowControl(void)
+* bool flush(void)
+* void *handle(void)
+* bool isBreakEnabled(void)
+* bool isDataTerminalReady(void)
+* bool isRequestToSend(void)
+* QSerialPort::Parity parity(void)
+* QSerialPort::PinoutSignals pinoutSignals(void)
+* QString portName(void)
+* qint64 readBufferSize(void)
+* bool setBaudRate(qint32 baudRate, QSerialPort::Directions directions)
+* bool setBreakEnabled(bool set)
+* bool setDataBits(QSerialPort::DataBits dataBits)
+* bool setDataTerminalReady(bool set)
+* bool setFlowControl(QSerialPort::FlowControl flowControl)
+* bool setParity(QSerialPort::Parity parity)
+* void setPort(QSerialPortInfo serialPortInfo)
+* void setPortName(QString name)
+* void setReadBufferSize(qint64 size)
+* bool setRequestToSend(bool set)
+* bool setStopBits(QSerialPort::StopBits stopBits)
+* QSerialPort::StopBits stopBits(void)
+* void setbaudRateChangedEvent(const char *)
+* void setbreakEnabledChangedEvent(const char *)
+* void setdataBitsChangedEvent(const char *)
+* void setdataTerminalReadyChangedEvent(const char *)
+* void seterrorEvent(const char *)
+* void setflowControlChangedEvent(const char *)
+* void setparityChangedEvent(const char *)
+* void setrequestToSendChangedEvent(const char *)
+* void setstopBitsChangedEvent(const char *)
+* const char *getbaudRateChangedEvent(void)
+* const char *getbreakEnabledChangedEvent(void)
+* const char *getdataBitsChangedEvent(void)
+* const char *getdataTerminalReadyChangedEvent(void)
+* const char *geterrorEvent(void)
+* const char *getflowControlChangedEvent(void)
+* const char *getparityChangedEvent(void)
+* const char *getrequestToSendChangedEvent(void)
+* const char *getstopBitsChangedEvent(void)
