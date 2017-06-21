@@ -147,7 +147,7 @@ Func pFunctionsProcess aList
 
 	cOutput = "#include <" + cClassName + ">" 
 	if oView.ClassCodeNameLE.IsEnabled()
-		cOutput = cOutput + nl + '#include "' + oView.ClassCodeNameLE.text() + '.h"'
+		cOutput = cOutput + nl + '#include "' + lower(oView.ClassCodeNameLE.text()) + '.h"'
 	ok
 	cOutput = cOutput + nl + nl + copy("-", 35) + nl
 
@@ -248,9 +248,7 @@ Func pFunctionsProcess aList
 	if len(aEnum)
 		cOutput = cOutput + nl + "<runcode>"
 		for cEnum in aEnum
-			cOutput = cOutput + nl + 'if not find(aEnumTypes, "' + cEnum + '")' + nl +
-									'	aEnumTypes + "' + cEnum + '"' + nl +
-								'ok'
+			cOutput = cOutput + nl + ' aEnumTypes + "' + cEnum + '"' 
 		next
 		cOutput = cOutput + nl + "</runcode>"
 	ok
@@ -278,6 +276,8 @@ Func pFunctionsProcess aList
 				jnum = right(num, len(num) - (substr(num, "::") + 1))
 				if substr(fun, jnum)
 					fun = substr(fun, jnum, num)
+					# Avoid ClassName::ClassName::EnumName 
+					fun = substr(fun, left(num,substr(num, "::") + 1 ) + num , num )
 				ok
 			next
 		next
