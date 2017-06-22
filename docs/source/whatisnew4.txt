@@ -412,6 +412,10 @@ The web library is updated
 Better RingQt
 =============
 
+The next functions are added to RingQt
+
+* ConfirmMsg()
+
 The next classes are added to RingQt
 
 * QToolButton
