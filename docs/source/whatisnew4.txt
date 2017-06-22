@@ -416,6 +416,7 @@ The next classes are added to RingQt
 
 * QToolButton
 * QSerialPort
+* QSerialPortInfo
 
 .. index:: 
 	pair: What is new in Ring 1.4?; Qt Class Convertor
