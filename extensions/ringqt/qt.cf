@@ -224,6 +224,8 @@ extern "C" {
 #include <QSerialPort>
 #include "gserialport.h"
 
+#include <QSerialPortInfo>
+
 extern "C" {
 
 	RING_API void ring_qt_start(RingState *pRingState);
@@ -6838,4 +6840,25 @@ const char *getparityChangedEvent(void)
 const char *getrequestToSendChangedEvent(void)
 const char *getstopBitsChangedEvent(void)
 
+
+<class>
+name: QSerialPortInfo
+para: void
+</class>
+
+QString description(void)
+bool hasProductIdentifier(void)
+bool hasVendorIdentifier(void)
+bool isBusy(void)
+bool isNull(void)
+QString manufacturer(void)
+QString portName(void)
+quint16 productIdentifier(void)
+QString serialNumber(void)
+void swap(QSerialPortInfo other)
+QString systemLocation(void)
+quint16 vendorIdentifier(void)
+
 </filter>
+
+

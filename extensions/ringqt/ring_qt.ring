@@ -14997,6 +14997,53 @@ Class QSerialPort from QIODevice
 	Func getstopBitsChangedEvent 
 		return QSerialPort_getstopBitsChangedEvent(pObject)
 
+Class QSerialPortInfo
+
+	pObject
+
+	Func init 
+		pObject = QSerialPortInfo_new()
+		return self
+
+	Func delete
+		pObject = QSerialPortInfo_delete(pObject)
+
+	Func description 
+		return QSerialPortInfo_description(pObject)
+
+	Func hasProductIdentifier 
+		return QSerialPortInfo_hasProductIdentifier(pObject)
+
+	Func hasVendorIdentifier 
+		return QSerialPortInfo_hasVendorIdentifier(pObject)
+
+	Func isBusy 
+		return QSerialPortInfo_isBusy(pObject)
+
+	Func isNull 
+		return QSerialPortInfo_isNull(pObject)
+
+	Func manufacturer 
+		return QSerialPortInfo_manufacturer(pObject)
+
+	Func portName 
+		return QSerialPortInfo_portName(pObject)
+
+	Func productIdentifier 
+		return QSerialPortInfo_productIdentifier(pObject)
+
+	Func serialNumber 
+		return QSerialPortInfo_serialNumber(pObject)
+
+	Func swap P1
+		return QSerialPortInfo_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func systemLocation 
+		return QSerialPortInfo_systemLocation(pObject)
+
+	Func vendorIdentifier 
+		return QSerialPortInfo_vendorIdentifier(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
