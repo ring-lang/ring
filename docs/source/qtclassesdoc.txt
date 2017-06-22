@@ -6394,3 +6394,28 @@ Parent Class : QIODevice
 * const char *getparityChangedEvent(void)
 * const char *getrequestToSendChangedEvent(void)
 * const char *getstopBitsChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QSerialPortInfo Class
+
+QSerialPortInfo Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QSerialPortInfo.html
+
+
+Parameters : void
+
+* QString description(void)
+* bool hasProductIdentifier(void)
+* bool hasVendorIdentifier(void)
+* bool isBusy(void)
+* bool isNull(void)
+* QString manufacturer(void)
+* QString portName(void)
+* quint16 productIdentifier(void)
+* QString serialNumber(void)
+* void swap(QSerialPortInfo other)
+* QString systemLocation(void)
+* quint16 vendorIdentifier(void)
