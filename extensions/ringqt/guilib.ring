@@ -20,6 +20,57 @@ func setwinicon pWindow,cImage
 func setbtnimage pBtn,cImage
 	if cImage = NULL return ok		
 	pBtn.setIcon(new qicon(new qpixmap(cImage)))
+	
+func confirmMsg(cMessage)
+
+        new qmessagebox(null)
+        {
+                setstandardbuttons(QMessageBox_Yes | QMessageBox_No)
+                settext(cMessage) 
+                result = exec()
+                if result = QMessageBox_Yes
+                   return 1
+                but result = QMessageBox_No
+                   return 0
+                ok
+        }
+                       
+func InputBox(cMessage)
+        oInput = new QInputDialog(null)
+        {
+                     setwindowtitle("Input Box")
+                     setgeometry(100,100,400,50)
+                     setlabeltext(cMessage)
+                     settextvalue("CalmoSoft")
+                     lcheck = exec()
+                     if lCheck
+                        return oInput.textvalue()
+                     ok
+        }
+
+func InputBoxNum(cMessage)
+        oInput = new QInputDialog(null)
+        {
+                     setwindowtitle("Input Box for Numbers")
+                     setgeometry(100,100,400,50)
+                     setlabeltext(cMessage)
+                     settextvalue("CalmoSoft")
+                     lcheck = exec()
+                     if lCheck
+                        flag = 0
+                        temp = oInput.textvalue()
+                        for n=1 to len(temp)
+                              if ascii(temp[n]) > 47 and ascii(temp[n]) < 58
+                                 flag = flag + 1
+                              ok
+                        next
+                        if flag = len(temp)
+                           return temp 
+                        else
+                           return false  
+                        ok
+                     ok
+        }
 
 Class GUILib
 
