@@ -21,10 +21,10 @@ func setbtnimage pBtn,cImage
 	if cImage = NULL return ok		
 	pBtn.setIcon(new qicon(new qpixmap(cImage)))
 	
-func confirmMsg(cMessage)
-
+func confirmMsg cTitle,cMessage
         new qmessagebox(null)
         {
+		setwindowtitle(cTitle)
                 setstandardbuttons(QMessageBox_Yes | QMessageBox_No)
                 settext(cMessage) 
                 result = exec()
@@ -35,41 +35,29 @@ func confirmMsg(cMessage)
                 ok
         }
                        
-func InputBox(cMessage)
+func InputBox cTitle,cMessage
         oInput = new QInputDialog(null)
         {
-                     setwindowtitle("Input Box")
+                     setwindowtitle(cTitle)
                      setgeometry(100,100,400,50)
                      setlabeltext(cMessage)
-                     settextvalue("CalmoSoft")
                      lcheck = exec()
                      if lCheck
                         return oInput.textvalue()
                      ok
         }
 
-func InputBoxNum(cMessage)
+func InputBoxNum cTitle,cMessage
         oInput = new QInputDialog(null)
         {
-                     setwindowtitle("Input Box for Numbers")
-                     setgeometry(100,100,400,50)
-                     setlabeltext(cMessage)
-                     settextvalue("CalmoSoft")
-                     lcheck = exec()
-                     if lCheck
-                        flag = 0
-                        temp = oInput.textvalue()
-                        for n=1 to len(temp)
-                              if ascii(temp[n]) > 47 and ascii(temp[n]) < 58
-                                 flag = flag + 1
-                              ok
-                        next
-                        if flag = len(temp)
-                           return temp 
-                        else
-                           return false  
-                        ok
-                     ok
+        	setwindowtitle(cTitle)
+                setgeometry(100,100,400,50)
+                setlabeltext(cMessage)
+		setInputMode(2)	# Accept Number (Double)
+		lcheck = exec()
+                if lCheck
+                	return oInput.doublevalue()
+                ok
         }
 
 Class GUILib
