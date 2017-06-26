@@ -302,3 +302,12 @@ QItemSelectionModel_Columns = dec("40")
 QItemSelectionModel_SelectCurrent = QItemSelectionModel_Select | QItemSelectionModel_Current
 QItemSelectionModel_ToggleCurrent = QItemSelectionModel_Toggle |  QItemSelectionModel_Current
 QItemSelectionModel_ClearAndSelect = QItemSelectionModel_Clear | QItemSelectionModel_Select
+
+QAbstractItemView_NoEditTriggers = 0
+QAbstractItemView_CurrentChanged = 1
+QAbstractItemView_DoubleClicked = 2
+QAbstractItemView_SelectedClicked = 4
+QAbstractItemView_EditKeyPressed = 8
+QAbstractItemView_AnyKeyPressed = 16
+QAbstractItemView_AllEditTriggers = 31
+
