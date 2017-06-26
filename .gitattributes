@@ -1,4 +1,6 @@
 *.h linguist-language=C
 special-vendored-path/* libdepwin
 special-vendored-path/* extensions/ringsqlite
+sqlite3.c linguist-vendored=true
+sqlite3.h linguist-vendored=true
 project-docs/* docs
