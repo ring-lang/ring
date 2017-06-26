@@ -13,6 +13,59 @@ func setbtnimage pBtn,cImage
 	if cImage = NULL return ok		
 	pBtn.setIcon(new qicon(new qpixmap(cImage)))
 
+func MsgInfo cTitle,cMessage
+        new qmessagebox(null)
+        {
+		setwindowtitle(cTitle)
+                setstandardbuttons(QMessageBox_Ok)
+                settext(cMessage) 	
+		exec()
+        }
+
+func confirmMsg cTitle,cMessage
+        new qmessagebox(null)
+        {
+		setwindowtitle(cTitle)
+                setstandardbuttons(QMessageBox_Yes | QMessageBox_No)
+                settext(cMessage) 
+                result = exec()
+        }
+	if result = QMessageBox_Yes return 1 ok
+	return 0
+                       
+func InputBox cTitle,cMessage
+        oInput = new QInputDialog(null)
+        {
+		setwindowtitle(cTitle)
+		setgeometry(100,100,400,50)
+		setlabeltext(cMessage)
+		lcheck = exec()
+        }
+	if lCheck return oInput.textvalue() ok
+
+func InputBoxInt cTitle,cMessage
+        oInput = new QInputDialog(null)
+        {
+        	setwindowtitle(cTitle)
+                setgeometry(100,100,400,50)
+                setlabeltext(cMessage)
+		setInputMode(1)	# Accept Number (int)
+		lcheck = exec()
+        }
+	if lCheck return oInput.intvalue() ok
+
+
+func InputBoxNum cTitle,cMessage
+        oInput = new QInputDialog(null)
+        {
+        	setwindowtitle(cTitle)
+                setgeometry(100,100,400,50)
+                setlabeltext(cMessage)
+		setInputMode(2)	# Accept Number (Double)
+		lcheck = exec()
+        }
+	if lCheck return oInput.doublevalue() ok
+
 Class GUILib
 
 	func objcmp o1,o2
