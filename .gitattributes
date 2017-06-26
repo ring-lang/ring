@@ -1,1 +1,3 @@
 *.h linguist-language=C
+special-vendored-path/* libdepwin
+project-docs/* docs
