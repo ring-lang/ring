@@ -1,3 +1,4 @@
 *.h linguist-language=C
 special-vendored-path/* libdepwin
+special-vendored-path/* extensions/ringsqlite
 project-docs/* docs
