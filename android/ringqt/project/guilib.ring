@@ -66,6 +66,17 @@ func InputBoxNum cTitle,cMessage
         }
 	if lCheck return oInput.doublevalue() ok
 
+func InputBoxPass cTitle,cMessage
+        oInput = new QInputDialog(null)
+        {
+		setwindowtitle(cTitle)
+		setgeometry(100,100,400,50)
+		setlabeltext(cMessage)
+		setTextEchoMode(2)	# Password
+		lcheck = exec()
+        }
+	if lCheck return oInput.textvalue() ok
+
 Class GUILib
 
 	func objcmp o1,o2
