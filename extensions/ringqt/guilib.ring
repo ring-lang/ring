@@ -51,6 +51,18 @@ func InputBox cTitle,cMessage
         }
 	if lCheck return oInput.textvalue() ok
 
+func InputBoxInt cTitle,cMessage
+        oInput = new QInputDialog(null)
+        {
+        	setwindowtitle(cTitle)
+                setgeometry(100,100,400,50)
+                setlabeltext(cMessage)
+		setInputMode(1)	# Accept Number (int)
+		lcheck = exec()
+        }
+	if lCheck return oInput.intvalue() ok
+
+
 func InputBoxNum cTitle,cMessage
         oInput = new QInputDialog(null)
         {
