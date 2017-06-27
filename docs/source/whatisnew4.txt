@@ -414,7 +414,12 @@ Better RingQt
 
 The next functions are added to RingQt
 
-* ConfirmMsg()
+* MsgInfo(cTitle,cMessage)
+* ConfirmMsg(cTitle,cMessage)
+* InputBox(cTitle,cMessage)
+* InputBoxInt(cTitle,cMessage)
+* InputBoxNum(cTitle,cMessage)
+* InputBoxPass(cTitle,cMessage)
 
 The next classes are added to RingQt
 
