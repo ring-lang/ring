@@ -2224,6 +2224,7 @@ We have the next functions
 
 .. code-block:: none
 
+	SetDialogIcon(cIconFile)
 	MsgInfo(cTitle,cMessage)
 	ConfirmMsg(cTitle,cMessage) --> lResult
 	InputBox(cTitle,cMessage) --> cValue
@@ -2239,6 +2240,7 @@ Example
 
 	new qApp 
 	{
+		SetDialogIcon("notepad.png")
 		msginfo(:Ring,:Welcome)
 		see confirmMsg(:Ring,"Are you sure?") + nl
 		see InputBoxNum(:Ring,"Enter Number(double) :") + nl

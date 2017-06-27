@@ -414,6 +414,7 @@ Better RingQt
 
 The next functions are added to RingQt
 
+* SetDialogIcon(cIconFile)
 * MsgInfo(cTitle,cMessage)
 * ConfirmMsg(cTitle,cMessage)
 * InputBox(cTitle,cMessage)
