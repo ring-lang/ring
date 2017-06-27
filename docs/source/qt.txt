@@ -2215,6 +2215,40 @@ The application during the runtime
 	:alt: QInputDialog
 
 .. index:: 
+	pair: Desktop and Mobile Development; Dialog Functions
+
+Dialog Functions
+================
+
+We have the next functions
+
+.. code-block:: none
+
+	MsgInfo(cTitle,cMessage)
+	ConfirmMsg(cTitle,cMessage) --> lResult
+	InputBox(cTitle,cMessage) --> cValue
+	InputBoxInt(cTitle,cMessage) --> nValue
+	InputBoxNum(cTitle,cMessage) --> nValue
+	InputBoxPass(cTitle,cMessage) --> cValue
+
+Example
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp 
+	{
+		msginfo(:Ring,:Welcome)
+		see confirmMsg(:Ring,"Are you sure?") + nl
+		see InputBoxNum(:Ring,"Enter Number(double) :") + nl
+		see InputBox(:Ring,"Enter Value :") + nl
+		see InputBoxInt(:Ring,"Enter Number(int)") + nl
+		see InputBoxPass(:Ring,"Enter Password") +nl
+	}
+
+
+.. index:: 
 	pair: Desktop and Mobile Development; KeyPress and Mouse Move Events
 
 KeyPress and Mouse Move Events
