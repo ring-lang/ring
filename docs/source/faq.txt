@@ -97,7 +97,7 @@ we have a plan to present a new paradigm for Network Programming and Concurrency
 new paradigm through simple prototypes during the last years and we will integrate it with Ring 
 in Future releases.
 
-* It's a new language, just Ring version 1.3. A serious ecosystem comes along the way.
+* It's a new language, just Ring version 1.4. A serious ecosystem comes along the way.
 
 
 .. index:: 
@@ -310,7 +310,7 @@ The Answer:
 
 * It's Anonymous Functions, i.e. Not Closures.
 
-* It's Just Ring version 1.3 (Many developers asked about supporting Closures) and during language development we may add new features that doesn't go against the language goals or sprite.
+* It's Just Ring version 1.4 (Many developers asked about supporting Closures) and during language development we may add new features that doesn't go against the language goals or sprite.
 
 * You can use classes and objects when you want to merge between the state and functions to provide a clear solution.
 
