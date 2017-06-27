@@ -13,6 +13,8 @@ ok
 
 GUILib = new GUILib
 
+cDialogIcon = ""
+
 func setwinicon pWindow,cImage
 	if cImage = NULL return ok		
 	pWindow.setWindowIcon(new qicon(new qpixmap(cImage)))
@@ -20,6 +22,9 @@ func setwinicon pWindow,cImage
 func setbtnimage pBtn,cImage
 	if cImage = NULL return ok		
 	pBtn.setIcon(new qicon(new qpixmap(cImage)))
+
+func SetDialogIcon cFile
+	cDialogIcon = cFile
 	
 func MsgInfo cTitle,cMessage
         new qmessagebox(null)
@@ -27,6 +32,9 @@ func MsgInfo cTitle,cMessage
 		setwindowtitle(cTitle)
                 setstandardbuttons(QMessageBox_Ok)
                 settext(cMessage) 	
+		if cDialogIcon != NULL
+			setwinicon(self,cDialogIcon)
+		ok
 		exec()
         }
 
@@ -36,6 +44,9 @@ func confirmMsg cTitle,cMessage
 		setwindowtitle(cTitle)
                 setstandardbuttons(QMessageBox_Yes | QMessageBox_No)
                 settext(cMessage) 
+		if cDialogIcon != NULL
+			setwinicon(self,cDialogIcon)
+		ok
                 result = exec()
         }
 	if result = QMessageBox_Yes return 1 ok
@@ -47,6 +58,9 @@ func InputBox cTitle,cMessage
 		setwindowtitle(cTitle)
 		setgeometry(100,100,400,50)
 		setlabeltext(cMessage)
+		if cDialogIcon != NULL
+			setwinicon(self,cDialogIcon)
+		ok
 		lcheck = exec()
         }
 	if lCheck return oInput.textvalue() ok
@@ -58,6 +72,9 @@ func InputBoxInt cTitle,cMessage
                 setgeometry(100,100,400,50)
                 setlabeltext(cMessage)
 		setInputMode(1)	# Accept Number (int)
+		if cDialogIcon != NULL
+			setwinicon(self,cDialogIcon)
+		ok
 		lcheck = exec()
         }
 	if lCheck return oInput.intvalue() ok
@@ -70,6 +87,9 @@ func InputBoxNum cTitle,cMessage
                 setgeometry(100,100,400,50)
                 setlabeltext(cMessage)
 		setInputMode(2)	# Accept Number (Double)
+		if cDialogIcon != NULL
+			setwinicon(self,cDialogIcon)
+		ok
 		lcheck = exec()
         }
 	if lCheck return oInput.doublevalue() ok
@@ -81,6 +101,9 @@ func InputBoxPass cTitle,cMessage
 		setgeometry(100,100,400,50)
 		setlabeltext(cMessage)
 		setTextEchoMode(2)	# Password
+		if cDialogIcon != NULL
+			setwinicon(self,cDialogIcon)
+		ok
 		lcheck = exec()
         }
 	if lCheck return oInput.textvalue() ok
