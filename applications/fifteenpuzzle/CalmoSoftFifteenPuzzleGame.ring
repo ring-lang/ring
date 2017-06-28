@@ -4,7 +4,8 @@
 load "guilib.ring"
 
 app1 = new qapp {
-	stylefusionblack()
+
+        stylefusionblack()
         empty = 16  
         nrMoves = 0
         nrSleep = 1
@@ -33,7 +34,7 @@ app1 = new qapp {
         win1 = new qwidget() {
                    move(0,0)
                    resize(380,680)
-                   setwindowtitle("Calmosoft Fifteen Puzzle Game")
+                   setwindowtitle("CalmoSoft Fifteen Puzzle Game")
 
                   for n=1 to 52
                         for m=1 to 2
@@ -256,6 +257,7 @@ func pHere
            button[OldButSize*OldButSize+2] = new ButtonWithRotatedText(win1)
            button[OldButSize*OldButSize+2] {
            setgeometry(60+(OldButSize-1)*40,60+(OldButSize+1)*40,40,40)
+           setstylesheet("background-color:yellow")
            btnDegree[OldButSize*OldButSize+2][2] = btnDegree[OldButSize*OldButSize-1][2]
            nDegree = btnDegree[OldButSize*OldButSize+2][2]
            emptysave = empty
@@ -309,6 +311,7 @@ func rotateleft
            button[OldButSize*OldButSize+2] = new ButtonWithRotatedText(win1)
                       button[OldButSize*OldButSize+2] {
                       setgeometry(60+(OldButSize-1)*40,60+(OldButSize+1)*40,40,40)
+                      setstylesheet("background-color:yellow")
                       nDegreeLeft = (nDegreeLeft-90)%360
                       nDegree = nDegreeLeft
                       btnDegree[OldButSize*OldButSize+2][2] = nDegree
@@ -326,6 +329,7 @@ func rotateright
            button[OldButSize*OldButSize+2] = new ButtonWithRotatedText(win1)
                       button[OldButSize*OldButSize+2] {
                       setgeometry(60+(OldButSize-1)*40,60+(OldButSize+1)*40,40,40)
+                      setstylesheet("background-color:yellow")
                       nDegreeRight = (nDegreeRight+90)%360
                       nDegree = nDegreeRight
                       btnDegree[OldButSize*OldButSize+2][2] = nDegree
