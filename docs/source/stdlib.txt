@@ -283,7 +283,7 @@ Example:
 	pair: Stdlib Functions; splitmany()
 
 splitmany() function
-================
+====================
 
 Convert string words to list items. Allow many delimiters.
 
