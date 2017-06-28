@@ -94,7 +94,7 @@ Ring 1.2 is released on January 25, 2017
 
 Ring 1.3 is released on May 15, 2017
 
-Ring 1.4 still under development
+Ring 1.4 is released on June 29, 2017
 
 .. index:: 
 	pair: Introduction; Features
