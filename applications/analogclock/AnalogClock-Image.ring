@@ -59,7 +59,7 @@ New qapp
 {
    win =  new qwidget()
     {
-        setwindowtitle("Analog Clock : Draw using QPixMap : Translate : Rotate : Scale :")
+        setwindowtitle("Analog Clock")
         setgeometry(WinLeft, WinTop, WinWidth, WinHeight)
 
 
@@ -246,8 +246,6 @@ Func WindowSizeChanged()
     WinRight  = Rec.right()
     WinBottom = Rec.bottom()
     
-    win{ setwindowtitle("Window ReSized: WIN: "+  WinWidth +"x"+ WinHeight +" --- Left "+ WinLeft  +" Top "+ WinTop  +" Right "+ WinRight  +" Bottom "+ WinBottom   ) }
-
     #PosLeft = (WinWidth  - imageW) / 2  -8                              ### Center the Clock in the Window
     #PosTop  = (WinHeight - imageH) / 2 -24                              ### Center the Clock in the Window
 
