@@ -4,7 +4,7 @@
 load "guilib.ring"
 
 app1 = new qapp {
-
+		stylefusionblack()
         empty = 16  
         nrMoves = 0
         nrSleep = 1
