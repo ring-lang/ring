@@ -30,7 +30,15 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Fetch stock data from Yahoo and draw various types of charts</a>',
 					'<img src="GetQuoteCapture.jpg" width="40%">'
-				]				
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle/CalmoSoftFifteenPuzzleGame.ring" target="_blank">Fifteen Puzzle 2</a>',
+					'<img src="fifteen2.png" width="40%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/blob/master/applications/analogclock/AnalogClock-Image.ring" target="_blank">Analog Clock</a>',
+					'<img src="analogclock.png" width="40%">'
+				]
 			    ]
                  ],
                  ["Posts from the 'Ring Documentation Walkthrough' blog",[
