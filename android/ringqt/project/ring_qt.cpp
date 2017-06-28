@@ -201,6 +201,10 @@ extern "C" {
 #include <QToolButton>
 #include "GToolButton.h"
 
+#include <QSerialPort>
+#include "gserialport.h"
+
+#include <QSerialPortInfo>
 
 extern "C" {
 
