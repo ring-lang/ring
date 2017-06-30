@@ -136,72 +136,72 @@ Example:
 	pair: RingLibCurl; Get Stock Data From Yahoo
 
 Get Stock Data From Yahoo
-=====================
+----=====================
 
 Example:
 
 .. code-block:: ring
 
-Load "libcurl.ring"
+	Load "libcurl.ring"
 
-### Part 1 --- Get Crumb and Cookie -----------------------------------------
+	### Part 1 --- Get Crumb and Cookie -----------------------------------------
 
-See "Start curl_easy_init(): "+ nl
-curl = curl_easy_init()                     ### >>> HANDLE >>> 01006BD0  CURL  0
+	See "Start curl_easy_init(): "+ nl
+	curl = curl_easy_init()                     ### >>> HANDLE >>> 01006BD0  CURL  0
 
-    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
-    curl_easy_setopt(curl, CURLOPT_COOKIEJAR,  "cookies.txt")
-    curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "cookies.txt")
-    curl_easy_setopt(curl, CURLOPT_URL, "https://finance.yahoo.com/quote/AMZN/history")
+		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
+		curl_easy_setopt(curl, CURLOPT_COOKIEJAR,  "cookies.txt")
+		curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "cookies.txt")
+		curl_easy_setopt(curl, CURLOPT_URL, "https://finance.yahoo.com/quote/AMZN/history")
 
-    ###  HTML Data >>> STDOUT Window,  Use curl_easy_perform_silent >>> String
+		###  HTML Data >>> STDOUT Window,  Use curl_easy_perform_silent >>> String
 
-cOutput = curl_easy_perform_silent(curl)    ### GO Get Data >>> String
+	cOutput = curl_easy_perform_silent(curl)    ### GO Get Data >>> String
 
 
-###   Extract Crumb from data
-###  "CrumbStore":{"crumb":"abcdefghijk"},
+	###   Extract Crumb from data
+	###  "CrumbStore":{"crumb":"abcdefghijk"},
 
-if cOutput != NULL
+	if cOutput != NULL
 
-    newStr1     = substr(cOutput, substr(cOutput, '"CrumbStore":{"crumb":"' ), 48 )
-        nPosS   = substr(newStr1, ':"' ) ;  ### Start of crumb -2
-        nPosE   = substr(newStr1, '"}' ) ;  ### End   of crumb
-        nCount  = nPosE - nPosS -2          ### size  of crumb
-    myCrumb     = substr(newStr1, nPosS +2, nCount)
+		newStr1     = substr(cOutput, substr(cOutput, '"CrumbStore":{"crumb":"' ), 48 )
+			nPosS   = substr(newStr1, ':"' ) ;  ### Start of crumb -2
+			nPosE   = substr(newStr1, '"}' ) ;  ### End   of crumb
+			nCount  = nPosE - nPosS -2          ### size  of crumb
+		myCrumb     = substr(newStr1, nPosS +2, nCount)
 
-    See "myCrumb.: |"+ myCrumb +"|" +nl
-    
-    ### UniCode "\u002F" replace it with "/"
-        if substr( myCrumb, "\u002F")
-           myCrumb = substr( myCrumb, "\u002F", "/")
-           See "myCrumb2: |"+ myCrumb +"|"+ nl
-        ok
+		See "myCrumb.: |"+ myCrumb +"|" +nl
+		
+		### UniCode "\u002F" replace it with "/"
+			if substr( myCrumb, "\u002F")
+			   myCrumb = substr( myCrumb, "\u002F", "/")
+			   See "myCrumb2: |"+ myCrumb +"|"+ nl
+			ok
 
-else
-    See "No Connectivity to Yahoo. Looking for Cookie and Crumb." +nl +nl
-ok
+	else
+		See "No Connectivity to Yahoo. Looking for Cookie and Crumb." +nl +nl
+	ok
 
-                
-### Part 2 --- Send URL with Crumb, and Cookie -----------------------------------------
+					
+	### Part 2 --- Send URL with Crumb, and Cookie -----------------------------------------
 
-    ### Send URL+Crumb to Yahoo to fetch 1st stock history data,
+		### Send URL+Crumb to Yahoo to fetch 1st stock history data,
 
-    $url = "https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1277856000&period2=1498777545&interval=1wk&events=history&crumb=" + myCrumb
+		$url = "https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1277856000&period2=1498777545&interval=1wk&events=history&crumb=" + myCrumb
 
-    curl_easy_setopt(curl, CURLOPT_URL, $url);
-    cStr = curl_easy_perform_silent(curl)
-    See cStr 
+		curl_easy_setopt(curl, CURLOPT_URL, $url);
+		cStr = curl_easy_perform_silent(curl)
+		See cStr 
 
-curl_easy_cleanup(curl)  ### REMEMBER to CLOSE  CURL   
+	curl_easy_cleanup(curl)  ### REMEMBER to CLOSE  CURL   
 
 
 Output:
 
 .. code-block:: ring
 
-myCrumb.: |sEEeW97mxvN|
-Date,Open,High,Low,Close,Adj Close,Volume
-2010-07-05,110.650002,117.480003,109.000000,117.260002,117.260002,21000400
-2010-07-12,117.809998,124.879997,117.320000,118.489998,118.489998,29407300
-2010-07-19,118.379997,121.250000,105.800003,118.870003,118.870003,74252100
+	myCrumb.: |sEEeW97mxvN|
+	Date,Open,High,Low,Close,Adj Close,Volume
+	2010-07-05,110.650002,117.480003,109.000000,117.260002,117.260002,21000400
+	2010-07-12,117.809998,124.879997,117.320000,118.489998,118.489998,29407300
+	2010-07-19,118.379997,121.250000,105.800003,118.870003,118.870003,74252100
