@@ -219,13 +219,13 @@ Example:
 	pair: Date and Time; EpochTime()
 
 EpochTime() Function
-==================
+====================
 
 Syntax:
 
 .. code-block:: ring
 
-	EpochTime( Date(), Time() ) ---> Epoch Seconds
+	EpochTime( cDate, cTime ) ---> Epoch Seconds
 
 Example:
 
