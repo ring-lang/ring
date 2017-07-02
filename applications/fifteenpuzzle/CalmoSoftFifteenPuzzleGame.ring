@@ -30,10 +30,11 @@ app1 = new qapp {
         nDegreeLeft = 0
         btnDegree = newlist(52,2)
         CounterMan = 0 
+        t1 = 0
 
         win1 = new qwidget() {
                    move(0,0)
-                   resize(380,680)
+                   resize(380,720)
                    setwindowtitle("CalmoSoft Fifteen Puzzle Game")
 
                   for n=1 to 52
@@ -108,6 +109,12 @@ app1 = new qapp {
                                setclickevent("pIncSleep()")
                 }
 
+                timebtn = new qpushbutton(win1)   
+                {
+                               setgeometry(100,500,160,40)  
+                               settext("Elapsed Time : ")  
+                }
+
             TimerMan = new qtimer(win1)
             {
               setinterval(500)
@@ -180,6 +187,8 @@ func scramble
        flagmove = 0
        nrMoves = 0
        btnMoves.settext(string(nrMoves))
+       timebtn.settext("Elapsed Time : ")
+       t1 = clock()
        return
 
 func movetile CurButSize2
@@ -216,6 +225,9 @@ func movetile CurButSize2
            ok
       ok 
       flagmove = 1
+      t2 = (clock() - t1)/1000
+      timebtn.settext("Elapsed Time : " + t2 + " s")
+
       return
 
 func resettiles
@@ -248,6 +260,8 @@ func resettiles
         flagmove = 0
         nrMoves = 0
         btnMoves.settext(string(nrMoves))
+        timebtn.settext("Elapsed Time : ")
+        t1 = clock()
         return
 
 func pHere
@@ -344,7 +358,7 @@ func rotateright
 func newsize CurButSize
         win1{ 
                 sizenew = CurButSize%4
-                win1.resize(360+sizenew*40,560+sizenew*40)
+                win1.resize(360+sizenew*40,600+sizenew*40)
                 if flaginit != 0
                    for nb = 1 to OldButSize*OldButSize+3
                          button[nb] {close()}
@@ -359,6 +373,7 @@ func newsize CurButSize
                 sleepbtn.close()
                 decbtn.close()
                 incbtn.close()
+                timebtn.close()
 
                 for n = 1 to CurButSize*CurButSize
                      col = n%CurButSize
@@ -465,6 +480,13 @@ func newsize CurButSize
                                show()
                 }
 
+                timebtn = new qpushbutton(win1)   
+                {
+                               setgeometry(100,100+(CurButSize+6)*40,CurButSize*40,40)  
+                               settext("Elapsed Time : ")  
+                               show()
+                }
+
                 table1 = []
                 table2 = []
                 table3 = []   
@@ -485,6 +507,8 @@ func newsize CurButSize
                 flagsave = 0
                 flagmove = 0
                 nrMoves = 0
+                timebtn.settext("Elapsed Time : ")
+                t1 = clock()
                 scramble()
                 }
 
@@ -500,6 +524,8 @@ func pSave
         write(cName2,textedit2)
         write(cName3,textedit3)
          flagsave = 1   
+         timebtn.settext("Elapsed Time : ")
+         t1 = clock()
          return
 
 func pPlay
@@ -525,6 +551,7 @@ func pPlay
            empty = number(table1[OldButSize*OldButSize + 1])
            CounterMan = OldButSize*OldButSize+2
            nrMoves = 0
+           t1 = clock()
            TimerMan.start()
        ok
 
@@ -535,6 +562,8 @@ func pTime()
            CounterMan++
            pPlaySleep()
            sleep(nrSleep*1000) 
+           t2 = (clock() - t1)/1000
+           timebtn.settext("Elapsed Time : " + t2)
            if CounterMan = len(table1)
               TimerMan.stop()
            ok
