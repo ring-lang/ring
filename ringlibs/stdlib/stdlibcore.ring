@@ -737,7 +737,7 @@ Func DirExists cDir
 Func MakeDir cDir
 	system("mkdir " + cDir )
 	
-	/*
+/*
 	Function Name	: sortFirstSecond
 	Usage		: Sort a list on first or second index
 	Parameters	: list to sort
@@ -763,3 +763,64 @@ Func Fsize(fh)
 	size = Ftell(fh)
 	Fseek(fh,0,0)
 	return size
+
+/*------------
+ + EpochTime()
+ + Example:  EpochSec = EpochTime( Date(), Time() )
+ + Format:   EpochSec = EpochTime( "15/07/2016", "10:15:30" )
+ + Output:   EpochSec = 1468577730
+ +------------
+*/
+
+Func EpochTime(Date, Time)
+
+    arrayDate = split(Date, "/")
+    arrayTime = split(Time, ":")
+
+    Year = arrayDate[3] ; Month  = arrayDate[2] ; Day    = arrayDate[1]
+    Hour = arrayTime[1] ; Minute = arrayTime[2] ; Second = arrayTime[3]
+
+    cDate1    = Day +"/"+ Month +"/"+ Year
+    cDate2    = "01/01/" + Year
+    DayOfYear = DiffDays( cDate1, cDate2)
+
+    ### Formula
+    tm_sec  = Second    * 1
+    tm_min  = Minute    * 60
+    tm_hour = Hour      * 3600
+    tm_yday = DayOfYear * 86400
+    tm_year = Year      - 1900
+
+    tm_year1 =         ( tm_year -  70)          * 31536000
+    tm_year2 = ( floor(( tm_year -  69) /   4 )) * 86400
+    tm_year3 = ( floor(( tm_year -   1) / 100 )) * 86400
+    tm_year4 = ( floor(( tm_year + 299) / 400 )) * 86400
+
+    ### Result
+    EpochSec = tm_sec + tm_min + tm_hour + tm_yday + tm_year1 + tm_year2 - tm_year3 + tm_year4
+
+return EpochSec
+
+Func TrimLeft(cStr)
+  $tab   = char(09)
+  $space = char(32)
+  index  = 1
+      while cStr[index] = $space or cStr[index] = $tab
+            index++
+      end  
+  cStr = substr(cStr, index, len(cStr) - index + 1)
+return cStr     
+
+
+Func TrimRight(cStr)
+  $tab   = char(09)
+  $space = char(32)
+  index  = len(cStr)
+      while cStr[index] = $space or cStr[index] = $tab
+            index--
+      end    
+  cStr = substr(cStr, 1, index)
+return cStr     
+
+
+
