@@ -1804,7 +1804,7 @@ Class RNote from WindowsControllerParent
 				:SyntaxClassNamesColor 		= new qcolor() { setrgb(166,226,46,255) },
 				:SyntaxCommentsColor 		= new qcolor() { setrgb(117,113,94,255) },
 				:SyntaxLiteralsColor 		= new qcolor() { setrgb(230,191,77,255) },
-				:SyntaxFunctionCallsColor 		= new qcolor() { setrgb(150,138,62,255) }
+				:SyntaxFunctionCallsColor 		=  new qcolor() { setrgb(240,127,224,255) }
 			]
 			aStyleColors = aCustomStyleColors
 			aTextColor = [248,248,242]
