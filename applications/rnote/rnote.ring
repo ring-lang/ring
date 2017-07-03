@@ -1799,10 +1799,10 @@ Class RNote from WindowsControllerParent
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(143,144,138,255) },
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(39,60,64,255) },
-				:ActiveLineBackColor 		= new qcolor() { setrgb(39,60,64,255) },
+				:ActiveLineBackColor = new qcolor() { setrgb(39,110,114,255) },
 				:SyntaxKeywordsColor		= new qcolor() { setrgb(80,187,177,255) },
 				:SyntaxClassNamesColor 		= new qcolor() { setrgb(166,226,46,255) },
-				:SyntaxCommentsColor 		= new qcolor() { setrgb(117,113,94,255) },
+				:SyntaxCommentsColor = new qcolor() { setrgb(117,160,172,157) },
 				:SyntaxLiteralsColor 		= new qcolor() { setrgb(230,191,77,255) },
 				:SyntaxFunctionCallsColor 		=  new qcolor() { setrgb(240,127,224,255) }
 			]
