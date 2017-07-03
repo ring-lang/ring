@@ -393,7 +393,7 @@ Class RNote from WindowsControllerParent
 					addaction(oAction)
 					addseparator()
 					oAction = new qAction(this.win1) {
-						setShortcut(new QKeySequence("Alt+f"))
+						setShortcut(new QKeySequence("CTRL+SHIFT+f"))
 						setbtnimage(self,"image/formdesigner.png")
 						setclickEvent(Method(:pFormDesignerWindow))
 						settext("Form Designer Window")
