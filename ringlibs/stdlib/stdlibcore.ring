@@ -823,4 +823,13 @@ Func TrimRight(cStr)
 return cStr     
 
 
+Func TrimAll(cStr)
+  $tab   = char(09)
+  $space = char(32)
+  $empty = ""
+    cStr = substr(cStr, $space, $empty)
+    cStr = substr(cStr, $tab,   $empty)
+return cStr
+
+
 
