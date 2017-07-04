@@ -30,6 +30,7 @@ func MsgInfo cTitle,cMessage
         new qmessagebox(null)
         {
 		setwindowtitle(cTitle)
+		setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint) 
                 setstandardbuttons(QMessageBox_Ok)
                 settext(cMessage) 	
 		if cDialogIcon != NULL
@@ -42,6 +43,7 @@ func confirmMsg cTitle,cMessage
         new qmessagebox(null)
         {
 		setwindowtitle(cTitle)
+		setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint) 
                 setstandardbuttons(QMessageBox_Yes | QMessageBox_No)
                 settext(cMessage) 
 		if cDialogIcon != NULL
@@ -56,6 +58,7 @@ func InputBox cTitle,cMessage
         oInput = new QInputDialog(null)
         {
 		setwindowtitle(cTitle)
+		setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint) 
 		setgeometry(100,100,400,50)
 		setlabeltext(cMessage)
 		if cDialogIcon != NULL
@@ -69,6 +72,7 @@ func InputBoxInt cTitle,cMessage
         oInput = new QInputDialog(null)
         {
         	setwindowtitle(cTitle)
+		setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint) 
                 setgeometry(100,100,400,50)
                 setlabeltext(cMessage)
 		setInputMode(1)	# Accept Number (int)
@@ -84,6 +88,7 @@ func InputBoxNum cTitle,cMessage
         oInput = new QInputDialog(null)
         {
         	setwindowtitle(cTitle)
+		setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint) 
                 setgeometry(100,100,400,50)
                 setlabeltext(cMessage)
 		setInputMode(2)	# Accept Number (Double)
@@ -98,6 +103,7 @@ func InputBoxPass cTitle,cMessage
         oInput = new QInputDialog(null)
         {
 		setwindowtitle(cTitle)
+		setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint | Qt_WindowStaysOnTopHint) 
 		setgeometry(100,100,400,50)
 		setlabeltext(cMessage)
 		setTextEchoMode(2)	# Password
