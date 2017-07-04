@@ -22,10 +22,6 @@ app1 = new qapp {
         table3 = []
         nDegree = 0
         nrDegree = [0,90,180,270 ,-90,-180,-270]
-        LabelSizeX = 40
-        offSetX    = LabelSizeX / 2
-        LabelSizeY = 40
-        offSetY    = LabelSizeY / 2
         nDegreeRight = 0
         nDegreeLeft = 0
         btnDegree = newlist(52,2)
@@ -195,6 +191,7 @@ func movetile CurButSize2
        if (CurButSize2 = OldButSize*OldButSize-1 and button[CurButSize2].text() = "In")
            pBack()
        else
+           see char(7)
            up = (empty = (CurButSize2 - OldButSize))
            down = (empty = (CurButSize2 + OldButSize))
            left = ((empty = (CurButSize2- 1)) and ((CurButSize2 % OldButSize) != 1))
@@ -213,8 +210,7 @@ func movetile CurButSize2
                                    nDegree = btnDegree[CurButSize2][2]
                                    btnDegree[empty][2] = nDegree
                                    button[empty].setbuttoncolor("orange")
-                                   button[empty].settext(temp2)
-                                   see char(7)
+                                   button[empty].settext(temp2)                                   
               }
               add(table3, string(nDegree))
               button[CurButSize2].setbuttoncolor("cyan")
@@ -563,13 +559,14 @@ func pTime()
            pPlaySleep()
            sleep(nrSleep*1000) 
            t2 = (clock() - t1)/1000
-           timebtn.settext("Elapsed Time : " + t2)
+           timebtn.settext("Elapsed Time : " + t2 + " s")
            if CounterMan = len(table1)
               TimerMan.stop()
            ok
         ok
 
 func pPlaySleep
+        see char(7)
         value = table1[CounterMan]
         place = table2[CounterMan]
         nDegree = number(table3[CounterMan])
@@ -579,8 +576,7 @@ func pPlaySleep
         nDegree = 0
         button[number(place)].setbuttoncolor("cyan")
         button[number(place)] {settext("")}
-        empty = number(place)
-        see char(7)
+        empty = number(place)        
         nrMoves = nrMoves + 1
         btnMoves.settext(string(nrMoves))
 
