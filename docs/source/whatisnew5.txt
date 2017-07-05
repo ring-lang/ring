@@ -51,7 +51,7 @@ The StdLib is updated to include the next functions
 Better RingQt
 =============
 
-The next functions are updated to display the dialogs on top of other windows.
+The next functions are updated to display the dialogs on the top of other windows.
 
 * SetDialogIcon(cIconFile)
 * MsgInfo(cTitle,cMessage)
