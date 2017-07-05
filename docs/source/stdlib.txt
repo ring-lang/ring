@@ -107,7 +107,7 @@ Example:
 .. index:: 
 	pair: Stdlib Functions; JustFilePath()
 
-JustFilePath() function
+justfilepath() function
 =======================
 
 Get the path of the file, remove the file name.
@@ -136,7 +136,7 @@ Output:
 .. index:: 
 	pair: Stdlib Functions; JustFileName()
 
-JustFileName() function
+justfilename() function
 =======================
 
 Get the file, remove the file path.
@@ -1135,7 +1135,7 @@ Example:
 	pair: Stdlib Functions; FSize()
 
 fsize() function
-==================
+================
 
 The function return the file size in bytes.
 
@@ -1144,3 +1144,18 @@ Syntax:
 .. code-block:: ring
 
 	FSize(File Handle) ---> Number (File Size in Bytes)
+
+.. index:: 
+	pair: Stdlib Functions; TrimAll()
+
+trimall() function
+==================
+
+Remove all spaces and tabs characters from a string
+
+Syntax:
+
+.. code-block:: ring
+
+	TrimAll(cString) ---> cString # Without Spaces and Tabs
+
