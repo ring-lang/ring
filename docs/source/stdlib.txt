@@ -1187,3 +1187,23 @@ Syntax:
 
 	TrimRight(cString) ---> cString # Without Spaces and Tabs from the right side
 
+.. index:: 
+	pair: Stdlib Functions; EpochTime()
+
+epochtime() function
+====================
+
+Return the Epoch Time
+
+Syntax:
+
+.. code-block:: ring
+
+	EpochTime(cDate,cTime) ---> nEpochTime
+
+Example:
+
+.. code-block:: ring
+
+	see EpochTime( Date(), Time() )
+
