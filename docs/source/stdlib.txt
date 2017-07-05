@@ -1163,7 +1163,7 @@ Syntax:
 	pair: Stdlib Functions; TrimLeft()
 
 trimleft() function
-==================
+===================
 
 Remove all spaces and tabs characters from the left side of a string
 
@@ -1172,4 +1172,18 @@ Syntax:
 .. code-block:: ring
 
 	TrimLeft(cString) ---> cString # Without Spaces and Tabs from the left side
+
+.. index:: 
+	pair: Stdlib Functions; TrimRight()
+
+trimright() function
+====================
+
+Remove all spaces and tabs characters from the right side of a string
+
+Syntax:
+
+.. code-block:: ring
+
+	TrimRight(cString) ---> cString # Without Spaces and Tabs from the right side
 
