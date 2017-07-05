@@ -1,0 +1,62 @@
+.. index:: 
+	single: What is new in Ring 1.5?; Introduction
+
+========================
+What is new in Ring 1.5?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.5 release.
+
+.. index:: 
+	pair: What is new in Ring 1.5?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.5  comes with many new features 
+
+* Better Colors for the Modern Style in Ring Notepad
+* Better StdLib
+* Better RingQt
+
+.. index:: 
+	pair: What is new in Ring 1.5?; New Style to Ring Notepad
+
+Better Colors for the Modern Style in Ring Notepad
+==================================================
+
+In Ring Notepad - the (Modern) Style colors are updated
+
+Screen Shot:
+
+.. image:: rnotemodernstyle2.png
+	:alt: Using Ring Notepad - Modern Style
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better StdLib
+
+Better StdLib
+=============
+
+The StdLib is updated to include the next functions
+
+* TrimLeft()
+* TrimRight()
+* TrimAll()
+* EpochTime()
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better RingQt
+
+Better RingQt
+=============
+
+The next functions are updated to display the dialogs on top of other windows.
+
+* SetDialogIcon(cIconFile)
+* MsgInfo(cTitle,cMessage)
+* ConfirmMsg(cTitle,cMessage)
+* InputBox(cTitle,cMessage)
+* InputBoxInt(cTitle,cMessage)
+* InputBoxNum(cTitle,cMessage)
+* InputBoxPass(cTitle,cMessage)
