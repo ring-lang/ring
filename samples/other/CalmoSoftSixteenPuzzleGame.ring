@@ -4,13 +4,15 @@ load "guilib.ring"
 
 app1 = new qapp {
 
+        t1 = 0
         temp = ""
         movesnr = 0
-        button = list(16)   
+        button = list(16) 
+        stylefusionblack()  
  
         win1 = new qwidget() {
                    move(0,0)
-                   resize(360, 480)
+                   resize(360, 520)
                    setwindowtitle("Calmosoft Sixteen Puzzle Game")
 
                    for n = 1 to 16
@@ -19,8 +21,10 @@ app1 = new qapp {
                          row = ceil(n/4)
                          button[n] = new qpushbutton(win1)
                          {
-                                            setgeometry(60+col*40,60+row*40,40,40)
-                                            settext(string(n))
+                                            setgeometry(60+col*40,60+row*40,40,40)                                            
+                                            setstylesheet("color:white")    
+                                            setstylesheet("background-color:blue")                                        
+                                            settext(string(n))                                                                                        
                           } 
                    next
 
@@ -156,6 +160,12 @@ app1 = new qapp {
                                    settext("Moves : ")
                   }
 
+                  timebtn = new qpushbutton(win1)   
+                  {
+                                 setgeometry(100,420,160,40)  
+                                 settext("Elapsed Time : ")  
+                  }
+                  t1 = clock()
                   show()
         }
         exec()
@@ -188,6 +198,8 @@ func scramble
                empty = nr
             ok
        next
+       timebtn.settext("Elapsed Time : ")
+       t1 = clock()
 
 func reset
         movesnr = 0
@@ -195,7 +207,13 @@ func reset
         for i = 1 to 16
              button[i] {settext(string(i))}
         next
+        timebtn.settext("Elapsed Time : ")
+        t1 = clock()
         return
+
+func pTime
+        t2 = (clock() - t1)/1000
+        timebtn.settext("Elapsed Time : " + t2 + " s")
 
 func up1
         temp = button[1].text()
@@ -205,6 +223,7 @@ func up1
         button[13].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func up2
@@ -215,6 +234,7 @@ func up2
         button[14].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func up3
@@ -225,6 +245,7 @@ func up3
         button[15].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func up4
@@ -235,6 +256,7 @@ func up4
         button[16].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func down1
@@ -245,6 +267,7 @@ func down1
         button[1].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func down2
@@ -255,6 +278,7 @@ func down2
         button[2].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func down3
@@ -265,6 +289,7 @@ func down3
         button[3].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func down4
@@ -275,6 +300,7 @@ func down4
         button[4].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func left1
@@ -285,6 +311,7 @@ func left1
         button[4].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func left2
@@ -295,6 +322,7 @@ func left2
         button[8].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func left3
@@ -305,6 +333,7 @@ func left3
         button[12].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func left4
@@ -315,6 +344,7 @@ func left4
         button[16].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func right1
@@ -325,6 +355,7 @@ func right1
         button[1].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func right2
@@ -335,6 +366,7 @@ func right2
         button[5].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func right3
@@ -345,6 +377,7 @@ func right3
         button[9].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
 
 func right4
@@ -355,4 +388,5 @@ func right4
         button[13].settext(temp)
         movesnr =movesnr + 1
         buttonnr.settext("Moves : " + string(movesnr))
+        pTime()
         return
