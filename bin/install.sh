@@ -3,18 +3,22 @@
 
 # To be able to call ring from any folder 
 
+if [ -f lib/libring.dylib ];
+then
 echo "`pwd`/ring \$1" > /usr/local/bin/ring
 chmod +x /usr/local/bin/ring
 
 cd ..
-	
-if [ -f lib/libring.dylib ];
-then
+
 cp lib/libring.dylib /usr/local/lib
 fi
 
 if [ -f lib/libring.so ];
 then
+echo ".`pwd`/ring \$1" > /usr/local/bin/ring
+chmod +x /usr/local/bin/ring
+
+cd ..
 cp lib/libring.so /usr/local/lib
 fi
 	
