@@ -3,7 +3,7 @@
 
 # To be able to call ring from any folder 
 
-if [ -f lib/libring.dylib ];
+if [ -f ../lib/libring.dylib ];
 then
 echo "`pwd`/ring \$1" > /usr/local/bin/ring
 chmod +x /usr/local/bin/ring
@@ -13,7 +13,7 @@ cd ..
 cp lib/libring.dylib /usr/local/lib
 fi
 
-if [ -f lib/libring.so ];
+if [ -f ../lib/libring.so ];
 then
 sudo echo ".`pwd`/ring \$1" > /usr/bin/ring 
 sudo chmod +x /usr/bin/ring
