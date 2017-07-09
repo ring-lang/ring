@@ -15,11 +15,11 @@ fi
 
 if [ -f lib/libring.so ];
 then
-echo ".`pwd`/ring \$1" > /usr/bin/ring
-chmod +x /usr/local/bin/ring
+sudo echo ".`pwd`/ring \$1" > /usr/bin/ring
+sudo chmod +x /usr/bin/ring
 
 cd ..
-cp lib/libring.so /usr/lib
+sudo cp lib/libring.so /usr/lib
 fi
 	
 # Make the RingODBC library ready for use directly
