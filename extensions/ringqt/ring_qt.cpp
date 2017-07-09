@@ -204,7 +204,7 @@ extern "C" {
 #include <QDesktopServices>
 
 #include <QToolButton>
-#include "GToolButton.h"
+#include "gtoolbutton.h"
 
 #include <QSerialPort>
 #include "gserialport.h"
