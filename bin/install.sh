@@ -15,7 +15,7 @@ fi
 
 if [ -f lib/libring.so ];
 then
-sudo echo ".`pwd`/ring \$1" > /usr/bin/ring &
+sudo echo ".`pwd`/ring \$1" > /usr/bin/ring 
 sudo chmod +x /usr/bin/ring
 
 cd ..
