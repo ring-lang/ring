@@ -120,9 +120,9 @@ fi
 
 # Make the RingZipLib library ready for use directly
 
-if [ -f lib/libring_ziplib.dylib ];
+if [ -f lib/libring_libzip.dylib ];
 then
-cp lib/libring_ziplib.dylib /usr/lib
+cp lib/libring_libzip.dylib /usr/lib
 fi
 
 if [ -f lib/libring_libzip.so ];
