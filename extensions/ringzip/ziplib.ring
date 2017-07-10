@@ -1,9 +1,9 @@
 if iswindows()
 	LoadLib("ring_libzip.dll")
 but ismacosx()
-	LoadLib("ring_libzip.dylib")
+	LoadLib("libring_libzip.dylib")
 else
-	LoadLib("ring_libzip.so")
+	LoadLib("libring_libzip.so")
 ok
 
 Load "ring_libzip.rh"
