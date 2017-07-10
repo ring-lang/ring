@@ -1,7 +1,7 @@
 if iswindows()
 	LoadLib("ring_mysql.dll")
 but ismacosx()
-	LoadLib("ring_mysql.dylib")
+	LoadLib("libring_mysql.dylib")
 else
-	LoadLib("ring_mysql.so")
+	LoadLib("libring_mysql.so")
 ok
