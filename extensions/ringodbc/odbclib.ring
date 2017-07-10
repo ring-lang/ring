@@ -1,7 +1,7 @@
 if iswindows()
 	LoadLib("ring_odbc.dll")
 but ismacosx()
-	LoadLib("ring_odbc.dylib")
+	LoadLib("libring_odbc.dylib")
 else
-	LoadLib("ring_odbc.so")
+	LoadLib("libring_odbc.so")
 ok
