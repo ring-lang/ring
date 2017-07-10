@@ -230,7 +230,7 @@ Run Ring Notepad
 .. code-block:: ring
 
 	cd applications/rnote
-	sudo ring rnote.ring
+	ring rnote.ring
 
 .. index:: 
 	pair: Building From Source Code; Building using MacOS X

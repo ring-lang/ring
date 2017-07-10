@@ -261,7 +261,7 @@ The next steps explains building using scripts.
 ### Run Ring Notepad
 	
 	cd applications/rnote
-	sudo ring rnote.ring
+	ring rnote.ring
 
 
 ## Building using CMake 
