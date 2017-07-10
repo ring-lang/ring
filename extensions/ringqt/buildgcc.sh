@@ -1,4 +1,4 @@
-qmake ring_qt.pro -r -spec linux-g++-32
+qmake ring_qt.pro
 make
 cp libringqt.so ../../lib
 
