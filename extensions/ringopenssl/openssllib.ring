@@ -1,7 +1,7 @@
 if iswindows()
 	LoadLib("ring_openssl.dll")
 but ismacosx()
-	LoadLib("ring_openssl.dylib")
+	LoadLib("libring_openssl.dylib")
 else
-	LoadLib("ring_openssl.so")
+	LoadLib("libring_openssl.so")
 ok
