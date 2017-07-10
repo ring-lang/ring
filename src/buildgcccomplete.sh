@@ -6,3 +6,4 @@ gcc -shared -o $PWD/../lib/libring.so ring_state.o ring_ext.o ring_hashlib.o rin
 
 gcc -rdynamic ring.c -o $PWD/../bin/ring -L $PWD/../lib -lring  -I $PWD/../include 
 
+sudo ./../bin/install.sh
