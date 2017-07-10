@@ -6357,7 +6357,6 @@ Parent Class : QIODevice
 * QSerialPort::FlowControl flowControl(void)
 * bool flush(void)
 * void *handle(void)
-* bool isBreakEnabled(void)
 * bool isDataTerminalReady(void)
 * bool isRequestToSend(void)
 * QSerialPort::Parity parity(void)
