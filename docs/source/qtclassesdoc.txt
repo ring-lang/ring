@@ -6414,7 +6414,6 @@ Parameters : void
 * QString manufacturer(void)
 * QString portName(void)
 * quint16 productIdentifier(void)
-* QString serialNumber(void)
 * void swap(QSerialPortInfo other)
 * QString systemLocation(void)
 * quint16 vendorIdentifier(void)
