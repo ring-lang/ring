@@ -29,9 +29,9 @@ then
 cp lib/libring_odbclib.dylib /usr/local/lib
 fi
 
-if [ -f lib/libring_odbclib.so ];
+if [ -f lib/libring_odbc.so ];
 then
-sudo cp lib/libring_odbclib.so /usr/lib
+sudo cp lib/libring_odbc.so /usr/lib
 fi
 
 # Make the RingMySQL library ready for use directly
@@ -41,9 +41,9 @@ then
 cp lib/libring_mysqllib.dylib /usr/local/lib
 fi
 
-if [ -f lib/libring_mysqllib.so ];
+if [ -f lib/libring_mysql.so ];
 then
-sudo cp lib/libring_mysqllib.so /usr/lib
+sudo cp lib/libring_mysql.so /usr/lib
 fi
 
 # Make the RingSQLite library ready for use directly
@@ -53,9 +53,9 @@ then
 cp lib/libring_sqlitelib.dylib /usr/local/lib
 fi
 
-if [ -f lib/libring_sqlitelib.so ];
+if [ -f lib/libring_sqlite.so ];
 then
-sudo cp lib/libring_sqlitelib.so /usr/lib
+sudo cp lib/libring_sqlite.so /usr/lib
 fi
 
 # Make the RingInternet library ready for use directly
@@ -65,9 +65,9 @@ then
 cp lib/libring_internetlib.dylib /usr/local/lib
 fi
 
-if [ -f lib/libring_internetlib.so ];
+if [ -f lib/libring_internet.so ];
 then
-sudo cp lib/libring_internetlib.so /usr/lib
+sudo cp lib/libring_internet.so /usr/lib
 fi
 
 # Make the RingOpenSSL library ready for use directly
@@ -77,9 +77,9 @@ then
 cp lib/libring_openssllib.dylib /usr/local/lib
 fi
 
-if [ -f lib/libring_openssllib.so ];
+if [ -f lib/libring_openssl.so ];
 then
-sudo cp lib/libring_openssllib.so /usr/lib
+sudo cp lib/libring_openssl.so /usr/lib
 fi
 
 # Make the RingAllegro library ready for use directly
@@ -125,8 +125,8 @@ then
 cp lib/libring_ziplib.dylib /usr/lib
 fi
 
-if [ -f lib/libring_ziplib.so ];
+if [ -f lib/libring_libzip.so ];
 then
-sudo cp lib/libring_ziplib.so /usr/lib
+sudo cp lib/libring_libzip.so /usr/lib
 fi
 
