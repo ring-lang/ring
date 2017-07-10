@@ -82624,23 +82624,6 @@ RING_FUNC(ring_QSerialPort_handle)
 }
 
 
-RING_FUNC(ring_QSerialPort_isBreakEnabled)
-{
-	GSerialPort *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
-	RING_API_RETNUMBER(pObject->isBreakEnabled());
-}
-
-
 RING_FUNC(ring_QSerialPort_isDataTerminalReady)
 {
 	GSerialPort *pObject ;
@@ -91836,7 +91819,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qserialport_flowcontrol",ring_QSerialPort_flowControl);
 	ring_vm_funcregister("qserialport_flush",ring_QSerialPort_flush);
 	ring_vm_funcregister("qserialport_handle",ring_QSerialPort_handle);
-	ring_vm_funcregister("qserialport_isbreakenabled",ring_QSerialPort_isBreakEnabled);
 	ring_vm_funcregister("qserialport_isdataterminalready",ring_QSerialPort_isDataTerminalReady);
 	ring_vm_funcregister("qserialport_isrequesttosend",ring_QSerialPort_isRequestToSend);
 	ring_vm_funcregister("qserialport_parity",ring_QSerialPort_parity);

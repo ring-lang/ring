@@ -14886,9 +14886,6 @@ Class QSerialPort from QIODevice
 	Func handle 
 		return QSerialPort_handle(pObject)
 
-	Func isBreakEnabled 
-		return QSerialPort_isBreakEnabled(pObject)
-
 	Func isDataTerminalReady 
 		return QSerialPort_isDataTerminalReady(pObject)
 
