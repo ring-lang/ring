@@ -1,7 +1,7 @@
 if iswindows()
 	LoadLib("ring_sqlite.dll")
 but ismacosx()
-	LoadLib("ring_sqlite.dylib")
+	LoadLib("libring_sqlite.dylib")
 else
-	LoadLib("ring_sqlite.so")
+	LoadLib("libring_sqlite.so")
 ok
