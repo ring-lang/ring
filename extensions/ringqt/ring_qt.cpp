@@ -83457,23 +83457,6 @@ RING_FUNC(ring_QSerialPortInfo_productIdentifier)
 }
 
 
-RING_FUNC(ring_QSerialPortInfo_serialNumber)
-{
-	QSerialPortInfo *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QSerialPortInfo *) RING_API_GETCPOINTER(1,"QSerialPortInfo");
-	RING_API_RETSTRING(pObject->serialNumber().toStdString().c_str());
-}
-
-
 RING_FUNC(ring_QSerialPortInfo_swap)
 {
 	QSerialPortInfo *pObject ;
@@ -91863,7 +91846,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qserialportinfo_manufacturer",ring_QSerialPortInfo_manufacturer);
 	ring_vm_funcregister("qserialportinfo_portname",ring_QSerialPortInfo_portName);
 	ring_vm_funcregister("qserialportinfo_productidentifier",ring_QSerialPortInfo_productIdentifier);
-	ring_vm_funcregister("qserialportinfo_serialnumber",ring_QSerialPortInfo_serialNumber);
 	ring_vm_funcregister("qserialportinfo_swap",ring_QSerialPortInfo_swap);
 	ring_vm_funcregister("qserialportinfo_systemlocation",ring_QSerialPortInfo_systemLocation);
 	ring_vm_funcregister("qserialportinfo_vendoridentifier",ring_QSerialPortInfo_vendorIdentifier);

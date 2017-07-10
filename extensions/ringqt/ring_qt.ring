@@ -15029,9 +15029,6 @@ Class QSerialPortInfo
 	Func productIdentifier 
 		return QSerialPortInfo_productIdentifier(pObject)
 
-	Func serialNumber 
-		return QSerialPortInfo_serialNumber(pObject)
-
 	Func swap P1
 		return QSerialPortInfo_swap(pObject,GetObjectPointerFromRingObject(P1))
 
