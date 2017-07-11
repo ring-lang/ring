@@ -21,7 +21,7 @@ Ring 1.4.1  comes with the next changes
 * Better Colors for the Modern Style in Ring Notepad
 * Better StdLib
 * Better RingQt
-* New Sample : Sixteen Puzzel
+* New Sample : Sixteen Puzzle
 
 .. index:: 
 	pair: What is new in Ring 1.4.1?; Better Scripts for Building from Source Code
@@ -81,7 +81,7 @@ The next functions are updated to display the dialogs on the top of other window
 * InputBoxPass(cTitle,cMessage)
 
 .. index:: 
-	pair: What is new in Ring 1.4.1?; New Sample : Sixteen Puzzel
+	pair: What is new in Ring 1.4.1?; New Sample : Sixteen Puzzle
 
 New Sample : Sixteen Puzzle
 ===========================
