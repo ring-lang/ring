@@ -70,7 +70,7 @@ The next functions are updated to display the dialogs on the top of other window
 New Sample : Sixteen Puzzel
 ===========================
 
-Author : Gal Zsolt (CalmoSoft)
+The Sixteen Puzzel is added to the Applications folder.
 
 Screen Shot:
 
