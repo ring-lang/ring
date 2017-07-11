@@ -83,12 +83,12 @@ The next functions are updated to display the dialogs on the top of other window
 .. index:: 
 	pair: What is new in Ring 1.4.1?; New Sample : Sixteen Puzzel
 
-New Sample : Sixteen Puzzel
+New Sample : Sixteen Puzzle
 ===========================
 
-The Sixteen Puzzel is added to the Applications folder.
+The Sixteen Puzzle is added to the Applications folder.
 
 Screen Shot:
 
 .. image:: sixteenpuzzle.jpg
-	:alt: Sixteen Puzzel
+	:alt: Sixteen Puzzle
