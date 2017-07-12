@@ -831,5 +831,24 @@ Func TrimAll(cStr)
     cStr = substr(cStr, $tab,   $empty)
 return cStr
 
+/*
+   Remove NewLine chars
+*/
+
+Func chomp(cStr)
+   cStr = substr(cStr, nl, "" )
+return cStr
+
+
+/*
+   SystemCmd() outputs to Variable
+   Example: cYou = SystemCmd("whoami")
+   See "SystemCmd: whoami ====="+ nl + cYou +nl
+*/
+
+Func SystemCmd(cmd)
+   System(cmd + "> cmd.txt")
+   cStr = read("cmd.txt")
+return cStr
 
 
