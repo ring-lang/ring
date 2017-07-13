@@ -69,27 +69,6 @@ Example:
 .. index:: 
 	pair: System Functions; SysGet() Function
 
-SystemCmd() Function
-=================
-
-We can execute system commands using the SystemCmd() function that outputs to a variable
-
-Syntax:
-
-.. code-block:: ring
-
-	SystemCmd(cCommand)
-
-Example:
-
-.. code-block:: ring
-
-	cYou  = SystemCmd("whoami") 	   # User Name logged in is output a variable
-	cThem = SystemCmd("dir c:\Users")  # Directory List is output to a variable
-
-.. index:: 
-	pair: System Functions; SysGet() Function
-
 SysGet() Function
 =================
 
