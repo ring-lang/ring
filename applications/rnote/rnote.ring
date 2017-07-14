@@ -23,11 +23,11 @@ Class RNote from WindowsControllerParent
 	cStartUpFolder = exefolder() + "/../applications/"
 	lShowProject = True
 	lShowSourceCode = True
-	lShowBrowser = True
+	lShowBrowser = False
 	lShowFunctionsList = True
 	lShowOutputWindow = True
-	lShowClassesList = True
-	lShowFormDesigner = True
+	lShowClassesList = False
+	lShowFormDesigner = False
 	nTabSpaces = 0
 	aBrowserLinks = [
 		["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
@@ -187,7 +187,7 @@ Class RNote from WindowsControllerParent
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
-						setclickEvent(Method(:pDebug))
+						setclickevent("pRunNoConsole()") 
 						settooltip("Debug (Run then wait!)")
 					} ,
 					new qpushbutton(this.win1) {
@@ -545,8 +545,9 @@ Class RNote from WindowsControllerParent
 				setclickedEvent(Method(:pChangeFile))
 				setActivatedEvent(Method(:pChangeFile))
 				setGeometry(00,00,200,400)
-				setminimumwidth(250)
-				chdir(this.cStartUpFolder)
+				setminimumwidth(450)
+                                                     setmaximumwidth(450)
+                                                     	chdir(this.cStartUpFolder)
 				oDir = new QDir()
 				this.ofile = new QFileSystemModel() {
 					setrootpath(oDir.currentpath())
@@ -612,7 +613,8 @@ Class RNote from WindowsControllerParent
 			this.oDock2 = new qdockwidget(this.win1,0) {
 				setwidget(this.textedit1)
 				setwindowtitle("Source Code")
-			}
+                                                     setminimumwidth(340)                                                     
+                                       }
 
 			this.oWebBrowser = new qWidget() {
 				setWindowFlags(Qt_SubWindow)
@@ -663,6 +665,7 @@ Class RNote from WindowsControllerParent
 			this.oDock4 = new qDockwidget(this.win1,0) {
 				setWidget(this.oFunctionsList)
 				setwindowtitle("Functions")
+                                                     setminimumwidth(120)
 			}
 
 			# Classes List
@@ -696,10 +699,16 @@ Class RNote from WindowsControllerParent
 				setClickEvent(Method(:pSendProcessData))
 			}
 
+			oClearbtn = new qpushbutton(oProcessWindow) {
+				setText("Clear")
+				setClickEvent(Method(:pClearProcess))
+			}
+
 			oProcessLayout1 = new qhboxlayout() {
 				AddWidget(oProcessLabel)
 				AddWidget(this.oProcessText)
 				Addwidget(oProcessbtnSend)
+                                                     Addwidget(oClearbtn)
 			}
 			this.oProcessEditbox = new qPlaintextedit(oProcessWindow) {
 				setminimumwidth(200)
@@ -1823,3 +1832,6 @@ Class RNote from WindowsControllerParent
 				new qColor() { setrgb(142,45,197,255) },
 				new qColor() { setrgb(39,60,64,255)}
 			)
+
+func pClearProcess
+        oProcessEditbox.setPlainText("")
