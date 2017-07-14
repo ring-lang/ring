@@ -23,11 +23,11 @@ Class RNote from WindowsControllerParent
 	cStartUpFolder = exefolder() + "/../applications/"
 	lShowProject = True
 	lShowSourceCode = True
-	lShowBrowser = False
+	lShowBrowser = True
 	lShowFunctionsList = True
 	lShowOutputWindow = True
-	lShowClassesList = False
-	lShowFormDesigner = False
+	lShowClassesList = True
+	lShowFormDesigner = True
 	nTabSpaces = 0
 	aBrowserLinks = [
 		["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
@@ -187,7 +187,7 @@ Class RNote from WindowsControllerParent
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
-						setclickevent("pRunNoConsole()") 
+						setclickevent(Method(:pDebug)) 
 						settooltip("Debug (Run then wait!)")
 					} ,
 					new qpushbutton(this.win1) {
@@ -545,9 +545,8 @@ Class RNote from WindowsControllerParent
 				setclickedEvent(Method(:pChangeFile))
 				setActivatedEvent(Method(:pChangeFile))
 				setGeometry(00,00,200,400)
-				setminimumwidth(450)
-                                                     setmaximumwidth(450)
-                                                     	chdir(this.cStartUpFolder)
+				setminimumwidth(250)
+                chdir(this.cStartUpFolder)
 				oDir = new QDir()
 				this.ofile = new QFileSystemModel() {
 					setrootpath(oDir.currentpath())
@@ -665,7 +664,6 @@ Class RNote from WindowsControllerParent
 			this.oDock4 = new qDockwidget(this.win1,0) {
 				setWidget(this.oFunctionsList)
 				setwindowtitle("Functions")
-                                                     setminimumwidth(120)
 			}
 
 			# Classes List
@@ -708,7 +706,7 @@ Class RNote from WindowsControllerParent
 				AddWidget(oProcessLabel)
 				AddWidget(this.oProcessText)
 				Addwidget(oProcessbtnSend)
-                                                     Addwidget(oClearbtn)
+                Addwidget(oClearbtn)
 			}
 			this.oProcessEditbox = new qPlaintextedit(oProcessWindow) {
 				setminimumwidth(200)
@@ -1833,5 +1831,5 @@ Class RNote from WindowsControllerParent
 				new qColor() { setrgb(39,60,64,255)}
 			)
 
-func pClearProcess
+	func pClearProcess
         oProcessEditbox.setPlainText("")
