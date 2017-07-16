@@ -90,6 +90,8 @@ typedef struct VM {
 	char nActiveError  ;
 	List *aDynamicSelfItems  ;
 	String *pPackageName  ;
+	char lTrace  ;
+	String *pTrace  ;
 } VM ;
 /*
 **  Functions 

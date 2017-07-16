@@ -166,6 +166,10 @@ Type: List *
 aDynamicSelfItems
 Type: String *
 pPackageName
+Type: char
+lTrace
+Type: String *
+pTrace
 END:
 Type: VM
 struct VM

@@ -190,6 +190,9 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->aDynamicSelfItems = ring_list_new(0);
 	/* The active package name (after using import command) */
 	pVM->pPackageName = ring_string_new("");
+	/* Trace Program (After Each Line) */
+	pVM->lTrace = 0 ;
+	pVM->pTrace = ring_string_new("");
 	return pVM ;
 }
 
@@ -238,6 +241,7 @@ VM * ring_vm_delete ( VM *pVM )
 	/* Delete List */
 	pVM->aDynamicSelfItems = ring_list_delete(pVM->aDynamicSelfItems);
 	pVM->pPackageName = ring_string_delete(pVM->pPackageName);
+	pVM->pTrace = ring_string_delete(pVM->pTrace);
 	free( pVM ) ;
 	pVM = NULL ;
 	return pVM ;
