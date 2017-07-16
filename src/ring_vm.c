@@ -190,9 +190,15 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->aDynamicSelfItems = ring_list_new(0);
 	/* The active package name (after using import command) */
 	pVM->pPackageName = ring_string_new("");
-	/* Trace Program (After Each Line) */
+	/*
+	**  Trace Program (After Each Line) 
+	**  lTrace = Logical Value (Trace is Active or Not) 
+	**  pTrace = String contains the code to be executed (Trace Function) 
+	**  lTraceActive = The Trace Function is Active - Don't Call Trace function from Trace Function 
+	*/
 	pVM->lTrace = 0 ;
 	pVM->pTrace = ring_string_new("");
+	pVM->lTraceActive = 0 ;
 	return pVM ;
 }
 

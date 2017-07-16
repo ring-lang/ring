@@ -170,6 +170,8 @@ Type: char
 lTrace
 Type: String *
 pTrace
+Type: char
+lTraceActive
 END:
 Type: VM
 struct VM

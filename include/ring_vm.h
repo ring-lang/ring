@@ -92,6 +92,7 @@ typedef struct VM {
 	String *pPackageName  ;
 	char lTrace  ;
 	String *pTrace  ;
+	char lTraceActive  ;
 } VM ;
 /*
 **  Functions 
