@@ -201,6 +201,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pTrace = ring_string_new("");
 	pVM->lTraceActive = 0 ;
 	pVM->nTraceEvent = 0 ;
+	pVM->pTraceData = ring_list_new(0) ;
 	return pVM ;
 }
 
@@ -250,6 +251,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->aDynamicSelfItems = ring_list_delete(pVM->aDynamicSelfItems);
 	pVM->pPackageName = ring_string_delete(pVM->pPackageName);
 	pVM->pTrace = ring_string_delete(pVM->pTrace);
+	pVM->pTraceData = ring_list_delete(pVM->pTraceData);
 	free( pVM ) ;
 	pVM = NULL ;
 	return pVM ;

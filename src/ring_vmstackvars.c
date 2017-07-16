@@ -539,6 +539,8 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 	if ( (pVM->lTrace == 1) && (pVM->lTraceActive == 0) ) {
 		pVM->lTraceActive = 1 ;
 		pVM->nTraceEvent = nEvent ;
+		/* Prepare Trace Data */
+		ring_list_deleteallitems(pVM->pTraceData);
 		/* Execute Trace Function */
 		ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
 		pVM->lTraceActive = 0 ;

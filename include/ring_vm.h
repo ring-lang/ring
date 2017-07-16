@@ -94,6 +94,7 @@ typedef struct VM {
 	String *pTrace  ;
 	char lTraceActive  ;
 	char nTraceEvent  ;
+	List *pTraceData  ;
 } VM ;
 /*
 **  Functions 
