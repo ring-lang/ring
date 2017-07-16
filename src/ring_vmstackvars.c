@@ -221,6 +221,12 @@ void ring_vm_loadapushv ( VM *pVM )
 void ring_vm_newline ( VM *pVM )
 {
 	pVM->nLineNumber = RING_VM_IR_READI ;
+	if ( (pVM->lTrace == 1) && (pVM->lTraceActive == 0) ) {
+		pVM->lTraceActive = 1 ;
+		/* Execute Trace Function */
+		ring_vm_eval(pVM,ring_string_get(pVM->pTrace));
+		pVM->lTraceActive = 0 ;
+	}
 }
 
 void ring_vm_freestack ( VM *pVM )
