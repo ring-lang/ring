@@ -195,10 +195,12 @@ VM * ring_vm_new ( RingState *pRingState )
 	**  lTrace = Logical Value (Trace is Active or Not) 
 	**  pTrace = String contains the code to be executed (Trace Function) 
 	**  lTraceActive = The Trace Function is Active - Don't Call Trace function from Trace Function 
+	**  nTraceEvent = The Trace Event (1 = New Line , etc) 
 	*/
 	pVM->lTrace = 0 ;
 	pVM->pTrace = ring_string_new("");
 	pVM->lTraceActive = 0 ;
+	pVM->nTraceEvent = 0 ;
 	return pVM ;
 }
 

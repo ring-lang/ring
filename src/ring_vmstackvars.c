@@ -221,12 +221,7 @@ void ring_vm_loadapushv ( VM *pVM )
 void ring_vm_newline ( VM *pVM )
 {
 	pVM->nLineNumber = RING_VM_IR_READI ;
-	if ( (pVM->lTrace == 1) && (pVM->lTraceActive == 0) ) {
-		pVM->lTraceActive = 1 ;
-		/* Execute Trace Function */
-		ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
-		pVM->lTraceActive = 0 ;
-	}
+	ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_NEWLINE);
 }
 
 void ring_vm_freestack ( VM *pVM )
@@ -536,4 +531,17 @@ void ring_vm_freeloadaddressscope ( VM *pVM )
 {
 	/* Clear Load Address Result Scope Array */
 	ring_list_deleteallitems(pVM->aLoadAddressScope);
+}
+/* Trace */
+
+void ring_vm_traceevent ( VM *pVM,char nEvent )
+{
+	if ( (pVM->lTrace == 1) && (pVM->lTraceActive == 0) ) {
+		pVM->lTraceActive = 1 ;
+		pVM->nTraceEvent = nEvent ;
+		/* Execute Trace Function */
+		ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
+		pVM->lTraceActive = 0 ;
+		pVM->nTraceEvent = 0 ;
+	}
 }
