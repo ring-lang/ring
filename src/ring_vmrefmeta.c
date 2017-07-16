@@ -46,6 +46,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_classeslist",ring_vm_refmeta_ringvmclasseslist);
 	ring_vm_funcregister("ringvm_packageslist",ring_vm_refmeta_ringvmpackageslist);
 	ring_vm_funcregister("ringvm_cfunctionslist",ring_vm_refmeta_ringvmcfunctionslist);
+	ring_vm_funcregister("ringvm_settrace",ring_vm_refmeta_ringvmsettrace);
 }
 /* Functions */
 
@@ -243,7 +244,7 @@ void ring_vm_refmeta_ispackage ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( RING_API_GETSTRING(1) ) {
+	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
 		cStr = RING_API_GETSTRING(1) ;
 		ring_string_lower(cStr);
@@ -879,4 +880,28 @@ void ring_vm_refmeta_ringvmcfunctionslist ( void *pPointer )
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	RING_API_RETLIST(pVM->pCFunctionsList);
+}
+
+void ring_vm_refmeta_ringvmsettrace ( void *pPointer )
+{
+	VM *pVM  ;
+	char *cStr  ;
+	pVM = (VM *) pPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		cStr = RING_API_GETSTRING(1) ;
+		if ( strcmp(cStr,"") == 0 ) {
+			pVM->lTrace = 0 ;
+			ring_string_set(pVM->pTrace,"");
+		}
+		else {
+			pVM->lTrace = 1 ;
+			ring_string_set(pVM->pTrace,cStr);
+		}
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
 }
