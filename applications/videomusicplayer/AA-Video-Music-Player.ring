@@ -91,6 +91,8 @@ See UserNameDirVideos +nl
 
     imageW = 400 ;  imageH = 400 ; GrowBy = 8
 
+    volume = 100
+
 ###-------------------------------------------
 
 
@@ -258,6 +260,26 @@ MyApp = New qapp
                         setGeometry(850,10,130,30)
                         settext("Mute")
                         setclickevent( "mute()")
+                }
+
+                btnVolume = new qpushbutton(win1)    {
+                        setGeometry(980,10,130,30)
+                        settext("Volume : 100")
+                        setclickevent( "volume()")
+                }
+
+                VolumeDec = new qpushbutton(win1)
+               {
+                                 setgeometry(1110,15,30,25)
+                                 settext("<<") 
+                                 setclickevent( "volumeDec()")
+                }
+
+               VolumeInc = new qpushbutton(win1)
+               {
+                                 setgeometry(1140,15,30,25)
+                                 settext(">>") 
+                                 setclickevent( "volumeInc()")
                 }
 
 
@@ -622,7 +644,21 @@ func mute
         if player.isMuted()
            player.setMuted(false)
         else  
-           player.setMuted(true)
+         player.setMuted(true)
+        ok
+
+func volumeDec
+        if volume > 0
+           volume = volume - 10
+           btnVolume.settext("Volume : " + volume)
+           player.setVolume(volume)
+        ok
+
+func volumeInc
+        if volume < 100
+           volume = volume + 10
+           btnVolume.settext("Volume : " + volume)
+           player.setVolume(volume)
         ok
            
 
