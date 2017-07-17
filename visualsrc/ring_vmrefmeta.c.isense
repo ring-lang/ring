@@ -233,3 +233,6 @@ cStr
 ring_vm_refmeta_ringvmtracedata
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmtraceevent
+Type: VM *
+pVM
