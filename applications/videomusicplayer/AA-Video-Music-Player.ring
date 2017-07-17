@@ -16,13 +16,18 @@ Load "guilib.ring"
  +
  +     stock.jpg  for Initial Image
  +     stock.mp3  for Initial Music
+ +     mute.png   for Button-Icon -- Mute
  +---------------------------------------------------------------------
 */
+dirList   = []   ### Search /Users directories
+musicList = []   ### List of Music and Videos found.
+
+
+
+fileType  = [".avi", ".mp4", ".mpg", ".mkv", ".wmv", ".mp3", ".wav", ".aac", ".ogg", ".wma", ".flac" ]
 
 FileToPlay = "stock.mp3"
 ImageFile  = "stock.jpg"
-
-### fileType  = [".avi", ".mp4", ".mpg", ".mkv", ".wmv", ".mp3", ".wav", ".aac", ".ogg", ".wma", ".flac" ]
 
 ###---------------------------------
 ### Fetch User directoty and name
@@ -32,8 +37,23 @@ ImageFile  = "stock.jpg"
         cYou = chomp(cYou)
         See "Whoami: "+ cYou +"|"+ nl
 
-    if IsLinux()  ### Returns 1 for Linux
+    if IsMacOSX()
         
+        ### MAC
+        ### /Users/christiane  - whoami
+        ### christiane   
+        ### /Users/christiane/Music  Movies
+        
+        youName = cYou
+        dirName = "/Users/" + youName
+
+        UserNameDirMusic  = dirName + "/Music/"
+        UserNameDirVideos = dirName + "/Movies/"   
+
+        
+    but IsLinux()  
+        
+        ### LINUX
         ### umberto@umberto ~ $ whoami
         ### umberto
         ### /home/umberto/Videos
@@ -44,8 +64,9 @@ ImageFile  = "stock.jpg"
         UserNameDirMusic  = dirName + "/Music/"
         UserNameDirVideos = dirName + "/Videos/"
 
+        
     else
-        ### Windows
+        ### WINDOWS
         ### desktop-umberto\umberto
 
         cLast = 0
@@ -58,10 +79,17 @@ ImageFile  = "stock.jpg"
 
         UserNameDirMusic  = "C:\Users\" + youName + "\Music\"
         UserNameDirVideos = "C:\Users\" + youName + "\Videos\"
+
     ok
 
     See UserNameDirMusic  +nl
     See UserNameDirVideos +nl
+
+
+### For PlayList
+###             SearchVideoMusic(UserPath)
+###             UserPath = "C:\Users\Umberto\Music"    ### <<<== Search this path for fileType
+###             UserPath = "C:\Users\Umberto\Videos"   ### <<<== Search this path for fileType    
 
 ###------------------------------------------------------
 ### DRAW MAIN PAGE - CHART  size 1000 x 750
@@ -138,35 +166,57 @@ MyApp = New qapp
        ### BMP Background
        ### WinWidth   WinHeight
 
-	        if Fexists(ImageFile)  
-			
-				imageStock = new qlabel(win1)
-				{
-					image = new qpixmap(ImageFile)
-					AspectRatio = image.width() / image.height()
+            if Fexists(ImageFile)  
+            
+                imageStock = new qlabel(win1)
+                {
+                    image = new qpixmap(ImageFile)
+                    AspectRatio = image.width() / image.height()
 
-					imageW = 400
-					imageH = imageH / AspectRatio
+                    imageW = 400
+                    imageH = imageH / AspectRatio
 
-					setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
+                    setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
 
-					PosLeft = (BoxWidth  - imageW ) / 2
-					PosTop  = (BoxHeight - imageH ) / 2
-					setGeometry(PosLeft,PosTop,imageW,imageH)
+                    PosLeft = (BoxWidth  - imageW ) / 2
+                    PosTop  = (BoxHeight - imageH ) / 2
+                    setGeometry(PosLeft,PosTop,imageW,imageH)
 
-				}
-				
-				TimerMan = new qTimer(win1)
-				{
-					setinterval(100)
-					settimeoutevent("pTime()")  ### ==>> func
-					start()
-				}
-				
-			else
-				msg = "ImageFile: -- "+ ImageFile +" -- required. Use an image jpg of your choice"
-				SendMsg(msg)
-			ok
+                }
+                
+                TimerMan = new qTimer(win1)
+                {
+                    setinterval(100)
+                    settimeoutevent("pTime()")  ### ==>> func
+                    start()
+                }
+                
+            else
+                msg = "ImageFile: -- "+ ImageFile +" -- required. Use an Image JPG of your choice"
+                SendMsg(msg)
+            ok
+
+            videowidget = new qVideoWidget(win1)    ### Video Box
+            {
+                setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
+                setstylesheet("background-color: green")
+            }
+            
+            player = new QMediaPlayer()
+            {   ###------------------------
+                ### Initial startup music
+                
+                if Fexists(FileToPlay)
+                    setMedia(new qurl(FiletoPlay))     
+                else
+                    msg = "FileToPlay: -- "+ FileToPlay  +" -- required. Use Music MP3 of your choice"
+                    SendMsg(msg)
+                ok
+               
+               setVideoOutput(videowidget)
+               play()
+            }
+            
 
             LabelMan = new qLabel(win1)
             {
@@ -191,38 +241,35 @@ MyApp = New qapp
             }
 
 
+            ###---------------------------------------
+            ### PlayList plats sequential mmedia files
 
-    
-            ###----------------------------------
 
-            videowidget = new qVideoWidget(win1)    ### Video Box
+            playlist = new QMediaPlaylist() 
             {
-                setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
-                setstylesheet("background-color: green")
-            }
+            
+                SearchVideoMusic(UserNameDirMusic)  
+                SearchVideoMusic(UserNameDirVideos)
+                
+                for mediaFile in musicList
 
-            playlist = new QMediaPlaylist() {
-                addMedia(new qurl("/Users/calmosoft/video/CalmoSoftFifteenPuzzle.avi"))
-                addMedia(new qurl("/Users/calmosoft/video/CalmoSoftSixteenPuzzle.avi"))
+                    mediaFile = substr(mediaFile, "C:\", "/" )
+                    mediaFile = substr(mediaFile, "\"  , "/" )
+                    See "MediaFile: |"+ mediaFile +"|" +nl
+                    
+                    addMedia(new qurl(mediaFile))
+                next
+                
                 setCurrentIndex(1) 
-             }  
+            }  
 
-            player = new QMediaPlayer()
-                        {
-	           if Fexists(FileToPlay)
-		 setMedia(new qurl(FiletoPlay))     ### Initial startup music
-                        else
-		 msg = "FileToPlay: -- "+ FileToPlay  +" -- required. Use music mp3 of your choise"
-		 SendMsg(msg)
-	           ok
-	           setVideoOutput(videowidget)
-                        play()
-                        }
+
 
             ###===========================================================
             ###===========================================================
-           btnVertPos = 20
-           btnSize    = 20
+            
+            btnVertPos = 20
+            btnSize    = 20
 
             btnPlay = new qpushbutton(win1)    {
                     setGeometry(80, btnVertPos,100,btnSize)
@@ -250,17 +297,18 @@ MyApp = New qapp
                     setclickevent( "Backward()")
             }
 
-            btnFwd = new qpushbutton(win1)    {
-                    setGeometry(480,btnVertPos,100,btnSize)
-                    settext("Fwd >>>")
-                    setclickevent( "Forward()")
-            }
 
             btnDur = new qpushbutton(win1)    {
-                    setGeometry(580,btnVertPos,130,btnSize)
+                    setGeometry(480,btnVertPos,130,btnSize)
                     settext("Duration")
                     setclickevent( "Duration()")
             }
+
+            btnFwd = new qpushbutton(win1)    {
+                    setGeometry(610,btnVertPos,100,btnSize)
+                    settext("Fwd >>>")
+                    setclickevent( "Forward()")
+            }           
 
             SliderMan = new qSlider(win1) 
             {
@@ -275,37 +323,37 @@ MyApp = New qapp
             }
 
             btnMute = new qpushbutton(win1)    {
-                    setGeometry(850,btnVertPos,50,btnSize)
-                    settext("Mute")
-                    seticon(new qicon(new qpixmap("mute.png")))
-                    setclickevent( "mute()")
+                setGeometry(850,btnVertPos,50,btnSize)
+                settext("Mute")
+                seticon(new qicon(new qpixmap("mute.png")))
+                setclickevent( "mute()")
             }
 
             btnVolume = new qpushbutton(win1)    {
-                    setGeometry(900,btnVertPos,60,btnSize)
-                    settext("Vol: 100")
-                    setclickevent( "volume()")
+                setGeometry(900,btnVertPos,60,btnSize)
+                settext("Vol: 100")
+                setclickevent( "volume()")
             }
 
             VolumeDec = new qpushbutton(win1)
             {
-                    setgeometry(950,btnVertPos,50,btnSize)
-                    settext("<<<") 
-                    setclickevent( "volumeDec()")
+                setgeometry(950,btnVertPos,50,btnSize)
+                settext("<<<") 
+                setclickevent( "volumeDec()")
             }
 
             VolumeInc = new qpushbutton(win1)
             {
-                    setgeometry(1000,btnVertPos,50,btnSize)
-                    settext(">>>") 
-                    setclickevent( "volumeInc()")
+                setgeometry(1000,btnVertPos,50,btnSize)
+                settext(">>>") 
+                setclickevent( "volumeInc()")
             }
 
             btnPlayList = new qpushbutton(win1)
             {
-                    setgeometry(1050,btnVertPos,50,btnSize)
-                    settext("Play List") 
-                    setclickevent( "playList()")
+                setgeometry(1050,btnVertPos,50,btnSize)
+                settext("Play List") 
+                setclickevent( "playList()")
             }
 
 
@@ -454,9 +502,11 @@ Func pTime
     Ruler = ceil( (imageH / BoxHeight) * 100 )
 
     if BarMan.value() >= 98        ### ProgressBar start over.
-          BarMan.setvalue(0)
-          BarMan.hide()
-          LabelMan.hide()
+        BarMan.setvalue(0)
+        BarMan.hide()
+        LabelMan.hide()
+        
+
     ok
 
     BarMan{ setvalue(Ruler) }
@@ -510,13 +560,6 @@ Func Duration()
     LabelMan.settext(DurPos) 
     LabelMan.show()
     
-    ### SliderMan.setValue(Ratio)
-
-    /*if Ratio = 100
-       TimerDuration.stop()
-    ok*/
-    
-    #player.setVolume(95)
 return
 
 ###-------------------------
@@ -606,10 +649,10 @@ Func pMusic
     FileToPlay = cName
     See FileToPlay +nl
 
-	if Fexists(ImageFile)
-		imageStock.show()
+    if Fexists(ImageFile)
+        imageStock.show()
     ok
-	
+    
     player.setMedia( new qurl(FileToplay) )
     player.play() 
     SliderMan.setValue(0)        
@@ -629,10 +672,10 @@ Func pVideos
     FileToPlay = cName
     See FileToPlay +nl
 
-	if Fexists(ImageFile)
-		imageStock.hide()  ### clear()
-	ok
-	
+    if Fexists(ImageFile)
+        imageStock.hide()  ### clear()
+    ok
+    
     player.setMedia( new qurl(FileToplay) )
     player.play()   
     SliderMan.setValue(0) 
@@ -648,15 +691,15 @@ return
 
 Func SendMsg(msg)
 
-	new qmessagebox(win1) 
-	{
-		setwindowtitle("MessageBox")
-		settext(msg )
-		setstylesheet("background-color : Yellow")
-		show()
-	}
-return	
-	
+    new qmessagebox(win1) 
+    {
+        setwindowtitle("MessageBox")
+        settext(msg )
+        setstylesheet("background-color : Yellow")
+        show()
+    }
+return  
+    
 return
 
 ###-----------------------------------
@@ -700,7 +743,79 @@ return
 ###----------------------------------
 
 Func playList
-        if BarMan.value() = 100
-           player.setPlaylist(playlist) 
-           player.play()
+    if BarMan.value() = 100
+       player.setPlaylist(playlist) 
+       See playlist
+       player.play()
+    ok
+
+###===========================================================
+##============================================================
+    
+###--------------------------------------------------------------
+### FileType for Music and Video in  CL\Users\name\Music  Videos
+###
+### fileType = [".avi", ".mp4", ".mpg", ".mkv", ".wmv", ".mp3", ".wav", ".aac", ".ogg", ".wma", ".flac" ]
+### UserPath = "C:\Users\Umberto\Videos"    ### <<<== Search this path 
+        
+                                  
+###===================================
+### Search for Video and Music files
+### SearchVideoMusic(UserPath)  
+
+Func SearchVideoMusic(UserPath)
+
+    ChDir(UserPath)
+    listDir( CurrentDir() )
+
+    for searchDir in dirList      ### search dirList for Music and Videos files
+        listDir(searchDir)
+    next
+
+    
+    see nl +nl +"Number of Music: " +len(musicList) +nl +nl
+    see musicList
+    See nl +"Finished" +nl
+
+###==============================
+### Find Files in Directory
+
+Func ListDir(dirName)
+
+    ChDir(dirName)   
+
+    Try
+        myListSub = Dir( CurrentDir() )  
+    Catch
+        ### See "ListDir Catch! " + CurrentDir() +" --- "+ cCatchError +nl      ### <<< Error, Couldn't open the directory
+        return
+    Done
+
+    for x in myListSub
+        if x[2]
+            thisDir = x[1]
+
+            if thisDir[1] = "."      ### Ignore dot.name
+                # do nothing
+            else
+                # see nl +"Dir: " + thisDir + nl
+                Add( dirList, (CurrentDir() +"\"+  thisDir))  ### <<<== Dir Walk             
+            ok      
+        else
+            thisFile = x[1]
+            
+            ###-------------------------------
+            ### Add Music or Video file type
+            
+            for thisType in fileType
+                if ( substr(thisFile, thisType) )             ### <<<== Type of File from List
+                     # see "         File: " + thisFile + nl
+                     Add(musicList, (CurrentDir() +"\"+  thisFile))
+                ok
+            next             
         ok
+    next
+return
+
+###===============================================
+###===============================================  
