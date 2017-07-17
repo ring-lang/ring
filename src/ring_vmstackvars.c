@@ -537,7 +537,6 @@ void ring_vm_freeloadaddressscope ( VM *pVM )
 void ring_vm_traceevent ( VM *pVM,char nEvent )
 {
 	List *pList  ;
-	int nLineNumber  ;
 	if ( (pVM->lTrace == 1) && (pVM->lTraceActive == 0) ) {
 		pVM->lTraceActive = 1 ;
 		pVM->nTraceEvent = nEvent ;
@@ -560,9 +559,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 			ring_list_addint(pVM->pTraceData,0);
 		}
 		/* Execute Trace Function */
-		nLineNumber = pVM->nLineNumber ;
 		ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
-		pVM->nLineNumber = nLineNumber ;
 		pVM->lTraceActive = 0 ;
 		pVM->nTraceEvent = 0 ;
 	}

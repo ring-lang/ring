@@ -907,7 +907,7 @@ void ring_vm_newbytecodeitem ( VM *pVM,int x )
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 {
-	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP  ;
+	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber  ;
 	List *pStackList  ;
 	/* Save state to take in mind nested events execution */
 	pVM->nRunCode++ ;
@@ -917,6 +917,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	nSP = pVM->nSP ;
 	nFuncSP = pVM->nFuncSP ;
 	pStackList = ring_vm_savestack(pVM);
+	nLineNumber = pVM->nLineNumber ;
 	ring_vm_mutexlock(pVM);
 	pVM->nEvalCalledFromRingCode = 1 ;
 	/* Check removing the new byte code */
@@ -949,6 +950,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	/* Restore Stack to avoid Stack Overflow */
 	pVM->nSP = nSP ;
 	pVM->nFuncSP = nFuncSP ;
+	pVM->nLineNumber = nLineNumber ;
 }
 
 void ring_vm_init ( RingState *pRingState )
