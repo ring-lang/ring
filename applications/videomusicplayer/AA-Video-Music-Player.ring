@@ -179,7 +179,7 @@ MyApp = New qapp
             {
                 setinterval(1000)
                 settimeoutevent("pTimeDuration()")  ### ==>> func
-                #start()
+                start()
             }
 
 
@@ -274,6 +274,7 @@ MyApp = New qapp
             btnMute = new qpushbutton(win1)    {
                     setGeometry(850,btnVertPos,50,btnSize)
                     settext("Mute")
+                    seticon(new qicon(new qpixmap("mute.png")))
                     setclickevent( "mute()")
             }
 
@@ -490,7 +491,6 @@ Func Duration()
     if cDurValue = 0 ; cDurValue = 100 ; ok    ### Divide by Zero
     Ratio = ceil(cPosValue / cDurValue * 100)
 
-
     BarWidth = 300
     BarMan.setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight+25, BarWidth, 10) 
     BarMan.setvalue(Ratio)
@@ -502,9 +502,9 @@ Func Duration()
     
     ### SliderMan.setValue(Ratio)
 
-    if Ratio = 100
+    /*if Ratio = 100
        TimerDuration.stop()
-    ok
+    ok*/
     
     #player.setVolume(95)
 return
@@ -663,15 +663,11 @@ Func mute()
     if player.isMuted()
        player.setMuted(false)
     else  
-     player.setMuted(true)
+       player.setMuted(true)
     ok
 return
 
 ###-----------------------------------
-
-Func volume()
-	### no action
-return 
 
 Func volumeDec()
     if volume > 0
