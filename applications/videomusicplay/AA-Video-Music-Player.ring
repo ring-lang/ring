@@ -105,22 +105,37 @@ MyApp = New qapp
 
     win1 = new qMainWindow()
     {
-             setwindowtitle("Video and Music Player")
+            ###----------------------------------------------
+            ### Position and Size on Screen
+
+            setwindowtitle("Video and Music Player")
             setgeometry( WinLeft, WinTop, WinWidth, WinHeight)
 
+            ###--------------------------------------------
+            ### FILTERS
 
             myfilter = new qallevents(win1)
 
-                 myfilter.setResizeEvent( "WhereAreWe()")
+                ###------------------------------------------
+                ### ReSizeEvent ... Call WhereAreWe function
+
+                myfilter.setResizeEvent( "WhereAreWe()")
 
             installeventfilter(myfilter)
 
-             label1 = new qlabel(win1)
+            ###---------------------------
+            ### Draw within this WIN BOX
+
+            label1 = new qlabel(win1)
             {
                 setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
                 settext("")   ### ("RightBox")
             }
 
+
+       ###-------------------------
+       ### BMP Background
+       ### WinWidth   WinHeight
 
             imageStock = new qlabel(win1)
             {
@@ -130,7 +145,7 @@ MyApp = New qapp
                 imageW = 400
                 imageH = imageH / AspectRatio
 
-                setpixmap(image.scaled(imageW , imageH ,0,0))   
+                setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
 
                 PosLeft = (BoxWidth  - imageW ) / 2
                 PosTop  = (BoxHeight - imageH ) / 2
@@ -141,41 +156,47 @@ MyApp = New qapp
             LabelMan = new qLabel(win1)
             {
                 setgeometry(00,20,80,20)
-                settext(theTime())          
+                settext(theTime())          ### ==>> func
             }
 
             TimerMan = new qTimer(win1)
             {
-                setinterval(1000)
-                settimeoutevent("pTime()")  
+                setinterval(100)
+                settimeoutevent("pTime()")  ### ==>> func
                 start()
             }
+
 
             TimerDuration = new qTimer(win1)
             {
                 setinterval(1000)
-                settimeoutevent("pTimeDuration()")  
-                start()
+                settimeoutevent("pTimeDuration()")  ### ==>> func
+                #start()
             }
+
 
             BarMan = new qProgressBar(win1)
             {   
                 BarWidth = 300
-                setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 25, BarWidth, 10)       
-                setvalue(25)                     
+                setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 25, BarWidth, 10)        ###  Position X Y, Length, Thickness
+                setvalue(25)                     ###  Percent filled
             }
+
 
             SliderMan = new qSlider(win1) 
             {
-                setgeometry(710,20,140,20)  
+                setgeometry(710,20,140,20)  ###(10, BoxHeight + 25, 100, 20)
                 setOrientation(1)
                 setstylesheet("color:black;background-color:#00ffff;")
                 setMinimum(0)
                 setMaximum(100)
-                setValue(1)  
-                setsliderReleasedEvent("SliderReleased()")
+                setValue(0)  
+                setsliderReleasedEvent("SliderReleased()")    ### Released - on Drag -
+                setvalueChangedEvent("SliderTriggered()")       ### Changed  - on Click -
             }
     
+            ###----------------------------------
+
             videowidget = new qVideoWidget(win1)    ### Video Box
             {
                 setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
@@ -184,10 +205,16 @@ MyApp = New qapp
 
             player = new QMediaPlayer()
             {
-                setMedia(new qurl(FiletoPlay))     
+                setMedia(new qurl(FiletoPlay))     ### Initial startup music
                 setVideoOutput(videowidget)
                 play()
             }
+
+
+
+           ###===========================================================
+           ###===========================================================
+
 
                 btnPlay = new qpushbutton(win1)    {
                         setGeometry(80,10,100,30)
@@ -226,6 +253,10 @@ MyApp = New qapp
                         settext("Duration")
                         setclickevent( "Duration()")
                 }
+
+
+                ###===========================================================
+                ###===========================================================
 
 
         menu1 = new qmenubar(win1)
@@ -272,31 +303,42 @@ MyApp = New qapp
         setmousetracking(true)
         setstatusbar(status1)
 
-        /*setStyleSheet(" color: black;
-                                 selection-color: black;
-                                 selection-background-color:white ;
-                                 background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 );
-                             ")*/
+        setStyleSheet(" color: black;
+                        selection-color: black;
+                        selection-background-color:white ;
+                     ")
 
-            TimerMan = new qTimer(win1)
-            {
-                setinterval(1000)
-                settimeoutevent("pTime()")  
-                start()
-            }
 
-            TimerDuration = new qTimer(win1)
-            {
-                setinterval(1000)
-                settimeoutevent("pTimeDuration()")  
-                start()
-            }
+                ###===========================================================
+                ###===========================================================
+
+
+        ###--------------------------------------------------------
+        ###See "Show-setup " +nl
 
         show()
+
     }
+
+    #See "Exec-setup " +nl
     exec()
 }
 
+
+
+###=====================================================================================================
+###=====================================================================================================
+
+###=====================================================================================================
+### FUNCTIONS
+###=====================================================================================================
+
+
+
+
+###-----------------------------------------
+### FUNCTION Where Are We - Window Resized
+###----------------------------------------
 
 Func WhereAreWe()
     Rec = win1.framegeometry()
@@ -337,6 +379,7 @@ Func pTime
 
     ###-----------------
     ### IMAGE
+
 
     if imageW >= BoxWidth - GrowBy
         TimerMan.stop()          ### GrowBy
@@ -410,7 +453,7 @@ Func Duration()
     DurPos = ""+ cPosTime +" / "+ cDurTime
     btnDur.setText(DurPos)
     
-    if cDurValue = 0 ; cDurValue = 100 ; ok
+    if cDurValue = 0 ; cDurValue = 100 ; ok    ### Divide by Zero
     Ratio = ceil(cPosValue / cDurValue * 100)
 
 
@@ -422,9 +465,8 @@ Func Duration()
     LabelMan.setgeometry( ((WinWidth - BarWidth) / 2) - 120, BoxHeight+20, 120, 20) 
     LabelMan.settext(DurPos) 
     LabelMan.show()
-
-    SliderMan.setvalue(Ratio)
-
+    
+    ### SliderMan.setValue(Ratio)
 
     if Ratio = 100
        TimerDuration.stop()
@@ -478,6 +520,9 @@ return
 ###====================================================================
 ###====================================================================
 
+###-----------------------------
+### Slider Dragged and Released
+
 Func SliderReleased()
 
    number = SliderMan.value()
@@ -486,13 +531,24 @@ Func SliderReleased()
    cDurValue  = player.duration()
    p1 = cDurValue * number / 100
 
-   #See "cDur: "+ cDurValue +" p1 "+ p1 +nl
-
    player.setposition(p1)
    Duration()
 
 return
 
+###-----------------------------------------------
+### Slider Clicked to the Left or Right of Marker
+
+Func SliderTriggered()
+
+   number = SliderMan.value()
+   #See "SlideTriggered: "+ SliderMan.value() +nl
+
+   cDurValue  = player.duration()
+   p1 = cDurValue * number / 100
+
+   player.setposition(p1)
+   Duration()
 
 ###=====================================================================
 ###=====================================================================
@@ -510,8 +566,9 @@ Func pMusic
     
     player.setMedia( new qurl(FileToplay) )
     player.play() 
-        
+    SliderMan.setValue(0)        
     TimerDuration.start()
+
     
 return
 
@@ -531,8 +588,10 @@ Func pVideos
 
     player.setMedia( new qurl(FileToplay) )
     player.play()   
-
+    SliderMan.setValue(0) 
     TimerDuration.start()
+
+    
 return
 
 ###======================================================================
