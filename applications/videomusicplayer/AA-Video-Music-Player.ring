@@ -48,8 +48,8 @@ ImageFile  = "stock.jpg"
         dirName = "/Users/" + youName
 
         UserNameDirMusic  = dirName + "/Music/"
-        UserNameDirVideos = dirName + "/Movies/"   
-
+        UserNameDirVideos = dirName + "/Movies/"  
+        UserIcons = dirName + "/Icons/"
         
     but IsLinux()  
         
@@ -63,7 +63,7 @@ ImageFile  = "stock.jpg"
 
         UserNameDirMusic  = dirName + "/Music/"
         UserNameDirVideos = dirName + "/Videos/"
-
+        UserIcons = dirName + "/Icons/"
         
     else
         ### WINDOWS
@@ -79,6 +79,7 @@ ImageFile  = "stock.jpg"
 
         UserNameDirMusic  = "C:\Users\" + youName + "\Music\"
         UserNameDirVideos = "C:\Users\" + youName + "\Videos\"
+        UserIcons = "C:\Users\" + youName + "\Icons\"
 
     ok
 
@@ -274,12 +275,14 @@ MyApp = New qapp
             btnPlay = new qpushbutton(win1)    {
                     setGeometry(80, btnVertPos,100,btnSize)
                     settext("Play")
+                    seticon(new qicon(new qpixmap(UserIcons + "play.png")))
                     setclickevent( "player.play()")
             }
 
             btnPause = new qpushbutton(win1)    {
                     setGeometry(180,btnVertPos,100,btnSize)
                     settext("Pause")
+                    seticon(new qicon(new qpixmap(UserIcons + "pause.png")))
                     setclickevent( "player.pause()")
             }
 
@@ -287,6 +290,7 @@ MyApp = New qapp
             btnStop = new qpushbutton(win1)    {
                     setGeometry(280,btnVertPos,100,btnSize)
                     settext("Stop")
+                    seticon(new qicon(new qpixmap(UserIcons + "stop.png")))
                     setclickevent( "player.stop()")
             }
 
@@ -294,6 +298,7 @@ MyApp = New qapp
             btnBack = new qpushbutton(win1)    {
                     setGeometry(380,btnVertPos,100,btnSize)
                     settext("<<< Back")
+                    seticon(new qicon(new qpixmap(UserIcons + "backward.png")))
                     setclickevent( "Backward()")
             }
 
@@ -307,6 +312,7 @@ MyApp = New qapp
             btnFwd = new qpushbutton(win1)    {
                     setGeometry(610,btnVertPos,100,btnSize)
                     settext("Fwd >>>")
+                    seticon(new qicon(new qpixmap(UserIcons + "forward.png")))
                     setclickevent( "Forward()")
             }           
 
@@ -323,10 +329,10 @@ MyApp = New qapp
             }
 
             btnMute = new qpushbutton(win1)    {
-                setGeometry(850,btnVertPos,50,btnSize)
-                settext("Mute")
-                seticon(new qicon(new qpixmap("mute.png")))
-                setclickevent( "mute()")
+                    setGeometry(850,btnVertPos,50,btnSize)
+                    settext("Mute")
+                    seticon(new qicon(new qpixmap(UserIcons + "mute.png")))
+                    setclickevent( "mute()")
             }
 
             btnVolume = new qpushbutton(win1)    {
