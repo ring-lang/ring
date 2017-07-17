@@ -541,6 +541,10 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 		pVM->nTraceEvent = nEvent ;
 		/* Prepare Trace Data */
 		ring_list_deleteallitems(pVM->pTraceData);
+		/* Add Line Number */
+		ring_list_addint(pVM->pTraceData,pVM->nLineNumber);
+		/* Add File Name */
+		ring_list_addstring(pVM->pTraceData,pVM->cFileName);
 		/* Execute Trace Function */
 		ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
 		pVM->lTraceActive = 0 ;
