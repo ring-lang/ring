@@ -105,37 +105,22 @@ MyApp = New qapp
 
     win1 = new qMainWindow()
     {
-            ###----------------------------------------------
-            ### Position and Size on Screen
-
-            setwindowtitle("Video and Music Player")
+             setwindowtitle("Video and Music Player")
             setgeometry( WinLeft, WinTop, WinWidth, WinHeight)
 
-            ###--------------------------------------------
-            ### FILTERS
 
             myfilter = new qallevents(win1)
 
-                ###------------------------------------------
-                ### ReSizeEvent ... Call WhereAreWe function
-
-                myfilter.setResizeEvent( "WhereAreWe()")
+                 myfilter.setResizeEvent( "WhereAreWe()")
 
             installeventfilter(myfilter)
 
-            ###---------------------------
-            ### Draw within this WIN BOX
-
-            label1 = new qlabel(win1)
+             label1 = new qlabel(win1)
             {
                 setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
                 settext("")   ### ("RightBox")
             }
 
-
-       ###-------------------------
-       ### BMP Background
-       ### WinWidth   WinHeight
 
             imageStock = new qlabel(win1)
             {
@@ -145,7 +130,7 @@ MyApp = New qapp
                 imageW = 400
                 imageH = imageH / AspectRatio
 
-                setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
+                setpixmap(image.scaled(imageW , imageH ,0,0))   
 
                 PosLeft = (BoxWidth  - imageW ) / 2
                 PosTop  = (BoxHeight - imageH ) / 2
@@ -156,36 +141,33 @@ MyApp = New qapp
             LabelMan = new qLabel(win1)
             {
                 setgeometry(00,20,80,20)
-                settext(theTime())          ### ==>> func
+                settext(theTime())          
             }
 
             TimerMan = new qTimer(win1)
             {
-                setinterval(100)
-                settimeoutevent("pTime()")  ### ==>> func
+                setinterval(1000)
+                settimeoutevent("pTime()")  
                 start()
             }
-
 
             TimerDuration = new qTimer(win1)
             {
                 setinterval(1000)
-                settimeoutevent("pTimeDuration()")  ### ==>> func
-                #start()
+                settimeoutevent("pTimeDuration()")  
+                start()
             }
-
 
             BarMan = new qProgressBar(win1)
             {   
                 BarWidth = 300
-                setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 25, BarWidth, 10)        ###  Position X Y, Length, Thickness
-                setvalue(25)                     ###  Percent filled
+                setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 25, BarWidth, 10)       
+                setvalue(25)                     
             }
-
 
             SliderMan = new qSlider(win1) 
             {
-                setgeometry(710,20,140,20)  ###(10, BoxHeight + 25, 100, 20)
+                setgeometry(710,20,140,20)  
                 setOrientation(1)
                 setstylesheet("color:black;background-color:#00ffff;")
                 setMinimum(0)
@@ -194,8 +176,6 @@ MyApp = New qapp
                 setsliderReleasedEvent("SliderReleased()")
             }
     
-            ###----------------------------------
-
             videowidget = new qVideoWidget(win1)    ### Video Box
             {
                 setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
@@ -204,16 +184,10 @@ MyApp = New qapp
 
             player = new QMediaPlayer()
             {
-                setMedia(new qurl(FiletoPlay))     ### Initial startup music
+                setMedia(new qurl(FiletoPlay))     
                 setVideoOutput(videowidget)
                 play()
             }
-
-
-
-           ###===========================================================
-           ###===========================================================
-
 
                 btnPlay = new qpushbutton(win1)    {
                         setGeometry(80,10,100,30)
@@ -252,10 +226,6 @@ MyApp = New qapp
                         settext("Duration")
                         setclickevent( "Duration()")
                 }
-
-
-                ###===========================================================
-                ###===========================================================
 
 
         menu1 = new qmenubar(win1)
@@ -302,43 +272,31 @@ MyApp = New qapp
         setmousetracking(true)
         setstatusbar(status1)
 
-        setStyleSheet(" color: black;
-                        selection-color: black;
-                        selection-background-color:white ;
-                        background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 );
-                     ")
+        /*setStyleSheet(" color: black;
+                                 selection-color: black;
+                                 selection-background-color:white ;
+                                 background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 );
+                             ")*/
 
+            TimerMan = new qTimer(win1)
+            {
+                setinterval(1000)
+                settimeoutevent("pTime()")  
+                start()
+            }
 
-                ###===========================================================
-                ###===========================================================
-
-
-        ###--------------------------------------------------------
-        ###See "Show-setup " +nl
+            TimerDuration = new qTimer(win1)
+            {
+                setinterval(1000)
+                settimeoutevent("pTimeDuration()")  
+                start()
+            }
 
         show()
-
     }
-
-    #See "Exec-setup " +nl
     exec()
 }
 
-
-
-###=====================================================================================================
-###=====================================================================================================
-
-###=====================================================================================================
-### FUNCTIONS
-###=====================================================================================================
-
-
-
-
-###-----------------------------------------
-### FUNCTION Where Are We - Window Resized
-###----------------------------------------
 
 Func WhereAreWe()
     Rec = win1.framegeometry()
@@ -379,7 +337,6 @@ Func pTime
 
     ###-----------------
     ### IMAGE
-
 
     if imageW >= BoxWidth - GrowBy
         TimerMan.stop()          ### GrowBy
