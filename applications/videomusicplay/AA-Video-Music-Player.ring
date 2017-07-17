@@ -254,6 +254,12 @@ MyApp = New qapp
                         setclickevent( "Duration()")
                 }
 
+                btnMute = new qpushbutton(win1)    {
+                        setGeometry(850,10,130,30)
+                        settext("Mute")
+                        setclickevent( "mute()")
+                }
+
 
                 ###===========================================================
                 ###===========================================================
@@ -612,29 +618,12 @@ Func chomp(cStr)
    cStr = substr(cStr, char(13), "" )   
 return cStr
 
+func mute
+        if player.isMuted()
+           player.setMuted(false)
+        else  
+           player.setMuted(true)
+        ok
+           
+
 ###----------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
