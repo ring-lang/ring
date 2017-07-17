@@ -27,41 +27,41 @@ ImageFile  = "stock.jpg"
 ###---------------------------------
 ### Fetch User directoty and name
 
-System("whoami > output.txt")        ### Output User Name  data to file
-cYou = read("output.txt")
-cYou = chomp(cYou)
-See "Whoami: "+ cYou +"|"+ nl
+    System("whoami > output.txt")        ### Output User Name  data to file
+        cYou = read("output.txt")
+        cYou = chomp(cYou)
+        See "Whoami: "+ cYou +"|"+ nl
 
-if IsLinux()  ### Returns 1 for Linux
-    
-    ### umberto@umberto ~ $ whoami
-    ### umberto
-    ### /home/umberto/Videos
+    if IsLinux()  ### Returns 1 for Linux
+        
+        ### umberto@umberto ~ $ whoami
+        ### umberto
+        ### /home/umberto/Videos
 
-    youName = cYou
-    dirName = "/home/" + youName
+        youName = cYou
+        dirName = "/home/" + youName
 
-    UserNameDirMusic  = dirName + "/Music/"
-    UserNameDirVideos = dirName + "/Videos/"
+        UserNameDirMusic  = dirName + "/Music/"
+        UserNameDirVideos = dirName + "/Videos/"
 
-else
-    ### Windows
-    ### desktop-umberto\umberto
+    else
+        ### Windows
+        ### desktop-umberto\umberto
 
-    cLast = 0
-    for i = 1 to len(cYou)
-        if cYou[i] = "\" ; cLast = i ;  ok
-    next
-    
-    dirName = substr(cYou, 1, cLast)
-    youName = substr(cYou, cLast+1)
+        cLast = 0
+        for i = 1 to len(cYou)
+            if cYou[i] = "\" ; cLast = i ;  ok
+        next
+        
+        dirName = substr(cYou, 1, cLast)
+        youName = substr(cYou, cLast+1)
 
-    UserNameDirMusic  = "C:\Users\" + youName + "\Music\"
-    UserNameDirVideos = "C:\Users\" + youName + "\Videos\"
-ok
+        UserNameDirMusic  = "C:\Users\" + youName + "\Music\"
+        UserNameDirVideos = "C:\Users\" + youName + "\Videos\"
+    ok
 
-See UserNameDirMusic  +nl
-See UserNameDirVideos +nl
+    See UserNameDirMusic  +nl
+    See UserNameDirVideos +nl
 
 ###------------------------------------------------------
 ### DRAW MAIN PAGE - CHART  size 1000 x 750
@@ -83,14 +83,13 @@ See UserNameDirVideos +nl
     BoxLeft   = 80                  ###  Start corner   Label1 Box Start Position inside WIN1
     BoxTop    = 40                  ###  Start corner
     BoxWidth  = WinWidth  -160      ###  End   corner   Label1 Box Size
-    BoxHeight = WinHeight -100       ###  End   corner
+    BoxHeight = WinHeight -100      ###  End   corner
 
 
 ###-------------------------------------------
 ### imageStock Size for growing image
 
     imageW = 400 ;  imageH = 400 ; GrowBy = 8
-
     volume = 100
 
 ###-------------------------------------------
@@ -139,33 +138,40 @@ MyApp = New qapp
        ### BMP Background
        ### WinWidth   WinHeight
 
-            imageStock = new qlabel(win1)
-            {
-                image = new qpixmap(ImageFile)
-                AspectRatio = image.width() / image.height()
+	        if Fexists(ImageFile)  
+			
+				imageStock = new qlabel(win1)
+				{
+					image = new qpixmap(ImageFile)
+					AspectRatio = image.width() / image.height()
 
-                imageW = 400
-                imageH = imageH / AspectRatio
+					imageW = 400
+					imageH = imageH / AspectRatio
 
-                setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
+					setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
 
-                PosLeft = (BoxWidth  - imageW ) / 2
-                PosTop  = (BoxHeight - imageH ) / 2
-                setGeometry(PosLeft,PosTop,imageW,imageH)
+					PosLeft = (BoxWidth  - imageW ) / 2
+					PosTop  = (BoxHeight - imageH ) / 2
+					setGeometry(PosLeft,PosTop,imageW,imageH)
 
-            }
+				}
+				
+				TimerMan = new qTimer(win1)
+				{
+					setinterval(100)
+					settimeoutevent("pTime()")  ### ==>> func
+					start()
+				}
+				
+			else
+				msg = "ImageFile: -- "+ ImageFile +" -- required. Use an image jpg of your choice"
+				SendMsg(msg)
+			ok
 
             LabelMan = new qLabel(win1)
             {
-                setgeometry(00,20,80,20)
+                setgeometry(10,20,80,20)
                 settext(theTime())          ### ==>> func
-            }
-
-            TimerMan = new qTimer(win1)
-            {
-                setinterval(100)
-                settimeoutevent("pTime()")  ### ==>> func
-                start()
             }
 
 
@@ -181,21 +187,11 @@ MyApp = New qapp
             {   
                 BarWidth = 300
                 setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 25, BarWidth, 10)        ###  Position X Y, Length, Thickness
-                setvalue(25)                     ###  Percent filled
+                setvalue(1)                     ###  Percent filled
             }
 
 
-            SliderMan = new qSlider(win1) 
-            {
-                setgeometry(710,20,140,20)  ###(10, BoxHeight + 25, 100, 20)
-                setOrientation(1)
-                setstylesheet("color:black;background-color:#00ffff;")
-                setMinimum(0)
-                setMaximum(100)
-                setValue(0)  
-                setsliderReleasedEvent("SliderReleased()")    ### Released - on Drag -
-                setvalueChangedEvent("SliderTriggered()")       ### Changed  - on Click -
-            }
+
     
             ###----------------------------------
 
@@ -207,138 +203,154 @@ MyApp = New qapp
 
             player = new QMediaPlayer()
             {
-                setMedia(new qurl(FiletoPlay))     ### Initial startup music
-                setVideoOutput(videowidget)
+			    if Fexists(FileToPlay)
+					setMedia(new qurl(FiletoPlay))     ### Initial startup music
+                else
+				    msg = "FileToPlay: -- "+ FileToPlay  +" -- required. Use music mp3 of your choise"
+					SendMsg(msg)
+				ok
+				
+				setVideoOutput(videowidget)
                 play()
             }
 
 
 
-           ###===========================================================
-           ###===========================================================
+            ###===========================================================
+            ###===========================================================
+           btnVertPos = 20
+           btnSize    = 20
 
-
-                btnPlay = new qpushbutton(win1)    {
-                        setGeometry(80,10,100,30)
-                        settext("Play")
-                        setclickevent( "player.play()")
-                }
-
-                btnPause = new qpushbutton(win1)    {
-                        setGeometry(180,10,100,30)
-                        settext("Pause")
-                        setclickevent( "player.pause()")
-                }
-
-
-                btnStop = new qpushbutton(win1)    {
-                        setGeometry(280,10,100,30)
-                        settext("Stop")
-                        setclickevent( "player.stop()")
-                }
-
-
-                btnBack = new qpushbutton(win1)    {
-                        setGeometry(380,10,100,30)
-                        settext("<<< Back")
-                        setclickevent( "Backward()")
-                }
-
-                btnFwd = new qpushbutton(win1)    {
-                        setGeometry(480,10,100,30)
-                        settext("Fwd >>>")
-                        setclickevent( "Forward()")
-                }
-
-                btnDur = new qpushbutton(win1)    {
-                        setGeometry(580,10,130,30)
-                        settext("Duration")
-                        setclickevent( "Duration()")
-                }
-
-                btnMute = new qpushbutton(win1)    {
-                        setGeometry(850,10,130,30)
-                        settext("Mute")
-                        setclickevent( "mute()")
-                }
-
-                btnVolume = new qpushbutton(win1)    {
-                        setGeometry(980,10,130,30)
-                        settext("Volume : 100")
-                        setclickevent( "volume()")
-                }
-
-                VolumeDec = new qpushbutton(win1)
-               {
-                                 setgeometry(1110,15,30,25)
-                                 settext("<<") 
-                                 setclickevent( "volumeDec()")
-                }
-
-               VolumeInc = new qpushbutton(win1)
-               {
-                                 setgeometry(1140,15,30,25)
-                                 settext(">>") 
-                                 setclickevent( "volumeInc()")
-                }
-
-
-                ###===========================================================
-                ###===========================================================
-
-
-        menu1 = new qmenubar(win1)
-        {
-            sub1 = addmenu("Menu-File")
-            sub1 {
-
-                    oAction = new qAction(win1)
-                    {
-            settext("Music")
-            setcheckable(true)
-            setchecked(true)
-            setstatustip("Open Music File")
-            setclickevent("pMusic()")
-                    }
-                    addaction(oAction)
-
-                    oAction = new qAction(win1)
-                    {
-            settext("Videos")
-            setcheckable(true)
-            setchecked(true)
-            setstatustip("Open Video File")
-            setclickevent("pVideos()")
-                    }
-                    addaction(oAction)
-
-                    addseparator()
-
-                    oAction = new qaction(win1)
-                    oAction.settext("Exit")
-                    oAction.setclickevent("myapp.quit()")
-                    addaction(oAction)
+            btnPlay = new qpushbutton(win1)    {
+                    setGeometry(80, btnVertPos,100,btnSize)
+                    settext("Play")
+                    setclickevent( "player.play()")
             }
 
-        }
+            btnPause = new qpushbutton(win1)    {
+                    setGeometry(180,btnVertPos,100,btnSize)
+                    settext("Pause")
+                    setclickevent( "player.pause()")
+            }
 
-        status1 = new qstatusbar(win1)
-        {
+
+            btnStop = new qpushbutton(win1)    {
+                    setGeometry(280,btnVertPos,100,btnSize)
+                    settext("Stop")
+                    setclickevent( "player.stop()")
+            }
+
+
+            btnBack = new qpushbutton(win1)    {
+                    setGeometry(380,btnVertPos,100,btnSize)
+                    settext("<<< Back")
+                    setclickevent( "Backward()")
+            }
+
+            btnFwd = new qpushbutton(win1)    {
+                    setGeometry(480,btnVertPos,100,btnSize)
+                    settext("Fwd >>>")
+                    setclickevent( "Forward()")
+            }
+
+            btnDur = new qpushbutton(win1)    {
+                    setGeometry(580,btnVertPos,130,btnSize)
+                    settext("Duration")
+                    setclickevent( "Duration()")
+            }
+
+            SliderMan = new qSlider(win1) 
+            {
+                setgeometry(710,btnVertPos,140,btnSize)  
+                setOrientation(1)
+                setstylesheet("color:black;background-color:#00ffff;")
+                setMinimum(0)
+                setMaximum(100)
+                setValue(0)  
+                setsliderReleasedEvent("SliderReleased()")    ### Released - on Drag -
+                setvalueChangedEvent("SliderTriggered()")       ### Changed  - on Click -
+            }
+
+            btnMute = new qpushbutton(win1)    {
+                    setGeometry(850,btnVertPos,50,btnSize)
+                    settext("Mute")
+                    setclickevent( "mute()")
+            }
+
+            btnVolume = new qpushbutton(win1)    {
+                    setGeometry(900,btnVertPos,60,btnSize)
+                    settext("Vol: 100")
+                    setclickevent( "volume()")
+            }
+
+            VolumeDec = new qpushbutton(win1)
+            {
+                    setgeometry(950,btnVertPos,50,btnSize)
+                    settext("<<<") 
+                    setclickevent( "volumeDec()")
+            }
+
+            VolumeInc = new qpushbutton(win1)
+            {
+                    setgeometry(1000,btnVertPos,50,btnSize)
+                    settext(">>>") 
+                    setclickevent( "volumeInc()")
+            }
+
+
+            ###===========================================================
+            ###===========================================================
+
+            menu1 = new qmenubar(win1)
+            {
+                sub1 = addmenu("Menu-File")
+                sub1 {
+                        oAction = new qAction(win1)
+                        {
+                            settext("Music")
+                            setcheckable(true)
+                            setchecked(true)
+                            setstatustip("Open Music File")
+                            setclickevent("pMusic()")
+                        }
+                        addaction(oAction)
+
+                        oAction = new qAction(win1)
+                        {
+                            settext("Videos")
+                            setcheckable(true)
+                            setchecked(true)
+                            setstatustip("Open Video File")
+                            setclickevent("pVideos()")
+                        }
+                        addaction(oAction)
+
+                        addseparator()
+
+                        oAction = new qaction(win1)
+                        oAction.settext("Exit")
+                        oAction.setclickevent("myapp.quit()")
+                        addaction(oAction)
+                     }
+            }
+
+            status1 = new qstatusbar(win1)
+            {
                 showmessage("Ready!",0)
-        }
+            }
 
-        setmenubar(menu1)
-        setmousetracking(true)
-        setstatusbar(status1)
+            setmenubar(menu1)
+            setmousetracking(true)
+            setstatusbar(status1)
 
-        setStyleSheet(" color: black;
-                        selection-color: black;
-                        selection-background-color:white ;
-                     ")
+            setStyleSheet(" color: black;
+                            selection-color: black;
+                            selection-background-color:white ;
+                         ")
 
 
-                ###===========================================================
-                ###===========================================================
+            ###===========================================================
+            ###===========================================================
 
 
         ###--------------------------------------------------------
@@ -387,7 +399,6 @@ Func WhereAreWe()
     ### Change Box Size
 
     label1.setgeometry( BoxLeft, BoxTop, BoxWidth, BoxHeight )
-
 
     videowidget.setgeometry(BoxLeft +00, BoxTop, BoxWidth, BoxHeight)
     videowidget.setstylesheet("background-color: green")
@@ -445,28 +456,23 @@ return
 ###  Display Time
 
 Func theTime()
-      #See "Time: "+ Time() +nl
-   #return "Time: "+ Time()
-    return  Time()
+    #See "Time: "+ Time() +nl
+    #return "Time: "+ Time()
+return  Time()
 
 ###-----------------------------------
 ### Pops every 4 second
 
 Func pTimeDuration()
-
-   Duration()   ### Update Postion and duration, BarMan
-
+    Duration()   ### Update Postion and duration, BarMan
 return
 
 ###-----------------------------------
-###-----------------------------------
-
 
 
 ###========================================================
 ###========================================================
 ###========================================================
-
 
 ###--------------------
 
@@ -590,14 +596,15 @@ Func pMusic
     FileToPlay = cName
     See FileToPlay +nl
 
-    imageStock.show()
-    
+	if Fexists(ImageFile)
+		imageStock.show()
+    ok
+	
     player.setMedia( new qurl(FileToplay) )
     player.play() 
     SliderMan.setValue(0)        
     TimerDuration.start()
 
-    
 return
 
 ###------------------
@@ -612,14 +619,15 @@ Func pVideos
     FileToPlay = cName
     See FileToPlay +nl
 
-    imageStock.hide()  ### clear()
-
+	if Fexists(ImageFile)
+		imageStock.hide()  ### clear()
+	ok
+	
     player.setMedia( new qurl(FileToplay) )
     player.play()   
     SliderMan.setValue(0) 
     TimerDuration.start()
 
-    
 return
 
 ###======================================================================
@@ -629,7 +637,16 @@ return
 ### Popup message box
 
 Func SendMsg(msg)
-    MessageBox( msg )
+
+	new qmessagebox(win1) 
+	{
+		setwindowtitle("MessageBox")
+		settext(msg )
+		setstylesheet("background-color : Yellow")
+		show()
+	}
+return	
+	
 return
 
 ###-----------------------------------
@@ -640,26 +657,38 @@ Func chomp(cStr)
    cStr = substr(cStr, char(13), "" )   
 return cStr
 
-func mute
-        if player.isMuted()
-           player.setMuted(false)
-        else  
-         player.setMuted(true)
-        ok
+###-----------------------------------
 
-func volumeDec
-        if volume > 0
-           volume = volume - 10
-           btnVolume.settext("Volume : " + volume)
-           player.setVolume(volume)
-        ok
+Func mute()
+    if player.isMuted()
+       player.setMuted(false)
+    else  
+     player.setMuted(true)
+    ok
+return
 
-func volumeInc
-        if volume < 100
-           volume = volume + 10
-           btnVolume.settext("Volume : " + volume)
-           player.setVolume(volume)
-        ok
-           
+###-----------------------------------
+
+Func volume()
+	### no action
+return 
+
+Func volumeDec()
+    if volume > 0
+       volume = volume - 10
+       btnVolume.settext("Vol: " + volume)
+       player.setVolume(volume)
+    ok
+return
+
+###-----------------------------------
+
+Func volumeInc()
+    if volume < 100
+       volume = volume + 10
+       btnVolume.settext("Vol: " + volume)
+       player.setVolume(volume)
+    ok
+return           
 
 ###----------------------------------
