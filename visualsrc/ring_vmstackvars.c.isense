@@ -65,3 +65,5 @@ Type: int
 x
 ring_vm_freeloadaddressscope
 ring_vm_traceevent
+Type: List *
+pList

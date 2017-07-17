@@ -536,6 +536,7 @@ void ring_vm_freeloadaddressscope ( VM *pVM )
 
 void ring_vm_traceevent ( VM *pVM,char nEvent )
 {
+	List *pList  ;
 	if ( (pVM->lTrace == 1) && (pVM->lTraceActive == 0) ) {
 		pVM->lTraceActive = 1 ;
 		pVM->nTraceEvent = nEvent ;
@@ -545,6 +546,14 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 		ring_list_addint(pVM->pTraceData,pVM->nLineNumber);
 		/* Add File Name */
 		ring_list_addstring(pVM->pTraceData,pVM->cFileName);
+		/* Add Function/Method Name */
+		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+			pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+			ring_list_addstring(pVM->pTraceData,ring_list_getstring(pList,RING_FUNCCL_NAME));
+		}
+		else {
+			ring_list_addstring(pVM->pTraceData,"");
+		}
 		/* Execute Trace Function */
 		ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
 		pVM->lTraceActive = 0 ;
