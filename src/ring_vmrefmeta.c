@@ -47,6 +47,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_packageslist",ring_vm_refmeta_ringvmpackageslist);
 	ring_vm_funcregister("ringvm_cfunctionslist",ring_vm_refmeta_ringvmcfunctionslist);
 	ring_vm_funcregister("ringvm_settrace",ring_vm_refmeta_ringvmsettrace);
+	ring_vm_funcregister("ringvm_tracedata",ring_vm_refmeta_ringvmtracedata);
 }
 /* Functions */
 
@@ -904,4 +905,11 @@ void ring_vm_refmeta_ringvmsettrace ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_refmeta_ringvmtracedata ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETLIST(pVM->pTraceData);
 }

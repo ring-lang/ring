@@ -230,3 +230,6 @@ Type: VM *
 pVM
 Type: char *
 cStr
+ring_vm_refmeta_ringvmtracedata
+Type: VM *
+pVM
