@@ -236,3 +236,6 @@ pVM
 ring_vm_refmeta_ringvmtraceevent
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmtracefunc
+Type: VM *
+pVM

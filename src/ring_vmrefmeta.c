@@ -49,6 +49,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_settrace",ring_vm_refmeta_ringvmsettrace);
 	ring_vm_funcregister("ringvm_tracedata",ring_vm_refmeta_ringvmtracedata);
 	ring_vm_funcregister("ringvm_traceevent",ring_vm_refmeta_ringvmtraceevent);
+	ring_vm_funcregister("ringvm_tracefunc",ring_vm_refmeta_ringvmtracefunc);
 }
 /* Functions */
 
@@ -920,4 +921,11 @@ void ring_vm_refmeta_ringvmtraceevent ( void *pPointer )
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	RING_API_RETNUMBER(pVM->nTraceEvent);
+}
+
+void ring_vm_refmeta_ringvmtracefunc ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_API_RETSTRING(ring_string_get(pVM->pTrace));
 }
