@@ -201,20 +201,23 @@ MyApp = New qapp
                 setstylesheet("background-color: green")
             }
 
+            playlist = new QMediaPlaylist() {
+                addMedia(new qurl("/Users/calmosoft/video/CalmoSoftFifteenPuzzle.avi"))
+                addMedia(new qurl("/Users/calmosoft/video/CalmoSoftSixteenPuzzle.avi"))
+                setCurrentIndex(1) 
+             }  
+
             player = new QMediaPlayer()
-            {
-			    if Fexists(FileToPlay)
-					setMedia(new qurl(FiletoPlay))     ### Initial startup music
-                else
-				    msg = "FileToPlay: -- "+ FileToPlay  +" -- required. Use music mp3 of your choise"
-					SendMsg(msg)
-				ok
-				
-				setVideoOutput(videowidget)
-                play()
-            }
-
-
+                        {
+	           if Fexists(FileToPlay)
+		 setMedia(new qurl(FiletoPlay))     ### Initial startup music
+                        else
+		 msg = "FileToPlay: -- "+ FileToPlay  +" -- required. Use music mp3 of your choise"
+		 SendMsg(msg)
+	           ok
+	           setVideoOutput(videowidget)
+                        play()
+                        }
 
             ###===========================================================
             ###===========================================================
@@ -296,6 +299,13 @@ MyApp = New qapp
                     setgeometry(1000,btnVertPos,50,btnSize)
                     settext(">>>") 
                     setclickevent( "volumeInc()")
+            }
+
+            btnPlayList = new qpushbutton(win1)
+            {
+                    setgeometry(1050,btnVertPos,50,btnSize)
+                    settext("Play List") 
+                    setclickevent( "playList()")
             }
 
 
@@ -688,3 +698,9 @@ Func volumeInc()
 return           
 
 ###----------------------------------
+
+Func playList
+        if BarMan.value() = 100
+           player.setPlaylist(playlist) 
+           player.play()
+        ok
