@@ -16,7 +16,7 @@ Load "guilib.ring"
  +
  +     stock.jpg  for Initial Image
  +     stock.mp3  for Initial Music
- +     mute.png   for Button-Icon -- Mute
+ +     icons.zip  for Button-Icons -- Play,Pause,Stop,Back,Fwd,Mute.Volume,Vol-Low,Vil-High,PlayList
  +---------------------------------------------------------------------
 */
 dirList   = []   ### Search /Users directories
@@ -238,7 +238,7 @@ MyApp = New qapp
             BarMan = new qProgressBar(win1)
             {   
                 BarWidth = 300
-                setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 25, BarWidth, 10)        ###  Position X Y, Length, Thickness
+                setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 28, BarWidth, 10)        ###  Position X Y, Length, Thickness
                 setvalue(1)                     ###  Percent filled
             }
 
@@ -273,15 +273,18 @@ MyApp = New qapp
             btnVertPos = 20
             btnSize    = 20
 
+            oFont = new qFont("",10,0,0)
+            setFont( oFont)
+            
             btnPlay = new qpushbutton(win1)    {
-                    setGeometry(80, btnVertPos,100,btnSize)
+                    setGeometry(80, btnVertPos,80,btnSize)
                     settext("Play")
                     seticon(new qicon(new qpixmap(UserIcons +"Play.png")))
                     setclickevent( "player.play()")
             }
 
             btnPause = new qpushbutton(win1)    {
-                    setGeometry(180,btnVertPos,100,btnSize)
+                    setGeometry(160,btnVertPos,80,btnSize)
                     settext("Pause")
                     seticon(new qicon(new qpixmap(UserIcons +"Pause.png")))
                     setclickevent( "player.pause()")
@@ -289,7 +292,7 @@ MyApp = New qapp
 
 
             btnStop = new qpushbutton(win1)    {
-                    setGeometry(280,btnVertPos,100,btnSize)
+                    setGeometry(240,btnVertPos,80,btnSize)
                     settext("Stop")
                     seticon(new qicon(new qpixmap(UserIcons +"Stop.png")))
                     setclickevent( "player.stop()")
@@ -297,7 +300,7 @@ MyApp = New qapp
 
 
             btnBack = new qpushbutton(win1)    {
-                    setGeometry(380,btnVertPos,100,btnSize)
+                    setGeometry(320,btnVertPos,80,btnSize)
                     settext("Back")
                     seticon(new qicon(new qpixmap(UserIcons +"Backward.png")))
                     setclickevent( "Backward()")
@@ -305,13 +308,13 @@ MyApp = New qapp
 
 
             btnDur = new qpushbutton(win1)    {
-                    setGeometry(480,btnVertPos,130,btnSize)
+                    setGeometry(400,btnVertPos,140,btnSize)
                     settext("Duration")
                     setclickevent( "Duration()")
             }
 
             btnFwd = new qpushbutton(win1)    {
-                    setGeometry(610,btnVertPos,100,btnSize)
+                    setGeometry(540,btnVertPos,80,btnSize)
                     settext("Fwd")
                     seticon(new qicon(new qpixmap(UserIcons +"Forward.png")))
                     setclickevent( "Forward()")
@@ -319,9 +322,9 @@ MyApp = New qapp
 
             SliderMan = new qSlider(win1) 
             {
-                setgeometry(710,btnVertPos,140,btnSize)  
+                setgeometry(620,btnVertPos+3,140,btnSize-6)  
                 setOrientation(1)
-                setstylesheet("color:black;background-color:#00ffff;")
+                setstylesheet("color:red;background-color:cyan;")
                 setMinimum(0)
                 setMaximum(100)
                 setValue(0)  
@@ -330,22 +333,22 @@ MyApp = New qapp
             }
 
             btnMute = new qpushbutton(win1)    {
-                    setGeometry(850,btnVertPos,50,btnSize)
+                    setGeometry(760,btnVertPos,60,btnSize)
                     settext("Mute")
                     seticon(new qicon(new qpixmap(UserIcons +"Mute.png")))
                     setclickevent( "mute()")
             }
 
             btnVolume = new qpushbutton(win1)    {
-                setGeometry(900,btnVertPos,60,btnSize)
-                settext("100")
+                setGeometry(820,btnVertPos,60,btnSize)
+                settext("V:100")
                 seticon(new qicon(new qpixmap(UserIcons +"Volume.png")))
                 setclickevent( "volume()")
             }
 
             VolumeDec = new qpushbutton(win1)
             {
-                setgeometry(960,btnVertPos,60,btnSize)
+                setgeometry(880,btnVertPos,60,btnSize)
                 settext("Low") 
                 seticon(new qicon(new qpixmap(UserIcons +"VolumeLow.png")))
                 setclickevent( "volumeDec()")
@@ -353,7 +356,7 @@ MyApp = New qapp
 
             VolumeInc = new qpushbutton(win1)
             {
-                setgeometry(1020,btnVertPos,60,btnSize)
+                setgeometry(940,btnVertPos,60,btnSize)
                 settext("High") 
                 seticon(new qicon(new qpixmap(UserIcons +"VolumeHigh.png")))
                 setclickevent( "volumeInc()")
@@ -361,7 +364,7 @@ MyApp = New qapp
 
             btnPlayList = new qpushbutton(win1)
             {
-                setgeometry(1080,btnVertPos,60,btnSize)
+                setgeometry(1000,btnVertPos,80,btnSize)
                 settext("PlayList") 
                 seticon(new qicon(new qpixmap(UserIcons +"PlayList.png")))
                 setclickevent( "playList()")
@@ -490,7 +493,7 @@ Func pTime
     ### IMAGE
 
 
-    if imageW >= BoxWidth - GrowBy
+    if imageH >= BoxHeight - 20 
         TimerMan.stop()          ### GrowBy
     ok
 
@@ -507,7 +510,7 @@ Func pTime
     ###-----------------------------
     ### PROGRESS BAR and Time
 
-    LabelMan.settext(theTime())     ### ==>> func
+    ### LabelMan.settext(theTime())     ### ==>> func
 
     Inc   = ceil( 100 / (BoxHeight / GrowBy) )
     Ruler = ceil( (imageH / BoxHeight) * 100 )
@@ -563,11 +566,11 @@ Func Duration()
     Ratio = ceil(cPosValue / cDurValue * 100)
 
     BarWidth = 300
-    BarMan.setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight+25, BarWidth, 10) 
+    BarMan.setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 28, BarWidth, 10) 
     BarMan.setvalue(Ratio)
     BarMan.show()
      
-    LabelMan.setgeometry( ((WinWidth - BarWidth) / 2) - 120, BoxHeight+20, 120, 20) 
+    LabelMan.setgeometry( ((WinWidth - BarWidth) / 2) - 120, BoxHeight +23, 120, 20) 
     LabelMan.settext(DurPos) 
     LabelMan.show()
     
@@ -660,10 +663,8 @@ Func pMusic
     FileToPlay = cName
     See FileToPlay +nl
 
-    if Fexists(ImageFile)
         imageStock.show()
-    ok
-    
+ 
     player.setMedia( new qurl(FileToplay) )
     player.play() 
     SliderMan.setValue(0)        
@@ -683,9 +684,7 @@ Func pVideos
     FileToPlay = cName
     See FileToPlay +nl
 
-    if Fexists(ImageFile)
         imageStock.hide()  ### clear()
-    ok
     
     player.setMedia( new qurl(FileToplay) )
     player.play()   
