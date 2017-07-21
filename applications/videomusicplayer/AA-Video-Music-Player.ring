@@ -5,6 +5,7 @@ Load "guilib.ring"
  +     Program Name : Video-Music-Play.ring
  +     Date         : 2017-07-12
  +     Author       : Bert Mariani
+ *                  : Gal Zsolt (~ CalmoSoft ~)
  +     Purpose      : Play Video and Music for in User directories
  +---------------------------------------------------------------------------------------------------------
  +
@@ -22,12 +23,20 @@ Load "guilib.ring"
 dirList   = []   ### Search /Users directories
 musicList = []   ### List of Music and Videos found.
 
-
-
 fileType  = [".avi", ".mp4", ".mpg", ".mkv", ".wmv", ".mp3", ".wav", ".aac", ".ogg", ".wma", ".flac" ]
 
 FileToPlay = "stock.mp3"
 ImageFile  = "stock.jpg"
+
+###-------------------------
+### For qListWidget
+nbrOfItems    = 1
+curItemNbr    = 1
+curValue      = "abcdefgh"
+
+SelectedValue = "mnopqrst"
+SelectedRow   = 1
+
 
 ###---------------------------------
 ### Fetch User directoty and name
@@ -79,7 +88,6 @@ ImageFile  = "stock.jpg"
 
         UserNameDirMusic  = "C:\Users\" + youName + "\Music\"
         UserNameDirVideos = "C:\Users\" + youName + "\Videos\"
-        UserIcons = "C:\Users\" + youName + "\Icons\"
         UserIcons = CurrentDir() +"\"
 
     ok
@@ -88,6 +96,7 @@ ImageFile  = "stock.jpg"
     See UserNameDirVideos +nl
 
 
+###-------------------------------------------------
 ### For PlayList
 ###             SearchVideoMusic(UserPath)
 ###             UserPath = "C:\Users\Umberto\Music"    ### <<<== Search this path for fileType
@@ -249,7 +258,7 @@ MyApp = New qapp
 
             playlist = new QMediaPlaylist() 
             {
-            
+              /*
                 SearchVideoMusic(UserNameDirMusic)  
                 SearchVideoMusic(UserNameDirVideos)
                 
@@ -261,7 +270,8 @@ MyApp = New qapp
                     
                     addMedia(new qurl(mediaFile))
                 next
-                
+              */
+              
                 setCurrentIndex(1) 
             }  
 
@@ -405,6 +415,41 @@ MyApp = New qapp
                         oAction.setclickevent("myapp.quit()")
                         addaction(oAction)
                      }
+                     
+                sub2 = addmenu("PlayList")
+                sub2 {
+                        oAction = new qAction(win1)
+                        {
+                            settext("ShowPlayList")
+                            setcheckable(true)
+                            setchecked(true)
+                            setstatustip("Show PlayList")
+                            setclickevent("pShowPlayList()")
+                        }
+                        addaction(oAction)
+
+                        oAction = new qAction(win1)
+                        {
+                            settext("ImportPlayList")
+                            setcheckable(true)
+                            setchecked(true)
+                            setstatustip("Import PlayList")
+                            setclickevent("pImportPlayList()")
+                        }
+                        addaction(oAction)
+                        
+                        oAction = new qAction(win1)
+                        {
+                            settext("SavePlayList")
+                            setcheckable(true)
+                            setchecked(true)
+                            setstatustip("Save PlayList")
+                            setclickevent("pSavePlayList()")
+                        }
+                        addaction(oAction)
+                     }                   
+                     
+                     
             }
 
             status1 = new qstatusbar(win1)
@@ -429,8 +474,84 @@ MyApp = New qapp
         ###--------------------------------------------------------
         ###See "Show-setup " +nl
 
-        show()
+        show()  ### WIN 1
 
+    }
+    
+    ###===========================================================
+    ###===========================================================
+
+
+    win2 = new qWidget()
+    {
+
+        setGeometry(50,50,650,500)
+
+        btnPosX   = 50
+        btnHeight = 30
+
+        list1 = new qlistwidget(win2)
+        {
+            setGeometry(btnPosX, 50, 500, 300)
+
+            UserPath =  UserNameDirVideos
+            SearchVideoMusic(UserPath)
+
+            for fileToAdd in musicList
+                fileToAdd = substr(fileToAdd, "C:\", "/" )
+                fileToAdd = substr(fileToAdd, "C:/", "/" )
+                fileToAdd = substr(fileToAdd, "\"  , "/" )
+                additem(fileToAdd)
+            next
+
+                setcurrentrow(0,3)      ### Row 0, HiLite 3 - Select-Grey
+                win2.setwindowtitle("Items Count : " + count() )
+        }
+
+        btnSelect = new qpushbutton(win2)
+        {
+            setGeometry( btnPosX, 320,500,btnHeight)
+            settext("MOVE: Select and Click")
+            setclickevent("pSelect()")
+        }
+
+        btnDelete = new qpushbutton(win2)
+        {
+            setGeometry( btnPosX, 360,100,btnHeight)
+            settext("Delete Item")
+            setclickevent("pDelete()")
+        }
+
+        btnMoveUp = new qpushbutton(win2)
+        {
+            setGeometry( btnPosX+100, 360,100,btnHeight)
+            settext("Move Up ^")
+            setclickevent("pMoveUp()")
+        }
+
+        btnMoveDown = new qpushbutton(win2)
+        {
+            setGeometry(btnPosX+200, 360,100,btnHeight)
+            settext("Move Down v")
+            setclickevent("pMoveDown()")
+        }
+
+
+        btnAdd = new qpushbutton(win2)
+        {
+            setGeometry(btnPosX+300, 360,100,btnHeight)
+            settext("Add Media")
+            setclickevent("pAddMedia()")
+        }
+
+        btnDone = new qpushbutton(win2) 
+        {
+            setGeometry(btnPosX+400, 360,100,btnHeight)
+            settext("Done")
+            setclickevent("pDone()")
+        }        
+        
+        ### show()   ### Do not show listWidget WIN2 at startup
     }
 
     #See "Exec-setup " +nl
@@ -753,6 +874,9 @@ return
 ###----------------------------------
 
 Func playList
+
+    win2.show()
+    
     if BarMan.value() = 100
        player.setPlaylist(playlist) 
        See playlist
@@ -827,5 +951,200 @@ Func ListDir(dirName)
     next
 return
 
+
+##============================================================
+##============================================================
+##============================================================
+
+Func pShowPlayList()
+    win2.show()
+return
+
+Func pImportPlayList()
+return
+
+Func pSavePlayList()
+return
+
+##============================================================
+##============================================================
+
+func pDelete()
+
+    ### Remove from PlayList
+    list1
+    {
+        takeItem(currentrow())
+
+        nbrOfItems = count()
+        curItemNbr = currentRow()
+        curValue   = item(list1.currentRow()).text()
+    }
+
+    win2.setWindowTitle("DELETED: " + nbrOfItems +" Cur: " + curItemNbr +" : " + curValue )
+
+###----------------------------------------
+### Select highlited item in PlayList
+### Save as SelectedRow and SelectedValue
+
+func pSelect()
+
+    list1
+    {
+        nbrOfItems    = count()
+        curItemNbr    = currentRow()
+        curValue      = item(list1.currentRow()).text()
+
+        ###----------------------_
+        ### Item Selected to Move
+
+        SelectedValue = item(list1.currentRow()).text()
+        SelectedRow   = currentRow()
+    }
+
+    btnSelect.setText( "SELECTED: "+ curItemNbr + " : " + curValue )
+    win2.setWindowTitle( "SELECTED: " + nbrOfItems +" Cur: " + curItemNbr + " : " + curValue )
+
+return
+
+###======================================================
+### Move item in PlayList Down = Increment Row number
+
+Func pMoveDown()
+
+    pSelect()
+    list1
+    {
+        nbrOfItems    = count()
+        curItemNbr    = currentRow()
+        curValue      = item(list1.currentRow()).text()
+
+        if curItemNbr < nbrOfItems -1
+            curItemNbr++
+        ok
+
+        setCurrentRow( curItemNbr, 3)
+        curValue      = item(list1.currentRow()).text()
+
+    }
+
+    pInsert(1) ### 1=Down 2=Up
+
+return
+
+###-------------------------------------------------
+### Move item in PlayList Up = Decrement Row number
+
+Func pMoveUp()
+
+    pSelect()
+    list1
+    {
+        nbrOfItems    = count()
+        curItemNbr    = currentRow()
+        curValue      = item(list1.currentRow()).text()
+
+        if curItemNbr > 0
+           curItemNbr--
+        ok
+
+        setCurrentRow( curItemNbr, 3)
+        curValue      = item(list1.currentRow()).text()
+    }
+
+    pInsert(2)
+
+return
+
+###---------------------------------------------------------
+### Direction 1=Down 2=Up
+### Swap Current Selection with Next Row Down/Up
+
+Func pInsert(Direction)
+
+    list1
+    {
+        ###---------------
+        ### Remove Item
+
+        takeItem(SelectedRow)
+        curItemNbr = currentRow()
+
+        if Direction = 1
+            if curItemNbr < nbrOfItems -1
+                curItemNbr++  ### Down
+            ok
+        else
+            if curItemNbr > 0
+               #curItemNbr--  ### Up
+            ok
+        ok
+
+        ###----------------
+        ### Insert Item
+
+        insertItem(curItemNbr, SelectedValue);
+        setCurrentRow( curItemNbr, 3)
+
+        nbrOfItems = count()
+        curItemNbr = currentRow()
+        curValue   = item(list1.currentRow()).text()
+    }
+
+    win2.setWindowTitle("INSERTED: " + nbrOfItems +" Cur: " + curItemNbr +" : " + curValue )
+
+return
+
 ###===============================================
-###===============================================  
+
+
+func pAddMedia()
+    new qFileDialog(win2)
+    {
+        cName = getOpenFileName(win2,"Open File", UserPath, "Music Files(*.mp3 *.wav *.aac *.ogg *.wma *.flac *.avi *.mp4 *.mpg *.mkv *.wmv) ;; All Files(*.*) ")
+        win2.setwindowtitle(cName)
+    }
+
+   fileToAdd = cName
+   fileToAdd = substr(fileToAdd, "C:\", "/" )
+   fileToAdd = substr(fileToAdd, "C:/", "/" )
+   fileToAdd = substr(fileToAdd, "\"  , "/" )
+
+    list1
+    {
+        nbrOfItems = list1.count()
+        curItemNbr = currentRow()
+        curValue   = item(list1.currentRow()).text()
+
+        insertItem(currentrow(), fileToAdd);
+        setCurrentRow( curItemNbr, 3)
+    }
+
+    win2.setWindowTitle( "ADD-Items: " + nbrOfItems +" Cur: " + curItemNbr + " : " + curValue )
+
+return
+
+
+##============================================================
+
+
+###-----------------------------------
+### Done. Copy listWidget to PlayList
+
+Func pDone()
+
+    list1 
+    {
+        for i = 0 to list1.count() -1           
+            item = list1.item(i).text();
+            playlist.addMedia(new qurl(item))           
+            
+            See "widgetCount: "+ i  +" - "+ list1.count() +" -- "+ item +nl         
+        next
+    }
+
+    win2.hide()    ### HIDE the listWidget WIN2
+    
+return
+###===============================================
+###===============================================
