@@ -5,7 +5,7 @@ Load "guilib.ring"
  +     Program Name : Video-Music-Play.ring
  +     Date         : 2017-07-12
  +     Author       : Bert Mariani
- *                  : Gal Zsolt (~ CalmoSoft ~)
+ *                      : Gal Zsolt (~ CalmoSoft ~)
  +     Purpose      : Play Video and Music for in User directories
  +---------------------------------------------------------------------------------------------------------
  +
@@ -47,21 +47,21 @@ SelectedRow   = 1
         See "Whoami: "+ cYou +"|"+ nl
 
     if IsMacOSX()
-        
+
         ### MAC
         ### /Users/christiane  - whoami
-        ### christiane   
+        ### christiane
         ### /Users/christiane/Music  Movies
-        
+
         youName = cYou
         dirName = "/Users/" + youName
 
         UserNameDirMusic  = dirName + "/Music/"
-        UserNameDirVideos = dirName + "/Movies/"  
+        UserNameDirVideos = dirName + "/Movies/"
         UserIcons = CurrentDir() +"/"
-        
-    but IsLinux()  
-        
+
+    but IsLinux()
+
         ### LINUX
         ### umberto@umberto ~ $ whoami
         ### umberto
@@ -73,7 +73,7 @@ SelectedRow   = 1
         UserNameDirMusic  = dirName + "/Music/"
         UserNameDirVideos = dirName + "/Videos/"
         UserIcons = CurrentDir() +"/"
-        
+
     else
         ### WINDOWS
         ### desktop-umberto\umberto
@@ -82,7 +82,7 @@ SelectedRow   = 1
         for i = 1 to len(cYou)
             if cYou[i] = "\" ; cLast = i ;  ok
         next
-        
+
         dirName = substr(cYou, 1, cLast)
         youName = substr(cYou, cLast+1)
 
@@ -100,7 +100,7 @@ SelectedRow   = 1
 ### For PlayList
 ###             SearchVideoMusic(UserPath)
 ###             UserPath = "C:\Users\Umberto\Music"    ### <<<== Search this path for fileType
-###             UserPath = "C:\Users\Umberto\Videos"   ### <<<== Search this path for fileType    
+###             UserPath = "C:\Users\Umberto\Videos"   ### <<<== Search this path for fileType
 
 ###------------------------------------------------------
 ### DRAW MAIN PAGE - CHART  size 1000 x 750
@@ -177,8 +177,8 @@ MyApp = New qapp
        ### BMP Background
        ### WinWidth   WinHeight
 
-            if Fexists(ImageFile)  
-            
+            if Fexists(ImageFile)
+
                 imageStock = new qlabel(win1)
                 {
                     image = new qpixmap(ImageFile)
@@ -194,14 +194,14 @@ MyApp = New qapp
                     setGeometry(PosLeft,PosTop,imageW,imageH)
 
                 }
-                
+
                 TimerMan = new qTimer(win1)
                 {
                     setinterval(100)
                     settimeoutevent("pTime()")  ### ==>> func
                     start()
                 }
-                
+
             else
                 msg = "ImageFile: -- "+ ImageFile +" -- required. Use an Image JPG of your choice"
                 SendMsg(msg)
@@ -212,22 +212,22 @@ MyApp = New qapp
                 setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
                 setstylesheet("background-color: green")
             }
-            
-            player = new QMediaPlayer()
+
+            player = new qMediaPlayer()
             {   ###------------------------
                 ### Initial startup music
-                
+
                 if Fexists(FileToPlay)
-                    setMedia(new qurl(FiletoPlay))     
+                    setMedia(new qurl(FiletoPlay))
                 else
                     msg = "FileToPlay: -- "+ FileToPlay  +" -- required. Use Music MP3 of your choice"
                     SendMsg(msg)
                 ok
-               
+
                setVideoOutput(videowidget)
                play()
             }
-            
+
 
             LabelMan = new qLabel(win1)
             {
@@ -245,7 +245,7 @@ MyApp = New qapp
 
 
             BarMan = new qProgressBar(win1)
-            {   
+            {
                 BarWidth = 300
                 setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 28, BarWidth, 10)        ###  Position X Y, Length, Thickness
                 setvalue(1)                     ###  Percent filled
@@ -253,51 +253,53 @@ MyApp = New qapp
 
 
             ###---------------------------------------
-            ### PlayList plats sequential mmedia files
+            ### PlayList plays sequential mmedia files
 
 
-            playlist = new QMediaPlaylist() 
+            playlist = new qMediaPlayList()
             {
-              /*
-                SearchVideoMusic(UserNameDirMusic)  
+
+            /*
+                SearchVideoMusic(UserNameDirMusic)
                 SearchVideoMusic(UserNameDirVideos)
-                
+
                 for mediaFile in musicList
 
                     mediaFile = substr(mediaFile, "C:\", "/" )
                     mediaFile = substr(mediaFile, "\"  , "/" )
                     See "MediaFile: |"+ mediaFile +"|" +nl
-                    
+
                     addMedia(new qurl(mediaFile))
                 next
-              */
-              
-                setCurrentIndex(1) 
-            }  
+
+
+                setCurrentIndex(1)
+            */
+            }
 
 
 
             ###===========================================================
             ###===========================================================
-            
+
             btnVertPos = 20
             btnSize    = 20
 
             oFont = new qFont("",10,0,0)
             setFont( oFont)
-            
+
             btnPlay = new qpushbutton(win1)    {
                     setGeometry(80, btnVertPos,80,btnSize)
                     settext("Play")
                     seticon(new qicon(new qpixmap(UserIcons +"Play.png")))
-                    setclickevent( "player.play()")
+                    setclickevent( "player.Play()")
             }
 
             btnPause = new qpushbutton(win1)    {
                     setGeometry(160,btnVertPos,80,btnSize)
                     settext("Pause")
                     seticon(new qicon(new qpixmap(UserIcons +"Pause.png")))
-                    setclickevent( "player.pause()")
+                    setclickevent( "player.Pause()")
             }
 
 
@@ -305,7 +307,7 @@ MyApp = New qapp
                     setGeometry(240,btnVertPos,80,btnSize)
                     settext("Stop")
                     seticon(new qicon(new qpixmap(UserIcons +"Stop.png")))
-                    setclickevent( "player.stop()")
+                    setclickevent( "player.Stop()")
             }
 
 
@@ -313,71 +315,71 @@ MyApp = New qapp
                     setGeometry(320,btnVertPos,80,btnSize)
                     settext("Back")
                     seticon(new qicon(new qpixmap(UserIcons +"Backward.png")))
-                    setclickevent( "Backward()")
+                    setclickevent( "pBackward()")
             }
 
 
             btnDur = new qpushbutton(win1)    {
                     setGeometry(400,btnVertPos,140,btnSize)
                     settext("Duration")
-                    setclickevent( "Duration()")
+                    setclickevent( "pDuration()")
             }
 
             btnFwd = new qpushbutton(win1)    {
                     setGeometry(540,btnVertPos,80,btnSize)
                     settext("Fwd")
                     seticon(new qicon(new qpixmap(UserIcons +"Forward.png")))
-                    setclickevent( "Forward()")
-            }           
+                    setclickevent( "pForward()")
+            }
 
-            SliderMan = new qSlider(win1) 
+            SliderMan = new qSlider(win1)
             {
-                setgeometry(620,btnVertPos+3,140,btnSize-6)  
+                setgeometry(620,btnVertPos+3,140,btnSize-6)
                 setOrientation(1)
                 setstylesheet("color:red;background-color:cyan;")
                 setMinimum(0)
                 setMaximum(100)
-                setValue(0)  
-                setsliderReleasedEvent("SliderReleased()")    ### Released - on Drag -
-                setvalueChangedEvent("SliderTriggered()")       ### Changed  - on Click -
+                setValue(0)
+                setsliderReleasedEvent("pSliderReleased()")    ### Released - on Drag -
+                setvalueChangedEvent("pSliderTriggered()")       ### Changed  - on Click -
             }
 
             btnMute = new qpushbutton(win1)    {
                     setGeometry(760,btnVertPos,60,btnSize)
                     settext("Mute")
                     seticon(new qicon(new qpixmap(UserIcons +"Mute.png")))
-                    setclickevent( "mute()")
+                    setclickevent( "pMute()")
             }
 
             btnVolume = new qpushbutton(win1)    {
                 setGeometry(820,btnVertPos,60,btnSize)
                 settext("V:100")
                 seticon(new qicon(new qpixmap(UserIcons +"Volume.png")))
-                setclickevent( "volume()")
+                setclickevent( "pVolume()")
             }
 
             VolumeDec = new qpushbutton(win1)
             {
                 setgeometry(880,btnVertPos,60,btnSize)
-                settext("Low") 
+                settext("Low")
                 seticon(new qicon(new qpixmap(UserIcons +"VolumeLow.png")))
-                setclickevent( "volumeDec()")
+                setclickevent( "PVolumeDec()")
             }
 
             VolumeInc = new qpushbutton(win1)
             {
                 setgeometry(940,btnVertPos,60,btnSize)
-                settext("High") 
+                settext("High")
                 seticon(new qicon(new qpixmap(UserIcons +"VolumeHigh.png")))
-                setclickevent( "volumeInc()")
+                setclickevent( "pVolumeInc()")
             }
 
             btnPlayList = new qpushbutton(win1)
             {
                 setgeometry(1000,btnVertPos,80,btnSize)
-                settext("PlayList") 
+                settext("PlayList")
                 seticon(new qicon(new qpixmap(UserIcons +"PlayList.png")))
-                setclickevent( "playList()")
+                setclickevent( "pPlayList()")
             }
 
 
@@ -415,7 +417,7 @@ MyApp = New qapp
                         oAction.setclickevent("myapp.quit()")
                         addaction(oAction)
                      }
-                     
+
                 sub2 = addmenu("PlayList")
                 sub2 {
                         oAction = new qAction(win1)
@@ -437,7 +439,7 @@ MyApp = New qapp
                             setclickevent("pImportPlayList()")
                         }
                         addaction(oAction)
-                        
+
                         oAction = new qAction(win1)
                         {
                             settext("SavePlayList")
@@ -447,9 +449,9 @@ MyApp = New qapp
                             setclickevent("pSavePlayList()")
                         }
                         addaction(oAction)
-                     }                   
-                     
-                     
+                     }
+
+
             }
 
             status1 = new qstatusbar(win1)
@@ -470,14 +472,10 @@ MyApp = New qapp
             ###===========================================================
             ###===========================================================
 
-
-        ###--------------------------------------------------------
-        ###See "Show-setup " +nl
-
         show()  ### WIN 1
 
     }
-    
+
     ###===========================================================
     ###===========================================================
 
@@ -490,9 +488,15 @@ MyApp = New qapp
         btnPosX   = 50
         btnHeight = 30
 
-        list1 = new qlistwidget(win2)
+        ###---------------------------------------
+        ### listWidget for Playlist manipulation
+
+        list1 = new qListWidget(win2)
         {
             setGeometry(btnPosX, 50, 500, 300)
+
+            UserPath =  UserNameDirMusic
+            SearchVideoMusic(UserPath)
 
             UserPath =  UserNameDirVideos
             SearchVideoMusic(UserPath)
@@ -544,17 +548,16 @@ MyApp = New qapp
             setclickevent("pAddMedia()")
         }
 
-        btnDone = new qpushbutton(win2) 
+        btnDone = new qpushbutton(win2)
         {
             setGeometry(btnPosX+400, 360,100,btnHeight)
             settext("Done")
             setclickevent("pDone()")
-        }        
-        
+        }
+
         ### show()   ### Do not show listWidget WIN2 at startup
     }
 
-    #See "Exec-setup " +nl
     exec()
 }
 
@@ -614,7 +617,7 @@ Func pTime
     ### IMAGE
 
 
-    if imageH >= BoxHeight - 20 
+    if imageH >= BoxHeight - 20
         TimerMan.stop()          ### GrowBy
     ok
 
@@ -640,7 +643,7 @@ Func pTime
         BarMan.setvalue(0)
         BarMan.hide()
         LabelMan.hide()
-        
+
 
     ok
 
@@ -652,8 +655,8 @@ return
 ###  Display Time
 
 Func theTime()
-    #See "Time: "+ Time() +nl
-    #return "Time: "+ Time()
+    # See "Time: "+ Time() +nl
+    # return "Time: "+ Time()
 return  Time()
 
 ###-----------------------------------
@@ -676,31 +679,31 @@ Func Duration()
 
     cDurValue  = player.duration()
     cPosValue  = player.position()
-    
+
     cDurTime   = ConvertMilliSec(cDurValue)
     cPosTime   = ConvertMilliSec(cPosValue)
- 
+
     DurPos = ""+ cPosTime +" / "+ cDurTime
     btnDur.setText(DurPos)
-    
+
     if cDurValue = 0 ; cDurValue = 100 ; ok    ### Divide by Zero
     Ratio = ceil(cPosValue / cDurValue * 100)
 
     BarWidth = 300
-    BarMan.setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 28, BarWidth, 10) 
+    BarMan.setGeometry( ((WinWidth - BarWidth) / 2), BoxHeight + 28, BarWidth, 10)
     BarMan.setvalue(Ratio)
     BarMan.show()
-     
-    LabelMan.setgeometry( ((WinWidth - BarWidth) / 2) - 120, BoxHeight +23, 120, 20) 
-    LabelMan.settext(DurPos) 
+
+    LabelMan.setgeometry( ((WinWidth - BarWidth) / 2) - 120, BoxHeight +23, 120, 20)
+    LabelMan.settext(DurPos)
     LabelMan.show()
-    
+
 return
 
 ###-------------------------
 
 Func ConvertMilliSec(milliseconds)
-    TotalSec = milliseconds / 1000 
+    TotalSec = milliseconds / 1000
     Hour     = floor( TotalSec / 3600 )
     Min      = floor( TotalSec / 60 ) - (Hour * 60)
     Sec      = floor( TotalSec % 60 )
@@ -711,27 +714,27 @@ Func ConvertMilliSec(milliseconds)
 
     Clock = "" + Hour+":"+ Min +":"+ Sec
     ### See "TotalSec: "+ TotalSec +" >>> "+ Hour +"-"+ Min +"-"+ Sec +" >>> "+ Clock +nl
-    
-return Clock    
+
+return Clock
 
 ###---------------------
 
-Func Forward
+Func pForward
 
     p1 = player.position() + ( 20 * 1000)
 
     if p1 > player.duration() ; p1 = 0 ;  ok  ### Loop
     player.setposition(p1)
 
-    #See "Pfwd: "+ (player.position() /1000 /60) +nl
+    ### See "Pfwd: "+ (player.position() /1000 /60) +nl
     Duration()
 return
 
 ###---------------------
 
-Func Backward
+Func pBackward
     p1 = player.position() - ( 20 * 1000)
-    
+
     if p1 < 0  ; p1 = 0 ; ok
     player.setposition(p1)
 
@@ -745,7 +748,7 @@ return
 ###-----------------------------
 ### Slider Dragged and Released
 
-Func SliderReleased()
+Func pSliderReleased()
 
    number = SliderMan.value()
    #See "SlideReleased: "+ SliderMan.value() +nl
@@ -761,7 +764,7 @@ return
 ###-----------------------------------------------
 ### Slider Clicked to the Left or Right of Marker
 
-Func SliderTriggered()
+Func pSliderTriggered()
 
    number = SliderMan.value()
    #See "SlideTriggered: "+ SliderMan.value() +nl
@@ -776,19 +779,19 @@ Func SliderTriggered()
 ###=====================================================================
 
 Func pMusic
-    new qfiledialog(win1)
+    new qFileDialog(win1)
     {
         cName = getopenfilename(win1,"Open Music file", UserNameDirMusic, "Music Files(*.mp3 *.mp3 *.wav *.aac *.ogg *.wma *.flac) ;; All Files(*.*) ")
         win1.setwindowtitle(cName)
     }
     FileToPlay = cName
-    See FileToPlay +nl
+    #See FileToPlay +nl
 
         imageStock.show()
- 
+
     player.setMedia( new qurl(FileToplay) )
-    player.play() 
-    SliderMan.setValue(0)        
+    player.play()
+    SliderMan.setValue(0)
     TimerDuration.start()
 
 return
@@ -797,19 +800,19 @@ return
 
 Func pVideos
 
-    new qfiledialog(win1)
+    new qFileDialog(win1)
     {
         cName = getopenfilename(win1,"Open Video file", UserNameDirVideos, "Video Files(*.avi *.mp4 *.mpg *.mkv *.wmv) ;; Music Files(*mp3) ;; All Files(*.*) ") ###
         win1.setwindowtitle(cName)
     }
     FileToPlay = cName
-    See FileToPlay +nl
+    #See FileToPlay +nl
 
         imageStock.hide()  ### clear()
-    
+
     player.setMedia( new qurl(FileToplay) )
-    player.play()   
-    SliderMan.setValue(0) 
+    player.play()
+    SliderMan.setValue(0)
     TimerDuration.start()
 
 return
@@ -822,15 +825,15 @@ return
 
 Func SendMsg(msg)
 
-    new qmessagebox(win1) 
+    new qmessagebox(win1)
     {
         setwindowtitle("MessageBox")
         settext(msg )
         setstylesheet("background-color : Yellow")
         show()
     }
-return  
-    
+return
+
 return
 
 ###-----------------------------------
@@ -838,22 +841,22 @@ return
 
 Func chomp(cStr)
    cStr = substr(cStr, char(10), "" )
-   cStr = substr(cStr, char(13), "" )   
+   cStr = substr(cStr, char(13), "" )
 return cStr
 
 ###-----------------------------------
 
-Func mute()
+Func pMute()
     if player.isMuted()
        player.setMuted(false)
-    else  
+    else
        player.setMuted(true)
     ok
 return
 
 ###-----------------------------------
 
-Func volumeDec()
+Func pVolumeDec()
     if volume > 0
        volume = volume - 10
        btnVolume.settext("V:" + volume)
@@ -863,39 +866,43 @@ return
 
 ###-----------------------------------
 
-Func volumeInc()
+Func pVolumeInc()
     if volume < 100
        volume = volume + 10
        btnVolume.settext("V:" + volume)
        player.setVolume(volume)
     ok
-return           
+return
 
 ###----------------------------------
 
-Func playList
+Func pPlayList
 
     win2.show()
-    
-    if BarMan.value() = 100
-       player.setPlaylist(playlist) 
-       See playlist
-       player.play()
-    ok
+
+    /*
+        if BarMan.value() = 100
+           player.setPlaylist(playlist)
+           player.play()
+        ok
+    */
+
+    player.setPlaylist(playlist)
+    player.play()
 
 ###===========================================================
 ##============================================================
-    
+
 ###--------------------------------------------------------------
 ### FileType for Music and Video in  CL\Users\name\Music  Videos
 ###
 ### fileType = [".avi", ".mp4", ".mpg", ".mkv", ".wmv", ".mp3", ".wav", ".aac", ".ogg", ".wma", ".flac" ]
-### UserPath = "C:\Users\Umberto\Videos"    ### <<<== Search this path 
-        
-                                  
+### UserPath = "C:\Users\Umberto\Videos"    ### <<<== Search this path
+
+
 ###===================================
 ### Search for Video and Music files
-### SearchVideoMusic(UserPath)  
+### SearchVideoMusic(UserPath)
 
 Func SearchVideoMusic(UserPath)
 
@@ -906,20 +913,19 @@ Func SearchVideoMusic(UserPath)
         listDir(searchDir)
     next
 
-    
-    see nl +nl +"Number of Music: " +len(musicList) +nl +nl
-    see musicList
-    See nl +"Finished" +nl
+    # see nl +nl +"Number of Music: " +len(musicList) +nl +nl
+    # see musicList
+    # See nl +"Finished" +nl
 
 ###==============================
 ### Find Files in Directory
 
 Func ListDir(dirName)
 
-    ChDir(dirName)   
+    ChDir(dirName)
 
     Try
-        myListSub = Dir( CurrentDir() )  
+        myListSub = Dir( CurrentDir() )
     Catch
         ### See "ListDir Catch! " + CurrentDir() +" --- "+ cCatchError +nl      ### <<< Error, Couldn't open the directory
         return
@@ -933,20 +939,20 @@ Func ListDir(dirName)
                 # do nothing
             else
                 # see nl +"Dir: " + thisDir + nl
-                Add( dirList, (CurrentDir() +"\"+  thisDir))  ### <<<== Dir Walk             
-            ok      
+                Add( dirList, (CurrentDir() +"\"+  thisDir))  ### <<<== Dir Walk
+            ok
         else
             thisFile = x[1]
-            
+
             ###-------------------------------
             ### Add Music or Video file type
-            
+
             for thisType in fileType
                 if ( substr(thisFile, thisType) )             ### <<<== Type of File from List
                      # see "         File: " + thisFile + nl
                      Add(musicList, (CurrentDir() +"\"+  thisFile))
                 ok
-            next             
+            next
         ok
     next
 return
@@ -960,11 +966,90 @@ Func pShowPlayList()
     win2.show()
 return
 
+###============================================================
+### Read xxx.play = PlayList into "list1 = qWListWidget"
+
 Func pImportPlayList()
+
+    ###-------------------------------------------
+    ### Open Dialog - User picks the fileName.play
+
+    new qFileDialog(win2)
+    {
+        cFileName = getOpenFileName(win2,"Open PlayList", UserPath, "PlayList Files(*.play) ")
+    }
+
+
+    ###--------------------------------------------
+    ### Clear playlist so new items can be loaded
+    ### Delete all Items from "list1 = listWidget"
+
+    playlist.clear()
+
+    nbrOfItems = list1.count() -1
+    list1
+    {
+        for i = 0 to nbrOfItems
+            takeItem(currentrow() )
+            #See "itemCount: "+ count() +nl
+        next
+    }
+    ###-----------------------------------------------------------------------
+    ### Extract Items from file and Insert to "list1 = listWidget" Items
+
+    readData = read(cFileName)
+    lineList = str2List(readData)
+
+    list1
+    {
+        for fileToAdd in lineList
+            fileToAdd = substr(fileToAdd, "C:\", "/" )
+            fileToAdd = substr(fileToAdd, "C:/", "/" )
+            fileToAdd = substr(fileToAdd, "\"  , "/" )
+
+            additem(fileToAdd)
+        next
+
+        setcurrentrow(0,3)      ### Row 0, HiLite 3 - Select-Grey
+        win2.setwindowtitle("Items Count : " + count() )
+    }
+
+    pShowPlayList()
+
 return
 
+###-----------------------------------------------
+### PlayList is in the "list1 = qWListWidget"
+
 Func pSavePlayList()
+
+    ###------------------------------------------------
+    ### Save Dialog - User picks the file name xxx.play
+
+    new qFileDialog(win2)
+    {
+        cFileName = getSaveFileName(win2,"Save PlayList", UserPath, "PlayList Files(*.play) ")
+    }
+
+    ###----------------------------------------
+    ### Extract the "list1 = listWidget" Items
+
+    fp = fopen(cFileName, "wb")
+
+    list1
+    {
+        for i = 0 to count() -1
+            item = list1.item(i).text();
+
+            fwrite(fp, item)
+            fwrite(fp, nl)
+        next
+    }
+
+    fclose(fp)
+
 return
+
 
 ##============================================================
 ##============================================================
@@ -1112,13 +1197,15 @@ func pAddMedia()
 
     list1
     {
-        nbrOfItems = list1.count()
+        nbrOfItems = count()
         curItemNbr = currentRow()
         curValue   = item(list1.currentRow()).text()
 
         insertItem(currentrow(), fileToAdd);
         setCurrentRow( curItemNbr, 3)
     }
+
+    add(musiclist, fileToAdd)
 
     win2.setWindowTitle( "ADD-Items: " + nbrOfItems +" Cur: " + curItemNbr + " : " + curValue )
 
@@ -1128,23 +1215,25 @@ return
 ##============================================================
 
 
-###-----------------------------------
-### Done. Copy listWidget to PlayList
+###--------------------------------------------
+### Done. Copy list1 = new qListWidget(win2)
+###         playlist = new qMediaPlaylist()
 
 Func pDone()
 
-    list1 
+    list1
     {
-        for i = 0 to list1.count() -1           
+        for i = 0 to count() -1
             item = list1.item(i).text();
-            playlist.addMedia(new qurl(item))           
-            
-            See "widgetCount: "+ i  +" - "+ list1.count() +" -- "+ item +nl         
+            #See "Done itemWidget: "+ i  +"/"+ count() +" -- "+ item +nl
+
+            playlist.addMedia(new qurl(item))
         next
     }
 
     win2.hide()    ### HIDE the listWidget WIN2
-    
+
+
 return
 ###===============================================
 ###===============================================
