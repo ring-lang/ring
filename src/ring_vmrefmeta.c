@@ -51,6 +51,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_traceevent",ring_vm_refmeta_ringvmtraceevent);
 	ring_vm_funcregister("ringvm_tracefunc",ring_vm_refmeta_ringvmtracefunc);
 	ring_vm_funcregister("ringvm_scopescount",ring_vm_refmeta_ringvmscopescount);
+	ring_vm_funcregister("ringvm_evalinscope",ring_vm_refmeta_ringvmevalinscope);
 }
 /* Functions */
 
@@ -937,4 +938,27 @@ void ring_vm_refmeta_ringvmscopescount ( void *pPointer )
 	pVM = (VM *) pPointer ;
 	/* We uses -1 to avoid adding the current scope of this function */
 	RING_API_RETNUMBER(ring_list_getsize(pVM->pMem) - 1);
+}
+
+void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
+{
+	VM *pVM  ;
+	List *pActiveMem  ;
+	const char *cStr  ;
+	pVM = (VM *) pPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		/* We must get cStr before we change the pVM->pActiveMem */
+		cStr = RING_API_GETSTRING(2) ;
+		pActiveMem = pVM->pActiveMem ;
+		pVM->pActiveMem = ring_list_getlist(pVM->pMem,(int) RING_API_GETNUMBER(1)) ;
+		pVM->nActiveScopeID++ ;
+		ring_vm_runcode(pVM,cStr);
+		pVM->pActiveMem = pActiveMem ;
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
 }

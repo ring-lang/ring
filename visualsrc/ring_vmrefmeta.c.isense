@@ -242,3 +242,10 @@ pVM
 ring_vm_refmeta_ringvmscopescount
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmevalinscope
+Type: VM *
+pVM
+Type: List *
+pActiveMem
+Type: const char *
+cStr
