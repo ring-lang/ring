@@ -85,4 +85,6 @@ void ring_vm_refmeta_ringvmtracedata ( void *pPointer ) ;
 void ring_vm_refmeta_ringvmtraceevent ( void *pPointer ) ;
 
 void ring_vm_refmeta_ringvmtracefunc ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmscopescount ( void *pPointer ) ;
 #endif

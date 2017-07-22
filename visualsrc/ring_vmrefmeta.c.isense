@@ -239,3 +239,6 @@ pVM
 ring_vm_refmeta_ringvmtracefunc
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmscopescount
+Type: VM *
+pVM

@@ -50,6 +50,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_tracedata",ring_vm_refmeta_ringvmtracedata);
 	ring_vm_funcregister("ringvm_traceevent",ring_vm_refmeta_ringvmtraceevent);
 	ring_vm_funcregister("ringvm_tracefunc",ring_vm_refmeta_ringvmtracefunc);
+	ring_vm_funcregister("ringvm_scopescount",ring_vm_refmeta_ringvmscopescount);
 }
 /* Functions */
 
@@ -928,4 +929,12 @@ void ring_vm_refmeta_ringvmtracefunc ( void *pPointer )
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	RING_API_RETSTRING(ring_string_get(pVM->pTrace));
+}
+
+void ring_vm_refmeta_ringvmscopescount ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	/* We uses -1 to avoid adding the current scope of this function */
+	RING_API_RETNUMBER(ring_list_getsize(pVM->pMem) - 1);
 }
