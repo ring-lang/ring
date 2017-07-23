@@ -483,7 +483,7 @@ MyApp = New qapp
     win2 = new qWidget()
     {
 
-        setGeometry(50,50,650,500)
+        setGeometry(50,50,700,500)
 
         btnPosX   = 50
         btnHeight = 30
@@ -493,7 +493,7 @@ MyApp = New qapp
 
         list1 = new qListWidget(win2)
         {
-            setGeometry(btnPosX, 50, 500, 300)
+            setGeometry(btnPosX, 50, 600, 300)
 
             UserPath =  UserNameDirMusic
             SearchVideoMusic(UserPath)
@@ -514,7 +514,7 @@ MyApp = New qapp
 
         btnSelect = new qpushbutton(win2)
         {
-            setGeometry( btnPosX, 320,500,btnHeight)
+            setGeometry( btnPosX,320,600,btnHeight)
             settext("MOVE: Select and Click")
             setclickevent("pSelect()")
         }
@@ -553,6 +553,13 @@ MyApp = New qapp
             setGeometry(btnPosX+400, 360,100,btnHeight)
             settext("Done")
             setclickevent("pDone()")
+        }
+
+        btnPlay = new qpushbutton(win2)
+        {
+            setGeometry(btnPosX+500, 360,100,btnHeight)
+            settext("Play Item")
+            setclickevent("pPlay()")
         }
 
         ### show()   ### Do not show listWidget WIN2 at startup
@@ -1232,8 +1239,15 @@ Func pDone()
     }
 
     win2.hide()    ### HIDE the listWidget WIN2
-
-
 return
+
+func pPlay
+        curValue = list1.item(list1.currentRow()).text()
+        player.setMedia( new qurl(curValue) )
+        player.play()
+        return
+
+
+
 ###===============================================
 ###===============================================
