@@ -89,7 +89,7 @@ The next steps explains building using scripts.
 
 	Install Qt 5.5 : https://download.qt.io/archive/qt/5.5/5.5.1/
 	
-	cd ../ringqt
+	cd ../extensions/ringqt
 	gencode.bat
 	buildmingw32.bat
 
@@ -173,7 +173,7 @@ The next steps explains building using scripts.
 
 ### Generate RingQt Source Code and Build
 	
-	cd ../ringqt
+	cd ../extensions/ringqt
 	./gencode.sh
 	./buildgcc.sh
 
@@ -250,7 +250,7 @@ The next steps explains building using scripts.
 	
 ### Generate RingQt Source Code and Build
 	
-	cd ../ringqt
+	cd ../extensions/ringqt
 	./gencode.sh
 	./buildclang.sh
 
