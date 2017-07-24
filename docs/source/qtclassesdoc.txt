@@ -6417,3 +6417,67 @@ Parameters : void
 * void swap(QSerialPortInfo other)
 * QString systemLocation(void)
 * quint16 vendorIdentifier(void)
+
+.. index::
+	pair: RingQt Classes Reference; QStringRef Class
+
+QStringRef Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QStringRef.html
+
+
+Parameters : void
+
+* QStringRef appendTo(QString * string)
+* QChar at(int position)
+* void clear(void)
+* int compare(QString other, Qt::CaseSensitivity cs)
+* int compare_2(QStringRef other, Qt::CaseSensitivity cs)
+* int compare_3(QLatin1String other, Qt::CaseSensitivity cs)
+* QChar * constData(void)
+* bool contains(QString str, Qt::CaseSensitivity cs)
+* bool contains_2(QChar ch, Qt::CaseSensitivity cs)
+* bool contains_3(QStringRef str, Qt::CaseSensitivity cs)
+* bool contains_4(QLatin1String str, Qt::CaseSensitivity cs)
+* int count(void)
+* int count_2(QString str, Qt::CaseSensitivity cs)
+* int count_3(QChar ch, Qt::CaseSensitivity cs)
+* int count_4(QStringRef str, Qt::CaseSensitivity cs)
+* QChar * data(void)
+* bool endsWith(QString str, Qt::CaseSensitivity cs)
+* bool endsWith_2(QChar ch, Qt::CaseSensitivity cs)
+* bool endsWith_3(QLatin1String str, Qt::CaseSensitivity cs)
+* bool endsWith_4(QStringRef str, Qt::CaseSensitivity cs)
+* int indexOf(QString str, int from, Qt::CaseSensitivity cs)
+* int indexOf_2(QLatin1String str, int from, Qt::CaseSensitivity cs)
+* int indexOf_3(QChar ch, int from, Qt::CaseSensitivity cs)
+* int indexOf_4(QStringRef str, int from, Qt::CaseSensitivity cs)
+* bool isEmpty(void)
+* bool isNull(void)
+* int lastIndexOf(QString str, int from, Qt::CaseSensitivity cs)
+* int lastIndexOf_2(QChar ch, int from, Qt::CaseSensitivity cs)
+* int lastIndexOf_3(QLatin1String str, int from, Qt::CaseSensitivity cs)
+* int lastIndexOf_4(QStringRef str, int from, Qt::CaseSensitivity cs)
+* int length(void)
+* int localeAwareCompare(QString other)
+* int localeAwareCompare_2(QStringRef other)
+* int position(void)
+* int size(void)
+* bool startsWith(QString str, Qt::CaseSensitivity cs)
+* bool startsWith_2(QLatin1String str, Qt::CaseSensitivity cs)
+* bool startsWith_3(QStringRef str, Qt::CaseSensitivity cs)
+* bool startsWith_4(QChar ch, Qt::CaseSensitivity cs)
+* QString * string(void)
+* QByteArray toLatin1(void)
+* QByteArray toLocal8Bit(void)
+* QString toString(void)
+* QVector<uint> toUcs4(void)
+* QByteArray toUtf8(void)
+* QChar * unicode(void)
+* int compare_4(QStringRef s1, QString s2, Qt::CaseSensitivity cs)
+* int compare_5(QStringRef s1, QStringRef s2, Qt::CaseSensitivity cs)
+* int compare_6(QStringRef s1, QLatin1String s2, Qt::CaseSensitivity cs)
+* int localeAwareCompare_3(QStringRef s1, QString s2)
+* int localeAwareCompare_4(QStringRef s1, QStringRef s2)
