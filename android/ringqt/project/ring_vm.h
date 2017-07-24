@@ -90,6 +90,11 @@ typedef struct VM {
 	char nActiveError  ;
 	List *aDynamicSelfItems  ;
 	String *pPackageName  ;
+	char lTrace  ;
+	String *pTrace  ;
+	char lTraceActive  ;
+	char nTraceEvent  ;
+	List *pTraceData  ;
 } VM ;
 /*
 **  Functions 
@@ -484,6 +489,9 @@ RING_API void ring_vm_mutexunlock ( VM *pVM ) ;
 RING_API void ring_vm_mutexdestroy ( VM *pVM ) ;
 
 RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
+/* Trace */
+
+void ring_vm_traceevent ( VM *pVM,char nEvent ) ;
 /*
 **  Macro 
 **  Stack 
@@ -644,6 +652,8 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 /* Temp Object */
 #define RING_TEMP_OBJECT "ring_temp_object"
 #define RING_TEMP_VARIABLE "ring_sys_temp"
+/* Trace */
+#define RING_VM_TRACEEVENT_NEWLINE 1
 /* Runtime Error Messages */
 #define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Cann't divide by zero !"
 #define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range) !"

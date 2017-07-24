@@ -11431,19 +11431,29 @@ Class QXmlStreamReader
 		return pTempObj
 
 	Func documentEncoding 
-		return QXmlStreamReader_documentEncoding(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_documentEncoding(pObject)
+		return pTempObj
 
 	Func documentVersion 
-		return QXmlStreamReader_documentVersion(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_documentVersion(pObject)
+		return pTempObj
 
 	Func dtdName 
-		return QXmlStreamReader_dtdName(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_dtdName(pObject)
+		return pTempObj
 
 	Func dtdPublicId 
-		return QXmlStreamReader_dtdPublicId(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_dtdPublicId(pObject)
+		return pTempObj
 
 	Func dtdSystemId 
-		return QXmlStreamReader_dtdSystemId(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_dtdSystemId(pObject)
+		return pTempObj
 
 	Func entityDeclarations 
 		return QXmlStreamReader_entityDeclarations(pObject)
@@ -11502,7 +11512,9 @@ Class QXmlStreamReader
 		return QXmlStreamReader_lineNumber(pObject)
 
 	Func name 
-		return QXmlStreamReader_name(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_name(pObject)
+		return pTempObj
 
 	Func namespaceDeclarations 
 		return QXmlStreamReader_namespaceDeclarations(pObject)
@@ -11511,22 +11523,32 @@ Class QXmlStreamReader
 		return QXmlStreamReader_namespaceProcessing(pObject)
 
 	Func namespaceUri 
-		return QXmlStreamReader_namespaceUri(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_namespaceUri(pObject)
+		return pTempObj
 
 	Func notationDeclarations 
 		return QXmlStreamReader_notationDeclarations(pObject)
 
 	Func prefix 
-		return QXmlStreamReader_prefix(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_prefix(pObject)
+		return pTempObj
 
 	Func processingInstructionData 
-		return QXmlStreamReader_processingInstructionData(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_processingInstructionData(pObject)
+		return pTempObj
 
 	Func processingInstructionTarget 
-		return QXmlStreamReader_processingInstructionTarget(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_processingInstructionTarget(pObject)
+		return pTempObj
 
 	Func qualifiedName 
-		return QXmlStreamReader_qualifiedName(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_qualifiedName(pObject)
+		return pTempObj
 
 	Func raiseError P1
 		return QXmlStreamReader_raiseError(pObject,P1)
@@ -11553,7 +11575,9 @@ Class QXmlStreamReader
 		return QXmlStreamReader_skipCurrentElement(pObject)
 
 	Func text 
-		return QXmlStreamReader_text(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamReader_text(pObject)
+		return pTempObj
 
 	Func tokenString 
 		return QXmlStreamReader_tokenString(pObject)
@@ -11688,13 +11712,19 @@ Class QXmlStreamNotationDeclaration
 		pObject = QXmlStreamNotationDeclaration_delete(pObject)
 
 	Func name 
-		return QXmlStreamNotationDeclaration_name(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamNotationDeclaration_name(pObject)
+		return pTempObj
 
 	Func publicId 
-		return QXmlStreamNotationDeclaration_publicId(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamNotationDeclaration_publicId(pObject)
+		return pTempObj
 
 	Func systemId 
-		return QXmlStreamNotationDeclaration_systemId(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamNotationDeclaration_systemId(pObject)
+		return pTempObj
 
 Class QXmlStreamNamespaceDeclaration
 
@@ -11708,10 +11738,14 @@ Class QXmlStreamNamespaceDeclaration
 		pObject = QXmlStreamNamespaceDeclaration_delete(pObject)
 
 	Func namespaceUri 
-		return QXmlStreamNamespaceDeclaration_namespaceUri(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamNamespaceDeclaration_namespaceUri(pObject)
+		return pTempObj
 
 	Func prefix 
-		return QXmlStreamNamespaceDeclaration_prefix(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamNamespaceDeclaration_prefix(pObject)
+		return pTempObj
 
 Class QXmlStreamEntityDeclaration
 
@@ -11725,19 +11759,29 @@ Class QXmlStreamEntityDeclaration
 		pObject = QXmlStreamEntityDeclaration_delete(pObject)
 
 	Func name 
-		return QXmlStreamEntityDeclaration_name(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamEntityDeclaration_name(pObject)
+		return pTempObj
 
 	Func notationName 
-		return QXmlStreamEntityDeclaration_notationName(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamEntityDeclaration_notationName(pObject)
+		return pTempObj
 
 	Func publicId 
-		return QXmlStreamEntityDeclaration_publicId(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamEntityDeclaration_publicId(pObject)
+		return pTempObj
 
 	Func systemId 
-		return QXmlStreamEntityDeclaration_systemId(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamEntityDeclaration_systemId(pObject)
+		return pTempObj
 
 	Func value 
-		return QXmlStreamEntityDeclaration_value(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamEntityDeclaration_value(pObject)
+		return pTempObj
 
 Class QXmlStreamAttributes
 
@@ -11766,19 +11810,29 @@ Class QXmlStreamAttributes
 		return QXmlStreamAttributes_hasAttribute_3(pObject,P1,P2)
 
 	Func value P1,P2
-		return QXmlStreamAttributes_value(pObject,P1,P2)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttributes_value(pObject,P1,P2)
+		return pTempObj
 
 	Func value_2 P1,P2
-		return QXmlStreamAttributes_value_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttributes_value_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func value_3 P1,P2
-		return QXmlStreamAttributes_value_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttributes_value_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func value_4 P1
-		return QXmlStreamAttributes_value_4(pObject,P1)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttributes_value_4(pObject,P1)
+		return pTempObj
 
 	Func value_5 P1
-		return QXmlStreamAttributes_value_5(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttributes_value_5(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 Class QXmlStreamAttribute
 
@@ -11795,19 +11849,29 @@ Class QXmlStreamAttribute
 		return QXmlStreamAttribute_isDefault(pObject)
 
 	Func name 
-		return QXmlStreamAttribute_name(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttribute_name(pObject)
+		return pTempObj
 
 	Func namespaceUri 
-		return QXmlStreamAttribute_namespaceUri(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttribute_namespaceUri(pObject)
+		return pTempObj
 
 	Func prefix 
-		return QXmlStreamAttribute_prefix(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttribute_prefix(pObject)
+		return pTempObj
 
 	Func qualifiedName 
-		return QXmlStreamAttribute_qualifiedName(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttribute_qualifiedName(pObject)
+		return pTempObj
 
 	Func value 
-		return QXmlStreamAttribute_value(pObject)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QXmlStreamAttribute_value(pObject)
+		return pTempObj
 
 Class QThread from QObject
 
@@ -12032,10 +12096,14 @@ Class QRegularExpressionMatch
 		return QRegularExpressionMatch_capturedLength_2(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func capturedRef P1
-		return QRegularExpressionMatch_capturedRef(pObject,P1)
+		pTempObj = new QStringRef
+		pTempObj.pObject = QRegularExpressionMatch_capturedRef(pObject,P1)
+		return pTempObj
 
 	Func capturedRef_2 P1
-		return QRegularExpressionMatch_capturedRef_2(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QStringRef
+		pTempObj.pObject = QRegularExpressionMatch_capturedRef_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func capturedStart P1
 		return QRegularExpressionMatch_capturedStart(pObject,P1)
@@ -14679,6 +14747,178 @@ Class QToolButton from QAbstractButton
 
 	Func getClickEvent 
 		return QToolButton_getClickEvent(pObject)
+
+Class QStringRef
+
+	pObject
+
+	Func init 
+		pObject = QStringRef_new()
+		return self
+
+	Func delete
+		pObject = QStringRef_delete(pObject)
+
+	Func appendTo P1
+		pTempObj = new QStringRef
+		pTempObj.pObject = QStringRef_appendTo(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func at P1
+		return QStringRef_at(pObject,P1)
+
+	Func clear 
+		return QStringRef_clear(pObject)
+
+	Func compare P1,P2
+		return QStringRef_compare(pObject,P1,P2)
+
+	Func compare_2 P1,P2
+		return QStringRef_compare_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func compare_3 P1,P2
+		return QStringRef_compare_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func constData 
+		return QStringRef_constData(pObject)
+
+	Func contains P1,P2
+		return QStringRef_contains(pObject,P1,P2)
+
+	Func contains_2 P1,P2
+		return QStringRef_contains_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func contains_3 P1,P2
+		return QStringRef_contains_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func contains_4 P1,P2
+		return QStringRef_contains_4(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func count 
+		return QStringRef_count(pObject)
+
+	Func count_2 P1,P2
+		return QStringRef_count_2(pObject,P1,P2)
+
+	Func count_3 P1,P2
+		return QStringRef_count_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func count_4 P1,P2
+		return QStringRef_count_4(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func data 
+		return QStringRef_data(pObject)
+
+	Func endsWith P1,P2
+		return QStringRef_endsWith(pObject,P1,P2)
+
+	Func endsWith_2 P1,P2
+		return QStringRef_endsWith_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func endsWith_3 P1,P2
+		return QStringRef_endsWith_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func endsWith_4 P1,P2
+		return QStringRef_endsWith_4(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func indexOf P1,P2,P3
+		return QStringRef_indexOf(pObject,P1,P2,P3)
+
+	Func indexOf_2 P1,P2,P3
+		return QStringRef_indexOf_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func indexOf_3 P1,P2,P3
+		return QStringRef_indexOf_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func indexOf_4 P1,P2,P3
+		return QStringRef_indexOf_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func isEmpty 
+		return QStringRef_isEmpty(pObject)
+
+	Func isNull 
+		return QStringRef_isNull(pObject)
+
+	Func lastIndexOf P1,P2,P3
+		return QStringRef_lastIndexOf(pObject,P1,P2,P3)
+
+	Func lastIndexOf_2 P1,P2,P3
+		return QStringRef_lastIndexOf_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func lastIndexOf_3 P1,P2,P3
+		return QStringRef_lastIndexOf_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func lastIndexOf_4 P1,P2,P3
+		return QStringRef_lastIndexOf_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func length 
+		return QStringRef_length(pObject)
+
+	Func localeAwareCompare P1
+		return QStringRef_localeAwareCompare(pObject,P1)
+
+	Func localeAwareCompare_2 P1
+		return QStringRef_localeAwareCompare_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func position 
+		return QStringRef_position(pObject)
+
+	Func size 
+		return QStringRef_size(pObject)
+
+	Func startsWith P1,P2
+		return QStringRef_startsWith(pObject,P1,P2)
+
+	Func startsWith_2 P1,P2
+		return QStringRef_startsWith_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func startsWith_3 P1,P2
+		return QStringRef_startsWith_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func startsWith_4 P1,P2
+		return QStringRef_startsWith_4(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func string 
+		return QStringRef_string(pObject)
+
+	Func toLatin1 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QStringRef_toLatin1(pObject)
+		return pTempObj
+
+	Func toLocal8Bit 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QStringRef_toLocal8Bit(pObject)
+		return pTempObj
+
+	Func toString 
+		return QStringRef_toString(pObject)
+
+	Func toUcs4 
+		return QStringRef_toUcs4(pObject)
+
+	Func toUtf8 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QStringRef_toUtf8(pObject)
+		return pTempObj
+
+	Func unicode 
+		return QStringRef_unicode(pObject)
+
+	Func compare_4 P1,P2,P3
+		return QStringRef_compare_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func compare_5 P1,P2,P3
+		return QStringRef_compare_5(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func compare_6 P1,P2,P3
+		return QStringRef_compare_6(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func localeAwareCompare_3 P1,P2
+		return QStringRef_localeAwareCompare_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func localeAwareCompare_4 P1,P2
+		return QStringRef_localeAwareCompare_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 Class QPixmap2 from QPixmap
 
