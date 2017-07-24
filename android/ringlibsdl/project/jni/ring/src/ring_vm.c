@@ -190,6 +190,18 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->aDynamicSelfItems = ring_list_new(0);
 	/* The active package name (after using import command) */
 	pVM->pPackageName = ring_string_new("");
+	/*
+	**  Trace Program (After Each Line) 
+	**  lTrace = Logical Value (Trace is Active or Not) 
+	**  pTrace = String contains the code to be executed (Trace Function) 
+	**  lTraceActive = The Trace Function is Active - Don't Call Trace function from Trace Function 
+	**  nTraceEvent = The Trace Event (1 = New Line , etc) 
+	*/
+	pVM->lTrace = 0 ;
+	pVM->pTrace = ring_string_new("");
+	pVM->lTraceActive = 0 ;
+	pVM->nTraceEvent = 0 ;
+	pVM->pTraceData = ring_list_new(0) ;
 	return pVM ;
 }
 
@@ -238,6 +250,8 @@ VM * ring_vm_delete ( VM *pVM )
 	/* Delete List */
 	pVM->aDynamicSelfItems = ring_list_delete(pVM->aDynamicSelfItems);
 	pVM->pPackageName = ring_string_delete(pVM->pPackageName);
+	pVM->pTrace = ring_string_delete(pVM->pTrace);
+	pVM->pTraceData = ring_list_delete(pVM->pTraceData);
 	free( pVM ) ;
 	pVM = NULL ;
 	return pVM ;
@@ -893,7 +907,7 @@ void ring_vm_newbytecodeitem ( VM *pVM,int x )
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 {
-	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP  ;
+	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber  ;
 	List *pStackList  ;
 	/* Save state to take in mind nested events execution */
 	pVM->nRunCode++ ;
@@ -903,6 +917,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	nSP = pVM->nSP ;
 	nFuncSP = pVM->nFuncSP ;
 	pStackList = ring_vm_savestack(pVM);
+	nLineNumber = pVM->nLineNumber ;
 	ring_vm_mutexlock(pVM);
 	pVM->nEvalCalledFromRingCode = 1 ;
 	/* Check removing the new byte code */
@@ -935,6 +950,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	/* Restore Stack to avoid Stack Overflow */
 	pVM->nSP = nSP ;
 	pVM->nFuncSP = nFuncSP ;
+	pVM->nLineNumber = nLineNumber ;
 }
 
 void ring_vm_init ( RingState *pRingState )
