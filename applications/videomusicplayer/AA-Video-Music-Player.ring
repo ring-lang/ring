@@ -488,6 +488,11 @@ MyApp = New qapp
         btnPosX   = 50
         btnHeight = 30
 
+         btnSize    = 30
+
+		oFont = new qFont("",11,0,0)
+		setFont( oFont)
+	
         ###---------------------------------------
         ### listWidget for Playlist manipulation
 
@@ -516,6 +521,7 @@ MyApp = New qapp
         {
             setGeometry( btnPosX,320,600,btnHeight)
             settext("MOVE: Select and Click")
+			seticon(new qicon(new qpixmap(UserIcons +"Select.png")))
             setclickevent("pSelect()")
         }
 
@@ -523,20 +529,23 @@ MyApp = New qapp
         {
             setGeometry( btnPosX, 360,100,btnHeight)
             settext("Delete Item")
+			seticon(new qicon(new qpixmap(UserIcons +"Delete.png")))
             setclickevent("pDelete()")
         }
 
         btnMoveUp = new qpushbutton(win2)
         {
             setGeometry( btnPosX+100, 360,100,btnHeight)
-            settext("Move Up ^")
+            settext("Move Up")
+			seticon(new qicon(new qpixmap(UserIcons +"Up.png")))
             setclickevent("pMoveUp()")
         }
 
         btnMoveDown = new qpushbutton(win2)
         {
             setGeometry(btnPosX+200, 360,100,btnHeight)
-            settext("Move Down v")
+            settext("Move Down")
+			seticon(new qicon(new qpixmap(UserIcons +"Down.png")))
             setclickevent("pMoveDown()")
         }
 
@@ -545,6 +554,7 @@ MyApp = New qapp
         {
             setGeometry(btnPosX+300, 360,100,btnHeight)
             settext("Add Media")
+			seticon(new qicon(new qpixmap(UserIcons +"Add.png")))
             setclickevent("pAddMedia()")
         }
 
@@ -552,6 +562,7 @@ MyApp = New qapp
         {
             setGeometry(btnPosX+400, 360,100,btnHeight)
             settext("Done")
+			seticon(new qicon(new qpixmap(UserIcons +"Done.png")))
             setclickevent("pDone()")
         }
 
@@ -559,6 +570,7 @@ MyApp = New qapp
         {
             setGeometry(btnPosX+500, 360,100,btnHeight)
             settext("Play Item")
+			seticon(new qicon(new qpixmap(UserIcons +"Music.png")))
             setclickevent("pPlay()")
         }
 
@@ -1239,10 +1251,13 @@ Func pDone()
     }
 
     win2.hide()    ### HIDE the listWidget WIN2
+
+
 return
 
+
 func pPlay
-        curValue = list1.item(list1.currentRow()).text()
+        curValue   = list1.item(list1.currentRow()).text()
         player.setMedia( new qurl(curValue) )
         player.play()
         return
