@@ -511,6 +511,7 @@ MyApp = New qapp
                 fileToAdd = substr(fileToAdd, "C:/", "/" )
                 fileToAdd = substr(fileToAdd, "\"  , "/" )
                 additem(fileToAdd)
+                playList.addmedia(new qurl(fileToAdd)) 
             next
 
                 setcurrentrow(0,3)      ### Row 0, HiLite 3 - Select-Grey
@@ -1025,8 +1026,8 @@ Func pImportPlayList()
             fileToAdd = substr(fileToAdd, "C:\", "/" )
             fileToAdd = substr(fileToAdd, "C:/", "/" )
             fileToAdd = substr(fileToAdd, "\"  , "/" )
-
             additem(fileToAdd)
+            playList.addmedia(new qurl(fileToAdd))  
         next
 
         setcurrentrow(0,3)      ### Row 0, HiLite 3 - Select-Grey
