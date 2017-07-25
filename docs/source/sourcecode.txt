@@ -96,7 +96,7 @@ Generate RingQt Source Code and Build
 
 .. code-block:: ring
 
-	cd ../ringqt
+	cd ../extensions/ringqt
 	gencode.bat
 	buildmingw32.bat
 
@@ -214,7 +214,7 @@ Generate RingQt Source Code and Build
 
 .. code-block:: ring
 
-	cd ../ringqt
+	cd ../extensions/ringqt
 	./gencode.sh
 	./buildgcc.sh
 
@@ -322,7 +322,7 @@ Generate RingQt Source Code and Build
 
 .. code-block:: ring
 
-	cd ../ringqt
+	cd ../extensions/ringqt
 	./gencode.sh
 	./buildclang.sh
 
