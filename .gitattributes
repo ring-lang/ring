@@ -4,7 +4,7 @@ editor/* linguist-documentation
 android/* linguist-documentation
 libdepwin/* linguist-documentation
 *.h linguist-language=C
-*.html linguist-language=C
+*.html linguist-language=Ring
 *.rhtml linguist-language=Ring
 *.template linguist-language=Ring
 *.data linguist-language=Ring
