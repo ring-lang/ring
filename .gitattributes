@@ -1,1 +1,6 @@
 *.h linguist-language=C
+*.rhtml linguist-language=Ring
+*.html linguist-language=Ring
+*.template linguist-language=Ring
+*.data linguist-language=Ring
+
