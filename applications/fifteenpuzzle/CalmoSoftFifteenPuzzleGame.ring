@@ -1,5 +1,6 @@
 # Project : CalmoSoft Fifteen Puzzle Game (Under Development)
-# Author: Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
+# Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
+# Email   : calmosoft@gmail.com
 
 load "guilib.ring"
 
@@ -223,7 +224,7 @@ func movetile CurButSize2
       flagmove = 1
       t2 = (clock() - t1)/1000
       timebtn.settext("Elapsed Time : " + t2 + " s")
-
+      isGameOver()
       return
 
 func resettiles
@@ -595,6 +596,22 @@ func sleep(x)
         oTest = new qTest
         oTest.qsleep(nTime)
         return
+
+func isGameOver
+        flagend = 1
+        for n=1 to 15
+              if button[n].text() != n
+                 flagend = 0
+                 exit
+              ok
+        next
+        if flagend = 1
+           new qmessagebox(win1) {
+                   setwindowtitle("Game Over") 
+                   settext("Congratulations!")
+                   show()
+                   }   
+        ok   
 
 Class ButtonWithRotatedText
 
