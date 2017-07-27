@@ -924,13 +924,7 @@
                     'sharaf.7abibi@gmail.com',
                     'Vision Achiever',
                     'Active'
-                  ],
-				  [
-                    'Sharaf Eldin Mohamed',
-                    'sharaf.7abibi@gmail.com',
-                    'Vision Achiever',
-                    'Active'
-                  ],
+                  ],				  
 				  [
                     'Mahmoud Mabrouk	',
                     'mahmoud27271@gmail.com',
@@ -972,7 +966,11 @@
                     'ashima00100@gmail.com',
                     'Vision Achiever',
                     'Active'
-                  ]
-
-				  
+                  ],
+				  [
+                    'Marino Esteban',
+                    'marinoest@gmail.com',
+                    'Tester',
+                    'Active'
+                  ]				  
 ]
