@@ -1,6 +1,6 @@
 # Project : CalmoSoft Fifteen Puzzle Game (Under Development)
-# Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
-# Enail    : calmosoft@gmail.com
+# Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
+# Email   : calmosoft@gmail.com
 
 load "guilib.ring"
 
