@@ -1,5 +1,5 @@
 # Project : CalmoSoft Fifteen Puzzle Game (Under Development)
-# Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
+# Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani, Mahmoud Fayed
 # Email   : calmosoft@gmail.com
 
 load "guilib.ring"
@@ -31,7 +31,7 @@ app1 = new qapp {
 
         win1 = new qwidget() {
                    move(0,0)
-                   resize(380,720)
+                   resize(380,760)
                    setwindowtitle("CalmoSoft Fifteen Puzzle Game")
 
                   for n=1 to 52
@@ -106,11 +106,19 @@ app1 = new qapp {
                                setclickevent("pIncSleep()")
                 }
 
-                timebtn = new qpushbutton(win1)   
+               rightbtn = new qpushbutton(win1)   
                 {
                                setgeometry(100,500,160,40)  
+                               settext("In the Right Place : ")  
+                }
+
+                timebtn = new qpushbutton(win1)   
+                {
+                               setgeometry(100,540,160,40)  
                                settext("Elapsed Time : ")  
                 }
+
+
 
             TimerMan = new qtimer(win1)
             {
@@ -186,6 +194,7 @@ func scramble
        btnMoves.settext(string(nrMoves))
        timebtn.settext("Elapsed Time : ")
        t1 = clock()
+       rightPlace()
        return
 
 func movetile CurButSize2
@@ -224,6 +233,7 @@ func movetile CurButSize2
       flagmove = 1
       t2 = (clock() - t1)/1000
       timebtn.settext("Elapsed Time : " + t2 + " s")
+      rightPlace()
       isGameOver()
       return
 
@@ -259,6 +269,7 @@ func resettiles
         btnMoves.settext(string(nrMoves))
         timebtn.settext("Elapsed Time : ")
         t1 = clock()
+        rightPlace()
         return
 
 func pHere
@@ -355,7 +366,7 @@ func rotateright
 func newsize CurButSize
         win1{ 
                 sizenew = CurButSize%4
-                win1.resize(360+sizenew*40,600+sizenew*40)
+                win1.resize(360+sizenew*40,640+sizenew*40)
                 if flaginit != 0
                    for nb = 1 to OldButSize*OldButSize+3
                          button[nb] {close()}
@@ -370,6 +381,7 @@ func newsize CurButSize
                 sleepbtn.close()
                 decbtn.close()
                 incbtn.close()
+                rightbtn.close()
                 timebtn.close()
 
                 for n = 1 to CurButSize*CurButSize
@@ -477,9 +489,16 @@ func newsize CurButSize
                                show()
                 }
 
-                timebtn = new qpushbutton(win1)   
+               rightbtn = new qpushbutton(win1)   
                 {
                                setgeometry(100,100+(CurButSize+6)*40,CurButSize*40,40)  
+                               settext("In the Right Place : ")  
+                               show()
+                }
+
+                timebtn = new qpushbutton(win1)   
+                {
+                               setgeometry(100,100+(CurButSize+7)*40,CurButSize*40,40)  
                                settext("Elapsed Time : ")  
                                show()
                 }
@@ -612,6 +631,16 @@ func isGameOver
                    show()
                    }   
         ok   
+
+func rightPlace
+        count = 0
+        for n=1 to 16
+             if button[n].text() = n and btnDegree[n][2] = 0
+                count = count + 1
+             ok
+        next   
+        rightbtn.settext("In the Right Place : " + count)
+               
 
 Class ButtonWithRotatedText
 
