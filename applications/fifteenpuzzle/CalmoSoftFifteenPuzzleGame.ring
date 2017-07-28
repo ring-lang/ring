@@ -92,42 +92,40 @@ app1 = new qapp {
 
                    }
 
-                decbtn = new qpushbutton(win1)   
-                {
+                  decbtn = new qpushbutton(win1)   
+                  {
                                setgeometry(220,460,40,40)  
                                settext("<-")  
                                setclickevent("pDecSleep()")
-                }
+                  }
 
-                incbtn = new qpushbutton(win1)   
-                {
+                  incbtn = new qpushbutton(win1)   
+                  {
                                setgeometry(260,460,40,40)  
                                settext("->")  
                                setclickevent("pIncSleep()")
-                }
+                  }
 
-               rightbtn = new qpushbutton(win1)   
-                {
+                 rightbtn = new qpushbutton(win1)   
+                 {
                                setgeometry(100,500,160,40)  
                                settext("In the Right Place : ")  
-                }
+                 }
 
-                timebtn = new qpushbutton(win1)   
-                {
+                 timebtn = new qpushbutton(win1)   
+                 {
                                setgeometry(100,540,160,40)  
                                settext("Elapsed Time : ")  
-                }
+                 }
 
-
-
-            TimerMan = new qtimer(win1)
-            {
-              setinterval(500)
-              settimeoutevent("pTime()")
-              stop()
-            }
-            newsize(4) 
-            show()
+                TimerMan = new qtimer(win1)
+               {
+                                  setinterval(500)
+                                  settimeoutevent("pTime()")
+                                  stop()
+               }
+              newsize(4) 
+              show()
         }
         exec()
 }
@@ -228,13 +226,13 @@ func movetile CurButSize2
               empty = CurButSize2
               nrMoves = nrMoves + 1
               btnMoves.settext(string(nrMoves))
+              isGameOver()
            ok
       ok 
       flagmove = 1
       t2 = (clock() - t1)/1000
       timebtn.settext("Elapsed Time : " + t2 + " s")
       rightPlace()
-      isGameOver()
       return
 
 func resettiles
@@ -546,7 +544,11 @@ func pSave
 
 func pPlay
         if  flagsave = 0 or flagmove = 0
-           see "First you must play and save the game." + nl
+            new qmessagebox(win1) {
+                    setwindowtitle("Warning!") 
+                    settext("First you must play and save the game.")
+                    show()
+                    }   
         else
            chdir(currentdir())
            cName1 = "CalmoSoftPuzzle1.txt"
@@ -573,7 +575,11 @@ func pPlay
 
 func pTime()
         if flagsave = 0 or flagmove = 0
-           see "First you must play and save the game." + nl
+           new qmessagebox(win1) {
+                   setwindowtitle("Warning!") 
+                   settext("First you must play and save the game.")
+                   show()
+                   }  
         else
            CounterMan++
            pPlaySleep()
@@ -618,7 +624,7 @@ func sleep(x)
 
 func isGameOver
         flagend = 1
-        for n=1 to 15
+        for n=1 to OldButSize*OldButSize-1
               if button[n].text() != n
                  flagend = 0
                  exit
@@ -634,7 +640,7 @@ func isGameOver
 
 func rightPlace
         count = 0
-        for n=1 to 16
+        for n=1 to OldButSize*OldButSize
              if button[n].text() = n and btnDegree[n][2] = 0
                 count = count + 1
              ok
