@@ -51,6 +51,7 @@ Class RNote from WindowsControllerParent
 		colorWhite  		= new qColor() { setrgb(255,255,255,255) }
 		colorBlack  		= new qColor() { setrgb(0,0,0,255) }
 		colorSilver 		= new qColor() { setrgb(128,128,128,255) }
+		colorPurple 		= new qColor() { setrgb(128,0,128,255) }
 
 	# Default Editor Style Colors
 		aStyleColors = [
@@ -73,6 +74,7 @@ Class RNote from WindowsControllerParent
 		STYLECOLOR_MODERNBLACK = 5
 		STYLECOLOR_MODERNBLACK2 = 6
 		STYLECOLOR_NOTEPADWHITE = 7
+		STYLECOLOR_NOTEPADPURPLE = 8
 		nDefaultStyle  = STYLECOLOR_WHITE
 
 	cSettingsFile = cCurrentDir + "ringnotepad.ini"
@@ -451,6 +453,12 @@ Class RNote from WindowsControllerParent
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(7)"))
 							settext("Notepad : White")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(8)"))
+							settext("Notepad : Purple")
 						}
 						addaction(oAction)
 					}
@@ -1735,6 +1743,7 @@ Class RNote from WindowsControllerParent
 		on 5 pStyleModernBlack()
 		on 6 pStyleModernBlack2()
 		on 7 pStyleNotepadWhite()
+		on 8 pStyleNotepadPurple()
 		off
 
 	func pSetEditorColors
@@ -1906,6 +1915,23 @@ Class RNote from WindowsControllerParent
 			aStyleColors = aCustomStyleColors
 			aTextColor = [0,0,0]
 			aBackColor = [255,255,255]
+
+	func pStyleNotepadPurple()
+			nDefaultStyle  = STYLECOLOR_NOTEPADPURPLE
+			MyApp.StyleFusion()
+			aCustomStyleColors = [
+				:LineNumbersAreaColor 		= colorWhite ,
+				:LineNumbersAreaBackColor 	= colorPurple,
+				:ActiveLineBackColor 		= colorPurple,
+				:SyntaxKeywordsColor		= colorWhite,
+				:SyntaxClassNamesColor 	= ColorWhite,
+				:SyntaxCommentsColor 		= ColorWhite,
+				:SyntaxLiteralsColor 		= ColorWhite,
+				:SyntaxFunctionCallsColor 	= ColorWhite
+			]
+			aStyleColors = aCustomStyleColors
+			aTextColor = [255,255,255]
+			aBackColor = [128,0,128]
 
 
 	func pClearProcess
