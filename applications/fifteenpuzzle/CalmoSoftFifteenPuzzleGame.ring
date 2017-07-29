@@ -625,7 +625,7 @@ func sleep(x)
 func isGameOver
         flagend = 1
         for n=1 to OldButSize*OldButSize-1
-              if button[n].text() != n
+              if button[n].text() != n or btnDegree[n][2] != 0
                  flagend = 0
                  exit
               ok
