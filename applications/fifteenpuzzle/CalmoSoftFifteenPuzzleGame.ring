@@ -544,7 +544,11 @@ func pSave
 
 func pPlay
         if  flagsave = 0 or flagmove = 0
-           see "First you must play and save the game." + nl
+            new qmessagebox(win1) {
+                    setwindowtitle("Warning!") 
+                    settext("First you must play and save the game.")
+                    show()
+                    }   
         else
            chdir(currentdir())
            cName1 = "CalmoSoftPuzzle1.txt"
@@ -571,7 +575,11 @@ func pPlay
 
 func pTime()
         if flagsave = 0 or flagmove = 0
-           see "First you must play and save the game." + nl
+           new qmessagebox(win1) {
+                   setwindowtitle("Warning!") 
+                   settext("First you must play and save the game.")
+                   show()
+                   }  
         else
            CounterMan++
            pPlaySleep()
