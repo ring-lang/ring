@@ -75,7 +75,7 @@ Class RNote from WindowsControllerParent
 		STYLECOLOR_MODERNBLACK2 = 6
 		STYLECOLOR_NOTEPADWHITE = 7
 		STYLECOLOR_NOTEPADPURPLE = 8
-		STYLECOLOR_NOTEPADBLUE = 9
+		STYLECOLOR_NOTEPADDARKBLUE = 9
 		STYLECOLOR_NOTEPADBLACK = 10
 		nDefaultStyle  = STYLECOLOR_WHITE
 
@@ -466,7 +466,7 @@ Class RNote from WindowsControllerParent
 						addseparator()
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(9)"))
-							settext("Notepad : Blue")
+							settext("Notepad : DarkBlue")
 						}
 						addaction(oAction)
 						addseparator()
@@ -1758,7 +1758,7 @@ Class RNote from WindowsControllerParent
 		on 6 pStyleModernBlack2()
 		on 7 pStyleNotepadWhite()
 		on 8 pStyleNotepadPurple()
-		on 9 pStyleNotepadBlue()
+		on 9 pStyleNotepadDarkBlue()
 		on 10 pStyleNotepadBlack()
 		off
 
@@ -1949,8 +1949,8 @@ Class RNote from WindowsControllerParent
 			aTextColor = [255,255,255]
 			aBackColor = [128,0,128]
 
-	func pStyleNotepadBlue()
-			nDefaultStyle  = STYLECOLOR_NOTEPADPURPLE
+	func pStyleNotepadDarkBlue()
+			nDefaultStyle  = STYLECOLOR_NOTEPADDARKBLUE
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
@@ -1967,7 +1967,7 @@ Class RNote from WindowsControllerParent
 			aBackColor = [0,0,128]
 
 	func pStyleNotepadBlack()
-			nDefaultStyle  = STYLECOLOR_NOTEPADPURPLE
+			nDefaultStyle  = STYLECOLOR_NOTEPADBLACK
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
