@@ -432,6 +432,12 @@ Class RNote from WindowsControllerParent
 							settext("Modern")
 						}
 						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(5)"))
+							settext("Modern : Black")
+						}
+						addaction(oAction)
 					}
 				}
 				subProgram {
@@ -1711,6 +1717,7 @@ Class RNote from WindowsControllerParent
 		on 2 pStyleBlue()
 		on 3 pStyleBlack()
 		on 4 pStyleModern()
+		on 5 pStyleModernBlack()
 		off
 
 	func pSetEditorColors
@@ -1832,5 +1839,22 @@ Class RNote from WindowsControllerParent
 				new qColor() { setrgb(39,60,64,255)}
 			)
 
+	func pStyleModernBlack()
+			nDefaultStyle  = STYLECOLOR_BLACK
+			MyApp.StyleFusionBlack()
+			aCustomStyleColors = [
+				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255) },
+				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) },
+				:ActiveLineBackColor 		= new qcolor() { setrgb(0,0,0,255) },
+				:SyntaxKeywordsColor		= new qcolor() { setrgb(30,220,175,255) },
+				:SyntaxClassNamesColor 	= new qcolor() { setrgb(166,226,46,255) },
+				:SyntaxCommentsColor		= new qcolor() { setrgb(117,160,172,157) },
+				:SyntaxLiteralsColor 		= new qcolor() { setrgb(230,191,77,255) },
+				:SyntaxFunctionCallsColor 	=  new qcolor() { setrgb(240,127,224,255) }
+			]
+			aStyleColors = aCustomStyleColors
+			aTextColor = [255,255,255]
+			aBackColor = [11,11,11]
+
 	func pClearProcess
-        oProcessEditbox.setPlainText("")
+		oProcessEditbox.setPlainText("")
