@@ -438,6 +438,18 @@ Class RNote from WindowsControllerParent
 							settext("Modern : Black")
 						}
 						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(6)"))
+							settext("Modern : Black 2")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(7)"))
+							settext("Notepad : White")
+						}
+						addaction(oAction)
 					}
 				}
 				subProgram {
@@ -1718,6 +1730,8 @@ Class RNote from WindowsControllerParent
 		on 3 pStyleBlack()
 		on 4 pStyleModern()
 		on 5 pStyleModernBlack()
+		on 6 pStyleModernBlack2()
+		on 7 pStyleNotepadWhite()
 		off
 
 	func pSetEditorColors
@@ -1855,6 +1869,41 @@ Class RNote from WindowsControllerParent
 			aStyleColors = aCustomStyleColors
 			aTextColor = [255,255,255]
 			aBackColor = [11,11,11]
+
+	func pStyleModernBlack2()
+			nDefaultStyle  = STYLECOLOR_BLACK
+			MyApp.StyleFusionBlack()
+			aCustomStyleColors = [
+				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255) },
+				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) },
+				:ActiveLineBackColor 		= new qcolor() { setrgb(11,11,11,255) },
+				:SyntaxKeywordsColor		= new qcolor() { setrgb(30,220,175,255) },
+				:SyntaxClassNamesColor 	= new qcolor() { setrgb(166,226,46,255) },
+				:SyntaxCommentsColor		= new qcolor() { setrgb(117,160,172,157) },
+				:SyntaxLiteralsColor 		= new qcolor() { setrgb(230,191,77,255) },
+				:SyntaxFunctionCallsColor 	=  new qcolor() { setrgb(240,127,224,255) }
+			]
+			aStyleColors = aCustomStyleColors
+			aTextColor = [255,255,255]
+			aBackColor = [0,0,0]
+
+	func pStyleNotepadWhite()
+			nDefaultStyle  = STYLECOLOR_BLACK
+			MyApp.StyleFusion()
+			aCustomStyleColors = [
+				:LineNumbersAreaColor 		= colorBlack ,
+				:LineNumbersAreaBackColor 	= colorWhite,
+				:ActiveLineBackColor 		= colorWhite,
+				:SyntaxKeywordsColor		= colorBlack,
+				:SyntaxClassNamesColor 	= ColorBlack,
+				:SyntaxCommentsColor 		= ColorBlack,
+				:SyntaxLiteralsColor 		= ColorBlack,
+				:SyntaxFunctionCallsColor 	= ColorBlack
+			]
+			aStyleColors = aCustomStyleColors
+			aTextColor = [0,0,0]
+			aBackColor = [255,255,255]
+
 
 	func pClearProcess
 		oProcessEditbox.setPlainText("")
