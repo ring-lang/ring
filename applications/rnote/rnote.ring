@@ -70,6 +70,9 @@ Class RNote from WindowsControllerParent
 		STYLECOLOR_BLUE = 2
 		STYLECOLOR_BLACK = 3
 		STYLECOLOR_MODERN = 4
+		STYLECOLOR_MODERNBLACK = 5
+		STYLECOLOR_MODERNBLACK2 = 6
+		STYLECOLOR_NOTEPADWHITE = 7
 		nDefaultStyle  = STYLECOLOR_WHITE
 
 	cSettingsFile = cCurrentDir + "ringnotepad.ini"
@@ -1854,7 +1857,7 @@ Class RNote from WindowsControllerParent
 			)
 
 	func pStyleModernBlack()
-			nDefaultStyle  = STYLECOLOR_BLACK
+			nDefaultStyle  = STYLECOLOR_MODERNBLACK
 			MyApp.StyleFusionBlack()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255) },
@@ -1871,7 +1874,7 @@ Class RNote from WindowsControllerParent
 			aBackColor = [11,11,11]
 
 	func pStyleModernBlack2()
-			nDefaultStyle  = STYLECOLOR_BLACK
+			nDefaultStyle  = STYLECOLOR_MODERNBLACK2
 			MyApp.StyleFusionBlack()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255) },
@@ -1888,7 +1891,7 @@ Class RNote from WindowsControllerParent
 			aBackColor = [0,0,0]
 
 	func pStyleNotepadWhite()
-			nDefaultStyle  = STYLECOLOR_BLACK
+			nDefaultStyle  = STYLECOLOR_NOTEPADWHITE
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorBlack ,
