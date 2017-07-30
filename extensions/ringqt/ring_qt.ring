@@ -15278,6 +15278,26 @@ Class QStringRef
 	Func localeAwareCompare_4 P1,P2
 		return QStringRef_localeAwareCompare_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
+Class QMutex
+
+	pObject
+
+	Func init P1
+		pObject = QMutex_new(P1)
+		return self
+
+	Func delete
+		pObject = QMutex_delete(pObject)
+
+	Func isRecursive 
+		return QMutex_isRecursive(pObject)
+
+	Func lock 
+		return QMutex_lock(pObject)
+
+	Func unlock 
+		return QMutex_unlock(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

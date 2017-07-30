@@ -223,6 +223,7 @@ extern "C" {
 #include "gserialport.h"
 #include <QSerialPortInfo>
 #include <QStringRef>
+#include <QMutex>
 
 extern "C" {
 
@@ -488,6 +489,7 @@ aEnumTypes + "QListView::Flow"
 aEnumTypes + "QAxBase::PropertyBag"
 aEnumTypes + "QToolButton::ToolButtonPopupMode"
 $aMallocClassesList + "QModelIndex"
+aEnumTypes + "QMutex::RecursionMode"
 
 </runcode>
 
@@ -6915,3 +6917,13 @@ int compare@5(QStringRef s1, QStringRef s2, Qt::CaseSensitivity cs)
 int compare@6(QStringRef s1, QLatin1String s2, Qt::CaseSensitivity cs)
 int localeAwareCompare@3(QStringRef s1, QString s2)
 int localeAwareCompare@4(QStringRef s1, QStringRef s2)
+
+
+<class>
+name: QMutex
+para: QMutex::RecursionMode
+</class>
+
+bool isRecursive(void)
+void lock(void)
+void unlock(void)

@@ -208,6 +208,7 @@ extern "C" {
 #include "gserialport.h"
 #include <QSerialPortInfo>
 #include <QStringRef>
+#include <QMutex>
 
 extern "C" {
 
@@ -84661,6 +84662,57 @@ RING_FUNC(ring_QStringRef_localeAwareCompare_4)
 		free(RING_API_GETCPOINTER(2,"QStringRef"));
 }
 
+
+RING_FUNC(ring_QMutex_isRecursive)
+{
+	QMutex *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMutex *) RING_API_GETCPOINTER(1,"QMutex");
+	RING_API_RETNUMBER(pObject->isRecursive());
+}
+
+
+RING_FUNC(ring_QMutex_lock)
+{
+	QMutex *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMutex *) RING_API_GETCPOINTER(1,"QMutex");
+	pObject->lock();
+}
+
+
+RING_FUNC(ring_QMutex_unlock)
+{
+	QMutex *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMutex *) RING_API_GETCPOINTER(1,"QMutex");
+	pObject->unlock();
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -86665,6 +86717,21 @@ RING_FUNC(ring_QStringRef_new)
 	}
 	QStringRef *pObject = new QStringRef();
 	RING_API_RETCPOINTER(pObject,"QStringRef");
+}
+
+RING_FUNC(ring_QMutex_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QMutex *pObject = new QMutex( (QMutex::RecursionMode)  (int) RING_API_GETNUMBER(1));
+	RING_API_RETCPOINTER(pObject,"QMutex");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -88913,6 +88980,21 @@ RING_FUNC(ring_QStringRef_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QStringRef *) RING_API_GETCPOINTER(1,"QStringRef");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QMutex_delete)
+{
+	QMutex *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QMutex *) RING_API_GETCPOINTER(1,"QMutex");
 		delete pObject ;
 	}
 }
@@ -93073,6 +93155,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qstringref_compare_6",ring_QStringRef_compare_6);
 	ring_vm_funcregister("qstringref_localeawarecompare_3",ring_QStringRef_localeAwareCompare_3);
 	ring_vm_funcregister("qstringref_localeawarecompare_4",ring_QStringRef_localeAwareCompare_4);
+	ring_vm_funcregister("qmutex_isrecursive",ring_QMutex_isRecursive);
+	ring_vm_funcregister("qmutex_lock",ring_QMutex_lock);
+	ring_vm_funcregister("qmutex_unlock",ring_QMutex_unlock);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -93223,6 +93308,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qserialport_new",ring_QSerialPort_new);
 	ring_vm_funcregister("qserialportinfo_new",ring_QSerialPortInfo_new);
 	ring_vm_funcregister("qstringref_new",ring_QStringRef_new);
+	ring_vm_funcregister("qmutex_new",ring_QMutex_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -93373,4 +93459,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qserialport_delete",ring_QSerialPort_delete);
 	ring_vm_funcregister("qserialportinfo_delete",ring_QSerialPortInfo_delete);
 	ring_vm_funcregister("qstringref_delete",ring_QStringRef_delete);
+	ring_vm_funcregister("qmutex_delete",ring_QMutex_delete);
 }
