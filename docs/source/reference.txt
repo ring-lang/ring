@@ -164,6 +164,7 @@ Compiler Errors
 * Error (C23) : Using '(' after number!
 * Error (C24) : The parent class name is identical to the subclass name
 * Error (C25) : Trying to access the self reference after the object name"
+* Error (C26) : Class redefinition, class is already defined!
 
 .. index:: 
 	pair: Reference; Runtime Errors
