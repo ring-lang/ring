@@ -342,8 +342,6 @@ package System.GUI
 
 	class Url  from qUrl  
 
-	class WebView from qWebView 
-
 	class AbstractSpinBox from qAbstractSpinBox 
 
 	class AbstractSlider from qAbstractSlider 
