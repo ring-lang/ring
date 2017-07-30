@@ -6481,3 +6481,19 @@ Parameters : void
 * int compare_6(QStringRef s1, QLatin1String s2, Qt::CaseSensitivity cs)
 * int localeAwareCompare_3(QStringRef s1, QString s2)
 * int localeAwareCompare_4(QStringRef s1, QStringRef s2)
+
+.. index::
+	pair: RingQt Classes Reference; QMutex Class
+
+QMutex Class
+============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMutex.html
+
+
+Parameters : QMutex::RecursionMode
+
+* bool isRecursive(void)
+* void lock(void)
+* void unlock(void)
