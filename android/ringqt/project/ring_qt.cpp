@@ -203,6 +203,8 @@ extern "C" {
 #include "gserialport.h"
 #include <QSerialPortInfo>
 #include <QStringRef>
+#include <QMutex>
+#include <QMutexLocker>
 
 extern "C" {
 
@@ -82740,6 +82742,108 @@ RING_FUNC(ring_QStringRef_localeAwareCompare_4)
 		free(RING_API_GETCPOINTER(2,"QStringRef"));
 }
 
+
+RING_FUNC(ring_QMutex_isRecursive)
+{
+	QMutex *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMutex *) RING_API_GETCPOINTER(1,"QMutex");
+	RING_API_RETNUMBER(pObject->isRecursive());
+}
+
+
+RING_FUNC(ring_QMutex_lock)
+{
+	QMutex *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMutex *) RING_API_GETCPOINTER(1,"QMutex");
+	pObject->lock();
+}
+
+
+RING_FUNC(ring_QMutex_unlock)
+{
+	QMutex *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMutex *) RING_API_GETCPOINTER(1,"QMutex");
+	pObject->unlock();
+}
+
+
+RING_FUNC(ring_QMutexLocker_mutex)
+{
+	QMutexLocker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMutexLocker *) RING_API_GETCPOINTER(1,"QMutexLocker");
+	RING_API_RETCPOINTER(pObject->mutex(),"QMutex");
+}
+
+
+RING_FUNC(ring_QMutexLocker_relock)
+{
+	QMutexLocker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMutexLocker *) RING_API_GETCPOINTER(1,"QMutexLocker");
+	pObject->relock();
+}
+
+
+RING_FUNC(ring_QMutexLocker_unlock)
+{
+	QMutexLocker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMutexLocker *) RING_API_GETCPOINTER(1,"QMutexLocker");
+	pObject->unlock();
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -84688,6 +84792,36 @@ RING_FUNC(ring_QStringRef_new)
 	}
 	QStringRef *pObject = new QStringRef();
 	RING_API_RETCPOINTER(pObject,"QStringRef");
+}
+
+RING_FUNC(ring_QMutex_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QMutex *pObject = new QMutex( (QMutex::RecursionMode)  (int) RING_API_GETNUMBER(1));
+	RING_API_RETCPOINTER(pObject,"QMutex");
+}
+
+RING_FUNC(ring_QMutexLocker_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QMutexLocker *pObject = new QMutexLocker((QMutex *) RING_API_GETCPOINTER(1,"QMutex"));
+	RING_API_RETCPOINTER(pObject,"QMutexLocker");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -86876,6 +87010,36 @@ RING_FUNC(ring_QStringRef_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QStringRef *) RING_API_GETCPOINTER(1,"QStringRef");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QMutex_delete)
+{
+	QMutex *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QMutex *) RING_API_GETCPOINTER(1,"QMutex");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QMutexLocker_delete)
+{
+	QMutexLocker *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QMutexLocker *) RING_API_GETCPOINTER(1,"QMutexLocker");
 		delete pObject ;
 	}
 }
@@ -90936,6 +91100,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qstringref_compare_6",ring_QStringRef_compare_6);
 	ring_vm_funcregister("qstringref_localeawarecompare_3",ring_QStringRef_localeAwareCompare_3);
 	ring_vm_funcregister("qstringref_localeawarecompare_4",ring_QStringRef_localeAwareCompare_4);
+	ring_vm_funcregister("qmutex_isrecursive",ring_QMutex_isRecursive);
+	ring_vm_funcregister("qmutex_lock",ring_QMutex_lock);
+	ring_vm_funcregister("qmutex_unlock",ring_QMutex_unlock);
+	ring_vm_funcregister("qmutexlocker_mutex",ring_QMutexLocker_mutex);
+	ring_vm_funcregister("qmutexlocker_relock",ring_QMutexLocker_relock);
+	ring_vm_funcregister("qmutexlocker_unlock",ring_QMutexLocker_unlock);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -91082,6 +91252,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("quuid_new",ring_QUuid_new);
 	ring_vm_funcregister("qtoolbutton_new",ring_QToolButton_new);
 	ring_vm_funcregister("qstringref_new",ring_QStringRef_new);
+	ring_vm_funcregister("qmutex_new",ring_QMutex_new);
+	ring_vm_funcregister("qmutexlocker_new",ring_QMutexLocker_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -91228,4 +91400,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("quuid_delete",ring_QUuid_delete);
 	ring_vm_funcregister("qtoolbutton_delete",ring_QToolButton_delete);
 	ring_vm_funcregister("qstringref_delete",ring_QStringRef_delete);
+	ring_vm_funcregister("qmutex_delete",ring_QMutex_delete);
+	ring_vm_funcregister("qmutexlocker_delete",ring_QMutexLocker_delete);
 }
