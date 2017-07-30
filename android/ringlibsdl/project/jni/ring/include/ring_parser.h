@@ -70,6 +70,7 @@ typedef struct Parser {
 #define RING_PARSER_ERROR_USINGBRACTAFTERNUM "Error (C23) : Using '(' after number!"
 #define RING_PARSER_ERROR_PARENTLIKESUBCLASS "Error (C24) : The parent class name is identical to the subclass name"
 #define RING_PARSER_ERROR_ACCESSSELFREF "Error (C25) : Trying to access the self reference after the object name"
+#define RING_PARSER_ERROR_CLASSREDEFINE "Error (C26) : Class redefinition, class is already defined!"
 /* Functions */
 
 int ring_parser_start ( List *pTokens,RingState *pRingState ) ;

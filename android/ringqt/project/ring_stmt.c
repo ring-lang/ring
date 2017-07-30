@@ -20,6 +20,15 @@ int ring_parser_class ( Parser *pParser )
 			ring_parser_icg_newoperand(pParser,pParser->TokenText);
 			/* Add Class to Classes Table */
 			pList = pParser->ClassesMap ;
+			/* Check Class Redefinition */
+			if ( ring_list_getsize(pList) > 0 ) {
+				for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+					if ( strcmp(ring_list_getstring(ring_list_getlist(pList,x),1),pParser->TokenText) == 0 ) {
+						ring_parser_error(pParser,RING_PARSER_ERROR_CLASSREDEFINE);
+						return 0 ;
+					}
+				}
+			}
 			pList = ring_list_newlist(pList);
 			ring_list_addstring(pList,pParser->TokenText);
 			ring_list_addint(pList,ring_list_getsize(pParser->GenCode));
