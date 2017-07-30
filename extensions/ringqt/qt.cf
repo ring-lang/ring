@@ -224,6 +224,7 @@ extern "C" {
 #include <QSerialPortInfo>
 #include <QStringRef>
 #include <QMutex>
+#include <QMutexLocker>
 
 extern "C" {
 
@@ -6926,4 +6927,14 @@ para: QMutex::RecursionMode
 
 bool isRecursive(void)
 void lock(void)
+void unlock(void)
+
+<class>
+name: QMutexLocker
+para: QMutex *
+</class>
+
+
+QMutex * mutex(void)
+void relock(void)
 void unlock(void)

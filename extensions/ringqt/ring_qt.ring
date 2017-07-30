@@ -15298,6 +15298,28 @@ Class QMutex
 	Func unlock 
 		return QMutex_unlock(pObject)
 
+Class QMutexLocker
+
+	pObject
+
+	Func init P1
+		pObject = QMutexLocker_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMutexLocker_delete(pObject)
+
+	Func mutex 
+		pTempObj = new QMutex
+		pTempObj.pObject = QMutexLocker_mutex(pObject)
+		return pTempObj
+
+	Func relock 
+		return QMutexLocker_relock(pObject)
+
+	Func unlock 
+		return QMutexLocker_unlock(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
