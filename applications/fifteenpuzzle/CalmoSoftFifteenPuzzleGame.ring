@@ -324,6 +324,7 @@ func pBack
         savebtn.setenabled(true)
         playbtn.setenabled(true)
         empty = emptysave
+        isGameOver()
 
 func rotateleft
         if button[OldButSize*OldButSize+2].text() != "Here" 
@@ -544,11 +545,7 @@ func pSave
 
 func pPlay
         if  flagsave = 0 or flagmove = 0
-            new qmessagebox(win1) {
-                    setwindowtitle("Warning!") 
-                    settext("First you must play and save the game.")
-                    show()
-                    }   
+            warning()  
         else
            chdir(currentdir())
            cName1 = "CalmoSoftPuzzle1.txt"
@@ -575,11 +572,7 @@ func pPlay
 
 func pTime()
         if flagsave = 0 or flagmove = 0
-           new qmessagebox(win1) {
-                   setwindowtitle("Warning!") 
-                   settext("First you must play and save the game.")
-                   show()
-                   }  
+           warning()    
         else
            CounterMan++
            pPlaySleep()
@@ -646,7 +639,13 @@ func rightPlace
              ok
         next   
         rightbtn.settext("In the Right Place : " + count)
-               
+
+func warning
+        new qmessagebox(win1) {
+                setwindowtitle("Warning!") 
+                settext("First you must play and save the game.")
+                show()
+                }         
 
 Class ButtonWithRotatedText
 
