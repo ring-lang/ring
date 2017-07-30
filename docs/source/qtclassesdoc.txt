@@ -6497,3 +6497,19 @@ Parameters : QMutex::RecursionMode
 * bool isRecursive(void)
 * void lock(void)
 * void unlock(void)
+
+.. index::
+	pair: RingQt Classes Reference; QMutexLocker Class
+
+QMutexLocker Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QMutexLocker.html
+
+
+Parameters : QMutex *
+
+* QMutex * mutex(void)
+* void relock(void)
+* void unlock(void)
