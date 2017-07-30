@@ -136,7 +136,7 @@ Example:
 	pair: RingLibCurl; Get Stock Data From Yahoo
 
 Get Stock Data From Yahoo
-----=====================
+=========================
 
 Example:
 
