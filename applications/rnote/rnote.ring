@@ -102,6 +102,7 @@ Class RNote from WindowsControllerParent
 	nAutoCompleteListSize = 0
 
 	MyApp win1 oFilter aBtns tool1 menu1 status1
+	tool2 oTxtMainFile
 	Tree1 TextEdit1 oDock1 oDock2 oDock3 oDock4 oDock5 oDock6 oDock7
 	oWebBrowser oWebView  oWBText 
 	oFile oFunctionsList oClassesList
@@ -135,87 +136,123 @@ Class RNote from WindowsControllerParent
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/new.png")
 						setclickEvent(Method(:pNew))
-						settooltip("New File")
+						settooltip("New File (Ctrl+N)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/open.png")
 						setclickEvent(Method(:pOpen))
-						settooltip("Open File")
+						settooltip("Open File (Ctrl+O)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/save.png")
 						setclickEvent(Method(:pSave))
-						settooltip("Save")
+						settooltip("Save (Ctrl+S)")
 					 } ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/saveas.png")
 						setclickEvent(Method(:pSaveAs))
-						settooltip("Save As")
+						settooltip("Save As (Ctrl+E)")
 					 } ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/undo.png")
 						setclickEvent(Method(:pUndo))
-						settooltip("Undo")
+						settooltip("Undo (Ctrl+Z)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/cut.png")
 						setclickEvent(Method(:pCut))
-						settooltip("Cut")
+						settooltip("Cut (Ctrl+X)")
 					 } ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/copy.png")
 						setclickEvent(Method(:pCopy))
-						settooltip("Copy")
+						settooltip("Copy (Ctrl+C)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/paste.png")
 						setclickEvent(Method(:pPaste))
-						settooltip("Paste")
+						settooltip("Paste (Ctrl+V)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/font.png")
 						setclickEvent(Method(:pFont))
-						settooltip("Font")
+						settooltip("Font (Ctrl+I)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/colors.jpg")
 						setclickEvent(Method(:pColor))
-						settooltip("Text Color")
+						settooltip("Text Color (Ctrl+T)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/search.png")
 						setclickEvent(Method(:pFind))
-						settooltip("Find and Replace")
+						settooltip("Find and Replace (Ctrl+F)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/print.png")
 						setclickEvent(Method(:pPrint))
-						settooltip("Print")
+						settooltip("Print (Ctrl+P)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
 						setclickevent(Method(:pDebug)) 
-						settooltip("Debug (Run then wait!)")
+						settooltip("Debug - Run then wait! (Ctrl+D)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/run.png")
 						setclickEvent(Method(:pRun))
-						settooltip("Run the program")
+						settooltip("Run the program (Ctrl+R) ")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/rungui.bmp")
 						setclickEvent(Method(:pRunNoConsole))
-						settooltip("Run GUI Application (No Console)")
+						settooltip("Run GUI Application - No Console (Ctrl+F5)")
 					} ,
 					new qpushbutton(this.win1) {
 						setbtnimage(self,"image/close.png")
 						setclickEvent(Method(:pQuit))
-						settooltip("Quit")
+						settooltip("Quit (Ctrl+Q)")
 					}
 				]
 
 			tool1 = addtoolbar("files")  {
 				for x in aBtns addwidget(x) addseparator() next
+			}
+
+			# Main File Toolbar
+			tool2 = addtoolbar("mainfile")  {
+				oLblMainFile = new qLabel(this.win1) {
+					setText("Main File : ")
+				}
+				this.oTxtMainFile = new qLineEdit(this.win1) {
+					setReadOnly(True)
+				}
+				oBtnSetFile = new qPushbutton(this.win1) {
+					setbtnimage(self,"image/open.png")
+					setclickEvent(Method(:pSetMainFile))
+					settooltip("Set the Main File to be the current source file (Ctrl+Shift+M)")
+				}
+				oBtnDebugMainFile = 	new qpushbutton(this.win1) {
+						setbtnimage(self,"image/debug.png")
+						setclickevent(Method(:pDebugMainFile)) 
+						settooltip("Main File : Debug  - Run then wait! (Ctrl+Shift+D)")
+				} 
+				oBtnRunMainFile = new qpushbutton(this.win1) {
+						setbtnimage(self,"image/run.png")
+						setclickEvent(Method(:pRunMainFile))
+						settooltip("Main File : Run the program (Ctrl+Shift+R)")
+				} 
+				oBtnRunGUIMainFile = new qpushbutton(this.win1) {
+						setbtnimage(self,"image/rungui.bmp")
+						setclickEvent(Method(:pRunGUIMainFile))
+						settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
+				} 
+				AddWidget(oLblMainFile)
+				AddWidget(this.oTxtMainFile)
+				AddWidget(oBtnSetFile)
+				AddWidget(oBtnDebugMainFile)
+				AddWidget(oBtnRunMainFile)
+				AddWidget(oBtnRunGUIMainFile)
 			}
 
 			menu1 = new qmenubar(this.win1) {
@@ -485,7 +522,6 @@ Class RNote from WindowsControllerParent
 						setclickEvent(Method(:pDebug))
 					}
 					addaction(oAction)
-					addseparator()
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+r"))
 						setbtnimage(self,"image/run.png")
@@ -493,7 +529,6 @@ Class RNote from WindowsControllerParent
 						setclickEvent(Method(:pRun))
 					}
 					addaction(oAction)
-					addseparator()
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+F5"))
 						setbtnimage(self,"image/run.png")
@@ -501,6 +536,36 @@ Class RNote from WindowsControllerParent
 						setclickEvent(Method(:pRunNoConsole))
 					}
 					addaction(oAction)
+					addseparator()
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Ctrl+Shift+M"))
+						setbtnimage(self,"image/open.png")
+						settext("Set the Main File to be the current source file")
+						setclickEvent(Method(:pSetMainFile))
+					}
+					addaction(oAction)
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Ctrl+Shift+d"))
+						setbtnimage(self,"image/debug.png")
+						settext("Main File : Debug (Run then wait!)")
+						setclickEvent(Method(:pDebugMainFile))
+					}
+					addaction(oAction)
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Ctrl+Shift+r"))
+						setbtnimage(self,"image/run.png")
+						settext("Main File : Run")
+						setclickEvent(Method(:pRunMainFile))
+					}
+					addaction(oAction)
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Ctrl+Shift+F5"))
+						setbtnimage(self,"image/run.png")
+						settext("Main File : Run GUI Application (No Console)")
+						setclickEvent(Method(:pRunGUIMainFile))
+					}
+					addaction(oAction)
+
 				}
 				subBrowser {
 
@@ -1151,13 +1216,16 @@ Class RNote from WindowsControllerParent
 	func pNofileopened
 		New qMessageBox(win1) {
 			setWindowTitle("Sorry")
-			setText("Save the file first!")
+			setText("Save/Select the file first!")
 			show()
 		}
 
 	func pDebug
 		if cActiveFileName = Null return pNofileopened() ok
 		pSave()
+		pDebugOperation(cActiveFileName)
+
+	func pDebugOperation cActiveFileName
 		if iswindows()
 			cCode = 'start '+cCurrentDir+'run "' + cActiveFileName + '"' + nl
 		else
@@ -1168,6 +1236,9 @@ Class RNote from WindowsControllerParent
 	func pRun
 		if cActiveFileName = Null return pNofileopened() ok
 		pSave()
+		pRunOperation(cActiveFileName)
+
+	func pRunOperation cActiveFileName
 		if iswindows()
 			cCode = 'start '+cCurrentDir+'run2 "' + cActiveFileName + '"' + nl
 		else
@@ -1178,6 +1249,9 @@ Class RNote from WindowsControllerParent
 	func pRunNoConsole
 		if cActiveFileName = Null return pNofileopened() ok
 		pSave()
+		pRunGUIOperation(cActiveFileName)
+
+	func pRunGUIOperation cActiveFileName
 		if iswindows()
 			oProcessEditbox.setplaintext("")
 			oProcessText.setFocus(0)
@@ -1986,3 +2060,24 @@ Class RNote from WindowsControllerParent
 
 	func pClearProcess
 		oProcessEditbox.setPlainText("")
+
+	func pSetMainFile
+		oTxtMainFile.setText(cActiveFileName)
+
+	func pDebugMainFile
+		cMainFileName = trim(oTxtMainFile.text())
+		if cMainFileName = Null return pNofileopened() ok
+		if not fexists(cMainFileName) return ok
+		pDebugOperation(cMainFileName)
+
+	func pRunMainFile
+		cMainFileName = trim(oTxtMainFile.text())
+		if cMainFileName = Null return pNofileopened() ok
+		if not fexists(cMainFileName) return ok
+		pRunOperation(cMainFileName)
+
+	func pRunGUIMainFile
+		cMainFileName = trim(oTxtMainFile.text())
+		if cMainFileName = Null return pNofileopened() ok
+		if not fexists(cMainFileName) return ok
+		pRunGUIOperation(cMainFileName)
