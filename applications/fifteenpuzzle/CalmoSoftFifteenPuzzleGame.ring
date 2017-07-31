@@ -230,8 +230,7 @@ func movetile CurButSize2
            ok
       ok 
       flagmove = 1
-      t2 = (clock() - t1)/1000
-      timebtn.settext("Elapsed Time : " + t2 + " s")
+      pElapsedTime()
       rightPlace()
       return
 
@@ -577,8 +576,7 @@ func pTime()
            CounterMan++
            pPlaySleep()
            sleep(nrSleep*1000) 
-           t2 = (clock() - t1)/1000
-           timebtn.settext("Elapsed Time : " + t2 + " s")
+           pElapsedTime()
            if CounterMan = len(table1)
               TimerMan.stop()
            ok
@@ -646,6 +644,10 @@ func warning
                 settext("First you must play and save the game.")
                 show()
                 }         
+
+func pElapsedTime
+        t2 = (clock() - t1)/1000
+        timebtn.settext("Elapsed Time : " + t2 + " s")
 
 Class ButtonWithRotatedText
 
