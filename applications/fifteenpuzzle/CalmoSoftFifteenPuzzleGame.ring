@@ -10,8 +10,8 @@ app1 = new qapp {
         empty = 16  
         nrMoves = 0
         nrSleep = 1
-        OldButSize = 4 
-        CurButSize = 4
+        butSize = 4 
+        curBut = 4
         temp = 0
         flaginit = 0
         flagsave = 0
@@ -141,17 +141,17 @@ Func newlist x, y
 
 func scramble
        for n= 1 to 1000   
-            CurButSize=random(OldButSize*OldButSize-1)+1
-            up = (empty = (CurButSize - OldButSize))
-            down = (empty = (CurButSize + OldButSize))
-            left = ((empty = (CurButSize - 1)) and ((CurButSize % OldButSize) != 1))
-            right = ((empty = (CurButSize + 1)) and ((CurButSize % OldButSize) != 0))
+            curBut=random(butSize*butSize-1)+1
+            up = (empty = (curBut - butSize))
+            down = (empty = (curBut + butSize))
+            left = ((empty = (curBut - 1)) and ((curBut % butSize) != 1))
+            right = ((empty = (curBut + 1)) and ((curBut % butSize) != 0))
             move = up or down or left  or right
             if move = 1 
-               button[CurButSize] { temp2 = text() }
-               col = empty%OldButSize
-               if col = 0 col = OldButSize ok
-               row = ceil(empty/OldButSize)
+               button[curBut] { temp2 = text() }
+               col = empty%butSize
+               if col = 0 col = butSize ok
+               row = ceil(empty/butSize)
                button[empty] {
                        setgeometry(60+col*40,60+row*40,40,40)
                        rnd = random(6)+1
@@ -162,20 +162,20 @@ func scramble
                        btnDegree[empty] [1] = temp2
                        btnDegree[empty] [2] = nDegree
                        }
-               button[CurButSize].setbuttoncolor("yellow")
-               btnDegree[CurButSize][2] = 0
-               button[CurButSize]{settext("")}
-               empty = CurButSize
+               button[curBut].setbuttoncolor("yellow")
+               btnDegree[curBut][2] = 0
+               button[curBut]{settext("")}
+               empty = curBut
             ok
        next
-       button[OldButSize*OldButSize+2]{settext("Here")}
-       for n=1 to OldButSize*OldButSize
+       button[butSize*butSize+2]{settext("Here")}
+       for n=1 to butSize*butSize
              button[n].setbuttoncolor("yellow")
        next
        table1 = []
        table2 = []
        table3 = []   
-       for n = 1 to OldButSize*OldButSize
+       for n = 1 to butSize*butSize
              add(table1, button[n].text())
              add(table2, button[n].text())
              add(table3, string(btnDegree[n][2]))
@@ -195,35 +195,35 @@ func scramble
        rightPlace()
        return
 
-func movetile CurButSize2
-       if (CurButSize2 = OldButSize*OldButSize-1 and button[CurButSize2].text() = "In")
+func movetile curBut2
+       if (curBut2 = butSize*butSize-1 and button[curBut2].text() = "In")
            pBack()
        else
            see char(7)
-           up = (empty = (CurButSize2 - OldButSize))
-           down = (empty = (CurButSize2 + OldButSize))
-           left = ((empty = (CurButSize2- 1)) and ((CurButSize2 % OldButSize) != 1))
-           right = ((empty = (CurButSize2 + 1)) and ((CurButSize2 % OldButSize) != 0))
+           up = (empty = (curBut2 - butSize))
+           down = (empty = (curBut2 + butSize))
+           left = ((empty = (curBut2- 1)) and ((curBut2 % butSize) != 1))
+           right = ((empty = (curBut2 + 1)) and ((curBut2 % butSize) != 0))
            move = up or down or left  or right
            if move = 1 
-              temp2 = button[CurButSize2].text() 
+              temp2 = button[curBut2].text() 
               btnDegree[empty][1] = temp2
               add(table1, temp2)
-              add(table2, string(CurButSize2))              
-              col = empty%OldButSize
-              if col = 0 col = OldButSize ok
-              row = ceil(empty/OldButSize)
+              add(table2, string(curBut2))              
+              col = empty%butSize
+              if col = 0 col = butSize ok
+              row = ceil(empty/butSize)
               button[empty] {
                                    setgeometry(60+col*40,60+row*40,40,40)
-                                   nDegree = btnDegree[CurButSize2][2]
+                                   nDegree = btnDegree[curBut2][2]
                                    btnDegree[empty][2] = nDegree
                                    button[empty].setbuttoncolor("orange")
                                    button[empty].settext(temp2)                                   
               }
               add(table3, string(nDegree))
-              button[CurButSize2].setbuttoncolor("cyan")
-              button[CurButSize2]{settext("")}
-              empty = CurButSize2
+              button[curBut2].setbuttoncolor("cyan")
+              button[curBut2]{settext("")}
+              empty = curBut2
               nrMoves = nrMoves + 1
               btnMoves.settext(string(nrMoves))
               isGameOver()
@@ -236,20 +236,20 @@ func movetile CurButSize2
 
 func resettiles
         nDegree = 0  
-        empty = OldButSize*OldButSize
-        for empty = 1 to OldButSize*OldButSize-1
+        empty = butSize*butSize
+        for empty = 1 to butSize*butSize-1
              btnDegree[empty][2] = 0
              nDegree = 0
              btnDegree[empty][1] = string(empty)
              button[empty].setstylesheet("background-color:yellow")
              button[empty] {settext(string(empty))}
         next
-        button[OldButSize*OldButSize].setstylesheet("background-color:yellow")
-        button[OldButSize*OldButSize] {settext("")}
+        button[butSize*butSize].setstylesheet("background-color:yellow")
+        button[butSize*butSize] {settext("")}
         table1 = []
         table2 = []
         table3 = []   
-        for n = 1 to OldButSize*OldButSize
+        for n = 1 to butSize*butSize
              add(table1, button[n].text())
              add(table2, button[n].text())
              add(table3, string(btnDegree[n][2]))
@@ -270,28 +270,28 @@ func resettiles
         return
 
 func pHere
-        if button[OldButSize*OldButSize-1].text() != "" and button[OldButSize*OldButSize+2].text() = "Here"
-           button[OldButSize*OldButSize-1] { temp = text() }
-           button[OldButSize*OldButSize+2].close()
-           button[OldButSize*OldButSize+2] = new ButtonWithRotatedText(win1)
-           button[OldButSize*OldButSize+2] {
-           setgeometry(60+(OldButSize-1)*40,60+(OldButSize+1)*40,40,40)
+        if button[butSize*butSize-1].text() != "" and button[butSize*butSize+2].text() = "Here"
+           button[butSize*butSize-1] { temp = text() }
+           button[butSize*butSize+2].close()
+           button[butSize*butSize+2] = new ButtonWithRotatedText(win1)
+           button[butSize*butSize+2] {
+           setgeometry(60+(butSize-1)*40,60+(butSize+1)*40,40,40)
            setstylesheet("background-color:yellow")
-           btnDegree[OldButSize*OldButSize+2][2] = btnDegree[OldButSize*OldButSize-1][2]
-           nDegree = btnDegree[OldButSize*OldButSize+2][2]
+           btnDegree[butSize*butSize+2][2] = btnDegree[butSize*butSize-1][2]
+           nDegree = btnDegree[butSize*butSize+2][2]
            emptysave = empty
-           empty = OldButSize*OldButSize+2
+           empty = butSize*butSize+2
            btnDegree[empty][1] = temp
            settext(temp)
            }
            nDegree = 0
-           empty = OldButSize*OldButSize-1
+           empty = butSize*butSize-1
            btnDegree[empty][1] = "In"
-           button[OldButSize*OldButSize-1]{settext("In")}
-           for n = 1 to OldButSize*OldButSize
+           button[butSize*butSize-1]{settext("In")}
+           for n = 1 to butSize*butSize
 	   button[n].setenabled(false)
            next
-           button[OldButSize*OldButSize-1].setenabled(true)
+           button[butSize*butSize-1].setenabled(true)
            scramblebtn.setenabled(false)
            resetbtn.setenabled(false)
            savebtn.setenabled(false)
@@ -300,22 +300,22 @@ func pHere
         ok
 
 func pBack
-        button[OldButSize*OldButSize+2] { temp = text() }
-        nDegree = btnDegree[OldButSize*OldButSize+2][2]
-        btnDegree[OldButSize*OldButSize-1][2] = btnDegree[OldButSize*OldButSize+2][2]
+        button[butSize*butSize+2] { temp = text() }
+        nDegree = btnDegree[butSize*butSize+2][2]
+        btnDegree[butSize*butSize-1][2] = btnDegree[butSize*butSize+2][2]
         emptysave = empty
-        empty = OldButSize*OldButSize-1
+        empty = butSize*butSize-1
         btnDegree[empty][1] = temp
-        button[OldButSize*OldButSize-1] {settext(temp)}
-        button[OldButSize*OldButSize+2].close()
-        button[OldButSize*OldButSize+2] = new qpushbutton(win1)
+        button[butSize*butSize-1] {settext(temp)}
+        button[butSize*butSize+2].close()
+        button[butSize*butSize+2] = new qpushbutton(win1)
                 {
-                setgeometry(60+(OldButSize-1)*40,60+(OldButSize+1)*40,40,40)
+                setgeometry(60+(butSize-1)*40,60+(butSize+1)*40,40,40)
                 settext("Here")
                 setclickevent("pHere()")   
                 show() 
                 } 
-        for n = 1 to OldButSize*OldButSize
+        for n = 1 to butSize*butSize
               button[n].setenabled(true)
         next
         scramblebtn.setenabled(true)
@@ -326,47 +326,47 @@ func pBack
         isGameOver()
 
 func rotateleft
-        if button[OldButSize*OldButSize+2].text() != "Here" 
-           button[OldButSize*OldButSize+2].close()
-           button[OldButSize*OldButSize+2] = new ButtonWithRotatedText(win1)
-                      button[OldButSize*OldButSize+2] {
-                      setgeometry(60+(OldButSize-1)*40,60+(OldButSize+1)*40,40,40)
+        if button[butSize*butSize+2].text() != "Here" 
+           button[butSize*butSize+2].close()
+           button[butSize*butSize+2] = new ButtonWithRotatedText(win1)
+                      button[butSize*butSize+2] {
+                      setgeometry(60+(butSize-1)*40,60+(butSize+1)*40,40,40)
                       setstylesheet("background-color:yellow")
                       nDegreeLeft = (nDegreeLeft-90)%360
                       nDegree = nDegreeLeft
-                      btnDegree[OldButSize*OldButSize+2][2] = nDegree
+                      btnDegree[butSize*butSize+2][2] = nDegree
                       emptysave = empty
-                      empty = OldButSize*OldButSize+2
+                      empty = butSize*butSize+2
                       btnDegree[empty][1] = temp
-                      button[OldButSize*OldButSize+2]{settext(temp)}
+                      button[butSize*butSize+2]{settext(temp)}
                       } 
                       empty = emptysave
         ok
 
 func rotateright
-        if button[OldButSize*OldButSize+2].text() != "Here"  
-           button[OldButSize*OldButSize+2].close()
-           button[OldButSize*OldButSize+2] = new ButtonWithRotatedText(win1)
-                      button[OldButSize*OldButSize+2] {
-                      setgeometry(60+(OldButSize-1)*40,60+(OldButSize+1)*40,40,40)
+        if button[butSize*butSize+2].text() != "Here"  
+           button[butSize*butSize+2].close()
+           button[butSize*butSize+2] = new ButtonWithRotatedText(win1)
+                      button[butSize*butSize+2] {
+                      setgeometry(60+(butSize-1)*40,60+(butSize+1)*40,40,40)
                       setstylesheet("background-color:yellow")
                       nDegreeRight = (nDegreeRight+90)%360
                       nDegree = nDegreeRight
-                      btnDegree[OldButSize*OldButSize+2][2] = nDegree
+                      btnDegree[butSize*butSize+2][2] = nDegree
                       emptysave = empty
-                      empty = OldButSize*OldButSize+2
+                      empty = butSize*butSize+2
                       btnDegree[empty][1] = temp
-                      button[OldButSize*OldButSize+2]{settext(temp)}
+                      button[butSize*butSize+2]{settext(temp)}
                       }
                       empty = emptysave
         ok
 
-func newsize CurButSize
+func newsize curBut
         win1{ 
-                sizenew = CurButSize%4
+                sizenew = curBut%4
                 win1.resize(360+sizenew*40,640+sizenew*40)
                 if flaginit != 0
-                   for nb = 1 to OldButSize*OldButSize+3
+                   for nb = 1 to butSize*butSize+3
                          button[nb] {close()}
                    next
                    btnMoves.close()
@@ -382,18 +382,18 @@ func newsize CurButSize
                 rightbtn.close()
                 timebtn.close()
 
-                for n = 1 to CurButSize*CurButSize
-                     col = n%CurButSize
-                     if col = 0 col = CurButSize ok
-                     row = ceil(n/CurButSize)
+                for n = 1 to curBut*curBut
+                     col = n%curBut
+                     if col = 0 col = curBut ok
+                     row = ceil(n/curBut)
                      button[n] = new ButtonWithRotatedText(win1)
                                        button[n] {
                                        setgeometry(60+col*40,60+row*40,40,40)
                                        button[n].setbuttoncolor("yellow")                                       
                                        nDegree = 0
-                                       if n < CurButSize*CurButSize
+                                       if n < curBut*curBut
                                           button[n].settext(string(n))
-                                       but n = CurButSize*CurButSize
+                                       but n = curBut*curBut
                                           button[n].settext("")
                                        ok 
                                        setClickEvent("movetile(" + string(n) +")")
@@ -402,31 +402,31 @@ func newsize CurButSize
 
                 btnMoves = new qpushbutton(win1)
                 {
-                                        setgeometry(100,60+(CurButSize+1)*40,(CurButSize-3)*40,40)
+                                        setgeometry(100,60+(curBut+1)*40,(curBut-3)*40,40)
                                         setStyleSheet("text-align:center")
                                         settext("0")
                                         show() 
                 }
 
-                button[CurButSize*CurButSize+1] = new qpushbutton(win1)
+                button[curBut*curBut+1] = new qpushbutton(win1)
                 {
-                                              setgeometry(60+(CurButSize-2)*40,60+(CurButSize+1)*40,40,40)
+                                              setgeometry(60+(curBut-2)*40,60+(curBut+1)*40,40,40)
                                               settext("<-")
                                               setclickevent("rotateLeft()")   
                                               show() 
                 } 
 
-                button[CurButSize*CurButSize+2] = new qpushbutton(win1)
+                button[curBut*curBut+2] = new qpushbutton(win1)
                 {
-                                             setgeometry(60+(CurButSize-1)*40,60+(CurButSize+1)*40,40,40)
+                                             setgeometry(60+(curBut-1)*40,60+(curBut+1)*40,40,40)
                                              settext("Here")
                                              setclickevent("pHere()")   
                                              show() 
                 }
 
-                button[CurButSize*CurButSize+3] = new qpushbutton(win1)
+                button[curBut*curBut+3] = new qpushbutton(win1)
                 {
-                                             setgeometry(60+CurButSize*40,60+(CurButSize+1)*40,40,40)
+                                             setgeometry(60+curBut*40,60+(curBut+1)*40,40,40)
                                              settext("->")
                                              setclickevent("rotateRight()")   
                                              show() 
@@ -434,7 +434,7 @@ func newsize CurButSize
 
                 scramblebtn = new qpushbutton(win1)
                 {
-                                      setgeometry(100,100+(CurButSize+1)*40,CurButSize*40,40)
+                                      setgeometry(100,100+(curBut+1)*40,curBut*40,40)
                                       settext("Scramble")
                                       setclickevent("scramble()")
                                       show()                        
@@ -442,7 +442,7 @@ func newsize CurButSize
 
                 resetbtn = new qpushbutton(win1)   
                 {
-                                 setgeometry(100,100+(CurButSize+2)*40,CurButSize*40,40)
+                                 setgeometry(100,100+(curBut+2)*40,curBut*40,40)
                                  settext("Reset")
                                  setclickevent("resettiles()")
                                  show() 
@@ -450,7 +450,7 @@ func newsize CurButSize
 
                 savebtn = new qpushbutton(win1)   
                 {
-                                 setgeometry(100,100+(CurButSize+3)*40,CurButSize*40,40)
+                                 setgeometry(100,100+(curBut+3)*40,curBut*40,40)
                                  settext("Save Game")
                                  setclickevent("pSave()")
                                  show() 
@@ -458,7 +458,7 @@ func newsize CurButSize
 
                 playbtn = new qpushbutton(win1)   
                 {
-                               setgeometry(100,100+(CurButSize+4)*40,CurButSize*40,40)  
+                               setgeometry(100,100+(curBut+4)*40,curBut*40,40)  
                                settext("Resume Game")  
                                setclickevent("pPlay()")
                                show()
@@ -466,14 +466,14 @@ func newsize CurButSize
 
                 sleepbtn = new qpushbutton(win1)   
                 {
-                               setgeometry(100,100+(CurButSize+5)*40,(CurButSize-2)*40,40)  
+                               setgeometry(100,100+(curBut+5)*40,(curBut-2)*40,40)  
                                settext("Sleep Time: " + string(nrSleep) + " s")  
                                show()
                 }
 
                 decbtn = new qpushbutton(win1)   
                 {
-                               setgeometry(100+(CurButSize-2)*40,100+(CurButSize+5)*40,40,40)  
+                               setgeometry(100+(curBut-2)*40,100+(curBut+5)*40,40,40)  
                                settext("<-")  
                                setclickevent("pDecSleep()")
                                show()
@@ -481,7 +481,7 @@ func newsize CurButSize
 
                 incbtn = new qpushbutton(win1)   
                 {
-                               setgeometry(100+(CurButSize-1)*40,100+(CurButSize+5)*40,40,40)  
+                               setgeometry(100+(curBut-1)*40,100+(curBut+5)*40,40,40)  
                                settext("->")  
                                setclickevent("pIncSleep()")
                                show()
@@ -489,14 +489,14 @@ func newsize CurButSize
 
                rightbtn = new qpushbutton(win1)   
                 {
-                               setgeometry(100,100+(CurButSize+6)*40,CurButSize*40,40)  
+                               setgeometry(100,100+(curBut+6)*40,curBut*40,40)  
                                settext("In the Right Place : ")  
                                show()
                 }
 
                 timebtn = new qpushbutton(win1)   
                 {
-                               setgeometry(100,100+(CurButSize+7)*40,CurButSize*40,40)  
+                               setgeometry(100,100+(curBut+7)*40,curBut*40,40)  
                                settext("Elapsed Time : ")  
                                show()
                 }
@@ -504,7 +504,7 @@ func newsize CurButSize
                 table1 = []
                 table2 = []
                 table3 = []   
-                for n = 1 to OldButSize*OldButSize
+                for n = 1 to butSize*butSize
                       add(table1, button[n].text())
                       add(table2, button[n].text())
                       add(table3, string(0))
@@ -515,8 +515,8 @@ func newsize CurButSize
                 add(table1, "OK")
                 add(table2, "OK")
                 add(table3, "OK")
-                empty = CurButSize*CurButSize
-                OldButSize = CurButSize
+                empty = curBut*curBut
+                butSize = curBut
                 flaginit = 1
                 flagsave = 0
                 flagmove = 0
@@ -556,14 +556,14 @@ func pPlay
            cName3 = "CalmoSoftPuzzle3.txt"
            textedit3 = read(cName3)
            table3 = str2list(textedit3)
-           for empty = 1 to OldButSize*OldButSize
+           for empty = 1 to butSize*butSize
                 button[empty].setbuttoncolor("yellow") 
                 nDegree = number(table3[empty])
                 btnDegree[empty][1] = table1[empty]
                 button[empty] {settext(table1[empty])}
            next
-           empty = number(table1[OldButSize*OldButSize + 1])
-           CounterMan = OldButSize*OldButSize+2
+           empty = number(table1[butSize*butSize + 1])
+           CounterMan = butSize*butSize+2
            nrMoves = 0
            t1 = clock()
            TimerMan.start()
@@ -615,7 +615,7 @@ func sleep(x)
 
 func isGameOver
         flagend = 1
-        for n=1 to OldButSize*OldButSize-1
+        for n=1 to butSize*butSize-1
               if button[n].text() != n or btnDegree[n][2] != 0
                  flagend = 0
                  exit
@@ -631,7 +631,7 @@ func isGameOver
 
 func rightPlace
         count = 0
-        for n=1 to OldButSize*OldButSize
+        for n=1 to butSize*butSize
              if button[n].text() = n and btnDegree[n][2] = 0
                 count = count + 1
              ok
