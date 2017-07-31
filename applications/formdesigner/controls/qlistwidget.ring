@@ -232,6 +232,7 @@ class FormDesigner_QListWidget from QLineEdit
 	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
+		setText(oDesigner.oModel.GetObjectName(self))
 		SetcItems(itemdata[:cItems])
 		SetcCurrentRow(itemdata[:cCurrentRow])
 		SetcurrentItemChangedEventCode(itemdata[:setcurrentItemChangedEvent])

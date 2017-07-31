@@ -168,6 +168,7 @@ class FormDesigner_QTextEdit from QLineEdit
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setTextValue(itemdata[:text])
+		setText(oDesigner.oModel.GetObjectName(self))
 		SetcopyAvailableEventCode(itemdata[:setcopyAvailableEvent])
 		SetcurrentCharFormatChangedEventCode(itemdata[:setcurrentCharFormatChangedEvent])
 		SetcursorPositionChangedEventCode(itemdata[:setcursorPositionChangedEvent])
