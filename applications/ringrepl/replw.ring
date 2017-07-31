@@ -8,6 +8,7 @@ oProcess = NULL
 new qApp  {
 			StyleFusionBlack()
 			oProcessWindow = new qWidget()  {
+				setwindowflags(Qt_WindowStaysOnTopHint)
 				setwindowtitle("RingREPL (Read - Eval - Print - Loop)")
 				resize(600,500)
 				setwinicon(self,"source.png")
