@@ -226,7 +226,7 @@ Syntax:
 Freopen() Function
 ==================
 
-We can open another file using the same file handle and at the same file close
+We can open another file using the same file handle and at the same time close
 the old file 
 
 Syntax:
