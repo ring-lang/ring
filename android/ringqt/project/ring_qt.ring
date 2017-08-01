@@ -11382,6 +11382,9 @@ Class RingCodeHighlighter
 	Func setColors P1,P2,P3,P4,P5
 		return RingCodeHighlighter_setColors(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
 
+	Func setKeywordsBold P1
+		return RingCodeHighlighter_setKeywordsBold(pObject,P1)
+
 Class QXmlStreamReader
 
 	pObject

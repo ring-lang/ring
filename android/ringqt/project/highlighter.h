@@ -56,6 +56,8 @@ class Highlighter : public QSyntaxHighlighter
 public:
     Highlighter(QTextDocument *parent = 0);
     void setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5);
+    void setKeywordsBold(int nStatus);
+    int nKeywordsBold = 0 ;
 
 protected:
     void highlightBlock(const QString &text) Q_DECL_OVERRIDE;

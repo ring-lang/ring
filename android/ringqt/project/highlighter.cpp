@@ -89,7 +89,8 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
     HighlightingRule rule;
     highlightingRules.remove(0,highlightingRules.count());
     keywordFormat.setForeground(c1);
-    keywordFormat.setFontWeight(QFont::Bold);
+    if (this->nKeywordsBold)
+	    keywordFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
     keywordPatterns << "\\bagain\\b" << "\\band\\b" << "\\bbut\\b"
                     << "\\bbye\\b" << "\\bcall\\b" << "\\bcase\\b"
@@ -114,7 +115,8 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
         highlightingRules.append(rule);
     }
 
-    classFormat.setFontWeight(QFont::Bold);
+    if (this->nKeywordsBold)
+    	classFormat.setFontWeight(QFont::Bold);
     classFormat.setForeground(c2);
     rule.pattern = QRegExp("\\bQ[A-Za-z]+\\b");
     rule.format = classFormat;
@@ -146,4 +148,8 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
     commentStartExpression = QRegExp("/\\*");
     commentEndExpression = QRegExp("\\*/");
 
+}
+
+void Highlighter::setKeywordsBold(int nStatus) {
+	this->nKeywordsBold = nStatus;
 }
