@@ -78,6 +78,8 @@ Class RNote from WindowsControllerParent
 		STYLECOLOR_NOTEPADDARKBLUE = 9
 		STYLECOLOR_NOTEPADBLACK = 10
 		nDefaultStyle  = STYLECOLOR_WHITE
+		lKeywordsBold = True
+
 
 	cSettingsFile = cCurrentDir + "ringnotepad.ini"
 	LoadSettings()
@@ -708,6 +710,9 @@ Class RNote from WindowsControllerParent
 			}
 
 			new RingCodeHighLighter(this.textedit1.document() ) {
+				if ismethod(self,:setkeywordsbold) 
+					setKeywordsbold(this.lKeywordsBold)
+				ok
 				setColors(
 					this.aStyleColors[:SyntaxKeywordsColor],
 					this.aStyleColors[:SyntaxClassNamesColor],
@@ -1835,11 +1840,19 @@ Class RNote from WindowsControllerParent
 		on 9 pStyleNotepadDarkBlue()
 		on 10 pStyleNotepadBlack()
 		off
+		if nStyle >= 7 
+			lKeywordsBold = False 
+		else
+			lKeywordsBold = True
+		ok
 
 	func pSetEditorColors
 		textedit1.setLineNumbersAreaColor(aStyleColors[:LineNumbersAreaColor])
 		textedit1.setLineNumbersAreaBackColor(aStyleColors[:LineNumbersAreaBackColor])
 		new RingCodeHighLighter(textedit1.document() ) {
+			if ismethod(self,:setkeywordsbold) 
+				setKeywordsbold(this.lKeywordsBold)
+			ok
 			setColors(
 				this.aStyleColors[:SyntaxKeywordsColor],
 				this.aStyleColors[:SyntaxClassNamesColor],
