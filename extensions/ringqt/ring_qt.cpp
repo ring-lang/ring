@@ -64656,6 +64656,27 @@ RING_FUNC(ring_RingCodeHighlighter_setColors)
 }
 
 
+RING_FUNC(ring_RingCodeHighlighter_setKeywordsBold)
+{
+	Highlighter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Highlighter *) RING_API_GETCPOINTER(1,"RingCodeHighlighter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setKeywordsBold( (int ) RING_API_GETNUMBER(2));
+}
+
+
 RING_FUNC(ring_QXmlStreamReader_addData)
 {
 	QXmlStreamReader *pObject ;
@@ -92250,6 +92271,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qimage_valid",ring_QImage_valid);
 	ring_vm_funcregister("qimage_width",ring_QImage_width);
 	ring_vm_funcregister("ringcodehighlighter_setcolors",ring_RingCodeHighlighter_setColors);
+	ring_vm_funcregister("ringcodehighlighter_setkeywordsbold",ring_RingCodeHighlighter_setKeywordsBold);
 	ring_vm_funcregister("qxmlstreamreader_adddata",ring_QXmlStreamReader_addData);
 	ring_vm_funcregister("qxmlstreamreader_adddata_2",ring_QXmlStreamReader_addData_2);
 	ring_vm_funcregister("qxmlstreamreader_adddata_3",ring_QXmlStreamReader_addData_3);
