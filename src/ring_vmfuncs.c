@@ -259,8 +259,14 @@ void ring_vm_call ( VM *pVM )
 		pVM->nActiveCatch = 0 ;
 		/* Enable C Pointer Type Check */
 		pVM->nIgnoreCPointerTypeCheck = 0 ;
-		/* Call Function */
+		/*
+		**  Call Function 
+		**  Trace 
+		*/
+		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_BEFORECFUNC);
 		ring_list_callfuncpointer(pList,RING_FUNCCL_PC,pVM);
+		/* Trace */
+		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
 		/* Restore nFuncEx sate */
 		pVM->nFuncExecute = nFuncEx ;
 		/* Check for function termination by try/catch */
