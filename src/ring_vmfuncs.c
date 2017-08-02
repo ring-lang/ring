@@ -418,6 +418,8 @@ void ring_vm_newfunc ( VM *pVM )
 	}
 	/* Support this in the method */
 	ring_vm_oop_setthethisvariable(pVM);
+	/* Trace */
+	ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_NEWFUNC);
 }
 
 void ring_vm_blockflag ( VM *pVM )
