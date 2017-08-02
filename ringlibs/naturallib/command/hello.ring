@@ -5,6 +5,6 @@ DefineNaturalCommand.SyntaxIsKeyword([
 	:Package = "MyLanguage.Natural",
 	:Keyword = :hello, 
 	:Function = func {
-		See  "Hello, Sire!" + nl + nl
+		See  "Hello, Sir!" + nl + nl
 	}
 ])
