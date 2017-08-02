@@ -725,7 +725,9 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		}
 		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
 		/* Trace */
+		pVM->nActiveError = 0 ;
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_ERROR);
+		pVM->nActiveError = 1 ;
 		exit(0);
 	}
 	ring_vm_catch(pVM,cStr);
