@@ -637,7 +637,25 @@ void ring_vmlib_time ( void *pPointer )
 
 void ring_vmlib_filename ( void *pPointer )
 {
-	RING_API_RETSTRING(((VM *) pPointer)->cFileName);
+	VM *pVM  ;
+	int nPos  ;
+	List *pList  ;
+	pVM = (VM *) pPointer ;
+	if ( (pVM->nFuncExecute2 > 0) && (ring_list_getsize(pVM->pFuncCallList)>0) ) {
+		/*
+		**  Here we have Load Function Instruction - But Still the function is not called 
+		**  FunctionName (  ***Parameters**** We are here! ) 
+		*/
+		nPos = ring_list_getsize(pVM->pFuncCallList)  -  (pVM->nFuncExecute2 - 1) ;
+		if ( (nPos > 0) && (nPos <= ring_list_getsize(pVM->pFuncCallList)) ) {
+			pList = ring_list_getlist(pVM->pFuncCallList,nPos);
+			if ( ring_list_getsize(pList) >= RING_FUNCCL_FILENAME ) {
+				RING_API_RETSTRING((char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME ));
+			}
+		}
+		return ;
+	}
+	RING_API_RETSTRING(pVM->cFileName);
 }
 
 void ring_vmlib_getchar ( void *pPointer )
