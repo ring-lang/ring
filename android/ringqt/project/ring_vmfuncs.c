@@ -135,6 +135,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		ring_list_addint(pList2,pVM->nSP);
 		/* Create Temp Memory */
 		ring_list_newlist(pList2);
+		/* File Name */
+		ring_list_addpointer(pList2,pVM->cFileName);
 		/* Add aLoadAddressScope pointer to pLoadAddressScope */
 		ring_vm_saveloadaddressscope(pVM);
 		return 1 ;
