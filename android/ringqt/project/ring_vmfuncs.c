@@ -119,6 +119,9 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 	if ( pVM->nCallMethod == 1 ) {
 		/* Pass The Call Instruction and the AfterCallMethod Instruction */
 		pVM->nPC += 2 ;
+		/* Decrement FuncExecute Counter */
+		pVM->nFuncExecute-- ;
+		pVM->nFuncExecute2-- ;
 		ring_vm_error2(pVM,RING_VM_ERROR_METHODNOTFOUND,cStr);
 		return 0 ;
 	}
@@ -144,6 +147,12 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 	}
 	/* Pass The Call Instruction */
 	pVM->nPC++ ;
+	/*
+	**  Display Error Message 
+	**  Decrement FuncExecute Counter 
+	*/
+	pVM->nFuncExecute-- ;
+	pVM->nFuncExecute2-- ;
 	ring_vm_error2(pVM,RING_VM_ERROR_FUNCNOTFOUND,cStr);
 	return 0 ;
 }
