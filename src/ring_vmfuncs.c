@@ -359,6 +359,8 @@ void ring_vm_return ( VM *pVM )
 		} else {
 			pVM->nFuncSP = 0 ;
 		}
+		/* Trace */
+		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_RETURN);
 	} else {
 		/* Call Main Function */
 		if ( pVM->nCallMainFunction == 0 ) {
