@@ -147,7 +147,12 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			return 0 ;
 		}
 	}
-	/* Pass The Call Instruction */
+	/*
+	**  Pass The Call Instruction 
+	**  We need this when we execute braceerror() 
+	**  In this case, no parameters and the call instruction is directly after the load function instruction 
+	**  So it's correct to use pVM->nPC++ 
+	*/
 	pVM->nPC++ ;
 	/*
 	**  Display Error Message 
