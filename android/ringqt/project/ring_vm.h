@@ -654,6 +654,11 @@ void ring_vm_traceevent ( VM *pVM,char nEvent ) ;
 #define RING_TEMP_VARIABLE "ring_sys_temp"
 /* Trace */
 #define RING_VM_TRACEEVENT_NEWLINE 1
+#define RING_VM_TRACEEVENT_NEWFUNC 2
+#define RING_VM_TRACEEVENT_RETURN 3
+#define RING_VM_TRACEEVENT_ERROR 4
+#define RING_VM_TRACEEVENT_BEFORECFUNC 5
+#define RING_VM_TRACEEVENT_AFTERCFUNC 6
 /* Runtime Error Messages */
 #define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Cann't divide by zero !"
 #define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range) !"
