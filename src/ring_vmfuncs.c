@@ -388,8 +388,6 @@ void ring_vm_returnnull ( VM *pVM )
 {
 	RING_VM_STACK_PUSHCVALUE("");
 	ring_vm_return(pVM);
-	/* Trace */
-	ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_RETURN);
 }
 
 void ring_vm_newfunc ( VM *pVM )
