@@ -70,7 +70,7 @@ Output:
 
 .. code-block:: none
 
-	Hello, Sire!
+	Hello, Sir!
 
 
 	The Numbers!
@@ -135,7 +135,7 @@ File: hello.ring
 		:Package = "MyLanguage.Natural",
 		:Keyword = :hello, 
 		:Function = func {
-			See  "Hello, Sire!" + nl + nl
+			See  "Hello, Sir!" + nl + nl
 		}
 	])
 
@@ -395,7 +395,7 @@ File: hello.ring
 			AddAttribute(self,:hello)
 
 		func GetHello   
-			See  "Hello, Sire!" + nl + nl
+			See  "Hello, Sir!" + nl + nl
 
 
 File: count.ring
