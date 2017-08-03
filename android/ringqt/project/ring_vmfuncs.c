@@ -167,7 +167,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 void ring_vm_call ( VM *pVM )
 {
 	List *pList, *pActiveMem  ;
-	int x,nSP,nMax1,nFuncEx  ;
+	int x,nSP,nMax1,nFuncEx,nFuncEx2  ;
 	/* Decrement FuncExecute Counter */
 	if ( pVM->nFuncExecute > 0 ) {
 		pVM->nFuncExecute-- ;
@@ -264,11 +264,20 @@ void ring_vm_call ( VM *pVM )
 		**  Trace 
 		*/
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_BEFORECFUNC);
+		/*
+		**  Function Execution Counter 
+		**  To Display correct error message when we have runtime error during C Function Execution 
+		**  Because pVM->nFuncExecute2 is used by ring_vm_error() 
+		*/
+		nFuncEx2 = pVM->nFuncExecute2 ;
+		pVM->nFuncExecute2=0 ;
 		ring_list_callfuncpointer(pList,RING_FUNCCL_PC,pVM);
+		/* Function Execution Counter - Restore */
+		pVM->nFuncExecute2 = nFuncEx2 ;
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
-		/* Restore nFuncEx sate */
+		/* Restore nFuncEx state */
 		pVM->nFuncExecute = nFuncEx ;
 		/* Check for function termination by try/catch */
 		if ( pVM->nActiveCatch == 1 ) {
