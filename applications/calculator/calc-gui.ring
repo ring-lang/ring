@@ -26,10 +26,6 @@ MyApp = New qApp {
 					setGeometry(10,10,270,32)
 					setalignment(Qt_AlignHCenter)
 					setreturnpressedevent("checkEnter()")
-					//setDisabled(true)
-					//QValidator("Acceptable")
-					//clicked("ccc()")
-					//connect("")
 					setStyleSheet("background-color: lightyellow;color:darkyellow;font-size: 15pt;")
                 }
                 
@@ -168,11 +164,6 @@ MyApp = New qApp {
         
 
 }
-
-func ccc
-	see "x"
-
-
 
 func memo
         win2 = new qWidget() {
