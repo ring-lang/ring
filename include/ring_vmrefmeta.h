@@ -91,4 +91,6 @@ void ring_vm_refmeta_ringvmscopescount ( void *pPointer ) ;
 void ring_vm_refmeta_ringvmevalinscope ( void *pPointer ) ;
 
 void ring_vm_refmeta_ringvmpasserror ( void *pPointer ) ;
+
+void ring_vm_refmeta_ringvmhideerrormsg ( void *pPointer ) ;
 #endif

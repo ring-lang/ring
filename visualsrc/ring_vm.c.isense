@@ -180,6 +180,8 @@ Type: char
 nEvalInScope
 Type: char
 lPassError
+Type: char
+lHideErrorMsg
 END:
 Type: VM
 struct VM

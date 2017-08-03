@@ -206,6 +206,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nEvalInScope = 0 ;
 	/* Pass error in ring_vm_error() from ringvm_passerror() */
 	pVM->lPassError = 0 ;
+	/* Hide Error message - don't display it in ring_vm_error() */
+	pVM->lHideErrorMsg = 0 ;
 	return pVM ;
 }
 
@@ -720,18 +722,20 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		}
 	}
 	if ( ring_list_getsize(pVM->pTry) == 0 ) {
-		ring_state_cgiheader(pVM->pRingState);
-		printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
-		/* Print Calling Information */
-		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
-			pList = ring_list_getlist(pVM->pFuncCallList,x);
-			/* If we have ICO_LoadFunc but not ICO_CALL then we need to pass */
-			if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
-				continue ;
+		if ( pVM->lHideErrorMsg == 0 ) {
+			ring_state_cgiheader(pVM->pRingState);
+			printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
+			/* Print Calling Information */
+			for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
+				pList = ring_list_getlist(pVM->pFuncCallList,x);
+				/* If we have ICO_LoadFunc but not ICO_CALL then we need to pass */
+				if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
+					continue ;
+				}
+				printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
 			}
-			printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
+			printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
 		}
-		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
 		/* Trace */
 		pVM->nActiveError = 0 ;
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_ERROR);

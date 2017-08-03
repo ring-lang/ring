@@ -254,3 +254,6 @@ nScope,nSize
 ring_vm_refmeta_ringvmpasserror
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmhideerrormsg
+Type: VM *
+pVM
