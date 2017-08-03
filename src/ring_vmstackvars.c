@@ -543,7 +543,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 		/* Prepare Trace Data */
 		ring_list_deleteallitems(pVM->pTraceData);
 		/* Add Line Number */
-		ring_list_addint(pVM->pTraceData,pVM->nLineNumber);
+		ring_list_adddouble(pVM->pTraceData,pVM->nLineNumber);
 		/* Add File Name */
 		ring_list_addstring(pVM->pTraceData,pVM->cFileName);
 		/* Add Function/Method Name */
@@ -551,12 +551,12 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 			pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
 			ring_list_addstring(pVM->pTraceData,ring_list_getstring(pList,RING_FUNCCL_NAME));
 			/* Method of Function */
-			ring_list_addint(pVM->pTraceData,ring_list_getint(pList,RING_FUNCCL_METHODORFUNC));
+			ring_list_adddouble(pVM->pTraceData,ring_list_getint(pList,RING_FUNCCL_METHODORFUNC));
 		}
 		else {
 			ring_list_addstring(pVM->pTraceData,"");
 			/* Method of Function */
-			ring_list_addint(pVM->pTraceData,0);
+			ring_list_adddouble(pVM->pTraceData,0);
 		}
 		/* Execute Trace Function */
 		ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
