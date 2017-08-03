@@ -719,7 +719,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		ring_state_cgiheader(pVM->pRingState);
 		printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
 		/* Print Calling Information */
-		for ( x =ring_list_getsize(pVM->pFuncCallList) - pVM->nFuncExecute2 ; x >= 1 ; x-- ) {
+		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 			pList = ring_list_getlist(pVM->pFuncCallList,x);
 			printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
 		}
@@ -936,6 +936,8 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	pVM->nEvalCalledFromRingCode = 0 ;
 	ring_vm_mutexunlock(pVM);
 	if ( nRunVM ) {
+		pVM->nFuncExecute = 0 ;
+		pVM->nFuncExecute2 = 0 ;
 		ring_vm_mainloop(pVM);
 	}
 	/* Restore state to take in mind nested events execution */
