@@ -249,3 +249,5 @@ Type: List *
 pActiveMem
 Type: const char *
 cStr
+Type: int
+nScope,nSize
