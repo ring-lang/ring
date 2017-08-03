@@ -96,6 +96,8 @@ typedef struct VM {
 	char nTraceEvent  ;
 	List *pTraceData  ;
 	char nEvalInScope  ;
+	char lPassError  ;
+	char lHideErrorMsg  ;
 } VM ;
 /*
 **  Functions 

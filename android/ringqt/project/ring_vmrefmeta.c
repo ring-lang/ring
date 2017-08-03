@@ -52,6 +52,8 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_tracefunc",ring_vm_refmeta_ringvmtracefunc);
 	ring_vm_funcregister("ringvm_scopescount",ring_vm_refmeta_ringvmscopescount);
 	ring_vm_funcregister("ringvm_evalinscope",ring_vm_refmeta_ringvmevalinscope);
+	ring_vm_funcregister("ringvm_passerror",ring_vm_refmeta_ringvmpasserror);
+	ring_vm_funcregister("ringvm_hideerrormsg",ring_vm_refmeta_ringvmhideerrormsg);
 }
 /* Functions */
 
@@ -965,6 +967,28 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		pVM->nEvalInScope-- ;
 		pVM->pMem->nSize = nSize ;
 		pVM->pActiveMem = pActiveMem ;
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vm_refmeta_ringvmpasserror ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	pVM->lPassError = 1 ;
+}
+
+void ring_vm_refmeta_ringvmhideerrormsg ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		pVM->lHideErrorMsg = (int) RING_API_GETNUMBER(1) ;
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
