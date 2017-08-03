@@ -238,3 +238,4 @@ call ring scripts/numbers2bytes.ring
 call ring scripts/trimerror.ring
 call ring scripts/anoninhash.ring
 call ring scripts/bracenewinheritance.ring
+call ring scripts/nestedfunccall.ring
