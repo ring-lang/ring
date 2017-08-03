@@ -178,6 +178,8 @@ Type: List *
 pTraceData
 Type: char
 nEvalInScope
+Type: char
+lPassError
 END:
 Type: VM
 struct VM

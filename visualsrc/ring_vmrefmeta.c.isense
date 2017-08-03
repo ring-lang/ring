@@ -251,3 +251,6 @@ Type: const char *
 cStr
 Type: int
 nScope,nSize
+ring_vm_refmeta_ringvmpasserror
+Type: VM *
+pVM

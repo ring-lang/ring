@@ -52,6 +52,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_tracefunc",ring_vm_refmeta_ringvmtracefunc);
 	ring_vm_funcregister("ringvm_scopescount",ring_vm_refmeta_ringvmscopescount);
 	ring_vm_funcregister("ringvm_evalinscope",ring_vm_refmeta_ringvmevalinscope);
+	ring_vm_funcregister("ringvm_passerror",ring_vm_refmeta_ringvmpasserror);
 }
 /* Functions */
 
@@ -968,4 +969,11 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_refmeta_ringvmpasserror ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	pVM->lPassError = 1 ;
 }

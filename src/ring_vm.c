@@ -202,8 +202,10 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lTraceActive = 0 ;
 	pVM->nTraceEvent = 0 ;
 	pVM->pTraceData = ring_list_new(0) ;
-	/* Eval In Scope function is Active */
+	/* Eval In Scope function is Active : ringvm_evalinscope() */
 	pVM->nEvalInScope = 0 ;
+	/* Pass error in ring_vm_error() from ringvm_passerror() */
+	pVM->lPassError = 0 ;
 	return pVM ;
 }
 
@@ -733,6 +735,10 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		/* Trace */
 		pVM->nActiveError = 0 ;
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_ERROR);
+		if ( pVM->lPassError  == 1 ) {
+			pVM->lPassError = 0 ;
+			return ;
+		}
 		pVM->nActiveError = 1 ;
 		exit(0);
 	}
