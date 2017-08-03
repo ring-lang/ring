@@ -4,6 +4,11 @@
 
 void ring_vm_bye ( VM *pVM )
 {
+	/* Check if the ringvm_evalinscope() function is active */
+	if ( pVM->nEvalInScope >= 1 ) {
+		puts(RING_VM_ERROR_BADCOMMAND);
+		return ;
+	}
 	pVM->nPC = ring_list_getsize(pVM->pCode) + 1 ;
 }
 
@@ -32,6 +37,11 @@ void ring_vm_exit ( VM *pVM,int nType )
 {
 	List *pList,*pActiveList  ;
 	int x,y,nStep  ;
+	/* Check if the ringvm_evalinscope() function is active */
+	if ( pVM->nEvalInScope >= 1 ) {
+		puts(RING_VM_ERROR_BADCOMMAND);
+		return ;
+	}
 	nStep = 0 ;
 	/* Set Active List */
 	if ( nType == 1 ) {

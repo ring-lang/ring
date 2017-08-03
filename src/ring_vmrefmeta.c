@@ -951,7 +951,7 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( RING_API_ISNUMBER(1) ) {
+	if ( RING_API_ISNUMBER(1) && RING_API_ISSTRING(2) ) {
 		/* We must get cStr before we change the pVM->pActiveMem */
 		cStr = RING_API_GETSTRING(2) ;
 		nScope = (int) RING_API_GETNUMBER(1) ;
@@ -960,7 +960,9 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		pVM->nActiveScopeID++ ;
 		nSize = pVM->pMem->nSize ;
 		pVM->pMem->nSize = nScope ;
+		pVM->nEvalInScope++ ;
 		ring_vm_runcode(pVM,cStr);
+		pVM->nEvalInScope-- ;
 		pVM->pMem->nSize = nSize ;
 		pVM->pActiveMem = pActiveMem ;
 	} else {

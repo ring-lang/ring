@@ -202,6 +202,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lTraceActive = 0 ;
 	pVM->nTraceEvent = 0 ;
 	pVM->pTraceData = ring_list_new(0) ;
+	/* Eval In Scope function is Active */
+	pVM->nEvalInScope = 0 ;
 	return pVM ;
 }
 
