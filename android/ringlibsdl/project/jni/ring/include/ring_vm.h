@@ -95,6 +95,7 @@ typedef struct VM {
 	char lTraceActive  ;
 	char nTraceEvent  ;
 	List *pTraceData  ;
+	char nEvalInScope  ;
 } VM ;
 /*
 **  Functions 
@@ -696,6 +697,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent ) ;
 #define RING_VM_ERROR_ASSIGNNOTVARIABLE "Error (R34) : Variable is required for the assignment operation"
 #define RING_VM_ERROR_CANTOPENFILE "Error (R35) : Can't create/open the file!"
 #define RING_VM_ERROR_BADCOLUMNNUMBER "Error (R36) : The column number is not correct! It's greater than the number of columns in the list"
+#define RING_VM_ERROR_BADCOMMAND "Error (R37) : Sorry, The command is not supported in this context"
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 2
 /* Variables Location */

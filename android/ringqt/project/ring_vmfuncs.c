@@ -323,6 +323,14 @@ void ring_vm_call ( VM *pVM )
 void ring_vm_return ( VM *pVM )
 {
 	List *pList  ;
+	/* Check if the ringvm_evalinscope() function is active */
+	if ( pVM->nEvalInScope >= 1 ) {
+		/*
+		**  Bad Command - But don't display the message 
+		**  To avoid displaying the message in correct context 
+		*/
+		return ;
+	}
 	/* Support for nested "Load" instructions */
 	if ( pVM->nBlockFlag >= 1 ) {
 		ring_vm_removeblockflag(pVM);
