@@ -721,6 +721,10 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		/* Print Calling Information */
 		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 			pList = ring_list_getlist(pVM->pFuncCallList,x);
+			/* If we have ICO_LoadFunc but not ICO_CALL then we need to pass */
+			if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
+				continue ;
+			}
 			printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
 		}
 		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
