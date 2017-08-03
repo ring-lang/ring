@@ -851,4 +851,47 @@ Func SystemCmd(cmd)
    cStr = read("cmd.txt")
 return cStr
 
+/*
+	Get a List of all files in a directory and it's sub directories 
+	Parameters : Path as String
+					  Extension as String, example "ring"
+	Output : List contains the files only 
+	Note : (1) Each sub directory will be opened 
+			 (2) if the extension is empty, all files will be included
 
+	Examples
+			aList = ListAllFiles("b:/ring/ringlibs","ring") # *.ring only
+			aList = sort(aList)
+			see aList
+	Example 
+			load "stdlib.ring"
+			see listallfiles("b:/ring/ringlibs/weblib","") # All Files
+*/
+
+func ListAllFiles cPath,cExt
+	if left(cExt,2) = "*."
+		cExt = substr(cExt,3)
+	ok
+	aList = dir(cPath)
+	return ListAllFiles_process(cPath,aList,cExt)
+
+func ListAllFiles_Process cPath,aList,cExt
+	aOutput = []
+	for aSub in aList 
+		if aSub[2] # Directory
+			cNewPath = cPath + "/" + aSub[1]
+			aSubOutput = listAllFiles(cNewPath,cExt)
+			for item in aSubOutput 
+				aOutput + item
+			next
+		else		# File
+			if cExt != NULL
+				if right(aSub[1],len(cExt)+1) = "."+cExt 
+					aOutput + ( cPath + "/" + aSub[1] )
+				ok
+			else
+				aOutput + ( cPath + "/" + aSub[1] )
+			ok
+		ok
+	next
+	return aOutput
