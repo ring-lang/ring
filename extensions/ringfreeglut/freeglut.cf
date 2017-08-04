@@ -20,8 +20,15 @@ FreeGLUT Constants and Functions
 </comment>
 
 <constant>
-
+GLUT_SINGLE
 </constant>
+
+void glutInit(int *argc, char** argv)
+void glutInitDisplayMode(int)
+void glutInitWindowSize(int, int)
+void glutInitWindowPosition(int, int)
+void glutCreateWindow(const char *)
+void glutMainLoop(void)
 
 
 <comment>
