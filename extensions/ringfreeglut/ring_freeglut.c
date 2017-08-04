@@ -9,12 +9,18 @@
 
 #include <GL/glut.h>
 
+
+VM *pRingVMObject ;
 char cDisplayFunction[250];
 char cReshapeFunction[250];
-char cIdleFunction[250];
 int nReshapeWidth ;
 int nReshapeHeight ;
-VM *pRingVMObject ;
+char cIdleFunction[250];
+char cKeyboardFunction[250];
+char cSpecialFunction[250];
+int nGLUTEventKey ;
+int nGLUTEventX ;
+int nGLUTEventY ;
 
 
 RING_FUNC(ring_glutInit)
@@ -94,6 +100,60 @@ RING_FUNC(ring_glutIdleFunc)
 	}
 }
 
+void KeyboardFunction(unsigned char key, int x, int y)
+{
+	nGLUTEventKey = key ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cKeyboardFunction) ;
+}
+
+RING_FUNC(ring_glutKeyboardFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cKeyboardFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutKeyboardFunc(KeyboardFunction);
+	}
+}
+
+void SpecialFunction(int key, int x, int y)
+{
+	nGLUTEventKey = key ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cSpecialFunction) ;
+}
+
+RING_FUNC(ring_glutSpecialFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cSpecialFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutSpecialFunc(SpecialFunction);
+	}
+}
+
+RING_FUNC(ring_glutEventKey) {
+	RING_API_RETNUMBER(nGLUTEventKey);
+}
+
+RING_FUNC(ring_glutEventX) {
+	RING_API_RETNUMBER(nGLUTEventX);
+}
+
+RING_FUNC(ring_glutEventY) {
+	RING_API_RETNUMBER(nGLUTEventY);
+}
+
 RING_FUNC(ring_get_glut_single)
 {
 	RING_API_RETNUMBER(GLUT_SINGLE);
@@ -112,6 +172,21 @@ RING_FUNC(ring_get_glut_double)
 RING_FUNC(ring_get_glut_rgba)
 {
 	RING_API_RETNUMBER(GLUT_RGBA);
+}
+
+RING_FUNC(ring_get_glut_key_f1)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F1);
+}
+
+RING_FUNC(ring_get_glut_key_f2)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F2);
+}
+
+RING_FUNC(ring_get_glut_key_f3)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F3);
 }
 
 
@@ -476,6 +551,11 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutreshapewidth",ring_glutReshapeWidth);
 	ring_vm_funcregister("glutreshapeheight",ring_glutReshapeHeight);
 	ring_vm_funcregister("glutidlefunc",ring_glutIdleFunc);
+	ring_vm_funcregister("glutkeyboardfunc",ring_glutKeyboardFunc);
+	ring_vm_funcregister("glutspecialfunc",ring_glutSpecialFunc);
+	ring_vm_funcregister("gluteventkey",ring_glutEventKey);
+	ring_vm_funcregister("gluteventx",ring_glutEventX);
+	ring_vm_funcregister("gluteventy",ring_glutEventY);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutinitwindowsize",ring_glutInitWindowSize);
 	ring_vm_funcregister("glutinitwindowposition",ring_glutInitWindowPosition);
@@ -498,6 +578,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_depth",ring_get_glut_depth);
 	ring_vm_funcregister("get_glut_double",ring_get_glut_double);
 	ring_vm_funcregister("get_glut_rgba",ring_get_glut_rgba);
+	ring_vm_funcregister("get_glut_key_f1",ring_get_glut_key_f1);
+	ring_vm_funcregister("get_glut_key_f2",ring_get_glut_key_f2);
+	ring_vm_funcregister("get_glut_key_f3",ring_get_glut_key_f3);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
 	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);

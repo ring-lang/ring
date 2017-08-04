@@ -13,12 +13,18 @@
 #include <GL/glut.h>
 </filter>
 
+
+VM *pRingVMObject ;
 char cDisplayFunction[250];
 char cReshapeFunction[250];
-char cIdleFunction[250];
 int nReshapeWidth ;
 int nReshapeHeight ;
-VM *pRingVMObject ;
+char cIdleFunction[250];
+char cKeyboardFunction[250];
+char cSpecialFunction[250];
+int nGLUTEventKey ;
+int nGLUTEventX ;
+int nGLUTEventY ;
 
 </code>
 
@@ -29,6 +35,11 @@ void glutReshapeFunc(const char *)
 int glutReshapeWidth(void)
 int glutReshapeHeight(void)
 void glutIdleFunc(const char *)
+void glutKeyboardFunc(const char *)
+void glutSpecialFunc(const char *)
+void glutEventKey(void)
+void glutEventX(void)
+void glutEventY(void)
 </register>
 
 <code>
@@ -110,6 +121,60 @@ RING_FUNC(ring_glutIdleFunc)
 	}
 }
 
+void KeyboardFunction(unsigned char key, int x, int y)
+{
+	nGLUTEventKey = key ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cKeyboardFunction) ;
+}
+
+RING_FUNC(ring_glutKeyboardFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cKeyboardFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutKeyboardFunc(KeyboardFunction);
+	}
+}
+
+void SpecialFunction(int key, int x, int y)
+{
+	nGLUTEventKey = key ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cSpecialFunction) ;
+}
+
+RING_FUNC(ring_glutSpecialFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cSpecialFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutSpecialFunc(SpecialFunction);
+	}
+}
+
+RING_FUNC(ring_glutEventKey) {
+	RING_API_RETNUMBER(nGLUTEventKey);
+}
+
+RING_FUNC(ring_glutEventX) {
+	RING_API_RETNUMBER(nGLUTEventX);
+}
+
+RING_FUNC(ring_glutEventY) {
+	RING_API_RETNUMBER(nGLUTEventY);
+}
+
 </code>
 
 <comment>
@@ -121,6 +186,9 @@ GLUT_SINGLE
 GLUT_DEPTH
 GLUT_DOUBLE 
 GLUT_RGBA
+GLUT_KEY_F1
+GLUT_KEY_F2
+GLUT_KEY_F3
 </constant>
 
 void glutInitDisplayMode(int)
