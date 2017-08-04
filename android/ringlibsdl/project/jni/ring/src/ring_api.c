@@ -39,6 +39,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("clockspersecond",ring_vmlib_clockspersecond);
 	ring_vm_funcregister("prevfilename",ring_vmlib_prevfilename);
 	ring_vm_funcregister("swap",ring_vmlib_swap);
+	ring_vm_funcregister("shutdown",ring_vmlib_shutdown);
 	/* Check Data Type */
 	ring_vm_funcregister("isstring",ring_vmlib_isstring);
 	ring_vm_funcregister("isnumber",ring_vmlib_isnumber);
@@ -967,6 +968,17 @@ void ring_vmlib_swap ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vmlib_shutdown ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT == 1 ) {
+		if ( RING_API_ISNUMBER(1) ) {
+			exit(RING_API_GETNUMBER(1));
+			return ;
+		}
+	}
+	exit(0);
 }
 /* Check Data Type */
 
