@@ -15,6 +15,7 @@
 
 char cDisplayFunction[250];
 char cReshapeFunction[250];
+char cIdleFunction[250];
 int nReshapeWidth ;
 int nReshapeHeight ;
 VM *pRingVMObject ;
@@ -27,6 +28,7 @@ void glutDisplayFunc(const char *)
 void glutReshapeFunc(const char *)
 int glutReshapeWidth(void)
 int glutReshapeHeight(void)
+void glutIdleFunc(const char *)
 </register>
 
 <code>
@@ -90,8 +92,25 @@ RING_FUNC(ring_glutReshapeHeight)
 	RING_API_RETNUMBER(nReshapeHeight);
 }
 
-</code>
+void IdleFunction(void)
+{
+	ring_vm_runcode(pRingVMObject,cIdleFunction) ;
+}
 
+RING_FUNC(ring_glutIdleFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cIdleFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutIdleFunc(IdleFunction);
+	}
+}
+
+</code>
 
 <comment>
 FreeGLUT Constants and Functions
@@ -135,4 +154,5 @@ void glMatrixMode(int)
 void glLoadIdentity(void)
 void glViewport(int,int,int,int)
 void gluPerspective(int,float,int,int)
-
+void gluLookAt(float,float,float,float,float,float,float,float,float)
+void glRotatef(float,float,float,float)

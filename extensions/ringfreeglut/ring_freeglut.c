@@ -11,6 +11,7 @@
 
 char cDisplayFunction[250];
 char cReshapeFunction[250];
+char cIdleFunction[250];
 int nReshapeWidth ;
 int nReshapeHeight ;
 VM *pRingVMObject ;
@@ -73,6 +74,24 @@ RING_FUNC(ring_glutReshapeWidth)
 RING_FUNC(ring_glutReshapeHeight)
 {
 	RING_API_RETNUMBER(nReshapeHeight);
+}
+
+void IdleFunction(void)
+{
+	ring_vm_runcode(pRingVMObject,cIdleFunction) ;
+}
+
+RING_FUNC(ring_glutIdleFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cIdleFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutIdleFunc(IdleFunction);
+	}
 }
 
 RING_FUNC(ring_get_glut_single)
@@ -377,6 +396,78 @@ RING_FUNC(ring_gluPerspective)
 	gluPerspective( (int) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (int) RING_API_GETNUMBER(3), (int) RING_API_GETNUMBER(4));
 }
 
+
+RING_FUNC(ring_gluLookAt)
+{
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluLookAt( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4), (float) RING_API_GETNUMBER(5), (float) RING_API_GETNUMBER(6), (float) RING_API_GETNUMBER(7), (float) RING_API_GETNUMBER(8), (float) RING_API_GETNUMBER(9));
+}
+
+
+RING_FUNC(ring_glRotatef)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glRotatef( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
@@ -384,6 +475,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutreshapefunc",ring_glutReshapeFunc);
 	ring_vm_funcregister("glutreshapewidth",ring_glutReshapeWidth);
 	ring_vm_funcregister("glutreshapeheight",ring_glutReshapeHeight);
+	ring_vm_funcregister("glutidlefunc",ring_glutIdleFunc);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutinitwindowsize",ring_glutInitWindowSize);
 	ring_vm_funcregister("glutinitwindowposition",ring_glutInitWindowPosition);
@@ -400,6 +492,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glloadidentity",ring_glLoadIdentity);
 	ring_vm_funcregister("glviewport",ring_glViewport);
 	ring_vm_funcregister("gluperspective",ring_gluPerspective);
+	ring_vm_funcregister("glulookat",ring_gluLookAt);
+	ring_vm_funcregister("glrotatef",ring_glRotatef);
 	ring_vm_funcregister("get_glut_single",ring_get_glut_single);
 	ring_vm_funcregister("get_glut_depth",ring_get_glut_depth);
 	ring_vm_funcregister("get_glut_double",ring_get_glut_double);
