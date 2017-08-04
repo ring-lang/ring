@@ -10,6 +10,27 @@
 #include <GL/glut.h>
 
 char cDisplayFunction[250];
+VM *pRingVMObject ;
+
+void displayFunction(void)
+{
+	ring_vm_runcode(pRingVMObject,cDisplayFunction) ;
+}
+
+RING_FUNC(ring_glutDisplayFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cDisplayFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutDisplayFunc(displayFunction);
+	}
+}
+
+
 
 RING_FUNC(ring_get_glut_single)
 {
@@ -213,6 +234,7 @@ RING_FUNC(ring_glFlush)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
+	ring_vm_funcregister("glutdisplayfunc",ring_glutDisplayFunc);
 	ring_vm_funcregister("glutinit",ring_glutInit);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutinitwindowsize",ring_glutInitWindowSize);
