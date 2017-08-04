@@ -49,6 +49,21 @@ RING_FUNC(ring_get_glut_single)
 	RING_API_RETNUMBER(GLUT_SINGLE);
 }
 
+RING_FUNC(ring_get_glut_depth)
+{
+	RING_API_RETNUMBER(GLUT_DEPTH);
+}
+
+RING_FUNC(ring_get_glut_double)
+{
+	RING_API_RETNUMBER(GLUT_DOUBLE);
+}
+
+RING_FUNC(ring_get_glut_rgba)
+{
+	RING_API_RETNUMBER(GLUT_RGBA);
+}
+
 
 RING_FUNC(ring_glutInitDisplayMode)
 {
@@ -128,9 +143,19 @@ RING_FUNC(ring_get_gl_color_buffer_bit)
 	RING_API_RETNUMBER(GL_COLOR_BUFFER_BIT);
 }
 
+RING_FUNC(ring_get_gl_depth_buffer_bit)
+{
+	RING_API_RETNUMBER(GL_DEPTH_BUFFER_BIT);
+}
+
 RING_FUNC(ring_get_gl_polygon)
 {
 	RING_API_RETNUMBER(GL_POLYGON);
+}
+
+RING_FUNC(ring_get_gl_triangles)
+{
+	RING_API_RETNUMBER(GL_TRIANGLES);
 }
 
 
@@ -225,6 +250,16 @@ RING_FUNC(ring_glFlush)
 	glFlush();
 }
 
+
+RING_FUNC(ring_glutSwapBuffers)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glutSwapBuffers();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
@@ -240,7 +275,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glvertex3f",ring_glVertex3f);
 	ring_vm_funcregister("glend",ring_glEnd);
 	ring_vm_funcregister("glflush",ring_glFlush);
+	ring_vm_funcregister("glutswapbuffers",ring_glutSwapBuffers);
 	ring_vm_funcregister("get_glut_single",ring_get_glut_single);
+	ring_vm_funcregister("get_glut_depth",ring_get_glut_depth);
+	ring_vm_funcregister("get_glut_double",ring_get_glut_double);
+	ring_vm_funcregister("get_glut_rgba",ring_get_glut_rgba);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
+	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
+	ring_vm_funcregister("get_gl_triangles",ring_get_gl_triangles);
 }

@@ -65,6 +65,9 @@ FreeGLUT Constants and Functions
 
 <constant>
 GLUT_SINGLE
+GLUT_DEPTH
+GLUT_DOUBLE 
+GLUT_RGBA
 </constant>
 
 void glutInitDisplayMode(int)
@@ -80,7 +83,9 @@ OpenGL  Constants and Functions
 
 <constant>
 GL_COLOR_BUFFER_BIT
+GL_DEPTH_BUFFER_BIT
 GL_POLYGON
+GL_TRIANGLES
 </constant>
 
 void glClear(int)
@@ -89,3 +94,4 @@ void glBegin(int)
 void glVertex3f(float,float,float)
 void glEnd(void)
 void glFlush(void)
+void glutSwapBuffers(void)
