@@ -1,0 +1,28 @@
+<code>
+
+/* 
+	RingFreeGLUT Extension
+	Copyright (c) 2017 Mahmoud Fayed <msfclipper@yahoo.com> 
+*/
+
+<filter> ismacosx()
+#include <GLUT/glut.h>
+</filter>
+
+<filter> not ismacosx()
+#include <GL/glut.h>
+</filter>
+
+</code>
+
+<constant>
+</constant>
+
+<comment>
+FreeGLUT Functions
+</comment>
+
+
+<comment>
+OpenGL Functions
+</comment>
