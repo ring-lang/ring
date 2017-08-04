@@ -17,17 +17,12 @@ MyApp = New qApp {
                 setwindowmodality(true)
                 setFixedSize(290,280)
                 setwindowflags( qt_dialog & ~ qt_WindowMaximizeButtonHint)
-                //setGeometry(10,10,237,280)
-                
+               
                 
                 edit1 = new qlineedit(win1) {
 					setGeometry(10,10,270,32)
 					setalignment(Qt_AlignHCenter)
 					setreturnpressedevent("checkEnter()")
-					//setDisabled(true)
-					//QValidator("Acceptable")
-					//clicked("ccc()")
-					//connect("")
 					setStyleSheet("background-color: lightyellow;color:darkyellow;font-size: 15pt;")
                 }
                 
@@ -175,9 +170,6 @@ MyApp = New qApp {
         }		
         exec()
 }
-
-func ccc
-	see "x"
 
 func memo
         win2 = new qWidget() {
