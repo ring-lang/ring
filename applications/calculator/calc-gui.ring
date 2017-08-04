@@ -1,5 +1,3 @@
-# Author : Magdy Ragab
-
 load "guilib.ring"
 load "functions.ring"
 load "odbclib.ring"
@@ -26,6 +24,10 @@ MyApp = New qApp {
 					setGeometry(10,10,270,32)
 					setalignment(Qt_AlignHCenter)
 					setreturnpressedevent("checkEnter()")
+					//setDisabled(true)
+					//QValidator("Acceptable")
+					//clicked("ccc()")
+					//connect("")
 					setStyleSheet("background-color: lightyellow;color:darkyellow;font-size: 15pt;")
                 }
                 
@@ -122,15 +124,6 @@ MyApp = New qApp {
                         setStyleSheet(_style)
                 }
                 
-                
-                new qpushbutton(win1) {
-                        setGeometry(230,160,50,105)
-                        settext("=")
-                        setclickevent("checkEnter()")
-                        setStyleSheet("border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #fff, stop: 1 #cfc);")
-                }
-                
-                
                 new qpushbutton(win1) {
                         setGeometry(175,50,50,50)
                         settext("+")
@@ -148,6 +141,14 @@ MyApp = New qApp {
                         settext("*")
                         setclickevent("math('*')")
                         setStyleSheet(_style)
+
+                new qpushbutton(win1) {
+                        setGeometry(230,160,50,50)
+                        settext("=")
+                        setclickevent("checkEnter()")
+                        setStyleSheet("border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #fff, stop: 1 #cfc);")
+                }
+
                 }
                 new qpushbutton(win1) {
                         setGeometry(175,215,50,50)
@@ -155,15 +156,28 @@ MyApp = New qApp {
                         setclickevent("math('/')")
                         setStyleSheet(_style)
                 }
+
+                new qpushbutton(win1) {
+                        setGeometry(230,215,50,25)
+                        settext("(")
+                        setclickevent("math('(')")
+                        setStyleSheet(_style)
+                }
+
+                new qpushbutton(win1) {
+                        setGeometry(230,240,50,25)
+                        settext(")")
+                        setclickevent("math(')')")
+                        setStyleSheet(_style)
+                }
                 
                 show()
-        }
-		
+        }		
         exec()
-        
-        
-
 }
+
+func ccc
+	see "x"
 
 func memo
         win2 = new qWidget() {
