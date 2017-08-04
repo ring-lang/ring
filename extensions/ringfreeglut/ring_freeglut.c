@@ -189,6 +189,26 @@ RING_FUNC(ring_get_glut_key_f3)
 	RING_API_RETNUMBER(GLUT_KEY_F3);
 }
 
+RING_FUNC(ring_get_glut_key_left)
+{
+	RING_API_RETNUMBER(GLUT_KEY_LEFT);
+}
+
+RING_FUNC(ring_get_glut_key_right)
+{
+	RING_API_RETNUMBER(GLUT_KEY_RIGHT);
+}
+
+RING_FUNC(ring_get_glut_key_up)
+{
+	RING_API_RETNUMBER(GLUT_KEY_UP);
+}
+
+RING_FUNC(ring_get_glut_key_down)
+{
+	RING_API_RETNUMBER(GLUT_KEY_DOWN);
+}
+
 
 RING_FUNC(ring_glutInitDisplayMode)
 {
@@ -263,6 +283,54 @@ RING_FUNC(ring_glutMainLoop)
 	glutMainLoop();
 }
 
+
+RING_FUNC(ring_glutSolidSphere)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutSolidSphere( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_glutSolidCone)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutSolidCone( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
+}
+
 RING_FUNC(ring_get_gl_color_buffer_bit)
 {
 	RING_API_RETNUMBER(GL_COLOR_BUFFER_BIT);
@@ -291,6 +359,11 @@ RING_FUNC(ring_get_gl_projection)
 RING_FUNC(ring_get_gl_modelview)
 {
 	RING_API_RETNUMBER(GL_MODELVIEW);
+}
+
+RING_FUNC(ring_get_gl_quads)
+{
+	RING_API_RETNUMBER(GL_QUADS);
 }
 
 
@@ -543,6 +616,62 @@ RING_FUNC(ring_glRotatef)
 	glRotatef( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
 }
 
+
+RING_FUNC(ring_glTranslatef)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glTranslatef( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_glPushMatrix)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glPushMatrix();
+}
+
+
+RING_FUNC(ring_glPopMatrix)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glPopMatrix();
+}
+
+
+RING_FUNC(ring_glEnable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glEnable( (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
@@ -561,6 +690,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutinitwindowposition",ring_glutInitWindowPosition);
 	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
 	ring_vm_funcregister("glutmainloop",ring_glutMainLoop);
+	ring_vm_funcregister("glutsolidsphere",ring_glutSolidSphere);
+	ring_vm_funcregister("glutsolidcone",ring_glutSolidCone);
 	ring_vm_funcregister("glclear",ring_glClear);
 	ring_vm_funcregister("glcolor3f",ring_glColor3f);
 	ring_vm_funcregister("glbegin",ring_glBegin);
@@ -574,6 +705,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluperspective",ring_gluPerspective);
 	ring_vm_funcregister("glulookat",ring_gluLookAt);
 	ring_vm_funcregister("glrotatef",ring_glRotatef);
+	ring_vm_funcregister("gltranslatef",ring_glTranslatef);
+	ring_vm_funcregister("glpushmatrix",ring_glPushMatrix);
+	ring_vm_funcregister("glpopmatrix",ring_glPopMatrix);
+	ring_vm_funcregister("glenable",ring_glEnable);
 	ring_vm_funcregister("get_glut_single",ring_get_glut_single);
 	ring_vm_funcregister("get_glut_depth",ring_get_glut_depth);
 	ring_vm_funcregister("get_glut_double",ring_get_glut_double);
@@ -581,10 +716,15 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_key_f1",ring_get_glut_key_f1);
 	ring_vm_funcregister("get_glut_key_f2",ring_get_glut_key_f2);
 	ring_vm_funcregister("get_glut_key_f3",ring_get_glut_key_f3);
+	ring_vm_funcregister("get_glut_key_left",ring_get_glut_key_left);
+	ring_vm_funcregister("get_glut_key_right",ring_get_glut_key_right);
+	ring_vm_funcregister("get_glut_key_up",ring_get_glut_key_up);
+	ring_vm_funcregister("get_glut_key_down",ring_get_glut_key_down);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
 	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
 	ring_vm_funcregister("get_gl_triangles",ring_get_gl_triangles);
 	ring_vm_funcregister("get_gl_projection",ring_get_gl_projection);
 	ring_vm_funcregister("get_gl_modelview",ring_get_gl_modelview);
+	ring_vm_funcregister("get_gl_quads",ring_get_gl_quads);
 }

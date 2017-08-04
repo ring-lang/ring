@@ -189,6 +189,10 @@ GLUT_RGBA
 GLUT_KEY_F1
 GLUT_KEY_F2
 GLUT_KEY_F3
+GLUT_KEY_LEFT
+GLUT_KEY_RIGHT
+GLUT_KEY_UP
+GLUT_KEY_DOWN
 </constant>
 
 void glutInitDisplayMode(int)
@@ -196,7 +200,8 @@ void glutInitWindowSize(int, int)
 void glutInitWindowPosition(int, int)
 void glutCreateWindow(const char *)
 void glutMainLoop(void)
-
+void glutSolidSphere(float,float,float)
+void glutSolidCone(float,float,float,float)
 
 <comment>
 OpenGL  Constants and Functions
@@ -209,6 +214,7 @@ GL_POLYGON
 GL_TRIANGLES
 GL_PROJECTION
 GL_MODELVIEW
+GL_QUADS
 </constant>
 
 void glClear(int)
@@ -224,3 +230,7 @@ void glViewport(int,int,int,int)
 void gluPerspective(int,float,int,int)
 void gluLookAt(float,float,float,float,float,float,float,float,float)
 void glRotatef(float,float,float,float)
+void glTranslatef(float,float,float)
+void glPushMatrix(void)
+void glPopMatrix(void)
+void glEnable(int)
