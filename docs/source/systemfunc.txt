@@ -45,6 +45,8 @@ In this chapter we are going to learn about the system functions
 
 * Version()
 
+* Shutdown()
+
 .. index:: 
 	pair: System Functions; System() Function
 
@@ -464,3 +466,19 @@ Output:
 .. code-block:: ring
 
 	1.4.1
+
+
+.. index:: 
+	pair: System Functions; Shutdown() Function
+
+Shutdown() Function
+===================
+
+Close the application
+
+Syntax:
+
+.. code-block:: ring
+
+	shutdown(nStatus) ---> Close the application
+
