@@ -12,6 +12,18 @@
 char cDisplayFunction[250];
 VM *pRingVMObject ;
 
+
+RING_FUNC(ring_glutInit)
+{
+	VM *pVM ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	pVM = (VM *) pPointer ;
+	glutInit( & pVM->pRingState->argc, pVM->pRingState->argv);
+}
+
 void displayFunction(void)
 {
 	ring_vm_runcode(pRingVMObject,cDisplayFunction) ;
@@ -35,25 +47,6 @@ RING_FUNC(ring_glutDisplayFunc)
 RING_FUNC(ring_get_glut_single)
 {
 	RING_API_RETNUMBER(GLUT_SINGLE);
-}
-
-
-RING_FUNC(ring_glutInit)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	glutInit(RING_API_GETINTPOINTER(1),(char **) RING_API_GETCPOINTER2POINTER(2,"char"));
-	RING_API_ACCEPTINTVALUE(1) ;
 }
 
 
@@ -234,8 +227,8 @@ RING_FUNC(ring_glFlush)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("glutdisplayfunc",ring_glutDisplayFunc);
 	ring_vm_funcregister("glutinit",ring_glutInit);
+	ring_vm_funcregister("glutdisplayfunc",ring_glutDisplayFunc);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutinitwindowsize",ring_glutInitWindowSize);
 	ring_vm_funcregister("glutinitwindowposition",ring_glutInitWindowPosition);

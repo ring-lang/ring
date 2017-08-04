@@ -19,10 +19,23 @@ VM *pRingVMObject ;
 </code>
 
 <register>
+void glutInit(void)
 void glutDisplayFunc(const char *)
 </register>
 
 <code>
+
+RING_FUNC(ring_glutInit)
+{
+	VM *pVM ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	pVM = (VM *) pPointer ;
+	glutInit( & pVM->pRingState->argc, pVM->pRingState->argv);
+}
+
 void displayFunction(void)
 {
 	ring_vm_runcode(pRingVMObject,cDisplayFunction) ;
@@ -54,7 +67,6 @@ FreeGLUT Constants and Functions
 GLUT_SINGLE
 </constant>
 
-void glutInit(int *argc, char** argv)
 void glutInitDisplayMode(int)
 void glutInitWindowSize(int, int)
 void glutInitWindowPosition(int, int)
