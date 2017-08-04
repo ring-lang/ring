@@ -102,7 +102,7 @@ RING_FUNC(ring_glutIdleFunc)
 
 void KeyboardFunction(unsigned char key, int x, int y)
 {
-	nGLUTEventKey = key ;
+	nGLUTEventKey = (int) key ;
 	nGLUTEventX = x ;
 	nGLUTEventY = y ;
 	ring_vm_runcode(pRingVMObject,cKeyboardFunction) ;

@@ -37,9 +37,9 @@ int glutReshapeHeight(void)
 void glutIdleFunc(const char *)
 void glutKeyboardFunc(const char *)
 void glutSpecialFunc(const char *)
-void glutEventKey(void)
-void glutEventX(void)
-void glutEventY(void)
+int glutEventKey(void)
+int glutEventX(void)
+int glutEventY(void)
 </register>
 
 <code>
@@ -123,7 +123,7 @@ RING_FUNC(ring_glutIdleFunc)
 
 void KeyboardFunction(unsigned char key, int x, int y)
 {
-	nGLUTEventKey = key ;
+	nGLUTEventKey = (int) key ;
 	nGLUTEventX = x ;
 	nGLUTEventY = y ;
 	ring_vm_runcode(pRingVMObject,cKeyboardFunction) ;
