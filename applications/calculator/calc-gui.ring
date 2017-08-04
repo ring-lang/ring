@@ -7,10 +7,13 @@
  +---------------------------------------------------------------------------------------------------------
 */
 
-load "guilib.ring"
-load "functions.ring"
-load "odbclib.ring"
-load "sqlitelib.ring"
+# Load Ring Libraries
+	load "guilib.ring"
+	load "odbclib.ring"
+	load "sqlitelib.ring"
+
+# Load Applications Functions
+	load "functions.ring"
 
 _style="border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #eef, stop: 1 #ccf);"
 num1=0
