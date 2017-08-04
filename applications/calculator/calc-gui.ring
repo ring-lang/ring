@@ -3,7 +3,7 @@
  +     Program Name : Calculator
  +     Date         : 2016-2017
  +     Author       : Magdy Ragab
- +                      : Gal Zsolt (~ CalmoSoft ~)
+ +                  : Gal Zsolt (~ CalmoSoft ~)
  +---------------------------------------------------------------------------------------------------------
 */
 

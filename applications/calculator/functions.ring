@@ -3,7 +3,7 @@
  +     Program Name : Calculator
  +     Date         : 2016-2017
  +     Author       : Magdy Ragab
- +                      : Gal Zsolt (~ CalmoSoft ~)
+ +                  : Gal Zsolt (~ CalmoSoft ~)
  +---------------------------------------------------------------------------------------------------------
 */
 
@@ -28,7 +28,8 @@ func calcPercent
 
 func checkEnter
 	try
-                 enum= edit1.text()
+                 enum = edit1.text()
+                 enum = substr(enum, " ", "")
                  check = checkEdit()
                  if check = 0
                      new qmessagebox(win1) {
@@ -39,7 +40,6 @@ func checkEnter
                  else
                      per = substr(edit1.text(), "%")
                      if per > 0
-                        //number = number(left(enum, per - 1))
                         eval("number = " + left(enum, per - 1))
                         percent = number(substr(enum, per+1))
                         result = number*percent/100
@@ -73,6 +73,7 @@ func deletehistory
 
 func checkEdit
         enum= edit1.text()
+        enum = substr(enum, " ", "")
         flag = 1
         nflag = list(len(enum))
         for n = 1 to len(enum)
