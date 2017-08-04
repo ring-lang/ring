@@ -10,6 +10,9 @@
 #include <GL/glut.h>
 
 char cDisplayFunction[250];
+char cReshapeFunction[250];
+int nReshapeWidth ;
+int nReshapeHeight ;
 VM *pRingVMObject ;
 
 
@@ -42,7 +45,35 @@ RING_FUNC(ring_glutDisplayFunc)
 	}
 }
 
+void reshapeFunction(int w, int h)
+{
+	nReshapeWidth = w;
+	nReshapeHeight = h ;
+	ring_vm_runcode(pRingVMObject,cReshapeFunction) ;
+}
 
+RING_FUNC(ring_glutReshapeFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cReshapeFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutReshapeFunc(reshapeFunction);
+	}
+}
+
+RING_FUNC(ring_glutReshapeWidth)
+{
+	RING_API_RETNUMBER(nReshapeWidth);
+}
+
+RING_FUNC(ring_glutReshapeHeight)
+{
+	RING_API_RETNUMBER(nReshapeHeight);
+}
 
 RING_FUNC(ring_get_glut_single)
 {
@@ -264,6 +295,9 @@ RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
 	ring_vm_funcregister("glutdisplayfunc",ring_glutDisplayFunc);
+	ring_vm_funcregister("glutreshapefunc",ring_glutReshapeFunc);
+	ring_vm_funcregister("glutreshapewidth",ring_glutReshapeWidth);
+	ring_vm_funcregister("glutreshapeheight",ring_glutReshapeHeight);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutinitwindowsize",ring_glutInitWindowSize);
 	ring_vm_funcregister("glutinitwindowposition",ring_glutInitWindowPosition);

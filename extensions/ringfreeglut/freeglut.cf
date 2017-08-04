@@ -14,6 +14,9 @@
 </filter>
 
 char cDisplayFunction[250];
+char cReshapeFunction[250];
+int nReshapeWidth ;
+int nReshapeHeight ;
 VM *pRingVMObject ;
 
 </code>
@@ -21,6 +24,9 @@ VM *pRingVMObject ;
 <register>
 void glutInit(void)
 void glutDisplayFunc(const char *)
+void glutReshapeFunc(const char *)
+int glutReshapeWidth(void)
+int glutReshapeHeight(void)
 </register>
 
 <code>
@@ -54,7 +60,35 @@ RING_FUNC(ring_glutDisplayFunc)
 	}
 }
 
+void reshapeFunction(int w, int h)
+{
+	nReshapeWidth = w;
+	nReshapeHeight = h ;
+	ring_vm_runcode(pRingVMObject,cReshapeFunction) ;
+}
 
+RING_FUNC(ring_glutReshapeFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cReshapeFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutReshapeFunc(reshapeFunction);
+	}
+}
+
+RING_FUNC(ring_glutReshapeWidth)
+{
+	RING_API_RETNUMBER(nReshapeWidth);
+}
+
+RING_FUNC(ring_glutReshapeHeight)
+{
+	RING_API_RETNUMBER(nReshapeHeight);
+}
 
 </code>
 
