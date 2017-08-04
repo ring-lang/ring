@@ -1,5 +1,3 @@
-# Author : Magdy Ragab
-
 func typeNumbers x
 	edit1.settext(edit1.text()+x)
 
@@ -18,20 +16,27 @@ func clearCalc
 	edit1.settext("")
 
 func calcPercent
-	edit1.settext(""+ edit1.text()+"*100")
-
-
-
+	edit1.settext(""+ edit1.text()+"%")
 
 func checkEnter
 	try
-		enum= edit1.text()
-		eval("result="+enum)
-		edit1.settext( ""+result )
-		add2history(enum,result)
+                 per = substr(edit1.text(), "%")
+                 if per > 0
+                    enum= edit1.text()
+                    number = number(left(enum, per - 1))
+                    percent = number(substr(enum, per+1))
+                    result = number*percent/100
+                    edit1.settext( ""+result )
+	       add2history(enum,result)
+                 else                 
+	       enum= edit1.text()
+	       eval("result="+enum)
+	       edit1.settext( ""+result )
+	       add2history(enum,result)
+                 ok
 	catch
-		see nl+cCatchError+nl
-		edit1.settext( "NAN" )
+	       see nl+cCatchError+nl
+	       edit1.settext( "NAN" )
 	done
 	
 	
