@@ -120,6 +120,8 @@ GL_COLOR_BUFFER_BIT
 GL_DEPTH_BUFFER_BIT
 GL_POLYGON
 GL_TRIANGLES
+GL_PROJECTION
+GL_MODELVIEW
 </constant>
 
 void glClear(int)
@@ -129,3 +131,8 @@ void glVertex3f(float,float,float)
 void glEnd(void)
 void glFlush(void)
 void glutSwapBuffers(void)
+void glMatrixMode(int)
+void glLoadIdentity(void)
+void glViewport(int,int,int,int)
+void gluPerspective(int,float,int,int)
+
