@@ -9,6 +9,8 @@
 
 #include <GL/glut.h>
 
+char cDisplayFunction[250];
+
 RING_FUNC(ring_get_glut_single)
 {
 	RING_API_RETNUMBER(GLUT_SINGLE);

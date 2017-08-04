@@ -13,6 +13,8 @@
 #include <GL/glut.h>
 </filter>
 
+char cDisplayFunction[250];
+
 </code>
 
 <comment>
