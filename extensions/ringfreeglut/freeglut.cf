@@ -15,14 +15,27 @@
 
 </code>
 
+<comment>
+FreeGLUT Constants and Functions
+</comment>
+
 <constant>
+
 </constant>
 
-<comment>
-FreeGLUT Functions
-</comment>
-
 
 <comment>
-OpenGL Functions
+OpenGL  Constants and Functions
 </comment>
+
+<constant>
+GL_COLOR_BUFFER_BIT
+GL_POLYGON
+</constant>
+
+void glClear(int)
+void glColor3f(float,float,float)
+void glBegin(int)
+void glVertex3f(float,float,float)
+void glEnd(void)
+void glFlush(void)
