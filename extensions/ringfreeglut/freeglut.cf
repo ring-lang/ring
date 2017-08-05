@@ -299,6 +299,8 @@ GL_PROJECTION
 GL_MODELVIEW
 GL_QUADS
 GL_DEPTH_TEST
+GL_CW
+GL_CCW
 </constant>
 
 void glClear(GLbitfield)
@@ -319,3 +321,4 @@ void glPushMatrix(void)
 void glPopMatrix(void)
 void glEnable(int)
 void glDisable(int)
+void glFrontFace(int)

@@ -1051,6 +1051,16 @@ RING_FUNC(ring_get_gl_depth_test)
 	RING_API_RETNUMBER(GL_DEPTH_TEST);
 }
 
+RING_FUNC(ring_get_gl_cw)
+{
+	RING_API_RETNUMBER(GL_CW);
+}
+
+RING_FUNC(ring_get_gl_ccw)
+{
+	RING_API_RETNUMBER(GL_CCW);
+}
+
 
 RING_FUNC(ring_glClear)
 {
@@ -1371,6 +1381,20 @@ RING_FUNC(ring_glDisable)
 	glDisable( (int) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glFrontFace)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glFrontFace( (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
@@ -1444,6 +1468,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glpopmatrix",ring_glPopMatrix);
 	ring_vm_funcregister("glenable",ring_glEnable);
 	ring_vm_funcregister("gldisable",ring_glDisable);
+	ring_vm_funcregister("glfrontface",ring_glFrontFace);
 	ring_vm_funcregister("get_glut_single",ring_get_glut_single);
 	ring_vm_funcregister("get_glut_depth",ring_get_glut_depth);
 	ring_vm_funcregister("get_glut_double",ring_get_glut_double);
@@ -1497,4 +1522,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_modelview",ring_get_gl_modelview);
 	ring_vm_funcregister("get_gl_quads",ring_get_gl_quads);
 	ring_vm_funcregister("get_gl_depth_test",ring_get_gl_depth_test);
+	ring_vm_funcregister("get_gl_cw",ring_get_gl_cw);
+	ring_vm_funcregister("get_gl_ccw",ring_get_gl_ccw);
 }
