@@ -190,10 +190,18 @@ FreeGLUT Constants and Functions
 </comment>
 
 <constant>
-GLUT_SINGLE
-GLUT_DEPTH
-GLUT_DOUBLE 
-GLUT_RGBA
+GLUT_RGB                           
+GLUT_RGBA                         
+GLUT_INDEX                         
+GLUT_SINGLE                        
+GLUT_DOUBLE                        
+GLUT_ACCUM                     
+GLUT_ALPHA                     
+GLUT_DEPTH                     
+GLUT_STENCIL                    
+GLUT_MULTISAMPLE                
+GLUT_STEREO                    
+GLUT_LUMINANCE                     
 GLUT_KEY_F1
 GLUT_KEY_F2
 GLUT_KEY_F3

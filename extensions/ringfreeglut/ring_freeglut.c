@@ -154,14 +154,24 @@ RING_FUNC(ring_glutEventY) {
 	RING_API_RETNUMBER(nGLUTEventY);
 }
 
+RING_FUNC(ring_get_glut_rgb)
+{
+	RING_API_RETNUMBER(GLUT_RGB);
+}
+
+RING_FUNC(ring_get_glut_rgba)
+{
+	RING_API_RETNUMBER(GLUT_RGBA);
+}
+
+RING_FUNC(ring_get_glut_index)
+{
+	RING_API_RETNUMBER(GLUT_INDEX);
+}
+
 RING_FUNC(ring_get_glut_single)
 {
 	RING_API_RETNUMBER(GLUT_SINGLE);
-}
-
-RING_FUNC(ring_get_glut_depth)
-{
-	RING_API_RETNUMBER(GLUT_DEPTH);
 }
 
 RING_FUNC(ring_get_glut_double)
@@ -169,9 +179,39 @@ RING_FUNC(ring_get_glut_double)
 	RING_API_RETNUMBER(GLUT_DOUBLE);
 }
 
-RING_FUNC(ring_get_glut_rgba)
+RING_FUNC(ring_get_glut_accum)
 {
-	RING_API_RETNUMBER(GLUT_RGBA);
+	RING_API_RETNUMBER(GLUT_ACCUM);
+}
+
+RING_FUNC(ring_get_glut_alpha)
+{
+	RING_API_RETNUMBER(GLUT_ALPHA);
+}
+
+RING_FUNC(ring_get_glut_depth)
+{
+	RING_API_RETNUMBER(GLUT_DEPTH);
+}
+
+RING_FUNC(ring_get_glut_stencil)
+{
+	RING_API_RETNUMBER(GLUT_STENCIL);
+}
+
+RING_FUNC(ring_get_glut_multisample)
+{
+	RING_API_RETNUMBER(GLUT_MULTISAMPLE);
+}
+
+RING_FUNC(ring_get_glut_stereo)
+{
+	RING_API_RETNUMBER(GLUT_STEREO);
+}
+
+RING_FUNC(ring_get_glut_luminance)
+{
+	RING_API_RETNUMBER(GLUT_LUMINANCE);
 }
 
 RING_FUNC(ring_get_glut_key_f1)
@@ -1639,10 +1679,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glenable",ring_glEnable);
 	ring_vm_funcregister("gldisable",ring_glDisable);
 	ring_vm_funcregister("glfrontface",ring_glFrontFace);
-	ring_vm_funcregister("get_glut_single",ring_get_glut_single);
-	ring_vm_funcregister("get_glut_depth",ring_get_glut_depth);
-	ring_vm_funcregister("get_glut_double",ring_get_glut_double);
+	ring_vm_funcregister("get_glut_rgb",ring_get_glut_rgb);
 	ring_vm_funcregister("get_glut_rgba",ring_get_glut_rgba);
+	ring_vm_funcregister("get_glut_index",ring_get_glut_index);
+	ring_vm_funcregister("get_glut_single",ring_get_glut_single);
+	ring_vm_funcregister("get_glut_double",ring_get_glut_double);
+	ring_vm_funcregister("get_glut_accum",ring_get_glut_accum);
+	ring_vm_funcregister("get_glut_alpha",ring_get_glut_alpha);
+	ring_vm_funcregister("get_glut_depth",ring_get_glut_depth);
+	ring_vm_funcregister("get_glut_stencil",ring_get_glut_stencil);
+	ring_vm_funcregister("get_glut_multisample",ring_get_glut_multisample);
+	ring_vm_funcregister("get_glut_stereo",ring_get_glut_stereo);
+	ring_vm_funcregister("get_glut_luminance",ring_get_glut_luminance);
 	ring_vm_funcregister("get_glut_key_f1",ring_get_glut_key_f1);
 	ring_vm_funcregister("get_glut_key_f2",ring_get_glut_key_f2);
 	ring_vm_funcregister("get_glut_key_f3",ring_get_glut_key_f3);
