@@ -31,6 +31,7 @@ int nGLUTEventY ;
 <runcode>
 aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
+aEnumTypes + "GLfloat"
 </runcode>
 
 
@@ -255,6 +256,9 @@ int glutBitmapLength(void *font, char *string)
 void glutStrokeCharacter(void *font,int character)
 int glutStrokeWidth(void *font,int character)
 GLfloat glutStrokeWidthf(void *font,int character)
+int glutStrokeLength(void *font,char *string)
+GLfloat glutStrokeLengthf(void *font,char *string)
+
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)

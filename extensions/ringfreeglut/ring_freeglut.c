@@ -660,12 +660,43 @@ RING_FUNC(ring_glutStrokeWidthf)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		GLfloat *pValue ; 
-		pValue = (GLfloat *) malloc(sizeof(GLfloat)) ;
-		*pValue = glutStrokeWidthf((void *) RING_API_GETCPOINTER(1,"void"), (int ) RING_API_GETNUMBER(2));
-		RING_API_RETCPOINTER(pValue,"GLfloat");
+	RING_API_RETNUMBER(glutStrokeWidthf((void *) RING_API_GETCPOINTER(1,"void"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_glutStrokeLength)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
 	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glutStrokeLength((void *) RING_API_GETCPOINTER(1,"void"),RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_glutStrokeLengthf)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glutStrokeLengthf((void *) RING_API_GETCPOINTER(1,"void"),RING_API_GETSTRING(2)));
 }
 
 
@@ -1137,6 +1168,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutstrokecharacter",ring_glutStrokeCharacter);
 	ring_vm_funcregister("glutstrokewidth",ring_glutStrokeWidth);
 	ring_vm_funcregister("glutstrokewidthf",ring_glutStrokeWidthf);
+	ring_vm_funcregister("glutstrokelength",ring_glutStrokeLength);
+	ring_vm_funcregister("glutstrokelengthf",ring_glutStrokeLengthf);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
 	ring_vm_funcregister("glutsolidsphere",ring_glutSolidSphere);
