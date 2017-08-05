@@ -10,7 +10,7 @@ func main
 	glutInitDisplayMode(GLUT_SINGLE)
 	glutInitWindowSize(800, 600)
 	glutInitWindowPosition(100, 10)
-	glutCreateWindow("Learn OpenGL")
+	glutCreateWindow("RingFreeGLUT - Test 2")
 	glutDisplayFunc("displayCode()")
 	glutMainLoop()
 
