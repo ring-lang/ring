@@ -31,6 +31,8 @@ int nGLUTEventY ;
 <runcode>
 aNumberTypes + "GLint"
 aNumberTypes + "unsigned"
+aNumberTypes + "GLboolean"
+aNumberTypes + "GLdouble"
 aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
 aEnumTypes + "GLfloat"
@@ -49,6 +51,7 @@ void glutSpecialFunc(const char *)
 int glutEventKey(void)
 int glutEventX(void)
 int glutEventY(void)
+void test_draw(void)
 </register>
 
 <code>
@@ -184,6 +187,9 @@ RING_FUNC(ring_glutEventY) {
 	RING_API_RETNUMBER(nGLUTEventY);
 }
 
+RING_FUNC(ring_test_draw) {
+	// Reserved for Testing
+}
 </code>
 
 <comment>
@@ -462,6 +468,8 @@ GL_QUADS
 GL_DEPTH_TEST
 GL_CW
 GL_CCW
+GL_FALSE
+GL_TRUE
 </constant>
 
 void glClear(GLbitfield)
@@ -473,7 +481,7 @@ void glFlush(void)
 void glMatrixMode(int)
 void glLoadIdentity(void)
 void glViewport(int,int,int,int)
-void gluPerspective(int,float,int,int)
+void gluPerspective(GLdouble,GLdouble,GLdouble,GLdouble)
 void gluLookAt(float,float,float,float,float,float,float,float,float)
 void glRotatef(float,float,float,float)
 void glTranslatef(float,float,float)
@@ -482,3 +490,4 @@ void glPopMatrix(void)
 void glEnable(int)
 void glDisable(int)
 void glFrontFace(int)
+void glDepthMask(GLboolean flag)
