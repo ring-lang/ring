@@ -214,6 +214,111 @@ RING_FUNC(ring_get_glut_window_x)
 	RING_API_RETNUMBER(GLUT_WINDOW_X);
 }
 
+RING_FUNC(ring_get_glut_window_y)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_Y);
+}
+
+RING_FUNC(ring_get_glut_window_width)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_WIDTH);
+}
+
+RING_FUNC(ring_get_glut_window_height)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_HEIGHT);
+}
+
+RING_FUNC(ring_get_glut_window_depth_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_DEPTH_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_red_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_RED_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_green_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_GREEN_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_blue_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_BLUE_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_alpha_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_ALPHA_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_accum_red_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_ACCUM_RED_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_accum_green_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_ACCUM_GREEN_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_accum_blue_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_ACCUM_BLUE_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_accum_alpha_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_ACCUM_ALPHA_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_doublebuffer)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_DOUBLEBUFFER);
+}
+
+RING_FUNC(ring_get_glut_window_rgba)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_RGBA);
+}
+
+RING_FUNC(ring_get_glut_window_parent)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_PARENT);
+}
+
+RING_FUNC(ring_get_glut_window_num_children)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_NUM_CHILDREN);
+}
+
+RING_FUNC(ring_get_glut_window_colormap_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_COLORMAP_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_num_samples)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_NUM_SAMPLES);
+}
+
+RING_FUNC(ring_get_glut_window_stereo)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_STEREO);
+}
+
+RING_FUNC(ring_get_glut_window_cursor)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_CURSOR);
+}
+
+RING_FUNC(ring_get_glut_window_format_id)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_FORMAT_ID);
+}
+
 
 RING_FUNC(ring_glutInitWindowSize)
 {
@@ -887,6 +992,27 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_key_up",ring_get_glut_key_up);
 	ring_vm_funcregister("get_glut_key_down",ring_get_glut_key_down);
 	ring_vm_funcregister("get_glut_window_x",ring_get_glut_window_x);
+	ring_vm_funcregister("get_glut_window_y",ring_get_glut_window_y);
+	ring_vm_funcregister("get_glut_window_width",ring_get_glut_window_width);
+	ring_vm_funcregister("get_glut_window_height",ring_get_glut_window_height);
+	ring_vm_funcregister("get_glut_window_depth_size",ring_get_glut_window_depth_size);
+	ring_vm_funcregister("get_glut_window_red_size",ring_get_glut_window_red_size);
+	ring_vm_funcregister("get_glut_window_green_size",ring_get_glut_window_green_size);
+	ring_vm_funcregister("get_glut_window_blue_size",ring_get_glut_window_blue_size);
+	ring_vm_funcregister("get_glut_window_alpha_size",ring_get_glut_window_alpha_size);
+	ring_vm_funcregister("get_glut_window_accum_red_size",ring_get_glut_window_accum_red_size);
+	ring_vm_funcregister("get_glut_window_accum_green_size",ring_get_glut_window_accum_green_size);
+	ring_vm_funcregister("get_glut_window_accum_blue_size",ring_get_glut_window_accum_blue_size);
+	ring_vm_funcregister("get_glut_window_accum_alpha_size",ring_get_glut_window_accum_alpha_size);
+	ring_vm_funcregister("get_glut_window_doublebuffer",ring_get_glut_window_doublebuffer);
+	ring_vm_funcregister("get_glut_window_rgba",ring_get_glut_window_rgba);
+	ring_vm_funcregister("get_glut_window_parent",ring_get_glut_window_parent);
+	ring_vm_funcregister("get_glut_window_num_children",ring_get_glut_window_num_children);
+	ring_vm_funcregister("get_glut_window_colormap_size",ring_get_glut_window_colormap_size);
+	ring_vm_funcregister("get_glut_window_num_samples",ring_get_glut_window_num_samples);
+	ring_vm_funcregister("get_glut_window_stereo",ring_get_glut_window_stereo);
+	ring_vm_funcregister("get_glut_window_cursor",ring_get_glut_window_cursor);
+	ring_vm_funcregister("get_glut_window_format_id",ring_get_glut_window_format_id);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
 	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
