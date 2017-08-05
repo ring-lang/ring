@@ -261,6 +261,8 @@ int glutStrokeLength(void *font,char *string)
 GLfloat glutStrokeLengthf(void *font,char *string)
 void glutWireSphere(double dRadius,GLint slices,GLint stacks)
 void glutSolidSphere(double dRadius,GLint slices,GLint stacks)
+void glutWireTorus(double dInnerRadius, double dOuterRadius, GLint nSides, GLint nRings)
+void glutSolidTorus(double dInnerRadius, double dOuterRadius, GLint nSides, GLint nRings)
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
