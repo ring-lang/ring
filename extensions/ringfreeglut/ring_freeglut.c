@@ -2776,6 +2776,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluteventkey",ring_glutEventKey);
 	ring_vm_funcregister("gluteventx",ring_glutEventX);
 	ring_vm_funcregister("gluteventy",ring_glutEventY);
+	ring_vm_funcregister("gluteventbutton",ring_glutEventButton);
+	ring_vm_funcregister("gluteventstate",ring_glutEventState);
 	ring_vm_funcregister("test_draw",ring_test_draw);
 	ring_vm_funcregister("glutinitwindowposition",ring_glutInitWindowPosition);
 	ring_vm_funcregister("glutinitwindowsize",ring_glutInitWindowSize);

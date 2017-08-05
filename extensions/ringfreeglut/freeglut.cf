@@ -59,6 +59,8 @@ void glutMotionFunc(const char *)
 int glutEventKey(void)
 int glutEventX(void)
 int glutEventY(void)
+int glutEventButton(void)
+int glutEventState(void)
 void test_draw(void)
 </register>
 
