@@ -209,6 +209,11 @@ RING_FUNC(ring_get_glut_key_down)
 	RING_API_RETNUMBER(GLUT_KEY_DOWN);
 }
 
+RING_FUNC(ring_get_glut_window_x)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_X);
+}
+
 
 RING_FUNC(ring_glutInitWindowSize)
 {
@@ -369,6 +374,20 @@ RING_FUNC(ring_glutHideOverlay)
 		return ;
 	}
 	glutHideOverlay();
+}
+
+
+RING_FUNC(ring_glutGet)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glutGet( (int) RING_API_GETNUMBER(1)));
 }
 
 
@@ -833,6 +852,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutpostwindowoverlayredisplay",ring_glutPostWindowOverlayRedisplay);
 	ring_vm_funcregister("glutshowoverlay",ring_glutShowOverlay);
 	ring_vm_funcregister("gluthideoverlay",ring_glutHideOverlay);
+	ring_vm_funcregister("glutget",ring_glutGet);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
 	ring_vm_funcregister("glutsolidsphere",ring_glutSolidSphere);
@@ -866,6 +886,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_key_right",ring_get_glut_key_right);
 	ring_vm_funcregister("get_glut_key_up",ring_get_glut_key_up);
 	ring_vm_funcregister("get_glut_key_down",ring_get_glut_key_down);
+	ring_vm_funcregister("get_glut_window_x",ring_get_glut_window_x);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
 	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
