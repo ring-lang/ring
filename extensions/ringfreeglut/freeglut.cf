@@ -17,12 +17,12 @@
 VM *pRingVMObject ;
 char cDisplayFunction[250];
 char cReshapeFunction[250];
-int nReshapeWidth ;
-int nReshapeHeight ;
 char cIdleFunction[250];
 char cKeyboardFunction[250];
 char cSpecialFunction[250];
 char cSpecialUpFunction[250];
+int nGLUTEventWidth ;
+int nGLUTEventHeight ;
 int nGLUTEventKey ;
 int nGLUTEventX ;
 int nGLUTEventY ;
@@ -44,8 +44,8 @@ aEnumTypes + "GLfloat"
 void glutInit(void)
 void glutDisplayFunc(const char *)
 void glutReshapeFunc(const char *)
-int glutReshapeWidth(void)
-int glutReshapeHeight(void)
+int glutEventWidth(void)
+int glutEventHeight(void)
 void glutIdleFunc(const char *)
 void glutKeyboardFunc(const char *)
 void glutSpecialFunc(const char *)
@@ -89,8 +89,8 @@ RING_FUNC(ring_glutDisplayFunc)
 
 void reshapeFunction(int w, int h)
 {
-	nReshapeWidth = w;
-	nReshapeHeight = h ;
+	nGLUTEventWidth = w;
+	nGLUTEventHeight = h ;
 	ring_vm_runcode(pRingVMObject,cReshapeFunction) ;
 }
 
@@ -107,14 +107,14 @@ RING_FUNC(ring_glutReshapeFunc)
 	}
 }
 
-RING_FUNC(ring_glutReshapeWidth)
+RING_FUNC(ring_glutEventWidth)
 {
-	RING_API_RETNUMBER(nReshapeWidth);
+	RING_API_RETNUMBER(nGLUTEventWidth);
 }
 
-RING_FUNC(ring_glutReshapeHeight)
+RING_FUNC(ring_glutEventHeight)
 {
-	RING_API_RETNUMBER(nReshapeHeight);
+	RING_API_RETNUMBER(nGLUTEventHeight);
 }
 
 void IdleFunction(void)

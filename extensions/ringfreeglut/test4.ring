@@ -33,8 +33,8 @@ func renderScene
 
 func changesize
 
-	h = glutReshapeHeight()
-	w = glutReshapeWidth()
+	h = glutEventHeight()
+	w = glutEventWidth()
 
 		// Prevent a divide by zero, when window is too short
 	// (you cant make a window of zero width).

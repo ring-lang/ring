@@ -13,12 +13,12 @@
 VM *pRingVMObject ;
 char cDisplayFunction[250];
 char cReshapeFunction[250];
-int nReshapeWidth ;
-int nReshapeHeight ;
 char cIdleFunction[250];
 char cKeyboardFunction[250];
 char cSpecialFunction[250];
 char cSpecialUpFunction[250];
+int nGLUTEventWidth ;
+int nGLUTEventHeight ;
 int nGLUTEventKey ;
 int nGLUTEventX ;
 int nGLUTEventY ;
@@ -55,8 +55,8 @@ RING_FUNC(ring_glutDisplayFunc)
 
 void reshapeFunction(int w, int h)
 {
-	nReshapeWidth = w;
-	nReshapeHeight = h ;
+	nGLUTEventWidth = w;
+	nGLUTEventHeight = h ;
 	ring_vm_runcode(pRingVMObject,cReshapeFunction) ;
 }
 
@@ -73,14 +73,14 @@ RING_FUNC(ring_glutReshapeFunc)
 	}
 }
 
-RING_FUNC(ring_glutReshapeWidth)
+RING_FUNC(ring_glutEventWidth)
 {
-	RING_API_RETNUMBER(nReshapeWidth);
+	RING_API_RETNUMBER(nGLUTEventWidth);
 }
 
-RING_FUNC(ring_glutReshapeHeight)
+RING_FUNC(ring_glutEventHeight)
 {
-	RING_API_RETNUMBER(nReshapeHeight);
+	RING_API_RETNUMBER(nGLUTEventHeight);
 }
 
 void IdleFunction(void)
@@ -2713,8 +2713,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutinit",ring_glutInit);
 	ring_vm_funcregister("glutdisplayfunc",ring_glutDisplayFunc);
 	ring_vm_funcregister("glutreshapefunc",ring_glutReshapeFunc);
-	ring_vm_funcregister("glutreshapewidth",ring_glutReshapeWidth);
-	ring_vm_funcregister("glutreshapeheight",ring_glutReshapeHeight);
+	ring_vm_funcregister("gluteventwidth",ring_glutEventWidth);
+	ring_vm_funcregister("gluteventheight",ring_glutEventHeight);
 	ring_vm_funcregister("glutidlefunc",ring_glutIdleFunc);
 	ring_vm_funcregister("glutkeyboardfunc",ring_glutKeyboardFunc);
 	ring_vm_funcregister("glutspecialfunc",ring_glutSpecialFunc);

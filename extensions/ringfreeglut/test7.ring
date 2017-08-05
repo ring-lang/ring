@@ -42,8 +42,8 @@ func drawSnowMan
 
 
 func changeSize
-	w = glutReshapeWidth()
-	h = glutReshapeHeight()
+	w = glutEventWidth()
+	h = glutEventHeight()
 
 	// Prevent a divide by zero, when window is too short
 	// (you cant make a window of zero width).
