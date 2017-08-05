@@ -210,20 +210,6 @@ RING_FUNC(ring_get_glut_key_down)
 }
 
 
-RING_FUNC(ring_glutInitDisplayMode)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	glutInitDisplayMode( (int) RING_API_GETNUMBER(1));
-}
-
-
 RING_FUNC(ring_glutInitWindowSize)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -260,6 +246,68 @@ RING_FUNC(ring_glutInitWindowPosition)
 }
 
 
+RING_FUNC(ring_glutMainLoop)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glutMainLoop();
+}
+
+
+RING_FUNC(ring_glutSetWindowTitle)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutSetWindowTitle((char *) RING_API_GETCPOINTER(1,"char"));
+}
+
+
+RING_FUNC(ring_glutSetIconTitle)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutSetIconTitle((char *) RING_API_GETCPOINTER(1,"char"));
+}
+
+
+RING_FUNC(ring_glutFullScreen)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glutFullScreen();
+}
+
+
+RING_FUNC(ring_glutInitDisplayMode)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutInitDisplayMode( (int) RING_API_GETNUMBER(1));
+}
+
+
 RING_FUNC(ring_glutCreateWindow)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -271,16 +319,6 @@ RING_FUNC(ring_glutCreateWindow)
 		return ;
 	}
 	glutCreateWindow(RING_API_GETSTRING(1));
-}
-
-
-RING_FUNC(ring_glutMainLoop)
-{
-	if ( RING_API_PARACOUNT != 0 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	glutMainLoop();
 }
 
 
@@ -704,11 +742,14 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluteventkey",ring_glutEventKey);
 	ring_vm_funcregister("gluteventx",ring_glutEventX);
 	ring_vm_funcregister("gluteventy",ring_glutEventY);
-	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutinitwindowsize",ring_glutInitWindowSize);
 	ring_vm_funcregister("glutinitwindowposition",ring_glutInitWindowPosition);
-	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
 	ring_vm_funcregister("glutmainloop",ring_glutMainLoop);
+	ring_vm_funcregister("glutsetwindowtitle",ring_glutSetWindowTitle);
+	ring_vm_funcregister("glutseticontitle",ring_glutSetIconTitle);
+	ring_vm_funcregister("glutfullscreen",ring_glutFullScreen);
+	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
+	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
 	ring_vm_funcregister("glutsolidsphere",ring_glutSolidSphere);
 	ring_vm_funcregister("glutsolidcone",ring_glutSolidCone);
 	ring_vm_funcregister("glclear",ring_glClear);

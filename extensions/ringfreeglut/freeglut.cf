@@ -200,13 +200,20 @@ GLUT_KEY_UP
 GLUT_KEY_DOWN
 </constant>
 
-void glutInitDisplayMode(int)
 void glutInitWindowSize(int, int)
 void glutInitWindowPosition(int, int)
-void glutCreateWindow(const char *)
 void glutMainLoop(void)
+void glutSetWindowTitle(const char* title)
+void glutSetIconTitle(const char* title)
+void glutFullScreen(void)
+
+void glutInitDisplayMode(int)
+void glutCreateWindow(const char *)
 void glutSolidSphere(double,int,int)
 void glutSolidCone(double,double,int,int)
+
+
+
 
 <comment>
 OpenGL  Constants and Functions
