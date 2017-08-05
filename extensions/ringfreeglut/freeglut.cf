@@ -68,6 +68,7 @@ int glutEventY(void)
 int glutEventButton(void)
 int glutEventState(void)
 int glutEventValue(void)
+int glutEventStatus(void)
 void test_draw(void)
 </register>
 
@@ -257,10 +258,10 @@ RING_FUNC(ring_glutMotionFunc)
 
 void MenuFunction(int value)
 {
-	int nMenuID ;
+	int x;
 	nGLUTEventValue = value ;
-	nMenuID = glutGetMenu() ;
-	ring_vm_runcode(pRingVMObject,ring_list_getstring(pMenuFunctions, nMenuID ) ) ;
+	for (x = 1 ; x<= ring_list_getsize(pMenuFunctions) ; x ++ )
+		ring_vm_runcode(pRingVMObject,ring_list_getstring(pMenuFunctions, x ) ) ;
 }
 
 RING_FUNC(ring_glutCreateMenu) {
@@ -612,6 +613,9 @@ GL_CCW
 GL_FALSE
 GL_TRUE
 GL_CULL_FACE
+GL_FRONT
+GL_FILL
+GL_LINE
 </constant>
 
 void glClear(GLbitfield)
@@ -634,3 +638,4 @@ void glDisable(int)
 void glFrontFace(int)
 void glDepthMask(GLboolean flag)
 void glScalef(float,float,float)
+void glPolygonMode(int,int)
