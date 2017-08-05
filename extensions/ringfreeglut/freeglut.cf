@@ -273,6 +273,8 @@ void glutWireOctahedron(void)
 void glutSolidOctahedron(void)
 void glutWireDodecahedron(void)
 void glutSolidDodecahedron(void)
+void glutWireIcosahedron(void)
+void glutSolidIcosahedron(void)
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
