@@ -167,7 +167,7 @@ func main
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
 	glutInitWindowPosition(100,100)
 	glutInitWindowSize(320,320)
-	glutCreateWindow("Lighthouse3D - GLUT Tutorial")
+	glutCreateWindow("RingFreeGLUT - Test 7")
 
 	// register callbacks
 	glutDisplayFunc("renderScene()")
