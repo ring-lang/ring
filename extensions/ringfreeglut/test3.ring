@@ -1,3 +1,8 @@
+/*
+	This sample is based on C Tutorials 
+	from : http://www.lighthouse3d.com/tutorials/glut-tutorial/
+*/
+
 load "freeglut.ring"
 
 func main
