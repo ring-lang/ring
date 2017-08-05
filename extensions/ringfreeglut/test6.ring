@@ -95,19 +95,19 @@ func processSpecialKeys
 
 	key = GLUTEventKey()
 
-	switch key  {
-		case GLUT_KEY_F1
+	switch key  
+		on GLUT_KEY_F1
 				red = 1.0
 				green = 0.0
 				blue = 0.0
-		case GLUT_KEY_F2 
+		on GLUT_KEY_F2 
 				red = 0.0
 				green = 1.0
 				blue = 0.0
-		case GLUT_KEY_F3
+		on GLUT_KEY_F3
 				red = 0.0
 				green = 0.0
 				blue = 1.0
-	}
+	off
 
 
