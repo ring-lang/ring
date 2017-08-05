@@ -30,6 +30,7 @@ int nGLUTEventY ;
 
 <runcode>
 aEnumTypes + "GLbitfield"
+aEnumTypes + "GLenum"
 </runcode>
 
 
@@ -206,6 +207,10 @@ void glutMainLoop(void)
 void glutSetWindowTitle(const char* title)
 void glutSetIconTitle(const char* title)
 void glutFullScreen(void)
+void glutEstablishOverlay(void)
+void glutRemoveOverlay(void)
+void glutUseLayer(GLenum)
+void glutPostOverlayRedisplay(void)
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)

@@ -294,6 +294,50 @@ RING_FUNC(ring_glutFullScreen)
 }
 
 
+RING_FUNC(ring_glutEstablishOverlay)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glutEstablishOverlay();
+}
+
+
+RING_FUNC(ring_glutRemoveOverlay)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glutRemoveOverlay();
+}
+
+
+RING_FUNC(ring_glutUseLayer)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutUseLayer( (GLenum)  (int) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_glutPostOverlayRedisplay)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glutPostOverlayRedisplay();
+}
+
+
 RING_FUNC(ring_glutInitDisplayMode)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -748,6 +792,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutsetwindowtitle",ring_glutSetWindowTitle);
 	ring_vm_funcregister("glutseticontitle",ring_glutSetIconTitle);
 	ring_vm_funcregister("glutfullscreen",ring_glutFullScreen);
+	ring_vm_funcregister("glutestablishoverlay",ring_glutEstablishOverlay);
+	ring_vm_funcregister("glutremoveoverlay",ring_glutRemoveOverlay);
+	ring_vm_funcregister("glutuselayer",ring_glutUseLayer);
+	ring_vm_funcregister("glutpostoverlayredisplay",ring_glutPostOverlayRedisplay);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
 	ring_vm_funcregister("glutsolidsphere",ring_glutSolidSphere);
