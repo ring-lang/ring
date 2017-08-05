@@ -916,6 +916,26 @@ RING_FUNC(ring_glutSolidOctahedron)
 }
 
 
+RING_FUNC(ring_glutWireDodecahedron)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glutWireDodecahedron();
+}
+
+
+RING_FUNC(ring_glutSolidDodecahedron)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glutSolidDodecahedron();
+}
+
+
 RING_FUNC(ring_glutInitDisplayMode)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -1350,6 +1370,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutsolidtetrahedron",ring_glutSolidTetrahedron);
 	ring_vm_funcregister("glutwireoctahedron",ring_glutWireOctahedron);
 	ring_vm_funcregister("glutsolidoctahedron",ring_glutSolidOctahedron);
+	ring_vm_funcregister("glutwiredodecahedron",ring_glutWireDodecahedron);
+	ring_vm_funcregister("glutsoliddodecahedron",ring_glutSolidDodecahedron);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
 	ring_vm_funcregister("glclear",ring_glClear);
