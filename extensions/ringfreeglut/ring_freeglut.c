@@ -17,11 +17,15 @@ char cIdleFunction[250];
 char cKeyboardFunction[250];
 char cSpecialFunction[250];
 char cSpecialUpFunction[250];
+char cMouseFunction[250];
+char cMotionFunction[250];
 int nGLUTEventWidth ;
 int nGLUTEventHeight ;
 int nGLUTEventKey ;
 int nGLUTEventX ;
 int nGLUTEventY ;
+int nGLUTEventButton ;
+int nGLUTEventState ;
 
 
 RING_FUNC(ring_glutInit)
@@ -164,7 +168,47 @@ RING_FUNC(ring_glutSpecialUpFunc)
 	}
 }
 
+void MouseFunction(int button,int state, int x, int y)
+{
+	nGLUTEventButton = button ;
+	nGLUTEventState = state ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cMouseFunction) ;
+}
 
+RING_FUNC(ring_glutMouseFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cMouseFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutMouseFunc(MouseFunction);
+	}
+}
+
+void MotionFunction(int x, int y)
+{
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cMotionFunction) ;
+}
+
+RING_FUNC(ring_glutMotionFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cMotionFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutMotionFunc(MotionFunction);
+	}
+}
 
 
 RING_FUNC(ring_glutEventKey) {
@@ -177,6 +221,14 @@ RING_FUNC(ring_glutEventX) {
 
 RING_FUNC(ring_glutEventY) {
 	RING_API_RETNUMBER(nGLUTEventY);
+}
+
+RING_FUNC(ring_glutEventButton) {
+	RING_API_RETNUMBER(nGLUTEventButton);
+}
+
+RING_FUNC(ring_glutEventState) {
+	RING_API_RETNUMBER(nGLUTEventState);
 }
 
 RING_FUNC(ring_test_draw) {
@@ -2719,6 +2771,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutkeyboardfunc",ring_glutKeyboardFunc);
 	ring_vm_funcregister("glutspecialfunc",ring_glutSpecialFunc);
 	ring_vm_funcregister("glutspecialupfunc",ring_glutSpecialUpFunc);
+	ring_vm_funcregister("glutmousefunc",ring_glutMouseFunc);
+	ring_vm_funcregister("glutmotionfunc",ring_glutMotionFunc);
 	ring_vm_funcregister("gluteventkey",ring_glutEventKey);
 	ring_vm_funcregister("gluteventx",ring_glutEventX);
 	ring_vm_funcregister("gluteventy",ring_glutEventY);

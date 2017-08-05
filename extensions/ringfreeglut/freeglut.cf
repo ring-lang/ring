@@ -21,11 +21,15 @@ char cIdleFunction[250];
 char cKeyboardFunction[250];
 char cSpecialFunction[250];
 char cSpecialUpFunction[250];
+char cMouseFunction[250];
+char cMotionFunction[250];
 int nGLUTEventWidth ;
 int nGLUTEventHeight ;
 int nGLUTEventKey ;
 int nGLUTEventX ;
 int nGLUTEventY ;
+int nGLUTEventButton ;
+int nGLUTEventState ;
 
 </code>
 
@@ -50,6 +54,8 @@ void glutIdleFunc(const char *)
 void glutKeyboardFunc(const char *)
 void glutSpecialFunc(const char *)
 void glutSpecialUpFunc(const char *)
+void glutMouseFunc(const char *)
+void glutMotionFunc(const char *)
 int glutEventKey(void)
 int glutEventX(void)
 int glutEventY(void)
@@ -198,7 +204,47 @@ RING_FUNC(ring_glutSpecialUpFunc)
 	}
 }
 
+void MouseFunction(int button,int state, int x, int y)
+{
+	nGLUTEventButton = button ;
+	nGLUTEventState = state ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cMouseFunction) ;
+}
 
+RING_FUNC(ring_glutMouseFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cMouseFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutMouseFunc(MouseFunction);
+	}
+}
+
+void MotionFunction(int x, int y)
+{
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cMotionFunction) ;
+}
+
+RING_FUNC(ring_glutMotionFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cMotionFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutMotionFunc(MotionFunction);
+	}
+}
 
 
 RING_FUNC(ring_glutEventKey) {
@@ -211,6 +257,14 @@ RING_FUNC(ring_glutEventX) {
 
 RING_FUNC(ring_glutEventY) {
 	RING_API_RETNUMBER(nGLUTEventY);
+}
+
+RING_FUNC(ring_glutEventButton) {
+	RING_API_RETNUMBER(nGLUTEventButton);
+}
+
+RING_FUNC(ring_glutEventState) {
+	RING_API_RETNUMBER(nGLUTEventState);
 }
 
 RING_FUNC(ring_test_draw) {
