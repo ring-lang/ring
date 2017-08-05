@@ -700,6 +700,50 @@ RING_FUNC(ring_glutStrokeLengthf)
 }
 
 
+RING_FUNC(ring_glutWireSphere)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutWireSphere( (double ) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_glutSolidSphere)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutSolidSphere( (double ) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3));
+}
+
+
 RING_FUNC(ring_glutInitDisplayMode)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -725,28 +769,6 @@ RING_FUNC(ring_glutCreateWindow)
 		return ;
 	}
 	glutCreateWindow(RING_API_GETSTRING(1));
-}
-
-
-RING_FUNC(ring_glutSolidSphere)
-{
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	glutSolidSphere( (double) RING_API_GETNUMBER(1), (int) RING_API_GETNUMBER(2), (int) RING_API_GETNUMBER(3));
 }
 
 
@@ -1170,9 +1192,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutstrokewidthf",ring_glutStrokeWidthf);
 	ring_vm_funcregister("glutstrokelength",ring_glutStrokeLength);
 	ring_vm_funcregister("glutstrokelengthf",ring_glutStrokeLengthf);
+	ring_vm_funcregister("glutwiresphere",ring_glutWireSphere);
+	ring_vm_funcregister("glutsolidsphere",ring_glutSolidSphere);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
-	ring_vm_funcregister("glutsolidsphere",ring_glutSolidSphere);
 	ring_vm_funcregister("glutsolidcone",ring_glutSolidCone);
 	ring_vm_funcregister("glclear",ring_glClear);
 	ring_vm_funcregister("glcolor3f",ring_glColor3f);

@@ -29,6 +29,7 @@ int nGLUTEventY ;
 </code>
 
 <runcode>
+aNumberTypes + "GLint"
 aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
 aEnumTypes + "GLfloat"
@@ -258,11 +259,11 @@ int glutStrokeWidth(void *font,int character)
 GLfloat glutStrokeWidthf(void *font,int character)
 int glutStrokeLength(void *font,char *string)
 GLfloat glutStrokeLengthf(void *font,char *string)
-
+void glutWireSphere(double dRadius,GLint slices,GLint stacks)
+void glutSolidSphere(double dRadius,GLint slices,GLint stacks)
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
-void glutSolidSphere(double,int,int)
 void glutSolidCone(double,double,int,int)
 
 
