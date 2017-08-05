@@ -354,41 +354,6 @@ RING_FUNC(ring_get_glut_entered)
 	RING_API_RETNUMBER(GLUT_ENTERED);
 }
 
-RING_FUNC(ring_get_glut_game_mode_active)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_ACTIVE);
-}
-
-RING_FUNC(ring_get_glut_game_mode_display_changed)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_DISPLAY_CHANGED);
-}
-
-RING_FUNC(ring_get_glut_game_mode_possible)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_POSSIBLE);
-}
-
-RING_FUNC(ring_get_glut_game_mode_width)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_WIDTH);
-}
-
-RING_FUNC(ring_get_glut_game_mode_height)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_HEIGHT);
-}
-
-RING_FUNC(ring_get_glut_game_mode_pixel_depth)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_PIXEL_DEPTH);
-}
-
-RING_FUNC(ring_get_glut_game_mode_refresh_rate)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_REFRESH_RATE);
-}
-
 RING_FUNC(ring_get_glut_menu_not_in_use)
 {
 	RING_API_RETNUMBER(GLUT_MENU_NOT_IN_USE);
@@ -607,6 +572,396 @@ RING_FUNC(ring_get_glut_elapsed_time)
 RING_FUNC(ring_get_glut_window_format_id)
 {
 	RING_API_RETNUMBER(GLUT_WINDOW_FORMAT_ID);
+}
+
+RING_FUNC(ring_get_glut_has_keyboard)
+{
+	RING_API_RETNUMBER(GLUT_HAS_KEYBOARD);
+}
+
+RING_FUNC(ring_get_glut_has_mouse)
+{
+	RING_API_RETNUMBER(GLUT_HAS_MOUSE);
+}
+
+RING_FUNC(ring_get_glut_has_spaceball)
+{
+	RING_API_RETNUMBER(GLUT_HAS_SPACEBALL);
+}
+
+RING_FUNC(ring_get_glut_has_dial_and_button_box)
+{
+	RING_API_RETNUMBER(GLUT_HAS_DIAL_AND_BUTTON_BOX);
+}
+
+RING_FUNC(ring_get_glut_has_tablet)
+{
+	RING_API_RETNUMBER(GLUT_HAS_TABLET);
+}
+
+RING_FUNC(ring_get_glut_num_mouse_buttons)
+{
+	RING_API_RETNUMBER(GLUT_NUM_MOUSE_BUTTONS);
+}
+
+RING_FUNC(ring_get_glut_num_spaceball_buttons)
+{
+	RING_API_RETNUMBER(GLUT_NUM_SPACEBALL_BUTTONS);
+}
+
+RING_FUNC(ring_get_glut_num_button_box_buttons)
+{
+	RING_API_RETNUMBER(GLUT_NUM_BUTTON_BOX_BUTTONS);
+}
+
+RING_FUNC(ring_get_glut_num_dials)
+{
+	RING_API_RETNUMBER(GLUT_NUM_DIALS);
+}
+
+RING_FUNC(ring_get_glut_num_tablet_buttons)
+{
+	RING_API_RETNUMBER(GLUT_NUM_TABLET_BUTTONS);
+}
+
+RING_FUNC(ring_get_glut_device_ignore_key_repeat)
+{
+	RING_API_RETNUMBER(GLUT_DEVICE_IGNORE_KEY_REPEAT);
+}
+
+RING_FUNC(ring_get_glut_device_key_repeat)
+{
+	RING_API_RETNUMBER(GLUT_DEVICE_KEY_REPEAT);
+}
+
+RING_FUNC(ring_get_glut_has_joystick)
+{
+	RING_API_RETNUMBER(GLUT_HAS_JOYSTICK);
+}
+
+RING_FUNC(ring_get_glut_owns_joystick)
+{
+	RING_API_RETNUMBER(GLUT_OWNS_JOYSTICK);
+}
+
+RING_FUNC(ring_get_glut_joystick_buttons)
+{
+	RING_API_RETNUMBER(GLUT_JOYSTICK_BUTTONS);
+}
+
+RING_FUNC(ring_get_glut_joystick_axes)
+{
+	RING_API_RETNUMBER(GLUT_JOYSTICK_AXES);
+}
+
+RING_FUNC(ring_get_glut_joystick_poll_rate)
+{
+	RING_API_RETNUMBER(GLUT_JOYSTICK_POLL_RATE);
+}
+
+RING_FUNC(ring_get_glut_overlay_possible)
+{
+	RING_API_RETNUMBER(GLUT_OVERLAY_POSSIBLE);
+}
+
+RING_FUNC(ring_get_glut_layer_in_use)
+{
+	RING_API_RETNUMBER(GLUT_LAYER_IN_USE);
+}
+
+RING_FUNC(ring_get_glut_has_overlay)
+{
+	RING_API_RETNUMBER(GLUT_HAS_OVERLAY);
+}
+
+RING_FUNC(ring_get_glut_transparent_index)
+{
+	RING_API_RETNUMBER(GLUT_TRANSPARENT_INDEX);
+}
+
+RING_FUNC(ring_get_glut_normal_damaged)
+{
+	RING_API_RETNUMBER(GLUT_NORMAL_DAMAGED);
+}
+
+RING_FUNC(ring_get_glut_overlay_damaged)
+{
+	RING_API_RETNUMBER(GLUT_OVERLAY_DAMAGED);
+}
+
+RING_FUNC(ring_get_glut_video_resize_possible)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_POSSIBLE);
+}
+
+RING_FUNC(ring_get_glut_video_resize_in_use)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_IN_USE);
+}
+
+RING_FUNC(ring_get_glut_video_resize_x_delta)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_X_DELTA);
+}
+
+RING_FUNC(ring_get_glut_video_resize_y_delta)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_Y_DELTA);
+}
+
+RING_FUNC(ring_get_glut_video_resize_width_delta)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_WIDTH_DELTA);
+}
+
+RING_FUNC(ring_get_glut_video_resize_height_delta)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_HEIGHT_DELTA);
+}
+
+RING_FUNC(ring_get_glut_video_resize_x)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_X);
+}
+
+RING_FUNC(ring_get_glut_video_resize_y)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_Y);
+}
+
+RING_FUNC(ring_get_glut_video_resize_width)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_WIDTH);
+}
+
+RING_FUNC(ring_get_glut_video_resize_height)
+{
+	RING_API_RETNUMBER(GLUT_VIDEO_RESIZE_HEIGHT);
+}
+
+RING_FUNC(ring_get_glut_normal)
+{
+	RING_API_RETNUMBER(GLUT_NORMAL);
+}
+
+RING_FUNC(ring_get_glut_overlay)
+{
+	RING_API_RETNUMBER(GLUT_OVERLAY);
+}
+
+RING_FUNC(ring_get_glut_active_shift)
+{
+	RING_API_RETNUMBER(GLUT_ACTIVE_SHIFT);
+}
+
+RING_FUNC(ring_get_glut_active_ctrl)
+{
+	RING_API_RETNUMBER(GLUT_ACTIVE_CTRL);
+}
+
+RING_FUNC(ring_get_glut_active_alt)
+{
+	RING_API_RETNUMBER(GLUT_ACTIVE_ALT);
+}
+
+RING_FUNC(ring_get_glut_cursor_right_arrow)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_RIGHT_ARROW);
+}
+
+RING_FUNC(ring_get_glut_cursor_left_arrow)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_LEFT_ARROW);
+}
+
+RING_FUNC(ring_get_glut_cursor_info)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_INFO);
+}
+
+RING_FUNC(ring_get_glut_cursor_destroy)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_DESTROY);
+}
+
+RING_FUNC(ring_get_glut_cursor_help)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_HELP);
+}
+
+RING_FUNC(ring_get_glut_cursor_cycle)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_CYCLE);
+}
+
+RING_FUNC(ring_get_glut_cursor_spray)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_SPRAY);
+}
+
+RING_FUNC(ring_get_glut_cursor_wait)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_WAIT);
+}
+
+RING_FUNC(ring_get_glut_cursor_text)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_TEXT);
+}
+
+RING_FUNC(ring_get_glut_cursor_crosshair)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_CROSSHAIR);
+}
+
+RING_FUNC(ring_get_glut_cursor_up_down)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_UP_DOWN);
+}
+
+RING_FUNC(ring_get_glut_cursor_left_right)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_LEFT_RIGHT);
+}
+
+RING_FUNC(ring_get_glut_cursor_top_side)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_TOP_SIDE);
+}
+
+RING_FUNC(ring_get_glut_cursor_bottom_side)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_BOTTOM_SIDE);
+}
+
+RING_FUNC(ring_get_glut_cursor_left_side)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_LEFT_SIDE);
+}
+
+RING_FUNC(ring_get_glut_cursor_right_side)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_RIGHT_SIDE);
+}
+
+RING_FUNC(ring_get_glut_cursor_top_left_corner)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_TOP_LEFT_CORNER);
+}
+
+RING_FUNC(ring_get_glut_cursor_top_right_corner)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_TOP_RIGHT_CORNER);
+}
+
+RING_FUNC(ring_get_glut_cursor_bottom_right_corner)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_BOTTOM_RIGHT_CORNER);
+}
+
+RING_FUNC(ring_get_glut_cursor_bottom_left_corner)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_BOTTOM_LEFT_CORNER);
+}
+
+RING_FUNC(ring_get_glut_cursor_inherit)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_INHERIT);
+}
+
+RING_FUNC(ring_get_glut_cursor_none)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_NONE);
+}
+
+RING_FUNC(ring_get_glut_cursor_full_crosshair)
+{
+	RING_API_RETNUMBER(GLUT_CURSOR_FULL_CROSSHAIR);
+}
+
+RING_FUNC(ring_get_glut_red)
+{
+	RING_API_RETNUMBER(GLUT_RED);
+}
+
+RING_FUNC(ring_get_glut_green)
+{
+	RING_API_RETNUMBER(GLUT_GREEN);
+}
+
+RING_FUNC(ring_get_glut_blue)
+{
+	RING_API_RETNUMBER(GLUT_BLUE);
+}
+
+RING_FUNC(ring_get_glut_key_repeat_off)
+{
+	RING_API_RETNUMBER(GLUT_KEY_REPEAT_OFF);
+}
+
+RING_FUNC(ring_get_glut_key_repeat_on)
+{
+	RING_API_RETNUMBER(GLUT_KEY_REPEAT_ON);
+}
+
+RING_FUNC(ring_get_glut_key_repeat_default)
+{
+	RING_API_RETNUMBER(GLUT_KEY_REPEAT_DEFAULT);
+}
+
+RING_FUNC(ring_get_glut_joystick_button_a)
+{
+	RING_API_RETNUMBER(GLUT_JOYSTICK_BUTTON_A);
+}
+
+RING_FUNC(ring_get_glut_joystick_button_b)
+{
+	RING_API_RETNUMBER(GLUT_JOYSTICK_BUTTON_B);
+}
+
+RING_FUNC(ring_get_glut_joystick_button_c)
+{
+	RING_API_RETNUMBER(GLUT_JOYSTICK_BUTTON_C);
+}
+
+RING_FUNC(ring_get_glut_joystick_button_d)
+{
+	RING_API_RETNUMBER(GLUT_JOYSTICK_BUTTON_D);
+}
+
+RING_FUNC(ring_get_glut_game_mode_active)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_ACTIVE);
+}
+
+RING_FUNC(ring_get_glut_game_mode_possible)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_POSSIBLE);
+}
+
+RING_FUNC(ring_get_glut_game_mode_width)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_WIDTH);
+}
+
+RING_FUNC(ring_get_glut_game_mode_height)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_HEIGHT);
+}
+
+RING_FUNC(ring_get_glut_game_mode_pixel_depth)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_PIXEL_DEPTH);
+}
+
+RING_FUNC(ring_get_glut_game_mode_refresh_rate)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_REFRESH_RATE);
+}
+
+RING_FUNC(ring_get_glut_game_mode_display_changed)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_DISPLAY_CHANGED);
 }
 
 
@@ -1769,13 +2124,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_up",ring_get_glut_up);
 	ring_vm_funcregister("get_glut_left",ring_get_glut_left);
 	ring_vm_funcregister("get_glut_entered",ring_get_glut_entered);
-	ring_vm_funcregister("get_glut_game_mode_active",ring_get_glut_game_mode_active);
-	ring_vm_funcregister("get_glut_game_mode_display_changed",ring_get_glut_game_mode_display_changed);
-	ring_vm_funcregister("get_glut_game_mode_possible",ring_get_glut_game_mode_possible);
-	ring_vm_funcregister("get_glut_game_mode_width",ring_get_glut_game_mode_width);
-	ring_vm_funcregister("get_glut_game_mode_height",ring_get_glut_game_mode_height);
-	ring_vm_funcregister("get_glut_game_mode_pixel_depth",ring_get_glut_game_mode_pixel_depth);
-	ring_vm_funcregister("get_glut_game_mode_refresh_rate",ring_get_glut_game_mode_refresh_rate);
 	ring_vm_funcregister("get_glut_menu_not_in_use",ring_get_glut_menu_not_in_use);
 	ring_vm_funcregister("get_glut_menu_in_use",ring_get_glut_menu_in_use);
 	ring_vm_funcregister("get_glut_not_visible",ring_get_glut_not_visible);
@@ -1820,6 +2168,84 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_init_display_mode",ring_get_glut_init_display_mode);
 	ring_vm_funcregister("get_glut_elapsed_time",ring_get_glut_elapsed_time);
 	ring_vm_funcregister("get_glut_window_format_id",ring_get_glut_window_format_id);
+	ring_vm_funcregister("get_glut_has_keyboard",ring_get_glut_has_keyboard);
+	ring_vm_funcregister("get_glut_has_mouse",ring_get_glut_has_mouse);
+	ring_vm_funcregister("get_glut_has_spaceball",ring_get_glut_has_spaceball);
+	ring_vm_funcregister("get_glut_has_dial_and_button_box",ring_get_glut_has_dial_and_button_box);
+	ring_vm_funcregister("get_glut_has_tablet",ring_get_glut_has_tablet);
+	ring_vm_funcregister("get_glut_num_mouse_buttons",ring_get_glut_num_mouse_buttons);
+	ring_vm_funcregister("get_glut_num_spaceball_buttons",ring_get_glut_num_spaceball_buttons);
+	ring_vm_funcregister("get_glut_num_button_box_buttons",ring_get_glut_num_button_box_buttons);
+	ring_vm_funcregister("get_glut_num_dials",ring_get_glut_num_dials);
+	ring_vm_funcregister("get_glut_num_tablet_buttons",ring_get_glut_num_tablet_buttons);
+	ring_vm_funcregister("get_glut_device_ignore_key_repeat",ring_get_glut_device_ignore_key_repeat);
+	ring_vm_funcregister("get_glut_device_key_repeat",ring_get_glut_device_key_repeat);
+	ring_vm_funcregister("get_glut_has_joystick",ring_get_glut_has_joystick);
+	ring_vm_funcregister("get_glut_owns_joystick",ring_get_glut_owns_joystick);
+	ring_vm_funcregister("get_glut_joystick_buttons",ring_get_glut_joystick_buttons);
+	ring_vm_funcregister("get_glut_joystick_axes",ring_get_glut_joystick_axes);
+	ring_vm_funcregister("get_glut_joystick_poll_rate",ring_get_glut_joystick_poll_rate);
+	ring_vm_funcregister("get_glut_overlay_possible",ring_get_glut_overlay_possible);
+	ring_vm_funcregister("get_glut_layer_in_use",ring_get_glut_layer_in_use);
+	ring_vm_funcregister("get_glut_has_overlay",ring_get_glut_has_overlay);
+	ring_vm_funcregister("get_glut_transparent_index",ring_get_glut_transparent_index);
+	ring_vm_funcregister("get_glut_normal_damaged",ring_get_glut_normal_damaged);
+	ring_vm_funcregister("get_glut_overlay_damaged",ring_get_glut_overlay_damaged);
+	ring_vm_funcregister("get_glut_video_resize_possible",ring_get_glut_video_resize_possible);
+	ring_vm_funcregister("get_glut_video_resize_in_use",ring_get_glut_video_resize_in_use);
+	ring_vm_funcregister("get_glut_video_resize_x_delta",ring_get_glut_video_resize_x_delta);
+	ring_vm_funcregister("get_glut_video_resize_y_delta",ring_get_glut_video_resize_y_delta);
+	ring_vm_funcregister("get_glut_video_resize_width_delta",ring_get_glut_video_resize_width_delta);
+	ring_vm_funcregister("get_glut_video_resize_height_delta",ring_get_glut_video_resize_height_delta);
+	ring_vm_funcregister("get_glut_video_resize_x",ring_get_glut_video_resize_x);
+	ring_vm_funcregister("get_glut_video_resize_y",ring_get_glut_video_resize_y);
+	ring_vm_funcregister("get_glut_video_resize_width",ring_get_glut_video_resize_width);
+	ring_vm_funcregister("get_glut_video_resize_height",ring_get_glut_video_resize_height);
+	ring_vm_funcregister("get_glut_normal",ring_get_glut_normal);
+	ring_vm_funcregister("get_glut_overlay",ring_get_glut_overlay);
+	ring_vm_funcregister("get_glut_active_shift",ring_get_glut_active_shift);
+	ring_vm_funcregister("get_glut_active_ctrl",ring_get_glut_active_ctrl);
+	ring_vm_funcregister("get_glut_active_alt",ring_get_glut_active_alt);
+	ring_vm_funcregister("get_glut_cursor_right_arrow",ring_get_glut_cursor_right_arrow);
+	ring_vm_funcregister("get_glut_cursor_left_arrow",ring_get_glut_cursor_left_arrow);
+	ring_vm_funcregister("get_glut_cursor_info",ring_get_glut_cursor_info);
+	ring_vm_funcregister("get_glut_cursor_destroy",ring_get_glut_cursor_destroy);
+	ring_vm_funcregister("get_glut_cursor_help",ring_get_glut_cursor_help);
+	ring_vm_funcregister("get_glut_cursor_cycle",ring_get_glut_cursor_cycle);
+	ring_vm_funcregister("get_glut_cursor_spray",ring_get_glut_cursor_spray);
+	ring_vm_funcregister("get_glut_cursor_wait",ring_get_glut_cursor_wait);
+	ring_vm_funcregister("get_glut_cursor_text",ring_get_glut_cursor_text);
+	ring_vm_funcregister("get_glut_cursor_crosshair",ring_get_glut_cursor_crosshair);
+	ring_vm_funcregister("get_glut_cursor_up_down",ring_get_glut_cursor_up_down);
+	ring_vm_funcregister("get_glut_cursor_left_right",ring_get_glut_cursor_left_right);
+	ring_vm_funcregister("get_glut_cursor_top_side",ring_get_glut_cursor_top_side);
+	ring_vm_funcregister("get_glut_cursor_bottom_side",ring_get_glut_cursor_bottom_side);
+	ring_vm_funcregister("get_glut_cursor_left_side",ring_get_glut_cursor_left_side);
+	ring_vm_funcregister("get_glut_cursor_right_side",ring_get_glut_cursor_right_side);
+	ring_vm_funcregister("get_glut_cursor_top_left_corner",ring_get_glut_cursor_top_left_corner);
+	ring_vm_funcregister("get_glut_cursor_top_right_corner",ring_get_glut_cursor_top_right_corner);
+	ring_vm_funcregister("get_glut_cursor_bottom_right_corner",ring_get_glut_cursor_bottom_right_corner);
+	ring_vm_funcregister("get_glut_cursor_bottom_left_corner",ring_get_glut_cursor_bottom_left_corner);
+	ring_vm_funcregister("get_glut_cursor_inherit",ring_get_glut_cursor_inherit);
+	ring_vm_funcregister("get_glut_cursor_none",ring_get_glut_cursor_none);
+	ring_vm_funcregister("get_glut_cursor_full_crosshair",ring_get_glut_cursor_full_crosshair);
+	ring_vm_funcregister("get_glut_red",ring_get_glut_red);
+	ring_vm_funcregister("get_glut_green",ring_get_glut_green);
+	ring_vm_funcregister("get_glut_blue",ring_get_glut_blue);
+	ring_vm_funcregister("get_glut_key_repeat_off",ring_get_glut_key_repeat_off);
+	ring_vm_funcregister("get_glut_key_repeat_on",ring_get_glut_key_repeat_on);
+	ring_vm_funcregister("get_glut_key_repeat_default",ring_get_glut_key_repeat_default);
+	ring_vm_funcregister("get_glut_joystick_button_a",ring_get_glut_joystick_button_a);
+	ring_vm_funcregister("get_glut_joystick_button_b",ring_get_glut_joystick_button_b);
+	ring_vm_funcregister("get_glut_joystick_button_c",ring_get_glut_joystick_button_c);
+	ring_vm_funcregister("get_glut_joystick_button_d",ring_get_glut_joystick_button_d);
+	ring_vm_funcregister("get_glut_game_mode_active",ring_get_glut_game_mode_active);
+	ring_vm_funcregister("get_glut_game_mode_possible",ring_get_glut_game_mode_possible);
+	ring_vm_funcregister("get_glut_game_mode_width",ring_get_glut_game_mode_width);
+	ring_vm_funcregister("get_glut_game_mode_height",ring_get_glut_game_mode_height);
+	ring_vm_funcregister("get_glut_game_mode_pixel_depth",ring_get_glut_game_mode_pixel_depth);
+	ring_vm_funcregister("get_glut_game_mode_refresh_rate",ring_get_glut_game_mode_refresh_rate);
+	ring_vm_funcregister("get_glut_game_mode_display_changed",ring_get_glut_game_mode_display_changed);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
 	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
