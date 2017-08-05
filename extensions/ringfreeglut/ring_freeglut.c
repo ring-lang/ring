@@ -379,6 +379,41 @@ RING_FUNC(ring_get_glut_elapsed_time)
 	RING_API_RETNUMBER(GLUT_ELAPSED_TIME);
 }
 
+RING_FUNC(ring_get_glut_game_mode_active)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_ACTIVE);
+}
+
+RING_FUNC(ring_get_glut_game_mode_display_changed)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_DISPLAY_CHANGED);
+}
+
+RING_FUNC(ring_get_glut_game_mode_possible)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_POSSIBLE);
+}
+
+RING_FUNC(ring_get_glut_game_mode_width)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_WIDTH);
+}
+
+RING_FUNC(ring_get_glut_game_mode_height)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_HEIGHT);
+}
+
+RING_FUNC(ring_get_glut_game_mode_pixel_depth)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_PIXEL_DEPTH);
+}
+
+RING_FUNC(ring_get_glut_game_mode_refresh_rate)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_REFRESH_RATE);
+}
+
 
 RING_FUNC(ring_glutInitWindowSize)
 {
@@ -1514,6 +1549,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_init_window_height",ring_get_glut_init_window_height);
 	ring_vm_funcregister("get_glut_init_display_mode",ring_get_glut_init_display_mode);
 	ring_vm_funcregister("get_glut_elapsed_time",ring_get_glut_elapsed_time);
+	ring_vm_funcregister("get_glut_game_mode_active",ring_get_glut_game_mode_active);
+	ring_vm_funcregister("get_glut_game_mode_display_changed",ring_get_glut_game_mode_display_changed);
+	ring_vm_funcregister("get_glut_game_mode_possible",ring_get_glut_game_mode_possible);
+	ring_vm_funcregister("get_glut_game_mode_width",ring_get_glut_game_mode_width);
+	ring_vm_funcregister("get_glut_game_mode_height",ring_get_glut_game_mode_height);
+	ring_vm_funcregister("get_glut_game_mode_pixel_depth",ring_get_glut_game_mode_pixel_depth);
+	ring_vm_funcregister("get_glut_game_mode_refresh_rate",ring_get_glut_game_mode_refresh_rate);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
 	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
