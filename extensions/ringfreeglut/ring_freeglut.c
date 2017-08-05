@@ -319,6 +319,66 @@ RING_FUNC(ring_get_glut_window_format_id)
 	RING_API_RETNUMBER(GLUT_WINDOW_FORMAT_ID);
 }
 
+RING_FUNC(ring_get_glut_screen_width)
+{
+	RING_API_RETNUMBER(GLUT_SCREEN_WIDTH);
+}
+
+RING_FUNC(ring_get_glut_screen_height)
+{
+	RING_API_RETNUMBER(GLUT_SCREEN_HEIGHT);
+}
+
+RING_FUNC(ring_get_glut_screen_width_mm)
+{
+	RING_API_RETNUMBER(GLUT_SCREEN_WIDTH_MM);
+}
+
+RING_FUNC(ring_get_glut_screen_height_mm)
+{
+	RING_API_RETNUMBER(GLUT_SCREEN_HEIGHT_MM);
+}
+
+RING_FUNC(ring_get_glut_menu_num_items)
+{
+	RING_API_RETNUMBER(GLUT_MENU_NUM_ITEMS);
+}
+
+RING_FUNC(ring_get_glut_display_mode_possible)
+{
+	RING_API_RETNUMBER(GLUT_DISPLAY_MODE_POSSIBLE);
+}
+
+RING_FUNC(ring_get_glut_init_window_x)
+{
+	RING_API_RETNUMBER(GLUT_INIT_WINDOW_X);
+}
+
+RING_FUNC(ring_get_glut_init_window_y)
+{
+	RING_API_RETNUMBER(GLUT_INIT_WINDOW_Y);
+}
+
+RING_FUNC(ring_get_glut_init_window_width)
+{
+	RING_API_RETNUMBER(GLUT_INIT_WINDOW_WIDTH);
+}
+
+RING_FUNC(ring_get_glut_init_window_height)
+{
+	RING_API_RETNUMBER(GLUT_INIT_WINDOW_HEIGHT);
+}
+
+RING_FUNC(ring_get_glut_init_display_mode)
+{
+	RING_API_RETNUMBER(GLUT_INIT_DISPLAY_MODE);
+}
+
+RING_FUNC(ring_get_glut_elapsed_time)
+{
+	RING_API_RETNUMBER(GLUT_ELAPSED_TIME);
+}
+
 
 RING_FUNC(ring_glutInitWindowSize)
 {
@@ -1013,6 +1073,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_window_stereo",ring_get_glut_window_stereo);
 	ring_vm_funcregister("get_glut_window_cursor",ring_get_glut_window_cursor);
 	ring_vm_funcregister("get_glut_window_format_id",ring_get_glut_window_format_id);
+	ring_vm_funcregister("get_glut_screen_width",ring_get_glut_screen_width);
+	ring_vm_funcregister("get_glut_screen_height",ring_get_glut_screen_height);
+	ring_vm_funcregister("get_glut_screen_width_mm",ring_get_glut_screen_width_mm);
+	ring_vm_funcregister("get_glut_screen_height_mm",ring_get_glut_screen_height_mm);
+	ring_vm_funcregister("get_glut_menu_num_items",ring_get_glut_menu_num_items);
+	ring_vm_funcregister("get_glut_display_mode_possible",ring_get_glut_display_mode_possible);
+	ring_vm_funcregister("get_glut_init_window_x",ring_get_glut_init_window_x);
+	ring_vm_funcregister("get_glut_init_window_y",ring_get_glut_init_window_y);
+	ring_vm_funcregister("get_glut_init_window_width",ring_get_glut_init_window_width);
+	ring_vm_funcregister("get_glut_init_window_height",ring_get_glut_init_window_height);
+	ring_vm_funcregister("get_glut_init_display_mode",ring_get_glut_init_display_mode);
+	ring_vm_funcregister("get_glut_elapsed_time",ring_get_glut_elapsed_time);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
 	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
