@@ -275,6 +275,10 @@ void glutWireDodecahedron(void)
 void glutSolidDodecahedron(void)
 void glutWireIcosahedron(void)
 void glutSolidIcosahedron(void)
+void glutWireTeapot(double dSize)
+void glutSolidTeapot(double dSize)
+
+
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
