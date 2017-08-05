@@ -189,14 +189,54 @@ RING_FUNC(ring_get_glut_key_f3)
 	RING_API_RETNUMBER(GLUT_KEY_F3);
 }
 
+RING_FUNC(ring_get_glut_key_f4)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F4);
+}
+
+RING_FUNC(ring_get_glut_key_f5)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F5);
+}
+
+RING_FUNC(ring_get_glut_key_f6)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F6);
+}
+
+RING_FUNC(ring_get_glut_key_f7)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F7);
+}
+
+RING_FUNC(ring_get_glut_key_f8)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F8);
+}
+
+RING_FUNC(ring_get_glut_key_f9)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F9);
+}
+
+RING_FUNC(ring_get_glut_key_f10)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F10);
+}
+
+RING_FUNC(ring_get_glut_key_f11)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F11);
+}
+
+RING_FUNC(ring_get_glut_key_f12)
+{
+	RING_API_RETNUMBER(GLUT_KEY_F12);
+}
+
 RING_FUNC(ring_get_glut_key_left)
 {
 	RING_API_RETNUMBER(GLUT_KEY_LEFT);
-}
-
-RING_FUNC(ring_get_glut_key_right)
-{
-	RING_API_RETNUMBER(GLUT_KEY_RIGHT);
 }
 
 RING_FUNC(ring_get_glut_key_up)
@@ -204,9 +244,39 @@ RING_FUNC(ring_get_glut_key_up)
 	RING_API_RETNUMBER(GLUT_KEY_UP);
 }
 
+RING_FUNC(ring_get_glut_key_right)
+{
+	RING_API_RETNUMBER(GLUT_KEY_RIGHT);
+}
+
 RING_FUNC(ring_get_glut_key_down)
 {
 	RING_API_RETNUMBER(GLUT_KEY_DOWN);
+}
+
+RING_FUNC(ring_get_glut_key_page_up)
+{
+	RING_API_RETNUMBER(GLUT_KEY_PAGE_UP);
+}
+
+RING_FUNC(ring_get_glut_key_page_down)
+{
+	RING_API_RETNUMBER(GLUT_KEY_PAGE_DOWN);
+}
+
+RING_FUNC(ring_get_glut_key_home)
+{
+	RING_API_RETNUMBER(GLUT_KEY_HOME);
+}
+
+RING_FUNC(ring_get_glut_key_end)
+{
+	RING_API_RETNUMBER(GLUT_KEY_END);
+}
+
+RING_FUNC(ring_get_glut_key_insert)
+{
+	RING_API_RETNUMBER(GLUT_KEY_INSERT);
 }
 
 RING_FUNC(ring_get_glut_window_x)
@@ -1541,10 +1611,24 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_key_f1",ring_get_glut_key_f1);
 	ring_vm_funcregister("get_glut_key_f2",ring_get_glut_key_f2);
 	ring_vm_funcregister("get_glut_key_f3",ring_get_glut_key_f3);
+	ring_vm_funcregister("get_glut_key_f4",ring_get_glut_key_f4);
+	ring_vm_funcregister("get_glut_key_f5",ring_get_glut_key_f5);
+	ring_vm_funcregister("get_glut_key_f6",ring_get_glut_key_f6);
+	ring_vm_funcregister("get_glut_key_f7",ring_get_glut_key_f7);
+	ring_vm_funcregister("get_glut_key_f8",ring_get_glut_key_f8);
+	ring_vm_funcregister("get_glut_key_f9",ring_get_glut_key_f9);
+	ring_vm_funcregister("get_glut_key_f10",ring_get_glut_key_f10);
+	ring_vm_funcregister("get_glut_key_f11",ring_get_glut_key_f11);
+	ring_vm_funcregister("get_glut_key_f12",ring_get_glut_key_f12);
 	ring_vm_funcregister("get_glut_key_left",ring_get_glut_key_left);
-	ring_vm_funcregister("get_glut_key_right",ring_get_glut_key_right);
 	ring_vm_funcregister("get_glut_key_up",ring_get_glut_key_up);
+	ring_vm_funcregister("get_glut_key_right",ring_get_glut_key_right);
 	ring_vm_funcregister("get_glut_key_down",ring_get_glut_key_down);
+	ring_vm_funcregister("get_glut_key_page_up",ring_get_glut_key_page_up);
+	ring_vm_funcregister("get_glut_key_page_down",ring_get_glut_key_page_down);
+	ring_vm_funcregister("get_glut_key_home",ring_get_glut_key_home);
+	ring_vm_funcregister("get_glut_key_end",ring_get_glut_key_end);
+	ring_vm_funcregister("get_glut_key_insert",ring_get_glut_key_insert);
 	ring_vm_funcregister("get_glut_window_x",ring_get_glut_window_x);
 	ring_vm_funcregister("get_glut_window_y",ring_get_glut_window_y);
 	ring_vm_funcregister("get_glut_window_width",ring_get_glut_window_width);
