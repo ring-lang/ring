@@ -267,7 +267,8 @@ void glutWireCone(double base, double height, GLint slices, GLint stacks)
 void glutSolidCone(double base, double height, GLint slices, GLint stacks)
 void glutWireCube(double dSize)
 void glutSolidCube(double dSize)
-
+void glutWireTetrahedron(void)
+void glutSolidTetrahedron(void)
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
