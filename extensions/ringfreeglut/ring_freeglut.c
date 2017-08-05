@@ -18,6 +18,7 @@ int nReshapeHeight ;
 char cIdleFunction[250];
 char cKeyboardFunction[250];
 char cSpecialFunction[250];
+char cSpecialUpFunction[250];
 int nGLUTEventKey ;
 int nGLUTEventX ;
 int nGLUTEventY ;
@@ -141,6 +142,30 @@ RING_FUNC(ring_glutSpecialFunc)
 		glutSpecialFunc(SpecialFunction);
 	}
 }
+
+void SpecialUpFunction(int key, int x, int y)
+{
+	nGLUTEventKey = key ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cSpecialUpFunction) ;
+}
+
+RING_FUNC(ring_glutSpecialUpFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cSpecialUpFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutSpecialUpFunc(SpecialUpFunction);
+	}
+}
+
+
+
 
 RING_FUNC(ring_glutEventKey) {
 	RING_API_RETNUMBER(nGLUTEventKey);
@@ -2693,6 +2718,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutidlefunc",ring_glutIdleFunc);
 	ring_vm_funcregister("glutkeyboardfunc",ring_glutKeyboardFunc);
 	ring_vm_funcregister("glutspecialfunc",ring_glutSpecialFunc);
+	ring_vm_funcregister("glutspecialupfunc",ring_glutSpecialUpFunc);
 	ring_vm_funcregister("gluteventkey",ring_glutEventKey);
 	ring_vm_funcregister("gluteventx",ring_glutEventX);
 	ring_vm_funcregister("gluteventy",ring_glutEventY);

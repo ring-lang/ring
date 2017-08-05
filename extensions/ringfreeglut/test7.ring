@@ -33,6 +33,7 @@ func drawSnowMan
 	glutSolidSphere(0.05,10,10)
 	glTranslatef(-0.1, 0.0, 0.0)
 	glutSolidSphere(0.05,10,10)
+
 	glPopMatrix()
 
 // Draw Nose
