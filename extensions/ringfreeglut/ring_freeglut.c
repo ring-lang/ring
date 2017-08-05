@@ -848,6 +848,34 @@ RING_FUNC(ring_glutSolidCone)
 }
 
 
+RING_FUNC(ring_glutWireCube)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutWireCube( (double ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_glutSolidCube)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutSolidCube( (double ) RING_API_GETNUMBER(1));
+}
+
+
 RING_FUNC(ring_glutInitDisplayMode)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -1276,6 +1304,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutsolidtorus",ring_glutSolidTorus);
 	ring_vm_funcregister("glutwirecone",ring_glutWireCone);
 	ring_vm_funcregister("glutsolidcone",ring_glutSolidCone);
+	ring_vm_funcregister("glutwirecube",ring_glutWireCube);
+	ring_vm_funcregister("glutsolidcube",ring_glutSolidCube);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
 	ring_vm_funcregister("glclear",ring_glClear);

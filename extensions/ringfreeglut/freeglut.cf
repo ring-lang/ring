@@ -265,6 +265,9 @@ void glutWireTorus(double dInnerRadius, double dOuterRadius, GLint nSides, GLint
 void glutSolidTorus(double dInnerRadius, double dOuterRadius, GLint nSides, GLint nRings)
 void glutWireCone(double base, double height, GLint slices, GLint stacks)
 void glutSolidCone(double base, double height, GLint slices, GLint stacks)
+void glutWireCube(double dSize)
+void glutSolidCube(double dSize)
+
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
