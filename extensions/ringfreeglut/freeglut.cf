@@ -263,10 +263,11 @@ void glutWireSphere(double dRadius,GLint slices,GLint stacks)
 void glutSolidSphere(double dRadius,GLint slices,GLint stacks)
 void glutWireTorus(double dInnerRadius, double dOuterRadius, GLint nSides, GLint nRings)
 void glutSolidTorus(double dInnerRadius, double dOuterRadius, GLint nSides, GLint nRings)
+void glutWireCone(double base, double height, GLint slices, GLint stacks)
+void glutSolidCone(double base, double height, GLint slices, GLint stacks)
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
-void glutSolidCone(double,double,int,int)
 
 
 
