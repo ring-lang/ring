@@ -2795,6 +2795,28 @@ RING_FUNC(ring_glDepthMask)
 	glDepthMask( (GLboolean ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glScalef)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glScalef( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
@@ -2924,6 +2946,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gldisable",ring_glDisable);
 	ring_vm_funcregister("glfrontface",ring_glFrontFace);
 	ring_vm_funcregister("gldepthmask",ring_glDepthMask);
+	ring_vm_funcregister("glscalef",ring_glScalef);
 	ring_vm_funcregister("get_glut_rgb",ring_get_glut_rgb);
 	ring_vm_funcregister("get_glut_rgba",ring_get_glut_rgba);
 	ring_vm_funcregister("get_glut_index",ring_get_glut_index);
