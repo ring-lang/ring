@@ -269,6 +269,8 @@ void glutWireCube(double dSize)
 void glutSolidCube(double dSize)
 void glutWireTetrahedron(void)
 void glutSolidTetrahedron(void)
+void glutWireOctahedron(void)
+void glutSolidOctahedron(void)
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
