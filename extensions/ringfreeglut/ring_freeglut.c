@@ -354,6 +354,81 @@ RING_FUNC(ring_get_glut_entered)
 	RING_API_RETNUMBER(GLUT_ENTERED);
 }
 
+RING_FUNC(ring_get_glut_game_mode_active)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_ACTIVE);
+}
+
+RING_FUNC(ring_get_glut_game_mode_display_changed)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_DISPLAY_CHANGED);
+}
+
+RING_FUNC(ring_get_glut_game_mode_possible)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_POSSIBLE);
+}
+
+RING_FUNC(ring_get_glut_game_mode_width)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_WIDTH);
+}
+
+RING_FUNC(ring_get_glut_game_mode_height)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_HEIGHT);
+}
+
+RING_FUNC(ring_get_glut_game_mode_pixel_depth)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_PIXEL_DEPTH);
+}
+
+RING_FUNC(ring_get_glut_game_mode_refresh_rate)
+{
+	RING_API_RETNUMBER(GLUT_GAME_MODE_REFRESH_RATE);
+}
+
+RING_FUNC(ring_get_glut_menu_not_in_use)
+{
+	RING_API_RETNUMBER(GLUT_MENU_NOT_IN_USE);
+}
+
+RING_FUNC(ring_get_glut_menu_in_use)
+{
+	RING_API_RETNUMBER(GLUT_MENU_IN_USE);
+}
+
+RING_FUNC(ring_get_glut_not_visible)
+{
+	RING_API_RETNUMBER(GLUT_NOT_VISIBLE);
+}
+
+RING_FUNC(ring_get_glut_visible)
+{
+	RING_API_RETNUMBER(GLUT_VISIBLE);
+}
+
+RING_FUNC(ring_get_glut_hidden)
+{
+	RING_API_RETNUMBER(GLUT_HIDDEN);
+}
+
+RING_FUNC(ring_get_glut_fully_retained)
+{
+	RING_API_RETNUMBER(GLUT_FULLY_RETAINED);
+}
+
+RING_FUNC(ring_get_glut_partially_retained)
+{
+	RING_API_RETNUMBER(GLUT_PARTIALLY_RETAINED);
+}
+
+RING_FUNC(ring_get_glut_fully_covered)
+{
+	RING_API_RETNUMBER(GLUT_FULLY_COVERED);
+}
+
 RING_FUNC(ring_get_glut_window_x)
 {
 	RING_API_RETNUMBER(GLUT_WINDOW_X);
@@ -372,6 +447,16 @@ RING_FUNC(ring_get_glut_window_width)
 RING_FUNC(ring_get_glut_window_height)
 {
 	RING_API_RETNUMBER(GLUT_WINDOW_HEIGHT);
+}
+
+RING_FUNC(ring_get_glut_window_buffer_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_BUFFER_SIZE);
+}
+
+RING_FUNC(ring_get_glut_window_stencil_size)
+{
+	RING_API_RETNUMBER(GLUT_WINDOW_STENCIL_SIZE);
 }
 
 RING_FUNC(ring_get_glut_window_depth_size)
@@ -459,11 +544,6 @@ RING_FUNC(ring_get_glut_window_cursor)
 	RING_API_RETNUMBER(GLUT_WINDOW_CURSOR);
 }
 
-RING_FUNC(ring_get_glut_window_format_id)
-{
-	RING_API_RETNUMBER(GLUT_WINDOW_FORMAT_ID);
-}
-
 RING_FUNC(ring_get_glut_screen_width)
 {
 	RING_API_RETNUMBER(GLUT_SCREEN_WIDTH);
@@ -524,39 +604,9 @@ RING_FUNC(ring_get_glut_elapsed_time)
 	RING_API_RETNUMBER(GLUT_ELAPSED_TIME);
 }
 
-RING_FUNC(ring_get_glut_game_mode_active)
+RING_FUNC(ring_get_glut_window_format_id)
 {
-	RING_API_RETNUMBER(GLUT_GAME_MODE_ACTIVE);
-}
-
-RING_FUNC(ring_get_glut_game_mode_display_changed)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_DISPLAY_CHANGED);
-}
-
-RING_FUNC(ring_get_glut_game_mode_possible)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_POSSIBLE);
-}
-
-RING_FUNC(ring_get_glut_game_mode_width)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_WIDTH);
-}
-
-RING_FUNC(ring_get_glut_game_mode_height)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_HEIGHT);
-}
-
-RING_FUNC(ring_get_glut_game_mode_pixel_depth)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_PIXEL_DEPTH);
-}
-
-RING_FUNC(ring_get_glut_game_mode_refresh_rate)
-{
-	RING_API_RETNUMBER(GLUT_GAME_MODE_REFRESH_RATE);
+	RING_API_RETNUMBER(GLUT_WINDOW_FORMAT_ID);
 }
 
 
@@ -1719,10 +1769,27 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_up",ring_get_glut_up);
 	ring_vm_funcregister("get_glut_left",ring_get_glut_left);
 	ring_vm_funcregister("get_glut_entered",ring_get_glut_entered);
+	ring_vm_funcregister("get_glut_game_mode_active",ring_get_glut_game_mode_active);
+	ring_vm_funcregister("get_glut_game_mode_display_changed",ring_get_glut_game_mode_display_changed);
+	ring_vm_funcregister("get_glut_game_mode_possible",ring_get_glut_game_mode_possible);
+	ring_vm_funcregister("get_glut_game_mode_width",ring_get_glut_game_mode_width);
+	ring_vm_funcregister("get_glut_game_mode_height",ring_get_glut_game_mode_height);
+	ring_vm_funcregister("get_glut_game_mode_pixel_depth",ring_get_glut_game_mode_pixel_depth);
+	ring_vm_funcregister("get_glut_game_mode_refresh_rate",ring_get_glut_game_mode_refresh_rate);
+	ring_vm_funcregister("get_glut_menu_not_in_use",ring_get_glut_menu_not_in_use);
+	ring_vm_funcregister("get_glut_menu_in_use",ring_get_glut_menu_in_use);
+	ring_vm_funcregister("get_glut_not_visible",ring_get_glut_not_visible);
+	ring_vm_funcregister("get_glut_visible",ring_get_glut_visible);
+	ring_vm_funcregister("get_glut_hidden",ring_get_glut_hidden);
+	ring_vm_funcregister("get_glut_fully_retained",ring_get_glut_fully_retained);
+	ring_vm_funcregister("get_glut_partially_retained",ring_get_glut_partially_retained);
+	ring_vm_funcregister("get_glut_fully_covered",ring_get_glut_fully_covered);
 	ring_vm_funcregister("get_glut_window_x",ring_get_glut_window_x);
 	ring_vm_funcregister("get_glut_window_y",ring_get_glut_window_y);
 	ring_vm_funcregister("get_glut_window_width",ring_get_glut_window_width);
 	ring_vm_funcregister("get_glut_window_height",ring_get_glut_window_height);
+	ring_vm_funcregister("get_glut_window_buffer_size",ring_get_glut_window_buffer_size);
+	ring_vm_funcregister("get_glut_window_stencil_size",ring_get_glut_window_stencil_size);
 	ring_vm_funcregister("get_glut_window_depth_size",ring_get_glut_window_depth_size);
 	ring_vm_funcregister("get_glut_window_red_size",ring_get_glut_window_red_size);
 	ring_vm_funcregister("get_glut_window_green_size",ring_get_glut_window_green_size);
@@ -1740,7 +1807,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_window_num_samples",ring_get_glut_window_num_samples);
 	ring_vm_funcregister("get_glut_window_stereo",ring_get_glut_window_stereo);
 	ring_vm_funcregister("get_glut_window_cursor",ring_get_glut_window_cursor);
-	ring_vm_funcregister("get_glut_window_format_id",ring_get_glut_window_format_id);
 	ring_vm_funcregister("get_glut_screen_width",ring_get_glut_screen_width);
 	ring_vm_funcregister("get_glut_screen_height",ring_get_glut_screen_height);
 	ring_vm_funcregister("get_glut_screen_width_mm",ring_get_glut_screen_width_mm);
@@ -1753,13 +1819,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_init_window_height",ring_get_glut_init_window_height);
 	ring_vm_funcregister("get_glut_init_display_mode",ring_get_glut_init_display_mode);
 	ring_vm_funcregister("get_glut_elapsed_time",ring_get_glut_elapsed_time);
-	ring_vm_funcregister("get_glut_game_mode_active",ring_get_glut_game_mode_active);
-	ring_vm_funcregister("get_glut_game_mode_display_changed",ring_get_glut_game_mode_display_changed);
-	ring_vm_funcregister("get_glut_game_mode_possible",ring_get_glut_game_mode_possible);
-	ring_vm_funcregister("get_glut_game_mode_width",ring_get_glut_game_mode_width);
-	ring_vm_funcregister("get_glut_game_mode_height",ring_get_glut_game_mode_height);
-	ring_vm_funcregister("get_glut_game_mode_pixel_depth",ring_get_glut_game_mode_pixel_depth);
-	ring_vm_funcregister("get_glut_game_mode_refresh_rate",ring_get_glut_game_mode_refresh_rate);
+	ring_vm_funcregister("get_glut_window_format_id",ring_get_glut_window_format_id);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
 	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
