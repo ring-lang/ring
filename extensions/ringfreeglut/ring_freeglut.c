@@ -556,6 +556,24 @@ RING_FUNC(ring_glutGet)
 }
 
 
+RING_FUNC(ring_glutBitmapCharacter)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutBitmapCharacter((void *) RING_API_GETCPOINTER(1,"void"), (int ) RING_API_GETNUMBER(2));
+}
+
+
 RING_FUNC(ring_glutInitDisplayMode)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -1018,6 +1036,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutshowoverlay",ring_glutShowOverlay);
 	ring_vm_funcregister("gluthideoverlay",ring_glutHideOverlay);
 	ring_vm_funcregister("glutget",ring_glutGet);
+	ring_vm_funcregister("glutbitmapcharacter",ring_glutBitmapCharacter);
 	ring_vm_funcregister("glutinitdisplaymode",ring_glutInitDisplayMode);
 	ring_vm_funcregister("glutcreatewindow",ring_glutCreateWindow);
 	ring_vm_funcregister("glutsolidsphere",ring_glutSolidSphere);

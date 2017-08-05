@@ -249,6 +249,7 @@ void glutPostWindowOverlayRedisplay(int window)
 void glutShowOverlay(void)
 void glutHideOverlay(void) 
 int glutGet(int)
+void glutBitmapCharacter(void *font, int character)
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
