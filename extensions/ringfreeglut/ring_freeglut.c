@@ -26,6 +26,8 @@ int nGLUTEventX ;
 int nGLUTEventY ;
 int nGLUTEventButton ;
 int nGLUTEventState ;
+int nGLUTEventValue ;
+List *pMenuFunctions;
 
 
 RING_FUNC(ring_glutInit)
@@ -210,6 +212,29 @@ RING_FUNC(ring_glutMotionFunc)
 	}
 }
 
+void MenuFunction(int value)
+{
+	int nMenuID ;
+	nGLUTEventValue = value ;
+	nMenuID = glutGetMenu() ;
+	ring_vm_runcode(pRingVMObject,ring_list_getstring(pMenuFunctions, nMenuID ) ) ;
+}
+
+RING_FUNC(ring_glutCreateMenu) {
+	int nMenuID ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		pRingVMObject = (VM *) pPointer ;
+		nMenuID = glutCreateMenu(MenuFunction);
+		if (nMenuID == 1)
+			pMenuFunctions = ring_list_new(0);
+		ring_list_addstring(pMenuFunctions, RING_API_GETSTRING(1) ) ;
+		RING_API_RETNUMBER( nMenuID ) ;
+	}	
+}
 
 RING_FUNC(ring_glutEventKey) {
 	RING_API_RETNUMBER(nGLUTEventKey);
@@ -230,6 +255,11 @@ RING_FUNC(ring_glutEventButton) {
 RING_FUNC(ring_glutEventState) {
 	RING_API_RETNUMBER(nGLUTEventState);
 }
+
+RING_FUNC(ring_glutEventValue) {
+	RING_API_RETNUMBER(nGLUTEventValue);
+}
+
 
 RING_FUNC(ring_test_draw) {
 	// Reserved for Testing
@@ -2422,6 +2452,11 @@ RING_FUNC(ring_get_gl_true)
 	RING_API_RETNUMBER(GL_TRUE);
 }
 
+RING_FUNC(ring_get_gl_cull_face)
+{
+	RING_API_RETNUMBER(GL_CULL_FACE);
+}
+
 
 RING_FUNC(ring_glClear)
 {
@@ -2773,11 +2808,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutspecialupfunc",ring_glutSpecialUpFunc);
 	ring_vm_funcregister("glutmousefunc",ring_glutMouseFunc);
 	ring_vm_funcregister("glutmotionfunc",ring_glutMotionFunc);
+	ring_vm_funcregister("glutcreatemenu",ring_glutCreateMenu);
 	ring_vm_funcregister("gluteventkey",ring_glutEventKey);
 	ring_vm_funcregister("gluteventx",ring_glutEventX);
 	ring_vm_funcregister("gluteventy",ring_glutEventY);
 	ring_vm_funcregister("gluteventbutton",ring_glutEventButton);
 	ring_vm_funcregister("gluteventstate",ring_glutEventState);
+	ring_vm_funcregister("gluteventvalue",ring_glutEventValue);
 	ring_vm_funcregister("test_draw",ring_test_draw);
 	ring_vm_funcregister("glutinitwindowposition",ring_glutInitWindowPosition);
 	ring_vm_funcregister("glutinitwindowsize",ring_glutInitWindowSize);
@@ -3061,4 +3098,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_ccw",ring_get_gl_ccw);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_true",ring_get_gl_true);
+	ring_vm_funcregister("get_gl_cull_face",ring_get_gl_cull_face);
 }

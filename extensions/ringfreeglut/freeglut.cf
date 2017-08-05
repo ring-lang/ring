@@ -30,6 +30,8 @@ int nGLUTEventX ;
 int nGLUTEventY ;
 int nGLUTEventButton ;
 int nGLUTEventState ;
+int nGLUTEventValue ; 
+List *pMenuFunctions;
 
 </code>
 
@@ -56,11 +58,13 @@ void glutSpecialFunc(const char *)
 void glutSpecialUpFunc(const char *)
 void glutMouseFunc(const char *)
 void glutMotionFunc(const char *)
+int glutCreateMenu(const char *)
 int glutEventKey(void)
 int glutEventX(void)
 int glutEventY(void)
 int glutEventButton(void)
 int glutEventState(void)
+int glutEventValue(void)
 void test_draw(void)
 </register>
 
@@ -248,6 +252,29 @@ RING_FUNC(ring_glutMotionFunc)
 	}
 }
 
+void MenuFunction(int value)
+{
+	int nMenuID ;
+	nGLUTEventValue = value ;
+	nMenuID = glutGetMenu() ;
+	ring_vm_runcode(pRingVMObject,ring_list_getstring(pMenuFunctions, nMenuID ) ) ;
+}
+
+RING_FUNC(ring_glutCreateMenu) {
+	int nMenuID ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		pRingVMObject = (VM *) pPointer ;
+		nMenuID = glutCreateMenu(MenuFunction); 
+		if (nMenuID == 1) 
+			pMenuFunctions = ring_list_new(0);
+		ring_list_addstring(pMenuFunctions, RING_API_GETSTRING(1) ) ;
+		RING_API_RETNUMBER( nMenuID ) ;
+	}	
+}
 
 RING_FUNC(ring_glutEventKey) {
 	RING_API_RETNUMBER(nGLUTEventKey);
@@ -268,6 +295,11 @@ RING_FUNC(ring_glutEventButton) {
 RING_FUNC(ring_glutEventState) {
 	RING_API_RETNUMBER(nGLUTEventState);
 }
+
+RING_FUNC(ring_glutEventValue) {
+	RING_API_RETNUMBER(nGLUTEventValue);
+}
+
 
 RING_FUNC(ring_test_draw) {
 	// Reserved for Testing
@@ -552,6 +584,7 @@ GL_CW
 GL_CCW
 GL_FALSE
 GL_TRUE
+GL_CULL_FACE
 </constant>
 
 void glClear(GLbitfield)
