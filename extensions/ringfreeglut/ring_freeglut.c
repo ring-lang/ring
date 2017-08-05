@@ -2255,7 +2255,7 @@ RING_FUNC(ring_glutSetColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glutSetColor( (int ) RING_API_GETNUMBER(1), (GLfloat )  (int) RING_API_GETNUMBER(2), (GLfloat )  (int) RING_API_GETNUMBER(3), (GLfloat )  (int) RING_API_GETNUMBER(4));
+	glutSetColor( (int ) RING_API_GETNUMBER(1), (GLfloat ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4));
 }
 
 
@@ -2633,7 +2633,7 @@ RING_FUNC(ring_gluLookAt)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	gluLookAt( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4), (float) RING_API_GETNUMBER(5), (float) RING_API_GETNUMBER(6), (float) RING_API_GETNUMBER(7), (float) RING_API_GETNUMBER(8), (float) RING_API_GETNUMBER(9));
+	gluLookAt( (GLdouble) RING_API_GETNUMBER(1), (GLdouble) RING_API_GETNUMBER(2), (GLdouble) RING_API_GETNUMBER(3), (GLdouble) RING_API_GETNUMBER(4), (GLdouble) RING_API_GETNUMBER(5), (GLdouble) RING_API_GETNUMBER(6), (GLdouble) RING_API_GETNUMBER(7), (GLdouble) RING_API_GETNUMBER(8), (GLdouble) RING_API_GETNUMBER(9));
 }
 
 
@@ -2659,7 +2659,7 @@ RING_FUNC(ring_glRotatef)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glRotatef( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
+	glRotatef( (GLfloat) RING_API_GETNUMBER(1), (GLfloat) RING_API_GETNUMBER(2), (GLfloat) RING_API_GETNUMBER(3), (GLfloat) RING_API_GETNUMBER(4));
 }
 
 

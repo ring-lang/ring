@@ -18,7 +18,7 @@ x=0.0  z=5.0
 // the key states. These variables will be zero
 //when no key is being presses
 deltaAngle = 0.0
-deltaMove = 0
+deltaMove = 0.0
 xOrigin = -1
 
 func changeSize
@@ -150,38 +150,39 @@ func releaseKey
 
 
 func mouseMove
-
-		xx = glutEventX()
-		yy = glutEventY()
-
+	xx = glutEventX()
+	yy = glutEventY()
         // this will only be true when the left button is down
         if xOrigin >= 0
 
-			// update deltaAngle
-			deltaAngle = (xx - xOrigin) * 0.001
+		// update deltaAngle
+		deltaAngle = (xx - xOrigin) * 0.001
 
-			// update camera's direction
-			lx = sin(angle + deltaAngle)
-			lz = -cos(angle + deltaAngle)
-		ok
-
+		// update camera's direction
+		lx = sin(angle + deltaAngle)
+		lz = -cos(angle + deltaAngle)
+	ok
+	
+	
 
 func mouseButton
-		button  = glutEventButton()
-		state = glutEventState()
-		xx = glutEventX()
-		yy = glutEventY()
+
+	button  = glutEventButton()
+	state = glutEventState()
+	xx = glutEventX()
+	yy = glutEventY()
 
 	// only start motion if the left button is pressed
 	if button = GLUT_LEFT_BUTTON
-
 		// when the button is released
 		if state = GLUT_UP
 			angle += deltaAngle
 			xOrigin = -1		
-		else  // state = GLUT_DOWN
+		else  
+			// state = GLUT_DOWN
 			xOrigin = xx
 		ok
+		fflush(stdout)
 	ok
 
 

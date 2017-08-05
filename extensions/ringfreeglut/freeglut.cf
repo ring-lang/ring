@@ -38,9 +38,9 @@ aNumberTypes + "GLint"
 aNumberTypes + "unsigned"
 aNumberTypes + "GLboolean"
 aNumberTypes + "GLdouble"
+aNumberTypes + "GLfloat"
 aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
-aEnumTypes + "GLfloat"
 </runcode>
 
 
@@ -564,8 +564,8 @@ void glMatrixMode(int)
 void glLoadIdentity(void)
 void glViewport(int,int,int,int)
 void gluPerspective(GLdouble,GLdouble,GLdouble,GLdouble)
-void gluLookAt(float,float,float,float,float,float,float,float,float)
-void glRotatef(float,float,float,float)
+void gluLookAt(GLdouble,GLdouble,GLdouble,GLdouble,GLdouble,GLdouble,GLdouble,GLdouble,GLdouble)
+void glRotatef(GLfloat,GLfloat,GLfloat,GLfloat)
 void glTranslatef(float,float,float)
 void glPushMatrix(void)
 void glPopMatrix(void)
