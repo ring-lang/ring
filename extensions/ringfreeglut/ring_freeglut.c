@@ -279,6 +279,41 @@ RING_FUNC(ring_get_glut_key_insert)
 	RING_API_RETNUMBER(GLUT_KEY_INSERT);
 }
 
+RING_FUNC(ring_get_glut_left_button)
+{
+	RING_API_RETNUMBER(GLUT_LEFT_BUTTON);
+}
+
+RING_FUNC(ring_get_glut_middle_button)
+{
+	RING_API_RETNUMBER(GLUT_MIDDLE_BUTTON);
+}
+
+RING_FUNC(ring_get_glut_right_button)
+{
+	RING_API_RETNUMBER(GLUT_RIGHT_BUTTON);
+}
+
+RING_FUNC(ring_get_glut_down)
+{
+	RING_API_RETNUMBER(GLUT_DOWN);
+}
+
+RING_FUNC(ring_get_glut_up)
+{
+	RING_API_RETNUMBER(GLUT_UP);
+}
+
+RING_FUNC(ring_get_glut_left)
+{
+	RING_API_RETNUMBER(GLUT_LEFT);
+}
+
+RING_FUNC(ring_get_glut_entered)
+{
+	RING_API_RETNUMBER(GLUT_ENTERED);
+}
+
 RING_FUNC(ring_get_glut_window_x)
 {
 	RING_API_RETNUMBER(GLUT_WINDOW_X);
@@ -1629,6 +1664,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_key_home",ring_get_glut_key_home);
 	ring_vm_funcregister("get_glut_key_end",ring_get_glut_key_end);
 	ring_vm_funcregister("get_glut_key_insert",ring_get_glut_key_insert);
+	ring_vm_funcregister("get_glut_left_button",ring_get_glut_left_button);
+	ring_vm_funcregister("get_glut_middle_button",ring_get_glut_middle_button);
+	ring_vm_funcregister("get_glut_right_button",ring_get_glut_right_button);
+	ring_vm_funcregister("get_glut_down",ring_get_glut_down);
+	ring_vm_funcregister("get_glut_up",ring_get_glut_up);
+	ring_vm_funcregister("get_glut_left",ring_get_glut_left);
+	ring_vm_funcregister("get_glut_entered",ring_get_glut_entered);
 	ring_vm_funcregister("get_glut_window_x",ring_get_glut_window_x);
 	ring_vm_funcregister("get_glut_window_y",ring_get_glut_window_y);
 	ring_vm_funcregister("get_glut_window_width",ring_get_glut_window_width);
