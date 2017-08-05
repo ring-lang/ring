@@ -24,16 +24,16 @@ xOrigin = -1
 
 
 // for RingFreeGLUT - We must have different ID for each menu item
-RED = 1
-GREEN = 2
-BLUE  = 3
-ORANGE = 4
+C_RED = 1
+C_GREEN = 2
+C_BLUE  = 3
+C_ORANGE = 4
 
-FILL = 5
-LINE = 6
+C_FILL = 5
+C_LINE = 6
 
-SHRINK = 7
-NORMAL = 8
+C_SHRINK = 7
+C_NORMAL = 8
 
 // Pop up menu identifiers
 fillMenu= 0  
@@ -279,9 +279,9 @@ func processFillMenu
 
 	switch option
 
-		on FILL
+		on C_FILL
 			 glPolygonMode(GL_FRONT, GL_FILL) 
-		on LINE
+		on C_LINE
 			 glPolygonMode(GL_FRONT, GL_LINE) 
 	off
 
@@ -292,9 +292,9 @@ func processShrinkMenu
 
 	switch option
 
-		on SHRINK
+		on C_SHRINK
 			scale = 0.5
-		on NORMAL
+		on C_NORMAL
 			 scale = 1.0
 	off
 
@@ -304,19 +304,19 @@ func processColorMenu
 	option = glutEventValue()
 
 	switch option
-		on RED 
+		on C_RED 
 			red = 1.0
 			green = 0.0
 			blue = 0.0
-		on GREEN 
+		on C_GREEN 
 			red = 0.0
 			green = 1.0
 			blue = 0.0
-		on BLUE 
+		on C_BLUE 
 			red = 0.0
 			green = 0.0
 			blue = 1.0
-		on ORANGE 
+		on C_ORANGE 
 			red = 1.0
 			green = 0.5
 			blue = 0.5
@@ -327,19 +327,19 @@ func createPopupMenus
 
 	shrinkMenu = glutCreateMenu("processShrinkMenu()")
 
-	glutAddMenuEntry("Shrink",SHRINK)
-	glutAddMenuEntry("NORMAL",NORMAL)
+	glutAddMenuEntry("Shrink",C_SHRINK)
+	glutAddMenuEntry("NORMAL",C_NORMAL)
 
 	fillMenu = glutCreateMenu("processFillMenu()")
 
-	glutAddMenuEntry("Fill",FILL)
-	glutAddMenuEntry("Line",LINE)
+	glutAddMenuEntry("Fill",C_FILL)
+	glutAddMenuEntry("Line",C_LINE)
 
 	colorMenu = glutCreateMenu("processColorMenu()")
-	glutAddMenuEntry("Red",RED)
-	glutAddMenuEntry("Blue",BLUE)
-	glutAddMenuEntry("Green",GREEN)
-	glutAddMenuEntry("Orange",ORANGE)
+	glutAddMenuEntry("Red",C_RED)
+	glutAddMenuEntry("Blue",C_BLUE)
+	glutAddMenuEntry("Green",C_GREEN)
+	glutAddMenuEntry("Orange",C_ORANGE)
 
 	mainMenu = glutCreateMenu("processMainMenu()")
 
