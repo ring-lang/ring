@@ -284,8 +284,8 @@ void glutWireIcosahedron(void)
 void glutSolidIcosahedron(void)
 void glutWireTeapot(double dSize)
 void glutSolidTeapot(double dSize)
-
-
+void glutSetKeyRepeat(int repeatMode)
+void glutIgnoreKeyRepeat(int ignore)
 
 void glutInitDisplayMode(int)
 void glutCreateWindow(const char *)
