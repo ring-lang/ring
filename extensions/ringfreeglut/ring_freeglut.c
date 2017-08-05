@@ -19,6 +19,7 @@ char cSpecialFunction[250];
 char cSpecialUpFunction[250];
 char cMouseFunction[250];
 char cMotionFunction[250];
+char cMenuStatusFunction[250];
 int nGLUTEventWidth ;
 int nGLUTEventHeight ;
 int nGLUTEventKey ;
@@ -27,6 +28,7 @@ int nGLUTEventY ;
 int nGLUTEventButton ;
 int nGLUTEventState ;
 int nGLUTEventValue ;
+int nGLUTEventStatus ;
 List *pMenuFunctions;
 
 
@@ -236,6 +238,27 @@ RING_FUNC(ring_glutCreateMenu) {
 	}	
 }
 
+void MenuStatusFunction(int status,int x, int y)
+{
+	nGLUTEventStatus = status ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cMenuStatusFunction) ;
+}
+
+RING_FUNC(ring_glutMenuStatusFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cMenuStatusFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutMenuStatusFunc(MenuStatusFunction);
+	}
+}
+
 RING_FUNC(ring_glutEventKey) {
 	RING_API_RETNUMBER(nGLUTEventKey);
 }
@@ -260,6 +283,9 @@ RING_FUNC(ring_glutEventValue) {
 	RING_API_RETNUMBER(nGLUTEventValue);
 }
 
+RING_FUNC(ring_glutEventStatus) {
+	RING_API_RETNUMBER(nGLUTEventStatus);
+}
 
 RING_FUNC(ring_test_draw) {
 	// Reserved for Testing
@@ -2831,6 +2857,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutmousefunc",ring_glutMouseFunc);
 	ring_vm_funcregister("glutmotionfunc",ring_glutMotionFunc);
 	ring_vm_funcregister("glutcreatemenu",ring_glutCreateMenu);
+	ring_vm_funcregister("glutmenustatusfunc",ring_glutMenuStatusFunc);
 	ring_vm_funcregister("gluteventkey",ring_glutEventKey);
 	ring_vm_funcregister("gluteventx",ring_glutEventX);
 	ring_vm_funcregister("gluteventy",ring_glutEventY);

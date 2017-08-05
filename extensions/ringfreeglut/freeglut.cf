@@ -23,6 +23,7 @@ char cSpecialFunction[250];
 char cSpecialUpFunction[250];
 char cMouseFunction[250];
 char cMotionFunction[250];
+char cMenuStatusFunction[250];
 int nGLUTEventWidth ;
 int nGLUTEventHeight ;
 int nGLUTEventKey ;
@@ -31,6 +32,7 @@ int nGLUTEventY ;
 int nGLUTEventButton ;
 int nGLUTEventState ;
 int nGLUTEventValue ; 
+int nGLUTEventStatus ;
 List *pMenuFunctions;
 
 </code>
@@ -59,6 +61,7 @@ void glutSpecialUpFunc(const char *)
 void glutMouseFunc(const char *)
 void glutMotionFunc(const char *)
 int glutCreateMenu(const char *)
+void glutMenuStatusFunc(const char *)
 int glutEventKey(void)
 int glutEventX(void)
 int glutEventY(void)
@@ -276,6 +279,27 @@ RING_FUNC(ring_glutCreateMenu) {
 	}	
 }
 
+void MenuStatusFunction(int status,int x, int y)
+{
+	nGLUTEventStatus = status ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_runcode(pRingVMObject,cMenuStatusFunction) ;
+}
+
+RING_FUNC(ring_glutMenuStatusFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cMenuStatusFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutMenuStatusFunc(MenuStatusFunction);
+	}
+}
+
 RING_FUNC(ring_glutEventKey) {
 	RING_API_RETNUMBER(nGLUTEventKey);
 }
@@ -300,6 +324,9 @@ RING_FUNC(ring_glutEventValue) {
 	RING_API_RETNUMBER(nGLUTEventValue);
 }
 
+RING_FUNC(ring_glutEventStatus) {
+	RING_API_RETNUMBER(nGLUTEventStatus);
+}
 
 RING_FUNC(ring_test_draw) {
 	// Reserved for Testing
