@@ -14,8 +14,8 @@ func main
 	glutInitWindowSize(320,320)
 	glutCreateWindow("RingFreeGLUT - Test 4")
 
-	glutDisplayFunc("renderScene()")
-	glutReshapeFunc("changeSize()")
+	glutDisplayFunc(:renderScene)
+	glutReshapeFunc(:changeSize)
 
 	glutMainLoop()
 

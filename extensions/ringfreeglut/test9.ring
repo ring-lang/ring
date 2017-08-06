@@ -196,18 +196,18 @@ func main
 	glutCreateWindow("RingFreeGLUT - Test 9")
 
 	// register callbacks
-	glutDisplayFunc("renderScene()")
-	glutReshapeFunc("changeSize()")
-	glutIdleFunc("renderScene()")
+	glutDisplayFunc(:renderScene)
+	glutReshapeFunc(:changeSize)
+	glutIdleFunc(:renderScene)
 
 	glutIgnoreKeyRepeat(1)
-	glutKeyboardFunc("processNormalKeys()")
-	glutSpecialFunc("pressKey()")
-	glutSpecialUpFunc("releaseKey()")
+	glutKeyboardFunc(:processNormalKeys)
+	glutSpecialFunc(:pressKey)
+	glutSpecialUpFunc(:releaseKey)
 
 	// here are the two new functions
-	glutMouseFunc("mouseButton()")
-	glutMotionFunc("mouseMove()")
+	glutMouseFunc(:mouseButton)
+	glutMotionFunc(:mouseMove)
 
 	// OpenGL init
 	glEnable(GL_DEPTH_TEST)

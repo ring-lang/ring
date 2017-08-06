@@ -20,13 +20,13 @@ func main
 	glutInitWindowSize(320,320)
 	glutCreateWindow("RingFreeGLUT - Test 6")
 
-	glutDisplayFunc("renderScene()")
-	glutReshapeFunc("changeSize()")
-	glutIdleFunc("renderScene()")
+	glutDisplayFunc(:renderScene)
+	glutReshapeFunc(:changeSize)
+	glutIdleFunc(:renderScene)
 
 	// here are the new entries
-	glutKeyboardFunc("processNormalKeys()")
-	glutSpecialFunc("processSpecialKeys()")
+	glutKeyboardFunc(:processNormalKeys)
+	glutSpecialFunc(:processSpecialKeys)
 
 	glutMainLoop()
 

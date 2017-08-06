@@ -45,7 +45,7 @@ RING_FUNC(ring_glutInit)
 
 void displayFunction(void)
 {
-	ring_vm_runcode(pRingVMObject,cDisplayFunction) ;
+	ring_vm_callfunction(pRingVMObject,cDisplayFunction) ;
 }
 
 RING_FUNC(ring_glutDisplayFunc)
@@ -65,7 +65,7 @@ void reshapeFunction(int w, int h)
 {
 	nGLUTEventWidth = w;
 	nGLUTEventHeight = h ;
-	ring_vm_runcode(pRingVMObject,cReshapeFunction) ;
+	ring_vm_callfunction(pRingVMObject,cReshapeFunction) ;
 }
 
 RING_FUNC(ring_glutReshapeFunc)
@@ -93,7 +93,7 @@ RING_FUNC(ring_glutEventHeight)
 
 void IdleFunction(void)
 {
-	ring_vm_runcode(pRingVMObject,cIdleFunction) ;
+	ring_vm_callfunction(pRingVMObject,cIdleFunction) ;
 }
 
 RING_FUNC(ring_glutIdleFunc)
@@ -114,7 +114,7 @@ void KeyboardFunction(unsigned char key, int x, int y)
 	nGLUTEventKey = (int) key ;
 	nGLUTEventX = x ;
 	nGLUTEventY = y ;
-	ring_vm_runcode(pRingVMObject,cKeyboardFunction) ;
+	ring_vm_callfunction(pRingVMObject,cKeyboardFunction) ;
 }
 
 RING_FUNC(ring_glutKeyboardFunc)
@@ -135,7 +135,7 @@ void SpecialFunction(int key, int x, int y)
 	nGLUTEventKey = key ;
 	nGLUTEventX = x ;
 	nGLUTEventY = y ;
-	ring_vm_runcode(pRingVMObject,cSpecialFunction) ;
+	ring_vm_callfunction(pRingVMObject,cSpecialFunction) ;
 }
 
 RING_FUNC(ring_glutSpecialFunc)
@@ -156,7 +156,7 @@ void SpecialUpFunction(int key, int x, int y)
 	nGLUTEventKey = key ;
 	nGLUTEventX = x ;
 	nGLUTEventY = y ;
-	ring_vm_runcode(pRingVMObject,cSpecialUpFunction) ;
+	ring_vm_callfunction(pRingVMObject,cSpecialUpFunction) ;
 }
 
 RING_FUNC(ring_glutSpecialUpFunc)
@@ -178,7 +178,7 @@ void MouseFunction(int button,int state, int x, int y)
 	nGLUTEventState = state ;
 	nGLUTEventX = x ;
 	nGLUTEventY = y ;
-	ring_vm_runcode(pRingVMObject,cMouseFunction) ;
+	ring_vm_callfunction(pRingVMObject,cMouseFunction) ;
 }
 
 RING_FUNC(ring_glutMouseFunc)
@@ -198,7 +198,7 @@ void MotionFunction(int x, int y)
 {
 	nGLUTEventX = x ;
 	nGLUTEventY = y ;
-	ring_vm_runcode(pRingVMObject,cMotionFunction) ;
+	ring_vm_callfunction(pRingVMObject,cMotionFunction) ;
 }
 
 RING_FUNC(ring_glutMotionFunc)
@@ -219,7 +219,7 @@ void MenuFunction(int value)
 	int x;
 	nGLUTEventValue = value ;
 	for (x = 1 ; x<= ring_list_getsize(pMenuFunctions) ; x ++ )
-		ring_vm_runcode(pRingVMObject,ring_list_getstring(pMenuFunctions, x ) ) ;
+		ring_vm_callfunction(pRingVMObject,ring_list_getstring(pMenuFunctions, x ) ) ;
 }
 
 RING_FUNC(ring_glutCreateMenu) {
@@ -243,7 +243,7 @@ void MenuStatusFunction(int status,int x, int y)
 	nGLUTEventStatus = status ;
 	nGLUTEventX = x ;
 	nGLUTEventY = y ;
-	ring_vm_runcode(pRingVMObject,cMenuStatusFunction) ;
+	ring_vm_callfunction(pRingVMObject,cMenuStatusFunction) ;
 }
 
 RING_FUNC(ring_glutMenuStatusFunc)

@@ -170,15 +170,15 @@ func main
 	glutCreateWindow("RingFreeGLUT - Test 8")
 
 	// register callbacks
-	glutDisplayFunc("renderScene()")
-	glutReshapeFunc("changeSize()")
-	glutIdleFunc("renderScene()")
+	glutDisplayFunc(:renderScene)
+	glutReshapeFunc(:changeSize)
+	glutIdleFunc(:renderScene)
 
-	glutSpecialFunc("pressKey()")
+	glutSpecialFunc(:pressKey)
 
 	// here are the new entries
 	glutIgnoreKeyRepeat(1)
-	glutSpecialUpFunc("releaseKey()")
+	glutSpecialUpFunc(:releaseKey)
 
 	// OpenGL init
 	glEnable(GL_DEPTH_TEST)

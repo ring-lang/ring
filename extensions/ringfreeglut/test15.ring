@@ -377,11 +377,11 @@ func init
 
 	// register callbacks
 	glutIgnoreKeyRepeat(1)
-	glutKeyboardFunc("processNormalKeys()")
-	glutSpecialFunc("pressKey()")
-	glutSpecialUpFunc("releaseKey()")
-	glutMouseFunc("mouseButton()")
-	glutMotionFunc("mouseMove()")
+	glutKeyboardFunc(:processNormalKeys)
+	glutSpecialFunc(:pressKey)
+	glutSpecialUpFunc(:releaseKey)
+	glutMouseFunc(:mouseButton)
+	glutMotionFunc(:mouseMove)
 
 
 func main
@@ -394,26 +394,26 @@ func main
 	mainWindow = glutCreateWindow("RingFreeGLUT - Test 15")
 
 	// callbacks for main window
-	glutDisplayFunc("renderSceneAll()")
-	glutReshapeFunc("changeSize()")
+	glutDisplayFunc(:renderSceneAll)
+	glutReshapeFunc(:changeSize)
 	// Removing the idle function to save CPU and GPU
-	#glutIdleFunc("renderSceneAll()")
+	#glutIdleFunc(:renderSceneAll)
 	init()
 
 	// sub windows
 	subWindow1 = glutCreateSubWindow(mainWindow, border,border,w-2*border, h/2 - border*3/2)
-	glutDisplayFunc("renderScenesw1()")
+	glutDisplayFunc(:renderScenesw1)
 	init()
 
 	subWindow2 = glutCreateSubWindow(mainWindow, border,(h+border)/2,w/2-border*3/2, h/2 - border*3/2)
-	glutDisplayFunc("renderScenesw2()")
+	glutDisplayFunc(:renderScenesw2)
 	init()
 
 	subWindow3 = glutCreateSubWindow(mainWindow, (w+border)/2,(h+border)/2,w/2-border*3/2,h/2 - border*3/2)
-	glutDisplayFunc("renderScenesw3()")
+	glutDisplayFunc(:renderScenesw3)
 	init()
 
-	glutDisplayFunc("renderSceneAll()")
+	glutDisplayFunc(:renderSceneAll)
 
 	// enter GLUT event processing cycle
 	glutMainLoop()

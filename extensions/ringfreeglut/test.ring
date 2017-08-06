@@ -11,7 +11,7 @@ func main
 	glutInitWindowSize(800, 600)
 	glutInitWindowPosition(100, 10)
 	glutCreateWindow("RingFreeGLUT - Test 1")
-	glutDisplayFunc("displayCode()")
+	glutDisplayFunc(:displayCode)
 	glutMainLoop()
 
 func displaycode

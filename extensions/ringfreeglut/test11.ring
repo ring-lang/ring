@@ -335,7 +335,7 @@ func processColorMenu
 
 func createPopupMenus
 
-	fontMenu = glutCreateMenu("processFontMenu()")
+	fontMenu = glutCreateMenu(:processFontMenu)
 
 	glutAddMenuEntry("BITMAP_8_BY_13 ",C_INT_GLUT_BITMAP_8_BY_13 )
 	glutAddMenuEntry("BITMAP_9_BY_15",C_INT_GLUT_BITMAP_9_BY_15 )
@@ -345,18 +345,18 @@ func createPopupMenus
 	glutAddMenuEntry("BITMAP_HELVETICA_12",C_INT_GLUT_BITMAP_HELVETICA_12  )
 	glutAddMenuEntry("BITMAP_HELVETICA_18",C_INT_GLUT_BITMAP_HELVETICA_18  )
 
-	fillMenu = glutCreateMenu("processFillMenu()")
+	fillMenu = glutCreateMenu(:processFillMenu)
 
 	glutAddMenuEntry("Fill",C_FILL)
 	glutAddMenuEntry("Line",C_LINE)
 
-	colorMenu = glutCreateMenu("processColorMenu()")
+	colorMenu = glutCreateMenu(:processColorMenu)
 	glutAddMenuEntry("Red",C_RED);
 	glutAddMenuEntry("Blue",C_BLUE);
 	glutAddMenuEntry("Green",C_GREEN);
 	glutAddMenuEntry("Orange",C_ORANGE);
 
-	mainMenu = glutCreateMenu("processMainMenu()")
+	mainMenu = glutCreateMenu(:processMainMenu)
 
 	glutAddSubMenu("Polygon Mode", fillMenu)
 	glutAddSubMenu("Color", colorMenu)
@@ -365,7 +365,7 @@ func createPopupMenus
 	glutAttachMenu(GLUT_RIGHT_BUTTON)
 
 	// this will allow us to know if the menu is active
-	glutMenuStatusFunc("processMenuStatus()")
+	glutMenuStatusFunc(:processMenuStatus)
 
 
 // -----------------------------------
@@ -382,18 +382,18 @@ func main
 	glutCreateWindow("RingFreeGLUT - Test 11")
 
 	// register callbacks
-	glutDisplayFunc("renderScene()")
-	glutReshapeFunc("changeSize()")
-	glutIdleFunc("renderScene()")
+	glutDisplayFunc(:renderScene)
+	glutReshapeFunc(:changeSize)
+	glutIdleFunc(:renderScene)
 
 	glutIgnoreKeyRepeat(1)
-	glutKeyboardFunc("processNormalKeys()")
-	glutSpecialFunc("pressKey()")
-	glutSpecialUpFunc("releaseKey()")
+	glutKeyboardFunc(:processNormalKeys)
+	glutSpecialFunc(:pressKey)
+	glutSpecialUpFunc(:releaseKey)
 
 	// here are the two new functions
-	glutMouseFunc("mouseButton()")
-	glutMotionFunc("mouseMove()")
+	glutMouseFunc(:mouseButton)
+	glutMotionFunc(:mouseMove)
 
 	// OpenGL init
 	glEnable(GL_DEPTH_TEST)

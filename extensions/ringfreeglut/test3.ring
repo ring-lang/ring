@@ -11,7 +11,7 @@ func main
 	glutInitWindowSize(320,320)
 	glutInitWindowPosition(100, 10)
 	glutCreateWindow("RingFreeGLUT - Test 3")
-	glutDisplayFunc("renderScene()")
+	glutDisplayFunc(:renderScene)
 	glutMainLoop()
 
 func renderScene
