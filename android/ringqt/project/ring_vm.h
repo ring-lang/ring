@@ -497,6 +497,9 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 /* Trace */
 
 void ring_vm_traceevent ( VM *pVM,char nEvent ) ;
+/* Fast Function Call for Extensions (Without Eval) */
+
+RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 /*
 **  Macro 
 **  Stack 

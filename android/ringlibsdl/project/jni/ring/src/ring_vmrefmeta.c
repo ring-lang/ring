@@ -1005,18 +1005,10 @@ void ring_vm_refmeta_ringvmcallfunc ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		/* Prepare (Remove effects of the currect function) */
+		/* We create a string, because the current scope will be deleted by ring_vm_callfunc() */
 		pString = ring_string_new(RING_API_GETSTRING(1));
-		ring_list_deletelastitem(pVM->pFuncCallList);
-		ring_vm_deletescope(pVM);
-		/* Load the function and call it */
-		ring_vm_loadfunc2(pVM,ring_string_get(pString),0);
+		ring_vm_callfunction(pVM,ring_string_get(pString));
 		ring_string_delete(pString);
-		ring_vm_call2(pVM);
-		/* Execute the function */
-		ring_vm_mainloop(pVM);
-		/* Avoid normal steps after this function, because we deleted the scope in Prepare */
-		pVM->nActiveCatch = 1 ;
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

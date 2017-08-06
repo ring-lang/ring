@@ -1171,3 +1171,21 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Delete the RingState */
 	ring_state_delete(pState);
 }
+/* Fast Function Call for Extensions (Without Eval) */
+
+RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
+{
+	/* Lower Case and pass () in the end */
+	ring_string_lower(cFuncName);
+	/* Prepare (Remove effects of the currect function) */
+	ring_list_deletelastitem(pVM->pFuncCallList);
+	/* Load the function and call it */
+	ring_vm_loadfunc2(pVM,cFuncName,0);
+	ring_vm_call2(pVM);
+	/* Execute the function */
+	ring_vm_mainloop(pVM);
+	/* Free Stack */
+	ring_vm_freestack(pVM);
+	/* Avoid normal steps after this function, because we deleted the scope in Prepare */
+	pVM->nActiveCatch = 1 ;
+}
