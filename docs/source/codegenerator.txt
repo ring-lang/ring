@@ -381,7 +381,7 @@ The next example uses this feature to define constants in the FreeGLUT library
 
 	<runcode>
 	$nDefaultConstantType = C_CONSTANT_TYPE_POINTER	
-	$cDefaultConstantPointerType = "void *"
+	$cDefaultConstantPointerType = "void"
 	</runcode>
 	<constant>
 		GLUT_STROKE_ROMAN  
