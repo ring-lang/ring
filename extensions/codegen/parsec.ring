@@ -800,17 +800,18 @@ Func GenConstant aFunc
 	# Generate Functions to Get The Constant Value
 	cFuncName = $cFuncStart+"get_"+lower(cConstant)
 	$aStructFuncs + cFuncName
-		cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 		"{" + nl 
-	if $nDefaultConstantType = C_CONSTANT_TYPE_NUMBER	
+	switch aFunc[C_CONSTANT_TYPE]
+	On C_CONSTANT_TYPE_NUMBER	
 		cCode += GenTabs(1) + "RING_API_RETNUMBER("+cConstant+");" + nl 
-	but $nDefaultConstantType = C_CONSTANT_TYPE_STRING
+	on C_CONSTANT_TYPE_STRING
 		cCode += GenTabs(1) + "RING_API_RETSTRING("+cConstant+");" + nl 
-	but $nDefaultConstantType = C_CONSTANT_TYPE_POINTER
-		cPointerType = ',"' + $cDefaultConstantPointerType + '"'
-		cCode += GenTabs(1) + "RING_API_RETCPOINTER("+cConstant+cPointerType+");" + nl 
-	ok
-		cCode = "}" + nl + nl
+	on C_CONSTANT_TYPE_POINTER
+		cConstantPointerType = ',"' + $cDefaultConstantPointerType + '"'
+		cCode += GenTabs(1) + "RING_API_RETCPOINTER("+cConstant+cConstantPointerType+");" + nl 
+	off
+	cCode = "}" + nl + nl
 	return cCode
 
 
