@@ -1102,47 +1102,47 @@ RING_FUNC(ring_get_glut_game_mode_display_changed)
 
 RING_FUNC(ring_get_glut_stroke_roman)
 {
-	RING_API_RETCPOINTER(GLUT_STROKE_ROMAN,"void *");
+	RING_API_RETCPOINTER(GLUT_STROKE_ROMAN,"void");
 }
 
 RING_FUNC(ring_get_glut_stroke_mono_roman)
 {
-	RING_API_RETCPOINTER(GLUT_STROKE_MONO_ROMAN,"void *");
+	RING_API_RETCPOINTER(GLUT_STROKE_MONO_ROMAN,"void");
 }
 
 RING_FUNC(ring_get_glut_bitmap_9_by_15)
 {
-	RING_API_RETCPOINTER(GLUT_BITMAP_9_BY_15,"void *");
+	RING_API_RETCPOINTER(GLUT_BITMAP_9_BY_15,"void");
 }
 
 RING_FUNC(ring_get_glut_bitmap_8_by_13)
 {
-	RING_API_RETCPOINTER(GLUT_BITMAP_8_BY_13,"void *");
+	RING_API_RETCPOINTER(GLUT_BITMAP_8_BY_13,"void");
 }
 
 RING_FUNC(ring_get_glut_bitmap_times_roman_10)
 {
-	RING_API_RETCPOINTER(GLUT_BITMAP_TIMES_ROMAN_10,"void *");
+	RING_API_RETCPOINTER(GLUT_BITMAP_TIMES_ROMAN_10,"void");
 }
 
 RING_FUNC(ring_get_glut_bitmap_times_roman_24)
 {
-	RING_API_RETCPOINTER(GLUT_BITMAP_TIMES_ROMAN_24,"void *");
+	RING_API_RETCPOINTER(GLUT_BITMAP_TIMES_ROMAN_24,"void");
 }
 
 RING_FUNC(ring_get_glut_bitmap_helvetica_10)
 {
-	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_10,"void *");
+	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_10,"void");
 }
 
 RING_FUNC(ring_get_glut_bitmap_helvetica_12)
 {
-	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_12,"void *");
+	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_12,"void");
 }
 
 RING_FUNC(ring_get_glut_bitmap_helvetica_18)
 {
-	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_18,"void *");
+	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_18,"void");
 }
 
 

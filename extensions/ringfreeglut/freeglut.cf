@@ -505,7 +505,7 @@ GLUT_GAME_MODE_DISPLAY_CHANGED
 
 <runcode>
 	$nDefaultConstantType = C_CONSTANT_TYPE_POINTER	
-	$cDefaultConstantPointerType = "void *"
+	$cDefaultConstantPointerType = "void"
 </runcode>
 <constant>
 GLUT_STROKE_ROMAN  
@@ -564,14 +564,14 @@ int glutGet(GLenum query)
 int glutDeviceGet(GLenum query)
 int glutGetModifiers(void)
 int glutLayerGet(GLenum query)
-void glutBitmapCharacter(void* font, int character)
-int glutBitmapWidth(void* font, int character)
-void glutStrokeCharacter(void* font, int character)
-int glutStrokeWidth(void* font, int character)
-GLfloat glutStrokeWidthf(void* font, int character)
-int glutBitmapLength(void* font, char * string)
-int glutStrokeLength(void* font, char * string)
-GLfloat glutStrokeLengthf(void* font, char *string)
+void glutBitmapCharacter(void *font, int character)
+int glutBitmapWidth(void *font, int character)
+void glutStrokeCharacter(void *font, int character)
+int glutStrokeWidth(void *font, int character)
+GLfloat glutStrokeWidthf(void *font, int character)
+int glutBitmapLength(void *font, char * string)
+int glutStrokeLength(void *font, char * string)
+GLfloat glutStrokeLengthf(void *font, char *string)
 void glutWireCube(double size)
 void glutSolidCube(double size)
 void glutWireSphere(double radius, GLint slices, GLint stacks)
