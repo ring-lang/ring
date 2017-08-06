@@ -2463,6 +2463,32 @@ RING_FUNC(ring_glutMainLoop)
 	glutMainLoop();
 }
 
+
+RING_FUNC(ring_gluOrtho2D)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluOrtho2D( (int) RING_API_GETNUMBER(1), (int) RING_API_GETNUMBER(2), (int) RING_API_GETNUMBER(3), (int) RING_API_GETNUMBER(4));
+}
+
 RING_FUNC(ring_get_gl_color_buffer_bit)
 {
 	RING_API_RETNUMBER(GL_COLOR_BUFFER_BIT);
@@ -3055,6 +3081,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutextensionsupported",ring_glutExtensionSupported);
 	ring_vm_funcregister("glutreporterrors",ring_glutReportErrors);
 	ring_vm_funcregister("glutmainloop",ring_glutMainLoop);
+	ring_vm_funcregister("gluortho2d",ring_gluOrtho2D);
 	ring_vm_funcregister("glclear",ring_glClear);
 	ring_vm_funcregister("glcolor3f",ring_glColor3f);
 	ring_vm_funcregister("glbegin",ring_glBegin);

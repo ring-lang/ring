@@ -610,6 +610,8 @@ void glutReportErrors(void)
 
 void glutMainLoop(void)
 
+void gluOrtho2D(int,int,int,int)
+
 <comment>
 OpenGL  Constants and Functions
 </comment>
