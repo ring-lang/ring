@@ -10,7 +10,7 @@
 	     [  C_INS_STRUCT  , C_FUNC_STRUCTDATA  ]	
 	     [  C_INS_RUNCODE , C_FUNC_CODE ]
 	     [  C_INS_CLASS   , C_FUNC_CODE ]
-	     [  C_INS_CONSTANT, C_FUNC_CODE ] 
+	     [  C_INS_CONSTANT, C_CONSTANT_NAME , C_CONSTANT_TYPE ] 
 	The first record is used for generating code written in <code> and </code>
 	The second record is used for function prototype 
 	The third record is used for function registration only <register> and </register>
@@ -803,7 +803,7 @@ Func GenConstant aFunc
 	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 		"{" + nl 
 	switch aFunc[C_CONSTANT_TYPE]
-	On C_CONSTANT_TYPE_NUMBER	
+	on C_CONSTANT_TYPE_NUMBER	
 		cCode += GenTabs(1) + "RING_API_RETNUMBER("+cConstant+");" + nl 
 	on C_CONSTANT_TYPE_STRING
 		cCode += GenTabs(1) + "RING_API_RETSTRING("+cConstant+");" + nl 
@@ -811,7 +811,7 @@ Func GenConstant aFunc
 		cConstantPointerType = ',"' + $cDefaultConstantPointerType + '"'
 		cCode += GenTabs(1) + "RING_API_RETCPOINTER("+cConstant+cConstantPointerType+");" + nl 
 	off
-	cCode = "}" + nl + nl
+	cCode += "}" + nl + nl
 	return cCode
 
 
