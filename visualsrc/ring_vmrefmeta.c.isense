@@ -257,3 +257,8 @@ pVM
 ring_vm_refmeta_ringvmhideerrormsg
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmcallfunc
+Type: VM *
+pVM
+Type: String
+pString
