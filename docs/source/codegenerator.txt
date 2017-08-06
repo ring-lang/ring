@@ -220,7 +220,7 @@ Example:
 Defining Contants
 =================
 
-You can define constatants using <constant> and </constant>
+You can define constants using <constant> and </constant>
 
 The generator will generate the required functions to get the constant values
 
@@ -248,7 +248,6 @@ Example:
 .. code-block:: ring
 
 	ring ..\codegen\parsec.ring libsdl.cf ring_libsdl.c ring_libsdl.rh
-
 
 .. index:: 
 	pair: Code Generator; Register New Functions
@@ -354,6 +353,47 @@ based on a condition, for example
 			... functions related to windows
 		</filter>
 
+.. index:: 
+	pair: Code Generator; Constants Type
+
+Contants Type
+=============
+
+The default type for constant is Number 
+But Some constants may be another type, for example (pointer : void *)
+
+before using <constant> and </constant> we can use <runcode> and </runcode>
+to determine the constant type using two global variables used by the code generator.
+
+The first variable is $nDefaultConstantType which can be
+* C_CONSTANT_TYPE_NUMBER	
+* C_CONSTANT_TYPE_STRING
+* C_CONSTANT_TYPE_POINTER
+
+if we are using C_CONSTANT_TYPE_POINTER	then we will need the second global variable
+which is $cDefaultConstantPointerType to determine the pointer type.
+
+Example :
+
+The next example uses this feature to define constants in the FreeGLUT library
+
+.. code-block:: ring
+
+	<runcode>
+	$nDefaultConstantType = C_CONSTANT_TYPE_POINTER	
+	$cDefaultConstantPointerType = "void *"
+	</runcode>
+	<constant>
+		GLUT_STROKE_ROMAN  
+		GLUT_STROKE_MONO_ROMAN
+		GLUT_BITMAP_9_BY_15   
+		GLUT_BITMAP_8_BY_13   
+		GLUT_BITMAP_TIMES_ROMAN_10
+		GLUT_BITMAP_TIMES_ROMAN_24 
+		GLUT_BITMAP_HELVETICA_10   
+		GLUT_BITMAP_HELVETICA_12   
+		GLUT_BITMAP_HELVETICA_18   
+	</constant>
 
 .. index:: 
 	pair: Code Generator; Configuration file for the Allegro library
