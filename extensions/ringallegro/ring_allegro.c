@@ -5601,7 +5601,7 @@ RING_FUNC(ring_al_get_system_config)
 }
 
 void *al_func_thread(ALLEGRO_THREAD *thread, void *pPointer)
-{  
+{
 	List *pList;
 	VM *pVM;
 	const char *cStr;
