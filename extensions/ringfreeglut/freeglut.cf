@@ -610,7 +610,7 @@ void glutReportErrors(void)
 
 void glutMainLoop(void)
 
-void gluOrtho2D(int,int,int,int)
+void gluOrtho2D(GLdouble,GLdouble,GLdouble,GLdouble)
 
 <comment>
 OpenGL  Constants and Functions
@@ -657,3 +657,4 @@ void glDepthMask(GLboolean flag)
 void glScalef(float,float,float)
 void glPolygonMode(int,int)
 void glRasterPos3f(float,float,float)
+void glClearColor(float,float,float,float)

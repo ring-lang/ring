@@ -2486,7 +2486,7 @@ RING_FUNC(ring_gluOrtho2D)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	gluOrtho2D( (int) RING_API_GETNUMBER(1), (int) RING_API_GETNUMBER(2), (int) RING_API_GETNUMBER(3), (int) RING_API_GETNUMBER(4));
+	gluOrtho2D( (GLdouble) RING_API_GETNUMBER(1), (GLdouble) RING_API_GETNUMBER(2), (GLdouble) RING_API_GETNUMBER(3), (GLdouble) RING_API_GETNUMBER(4));
 }
 
 RING_FUNC(ring_get_gl_color_buffer_bit)
@@ -2969,6 +2969,32 @@ RING_FUNC(ring_glRasterPos3f)
 	glRasterPos3f( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_glClearColor)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glClearColor( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
@@ -3104,6 +3130,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glscalef",ring_glScalef);
 	ring_vm_funcregister("glpolygonmode",ring_glPolygonMode);
 	ring_vm_funcregister("glrasterpos3f",ring_glRasterPos3f);
+	ring_vm_funcregister("glclearcolor",ring_glClearColor);
 	ring_vm_funcregister("get_glut_rgb",ring_get_glut_rgb);
 	ring_vm_funcregister("get_glut_rgba",ring_get_glut_rgba);
 	ring_vm_funcregister("get_glut_index",ring_get_glut_index);
