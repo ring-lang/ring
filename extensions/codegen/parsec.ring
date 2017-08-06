@@ -10,7 +10,7 @@
 	     [  C_INS_STRUCT  , C_FUNC_STRUCTDATA  ]	
 	     [  C_INS_RUNCODE , C_FUNC_CODE ]
 	     [  C_INS_CLASS   , C_FUNC_CODE ]
-	     [  C_INS_CONSTANT, C_CONSTANT_NAME , C_CONSTANT_TYPE ] 
+	     [  C_INS_CONSTANT, C_CONSTANT_NAME] 
 	The first record is used for generating code written in <code> and </code>
 	The second record is used for function prototype 
 	The third record is used for function registration only <register> and </register>
@@ -106,7 +106,6 @@ $aMallocClassesList = []   # list contains classes to use malloc() instead of ne
 # When we define constants 
 	C_CONSTANT_INS		= 1
 	C_CONSTANT_NAME 	= 2
-	C_CONSTANT_TYPE		= 3
 	C_CONSTANT_TYPE_NUMBER = 1
 	C_CONSTANT_TYPE_STRING = 2
 	C_CONSTANT_TYPE_POINTER = 3
@@ -219,7 +218,7 @@ Func Main
 				$cClassName = trim(substr(cValue,6))
 			ok
 		but lFlag = C_INS_CONSTANT
-			aData + [C_INS_CONSTANT,cLine,$nDefaultConstantType]
+			aData + [C_INS_CONSTANT,cLine]
 		ok
 	next
 	cCode = GenCode(aData)
@@ -802,7 +801,7 @@ Func GenConstant aFunc
 	$aStructFuncs + cFuncName
 	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 		"{" + nl 
-	switch aFunc[C_CONSTANT_TYPE]
+	switch $nDefaultConstantType
 	on C_CONSTANT_TYPE_NUMBER	
 		cCode += GenTabs(1) + "RING_API_RETNUMBER("+cConstant+");" + nl 
 	on C_CONSTANT_TYPE_STRING
