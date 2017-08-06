@@ -185,10 +185,15 @@ Func Main
 		but cLine = "</filter>"
 			lFlag = lFilterFlag 
 			loop
+		but cLine = "</constant>"
+			$nDefaultConstantType = C_CONSTANT_TYPE_NUMBER	
+			$cDefaultConstantPointerType = "void *"
+			lFlag = C_INS_FUNCTION			
+			loop
 		but cLine = "</code>" or cLine = "</register>" or 
 		    cLine = "</comment>" or cLine = "</struct>" or
 		    cLine = "</funcstart>" or cLine = "</runcode>" or
-		    cLine = "</class>" or cLine = "</constant>"
+		    cLine = "</class>"
 			lFlag = C_INS_FUNCTION			
 			loop
 		ok
