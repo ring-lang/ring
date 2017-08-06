@@ -54,6 +54,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_evalinscope",ring_vm_refmeta_ringvmevalinscope);
 	ring_vm_funcregister("ringvm_passerror",ring_vm_refmeta_ringvmpasserror);
 	ring_vm_funcregister("ringvm_hideerrormsg",ring_vm_refmeta_ringvmhideerrormsg);
+	ring_vm_funcregister("ringvm_callfunc",ring_vm_refmeta_ringvmcallfunc);
 }
 /* Functions */
 
@@ -989,6 +990,33 @@ void ring_vm_refmeta_ringvmhideerrormsg ( void *pPointer )
 	}
 	if ( RING_API_ISNUMBER(1) ) {
 		pVM->lHideErrorMsg = (int) RING_API_GETNUMBER(1) ;
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vm_refmeta_ringvmcallfunc ( void *pPointer )
+{
+	VM *pVM  ;
+	String *pString  ;
+	pVM = (VM *) pPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		/* Prepare (Remove effects of the currect function) */
+		pString = ring_string_new(RING_API_GETSTRING(1));
+		ring_list_deletelastitem(pVM->pFuncCallList);
+		ring_vm_deletescope(pVM);
+		/* Load the function and call it */
+		ring_vm_loadfunc2(pVM,ring_string_get(pString),0);
+		ring_string_delete(pString);
+		ring_vm_call2(pVM);
+		/* Execute the function */
+		ring_vm_mainloop(pVM);
+		/* Avoid normal steps after this function, because we deleted the scope in Prepare */
+		pVM->nActiveCatch = 1 ;
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

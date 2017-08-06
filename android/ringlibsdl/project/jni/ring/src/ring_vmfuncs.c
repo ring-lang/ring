@@ -168,13 +168,6 @@ void ring_vm_call ( VM *pVM )
 {
 	List *pList, *pActiveMem  ;
 	int x,nSP,nMax1,nFuncEx  ;
-	/* Decrement FuncExecute Counter */
-	if ( pVM->nFuncExecute > 0 ) {
-		pVM->nFuncExecute-- ;
-		pVM->nFuncExecute2-- ;
-	}
-	/* Restore aLoadAddressScope from pLoadAddressScope */
-	ring_vm_restoreloadaddressscope(pVM);
 	/* Check if we call method using ObjName.MethodName() */
 	if ( RING_VM_IR_PARACOUNT == 3 ) {
 		if ( RING_VM_IR_READIVALUE(2) ) {
@@ -190,6 +183,20 @@ void ring_vm_call ( VM *pVM )
 			}
 		}
 	}
+	ring_vm_call2(pVM);
+}
+
+void ring_vm_call2 ( VM *pVM )
+{
+	List *pList, *pActiveMem  ;
+	int x,nSP,nMax1,nFuncEx  ;
+	/* Decrement FuncExecute Counter */
+	if ( pVM->nFuncExecute > 0 ) {
+		pVM->nFuncExecute-- ;
+		pVM->nFuncExecute2-- ;
+	}
+	/* Restore aLoadAddressScope from pLoadAddressScope */
+	ring_vm_restoreloadaddressscope(pVM);
 	pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 	/* Calling Method from brace */
 	if ( ring_list_getsize(pList) >= RING_FUNCCL_METHODORFUNC ) {
