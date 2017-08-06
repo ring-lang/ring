@@ -183,6 +183,13 @@ void ring_vm_call ( VM *pVM )
 			}
 		}
 	}
+	ring_vm_call2(pVM);
+}
+
+void ring_vm_call2 ( VM *pVM )
+{
+	List *pList, *pActiveMem  ;
+	int x,nSP,nMax1,nFuncEx  ;
 	/* Decrement FuncExecute Counter */
 	if ( pVM->nFuncExecute > 0 ) {
 		pVM->nFuncExecute-- ;

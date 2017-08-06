@@ -13,6 +13,11 @@ Type: List *
 pList, *pActiveMem
 Type: int
 x,nSP,nMax1,nFuncEx
+ring_vm_call2
+Type: List *
+pList, *pActiveMem
+Type: int
+x,nSP,nMax1,nFuncEx
 ring_vm_return
 Type: List *
 pList

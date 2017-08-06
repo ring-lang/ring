@@ -276,6 +276,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance ) ;
 
 void ring_vm_call ( VM *pVM ) ;
 
+void ring_vm_call2 ( VM *pVM ) ;
+
 void ring_vm_return ( VM *pVM ) ;
 
 void ring_vm_returnnull ( VM *pVM ) ;
