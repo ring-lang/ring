@@ -185,8 +185,11 @@ Func Main
 			lFlag = lFilterFlag 
 			loop
 		but cLine = "</constant>"
+			cCodeToRun = '
 			$nDefaultConstantType = C_CONSTANT_TYPE_NUMBER	
 			$cDefaultConstantPointerType = "void *"
+			'
+			aData + [C_INS_RUNCODE,cCodeToRun]
 			lFlag = C_INS_FUNCTION			
 			loop
 		but cLine = "</code>" or cLine = "</register>" or 
