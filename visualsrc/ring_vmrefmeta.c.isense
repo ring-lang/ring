@@ -260,5 +260,5 @@ pVM
 ring_vm_refmeta_ringvmcallfunc
 Type: VM *
 pVM
-Type: String
+Type: String *
 pString

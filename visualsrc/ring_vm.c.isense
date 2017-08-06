@@ -441,3 +441,4 @@ Type: List *
 pList,*pList2,*pList3,*pList4,*pList5
 Type: Item *
 pItem
+ring_vm_callfunction
