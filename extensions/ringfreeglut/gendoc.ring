@@ -1,6 +1,6 @@
 # Generate Documentation from Configuration File
 # Author : Mahmoud Fayed <msfclipper@yahoo.com>
-# Date : 2016.09.22
+# Date : 2017.08.06
 
 #===============================================
 C_OUTPUTFILE = "ringfreeglutfuncsdoc.txt"
