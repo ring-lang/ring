@@ -103,6 +103,16 @@ $lIgnoreCPointerTypeCheck = false
 
 $aMallocClassesList = []   # list contains classes to use malloc() instead of new when we return objects of this type (not pointer)
 
+# When we define constants 
+	C_CONSTANT_INS		= 1
+	C_CONSTANT_NAME 	= 2
+	C_CONSTANT_TYPE		= 3
+	C_CONSTANT_TYPE_NUMBER = 1
+	C_CONSTANT_TYPE_STRING = 2
+	C_CONSTANT_TYPE_POINTER = 3
+	$nDefaultConstantType = C_CONSTANT_TYPE_NUMBER	
+	$cDefaultConstantPointerType = "void *"
+
 Func Main
 	if len(sysargv) < 3
 		See "Input : filename.cf is missing!" + nl
@@ -204,7 +214,7 @@ Func Main
 				$cClassName = trim(substr(cValue,6))
 			ok
 		but lFlag = C_INS_CONSTANT
-			aData + [C_INS_CONSTANT,cLine]
+			aData + [C_INS_CONSTANT,cLine,$nDefaultConstantType]
 		ok
 	next
 	cCode = GenCode(aData)
@@ -780,15 +790,22 @@ Func GenStruct	aFunc
 Func GenConstant aFunc
 	# this function get constant information 
 	# and generate function to get the constant value
-	cConstant = aFunc[C_FUNC_CODE]
+	cConstant = aFunc[C_CONSTANT_NAME]
 	cCode = ""
 	# Generate Functions to Get The Constant Value
 	cFuncName = $cFuncStart+"get_"+lower(cConstant)
 	$aStructFuncs + cFuncName
-	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
-		"{" + nl + 
-		GenTabs(1) + "RING_API_RETNUMBER("+cConstant+");" + nl +
-		"}" + nl + nl
+		cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+		"{" + nl 
+	if $nDefaultConstantType = C_CONSTANT_TYPE_NUMBER	
+		cCode += GenTabs(1) + "RING_API_RETNUMBER("+cConstant+");" + nl 
+	but $nDefaultConstantType = C_CONSTANT_TYPE_STRING
+		cCode += GenTabs(1) + "RING_API_RETSTRING("+cConstant+");" + nl 
+	but $nDefaultConstantType = C_CONSTANT_TYPE_POINTER
+		cPointerType = ',"' + $cDefaultConstantPointerType + '"'
+		cCode += GenTabs(1) + "RING_API_RETCPOINTER("+cConstant+cPointerType+");" + nl 
+	ok
+		cCode = "}" + nl + nl
 	return cCode
 
 
@@ -1073,7 +1090,7 @@ Func GenRingConstants aList
 	cCode = ""
 	for aFunc in aList
 		if aFunc[C_FUNC_INS] = C_INS_CONSTANT
-			cConstant = aFunc[C_FUNC_CODE]
+			cConstant = aFunc[C_CONSTANT_NAME]
 			cCode += cConstant + " = " + $cFuncStart + "get_" + cConstant + "()" + nl
 		ok
 	next	
