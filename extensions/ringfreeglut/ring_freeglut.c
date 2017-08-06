@@ -1100,6 +1100,51 @@ RING_FUNC(ring_get_glut_game_mode_display_changed)
 	RING_API_RETNUMBER(GLUT_GAME_MODE_DISPLAY_CHANGED);
 }
 
+RING_FUNC(ring_get_glut_stroke_roman)
+{
+	RING_API_RETCPOINTER(GLUT_STROKE_ROMAN,"void *");
+}
+
+RING_FUNC(ring_get_glut_stroke_mono_roman)
+{
+	RING_API_RETCPOINTER(GLUT_STROKE_MONO_ROMAN,"void *");
+}
+
+RING_FUNC(ring_get_glut_bitmap_9_by_15)
+{
+	RING_API_RETCPOINTER(GLUT_BITMAP_9_BY_15,"void *");
+}
+
+RING_FUNC(ring_get_glut_bitmap_8_by_13)
+{
+	RING_API_RETCPOINTER(GLUT_BITMAP_8_BY_13,"void *");
+}
+
+RING_FUNC(ring_get_glut_bitmap_times_roman_10)
+{
+	RING_API_RETCPOINTER(GLUT_BITMAP_TIMES_ROMAN_10,"void *");
+}
+
+RING_FUNC(ring_get_glut_bitmap_times_roman_24)
+{
+	RING_API_RETCPOINTER(GLUT_BITMAP_TIMES_ROMAN_24,"void *");
+}
+
+RING_FUNC(ring_get_glut_bitmap_helvetica_10)
+{
+	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_10,"void *");
+}
+
+RING_FUNC(ring_get_glut_bitmap_helvetica_12)
+{
+	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_12,"void *");
+}
+
+RING_FUNC(ring_get_glut_bitmap_helvetica_18)
+{
+	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_18,"void *");
+}
+
 
 RING_FUNC(ring_glutInitWindowPosition)
 {
@@ -3171,6 +3216,15 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_game_mode_pixel_depth",ring_get_glut_game_mode_pixel_depth);
 	ring_vm_funcregister("get_glut_game_mode_refresh_rate",ring_get_glut_game_mode_refresh_rate);
 	ring_vm_funcregister("get_glut_game_mode_display_changed",ring_get_glut_game_mode_display_changed);
+	ring_vm_funcregister("get_glut_stroke_roman",ring_get_glut_stroke_roman);
+	ring_vm_funcregister("get_glut_stroke_mono_roman",ring_get_glut_stroke_mono_roman);
+	ring_vm_funcregister("get_glut_bitmap_9_by_15",ring_get_glut_bitmap_9_by_15);
+	ring_vm_funcregister("get_glut_bitmap_8_by_13",ring_get_glut_bitmap_8_by_13);
+	ring_vm_funcregister("get_glut_bitmap_times_roman_10",ring_get_glut_bitmap_times_roman_10);
+	ring_vm_funcregister("get_glut_bitmap_times_roman_24",ring_get_glut_bitmap_times_roman_24);
+	ring_vm_funcregister("get_glut_bitmap_helvetica_10",ring_get_glut_bitmap_helvetica_10);
+	ring_vm_funcregister("get_glut_bitmap_helvetica_12",ring_get_glut_bitmap_helvetica_12);
+	ring_vm_funcregister("get_glut_bitmap_helvetica_18",ring_get_glut_bitmap_helvetica_18);
 	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
 	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
