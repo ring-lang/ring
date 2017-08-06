@@ -133,6 +133,11 @@ I can say that this is the easiest and the most BASIC-like language I've ever tr
 "I like the totality of the language, far more features than expected and the freedom of expressiveness is unique."
 	, Evikone
 
+"The author must be commended for the readily-obvious hard work and effort that has gone into creating a rich ecosystem for his language.
+It seems that the language is quite extensive as well. I would find it useful to see a BNF grammar and concise coverage of its semantics."
+	, Xx-Leninist-1917-Xx 
+
+
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
 
