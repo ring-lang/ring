@@ -110,7 +110,7 @@ $aMallocClassesList = []   # list contains classes to use malloc() instead of ne
 	C_CONSTANT_TYPE_STRING = 2
 	C_CONSTANT_TYPE_POINTER = 3
 	$nDefaultConstantType = C_CONSTANT_TYPE_NUMBER	
-	$cDefaultConstantPointerType = "void *"
+	$cDefaultConstantPointerType = "void"
 
 Func Main
 	if len(sysargv) < 3
