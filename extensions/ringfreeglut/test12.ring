@@ -27,8 +27,8 @@ C_GREEN = 2
 C_BLUE = 3
 C_ORANGE = 4
 
-C_FILL = 1
-C_LINE = 2
+C_FILL = 5
+C_LINE = 6
 
 // Pop up menu identifiers
 fillMenu=NULL
@@ -50,13 +50,13 @@ menuFlag = 0
 // default font
 font = GLUT_BITMAP_TIMES_ROMAN_24
 
-C_INT_GLUT_BITMAP_8_BY_13 = 1
-C_INT_GLUT_BITMAP_9_BY_15 = 2
-C_INT_GLUT_BITMAP_TIMES_ROMAN_10  = 3
-C_INT_GLUT_BITMAP_TIMES_ROMAN_24  = 4
-C_INT_GLUT_BITMAP_HELVETICA_10  = 5
-C_INT_GLUT_BITMAP_HELVETICA_12  = 6
-C_INT_GLUT_BITMAP_HELVETICA_18  = 7
+C_INT_GLUT_BITMAP_8_BY_13 = 7
+C_INT_GLUT_BITMAP_9_BY_15 = 8
+C_INT_GLUT_BITMAP_TIMES_ROMAN_10  = 9
+C_INT_GLUT_BITMAP_TIMES_ROMAN_24  = 10
+C_INT_GLUT_BITMAP_HELVETICA_10  = 11
+C_INT_GLUT_BITMAP_HELVETICA_12  = 12
+C_INT_GLUT_BITMAP_HELVETICA_18  = 13
 
 // width and height of the window
 h = 0
@@ -244,8 +244,8 @@ func renderScene
 
 func processNormalKeys
 	key = glutEventKey()
-	xx = glutEventXX()
-	yy = glutEventYY() 
+	xx = glutEventX()
+	yy = glutEventY() 
 
 	switch key
 		on 27
