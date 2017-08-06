@@ -1,21 +1,23 @@
 /*
  +---------------------------------------------------------------------------------------------------------
  +     Program Name : Calculator
- +     Date         : 2016-2017
- +     Author       : Magdy Ragab
- +                  : Gal Zsolt (~ CalmoSoft ~)
+ +     Date                : 2016-2017
+ +     Author             : Magdy Ragab
+ +                           : Gal Zsolt (~ CalmoSoft ~)
  +---------------------------------------------------------------------------------------------------------
 */
 
 func typeNumbers x
-	edit1.settext(edit1.text()+x)
-
-
+        edit1.settext(edit1.text()+x)
+        spaceflag = 1
+ 
 func math x
-	edit1.settext(edit1.text()+ x )
+        edit1.settext(edit1.text()+ x )
+        spaceflag = 1
 	
-func addPrediod
+func addPeriod
 	edit1.settext(edit1.text()+'.')
+             spaceflag = 1
 
 func clearCalc
 	num1=0
@@ -25,6 +27,7 @@ func clearCalc
 
 func calcPercent
 	edit1.settext(""+ edit1.text()+"%")
+             spaceflag = 1
 
 func checkEnter
 	try
@@ -62,7 +65,7 @@ func add2history enum,result
 	sqlite_open(oDB,'calc.db')
 	sqlite_execute(oDB, "insert into `calc` (`math`, `result`) values('"+ enum +"','"+ result +"');")
 	sqlite_close(oDB)
-	
+ 	
 func deletehistory
 	oDB = sqlite_init()
 	sqlite_open(oDB,'calc.db')
@@ -90,6 +93,13 @@ func checkEdit
                  flag = 0
               ok
         next
+        en1 = substr(enum, len(enum) - 1, 1)
+        en2 = right(enum, 1)
+        bool1 = (en1 = "+" or en1 = "-" or en1 = "*" or en1 = "/" or en1 = "%" or en1 = ".")
+        bool2 = (en2 = "+" or en2 = "-" or en2 = "*" or en2 = "/" or en2 = "%" or en2 = ".")
+        if bool1 = true and bool2 = true
+           flag = 0
+        ok
         return flag
  
 
