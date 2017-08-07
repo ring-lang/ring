@@ -1775,7 +1775,7 @@ Class RNote from WindowsControllerParent
 		next
 		cText = list2str(aText)
 		# Set the font
-			oFontTemp.fromstring(cFont)
+			oTempFont.fromstring(cFont)
 			oProcessEditbox.setFont(oTempFont)
 		oProcessEditbox.insertplaintext(cText)
 
