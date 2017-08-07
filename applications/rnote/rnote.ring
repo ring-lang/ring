@@ -938,8 +938,7 @@ Class RNote from WindowsControllerParent
 
 	func pCheckSaveBeforeChange
 		if cActiveFileName = NULL return ok
-		cStr1 = substr(read(cActiveFileName),WindowsNl(),NL)
-		if cStr1 != textedit1.toPlainText() pSaveSettings() ok
+		pSaveSettings()
 
 	func pChangeFile
 		pCheckSaveBeforeChange()	# To ask to saving a file
@@ -989,7 +988,7 @@ Class RNote from WindowsControllerParent
 			oDock2.raise()
 			tree1.setFocus(0)
 		ok
-
+		lAsktoSave = False
 		StatusMessage("Ready!")
 
 	func pSetActiveFileName
