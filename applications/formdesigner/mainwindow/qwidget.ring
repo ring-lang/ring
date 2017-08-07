@@ -162,7 +162,9 @@ class FormDesigner_QWidget from QWidget
 				setBackColor(cColor)
 				DisplayProperties(oDesigner)
 			case 6	# Window Flags
-				open_window(:WindowFlagsController)
+				open_windowInPackages(:WindowFlagsController,[
+					"System.GUI"
+				])
 				Last_Window().setParentObject(oDesigner)
 				Last_Window().LoadSelectedItems()
 			case 8	# Window Icon
@@ -170,7 +172,9 @@ class FormDesigner_QWidget from QWidget
 				setWindowIconValue(cFile)
 				DisplayProperties(oDesigner)
 			case 9	# Menubar
-				open_window(:MenubarDesignerController)
+				open_windowInPackages(:MenubarDesignerController,[
+					"System.GUI"
+				])
 				Last_Window().setParentObject(oDesigner)
 				Last_Window().setMenubar(MenubarValue())
 		}

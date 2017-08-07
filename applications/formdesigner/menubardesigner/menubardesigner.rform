@@ -9,7 +9,7 @@ aObjectsList = [
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  1  
+		 :IndexType =  0  
 
 		]
 	],

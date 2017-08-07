@@ -50,22 +50,22 @@ class windowflagscontroller from windowsControllerParent
 			item = trim(item)	
 			nPos = find(aTypeList,item)
 			if nPos {
-				oView.ListType.item(nPos-1).setSelected(True)
+				oView.ListType.item(nPos).setSelected(True)
 				loop 
 			}	
 			nPos = find(aHintsList,item)
 			if nPos {
-				oView.ListHints.item(nPos-1).setSelected(True)
+				oView.ListHints.item(nPos).setSelected(True)
 				loop 
 			}					
 		}
 
 	func OkAction
 		cFlags = ""
-		nType = oView.ListType.currentrow() + 1
+		nType = oView.ListType.currentrow() 
 		cFlags += aTypeList[nType]
 		for x = 1 to len(aHintsList) {
-			if oView.ListHints.item(x-1).isSelected() {
+			if oView.ListHints.item(x).isSelected() {
 				cFlags += " | " + aHintsList[x]
 			}
 		}
