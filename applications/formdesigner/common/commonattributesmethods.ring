@@ -42,6 +42,7 @@ class CommonAttributesMethods
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring(cValue)
 		setfont(oFont)
+		oFont.delete()
 
 	func CurrentParentName
 		return cCurrentParentName
@@ -168,6 +169,7 @@ class CommonAttributesMethods
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("#{f8}")
 			setfont(oFont)
+			oFont.delete()
 #{f9}
 		}' + nl
 		cClass = substr(classname(self),"formdesigner_","")
