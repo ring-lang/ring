@@ -516,7 +516,7 @@ Class RNote from WindowsControllerParent
 						}
 						addaction(oAction)
 					}
-				}
+				} 
 				subProgram {
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+d"))
@@ -569,7 +569,7 @@ Class RNote from WindowsControllerParent
 					}
 					addaction(oAction)
 
-				}
+				}  
 				subBrowser {
 
 					for x=1 to len(this.aBrowserLinks)
@@ -1299,11 +1299,18 @@ Class RNote from WindowsControllerParent
 		StatusMessage("Printing to File : RingDoc.pdf")
 		printer1 = new qPrinter(0) {
 			setoutputformat(1)	# 1 = pdf
-			setoutputfilename("RingDoc.pdf")
+			setoutputfilename(this.cCurrentDir+"RingDoc.pdf")
 			this.textedit1.print(printer1)
 		}
 		StatusMessage("Done!")
-		system("RingDoc.pdf")
+		if iswindows()
+			new QDesktopServices {
+				OpenURL(new qURL(substr(this.cCurrentDir,"\","/")+"RingDoc.pdf")) 
+			}
+		else
+			System( this.cCurrentDir + "RingDoc.pdf" )
+		ok
+
 
 	func pUndo
 		textedit1.undo()
@@ -1518,7 +1525,7 @@ Class RNote from WindowsControllerParent
 				OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.chm") )
 			}
 		else
-			System( "start /B " + exefolder()+"/../docs/ring.chm" )
+			System( exefolder()+"/../docs/ring.chm" )
 		ok
 
 	Func pOpenPDF
@@ -1527,7 +1534,7 @@ Class RNote from WindowsControllerParent
 				OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.pdf") )
 			}
 		else
-			System( "start /B " + exefolder()+"/../docs/ring.pdf" )
+			System( exefolder()+"/../docs/ring.pdf" )
 		ok
 
 	Func pTabWidth
