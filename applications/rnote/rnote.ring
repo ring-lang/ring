@@ -979,6 +979,12 @@ Class RNote from WindowsControllerParent
 		ok
 
 		AutoComplete()
+
+		lAsktoSave = False
+
+		oDock4.setWindowTitle("Functions (Loading...)")
+		oDock6.setWindowTitle("Classes (Loading...)")
+
 		DisplayFunctionsList()
 		DisplayClassesList()
 
@@ -988,7 +994,7 @@ Class RNote from WindowsControllerParent
 			oDock2.raise()
 			tree1.setFocus(0)
 		ok
-		lAsktoSave = False
+
 		StatusMessage("Ready!")
 
 	func pSetActiveFileName
@@ -1657,6 +1663,7 @@ Class RNote from WindowsControllerParent
 		if oDock4.isvisible() = false return ok
 		aFunctionsPos = []	# Lines numbers for each function
 		if cActiveFileName = NULL return ok
+		cTempActiveFile = cActiveFileName
 		# Set the font
 			oTempFont.fromstring(cFont)
 			oFunctionsList.setFont(oTempFont)
@@ -1674,6 +1681,13 @@ Class RNote from WindowsControllerParent
 					if isalnum(cFuncName)	and lower(trim(aList[1])) = "func"
 						aFunctionsPos + [cFuncName+"()" , nLineNumber]
 					ok
+				ok
+			ok
+			if nLineNumber % 100 = 0 
+				MyAPP.ProcessEvents()
+				# Check if the file is changed
+				if not cTempActiveFile = cActiveFileName
+					return 
 				ok
 			ok
 		next
@@ -1695,6 +1709,7 @@ Class RNote from WindowsControllerParent
 		if oDock6.isvisible() = false return ok
 		aClassesPos = []	# Lines numbers for each class
 		if cActiveFileName = NULL return ok
+		cTempActiveFile = cActiveFileName
 		# Set the font
 			oTempFont.fromstring(cFont)
 			oClassesList.setFont(oTempFont)
@@ -1711,6 +1726,13 @@ Class RNote from WindowsControllerParent
 					if lower(trim(aList[1])) = "class"
 						aClassesPos + [cClassName , nLineNumber]
 					ok
+				ok
+			ok
+			if nLineNumber % 100 = 0 
+				MyAPP.ProcessEvents()
+				# Check if the file is changed
+				if not cTempActiveFile = cActiveFileName
+					return 
 				ok
 			ok
 		next
