@@ -7,8 +7,6 @@
 
 load "windowflagsView.ring"
 
-import formdesigner
-
 if IsMainSourceFile() { 
 	new qApp {
 		StyleFusion()
@@ -16,8 +14,6 @@ if IsMainSourceFile() {
 		exec()
 	}
 }
-
-package formdesigner
 
 class windowflagscontroller from windowsControllerParent
 
@@ -73,12 +69,14 @@ class windowflagscontroller from windowsControllerParent
 				cFlags += " | " + aHintsList[x]
 			}
 		}
-		oPropertiesTable = parent().oView.oPropertiesTable
-		# Set the Window Flags
-			oPropertiesTable.Blocksignals(True)
-			oPropertiesTable.item(nPropertyIndex,1).settext(cFlags)
-			oPropertiesTable.Blocksignals(False)
-		parent().oModel.FormObject().setWindowFlagsValue(cFlags)
+		if isParent() {
+			oPropertiesTable = parent().oView.oPropertiesTable
+			# Set the Window Flags
+				oPropertiesTable.Blocksignals(True)
+				oPropertiesTable.item(nPropertyIndex,1).settext(cFlags)
+				oPropertiesTable.Blocksignals(False)
+			parent().oModel.FormObject().setWindowFlagsValue(cFlags)
+		}
 		oView.Close()
 
 	func CancelAction
