@@ -182,7 +182,7 @@ Class RNote from WindowsControllerParent
 						settooltip("Font (Ctrl+I)")
 					} ,
 					new qpushbutton(this.win1) {
-						setbtnimage(self,"image/colors.jpg")
+						setbtnimage(self,"image/colors.png")
 						setclickEvent(Method(:pColor))
 						settooltip("Text Color (Ctrl+T)")
 					} ,
@@ -207,7 +207,7 @@ Class RNote from WindowsControllerParent
 						settooltip("Run the program (Ctrl+R) ")
 					} ,
 					new qpushbutton(this.win1) {
-						setbtnimage(self,"image/rungui.bmp")
+						setbtnimage(self,"image/rungui.png")
 						setclickEvent(Method(:pRunNoConsole))
 						settooltip("Run GUI Application - No Console (Ctrl+F5)")
 					} ,
@@ -246,7 +246,7 @@ Class RNote from WindowsControllerParent
 						settooltip("Main File : Run the program (Ctrl+Shift+R)")
 				} 
 				oBtnRunGUIMainFile = new qpushbutton(this.win1) {
-						setbtnimage(self,"image/rungui.bmp")
+						setbtnimage(self,"image/rungui.png")
 						setclickEvent(Method(:pRunGUIMainFile))
 						settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
 				} 
@@ -356,14 +356,14 @@ Class RNote from WindowsControllerParent
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+t"))
-						setbtnimage(self,"image/colors.jpg")
+						setbtnimage(self,"image/colors.png")
 						settext("Text Color")
 						setclickEvent(Method(:pColor))
 					}
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+b"))
-						setbtnimage(self,"image/colors.jpg")
+						setbtnimage(self,"image/colors.png")
 						settext("Back Color")
 						setclickEvent(Method(:pColor2))
 					}
@@ -449,7 +449,7 @@ Class RNote from WindowsControllerParent
 					addseparator()
 					subStyle = addmenu("Style")
 					subStyle {
-						setbtnimage(self,"image/colors.jpg")
+						setbtnimage(self,"image/colors.png")
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(0)"))
 							settext("Windows")
