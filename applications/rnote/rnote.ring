@@ -228,6 +228,7 @@ Class RNote from WindowsControllerParent
 					setText("Main File : ")
 				}
 				this.oTxtMainFile = new qLineEdit(this.win1) {
+					setStylesheet("border: 0px;  background-color: rgba(0, 0, 0, 0);")
 					setReadOnly(True)
 				}
 				oBtnSetFile = new qPushbutton(this.win1) {
