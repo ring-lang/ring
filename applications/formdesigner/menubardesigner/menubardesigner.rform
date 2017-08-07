@@ -7,7 +7,9 @@ aObjectsList = [
 		 :backcolor =  "" , 
 		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
-		 :WindowIcon =  "" 
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  1  
 
 		]
 	],

@@ -7,8 +7,6 @@
 
 load "menubardesignerView.ring"
 
-import formdesigner
-
 if IsMainSourceFile() { 
 
 	new qApp {
@@ -17,8 +15,6 @@ if IsMainSourceFile() {
 		exec()
 	}
 }
-
-package formdesigner
 
 class MenubarDesignerController from windowsControllerParent
 
@@ -128,7 +124,9 @@ class MenubarDesignerController from windowsControllerParent
 		aTreeItems[nPos][5] = cText
 
 	func CloseAction
-		parent().oModel.FormObject().setMenubarValue(Tree2String())
+		if isParent() {
+			parent().oModel.FormObject().setMenubarValue(Tree2String())
+		}
 		oView.Close()
 
 	func Tree2String
