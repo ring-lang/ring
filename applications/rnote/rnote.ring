@@ -18,6 +18,7 @@ Class RNote from WindowsControllerParent
 	aTextColor = [0,0,0]
 	aBackColor = [255,255,255]
 	cFont = "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0"
+	oTempFont = new qfont("",0,0,0)
 	cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
 	cCurrentDir = CurrentDir() + "/"	# The Ring Notepad Folder
 	cStartUpFolder = exefolder() + "/../applications/"
@@ -1318,9 +1319,8 @@ Class RNote from WindowsControllerParent
 	func pFont
 		oFontDialog = new qfontdialog() {
 
-			myfont = new qfont("",0,0,0)
-			myfont.fromstring(this.cFont)
-			setcurrentfont(myfont)
+			this.oTempFont.fromstring(this.cFont)
+			setcurrentfont(this.oTempFont)
 
 			aFont = getfont()
 		}
@@ -1331,12 +1331,11 @@ Class RNote from WindowsControllerParent
 		ok
 
 	Func pSetFont
-		myfont = new qfont("",0,0,0)
-		myfont.fromstring(cFont)
+		oTempFont.fromstring(cFont)
 		oCursor = textedit1.textCursor()
 		oCursor.clearselection()
 		textedit1.settextcursor(oCursor)
-		textedit1.Document().setdefaultfont(myfont)
+		textedit1.Document().setdefaultfont(oTempFont)
 
 
 	Func pColor
