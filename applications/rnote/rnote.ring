@@ -1541,12 +1541,11 @@ Class RNote from WindowsControllerParent
 
 	Func pSetTabSpaces
 
-		oFont = new qfont("",0,0,0)
-		oFont.fromstring(cFont)
-		oFontMetrics = new QFontMetrics(oFont)
+		oTempFont.fromstring(cFont)
+		oFontMetrics = new QFontMetrics(oTempFont)
 		nSpaceWidth = oFontMetrics.Width(" ",1)
 		textedit1.setTabStopWidth(nTabSpaces*nSpaceWidth)
-
+		oFontMetrics.Delete()
 
 	Func pBrowserLink x
 
@@ -1648,9 +1647,8 @@ Class RNote from WindowsControllerParent
 		oCompleter = new qCompleter3(oAutoCompleteList,textedit1)
 		oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
 		oCompleter.setCompletionMode(QCompleter_PopupCompletion)
-		oFont = new qfont("",0,0,0)
-		oFont.fromstring(cFont)
-		oCompleter.popup().setFont(oFont)
+		oTempFont.fromstring(cFont)
+		oCompleter.popup().setFont(oTempFont)
 		textedit1.setCompleter(oCompleter)
 		StatusMessage("Prepare Auto-Complete ... Done!")
 		StatusMessage("Ready...")
@@ -1661,9 +1659,8 @@ Class RNote from WindowsControllerParent
 		aFunctionsPos = []	# Lines numbers for each function
 		if cActiveFileName = NULL return ok
 		# Set the font
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring(cFont)
-			oFunctionsList.setFont(oFont)
+			oTempFont.fromstring(cFont)
+			oFunctionsList.setFont(oTempFont)
 		StatusMessage("Creating functions list ... Please Wait!")
 		aFileContent = str2list(read(cActiveFileName))
 		nLineNumber = 0
@@ -1700,9 +1697,8 @@ Class RNote from WindowsControllerParent
 		aClassesPos = []	# Lines numbers for each class
 		if cActiveFileName = NULL return ok
 		# Set the font
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring(cFont)
-			oClassesList.setFont(oFont)
+			oTempFont.fromstring(cFont)
+			oClassesList.setFont(oTempFont)
 		StatusMessage("Creating Classes list ... Please Wait!")
 		aFileContent = str2list(read(cActiveFileName))
 		nLineNumber = 0
@@ -1758,9 +1754,8 @@ Class RNote from WindowsControllerParent
 		next
 		cText = list2str(aText)
 		# Set the font
-			oFont = new qfont("",0,0,0)
-			oFont.fromstring(cFont)
-			oProcessEditbox.setFont(oFont)
+			oFontTemp.fromstring(cFont)
+			oProcessEditbox.setFont(oTempFont)
 		oProcessEditbox.insertplaintext(cText)
 
 	func pSendProcessData
