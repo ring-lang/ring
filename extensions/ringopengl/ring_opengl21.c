@@ -11874,6 +11874,24 @@ RING_FUNC(ring_gluQuadricOrientation)
 	gluQuadricOrientation((GLUquadric *) RING_API_GETCPOINTER(1,"GLUquadric"), (GLenum )  (int) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_gluQuadricTexture)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluQuadricTexture((GLUquadric *) RING_API_GETCPOINTER(1,"GLUquadric"), (GLboolean ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12457,4 +12475,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluquadricdrawstyle",ring_gluQuadricDrawStyle);
 	ring_vm_funcregister("gluquadricnormals",ring_gluQuadricNormals);
 	ring_vm_funcregister("gluquadricorientation",ring_gluQuadricOrientation);
+	ring_vm_funcregister("gluquadrictexture",ring_gluQuadricTexture);
 }
