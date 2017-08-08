@@ -7276,6 +7276,24 @@ RING_FUNC(ring_glRectiv)
 	glRectiv((GLint *) RING_API_GETCPOINTER(1,"GLint"),(GLint *) RING_API_GETCPOINTER(2,"GLint"));
 }
 
+
+RING_FUNC(ring_glRectsv)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glRectsv((GLshort *) RING_API_GETCPOINTER(1,"GLshort"),(GLshort *) RING_API_GETCPOINTER(2,"GLshort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7635,4 +7653,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glrectdv",ring_glRectdv);
 	ring_vm_funcregister("glrectfv",ring_glRectfv);
 	ring_vm_funcregister("glrectiv",ring_glRectiv);
+	ring_vm_funcregister("glrectsv",ring_glRectsv);
 }
