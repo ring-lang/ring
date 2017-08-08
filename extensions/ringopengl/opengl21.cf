@@ -638,3 +638,4 @@ void glXCopyContext(Display * dpy,GLXContext src,GLXContext dst,unsigned long ma
 GLXContext glXCreateContext(Display * dpy,XVisualInfo * vis,GLXContext shareList,Bool direct)
 GLXPixmap glXCreateGLXPixmap(Display * dpy,XVisualInfo * vis,Pixmap pixmap)
 GLXContext glXCreateNewContext(Display * dpy,GLXFBConfig config,int render_type,GLXContext share_list,Bool direct)
+GLXPbuffer glXCreatePbuffer(Display * dpy,GLXFBConfig config,const int * attrib_list)
