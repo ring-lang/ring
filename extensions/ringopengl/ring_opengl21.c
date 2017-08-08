@@ -4542,6 +4542,20 @@ RING_FUNC(ring_glIndexub)
 		free(RING_API_GETCPOINTER(1,"GLubyte"));
 }
 
+
+RING_FUNC(ring_glIndexsv)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glIndexsv((GLshort *) RING_API_GETCPOINTER(1,"GLshort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4760,4 +4774,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glindexf",ring_glIndexf);
 	ring_vm_funcregister("glindexd",ring_glIndexd);
 	ring_vm_funcregister("glindexub",ring_glIndexub);
+	ring_vm_funcregister("glindexsv",ring_glIndexsv);
 }
