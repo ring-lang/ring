@@ -607,54 +607,6 @@ void glutSetKeyRepeat(int repeatMode)
 void glutForceJoystickFunc(void)
 int glutExtensionSupported(const char * extension)
 void glutReportErrors(void)
-
 void glutMainLoop(void)
 
-void gluOrtho2D(GLdouble,GLdouble,GLdouble,GLdouble)
 
-<comment>
-OpenGL  Constants and Functions
-</comment>
-
-<constant>
-GL_COLOR_BUFFER_BIT
-GL_DEPTH_BUFFER_BIT
-GL_POLYGON
-GL_TRIANGLES
-GL_PROJECTION
-GL_MODELVIEW
-GL_QUADS
-GL_DEPTH_TEST
-GL_CW
-GL_CCW
-GL_FALSE
-GL_TRUE
-GL_CULL_FACE
-GL_FRONT
-GL_FILL
-GL_LINE
-</constant>
-
-void glClear(GLbitfield)
-void glColor3f(float,float,float)
-void glBegin(int)
-void glVertex3f(float,float,float)
-void glEnd(void)
-void glFlush(void)
-void glMatrixMode(int)
-void glLoadIdentity(void)
-void glViewport(int,int,int,int)
-void gluPerspective(GLdouble,GLdouble,GLdouble,GLdouble)
-void gluLookAt(GLdouble,GLdouble,GLdouble,GLdouble,GLdouble,GLdouble,GLdouble,GLdouble,GLdouble)
-void glRotatef(GLfloat,GLfloat,GLfloat,GLfloat)
-void glTranslatef(float,float,float)
-void glPushMatrix(void)
-void glPopMatrix(void)
-void glEnable(int)
-void glDisable(int)
-void glFrontFace(int)
-void glDepthMask(GLboolean flag)
-void glScalef(float,float,float)
-void glPolygonMode(int,int)
-void glRasterPos3f(float,float,float)
-void glClearColor(float,float,float,float)
