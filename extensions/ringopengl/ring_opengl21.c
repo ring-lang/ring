@@ -2530,6 +2530,20 @@ RING_FUNC(ring_glEndList)
 	glEndList();
 }
 
+
+RING_FUNC(ring_glEndQuery)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glEndQuery( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2650,4 +2664,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gledgeflagpointer",ring_glEdgeFlagPointer);
 	ring_vm_funcregister("glend",ring_glEnd);
 	ring_vm_funcregister("glendlist",ring_glEndList);
+	ring_vm_funcregister("glendquery",ring_glEndQuery);
 }
