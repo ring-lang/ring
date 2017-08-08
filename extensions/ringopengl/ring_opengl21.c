@@ -11790,6 +11790,36 @@ RING_FUNC(ring_gluProject)
 	RING_API_RETNUMBER(gluProject( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3),(GLdouble *) RING_API_GETCPOINTER(4,"GLdouble"),(GLdouble *) RING_API_GETCPOINTER(5,"GLdouble"),(GLint *) RING_API_GETCPOINTER(6,"GLint"),(GLdouble *) RING_API_GETCPOINTER(7,"GLdouble"),(GLdouble *) RING_API_GETCPOINTER(8,"GLdouble"),(GLdouble *) RING_API_GETCPOINTER(9,"GLdouble")));
 }
 
+
+RING_FUNC(ring_gluPwlCurve)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluPwlCurve((GLUnurbs *) RING_API_GETCPOINTER(1,"GLUnurbs"), (GLint ) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"), (GLint ) RING_API_GETNUMBER(4), (GLenum )  (int) RING_API_GETNUMBER(5));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12369,4 +12399,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluperspective",ring_gluPerspective);
 	ring_vm_funcregister("glupickmatrix",ring_gluPickMatrix);
 	ring_vm_funcregister("gluproject",ring_gluProject);
+	ring_vm_funcregister("glupwlcurve",ring_gluPwlCurve);
 }
