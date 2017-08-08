@@ -184,6 +184,24 @@ RING_FUNC(ring_glBindBuffer)
 	glBindBuffer( (GLenum )  (int) RING_API_GETNUMBER(1), (GLuint ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_glBindTexture)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glBindTexture( (GLenum )  (int) RING_API_GETNUMBER(1), (GLuint ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -196,4 +214,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glbeginquery",ring_glBeginQuery);
 	ring_vm_funcregister("glbindattriblocation",ring_glBindAttribLocation);
 	ring_vm_funcregister("glbindbuffer",ring_glBindBuffer);
+	ring_vm_funcregister("glbindtexture",ring_glBindTexture);
 }
