@@ -118,3 +118,4 @@ void glCompressedTexSubImage3D(GLenum target,GLint level,GLint xoffset,GLint yof
 void glConvolutionFilter1D(GLenum target,GLenum internalformat,GLsizei width,GLenum format,GLenum type,const GLvoid * data) 
 void glConvolutionFilter2D(GLenum target,GLenum internalformat,GLsizei width,GLsizei height,GLenum format,GLenum type,const GLvoid * data)
 void glConvolutionParameterf(GLenum target,GLenum pname,GLfloat params) 
+void glConvolutionParameteri(GLenum target,GLenum pname,GLint params)
