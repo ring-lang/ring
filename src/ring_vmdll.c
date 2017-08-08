@@ -32,6 +32,7 @@ void ring_vm_dll_loadlib ( void *pPointer )
 		}
 		pFunc = (loadlibfuncptr) GetDLLFunc(handle, "ringlib_init") ;
 		if ( pFunc == NULL ) {
+			printf( "\nLibrary File : %s",RING_API_GETSTRING(1) ) ;
 			RING_API_ERROR("The dynamic library doesn't contain the ringlib_init() function!");
 			return ;
 		}
