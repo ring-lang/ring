@@ -534,6 +534,24 @@ RING_FUNC(ring_glClientActiveTexture)
 	glClientActiveTexture( (GLenum )  (int) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glClipPlane)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glClipPlane( (GLenum )  (int) RING_API_GETNUMBER(1),(GLdouble *) RING_API_GETCPOINTER(2,"GLdouble"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -564,4 +582,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glclearindex",ring_glClearIndex);
 	ring_vm_funcregister("glclearstencil",ring_glClearStencil);
 	ring_vm_funcregister("glclientactivetexture",ring_glClientActiveTexture);
+	ring_vm_funcregister("glclipplane",ring_glClipPlane);
 }
