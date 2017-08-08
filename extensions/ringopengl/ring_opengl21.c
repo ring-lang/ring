@@ -422,6 +422,20 @@ RING_FUNC(ring_glCallLists)
 	glCallLists( (GLsizei )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLvoid *) RING_API_GETCPOINTER(3,"GLvoid"));
 }
 
+
+RING_FUNC(ring_glClear)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glClear( (GLbitfield )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -445,4 +459,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glbuffersubdata",ring_glBufferSubData);
 	ring_vm_funcregister("glcalllist",ring_glCallList);
 	ring_vm_funcregister("glcalllists",ring_glCallLists);
+	ring_vm_funcregister("glclear",ring_glClear);
 }
