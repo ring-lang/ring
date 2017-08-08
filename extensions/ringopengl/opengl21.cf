@@ -668,3 +668,4 @@ int glXQueryContextInfoEXT(Display * dpy,GLXContext ctx,int attribute,int * valu
 int glXQueryDrawable(Display * dpy,GLXDrawable draw,int attribute,unsigned int * value)
 Bool glXQueryExtension(Display * dpy,int * errorBase,int * eventBase) 
 const char *glXQueryExtensionsString(Display * dpy,int screen) 
+const char *glXQueryServerString(Display * dpy,int screen,int name)
