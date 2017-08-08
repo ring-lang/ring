@@ -428,3 +428,4 @@ void glSeparableFilter2D(GLenum target,GLenum internalformat,GLsizei width,GLsiz
 void glShadeModel(GLenum mode)
 void glShaderSource(GLuint shader,GLsizei count,const GLchar **string,const GLint *length)
 void glStencilFunc(GLenum func,GLint ref,GLuint mask)
+void glStencilFuncSeparate(GLenum face,GLenum func,GLint ref,GLuint mask) 
