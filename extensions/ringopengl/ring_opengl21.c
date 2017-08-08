@@ -7074,6 +7074,20 @@ RING_FUNC(ring_glRasterPos4d)
 	glRasterPos4d( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLdouble ) RING_API_GETNUMBER(4));
 }
 
+
+RING_FUNC(ring_glReadBuffer)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glReadBuffer( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7424,4 +7438,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glrasterpos4i",ring_glRasterPos4i);
 	ring_vm_funcregister("glrasterpos4f",ring_glRasterPos4f);
 	ring_vm_funcregister("glrasterpos4d",ring_glRasterPos4d);
+	ring_vm_funcregister("glreadbuffer",ring_glReadBuffer);
 }
