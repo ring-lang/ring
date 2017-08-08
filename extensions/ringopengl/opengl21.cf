@@ -218,3 +218,4 @@ void glGetMinmax(GLenum target,GLboolean reset,GLenum format,GLenum types,GLvoid
 void glGetMinmaxParameterfv(GLenum target,GLenum pname,GLfloat * params)
 void glGetMinmaxParameteriv(GLenum target,GLenum pname,GLint * params)
 void glGetPixelMapfv(GLenum map,GLfloat * data) 
+void glGetPixelMapuiv(GLenum map,GLuint * data)
