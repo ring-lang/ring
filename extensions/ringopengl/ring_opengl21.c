@@ -7476,6 +7476,22 @@ RING_FUNC(ring_glSecondaryColor3b)
 		free(RING_API_GETCPOINTER(3,"GLbyte"));
 }
 
+
+RING_FUNC(ring_glSecondaryColor3s)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	glSecondaryColor3s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"GLshort"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLshort"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		free(RING_API_GETCPOINTER(3,"GLshort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7845,4 +7861,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glscalef",ring_glScalef);
 	ring_vm_funcregister("glscissor",ring_glScissor);
 	ring_vm_funcregister("glsecondarycolor3b",ring_glSecondaryColor3b);
+	ring_vm_funcregister("glsecondarycolor3s",ring_glSecondaryColor3s);
 }
