@@ -227,3 +227,4 @@ void glGetProgramInfoLog(GLuint program,GLsizei maxLength,GLsizei *length,GLchar
 void glGetQueryObjectiv(GLuint id,GLenum pname,GLint * params)
 void glGetQueryObjectuiv(GLuint id,GLenum pname,GLuint * params)
 void glGetQueryiv(GLenum target,GLenum pname,GLint * params)
+void glGetSeparableFilter(GLenum target,GLenum format,GLenum type,GLvoid * row,GLvoid * column,GLvoid * span)
