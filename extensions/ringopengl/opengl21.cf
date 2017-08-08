@@ -643,3 +643,4 @@ GLXPixmap glXCreatePixmap(Display * dpy,GLXFBConfig config,Pixmap pixmap,const i
 GLXWindow glXCreateWindow(Display * dpy,GLXFBConfig config,Window win,const int * attrib_list)
 void glXDestroyContext(Display * dpy,GLXContext ctx)
 void glXDestroyGLXPixmap(Display * dpy,GLXPixmap pix)
+void glXDestroyPbuffer(Display * dpy,GLXPbuffer pbuf)
