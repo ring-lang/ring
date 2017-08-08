@@ -1,4 +1,4 @@
-if isWindows()
+if isWindows()  
 	LoadLib("ring_opengl21.dll")
 but ismacosx()
 	LoadLib("ring_opengl21.dylib")

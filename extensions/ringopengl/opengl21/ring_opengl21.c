@@ -133,9 +133,11 @@ RING_FUNC(ring_glAlphaFunc)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glAlphaFunc( (GLenum )  (int) RING_API_GETNUMBER(1),* (GLclampf  *) RING_API_GETCPOINTER(2,"GLclampf"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLclampf"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glAlphaFunc( (GLenum )  (int) RING_API_GETNUMBER(1), (GLclampf )  (int) RING_API_GETNUMBER(2));
 }
 
 
@@ -327,15 +329,23 @@ RING_FUNC(ring_glBlendColor)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glBlendColor(* (GLclampf  *) RING_API_GETCPOINTER(1,"GLclampf"),* (GLclampf  *) RING_API_GETCPOINTER(2,"GLclampf"),* (GLclampf  *) RING_API_GETCPOINTER(3,"GLclampf"),* (GLclampf  *) RING_API_GETCPOINTER(4,"GLclampf"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLclampf"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLclampf"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLclampf"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLclampf"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glBlendColor( (GLclampf )  (int) RING_API_GETNUMBER(1), (GLclampf )  (int) RING_API_GETNUMBER(2), (GLclampf )  (int) RING_API_GETNUMBER(3), (GLclampf )  (int) RING_API_GETNUMBER(4));
 }
 
 
@@ -549,15 +559,23 @@ RING_FUNC(ring_glClearColor)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glClearColor(* (GLclampf  *) RING_API_GETCPOINTER(1,"GLclampf"),* (GLclampf  *) RING_API_GETCPOINTER(2,"GLclampf"),* (GLclampf  *) RING_API_GETCPOINTER(3,"GLclampf"),* (GLclampf  *) RING_API_GETCPOINTER(4,"GLclampf"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLclampf"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLclampf"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLclampf"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLclampf"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glClearColor( (GLclampf )  (int) RING_API_GETNUMBER(1), (GLclampf )  (int) RING_API_GETNUMBER(2), (GLclampf )  (int) RING_API_GETNUMBER(3), (GLclampf )  (int) RING_API_GETNUMBER(4));
 }
 
 
@@ -7461,13 +7479,15 @@ RING_FUNC(ring_glSampleCoverage)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glSampleCoverage(* (GLclampf  *) RING_API_GETCPOINTER(1,"GLclampf"), (GLboolean ) RING_API_GETNUMBER(2));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLclampf"));
+	glSampleCoverage( (GLclampf )  (int) RING_API_GETNUMBER(1), (GLboolean ) RING_API_GETNUMBER(2));
 }
 
 

@@ -30,6 +30,7 @@ aNumberTypes + "GLintptr"
 aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
 aEnumTypes + "GLsizei"
+aEnumTypes + "GLclampf"
 </runcode>
 
 <comment>
