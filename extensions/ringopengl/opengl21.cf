@@ -40,3 +40,4 @@ From this reference : https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/
 <constant>
 </constant>
 
+void glAccum(GLenum op,GLfloat value)
