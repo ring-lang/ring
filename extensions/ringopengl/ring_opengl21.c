@@ -4902,6 +4902,24 @@ RING_FUNC(ring_glLightModeli)
 	glLightModeli( (GLenum )  (int) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_glLightModelfv)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glLightModelfv( (GLenum )  (int) RING_API_GETNUMBER(1),(GLfloat *) RING_API_GETCPOINTER(2,"GLfloat"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5142,4 +5160,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gllightiv",ring_glLightiv);
 	ring_vm_funcregister("gllightmodelf",ring_glLightModelf);
 	ring_vm_funcregister("gllightmodeli",ring_glLightModeli);
+	ring_vm_funcregister("gllightmodelfv",ring_glLightModelfv);
 }
