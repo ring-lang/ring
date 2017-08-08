@@ -192,3 +192,4 @@ void glGetActiveAttrib(GLuint program,GLuint index,GLsizei bufSize,GLsizei *leng
 void glGetActiveUniform(GLuint program,GLuint index,GLsizei bufSize,GLsizei *length,GLint *size,GLenum *type,GLchar *name)
 void glGetAttachedShaders(GLuint program,GLsizei maxCount,GLsizei *count,GLuint *shaders)
 GLint glGetAttribLocation(GLuint program,const GLchar *name)
+void glGetBufferParameteriv(GLenum target,GLenum value,GLint * data)
