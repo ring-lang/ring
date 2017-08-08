@@ -3880,6 +3880,28 @@ RING_FUNC(ring_glGetQueryObjectiv)
 	glGetQueryObjectiv( (GLuint ) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
 }
 
+
+RING_FUNC(ring_glGetQueryObjectuiv)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetQueryObjectuiv( (GLuint ) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLuint *) RING_API_GETCPOINTER(3,"GLuint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4067,4 +4089,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetprogramiv",ring_glGetProgramiv);
 	ring_vm_funcregister("glgetprograminfolog",ring_glGetProgramInfoLog);
 	ring_vm_funcregister("glgetqueryobjectiv",ring_glGetQueryObjectiv);
+	ring_vm_funcregister("glgetqueryobjectuiv",ring_glGetQueryObjectuiv);
 }
