@@ -1267,7 +1267,9 @@ Class RNote from WindowsControllerParent
 		if iswindows()
 			oProcessEditbox.setplaintext("")
 			oProcessText.setFocus(0)
-			oProcess = pRunProcess(cCurrentDir+"run2.bat",cActiveFileName,cpGetProcessData)
+			chdir(JustFilePath(cActiveFileName))
+			oProcess = pRunProcess("ring",cActiveFileName,cpGetProcessData)
+			chdir(exefolder())
 		else
 			cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
 			system(cCode)
@@ -1775,13 +1777,6 @@ Class RNote from WindowsControllerParent
 	func pGetProcessData 
 		if ISNULL(oProcess) return ok
 		cText = oProcess.readallstandardoutput().data()
-		aText = str2list(cText)
-		for x = len(aText) to 1 step -1
-			if substr(aText[x],"echo off") or trim(aText[x]) = NULL 
-				del(aText,x)
-			ok
-		next
-		cText = list2str(aText)
 		# Set the font
 			oTempFont.fromstring(cFont)
 			oProcessEditbox.setFont(oTempFont)
