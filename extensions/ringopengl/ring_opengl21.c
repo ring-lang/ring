@@ -5062,6 +5062,20 @@ RING_FUNC(ring_glLoadTransposeMatrixd)
 	glLoadTransposeMatrixd((GLdouble *) RING_API_GETCPOINTER(1,"GLdouble"));
 }
 
+
+RING_FUNC(ring_glLoadTransposeMatrixf)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glLoadTransposeMatrixf((GLfloat *) RING_API_GETCPOINTER(1,"GLfloat"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5313,4 +5327,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glloadmatrixf",ring_glLoadMatrixf);
 	ring_vm_funcregister("glloadname",ring_glLoadName);
 	ring_vm_funcregister("glloadtransposematrixd",ring_glLoadTransposeMatrixd);
+	ring_vm_funcregister("glloadtransposematrixf",ring_glLoadTransposeMatrixf);
 }
