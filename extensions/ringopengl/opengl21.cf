@@ -125,3 +125,4 @@ void glCopyColorSubTable(GLenum target,GLsizei start,GLint x,GLint y,GLsizei wid
 void glCopyColorTable(GLenum target,GLenum internalformat,GLint x,GLint y,GLsizei width)
 void glCopyConvolutionFilter1D(GLenum target,GLenum internalformat,GLint x,GLint y,GLsizei width) 
 void glCopyConvolutionFilter2D(GLenum target,GLenum internalformat,GLint x,GLint y,GLsizei width,GLsizei height) 
+void glCopyPixels(GLint x,GLint y,GLsizei width,GLsizei height,GLenum type)
