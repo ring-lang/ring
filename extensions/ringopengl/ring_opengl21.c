@@ -4432,6 +4432,24 @@ RING_FUNC(ring_glGetVertexAttribPointerv)
 	glGetVertexAttribPointerv( (GLuint ) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLvoid **) RING_API_GETCPOINTER2POINTER(3,"GLvoid"));
 }
 
+
+RING_FUNC(ring_glHint)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glHint( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4643,4 +4661,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetvertexattribfv",ring_glGetVertexAttribfv);
 	ring_vm_funcregister("glgetvertexattribiv",ring_glGetVertexAttribiv);
 	ring_vm_funcregister("glgetvertexattribpointerv",ring_glGetVertexAttribPointerv);
+	ring_vm_funcregister("glhint",ring_glHint);
 }
