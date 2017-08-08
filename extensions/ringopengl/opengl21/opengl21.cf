@@ -38,6 +38,22 @@ From this reference : https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/
 </comment>
 
 <constant>
+GL_COLOR_BUFFER_BIT
+GL_DEPTH_BUFFER_BIT
+GL_POLYGON
+GL_TRIANGLES
+GL_PROJECTION
+GL_MODELVIEW
+GL_QUADS
+GL_DEPTH_TEST
+GL_CW
+GL_CCW
+GL_FALSE
+GL_TRUE
+GL_CULL_FACE
+GL_FRONT
+GL_FILL
+GL_LINE
 </constant>
 
 void glAccum(GLenum op,GLfloat value)

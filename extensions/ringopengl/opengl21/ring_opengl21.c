@@ -10,6 +10,86 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 
+RING_FUNC(ring_get_gl_color_buffer_bit)
+{
+	RING_API_RETNUMBER(GL_COLOR_BUFFER_BIT);
+}
+
+RING_FUNC(ring_get_gl_depth_buffer_bit)
+{
+	RING_API_RETNUMBER(GL_DEPTH_BUFFER_BIT);
+}
+
+RING_FUNC(ring_get_gl_polygon)
+{
+	RING_API_RETNUMBER(GL_POLYGON);
+}
+
+RING_FUNC(ring_get_gl_triangles)
+{
+	RING_API_RETNUMBER(GL_TRIANGLES);
+}
+
+RING_FUNC(ring_get_gl_projection)
+{
+	RING_API_RETNUMBER(GL_PROJECTION);
+}
+
+RING_FUNC(ring_get_gl_modelview)
+{
+	RING_API_RETNUMBER(GL_MODELVIEW);
+}
+
+RING_FUNC(ring_get_gl_quads)
+{
+	RING_API_RETNUMBER(GL_QUADS);
+}
+
+RING_FUNC(ring_get_gl_depth_test)
+{
+	RING_API_RETNUMBER(GL_DEPTH_TEST);
+}
+
+RING_FUNC(ring_get_gl_cw)
+{
+	RING_API_RETNUMBER(GL_CW);
+}
+
+RING_FUNC(ring_get_gl_ccw)
+{
+	RING_API_RETNUMBER(GL_CCW);
+}
+
+RING_FUNC(ring_get_gl_false)
+{
+	RING_API_RETNUMBER(GL_FALSE);
+}
+
+RING_FUNC(ring_get_gl_true)
+{
+	RING_API_RETNUMBER(GL_TRUE);
+}
+
+RING_FUNC(ring_get_gl_cull_face)
+{
+	RING_API_RETNUMBER(GL_CULL_FACE);
+}
+
+RING_FUNC(ring_get_gl_front)
+{
+	RING_API_RETNUMBER(GL_FRONT);
+}
+
+RING_FUNC(ring_get_gl_fill)
+{
+	RING_API_RETNUMBER(GL_FILL);
+}
+
+RING_FUNC(ring_get_gl_line)
+{
+	RING_API_RETNUMBER(GL_LINE);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -12749,4 +12829,20 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutessvertex",ring_gluTessVertex);
 	ring_vm_funcregister("gluunproject",ring_gluUnProject);
 	ring_vm_funcregister("gldisable",ring_glDisable);
+	ring_vm_funcregister("get_gl_color_buffer_bit",ring_get_gl_color_buffer_bit);
+	ring_vm_funcregister("get_gl_depth_buffer_bit",ring_get_gl_depth_buffer_bit);
+	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
+	ring_vm_funcregister("get_gl_triangles",ring_get_gl_triangles);
+	ring_vm_funcregister("get_gl_projection",ring_get_gl_projection);
+	ring_vm_funcregister("get_gl_modelview",ring_get_gl_modelview);
+	ring_vm_funcregister("get_gl_quads",ring_get_gl_quads);
+	ring_vm_funcregister("get_gl_depth_test",ring_get_gl_depth_test);
+	ring_vm_funcregister("get_gl_cw",ring_get_gl_cw);
+	ring_vm_funcregister("get_gl_ccw",ring_get_gl_ccw);
+	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
+	ring_vm_funcregister("get_gl_true",ring_get_gl_true);
+	ring_vm_funcregister("get_gl_cull_face",ring_get_gl_cull_face);
+	ring_vm_funcregister("get_gl_front",ring_get_gl_front);
+	ring_vm_funcregister("get_gl_fill",ring_get_gl_fill);
+	ring_vm_funcregister("get_gl_line",ring_get_gl_line);
 }
