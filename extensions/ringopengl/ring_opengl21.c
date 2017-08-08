@@ -5276,6 +5276,28 @@ RING_FUNC(ring_glMapBuffer)
 	RING_API_RETCPOINTER(glMapBuffer( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2)),"void");
 }
 
+
+RING_FUNC(ring_glMapGrid1d)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glMapGrid1d( (GLint ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5534,4 +5556,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glmap2f",ring_glMap2f);
 	ring_vm_funcregister("glmap2d",ring_glMap2d);
 	ring_vm_funcregister("glmapbuffer",ring_glMapBuffer);
+	ring_vm_funcregister("glmapgrid1d",ring_glMapGrid1d);
 }
