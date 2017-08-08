@@ -5580,6 +5580,22 @@ RING_FUNC(ring_glMultiDrawElements)
 	glMultiDrawElements( (GLenum )  (int) RING_API_GETNUMBER(1),(GLsizei *) RING_API_GETCPOINTER(2,"GLsizei"), (GLenum )  (int) RING_API_GETNUMBER(3),(GLvoid **) RING_API_GETCPOINTER2POINTER(4,"GLvoid"), (GLsizei )  (int) RING_API_GETNUMBER(5));
 }
 
+
+RING_FUNC(ring_glMultiTexCoord1s)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glMultiTexCoord1s( (GLenum )  (int) RING_API_GETNUMBER(1),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLshort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5852,4 +5868,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glmulttransposematrixf",ring_glMultTransposeMatrixf);
 	ring_vm_funcregister("glmultidrawarrays",ring_glMultiDrawArrays);
 	ring_vm_funcregister("glmultidrawelements",ring_glMultiDrawElements);
+	ring_vm_funcregister("glmultitexcoord1s",ring_glMultiTexCoord1s);
 }
