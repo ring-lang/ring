@@ -12612,6 +12612,29 @@ RING_FUNC(ring_glXGetFBConfigAttrib)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
+
+RING_FUNC(ring_glXGetFBConfigs)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(glXGetFBConfigs((Display *) RING_API_GETCPOINTER(1,"Display"), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3)),"GLXFBConfig");
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -13229,4 +13252,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glxgetcurrentdrawable",ring_glXGetCurrentDrawable);
 	ring_vm_funcregister("glxgetcurrentreaddrawable",ring_glXGetCurrentReadDrawable);
 	ring_vm_funcregister("glxgetfbconfigattrib",ring_glXGetFBConfigAttrib);
+	ring_vm_funcregister("glxgetfbconfigs",ring_glXGetFBConfigs);
 }
