@@ -4304,6 +4304,28 @@ RING_FUNC(ring_glGetUniformfv)
 	glGetUniformfv( (GLuint ) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"));
 }
 
+
+RING_FUNC(ring_glGetUniformiv)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetUniformiv( (GLuint ) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4509,4 +4531,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgettexparameterfv",ring_glGetTexParameterfv);
 	ring_vm_funcregister("glgettexparameteriv",ring_glGetTexParameteriv);
 	ring_vm_funcregister("glgetuniformfv",ring_glGetUniformfv);
+	ring_vm_funcregister("glgetuniformiv",ring_glGetUniformiv);
 }
