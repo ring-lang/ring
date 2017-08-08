@@ -3958,6 +3958,28 @@ RING_FUNC(ring_glGetSeparableFilter)
 	glGetSeparableFilter( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLvoid *) RING_API_GETCPOINTER(4,"GLvoid"),(GLvoid *) RING_API_GETCPOINTER(5,"GLvoid"),(GLvoid *) RING_API_GETCPOINTER(6,"GLvoid"));
 }
 
+
+RING_FUNC(ring_glGetShaderiv)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetShaderiv( (GLuint ) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4148,4 +4170,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetqueryobjectuiv",ring_glGetQueryObjectuiv);
 	ring_vm_funcregister("glgetqueryiv",ring_glGetQueryiv);
 	ring_vm_funcregister("glgetseparablefilter",ring_glGetSeparableFilter);
+	ring_vm_funcregister("glgetshaderiv",ring_glGetShaderiv);
 }
