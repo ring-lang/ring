@@ -298,3 +298,4 @@ void glMap2d(GLenum target,GLdouble u1,GLdouble u2,GLint ustride,GLint uorder,GL
 void * glMapBuffer(GLenum target,GLenum access)
 void glMapGrid1d(GLint un,GLdouble u1,GLdouble u2)
 void glMapGrid1f(GLint un,GLfloat u1,GLfloat u2)
+void glMapGrid2d(GLint un,GLdouble u1,GLdouble u2,GLint vn,GLdouble v1,GLdouble v2)
