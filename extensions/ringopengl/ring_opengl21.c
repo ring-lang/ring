@@ -854,6 +854,32 @@ RING_FUNC(ring_glColor4us)
 		free(RING_API_GETCPOINTER(4,"GLushort"));
 }
 
+
+RING_FUNC(ring_glColor4ui)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor4ui( (GLuint ) RING_API_GETNUMBER(1), (GLuint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -900,4 +926,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glcolor4d",ring_glColor4d);
 	ring_vm_funcregister("glcolor4ub",ring_glColor4ub);
 	ring_vm_funcregister("glcolor4us",ring_glColor4us);
+	ring_vm_funcregister("glcolor4ui",ring_glColor4ui);
 }
