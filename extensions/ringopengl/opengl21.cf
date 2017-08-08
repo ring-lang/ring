@@ -669,3 +669,4 @@ int glXQueryDrawable(Display * dpy,GLXDrawable draw,int attribute,unsigned int *
 Bool glXQueryExtension(Display * dpy,int * errorBase,int * eventBase) 
 const char *glXQueryExtensionsString(Display * dpy,int screen) 
 const char *glXQueryServerString(Display * dpy,int screen,int name)
+Bool glXQueryVersion(Display * dpy,int * major,int * minor)
