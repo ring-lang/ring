@@ -243,3 +243,4 @@ void glGetTexLevelParameteriv(GLenum target,GLint level,GLenum pname,GLint * par
 void glGetTexParameterfv(GLenum target,GLenum pname,GLfloat * params)
 void glGetTexParameteriv(GLenum target,GLenum pname,GLint * params)
 void glGetUniformfv(GLuint program,GLint location,GLfloat *params) 
+void glGetUniformiv(GLuint program,GLint location,GLint *params) 
