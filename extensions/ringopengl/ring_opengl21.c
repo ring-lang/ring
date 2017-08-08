@@ -12211,6 +12211,33 @@ RING_FUNC(ring_glXCopyContext)
 		free(RING_API_GETCPOINTER(4,"unsigned long"));
 }
 
+
+RING_FUNC(ring_glXCreateContext)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		GLXContext *pValue ; 
+		pValue = (GLXContext *) malloc(sizeof(GLXContext)) ;
+		*pValue = glXCreateContext((Display *) RING_API_GETCPOINTER(1,"Display"),(XVisualInfo *) RING_API_GETCPOINTER(2,"XVisualInfo"),* (GLXContext  *) RING_API_GETCPOINTER(3,"GLXContext"),* (Bool  *) RING_API_GETCPOINTER(4,"Bool"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		free(RING_API_GETCPOINTER(3,"GLXContext"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		free(RING_API_GETCPOINTER(4,"Bool"));
+		RING_API_RETCPOINTER(pValue,"GLXContext");
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12808,4 +12835,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glxchoosefbconfig",ring_glXChooseFBConfig);
 	ring_vm_funcregister("glxchoosevisual",ring_glXChooseVisual);
 	ring_vm_funcregister("glxcopycontext",ring_glXCopyContext);
+	ring_vm_funcregister("glxcreatecontext",ring_glXCreateContext);
 }
