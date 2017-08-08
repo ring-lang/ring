@@ -3298,6 +3298,28 @@ RING_FUNC(ring_glGetColorTableParameterfv)
 	glGetColorTableParameterfv( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"));
 }
 
+
+RING_FUNC(ring_glGetColorTableParameteriv)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetColorTableParameteriv( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3458,4 +3480,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetclipplane",ring_glGetClipPlane);
 	ring_vm_funcregister("glgetcolortable",ring_glGetColorTable);
 	ring_vm_funcregister("glgetcolortableparameterfv",ring_glGetColorTableParameterfv);
+	ring_vm_funcregister("glgetcolortableparameteriv",ring_glGetColorTableParameteriv);
 }
