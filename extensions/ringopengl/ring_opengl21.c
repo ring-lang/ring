@@ -3810,6 +3810,28 @@ RING_FUNC(ring_glGetPolygonStipple)
 	glGetPolygonStipple((GLubyte *) RING_API_GETCPOINTER(1,"GLubyte"));
 }
 
+
+RING_FUNC(ring_glGetProgramiv)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetProgramiv( (GLuint ) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3994,4 +4016,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetpixelmapusv",ring_glGetPixelMapusv);
 	ring_vm_funcregister("glgetpointerv",ring_glGetPointerv);
 	ring_vm_funcregister("glgetpolygonstipple",ring_glGetPolygonStipple);
+	ring_vm_funcregister("glgetprogramiv",ring_glGetProgramiv);
 }
