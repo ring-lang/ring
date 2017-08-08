@@ -699,7 +699,6 @@ void ring_vm_execute ( VM *pVM )
 
 RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 {
-	int x  ;
 	List *pList  ;
 	/* Check if we have active error */
 	if ( pVM->nActiveError ) {
@@ -723,18 +722,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 	}
 	if ( ring_list_getsize(pVM->pTry) == 0 ) {
 		if ( pVM->lHideErrorMsg == 0 ) {
-			ring_state_cgiheader(pVM->pRingState);
-			printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
-			/* Print Calling Information */
-			for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
-				pList = ring_list_getlist(pVM->pFuncCallList,x);
-				/* If we have ICO_LoadFunc but not ICO_CALL then we need to pass */
-				if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
-					continue ;
-				}
-				printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
-			}
-			printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
+			ring_vm_showerrormessage(pVM,cStr);
 		}
 		/* Trace */
 		pVM->nActiveError = 0 ;
@@ -745,6 +733,17 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		}
 		pVM->nActiveError = 1 ;
 		exit(0);
+	}
+	/*
+	**  Check Eval In Scope 
+	**  When we have ringvm_evalinscope() We don't support try/catch 
+	**  We just display the error message and continue 
+	*/
+	if ( pVM->nEvalInScope ) {
+		ring_vm_showerrormessage(pVM,cStr);
+		pVM->nActiveError = 0 ;
+		ring_vm_freestack(pVM);
+		return ;
 	}
 	ring_vm_catch(pVM,cStr);
 	pVM->nActiveError = 0 ;
@@ -1072,6 +1071,29 @@ void ring_vm_callclassinit ( VM *pVM )
 	else {
 		pVM->nCallClassInit-- ;
 	}
+}
+
+RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
+{
+	int x  ;
+	List *pList  ;
+	/* CGI Support */
+	ring_state_cgiheader(pVM->pRingState);
+	/* Print the Error Message */
+	printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
+	/* Print Calling Information */
+	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
+		pList = ring_list_getlist(pVM->pFuncCallList,x);
+		/*
+		**  If we have ICO_LoadFunc but not ICO_CALL then we need to pass 
+		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
+		*/
+		if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
+			continue ;
+		}
+		printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
+	}
+	printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
 }
 /* Threads */
 
