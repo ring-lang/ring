@@ -41,3 +41,4 @@ From this reference : https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/
 </constant>
 
 void glAccum(GLenum op,GLfloat value)
+void glActiveTexture(GLenum texture)
