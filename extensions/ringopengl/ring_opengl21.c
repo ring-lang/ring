@@ -2854,6 +2854,20 @@ RING_FUNC(ring_glFogCoordPointer)
 	glFogCoordPointer( (GLenum )  (int) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2),(GLvoid *) RING_API_GETCPOINTER(3,"GLvoid"));
 }
 
+
+RING_FUNC(ring_glFrontFace)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glFrontFace( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2994,4 +3008,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glfogcoorddv",ring_glFogCoorddv);
 	ring_vm_funcregister("glfogcoordfv",ring_glFogCoordfv);
 	ring_vm_funcregister("glfogcoordpointer",ring_glFogCoordPointer);
+	ring_vm_funcregister("glfrontface",ring_glFrontFace);
 }
