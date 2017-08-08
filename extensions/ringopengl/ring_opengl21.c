@@ -2080,6 +2080,16 @@ RING_FUNC(ring_glCopyTexSubImage3D)
 	glCopyTexSubImage3D( (GLenum )  (int) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLint ) RING_API_GETNUMBER(7), (GLsizei )  (int) RING_API_GETNUMBER(8), (GLsizei )  (int) RING_API_GETNUMBER(9));
 }
 
+
+RING_FUNC(ring_glCreateProgram)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(glCreateProgram());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2173,4 +2183,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glcopytexsubimage1d",ring_glCopyTexSubImage1D);
 	ring_vm_funcregister("glcopytexsubimage2d",ring_glCopyTexSubImage2D);
 	ring_vm_funcregister("glcopytexsubimage3d",ring_glCopyTexSubImage3D);
+	ring_vm_funcregister("glcreateprogram",ring_glCreateProgram);
 }
