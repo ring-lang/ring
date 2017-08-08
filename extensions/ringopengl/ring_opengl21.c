@@ -11462,6 +11462,16 @@ RING_FUNC(ring_gluLookAt)
 	gluLookAt( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLdouble ) RING_API_GETNUMBER(4), (GLdouble ) RING_API_GETNUMBER(5), (GLdouble ) RING_API_GETNUMBER(6), (GLdouble ) RING_API_GETNUMBER(7), (GLdouble ) RING_API_GETNUMBER(8), (GLdouble ) RING_API_GETNUMBER(9));
 }
 
+
+RING_FUNC(ring_gluNewNurbsRenderer)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(gluNewNurbsRenderer(),"GLUnurbs");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12029,4 +12039,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glugettessproperty",ring_gluGetTessProperty);
 	ring_vm_funcregister("gluloadsamplingmatrices",ring_gluLoadSamplingMatrices);
 	ring_vm_funcregister("glulookat",ring_gluLookAt);
+	ring_vm_funcregister("glunewnurbsrenderer",ring_gluNewNurbsRenderer);
 }
