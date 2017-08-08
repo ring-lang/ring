@@ -492,6 +492,20 @@ RING_FUNC(ring_glClearDepth)
 		free(RING_API_GETCPOINTER(1,"GLclampd"));
 }
 
+
+RING_FUNC(ring_glClearIndex)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glClearIndex( (GLfloat ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -519,4 +533,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glclearaccum",ring_glClearAccum);
 	ring_vm_funcregister("glclearcolor",ring_glClearColor);
 	ring_vm_funcregister("glcleardepth",ring_glClearDepth);
+	ring_vm_funcregister("glclearindex",ring_glClearIndex);
 }
