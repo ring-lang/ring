@@ -12488,6 +12488,33 @@ RING_FUNC(ring_glXGetClientString)
 	RING_API_RETSTRING(glXGetClientString((Display *) RING_API_GETCPOINTER(1,"Display"), (int ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_glXGetConfig)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glXGetConfig((Display *) RING_API_GETCPOINTER(1,"Display"),(XVisualInfo *) RING_API_GETCPOINTER(2,"XVisualInfo"), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4)));
+	RING_API_ACCEPTINTVALUE(4) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -13098,4 +13125,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glxdestroywindow",ring_glXDestroyWindow);
 	ring_vm_funcregister("glxfreecontextext",ring_glXFreeContextEXT);
 	ring_vm_funcregister("glxgetclientstring",ring_glXGetClientString);
+	ring_vm_funcregister("glxgetconfig",ring_glXGetConfig);
 }
