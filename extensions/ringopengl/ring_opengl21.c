@@ -10464,6 +10464,24 @@ RING_FUNC(ring_glVertexAttrib1fv)
 	glVertexAttrib1fv( (GLuint ) RING_API_GETNUMBER(1),(GLfloat *) RING_API_GETCPOINTER(2,"GLfloat"));
 }
 
+
+RING_FUNC(ring_glVertexAttrib1sv)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertexAttrib1sv( (GLuint ) RING_API_GETNUMBER(1),(GLshort *) RING_API_GETCPOINTER(2,"GLshort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -10977,4 +10995,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glvertexattrib4d",ring_glVertexAttrib4d);
 	ring_vm_funcregister("glvertexattrib4nub",ring_glVertexAttrib4Nub);
 	ring_vm_funcregister("glvertexattrib1fv",ring_glVertexAttrib1fv);
+	ring_vm_funcregister("glvertexattrib1sv",ring_glVertexAttrib1sv);
 }
