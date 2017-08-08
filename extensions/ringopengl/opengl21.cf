@@ -378,3 +378,4 @@ void glPrioritizeTextures(GLsizei n,const GLuint * textures,const GLclampf * pri
 void glPopMatrix( void)
 void glRasterPos2s(GLshort x,GLshort y)
 void glRasterPos2i(GLint x,GLint y)
+void glRasterPos2f(GLfloat x,GLfloat y)
