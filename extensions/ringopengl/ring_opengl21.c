@@ -11044,6 +11044,20 @@ RING_FUNC(ring_glWindowPos2dv)
 	glWindowPos2dv((GLdouble *) RING_API_GETCPOINTER(1,"GLdouble"));
 }
 
+
+RING_FUNC(ring_glWindowPos3sv)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glWindowPos3sv((GLshort *) RING_API_GETCPOINTER(1,"GLshort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -11588,4 +11602,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glwindowpos2iv",ring_glWindowPos2iv);
 	ring_vm_funcregister("glwindowpos2fv",ring_glWindowPos2fv);
 	ring_vm_funcregister("glwindowpos2dv",ring_glWindowPos2dv);
+	ring_vm_funcregister("glwindowpos3sv",ring_glWindowPos3sv);
 }
