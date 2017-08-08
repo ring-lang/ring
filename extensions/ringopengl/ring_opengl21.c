@@ -4032,6 +4032,20 @@ RING_FUNC(ring_glGetShaderSource)
 	glGetShaderSource( (GLuint ) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2),(GLsizei *) RING_API_GETCPOINTER(3,"GLsizei"),(GLchar *) RING_API_GETCPOINTER(4,"GLchar"));
 }
 
+
+RING_FUNC(ring_glGetString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(glGetString( (GLenum )  (int) RING_API_GETNUMBER(1)),"GLubyte");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4225,4 +4239,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetshaderiv",ring_glGetShaderiv);
 	ring_vm_funcregister("glgetshaderinfolog",ring_glGetShaderInfoLog);
 	ring_vm_funcregister("glgetshadersource",ring_glGetShaderSource);
+	ring_vm_funcregister("glgetstring",ring_glGetString);
 }
