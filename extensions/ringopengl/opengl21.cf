@@ -665,3 +665,4 @@ Bool glXMakeContextCurrent(Display * display,GLXDrawable draw,GLXDrawable read,G
 Bool glXMakeCurrent(Display * dpy,GLXDrawable drawable,GLXContext ctx)
 int glXQueryContext(Display * dpy,GLXContext ctx,int attribute,int * value) 
 int glXQueryContextInfoEXT(Display * dpy,GLXContext ctx,int attribute,int * value)
+int glXQueryDrawable(Display * dpy,GLXDrawable draw,int attribute,unsigned int * value)
