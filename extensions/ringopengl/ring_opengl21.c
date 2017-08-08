@@ -12346,6 +12346,34 @@ RING_FUNC(ring_glXCreatePixmap)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
+
+RING_FUNC(ring_glXCreateWindow)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		GLXWindow *pValue ; 
+		pValue = (GLXWindow *) malloc(sizeof(GLXWindow)) ;
+		*pValue = glXCreateWindow((Display *) RING_API_GETCPOINTER(1,"Display"),* (GLXFBConfig  *) RING_API_GETCPOINTER(2,"GLXFBConfig"),* (Window  *) RING_API_GETCPOINTER(3,"Window"),RING_API_GETINTPOINTER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLXFBConfig"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		free(RING_API_GETCPOINTER(3,"Window"));
+		RING_API_RETCPOINTER(pValue,"GLXWindow");
+	}
+	RING_API_ACCEPTINTVALUE(4) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12948,4 +12976,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glxcreatenewcontext",ring_glXCreateNewContext);
 	ring_vm_funcregister("glxcreatepbuffer",ring_glXCreatePbuffer);
 	ring_vm_funcregister("glxcreatepixmap",ring_glXCreatePixmap);
+	ring_vm_funcregister("glxcreatewindow",ring_glXCreateWindow);
 }
