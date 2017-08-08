@@ -258,6 +258,20 @@ RING_FUNC(ring_glBlendColor)
 		free(RING_API_GETCPOINTER(4,"GLclampf"));
 }
 
+
+RING_FUNC(ring_glBlendEquation)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glBlendEquation( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -273,4 +287,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glbindtexture",ring_glBindTexture);
 	ring_vm_funcregister("glbitmap",ring_glBitmap);
 	ring_vm_funcregister("glblendcolor",ring_glBlendColor);
+	ring_vm_funcregister("glblendequation",ring_glBlendEquation);
 }
