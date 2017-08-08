@@ -1048,6 +1048,20 @@ RING_FUNC(ring_glColor4fv)
 	glColor4fv((GLfloat *) RING_API_GETCPOINTER(1,"GLfloat"));
 }
 
+
+RING_FUNC(ring_glColor4dv)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor4dv((GLdouble *) RING_API_GETCPOINTER(1,"GLdouble"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -1107,4 +1121,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glcolor4sv",ring_glColor4sv);
 	ring_vm_funcregister("glcolor4iv",ring_glColor4iv);
 	ring_vm_funcregister("glcolor4fv",ring_glColor4fv);
+	ring_vm_funcregister("glcolor4dv",ring_glColor4dv);
 }
