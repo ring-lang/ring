@@ -12263,6 +12263,35 @@ RING_FUNC(ring_glXCreateGLXPixmap)
 	}
 }
 
+
+RING_FUNC(ring_glXCreateNewContext)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		GLXContext *pValue ; 
+		pValue = (GLXContext *) malloc(sizeof(GLXContext)) ;
+		*pValue = glXCreateNewContext((Display *) RING_API_GETCPOINTER(1,"Display"),* (GLXFBConfig  *) RING_API_GETCPOINTER(2,"GLXFBConfig"), (int ) RING_API_GETNUMBER(3),* (GLXContext  *) RING_API_GETCPOINTER(4,"GLXContext"),* (Bool  *) RING_API_GETCPOINTER(5,"Bool"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLXFBConfig"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		free(RING_API_GETCPOINTER(4,"GLXContext"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		free(RING_API_GETCPOINTER(5,"Bool"));
+		RING_API_RETCPOINTER(pValue,"GLXContext");
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12862,4 +12891,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glxcopycontext",ring_glXCopyContext);
 	ring_vm_funcregister("glxcreatecontext",ring_glXCreateContext);
 	ring_vm_funcregister("glxcreateglxpixmap",ring_glXCreateGLXPixmap);
+	ring_vm_funcregister("glxcreatenewcontext",ring_glXCreateNewContext);
 }
