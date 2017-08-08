@@ -469,3 +469,4 @@ void glTexCoordPointer(GLint size,GLenum type,GLsizei stride,const GLvoid * poin
 void glTexEnvf(GLenum target,GLenum pname,GLfloat param)
 void glTexEnvi(GLenum target,GLenum pname,GLint param)
 void glTexGeni(GLenum coord,GLenum pname,GLint param)
+void glTexGenf(GLenum coord,GLenum pname,GLfloat param)
