@@ -571,3 +571,4 @@ void glVertexAttribPointer(GLuint index,GLint size,GLenum type,GLboolean normali
 void glVertexPointer(GLint size,GLenum type,GLsizei stride,const GLvoid * pointer) 
 void glViewport(GLint x,GLint y,GLsizei width,GLsizei height)
 void glWindowPos2s(GLshort x,GLshort y)
+void glWindowPos2i(GLint x,GLint y)
