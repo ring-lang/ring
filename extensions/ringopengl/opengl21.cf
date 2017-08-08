@@ -254,3 +254,4 @@ void glHistogram(GLenum target,GLsizei width,GLenum internalformat,GLboolean sin
 void glIndexs(GLshort c)
 void glIndexi(GLint c)
 void glIndexf(GLfloat c)
+void glIndexd(GLdouble c)
