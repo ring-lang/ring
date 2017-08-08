@@ -650,6 +650,22 @@ RING_FUNC(ring_glColor3d)
 	glColor3d( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_glColor3ub)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	glColor3ub(* (GLubyte  *) RING_API_GETCPOINTER(1,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(2,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(3,"GLubyte"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"GLubyte"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLubyte"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		free(RING_API_GETCPOINTER(3,"GLubyte"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -686,4 +702,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glcolor3i",ring_glColor3i);
 	ring_vm_funcregister("glcolor3f",ring_glColor3f);
 	ring_vm_funcregister("glcolor3d",ring_glColor3d);
+	ring_vm_funcregister("glcolor3ub",ring_glColor3ub);
 }
