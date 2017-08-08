@@ -4212,6 +4212,32 @@ RING_FUNC(ring_glGetTexLevelParameterfv)
 	glGetTexLevelParameterfv( (GLenum )  (int) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
 }
 
+
+RING_FUNC(ring_glGetTexLevelParameteriv)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetTexLevelParameteriv( (GLenum )  (int) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4413,4 +4439,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgettexgeniv",ring_glGetTexGeniv);
 	ring_vm_funcregister("glgetteximage",ring_glGetTexImage);
 	ring_vm_funcregister("glgettexlevelparameterfv",ring_glGetTexLevelParameterfv);
+	ring_vm_funcregister("glgettexlevelparameteriv",ring_glGetTexLevelParameteriv);
 }
