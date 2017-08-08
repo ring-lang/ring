@@ -11938,6 +11938,32 @@ RING_FUNC(ring_gluScaleImage)
 	RING_API_RETNUMBER(gluScaleImage( (GLenum )  (int) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4),(void *) RING_API_GETCPOINTER(5,"void"), (GLsizei )  (int) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLenum )  (int) RING_API_GETNUMBER(8),(GLvoid *) RING_API_GETCPOINTER(9,"GLvoid")));
 }
 
+
+RING_FUNC(ring_gluSphere)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluSphere((GLUquadric *) RING_API_GETCPOINTER(1,"GLUquadric"), (GLdouble ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12523,4 +12549,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluquadricorientation",ring_gluQuadricOrientation);
 	ring_vm_funcregister("gluquadrictexture",ring_gluQuadricTexture);
 	ring_vm_funcregister("gluscaleimage",ring_gluScaleImage);
+	ring_vm_funcregister("glusphere",ring_gluSphere);
 }
