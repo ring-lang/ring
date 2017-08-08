@@ -194,3 +194,4 @@ void glGetAttachedShaders(GLuint program,GLsizei maxCount,GLsizei *count,GLuint 
 GLint glGetAttribLocation(GLuint program,const GLchar *name)
 void glGetBufferParameteriv(GLenum target,GLenum value,GLint * data)
 void glGetBufferPointerv(GLenum target,GLenum pname,GLvoid ** params)
+void glGetBufferSubData(GLenum target,GLintptr offset,GLsizeiptr size,GLvoid * data)
