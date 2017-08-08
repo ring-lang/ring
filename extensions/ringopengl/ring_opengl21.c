@@ -11996,6 +11996,20 @@ RING_FUNC(ring_gluTessBeginPolygon)
 	gluTessBeginPolygon((GLUtesselator *) RING_API_GETCPOINTER(1,"GLUtesselator"),(GLvoid *) RING_API_GETCPOINTER(2,"GLvoid"));
 }
 
+
+RING_FUNC(ring_gluTessEndContour)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluTessEndContour((GLUtesselator *) RING_API_GETCPOINTER(1,"GLUtesselator"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12584,4 +12598,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glusphere",ring_gluSphere);
 	ring_vm_funcregister("glutessbegincontour",ring_gluTessBeginContour);
 	ring_vm_funcregister("glutessbeginpolygon",ring_gluTessBeginPolygon);
+	ring_vm_funcregister("glutessendcontour",ring_gluTessEndContour);
 }
