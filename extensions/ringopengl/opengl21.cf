@@ -598,3 +598,4 @@ void gluDisk(GLUquadric* quad,GLdouble inner,GLdouble outer,GLint slices,GLint l
 void gluEndCurve(GLUnurbs* nurb)
 void gluEndPolygon(GLUtesselator* tess)
 void gluEndSurface(GLUnurbs* nurb)
+void gluEndTrim(GLUnurbs* nurb)
