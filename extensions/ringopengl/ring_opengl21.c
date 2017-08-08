@@ -3042,6 +3042,44 @@ RING_FUNC(ring_glGetIntegerv)
 	glGetIntegerv( (GLenum )  (int) RING_API_GETNUMBER(1),(GLint *) RING_API_GETCPOINTER(2,"GLint"));
 }
 
+
+RING_FUNC(ring_glGetActiveAttrib)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetActiveAttrib( (GLuint ) RING_API_GETNUMBER(1), (GLuint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLsizei *) RING_API_GETCPOINTER(4,"GLsizei"),(GLint *) RING_API_GETCPOINTER(5,"GLint"),(GLenum *) RING_API_GETCPOINTER(6,"GLenum"),(GLchar *) RING_API_GETCPOINTER(7,"GLchar"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3192,4 +3230,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetdoublev",ring_glGetDoublev);
 	ring_vm_funcregister("glgetfloatv",ring_glGetFloatv);
 	ring_vm_funcregister("glgetintegerv",ring_glGetIntegerv);
+	ring_vm_funcregister("glgetactiveattrib",ring_glGetActiveAttrib);
 }
