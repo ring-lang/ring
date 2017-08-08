@@ -9,15 +9,12 @@
 
 func typeNumbers x
         edit1.settext(edit1.text()+x)
-        spaceflag = 1
  
 func math x
         edit1.settext(edit1.text()+ x )
-        spaceflag = 1
-	
+
 func addPeriod
 	edit1.settext(edit1.text()+'.')
-             spaceflag = 1
 
 func clearCalc
 	num1=0
@@ -27,7 +24,6 @@ func clearCalc
 
 func calcPercent
 	edit1.settext(""+ edit1.text()+"%")
-             spaceflag = 1
 
 func checkEnter
 	try
@@ -35,29 +31,25 @@ func checkEnter
                  enum = substr(enum, " ", "")
                  check = checkEdit()
                  if check = 0
-                     new qmessagebox(win1) {
-                     setwindowtitle("Bad input") 
-                     settext("Bad input!")
-                     show()
-                     } 
+                    message() 
                  else
                      per = substr(edit1.text(), "%")
                      if per > 0
-                        eval("number = " + left(enum, per - 1))
+                        number = left(enum, per - 1) 
                         percent = number(substr(enum, per+1))
                         result = number*percent/100
-                        edit1.settext( ""+result )
-	          add2history(enum,result)
-                     else                 
+                        edit1.settext(edit1.text() + " = " + result)
+ 	          add2history(enum,result)
+                     else                
 	          enum= edit1.text()
 	          eval("result="+enum)
-	          edit1.settext( ""+result )
+                       edit1.settext(edit1.text() + " = " + result)
 	          add2history(enum,result)
                      ok
                  ok
 	catch
-	       see nl+cCatchError+nl
-	       edit1.settext( "NAN" )
+	    see "Bad input! " + nl + cCatchError + nl
+	    edit1.settext( "NAN" )
 	done	
 	
 func add2history enum,result
@@ -84,7 +76,7 @@ func checkEdit
         next
         for n = 1 to len(enum)
               en = enum[n]
-              if (ascii(en) > 47 and ascii(en) < 58) or en = "+" or en = "-" or en = "*" or en = "/" or en = "%" or en = "." or en = "(" or en = ")"
+              if (ascii(en) > 47 and ascii(en) < 58) or en = "+" or en = "-" or en = "*" or en = "/" or en = "%" or en = "." or en = "(" or en = ")" or en = "="
                  nflag[n] = 1
               ok               
         next
@@ -95,13 +87,9 @@ func checkEdit
         next
         en1 = substr(enum, len(enum) - 1, 1)
         en2 = right(enum, 1)
-        bool1 = (en1 = "+" or en1 = "-" or en1 = "*" or en1 = "/" or en1 = "%" or en1 = ".")
-        bool2 = (en2 = "+" or en2 = "-" or en2 = "*" or en2 = "/" or en2 = "%" or en2 = ".")
+        bool1 = (en1 = "+" or en1 = "-" or en1 = "*" or en1 = "/" or en1 = "%" or en1 = "." or en1 = "=")
+        bool2 = (en2 = "+" or en2 = "-" or en2 = "*" or en2 = "/" or en2 = "%" or en2 = "." or en2 = "=")
         if bool1 = true and bool2 = true
            flag = 0
         ok
         return flag
- 
-
-
-
