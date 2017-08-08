@@ -12168,6 +12168,29 @@ RING_FUNC(ring_glXChooseFBConfig)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
+
+RING_FUNC(ring_glXChooseVisual)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(glXChooseVisual((Display *) RING_API_GETCPOINTER(1,"Display"), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3)),"XVisualInfo");
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12763,4 +12786,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutessvertex",ring_gluTessVertex);
 	ring_vm_funcregister("gluunproject",ring_gluUnProject);
 	ring_vm_funcregister("glxchoosefbconfig",ring_glXChooseFBConfig);
+	ring_vm_funcregister("glxchoosevisual",ring_glXChooseVisual);
 }
