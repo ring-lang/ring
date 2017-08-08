@@ -608,3 +608,4 @@ void gluLookAt(GLdouble eyeX,GLdouble eyeY,GLdouble eyeZ,GLdouble centerX,GLdoub
 GLUnurbs *gluNewNurbsRenderer(void)
 GLUquadric *gluNewQuadric(void)
 GLUtesselator* gluNewTess(void)
+void gluNextContour(GLUtesselator* tess,GLenum type) 
