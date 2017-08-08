@@ -47,3 +47,4 @@ GLboolean glAreTexturesResident(GLsizei n,const GLuint * textures,GLboolean * re
 void glArrayElement(GLint i)
 void glAttachShader(GLuint program,GLuint shader) 
 void glBegin(GLenum mode)
+void glBeginQuery(GLenum target,GLuint id)
