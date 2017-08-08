@@ -355,7 +355,7 @@ MyApp = New qapp
                 setGeometry(820,btnVertPos,60,btnSize)
                 settext("V:100")
                 seticon(new qicon(new qpixmap(UserIcons +"Volume.png")))
-                setclickevent( "pVolume()")
+                ### setclickevent( "pVolume()")
             }
 
             VolumeDec = new qpushbutton(win1)
@@ -874,6 +874,13 @@ Func pMute()
     ok
 return
 
+###-----------------------------------
+
+Func pVolume()
+   ### Do nothing. This button is really a Label with an Icon
+return
+
+###-----------------------------------
 ###-----------------------------------
 
 Func pVolumeDec()
