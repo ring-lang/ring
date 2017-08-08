@@ -358,3 +358,4 @@ void glOrtho(GLdouble left,GLdouble right,GLdouble bottom,GLdouble top,GLdouble 
 void glPassThrough(GLfloat token)
 void glPixelMapfv(GLenum map,GLsizei mapsize,const GLfloat * values)
 void glPixelMapuiv(GLenum map,GLsizei mapsize,const GLuint * values)
+void glPixelMapusv(GLenum map,GLsizei mapsize,const GLushort * values)
