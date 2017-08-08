@@ -81,6 +81,7 @@ Contents:
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>
+   RingOpenGL (OpenGL 2.1) Functions Reference <ringopengl21funcsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
    Frequently Asked Questions (FAQ) <faq>
    Language Reference <reference>
