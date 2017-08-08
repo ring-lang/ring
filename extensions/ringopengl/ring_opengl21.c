@@ -4344,6 +4344,28 @@ RING_FUNC(ring_glGetUniformLocation)
 	RING_API_RETNUMBER(glGetUniformLocation( (GLuint ) RING_API_GETNUMBER(1),(GLchar *) RING_API_GETCPOINTER(2,"GLchar")));
 }
 
+
+RING_FUNC(ring_glGetVertexAttribdv)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetVertexAttribdv( (GLuint ) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLdouble *) RING_API_GETCPOINTER(3,"GLdouble"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4551,4 +4573,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetuniformfv",ring_glGetUniformfv);
 	ring_vm_funcregister("glgetuniformiv",ring_glGetUniformiv);
 	ring_vm_funcregister("glgetuniformlocation",ring_glGetUniformLocation);
+	ring_vm_funcregister("glgetvertexattribdv",ring_glGetVertexAttribdv);
 }
