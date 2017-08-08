@@ -94,6 +94,24 @@ RING_FUNC(ring_glArrayElement)
 	glArrayElement( (GLint ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glAttachShader)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glAttachShader( (GLuint ) RING_API_GETNUMBER(1), (GLuint ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -101,4 +119,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glalphafunc",ring_glAlphaFunc);
 	ring_vm_funcregister("glaretexturesresident",ring_glAreTexturesResident);
 	ring_vm_funcregister("glarrayelement",ring_glArrayElement);
+	ring_vm_funcregister("glattachshader",ring_glAttachShader);
 }
