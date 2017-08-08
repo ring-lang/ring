@@ -641,3 +641,4 @@ GLXContext glXCreateNewContext(Display * dpy,GLXFBConfig config,int render_type,
 GLXPbuffer glXCreatePbuffer(Display * dpy,GLXFBConfig config,const int * attrib_list)
 GLXPixmap glXCreatePixmap(Display * dpy,GLXFBConfig config,Pixmap pixmap,const int * attrib_list)
 GLXWindow glXCreateWindow(Display * dpy,GLXFBConfig config,Window win,const int * attrib_list)
+void glXDestroyContext(Display * dpy,GLXContext ctx)
