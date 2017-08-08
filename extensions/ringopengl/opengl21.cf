@@ -43,3 +43,4 @@ From this reference : https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/
 void glAccum(GLenum op,GLfloat value)
 void glActiveTexture(GLenum texture)
 void glAlphaFunc(GLenum func,GLclampf ref)
+GLboolean glAreTexturesResident(GLsizei n,const GLuint * textures,GLboolean * residences)
