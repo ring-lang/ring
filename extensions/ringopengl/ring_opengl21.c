@@ -3080,6 +3080,44 @@ RING_FUNC(ring_glGetActiveAttrib)
 	glGetActiveAttrib( (GLuint ) RING_API_GETNUMBER(1), (GLuint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLsizei *) RING_API_GETCPOINTER(4,"GLsizei"),(GLint *) RING_API_GETCPOINTER(5,"GLint"),(GLenum *) RING_API_GETCPOINTER(6,"GLenum"),(GLchar *) RING_API_GETCPOINTER(7,"GLchar"));
 }
 
+
+RING_FUNC(ring_glGetActiveUniform)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetActiveUniform( (GLuint ) RING_API_GETNUMBER(1), (GLuint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3),(GLsizei *) RING_API_GETCPOINTER(4,"GLsizei"),(GLint *) RING_API_GETCPOINTER(5,"GLint"),(GLenum *) RING_API_GETCPOINTER(6,"GLenum"),(GLchar *) RING_API_GETCPOINTER(7,"GLchar"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3231,4 +3269,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetfloatv",ring_glGetFloatv);
 	ring_vm_funcregister("glgetintegerv",ring_glGetIntegerv);
 	ring_vm_funcregister("glgetactiveattrib",ring_glGetActiveAttrib);
+	ring_vm_funcregister("glgetactiveuniform",ring_glGetActiveUniform);
 }
