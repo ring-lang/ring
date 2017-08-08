@@ -11416,6 +11416,52 @@ RING_FUNC(ring_gluLoadSamplingMatrices)
 	gluLoadSamplingMatrices((GLUnurbs *) RING_API_GETCPOINTER(1,"GLUnurbs"),(GLfloat *) RING_API_GETCPOINTER(2,"GLfloat"),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
 }
 
+
+RING_FUNC(ring_gluLookAt)
+{
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluLookAt( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLdouble ) RING_API_GETNUMBER(4), (GLdouble ) RING_API_GETNUMBER(5), (GLdouble ) RING_API_GETNUMBER(6), (GLdouble ) RING_API_GETNUMBER(7), (GLdouble ) RING_API_GETNUMBER(8), (GLdouble ) RING_API_GETNUMBER(9));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -11982,4 +12028,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glugetstring",ring_gluGetString);
 	ring_vm_funcregister("glugettessproperty",ring_gluGetTessProperty);
 	ring_vm_funcregister("gluloadsamplingmatrices",ring_gluLoadSamplingMatrices);
+	ring_vm_funcregister("glulookat",ring_gluLookAt);
 }
