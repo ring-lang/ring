@@ -7810,6 +7810,20 @@ RING_FUNC(ring_glSeparableFilter2D)
 	glSeparableFilter2D( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4), (GLenum )  (int) RING_API_GETNUMBER(5), (GLenum )  (int) RING_API_GETNUMBER(6),(GLvoid *) RING_API_GETCPOINTER(7,"GLvoid"),(GLvoid *) RING_API_GETCPOINTER(8,"GLvoid"));
 }
 
+
+RING_FUNC(ring_glShadeModel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glShadeModel( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -8197,4 +8211,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glsecondarycolorpointer",ring_glSecondaryColorPointer);
 	ring_vm_funcregister("glselectbuffer",ring_glSelectBuffer);
 	ring_vm_funcregister("glseparablefilter2d",ring_glSeparableFilter2D);
+	ring_vm_funcregister("glshademodel",ring_glShadeModel);
 }
