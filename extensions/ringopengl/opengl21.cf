@@ -108,3 +108,4 @@ void glColorSubTable(GLenum target,GLsizei start,GLsizei count,GLenum format,GLe
 void glColorTable(GLenum target,GLenum internalformat,GLsizei width,GLenum format,GLenum type,const GLvoid * data)
 void glColorTableParameterfv(GLenum target,GLenum pname,const GLfloat * params)
 void glColorTableParameteriv(GLenum target,GLenum pname,const GLint * params)
+void glCompileShader(GLuint shader)
