@@ -4,6 +4,7 @@
 */
 
 load "freeglut.ring"
+load "opengl21lib.ring"
 
 angle = 0
 

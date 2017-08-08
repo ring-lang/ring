@@ -4,6 +4,7 @@
 */
 
 load "freeglut.ring"
+load "opengl21lib.ring"
 
 
 // angle of rotation for the camera direction
