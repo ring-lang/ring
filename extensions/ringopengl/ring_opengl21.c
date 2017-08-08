@@ -5158,6 +5158,56 @@ RING_FUNC(ring_glMap1d)
 	glMap1d( (GLenum )  (int) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5),(GLdouble *) RING_API_GETCPOINTER(6,"GLdouble"));
 }
 
+
+RING_FUNC(ring_glMap2f)
+{
+	if ( RING_API_PARACOUNT != 10 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(9) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glMap2f( (GLenum )  (int) RING_API_GETNUMBER(1), (GLfloat ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLfloat ) RING_API_GETNUMBER(6), (GLfloat ) RING_API_GETNUMBER(7), (GLint ) RING_API_GETNUMBER(8), (GLint ) RING_API_GETNUMBER(9),(GLfloat *) RING_API_GETCPOINTER(10,"GLfloat"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5413,4 +5463,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gllogicop",ring_glLogicOp);
 	ring_vm_funcregister("glmap1f",ring_glMap1f);
 	ring_vm_funcregister("glmap1d",ring_glMap1d);
+	ring_vm_funcregister("glmap2f",ring_glMap2f);
 }
