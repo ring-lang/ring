@@ -134,3 +134,4 @@ void glCopyTexSubImage3D(GLenum target,GLint level,GLint xoffset,GLint yoffset,G
 GLuint glCreateProgram(void)
 GLuint glCreateShader(GLenum shaderType)
 void glCullFace(GLenum mode)
+void glDeleteBuffers(GLsizei n,const GLuint * buffers)
