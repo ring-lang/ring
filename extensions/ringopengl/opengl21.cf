@@ -198,3 +198,4 @@ void glGetBufferSubData(GLenum target,GLintptr offset,GLsizeiptr size,GLvoid * d
 void glGetClipPlane(GLenum plane,GLdouble * equation)
 void glGetColorTable(GLenum target,GLenum format,GLenum type,GLvoid * table)
 void glGetColorTableParameterfv(GLenum target,GLenum pname,GLfloat * params)
+void glGetColorTableParameteriv(GLenum target,GLenum pname,GLint * params)
