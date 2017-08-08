@@ -7308,6 +7308,20 @@ RING_FUNC(ring_glRenderMode)
 	RING_API_RETNUMBER(glRenderMode( (GLenum )  (int) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_glResetHistogram)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glResetHistogram( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7669,4 +7683,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glrectiv",ring_glRectiv);
 	ring_vm_funcregister("glrectsv",ring_glRectsv);
 	ring_vm_funcregister("glrendermode",ring_glRenderMode);
+	ring_vm_funcregister("glresethistogram",ring_glResetHistogram);
 }
