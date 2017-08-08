@@ -12532,6 +12532,21 @@ RING_FUNC(ring_glXGetContextIDEXT)
 	}
 }
 
+
+RING_FUNC(ring_glXGetCurrentContext)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		GLXContext *pValue ; 
+		pValue = (GLXContext *) malloc(sizeof(GLXContext)) ;
+		*pValue = glXGetCurrentContext();
+		RING_API_RETCPOINTER(pValue,"GLXContext");
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -13144,4 +13159,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glxgetclientstring",ring_glXGetClientString);
 	ring_vm_funcregister("glxgetconfig",ring_glXGetConfig);
 	ring_vm_funcregister("glxgetcontextidext",ring_glXGetContextIDEXT);
+	ring_vm_funcregister("glxgetcurrentcontext",ring_glXGetCurrentContext);
 }
