@@ -7872,6 +7872,32 @@ RING_FUNC(ring_glStencilFunc)
 	glStencilFunc( (GLenum )  (int) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2), (GLuint ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_glStencilFuncSeparate)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glStencilFuncSeparate( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLuint ) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -8262,4 +8288,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glshademodel",ring_glShadeModel);
 	ring_vm_funcregister("glshadersource",ring_glShaderSource);
 	ring_vm_funcregister("glstencilfunc",ring_glStencilFunc);
+	ring_vm_funcregister("glstencilfuncseparate",ring_glStencilFuncSeparate);
 }
