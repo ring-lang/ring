@@ -513,3 +513,4 @@ void glUniformMatrix3x4fv(GLint location,GLsizei count,GLboolean transpose,const
 void glUniformMatrix4x3fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat *value)
 void glUseProgram(GLuint program)
 void glValidateProgram(GLuint program)
+void glVertex2s(GLshort x,GLshort y)
