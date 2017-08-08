@@ -3368,6 +3368,28 @@ RING_FUNC(ring_glGetConvolutionFilter)
 	glGetConvolutionFilter( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLvoid *) RING_API_GETCPOINTER(4,"GLvoid"));
 }
 
+
+RING_FUNC(ring_glGetConvolutionParameterfv)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetConvolutionParameterfv( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3531,4 +3553,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetcolortableparameteriv",ring_glGetColorTableParameteriv);
 	ring_vm_funcregister("glgetcompressedteximage",ring_glGetCompressedTexImage);
 	ring_vm_funcregister("glgetconvolutionfilter",ring_glGetConvolutionFilter);
+	ring_vm_funcregister("glgetconvolutionparameterfv",ring_glGetConvolutionParameterfv);
 }
