@@ -11510,6 +11510,44 @@ RING_FUNC(ring_gluNextContour)
 	gluNextContour((GLUtesselator *) RING_API_GETCPOINTER(1,"GLUtesselator"), (GLenum )  (int) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_gluNurbsCurve)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluNurbsCurve((GLUnurbs *) RING_API_GETCPOINTER(1,"GLUnurbs"), (GLint ) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"), (GLint ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"), (GLint ) RING_API_GETNUMBER(6), (GLenum )  (int) RING_API_GETNUMBER(7));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12081,4 +12119,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glunewquadric",ring_gluNewQuadric);
 	ring_vm_funcregister("glunewtess",ring_gluNewTess);
 	ring_vm_funcregister("glunextcontour",ring_gluNextContour);
+	ring_vm_funcregister("glunurbscurve",ring_gluNurbsCurve);
 }
