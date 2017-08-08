@@ -9584,6 +9584,32 @@ RING_FUNC(ring_glUniformMatrix2x3fv)
 	glUniformMatrix2x3fv( (GLint ) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2), (GLboolean ) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
 }
 
+
+RING_FUNC(ring_glUniformMatrix3x2fv)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glUniformMatrix3x2fv( (GLint ) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2), (GLboolean ) RING_API_GETNUMBER(3),(GLfloat *) RING_API_GETCPOINTER(4,"GLfloat"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -10052,4 +10078,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluniformmatrix3fv",ring_glUniformMatrix3fv);
 	ring_vm_funcregister("gluniformmatrix4fv",ring_glUniformMatrix4fv);
 	ring_vm_funcregister("gluniformmatrix2x3fv",ring_glUniformMatrix2x3fv);
+	ring_vm_funcregister("gluniformmatrix3x2fv",ring_glUniformMatrix3x2fv);
 }
