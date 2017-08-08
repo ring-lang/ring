@@ -613,3 +613,4 @@ void gluNurbsCurve(GLUnurbs* nurb,GLint knotCount,GLfloat * knots,GLint stride,G
 void gluNurbsProperty(GLUnurbs* nurb,GLenum property,GLfloat value)
 void gluNurbsSurface(GLUnurbs* nurb,GLint sKnotCount,GLfloat* sKnots,GLint tKnotCount,GLfloat* tKnots,GLint sStride,GLint tStride,GLfloat* control,GLint sOrder,GLint tOrder,GLenum type)
 void gluOrtho2D(GLdouble left,GLdouble right,GLdouble bottom,GLdouble top)
+void gluPartialDisk(GLUquadric* quad,GLdouble inner,GLdouble outer,GLint slices,GLint loops,GLdouble start,GLdouble sweep)
