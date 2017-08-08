@@ -127,3 +127,4 @@ void glCopyConvolutionFilter1D(GLenum target,GLenum internalformat,GLint x,GLint
 void glCopyConvolutionFilter2D(GLenum target,GLenum internalformat,GLint x,GLint y,GLsizei width,GLsizei height) 
 void glCopyPixels(GLint x,GLint y,GLsizei width,GLsizei height,GLenum type)
 void glCopyTexImage1D(GLenum target,GLint level,GLenum internalformat,GLint x,GLint y,GLsizei width,GLint border)
+void glCopyTexImage2D(GLenum target,GLint level,GLenum internalformat,GLint x,GLint y,GLsizei width,GLsizei height,GLint border)
