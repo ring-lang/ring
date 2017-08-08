@@ -12072,6 +12072,28 @@ RING_FUNC(ring_gluTessProperty)
 	gluTessProperty((GLUtesselator *) RING_API_GETCPOINTER(1,"GLUtesselator"), (GLenum )  (int) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_gluTessVertex)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluTessVertex((GLUtesselator *) RING_API_GETCPOINTER(1,"GLUtesselator"),(GLdouble *) RING_API_GETCPOINTER(2,"GLdouble"),(GLvoid *) RING_API_GETCPOINTER(3,"GLvoid"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12664,4 +12686,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutessendpolygon",ring_gluTessEndPolygon);
 	ring_vm_funcregister("glutessnormal",ring_gluTessNormal);
 	ring_vm_funcregister("glutessproperty",ring_gluTessProperty);
+	ring_vm_funcregister("glutessvertex",ring_gluTessVertex);
 }
