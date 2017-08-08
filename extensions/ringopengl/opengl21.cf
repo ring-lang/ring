@@ -231,3 +231,4 @@ void glGetSeparableFilter(GLenum target,GLenum format,GLenum type,GLvoid * row,G
 void glGetShaderiv(GLuint shader,GLenum pname,GLint *params)
 void glGetShaderInfoLog(GLuint shader,GLsizei maxLength,GLsizei *length,GLchar *infoLog)
 void glGetShaderSource(GLuint shader,GLsizei bufSize,GLsizei *length,GLchar *source)
+const GLubyte* glGetString(GLenum name)
