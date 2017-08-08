@@ -621,3 +621,4 @@ void gluPwlCurve(GLUnurbs* nurb,GLint count,GLfloat* data,GLint stride,GLenum ty
 void gluQuadricDrawStyle(GLUquadric* quad,GLenum draw) 
 void gluQuadricNormals(GLUquadric* quad,GLenum normal) 
 void gluQuadricOrientation(GLUquadric* quad,GLenum orientation)
+void gluQuadricTexture(GLUquadric* quad,GLboolean texture)
