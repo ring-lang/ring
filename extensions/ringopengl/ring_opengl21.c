@@ -11482,6 +11482,16 @@ RING_FUNC(ring_gluNewQuadric)
 	RING_API_RETCPOINTER(gluNewQuadric(),"GLUquadric");
 }
 
+
+RING_FUNC(ring_gluNewTess)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(gluNewTess(),"GLUtesselator");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12051,4 +12061,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glulookat",ring_gluLookAt);
 	ring_vm_funcregister("glunewnurbsrenderer",ring_gluNewNurbsRenderer);
 	ring_vm_funcregister("glunewquadric",ring_gluNewQuadric);
+	ring_vm_funcregister("glunewtess",ring_gluNewTess);
 }
