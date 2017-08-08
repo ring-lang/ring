@@ -11156,6 +11156,40 @@ RING_FUNC(ring_gluBeginTrim)
 	gluBeginTrim((GLUnurbs *) RING_API_GETCPOINTER(1,"GLUnurbs"));
 }
 
+
+RING_FUNC(ring_gluCylinder)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluCylinder((GLUquadric *) RING_API_GETCPOINTER(1,"GLUquadric"), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLdouble ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -11708,4 +11742,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glubeginpolygon",ring_gluBeginPolygon);
 	ring_vm_funcregister("glubeginsurface",ring_gluBeginSurface);
 	ring_vm_funcregister("glubegintrim",ring_gluBeginTrim);
+	ring_vm_funcregister("glucylinder",ring_gluCylinder);
 }
