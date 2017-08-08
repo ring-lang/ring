@@ -27,3 +27,7 @@ The folder ringsdl contains the Ring binding to the LibSDL
 game programming library.
 
 The folder ringzip contains functions for *.zip files.
+
+The folder ringfreeglut contains the Ring binding to the FreeGLUT library.
+
+The folder ringopengl contains the Ring binding to the OpenGL library.
