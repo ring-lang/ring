@@ -6474,6 +6474,20 @@ RING_FUNC(ring_glOrtho)
 	glOrtho( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLdouble ) RING_API_GETNUMBER(4), (GLdouble ) RING_API_GETNUMBER(5), (GLdouble ) RING_API_GETNUMBER(6));
 }
 
+
+RING_FUNC(ring_glPassThrough)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glPassThrough( (GLfloat ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -6791,4 +6805,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glnormal3sv",ring_glNormal3sv);
 	ring_vm_funcregister("glnormalpointer",ring_glNormalPointer);
 	ring_vm_funcregister("glortho",ring_glOrtho);
+	ring_vm_funcregister("glpassthrough",ring_glPassThrough);
 }
