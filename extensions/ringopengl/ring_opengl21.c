@@ -3924,6 +3924,40 @@ RING_FUNC(ring_glGetQueryiv)
 	glGetQueryiv( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
 }
 
+
+RING_FUNC(ring_glGetSeparableFilter)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetSeparableFilter( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLvoid *) RING_API_GETCPOINTER(4,"GLvoid"),(GLvoid *) RING_API_GETCPOINTER(5,"GLvoid"),(GLvoid *) RING_API_GETCPOINTER(6,"GLvoid"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4113,4 +4147,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetqueryobjectiv",ring_glGetQueryObjectiv);
 	ring_vm_funcregister("glgetqueryobjectuiv",ring_glGetQueryObjectuiv);
 	ring_vm_funcregister("glgetqueryiv",ring_glGetQueryiv);
+	ring_vm_funcregister("glgetseparablefilter",ring_glGetSeparableFilter);
 }
