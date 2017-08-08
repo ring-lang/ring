@@ -11688,6 +11688,32 @@ RING_FUNC(ring_gluPartialDisk)
 	gluPartialDisk((GLUquadric *) RING_API_GETCPOINTER(1,"GLUquadric"), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLdouble ) RING_API_GETNUMBER(6), (GLdouble ) RING_API_GETNUMBER(7));
 }
 
+
+RING_FUNC(ring_gluPerspective)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluPerspective( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLdouble ) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12264,4 +12290,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glunurbssurface",ring_gluNurbsSurface);
 	ring_vm_funcregister("gluortho2d",ring_gluOrtho2D);
 	ring_vm_funcregister("glupartialdisk",ring_gluPartialDisk);
+	ring_vm_funcregister("gluperspective",ring_gluPerspective);
 }
