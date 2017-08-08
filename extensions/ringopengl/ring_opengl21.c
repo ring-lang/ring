@@ -6730,6 +6730,20 @@ RING_FUNC(ring_glPolygonOffset)
 	glPolygonOffset( (GLfloat ) RING_API_GETNUMBER(1), (GLfloat ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_glPolygonStipple)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glPolygonStipple((GLubyte *) RING_API_GETCPOINTER(1,"GLubyte"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7061,4 +7075,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glpointsize",ring_glPointSize);
 	ring_vm_funcregister("glpolygonmode",ring_glPolygonMode);
 	ring_vm_funcregister("glpolygonoffset",ring_glPolygonOffset);
+	ring_vm_funcregister("glpolygonstipple",ring_glPolygonStipple);
 }
