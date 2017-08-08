@@ -486,3 +486,4 @@ void glTexSubImage2D(GLenum target,GLint level,GLint xoffset,GLint yoffset,GLsiz
 void glTexSubImage3D(GLenum target,GLint level,GLint xoffset,GLint yoffset,GLint zoffset,GLsizei width,GLsizei height,GLsizei depth,GLenum format,GLenum type,const GLvoid * data)
 void glTranslated(GLdouble x,GLdouble y,GLdouble z)
 void glTranslatef(GLfloat x,GLfloat y,GLfloat z)
+void glUniform1f(GLint location,GLfloat v0)
