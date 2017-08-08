@@ -1,0 +1,42 @@
+<code>
+
+/* 
+	OpenGL 2.1 Extension
+	Copyright (c) 2017 Mahmoud Fayed <msfclipper@yahoo.com> 
+*/
+
+<filter> ismacosx()
+#include <GL/glew.h>
+#include <GLUT/glut.h>
+</filter>
+
+<filter> not ismacosx()
+#include <GL/glew.h>
+#include <GL/glut.h>
+</filter>
+
+</code>
+
+<runcode>
+aNumberTypes + "GLint"
+aNumberTypes + "GLuint"
+aNumberTypes + "unsigned"
+aNumberTypes + "GLboolean"
+aNumberTypes + "GLdouble"
+aNumberTypes + "GLfloat"
+aNumberTypes + "GLchar"
+aNumberTypes + "GLsizeiptr"
+aNumberTypes + "GLintptr"
+aEnumTypes + "GLbitfield"
+aEnumTypes + "GLenum"
+aEnumTypes + "GLsizei"
+</runcode>
+
+<comment>
+OpenGL 2.1 functions
+From this reference : https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/
+</comment>
+
+<constant>
+</constant>
+
