@@ -2694,6 +2694,16 @@ RING_FUNC(ring_glFinish)
 	glFinish();
 }
 
+
+RING_FUNC(ring_glFlush)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glFlush();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2824,4 +2834,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glevalpoint2",ring_glEvalPoint2);
 	ring_vm_funcregister("glfeedbackbuffer",ring_glFeedbackBuffer);
 	ring_vm_funcregister("glfinish",ring_glFinish);
+	ring_vm_funcregister("glflush",ring_glFlush);
 }
