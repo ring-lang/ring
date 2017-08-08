@@ -26,6 +26,7 @@ void ring_vm_dll_loadlib ( void *pPointer )
 		cDLL = RING_API_GETSTRING(1);
 		handle = LoadDLL(cDLL);
 		if ( handle == NULL ) {
+			printf( "\nLibrary File : %s",RING_API_GETSTRING(1) ) ;
 			RING_API_ERROR("Runtime Error in loading the dynamic library!");
 			return ;
 		}
