@@ -2920,6 +2920,20 @@ RING_FUNC(ring_glGenBuffers)
 	glGenBuffers( (GLsizei )  (int) RING_API_GETNUMBER(1),(GLuint *) RING_API_GETCPOINTER(2,"GLuint"));
 }
 
+
+RING_FUNC(ring_glGenLists)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glGenLists( (GLsizei )  (int) RING_API_GETNUMBER(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3063,4 +3077,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glfrontface",ring_glFrontFace);
 	ring_vm_funcregister("glfrustum",ring_glFrustum);
 	ring_vm_funcregister("glgenbuffers",ring_glGenBuffers);
+	ring_vm_funcregister("glgenlists",ring_glGenLists);
 }
