@@ -208,3 +208,4 @@ void glGetHistogram(GLenum target,GLboolean reset,GLenum format,GLenum type,GLvo
 void glGetHistogramParameterfv(GLenum target,GLenum pname,GLfloat * params)
 void glGetHistogramParameteriv(GLenum target,GLenum pname,GLint * params) 
 void glGetLightfv(GLenum light,GLenum pname,GLfloat * params)
+void glGetLightiv(GLenum light,GLenum pname,GLint * params) 
