@@ -4584,6 +4584,20 @@ RING_FUNC(ring_glIndexfv)
 	glIndexfv((GLfloat *) RING_API_GETCPOINTER(1,"GLfloat"));
 }
 
+
+RING_FUNC(ring_glIndexdv)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glIndexdv((GLdouble *) RING_API_GETCPOINTER(1,"GLdouble"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4805,4 +4819,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glindexsv",ring_glIndexsv);
 	ring_vm_funcregister("glindexiv",ring_glIndexiv);
 	ring_vm_funcregister("glindexfv",ring_glIndexfv);
+	ring_vm_funcregister("glindexdv",ring_glIndexdv);
 }
