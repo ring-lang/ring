@@ -5754,6 +5754,32 @@ RING_FUNC(ring_glMultiTexCoord3s)
 		free(RING_API_GETCPOINTER(4,"GLshort"));
 }
 
+
+RING_FUNC(ring_glMultiTexCoord3i)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glMultiTexCoord3i( (GLenum )  (int) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -6035,4 +6061,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glmultitexcoord2f",ring_glMultiTexCoord2f);
 	ring_vm_funcregister("glmultitexcoord2d",ring_glMultiTexCoord2d);
 	ring_vm_funcregister("glmultitexcoord3s",ring_glMultiTexCoord3s);
+	ring_vm_funcregister("glmultitexcoord3i",ring_glMultiTexCoord3i);
 }
