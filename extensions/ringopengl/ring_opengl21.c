@@ -2200,6 +2200,24 @@ RING_FUNC(ring_glDeleteShader)
 	glDeleteShader( (GLuint ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glDeleteTextures)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glDeleteTextures( (GLsizei )  (int) RING_API_GETNUMBER(1),(GLuint *) RING_API_GETCPOINTER(2,"GLuint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2301,4 +2319,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gldeleteprogram",ring_glDeleteProgram);
 	ring_vm_funcregister("gldeletequeries",ring_glDeleteQueries);
 	ring_vm_funcregister("gldeleteshader",ring_glDeleteShader);
+	ring_vm_funcregister("gldeletetextures",ring_glDeleteTextures);
 }
