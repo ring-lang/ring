@@ -3006,6 +3006,24 @@ RING_FUNC(ring_glGetDoublev)
 	glGetDoublev( (GLenum )  (int) RING_API_GETNUMBER(1),(GLdouble *) RING_API_GETCPOINTER(2,"GLdouble"));
 }
 
+
+RING_FUNC(ring_glGetFloatv)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetFloatv( (GLenum )  (int) RING_API_GETNUMBER(1),(GLfloat *) RING_API_GETCPOINTER(2,"GLfloat"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3154,4 +3172,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgentextures",ring_glGenTextures);
 	ring_vm_funcregister("glgetbooleanv",ring_glGetBooleanv);
 	ring_vm_funcregister("glgetdoublev",ring_glGetDoublev);
+	ring_vm_funcregister("glgetfloatv",ring_glGetFloatv);
 }
