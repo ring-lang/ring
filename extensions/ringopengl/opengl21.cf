@@ -55,3 +55,4 @@ void glBitmap(GLsizei width,GLsizei height,GLfloat xorig,GLfloat yorig,GLfloat x
 void glBlendColor(GLclampf red,GLclampf green,GLclampf blue,GLclampf alpha)
 void glBlendEquation(GLenum mode)
 void glBlendEquationSeparate(GLenum modeRGB,GLenum modeAlpha) 
+void glBlendFunc(GLenum sfactor,GLenum dfactor)
