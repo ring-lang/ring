@@ -6404,6 +6404,20 @@ RING_FUNC(ring_glNormal3iv)
 	glNormal3iv((GLint *) RING_API_GETCPOINTER(1,"GLint"));
 }
 
+
+RING_FUNC(ring_glNormal3sv)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glNormal3sv((GLshort *) RING_API_GETCPOINTER(1,"GLshort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -6718,4 +6732,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glnormal3dv",ring_glNormal3dv);
 	ring_vm_funcregister("glnormal3fv",ring_glNormal3fv);
 	ring_vm_funcregister("glnormal3iv",ring_glNormal3iv);
+	ring_vm_funcregister("glnormal3sv",ring_glNormal3sv);
 }
