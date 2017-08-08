@@ -594,3 +594,4 @@ void gluCylinder(GLUquadric* quad,GLdouble base,GLdouble top,GLdouble height,GLi
 void gluDeleteNurbsRenderer(GLUnurbs* nurb)
 void gluDeleteQuadric(GLUquadric* quad)
 void gluDeleteTess(GLUtesselator* tess)
+void gluDisk(GLUquadric* quad,GLdouble inner,GLdouble outer,GLint slices,GLint loops)
