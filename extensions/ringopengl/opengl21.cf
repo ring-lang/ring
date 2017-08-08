@@ -312,3 +312,4 @@ void glMultiDrawArrays(GLenum mode,GLint * first,GLsizei * count,GLsizei primcou
 void glMultiDrawElements(GLenum mode,const GLsizei * count,GLenum type,const GLvoid ** indices,GLsizei primcount) 
 void glMultiTexCoord1s(GLenum target,GLshort s)
 void glMultiTexCoord1i(GLenum target,GLint s)
+void glMultiTexCoord1f(GLenum target,GLfloat s)
