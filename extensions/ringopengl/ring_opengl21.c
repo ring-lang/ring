@@ -6842,6 +6842,24 @@ RING_FUNC(ring_glRasterPos2s)
 		free(RING_API_GETCPOINTER(2,"GLshort"));
 }
 
+
+RING_FUNC(ring_glRasterPos2i)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glRasterPos2i( (GLint ) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7181,4 +7199,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glprioritizetextures",ring_glPrioritizeTextures);
 	ring_vm_funcregister("glpopmatrix",ring_glPopMatrix);
 	ring_vm_funcregister("glrasterpos2s",ring_glRasterPos2s);
+	ring_vm_funcregister("glrasterpos2i",ring_glRasterPos2i);
 }
