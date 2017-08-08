@@ -12515,6 +12515,23 @@ RING_FUNC(ring_glXGetConfig)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
+
+RING_FUNC(ring_glXGetContextIDEXT)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		GLXContextID *pValue ; 
+		pValue = (GLXContextID *) malloc(sizeof(GLXContextID)) ;
+		*pValue = glXGetContextIDEXT(* (const GLXContext  *) RING_API_GETCPOINTER(1,"const GLXContext"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"GLXContext"));
+		RING_API_RETCPOINTER(pValue,"GLXContextID");
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -13126,4 +13143,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glxfreecontextext",ring_glXFreeContextEXT);
 	ring_vm_funcregister("glxgetclientstring",ring_glXGetClientString);
 	ring_vm_funcregister("glxgetconfig",ring_glXGetConfig);
+	ring_vm_funcregister("glxgetcontextidext",ring_glXGetContextIDEXT);
 }
