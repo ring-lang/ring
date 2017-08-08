@@ -4938,6 +4938,22 @@ RING_FUNC(ring_glLightModeliv)
 	glLightModeliv( (GLenum )  (int) RING_API_GETNUMBER(1),(GLint *) RING_API_GETCPOINTER(2,"GLint"));
 }
 
+
+RING_FUNC(ring_glLineStipple)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glLineStipple( (GLint ) RING_API_GETNUMBER(1),* (GLushort  *) RING_API_GETCPOINTER(2,"GLushort"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLushort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5180,4 +5196,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gllightmodeli",ring_glLightModeli);
 	ring_vm_funcregister("gllightmodelfv",ring_glLightModelfv);
 	ring_vm_funcregister("gllightmodeliv",ring_glLightModeliv);
+	ring_vm_funcregister("gllinestipple",ring_glLineStipple);
 }
