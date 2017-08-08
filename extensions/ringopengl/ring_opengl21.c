@@ -11492,6 +11492,24 @@ RING_FUNC(ring_gluNewTess)
 	RING_API_RETCPOINTER(gluNewTess(),"GLUtesselator");
 }
 
+
+RING_FUNC(ring_gluNextContour)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluNextContour((GLUtesselator *) RING_API_GETCPOINTER(1,"GLUtesselator"), (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12062,4 +12080,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glunewnurbsrenderer",ring_gluNewNurbsRenderer);
 	ring_vm_funcregister("glunewquadric",ring_gluNewQuadric);
 	ring_vm_funcregister("glunewtess",ring_gluNewTess);
+	ring_vm_funcregister("glunextcontour",ring_gluNextContour);
 }
