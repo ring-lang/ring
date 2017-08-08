@@ -3250,6 +3250,32 @@ RING_FUNC(ring_glGetClipPlane)
 	glGetClipPlane( (GLenum )  (int) RING_API_GETNUMBER(1),(GLdouble *) RING_API_GETCPOINTER(2,"GLdouble"));
 }
 
+
+RING_FUNC(ring_glGetColorTable)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetColorTable( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3),(GLvoid *) RING_API_GETCPOINTER(4,"GLvoid"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3408,4 +3434,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetbufferpointerv",ring_glGetBufferPointerv);
 	ring_vm_funcregister("glgetbuffersubdata",ring_glGetBufferSubData);
 	ring_vm_funcregister("glgetclipplane",ring_glGetClipPlane);
+	ring_vm_funcregister("glgetcolortable",ring_glGetColorTable);
 }
