@@ -4648,6 +4648,16 @@ RING_FUNC(ring_glIndexPointer)
 	glIndexPointer( (GLenum )  (int) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2),(GLvoid *) RING_API_GETCPOINTER(3,"GLvoid"));
 }
 
+
+RING_FUNC(ring_glInitNames)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glInitNames();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4873,4 +4883,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glindexubv",ring_glIndexubv);
 	ring_vm_funcregister("glindexmask",ring_glIndexMask);
 	ring_vm_funcregister("glindexpointer",ring_glIndexPointer);
+	ring_vm_funcregister("glinitnames",ring_glInitNames);
 }
