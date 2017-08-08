@@ -9742,6 +9742,20 @@ RING_FUNC(ring_glValidateProgram)
 	glValidateProgram( (GLuint ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glVertex2s)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	glVertex2s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"GLshort"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLshort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -10217,4 +10231,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluniformmatrix4x3fv",ring_glUniformMatrix4x3fv);
 	ring_vm_funcregister("gluseprogram",ring_glUseProgram);
 	ring_vm_funcregister("glvalidateprogram",ring_glValidateProgram);
+	ring_vm_funcregister("glvertex2s",ring_glVertex2s);
 }
