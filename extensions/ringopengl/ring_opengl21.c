@@ -5410,6 +5410,28 @@ RING_FUNC(ring_glMaterialf)
 	glMaterialf( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_glMateriali)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glMateriali( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5673,4 +5695,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glmapgrid2d",ring_glMapGrid2d);
 	ring_vm_funcregister("glmapgrid2f",ring_glMapGrid2f);
 	ring_vm_funcregister("glmaterialf",ring_glMaterialf);
+	ring_vm_funcregister("glmateriali",ring_glMateriali);
 }
