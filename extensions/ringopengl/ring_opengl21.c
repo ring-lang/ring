@@ -7412,6 +7412,28 @@ RING_FUNC(ring_glScaled)
 	glScaled( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_glScalef)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glScalef( (GLfloat ) RING_API_GETNUMBER(1), (GLfloat ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7778,4 +7800,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glrotatef",ring_glRotatef);
 	ring_vm_funcregister("glsamplecoverage",ring_glSampleCoverage);
 	ring_vm_funcregister("glscaled",ring_glScaled);
+	ring_vm_funcregister("glscalef",ring_glScalef);
 }
