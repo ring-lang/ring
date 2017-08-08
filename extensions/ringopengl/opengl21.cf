@@ -329,3 +329,4 @@ void glMultiTexCoord4d(GLenum target,GLdouble s,GLdouble t,GLdouble r,GLdouble q
 void glMultiTexCoord1sv(GLenum target,const GLshort * v)
 void glMultiTexCoord1iv(GLenum target,const GLint * v)
 void glMultiTexCoord1fv(GLenum target,const GLfloat * v)
+void glMultiTexCoord1dv(GLenum target,const GLdouble * v)
