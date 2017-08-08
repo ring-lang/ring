@@ -2804,6 +2804,20 @@ RING_FUNC(ring_glFogCoordf)
 	glFogCoordf( (GLfloat ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glFogCoorddv)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glFogCoorddv((GLdouble *) RING_API_GETCPOINTER(1,"GLdouble"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2941,4 +2955,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glfogiv",ring_glFogiv);
 	ring_vm_funcregister("glfogcoordd",ring_glFogCoordd);
 	ring_vm_funcregister("glfogcoordf",ring_glFogCoordf);
+	ring_vm_funcregister("glfogcoorddv",ring_glFogCoorddv);
 }
