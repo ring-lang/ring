@@ -12140,6 +12140,20 @@ RING_FUNC(ring_gluUnProject)
 	RING_API_RETNUMBER(gluUnProject( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3),(GLdouble *) RING_API_GETCPOINTER(4,"GLdouble"),(GLdouble *) RING_API_GETCPOINTER(5,"GLdouble"),(GLint *) RING_API_GETCPOINTER(6,"GLint"),(GLdouble *) RING_API_GETCPOINTER(7,"GLdouble"),(GLdouble *) RING_API_GETCPOINTER(8,"GLdouble"),(GLdouble *) RING_API_GETCPOINTER(9,"GLdouble")));
 }
 
+
+RING_FUNC(ring_glDisable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glDisable( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12734,4 +12748,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutessproperty",ring_gluTessProperty);
 	ring_vm_funcregister("glutessvertex",ring_gluTessVertex);
 	ring_vm_funcregister("gluunproject",ring_gluUnProject);
+	ring_vm_funcregister("gldisable",ring_glDisable);
 }
