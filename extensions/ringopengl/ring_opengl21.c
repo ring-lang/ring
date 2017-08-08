@@ -9728,6 +9728,20 @@ RING_FUNC(ring_glUseProgram)
 	glUseProgram( (GLuint ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glValidateProgram)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glValidateProgram( (GLuint ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -10202,4 +10216,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluniformmatrix3x4fv",ring_glUniformMatrix3x4fv);
 	ring_vm_funcregister("gluniformmatrix4x3fv",ring_glUniformMatrix4x3fv);
 	ring_vm_funcregister("gluseprogram",ring_glUseProgram);
+	ring_vm_funcregister("glvalidateprogram",ring_glValidateProgram);
 }
