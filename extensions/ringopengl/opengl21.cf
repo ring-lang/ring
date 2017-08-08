@@ -61,3 +61,4 @@ void glBufferData(GLenum target,GLsizeiptr size,const GLvoid * data,GLenum usage
 void glBufferSubData(GLenum target,GLintptr offset,GLsizeiptr size,const GLvoid * data)
 void glCallList(GLuint list)
 void glCallLists(GLsizei n,GLenum type,const GLvoid * lists)
+void glClear(GLbitfield mask)
