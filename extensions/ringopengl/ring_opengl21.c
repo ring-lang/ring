@@ -8572,6 +8572,28 @@ RING_FUNC(ring_glTexEnvi)
 	glTexEnvi( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_glTexGeni)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glTexGeni( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -9002,4 +9024,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gltexcoordpointer",ring_glTexCoordPointer);
 	ring_vm_funcregister("gltexenvf",ring_glTexEnvf);
 	ring_vm_funcregister("gltexenvi",ring_glTexEnvi);
+	ring_vm_funcregister("gltexgeni",ring_glTexGeni);
 }
