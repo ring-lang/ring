@@ -617,3 +617,4 @@ void gluPartialDisk(GLUquadric* quad,GLdouble inner,GLdouble outer,GLint slices,
 void gluPerspective(GLdouble fovy,GLdouble aspect,GLdouble zNear,GLdouble zFar)
 void gluPickMatrix(GLdouble x,GLdouble y,GLdouble delX,GLdouble delY,GLint * viewport) 
 GLint gluProject(GLdouble objX,GLdouble objY,GLdouble objZ,const GLdouble * model,const GLdouble * proj,const GLint * view,GLdouble* winX,GLdouble* winY,GLdouble* winZ)
+void gluPwlCurve(GLUnurbs* nurb,GLint count,GLfloat* data,GLint stride,GLenum type) 
