@@ -28,7 +28,22 @@ RING_FUNC(ring_glAccum)
 	glAccum( (GLenum )  (int) RING_API_GETNUMBER(1), (GLfloat ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_glActiveTexture)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glActiveTexture( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
+	ring_vm_funcregister("glactivetexture",ring_glActiveTexture);
 }
