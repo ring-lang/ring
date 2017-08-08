@@ -12140,6 +12140,34 @@ RING_FUNC(ring_gluUnProject)
 	RING_API_RETNUMBER(gluUnProject( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3),(GLdouble *) RING_API_GETCPOINTER(4,"GLdouble"),(GLdouble *) RING_API_GETCPOINTER(5,"GLdouble"),(GLint *) RING_API_GETCPOINTER(6,"GLint"),(GLdouble *) RING_API_GETCPOINTER(7,"GLdouble"),(GLdouble *) RING_API_GETCPOINTER(8,"GLdouble"),(GLdouble *) RING_API_GETCPOINTER(9,"GLdouble")));
 }
 
+
+RING_FUNC(ring_glXChooseFBConfig)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(glXChooseFBConfig((Display *) RING_API_GETCPOINTER(1,"Display"), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4)),"GLXFBConfig");
+	RING_API_ACCEPTINTVALUE(3) ;
+	RING_API_ACCEPTINTVALUE(4) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12734,4 +12762,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutessproperty",ring_gluTessProperty);
 	ring_vm_funcregister("glutessvertex",ring_gluTessVertex);
 	ring_vm_funcregister("gluunproject",ring_gluUnProject);
+	ring_vm_funcregister("glxchoosefbconfig",ring_glXChooseFBConfig);
 }
