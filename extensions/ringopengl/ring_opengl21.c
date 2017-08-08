@@ -2090,6 +2090,20 @@ RING_FUNC(ring_glCreateProgram)
 	RING_API_RETNUMBER(glCreateProgram());
 }
 
+
+RING_FUNC(ring_glCreateShader)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glCreateShader( (GLenum )  (int) RING_API_GETNUMBER(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2184,4 +2198,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glcopytexsubimage2d",ring_glCopyTexSubImage2D);
 	ring_vm_funcregister("glcopytexsubimage3d",ring_glCopyTexSubImage3D);
 	ring_vm_funcregister("glcreateprogram",ring_glCreateProgram);
+	ring_vm_funcregister("glcreateshader",ring_glCreateShader);
 }
