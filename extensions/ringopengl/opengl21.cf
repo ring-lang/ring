@@ -620,3 +620,4 @@ GLint gluProject(GLdouble objX,GLdouble objY,GLdouble objZ,const GLdouble * mode
 void gluPwlCurve(GLUnurbs* nurb,GLint count,GLfloat* data,GLint stride,GLenum type) 
 void gluQuadricDrawStyle(GLUquadric* quad,GLenum draw) 
 void gluQuadricNormals(GLUquadric* quad,GLenum normal) 
+void gluQuadricOrientation(GLUquadric* quad,GLenum orientation)
