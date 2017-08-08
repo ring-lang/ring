@@ -157,3 +157,4 @@ void glDrawRangeElements(GLenum mode,GLuint start,GLuint end,GLsizei count,GLenu
 void glEdgeFlag(GLboolean flag)
 void glEdgeFlagPointer(GLsizei stride,const GLvoid * pointer)
 void glEnd(void)
+void glEndList( void) 
