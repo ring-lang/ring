@@ -7978,6 +7978,18 @@ RING_FUNC(ring_glStencilOpSeparate)
 	glStencilOpSeparate( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2), (GLenum )  (int) RING_API_GETNUMBER(3), (GLenum )  (int) RING_API_GETNUMBER(4));
 }
 
+
+RING_FUNC(ring_glTexCoord1s)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	glTexCoord1s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"GLshort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -8373,4 +8385,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glstencilmaskseparate",ring_glStencilMaskSeparate);
 	ring_vm_funcregister("glstencilop",ring_glStencilOp);
 	ring_vm_funcregister("glstencilopseparate",ring_glStencilOpSeparate);
+	ring_vm_funcregister("gltexcoord1s",ring_glTexCoord1s);
 }
