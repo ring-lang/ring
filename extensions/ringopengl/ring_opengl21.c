@@ -4722,6 +4722,20 @@ RING_FUNC(ring_glIsList)
 	RING_API_RETNUMBER(glIsList( (GLuint ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_glIsProgram)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glIsProgram( (GLuint ) RING_API_GETNUMBER(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4952,4 +4966,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glisbuffer",ring_glIsBuffer);
 	ring_vm_funcregister("glisenabled",ring_glIsEnabled);
 	ring_vm_funcregister("glislist",ring_glIsList);
+	ring_vm_funcregister("glisprogram",ring_glIsProgram);
 }
