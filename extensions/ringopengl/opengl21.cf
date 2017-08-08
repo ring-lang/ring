@@ -511,3 +511,4 @@ void glUniformMatrix2x4fv(GLint location,GLsizei count,GLboolean transpose,const
 void glUniformMatrix4x2fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat *value)
 void glUniformMatrix3x4fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat *value)
 void glUniformMatrix4x3fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat *value)
+void glUseProgram(GLuint program)
