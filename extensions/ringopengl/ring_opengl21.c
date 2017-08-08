@@ -6818,6 +6818,16 @@ RING_FUNC(ring_glPrioritizeTextures)
 	glPrioritizeTextures( (GLsizei )  (int) RING_API_GETNUMBER(1),(GLuint *) RING_API_GETCPOINTER(2,"GLuint"),(GLclampf *) RING_API_GETCPOINTER(3,"GLclampf"));
 }
 
+
+RING_FUNC(ring_glPopMatrix)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glPopMatrix();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7155,4 +7165,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glpushmatrix",ring_glPushMatrix);
 	ring_vm_funcregister("glpushname",ring_glPushName);
 	ring_vm_funcregister("glprioritizetextures",ring_glPrioritizeTextures);
+	ring_vm_funcregister("glpopmatrix",ring_glPopMatrix);
 }
