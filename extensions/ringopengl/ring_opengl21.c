@@ -3412,6 +3412,16 @@ RING_FUNC(ring_glGetConvolutionParameteriv)
 	glGetConvolutionParameteriv( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
 }
 
+
+RING_FUNC(ring_glGetError)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(glGetError());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3577,4 +3587,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetconvolutionfilter",ring_glGetConvolutionFilter);
 	ring_vm_funcregister("glgetconvolutionparameterfv",ring_glGetConvolutionParameterfv);
 	ring_vm_funcregister("glgetconvolutionparameteriv",ring_glGetConvolutionParameteriv);
+	ring_vm_funcregister("glgeterror",ring_glGetError);
 }
