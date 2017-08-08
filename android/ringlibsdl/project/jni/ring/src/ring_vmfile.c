@@ -608,7 +608,7 @@ void ring_vm_file_write ( void *pPointer )
 {
 	FILE *fp  ;
 	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
+		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
