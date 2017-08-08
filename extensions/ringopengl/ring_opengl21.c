@@ -12292,6 +12292,32 @@ RING_FUNC(ring_glXCreateNewContext)
 	}
 }
 
+
+RING_FUNC(ring_glXCreatePbuffer)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		GLXPbuffer *pValue ; 
+		pValue = (GLXPbuffer *) malloc(sizeof(GLXPbuffer)) ;
+		*pValue = glXCreatePbuffer((Display *) RING_API_GETCPOINTER(1,"Display"),* (GLXFBConfig  *) RING_API_GETCPOINTER(2,"GLXFBConfig"),RING_API_GETINTPOINTER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLXFBConfig"));
+		RING_API_RETCPOINTER(pValue,"GLXPbuffer");
+	}
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12892,4 +12918,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glxcreatecontext",ring_glXCreateContext);
 	ring_vm_funcregister("glxcreateglxpixmap",ring_glXCreateGLXPixmap);
 	ring_vm_funcregister("glxcreatenewcontext",ring_glXCreateNewContext);
+	ring_vm_funcregister("glxcreatepbuffer",ring_glXCreatePbuffer);
 }
