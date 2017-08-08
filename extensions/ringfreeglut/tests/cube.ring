@@ -95,20 +95,22 @@ func specialKeys
 	key = glutEventKey()
  
   //  Right arrow - increase rotation by 5 degree
-  if key = GLUT_KEY_RIGHT
-    rotate_y += 5
+	switch Key
+
+	on GLUT_KEY_RIGHT
+    	rotate_y += 5
  
-  //  Left arrow - decrease rotation by 5 degree
-  elseif key = GLUT_KEY_LEFT
-    rotate_y -= 5
+	//  Left arrow - decrease rotation by 5 degree
+	on GLUT_KEY_LEFT
+    	rotate_y -= 5
  
-  elseif key = GLUT_KEY_UP
-    rotate_x += 5
+	on GLUT_KEY_UP
+	    rotate_x += 5
  
-  elseif key = GLUT_KEY_DOWN
-    rotate_x -= 5
+	on GLUT_KEY_DOWN
+    	rotate_x -= 5
  
-  ok 
+	off
 
   //  Request display update
   glutPostRedisplay()
