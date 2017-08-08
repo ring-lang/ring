@@ -661,3 +661,4 @@ void glXGetSelectedEvent(Display * dpy,GLXDrawable draw,unsigned long * event_ma
 XVisualInfo * glXGetVisualFromFBConfig(Display * dpy,GLXFBConfig config)
 GLXContext glXImportContextEXT(Display * dpy,GLXContextID contextID)
 Bool glXIsDirect(Display * dpy,GLXContext ctx) 
+Bool glXMakeContextCurrent(Display * display,GLXDrawable draw,GLXDrawable read,GLXContext ctx)
