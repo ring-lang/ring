@@ -12438,6 +12438,22 @@ RING_FUNC(ring_glXDestroyPixmap)
 		free(RING_API_GETCPOINTER(2,"GLXPixmap"));
 }
 
+
+RING_FUNC(ring_glXDestroyWindow)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glXDestroyWindow((Display *) RING_API_GETCPOINTER(1,"Display"),* (GLXWindow  *) RING_API_GETCPOINTER(2,"GLXWindow"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLXWindow"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -13045,4 +13061,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glxdestroyglxpixmap",ring_glXDestroyGLXPixmap);
 	ring_vm_funcregister("glxdestroypbuffer",ring_glXDestroyPbuffer);
 	ring_vm_funcregister("glxdestroypixmap",ring_glXDestroyPixmap);
+	ring_vm_funcregister("glxdestroywindow",ring_glXDestroyWindow);
 }
