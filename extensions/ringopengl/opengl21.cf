@@ -635,3 +635,4 @@ GLint gluUnProject(GLdouble winX,GLdouble winY,GLdouble winZ,const GLdouble * mo
 GLXFBConfig * glXChooseFBConfig(Display * dpy,int screen,const int * attrib_list,int * nelements)
 XVisualInfo* glXChooseVisual(Display * dpy,int screen,int * attribList)
 void glXCopyContext(Display * dpy,GLXContext src,GLXContext dst,unsigned long mask)
+GLXContext glXCreateContext(Display * dpy,XVisualInfo * vis,GLXContext shareList,Bool direct)
