@@ -3144,6 +3144,24 @@ RING_FUNC(ring_glGetAttachedShaders)
 	glGetAttachedShaders( (GLuint ) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2),(GLsizei *) RING_API_GETCPOINTER(3,"GLsizei"),(GLuint *) RING_API_GETCPOINTER(4,"GLuint"));
 }
 
+
+RING_FUNC(ring_glGetAttribLocation)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glGetAttribLocation( (GLuint ) RING_API_GETNUMBER(1),(GLchar *) RING_API_GETCPOINTER(2,"GLchar")));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3297,4 +3315,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetactiveattrib",ring_glGetActiveAttrib);
 	ring_vm_funcregister("glgetactiveuniform",ring_glGetActiveUniform);
 	ring_vm_funcregister("glgetattachedshaders",ring_glGetAttachedShaders);
+	ring_vm_funcregister("glgetattriblocation",ring_glGetAttribLocation);
 }
