@@ -2902,6 +2902,24 @@ RING_FUNC(ring_glFrustum)
 	glFrustum( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLdouble ) RING_API_GETNUMBER(4), (GLdouble ) RING_API_GETNUMBER(5), (GLdouble ) RING_API_GETNUMBER(6));
 }
 
+
+RING_FUNC(ring_glGenBuffers)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGenBuffers( (GLsizei )  (int) RING_API_GETNUMBER(1),(GLuint *) RING_API_GETCPOINTER(2,"GLuint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3044,4 +3062,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glfogcoordpointer",ring_glFogCoordPointer);
 	ring_vm_funcregister("glfrontface",ring_glFrontFace);
 	ring_vm_funcregister("glfrustum",ring_glFrustum);
+	ring_vm_funcregister("glgenbuffers",ring_glGenBuffers);
 }
