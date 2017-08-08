@@ -2246,6 +2246,20 @@ RING_FUNC(ring_glDepthMask)
 	glDepthMask( (GLboolean ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glDepthRange)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	glDepthRange(* (GLclampd  *) RING_API_GETCPOINTER(1,"GLclampd"),* (GLclampd  *) RING_API_GETCPOINTER(2,"GLclampd"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"GLclampd"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLclampd"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2350,4 +2364,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gldeletetextures",ring_glDeleteTextures);
 	ring_vm_funcregister("gldepthfunc",ring_glDepthFunc);
 	ring_vm_funcregister("gldepthmask",ring_glDepthMask);
+	ring_vm_funcregister("gldepthrange",ring_glDepthRange);
 }
