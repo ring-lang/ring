@@ -3584,6 +3584,28 @@ RING_FUNC(ring_glGetMapfv)
 	glGetMapfv( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"));
 }
 
+
+RING_FUNC(ring_glGetMapiv)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetMapiv( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLint *) RING_API_GETCPOINTER(3,"GLint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3757,4 +3779,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetlightiv",ring_glGetLightiv);
 	ring_vm_funcregister("glgetmapdv",ring_glGetMapdv);
 	ring_vm_funcregister("glgetmapfv",ring_glGetMapfv);
+	ring_vm_funcregister("glgetmapiv",ring_glGetMapiv);
 }
