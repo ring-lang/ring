@@ -636,3 +636,4 @@ GLXFBConfig * glXChooseFBConfig(Display * dpy,int screen,const int * attrib_list
 XVisualInfo* glXChooseVisual(Display * dpy,int screen,int * attribList)
 void glXCopyContext(Display * dpy,GLXContext src,GLXContext dst,unsigned long mask)
 GLXContext glXCreateContext(Display * dpy,XVisualInfo * vis,GLXContext shareList,Bool direct)
+GLXPixmap glXCreateGLXPixmap(Display * dpy,XVisualInfo * vis,Pixmap pixmap)
