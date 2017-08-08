@@ -3232,6 +3232,24 @@ RING_FUNC(ring_glGetBufferSubData)
 	glGetBufferSubData( (GLenum )  (int) RING_API_GETNUMBER(1), (GLintptr ) RING_API_GETNUMBER(2), (GLsizeiptr ) RING_API_GETNUMBER(3),(GLvoid *) RING_API_GETCPOINTER(4,"GLvoid"));
 }
 
+
+RING_FUNC(ring_glGetClipPlane)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetClipPlane( (GLenum )  (int) RING_API_GETNUMBER(1),(GLdouble *) RING_API_GETCPOINTER(2,"GLdouble"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3389,4 +3407,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetbufferparameteriv",ring_glGetBufferParameteriv);
 	ring_vm_funcregister("glgetbufferpointerv",ring_glGetBufferPointerv);
 	ring_vm_funcregister("glgetbuffersubdata",ring_glGetBufferSubData);
+	ring_vm_funcregister("glgetclipplane",ring_glGetClipPlane);
 }
