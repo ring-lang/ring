@@ -607,3 +607,4 @@ void gluLoadSamplingMatrices(GLUnurbs* nurb,const GLfloat * model,const GLfloat 
 void gluLookAt(GLdouble eyeX,GLdouble eyeY,GLdouble eyeZ,GLdouble centerX,GLdouble centerY,GLdouble centerZ,GLdouble upX,GLdouble upY,GLdouble upZ)
 GLUnurbs *gluNewNurbsRenderer(void)
 GLUquadric *gluNewQuadric(void)
+GLUtesselator* gluNewTess(void)
