@@ -11318,6 +11318,20 @@ RING_FUNC(ring_gluEndTrim)
 	gluEndTrim((GLUnurbs *) RING_API_GETCPOINTER(1,"GLUnurbs"));
 }
 
+
+RING_FUNC(ring_gluErrorString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(gluErrorString( (GLenum )  (int) RING_API_GETNUMBER(1)),"GLubyte");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -11879,4 +11893,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluendpolygon",ring_gluEndPolygon);
 	ring_vm_funcregister("gluendsurface",ring_gluEndSurface);
 	ring_vm_funcregister("gluendtrim",ring_gluEndTrim);
+	ring_vm_funcregister("gluerrorstring",ring_gluErrorString);
 }
