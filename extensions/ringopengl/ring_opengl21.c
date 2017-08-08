@@ -11624,6 +11624,32 @@ RING_FUNC(ring_gluNurbsSurface)
 	gluNurbsSurface((GLUnurbs *) RING_API_GETCPOINTER(1,"GLUnurbs"), (GLint ) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"), (GLint ) RING_API_GETNUMBER(4),(GLfloat *) RING_API_GETCPOINTER(5,"GLfloat"), (GLint ) RING_API_GETNUMBER(6), (GLint ) RING_API_GETNUMBER(7),(GLfloat *) RING_API_GETCPOINTER(8,"GLfloat"), (GLint ) RING_API_GETNUMBER(9), (GLint ) RING_API_GETNUMBER(10), (GLenum )  (int) RING_API_GETNUMBER(11));
 }
 
+
+RING_FUNC(ring_gluOrtho2D)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	gluOrtho2D( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLdouble ) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -12198,4 +12224,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glunurbscurve",ring_gluNurbsCurve);
 	ring_vm_funcregister("glunurbsproperty",ring_gluNurbsProperty);
 	ring_vm_funcregister("glunurbssurface",ring_gluNurbsSurface);
+	ring_vm_funcregister("gluortho2d",ring_gluOrtho2D);
 }
