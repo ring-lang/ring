@@ -552,3 +552,4 @@ void glVertexAttrib4d(GLuint index,GLdouble v0,GLdouble v1,GLdouble v2,GLdouble 
 void glVertexAttrib4Nub(GLuint index,GLubyte v0,GLubyte v1,GLubyte v2,GLubyte v3)
 void glVertexAttrib1fv(GLuint index,const GLfloat *v)
 void glVertexAttrib1sv(GLuint index,const GLshort *v)
+void glVertexAttrib1dv(GLuint index,const GLdouble *v)
