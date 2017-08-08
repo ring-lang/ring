@@ -290,6 +290,24 @@ RING_FUNC(ring_glBlendEquationSeparate)
 	glBlendEquationSeparate( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_glBlendFunc)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glBlendFunc( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -307,4 +325,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glblendcolor",ring_glBlendColor);
 	ring_vm_funcregister("glblendequation",ring_glBlendEquation);
 	ring_vm_funcregister("glblendequationseparate",ring_glBlendEquationSeparate);
+	ring_vm_funcregister("glblendfunc",ring_glBlendFunc);
 }
