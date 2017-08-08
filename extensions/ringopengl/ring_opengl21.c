@@ -2662,6 +2662,28 @@ RING_FUNC(ring_glEvalPoint2)
 	glEvalPoint2( (GLint ) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_glFeedbackBuffer)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glFeedbackBuffer( (GLsizei )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2),(GLfloat *) RING_API_GETCPOINTER(3,"GLfloat"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2790,4 +2812,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glevalmesh1",ring_glEvalMesh1);
 	ring_vm_funcregister("glevalpoint1",ring_glEvalPoint1);
 	ring_vm_funcregister("glevalpoint2",ring_glEvalPoint2);
+	ring_vm_funcregister("glfeedbackbuffer",ring_glFeedbackBuffer);
 }
