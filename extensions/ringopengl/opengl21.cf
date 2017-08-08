@@ -183,3 +183,4 @@ void glFrustum(GLdouble left,GLdouble right,GLdouble bottom,GLdouble top,GLdoubl
 void glGenBuffers(GLsizei n,GLuint * buffers)
 GLuint glGenLists(GLsizei range)
 void glGenQueries(GLsizei n,GLuint * ids)
+void glGenTextures(GLsizei n,GLuint * textures)
