@@ -80,10 +80,25 @@ RING_FUNC(ring_glAreTexturesResident)
 	RING_API_RETNUMBER(glAreTexturesResident( (GLsizei )  (int) RING_API_GETNUMBER(1),(GLuint *) RING_API_GETCPOINTER(2,"GLuint"),(GLboolean *) RING_API_GETCPOINTER(3,"GLboolean")));
 }
 
+
+RING_FUNC(ring_glArrayElement)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glArrayElement( (GLint ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
 	ring_vm_funcregister("glactivetexture",ring_glActiveTexture);
 	ring_vm_funcregister("glalphafunc",ring_glAlphaFunc);
 	ring_vm_funcregister("glaretexturesresident",ring_glAreTexturesResident);
+	ring_vm_funcregister("glarrayelement",ring_glArrayElement);
 }
