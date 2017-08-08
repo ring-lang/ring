@@ -462,6 +462,24 @@ RING_FUNC(ring_glClearAccum)
 	glClearAccum( (GLfloat ) RING_API_GETNUMBER(1), (GLfloat ) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4));
 }
 
+
+RING_FUNC(ring_glClearColor)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	glClearColor(* (GLclampf  *) RING_API_GETCPOINTER(1,"GLclampf"),* (GLclampf  *) RING_API_GETCPOINTER(2,"GLclampf"),* (GLclampf  *) RING_API_GETCPOINTER(3,"GLclampf"),* (GLclampf  *) RING_API_GETCPOINTER(4,"GLclampf"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"GLclampf"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"GLclampf"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		free(RING_API_GETCPOINTER(3,"GLclampf"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		free(RING_API_GETCPOINTER(4,"GLclampf"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -487,4 +505,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glcalllists",ring_glCallLists);
 	ring_vm_funcregister("glclear",ring_glClear);
 	ring_vm_funcregister("glclearaccum",ring_glClearAccum);
+	ring_vm_funcregister("glclearcolor",ring_glClearColor);
 }
