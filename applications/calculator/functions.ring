@@ -38,12 +38,12 @@ func checkEnter
                         number = left(enum, per - 1) 
                         percent = number(substr(enum, per+1))
                         result = number*percent/100
-                        edit1.settext(edit1.text() + " = " + result)
+                        edit1.settext("" + result)
  	          add2history(enum,result)
-                     else                
-	          enum= edit1.text()
+                     else  
+                        enum= edit1.text()
 	          eval("result="+enum)
-                       edit1.settext(edit1.text() + " = " + result)
+                        edit1.settext("" + result)
 	          add2history(enum,result)
                      ok
                  ok
@@ -76,7 +76,7 @@ func checkEdit
         next
         for n = 1 to len(enum)
               en = enum[n]
-              if (ascii(en) > 47 and ascii(en) < 58) or en = "+" or en = "-" or en = "*" or en = "/" or en = "%" or en = "." or en = "(" or en = ")" or en = "="
+              if ((ascii(en) > 47 and ascii(en) < 58) or en = "+" or en = "-" or en = "*" or en = "/" or en = "%" or en = "." or en = "(" or en = ")" or en = "=")
                  nflag[n] = 1
               ok               
         next
@@ -89,7 +89,7 @@ func checkEdit
         en2 = right(enum, 1)
         bool1 = (en1 = "+" or en1 = "-" or en1 = "*" or en1 = "/" or en1 = "%" or en1 = "." or en1 = "=")
         bool2 = (en2 = "+" or en2 = "-" or en2 = "*" or en2 = "/" or en2 = "%" or en2 = "." or en2 = "=")
-        if bool1 = true and bool2 = true
+        if bool1 = true and bool2 = true 
            flag = 0
         ok
         return flag
