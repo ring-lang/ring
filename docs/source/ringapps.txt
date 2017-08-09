@@ -137,6 +137,9 @@ I can say that this is the easiest and the most BASIC-like language I've ever tr
 It seems that the language is quite extensive as well. I would find it useful to see a BNF grammar and concise coverage of its semantics."
 	, Xx-Leninist-1917-Xx 
 
+"Thank you very much Mahmoud! I am using ring for many experiments and so far I love it.  I really want to continue using ring and contribute what I can."
+	, John (SienSystem)
+
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
