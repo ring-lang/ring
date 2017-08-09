@@ -1268,7 +1268,7 @@ Class RNote from WindowsControllerParent
 			oProcessEditbox.setplaintext("")
 			oProcessText.setFocus(0)
 			chdir(JustFilePath(cActiveFileName))
-			oProcess = pRunProcess("ring",cActiveFileName,cpGetProcessData)
+			oProcess = pRunProcess(exefilename(),cActiveFileName,cpGetProcessData)
 			chdir(exefolder())
 		else
 			cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
@@ -1796,7 +1796,9 @@ Class RNote from WindowsControllerParent
 		if iswindows()
 			oProcessEditbox.setplaintext("")
 			oProcessText.setFocus(0)
-			oProcess = pRunProcess(cCurrentDir+"run2.bat",cFileName,cpGetProcessData)
+			chdir(JustFilePath(cFileName))
+			oProcess = pRunProcess(exefilename(),cFileName,cpGetProcessData)
+			chdir(exefolder())
 		else
 			cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
 			system(cCode)
