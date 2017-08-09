@@ -1,9 +1,9 @@
 /*
  +---------------------------------------------------------------------------------------------------------
  +     Program Name : Calculator
- +     Date                : 2016-2017
- +     Author             : Magdy Ragab
- +                            : Gal Zsolt (~ CalmoSoft ~)
+ +     Date         : 2016-2017
+ +     Author       : Magdy Ragab
+ +                  : Gal Zsolt (~ CalmoSoft ~)
  +---------------------------------------------------------------------------------------------------------
 */
 
@@ -137,8 +137,8 @@ MyApp = New qApp {
                 
                 btn0=new qpushbutton(win1) {
                         setGeometry(10,215,50,50)
-                        settext("0")
-                        setclickevent("typeNumbers(0)")
+                        settext("%")
+                        setclickevent("calcPercent()")
                         setStyleSheet(_style)
 						installeventfilter(ignorekey(btn0))
                 }
@@ -146,16 +146,16 @@ MyApp = New qApp {
                 
                 push3 = new qpushbutton(win1) {
                         setGeometry(65,215,50,50)
-                        settext(".")
-                        setclickevent("addPeriod()")
+                        settext("0")
+                        setclickevent("typeNumbers(0)")
                         setStyleSheet(_style)
 						installeventfilter(ignorekey(push3))
                 }
                 
                 push4 = new qpushbutton(win1) {
                         setGeometry(120,215,50,50)
-                        settext("%")
-                        setclickevent("calcPercent()")
+                        settext(".")
+                        setclickevent("addPeriod()")
                         setStyleSheet(_style)
 						installeventfilter(ignorekey(push4))
                 }
@@ -288,6 +288,12 @@ func changedText
         if check = 0
            message()
            edit1.settext(left(enum, len(enum) - 1))
+        ok
+        if right(enum, 1) = "="
+            enum2 = left(enum, len(enum) - 1)
+            eval("result="+enum2)
+            edit1.settext("" + result)
+            add2history(enum2, result)
         ok
 
 func message
