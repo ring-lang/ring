@@ -241,15 +241,15 @@
 
 		<p>
 			<pre>
-<font color="purple">See</font> "Hello, World!" 
+<font color="purple">see</font> "Hello, World!" 
 			</pre>
 		</p>
 
 		The Main function is optional and will be executed after the statements, and is useful for using the local scope.
 		<p>
 			<pre>
-<font color="purple">Func</font> Main
-	<font color="purple">See</font> "Hello, World!" 
+<font color="purple">func</font> main
+	<font color="purple">see</font> "Hello, World!" 
 			</pre>
 		</p>
 
@@ -260,9 +260,9 @@
 		<p>
 			<pre>
 nCount = 10	<font color="green"># Global variable</font>
-<font color="purple">Func</font> Main
+<font color="purple">func</font> main
 	nID = 1	<font color="green"># Local variable</font>
-	<font color="purple">See</font> "Count = " + nCount + nl + " ID = " + nID
+	<font color="purple">see</font> "Count = " + nCount + nl + " ID = " + nID
 			</pre>
 		</p>
 
@@ -279,9 +279,9 @@ nCount = 10	<font color="green"># Global variable</font>
 
 		<p>
 			<pre>
-<font color="purple">See</font> "Enter your name ? " 
-<font color="purple">Give</font> name
-<font color="purple">See</font> "Hello " + Name	<font color="green"># Name is the same as name </font>
+<font color="purple">see</font> "Enter your name ? " 
+<font color="purple">give</font> name
+<font color="purple">see</font> "Hello " + Name	<font color="green"># Name is the same as name </font>
 			</pre>
 		</p>
 
@@ -289,7 +289,7 @@ nCount = 10	<font color="green"># Global variable</font>
 		<p>
 			<pre>
 aList = ["one","two","three"]
-<font color="purple">See</font> aList[1]	<font color="green"># print one</font>
+<font color="purple">see</font> aList[1]	<font color="green"># print one</font>
 			</pre>
 		</p>
 
@@ -299,12 +299,12 @@ aList = ["one","two","three"]
 one() 
 two() 
 three()
-<font color="purple">Func</font> one 
-	<font color="purple">See</font> "One" + nl
-<font color="purple">Func</font> two 
-	<font color="purple">See</font> "two" + nl
-<font color="purple">Func</font> three 
-	<font color="purple">See</font> "three" + nl
+<font color="purple">func</font> one 
+	<font color="purple">see</font> "One" + nl
+<font color="purple">func</font> two 
+	<font color="purple">see</font> "two" + nl
+<font color="purple">func</font> three 
+	<font color="purple">see</font> "three" + nl
 			</pre>
 		</p>
 
@@ -324,12 +324,12 @@ aList[1] = 1
 		The for in loop can update the list items.
 		<p>
 			<pre>
-<font color="purple">Func</font> Main
+<font color="purple">func</font> main
 	aList = [1,2,3]
 	update(aList)
 	<font color="purple">see</font> aList	<font color="green"># print one two three</font>
 
-<font color="purple">Func</font> update aList
+<font color="purple">func</font> update aList
 	<font color="purple">for</font> x <font color="purple">in</font> aList
 		<font color="purple">switch</font> x
 		<font color="purple">on</font> 1 x = "one"
@@ -393,10 +393,10 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 		<pre>
 <font color="green">/* 
 	Program Name : My first program using Ring
-	Date         : 2015.05.08
+	Year         : 2017
 */</font>
 
-<font color="purple">See</font> "What is your name? " 	<font color="green"># print message on screen</font>
+<font color="purple">see</font> "What is your name? " 	<font color="green"># print message on screen</font>
 <font color="purple">give</font> cName 			<font color="green"># get input from the user</font>
 <font color="purple">see</font> "Hello " + cName	<font color="green">	# say hello!</font>
 
@@ -420,8 +420,8 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 		</p>
 		<p>
 			<pre>
-<font color="purple">See</font> "The First Message"	<font color="purple">See</font> " Another message in the same line! " + <font color="red">nl</font>
-<font color="purple">See</font> "Enter your name?" <font color="purple">Give</font> <font color="red">Name</font> <font color="purple">See</font> "Hello " + <font color="red">Name</font>
+<font color="purple">see</font> "The First Message"	<font color="purple">see</font> " Another message in the same line! " + <font color="red">nl</font>
+<font color="purple">see</font> "Enter your name?" <font color="purple">give</font> <font color="red">Name</font> <font color="purple">see</font> "Hello " + <font color="red">Name</font>
 			</pre>
 		</p>
 		<p>
@@ -431,7 +431,7 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 		</p>
 		<p>
 			<pre>
-<font color="purple">Class</font> Point X Y Z
+<font color="purple">class</font> Point X Y Z
 			</pre>
 		</p>
 		<p>
@@ -440,7 +440,7 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 		</p>
 		<p>
 			<pre>
-o1 = <font color="purple">New</font> point	o1.x=10    o1.y=20   o1.z=30	<font color="purple">See</font> O1	<font color="purple">Class</font> Point X Y Z
+o1 = <font color="purple">new</font> point	o1.x=10    o1.y=20   o1.z=30	<font color="purple">see</font> O1	<font color="purple">class</font> Point X Y Z
 			</pre>
 		</p>
 		<p>
@@ -449,7 +449,7 @@ o1 = <font color="purple">New</font> point	o1.x=10    o1.y=20   o1.z=30	<font co
 		</p>
 		<p>
 			<pre> 
-o1 = <font color="purple">New</font> point { x=10 y=20 z=30 } <font color="purple">See</font> O1  <font color="purple">Class</font> Point X Y Z
+o1 = <font color="purple">new</font> point { x=10 y=20 z=30 } <font color="purple">see</font> O1  <font color="purple">class</font> Point X Y Z
 			 </pre>
 		</p>
 		<p>
@@ -464,9 +464,9 @@ oPerson = <font color="purple">new</font> Person
 	Phone = "0000000"
 	Print()			<font color="green"># here we call the Print() method</font>
 }
-<font color="purple">Class</font> Person Name Address Phone
-	<font color="purple">Func</font> Print
-		<font color="purple">See</font> "Name :" + name + nl +
+<font color="purple">class</font> Person Name Address Phone
+	<font color="purple">func</font> Print
+		<font color="purple">see</font> "Name :" + name + nl +
 		    "Address :" + Address + nl +
 		    "Phone : " + phone + nl
 </pre>
@@ -478,20 +478,20 @@ oPerson = <font color="purple">new</font> Person
 		</p>
 		<p>
 <pre>
-<font color="purple">New</font> Number {
-		<font color="purple">See</font> one		<font color="green"># Execute GetOne()</font>
-		<font color="purple">See</font> two		<font color="green"># Execute GetTwo()</font>
-		<font color="purple">See</font> three	<font color="green"># Execute GetThree()</font>
+<font color="purple">new</font> Number {
+		<font color="purple">see</font> one		<font color="green"># Execute GetOne()</font>
+		<font color="purple">see</font> two		<font color="green"># Execute GetTwo()</font>
+		<font color="purple">see</font> three	<font color="green"># Execute GetThree()</font>
 }
-<font color="purple">Class</font> Number one two three
-	<font color="purple">Func</font> GetOne
-		<font color="purple">See</font> "Number : One" + nl
+<font color="purple">class</font> Number one two three
+	<font color="purple">func</font> GetOne
+		<font color="purple">see</font> "Number : One" + nl
 		<font color="purple">return</font> 1
-	<font color="purple">Func</font> GetTwo
-		<font color="purple">See</font> "Number : Two" + nl
+	<font color="purple">func</font> GetTwo
+		<font color="purple">see</font> "Number : Two" + nl
 		<font color="purple">return</font> 2
-	<font color="purple">Func</font> GetThree
-		<font color="purple">See</font> "Number : Three" + nl
+	<font color="purple">func</font> GetThree
+		<font color="purple">see</font> "Number : Three" + nl
 		<font color="purple">return</font> 3	
 </pre>
 </p>
@@ -516,7 +516,7 @@ TimeForFun = <font color="purple">new</font> journey
 	Hello it is me		<font color="green"># What a beatiful programming world!</font>
 }</b>
 <font color="green"># Our Class</font>
-<font color="purple">Class</font> journey
+<font color="purple">class</font> journey
 	hello=0 it=0 is=0 me=0
 	<font color="purple">func</font> GetHello
 		<font color="purple">See</font> "Hello" + nl
@@ -551,7 +551,7 @@ aWords = ["hello","it","is","me"]
 		</p>
 <p>
 <pre>
-<font color="purple">See</font> "Enter File Name:" <font color="purple">Give</font> cFileName <font color="purple">See</font> Read(cFileName) <font color="green"># Print the file content</font>
+<font color="purple">see</font> "Enter File Name:" <font color="purple">give</font> cFileName <font color="purple">see</font> read(cFileName) <font color="green"># Print the file content</font>
 </pre>
 </p>
 
@@ -563,13 +563,13 @@ aWords = ["hello","it","is","me"]
 		</p>
 <p>
 <pre>
-<font color="purple">New</font> App
+<font color="purple">new</font> App
 {
         I want window
         The window title = "hello world"
 }
 
-<font color="purple">Class</font> App
+<font color="purple">class</font> App
 
 	<font color="green"># Attributes for the instruction I want window</font>
 			i want window
@@ -646,10 +646,10 @@ aWords = ["hello","it","is","me"]
 		</p>
 <p>
 <pre>
-<font color="purple">Load</font> "weblib.ring"
-<font color="purple">Import</font> System.Web
+<font color="purple">load</font> "weblib.ring"
+<font color="purple">import</font> System.Web
 
-<font color="purple">Func</font> Main
+<font color="purple">func</font> Main
 
   BootStrapWebPage()
   {
@@ -684,14 +684,14 @@ aWords = ["hello","it","is","me"]
 <p>
 <pre>
 <xmp>
-	Class Link from ObjsBase
+	class Link from ObjsBase
 		title  link
-		Func braceend			
+		func braceend			
 			cOutput = nl+GetTabs() + "<a href='" + 
 				  Link + "'> "+ Title + " </a> " + nl			
 
-	Class Div from ObjsBase 
-		Func braceend
+	class Div from ObjsBase 
+		func braceend
 			cOutput += nl+'<div'
 			addattributes()
 			AddStyle()
@@ -719,7 +719,7 @@ aWords = ["hello","it","is","me"]
 
 		<p>
 			<pre>
-<font color="purple">See</font> "Hello, World!" 
+<font color="purple">see</font> "Hello, World!" 
 			</pre>
 		</p>
 
