@@ -23,19 +23,26 @@ MyApp = New qApp {
 
         win1 = new qWidget() 
 		{
+		        yPos    = 32
+				butSize = 50
+				 
 				setwinicon(self,"images/calc.png")
                 setwindowtitle("Ring Calculator")
                 setwindowmodality(false)
-                setFixedSize(290,280)
+                setFixedSize(290,280 +yPos)
                 setwindowflags( qt_dialog & ~ qt_WindowMaximizeButtonHint)
                 //setGeometry(10,10,237,280)
-                
-                
+  
+                oComboBox = new QComboBox(win1) {
+                                     setGeometry(10,10,270,32)
+                                     setStyleSheet(_style) 
+                }
+
                 edit1 = new qlineedit(win1) {
-					setGeometry(10,10,270,32)
+					setGeometry(10,10 +yPos,270,32)
 					setalignment(Qt_AlignHCenter)
 					setreturnpressedevent("checkEnter()")
-                                                                   settextchangedevent("changedText()")
+                    settextchangedevent("changedText()")
 					//setDisabled(true)
 					//QValidator("Acceptable")
 					//clicked("ccc()")
@@ -43,16 +50,16 @@ MyApp = New qApp {
 					setStyleSheet("background-color: lightyellow;color:darkyellow;font-size: 15pt;")
                 }
                 
-               push =  new qpushbutton(win1) {
-                        setGeometry(230,105,50,50)
+                push =  new qpushbutton(win1) {
+                        setGeometry(230,105 +yPos, butSize, butSize)
                         settext("Memo")
                         setclickevent("memo()")
                         //setStyleSheet(_style)
 						installeventfilter(ignorekey(push))
                 }
                 
-              push2 =  new qpushbutton(win1) {
-                        setGeometry(230,50,50,50)
+                push2 =  new qpushbutton(win1) {
+                        setGeometry(230,50 +yPos, butSize, butSize)
                         settext("C")
                         setclickevent("clearCalc()")
                         setStyleSheet("font-weight:bold;font-size:28pt;color:red;border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #fff, stop: 1 #fcc);")
@@ -60,7 +67,7 @@ MyApp = New qApp {
                 }
                 
                 btn1=new qpushbutton(win1) {
-                        setGeometry(10,50,50,50)
+                        setGeometry(10,50 +yPos, butSize, butSize)
                         settext("7")
                         setclickevent("typeNumbers(7)")
                         setStyleSheet(_style)
@@ -69,7 +76,7 @@ MyApp = New qApp {
                 
                 
                 btn2=new qpushbutton(win1) {
-                        setGeometry(65,50,50,50)
+                        setGeometry(65,50 +yPos, butSize, butSize)
                         settext("8")
                         setclickevent("typeNumbers(8)")
                         setStyleSheet(_style)
@@ -78,7 +85,7 @@ MyApp = New qApp {
                 
                 
                 btn3=new qpushbutton(win1) {
-                        setGeometry(120,50,50,50)
+                        setGeometry(120,50 +yPos, butSize, butSize)
                         settext("9")
                         setclickevent("typeNumbers(9)")
                         setStyleSheet(_style)
@@ -87,7 +94,7 @@ MyApp = New qApp {
                 
                 
                 btn4=new qpushbutton(win1) {
-                        setGeometry(10,105,50,50)
+                        setGeometry(10,105 +yPos, butSize, butSize)
                         settext("4")
                         setclickevent("typeNumbers(4)")
                         setStyleSheet(_style)
@@ -95,7 +102,7 @@ MyApp = New qApp {
                 }
                 
                 btn5=new qpushbutton(win1) {
-                        setGeometry(65,105,50,50)
+                        setGeometry(65,105 +yPos, butSize, butSize)
                         settext("5")
                         setclickevent("typeNumbers(5)")
                         setStyleSheet(_style)
@@ -103,7 +110,7 @@ MyApp = New qApp {
                 }
                 
                 btn6=new qpushbutton(win1) {
-                        setGeometry(120,105,50,50)
+                        setGeometry(120,105 +yPos, butSize, butSize)
                         settext("6")
                         setclickevent("typeNumbers(6)")
                         setStyleSheet(_style)	
@@ -111,7 +118,7 @@ MyApp = New qApp {
                 }
                 
                 btn7=new qpushbutton(win1) {
-                        setGeometry(10,160,50,50)
+                        setGeometry(10,160 +yPos, butSize, butSize)
                         settext("1")
                         setclickevent("typeNumbers(1)")
                         setStyleSheet(_style)
@@ -119,7 +126,7 @@ MyApp = New qApp {
                 }
                 
                 btn8=new qpushbutton(win1) {
-                        setGeometry(65,160,50,50)
+                        setGeometry(65,160 +yPos, butSize, butSize)
                         settext("2")
                         setclickevent("typeNumbers(2)")
                         setStyleSheet(_style)
@@ -127,7 +134,7 @@ MyApp = New qApp {
                 }
                 
                 btn9=new qpushbutton(win1) {
-                        setGeometry(120,160,50,50)
+                        setGeometry(120,160 +yPos, butSize, butSize)
                         settext("3")
                         setclickevent("typeNumbers(3)")
                         setStyleSheet(_style)
@@ -136,7 +143,7 @@ MyApp = New qApp {
                 
                 
                 btn0=new qpushbutton(win1) {
-                        setGeometry(10,215,50,50)
+                        setGeometry(10,215 +yPos, butSize, butSize)
                         settext("%")
                         setclickevent("calcPercent()")
                         setStyleSheet(_style)
@@ -145,7 +152,7 @@ MyApp = New qApp {
                 
                 
                 push3 = new qpushbutton(win1) {
-                        setGeometry(65,215,50,50)
+                        setGeometry(65,215 +yPos, butSize, butSize)
                         settext("0")
                         setclickevent("typeNumbers(0)")
                         setStyleSheet(_style)
@@ -153,7 +160,7 @@ MyApp = New qApp {
                 }
                 
                 push4 = new qpushbutton(win1) {
-                        setGeometry(120,215,50,50)
+                        setGeometry(120,215 +yPos, butSize, butSize)
                         settext(".")
                         setclickevent("addPeriod()")
                         setStyleSheet(_style)
@@ -161,7 +168,7 @@ MyApp = New qApp {
                 }
                 
                 push5 = new qpushbutton(win1) {
-                        setGeometry(175,50,50,50)
+                        setGeometry(175,50 +yPos, butSize, butSize)
                         settext("/")
                         setclickevent("math('/')")
                         setStyleSheet(_style)
@@ -169,7 +176,7 @@ MyApp = New qApp {
                 }
 
                 push6 = new qpushbutton(win1) {
-                        setGeometry(175,105,50,50)
+                        setGeometry(175,105 +yPos, butSize, butSize)
                         settext("*")
                         setclickevent("math('*')")
                         setStyleSheet(_style)
@@ -177,23 +184,23 @@ MyApp = New qApp {
                 }
 
                 push7 = new qpushbutton(win1) {
-                        setGeometry(175,160,50,50)
+                        setGeometry(175,160 +yPos, butSize, butSize)
                         settext("-")
                         setclickevent("math('-')")
                         setStyleSheet(_style)
 						installeventfilter(ignorekey(push7))
 				}
 
-               push9 =  new qpushbutton(win1) {
-                        setGeometry(175,215,50,50)
+                push9 =  new qpushbutton(win1) {
+                        setGeometry(175,215 +yPos, butSize, butSize)
                         settext("+")
                         setclickevent("math('+')")
                         setStyleSheet(_style)
 						installeventfilter(ignorekey(push9))
                 }
 
-               push10 =  new qpushbutton(win1) {
-                        setGeometry(230,160,50,25)
+                push10 =  new qpushbutton(win1) {
+                        setGeometry(230,160 +yPos,50,25)
                         settext("(")
                         setclickevent("math('(')")
                         setStyleSheet(_style)
@@ -201,15 +208,16 @@ MyApp = New qApp {
 				}
 
                 push11 = new qpushbutton(win1) {
-                        setGeometry(230,185,50,25)
+                        setGeometry(230,185 +yPos,50,25)
                         settext(")")
                         setclickevent("math(')')")
                         setStyleSheet(_style)
 						installeventfilter(ignorekey(push11))
                 }
 
+				### Equal
                 push8 = new qpushbutton(win1) {
-                        setGeometry(230,215,50,50)
+                        setGeometry(230,215 +yPos, butSize, butSize)
                         settext("=")
                         setclickevent("checkEnter()")
                         setStyleSheet("border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #fff, stop: 1 #cfc);font-size: 15pt")
@@ -293,6 +301,8 @@ func changedText
             enum2 = left(enum, len(enum) - 1)
             eval("result="+enum2)
             edit1.settext("" + result)
+            oComboBox.additem(enum2 +" => "+ result, 0)
+            oComboBox.setcurrentindex(oComboBox.count() - 1)
             add2history(enum2, result)
         ok
 
