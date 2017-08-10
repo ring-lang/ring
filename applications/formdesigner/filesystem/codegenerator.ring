@@ -88,6 +88,7 @@ class #{f2} from windowsControllerParent
 				cOutput = substr(cOutput,"#{f4}","")
 				cOutput = substr(cOutput,"#{f5}","qApp")
 			}
+			cOutput = substr(cOutput,nl,WindowsNL())
 			write(cSourceFileName,cOutput)
 
 	func PrepareClassName cClassName
