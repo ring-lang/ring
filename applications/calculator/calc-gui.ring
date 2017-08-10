@@ -15,6 +15,8 @@
 # Load Applications Functions
 	load "functions.ring"
 
+import System.GUI
+
 win2 = null
 
 _style="border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #eef, stop: 1 #ccf);font-size: 15pt"
@@ -33,10 +35,11 @@ MyApp = New qApp {
                 setwindowflags( qt_dialog & ~ qt_WindowMaximizeButtonHint)
                 //setGeometry(10,10,237,280)
   
-                oComboBox = new QComboBox(win1) {
+                oComboBox = new ComboBox(win1) {
                                      setGeometry(10,10,270,32)
-                }              				
-                
+                                     setStyleSheet(_style) 
+                }
+
                 edit1 = new qlineedit(win1) {
 					setGeometry(10,10 +yPos,270,32)
 					setalignment(Qt_AlignHCenter)
@@ -301,7 +304,7 @@ func changedText
             eval("result="+enum2)
             edit1.settext("" + result)
             oComboBox.additem(enum2 +" => "+ result, 0)
-            oComboBox.setcurrentindex(oComboBox.count() - 1)
+            oComboBox.setcurrentindex(oComboBox.count())
             add2history(enum2, result)
         ok
 
