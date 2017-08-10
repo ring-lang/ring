@@ -300,6 +300,8 @@ func changedText
             enum2 = left(enum, len(enum) - 1)
             eval("result="+enum2)
             edit1.settext("" + result)
+            oComboBox.additem(enum2 +" => "+ result, 0)
+            oComboBox.setcurrentindex(oComboBox.count() - 1)
             add2history(enum2, result)
         ok
 
