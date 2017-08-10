@@ -42,7 +42,7 @@ func checkEnter
 				result = number*percent/100
 				edit1.settext("" + result)
 				oComboBox.additem(enum +" => "+ result, 0)
-                                                     oComboBox.setcurrentindex(oComboBox.count() - 1)
+                                oComboBox.setcurrentindex(oComboBox.count())
 				add2history(enum,result)
 			 else  
 				enum= edit1.text()
@@ -50,7 +50,7 @@ func checkEnter
 				edit1.settext("" + result)
 				add2history(enum,result)
 				oComboBox.additem(enum +" => "+ result, 0)
-                                                     oComboBox.setcurrentindex(oComboBox.count() - 1)
+                                oComboBox.setcurrentindex(oComboBox.count())
 			 ok
 		 ok
 	catch
@@ -72,6 +72,7 @@ func deletehistory
 	win2.close()
 	memo()
               oComboBox.clear()
+              edit1.settext("")
 
 func checkEdit
         enum= edit1.text()
