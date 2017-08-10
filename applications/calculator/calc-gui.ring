@@ -35,9 +35,8 @@ MyApp = New qApp {
   
                 oComboBox = new QComboBox(win1) {
                                      setGeometry(10,10,270,32)
-                                     setStyleSheet(_style) 
-                }
-
+                }              				
+                
                 edit1 = new qlineedit(win1) {
 					setGeometry(10,10 +yPos,270,32)
 					setalignment(Qt_AlignHCenter)
