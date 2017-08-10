@@ -26,27 +26,33 @@ func calcPercent
 	edit1.settext(""+ edit1.text()+"%")
 
 func checkEnter
-	try
-                 enum = edit1.text()
-                 enum = substr(enum, " ", "")
-                 check = checkEdit()
-                 if check = 0
-                    message() 
-                 else
-                     per = substr(edit1.text(), "%")
-                     if per > 0
-                        number = left(enum, per - 1) 
-                        percent = number(substr(enum, per+1))
-                        result = number*percent/100
-                        edit1.settext("" + result)
- 	          add2history(enum,result)
-                     else  
-                        enum= edit1.text()
-	          eval("result="+enum)
-                        edit1.settext("" + result)
-	          add2history(enum,result)
-                     ok
-                 ok
+
+	try       
+			 
+		 enum = edit1.text()      ### Get Entry line
+		 enum = substr(enum, " ", "")
+		 check = checkEdit()
+		 if check = 0
+			message() 
+		 else
+			 per = substr(edit1.text(), "%")
+			 if per > 0
+				number = left(enum, per - 1) 
+				percent = number(substr(enum, per+1))
+				result = number*percent/100
+				edit1.settext("" + result)
+				oComboBox.additem(enum +" => "+ result, 0)
+                                                     oComboBox.setcurrentindex(oComboBox.count() - 1)
+				add2history(enum,result)
+			 else  
+				enum= edit1.text()
+				eval("result="+enum)
+				edit1.settext("" + result)
+				add2history(enum,result)
+				oComboBox.additem(enum +" => "+ result, 0)
+                                                     oComboBox.setcurrentindex(oComboBox.count() - 1)
+			 ok
+		 ok
 	catch
 	    see "Bad input! " + nl + cCatchError + nl
 	    edit1.settext( "NAN" )
@@ -65,6 +71,7 @@ func deletehistory
 	sqlite_close(oDB)
 	win2.close()
 	memo()
+              oComboBox.clear()
 
 func checkEdit
         enum= edit1.text()
@@ -89,6 +96,7 @@ func checkEdit
         en2 = right(enum, 1)
         bool1 = (en1 = "+" or en1 = "-" or en1 = "*" or en1 = "/" or en1 = "%" or en1 = "." or en1 = "=")
         bool2 = (en2 = "+" or en2 = "-" or en2 = "*" or en2 = "/" or en2 = "%" or en2 = "." or en2 = "=")
+		
         if bool1 = true and bool2 = true 
            flag = 0
         ok
