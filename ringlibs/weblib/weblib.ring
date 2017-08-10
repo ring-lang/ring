@@ -89,7 +89,8 @@ loadvars()
 
 Func LoadVars
 	if sysget("REQUEST_METHOD") = NULL
-		raise("Error (WebLib-1) : REQUEST_METHOD is empty ! - Run this script from the browser")
+		# The Web Library is not called from Web Application (From the Browser)
+		return 
 	ok
 	New Application
 	{
