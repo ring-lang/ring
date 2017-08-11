@@ -7200,6 +7200,32 @@ RING_FUNC(ring_glReadPixels)
 	glReadPixels( (GLint ) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2), (GLsizei )  (int) RING_API_GETNUMBER(3), (GLsizei )  (int) RING_API_GETNUMBER(4), (GLenum )  (int) RING_API_GETNUMBER(5), (GLenum )  (int) RING_API_GETNUMBER(6),(void *) RING_API_GETCPOINTER(7,"void"));
 }
 
+
+RING_FUNC(ring_glRectd)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glRectd( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3), (GLdouble ) RING_API_GETNUMBER(4));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7440,6 +7466,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glrasterpos4sv",ring_glRasterPos4sv);
 	ring_vm_funcregister("glreadbuffer",ring_glReadBuffer);
 	ring_vm_funcregister("glreadpixels",ring_glReadPixels);
+	ring_vm_funcregister("glrectd",ring_glRectd);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
