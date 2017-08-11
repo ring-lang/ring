@@ -438,5 +438,6 @@ GL_EXTENSIONS
 GL_S
 GL_ENABLE_BIT
 GL_T
+GL_R
 </constant>
 
