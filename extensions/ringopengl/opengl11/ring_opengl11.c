@@ -1885,6 +1885,11 @@ RING_FUNC(ring_get_gl_fill)
 	RING_API_RETNUMBER(GL_FILL);
 }
 
+RING_FUNC(ring_get_gl_render)
+{
+	RING_API_RETNUMBER(GL_RENDER);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2262,4 +2267,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_point",ring_get_gl_point);
 	ring_vm_funcregister("get_gl_line",ring_get_gl_line);
 	ring_vm_funcregister("get_gl_fill",ring_get_gl_fill);
+	ring_vm_funcregister("get_gl_render",ring_get_gl_render);
 }
