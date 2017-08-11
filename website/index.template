@@ -258,7 +258,8 @@
 			</pre>
 		</p>
 
-		Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name!
+		Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name, but we can use it!
+		<a href="doc1.4.1/syntaxflexibility.html#using-and-in-the-start-of-the-variable-name" target="_blank"> Why? </a>
 		<br>
 		You can use the '+' operator for string concatenation and the language is 
 		weakly typed and will do simple implicit conversion between numbers and strings only based on the context.
