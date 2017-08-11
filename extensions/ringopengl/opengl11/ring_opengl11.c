@@ -455,6 +455,11 @@ RING_FUNC(ring_get_gl_cw)
 	RING_API_RETNUMBER(GL_CW);
 }
 
+RING_FUNC(ring_get_gl_ccw)
+{
+	RING_API_RETNUMBER(GL_CCW);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -546,4 +551,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_viewport_bit",ring_get_gl_viewport_bit);
 	ring_vm_funcregister("get_gl_exp2",ring_get_gl_exp2);
 	ring_vm_funcregister("get_gl_cw",ring_get_gl_cw);
+	ring_vm_funcregister("get_gl_ccw",ring_get_gl_ccw);
 }
