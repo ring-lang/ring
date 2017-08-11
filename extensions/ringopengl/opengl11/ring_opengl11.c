@@ -95,6 +95,11 @@ RING_FUNC(ring_get_gl_line_bit)
 	RING_API_RETNUMBER(GL_LINE_BIT);
 }
 
+RING_FUNC(ring_get_gl_triangles)
+{
+	RING_API_RETNUMBER(GL_TRIANGLES);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -114,4 +119,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_client_vertex_array_bit",ring_get_gl_client_vertex_array_bit);
 	ring_vm_funcregister("get_gl_line_strip",ring_get_gl_line_strip);
 	ring_vm_funcregister("get_gl_line_bit",ring_get_gl_line_bit);
+	ring_vm_funcregister("get_gl_triangles",ring_get_gl_triangles);
 }
