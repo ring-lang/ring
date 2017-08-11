@@ -138,5 +138,6 @@ GL_EXP2
 GL_CW
 GL_CCW
 GL_COEFF
+GL_ORDER
 </constant>
 
