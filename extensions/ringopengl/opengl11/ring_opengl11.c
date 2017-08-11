@@ -1990,6 +1990,11 @@ RING_FUNC(ring_get_gl_texture_env_mode)
 	RING_API_RETNUMBER(GL_TEXTURE_ENV_MODE);
 }
 
+RING_FUNC(ring_get_gl_texture_env_color)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_ENV_COLOR);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2388,4 +2393,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_modulate",ring_get_gl_modulate);
 	ring_vm_funcregister("get_gl_decal",ring_get_gl_decal);
 	ring_vm_funcregister("get_gl_texture_env_mode",ring_get_gl_texture_env_mode);
+	ring_vm_funcregister("get_gl_texture_env_color",ring_get_gl_texture_env_color);
 }
