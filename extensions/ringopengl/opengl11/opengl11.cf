@@ -712,3 +712,4 @@ void glGetTexLevelParameteriv(GLenum target, GLint level, GLenum pname, GLint *p
 void glGetTexParameterfv(GLenum target, GLenum pname, GLfloat *params)
 void glGetTexParameteriv(GLenum target, GLenum pname, GLint *params)
 void glHint(GLenum target, GLenum mode)
+void glIndexMask(GLuint mask)
