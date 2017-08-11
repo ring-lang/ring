@@ -593,3 +593,4 @@ void glBitmap(GLsizei width, GLsizei height, GLfloat xorig, GLfloat yorig, GLflo
 void glBlendFunc(GLenum sfactor, GLenum dfactor)
 void glCallList(GLuint list)
 void glCallLists(GLsizei n, GLenum type, const void *lists)
+void glClear(GLbitfield mask)
