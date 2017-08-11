@@ -970,6 +970,11 @@ RING_FUNC(ring_get_gl_point_smooth_hint)
 	RING_API_RETNUMBER(GL_POINT_SMOOTH_HINT);
 }
 
+RING_FUNC(ring_get_gl_line_smooth_hint)
+{
+	RING_API_RETNUMBER(GL_LINE_SMOOTH_HINT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1164,4 +1169,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_render_mode",ring_get_gl_render_mode);
 	ring_vm_funcregister("get_gl_perspective_correction_hint",ring_get_gl_perspective_correction_hint);
 	ring_vm_funcregister("get_gl_point_smooth_hint",ring_get_gl_point_smooth_hint);
+	ring_vm_funcregister("get_gl_line_smooth_hint",ring_get_gl_line_smooth_hint);
 }
