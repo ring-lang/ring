@@ -140,6 +140,12 @@ It seems that the language is quite extensive as well. I would find it useful to
 "Thank you very much Mahmoud! I am using ring for many experiments and so far I love it.  I really want to continue using ring and contribute what I can."
 	, John (SienSystem)
 
+"Thanks for your effort. I took a quick look and found it interesting. You are trying to follow more or less like Clipper with simple command and no rigid declaration rules. Good."
+	, Anand Gupta 
+
+"Sir, Very Good"
+	, Kamlesh Patel
+
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
