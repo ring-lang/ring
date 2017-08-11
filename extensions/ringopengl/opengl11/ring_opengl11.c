@@ -1435,6 +1435,11 @@ RING_FUNC(ring_get_gl_map2_normal)
 	RING_API_RETNUMBER(GL_MAP2_NORMAL);
 }
 
+RING_FUNC(ring_get_gl_map2_texture_coord_1)
+{
+	RING_API_RETNUMBER(GL_MAP2_TEXTURE_COORD_1);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1722,4 +1727,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_map2_color_4",ring_get_gl_map2_color_4);
 	ring_vm_funcregister("get_gl_map2_index",ring_get_gl_map2_index);
 	ring_vm_funcregister("get_gl_map2_normal",ring_get_gl_map2_normal);
+	ring_vm_funcregister("get_gl_map2_texture_coord_1",ring_get_gl_map2_texture_coord_1);
 }
