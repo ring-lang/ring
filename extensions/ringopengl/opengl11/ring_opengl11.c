@@ -855,6 +855,11 @@ RING_FUNC(ring_get_gl_alpha_test_ref)
 	RING_API_RETNUMBER(GL_ALPHA_TEST_REF);
 }
 
+RING_FUNC(ring_get_gl_dither)
+{
+	RING_API_RETNUMBER(GL_DITHER);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1026,4 +1031,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_alpha_test",ring_get_gl_alpha_test);
 	ring_vm_funcregister("get_gl_alpha_test_func",ring_get_gl_alpha_test_func);
 	ring_vm_funcregister("get_gl_alpha_test_ref",ring_get_gl_alpha_test_ref);
+	ring_vm_funcregister("get_gl_dither",ring_get_gl_dither);
 }
