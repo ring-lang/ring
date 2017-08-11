@@ -5610,6 +5610,20 @@ RING_FUNC(ring_glLineStipple)
 	glLineStipple( (GLint ) RING_API_GETNUMBER(1), (GLushort ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_glLineWidth)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glLineWidth( (GLfloat ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5767,6 +5781,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gllighti",ring_glLighti);
 	ring_vm_funcregister("gllightiv",ring_glLightiv);
 	ring_vm_funcregister("gllinestipple",ring_glLineStipple);
+	ring_vm_funcregister("gllinewidth",ring_glLineWidth);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
