@@ -805,6 +805,11 @@ RING_FUNC(ring_get_gl_modelview_stack_depth)
 	RING_API_RETNUMBER(GL_MODELVIEW_STACK_DEPTH);
 }
 
+RING_FUNC(ring_get_gl_projection_stack_depth)
+{
+	RING_API_RETNUMBER(GL_PROJECTION_STACK_DEPTH);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -966,4 +971,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_normalize",ring_get_gl_normalize);
 	ring_vm_funcregister("get_gl_viewport",ring_get_gl_viewport);
 	ring_vm_funcregister("get_gl_modelview_stack_depth",ring_get_gl_modelview_stack_depth);
+	ring_vm_funcregister("get_gl_projection_stack_depth",ring_get_gl_projection_stack_depth);
 }
