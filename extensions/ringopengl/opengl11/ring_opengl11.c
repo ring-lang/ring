@@ -4592,6 +4592,24 @@ RING_FUNC(ring_glGetBooleanv)
 	glGetBooleanv( (GLenum )  (int) RING_API_GETNUMBER(1),(GLboolean *) RING_API_GETCPOINTER(2,"GLboolean"));
 }
 
+
+RING_FUNC(ring_glGetClipPlane)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetClipPlane( (GLenum )  (int) RING_API_GETNUMBER(1),(GLdouble *) RING_API_GETCPOINTER(2,"GLdouble"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4694,6 +4712,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgenlists",ring_glGenLists);
 	ring_vm_funcregister("glgentextures",ring_glGenTextures);
 	ring_vm_funcregister("glgetbooleanv",ring_glGetBooleanv);
+	ring_vm_funcregister("glgetclipplane",ring_glGetClipPlane);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
