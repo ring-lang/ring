@@ -414,5 +414,6 @@ GL_RED
 GL_GREEN
 GL_BLUE
 GL_ALPHA
+GL_RGB
 </constant>
 
