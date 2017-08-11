@@ -1710,6 +1710,11 @@ RING_FUNC(ring_get_gl_noop)
 	RING_API_RETNUMBER(GL_NOOP);
 }
 
+RING_FUNC(ring_get_gl_xor)
+{
+	RING_API_RETNUMBER(GL_XOR);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2052,4 +2057,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_copy",ring_get_gl_copy);
 	ring_vm_funcregister("get_gl_and_inverted",ring_get_gl_and_inverted);
 	ring_vm_funcregister("get_gl_noop",ring_get_gl_noop);
+	ring_vm_funcregister("get_gl_xor",ring_get_gl_xor);
 }
