@@ -480,6 +480,11 @@ RING_FUNC(ring_get_gl_current_color)
 	RING_API_RETNUMBER(GL_CURRENT_COLOR);
 }
 
+RING_FUNC(ring_get_gl_current_index)
+{
+	RING_API_RETNUMBER(GL_CURRENT_INDEX);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -576,4 +581,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_order",ring_get_gl_order);
 	ring_vm_funcregister("get_gl_domain",ring_get_gl_domain);
 	ring_vm_funcregister("get_gl_current_color",ring_get_gl_current_color);
+	ring_vm_funcregister("get_gl_current_index",ring_get_gl_current_index);
 }
