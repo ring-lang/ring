@@ -995,6 +995,11 @@ RING_FUNC(ring_get_gl_texture_gen_t)
 	RING_API_RETNUMBER(GL_TEXTURE_GEN_T);
 }
 
+RING_FUNC(ring_get_gl_texture_gen_r)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_GEN_R);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1194,4 +1199,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_fog_hint",ring_get_gl_fog_hint);
 	ring_vm_funcregister("get_gl_texture_gen_s",ring_get_gl_texture_gen_s);
 	ring_vm_funcregister("get_gl_texture_gen_t",ring_get_gl_texture_gen_t);
+	ring_vm_funcregister("get_gl_texture_gen_r",ring_get_gl_texture_gen_r);
 }
