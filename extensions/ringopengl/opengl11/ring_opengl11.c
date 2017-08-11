@@ -3866,6 +3866,20 @@ RING_FUNC(ring_glCopyTexSubImage2D)
 	glCopyTexSubImage2D( (GLenum )  (int) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2), (GLint ) RING_API_GETNUMBER(3), (GLint ) RING_API_GETNUMBER(4), (GLint ) RING_API_GETNUMBER(5), (GLint ) RING_API_GETNUMBER(6), (GLsizei )  (int) RING_API_GETNUMBER(7), (GLsizei )  (int) RING_API_GETNUMBER(8));
 }
 
+
+RING_FUNC(ring_glCullFace)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glCullFace( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3925,6 +3939,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glcopyteximage2d",ring_glCopyTexImage2D);
 	ring_vm_funcregister("glcopytexsubimage1d",ring_glCopyTexSubImage1D);
 	ring_vm_funcregister("glcopytexsubimage2d",ring_glCopyTexSubImage2D);
+	ring_vm_funcregister("glcullface",ring_glCullFace);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
