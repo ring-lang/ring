@@ -35,6 +35,11 @@ RING_FUNC(ring_get_gl_texture_components)
 	RING_API_RETNUMBER(GL_TEXTURE_COMPONENTS);
 }
 
+RING_FUNC(ring_get_gl_no_error)
+{
+	RING_API_RETNUMBER(GL_NO_ERROR);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -42,4 +47,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
 	ring_vm_funcregister("get_gl_none",ring_get_gl_none);
 	ring_vm_funcregister("get_gl_texture_components",ring_get_gl_texture_components);
+	ring_vm_funcregister("get_gl_no_error",ring_get_gl_no_error);
 }
