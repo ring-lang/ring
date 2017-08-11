@@ -910,6 +910,11 @@ RING_FUNC(ring_get_gl_scissor_box)
 	RING_API_RETNUMBER(GL_SCISSOR_BOX);
 }
 
+RING_FUNC(ring_get_gl_scissor_test)
+{
+	RING_API_RETNUMBER(GL_SCISSOR_TEST);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1092,4 +1097,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_draw_buffer",ring_get_gl_draw_buffer);
 	ring_vm_funcregister("get_gl_read_buffer",ring_get_gl_read_buffer);
 	ring_vm_funcregister("get_gl_scissor_box",ring_get_gl_scissor_box);
+	ring_vm_funcregister("get_gl_scissor_test",ring_get_gl_scissor_test);
 }
