@@ -850,6 +850,11 @@ RING_FUNC(ring_get_gl_alpha_test_func)
 	RING_API_RETNUMBER(GL_ALPHA_TEST_FUNC);
 }
 
+RING_FUNC(ring_get_gl_alpha_test_ref)
+{
+	RING_API_RETNUMBER(GL_ALPHA_TEST_REF);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1020,4 +1025,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_client_attrib_stack_depth",ring_get_gl_client_attrib_stack_depth);
 	ring_vm_funcregister("get_gl_alpha_test",ring_get_gl_alpha_test);
 	ring_vm_funcregister("get_gl_alpha_test_func",ring_get_gl_alpha_test_func);
+	ring_vm_funcregister("get_gl_alpha_test_ref",ring_get_gl_alpha_test_ref);
 }
