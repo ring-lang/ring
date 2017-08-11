@@ -505,6 +505,11 @@ RING_FUNC(ring_get_gl_current_raster_index)
 	RING_API_RETNUMBER(GL_CURRENT_RASTER_INDEX);
 }
 
+RING_FUNC(ring_get_gl_current_raster_texture_coords)
+{
+	RING_API_RETNUMBER(GL_CURRENT_RASTER_TEXTURE_COORDS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -606,4 +611,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_current_texture_coords",ring_get_gl_current_texture_coords);
 	ring_vm_funcregister("get_gl_current_raster_color",ring_get_gl_current_raster_color);
 	ring_vm_funcregister("get_gl_current_raster_index",ring_get_gl_current_raster_index);
+	ring_vm_funcregister("get_gl_current_raster_texture_coords",ring_get_gl_current_raster_texture_coords);
 }
