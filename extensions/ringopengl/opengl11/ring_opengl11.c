@@ -870,6 +870,11 @@ RING_FUNC(ring_get_gl_blend_src)
 	RING_API_RETNUMBER(GL_BLEND_SRC);
 }
 
+RING_FUNC(ring_get_gl_blend)
+{
+	RING_API_RETNUMBER(GL_BLEND);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1044,4 +1049,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_dither",ring_get_gl_dither);
 	ring_vm_funcregister("get_gl_blend_dst",ring_get_gl_blend_dst);
 	ring_vm_funcregister("get_gl_blend_src",ring_get_gl_blend_src);
+	ring_vm_funcregister("get_gl_blend",ring_get_gl_blend);
 }
