@@ -580,6 +580,11 @@ RING_FUNC(ring_get_gl_line_stipple_repeat)
 	RING_API_RETNUMBER(GL_LINE_STIPPLE_REPEAT);
 }
 
+RING_FUNC(ring_get_gl_list_mode)
+{
+	RING_API_RETNUMBER(GL_LIST_MODE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -696,4 +701,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_line_stipple",ring_get_gl_line_stipple);
 	ring_vm_funcregister("get_gl_line_stipple_pattern",ring_get_gl_line_stipple_pattern);
 	ring_vm_funcregister("get_gl_line_stipple_repeat",ring_get_gl_line_stipple_repeat);
+	ring_vm_funcregister("get_gl_list_mode",ring_get_gl_list_mode);
 }
