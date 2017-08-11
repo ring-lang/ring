@@ -640,6 +640,11 @@ RING_FUNC(ring_get_gl_lighting)
 	RING_API_RETNUMBER(GL_LIGHTING);
 }
 
+RING_FUNC(ring_get_gl_light_model_local_viewer)
+{
+	RING_API_RETNUMBER(GL_LIGHT_MODEL_LOCAL_VIEWER);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -768,4 +773,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_cull_face_mode",ring_get_gl_cull_face_mode);
 	ring_vm_funcregister("get_gl_front_face",ring_get_gl_front_face);
 	ring_vm_funcregister("get_gl_lighting",ring_get_gl_lighting);
+	ring_vm_funcregister("get_gl_light_model_local_viewer",ring_get_gl_light_model_local_viewer);
 }
