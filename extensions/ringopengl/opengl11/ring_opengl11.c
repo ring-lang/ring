@@ -110,6 +110,11 @@ RING_FUNC(ring_get_gl_triangle_fan)
 	RING_API_RETNUMBER(GL_TRIANGLE_FAN);
 }
 
+RING_FUNC(ring_get_gl_quads)
+{
+	RING_API_RETNUMBER(GL_QUADS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -132,4 +137,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_triangles",ring_get_gl_triangles);
 	ring_vm_funcregister("get_gl_triangle_strip",ring_get_gl_triangle_strip);
 	ring_vm_funcregister("get_gl_triangle_fan",ring_get_gl_triangle_fan);
+	ring_vm_funcregister("get_gl_quads",ring_get_gl_quads);
 }
