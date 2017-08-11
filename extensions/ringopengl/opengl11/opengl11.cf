@@ -49,5 +49,6 @@ OpenGL 1.1 functions
 <constant>
 GL_ZERO
 GL_FALSE
+GL_LOGIC_OP
 </constant>
 
