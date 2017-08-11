@@ -1560,6 +1560,11 @@ RING_FUNC(ring_get_gl_fastest)
 	RING_API_RETNUMBER(GL_FASTEST);
 }
 
+RING_FUNC(ring_get_gl_nicest)
+{
+	RING_API_RETNUMBER(GL_NICEST);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1872,4 +1877,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_texture_border",ring_get_gl_texture_border);
 	ring_vm_funcregister("get_gl_dont_care",ring_get_gl_dont_care);
 	ring_vm_funcregister("get_gl_fastest",ring_get_gl_fastest);
+	ring_vm_funcregister("get_gl_nicest",ring_get_gl_nicest);
 }
