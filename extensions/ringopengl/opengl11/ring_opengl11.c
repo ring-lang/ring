@@ -4264,6 +4264,24 @@ RING_FUNC(ring_glEvalCoord2dv)
 	glEvalCoord2dv((GLdouble *) RING_API_GETCPOINTER(1,"GLdouble"));
 }
 
+
+RING_FUNC(ring_glEvalCoord2f)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glEvalCoord2f( (GLfloat ) RING_API_GETNUMBER(1), (GLfloat ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4348,6 +4366,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glevalcoord1fv",ring_glEvalCoord1fv);
 	ring_vm_funcregister("glevalcoord2d",ring_glEvalCoord2d);
 	ring_vm_funcregister("glevalcoord2dv",ring_glEvalCoord2dv);
+	ring_vm_funcregister("glevalcoord2f",ring_glEvalCoord2f);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
