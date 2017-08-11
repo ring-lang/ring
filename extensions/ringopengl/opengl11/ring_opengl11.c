@@ -1740,6 +1740,11 @@ RING_FUNC(ring_get_gl_or_reverse)
 	RING_API_RETNUMBER(GL_OR_REVERSE);
 }
 
+RING_FUNC(ring_get_gl_copy_inverted)
+{
+	RING_API_RETNUMBER(GL_COPY_INVERTED);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2088,4 +2093,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_equiv",ring_get_gl_equiv);
 	ring_vm_funcregister("get_gl_invert",ring_get_gl_invert);
 	ring_vm_funcregister("get_gl_or_reverse",ring_get_gl_or_reverse);
+	ring_vm_funcregister("get_gl_copy_inverted",ring_get_gl_copy_inverted);
 }
