@@ -2605,6 +2605,11 @@ RING_FUNC(ring_get_gl_color_array_pointer)
 	RING_API_RETNUMBER(GL_COLOR_ARRAY_POINTER);
 }
 
+RING_FUNC(ring_get_gl_index_array_pointer)
+{
+	RING_API_RETNUMBER(GL_INDEX_ARRAY_POINTER);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -3126,4 +3131,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_vertex_array_pointer",ring_get_gl_vertex_array_pointer);
 	ring_vm_funcregister("get_gl_normal_array_pointer",ring_get_gl_normal_array_pointer);
 	ring_vm_funcregister("get_gl_color_array_pointer",ring_get_gl_color_array_pointer);
+	ring_vm_funcregister("get_gl_index_array_pointer",ring_get_gl_index_array_pointer);
 }
