@@ -208,6 +208,7 @@
 		domain-specific languages in a fraction of time. It is very small, fast and comes with smart
 		garbage collector that puts the memory under the programmer control. It supports many programming paradigms, comes with useful and practical libraries. 
 		The language is designed for productivity and developing high quality solutions that can scale.
+		<a href="doc1.4.1/faq.html#why-do-we-need-yet-another-programming-language-yapl" target="_blank"> Why? </a>
 		</p>
 		<br> <br>
 
