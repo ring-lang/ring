@@ -1785,6 +1785,11 @@ RING_FUNC(ring_get_gl_modelview)
 	RING_API_RETNUMBER(GL_MODELVIEW);
 }
 
+RING_FUNC(ring_get_gl_projection)
+{
+	RING_API_RETNUMBER(GL_PROJECTION);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2142,4 +2147,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_ambient_and_diffuse",ring_get_gl_ambient_and_diffuse);
 	ring_vm_funcregister("get_gl_color_indexes",ring_get_gl_color_indexes);
 	ring_vm_funcregister("get_gl_modelview",ring_get_gl_modelview);
+	ring_vm_funcregister("get_gl_projection",ring_get_gl_projection);
 }
