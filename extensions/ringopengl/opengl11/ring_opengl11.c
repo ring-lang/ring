@@ -1495,6 +1495,11 @@ RING_FUNC(ring_get_gl_texture_2d)
 	RING_API_RETNUMBER(GL_TEXTURE_2D);
 }
 
+RING_FUNC(ring_get_gl_feedback_buffer_pointer)
+{
+	RING_API_RETNUMBER(GL_FEEDBACK_BUFFER_POINTER);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1794,4 +1799,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_map2_grid_segments",ring_get_gl_map2_grid_segments);
 	ring_vm_funcregister("get_gl_texture_1d",ring_get_gl_texture_1d);
 	ring_vm_funcregister("get_gl_texture_2d",ring_get_gl_texture_2d);
+	ring_vm_funcregister("get_gl_feedback_buffer_pointer",ring_get_gl_feedback_buffer_pointer);
 }
