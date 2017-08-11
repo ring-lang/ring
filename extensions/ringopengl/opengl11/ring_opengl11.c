@@ -790,6 +790,11 @@ RING_FUNC(ring_get_gl_matrix_mode)
 	RING_API_RETNUMBER(GL_MATRIX_MODE);
 }
 
+RING_FUNC(ring_get_gl_normalize)
+{
+	RING_API_RETNUMBER(GL_NORMALIZE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -948,4 +953,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_stencil_ref",ring_get_gl_stencil_ref);
 	ring_vm_funcregister("get_gl_stencil_writemask",ring_get_gl_stencil_writemask);
 	ring_vm_funcregister("get_gl_matrix_mode",ring_get_gl_matrix_mode);
+	ring_vm_funcregister("get_gl_normalize",ring_get_gl_normalize);
 }
