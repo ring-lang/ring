@@ -1250,6 +1250,11 @@ RING_FUNC(ring_get_gl_max_eval_order)
 	RING_API_RETNUMBER(GL_MAX_EVAL_ORDER);
 }
 
+RING_FUNC(ring_get_gl_max_lights)
+{
+	RING_API_RETNUMBER(GL_MAX_LIGHTS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1500,4 +1505,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_depth_scale",ring_get_gl_depth_scale);
 	ring_vm_funcregister("get_gl_depth_bias",ring_get_gl_depth_bias);
 	ring_vm_funcregister("get_gl_max_eval_order",ring_get_gl_max_eval_order);
+	ring_vm_funcregister("get_gl_max_lights",ring_get_gl_max_lights);
 }
