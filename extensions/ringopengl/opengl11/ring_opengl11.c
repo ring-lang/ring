@@ -980,6 +980,11 @@ RING_FUNC(ring_get_gl_polygon_smooth_hint)
 	RING_API_RETNUMBER(GL_POLYGON_SMOOTH_HINT);
 }
 
+RING_FUNC(ring_get_gl_fog_hint)
+{
+	RING_API_RETNUMBER(GL_FOG_HINT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1176,4 +1181,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_point_smooth_hint",ring_get_gl_point_smooth_hint);
 	ring_vm_funcregister("get_gl_line_smooth_hint",ring_get_gl_line_smooth_hint);
 	ring_vm_funcregister("get_gl_polygon_smooth_hint",ring_get_gl_polygon_smooth_hint);
+	ring_vm_funcregister("get_gl_fog_hint",ring_get_gl_fog_hint);
 }
