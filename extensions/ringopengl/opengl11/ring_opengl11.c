@@ -825,6 +825,11 @@ RING_FUNC(ring_get_gl_projection_matrix)
 	RING_API_RETNUMBER(GL_PROJECTION_MATRIX);
 }
 
+RING_FUNC(ring_get_gl_texture_matrix)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_MATRIX);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -990,4 +995,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_texture_stack_depth",ring_get_gl_texture_stack_depth);
 	ring_vm_funcregister("get_gl_modelview_matrix",ring_get_gl_modelview_matrix);
 	ring_vm_funcregister("get_gl_projection_matrix",ring_get_gl_projection_matrix);
+	ring_vm_funcregister("get_gl_texture_matrix",ring_get_gl_texture_matrix);
 }
