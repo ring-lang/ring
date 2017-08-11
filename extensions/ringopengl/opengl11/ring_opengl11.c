@@ -3880,6 +3880,24 @@ RING_FUNC(ring_glCullFace)
 	glCullFace( (GLenum )  (int) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glDeleteLists)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glDeleteLists( (GLuint ) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -3940,6 +3958,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glcopytexsubimage1d",ring_glCopyTexSubImage1D);
 	ring_vm_funcregister("glcopytexsubimage2d",ring_glCopyTexSubImage2D);
 	ring_vm_funcregister("glcullface",ring_glCullFace);
+	ring_vm_funcregister("gldeletelists",ring_glDeleteLists);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
