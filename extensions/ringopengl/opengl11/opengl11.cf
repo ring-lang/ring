@@ -756,3 +756,4 @@ void glMapGrid2f(GLint un, GLfloat u1, GLfloat u2, GLint vn, GLfloat v1, GLfloat
 void glMaterialf(GLenum face, GLenum pname, GLfloat param)
 void glMaterialfv(GLenum face, GLenum pname, const GLfloat *params)
 void glMateriali(GLenum face, GLenum pname, GLint param)
+void glMaterialiv(GLenum face, GLenum pname, const GLint *params)
