@@ -2275,6 +2275,11 @@ RING_FUNC(ring_get_gl_alpha4)
 	RING_API_RETNUMBER(GL_ALPHA4);
 }
 
+RING_FUNC(ring_get_gl_alpha8)
+{
+	RING_API_RETNUMBER(GL_ALPHA8);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2730,4 +2735,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_polygon_offset_fill",ring_get_gl_polygon_offset_fill);
 	ring_vm_funcregister("get_gl_polygon_offset_factor",ring_get_gl_polygon_offset_factor);
 	ring_vm_funcregister("get_gl_alpha4",ring_get_gl_alpha4);
+	ring_vm_funcregister("get_gl_alpha8",ring_get_gl_alpha8);
 }
