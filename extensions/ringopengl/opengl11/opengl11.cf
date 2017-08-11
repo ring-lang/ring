@@ -441,5 +441,6 @@ GL_T
 GL_R
 GL_Q
 GL_MODULATE
+GL_DECAL
 </constant>
 
