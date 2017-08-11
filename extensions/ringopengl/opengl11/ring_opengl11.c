@@ -1720,6 +1720,11 @@ RING_FUNC(ring_get_gl_or)
 	RING_API_RETNUMBER(GL_OR);
 }
 
+RING_FUNC(ring_get_gl_nor)
+{
+	RING_API_RETNUMBER(GL_NOR);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2064,4 +2069,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_noop",ring_get_gl_noop);
 	ring_vm_funcregister("get_gl_xor",ring_get_gl_xor);
 	ring_vm_funcregister("get_gl_or",ring_get_gl_or);
+	ring_vm_funcregister("get_gl_nor",ring_get_gl_nor);
 }
