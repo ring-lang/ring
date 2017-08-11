@@ -638,3 +638,4 @@ void glColorPointer(GLint size, GLenum type, GLsizei stride, const void *pointer
 void glCopyPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum type)
 void glCopyTexImage1D(GLenum target, GLint level, GLenum internalFormat, GLint x, GLint y, GLsizei width, GLint border)
 void glCopyTexImage2D(GLenum target, GLint level, GLenum internalFormat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border)
+void glCopyTexSubImage1D(GLenum target, GLint level, GLint xoffset, GLint x, GLint y, GLsizei width)
