@@ -8824,6 +8824,28 @@ RING_FUNC(ring_glVertex2sv)
 	glVertex2sv((GLshort *) RING_API_GETCPOINTER(1,"GLshort"));
 }
 
+
+RING_FUNC(ring_glVertex3d)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertex3d( (GLdouble ) RING_API_GETNUMBER(1), (GLdouble ) RING_API_GETNUMBER(2), (GLdouble ) RING_API_GETNUMBER(3));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -9144,6 +9166,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glvertex2iv",ring_glVertex2iv);
 	ring_vm_funcregister("glvertex2s",ring_glVertex2s);
 	ring_vm_funcregister("glvertex2sv",ring_glVertex2sv);
+	ring_vm_funcregister("glvertex3d",ring_glVertex3d);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
