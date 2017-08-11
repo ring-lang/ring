@@ -246,6 +246,7 @@
 		</p>
 
 		The Main function is optional and will be executed after the statements, and is useful for using the local scope.
+		<a href="doc1.4.1/faq.html#what-is-the-goal-of-including-the-main-function-in-ring" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">func</font> main
@@ -256,7 +257,8 @@
 		Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name!
 		<br>
 		You can use the '+' operator for string concatenation and the language is 
-		weakly typed and will convert automatically between numbers and strings based on the context.
+		weakly typed (Simple implicit conversion between numbers and strings only based on the context).
+				<a href="doc1.4.1/faq.html#why-ring-is-weakly-typed" target="_blank"> Why? </a>
 		<p>
 			<pre>
 nCount = 10	<font color="green"># Global variable</font>
