@@ -1270,6 +1270,11 @@ RING_FUNC(ring_get_gl_max_pixel_map_table)
 	RING_API_RETNUMBER(GL_MAX_PIXEL_MAP_TABLE);
 }
 
+RING_FUNC(ring_get_gl_max_attrib_stack_depth)
+{
+	RING_API_RETNUMBER(GL_MAX_ATTRIB_STACK_DEPTH);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1524,4 +1529,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_max_clip_planes",ring_get_gl_max_clip_planes);
 	ring_vm_funcregister("get_gl_max_texture_size",ring_get_gl_max_texture_size);
 	ring_vm_funcregister("get_gl_max_pixel_map_table",ring_get_gl_max_pixel_map_table);
+	ring_vm_funcregister("get_gl_max_attrib_stack_depth",ring_get_gl_max_attrib_stack_depth);
 }
