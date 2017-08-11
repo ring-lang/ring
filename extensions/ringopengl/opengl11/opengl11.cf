@@ -583,3 +583,4 @@ GL_ALL_ATTRIB_BITS
 GL_CLIENT_ALL_ATTRIB_BITS
 </constant>
 
+void glAccum(GLenum op, GLfloat value)
