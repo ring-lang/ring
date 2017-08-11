@@ -2210,6 +2210,11 @@ RING_FUNC(ring_get_gl_clip_plane5)
 	RING_API_RETNUMBER(GL_CLIP_PLANE5);
 }
 
+RING_FUNC(ring_get_gl_light0)
+{
+	RING_API_RETNUMBER(GL_LIGHT0);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2652,4 +2657,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_clip_plane3",ring_get_gl_clip_plane3);
 	ring_vm_funcregister("get_gl_clip_plane4",ring_get_gl_clip_plane4);
 	ring_vm_funcregister("get_gl_clip_plane5",ring_get_gl_clip_plane5);
+	ring_vm_funcregister("get_gl_light0",ring_get_gl_light0);
 }
