@@ -4574,6 +4574,24 @@ RING_FUNC(ring_glGenTextures)
 	glGenTextures( (GLsizei )  (int) RING_API_GETNUMBER(1),(GLuint *) RING_API_GETCPOINTER(2,"GLuint"));
 }
 
+
+RING_FUNC(ring_glGetBooleanv)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetBooleanv( (GLenum )  (int) RING_API_GETNUMBER(1),(GLboolean *) RING_API_GETCPOINTER(2,"GLboolean"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4675,6 +4693,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glfrustum",ring_glFrustum);
 	ring_vm_funcregister("glgenlists",ring_glGenLists);
 	ring_vm_funcregister("glgentextures",ring_glGenTextures);
+	ring_vm_funcregister("glgetbooleanv",ring_glGetBooleanv);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
