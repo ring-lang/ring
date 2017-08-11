@@ -4864,6 +4864,24 @@ RING_FUNC(ring_glGetPixelMapuiv)
 	glGetPixelMapuiv( (GLenum )  (int) RING_API_GETNUMBER(1),(GLuint *) RING_API_GETCPOINTER(2,"GLuint"));
 }
 
+
+RING_FUNC(ring_glGetPixelMapusv)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGetPixelMapusv( (GLenum )  (int) RING_API_GETNUMBER(1),(GLushort *) RING_API_GETCPOINTER(2,"GLushort"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4980,6 +4998,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetmaterialiv",ring_glGetMaterialiv);
 	ring_vm_funcregister("glgetpixelmapfv",ring_glGetPixelMapfv);
 	ring_vm_funcregister("glgetpixelmapuiv",ring_glGetPixelMapuiv);
+	ring_vm_funcregister("glgetpixelmapusv",ring_glGetPixelMapusv);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
