@@ -1195,6 +1195,11 @@ RING_FUNC(ring_get_gl_red_bias)
 	RING_API_RETNUMBER(GL_RED_BIAS);
 }
 
+RING_FUNC(ring_get_gl_zoom_x)
+{
+	RING_API_RETNUMBER(GL_ZOOM_X);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1434,4 +1439,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_index_offset",ring_get_gl_index_offset);
 	ring_vm_funcregister("get_gl_red_scale",ring_get_gl_red_scale);
 	ring_vm_funcregister("get_gl_red_bias",ring_get_gl_red_bias);
+	ring_vm_funcregister("get_gl_zoom_x",ring_get_gl_zoom_x);
 }
