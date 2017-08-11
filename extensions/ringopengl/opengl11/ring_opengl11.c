@@ -945,6 +945,11 @@ RING_FUNC(ring_get_gl_rgba_mode)
 	RING_API_RETNUMBER(GL_RGBA_MODE);
 }
 
+RING_FUNC(ring_get_gl_doublebuffer)
+{
+	RING_API_RETNUMBER(GL_DOUBLEBUFFER);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1134,4 +1139,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_color_writemask",ring_get_gl_color_writemask);
 	ring_vm_funcregister("get_gl_index_mode",ring_get_gl_index_mode);
 	ring_vm_funcregister("get_gl_rgba_mode",ring_get_gl_rgba_mode);
+	ring_vm_funcregister("get_gl_doublebuffer",ring_get_gl_doublebuffer);
 }
