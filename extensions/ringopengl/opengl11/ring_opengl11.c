@@ -2840,6 +2840,20 @@ RING_FUNC(ring_glBlendFunc)
 	glBlendFunc( (GLenum )  (int) RING_API_GETNUMBER(1), (GLenum )  (int) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_glCallList)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glCallList( (GLuint ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -2850,6 +2864,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glbindtexture",ring_glBindTexture);
 	ring_vm_funcregister("glbitmap",ring_glBitmap);
 	ring_vm_funcregister("glblendfunc",ring_glBlendFunc);
+	ring_vm_funcregister("glcalllist",ring_glCallList);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
