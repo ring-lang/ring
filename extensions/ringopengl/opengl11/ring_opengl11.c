@@ -435,6 +435,11 @@ RING_FUNC(ring_get_gl_line_reset_token)
 	RING_API_RETNUMBER(GL_LINE_RESET_TOKEN);
 }
 
+RING_FUNC(ring_get_gl_exp)
+{
+	RING_API_RETNUMBER(GL_EXP);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -522,4 +527,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_draw_pixel_token",ring_get_gl_draw_pixel_token);
 	ring_vm_funcregister("get_gl_copy_pixel_token",ring_get_gl_copy_pixel_token);
 	ring_vm_funcregister("get_gl_line_reset_token",ring_get_gl_line_reset_token);
+	ring_vm_funcregister("get_gl_exp",ring_get_gl_exp);
 }
