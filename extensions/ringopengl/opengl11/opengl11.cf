@@ -440,5 +440,6 @@ GL_ENABLE_BIT
 GL_T
 GL_R
 GL_Q
+GL_MODULATE
 </constant>
 
