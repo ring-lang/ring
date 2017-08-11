@@ -683,3 +683,4 @@ void glFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLd
 GLuint glGenLists(GLsizei range)
 void glGenTextures(GLsizei n, GLuint *textures)
 void glGetBooleanv(GLenum pname, GLboolean *params)
+void glGetClipPlane(GLenum plane, GLdouble *equation)
