@@ -2615,6 +2615,11 @@ RING_FUNC(ring_get_gl_texture_coord_array_pointer)
 	RING_API_RETNUMBER(GL_TEXTURE_COORD_ARRAY_POINTER);
 }
 
+RING_FUNC(ring_get_gl_edge_flag_array_pointer)
+{
+	RING_API_RETNUMBER(GL_EDGE_FLAG_ARRAY_POINTER);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -3138,4 +3143,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_color_array_pointer",ring_get_gl_color_array_pointer);
 	ring_vm_funcregister("get_gl_index_array_pointer",ring_get_gl_index_array_pointer);
 	ring_vm_funcregister("get_gl_texture_coord_array_pointer",ring_get_gl_texture_coord_array_pointer);
+	ring_vm_funcregister("get_gl_edge_flag_array_pointer",ring_get_gl_edge_flag_array_pointer);
 }
