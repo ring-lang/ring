@@ -5690,6 +5690,20 @@ RING_FUNC(ring_glLoadName)
 	glLoadName( (GLuint ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glLogicOp)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glLogicOp( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5853,6 +5867,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glloadmatrixd",ring_glLoadMatrixd);
 	ring_vm_funcregister("glloadmatrixf",ring_glLoadMatrixf);
 	ring_vm_funcregister("glloadname",ring_glLoadName);
+	ring_vm_funcregister("gllogicop",ring_glLogicOp);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
