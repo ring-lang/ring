@@ -824,3 +824,4 @@ void glReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format
 void glRectd(GLdouble x1, GLdouble y1, GLdouble x2, GLdouble y2)
 void glRectdv(const GLdouble *v1, const GLdouble *v2)
 void glRectf(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2)
+void glRectfv(const GLfloat *v1, const GLfloat *v2)
