@@ -2115,6 +2115,11 @@ RING_FUNC(ring_get_gl_v2f)
 	RING_API_RETNUMBER(GL_V2F);
 }
 
+RING_FUNC(ring_get_gl_v3f)
+{
+	RING_API_RETNUMBER(GL_V3F);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2538,4 +2543,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_polygon_offset_line",ring_get_gl_polygon_offset_line);
 	ring_vm_funcregister("get_gl_r3_g3_b2",ring_get_gl_r3_g3_b2);
 	ring_vm_funcregister("get_gl_v2f",ring_get_gl_v2f);
+	ring_vm_funcregister("get_gl_v3f",ring_get_gl_v3f);
 }
