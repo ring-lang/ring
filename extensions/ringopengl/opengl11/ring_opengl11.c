@@ -590,6 +590,11 @@ RING_FUNC(ring_get_gl_max_list_nesting)
 	RING_API_RETNUMBER(GL_MAX_LIST_NESTING);
 }
 
+RING_FUNC(ring_get_gl_list_base)
+{
+	RING_API_RETNUMBER(GL_LIST_BASE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -708,4 +713,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_line_stipple_repeat",ring_get_gl_line_stipple_repeat);
 	ring_vm_funcregister("get_gl_list_mode",ring_get_gl_list_mode);
 	ring_vm_funcregister("get_gl_max_list_nesting",ring_get_gl_max_list_nesting);
+	ring_vm_funcregister("get_gl_list_base",ring_get_gl_list_base);
 }
