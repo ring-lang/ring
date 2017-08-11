@@ -1360,6 +1360,11 @@ RING_FUNC(ring_get_gl_accum_blue_bits)
 	RING_API_RETNUMBER(GL_ACCUM_BLUE_BITS);
 }
 
+RING_FUNC(ring_get_gl_accum_alpha_bits)
+{
+	RING_API_RETNUMBER(GL_ACCUM_ALPHA_BITS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1632,4 +1637,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_accum_red_bits",ring_get_gl_accum_red_bits);
 	ring_vm_funcregister("get_gl_accum_green_bits",ring_get_gl_accum_green_bits);
 	ring_vm_funcregister("get_gl_accum_blue_bits",ring_get_gl_accum_blue_bits);
+	ring_vm_funcregister("get_gl_accum_alpha_bits",ring_get_gl_accum_alpha_bits);
 }
