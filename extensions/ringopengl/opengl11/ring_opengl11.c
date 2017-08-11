@@ -755,6 +755,11 @@ RING_FUNC(ring_get_gl_stencil_func)
 	RING_API_RETNUMBER(GL_STENCIL_FUNC);
 }
 
+RING_FUNC(ring_get_gl_stencil_value_mask)
+{
+	RING_API_RETNUMBER(GL_STENCIL_VALUE_MASK);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -906,4 +911,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_stencil_test",ring_get_gl_stencil_test);
 	ring_vm_funcregister("get_gl_stencil_clear_value",ring_get_gl_stencil_clear_value);
 	ring_vm_funcregister("get_gl_stencil_func",ring_get_gl_stencil_func);
+	ring_vm_funcregister("get_gl_stencil_value_mask",ring_get_gl_stencil_value_mask);
 }
