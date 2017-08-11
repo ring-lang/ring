@@ -876,3 +876,4 @@ void glTexCoordPointer(GLint size, GLenum type, GLsizei stride, const void *poin
 void glTexEnvf(GLenum target, GLenum pname, GLfloat param)
 void glTexEnvfv(GLenum target, GLenum pname, const GLfloat *params)
 void glTexEnvi(GLenum target, GLenum pname, GLint param)
+void glTexEnviv(GLenum target, GLenum pname, const GLint *params)
