@@ -675,6 +675,11 @@ RING_FUNC(ring_get_gl_color_material)
 	RING_API_RETNUMBER(GL_COLOR_MATERIAL);
 }
 
+RING_FUNC(ring_get_gl_fog)
+{
+	RING_API_RETNUMBER(GL_FOG);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -810,4 +815,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_color_material_face",ring_get_gl_color_material_face);
 	ring_vm_funcregister("get_gl_color_material_parameter",ring_get_gl_color_material_parameter);
 	ring_vm_funcregister("get_gl_color_material",ring_get_gl_color_material);
+	ring_vm_funcregister("get_gl_fog",ring_get_gl_fog);
 }
