@@ -615,6 +615,11 @@ RING_FUNC(ring_get_gl_polygon_stipple)
 	RING_API_RETNUMBER(GL_POLYGON_STIPPLE);
 }
 
+RING_FUNC(ring_get_gl_edge_flag)
+{
+	RING_API_RETNUMBER(GL_EDGE_FLAG);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -738,4 +743,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_polygon_mode",ring_get_gl_polygon_mode);
 	ring_vm_funcregister("get_gl_polygon_smooth",ring_get_gl_polygon_smooth);
 	ring_vm_funcregister("get_gl_polygon_stipple",ring_get_gl_polygon_stipple);
+	ring_vm_funcregister("get_gl_edge_flag",ring_get_gl_edge_flag);
 }
