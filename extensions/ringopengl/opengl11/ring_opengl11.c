@@ -2085,6 +2085,11 @@ RING_FUNC(ring_get_gl_clamp)
 	RING_API_RETNUMBER(GL_CLAMP);
 }
 
+RING_FUNC(ring_get_gl_repeat)
+{
+	RING_API_RETNUMBER(GL_REPEAT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2502,4 +2507,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_texture_wrap_s",ring_get_gl_texture_wrap_s);
 	ring_vm_funcregister("get_gl_texture_wrap_t",ring_get_gl_texture_wrap_t);
 	ring_vm_funcregister("get_gl_clamp",ring_get_gl_clamp);
+	ring_vm_funcregister("get_gl_repeat",ring_get_gl_repeat);
 }
