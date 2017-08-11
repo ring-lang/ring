@@ -390,5 +390,6 @@ GL_NOOP
 GL_XOR
 GL_OR
 GL_NOR
+GL_EQUIV
 </constant>
 
