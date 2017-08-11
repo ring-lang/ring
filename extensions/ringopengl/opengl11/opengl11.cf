@@ -46,3 +46,7 @@ OpenGL 1.1 functions
 </comment>
 
 
+<constant>
+GL_ZERO
+</constant>
+
