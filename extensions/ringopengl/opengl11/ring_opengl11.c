@@ -895,6 +895,11 @@ RING_FUNC(ring_get_gl_aux_buffers)
 	RING_API_RETNUMBER(GL_AUX_BUFFERS);
 }
 
+RING_FUNC(ring_get_gl_draw_buffer)
+{
+	RING_API_RETNUMBER(GL_DRAW_BUFFER);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1074,4 +1079,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_index_logic_op",ring_get_gl_index_logic_op);
 	ring_vm_funcregister("get_gl_color_logic_op",ring_get_gl_color_logic_op);
 	ring_vm_funcregister("get_gl_aux_buffers",ring_get_gl_aux_buffers);
+	ring_vm_funcregister("get_gl_draw_buffer",ring_get_gl_draw_buffer);
 }
