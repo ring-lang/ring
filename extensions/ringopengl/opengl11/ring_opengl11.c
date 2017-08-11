@@ -1520,6 +1520,11 @@ RING_FUNC(ring_get_gl_selection_buffer_size)
 	RING_API_RETNUMBER(GL_SELECTION_BUFFER_SIZE);
 }
 
+RING_FUNC(ring_get_gl_texture_width)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_WIDTH);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1824,4 +1829,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_feedback_buffer_type",ring_get_gl_feedback_buffer_type);
 	ring_vm_funcregister("get_gl_selection_buffer_pointer",ring_get_gl_selection_buffer_pointer);
 	ring_vm_funcregister("get_gl_selection_buffer_size",ring_get_gl_selection_buffer_size);
+	ring_vm_funcregister("get_gl_texture_width",ring_get_gl_texture_width);
 }
