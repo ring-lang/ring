@@ -955,6 +955,11 @@ RING_FUNC(ring_get_gl_stereo)
 	RING_API_RETNUMBER(GL_STEREO);
 }
 
+RING_FUNC(ring_get_gl_render_mode)
+{
+	RING_API_RETNUMBER(GL_RENDER_MODE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1146,4 +1151,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_rgba_mode",ring_get_gl_rgba_mode);
 	ring_vm_funcregister("get_gl_doublebuffer",ring_get_gl_doublebuffer);
 	ring_vm_funcregister("get_gl_stereo",ring_get_gl_stereo);
+	ring_vm_funcregister("get_gl_render_mode",ring_get_gl_render_mode);
 }
