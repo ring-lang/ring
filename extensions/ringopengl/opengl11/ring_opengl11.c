@@ -1980,6 +1980,11 @@ RING_FUNC(ring_get_gl_modulate)
 	RING_API_RETNUMBER(GL_MODULATE);
 }
 
+RING_FUNC(ring_get_gl_decal)
+{
+	RING_API_RETNUMBER(GL_DECAL);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2376,4 +2381,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_r",ring_get_gl_r);
 	ring_vm_funcregister("get_gl_q",ring_get_gl_q);
 	ring_vm_funcregister("get_gl_modulate",ring_get_gl_modulate);
+	ring_vm_funcregister("get_gl_decal",ring_get_gl_decal);
 }
