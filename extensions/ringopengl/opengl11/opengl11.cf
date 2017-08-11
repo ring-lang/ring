@@ -389,5 +389,6 @@ GL_AND_INVERTED
 GL_NOOP
 GL_XOR
 GL_OR
+GL_NOR
 </constant>
 
