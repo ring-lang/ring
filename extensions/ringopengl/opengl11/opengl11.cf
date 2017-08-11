@@ -894,3 +894,4 @@ void glTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, G
 void glTranslated(GLdouble x, GLdouble y, GLdouble z)
 void glTranslatef(GLfloat x, GLfloat y, GLfloat z)
 void glVertex2d(GLdouble x, GLdouble y)
+void glVertex2dv(const GLdouble *v)
