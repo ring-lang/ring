@@ -80,5 +80,6 @@ GL_ACCUM
 GL_LOAD
 GL_RETURN
 GL_MULT
+GL_ADD
 </constant>
 
