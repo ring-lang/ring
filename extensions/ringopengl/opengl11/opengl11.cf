@@ -586,3 +586,4 @@ GL_CLIENT_ALL_ATTRIB_BITS
 void glAccum(GLenum op, GLfloat value)
 void glAlphaFunc(GLenum func, GLclampf ref)
 GLboolean glAreTexturesResident(GLsizei n, const GLuint *textures, GLboolean *residences)
+void glArrayElement(GLint i)
