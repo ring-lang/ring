@@ -1915,6 +1915,11 @@ RING_FUNC(ring_get_gl_keep)
 	RING_API_RETNUMBER(GL_KEEP);
 }
 
+RING_FUNC(ring_get_gl_replace)
+{
+	RING_API_RETNUMBER(GL_REPLACE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2298,4 +2303,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_flat",ring_get_gl_flat);
 	ring_vm_funcregister("get_gl_smooth",ring_get_gl_smooth);
 	ring_vm_funcregister("get_gl_keep",ring_get_gl_keep);
+	ring_vm_funcregister("get_gl_replace",ring_get_gl_replace);
 }
