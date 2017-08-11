@@ -370,6 +370,11 @@ RING_FUNC(ring_get_gl_out_of_memory)
 	RING_API_RETNUMBER(GL_OUT_OF_MEMORY);
 }
 
+RING_FUNC(ring_get_gl_2d)
+{
+	RING_API_RETNUMBER(GL_2D);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -444,4 +449,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_stack_overflow",ring_get_gl_stack_overflow);
 	ring_vm_funcregister("get_gl_stack_underflow",ring_get_gl_stack_underflow);
 	ring_vm_funcregister("get_gl_out_of_memory",ring_get_gl_out_of_memory);
+	ring_vm_funcregister("get_gl_2d",ring_get_gl_2d);
 }
