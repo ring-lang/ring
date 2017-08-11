@@ -350,6 +350,11 @@ RING_FUNC(ring_get_gl_invalid_value)
 	RING_API_RETNUMBER(GL_INVALID_VALUE);
 }
 
+RING_FUNC(ring_get_gl_invalid_operation)
+{
+	RING_API_RETNUMBER(GL_INVALID_OPERATION);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -420,4 +425,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_aux3",ring_get_gl_aux3);
 	ring_vm_funcregister("get_gl_invalid_enum",ring_get_gl_invalid_enum);
 	ring_vm_funcregister("get_gl_invalid_value",ring_get_gl_invalid_value);
+	ring_vm_funcregister("get_gl_invalid_operation",ring_get_gl_invalid_operation);
 }
