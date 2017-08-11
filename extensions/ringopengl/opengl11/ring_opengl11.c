@@ -145,6 +145,11 @@ RING_FUNC(ring_get_gl_lighting_bit)
 	RING_API_RETNUMBER(GL_LIGHTING_BIT);
 }
 
+RING_FUNC(ring_get_gl_fog_bit)
+{
+	RING_API_RETNUMBER(GL_FOG_BIT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -174,4 +179,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_polygon_stipple_bit",ring_get_gl_polygon_stipple_bit);
 	ring_vm_funcregister("get_gl_pixel_mode_bit",ring_get_gl_pixel_mode_bit);
 	ring_vm_funcregister("get_gl_lighting_bit",ring_get_gl_lighting_bit);
+	ring_vm_funcregister("get_gl_fog_bit",ring_get_gl_fog_bit);
 }
