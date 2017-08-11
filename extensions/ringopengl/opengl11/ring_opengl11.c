@@ -545,6 +545,11 @@ RING_FUNC(ring_get_gl_point_size_granularity)
 	RING_API_RETNUMBER(GL_POINT_SIZE_GRANULARITY);
 }
 
+RING_FUNC(ring_get_gl_line_smooth)
+{
+	RING_API_RETNUMBER(GL_LINE_SMOOTH);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -654,4 +659,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_point_size",ring_get_gl_point_size);
 	ring_vm_funcregister("get_gl_point_size_range",ring_get_gl_point_size_range);
 	ring_vm_funcregister("get_gl_point_size_granularity",ring_get_gl_point_size_granularity);
+	ring_vm_funcregister("get_gl_line_smooth",ring_get_gl_line_smooth);
 }
