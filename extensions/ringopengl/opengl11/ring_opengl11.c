@@ -135,6 +135,11 @@ RING_FUNC(ring_get_gl_polygon_stipple_bit)
 	RING_API_RETNUMBER(GL_POLYGON_STIPPLE_BIT);
 }
 
+RING_FUNC(ring_get_gl_pixel_mode_bit)
+{
+	RING_API_RETNUMBER(GL_PIXEL_MODE_BIT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -162,4 +167,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_polygon_bit",ring_get_gl_polygon_bit);
 	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
 	ring_vm_funcregister("get_gl_polygon_stipple_bit",ring_get_gl_polygon_stipple_bit);
+	ring_vm_funcregister("get_gl_pixel_mode_bit",ring_get_gl_pixel_mode_bit);
 }
