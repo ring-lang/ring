@@ -2010,6 +2010,11 @@ RING_FUNC(ring_get_gl_object_linear)
 	RING_API_RETNUMBER(GL_OBJECT_LINEAR);
 }
 
+RING_FUNC(ring_get_gl_sphere_map)
+{
+	RING_API_RETNUMBER(GL_SPHERE_MAP);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2412,4 +2417,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_texture_env",ring_get_gl_texture_env);
 	ring_vm_funcregister("get_gl_eye_linear",ring_get_gl_eye_linear);
 	ring_vm_funcregister("get_gl_object_linear",ring_get_gl_object_linear);
+	ring_vm_funcregister("get_gl_sphere_map",ring_get_gl_sphere_map);
 }
