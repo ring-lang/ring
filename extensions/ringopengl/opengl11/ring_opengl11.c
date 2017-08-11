@@ -1575,6 +1575,11 @@ RING_FUNC(ring_get_gl_diffuse)
 	RING_API_RETNUMBER(GL_DIFFUSE);
 }
 
+RING_FUNC(ring_get_gl_specular)
+{
+	RING_API_RETNUMBER(GL_SPECULAR);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1890,4 +1895,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_nicest",ring_get_gl_nicest);
 	ring_vm_funcregister("get_gl_ambient",ring_get_gl_ambient);
 	ring_vm_funcregister("get_gl_diffuse",ring_get_gl_diffuse);
+	ring_vm_funcregister("get_gl_specular",ring_get_gl_specular);
 }
