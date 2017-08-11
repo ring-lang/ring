@@ -5358,6 +5358,16 @@ RING_FUNC(ring_glIndexubv)
 	glIndexubv((GLubyte *) RING_API_GETCPOINTER(1,"GLubyte"));
 }
 
+
+RING_FUNC(ring_glInitNames)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glInitNames();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -5501,6 +5511,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glindexsv",ring_glIndexsv);
 	ring_vm_funcregister("glindexub",ring_glIndexub);
 	ring_vm_funcregister("glindexubv",ring_glIndexubv);
+	ring_vm_funcregister("glinitnames",ring_glInitNames);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
