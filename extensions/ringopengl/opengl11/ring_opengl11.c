@@ -6664,6 +6664,20 @@ RING_FUNC(ring_glPrioritizeTextures)
 	glPrioritizeTextures( (GLsizei )  (int) RING_API_GETNUMBER(1),(GLuint *) RING_API_GETCPOINTER(2,"GLuint"),(GLclampf *) RING_API_GETCPOINTER(3,"GLclampf"));
 }
 
+
+RING_FUNC(ring_glPushAttrib)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glPushAttrib( (GLbitfield )  (int) RING_API_GETNUMBER(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -6874,6 +6888,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glpopmatrix",ring_glPopMatrix);
 	ring_vm_funcregister("glpopname",ring_glPopName);
 	ring_vm_funcregister("glprioritizetextures",ring_glPrioritizeTextures);
+	ring_vm_funcregister("glpushattrib",ring_glPushAttrib);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
