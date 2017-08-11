@@ -380,6 +380,11 @@ RING_FUNC(ring_get_gl_3d)
 	RING_API_RETNUMBER(GL_3D);
 }
 
+RING_FUNC(ring_get_gl_3d_color)
+{
+	RING_API_RETNUMBER(GL_3D_COLOR);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -456,4 +461,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_out_of_memory",ring_get_gl_out_of_memory);
 	ring_vm_funcregister("get_gl_2d",ring_get_gl_2d);
 	ring_vm_funcregister("get_gl_3d",ring_get_gl_3d);
+	ring_vm_funcregister("get_gl_3d_color",ring_get_gl_3d_color);
 }
