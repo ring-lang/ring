@@ -2045,6 +2045,11 @@ RING_FUNC(ring_get_gl_nearest_mipmap_nearest)
 	RING_API_RETNUMBER(GL_NEAREST_MIPMAP_NEAREST);
 }
 
+RING_FUNC(ring_get_gl_linear_mipmap_nearest)
+{
+	RING_API_RETNUMBER(GL_LINEAR_MIPMAP_NEAREST);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2454,4 +2459,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_nearest",ring_get_gl_nearest);
 	ring_vm_funcregister("get_gl_linear",ring_get_gl_linear);
 	ring_vm_funcregister("get_gl_nearest_mipmap_nearest",ring_get_gl_nearest_mipmap_nearest);
+	ring_vm_funcregister("get_gl_linear_mipmap_nearest",ring_get_gl_linear_mipmap_nearest);
 }
