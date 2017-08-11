@@ -1585,6 +1585,11 @@ RING_FUNC(ring_get_gl_position)
 	RING_API_RETNUMBER(GL_POSITION);
 }
 
+RING_FUNC(ring_get_gl_spot_direction)
+{
+	RING_API_RETNUMBER(GL_SPOT_DIRECTION);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1902,4 +1907,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_diffuse",ring_get_gl_diffuse);
 	ring_vm_funcregister("get_gl_specular",ring_get_gl_specular);
 	ring_vm_funcregister("get_gl_position",ring_get_gl_position);
+	ring_vm_funcregister("get_gl_spot_direction",ring_get_gl_spot_direction);
 }
