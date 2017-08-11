@@ -2485,6 +2485,11 @@ RING_FUNC(ring_get_gl_texture_binding_1d)
 	RING_API_RETNUMBER(GL_TEXTURE_BINDING_1D);
 }
 
+RING_FUNC(ring_get_gl_texture_binding_2d)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BINDING_2D);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2982,4 +2987,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_texture_priority",ring_get_gl_texture_priority);
 	ring_vm_funcregister("get_gl_texture_resident",ring_get_gl_texture_resident);
 	ring_vm_funcregister("get_gl_texture_binding_1d",ring_get_gl_texture_binding_1d);
+	ring_vm_funcregister("get_gl_texture_binding_2d",ring_get_gl_texture_binding_2d);
 }
