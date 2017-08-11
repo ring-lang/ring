@@ -1770,6 +1770,11 @@ RING_FUNC(ring_get_gl_shininess)
 	RING_API_RETNUMBER(GL_SHININESS);
 }
 
+RING_FUNC(ring_get_gl_ambient_and_diffuse)
+{
+	RING_API_RETNUMBER(GL_AMBIENT_AND_DIFFUSE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2124,4 +2129,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_set",ring_get_gl_set);
 	ring_vm_funcregister("get_gl_emission",ring_get_gl_emission);
 	ring_vm_funcregister("get_gl_shininess",ring_get_gl_shininess);
+	ring_vm_funcregister("get_gl_ambient_and_diffuse",ring_get_gl_ambient_and_diffuse);
 }
