@@ -1930,6 +1930,11 @@ RING_FUNC(ring_get_gl_decr)
 	RING_API_RETNUMBER(GL_DECR);
 }
 
+RING_FUNC(ring_get_gl_vendor)
+{
+	RING_API_RETNUMBER(GL_VENDOR);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2316,4 +2321,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_replace",ring_get_gl_replace);
 	ring_vm_funcregister("get_gl_incr",ring_get_gl_incr);
 	ring_vm_funcregister("get_gl_decr",ring_get_gl_decr);
+	ring_vm_funcregister("get_gl_vendor",ring_get_gl_vendor);
 }
