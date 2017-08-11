@@ -660,6 +660,11 @@ RING_FUNC(ring_get_gl_shade_model)
 	RING_API_RETNUMBER(GL_SHADE_MODEL);
 }
 
+RING_FUNC(ring_get_gl_color_material_face)
+{
+	RING_API_RETNUMBER(GL_COLOR_MATERIAL_FACE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -792,4 +797,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_light_model_two_side",ring_get_gl_light_model_two_side);
 	ring_vm_funcregister("get_gl_light_model_ambient",ring_get_gl_light_model_ambient);
 	ring_vm_funcregister("get_gl_shade_model",ring_get_gl_shade_model);
+	ring_vm_funcregister("get_gl_color_material_face",ring_get_gl_color_material_face);
 }
