@@ -220,6 +220,11 @@ RING_FUNC(ring_get_gl_gequal)
 	RING_API_RETNUMBER(GL_GEQUAL);
 }
 
+RING_FUNC(ring_get_gl_always)
+{
+	RING_API_RETNUMBER(GL_ALWAYS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -264,4 +269,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_greater",ring_get_gl_greater);
 	ring_vm_funcregister("get_gl_notequal",ring_get_gl_notequal);
 	ring_vm_funcregister("get_gl_gequal",ring_get_gl_gequal);
+	ring_vm_funcregister("get_gl_always",ring_get_gl_always);
 }
