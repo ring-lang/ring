@@ -81,5 +81,6 @@ GL_LOAD
 GL_RETURN
 GL_MULT
 GL_ADD
+GL_NEVER
 </constant>
 
