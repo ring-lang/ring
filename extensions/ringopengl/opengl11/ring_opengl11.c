@@ -2650,6 +2650,11 @@ RING_FUNC(ring_get_gl_color_index16_ext)
 	RING_API_RETNUMBER(GL_COLOR_INDEX16_EXT);
 }
 
+RING_FUNC(ring_get_gl_eval_bit)
+{
+	RING_API_RETNUMBER(GL_EVAL_BIT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -3180,4 +3185,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_color_index8_ext",ring_get_gl_color_index8_ext);
 	ring_vm_funcregister("get_gl_color_index12_ext",ring_get_gl_color_index12_ext);
 	ring_vm_funcregister("get_gl_color_index16_ext",ring_get_gl_color_index16_ext);
+	ring_vm_funcregister("get_gl_eval_bit",ring_get_gl_eval_bit);
 }
