@@ -2675,6 +2675,11 @@ RING_FUNC(ring_get_gl_all_attrib_bits)
 	RING_API_RETNUMBER(GL_ALL_ATTRIB_BITS);
 }
 
+RING_FUNC(ring_get_gl_client_all_attrib_bits)
+{
+	RING_API_RETNUMBER(GL_CLIENT_ALL_ATTRIB_BITS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -3210,4 +3215,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_texture_bit",ring_get_gl_texture_bit);
 	ring_vm_funcregister("get_gl_scissor_bit",ring_get_gl_scissor_bit);
 	ring_vm_funcregister("get_gl_all_attrib_bits",ring_get_gl_all_attrib_bits);
+	ring_vm_funcregister("get_gl_client_all_attrib_bits",ring_get_gl_client_all_attrib_bits);
 }
