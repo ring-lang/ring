@@ -888,3 +888,4 @@ void glTexImage2D(GLenum target, GLint level, GLint internalformat, GLsizei widt
 void glTexParameterf(GLenum target, GLenum pname, GLfloat param)
 void glTexParameterfv(GLenum target, GLenum pname, const GLfloat *params)
 void glTexParameteri(GLenum target, GLenum pname, GLint param)
+void glTexParameteriv(GLenum target, GLenum pname, const GLint *params)
