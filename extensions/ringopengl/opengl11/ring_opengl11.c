@@ -765,6 +765,11 @@ RING_FUNC(ring_get_gl_stencil_fail)
 	RING_API_RETNUMBER(GL_STENCIL_FAIL);
 }
 
+RING_FUNC(ring_get_gl_stencil_pass_depth_fail)
+{
+	RING_API_RETNUMBER(GL_STENCIL_PASS_DEPTH_FAIL);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -918,4 +923,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_stencil_func",ring_get_gl_stencil_func);
 	ring_vm_funcregister("get_gl_stencil_value_mask",ring_get_gl_stencil_value_mask);
 	ring_vm_funcregister("get_gl_stencil_fail",ring_get_gl_stencil_fail);
+	ring_vm_funcregister("get_gl_stencil_pass_depth_fail",ring_get_gl_stencil_pass_depth_fail);
 }
