@@ -405,6 +405,11 @@ RING_FUNC(ring_get_gl_point_token)
 	RING_API_RETNUMBER(GL_POINT_TOKEN);
 }
 
+RING_FUNC(ring_get_gl_line_token)
+{
+	RING_API_RETNUMBER(GL_LINE_TOKEN);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -486,4 +491,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_4d_color_texture",ring_get_gl_4d_color_texture);
 	ring_vm_funcregister("get_gl_pass_through_token",ring_get_gl_pass_through_token);
 	ring_vm_funcregister("get_gl_point_token",ring_get_gl_point_token);
+	ring_vm_funcregister("get_gl_line_token",ring_get_gl_line_token);
 }
