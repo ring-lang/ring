@@ -346,9 +346,9 @@ any Ring statement.
 Why you can specify the number of loops you want to break out of?
 =================================================================
 
-The language support programming in the small and programming in the large. The selection
+The language supports programming in the small and programming in the large. The selection
 of what features to use is based on what are you going to do. Any programmer can write 
-bad code in any language if he/she wants to do that. The idea is what must be done from 
+poorly code in any language if he/she wants to do that. The idea is what must be done in 
 the language design to prevent errors without causing other problems like killing flexibility.
 
 Read some source code in the Linux Kernel and Ruby Implementation for example, You will find good
