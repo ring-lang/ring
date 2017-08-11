@@ -2065,6 +2065,11 @@ RING_FUNC(ring_get_gl_texture_mag_filter)
 	RING_API_RETNUMBER(GL_TEXTURE_MAG_FILTER);
 }
 
+RING_FUNC(ring_get_gl_texture_min_filter)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_MIN_FILTER);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2478,4 +2483,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_nearest_mipmap_linear",ring_get_gl_nearest_mipmap_linear);
 	ring_vm_funcregister("get_gl_linear_mipmap_linear",ring_get_gl_linear_mipmap_linear);
 	ring_vm_funcregister("get_gl_texture_mag_filter",ring_get_gl_texture_mag_filter);
+	ring_vm_funcregister("get_gl_texture_min_filter",ring_get_gl_texture_min_filter);
 }
