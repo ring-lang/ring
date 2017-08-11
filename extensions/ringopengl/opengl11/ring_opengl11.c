@@ -1605,6 +1605,11 @@ RING_FUNC(ring_get_gl_constant_attenuation)
 	RING_API_RETNUMBER(GL_CONSTANT_ATTENUATION);
 }
 
+RING_FUNC(ring_get_gl_linear_attenuation)
+{
+	RING_API_RETNUMBER(GL_LINEAR_ATTENUATION);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1926,4 +1931,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_spot_exponent",ring_get_gl_spot_exponent);
 	ring_vm_funcregister("get_gl_spot_cutoff",ring_get_gl_spot_cutoff);
 	ring_vm_funcregister("get_gl_constant_attenuation",ring_get_gl_constant_attenuation);
+	ring_vm_funcregister("get_gl_linear_attenuation",ring_get_gl_linear_attenuation);
 }
