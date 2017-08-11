@@ -60,6 +60,11 @@ RING_FUNC(ring_get_gl_one)
 	RING_API_RETNUMBER(GL_ONE);
 }
 
+RING_FUNC(ring_get_gl_client_pixel_store_bit)
+{
+	RING_API_RETNUMBER(GL_CLIENT_PIXEL_STORE_BIT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -72,4 +77,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_current_bit",ring_get_gl_current_bit);
 	ring_vm_funcregister("get_gl_true",ring_get_gl_true);
 	ring_vm_funcregister("get_gl_one",ring_get_gl_one);
+	ring_vm_funcregister("get_gl_client_pixel_store_bit",ring_get_gl_client_pixel_store_bit);
 }
