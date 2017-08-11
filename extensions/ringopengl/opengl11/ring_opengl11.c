@@ -6798,6 +6798,20 @@ RING_FUNC(ring_glRasterPos2i)
 	glRasterPos2i( (GLint ) RING_API_GETNUMBER(1), (GLint ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_glRasterPos2iv)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glRasterPos2iv((GLint *) RING_API_GETCPOINTER(1,"GLint"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -7017,6 +7031,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glrasterpos2f",ring_glRasterPos2f);
 	ring_vm_funcregister("glrasterpos2fv",ring_glRasterPos2fv);
 	ring_vm_funcregister("glrasterpos2i",ring_glRasterPos2i);
+	ring_vm_funcregister("glrasterpos2iv",ring_glRasterPos2iv);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
