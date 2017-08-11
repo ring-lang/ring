@@ -2170,6 +2170,11 @@ RING_FUNC(ring_get_gl_t2f_n3f_v3f)
 	RING_API_RETNUMBER(GL_T2F_N3F_V3F);
 }
 
+RING_FUNC(ring_get_gl_t2f_c4f_n3f_v3f)
+{
+	RING_API_RETNUMBER(GL_T2F_C4F_N3F_V3F);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2604,4 +2609,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_t2f_c4ub_v3f",ring_get_gl_t2f_c4ub_v3f);
 	ring_vm_funcregister("get_gl_t2f_c3f_v3f",ring_get_gl_t2f_c3f_v3f);
 	ring_vm_funcregister("get_gl_t2f_n3f_v3f",ring_get_gl_t2f_n3f_v3f);
+	ring_vm_funcregister("get_gl_t2f_c4f_n3f_v3f",ring_get_gl_t2f_c4f_n3f_v3f);
 }
