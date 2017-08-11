@@ -4096,6 +4096,24 @@ RING_FUNC(ring_glEdgeFlag)
 	glEdgeFlag( (GLboolean ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glEdgeFlagPointer)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glEdgeFlagPointer( (GLsizei )  (int) RING_API_GETNUMBER(1),(void *) RING_API_GETCPOINTER(2,"void"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4168,6 +4186,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gldrawelements",ring_glDrawElements);
 	ring_vm_funcregister("gldrawpixels",ring_glDrawPixels);
 	ring_vm_funcregister("gledgeflag",ring_glEdgeFlag);
+	ring_vm_funcregister("gledgeflagpointer",ring_glEdgeFlagPointer);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
