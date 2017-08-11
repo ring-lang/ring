@@ -15,5 +15,15 @@ List of changes and new features
 
 Ring 1.5 comes with many new features!
 
-
+* Ring VM - Tracing Functions 
+* RingFreeGLUT Extension
+* RingOpenGL Extension
+* Better Ring Notepad
+* Better StdLib
+* Better RingQt
+* Better Objects Library
+* Video-Music-Player Application
+* Windows StartUp Manager Application
+* Calculator Application
+* Better Quality
 
