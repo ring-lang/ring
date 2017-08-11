@@ -654,3 +654,4 @@ void glDrawElements(GLenum mode, GLsizei count, GLenum type, const void *indices
 void glDrawPixels(GLsizei width, GLsizei height, GLenum format, GLenum type, const void *pixels)
 void glEdgeFlag(GLboolean flag)
 void glEdgeFlagPointer(GLsizei stride, const void *pointer)
+void glEdgeFlagv(const GLboolean *flag)
