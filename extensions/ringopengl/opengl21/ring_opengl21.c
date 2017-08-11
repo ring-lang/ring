@@ -4225,6 +4225,121 @@ RING_FUNC(ring_get_gl_stencil_back_writemask)
 	RING_API_RETNUMBER(GL_STENCIL_BACK_WRITEMASK);
 }
 
+RING_FUNC(ring_get_gl_current_raster_secondary_color)
+{
+	RING_API_RETNUMBER(GL_CURRENT_RASTER_SECONDARY_COLOR);
+}
+
+RING_FUNC(ring_get_gl_pixel_pack_buffer)
+{
+	RING_API_RETNUMBER(GL_PIXEL_PACK_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_pixel_unpack_buffer)
+{
+	RING_API_RETNUMBER(GL_PIXEL_UNPACK_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_pixel_pack_buffer_binding)
+{
+	RING_API_RETNUMBER(GL_PIXEL_PACK_BUFFER_BINDING);
+}
+
+RING_FUNC(ring_get_gl_pixel_unpack_buffer_binding)
+{
+	RING_API_RETNUMBER(GL_PIXEL_UNPACK_BUFFER_BINDING);
+}
+
+RING_FUNC(ring_get_gl_float_mat2x3)
+{
+	RING_API_RETNUMBER(GL_FLOAT_MAT2x3);
+}
+
+RING_FUNC(ring_get_gl_float_mat2x4)
+{
+	RING_API_RETNUMBER(GL_FLOAT_MAT2x4);
+}
+
+RING_FUNC(ring_get_gl_float_mat3x2)
+{
+	RING_API_RETNUMBER(GL_FLOAT_MAT3x2);
+}
+
+RING_FUNC(ring_get_gl_float_mat3x4)
+{
+	RING_API_RETNUMBER(GL_FLOAT_MAT3x4);
+}
+
+RING_FUNC(ring_get_gl_float_mat4x2)
+{
+	RING_API_RETNUMBER(GL_FLOAT_MAT4x2);
+}
+
+RING_FUNC(ring_get_gl_float_mat4x3)
+{
+	RING_API_RETNUMBER(GL_FLOAT_MAT4x3);
+}
+
+RING_FUNC(ring_get_gl_srgb)
+{
+	RING_API_RETNUMBER(GL_SRGB);
+}
+
+RING_FUNC(ring_get_gl_srgb8)
+{
+	RING_API_RETNUMBER(GL_SRGB8);
+}
+
+RING_FUNC(ring_get_gl_srgb_alpha)
+{
+	RING_API_RETNUMBER(GL_SRGB_ALPHA);
+}
+
+RING_FUNC(ring_get_gl_srgb8_alpha8)
+{
+	RING_API_RETNUMBER(GL_SRGB8_ALPHA8);
+}
+
+RING_FUNC(ring_get_gl_sluminance_alpha)
+{
+	RING_API_RETNUMBER(GL_SLUMINANCE_ALPHA);
+}
+
+RING_FUNC(ring_get_gl_sluminance8_alpha8)
+{
+	RING_API_RETNUMBER(GL_SLUMINANCE8_ALPHA8);
+}
+
+RING_FUNC(ring_get_gl_sluminance)
+{
+	RING_API_RETNUMBER(GL_SLUMINANCE);
+}
+
+RING_FUNC(ring_get_gl_sluminance8)
+{
+	RING_API_RETNUMBER(GL_SLUMINANCE8);
+}
+
+RING_FUNC(ring_get_gl_compressed_srgb)
+{
+	RING_API_RETNUMBER(GL_COMPRESSED_SRGB);
+}
+
+RING_FUNC(ring_get_gl_compressed_srgb_alpha)
+{
+	RING_API_RETNUMBER(GL_COMPRESSED_SRGB_ALPHA);
+}
+
+RING_FUNC(ring_get_gl_compressed_sluminance)
+{
+	RING_API_RETNUMBER(GL_COMPRESSED_SLUMINANCE);
+}
+
+RING_FUNC(ring_get_gl_compressed_sluminance_alpha)
+{
+	RING_API_RETNUMBER(GL_COMPRESSED_SLUMINANCE_ALPHA);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -17827,4 +17942,27 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_stencil_back_ref",ring_get_gl_stencil_back_ref);
 	ring_vm_funcregister("get_gl_stencil_back_value_mask",ring_get_gl_stencil_back_value_mask);
 	ring_vm_funcregister("get_gl_stencil_back_writemask",ring_get_gl_stencil_back_writemask);
+	ring_vm_funcregister("get_gl_current_raster_secondary_color",ring_get_gl_current_raster_secondary_color);
+	ring_vm_funcregister("get_gl_pixel_pack_buffer",ring_get_gl_pixel_pack_buffer);
+	ring_vm_funcregister("get_gl_pixel_unpack_buffer",ring_get_gl_pixel_unpack_buffer);
+	ring_vm_funcregister("get_gl_pixel_pack_buffer_binding",ring_get_gl_pixel_pack_buffer_binding);
+	ring_vm_funcregister("get_gl_pixel_unpack_buffer_binding",ring_get_gl_pixel_unpack_buffer_binding);
+	ring_vm_funcregister("get_gl_float_mat2x3",ring_get_gl_float_mat2x3);
+	ring_vm_funcregister("get_gl_float_mat2x4",ring_get_gl_float_mat2x4);
+	ring_vm_funcregister("get_gl_float_mat3x2",ring_get_gl_float_mat3x2);
+	ring_vm_funcregister("get_gl_float_mat3x4",ring_get_gl_float_mat3x4);
+	ring_vm_funcregister("get_gl_float_mat4x2",ring_get_gl_float_mat4x2);
+	ring_vm_funcregister("get_gl_float_mat4x3",ring_get_gl_float_mat4x3);
+	ring_vm_funcregister("get_gl_srgb",ring_get_gl_srgb);
+	ring_vm_funcregister("get_gl_srgb8",ring_get_gl_srgb8);
+	ring_vm_funcregister("get_gl_srgb_alpha",ring_get_gl_srgb_alpha);
+	ring_vm_funcregister("get_gl_srgb8_alpha8",ring_get_gl_srgb8_alpha8);
+	ring_vm_funcregister("get_gl_sluminance_alpha",ring_get_gl_sluminance_alpha);
+	ring_vm_funcregister("get_gl_sluminance8_alpha8",ring_get_gl_sluminance8_alpha8);
+	ring_vm_funcregister("get_gl_sluminance",ring_get_gl_sluminance);
+	ring_vm_funcregister("get_gl_sluminance8",ring_get_gl_sluminance8);
+	ring_vm_funcregister("get_gl_compressed_srgb",ring_get_gl_compressed_srgb);
+	ring_vm_funcregister("get_gl_compressed_srgb_alpha",ring_get_gl_compressed_srgb_alpha);
+	ring_vm_funcregister("get_gl_compressed_sluminance",ring_get_gl_compressed_sluminance);
+	ring_vm_funcregister("get_gl_compressed_sluminance_alpha",ring_get_gl_compressed_sluminance_alpha);
 }
