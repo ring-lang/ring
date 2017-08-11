@@ -125,6 +125,11 @@ RING_FUNC(ring_get_gl_polygon_bit)
 	RING_API_RETNUMBER(GL_POLYGON_BIT);
 }
 
+RING_FUNC(ring_get_gl_polygon)
+{
+	RING_API_RETNUMBER(GL_POLYGON);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -150,4 +155,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_quads",ring_get_gl_quads);
 	ring_vm_funcregister("get_gl_quad_strip",ring_get_gl_quad_strip);
 	ring_vm_funcregister("get_gl_polygon_bit",ring_get_gl_polygon_bit);
+	ring_vm_funcregister("get_gl_polygon",ring_get_gl_polygon);
 }
