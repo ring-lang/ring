@@ -752,3 +752,4 @@ void glMap2f(GLenum target, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder,
 void glMapGrid1d(GLint un, GLdouble u1, GLdouble u2)
 void glMapGrid1f(GLint un, GLfloat u1, GLfloat u2)
 void glMapGrid2d(GLint un, GLdouble u1, GLdouble u2, GLint vn, GLdouble v1, GLdouble v2)
+void glMapGrid2f(GLint un, GLfloat u1, GLfloat u2, GLint vn, GLfloat v1, GLfloat v2)
