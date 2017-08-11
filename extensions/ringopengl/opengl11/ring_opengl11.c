@@ -925,6 +925,11 @@ RING_FUNC(ring_get_gl_index_writemask)
 	RING_API_RETNUMBER(GL_INDEX_WRITEMASK);
 }
 
+RING_FUNC(ring_get_gl_color_clear_value)
+{
+	RING_API_RETNUMBER(GL_COLOR_CLEAR_VALUE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1110,4 +1115,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_scissor_test",ring_get_gl_scissor_test);
 	ring_vm_funcregister("get_gl_index_clear_value",ring_get_gl_index_clear_value);
 	ring_vm_funcregister("get_gl_index_writemask",ring_get_gl_index_writemask);
+	ring_vm_funcregister("get_gl_color_clear_value",ring_get_gl_color_clear_value);
 }
