@@ -4628,6 +4628,16 @@ RING_FUNC(ring_glGetDoublev)
 	glGetDoublev( (GLenum )  (int) RING_API_GETNUMBER(1),(GLdouble *) RING_API_GETCPOINTER(2,"GLdouble"));
 }
 
+
+RING_FUNC(ring_glGetError)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(glGetError());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -4732,6 +4742,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glgetbooleanv",ring_glGetBooleanv);
 	ring_vm_funcregister("glgetclipplane",ring_glGetClipPlane);
 	ring_vm_funcregister("glgetdoublev",ring_glGetDoublev);
+	ring_vm_funcregister("glgeterror",ring_glGetError);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
