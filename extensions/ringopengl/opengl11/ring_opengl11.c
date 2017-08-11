@@ -2385,6 +2385,11 @@ RING_FUNC(ring_get_gl_rgb10)
 	RING_API_RETNUMBER(GL_RGB10);
 }
 
+RING_FUNC(ring_get_gl_rgb12)
+{
+	RING_API_RETNUMBER(GL_RGB12);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2862,4 +2867,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_rgb5",ring_get_gl_rgb5);
 	ring_vm_funcregister("get_gl_rgb8",ring_get_gl_rgb8);
 	ring_vm_funcregister("get_gl_rgb10",ring_get_gl_rgb10);
+	ring_vm_funcregister("get_gl_rgb12",ring_get_gl_rgb12);
 }
