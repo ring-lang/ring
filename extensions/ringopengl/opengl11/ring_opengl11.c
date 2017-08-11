@@ -1160,6 +1160,11 @@ RING_FUNC(ring_get_gl_pack_skip_pixels)
 	RING_API_RETNUMBER(GL_PACK_SKIP_PIXELS);
 }
 
+RING_FUNC(ring_get_gl_pack_alignment)
+{
+	RING_API_RETNUMBER(GL_PACK_ALIGNMENT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1392,4 +1397,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_pack_row_length",ring_get_gl_pack_row_length);
 	ring_vm_funcregister("get_gl_pack_skip_rows",ring_get_gl_pack_skip_rows);
 	ring_vm_funcregister("get_gl_pack_skip_pixels",ring_get_gl_pack_skip_pixels);
+	ring_vm_funcregister("get_gl_pack_alignment",ring_get_gl_pack_alignment);
 }
