@@ -31,265 +31,6 @@ int nGLUTEventValue ;
 int nGLUTEventStatus ;
 List *pMenuFunctions;
 
-
-RING_FUNC(ring_glutInit)
-{
-	VM *pVM ;
-	if ( RING_API_PARACOUNT != 0 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	pVM = (VM *) pPointer ;
-	glutInit( & pVM->pRingState->argc, pVM->pRingState->argv);
-}
-
-void displayFunction(void)
-{
-	ring_vm_callfunction(pRingVMObject,cDisplayFunction) ;
-}
-
-RING_FUNC(ring_glutDisplayFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cDisplayFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutDisplayFunc(displayFunction);
-	}
-}
-
-void reshapeFunction(int w, int h)
-{
-	nGLUTEventWidth = w;
-	nGLUTEventHeight = h ;
-	ring_vm_callfunction(pRingVMObject,cReshapeFunction) ;
-}
-
-RING_FUNC(ring_glutReshapeFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cReshapeFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutReshapeFunc(reshapeFunction);
-	}
-}
-
-RING_FUNC(ring_glutEventWidth)
-{
-	RING_API_RETNUMBER(nGLUTEventWidth);
-}
-
-RING_FUNC(ring_glutEventHeight)
-{
-	RING_API_RETNUMBER(nGLUTEventHeight);
-}
-
-void IdleFunction(void)
-{
-	ring_vm_callfunction(pRingVMObject,cIdleFunction) ;
-}
-
-RING_FUNC(ring_glutIdleFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cIdleFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutIdleFunc(IdleFunction);
-	}
-}
-
-void KeyboardFunction(unsigned char key, int x, int y)
-{
-	nGLUTEventKey = (int) key ;
-	nGLUTEventX = x ;
-	nGLUTEventY = y ;
-	ring_vm_callfunction(pRingVMObject,cKeyboardFunction) ;
-}
-
-RING_FUNC(ring_glutKeyboardFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cKeyboardFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutKeyboardFunc(KeyboardFunction);
-	}
-}
-
-void SpecialFunction(int key, int x, int y)
-{
-	nGLUTEventKey = key ;
-	nGLUTEventX = x ;
-	nGLUTEventY = y ;
-	ring_vm_callfunction(pRingVMObject,cSpecialFunction) ;
-}
-
-RING_FUNC(ring_glutSpecialFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cSpecialFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutSpecialFunc(SpecialFunction);
-	}
-}
-
-void SpecialUpFunction(int key, int x, int y)
-{
-	nGLUTEventKey = key ;
-	nGLUTEventX = x ;
-	nGLUTEventY = y ;
-	ring_vm_callfunction(pRingVMObject,cSpecialUpFunction) ;
-}
-
-RING_FUNC(ring_glutSpecialUpFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cSpecialUpFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutSpecialUpFunc(SpecialUpFunction);
-	}
-}
-
-void MouseFunction(int button,int state, int x, int y)
-{
-	nGLUTEventButton = button ;
-	nGLUTEventState = state ;
-	nGLUTEventX = x ;
-	nGLUTEventY = y ;
-	ring_vm_callfunction(pRingVMObject,cMouseFunction) ;
-}
-
-RING_FUNC(ring_glutMouseFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cMouseFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutMouseFunc(MouseFunction);
-	}
-}
-
-void MotionFunction(int x, int y)
-{
-	nGLUTEventX = x ;
-	nGLUTEventY = y ;
-	ring_vm_callfunction(pRingVMObject,cMotionFunction) ;
-}
-
-RING_FUNC(ring_glutMotionFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cMotionFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutMotionFunc(MotionFunction);
-	}
-}
-
-void MenuFunction(int value)
-{
-	int x;
-	nGLUTEventValue = value ;
-	for (x = 1 ; x<= ring_list_getsize(pMenuFunctions) ; x ++ )
-		ring_vm_callfunction(pRingVMObject,ring_list_getstring(pMenuFunctions, x ) ) ;
-}
-
-RING_FUNC(ring_glutCreateMenu) {
-	int nMenuID ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		pRingVMObject = (VM *) pPointer ;
-		nMenuID = glutCreateMenu(MenuFunction);
-		if (nMenuID == 1)
-			pMenuFunctions = ring_list_new(0);
-		ring_list_addstring(pMenuFunctions, RING_API_GETSTRING(1) ) ;
-		RING_API_RETNUMBER( nMenuID ) ;
-	}	
-}
-
-void MenuStatusFunction(int status,int x, int y)
-{
-	nGLUTEventStatus = status ;
-	nGLUTEventX = x ;
-	nGLUTEventY = y ;
-	ring_vm_callfunction(pRingVMObject,cMenuStatusFunction) ;
-}
-
-RING_FUNC(ring_glutMenuStatusFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cMenuStatusFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutMenuStatusFunc(MenuStatusFunction);
-	}
-}
-
-RING_FUNC(ring_glutEventKey) {
-	RING_API_RETNUMBER(nGLUTEventKey);
-}
-
-RING_FUNC(ring_glutEventX) {
-	RING_API_RETNUMBER(nGLUTEventX);
-}
-
-RING_FUNC(ring_glutEventY) {
-	RING_API_RETNUMBER(nGLUTEventY);
-}
-
-RING_FUNC(ring_glutEventButton) {
-	RING_API_RETNUMBER(nGLUTEventButton);
-}
-
-RING_FUNC(ring_glutEventState) {
-	RING_API_RETNUMBER(nGLUTEventState);
-}
-
-RING_FUNC(ring_glutEventValue) {
-	RING_API_RETNUMBER(nGLUTEventValue);
-}
-
-RING_FUNC(ring_glutEventStatus) {
-	RING_API_RETNUMBER(nGLUTEventStatus);
-}
-
-RING_FUNC(ring_test_draw) {
-	// Reserved for Testing
-}
 RING_FUNC(ring_get_glut_rgb)
 {
 	RING_API_RETNUMBER(GLUT_RGB);
@@ -1145,6 +886,265 @@ RING_FUNC(ring_get_glut_bitmap_helvetica_18)
 	RING_API_RETCPOINTER(GLUT_BITMAP_HELVETICA_18,"void");
 }
 
+
+RING_FUNC(ring_glutInit)
+{
+	VM *pVM ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	pVM = (VM *) pPointer ;
+	glutInit( & pVM->pRingState->argc, pVM->pRingState->argv);
+}
+
+void displayFunction(void)
+{
+	ring_vm_callfunction(pRingVMObject,cDisplayFunction) ;
+}
+
+RING_FUNC(ring_glutDisplayFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cDisplayFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutDisplayFunc(displayFunction);
+	}
+}
+
+void reshapeFunction(int w, int h)
+{
+	nGLUTEventWidth = w;
+	nGLUTEventHeight = h ;
+	ring_vm_callfunction(pRingVMObject,cReshapeFunction) ;
+}
+
+RING_FUNC(ring_glutReshapeFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cReshapeFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutReshapeFunc(reshapeFunction);
+	}
+}
+
+RING_FUNC(ring_glutEventWidth)
+{
+	RING_API_RETNUMBER(nGLUTEventWidth);
+}
+
+RING_FUNC(ring_glutEventHeight)
+{
+	RING_API_RETNUMBER(nGLUTEventHeight);
+}
+
+void IdleFunction(void)
+{
+	ring_vm_callfunction(pRingVMObject,cIdleFunction) ;
+}
+
+RING_FUNC(ring_glutIdleFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cIdleFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutIdleFunc(IdleFunction);
+	}
+}
+
+void KeyboardFunction(unsigned char key, int x, int y)
+{
+	nGLUTEventKey = (int) key ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_callfunction(pRingVMObject,cKeyboardFunction) ;
+}
+
+RING_FUNC(ring_glutKeyboardFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cKeyboardFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutKeyboardFunc(KeyboardFunction);
+	}
+}
+
+void SpecialFunction(int key, int x, int y)
+{
+	nGLUTEventKey = key ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_callfunction(pRingVMObject,cSpecialFunction) ;
+}
+
+RING_FUNC(ring_glutSpecialFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cSpecialFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutSpecialFunc(SpecialFunction);
+	}
+}
+
+void SpecialUpFunction(int key, int x, int y)
+{
+	nGLUTEventKey = key ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_callfunction(pRingVMObject,cSpecialUpFunction) ;
+}
+
+RING_FUNC(ring_glutSpecialUpFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cSpecialUpFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutSpecialUpFunc(SpecialUpFunction);
+	}
+}
+
+void MouseFunction(int button,int state, int x, int y)
+{
+	nGLUTEventButton = button ;
+	nGLUTEventState = state ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_callfunction(pRingVMObject,cMouseFunction) ;
+}
+
+RING_FUNC(ring_glutMouseFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cMouseFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutMouseFunc(MouseFunction);
+	}
+}
+
+void MotionFunction(int x, int y)
+{
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_callfunction(pRingVMObject,cMotionFunction) ;
+}
+
+RING_FUNC(ring_glutMotionFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cMotionFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutMotionFunc(MotionFunction);
+	}
+}
+
+void MenuFunction(int value)
+{
+	int x;
+	nGLUTEventValue = value ;
+	for (x = 1 ; x<= ring_list_getsize(pMenuFunctions) ; x ++ )
+		ring_vm_callfunction(pRingVMObject,ring_list_getstring(pMenuFunctions, x ) ) ;
+}
+
+RING_FUNC(ring_glutCreateMenu) {
+	int nMenuID ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		pRingVMObject = (VM *) pPointer ;
+		nMenuID = glutCreateMenu(MenuFunction);
+		if (nMenuID == 1)
+			pMenuFunctions = ring_list_new(0);
+		ring_list_addstring(pMenuFunctions, RING_API_GETSTRING(1) ) ;
+		RING_API_RETNUMBER( nMenuID ) ;
+	}	
+}
+
+void MenuStatusFunction(int status,int x, int y)
+{
+	nGLUTEventStatus = status ;
+	nGLUTEventX = x ;
+	nGLUTEventY = y ;
+	ring_vm_callfunction(pRingVMObject,cMenuStatusFunction) ;
+}
+
+RING_FUNC(ring_glutMenuStatusFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cMenuStatusFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutMenuStatusFunc(MenuStatusFunction);
+	}
+}
+
+RING_FUNC(ring_glutEventKey) {
+	RING_API_RETNUMBER(nGLUTEventKey);
+}
+
+RING_FUNC(ring_glutEventX) {
+	RING_API_RETNUMBER(nGLUTEventX);
+}
+
+RING_FUNC(ring_glutEventY) {
+	RING_API_RETNUMBER(nGLUTEventY);
+}
+
+RING_FUNC(ring_glutEventButton) {
+	RING_API_RETNUMBER(nGLUTEventButton);
+}
+
+RING_FUNC(ring_glutEventState) {
+	RING_API_RETNUMBER(nGLUTEventState);
+}
+
+RING_FUNC(ring_glutEventValue) {
+	RING_API_RETNUMBER(nGLUTEventValue);
+}
+
+RING_FUNC(ring_glutEventStatus) {
+	RING_API_RETNUMBER(nGLUTEventStatus);
+}
+
+RING_FUNC(ring_test_draw) {
+	// Reserved for Testing
+}
 
 RING_FUNC(ring_glutInitWindowPosition)
 {
