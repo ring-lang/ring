@@ -1120,6 +1120,11 @@ RING_FUNC(ring_get_gl_unpack_row_length)
 	RING_API_RETNUMBER(GL_UNPACK_ROW_LENGTH);
 }
 
+RING_FUNC(ring_get_gl_unpack_skip_rows)
+{
+	RING_API_RETNUMBER(GL_UNPACK_SKIP_ROWS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1344,4 +1349,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_unpack_swap_bytes",ring_get_gl_unpack_swap_bytes);
 	ring_vm_funcregister("get_gl_unpack_lsb_first",ring_get_gl_unpack_lsb_first);
 	ring_vm_funcregister("get_gl_unpack_row_length",ring_get_gl_unpack_row_length);
+	ring_vm_funcregister("get_gl_unpack_skip_rows",ring_get_gl_unpack_skip_rows);
 }
