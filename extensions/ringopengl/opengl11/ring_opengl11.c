@@ -1175,6 +1175,11 @@ RING_FUNC(ring_get_gl_map_stencil)
 	RING_API_RETNUMBER(GL_MAP_STENCIL);
 }
 
+RING_FUNC(ring_get_gl_index_shift)
+{
+	RING_API_RETNUMBER(GL_INDEX_SHIFT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1410,4 +1415,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_pack_alignment",ring_get_gl_pack_alignment);
 	ring_vm_funcregister("get_gl_map_color",ring_get_gl_map_color);
 	ring_vm_funcregister("get_gl_map_stencil",ring_get_gl_map_stencil);
+	ring_vm_funcregister("get_gl_index_shift",ring_get_gl_index_shift);
 }
