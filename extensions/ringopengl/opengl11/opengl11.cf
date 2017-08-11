@@ -391,5 +391,6 @@ GL_XOR
 GL_OR
 GL_NOR
 GL_EQUIV
+GL_INVERT
 </constant>
 
