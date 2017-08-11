@@ -794,3 +794,4 @@ void glPrioritizeTextures(GLsizei n, const GLuint *textures, const GLclampf *pri
 void glPushAttrib(GLbitfield mask)
 void glPushClientAttrib(GLbitfield mask)
 void glPushMatrix(void)
+void glPushName(GLuint name)
