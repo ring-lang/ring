@@ -245,6 +245,11 @@ RING_FUNC(ring_get_gl_one_minus_src_alpha)
 	RING_API_RETNUMBER(GL_ONE_MINUS_SRC_ALPHA);
 }
 
+RING_FUNC(ring_get_gl_dst_alpha)
+{
+	RING_API_RETNUMBER(GL_DST_ALPHA);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -294,4 +299,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_one_minus_src_color",ring_get_gl_one_minus_src_color);
 	ring_vm_funcregister("get_gl_src_alpha",ring_get_gl_src_alpha);
 	ring_vm_funcregister("get_gl_one_minus_src_alpha",ring_get_gl_one_minus_src_alpha);
+	ring_vm_funcregister("get_gl_dst_alpha",ring_get_gl_dst_alpha);
 }
