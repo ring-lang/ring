@@ -2025,6 +2025,11 @@ RING_FUNC(ring_get_gl_object_plane)
 	RING_API_RETNUMBER(GL_OBJECT_PLANE);
 }
 
+RING_FUNC(ring_get_gl_eye_plane)
+{
+	RING_API_RETNUMBER(GL_EYE_PLANE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2430,4 +2435,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_sphere_map",ring_get_gl_sphere_map);
 	ring_vm_funcregister("get_gl_texture_gen_mode",ring_get_gl_texture_gen_mode);
 	ring_vm_funcregister("get_gl_object_plane",ring_get_gl_object_plane);
+	ring_vm_funcregister("get_gl_eye_plane",ring_get_gl_eye_plane);
 }
