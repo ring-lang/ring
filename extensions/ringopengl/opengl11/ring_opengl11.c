@@ -1010,6 +1010,11 @@ RING_FUNC(ring_get_gl_pixel_map_i_to_i)
 	RING_API_RETNUMBER(GL_PIXEL_MAP_I_TO_I);
 }
 
+RING_FUNC(ring_get_gl_pixel_map_s_to_s)
+{
+	RING_API_RETNUMBER(GL_PIXEL_MAP_S_TO_S);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1212,4 +1217,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_texture_gen_r",ring_get_gl_texture_gen_r);
 	ring_vm_funcregister("get_gl_texture_gen_q",ring_get_gl_texture_gen_q);
 	ring_vm_funcregister("get_gl_pixel_map_i_to_i",ring_get_gl_pixel_map_i_to_i);
+	ring_vm_funcregister("get_gl_pixel_map_s_to_s",ring_get_gl_pixel_map_s_to_s);
 }
