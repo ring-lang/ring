@@ -1540,6 +1540,11 @@ RING_FUNC(ring_get_gl_texture_internal_format)
 	RING_API_RETNUMBER(GL_TEXTURE_INTERNAL_FORMAT);
 }
 
+RING_FUNC(ring_get_gl_texture_border_color)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BORDER_COLOR);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1848,4 +1853,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_transform_bit",ring_get_gl_transform_bit);
 	ring_vm_funcregister("get_gl_texture_height",ring_get_gl_texture_height);
 	ring_vm_funcregister("get_gl_texture_internal_format",ring_get_gl_texture_internal_format);
+	ring_vm_funcregister("get_gl_texture_border_color",ring_get_gl_texture_border_color);
 }
