@@ -1240,6 +1240,11 @@ RING_FUNC(ring_get_gl_depth_scale)
 	RING_API_RETNUMBER(GL_DEPTH_SCALE);
 }
 
+RING_FUNC(ring_get_gl_depth_bias)
+{
+	RING_API_RETNUMBER(GL_DEPTH_BIAS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1488,4 +1493,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_alpha_scale",ring_get_gl_alpha_scale);
 	ring_vm_funcregister("get_gl_alpha_bias",ring_get_gl_alpha_bias);
 	ring_vm_funcregister("get_gl_depth_scale",ring_get_gl_depth_scale);
+	ring_vm_funcregister("get_gl_depth_bias",ring_get_gl_depth_bias);
 }
