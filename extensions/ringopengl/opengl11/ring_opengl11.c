@@ -1950,6 +1950,11 @@ RING_FUNC(ring_get_gl_extensions)
 	RING_API_RETNUMBER(GL_EXTENSIONS);
 }
 
+RING_FUNC(ring_get_gl_s)
+{
+	RING_API_RETNUMBER(GL_S);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2340,4 +2345,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_renderer",ring_get_gl_renderer);
 	ring_vm_funcregister("get_gl_version",ring_get_gl_version);
 	ring_vm_funcregister("get_gl_extensions",ring_get_gl_extensions);
+	ring_vm_funcregister("get_gl_s",ring_get_gl_s);
 }
