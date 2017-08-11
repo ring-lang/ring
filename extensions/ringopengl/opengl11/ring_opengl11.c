@@ -835,6 +835,11 @@ RING_FUNC(ring_get_gl_attrib_stack_depth)
 	RING_API_RETNUMBER(GL_ATTRIB_STACK_DEPTH);
 }
 
+RING_FUNC(ring_get_gl_client_attrib_stack_depth)
+{
+	RING_API_RETNUMBER(GL_CLIENT_ATTRIB_STACK_DEPTH);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1002,4 +1007,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_projection_matrix",ring_get_gl_projection_matrix);
 	ring_vm_funcregister("get_gl_texture_matrix",ring_get_gl_texture_matrix);
 	ring_vm_funcregister("get_gl_attrib_stack_depth",ring_get_gl_attrib_stack_depth);
+	ring_vm_funcregister("get_gl_client_attrib_stack_depth",ring_get_gl_client_attrib_stack_depth);
 }
