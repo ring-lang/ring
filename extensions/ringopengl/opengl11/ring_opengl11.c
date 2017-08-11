@@ -2455,6 +2455,11 @@ RING_FUNC(ring_get_gl_texture_luminance_size)
 	RING_API_RETNUMBER(GL_TEXTURE_LUMINANCE_SIZE);
 }
 
+RING_FUNC(ring_get_gl_texture_intensity_size)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_INTENSITY_SIZE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2946,4 +2951,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_texture_blue_size",ring_get_gl_texture_blue_size);
 	ring_vm_funcregister("get_gl_texture_alpha_size",ring_get_gl_texture_alpha_size);
 	ring_vm_funcregister("get_gl_texture_luminance_size",ring_get_gl_texture_luminance_size);
+	ring_vm_funcregister("get_gl_texture_intensity_size",ring_get_gl_texture_intensity_size);
 }
