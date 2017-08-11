@@ -6632,6 +6632,16 @@ RING_FUNC(ring_glPopMatrix)
 	glPopMatrix();
 }
 
+
+RING_FUNC(ring_glPopName)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	glPopName();
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -6840,6 +6850,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glpopattrib",ring_glPopAttrib);
 	ring_vm_funcregister("glpopclientattrib",ring_glPopClientAttrib);
 	ring_vm_funcregister("glpopmatrix",ring_glPopMatrix);
+	ring_vm_funcregister("glpopname",ring_glPopName);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
