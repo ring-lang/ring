@@ -1310,6 +1310,11 @@ RING_FUNC(ring_get_gl_subpixel_bits)
 	RING_API_RETNUMBER(GL_SUBPIXEL_BITS);
 }
 
+RING_FUNC(ring_get_gl_index_bits)
+{
+	RING_API_RETNUMBER(GL_INDEX_BITS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1572,4 +1577,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_max_viewport_dims",ring_get_gl_max_viewport_dims);
 	ring_vm_funcregister("get_gl_max_client_attrib_stack_depth",ring_get_gl_max_client_attrib_stack_depth);
 	ring_vm_funcregister("get_gl_subpixel_bits",ring_get_gl_subpixel_bits);
+	ring_vm_funcregister("get_gl_index_bits",ring_get_gl_index_bits);
 }
