@@ -1260,6 +1260,11 @@ RING_FUNC(ring_get_gl_max_clip_planes)
 	RING_API_RETNUMBER(GL_MAX_CLIP_PLANES);
 }
 
+RING_FUNC(ring_get_gl_max_texture_size)
+{
+	RING_API_RETNUMBER(GL_MAX_TEXTURE_SIZE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1512,4 +1517,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_max_eval_order",ring_get_gl_max_eval_order);
 	ring_vm_funcregister("get_gl_max_lights",ring_get_gl_max_lights);
 	ring_vm_funcregister("get_gl_max_clip_planes",ring_get_gl_max_clip_planes);
+	ring_vm_funcregister("get_gl_max_texture_size",ring_get_gl_max_texture_size);
 }
