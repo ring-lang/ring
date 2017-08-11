@@ -390,6 +390,11 @@ RING_FUNC(ring_get_gl_3d_color_texture)
 	RING_API_RETNUMBER(GL_3D_COLOR_TEXTURE);
 }
 
+RING_FUNC(ring_get_gl_4d_color_texture)
+{
+	RING_API_RETNUMBER(GL_4D_COLOR_TEXTURE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -468,4 +473,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_3d",ring_get_gl_3d);
 	ring_vm_funcregister("get_gl_3d_color",ring_get_gl_3d_color);
 	ring_vm_funcregister("get_gl_3d_color_texture",ring_get_gl_3d_color_texture);
+	ring_vm_funcregister("get_gl_4d_color_texture",ring_get_gl_4d_color_texture);
 }
