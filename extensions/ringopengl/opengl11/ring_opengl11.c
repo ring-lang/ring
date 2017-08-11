@@ -1375,6 +1375,11 @@ RING_FUNC(ring_get_gl_auto_normal)
 	RING_API_RETNUMBER(GL_AUTO_NORMAL);
 }
 
+RING_FUNC(ring_get_gl_map1_color_4)
+{
+	RING_API_RETNUMBER(GL_MAP1_COLOR_4);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1650,4 +1655,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_accum_alpha_bits",ring_get_gl_accum_alpha_bits);
 	ring_vm_funcregister("get_gl_name_stack_depth",ring_get_gl_name_stack_depth);
 	ring_vm_funcregister("get_gl_auto_normal",ring_get_gl_auto_normal);
+	ring_vm_funcregister("get_gl_map1_color_4",ring_get_gl_map1_color_4);
 }
