@@ -5,7 +5,7 @@
 What is new in Ring 1.5?
 ========================
 
-In this chapter we will learn about the changes in Ring 1.5 release.
+In this chapter we will learn about the changes and new features in Ring 1.5 release.
 
 .. index:: 
 	pair: What is new in Ring 1.5?; List of changes and new features
@@ -13,7 +13,7 @@ In this chapter we will learn about the changes in Ring 1.5 release.
 List of changes and new features
 ================================
 
-Ring 1.5  comes with the next changes
+Ring 1.5 comes with many new features!
 
 
 
