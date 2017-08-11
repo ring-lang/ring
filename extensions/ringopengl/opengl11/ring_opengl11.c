@@ -2540,6 +2540,11 @@ RING_FUNC(ring_get_gl_normal_array_type)
 	RING_API_RETNUMBER(GL_NORMAL_ARRAY_TYPE);
 }
 
+RING_FUNC(ring_get_gl_normal_array_stride)
+{
+	RING_API_RETNUMBER(GL_NORMAL_ARRAY_STRIDE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -3048,4 +3053,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_vertex_array_type",ring_get_gl_vertex_array_type);
 	ring_vm_funcregister("get_gl_vertex_array_stride",ring_get_gl_vertex_array_stride);
 	ring_vm_funcregister("get_gl_normal_array_type",ring_get_gl_normal_array_type);
+	ring_vm_funcregister("get_gl_normal_array_stride",ring_get_gl_normal_array_stride);
 }
