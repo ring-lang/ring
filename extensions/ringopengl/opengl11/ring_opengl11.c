@@ -1900,6 +1900,11 @@ RING_FUNC(ring_get_gl_select)
 	RING_API_RETNUMBER(GL_SELECT);
 }
 
+RING_FUNC(ring_get_gl_flat)
+{
+	RING_API_RETNUMBER(GL_FLAT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2280,4 +2285,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_render",ring_get_gl_render);
 	ring_vm_funcregister("get_gl_feedback",ring_get_gl_feedback);
 	ring_vm_funcregister("get_gl_select",ring_get_gl_select);
+	ring_vm_funcregister("get_gl_flat",ring_get_gl_flat);
 }
