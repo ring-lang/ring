@@ -720,6 +720,11 @@ RING_FUNC(ring_get_gl_depth_test)
 	RING_API_RETNUMBER(GL_DEPTH_TEST);
 }
 
+RING_FUNC(ring_get_gl_depth_writemask)
+{
+	RING_API_RETNUMBER(GL_DEPTH_WRITEMASK);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -864,4 +869,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_fog_color",ring_get_gl_fog_color);
 	ring_vm_funcregister("get_gl_depth_range",ring_get_gl_depth_range);
 	ring_vm_funcregister("get_gl_depth_test",ring_get_gl_depth_test);
+	ring_vm_funcregister("get_gl_depth_writemask",ring_get_gl_depth_writemask);
 }
