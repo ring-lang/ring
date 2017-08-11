@@ -75,6 +75,11 @@ RING_FUNC(ring_get_gl_line_loop)
 	RING_API_RETNUMBER(GL_LINE_LOOP);
 }
 
+RING_FUNC(ring_get_gl_point_bit)
+{
+	RING_API_RETNUMBER(GL_POINT_BIT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -90,4 +95,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_client_pixel_store_bit",ring_get_gl_client_pixel_store_bit);
 	ring_vm_funcregister("get_gl_lines",ring_get_gl_lines);
 	ring_vm_funcregister("get_gl_line_loop",ring_get_gl_line_loop);
+	ring_vm_funcregister("get_gl_point_bit",ring_get_gl_point_bit);
 }
