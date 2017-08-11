@@ -2090,6 +2090,11 @@ RING_FUNC(ring_get_gl_repeat)
 	RING_API_RETNUMBER(GL_REPEAT);
 }
 
+RING_FUNC(ring_get_gl_polygon_offset_units)
+{
+	RING_API_RETNUMBER(GL_POLYGON_OFFSET_UNITS);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -2508,4 +2513,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_texture_wrap_t",ring_get_gl_texture_wrap_t);
 	ring_vm_funcregister("get_gl_clamp",ring_get_gl_clamp);
 	ring_vm_funcregister("get_gl_repeat",ring_get_gl_repeat);
+	ring_vm_funcregister("get_gl_polygon_offset_units",ring_get_gl_polygon_offset_units);
 }
