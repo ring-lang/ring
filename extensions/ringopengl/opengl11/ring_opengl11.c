@@ -175,6 +175,11 @@ RING_FUNC(ring_get_gl_mult)
 	RING_API_RETNUMBER(GL_MULT);
 }
 
+RING_FUNC(ring_get_gl_add)
+{
+	RING_API_RETNUMBER(GL_ADD);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -210,4 +215,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_load",ring_get_gl_load);
 	ring_vm_funcregister("get_gl_return",ring_get_gl_return);
 	ring_vm_funcregister("get_gl_mult",ring_get_gl_mult);
+	ring_vm_funcregister("get_gl_add",ring_get_gl_add);
 }
