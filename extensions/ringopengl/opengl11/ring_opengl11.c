@@ -1630,6 +1630,11 @@ RING_FUNC(ring_get_gl_byte)
 	RING_API_RETNUMBER(GL_BYTE);
 }
 
+RING_FUNC(ring_get_gl_unsigned_byte)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_BYTE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1956,4 +1961,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_compile",ring_get_gl_compile);
 	ring_vm_funcregister("get_gl_compile_and_execute",ring_get_gl_compile_and_execute);
 	ring_vm_funcregister("get_gl_byte",ring_get_gl_byte);
+	ring_vm_funcregister("get_gl_unsigned_byte",ring_get_gl_unsigned_byte);
 }
