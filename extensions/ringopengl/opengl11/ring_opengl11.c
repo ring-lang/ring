@@ -1420,6 +1420,11 @@ RING_FUNC(ring_get_gl_map1_vertex_4)
 	RING_API_RETNUMBER(GL_MAP1_VERTEX_4);
 }
 
+RING_FUNC(ring_get_gl_map2_color_4)
+{
+	RING_API_RETNUMBER(GL_MAP2_COLOR_4);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1704,4 +1709,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_map1_texture_coord_4",ring_get_gl_map1_texture_coord_4);
 	ring_vm_funcregister("get_gl_map1_vertex_3",ring_get_gl_map1_vertex_3);
 	ring_vm_funcregister("get_gl_map1_vertex_4",ring_get_gl_map1_vertex_4);
+	ring_vm_funcregister("get_gl_map2_color_4",ring_get_gl_map2_color_4);
 }
