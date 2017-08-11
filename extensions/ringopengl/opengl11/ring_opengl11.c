@@ -25,9 +25,15 @@ RING_FUNC(ring_get_gl_logic_op)
 	RING_API_RETNUMBER(GL_LOGIC_OP);
 }
 
+RING_FUNC(ring_get_gl_none)
+{
+	RING_API_RETNUMBER(GL_NONE);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);
+	ring_vm_funcregister("get_gl_none",ring_get_gl_none);
 }
