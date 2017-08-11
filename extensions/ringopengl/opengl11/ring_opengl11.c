@@ -1290,6 +1290,11 @@ RING_FUNC(ring_get_gl_max_projection_stack_depth)
 	RING_API_RETNUMBER(GL_MAX_PROJECTION_STACK_DEPTH);
 }
 
+RING_FUNC(ring_get_gl_max_texture_stack_depth)
+{
+	RING_API_RETNUMBER(GL_MAX_TEXTURE_STACK_DEPTH);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
@@ -1548,4 +1553,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_max_modelview_stack_depth",ring_get_gl_max_modelview_stack_depth);
 	ring_vm_funcregister("get_gl_max_name_stack_depth",ring_get_gl_max_name_stack_depth);
 	ring_vm_funcregister("get_gl_max_projection_stack_depth",ring_get_gl_max_projection_stack_depth);
+	ring_vm_funcregister("get_gl_max_texture_stack_depth",ring_get_gl_max_texture_stack_depth);
 }
