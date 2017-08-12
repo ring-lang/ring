@@ -636,7 +636,7 @@ We can write person as variable name and Person as class name.
 .. index:: 
 	pair: Frequently Asked Questions; Why the Assignment operator uses Deep copy?
 
-Why the Assignment operator uses Deep copy?
+Why the Assignment operator uses Deep Copy?
 ===========================================
 
 "Because it's a poor tradeoff to add complexity for dubious performance gains, a good
