@@ -5255,6 +5255,16 @@ RING_FUNC(ring_get_gl_copy_write_buffer_binding)
 	RING_API_RETNUMBER(GL_COPY_WRITE_BUFFER_BINDING);
 }
 
+RING_FUNC(ring_get_gl_num_shading_language_versions)
+{
+	RING_API_RETNUMBER(GL_NUM_SHADING_LANGUAGE_VERSIONS);
+}
+
+RING_FUNC(ring_get_gl_vertex_attrib_array_long)
+{
+	RING_API_RETNUMBER(GL_VERTEX_ATTRIB_ARRAY_LONG);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -19063,4 +19073,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_compressed_rgb_bptc_unsigned_float",ring_get_gl_compressed_rgb_bptc_unsigned_float);
 	ring_vm_funcregister("get_gl_copy_read_buffer_binding",ring_get_gl_copy_read_buffer_binding);
 	ring_vm_funcregister("get_gl_copy_write_buffer_binding",ring_get_gl_copy_write_buffer_binding);
+	ring_vm_funcregister("get_gl_num_shading_language_versions",ring_get_gl_num_shading_language_versions);
+	ring_vm_funcregister("get_gl_vertex_attrib_array_long",ring_get_gl_vertex_attrib_array_long);
 }
