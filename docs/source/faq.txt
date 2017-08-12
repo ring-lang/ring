@@ -593,6 +593,46 @@ You will use the < operator !
 
 
 .. index:: 
+	pair: Frequently Asked Questions; Why Ring is not case-sensitive
+
+Why Ring is not case-sensitive?
+===============================
+
+(1) To be more human-friendly
+
+(2) Like Ada, SQL, Pascal, Delphi, Visual Basic, Visual FoxPro, etc. 
+
+(3) To help in supporting Natural Language Programming.
+
+(4) To be able to select your favorite style when writing the language keywords
+
+.. code-block:: ring
+
+	see "lower case!"
+
+.. code-block:: ring
+
+	SEE "UPPER case!"
+
+.. code-block:: ring
+
+	See "First Letter is UPPER case!"
+
+(5) To avoid getting error message when writing quick tests then type "variable" instead of "Variable".
+
+(6) To avoid getting error message when you type "Dosomething()" instead of "DoSomething()"
+
+(7) In Ring, No conflict between Variables, Method Names & Classes Names
+
+
+.. code-block:: ring
+	
+	person = new Person	
+	class Person 
+		name address phone
+	
+
+.. index:: 
 	pair: Frequently Asked Questions; Constructor methods in Ring
 
 
