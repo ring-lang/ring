@@ -283,7 +283,7 @@ nCount = 10	<font color="green"># Global variable</font>
 	      <div class="panel-body">
 
 		Ring is not case-sensitive
-
+		<a href="doc1.4.1/faq.html#why-ring-is-not-case-sensitive" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">see</font> "Enter your name ? " 
