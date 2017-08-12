@@ -5155,6 +5155,66 @@ RING_FUNC(ring_get_gl_rgb10_a2ui)
 	RING_API_RETNUMBER(GL_RGB10_A2UI);
 }
 
+RING_FUNC(ring_get_gl_sample_shading)
+{
+	RING_API_RETNUMBER(GL_SAMPLE_SHADING);
+}
+
+RING_FUNC(ring_get_gl_min_sample_shading_value)
+{
+	RING_API_RETNUMBER(GL_MIN_SAMPLE_SHADING_VALUE);
+}
+
+RING_FUNC(ring_get_gl_min_program_texture_gather_offset)
+{
+	RING_API_RETNUMBER(GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET);
+}
+
+RING_FUNC(ring_get_gl_max_program_texture_gather_offset)
+{
+	RING_API_RETNUMBER(GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET);
+}
+
+RING_FUNC(ring_get_gl_max_program_texture_gather_components)
+{
+	RING_API_RETNUMBER(GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_texture_cube_map_array)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_CUBE_MAP_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_texture_binding_cube_map_array)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BINDING_CUBE_MAP_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_proxy_texture_cube_map_array)
+{
+	RING_API_RETNUMBER(GL_PROXY_TEXTURE_CUBE_MAP_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_sampler_cube_map_array)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_CUBE_MAP_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_sampler_cube_map_array_shadow)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW);
+}
+
+RING_FUNC(ring_get_gl_int_sampler_cube_map_array)
+{
+	RING_API_RETNUMBER(GL_INT_SAMPLER_CUBE_MAP_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_sampler_cube_map_array)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -18943,4 +19003,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_context_profile_mask",ring_get_gl_context_profile_mask);
 	ring_vm_funcregister("get_gl_vertex_attrib_array_divisor",ring_get_gl_vertex_attrib_array_divisor);
 	ring_vm_funcregister("get_gl_rgb10_a2ui",ring_get_gl_rgb10_a2ui);
+	ring_vm_funcregister("get_gl_sample_shading",ring_get_gl_sample_shading);
+	ring_vm_funcregister("get_gl_min_sample_shading_value",ring_get_gl_min_sample_shading_value);
+	ring_vm_funcregister("get_gl_min_program_texture_gather_offset",ring_get_gl_min_program_texture_gather_offset);
+	ring_vm_funcregister("get_gl_max_program_texture_gather_offset",ring_get_gl_max_program_texture_gather_offset);
+	ring_vm_funcregister("get_gl_max_program_texture_gather_components",ring_get_gl_max_program_texture_gather_components);
+	ring_vm_funcregister("get_gl_texture_cube_map_array",ring_get_gl_texture_cube_map_array);
+	ring_vm_funcregister("get_gl_texture_binding_cube_map_array",ring_get_gl_texture_binding_cube_map_array);
+	ring_vm_funcregister("get_gl_proxy_texture_cube_map_array",ring_get_gl_proxy_texture_cube_map_array);
+	ring_vm_funcregister("get_gl_sampler_cube_map_array",ring_get_gl_sampler_cube_map_array);
+	ring_vm_funcregister("get_gl_sampler_cube_map_array_shadow",ring_get_gl_sampler_cube_map_array_shadow);
+	ring_vm_funcregister("get_gl_int_sampler_cube_map_array",ring_get_gl_int_sampler_cube_map_array);
+	ring_vm_funcregister("get_gl_unsigned_int_sampler_cube_map_array",ring_get_gl_unsigned_int_sampler_cube_map_array);
 }
