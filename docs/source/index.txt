@@ -97,6 +97,7 @@ Contents:
    RingOpenGL (OpenGL 4.1) Functions Reference <ringopengl41funcsdoc>
    RingOpenGL (OpenGL 4.2) Functions Reference <ringopengl42funcsdoc>
    RingOpenGL (OpenGL 4.3) Functions Reference <ringopengl43funcsdoc>
+   RingOpenGL (OpenGL 4.4) Functions Reference <ringopengl44funcsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
    Frequently Asked Questions (FAQ) <faq>
    Language Reference <reference>
