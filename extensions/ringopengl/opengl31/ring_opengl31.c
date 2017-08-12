@@ -4865,6 +4865,176 @@ RING_FUNC(ring_get_gl_query_by_region_no_wait)
 	RING_API_RETNUMBER(GL_QUERY_BY_REGION_NO_WAIT);
 }
 
+RING_FUNC(ring_get_gl_texture_rectangle)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_RECTANGLE);
+}
+
+RING_FUNC(ring_get_gl_texture_binding_rectangle)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BINDING_RECTANGLE);
+}
+
+RING_FUNC(ring_get_gl_proxy_texture_rectangle)
+{
+	RING_API_RETNUMBER(GL_PROXY_TEXTURE_RECTANGLE);
+}
+
+RING_FUNC(ring_get_gl_max_rectangle_texture_size)
+{
+	RING_API_RETNUMBER(GL_MAX_RECTANGLE_TEXTURE_SIZE);
+}
+
+RING_FUNC(ring_get_gl_sampler_2d_rect)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_2D_RECT);
+}
+
+RING_FUNC(ring_get_gl_sampler_2d_rect_shadow)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_2D_RECT_SHADOW);
+}
+
+RING_FUNC(ring_get_gl_texture_buffer)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_max_texture_buffer_size)
+{
+	RING_API_RETNUMBER(GL_MAX_TEXTURE_BUFFER_SIZE);
+}
+
+RING_FUNC(ring_get_gl_texture_binding_buffer)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BINDING_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_texture_buffer_data_store_binding)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BUFFER_DATA_STORE_BINDING);
+}
+
+RING_FUNC(ring_get_gl_texture_buffer_format)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BUFFER_FORMAT);
+}
+
+RING_FUNC(ring_get_gl_sampler_buffer)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_int_sampler_2d_rect)
+{
+	RING_API_RETNUMBER(GL_INT_SAMPLER_2D_RECT);
+}
+
+RING_FUNC(ring_get_gl_int_sampler_buffer)
+{
+	RING_API_RETNUMBER(GL_INT_SAMPLER_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_sampler_2d_rect)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_2D_RECT);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_sampler_buffer)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_red_snorm)
+{
+	RING_API_RETNUMBER(GL_RED_SNORM);
+}
+
+RING_FUNC(ring_get_gl_rg_snorm)
+{
+	RING_API_RETNUMBER(GL_RG_SNORM);
+}
+
+RING_FUNC(ring_get_gl_rgb_snorm)
+{
+	RING_API_RETNUMBER(GL_RGB_SNORM);
+}
+
+RING_FUNC(ring_get_gl_rgba_snorm)
+{
+	RING_API_RETNUMBER(GL_RGBA_SNORM);
+}
+
+RING_FUNC(ring_get_gl_r8_snorm)
+{
+	RING_API_RETNUMBER(GL_R8_SNORM);
+}
+
+RING_FUNC(ring_get_gl_rg8_snorm)
+{
+	RING_API_RETNUMBER(GL_RG8_SNORM);
+}
+
+RING_FUNC(ring_get_gl_rgb8_snorm)
+{
+	RING_API_RETNUMBER(GL_RGB8_SNORM);
+}
+
+RING_FUNC(ring_get_gl_rgba8_snorm)
+{
+	RING_API_RETNUMBER(GL_RGBA8_SNORM);
+}
+
+RING_FUNC(ring_get_gl_r16_snorm)
+{
+	RING_API_RETNUMBER(GL_R16_SNORM);
+}
+
+RING_FUNC(ring_get_gl_rg16_snorm)
+{
+	RING_API_RETNUMBER(GL_RG16_SNORM);
+}
+
+RING_FUNC(ring_get_gl_rgb16_snorm)
+{
+	RING_API_RETNUMBER(GL_RGB16_SNORM);
+}
+
+RING_FUNC(ring_get_gl_rgba16_snorm)
+{
+	RING_API_RETNUMBER(GL_RGBA16_SNORM);
+}
+
+RING_FUNC(ring_get_gl_signed_normalized)
+{
+	RING_API_RETNUMBER(GL_SIGNED_NORMALIZED);
+}
+
+RING_FUNC(ring_get_gl_primitive_restart)
+{
+	RING_API_RETNUMBER(GL_PRIMITIVE_RESTART);
+}
+
+RING_FUNC(ring_get_gl_primitive_restart_index)
+{
+	RING_API_RETNUMBER(GL_PRIMITIVE_RESTART_INDEX);
+}
+
+RING_FUNC(ring_get_gl_buffer_access_flags)
+{
+	RING_API_RETNUMBER(GL_BUFFER_ACCESS_FLAGS);
+}
+
+RING_FUNC(ring_get_gl_buffer_map_length)
+{
+	RING_API_RETNUMBER(GL_BUFFER_MAP_LENGTH);
+}
+
+RING_FUNC(ring_get_gl_buffer_map_offset)
+{
+	RING_API_RETNUMBER(GL_BUFFER_MAP_OFFSET);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -18595,4 +18765,38 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_query_no_wait",ring_get_gl_query_no_wait);
 	ring_vm_funcregister("get_gl_query_by_region_wait",ring_get_gl_query_by_region_wait);
 	ring_vm_funcregister("get_gl_query_by_region_no_wait",ring_get_gl_query_by_region_no_wait);
+	ring_vm_funcregister("get_gl_texture_rectangle",ring_get_gl_texture_rectangle);
+	ring_vm_funcregister("get_gl_texture_binding_rectangle",ring_get_gl_texture_binding_rectangle);
+	ring_vm_funcregister("get_gl_proxy_texture_rectangle",ring_get_gl_proxy_texture_rectangle);
+	ring_vm_funcregister("get_gl_max_rectangle_texture_size",ring_get_gl_max_rectangle_texture_size);
+	ring_vm_funcregister("get_gl_sampler_2d_rect",ring_get_gl_sampler_2d_rect);
+	ring_vm_funcregister("get_gl_sampler_2d_rect_shadow",ring_get_gl_sampler_2d_rect_shadow);
+	ring_vm_funcregister("get_gl_texture_buffer",ring_get_gl_texture_buffer);
+	ring_vm_funcregister("get_gl_max_texture_buffer_size",ring_get_gl_max_texture_buffer_size);
+	ring_vm_funcregister("get_gl_texture_binding_buffer",ring_get_gl_texture_binding_buffer);
+	ring_vm_funcregister("get_gl_texture_buffer_data_store_binding",ring_get_gl_texture_buffer_data_store_binding);
+	ring_vm_funcregister("get_gl_texture_buffer_format",ring_get_gl_texture_buffer_format);
+	ring_vm_funcregister("get_gl_sampler_buffer",ring_get_gl_sampler_buffer);
+	ring_vm_funcregister("get_gl_int_sampler_2d_rect",ring_get_gl_int_sampler_2d_rect);
+	ring_vm_funcregister("get_gl_int_sampler_buffer",ring_get_gl_int_sampler_buffer);
+	ring_vm_funcregister("get_gl_unsigned_int_sampler_2d_rect",ring_get_gl_unsigned_int_sampler_2d_rect);
+	ring_vm_funcregister("get_gl_unsigned_int_sampler_buffer",ring_get_gl_unsigned_int_sampler_buffer);
+	ring_vm_funcregister("get_gl_red_snorm",ring_get_gl_red_snorm);
+	ring_vm_funcregister("get_gl_rg_snorm",ring_get_gl_rg_snorm);
+	ring_vm_funcregister("get_gl_rgb_snorm",ring_get_gl_rgb_snorm);
+	ring_vm_funcregister("get_gl_rgba_snorm",ring_get_gl_rgba_snorm);
+	ring_vm_funcregister("get_gl_r8_snorm",ring_get_gl_r8_snorm);
+	ring_vm_funcregister("get_gl_rg8_snorm",ring_get_gl_rg8_snorm);
+	ring_vm_funcregister("get_gl_rgb8_snorm",ring_get_gl_rgb8_snorm);
+	ring_vm_funcregister("get_gl_rgba8_snorm",ring_get_gl_rgba8_snorm);
+	ring_vm_funcregister("get_gl_r16_snorm",ring_get_gl_r16_snorm);
+	ring_vm_funcregister("get_gl_rg16_snorm",ring_get_gl_rg16_snorm);
+	ring_vm_funcregister("get_gl_rgb16_snorm",ring_get_gl_rgb16_snorm);
+	ring_vm_funcregister("get_gl_rgba16_snorm",ring_get_gl_rgba16_snorm);
+	ring_vm_funcregister("get_gl_signed_normalized",ring_get_gl_signed_normalized);
+	ring_vm_funcregister("get_gl_primitive_restart",ring_get_gl_primitive_restart);
+	ring_vm_funcregister("get_gl_primitive_restart_index",ring_get_gl_primitive_restart_index);
+	ring_vm_funcregister("get_gl_buffer_access_flags",ring_get_gl_buffer_access_flags);
+	ring_vm_funcregister("get_gl_buffer_map_length",ring_get_gl_buffer_map_length);
+	ring_vm_funcregister("get_gl_buffer_map_offset",ring_get_gl_buffer_map_offset);
 }
