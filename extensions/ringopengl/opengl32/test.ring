@@ -1,0 +1,1 @@
+load "opengl32lib.ring"
