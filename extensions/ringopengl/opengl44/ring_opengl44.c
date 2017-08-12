@@ -5265,6 +5265,21 @@ RING_FUNC(ring_get_gl_vertex_attrib_array_long)
 	RING_API_RETNUMBER(GL_VERTEX_ATTRIB_ARRAY_LONG);
 }
 
+RING_FUNC(ring_get_gl_primitive_restart_for_patches_supported)
+{
+	RING_API_RETNUMBER(GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED);
+}
+
+RING_FUNC(ring_get_gl_max_vertex_attrib_stride)
+{
+	RING_API_RETNUMBER(GL_MAX_VERTEX_ATTRIB_STRIDE);
+}
+
+RING_FUNC(ring_get_gl_texture_buffer_binding)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BUFFER_BINDING);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -19075,4 +19090,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_copy_write_buffer_binding",ring_get_gl_copy_write_buffer_binding);
 	ring_vm_funcregister("get_gl_num_shading_language_versions",ring_get_gl_num_shading_language_versions);
 	ring_vm_funcregister("get_gl_vertex_attrib_array_long",ring_get_gl_vertex_attrib_array_long);
+	ring_vm_funcregister("get_gl_primitive_restart_for_patches_supported",ring_get_gl_primitive_restart_for_patches_supported);
+	ring_vm_funcregister("get_gl_max_vertex_attrib_stride",ring_get_gl_max_vertex_attrib_stride);
+	ring_vm_funcregister("get_gl_texture_buffer_binding",ring_get_gl_texture_buffer_binding);
 }
