@@ -92,6 +92,7 @@ Contents:
    RingOpenGL (OpenGL 3.0) Functions Reference <ringopengl30funcsdoc>
    RingOpenGL (OpenGL 3.1) Functions Reference <ringopengl31funcsdoc>
    RingOpenGL (OpenGL 3.2) Functions Reference <ringopengl32funcsdoc>
+   RingOpenGL (OpenGL 3.3) Functions Reference <ringopengl33funcsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
    Frequently Asked Questions (FAQ) <faq>
    Language Reference <reference>
