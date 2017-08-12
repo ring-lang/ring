@@ -148,7 +148,7 @@ I can say that this is the easiest and the most BASIC-like language I've ever tr
 "That's more than a "cool" syntax, the example of writing free-form text between curly-brackets such that each word calls a function. Which could be interesting (A syntax like that would be nice for declaring text styles)"
 	, LaurieCheers
 
-"This is quite interesting one. If you browse around you see they have listed 160 contributors and they point out they started in the year 2013. This year they have entered Top 100 in the TIOBE index. Lot of effort seem to have been made to make this language pop out and catch the attention of masses."
+"If you browse around you see they have listed 160 contributors. This year they have entered Top 100 in the TIOBE index. Lot of effort seem to have been made to make this language pop out and catch the attention of masses."
 	, Htuhola
 
 "The author must be commended for the readily-obvious hard work and effort that has gone into creating a rich ecosystem for his language.
