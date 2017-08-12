@@ -1,9 +1,9 @@
 if isWindows()  
-	LoadLib("ring_opengl40.dll")
+	LoadLib("ring_opengl41.dll")
 but ismacosx()
-	LoadLib("ring_opengl40.dylib")
+	LoadLib("ring_opengl41.dylib")
 else
-	LoadLib("ring_opengl40.so")
+	LoadLib("ring_opengl41.so")
 ok
 
-load "ring_opengl40.rh"
+load "ring_opengl41.rh"
