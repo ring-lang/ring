@@ -639,7 +639,7 @@ We can write person as variable name and Person as class name.
 Why the Assignment operator uses Deep copy?
 ===========================================
 
-(1) "Because it’s a poor tradeoff to add complexity for dubious performance gains, a good
+(1) "Because it's a poor tradeoff to add complexity for dubious performance gains, a good
 approach to deep vs. shallow copies is to prefer deep copies until proven otherwise."
 	, Steve McConnell, Code Complete 
 
@@ -649,19 +649,20 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 
 (4) The Ring language is designed to reduce references usage as much as possible.
 
-(5) The Ring language is designed to make using reference is simple and possible in special cases where this make sense.
+(5) The Ring language is designed to make using references simple and possible in special cases where this make sense.
 
 (6) We have references when this is natural, like passing lists and objects to functions,
 	creating objects (Like GUI Objects) from a C/C++ library, returning an object stored 
 	inside a list.
 
-(7) It is a feature, We can create use it to create pure functions.
+(7) It is a feature, We can use it to create pure functions. The Value() function is the
+	stdlib uses this feature to pass lists & objects by value when we need this.
 
-(8) When we need references, It's recommended to create a class that manage sharing objects.
+(8) When we need references, It's recommended to create a class that manage sharing lists and objects.
 	
 (9) It's more safe.
 
-(10) To stop thinking about the little details and concentrate on your applications, You
+(10) To start without thinking about the little details and concentrate on your applications, You
 	don't have to determine the type (Dynamic Typing), You don't have to write explicit
 	conversions between numbers and strings (Weakly Typed) and you don't have to select
 	between using values or references.
