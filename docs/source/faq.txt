@@ -660,12 +660,12 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 
 (7) When we need references, It's recommended to create a class that manage sharing lists and objects.
 	
-(8) It's more safe.
+(8) It's more safe at the application level to avoid many logical errors.
 
-(9) In Ring, we start without thinking about the little details and concentrate on your applications, You
-	don't have to determine the type (Dynamic Typing), You don't have to write explicit
+(9) In Ring, we start without thinking about the little details and concentrate on the application, You
+	don't have to write the type (Dynamic Typing), You don't have to write explicit
 	conversions between numbers and strings (Weakly Typed) and you don't have to select
-	between using values or references.
+	between using values or references, You don't have to write the scope (Lexical Scoping).
 
 .. index:: 
 	pair: Frequently Asked Questions; Constructor methods in Ring
