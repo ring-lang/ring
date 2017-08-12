@@ -620,10 +620,11 @@ Why Ring is not case-sensitive?
 
 (5) To avoid getting error message when writing quick tests then type "variable" instead of "Variable".
 
-(6) To avoid getting error message when you type "Dosomething()" instead of "DoSomething()"
+(6) To avoid getting error message when you type "Dosomething()" instead of "doSomething()"
 
 (7) In Ring, No conflict between Variables, Method Names & Classes Names
 
+We can write person as variable name and Person as class name.
 
 .. code-block:: ring
 	
