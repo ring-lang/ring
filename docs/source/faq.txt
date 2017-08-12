@@ -655,7 +655,7 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 	creating objects (Like GUI Objects) from a C/C++ library, returning an object stored 
 	inside a list.
 
-(6) It is a feature, We can use it to create pure functions. The Value() function is the
+(6) It is a feature, We can use it to create pure functions. The Value() function in the
 	stdlib uses this feature to pass lists & objects by value when we need this.
 
 (7) When we need references, It's recommended to create a class that manage sharing lists and objects.
@@ -668,11 +668,11 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 	between using values or references, You don't have to write the scope (Lexical Scoping).
 
 (10) In Ring, we have smart garbage collector (Simple & Fast), We can delete the memory directly
-	at any time using the Assignment operator too. Reducing reference usage or using them through
-	managers. helps a lot to achive this goal. by doing this we have full control.
+	at any time using the Assignment operator too. Reducing references usage or using them through
+	managers. helps a lot to achieve this goal. by doing this we have full control.
 
 (11) If you want to create references and avoid creating a manager, You can use Object2Pointer() and Pointer2Object() functions
-	But It's not the Ring way "Sprite".
+	But It's not the Ring way "Sprite" to do things.
 
 .. index:: 
 	pair: Frequently Asked Questions; Constructor methods in Ring
