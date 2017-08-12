@@ -669,7 +669,7 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 
 (10) In Ring, we have smart garbage collector (Simple & Fast), We can delete the memory directly
 	at any time using the Assignment operator too. Reducing references usage or using them through
-	managers. helps a lot to achieve this goal. by doing this we have full control.
+	managers helps a lot to achieve this goal. by doing this we have full control.
 
 (11) If you want to create references and avoid creating a manager, You can use Object2Pointer() and Pointer2Object() functions
 	But It's not the Ring way "Sprite" to do things.
