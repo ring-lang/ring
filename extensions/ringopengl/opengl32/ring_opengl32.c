@@ -5035,6 +5035,116 @@ RING_FUNC(ring_get_gl_buffer_map_offset)
 	RING_API_RETNUMBER(GL_BUFFER_MAP_OFFSET);
 }
 
+RING_FUNC(ring_get_gl_context_core_profile_bit)
+{
+	RING_API_RETNUMBER(GL_CONTEXT_CORE_PROFILE_BIT);
+}
+
+RING_FUNC(ring_get_gl_context_compatibility_profile_bit)
+{
+	RING_API_RETNUMBER(GL_CONTEXT_COMPATIBILITY_PROFILE_BIT);
+}
+
+RING_FUNC(ring_get_gl_lines_adjacency)
+{
+	RING_API_RETNUMBER(GL_LINES_ADJACENCY);
+}
+
+RING_FUNC(ring_get_gl_line_strip_adjacency)
+{
+	RING_API_RETNUMBER(GL_LINE_STRIP_ADJACENCY);
+}
+
+RING_FUNC(ring_get_gl_triangles_adjacency)
+{
+	RING_API_RETNUMBER(GL_TRIANGLES_ADJACENCY);
+}
+
+RING_FUNC(ring_get_gl_triangle_strip_adjacency)
+{
+	RING_API_RETNUMBER(GL_TRIANGLE_STRIP_ADJACENCY);
+}
+
+RING_FUNC(ring_get_gl_program_point_size)
+{
+	RING_API_RETNUMBER(GL_PROGRAM_POINT_SIZE);
+}
+
+RING_FUNC(ring_get_gl_geometry_vertices_out)
+{
+	RING_API_RETNUMBER(GL_GEOMETRY_VERTICES_OUT);
+}
+
+RING_FUNC(ring_get_gl_geometry_input_type)
+{
+	RING_API_RETNUMBER(GL_GEOMETRY_INPUT_TYPE);
+}
+
+RING_FUNC(ring_get_gl_geometry_output_type)
+{
+	RING_API_RETNUMBER(GL_GEOMETRY_OUTPUT_TYPE);
+}
+
+RING_FUNC(ring_get_gl_max_geometry_texture_image_units)
+{
+	RING_API_RETNUMBER(GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS);
+}
+
+RING_FUNC(ring_get_gl_framebuffer_attachment_layered)
+{
+	RING_API_RETNUMBER(GL_FRAMEBUFFER_ATTACHMENT_LAYERED);
+}
+
+RING_FUNC(ring_get_gl_framebuffer_incomplete_layer_targets)
+{
+	RING_API_RETNUMBER(GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS);
+}
+
+RING_FUNC(ring_get_gl_geometry_shader)
+{
+	RING_API_RETNUMBER(GL_GEOMETRY_SHADER);
+}
+
+RING_FUNC(ring_get_gl_max_geometry_uniform_components)
+{
+	RING_API_RETNUMBER(GL_MAX_GEOMETRY_UNIFORM_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_max_geometry_output_vertices)
+{
+	RING_API_RETNUMBER(GL_MAX_GEOMETRY_OUTPUT_VERTICES);
+}
+
+RING_FUNC(ring_get_gl_max_geometry_total_output_components)
+{
+	RING_API_RETNUMBER(GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_max_vertex_output_components)
+{
+	RING_API_RETNUMBER(GL_MAX_VERTEX_OUTPUT_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_max_geometry_input_components)
+{
+	RING_API_RETNUMBER(GL_MAX_GEOMETRY_INPUT_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_max_geometry_output_components)
+{
+	RING_API_RETNUMBER(GL_MAX_GEOMETRY_OUTPUT_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_max_fragment_input_components)
+{
+	RING_API_RETNUMBER(GL_MAX_FRAGMENT_INPUT_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_context_profile_mask)
+{
+	RING_API_RETNUMBER(GL_CONTEXT_PROFILE_MASK);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -18799,4 +18909,26 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_buffer_access_flags",ring_get_gl_buffer_access_flags);
 	ring_vm_funcregister("get_gl_buffer_map_length",ring_get_gl_buffer_map_length);
 	ring_vm_funcregister("get_gl_buffer_map_offset",ring_get_gl_buffer_map_offset);
+	ring_vm_funcregister("get_gl_context_core_profile_bit",ring_get_gl_context_core_profile_bit);
+	ring_vm_funcregister("get_gl_context_compatibility_profile_bit",ring_get_gl_context_compatibility_profile_bit);
+	ring_vm_funcregister("get_gl_lines_adjacency",ring_get_gl_lines_adjacency);
+	ring_vm_funcregister("get_gl_line_strip_adjacency",ring_get_gl_line_strip_adjacency);
+	ring_vm_funcregister("get_gl_triangles_adjacency",ring_get_gl_triangles_adjacency);
+	ring_vm_funcregister("get_gl_triangle_strip_adjacency",ring_get_gl_triangle_strip_adjacency);
+	ring_vm_funcregister("get_gl_program_point_size",ring_get_gl_program_point_size);
+	ring_vm_funcregister("get_gl_geometry_vertices_out",ring_get_gl_geometry_vertices_out);
+	ring_vm_funcregister("get_gl_geometry_input_type",ring_get_gl_geometry_input_type);
+	ring_vm_funcregister("get_gl_geometry_output_type",ring_get_gl_geometry_output_type);
+	ring_vm_funcregister("get_gl_max_geometry_texture_image_units",ring_get_gl_max_geometry_texture_image_units);
+	ring_vm_funcregister("get_gl_framebuffer_attachment_layered",ring_get_gl_framebuffer_attachment_layered);
+	ring_vm_funcregister("get_gl_framebuffer_incomplete_layer_targets",ring_get_gl_framebuffer_incomplete_layer_targets);
+	ring_vm_funcregister("get_gl_geometry_shader",ring_get_gl_geometry_shader);
+	ring_vm_funcregister("get_gl_max_geometry_uniform_components",ring_get_gl_max_geometry_uniform_components);
+	ring_vm_funcregister("get_gl_max_geometry_output_vertices",ring_get_gl_max_geometry_output_vertices);
+	ring_vm_funcregister("get_gl_max_geometry_total_output_components",ring_get_gl_max_geometry_total_output_components);
+	ring_vm_funcregister("get_gl_max_vertex_output_components",ring_get_gl_max_vertex_output_components);
+	ring_vm_funcregister("get_gl_max_geometry_input_components",ring_get_gl_max_geometry_input_components);
+	ring_vm_funcregister("get_gl_max_geometry_output_components",ring_get_gl_max_geometry_output_components);
+	ring_vm_funcregister("get_gl_max_fragment_input_components",ring_get_gl_max_fragment_input_components);
+	ring_vm_funcregister("get_gl_context_profile_mask",ring_get_gl_context_profile_mask);
 }
