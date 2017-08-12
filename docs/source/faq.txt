@@ -667,6 +667,13 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 	conversions between numbers and strings (Weakly Typed) and you don't have to select
 	between using values or references, You don't have to write the scope (Lexical Scoping).
 
+(10) In Ring, we have smart garbage collector (Simple & Fast), We can delete the memory directly
+	at any time using the Assignment operator too. Reducing reference usage or using them through
+	managers. helps a lot to achive this goal. by doing this we have full control.
+
+(11) If you want to create references and avoid creating a manager, You can use Object2Pointer() and Pointer2Object() functions
+	But It's not the Ring way "Sprite".
+
 .. index:: 
 	pair: Frequently Asked Questions; Constructor methods in Ring
 
