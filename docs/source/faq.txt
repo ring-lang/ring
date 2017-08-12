@@ -639,30 +639,30 @@ We can write person as variable name and Person as class name.
 Why the Assignment operator uses Deep copy?
 ===========================================
 
-(1) "Because it's a poor tradeoff to add complexity for dubious performance gains, a good
+"Because it's a poor tradeoff to add complexity for dubious performance gains, a good
 approach to deep vs. shallow copies is to prefer deep copies until proven otherwise."
 	, Steve McConnell, Code Complete 
 
-(2) It's more natural, When you use the assignment operator, You expect a deep copy.
+(1) It's more natural, When you use the assignment operator, You expect a deep copy.
 
-(3) If you don't need a deep copy, Just don't use it! 
+(2) If you don't need a deep copy, Just don't use it! 
 
-(4) The Ring language is designed to reduce references usage as much as possible.
+(3) The Ring language is designed to reduce references usage as much as possible.
 
-(5) The Ring language is designed to make using references simple and possible in special cases where this make sense.
+(4) The Ring language is designed to make using references simple and possible in special cases where this make sense.
 
-(6) We have references when this is natural, like passing lists and objects to functions,
+(5) We have references when this is natural, like passing lists and objects to functions,
 	creating objects (Like GUI Objects) from a C/C++ library, returning an object stored 
 	inside a list.
 
-(7) It is a feature, We can use it to create pure functions. The Value() function is the
+(6) It is a feature, We can use it to create pure functions. The Value() function is the
 	stdlib uses this feature to pass lists & objects by value when we need this.
 
-(8) When we need references, It's recommended to create a class that manage sharing lists and objects.
+(7) When we need references, It's recommended to create a class that manage sharing lists and objects.
 	
-(9) It's more safe.
+(8) It's more safe.
 
-(10) To start without thinking about the little details and concentrate on your applications, You
+(9) In Ring, we start without thinking about the little details and concentrate on your applications, You
 	don't have to determine the type (Dynamic Typing), You don't have to write explicit
 	conversions between numbers and strings (Weakly Typed) and you don't have to select
 	between using values or references.
