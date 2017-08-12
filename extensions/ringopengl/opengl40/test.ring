@@ -1,0 +1,1 @@
+load "opengl40lib.ring"
