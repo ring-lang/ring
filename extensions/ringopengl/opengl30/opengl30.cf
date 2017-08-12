@@ -35,7 +35,6 @@ aEnumTypes + "GLclampf"
 
 <comment>
 OpenGL 3.0 functions
-From this reference : https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/
 </comment>
 
 <constant>
