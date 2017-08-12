@@ -5280,6 +5280,11 @@ RING_FUNC(ring_get_gl_texture_buffer_binding)
 	RING_API_RETNUMBER(GL_TEXTURE_BUFFER_BINDING);
 }
 
+RING_FUNC(ring_get_gl_context_flag_robust_access_bit)
+{
+	RING_API_RETNUMBER(GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -19093,4 +19098,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_primitive_restart_for_patches_supported",ring_get_gl_primitive_restart_for_patches_supported);
 	ring_vm_funcregister("get_gl_max_vertex_attrib_stride",ring_get_gl_max_vertex_attrib_stride);
 	ring_vm_funcregister("get_gl_texture_buffer_binding",ring_get_gl_texture_buffer_binding);
+	ring_vm_funcregister("get_gl_context_flag_robust_access_bit",ring_get_gl_context_flag_robust_access_bit);
 }
