@@ -5145,6 +5145,16 @@ RING_FUNC(ring_get_gl_context_profile_mask)
 	RING_API_RETNUMBER(GL_CONTEXT_PROFILE_MASK);
 }
 
+RING_FUNC(ring_get_gl_vertex_attrib_array_divisor)
+{
+	RING_API_RETNUMBER(GL_VERTEX_ATTRIB_ARRAY_DIVISOR);
+}
+
+RING_FUNC(ring_get_gl_rgb10_a2ui)
+{
+	RING_API_RETNUMBER(GL_RGB10_A2UI);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -18931,4 +18941,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_max_geometry_output_components",ring_get_gl_max_geometry_output_components);
 	ring_vm_funcregister("get_gl_max_fragment_input_components",ring_get_gl_max_fragment_input_components);
 	ring_vm_funcregister("get_gl_context_profile_mask",ring_get_gl_context_profile_mask);
+	ring_vm_funcregister("get_gl_vertex_attrib_array_divisor",ring_get_gl_vertex_attrib_array_divisor);
+	ring_vm_funcregister("get_gl_rgb10_a2ui",ring_get_gl_rgb10_a2ui);
 }
