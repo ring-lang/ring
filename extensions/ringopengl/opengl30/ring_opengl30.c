@@ -4340,6 +4340,531 @@ RING_FUNC(ring_get_gl_compressed_sluminance_alpha)
 	RING_API_RETNUMBER(GL_COMPRESSED_SLUMINANCE_ALPHA);
 }
 
+RING_FUNC(ring_get_gl_clip_distance0)
+{
+	RING_API_RETNUMBER(GL_CLIP_DISTANCE0);
+}
+
+RING_FUNC(ring_get_gl_clip_distance1)
+{
+	RING_API_RETNUMBER(GL_CLIP_DISTANCE1);
+}
+
+RING_FUNC(ring_get_gl_clip_distance2)
+{
+	RING_API_RETNUMBER(GL_CLIP_DISTANCE2);
+}
+
+RING_FUNC(ring_get_gl_clip_distance3)
+{
+	RING_API_RETNUMBER(GL_CLIP_DISTANCE3);
+}
+
+RING_FUNC(ring_get_gl_clip_distance4)
+{
+	RING_API_RETNUMBER(GL_CLIP_DISTANCE4);
+}
+
+RING_FUNC(ring_get_gl_clip_distance5)
+{
+	RING_API_RETNUMBER(GL_CLIP_DISTANCE5);
+}
+
+RING_FUNC(ring_get_gl_compare_ref_to_texture)
+{
+	RING_API_RETNUMBER(GL_COMPARE_REF_TO_TEXTURE);
+}
+
+RING_FUNC(ring_get_gl_max_clip_distances)
+{
+	RING_API_RETNUMBER(GL_MAX_CLIP_DISTANCES);
+}
+
+RING_FUNC(ring_get_gl_max_varying_components)
+{
+	RING_API_RETNUMBER(GL_MAX_VARYING_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_context_flag_forward_compatible_bit)
+{
+	RING_API_RETNUMBER(GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT);
+}
+
+RING_FUNC(ring_get_gl_major_version)
+{
+	RING_API_RETNUMBER(GL_MAJOR_VERSION);
+}
+
+RING_FUNC(ring_get_gl_minor_version)
+{
+	RING_API_RETNUMBER(GL_MINOR_VERSION);
+}
+
+RING_FUNC(ring_get_gl_num_extensions)
+{
+	RING_API_RETNUMBER(GL_NUM_EXTENSIONS);
+}
+
+RING_FUNC(ring_get_gl_context_flags)
+{
+	RING_API_RETNUMBER(GL_CONTEXT_FLAGS);
+}
+
+RING_FUNC(ring_get_gl_depth_buffer)
+{
+	RING_API_RETNUMBER(GL_DEPTH_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_stencil_buffer)
+{
+	RING_API_RETNUMBER(GL_STENCIL_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_rgba32f)
+{
+	RING_API_RETNUMBER(GL_RGBA32F);
+}
+
+RING_FUNC(ring_get_gl_rgb32f)
+{
+	RING_API_RETNUMBER(GL_RGB32F);
+}
+
+RING_FUNC(ring_get_gl_rgba16f)
+{
+	RING_API_RETNUMBER(GL_RGBA16F);
+}
+
+RING_FUNC(ring_get_gl_rgb16f)
+{
+	RING_API_RETNUMBER(GL_RGB16F);
+}
+
+RING_FUNC(ring_get_gl_vertex_attrib_array_integer)
+{
+	RING_API_RETNUMBER(GL_VERTEX_ATTRIB_ARRAY_INTEGER);
+}
+
+RING_FUNC(ring_get_gl_max_array_texture_layers)
+{
+	RING_API_RETNUMBER(GL_MAX_ARRAY_TEXTURE_LAYERS);
+}
+
+RING_FUNC(ring_get_gl_min_program_texel_offset)
+{
+	RING_API_RETNUMBER(GL_MIN_PROGRAM_TEXEL_OFFSET);
+}
+
+RING_FUNC(ring_get_gl_max_program_texel_offset)
+{
+	RING_API_RETNUMBER(GL_MAX_PROGRAM_TEXEL_OFFSET);
+}
+
+RING_FUNC(ring_get_gl_clamp_vertex_color)
+{
+	RING_API_RETNUMBER(GL_CLAMP_VERTEX_COLOR);
+}
+
+RING_FUNC(ring_get_gl_clamp_fragment_color)
+{
+	RING_API_RETNUMBER(GL_CLAMP_FRAGMENT_COLOR);
+}
+
+RING_FUNC(ring_get_gl_clamp_read_color)
+{
+	RING_API_RETNUMBER(GL_CLAMP_READ_COLOR);
+}
+
+RING_FUNC(ring_get_gl_fixed_only)
+{
+	RING_API_RETNUMBER(GL_FIXED_ONLY);
+}
+
+RING_FUNC(ring_get_gl_texture_red_type)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_RED_TYPE);
+}
+
+RING_FUNC(ring_get_gl_texture_green_type)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_GREEN_TYPE);
+}
+
+RING_FUNC(ring_get_gl_texture_blue_type)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BLUE_TYPE);
+}
+
+RING_FUNC(ring_get_gl_texture_alpha_type)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_ALPHA_TYPE);
+}
+
+RING_FUNC(ring_get_gl_texture_luminance_type)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_LUMINANCE_TYPE);
+}
+
+RING_FUNC(ring_get_gl_texture_intensity_type)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_INTENSITY_TYPE);
+}
+
+RING_FUNC(ring_get_gl_texture_depth_type)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_DEPTH_TYPE);
+}
+
+RING_FUNC(ring_get_gl_texture_1d_array)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_1D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_proxy_texture_1d_array)
+{
+	RING_API_RETNUMBER(GL_PROXY_TEXTURE_1D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_texture_2d_array)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_2D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_proxy_texture_2d_array)
+{
+	RING_API_RETNUMBER(GL_PROXY_TEXTURE_2D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_texture_binding_1d_array)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BINDING_1D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_texture_binding_2d_array)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_BINDING_2D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_r11f_g11f_b10f)
+{
+	RING_API_RETNUMBER(GL_R11F_G11F_B10F);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_10f_11f_11f_rev)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_10F_11F_11F_REV);
+}
+
+RING_FUNC(ring_get_gl_rgb9_e5)
+{
+	RING_API_RETNUMBER(GL_RGB9_E5);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_5_9_9_9_rev)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_5_9_9_9_REV);
+}
+
+RING_FUNC(ring_get_gl_texture_shared_size)
+{
+	RING_API_RETNUMBER(GL_TEXTURE_SHARED_SIZE);
+}
+
+RING_FUNC(ring_get_gl_transform_feedback_varying_max_length)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH);
+}
+
+RING_FUNC(ring_get_gl_transform_feedback_buffer_mode)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_BUFFER_MODE);
+}
+
+RING_FUNC(ring_get_gl_max_transform_feedback_separate_components)
+{
+	RING_API_RETNUMBER(GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_transform_feedback_varyings)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_VARYINGS);
+}
+
+RING_FUNC(ring_get_gl_transform_feedback_buffer_start)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_BUFFER_START);
+}
+
+RING_FUNC(ring_get_gl_transform_feedback_buffer_size)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_BUFFER_SIZE);
+}
+
+RING_FUNC(ring_get_gl_primitives_generated)
+{
+	RING_API_RETNUMBER(GL_PRIMITIVES_GENERATED);
+}
+
+RING_FUNC(ring_get_gl_transform_feedback_primitives_written)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN);
+}
+
+RING_FUNC(ring_get_gl_rasterizer_discard)
+{
+	RING_API_RETNUMBER(GL_RASTERIZER_DISCARD);
+}
+
+RING_FUNC(ring_get_gl_max_transform_feedback_interleaved_components)
+{
+	RING_API_RETNUMBER(GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS);
+}
+
+RING_FUNC(ring_get_gl_max_transform_feedback_separate_attribs)
+{
+	RING_API_RETNUMBER(GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS);
+}
+
+RING_FUNC(ring_get_gl_interleaved_attribs)
+{
+	RING_API_RETNUMBER(GL_INTERLEAVED_ATTRIBS);
+}
+
+RING_FUNC(ring_get_gl_separate_attribs)
+{
+	RING_API_RETNUMBER(GL_SEPARATE_ATTRIBS);
+}
+
+RING_FUNC(ring_get_gl_transform_feedback_buffer)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_BUFFER);
+}
+
+RING_FUNC(ring_get_gl_transform_feedback_buffer_binding)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_BUFFER_BINDING);
+}
+
+RING_FUNC(ring_get_gl_rgba32ui)
+{
+	RING_API_RETNUMBER(GL_RGBA32UI);
+}
+
+RING_FUNC(ring_get_gl_rgb32ui)
+{
+	RING_API_RETNUMBER(GL_RGB32UI);
+}
+
+RING_FUNC(ring_get_gl_rgba16ui)
+{
+	RING_API_RETNUMBER(GL_RGBA16UI);
+}
+
+RING_FUNC(ring_get_gl_rgb16ui)
+{
+	RING_API_RETNUMBER(GL_RGB16UI);
+}
+
+RING_FUNC(ring_get_gl_rgba8ui)
+{
+	RING_API_RETNUMBER(GL_RGBA8UI);
+}
+
+RING_FUNC(ring_get_gl_rgb8ui)
+{
+	RING_API_RETNUMBER(GL_RGB8UI);
+}
+
+RING_FUNC(ring_get_gl_rgba32i)
+{
+	RING_API_RETNUMBER(GL_RGBA32I);
+}
+
+RING_FUNC(ring_get_gl_rgb32i)
+{
+	RING_API_RETNUMBER(GL_RGB32I);
+}
+
+RING_FUNC(ring_get_gl_rgba16i)
+{
+	RING_API_RETNUMBER(GL_RGBA16I);
+}
+
+RING_FUNC(ring_get_gl_rgb16i)
+{
+	RING_API_RETNUMBER(GL_RGB16I);
+}
+
+RING_FUNC(ring_get_gl_rgba8i)
+{
+	RING_API_RETNUMBER(GL_RGBA8I);
+}
+
+RING_FUNC(ring_get_gl_rgb8i)
+{
+	RING_API_RETNUMBER(GL_RGB8I);
+}
+
+RING_FUNC(ring_get_gl_red_integer)
+{
+	RING_API_RETNUMBER(GL_RED_INTEGER);
+}
+
+RING_FUNC(ring_get_gl_green_integer)
+{
+	RING_API_RETNUMBER(GL_GREEN_INTEGER);
+}
+
+RING_FUNC(ring_get_gl_blue_integer)
+{
+	RING_API_RETNUMBER(GL_BLUE_INTEGER);
+}
+
+RING_FUNC(ring_get_gl_alpha_integer)
+{
+	RING_API_RETNUMBER(GL_ALPHA_INTEGER);
+}
+
+RING_FUNC(ring_get_gl_rgb_integer)
+{
+	RING_API_RETNUMBER(GL_RGB_INTEGER);
+}
+
+RING_FUNC(ring_get_gl_rgba_integer)
+{
+	RING_API_RETNUMBER(GL_RGBA_INTEGER);
+}
+
+RING_FUNC(ring_get_gl_bgr_integer)
+{
+	RING_API_RETNUMBER(GL_BGR_INTEGER);
+}
+
+RING_FUNC(ring_get_gl_bgra_integer)
+{
+	RING_API_RETNUMBER(GL_BGRA_INTEGER);
+}
+
+RING_FUNC(ring_get_gl_sampler_1d_array)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_1D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_sampler_2d_array)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_2D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_sampler_1d_array_shadow)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_1D_ARRAY_SHADOW);
+}
+
+RING_FUNC(ring_get_gl_sampler_2d_array_shadow)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_2D_ARRAY_SHADOW);
+}
+
+RING_FUNC(ring_get_gl_sampler_cube_shadow)
+{
+	RING_API_RETNUMBER(GL_SAMPLER_CUBE_SHADOW);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_vec2)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_VEC2);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_vec3)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_VEC3);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_vec4)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_VEC4);
+}
+
+RING_FUNC(ring_get_gl_int_sampler_1d)
+{
+	RING_API_RETNUMBER(GL_INT_SAMPLER_1D);
+}
+
+RING_FUNC(ring_get_gl_int_sampler_2d)
+{
+	RING_API_RETNUMBER(GL_INT_SAMPLER_2D);
+}
+
+RING_FUNC(ring_get_gl_int_sampler_3d)
+{
+	RING_API_RETNUMBER(GL_INT_SAMPLER_3D);
+}
+
+RING_FUNC(ring_get_gl_int_sampler_cube)
+{
+	RING_API_RETNUMBER(GL_INT_SAMPLER_CUBE);
+}
+
+RING_FUNC(ring_get_gl_int_sampler_1d_array)
+{
+	RING_API_RETNUMBER(GL_INT_SAMPLER_1D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_int_sampler_2d_array)
+{
+	RING_API_RETNUMBER(GL_INT_SAMPLER_2D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_sampler_1d)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_1D);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_sampler_2d)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_2D);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_sampler_3d)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_3D);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_sampler_cube)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_CUBE);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_sampler_1d_array)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_1D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_unsigned_int_sampler_2d_array)
+{
+	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_2D_ARRAY);
+}
+
+RING_FUNC(ring_get_gl_query_wait)
+{
+	RING_API_RETNUMBER(GL_QUERY_WAIT);
+}
+
+RING_FUNC(ring_get_gl_query_no_wait)
+{
+	RING_API_RETNUMBER(GL_QUERY_NO_WAIT);
+}
+
+RING_FUNC(ring_get_gl_query_by_region_wait)
+{
+	RING_API_RETNUMBER(GL_QUERY_BY_REGION_WAIT);
+}
+
+RING_FUNC(ring_get_gl_query_by_region_no_wait)
+{
+	RING_API_RETNUMBER(GL_QUERY_BY_REGION_NO_WAIT);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -17965,4 +18490,109 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_compressed_srgb_alpha",ring_get_gl_compressed_srgb_alpha);
 	ring_vm_funcregister("get_gl_compressed_sluminance",ring_get_gl_compressed_sluminance);
 	ring_vm_funcregister("get_gl_compressed_sluminance_alpha",ring_get_gl_compressed_sluminance_alpha);
+	ring_vm_funcregister("get_gl_clip_distance0",ring_get_gl_clip_distance0);
+	ring_vm_funcregister("get_gl_clip_distance1",ring_get_gl_clip_distance1);
+	ring_vm_funcregister("get_gl_clip_distance2",ring_get_gl_clip_distance2);
+	ring_vm_funcregister("get_gl_clip_distance3",ring_get_gl_clip_distance3);
+	ring_vm_funcregister("get_gl_clip_distance4",ring_get_gl_clip_distance4);
+	ring_vm_funcregister("get_gl_clip_distance5",ring_get_gl_clip_distance5);
+	ring_vm_funcregister("get_gl_compare_ref_to_texture",ring_get_gl_compare_ref_to_texture);
+	ring_vm_funcregister("get_gl_max_clip_distances",ring_get_gl_max_clip_distances);
+	ring_vm_funcregister("get_gl_max_varying_components",ring_get_gl_max_varying_components);
+	ring_vm_funcregister("get_gl_context_flag_forward_compatible_bit",ring_get_gl_context_flag_forward_compatible_bit);
+	ring_vm_funcregister("get_gl_major_version",ring_get_gl_major_version);
+	ring_vm_funcregister("get_gl_minor_version",ring_get_gl_minor_version);
+	ring_vm_funcregister("get_gl_num_extensions",ring_get_gl_num_extensions);
+	ring_vm_funcregister("get_gl_context_flags",ring_get_gl_context_flags);
+	ring_vm_funcregister("get_gl_depth_buffer",ring_get_gl_depth_buffer);
+	ring_vm_funcregister("get_gl_stencil_buffer",ring_get_gl_stencil_buffer);
+	ring_vm_funcregister("get_gl_rgba32f",ring_get_gl_rgba32f);
+	ring_vm_funcregister("get_gl_rgb32f",ring_get_gl_rgb32f);
+	ring_vm_funcregister("get_gl_rgba16f",ring_get_gl_rgba16f);
+	ring_vm_funcregister("get_gl_rgb16f",ring_get_gl_rgb16f);
+	ring_vm_funcregister("get_gl_vertex_attrib_array_integer",ring_get_gl_vertex_attrib_array_integer);
+	ring_vm_funcregister("get_gl_max_array_texture_layers",ring_get_gl_max_array_texture_layers);
+	ring_vm_funcregister("get_gl_min_program_texel_offset",ring_get_gl_min_program_texel_offset);
+	ring_vm_funcregister("get_gl_max_program_texel_offset",ring_get_gl_max_program_texel_offset);
+	ring_vm_funcregister("get_gl_clamp_vertex_color",ring_get_gl_clamp_vertex_color);
+	ring_vm_funcregister("get_gl_clamp_fragment_color",ring_get_gl_clamp_fragment_color);
+	ring_vm_funcregister("get_gl_clamp_read_color",ring_get_gl_clamp_read_color);
+	ring_vm_funcregister("get_gl_fixed_only",ring_get_gl_fixed_only);
+	ring_vm_funcregister("get_gl_texture_red_type",ring_get_gl_texture_red_type);
+	ring_vm_funcregister("get_gl_texture_green_type",ring_get_gl_texture_green_type);
+	ring_vm_funcregister("get_gl_texture_blue_type",ring_get_gl_texture_blue_type);
+	ring_vm_funcregister("get_gl_texture_alpha_type",ring_get_gl_texture_alpha_type);
+	ring_vm_funcregister("get_gl_texture_luminance_type",ring_get_gl_texture_luminance_type);
+	ring_vm_funcregister("get_gl_texture_intensity_type",ring_get_gl_texture_intensity_type);
+	ring_vm_funcregister("get_gl_texture_depth_type",ring_get_gl_texture_depth_type);
+	ring_vm_funcregister("get_gl_texture_1d_array",ring_get_gl_texture_1d_array);
+	ring_vm_funcregister("get_gl_proxy_texture_1d_array",ring_get_gl_proxy_texture_1d_array);
+	ring_vm_funcregister("get_gl_texture_2d_array",ring_get_gl_texture_2d_array);
+	ring_vm_funcregister("get_gl_proxy_texture_2d_array",ring_get_gl_proxy_texture_2d_array);
+	ring_vm_funcregister("get_gl_texture_binding_1d_array",ring_get_gl_texture_binding_1d_array);
+	ring_vm_funcregister("get_gl_texture_binding_2d_array",ring_get_gl_texture_binding_2d_array);
+	ring_vm_funcregister("get_gl_r11f_g11f_b10f",ring_get_gl_r11f_g11f_b10f);
+	ring_vm_funcregister("get_gl_unsigned_int_10f_11f_11f_rev",ring_get_gl_unsigned_int_10f_11f_11f_rev);
+	ring_vm_funcregister("get_gl_rgb9_e5",ring_get_gl_rgb9_e5);
+	ring_vm_funcregister("get_gl_unsigned_int_5_9_9_9_rev",ring_get_gl_unsigned_int_5_9_9_9_rev);
+	ring_vm_funcregister("get_gl_texture_shared_size",ring_get_gl_texture_shared_size);
+	ring_vm_funcregister("get_gl_transform_feedback_varying_max_length",ring_get_gl_transform_feedback_varying_max_length);
+	ring_vm_funcregister("get_gl_transform_feedback_buffer_mode",ring_get_gl_transform_feedback_buffer_mode);
+	ring_vm_funcregister("get_gl_max_transform_feedback_separate_components",ring_get_gl_max_transform_feedback_separate_components);
+	ring_vm_funcregister("get_gl_transform_feedback_varyings",ring_get_gl_transform_feedback_varyings);
+	ring_vm_funcregister("get_gl_transform_feedback_buffer_start",ring_get_gl_transform_feedback_buffer_start);
+	ring_vm_funcregister("get_gl_transform_feedback_buffer_size",ring_get_gl_transform_feedback_buffer_size);
+	ring_vm_funcregister("get_gl_primitives_generated",ring_get_gl_primitives_generated);
+	ring_vm_funcregister("get_gl_transform_feedback_primitives_written",ring_get_gl_transform_feedback_primitives_written);
+	ring_vm_funcregister("get_gl_rasterizer_discard",ring_get_gl_rasterizer_discard);
+	ring_vm_funcregister("get_gl_max_transform_feedback_interleaved_components",ring_get_gl_max_transform_feedback_interleaved_components);
+	ring_vm_funcregister("get_gl_max_transform_feedback_separate_attribs",ring_get_gl_max_transform_feedback_separate_attribs);
+	ring_vm_funcregister("get_gl_interleaved_attribs",ring_get_gl_interleaved_attribs);
+	ring_vm_funcregister("get_gl_separate_attribs",ring_get_gl_separate_attribs);
+	ring_vm_funcregister("get_gl_transform_feedback_buffer",ring_get_gl_transform_feedback_buffer);
+	ring_vm_funcregister("get_gl_transform_feedback_buffer_binding",ring_get_gl_transform_feedback_buffer_binding);
+	ring_vm_funcregister("get_gl_rgba32ui",ring_get_gl_rgba32ui);
+	ring_vm_funcregister("get_gl_rgb32ui",ring_get_gl_rgb32ui);
+	ring_vm_funcregister("get_gl_rgba16ui",ring_get_gl_rgba16ui);
+	ring_vm_funcregister("get_gl_rgb16ui",ring_get_gl_rgb16ui);
+	ring_vm_funcregister("get_gl_rgba8ui",ring_get_gl_rgba8ui);
+	ring_vm_funcregister("get_gl_rgb8ui",ring_get_gl_rgb8ui);
+	ring_vm_funcregister("get_gl_rgba32i",ring_get_gl_rgba32i);
+	ring_vm_funcregister("get_gl_rgb32i",ring_get_gl_rgb32i);
+	ring_vm_funcregister("get_gl_rgba16i",ring_get_gl_rgba16i);
+	ring_vm_funcregister("get_gl_rgb16i",ring_get_gl_rgb16i);
+	ring_vm_funcregister("get_gl_rgba8i",ring_get_gl_rgba8i);
+	ring_vm_funcregister("get_gl_rgb8i",ring_get_gl_rgb8i);
+	ring_vm_funcregister("get_gl_red_integer",ring_get_gl_red_integer);
+	ring_vm_funcregister("get_gl_green_integer",ring_get_gl_green_integer);
+	ring_vm_funcregister("get_gl_blue_integer",ring_get_gl_blue_integer);
+	ring_vm_funcregister("get_gl_alpha_integer",ring_get_gl_alpha_integer);
+	ring_vm_funcregister("get_gl_rgb_integer",ring_get_gl_rgb_integer);
+	ring_vm_funcregister("get_gl_rgba_integer",ring_get_gl_rgba_integer);
+	ring_vm_funcregister("get_gl_bgr_integer",ring_get_gl_bgr_integer);
+	ring_vm_funcregister("get_gl_bgra_integer",ring_get_gl_bgra_integer);
+	ring_vm_funcregister("get_gl_sampler_1d_array",ring_get_gl_sampler_1d_array);
+	ring_vm_funcregister("get_gl_sampler_2d_array",ring_get_gl_sampler_2d_array);
+	ring_vm_funcregister("get_gl_sampler_1d_array_shadow",ring_get_gl_sampler_1d_array_shadow);
+	ring_vm_funcregister("get_gl_sampler_2d_array_shadow",ring_get_gl_sampler_2d_array_shadow);
+	ring_vm_funcregister("get_gl_sampler_cube_shadow",ring_get_gl_sampler_cube_shadow);
+	ring_vm_funcregister("get_gl_unsigned_int_vec2",ring_get_gl_unsigned_int_vec2);
+	ring_vm_funcregister("get_gl_unsigned_int_vec3",ring_get_gl_unsigned_int_vec3);
+	ring_vm_funcregister("get_gl_unsigned_int_vec4",ring_get_gl_unsigned_int_vec4);
+	ring_vm_funcregister("get_gl_int_sampler_1d",ring_get_gl_int_sampler_1d);
+	ring_vm_funcregister("get_gl_int_sampler_2d",ring_get_gl_int_sampler_2d);
+	ring_vm_funcregister("get_gl_int_sampler_3d",ring_get_gl_int_sampler_3d);
+	ring_vm_funcregister("get_gl_int_sampler_cube",ring_get_gl_int_sampler_cube);
+	ring_vm_funcregister("get_gl_int_sampler_1d_array",ring_get_gl_int_sampler_1d_array);
+	ring_vm_funcregister("get_gl_int_sampler_2d_array",ring_get_gl_int_sampler_2d_array);
+	ring_vm_funcregister("get_gl_unsigned_int_sampler_1d",ring_get_gl_unsigned_int_sampler_1d);
+	ring_vm_funcregister("get_gl_unsigned_int_sampler_2d",ring_get_gl_unsigned_int_sampler_2d);
+	ring_vm_funcregister("get_gl_unsigned_int_sampler_3d",ring_get_gl_unsigned_int_sampler_3d);
+	ring_vm_funcregister("get_gl_unsigned_int_sampler_cube",ring_get_gl_unsigned_int_sampler_cube);
+	ring_vm_funcregister("get_gl_unsigned_int_sampler_1d_array",ring_get_gl_unsigned_int_sampler_1d_array);
+	ring_vm_funcregister("get_gl_unsigned_int_sampler_2d_array",ring_get_gl_unsigned_int_sampler_2d_array);
+	ring_vm_funcregister("get_gl_query_wait",ring_get_gl_query_wait);
+	ring_vm_funcregister("get_gl_query_no_wait",ring_get_gl_query_no_wait);
+	ring_vm_funcregister("get_gl_query_by_region_wait",ring_get_gl_query_by_region_wait);
+	ring_vm_funcregister("get_gl_query_by_region_no_wait",ring_get_gl_query_by_region_no_wait);
 }
