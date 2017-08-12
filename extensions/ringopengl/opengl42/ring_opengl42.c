@@ -5215,6 +5215,46 @@ RING_FUNC(ring_get_gl_unsigned_int_sampler_cube_map_array)
 	RING_API_RETNUMBER(GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY);
 }
 
+RING_FUNC(ring_get_gl_transform_feedback_paused)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_PAUSED);
+}
+
+RING_FUNC(ring_get_gl_transform_feedback_active)
+{
+	RING_API_RETNUMBER(GL_TRANSFORM_FEEDBACK_ACTIVE);
+}
+
+RING_FUNC(ring_get_gl_compressed_rgba_bptc_unorm)
+{
+	RING_API_RETNUMBER(GL_COMPRESSED_RGBA_BPTC_UNORM);
+}
+
+RING_FUNC(ring_get_gl_compressed_srgb_alpha_bptc_unorm)
+{
+	RING_API_RETNUMBER(GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM);
+}
+
+RING_FUNC(ring_get_gl_compressed_rgb_bptc_signed_float)
+{
+	RING_API_RETNUMBER(GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT);
+}
+
+RING_FUNC(ring_get_gl_compressed_rgb_bptc_unsigned_float)
+{
+	RING_API_RETNUMBER(GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT);
+}
+
+RING_FUNC(ring_get_gl_copy_read_buffer_binding)
+{
+	RING_API_RETNUMBER(GL_COPY_READ_BUFFER_BINDING);
+}
+
+RING_FUNC(ring_get_gl_copy_write_buffer_binding)
+{
+	RING_API_RETNUMBER(GL_COPY_WRITE_BUFFER_BINDING);
+}
+
 
 RING_FUNC(ring_glAccum)
 {
@@ -19015,4 +19055,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_sampler_cube_map_array_shadow",ring_get_gl_sampler_cube_map_array_shadow);
 	ring_vm_funcregister("get_gl_int_sampler_cube_map_array",ring_get_gl_int_sampler_cube_map_array);
 	ring_vm_funcregister("get_gl_unsigned_int_sampler_cube_map_array",ring_get_gl_unsigned_int_sampler_cube_map_array);
+	ring_vm_funcregister("get_gl_transform_feedback_paused",ring_get_gl_transform_feedback_paused);
+	ring_vm_funcregister("get_gl_transform_feedback_active",ring_get_gl_transform_feedback_active);
+	ring_vm_funcregister("get_gl_compressed_rgba_bptc_unorm",ring_get_gl_compressed_rgba_bptc_unorm);
+	ring_vm_funcregister("get_gl_compressed_srgb_alpha_bptc_unorm",ring_get_gl_compressed_srgb_alpha_bptc_unorm);
+	ring_vm_funcregister("get_gl_compressed_rgb_bptc_signed_float",ring_get_gl_compressed_rgb_bptc_signed_float);
+	ring_vm_funcregister("get_gl_compressed_rgb_bptc_unsigned_float",ring_get_gl_compressed_rgb_bptc_unsigned_float);
+	ring_vm_funcregister("get_gl_copy_read_buffer_binding",ring_get_gl_copy_read_buffer_binding);
+	ring_vm_funcregister("get_gl_copy_write_buffer_binding",ring_get_gl_copy_write_buffer_binding);
 }
