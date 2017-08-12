@@ -89,6 +89,7 @@ Contents:
    RingOpenGL (OpenGL 1.5) Functions Reference <ringopengl15funcsdoc>
    RingOpenGL (OpenGL 2.0) Functions Reference <ringopengl20funcsdoc>
    RingOpenGL (OpenGL 2.1) Functions Reference <ringopengl21funcsdoc>
+   RingOpenGL (OpenGL 3.0) Functions Reference <ringopengl30funcsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
    Frequently Asked Questions (FAQ) <faq>
    Language Reference <reference>
