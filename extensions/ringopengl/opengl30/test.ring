@@ -1,0 +1,1 @@
+load "opengl30lib.ring"
