@@ -20,6 +20,7 @@ Ring 1.5 comes with many new features!
 * Calculator Application
 * Better Ring Notepad
 * Better StdLib
+* Better WebLib
 * Better RingQt
 * Better Objects Library
 * RingFreeGLUT Extension
