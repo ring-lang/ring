@@ -20,55 +20,7 @@ Func Puts vvalue
 	Parameters	: the string
 */
 Func Print vValue
-	# We can't call Print2str() to implement this function
-	# Because Print2Str() depend on the scopes count 
-	for t = 1 to len(vValue)
-		switch vValue[t]
-		on "\"
-			t++
-			switch vValue[t]
-			on "\"
-				see "\"
-			on "n"
-				see nl
-			on "t"
-				see char(9)
-			on "r" 
-				see char(13)
-			off
-		on "#"
-			if vValue[t+1] = "{"
-				cVar = ""
-				for r=t+2 to len(vValue)
-					if vValue[r] != "}"
-						cVar += vValue[r]
-					else
-						exit
-					ok					
-				next
-				# Access Local Variables in the Caller
-				if not find(globals(),lower(cVar))
-					aMem = ringvm_memorylist()
-					if len(aMem) > 1
-						# -2 to avoid two scopes 
-						# scope used by ringvm_memorylist() 
-						# scope used by print() 
-						aList = aMem[len(aMem)-2]
-						nPos = find(aList,lower(cVar),1)
-						if nPos 
-							cVar = "aList[nPos][3]"
-						ok
-					ok
-				ok
-				cCode = "See " + cVar				
-				eval(cCode)
-				t = r
-			ok
-		other
-			see vValue[t]
-		off
-	next
-
+	see _Print2Str(vValue,3)
 
 /*
 	Function Name	: print2str
@@ -76,6 +28,15 @@ Func Print vValue
 	Parameters	: the string
 */
 Func Print2Str vValue
+	# Pass Three Scopes 
+	return _Print2Str(vValue,3)
+
+/*
+	Function Name	: _print2str
+	Usage		: Internal function - print to string 
+	Parameters	: the string , Scopes to pass 
+*/
+Func _Print2Str vValue,nScope
 	cString = ""
 	for t = 1 to len(vValue)
 		switch vValue[t]
@@ -107,8 +68,8 @@ Func Print2Str vValue
 					if len(aMem) > 1
 						# -2 to avoid two scopes 
 						# scope used by ringvm_memorylist() 
-						# scope used by print() 
-						aList = aMem[len(aMem)-2]
+						# scope used by _print2str() 
+						aList = aMem[len(aMem)-nScope]
 						nPos = find(aList,lower(cVar),1)
 						if nPos 
 							cVar = "aList[nPos][3]"
