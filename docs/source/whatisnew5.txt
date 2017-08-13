@@ -36,7 +36,7 @@ Ring 1.5 comes with many new features!
 Video-Music-Player Application
 ==============================
 
-The Video-Music-Player is added to the Applications folder.
+The Video-Music-Player application is added to the Applications folder.
 
 Screen Shot:
 
@@ -49,7 +49,7 @@ Screen Shot:
 Windows StartUp Manager Application
 ===================================
 
-The Windows StartUp Manager Application is developed using Ring
+The Windows StartUp Manager 
 
 URL : https://github.com/ring-lang/WinStartupManager
 
@@ -63,6 +63,13 @@ Screen Shot:
 
 Calculator Application
 ======================
+
+The Calculator application is added to the Applications folder.
+
+Screen Shot:
+
+.. image:: calcapp.jpg
+	:alt: Calculator Application
 
 
 .. index:: 
