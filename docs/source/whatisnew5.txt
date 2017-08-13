@@ -49,6 +49,14 @@ Screen Shot:
 Windows StartUp Manager Application
 ===================================
 
+The Windows StartUp Manager Application is developed using Ring
+
+URL : https://github.com/ring-lang/WinStartupManager
+
+Screen Shot:
+
+.. image:: winstartupman.jpg
+	:alt: Windows Startup Manager
 
 .. index:: 
 	pair: What is new in Ring 1.5?; Calculator Application
