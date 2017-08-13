@@ -22,7 +22,7 @@ win2 = null
 _style="border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #eef, stop: 1 #ccf);font-size: 15pt"
 
 MyApp = New qApp {
-
+		stylefusion()
         win1 = new qWidget() 
         {
                 yPos    = 30
@@ -224,6 +224,7 @@ MyApp = New qApp {
                         setStyleSheet("border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #fff, stop: 1 #cfc);font-size: 15pt")
                         installeventfilter(ignorekey(push8))
                 }
+				edit1.setfocus(0)
                 show()
         }       
         exec()
