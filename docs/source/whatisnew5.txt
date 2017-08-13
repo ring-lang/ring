@@ -118,7 +118,8 @@ Screen Shot:
 .. image:: rnote15output.png
 	:alt: Output Window
 
-(3) The Ring Notepad is updated to quickly open and switch between large files
+(3) The Ring Notepad is updated to quickly open and switch between large files while
+preparing the functions/classes lists in the background.
 
 Screen Shot: 
 
