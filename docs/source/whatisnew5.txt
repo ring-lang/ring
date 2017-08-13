@@ -30,3 +30,107 @@ Ring 1.5 comes with many new features!
 * Ring VM - Tracing Functions 
 * Better Quality
 
+.. index:: 
+	pair: What is new in Ring 1.5?; Video-Music-Player Application
+
+Video-Music-Player Application
+==============================
+
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Windows StartUp Manager Application
+
+Windows StartUp Manager Application
+===================================
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Calculator Application
+
+Calculator Application
+======================
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better Ring Notepad
+
+Better Ring Notepad
+===================
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better StdLib
+
+Better StdLib
+=============
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better WebLib
+
+Better WebLib
+=============
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better RingQt
+
+Better RingQt
+=============
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better Objects Library
+
+Better Objects Library
+======================
+
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; RingFreeGLUT Extension
+
+RingFreeGLUT Extension
+======================
+
+
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; RingOpenGL Extension
+
+RingOpenGL Extension
+====================
+
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better Code Generator for Extensions
+
+Better Code Generator for Extensions
+====================================
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better Documentation Generator for Extensions
+
+Better Documentation Generator for Extensions
+=============================================
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Ring VM - Tracing Functions 
+
+Ring VM - Tracing Functions 
+===========================
+
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Better Quality
+
+Better Quality
+==============
+
+
