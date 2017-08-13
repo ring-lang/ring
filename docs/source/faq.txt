@@ -97,9 +97,6 @@ we have a plan to present a new paradigm for Network Programming and Concurrency
 new paradigm through simple prototypes during the last years and we will integrate it with Ring 
 in Future releases.
 
-* It's a new language. A serious ecosystem comes along the way.
-
-
 .. index:: 
 	pair: Frequently Asked Questions; Why Ring is weakly typed?
 
