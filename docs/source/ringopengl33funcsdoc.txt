@@ -1032,7 +1032,6 @@ RingOpenGL (OpenGL 3.3) Functions Reference
 * GL_MAX_GEOMETRY_OUTPUT_COMPONENTS
 * GL_MAX_FRAGMENT_INPUT_COMPONENTS
 * GL_CONTEXT_PROFILE_MASK
-* GL_VERTEX_ATTRIB_ARRAY_DIVISOR
 * GL_RGB10_A2UI
 * void glAccum(GLenum op,GLfloat value)
 * void glActiveTexture(GLenum texture)
