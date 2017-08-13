@@ -204,6 +204,23 @@ Package System.Web
 
 		lBootstrap = False
 
+		lPrint = True
+		cPrintString = ""
+
+		func WebPrint cStr
+			if lPrint
+				see cStr
+			else 
+				cPrintString += cStr
+			ok
+
+		func NoOutput
+			lPrint = False
+			cPrintString = ""
+
+		func Output 			
+			return cPrintString
+
 		Func DecodeString cStr
 			cStr = cStr + "&" 
 			aOutput = [] 	
@@ -357,16 +374,16 @@ Package System.Web
 			return TabMLString(cStr)
 
 		Func Print
-			See cCookies + cStart +"<!DOCTYPE html>"+WindowsNL()+
+			WebPrint( cCookies + cStart +"<!DOCTYPE html>"+WindowsNL()+
 			nl+'<html lang="en">' + nl +
 			"<head>"+nl+CHAR(9)+scriptlibs()+nl+
 			CHAR(9)+"<title>"+Title+"</title>"+nl+
-			"<meta charset='UTF-8'>" + nl
+			"<meta charset='UTF-8'>" + nl )
 			if cCSS != NULL
-				See Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl
+				WebPrint( Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl )
 			ok
-			see nl+"</head>" + nl +
-			"<body"+ cBody + "> " + nl + cOutput + nl + "</body>" + nl + "</html>"
+			WebPrint( nl+"</head>" + nl +
+			"<body"+ cBody + "> " + nl + cOutput + nl + "</body>" + nl + "</html>" )
 
 
 		Func style cStyle
@@ -1604,20 +1621,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 		
 		Func braceend
 
-			See cCookies + cStart +"<!DOCTYPE html>" + WindowsNL() +
+			WebPrint( cCookies + cStart +"<!DOCTYPE html>" + WindowsNL() +
 			nl+ '<html lang="en">' + nl +
 			"<head>"+nl+CHAR(9)+"<title>"+Title+"</title>"+nl+
 			"<meta charset='UTF-8'>" + nl+
-			nl+CHAR(9)+scriptlibs()+nl			
+			nl+CHAR(9)+scriptlibs()+nl )			
 			if cCSS != NULL
-				See Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl
+				WebPrint( Char(9)+"<style>"+nl+CHAR(9)+CHAR(9)+cCSS+nl+Char(9)+"</style>"+nl )
 			ok
-			see nl+"</head>" + nl +
-			"<body"+ cBody + "> " + nl 
+			WebPrint( nl+"</head>" + nl +
+			"<body"+ cBody + "> " + nl )
 			for x in aObjs
-				see x.getdata() + nl
+				WebPrint( x.getdata() + nl )
 			next
-			see nl + "</body>" + nl + "</html>" + nl
+			WebPrint( nl + "</body>" + nl + "</html>" + nl )
 
 
 
