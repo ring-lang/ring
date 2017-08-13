@@ -136,6 +136,7 @@ Better StdLib
 New Functions
 
 * Print2Str()
+* ListAllFiles()
 
 Example:
 
@@ -155,6 +156,26 @@ Output:
 	Hello, World!
 	In Year
 	2017
+
+The ListAllFiles() is a new function added to StdLib 
+
+Using this function we can quickly do a process on a group of files in a folder and it's sub folders.
+
+Example:
+
+.. code-block:: ring
+
+            load "stdlib.ring"
+            aList = ListAllFiles("c:/ring/ringlibs","ring") # *.ring only
+            aList = sort(aList)
+            see aList
+
+Example:
+
+.. code-block:: ring
+
+            load "stdlib.ring"
+            see listallfiles("b:/ring/ringlibs/weblib","") # All Files
 
 
 .. index:: 
