@@ -30,6 +30,7 @@ MyApp = New qApp {
                  
                 setwinicon(self,"images/calc.png")
                 setwindowtitle("Ring Calculator")
+				setwindowflags(Qt_WindowStaysOnTopHint)
                 setwindowmodality(false)
                 setFixedSize(290,280 +yPos)
   
