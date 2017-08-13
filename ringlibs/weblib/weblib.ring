@@ -207,6 +207,8 @@ Package System.Web
 		lPrint = True
 		cPrintString = ""
 
+		lContentType = True
+
 		func WebPrint cStr
 			if lPrint
 				see cStr
@@ -217,6 +219,7 @@ Package System.Web
 		func NoOutput
 			lPrint = False
 			cPrintString = ""
+			lContentType = False 
 
 		func Output 			
 			return cPrintString
@@ -374,7 +377,7 @@ Package System.Web
 			return TabMLString(cStr)
 
 		Func Print
-			WebPrint( cCookies + cStart +"<!DOCTYPE html>"+WindowsNL()+
+			WebPrint( cCookies + GetHTMLStart() +"<!DOCTYPE html>"+WindowsNL()+
 			nl+'<html lang="en">' + nl +
 			"<head>"+nl+CHAR(9)+scriptlibs()+nl+
 			CHAR(9)+"<title>"+Title+"</title>"+nl+
@@ -393,6 +396,13 @@ Package System.Web
 
 			cStart = "Content-type: text/html" + nl + nl +
 				   "<meta charset='UTF-8'>" + nl
+
+		Func GetHTMLStart
+			if lContentType 
+				return cStart
+			else 
+				return ""
+			ok
 
 		Private
 
@@ -1621,7 +1631,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 		
 		Func braceend
 
-			WebPrint( cCookies + cStart +"<!DOCTYPE html>" + WindowsNL() +
+			WebPrint( cCookies + GetHTMLStart() +"<!DOCTYPE html>" + WindowsNL() +
 			nl+ '<html lang="en">' + nl +
 			"<head>"+nl+CHAR(9)+"<title>"+Title+"</title>"+nl+
 			"<meta charset='UTF-8'>" + nl+
