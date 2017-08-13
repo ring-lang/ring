@@ -1651,6 +1651,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 	Class BootStrapWebPage from WebPage
 		lBootStrap = True
 
+	class HtmlPage from WebPage
+		NoOutput()
+
 	Class ObjsBase  From Application
 
 		cOutput = "" aObjs = []  
