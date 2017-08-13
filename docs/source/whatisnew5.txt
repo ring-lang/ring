@@ -36,7 +36,12 @@ Ring 1.5 comes with many new features!
 Video-Music-Player Application
 ==============================
 
+The Video-Music-Player is added to the Applications folder.
 
+Screen Shot:
+
+.. image:: videomusicplayer.jpg
+	:alt: Video Music Player
 
 .. index:: 
 	pair: What is new in Ring 1.5?; Windows StartUp Manager Application
