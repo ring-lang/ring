@@ -16,7 +16,7 @@ Func Puts vvalue
 
 /*
 	Function Name	: print
-	Usage		: print string - support \n \t \r \\
+	Usage		: print string - support \n \t \r \\ #{variable}
 	Parameters	: the string
 */
 Func Print vValue
@@ -66,6 +66,62 @@ Func Print vValue
 			see vValue[t]
 		off
 	next
+
+
+/*
+	Function Name	: print2str
+	Usage		: print to string - support \n \t \r \\ #{variable}
+	Parameters	: the string
+*/
+Func Print2Str vValue
+	cString = ""
+	for t = 1 to len(vValue)
+		switch vValue[t]
+		on "\"
+			t++
+			switch vValue[t]
+			on "\"
+				cString +=  "\"
+			on "n"
+				cString +=  nl
+			on "t"
+				cString +=  char(9)
+			on "r" 
+				cString +=  char(13)
+			off
+		on "#"
+			if vValue[t+1] = "{"
+				cVar = ""
+				for r=t+2 to len(vValue)
+					if vValue[r] != "}"
+						cVar += vValue[r]
+					else
+						exit
+					ok					
+				next
+				# Access Local Variables in the Caller
+				if not find(globals(),lower(cVar))
+					aMem = ringvm_memorylist()
+					if len(aMem) > 1
+						# -2 to avoid two scopes 
+						# scope used by ringvm_memorylist() 
+						# scope used by print() 
+						aList = aMem[len(aMem)-2]
+						nPos = find(aList,lower(cVar),1)
+						if nPos 
+							cVar = "aList[nPos][3]"
+						ok
+					ok
+				ok
+				cCode = "cString += " + cVar				
+				eval(cCode)
+				t = r
+			ok
+		other
+			cString +=  vValue[t]
+		off
+	next
+	return cString
 
 
 /*
