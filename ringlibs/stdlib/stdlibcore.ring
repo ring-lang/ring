@@ -20,6 +20,8 @@ Func Puts vvalue
 	Parameters	: the string
 */
 Func Print vValue
+	# We can't call Print2str() to implement this function
+	# Because Print2Str() depend on the scopes count 
 	for t = 1 to len(vValue)
 		switch vValue[t]
 		on "\"
