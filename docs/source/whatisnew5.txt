@@ -78,7 +78,7 @@ Screen Shot:
 Better Ring Notepad
 ===================
 
-Ring Notepad is updated to include some new styles and the Main File ToolBar
+(1) Ring Notepad is updated to include some new styles and the Main File ToolBar
 
 The idea of the Main File ToolBar is to determine the main file in the project
 When the project contains many source code files
@@ -111,6 +111,19 @@ Screen Shots:
 .. image:: rnote15shot3.png
 	:alt: Ring Notepad
 
+(2) The output window is updated and display the new lines correctly.
+
+Screen Shot: 
+
+.. image:: rnote15output.png
+	:alt: Output Window
+
+(3) The Ring Notepad is updated to quickly open and switch between large files
+
+Screen Shot: 
+
+.. image:: rnote15events.png
+	:alt: Ring Notepad - Large Files
 
 
 .. index:: 
