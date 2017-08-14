@@ -376,6 +376,7 @@ New classes added to RingQt :
 * QStringRef
 * QMutex
 * QMutexLocker
+* QBuffer
 
 Example:
 

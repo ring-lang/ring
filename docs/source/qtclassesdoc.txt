@@ -6514,3 +6514,24 @@ Parameters : QMutex *
 * QMutex * mutex(void)
 * void relock(void)
 * void unlock(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBuffer Class
+
+QBuffer Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBuffer.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QIODevice
+
+* QByteArray buffer(void)
+* QByteArray data(void)
+* void setBuffer(QByteArray *byteArray)
+* void setData(QByteArray data)
+* void setData_2(char *data, int size)
