@@ -1233,6 +1233,17 @@ constants too.
 Ring VM - Tracing Functions 
 ===========================
 
+In Ring 1.5 the next functions are added to Ring VM
+
+* RingVM_SetTrace(cCode)
+* RingVM_TraceData() --> aDataList
+* RingVM_TraceEvent() --> nTraceEvent
+* RingVM_TraceFunc() --> cCode
+* RingVM_ScopesCount() --> nScopes
+* RingVM_EvalInScope(nScope,cCode) 
+* RingVM_PassError()
+* RingVM_HideErrorMsg(lStatus)
+* RingVM_CallFunc(cFuncName)
 
 
 .. index:: 
