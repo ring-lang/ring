@@ -225,6 +225,7 @@ extern "C" {
 #include <QStringRef>
 #include <QMutex>
 #include <QMutexLocker>
+#include <QBuffer>
 
 extern "C" {
 
@@ -6939,3 +6940,16 @@ para: QMutex *
 QMutex * mutex(void)
 void relock(void)
 void unlock(void)
+
+<class>
+name: QBuffer
+para: QObject *
+parent: QIODevice
+</class>
+
+
+QByteArray buffer(void)
+QByteArray data(void)
+void setBuffer(QByteArray *byteArray)
+void setData(QByteArray data)
+void setData@2(char *data, int size)
