@@ -11,8 +11,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 {
 	List *pList,*pList2,*pList3  ;
 	int y  ;
-	String *pString  ;
-	char cLine[30]  ;
 	/* nFuncExecute is used also by See command while nFuncExecute2 is not */
 	pVM->nFuncExecute++ ;
 	pVM->nFuncExecute2++ ;
@@ -55,20 +53,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pList3 = ring_list_newlist(pVM->pFuncCallList);
 			ring_list_addint(pList3,RING_FUNCTYPE_SCRIPT);
 			/* Add the function name */
-			pString = ring_string_new("");
-			/* Add type Function or Method */
-			if ( (y == 1) && (pVM->nCallMethod != 1) ) {
-				ring_string_add(pString,"function ");
-			} else {
-				ring_string_add(pString,"method ");
-			}
-			ring_string_add(pString,cStr);
-			ring_string_add(pString,"() in file ");
-			ring_string_add(pString,ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
-			sprintf( cLine , "\ncalled from line %d " , pVM->nLineNumber ) ;
-			ring_string_add(pString,cLine);
-			ring_list_addstring(pList3,ring_string_get(pString));
-			ring_string_delete(pString);
+			ring_list_addstring(pList3,cStr);
 			ring_list_addint(pList3,ring_list_getint(pList2,RING_FUNCMAP_PC));
 			ring_list_addint(pList3,pVM->nSP);
 			/* Create Temp Memory */
@@ -83,6 +68,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			} else {
 				ring_list_addint(pList3,1);
 			}
+			/* Line Number */
+			ring_list_addint(pList3,pVM->nLineNumber);
 			if ( (strcmp(cStr,"main") != 0 ) && (pVM->nCallMethod != 1) && (y != 2) && (nPerformance == 1) ) {
 				/*
 				**  We check that we will convert Functions only, not methods 
@@ -97,18 +84,21 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 				ring_vm_newbytecodeitem(pVM,3);
 				ring_vm_newbytecodeitem(pVM,4);
 				ring_vm_newbytecodeitem(pVM,5);
+				ring_vm_newbytecodeitem(pVM,6);
 				#if RING_SHOWICFINAL
 				/* Update generated code list, so the new items could appear */
-				RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 4 ;
+				RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 5 ;
 				ring_list_addint(RING_VM_IR_LIST,ring_list_getint(pList2,RING_FUNCMAP_PC));
 				ring_list_addint(RING_VM_IR_LIST,RING_FUNCTYPE_SCRIPT);
 				ring_list_addpointer(RING_VM_IR_LIST,ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
 				ring_list_addint(RING_VM_IR_LIST,ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
+				ring_list_addint(RING_VM_IR_LIST,ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
 				#endif
 				ring_item_setint(RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
 				ring_item_setint(RING_VM_IR_ITEM(3),RING_FUNCTYPE_SCRIPT);
 				ring_item_setpointer(RING_VM_IR_ITEM(4),ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
 				ring_item_setint(RING_VM_IR_ITEM(5),ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
+				ring_item_setint(RING_VM_IR_ITEM(6),ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
 			}
 			/* Add aLoadAddressScope pointer to pLoadAddressScope */
 			ring_vm_saveloadaddressscope(pVM);
@@ -137,6 +127,10 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		ring_list_newlist(pList2);
 		/* File Name */
 		ring_list_addpointer(pList2,pVM->cFileName);
+		/* Method or Function */
+		ring_list_addint(pList2,0);
+		/* Line Number */
+		ring_list_addint(pList2,pVM->nLineNumber);
 		/* Add aLoadAddressScope pointer to pLoadAddressScope */
 		ring_vm_saveloadaddressscope(pVM);
 		return 1 ;
