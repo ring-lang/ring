@@ -111,7 +111,7 @@ Screen Shots:
 .. image:: rnote15shot3.png
 	:alt: Ring Notepad
 
-(2) The output window is updated and display the new lines correctly.
+(2) The output window is updated to display the new lines correctly and contains the "Clear" button.
 
 Screen Shot: 
 
@@ -294,22 +294,24 @@ Example:
 			mypage = new HtmlPage {
 				h1 { text("Customers Report") }
 				Table
-					{
+				{
 					style = stylewidth("100%") + stylegradient(4)
 					TR
 					{
-						TD { WIDTH="10%" text("Customers Count : " )  }
-									TD { text (100) }
+						TD { WIDTH="10%" 
+							text("Customers Count : " )  }
+						TD { text (100) }
 					}
-					}
+				}
 				Table
-					{
+				{
 					style = stylewidth("100%") + stylegradient(26)
 					TR
 					{
-						style = stylewidth("100%") + stylegradient(24)
-									TD { text("Name " )  }
-									TD { text("Age" ) }
+						style = stylewidth("100%") +
+							stylegradient(24)
+						TD { text("Name " )  }
+						TD { text("Age" ) }
 						TD { text("Country" ) }
 						TD { text("Job" ) }	
 						TD { text("Company" ) }
@@ -324,7 +326,7 @@ Example:
 							TD { text("Future" ) }
 						}
 					next
-					}
+				}
 			}
 			write("report.html",mypage.output())
 
@@ -345,8 +347,9 @@ Example:
 					setwindowtitle("Report Window")
 					setgeometry(100,100,500,500)
 					web = new webview(win) {
-							setgeometry(100,100,1000,500)
-							loadpage(new qurl("file:///"+currentdir()+"/report.html"))
+						setgeometry(100,100,1000,500)
+						loadpage(new qurl("file:///"+
+						currentdir()+"/report.html"))
 					}
 					new pushbutton(win) {
 							setGeometry(100,20,100,30)
