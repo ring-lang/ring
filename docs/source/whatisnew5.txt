@@ -389,7 +389,7 @@ Example:
 	load "guilib.ring"
 	load "stdlib.ring"
 
-	curl = curl_easy_init();
+	curl = curl_easy_init()
 
 	# request = "3G1JC5248YS251015?format=xml"  ### VIN - Chevrolet 
 	  request = "3GYFK62847G247323?format=xml"  ### VIN - Cadillac
