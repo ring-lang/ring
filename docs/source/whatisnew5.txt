@@ -1241,10 +1241,10 @@ Ring VM - Tracing Functions
 Better Quality
 ==============
 
-Based on Ring usage everyday in practical projects
+Based on Ring usage every day in practical projects
 
 Ring 1.5 is more stable and more productive!
 
 We are adding features based on clear vision and practical needs.
 
-Also the documentation is more better.
+Also the documentation is better.
