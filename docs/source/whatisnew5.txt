@@ -988,12 +988,11 @@ Example:
 		glutMainLoop()
 
 
-Screen Shot:
+Screen Shots:
 
 .. image:: ring15freeglut.png
 	:alt: RingFreeGLUT
 
-Screen Shot:
 
 .. image:: ring15freeglut2.png
 	:alt: RingFreeGLUT
