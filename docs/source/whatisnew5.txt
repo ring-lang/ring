@@ -469,6 +469,33 @@ Example:
 Better Objects Library
 ======================
 
+The function Open_WindowInPackages() is added to the Objects library.
+
+The Open_WindowInPackages() function is the same as Open_Window()
+but takes an extra list that determine the packages 
+to import before opening the window.
+
+Syntax:
+
+.. code-block:: ring
+
+	Open_WindowInPackages(cClassName,aPackagesList)
+
+Example:
+
+The next example from the Form Designer source code, Open the Window Flags window
+using the open_windowInPackages() function.
+
+We determine the class name "WindowFlagsController" and the packages name.
+
+The Window Flags window uses the FormDesigner and System.GUI packages.
+
+.. code-block:: ring
+
+	open_windowInPackages(:WindowFlagsController,[
+		"formdesigner",
+		"System.GUI"
+	])
 
 
 .. index:: 
