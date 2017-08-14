@@ -504,7 +504,10 @@ The Window Flags window uses the FormDesigner and System.GUI packages.
 RingFreeGLUT Extension
 ======================
 
+Ring 1.5 comes with RingFreeGLUT extension to support the FreeGLUT library
 
+.. image:: ring15freeglut.png
+	:alt: RingFreeGLUT
 
 
 .. index:: 
