@@ -5,7 +5,7 @@ load "guilib.ring"
 
 oProcess = NULL
 
-new qApp  {
+oApp = new qApp  {
 			StyleFusionBlack()
 			oProcessWindow = new qWidget()  {
 				setwindowflags(Qt_WindowStaysOnTopHint)
