@@ -1184,6 +1184,16 @@ Screen Shot:
 Better Code Generator for Extensions
 ====================================
 
+The Code Generator is updated to support <constant> type, So we can have
+constants other than numbers, for example : Strings and Pointers. 
+
+When we have pointers we can determine the pointer type.
+To use this feature, before <constant> and </constant> we can use
+
+.. code-block:: ring
+
+	$nDefaultConstantType = C_CONSTANT_TYPE_POINTER
+	$cDefaultConstantPointerType = "void *"
 
 .. index:: 
 	pair: What is new in Ring 1.5?; Better Documentation Generator for Extensions
@@ -1191,6 +1201,11 @@ Better Code Generator for Extensions
 Better Documentation Generator for Extensions
 =============================================
 
+The documentation generator for extensions is updated to generate a list of constants
+in the generated documentation
+
+The previous versions provides the functions prototype only, Now we have the list of
+constants too. 
 
 .. index:: 
 	pair: What is new in Ring 1.5?; Ring VM - Tracing Functions 
