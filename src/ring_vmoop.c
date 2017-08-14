@@ -1124,8 +1124,7 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM )
 			if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 				pList2 = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 				cStr = ring_list_getstring(pList2,RING_FUNCCL_NAME);
-				/* cStr = "method init(..." so start from cStr[7] */
-				if ( ! ((cStr[7] == 'i') && (cStr[8] == 'n') && (cStr[9] == 'i') && (cStr[10] == 't') && (cStr[11] == '(')) ) {
+				if ( strcmp(cStr,"init") != 0 ) {
 					pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-1) ;
 				}
 			}

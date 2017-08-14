@@ -256,6 +256,7 @@ RING_FUNCCL_SP
 RING_FUNCCL_TEMPMEM
 RING_FUNCCL_FILENAME
 RING_FUNCCL_METHODORFUNC
+RING_FUNCCL_LINENUMBER
 RING_FUNCCL_CALLERPC
 RING_FUNCCL_FUNCEXE
 RING_FUNCCL_LISTSTART
@@ -381,8 +382,6 @@ ring_vm_fetch
 ring_vm_fetch2
 ring_vm_execute
 ring_vm_error
-Type: int
-x
 Type: List *
 pList
 ring_vm_eval
@@ -432,6 +431,10 @@ Type: int
 x,nSP
 ring_vm_callclassinit
 ring_vm_showerrormessage
+Type: int
+x
+Type: List *
+pList
 ring_vm_mutexfunctions
 ring_vm_mutexlock
 ring_vm_mutexunlock

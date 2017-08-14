@@ -1024,8 +1024,7 @@ void ring_vm_retitemref ( VM *pVM )
 	*/
 	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 		pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-		/* Using strstr() we check sub string value because the function name in the call list is long name */
-		if ( strstr(ring_list_getstring(pList,RING_FUNCCL_NAME),"method operator()") == ring_list_getstring(pList,RING_FUNCCL_NAME) ) {
+		if ( strcmp(ring_list_getstring(pList,RING_FUNCCL_NAME),"operator") == 0 ) {
 			pVM->nRetItemRef++ ;
 		}
 	}
@@ -1091,7 +1090,31 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
 			continue ;
 		}
-		printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
+		if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
+			/*
+			**  Prepare Message 
+			**  In 
+			*/
+			printf( "In " ) ;
+			/* Method or Function */
+			if ( ring_list_getint(pList,RING_FUNCCL_METHODORFUNC) ) {
+				printf( "method " ) ;
+			}
+			else {
+				printf( "function " ) ;
+			}
+			/* Function Name */
+			printf( "%s",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
+			/* Adding () */
+			printf( "() in file " ) ;
+			/* File Name */
+			printf( "%s",(char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ) ;
+			/* Called From */
+			printf( "\ncalled from line %d  ",ring_list_getint(pList,RING_FUNCCL_LINENUMBER) ) ;
+		}
+		else {
+			printf( "In %s ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
+		}
 	}
 	printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
 }
