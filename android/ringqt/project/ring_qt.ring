@@ -14965,6 +14965,36 @@ Class QMutexLocker
 	Func unlock 
 		return QMutexLocker_unlock(pObject)
 
+Class QBuffer from QIODevice
+
+	pObject
+
+	Func init P1
+		pObject = QBuffer_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBuffer_delete(pObject)
+
+	Func buffer 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QBuffer_buffer(pObject)
+		return pTempObj
+
+	Func data 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QBuffer_data(pObject)
+		return pTempObj
+
+	Func setBuffer P1
+		return QBuffer_setBuffer(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setData P1
+		return QBuffer_setData(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setData_2 P1,P2
+		return QBuffer_setData_2(pObject,P1,P2)
+
 Class QPixmap2 from QPixmap
 
 	pObject
