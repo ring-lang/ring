@@ -139,7 +139,7 @@ New Functions
 * ListAllFiles()
 * SystemCmd()
 
-(1) The Print2Str() is a new function added to StdLib 
+(1) The Print2Str() is a new function added to the StdLib 
 
 Example:
 
@@ -160,7 +160,7 @@ Output:
 	In Year
 	2017
 
-(2) The ListAllFiles() is a new function added to StdLib 
+(2) The ListAllFiles() is a new function added to the StdLib 
 
 Using this function we can quickly do a process on a group of files in a folder and it's sub folders.
 
@@ -181,7 +181,7 @@ Example:
             see listallfiles("b:/ring/ringlibs/weblib","") # All Files
 
 
-(3) The SystemCmd() is a new function added to StdLib 
+(3) The SystemCmd() is a new function added to the StdLib 
 
 The function will execute a system command like the System() function but 
 will return the output in a string.
