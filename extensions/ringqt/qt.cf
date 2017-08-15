@@ -241,6 +241,8 @@ extern "C" {
 #include <QBluetoothServiceInfo>
 #include <QBluetoothSocket>
 #include "gbluetoothsocket.h"
+#include <QBluetoothTransferManager>
+#include "gbluetoothtransfermanager.h"
 
 extern "C" {
 
@@ -7234,3 +7236,16 @@ const char *getconnectedEvent(void)
 const char *getdisconnectedEvent(void)
 const char *geterrorEvent(void)
 const char *getstateChangedEvent(void)
+
+<class>
+name: QBluetoothTransferManager
+para: QObject *
+parent: QObject
+codename: GBluetoothTransferManager
+passvmpointer
+</class>
+
+
+QBluetoothTransferReply * put(QBluetoothTransferRequest request, QIODevice *data)
+void setfinishedEvent(const char *)
+const char *getfinishedEvent(void)

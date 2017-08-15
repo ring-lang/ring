@@ -51,6 +51,7 @@ SOURCES +=   \
     gbluetoothserver.cpp \
     gbluetoothservicediscoveryagent.cpp \
     gbluetoothsocket.cpp \
+    gbluetoothtransfermanager.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -92,6 +93,7 @@ HEADERS  += \
     gbluetoothlocaldevice.h \
     gbluetoothservicediscoveryagent.h \
     gbluetoothsocket.h \
+    gbluetoothtransfermanager.h \
     gbluetoothserver.h
 
 INCLUDEPATH += ../../include

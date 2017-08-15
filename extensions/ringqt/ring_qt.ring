@@ -15945,6 +15945,26 @@ Class QBluetoothSocket from QIODevice
 	Func getstateChangedEvent 
 		return QBluetoothSocket_getstateChangedEvent(pObject)
 
+Class QBluetoothTransferManager from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothTransferManager_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothTransferManager_delete(pObject)
+
+	Func put P1,P2
+		return QBluetoothTransferManager_put(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setfinishedEvent P1
+		return QBluetoothTransferManager_setfinishedEvent(pObject,P1)
+
+	Func getfinishedEvent 
+		return QBluetoothTransferManager_getfinishedEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
