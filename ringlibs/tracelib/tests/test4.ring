@@ -35,12 +35,10 @@ func mytrace
 				        see nl + "code:> "
 					Try
 					        give cCode
-						if trim(lower(cCode)) = "exit"
-							exit
-						ok
-						if trim(lower(cCode)) = "bye"
-							bye
-						ok
+						if trim(lower(cCode)) = "exit" or
+						   trim(lower(cCode)) = "bye"
+							shutdown()
+						ok	
 						if trim(lower(cCode)) = "cont"
 							ringvm_passerror()
 							exit
