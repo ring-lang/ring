@@ -4,6 +4,8 @@
 
 load "tracelib.ring"
 
+# Pass Error
+
 ringvm_settrace("mytrace()")
 
 test1()

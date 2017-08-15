@@ -4,6 +4,8 @@
 
 load "tracelib.ring"
 
+# Trace All Events
+
 ringvm_settrace("mytrace()")
 
 see "Hello, world!" + nl

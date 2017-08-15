@@ -4,6 +4,8 @@
 
 load "tracelib.ring"
 
+# Interactive Debugger
+
 ringvm_settrace("mytrace()")
 
 test1()
@@ -13,7 +15,7 @@ func test1
 	x = 10
 	see :test1 + nl
 	t = 12
-	test2()
+	test2()	# Runtime Error!
 	see "After Error!" +nl
 	see "t = " see t see nl
 	see "x = " see x see nl

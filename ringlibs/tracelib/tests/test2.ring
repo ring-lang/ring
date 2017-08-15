@@ -4,6 +4,8 @@
 
 load "tracelib.ring"
 
+# Trace control flow between functions
+
 ringvm_settrace("mytrace()")
 test1()
 
