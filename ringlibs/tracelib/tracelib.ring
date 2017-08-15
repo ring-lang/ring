@@ -19,3 +19,108 @@ TRACEDATA_METHODORFUNC 	= 4
 # Method of Function
 TRACEDATA_METHODORFUNC_METHOD 		= TRUE
 TRACEDATA_METHODORFUNC_NOTMETHOD	= FALSE
+
+
+func TraceLib_AllEvents
+	see "====== The Trace function is Active ======" + nl +
+	    "Trace Function Name : " + ringvm_TraceFunc() + nl +
+	    "Trace Event : " 
+	switch ringvm_TraceEvent()
+		on TRACEEVENT_NEWLINE 		see "New Line" 
+		on TRACEEVENT_NEWFUNC		see "New Function"
+		on TRACEEVENT_RETURN		see "Return"
+		on TRACEEVENT_ERROR		see "Error"
+		on TRACEEVENT_BEFORECFUNC	see "Before C Function"
+		on TRACEEVENT_AFTERCFUNC	see "After C Function"
+	off
+	see nl +
+		"Line Number : " + ringvm_tracedata()[TRACEDATA_LINENUMBER] + nl +
+		"File Name   : " + ringvm_tracedata()[TRACEDATA_FILENAME] + nl +
+		"Function Name : " + ringvm_tracedata()[TRACEDATA_FUNCNAME] + nl +
+		"Method or Function : " 
+		if ringvm_tracedata()[TRACEDATA_METHODORFUNC] = TRACEDATA_METHODORFUNC_METHOD
+			see "Method"
+		else
+			if ringvm_tracedata()[TRACEDATA_FUNCNAME] = NULL
+				see "Command"
+			else
+				see "Function"
+			ok
+		ok		
+		see nl + Copy("=",42) + nl
+
+func TraceLib_Functions
+	switch ringvm_TraceEvent() 
+		on TRACEEVENT_NEWFUNC
+			see "Open Func : " + 
+			ringvm_TraceData()[TRACEDATA_FUNCNAME] + nl
+		on TRACEEVENT_RETURN
+			see "Return to Func : " + 
+			ringvm_TraceData()[TRACEDATA_FUNCNAME] + nl
+	off
+
+func TraceLib_PassError
+	switch ringvm_TraceEvent() 
+		on  TRACEEVENT_ERROR
+			see nl
+			see "TraceLib : After Error !" + nl
+			ringvm_passerror()
+	off
+
+func TraceLib_InteractiveDebugger
+	y = 20
+	switch ringvm_TraceEvent() 
+		on  TRACEEVENT_ERROR
+			see nl+nl+Copy("=",50) + nl +
+			"Interactive Debugger " + nl +
+			"Command (Exit) : End Program" + nl +
+			"Command (Cont) : Continue Execution" + nl +
+			"We can execute Ring code" + nl +
+			"See Locals() to print variable names" + nl +
+			Copy("=",50) + nl 
+			while true
+				        see nl + "code:> "
+					Try
+					        give cCode
+						if trim(lower(cCode)) = "exit" or
+						   trim(lower(cCode)) = "bye"
+							shutdown()
+						ok	
+						if trim(lower(cCode)) = "cont"
+							ringvm_passerror()
+							exit
+						ok
+						ringvm_EvalInScope(ringvm_scopescount()-1,cCode)
+				        catch
+				                see cCatchError
+				        done
+			end
+	off
+
+func TraceLib_LineByLine
+	aList = ringvm_tracedata()
+	see "Before Line : " + aList[TRACEDATA_LINENUMBER] + nl +
+	nl+nl+Copy("=",50) + nl +
+	"Interactive Debugger " + nl +
+	"Command (Exit) : End Program" + nl +
+	"Command (Cont) : Continue Execution" + nl +
+	"We can execute Ring code" + nl +
+	"See Locals() to print variable names" + nl +
+	Copy("=",50) + nl 
+	while true
+	        see nl + "code:> "
+		Try
+		        give cCode
+			if trim(lower(cCode)) = "exit" or
+				trim(lower(cCode)) = "bye"
+				shutdown()
+			ok			
+			if trim(lower(cCode)) = "cont"
+				ringvm_passerror()
+				exit
+			ok
+			ringvm_EvalInScope(ringvm_scopescount()-1,cCode)
+	        catch
+	                see cCatchError
+	        done
+	end
