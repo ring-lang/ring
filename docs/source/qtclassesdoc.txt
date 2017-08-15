@@ -6628,3 +6628,41 @@ Parameters : void
 * QString name(void)
 * void setAddress(QBluetoothAddress address)
 * void setName(QString name)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothLocalDevice Class
+
+QBluetoothLocalDevice Class
+===========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothLocalDevice.html
+
+
+Parameters : QObject *
+
+* QBluetoothAddress address(void)
+* QList<QBluetoothAddress> connectedDevices(void)
+* QBluetoothLocalDevice::HostMode hostMode(void)
+* bool isValid(void)
+* QString name(void)
+* QBluetoothLocalDevice::Pairing pairingStatus(QBluetoothAddress address)
+* void powerOn(void)
+* void requestPairing(QBluetoothAddress address, QBluetoothLocalDevice::Pairing pairing)
+* void setHostMode(QBluetoothLocalDevice::HostMode mode)
+* void pairingConfirmation(bool accept)
+* QList<QBluetoothHostInfo> allDevices(void)
+* void setdeviceConnectedEvent(const char *)
+* void setdeviceDisconnectedEvent(const char *)
+* void seterrorEvent(const char *)
+* void sethostModeStateChangedEvent(const char *)
+* void setpairingDisplayConfirmationEvent(const char *)
+* void setpairingDisplayPinCodeEvent(const char *)
+* void setpairingFinishedEvent(const char *)
+* const char *getdeviceConnectedEvent(void)
+* const char *getdeviceDisconnectedEvent(void)
+* const char *geterrorEvent(void)
+* const char *gethostModeStateChangedEvent(void)
+* const char *getpairingDisplayConfirmationEvent(void)
+* const char *getpairingDisplayPinCodeEvent(void)
+* const char *getpairingFinishedEvent(void)
