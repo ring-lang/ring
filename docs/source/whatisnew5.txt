@@ -382,6 +382,7 @@ New classes added to RingQt :
 * QBluetoothDeviceInfo
 * QBluetoothHostInfo
 * QBluetoothLocalDevice
+* QBluetoothServer
 
 Example:
 
