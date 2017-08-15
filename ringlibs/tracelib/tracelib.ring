@@ -21,6 +21,20 @@ TRACEDATA_METHODORFUNC_METHOD 		= TRUE
 TRACEDATA_METHODORFUNC_NOTMETHOD	= FALSE
 
 
+func TraceLib cType
+	switch trim(lower(cType))
+	on :AllEvents
+		rinvm_settrace("TraceLib_AllEvents()")
+	on :Functions 
+		rinvm_settrace("TraceLib_Functions()")
+	on :PassError
+		rinvm_settrace("TraceLib_PassError()")
+	on :Debugger 
+		rinvm_settrace("TraceLib_Debugger()")
+	on :LineByLine
+		rinvm_settrace("TraceLib_LineByLine()")
+	off
+
 func TraceLib_AllEvents
 	see "====== The Trace function is Active ======" + nl +
 	    "Trace Function Name : " + ringvm_TraceFunc() + nl +
@@ -67,7 +81,7 @@ func TraceLib_PassError
 			ringvm_passerror()
 	off
 
-func TraceLib_InteractiveDebugger
+func TraceLib_Debugger
 	y = 20
 	switch ringvm_TraceEvent() 
 		on  TRACEEVENT_ERROR
