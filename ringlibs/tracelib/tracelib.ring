@@ -21,18 +21,18 @@ TRACEDATA_METHODORFUNC_METHOD 		= TRUE
 TRACEDATA_METHODORFUNC_NOTMETHOD	= FALSE
 
 
-func TraceLib cType
+func Trace cType
 	switch trim(lower(cType))
 	on :AllEvents
-		rinvm_settrace("TraceLib_AllEvents()")
+		ringvm_settrace("TraceLib_AllEvents()")
 	on :Functions 
-		rinvm_settrace("TraceLib_Functions()")
+		ringvm_settrace("TraceLib_Functions()")
 	on :PassError
-		rinvm_settrace("TraceLib_PassError()")
+		ringvm_settrace("TraceLib_PassError()")
 	on :Debugger 
-		rinvm_settrace("TraceLib_Debugger()")
+		ringvm_settrace("TraceLib_Debugger()")
 	on :LineByLine
-		rinvm_settrace("TraceLib_LineByLine()")
+		ringvm_settrace("TraceLib_LineByLine()")
 	off
 
 func TraceLib_AllEvents
