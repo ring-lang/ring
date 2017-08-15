@@ -6878,3 +6878,27 @@ Parameters : QBluetoothAddress
 * QBluetoothAddress address(void)
 * QVariant attribute(QBluetoothTransferRequest::Attribute code, QVariant defaultValue))
 * void setAttribute(QBluetoothTransferRequest::Attribute code, QVariant value)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothUuid Class
+
+QBluetoothUuid Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothUuid.html
+
+
+Parameters : void
+
+
+Parent Class : QUuid
+
+* int minimumSize(void)
+* quint16 toUInt16(bool *ok)
+* quint32 toUInt32(bool *ok)
+* quint128 toUInt128(void)
+* QString characteristicToString(QBluetoothUuid::CharacteristicType uuid)
+* QString descriptorToString(QBluetoothUuid::DescriptorType uuid)
+* QString protocolToString(QBluetoothUuid::ProtocolUuid uuid)
+* QString serviceClassToString(QBluetoothUuid::ServiceClassUuid uuid)
