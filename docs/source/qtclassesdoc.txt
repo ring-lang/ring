@@ -6611,3 +6611,20 @@ Parameters : void
 * void setDeviceUuid(QBluetoothUuid uuid)
 * void setRssi(qint16 signal)
 * void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothHostInfo Class
+
+QBluetoothHostInfo Class
+========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothHostInfo.html
+
+
+Parameters : void
+
+* QBluetoothAddress address(void)
+* QString name(void)
+* void setAddress(QBluetoothAddress address)
+* void setName(QString name)

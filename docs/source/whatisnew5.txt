@@ -380,6 +380,7 @@ New classes added to RingQt :
 * QBluetoothAddress
 * QBluetoothDeviceDiscoveryAgent
 * QBluetoothDeviceInfo
+* QBluetoothHostInfo
 
 Example:
 
