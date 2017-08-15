@@ -15647,7 +15647,9 @@ Class QBluetoothServer from QObject
 		return QBluetoothServer_maxPendingConnections(pObject)
 
 	Func nextPendingConnection 
-		return QBluetoothServer_nextPendingConnection(pObject)
+		pTempObj = new QBluetoothSocket
+		pTempObj.pObject = QBluetoothServer_nextPendingConnection(pObject)
+		return pTempObj
 
 	Func securityFlags 
 		return QBluetoothServer_securityFlags(pObject)
@@ -15852,6 +15854,96 @@ Class QBluetoothServiceInfo
 
 	Func unregisterService 
 		return QBluetoothServiceInfo_unregisterService(pObject)
+
+Class QBluetoothSocket from QIODevice
+
+	pObject
+
+	Func init P1,P2
+		pObject = QBluetoothSocket_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QBluetoothSocket_delete(pObject)
+
+	Func abort 
+		return QBluetoothSocket_abort(pObject)
+
+	Func connectToService P1,P2
+		return QBluetoothSocket_connectToService(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func connectToService_2 P1,P2,P3
+		return QBluetoothSocket_connectToService_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func connectToService_3 P1,P2,P3
+		return QBluetoothSocket_connectToService_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func disconnectFromService 
+		return QBluetoothSocket_disconnectFromService(pObject)
+
+	Func error 
+		return QBluetoothSocket_error(pObject)
+
+	Func errorString 
+		return QBluetoothSocket_errorString(pObject)
+
+	Func localAddress 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothSocket_localAddress(pObject)
+		return pTempObj
+
+	Func localName 
+		return QBluetoothSocket_localName(pObject)
+
+	Func localPort 
+		return QBluetoothSocket_localPort(pObject)
+
+	Func peerAddress 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothSocket_peerAddress(pObject)
+		return pTempObj
+
+	Func peerName 
+		return QBluetoothSocket_peerName(pObject)
+
+	Func peerPort 
+		return QBluetoothSocket_peerPort(pObject)
+
+	Func setSocketDescriptor P1,P2,P3,P4
+		return QBluetoothSocket_setSocketDescriptor(pObject,P1,P2,P3,P4)
+
+	Func socketDescriptor 
+		return QBluetoothSocket_socketDescriptor(pObject)
+
+	Func socketType 
+		return QBluetoothSocket_socketType(pObject)
+
+	Func state 
+		return QBluetoothSocket_state(pObject)
+
+	Func setconnectedEvent P1
+		return QBluetoothSocket_setconnectedEvent(pObject,P1)
+
+	Func setdisconnectedEvent P1
+		return QBluetoothSocket_setdisconnectedEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QBluetoothSocket_seterrorEvent(pObject,P1)
+
+	Func setstateChangedEvent P1
+		return QBluetoothSocket_setstateChangedEvent(pObject,P1)
+
+	Func getconnectedEvent 
+		return QBluetoothSocket_getconnectedEvent(pObject)
+
+	Func getdisconnectedEvent 
+		return QBluetoothSocket_getdisconnectedEvent(pObject)
+
+	Func geterrorEvent 
+		return QBluetoothSocket_geterrorEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QBluetoothSocket_getstateChangedEvent(pObject)
 
 Class QPixmap2 from QPixmap
 

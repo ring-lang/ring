@@ -37,6 +37,7 @@ INPUT(
 ./debug\gbluetoothlocaldevice.o
 ./debug\gbluetoothserver.o
 ./debug\gbluetoothservicediscoveryagent.o
+./debug\gbluetoothsocket.o
 ./debug\ring_qt.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
@@ -75,5 +76,6 @@ INPUT(
 ./debug\moc_gbluetoothdevicediscoveryagent.o
 ./debug\moc_gbluetoothlocaldevice.o
 ./debug\moc_gbluetoothservicediscoveryagent.o
+./debug\moc_gbluetoothsocket.o
 ./debug\moc_gbluetoothserver.o
 );
