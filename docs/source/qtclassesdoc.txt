@@ -6700,3 +6700,39 @@ Parent Class : QObject
 * void setnewConnectionEvent(const char *)
 * const char *geterrorEvent(void)
 * const char *getnewConnectionEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothServiceDiscoveryAgent Class
+
+QBluetoothServiceDiscoveryAgent Class
+=====================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothServiceDiscoveryAgent.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QList<QBluetoothServiceInfo> discoveredServices(void)
+* QBluetoothServiceDiscoveryAgent::Error error(void)
+* QString errorString(void)
+* bool isActive(void)
+* QBluetoothAddress remoteAddress(void)
+* bool setRemoteAddress(QBluetoothAddress address)
+* void setUuidFilter(QList<QBluetoothUuid> uuids)
+* void setUuidFilter_2(QBluetoothUuid uuid)
+* QList<QBluetoothUuid> uuidFilter(void)
+* void clear(void)
+* void start(QBluetoothServiceDiscoveryAgent::DiscoveryMode mode)
+* void stop(void)
+* void setcanceledEvent(const char *)
+* void seterrorEvent(const char *)
+* void setfinishedEvent(const char *)
+* void setserviceDiscoveredEvent(const char *)
+* const char *getcanceledEvent(void)
+* const char *geterrorEvent(void)
+* const char *getfinishedEvent(void)
+* const char *getserviceDiscoveredEvent(void)
