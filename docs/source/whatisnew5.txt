@@ -389,6 +389,7 @@ New classes added to RingQt :
 * QBluetoothTransferManager
 * QBluetoothTransferReply
 * QBluetoothTransferRequest
+* QBluetoothUuid
 
 Example:
 
