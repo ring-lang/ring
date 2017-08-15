@@ -379,6 +379,7 @@ New classes added to RingQt :
 * QBuffer
 * QBluetoothAddress
 * QBluetoothDeviceDiscoveryAgent
+* QBluetoothDeviceInfo
 
 Example:
 
