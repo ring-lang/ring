@@ -238,6 +238,7 @@ extern "C" {
 #include "gbluetoothserver.h"
 #include <QBluetoothServiceDiscoveryAgent>
 #include "gbluetoothservicediscoveryagent.h"
+#include <QBluetoothServiceInfo>
 
 extern "C" {
 
@@ -504,6 +505,35 @@ aEnumTypes + "QAxBase::PropertyBag"
 aEnumTypes + "QToolButton::ToolButtonPopupMode"
 $aMallocClassesList + "QModelIndex"
 aEnumTypes + "QMutex::RecursionMode"
+
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethod"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethods"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::Error"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::InquiryType"
+aEnumTypes + "QBluetoothDeviceInfo::CoreConfiguration"
+aEnumTypes + "QBluetoothDeviceInfo::CoreConfigurations"
+aEnumTypes + "QBluetoothDeviceInfo::DataCompleteness"
+aEnumTypes + "QBluetoothDeviceInfo::MajorDeviceClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorAudioVideoClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorComputerClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorHealthClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorImagingClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorMiscellaneousClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorNetworkClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorPeripheralClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorPhoneClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorToyClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorWearableClass"
+aEnumTypes + "QBluetoothDeviceInfo::ServiceClass"
+aEnumTypes + "QBluetoothDeviceInfo::ServiceClasses"
+aEnumTypes + "QBluetoothLocalDevice::Error"
+aEnumTypes + "QBluetoothLocalDevice::HostMode"
+aEnumTypes + "QBluetoothLocalDevice::Pairing"
+aEnumTypes + "QBluetoothServer::Error"
+aEnumTypes + "QBluetoothServiceDiscoveryAgent::DiscoveryMode"
+aEnumTypes + "QBluetoothServiceDiscoveryAgent::Error"
+aEnumTypes + "QBluetoothServiceInfo::AttributeId"
+aEnumTypes + "QBluetoothServiceInfo::Protocol"
 
 </runcode>
 
@@ -6980,13 +7010,6 @@ codename: GBluetoothDeviceDiscoveryAgent
 passvmpointer
 </class>
 
-<runcode>
- aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethod"
- aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethods"
- aEnumTypes + "QBluetoothDeviceDiscoveryAgent::Error"
- aEnumTypes + "QBluetoothDeviceDiscoveryAgent::InquiryType"
-</runcode>
-
 QList<QBluetoothDeviceInfo> discoveredDevices(void)
 QBluetoothDeviceDiscoveryAgent::Error error(void)
 QString errorString(void)
@@ -7010,25 +7033,6 @@ const char *getfinishedEvent(void)
 name: QBluetoothDeviceInfo
 para: void
 </class>
-
-<runcode>
- aEnumTypes + "QBluetoothDeviceInfo::CoreConfiguration"
- aEnumTypes + "QBluetoothDeviceInfo::CoreConfigurations"
- aEnumTypes + "QBluetoothDeviceInfo::DataCompleteness"
- aEnumTypes + "QBluetoothDeviceInfo::MajorDeviceClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorAudioVideoClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorComputerClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorHealthClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorImagingClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorMiscellaneousClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorNetworkClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorPeripheralClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorPhoneClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorToyClass"
- aEnumTypes + "QBluetoothDeviceInfo::MinorWearableClass"
- aEnumTypes + "QBluetoothDeviceInfo::ServiceClass"
- aEnumTypes + "QBluetoothDeviceInfo::ServiceClasses"
-</runcode>
 
 QBluetoothAddress address(void)
 QBluetoothDeviceInfo::CoreConfigurations coreConfigurations(void)
@@ -7064,13 +7068,6 @@ para: QObject *
 codename: GBluetoothLocalDevice
 passvmpointer
 </class>
-
-
-<runcode>
- aEnumTypes + "QBluetoothLocalDevice::Error"
- aEnumTypes + "QBluetoothLocalDevice::HostMode"
- aEnumTypes + "QBluetoothLocalDevice::Pairing"
-</runcode>
 
 QBluetoothAddress address(void)
 QList<QBluetoothAddress> connectedDevices(void)
@@ -7109,10 +7106,6 @@ passvmpointer
 </class>
 
 
-<runcode>
- aEnumTypes + "QBluetoothServer::Error"
-</runcode>
-
 void close(void)
 QBluetoothServer::Error error(void)
 bool hasPendingConnections(void)
@@ -7142,12 +7135,6 @@ codename: GBluetoothServiceDiscoveryAgent
 passvmpointer
 </class>
 
-
-<runcode>
- aEnumTypes + "QBluetoothServiceDiscoveryAgent::DiscoveryMode"
- aEnumTypes + "QBluetoothServiceDiscoveryAgent::Error"
-</runcode>
-
 QList<QBluetoothServiceInfo> discoveredServices(void)
 QBluetoothServiceDiscoveryAgent::Error error(void)
 QString errorString(void)
@@ -7170,3 +7157,39 @@ const char *getcanceledEvent(void)
 const char *geterrorEvent(void)
 const char *getfinishedEvent(void)
 const char *getserviceDiscoveredEvent(void)
+
+<class>
+name: QBluetoothServiceInfo
+para: void
+</class>
+
+
+
+QVariant attribute(quint16 attributeId)
+QList<quint16> attributes(void)
+bool contains(quint16 attributeId)
+QBluetoothDeviceInfo device(void)
+bool isComplete(void)
+bool isRegistered(void)
+bool isValid(void)
+QBluetoothServiceInfo::Sequence protocolDescriptor(QBluetoothUuid::ProtocolUuid protocol)
+int protocolServiceMultiplexer(void)
+bool registerService(QBluetoothAddress localAdapter))
+void removeAttribute(quint16 attributeId)
+int serverChannel(void)
+quint8 serviceAvailability(void)
+QList<QBluetoothUuid> serviceClassUuids(void)
+QString serviceDescription(void)
+QString serviceName(void)
+QString serviceProvider(void)
+QBluetoothUuid serviceUuid(void)
+void setAttribute(quint16 attributeId, QVariant value)
+void setAttribute@2(quint16 attributeId, QBluetoothUuid value)
+void setAttribute@3(quint16 attributeId, QBluetoothServiceInfo::Sequence value)
+void setDevice(QBluetoothDeviceInfo device)
+void setServiceAvailability(quint8 availability)
+void setServiceDescription(QString description)
+void setServiceName(QString name)
+void setServiceProvider(QString provider)
+void setServiceUuid(QBluetoothUuid uuid)
+bool unregisterService(void)

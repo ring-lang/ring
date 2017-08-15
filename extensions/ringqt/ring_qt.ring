@@ -15617,7 +15617,7 @@ Class QBluetoothServer from QObject
 	pObject
 
 	Func init P1,P2
-		pObject = QBluetoothServer_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pObject = QBluetoothServer_new(P1,GetObjectPointerFromRingObject(P2))
 		return self
 
 	Func delete
@@ -15639,7 +15639,9 @@ Class QBluetoothServer from QObject
 		return QBluetoothServer_listen(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func listen_2 P1,P2
-		return QBluetoothServer_listen_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		pTempObj = new QBluetoothServiceInfo
+		pTempObj.pObject = QBluetoothServer_listen_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
 
 	Func maxPendingConnections 
 		return QBluetoothServer_maxPendingConnections(pObject)
@@ -15751,6 +15753,105 @@ Class QBluetoothServiceDiscoveryAgent from QObject
 
 	Func getserviceDiscoveredEvent 
 		return QBluetoothServiceDiscoveryAgent_getserviceDiscoveredEvent(pObject)
+
+Class QBluetoothServiceInfo
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothServiceInfo_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothServiceInfo_delete(pObject)
+
+	Func attribute P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QBluetoothServiceInfo_attribute(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func attributes 
+		return QBluetoothServiceInfo_attributes(pObject)
+
+	Func contains P1
+		return QBluetoothServiceInfo_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func device 
+		pTempObj = new QBluetoothDeviceInfo
+		pTempObj.pObject = QBluetoothServiceInfo_device(pObject)
+		return pTempObj
+
+	Func isComplete 
+		return QBluetoothServiceInfo_isComplete(pObject)
+
+	Func isRegistered 
+		return QBluetoothServiceInfo_isRegistered(pObject)
+
+	Func isValid 
+		return QBluetoothServiceInfo_isValid(pObject)
+
+	Func protocolDescriptor P1
+		return QBluetoothServiceInfo_protocolDescriptor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func protocolServiceMultiplexer 
+		return QBluetoothServiceInfo_protocolServiceMultiplexer(pObject)
+
+	Func registerService P1
+		return QBluetoothServiceInfo_registerService(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeAttribute P1
+		return QBluetoothServiceInfo_removeAttribute(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func serverChannel 
+		return QBluetoothServiceInfo_serverChannel(pObject)
+
+	Func serviceAvailability 
+		return QBluetoothServiceInfo_serviceAvailability(pObject)
+
+	Func serviceClassUuids 
+		return QBluetoothServiceInfo_serviceClassUuids(pObject)
+
+	Func serviceDescription 
+		return QBluetoothServiceInfo_serviceDescription(pObject)
+
+	Func serviceName 
+		return QBluetoothServiceInfo_serviceName(pObject)
+
+	Func serviceProvider 
+		return QBluetoothServiceInfo_serviceProvider(pObject)
+
+	Func serviceUuid 
+		return QBluetoothServiceInfo_serviceUuid(pObject)
+
+	Func setAttribute P1,P2
+		return QBluetoothServiceInfo_setAttribute(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setAttribute_2 P1,P2
+		return QBluetoothServiceInfo_setAttribute_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setAttribute_3 P1,P2
+		return QBluetoothServiceInfo_setAttribute_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setDevice P1
+		return QBluetoothServiceInfo_setDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setServiceAvailability P1
+		return QBluetoothServiceInfo_setServiceAvailability(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setServiceDescription P1
+		return QBluetoothServiceInfo_setServiceDescription(pObject,P1)
+
+	Func setServiceName P1
+		return QBluetoothServiceInfo_setServiceName(pObject,P1)
+
+	Func setServiceProvider P1
+		return QBluetoothServiceInfo_setServiceProvider(pObject,P1)
+
+	Func setServiceUuid P1
+		return QBluetoothServiceInfo_setServiceUuid(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func unregisterService 
+		return QBluetoothServiceInfo_unregisterService(pObject)
 
 Class QPixmap2 from QPixmap
 
