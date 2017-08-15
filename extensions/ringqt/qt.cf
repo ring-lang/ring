@@ -227,6 +227,9 @@ extern "C" {
 #include <QMutexLocker>
 #include <QBuffer>
 #include <QBluetoothAddress>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include "gbluetoothdevicediscoveryagent.h"
+
 
 extern "C" {
 
@@ -6961,3 +6964,36 @@ void clear(void)
 bool isNull(void)
 QString toString(void)
 quint64 toUInt64(void)
+
+<class>
+name: QBluetoothDeviceDiscoveryAgent
+para: QObject *
+codename: GBluetoothDeviceDiscoveryAgent
+passvmpointer
+</class>
+
+<runcode>
+ aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethod"
+ aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethods"
+ aEnumTypes + "QBluetoothDeviceDiscoveryAgent::Error"
+ aEnumTypes + "QBluetoothDeviceDiscoveryAgent::InquiryType"
+</runcode>
+
+QList<QBluetoothDeviceInfo> discoveredDevices(void)
+QBluetoothDeviceDiscoveryAgent::Error error(void)
+QString errorString(void)
+QBluetoothDeviceDiscoveryAgent::InquiryType inquiryType(void)
+bool isActive(void)
+void setInquiryType(QBluetoothDeviceDiscoveryAgent::InquiryType type)
+void start(void)
+void stop(void)
+
+void setcanceledEvent(const char *)
+void setdeviceDiscoveredEvent(const char *)
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+
+const char *getcanceledEvent(void)
+const char *getdeviceDiscoveredEvent(void)
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)

@@ -15376,6 +15376,65 @@ Class QBluetoothAddress
 	Func toUInt64 
 		return QBluetoothAddress_toUInt64(pObject)
 
+Class QBluetoothDeviceDiscoveryAgent
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothDeviceDiscoveryAgent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothDeviceDiscoveryAgent_delete(pObject)
+
+	Func discoveredDevices 
+		return QBluetoothDeviceDiscoveryAgent_discoveredDevices(pObject)
+
+	Func error 
+		return QBluetoothDeviceDiscoveryAgent_error(pObject)
+
+	Func errorString 
+		return QBluetoothDeviceDiscoveryAgent_errorString(pObject)
+
+	Func inquiryType 
+		return QBluetoothDeviceDiscoveryAgent_inquiryType(pObject)
+
+	Func isActive 
+		return QBluetoothDeviceDiscoveryAgent_isActive(pObject)
+
+	Func setInquiryType P1
+		return QBluetoothDeviceDiscoveryAgent_setInquiryType(pObject,P1)
+
+	Func start 
+		return QBluetoothDeviceDiscoveryAgent_start(pObject)
+
+	Func stop 
+		return QBluetoothDeviceDiscoveryAgent_stop(pObject)
+
+	Func setcanceledEvent P1
+		return QBluetoothDeviceDiscoveryAgent_setcanceledEvent(pObject,P1)
+
+	Func setdeviceDiscoveredEvent P1
+		return QBluetoothDeviceDiscoveryAgent_setdeviceDiscoveredEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QBluetoothDeviceDiscoveryAgent_seterrorEvent(pObject,P1)
+
+	Func setfinishedEvent P1
+		return QBluetoothDeviceDiscoveryAgent_setfinishedEvent(pObject,P1)
+
+	Func getcanceledEvent 
+		return QBluetoothDeviceDiscoveryAgent_getcanceledEvent(pObject)
+
+	Func getdeviceDiscoveredEvent 
+		return QBluetoothDeviceDiscoveryAgent_getdeviceDiscoveredEvent(pObject)
+
+	Func geterrorEvent 
+		return QBluetoothDeviceDiscoveryAgent_geterrorEvent(pObject)
+
+	Func getfinishedEvent 
+		return QBluetoothDeviceDiscoveryAgent_getfinishedEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
