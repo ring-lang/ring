@@ -6666,3 +6666,37 @@ Parameters : QObject *
 * const char *getpairingDisplayConfirmationEvent(void)
 * const char *getpairingDisplayPinCodeEvent(void)
 * const char *getpairingFinishedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothServer Class
+
+QBluetoothServer Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothServer.html
+
+
+Parameters : QBluetoothServiceInfo::Protocol,QObject *
+
+
+Parent Class : QObject
+
+* void close(void)
+* QBluetoothServer::Error error(void)
+* bool hasPendingConnections(void)
+* bool isListening(void)
+* bool listen(QBluetoothAddress address, quint16 port)
+* QBluetoothServiceInfo listen_2(QBluetoothUuid uuid, QString serviceName))
+* int maxPendingConnections(void)
+* QBluetoothSocket * nextPendingConnection(void)
+* QBluetooth::SecurityFlags securityFlags(void)
+* QBluetoothAddress serverAddress(void)
+* quint16 serverPort(void)
+* QBluetoothServiceInfo::Protocol serverType(void)
+* void setMaxPendingConnections(int numConnections)
+* void setSecurityFlags(QBluetooth::SecurityFlags security)
+* void seterrorEvent(const char *)
+* void setnewConnectionEvent(const char *)
+* const char *geterrorEvent(void)
+* const char *getnewConnectionEvent(void)
