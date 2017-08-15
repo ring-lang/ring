@@ -6535,3 +6535,20 @@ Parent Class : QIODevice
 * void setBuffer(QByteArray *byteArray)
 * void setData(QByteArray data)
 * void setData_2(char *data, int size)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothAddress Class
+
+QBluetoothAddress Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothAddress.html
+
+
+Parameters : void
+
+* void clear(void)
+* bool isNull(void)
+* QString toString(void)
+* quint64 toUInt64(void)

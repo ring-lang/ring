@@ -377,6 +377,7 @@ New classes added to RingQt :
 * QMutex
 * QMutexLocker
 * QBuffer
+* QBluetoothAddress
 
 Example:
 
