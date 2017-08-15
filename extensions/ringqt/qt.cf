@@ -236,6 +236,8 @@ extern "C" {
 #include "gbluetoothlocaldevice.h"
 #include <QBluetoothServer>
 #include "gbluetoothserver.h"
+#include <QBluetoothServiceDiscoveryAgent>
+#include "gbluetoothservicediscoveryagent.h"
 
 extern "C" {
 
@@ -7132,3 +7134,39 @@ void setnewConnectionEvent(const char *)
 const char *geterrorEvent(void)
 const char *getnewConnectionEvent(void)
 
+<class>
+name: QBluetoothServiceDiscoveryAgent
+para: QObject *
+parent: QObject
+codename: GBluetoothServiceDiscoveryAgent
+passvmpointer
+</class>
+
+
+<runcode>
+ aEnumTypes + "QBluetoothServiceDiscoveryAgent::DiscoveryMode"
+ aEnumTypes + "QBluetoothServiceDiscoveryAgent::Error"
+</runcode>
+
+QList<QBluetoothServiceInfo> discoveredServices(void)
+QBluetoothServiceDiscoveryAgent::Error error(void)
+QString errorString(void)
+bool isActive(void)
+QBluetoothAddress remoteAddress(void)
+bool setRemoteAddress(QBluetoothAddress address)
+void setUuidFilter(QList<QBluetoothUuid> uuids)
+void setUuidFilter@2(QBluetoothUuid uuid)
+QList<QBluetoothUuid> uuidFilter(void)
+void clear(void)
+void start(QBluetoothServiceDiscoveryAgent::DiscoveryMode mode)
+void stop(void)
+
+void setcanceledEvent(const char *)
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+void setserviceDiscoveredEvent(const char *)
+
+const char *getcanceledEvent(void)
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+const char *getserviceDiscoveredEvent(void)
