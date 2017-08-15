@@ -6818,3 +6818,22 @@ Parent Class : QIODevice
 * const char *getdisconnectedEvent(void)
 * const char *geterrorEvent(void)
 * const char *getstateChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothTransferManager Class
+
+QBluetoothTransferManager Class
+===============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothTransferManager.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QBluetoothTransferReply * put(QBluetoothTransferRequest request, QIODevice *data)
+* void setfinishedEvent(const char *)
+* const char *getfinishedEvent(void)
