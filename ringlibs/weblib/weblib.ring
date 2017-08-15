@@ -1,3 +1,7 @@
+# The Ring Standard Library
+# Web Library
+# 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
+
 Import System.Web
 
 aPageVars = []
