@@ -385,6 +385,7 @@ New classes added to RingQt :
 * QBluetoothServer
 * QBluetoothServiceDiscoveryAgent
 * QBluetoothServiceInfo
+* QBluetoothSocket
 
 Example:
 
