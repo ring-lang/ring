@@ -15499,6 +15499,31 @@ Class QBluetoothDeviceInfo
 	Func setServiceUuids P1,P2
 		return QBluetoothDeviceInfo_setServiceUuids(pObject,GetObjectPointerFromRingObject(P1),P2)
 
+Class QBluetoothHostInfo
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothHostInfo_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothHostInfo_delete(pObject)
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothHostInfo_address(pObject)
+		return pTempObj
+
+	Func name 
+		return QBluetoothHostInfo_name(pObject)
+
+	Func setAddress P1
+		return QBluetoothHostInfo_setAddress(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setName P1
+		return QBluetoothHostInfo_setName(pObject,P1)
+
 Class QPixmap2 from QPixmap
 
 	pObject

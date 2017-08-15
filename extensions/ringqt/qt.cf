@@ -231,6 +231,7 @@ extern "C" {
 #include "gbluetoothdevicediscoveryagent.h"
 #include <QBluetoothDeviceInfo>
 #include <QBluetoothUuid>
+#include <QBluetoothHostInfo>
 
 extern "C" {
 
@@ -7040,3 +7041,13 @@ void setCoreConfigurations(QBluetoothDeviceInfo::CoreConfigurations coreConfigs)
 void setDeviceUuid(QBluetoothUuid uuid)
 void setRssi(qint16 signal)
 void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)
+
+<class>
+name: QBluetoothHostInfo
+para: void
+</class>
+
+QBluetoothAddress address(void)
+QString name(void)
+void setAddress(QBluetoothAddress address)
+void setName(QString name)
