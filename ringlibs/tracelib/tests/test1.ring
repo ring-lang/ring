@@ -24,11 +24,20 @@ func mytrace
 		on TRACEEVENT_AFTERCFUNC	see "After C Function"
 	off
 	see nl +
-	    "Line Number : " + ringvm_tracedata()[TRACEDATA_LINENUMBER] + nl +
-	    "File Name   : " + ringvm_tracedata()[TRACEDATA_FILENAME] + nl +
-	    "Function Name : " + ringvm_tracedata()[TRACEDATA_FUNCNAME] + nl +
-	    "Method or Function : " + ringvm_tracedata()[TRACEDATA_METHODORFUNC] + nl +
-	    Copy("=",42) + nl
+		"Line Number : " + ringvm_tracedata()[TRACEDATA_LINENUMBER] + nl +
+		"File Name   : " + ringvm_tracedata()[TRACEDATA_FILENAME] + nl +
+		"Function Name : " + ringvm_tracedata()[TRACEDATA_FUNCNAME] + nl +
+		"Method or Function : " 
+		if ringvm_tracedata()[TRACEDATA_METHODORFUNC] = TRACEDATA_METHODORFUNC_METHOD
+			see "Method"
+		else
+			if ringvm_tracedata()[TRACEDATA_FUNCNAME] = NULL
+				see "Command"
+			else
+				see "Function"
+			ok
+		ok		
+		see nl + Copy("=",42) + nl
 
 class myclass
 	func mymethod
