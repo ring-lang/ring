@@ -15956,7 +15956,7 @@ Class QBluetoothTransferManager from QObject
 	Func delete
 		pObject = QBluetoothTransferManager_delete(pObject)
 
-	Func put P1,P2
+	Func putdata P1,P2
 		return QBluetoothTransferManager_put(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func setfinishedEvent P1
