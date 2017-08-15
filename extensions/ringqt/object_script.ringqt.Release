@@ -33,6 +33,7 @@ INPUT(
 ./release\gprocess.o
 ./release\gtoolbutton.o
 ./release\gserialport.o
+./release\gbluetoothdevicediscoveryagent.o
 ./release\ring_qt.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
@@ -68,4 +69,5 @@ INPUT(
 ./release\moc_gtoolbutton.o
 ./release\moc_gheaderview.o
 ./release\moc_gserialport.o
+./release\moc_gbluetoothdevicediscoveryagent.o
 );

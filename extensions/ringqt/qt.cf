@@ -229,7 +229,8 @@ extern "C" {
 #include <QBluetoothAddress>
 #include <QBluetoothDeviceDiscoveryAgent>
 #include "gbluetoothdevicediscoveryagent.h"
-
+#include <QBluetoothDeviceInfo>
+#include <QBluetoothUuid>
 
 extern "C" {
 
@@ -6997,3 +6998,45 @@ const char *getcanceledEvent(void)
 const char *getdeviceDiscoveredEvent(void)
 const char *geterrorEvent(void)
 const char *getfinishedEvent(void)
+
+<class>
+name: QBluetoothDeviceInfo
+para: void
+</class>
+
+<runcode>
+ aEnumTypes + "QBluetoothDeviceInfo::CoreConfiguration"
+ aEnumTypes + "QBluetoothDeviceInfo::CoreConfigurations"
+ aEnumTypes + "QBluetoothDeviceInfo::DataCompleteness"
+ aEnumTypes + "QBluetoothDeviceInfo::MajorDeviceClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorAudioVideoClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorComputerClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorHealthClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorImagingClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorMiscellaneousClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorNetworkClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorPeripheralClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorPhoneClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorToyClass"
+ aEnumTypes + "QBluetoothDeviceInfo::MinorWearableClass"
+ aEnumTypes + "QBluetoothDeviceInfo::ServiceClass"
+ aEnumTypes + "QBluetoothDeviceInfo::ServiceClasses"
+</runcode>
+
+QBluetoothAddress address(void)
+QBluetoothDeviceInfo::CoreConfigurations coreConfigurations(void)
+QBluetoothUuid deviceUuid(void)
+bool isCached(void)
+bool isValid(void)
+QBluetoothDeviceInfo::MajorDeviceClass majorDeviceClass(void)
+quint8 minorDeviceClass(void)
+QString name(void)
+qint16 rssi(void)
+QBluetoothDeviceInfo::ServiceClasses serviceClasses(void)
+QList<QBluetoothUuid> serviceUuids(QBluetoothDeviceInfo::DataCompleteness *completeness)
+QBluetoothDeviceInfo::DataCompleteness serviceUuidsCompleteness(void)
+void setCached(bool cached)
+void setCoreConfigurations(QBluetoothDeviceInfo::CoreConfigurations coreConfigs)
+void setDeviceUuid(QBluetoothUuid uuid)
+void setRssi(qint16 signal)
+void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)

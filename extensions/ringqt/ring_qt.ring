@@ -15435,6 +15435,70 @@ Class QBluetoothDeviceDiscoveryAgent
 	Func getfinishedEvent 
 		return QBluetoothDeviceDiscoveryAgent_getfinishedEvent(pObject)
 
+Class QBluetoothDeviceInfo
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothDeviceInfo_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothDeviceInfo_delete(pObject)
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothDeviceInfo_address(pObject)
+		return pTempObj
+
+	Func coreConfigurations 
+		return QBluetoothDeviceInfo_coreConfigurations(pObject)
+
+	Func deviceUuid 
+		return QBluetoothDeviceInfo_deviceUuid(pObject)
+
+	Func isCached 
+		return QBluetoothDeviceInfo_isCached(pObject)
+
+	Func isValid 
+		return QBluetoothDeviceInfo_isValid(pObject)
+
+	Func majorDeviceClass 
+		return QBluetoothDeviceInfo_majorDeviceClass(pObject)
+
+	Func minorDeviceClass 
+		return QBluetoothDeviceInfo_minorDeviceClass(pObject)
+
+	Func name 
+		return QBluetoothDeviceInfo_name(pObject)
+
+	Func rssi 
+		return QBluetoothDeviceInfo_rssi(pObject)
+
+	Func serviceClasses 
+		return QBluetoothDeviceInfo_serviceClasses(pObject)
+
+	Func serviceUuids P1
+		return QBluetoothDeviceInfo_serviceUuids(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func serviceUuidsCompleteness 
+		return QBluetoothDeviceInfo_serviceUuidsCompleteness(pObject)
+
+	Func setCached P1
+		return QBluetoothDeviceInfo_setCached(pObject,P1)
+
+	Func setCoreConfigurations P1
+		return QBluetoothDeviceInfo_setCoreConfigurations(pObject,P1)
+
+	Func setDeviceUuid P1
+		return QBluetoothDeviceInfo_setDeviceUuid(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRssi P1
+		return QBluetoothDeviceInfo_setRssi(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setServiceUuids P1,P2
+		return QBluetoothDeviceInfo_setServiceUuids(pObject,GetObjectPointerFromRingObject(P1),P2)
+
 Class QPixmap2 from QPixmap
 
 	pObject
