@@ -36,6 +36,9 @@ func Trace cType
 	off
 
 func TraceLib_AllEvents
+	if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring"
+		return 
+	ok
 	see "====== The Trace function is Active ======" + nl +
 	    "Trace Function Name : " + ringvm_TraceFunc() + nl +
 	    "Trace Event : " 
@@ -64,6 +67,9 @@ func TraceLib_AllEvents
 		see nl + Copy("=",42) + nl
 
 func TraceLib_Functions
+	if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring"
+		return 
+	ok
 	switch ringvm_TraceEvent() 
 		on TRACEEVENT_NEWFUNC
 			see "Open Func : " + 
@@ -74,6 +80,9 @@ func TraceLib_Functions
 	off
 
 func TraceLib_PassError
+	if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring"
+		return 
+	ok
 	switch ringvm_TraceEvent() 
 		on  TRACEEVENT_ERROR
 			see nl
@@ -82,7 +91,9 @@ func TraceLib_PassError
 	off
 
 func TraceLib_Debugger
-	y = 20
+	if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring"
+		return 
+	ok
 	switch ringvm_TraceEvent() 
 		on  TRACEEVENT_ERROR
 			see nl+nl+Copy("=",50) + nl +
@@ -112,10 +123,14 @@ func TraceLib_Debugger
 	off
 
 func TraceLib_LineByLine
+	if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring" or
+		ringvm_TraceEvent() != TRACEEVENT_NEWLINE
+		return 
+	ok
 	aList = ringvm_tracedata()
 	see "Before Line : " + aList[TRACEDATA_LINENUMBER] + nl +
 	nl+nl+Copy("=",50) + nl +
-	"Interactive Debugger " + nl +
+	"Interactive Debugger - Execute Program Line by Line" + nl +
 	"Command (Exit) : End Program" + nl +
 	"Command (Cont) : Continue Execution" + nl +
 	"We can execute Ring code" + nl +
