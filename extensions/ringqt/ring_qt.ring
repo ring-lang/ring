@@ -15455,7 +15455,9 @@ Class QBluetoothDeviceInfo
 		return QBluetoothDeviceInfo_coreConfigurations(pObject)
 
 	Func deviceUuid 
-		return QBluetoothDeviceInfo_deviceUuid(pObject)
+		pTempObj = new QBluetoothUuid
+		pTempObj.pObject = QBluetoothDeviceInfo_deviceUuid(pObject)
+		return pTempObj
 
 	Func isCached 
 		return QBluetoothDeviceInfo_isCached(pObject)
@@ -15793,7 +15795,7 @@ Class QBluetoothServiceInfo
 		return QBluetoothServiceInfo_isValid(pObject)
 
 	Func protocolDescriptor P1
-		return QBluetoothServiceInfo_protocolDescriptor(pObject,GetObjectPointerFromRingObject(P1))
+		return QBluetoothServiceInfo_protocolDescriptor(pObject,P1)
 
 	Func protocolServiceMultiplexer 
 		return QBluetoothServiceInfo_protocolServiceMultiplexer(pObject)
@@ -15823,7 +15825,9 @@ Class QBluetoothServiceInfo
 		return QBluetoothServiceInfo_serviceProvider(pObject)
 
 	Func serviceUuid 
-		return QBluetoothServiceInfo_serviceUuid(pObject)
+		pTempObj = new QBluetoothUuid
+		pTempObj.pObject = QBluetoothServiceInfo_serviceUuid(pObject)
+		return pTempObj
 
 	Func setAttribute P1,P2
 		return QBluetoothServiceInfo_setAttribute(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
@@ -16032,6 +16036,41 @@ Class QBluetoothTransferRequest
 
 	Func setAttribute P1,P2
 		return QBluetoothTransferRequest_setAttribute(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+Class QBluetoothUuid from QUuid
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothUuid_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothUuid_delete(pObject)
+
+	Func minimumSize 
+		return QBluetoothUuid_minimumSize(pObject)
+
+	Func toUInt16 P1
+		return QBluetoothUuid_toUInt16(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toUInt32 P1
+		return QBluetoothUuid_toUInt32(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toUInt128 
+		return QBluetoothUuid_toUInt128(pObject)
+
+	Func characteristicToString P1
+		return QBluetoothUuid_characteristicToString(pObject,P1)
+
+	Func descriptorToString P1
+		return QBluetoothUuid_descriptorToString(pObject,P1)
+
+	Func protocolToString P1
+		return QBluetoothUuid_protocolToString(pObject,P1)
+
+	Func serviceClassToString P1
+		return QBluetoothUuid_serviceClassToString(pObject,P1)
 
 Class QPixmap2 from QPixmap
 

@@ -246,6 +246,7 @@ extern "C" {
 #include <QBluetoothTransferReply>
 #include "gbluetoothtransferreply.h"
 #include <QBluetoothTransferRequest>
+#include <QBluetoothUuid>
 
 extern "C" {
 
@@ -546,6 +547,10 @@ aEnumTypes + "QBluetoothSocket::SocketError"
 aEnumTypes + "QBluetoothSocket::SocketState"
 aEnumTypes + "QBluetoothTransferReply::TransferError"
 aEnumTypes + "QBluetoothTransferRequest::Attribute"
+aEnumTypes + "QBluetoothUuid::CharacteristicType"
+aEnumTypes + "QBluetoothUuid::DescriptorType"
+aEnumTypes + "QBluetoothUuid::ProtocolUuid"
+aEnumTypes + "QBluetoothUuid::ServiceClassUuid"
 
 </runcode>
 
@@ -7284,3 +7289,18 @@ para: QBluetoothAddress
 QBluetoothAddress address(void)
 QVariant attribute(QBluetoothTransferRequest::Attribute code, QVariant defaultValue))
 void setAttribute(QBluetoothTransferRequest::Attribute code, QVariant value)
+
+<class>
+name: QBluetoothUuid
+para: void
+parent: QUuid
+</class>
+
+int minimumSize(void)
+quint16 toUInt16(bool *ok)
+quint32 toUInt32(bool *ok)
+quint128 toUInt128(void)
+QString characteristicToString(QBluetoothUuid::CharacteristicType uuid)
+QString descriptorToString(QBluetoothUuid::DescriptorType uuid)
+QString protocolToString(QBluetoothUuid::ProtocolUuid uuid)
+QString serviceClassToString(QBluetoothUuid::ServiceClassUuid uuid)
