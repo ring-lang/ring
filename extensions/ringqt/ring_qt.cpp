@@ -230,6 +230,7 @@ extern "C" {
 #include "gbluetoothtransfermanager.h"
 #include <QBluetoothTransferReply>
 #include "gbluetoothtransferreply.h"
+#include <QBluetoothTransferRequest>
 
 extern "C" {
 
@@ -88059,7 +88060,7 @@ RING_FUNC(ring_QBluetoothTransferReply_request)
 	pObject = (GBluetoothTransferReply *) RING_API_GETCPOINTER(1,"QBluetoothTransferReply");
 	{
 		QBluetoothTransferRequest *pValue ; 
-		pValue = (QBluetoothTransferRequest *) malloc(sizeof(QBluetoothTransferRequest)) ;
+		pValue = new QBluetoothTransferRequest() ;
 		*pValue = pObject->request();
 		RING_API_RETCPOINTER(pValue,"QBluetoothTransferRequest");
 	}
@@ -88194,6 +88195,79 @@ RING_FUNC(ring_QBluetoothTransferReply_gettransferProgressEvent)
 	}
 	pObject = (GBluetoothTransferReply *) RING_API_GETCPOINTER(1,"QBluetoothTransferReply");
 	RING_API_RETSTRING(pObject->gettransferProgressEvent());
+}
+
+
+RING_FUNC(ring_QBluetoothTransferRequest_address)
+{
+	QBluetoothTransferRequest *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBluetoothTransferRequest *) RING_API_GETCPOINTER(1,"QBluetoothTransferRequest");
+	{
+		QBluetoothAddress *pValue ; 
+		pValue = new QBluetoothAddress() ;
+		*pValue = pObject->address();
+		RING_API_RETCPOINTER(pValue,"QBluetoothAddress");
+	}
+}
+
+
+RING_FUNC(ring_QBluetoothTransferRequest_attribute)
+{
+	QBluetoothTransferRequest *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBluetoothTransferRequest *) RING_API_GETCPOINTER(1,"QBluetoothTransferRequest");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QVariant *pValue ; 
+		pValue = new QVariant() ;
+		*pValue = pObject->attribute( (QBluetoothTransferRequest::Attribute )  (int) RING_API_GETNUMBER(2),* (QVariant  *) RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QVariant"));
+		RING_API_RETCPOINTER(pValue,"QVariant");
+	}
+}
+
+
+RING_FUNC(ring_QBluetoothTransferRequest_setAttribute)
+{
+	QBluetoothTransferRequest *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBluetoothTransferRequest *) RING_API_GETCPOINTER(1,"QBluetoothTransferRequest");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAttribute( (QBluetoothTransferRequest::Attribute )  (int) RING_API_GETNUMBER(2),* (QVariant  *) RING_API_GETCPOINTER(3,"QVariant"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 RING_FUNC(ring_QObject_new)
@@ -90387,6 +90461,17 @@ RING_FUNC(ring_QBluetoothTransferManager_new)
 	}
 	GBluetoothTransferManager *pObject = new GBluetoothTransferManager((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QBluetoothTransferManager");
+}
+
+RING_FUNC(ring_QBluetoothTransferRequest_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	QBluetoothTransferRequest *pObject = new QBluetoothTransferRequest(* (QBluetoothAddress *) RING_API_GETCPOINTER(1,"QBluetoothAddress"));
+	RING_API_RETCPOINTER(pObject,"QBluetoothTransferRequest");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -92830,6 +92915,21 @@ RING_FUNC(ring_QBluetoothTransferManager_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GBluetoothTransferManager *) RING_API_GETCPOINTER(1,"GBluetoothTransferManager");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QBluetoothTransferRequest_delete)
+{
+	QBluetoothTransferRequest *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QBluetoothTransferRequest *) RING_API_GETCPOINTER(1,"QBluetoothTransferRequest");
 		delete pObject ;
 	}
 }
@@ -97171,6 +97271,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbluetoothtransferreply_geterrorevent",ring_QBluetoothTransferReply_geterrorEvent);
 	ring_vm_funcregister("qbluetoothtransferreply_getfinishedevent",ring_QBluetoothTransferReply_getfinishedEvent);
 	ring_vm_funcregister("qbluetoothtransferreply_gettransferprogressevent",ring_QBluetoothTransferReply_gettransferProgressEvent);
+	ring_vm_funcregister("qbluetoothtransferrequest_address",ring_QBluetoothTransferRequest_address);
+	ring_vm_funcregister("qbluetoothtransferrequest_attribute",ring_QBluetoothTransferRequest_attribute);
+	ring_vm_funcregister("qbluetoothtransferrequest_setattribute",ring_QBluetoothTransferRequest_setAttribute);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -97334,6 +97437,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbluetoothserviceinfo_new",ring_QBluetoothServiceInfo_new);
 	ring_vm_funcregister("qbluetoothsocket_new",ring_QBluetoothSocket_new);
 	ring_vm_funcregister("qbluetoothtransfermanager_new",ring_QBluetoothTransferManager_new);
+	ring_vm_funcregister("qbluetoothtransferrequest_new",ring_QBluetoothTransferRequest_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -97497,4 +97601,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbluetoothserviceinfo_delete",ring_QBluetoothServiceInfo_delete);
 	ring_vm_funcregister("qbluetoothsocket_delete",ring_QBluetoothSocket_delete);
 	ring_vm_funcregister("qbluetoothtransfermanager_delete",ring_QBluetoothTransferManager_delete);
+	ring_vm_funcregister("qbluetoothtransferrequest_delete",ring_QBluetoothTransferRequest_delete);
 }

@@ -245,6 +245,7 @@ extern "C" {
 #include "gbluetoothtransfermanager.h"
 #include <QBluetoothTransferReply>
 #include "gbluetoothtransferreply.h"
+#include <QBluetoothTransferRequest>
 
 extern "C" {
 
@@ -544,6 +545,7 @@ aEnumTypes + "QBluetoothServiceInfo::Protocol"
 aEnumTypes + "QBluetoothSocket::SocketError"
 aEnumTypes + "QBluetoothSocket::SocketState"
 aEnumTypes + "QBluetoothTransferReply::TransferError"
+aEnumTypes + "QBluetoothTransferRequest::Attribute"
 
 </runcode>
 
@@ -7273,3 +7275,12 @@ void settransferProgressEvent(const char *)
 const char *geterrorEvent(void)
 const char *getfinishedEvent(void)
 const char *gettransferProgressEvent(void)
+
+<class>
+name: QBluetoothTransferRequest
+para: QBluetoothAddress
+</class>
+
+QBluetoothAddress address(void)
+QVariant attribute(QBluetoothTransferRequest::Attribute code, QVariant defaultValue))
+void setAttribute(QBluetoothTransferRequest::Attribute code, QVariant value)

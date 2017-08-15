@@ -15984,7 +15984,9 @@ Class QBluetoothTransferReply from QObject
 		return pTempObj
 
 	Func request 
-		return QBluetoothTransferReply_request(pObject)
+		pTempObj = new QBluetoothTransferRequest
+		pTempObj.pObject = QBluetoothTransferReply_request(pObject)
+		return pTempObj
 
 	Func abort 
 		return QBluetoothTransferReply_abort(pObject)
@@ -16006,6 +16008,30 @@ Class QBluetoothTransferReply from QObject
 
 	Func gettransferProgressEvent 
 		return QBluetoothTransferReply_gettransferProgressEvent(pObject)
+
+Class QBluetoothTransferRequest
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothTransferRequest_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothTransferRequest_delete(pObject)
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothTransferRequest_address(pObject)
+		return pTempObj
+
+	Func attribute P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QBluetoothTransferRequest_attribute(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func setAttribute P1,P2
+		return QBluetoothTransferRequest_setAttribute(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 Class QPixmap2 from QPixmap
 
