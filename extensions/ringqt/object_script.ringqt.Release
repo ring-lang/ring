@@ -39,6 +39,7 @@ INPUT(
 ./release\gbluetoothservicediscoveryagent.o
 ./release\gbluetoothsocket.o
 ./release\gbluetoothtransfermanager.o
+./release\gbluetoothtransferreply.o
 ./release\ring_qt.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
@@ -79,5 +80,6 @@ INPUT(
 ./release\moc_gbluetoothservicediscoveryagent.o
 ./release\moc_gbluetoothsocket.o
 ./release\moc_gbluetoothtransfermanager.o
+./release\moc_gbluetoothtransferreply.o
 ./release\moc_gbluetoothserver.o
 );

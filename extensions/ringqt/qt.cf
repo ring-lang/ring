@@ -243,6 +243,8 @@ extern "C" {
 #include "gbluetoothsocket.h"
 #include <QBluetoothTransferManager>
 #include "gbluetoothtransfermanager.h"
+#include <QBluetoothTransferReply>
+#include "gbluetoothtransferreply.h"
 
 extern "C" {
 
@@ -541,7 +543,7 @@ aEnumTypes + "QBluetoothServiceInfo::AttributeId"
 aEnumTypes + "QBluetoothServiceInfo::Protocol"
 aEnumTypes + "QBluetoothSocket::SocketError"
 aEnumTypes + "QBluetoothSocket::SocketState"
-
+aEnumTypes + "QBluetoothTransferReply::TransferError"
 
 </runcode>
 
@@ -7250,3 +7252,24 @@ passvmpointer
 QBluetoothTransferReply * put(QBluetoothTransferRequest request, QIODevice *data)
 void setfinishedEvent(const char *)
 const char *getfinishedEvent(void)
+
+<class>
+name: QBluetoothTransferReply
+para: QObject *
+parent: QObject
+codename: GBluetoothTransferReply
+passvmpointer
+abstract
+</class>
+
+QBluetoothTransferManager * manager(void)
+QBluetoothTransferRequest request(void)
+void abort(void)
+
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+void settransferProgressEvent(const char *)
+
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+const char *gettransferProgressEvent(void)

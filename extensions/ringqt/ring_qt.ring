@@ -15957,13 +15957,55 @@ Class QBluetoothTransferManager from QObject
 		pObject = QBluetoothTransferManager_delete(pObject)
 
 	Func putdata P1,P2
-		return QBluetoothTransferManager_put(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj = new QBluetoothTransferReply
+		pTempObj.pObject = QBluetoothTransferManager_put(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func setfinishedEvent P1
 		return QBluetoothTransferManager_setfinishedEvent(pObject,P1)
 
 	Func getfinishedEvent 
 		return QBluetoothTransferManager_getfinishedEvent(pObject)
+
+Class QBluetoothTransferReply from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothTransferReply_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothTransferReply_delete(pObject)
+
+	Func manager 
+		pTempObj = new QBluetoothTransferManager
+		pTempObj.pObject = QBluetoothTransferReply_manager(pObject)
+		return pTempObj
+
+	Func request 
+		return QBluetoothTransferReply_request(pObject)
+
+	Func abort 
+		return QBluetoothTransferReply_abort(pObject)
+
+	Func seterrorEvent P1
+		return QBluetoothTransferReply_seterrorEvent(pObject,P1)
+
+	Func setfinishedEvent P1
+		return QBluetoothTransferReply_setfinishedEvent(pObject,P1)
+
+	Func settransferProgressEvent P1
+		return QBluetoothTransferReply_settransferProgressEvent(pObject,P1)
+
+	Func geterrorEvent 
+		return QBluetoothTransferReply_geterrorEvent(pObject)
+
+	Func getfinishedEvent 
+		return QBluetoothTransferReply_getfinishedEvent(pObject)
+
+	Func gettransferProgressEvent 
+		return QBluetoothTransferReply_gettransferProgressEvent(pObject)
 
 Class QPixmap2 from QPixmap
 
