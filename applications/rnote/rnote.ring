@@ -29,7 +29,7 @@ Class RNote from WindowsControllerParent
 	lShowOutputWindow = True
 	lShowClassesList = True
 	lShowFormDesigner = True
-	nTabSpaces = 0
+	nTabSpaces = 8
 	aBrowserLinks = [
 		["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
 		["Localhost","http://localhost"],
