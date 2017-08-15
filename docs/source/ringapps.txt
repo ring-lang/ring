@@ -169,6 +169,8 @@ I can say that this is the easiest and the most BASIC-like language I've ever tr
 It seems that the language is quite extensive as well. I would find it useful to see a BNF grammar and concise coverage of its semantics."
 	, Xx-Leninist-1917-Xx (Reddit)
 
+"I can see the AI of the future using this technology to solve computational problems for..... the humans."
+	, Cryptonite (United States)
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
