@@ -6736,3 +6736,44 @@ Parent Class : QObject
 * const char *geterrorEvent(void)
 * const char *getfinishedEvent(void)
 * const char *getserviceDiscoveredEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothServiceInfo Class
+
+QBluetoothServiceInfo Class
+===========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothServiceInfo.html
+
+
+Parameters : void
+
+* QVariant attribute(quint16 attributeId)
+* QList<quint16> attributes(void)
+* bool contains(quint16 attributeId)
+* QBluetoothDeviceInfo device(void)
+* bool isComplete(void)
+* bool isRegistered(void)
+* bool isValid(void)
+* QBluetoothServiceInfo::Sequence protocolDescriptor(QBluetoothUuid::ProtocolUuid protocol)
+* int protocolServiceMultiplexer(void)
+* bool registerService(QBluetoothAddress localAdapter))
+* void removeAttribute(quint16 attributeId)
+* int serverChannel(void)
+* quint8 serviceAvailability(void)
+* QList<QBluetoothUuid> serviceClassUuids(void)
+* QString serviceDescription(void)
+* QString serviceName(void)
+* QString serviceProvider(void)
+* QBluetoothUuid serviceUuid(void)
+* void setAttribute(quint16 attributeId, QVariant value)
+* void setAttribute_2(quint16 attributeId, QBluetoothUuid value)
+* void setAttribute_3(quint16 attributeId, QBluetoothServiceInfo::Sequence value)
+* void setDevice(QBluetoothDeviceInfo device)
+* void setServiceAvailability(quint8 availability)
+* void setServiceDescription(QString description)
+* void setServiceName(QString name)
+* void setServiceProvider(QString provider)
+* void setServiceUuid(QBluetoothUuid uuid)
+* bool unregisterService(void)
