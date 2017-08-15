@@ -211,6 +211,7 @@ extern "C" {
 #include <QMutex>
 #include <QMutexLocker>
 #include <QBuffer>
+#include <QBluetoothAddress>
 
 extern "C" {
 
@@ -84896,6 +84897,79 @@ RING_FUNC(ring_QBuffer_setData_2)
 	pObject->setData(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
 }
 
+
+RING_FUNC(ring_QBluetoothAddress_clear)
+{
+	QBluetoothAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBluetoothAddress *) RING_API_GETCPOINTER(1,"QBluetoothAddress");
+	pObject->clear();
+}
+
+
+RING_FUNC(ring_QBluetoothAddress_isNull)
+{
+	QBluetoothAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBluetoothAddress *) RING_API_GETCPOINTER(1,"QBluetoothAddress");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QBluetoothAddress_toString)
+{
+	QBluetoothAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBluetoothAddress *) RING_API_GETCPOINTER(1,"QBluetoothAddress");
+	RING_API_RETSTRING(pObject->toString().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QBluetoothAddress_toUInt64)
+{
+	QBluetoothAddress *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QBluetoothAddress *) RING_API_GETCPOINTER(1,"QBluetoothAddress");
+	{
+		quint64 *pValue ; 
+		pValue = (quint64 *) malloc(sizeof(quint64)) ;
+		*pValue = pObject->toUInt64();
+		RING_API_RETCPOINTER(pValue,"quint64");
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -86945,6 +87019,17 @@ RING_FUNC(ring_QBuffer_new)
 	}
 	QBuffer *pObject = new QBuffer((QObject *) RING_API_GETCPOINTER(1,"QObject"));
 	RING_API_RETCPOINTER(pObject,"QBuffer");
+}
+
+RING_FUNC(ring_QBluetoothAddress_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QBluetoothAddress *pObject = new QBluetoothAddress();
+	RING_API_RETCPOINTER(pObject,"QBluetoothAddress");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -89238,6 +89323,21 @@ RING_FUNC(ring_QBuffer_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QBuffer *) RING_API_GETCPOINTER(1,"QBuffer");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QBluetoothAddress_delete)
+{
+	QBluetoothAddress *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QBluetoothAddress *) RING_API_GETCPOINTER(1,"QBluetoothAddress");
 		delete pObject ;
 	}
 }
@@ -93410,6 +93510,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbuffer_setbuffer",ring_QBuffer_setBuffer);
 	ring_vm_funcregister("qbuffer_setdata",ring_QBuffer_setData);
 	ring_vm_funcregister("qbuffer_setdata_2",ring_QBuffer_setData_2);
+	ring_vm_funcregister("qbluetoothaddress_clear",ring_QBluetoothAddress_clear);
+	ring_vm_funcregister("qbluetoothaddress_isnull",ring_QBluetoothAddress_isNull);
+	ring_vm_funcregister("qbluetoothaddress_tostring",ring_QBluetoothAddress_toString);
+	ring_vm_funcregister("qbluetoothaddress_touint64",ring_QBluetoothAddress_toUInt64);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -93563,6 +93667,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmutex_new",ring_QMutex_new);
 	ring_vm_funcregister("qmutexlocker_new",ring_QMutexLocker_new);
 	ring_vm_funcregister("qbuffer_new",ring_QBuffer_new);
+	ring_vm_funcregister("qbluetoothaddress_new",ring_QBluetoothAddress_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -93716,4 +93821,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmutex_delete",ring_QMutex_delete);
 	ring_vm_funcregister("qmutexlocker_delete",ring_QMutexLocker_delete);
 	ring_vm_funcregister("qbuffer_delete",ring_QBuffer_delete);
+	ring_vm_funcregister("qbluetoothaddress_delete",ring_QBluetoothAddress_delete);
 }

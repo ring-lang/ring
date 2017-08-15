@@ -15353,6 +15353,29 @@ Class QBuffer from QIODevice
 	Func setData_2 P1,P2
 		return QBuffer_setData_2(pObject,P1,P2)
 
+Class QBluetoothAddress
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothAddress_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothAddress_delete(pObject)
+
+	Func clear 
+		return QBluetoothAddress_clear(pObject)
+
+	Func isNull 
+		return QBluetoothAddress_isNull(pObject)
+
+	Func toString 
+		return QBluetoothAddress_toString(pObject)
+
+	Func toUInt64 
+		return QBluetoothAddress_toUInt64(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

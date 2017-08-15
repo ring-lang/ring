@@ -226,6 +226,7 @@ extern "C" {
 #include <QMutex>
 #include <QMutexLocker>
 #include <QBuffer>
+#include <QBluetoothAddress>
 
 extern "C" {
 
@@ -6921,7 +6922,6 @@ int compare@6(QStringRef s1, QLatin1String s2, Qt::CaseSensitivity cs)
 int localeAwareCompare@3(QStringRef s1, QString s2)
 int localeAwareCompare@4(QStringRef s1, QStringRef s2)
 
-
 <class>
 name: QMutex
 para: QMutex::RecursionMode
@@ -6936,7 +6936,6 @@ name: QMutexLocker
 para: QMutex *
 </class>
 
-
 QMutex * mutex(void)
 void relock(void)
 void unlock(void)
@@ -6947,9 +6946,18 @@ para: QObject *
 parent: QIODevice
 </class>
 
-
 QByteArray buffer(void)
 QByteArray data(void)
 void setBuffer(QByteArray *byteArray)
 void setData(QByteArray data)
 void setData@2(char *data, int size)
+
+<class>
+name: QBluetoothAddress
+para: void
+</class>
+
+void clear(void)
+bool isNull(void)
+QString toString(void)
+quint64 toUInt64(void)
