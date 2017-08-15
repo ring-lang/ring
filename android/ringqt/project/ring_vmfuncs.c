@@ -268,7 +268,6 @@ void ring_vm_call2 ( VM *pVM )
 		ring_list_callfuncpointer(pList,RING_FUNCCL_PC,pVM);
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
-		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
 		/* Restore nFuncEx state */
 		pVM->nFuncExecute = nFuncEx ;
 		/* Check for function termination by try/catch */
