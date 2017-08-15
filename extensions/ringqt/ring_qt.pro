@@ -48,6 +48,7 @@ SOURCES +=   \
     gserialport.cpp \
     gbluetoothdevicediscoveryagent.cpp \
     gbluetoothlocaldevice.cpp \
+    gbluetoothserver.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -86,7 +87,8 @@ HEADERS  += \
     gheaderview.h \
     gserialport.h \
     gbluetoothdevicediscoveryagent.h \
-    gbluetoothlocaldevice.h
+    gbluetoothlocaldevice.h \
+    gbluetoothserver.h
 
 INCLUDEPATH += ../../include
 

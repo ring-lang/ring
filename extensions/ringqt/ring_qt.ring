@@ -15612,6 +15612,73 @@ Class QBluetoothLocalDevice
 	Func getpairingFinishedEvent 
 		return QBluetoothLocalDevice_getpairingFinishedEvent(pObject)
 
+Class QBluetoothServer from QObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QBluetoothServer_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QBluetoothServer_delete(pObject)
+
+	Func close 
+		return QBluetoothServer_close(pObject)
+
+	Func error 
+		return QBluetoothServer_error(pObject)
+
+	Func hasPendingConnections 
+		return QBluetoothServer_hasPendingConnections(pObject)
+
+	Func isListening 
+		return QBluetoothServer_isListening(pObject)
+
+	Func listen P1,P2
+		return QBluetoothServer_listen(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func listen_2 P1,P2
+		return QBluetoothServer_listen_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func maxPendingConnections 
+		return QBluetoothServer_maxPendingConnections(pObject)
+
+	Func nextPendingConnection 
+		return QBluetoothServer_nextPendingConnection(pObject)
+
+	Func securityFlags 
+		return QBluetoothServer_securityFlags(pObject)
+
+	Func serverAddress 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothServer_serverAddress(pObject)
+		return pTempObj
+
+	Func serverPort 
+		return QBluetoothServer_serverPort(pObject)
+
+	Func serverType 
+		return QBluetoothServer_serverType(pObject)
+
+	Func setMaxPendingConnections P1
+		return QBluetoothServer_setMaxPendingConnections(pObject,P1)
+
+	Func setSecurityFlags P1
+		return QBluetoothServer_setSecurityFlags(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func seterrorEvent P1
+		return QBluetoothServer_seterrorEvent(pObject,P1)
+
+	Func setnewConnectionEvent P1
+		return QBluetoothServer_setnewConnectionEvent(pObject,P1)
+
+	Func geterrorEvent 
+		return QBluetoothServer_geterrorEvent(pObject)
+
+	Func getnewConnectionEvent 
+		return QBluetoothServer_getnewConnectionEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

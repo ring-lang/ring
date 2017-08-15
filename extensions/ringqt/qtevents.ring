@@ -879,7 +879,7 @@ aclasses = [
 						:slot = "finishedSlot()" ,
 						:event = "finished"
 					]
-					  ]
+				]
 		],
 		[	:name = "GBluetoothLocalDevice" ,
 			:realname = "QBluetoothLocalDevice" ,
@@ -913,7 +913,22 @@ aclasses = [
 						:slot = "pairingFinishedSlot()" ,
 						:event = "pairingFinished"
 					]
-					  ]
+				]
+		],
+		[	:name = "GBluetoothServer" ,
+			:realname = "QBluetoothServer" ,
+			:initpara = "QBluetoothServiceInfo::Protocol x,QObject *",
+			:initparaparent = "x,",
+			:events = [
+					[ 	:signal = "error(QBluetoothServer::Error)" ,
+						:slot = "errorSlot()" ,
+						:event = "error"
+					],
+					[ 	:signal = "newConnection()" ,
+						:slot = "newConnectionSlot()" ,
+						:event = "newConnection"
+					]
+				]
 		]
 
 	    ]
