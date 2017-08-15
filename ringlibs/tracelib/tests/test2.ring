@@ -1,3 +1,7 @@
+# The Ring Standard Library
+# Trace Library
+# 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
+
 load "tracelib.ring"
 
 ringvm_settrace("mytrace()")
