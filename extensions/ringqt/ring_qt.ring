@@ -15524,6 +15524,94 @@ Class QBluetoothHostInfo
 	Func setName P1
 		return QBluetoothHostInfo_setName(pObject,P1)
 
+Class QBluetoothLocalDevice
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothLocalDevice_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothLocalDevice_delete(pObject)
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothLocalDevice_address(pObject)
+		return pTempObj
+
+	Func connectedDevices 
+		return QBluetoothLocalDevice_connectedDevices(pObject)
+
+	Func hostMode 
+		return QBluetoothLocalDevice_hostMode(pObject)
+
+	Func isValid 
+		return QBluetoothLocalDevice_isValid(pObject)
+
+	Func name 
+		return QBluetoothLocalDevice_name(pObject)
+
+	Func pairingStatus P1
+		return QBluetoothLocalDevice_pairingStatus(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func powerOn 
+		return QBluetoothLocalDevice_powerOn(pObject)
+
+	Func requestPairing P1,P2
+		return QBluetoothLocalDevice_requestPairing(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setHostMode P1
+		return QBluetoothLocalDevice_setHostMode(pObject,P1)
+
+	Func pairingConfirmation P1
+		return QBluetoothLocalDevice_pairingConfirmation(pObject,P1)
+
+	Func allDevices 
+		return QBluetoothLocalDevice_allDevices(pObject)
+
+	Func setdeviceConnectedEvent P1
+		return QBluetoothLocalDevice_setdeviceConnectedEvent(pObject,P1)
+
+	Func setdeviceDisconnectedEvent P1
+		return QBluetoothLocalDevice_setdeviceDisconnectedEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QBluetoothLocalDevice_seterrorEvent(pObject,P1)
+
+	Func sethostModeStateChangedEvent P1
+		return QBluetoothLocalDevice_sethostModeStateChangedEvent(pObject,P1)
+
+	Func setpairingDisplayConfirmationEvent P1
+		return QBluetoothLocalDevice_setpairingDisplayConfirmationEvent(pObject,P1)
+
+	Func setpairingDisplayPinCodeEvent P1
+		return QBluetoothLocalDevice_setpairingDisplayPinCodeEvent(pObject,P1)
+
+	Func setpairingFinishedEvent P1
+		return QBluetoothLocalDevice_setpairingFinishedEvent(pObject,P1)
+
+	Func getdeviceConnectedEvent 
+		return QBluetoothLocalDevice_getdeviceConnectedEvent(pObject)
+
+	Func getdeviceDisconnectedEvent 
+		return QBluetoothLocalDevice_getdeviceDisconnectedEvent(pObject)
+
+	Func geterrorEvent 
+		return QBluetoothLocalDevice_geterrorEvent(pObject)
+
+	Func gethostModeStateChangedEvent 
+		return QBluetoothLocalDevice_gethostModeStateChangedEvent(pObject)
+
+	Func getpairingDisplayConfirmationEvent 
+		return QBluetoothLocalDevice_getpairingDisplayConfirmationEvent(pObject)
+
+	Func getpairingDisplayPinCodeEvent 
+		return QBluetoothLocalDevice_getpairingDisplayPinCodeEvent(pObject)
+
+	Func getpairingFinishedEvent 
+		return QBluetoothLocalDevice_getpairingFinishedEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject

@@ -232,6 +232,8 @@ extern "C" {
 #include <QBluetoothDeviceInfo>
 #include <QBluetoothUuid>
 #include <QBluetoothHostInfo>
+#include <QBluetoothLocalDevice>
+#include "gbluetoothlocaldevice.h"
 
 extern "C" {
 
@@ -7051,3 +7053,46 @@ QBluetoothAddress address(void)
 QString name(void)
 void setAddress(QBluetoothAddress address)
 void setName(QString name)
+
+<class>
+name: QBluetoothLocalDevice
+para: QObject *
+codename: GBluetoothLocalDevice
+passvmpointer
+</class>
+
+
+<runcode>
+ aEnumTypes + "QBluetoothLocalDevice::Error"
+ aEnumTypes + "QBluetoothLocalDevice::HostMode"
+ aEnumTypes + "QBluetoothLocalDevice::Pairing"
+</runcode>
+
+QBluetoothAddress address(void)
+QList<QBluetoothAddress> connectedDevices(void)
+QBluetoothLocalDevice::HostMode hostMode(void)
+bool isValid(void)
+QString name(void)
+QBluetoothLocalDevice::Pairing pairingStatus(QBluetoothAddress address)
+void powerOn(void)
+void requestPairing(QBluetoothAddress address, QBluetoothLocalDevice::Pairing pairing)
+void setHostMode(QBluetoothLocalDevice::HostMode mode)
+void pairingConfirmation(bool accept)
+QList<QBluetoothHostInfo> allDevices(void)
+
+void setdeviceConnectedEvent(const char *)
+void setdeviceDisconnectedEvent(const char *)
+void seterrorEvent(const char *)
+void sethostModeStateChangedEvent(const char *)
+void setpairingDisplayConfirmationEvent(const char *)
+void setpairingDisplayPinCodeEvent(const char *)
+void setpairingFinishedEvent(const char *)
+
+const char *getdeviceConnectedEvent(void)
+const char *getdeviceDisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *gethostModeStateChangedEvent(void)
+const char *getpairingDisplayConfirmationEvent(void)
+const char *getpairingDisplayPinCodeEvent(void)
+const char *getpairingFinishedEvent(void)
+
