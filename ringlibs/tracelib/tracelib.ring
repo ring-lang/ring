@@ -143,11 +143,17 @@ func _BreakPoint
 				ringvm_EvalInScope(nScope,"see locals() callgc()")
 				loop
 			on "localsdata"
-				ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals() callgc()')
+				if nScope = 1	# Global
+					ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = globals()')
+				else
+					ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals() callgc()')
+				ok
 				see nl 
-				for TRACE_ITEM in TRACE_TEMPLIST
+				aTempList = TRACE_TEMPLIST
+				TRACE_TEMPLIST = []
+				for TRACE_ITEM in aTempList
 						see "Variable : " +  TRACE_ITEM
-						see space(15-len(TRACE_ITEM)) + " Type : " 
+						see space(5) + " Type : " 
 						ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
 						see space(5) + " Value : " 
 						ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
