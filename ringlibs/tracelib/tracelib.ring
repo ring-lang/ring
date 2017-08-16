@@ -131,14 +131,13 @@ func _BreakPoint
 	Copy("=",60) + nl 
 	while true
 	        see nl + "code:> "
-		Try
-		        give cCode
-			cmd = trim(lower(cCode))
-			if cmd = "exit" or cmd = "bye"
-				shutdown()
-			ok 
-			nScope = ringvm_scopescount()-2
-			switch cmd
+	        give cCode
+		cmd = trim(lower(cCode))
+		if cmd = "exit" or cmd = "bye"
+			shutdown()
+		ok 
+		nScope = ringvm_scopescount()-2
+		switch cmd
 			on "locals"			
 				ringvm_EvalInScope(nScope,"see locals() callgc()")
 				loop
@@ -152,14 +151,14 @@ func _BreakPoint
 				aTempList = TRACE_TEMPLIST
 				TRACE_TEMPLIST = []
 				for TRACE_ITEM in aTempList
-						see "Variable : " +  TRACE_ITEM
-						cVarName = TRACE_ITEM
-						see copy(" ",20-len(cVarName)) + " Type : " 
-						ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
-						ringvm_Evalinscope(nScope,"see Copy(' ',20-len(type(" +  TRACE_ITEM +")))")
-						see " Value : " 
-						ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
-						see nl
+					see "Variable : " +  TRACE_ITEM
+					cVarName = TRACE_ITEM
+					see copy(" ",20-len(cVarName)) + " Type : " 
+					ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
+					ringvm_Evalinscope(nScope,"see Copy(' ',20-len(type(" +  TRACE_ITEM +")))")
+					see " Value : " 
+					ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
+					see nl
 				next
 				loop
 			on "globals"			
@@ -168,7 +167,8 @@ func _BreakPoint
 			on "cont"
 				ringvm_passerror()
 				exit
-			off
+		off
+		Try
 			ringvm_EvalInScope(nScope,cCode)
 	        catch
 	                see cCatchError
