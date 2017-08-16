@@ -97,30 +97,8 @@ func TraceLib_Debugger
 	ok
 	switch ringvm_TraceEvent() 
 		on  TRACEEVENT_ERROR
-			see nl+nl+Copy("=",50) + nl +
-			"Interactive Debugger " + nl +
-			"Command (Exit) : End Program" + nl +
-			"Command (Cont) : Continue Execution" + nl +
-			"We can execute Ring code" + nl +
-			"See Locals() to print variable names" + nl +
-			Copy("=",50) + nl 
-			while true
-				        see nl + "code:> "
-					Try
-					        give cCode
-						if trim(lower(cCode)) = "exit" or
-						   trim(lower(cCode)) = "bye"
-							shutdown()
-						ok	
-						if trim(lower(cCode)) = "cont"
-							ringvm_passerror()
-							exit
-						ok
-						ringvm_EvalInScope(ringvm_scopescount()-1,cCode)
-				        catch
-				                see cCatchError
-				        done
-			end
+			see nl+nl+Copy("=",50) + nl 
+			_BreakPoint()
 	off
 
 func TraceLib_LineByLine
