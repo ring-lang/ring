@@ -22,6 +22,8 @@ TRACEDATA_METHODORFUNC_NOTMETHOD	= FALSE
 
 TRACE_BREAKPOINTS = TRUE
 
+TRACE_TEMPLIST = []
+
 func Trace cType
 	switch trim(lower(cType))
 	on :AllEvents
@@ -135,18 +137,28 @@ func _BreakPoint
 			if cmd = "exit" or cmd = "bye"
 				shutdown()
 			ok 
+			nScope = ringvm_scopescount()-2
 			switch cmd
 			on "locals"			
-				ringvm_EvalInScope(ringvm_scopescount()-2,"see locals()")
+				ringvm_EvalInScope(nScope,"see locals() callgc()")
+				loop
+			on "localsdata"
+				ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals() callgc()')
+				for TRACE_ITEM in TRACE_TEMPLIST
+						see "Variable : " +  TRACE_ITEM
+						see " Value : " 
+						ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
+						see nl
+				next
 				loop
 			on "globals"			
-				ringvm_EvalInScope(ringvm_scopescount()-2,"see globals()")
+				ringvm_EvalInScope(nScope,"see globals() callgc()")
 				loop
 			on "cont"
 				ringvm_passerror()
 				exit
 			off
-			ringvm_EvalInScope(ringvm_scopescount()-2,cCode)
+			ringvm_EvalInScope(nScope,cCode)
 	        catch
 	                see cCatchError
 	        done
@@ -154,3 +166,4 @@ func _BreakPoint
 
 func NoBreakPoints
 	TRACE_BREAKPOINTS = FALSE
+
