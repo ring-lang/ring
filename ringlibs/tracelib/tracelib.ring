@@ -144,9 +144,12 @@ func _BreakPoint
 				loop
 			on "localsdata"
 				ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals() callgc()')
+				see nl 
 				for TRACE_ITEM in TRACE_TEMPLIST
 						see "Variable : " +  TRACE_ITEM
-						see space(20-len(TRACE_ITEM)) + " Value : " 
+						see space(15-len(TRACE_ITEM)) + " Type : " 
+						ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
+						see space(5) + " Value : " 
 						ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
 						see nl
 				next
