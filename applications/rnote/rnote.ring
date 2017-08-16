@@ -17,7 +17,7 @@ Class RNote from WindowsControllerParent
 	cActiveFileName = ""
 	aTextColor = [0,0,0]
 	aBackColor = [255,255,255]
-	cFont = 'Consolas,20,-1,5,50,0,0,0,0,0'
+	cFont = 'Consolas,16,-1,5,50,0,0,0,0,0'
 	oTempFont = new qfont("",0,0,0)
 	cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
 	cCurrentDir = CurrentDir() + "/"	# The Ring Notepad Folder
