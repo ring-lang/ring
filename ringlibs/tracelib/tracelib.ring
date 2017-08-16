@@ -128,9 +128,15 @@ func TraceLib_LineByLine
 		return 
 	ok
 	aList = ringvm_tracedata()
-	see "Before Line : " + aList[TRACEDATA_LINENUMBER] + nl +
-	nl+nl+Copy("=",50) + nl +
-	"Interactive Debugger - Execute Program Line by Line" + nl +
+	see "Before Line : " + aList[TRACEDATA_LINENUMBER] + nl 
+	_BreakPoint()
+
+func BreakPoint
+	_BreakPoint()
+
+func _BreakPoint 
+	see nl+nl+Copy("=",50) + nl +
+	"Interactive Debugger" + nl +
 	"Command (Exit) : End Program" + nl +
 	"Command (Cont) : Continue Execution" + nl +
 	"We can execute Ring code" + nl +
@@ -148,7 +154,7 @@ func TraceLib_LineByLine
 				ringvm_passerror()
 				exit
 			ok
-			ringvm_EvalInScope(ringvm_scopescount()-1,cCode)
+			ringvm_EvalInScope(ringvm_scopescount()-2,cCode)
 	        catch
 	                see cCatchError
 	        done
