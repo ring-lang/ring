@@ -43155,6 +43155,133 @@ RING_FUNC(ring_QIODevice_write)
 }
 
 
+RING_FUNC(ring_QIODevice_atEnd)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	RING_API_RETNUMBER(pObject->atEnd());
+}
+
+
+RING_FUNC(ring_QIODevice_canReadLine)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	RING_API_RETNUMBER(pObject->canReadLine());
+}
+
+
+RING_FUNC(ring_QIODevice_close)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	pObject->close();
+}
+
+
+RING_FUNC(ring_QIODevice_open)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->open( (QIODevice::OpenMode )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QIODevice_pos)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	RING_API_RETNUMBER(pObject->pos());
+}
+
+
+RING_FUNC(ring_QIODevice_seek)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->seek( (qint64 ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QIODevice_size)
+{
+	GIODevice *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
+	RING_API_RETNUMBER(pObject->size());
+}
+
+
 RING_FUNC(ring_QIODevice_setaboutToCloseEvent)
 {
 	GIODevice *pObject ;
@@ -93203,6 +93330,13 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qiodevice_settextmodeenabled",ring_QIODevice_setTextModeEnabled);
 	ring_vm_funcregister("qiodevice_ungetchar",ring_QIODevice_ungetChar);
 	ring_vm_funcregister("qiodevice_write",ring_QIODevice_write);
+	ring_vm_funcregister("qiodevice_atend",ring_QIODevice_atEnd);
+	ring_vm_funcregister("qiodevice_canreadline",ring_QIODevice_canReadLine);
+	ring_vm_funcregister("qiodevice_close",ring_QIODevice_close);
+	ring_vm_funcregister("qiodevice_open",ring_QIODevice_open);
+	ring_vm_funcregister("qiodevice_pos",ring_QIODevice_pos);
+	ring_vm_funcregister("qiodevice_seek",ring_QIODevice_seek);
+	ring_vm_funcregister("qiodevice_size",ring_QIODevice_size);
 	ring_vm_funcregister("qiodevice_setabouttocloseevent",ring_QIODevice_setaboutToCloseEvent);
 	ring_vm_funcregister("qiodevice_setbyteswrittenevent",ring_QIODevice_setbytesWrittenEvent);
 	ring_vm_funcregister("qiodevice_setreadchannelfinishedevent",ring_QIODevice_setreadChannelFinishedEvent);

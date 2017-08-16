@@ -7543,6 +7543,27 @@ Class QIODevice
 	Func write P1,P2
 		return QIODevice_write(pObject,P1,P2)
 
+	Func atEnd 
+		return QIODevice_atEnd(pObject)
+
+	Func canReadLine 
+		return QIODevice_canReadLine(pObject)
+
+	Func close 
+		return QIODevice_close(pObject)
+
+	Func open P1
+		return QIODevice_open(pObject,P1)
+
+	Func pos 
+		return QIODevice_pos(pObject)
+
+	Func seek P1
+		return QIODevice_seek(pObject,P1)
+
+	Func size 
+		return QIODevice_size(pObject)
+
 	Func setaboutToCloseEvent P1
 		return QIODevice_setaboutToCloseEvent(pObject,P1)
 

@@ -226,6 +226,8 @@ void ring_vm_call2 ( VM *pVM )
 		ring_list_deleteallitems(pVM->aLoadAddressScope);
 	}
 	else if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_C ) {
+		/* Trace */
+		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_BEFORECFUNC);
 		/*
 		**  Save Active Memory 
 		**  We save Active Memory to restore it , we don't depend on scopes list of lists 
@@ -260,11 +262,7 @@ void ring_vm_call2 ( VM *pVM )
 		pVM->nActiveCatch = 0 ;
 		/* Enable C Pointer Type Check */
 		pVM->nIgnoreCPointerTypeCheck = 0 ;
-		/*
-		**  Call Function 
-		**  Trace 
-		*/
-		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_BEFORECFUNC);
+		/* Call Function */
 		ring_list_callfuncpointer(pList,RING_FUNCCL_PC,pVM);
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
