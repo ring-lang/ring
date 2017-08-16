@@ -1,6 +1,6 @@
 # The Ring Standard Library
 # Trace Library
-# 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
 # Trace Events
 TRACEEVENT_NEWLINE 	= 1
