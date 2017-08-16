@@ -20,6 +20,7 @@ TRACEDATA_METHODORFUNC 	= 4
 TRACEDATA_METHODORFUNC_METHOD 		= TRUE
 TRACEDATA_METHODORFUNC_NOTMETHOD	= FALSE
 
+TRACE_BREAKPOINTS = TRUE
 
 func Trace cType
 	switch trim(lower(cType))
@@ -132,6 +133,9 @@ func TraceLib_LineByLine
 	_BreakPoint()
 
 func BreakPoint
+	if not TRACE_BREAKPOINTS
+		return 
+	ok
 	_BreakPoint()
 
 func _BreakPoint 
@@ -159,3 +163,6 @@ func _BreakPoint
 	                see cCatchError
 	        done
 	end
+
+func NoBreakPoints
+	TRACE_BREAKPOINTS = FALSE
