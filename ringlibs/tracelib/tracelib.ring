@@ -146,7 +146,7 @@ func _BreakPoint
 				ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals() callgc()')
 				for TRACE_ITEM in TRACE_TEMPLIST
 						see "Variable : " +  TRACE_ITEM
-						see " Value : " 
+						see space(20-len(TRACE_ITEM)) + " Value : " 
 						ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
 						see nl
 				next
