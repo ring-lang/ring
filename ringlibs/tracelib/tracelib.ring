@@ -153,9 +153,11 @@ func _BreakPoint
 				TRACE_TEMPLIST = []
 				for TRACE_ITEM in aTempList
 						see "Variable : " +  TRACE_ITEM
-						see space(5) + " Type : " 
+						cVarName = TRACE_ITEM
+						see copy(" ",20-len(cVarName)) + " Type : " 
 						ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
-						see space(5) + " Value : " 
+						ringvm_Evalinscope(nScope,"see Copy(' ',20-len(type(" +  TRACE_ITEM +")))")
+						see " Value : " 
 						ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
 						see nl
 				next
