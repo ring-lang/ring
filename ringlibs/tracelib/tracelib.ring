@@ -118,7 +118,8 @@ func BreakPoint
 
 func _BreakPoint 
 	see nl+nl+Copy("=",50) + nl +
-	"Interactive Debugger" + nl +
+	Space(15)+"Interactive Debugger" + nl +
+	Copy("=",50) + nl +
 	"Command (Exit)   : End Program" + nl +
 	"Command (Cont)   : Continue Execution" + nl +
 	"Command (Locals) : Print Variables Names" + nl +
