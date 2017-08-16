@@ -117,14 +117,16 @@ func BreakPoint
 	_BreakPoint()
 
 func _BreakPoint 
-	see nl+nl+Copy("=",50) + nl +
-	Space(15)+"Interactive Debugger" + nl +
-	Copy("=",50) + nl +
-	"Command (Exit)   : End Program" + nl +
-	"Command (Cont)   : Continue Execution" + nl +
-	"Command (Locals) : Print Variables Names" + nl +
+	see nl+nl+Copy("=",60) + nl +
+	Space(20)+"Interactive Debugger" + nl +
+	Copy("=",60) + nl +
+	"Command (Exit)        : End Program" + nl +
+	"Command (Cont)        : Continue Execution" + nl +
+	"Command (Locals)      : Print local variables names" + nl +
+	"Command (LocalsData)  : Print local variables data" + nl +
+	"Command (Globals)     : Print global variables names" + nl +
 	"We can execute Ring code" + nl +
-	Copy("=",50) + nl 
+	Copy("=",60) + nl 
 	while true
 	        see nl + "code:> "
 		Try
@@ -133,14 +135,17 @@ func _BreakPoint
 			if cmd = "exit" or cmd = "bye"
 				shutdown()
 			ok 
-			if cmd = "locals"			
+			switch cmd
+			on "locals"			
 				ringvm_EvalInScope(ringvm_scopescount()-2,"see locals()")
 				loop
-			ok
-			if cmd = "cont"
+			on "globals"			
+				ringvm_EvalInScope(ringvm_scopescount()-2,"see globals()")
+				loop
+			on "cont"
 				ringvm_passerror()
 				exit
-			ok
+			off
 			ringvm_EvalInScope(ringvm_scopescount()-2,cCode)
 	        catch
 	                see cCatchError
