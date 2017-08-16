@@ -119,20 +119,24 @@ func BreakPoint
 func _BreakPoint 
 	see nl+nl+Copy("=",50) + nl +
 	"Interactive Debugger" + nl +
-	"Command (Exit) : End Program" + nl +
-	"Command (Cont) : Continue Execution" + nl +
+	"Command (Exit)   : End Program" + nl +
+	"Command (Cont)   : Continue Execution" + nl +
+	"Command (Locals) : Print Variables Names" + nl +
 	"We can execute Ring code" + nl +
-	"See Locals() to print variable names" + nl +
 	Copy("=",50) + nl 
 	while true
 	        see nl + "code:> "
 		Try
 		        give cCode
-			if trim(lower(cCode)) = "exit" or
-				trim(lower(cCode)) = "bye"
+			cmd = trim(lower(cCode))
+			if cmd = "exit" or cmd = "bye"
 				shutdown()
-			ok			
-			if trim(lower(cCode)) = "cont"
+			ok 
+			if cmd = "locals"			
+				ringvm_EvalInScope(ringvm_scopescount()-2,"see locals()")
+				loop
+			ok
+			if cmd = "cont"
 				ringvm_passerror()
 				exit
 			ok
