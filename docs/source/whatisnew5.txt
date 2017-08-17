@@ -1537,6 +1537,11 @@ We can change the variables values then continue execution
 .. image:: debugshot3.png
 	:alt: Interactive Debugger
 
+We can run the Interactive Debugger in the Output Window
+
+.. image:: debugshot4.png
+	:alt: Interactive Debugger
+
 
 .. index:: 
 	pair: What is new in Ring 1.5?; Better Quality
