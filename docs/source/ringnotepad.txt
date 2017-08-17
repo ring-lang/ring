@@ -205,3 +205,73 @@ Screen Shots:
 
 .. image:: rnote15shot3.png
 	:alt: Ring Notepad
+
+
+.. index:: 
+	pair: Ring Notepad; The File Menu
+
+The File Menu
+=============
+
+.. image:: rnotemenu_file.png
+	:alt: Ring Notepad - File Menu
+
+
+.. index:: 
+	pair: Ring Notepad; The Edit Menu
+
+The Edit Menu
+=============
+
+.. image:: rnotemenu_edit.png
+	:alt: Ring Notepad - Edit Menu
+
+.. index:: 
+	pair: Ring Notepad; The View Menu
+
+The View Menu
+=============
+
+.. image:: rnotemenu_View.png
+	:alt: Ring Notepad - View Menu
+
+.. index:: 
+	pair: Ring Notepad; The Program Menu
+
+The Program Menu
+================
+
+.. image:: rnotemenu_program.png
+	:alt: Ring Notepad - Program Menu
+
+.. index:: 
+	pair: Ring Notepad; The Browser Menu
+
+The Browser Menu
+================
+
+.. image:: rnotemenu_browser.png
+	:alt: Ring Notepad - Browser Menu
+
+
+.. index:: 
+	pair: Ring Notepad; The Tools Menu
+
+The Tools Menu
+==============
+
+.. image:: rnotemenu_tools.png
+	:alt: Ring Notepad - Tools Menu
+
+.. index:: 
+	pair: Ring Notepad; The Help Menu
+
+The Help Menu
+=============
+
+.. image:: rnotemenu_help.png
+	:alt: Ring Notepad - Help Menu
+
+
+
+
