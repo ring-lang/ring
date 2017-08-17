@@ -946,7 +946,7 @@ void ring_vm_refmeta_ringvmscopescount ( void *pPointer )
 void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 {
 	VM *pVM  ;
-	List *pActiveMem  ;
+	List *pActiveMem,*pState  ;
 	const char *cStr  ;
 	int nScope,nSize  ;
 	pVM = (VM *) pPointer ;
@@ -964,7 +964,13 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		nSize = pVM->pMem->nSize ;
 		pVM->pMem->nSize = nScope ;
 		pVM->nEvalInScope++ ;
+		/* Save State */
+		pState = ring_list_new(0);
+		ring_vm_savestate2(pVM,pState);
 		ring_vm_runcode(pVM,cStr);
+		/* Restore State */
+		ring_vm_restorestate2(pVM,pState,1);
+		ring_list_delete(pState);
 		pVM->nEvalInScope-- ;
 		pVM->pMem->nSize = nSize ;
 		pVM->pActiveMem = pActiveMem ;
