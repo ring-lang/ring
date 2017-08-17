@@ -170,12 +170,18 @@ func PrintLocalsData nScope
 	see nl 
 	aTempList = TRACE_TEMPLIST
 	TRACE_TEMPLIST = []
+	nSpaces = 5
+	for TRACE_ITEM in aTempList
+		if len(TRACE_ITEM) + 5 > nSpaces
+			nSpaces = len(TRACE_ITEM) + 5
+		ok
+	next
 	for TRACE_ITEM in aTempList
 		see "Variable : " +  TRACE_ITEM
 		cVarName = TRACE_ITEM
-		see copy(" ",20-len(cVarName)) + " Type : " 
+		see copy(" ",nSpaces-len(cVarName)) + " Type : " 
 		ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
-		ringvm_Evalinscope(nScope,"see Copy(' ',20-len(type(" +  TRACE_ITEM +")))")
+		ringvm_Evalinscope(nScope,"see Copy(' ',15-len(type(" +  TRACE_ITEM +")))")
 		see " Value : " 
 		ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
 		see nl
