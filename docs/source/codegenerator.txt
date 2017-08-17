@@ -217,8 +217,8 @@ Example:
 .. index:: 
 	pair: Code Generator; Defining Constants
 
-Defining Contants
-=================
+Defining Constants
+==================
 
 You can define constants using <constant> and </constant>
 
@@ -356,8 +356,8 @@ based on a condition, for example
 .. index:: 
 	pair: Code Generator; Constants Type
 
-Contants Type
-=============
+Constants Type
+==============
 
 The default type for constant is Number 
 But Some constants may be another type, for example (pointer : void *)
