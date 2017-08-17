@@ -33,6 +33,7 @@ aNumberTypes + "GLubyte"
 aNumberTypes + "GLushort"
 aNumberTypes + "GLulong"
 aNumberTypes + "GLclampd"
+aNumberTypes + "GLubyte"
 
 aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
