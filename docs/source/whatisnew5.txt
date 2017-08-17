@@ -1495,7 +1495,14 @@ Output:
 Trace Library and Interactive Debugger
 ======================================
 
+Ring 1.5 comes with the Trace Library and the Interactive Debugger
+
+Using this library we can trace events, execute programs line by line, open the 
+Interactive Debugger when an error happens or at breakpoints.
+
 Example:
+
+The next example uses a Breakpoint to open the Interactive Debugger!
 
 .. code-block:: ring
 
