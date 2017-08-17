@@ -28,6 +28,7 @@ Ring 1.5 comes with many new features!
 * Better Code Generator for Extensions
 * Better Documentation Generator for Extensions
 * Ring VM - Tracing Functions 
+* Trace Library and Interactive Debugger 
 * Better Quality
 
 .. index:: 
@@ -1485,6 +1486,49 @@ Output:
 	Function Name :
 	Method or Function : Command
 	==========================================
+
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; Trace Library and Interactive Debugger
+
+Trace Library and Interactive Debugger
+======================================
+
+Example:
+
+.. code-block:: ring
+
+	load "tracelib.ring"
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		BreakPoint()
+		see "After breakpoint!" +nl
+		see "t = " + t + nl
+		see "End of program!" + nl
+
+
+Screen Shots:
+
+We have the Interactive Debugger at the Breakpoint!
+
+.. image:: debugshot1.png
+	:alt: Interactive Debugger
+
+We can print the variables values
+
+.. image:: debugshot2.png
+	:alt: Interactive Debugger
+
+We can change the variables values then continue execution
+
+.. image:: debugshot3.png
+	:alt: Interactive Debugger
 
 
 .. index:: 
