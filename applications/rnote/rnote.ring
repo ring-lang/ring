@@ -1787,6 +1787,7 @@ Class RNote from WindowsControllerParent
 		cText = oProcessText.text() + windowsnl()
 		oProcess.write(cText ,len(cText))
 		oProcessEditbox.insertplaintext(cText)
+		oProcessText.setText("")
 
 	func pFormDesigner		
 		cFormFileName = cCurrentDir + "../formdesigner/formdesigner.ring"
