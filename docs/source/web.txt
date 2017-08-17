@@ -2352,7 +2352,9 @@ StyleTableNoBorder	None			Return " border-style: none;"
 WebPage Class
 =============
 
-We use braces to access the class attributes 
+We use braces to access the active WebPage object attributes 
+
+Each one of these attribute will return a new object to access again using braces.
 
 =====================	========================================================	
 	Attribute	Description
