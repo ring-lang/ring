@@ -55,6 +55,33 @@ Example:
 	x=10 y=20
 	print("\nx value = #{x} , y value = #{y} \n")
 
+
+.. index:: 
+	pair: Stdlib Functions; Print2Str() Function
+
+Print2Str() Function
+====================
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+
+	world = "World!"
+	mystring = print2str("Hello, #{world} \nIn Year \n#{2000+17} \n")
+
+	see mystring + nl
+
+Output:
+
+.. code-block:: ring
+
+	Hello, World!
+	In Year
+	2017
+
+
 .. index:: 
 	pair: Stdlib Functions; getstring()
 
@@ -1227,5 +1254,6 @@ Example:
 
 	cYou  = SystemCmd("whoami") 	   # User Name logged in is output a variable
 	cThem = SystemCmd("dir c:\Users")  # Directory List is output to a variable
+
 
 
