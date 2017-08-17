@@ -20,6 +20,29 @@
 #include <allegro5/allegro_primitives.h>
 </code>
 
+<runcode>
+aNumberTypes + "GLint"
+aNumberTypes + "GLuint"
+aNumberTypes + "unsigned"
+aNumberTypes + "GLboolean"
+aNumberTypes + "GLdouble"
+aNumberTypes + "GLfloat"
+aNumberTypes + "GLchar"
+aNumberTypes + "GLsizeiptr"
+aNumberTypes + "GLintptr"
+aNumberTypes + "GLbyte"
+aNumberTypes + "GLshort"
+aNumberTypes + "GLubyte"
+aNumberTypes + "GLushort"
+aNumberTypes + "GLulong"
+aNumberTypes + "GLclampd"
+
+aEnumTypes + "GLbitfield"
+aEnumTypes + "GLenum"
+aEnumTypes + "GLsizei"
+aEnumTypes + "GLclampf"
+</runcode>
+
 <funcstart>
 al
 </funcstart>

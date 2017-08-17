@@ -7655,12 +7655,7 @@ RING_FUNC(ring_al_get_opengl_texture)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		GLuint *pValue ; 
-		pValue = (GLuint *) malloc(sizeof(GLuint)) ;
-		*pValue = al_get_opengl_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
-		RING_API_RETCPOINTER(pValue,"GLuint");
-	}
+	RING_API_RETNUMBER(al_get_opengl_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP")));
 }
 
 
@@ -7722,12 +7717,7 @@ RING_FUNC(ring_al_get_opengl_fbo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		GLuint *pValue ; 
-		pValue = (GLuint *) malloc(sizeof(GLuint)) ;
-		*pValue = al_get_opengl_fbo((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
-		RING_API_RETCPOINTER(pValue,"GLuint");
-	}
+	RING_API_RETNUMBER(al_get_opengl_fbo((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP")));
 }
 
 
