@@ -4835,9 +4835,11 @@ RING_FUNC(ring_glClearDepth)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	glClearDepth(* (GLclampd  *) RING_API_GETCPOINTER(1,"GLclampd"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLclampd"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glClearDepth( (GLclampd )  (int) RING_API_GETNUMBER(1));
 }
 
 
@@ -6601,11 +6603,15 @@ RING_FUNC(ring_glDepthRange)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	glDepthRange(* (GLclampd  *) RING_API_GETCPOINTER(1,"GLclampd"),* (GLclampd  *) RING_API_GETCPOINTER(2,"GLclampd"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLclampd"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLclampd"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glDepthRange( (GLclampd )  (int) RING_API_GETNUMBER(1), (GLclampd )  (int) RING_API_GETNUMBER(2));
 }
 
 
