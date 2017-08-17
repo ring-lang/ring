@@ -213,6 +213,10 @@ Screen Shots:
 The File Menu
 =============
 
+From this menu we can create, open and save the source code files.
+
+Another feature in this menu is "Print to PDF" 
+
 .. image:: rnotemenu_file.png
 	:alt: Ring Notepad - File Menu
 
@@ -223,6 +227,15 @@ The File Menu
 The Edit Menu
 =============
 
+From the Edit menu we can Cut, Copy and Paste text.
+
+Also we can change the font and the colors.
+
+We can Go to a specific line or use the Find and Replace window 
+to find and replace text.
+
+Also We can set the Tab Width (Number of Spaces)
+
 .. image:: rnotemenu_edit.png
 	:alt: Ring Notepad - Edit Menu
 
@@ -231,6 +244,12 @@ The Edit Menu
 
 The View Menu
 =============
+
+From this menu we can show/hide the dockable windows
+
+Also we can change the Style of the Ring Notepad
+
+Common Styles are (Fusion White and Modern Black)
 
 .. image:: rnotemenu_View.png
 	:alt: Ring Notepad - View Menu
@@ -241,6 +260,10 @@ The View Menu
 The Program Menu
 ================
 
+From this menu we can run the programs
+
+Also we can set the Main file in the project
+
 .. image:: rnotemenu_program.png
 	:alt: Ring Notepad - Program Menu
 
@@ -249,6 +272,8 @@ The Program Menu
 
 The Browser Menu
 ================
+
+From this menu we can quickly open common links in the browser
 
 .. image:: rnotemenu_browser.png
 	:alt: Ring Notepad - Browser Menu
@@ -260,6 +285,10 @@ The Browser Menu
 The Tools Menu
 ==============
 
+From this window we can run the Form Designer in separate window
+
+Also we can run the REPL (Read-Eval-Print-Loop) application
+
 .. image:: rnotemenu_tools.png
 	:alt: Ring Notepad - Tools Menu
 
@@ -268,6 +297,8 @@ The Tools Menu
 
 The Help Menu
 =============
+
+From this menu we can get the help files (CHM & PDF)
 
 .. image:: rnotemenu_help.png
 	:alt: Ring Notepad - Help Menu
