@@ -2346,3 +2346,60 @@ StyleTableNoBorder	None			Return " border-style: none;"
 =====================	====================	=====================================================
 
 
+.. index:: 
+	pair: Web Development (CGI Library); WebPage Class
+
+WebPage Class
+=============
+
+We use braces to access the class attributes 
+
+=====================	========================================================	
+	Attribute	Description
+=====================	========================================================	
+H1			Wraps HTML H1.
+H2			Wraps HTML H2.
+H3			Wraps HTML H3.
+H4			Wraps HTML H4.	
+H5			Wraps HTML H5.
+H6			Wraps HTML H6.	
+P			Wraps HTML P.
+Link			Wraps HTML link.
+NewLine			Wraps HTML NewLine.
+Div			Wraps HTML Div.
+Form			Wraps HTML Form.
+Input			Wraps HTML Input.	
+TextArea		Wraps HTML TextArea.
+Select			Wraps HTML Select.
+Option			Wraps HTML Option.
+Image			Wraps HTML Image.
+UL			Wraps HTML UL.
+LI			Wraps HTML LI.
+Table			Wraps HTML Table.
+TR			Wraps HTML TR.
+TD			Wraps HTML TD.
+TH			Wraps HTML TH.
+Audio			Wraps HTML Audio.
+Video			Wraps HTML Video.
+Nav			Wraps HTML Nav.
+Span			Wraps HTML Span.
+Button			Wraps HTML Button.
+=====================	========================================================
+
+.. index:: 
+	pair: Web Development (CGI Library); HtmlPage Class
+
+HtmlPage Class
+=============
+
+The same as the WebPage class with the next changes
+
+(1) No output to the stdout 
+(2) Provide the Output Method to get the output
+
+Syntax:
+
+.. code-block:: ring
+
+	output() ---> The output as string
+
