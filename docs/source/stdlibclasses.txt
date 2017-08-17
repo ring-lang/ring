@@ -77,7 +77,7 @@ tolist()	  		List (String Lines to String Items)
 tofile(cFileName) 		Write string to file
 mid(nPos1,nPos2)  		New String - from nPos1 to nPos2
 getfrom(nPos1)	  		New String - from nPos1 to the end of the string
-replace(cStr1,cStr2,lCase) 	New String - Replace cStr1 with cStr2 , lCase (True=Math Case)
+replace(cStr1,cStr2,lCase) 	New String - Replace cStr1 with cStr2 , lCase (True=Match Case)
 split()		  		List - Each Word as list item
 startswith(substring)		Return true if the start starts with a substring 
 endswith(substring)		Return true if the start ends with a substring
