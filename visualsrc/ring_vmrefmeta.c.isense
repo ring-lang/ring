@@ -246,7 +246,7 @@ ring_vm_refmeta_ringvmevalinscope
 Type: VM *
 pVM
 Type: List *
-pActiveMem
+pActiveMem,*pState
 Type: const char *
 cStr
 Type: int
