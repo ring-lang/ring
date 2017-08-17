@@ -1271,7 +1271,7 @@ Example:
 ListAllFiles() Function
 =======================
 
-Using this function we can quickly do a process on a group of files in a folder and it’s sub folders.
+Using this function we can quickly do a process on a group of files in a folder and it's sub folders.
 
 Syntax:
 
