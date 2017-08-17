@@ -181,7 +181,7 @@ func PrintLocalsData nScope
 		cVarName = TRACE_ITEM
 		see copy(" ",nSpaces-len(cVarName)) + " Type : " 
 		ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
-		ringvm_Evalinscope(nScope,"see Copy(' ',15-len(type(" +  TRACE_ITEM +")))")
+		ringvm_Evalinscope(nScope,"see Copy(' ',fabs(15-len(type(" +  TRACE_ITEM +"))))")
 		see " Value : " 
 		ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
 		see nl
