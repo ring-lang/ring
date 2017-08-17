@@ -142,24 +142,7 @@ func _BreakPoint
 				ringvm_EvalInScope(nScope,"see locals() callgc()")
 				loop
 			on "localsdata"
-				if nScope = 1	# Global
-					ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = globals()')
-				else
-					ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals() callgc()')
-				ok
-				see nl 
-				aTempList = TRACE_TEMPLIST
-				TRACE_TEMPLIST = []
-				for TRACE_ITEM in aTempList
-					see "Variable : " +  TRACE_ITEM
-					cVarName = TRACE_ITEM
-					see copy(" ",20-len(cVarName)) + " Type : " 
-					ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
-					ringvm_Evalinscope(nScope,"see Copy(' ',20-len(type(" +  TRACE_ITEM +")))")
-					see " Value : " 
-					ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
-					see nl
-				next
+				PrintLocalsData(nScope)
 				loop
 			on "globals"			
 				ringvm_EvalInScope(nScope,"see globals() callgc()")
@@ -178,3 +161,23 @@ func _BreakPoint
 func NoBreakPoints
 	TRACE_BREAKPOINTS = FALSE
 
+
+func PrintLocalsData nScope
+	if nScope = 1	# Global
+		ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = globals()')
+	else
+		ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals() callgc()')
+	ok
+	see nl 
+	aTempList = TRACE_TEMPLIST
+	TRACE_TEMPLIST = []
+	for TRACE_ITEM in aTempList
+		see "Variable : " +  TRACE_ITEM
+		cVarName = TRACE_ITEM
+		see copy(" ",20-len(cVarName)) + " Type : " 
+		ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
+		ringvm_Evalinscope(nScope,"see Copy(' ',20-len(type(" +  TRACE_ITEM +")))")
+		see " Value : " 
+		ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
+		see nl
+	next
