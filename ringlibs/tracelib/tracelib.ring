@@ -99,7 +99,6 @@ func TraceLib_Debugger
 	ok
 	switch ringvm_TraceEvent() 
 		on  TRACEEVENT_ERROR
-			see nl+nl+Copy("=",50) + nl 
 			_BreakPoint()
 	off
 
