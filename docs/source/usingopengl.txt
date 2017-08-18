@@ -116,7 +116,6 @@ Example:
 		glutMainLoop()
 
 	func displaycode
-
 		glClear(GL_COLOR_BUFFER_BIT)
 		glColor3f(0,255,0)
 		glBegin(GL_POLYGON)
@@ -145,6 +144,48 @@ Example:
 Screen Shot
 
 .. image:: freeglutshot2.png
+	:alt: RingFreeGLUT
+
+
+.. index:: 
+	pair: Using RingOpenGL for 3D Computer Graphics; The First Triangle
+
+
+The First Triangle
+==================
+
+Example:
+
+.. code-block:: ring
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	func main
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowSize(320,320)
+		glutInitWindowPosition(100, 10)
+		glutCreateWindow("RingFreeGLUT - Test 3")
+		glutDisplayFunc(:renderScene)
+		glutMainLoop()
+
+	func renderScene
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+	
+		glBegin(GL_TRIANGLES)
+			glVertex3f(-0.5,-0.5,0.0)
+			glVertex3f(0.5,0.0,0.0)
+			glVertex3f(0.0,0.5,0.0)
+		glEnd()
+	
+        	glutSwapBuffers()
+
+
+Screen Shot
+
+.. image:: freeglutshot3.png
 	:alt: RingFreeGLUT
 
 .. index:: 
