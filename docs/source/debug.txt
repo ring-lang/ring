@@ -27,7 +27,7 @@ Trace All Events
 
 The next example demonstrates the Trace library usage to trace all events.
 
-... code-block:: ring
+.. code-block:: ring
 
 	# Trace All Events
 	trace(:AllEvents)
