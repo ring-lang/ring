@@ -19,3 +19,32 @@ To start using the Trace library, We must load it first!
 
 	load "tracelib.ring"
 
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Trace All Events
+
+Trace All Events
+================
+
+The next example demonstrates the Trace library usage to trace all events.
+
+... code-block:: ring
+
+	# Trace All Events
+	trace(:AllEvents)
+
+	see "Hello, world!" + nl
+	see "Welcome" + nl
+	see "How are you?" +nl
+
+	mytest()
+
+	new myclass { mymethod() }
+
+	func mytest
+		see "Message from mytest" + nl
+
+	class myclass
+		func mymethod
+			see "Message from mymethod" + nl
+
+
