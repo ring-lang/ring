@@ -165,4 +165,28 @@ to stop at a breakpoint!
 		see "After breakpoint!" +nl
 		see "t = " + t + nl
 		see "End of program!" + nl
-	
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Disable BreakPoints
+
+Disable BreakPoints
+===================
+
+The next example demonstrates the Trace library usage 
+and how to disable the Breakpoints!
+
+.. code-block:: ring
+
+	NoBreakPoints()
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		BreakPoint()
+		see "After breakpoint!" +nl
+		see "t = " + t + nl
+		see "End of program!" + nl
+		
