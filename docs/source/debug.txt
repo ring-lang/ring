@@ -120,3 +120,28 @@ to use the Interactive Debugger
 		see "After Error!" +nl
 		see "t = " see t see nl
 		see "x = " see x see nl
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Execute Program Line by Line
+
+Execute Program Line by Line
+============================
+
+The next example demonstrates the Trace library usage 
+to execute the program line by line!
+
+.. code-block:: ring
+
+	load "tracelib.ring"
+	Trace(:LineByLine)
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		test2()
+		see "After Error!" +nl
+		see "t = " + t + nl
+	
