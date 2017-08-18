@@ -729,9 +729,14 @@ Syntax:
 ringvm_tracefunc()
 ==================
 
+The function return the name of the function that we
+are using for tracing events.
+
 Syntax:
 
 .. code-block:: ring
+
+	RingVM_TraceEvent() ---> cCode
 
 .. index:: 
 	pair: Low Level Functions; ringvm_scopescount()
