@@ -63,7 +63,7 @@ Contents:
    Using RingLibSDL <libsdl>
    Demo Project - Game Engine for 2D Games <gameengine>	
    Building Games For Android <gameengineandorid>
-   Using RingOpenGL for 3D Computer Graphics <usingopengl>
+   Using RingOpenGL for 3D Graphics <usingopengl>
    Desktop and Mobile development using RingQt <qt>
    Building RingQt Applications for Mobile <qtmobile>
    Objects Library for RingQt Application <ringqtobjects>
