@@ -765,9 +765,17 @@ Syntax:
 ringvm_evalinscope() 
 ====================
 
+The function ringvm_evalinscope() is similar to the eval() function
+
+Unlike eval() which execute the code in the current scope
+
+Using RingVM_EvalInScope() we can execute the scope in a specific scope.
+
 Syntax:
 
 .. code-block:: ring
+
+	RingVM_EvalInScope(nScope,cCode)
 
 .. index:: 
 	pair: Low Level Functions; ringvm_passerror()
