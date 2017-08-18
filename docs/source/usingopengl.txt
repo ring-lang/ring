@@ -1,12 +1,12 @@
 .. index:: 
 	single: Using RingOpenGL for 3D Computer Graphics; Introduction
 
-=========================================
+==========================================
 Using RingOpenGL for 3D Computer Graphics
 ==========================================
 
-In this chapter we will learn about using RingOpenGL
 
+In this chapter we will learn about using RingOpenGL
 
 .. index:: 
 	pair: Using RingOpenGL for 3D Computer Graphics; What is RingOpenGL?
