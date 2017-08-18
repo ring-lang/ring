@@ -1,0 +1,21 @@
+.. index:: 
+	single: The Trace Library and the Interactive Debugger; Introduction
+
+==============================================
+The Trace Library and the Interactive Debugger
+==============================================
+
+In this chapter we will learn about the Trace Library and the Interactive Debugger
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Loading the Trace library
+
+Loading the Trace library
+=========================
+
+To start using the Trace library, We must load it first!
+
+.. code-block:: ring
+
+	load "tracelib.ring"
+
