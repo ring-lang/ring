@@ -1474,7 +1474,7 @@ Example:
 
 Screen Shot
 
-.. image:: freeglutshot6.png
+.. image:: freeglutshot7.png
 	:alt: RingFreeGLUT
 
 
