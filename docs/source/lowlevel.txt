@@ -21,6 +21,15 @@ In this chapter we will learn about the low level functions provided by Ring
 * ringvm_memorylist() 
 * ringvm_calllist() 
 * ringvm_fileslist()
+* ringvm_settrace()
+* ringvm_tracedata()
+* ringvm_traceevent()
+* ringvm_tracefunc()
+* ringvm_scopescount()
+* ringvm_evalinscope() 
+* ringvm_passerror()
+* ringvm_hideerrorMsg()
+* ringvm_callfunc()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -649,3 +658,68 @@ Output:
 	stdinternet.ring
 	stdhashtable.ring
 	stdtree.ring
+
+.. index:: 
+	pair: Low Level Functions; ringvm_settrace()
+
+ringvm_settrace()
+=================
+
+The function ringvm_settrace() determine the Trace function name
+
+The trace function is a Ring 
+function that will be called for each event
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_SetTrace(cCode)
+
+.. index:: 
+	pair: Low Level Functions; ringvm_tracedata()
+
+ringvm_tracedata()
+==================
+
+.. index:: 
+	pair: Low Level Functions; ringvm_traceevent()
+
+ringvm_traceevent()
+===================
+
+.. index:: 
+	pair: Low Level Functions; ringvm_tracefunc()
+
+ringvm_tracefunc()
+==================
+
+.. index:: 
+	pair: Low Level Functions; ringvm_scopescount()
+
+ringvm_scopescount()
+====================
+
+.. index:: 
+	pair: Low Level Functions; ringvm_evalinscope()
+
+ringvm_evalinscope() 
+====================
+
+.. index:: 
+	pair: Low Level Functions; ringvm_passerror()
+
+ringvm_passerror()
+==================
+
+.. index:: 
+	pair: Low Level Functions; ringvm_hideerrorMsg()
+
+ringvm_hideerrorMsg()
+=====================
+
+.. index:: 
+	pair: Low Level Functions; ringvm_callfunc()
+
+ringvm_callfunc()
+=================
