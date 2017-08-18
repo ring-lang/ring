@@ -38,6 +38,12 @@ RingOpenGL comes with support for the next versions
 * OpenGL 4.5
 * OpenGL 4.6
 
+For example, if you want to use OpenGL 2.1 then load RingOpenGL 2.1 library
+
+.. code-block:: ring
+
+	load "opengl21lib.ring"
+
 
 .. index:: 
 	pair: Using RingOpenGL for 3D Computer Graphics; What is RingFreeGLUT?
@@ -49,6 +55,11 @@ RingFreeGLUT contains the Ring binding to the FreeGLUT library
 
 You can learn about FreeGLUT from : http://freeglut.sourceforge.net/
 
+To use the RingFreeGLUT library, Just load the library
+
+.. code-block:: ring
+
+	load "freeglut.ring"
 
 .. index:: 
 	pair: Using RingOpenGL for 3D Computer Graphics; Make a Cube using RingOpenGL and RingFreeGLUT
@@ -56,13 +67,11 @@ You can learn about FreeGLUT from : http://freeglut.sourceforge.net/
 Make a Cube using RingOpenGL and RingFreeGLUT
 =============================================
 
-.. code-block:: ring
+This sample is based on C Tutorials 
 
-	/*
-		This sample is based on C Tutorials 
-		from : 
-			http://www.wikihow.com/Make-a-Cube-in-OpenGL
-	*/
+from : 	http://www.wikihow.com/Make-a-Cube-in-OpenGL
+
+.. code-block:: ring
 
 	load "freeglut.ring"
 	load "opengl21lib.ring"
@@ -218,17 +227,14 @@ Using FreeGLUT
 
 You learn more about using FreeGLUT from the next example
 
+This sample is based on C Tutorials 
+
+from : http://www.lighthouse3d.com/tutorials/glut-tutorial/
 
 .. code-block:: ring
 
-	/*
-		This sample is based on C Tutorials 
-		from : http://www.lighthouse3d.com/tutorials/glut-tutorial/
-	*/
-
 	load "freeglut.ring"
 	load "opengl21lib.ring"
-
 
 	// angle of rotation for the camera direction
 	angle = 0.0
@@ -701,9 +707,13 @@ You learn more about using FreeGLUT from the next example
 
 Screen Shots:
 
+The First screen shot
+
 .. image:: ring15freeglut.png
 	:alt: RingFreeGLUT
 
+
+The Second screen shot
 
 .. image:: ring15freeglut2.png
 	:alt: RingFreeGLUT
