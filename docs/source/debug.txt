@@ -189,4 +189,50 @@ and how to disable the Breakpoints!
 		see "After breakpoint!" +nl
 		see "t = " + t + nl
 		see "End of program!" + nl
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Using the Interactive Debugger
 		
+Using the Interactive Debugger
+==============================
+
+The next example uses a Breakpoint to open the Interactive Debugger!
+
+.. code-block:: ring
+
+	load "tracelib.ring"
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		BreakPoint()
+		see "After breakpoint!" +nl
+		see "t = " + t + nl
+		see "End of program!" + nl
+
+
+Screen Shots:
+
+We have the Interactive Debugger at the Breakpoint!
+
+.. image:: debugshot1.png
+	:alt: Interactive Debugger
+
+We can print the variables values
+
+.. image:: debugshot2.png
+	:alt: Interactive Debugger
+
+We can change the variables values then continue execution
+
+.. image:: debugshot3.png
+	:alt: Interactive Debugger
+
+We can run the Interactive Debugger in the Output Window
+
+.. image:: debugshot4.png
+	:alt: Interactive Debugger
+
