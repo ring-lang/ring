@@ -801,9 +801,14 @@ Syntax:
 ringvm_hideerrorMsg()
 =====================
 
+We can disable/enable displaying the runtime error messages using the
+RingVM_HideErrorMsg() function.
+
 Syntax:
 
 .. code-block:: ring
+
+	RingVM_HideErrorMsg(lStatus)
 
 .. index:: 
 	pair: Low Level Functions; ringvm_callfunc()
