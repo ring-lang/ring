@@ -798,7 +798,7 @@ Syntax:
 .. index:: 
 	pair: Low Level Functions; ringvm_hideerrorMsg()
 
-ringvm_hideerrorMsg()
+ringvm_hideerrormsg()
 =====================
 
 We can disable/enable displaying the runtime error messages using the
@@ -816,6 +816,12 @@ Syntax:
 ringvm_callfunc()
 =================
 
+We can call a function from a string without using eval() using
+the ringvm_callfunc() 
+
 Syntax:
 
 .. code-block:: ring
+
+	RingVM_CallFunc(cFuncName)
+
