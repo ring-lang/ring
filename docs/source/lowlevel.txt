@@ -744,10 +744,20 @@ Syntax:
 ringvm_scopescount()
 ====================
 
+We can use the RingVM_ScopesCount() function to know
+the number of scopes used in the application.
+
+In the start of the program, We have the (global scope only)
+
+When we call a function, A new scope is created.
+
+When the function execution is done, the function scope is deleted.
+
 Syntax:
 
 .. code-block:: ring
 
+	RingVM_ScopesCount() ---> nScopes
 
 .. index:: 
 	pair: Low Level Functions; ringvm_evalinscope()
