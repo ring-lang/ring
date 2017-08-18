@@ -706,10 +706,22 @@ Syntax:
 ringvm_traceevent()
 ===================
 
+Inside the function that we will use for tracing events
+
+We can use ringvm_traceevent() to know the event type
+
+* New Line
+* Before Function
+* After Function
+* Runtime Error
+* Before C Function
+* After C Function 
+
 Syntax:
 
 .. code-block:: ring
 
+	RingVM_TraceEvent() ---> nTraceEvent
 
 .. index:: 
 	pair: Low Level Functions; ringvm_tracefunc()
