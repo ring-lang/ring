@@ -8,6 +8,22 @@ Using RingOpenGL and RingFreeGLUT for 3D  Graphics
 
 In this chapter we will learn about using RingOpenGL
 
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Samples Source (Authors)
+
+Samples Source (Authors)
+========================
+
+The samples in this chapter are based on C Tutorials 
+
+from 
+
+(1) http://www.lighthouse3d.com/tutorials/glut-tutorial/
+
+(2) http://www.wikihow.com/Make-a-Cube-in-OpenGL
+
+
 .. index:: 
 	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; What is RingOpenGL?
 
@@ -60,21 +76,6 @@ To use the RingFreeGLUT library, Just load the library
 .. code-block:: ring
 
 	load "freeglut.ring"
-
-
-.. index:: 
-	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Samples Source
-
-Samples Source
-==============
-
-The samples in this chapter are based on C Tutorials 
-
-from 
-
-(1) http://www.lighthouse3d.com/tutorials/glut-tutorial/
-
-(2) http://www.wikihow.com/Make-a-Cube-in-OpenGL
 
 
 .. index:: 
