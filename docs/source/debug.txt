@@ -132,7 +132,6 @@ to execute the program line by line!
 
 .. code-block:: ring
 
-	load "tracelib.ring"
 	Trace(:LineByLine)
 
 	test1()
@@ -144,4 +143,26 @@ to execute the program line by line!
 		test2()
 		see "After Error!" +nl
 		see "t = " + t + nl
+
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; BreakPoint
+	
+BreakPoint
+==========
+
+The next example demonstrates the Trace library usage 
+to stop at a breakpoint!
+
+.. code-block:: ring
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		t = 12
+		BreakPoint()
+		see "After breakpoint!" +nl
+		see "t = " + t + nl
+		see "End of program!" + nl
 	
