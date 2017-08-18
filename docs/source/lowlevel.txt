@@ -783,9 +783,17 @@ Syntax:
 ringvm_passerror()
 ==================
 
+When we have runtime error, After printing the Error message, Ring 
+will end the execution of the program.
+
+Using ringvm_passerror() we can avoid that, and continue the 
+execution of our program.
+
 Syntax:
 
 .. code-block:: ring
+
+	RingVM_PassError()
 
 .. index:: 
 	pair: Low Level Functions; ringvm_hideerrorMsg()
