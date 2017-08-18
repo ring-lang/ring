@@ -75,4 +75,23 @@ to trace the control flow between functions.
 		see :test3 + nl
 		return "test 3 output" 
 	
+.. index:: 
+	pair: The Trace Library and the Interactive Debugger; Pass Error
 
+Pass Error
+==========
+
+The next example demonstrates the Trace library usage 
+to pass an error!
+
+.. code-block:: ring
+
+	Trace(:PassError)
+
+	test1()
+
+	func test1
+		x = 10
+		see :test1 + nl
+		test2()	# Runtime Error!
+		see "We can continue!"
