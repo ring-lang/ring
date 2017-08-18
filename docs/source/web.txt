@@ -2392,7 +2392,7 @@ Button			Wraps HTML Button.
 	pair: Web Development (CGI Library); HtmlPage Class
 
 HtmlPage Class
-=============
+==============
 
 The same as the WebPage class with the next changes
 
