@@ -682,11 +682,34 @@ Syntax:
 ringvm_tracedata()
 ==================
 
+Inside the function that we will use for tracing events
+
+We can use the ringvm_tracedata() function to get the event
+data.
+
+The event data is a list contains the next items
+
+* The Source Code Line Number
+* The Source File Name 
+* The Function/Method Name 
+* Method or Function (Bool : True=Method, False=Function/File)
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_TraceData() ---> aDataList
+
 .. index:: 
 	pair: Low Level Functions; ringvm_traceevent()
 
 ringvm_traceevent()
 ===================
+
+Syntax:
+
+.. code-block:: ring
+
 
 .. index:: 
 	pair: Low Level Functions; ringvm_tracefunc()
@@ -694,11 +717,20 @@ ringvm_traceevent()
 ringvm_tracefunc()
 ==================
 
+Syntax:
+
+.. code-block:: ring
+
 .. index:: 
 	pair: Low Level Functions; ringvm_scopescount()
 
 ringvm_scopescount()
 ====================
+
+Syntax:
+
+.. code-block:: ring
+
 
 .. index:: 
 	pair: Low Level Functions; ringvm_evalinscope()
@@ -706,11 +738,19 @@ ringvm_scopescount()
 ringvm_evalinscope() 
 ====================
 
+Syntax:
+
+.. code-block:: ring
+
 .. index:: 
 	pair: Low Level Functions; ringvm_passerror()
 
 ringvm_passerror()
 ==================
+
+Syntax:
+
+.. code-block:: ring
 
 .. index:: 
 	pair: Low Level Functions; ringvm_hideerrorMsg()
@@ -718,8 +758,16 @@ ringvm_passerror()
 ringvm_hideerrorMsg()
 =====================
 
+Syntax:
+
+.. code-block:: ring
+
 .. index:: 
 	pair: Low Level Functions; ringvm_callfunc()
 
 ringvm_callfunc()
 =================
+
+Syntax:
+
+.. code-block:: ring
