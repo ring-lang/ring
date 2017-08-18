@@ -1,15 +1,15 @@
 .. index:: 
-	single: Using RingOpenGL for 3D  Graphics; Introduction
+	single: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Introduction
 
-=================================
-Using RingOpenGL for 3D  Graphics
-=================================
+===================================================
+Using RingOpenGL and RingFreeGLUT for 3D  Graphics
+===================================================
 
 
 In this chapter we will learn about using RingOpenGL
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; What is RingOpenGL?
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; What is RingOpenGL?
 
 What is RingOpenGL?
 ===================
@@ -46,7 +46,7 @@ For example, if you want to use OpenGL 2.1 then load RingOpenGL 2.1 library
 
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; What is RingFreeGLUT?
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; What is RingFreeGLUT?
 
 What is RingFreeGLUT?
 =====================
@@ -63,7 +63,7 @@ To use the RingFreeGLUT library, Just load the library
 
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Samples Source
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Samples Source
 
 Samples Source
 ==============
@@ -78,7 +78,7 @@ from
 
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; The First Window using RingFreeGLUT
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; The First Window using RingFreeGLUT
 
 The First Window using RingFreeGLUT
 ===================================
@@ -107,7 +107,7 @@ Screen Shot
 
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Drawing using RingOpenGL
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Drawing using RingOpenGL
 
 
 Drawing using RingOpenGL
@@ -163,7 +163,7 @@ Screen Shot
 
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; The First Triangle
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; The First Triangle
 
 
 The First Triangle
@@ -204,7 +204,7 @@ Screen Shot
 	:alt: RingFreeGLUT
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Window Resize Event
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Window Resize Event
 
 Window Resize Event
 ===================
@@ -271,7 +271,7 @@ Example:
 		glMatrixMode(GL_MODELVIEW)
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Triangle Rotation
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Triangle Rotation
 
 Triangle Rotation
 =================
@@ -360,7 +360,7 @@ Screen Shot
 		
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Keyboard Events and Colors
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Keyboard Events and Colors
 
 Keyboard Events and Colors
 ==========================
@@ -486,7 +486,7 @@ Screen Shot
 
 		
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; The Camera
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; The Camera
 
 The Camera
 ==========
@@ -852,7 +852,7 @@ Another Example:
 	 
 	 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Mouse Events
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Mouse Events
 
 Mouse Events
 ============
@@ -1075,7 +1075,7 @@ Example:
 
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Menu Events
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Menu Events
 
 Menu Events
 ===========
@@ -1479,7 +1479,7 @@ Screen Shot
 
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Using Fonts
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Using Fonts
 
 Using Fonts
 ===========
@@ -1898,7 +1898,7 @@ Screen Shot
 
 	
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Frames Per Second 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Frames Per Second 
 
 Frames Per Second
 =================
@@ -2393,7 +2393,7 @@ The Second screen shot
 	:alt: RingFreeGLUT
 
 .. index:: 
-	pair: Using RingOpenGL for 3D  Graphics; Make a Cube using RingOpenGL and RingFreeGLUT
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Make a Cube using RingOpenGL and RingFreeGLUT
 
 Make a Cube using RingOpenGL and RingFreeGLUT
 =============================================
