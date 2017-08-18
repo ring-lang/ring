@@ -61,6 +61,38 @@ To use the RingFreeGLUT library, Just load the library
 
 	load "freeglut.ring"
 
+
+.. index:: 
+	pair: Using RingOpenGL for 3D Computer Graphics; The First Window using RingFreeGLUT
+
+The First Window using RingFreeGLUT
+===================================
+
+Example:
+
+.. code-block:: ring 
+
+	load "freeglut.ring"
+
+	func main
+		glutInit()
+		glutInitDisplayMode(GLUT_SINGLE)
+		glutInitWindowSize(800, 600)
+		glutInitWindowPosition(100, 10)
+		glutCreateWindow("RingFreeGLUT - Test 1")
+		glutDisplayFunc(:displayCode)
+		glutMainLoop()
+
+	func displaycode
+
+Screen Shot
+
+.. image:: freeglutshot1.png
+	:alt: RingFreeGLUT
+
+
+
+
 .. index:: 
 	pair: Using RingOpenGL for 3D Computer Graphics; Make a Cube using RingOpenGL and RingFreeGLUT
 
