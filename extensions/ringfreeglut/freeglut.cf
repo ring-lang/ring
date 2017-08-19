@@ -570,10 +570,10 @@ void glutStrokeCharacter(void *font, int character)
 <filter> not isMacOSX()
 int glutStrokeWidth(void *font, int character)
 int glutStrokeLength(void *font, char * string)
-</filter>
 GLfloat glutStrokeWidthf(void *font, int character)
-int glutBitmapLength(void *font, char * string)
 GLfloat glutStrokeLengthf(void *font, char *string)
+</filter>
+int glutBitmapLength(void *font, char * string)
 void glutWireCube(double size)
 void glutSolidCube(double size)
 void glutWireSphere(double radius, GLint slices, GLint stacks)
