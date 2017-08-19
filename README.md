@@ -84,6 +84,21 @@ The next steps explains building using scripts.
 	cd ../extensions/ringzip
 	gencode.bat
 	buildvc.bat
+
+### Generate RingFreeGLUT Source Code and Build 
+	
+	cd ../extensions/ringfreeglut
+	gencode.bat
+	buildvc.bat
+
+### Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6
+	
+	cd ../extensions/ringopengl/opengl21
+	gencode.bat
+	buildvc.bat
 	
 ### Generate RingQt Source Code and Build
 
@@ -171,6 +186,21 @@ The next steps explains building using scripts.
 	./gencode.sh
 	./buildgcc.sh
 
+### Generate RingFreeGLUT Source Code and Build 
+	
+	cd ../extensions/ringfreeglut
+	gencode.sh
+	buildgcc.sh
+
+### Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6
+	
+	cd ../extensions/ringopengl/opengl21
+	gencode.sh
+	buildgcc.sh
+
 ### Generate RingQt Source Code and Build
 	
 	cd ../extensions/ringqt
@@ -246,6 +276,21 @@ The next steps explains building using scripts.
 	cd ../extensions/ringzip
 	./gencode.sh
 	./buildclang.sh
+
+### Generate RingFreeGLUT Source Code and Build 
+	
+	cd ../extensions/ringfreeglut
+	gencode.sh
+	buildclang.sh
+
+### Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6
+	
+	cd ../extensions/ringopengl/opengl21
+	gencode.sh
+	buildclang.sh
 	
 ### Generate RingQt Source Code and Build
 	
