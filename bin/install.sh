@@ -141,3 +141,15 @@ if [ -f lib/libring_freeglut.so ];
 then
 sudo cp lib/libring_freeglut.so /usr/lib
 fi
+
+# Make the RingOpenGL library ready for use directly
+
+if [ -f lib/libring_opengl21.dylib ];
+then
+cp lib/libring_opengl21.dylib /usr/lib
+fi
+
+if [ -f lib/libring_opengl21.so ];
+then
+sudo cp lib/libring_opengl21.so /usr/lib
+fi
