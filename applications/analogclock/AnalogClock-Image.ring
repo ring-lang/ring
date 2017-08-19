@@ -60,7 +60,7 @@ New qapp
    win =  new qwidget()
     {
         setwindowtitle("Analog Clock")
-		setwindowflags(Qt_WindowStaysOnTopHint)
+	setwindowflags(Qt_WindowStaysOnTopHint)
         setgeometry(WinLeft, WinTop, WinWidth, WinHeight)
 
 
