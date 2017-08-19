@@ -202,7 +202,6 @@ The next steps explains building using scripts.
 	
 ### Build Ring (Compiler/VM)
 	
-	cd ring/src
 	./buildclang.sh
 	
 ### Build RingODBC
