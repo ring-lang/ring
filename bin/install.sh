@@ -130,3 +130,14 @@ then
 sudo cp lib/libring_libzip.so /usr/lib
 fi
 
+# Make the RingFreeGLUT library ready for use directly
+
+if [ -f lib/libring_freeglut.dylib ];
+then
+cp lib/libring_freeglut.dylib /usr/lib
+fi
+
+if [ -f lib/libring_freeglut.so ];
+then
+sudo cp lib/libring_freeglut.so /usr/lib
+fi
