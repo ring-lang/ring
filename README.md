@@ -189,8 +189,8 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Generate RingFreeGLUT Source Code and Build 
 	
 	cd ../extensions/ringfreeglut
-	gencode.sh
-	buildgcc.sh
+	./gencode.sh
+	./buildgcc.sh
 
 ### Generate RingOpenGL Source Code and Build 
 
@@ -198,8 +198,8 @@ The ringopengl folder contains many sub folders for different OpenGL versions
 Starting from OpenGL 1.1 to OpenGL 4.6
 	
 	cd ../extensions/ringopengl/opengl21
-	gencode.sh
-	buildgcc.sh
+	./gencode.sh
+	./buildgcc.sh
 
 ### Generate RingQt Source Code and Build
 	
@@ -280,8 +280,8 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Generate RingFreeGLUT Source Code and Build 
 	
 	cd ../extensions/ringfreeglut
-	gencode.sh
-	buildclang.sh
+	./gencode.sh
+	./buildclang.sh
 
 ### Generate RingOpenGL Source Code and Build 
 
@@ -289,8 +289,8 @@ The ringopengl folder contains many sub folders for different OpenGL versions
 Starting from OpenGL 1.1 to OpenGL 4.6
 	
 	cd ../extensions/ringopengl/opengl21
-	gencode.sh
-	buildclang.sh
+	./gencode.sh
+	./buildclang.sh
 	
 ### Generate RingQt Source Code and Build
 	
