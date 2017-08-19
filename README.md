@@ -39,8 +39,8 @@ The next steps explains building using scripts.
 ### Build Ring (Compiler/VM)
 	
 	cd ring/src
-	buildvccomplete.bat
-	buildvccompletew.bat
+	buildvc.bat
+	buildvcw.bat
 
 ### Build RingODBC
 	
@@ -126,7 +126,7 @@ The next steps explains building using scripts.
 	
 ### Build Ring (Compiler/VM)
 	
-	sudo ./buildgcccomplete.sh
+	sudo ./buildgcc.sh
 
 ### Build RingODBC
 	
@@ -197,13 +197,13 @@ The next steps explains building using scripts.
 	
 ### Install Libraries 
 	
-	brew install unixodbc mysql-connector-c allegro openssl homebrew/versions/qt55
-	brew link --force qt55
+	cd ring/src
+	./installdepmac.sh 
 	
 ### Build Ring (Compiler/VM)
 	
 	cd ring/src
-	./buildclangcomplete.sh
+	./buildclang.sh
 	
 ### Build RingODBC
 	
