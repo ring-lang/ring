@@ -7061,8 +7061,10 @@ para: void
 </class>
 
 QBluetoothAddress address(void)
+<comment>
 QBluetoothDeviceInfo::CoreConfigurations coreConfigurations(void)
 QBluetoothUuid deviceUuid(void)
+</comment>
 bool isCached(void)
 bool isValid(void)
 QBluetoothDeviceInfo::MajorDeviceClass majorDeviceClass(void)
@@ -7073,8 +7075,10 @@ QBluetoothDeviceInfo::ServiceClasses serviceClasses(void)
 QList<QBluetoothUuid> serviceUuids(QBluetoothDeviceInfo::DataCompleteness *completeness)
 QBluetoothDeviceInfo::DataCompleteness serviceUuidsCompleteness(void)
 void setCached(bool cached)
+<comment>
 void setCoreConfigurations(QBluetoothDeviceInfo::CoreConfigurations coreConfigs)
 void setDeviceUuid(QBluetoothUuid uuid)
+</comment>
 void setRssi(qint16 signal)
 void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)
 
@@ -7096,7 +7100,9 @@ passvmpointer
 </class>
 
 QBluetoothAddress address(void)
+<comment>
 QList<QBluetoothAddress> connectedDevices(void)
+<comment>
 QBluetoothLocalDevice::HostMode hostMode(void)
 bool isValid(void)
 QString name(void)
@@ -7309,7 +7315,9 @@ int minimumSize(void)
 quint16 toUInt16(bool *ok)
 quint32 toUInt32(bool *ok)
 quint128 toUInt128(void)
+<comment>
 QString characteristicToString(QBluetoothUuid::CharacteristicType uuid)
 QString descriptorToString(QBluetoothUuid::DescriptorType uuid)
 QString protocolToString(QBluetoothUuid::ProtocolUuid uuid)
 QString serviceClassToString(QBluetoothUuid::ServiceClassUuid uuid)
+</comment>
