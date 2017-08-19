@@ -28,8 +28,8 @@ Build Ring (Compiler/VM)
 .. code-block:: ring
 
 	cd ring/src
-	buildvccomplete.bat
-	buildvccompletew.bat
+	buildvc.bat
+	buildvcw.bat
 
 Build RingODBC
 
@@ -149,7 +149,7 @@ Build Ring (Compiler/VM)
 
 .. code-block:: ring
 
-	sudo ./buildgcccomplete.sh
+	sudo ./buildgcc.sh
 
 Build RingODBC
 
@@ -249,15 +249,14 @@ Install Libraries
 
 .. code-block:: ring
 
-	brew install unixodbc mysql-connector-c allegro openssl homebrew/versions/qt55
-	brew link --force qt55
+	cd ring/src
+	./installdepmac.sh 
 
 Build Ring (Compiler/VM)
 
 .. code-block:: ring
 
-	cd ring/src
-	./buildclangcomplete.sh
+	./buildclang.sh
 
 Build RingODBC
 
