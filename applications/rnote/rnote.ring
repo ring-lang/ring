@@ -844,7 +844,7 @@ Class RNote from WindowsControllerParent
 			this.win1.tabifydockwidget(this.oDock2,this.oDock3)
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 			this.oDock2.raise()
-			this.oDock5.raise()
+			this.oDock4.raise()
 			showmaximized()
 		}
 
