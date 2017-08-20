@@ -98,6 +98,21 @@ int ring_parser_class ( Parser *pParser )
 			/* Create label to be used by Private */
 			pParser->nClassMark = ring_parser_icg_newlabel2(pParser);
 			pParser->nPrivateFlag = 0 ;
+			/* Support using { } around the class code */
+			RING_PARSER_IGNORENEWLINE ;
+			if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
+				ring_parser_nexttoken(pParser);
+				while ( ring_parser_stmt(pParser) ) {
+					if ( pParser->ActiveToken == pParser->TokensCount ) {
+						break ;
+					}
+				}
+				if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
+					ring_parser_nexttoken(pParser);
+					return 1 ;
+				}
+				return 0 ;
+			}
 			return 1 ;
 		} else {
 			ring_parser_error(pParser,RING_PARSER_ERROR_CLASSNAME);
