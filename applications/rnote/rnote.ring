@@ -832,20 +832,19 @@ Class RNote from WindowsControllerParent
 				setwindowtitle("Form Designer")
 			}
 			this.pformdesignerdock()
-			adddockwidget(1,this.oDock1,1)
-			adddockwidget(2,this.oDock2,2)
-			adddockwidget(2,this.oDock4,1)
-			adddockwidget(2,this.oDock6,1)
-			adddockwidget(2,this.oDock3,1)
-			adddockwidget(2,this.oDock5,1)
-			adddockwidget(2,this.oDock7,1)
-			this.win1.tabifydockwidget(this.oDock5,this.oDock4)
-			this.win1.tabifydockwidget(this.oDock5,this.oDock6)
+			adddockwidget(Qt_LeftDockWidgetArea,this.oDock1,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDock2,2)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDock4,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDock6,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDock3,1)
+			adddockwidget(Qt_BottomDockWidgetArea,this.oDock5,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDock7,1)
+			this.win1.tabifydockwidget(this.oDock4,this.oDock6)
 			this.win1.tabifydockwidget(this.oDock2,this.oDock7)
 			this.win1.tabifydockwidget(this.oDock2,this.oDock3)
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 			this.oDock2.raise()
-			this.oDock4.raise()
+			this.oDock5.raise()
 			showmaximized()
 		}
 
@@ -1229,6 +1228,7 @@ Class RNote from WindowsControllerParent
 	func pRunNoConsole
 		if cActiveFileName = Null return pNofileopened() ok
 		pSave()
+		oDock5 { show() raise() }		
 		pRunGUIOperation(cActiveFileName)
 
 	func pRunGUIOperation cActiveFileName
@@ -2061,4 +2061,5 @@ Class RNote from WindowsControllerParent
 		cMainFileName = trim(oTxtMainFile.text())
 		if cMainFileName = Null return pNofileopened() ok
 		if not fexists(cMainFileName) return ok
+		oDock5 { show() raise() }		
 		pRunGUIOperation(cMainFileName)
