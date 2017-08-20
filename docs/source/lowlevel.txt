@@ -1133,7 +1133,8 @@ tools and Interaction debugger too.
 			"File Name   : " + ringvm_tracedata()[TRACEDATA_FILENAME] + nl +
 			"Function Name : " + ringvm_tracedata()[TRACEDATA_FUNCNAME] + nl +
 			"Method or Function : " 
-			if ringvm_tracedata()[TRACEDATA_METHODORFUNC] = TRACEDATA_METHODORFUNC_METHOD
+			if ringvm_tracedata()[TRACEDATA_METHODORFUNC] =
+					 TRACEDATA_METHODORFUNC_METHOD
 				see "Method"
 			else
 				if ringvm_tracedata()[TRACEDATA_FUNCNAME] = NULL
@@ -1256,7 +1257,8 @@ tools and Interaction debugger too.
 			cVarName = TRACE_ITEM
 			see copy(" ",nSpaces-len(cVarName)) + " Type : " 
 			ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
-			ringvm_Evalinscope(nScope,"see Copy(' ',fabs(15-len(type(" +  TRACE_ITEM +"))))")
+			ringvm_Evalinscope(nScope,"see Copy(' ',fabs(15-len(type(" +
+						  TRACE_ITEM +"))))")
 			see " Value : " 
 			ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
 			see nl

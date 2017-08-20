@@ -1295,7 +1295,8 @@ Example:
 			"File Name   : " + ringvm_tracedata()[TRACEDATA_FILENAME] + nl +
 			"Function Name : " + ringvm_tracedata()[TRACEDATA_FUNCNAME] + nl +
 			"Method or Function : " 
-			if ringvm_tracedata()[TRACEDATA_METHODORFUNC] = TRACEDATA_METHODORFUNC_METHOD
+			if ringvm_tracedata()[TRACEDATA_METHODORFUNC] =
+					 TRACEDATA_METHODORFUNC_METHOD
 				see "Method"
 			else
 				if ringvm_tracedata()[TRACEDATA_FUNCNAME] = NULL
