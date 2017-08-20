@@ -98,36 +98,8 @@ int ring_parser_class ( Parser *pParser )
 			/* Create label to be used by Private */
 			pParser->nClassMark = ring_parser_icg_newlabel2(pParser);
 			pParser->nPrivateFlag = 0 ;
-			/* Support using { } around the class code */
-			RING_PARSER_IGNORENEWLINE ;
-			if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
-				ring_parser_nexttoken(pParser);
-				while ( ring_parser_class(pParser) ) {
-					if ( pParser->ActiveToken == pParser->TokensCount ) {
-						break ;
-					}
-				}
-				if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
-					ring_parser_nexttoken(pParser);
-					return 1 ;
-				}
-				return 0 ;
-			}
-			/* Support using End */
-			while ( ring_parser_class(pParser) ) {
-				if ( pParser->ActiveToken == pParser->TokensCount ) {
-					break ;
-				}
-			}
-			if ( ring_parser_iskeyword(pParser,K_END) ) {
-				ring_parser_nexttoken(pParser);
-				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
-				puts("Rule : End --> 'End'");
-				#endif
-			}
-			return 1 ;
+			/* Support using { } around the class code and using 'end' after the content */
+			return ring_parser_bracesandend(pParser,1) ;
 		} else {
 			ring_parser_error(pParser,RING_PARSER_ERROR_CLASSNAME);
 			return 0 ;
@@ -171,35 +143,8 @@ int ring_parser_class ( Parser *pParser )
 				x = 1 ;
 			}
 			if ( x ) {
-				/* Support using { } around the function code */
-				RING_PARSER_IGNORENEWLINE ;
-				if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
-					ring_parser_nexttoken(pParser);
-					while ( ring_parser_stmt(pParser) ) {
-						if ( pParser->ActiveToken == pParser->TokensCount ) {
-							break ;
-						}
-					}
-					if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
-						ring_parser_nexttoken(pParser);
-						return 1 ;
-					}
-					return 0 ;
-				}
-				/* Support using End */
-				while ( ring_parser_class(pParser) ) {
-					if ( pParser->ActiveToken == pParser->TokensCount ) {
-						break ;
-					}
-				}
-				if ( ring_parser_iskeyword(pParser,K_END) ) {
-					ring_parser_nexttoken(pParser);
-					#if RING_PARSERTRACE
-					RING_STATE_CHECKPRINTRULES 
-					
-					puts("Rule : End --> 'End'");
-					#endif
-				}
+				/* Support using { } around the function code and using 'end' after the content */
+				return ring_parser_bracesandend(pParser,0) ;
 			}
 			#if RING_PARSERTRACE
 			if ( x == 1 ) {
@@ -240,36 +185,8 @@ int ring_parser_class ( Parser *pParser )
 			ring_list_addstring(pList2,ring_list_getstring(pList,2));
 			/* Add Package Classes List */
 			pParser->ClassesMap = ring_list_newlist(pList2);
-			/* Support using { } around the package code */
-			RING_PARSER_IGNORENEWLINE ;
-			if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
-				ring_parser_nexttoken(pParser);
-				while ( ring_parser_class(pParser) ) {
-					if ( pParser->ActiveToken == pParser->TokensCount ) {
-						break ;
-					}
-				}
-				if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
-					ring_parser_nexttoken(pParser);
-					return 1 ;
-				}
-				return 0 ;
-			}
-			/* Support using End */
-			while ( ring_parser_class(pParser) ) {
-				if ( pParser->ActiveToken == pParser->TokensCount ) {
-					break ;
-				}
-			}
-			if ( ring_parser_iskeyword(pParser,K_END) ) {
-				ring_parser_nexttoken(pParser);
-				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
-				puts("Rule : End --> 'End'");
-				#endif
-			}
-			return 1 ;
+			/* Support using { } around the package code and using 'end' after the content */
+			return ring_parser_bracesandend(pParser,1) ;
 		} else {
 			return 0 ;
 		}
@@ -1343,4 +1260,54 @@ int ring_parser_csbraceend ( Parser *pParser )
 		return 1 ;
 	}
 	return 0 ;
+}
+
+int ring_parser_bracesandend ( Parser *pParser,int lClass )
+{
+	/*
+	**  This function is used to support braces { } around packages/classes/functions 
+	**  Also support using 'end' after packages/classes/functions 
+	**  IF The Parameter : lClass = True we call ring_parser_class() instead of ring_parser_stmt() 
+	**  When we support braces { } 
+	**  But the support for 'end' always uses ring_parser_class() 
+	**  Support using { } 
+	*/
+	RING_PARSER_IGNORENEWLINE ;
+	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
+		ring_parser_nexttoken(pParser);
+		if ( lClass ) {
+			while ( ring_parser_class(pParser) ) {
+				if ( pParser->ActiveToken == pParser->TokensCount ) {
+					break ;
+				}
+			}
+		}
+		else {
+			while ( ring_parser_stmt(pParser) ) {
+				if ( pParser->ActiveToken == pParser->TokensCount ) {
+					break ;
+				}
+			}
+		}
+		if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
+			ring_parser_nexttoken(pParser);
+			return 1 ;
+		}
+		return 0 ;
+	}
+	/* Support using End */
+	while ( ring_parser_class(pParser) ) {
+		if ( pParser->ActiveToken == pParser->TokensCount ) {
+			break ;
+		}
+	}
+	if ( ring_parser_iskeyword(pParser,K_END) ) {
+		ring_parser_nexttoken(pParser);
+		#if RING_PARSERTRACE
+		RING_STATE_CHECKPRINTRULES 
+		
+		puts("Rule : End --> 'End'");
+		#endif
+	}
+	return 1 ;
 }
