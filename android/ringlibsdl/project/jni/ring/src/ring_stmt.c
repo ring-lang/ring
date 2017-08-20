@@ -113,6 +113,20 @@ int ring_parser_class ( Parser *pParser )
 				}
 				return 0 ;
 			}
+			/* Support using End */
+			while ( ring_parser_class(pParser) ) {
+				if ( pParser->ActiveToken == pParser->TokensCount ) {
+					break ;
+				}
+			}
+			if ( ring_parser_iskeyword(pParser,K_END) ) {
+				ring_parser_nexttoken(pParser);
+				#if RING_PARSERTRACE
+				RING_STATE_CHECKPRINTRULES 
+				
+				puts("Rule : End --> 'End'");
+				#endif
+			}
 			return 1 ;
 		} else {
 			ring_parser_error(pParser,RING_PARSER_ERROR_CLASSNAME);
@@ -171,6 +185,20 @@ int ring_parser_class ( Parser *pParser )
 						return 1 ;
 					}
 					return 0 ;
+				}
+				/* Support using End */
+				while ( ring_parser_class(pParser) ) {
+					if ( pParser->ActiveToken == pParser->TokensCount ) {
+						break ;
+					}
+				}
+				if ( ring_parser_iskeyword(pParser,K_END) ) {
+					ring_parser_nexttoken(pParser);
+					#if RING_PARSERTRACE
+					RING_STATE_CHECKPRINTRULES 
+					
+					puts("Rule : End --> 'End'");
+					#endif
 				}
 			}
 			#if RING_PARSERTRACE
