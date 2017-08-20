@@ -106,6 +106,7 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
 					<< "\\bpackage\\b" << "\\bprivate\\b" << "\\bput\\b"
 					<< "\\breturn\\b" << "\\bsee\\b" << "\\bstep\\b"
 					<< "\\bswitch\\b" << "\\bto\\b" << "\\btry\\b"
+					<< "\\bendfunc\\b" << "\\bendclass\\b" << "\\bendpackage\\b"
 					<< "\\bwhile\\b" << "\\bchangeringkeyword\\b"
 					<< "\\bchangeringoperator\\b" << "\\bloadsyntax\\b";
                     
