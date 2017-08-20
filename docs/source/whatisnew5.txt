@@ -29,7 +29,7 @@ Ring 1.5 comes with many new features!
 * Better Documentation Generator for Extensions
 * Ring VM - Tracing Functions 
 * Trace Library and Interactive Debugger 
-* Better Syntax Flexibility
+* More Syntax Flexibility
 * Better Quality
 
 .. index:: 
@@ -1544,10 +1544,10 @@ We can run the Interactive Debugger in the Output Window
 	:alt: Interactive Debugger
 
 .. index:: 
-	pair: What is new in Ring 1.5?; Better Syntax Flexibility
+	pair: What is new in Ring 1.5?; More Syntax Flexibility
 
-Better Syntax Flexibility
-=========================
+More Syntax Flexibility
+=======================
 
 * Using braces { } in Packages/Classes/Functions
 
