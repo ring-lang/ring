@@ -240,6 +240,35 @@ int ring_parser_class ( Parser *pParser )
 			ring_list_addstring(pList2,ring_list_getstring(pList,2));
 			/* Add Package Classes List */
 			pParser->ClassesMap = ring_list_newlist(pList2);
+			/* Support using { } around the package code */
+			RING_PARSER_IGNORENEWLINE ;
+			if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
+				ring_parser_nexttoken(pParser);
+				while ( ring_parser_class(pParser) ) {
+					if ( pParser->ActiveToken == pParser->TokensCount ) {
+						break ;
+					}
+				}
+				if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
+					ring_parser_nexttoken(pParser);
+					return 1 ;
+				}
+				return 0 ;
+			}
+			/* Support using End */
+			while ( ring_parser_class(pParser) ) {
+				if ( pParser->ActiveToken == pParser->TokensCount ) {
+					break ;
+				}
+			}
+			if ( ring_parser_iskeyword(pParser,K_END) ) {
+				ring_parser_nexttoken(pParser);
+				#if RING_PARSERTRACE
+				RING_STATE_CHECKPRINTRULES 
+				
+				puts("Rule : End --> 'End'");
+				#endif
+			}
 			return 1 ;
 		} else {
 			return 0 ;
