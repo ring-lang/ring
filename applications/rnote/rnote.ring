@@ -850,9 +850,6 @@ Class RNote from WindowsControllerParent
 		}
 
 		this.RestoreSettings()
-		#if this.nDefaultStyle  = this.STYLECOLOR_MODERN
-			#this.tree1.setstylesheet("color:black;background-color:rgba(230,230,230,255);")
-		#ok
 		exec()
 	}
 
