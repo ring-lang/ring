@@ -126,18 +126,18 @@ Functions Count : 197
 Compiler Errors
 ===============
 
-* Error (C1) : Error in parameters list, expected identifier
-* Error (C2) : Error in class name
-* Error (C3) : Unclosed control strucutre, 'ok' is missing
-* Error (C4) : Unclosed control strucutre, 'end' is missing
-* Error (C5) : Unclosed control strucutre, next is missing
-* Error (C6) : Error in function name
-* Error (C7) : Error in list items
-* Error (C8) : Parentheses ')' is missing 
-* Error (C9) : Brackets ']' is missing 
+* Error (C1)  : Error in parameters list, expected identifier
+* Error (C2)  : Error in class name
+* Error (C3)  : Unclosed control strucutre, 'ok' is missing
+* Error (C4)  : Unclosed control strucutre, 'end' is missing
+* Error (C5)  : Unclosed control strucutre, next is missing
+* Error (C6)  : Error in function name
+* Error (C7)  : Error in list items
+* Error (C8)  : Parentheses ')' is missing 
+* Error (C9)  : Brackets ']' is missing 
 * Error (C10) : Error in parent class name
 * Error (C11) : Error in expression operator
-* Error (C12) :No class definition
+* Error (C12) : No class definition
 * Error (C13) : Error in variable name
 * Error (C14) : Try/Catch miss the Catch keyword!
 * Error (C15) : Try/Catch miss the Done keyword!
@@ -159,15 +159,15 @@ Compiler Errors
 Runtime Errors
 ==============
 
-* Error (R1) : Cann't divide by zero !
-* Error (R2) : Array Access (Index out of range) !
-* Error (R3) : Calling Function without definition !
-* Error (R4) : Stack Overflow !
-* Error (R5) : Can't access the list item, Object is not list !
-* Error (R6) : Variable is required
-* Error (R7) : Can't assign to a string letter more than one character
-* Error (R8) : Variable is not a string 
-* Error (R9) : Using exit command outside loops 
+* Error (R1)  : Cann't divide by zero !
+* Error (R2)  : Array Access (Index out of range) !
+* Error (R3)  : Calling Function without definition !
+* Error (R4)  : Stack Overflow !
+* Error (R5)  : Can't access the list item, Object is not list !
+* Error (R6)  : Variable is required
+* Error (R7)  : Can't assign to a string letter more than one character
+* Error (R8)  : Variable is not a string 
+* Error (R9)  : Using exit command outside loops 
 * Error (R10) : Using exit command with number outside the range 
 * Error (R11) : error in class name, class not found! 
 * Error (R12) : error in property name, property not found! 
@@ -206,9 +206,9 @@ Language Grammar
 
 Program ---> {statement}
 
-Statement ---> 'package' <Identifier> { '.' <Identifier> }
+Statement ---> 'package' <Identifier> { '.' <Identifier> } ['{' {statement} '}'|'end']
 
-Statement ---> 'class' <Identifier> [ 'from'|':'|'<' <Identifier> ]
+Statement ---> 'class' <Identifier> [ 'from'|':'|'<' <Identifier> ] ['{' {statement} '}'|'end']
 
 Statement ---> 'func'|'def' <Identifier> [ParaList]
 
