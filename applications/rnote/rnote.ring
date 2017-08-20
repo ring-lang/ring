@@ -1278,7 +1278,7 @@ Class RNote from WindowsControllerParent
 		}
 		StatusMessage("Done!")
 		new QDesktopServices {
-			OpenURL(new qURL(substr(this.cCurrentDir,"\","/")+"RingDoc.pdf")) 
+			OpenURL(new qURL("file:///"+substr(this.cCurrentDir,"\","/")+"RingDoc.pdf")) 
 		}
 
 
@@ -1491,12 +1491,12 @@ Class RNote from WindowsControllerParent
 
 	Func pOpenCHM
 		new QDesktopServices {
-			OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.chm") )
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.chm") )
 		}
 
 	Func pOpenPDF
 		new QDesktopServices {
-			OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.pdf") )
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.pdf") )
 		}
 
 	Func pTabWidth
