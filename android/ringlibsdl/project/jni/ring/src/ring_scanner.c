@@ -222,7 +222,6 @@ void ring_scanner_readchar ( char c,Scanner *pScanner )
 						if ( ring_scanner_lasttokentype(pScanner) ==SCANNER_TOKEN_OPERATOR ) {
 							if ( strcmp("/",ring_scanner_lasttokenvalue(pScanner)) ==  0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								RING_SCANNER_DELETELASTTOKEN ;
 								pScanner->state = SCANNER_STATE_COMMENT ;
 								return ;
 							}
