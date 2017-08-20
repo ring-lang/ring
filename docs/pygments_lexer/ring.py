@@ -46,7 +46,7 @@ class RingLexer(RegexLexer):
 		'else','elseif','end','exit','for','from','func','get','give','if','import',
 		'in','load','loop','new','next','not','off','ok','on','or','other','package'
 		'private','put','return','see','step','switch','to','try','while','changeringkeyword',
-		'changeringoperator','loadsyntax'
+		'changeringoperator','loadsyntax','endfunc','endclass','endpackage'
     ]
 
     keywordsPseudo = [
