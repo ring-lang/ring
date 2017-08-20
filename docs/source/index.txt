@@ -33,7 +33,7 @@ Contents:
    Control Structures - Second Style <controlstructures2>
    Control Structures - Third Style <controlstructures3>
    Getting Input <getinput>
-   Functions <functions>
+   Functions - First Style <functions>
    Functions - Second Style <functions2>
    Functions - Third Style <functions3>
    Program Structure <programstructure>
