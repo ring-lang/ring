@@ -215,7 +215,7 @@ Some simple changes that matters for my goal are
 
 Critical changes are
 
-(1) Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 85K lines are related to libraries and are optional when we go for using the language in C/C++ programs.
+(1) Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 500K lines are related to libraries and are optional when we go for using the language in C/C++ programs.
 
 (2) The Garbage collector : Uses Escape Analysis/Reference counting and give the programmer the ability to determine when to delete memory using the assignment operator
 
