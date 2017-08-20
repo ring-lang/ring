@@ -1277,13 +1277,9 @@ Class RNote from WindowsControllerParent
 			this.textedit1.print(printer1)
 		}
 		StatusMessage("Done!")
-		if iswindows()
-			new QDesktopServices {
-				OpenURL(new qURL(substr(this.cCurrentDir,"\","/")+"RingDoc.pdf")) 
-			}
-		else
-			System( this.cCurrentDir + "RingDoc.pdf" )
-		ok
+		new QDesktopServices {
+			OpenURL(new qURL(substr(this.cCurrentDir,"\","/")+"RingDoc.pdf")) 
+		}
 
 
 	func pUndo
@@ -1494,22 +1490,14 @@ Class RNote from WindowsControllerParent
 		ok
 
 	Func pOpenCHM
-		if iswindows()
-			new QDesktopServices {
-				OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.chm") )
-			}
-		else
-			System( exefolder()+"/../docs/ring.chm" )
-		ok
+		new QDesktopServices {
+			OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.chm") )
+		}
 
 	Func pOpenPDF
-		if iswindows()
-			new QDesktopServices {
-				OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.pdf") )
-			}
-		else
-			System( exefolder()+"/../docs/ring.pdf" )
-		ok
+		new QDesktopServices {
+			OpenURL(new qURL(substr(exefolder(),"\","/")+"../docs/ring.pdf") )
+		}
 
 	Func pTabWidth
 		oInput = New QInputDialog(win1)
