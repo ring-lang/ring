@@ -172,7 +172,8 @@ It seems that the language is quite extensive as well. I would find it useful to
 "I can see the AI of the future using this technology to solve computational problems for..... the humans."
 	, Cryptonite (United States)
 
-"I like your programming language, I like you are going to develop mobile app using RingQt and also I appreciate your web library."
+"I like your programming language, I like you are going to develop mobile app using RingQt and also 
+	I appreciate your web library."
 	, Domenico D'Oria (Italy)
 
 .. index:: 
