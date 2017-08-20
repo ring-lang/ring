@@ -99,7 +99,7 @@ int ring_parser_class ( Parser *pParser )
 			pParser->nClassMark = ring_parser_icg_newlabel2(pParser);
 			pParser->nPrivateFlag = 0 ;
 			/* Support using { } around the class code and using 'end' after the content */
-			return ring_parser_bracesandend(pParser,1) ;
+			return ring_parser_bracesandend(pParser,1,K_ENDCLASS) ;
 		} else {
 			ring_parser_error(pParser,RING_PARSER_ERROR_CLASSNAME);
 			return 0 ;
@@ -144,7 +144,7 @@ int ring_parser_class ( Parser *pParser )
 			}
 			if ( x ) {
 				/* Support using { } around the function code and using 'end' after the content */
-				return ring_parser_bracesandend(pParser,0) ;
+				return ring_parser_bracesandend(pParser,0,K_ENDFUNC) ;
 			}
 			#if RING_PARSERTRACE
 			if ( x == 1 ) {
@@ -186,7 +186,7 @@ int ring_parser_class ( Parser *pParser )
 			/* Add Package Classes List */
 			pParser->ClassesMap = ring_list_newlist(pList2);
 			/* Support using { } around the package code and using 'end' after the content */
-			return ring_parser_bracesandend(pParser,1) ;
+			return ring_parser_bracesandend(pParser,1,K_ENDPACKAGE) ;
 		} else {
 			return 0 ;
 		}
@@ -1262,7 +1262,7 @@ int ring_parser_csbraceend ( Parser *pParser )
 	return 0 ;
 }
 
-int ring_parser_bracesandend ( Parser *pParser,int lClass )
+int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeyword )
 {
 	/*
 	**  This function is used to support braces { } around packages/classes/functions 
@@ -1301,7 +1301,7 @@ int ring_parser_bracesandend ( Parser *pParser,int lClass )
 			break ;
 		}
 	}
-	if ( ring_parser_iskeyword(pParser,K_END) ) {
+	if ( ring_parser_iskeyword(pParser,K_END) || ring_parser_iskeyword(pParser,nKeyword) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 

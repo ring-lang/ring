@@ -130,7 +130,7 @@ int ring_parser_csbraceend ( Parser *pParser ) ;
 
 int ring_parser_objattributes ( Parser *pParser ) ;
 
-int ring_parser_bracesandend ( Parser *pParser,int lClass ) ;
+int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeyword ) ;
 /* Check Token */
 
 void ring_parser_loadtoken ( Parser *pParser ) ;
