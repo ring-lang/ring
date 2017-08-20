@@ -1405,7 +1405,8 @@ Class RNote from WindowsControllerParent
 
 	Func pLang
 		MsgBox("Programming Language",
-			"This application developed using the Ring programming language")
+			"This application developed using the Ring programming language" + nl +
+			"Ring Version : " + version())
 
 	Func pGUI
 		MsgBox("GUI Library",
@@ -1413,6 +1414,7 @@ Class RNote from WindowsControllerParent
 
 	Func pAbout
 		MsgBox("About",
+			"Ring Notepad (Ring Version : " + Version() + ")" + nl +			
 			"2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>")
 
 	Func pSaveCurrentFolder
