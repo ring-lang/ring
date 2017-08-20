@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-15
-146
-131
+1
+106
+105
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4886
+Time 4449
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-014F4FF0
+00E74C80
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 03/08/2017
-time: 16:02:30
+date: 20/08/2017
+time: 11:09:12
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3302,3 +3302,32 @@ B:\ring\tests>call ring scripts/nestedfunccall.ring
 
 Line 5 Error (R1) : Cann't divide by zero ! 
 in file scripts/nestedfunccall.ring 
+B:\ring\tests>call ring scripts/classbraces.ring 
+x: 10.000000
+y: 20.000000
+z: 30.000000
+
+B:\ring\tests>call ring scripts/funcbraces.ring 
+hello
+7
+test
+B:\ring\tests>call ring scripts/classbraces2.ring 
+Hello Mahmoud
+
+B:\ring\tests>call ring scripts/classend.ring 
+nice
+name: 10.000000
+x: 10.000000
+y: 20.000000
+z: 30.000000
+x: 10.000000
+y: 20.000000
+z: 30.000000
+7
+10
+
+B:\ring\tests>call ring scripts/packageend.ring 
+Hello, World
+
+B:\ring\tests>call ring scripts/packagebraces.ring 
+Hello, World
