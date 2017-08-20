@@ -20,7 +20,7 @@ In this chapter we will learn about
 Language Keywords
 =================
 
-Keywords Count : 46
+Keywords Count : 49
 
 * again
 * and
@@ -68,6 +68,9 @@ Keywords Count : 46
 * to
 * try
 * while
+* endfunc
+* endclass
+* endpackage
 
 .. index:: 
 	pair: Reference; Language Functions
@@ -206,11 +209,11 @@ Language Grammar
 
 Program ---> {statement}
 
-Statement ---> 'package' <Identifier> { '.' <Identifier> } ['{' {statement} '}'|'end']
+Statement ---> 'package' <Identifier> { '.' <Identifier> } ['{' {statement} '}'] ['end'|'endpackage']
 
-Statement ---> 'class' <Identifier> [ 'from'|':'|'<' <Identifier> ] ['{' {statement} '}'|'end']
+Statement ---> 'class' <Identifier> [ 'from'|':'|'<' <Identifier> ] ['{' {statement} '}']['end'|'endclass']
 
-Statement ---> 'func'|'def' <Identifier> [ParaList]
+Statement ---> 'func'|'def' <Identifier> [ParaList] ['{' {statement} '}']['end'|'endfunc']
 
 Statement ---> 'import' <Identifier> { '.' <Identifier> }
 
