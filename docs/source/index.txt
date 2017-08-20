@@ -35,6 +35,7 @@ Contents:
    Getting Input <getinput>
    Functions <functions>
    Functions - Second Style <functions2>
+   Functions - Third Style <functions3>
    Program Structure <programstructure>
    Lists <lists>
    Strings <strings>
