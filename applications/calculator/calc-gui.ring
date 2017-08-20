@@ -1,28 +1,28 @@
 /*
  +---------------------------------------------------------------------------------------------------------
  +     Program Name : Calculator
- +     Date                : 2016-2017
- +     Author             : Magdy Ragab
- +                            : Gal Zsolt (~ CalmoSoft ~)
+ +     Date         : 2016-2017
+ +     Author       : Magdy Ragab
+ +                  : Gal Zsolt (~ CalmoSoft ~)
  +---------------------------------------------------------------------------------------------------------
 */
 
 # Load Ring Libraries
-    load "guilib.ring"
-    load "odbclib.ring"
-    load "sqlitelib.ring"
+	load "guilib.ring"
+	load "odbclib.ring"
+	load "sqlitelib.ring"
 
 # Load Applications Functions
-    load "functions.ring"
+	load "functions.ring"
+
+# Globals
+	win2 = null
+	_style="border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #eef, stop: 1 #ccf);font-size: 15pt"
 
 import System.GUI
 
-win2 = null
-
-_style="border:1px solid #c0c0c0;background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #eef, stop: 1 #ccf);font-size: 15pt"
-
 MyApp = New qApp {
-		stylefusion()
+	stylefusion()
         win1 = new qWidget() 
         {
                 yPos    = 30
@@ -303,7 +303,7 @@ func changedText
 
 func message
         new qmessagebox(win1) {
-        setwindowtitle("Bad input") 
-        settext("Bad input!")
-        show()
+		setwindowtitle("Bad input") 
+		settext("Bad input!")
+		show()
         }
