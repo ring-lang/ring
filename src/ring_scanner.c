@@ -9,7 +9,9 @@ const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC",
 
 "IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF", 
 
-"PUT","GET","CASE","DEF","CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX"} ;
+"PUT","GET","CASE","DEF","ENDFUNC","ENDCLASS","ENDPACKAGE", 
+
+"CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX"} ;
 /* Functions */
 
 Scanner * ring_scanner_new ( RingState *pRingState )
@@ -498,6 +500,9 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_addstring(pScanner->Keywords,"get");
 	ring_list_addstring(pScanner->Keywords,"case");
 	ring_list_addstring(pScanner->Keywords,"def");
+	ring_list_addstring(pScanner->Keywords,"endfunc");
+	ring_list_addstring(pScanner->Keywords,"endclass");
+	ring_list_addstring(pScanner->Keywords,"endpackage");
 	/*
 	**  The next keywords are sensitive to the order and keywords count 
 	**  if you will add new keywords revise constants and ring_scanner_checktoken() 
