@@ -800,7 +800,6 @@ Class RNote from WindowsControllerParent
 			}
 			this.oProcessText = new qlineEdit(oProcessWindow) {
 				setreturnPressedEvent(Method(:pSendProcessData))
-				setminimumwidth(100)
 			}
 			oProcessbtnSend = new qpushbutton(oProcessWindow) {
 				setText("Send")
@@ -816,9 +815,8 @@ Class RNote from WindowsControllerParent
 				Addwidget(oProcessbtnSend)
                 		Addwidget(oClearbtn)
 			}
-			this.oProcessEditbox = new qPlaintextedit(oProcessWindow) {
-				setminimumwidth(200)
-			}
+			this.oProcessEditbox = new qPlaintextedit(oProcessWindow) 
+
 			oProcessLayout2 = new qvboxlayout() {
 				addWidget(this.oProcesseditbox)
 				addlayout(oProcesslayout1)
