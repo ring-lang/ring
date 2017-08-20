@@ -102,7 +102,7 @@ int ring_parser_class ( Parser *pParser )
 			RING_PARSER_IGNORENEWLINE ;
 			if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 				ring_parser_nexttoken(pParser);
-				while ( ring_parser_stmt(pParser) ) {
+				while ( ring_parser_class(pParser) ) {
 					if ( pParser->ActiveToken == pParser->TokensCount ) {
 						break ;
 					}
@@ -155,6 +155,23 @@ int ring_parser_class ( Parser *pParser )
 				x = ring_parser_paralist(pParser);
 			} else {
 				x = 1 ;
+			}
+			if ( x ) {
+				/* Support using { } around the function code */
+				RING_PARSER_IGNORENEWLINE ;
+				if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
+					ring_parser_nexttoken(pParser);
+					while ( ring_parser_stmt(pParser) ) {
+						if ( pParser->ActiveToken == pParser->TokensCount ) {
+							break ;
+						}
+					}
+					if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
+						ring_parser_nexttoken(pParser);
+						return 1 ;
+					}
+					return 0 ;
+				}
 			}
 			#if RING_PARSERTRACE
 			if ( x == 1 ) {
