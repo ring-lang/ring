@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql
+QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql bluetooth
 
 DEPLOYMENT_PLUGIN += qsqlite
 
