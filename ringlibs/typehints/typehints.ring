@@ -27,4 +27,5 @@ public		= :public
 static		= :static 
 abstract	= :abstract 
 protected	= :protected
+override	= :override 
 
