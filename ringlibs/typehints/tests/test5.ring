@@ -1,12 +1,12 @@
 load "typehints.ring"
 
 import mypackage 
-new myclass { main([]) }
 
 test()
 
 myclass func test() {
 	see "Testing User Types!" + nl
+	return new myclass { main([]) }
 }
 
 package mypackage {
