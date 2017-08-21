@@ -199,9 +199,6 @@ extern "C" {
 #include <QDesktopServices>
 #include <QToolButton>
 #include "gtoolbutton.h"
-#include <QSerialPort>
-#include "gserialport.h"
-#include <QSerialPortInfo>
 #include <QStringRef>
 #include <QMutex>
 #include <QMutexLocker>
