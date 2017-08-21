@@ -20,7 +20,11 @@ Func Puts vvalue
 	Parameters	: the string
 */
 Func Print vValue
-	see _Print2Str(vValue,3)
+	if isstring(vValue)
+		see _Print2Str(vValue,3)
+	else
+		see vValue 
+	ok
 
 /*
 	Function Name	: print2str
@@ -29,7 +33,14 @@ Func Print vValue
 */
 Func Print2Str vValue
 	# Pass Three Scopes 
-	return _Print2Str(vValue,3)
+	if isnumber(vValue)
+		vValue = "" + vValue 
+	ok
+	if isstring(vValue)
+		return _Print2Str(vValue,3)
+	else 
+		raise("Type Error : Print2Str() Accept Strings/Numbers Only!")
+	ok
 
 /*
 	Function Name	: _print2str
