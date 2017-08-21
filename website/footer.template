@@ -7,26 +7,26 @@
  	    Basic <br> <br>
 
             <ul>			  
-			  <li><a href="doc1.4.1/ringapps.html">Applications developed in little hours</a></li>
-              <li><a href="doc1.4.1/introduction.html">Introduction</a></li>
-              <li><a href="doc1.4.1/getting_started.html">Getting Started</a></li>
-			  <li><a href="doc1.4.1/getting_started2.html">Getting Started - Second Style</a></li>
-			  <li><a href="doc1.4.1/getting_started3.html">Getting Started - Third Style</a></li>
-              <li><a href="doc1.4.1/variables.html">Variables</a></li>
-              <li><a href="doc1.4.1/operators.html">Operators</a></li>
-              <li><a href="doc1.4.1/controlstructures.html">Control Structures</a></li>
-			  <li><a href="doc1.4.1/controlstructures2.html">Control Structures - Second Style</a></li>
-			  <li><a href="doc1.4.1/controlstructures3.html">Control Structures - Third Style</a></li>
-              <li><a href="doc1.4.1/getinput.html">Getting Input</a></li>
-              <li><a href="doc1.4.1/functions.html">Functions</a></li>
-			  <li><a href="doc1.4.1/programstructure.html">Program Structure</a></li>
-              <li><a href="doc1.4.1/lists.html">Lists</a></li>
-              <li><a href="doc1.4.1/strings.html">Strings</a></li>
-              <li><a href="doc1.4.1/dateandtime.html">Date and Time</a></li>
-              <li><a href="doc1.4.1/checkandconvert.html">Check Data Type and Conversion</a></li>
-              <li><a href="doc1.4.1/mathfunc.html">Mathematical Functions</a></li>
-			  <li><a href="doc1.4.1/files.html">Files</a></li>
-              <li><a href="doc1.4.1/systemfunc.html">System Functions</a></li>              
+			  <li><a href="doc1.5/ringapps.html">Applications developed in little hours</a></li>
+              <li><a href="doc1.5/introduction.html">Introduction</a></li>
+              <li><a href="doc1.5/getting_started.html">Getting Started</a></li>
+			  <li><a href="doc1.5/getting_started2.html">Getting Started - Second Style</a></li>
+			  <li><a href="doc1.5/getting_started3.html">Getting Started - Third Style</a></li>
+              <li><a href="doc1.5/variables.html">Variables</a></li>
+              <li><a href="doc1.5/operators.html">Operators</a></li>
+              <li><a href="doc1.5/controlstructures.html">Control Structures</a></li>
+			  <li><a href="doc1.5/controlstructures2.html">Control Structures - Second Style</a></li>
+			  <li><a href="doc1.5/controlstructures3.html">Control Structures - Third Style</a></li>
+              <li><a href="doc1.5/getinput.html">Getting Input</a></li>
+              <li><a href="doc1.5/functions.html">Functions</a></li>
+			  <li><a href="doc1.5/programstructure.html">Program Structure</a></li>
+              <li><a href="doc1.5/lists.html">Lists</a></li>
+              <li><a href="doc1.5/strings.html">Strings</a></li>
+              <li><a href="doc1.5/dateandtime.html">Date and Time</a></li>
+              <li><a href="doc1.5/checkandconvert.html">Check Data Type and Conversion</a></li>
+              <li><a href="doc1.5/mathfunc.html">Mathematical Functions</a></li>
+			  <li><a href="doc1.5/files.html">Files</a></li>
+              <li><a href="doc1.5/systemfunc.html">System Functions</a></li>              
             </ul>
 	</div>
 
@@ -34,27 +34,27 @@
  	    Intermediate <br> <br>
 
             <ul>              
-			  <li><a href="doc1.4.1/evaldebug.html">Eval() and Debugging</a></li>              
-			  <li><a href="doc1.4.1/demo.html">Demo Programs</a></li>
-              <li><a href="doc1.4.1/odbc.html">ODBC Functions</a></li>
-              <li><a href="doc1.4.1/mysql.html">MYSQL Functions</a></li>
-			  <li><a href="doc1.4.1/sqlite.html">SQLite Functions</a></li>
-              <li><a href="doc1.4.1/secfunc.html">Security and Internet Functions</a></li>
-			  <li><a href="doc1.4.1/oop.html">Object Oriented Programming</a></li>
-			  <li><a href="doc1.4.1/fp.html">Functional Programming (FP)</a></li>
-			  <li><a href="doc1.4.1/metaprog.html">Reflection and Meta-programming</a></li>
-			  <li><a href="doc1.4.1/stdlib.html">Stdlib Functions</a></li>
-			  <li><a href="doc1.4.1/stdlibclasses.html">Stdlib Classes</a></li>
-			  <li><a href="doc1.4.1/declarative.html">Declarative Programming using Nested Structures</a></li>
-              <li><a href="doc1.4.1/natural.html">Natural language programming</a></li>              
-			  <li><a href="doc1.4.1/naturallibrary.html">Using the Natural Library</a></li>              
-			  <li><a href="doc1.4.1/scope.html">Scope Rules for Variables and Attributes</a></li>
-			  <li><a href="doc1.4.1/scope2.html">Scope Rules for Functions and Methods</a></li>			  
-			  <li><a href="doc1.4.1/syntaxflexibility.html">Syntax Flexibility</a></li>
-			  <li><a href="doc1.4.1/distribute.html">Distributing Ring Applications</a></li>
-			  <li><a href="doc1.4.1/web.html">Web Development (CGI Library)</a></li>
-			  <li><a href="doc1.4.1/libcurl.html">Using RingLibCurl</a></li>
-			  <li><a href="doc1.4.1/ringzip.html">Using RingZip</a></li>			  
+			  <li><a href="doc1.5/evaldebug.html">Eval() and Debugging</a></li>              
+			  <li><a href="doc1.5/demo.html">Demo Programs</a></li>
+              <li><a href="doc1.5/odbc.html">ODBC Functions</a></li>
+              <li><a href="doc1.5/mysql.html">MYSQL Functions</a></li>
+			  <li><a href="doc1.5/sqlite.html">SQLite Functions</a></li>
+              <li><a href="doc1.5/secfunc.html">Security and Internet Functions</a></li>
+			  <li><a href="doc1.5/oop.html">Object Oriented Programming</a></li>
+			  <li><a href="doc1.5/fp.html">Functional Programming (FP)</a></li>
+			  <li><a href="doc1.5/metaprog.html">Reflection and Meta-programming</a></li>
+			  <li><a href="doc1.5/stdlib.html">Stdlib Functions</a></li>
+			  <li><a href="doc1.5/stdlibclasses.html">Stdlib Classes</a></li>
+			  <li><a href="doc1.5/declarative.html">Declarative Programming using Nested Structures</a></li>
+              <li><a href="doc1.5/natural.html">Natural language programming</a></li>              
+			  <li><a href="doc1.5/naturallibrary.html">Using the Natural Library</a></li>              
+			  <li><a href="doc1.5/scope.html">Scope Rules for Variables and Attributes</a></li>
+			  <li><a href="doc1.5/scope2.html">Scope Rules for Functions and Methods</a></li>			  
+			  <li><a href="doc1.5/syntaxflexibility.html">Syntax Flexibility</a></li>
+			  <li><a href="doc1.5/distribute.html">Distributing Ring Applications</a></li>
+			  <li><a href="doc1.5/web.html">Web Development (CGI Library)</a></li>
+			  <li><a href="doc1.5/libcurl.html">Using RingLibCurl</a></li>
+			  <li><a href="doc1.5/ringzip.html">Using RingZip</a></li>			  
             </ul>
 	</div>
 
@@ -62,25 +62,25 @@
  	    Advanced <br> <br>
 
             <ul>     
-			  <li><a href="doc1.4.1/allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
-              <li><a href="doc1.4.1/libsdl.html">Using RingLibSDL</a></li>			
-			  <li><a href="doc1.4.1/gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
-			  <li><a href="doc1.4.1/gameengineandorid.html">Building Games for Android</a></li>
-			  <li><a href="doc1.4.1/qt.html">Desktop and Mobile development using RingQt</a></li>
-			  <li><a href="doc1.4.1/qtmobile.html">Building RingQt Applications for Mobile</a></li>			  			  
-			  <li><a href="doc1.4.1/ringqtobjects.html">Objects Library for RingQt Application</a></li>			  			  
-			  <li><a href="doc1.4.1/formdesigner.html">Using the Form Designer</a></li>			  			  
-			  <li><a href="doc1.4.1/lowlevel.html">Low Level Functions</a></li>
-              <li><a href="doc1.4.1/extension.html">Extension using the C/C++ languages</a></li>
-              <li><a href="doc1.4.1/embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
-              <li><a href="doc1.4.1/compiler.html">Command Line Options</a></li>              
-              <li><a href="doc1.4.1/codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
-			  <li><a href="doc1.4.1/ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
-			  <li><a href="doc1.4.1/ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
-			  <li><a href="doc1.4.1/ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
-			  <li><a href="doc1.4.1/qtclassesdoc.html">RingQt Classes Reference</a></li>
-			  <li><a href="doc1.4.1/faq.html">Frequently Asked Questions (FAQ)</a></li>
-			  <li><a href="doc1.4.1/reference.html">Language Reference</a></li>
+			  <li><a href="doc1.5/allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+              <li><a href="doc1.5/libsdl.html">Using RingLibSDL</a></li>			
+			  <li><a href="doc1.5/gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+			  <li><a href="doc1.5/gameengineandorid.html">Building Games for Android</a></li>
+			  <li><a href="doc1.5/qt.html">Desktop and Mobile development using RingQt</a></li>
+			  <li><a href="doc1.5/qtmobile.html">Building RingQt Applications for Mobile</a></li>			  			  
+			  <li><a href="doc1.5/ringqtobjects.html">Objects Library for RingQt Application</a></li>			  			  
+			  <li><a href="doc1.5/formdesigner.html">Using the Form Designer</a></li>			  			  
+			  <li><a href="doc1.5/lowlevel.html">Low Level Functions</a></li>
+              <li><a href="doc1.5/extension.html">Extension using the C/C++ languages</a></li>
+              <li><a href="doc1.5/embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+              <li><a href="doc1.5/compiler.html">Command Line Options</a></li>              
+              <li><a href="doc1.5/codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+			  <li><a href="doc1.5/ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+			  <li><a href="doc1.5/ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+			  <li><a href="doc1.5/ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+			  <li><a href="doc1.5/qtclassesdoc.html">RingQt Classes Reference</a></li>
+			  <li><a href="doc1.5/faq.html">Frequently Asked Questions (FAQ)</a></li>
+			  <li><a href="doc1.5/reference.html">Language Reference</a></li>
 	      
             </ul>
 	</div>
