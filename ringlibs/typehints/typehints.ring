@@ -29,3 +29,14 @@ abstract	= :abstract
 protected	= :protected
 override	= :override 
 
+# Add User Types (Define Application Classes As Types)
+
+TypeHints_Packages = Packages()
+for TypeHints_Package in TypeHints_Packages {
+	eval("import " + TypeHints_Package)
+}
+
+TypeHints_Classes = Classes()
+for TypeHints_Class in TypeHints_Classes {
+	eval( TypeHints_Class + " = :" + TypeHints_Class )
+}
