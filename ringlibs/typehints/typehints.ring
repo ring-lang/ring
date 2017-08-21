@@ -33,10 +33,15 @@ override	= :override
 
 TypeHints_Packages = Packages()
 for TypeHints_Package in TypeHints_Packages {
-	eval("import " + TypeHints_Package)
+	ccode = "import " + TypeHints_Package
+	see ccode + nl
+	eval(ccode)
+	see :after + nl
 }
 
 TypeHints_Classes = Classes()
 for TypeHints_Class in TypeHints_Classes {
-	eval( TypeHints_Class + " = :" + TypeHints_Class )
+	if not substr(TypeHints_Class,".") {
+		eval( TypeHints_Class + " = :" + TypeHints_Class )
+	}
 }
