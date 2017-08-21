@@ -73,6 +73,7 @@ Contents:
    Scope Rules for Variables and Attributes <scope>
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>
+   The Type Hints Library <typehints>
    Distributing Ring Applications <distribute>
    Command Line Options	<compiler>
    Low Level Functions <lowlevel>
