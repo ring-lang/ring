@@ -48,6 +48,13 @@ SOURCES +=   \
     gheaderview.cpp \
     gprocess.cpp \
 	gtoolbutton.cpp \
+	gbluetoothdevicediscoveryagent.cpp \
+    gbluetoothlocaldevice.cpp \
+    gbluetoothserver.cpp \
+    gbluetoothservicediscoveryagent.cpp \
+    gbluetoothsocket.cpp \
+    gbluetoothtransfermanager.cpp \
+    gbluetoothtransferreply.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -84,8 +91,14 @@ HEADERS  += \
     gplaintextedit.h \
     gheaderview.h \
     gprocess.h \
-	gtoolbutton.h 
-
+	gtoolbutton.h \
+	gbluetoothdevicediscoveryagent.h \
+    gbluetoothlocaldevice.h \
+    gbluetoothservicediscoveryagent.h \
+    gbluetoothsocket.h \
+    gbluetoothtransfermanager.h \
+    gbluetoothtransferreply.h \
+    gbluetoothserver.h
 
 CONFIG += mobility c++11
 QMAKE_CXXFLAGS = -Wno-write-strings -Wno-unused-parameter
