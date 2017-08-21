@@ -15,12 +15,16 @@
 							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_Ring_1.5_LightRelease_SourceCode.zip/download" target="_blank">Download</a>'
 						 ],
 						 [
-							'Ring 1.5 Documentation (PDF)',
+							'Ring 1.5 (Light Release - Windows Binary) - (Size : 621 KB) <br> Contains :- <br> (1) Compiler+Virtual Machine (ANSI C) <br> (2) Source Code to build on Windows, Linux & MacOS X <br> (3) Windows Binary Release (EXE, DLL) <br> (4) Standard Functions (String, Math, Files, etc) <br> (5) Useful for console applications <br> (6) Embedding in C/C++ projects <br> (7) Embedding in any programming language (DLL File)',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_Ring_1.5_LightRelease_Windows_Binary.zip/download" target="_blank">Download</a>'
+						 ],
+						 [
+							'Ring 1.5 Documentation (PDF) - (Size : 15.1 MB) ',
 							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_RingDoc_1.5.pdf/download" target="_blank">Download</a>',
 							'<img src="book13.jpg" width="40%">'
 						 ],
 						 [
-							'Ring 1.5 Documentation (CHM)',
+							'Ring 1.5 Documentation (CHM) - (Size : 11.6 MB) ',
 							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_RingDoc_1.5.chm/download" target="_blank">Download</a>',
 							'<img src="book14.jpg" width="40%">'
 						 ]
