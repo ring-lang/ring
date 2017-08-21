@@ -22,7 +22,7 @@ list 		= :list
 number 		= :number 
 object		= :object
 
-# Scope 
+# Other 
 public		= :public 
 static		= :static 
 abstract	= :abstract 

@@ -1646,7 +1646,7 @@ Example:
 		return "Hello " + name ;
 	}
 
-The library is very powerful and will support user types (Classes) automatically
+The library is very powerful and support the User types (Classes) automatically!
 
 Example:
 
@@ -1656,22 +1656,23 @@ Example:
 
 	import mypackage 
 
-	test()
+	test()  { main([:one,:two,:three]) }
 
 	myclass func test() {
 		see "Testing User Types!" + nl
-		return new myclass { main([]) }
+		return new myclass
 	}
 
 	package mypackage {
 		public class myclass {
 			public static void func main(list args) {
 				see "welcome" + nl
+				see args
 			}
 		}
 	}
 
-Also you can use the types inside the code (not only the function prototype)
+Also You can use the types inside the code (not only the function prototype)
 
 Example:
 
@@ -1695,7 +1696,7 @@ Example:
 
 Rules:
 
-* To use the types in the function prototype you must use '(' and ')' around parameters
+* To use the types in the function prototype, You must use '(' and ')' around parameters
 * To use the types in the function code, You must set the variable value (Assignment).
 
 

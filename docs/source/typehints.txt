@@ -60,17 +60,18 @@ Example:
 
 	import mypackage 
 
-	test()
+	test()  { main([:one,:two,:three]) }
 
 	myclass func test() {
 		see "Testing User Types!" + nl
-		return new myclass { main([]) }
+		return new myclass
 	}
 
 	package mypackage {
 		public class myclass {
 			public static void func main(list args) {
 				see "welcome" + nl
+				see args
 			}
 		}
 	}
@@ -112,6 +113,32 @@ Rules
 * To use the types in the function prototype you must use '(' and ')' around parameters
 * To use the types in the function code, You must set the variable value (Assignment).
 
+The next types are defined by the library
 
+.. code-block:: ring
+
+	# Low Level Types
+	char 		 
+	unsigned 	 
+	signed 		 
+	int 		 
+	short 		 
+	long 		 
+	float 		 
+	double 		 
+	void 		 
+
+	# High Level Types 
+	string 		 
+	list 		 
+	number 		 
+	object		 
+
+	# Other
+	public		 
+	static		 
+	abstract	 
+	protected	 
+	override	 
 
 
