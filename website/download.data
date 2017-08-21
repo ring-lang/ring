@@ -1,9 +1,14 @@
 ﻿aDownload = [
 		["Ring 1.5 All Platforms",[
 						 [
-							'Ring 1.5 (All Platforms)',
+							'Ring 1.5 (All Platforms) - 223 MB <br> Contains (Everything) :- <br> (1) Windows binary release <br> (2) Source Code to build on Windows, Linux and MacOS X <br> (3) RingLibSDL For Android Games <br> (4) RingQt for Mobile Apps (Android, iPhone, etc) <br> (5) Visual Source Code (PWCT) <br> (6) Documentation (HTML, CHM and PDF) <br> (7) Libraries (StdLib, WebLib, Natural, etc) <br> (8) Editors Extensions (Notepad++, Atom, Sublime, etc) <br>  ',
 							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_Ring_1.5_All_Platforms.zip/download" target="_blank">Download</a>',
 							'<img src="ring16.png" width="40%">'
+						 ],
+						 [
+							'Ring 1.5 (Windows Binary Release) - 77.9 MB <br> Contains :- <br> (1) Windows binary release <br> (2) Documentation (HTML, CHM and PDF) <br> (3) Libraries (StdLib, WebLib, Natural, etc) ',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_Ring_1.5_For_Windows_Binary_Release.exe/download" target="_blank">Download</a>',
+							'<img src="ring13.jpg" width="40%">'
 						 ],
 						 [
 							'Ring 1.5 Documentation (PDF)',
