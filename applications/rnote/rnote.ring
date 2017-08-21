@@ -838,6 +838,7 @@ Class RNote from WindowsControllerParent
 			adddockwidget(Qt_BottomDockWidgetArea,this.oDock5,1)
 			adddockwidget(Qt_RightDockWidgetArea,this.oDock7,1)
 			this.win1.tabifydockwidget(this.oDock4,this.oDock6)
+			this.win1.tabifydockwidget(this.oDock4,this.oDock5)
 			this.win1.tabifydockwidget(this.oDock2,this.oDock7)
 			this.win1.tabifydockwidget(this.oDock2,this.oDock3)
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
