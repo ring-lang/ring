@@ -20,6 +20,7 @@ very useful for tools like
 * Code Editors 
 * Static-Analysis
 
+.. note:: Ring is a dynamic language, No type checking will be done by the compiler.
 
 .. index:: 
 	pair: The Type Hints Library; Example

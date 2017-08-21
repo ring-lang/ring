@@ -1699,7 +1699,7 @@ Rules:
 * To use the types in the function prototype, You must use '(' and ')' around parameters
 * To use the types in the function code, You must set the variable value (Assignment).
 
-
+.. note:: Ring is a dynamic language, No type checking will be done by the compiler.
 
 .. index:: 
 	pair: What is new in Ring 1.5?; Better Quality
