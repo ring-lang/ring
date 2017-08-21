@@ -1,4 +1,5 @@
   aNews = [
+  ["August 21, 2017",'<a href="download.html"> Ring 1.5 Released!</a>'],
   ["August 10, 2017",'<a href="https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP" target="_blank"> Article : Using the Natural Language Programming Library (NLPL) </a>'],
   ["July 27, 2017",'<a href="https://groups.google.com/forum/#!topic/ring-lang/FQc8-R2h_F8" target="_blank"> GitHub can detect Ring projects</a>'],
   ["July 11, 2017",'<a href="download.html"> Ring 1.4.1 Released!</a>'],
