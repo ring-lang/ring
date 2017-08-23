@@ -1721,7 +1721,9 @@ Also the documentation is better.
 What is new in Ring 1.5.1?
 ==========================
 
-* Better Documentation 
+* Better Documentation
+* StdLib - Factorial() function update
+* RingVM - Better code for clearing the stack in the Class Region.
 * Sample : 3D Cube (OpenGL) + Texture Image using GameLib (RingAllegro)
 
 Source Code:
