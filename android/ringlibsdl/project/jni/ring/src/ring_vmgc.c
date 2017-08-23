@@ -80,6 +80,10 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 {
 	int x  ;
 	List *pScope,*pList  ;
+	/* If we are in the class region (After class name) then return */
+	if ( pVM->nCheckNULLVar ) {
+		return ;
+	}
 	/*
 	**  This function is called from Ring code by callgc() 
 	**  Function Goal 
