@@ -21,6 +21,8 @@ Type: List *
 pVar
 ring_vm_newline
 ring_vm_freestack
+Type: int
+x
 ring_vm_setreference
 Type: List *
 pList
@@ -64,6 +66,3 @@ pItem
 Type: int
 x
 ring_vm_freeloadaddressscope
-ring_vm_traceevent
-Type: List *
-pList
