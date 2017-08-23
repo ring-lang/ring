@@ -247,3 +247,6 @@ call ring scripts/packageend.ring
 call ring scripts/packagebraces.ring
 call ring scripts/endfunc.ring
 call ring scripts/types.ring
+call ring scripts/inclassregion1.ring 
+call ring scripts/inclassregion2.ring
+call ring scripts/inclassregion3.ring
