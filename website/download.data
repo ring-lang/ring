@@ -1,200 +1,30 @@
 ﻿aDownload = [
-		["Ring 1.5 All Platforms",[
+		["Ring 1.5.1 All Platforms",[
 						 [
-							'Ring 1.5 (All Platforms) - (Size : 223 MB) <br> Contains (Everything) :- <br> (1) Windows binary release <br> (2) Source Code to build on Windows, Linux and MacOS X <br> (3) RingLibSDL For Android Games <br> (4) RingQt for Mobile Apps (Android, iPhone, etc) <br> (5) Visual Source Code (PWCT) <br> (6) Documentation (HTML, CHM and PDF) <br> (7) Libraries (GUILib, StdLib, WebLib, Natural, etc) <br> (8) Editors Extensions (Notepad++, Atom, Sublime, etc) <br>  ',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_Ring_1.5_All_Platforms.zip/download" target="_blank">Download</a>',
-							'<img src="ring16.png" width="40%">'
+							'Ring 1.5.1 (All Platforms) <br> Contains (Everything) :- <br> (1) Windows binary release <br> (2) Source Code to build on Windows, Linux and MacOS X <br> (3) RingLibSDL For Android Games <br> (4) RingQt for Mobile Apps (Android, iPhone, etc) <br> (5) Visual Source Code (PWCT) <br> (6) Documentation (HTML, CHM and PDF) <br> (7) Libraries (GUILib, StdLib, WebLib, Natural, etc) <br> (8) Editors Extensions (Notepad++, Atom, Sublime, etc) <br>  ',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.1/Fayed_Ring_1.5.1_All_Platforms.zip/download" target="_blank">Download  (222 MB)</a>'						
 						 ],
 						 [
-							'Ring 1.5 (Windows Binary Release) - (Size : 77.9 MB) <br> Contains :- <br> (1) Windows binary release <br> (2) Documentation (HTML, CHM and PDF) <br> (3) Libraries (GUILib, StdLib, WebLib, Natural, etc) ',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_Ring_1.5_For_Windows_Binary_Release.exe/download" target="_blank">Download</a>',
-							'<img src="ring13.jpg" width="40%">'
+							'Ring 1.5.1 (Windows Binary Release) <br> Contains :- <br> (1) Windows binary release <br> (2) Documentation (HTML, CHM and PDF) <br> (3) Libraries (GUILib, StdLib, WebLib, Natural, etc) ',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.1/Fayed_Ring_1.5.1_For_Windows_Binary_Release.exe/download" target="_blank">Download (78.5 MB)</a>'
+						 ],						 
+						 [
+							'Ring 1.5.1 (Light Release - Source Code) <br> Contains :- <br> (1) Compiler+Virtual Machine (ANSI C) <br> (2) Source Code to build on Windows, Linux & MacOS X <br> (3) Standard Functions (String, Math, Files, etc) <br> (4) Useful for console applications <br> (5) Embedding in C/C++ projects',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.1/Fayed_Ring_1.5.1_LightRelease_SourceCode.zip/download" target="_blank">Download (135 KB) </a>'
 						 ],
 						 [
-							'Ring 1.5 (Light Release - Source Code) - (Size : 134 KB) <br> Contains :- <br> (1) Compiler+Virtual Machine (ANSI C) <br> (2) Source Code to build on Windows, Linux & MacOS X <br> (3) Standard Functions (String, Math, Files, etc) <br> (4) Useful for console applications <br> (5) Embedding in C/C++ projects',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_Ring_1.5_LightRelease_SourceCode.zip/download" target="_blank">Download</a>'
+							'Ring 1.5.1 (Light Release - Windows Binary) <br> Contains :- <br> (1) Compiler+Virtual Machine (ANSI C) <br> (2) Source Code to build on Windows, Linux & MacOS X <br> (3) Windows Binary Release (EXE, DLL) <br> (4) Standard Functions (String, Math, Files, etc) <br> (5) Useful for console applications <br> (6) Embedding in C/C++ projects <br> (7) Embedding in any programming language (DLL File)',
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.1/Fayed_Ring_1.5.1_LightRelease_Windows_Binary.zip/download" target="_blank">Download (400 KB)</a>'
 						 ],
 						 [
-							'Ring 1.5 (Light Release - Windows Binary) - (Size : 621 KB) <br> Contains :- <br> (1) Compiler+Virtual Machine (ANSI C) <br> (2) Source Code to build on Windows, Linux & MacOS X <br> (3) Windows Binary Release (EXE, DLL) <br> (4) Standard Functions (String, Math, Files, etc) <br> (5) Useful for console applications <br> (6) Embedding in C/C++ projects <br> (7) Embedding in any programming language (DLL File)',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_Ring_1.5_LightRelease_Windows_Binary.zip/download" target="_blank">Download</a>'
+							'Ring 1.5.1 Documentation (PDF) ',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5.1/Fayed_RingDoc_1.5.1.pdf/download" target="_blank">Download (15.1 MB)</a>'
 						 ],
 						 [
-							'Ring 1.5 Documentation (PDF) - (Size : 15.1 MB) ',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_RingDoc_1.5.pdf/download" target="_blank">Download</a>',
-							'<img src="book13.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.5 Documentation (CHM) - (Size : 11.6 MB) ',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5/Fayed_RingDoc_1.5.chm/download" target="_blank">Download</a>',
-							'<img src="book14.jpg" width="40%">'
+							'Ring 1.5.1 Documentation (CHM)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5.1/Fayed_RingDoc_1.5.1.chm/download" target="_blank">Download (11.8 MB)</a>'							
 						 ]
+						 
 			]
-		],
-		["Ring 1.4.1 All Platforms",[
-						 [
-							'Ring 1.4.1 (All Platforms)',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.4.1/Fayed_Ring_1.4.1_All_Platforms.zip/download" target="_blank">Download</a>',
-							'<img src="ring15.png" width="40%">'
-						 ],
-						 [
-							'Ring 1.4.1 Documentation (PDF)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.4.1/Fayed_RingDoc_1.4.1.pdf/download" target="_blank">Download</a>',
-							'<img src="book11.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.4.1 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.4.1/Fayed_RingDoc_1.4.1.chm/download" target="_blank">Download</a>',
-							'<img src="book12.jpg" width="40%">'
-						 ]
-			]
-		],
-		["Ring 1.4 All Platforms",[
-						 [
-							'Ring 1.4 (All Platforms)',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.4/Fayed_Ring_1.4_All_Platforms.zip/download" target="_blank">Download</a>',
-							'<img src="ring14.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.4 Documentation (PDF)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.4/Fayed_RingDoc_1.4.pdf/download" target="_blank">Download</a>',
-							'<img src="book9.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.4 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.4/Fayed_RingDoc_1.4.chm/download" target="_blank">Download</a>',
-							'<img src="book10.jpg" width="40%">'
-						 ]
-			]
-		],
-		["Ring 1.3 All Platforms",[
-						 [
-							'Ring 1.3 (All Platforms)',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.3/Fayed_Ring_1.3_All_Platforms.zip/download" target="_blank">Download</a>',
-							'<img src="ring13.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.3 Documentation (PDF)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.3/Fayed_RingDoc_1.3.pdf/download" target="_blank">Download</a>',
-							'<img src="book7.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.3 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.3/Fayed_RingDoc_1.3.chm/download" target="_blank">Download</a>',
-							'<img src="book8.jpg" width="40%">'
-						 ]
-			]
-		],
-		["Ring 1.2 All Platforms",[
-						 [
-							'Ring 1.2 (All Platforms)',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.2/Fayed_Ring_1.2_All_Platforms.zip/download" target="_blank">Download</a>',
-							'<img src="ring12.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.2 Documentation (PDF)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.2/Fayed_RingDoc_1.2.pdf/download" target="_blank">Download</a>',
-							'<img src="book5.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.2 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.2/Fayed_RingDoc_1.2.chm/download" target="_blank">Download</a>',
-							'<img src="book6.jpg" width="40%">'
-						 ]
-			]
-		],
-		["Ring 1.1 All Platforms",[
-						 [
-							'Ring 1.1 (All Platforms)',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.1/Fayed_Ring_1.1_All_Platforms.zip/download" target="_blank">Download</a>',
-							'<img src="ring11.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.1 Documentation (PDF)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.1/Fayed_RingDoc_1.1.pdf/download" target="_blank">Download</a>',
-							'<img src="book3.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.1 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.1/Fayed_RingDoc_1.1.chm/download" target="_blank">Download</a>',
-							'<img src="book4.jpg" width="40%">'
-						 ]
-			]
-		],
-		["Ring 1.0 Binary Release",[
-				 [
-					'Ring 1.0 for Microsoft Windows',
-					'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_win32_binary_release.zip/download" target="_blank">Download</a>',
-					'<img src="ringwin.jpg" width="40%">'
-				 ],
-				 [
-					'Ring 1.0 for Ubuntu Linux',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_Ubuntu_32bit_binary_release.zip/download" target="_blank">Download</a>',
-					'<img src="ringubuntu.jpg" width="40%">'
-				 ],
-				 [
-					'Ring 1.0 for MacOS X',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_MacOSX_64bit_binary_release.zip/download" target="_blank">Download</a>',
-					'<img src="ringmac.png" width="40%">'
-				 ],
-				 [
-					'Ring 1.0 for Mobile App Development using Qt',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_MobileAppDevelopment_Qt_Project.zip/download" target="_blank">Download</a>',
-					'<img src="ringandroid.png" width="40%">'
-				 ]
-				]
-		],
-		["Ring 1.0 Source Code",[
-						 [
-							'Ring 1.0 Source Code',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_Source_Code.zip/download" target="_blank">Download</a>',
-							'<img src="ringvisualsrc1.jpg" width="40%">'
-						 ]
-					      ]
-		],
-		["Ring 1.0 Documentation",[
-						 [
-							'Ring 1.0 Documentation (PDF)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_RingDoc_1.0.pdf/download" target="_blank">Download</a>',
-							'<img src="book1.jpg" width="40%">'
-						 ],
-						 [
-							'Ring 1.0 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_RingDoc_1.0.chm/download" target="_blank">Download</a>',
-							'<img src="book2.jpg" width="40%">'
-						 ]
-					      ]
-		],
-		["Ring 1.0 Libraries and Tools",[
-				 [
-					'WebLib 1.0 source code (CGI Library for Ring)',
-					'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_WebLib_1.0_source_code_release.zip/download" target="_blank">Download</a>',
-					'<img src="weblib.jpg" width="40%">'
-				 ],
-				 [
-					'Ring extension for Notepad++',
-					'<a href="https://github.com/AbdelrahmanGIT/Ring_for_NotePad_plus_plus" target="_blank">Download</a>',
-					'<img src="notepadpp.png" width="40%">'
-				 ],
-				 [
-					'Ring extension for Visual Studio',
-					'<a href="https://github.com/ahmadomar/RingForVS" target="_blank">Download</a>',
-					'<img src="ringvs.png" width="40%">'
-				 ],
-				 [
-					'Ring extension for Sublime Text 2',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_SublimeText2_ SyntaxColoringForRing.zip/download" target="_blank">Download</a>',
-					'<img src="ringsublime.jpg" width="40%">'
-				 ],
-				 [
-					'Ring extension for Geany',
-					'<a href="https://github.com/magdy-ragab/Geany-support-for-Ring-programming-language" target="_blank">Download</a>',
-					'<img src="ringgeany.png" width="40%">'
-				 ],
-				 				 [
-					'Ring extension for Atom',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_AtomEditor_Language_Ring.zip/download" target="_blank">Download</a>',
-					'<img src="ringatom.jpg" width="40%">'
-				 ]
-				]
 		]
 ]
