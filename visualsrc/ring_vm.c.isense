@@ -95,7 +95,7 @@ nActiveCatch
 Type: char
 nInsideBraceFlag
 Type: char
-nCheckNULLVar
+nInClassRegion
 Type: List *
 aActivePackage
 Type: char

@@ -142,7 +142,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 				/* Create the Super Virtual Object */
 				ring_vm_oop_newsuperobj(pVM,pList3,pList);
 				/* Enable NULL variables (To be class attributes) */
-				pVM->nCheckNULLVar++ ;
+				pVM->nInClassRegion++ ;
 				/* Support using Braces to access the object state */
 				pVM->pBraceObject = pList2 ;
 				return ;
@@ -289,7 +289,7 @@ void ring_vm_oop_setscope ( VM *pVM )
 	ring_vm_oop_aftercallmethod(pVM);
 	ring_list_deleteitem(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
 	/* Disable NULL variables (To be class attributes) */
-	pVM->nCheckNULLVar-- ;
+	pVM->nInClassRegion-- ;
 	/* POP Class Package */
 	ring_vm_oop_popclasspackage(pVM);
 }
@@ -360,7 +360,7 @@ void ring_vm_oop_property ( VM *pVM )
 	pVM->nGetSetProperty = 1 ;
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
 		/* Create the attribute if we are in the class region after the class name */
-		if ( pVM->nCheckNULLVar ) {
+		if ( pVM->nInClassRegion ) {
 			ring_vm_newvar(pVM, RING_VM_IR_READC);
 			/* Support for Private Flag */
 			ring_list_setint((List *) RING_VM_STACK_READP,RING_VAR_PRIVATEFLAG,pVM->nPrivateFlag);

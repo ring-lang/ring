@@ -43,7 +43,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	**  We also avoid doing this in the Class Region (After class name) 
 	**  Because in the class region we don't use pVM->pMEM 
 	*/
-	if ( ! pVM->nCheckNULLVar ) {
+	if ( ! pVM->nInClassRegion ) {
 		while ( ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)) != pVM->pActiveMem ) {
 			ring_vm_deletescope(pVM);
 		}
@@ -125,7 +125,7 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	pVM->nCallClassInit = 0 ;
 	ring_list_addint(pList,pVM->nFuncExecute);
 	ring_list_addpointer(pList,pVM->pAssignment);
-	ring_list_addint(pList,pVM->nCheckNULLVar);
+	ring_list_addint(pList,pVM->nInClassRegion);
 	ring_list_addint(pList,pVM->nActiveScopeID);
 	ring_list_addint(pList,ring_list_getsize(pVM->aScopeNewObj));
 	ring_list_addint(pList,ring_list_getsize(pVM->aScopeID));
@@ -141,7 +141,7 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
 	ring_list_addpointer(pList,ring_list_getpointer(pThis,RING_VAR_VALUE));
 	ring_list_addint(pList,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
-	pVM->nCheckNULLVar = 0 ;
+	pVM->nInClassRegion = 0 ;
 	pVM->pAssignment = NULL ;
 	pVM->nNOAssignment = 0 ;
 }
@@ -170,7 +170,7 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	pVM->nCallClassInit = ring_list_getint(pList,x+13) ;
 	pVM->nFuncExecute = ring_list_getint(pList,x+14) ;
 	pVM->pAssignment = (void *) ring_list_getpointer(pList,x+15) ;
-	pVM->nCheckNULLVar = ring_list_getint(pList,x+16) ;
+	pVM->nInClassRegion = ring_list_getint(pList,x+16) ;
 	pVM->nActiveScopeID = ring_list_getint(pList,x+17) ;
 	ring_vm_backstate(ring_list_getint(pList,x+18),pVM->aScopeNewObj);
 	ring_vm_backstate(ring_list_getint(pList,x+19),pVM->aScopeID);

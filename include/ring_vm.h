@@ -51,7 +51,7 @@ typedef struct VM {
 	int nActiveScopeID  ;
 	int nActiveCatch  ;
 	char nInsideBraceFlag  ;
-	char nCheckNULLVar  ;
+	char nInClassRegion  ;
 	List *aActivePackage  ;
 	char nPrivateFlag  ;
 	char nGetSetProperty  ;
