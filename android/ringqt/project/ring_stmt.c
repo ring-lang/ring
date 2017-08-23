@@ -970,6 +970,8 @@ int ring_parser_stmt ( Parser *pParser )
 				}
 				ring_list_delete(pList2);
 				ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+				/* We Add this operand to force (stack pop in class region) */
+				ring_parser_icg_newoperandint(pParser,1);
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
 				

@@ -226,6 +226,7 @@ void ring_vm_newline ( VM *pVM )
 
 void ring_vm_freestack ( VM *pVM )
 {
+	int x  ;
 	/* Clear Assignment Pointer */
 	pVM->pAssignment = NULL ;
 	/* Clear Load Address Result Scope Array */
@@ -233,6 +234,13 @@ void ring_vm_freestack ( VM *pVM )
 	/* Don't clear stack if we are in Class Init (using new) */
 	if ( (pVM->nBlockFlag >= 1) ) {
 		if ( ring_list_getsize(pVM->aScopeNewObj) > 0  && (pVM->nInsideBraceFlag==0) ) {
+			/* In statement (Switch-ON-OFF) - we must do -Stack POP */
+			if ( RING_VM_IR_PARACOUNT == 2 ) {
+				/* We know that we are in switch(OFF) - using the parameters */
+				for ( x = 1 ; x <= RING_VM_IR_READI ; x++ ) {
+					RING_VM_STACK_POP ;
+				}
+			}
 			return ;
 		}
 	}
