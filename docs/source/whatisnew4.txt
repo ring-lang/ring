@@ -444,3 +444,88 @@ Screen Shot:
 
 .. image:: qtclassconvertor.png
 	:alt: Qt Class convertor to RingQt
+
+.. index:: 
+	pair: What is new in Ring 1.4?; What is new in Ring 1.4.1?
+
+
+What is new in Ring 1.4.1?
+==========================
+
+Ring 1.4.1  comes with the next changes
+
+* Better Scripts for Building from Source Code
+* Better Colors for the Modern Style in Ring Notepad
+* Better StdLib
+* Better RingQt
+* New Sample : Sixteen Puzzle
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Better Scripts for Building from Source Code
+
+Better Scripts for Building from Source Code
+============================================
+
+The scripts are updated for building from source code.
+
+Tested using Windows, Ubuntu Linux, Linux Mint and MacOS X.
+
+Screen Shot:
+
+.. image:: linuxmint.png
+	:alt: Using Ring - Linux Mint
+
+.. index:: 
+	pair: What is new in Ring 1.4?; New Style to Ring Notepad
+
+Better Colors for the Modern Style in Ring Notepad
+==================================================
+
+In Ring Notepad - the (Modern) Style colors are updated
+
+Screen Shot:
+
+.. image:: rnotemodernstyle2.png
+	:alt: Using Ring Notepad - Modern Style
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Better StdLib
+
+Better StdLib
+=============
+
+The StdLib is updated to include the next functions
+
+* TrimLeft()
+* TrimRight()
+* TrimAll()
+* EpochTime()
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Better RingQt
+
+Better RingQt
+=============
+
+The next functions are updated to display the dialogs on the top of other windows.
+
+* SetDialogIcon(cIconFile)
+* MsgInfo(cTitle,cMessage)
+* ConfirmMsg(cTitle,cMessage)
+* InputBox(cTitle,cMessage)
+* InputBoxInt(cTitle,cMessage)
+* InputBoxNum(cTitle,cMessage)
+* InputBoxPass(cTitle,cMessage)
+
+.. index:: 
+	pair: What is new in Ring 1.4?; New Sample : Sixteen Puzzle
+
+New Sample : Sixteen Puzzle
+===========================
+
+The Sixteen Puzzle is added to the Applications folder.
+
+Screen Shot:
+
+.. image:: sixteenpuzzle.jpg
+	:alt: Sixteen Puzzle
