@@ -60,7 +60,46 @@
 
 <br>
 
-<div class="col-xs-12">
+
+<a href="#innovative" class="btn btn-default" data-toggle="collapse" style="width:100%">Innovative</a>
+  <div id="innovative" class="panel-group collapse in">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Innovative</h4></div>
+      <div class="panel-body">
+
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+			<p>
+			The language comes with better support for Natural Language Programming and Declarative Programming. The innovation comes in supporting these paradigms with new practical techniques on the top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). You get the language constructs ready for use to create domain-specific languages in a fraction of time.
+			</p>
+			
+			<a id="ringarticle2" href="https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP" target="_blank" class="btn btn-default"  style="width:100%">Natural Language Programming Library</a> 
+			<a id="ringarticle3" href="https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi" target="_blank" class="btn btn-default"  style="width:100%">Natural Language Programming</a> 
+			<a id="ringarticle4" href="https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Programming-Languag" target="_blank" class="btn btn-default"  style="width:100%">Syntax Flexibility</a> 
+			<a id="ringarticle"  href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank" class="btn btn-default"  style="width:100%">Ring Article</a> 
+			</div>
+		</div>
+	  </div>
+	 </div>
+   </div>
+ 
+
+
+ <a href="#practical" class="btn btn-default" data-toggle="collapse" style="width:100%">Practical</a>
+  <div id="practical" class="panel-group collapse in">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Practical</h4></div>
+      <div class="panel-body">
+
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+		<p>
+		Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) and the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language itself.		
+		Ring is ready for use in production and increase the developers productivity.
+		</p>
+		<br>	
+
+		<div class="col-xs-12">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -191,11 +230,24 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <br> <br>
-  <br> <br>
 </div>
+		
+		
+		
+		
+			</div>
+		</div>
+	  </div>
+	 </div>
+   </div>
 
 
+
+
+ 
+ 
+ 
+ 
 
 <a  id="why" href="#whyring" class="btn btn-default" data-toggle="collapse" style="width:100%">Why Ring?</a>
 <div id="whyring" class="panel-group collapse in">
@@ -1068,10 +1120,10 @@ aList = "nice"
   </div>
 
   
- <a id="ringarticle" href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank" class="btn btn-default"  style="width:100%">Ring Article (CodeProject)</a> 
  <a id="ringbook" href="https://en.wikibooks.org/wiki/Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring in Wikibooks</a> 
  <a id="ringsamples" href="https://rosettacode.org/wiki/Category:Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring Samples (Rosettacode)</a> 
 
+ 
   
 </div>
 
