@@ -94,8 +94,11 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 	/* Flag used by Try/Catch to tell C-API that catch happens! */
 	pVM->nActiveCatch = 0 ;
-	/* Flag ( 0 = check NULL variable in PUSHV  , greater than 0 = Ignore null variable ) */
-	pVM->nCheckNULLVar = 0 ;
+	/*
+	**  Flag ( 0 = check NULL variable in PUSHV  , greater than 0 = Ignore null variable ) 
+	**  Class Region (After the Class Name) 
+	*/
+	pVM->nInClassRegion = 0 ;
 	pVM->pPackagesMap = NULL ;
 	/* Set the main File Name */
 	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;

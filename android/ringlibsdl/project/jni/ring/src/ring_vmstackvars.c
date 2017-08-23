@@ -20,7 +20,7 @@ void ring_vm_pushv ( VM *pVM )
 		if ( RING_VM_STACK_ISPOINTER ) {
 			pVar = (List *) RING_VM_STACK_READP ;
 			/* Check NULL Value */
-			if ( pVM->nCheckNULLVar == 0 ) {
+			if ( pVM->nInClassRegion == 0 ) {
 				if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL ) {
 					if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
 						if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"NULL") == 0 ) {
@@ -232,7 +232,7 @@ void ring_vm_freestack ( VM *pVM )
 	/* Clear Load Address Result Scope Array */
 	ring_list_deleteallitems(pVM->aLoadAddressScope);
 	/* Don't clear stack if we are in Class Init (using new) */
-	if ( pVM->nCheckNULLVar ) {
+	if ( pVM->nInClassRegion ) {
 		/* In statement (Switch-ON-OFF) - we must do -Stack POP */
 		if ( RING_VM_IR_PARACOUNT == 2 ) {
 			/* We know that we are in switch(OFF) - using the parameters */
