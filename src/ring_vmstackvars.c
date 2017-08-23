@@ -239,7 +239,7 @@ void ring_vm_freestack ( VM *pVM )
 		**  In the class Region we don't free stack to support Object + New Object 
 		**  So we can add objects quickly to lists and access them using braces { } 
 		**  But If we did this only we may get stack overflow if we did some work in the class region like 
-		**  Using Switch (Which use duplication) or calling functions without storing the output using Assignmen 
+		**  Using Switch (Which use duplication) or calling functions without storing the output using Assignment 
 		**  To solve this situation we Use RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 
 		**  So we can support Object + New Object and avoid Stack Overflow too! 
 		**  This feature is GREAT in the language where we can quickly move applications from 
