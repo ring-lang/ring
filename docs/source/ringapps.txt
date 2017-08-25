@@ -173,8 +173,9 @@ It seems that the language is quite extensive as well. I would find it useful to
 	, Cryptonite (United States)
 
 "I like your programming language, I like you are going to develop mobile app using RingQt and also 
-	I appreciate your web library."
-	, Domenico D'Oria (Italy)
+I appreciate your web library."
+	, Domenico D'Oria (Italy)	
+
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
