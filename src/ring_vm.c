@@ -342,7 +342,7 @@ void ring_vm_fetch ( VM *pVM )
 	pVM->nOPCode = RING_VM_IR_OPCODE ;
 	pVM->nPC++ ;
 	ring_vm_execute(pVM);
-	if ( pVM->nSP > 253 ) {
+	if ( pVM->nSP > RING_VM_STACK_CHECKOVERFLOW ) {
 		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
 	}
 }
@@ -371,7 +371,7 @@ void ring_vm_fetch2 ( VM *pVM )
 		ring_print_line();
 	}
 	#endif
-	if ( pVM->nSP > 253 ) {
+	if ( pVM->nSP > RING_VM_STACK_CHECKOVERFLOW ) {
 		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
 	}
 }
