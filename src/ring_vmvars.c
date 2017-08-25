@@ -304,7 +304,7 @@ void ring_vm_addnewcpointervar ( VM *pVM,const char *cStr,void *pPointer,const c
 void ring_vm_deletescope ( VM *pVM )
 {
 	if ( ring_list_getsize(pVM->pMem) < 2 ) {
-		puts("Internal Error - Deleting scope while no scope! ");
+		printf( RING_NOSCOPE ) ;
 		exit(0);
 	}
 	/* Check References */

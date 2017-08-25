@@ -150,6 +150,8 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	nSRC = 0 ;
 	nGenObj = 0 ;
 	nWarn = 0 ;
+	nRingStateDEBUGSEGFAULT = 0 ;
+	nRingStateCGI = 0 ;
 	signal(SIGSEGV,segfaultaction);
 	#if RING_TESTUNITS
 	ring_testallunits();
@@ -158,6 +160,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		for ( x = 1 ; x < argc ; x++ ) {
 			if ( strcmp(argv[x],"-cgi") == 0 ) {
 				nCGI = 1 ;
+				nRingStateCGI = 1 ;
 			}
 			else if ( strcmp(argv[x],"-tokens") == 0 ) {
 				nTokens = 1 ;
@@ -185,6 +188,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 			}
 			else if ( strcmp(argv[x],"-w") == 0 ) {
 				nWarn = 1 ;
+				nRingStateDEBUGSEGFAULT = 1 ;
 			}
 			else if ( ( ring_issourcefile(argv[x]) || ring_isobjectfile(argv[x])) && nSRC == 0 ) {
 				cStr = argv[x] ;
@@ -276,8 +280,13 @@ static void ring_showtime ( void )
 
 void segfaultaction ( int sig )
 {
-	printf( "Content-Type: text/plain\n\n" ) ;
-	printf( "Ring Unexpected Error - Caught segfault : %d ",sig ) ;
+	if ( nRingStateDEBUGSEGFAULT == 1 ) {
+		if ( nRingStateCGI == 1 ) {
+			printf( "Content-Type: text/plain\n\n" ) ;
+		}
+		printf( RING_SEGFAULT ) ;
+		printf( " : %d ",sig ) ;
+	}
 	exit(0);
 }
 
