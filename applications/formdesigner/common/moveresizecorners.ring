@@ -44,6 +44,7 @@ Class MoveResizeCorners
 		nX = oFilter.getglobalx()
 		ny = oFilter.getglobaly()
 		setCursor(oDesigner.oGeneral.oCursorA())
+		MouseMove(oDesigner)
 
 	func MouseRelease oDesigner
 		lPress = False
