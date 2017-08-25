@@ -1196,11 +1196,15 @@ class FormDesignerController from WindowsControllerParent
 			oView.oPropertiesDock.Show()
 		}
 
-	func OpenCHMAction
-		System( "start " + exefolder()+"/../docs/ring.chm" )
+	Func OpenCHMAction
+		new QDesktopServices {
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.chm") )
+		}
 
-	func OpenPDFAction
-		System( "start " + exefolder()+"/../docs/ring.pdf" )
+	Func OpenPDFAction
+		new QDesktopServices {
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.pdf") )
+		}
 
 	Func MsgBox cTitle,cMessage
 		new qMessagebox(NULL) {
@@ -1219,6 +1223,8 @@ class FormDesignerController from WindowsControllerParent
 
 	func AboutAction
 		MsgBox("About",
+		"This application developed using the Ring programming language" + nl +
+		"Ring Version : " + version() + nl +
 		"2017, Mahmoud Fayed <msfclipper@yahoo.com>")
 
 	func HasParent 
