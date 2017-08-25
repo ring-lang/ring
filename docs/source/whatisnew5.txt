@@ -1963,7 +1963,7 @@ Check chapter : Building Ring from source code
 
 Screen Shots:
 
-.. image:: fedora1.png
+.. image:: fedora.png
 	:alt: Ring on Fedora 1
 
 .. image:: fedora2.png
