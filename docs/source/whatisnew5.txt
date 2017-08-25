@@ -1957,17 +1957,25 @@ Screen Shot:
 What is new in Ring 1.5.2?
 ==========================
 
+* Ring Notepad - Display output in the output window (Linux and MacOS X)
+* Form Designer - Help Menu - Open CHM/PDF files without displaying the console window
 * Scripts for building Ring from source code on Fedora Linux
 
 Check chapter : Building Ring from source code 
 
 Screen Shots:
 
+The next screen shot for Ring Notepad 
+
 .. image:: fedora.png
 	:alt: Ring on Fedora 1
 
+The next screen shot for the Form Designer 
+
 .. image:: fedora2.png
 	:alt: Ring on Fedora 2
+
+The next screen shot for the SuperMan Game 
 
 .. image:: fedora3.png
 	:alt: Ring on Fedora 3
