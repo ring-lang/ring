@@ -15,6 +15,9 @@
 #include <mach-o/dyld.h>
 #endif
 #endif
+/* General Options (Only for ring_state_main()) */
+int nRingStateDEBUGSEGFAULT  ;
+int nRingStateCGI  ;
 /* Define Functions */
 #if RING_TESTUNITS
 

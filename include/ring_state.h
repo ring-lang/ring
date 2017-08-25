@@ -86,7 +86,4 @@ void ring_switchtofilefolder ( char *cFileName ) ;
 int ring_justfilepath ( char *cFileName ) ;
 
 void ring_justfilename ( char *cFileName ) ;
-/* General Options (Only for ring_state_main()) */
-int nRingStateDEBUGSEGFAULT  ;
-int nRingStateCGI  ;
 #endif
