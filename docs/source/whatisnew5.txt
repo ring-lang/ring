@@ -1959,6 +1959,7 @@ What is new in Ring 1.5.2?
 
 * Ring Notepad - Display output in the output window (Linux and MacOS X)
 * Form Designer - Help Menu - Open CHM/PDF files without displaying the console window
+* Form Designer - Correct response to Resize/Move Events when moving the Mouse quickly
 * GetQuotesHistory Application is updated to work on MacOS X and Qt 5.2
 * Scripts for building Ring from source code on Fedora Linux
 
