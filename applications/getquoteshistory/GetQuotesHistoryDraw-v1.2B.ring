@@ -461,8 +461,16 @@ Func WhereAreWe
         # See " Win "  + WinWidth  + "x" + WinHeight + " --- Box  "  + BoxWidth + "x" + BoxHeight
         # See " --- LT " + Winleft   + "-"   + WinTop    + " --- RB " + WinRight + "-"   + WinBottom +nl
 
-          win1.setgeometry( WinLeft, WinTop, WinWidth, WinHeight )
+
+	# To avoid infinite loop problem in MacOS X and Qt 5.2
+	# We disable the resize event first then resize the window 
+	# Then enable the event again! 
+	cResizeEvent = myfilter.getresizeevent()
+	myfilter.setresizeevent("")
+        win1.setgeometry( WinLeft, WinTop, WinWidth, WinHeight )
         label1.setgeometry( BoxLeft, BoxTop, BoxWidth, BoxHeight )
+	myfilter.setresizeevent(cResizeEvent)
+	win1.show()
 
 
 
