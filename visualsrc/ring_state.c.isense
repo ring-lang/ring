@@ -51,12 +51,12 @@ Mark: ->
 RingState *
 RING_STATE_CHECKPRINTRULES
 RING_VERSION
+GetCurrentDir
+GetCurrentDir
 Type: int
 nRingStateDEBUGSEGFAULT
 Type: int
 nRingStateCGI
-GetCurrentDir
-GetCurrentDir
 ring_state_new
 Type: RingState *
 pRingState
