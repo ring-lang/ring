@@ -211,7 +211,7 @@ Environment Errors
 * Error (E1) : Caught SegFault
 * Error (E2) : Out of Memory
 * Error (E3) : Deleting scope while no scope!
-
+* Error (E4) : Long VM Instruction!
 
 .. index:: 
 	pair: Reference; Language Grammar
