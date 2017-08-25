@@ -1982,3 +1982,10 @@ The next screen shot for the SuperMan Game
 
 .. image:: fedora3.png
 	:alt: Ring on Fedora 3
+
+* Calculator Application : Updated to include more features!
+
+Screen Shot:
+
+.. image:: newcalc.png
+	:alt: Ring Calculator
