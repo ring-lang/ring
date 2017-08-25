@@ -30,11 +30,15 @@ You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
 
 The next steps explains building using scripts.
 
-We provide instructions for
-(1) Building using Microsoft Windows 
-(2) Building using Ubuntu Linux
-(3) Building using Fedora Linux
-(4) Building using MacOS X
+We provide instructions for building on the next platforms :-
+
+(1) Microsoft Windows 
+
+(2) Ubuntu Linux
+
+(3) Fedora Linux
+
+(4) MacOS X
 
 ## Building using Microsoft Windows 
 
