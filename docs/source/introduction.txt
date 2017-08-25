@@ -195,6 +195,7 @@ The Ring language comes with the next features
 	* Used to Support Qt by creating RingQt
 * Create 2D Games for Desktop and Mobile (Using the Allegro Library or the LibSDL Library)
 * Comes with simple Game Engine for 2D Games
+* Support FreeGLUT and OpenGL for 3D Graphics
 * Create GUI Applications for Desktop and Mobile (Using the Qt Framework)
 * Comes with IDE contains the Code Editor (Ring Notepad) and the Form Designer
 
@@ -206,7 +207,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.5.1
+Version 1.5.2
 
 The MIT License (MIT)
 
