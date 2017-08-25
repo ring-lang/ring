@@ -39,10 +39,13 @@
 #define RING_SHOWIC 0
 #define RING_RUNVM 1
 #define RING_VMSHOWOPCODE 1
-#define RING_OOM "\nError : Out of Memory\n"
 #ifndef NDEBUG
 #define NDEBUG
 #endif
+/* Environment Errors */
+#define RING_SEGFAULT "\nError (E1) : Caught SegFault\n"
+#define RING_OOM "\nError (E2) : Out of Memory\n"
+#define RING_NOSCOPE "\nError (E3) : Deleting scope while no scope! \n"
 /*
 **  Include Files 
 **  Include C Headers 
