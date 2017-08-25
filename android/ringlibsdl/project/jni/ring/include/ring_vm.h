@@ -6,6 +6,7 @@
 **  Stack Size 
 */
 #define RING_VM_STACK_SIZE 256
+#define RING_VM_STACK_CHECKOVERFLOW 253
 #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
 #define RING_VM_BC_ITEMS_COUNT 16
 typedef struct ByteCode {
