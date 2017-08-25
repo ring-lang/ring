@@ -101,7 +101,7 @@ RING_API void ring_item_settype ( Item *pItem,int ItemType )
 			break ;
 		case ITEMTYPE_STRING :
 			pItem->nType = ITEMTYPE_STRING ;
-			pItem->data.pString = ring_string_new("                               ");
+			pItem->data.pString = ring_string_new("");
 			break ;
 		case ITEMTYPE_NUMBER :
 			pItem->nType = ITEMTYPE_NUMBER ;
