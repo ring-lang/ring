@@ -11,6 +11,7 @@ In this chapter we will learn about
 * Language Functions
 * Compiler Errors
 * Runtime Errors
+* Environment Errors
 * Language Grammar
 * Virtual Machine (VM) Instructions
 
@@ -200,6 +201,17 @@ Runtime Errors
 * Error (R36) : The column number is not correct! It's greater than the number of columns in the list
 * Error (R37) : Sorry, The command is not supported in this context
 * Error (R38) : Runtime Error in loading the dynamic library!
+
+.. index:: 
+	pair: Reference; Environment Errors
+
+Environment Errors
+==================
+
+* Error (E1) : Caught SegFault
+* Error (E2) : Out of Memory
+* Error (E3) : Deleting scope while no scope!
+
 
 .. index:: 
 	pair: Reference; Language Grammar
