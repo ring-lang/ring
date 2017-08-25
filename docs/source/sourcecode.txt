@@ -273,6 +273,134 @@ Run Ring Notepad
 	ring rnote.ring
 
 .. index:: 
+	pair: Building From Source Code; Building using Fedora Linux
+
+Building using Fedora Linux
+===========================
+
+Get the source code
+
+.. code-block:: ring
+
+	git clone http://github.com/ring-lang/ring.git
+
+Install Libraries
+
+.. code-block:: ring
+
+	cd ring/src
+	./installdepfedora.sh 
+
+Build Ring (Compiler/VM)
+
+.. code-block:: ring
+
+	sudo ./buildgcc.sh
+
+Build RingODBC
+
+.. code-block:: ring
+	
+	cd ../extensions/ringodbc
+	./buildgcc.sh
+
+Build RingMySQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmysql
+	./buildgccfedora.sh
+
+Build RingSQLite
+
+.. code-block:: ring
+	
+	cd ../extensions/ringsqlite
+	./buildgcc.sh
+
+Build RingOpenSSL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopenssl
+	./buildgcc.sh
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	./buildgcc.sh
+	
+Generate RingAllegro Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingFreeGLUT Source Code and Build 
+
+.. code-block:: ring
+	
+	cd ../extensions/ringfreeglut
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+
+Starting from OpenGL 1.1 to OpenGL 4.6
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopengl/opengl21
+	gencode.sh
+	buildgcc.sh
+
+Generate RingQt Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringqt
+	./gencode.sh
+	./buildgccfedora.sh
+
+To be able to call ring from any folder
+
+.. code-block:: ring
+
+	cd ../../bin
+	sudo ./install.sh
+
+Run Ring Notepad
+
+.. code-block:: ring
+
+	cd applications/rnote
+	ring rnote.ring
+
+
+
+.. index:: 
 	pair: Building From Source Code; Building using MacOS X
 
 Building using MacOS X
