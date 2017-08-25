@@ -342,7 +342,7 @@ void ring_vm_fetch ( VM *pVM )
 	pVM->nOPCode = RING_VM_IR_OPCODE ;
 	pVM->nPC++ ;
 	ring_vm_execute(pVM);
-	if ( pVM->nSP > 253 ) {
+	if ( pVM->nSP > RING_VM_STACK_CHECKOVERFLOW ) {
 		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
 	}
 }
@@ -371,7 +371,7 @@ void ring_vm_fetch2 ( VM *pVM )
 		ring_print_line();
 	}
 	#endif
-	if ( pVM->nSP > 253 ) {
+	if ( pVM->nSP > RING_VM_STACK_CHECKOVERFLOW ) {
 		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
 	}
 }
@@ -856,6 +856,12 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 	#if RING_SHOWICFINAL
 	pByteCode->pList = pIR ;
 	#endif
+	/* Check Instruction Size */
+	if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT ) {
+		printf( RING_LONGINSTRUCTION ) ;
+		printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,x ) ;
+		exit(0);
+	}
 	for ( x2 = 1 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
 		pItem = ring_list_getitem(pIR,x2) ;
 		pByteCode->aData[x2-1] = pItem ;

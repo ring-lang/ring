@@ -46,6 +46,7 @@
 #define RING_SEGFAULT "\nError (E1) : Caught SegFault\n"
 #define RING_OOM "\nError (E2) : Out of Memory\n"
 #define RING_NOSCOPE "\nError (E3) : Deleting scope while no scope! \n"
+#define RING_LONGINSTRUCTION "\nError (E4) : Long VM Instruction! \n"
 /*
 **  Include Files 
 **  Include C Headers 

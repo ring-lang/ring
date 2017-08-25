@@ -856,6 +856,12 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 	#if RING_SHOWICFINAL
 	pByteCode->pList = pIR ;
 	#endif
+	/* Check Instruction Size */
+	if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT ) {
+		printf( RING_LONGINSTRUCTION ) ;
+		printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,x ) ;
+		exit(0);
+	}
 	for ( x2 = 1 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
 		pItem = ring_list_getitem(pIR,x2) ;
 		pByteCode->aData[x2-1] = pItem ;
