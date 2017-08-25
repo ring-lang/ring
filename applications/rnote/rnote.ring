@@ -1231,16 +1231,11 @@ Class RNote from WindowsControllerParent
 		pRunGUIOperation(cActiveFileName)
 
 	func pRunGUIOperation cActiveFileName
-		if iswindows()
-			oProcessEditbox.setplaintext("")
-			oProcessText.setFocus(0)
-			chdir(JustFilePath(cActiveFileName))
-			oProcess = pRunProcess(exefilename(),cActiveFileName,cpGetProcessData)
-			chdir(exefolder())
-		else
-			cCode = 'cd $(dirname "'+cActiveFileName+'") ; ' + ' ring "' + cActiveFileName + '"' + nl
-			system(cCode)
-		ok
+		oProcessEditbox.setplaintext("")
+		oProcessText.setFocus(0)
+		chdir(JustFilePath(cActiveFileName))
+		oProcess = pRunProcess(exefilename(),cActiveFileName,cpGetProcessData)
+		chdir(exefolder())
 
 	func pSave
 		if cActiveFileName = NULL return pSaveAs() ok
@@ -1740,16 +1735,11 @@ Class RNote from WindowsControllerParent
 		RunTool(cFormFileName)
 
 	func RunTool cFileName
-		if iswindows()
-			oProcessEditbox.setplaintext("")
-			oProcessText.setFocus(0)
-			chdir(JustFilePath(cFileName))
-			oProcess = pRunProcess(exefilename(),cFileName,cpGetProcessData)
-			chdir(exefolder())
-		else
-			cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
-			system(cCode)
-		ok		
+		oProcessEditbox.setplaintext("")
+		oProcessText.setFocus(0)
+		chdir(JustFilePath(cFileName))
+		oProcess = pRunProcess(exefilename(),cFileName,cpGetProcessData)
+		chdir(exefolder())
 
 	func RunToolConsole cFileName
 		if iswindows()
