@@ -295,7 +295,9 @@ MyApp = New qApp
         }
  
         ###--------------------------
-        
+
+        edit1.setfocus(0)
+
         show()
     }  
     
