@@ -411,3 +411,19 @@ https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Prog
 * The Ring Programming Language : 
 https://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language
 
+
+.. image:: ringnatural.png
+	:alt: NLP in Ring
+
+.. index:: 
+	pair: Applications developed in little hours; Practical
+
+Practical
+=========
+
+Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) and 
+the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language 
+itself. Ring is ready for use in production and increase the developers productivity. 
+
+.. image:: ringformdesigner.png
+	:alt: Ring Form Designer
