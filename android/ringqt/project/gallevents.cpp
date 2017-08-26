@@ -195,8 +195,7 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
  		return this->lEventOutput;
     	}
 
-
-	if ((event->type() == QEvent::KeyPress) && (strcmp(this->cKeyPressFunc,"")!=0) ) {
+	else if ((event->type() == QEvent::KeyPress) && (strcmp(this->cKeyPressFunc,"")!=0) ) {
 	        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 		this->nKeyCode = keyEvent->key();
 		this->nModifiers = keyEvent->modifiers();
