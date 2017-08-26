@@ -218,19 +218,6 @@ Author : Gal Zsolt (CalmoSoft)
 	:alt: Ring Application
 
 .. index:: 
-	pair: Applications developed in little hours; TicTacToe Game
-
-TicTacToe Game
-==============
-
-URL : https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/TecTacToe.ring
-
-Author : Abdelrahman Mohammed
-
-.. image:: tictactoe.jpg
-	:alt: Ring Application
-
-.. index:: 
 	pair: Applications developed in little hours; Analog Clock
 
 Analog Clock
@@ -241,6 +228,19 @@ URL : https://github.com/ring-lang/ring/blob/master/applications/analogclock/Ana
 Author : Bert Mariani
 
 .. image:: analogclock.png
+	:alt: Ring Application
+
+.. index:: 
+	pair: Applications developed in little hours; TicTacToe Game
+
+TicTacToe Game
+==============
+
+URL : https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/TecTacToe.ring
+
+Author : Abdelrahman Mohammed
+
+.. image:: tictactoe.jpg
 	:alt: Ring Application
 
 .. index:: 
@@ -260,56 +260,7 @@ which is moving squares to get the real full shape of the original picture.
 This game could be played using mouse and keyboard as well, showing a message of congratulations at the successful solving.
 
 .. image:: ringapps_shot2.png
-	:width: 200pt
-	:height: 200pt
 	:alt: Ring Application
-
-.. index:: 
-	pair: Applications developed in little hours; Werdy Application
-
-
-Werdy Application
-=================
-
-URL : http://werdy.info
-
-Source Code : https://github.com/magdy-ragab/werdy
-
-Author : Magdy Ragab
-
-Quran application includes reading suras, searching and bookmarking.
-
-The applcation is provided for Windows, Linux and Android.
-
-.. image:: ringapps_shot1.png
-	:width: 300pt
-	:height: 300pt
-	:alt: Ring Application
-
-.. index:: 
-	pair:  Applications developed in little hours; Windows StartUp Manager Application
-
-Windows StartUp Manager Application
-===================================
-
-URL : https://github.com/ring-lang/WinStartupManager
-
-Author : Majdi Sobain
-
-Windows Startup Manager is an application that has the ability to let 
-the user control what programs should start at Windows booting time. 
-It gives you the ability to show, edit, delete, or even add new programs
-entries to be lunched at Windows booting time.
-
-It is specialized at managing Windows startup entries that are stored in
-Windows Registry only, but provides a quick option to edit programs 
-shortcuts type entries.
-
-Screen Shot:
-
-.. image:: winstartupman.jpg
-	:alt: Windows Startup Manager
-
 
 .. index:: 
 	pair: Applications developed in little hours; Sixteen Puzzle Game
@@ -361,6 +312,52 @@ Screen Shot:
 
 .. image:: newcalc2.png
 	:alt: Ring Calculator
+
+
+.. index:: 
+	pair:  Applications developed in little hours; Windows StartUp Manager Application
+
+Windows StartUp Manager Application
+===================================
+
+URL : https://github.com/ring-lang/WinStartupManager
+
+Author : Majdi Sobain
+
+Windows Startup Manager is an application that has the ability to let 
+the user control what programs should start at Windows booting time. 
+It gives you the ability to show, edit, delete, or even add new programs
+entries to be lunched at Windows booting time.
+
+It is specialized at managing Windows startup entries that are stored in
+Windows Registry only, but provides a quick option to edit programs 
+shortcuts type entries.
+
+Screen Shot:
+
+.. image:: winstartupman.jpg
+	:alt: Windows Startup Manager
+
+.. index:: 
+	pair: Applications developed in little hours; Werdy Application
+
+Werdy Application
+=================
+
+URL : http://werdy.info
+
+Source Code : https://github.com/magdy-ragab/werdy
+
+Author : Magdy Ragab
+
+Quran application includes reading suras, searching and bookmarking.
+
+The applcation is provided for Windows, Linux and Android.
+
+.. image:: ringapps_shot1.png
+	:width: 300pt
+	:height: 300pt
+	:alt: Ring Application
 
 
 .. index:: 
