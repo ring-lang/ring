@@ -316,6 +316,15 @@ URL : https://github.com/ring-lang/WinStartupManager
 
 Author : Majdi Sobain
 
+Windows Startup Manager is an application that has the ability to let 
+the user control what programs should start at Windows booting time. 
+It gives you the ability to show, edit, delete, or even add new programs
+entries to be lunched at Windows booting time.
+
+It is specialized at managing Windows startup entries that are stored in
+Windows Registry only, but provides a quick option to edit programs 
+shortcuts type entries.
+
 Screen Shot:
 
 .. image:: winstartupman.jpg
@@ -336,6 +345,20 @@ Screen Shot:
 
 .. image:: sixteenpuzzle.jpg
 	:alt: Sixteen Puzzle
+
+
+.. index:: 
+	pair: Applications developed in little hours; Video-Music-Player Application
+
+Video-Music-Player Application
+==============================
+
+Author : Bert Mariani
+
+Screen Shot:
+
+.. image:: videomusicplayer.jpg
+	:alt: Video Music Player
 
 
 .. index:: 
