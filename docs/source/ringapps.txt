@@ -365,22 +365,49 @@ The next screen shots for simple 2D Games that we will present in the Game Engin
 Stars Fighter Game
 
 .. image:: starsfighter.png
-	:width: 250pt
-	:height: 150pt
+	:width: 450pt
+	:height: 350pt
 	:alt: Ring Application
 
 Flappy Bird 3000 Game
 
 .. image:: flappybird.png
-	:width: 250pt
-	:height: 150pt
+	:width: 450pt
+	:height: 350pt
 	:alt: Ring Application
 
 Super Man 2016 Game
 
 .. image:: superman.png
-	:width: 250pt
-	:height: 150pt
+	:width: 450pt
+	:height: 350pt
 	:alt: Ring Application
 
+
+.. index:: 
+	pair: Applications developed in little hours; Innovative
+
+Innovative
+==========
+
+The language comes with better support for Natural Language Programming and 
+Declarative Programming. The innovation comes in supporting these paradigms 
+with new practical techniques on the top of Object-Oriented Programming and 
+Functional Programming. No need to know anything about (Compilers and Parsing). 
+You get the language constructs ready for use to create domain-specific languages 
+in a fraction of time. 
+
+Articles:-
+
+* Natural Language Programming Library : 
+https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP
+
+* Natural Language Programming : 
+https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi
+
+* Syntax Flexibility : 
+https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Programming-Languag
+
+* The Ring Programming Language : 
+https://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language
 
