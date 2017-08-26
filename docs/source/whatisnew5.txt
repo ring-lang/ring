@@ -1966,6 +1966,7 @@ What is new in Ring 1.5.2?
 * Calculator Application - Updated to include more features!
 * RingVM - Classification for Environment Errors (Check Chapter : Language Reference)
 * RingQt - New methods added to QAllEvents for faster Events execution
+* RingQt - Fusion Black Style - Better colors for disabled controls
 * Scripts - For building Ring on Fedora Linux (Check Chapter : Building From Source Code)
 
 Screen Shot:
