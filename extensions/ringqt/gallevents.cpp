@@ -166,6 +166,128 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
  		return this->lEventOutput;
     	}
 
+
+	if ((event->type() == QEvent::KeyPress) && (strcmp(this->cKeyPressFunc,"")!=0) ) {
+	        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+		this->nKeyCode = keyEvent->key();
+		this->nModifiers = keyEvent->modifiers();
+		this->callKeyPressFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::MouseButtonPress) && (strcmp(this->cMouseButtonPressFunc,"")!=0) ) {
+		this->storeMouseState(event);
+		this->callMouseButtonPressFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::MouseButtonRelease) && (strcmp(this->cMouseButtonReleaseFunc,"")!=0) ) {
+		this->storeMouseState(event);
+		this->callMouseButtonReleaseFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::MouseButtonDblClick) && (strcmp(this->cMouseButtonDblClickFunc,"")!=0) ) {
+		this->storeMouseState(event);
+		this->callMouseButtonDblClickFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::MouseMove) && (strcmp(this->cMouseMoveFunc,"")!=0) ) {
+		this->storeMouseState(event);
+		this->callMouseMoveFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::Close) && (strcmp(this->cCloseFunc,"")!=0) ) {
+		this->callCloseFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::ContextMenu) && (strcmp(this->cContextMenuFunc,"")!=0) ) {
+		this->callContextMenuFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::DragEnter) && (strcmp(this->cDragEnterFunc,"")!=0) ) {
+		this->callDragEnterFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::DragLeave) && (strcmp(this->cDragLeaveFunc,"")!=0) ) {
+		this->callDragLeaveFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::DragMove) && (strcmp(this->cDragMoveFunc,"")!=0) ) {
+		this->callDragMoveFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::Drop) && (strcmp(this->cDropFunc,"")!=0) ) {
+		this->callDropFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::Enter) && (strcmp(this->cEnterFunc,"")!=0) ) {
+		this->callEnterFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::FocusIn) && (strcmp(this->cFocusInFunc,"")!=0) ) {
+		this->callFocusInFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::FocusOut) && (strcmp(this->cFocusOutFunc,"")!=0) ) {
+		this->callFocusOutFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::KeyRelease) && (strcmp(this->cKeyReleaseFunc,"")!=0) ) {
+		this->callKeyReleaseFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::Leave) && (strcmp(this->cLeaveFunc,"")!=0) ) {
+		this->callLeaveFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::NonClientAreaMouseButtonDblClick) && (strcmp(this->cNonClientAreaMouseButtonDblClickFunc,"")!=0) ) {
+		this->callNonClientAreaMouseButtonDblClickFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::NonClientAreaMouseButtonPress) && (strcmp(this->cNonClientAreaMouseButtonPressFunc,"")!=0) ) {
+		this->callNonClientAreaMouseButtonPressFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::NonClientAreaMouseButtonRelease) && (strcmp(this->cNonClientAreaMouseButtonReleaseFunc,"")!=0) ) {
+		this->callNonClientAreaMouseButtonReleaseFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::NonClientAreaMouseMove) && (strcmp(this->cNonClientAreaMouseMoveFunc,"")!=0) ) {
+		this->callNonClientAreaMouseMoveFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::Move) && (strcmp(this->cMoveFunc,"")!=0) ) {
+		this->callMoveFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::Resize) && (strcmp(this->cResizeFunc,"")!=0) ) {
+		this->callResizeFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::WindowActivate) && (strcmp(this->cWindowActivateFunc,"")!=0) ) {
+		this->callWindowActivateFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::WindowBlocked) && (strcmp(this->cWindowBlockedFunc,"")!=0) ) {
+		this->callWindowBlockedFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::WindowDeactivate) && (strcmp(this->cWindowDeactivateFunc,"")!=0) ) {
+		this->callWindowDeactivateFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::WindowStateChange) && (strcmp(this->cWindowStateChangeFunc,"")!=0) ) {
+		this->callWindowStateChangeFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::WindowUnblocked) && (strcmp(this->cWindowUnblockedFunc,"")!=0) ) {
+		this->callWindowUnblockedFunc();
+ 		return this->lEventOutput;
+    	}
+        else if ((event->type() == QEvent::Paint) && (strcmp(this->cPaintFunc,"")!=0) ) {
+		this->callPaintFunc();
+ 		return this->lEventOutput;
+    	}
+
+
 	return false;
 }
 
@@ -752,3 +874,512 @@ QWidget *GAllEvents::getParentWidget(void)
 {
 	return this->pParentWidget;
 }
+
+
+// Using Function Call Directly Instead of Eval()
+
+void GAllEvents::setKeyPressFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cKeyPressFunc,cStr);
+}
+
+
+void GAllEvents::callKeyPressFunc(void)
+{
+	if (strcmp(this->cKeyPressFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cKeyPressFunc);
+}
+
+void GAllEvents::setMouseButtonPressFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cMouseButtonPressFunc,cStr);
+}
+
+void GAllEvents::callMouseButtonPressFunc(void)
+{
+	if (strcmp(this->cMouseButtonPressFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cMouseButtonPressFunc);
+}
+
+void GAllEvents::setMouseButtonReleaseFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cMouseButtonReleaseFunc,cStr);
+}
+
+void GAllEvents::callMouseButtonReleaseFunc(void)
+{
+	if (strcmp(this->cMouseButtonReleaseFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cMouseButtonReleaseFunc);
+}
+
+void GAllEvents::setMouseButtonDblClickFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cMouseButtonDblClickFunc,cStr);
+}
+
+void GAllEvents::callMouseButtonDblClickFunc(void)
+{
+	if (strcmp(this->cMouseButtonDblClickFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cMouseButtonDblClickFunc);
+}
+
+void GAllEvents::setMouseMoveFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cMouseMoveFunc,cStr);
+}
+
+void GAllEvents::callMouseMoveFunc(void)
+{
+	if (strcmp(this->cMouseMoveFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cMouseMoveFunc);
+}
+
+void GAllEvents::setCloseFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cCloseFunc,cStr);
+}
+
+void GAllEvents::callCloseFunc(void)
+{
+	if (strcmp(this->cCloseFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cCloseFunc);
+}
+
+void GAllEvents::setContextMenuFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cContextMenuFunc,cStr);
+}
+
+void GAllEvents::callContextMenuFunc(void)
+{
+	if (strcmp(this->cContextMenuFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cContextMenuFunc);
+}
+
+void GAllEvents::setDragEnterFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cDragEnterFunc,cStr);
+}
+
+void GAllEvents::callDragEnterFunc(void)
+{
+	if (strcmp(this->cDragEnterFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cDragEnterFunc);
+}
+
+void GAllEvents::setDragLeaveFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cDragLeaveFunc,cStr);
+}
+
+void GAllEvents::callDragLeaveFunc(void)
+{
+	if (strcmp(this->cDragLeaveFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cDragLeaveFunc);
+}
+
+void GAllEvents::setDragMoveFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cDragMoveFunc,cStr);
+}
+
+void GAllEvents::callDragMoveFunc(void)
+{
+	if (strcmp(this->cDragMoveFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cDragMoveFunc);
+}
+
+void GAllEvents::setDropFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cDropFunc,cStr);
+}
+
+void GAllEvents::callDropFunc(void)
+{
+	if (strcmp(this->cDropFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cDropFunc);
+}
+
+void GAllEvents::setEnterFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cEnterFunc,cStr);
+}
+
+void GAllEvents::callEnterFunc(void)
+{
+	if (strcmp(this->cEnterFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cEnterFunc);
+}
+
+void GAllEvents::setFocusInFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cFocusInFunc,cStr);
+}
+
+void GAllEvents::callFocusInFunc(void)
+{
+	if (strcmp(this->cFocusInFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cFocusInFunc);
+}
+
+void GAllEvents::setFocusOutFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cFocusOutFunc,cStr);
+}
+
+void GAllEvents::callFocusOutFunc(void)
+{
+	if (strcmp(this->cFocusOutFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cFocusOutFunc);
+}
+
+void GAllEvents::setKeyReleaseFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cKeyReleaseFunc,cStr);
+}
+
+void GAllEvents::callKeyReleaseFunc(void)
+{
+	if (strcmp(this->cKeyReleaseFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cKeyReleaseFunc);
+}
+
+void GAllEvents::setLeaveFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cLeaveFunc,cStr);
+}
+
+void GAllEvents::callLeaveFunc(void)
+{
+	if (strcmp(this->cLeaveFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cLeaveFunc);
+}
+
+void GAllEvents::setNonClientAreaMouseButtonDblClickFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cNonClientAreaMouseButtonDblClickFunc,cStr);
+}
+
+void GAllEvents::callNonClientAreaMouseButtonDblClickFunc(void)
+{
+	if (strcmp(this->cNonClientAreaMouseButtonDblClickFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cNonClientAreaMouseButtonDblClickFunc);
+}
+
+void GAllEvents::setNonClientAreaMouseButtonPressFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cNonClientAreaMouseButtonPressFunc,cStr);
+}
+
+void GAllEvents::callNonClientAreaMouseButtonPressFunc(void)
+{
+	if (strcmp(this->cNonClientAreaMouseButtonPressFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cNonClientAreaMouseButtonPressFunc);
+}
+
+void GAllEvents::setNonClientAreaMouseButtonReleaseFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cNonClientAreaMouseButtonReleaseFunc,cStr);
+}
+
+void GAllEvents::callNonClientAreaMouseButtonReleaseFunc(void)
+{
+	if (strcmp(this->cNonClientAreaMouseButtonReleaseFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cNonClientAreaMouseButtonReleaseFunc);
+}
+
+void GAllEvents::setNonClientAreaMouseMoveFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cNonClientAreaMouseMoveFunc,cStr);
+}
+
+void GAllEvents::callNonClientAreaMouseMoveFunc(void)
+{
+	if (strcmp(this->cNonClientAreaMouseMoveFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cNonClientAreaMouseMoveFunc);
+}
+
+void GAllEvents::setMoveFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cMoveFunc,cStr);
+}
+
+void GAllEvents::callMoveFunc(void)
+{
+	if (strcmp(this->cMoveFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cMoveFunc);
+}
+
+void GAllEvents::setResizeFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cResizeFunc,cStr);
+}
+
+void GAllEvents::callResizeFunc(void)
+{
+	if (strcmp(this->cResizeFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cResizeFunc);
+}
+
+void GAllEvents::setWindowActivateFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cWindowActivateFunc,cStr);
+}
+
+void GAllEvents::callWindowActivateFunc(void)
+{
+	if (strcmp(this->cWindowActivateFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cWindowActivateFunc);
+}
+
+void GAllEvents::setWindowBlockedFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cWindowBlockedFunc,cStr);
+}
+
+void GAllEvents::callWindowBlockedFunc(void)
+{
+	if (strcmp(this->cWindowBlockedFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cWindowBlockedFunc);
+}
+
+void GAllEvents::setWindowDeactivateFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cWindowDeactivateFunc,cStr);
+}
+
+void GAllEvents::callWindowDeactivateFunc(void)
+{
+	if (strcmp(this->cWindowDeactivateFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cWindowDeactivateFunc);
+}
+
+void GAllEvents::setWindowStateChangeFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cWindowStateChangeFunc,cStr);
+}
+
+void GAllEvents::callWindowStateChangeFunc(void)
+{
+	if (strcmp(this->cWindowStateChangeFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cWindowStateChangeFunc);
+}
+
+void GAllEvents::setWindowUnblockedFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cWindowUnblockedFunc,cStr);
+}
+
+void GAllEvents::callWindowUnblockedFunc(void)
+{
+	if (strcmp(this->cWindowUnblockedFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cWindowUnblockedFunc);
+}
+
+void GAllEvents::setPaintFunc(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cPaintFunc,cStr);
+}
+
+void GAllEvents::callPaintFunc(void)
+{
+	if (strcmp(this->cPaintFunc,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cPaintFunc);
+}
+
+const char *GAllEvents::getKeyPressFunc(void)
+{
+	return this->cKeyPressFunc  ;
+}
+
+const char *GAllEvents::getMouseButtonPressFunc(void)
+{
+	return this->cMouseButtonPressFunc  ;
+}
+
+const char *GAllEvents::getMouseButtonReleaseFunc(void)
+{
+	return this->cMouseButtonReleaseFunc  ;
+}
+
+const char *GAllEvents::getMouseButtonDblClickFunc(void)
+{
+	return this->cMouseButtonDblClickFunc  ;
+}
+
+const char *GAllEvents::getMouseMoveFunc(void)
+{
+	return this->cMouseMoveFunc  ;
+}
+
+const char *GAllEvents::getCloseFunc(void)
+{
+	return this->cCloseFunc  ;
+}
+
+const char *GAllEvents::getContextMenuFunc(void)
+{
+	return this->cContextMenuFunc  ;
+}
+
+const char *GAllEvents::getDragEnterFunc(void)
+{
+	return this->cDragEnterFunc  ;
+}
+
+const char *GAllEvents::getDragLeaveFunc(void)
+{
+	return this->cDragLeaveFunc ;
+}
+
+const char *GAllEvents::getDragMoveFunc(void)
+{
+	return this->cDragMoveFunc  ;
+}
+
+const char *GAllEvents::getDropFunc(void)
+{
+	return this->cDropFunc  ;
+}
+
+const char *GAllEvents::getEnterFunc(void)
+{
+	return this->cEnterFunc  ;
+}
+
+const char *GAllEvents::getFocusInFunc(void)
+{
+	return this->cFocusInFunc  ;
+}
+
+const char *GAllEvents::getFocusOutFunc(void)
+{
+	return this->cFocusOutFunc  ;
+}
+
+const char *GAllEvents::getKeyReleaseFunc(void)
+{
+	return this->cKeyReleaseFunc  ;
+}
+
+const char *GAllEvents::getLeaveFunc(void)
+{
+	return this->cLeaveFunc  ;
+}
+
+const char *GAllEvents::getNonClientAreaMouseButtonDblClickFunc(void)
+{
+	return this->cNonClientAreaMouseButtonDblClickFunc  ;
+}
+
+const char *GAllEvents::getNonClientAreaMouseButtonPressFunc(void)
+{
+	return this->cNonClientAreaMouseButtonPressFunc  ;
+}
+
+const char *GAllEvents::getNonClientAreaMouseButtonReleaseFunc(void)
+{
+	return this->cNonClientAreaMouseButtonReleaseFunc  ;
+}
+
+const char *GAllEvents::getNonClientAreaMouseMoveFunc(void)
+{
+	return this->cNonClientAreaMouseMoveFunc  ;
+}
+
+const char *GAllEvents::getMoveFunc(void)
+{
+	return this->cMoveFunc  ;
+}
+
+const char *GAllEvents::getResizeFunc(void)
+{
+	return this->cResizeFunc  ;
+}
+
+const char *GAllEvents::getWindowActivateFunc(void)
+{
+	return this->cWindowActivateFunc  ;
+}
+
+const char *GAllEvents::getWindowBlockedFunc(void)
+{
+	return this->cWindowBlockedFunc  ;
+}
+
+const char *GAllEvents::getWindowDeactivateFunc(void)
+{
+	return this->cWindowDeactivateFunc  ;
+}
+
+const char *GAllEvents::getWindowStateChangeFunc(void)
+{
+	return this->cWindowStateChangeFunc  ;
+}
+
+const char *GAllEvents::getWindowUnblockedFunc(void)
+{
+	return this->cWindowUnblockedFunc  ;
+}
+
+const char *GAllEvents::getPaintFunc(void)
+{
+	return this->cPaintFunc  ;
+}
+
