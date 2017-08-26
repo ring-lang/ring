@@ -291,6 +291,10 @@ RING_FUNC(ring_QApp_styleFusionBlack)
 
 	palette.setColor(QPalette::Highlight, QColor(142,45,197).lighter());
 	palette.setColor(QPalette::HighlightedText, Qt::black);
+
+	palette.setColor(QPalette::Disabled, QPalette::Text, Qt::darkGray);
+	palette.setColor(QPalette::Disabled, QPalette::ButtonText, Qt::darkGray);
+
 	qApp->setPalette(palette);
 }
 
