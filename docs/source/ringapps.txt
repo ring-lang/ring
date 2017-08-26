@@ -362,7 +362,7 @@ Updated Version by Gal Zsolt and Bert Mariani
 
 Screen Shot:
 
-.. image:: newcalc.png
+.. image:: newcalc2.png
 	:alt: Ring Calculator
 
 
