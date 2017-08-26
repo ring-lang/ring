@@ -205,20 +205,17 @@ Another screen shot (MacOS X)
 	:alt: GetQuotesHistory on MacOS X
 
 .. index:: 
-	pair: Applications developed in little hours; Fifteen Puzzle Game
+	pair: Applications developed in little hours; Fifteen Puzzle Game 2
 
-Fifteen Puzzle Game
-===================
+Fifteen Puzzle Game 2
+=====================
 
-URL : https://github.com/CalmoSoft/CalmoSoft-Fifteen-Puzzle-Game/blob/gh-pages/CalmoSoftPuzzle.ring
+URL : https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle/CalmoSoftFifteenPuzzleGame.ring
 
 Author : Gal Zsolt (CalmoSoft)
 
-.. image:: ringapps_shot6.jpg
-	:width: 200pt
-	:height: 200pt
+.. image:: fifteen2.png
 	:alt: Ring Application
-
 
 .. index:: 
 	pair: Applications developed in little hours; TicTacToe Game
@@ -235,6 +232,18 @@ Author : Abdelrahman Mohammed
 	:height: 200pt
 	:alt: Ring Application
 
+.. index:: 
+	pair: Applications developed in little hours; Analog Clock
+
+Analog Clock
+============
+
+URL : https://github.com/ring-lang/ring/blob/master/applications/analogclock/AnalogClock-Image.ring
+
+Author : Bert Mariani
+
+.. image:: analogclock.png
+	:alt: Ring Application
 
 .. index:: 
 	pair: Applications developed in little hours; Squares Puzzle Game
@@ -258,19 +267,6 @@ This game could be played using mouse and keyboard as well, showing a message of
 	:alt: Ring Application
 
 .. index:: 
-	pair: Applications developed in little hours; Analog Clock
-
-Analog Clock
-============
-
-URL : https://github.com/ring-lang/ring/blob/master/applications/analogclock/AnalogClock-Image.ring
-
-Author : Bert Mariani
-
-.. image:: analogclock.png
-	:alt: Ring Application
-
-.. index:: 
 	pair: Applications developed in little hours; Werdy Application
 
 
@@ -291,20 +287,6 @@ The applcation is provided for Windows, Linux and Android.
 	:width: 300pt
 	:height: 300pt
 	:alt: Ring Application
-
-.. index:: 
-	pair: Applications developed in little hours; Fifteen Puzzle Game 2
-
-Fifteen Puzzle Game 2
-=====================
-
-URL : https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle/CalmoSoftFifteenPuzzleGame.ring
-
-Author : Gal Zsolt (CalmoSoft)
-
-.. image:: fifteen2.png
-	:alt: Ring Application
-
 
 .. index:: 
 	pair:  Applications developed in little hours; Windows StartUp Manager Application
