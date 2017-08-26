@@ -1962,6 +1962,7 @@ What is new in Ring 1.5.2?
 * Form Designer - Help Menu - Open CHM/PDF files without displaying the console window
 * Form Designer - Better response to Resize/Move Events when moving the Mouse quickly
 * Form Designer - New/Open/Save As, will open the Controller class in Ring Notepad 
+* Form Designer - New option added to the file menu "Close Form"
 * Ring Notepad  - Run, will save the current file (Also the opened Form) automatically
 * GetQuotesHistory Application - Updated to work on MacOS X and Qt 5.2
 * Calculator Application - Updated to include more features!
