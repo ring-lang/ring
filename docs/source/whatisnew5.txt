@@ -1964,7 +1964,7 @@ What is new in Ring 1.5.2?
 * GetQuotesHistory Application - Updated to work on MacOS X and Qt 5.2
 * RingVM - Classification for Environment Errors (Check Chapter : Language Reference)
 * Calculator Application - Updated to include more features!
-* Scripts - For building Ring from source code on Fedora Linux
+* Scripts - For building Ring on Fedora Linux (Check Chapter : Building From Source Code)
 
 Screen Shot:
 
