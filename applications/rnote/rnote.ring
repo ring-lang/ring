@@ -1353,12 +1353,15 @@ Class RNoteController from WindowsControllerParent
 			this.pSaveCurrentFolder()
 			cName = getopenfilename(this.win1,"open file",this.cStartupFolder,"source files(*.ring)")
 			if cName != NULL
-				this.cActiveFileName = cName
-				this.textedit1.setPlaintext(read(this.cActiveFileName))
-				this.pSetActiveFileName()
+				this.openFile(cName)
 				this.oDockSourceCode.raise()
 			ok
 		}
+
+	func OpenFile cName
+		this.cActiveFileName = cName
+		this.textedit1.setPlaintext(read(this.cActiveFileName))
+		this.pSetActiveFileName()
 
 	func pNew
 		new qfiledialog(this.win1) {
