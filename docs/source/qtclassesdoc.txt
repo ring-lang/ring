@@ -3829,6 +3829,62 @@ Parent Class : QWidget
 * void setEventOutput(bool x)
 * QObject *getParentObject(void)
 * QWidget *getParentWidget(void)
+* void setKeyPressFunc(const char *cStr)
+* void setMouseButtonPressFunc(const char *cStr)
+* void setMouseButtonReleaseFunc(const char *cStr)
+* void setMouseButtonDblClickFunc(const char *cStr)
+* void setMouseMoveFunc(const char *cStr)
+* void setCloseFunc(const char *cStr)
+* void setContextMenuFunc(const char *cStr)
+* void setDragEnterFunc(const char *cStr)
+* void setDragLeaveFunc(const char *cStr)
+* void setDragMoveFunc(const char *cStr)
+* void setDropFunc(const char *cStr)
+* void setEnterFunc(const char *cStr)
+* void setFocusInFunc(const char *cStr)
+* void setFocusOutFunc(const char *cStr)
+* void setKeyReleaseFunc(const char *cStr)
+* void setLeaveFunc(const char *cStr)
+* void setNonClientAreaMouseButtonDblClickFunc(const char *cStr)
+* void setNonClientAreaMouseButtonPressFunc(const char *cStr)
+* void setNonClientAreaMouseButtonReleaseFunc(const char *cStr)
+* void setNonClientAreaMouseMoveFunc(const char *cStr)
+* void setMoveFunc(const char *cStr)
+* void setResizeFunc(const char *cStr)
+* void setWindowActivateFunc(const char *cStr)
+* void setWindowBlockedFunc(const char *cStr)
+* void setWindowDeactivateFunc(const char *cStr)
+* void setWindowStateChangeFunc(const char *cStr)
+* void setWindowUnblockedFunc(const char *cStr)
+* void setPaintFunc(const char *cStr)
+* const char *getKeyPressFunc(void)
+* const char *getMouseButtonPressFunc(void)
+* const char *getMouseButtonReleaseFunc(void)
+* const char *getMouseButtonDblClickFunc(void)
+* const char *getMouseMoveFunc(void)
+* const char *getCloseFunc(void)
+* const char *getContextMenuFunc(void)
+* const char *getDragEnterFunc(void)
+* const char *getDragLeaveFunc(void)
+* const char *getDragMoveFunc(void)
+* const char *getDropFunc(void)
+* const char *getEnterFunc(void)
+* const char *getFocusInFunc(void)
+* const char *getFocusOutFunc(void)
+* const char *getKeyReleaseFunc(void)
+* const char *getLeaveFunc(void)
+* const char *getNonClientAreaMouseButtonDblClickFunc(void)
+* const char *getNonClientAreaMouseButtonPressFunc(void)
+* const char *getNonClientAreaMouseButtonReleaseFunc(void)
+* const char *getNonClientAreaMouseMoveFunc(void)
+* const char *getMoveFunc(void)
+* const char *getResizeFunc(void)
+* const char *getWindowActivateFunc(void)
+* const char *getWindowBlockedFunc(void)
+* const char *getWindowDeactivateFunc(void)
+* const char *getWindowStateChangeFunc(void)
+* const char *getWindowUnblockedFunc(void)
+* const char *getPaintFunc(void)
 
 .. index::
 	pair: RingQt Classes Reference; QDesktopWidget Class
@@ -6602,9 +6658,6 @@ C++ Reference : http://doc.qt.io/qt-5/QBluetoothDeviceInfo.html
 Parameters : void
 
 * QBluetoothAddress address(void)
-* QBluetoothDeviceInfo::CoreConfigurations coreConfigurations(void)
-* QBluetoothUuid deviceUuid(void)
-* bool isCached(void)
 * bool isValid(void)
 * QBluetoothDeviceInfo::MajorDeviceClass majorDeviceClass(void)
 * quint8 minorDeviceClass(void)
@@ -6614,9 +6667,6 @@ Parameters : void
 * QList<QBluetoothUuid> serviceUuids(QBluetoothDeviceInfo::DataCompleteness *completeness)
 * QBluetoothDeviceInfo::DataCompleteness serviceUuidsCompleteness(void)
 * void setCached(bool cached)
-* void setCoreConfigurations(QBluetoothDeviceInfo::CoreConfigurations coreConfigs)
-* void setDeviceUuid(QBluetoothUuid uuid)
-* void setRssi(qint16 signal)
 * void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)
 
 .. index::
@@ -6649,263 +6699,3 @@ C++ Reference : http://doc.qt.io/qt-5/QBluetoothLocalDevice.html
 Parameters : QObject *
 
 * QBluetoothAddress address(void)
-* QList<QBluetoothAddress> connectedDevices(void)
-* QBluetoothLocalDevice::HostMode hostMode(void)
-* bool isValid(void)
-* QString name(void)
-* QBluetoothLocalDevice::Pairing pairingStatus(QBluetoothAddress address)
-* void powerOn(void)
-* void requestPairing(QBluetoothAddress address, QBluetoothLocalDevice::Pairing pairing)
-* void setHostMode(QBluetoothLocalDevice::HostMode mode)
-* void pairingConfirmation(bool accept)
-* QList<QBluetoothHostInfo> allDevices(void)
-* void setdeviceConnectedEvent(const char *)
-* void setdeviceDisconnectedEvent(const char *)
-* void seterrorEvent(const char *)
-* void sethostModeStateChangedEvent(const char *)
-* void setpairingDisplayConfirmationEvent(const char *)
-* void setpairingDisplayPinCodeEvent(const char *)
-* void setpairingFinishedEvent(const char *)
-* const char *getdeviceConnectedEvent(void)
-* const char *getdeviceDisconnectedEvent(void)
-* const char *geterrorEvent(void)
-* const char *gethostModeStateChangedEvent(void)
-* const char *getpairingDisplayConfirmationEvent(void)
-* const char *getpairingDisplayPinCodeEvent(void)
-* const char *getpairingFinishedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QBluetoothServer Class
-
-QBluetoothServer Class
-======================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothServer.html
-
-
-Parameters : QBluetoothServiceInfo::Protocol,QObject *
-
-
-Parent Class : QObject
-
-* void close(void)
-* QBluetoothServer::Error error(void)
-* bool hasPendingConnections(void)
-* bool isListening(void)
-* bool listen(QBluetoothAddress address, quint16 port)
-* QBluetoothServiceInfo listen_2(QBluetoothUuid uuid, QString serviceName))
-* int maxPendingConnections(void)
-* QBluetoothSocket * nextPendingConnection(void)
-* QBluetooth::SecurityFlags securityFlags(void)
-* QBluetoothAddress serverAddress(void)
-* quint16 serverPort(void)
-* QBluetoothServiceInfo::Protocol serverType(void)
-* void setMaxPendingConnections(int numConnections)
-* void setSecurityFlags(QBluetooth::SecurityFlags security)
-* void seterrorEvent(const char *)
-* void setnewConnectionEvent(const char *)
-* const char *geterrorEvent(void)
-* const char *getnewConnectionEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QBluetoothServiceDiscoveryAgent Class
-
-QBluetoothServiceDiscoveryAgent Class
-=====================================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothServiceDiscoveryAgent.html
-
-
-Parameters : QObject *
-
-
-Parent Class : QObject
-
-* QList<QBluetoothServiceInfo> discoveredServices(void)
-* QBluetoothServiceDiscoveryAgent::Error error(void)
-* QString errorString(void)
-* bool isActive(void)
-* QBluetoothAddress remoteAddress(void)
-* bool setRemoteAddress(QBluetoothAddress address)
-* void setUuidFilter(QList<QBluetoothUuid> uuids)
-* void setUuidFilter_2(QBluetoothUuid uuid)
-* QList<QBluetoothUuid> uuidFilter(void)
-* void clear(void)
-* void start(QBluetoothServiceDiscoveryAgent::DiscoveryMode mode)
-* void stop(void)
-* void setcanceledEvent(const char *)
-* void seterrorEvent(const char *)
-* void setfinishedEvent(const char *)
-* void setserviceDiscoveredEvent(const char *)
-* const char *getcanceledEvent(void)
-* const char *geterrorEvent(void)
-* const char *getfinishedEvent(void)
-* const char *getserviceDiscoveredEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QBluetoothServiceInfo Class
-
-QBluetoothServiceInfo Class
-===========================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothServiceInfo.html
-
-
-Parameters : void
-
-* QVariant attribute(quint16 attributeId)
-* QList<quint16> attributes(void)
-* bool contains(quint16 attributeId)
-* QBluetoothDeviceInfo device(void)
-* bool isComplete(void)
-* bool isRegistered(void)
-* bool isValid(void)
-* QBluetoothServiceInfo::Sequence protocolDescriptor(QBluetoothUuid::ProtocolUuid protocol)
-* int protocolServiceMultiplexer(void)
-* bool registerService(QBluetoothAddress localAdapter))
-* void removeAttribute(quint16 attributeId)
-* int serverChannel(void)
-* quint8 serviceAvailability(void)
-* QList<QBluetoothUuid> serviceClassUuids(void)
-* QString serviceDescription(void)
-* QString serviceName(void)
-* QString serviceProvider(void)
-* QBluetoothUuid serviceUuid(void)
-* void setAttribute(quint16 attributeId, QVariant value)
-* void setAttribute_2(quint16 attributeId, QBluetoothUuid value)
-* void setAttribute_3(quint16 attributeId, QBluetoothServiceInfo::Sequence value)
-* void setDevice(QBluetoothDeviceInfo device)
-* void setServiceAvailability(quint8 availability)
-* void setServiceDescription(QString description)
-* void setServiceName(QString name)
-* void setServiceProvider(QString provider)
-* void setServiceUuid(QBluetoothUuid uuid)
-* bool unregisterService(void)
-
-.. index::
-	pair: RingQt Classes Reference; QBluetoothSocket Class
-
-QBluetoothSocket Class
-======================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothSocket.html
-
-
-Parameters : QBluetoothServiceInfo::Protocol,QObject *
-
-
-Parent Class : QIODevice
-
-* void abort(void)
-* void connectToService(QBluetoothServiceInfo service, QIODevice::OpenMode openMode)
-* void connectToService_2(QBluetoothAddress address, QBluetoothUuid uuid, QIODevice::OpenMode openMode)
-* void connectToService_3(QBluetoothAddress address, quint16 port, QIODevice::OpenMode openMode)
-* void disconnectFromService(void)
-* QBluetoothSocket::SocketError error(void)
-* QString errorString(void)
-* QBluetoothAddress localAddress(void)
-* QString localName(void)
-* quint16 localPort(void)
-* QBluetoothAddress peerAddress(void)
-* QString peerName(void)
-* quint16 peerPort(void)
-* bool setSocketDescriptor(int socketDescriptor, QBluetoothServiceInfo::Protocol socketType, QBluetoothSocket::SocketState socketState, QIODevice::OpenMode openMode)
-* int socketDescriptor(void)
-* QBluetoothServiceInfo::Protocol socketType(void)
-* QBluetoothSocket::SocketState state(void)
-* void setconnectedEvent(const char *)
-* void setdisconnectedEvent(const char *)
-* void seterrorEvent(const char *)
-* void setstateChangedEvent(const char *)
-* const char *getconnectedEvent(void)
-* const char *getdisconnectedEvent(void)
-* const char *geterrorEvent(void)
-* const char *getstateChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QBluetoothTransferManager Class
-
-QBluetoothTransferManager Class
-===============================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothTransferManager.html
-
-
-Parameters : QObject *
-
-
-Parent Class : QObject
-
-* QBluetoothTransferReply * put(QBluetoothTransferRequest request, QIODevice *data)
-* void setfinishedEvent(const char *)
-* const char *getfinishedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QBluetoothTransferReply Class
-
-QBluetoothTransferReply Class
-=============================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothTransferReply.html
-
-
-Parameters : QObject *
-
-
-Parent Class : QObject
-
-* QBluetoothTransferManager * manager(void)
-* QBluetoothTransferRequest request(void)
-* void abort(void)
-* void seterrorEvent(const char *)
-* void setfinishedEvent(const char *)
-* void settransferProgressEvent(const char *)
-* const char *geterrorEvent(void)
-* const char *getfinishedEvent(void)
-* const char *gettransferProgressEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QBluetoothTransferRequest Class
-
-QBluetoothTransferRequest Class
-===============================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothTransferRequest.html
-
-
-Parameters : QBluetoothAddress
-
-* QBluetoothAddress address(void)
-* QVariant attribute(QBluetoothTransferRequest::Attribute code, QVariant defaultValue))
-* void setAttribute(QBluetoothTransferRequest::Attribute code, QVariant value)
-
-.. index::
-	pair: RingQt Classes Reference; QBluetoothUuid Class
-
-QBluetoothUuid Class
-====================
-
-
-C++ Reference : http://doc.qt.io/qt-5/QBluetoothUuid.html
-
-
-Parameters : void
-
-
-Parent Class : QUuid
-
-* int minimumSize(void)
-* quint16 toUInt16(bool *ok)
-* quint32 toUInt32(bool *ok)
-* quint128 toUInt128(void)
-* QString characteristicToString(QBluetoothUuid::CharacteristicType uuid)
-* QString descriptorToString(QBluetoothUuid::DescriptorType uuid)
-* QString protocolToString(QBluetoothUuid::ProtocolUuid uuid)
-* QString serviceClassToString(QBluetoothUuid::ServiceClassUuid uuid)
