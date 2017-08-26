@@ -117,6 +117,18 @@ myCrumb  = "abcdefghijklmnopqrstuvwxyz"
 
 
 ###---------------------------
+### date width 
+    DateBoxWidth = 70
+
+###---------------------------
+### Settings for MacOS X 
+    if isMacosx()
+        BoxLeft   	= 100
+        LBoxWidth 	= 100
+    ok
+
+
+###---------------------------
     Today       = Date()
     StartDate   = Date()
 
@@ -149,7 +161,7 @@ New qapp {
 
                 label1 = new qlabel(win1) {
                         setgeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
-                        settext("We are Here")
+                        //settext("We are Here")
 
                 }
 
@@ -158,7 +170,7 @@ New qapp {
 
                 label2 = new qlabel(win1) {
                         setgeometry(LBoxLeft, LBoxTop, LBoxWidth, LBoxHeight)
-                        settext("LeftBox")
+                        // settext("LeftBox")
 
                 }
 
