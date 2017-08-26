@@ -72,6 +72,24 @@ class FormDesignerFileSystem
 		}
 		return cInputFileName
 
+	func CloseAction oDesigner
+		# Delete objects
+			DeleteAllObjects(oDesigner)	
+		# No File Name
+			cFileName = "noname.rform"
+		# Default Properties
+			oDesigner.oView.oSub {
+				blocksignals(True)
+				move(100,100)
+				resize(400,400)
+				setWindowTitle("Form 1")
+				show()
+				blocksignals(False)
+			}
+			oDesigner.oModel.FormObject() {
+				setWindowTitle("Form 1")
+			}
+
 	func OpenAction oDesigner
 		# Get the file Name
 			cDir = ActiveDir(oDesigner)

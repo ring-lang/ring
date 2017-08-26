@@ -131,6 +131,13 @@ Class FormDesignerView from WindowsViewParent
 				addaction(oAction)
 				addseparator()
 				oAction = new qaction(this.win) {
+					settext("Close")
+					setstatustip("Close File")
+					setclickevent(Method(:CloseAction))
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qaction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+q"))
 					setbtnimage(self,"image/close.png")
 					settext("Exit")

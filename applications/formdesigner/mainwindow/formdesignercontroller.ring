@@ -1098,6 +1098,9 @@ class FormDesignerController from WindowsControllerParent
 	func SaveAsAction
 		oFile.SaveAsAction(self)
 
+	func CloseAction
+		oFile.CloseAction(self)
+
 	func ExitAction
 		if HasParent() {
 			# The form designer is embedded in Dockable widget
