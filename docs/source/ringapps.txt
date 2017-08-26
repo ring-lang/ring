@@ -307,6 +307,22 @@ Author : Gal Zsolt (CalmoSoft)
 
 
 .. index:: 
+	pair:  Applications developed in little hours; Windows StartUp Manager Application
+
+Windows StartUp Manager Application
+===================================
+
+URL : https://github.com/ring-lang/WinStartupManager
+
+Author : Majdi Sobain
+
+Screen Shot:
+
+.. image:: winstartupman.jpg
+	:alt: Windows Startup Manager
+
+
+.. index:: 
 	pair: Applications developed in little hours; Sixteen Puzzle Game
 
 Sixteen Puzzle Game
@@ -320,6 +336,28 @@ Screen Shot:
 
 .. image:: sixteenpuzzle.jpg
 	:alt: Sixteen Puzzle
+
+
+.. index:: 
+	pair: Applications developed in little hours; Calculator Application
+
+Calculator Application
+======================
+
+Author : Magdy Ragab
+
+Screen Shot:
+
+.. image:: calcapp.jpg
+	:alt: Calculator Application
+
+Updated Version by Gal Zsolt and Bert Mariani
+
+Screen Shot:
+
+.. image:: newcalc.png
+	:alt: Ring Calculator
+
 
 .. index:: 
 	pair: Applications developed in little hours; Samples in this book
