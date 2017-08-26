@@ -1961,6 +1961,12 @@ What is new in Ring 1.5.2?
 * Form Designer - Help Menu - Open CHM/PDF files without displaying the console window
 * Form Designer - Correct response to Resize/Move Events when moving the Mouse quickly
 * GetQuotesHistory Application - Updated to work on MacOS X and Qt 5.2
+
+Screen Shots:
+
+.. image:: getquotesmac.png
+	:alt: GetQuotesHistory on MacOS X
+
 * RingVM - Classification for Environment Errors (Check Chapter : Language Reference)
 * Scripts - For building Ring from source code on Fedora Linux
 
