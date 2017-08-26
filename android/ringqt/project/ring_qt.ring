@@ -9195,6 +9195,174 @@ Class QAllEvents from QWidget
 		pTempObj.pObject = QAllEvents_getParentWidget(pObject)
 		return pTempObj
 
+	Func setKeyPressFunc P1
+		return QAllEvents_setKeyPressFunc(pObject,P1)
+
+	Func setMouseButtonPressFunc P1
+		return QAllEvents_setMouseButtonPressFunc(pObject,P1)
+
+	Func setMouseButtonReleaseFunc P1
+		return QAllEvents_setMouseButtonReleaseFunc(pObject,P1)
+
+	Func setMouseButtonDblClickFunc P1
+		return QAllEvents_setMouseButtonDblClickFunc(pObject,P1)
+
+	Func setMouseMoveFunc P1
+		return QAllEvents_setMouseMoveFunc(pObject,P1)
+
+	Func setCloseFunc P1
+		return QAllEvents_setCloseFunc(pObject,P1)
+
+	Func setContextMenuFunc P1
+		return QAllEvents_setContextMenuFunc(pObject,P1)
+
+	Func setDragEnterFunc P1
+		return QAllEvents_setDragEnterFunc(pObject,P1)
+
+	Func setDragLeaveFunc P1
+		return QAllEvents_setDragLeaveFunc(pObject,P1)
+
+	Func setDragMoveFunc P1
+		return QAllEvents_setDragMoveFunc(pObject,P1)
+
+	Func setDropFunc P1
+		return QAllEvents_setDropFunc(pObject,P1)
+
+	Func setEnterFunc P1
+		return QAllEvents_setEnterFunc(pObject,P1)
+
+	Func setFocusInFunc P1
+		return QAllEvents_setFocusInFunc(pObject,P1)
+
+	Func setFocusOutFunc P1
+		return QAllEvents_setFocusOutFunc(pObject,P1)
+
+	Func setKeyReleaseFunc P1
+		return QAllEvents_setKeyReleaseFunc(pObject,P1)
+
+	Func setLeaveFunc P1
+		return QAllEvents_setLeaveFunc(pObject,P1)
+
+	Func setNonClientAreaMouseButtonDblClickFunc P1
+		return QAllEvents_setNonClientAreaMouseButtonDblClickFunc(pObject,P1)
+
+	Func setNonClientAreaMouseButtonPressFunc P1
+		return QAllEvents_setNonClientAreaMouseButtonPressFunc(pObject,P1)
+
+	Func setNonClientAreaMouseButtonReleaseFunc P1
+		return QAllEvents_setNonClientAreaMouseButtonReleaseFunc(pObject,P1)
+
+	Func setNonClientAreaMouseMoveFunc P1
+		return QAllEvents_setNonClientAreaMouseMoveFunc(pObject,P1)
+
+	Func setMoveFunc P1
+		return QAllEvents_setMoveFunc(pObject,P1)
+
+	Func setResizeFunc P1
+		return QAllEvents_setResizeFunc(pObject,P1)
+
+	Func setWindowActivateFunc P1
+		return QAllEvents_setWindowActivateFunc(pObject,P1)
+
+	Func setWindowBlockedFunc P1
+		return QAllEvents_setWindowBlockedFunc(pObject,P1)
+
+	Func setWindowDeactivateFunc P1
+		return QAllEvents_setWindowDeactivateFunc(pObject,P1)
+
+	Func setWindowStateChangeFunc P1
+		return QAllEvents_setWindowStateChangeFunc(pObject,P1)
+
+	Func setWindowUnblockedFunc P1
+		return QAllEvents_setWindowUnblockedFunc(pObject,P1)
+
+	Func setPaintFunc P1
+		return QAllEvents_setPaintFunc(pObject,P1)
+
+	Func getKeyPressFunc 
+		return QAllEvents_getKeyPressFunc(pObject)
+
+	Func getMouseButtonPressFunc 
+		return QAllEvents_getMouseButtonPressFunc(pObject)
+
+	Func getMouseButtonReleaseFunc 
+		return QAllEvents_getMouseButtonReleaseFunc(pObject)
+
+	Func getMouseButtonDblClickFunc 
+		return QAllEvents_getMouseButtonDblClickFunc(pObject)
+
+	Func getMouseMoveFunc 
+		return QAllEvents_getMouseMoveFunc(pObject)
+
+	Func getCloseFunc 
+		return QAllEvents_getCloseFunc(pObject)
+
+	Func getContextMenuFunc 
+		return QAllEvents_getContextMenuFunc(pObject)
+
+	Func getDragEnterFunc 
+		return QAllEvents_getDragEnterFunc(pObject)
+
+	Func getDragLeaveFunc 
+		return QAllEvents_getDragLeaveFunc(pObject)
+
+	Func getDragMoveFunc 
+		return QAllEvents_getDragMoveFunc(pObject)
+
+	Func getDropFunc 
+		return QAllEvents_getDropFunc(pObject)
+
+	Func getEnterFunc 
+		return QAllEvents_getEnterFunc(pObject)
+
+	Func getFocusInFunc 
+		return QAllEvents_getFocusInFunc(pObject)
+
+	Func getFocusOutFunc 
+		return QAllEvents_getFocusOutFunc(pObject)
+
+	Func getKeyReleaseFunc 
+		return QAllEvents_getKeyReleaseFunc(pObject)
+
+	Func getLeaveFunc 
+		return QAllEvents_getLeaveFunc(pObject)
+
+	Func getNonClientAreaMouseButtonDblClickFunc 
+		return QAllEvents_getNonClientAreaMouseButtonDblClickFunc(pObject)
+
+	Func getNonClientAreaMouseButtonPressFunc 
+		return QAllEvents_getNonClientAreaMouseButtonPressFunc(pObject)
+
+	Func getNonClientAreaMouseButtonReleaseFunc 
+		return QAllEvents_getNonClientAreaMouseButtonReleaseFunc(pObject)
+
+	Func getNonClientAreaMouseMoveFunc 
+		return QAllEvents_getNonClientAreaMouseMoveFunc(pObject)
+
+	Func getMoveFunc 
+		return QAllEvents_getMoveFunc(pObject)
+
+	Func getResizeFunc 
+		return QAllEvents_getResizeFunc(pObject)
+
+	Func getWindowActivateFunc 
+		return QAllEvents_getWindowActivateFunc(pObject)
+
+	Func getWindowBlockedFunc 
+		return QAllEvents_getWindowBlockedFunc(pObject)
+
+	Func getWindowDeactivateFunc 
+		return QAllEvents_getWindowDeactivateFunc(pObject)
+
+	Func getWindowStateChangeFunc 
+		return QAllEvents_getWindowStateChangeFunc(pObject)
+
+	Func getWindowUnblockedFunc 
+		return QAllEvents_getWindowUnblockedFunc(pObject)
+
+	Func getPaintFunc 
+		return QAllEvents_getPaintFunc(pObject)
+
 Class QDesktopWidget from QWidget
 
 	pObject

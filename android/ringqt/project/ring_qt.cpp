@@ -52317,6 +52317,1070 @@ RING_FUNC(ring_QAllEvents_getParentWidget)
 }
 
 
+RING_FUNC(ring_QAllEvents_setKeyPressFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setKeyPressFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setMouseButtonPressFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMouseButtonPressFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setMouseButtonReleaseFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMouseButtonReleaseFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setMouseButtonDblClickFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMouseButtonDblClickFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setMouseMoveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMouseMoveFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setCloseFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCloseFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setContextMenuFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setContextMenuFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setDragEnterFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDragEnterFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setDragLeaveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDragLeaveFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setDragMoveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDragMoveFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setDropFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDropFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setEnterFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setEnterFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setFocusInFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFocusInFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setFocusOutFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFocusOutFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setKeyReleaseFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setKeyReleaseFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setLeaveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLeaveFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setNonClientAreaMouseButtonDblClickFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNonClientAreaMouseButtonDblClickFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setNonClientAreaMouseButtonPressFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNonClientAreaMouseButtonPressFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setNonClientAreaMouseButtonReleaseFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNonClientAreaMouseButtonReleaseFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setNonClientAreaMouseMoveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setNonClientAreaMouseMoveFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setMoveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMoveFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setResizeFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setResizeFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setWindowActivateFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWindowActivateFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setWindowBlockedFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWindowBlockedFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setWindowDeactivateFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWindowDeactivateFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setWindowStateChangeFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWindowStateChangeFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setWindowUnblockedFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWindowUnblockedFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_setPaintFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPaintFunc(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_getKeyPressFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getKeyPressFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getMouseButtonPressFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getMouseButtonPressFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getMouseButtonReleaseFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getMouseButtonReleaseFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getMouseButtonDblClickFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getMouseButtonDblClickFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getMouseMoveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getMouseMoveFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getCloseFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getCloseFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getContextMenuFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getContextMenuFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getDragEnterFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getDragEnterFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getDragLeaveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getDragLeaveFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getDragMoveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getDragMoveFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getDropFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getDropFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getEnterFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getEnterFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getFocusInFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getFocusInFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getFocusOutFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getFocusOutFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getKeyReleaseFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getKeyReleaseFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getLeaveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getLeaveFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getNonClientAreaMouseButtonDblClickFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getNonClientAreaMouseButtonDblClickFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getNonClientAreaMouseButtonPressFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getNonClientAreaMouseButtonPressFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getNonClientAreaMouseButtonReleaseFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getNonClientAreaMouseButtonReleaseFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getNonClientAreaMouseMoveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getNonClientAreaMouseMoveFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getMoveFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getMoveFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getResizeFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getResizeFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getWindowActivateFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getWindowActivateFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getWindowBlockedFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getWindowBlockedFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getWindowDeactivateFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getWindowDeactivateFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getWindowStateChangeFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getWindowStateChangeFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getWindowUnblockedFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getWindowUnblockedFunc());
+}
+
+
+RING_FUNC(ring_QAllEvents_getPaintFunc)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETSTRING(pObject->getPaintFunc());
+}
+
+
 RING_FUNC(ring_QDesktopWidget_availableGeometry)
 {
 	QDesktopWidget *pObject ;
@@ -90790,6 +91854,62 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qallevents_seteventoutput",ring_QAllEvents_setEventOutput);
 	ring_vm_funcregister("qallevents_getparentobject",ring_QAllEvents_getParentObject);
 	ring_vm_funcregister("qallevents_getparentwidget",ring_QAllEvents_getParentWidget);
+	ring_vm_funcregister("qallevents_setkeypressfunc",ring_QAllEvents_setKeyPressFunc);
+	ring_vm_funcregister("qallevents_setmousebuttonpressfunc",ring_QAllEvents_setMouseButtonPressFunc);
+	ring_vm_funcregister("qallevents_setmousebuttonreleasefunc",ring_QAllEvents_setMouseButtonReleaseFunc);
+	ring_vm_funcregister("qallevents_setmousebuttondblclickfunc",ring_QAllEvents_setMouseButtonDblClickFunc);
+	ring_vm_funcregister("qallevents_setmousemovefunc",ring_QAllEvents_setMouseMoveFunc);
+	ring_vm_funcregister("qallevents_setclosefunc",ring_QAllEvents_setCloseFunc);
+	ring_vm_funcregister("qallevents_setcontextmenufunc",ring_QAllEvents_setContextMenuFunc);
+	ring_vm_funcregister("qallevents_setdragenterfunc",ring_QAllEvents_setDragEnterFunc);
+	ring_vm_funcregister("qallevents_setdragleavefunc",ring_QAllEvents_setDragLeaveFunc);
+	ring_vm_funcregister("qallevents_setdragmovefunc",ring_QAllEvents_setDragMoveFunc);
+	ring_vm_funcregister("qallevents_setdropfunc",ring_QAllEvents_setDropFunc);
+	ring_vm_funcregister("qallevents_setenterfunc",ring_QAllEvents_setEnterFunc);
+	ring_vm_funcregister("qallevents_setfocusinfunc",ring_QAllEvents_setFocusInFunc);
+	ring_vm_funcregister("qallevents_setfocusoutfunc",ring_QAllEvents_setFocusOutFunc);
+	ring_vm_funcregister("qallevents_setkeyreleasefunc",ring_QAllEvents_setKeyReleaseFunc);
+	ring_vm_funcregister("qallevents_setleavefunc",ring_QAllEvents_setLeaveFunc);
+	ring_vm_funcregister("qallevents_setnonclientareamousebuttondblclickfunc",ring_QAllEvents_setNonClientAreaMouseButtonDblClickFunc);
+	ring_vm_funcregister("qallevents_setnonclientareamousebuttonpressfunc",ring_QAllEvents_setNonClientAreaMouseButtonPressFunc);
+	ring_vm_funcregister("qallevents_setnonclientareamousebuttonreleasefunc",ring_QAllEvents_setNonClientAreaMouseButtonReleaseFunc);
+	ring_vm_funcregister("qallevents_setnonclientareamousemovefunc",ring_QAllEvents_setNonClientAreaMouseMoveFunc);
+	ring_vm_funcregister("qallevents_setmovefunc",ring_QAllEvents_setMoveFunc);
+	ring_vm_funcregister("qallevents_setresizefunc",ring_QAllEvents_setResizeFunc);
+	ring_vm_funcregister("qallevents_setwindowactivatefunc",ring_QAllEvents_setWindowActivateFunc);
+	ring_vm_funcregister("qallevents_setwindowblockedfunc",ring_QAllEvents_setWindowBlockedFunc);
+	ring_vm_funcregister("qallevents_setwindowdeactivatefunc",ring_QAllEvents_setWindowDeactivateFunc);
+	ring_vm_funcregister("qallevents_setwindowstatechangefunc",ring_QAllEvents_setWindowStateChangeFunc);
+	ring_vm_funcregister("qallevents_setwindowunblockedfunc",ring_QAllEvents_setWindowUnblockedFunc);
+	ring_vm_funcregister("qallevents_setpaintfunc",ring_QAllEvents_setPaintFunc);
+	ring_vm_funcregister("qallevents_getkeypressfunc",ring_QAllEvents_getKeyPressFunc);
+	ring_vm_funcregister("qallevents_getmousebuttonpressfunc",ring_QAllEvents_getMouseButtonPressFunc);
+	ring_vm_funcregister("qallevents_getmousebuttonreleasefunc",ring_QAllEvents_getMouseButtonReleaseFunc);
+	ring_vm_funcregister("qallevents_getmousebuttondblclickfunc",ring_QAllEvents_getMouseButtonDblClickFunc);
+	ring_vm_funcregister("qallevents_getmousemovefunc",ring_QAllEvents_getMouseMoveFunc);
+	ring_vm_funcregister("qallevents_getclosefunc",ring_QAllEvents_getCloseFunc);
+	ring_vm_funcregister("qallevents_getcontextmenufunc",ring_QAllEvents_getContextMenuFunc);
+	ring_vm_funcregister("qallevents_getdragenterfunc",ring_QAllEvents_getDragEnterFunc);
+	ring_vm_funcregister("qallevents_getdragleavefunc",ring_QAllEvents_getDragLeaveFunc);
+	ring_vm_funcregister("qallevents_getdragmovefunc",ring_QAllEvents_getDragMoveFunc);
+	ring_vm_funcregister("qallevents_getdropfunc",ring_QAllEvents_getDropFunc);
+	ring_vm_funcregister("qallevents_getenterfunc",ring_QAllEvents_getEnterFunc);
+	ring_vm_funcregister("qallevents_getfocusinfunc",ring_QAllEvents_getFocusInFunc);
+	ring_vm_funcregister("qallevents_getfocusoutfunc",ring_QAllEvents_getFocusOutFunc);
+	ring_vm_funcregister("qallevents_getkeyreleasefunc",ring_QAllEvents_getKeyReleaseFunc);
+	ring_vm_funcregister("qallevents_getleavefunc",ring_QAllEvents_getLeaveFunc);
+	ring_vm_funcregister("qallevents_getnonclientareamousebuttondblclickfunc",ring_QAllEvents_getNonClientAreaMouseButtonDblClickFunc);
+	ring_vm_funcregister("qallevents_getnonclientareamousebuttonpressfunc",ring_QAllEvents_getNonClientAreaMouseButtonPressFunc);
+	ring_vm_funcregister("qallevents_getnonclientareamousebuttonreleasefunc",ring_QAllEvents_getNonClientAreaMouseButtonReleaseFunc);
+	ring_vm_funcregister("qallevents_getnonclientareamousemovefunc",ring_QAllEvents_getNonClientAreaMouseMoveFunc);
+	ring_vm_funcregister("qallevents_getmovefunc",ring_QAllEvents_getMoveFunc);
+	ring_vm_funcregister("qallevents_getresizefunc",ring_QAllEvents_getResizeFunc);
+	ring_vm_funcregister("qallevents_getwindowactivatefunc",ring_QAllEvents_getWindowActivateFunc);
+	ring_vm_funcregister("qallevents_getwindowblockedfunc",ring_QAllEvents_getWindowBlockedFunc);
+	ring_vm_funcregister("qallevents_getwindowdeactivatefunc",ring_QAllEvents_getWindowDeactivateFunc);
+	ring_vm_funcregister("qallevents_getwindowstatechangefunc",ring_QAllEvents_getWindowStateChangeFunc);
+	ring_vm_funcregister("qallevents_getwindowunblockedfunc",ring_QAllEvents_getWindowUnblockedFunc);
+	ring_vm_funcregister("qallevents_getpaintfunc",ring_QAllEvents_getPaintFunc);
 	ring_vm_funcregister("qdesktopwidget_availablegeometry",ring_QDesktopWidget_availableGeometry);
 	ring_vm_funcregister("qdesktopwidget_isvirtualdesktop",ring_QDesktopWidget_isVirtualDesktop);
 	ring_vm_funcregister("qdesktopwidget_primaryscreen",ring_QDesktopWidget_primaryScreen);
