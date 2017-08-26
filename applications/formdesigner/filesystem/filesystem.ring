@@ -56,6 +56,9 @@ class FormDesignerFileSystem
 		# Properties
 			oDesigner.ObjectProperties()
 		# Open controller class in Ring Notepad 
+			OpenControllerClassInParent(oDesigner)
+
+	func OpenControllerClassInParent oDesigner
 		if oDesigner.IsParent() {
 			if isMethod(oDesigner.Parent(),"openfile") {
 				cDir = oDesigner.Parent().openfile(substr(cFileName,".rform","Controller.ring"))
@@ -78,6 +81,8 @@ class FormDesignerFileSystem
 			if cInputFileName = NULL { return }
 			cFileName = cInputFileName
 			LoadFormFromFile(oDesigner)
+		# Open controller class in Ring Notepad 
+			OpenControllerClassInParent(oDesigner)
 
 	func SaveAction oDesigner
 		# Check file not saved before
@@ -89,6 +94,8 @@ class FormDesignerFileSystem
 
 	func SaveAsAction oDesigner
 		SaveFile(oDesigner)
+		# Open controller class in Ring Notepad 
+			OpenControllerClassInParent(oDesigner)
 
 	func SaveFile oDesigner
 		# Set the file Name
