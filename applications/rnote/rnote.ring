@@ -106,7 +106,7 @@ Class RNote from WindowsControllerParent
 
 	MyApp win1 oFilter aBtns tool1 menu1 status1
 	tool2 oTxtMainFile
-	Tree1 TextEdit1 oDock1 oDock2 oDock3 oDock4 oDock5 oDock6 oDock7
+	Tree1 TextEdit1 oDockProjectFiles oDockSourceCode oDockWebBrowser oDockFunctionsList oDockOutputWindow oDockClassesList oDockFormDesigner
 	oWebBrowser oWebView  oWBText 
 	oFile oFunctionsList oClassesList
 	oProcessEditbox oProcessText oProcess
@@ -690,7 +690,7 @@ Class RNote from WindowsControllerParent
 				ok
 			}
 
-			this.oDock1 = new qdockwidget(this.win1,0) {
+			this.oDockProjectFiles = new qdockwidget(this.win1,0) {
 				setGeometry(00,00,200,200)
 				setwindowtitle("Project Files")
 				setwidget(this.tree1)
@@ -724,7 +724,7 @@ Class RNote from WindowsControllerParent
 				)
 			}
 
-			this.oDock2 = new qdockwidget(this.win1,0) {
+			this.oDockSourceCode = new qdockwidget(this.win1,0) {
 				setwidget(this.textedit1)
 				setwindowtitle("Source Code")
 				setminimumwidth(340)                                                     
@@ -763,7 +763,7 @@ Class RNote from WindowsControllerParent
 				setLayout(oWBLayout2)
 			}
 
-			this.oDock3 = new qdockwidget(this.win1,0) {
+			this.oDockWebBrowser = new qdockwidget(this.win1,0) {
 				setwidget(this.oWebBrowser)
 				setwindowtitle("Web Browser")
 			}
@@ -775,7 +775,7 @@ Class RNote from WindowsControllerParent
 				setitemactivatedEvent(Method(:pSelectFunction))
 			}
 
-			this.oDock4 = new qDockwidget(this.win1,0) {
+			this.oDockFunctionsList = new qDockwidget(this.win1,0) {
 				setWidget(this.oFunctionsList)
 				setwindowtitle("Functions")
 			}
@@ -787,7 +787,7 @@ Class RNote from WindowsControllerParent
 				setitemactivatedEvent(Method(:pSelectClass))
 			}
 
-			this.oDock6 = new qDockwidget(this.win1,0) {
+			this.oDockClassesList = new qDockwidget(this.win1,0) {
 				setWidget(this.oClassesList)
 				setwindowtitle("Classes")
 			}
@@ -822,28 +822,28 @@ Class RNote from WindowsControllerParent
 				addlayout(oProcesslayout1)
 			}
 			oProcessWindow.setlayout(oProcessLayout2)
-			this.oDock5 = new qDockWidget(this.win1,0) {
+			this.oDockOutputWindow = new qDockWidget(this.win1,0) {
 				setwidget( oProcessWindow )
 				setwindowtitle("Output")
 			}
-			this.oDock7 = new qDockwidget(this.win1,0) {
+			this.oDockFormDesigner = new qDockwidget(this.win1,0) {
 				setwindowtitle("Form Designer")
 			}
 			this.pformdesignerdock()
-			adddockwidget(Qt_LeftDockWidgetArea,this.oDock1,1)
-			adddockwidget(Qt_RightDockWidgetArea,this.oDock2,2)
-			adddockwidget(Qt_RightDockWidgetArea,this.oDock4,1)
-			adddockwidget(Qt_RightDockWidgetArea,this.oDock6,1)
-			adddockwidget(Qt_RightDockWidgetArea,this.oDock3,1)
-			adddockwidget(Qt_BottomDockWidgetArea,this.oDock5,1)
-			adddockwidget(Qt_RightDockWidgetArea,this.oDock7,1)
-			this.win1.tabifydockwidget(this.oDock4,this.oDock6)
-			this.win1.tabifydockwidget(this.oDock4,this.oDock5)
-			this.win1.tabifydockwidget(this.oDock2,this.oDock7)
-			this.win1.tabifydockwidget(this.oDock2,this.oDock3)
+			adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockFunctionsList,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockClassesList,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
+			adddockwidget(Qt_BottomDockWidgetArea,this.oDockOutputWindow,1)
+			adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
+			this.win1.tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
+			this.win1.tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
+			this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
+			this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
-			this.oDock2.raise()
-			this.oDock4.raise()
+			this.oDockSourceCode.raise()
+			this.oDockFunctionsList.raise()
 			showmaximized()
 		}
 
@@ -867,54 +867,54 @@ Class RNote from WindowsControllerParent
 		oWebView.Back()
 
 	func pProject
-		if oDock1.isvisible()
-			oDock1.hide()
+		if oDockProjectFiles.isvisible()
+			oDockProjectFiles.hide()
 		else
-			oDock1.Show()
+			oDockProjectFiles.Show()
 		ok
 
 	func pSourceCode
-		if oDock2.isvisible()
-			oDock2.hide()
+		if oDockSourceCode.isvisible()
+			oDockSourceCode.hide()
 		else
-			oDock2.Show()
+			oDockSourceCode.Show()
 		ok
 
 	func pWebBrowser
-		if oDock3.isvisible()
-			oDock3.hide()
+		if oDockWebBrowser.isvisible()
+			oDockWebBrowser.hide()
 		else
-			oDock3.Show()
+			oDockWebBrowser.Show()
 		ok
 
 	func pFunctionsList
-		if oDock4.isvisible()
-			oDock4.hide()
+		if oDockFunctionsList.isvisible()
+			oDockFunctionsList.hide()
 		else
-			oDock4.Show()
+			oDockFunctionsList.Show()
 			DisplayFunctionsList()
 		ok
 
 	func pClassesList
-		if oDock6.isvisible()
-			oDock6.hide()
+		if oDockClassesList.isvisible()
+			oDockClassesList.hide()
 		else
-			oDock6.Show()
+			oDockClassesList.Show()
 			DisplayClassesList()
 		ok
 
 	func pOutputWindow
-		if oDock5.isvisible()
-			oDock5.hide()
+		if oDockOutputWindow.isvisible()
+			oDockOutputWindow.hide()
 		else
-			oDock5.Show()
+			oDockOutputWindow.Show()
 		ok
 
 	func pFormDesignerWindow
-		if oDock7.isvisible()
-			oDock7.hide()
+		if oDockFormDesigner.isvisible()
+			oDockFormDesigner.hide()
 		else
-			oDock7.Show()
+			oDockFormDesigner.Show()
 		ok
 
 	func pCheckSaveBeforeChange
@@ -937,7 +937,7 @@ Class RNote from WindowsControllerParent
 				FormDesignerObject().OpenFile(ofile.filepath(oItem))
 			ok
 			StatusMessage("Ready!")
-			oDock7.raise()
+			oDockFormDesigner.raise()
 			cSourceFile = substr(cFormFile,".rform","controller.ring")
 			if fexists(cSourceFile)
 				cActiveFileName = cSourceFile
@@ -959,20 +959,20 @@ Class RNote from WindowsControllerParent
 		ok
 		AutoComplete()
 		lAsktoSave = False
-		oDock4.setWindowTitle("Functions (Loading...)")
-		oDock6.setWindowTitle("Classes (Loading...)")
+		oDockFunctionsList.setWindowTitle("Functions (Loading...)")
+		oDockClassesList.setWindowTitle("Classes (Loading...)")
 		DisplayFunctionsList()
 		DisplayClassesList()
 		if lActivateFormDesigner
-			oDock7.raise()
+			oDockFormDesigner.raise()
 		else 
-			oDock2.raise()
+			oDockSourceCode.raise()
 			tree1.setFocus(0)
 		ok
 		StatusMessage("Ready!")
 
 	func pSetActiveFileName
-		oDock2.setWindowTitle("Source Code : " + cActiveFileName)
+		oDockSourceCode.setWindowTitle("Source Code : " + cActiveFileName)
 
 	func pCursorPositionChanged
 		nLine = textedit1.textcursor().blocknumber()+1
@@ -1227,7 +1227,7 @@ Class RNote from WindowsControllerParent
 	func pRunNoConsole
 		if cActiveFileName = Null return pNofileopened() ok
 		pSave()
-		oDock5 { show() raise() }		
+		oDockOutputWindow { show() raise() }		
 		pRunGUIOperation(cActiveFileName)
 
 	func pRunGUIOperation cActiveFileName
@@ -1341,13 +1341,13 @@ Class RNote from WindowsControllerParent
 					aBackColor[3] + ")")
 
 	Func pSetWindows
-		if not lShowProject  		oDock1.close() else oDock1.show() ok
-		if not lShowSourceCode  	oDock2.close() else oDock2.show() ok
-		if not lShowBrowser  		oDock3.close() else oDock3.show() ok
-		if not lShowFunctionsList 	oDock4.close() else oDock4.show() ok
-		if not lShowClassesList 	oDock6.close() else oDock6.show() ok
-		if not lShowOutputWindow 	oDock5.close() else oDock5.show() ok
-		if not lShowFormDesigner 	oDock7.close() else oDock7.show() ok
+		if not lShowProject  		oDockProjectFiles.close() else oDockProjectFiles.show() ok
+		if not lShowSourceCode  	oDockSourceCode.close() else oDockSourceCode.show() ok
+		if not lShowBrowser  		oDockWebBrowser.close() else oDockWebBrowser.show() ok
+		if not lShowFunctionsList 	oDockFunctionsList.close() else oDockFunctionsList.show() ok
+		if not lShowClassesList 	oDockClassesList.close() else oDockClassesList.show() ok
+		if not lShowOutputWindow 	oDockOutputWindow.close() else oDockOutputWindow.show() ok
+		if not lShowFormDesigner 	oDockFormDesigner.close() else oDockFormDesigner.show() ok
 
 	func pOpen
 		new qfiledialog(this.win1) {
@@ -1357,7 +1357,7 @@ Class RNote from WindowsControllerParent
 				this.cActiveFileName = cName
 				this.textedit1.setPlaintext(read(this.cActiveFileName))
 				this.pSetActiveFileName()
-				this.oDock2.raise()
+				this.oDockSourceCode.raise()
 			ok
 		}
 
@@ -1370,7 +1370,7 @@ Class RNote from WindowsControllerParent
 				this.cActiveFileName = cName
 				this.textedit1.setPlaintext(read(this.cActiveFileName))
 				this.pSetActiveFileName()
-				this.oDock2.raise()
+				this.oDockSourceCode.raise()
 			ok
 		}
 
@@ -1426,13 +1426,13 @@ Class RNote from WindowsControllerParent
 				"cFont = '" + cFont + "'" + nl +
 				"cWebSite = '" + cWebsite + "'" + nl +
 				"cStartupFolder = '" + cStartupFolder + "'" + nl +
-				"lShowProject = " + oDock1.isvisible() + nl +
-				"lShowSourceCode = " + oDock2.isvisible() + nl +
-				"lShowBrowser = " + oDock3.isvisible() + nl +
-				"lShowFunctionsList = " + oDock4.isvisible() + nl +
-				"lShowClassesList = " + oDock6.isvisible() + nl +
-				"lShowOutputWindow = " + oDock5.isvisible() + nl +
-				"lShowFormDesigner = " + oDock7.isvisible() + nl +
+				"lShowProject = " + oDockProjectFiles.isvisible() + nl +
+				"lShowSourceCode = " + oDockSourceCode.isvisible() + nl +
+				"lShowBrowser = " + oDockWebBrowser.isvisible() + nl +
+				"lShowFunctionsList = " + oDockFunctionsList.isvisible() + nl +
+				"lShowClassesList = " + oDockClassesList.isvisible() + nl +
+				"lShowOutputWindow = " + oDockOutputWindow.isvisible() + nl +
+				"lShowFormDesigner = " + oDockFormDesigner.isvisible() + nl +
 				"nTabSpaces = " + nTabSpaces + nl +
 				"nDefaultStyle = " + nDefaultStyle + nl
 		cSettings = substr(cSettings,nl,char(13)+char(10))
@@ -1514,8 +1514,8 @@ Class RNote from WindowsControllerParent
 		cLink = aBrowserLinks[x][2]
 		oWebView { loadpage(new qurl(cLink)) }
 		oWBText  { setText(cLink) }
-		oDock3.Show()
-		oDock3.raise()
+		oDockWebBrowser.Show()
+		oDockWebBrowser.raise()
 
 	# Create a function to add Ring List to qStringList
 	func AddItems aList,oList
@@ -1611,7 +1611,7 @@ Class RNote from WindowsControllerParent
 
 	func DisplayFunctionsList
 		oFunctionsList.clear()
-		if oDock4.isvisible() = false return ok
+		if oDockFunctionsList.isvisible() = false return ok
 		aFunctionsPos = []	# Lines numbers for each function
 		if cActiveFileName = NULL return ok
 		cTempActiveFile = cActiveFileName
@@ -1646,18 +1646,18 @@ Class RNote from WindowsControllerParent
 		for cFunc in aFunctionsPos
 			oFunctionsList.addItem(cFunc[1])
 		next
-		oDock4.setWindowTitle("Functions ("+oFunctionsList.Count()+")")
+		oDockFunctionsList.setWindowTitle("Functions ("+oFunctionsList.Count()+")")
 		StatusMessage("Creating functions list ... Done!")
 
 	func pSelectFunction
 		nIndex = oFunctionsList.currentrow() + 1
 		nLine = aFunctionsPos[nIndex][2]
 		gotoline(nLine)
-		oDock2.Raise()
+		oDockSourceCode.Raise()
 
 	func DisplayClassesList
 		oClassesList.clear()
-		if oDock6.isvisible() = false return ok
+		if oDockClassesList.isvisible() = false return ok
 		aClassesPos = []	# Lines numbers for each class
 		if cActiveFileName = NULL return ok
 		cTempActiveFile = cActiveFileName
@@ -1691,14 +1691,14 @@ Class RNote from WindowsControllerParent
 		for cClass in aClassesPos
 			oClassesList.addItem(cClass[1])
 		next
-		oDock6.setWindowTitle("Classes ("+oClassesList.Count()+")")
+		oDockClassesList.setWindowTitle("Classes ("+oClassesList.Count()+")")
 		StatusMessage("Creating classes list ... Done!")
 
 	func pSelectClass
 		nIndex = oClassesList.currentrow() + 1
 		nLine = aClassesPos[nIndex][2]
 		gotoline(nLine)
-		oDock2.Raise()
+		oDockSourceCode.Raise()
 
 	func StatusMessage cMsg
 		status1.showmessage(cMsg,0)
@@ -1763,7 +1763,7 @@ Class RNote from WindowsControllerParent
 		open_window(:FormDesignerController)
 		Last_Window().setParentObject(self)
 		nFormDesignerWindowID = Last_WindowID()
-		oDock7.setWidget(Last_Window().oView.win)
+		oDockFormDesigner.setWidget(Last_Window().oView.win)
 		chdir(cDir)
 
 	func FormDesignerObject
@@ -2050,5 +2050,5 @@ Class RNote from WindowsControllerParent
 		cMainFileName = trim(oTxtMainFile.text())
 		if cMainFileName = Null return pNofileopened() ok
 		if not fexists(cMainFileName) return ok
-		oDock5 { show() raise() }		
+		oDockOutputWindow { show() raise() }		
 		pRunGUIOperation(cMainFileName)
