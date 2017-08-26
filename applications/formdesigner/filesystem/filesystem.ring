@@ -55,6 +55,13 @@ class FormDesignerFileSystem
 			SaveFormToFile(oDesigner)
 		# Properties
 			oDesigner.ObjectProperties()
+		# Open controller class in Ring Notepad 
+		if oDesigner.IsParent() {
+			if isMethod(oDesigner.Parent(),"openfile") {
+				cDir = oDesigner.Parent().openfile(substr(cFileName,".rform","Controller.ring"))
+			}
+		}
+
 
 	func AddExtensionToName cInputFileName
 		if not right(lower(cInputFileName),5) = "rform" {
