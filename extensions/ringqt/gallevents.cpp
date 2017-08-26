@@ -39,6 +39,35 @@ GAllEvents::GAllEvents(QWidget *parent,VM *pVM)  : QWidget()
 	strcpy(this->cWindowUnblockedEvent,"");
 	strcpy(this->cPaintEvent,"");
 	this->lEventOutput = true ;
+
+	strcpy(this->cKeyPressFunc,"");
+	strcpy(this->cMouseButtonPressFunc,"");
+	strcpy(this->cMouseButtonReleaseFunc,"");
+	strcpy(this->cMouseButtonDblClickFunc,"");
+	strcpy(this->cMouseMoveFunc,"");
+	strcpy(this->cCloseFunc,"");
+	strcpy(this->cContextMenuFunc,"");
+	strcpy(this->cDragEnterFunc,"");
+	strcpy(this->cDragLeaveFunc,"");
+	strcpy(this->cDragMoveFunc,"");
+	strcpy(this->cDropFunc,"");
+	strcpy(this->cEnterFunc,"");
+	strcpy(this->cFocusInFunc,"");
+	strcpy(this->cFocusOutFunc,"");
+	strcpy(this->cKeyReleaseFunc,"");
+	strcpy(this->cLeaveFunc,"");
+	strcpy(this->cNonClientAreaMouseButtonDblClickFunc,"");
+	strcpy(this->cNonClientAreaMouseButtonPressFunc,"");
+	strcpy(this->cNonClientAreaMouseButtonReleaseFunc,"");
+	strcpy(this->cNonClientAreaMouseMoveFunc,"");
+	strcpy(this->cMoveFunc,"");
+	strcpy(this->cResizeFunc,"");
+	strcpy(this->cWindowActivateFunc,"");
+	strcpy(this->cWindowBlockedFunc,"");
+	strcpy(this->cWindowDeactivateFunc,"");
+	strcpy(this->cWindowStateChangeFunc,"");
+	strcpy(this->cWindowUnblockedFunc,"");
+	strcpy(this->cPaintFunc,"");
 }
 
 bool GAllEvents::eventFilter(QObject *object, QEvent *event)
