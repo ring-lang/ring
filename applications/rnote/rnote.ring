@@ -10,9 +10,9 @@
 	import formdesigner 
 
 # Create the Ring Notepad Object
-	Open_WindowNoShow(:RNote)
+	Open_WindowNoShow(:RNoteController)
 
-Class RNote from WindowsControllerParent 
+Class RNoteController from WindowsControllerParent 
 
 	cActiveFileName = ""
 	aTextColor = [0,0,0]
@@ -115,7 +115,6 @@ Class RNote from WindowsControllerParent
 	oACTimer			# Auto-Complete Timer 
 	oCompleter=NULL 		# The completer object
 
-	nFormDesignerWindowID 
 	cFormFile = ""
 
 	# Methods 
@@ -934,7 +933,7 @@ Class RNote from WindowsControllerParent
 			StatusMessage("Open the form file...")
 			if ofile.filepath(oItem) != cFormFile 
 				cFormFile = ofile.filepath(oItem)
-				FormDesignerObject().OpenFile(ofile.filepath(oItem))
+				FormDesigner().OpenFile(ofile.filepath(oItem))
 			ok
 			StatusMessage("Ready!")
 			oDockFormDesigner.raise()
@@ -1760,14 +1759,9 @@ Class RNote from WindowsControllerParent
 	func pFormDesignerDock
 		cDir = CurrentDir()
 		chdir(exefolder() + "/../applications/formdesigner")
-		open_window(:FormDesignerController)
-		Last_Window().setParentObject(self)
-		nFormDesignerWindowID = Last_WindowID()
+		open_windowAndLink(:FormDesignerController,self)
 		oDockFormDesigner.setWidget(Last_Window().oView.win)
 		chdir(cDir)
-
-	func FormDesignerObject
-		return GetObjectByID(nFormDesignerWindowID)
 
 	func GetActiveFolder
 		return cStartUpFolder
