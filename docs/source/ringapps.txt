@@ -109,11 +109,18 @@ Christmas gift!!!!  HO HO HO HO
 Continue your fantastic job and congratulations."
 	, Jose Le Roux (France)
 
+"There are 3 different styles, it looks like Python and C"
+	, 64remy
+
 "I was taking a tour around Rosettacode and have found Ring. 
 I like the syntax a lot. It's clean and easy to understand.
 It looks like a very clean BASIC dialect without sigils.
 I can say that this is the easiest and the most BASIC-like language I've ever tried."
 	, Tomaaz 
+
+"Thanks for your effort. I took a quick look and found it interesting. 
+ You are trying to follow more or less like Clipper with simple command and no rigid declaration rules. Good."
+	, Anand Gupta 
 
 "Thanks for this wonderful language"
 	, Vinod kc (India)
@@ -137,15 +144,8 @@ I can say that this is the easiest and the most BASIC-like language I've ever tr
  I really want to continue using ring and contribute what I can."
 	, John (SienSystem)
 
-"Thanks for your effort. I took a quick look and found it interesting. 
- You are trying to follow more or less like Clipper with simple command and no rigid declaration rules. Good."
-	, Anand Gupta 
-
 "Sir, Very Good"
 	, Kamlesh Patel
-
-"There are 3 different styles, it looks like Python and C"
-	, 64remy
 
 "That's more than a "cool" syntax, the example of writing free-form text between
  curly-brackets such that each word calls a function. Which could be interesting 
@@ -194,12 +194,6 @@ Any valid stock ticker can be entered, or selected from the drop down list - Sel
 
 It will not guarantee that you make money in the stock market.
 But it will visualize the history of the stock.
-
-
-.. image:: ringapps_shot3.png
-	:alt: Ring Application
-
-Another screen shot (MacOS X)
 
 .. image:: getquotesmac.png
 	:alt: GetQuotesHistory on MacOS X
@@ -263,23 +257,6 @@ This game could be played using mouse and keyboard as well, showing a message of
 	:alt: Ring Application
 
 .. index:: 
-	pair: Applications developed in little hours; Sixteen Puzzle Game
-
-Sixteen Puzzle Game
-===================
-
-Author : Gal Zsolt (CalmoSoft)
-
-Screen Shot:
-
-.. image:: sixteenpuzzle.jpg
-	:alt: Sixteen Puzzle
-
-
-.. index:: 
-	pair: Applications developed in little hours; TicTacToe Game
-
-.. index:: 
 	pair: Applications developed in little hours; Video-Music-Player Application
 
 Video-Music-Player Application
@@ -300,11 +277,6 @@ Calculator Application
 ======================
 
 Author : Magdy Ragab
-
-Screen Shot:
-
-.. image:: calcapp.jpg
-	:alt: Calculator Application
 
 Updated Version by Gal Zsolt and Bert Mariani
 
