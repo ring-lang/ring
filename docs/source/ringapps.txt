@@ -199,7 +199,10 @@ But it will visualize the history of the stock.
 .. image:: ringapps_shot3.png
 	:alt: Ring Application
 
+Another screen shot (MacOS X)
 
+.. image:: getquotesmac.png
+	:alt: GetQuotesHistory on MacOS X
 
 .. index:: 
 	pair: Applications developed in little hours; Fifteen Puzzle Game
