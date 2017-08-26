@@ -123,8 +123,11 @@ myCrumb  = "abcdefghijklmnopqrstuvwxyz"
 ###---------------------------
 ### Settings for MacOS X 
     if isMacosx()
-        BoxLeft   	= 100
-        LBoxWidth 	= 100
+        BoxLeft			= 100
+        LBoxWidth		= 100
+        EXTRAWIDTH	= 30
+    else 
+        EXTRAWIDTH	= 0
     ok
 
 
@@ -212,7 +215,7 @@ New qapp {
 
                 Today = Date()
                 lineedit2 = new qlineedit(win1) {
-                        setGeometry(BoxLeft +240, BoxTop -BoxTop, 70, 20)
+                        setGeometry(BoxLeft +240, BoxTop -BoxTop, 70+EXTRAWIDTH, 20)
                         lineedit2.settext(Today)
                 }
 
@@ -230,7 +233,7 @@ New qapp {
                 ### Text Field Position and Size ==> YESTERDAY
 
                 lineedit2 = new qlineedit(win1) {
-                        setGeometry(BoxLeft +310, BoxTop -BoxTop, 70, 20)
+                        setGeometry(BoxLeft +310+EXTRAWIDTH, BoxTop -BoxTop, 70+EXTRAWIDTH, 20)
                         lineedit2.settext(Yesterday)
                 }
 
@@ -238,7 +241,7 @@ New qapp {
                 ### Combo Box for Draw Style - Mountain, Line, Bar, Actual
 
                 comboChartType = new QComboBox(win1) {
-                        setGeometry(BoxLeft +380, BoxTop -BoxTop, 80, 20)
+                        setGeometry(BoxLeft +380+EXTRAWIDTH*2, BoxTop -BoxTop, 80, 20)
                         alist = ["Line","Bar","Mountain","Actual","Log","HeikenAshi"]
                         for x in aList additem(x,0) next
                 }
@@ -247,7 +250,7 @@ New qapp {
                 ### Combo Box for Time Period Type - Weekly, Daily, Monthly
 
                 comboTimePeriod = new QComboBox(win1) {
-                        setGeometry(BoxLeft +440, BoxTop -BoxTop, 80, 20)
+                        setGeometry(BoxLeft +440+EXTRAWIDTH*2.5, BoxTop -BoxTop, 80, 20)
                         alistTime = ["Weekly", "Daily", "Monthly"]
                         for x in aListTime additem(x,0) next
                 }
@@ -265,7 +268,7 @@ New qapp {
 
                 ### Combo Box for GetQuotesTickers Baskets
                 comboTickersBasket = new QComboBox(win1) {
-                        setGeometry(BoxLeft +520, BoxTop -BoxTop, 160, 20)
+                        setGeometry(BoxLeft +520+EXTRAWIDTH*2.5, BoxTop -BoxTop, 160, 20)
                         aListBasket = Tickerslist
                         for x in aListBasket additem(x,0) next
 
