@@ -425,5 +425,8 @@ Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.)
 the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language 
 itself. Ring is ready for use in production and increase the developers productivity. 
 
+Check the Form Designer source code : 
+https://github.com/ring-lang/ring/tree/master/applications/formdesigner
+
 .. image:: ringformdesigner.png
 	:alt: Ring Form Designer
