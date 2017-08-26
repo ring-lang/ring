@@ -889,7 +889,7 @@ void GAllEvents::callKeyPressFunc(void)
 {
 	if (strcmp(this->cKeyPressFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cKeyPressFunc);
+	ring_vm_callfunction(this->pVM,this->cKeyPressFunc);
 }
 
 void GAllEvents::setMouseButtonPressFunc(const char *cStr)
@@ -902,7 +902,7 @@ void GAllEvents::callMouseButtonPressFunc(void)
 {
 	if (strcmp(this->cMouseButtonPressFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cMouseButtonPressFunc);
+	ring_vm_callfunction(this->pVM,this->cMouseButtonPressFunc);
 }
 
 void GAllEvents::setMouseButtonReleaseFunc(const char *cStr)
@@ -915,7 +915,7 @@ void GAllEvents::callMouseButtonReleaseFunc(void)
 {
 	if (strcmp(this->cMouseButtonReleaseFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cMouseButtonReleaseFunc);
+	ring_vm_callfunction(this->pVM,this->cMouseButtonReleaseFunc);
 }
 
 void GAllEvents::setMouseButtonDblClickFunc(const char *cStr)
@@ -928,7 +928,7 @@ void GAllEvents::callMouseButtonDblClickFunc(void)
 {
 	if (strcmp(this->cMouseButtonDblClickFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cMouseButtonDblClickFunc);
+	ring_vm_callfunction(this->pVM,this->cMouseButtonDblClickFunc);
 }
 
 void GAllEvents::setMouseMoveFunc(const char *cStr)
@@ -941,7 +941,7 @@ void GAllEvents::callMouseMoveFunc(void)
 {
 	if (strcmp(this->cMouseMoveFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cMouseMoveFunc);
+	ring_vm_callfunction(this->pVM,this->cMouseMoveFunc);
 }
 
 void GAllEvents::setCloseFunc(const char *cStr)
@@ -954,7 +954,7 @@ void GAllEvents::callCloseFunc(void)
 {
 	if (strcmp(this->cCloseFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cCloseFunc);
+	ring_vm_callfunction(this->pVM,this->cCloseFunc);
 }
 
 void GAllEvents::setContextMenuFunc(const char *cStr)
@@ -967,7 +967,7 @@ void GAllEvents::callContextMenuFunc(void)
 {
 	if (strcmp(this->cContextMenuFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cContextMenuFunc);
+	ring_vm_callfunction(this->pVM,this->cContextMenuFunc);
 }
 
 void GAllEvents::setDragEnterFunc(const char *cStr)
@@ -980,7 +980,7 @@ void GAllEvents::callDragEnterFunc(void)
 {
 	if (strcmp(this->cDragEnterFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cDragEnterFunc);
+	ring_vm_callfunction(this->pVM,this->cDragEnterFunc);
 }
 
 void GAllEvents::setDragLeaveFunc(const char *cStr)
@@ -993,7 +993,7 @@ void GAllEvents::callDragLeaveFunc(void)
 {
 	if (strcmp(this->cDragLeaveFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cDragLeaveFunc);
+	ring_vm_callfunction(this->pVM,this->cDragLeaveFunc);
 }
 
 void GAllEvents::setDragMoveFunc(const char *cStr)
@@ -1006,7 +1006,7 @@ void GAllEvents::callDragMoveFunc(void)
 {
 	if (strcmp(this->cDragMoveFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cDragMoveFunc);
+	ring_vm_callfunction(this->pVM,this->cDragMoveFunc);
 }
 
 void GAllEvents::setDropFunc(const char *cStr)
@@ -1019,7 +1019,7 @@ void GAllEvents::callDropFunc(void)
 {
 	if (strcmp(this->cDropFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cDropFunc);
+	ring_vm_callfunction(this->pVM,this->cDropFunc);
 }
 
 void GAllEvents::setEnterFunc(const char *cStr)
@@ -1032,7 +1032,7 @@ void GAllEvents::callEnterFunc(void)
 {
 	if (strcmp(this->cEnterFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cEnterFunc);
+	ring_vm_callfunction(this->pVM,this->cEnterFunc);
 }
 
 void GAllEvents::setFocusInFunc(const char *cStr)
@@ -1045,7 +1045,7 @@ void GAllEvents::callFocusInFunc(void)
 {
 	if (strcmp(this->cFocusInFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cFocusInFunc);
+	ring_vm_callfunction(this->pVM,this->cFocusInFunc);
 }
 
 void GAllEvents::setFocusOutFunc(const char *cStr)
@@ -1058,7 +1058,7 @@ void GAllEvents::callFocusOutFunc(void)
 {
 	if (strcmp(this->cFocusOutFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cFocusOutFunc);
+	ring_vm_callfunction(this->pVM,this->cFocusOutFunc);
 }
 
 void GAllEvents::setKeyReleaseFunc(const char *cStr)
@@ -1071,7 +1071,7 @@ void GAllEvents::callKeyReleaseFunc(void)
 {
 	if (strcmp(this->cKeyReleaseFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cKeyReleaseFunc);
+	ring_vm_callfunction(this->pVM,this->cKeyReleaseFunc);
 }
 
 void GAllEvents::setLeaveFunc(const char *cStr)
@@ -1084,7 +1084,7 @@ void GAllEvents::callLeaveFunc(void)
 {
 	if (strcmp(this->cLeaveFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cLeaveFunc);
+	ring_vm_callfunction(this->pVM,this->cLeaveFunc);
 }
 
 void GAllEvents::setNonClientAreaMouseButtonDblClickFunc(const char *cStr)
@@ -1097,7 +1097,7 @@ void GAllEvents::callNonClientAreaMouseButtonDblClickFunc(void)
 {
 	if (strcmp(this->cNonClientAreaMouseButtonDblClickFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cNonClientAreaMouseButtonDblClickFunc);
+	ring_vm_callfunction(this->pVM,this->cNonClientAreaMouseButtonDblClickFunc);
 }
 
 void GAllEvents::setNonClientAreaMouseButtonPressFunc(const char *cStr)
@@ -1110,7 +1110,7 @@ void GAllEvents::callNonClientAreaMouseButtonPressFunc(void)
 {
 	if (strcmp(this->cNonClientAreaMouseButtonPressFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cNonClientAreaMouseButtonPressFunc);
+	ring_vm_callfunction(this->pVM,this->cNonClientAreaMouseButtonPressFunc);
 }
 
 void GAllEvents::setNonClientAreaMouseButtonReleaseFunc(const char *cStr)
@@ -1123,7 +1123,7 @@ void GAllEvents::callNonClientAreaMouseButtonReleaseFunc(void)
 {
 	if (strcmp(this->cNonClientAreaMouseButtonReleaseFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cNonClientAreaMouseButtonReleaseFunc);
+	ring_vm_callfunction(this->pVM,this->cNonClientAreaMouseButtonReleaseFunc);
 }
 
 void GAllEvents::setNonClientAreaMouseMoveFunc(const char *cStr)
@@ -1136,7 +1136,7 @@ void GAllEvents::callNonClientAreaMouseMoveFunc(void)
 {
 	if (strcmp(this->cNonClientAreaMouseMoveFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cNonClientAreaMouseMoveFunc);
+	ring_vm_callfunction(this->pVM,this->cNonClientAreaMouseMoveFunc);
 }
 
 void GAllEvents::setMoveFunc(const char *cStr)
@@ -1149,7 +1149,7 @@ void GAllEvents::callMoveFunc(void)
 {
 	if (strcmp(this->cMoveFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cMoveFunc);
+	ring_vm_callfunction(this->pVM,this->cMoveFunc);
 }
 
 void GAllEvents::setResizeFunc(const char *cStr)
@@ -1162,7 +1162,7 @@ void GAllEvents::callResizeFunc(void)
 {
 	if (strcmp(this->cResizeFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cResizeFunc);
+	ring_vm_callfunction(this->pVM,this->cResizeFunc);
 }
 
 void GAllEvents::setWindowActivateFunc(const char *cStr)
@@ -1175,7 +1175,7 @@ void GAllEvents::callWindowActivateFunc(void)
 {
 	if (strcmp(this->cWindowActivateFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cWindowActivateFunc);
+	ring_vm_callfunction(this->pVM,this->cWindowActivateFunc);
 }
 
 void GAllEvents::setWindowBlockedFunc(const char *cStr)
@@ -1188,7 +1188,7 @@ void GAllEvents::callWindowBlockedFunc(void)
 {
 	if (strcmp(this->cWindowBlockedFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cWindowBlockedFunc);
+	ring_vm_callfunction(this->pVM,this->cWindowBlockedFunc);
 }
 
 void GAllEvents::setWindowDeactivateFunc(const char *cStr)
@@ -1201,7 +1201,7 @@ void GAllEvents::callWindowDeactivateFunc(void)
 {
 	if (strcmp(this->cWindowDeactivateFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cWindowDeactivateFunc);
+	ring_vm_callfunction(this->pVM,this->cWindowDeactivateFunc);
 }
 
 void GAllEvents::setWindowStateChangeFunc(const char *cStr)
@@ -1214,7 +1214,7 @@ void GAllEvents::callWindowStateChangeFunc(void)
 {
 	if (strcmp(this->cWindowStateChangeFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cWindowStateChangeFunc);
+	ring_vm_callfunction(this->pVM,this->cWindowStateChangeFunc);
 }
 
 void GAllEvents::setWindowUnblockedFunc(const char *cStr)
@@ -1227,7 +1227,7 @@ void GAllEvents::callWindowUnblockedFunc(void)
 {
 	if (strcmp(this->cWindowUnblockedFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cWindowUnblockedFunc);
+	ring_vm_callfunction(this->pVM,this->cWindowUnblockedFunc);
 }
 
 void GAllEvents::setPaintFunc(const char *cStr)
@@ -1240,7 +1240,7 @@ void GAllEvents::callPaintFunc(void)
 {
 	if (strcmp(this->cPaintFunc,"")==0)
 		return ;
-	ring_vm_runcode(this->pVM,this->cPaintFunc);
+	ring_vm_callfunction(this->pVM,this->cPaintFunc);
 }
 
 const char *GAllEvents::getKeyPressFunc(void)
