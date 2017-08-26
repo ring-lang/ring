@@ -92,6 +92,13 @@ class FormDesignerFileSystem
 			}
 		SaveFormToFile(oDesigner)
 
+	func SaveIfOnlyFileIsOpened oDesigner 
+		# Used by Ring Notepad to Save before Run
+			if cFileName != "noname.rform" {
+				SaveFormToFile(oDesigner)
+			}
+		
+
 	func SaveAsAction oDesigner
 		SaveFile(oDesigner)
 		# Open controller class in Ring Notepad 

@@ -1246,3 +1246,6 @@ class FormDesignerController from WindowsControllerParent
 			cString = SubStr(cString,'"', '"+char(34)+"')
 		}
 		return cString
+
+	func SaveIfOnlyFileIsOpened
+		oFile.SaveIfOnlyFileIsOpened(self)

@@ -1244,7 +1244,12 @@ Class RNoteController from WindowsControllerParent
 		AutoComplete()
 		displayFunctionsList()
 		displayClassesList()
-		StatusMessage("Ready!")
+		# Save Active Form in the Form Designer
+			if isFormDesigner()
+				FormDesigner().SaveIfOnlyFileIsOpened()
+			ok
+			StatusMessage("Ready!")
+
 
 	func pSaveAs
 		new qfiledialog(win1) {
