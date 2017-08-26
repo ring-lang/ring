@@ -123,8 +123,8 @@ myCrumb  = "abcdefghijklmnopqrstuvwxyz"
 ###---------------------------
 ### Settings for MacOS X 
     if isMacosx()
-        BoxLeft			= 100
-        LBoxWidth		= 100
+        BoxLeft		= 100
+        LBoxWidth	= 100
         EXTRAWIDTH	= 30
     else 
         EXTRAWIDTH	= 0
