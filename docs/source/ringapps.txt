@@ -307,6 +307,21 @@ Author : Gal Zsolt (CalmoSoft)
 
 
 .. index:: 
+	pair: Applications developed in little hours; Sixteen Puzzle Game
+
+Sixteen Puzzle Game
+===================
+
+URL : https://github.com/ring-lang/ring/blob/master/applications/sixteenpuzzle/CalmoSoftSixteenPuzzle.ring
+
+Author : Gal Zsolt (CalmoSoft)
+
+Screen Shot:
+
+.. image:: sixteenpuzzle.jpg
+	:alt: Sixteen Puzzle
+
+.. index:: 
 	pair: Applications developed in little hours; Samples in this book
 
 Samples in this book
