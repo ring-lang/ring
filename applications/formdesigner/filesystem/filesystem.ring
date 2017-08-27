@@ -119,8 +119,6 @@ class FormDesignerFileSystem
 
 	func SaveAsAction oDesigner
 		SaveFile(oDesigner)
-		# Open controller class in Ring Notepad 
-			OpenControllerClassInParent(oDesigner)
 
 	func SaveFile oDesigner
 		# Set the file Name
@@ -132,6 +130,8 @@ class FormDesignerFileSystem
 			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
 			SaveFormToFile(oDesigner)
+		# Open controller class in Ring Notepad 
+			OpenControllerClassInParent(oDesigner)
 
 	func SaveFormToFile oDesigner
 		cHeader = "# Start Form Designer File" + nl
