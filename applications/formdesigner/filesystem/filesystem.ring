@@ -90,8 +90,10 @@ class FormDesignerFileSystem
 				setWindowTitle("Form 1")
 			}
 		# Tell the Parent (Ring Notepad for example)
-			if isParent() {
-				Parent().ClearActiveFormFile()
+			if oDesigner.isParent() {
+				if isMethod(oDesigner.Parent(),"clearactiveformfile") {
+					oDesigner.Parent().ClearActiveFormFile()
+				}
 			}
 
 
