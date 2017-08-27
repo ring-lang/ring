@@ -89,6 +89,11 @@ class FormDesignerFileSystem
 			oDesigner.oModel.FormObject() {
 				setWindowTitle("Form 1")
 			}
+		# Tell the Parent (Ring Notepad for example)
+			if isParent() {
+				Parent().ClearActiveFormFile()
+			}
+
 
 	func OpenAction oDesigner
 		# Get the file Name
