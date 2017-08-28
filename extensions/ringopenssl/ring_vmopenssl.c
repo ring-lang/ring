@@ -12,9 +12,9 @@
 /* Functions Depend on the Library Version */
 #if OPENSSL_VERSION_NUMBER >= 0x10100000L
 /* OpenSSL 1.1 and later */
-#include "encrypt_v1.c"
-#else
 #include "encrypt_v2.c"
+#else
+#include "encrypt_v1.c"
 #endif
 /* Functions */
 
