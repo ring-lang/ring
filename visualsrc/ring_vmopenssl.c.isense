@@ -1,6 +1,6 @@
 ring_vmopenssl_h
 RING_VM_POINTER_OPENSSL
-ring_vm_openssl_loadfunctions
+ringlib_init
 ring_vm_openssl_md5
 Type: unsigned char
 digest[MD5_DIGEST_LENGTH]
@@ -56,21 +56,37 @@ x,nSize
 Type: char *
 cInput
 ring_vm_openssl_encrypt
-Type: unsigned char
-*in, *out, *key, *iv
-Type: int
-nSize,buflen, tmplen, nSize2
-Type: EVP_CIPHER_CTX
-ctx
 ring_vm_openssl_decrypt
-Type: unsigned char
-*in, *out, *key, *iv
-Type: int
-nSize,buflen, tmplen, nSize2
-Type: EVP_CIPHER_CTX
-ctx
 ring_vm_openssl_randbytes
 Type: unsigned char *
 cStr
 Type: int
 nNum1
+ring_vm_openssl_encrypt_v1
+Type: unsigned char
+*in, *out, *key, *iv
+Type: int
+nSize,buflen, tmplen, nSize2
+Type: EVP_CIPHER_CTX
+ctx
+ring_vm_openssl_decrypt_v1
+Type: unsigned char
+*in, *out, *key, *iv
+Type: int
+nSize,buflen, tmplen, nSize2
+Type: EVP_CIPHER_CTX
+ctx
+ring_vm_openssl_encrypt_v2
+Type: unsigned char
+*in, *out, *key, *iv
+Type: int
+nSize,buflen, tmplen, nSize2
+Type: EVP_CIPHER_CTX *
+ctx
+ring_vm_openssl_decrypt_v2
+Type: unsigned char
+*in, *out, *key, *iv
+Type: int
+nSize,buflen, tmplen, nSize2
+Type: EVP_CIPHER_CTX *
+ctx
