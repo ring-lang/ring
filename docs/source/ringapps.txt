@@ -316,9 +316,7 @@ Screen Shot:
 Werdy Application
 =================
 
-URL : http://werdy.info
-
-Source Code : https://github.com/magdy-ragab/werdy
+URL : https://github.com/ring-lang/werdy
 
 Author : Magdy Ragab
 
