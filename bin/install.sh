@@ -44,6 +44,7 @@ fi
 if [ -f lib/libring_mysql.so ];
 then
 sudo cp lib/libring_mysql.so /usr/lib
+sudo cp lib/libring_mysql.so /usr/lib64
 fi
 
 # Make the RingSQLite library ready for use directly
@@ -104,6 +105,7 @@ fi
 if [ -f lib/libringqt.so ];
 then
 sudo cp lib/libringqt.so /usr/lib
+sudo cp lib/libringqt.so /usr/lib64
 fi
 
 # Make the RingLibCurl library ready for use directly
