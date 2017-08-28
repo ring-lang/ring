@@ -20,7 +20,7 @@ install:
 script: 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd src && sudo ./buildgcc.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../extensions/ringcurl && ./gencode.sh && ./buildgcc.sh ; fi 
- - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../openssl && ./buildgcc.sh ; fi 
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringopenssl && ./buildgcc.sh ; fi 
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd src && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringqt && ./gencode.sh && ./buildclang.sh ; fi
