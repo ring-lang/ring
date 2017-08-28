@@ -55,35 +55,33 @@ Type: int
 x,nSize
 Type: char *
 cInput
-ring_vm_openssl_encrypt
-ring_vm_openssl_decrypt
 ring_vm_openssl_randbytes
 Type: unsigned char *
 cStr
 Type: int
 nNum1
-ring_vm_openssl_encrypt_v1
+ring_vm_openssl_encrypt
 Type: unsigned char
 *in, *out, *key, *iv
 Type: int
 nSize,buflen, tmplen, nSize2
 Type: EVP_CIPHER_CTX
 ctx
-ring_vm_openssl_decrypt_v1
+ring_vm_openssl_decrypt
 Type: unsigned char
 *in, *out, *key, *iv
 Type: int
 nSize,buflen, tmplen, nSize2
 Type: EVP_CIPHER_CTX
 ctx
-ring_vm_openssl_encrypt_v2
+ring_vm_openssl_encrypt
 Type: unsigned char
 *in, *out, *key, *iv
 Type: int
 nSize,buflen, tmplen, nSize2
 Type: EVP_CIPHER_CTX *
 ctx
-ring_vm_openssl_decrypt_v2
+ring_vm_openssl_decrypt
 Type: unsigned char
 *in, *out, *key, *iv
 Type: int

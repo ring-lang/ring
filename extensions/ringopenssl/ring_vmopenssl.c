@@ -9,6 +9,13 @@
 #include "openssl/evp.h"
 #include "openssl/rand.h"
 #include "ring_vmopenssl.h"
+/* Functions Depend on the Library Version */
+#if OPENSSL_VERSION_NUMBER >= 0x10100000L
+/* OpenSSL 1.1 and later */
+#include "encrypt_v1.c"
+#else
+#include "encrypt_v2.c"
+#endif
 /* Functions */
 
 RING_API void ringlib_init ( RingState *pRingState )
@@ -162,26 +169,6 @@ void ring_vm_openssl_sha224 ( void *pPointer )
 	}
 }
 
-void ring_vm_openssl_encrypt ( void *pPointer )
-{
-	#if OPENSSL_VERSION_NUMBER >= 0x10100000L
-	/* OpenSSL 1.1 and later */
-	ring_vm_openssl_encrypt_v2(pPointer);
-	#else
-	ring_vm_openssl_encrypt_v1(pPointer);
-	#endif
-}
-
-void ring_vm_openssl_decrypt ( void *pPointer )
-{
-	#if OPENSSL_VERSION_NUMBER >= 0x10100000L
-	/* OpenSSL 1.1 and later */
-	ring_vm_openssl_decrypt_v2(pPointer);
-	#else
-	ring_vm_openssl_decrypt_v1(pPointer);
-	#endif
-}
-
 void ring_vm_openssl_randbytes ( void *pPointer )
 {
 	unsigned char *cStr  ;
@@ -204,163 +191,6 @@ void ring_vm_openssl_randbytes ( void *pPointer )
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
 	} else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-	}
-}
-/*
-**  Encrypt and Decrypt 
-**  Versions before OpenSSL 1.1 
-*/
-
-void ring_vm_openssl_encrypt_v1 ( void *pPointer )
-{
-	unsigned char *in, *out, *key, *iv  ;
-	int nSize,buflen, tmplen, nSize2  ;
-	EVP_CIPHER_CTX ctx  ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
-		in = (unsigned char *) RING_API_GETSTRING(1) ;
-		key = (unsigned char *) RING_API_GETSTRING(2) ;
-		iv = (unsigned char *) RING_API_GETSTRING(3) ;
-		nSize = RING_API_GETSTRINGSIZE(1) ;
-		out = (unsigned char *) malloc(nSize*2) ;
-		EVP_CIPHER_CTX_init(&ctx);
-		EVP_EncryptInit_ex(&ctx, EVP_bf_cbc(), NULL, key, iv);
-		if ( !EVP_EncryptUpdate(&ctx, out, &buflen, in, nSize) ) {
-			free( out ) ;
-			return ;
-		}
-		if ( !EVP_EncryptFinal_ex(&ctx, out + buflen, &tmplen) ) {
-			free( out ) ;
-			return ;
-		}
-		nSize2 = buflen + tmplen ;
-		RING_API_RETSTRING2((const char *) out,nSize2);
-		EVP_CIPHER_CTX_cleanup(&ctx);
-		free( out ) ;
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-	}
-}
-
-void ring_vm_openssl_decrypt_v1 ( void *pPointer )
-{
-	unsigned char *in, *out, *key, *iv  ;
-	int nSize,buflen, tmplen, nSize2  ;
-	EVP_CIPHER_CTX ctx  ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
-		in = (unsigned char *) RING_API_GETSTRING(1) ;
-		key = (unsigned char *) RING_API_GETSTRING(2) ;
-		iv = (unsigned char *) RING_API_GETSTRING(3) ;
-		nSize = RING_API_GETSTRINGSIZE(1) ;
-		out = (unsigned char *) malloc(nSize*2) ;
-		EVP_CIPHER_CTX_init(&ctx);
-		EVP_DecryptInit_ex(&ctx, EVP_bf_cbc(), NULL, key, iv);
-		if ( !EVP_DecryptUpdate(&ctx, out, &buflen, in, nSize) ) {
-			free( out ) ;
-			return ;
-		}
-		if ( !EVP_DecryptFinal_ex(&ctx, out + buflen, &tmplen) ) {
-			free( out ) ;
-			return ;
-		}
-		nSize2 = buflen + tmplen ;
-		RING_API_RETSTRING2((const char *) out,nSize2);
-		EVP_CIPHER_CTX_cleanup(&ctx);
-		free( out ) ;
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-	}
-}
-/* Version OpenSSL 1.1 and Later */
-
-void ring_vm_openssl_encrypt_v2 ( void *pPointer )
-{
-	unsigned char *in, *out, *key, *iv  ;
-	int nSize,buflen, tmplen, nSize2  ;
-	EVP_CIPHER_CTX *ctx  ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
-		in = (unsigned char *) RING_API_GETSTRING(1) ;
-		key = (unsigned char *) RING_API_GETSTRING(2) ;
-		iv = (unsigned char *) RING_API_GETSTRING(3) ;
-		nSize = RING_API_GETSTRINGSIZE(1) ;
-		out = (unsigned char *) malloc(nSize*2) ;
-		ctx = EVP_CIPHER_CTX_new();
-		if ( ctx == NULL ) {
-			printf( RING_OOM ) ;
-			return ;
-		}
-		EVP_EncryptInit_ex(ctx, EVP_bf_cbc(), NULL, key, iv);
-		if ( !EVP_EncryptUpdate(ctx, out, &buflen, in, nSize) ) {
-			free( out ) ;
-			EVP_CIPHER_CTX_free(ctx);
-			return ;
-		}
-		if ( !EVP_EncryptFinal_ex(ctx, out + buflen, &tmplen) ) {
-			free( out ) ;
-			EVP_CIPHER_CTX_free(ctx);
-			return ;
-		}
-		nSize2 = buflen + tmplen ;
-		RING_API_RETSTRING2((const char *) out,nSize2);
-		EVP_CIPHER_CTX_free(ctx);
-		free( out ) ;
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-	}
-}
-
-void ring_vm_openssl_decrypt_v2 ( void *pPointer )
-{
-	unsigned char *in, *out, *key, *iv  ;
-	int nSize,buflen, tmplen, nSize2  ;
-	EVP_CIPHER_CTX *ctx  ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
-		in = (unsigned char *) RING_API_GETSTRING(1) ;
-		key = (unsigned char *) RING_API_GETSTRING(2) ;
-		iv = (unsigned char *) RING_API_GETSTRING(3) ;
-		nSize = RING_API_GETSTRINGSIZE(1) ;
-		out = (unsigned char *) malloc(nSize*2) ;
-		ctx = EVP_CIPHER_CTX_new();
-		if ( ctx == NULL ) {
-			printf( RING_OOM ) ;
-			return ;
-		}
-		EVP_DecryptInit_ex(ctx, EVP_bf_cbc(), NULL, key, iv);
-		if ( !EVP_DecryptUpdate(ctx, out, &buflen, in, nSize) ) {
-			free( out ) ;
-			EVP_CIPHER_CTX_free(ctx);
-			return ;
-		}
-		if ( !EVP_DecryptFinal_ex(ctx, out + buflen, &tmplen) ) {
-			free( out ) ;
-			EVP_CIPHER_CTX_free(ctx);
-			return ;
-		}
-		nSize2 = buflen + tmplen ;
-		RING_API_RETSTRING2((const char *) out,nSize2);
-		EVP_CIPHER_CTX_free(ctx);
-		free( out ) ;
-	}
-	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
