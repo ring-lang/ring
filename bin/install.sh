@@ -104,6 +104,7 @@ fi
 if [ -f lib/libringqt.so ];
 then
 sudo cp lib/libringqt.so /usr/lib
+sudo cp lib/libringqt.so /usr/lib64
 fi
 
 # Make the RingLibCurl library ready for use directly
