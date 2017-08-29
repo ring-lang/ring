@@ -225,8 +225,8 @@ int ring_parser_stmt ( Parser *pParser )
 	double nNum1  ;
 	char cStr[50]  ;
 	char cFileName[200]  ;
-	nPerformanceLocations = 0 ;
 	char cCurrentDir[200]  ;
+	nPerformanceLocations = 0 ;
 	assert(pParser != NULL);
 	/* Statement --> Load Literal */
 	if ( ring_parser_iskeyword(pParser,K_LOAD) ) {

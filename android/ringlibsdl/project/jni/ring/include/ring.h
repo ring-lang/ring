@@ -11,6 +11,9 @@
 **  Support Windows XP 
 **  To avoid error message : procedure entry point InitializeConditionVariable could not be located in Kernel32.dll 
 */
+#ifdef _WIN32_WINNT
+#undef _WIN32_WINNT
+#endif
 #define _WIN32_WINNT 0x502
 #define RING_USEDLL 1
 #define RING_BUILDLIB 1
