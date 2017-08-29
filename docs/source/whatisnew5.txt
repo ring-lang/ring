@@ -1977,3 +1977,23 @@ Screen Shot:
 	:alt: Ring on Fedora 1
 
 
+.. index:: 
+	pair: What is new in Ring 1.5?; What is new in Ring 1.5.3?
+
+What is new in Ring 1.5.3?
+==========================
+
+* Form Designer : Close Action will notify Ring Notepad to be able to open the Form again
+* Form Designer : Save Action will open the controller class like New/Open/Save As actions
+* RingOpenSSL : Updated to support newer versions like OpenSSL 1.1 
+* Building Scripts : Updated to work on Fedora 26 (64bit) 
+* New Sample : URLShortener
+
+Screen Shots:
+
+.. image:: urlappshot1.png
+	:alt: URLShortener - shot 1
+
+.. image:: urlappshot2.png
+	:alt: URLShortener - shot 2
+
