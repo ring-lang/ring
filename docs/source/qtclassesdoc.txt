@@ -1166,6 +1166,7 @@ Parent Class : QWidget
 * void clear(void)
 * QAction *defaultAction(void)
 * QAction *exec(void)
+* QAction *exec_2(const QPoint &,QAction *)
 * void hideTearOffMenu(void)
 * QIcon icon(void)
 * QAction *insertMenu(QAction *before, QMenu *menu)
@@ -6261,6 +6262,12 @@ Parameters : void
 * QPixmap pixmap(void)
 * void setShape(Qt::CursorShape shape)
 * Qt::CursorShape shape(void)
+* QPoint pos(void)
+* QPoint pos_2(QScreen *)
+* void setPos(int x, int y)
+* void setPos_2(QScreen *screen, int x, int y)
+* void setPos_3(QPoint)
+* void setPos_4(QScreen *screen, QPoint)
 
 .. index::
 	pair: RingQt Classes Reference; QListView Class
