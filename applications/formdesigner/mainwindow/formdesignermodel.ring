@@ -61,6 +61,9 @@ Class FormDesignerModel
 	func ActiveObject
 		return aObjectsList[nActiveObject][2]
 
+	func ActiveObjectIndex
+		return nActiveObject
+
 	func GetObjectByIndex nIndex
 		return aObjectsList[nIndex][2]
 

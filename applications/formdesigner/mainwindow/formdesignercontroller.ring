@@ -692,9 +692,15 @@ class FormDesignerController from WindowsControllerParent
 				# Here we don't have many objects selected
 				# Support starting multiple selection operation using the keyboard
 				if oFDApp.keyboardmodifiers() {
+					# We save the current object first
+						nOldCurrentIndex = oModel.ActiveObjectIndex()
 					oModel.ClearSelectedObjects()
 					ChangeObjectByCode(nObjectIndex-1)
 					oModel.ActiveObject().oCorners.Show()
+					# Keep the old current object in selection 
+						oModel.AddSelectedObject(nOldCurrentIndex)
+						# Draw old current object corners 					
+							oModel.getobjectByIndex(nOldCurrentIndex).oCorners.show()
 					oModel.AddSelectedObject(nObjectIndex)
 					nWidth = oView.oPropertiesDock.width()
 					oView.oPropertiesDock.setWidget(oView.oProperties2)
