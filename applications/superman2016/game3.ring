@@ -129,7 +129,7 @@ func main
 func playstart oGame
 
 	oGame {
-		FPS = 60
+		FPS = 15
 		FixedFPS = 15
 		Title = "Super Man 2016"
 		Sprite {
