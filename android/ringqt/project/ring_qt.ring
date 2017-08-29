@@ -2905,9 +2905,19 @@ Class QMenu from QWidget
 		pTempObj.pObject = QMenu_defaultAction(pObject)
 		return pTempObj
 
-	Func exec 
+	Func exec P1
 		pTempObj = new QAction
-		pTempObj.pObject = QMenu_exec(pObject)
+		pTempObj.pObject = QMenu_exec(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func exec_2 
+		pTempObj = new QAction
+		pTempObj.pObject = QMenu_exec_2(pObject)
+		return pTempObj
+
+	Func exec_3 P1,P2
+		pTempObj = new QAction
+		pTempObj.pObject = QMenu_exec_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
 	Func hideTearOffMenu 
@@ -14759,6 +14769,28 @@ Class QCursor
 
 	Func shape 
 		return QCursor_shape(pObject)
+
+	Func pos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QCursor_pos(pObject)
+		return pTempObj
+
+	Func pos_2 P1
+		pTempObj = new QPoint
+		pTempObj.pObject = QCursor_pos_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setPos P1,P2
+		return QCursor_setPos(pObject,P1,P2)
+
+	Func setPos_2 P1,P2,P3
+		return QCursor_setPos_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func setPos_3 P1
+		return QCursor_setPos_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPos_4 P1,P2
+		return QCursor_setPos_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 Class QListView from QAbstractItemView
 
