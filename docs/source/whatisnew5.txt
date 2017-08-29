@@ -2004,6 +2004,21 @@ Output:
 	NUMBER
 	100000001
 
+* Update Compiler : Support using f after numbers
+
+Example:
+
+.. code-block:: ring
+
+	x = 19.99f
+	see type(x) + nl
+
+Output:
+
+.. code-block:: ring
+
+	NUMBER
+
 * New Sample : URLShortener
 
 Screen Shots:
