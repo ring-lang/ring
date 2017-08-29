@@ -53,7 +53,7 @@ RING_STATE_CHECKPRINTRULES
 RING_VERSION
 GetCurrentDir
 GetCurrentDir
-Type: int
+Type: static int
 nRingStateDEBUGSEGFAULT
 Type: int
 nRingStateCGI
