@@ -577,11 +577,17 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 	}
 }
 
-int ring_scanner_isnumber ( const char *cStr )
+int ring_scanner_isnumber ( char *cStr )
 {
 	unsigned int x  ;
 	for ( x = 0 ; x < strlen(cStr) ; x++ ) {
-		if ( cStr[x] < 48 || cStr[x] > 57 ) {
+		/* Accept _ in the number */
+		if ( (cStr[x] == '_') && (x > 0) ) {
+			cStr[x] = cStr[x+1] ;
+			x-- ;
+			continue ;
+		}
+		if ( (cStr[x] < 48 || cStr[x] > 57) ) {
 			return 0 ;
 		}
 	}
