@@ -211,7 +211,6 @@ Author : Gal Zsolt (CalmoSoft)
 .. image:: fifteen2.png
 	:alt: Ring Application
 
-
 .. index:: 
 	pair: Applications developed in little hours; Google API Shortener Application
 
@@ -232,8 +231,9 @@ Hope you enjoy the application.  Please feel free to test at your convenience.
 
 Ring is FUN!!
 
-.. image:: urlappshot1.png
+.. image:: urlappmainshot.png
 	:alt: URLShortener - shot 1
+
 
 .. image:: urlappshot2.png
 	:alt: URLShortener - shot 2
