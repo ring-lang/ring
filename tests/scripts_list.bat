@@ -250,3 +250,4 @@ call ring scripts/types.ring
 call ring scripts/inclassregion1.ring 
 call ring scripts/inclassregion2.ring
 call ring scripts/inclassregion3.ring
+call ring scripts/underscoreinnumber.ring
