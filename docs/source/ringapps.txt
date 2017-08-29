@@ -211,6 +211,37 @@ Author : Gal Zsolt (CalmoSoft)
 .. image:: fifteen2.png
 	:alt: Ring Application
 
+
+.. index:: 
+	pair: Applications developed in little hours; Google API Shortener Application
+
+Google API Shortener Application
+================================
+
+Author : John Storm (SienSystem)
+
+Hi everyone,
+
+Wanted to (finally) share a first release version of a small but very nice tool 
+to shorten urls using the Google shortener API.   The code is fully documented, 
+maybe too documented, but, provides a good reference as to what is going on. 
+
+You can obtain your own API key, or you can use my key to test and use the tool.  
+
+Hope you enjoy the application.  Please feel free to test at your convenience.  
+
+Ring is FUN!!
+
+John
+
+.. image:: urlappshot1.png
+	:alt: URLShortener - shot 1
+
+.. image:: urlappshot2.png
+	:alt: URLShortener - shot 2
+
+
+
 .. index:: 
 	pair: Applications developed in little hours; Analog Clock
 
