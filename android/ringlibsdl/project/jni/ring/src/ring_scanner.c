@@ -587,6 +587,11 @@ int ring_scanner_isnumber ( char *cStr )
 			x-- ;
 			continue ;
 		}
+		/* Accept f in the end of the number */
+		if ( (x > 0) && (x == strlen(cStr) - 1) && ( (cStr[x] == 'f') || (cStr[x] == 'F') ) ) {
+			cStr[x] = '\0' ;
+			return 1 ;
+		}
 		if ( (cStr[x] < 48 || cStr[x] > 57) ) {
 			return 0 ;
 		}
