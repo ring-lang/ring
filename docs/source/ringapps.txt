@@ -232,8 +232,6 @@ Hope you enjoy the application.  Please feel free to test at your convenience.
 
 Ring is FUN!!
 
-John
-
 .. image:: urlappshot1.png
 	:alt: URLShortener - shot 1
 
