@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4273
+Time 4417
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-00C84CD0
+00E34AC8
 OBJECTPOINTER
 0
 1
@@ -2590,7 +2590,7 @@ nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
 date: 29/08/2017
-time: 09:56:10
+time: 10:15:41
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3353,3 +3353,15 @@ welcome to ***ring***welcome to ***ring***welcome to ***ring***welcome to ***rin
 B:\ring\tests>call ring scripts/underscoreinnumber.ring 
 NUMBER
 100000001
+
+B:\ring\tests>call ring scripts/underscoreinnumber2.ring 
+
+Line 3 Error (R24) : Using uninitialized variable : 100001111_ 
+in file scripts/underscoreinnumber2.ring 
+B:\ring\tests>call ring scripts/fafternumber.ring 
+NUMBER
+STRING
+NUMBER
+
+Line 14 Error (R24) : Using uninitialized variable : 1412f13 
+in file scripts/fafternumber.ring 
