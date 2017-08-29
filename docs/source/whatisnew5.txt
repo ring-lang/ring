@@ -1987,6 +1987,23 @@ What is new in Ring 1.5.3?
 * Form Designer : Save Action will open the controller class like New/Open/Save As actions
 * RingOpenSSL : Updated to support newer versions like OpenSSL 1.1 
 * Building Scripts : Updated to work on Fedora 26 (64bit) 
+* Update Compiler : Support using _ in numbers
+
+Example:
+
+.. code-block:: ring
+
+	x = 1_000_000
+	see type(x)+nl
+	see x+1+nl
+
+Output:
+
+.. code-block:: ring
+
+	NUMBER
+	100000001
+
 * New Sample : URLShortener
 
 Screen Shots:
