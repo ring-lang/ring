@@ -1855,6 +1855,7 @@ QAction *addSeparator(void)
 void clear(void)
 QAction *defaultAction(void)
 QAction *exec(void)
+QAction *exec@2(const QPoint &,QAction *)
 void hideTearOffMenu(void)
 QIcon icon(void)
 QAction *insertMenu(QAction *before, QMenu *menu)
@@ -6796,6 +6797,13 @@ QBitmap *mask(void)
 QPixmap pixmap(void)
 void setShape(Qt::CursorShape shape)
 Qt::CursorShape shape(void)
+QPoint pos(void)
+QPoint pos@2(QScreen *)
+void setPos(int x, int y)
+void setPos@2(QScreen *screen, int x, int y)
+void setPos@3(QPoint)
+void setPos@4(QScreen *screen, QPoint)
+
 
 <class>
 name: QListView

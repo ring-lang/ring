@@ -16595,6 +16595,29 @@ RING_FUNC(ring_QMenu_exec)
 }
 
 
+RING_FUNC(ring_QMenu_exec_2)
+{
+	QMenu *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMenu *) RING_API_GETCPOINTER(1,"QMenu");
+	if ( ! RING_API_ISPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->exec(* (const QPoint  *) RING_API_GETCPOINTER(2,"const QPoint"),(QAction *) RING_API_GETCPOINTER(3,"QAction")),"QAction");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QPoint"));
+}
+
+
 RING_FUNC(ring_QMenu_hideTearOffMenu)
 {
 	QMenu *pObject ;
@@ -82568,6 +82591,150 @@ RING_FUNC(ring_QCursor_shape)
 }
 
 
+RING_FUNC(ring_QCursor_pos)
+{
+	QCursor *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
+	{
+		QPoint *pValue ; 
+		pValue = new QPoint() ;
+		*pValue = pObject->pos();
+		RING_API_RETCPOINTER(pValue,"QPoint");
+	}
+}
+
+
+RING_FUNC(ring_QCursor_pos_2)
+{
+	QCursor *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPoint *pValue ; 
+		pValue = new QPoint() ;
+		*pValue = pObject->pos((QScreen *) RING_API_GETCPOINTER(2,"QScreen"));
+		RING_API_RETCPOINTER(pValue,"QPoint");
+	}
+}
+
+
+RING_FUNC(ring_QCursor_setPos)
+{
+	QCursor *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPos( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QCursor_setPos_2)
+{
+	QCursor *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPos((QScreen *) RING_API_GETCPOINTER(2,"QScreen"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_QCursor_setPos_3)
+{
+	QCursor *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
+	pObject->setPos(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QPoint"));
+}
+
+
+RING_FUNC(ring_QCursor_setPos_4)
+{
+	QCursor *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPos((QScreen *) RING_API_GETCPOINTER(2,"QScreen"),* (QPoint *) RING_API_GETCPOINTER(3,"QPoint"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		free(RING_API_GETCPOINTER(2,"QPoint"));
+}
+
+
 RING_FUNC(ring_QListView_batchSize)
 {
 	QListView *pObject ;
@@ -92141,6 +92308,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmenu_clear",ring_QMenu_clear);
 	ring_vm_funcregister("qmenu_defaultaction",ring_QMenu_defaultAction);
 	ring_vm_funcregister("qmenu_exec",ring_QMenu_exec);
+	ring_vm_funcregister("qmenu_exec_2",ring_QMenu_exec_2);
 	ring_vm_funcregister("qmenu_hidetearoffmenu",ring_QMenu_hideTearOffMenu);
 	ring_vm_funcregister("qmenu_icon",ring_QMenu_icon);
 	ring_vm_funcregister("qmenu_insertmenu",ring_QMenu_insertMenu);
@@ -95379,6 +95547,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcursor_pixmap",ring_QCursor_pixmap);
 	ring_vm_funcregister("qcursor_setshape",ring_QCursor_setShape);
 	ring_vm_funcregister("qcursor_shape",ring_QCursor_shape);
+	ring_vm_funcregister("qcursor_pos",ring_QCursor_pos);
+	ring_vm_funcregister("qcursor_pos_2",ring_QCursor_pos_2);
+	ring_vm_funcregister("qcursor_setpos",ring_QCursor_setPos);
+	ring_vm_funcregister("qcursor_setpos_2",ring_QCursor_setPos_2);
+	ring_vm_funcregister("qcursor_setpos_3",ring_QCursor_setPos_3);
+	ring_vm_funcregister("qcursor_setpos_4",ring_QCursor_setPos_4);
 	ring_vm_funcregister("qlistview_batchsize",ring_QListView_batchSize);
 	ring_vm_funcregister("qlistview_clearpropertyflags",ring_QListView_clearPropertyFlags);
 	ring_vm_funcregister("qlistview_flow",ring_QListView_flow);
