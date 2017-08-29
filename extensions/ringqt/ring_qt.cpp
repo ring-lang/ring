@@ -16581,6 +16581,25 @@ RING_FUNC(ring_QMenu_defaultAction)
 RING_FUNC(ring_QMenu_exec)
 {
 	QMenu *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMenu *) RING_API_GETCPOINTER(1,"QMenu");
+	RING_API_RETCPOINTER(pObject->exec(* (const QPoint  *) RING_API_GETCPOINTER(2,"const QPoint")),"QAction");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QPoint"));
+}
+
+
+RING_FUNC(ring_QMenu_exec_2)
+{
+	QMenu *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -16595,7 +16614,7 @@ RING_FUNC(ring_QMenu_exec)
 }
 
 
-RING_FUNC(ring_QMenu_exec_2)
+RING_FUNC(ring_QMenu_exec_3)
 {
 	QMenu *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -92309,6 +92328,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmenu_defaultaction",ring_QMenu_defaultAction);
 	ring_vm_funcregister("qmenu_exec",ring_QMenu_exec);
 	ring_vm_funcregister("qmenu_exec_2",ring_QMenu_exec_2);
+	ring_vm_funcregister("qmenu_exec_3",ring_QMenu_exec_3);
 	ring_vm_funcregister("qmenu_hidetearoffmenu",ring_QMenu_hideTearOffMenu);
 	ring_vm_funcregister("qmenu_icon",ring_QMenu_icon);
 	ring_vm_funcregister("qmenu_insertmenu",ring_QMenu_insertMenu);

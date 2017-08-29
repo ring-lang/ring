@@ -2905,14 +2905,19 @@ Class QMenu from QWidget
 		pTempObj.pObject = QMenu_defaultAction(pObject)
 		return pTempObj
 
-	Func exec 
+	Func exec P1
 		pTempObj = new QAction
-		pTempObj.pObject = QMenu_exec(pObject)
+		pTempObj.pObject = QMenu_exec(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
-	Func exec_2 P1,P2
+	Func exec_2 
 		pTempObj = new QAction
-		pTempObj.pObject = QMenu_exec_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QMenu_exec_2(pObject)
+		return pTempObj
+
+	Func exec_3 P1,P2
+		pTempObj = new QAction
+		pTempObj.pObject = QMenu_exec_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
 	Func hideTearOffMenu 
