@@ -582,7 +582,7 @@ int ring_scanner_isnumber ( char *cStr )
 	unsigned int x  ;
 	for ( x = 0 ; x < strlen(cStr) ; x++ ) {
 		/* Accept _ in the number */
-		if ( (cStr[x] == '_') && (x > 0) ) {
+		if ( (cStr[x] == '_') && (x > 0) && (x < strlen(cStr) - 1) ) {
 			cStr[x] = cStr[x+1] ;
 			x-- ;
 			continue ;
