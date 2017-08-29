@@ -14,6 +14,7 @@ install:
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install mysql-connector-c ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install allegro ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install openssl ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install glew ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install homebrew/versions/qt55 ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link --force qt55 ; fi
  
@@ -33,6 +34,8 @@ script:
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringqt && ./gencode.sh && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringcurl && ./gencode.sh && ./buildclang.sh ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringfreeglut && ./gencode.sh && ./buildclang.sh ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringopengl/opengl21 && ./gencode.sh && ./buildclang.sh ; fi
  
 notifications:
  email: false
