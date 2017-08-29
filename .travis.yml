@@ -22,6 +22,9 @@ script:
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../extensions/ringcurl && ./gencode.sh && ./buildgcc.sh ; fi 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringinternet && ./buildgcc.sh ; fi 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringopenssl && ./buildgcc.sh ; fi 
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringmysql && ./buildgcc.sh ; fi 
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringodbc && ./buildgcc.sh ; fi 
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringsqlite && ./buildgcc.sh ; fi 
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd src && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../extensions/ringallegro && ./gencode.sh && ./buildclang.sh ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringqt && ./gencode.sh && ./buildclang.sh ; fi
