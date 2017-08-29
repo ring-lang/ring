@@ -2039,7 +2039,7 @@ Example:
 		}
 	
 
-* Update Compiler : Support using _ in numbers
+* Compiler : Support using _ in numbers
 
 Example:
 
@@ -2056,7 +2056,7 @@ Output:
 	NUMBER
 	100000001
 
-* Update Compiler : Support using f after numbers
+* Compiler : Support using f after numbers
 
 Example:
 
@@ -2077,7 +2077,3 @@ Screen Shots:
 
 .. image:: urlappshot1.png
 	:alt: URLShortener - shot 1
-
-.. image:: urlappshot2.png
-	:alt: URLShortener - shot 2
-
