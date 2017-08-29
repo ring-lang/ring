@@ -14,8 +14,8 @@ install:
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install mysql-connector-c ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install allegro ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install openssl ; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install homebrew/versions/qt52 ; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link --force qt52 ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install homebrew/versions/qt55 ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link --force qt55 ; fi
  
 script: 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd src && sudo ./buildgcc.sh ; fi
