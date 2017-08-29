@@ -116,7 +116,7 @@ void ring_scanner_addtoken ( Scanner *pScanner,int type ) ;
 
 void ring_scanner_checktoken ( Scanner *pScanner ) ;
 
-int ring_scanner_isnumber ( const char *cStr ) ;
+int ring_scanner_isnumber ( char *cStr ) ;
 
 int ring_scanner_checklasttoken ( Scanner *pScanner ) ;
 
