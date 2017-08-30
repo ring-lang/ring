@@ -1948,7 +1948,7 @@ Source Code:
 Screen Shot:
 
 .. image:: ringcube3d.png
-	:alt: Ring Cuve
+	:alt: Ring Cube
 
 
 .. index:: 
@@ -1994,7 +1994,7 @@ What is new in Ring 1.5.3?
 Screen Shot:
 
 .. image:: manycubes.png
-	:alt: Manu Cubes
+	:alt: Many Cubes
 
 * RingQt : Add QDateTime Class 
 * RingQt : New methods added to QMenu and QCursor Classes
