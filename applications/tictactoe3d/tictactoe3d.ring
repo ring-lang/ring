@@ -31,6 +31,7 @@ class TicTacToe3D from TicTacToe3DGameLogic
 	oGameSound = new GameSound
 	oGameCube = new GameCube
 	oGameOver = new GameOver
+	oGameInterface = new TicTacToe3DGameInterface 
 
 	func loadresources
 		oGameOver.loadresources()
@@ -46,26 +47,18 @@ class TicTacToe3D from TicTacToe3DGameLogic
 
 	func drawScene
 		oBackground.update()
+		oGameInterface.update(self)
+
+	func MouseClickEvent
+		oGameInterface.MouseClickEvent(self)
+
+class TicTacToe3DGameInterface 
+
+	func Update oGame
 		prepare()
-		cubes()
+		cubes(oGame)
 
-
-	func Cubes
-		oGameCube {
-			aGameMap = this.aGameMap 
-			cube( 5  , -3 , -5  , aGameMap[1][1] )
-			cube( 0  , -3 , -5  , aGameMap[1][2] )
-			cube( -5 , -3 , -5  , aGameMap[1][3] )
-			cube( 5  , 1  , -5  , aGameMap[2][1] )
-			cube( 0  , 1  , -5  , aGameMap[2][2] )
-			cube( -5 , 1  , -5  , aGameMap[2][3] )
-			cube( 5  , 5  , -5  , aGameMap[3][1] )
-			cube( 0  , 5  , -5  , aGameMap[3][2] )
-			cube( -5 , 5  , -5  , aGameMap[3][3] )
-			rotate()
-		}
-
-	func Prepare
+	func Prepare 
 		w = 1024 h = 768
 		ratio =  w / h
 		glViewport(0, 0, w, h)
@@ -83,21 +76,38 @@ class TicTacToe3D from TicTacToe3DGameLogic
 		glDepthFunc(GL_LEQUAL)
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
 
-	func MouseClickEvent
-		aBtn = Point2Button(Mouse_X,Mouse_Y)
-		nRow = aBtn[1]
-		nCol = aBtn[2]
-		if nRow != 0 and nCol != 0
-			if DEBUG
-				see "Row = " + nRow + nl
-				see "Col = " + nCol + nl
-			ok	
-			if aGameMap[nRow][nCol] = :n
-				aGameMap[nRow][nCol] = cActivePlayer
-				ChangeActivePlayer()
-				CheckGameOver()
-			ok 			
-		ok
+	func Cubes oGame
+		oGame.oGameCube {
+			aGameMap = oGame.aGameMap 
+			cube( 5  , -3 , -5  , aGameMap[1][1] )
+			cube( 0  , -3 , -5  , aGameMap[1][2] )
+			cube( -5 , -3 , -5  , aGameMap[1][3] )
+			cube( 5  , 1  , -5  , aGameMap[2][1] )
+			cube( 0  , 1  , -5  , aGameMap[2][2] )
+			cube( -5 , 1  , -5  , aGameMap[2][3] )
+			cube( 5  , 5  , -5  , aGameMap[3][1] )
+			cube( 0  , 5  , -5  , aGameMap[3][2] )
+			cube( -5 , 5  , -5  , aGameMap[3][3] )
+			rotate()
+		}
+
+	func MouseClickEvent oGame
+		oGame {
+			aBtn = Point2Button(Mouse_X,Mouse_Y)
+			nRow = aBtn[1]
+			nCol = aBtn[2]
+			if nRow != 0 and nCol != 0
+				if DEBUG
+					see "Row = " + nRow + nl
+					see "Col = " + nCol + nl
+				ok	
+				if aGameMap[nRow][nCol] = :n
+					aGameMap[nRow][nCol] = cActivePlayer
+					ChangeActivePlayer()
+					CheckGameOver()
+				ok 			
+			ok
+		}
 
 
 Class TicTacToe3DGameLogic from GraphicsAppBase
