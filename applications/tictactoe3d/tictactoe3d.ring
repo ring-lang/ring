@@ -28,12 +28,10 @@ class TicTacToe3D from GraphicsAppBase
 	TITLE = "TicTacToe 3D"
 	DEBUG = False
 
-	font bitmap4
-
-
 	oBackground = new background
 	oGameSound = new GameSound
 	oGameCube = new GameCube
+	oGameOver = new GameOver
 
 	aGameMap = [
 		[ :n , :n , :n ] ,
@@ -122,40 +120,16 @@ class TicTacToe3D from GraphicsAppBase
 			off
 		next
 		nStatus = CheckWinner(aList)
-		Switch nStatus
-			on 1 Player1Win()
-			on 2 Player2Win()
-			on 3 NoOneWin()
-		off
-
-	func Player1Win
-		showMsg(80,430,"Good job X you won!")
-		refreshGame()
-	
-	func Player2Win
-		showMsg(80,430,"Good job O you won!")
-		refreshGame()
-
-	func NoOneWin
-		showMsg(150,430,"Oh no it's a tie!")
-		refreshGame()
-
-	func ShowMsg x,y,cMsg
-		drawScene()
-		al_flip_display()
-		al_rest(0.3)
- 		newdisplay = al_create_display(SCREEN_W,SCREEN_H)
-		al_set_window_title(newdisplay,TITLE)
- 		al_clear_to_color(al_map_rgb(255,255,255))
-		al_draw_bitmap(bitmap4,200,50,1)
-		al_draw_text(font,
-			 al_map_rgb(0,0,255), x,y,
-			 ALLEGRO_ALIGN_LEFT,
-	         cMsg)
-		al_flip_display()
-		al_rest(2)
-		al_destroy_display(newdisplay)
-		al_set_target_backbuffer(display)
+		if nStatus 
+			oGameOver {
+				Switch nStatus
+					on 1 Player1Win(this)  
+					on 2 Player2Win(this)  
+					on 3 NoOneWin(this)   
+				off
+			}
+			refreshGame()
+		ok
 
 	func refreshGame
 		aGameMap = [
@@ -197,17 +171,14 @@ class TicTacToe3D from GraphicsAppBase
         if tie=true return 3 ok return 0
 
 	func loadresources
-		font = al_load_ttf_font("font/pirulen.ttf",54,0 )
-
-		bitmap4 = al_load_bitmap("image/ballon.png")
-
+		oGameOver.loadresources()
 		oGameSound.loadresources()
 		oBackGround.loadresources()
 		oGameCube.loadresources()
 
 	func destroyResources
 
-		al_destroy_bitmap(bitmap4)
+		oGameOver.destroyResources()
 		oGameSound.destroyResources()
 		oBackGround.destroyResources()
 		oGameCube.destroyResources()
@@ -249,6 +220,46 @@ class TicTacToe3D from GraphicsAppBase
 			cube( 0  , 5  , -5  , aGameMap[3][2] )
 			cube( -5 , 5  , -5  , aGameMap[3][3] )
 			rotate()
+		}
+
+class GameOver
+
+	font bitmap4
+
+	func loadresources
+		font = al_load_ttf_font("font/pirulen.ttf",54,0 )
+		bitmap4 = al_load_bitmap("image/ballon.png")
+
+	func destroyResources
+		al_destroy_bitmap(bitmap4)
+		al_destroy_font(font)
+
+	func Player1Win oGame
+		showMsg(oGame,80,430,"Good job X you won!")
+		
+	func Player2Win oGame
+		showMsg(oGame,80,430,"Good job O you won!")
+	
+	func NoOneWin oGame
+		showMsg(oGame,150,430,"Oh no it's a tie!")
+		
+	func ShowMsg oGame,x,y,cMsg
+		oGame {
+			drawScene()
+			al_flip_display()
+			al_rest(0.3)
+ 			newdisplay = al_create_display(SCREEN_W,SCREEN_H)
+			al_set_window_title(newdisplay,TITLE)
+ 			al_clear_to_color(al_map_rgb(255,255,255))
+			al_draw_bitmap(this.bitmap4,200,50,1)
+			al_draw_text(this.font,
+				 al_map_rgb(0,0,255), x,y,
+				 ALLEGRO_ALIGN_LEFT,
+	    	     cMsg)
+			al_flip_display()
+			al_rest(2)
+			al_destroy_display(newdisplay)
+			al_set_target_backbuffer(display)
 		}
 
 class GameCube
