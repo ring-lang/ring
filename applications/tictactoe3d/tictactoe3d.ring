@@ -2,7 +2,7 @@
 **
 **	Game  			 : TicTacToe 3D 
 **	Date   			 : 2017/08/30
-**  Author 			 : Mahmoud Fayed <msfclipper@yahoo.com>
+**  	Author 			 : Mahmoud Fayed <msfclipper@yahoo.com>
 **
 **	Note :  The CheckWinner() function is 
 **			written by Abdulrahman Mahmoud 
