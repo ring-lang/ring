@@ -1989,6 +1989,7 @@ What is new in Ring 1.5.3?
 * Form Designer : Nice form back color when used in Ring Notepad (Style: Modern Black)
 * RingOpenSSL : Updated to support newer versions like OpenSSL 1.1 
 * Building Scripts : Updated to work on Fedora 26 (64bit)
+* OpenGL : New Sample - Many Cubes (samples/3D/manycubes)
 * RingQt : Add QDateTime Class 
 * RingQt : New methods added to QMenu and QCursor Classes
 
