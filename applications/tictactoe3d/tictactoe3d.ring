@@ -21,10 +21,9 @@ func main
 	}
 
 
-class TicTacToe3D from GraphicsAppBase
+class TicTacToe3D from TicTacToe3DGameLogic
 
 	FPS = 60
-
 	TITLE = "TicTacToe 3D"
 	DEBUG = False
 
@@ -32,6 +31,76 @@ class TicTacToe3D from GraphicsAppBase
 	oGameSound = new GameSound
 	oGameCube = new GameCube
 	oGameOver = new GameOver
+
+	func loadresources
+		oGameOver.loadresources()
+		oGameSound.loadresources()
+		oBackGround.loadresources()
+		oGameCube.loadresources()
+
+	func destroyResources
+		oGameOver.destroyResources()
+		oGameSound.destroyResources()
+		oBackGround.destroyResources()
+		oGameCube.destroyResources()
+
+	func drawScene
+		oBackground.update()
+		prepare()
+		cubes()
+
+
+	func Cubes
+		oGameCube {
+			aGameMap = this.aGameMap 
+			cube( 5  , -3 , -5  , aGameMap[1][1] )
+			cube( 0  , -3 , -5  , aGameMap[1][2] )
+			cube( -5 , -3 , -5  , aGameMap[1][3] )
+			cube( 5  , 1  , -5  , aGameMap[2][1] )
+			cube( 0  , 1  , -5  , aGameMap[2][2] )
+			cube( -5 , 1  , -5  , aGameMap[2][3] )
+			cube( 5  , 5  , -5  , aGameMap[3][1] )
+			cube( 0  , 5  , -5  , aGameMap[3][2] )
+			cube( -5 , 5  , -5  , aGameMap[3][3] )
+			rotate()
+		}
+
+	func Prepare
+		w = 1024 h = 768
+		ratio =  w / h
+		glViewport(0, 0, w, h)
+		glMatrixMode(GL_PROJECTION)
+		glLoadIdentity()
+		gluPerspective(-120,ratio,1,120)
+		glMatrixMode(GL_MODELVIEW)
+		glLoadIdentity()
+		glEnable(GL_TEXTURE_2D)							
+		glShadeModel(GL_SMOOTH)		
+		glClearColor(0.0, 0.0, 0.0, 0.5)
+		glClearDepth(1.0)			
+		glEnable(GL_DEPTH_TEST)	
+		glEnable(GL_CULL_FACE)
+		glDepthFunc(GL_LEQUAL)
+		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
+
+	func MouseClickEvent
+		aBtn = Point2Button(Mouse_X,Mouse_Y)
+		nRow = aBtn[1]
+		nCol = aBtn[2]
+		if nRow != 0 and nCol != 0
+			if DEBUG
+				see "Row = " + nRow + nl
+				see "Col = " + nCol + nl
+			ok	
+			if aGameMap[nRow][nCol] = :n
+				aGameMap[nRow][nCol] = cActivePlayer
+				ChangeActivePlayer()
+				CheckGameOver()
+			ok 			
+		ok
+
+
+Class TicTacToe3DGameLogic from GraphicsAppBase
 
 	aGameMap = [
 		[ :n , :n , :n ] ,
@@ -50,7 +119,6 @@ class TicTacToe3D from GraphicsAppBase
 		[423,454,591,678],		# [3,2]
 		[645,454,876,678]		# [3,3]
 	]
-
 
 	cActivePlayer = :x
 
@@ -76,22 +144,6 @@ class TicTacToe3D from GraphicsAppBase
 			ok
 		next 
 		return [nRow,nCol]
-
-	func MouseClickEvent
-		aBtn = Point2Button(Mouse_X,Mouse_Y)
-		nRow = aBtn[1]
-		nCol = aBtn[2]
-		if nRow != 0 and nCol != 0
-			if DEBUG
-				see "Row = " + nRow + nl
-				see "Col = " + nCol + nl
-			ok	
-			if aGameMap[nRow][nCol] = :n
-				aGameMap[nRow][nCol] = cActivePlayer
-				ChangeActivePlayer()
-				CheckGameOver()
-			ok 			
-		ok
 
 	func ChangeActivePlayer()
 		if cActivePlayer = :x
@@ -170,57 +222,7 @@ class TicTacToe3D from GraphicsAppBase
         next
         if tie=true return 3 ok return 0
 
-	func loadresources
-		oGameOver.loadresources()
-		oGameSound.loadresources()
-		oBackGround.loadresources()
-		oGameCube.loadresources()
 
-	func destroyResources
-
-		oGameOver.destroyResources()
-		oGameSound.destroyResources()
-		oBackGround.destroyResources()
-		oGameCube.destroyResources()
-
-	func drawScene
-		oBackground.update()
-		prepare()
-		cubes()
-
-	func Prepare
-		w = 1024 h = 768
-		ratio =  w / h
-		glViewport(0, 0, w, h)
-		glMatrixMode(GL_PROJECTION)
-		glLoadIdentity()
-		gluPerspective(-120,ratio,1,120)
-		glMatrixMode(GL_MODELVIEW)
-		glLoadIdentity()
-		glEnable(GL_TEXTURE_2D)							
-		glShadeModel(GL_SMOOTH)		
-		glClearColor(0.0, 0.0, 0.0, 0.5)
-		glClearDepth(1.0)			
-		glEnable(GL_DEPTH_TEST)	
-		glEnable(GL_CULL_FACE)
-		glDepthFunc(GL_LEQUAL)
-		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
-
-
-	func Cubes
-		oGameCube {
-			aGameMap = this.aGameMap 
-			cube( 5  , -3 , -5  , aGameMap[1][1] )
-			cube( 0  , -3 , -5  , aGameMap[1][2] )
-			cube( -5 , -3 , -5  , aGameMap[1][3] )
-			cube( 5  , 1  , -5  , aGameMap[2][1] )
-			cube( 0  , 1  , -5  , aGameMap[2][2] )
-			cube( -5 , 1  , -5  , aGameMap[2][3] )
-			cube( 5  , 5  , -5  , aGameMap[3][1] )
-			cube( 0  , 5  , -5  , aGameMap[3][2] )
-			cube( -5 , 5  , -5  , aGameMap[3][3] )
-			rotate()
-		}
 
 class GameOver
 
