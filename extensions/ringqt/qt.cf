@@ -249,6 +249,7 @@ extern "C" {
 #include "gbluetoothtransferreply.h"
 #include <QBluetoothTransferRequest>
 #include <QBluetoothUuid>
+#include <QDateTime>
 
 extern "C" {
 
@@ -7395,3 +7396,41 @@ QString descriptorToString(QBluetoothUuid::DescriptorType uuid)
 QString protocolToString(QBluetoothUuid::ProtocolUuid uuid)
 QString serviceClassToString(QBluetoothUuid::ServiceClassUuid uuid)
 </comment>
+
+<class>
+name: QDateTime
+para: void
+</class>
+
+QDateTime addDays(int ndays)
+QDateTime addMSecs(qint64 msecs)
+QDateTime addMonths(int nmonths)
+QDateTime addSecs(int s)
+QDateTime addYears(int nyears)
+QDate date(void)
+int daysTo(QDateTime other)
+bool isNull(void)
+bool isValid(void)
+qint64 msecsTo(QDateTime other)
+int secsTo(QDateTime other)
+void setDate(QDate date)
+void setMSecsSinceEpoch(qint64 msecs)
+void setTime(QTime time)
+void setTimeSpec(Qt::TimeSpec spec)
+void setTime_t(uint seconds)
+QTime time(void)
+Qt::TimeSpec timeSpec(void)
+QDateTime toLocalTime(void)
+qint64 toMSecsSinceEpoch(void)
+QString toString(QString format)
+QString toString@2(Qt::DateFormat format)
+QDateTime toTimeSpec(Qt::TimeSpec specification)
+uint toTime_t(void)
+QDateTime toUTC(void)
+QDateTime currentDateTime(void)
+QDateTime currentDateTimeUtc(void)
+qint64 currentMSecsSinceEpoch(void)
+QDateTime fromMSecsSinceEpoch(qint64 msecs)
+QDateTime fromString(QString string, Qt::DateFormat format)
+QDateTime fromString@2(QString string, QString format)
+QDateTime fromTime_t(uint seconds)

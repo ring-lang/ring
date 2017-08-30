@@ -2029,7 +2029,9 @@ Class QFileSystemModel
 		return QFileSystemModel_isReadOnly(pObject)
 
 	Func lastModified P1
-		return QFileSystemModel_lastModified(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QDateTime
+		pTempObj.pObject = QFileSystemModel_lastModified(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func mkdir P1,P2
 		return QFileSystemModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
@@ -4686,7 +4688,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return pTempObj
 
 	Func dateTime 
-		return QDateTimeEdit_dateTime(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTimeEdit_dateTime(pObject)
+		return pTempObj
 
 	Func displayFormat 
 		return QDateTimeEdit_displayFormat(pObject)
@@ -4700,7 +4704,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return pTempObj
 
 	Func maximumDateTime 
-		return QDateTimeEdit_maximumDateTime(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTimeEdit_maximumDateTime(pObject)
+		return pTempObj
 
 	Func maximumTime 
 		pTempObj = new QTime
@@ -4713,7 +4719,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return pTempObj
 
 	Func minimumDateTime 
-		return QDateTimeEdit_minimumDateTime(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTimeEdit_minimumDateTime(pObject)
+		return pTempObj
 
 	Func minimumTime 
 		pTempObj = new QTime
@@ -8243,7 +8251,9 @@ Class QFileInfo
 		return QFileInfo_completeSuffix(pObject)
 
 	Func created 
-		return QFileInfo_created(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QFileInfo_created(pObject)
+		return pTempObj
 
 	Func dir 
 		pTempObj = new QDir
@@ -8302,10 +8312,14 @@ Class QFileInfo
 		return QFileInfo_isWritable(pObject)
 
 	Func lastModified 
-		return QFileInfo_lastModified(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QFileInfo_lastModified(pObject)
+		return pTempObj
 
 	Func lastRead 
-		return QFileInfo_lastRead(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QFileInfo_lastRead(pObject)
+		return pTempObj
 
 	Func makeAbsolute 
 		return QFileInfo_makeAbsolute(pObject)
@@ -10989,7 +11003,9 @@ Class QVariant
 		return pTempObj
 
 	Func toDateTime 
-		return QVariant_toDateTime(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QVariant_toDateTime(pObject)
+		return pTempObj
 
 	Func toDouble P1
 		return QVariant_toDouble(pObject,GetObjectPointerFromRingObject(P1))
@@ -15747,6 +15763,145 @@ Class QBluetoothLocalDevice
 	Func address 
 		pTempObj = new QBluetoothAddress
 		pTempObj.pObject = QBluetoothLocalDevice_address(pObject)
+		return pTempObj
+
+Class QDateTime
+
+	pObject
+
+	Func init 
+		pObject = QDateTime_new()
+		return self
+
+	Func delete
+		pObject = QDateTime_delete(pObject)
+
+	Func addDays P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addDays(pObject,P1)
+		return pTempObj
+
+	Func addMSecs P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addMSecs(pObject,P1)
+		return pTempObj
+
+	Func addMonths P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addMonths(pObject,P1)
+		return pTempObj
+
+	Func addSecs P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addSecs(pObject,P1)
+		return pTempObj
+
+	Func addYears P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addYears(pObject,P1)
+		return pTempObj
+
+	Func date 
+		pTempObj = new QDate
+		pTempObj.pObject = QDateTime_date(pObject)
+		return pTempObj
+
+	Func daysTo P1
+		return QDateTime_daysTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isNull 
+		return QDateTime_isNull(pObject)
+
+	Func isValid 
+		return QDateTime_isValid(pObject)
+
+	Func msecsTo P1
+		return QDateTime_msecsTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func secsTo P1
+		return QDateTime_secsTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDate P1
+		return QDateTime_setDate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMSecsSinceEpoch P1
+		return QDateTime_setMSecsSinceEpoch(pObject,P1)
+
+	Func setTime P1
+		return QDateTime_setTime(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTimeSpec P1
+		return QDateTime_setTimeSpec(pObject,P1)
+
+	Func setTime_t P1
+		return QDateTime_setTime_t(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func time 
+		pTempObj = new QTime
+		pTempObj.pObject = QDateTime_time(pObject)
+		return pTempObj
+
+	Func timeSpec 
+		return QDateTime_timeSpec(pObject)
+
+	Func toLocalTime 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_toLocalTime(pObject)
+		return pTempObj
+
+	Func toMSecsSinceEpoch 
+		return QDateTime_toMSecsSinceEpoch(pObject)
+
+	Func toString P1
+		return QDateTime_toString(pObject,P1)
+
+	Func toString_2 P1
+		return QDateTime_toString_2(pObject,P1)
+
+	Func toTimeSpec P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_toTimeSpec(pObject,P1)
+		return pTempObj
+
+	Func toTime_t 
+		return QDateTime_toTime_t(pObject)
+
+	Func toUTC 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_toUTC(pObject)
+		return pTempObj
+
+	Func currentDateTime 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_currentDateTime(pObject)
+		return pTempObj
+
+	Func currentDateTimeUtc 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_currentDateTimeUtc(pObject)
+		return pTempObj
+
+	Func currentMSecsSinceEpoch 
+		return QDateTime_currentMSecsSinceEpoch(pObject)
+
+	Func fromMSecsSinceEpoch P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_fromMSecsSinceEpoch(pObject,P1)
+		return pTempObj
+
+	Func fromString P1,P2
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_fromString(pObject,P1,P2)
+		return pTempObj
+
+	Func fromString_2 P1,P2
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_fromString_2(pObject,P1,P2)
+		return pTempObj
+
+	Func fromTime_t P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_fromTime_t(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
 Class QPixmap2 from QPixmap
