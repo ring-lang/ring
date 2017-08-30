@@ -30,16 +30,10 @@ class TicTacToe3D from GraphicsAppBase
 
 	font bitmap4
 
-	bitmap bitmap2 bitmap3 
-    textureX textureO textureN
 
-	xrot = 0.0
-	yrot = 0.0
-	zrot = 0.0
-
-	
 	oBackground = new background
 	oGameSound = new GameSound
+	oGameCube = new GameCube
 
 	aGameMap = [
 		[ :n , :n , :n ] ,
@@ -204,30 +198,24 @@ class TicTacToe3D from GraphicsAppBase
 
 	func loadresources
 		font = al_load_ttf_font("font/pirulen.ttf",54,0 )
-		bitmap = al_load_bitmap("image/o.png")
-		textureO = al_get_opengl_texture(bitmap)
-		bitmap2 = al_load_bitmap("image/x.png")
-		textureX = al_get_opengl_texture(bitmap2)
-		bitmap3 = al_load_bitmap("image/empty.png")
-		textureN = al_get_opengl_texture(bitmap3)
+
 		bitmap4 = al_load_bitmap("image/ballon.png")
 
 		oGameSound.loadresources()
 		oBackGround.loadresources()
+		oGameCube.loadresources()
 
 	func destroyResources
-		al_destroy_bitmap(bitmap)
-		al_destroy_bitmap(bitmap2)
-		al_destroy_bitmap(bitmap3)
+
 		al_destroy_bitmap(bitmap4)
 		oGameSound.destroyResources()
 		oBackGround.destroyResources()
+		oGameCube.destroyResources()
 
 	func drawScene
 		oBackground.update()
 		prepare()
 		cubes()
-		rotate()
 
 	func Prepare
 		w = 1024 h = 768
@@ -248,21 +236,42 @@ class TicTacToe3D from GraphicsAppBase
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
 
 
-	func Rotate 
-		xrot += 0.3 * 5
-		yrot += 0.2 * 5
-		zrot += 0.4 * 5
-
 	func Cubes
-		cube( 5  , -3 , -5  , aGameMap[1][1] )
-		cube( 0  , -3 , -5  , aGameMap[1][2] )
-		cube( -5 , -3 , -5  , aGameMap[1][3] )
-		cube( 5  , 1  , -5  , aGameMap[2][1] )
-		cube( 0  , 1  , -5  , aGameMap[2][2] )
-		cube( -5 , 1  , -5  , aGameMap[2][3] )
-		cube( 5  , 5  , -5  , aGameMap[3][1] )
-		cube( 0  , 5  , -5  , aGameMap[3][2] )
-		cube( -5 , 5  , -5  , aGameMap[3][3] )
+		oGameCube {
+			aGameMap = this.aGameMap 
+			cube( 5  , -3 , -5  , aGameMap[1][1] )
+			cube( 0  , -3 , -5  , aGameMap[1][2] )
+			cube( -5 , -3 , -5  , aGameMap[1][3] )
+			cube( 5  , 1  , -5  , aGameMap[2][1] )
+			cube( 0  , 1  , -5  , aGameMap[2][2] )
+			cube( -5 , 1  , -5  , aGameMap[2][3] )
+			cube( 5  , 5  , -5  , aGameMap[3][1] )
+			cube( 0  , 5  , -5  , aGameMap[3][2] )
+			cube( -5 , 5  , -5  , aGameMap[3][3] )
+			rotate()
+		}
+
+class GameCube
+
+	bitmap bitmap2 bitmap3 
+    textureX textureO textureN
+
+	xrot = 0.0
+	yrot = 0.0
+	zrot = 0.0
+
+	func loadresources
+		bitmap = al_load_bitmap("image/o.png")
+		textureO = al_get_opengl_texture(bitmap)
+		bitmap2 = al_load_bitmap("image/x.png")
+		textureX = al_get_opengl_texture(bitmap2)
+		bitmap3 = al_load_bitmap("image/empty.png")
+		textureN = al_get_opengl_texture(bitmap3)
+
+	func destroyResources
+		al_destroy_bitmap(bitmap)
+		al_destroy_bitmap(bitmap2)
+		al_destroy_bitmap(bitmap3)
 
 	func cube(x,y,z,nTexture)
 		glLoadIdentity()									
@@ -282,6 +291,11 @@ class TicTacToe3D from GraphicsAppBase
 			on :n
 				glBindTexture(GL_TEXTURE_2D, textureN)
 		off
+
+	func Rotate 
+		xrot += 0.3 * 5
+		yrot += 0.2 * 5
+		zrot += 0.4 * 5
 
 	func drawcube
 		glBegin(GL_QUADS)
