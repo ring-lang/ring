@@ -2085,3 +2085,10 @@ Screen Shots:
 
 .. image:: urlappshot1.png
 	:alt: URLShortener - shot 1
+
+* TicTacToe 3D Game
+
+Screen Shot:
+
+.. image:: tictactoe3d.png
+	:alt: TicTacToe 3D Game
