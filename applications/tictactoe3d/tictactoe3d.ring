@@ -11,8 +11,8 @@
 */
 
 
-load "gamelib.ring"
-load "opengl21lib.ring"
+load "gamelib.ring"				# RingAllegro Library
+load "opengl21lib.ring"			# RingOpenGL  Library
 
 func main
 
