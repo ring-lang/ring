@@ -37,6 +37,8 @@ class TicTacToe3D from GraphicsAppBase
 	yrot = 0.0
 	zrot = 0.0
 
+	sample sampleid
+
 	oBackground = new background
 
 	aGameMap = [
@@ -209,6 +211,10 @@ class TicTacToe3D from GraphicsAppBase
 		bitmap3 = al_load_bitmap("image/empty.png")
 		textureN = al_get_opengl_texture(bitmap3)
 		bitmap4 = al_load_bitmap("image/ballon.png")
+		sample = al_load_sample( "sound/music1.wav" )
+		sampleid = al_new_allegro_sample_id()
+		al_play_sample(sample, 1.0, 0.0,1.0,ALLEGRO_PLAYMODE_LOOP,sampleid)
+
 		oBackGround.loadresources()
 
 	func destroyResources
@@ -216,6 +222,8 @@ class TicTacToe3D from GraphicsAppBase
 		al_destroy_bitmap(bitmap2)
 		al_destroy_bitmap(bitmap3)
 		al_destroy_bitmap(bitmap4)
+		al_destroy_allegro_sample_id(sampleid)
+		al_destroy_sample(sample)
 		oBackGround.destroyResources()
 
 	func drawScene
@@ -387,6 +395,9 @@ class GraphicsAppBase
 		al_init_font_addon()
 		al_init_ttf_addon()
 		al_init_image_addon()
+		al_install_audio()
+		al_init_acodec_addon()
+		al_reserve_samples(1)
 		al_set_new_display_flags(ALLEGRO_OPENGL) 
 		display = al_create_display(SCREEN_W,SCREEN_H)
 		al_set_window_title(display,TITLE)
