@@ -6707,3 +6707,48 @@ C++ Reference : http://doc.qt.io/qt-5/QBluetoothLocalDevice.html
 Parameters : QObject *
 
 * QBluetoothAddress address(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDateTime Class
+
+QDateTime Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDateTime.html
+
+
+Parameters : void
+
+* QDateTime addDays(int ndays)
+* QDateTime addMSecs(qint64 msecs)
+* QDateTime addMonths(int nmonths)
+* QDateTime addSecs(int s)
+* QDateTime addYears(int nyears)
+* QDate date(void)
+* int daysTo(QDateTime other)
+* bool isNull(void)
+* bool isValid(void)
+* qint64 msecsTo(QDateTime other)
+* int secsTo(QDateTime other)
+* void setDate(QDate date)
+* void setMSecsSinceEpoch(qint64 msecs)
+* void setTime(QTime time)
+* void setTimeSpec(Qt::TimeSpec spec)
+* void setTime_t(uint seconds)
+* QTime time(void)
+* Qt::TimeSpec timeSpec(void)
+* QDateTime toLocalTime(void)
+* qint64 toMSecsSinceEpoch(void)
+* QString toString(QString format)
+* QString toString_2(Qt::DateFormat format)
+* QDateTime toTimeSpec(Qt::TimeSpec specification)
+* uint toTime_t(void)
+* QDateTime toUTC(void)
+* QDateTime currentDateTime(void)
+* QDateTime currentDateTimeUtc(void)
+* qint64 currentMSecsSinceEpoch(void)
+* QDateTime fromMSecsSinceEpoch(qint64 msecs)
+* QDateTime fromString(QString string, Qt::DateFormat format)
+* QDateTime fromString_2(QString string, QString format)
+* QDateTime fromTime_t(uint seconds)
