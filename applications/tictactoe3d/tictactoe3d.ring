@@ -149,7 +149,7 @@ class TicTacToe3D from GraphicsAppBase
 	func ShowMsg x,y,cMsg
 		drawScene()
 		al_flip_display()
-		al_rest(0.1)
+		al_rest(0.3)
  		newdisplay = al_create_display(SCREEN_W,SCREEN_H)
 		al_set_window_title(newdisplay,TITLE)
  		al_clear_to_color(al_map_rgb(255,255,255))
@@ -214,7 +214,6 @@ class TicTacToe3D from GraphicsAppBase
 		sample = al_load_sample( "sound/music1.wav" )
 		sampleid = al_new_allegro_sample_id()
 		al_play_sample(sample, 1.0, 0.0,1.0,ALLEGRO_PLAYMODE_LOOP,sampleid)
-
 		oBackGround.loadresources()
 
 	func destroyResources
@@ -273,9 +272,10 @@ class TicTacToe3D from GraphicsAppBase
 		glRotatef(xrot,1.0,0.0,0.0)
 		glRotatef(yrot,0.0,1.0,0.0)
 		glRotatef(zrot,0.0,0.0,1.0)
-		drawcube(nTexture)
+		setCubeTexture(nTexture)
+		drawCube()
 
-	func drawcube(cTexture) 
+	func setCubeTexture cTexture
 		switch cTexture
 			on :x
 				glBindTexture(GL_TEXTURE_2D, textureX)
@@ -284,6 +284,8 @@ class TicTacToe3D from GraphicsAppBase
 			on :n
 				glBindTexture(GL_TEXTURE_2D, textureN)
 		off
+
+	func drawcube
 		glBegin(GL_QUADS)
 			// Front Face
 			glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
