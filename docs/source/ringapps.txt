@@ -231,14 +231,13 @@ Hope you enjoy the application.  Please feel free to test at your convenience.
 
 Ring is FUN!!
 
-.. image:: urlappmainshot.png
-	:alt: URLShortener - shot 1
+.. image:: urlappmacshot3.png
+	:alt: URLShortener - shot 3
 
 
-.. image:: urlappshot2.png
-	:alt: URLShortener - shot 2
 
-
+.. image:: urlappmacshot4.png
+	:alt: URLShortener - shot 4
 
 .. index:: 
 	pair: Applications developed in little hours; Analog Clock
