@@ -1,8 +1,17 @@
 # Sample : Many Cubes
 # 2017, Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "gamelib.ring"
-load "opengl21lib.ring"
+# Load Libraries
+	load "gamelib.ring"		# RingAllegro Library
+	load "opengl21lib.ring"		# RingOpenGL  Library
+
+#==============================================================
+# To Support MacOS X
+	al_run_main()	
+	func al_game_start 	# Called by al_run_main()
+		main()		# Now we call our main function
+#==============================================================
+
 
 func main
 
