@@ -224,14 +224,14 @@ class TicTacToe3D from GraphicsAppBase
 
 class GameOver
 
-	font bitmap4
+	font bitmap
 
 	func loadresources
 		font = al_load_ttf_font("font/pirulen.ttf",54,0 )
-		bitmap4 = al_load_bitmap("image/ballon.png")
+		bitmap = al_load_bitmap("image/ballon.png")
 
 	func destroyResources
-		al_destroy_bitmap(bitmap4)
+		al_destroy_bitmap(bitmap)
 		al_destroy_font(font)
 
 	func Player1Win oGame
@@ -251,7 +251,7 @@ class GameOver
  			newdisplay = al_create_display(SCREEN_W,SCREEN_H)
 			al_set_window_title(newdisplay,TITLE)
  			al_clear_to_color(al_map_rgb(255,255,255))
-			al_draw_bitmap(this.bitmap4,200,50,1)
+			al_draw_bitmap(this.bitmap,200,50,1)
 			al_draw_text(this.font,
 				 al_map_rgb(0,0,255), x,y,
 				 ALLEGRO_ALIGN_LEFT,
