@@ -523,6 +523,7 @@ class GraphicsAppBase
 		al_destroy_allegro_timeout(timeout)
 		al_destroy_event_queue(event_queue)
 		al_destroy_display(display)
+		al_exit()
 
 	func loadresources
 
