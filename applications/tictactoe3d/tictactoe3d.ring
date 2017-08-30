@@ -21,17 +21,16 @@ func main
 	}
 
 
-class TicTacToe3D from TicTacToe3DGameLogic
+class TicTacToe3D from GameLogic
 
 	FPS = 60
 	TITLE = "TicTacToe 3D"
-	DEBUG = False
 
-	oBackground = new background
+	oBackground = new GameBackground
 	oGameSound = new GameSound
 	oGameCube = new GameCube
 	oGameOver = new GameOver
-	oGameInterface = new TicTacToe3DGameInterface 
+	oGameInterface = new GameInterface 
 
 	func loadresources
 		oGameOver.loadresources()
@@ -52,7 +51,7 @@ class TicTacToe3D from TicTacToe3DGameLogic
 	func MouseClickEvent
 		oGameInterface.MouseClickEvent(self)
 
-class TicTacToe3DGameInterface 
+class GameInterface 
 
 	func Update oGame
 		prepare()
@@ -96,11 +95,7 @@ class TicTacToe3DGameInterface
 			aBtn = Point2Button(Mouse_X,Mouse_Y)
 			nRow = aBtn[1]
 			nCol = aBtn[2]
-			if nRow != 0 and nCol != 0
-				if DEBUG
-					see "Row = " + nRow + nl
-					see "Col = " + nCol + nl
-				ok	
+			if nRow != 0 and nCol != 0	
 				if aGameMap[nRow][nCol] = :n
 					aGameMap[nRow][nCol] = cActivePlayer
 					ChangeActivePlayer()
@@ -109,8 +104,7 @@ class TicTacToe3DGameInterface
 			ok
 		}
 
-
-Class TicTacToe3DGameLogic from GraphicsAppBase
+Class GameLogic from GraphicsAppBase
 
 	aGameMap = [
 		[ :n , :n , :n ] ,
@@ -357,7 +351,7 @@ class GameCube
 		glEnd()
 
 
-class Background 
+class GameBackground 
 
 	nBackX = 0
 	nBackY = 0
