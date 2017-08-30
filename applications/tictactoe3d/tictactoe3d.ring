@@ -10,9 +10,9 @@
 **
 */
 
-
-load "gamelib.ring"				# RingAllegro Library
-load "opengl21lib.ring"			# RingOpenGL  Library
+# Load Libraries
+	load "gamelib.ring"			# RingAllegro Library
+	load "opengl21lib.ring"			# RingOpenGL  Library
 
 func main
 
@@ -260,8 +260,7 @@ class GameOver
 			al_draw_bitmap(this.bitmap,200,50,1)
 			al_draw_text(this.font,
 				 al_map_rgb(0,0,255), x,y,
-				 ALLEGRO_ALIGN_LEFT,
-	    	     cMsg)
+				 ALLEGRO_ALIGN_LEFT,cMsg)
 			al_flip_display()
 			al_rest(2)
 			al_destroy_display(newdisplay)
@@ -271,7 +270,7 @@ class GameOver
 class GameCube
 
 	bitmap bitmap2 bitmap3 
-    textureX textureO textureN
+	textureX textureO textureN
 
 	xrot = 0.0
 	yrot = 0.0
