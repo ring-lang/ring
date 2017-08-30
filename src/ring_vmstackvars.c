@@ -226,7 +226,7 @@ void ring_vm_newline ( VM *pVM )
 
 void ring_vm_freestack ( VM *pVM )
 {
-	int x,nSP  ;
+	int nSP  ;
 	List *pList  ;
 	/* Clear Assignment Pointer */
 	pVM->pAssignment = NULL ;
