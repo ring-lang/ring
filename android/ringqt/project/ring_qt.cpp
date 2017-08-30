@@ -224,6 +224,7 @@ extern "C" {
 #include "gbluetoothtransferreply.h"
 #include <QBluetoothTransferRequest>
 #include <QBluetoothUuid>
+#include <QDateTime>
 
 extern "C" {
 
@@ -11582,7 +11583,7 @@ RING_FUNC(ring_QFileSystemModel_lastModified)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	{
 		QDateTime *pValue ; 
-		pValue = (QDateTime *) malloc(sizeof(QDateTime)) ;
+		pValue = new QDateTime() ;
 		*pValue = pObject->lastModified(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		free(RING_API_GETCPOINTER(1,"QModelIndex"));
@@ -26417,7 +26418,7 @@ RING_FUNC(ring_QDateTimeEdit_dateTime)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDateTime *pValue ; 
-		pValue = (QDateTime *) malloc(sizeof(QDateTime)) ;
+		pValue = new QDateTime() ;
 		*pValue = pObject->dateTime();
 		RING_API_RETCPOINTER(pValue,"QDateTime");
 	}
@@ -26495,7 +26496,7 @@ RING_FUNC(ring_QDateTimeEdit_maximumDateTime)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDateTime *pValue ; 
-		pValue = (QDateTime *) malloc(sizeof(QDateTime)) ;
+		pValue = new QDateTime() ;
 		*pValue = pObject->maximumDateTime();
 		RING_API_RETCPOINTER(pValue,"QDateTime");
 	}
@@ -26561,7 +26562,7 @@ RING_FUNC(ring_QDateTimeEdit_minimumDateTime)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDateTime *pValue ; 
-		pValue = (QDateTime *) malloc(sizeof(QDateTime)) ;
+		pValue = new QDateTime() ;
 		*pValue = pObject->minimumDateTime();
 		RING_API_RETCPOINTER(pValue,"QDateTime");
 	}
@@ -46241,7 +46242,7 @@ RING_FUNC(ring_QFileInfo_created)
 	pObject = (QFileInfo *) RING_API_GETCPOINTER(1,"QFileInfo");
 	{
 		QDateTime *pValue ; 
-		pValue = (QDateTime *) malloc(sizeof(QDateTime)) ;
+		pValue = new QDateTime() ;
 		*pValue = pObject->created();
 		RING_API_RETCPOINTER(pValue,"QDateTime");
 	}
@@ -46574,7 +46575,7 @@ RING_FUNC(ring_QFileInfo_lastModified)
 	pObject = (QFileInfo *) RING_API_GETCPOINTER(1,"QFileInfo");
 	{
 		QDateTime *pValue ; 
-		pValue = (QDateTime *) malloc(sizeof(QDateTime)) ;
+		pValue = new QDateTime() ;
 		*pValue = pObject->lastModified();
 		RING_API_RETCPOINTER(pValue,"QDateTime");
 	}
@@ -46596,7 +46597,7 @@ RING_FUNC(ring_QFileInfo_lastRead)
 	pObject = (QFileInfo *) RING_API_GETCPOINTER(1,"QFileInfo");
 	{
 		QDateTime *pValue ; 
-		pValue = (QDateTime *) malloc(sizeof(QDateTime)) ;
+		pValue = new QDateTime() ;
 		*pValue = pObject->lastRead();
 		RING_API_RETCPOINTER(pValue,"QDateTime");
 	}
@@ -61353,7 +61354,7 @@ RING_FUNC(ring_QVariant_toDateTime)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QDateTime *pValue ; 
-		pValue = (QDateTime *) malloc(sizeof(QDateTime)) ;
+		pValue = new QDateTime() ;
 		*pValue = pObject->toDateTime();
 		RING_API_RETCPOINTER(pValue,"QDateTime");
 	}
@@ -85102,6 +85103,709 @@ RING_FUNC(ring_QBluetoothLocalDevice_address)
 	}
 }
 
+
+RING_FUNC(ring_QDateTime_addDays)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->addDays( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_addMSecs)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->addMSecs( (qint64 ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_addMonths)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->addMonths( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_addSecs)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->addSecs( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_addYears)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->addYears( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_date)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	{
+		QDate *pValue ; 
+		pValue = new QDate() ;
+		*pValue = pObject->date();
+		RING_API_RETCPOINTER(pValue,"QDate");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_daysTo)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	RING_API_RETNUMBER(pObject->daysTo(* (QDateTime  *) RING_API_GETCPOINTER(2,"QDateTime")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QDateTime"));
+}
+
+
+RING_FUNC(ring_QDateTime_isNull)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QDateTime_isValid)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	RING_API_RETNUMBER(pObject->isValid());
+}
+
+
+RING_FUNC(ring_QDateTime_msecsTo)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	RING_API_RETNUMBER(pObject->msecsTo(* (QDateTime  *) RING_API_GETCPOINTER(2,"QDateTime")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QDateTime"));
+}
+
+
+RING_FUNC(ring_QDateTime_secsTo)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	RING_API_RETNUMBER(pObject->secsTo(* (QDateTime  *) RING_API_GETCPOINTER(2,"QDateTime")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QDateTime"));
+}
+
+
+RING_FUNC(ring_QDateTime_setDate)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	pObject->setDate(* (QDate  *) RING_API_GETCPOINTER(2,"QDate"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QDate"));
+}
+
+
+RING_FUNC(ring_QDateTime_setMSecsSinceEpoch)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMSecsSinceEpoch( (qint64 ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QDateTime_setTime)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	pObject->setTime(* (QTime  *) RING_API_GETCPOINTER(2,"QTime"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"QTime"));
+}
+
+
+RING_FUNC(ring_QDateTime_setTimeSpec)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setTimeSpec( (Qt::TimeSpec )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QDateTime_setTime_t)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	pObject->setTime_t(* (uint  *) RING_API_GETCPOINTER(2,"uint"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"uint"));
+}
+
+
+RING_FUNC(ring_QDateTime_time)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	{
+		QTime *pValue ; 
+		pValue = new QTime() ;
+		*pValue = pObject->time();
+		RING_API_RETCPOINTER(pValue,"QTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_timeSpec)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	RING_API_RETNUMBER(pObject->timeSpec());
+}
+
+
+RING_FUNC(ring_QDateTime_toLocalTime)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->toLocalTime();
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_toMSecsSinceEpoch)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	RING_API_RETNUMBER(pObject->toMSecsSinceEpoch());
+}
+
+
+RING_FUNC(ring_QDateTime_toString)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->toString(RING_API_GETSTRING(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QDateTime_toString_2)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->toString( (Qt::DateFormat )  (int) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QDateTime_toTimeSpec)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->toTimeSpec( (Qt::TimeSpec )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_toTime_t)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	{
+		uint *pValue ; 
+		pValue = (uint *) malloc(sizeof(uint)) ;
+		*pValue = pObject->toTime_t();
+		RING_API_RETCPOINTER(pValue,"uint");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_toUTC)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->toUTC();
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_currentDateTime)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->currentDateTime();
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_currentDateTimeUtc)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->currentDateTimeUtc();
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_currentMSecsSinceEpoch)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	RING_API_RETNUMBER(pObject->currentMSecsSinceEpoch());
+}
+
+
+RING_FUNC(ring_QDateTime_fromMSecsSinceEpoch)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->fromMSecsSinceEpoch( (qint64 ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_fromString)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->fromString(RING_API_GETSTRING(2), (Qt::DateFormat )  (int) RING_API_GETNUMBER(3));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_fromString_2)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->fromString(RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
+
+RING_FUNC(ring_QDateTime_fromTime_t)
+{
+	QDateTime *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
+	{
+		QDateTime *pValue ; 
+		pValue = new QDateTime() ;
+		*pValue = pObject->fromTime_t(* (uint  *) RING_API_GETCPOINTER(2,"uint"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		free(RING_API_GETCPOINTER(1,"uint"));
+		RING_API_RETCPOINTER(pValue,"QDateTime");
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -87158,6 +87862,17 @@ RING_FUNC(ring_QBluetoothLocalDevice_new)
 	}
 	GBluetoothLocalDevice *pObject = new GBluetoothLocalDevice((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QBluetoothLocalDevice");
+}
+
+RING_FUNC(ring_QDateTime_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QDateTime *pObject = new QDateTime();
+	RING_API_RETCPOINTER(pObject,"QDateTime");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -89466,6 +90181,21 @@ RING_FUNC(ring_QBluetoothLocalDevice_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GBluetoothLocalDevice *) RING_API_GETCPOINTER(1,"GBluetoothLocalDevice");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QDateTime_delete)
+{
+	QDateTime *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
 		delete pObject ;
 	}
 }
@@ -93647,6 +94377,38 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbluetoothhostinfo_setaddress",ring_QBluetoothHostInfo_setAddress);
 	ring_vm_funcregister("qbluetoothhostinfo_setname",ring_QBluetoothHostInfo_setName);
 	ring_vm_funcregister("qbluetoothlocaldevice_address",ring_QBluetoothLocalDevice_address);
+	ring_vm_funcregister("qdatetime_adddays",ring_QDateTime_addDays);
+	ring_vm_funcregister("qdatetime_addmsecs",ring_QDateTime_addMSecs);
+	ring_vm_funcregister("qdatetime_addmonths",ring_QDateTime_addMonths);
+	ring_vm_funcregister("qdatetime_addsecs",ring_QDateTime_addSecs);
+	ring_vm_funcregister("qdatetime_addyears",ring_QDateTime_addYears);
+	ring_vm_funcregister("qdatetime_date",ring_QDateTime_date);
+	ring_vm_funcregister("qdatetime_daysto",ring_QDateTime_daysTo);
+	ring_vm_funcregister("qdatetime_isnull",ring_QDateTime_isNull);
+	ring_vm_funcregister("qdatetime_isvalid",ring_QDateTime_isValid);
+	ring_vm_funcregister("qdatetime_msecsto",ring_QDateTime_msecsTo);
+	ring_vm_funcregister("qdatetime_secsto",ring_QDateTime_secsTo);
+	ring_vm_funcregister("qdatetime_setdate",ring_QDateTime_setDate);
+	ring_vm_funcregister("qdatetime_setmsecssinceepoch",ring_QDateTime_setMSecsSinceEpoch);
+	ring_vm_funcregister("qdatetime_settime",ring_QDateTime_setTime);
+	ring_vm_funcregister("qdatetime_settimespec",ring_QDateTime_setTimeSpec);
+	ring_vm_funcregister("qdatetime_settime_t",ring_QDateTime_setTime_t);
+	ring_vm_funcregister("qdatetime_time",ring_QDateTime_time);
+	ring_vm_funcregister("qdatetime_timespec",ring_QDateTime_timeSpec);
+	ring_vm_funcregister("qdatetime_tolocaltime",ring_QDateTime_toLocalTime);
+	ring_vm_funcregister("qdatetime_tomsecssinceepoch",ring_QDateTime_toMSecsSinceEpoch);
+	ring_vm_funcregister("qdatetime_tostring",ring_QDateTime_toString);
+	ring_vm_funcregister("qdatetime_tostring_2",ring_QDateTime_toString_2);
+	ring_vm_funcregister("qdatetime_totimespec",ring_QDateTime_toTimeSpec);
+	ring_vm_funcregister("qdatetime_totime_t",ring_QDateTime_toTime_t);
+	ring_vm_funcregister("qdatetime_toutc",ring_QDateTime_toUTC);
+	ring_vm_funcregister("qdatetime_currentdatetime",ring_QDateTime_currentDateTime);
+	ring_vm_funcregister("qdatetime_currentdatetimeutc",ring_QDateTime_currentDateTimeUtc);
+	ring_vm_funcregister("qdatetime_currentmsecssinceepoch",ring_QDateTime_currentMSecsSinceEpoch);
+	ring_vm_funcregister("qdatetime_frommsecssinceepoch",ring_QDateTime_fromMSecsSinceEpoch);
+	ring_vm_funcregister("qdatetime_fromstring",ring_QDateTime_fromString);
+	ring_vm_funcregister("qdatetime_fromstring_2",ring_QDateTime_fromString_2);
+	ring_vm_funcregister("qdatetime_fromtime_t",ring_QDateTime_fromTime_t);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -93801,6 +94563,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbluetoothdeviceinfo_new",ring_QBluetoothDeviceInfo_new);
 	ring_vm_funcregister("qbluetoothhostinfo_new",ring_QBluetoothHostInfo_new);
 	ring_vm_funcregister("qbluetoothlocaldevice_new",ring_QBluetoothLocalDevice_new);
+	ring_vm_funcregister("qdatetime_new",ring_QDateTime_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -93955,4 +94718,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbluetoothdeviceinfo_delete",ring_QBluetoothDeviceInfo_delete);
 	ring_vm_funcregister("qbluetoothhostinfo_delete",ring_QBluetoothHostInfo_delete);
 	ring_vm_funcregister("qbluetoothlocaldevice_delete",ring_QBluetoothLocalDevice_delete);
+	ring_vm_funcregister("qdatetime_delete",ring_QDateTime_delete);
 }
