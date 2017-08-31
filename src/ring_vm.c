@@ -973,10 +973,8 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 		/* It's a nested event (Here we don't care about the output and we can restore the stack) */
 		ring_vm_restorestack(pVM,pStackList);
 	}
-	else {
-		/* Here we free the list because, restorestack() that free it (is not called) */
-		ring_list_delete(pStackList);
-	}
+	/* Here we free the list because, restorestack() don't free it */
+	ring_list_delete(pStackList);
 	/* Restore Stack to avoid Stack Overflow */
 	pVM->nSP = nSP ;
 	pVM->nFuncSP = nFuncSP ;
