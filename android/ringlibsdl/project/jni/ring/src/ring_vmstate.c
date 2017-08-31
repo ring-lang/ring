@@ -251,5 +251,4 @@ void ring_vm_restorestack ( VM *pVM,List *pList )
 			RING_VM_STACK_OBJTYPE = ring_list_getint(pList2,2) ;
 		}
 	}
-	ring_list_delete(pList);
 }
