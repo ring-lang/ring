@@ -2,15 +2,15 @@
 		["Ring 1.5.3 All Platforms",[
 						 [
 							'Ring 1.5.3 (All Platforms) <br> Contains (Everything) :- <br> (1) Windows binary release <br> (2) Source Code to build on Windows, Linux and MacOS X <br> (3) RingLibSDL For Android Games <br> (4) RingQt for Mobile Apps (Android, iPhone, etc) <br> (5) Visual Source Code (PWCT) <br> (6) Documentation (HTML, CHM and PDF) <br> (7) Libraries (GUILib, StdLib, WebLib, Natural, etc) <br> (8) Editors Extensions (Notepad++, Atom, Sublime, etc) <br>  ',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_Ring_1.5.3_All_Platforms.zip/download" target="_blank">Download  (224 MB)</a>'						
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_Ring_1.5.3_All_Platforms.zip/download" target="_blank">Download  (233 MB)</a>'						
 						 ],
 						 [
 							'Ring 1.5.3 (Windows Binary Release) <br> Contains :- <br> (1) Windows binary release <br> (2) Documentation (HTML, CHM and PDF) <br> (3) Libraries (GUILib, StdLib, WebLib, Natural, etc) ',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_Ring_1.5.3_For_Windows_Binary_Release.exe/download" target="_blank">Download (80.1 MB)</a>'
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_Ring_1.5.3_For_Windows_Binary_Release.exe/download" target="_blank">Download (84.8 MB)</a>'
 						 ],						 
 						 [
 							'Ring 1.5.3 (Light Release - Source Code) <br> Contains :- <br> (1) Compiler+Virtual Machine (ANSI C) <br> (2) Source Code to build on Windows, Linux & MacOS X <br> (3) Standard Functions (String, Math, Files, etc) <br> (4) Useful for console applications <br> (5) Embedding in C/C++ projects',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_Ring_1.5.3_LightRelease_SourceCode.zip/download" target="_blank">Download (136 KB) </a>'
+							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_Ring_1.5.3_LightRelease_SourceCode.zip/download" target="_blank">Download (137 KB) </a>'
 						 ],
 						 [
 							'Ring 1.5.3 (Light Release - Windows Binary) <br> Contains :- <br> (1) Compiler+Virtual Machine (ANSI C) <br> (2) Source Code to build on Windows, Linux & MacOS X <br> (3) Windows Binary Release (EXE, DLL) <br> (4) Standard Functions (String, Math, Files, etc) <br> (5) Useful for console applications <br> (6) Embedding in C/C++ projects <br> (7) Embedding in any programming language (DLL File)',
@@ -18,15 +18,15 @@
 						 ],
 						 [
 							'Ring 1.5.3 Documentation (PDF) ',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_RingDoc_1.5.3.pdf/download" target="_blank">Download (15.9 MB)</a>'
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_RingDoc_1.5.3.pdf/download" target="_blank">Download (17.6 MB)</a>'
 						 ],
 						 [
 							'Ring 1.5.3 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_RingDoc_1.5.3.chm/download" target="_blank">Download (12.3 MB)</a>'							
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_RingDoc_1.5.3.chm/download" target="_blank">Download (14.0 MB)</a>'							
 						 ],
 						 [
 							'Ring 1.5.3 Documentation (HTML)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_RingDoc_1.5.3.zip/download" target="_blank">Download (12.6 MB)</a>'							
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.5.3/Fayed_RingDoc_1.5.3.zip/download" target="_blank">Download (14.3 MB)</a>'							
 						 ]
 						 
 			]
