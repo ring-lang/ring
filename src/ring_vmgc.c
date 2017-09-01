@@ -151,7 +151,7 @@ void * ring_realloc ( void *ptr, size_t size )
 	pMem = realloc(ptr,size);
 	return pMem ;
 }
-/* Memory Functions (VM Aware */
+/* Memory Functions (VM Aware) */
 
 void * ring_vm_malloc ( VM *pVM,size_t size )
 {
