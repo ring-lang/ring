@@ -55,7 +55,7 @@ GetCurrentDir
 GetCurrentDir
 Type: static int
 nRingStateDEBUGSEGFAULT
-Type: int
+Type: static int
 nRingStateCGI
 ring_state_new
 Type: RingState *
