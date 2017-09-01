@@ -558,7 +558,7 @@ void ring_vmlib_input ( void *pPointer )
 		return ;
 	}
 	if ( nSize > 0 ) {
-		cLine = (char *) malloc(nSize) ;
+		cLine = (char *) ring_malloc(nSize);
 		if ( cLine == NULL ) {
 			RING_API_ERROR(RING_OOM);
 			return ;
@@ -568,7 +568,7 @@ void ring_vmlib_input ( void *pPointer )
 		fread( cLine , sizeof(char) , nSize , stdin );
 		/* Return String */
 		RING_API_RETSTRING2(cLine,nSize);
-		free( cLine ) ;
+		ring_free(cLine);
 	} else {
 		RING_API_ERROR("Error in first parameter,  input size < 1 !");
 	}
@@ -1167,7 +1167,7 @@ void ring_vmlib_str2hex ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cString = (unsigned char *) RING_API_GETSTRING(1) ;
 		nMax = RING_API_GETSTRINGSIZE(1) ;
-		cString2 = (char *) malloc(nMax*2) ;
+		cString2 = (char *) ring_malloc(nMax*2);
 		if ( cString2 == NULL ) {
 			RING_API_ERROR(RING_OOM);
 			return ;
@@ -1182,7 +1182,7 @@ void ring_vmlib_str2hex ( void *pPointer )
 			}
 		}
 		RING_API_RETSTRING2(cString2,nMax*2);
-		free( cString2 ) ;
+		ring_free(cString2);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -1202,7 +1202,7 @@ void ring_vmlib_hex2str ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cString = RING_API_GETSTRING(1) ;
 		nMax = RING_API_GETSTRINGSIZE(1) ;
-		cString2 = (char *) malloc((nMax/2)+1) ;
+		cString2 = (char *) ring_malloc((nMax/2)+1);
 		if ( cString2 == NULL ) {
 			RING_API_ERROR(RING_OOM);
 			return ;
@@ -1221,7 +1221,7 @@ void ring_vmlib_hex2str ( void *pPointer )
 			i++ ;
 		}
 		RING_API_RETSTRING2(cString2,nMax/2);
-		free( cString2 ) ;
+		ring_free(cString2);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -1308,7 +1308,7 @@ void ring_vmlib_left ( void *pPointer )
 			cStr = RING_API_GETSTRING(1) ;
 			nNum1 = RING_API_GETNUMBER(2) ;
 			if ( (nNum1 > 0 ) && (nNum1 <= RING_API_GETSTRINGSIZE(1) ) ) {
-				pString = (char *) malloc(nNum1+1) ;
+				pString = (char *) ring_malloc(nNum1+1);
 				if ( pString == NULL ) {
 					RING_API_ERROR(RING_OOM);
 					return ;
@@ -1318,7 +1318,7 @@ void ring_vmlib_left ( void *pPointer )
 				}
 				pString[(int) nNum1] = '\0' ;
 				RING_API_RETSTRING2(pString,nNum1);
-				free( pString ) ;
+				ring_free(pString);
 			}
 		} else {
 			RING_API_ERROR("Error in second parameter, Function requires number !");
@@ -1345,7 +1345,7 @@ void ring_vmlib_right ( void *pPointer )
 			nNum1 = RING_API_GETNUMBER(2) ;
 			nSize = RING_API_GETSTRINGSIZE(1) ;
 			if ( (nNum1 > 0 ) && (nNum1 <= nSize ) ) {
-				pString = (char *) malloc(nNum1+1) ;
+				pString = (char *) ring_malloc(nNum1+1);
 				if ( pString == NULL ) {
 					RING_API_ERROR(RING_OOM);
 					return ;
@@ -1355,7 +1355,7 @@ void ring_vmlib_right ( void *pPointer )
 					pString[((int)nNum1)-x] = cStr[nSize-x] ;
 				}
 				RING_API_RETSTRING2(pString,nNum1);
-				free( pString ) ;
+				ring_free(pString);
 			}
 		} else {
 			RING_API_ERROR("Error in second parameter, Function requires number !");
@@ -1402,12 +1402,12 @@ void ring_vmlib_trim ( void *pPointer )
 			return ;
 		}
 		/* Create New String */
-		cNewStr = (char *) malloc(nPos2-nPos1+1) ;
+		cNewStr = (char *) ring_malloc(nPos2-nPos1+1);
 		for ( x = nPos1 ; x <= nPos2 ; x++ ) {
 			cNewStr[x-nPos1] = cStr[x] ;
 		}
 		RING_API_RETSTRING2(cNewStr,nPos2-nPos1+1);
-		free( cNewStr ) ;
+		ring_free(cNewStr);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -1494,7 +1494,7 @@ void ring_vmlib_substr ( void *pPointer )
 			nNum1 = RING_API_GETNUMBER(2) ;
 			nNum2 = RING_API_GETNUMBER(3) ;
 			if ( (nNum1 > 0) && ( (nNum1+nNum2-1) <= nSize ) ) {
-				cString = (char *) malloc(nNum2) ;
+				cString = (char *) ring_malloc(nNum2);
 				if ( cString == NULL ) {
 					RING_API_ERROR(RING_OOM);
 					return ;
@@ -1503,7 +1503,7 @@ void ring_vmlib_substr ( void *pPointer )
 					cString[x] = cStr[((int) nNum1) + x - 1 ] ;
 				}
 				RING_API_RETSTRING2(cString,nNum2);
-				free( cString ) ;
+				ring_free(cString);
 			}
 		}
 		else if ( RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
@@ -1929,13 +1929,13 @@ void ring_vmlib_state_main ( void *pPointer )
 	char *cStr  ;
 	int argc  ;
 	char *argv[2]  ;
-	argv[0] = (char *) malloc(100) ;
-	argv[1] = (char *) malloc(100) ;
+	argv[0] = (char *) ring_malloc(100);
+	argv[1] = (char *) ring_malloc(100);
 	cStr = RING_API_GETSTRING(1);
 	argc = 2 ;
 	strcpy(argv[0],"ring");
 	strcpy(argv[1],cStr);
 	ring_execute(cStr,0,1,0,0,0,0,0,0,0,argc,argv);
-	free( argv[0] ) ;
-	free( argv[1] ) ;
+	ring_free(argv[0]);
+	ring_free(argv[1]);
 }
