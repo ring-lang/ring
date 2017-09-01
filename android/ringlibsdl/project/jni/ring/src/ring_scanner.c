@@ -17,7 +17,7 @@ const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC",
 Scanner * ring_scanner_new ( RingState *pRingState )
 {
 	Scanner *pScanner  ;
-	pScanner = (Scanner *) malloc(sizeof(Scanner)) ;
+	pScanner = (Scanner *) ring_malloc(sizeof(Scanner));
 	if ( pScanner == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -42,7 +42,7 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 	pScanner->Operators = ring_list_delete(pScanner->Operators);
 	pScanner->Tokens = ring_list_delete(pScanner->Tokens);
 	pScanner->ActiveToken = ring_string_delete(pScanner->ActiveToken);
-	free( pScanner ) ;
+	ring_free(pScanner);
 	return NULL ;
 }
 
