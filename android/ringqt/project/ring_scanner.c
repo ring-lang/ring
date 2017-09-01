@@ -46,7 +46,7 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 	return NULL ;
 }
 
-int ring_scanner_readfile ( char *cFileName,RingState *pRingState )
+int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 {
 	RING_FILE fp  ;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
@@ -817,7 +817,7 @@ RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,i
 	pRingState->argc = argc ;
 	pRingState->argv = argv ;
 	if ( ring_issourcefile(cFileName) ) {
-		ring_scanner_readfile(cFileName,pRingState);
+		ring_scanner_readfile(pRingState,cFileName);
 	}
 	else {
 		ring_scanner_runobjfile(cFileName,pRingState);

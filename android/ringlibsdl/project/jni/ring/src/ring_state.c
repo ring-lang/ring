@@ -244,7 +244,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 
 RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName )
 {
-	ring_scanner_readfile(cFileName,pRingState);
+	ring_scanner_readfile(pRingState,cFileName);
 }
 
 RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName )
