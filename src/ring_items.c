@@ -4,7 +4,7 @@
 Items * ring_items_new ( void )
 {
 	Items *pItems  ;
-	pItems = (Items *) malloc(sizeof(Items)) ;
+	pItems = (Items *) ring_malloc(sizeof(Items));
 	if ( pItems == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -19,7 +19,7 @@ Items * ring_items_delete ( Items *pItems )
 {
 	assert(pItems != NULL);
 	pItems->pValue = ring_item_delete(pItems->pValue);
-	free( pItems ) ;
+	ring_free(pItems);
 	pItems = NULL ;
 	return pItems ;
 }
