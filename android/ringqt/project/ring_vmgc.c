@@ -124,3 +124,30 @@ void ring_vm_gc_newitemreference ( Item *pItem )
 {
 	pItem->gc.nReferenceCount++ ;
 }
+/* Memory Functions */
+
+void * ring_malloc ( size_t size )
+{
+	void *pMem  ;
+	pMem = malloc(size);
+	return pMem ;
+}
+
+void ring_free ( void *ptr )
+{
+	free( ptr ) ;
+}
+
+void * ring_calloc ( size_t nitems, size_t size )
+{
+	void *pMem  ;
+	pMem = calloc(nitems,size);
+	return pMem ;
+}
+
+void * ring_realloc ( void *ptr, size_t size )
+{
+	void *pMem  ;
+	pMem = realloc(ptr,size);
+	return pMem ;
+}
