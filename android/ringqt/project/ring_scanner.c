@@ -95,7 +95,7 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 		strcpy(cStartup,"Load 'startup.ring'");
 		/* Load "startup.ring" */
 		for ( x = 0 ; x < 19 ; x++ ) {
-			ring_scanner_readchar(cStartup[x],pScanner);
+			ring_scanner_readchar(pScanner,cStartup[x]);
 		}
 		/*
 		**  Add new line 
@@ -108,7 +108,7 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 	}
 	nSize = 1 ;
 	while ( (c != EOF) && (nSize != 0) ) {
-		ring_scanner_readchar(c,pScanner);
+		ring_scanner_readchar(pScanner,c);
 		RING_READCHAR(fp,c,nSize);
 	}
 	nCont = ring_scanner_checklasttoken(pScanner);
@@ -175,7 +175,7 @@ int ring_scanner_readfile ( RingState *pRingState,char *cFileName )
 	return nRunVM ;
 }
 
-void ring_scanner_readchar ( char c,Scanner *pScanner )
+void ring_scanner_readchar ( Scanner *pScanner,char c )
 {
 	char cStr[2]  ;
 	List *pList  ;
@@ -992,9 +992,9 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 	ring_string_set(pScanner->ActiveToken,"");
 	RING_READCHAR(fp,c,nSize);
 	while ( (c != EOF) && (nSize != 0) ) {
-		ring_scanner_readchar(c,pScanner);
+		ring_scanner_readchar(pScanner,c);
 		RING_READCHAR(fp,c,nSize);
 	}
 	RING_CLOSEFILE(fp);
-	ring_scanner_readchar('\n',pScanner);
+	ring_scanner_readchar(pScanner,'\n');
 }

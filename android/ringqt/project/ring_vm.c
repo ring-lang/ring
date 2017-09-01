@@ -768,7 +768,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	ring_list_addstring(pVM->pRingState->pRingFilesStack,"eval");
 	pScanner = ring_scanner_new(pVM->pRingState);
 	for ( x = 0 ; x < nSize ; x++ ) {
-		ring_scanner_readchar(cStr[x],pScanner);
+		ring_scanner_readchar(pScanner,cStr[x]);
 	}
 	nCont = ring_scanner_checklasttoken(pScanner);
 	/* Add Token "End of Line" to the end of any program */

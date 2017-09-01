@@ -108,7 +108,7 @@ Scanner * ring_scanner_delete ( Scanner *pScanner ) ;
 
 int ring_scanner_readfile ( RingState *pRingState,char *cFileName ) ;
 
-void ring_scanner_readchar ( char c ,Scanner *pScanner ) ;
+void ring_scanner_readchar ( Scanner *pScanner,char c ) ;
 
 void ring_scanner_keywords ( Scanner *pScanner ) ;
 
