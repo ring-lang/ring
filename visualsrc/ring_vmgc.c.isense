@@ -47,11 +47,11 @@ pMem
 ring_realloc
 Type: void *
 pMem
-ring_vm_malloc
+ring_state_malloc
 Type: void *
 pMem
-ring_vm_free
-ring_vm_calloc
+ring_state_free
+ring_state_calloc
 Type: void *
 pMem
 ring_vm_realloc
