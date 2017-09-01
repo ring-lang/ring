@@ -34,7 +34,7 @@ void segfaultaction ( int sig ) ;
 RING_API RingState * ring_state_new ( void )
 {
 	RingState *pRingState  ;
-	pRingState = (RingState *) malloc(sizeof(RingState)) ;
+	pRingState = (RingState *) ring_malloc(sizeof(RingState));
 	if ( pRingState == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -81,7 +81,7 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 	if ( pRingState->pVM != NULL ) {
 		ring_vm_delete(pRingState->pVM);
 	}
-	free( pRingState ) ;
+	ring_free(pRingState);
 	return NULL ;
 }
 
@@ -256,6 +256,8 @@ RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFile
 static void ring_testallunits ( void )
 {
 	/* Test */
+	ring_string_test();
+	ring_list_test();
 	ring_hashtable_test();
 	printf( "end of test \n  " ) ;
 	getchar();
