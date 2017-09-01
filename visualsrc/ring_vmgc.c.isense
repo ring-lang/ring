@@ -37,3 +37,13 @@ x
 Type: List *
 pScope,*pList
 ring_vm_gc_newitemreference
+ring_malloc
+Type: void *
+pMem
+ring_free
+ring_calloc
+Type: void *
+pMem
+ring_realloc
+Type: void *
+pMem
