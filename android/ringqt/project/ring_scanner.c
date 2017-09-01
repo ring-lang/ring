@@ -820,7 +820,7 @@ RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,i
 		ring_scanner_readfile(pRingState,cFileName);
 	}
 	else {
-		ring_scanner_runobjfile(cFileName,pRingState);
+		ring_scanner_runobjfile(pRingState,cFileName);
 	}
 	ring_state_delete(pRingState);
 }
@@ -830,7 +830,7 @@ const char * ring_scanner_getkeywordtext ( const char *cStr )
 	return RING_KEYWORDS[atoi(cStr)-1] ;
 }
 
-void ring_scanner_runobjfile ( const char *cFileName,RingState *pRingState )
+void ring_scanner_runobjfile ( RingState *pRingState,const char *cFileName )
 {
 	/* Files List */
 	pRingState->pRingFilesList = ring_list_new(0);
