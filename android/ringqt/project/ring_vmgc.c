@@ -124,7 +124,7 @@ void ring_vm_gc_newitemreference ( Item *pItem )
 {
 	pItem->gc.nReferenceCount++ ;
 }
-/* Memory Functions */
+/* Memory Functions (General) */
 
 void * ring_malloc ( size_t size )
 {
@@ -146,6 +146,33 @@ void * ring_calloc ( size_t nitems, size_t size )
 }
 
 void * ring_realloc ( void *ptr, size_t size )
+{
+	void *pMem  ;
+	pMem = realloc(ptr,size);
+	return pMem ;
+}
+/* Memory Functions (VM Aware */
+
+void * ring_vm_malloc ( VM *pVM,size_t size )
+{
+	void *pMem  ;
+	pMem = malloc(size);
+	return pMem ;
+}
+
+void ring_vm_free ( VM *pVM,void *ptr )
+{
+	free( ptr ) ;
+}
+
+void * ring_vm_calloc ( VM *pVM,size_t nitems, size_t size )
+{
+	void *pMem  ;
+	pMem = calloc(nitems,size);
+	return pMem ;
+}
+
+void * ring_vm_realloc ( VM *pVM,void *ptr, size_t size )
 {
 	void *pMem  ;
 	pMem = realloc(ptr,size);
