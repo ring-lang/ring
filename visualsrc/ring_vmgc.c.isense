@@ -54,6 +54,6 @@ ring_vm_free
 ring_vm_calloc
 Type: void *
 pMem
-ring_realloc
+ring_vm_realloc
 Type: void *
 pMem

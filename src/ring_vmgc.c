@@ -60,7 +60,7 @@ void ring_vm_gc_deleteitem ( Item *pItem )
 		printf( "GC Delete Item - Free Memory %p \n",pItem ) ;
 		#endif
 		ring_item_content_delete(pItem);
-		free( pItem ) ;
+		ring_free(pItem);
 	}
 	else {
 		pItem->gc.nReferenceCount-- ;
