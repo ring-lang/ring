@@ -77,8 +77,6 @@ ring_list_deleteitem
 x
 Type: Items *
 pItems,*pItemsPrev
-Type: Items *
-pItems2,*pItemsPrev2
 ring_list_gettype
 Type: Item *
 pItem

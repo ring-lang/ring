@@ -10,7 +10,7 @@ RING_API List * ring_list_new ( int nSize )
 	int x  ;
 	List *pList  ;
 	Items *pItems,*pItemsLast  ;
-	pList = (List *) malloc(sizeof(List)) ;
+	pList = (List *) ring_malloc(sizeof(List));
 	if ( pList == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -59,7 +59,7 @@ RING_API List * ring_list_delete ( List *pList )
 	if ( pList->pHashTable != NULL ) {
 		pList->pHashTable = ring_hashtable_delete(pList->pHashTable);
 	}
-	free( pList ) ;
+	ring_free(pList);
 	pList = NULL ;
 	return pList ;
 }
@@ -988,14 +988,14 @@ RING_API void ring_list_genarray ( List *pList )
 		return ;
 	}
 	if ( pList->pItemsArray != NULL ) {
-		free( pList->pItemsArray ) ;
+		ring_free(pList->pItemsArray);
 	}
 	/*
 	**  Here we save the pointer in pArray and not in pList->pItemsArray 
 	**  Because we will fill the array with items pointers using ring_list_getitem() 
 	**  And ring_list_getitem() check for using pList->pItemsArray 
 	*/
-	pArray = (Item **) malloc(ring_list_getsize(pList) * sizeof(Item *)) ;
+	pArray = (Item **) ring_malloc(ring_list_getsize(pList) * sizeof(Item *));
 	if ( pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -1009,7 +1009,7 @@ RING_API void ring_list_genarray ( List *pList )
 RING_API void ring_list_deletearray ( List *pList )
 {
 	if ( pList->pItemsArray != NULL ) {
-		free( pList->pItemsArray ) ;
+		ring_free(pList->pItemsArray);
 		pList->pItemsArray = NULL ;
 	}
 }
