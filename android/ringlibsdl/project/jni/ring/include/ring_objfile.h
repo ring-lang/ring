@@ -10,7 +10,7 @@ void ring_objfile_writefile ( RingState *pRingState ) ;
 
 void ring_objfile_writelist ( List *pList,FILE *fObj ) ;
 
-int ring_objfile_readfile ( const char *cFileName,RingState *pRingState ) ;
+int ring_objfile_readfile ( RingState *pRingState,const char *cFileName ) ;
 
 void ring_objfile_updateclassespointers ( RingState *pRingState ) ;
 

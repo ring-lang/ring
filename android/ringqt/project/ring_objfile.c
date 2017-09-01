@@ -73,7 +73,7 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 	fprintf( fObj , "}\n"  ) ;
 }
 
-int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
+int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
 {
 	FILE *fObj;
 	signed char c  ;
