@@ -13,12 +13,12 @@ RING_API String * ring_string_new2 ( const char *str,int nStrSize )
 {
 	String *pString  ;
 	int x  ;
-	pString = (struct String *) malloc(sizeof(struct String)) ;
+	pString = (struct String *) ring_malloc(sizeof(struct String));
 	if ( pString == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	pString->cStr = (char *) malloc(nStrSize+1) ;
+	pString->cStr = (char *) ring_malloc(nStrSize+1);
 	if ( pString->cStr  == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -35,9 +35,9 @@ RING_API String * ring_string_new2 ( const char *str,int nStrSize )
 RING_API String * ring_string_delete ( String *pString )
 {
 	assert(pString != NULL);
-	free( pString->cStr ) ;
+	ring_free(pString->cStr);
 	pString->cStr = NULL ;
-	free( pString ) ;
+	ring_free(pString);
 	return NULL ;
 }
 
@@ -60,8 +60,8 @@ RING_API void ring_string_set2 ( String *pString,const char *str,int nStrSize )
 	int x  ;
 	assert(pString != NULL);
 	assert(pString->cStr != NULL);
-	free( pString->cStr ) ;
-	pString->cStr = (char *) malloc(nStrSize+1) ;
+	ring_free(pString->cStr);
+	pString->cStr = (char *) ring_malloc(nStrSize+1);
 	if ( pString->cStr  == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -89,7 +89,7 @@ RING_API void ring_string_add2 ( String *pString,const char *str,int nStrSize )
 	assert(pString != NULL);
 	x2 = nStrSize+ring_string_size(pString) ;
 	cStr = pString->cStr ;
-	pString->cStr = (char *) malloc(x2+1) ;
+	pString->cStr = (char *) ring_malloc(x2+1);
 	if ( pString->cStr  == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -103,7 +103,7 @@ RING_API void ring_string_add2 ( String *pString,const char *str,int nStrSize )
 	}
 	pString->cStr[x2] = '\0' ;
 	pString->nSize = x2 ;
-	free( cStr ) ;
+	ring_free(cStr);
 }
 
 RING_API void ring_string_print ( String *pString )
@@ -201,8 +201,8 @@ RING_API char * ring_string_find3 ( char *cStr1,int nStrSize1,char *cStr2,int nS
 		return NULL ;
 	}
 	/* Copy Strings and convert to lower case */
-	cStr3 = (char *) malloc(nStrSize1+1) ;
-	cStr4 = (char *) malloc(nStrSize2+1) ;
+	cStr3 = (char *) ring_malloc(nStrSize1+1);
+	cStr4 = (char *) ring_malloc(nStrSize2+1);
 	if ( (cStr3==NULL) || (cStr4==NULL) ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -228,8 +228,8 @@ RING_API char * ring_string_find3 ( char *cStr1,int nStrSize1,char *cStr2,int nS
 		nPos++ ;
 	}
 	/* Free Memory */
-	free( cStr3 ) ;
-	free( cStr4 ) ;
+	ring_free(cStr3);
+	ring_free(cStr4);
 	return pOutput ;
 }
 
