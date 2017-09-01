@@ -153,13 +153,13 @@ int ring_objfile_readfile ( const char *cFileName,RingState *pRingState )
 					case 'S' :
 						c = getc(fObj);
 						fscanf( fObj , "[%d]" , &nValue ) ;
-						cString = (char *) malloc(nValue+1) ;
+						cString = (char *) ring_malloc(nValue+1);
 						fread( cString , 1 , nValue , fObj );
 						cString[nValue] = '\0' ;
 						/* Decrypt String */
 						ring_objfile_xorstring(cString,nValue,cKey,10);
 						ring_list_addstring2(pList,cString,nValue);
-						free( cString ) ;
+						ring_free(cString);
 						#ifdef DEBUG_OBJFILE
 						printf( "Read String %s Size %d \n",cString,nValue ) ;
 						#endif
