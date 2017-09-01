@@ -7,7 +7,7 @@
 RING_API Item * ring_item_new ( int ItemType )
 {
 	Item *pItem  ;
-	pItem = (Item *) malloc(sizeof(Item)) ;
+	pItem = (Item *) ring_malloc(sizeof(Item));
 	if ( pItem == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
