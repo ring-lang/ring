@@ -10,7 +10,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	VM *pVM  ;
 	int x  ;
 	List *pList  ;
-	pVM = (VM *) malloc(sizeof(VM)) ;
+	pVM = (VM *) ring_malloc(sizeof(VM));
 	if ( pVM == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -244,7 +244,7 @@ VM * ring_vm_delete ( VM *pVM )
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
 		ring_item_content_delete(&(pVM->aStack[x]));
 	}
-	free( pVM->pByteCode ) ;
+	ring_free(pVM->pByteCode);
 	/* Delete Mutex */
 	ring_vm_mutexdestroy(pVM);
 	/*
@@ -254,14 +254,14 @@ VM * ring_vm_delete ( VM *pVM )
 	for ( x = 1 ; x <= ring_list_getsize(pVM->aDynamicSelfItems) ; x++ ) {
 		pRecord = ring_list_getlist(pVM->aDynamicSelfItems,x);
 		pItem = (Item *) ring_list_getpointer(pRecord,2);
-		free( pItem ) ;
+		ring_free(pItem);
 	}
 	/* Delete List */
 	pVM->aDynamicSelfItems = ring_list_delete(pVM->aDynamicSelfItems);
 	pVM->pPackageName = ring_string_delete(pVM->pPackageName);
 	pVM->pTrace = ring_string_delete(pVM->pTrace);
 	pVM->pTraceData = ring_list_delete(pVM->pTraceData);
-	free( pVM ) ;
+	ring_free(pVM);
 	pVM = NULL ;
 	return pVM ;
 }
@@ -275,7 +275,7 @@ RING_API void ring_vm_loadcode ( VM *pVM )
 	**  This optimization increase the performance of applications that uses eval() 
 	*/
 	nSize = (ring_list_getsize(pVM->pCode))*RING_VM_EXTRASIZE ;
-	pVM->pByteCode = (ByteCode *) calloc(nSize,sizeof(ByteCode)) ;
+	pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode));
 	if ( pVM->pByteCode == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -801,7 +801,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		ring_vm_blockflag2(pVM,nPC);
 		pVM->nPC = nLastPC+1 ;
 		if ( ring_list_getsize(pVM->pCode)  > pVM->nEvalReallocationSize ) {
-			pByteCode = (ByteCode *) realloc(pVM->pByteCode , sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
+			pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
 			if ( pByteCode == NULL ) {
 				printf( RING_OOM ) ;
 				ring_scanner_delete(pScanner);
@@ -891,7 +891,7 @@ void ring_vm_returneval ( VM *pVM )
 		}
 		if ( pVM->nEvalReallocationFlag == 1 ) {
 			pVM->nEvalReallocationFlag = 0 ;
-			pByteCode = (ByteCode *) realloc(pVM->pByteCode , sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
+			pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
 			if ( pByteCode == NULL ) {
 				printf( RING_OOM ) ;
 				exit(0);
