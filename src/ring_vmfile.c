@@ -363,7 +363,7 @@ void ring_vm_file_fgets ( void *pPointer )
 				return ;
 			}
 			nSize++ ;
-			cStr = (char *) malloc(nSize) ;
+			cStr = (char *) ring_malloc(nSize);
 			if ( cStr == NULL ) {
 				RING_API_ERROR(RING_OOM);
 				return ;
@@ -374,7 +374,7 @@ void ring_vm_file_fgets ( void *pPointer )
 			} else {
 				RING_API_RETNUMBER(0);
 			}
-			free( cStr ) ;
+			ring_free(cStr);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -468,7 +468,7 @@ void ring_vm_file_fread ( void *pPointer )
 				RING_API_ERROR(RING_VM_FILE_BUFFERSIZE);
 				return ;
 			}
-			cStr = (char *) malloc(nSize) ;
+			cStr = (char *) ring_malloc(nSize);
 			if ( cStr == NULL ) {
 				RING_API_ERROR(RING_OOM);
 				return ;
@@ -479,7 +479,7 @@ void ring_vm_file_fread ( void *pPointer )
 			} else {
 				RING_API_RETSTRING2(cStr,nResult);
 			}
-			free( cStr ) ;
+			ring_free(cStr);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -590,7 +590,7 @@ void ring_vm_file_read ( void *pPointer )
 		fseek( fp , 0 , SEEK_END );
 		nSize = ftell(fp);
 		fseek( fp , 0 , SEEK_SET );
-		cBuffer = (char *) malloc(nSize) ;
+		cBuffer = (char *) ring_malloc(nSize);
 		if ( cBuffer == NULL ) {
 			RING_API_ERROR(RING_OOM);
 			return ;
@@ -598,7 +598,7 @@ void ring_vm_file_read ( void *pPointer )
 		fread( cBuffer , 1 , nSize , fp );
 		fclose( fp ) ;
 		RING_API_RETSTRING2(cBuffer,nSize);
-		free( cBuffer ) ;
+		ring_free(cBuffer);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
