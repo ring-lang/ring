@@ -359,7 +359,7 @@ RING_API int ring_list_ispointer ( List *pList, int index )
 }
 /* int */
 
-RING_API void ring_list_setint ( List *pList, int index ,int number )
+RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number )
 {
 	Item *pItem  ;
 	assert(pList != NULL);
@@ -369,7 +369,7 @@ RING_API void ring_list_setint ( List *pList, int index ,int number )
 	pItem->NumberFlag = ITEM_NUMBERFLAG_INT ;
 }
 
-RING_API void ring_list_addint ( List *pList,int x )
+RING_API void ring_list_addint_gc ( void *pState,List *pList,int x )
 {
 	assert(pList != NULL);
 	ring_list_newitem(pList);
@@ -1099,6 +1099,17 @@ RING_API void ring_list_newitem ( List *pList )
 RING_API void ring_list_deleteitem ( List *pList,int index )
 {
 	ring_list_deleteitem_gc(NULL,pList,index);
+}
+/* int */
+
+RING_API void ring_list_setint ( List *pList, int index ,int number )
+{
+	ring_list_setint_gc(NULL,pList,index,number);
+}
+
+RING_API void ring_list_addint ( List *pList,int x )
+{
+	ring_list_addint_gc(NULL,pList,x);
 }
 /* Test */
 
