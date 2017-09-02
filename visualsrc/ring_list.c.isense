@@ -96,18 +96,18 @@ ring_list_addpointer_gc
 ring_list_setdouble_gc
 Type: Item *
 pItem
-ring_list_adddouble
-ring_list_setstring
+ring_list_adddouble_gc
+ring_list_setstring_gc
 Type: Item *
 pItem
 Type: String *
 pString
-ring_list_setstring2
+ring_list_setstring2_gc
 Type: Item *
 pItem
 Type: String *
 pString
-ring_list_addstring
+ring_list_addstring_gc
 ring_list_addstring2
 ring_list_newlist
 Type: Item *
@@ -240,6 +240,10 @@ ring_list_setfuncpointer
 ring_list_addfuncpointer
 ring_list_setdouble
 ring_list_adddouble
+ring_list_setstring
+ring_list_setstring2
+ring_list_addstring
+ring_list_addstring2
 ring_list_test
 Type: List *
 pList,*pList2

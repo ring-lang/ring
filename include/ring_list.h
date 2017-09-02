@@ -59,13 +59,13 @@ RING_API void ring_list_setdouble_gc ( void *pState,List *pList, int index ,doub
 RING_API void ring_list_adddouble_gc ( void *pState,List *pList,double x ) ;
 /* String */
 
-RING_API void ring_list_setstring ( List *pList, int index ,const char *str ) ;
+RING_API void ring_list_setstring_gc ( void *pState,List *pList, int index ,const char *str ) ;
 
-RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize ) ;
+RING_API void ring_list_setstring2_gc ( void *pState,List *pList, int index ,const char *str,int nStrSize ) ;
 
-RING_API void ring_list_addstring ( List *pList,const char *str ) ;
+RING_API void ring_list_addstring_gc ( void *pState,List *pList,const char *str ) ;
 
-RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) ;
+RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *str,int nStrSize ) ;
 /* List */
 
 RING_API List * ring_list_newlist ( List *pList ) ;
@@ -199,4 +199,13 @@ RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) ) ;
 RING_API void ring_list_setdouble ( List *pList, int index ,double number ) ;
 
 RING_API void ring_list_adddouble ( List *pList,double x ) ;
+/* String */
+
+RING_API void ring_list_setstring ( List *pList, int index ,const char *str ) ;
+
+RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize ) ;
+
+RING_API void ring_list_addstring ( List *pList,const char *str ) ;
+
+RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) ;
 #endif
