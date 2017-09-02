@@ -43,6 +43,10 @@ Type: List *
 pList
 Type: Items *
 pItems,*pItemsLast
+ring_list_new2
+x
+Type: Items *
+pItems,*pItemsLast
 ring_list_delete
 Type: Items *
 pItems,*pItemsNext
