@@ -9,9 +9,14 @@ typedef struct Items {
 } Items ;
 /* Functions */
 
+Items * ring_items_new_gc ( void *pState ) ;
+
+Items * ring_items_delete_gc ( void *pState,Items *pItems ) ;
+
+void ring_items_print ( Items *pItems ) ;
+/* Functions without State pointer */
+
 Items * ring_items_new ( void ) ;
 
 Items * ring_items_delete ( Items *pItems ) ;
-
-void ring_items_print ( Items *pItems ) ;
 #endif
