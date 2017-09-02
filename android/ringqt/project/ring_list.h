@@ -28,7 +28,7 @@ RING_API Item * ring_list_getitem ( List *pList,int index ) ;
 
 RING_API List * ring_list_delete_gc ( void *pState,List *pList ) ;
 
-RING_API void ring_list_deleteitem ( List *pList,int index ) ;
+RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index ) ;
 
 RING_API void ring_list_print ( List *pList ) ;
 
@@ -177,4 +177,6 @@ RING_API List * ring_list_delete ( List *pList ) ;
 RING_API void ring_list_deletearray ( List *pList ) ;
 
 RING_API void ring_list_newitem ( List *pList ) ;
+
+RING_API void ring_list_deleteitem ( List *pList,int index ) ;
 #endif
