@@ -137,7 +137,7 @@ RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,c
 
 RING_API void ring_list_genarray_gc ( void *pState,List *pList ) ;
 
-RING_API void ring_list_deletearray ( List *pList ) ;
+RING_API void ring_list_deletearray_gc ( void *pState,List *pList ) ;
 /* List Items to HashTable */
 
 RING_API void ring_list_genhashtable ( List *pList ) ;
@@ -173,4 +173,6 @@ RING_API List * ring_list_new ( int nSize ) ;
 RING_API void ring_list_genarray ( List *pList ) ;
 
 RING_API List * ring_list_delete ( List *pList ) ;
+
+RING_API void ring_list_deletearray ( List *pList ) ;
 #endif

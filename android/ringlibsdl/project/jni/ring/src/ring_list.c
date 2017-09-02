@@ -59,7 +59,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 		pItems = pItemsNext ;
 	}
 	/* Free Items Array */
-	ring_list_deletearray(pList);
+	ring_list_deletearray_gc(pState,pList);
 	/* Free HashTable */
 	if ( pList->pHashTable != NULL ) {
 		pList->pHashTable = ring_hashtable_delete(pList->pHashTable);
@@ -993,7 +993,7 @@ RING_API void ring_list_genarray_gc ( void *pState,List *pList )
 		return ;
 	}
 	if ( pList->pItemsArray != NULL ) {
-		ring_free(pList->pItemsArray);
+		ring_state_free(pState,pList->pItemsArray);
 	}
 	/*
 	**  Here we save the pointer in pArray and not in pList->pItemsArray 
@@ -1011,10 +1011,10 @@ RING_API void ring_list_genarray_gc ( void *pState,List *pList )
 	pList->pItemsArray = pArray ;
 }
 
-RING_API void ring_list_deletearray ( List *pList )
+RING_API void ring_list_deletearray_gc ( void *pState,List *pList )
 {
 	if ( pList->pItemsArray != NULL ) {
-		ring_free(pList->pItemsArray);
+		ring_state_free(pState,pList->pItemsArray);
 		pList->pItemsArray = NULL ;
 	}
 }
@@ -1084,6 +1084,11 @@ RING_API void ring_list_genarray ( List *pList )
 RING_API List * ring_list_delete ( List *pList )
 {
 	return ring_list_delete_gc(NULL,pList) ;
+}
+
+RING_API void ring_list_deletearray ( List *pList )
+{
+	ring_list_deletearray_gc(NULL,pList);
 }
 /* Test */
 
