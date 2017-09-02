@@ -985,7 +985,7 @@ RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,c
 }
 /* List Items to Array */
 
-RING_API void ring_list_genarray ( List *pList )
+RING_API void ring_list_genarray_gc ( void *pState,List *pList )
 {
 	int x  ;
 	Item **pArray  ;
@@ -1000,7 +1000,7 @@ RING_API void ring_list_genarray ( List *pList )
 	**  Because we will fill the array with items pointers using ring_list_getitem() 
 	**  And ring_list_getitem() check for using pList->pItemsArray 
 	*/
-	pArray = (Item **) ring_malloc(ring_list_getsize(pList) * sizeof(Item *));
+	pArray = (Item **) ring_state_malloc(pState,ring_list_getsize(pList) * sizeof(Item *));
 	if ( pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -1074,6 +1074,11 @@ RING_API void ring_list_clear ( List *pList )
 RING_API List * ring_list_new ( int nSize )
 {
 	return ring_list_new_gc(NULL,nSize) ;
+}
+
+RING_API void ring_list_genarray ( List *pList )
+{
+	ring_list_genarray_gc(NULL,pList);
 }
 /* Test */
 

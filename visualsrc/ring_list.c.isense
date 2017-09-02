@@ -210,7 +210,7 @@ Type: int
 nPos
 Type: static char
 nullstring[]
-ring_list_genarray
+ring_list_genarray_gc
 Type: int
 x
 Type: Item **
@@ -227,6 +227,7 @@ pList2
 ring_list_refcopy
 ring_list_clear
 ring_list_new
+ring_list_genarray
 ring_list_test
 Type: List *
 pList,*pList2
