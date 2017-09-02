@@ -153,26 +153,26 @@ void * ring_realloc ( void *ptr, size_t size )
 }
 /* Memory Functions (RingState Aware) */
 
-void * ring_state_malloc ( RingState *pState,size_t size )
+void * ring_state_malloc ( void *pState,size_t size )
 {
 	void *pMem  ;
 	pMem = ring_malloc(size);
 	return pMem ;
 }
 
-void ring_state_free ( RingState *pState,void *ptr )
+void ring_state_free ( void *pState,void *ptr )
 {
 	ring_free(ptr);
 }
 
-void * ring_state_calloc ( RingState *pState,size_t nitems, size_t size )
+void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 {
 	void *pMem  ;
 	pMem = ring_calloc(nitems,size);
 	return pMem ;
 }
 
-void * ring_state_realloc ( RingState *pState,void *ptr, size_t size )
+void * ring_state_realloc ( void *pState,void *ptr, size_t size )
 {
 	void *pMem  ;
 	pMem = ring_realloc(ptr,size);

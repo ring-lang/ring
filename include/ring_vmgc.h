@@ -27,13 +27,13 @@ void * ring_calloc ( size_t nitems, size_t size ) ;
 void * ring_realloc ( void *ptr, size_t size ) ;
 /* Memory Functions (Ring StateAware) */
 
-void * ring_state_malloc ( RingState *pState,size_t size ) ;
+void * ring_state_malloc ( void *pState,size_t size ) ;
 
-void ring_state_free ( RingState *pState,void *ptr ) ;
+void ring_state_free ( void *pState,void *ptr ) ;
 
-void * ring_state_calloc ( RingState *pState,size_t nitems, size_t size ) ;
+void * ring_state_calloc ( void *pState,size_t nitems, size_t size ) ;
 
-void * ring_state_realloc ( RingState *pState,void *ptr, size_t size ) ;
+void * ring_state_realloc ( void *pState,void *ptr, size_t size ) ;
 /* Macro */
 #define ring_vm_gc_cleardata(pItem) (pItem->gc.nReferenceCount = 0)
 #define GCLog 0

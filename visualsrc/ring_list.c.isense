@@ -37,13 +37,10 @@ ring_list_getstringsize(pList,index)
 ring_list_getsize(x)
 RING_VM_LISTOFOBJS_FINDSTRING
 RING_VM_LISTOFOBJS_FINDNUMBER
-ring_list_new
-x
+ring_list_new_gc
 Type: List *
 pList
-Type: Items *
-pItems,*pItemsLast
-ring_list_new2
+ring_list_new2_gc
 x
 Type: Items *
 pItems,*pItemsLast
@@ -229,6 +226,7 @@ Type: List *
 pList2
 ring_list_refcopy
 ring_list_clear
+ring_list_new
 ring_list_test
 Type: List *
 pList,*pList2
