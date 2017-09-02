@@ -16,9 +16,9 @@ typedef struct List {
 **  Main List Functions 
 */
 
-RING_API List * ring_list_new ( int nSize ) ;
+RING_API List * ring_list_new_gc ( void *pState,int nSize ) ;
 
-RING_API List * ring_list_new2 ( List *pList,int nSize ) ;
+RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize ) ;
 
 RING_API void ring_list_newitem ( List *pList ) ;
 
@@ -166,4 +166,7 @@ RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem ) ;
 #define ring_list_getsize(x) (x->nSize)
 #define RING_VM_LISTOFOBJS_FINDSTRING 1
 #define RING_VM_LISTOFOBJS_FINDNUMBER 0
+/* Define functions without RingState * */
+
+RING_API List * ring_list_new ( int nSize ) ;
 #endif

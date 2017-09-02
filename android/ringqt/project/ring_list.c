@@ -5,20 +5,18 @@
 **  List 
 */
 
-RING_API List * ring_list_new ( int nSize )
+RING_API List * ring_list_new_gc ( void *pState,int nSize )
 {
-	int x  ;
 	List *pList  ;
-	Items *pItems,*pItemsLast  ;
-	pList = (List *) ring_malloc(sizeof(List));
+	pList = (List *) ring_state_malloc(pState,sizeof(List));
 	if ( pList == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	return ring_list_new2(pList,nSize) ;
+	return ring_list_new2_gc(pState,pList,nSize) ;
 }
 
-RING_API List * ring_list_new2 ( List *pList,int nSize )
+RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 {
 	int x  ;
 	Items *pItems,*pItemsLast  ;
@@ -1070,6 +1068,12 @@ RING_API void ring_list_clear ( List *pList )
 	pList->pLastItemLastAccess = NULL ;
 	pList->pItemsArray = NULL ;
 	pList->pHashTable = NULL ;
+}
+/* Define functions without RingState * */
+
+RING_API List * ring_list_new ( int nSize )
+{
+	return ring_list_new_gc(NULL,nSize) ;
 }
 /* Test */
 
