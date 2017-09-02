@@ -47,7 +47,7 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 	return pList ;
 }
 
-RING_API List * ring_list_delete ( List *pList )
+RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
 	Items *pItems,*pItemsNext  ;
 	pItems = pList->pFirst ;
@@ -64,7 +64,7 @@ RING_API List * ring_list_delete ( List *pList )
 	if ( pList->pHashTable != NULL ) {
 		pList->pHashTable = ring_hashtable_delete(pList->pHashTable);
 	}
-	ring_free(pList);
+	ring_state_free(pState,pList);
 	pList = NULL ;
 	return pList ;
 }
@@ -1079,6 +1079,11 @@ RING_API List * ring_list_new ( int nSize )
 RING_API void ring_list_genarray ( List *pList )
 {
 	ring_list_genarray_gc(NULL,pList);
+}
+
+RING_API List * ring_list_delete ( List *pList )
+{
+	return ring_list_delete_gc(NULL,pList) ;
 }
 /* Test */
 
