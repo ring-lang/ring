@@ -74,14 +74,14 @@ RING_API void ring_string_set2 ( String *pString,const char *str,int nStrSize )
 	pString->nSize = nStrSize ;
 }
 
-RING_API void ring_string_add ( String *pString,const char *str )
+RING_API void ring_string_add_gc ( void *pState,String *pString,const char *str )
 {
 	int x  ;
 	x = strlen( str ) ;
-	ring_string_add2(pString,str,x);
+	ring_string_add2_gc(pState,pString,str,x);
 }
 
-RING_API void ring_string_add2 ( String *pString,const char *str,int nStrSize )
+RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str,int nStrSize )
 {
 	int x  ;
 	int x2  ;
@@ -89,7 +89,7 @@ RING_API void ring_string_add2 ( String *pString,const char *str,int nStrSize )
 	assert(pString != NULL);
 	x2 = nStrSize+ring_string_size(pString) ;
 	cStr = pString->cStr ;
-	pString->cStr = (char *) ring_malloc(x2+1);
+	pString->cStr = (char *) ring_state_malloc(pState,x2+1);
 	if ( pString->cStr  == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -270,4 +270,14 @@ RING_API String * ring_string_new2 ( const char *str,int nStrSize )
 RING_API String * ring_string_new ( const char *str )
 {
 	return ring_string_new_gc(NULL,str) ;
+}
+
+RING_API void ring_string_add ( String *pString,const char *str )
+{
+	ring_string_add_gc(NULL,pString,str);
+}
+
+RING_API void ring_string_add2 ( String *pString,const char *str,int nStrSize )
+{
+	ring_string_add2_gc(NULL,pString,str,nStrSize);
 }

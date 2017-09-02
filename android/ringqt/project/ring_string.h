@@ -21,9 +21,9 @@ RING_API void ring_string_set ( String *pString,const char *str ) ;
 
 RING_API void ring_string_set2 ( String *pString,const char *str,int nStrSize ) ;
 
-RING_API void ring_string_add ( String *pString,const char *str ) ;
+RING_API void ring_string_add_gc ( void *pState,String *pString,const char *str ) ;
 
-RING_API void ring_string_add2 ( String *pString,const char *str,int nStrSize ) ;
+RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str,int nStrSize ) ;
 
 RING_API void ring_string_print ( String *pString ) ;
 
@@ -53,4 +53,8 @@ void ring_string_test ( void ) ;
 RING_API String * ring_string_new2 ( const char *str,int nStrSize ) ;
 
 RING_API String * ring_string_new ( const char *str ) ;
+
+RING_API void ring_string_add ( String *pString,const char *str ) ;
+
+RING_API void ring_string_add2 ( String *pString,const char *str,int nStrSize ) ;
 #endif
