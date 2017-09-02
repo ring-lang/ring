@@ -9,7 +9,7 @@ Items * ring_items_new_gc ( void *pState )
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	pItems->pValue = ring_item_new(ITEMTYPE_NOTHING) ;
+	pItems->pValue = ring_item_new_gc(pState,ITEMTYPE_NOTHING) ;
 	pItems->pNext = NULL ;
 	pItems->pPrev = NULL ;
 	return pItems ;
@@ -18,7 +18,7 @@ Items * ring_items_new_gc ( void *pState )
 Items * ring_items_delete_gc ( void *pState,Items *pItems )
 {
 	assert(pItems != NULL);
-	pItems->pValue = ring_item_delete(pItems->pValue);
+	pItems->pValue = ring_item_delete_gc(pState,pItems->pValue);
 	ring_state_free(pState,pItems);
 	pItems = NULL ;
 	return pItems ;
