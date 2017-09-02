@@ -45,9 +45,9 @@ RING_API void ring_list_setpointer_gc ( void *pState,List *pList, int index ,voi
 RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue ) ;
 /* Function Pointers */
 
-RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) ) ;
+RING_API void ring_list_setfuncpointer_gc ( void *pState,List *pList, int index ,void (*pFunc)(void *) ) ;
 
-RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) ) ;
+RING_API void ring_list_addfuncpointer_gc ( void *pState,List *pList,void (*pFunc)(void *) ) ;
 
 RING_API int ring_list_isfuncpointer ( List *pList, int index ) ;
 
@@ -189,4 +189,9 @@ RING_API void ring_list_addint ( List *pList,int x ) ;
 RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue ) ;
 
 RING_API void ring_list_addpointer ( List *pList,void *pValue ) ;
+/* Function Pointers */
+
+RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) ) ;
+
+RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) ) ;
 #endif

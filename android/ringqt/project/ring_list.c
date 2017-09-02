@@ -480,7 +480,7 @@ RING_API void ring_list_setlist ( List *pList, int index )
 }
 /* Function Pointers */
 
-RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) )
+RING_API void ring_list_setfuncpointer_gc ( void *pState,List *pList, int index ,void (*pFunc)(void *) )
 {
 	Item *pItem  ;
 	assert(pList != NULL);
@@ -489,7 +489,7 @@ RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(v
 	pItem->data.pFunc = pFunc ;
 }
 
-RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) )
+RING_API void ring_list_addfuncpointer_gc ( void *pState,List *pList,void (*pFunc)(void *) )
 {
 	assert(pList != NULL);
 	ring_list_newitem(pList);
@@ -1121,6 +1121,17 @@ RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue )
 RING_API void ring_list_addpointer ( List *pList,void *pValue )
 {
 	ring_list_addpointer_gc(NULL,pList,pValue);
+}
+/* Function Pointers */
+
+RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) )
+{
+	ring_list_setfuncpointer_gc(NULL,pList,index,pFunc);
+}
+
+RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) )
+{
+	ring_list_addfuncpointer_gc(NULL,pList,pFunc);
 }
 /* Test */
 
