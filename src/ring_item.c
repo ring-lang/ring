@@ -27,10 +27,10 @@ RING_API Item * ring_item_new_gc ( void *pState,int ItemType )
 	return pItem ;
 }
 
-RING_API Item * ring_item_delete ( Item *pItem )
+RING_API Item * ring_item_delete_gc ( void *pState,Item *pItem )
 {
 	assert(pItem != NULL);
-	ring_vm_gc_deleteitem(pItem);
+	ring_vm_gc_deleteitem_gc(pState,pItem);
 	return NULL ;
 }
 
@@ -210,4 +210,9 @@ RING_API void ring_item_setint ( Item *pItem,int x )
 RING_API Item * ring_item_new ( int ItemType )
 {
 	return ring_item_new_gc(NULL,ItemType) ;
+}
+
+RING_API Item * ring_item_delete ( Item *pItem )
+{
+	return ring_item_delete_gc(NULL,pItem) ;
 }

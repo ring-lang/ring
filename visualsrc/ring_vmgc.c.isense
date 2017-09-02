@@ -27,7 +27,7 @@ pItem
 ring_vm_gc_checkupdatereference
 Type: Item *
 pItem
-ring_vm_gc_deleteitem
+ring_vm_gc_deleteitem_gc
 ring_vm_gc_killreference
 Type: List *
 pList
@@ -57,3 +57,4 @@ pMem
 ring_state_realloc
 Type: void *
 pMem
+ring_vm_gc_deleteitem

@@ -53,14 +53,14 @@ void ring_vm_gc_checkupdatereference ( List *pList )
 	}
 }
 
-void ring_vm_gc_deleteitem ( Item *pItem )
+void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 {
 	if ( pItem->gc.nReferenceCount == 0 ) {
 		#if GCLog
 		printf( "GC Delete Item - Free Memory %p \n",pItem ) ;
 		#endif
 		ring_item_content_delete(pItem);
-		ring_free(pItem);
+		ring_state_free(pState,pItem);
 	}
 	else {
 		pItem->gc.nReferenceCount-- ;
@@ -177,4 +177,9 @@ void * ring_state_realloc ( void *pState,void *ptr, size_t size )
 	void *pMem  ;
 	pMem = ring_realloc(ptr,size);
 	return pMem ;
+}
+
+void ring_vm_gc_deleteitem ( Item *pItem )
+{
+	ring_vm_gc_deleteitem_gc(NULL,pItem);
 }

@@ -56,11 +56,10 @@ ring_itemarray_ispointer(pList,index)
 ring_item_isstring(x)
 ring_item_islist(x)
 ring_item_isdouble(x)
-ring_item_new
 ring_item_new_gc
 Type: Item *
 pItem
-ring_item_delete
+ring_item_delete_gc
 ring_item_print
 ItemType
 ring_item_content_delete
@@ -84,3 +83,4 @@ ring_item_setdouble
 ring_item_setpointer
 ring_item_setint
 ring_item_new
+ring_item_delete
