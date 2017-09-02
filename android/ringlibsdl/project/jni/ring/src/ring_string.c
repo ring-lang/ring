@@ -112,12 +112,12 @@ RING_API void ring_string_print ( String *pString )
 	printf( "%s \n",pString->cStr ) ;
 }
 
-RING_API void ring_string_setfromint ( String *pString,int x )
+RING_API void ring_string_setfromint_gc ( void *pState,String *pString,int x )
 {
 	char cStr[20]  ;
 	assert(pString != NULL);
 	sprintf( cStr , "%d" , x ) ;
-	ring_string_set(pString,cStr);
+	ring_string_set_gc(pState,pString,cStr);
 }
 
 RING_API char * ring_string_lower ( char *cStr )
@@ -310,4 +310,9 @@ RING_API char * ring_string_find3 ( char *cStr1,int nStrSize1,char *cStr2,int nS
 RING_API String * ring_string_delete ( String *pString )
 {
 	return ring_string_delete_gc(NULL,pString) ;
+}
+
+RING_API void ring_string_setfromint ( String *pString,int x )
+{
+	ring_string_setfromint_gc(NULL,pString,x);
 }
