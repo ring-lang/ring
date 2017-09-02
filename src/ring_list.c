@@ -69,7 +69,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 	return pList ;
 }
 
-RING_API void ring_list_copy ( List *pNewList, List *pList )
+RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 {
 	int x  ;
 	List *pNewList2  ;
@@ -150,7 +150,7 @@ RING_API void ring_list_print ( List *pList )
 	}
 }
 
-RING_API void ring_list_deleteallitems ( List *pList )
+RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 {
 	Items *pItems,*pItemsNext  ;
 	pItems = pList->pFirst ;
@@ -1175,6 +1175,16 @@ RING_API List * ring_list_newlist ( List *pList )
 RING_API void ring_list_setlist ( List *pList, int index )
 {
 	ring_list_setlist_gc(NULL,pList,index);
+}
+
+RING_API void ring_list_copy ( List *pNewList, List *pList )
+{
+	ring_list_copy_gc(NULL,pNewList,pList);
+}
+
+RING_API void ring_list_deleteallitems ( List *pList )
+{
+	ring_list_deleteallitems_gc(NULL,pList);
 }
 /* Test */
 
