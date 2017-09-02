@@ -89,21 +89,21 @@ RING_API int ring_list_ispointer ( List *pList, int index ) ;
 RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList ) ;
 /* Insert Items */
 
-RING_API void ring_list_insertitem ( List *pList,int x ) ;
+RING_API void ring_list_insertitem_gc ( void *pState,List *pList,int x ) ;
 
-RING_API void ring_list_insertint ( List *pList,int nPos,int x ) ;
+RING_API void ring_list_insertint_gc ( void *pState,List *pList,int nPos,int x ) ;
 
-RING_API void ring_list_insertdouble ( List *pList,int nPos,double x ) ;
+RING_API void ring_list_insertdouble_gc ( void *pState,List *pList,int nPos,double x ) ;
 
-RING_API void ring_list_insertpointer ( List *pList,int nPos,void *pValue ) ;
+RING_API void ring_list_insertpointer_gc ( void *pState,List *pList,int nPos,void *pValue ) ;
 
-RING_API void ring_list_insertstring ( List *pList,int nPos,const char *str ) ;
+RING_API void ring_list_insertstring_gc ( void *pState,List *pList,int nPos,const char *str ) ;
 
-RING_API void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize ) ;
+RING_API void ring_list_insertstring2_gc ( void *pState,List *pList,int nPos,const char *str,int nStrSize ) ;
 
-RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) ) ;
+RING_API void ring_list_insertfuncpointer_gc ( void *pState,List *pList,int nPos,void (*pFunc)(void *) ) ;
 
-RING_API List * ring_list_insertlist ( List *pList,int nPos ) ;
+RING_API List * ring_list_insertlist_gc ( void *pState,List *pList,int nPos ) ;
 /* Is item inside list, support nested Lists */
 
 RING_API int ring_list_isiteminsidelist ( List *pList,Item *pItem ) ;
@@ -217,4 +217,21 @@ RING_API void ring_list_setlist ( List *pList, int index ) ;
 RING_API void ring_list_copy ( List *pNewList, List *pList ) ;
 
 RING_API void ring_list_deleteallitems ( List *pList ) ;
+/* Insert Items */
+
+RING_API void ring_list_insertitem ( List *pList,int x ) ;
+
+RING_API void ring_list_insertint ( List *pList,int nPos,int x ) ;
+
+RING_API void ring_list_insertdouble ( List *pList,int nPos,double x ) ;
+
+RING_API void ring_list_insertpointer ( List *pList,int nPos,void *pValue ) ;
+
+RING_API void ring_list_insertstring ( List *pList,int nPos,const char *str ) ;
+
+RING_API void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize ) ;
+
+RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) ) ;
+
+RING_API List * ring_list_insertlist ( List *pList,int nPos ) ;
 #endif

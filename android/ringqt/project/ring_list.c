@@ -516,7 +516,7 @@ void ring_list_testfuncpointer ( void *pPointer )
 **  When you insert item, it will be inserted after nPos 
 */
 
-RING_API void ring_list_insertitem ( List *pList,int x )
+RING_API void ring_list_insertitem_gc ( void *pState,List *pList,int x )
 {
 	Items *pItems  ;
 	assert(pList != NULL);
@@ -546,49 +546,49 @@ RING_API void ring_list_insertitem ( List *pList,int x )
 	pList->nSize = pList->nSize + 1 ;
 }
 
-RING_API void ring_list_insertint ( List *pList,int nPos,int x )
+RING_API void ring_list_insertint_gc ( void *pState,List *pList,int nPos,int x )
 {
 	assert(pList != NULL);
 	ring_list_insertitem(pList,nPos);
 	ring_list_setint(pList,nPos+1,x);
 }
 
-RING_API void ring_list_insertdouble ( List *pList,int nPos,double x )
+RING_API void ring_list_insertdouble_gc ( void *pState,List *pList,int nPos,double x )
 {
 	assert(pList != NULL);
 	ring_list_insertitem(pList,nPos);
 	ring_list_setdouble(pList,nPos+1,x);
 }
 
-RING_API void ring_list_insertpointer ( List *pList,int nPos,void *pValue )
+RING_API void ring_list_insertpointer_gc ( void *pState,List *pList,int nPos,void *pValue )
 {
 	assert(pList != NULL);
 	ring_list_insertitem(pList,nPos);
 	ring_list_setpointer(pList,nPos+1,pValue);
 }
 
-RING_API void ring_list_insertstring ( List *pList,int nPos,const char *str )
+RING_API void ring_list_insertstring_gc ( void *pState,List *pList,int nPos,const char *str )
 {
 	assert(pList != NULL);
 	ring_list_insertitem(pList,nPos);
 	ring_list_setstring(pList,nPos+1,str);
 }
 
-RING_API void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize )
+RING_API void ring_list_insertstring2_gc ( void *pState,List *pList,int nPos,const char *str,int nStrSize )
 {
 	assert(pList != NULL);
 	ring_list_insertitem(pList,nPos);
 	ring_list_setstring2(pList,nPos+1,str,nStrSize);
 }
 
-RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) )
+RING_API void ring_list_insertfuncpointer_gc ( void *pState,List *pList,int nPos,void (*pFunc)(void *) )
 {
 	assert(pList != NULL);
 	ring_list_insertitem(pList,nPos);
 	ring_list_setfuncpointer(pList,nPos+1,pFunc);
 }
 
-RING_API List * ring_list_insertlist ( List *pList,int nPos )
+RING_API List * ring_list_insertlist_gc ( void *pState,List *pList,int nPos )
 {
 	Item *pItem  ;
 	List *pList2  ;
@@ -1185,6 +1185,47 @@ RING_API void ring_list_copy ( List *pNewList, List *pList )
 RING_API void ring_list_deleteallitems ( List *pList )
 {
 	ring_list_deleteallitems_gc(NULL,pList);
+}
+/* Insert Items */
+
+RING_API void ring_list_insertitem ( List *pList,int x )
+{
+	ring_list_insertitem_gc(NULL,pList,x);
+}
+
+RING_API void ring_list_insertint ( List *pList,int nPos,int x )
+{
+	ring_list_insertint_gc(NULL,pList,nPos,x);
+}
+
+RING_API void ring_list_insertdouble ( List *pList,int nPos,double x )
+{
+	ring_list_insertdouble_gc(NULL,pList,nPos,x);
+}
+
+RING_API void ring_list_insertpointer ( List *pList,int nPos,void *pValue )
+{
+	ring_list_insertpointer_gc(NULL,pList,nPos,pValue);
+}
+
+RING_API void ring_list_insertstring ( List *pList,int nPos,const char *str )
+{
+	ring_list_insertstring_gc(NULL,pList,nPos,str);
+}
+
+RING_API void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize )
+{
+	ring_list_insertstring2_gc(NULL,pList,nPos,str,nStrSize);
+}
+
+RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) )
+{
+	ring_list_insertfuncpointer_gc(NULL,pList,nPos,pFunc);
+}
+
+RING_API List * ring_list_insertlist ( List *pList,int nPos )
+{
+	return ring_list_insertlist_gc(NULL,pList,nPos) ;
 }
 /* Test */
 
