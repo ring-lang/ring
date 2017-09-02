@@ -76,7 +76,7 @@ RING_API List * ring_list_getlist ( List *pList, int index ) ;
 
 RING_API void ring_list_setactiveitem ( List *pList, Items *pItems, int index ) ;
 
-RING_API void ring_list_copy ( List *pNewList, List *pList ) ;
+RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList ) ;
 
 RING_API int ring_list_isnumber ( List *pList, int index ) ;
 
@@ -86,7 +86,7 @@ RING_API int ring_list_islist ( List *pList, int index ) ;
 
 RING_API int ring_list_ispointer ( List *pList, int index ) ;
 
-RING_API void ring_list_deleteallitems ( List *pList ) ;
+RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList ) ;
 /* Insert Items */
 
 RING_API void ring_list_insertitem ( List *pList,int x ) ;
@@ -213,4 +213,8 @@ RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) 
 RING_API List * ring_list_newlist ( List *pList ) ;
 
 RING_API void ring_list_setlist ( List *pList, int index ) ;
+
+RING_API void ring_list_copy ( List *pNewList, List *pList ) ;
+
+RING_API void ring_list_deleteallitems ( List *pList ) ;
 #endif
