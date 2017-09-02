@@ -68,11 +68,11 @@ RING_API void ring_list_addstring_gc ( void *pState,List *pList,const char *str 
 RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *str,int nStrSize ) ;
 /* List */
 
-RING_API List * ring_list_newlist ( List *pList ) ;
+RING_API List * ring_list_newlist_gc ( void *pState,List *pList ) ;
+
+RING_API void ring_list_setlist_gc ( void *pState,List *pList, int index ) ;
 
 RING_API List * ring_list_getlist ( List *pList, int index ) ;
-
-RING_API void ring_list_setlist ( List *pList, int index ) ;
 
 RING_API void ring_list_setactiveitem ( List *pList, Items *pItems, int index ) ;
 
@@ -208,4 +208,9 @@ RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int
 RING_API void ring_list_addstring ( List *pList,const char *str ) ;
 
 RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) ;
+/* List */
+
+RING_API List * ring_list_newlist ( List *pList ) ;
+
+RING_API void ring_list_setlist ( List *pList, int index ) ;
 #endif
