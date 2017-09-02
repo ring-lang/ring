@@ -135,7 +135,7 @@ RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,c
 RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
 /* List Items to Array */
 
-RING_API void ring_list_genarray ( List *pList ) ;
+RING_API void ring_list_genarray_gc ( void *pState,List *pList ) ;
 
 RING_API void ring_list_deletearray ( List *pList ) ;
 /* List Items to HashTable */
@@ -169,4 +169,6 @@ RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem ) ;
 /* Define functions without RingState * */
 
 RING_API List * ring_list_new ( int nSize ) ;
+
+RING_API void ring_list_genarray ( List *pList ) ;
 #endif
