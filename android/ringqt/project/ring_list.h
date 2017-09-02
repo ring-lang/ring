@@ -35,9 +35,9 @@ RING_API void ring_list_print ( List *pList ) ;
 RING_API int ring_list_gettype ( List *pList, int index ) ;
 /* int */
 
-RING_API void ring_list_setint ( List *pList, int index ,int number ) ;
+RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number ) ;
 
-RING_API void ring_list_addint ( List *pList,int x ) ;
+RING_API void ring_list_addint_gc ( void *pState,List *pList,int x ) ;
 /* Pointers */
 
 RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue ) ;
@@ -179,4 +179,9 @@ RING_API void ring_list_deletearray ( List *pList ) ;
 RING_API void ring_list_newitem ( List *pList ) ;
 
 RING_API void ring_list_deleteitem ( List *pList,int index ) ;
+/* int */
+
+RING_API void ring_list_setint ( List *pList, int index ,int number ) ;
+
+RING_API void ring_list_addint ( List *pList,int x ) ;
 #endif
