@@ -20,7 +20,7 @@ RING_API List * ring_list_new_gc ( void *pState,int nSize ) ;
 
 RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize ) ;
 
-RING_API void ring_list_newitem ( List *pList ) ;
+RING_API void ring_list_newitem_gc ( void *pState,List *pList ) ;
 
 void ring_list_test ( void ) ;
 
@@ -175,4 +175,6 @@ RING_API void ring_list_genarray ( List *pList ) ;
 RING_API List * ring_list_delete ( List *pList ) ;
 
 RING_API void ring_list_deletearray ( List *pList ) ;
+
+RING_API void ring_list_newitem ( List *pList ) ;
 #endif

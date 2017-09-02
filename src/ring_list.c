@@ -172,7 +172,7 @@ RING_API void ring_list_deleteallitems ( List *pList )
 }
 /* List Items */
 
-RING_API void ring_list_newitem ( List *pList )
+RING_API void ring_list_newitem_gc ( void *pState,List *pList )
 {
 	Items *pItems  ;
 	assert(pList != NULL);
@@ -1089,6 +1089,11 @@ RING_API List * ring_list_delete ( List *pList )
 RING_API void ring_list_deletearray ( List *pList )
 {
 	ring_list_deletearray_gc(NULL,pList);
+}
+
+RING_API void ring_list_newitem ( List *pList )
+{
+	ring_list_newitem_gc(NULL,pList);
 }
 /* Test */
 

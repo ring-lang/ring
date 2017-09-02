@@ -230,6 +230,7 @@ ring_list_new
 ring_list_genarray
 ring_list_delete
 ring_list_deletearray
+ring_list_newitem
 ring_list_test
 Type: List *
 pList,*pList2
