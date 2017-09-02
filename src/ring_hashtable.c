@@ -61,14 +61,14 @@ HashItem * ring_hashtable_newitem_gc ( void *pState,HashTable *pHashTable,const 
 	return pItem ;
 }
 
-void ring_hashtable_newnumber ( HashTable *pHashTable,const char *cKey,int x )
+void ring_hashtable_newnumber_gc ( void *pState,HashTable *pHashTable,const char *cKey,int x )
 {
 	HashItem *pItem  ;
-	pItem = ring_hashtable_newitem(pHashTable,cKey);
+	pItem = ring_hashtable_newitem_gc(pState,pHashTable,cKey);
 	pItem->nItemType = RING_HASHITEMTYPE_NUMBER ;
 	pItem->HashValue.nIndex = x ;
 	/* Check Rebuilding the HashTable */
-	ring_hashtable_rebuild(pHashTable);
+	ring_hashtable_rebuild_gc(pState,pHashTable);
 }
 
 void ring_hashtable_newpointer ( HashTable *pHashTable,const char *cKey,void *x )
@@ -278,4 +278,9 @@ HashTable * ring_hashtable_delete ( HashTable *pHashTable )
 void ring_hashtable_rebuild ( HashTable *pHashTable )
 {
 	ring_hashtable_rebuild_gc(NULL,pHashTable);
+}
+
+void ring_hashtable_newnumber ( HashTable *pHashTable,const char *cKey,int x )
+{
+	ring_hashtable_newnumber_gc(NULL,pHashTable,cKey,x);
 }

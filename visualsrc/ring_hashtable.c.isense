@@ -53,7 +53,7 @@ Type: unsigned int
 nIndex
 Type: HashItem *
 pItem
-ring_hashtable_newnumber
+ring_hashtable_newnumber_gc
 Type: HashItem *
 pItem
 ring_hashtable_newpointer
@@ -104,3 +104,4 @@ ring_hashtable_newitem
 ring_hashtable_deleteitem
 ring_hashtable_delete
 ring_hashtable_rebuild
+ring_hashtable_newnumber
