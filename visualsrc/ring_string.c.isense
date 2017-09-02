@@ -17,7 +17,7 @@ ring_string_get(x)
 ring_string_new
 Type: int
 x
-ring_string_new2
+ring_string_new2_gc
 Type: String *
 pString
 Type: int
@@ -75,3 +75,4 @@ mystr[nMaxValue]
 x
 Type: String *
 pString
+ring_string_new2
