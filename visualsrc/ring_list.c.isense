@@ -61,7 +61,7 @@ Type: const char *
 cStr
 Type: List *
 pList2
-ring_list_deleteallitems
+ring_list_deleteallitems_gc
 Type: Items *
 pItems,*pItemsNext
 ring_list_newitem_gc
@@ -130,15 +130,15 @@ ring_list_isfuncpointer
 ring_list_testfuncpointer
 Type: List *
 pList
-ring_list_insertitem
+ring_list_insertitem_gc
 Type: Items *
 pItems
-ring_list_insertint
-ring_list_insertdouble
-ring_list_insertpointer
-ring_list_insertstring
-ring_list_insertstring2
-ring_list_insertfuncpointer
+ring_list_insertint_gc
+ring_list_insertdouble_gc
+ring_list_insertpointer_gc
+ring_list_insertstring_gc
+ring_list_insertstring2_gc
+ring_list_insertfuncpointer_gc
 ring_list_insertlist
 Type: Item *
 pItem
@@ -248,6 +248,14 @@ ring_list_newlist
 ring_list_setlist
 ring_list_copy
 ring_list_deleteallitems
+ring_list_insertitem
+ring_list_insertint
+ring_list_insertdouble
+ring_list_insertpointer
+ring_list_insertstring
+ring_list_insertstring2
+ring_list_insertfuncpointer
+ring_list_insertlist
 ring_list_test
 Type: List *
 pList,*pList2
