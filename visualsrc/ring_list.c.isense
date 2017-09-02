@@ -64,7 +64,7 @@ pList2
 ring_list_deleteallitems
 Type: Items *
 pItems,*pItemsNext
-ring_list_newitem
+ring_list_newitem_gc
 Type: Items *
 pItems
 ring_list_getitem
@@ -231,6 +231,7 @@ ring_list_genarray
 ring_list_delete
 ring_list_deletearray
 ring_list_newitem
+ring_list_deleteitem
 ring_list_test
 Type: List *
 pList,*pList2

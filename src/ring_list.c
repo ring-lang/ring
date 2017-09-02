@@ -273,7 +273,7 @@ RING_API void ring_list_setactiveitem ( List *pList, Items *pItems, int index )
 	pList->nNextItemAfterLastAccess = index + 1 ;
 }
 
-RING_API void ring_list_deleteitem ( List *pList,int index )
+RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index )
 {
 	int x  ;
 	Items *pItems,*pItemsPrev  ;
@@ -1094,6 +1094,11 @@ RING_API void ring_list_deletearray ( List *pList )
 RING_API void ring_list_newitem ( List *pList )
 {
 	ring_list_newitem_gc(NULL,pList);
+}
+
+RING_API void ring_list_deleteitem ( List *pList,int index )
+{
+	ring_list_deleteitem_gc(NULL,pList,index);
 }
 /* Test */
 
