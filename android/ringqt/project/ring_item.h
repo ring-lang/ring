@@ -36,7 +36,7 @@ typedef struct Item {
 #define ITEM_NUMBERFLAG_DOUBLE 2
 /* Functions */
 
-RING_API Item * ring_item_new ( int ItemType ) ;
+RING_API Item * ring_item_new_gc ( void *pState,int ItemType ) ;
 
 RING_API Item * ring_item_delete ( Item *pItem ) ;
 
@@ -93,4 +93,7 @@ RING_API void ring_item_setstring2 ( Item *pItem,const char *cStr,int nStrSize )
 #define ring_item_isstring(x) (x->nType == ITEMTYPE_STRING)
 #define ring_item_islist(x) (x->nType == ITEMTYPE_LIST)
 #define ring_item_isdouble(x) ( (x->nType == ITEMTYPE_NUMBER) && ( x->NumberFlag == ITEM_NUMBERFLAG_DOUBLE ) )
+/* Functions without state pointer */
+
+RING_API Item * ring_item_new ( int ItemType ) ;
 #endif

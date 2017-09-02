@@ -4,10 +4,10 @@
 */
 #include "ring.h"
 
-RING_API Item * ring_item_new ( int ItemType )
+RING_API Item * ring_item_new_gc ( void *pState,int ItemType )
 {
 	Item *pItem  ;
-	pItem = (Item *) ring_malloc(sizeof(Item));
+	pItem = (Item *) ring_state_malloc(pState,sizeof(Item));
 	if ( pItem == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -204,4 +204,10 @@ RING_API void ring_item_setint ( Item *pItem,int x )
 	ring_item_settype(pItem,ITEMTYPE_NUMBER);
 	pItem->data.iNumber = x ;
 	pItem->NumberFlag = ITEM_NUMBERFLAG_INT ;
+}
+/* Functions without state pointer */
+
+RING_API Item * ring_item_new ( int ItemType )
+{
+	return ring_item_new_gc(NULL,ItemType) ;
 }
