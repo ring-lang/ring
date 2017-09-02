@@ -93,7 +93,7 @@ ring_list_setpointer_gc
 Type: Item *
 pItem
 ring_list_addpointer_gc
-ring_list_setdouble
+ring_list_setdouble_gc
 Type: Item *
 pItem
 ring_list_adddouble
@@ -125,7 +125,7 @@ pItem
 ring_list_setfuncpointer_gc
 Type: Item *
 pItem
-ring_list_addfuncpointer
+ring_list_addfuncpointer_gc
 ring_list_isfuncpointer
 ring_list_testfuncpointer
 Type: List *
@@ -238,6 +238,8 @@ ring_list_setpointer
 ring_list_addpointer
 ring_list_setfuncpointer
 ring_list_addfuncpointer
+ring_list_setdouble
+ring_list_adddouble
 ring_list_test
 Type: List *
 pList,*pList2
