@@ -38,7 +38,7 @@ typedef struct Item {
 
 RING_API Item * ring_item_new_gc ( void *pState,int ItemType ) ;
 
-RING_API Item * ring_item_delete ( Item *pItem ) ;
+RING_API Item * ring_item_delete_gc ( void *pState,Item *pItem ) ;
 
 RING_API void ring_item_settype ( Item *pItem,int ItemType ) ;
 
@@ -96,4 +96,6 @@ RING_API void ring_item_setstring2 ( Item *pItem,const char *cStr,int nStrSize )
 /* Functions without state pointer */
 
 RING_API Item * ring_item_new ( int ItemType ) ;
+
+RING_API Item * ring_item_delete ( Item *pItem ) ;
 #endif

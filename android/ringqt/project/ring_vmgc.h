@@ -34,6 +34,8 @@ void ring_state_free ( void *pState,void *ptr ) ;
 void * ring_state_calloc ( void *pState,size_t nitems, size_t size ) ;
 
 void * ring_state_realloc ( void *pState,void *ptr, size_t size ) ;
+
+void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
 /* Macro */
 #define ring_vm_gc_cleardata(pItem) (pItem->gc.nReferenceCount = 0)
 #define GCLog 0
