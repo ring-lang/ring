@@ -9,7 +9,7 @@ typedef struct String {
 } String ;
 /* Functions */
 
-RING_API String * ring_string_new ( const char *str ) ;
+RING_API String * ring_string_new_gc ( void *pState,const char *str ) ;
 
 RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSize ) ;
 
@@ -51,4 +51,6 @@ void ring_string_test ( void ) ;
 /* Functions without state pointer */
 
 RING_API String * ring_string_new2 ( const char *str,int nStrSize ) ;
+
+RING_API String * ring_string_new ( const char *str ) ;
 #endif
