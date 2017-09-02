@@ -412,7 +412,7 @@ RING_API void ring_list_adddouble_gc ( void *pState,List *pList,double x )
 }
 /* String */
 
-RING_API void ring_list_setstring ( List *pList, int index ,const char *str )
+RING_API void ring_list_setstring_gc ( void *pState,List *pList, int index ,const char *str )
 {
 	Item *pItem  ;
 	String *pString  ;
@@ -423,7 +423,7 @@ RING_API void ring_list_setstring ( List *pList, int index ,const char *str )
 	ring_string_set(pString,str);
 }
 
-RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize )
+RING_API void ring_list_setstring2_gc ( void *pState,List *pList, int index ,const char *str,int nStrSize )
 {
 	Item *pItem  ;
 	String *pString  ;
@@ -434,14 +434,14 @@ RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int
 	ring_string_set2(pString,str,nStrSize);
 }
 
-RING_API void ring_list_addstring ( List *pList,const char *str )
+RING_API void ring_list_addstring_gc ( void *pState,List *pList,const char *str )
 {
 	assert(pList != NULL);
 	ring_list_newitem(pList);
 	ring_list_setstring(pList,ring_list_getsize(pList),str);
 }
 
-RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize )
+RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *str,int nStrSize )
 {
 	assert(pList != NULL);
 	ring_list_newitem(pList);
@@ -1143,6 +1143,27 @@ RING_API void ring_list_setdouble ( List *pList, int index ,double number )
 RING_API void ring_list_adddouble ( List *pList,double x )
 {
 	ring_list_adddouble_gc(NULL,pList,x);
+}
+/* String */
+
+RING_API void ring_list_setstring ( List *pList, int index ,const char *str )
+{
+	ring_list_setstring_gc(NULL,pList,index,str);
+}
+
+RING_API void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize )
+{
+	ring_list_setstring2_gc(NULL,pList,index,str,nStrSize);
+}
+
+RING_API void ring_list_addstring ( List *pList,const char *str )
+{
+	ring_list_addstring_gc(NULL,pList,str);
+}
+
+RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize )
+{
+	ring_list_addstring2_gc(NULL,pList,str,nStrSize);
 }
 /* Test */
 
