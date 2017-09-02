@@ -2,11 +2,11 @@
 #include "ring.h"
 /* Functions */
 
-RING_API String * ring_string_new ( const char *str )
+RING_API String * ring_string_new_gc ( void *pState,const char *str )
 {
 	int x  ;
 	x = strlen( str ) ;
-	return ring_string_new2(str,x) ;
+	return ring_string_new2_gc(pState,str,x) ;
 }
 
 RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSize )
@@ -265,4 +265,9 @@ void ring_string_test ( void )
 RING_API String * ring_string_new2 ( const char *str,int nStrSize )
 {
 	return ring_string_new2_gc(NULL,str,nStrSize) ;
+}
+
+RING_API String * ring_string_new ( const char *str )
+{
+	return ring_string_new_gc(NULL,str) ;
 }

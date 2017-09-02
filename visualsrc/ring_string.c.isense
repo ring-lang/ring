@@ -14,7 +14,7 @@ String *
 ring_string_tolower(x)
 ring_string_toupper(x)
 ring_string_get(x)
-ring_string_new
+ring_string_new_gc
 Type: int
 x
 ring_string_new2_gc
@@ -76,3 +76,4 @@ x
 Type: String *
 pString
 ring_string_new2
+ring_string_new
