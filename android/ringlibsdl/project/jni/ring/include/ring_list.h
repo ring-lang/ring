@@ -40,9 +40,9 @@ RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int num
 RING_API void ring_list_addint_gc ( void *pState,List *pList,int x ) ;
 /* Pointers */
 
-RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue ) ;
+RING_API void ring_list_setpointer_gc ( void *pState,List *pList, int index ,void *pValue ) ;
 
-RING_API void ring_list_addpointer ( List *pList,void *pValue ) ;
+RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue ) ;
 /* Function Pointers */
 
 RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) ) ;
@@ -184,4 +184,9 @@ RING_API void ring_list_deleteitem ( List *pList,int index ) ;
 RING_API void ring_list_setint ( List *pList, int index ,int number ) ;
 
 RING_API void ring_list_addint ( List *pList,int x ) ;
+/* Pointers */
+
+RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue ) ;
+
+RING_API void ring_list_addpointer ( List *pList,void *pValue ) ;
 #endif

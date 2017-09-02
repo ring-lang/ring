@@ -377,7 +377,7 @@ RING_API void ring_list_addint_gc ( void *pState,List *pList,int x )
 }
 /* Pointers */
 
-RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue )
+RING_API void ring_list_setpointer_gc ( void *pState,List *pList, int index ,void *pValue )
 {
 	Item *pItem  ;
 	assert(pList != NULL);
@@ -386,7 +386,7 @@ RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue )
 	pItem->data.pPointer = pValue ;
 }
 
-RING_API void ring_list_addpointer ( List *pList,void *pValue )
+RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue )
 {
 	assert(pList != NULL);
 	ring_list_newitem(pList);
@@ -1110,6 +1110,17 @@ RING_API void ring_list_setint ( List *pList, int index ,int number )
 RING_API void ring_list_addint ( List *pList,int x )
 {
 	ring_list_addint_gc(NULL,pList,x);
+}
+/* Pointers */
+
+RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue )
+{
+	ring_list_setpointer_gc(NULL,pList,index,pValue);
+}
+
+RING_API void ring_list_addpointer ( List *pList,void *pValue )
+{
+	ring_list_addpointer_gc(NULL,pList,pValue);
 }
 /* Test */
 
