@@ -394,7 +394,7 @@ RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue )
 }
 /* double */
 
-RING_API void ring_list_setdouble ( List *pList, int index ,double number )
+RING_API void ring_list_setdouble_gc ( void *pState,List *pList, int index ,double number )
 {
 	Item *pItem  ;
 	assert(pList != NULL);
@@ -404,7 +404,7 @@ RING_API void ring_list_setdouble ( List *pList, int index ,double number )
 	pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
 }
 
-RING_API void ring_list_adddouble ( List *pList,double x )
+RING_API void ring_list_adddouble_gc ( void *pState,List *pList,double x )
 {
 	assert(pList != NULL);
 	ring_list_newitem(pList);
@@ -1132,6 +1132,17 @@ RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(v
 RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) )
 {
 	ring_list_addfuncpointer_gc(NULL,pList,pFunc);
+}
+/* double */
+
+RING_API void ring_list_setdouble ( List *pList, int index ,double number )
+{
+	ring_list_setdouble_gc(NULL,pList,index,number);
+}
+
+RING_API void ring_list_adddouble ( List *pList,double x )
+{
+	ring_list_adddouble_gc(NULL,pList,x);
 }
 /* Test */
 

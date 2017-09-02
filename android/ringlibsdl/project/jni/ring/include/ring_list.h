@@ -54,9 +54,9 @@ RING_API int ring_list_isfuncpointer ( List *pList, int index ) ;
 void ring_list_testfuncpointer ( void *pPointer ) ;
 /* double */
 
-RING_API void ring_list_setdouble ( List *pList, int index ,double number ) ;
+RING_API void ring_list_setdouble_gc ( void *pState,List *pList, int index ,double number ) ;
 
-RING_API void ring_list_adddouble ( List *pList,double x ) ;
+RING_API void ring_list_adddouble_gc ( void *pState,List *pList,double x ) ;
 /* String */
 
 RING_API void ring_list_setstring ( List *pList, int index ,const char *str ) ;
@@ -194,4 +194,9 @@ RING_API void ring_list_addpointer ( List *pList,void *pValue ) ;
 RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) ) ;
 
 RING_API void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) ) ;
+/* double */
+
+RING_API void ring_list_setdouble ( List *pList, int index ,double number ) ;
+
+RING_API void ring_list_adddouble ( List *pList,double x ) ;
 #endif
