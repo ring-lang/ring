@@ -27,7 +27,7 @@ HashItem * ring_hashtable_newitem_gc ( void *pState,HashTable *pHashTable,const 
 
 void ring_hashtable_newnumber_gc ( void *pState,HashTable *pHashTable,const char *cKey,int x ) ;
 
-void ring_hashtable_newpointer ( HashTable *pHashTable,const char *cKey,void *x ) ;
+void ring_hashtable_newpointer_gc ( void *pState,HashTable *pHashTable,const char *cKey,void *x ) ;
 
 HashItem * ring_hashtable_finditem ( HashTable *pHashTable,const char *cKey ) ;
 
@@ -61,4 +61,6 @@ HashTable * ring_hashtable_delete ( HashTable *pHashTable ) ;
 void ring_hashtable_rebuild ( HashTable *pHashTable ) ;
 
 void ring_hashtable_newnumber ( HashTable *pHashTable,const char *cKey,int x ) ;
+
+void ring_hashtable_newpointer ( HashTable *pHashTable,const char *cKey,void *x ) ;
 #endif
