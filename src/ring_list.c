@@ -449,7 +449,7 @@ RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *str
 }
 /* List */
 
-RING_API List * ring_list_newlist ( List *pList )
+RING_API List * ring_list_newlist_gc ( void *pState,List *pList )
 {
 	Item *pItem  ;
 	List *pList2  ;
@@ -461,6 +461,14 @@ RING_API List * ring_list_newlist ( List *pList )
 	return pList2 ;
 }
 
+RING_API void ring_list_setlist_gc ( void *pState,List *pList, int index )
+{
+	Item *pItem  ;
+	assert(pList != NULL);
+	pItem = ring_list_getitem(pList,index);
+	ring_item_settype(pItem,ITEMTYPE_LIST);
+}
+
 RING_API List * ring_list_getlist ( List *pList, int index )
 {
 	Item *pItem  ;
@@ -469,14 +477,6 @@ RING_API List * ring_list_getlist ( List *pList, int index )
 	pItem = ring_list_getitem(pList,index);
 	pList2 = ring_item_getlist(pItem);
 	return pList2 ;
-}
-
-RING_API void ring_list_setlist ( List *pList, int index )
-{
-	Item *pItem  ;
-	assert(pList != NULL);
-	pItem = ring_list_getitem(pList,index);
-	ring_item_settype(pItem,ITEMTYPE_LIST);
 }
 /* Function Pointers */
 
@@ -1164,6 +1164,17 @@ RING_API void ring_list_addstring ( List *pList,const char *str )
 RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize )
 {
 	ring_list_addstring2_gc(NULL,pList,str,nStrSize);
+}
+/* List */
+
+RING_API List * ring_list_newlist ( List *pList )
+{
+	return ring_list_newlist_gc(NULL,pList) ;
+}
+
+RING_API void ring_list_setlist ( List *pList, int index )
+{
+	ring_list_setlist_gc(NULL,pList,index);
 }
 /* Test */
 

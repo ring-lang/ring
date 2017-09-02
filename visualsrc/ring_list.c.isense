@@ -108,13 +108,8 @@ pItem
 Type: String *
 pString
 ring_list_addstring_gc
-ring_list_addstring2
-ring_list_newlist
-Type: Item *
-pItem
-Type: List *
-pList2
-ring_list_getlist
+ring_list_addstring2_gc
+ring_list_newlist_gc
 Type: Item *
 pItem
 Type: List *
@@ -122,6 +117,11 @@ pList2
 ring_list_setlist
 Type: Item *
 pItem
+ring_list_getlist
+Type: Item *
+pItem
+Type: List *
+pList2
 ring_list_setfuncpointer_gc
 Type: Item *
 pItem
@@ -244,6 +244,8 @@ ring_list_setstring
 ring_list_setstring2
 ring_list_addstring
 ring_list_addstring2
+ring_list_newlist
+ring_list_setlist
 ring_list_test
 Type: List *
 pList,*pList2
