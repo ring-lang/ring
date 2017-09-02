@@ -215,7 +215,7 @@ Type: int
 x
 Type: Item **
 pArray
-ring_list_deletearray
+ring_list_deletearray_gc
 ring_list_genhashtable
 Type: int
 x
@@ -229,6 +229,7 @@ ring_list_clear
 ring_list_new
 ring_list_genarray
 ring_list_delete
+ring_list_deletearray
 ring_list_test
 Type: List *
 pList,*pList2
