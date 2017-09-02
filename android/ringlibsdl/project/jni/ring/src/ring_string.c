@@ -9,16 +9,16 @@ RING_API String * ring_string_new ( const char *str )
 	return ring_string_new2(str,x) ;
 }
 
-RING_API String * ring_string_new2 ( const char *str,int nStrSize )
+RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSize )
 {
 	String *pString  ;
 	int x  ;
-	pString = (struct String *) ring_malloc(sizeof(struct String));
+	pString = (struct String *) ring_state_malloc(pState,sizeof(struct String));
 	if ( pString == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	pString->cStr = (char *) ring_malloc(nStrSize+1);
+	pString->cStr = (char *) ring_state_malloc(pState,nStrSize+1);
 	if ( pString->cStr  == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -259,4 +259,10 @@ void ring_string_test ( void )
 	printf( "%s\n",ring_string_tolower(pString) ) ;
 	ring_string_delete(pString);
 	getchar();
+}
+/* Functions without state pointer */
+
+RING_API String * ring_string_new2 ( const char *str,int nStrSize )
+{
+	return ring_string_new2_gc(NULL,str,nStrSize) ;
 }

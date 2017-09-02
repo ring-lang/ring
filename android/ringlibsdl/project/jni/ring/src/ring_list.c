@@ -1069,7 +1069,7 @@ RING_API void ring_list_clear ( List *pList )
 	pList->pItemsArray = NULL ;
 	pList->pHashTable = NULL ;
 }
-/* Define functions without RingState * */
+/* Define functions without State Pointer */
 
 RING_API List * ring_list_new ( int nSize )
 {

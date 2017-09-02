@@ -11,7 +11,7 @@ typedef struct String {
 
 RING_API String * ring_string_new ( const char *str ) ;
 
-RING_API String * ring_string_new2 ( const char *str,int nStrSize ) ;
+RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSize ) ;
 
 RING_API String * ring_string_delete ( String *pString ) ;
 
@@ -48,4 +48,7 @@ void ring_string_test ( void ) ;
 #define ring_string_tolower(x) ring_string_lower(x->cStr)
 #define ring_string_toupper(x) ring_string_upper(x->cStr)
 #define ring_string_get(x) (x->cStr)
+/* Functions without state pointer */
+
+RING_API String * ring_string_new2 ( const char *str,int nStrSize ) ;
 #endif
