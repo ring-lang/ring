@@ -15,6 +15,13 @@ RING_API List * ring_list_new ( int nSize )
 		printf( RING_OOM ) ;
 		exit(0);
 	}
+	return ring_list_new2(pList,nSize) ;
+}
+
+RING_API List * ring_list_new2 ( List *pList,int nSize )
+{
+	int x  ;
+	Items *pItems,*pItemsLast  ;
 	pList->nSize = nSize ;
 	if ( nSize > 0 ) {
 		pItems = ring_items_new();

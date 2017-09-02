@@ -11,9 +11,14 @@ typedef struct List {
 	struct Item **pItemsArray  ;
 	struct HashTable *pHashTable  ;
 } List ;
-/* Functions */
+/*
+**  Functions 
+**  Main List Functions 
+*/
 
 RING_API List * ring_list_new ( int nSize ) ;
+
+RING_API List * ring_list_new2 ( List *pList,int nSize ) ;
 
 RING_API void ring_list_newitem ( List *pList ) ;
 
