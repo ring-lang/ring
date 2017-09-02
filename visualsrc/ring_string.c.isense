@@ -30,10 +30,10 @@ x
 ring_string_set2
 Type: int
 x
-ring_string_add
+ring_string_add_gc
 Type: int
 x
-ring_string_add2
+ring_string_add2_gc
 Type: int
 x
 Type: int
@@ -77,3 +77,5 @@ Type: String *
 pString
 ring_string_new2
 ring_string_new
+ring_string_add
+ring_string_add2
