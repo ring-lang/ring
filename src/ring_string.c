@@ -32,12 +32,12 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSiz
 	return pString ;
 }
 
-RING_API String * ring_string_delete ( String *pString )
+RING_API String * ring_string_delete_gc ( void *pState,String *pString )
 {
 	assert(pString != NULL);
-	ring_free(pString->cStr);
+	ring_state_free(pState,pString->cStr);
 	pString->cStr = NULL ;
-	ring_free(pString);
+	ring_state_free(pState,pString);
 	return NULL ;
 }
 
@@ -103,7 +103,7 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str
 	}
 	pString->cStr[x2] = '\0' ;
 	pString->nSize = x2 ;
-	ring_free(cStr);
+	ring_state_free(pState,cStr);
 }
 
 RING_API void ring_string_print ( String *pString )
@@ -164,12 +164,12 @@ RING_API char * ring_string_upper2 ( char *cStr,int nStrSize )
 	return cStr ;
 }
 
-RING_API char * ring_string_find ( char *cStr1,char *cStr2 )
+RING_API char * ring_string_find_gc ( void *pState,char *cStr1,char *cStr2 )
 {
-	return ring_string_find2(cStr1,strlen(cStr1),cStr2,strlen(cStr2)) ;
+	return ring_string_find2_gc(pState,cStr1,strlen(cStr1),cStr2,strlen(cStr2)) ;
 }
 
-RING_API char * ring_string_find2 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 )
+RING_API char * ring_string_find2_gc ( void *pState,char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 )
 {
 	int nPos,x  ;
 	nPos = 0 ;
@@ -189,7 +189,7 @@ RING_API char * ring_string_find2 ( char *cStr1,int nStrSize1,char *cStr2,int nS
 	return NULL ;
 }
 
-RING_API char * ring_string_find3 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 )
+RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 )
 {
 	int nPos,x  ;
 	char *cStr3  ;
@@ -201,8 +201,8 @@ RING_API char * ring_string_find3 ( char *cStr1,int nStrSize1,char *cStr2,int nS
 		return NULL ;
 	}
 	/* Copy Strings and convert to lower case */
-	cStr3 = (char *) ring_malloc(nStrSize1+1);
-	cStr4 = (char *) ring_malloc(nStrSize2+1);
+	cStr3 = (char *) ring_state_malloc(pState,nStrSize1+1);
+	cStr4 = (char *) ring_state_malloc(pState,nStrSize2+1);
 	if ( (cStr3==NULL) || (cStr4==NULL) ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -228,8 +228,8 @@ RING_API char * ring_string_find3 ( char *cStr1,int nStrSize1,char *cStr2,int nS
 		nPos++ ;
 	}
 	/* Free Memory */
-	ring_free(cStr3);
-	ring_free(cStr4);
+	ring_state_free(pState,cStr3);
+	ring_state_free(pState,cStr4);
 	return pOutput ;
 }
 
@@ -290,4 +290,24 @@ RING_API void ring_string_set ( String *pString,const char *str )
 RING_API void ring_string_set2 ( String *pString,const char *str,int nStrSize )
 {
 	ring_string_set2_gc(NULL,pString,str,nStrSize);
+}
+
+RING_API char * ring_string_find ( char *cStr1,char *cStr2 )
+{
+	return ring_string_find_gc(NULL,cStr1,cStr2) ;
+}
+
+RING_API char * ring_string_find2 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 )
+{
+	return ring_string_find2_gc(NULL,cStr1,nStrSize1,cStr2,nStrSize2) ;
+}
+
+RING_API char * ring_string_find3 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 )
+{
+	return ring_string_find3_gc(NULL,cStr1,nStrSize1,cStr2,nStrSize2) ;
+}
+
+RING_API String * ring_string_delete ( String *pString )
+{
+	return ring_string_delete_gc(NULL,pString) ;
 }
