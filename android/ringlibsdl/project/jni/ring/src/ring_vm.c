@@ -258,8 +258,8 @@ VM * ring_vm_delete ( VM *pVM )
 	}
 	/* Delete List */
 	pVM->aDynamicSelfItems = ring_list_delete_gc(pVM->pRingState,pVM->aDynamicSelfItems);
-	pVM->pPackageName = ring_string_delete(pVM->pPackageName);
-	pVM->pTrace = ring_string_delete(pVM->pTrace);
+	pVM->pPackageName = ring_string_delete_gc(pVM->pRingState,pVM->pPackageName);
+	pVM->pTrace = ring_string_delete_gc(pVM->pRingState,pVM->pTrace);
 	pVM->pTraceData = ring_list_delete_gc(pVM->pRingState,pVM->pTraceData);
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;
@@ -922,7 +922,7 @@ void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 )
 	ring_string_add_gc(pVM->pRingState,pError,": ");
 	ring_string_add_gc(pVM->pRingState,pError,cStr2);
 	ring_vm_error(pVM,ring_string_get(pError));
-	ring_string_delete(pError);
+	ring_string_delete_gc(pVM->pRingState,pError);
 }
 
 void ring_vm_newbytecodeitem ( VM *pVM,int x )
