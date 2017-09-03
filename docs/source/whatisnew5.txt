@@ -2092,3 +2092,14 @@ Screen Shot:
 
 .. image:: tictactoe3d.png
 	:alt: TicTacToe 3D Game
+
+
+.. index:: 
+	pair: What is new in Ring 1.5?; What is new in Ring 1.5.4?
+
+What is new in Ring 1.5.4?
+==========================
+
+* Ring Notepad - New Styles (Art 1,2 and 3)
+* CalmoSoft Fifteen Puzzle Game 3D
+
