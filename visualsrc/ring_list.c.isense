@@ -139,7 +139,7 @@ ring_list_insertpointer_gc
 ring_list_insertstring_gc
 ring_list_insertstring2_gc
 ring_list_insertfuncpointer_gc
-ring_list_insertlist
+ring_list_insertlist_gc
 Type: Item *
 pItem
 Type: List *
@@ -186,7 +186,7 @@ Type: int
 x,y,mid
 Type: double
 midvalue
-ring_list_sortstr
+ring_list_sortstr_gc
 Type: int
 x,y,mid
 Type: String *
@@ -256,6 +256,7 @@ ring_list_insertstring
 ring_list_insertstring2
 ring_list_insertfuncpointer
 ring_list_insertlist
+ring_list_sortstr
 ring_list_test
 Type: List *
 pList,*pList2
