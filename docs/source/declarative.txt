@@ -73,7 +73,7 @@ Composition and Returning Objects and Lists by Reference
 
 When we use composition and have object as one of the class attributes, when we return that object it will be returned by reference.
 
-if the called used the assignment operator, another copy of the object will be created.
+if the caller used the assignment operator, another copy of the object will be created.
 
 The caller can avoid using the assignment operator and use the returned reference directly to access the object.
 
