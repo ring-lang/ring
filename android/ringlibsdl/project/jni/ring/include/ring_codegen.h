@@ -145,11 +145,11 @@ void ring_parser_icg_newoperandpointer ( Parser *pParser , void *pValue ) ;
 
 List * ring_parser_icg_getactiveoperation ( Parser *pParser ) ;
 
-void ring_parser_icg_addoperand ( List *pList , const char *cStr ) ;
+void ring_parser_icg_addoperand ( Parser *pParser ,List *pList , const char *cStr ) ;
 
-void ring_parser_icg_addoperandint ( List *pList , int nValue ) ;
+void ring_parser_icg_addoperandint ( Parser *pParser ,List *pList , int nValue ) ;
 
-void ring_parser_icg_addoperandpointer ( List *pList , void *pValue ) ;
+void ring_parser_icg_addoperandpointer ( Parser *pParser ,List *pList , void *pValue ) ;
 
 void ring_parser_icg_showoutput ( List *pListGenCode,int nStatus ) ;
 

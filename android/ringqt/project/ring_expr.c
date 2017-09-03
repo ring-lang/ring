@@ -36,7 +36,7 @@ int ring_parser_expr ( Parser *pParser )
 				/* Generate Location for nPC for Operator Overloading */
 				ring_parser_icg_newoperandint(pParser,0);
 				nMark = ring_parser_icg_newlabel(pParser);
-				ring_parser_icg_addoperandint(pMark,nMark);
+				ring_parser_icg_addoperandint(pParser,pMark,nMark);
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
 				
@@ -69,7 +69,7 @@ int ring_parser_expr ( Parser *pParser )
 				/* Generate Location for nPC for Operator Overloading */
 				ring_parser_icg_newoperandint(pParser,0);
 				nMark = ring_parser_icg_newlabel(pParser);
-				ring_parser_icg_addoperandint(pMark,nMark);
+				ring_parser_icg_addoperandint(pParser,pMark,nMark);
 			}
 		}
 		return x ;
@@ -744,7 +744,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					}
 					/* Add Assignment position to the LoadAddress Instruction */
 					if ( pLoadAPos != NULL ) {
-						ring_parser_icg_addoperandint(pLoadAPos,ring_parser_icg_instructionscount(pParser));
+						ring_parser_icg_addoperandint(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
 					}
 				}
 				else {
@@ -1035,7 +1035,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 				nMark = ring_parser_icg_newlabel(pParser);
-				ring_parser_icg_addoperandint(pMark,nMark);
+				ring_parser_icg_addoperandint(pParser,pMark,nMark);
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
 				
@@ -1307,7 +1307,7 @@ void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
 	ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 	ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 	nMark1 = ring_parser_icg_newlabel(pParser);
-	ring_parser_icg_addoperandint(pMark,nMark1);
+	ring_parser_icg_addoperandint(pParser,pMark,nMark1);
 }
 
 int ring_parser_objattributes ( Parser *pParser )
