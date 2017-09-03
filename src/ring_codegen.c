@@ -104,22 +104,22 @@ Items * ring_parser_icg_getoperationpos ( Parser *pParser )
 	return pParser->GenCode->pLast ;
 }
 
-void ring_parser_icg_addoperand ( List *pList , const char *cStr )
+void ring_parser_icg_addoperand ( Parser *pParser ,List *pList , const char *cStr )
 {
 	assert(pList != NULL);
-	ring_list_addstring(pList,cStr);
+	ring_list_addstring_gc(pParser->pRingState,pList,cStr);
 }
 
-void ring_parser_icg_addoperandint ( List *pList , int nValue )
+void ring_parser_icg_addoperandint ( Parser *pParser ,List *pList , int nValue )
 {
 	assert(pList != NULL);
-	ring_list_addint(pList,nValue);
+	ring_list_addint_gc(pParser->pRingState,pList,nValue);
 }
 
-void ring_parser_icg_addoperandpointer ( List *pList , void *pValue )
+void ring_parser_icg_addoperandpointer ( Parser *pParser ,List *pList , void *pValue )
 {
 	assert(pList != NULL);
-	ring_list_addpointer(pList,pValue);
+	ring_list_addpointer_gc(pParser->pRingState,pList,pValue);
 }
 
 void ring_parser_icg_showoutput ( List *pListGenCode,int nStatus )
