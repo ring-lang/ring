@@ -23,7 +23,7 @@ RING_API Item * ring_item_new_gc ( void *pState,int ItemType )
 	pItem->NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
 	/* Reference Count */
 	ring_vm_gc_cleardata(pItem);
-	ring_item_settype(pItem,ItemType);
+	ring_item_settype_gc(pState,pItem,ItemType);
 	return pItem ;
 }
 
