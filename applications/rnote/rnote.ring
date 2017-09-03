@@ -78,6 +78,7 @@ Class RNoteController from WindowsControllerParent
 		STYLECOLOR_NOTEPADPURPLE 		= 8
 		STYLECOLOR_NOTEPADDARKBLUE 		= 9
 		STYLECOLOR_NOTEPADBLACK 		= 10
+		STYLECOLOR_ART		 		= 11
 		nDefaultStyle  				= STYLECOLOR_MODERNBLACK
 		lKeywordsBold 				= True
 
@@ -513,6 +514,11 @@ Class RNoteController from WindowsControllerParent
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(10)"))
 							settext("Notepad : Black")
+						}
+						addaction(oAction)
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(11)"))
+							settext("Art")
 						}
 						addaction(oAction)
 					}
@@ -1805,6 +1811,7 @@ Class RNoteController from WindowsControllerParent
 		on 8 pStyleNotepadPurple()
 		on 9 pStyleNotepadDarkBlue()
 		on 10 pStyleNotepadBlack()
+		on 11 pStyleArt()
 		off
 		if nStyle >= 7 
 			lKeywordsBold = False 
@@ -2036,6 +2043,23 @@ Class RNoteController from WindowsControllerParent
 			aTextColor = [255,255,255]
 			aBackColor = [0,0,0]
 
+
+	func pStyleArt()
+			nDefaultStyle  = STYLECOLOR_ART
+			MyApp.StyleFusion()
+			aCustomStyleColors = [
+				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
+				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
+				:ActiveLineBackColor 		= new qcolor() { setrgb(0,0,0,255) 	},
+				:SyntaxKeywordsColor		= new qcolor() { setrgb(30,220,175,255) },
+				:SyntaxClassNamesColor 		= new qcolor() { setrgb(166,226,46,255) },
+				:SyntaxCommentsColor		= new qcolor() { setrgb(117,160,172,157)},
+				:SyntaxLiteralsColor 		= new qcolor() { setrgb(230,191,77,255) },
+				:SyntaxFunctionCallsColor 	= new qcolor() { setrgb(240,127,224,255)}
+			]
+			aStyleColors = aCustomStyleColors
+			aTextColor = [255,255,255]
+			aBackColor = [11,11,11]
 
 	func pClearProcess
 		oProcessEditbox.setPlainText("")
