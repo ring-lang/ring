@@ -1002,12 +1002,12 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		ring_parser_icg_newoperation(pParser,ICO_JUMP);
 		pMark = ring_parser_icg_getactiveoperation(pParser);
 		/* Define the Function - as public (not related to any class) */
-		pList = ring_list_newlist(pParser->pRingState->pRingFunctionsMap);
-		ring_list_addstring(pList,cFuncName);
+		pList = ring_list_newlist_gc(pParser->pRingState,pParser->pRingState->pRingFunctionsMap);
+		ring_list_addstring_gc(pParser->pRingState,pList,cFuncName);
 		/* Note +1 because instruction ICO_NEWFUNC will come next */
-		ring_list_addint(pList,RING_PARSER_OPERATIONID+1);
-		ring_list_addstring(pList,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
-		ring_list_addint(pList,0);
+		ring_list_addint_gc(pParser->pRingState,pList,RING_PARSER_OPERATIONID+1);
+		ring_list_addstring_gc(pParser->pRingState,pList,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
+		ring_list_addint_gc(pParser->pRingState,pList,0);
 		ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
 		ring_parser_icg_newoperand(pParser,cFuncName);
 		/* Get Function Parameters */
@@ -1122,13 +1122,13 @@ int ring_parser_mixer ( Parser *pParser )
 		if ( ring_parser_icg_getlastoperation(pParser) == ICO_LOADADDRESS ) {
 			ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
 			/* Delete Locations for Getter */
-			ring_list_deleteitem(ring_parser_icg_getactiveoperation(pParser),3);
+			ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
 		}
 		else if ( ring_parser_icg_getlastoperation(pParser) == ICO_LOADSUBADDRESS ) {
 			ring_parser_icg_setlastoperation(pParser,ICO_LOADMETHOD);
 			/* Delete Locations for Setter/Getter */
-			ring_list_deleteitem(ring_parser_icg_getactiveoperation(pParser),4);
-			ring_list_deleteitem(ring_parser_icg_getactiveoperation(pParser),3);
+			ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),4);
+			ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
 			nCallMethod = 1 ;
 		}
 		ring_parser_nexttoken(pParser);
