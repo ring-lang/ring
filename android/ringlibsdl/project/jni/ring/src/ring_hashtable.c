@@ -13,7 +13,7 @@ HashTable * ring_hashtable_new_gc ( void *pState )
 	pHashTable->nItems = 0 ;
 	pHashTable->nLinkedLists = 10 ;
 	pHashTable->nRebuildSize = 7 ;
-	pHashTable->pArray = (HashItem **) ring_calloc(pHashTable->nLinkedLists,sizeof(HashItem *));
+	pHashTable->pArray = (HashItem **) ring_state_calloc(pState,pHashTable->nLinkedLists,sizeof(HashItem *));
 	if ( pHashTable->pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -175,7 +175,7 @@ void ring_hashtable_rebuild_gc ( void *pState,HashTable *pHashTable )
 	nLinkedLists = pHashTable->nLinkedLists ;
 	pHashTable->nRebuildSize *= 10 ;
 	pHashTable->nLinkedLists *= 10 ;
-	pHashTable->pArray = (HashItem **) ring_calloc(pHashTable->nLinkedLists,sizeof(HashItem *));
+	pHashTable->pArray = (HashItem **) ring_state_calloc(pState,pHashTable->nLinkedLists,sizeof(HashItem *));
 	if ( pHashTable->pArray == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
