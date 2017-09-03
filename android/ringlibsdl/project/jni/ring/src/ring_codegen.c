@@ -33,8 +33,8 @@ void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS opcode )
 		pParser->nInsertCounter++ ;
 		return ;
 	}
-	pParser->ActiveGenCodeList = ring_list_newlist(pParser->GenCode);
-	ring_list_addint(pParser->ActiveGenCodeList,opcode);
+	pParser->ActiveGenCodeList = ring_list_newlist_gc(pParser->pRingState,pParser->GenCode);
+	ring_list_addint_gc(pParser->pRingState,pParser->ActiveGenCodeList,opcode);
 	#if RING_SHOWIC
 	printf( "\n %6d [ %s ] ",ring_list_getsize(pParser->GenCode) , RING_IC_OP[opcode] ) ;
 	#endif
@@ -44,7 +44,7 @@ void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATION
 {
 	assert(pParser != NULL);
 	pParser->ActiveGenCodeList = ring_list_insertlist(pParser->GenCode,nPos);
-	ring_list_addint(pParser->ActiveGenCodeList,opcode);
+	ring_list_addint_gc(pParser->pRingState,pParser->ActiveGenCodeList,opcode);
 	#if RING_SHOWIC
 	printf( "\n %6d [ %s ] ",nPos, RING_IC_OP[opcode] ) ;
 	#endif
@@ -54,7 +54,7 @@ void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr )
 {
 	assert(pParser != NULL);
 	assert(pParser->ActiveGenCodeList);
-	ring_list_addstring(pParser->ActiveGenCodeList,cStr);
+	ring_list_addstring_gc(pParser->pRingState,pParser->ActiveGenCodeList,cStr);
 	#if RING_SHOWIC
 	printf( " Operand : %s ",cStr ) ;
 	#endif
@@ -64,7 +64,7 @@ void ring_parser_icg_newoperandint ( Parser *pParser , int nValue )
 {
 	assert(pParser != NULL);
 	assert(pParser->ActiveGenCodeList);
-	ring_list_addint(pParser->ActiveGenCodeList,nValue);
+	ring_list_addint_gc(pParser->pRingState,pParser->ActiveGenCodeList,nValue);
 	#if RING_SHOWIC
 	printf( " Operand : %d ",nValue ) ;
 	#endif
@@ -74,7 +74,7 @@ void ring_parser_icg_newoperanddouble ( Parser *pParser , double nValue )
 {
 	assert(pParser != NULL);
 	assert(pParser->ActiveGenCodeList);
-	ring_list_adddouble(pParser->ActiveGenCodeList,nValue);
+	ring_list_adddouble_gc(pParser->pRingState,pParser->ActiveGenCodeList,nValue);
 	#if RING_SHOWIC
 	printf( " Operand : %.5f ",nValue ) ;
 	#endif
@@ -84,7 +84,7 @@ void ring_parser_icg_newoperandpointer ( Parser *pParser , void *pValue )
 {
 	assert(pParser != NULL);
 	assert(pParser->ActiveGenCodeList);
-	ring_list_addpointer(pParser->ActiveGenCodeList,pValue);
+	ring_list_addpointer_gc(pParser->pRingState,pParser->ActiveGenCodeList,pValue);
 	#if RING_SHOWIC
 	printf( " Operand : %p ",pValue ) ;
 	#endif
@@ -187,7 +187,7 @@ void ring_parser_icg_duplicate ( Parser *pParser,int nStart,int nEnd )
 	assert(pParser != NULL);
 	if ( (nStart <= nEnd) && ( nEnd <= ring_parser_icg_instructionscount(pParser) ) ) {
 		for ( x = nStart ; x <= nEnd ; x++ ) {
-			pList = ring_list_newlist(pParser->GenCode);
+			pList = ring_list_newlist_gc(pParser->pRingState,pParser->GenCode);
 			pList2 = ring_list_getlist(pParser->GenCode,x);
 			ring_list_copy(pList,pList2);
 			#if RING_SHOWIC
