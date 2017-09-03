@@ -165,7 +165,7 @@ void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATION
 /* Macro */
 #define ring_parser_icg_newlabel(x) ( ring_list_getsize(x->GenCode) + 1 )
 #define ring_parser_icg_getlastoperation(pParser) ring_list_getint(pParser->ActiveGenCodeList,1)
-#define ring_parser_icg_setlastoperation(pParser,x) ring_list_setint(pParser->ActiveGenCodeList,1,x)
+#define ring_parser_icg_setlastoperation(pParser,x) ring_list_setint_gc(pParser->pRingState,pParser->ActiveGenCodeList,1,x)
 #define ring_parser_icg_instructionscount(pParser) ring_list_getsize(pParser->GenCode)
 #define ring_parser_icg_getoperationlist(pParser,x) ring_list_getlist(pParser->GenCode,x)
 #define RING_PARSER_ICG_GOTOLASTOP pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_list_getsize(pParser->GenCode))
