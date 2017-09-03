@@ -6,11 +6,11 @@ RING_API void ring_vm_funcregister2 ( RingState *pRingState,const char *cStr, vo
 {
 	List *pList  ;
 	if ( pRingState->pRingCFunctions == NULL ) {
-		pRingState->pRingCFunctions = ring_list_new(0);
+		pRingState->pRingCFunctions = ring_list_new_gc(pRingState,0);
 	}
-	pList = ring_list_newlist(pRingState->pRingCFunctions);
-	ring_list_addstring(pList,cStr);
-	ring_list_addfuncpointer(pList,pFunc);
+	pList = ring_list_newlist_gc(pRingState,pRingState->pRingCFunctions);
+	ring_list_addstring_gc(pRingState,pList,cStr);
+	ring_list_addfuncpointer_gc(pRingState,pList,pFunc);
 }
 
 RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
@@ -141,8 +141,8 @@ RING_API void ring_vm_api_retlist ( void *pPointer,List *pList )
 	pVM = (VM *) pPointer ;
 	pList2 = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
 	pList3 = ring_vm_newvar2(RING_TEMP_VARIABLE,pList2);
-	ring_list_setint(pList3,RING_VAR_TYPE,RING_VM_LIST);
-	ring_list_setlist(pList3,RING_VAR_VALUE);
+	ring_list_setint_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_TYPE,RING_VM_LIST);
+	ring_list_setlist_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
 	/* Copy the list */
 	ring_list_copy(pList2,pList);
@@ -153,7 +153,7 @@ RING_API void ring_vm_api_retlist ( void *pPointer,List *pList )
 RING_API List * ring_vm_api_newlist ( VM *pVM )
 {
 	List *pList  ;
-	pList = ring_list_newlist(pVM->pActiveMem);
+	pList = ring_list_newlist_gc(pVM->pRingState,pVM->pActiveMem);
 	return pList ;
 }
 
@@ -163,11 +163,11 @@ RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char
 	/* Create the list */
 	pList = RING_API_NEWLIST ;
 	/* The variable value will be a list contains the pointer */
-	ring_list_addpointer(pList,pGeneral);
+	ring_list_addpointer_gc(((VM *) pPointer)->pRingState,pList,pGeneral);
 	/* Add the pointer type */
-	ring_list_addstring(pList,cType);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cType);
 	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
-	ring_list_addint(pList,2);
+	ring_list_addint_gc(((VM *) pPointer)->pRingState,pList,2);
 	RING_API_RETLIST(pList);
 }
 
@@ -195,7 +195,7 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 							}
 						}
 					}
-					ring_list_setpointer(pList,1,NULL);
+					ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
 					RING_API_ERROR(RING_API_NULLPOINTER);
 					return NULL ;
 				}
@@ -222,15 +222,15 @@ RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x )
 	pList = (List *) RING_API_GETLIST(x) ;
 	/* Check pointer status ( 0 = copied , 1 = Not copied ) */
 	if ( ring_list_getint(pList,3) == 0 ) {
-		ring_list_setpointer(pList,1,NULL);
+		ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
 		return ;
 	}
 	pList2 = ((VM *) pPointer)->aCPointers ;
 	if ( ring_list_getsize(pList2) > 0 ) {
 		for ( y = 1 ; y <= ring_list_getsize(pList2) ; y++ ) {
 			if ( ring_list_getpointer(pList,1) == ring_list_getpointer(pList2,y) ) {
-				ring_list_deleteitem(pList2,y);
-				ring_list_setpointer(pList,1,NULL);
+				ring_list_deleteitem_gc(((VM *) pPointer)->pRingState,pList2,y);
+				ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
 			}
 		}
 	}
@@ -356,19 +356,19 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 		/* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
 		if ( strcmp(ring_list_getstring(pList,RING_VAR_VALUE),"") == 0 ) {
 			/* Create the list for the NULL Pointer */
-			ring_list_setint(pList,RING_VAR_TYPE,RING_VM_POINTER);
+			ring_list_setint_gc(((VM *) pPointer)->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
 			pList2 = RING_API_NEWLIST ;
 			pItem = ring_list_getitem(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem));
 			/* Increase the References count for the item */
 			ring_vm_gc_newitemreference(pItem);
-			ring_list_setpointer(pList,RING_VAR_VALUE,pItem);
-			ring_list_setint(pList,RING_VAR_PVALUETYPE,RING_OBJTYPE_LISTITEM);
+			ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,RING_VAR_VALUE,pItem);
+			ring_list_setint_gc(((VM *) pPointer)->pRingState,pList,RING_VAR_PVALUETYPE,RING_OBJTYPE_LISTITEM);
 			/* The variable value will be a list contains the pointer */
-			ring_list_addpointer(pList2,NULL);
+			ring_list_addpointer_gc(((VM *) pPointer)->pRingState,pList2,NULL);
 			/* Add the pointer type */
-			ring_list_addstring(pList2,"NULLPOINTER");
+			ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,"NULLPOINTER");
 			/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
-			ring_list_addint(pList2,2);
+			ring_list_addint_gc(((VM *) pPointer)->pRingState,pList2,2);
 			return 1 ;
 		}
 	}
@@ -402,7 +402,7 @@ RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const cha
 							}
 						}
 					}
-					ring_list_setpointer(pList,1,NULL);
+					ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
 					RING_API_ERROR(RING_API_NULLPOINTER);
 					return NULL ;
 				}
@@ -420,6 +420,18 @@ RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const cha
 	}
 	RING_API_ERROR(RING_API_NOTPOINTER);
 	return NULL ;
+}
+
+RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral,const char *cType )
+{
+	/* create sub list */
+	pList = ring_list_newlist_gc(pState,pList);
+	/* The variable value will be a list contains the pointer */
+	ring_list_addpointer_gc(pState,pList,pGeneral);
+	/* Add the pointer type */
+	ring_list_addstring_gc(pState,pList,cType);
+	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
+	ring_list_addint_gc(pState,pList,2);
 }
 /*
 **  Library 
@@ -464,15 +476,15 @@ void ring_vmlib_add ( void *pPointer )
 	if ( RING_API_ISLIST(1) ) {
 		pList = RING_API_GETLIST(1) ;
 		if ( RING_API_ISSTRING(2) ) {
-			ring_list_addstring2(pList,RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
+			ring_list_addstring2_gc(((VM *) pPointer)->pRingState,pList,RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
 			RING_API_RETSTRING2(RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
 		}
 		else if ( RING_API_ISNUMBER(2) ) {
-			ring_list_adddouble(pList,RING_API_GETNUMBER(2));
+			ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList,RING_API_GETNUMBER(2));
 			RING_API_RETNUMBER(RING_API_GETNUMBER(2));
 		}
 		else if ( RING_API_ISLIST(2) ) {
-			pList2 = ring_list_newlist(pList);
+			pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
 			pList3 = RING_API_GETLIST(2) ;
 			ring_list_copy(pList2,pList3);
 			if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject == pList3) ) {
@@ -504,7 +516,7 @@ void ring_vmlib_del ( void *pPointer )
 				RING_API_ERROR("Error in second parameter, item number outside the list size range!");
 				return ;
 			}
-			ring_list_deleteitem(pList,nNum1);
+			ring_list_deleteitem_gc(((VM *) pPointer)->pRingState,pList,nNum1);
 		} else {
 			RING_API_ERROR("Error in second parameter, Function requires number!");
 			return ;
@@ -717,67 +729,67 @@ void ring_vmlib_timelist ( void *pPointer )
 	**  abbreviated weekday name 
 	*/
 	strftime(buffer,25,"%a", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* full weekday name */
 	strftime(buffer,25,"%A", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* abbreviated month name */
 	strftime(buffer,25,"%b", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* full month name */
 	strftime(buffer,25,"%B", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* Date & Time */
 	strftime(buffer,25,"%c", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* Day of the month */
 	strftime(buffer,25,"%d", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* Hour (24) */
 	strftime(buffer,25,"%H", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* Hour (12) */
 	strftime(buffer,25,"%I", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* Day of the year */
 	strftime(buffer,25,"%j", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* Month of the year */
 	strftime(buffer,25,"%m", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* Minutes after hour */
 	strftime(buffer,25,"%M", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* AM or PM */
 	strftime(buffer,25,"%p", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* Seconds after the hour */
 	strftime(buffer,25,"%S", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* Week of the year (sun-sat) */
 	strftime(buffer,25,"%U", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* day of the week */
 	strftime(buffer,25,"%w", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* date */
 	strftime(buffer,25,"%x", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* time */
 	strftime(buffer,25,"%X", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* year of the century */
 	strftime(buffer,25,"%y", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* year */
 	strftime(buffer,25,"%Y", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* time zone */
 	strftime(buffer,25,"%Z", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	/* percent sign */
 	strftime(buffer,25,"%%", tm_info);
-	ring_list_addstring(pList,buffer);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
 	RING_API_RETLIST(pList);
 }
 
@@ -1245,19 +1257,19 @@ void ring_vmlib_str2list ( void *pPointer )
 			if ( cStr[x] == '\n' ) {
 				if ( x > nStart ) {
 					if ( cStr[x-1] == '\r' ) {
-						ring_list_addstring2(pList,cStr+nStart,x-nStart-1);
+						ring_list_addstring2_gc(((VM *) pPointer)->pRingState,pList,cStr+nStart,x-nStart-1);
 					}
 					else {
-						ring_list_addstring2(pList,cStr+nStart,x-nStart);
+						ring_list_addstring2_gc(((VM *) pPointer)->pRingState,pList,cStr+nStart,x-nStart);
 					}
 				} else {
-					ring_list_addstring(pList,"");
+					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,"");
 				}
 				nStart = x+1 ;
 			}
 		}
 		if ( nSize > nStart ) {
-			ring_list_addstring2(pList,cStr+nStart,nSize-nStart);
+			ring_list_addstring2_gc(((VM *) pPointer)->pRingState,pList,cStr+nStart,nSize-nStart);
 		}
 		RING_API_RETLIST(pList);
 	} else {
@@ -1276,17 +1288,17 @@ void ring_vmlib_list2str ( void *pPointer )
 	}
 	if ( RING_API_ISLIST(1) ) {
 		pList = RING_API_GETLIST(1) ;
-		pString = ring_string_new("");
+		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			if ( ring_list_isstring(pList,x) ) {
 				if ( x != 1 ) {
-					ring_string_add(pString,"\n");
+					ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
 				}
-				ring_string_add(pString,ring_list_getstring(pList,x));
+				ring_string_add_gc(((VM *) pPointer)->pRingState,pString,ring_list_getstring(pList,x));
 			}
 		}
 		RING_API_RETSTRING(ring_string_get(pString));
-		ring_string_delete(pString);
+		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -1425,13 +1437,13 @@ void ring_vmlib_copy ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		if ( RING_API_ISNUMBER(2) ) {
 			cStr = RING_API_GETSTRING(1) ;
-			pString = ring_string_new("");
+			pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
 			nSize = RING_API_GETNUMBER(2) ;
 			for ( x = 1 ; x <= nSize ; x++ ) {
-				ring_string_add2(pString,cStr,RING_API_GETSTRINGSIZE(1));
+				ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr,RING_API_GETSTRINGSIZE(1));
 			}
 			RING_API_RETSTRING2(ring_string_get(pString),ring_string_size(pString));
-			ring_string_delete(pString);
+			ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
 		} else {
 			RING_API_ERROR("Error in second parameter, Function requires number !");
 			return ;
@@ -1541,12 +1553,12 @@ void ring_vmlib_substr ( void *pPointer )
 		}
 		cStr3 = RING_API_GETSTRING(3) ;
 		nMark = 0 ;
-		pString = ring_string_new("");
+		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
 		while ( cString != NULL ) {
 			nPos = ((long int) cString) - ((long int) cStr) + 1 ;
 			/* Add SubString to pString */
-			ring_string_add2(pString,cStr+nMark,nPos-1-nMark);
-			ring_string_add2(pString,cStr3,RING_API_GETSTRINGSIZE(3));
+			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr+nMark,nPos-1-nMark);
+			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr3,RING_API_GETSTRINGSIZE(3));
 			nMark = nPos + nSize2 -1 ;
 			/* Search */
 			if ( nTransform == 1 ) {
@@ -1556,11 +1568,11 @@ void ring_vmlib_substr ( void *pPointer )
 			}
 			if ( cString == NULL ) {
 				/* Add SubString to pString */
-				ring_string_add2(pString,cStr+nMark,nSize-nMark);
+				ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr+nMark,nSize-nMark);
 			}
 		}
 		RING_API_RETSTRING2(ring_string_get(pString),ring_string_size(pString));
-		ring_string_delete(pString);
+		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
 	}
 }
 
@@ -1836,9 +1848,9 @@ void ring_vmlib_space ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISNUMBER(1) ) {
-		pString = ring_string_new2("",RING_API_GETNUMBER(1));
+		pString = ring_string_new2_gc(((VM *) pPointer)->pRingState,"",RING_API_GETNUMBER(1));
 		RING_API_RETSTRING2(ring_string_get(pString),RING_API_GETNUMBER(1));
-		ring_string_delete(pString);
+		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
