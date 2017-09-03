@@ -140,9 +140,9 @@ RING_API void ring_list_genarray_gc ( void *pState,List *pList ) ;
 RING_API void ring_list_deletearray_gc ( void *pState,List *pList ) ;
 /* List Items to HashTable */
 
-RING_API void ring_list_genhashtable ( List *pList ) ;
+RING_API void ring_list_genhashtable_gc ( void *pState,List *pList ) ;
 
-RING_API void ring_list_genhashtable2 ( List *pList ) ;
+RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList ) ;
 
 RING_API void ring_list_refcopy ( List *pNewList, List *pList ) ;
 
@@ -236,4 +236,9 @@ RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(v
 RING_API List * ring_list_insertlist ( List *pList,int nPos ) ;
 
 RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
+/* List Items to HashTable */
+
+RING_API void ring_list_genhashtable ( List *pList ) ;
+
+RING_API void ring_list_genhashtable2 ( List *pList ) ;
 #endif

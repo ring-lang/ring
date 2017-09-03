@@ -1020,30 +1020,30 @@ RING_API void ring_list_deletearray_gc ( void *pState,List *pList )
 }
 /* List Items to HashTable */
 
-RING_API void ring_list_genhashtable ( List *pList )
+RING_API void ring_list_genhashtable_gc ( void *pState,List *pList )
 {
 	int x  ;
 	if ( pList->pHashTable != NULL ) {
-		pList->pHashTable = ring_hashtable_delete(pList->pHashTable);
+		pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
 	}
-	pList->pHashTable = ring_hashtable_new();
+	pList->pHashTable = ring_hashtable_new_gc(pState);
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-		ring_hashtable_newnumber(pList->pHashTable,ring_list_getstring(pList,x),x);
+		ring_hashtable_newnumber_gc(pState,pList->pHashTable,ring_list_getstring(pList,x),x);
 	}
 }
 
-RING_API void ring_list_genhashtable2 ( List *pList )
+RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList )
 {
 	int x  ;
 	List *pList2  ;
 	/* This Func. Take list of lists , the first item of the sub list is a string (key) */
 	if ( pList->pHashTable != NULL ) {
-		pList->pHashTable = ring_hashtable_delete(pList->pHashTable);
+		pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
 	}
-	pList->pHashTable = ring_hashtable_new();
+	pList->pHashTable = ring_hashtable_new_gc(pState);
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList2 = ring_list_getlist(pList,x);
-		ring_hashtable_newpointer(pList->pHashTable,ring_list_getstring(pList2,1),pList2);
+		ring_hashtable_newpointer_gc(pState,pList->pHashTable,ring_list_getstring(pList2,1),pList2);
 	}
 }
 /* Copy list by reference */
@@ -1231,6 +1231,17 @@ RING_API List * ring_list_insertlist ( List *pList,int nPos )
 RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute )
 {
 	ring_list_sortstr_gc(NULL,pList,left,right,nColumn,cAttribute);
+}
+/* List Items to HashTable */
+
+RING_API void ring_list_genhashtable ( List *pList )
+{
+	ring_list_genhashtable_gc(NULL,pList);
+}
+
+RING_API void ring_list_genhashtable2 ( List *pList )
+{
+	ring_list_genhashtable2_gc(NULL,pList);
 }
 /* Test */
 
