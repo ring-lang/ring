@@ -166,6 +166,7 @@ RING_API int ring_list_deliteminsidelist ( List *pList,Item *pItem ) ;
 #define ring_list_getsize(x) (x->nSize)
 #define RING_VM_LISTOFOBJS_FINDSTRING 1
 #define RING_VM_LISTOFOBJS_FINDNUMBER 0
+#define ring_list_deletelastitem_gc(s,x) ring_list_deleteitem_gc(s,x,ring_list_getsize(x))
 /* Define functions without RingState * */
 
 RING_API List * ring_list_new ( int nSize ) ;
