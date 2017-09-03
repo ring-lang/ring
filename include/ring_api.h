@@ -43,6 +43,8 @@ RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 ) ;
 RING_API int ring_vm_api_ispointer ( void *pPointer,int x ) ;
 
 RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const char *cType ) ;
+
+RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral,const char *cType ) ;
 /*
 **  Library 
 **  General 

@@ -113,6 +113,7 @@ Type: int
 y
 Type: Item *
 pItem
+ring_list_addcpointer_gc
 ring_vmlib_len
 Type: VM *
 pVM
