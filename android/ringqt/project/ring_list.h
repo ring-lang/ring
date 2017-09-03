@@ -122,7 +122,7 @@ RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn ) ;
 
 RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
 
-RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
+RING_API void ring_list_sortstr_gc ( void *pState,List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
 
 RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn,const char *cAttribute ) ;
 
@@ -234,4 +234,6 @@ RING_API void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int
 RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) ) ;
 
 RING_API List * ring_list_insertlist ( List *pList,int nPos ) ;
+
+RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
 #endif

@@ -845,14 +845,14 @@ RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,con
 	}
 }
 
-RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute )
+RING_API void ring_list_sortstr_gc ( void *pState,List *pList,int left,int right,int nColumn,const char *cAttribute )
 {
 	int x,y,mid  ;
 	String *midvalue  ;
 	x = left ;
 	y = right ;
 	mid = (x+y)/2 ;
-	midvalue = ring_string_new(ring_list_getstringcolumn(pList,mid,nColumn,cAttribute));
+	midvalue = ring_string_new_gc(pState,ring_list_getstringcolumn(pList,mid,nColumn,cAttribute));
 	while ( x <= y ) {
 		while ( strcmp(ring_list_getstringcolumn(pList,x,nColumn,cAttribute),ring_string_get(midvalue)) < 0 ) {
 			x++ ;
@@ -866,12 +866,12 @@ RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,con
 			y-- ;
 		}
 	}
-	ring_string_delete(midvalue);
+	ring_string_delete_gc(pState,midvalue);
 	if ( left < y ) {
-		ring_list_sortstr(pList, left, y,nColumn,cAttribute);
+		ring_list_sortstr_gc(pState,pList, left, y,nColumn,cAttribute);
 	}
 	if ( y < right ) {
-		ring_list_sortstr(pList, x, right, nColumn,cAttribute);
+		ring_list_sortstr_gc(pState,pList, x, right, nColumn,cAttribute);
 	}
 }
 
@@ -1226,6 +1226,11 @@ RING_API void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(v
 RING_API List * ring_list_insertlist ( List *pList,int nPos )
 {
 	return ring_list_insertlist_gc(NULL,pList,nPos) ;
+}
+
+RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute )
+{
+	ring_list_sortstr_gc(NULL,pList,left,right,nColumn,cAttribute);
 }
 /* Test */
 
