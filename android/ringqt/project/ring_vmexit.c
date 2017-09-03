@@ -16,21 +16,21 @@ void ring_vm_exitmark ( VM *pVM )
 {
 	List *pList  ;
 	/* Exit Mark */
-	pList = ring_list_newlist(pVM->pExitMark);
-	ring_list_addint(pList,RING_VM_IR_READI);
+	pList = ring_list_newlist_gc(pVM->pRingState,pVM->pExitMark);
+	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READI);
 	ring_vm_savestate(pVM,pList);
 	/* Loop Mark */
-	pList = ring_list_newlist(pVM->pLoopMark);
-	ring_list_addint(pList,RING_VM_IR_READIVALUE(2));
+	pList = ring_list_newlist_gc(pVM->pRingState,pVM->pLoopMark);
+	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(2));
 	ring_vm_savestate(pVM,pList);
 }
 
 void ring_vm_popexitmark ( VM *pVM )
 {
 	/* POP Exit Mark */
-	ring_list_deleteitem(pVM->pExitMark,ring_list_getsize(pVM->pExitMark));
+	ring_list_deleteitem_gc(pVM->pRingState,pVM->pExitMark,ring_list_getsize(pVM->pExitMark));
 	/* POP Loop Mark */
-	ring_list_deleteitem(pVM->pLoopMark,ring_list_getsize(pVM->pLoopMark));
+	ring_list_deleteitem_gc(pVM->pRingState,pVM->pLoopMark,ring_list_getsize(pVM->pLoopMark));
 }
 
 void ring_vm_exit ( VM *pVM,int nType )
@@ -63,7 +63,7 @@ void ring_vm_exit ( VM *pVM,int nType )
 		if ( (nStep > 0) && (nStep <= ring_list_getsize(pActiveList) ) ) {
 			x = ring_list_getsize(pActiveList) - nStep + 1 ;
 			for ( y = x + 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
-				ring_list_deleteitem(pActiveList,y);
+				ring_list_deleteitem_gc(pVM->pRingState,pActiveList,y);
 			}
 		} else {
 			if ( nType == 1 ) {
@@ -91,12 +91,12 @@ void ring_vm_stepnumber ( VM *pVM )
 {
 	double nNum1  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
-		ring_list_adddouble(pVM->aForStep,RING_VM_STACK_READN);
+		ring_list_adddouble_gc(pVM->pRingState,pVM->aForStep,RING_VM_STACK_READN);
 		RING_VM_STACK_POP ;
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
 		nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
-		ring_list_adddouble(pVM->aForStep,nNum1);
+		ring_list_adddouble_gc(pVM->pRingState,pVM->aForStep,nNum1);
 		RING_VM_STACK_POP ;
 	} else {
 		ring_vm_error(pVM,RING_VM_ERROR_FORSTEPDATATYPE);
@@ -105,5 +105,5 @@ void ring_vm_stepnumber ( VM *pVM )
 
 void ring_vm_popstep ( VM *pVM )
 {
-	ring_list_deleteitem(pVM->aForStep,ring_list_getsize(pVM->aForStep));
+	ring_list_deleteitem_gc(pVM->pRingState,pVM->aForStep,ring_list_getsize(pVM->aForStep));
 }
