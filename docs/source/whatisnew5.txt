@@ -2100,6 +2100,6 @@ Screen Shot:
 What is new in Ring 1.5.4?
 ==========================
 
-* Ring Notepad - New Styles (Art 1,2 and 3)
+* Ring Notepad - New Styles
 * CalmoSoft Fifteen Puzzle Game 3D
 
