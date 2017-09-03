@@ -37,6 +37,7 @@ ring_list_getstringsize(pList,index)
 ring_list_getsize(x)
 RING_VM_LISTOFOBJS_FINDSTRING
 RING_VM_LISTOFOBJS_FINDNUMBER
+ring_list_deletelastitem(s,x)
 ring_list_new_gc
 Type: List *
 pList

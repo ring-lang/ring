@@ -569,7 +569,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 #define RING_VM_IR_READDVALUE(x) pVM->pByteCodeIR->aData[x]->data.dNumber
 #define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nSize
 #define RING_VM_IR_OPCODE pVM->pByteCodeIR->aData[0]->data.iNumber
-#define RING_VM_IR_SETCVALUE(x,y) ring_string_set(pVM->pByteCodeIR->aData[x]->data.pString,y)
+#define RING_VM_IR_SETCVALUE(x,y) ring_string_set_gc(pVM->pRingState,pVM->pByteCodeIR->aData[x]->data.pString,y)
 #define RING_VM_IR_ITEM(x) pVM->pByteCodeIR->aData[x]
 #define RING_VM_IR_LIST pVM->pByteCodeIR->pList
 #define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
