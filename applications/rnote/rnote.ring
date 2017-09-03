@@ -79,6 +79,8 @@ Class RNoteController from WindowsControllerParent
 		STYLECOLOR_NOTEPADDARKBLUE 		= 9
 		STYLECOLOR_NOTEPADBLACK 		= 10
 		STYLECOLOR_ART		 		= 11
+		STYLECOLOR_ART2		 		= 12
+		STYLECOLOR_ART3		 		= 13
 		nDefaultStyle  				= STYLECOLOR_MODERNBLACK
 		lKeywordsBold 				= True
 
@@ -110,7 +112,7 @@ Class RNoteController from WindowsControllerParent
 	Tree1 TextEdit1 oDockProjectFiles oDockSourceCode oDockWebBrowser oDockFunctionsList oDockOutputWindow oDockClassesList oDockFormDesigner
 	oWebBrowser oWebView  oWBText 
 	oFile oFunctionsList oClassesList
-	oProcessEditbox oProcessText oProcess
+	oOutputWindow oProcessEditbox oProcessText oProcess
 	aFunctionsPos aClassesPos
 
 	oACTimer			# Auto-Complete Timer 
@@ -516,9 +518,22 @@ Class RNoteController from WindowsControllerParent
 							settext("Notepad : Black")
 						}
 						addaction(oAction)
+						addseparator()
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(11)"))
 							settext("Art")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(12)"))
+							settext("Art 2")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(13)"))
+							settext("Art 3")
 						}
 						addaction(oAction)
 					}
@@ -799,18 +814,18 @@ Class RNoteController from WindowsControllerParent
 
 			# Output Window
 			this.oProcess = NULL
-			oProcessWindow = new qWidget()
-			oProcessLabel = new qLabel(oProcessWindow) {
+			this.oOutputWindow = new qWidget()
+			oProcessLabel = new qLabel(this.oOutputWindow) {
 				setText("Input :")
 			}
-			this.oProcessText = new qlineEdit(oProcessWindow) {
+			this.oProcessText = new qlineEdit(this.oOutputWindow) {
 				setreturnPressedEvent(Method(:pSendProcessData))
 			}
-			oProcessbtnSend = new qpushbutton(oProcessWindow) {
+			oProcessbtnSend = new qpushbutton(this.oOutputWindow) {
 				setText("Send")
 				setClickEvent(Method(:pSendProcessData))
 			}
-			oClearbtn = new qpushbutton(oProcessWindow) {
+			oClearbtn = new qpushbutton(this.oOutputWindow) {
 				setText("Clear")
 				setClickEvent(Method(:pClearProcess))
 			}
@@ -820,15 +835,15 @@ Class RNoteController from WindowsControllerParent
 				Addwidget(oProcessbtnSend)
                 		Addwidget(oClearbtn)
 			}
-			this.oProcessEditbox = new qPlaintextedit(oProcessWindow) 
+			this.oProcessEditbox = new qPlaintextedit(this.oOutputWindow) 
 
 			oProcessLayout2 = new qvboxlayout() {
 				addWidget(this.oProcesseditbox)
 				addlayout(oProcesslayout1)
 			}
-			oProcessWindow.setlayout(oProcessLayout2)
+			this.oOutputWindow.setlayout(oProcessLayout2)
 			this.oDockOutputWindow = new qDockWidget(this.win1,0) {
-				setwidget( oProcessWindow )
+				setwidget( this.oOutputWindow )
 				setwindowtitle("Output")
 			}
 			this.oDockFormDesigner = new qDockwidget(this.win1,0) {
@@ -1102,7 +1117,7 @@ Class RNoteController from WindowsControllerParent
 			show()
 		}
 
-	Func pReplace
+	func pReplace
 		oCursor = textedit1.textCursor()
 		if oCursor.HasSelection() = false
 			new qMessagebox(oSearch)
@@ -1136,7 +1151,7 @@ Class RNoteController from WindowsControllerParent
 		textedit1.setPlainText(cStr)
 		return pFindValue()
 
-	Func pReplaceAll
+	func pReplaceAll
 		cStr = textedit1.toPlainText()
 		cOldValue = oSearchValue.text()
 		cNewValue = oReplaceValue.text()
@@ -1155,7 +1170,7 @@ Class RNoteController from WindowsControllerParent
 			show()
 		}
 
-	Func pSearchClose
+	func pSearchClose
 		oSearch.close()
 		oSearch = NULL
 		cSearchText = oSearchValue.text()
@@ -1312,7 +1327,7 @@ Class RNoteController from WindowsControllerParent
 			pSetFont()	# set the new font
 		ok
 
-	Func pSetFont
+	func pSetFont
 		oTempFont.fromstring(cFont)
 		oCursor = textedit1.textCursor()
 		oCursor.clearselection()
@@ -1320,7 +1335,7 @@ Class RNoteController from WindowsControllerParent
 		textedit1.Document().setdefaultfont(oTempFont)
 
 
-	Func pColor
+	func pColor
 		new qcolordialog() {
 			r = exec()
 			if r = 0 return ok
@@ -1332,7 +1347,7 @@ Class RNoteController from WindowsControllerParent
 		this.aTextColor = [r,g,b]
 		pSetColors()
 
-	Func pColor2
+	func pColor2
 		new qcolordialog() {
 			r = exec()
 			if r = 0 return ok
@@ -1344,13 +1359,13 @@ Class RNoteController from WindowsControllerParent
 		this.aBackColor = [r,g,b]
 		pSetColors()
 
-	Func pSetColors
+	func pSetColors
 		this.textedit1.setstylesheet("color: rgb(" + aTextColor[1] + "," + aTextColor[2] +
 					"," + aTextColor[3] + ");" + "background-color: rgb(" +
 					aBackColor[1] + "," + aBackColor[2] + "," +
 					aBackColor[3] + ")")
 
-	Func pSetWindows
+	func pSetWindows
 		if not lShowProject  		oDockProjectFiles.close() else oDockProjectFiles.show() ok
 		if not lShowSourceCode  	oDockSourceCode.close() else oDockSourceCode.show() ok
 		if not lShowBrowser  		oDockWebBrowser.close() else oDockWebBrowser.show() ok
@@ -1387,7 +1402,7 @@ Class RNoteController from WindowsControllerParent
 			ok
 		}
 
-	Func WriteFile cFileName,cCode
+	func WriteFile cFileName,cCode
 		aCode = str2list(cCode)
 		fp = fopen(cFileName,"wb")
 		for cLine in aCode
@@ -1395,7 +1410,7 @@ Class RNoteController from WindowsControllerParent
 		next
 		fclose(fp)
 
-	Func MsgBox cTitle,cMessage
+	func MsgBox cTitle,cMessage
 		win = new qMessagebox(win1) {
 			setwindowtitle(cTitle)
 			setText(cMessage)
@@ -1403,21 +1418,21 @@ Class RNoteController from WindowsControllerParent
 			show()
 		}
 
-	Func pLang
+	func pLang
 		MsgBox("Programming Language",
 			"This application developed using the Ring programming language" + nl +
 			"Ring Version : " + version())
 
-	Func pGUI
+	func pGUI
 		MsgBox("GUI Library",
 			"This application uses the Qt GUI Library through RingQt")
 
-	Func pAbout
+	func pAbout
 		MsgBox("About",
 			"Ring Notepad (Ring Version : " + Version() + ")" + nl +			
 			"2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>")
 
-	Func pSaveCurrentFolder
+	func pSaveCurrentFolder
 		oItem = tree1.currentindex()
 		if ofile.isdir(oItem)
 			cStartupFolder = ofile.filepath(oItem)
@@ -1432,7 +1447,7 @@ Class RNoteController from WindowsControllerParent
 			cStartupFolder = cFile
 		ok
 
-	Func pSaveSettingsToFile
+	func pSaveSettingsToFile
 		pSaveCurrentFolder()
 		cSettings = "aTextColor = ["+aTextColor[1]+","+aTextColor[2]+","+aTextColor[3]+"]" + nl +
 				"aBackColor = ["+aBackColor[1]+","+aBackColor[2]+","+aBackColor[3]+"]" + nl +
@@ -1451,7 +1466,7 @@ Class RNoteController from WindowsControllerParent
 		cSettings = substr(cSettings,nl,char(13)+char(10))
 		write(cSettingsFile,cSettings)
 
-	Func pSaveSettings
+	func pSaveSettings
 		pSaveSettingsToFile()
 		if lAsktoSave
 			new qmessagebox(win1)
@@ -1472,38 +1487,39 @@ Class RNoteController from WindowsControllerParent
 		ok
 		return true
 
-	Func pSetWebsite
+	func pSetWebsite
 		oWebView { loadpage(new qurl(this.cWebSite)) }
 		oWBText  { setText(this.cWebSite) }
 
-	Func LoadSettings
+	func LoadSettings
 		if fexists(cSettingsFile)
 			eval(read(cSettingsFile))
 		ok
 
-	Func RestoreSettings
+	func RestoreSettings
 		pSetColors()
 		pSetFont()
 		pSetWebsite()
 		pSetWindows()
 		pSetTabSpaces()
+		pSelectStyleColor2(nDefaultStyle)
 
-	Func pQuit
+	func pQuit
 		if pSaveSettings()
 			myapp.quit()
 		ok
 
-	Func pOpenCHM
+	func pOpenCHM
 		new QDesktopServices {
 			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.chm") )
 		}
 
-	Func pOpenPDF
+	func pOpenPDF
 		new QDesktopServices {
 			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.pdf") )
 		}
 
-	Func pTabWidth
+	func pTabWidth
 		oInput = New QInputDialog(win1)
 		{
 			setwindowtitle("Set the Tab Width")
@@ -1516,14 +1532,14 @@ Class RNoteController from WindowsControllerParent
 		nTabSpaces = 0 + oInput.textvalue()
 		pSetTabSpaces()
 
-	Func pSetTabSpaces
+	func pSetTabSpaces
 		oTempFont.fromstring(cFont)
 		oFontMetrics = new QFontMetrics(oTempFont)
 		nSpaceWidth = oFontMetrics.Width(" ",1)
 		textedit1.setTabStopWidth(nTabSpaces*nSpaceWidth)
 		oFontMetrics.Delete()
 
-	Func pBrowserLink x
+	func pBrowserLink x
 		cLink = aBrowserLinks[x][2]
 		oWebView { loadpage(new qurl(cLink)) }
 		oWBText  { setText(cLink) }
@@ -1536,7 +1552,7 @@ Class RNoteController from WindowsControllerParent
 			oList.Append(Item)
 		next
 
-	Func PrepareAutoComplete
+	func PrepareAutoComplete
 		oAutoCompleteList = new qStringList()
 		# Add Ring Keywords
 			aKeywords = ["again","and","but","bye","call","case","catch",
@@ -1594,7 +1610,7 @@ Class RNoteController from WindowsControllerParent
 			ok
 		ok
 
-	Func AutoComplete
+	func AutoComplete
 		StatusMessage("Prepare Auto-Complete ... Please Wait!")
 		# Add words in the current file
 			cFileContent = textedit1.toplaintext() # read(cActiveFileName)
@@ -1812,11 +1828,24 @@ Class RNoteController from WindowsControllerParent
 		on 9 pStyleNotepadDarkBlue()
 		on 10 pStyleNotepadBlack()
 		on 11 pStyleArt()
+		on 12 pStyleArt2()
+		on 13 pStyleArt3()
 		off
 		if nStyle >= 7 
 			lKeywordsBold = False 
 		else
 			lKeywordsBold = True
+		ok
+
+	func pSelectStyleColor2 nStyle
+		for oObj in [this.tree1,this.oFunctionsList,this.oClassesList,this.oOutputWindow] 
+			oObj {
+				setstylesheet("")
+			}
+		next
+		if nStyle = 11 or nStyle = 12
+			pStyleArt_AfterControls()
+			pStyleArt_AfterControls()
 		ok
 
 	func pSetEditorColors
@@ -2049,6 +2078,23 @@ Class RNoteController from WindowsControllerParent
 			MyApp.StyleFusion()
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
+				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(50,50,42,255) 	},
+				:ActiveLineBackColor 		= new qcolor() { setrgb(50,50,42,255) 	},
+				:SyntaxKeywordsColor		= new qcolor() { setrgb(30,220,175,255) },
+				:SyntaxClassNamesColor 		= new qcolor() { setrgb(166,226,46,255) },
+				:SyntaxCommentsColor		= new qcolor() { setrgb(117,160,172,157)},
+				:SyntaxLiteralsColor 		= new qcolor() { setrgb(230,191,77,255) },
+				:SyntaxFunctionCallsColor 	= new qcolor() { setrgb(240,127,224,255)}
+			]
+			aStyleColors = aCustomStyleColors
+			aTextColor = [255,255,255]
+			aBackColor = [39,40,34]
+
+	func pStyleArt2()
+			nDefaultStyle  = STYLECOLOR_ART2
+			MyApp.StyleFusion()
+			aCustomStyleColors = [
+				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
 				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
 				:ActiveLineBackColor 		= new qcolor() { setrgb(0,0,0,255) 	},
 				:SyntaxKeywordsColor		= new qcolor() { setrgb(30,220,175,255) },
@@ -2060,6 +2106,31 @@ Class RNoteController from WindowsControllerParent
 			aStyleColors = aCustomStyleColors
 			aTextColor = [255,255,255]
 			aBackColor = [11,11,11]
+
+	func pStyleArt3()
+			nDefaultStyle  = STYLECOLOR_ART3
+			MyApp.StyleFusion()
+			aCustomStyleColors = [
+				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
+				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
+				:ActiveLineBackColor 		= new qcolor() { setrgb(0,0,0,255) 	},
+				:SyntaxKeywordsColor		= new qcolor() { setrgb(30,220,175,255) },
+				:SyntaxClassNamesColor 		= new qcolor() { setrgb(166,226,46,255) },
+				:SyntaxCommentsColor		= new qcolor() { setrgb(117,160,172,157)},
+				:SyntaxLiteralsColor 		= new qcolor() { setrgb(230,191,77,255) },
+				:SyntaxFunctionCallsColor 	= new qcolor() { setrgb(240,127,224,255)}
+			]
+			aStyleColors = aCustomStyleColors
+			aTextColor = [255,255,255]
+			aBackColor = [11,11,11]
+
+	func pStyleArt_AfterControls
+		# Called After we have all of the Ring Notepad Window Controls
+		for oObj in [this.tree1,this.oFunctionsList,this.oClassesList,this.oOutputWindow] 
+			oObj {
+				setstylesheet("background-color: rgba(230,230,230,255);")
+			}
+		next
 
 	func pClearProcess
 		oProcessEditbox.setPlainText("")
