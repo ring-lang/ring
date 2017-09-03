@@ -17,11 +17,12 @@ const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC",
 Scanner * ring_scanner_new ( RingState *pRingState )
 {
 	Scanner *pScanner  ;
-	pScanner = (Scanner *) ring_malloc(sizeof(Scanner));
+	pScanner = (Scanner *) ring_state_malloc(pRingState,sizeof(Scanner));
 	if ( pScanner == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
 	}
+	pScanner->pRingState = pRingState ;
 	pScanner->state = SCANNER_STATE_GENERAL ;
 	pScanner->ActiveToken = ring_string_new("");
 	pScanner->Tokens = ring_list_new(0);
@@ -30,7 +31,6 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	pScanner->LinesCount = 1 ;
 	pScanner->FloatMark = 0 ;
 	pScanner->cMLComment = 0 ;
-	pScanner->pRingState = pRingState ;
 	pScanner->nTokenIndex = 0 ;
 	return pScanner ;
 }
@@ -42,7 +42,7 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 	pScanner->Operators = ring_list_delete(pScanner->Operators);
 	pScanner->Tokens = ring_list_delete(pScanner->Tokens);
 	pScanner->ActiveToken = ring_string_delete(pScanner->ActiveToken);
-	ring_free(pScanner);
+	ring_state_free(pScanner->pRingState,pScanner);
 	return NULL ;
 }
 
