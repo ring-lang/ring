@@ -81,6 +81,7 @@ Class RNoteController from WindowsControllerParent
 		STYLECOLOR_ART		 		= 11
 		STYLECOLOR_ART2		 		= 12
 		STYLECOLOR_ART3		 		= 13
+		STYLECOLOR_IMAGE	 		= 14
 		nDefaultStyle  				= STYLECOLOR_MODERNBLACK
 		lKeywordsBold 				= True
 
@@ -534,6 +535,12 @@ Class RNoteController from WindowsControllerParent
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetStyleColor(13)"))
 							settext("Art 3")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetStyleColor(14)"))
+							settext("Image")
 						}
 						addaction(oAction)
 					}
@@ -1830,6 +1837,7 @@ Class RNoteController from WindowsControllerParent
 		on 11 pStyleArt()
 		on 12 pStyleArt2()
 		on 13 pStyleArt3()
+		on 14 pStyleImage()
 		off
 		if nStyle >= 7 
 			lKeywordsBold = False 
@@ -1843,9 +1851,10 @@ Class RNoteController from WindowsControllerParent
 				setstylesheet("")
 			}
 		next
-		if nStyle = 11 or nStyle = 12
+		if nStyle = STYLECOLOR_ART or nStyle = STYLECOLOR_ART2
 			pStyleArt_AfterControls()
-			pStyleArt_AfterControls()
+		elseif nStyle = STYLECOLOR_IMAGE  
+			pStyleImage_AfterControls()
 		ok
 
 	func pSetEditorColors
@@ -2124,6 +2133,25 @@ Class RNoteController from WindowsControllerParent
 			aTextColor = [255,255,255]
 			aBackColor = [11,11,11]
 
+	func pStyleImage()
+			nDefaultStyle  = STYLECOLOR_IMAGE
+			MyApp.StyleFusionBlack()
+			aCustomStyleColors = [
+				:LineNumbersAreaColor 		= new qcolor() { setrgb(255,255,255,255)},
+				:LineNumbersAreaBackColor 	= new qcolor() { setrgb(0,0,0,255) 	},
+				:ActiveLineBackColor 		= new qcolor() { setrgb(0,0,0,255) 	},
+				:SyntaxKeywordsColor		= new qcolor() { setrgb(30,220,175,255) },
+				:SyntaxClassNamesColor 		= new qcolor() { setrgb(166,226,46,255) },
+				:SyntaxCommentsColor		= new qcolor() { setrgb(117,160,172,157)},
+				:SyntaxLiteralsColor 		= new qcolor() { setrgb(230,191,77,255) },
+				:SyntaxFunctionCallsColor 	= new qcolor() { setrgb(240,127,224,255)}
+			]
+			aStyleColors = aCustomStyleColors
+			aTextColor = [255,255,255]
+			aBackColor = [11,11,11]
+
+
+
 	func pStyleArt_AfterControls
 		# Called After we have all of the Ring Notepad Window Controls
 		for oObj in [this.tree1,this.oFunctionsList,this.oClassesList,this.oOutputWindow] 
@@ -2131,6 +2159,17 @@ Class RNoteController from WindowsControllerParent
 				setstylesheet("background-color: rgba(230,230,230,255);")
 			}
 		next
+
+	func pStyleImage_AfterControls
+		# Called After we have all of the Ring Notepad Window Controls
+		cBackImage = cCurrentDir + "image/back.jpg"
+		cBackImage = substr(cBackImage,"\","/")
+		for oObj in [this.tree1,this.oFunctionsList,this.oClassesList,this.oOutputWindow] 
+			oObj {
+				setstylesheet("color:white;background-image: url('" + cBackImage + "');")
+			}
+		next
+		textedit1.setstylesheet("color:white;background-image: url('" + cBackImage + "');")
 
 	func pClearProcess
 		oProcessEditbox.setPlainText("")
