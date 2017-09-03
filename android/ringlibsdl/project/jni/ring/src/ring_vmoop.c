@@ -1236,7 +1236,7 @@ void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 		pItem = ring_item_new(ITEMTYPE_NOTHING);
 		ring_list_addpointer(pRecord,pItem);
 		ring_item_settype(pItem,ITEMTYPE_LIST);
-		ring_free(pItem->data.pList);
+		ring_state_free(pVM->pRingState,pItem->data.pList);
 		pItem->gc.nReferenceCount++ ;
 	}
 	/* Set the pointer */
