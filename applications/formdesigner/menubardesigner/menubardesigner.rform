@@ -4,7 +4,7 @@ aObjectsList = [
 		 :x = -365 , : y = -76  , 
 		 :width =  740 , :height = 575 , 
 		 :title =  "Menubar Designer" , 
-		 :backcolor =  "" , 
+		 :backcolor =  "#efebe7" , 
 		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_WindowStaysOnTopHint | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 

@@ -4,7 +4,7 @@ aObjectsList = [
 		 :x = 64 , : y = 90  , 
 		 :width =  395 , :height = 376 , 
 		 :title =  "Window Flags" , 
-		 :backcolor =  "" , 
+		 :backcolor =  "#efebe7" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
