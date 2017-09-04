@@ -82,7 +82,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 				/* Create List for the Object State */
 				pList3 = ring_list_newlist_gc(pVM->pRingState,pList2);
 				/* Create Self variable in the state list */
-				pSelf = ring_vm_newvar2("self",pList3);
+				pSelf = ring_vm_newvar2(pVM,"self",pList3);
 				ring_list_setint_gc(pVM->pRingState,pSelf,RING_VAR_TYPE,RING_VM_POINTER);
 				if ( nType == RING_OBJTYPE_VARIABLE ) {
 					ring_list_setpointer_gc(pVM->pRingState,pSelf,RING_VAR_VALUE,pVar);
@@ -618,7 +618,7 @@ void ring_vm_oop_newsuperobj ( VM *pVM,List *pState,List *pClass )
 	List *pSuper,*pSuper2,*pMethods,*pList  ;
 	const char *cParentClassName,*cClassName  ;
 	int x  ;
-	pSuper = ring_vm_newvar2("super",pState);
+	pSuper = ring_vm_newvar2(pVM,"super",pState);
 	ring_list_setint_gc(pVM->pRingState,pSuper,RING_VAR_TYPE,RING_VM_LIST);
 	ring_list_setlist_gc(pVM->pRingState,pSuper,RING_VAR_VALUE);
 	pSuper2 = ring_list_getlist(pSuper,RING_VAR_VALUE);

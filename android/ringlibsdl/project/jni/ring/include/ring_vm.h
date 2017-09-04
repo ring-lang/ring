@@ -225,7 +225,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr ) ;
 
 void ring_vm_newvar ( VM *pVM,const char *cStr ) ;
 
-List * ring_vm_newvar2 ( const char *cStr,List *pParent ) ;
+List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent ) ;
 
 void ring_vm_addnewnumbervar ( VM *pVM,const char *cStr,double x ) ;
 

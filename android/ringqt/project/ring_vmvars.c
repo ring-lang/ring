@@ -193,7 +193,7 @@ void ring_vm_newvar ( VM *pVM,const char *cStr )
 {
 	List *pList  ;
 	assert(pVM->pActiveMem);
-	pList = ring_vm_newvar2(cStr,pVM->pActiveMem);
+	pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
 	pVM->nSP++ ;
 	RING_VM_STACK_SETPVALUE(pList);
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
@@ -210,7 +210,7 @@ void ring_vm_newvar ( VM *pVM,const char *cStr )
 	ring_list_addint(pVM->aLoadAddressScope,pVM->nVarScope);
 }
 
-List * ring_vm_newvar2 ( const char *cStr,List *pParent )
+List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 {
 	List *pList  ;
 	/* This function is called by all of the other functions that create new varaibles */
@@ -233,7 +233,7 @@ List * ring_vm_newvar2 ( const char *cStr,List *pParent )
 void ring_vm_addnewnumbervar ( VM *pVM,const char *cStr,double x )
 {
 	List *pList  ;
-	pList = ring_vm_newvar2(cStr,pVM->pActiveMem);
+	pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
 	ring_list_setint(pList,RING_VAR_TYPE,RING_VM_NUMBER);
 	ring_list_setdouble(pList,RING_VAR_VALUE,x);
 }
@@ -241,7 +241,7 @@ void ring_vm_addnewnumbervar ( VM *pVM,const char *cStr,double x )
 void ring_vm_addnewstringvar ( VM *pVM,const char *cStr,const char *cStr2 )
 {
 	List *pList  ;
-	pList = ring_vm_newvar2(cStr,pVM->pActiveMem);
+	pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
 	ring_list_setint(pList,RING_VAR_TYPE,RING_VM_STRING);
 	ring_list_setstring(pList,RING_VAR_VALUE,cStr2);
 }
@@ -249,7 +249,7 @@ void ring_vm_addnewstringvar ( VM *pVM,const char *cStr,const char *cStr2 )
 void ring_vm_addnewstringvar2 ( VM *pVM,const char *cStr,const char *cStr2,int nStrSize )
 {
 	List *pList  ;
-	pList = ring_vm_newvar2(cStr,pVM->pActiveMem);
+	pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
 	ring_list_setint(pList,RING_VAR_TYPE,RING_VM_STRING);
 	ring_list_setstring2(pList,RING_VAR_VALUE,cStr2,nStrSize);
 }
@@ -257,7 +257,7 @@ void ring_vm_addnewstringvar2 ( VM *pVM,const char *cStr,const char *cStr2,int n
 void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *x,int y )
 {
 	List *pList  ;
-	pList = ring_vm_newvar2(cStr,pVM->pActiveMem);
+	pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
 	ring_list_setint(pList,RING_VAR_TYPE,RING_VM_POINTER);
 	ring_list_setpointer(pList,RING_VAR_VALUE,x);
 	ring_list_setint(pList,RING_VAR_PVALUETYPE,y);
@@ -268,7 +268,7 @@ void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *x,int y )
 void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList )
 {
 	List *pList  ;
-	pList = ring_vm_newvar2(cStr,TempList);
+	pList = ring_vm_newvar2(pVM,cStr,TempList);
 	pVM->nSP++ ;
 	RING_VM_STACK_SETPVALUE(pList);
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
@@ -277,7 +277,7 @@ void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList )
 List * ring_vm_newtempvar2 ( VM *pVM,const char *cStr,List *pList3 )
 {
 	List *pList,*pList2  ;
-	pList = ring_vm_newvar2(cStr,pVM->pTempMem);
+	pList = ring_vm_newvar2(pVM,cStr,pVM->pTempMem);
 	ring_list_setint(pList,RING_VAR_TYPE,RING_VM_LIST);
 	ring_list_setlist(pList,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList,RING_VAR_VALUE);
@@ -289,7 +289,7 @@ List * ring_vm_newtempvar2 ( VM *pVM,const char *cStr,List *pList3 )
 void ring_vm_addnewcpointervar ( VM *pVM,const char *cStr,void *pPointer,const char *cStr2 )
 {
 	List *pList, *pList2  ;
-	pList = ring_vm_newvar2(cStr,pVM->pActiveMem);
+	pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
 	ring_list_setint(pList,RING_VAR_TYPE,RING_VM_LIST);
 	ring_list_setlist(pList,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList,RING_VAR_VALUE);

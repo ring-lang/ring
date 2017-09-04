@@ -52,7 +52,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
 	ring_vm_addnewpointervar(pVM,"this",NULL,0);
 	/* Add Command Line Parameters */
-	pList = ring_vm_newvar2("sysargv",pVM->pActiveMem);
+	pList = ring_vm_newvar2(pVM,"sysargv",pVM->pActiveMem);
 	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
 	ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
 	pList = ring_list_getlist(pList,RING_VAR_VALUE);
