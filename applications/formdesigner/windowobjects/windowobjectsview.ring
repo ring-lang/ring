@@ -26,7 +26,7 @@ class windowObjectsView from WindowsViewParent
 		ListObjects = new qlistwidget(win) {
 			move(56,13)
 			resize(321,290)
-			setstylesheet("color:black;background-color:;")
+			setstylesheet("color:black;background-color:white;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("")
 			setfont(oFont)
