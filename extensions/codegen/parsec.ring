@@ -518,7 +518,7 @@ Func GenFuncCodeCallFunc aList
 			cCode += "{" + nl + 
 				GenTabs(2) + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
 				GenTabs(2) + "pValue = (" + aList[C_FUNC_OUTPUT] + 
-				" *) malloc(sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
+				" *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
 				GenTabs(2) + "*pValue = " 
 			lRet = false
 			lUNKNOWN = true
@@ -610,7 +610,7 @@ Func GenFuncCodeFreeNotAssignedPointers aList
 			x = aPara[t]
 			if VarTypeID(x) = C_TYPE_UNKNOWN
 				cCode += GenTabs(1) + "if (RING_API_ISCPOINTERNOTASSIGNED(" + t + "))" + nl
-				cCode += GenTabs(2) + "free(RING_API_GETCPOINTER("+t+',"'+GenPointerType(x)+'"));' + nl
+				cCode += GenTabs(2) + "ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER("+t+',"'+GenPointerType(x)+'"));' + nl
 			ok
 		next
 	ok
@@ -672,7 +672,7 @@ Func GenStruct	aFunc
 	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 			"{" + nl + 
 			GenTabs(1) + cStruct + " *pMyPointer ;" + nl +
-			GenTabs(1) + "pMyPointer = (" + cStruct + " *) malloc(sizeof(" +
+			GenTabs(1) + "pMyPointer = (" + cStruct + " *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(" +
 			cStruct + ")) ;" + nl +
 			GenTabs(1) + "if (pMyPointer == NULL) " + nl +
 			GenTabs(1) + "{" + nl +
@@ -698,7 +698,7 @@ Func GenStruct	aFunc
 			GenTabs(1) + "}" + nl +
 			GenTabs(1) + "pMyPointer = RING_API_GETCPOINTER(1," +
 			'"'+cStruct  +'");' + nl +
-			GenTabs(1) + "free(pMyPointer) ;" + nl +						
+			GenTabs(1) + "ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;" + nl +						
 			"}" + nl + nl
 	# We expect the members to be of type (numbers) or (pointers)
 	for x in aStructMembers
@@ -957,7 +957,7 @@ Func GenMethodCodeCallFunc aList
 				cCode += "{" + nl + 
 				GenTabs(2) + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
 				GenTabs(2) + "pValue = (" + aList[C_FUNC_OUTPUT] + 
-				" *) malloc(sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
+				" *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
 				GenTabs(2) + "*pValue = " 
 			ok
 
