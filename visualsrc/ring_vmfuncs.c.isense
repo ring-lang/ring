@@ -6,9 +6,7 @@ Type: int
 y
 ring_vm_call
 Type: List *
-pList, *pActiveMem
-Type: int
-x,nSP,nMax1,nFuncEx
+pList
 ring_vm_call2
 Type: List *
 pList, *pActiveMem
