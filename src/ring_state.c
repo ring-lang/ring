@@ -65,17 +65,17 @@ RING_API RingState * ring_state_new ( void )
 RING_API RingState * ring_state_delete ( RingState *pRingState )
 {
 	if ( pRingState->pRingFilesList != NULL ) {
-		pRingState->pRingFilesList = ring_list_delete(pRingState->pRingFilesList);
-		pRingState->pRingFilesStack = ring_list_delete(pRingState->pRingFilesStack);
+		pRingState->pRingFilesList = ring_list_delete_gc(pRingState,pRingState->pRingFilesList);
+		pRingState->pRingFilesStack = ring_list_delete_gc(pRingState,pRingState->pRingFilesStack);
 	}
 	if ( pRingState->pRingGenCode   != NULL ) {
-		pRingState->pRingGenCode = ring_list_delete(pRingState->pRingGenCode);
-		pRingState->pRingFunctionsMap = ring_list_delete(pRingState->pRingFunctionsMap);
-		pRingState->pRingClassesMap = ring_list_delete(pRingState->pRingClassesMap);
-		pRingState->pRingPackagesMap = ring_list_delete(pRingState->pRingPackagesMap);
+		pRingState->pRingGenCode = ring_list_delete_gc(pRingState,pRingState->pRingGenCode);
+		pRingState->pRingFunctionsMap = ring_list_delete_gc(pRingState,pRingState->pRingFunctionsMap);
+		pRingState->pRingClassesMap = ring_list_delete_gc(pRingState,pRingState->pRingClassesMap);
+		pRingState->pRingPackagesMap = ring_list_delete_gc(pRingState,pRingState->pRingPackagesMap);
 		if ( pRingState->pRingCFunctions != NULL ) {
 			/* We check because the execution may end by the compiler error */
-			pRingState->pRingCFunctions = ring_list_delete(pRingState->pRingCFunctions);
+			pRingState->pRingCFunctions = ring_list_delete_gc(pRingState,pRingState->pRingCFunctions);
 		}
 	}
 	if ( pRingState->pVM != NULL ) {
