@@ -22,7 +22,7 @@ pVar
 ring_vm_newline
 ring_vm_freestack
 Type: int
-x,nSP
+nSP
 Type: List *
 pList
 ring_vm_setreference
