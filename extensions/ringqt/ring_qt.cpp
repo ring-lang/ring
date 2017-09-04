@@ -435,7 +435,7 @@ RING_FUNC(ring_QObject_children)
 	pObject = (QObject *) RING_API_GETCPOINTER(1,"QObject");
 	{
 		QObjectList *pValue ; 
-		pValue = (QObjectList *) malloc(sizeof(QObjectList)) ;
+		pValue = (QObjectList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QObjectList)) ;
 		*pValue = pObject->children();
 		RING_API_RETCPOINTER(pValue,"QObjectList");
 	}
@@ -719,7 +719,7 @@ RING_FUNC(ring_QObject_setProperty)
 	}
 	RING_API_RETNUMBER(pObject->setProperty(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -1019,7 +1019,7 @@ RING_FUNC(ring_QWidget_childrenRegion)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	{
 		QRegion *pValue ; 
-		pValue = (QRegion *) malloc(sizeof(QRegion)) ;
+		pValue = (QRegion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRegion)) ;
 		*pValue = pObject->childrenRegion();
 		RING_API_RETCPOINTER(pValue,"QRegion");
 	}
@@ -1075,7 +1075,7 @@ RING_FUNC(ring_QWidget_contentsMargins)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	{
 		QMargins *pValue ; 
-		pValue = (QMargins *) malloc(sizeof(QMargins)) ;
+		pValue = (QMargins *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMargins)) ;
 		*pValue = pObject->contentsMargins();
 		RING_API_RETCPOINTER(pValue,"QMargins");
 	}
@@ -1265,7 +1265,7 @@ RING_FUNC(ring_QWidget_fontInfo)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	{
 		QFontInfo *pValue ; 
-		pValue = (QFontInfo *) malloc(sizeof(QFontInfo)) ;
+		pValue = (QFontInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QFontInfo)) ;
 		*pValue = pObject->fontInfo();
 		RING_API_RETCPOINTER(pValue,"QFontInfo");
 	}
@@ -1470,7 +1470,7 @@ RING_FUNC(ring_QWidget_grabShortcut)
 	}
 	RING_API_RETNUMBER(pObject->grabShortcut(* (QKeySequence *) RING_API_GETCPOINTER(2,"QKeySequence"), (Qt::ShortcutContext )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QKeySequence"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QKeySequence"));
 }
 
 
@@ -1930,7 +1930,7 @@ RING_FUNC(ring_QWidget_locale)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	{
 		QLocale *pValue ; 
-		pValue = (QLocale *) malloc(sizeof(QLocale)) ;
+		pValue = (QLocale *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLocale)) ;
 		*pValue = pObject->locale();
 		RING_API_RETCPOINTER(pValue,"QLocale");
 	}
@@ -1959,7 +1959,7 @@ RING_FUNC(ring_QWidget_mapFrom)
 		pValue = new QPoint() ;
 		*pValue = pObject->mapFrom((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),* (QPoint *) RING_API_GETCPOINTER(3,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QPoint");
 	}
 }
@@ -1983,7 +1983,7 @@ RING_FUNC(ring_QWidget_mapFromGlobal)
 		pValue = new QPoint() ;
 		*pValue = pObject->mapFromGlobal(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QPoint");
 	}
 }
@@ -2007,7 +2007,7 @@ RING_FUNC(ring_QWidget_mapFromParent)
 		pValue = new QPoint() ;
 		*pValue = pObject->mapFromParent(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QPoint");
 	}
 }
@@ -2035,7 +2035,7 @@ RING_FUNC(ring_QWidget_mapTo)
 		pValue = new QPoint() ;
 		*pValue = pObject->mapTo((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),* (QPoint *) RING_API_GETCPOINTER(3,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QPoint");
 	}
 }
@@ -2059,7 +2059,7 @@ RING_FUNC(ring_QWidget_mapToGlobal)
 		pValue = new QPoint() ;
 		*pValue = pObject->mapToGlobal(* (QPoint  *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QPoint");
 	}
 }
@@ -2083,7 +2083,7 @@ RING_FUNC(ring_QWidget_mapToParent)
 		pValue = new QPoint() ;
 		*pValue = pObject->mapToParent(* (QPoint  *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QPoint");
 	}
 }
@@ -2104,7 +2104,7 @@ RING_FUNC(ring_QWidget_mask)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	{
 		QRegion *pValue ; 
-		pValue = (QRegion *) malloc(sizeof(QRegion)) ;
+		pValue = (QRegion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRegion)) ;
 		*pValue = pObject->mask();
 		RING_API_RETCPOINTER(pValue,"QRegion");
 	}
@@ -2340,7 +2340,7 @@ RING_FUNC(ring_QWidget_palette)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	{
 		QPalette *pValue ; 
-		pValue = (QPalette *) malloc(sizeof(QPalette)) ;
+		pValue = (QPalette *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QPalette)) ;
 		*pValue = pObject->palette();
 		RING_API_RETCPOINTER(pValue,"QPalette");
 	}
@@ -2524,9 +2524,9 @@ RING_FUNC(ring_QWidget_render)
 	}
 	pObject->render((QPaintDevice *) RING_API_GETCPOINTER(2,"QPaintDevice"),* (QPoint *) RING_API_GETCPOINTER(3,"QPoint"),* (QRegion *) RING_API_GETCPOINTER(4,"QRegion"), (QWidget::RenderFlag)  (int) RING_API_GETNUMBER(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QRegion"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QRegion"));
 }
 
 
@@ -2587,7 +2587,7 @@ RING_FUNC(ring_QWidget_restoreGeometry)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	RING_API_RETNUMBER(pObject->restoreGeometry(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -2862,7 +2862,7 @@ RING_FUNC(ring_QWidget_setCursor)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	pObject->setCursor(* (QCursor *) RING_API_GETCPOINTER(2,"QCursor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QCursor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QCursor"));
 }
 
 
@@ -3011,7 +3011,7 @@ RING_FUNC(ring_QWidget_setFont)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	pObject->setFont(* (QFont *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -3168,7 +3168,7 @@ RING_FUNC(ring_QWidget_setLocale)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	pObject->setLocale(* (QLocale *) RING_API_GETCPOINTER(2,"QLocale"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLocale"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLocale"));
 }
 
 
@@ -3187,7 +3187,7 @@ RING_FUNC(ring_QWidget_setMask)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	pObject->setMask(* (QBitmap *) RING_API_GETCPOINTER(2,"QBitmap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBitmap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBitmap"));
 }
 
 
@@ -3361,7 +3361,7 @@ RING_FUNC(ring_QWidget_setPalette)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	pObject->setPalette(* (QPalette *) RING_API_GETCPOINTER(2,"QPalette"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPalette"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPalette"));
 }
 
 
@@ -3648,7 +3648,7 @@ RING_FUNC(ring_QWidget_setWindowIcon)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	pObject->setWindowIcon(* (QIcon *) RING_API_GETCPOINTER(2,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
 }
 
 
@@ -3816,7 +3816,7 @@ RING_FUNC(ring_QWidget_sizePolicy)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	{
 		QSizePolicy *pValue ; 
-		pValue = (QSizePolicy *) malloc(sizeof(QSizePolicy)) ;
+		pValue = (QSizePolicy *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QSizePolicy)) ;
 		*pValue = pObject->sizePolicy();
 		RING_API_RETCPOINTER(pValue,"QSizePolicy");
 	}
@@ -4104,7 +4104,7 @@ RING_FUNC(ring_QWidget_visibleRegion)
 	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
 	{
 		QRegion *pValue ; 
-		pValue = (QRegion *) malloc(sizeof(QRegion)) ;
+		pValue = (QRegion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRegion)) ;
 		*pValue = pObject->visibleRegion();
 		RING_API_RETCPOINTER(pValue,"QRegion");
 	}
@@ -5307,7 +5307,7 @@ RING_FUNC(ring_QLabel_setPicture)
 	pObject = (QLabel *) RING_API_GETCPOINTER(1,"QLabel");
 	pObject->setPicture(* (QPicture *) RING_API_GETCPOINTER(2,"QPicture"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPicture"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPicture"));
 }
 
 
@@ -5326,7 +5326,7 @@ RING_FUNC(ring_QLabel_setPixmap)
 	pObject = (QLabel *) RING_API_GETCPOINTER(1,"QLabel");
 	pObject->setPixmap(* (QPixmap *) RING_API_GETCPOINTER(2,"QPixmap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPixmap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPixmap"));
 }
 
 
@@ -5408,7 +5408,7 @@ RING_FUNC(ring_QPushButton_setIcon)
 	pObject = (GPushButton *) RING_API_GETCPOINTER(1,"QPushButton");
 	pObject->setIcon(* (QIcon *) RING_API_GETCPOINTER(2,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
 }
 
 
@@ -5427,7 +5427,7 @@ RING_FUNC(ring_QPushButton_setIconSize)
 	pObject = (GPushButton *) RING_API_GETCPOINTER(1,"QPushButton");
 	pObject->setIconSize(* (QSize *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -5480,7 +5480,7 @@ RING_FUNC(ring_QBitmap_swap)
 	pObject = (QBitmap *) RING_API_GETCPOINTER(1,"QBitmap");
 	pObject->swap(* (QBitmap *) RING_API_GETCPOINTER(2,"QBitmap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBitmap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBitmap"));
 }
 
 
@@ -5502,7 +5502,7 @@ RING_FUNC(ring_QBitmap_transformed)
 		pValue = new QBitmap() ;
 		*pValue = pObject->transformed(* (QTransform *) RING_API_GETCPOINTER(2,"QTransform"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTransform"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTransform"));
 		RING_API_RETCPOINTER(pValue,"QBitmap");
 	}
 }
@@ -5534,7 +5534,7 @@ RING_FUNC(ring_QBitmap_fromData)
 		pValue = new QBitmap() ;
 		*pValue = pObject->fromData(* (QSize *) RING_API_GETCPOINTER(2,"QSize"),(uchar *) RING_API_GETCPOINTER(3,"uchar"), (QImage::Format )  (int) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 		RING_API_RETCPOINTER(pValue,"QBitmap");
 	}
 }
@@ -5562,7 +5562,7 @@ RING_FUNC(ring_QBitmap_fromImage)
 		pValue = new QBitmap() ;
 		*pValue = pObject->fromImage(* (QImage *) RING_API_GETCPOINTER(2,"QImage"), (Qt::ImageConversionFlags )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QImage"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QImage"));
 		RING_API_RETCPOINTER(pValue,"QBitmap");
 	}
 }
@@ -5700,7 +5700,7 @@ RING_FUNC(ring_QPixmap_createMaskFromColor)
 		pValue = new QBitmap() ;
 		*pValue = pObject->createMaskFromColor(* (QColor *) RING_API_GETCPOINTER(2,"QColor"), (Qt::MaskMode)  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 		RING_API_RETCPOINTER(pValue,"QBitmap");
 	}
 }
@@ -5743,7 +5743,7 @@ RING_FUNC(ring_QPixmap_setMask)
 	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
 	pObject->setMask(* (QBitmap *) RING_API_GETCPOINTER(2,"QBitmap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBitmap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBitmap"));
 }
 
 
@@ -5762,7 +5762,7 @@ RING_FUNC(ring_QPixmap_fill)
 	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
 	pObject->fill(* (QColor *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -5788,7 +5788,7 @@ RING_FUNC(ring_QPixmap_fromImage)
 		pValue = new QPixmap() ;
 		*pValue = pObject->fromImage(* (QImage *) RING_API_GETCPOINTER(2,"QImage"), (Qt::ImageConversionFlags)  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QImage"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QImage"));
 		RING_API_RETCPOINTER(pValue,"QPixmap");
 	}
 }
@@ -5990,7 +5990,7 @@ RING_FUNC(ring_QLineEdit_cursorPositionAt)
 	pObject = (GLineEdit *) RING_API_GETCPOINTER(1,"QLineEdit");
 	RING_API_RETNUMBER(pObject->cursorPositionAt(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -6788,7 +6788,7 @@ RING_FUNC(ring_QLineEdit_textMargins)
 	pObject = (GLineEdit *) RING_API_GETCPOINTER(1,"QLineEdit");
 	{
 		QMargins *pValue ; 
-		pValue = (QMargins *) malloc(sizeof(QMargins)) ;
+		pValue = (QMargins *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMargins)) ;
 		*pValue = pObject->textMargins();
 		RING_API_RETCPOINTER(pValue,"QMargins");
 	}
@@ -7313,7 +7313,7 @@ RING_FUNC(ring_QTextEdit_anchorAt)
 	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
 	RING_API_RETSTRING(pObject->anchorAt(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -7396,7 +7396,7 @@ RING_FUNC(ring_QTextEdit_cursorForPosition)
 		pValue = new QTextCursor() ;
 		*pValue = pObject->cursorForPosition(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QTextCursor");
 	}
 }
@@ -7675,7 +7675,7 @@ RING_FUNC(ring_QTextEdit_loadResource)
 		pValue = new QVariant() ;
 		*pValue = pObject->loadResource( (int) RING_API_GETNUMBER(2),* (QUrl *) RING_API_GETCPOINTER(3,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QUrl"));
 		RING_API_RETCPOINTER(pValue,"QVariant");
 	}
 }
@@ -7696,7 +7696,7 @@ RING_FUNC(ring_QTextEdit_mergeCurrentCharFormat)
 	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
 	pObject->mergeCurrentCharFormat(* (QTextCharFormat *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCharFormat"));
 }
 
 
@@ -7799,7 +7799,7 @@ RING_FUNC(ring_QTextEdit_setCurrentCharFormat)
 	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
 	pObject->setCurrentCharFormat(* (QTextCharFormat *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCharFormat"));
 }
 
 
@@ -8007,7 +8007,7 @@ RING_FUNC(ring_QTextEdit_setTextCursor)
 	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
 	pObject->setTextCursor(* (QTextCursor *) RING_API_GETCPOINTER(2,"QTextCursor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCursor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCursor"));
 }
 
 
@@ -8464,7 +8464,7 @@ RING_FUNC(ring_QTextEdit_setCurrentFont)
 	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
 	pObject->setCurrentFont(* (QFont *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -8651,7 +8651,7 @@ RING_FUNC(ring_QTextEdit_setTextBackgroundColor)
 	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
 	pObject->setTextBackgroundColor(* (QColor *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -8670,7 +8670,7 @@ RING_FUNC(ring_QTextEdit_setTextColor)
 	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
 	pObject->setTextColor(* (QColor *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -10044,10 +10044,10 @@ RING_FUNC(ring_QTreeView_indexAbove)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->indexAbove(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
 }
@@ -10068,10 +10068,10 @@ RING_FUNC(ring_QTreeView_indexBelow)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->indexBelow(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
 }
@@ -10130,7 +10130,7 @@ RING_FUNC(ring_QTreeView_isExpanded)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	RING_API_RETNUMBER(pObject->isExpanded(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -10153,7 +10153,7 @@ RING_FUNC(ring_QTreeView_isFirstColumnSpanned)
 	}
 	RING_API_RETNUMBER(pObject->isFirstColumnSpanned( (int ) RING_API_GETNUMBER(2),* (QModelIndex *) RING_API_GETCPOINTER(3,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QModelIndex"));
 }
 
 
@@ -10193,7 +10193,7 @@ RING_FUNC(ring_QTreeView_isRowHidden)
 	}
 	RING_API_RETNUMBER(pObject->isRowHidden( (int ) RING_API_GETNUMBER(2),* (QModelIndex *) RING_API_GETCPOINTER(3,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QModelIndex"));
 }
 
 
@@ -10380,7 +10380,7 @@ RING_FUNC(ring_QTreeView_setExpanded)
 	}
 	pObject->setExpanded(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"), (bool ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -10428,7 +10428,7 @@ RING_FUNC(ring_QTreeView_setFirstColumnSpanned)
 	}
 	pObject->setFirstColumnSpanned( (int ) RING_API_GETNUMBER(2),* (QModelIndex *) RING_API_GETCPOINTER(3,"QModelIndex"), (bool ) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QModelIndex"));
 }
 
 
@@ -10560,7 +10560,7 @@ RING_FUNC(ring_QTreeView_setRowHidden)
 	}
 	pObject->setRowHidden( (int ) RING_API_GETNUMBER(2),* (QModelIndex *) RING_API_GETCPOINTER(3,"QModelIndex"), (bool ) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QModelIndex"));
 }
 
 
@@ -10701,9 +10701,9 @@ RING_FUNC(ring_QTreeView_dataChanged)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	pObject->dataChanged(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"),* (QModelIndex *) RING_API_GETCPOINTER(3,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QModelIndex"));
 }
 
 
@@ -10722,10 +10722,10 @@ RING_FUNC(ring_QTreeView_indexAt)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->indexAt(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
 }
@@ -10788,7 +10788,7 @@ RING_FUNC(ring_QTreeView_scrollTo)
 	}
 	pObject->scrollTo(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"), (QAbstractItemView::ScrollHint)  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -10845,7 +10845,7 @@ RING_FUNC(ring_QTreeView_setRootIndex)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	pObject->setRootIndex(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -10888,7 +10888,7 @@ RING_FUNC(ring_QTreeView_visualRect)
 		pValue = new QRect() ;
 		*pValue = pObject->visualRect(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QRect");
 	}
 }
@@ -10909,7 +10909,7 @@ RING_FUNC(ring_QTreeView_collapse)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	pObject->collapse(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -10945,7 +10945,7 @@ RING_FUNC(ring_QTreeView_expand)
 	pObject = (GTreeView *) RING_API_GETCPOINTER(1,"QTreeView");
 	pObject->expand(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -11386,7 +11386,7 @@ RING_FUNC(ring_QDir_setNameFilters)
 	pObject = (QDir *) RING_API_GETCPOINTER(1,"QDir");
 	pObject->setNameFilters(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -11408,7 +11408,7 @@ RING_FUNC(ring_QFileSystemModel_fileIcon)
 		pValue = new QIcon() ;
 		*pValue = pObject->fileIcon(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QIcon");
 	}
 }
@@ -11432,7 +11432,7 @@ RING_FUNC(ring_QFileSystemModel_fileInfo)
 		pValue = new QFileInfo() ;
 		*pValue = pObject->fileInfo(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QFileInfo");
 	}
 }
@@ -11453,7 +11453,7 @@ RING_FUNC(ring_QFileSystemModel_fileName)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETSTRING(pObject->fileName(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -11472,7 +11472,7 @@ RING_FUNC(ring_QFileSystemModel_filePath)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETSTRING(pObject->filePath(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -11533,7 +11533,7 @@ RING_FUNC(ring_QFileSystemModel_index)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->index(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -11555,7 +11555,7 @@ RING_FUNC(ring_QFileSystemModel_isDir)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETNUMBER(pObject->isDir(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -11594,7 +11594,7 @@ RING_FUNC(ring_QFileSystemModel_lastModified)
 		pValue = new QDateTime() ;
 		*pValue = pObject->lastModified(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QDateTime");
 	}
 }
@@ -11619,10 +11619,10 @@ RING_FUNC(ring_QFileSystemModel_mkdir)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->mkdir(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"),RING_API_GETSTRING(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
 }
@@ -11708,7 +11708,7 @@ RING_FUNC(ring_QFileSystemModel_permissions)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETNUMBER(pObject->permissions(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -11727,7 +11727,7 @@ RING_FUNC(ring_QFileSystemModel_remove)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETNUMBER(pObject->remove(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -11763,7 +11763,7 @@ RING_FUNC(ring_QFileSystemModel_rmdir)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETNUMBER(pObject->rmdir(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -11884,7 +11884,7 @@ RING_FUNC(ring_QFileSystemModel_setNameFilters)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	pObject->setNameFilters(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -11949,7 +11949,7 @@ RING_FUNC(ring_QFileSystemModel_setRootPath)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->setRootPath(RING_API_GETSTRING(2));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -11971,7 +11971,7 @@ RING_FUNC(ring_QFileSystemModel_size)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETNUMBER(pObject->size(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -11990,7 +11990,7 @@ RING_FUNC(ring_QFileSystemModel_type)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETSTRING(pObject->type(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -12009,7 +12009,7 @@ RING_FUNC(ring_QFileSystemModel_canFetchMore)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETNUMBER(pObject->canFetchMore(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -12052,7 +12052,7 @@ RING_FUNC(ring_QFileSystemModel_data)
 		pValue = new QVariant() ;
 		*pValue = pObject->data(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QVariant");
 	}
 }
@@ -12089,7 +12089,7 @@ RING_FUNC(ring_QFileSystemModel_dropMimeData)
 	}
 	RING_API_RETNUMBER(pObject->dropMimeData((QMimeData *) RING_API_GETCPOINTER(2,"QMimeData"), (Qt::DropAction )  (int) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (QModelIndex  *) RING_API_GETCPOINTER(6,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QModelIndex"));
 }
 
 
@@ -12108,7 +12108,7 @@ RING_FUNC(ring_QFileSystemModel_fetchMore)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	pObject->fetchMore(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -12127,7 +12127,7 @@ RING_FUNC(ring_QFileSystemModel_flags)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETNUMBER(pObject->flags(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -12146,7 +12146,7 @@ RING_FUNC(ring_QFileSystemModel_hasChildren)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETNUMBER(pObject->hasChildren(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -12199,7 +12199,7 @@ RING_FUNC(ring_QFileSystemModel_mimeData)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETCPOINTER(pObject->mimeData(* (QModelIndexList  *) RING_API_GETCPOINTER(2,"QModelIndexList")),"QMimeData");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndexList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndexList"));
 }
 
 
@@ -12240,10 +12240,10 @@ RING_FUNC(ring_QFileSystemModel_parent)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->parent(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
 }
@@ -12264,7 +12264,7 @@ RING_FUNC(ring_QFileSystemModel_rowCount)
 	pObject = (QFileSystemModel *) RING_API_GETCPOINTER(1,"QFileSystemModel");
 	RING_API_RETNUMBER(pObject->rowCount(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -12287,9 +12287,9 @@ RING_FUNC(ring_QFileSystemModel_setData)
 	}
 	RING_API_RETNUMBER(pObject->setData(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex"),* (QVariant  *) RING_API_GETCPOINTER(3,"QVariant"), (int ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -12828,7 +12828,7 @@ RING_FUNC(ring_QTreeWidget_setHeaderLabels)
 	pObject = (GTreeWidget *) RING_API_GETCPOINTER(1,"QTreeWidget");
 	pObject->setHeaderLabels(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -14222,7 +14222,7 @@ RING_FUNC(ring_QTreeWidgetItem_read)
 	pObject = (QTreeWidgetItem *) RING_API_GETCPOINTER(1,"QTreeWidgetItem");
 	pObject->read(* (QDataStream *) RING_API_GETCPOINTER(2,"QDataStream"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDataStream"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDataStream"));
 }
 
 
@@ -14266,7 +14266,7 @@ RING_FUNC(ring_QTreeWidgetItem_setBackground)
 	}
 	pObject->setBackground( (int ) RING_API_GETNUMBER(2),* (QBrush *) RING_API_GETCPOINTER(3,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QBrush"));
 }
 
 
@@ -14339,7 +14339,7 @@ RING_FUNC(ring_QTreeWidgetItem_setData)
 	}
 	pObject->setData( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (QVariant *) RING_API_GETCPOINTER(4,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
 }
 
 
@@ -14446,7 +14446,7 @@ RING_FUNC(ring_QTreeWidgetItem_setFont)
 	}
 	pObject->setFont( (int ) RING_API_GETNUMBER(2),* (QFont *) RING_API_GETCPOINTER(3,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QFont"));
 }
 
 
@@ -14469,7 +14469,7 @@ RING_FUNC(ring_QTreeWidgetItem_setForeground)
 	}
 	pObject->setForeground( (int ) RING_API_GETNUMBER(2),* (QBrush *) RING_API_GETCPOINTER(3,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QBrush"));
 }
 
 
@@ -14513,7 +14513,7 @@ RING_FUNC(ring_QTreeWidgetItem_setIcon)
 	}
 	pObject->setIcon( (int ) RING_API_GETNUMBER(2),* (QIcon *) RING_API_GETCPOINTER(3,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QIcon"));
 }
 
 
@@ -14557,7 +14557,7 @@ RING_FUNC(ring_QTreeWidgetItem_setSizeHint)
 	}
 	pObject->setSizeHint( (int ) RING_API_GETNUMBER(2),* (QSize *) RING_API_GETCPOINTER(3,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QSize"));
 }
 
 
@@ -14912,7 +14912,7 @@ RING_FUNC(ring_QTreeWidgetItem_write)
 	pObject = (QTreeWidgetItem *) RING_API_GETCPOINTER(1,"QTreeWidgetItem");
 	pObject->write(* (QDataStream *) RING_API_GETCPOINTER(2,"QDataStream"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDataStream"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDataStream"));
 }
 
 RING_FUNC(ring_QComboBox_addItem)
@@ -15043,7 +15043,7 @@ RING_FUNC(ring_QComboBox_findData)
 	}
 	RING_API_RETNUMBER(pObject->findData(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"), (int ) RING_API_GETNUMBER(3), (Qt::MatchFlag )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariant"));
 }
 
 
@@ -15151,7 +15151,7 @@ RING_FUNC(ring_QComboBox_insertItem)
 	}
 	pObject->insertItem( (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3),* (QVariant *) RING_API_GETCPOINTER(4,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
 }
 
 
@@ -15425,7 +15425,7 @@ RING_FUNC(ring_QComboBox_rootModelIndex)
 	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->rootModelIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -15531,7 +15531,7 @@ RING_FUNC(ring_QComboBox_setIconSize)
 	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
 	pObject->setIconSize(* (QSize *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -15558,7 +15558,7 @@ RING_FUNC(ring_QComboBox_setItemData)
 	}
 	pObject->setItemData( (int ) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"), (int ) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -15602,7 +15602,7 @@ RING_FUNC(ring_QComboBox_setItemIcon)
 	}
 	pObject->setItemIcon( (int ) RING_API_GETNUMBER(2),* (QIcon *) RING_API_GETCPOINTER(3,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QIcon"));
 }
 
 
@@ -15772,7 +15772,7 @@ RING_FUNC(ring_QComboBox_setRootModelIndex)
 	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
 	pObject->setRootModelIndex(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -16112,7 +16112,7 @@ RING_FUNC(ring_QMenuBar_actionAt)
 	pObject = (QMenuBar *) RING_API_GETCPOINTER(1,"QMenuBar");
 	RING_API_RETCPOINTER(pObject->actionAt(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint")),"QAction");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -16439,7 +16439,7 @@ RING_FUNC(ring_QMenu_actionAt)
 	pObject = (QMenu *) RING_API_GETCPOINTER(1,"QMenu");
 	RING_API_RETCPOINTER(pObject->actionAt(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint")),"QAction");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -16594,7 +16594,7 @@ RING_FUNC(ring_QMenu_exec)
 	pObject = (QMenu *) RING_API_GETCPOINTER(1,"QMenu");
 	RING_API_RETCPOINTER(pObject->exec(* (const QPoint  *) RING_API_GETCPOINTER(2,"const QPoint")),"QAction");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -16634,7 +16634,7 @@ RING_FUNC(ring_QMenu_exec_3)
 	}
 	RING_API_RETCPOINTER(pObject->exec(* (const QPoint  *) RING_API_GETCPOINTER(2,"const QPoint"),(QAction *) RING_API_GETCPOINTER(3,"QAction")),"QAction");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -16810,7 +16810,7 @@ RING_FUNC(ring_QMenu_popup)
 	}
 	pObject->popup(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"),(QAction *) RING_API_GETCPOINTER(3,"QAction"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -16888,7 +16888,7 @@ RING_FUNC(ring_QMenu_setIcon)
 	pObject = (QMenu *) RING_API_GETCPOINTER(1,"QMenu");
 	pObject->setIcon(* (QIcon *) RING_API_GETCPOINTER(2,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
 }
 
 
@@ -17401,7 +17401,7 @@ RING_FUNC(ring_QToolBar_setIconSize)
 	pObject = (QToolBar *) RING_API_GETCPOINTER(1,"QToolBar");
 	pObject->setIconSize(* (QSize *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -17871,7 +17871,7 @@ RING_FUNC(ring_QMainWindow_restoreState)
 	}
 	RING_API_RETNUMBER(pObject->restoreState(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray"), (int ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -18004,7 +18004,7 @@ RING_FUNC(ring_QMainWindow_setIconSize)
 	pObject = (QMainWindow *) RING_API_GETCPOINTER(1,"QMainWindow");
 	pObject->setIconSize(* (QSize *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -19264,7 +19264,7 @@ RING_FUNC(ring_QTabWidget_setIconSize)
 	pObject = (GTabWidget *) RING_API_GETCPOINTER(1,"QTabWidget");
 	pObject->setIconSize(* (QSize *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -19333,7 +19333,7 @@ RING_FUNC(ring_QTabWidget_setTabIcon)
 	}
 	pObject->setTabIcon( (int ) RING_API_GETNUMBER(2),* (QIcon *) RING_API_GETCPOINTER(3,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QIcon"));
 }
 
 
@@ -19995,7 +19995,7 @@ RING_FUNC(ring_QTableWidgetItem_read)
 	pObject = (QTableWidgetItem *) RING_API_GETCPOINTER(1,"QTableWidgetItem");
 	pObject->read(* (QDataStream *) RING_API_GETCPOINTER(2,"QDataStream"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDataStream"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDataStream"));
 }
 
 
@@ -20031,7 +20031,7 @@ RING_FUNC(ring_QTableWidgetItem_setBackground)
 	pObject = (QTableWidgetItem *) RING_API_GETCPOINTER(1,"QTableWidgetItem");
 	pObject->setBackground(* (QBrush *) RING_API_GETCPOINTER(2,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
 }
 
 
@@ -20075,7 +20075,7 @@ RING_FUNC(ring_QTableWidgetItem_setData)
 	}
 	pObject->setData( (int ) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -20115,7 +20115,7 @@ RING_FUNC(ring_QTableWidgetItem_setFont)
 	pObject = (QTableWidgetItem *) RING_API_GETCPOINTER(1,"QTableWidgetItem");
 	pObject->setFont(* (QFont *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -20134,7 +20134,7 @@ RING_FUNC(ring_QTableWidgetItem_setForeground)
 	pObject = (QTableWidgetItem *) RING_API_GETCPOINTER(1,"QTableWidgetItem");
 	pObject->setForeground(* (QBrush *) RING_API_GETCPOINTER(2,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
 }
 
 
@@ -20153,7 +20153,7 @@ RING_FUNC(ring_QTableWidgetItem_setIcon)
 	pObject = (QTableWidgetItem *) RING_API_GETCPOINTER(1,"QTableWidgetItem");
 	pObject->setIcon(* (QIcon *) RING_API_GETCPOINTER(2,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
 }
 
 
@@ -20193,7 +20193,7 @@ RING_FUNC(ring_QTableWidgetItem_setSizeHint)
 	pObject = (QTableWidgetItem *) RING_API_GETCPOINTER(1,"QTableWidgetItem");
 	pObject->setSizeHint(* (QSize *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -20458,7 +20458,7 @@ RING_FUNC(ring_QTableWidgetItem_write)
 	pObject = (QTableWidgetItem *) RING_API_GETCPOINTER(1,"QTableWidgetItem");
 	pObject->write(* (QDataStream *) RING_API_GETCPOINTER(2,"QDataStream"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDataStream"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDataStream"));
 }
 
 
@@ -20601,7 +20601,7 @@ RING_FUNC(ring_QFrame_setFrameRect)
 	pObject = (QFrame *) RING_API_GETCPOINTER(1,"QFrame");
 	pObject->setFrameRect(* (QRect *) RING_API_GETCPOINTER(2,"QRect"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRect"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
 }
 
 
@@ -20849,7 +20849,7 @@ RING_FUNC(ring_QAbstractScrollArea_scrollBarWidgets)
 	}
 	{
 		QWidgetList *pValue ; 
-		pValue = (QWidgetList *) malloc(sizeof(QWidgetList)) ;
+		pValue = (QWidgetList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QWidgetList)) ;
 		*pValue = pObject->scrollBarWidgets( (Qt::AlignmentFlag)  (int) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QWidgetList");
 	}
@@ -21082,7 +21082,7 @@ RING_FUNC(ring_QAbstractItemView_closePersistentEditor)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	pObject->closePersistentEditor(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -21101,7 +21101,7 @@ RING_FUNC(ring_QAbstractItemView_currentIndex)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->currentIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -21264,10 +21264,10 @@ RING_FUNC(ring_QAbstractItemView_indexAt)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->indexAt(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
 }
@@ -21288,7 +21288,7 @@ RING_FUNC(ring_QAbstractItemView_indexWidget)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	RING_API_RETCPOINTER(pObject->indexWidget(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")),"QWidget");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -21307,7 +21307,7 @@ RING_FUNC(ring_QAbstractItemView_itemDelegate)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	RING_API_RETCPOINTER(pObject->itemDelegate(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")),"QAbstractItemDelegate");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -21406,7 +21406,7 @@ RING_FUNC(ring_QAbstractItemView_openPersistentEditor)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	pObject->openPersistentEditor(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -21425,7 +21425,7 @@ RING_FUNC(ring_QAbstractItemView_rootIndex)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->rootIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -21451,7 +21451,7 @@ RING_FUNC(ring_QAbstractItemView_scrollTo)
 	}
 	pObject->scrollTo(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"), (QAbstractItemView::ScrollHint)  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -21731,7 +21731,7 @@ RING_FUNC(ring_QAbstractItemView_setIconSize)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	pObject->setIconSize(* (QSize *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -21754,7 +21754,7 @@ RING_FUNC(ring_QAbstractItemView_setIndexWidget)
 	}
 	pObject->setIndexWidget(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -22032,7 +22032,7 @@ RING_FUNC(ring_QAbstractItemView_sizeHintForIndex)
 		pValue = new QSize() ;
 		*pValue = pObject->sizeHintForIndex(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QSize");
 	}
 }
@@ -22128,7 +22128,7 @@ RING_FUNC(ring_QAbstractItemView_visualRect)
 		pValue = new QRect() ;
 		*pValue = pObject->visualRect(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QRect");
 	}
 }
@@ -22166,7 +22166,7 @@ RING_FUNC(ring_QAbstractItemView_edit)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	pObject->edit(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -22219,7 +22219,7 @@ RING_FUNC(ring_QAbstractItemView_setCurrentIndex)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	pObject->setCurrentIndex(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -22238,7 +22238,7 @@ RING_FUNC(ring_QAbstractItemView_update)
 	pObject = (QAbstractItemView *) RING_API_GETCPOINTER(1,"QAbstractItemView");
 	pObject->update(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -23446,7 +23446,7 @@ RING_FUNC(ring_QTableWidget_selectedItems)
 	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
 	{
 		QList<QTableWidgetItem *> *pValue ; 
-		pValue = (QList<QTableWidgetItem *> *) malloc(sizeof(QList<QTableWidgetItem *>)) ;
+		pValue = (QList<QTableWidgetItem *> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QTableWidgetItem *>)) ;
 		*pValue = pObject->selectedItems();
 		RING_API_RETCPOINTER(pValue,"QList<QTableWidgetItem *>");
 	}
@@ -23468,7 +23468,7 @@ RING_FUNC(ring_QTableWidget_selectedRanges)
 	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
 	{
 		QList<QTableWidgetSelectionRange> *pValue ; 
-		pValue = (QList<QTableWidgetSelectionRange> *) malloc(sizeof(QList<QTableWidgetSelectionRange>)) ;
+		pValue = (QList<QTableWidgetSelectionRange> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QTableWidgetSelectionRange>)) ;
 		*pValue = pObject->selectedRanges();
 		RING_API_RETCPOINTER(pValue,"QList<QTableWidgetSelectionRange>");
 	}
@@ -23611,7 +23611,7 @@ RING_FUNC(ring_QTableWidget_setHorizontalHeaderLabels)
 	pObject = (GTableWidget *) RING_API_GETCPOINTER(1,"QTableWidget");
 	pObject->setHorizontalHeaderLabels(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -26757,9 +26757,9 @@ RING_FUNC(ring_QDateTimeEdit_setDateRange)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setDateRange(* (QDate *) RING_API_GETCPOINTER(2,"QDate"),* (QDate *) RING_API_GETCPOINTER(3,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDate"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QDate"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QDate"));
 }
 
 
@@ -26778,9 +26778,9 @@ RING_FUNC(ring_QDateTimeEdit_setDateTimeRange)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setDateTimeRange(* (QDateTime *) RING_API_GETCPOINTER(2,"QDateTime"),* (QDateTime *) RING_API_GETCPOINTER(3,"QDateTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDateTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QDateTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QDateTime"));
 }
 
 
@@ -26820,7 +26820,7 @@ RING_FUNC(ring_QDateTimeEdit_setMaximumDate)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMaximumDate(* (QDate *) RING_API_GETCPOINTER(2,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDate"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
 }
 
 
@@ -26839,7 +26839,7 @@ RING_FUNC(ring_QDateTimeEdit_setMaximumDateTime)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMaximumDateTime(* (QDateTime *) RING_API_GETCPOINTER(2,"QDateTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDateTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
 }
 
 
@@ -26858,7 +26858,7 @@ RING_FUNC(ring_QDateTimeEdit_setMaximumTime)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMaximumTime(* (QTime *) RING_API_GETCPOINTER(2,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTime"));
 }
 
 
@@ -26877,7 +26877,7 @@ RING_FUNC(ring_QDateTimeEdit_setMinimumDate)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMinimumDate(* (QDate *) RING_API_GETCPOINTER(2,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDate"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
 }
 
 
@@ -26896,7 +26896,7 @@ RING_FUNC(ring_QDateTimeEdit_setMinimumDateTime)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMinimumDateTime(* (QDateTime *) RING_API_GETCPOINTER(2,"QDateTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDateTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
 }
 
 
@@ -26915,7 +26915,7 @@ RING_FUNC(ring_QDateTimeEdit_setMinimumTime)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMinimumTime(* (QTime *) RING_API_GETCPOINTER(2,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTime"));
 }
 
 
@@ -26955,9 +26955,9 @@ RING_FUNC(ring_QDateTimeEdit_setTimeRange)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setTimeRange(* (QTime *) RING_API_GETCPOINTER(2,"QTime"),* (QTime *) RING_API_GETCPOINTER(3,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QTime"));
 }
 
 
@@ -27036,7 +27036,7 @@ RING_FUNC(ring_QDateTimeEdit_setDate)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setDate(* (QDate *) RING_API_GETCPOINTER(2,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDate"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
 }
 
 
@@ -27055,7 +27055,7 @@ RING_FUNC(ring_QDateTimeEdit_setDateTime)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setDateTime(* (QDateTime *) RING_API_GETCPOINTER(2,"QDateTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDateTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
 }
 
 
@@ -27074,7 +27074,7 @@ RING_FUNC(ring_QDateTimeEdit_setTime)
 	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setTime(* (QTime *) RING_API_GETCPOINTER(2,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTime"));
 }
 
 
@@ -28012,7 +28012,7 @@ RING_FUNC(ring_QWebView_load)
 	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	pObject->load(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -28090,9 +28090,9 @@ RING_FUNC(ring_QWebView_setContent)
 	}
 	pObject->setContent(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QUrl"));
 }
 
 
@@ -28115,7 +28115,7 @@ RING_FUNC(ring_QWebView_setHtml)
 	}
 	pObject->setHtml(RING_API_GETSTRING(2),* (QUrl *) RING_API_GETCPOINTER(3,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QUrl"));
 }
 
 
@@ -28155,7 +28155,7 @@ RING_FUNC(ring_QWebView_setUrl)
 	pObject = (GWebView *) RING_API_GETCPOINTER(1,"QWebView");
 	pObject->setUrl(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -28796,7 +28796,7 @@ RING_FUNC(ring_QUrl_isParentOf)
 	pObject = (QUrl *) RING_API_GETCPOINTER(1,"QUrl");
 	RING_API_RETNUMBER(pObject->isParentOf(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -28936,7 +28936,7 @@ RING_FUNC(ring_QUrl_resolved)
 		pValue = new QUrl() ;
 		*pValue = pObject->resolved(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 		RING_API_RETCPOINTER(pValue,"QUrl");
 	}
 }
@@ -29241,7 +29241,7 @@ RING_FUNC(ring_QUrl_swap)
 	pObject = (QUrl *) RING_API_GETCPOINTER(1,"QUrl");
 	pObject->swap(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -29982,7 +29982,7 @@ RING_FUNC(ring_QAbstractButton_setIcon)
 	pObject = (QAbstractButton *) RING_API_GETCPOINTER(1,"QAbstractButton");
 	pObject->setIcon(* (QIcon *) RING_API_GETCPOINTER(2,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
 }
 
 
@@ -30001,7 +30001,7 @@ RING_FUNC(ring_QAbstractButton_setShortcut)
 	pObject = (QAbstractButton *) RING_API_GETCPOINTER(1,"QAbstractButton");
 	pObject->setShortcut(* (QKeySequence *) RING_API_GETCPOINTER(2,"QKeySequence"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QKeySequence"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QKeySequence"));
 }
 
 
@@ -30139,7 +30139,7 @@ RING_FUNC(ring_QAbstractButton_setIconSize)
 	pObject = (QAbstractButton *) RING_API_GETCPOINTER(1,"QAbstractButton");
 	pObject->setIconSize(* (QSize *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -30687,7 +30687,7 @@ RING_FUNC(ring_QMediaPlayer_currentMedia)
 	pObject = (QMediaPlayer *) RING_API_GETCPOINTER(1,"QMediaPlayer");
 	{
 		QMediaContent *pValue ; 
-		pValue = (QMediaContent *) malloc(sizeof(QMediaContent)) ;
+		pValue = (QMediaContent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMediaContent)) ;
 		*pValue = pObject->currentMedia();
 		RING_API_RETCPOINTER(pValue,"QMediaContent");
 	}
@@ -30709,7 +30709,7 @@ RING_FUNC(ring_QMediaPlayer_currentNetworkConfiguration)
 	pObject = (QMediaPlayer *) RING_API_GETCPOINTER(1,"QMediaPlayer");
 	{
 		QNetworkConfiguration *pValue ; 
-		pValue = (QNetworkConfiguration *) malloc(sizeof(QNetworkConfiguration)) ;
+		pValue = (QNetworkConfiguration *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QNetworkConfiguration)) ;
 		*pValue = pObject->currentNetworkConfiguration();
 		RING_API_RETCPOINTER(pValue,"QNetworkConfiguration");
 	}
@@ -30850,7 +30850,7 @@ RING_FUNC(ring_QMediaPlayer_media)
 	pObject = (QMediaPlayer *) RING_API_GETCPOINTER(1,"QMediaPlayer");
 	{
 		QMediaContent *pValue ; 
-		pValue = (QMediaContent *) malloc(sizeof(QMediaContent)) ;
+		pValue = (QMediaContent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMediaContent)) ;
 		*pValue = pObject->media();
 		RING_API_RETCPOINTER(pValue,"QMediaContent");
 	}
@@ -31046,7 +31046,7 @@ RING_FUNC(ring_QMediaPlayer_setMedia)
 	pObject = (QMediaPlayer *) RING_API_GETCPOINTER(1,"QMediaPlayer");
 	pObject->setMedia(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -31187,7 +31187,7 @@ RING_FUNC(ring_QMediaPlaylist_addMedia)
 	pObject = (QMediaPlaylist *) RING_API_GETCPOINTER(1,"QMediaPlaylist");
 	RING_API_RETNUMBER(pObject->addMedia(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -31240,7 +31240,7 @@ RING_FUNC(ring_QMediaPlaylist_currentMedia)
 	pObject = (QMediaPlaylist *) RING_API_GETCPOINTER(1,"QMediaPlaylist");
 	{
 		QMediaContent *pValue ; 
-		pValue = (QMediaContent *) malloc(sizeof(QMediaContent)) ;
+		pValue = (QMediaContent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMediaContent)) ;
 		*pValue = pObject->currentMedia();
 		RING_API_RETCPOINTER(pValue,"QMediaContent");
 	}
@@ -31300,7 +31300,7 @@ RING_FUNC(ring_QMediaPlaylist_insertMedia)
 	}
 	RING_API_RETNUMBER(pObject->insertMedia( (int ) RING_API_GETNUMBER(2),* (QMediaContent *) RING_API_GETCPOINTER(3,"QMediaContent")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QMediaContent"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QMediaContent"));
 }
 
 
@@ -31357,7 +31357,7 @@ RING_FUNC(ring_QMediaPlaylist_load)
 	}
 	pObject->load(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"),RING_API_GETSTRING(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -31380,7 +31380,7 @@ RING_FUNC(ring_QMediaPlaylist_media)
 	}
 	{
 		QMediaContent *pValue ; 
-		pValue = (QMediaContent *) malloc(sizeof(QMediaContent)) ;
+		pValue = (QMediaContent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMediaContent)) ;
 		*pValue = pObject->media( (int ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QMediaContent");
 	}
@@ -31507,7 +31507,7 @@ RING_FUNC(ring_QMediaPlaylist_save)
 	}
 	RING_API_RETNUMBER(pObject->save(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"),RING_API_GETSTRING(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -32408,7 +32408,7 @@ RING_FUNC(ring_QAction_setData)
 	pObject = (GAction *) RING_API_GETCPOINTER(1,"QAction");
 	pObject->setData(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariant"));
 }
 
 
@@ -32427,7 +32427,7 @@ RING_FUNC(ring_QAction_setFont)
 	pObject = (GAction *) RING_API_GETCPOINTER(1,"QAction");
 	pObject->setFont(* (QFont *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -32446,7 +32446,7 @@ RING_FUNC(ring_QAction_setIcon)
 	pObject = (GAction *) RING_API_GETCPOINTER(1,"QAction");
 	pObject->setIcon(* (QIcon *) RING_API_GETCPOINTER(2,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
 }
 
 
@@ -32591,7 +32591,7 @@ RING_FUNC(ring_QAction_setShortcut)
 	pObject = (GAction *) RING_API_GETCPOINTER(1,"QAction");
 	pObject->setShortcut(* (QKeySequence *) RING_API_GETCPOINTER(2,"QKeySequence"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QKeySequence"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QKeySequence"));
 }
 
 
@@ -33426,7 +33426,7 @@ RING_FUNC(ring_QMessageBox_setIconPixmap)
 	pObject = (QMessageBox *) RING_API_GETCPOINTER(1,"QMessageBox");
 	pObject->setIconPixmap(* (QPixmap *) RING_API_GETCPOINTER(2,"QPixmap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPixmap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPixmap"));
 }
 
 
@@ -34336,7 +34336,7 @@ RING_FUNC(ring_QFileDialog_restoreState)
 	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETNUMBER(pObject->restoreState(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -34440,7 +34440,7 @@ RING_FUNC(ring_QFileDialog_selectUrl)
 	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->selectUrl(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -34561,7 +34561,7 @@ RING_FUNC(ring_QFileDialog_setDirectoryUrl)
 	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setDirectoryUrl(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -34622,7 +34622,7 @@ RING_FUNC(ring_QFileDialog_setHistory)
 	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setHistory(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -34708,7 +34708,7 @@ RING_FUNC(ring_QFileDialog_setMimeTypeFilters)
 	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setMimeTypeFilters(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -34748,7 +34748,7 @@ RING_FUNC(ring_QFileDialog_setNameFilters)
 	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setNameFilters(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -34941,9 +34941,9 @@ RING_FUNC(ring_QFileDialog_getExistingDirectoryUrl)
 		pValue = new QUrl() ;
 		*pValue = pObject->getExistingDirectoryUrl((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"), (QFileDialog::Option)  (int) RING_API_GETNUMBER(5),* (QStringList *) RING_API_GETCPOINTER(6,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QStringList"));
 		RING_API_RETCPOINTER(pValue,"QUrl");
 	}
 }
@@ -35020,9 +35020,9 @@ RING_FUNC(ring_QFileDialog_getOpenFileUrl)
 		pValue = new QUrl() ;
 		*pValue = pObject->getOpenFileUrl((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"),RING_API_GETSTRING(5),(QString *) RING_API_GETCPOINTER(6,"QString"), (QFileDialog::Option )  (int) RING_API_GETNUMBER(7),* (QStringList *) RING_API_GETCPOINTER(8,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		free(RING_API_GETCPOINTER(7,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"QStringList"));
 		RING_API_RETCPOINTER(pValue,"QUrl");
 	}
 }
@@ -35099,9 +35099,9 @@ RING_FUNC(ring_QFileDialog_getSaveFileUrl)
 		pValue = new QUrl() ;
 		*pValue = pObject->getSaveFileUrl((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),RING_API_GETSTRING(3),* (QUrl *) RING_API_GETCPOINTER(4,"QUrl"),RING_API_GETSTRING(5),(QString *) RING_API_GETCPOINTER(6,"QString"), (QFileDialog::Option )  (int) RING_API_GETNUMBER(7),* (QStringList *) RING_API_GETCPOINTER(8,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		free(RING_API_GETCPOINTER(7,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"QStringList"));
 		RING_API_RETCPOINTER(pValue,"QUrl");
 	}
 }
@@ -35289,7 +35289,7 @@ RING_FUNC(ring_QPainter_clipBoundingRect)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QRectF *pValue ; 
-		pValue = (QRectF *) malloc(sizeof(QRectF)) ;
+		pValue = (QRectF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRectF)) ;
 		*pValue = pObject->clipBoundingRect();
 		RING_API_RETCPOINTER(pValue,"QRectF");
 	}
@@ -35333,7 +35333,7 @@ RING_FUNC(ring_QPainter_clipRegion)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QRegion *pValue ; 
-		pValue = (QRegion *) malloc(sizeof(QRegion)) ;
+		pValue = (QRegion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRegion)) ;
 		*pValue = pObject->clipRegion();
 		RING_API_RETCPOINTER(pValue,"QRegion");
 	}
@@ -35355,7 +35355,7 @@ RING_FUNC(ring_QPainter_combinedTransform)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QTransform *pValue ; 
-		pValue = (QTransform *) malloc(sizeof(QTransform)) ;
+		pValue = (QTransform *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTransform)) ;
 		*pValue = pObject->combinedTransform();
 		RING_API_RETCPOINTER(pValue,"QTransform");
 	}
@@ -35411,7 +35411,7 @@ RING_FUNC(ring_QPainter_deviceTransform)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QTransform *pValue ; 
-		pValue = (QTransform *) malloc(sizeof(QTransform)) ;
+		pValue = (QTransform *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTransform)) ;
 		*pValue = pObject->deviceTransform();
 		RING_API_RETCPOINTER(pValue,"QTransform");
 	}
@@ -35573,9 +35573,9 @@ RING_FUNC(ring_QPainter_drawGlyphRun)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pObject->drawGlyphRun(* (QPointF   *) RING_API_GETCPOINTER(2,"QPointF"),* (QGlyphRun   *) RING_API_GETCPOINTER(3,"QGlyphRun"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPointF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPointF"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QGlyphRun"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QGlyphRun"));
 }
 
 
@@ -35602,7 +35602,7 @@ RING_FUNC(ring_QPainter_drawImage)
 	}
 	pObject->drawImage( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (QImage  *) RING_API_GETCPOINTER(4,"QImage"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QImage"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QImage"));
 }
 
 
@@ -35679,7 +35679,7 @@ RING_FUNC(ring_QPainter_drawPath)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pObject->drawPath(* (QPainterPath   *) RING_API_GETCPOINTER(2,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 }
 
 
@@ -35706,7 +35706,7 @@ RING_FUNC(ring_QPainter_drawPicture)
 	}
 	pObject->drawPicture( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (QPicture   *) RING_API_GETCPOINTER(4,"QPicture"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QPicture"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QPicture"));
 }
 
 
@@ -35774,7 +35774,7 @@ RING_FUNC(ring_QPainter_drawPixmap)
 	}
 	pObject->drawPixmap( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (QPixmap *) RING_API_GETCPOINTER(4,"QPixmap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QPixmap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QPixmap"));
 }
 
 
@@ -35979,7 +35979,7 @@ RING_FUNC(ring_QPainter_drawStaticText)
 	}
 	pObject->drawStaticText( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (QStaticText   *) RING_API_GETCPOINTER(4,"QStaticText"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QStaticText"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QStaticText"));
 }
 
 
@@ -36051,7 +36051,7 @@ RING_FUNC(ring_QPainter_drawTiledPixmap)
 	}
 	pObject->drawTiledPixmap( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (QPixmap   *) RING_API_GETCPOINTER(6,"QPixmap"), (int ) RING_API_GETNUMBER(7), (int ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"QPixmap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QPixmap"));
 }
 
 
@@ -36137,9 +36137,9 @@ RING_FUNC(ring_QPainter_fillPath)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pObject->fillPath(* (QPainterPath   *) RING_API_GETCPOINTER(2,"QPainterPath"),* (QBrush   *) RING_API_GETCPOINTER(3,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QBrush"));
 }
 
 
@@ -36174,7 +36174,7 @@ RING_FUNC(ring_QPainter_fillRect)
 	}
 	pObject->fillRect( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (QBrush *) RING_API_GETCPOINTER(6,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QBrush"));
 }
 
 
@@ -36215,7 +36215,7 @@ RING_FUNC(ring_QPainter_fontInfo)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QFontInfo *pValue ; 
-		pValue = (QFontInfo *) malloc(sizeof(QFontInfo)) ;
+		pValue = (QFontInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QFontInfo)) ;
 		*pValue = pObject->fontInfo();
 		RING_API_RETCPOINTER(pValue,"QFontInfo");
 	}
@@ -36479,7 +36479,7 @@ RING_FUNC(ring_QPainter_setBackground)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pObject->setBackground(* (QBrush   *) RING_API_GETCPOINTER(2,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
 }
 
 
@@ -36519,7 +36519,7 @@ RING_FUNC(ring_QPainter_setBrush)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pObject->setBrush(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
 }
 
 
@@ -36567,7 +36567,7 @@ RING_FUNC(ring_QPainter_setClipPath)
 	}
 	pObject->setClipPath(* (QPainterPath   *) RING_API_GETCPOINTER(2,"QPainterPath"), (Qt::ClipOperation )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 }
 
 
@@ -36627,7 +36627,7 @@ RING_FUNC(ring_QPainter_setClipRegion)
 	}
 	pObject->setClipRegion(* (QRegion   *) RING_API_GETCPOINTER(2,"QRegion"), (Qt::ClipOperation )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRegion"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRegion"));
 }
 
 
@@ -36688,7 +36688,7 @@ RING_FUNC(ring_QPainter_setFont)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pObject->setFont(* (QFont   *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -36749,7 +36749,7 @@ RING_FUNC(ring_QPainter_setPen)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pObject->setPen(* (QPen   *) RING_API_GETCPOINTER(2,"QPen"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPen"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPen"));
 }
 
 
@@ -36797,7 +36797,7 @@ RING_FUNC(ring_QPainter_setTransform)
 	}
 	pObject->setTransform(* (QTransform   *) RING_API_GETCPOINTER(2,"QTransform"), (bool ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTransform"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTransform"));
 }
 
 
@@ -36928,7 +36928,7 @@ RING_FUNC(ring_QPainter_setWorldTransform)
 	}
 	pObject->setWorldTransform(* (QTransform   *) RING_API_GETCPOINTER(2,"QTransform"), (bool ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTransform"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTransform"));
 }
 
 
@@ -36972,9 +36972,9 @@ RING_FUNC(ring_QPainter_strokePath)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pObject->strokePath(* (QPainterPath   *) RING_API_GETCPOINTER(2,"QPainterPath"),* (QPen   *) RING_API_GETCPOINTER(3,"QPen"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QPen"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QPen"));
 }
 
 
@@ -37014,7 +37014,7 @@ RING_FUNC(ring_QPainter_transform)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QTransform  *pValue ; 
-		pValue = (QTransform  *) malloc(sizeof(QTransform )) ;
+		pValue = (QTransform  *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTransform )) ;
 		*pValue = pObject->transform();
 		RING_API_RETCPOINTER(pValue,"QTransform");
 	}
@@ -37139,7 +37139,7 @@ RING_FUNC(ring_QPainter_worldTransform)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QTransform  *pValue ; 
-		pValue = (QTransform  *) malloc(sizeof(QTransform )) ;
+		pValue = (QTransform  *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTransform )) ;
 		*pValue = pObject->worldTransform();
 		RING_API_RETCPOINTER(pValue,"QTransform");
 	}
@@ -37322,7 +37322,7 @@ RING_FUNC(ring_QPicture_setBoundingRect)
 	pObject = (QPicture *) RING_API_GETCPOINTER(1,"QPicture");
 	pObject->setBoundingRect(* (QRect *) RING_API_GETCPOINTER(2,"QRect"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRect"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
 }
 
 
@@ -37358,7 +37358,7 @@ RING_FUNC(ring_QPicture_swap)
 	pObject = (QPicture *) RING_API_GETCPOINTER(1,"QPicture");
 	pObject->swap(* (QPicture *) RING_API_GETCPOINTER(2,"QPicture"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPicture"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPicture"));
 }
 
 
@@ -37523,7 +37523,7 @@ RING_FUNC(ring_QPen_setBrush)
 	pObject = (QPen *) RING_API_GETCPOINTER(1,"QPen");
 	pObject->setBrush(* (QBrush *) RING_API_GETCPOINTER(2,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
 }
 
 
@@ -37563,7 +37563,7 @@ RING_FUNC(ring_QPen_setColor)
 	pObject = (QPen *) RING_API_GETCPOINTER(1,"QPen");
 	pObject->setColor(* (QColor *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -37746,7 +37746,7 @@ RING_FUNC(ring_QPen_swap)
 	pObject = (QPen *) RING_API_GETCPOINTER(1,"QPen");
 	pObject->swap(* (QPen *) RING_API_GETCPOINTER(2,"QPen"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPen"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPen"));
 }
 
 
@@ -38642,7 +38642,7 @@ RING_FUNC(ring_QColor_rgb)
 	pObject = (QColor *) RING_API_GETCPOINTER(1,"QColor");
 	{
 		QRgb *pValue ; 
-		pValue = (QRgb *) malloc(sizeof(QRgb)) ;
+		pValue = (QRgb *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRgb)) ;
 		*pValue = pObject->rgb();
 		RING_API_RETCPOINTER(pValue,"QRgb");
 	}
@@ -38664,7 +38664,7 @@ RING_FUNC(ring_QColor_rgba)
 	pObject = (QColor *) RING_API_GETCPOINTER(1,"QColor");
 	{
 		QRgb *pValue ; 
-		pValue = (QRgb *) malloc(sizeof(QRgb)) ;
+		pValue = (QRgb *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRgb)) ;
 		*pValue = pObject->rgba();
 		RING_API_RETCPOINTER(pValue,"QRgb");
 	}
@@ -39181,7 +39181,7 @@ RING_FUNC(ring_QColor_setRgba)
 	pObject = (QColor *) RING_API_GETCPOINTER(1,"QColor");
 	pObject->setRgba(* (QRgb  *) RING_API_GETCPOINTER(2,"QRgb"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRgb"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRgb"));
 }
 
 
@@ -39710,7 +39710,7 @@ RING_FUNC(ring_QColor_fromRgba)
 		pValue = new QColor() ;
 		*pValue = pObject->fromRgba(* (QRgb  *) RING_API_GETCPOINTER(2,"QRgb"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRgb"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRgb"));
 		RING_API_RETCPOINTER(pValue,"QColor");
 	}
 }
@@ -39994,7 +39994,7 @@ RING_FUNC(ring_QPrinter_pageRect)
 	}
 	{
 		QRectF *pValue ; 
-		pValue = (QRectF *) malloc(sizeof(QRectF)) ;
+		pValue = (QRectF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRectF)) ;
 		*pValue = pObject->pageRect( (QPrinter::Unit )  (int) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QRectF");
 	}
@@ -40020,7 +40020,7 @@ RING_FUNC(ring_QPrinter_paperRect)
 	}
 	{
 		QRectF *pValue ; 
-		pValue = (QRectF *) malloc(sizeof(QRectF)) ;
+		pValue = (QRectF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRectF)) ;
 		*pValue = pObject->paperRect( (QPrinter::Unit )  (int) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QRectF");
 	}
@@ -40628,7 +40628,7 @@ RING_FUNC(ring_QPrinter_setPageSizeMM)
 	pObject = (QPrinter *) RING_API_GETCPOINTER(1,"QPrinter");
 	pObject->setPageSizeMM(* (QSizeF *) RING_API_GETCPOINTER(2,"QSizeF"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSizeF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSizeF"));
 }
 
 
@@ -40787,7 +40787,7 @@ RING_FUNC(ring_QFont_isCopyOf)
 	pObject = (QFont *) RING_API_GETCPOINTER(1,"QFont");
 	RING_API_RETNUMBER(pObject->isCopyOf(* (QFont *) RING_API_GETCPOINTER(2,"QFont")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -41030,7 +41030,7 @@ RING_FUNC(ring_QFont_resolve)
 		pValue = new QFont() ;
 		*pValue = pObject->resolve(* (QFont *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 		RING_API_RETCPOINTER(pValue,"QFont");
 	}
 }
@@ -41741,7 +41741,7 @@ RING_FUNC(ring_QFont_insertSubstitutions)
 	}
 	pObject->insertSubstitutions(RING_API_GETSTRING(2),* (QStringList *) RING_API_GETCPOINTER(3,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QStringList"));
 }
 
 
@@ -41885,7 +41885,7 @@ RING_FUNC(ring_QBrush_matrix)
 	pObject = (QBrush *) RING_API_GETCPOINTER(1,"QBrush");
 	{
 		QMatrix *pValue ; 
-		pValue = (QMatrix *) malloc(sizeof(QMatrix)) ;
+		pValue = (QMatrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMatrix)) ;
 		*pValue = pObject->matrix();
 		RING_API_RETCPOINTER(pValue,"QMatrix");
 	}
@@ -41907,7 +41907,7 @@ RING_FUNC(ring_QBrush_setColor)
 	pObject = (QBrush *) RING_API_GETCPOINTER(1,"QBrush");
 	pObject->setColor(* (QColor *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -41926,7 +41926,7 @@ RING_FUNC(ring_QBrush_setMatrix)
 	pObject = (QBrush *) RING_API_GETCPOINTER(1,"QBrush");
 	pObject->setMatrix(* (QMatrix *) RING_API_GETCPOINTER(2,"QMatrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QMatrix"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix"));
 }
 
 
@@ -41966,7 +41966,7 @@ RING_FUNC(ring_QBrush_setTexture)
 	pObject = (QBrush *) RING_API_GETCPOINTER(1,"QBrush");
 	pObject->setTexture(* (QPixmap *) RING_API_GETCPOINTER(2,"QPixmap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPixmap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPixmap"));
 }
 
 
@@ -41985,7 +41985,7 @@ RING_FUNC(ring_QBrush_setTextureImage)
 	pObject = (QBrush *) RING_API_GETCPOINTER(1,"QBrush");
 	pObject->setTextureImage(* (QImage *) RING_API_GETCPOINTER(2,"QImage"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QImage"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QImage"));
 }
 
 
@@ -42004,7 +42004,7 @@ RING_FUNC(ring_QBrush_setTransform)
 	pObject = (QBrush *) RING_API_GETCPOINTER(1,"QBrush");
 	pObject->setTransform(* (QTransform *) RING_API_GETCPOINTER(2,"QTransform"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTransform"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTransform"));
 }
 
 
@@ -42040,7 +42040,7 @@ RING_FUNC(ring_QBrush_swap)
 	pObject = (QBrush *) RING_API_GETCPOINTER(1,"QBrush");
 	pObject->swap(* (QBrush *) RING_API_GETCPOINTER(2,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
 }
 
 
@@ -42103,7 +42103,7 @@ RING_FUNC(ring_QBrush_transform)
 	pObject = (QBrush *) RING_API_GETCPOINTER(1,"QBrush");
 	{
 		QTransform *pValue ; 
-		pValue = (QTransform *) malloc(sizeof(QTransform)) ;
+		pValue = (QTransform *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTransform)) ;
 		*pValue = pObject->transform();
 		RING_API_RETCPOINTER(pValue,"QTransform");
 	}
@@ -42155,7 +42155,7 @@ RING_FUNC(ring_QByteArray_at)
 	}
 	{
 		char *pValue ; 
-		pValue = (char *) malloc(sizeof(char)) ;
+		pValue = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(char)) ;
 		*pValue = pObject->at( (int ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"char");
 	}
@@ -42336,7 +42336,7 @@ RING_FUNC(ring_QByteArray_fill)
 		pValue = new QByteArray() ;
 		*pValue = pObject->fill(* (char  *) RING_API_GETCPOINTER(2,"char"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"char"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -42512,7 +42512,7 @@ RING_FUNC(ring_QByteArray_leftJustified)
 		pValue = new QByteArray() ;
 		*pValue = pObject->leftJustified( (int ) RING_API_GETNUMBER(2),* (char  *) RING_API_GETCPOINTER(3,"char"), (bool ) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -42724,7 +42724,7 @@ RING_FUNC(ring_QByteArray_replace)
 	}
 	{
 		QByteArray  *pValue ; 
-		pValue = (QByteArray  *) malloc(sizeof(QByteArray )) ;
+		pValue = (QByteArray  *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QByteArray )) ;
 		*pValue = pObject->replace( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (int ) RING_API_GETNUMBER(5));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
@@ -42825,7 +42825,7 @@ RING_FUNC(ring_QByteArray_rightJustified)
 		pValue = new QByteArray() ;
 		*pValue = pObject->rightJustified( (int ) RING_API_GETNUMBER(2),* (char  *) RING_API_GETCPOINTER(3,"char"), (bool ) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -42883,7 +42883,7 @@ RING_FUNC(ring_QByteArray_setRawData)
 		pValue = new QByteArray() ;
 		*pValue = pObject->setRawData(RING_API_GETSTRING(2),* (uint  *) RING_API_GETCPOINTER(3,"uint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"uint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uint"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -42981,7 +42981,7 @@ RING_FUNC(ring_QByteArray_swap)
 	pObject = (QByteArray *) RING_API_GETCPOINTER(1,"QByteArray");
 	pObject->swap(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -43119,7 +43119,7 @@ RING_FUNC(ring_QByteArray_toLong)
 	}
 	{
 		long *pValue ; 
-		pValue = (long *) malloc(sizeof(long)) ;
+		pValue = (long *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(long)) ;
 		*pValue = pObject->toLong((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"long");
 	}
@@ -43149,7 +43149,7 @@ RING_FUNC(ring_QByteArray_toLongLong)
 	}
 	{
 		qlonglong *pValue ; 
-		pValue = (qlonglong *) malloc(sizeof(qlonglong)) ;
+		pValue = (qlonglong *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(qlonglong)) ;
 		*pValue = pObject->toLongLong((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"qlonglong");
 	}
@@ -43196,11 +43196,11 @@ RING_FUNC(ring_QByteArray_toPercentEncoding)
 		pValue = new QByteArray() ;
 		*pValue = pObject->toPercentEncoding(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"),* (QByteArray *) RING_API_GETCPOINTER(3,"QByteArray"),* (char  *) RING_API_GETCPOINTER(4,"char"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"char"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -43229,7 +43229,7 @@ RING_FUNC(ring_QByteArray_toShort)
 	}
 	{
 		short *pValue ; 
-		pValue = (short *) malloc(sizeof(short)) ;
+		pValue = (short *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(short)) ;
 		*pValue = pObject->toShort((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"short");
 	}
@@ -43419,7 +43419,7 @@ RING_FUNC(ring_QByteArray_fromBase64)
 		pValue = new QByteArray() ;
 		*pValue = pObject->fromBase64(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -43443,7 +43443,7 @@ RING_FUNC(ring_QByteArray_fromHex)
 		pValue = new QByteArray() ;
 		*pValue = pObject->fromHex(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -43467,9 +43467,9 @@ RING_FUNC(ring_QByteArray_fromPercentEncoding)
 		pValue = new QByteArray() ;
 		*pValue = pObject->fromPercentEncoding(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"),* (char  *) RING_API_GETCPOINTER(3,"char"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -43698,7 +43698,7 @@ RING_FUNC(ring_QIODevice_putChar)
 	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
 	RING_API_RETNUMBER(pObject->putChar(* (char  *) RING_API_GETCPOINTER(2,"char")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"char"));
 }
 
 
@@ -43810,7 +43810,7 @@ RING_FUNC(ring_QIODevice_ungetChar)
 	pObject = (GIODevice *) RING_API_GETCPOINTER(1,"QIODevice");
 	pObject->ungetChar(* (char  *) RING_API_GETCPOINTER(2,"char"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"char"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"char"));
 }
 
 
@@ -44158,7 +44158,7 @@ RING_FUNC(ring_QAbstractSocket_bind)
 	}
 	RING_API_RETNUMBER(pObject->bind(* (QHostAddress  *) RING_API_GETCPOINTER(2,"QHostAddress"), (int ) RING_API_GETNUMBER(3), (QAbstractSocket::BindFlag )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QHostAddress"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QHostAddress"));
 }
 
 
@@ -44467,7 +44467,7 @@ RING_FUNC(ring_QAbstractSocket_setProxy)
 	pObject = (GAbstractSocket *) RING_API_GETCPOINTER(1,"QAbstractSocket");
 	pObject->setProxy(* (QNetworkProxy   *) RING_API_GETCPOINTER(2,"QNetworkProxy"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkProxy"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkProxy"));
 }
 
 
@@ -44515,7 +44515,7 @@ RING_FUNC(ring_QAbstractSocket_setSocketDescriptor)
 	}
 	RING_API_RETNUMBER(pObject->setSocketDescriptor(* (qintptr  *) RING_API_GETCPOINTER(2,"qintptr"), (QAbstractSocket::SocketState )  (int) RING_API_GETNUMBER(3), (QIODevice::OpenModeFlag )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"qintptr"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"qintptr"));
 }
 
 
@@ -44538,7 +44538,7 @@ RING_FUNC(ring_QAbstractSocket_setSocketOption)
 	}
 	pObject->setSocketOption( (QAbstractSocket::SocketOption )  (int) RING_API_GETNUMBER(2),* (QVariant   *) RING_API_GETCPOINTER(3,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -45065,7 +45065,7 @@ RING_FUNC(ring_QNetworkProxy_hasRawHeader)
 	pObject = (QNetworkProxy *) RING_API_GETCPOINTER(1,"QNetworkProxy");
 	RING_API_RETNUMBER(pObject->hasRawHeader(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -45198,7 +45198,7 @@ RING_FUNC(ring_QNetworkProxy_rawHeader)
 		pValue = new QByteArray() ;
 		*pValue = pObject->rawHeader(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -45244,7 +45244,7 @@ RING_FUNC(ring_QNetworkProxy_setHeader)
 	}
 	pObject->setHeader( (QNetworkRequest::KnownHeaders )  (int) RING_API_GETNUMBER(2),* (QVariant  *) RING_API_GETCPOINTER(3,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -45326,9 +45326,9 @@ RING_FUNC(ring_QNetworkProxy_setRawHeader)
 	pObject = (QNetworkProxy *) RING_API_GETCPOINTER(1,"QNetworkProxy");
 	pObject->setRawHeader(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray"),* (QByteArray  *) RING_API_GETCPOINTER(3,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QByteArray"));
 }
 
 
@@ -45389,7 +45389,7 @@ RING_FUNC(ring_QNetworkProxy_swap)
 	pObject = (QNetworkProxy *) RING_API_GETCPOINTER(1,"QNetworkProxy");
 	pObject->swap(* (QNetworkProxy   *) RING_API_GETCPOINTER(2,"QNetworkProxy"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkProxy"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkProxy"));
 }
 
 
@@ -45464,7 +45464,7 @@ RING_FUNC(ring_QNetworkProxy_setApplicationProxy)
 	pObject = (QNetworkProxy *) RING_API_GETCPOINTER(1,"QNetworkProxy");
 	pObject->setApplicationProxy(* (QNetworkProxy   *) RING_API_GETCPOINTER(2,"QNetworkProxy"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkProxy"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkProxy"));
 }
 
 
@@ -45935,7 +45935,7 @@ RING_FUNC(ring_QTcpServer_listen)
 	}
 	RING_API_RETNUMBER(pObject->listen(* (QHostAddress *) RING_API_GETCPOINTER(2,"QHostAddress"), (int ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QHostAddress"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QHostAddress"));
 }
 
 
@@ -46121,7 +46121,7 @@ RING_FUNC(ring_QTcpServer_setProxy)
 	pObject = (GTcpServer *) RING_API_GETCPOINTER(1,"QTcpServer");
 	pObject->setProxy(* (QNetworkProxy *) RING_API_GETCPOINTER(2,"QNetworkProxy"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkProxy"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkProxy"));
 }
 
 
@@ -46140,7 +46140,7 @@ RING_FUNC(ring_QTcpServer_setSocketDescriptor)
 	pObject = (GTcpServer *) RING_API_GETCPOINTER(1,"QTcpServer");
 	RING_API_RETNUMBER(pObject->setSocketDescriptor(* (qintptr  *) RING_API_GETCPOINTER(2,"qintptr")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"qintptr"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"qintptr"));
 }
 
 
@@ -46298,7 +46298,7 @@ RING_FUNC(ring_QHostAddress_isInSubnet)
 	}
 	RING_API_RETNUMBER(pObject->isInSubnet(* (QHostAddress *) RING_API_GETCPOINTER(2,"QHostAddress"), (int ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QHostAddress"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QHostAddress"));
 }
 
 
@@ -46406,7 +46406,7 @@ RING_FUNC(ring_QHostAddress_toIPv6Address)
 	pObject = (QHostAddress *) RING_API_GETCPOINTER(1,"QHostAddress");
 	{
 		Q_IPV6ADDR *pValue ; 
-		pValue = (Q_IPV6ADDR *) malloc(sizeof(Q_IPV6ADDR)) ;
+		pValue = (Q_IPV6ADDR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Q_IPV6ADDR)) ;
 		*pValue = pObject->toIPv6Address();
 		RING_API_RETCPOINTER(pValue,"Q_IPV6ADDR");
 	}
@@ -47293,7 +47293,7 @@ RING_FUNC(ring_QFileInfo_ownerId)
 	pObject = (QFileInfo *) RING_API_GETCPOINTER(1,"QFileInfo");
 	{
 		uint *pValue ; 
-		pValue = (uint *) malloc(sizeof(uint)) ;
+		pValue = (uint *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uint)) ;
 		*pValue = pObject->ownerId();
 		RING_API_RETCPOINTER(pValue,"uint");
 	}
@@ -47463,7 +47463,7 @@ RING_FUNC(ring_QFileInfo_swap)
 	pObject = (QFileInfo *) RING_API_GETCPOINTER(1,"QFileInfo");
 	pObject->swap(* (QFileInfo *) RING_API_GETCPOINTER(2,"QFileInfo"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFileInfo"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFileInfo"));
 }
 
 
@@ -47502,7 +47502,7 @@ RING_FUNC(ring_QDirModel_fileIcon)
 		pValue = new QIcon() ;
 		*pValue = pObject->fileIcon(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QIcon");
 	}
 }
@@ -47526,7 +47526,7 @@ RING_FUNC(ring_QDirModel_fileInfo)
 		pValue = new QFileInfo() ;
 		*pValue = pObject->fileInfo(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QFileInfo");
 	}
 }
@@ -47547,7 +47547,7 @@ RING_FUNC(ring_QDirModel_fileName)
 	pObject = (QDirModel *) RING_API_GETCPOINTER(1,"QDirModel");
 	RING_API_RETSTRING(pObject->fileName(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -47566,7 +47566,7 @@ RING_FUNC(ring_QDirModel_filePath)
 	pObject = (QDirModel *) RING_API_GETCPOINTER(1,"QDirModel");
 	RING_API_RETSTRING(pObject->filePath(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -47627,7 +47627,7 @@ RING_FUNC(ring_QDirModel_index)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->index(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -47649,7 +47649,7 @@ RING_FUNC(ring_QDirModel_isDir)
 	pObject = (QDirModel *) RING_API_GETCPOINTER(1,"QDirModel");
 	RING_API_RETNUMBER(pObject->isDir(* (QModelIndex *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -47706,10 +47706,10 @@ RING_FUNC(ring_QDirModel_mkdir)
 	}
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->mkdir(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex"),RING_API_GETSTRING(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
 }
@@ -47752,7 +47752,7 @@ RING_FUNC(ring_QDirModel_remove)
 	pObject = (QDirModel *) RING_API_GETCPOINTER(1,"QDirModel");
 	RING_API_RETNUMBER(pObject->remove(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -47788,7 +47788,7 @@ RING_FUNC(ring_QDirModel_rmdir)
 	pObject = (QDirModel *) RING_API_GETCPOINTER(1,"QDirModel");
 	RING_API_RETNUMBER(pObject->rmdir(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -47870,7 +47870,7 @@ RING_FUNC(ring_QDirModel_setNameFilters)
 	pObject = (QDirModel *) RING_API_GETCPOINTER(1,"QDirModel");
 	pObject->setNameFilters(* (QStringList  *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -47969,7 +47969,7 @@ RING_FUNC(ring_QDirModel_refresh)
 	pObject = (QDirModel *) RING_API_GETCPOINTER(1,"QDirModel");
 	pObject->refresh(* (QModelIndex  *) RING_API_GETCPOINTER(2,"QModelIndex"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QModelIndex"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QModelIndex"));
 }
 
 
@@ -48074,7 +48074,7 @@ RING_FUNC(ring_QFontDialog_setCurrentFont)
 	pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
 	pObject->setCurrentFont(* (QFont *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -48510,7 +48510,7 @@ RING_FUNC(ring_QTextCursor_blockFormat)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	{
 		QTextBlockFormat *pValue ; 
-		pValue = (QTextBlockFormat *) malloc(sizeof(QTextBlockFormat)) ;
+		pValue = (QTextBlockFormat *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTextBlockFormat)) ;
 		*pValue = pObject->blockFormat();
 		RING_API_RETCPOINTER(pValue,"QTextBlockFormat");
 	}
@@ -48605,7 +48605,7 @@ RING_FUNC(ring_QTextCursor_createList)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	RING_API_RETCPOINTER(pObject->createList(* (QTextListFormat *) RING_API_GETCPOINTER(2,"QTextListFormat")),"QTextList");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextListFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextListFormat"));
 }
 
 
@@ -48794,7 +48794,7 @@ RING_FUNC(ring_QTextCursor_insertFragment)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	pObject->insertFragment(* (QTextDocumentFragment *) RING_API_GETCPOINTER(2,"QTextDocumentFragment"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextDocumentFragment"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextDocumentFragment"));
 }
 
 
@@ -48813,7 +48813,7 @@ RING_FUNC(ring_QTextCursor_insertFrame)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	RING_API_RETCPOINTER(pObject->insertFrame(* (QTextFrameFormat *) RING_API_GETCPOINTER(2,"QTextFrameFormat")),"QTextFrame");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextFrameFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextFrameFormat"));
 }
 
 
@@ -48853,7 +48853,7 @@ RING_FUNC(ring_QTextCursor_insertImage)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	pObject->insertImage(* (QTextImageFormat *) RING_API_GETCPOINTER(2,"QTextImageFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextImageFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextImageFormat"));
 }
 
 
@@ -48872,7 +48872,7 @@ RING_FUNC(ring_QTextCursor_insertList)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	RING_API_RETCPOINTER(pObject->insertList(* (QTextListFormat *) RING_API_GETCPOINTER(2,"QTextListFormat")),"QTextList");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextListFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextListFormat"));
 }
 
 
@@ -48899,7 +48899,7 @@ RING_FUNC(ring_QTextCursor_insertTable)
 	}
 	RING_API_RETCPOINTER(pObject->insertTable( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (QTextTableFormat *) RING_API_GETCPOINTER(4,"QTextTableFormat")),"QTextTable");
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QTextTableFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QTextTableFormat"));
 }
 
 
@@ -48939,7 +48939,7 @@ RING_FUNC(ring_QTextCursor_isCopyOf)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	RING_API_RETNUMBER(pObject->isCopyOf(* (QTextCursor *) RING_API_GETCPOINTER(2,"QTextCursor")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCursor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCursor"));
 }
 
 
@@ -49009,7 +49009,7 @@ RING_FUNC(ring_QTextCursor_mergeBlockCharFormat)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	pObject->mergeBlockCharFormat(* (QTextCharFormat *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCharFormat"));
 }
 
 
@@ -49028,7 +49028,7 @@ RING_FUNC(ring_QTextCursor_mergeBlockFormat)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	pObject->mergeBlockFormat(* (QTextBlockFormat *) RING_API_GETCPOINTER(2,"QTextBlockFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextBlockFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextBlockFormat"));
 }
 
 
@@ -49047,7 +49047,7 @@ RING_FUNC(ring_QTextCursor_mergeCharFormat)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	pObject->mergeCharFormat(* (QTextCharFormat *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCharFormat"));
 }
 
 
@@ -49221,7 +49221,7 @@ RING_FUNC(ring_QTextCursor_selection)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	{
 		QTextDocumentFragment *pValue ; 
-		pValue = (QTextDocumentFragment *) malloc(sizeof(QTextDocumentFragment)) ;
+		pValue = (QTextDocumentFragment *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTextDocumentFragment)) ;
 		*pValue = pObject->selection();
 		RING_API_RETCPOINTER(pValue,"QTextDocumentFragment");
 	}
@@ -49277,7 +49277,7 @@ RING_FUNC(ring_QTextCursor_setBlockCharFormat)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	pObject->setBlockCharFormat(* (QTextCharFormat *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCharFormat"));
 }
 
 
@@ -49296,7 +49296,7 @@ RING_FUNC(ring_QTextCursor_setBlockFormat)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	pObject->setBlockFormat(* (QTextBlockFormat *) RING_API_GETCPOINTER(2,"QTextBlockFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextBlockFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextBlockFormat"));
 }
 
 
@@ -49315,7 +49315,7 @@ RING_FUNC(ring_QTextCursor_setCharFormat)
 	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
 	pObject->setCharFormat(* (QTextCharFormat *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCharFormat"));
 }
 
 
@@ -49534,7 +49534,7 @@ RING_FUNC(ring_QColorDialog_setCurrentColor)
 	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	pObject->setCurrentColor(* (QColor *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -51181,7 +51181,7 @@ RING_FUNC(ring_QInputDialog_setComboBoxItems)
 	pObject = (QInputDialog *) RING_API_GETCPOINTER(1,"QInputDialog");
 	pObject->setComboBoxItems(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -54505,7 +54505,7 @@ RING_FUNC(ring_QRect_intersected)
 		pValue = new QRect() ;
 		*pValue = pObject->intersected(* (QRect *) RING_API_GETCPOINTER(2,"QRect"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRect"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
 		RING_API_RETCPOINTER(pValue,"QRect");
 	}
 }
@@ -54526,7 +54526,7 @@ RING_FUNC(ring_QRect_intersects)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	RING_API_RETNUMBER(pObject->intersects(* (QRect *) RING_API_GETCPOINTER(2,"QRect")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRect"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
 }
 
 
@@ -54634,7 +54634,7 @@ RING_FUNC(ring_QRect_moveBottomLeft)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->moveBottomLeft(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -54653,7 +54653,7 @@ RING_FUNC(ring_QRect_moveBottomRight)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->moveBottomRight(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -54672,7 +54672,7 @@ RING_FUNC(ring_QRect_moveCenter)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->moveCenter(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -54779,7 +54779,7 @@ RING_FUNC(ring_QRect_moveTopLeft)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->moveTopLeft(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -54798,7 +54798,7 @@ RING_FUNC(ring_QRect_moveTopRight)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->moveTopRight(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -54877,7 +54877,7 @@ RING_FUNC(ring_QRect_setBottomLeft)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->setBottomLeft(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -54896,7 +54896,7 @@ RING_FUNC(ring_QRect_setBottomRight)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->setBottomRight(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -55044,7 +55044,7 @@ RING_FUNC(ring_QRect_setSize)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->setSize(* (QSize *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -55084,7 +55084,7 @@ RING_FUNC(ring_QRect_setTopLeft)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->setTopLeft(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -55103,7 +55103,7 @@ RING_FUNC(ring_QRect_setTopRight)
 	pObject = (QRect *) RING_API_GETCPOINTER(1,"QRect");
 	pObject->setTopRight(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -55326,7 +55326,7 @@ RING_FUNC(ring_QRect_united)
 		pValue = new QRect() ;
 		*pValue = pObject->united(* (QRect *) RING_API_GETCPOINTER(2,"QRect"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRect"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
 		RING_API_RETCPOINTER(pValue,"QRect");
 	}
 }
@@ -55402,9 +55402,9 @@ RING_FUNC(ring_QTextDocument_addResource)
 	}
 	pObject->addResource( (int ) RING_API_GETNUMBER(2),* (QUrl  *) RING_API_GETCPOINTER(3,"QUrl"),* (QVariant  *) RING_API_GETCPOINTER(4,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QVariant"));
 }
 
 
@@ -55440,7 +55440,7 @@ RING_FUNC(ring_QTextDocument_allFormats)
 	pObject = (QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument");
 	{
 		QVector<QTextFormat> *pValue ; 
-		pValue = (QVector<QTextFormat> *) malloc(sizeof(QVector<QTextFormat>)) ;
+		pValue = (QVector<QTextFormat> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QVector<QTextFormat>)) ;
 		*pValue = pObject->allFormats();
 		RING_API_RETCPOINTER(pValue,"QVector<QTextFormat>");
 	}
@@ -55539,7 +55539,7 @@ RING_FUNC(ring_QTextDocument_characterAt)
 	}
 	{
 		QChar *pValue ; 
-		pValue = (QChar *) malloc(sizeof(QChar)) ;
+		pValue = (QChar *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QChar)) ;
 		*pValue = pObject->characterAt( (int ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QChar");
 	}
@@ -55676,7 +55676,7 @@ RING_FUNC(ring_QTextDocument_defaultTextOption)
 	pObject = (QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument");
 	{
 		QTextOption *pValue ; 
-		pValue = (QTextOption *) malloc(sizeof(QTextOption)) ;
+		pValue = (QTextOption *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTextOption)) ;
 		*pValue = pObject->defaultTextOption();
 		RING_API_RETCPOINTER(pValue,"QTextOption");
 	}
@@ -55736,7 +55736,7 @@ RING_FUNC(ring_QTextDocument_drawContents)
 	}
 	pObject->drawContents((QPainter *) RING_API_GETCPOINTER(2,"QPainter"),* (QRectF  *) RING_API_GETCPOINTER(3,"QRectF"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QRectF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QRectF"));
 }
 
 
@@ -55788,7 +55788,7 @@ RING_FUNC(ring_QTextDocument_find)
 		pValue = new QTextCursor() ;
 		*pValue = pObject->find(RING_API_GETSTRING(2),* (QTextCursor  *) RING_API_GETCPOINTER(3,"QTextCursor"), (QTextDocument::FindFlag )  (int) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QTextCursor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QTextCursor"));
 		RING_API_RETCPOINTER(pValue,"QTextCursor");
 	}
 }
@@ -56151,7 +56151,7 @@ RING_FUNC(ring_QTextDocument_objectForFormat)
 	pObject = (QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument");
 	RING_API_RETCPOINTER(pObject->objectForFormat(* (QTextFormat  *) RING_API_GETCPOINTER(2,"QTextFormat")),"QTextObject");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextFormat"));
 }
 
 
@@ -56187,7 +56187,7 @@ RING_FUNC(ring_QTextDocument_pageSize)
 	pObject = (QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument");
 	{
 		QSizeF *pValue ; 
-		pValue = (QSizeF *) malloc(sizeof(QSizeF)) ;
+		pValue = (QSizeF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QSizeF)) ;
 		*pValue = pObject->pageSize();
 		RING_API_RETCPOINTER(pValue,"QSizeF");
 	}
@@ -56258,7 +56258,7 @@ RING_FUNC(ring_QTextDocument_resource)
 		pValue = new QVariant() ;
 		*pValue = pObject->resource( (int ) RING_API_GETNUMBER(2),* (QUrl  *) RING_API_GETCPOINTER(3,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QUrl"));
 		RING_API_RETCPOINTER(pValue,"QVariant");
 	}
 }
@@ -56334,7 +56334,7 @@ RING_FUNC(ring_QTextDocument_setDefaultFont)
 	pObject = (QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument");
 	pObject->setDefaultFont(* (QFont  *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -56374,7 +56374,7 @@ RING_FUNC(ring_QTextDocument_setDefaultTextOption)
 	pObject = (QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument");
 	pObject->setDefaultTextOption(* (QTextOption  *) RING_API_GETCPOINTER(2,"QTextOption"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextOption"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextOption"));
 }
 
 
@@ -56523,7 +56523,7 @@ RING_FUNC(ring_QTextDocument_setPageSize)
 	pObject = (QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument");
 	pObject->setPageSize(* (QSizeF  *) RING_API_GETCPOINTER(2,"QSizeF"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSizeF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSizeF"));
 }
 
 
@@ -56626,7 +56626,7 @@ RING_FUNC(ring_QTextDocument_size)
 	pObject = (QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument");
 	{
 		QSizeF *pValue ; 
-		pValue = (QSizeF *) malloc(sizeof(QSizeF)) ;
+		pValue = (QSizeF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QSizeF)) ;
 		*pValue = pObject->size();
 		RING_API_RETCPOINTER(pValue,"QSizeF");
 	}
@@ -56665,7 +56665,7 @@ RING_FUNC(ring_QTextDocument_toHtml)
 	pObject = (QTextDocument *) RING_API_GETCPOINTER(1,"QTextDocument");
 	RING_API_RETSTRING(pObject->toHtml(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -56760,7 +56760,7 @@ RING_FUNC(ring_QTextBlock_blockFormat)
 	pObject = (QTextBlock *) RING_API_GETCPOINTER(1,"QTextBlock");
 	{
 		QTextBlockFormat *pValue ; 
-		pValue = (QTextBlockFormat *) malloc(sizeof(QTextBlockFormat)) ;
+		pValue = (QTextBlockFormat *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTextBlockFormat)) ;
 		*pValue = pObject->blockFormat();
 		RING_API_RETCPOINTER(pValue,"QTextBlockFormat");
 	}
@@ -57451,7 +57451,7 @@ RING_FUNC(ring_QTime_msecsTo)
 	pObject = (QTime *) RING_API_GETCPOINTER(1,"QTime");
 	RING_API_RETNUMBER(pObject->msecsTo(* (QTime *) RING_API_GETCPOINTER(2,"QTime")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTime"));
 }
 
 
@@ -57504,7 +57504,7 @@ RING_FUNC(ring_QTime_secsTo)
 	pObject = (QTime *) RING_API_GETCPOINTER(1,"QTime");
 	RING_API_RETNUMBER(pObject->secsTo(* (QTime *) RING_API_GETCPOINTER(2,"QTime")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTime"));
 }
 
 
@@ -57845,7 +57845,7 @@ RING_FUNC(ring_QListWidgetItem_setBackground)
 	pObject = (QListWidgetItem *) RING_API_GETCPOINTER(1,"QListWidgetItem");
 	pObject->setBackground(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
 }
 
 
@@ -57906,7 +57906,7 @@ RING_FUNC(ring_QListWidgetItem_setFont)
 	pObject = (QListWidgetItem *) RING_API_GETCPOINTER(1,"QListWidgetItem");
 	pObject->setFont(* (QFont  *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -57925,7 +57925,7 @@ RING_FUNC(ring_QListWidgetItem_setForeground)
 	pObject = (QListWidgetItem *) RING_API_GETCPOINTER(1,"QListWidgetItem");
 	pObject->setForeground(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
 }
 
 
@@ -57965,7 +57965,7 @@ RING_FUNC(ring_QListWidgetItem_setIcon)
 	pObject = (QListWidgetItem *) RING_API_GETCPOINTER(1,"QListWidgetItem");
 	pObject->setIcon(* (QIcon  *) RING_API_GETCPOINTER(2,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
 }
 
 
@@ -58005,7 +58005,7 @@ RING_FUNC(ring_QListWidgetItem_setSizeHint)
 	pObject = (QListWidgetItem *) RING_API_GETCPOINTER(1,"QListWidgetItem");
 	pObject->setSizeHint(* (QSize  *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -58352,7 +58352,7 @@ RING_FUNC(ring_QSystemTrayIcon_setIcon)
 	pObject = (QSystemTrayIcon *) RING_API_GETCPOINTER(1,"QSystemTrayIcon");
 	pObject->setIcon(* (QIcon *) RING_API_GETCPOINTER(2,"QIcon"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QIcon"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
 }
 
 
@@ -58694,7 +58694,7 @@ RING_FUNC(ring_QDate_daysTo)
 	pObject = (QDate *) RING_API_GETCPOINTER(1,"QDate");
 	RING_API_RETNUMBER(pObject->daysTo(* (QDate *) RING_API_GETCPOINTER(2,"QDate")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDate"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
 }
 
 
@@ -59618,7 +59618,7 @@ RING_FUNC(ring_QSqlDatabase_tables)
 		pValue = new QStringList() ;
 		*pValue = pObject->tables(* (QSql::TableType  *) RING_API_GETCPOINTER(2,"QSql::TableType"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSql::TableType"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSql::TableType"));
 		RING_API_RETCPOINTER(pValue,"QStringList");
 	}
 }
@@ -59706,7 +59706,7 @@ RING_FUNC(ring_QSqlDatabase_cloneDatabase)
 		pValue = new QSqlDatabase() ;
 		*pValue = pObject->cloneDatabase(* (QSqlDatabase *) RING_API_GETCPOINTER(2,"QSqlDatabase"),RING_API_GETSTRING(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSqlDatabase"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSqlDatabase"));
 		RING_API_RETCPOINTER(pValue,"QSqlDatabase");
 	}
 }
@@ -59970,7 +59970,7 @@ RING_FUNC(ring_QSqlQuery_addBindValue)
 	}
 	pObject->addBindValue(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"), (QSql::ParamType )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariant"));
 }
 
 
@@ -60014,7 +60014,7 @@ RING_FUNC(ring_QSqlQuery_bindValue)
 	}
 	pObject->bindValue(RING_API_GETSTRING(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"), (QSql::ParamType )  (int) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -60798,7 +60798,7 @@ RING_FUNC(ring_QSqlIndex_append)
 	}
 	pObject->append(* (QSqlField *) RING_API_GETCPOINTER(2,"QSqlField"), (bool) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSqlField"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSqlField"));
 }
 
 
@@ -60939,7 +60939,7 @@ RING_FUNC(ring_QSqlRecord_append)
 	pObject = (QSqlRecord *) RING_API_GETCPOINTER(1,"QSqlRecord");
 	pObject->append(* (QSqlField *) RING_API_GETCPOINTER(2,"QSqlField"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSqlField"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSqlField"));
 }
 
 
@@ -61102,7 +61102,7 @@ RING_FUNC(ring_QSqlRecord_insert)
 	}
 	pObject->insert( (int ) RING_API_GETNUMBER(2),* (QSqlField *) RING_API_GETCPOINTER(3,"QSqlField"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QSqlField"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QSqlField"));
 }
 
 
@@ -61205,7 +61205,7 @@ RING_FUNC(ring_QSqlRecord_replace)
 	}
 	pObject->replace( (int ) RING_API_GETNUMBER(2),* (QSqlField *) RING_API_GETCPOINTER(3,"QSqlField"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QSqlField"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QSqlField"));
 }
 
 
@@ -61274,7 +61274,7 @@ RING_FUNC(ring_QSqlRecord_setValue)
 	}
 	pObject->setValue( (int ) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -61532,7 +61532,7 @@ RING_FUNC(ring_QSqlField_setDefaultValue)
 	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
 	pObject->setDefaultValue(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariant"));
 }
 
 
@@ -61719,7 +61719,7 @@ RING_FUNC(ring_QSqlField_setValue)
 	pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
 	pObject->setValue(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariant"));
 }
 
 
@@ -61870,7 +61870,7 @@ RING_FUNC(ring_QVariant_swap)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	pObject->swap(* (QVariant *) RING_API_GETCPOINTER(2,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariant"));
 }
 
 
@@ -61889,7 +61889,7 @@ RING_FUNC(ring_QVariant_toBitArray)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QBitArray *pValue ; 
-		pValue = (QBitArray *) malloc(sizeof(QBitArray)) ;
+		pValue = (QBitArray *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QBitArray)) ;
 		*pValue = pObject->toBitArray();
 		RING_API_RETCPOINTER(pValue,"QBitArray");
 	}
@@ -61950,7 +61950,7 @@ RING_FUNC(ring_QVariant_toChar)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QChar *pValue ; 
-		pValue = (QChar *) malloc(sizeof(QChar)) ;
+		pValue = (QChar *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QChar)) ;
 		*pValue = pObject->toChar();
 		RING_API_RETCPOINTER(pValue,"QChar");
 	}
@@ -62037,7 +62037,7 @@ RING_FUNC(ring_QVariant_toEasingCurve)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QEasingCurve *pValue ; 
-		pValue = (QEasingCurve *) malloc(sizeof(QEasingCurve)) ;
+		pValue = (QEasingCurve *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QEasingCurve)) ;
 		*pValue = pObject->toEasingCurve();
 		RING_API_RETCPOINTER(pValue,"QEasingCurve");
 	}
@@ -62189,7 +62189,7 @@ RING_FUNC(ring_QVariant_toLine)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QLine *pValue ; 
-		pValue = (QLine *) malloc(sizeof(QLine)) ;
+		pValue = (QLine *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLine)) ;
 		*pValue = pObject->toLine();
 		RING_API_RETCPOINTER(pValue,"QLine");
 	}
@@ -62211,7 +62211,7 @@ RING_FUNC(ring_QVariant_toLineF)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QLineF *pValue ; 
-		pValue = (QLineF *) malloc(sizeof(QLineF)) ;
+		pValue = (QLineF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLineF)) ;
 		*pValue = pObject->toLineF();
 		RING_API_RETCPOINTER(pValue,"QLineF");
 	}
@@ -62233,7 +62233,7 @@ RING_FUNC(ring_QVariant_toLocale)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QLocale *pValue ; 
-		pValue = (QLocale *) malloc(sizeof(QLocale)) ;
+		pValue = (QLocale *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLocale)) ;
 		*pValue = pObject->toLocale();
 		RING_API_RETCPOINTER(pValue,"QLocale");
 	}
@@ -62259,7 +62259,7 @@ RING_FUNC(ring_QVariant_toLongLong)
 	}
 	{
 		qlonglong *pValue ; 
-		pValue = (qlonglong *) malloc(sizeof(qlonglong)) ;
+		pValue = (qlonglong *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(qlonglong)) ;
 		*pValue = pObject->toLongLong((bool *) RING_API_GETCPOINTER(2,"bool"));
 		RING_API_RETCPOINTER(pValue,"qlonglong");
 	}
@@ -62281,7 +62281,7 @@ RING_FUNC(ring_QVariant_toModelIndex)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->toModelIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -62390,7 +62390,7 @@ RING_FUNC(ring_QVariant_toRectF)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QRectF *pValue ; 
-		pValue = (QRectF *) malloc(sizeof(QRectF)) ;
+		pValue = (QRectF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRectF)) ;
 		*pValue = pObject->toRectF();
 		RING_API_RETCPOINTER(pValue,"QRectF");
 	}
@@ -62412,7 +62412,7 @@ RING_FUNC(ring_QVariant_toRegExp)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QRegExp *pValue ; 
-		pValue = (QRegExp *) malloc(sizeof(QRegExp)) ;
+		pValue = (QRegExp *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRegExp)) ;
 		*pValue = pObject->toRegExp();
 		RING_API_RETCPOINTER(pValue,"QRegExp");
 	}
@@ -62478,7 +62478,7 @@ RING_FUNC(ring_QVariant_toSizeF)
 	pObject = (QVariant *) RING_API_GETCPOINTER(1,"QVariant");
 	{
 		QSizeF *pValue ; 
-		pValue = (QSizeF *) malloc(sizeof(QSizeF)) ;
+		pValue = (QSizeF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QSizeF)) ;
 		*pValue = pObject->toSizeF();
 		RING_API_RETCPOINTER(pValue,"QSizeF");
 	}
@@ -62548,7 +62548,7 @@ RING_FUNC(ring_QVariant_toUInt)
 	}
 	{
 		uint *pValue ; 
-		pValue = (uint *) malloc(sizeof(uint)) ;
+		pValue = (uint *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uint)) ;
 		*pValue = pObject->toUInt((bool *) RING_API_GETCPOINTER(2,"bool"));
 		RING_API_RETCPOINTER(pValue,"uint");
 	}
@@ -62574,7 +62574,7 @@ RING_FUNC(ring_QVariant_toULongLong)
 	}
 	{
 		qulonglong *pValue ; 
-		pValue = (qulonglong *) malloc(sizeof(qulonglong)) ;
+		pValue = (qulonglong *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(qulonglong)) ;
 		*pValue = pObject->toULongLong((bool *) RING_API_GETCPOINTER(2,"bool"));
 		RING_API_RETCPOINTER(pValue,"qulonglong");
 	}
@@ -62715,7 +62715,7 @@ RING_FUNC(ring_QNetworkRequest_attribute)
 		pValue = new QVariant() ;
 		*pValue = pObject->attribute( (QNetworkRequest::Attribute)  (int) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 		RING_API_RETCPOINTER(pValue,"QVariant");
 	}
 }
@@ -62736,7 +62736,7 @@ RING_FUNC(ring_QNetworkRequest_hasRawHeader)
 	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
 	RING_API_RETNUMBER(pObject->hasRawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -62818,7 +62818,7 @@ RING_FUNC(ring_QNetworkRequest_rawHeader)
 		pValue = new QByteArray() ;
 		*pValue = pObject->rawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -62843,7 +62843,7 @@ RING_FUNC(ring_QNetworkRequest_setAttribute)
 	}
 	pObject->setAttribute( (QNetworkRequest::Attribute)  (int) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -62866,7 +62866,7 @@ RING_FUNC(ring_QNetworkRequest_setHeader)
 	}
 	pObject->setHeader( (QNetworkRequest::KnownHeaders)  (int) RING_API_GETNUMBER(2),* (QVariant *) RING_API_GETCPOINTER(3,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QVariant"));
 }
 
 
@@ -62927,9 +62927,9 @@ RING_FUNC(ring_QNetworkRequest_setRawHeader)
 	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
 	pObject->setRawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"),* (QByteArray *) RING_API_GETCPOINTER(3,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QByteArray"));
 }
 
 
@@ -62948,7 +62948,7 @@ RING_FUNC(ring_QNetworkRequest_setUrl)
 	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
 	pObject->setUrl(* (QUrl *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QUrl"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
 }
 
 
@@ -62967,7 +62967,7 @@ RING_FUNC(ring_QNetworkRequest_swap)
 	pObject = (QNetworkRequest *) RING_API_GETCPOINTER(1,"QNetworkRequest");
 	pObject->swap(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkRequest"));
 }
 
 
@@ -63046,7 +63046,7 @@ RING_FUNC(ring_QNetworkAccessManager_activeConfiguration)
 	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 	{
 		QNetworkConfiguration *pValue ; 
-		pValue = (QNetworkConfiguration *) malloc(sizeof(QNetworkConfiguration)) ;
+		pValue = (QNetworkConfiguration *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QNetworkConfiguration)) ;
 		*pValue = pObject->activeConfiguration();
 		RING_API_RETCPOINTER(pValue,"QNetworkConfiguration");
 	}
@@ -63102,7 +63102,7 @@ RING_FUNC(ring_QNetworkAccessManager_configuration)
 	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 	{
 		QNetworkConfiguration *pValue ; 
-		pValue = (QNetworkConfiguration *) malloc(sizeof(QNetworkConfiguration)) ;
+		pValue = (QNetworkConfiguration *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QNetworkConfiguration)) ;
 		*pValue = pObject->configuration();
 		RING_API_RETCPOINTER(pValue,"QNetworkConfiguration");
 	}
@@ -63128,7 +63128,7 @@ RING_FUNC(ring_QNetworkAccessManager_connectToHost)
 	}
 	pObject->connectToHost(RING_API_GETSTRING(2),* (quint16 *) RING_API_GETCPOINTER(3,"quint16"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"quint16"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"quint16"));
 }
 
 
@@ -63164,7 +63164,7 @@ RING_FUNC(ring_QNetworkAccessManager_deleteResource)
 	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 	RING_API_RETCPOINTER(pObject->deleteResource(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest")),"QNetworkReply");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkRequest"));
 }
 
 
@@ -63183,7 +63183,7 @@ RING_FUNC(ring_QNetworkAccessManager_get)
 	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 	RING_API_RETCPOINTER(pObject->get(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest")),"QNetworkReply");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkRequest"));
 }
 
 
@@ -63202,7 +63202,7 @@ RING_FUNC(ring_QNetworkAccessManager_head)
 	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 	RING_API_RETCPOINTER(pObject->head(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest")),"QNetworkReply");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkRequest"));
 }
 
 
@@ -63238,9 +63238,9 @@ RING_FUNC(ring_QNetworkAccessManager_post)
 	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 	RING_API_RETCPOINTER(pObject->post(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest"),* (QByteArray *) RING_API_GETCPOINTER(3,"QByteArray")),"QNetworkReply");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkRequest"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QByteArray"));
 }
 
 
@@ -63298,9 +63298,9 @@ RING_FUNC(ring_QNetworkAccessManager_put)
 	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 	RING_API_RETCPOINTER(pObject->put(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest"),* (QByteArray *) RING_API_GETCPOINTER(3,"QByteArray")),"QNetworkReply");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkRequest"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QByteArray"));
 }
 
 
@@ -63323,9 +63323,9 @@ RING_FUNC(ring_QNetworkAccessManager_sendCustomRequest)
 	}
 	RING_API_RETCPOINTER(pObject->sendCustomRequest(* (QNetworkRequest *) RING_API_GETCPOINTER(2,"QNetworkRequest"),* (QByteArray *) RING_API_GETCPOINTER(3,"QByteArray"),(QIODevice *) RING_API_GETCPOINTER(4,"QIODevice")),"QNetworkReply");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkRequest"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkRequest"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QByteArray"));
 }
 
 
@@ -63365,7 +63365,7 @@ RING_FUNC(ring_QNetworkAccessManager_setConfiguration)
 	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 	pObject->setConfiguration(* (QNetworkConfiguration *) RING_API_GETCPOINTER(2,"QNetworkConfiguration"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkConfiguration"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkConfiguration"));
 }
 
 
@@ -63426,7 +63426,7 @@ RING_FUNC(ring_QNetworkAccessManager_setProxy)
 	pObject = (GNetworkAccessManager *) RING_API_GETCPOINTER(1,"QNetworkAccessManager");
 	pObject->setProxy(* (QNetworkProxy *) RING_API_GETCPOINTER(2,"QNetworkProxy"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QNetworkProxy"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QNetworkProxy"));
 }
 
 
@@ -63548,7 +63548,7 @@ RING_FUNC(ring_QNetworkReply_hasRawHeader)
 	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
 	RING_API_RETNUMBER(pObject->hasRawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -63644,7 +63644,7 @@ RING_FUNC(ring_QNetworkReply_operation)
 	pObject = (QNetworkReply *) RING_API_GETCPOINTER(1,"QNetworkReply");
 	{
 		QNetworkAccessManager::Operation *pValue ; 
-		pValue = (QNetworkAccessManager::Operation *) malloc(sizeof(QNetworkAccessManager::Operation)) ;
+		pValue = (QNetworkAccessManager::Operation *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QNetworkAccessManager::Operation)) ;
 		*pValue = pObject->operation();
 		RING_API_RETCPOINTER(pValue,"QNetworkAccessManager::Operation");
 	}
@@ -63669,7 +63669,7 @@ RING_FUNC(ring_QNetworkReply_rawHeader)
 		pValue = new QByteArray() ;
 		*pValue = pObject->rawHeader(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 		RING_API_RETCPOINTER(pValue,"QByteArray");
 	}
 }
@@ -63784,7 +63784,7 @@ RING_FUNC(ring_QPainterPath_addPath)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	pObject->addPath(* (QPainterPath *) RING_API_GETCPOINTER(2,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 }
 
 
@@ -63803,7 +63803,7 @@ RING_FUNC(ring_QPainterPath_addPolygon)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	pObject->addPolygon(* (QPolygonF *) RING_API_GETCPOINTER(2,"QPolygonF"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPolygonF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPolygonF"));
 }
 
 
@@ -63855,7 +63855,7 @@ RING_FUNC(ring_QPainterPath_addRegion)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	pObject->addRegion(* (QRegion *) RING_API_GETCPOINTER(2,"QRegion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRegion"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRegion"));
 }
 
 
@@ -63931,7 +63931,7 @@ RING_FUNC(ring_QPainterPath_addText)
 	}
 	pObject->addText( (qreal ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3),* (QFont *) RING_API_GETCPOINTER(4,"QFont"),RING_API_GETSTRING(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QFont"));
 }
 
 
@@ -64049,7 +64049,7 @@ RING_FUNC(ring_QPainterPath_boundingRect)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	{
 		QRectF *pValue ; 
-		pValue = (QRectF *) malloc(sizeof(QRectF)) ;
+		pValue = (QRectF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRectF)) ;
 		*pValue = pObject->boundingRect();
 		RING_API_RETCPOINTER(pValue,"QRectF");
 	}
@@ -64088,7 +64088,7 @@ RING_FUNC(ring_QPainterPath_connectPath)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	pObject->connectPath(* (QPainterPath *) RING_API_GETCPOINTER(2,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 }
 
 
@@ -64107,7 +64107,7 @@ RING_FUNC(ring_QPainterPath_contains)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	RING_API_RETNUMBER(pObject->contains(* (QPointF *) RING_API_GETCPOINTER(2,"QPointF")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPointF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPointF"));
 }
 
 
@@ -64126,7 +64126,7 @@ RING_FUNC(ring_QPainterPath_controlPointRect)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	{
 		QRectF *pValue ; 
-		pValue = (QRectF *) malloc(sizeof(QRectF)) ;
+		pValue = (QRectF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRectF)) ;
 		*pValue = pObject->controlPointRect();
 		RING_API_RETCPOINTER(pValue,"QRectF");
 	}
@@ -64215,7 +64215,7 @@ RING_FUNC(ring_QPainterPath_elementAt)
 	}
 	{
 		QPainterPath::Element *pValue ; 
-		pValue = (QPainterPath::Element *) malloc(sizeof(QPainterPath::Element)) ;
+		pValue = (QPainterPath::Element *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QPainterPath::Element)) ;
 		*pValue = pObject->elementAt( (int ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QPainterPath::Element");
 	}
@@ -64274,7 +64274,7 @@ RING_FUNC(ring_QPainterPath_intersected)
 		pValue = new QPainterPath() ;
 		*pValue = pObject->intersected(* (QPainterPath *) RING_API_GETCPOINTER(2,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 		RING_API_RETCPOINTER(pValue,"QPainterPath");
 	}
 }
@@ -64295,7 +64295,7 @@ RING_FUNC(ring_QPainterPath_intersects)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	RING_API_RETNUMBER(pObject->intersects(* (QRectF *) RING_API_GETCPOINTER(2,"QRectF")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRectF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRectF"));
 }
 
 
@@ -64574,7 +64574,7 @@ RING_FUNC(ring_QPainterPath_subtracted)
 		pValue = new QPainterPath() ;
 		*pValue = pObject->subtracted(* (QPainterPath *) RING_API_GETCPOINTER(2,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 		RING_API_RETCPOINTER(pValue,"QPainterPath");
 	}
 }
@@ -64595,7 +64595,7 @@ RING_FUNC(ring_QPainterPath_swap)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	pObject->swap(* (QPainterPath *) RING_API_GETCPOINTER(2,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 }
 
 
@@ -64614,10 +64614,10 @@ RING_FUNC(ring_QPainterPath_toFillPolygon)
 	pObject = (QPainterPath *) RING_API_GETCPOINTER(1,"QPainterPath");
 	{
 		QPolygonF *pValue ; 
-		pValue = (QPolygonF *) malloc(sizeof(QPolygonF)) ;
+		pValue = (QPolygonF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QPolygonF)) ;
 		*pValue = pObject->toFillPolygon(* (QTransform *) RING_API_GETCPOINTER(2,"QTransform"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTransform"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTransform"));
 		RING_API_RETCPOINTER(pValue,"QPolygonF");
 	}
 }
@@ -64718,7 +64718,7 @@ RING_FUNC(ring_QPainterPath_united)
 		pValue = new QPainterPath() ;
 		*pValue = pObject->united(* (QPainterPath *) RING_API_GETCPOINTER(2,"QPainterPath"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPainterPath"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPainterPath"));
 		RING_API_RETCPOINTER(pValue,"QPainterPath");
 	}
 }
@@ -64845,7 +64845,7 @@ RING_FUNC(ring_QImage_color)
 	}
 	{
 		QRgb *pValue ; 
-		pValue = (QRgb *) malloc(sizeof(QRgb)) ;
+		pValue = (QRgb *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRgb)) ;
 		*pValue = pObject->color( (int ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QRgb");
 	}
@@ -65049,7 +65049,7 @@ RING_FUNC(ring_QImage_createMaskFromColor)
 		pValue = new QImage() ;
 		*pValue = pObject->createMaskFromColor(* (QRgb  *) RING_API_GETCPOINTER(2,"QRgb"), (Qt::MaskMode )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRgb"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRgb"));
 		RING_API_RETCPOINTER(pValue,"QImage");
 	}
 }
@@ -65121,7 +65121,7 @@ RING_FUNC(ring_QImage_fill)
 	pObject = (QImage *) RING_API_GETCPOINTER(1,"QImage");
 	pObject->fill(* (QColor *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -65275,7 +65275,7 @@ RING_FUNC(ring_QImage_loadFromData)
 	}
 	RING_API_RETNUMBER(pObject->loadFromData(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"),RING_API_GETSTRING(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -65354,7 +65354,7 @@ RING_FUNC(ring_QImage_pixel)
 	}
 	{
 		QRgb *pValue ; 
-		pValue = (QRgb *) malloc(sizeof(QRgb)) ;
+		pValue = (QRgb *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QRgb)) ;
 		*pValue = pObject->pixel( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 		RING_API_RETCPOINTER(pValue,"QRgb");
 	}
@@ -65597,7 +65597,7 @@ RING_FUNC(ring_QImage_setColor)
 	}
 	pObject->setColor( (int ) RING_API_GETNUMBER(2),* (QRgb  *) RING_API_GETCPOINTER(3,"QRgb"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QRgb"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QRgb"));
 }
 
 
@@ -65679,7 +65679,7 @@ RING_FUNC(ring_QImage_setOffset)
 	pObject = (QImage *) RING_API_GETCPOINTER(1,"QImage");
 	pObject->setOffset(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -65706,7 +65706,7 @@ RING_FUNC(ring_QImage_setPixel)
 	}
 	pObject->setPixel( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (uint  *) RING_API_GETCPOINTER(4,"uint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"uint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"uint"));
 }
 
 
@@ -65772,7 +65772,7 @@ RING_FUNC(ring_QImage_swap)
 	pObject = (QImage *) RING_API_GETCPOINTER(1,"QImage");
 	pObject->swap(* (QImage *) RING_API_GETCPOINTER(2,"QImage"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QImage"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QImage"));
 }
 
 
@@ -65841,7 +65841,7 @@ RING_FUNC(ring_QImage_transformed)
 		pValue = new QImage() ;
 		*pValue = pObject->transformed(* (QMatrix *) RING_API_GETCPOINTER(2,"QMatrix"), (Qt::TransformationMode )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QMatrix"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix"));
 		RING_API_RETCPOINTER(pValue,"QImage");
 	}
 }
@@ -65904,15 +65904,15 @@ RING_FUNC(ring_RingCodeHighlighter_setColors)
 	pObject = (Highlighter *) RING_API_GETCPOINTER(1,"RingCodeHighlighter");
 	pObject->setColors(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"),* (QColor  *) RING_API_GETCPOINTER(3,"QColor"),* (QColor  *) RING_API_GETCPOINTER(4,"QColor"),* (QColor  *) RING_API_GETCPOINTER(5,"QColor"),* (QColor  *) RING_API_GETCPOINTER(6,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"QColor"));
 }
 
 
@@ -65952,7 +65952,7 @@ RING_FUNC(ring_QXmlStreamReader_addData)
 	pObject = (QXmlStreamReader *) RING_API_GETCPOINTER(1,"QXmlStreamReader");
 	pObject->addData(* (QByteArray *) RING_API_GETCPOINTER(2,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -66013,7 +66013,7 @@ RING_FUNC(ring_QXmlStreamReader_addExtraNamespaceDeclaration)
 	pObject = (QXmlStreamReader *) RING_API_GETCPOINTER(1,"QXmlStreamReader");
 	pObject->addExtraNamespaceDeclaration(* (QXmlStreamNamespaceDeclaration *) RING_API_GETCPOINTER(2,"QXmlStreamNamespaceDeclaration"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QXmlStreamNamespaceDeclaration"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QXmlStreamNamespaceDeclaration"));
 }
 
 
@@ -66032,7 +66032,7 @@ RING_FUNC(ring_QXmlStreamReader_addExtraNamespaceDeclarations)
 	pObject = (QXmlStreamReader *) RING_API_GETCPOINTER(1,"QXmlStreamReader");
 	pObject->addExtraNamespaceDeclarations(* (QXmlStreamNamespaceDeclarations *) RING_API_GETCPOINTER(2,"QXmlStreamNamespaceDeclarations"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QXmlStreamNamespaceDeclarations"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QXmlStreamNamespaceDeclarations"));
 }
 
 
@@ -66268,7 +66268,7 @@ RING_FUNC(ring_QXmlStreamReader_entityDeclarations)
 	pObject = (QXmlStreamReader *) RING_API_GETCPOINTER(1,"QXmlStreamReader");
 	{
 		QXmlStreamEntityDeclarations *pValue ; 
-		pValue = (QXmlStreamEntityDeclarations *) malloc(sizeof(QXmlStreamEntityDeclarations)) ;
+		pValue = (QXmlStreamEntityDeclarations *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QXmlStreamEntityDeclarations)) ;
 		*pValue = pObject->entityDeclarations();
 		RING_API_RETCPOINTER(pValue,"QXmlStreamEntityDeclarations");
 	}
@@ -66601,7 +66601,7 @@ RING_FUNC(ring_QXmlStreamReader_namespaceDeclarations)
 	pObject = (QXmlStreamReader *) RING_API_GETCPOINTER(1,"QXmlStreamReader");
 	{
 		QXmlStreamNamespaceDeclarations *pValue ; 
-		pValue = (QXmlStreamNamespaceDeclarations *) malloc(sizeof(QXmlStreamNamespaceDeclarations)) ;
+		pValue = (QXmlStreamNamespaceDeclarations *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QXmlStreamNamespaceDeclarations)) ;
 		*pValue = pObject->namespaceDeclarations();
 		RING_API_RETCPOINTER(pValue,"QXmlStreamNamespaceDeclarations");
 	}
@@ -66662,7 +66662,7 @@ RING_FUNC(ring_QXmlStreamReader_notationDeclarations)
 	pObject = (QXmlStreamReader *) RING_API_GETCPOINTER(1,"QXmlStreamReader");
 	{
 		QXmlStreamNotationDeclarations *pValue ; 
-		pValue = (QXmlStreamNotationDeclarations *) malloc(sizeof(QXmlStreamNotationDeclarations)) ;
+		pValue = (QXmlStreamNotationDeclarations *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QXmlStreamNotationDeclarations)) ;
 		*pValue = pObject->notationDeclarations();
 		RING_API_RETCPOINTER(pValue,"QXmlStreamNotationDeclarations");
 	}
@@ -67228,7 +67228,7 @@ RING_FUNC(ring_QXmlStreamWriter_writeAttribute_3)
 	pObject = (QXmlStreamWriter *) RING_API_GETCPOINTER(1,"QXmlStreamWriter");
 	pObject->writeAttribute(* (QXmlStreamAttribute *) RING_API_GETCPOINTER(2,"QXmlStreamAttribute"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QXmlStreamAttribute"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QXmlStreamAttribute"));
 }
 
 
@@ -67247,7 +67247,7 @@ RING_FUNC(ring_QXmlStreamWriter_writeAttributes)
 	pObject = (QXmlStreamWriter *) RING_API_GETCPOINTER(1,"QXmlStreamWriter");
 	pObject->writeAttributes(* (QXmlStreamAttributes *) RING_API_GETCPOINTER(2,"QXmlStreamAttributes"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QXmlStreamAttributes"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QXmlStreamAttributes"));
 }
 
 
@@ -67329,7 +67329,7 @@ RING_FUNC(ring_QXmlStreamWriter_writeCurrentToken)
 	pObject = (QXmlStreamWriter *) RING_API_GETCPOINTER(1,"QXmlStreamWriter");
 	pObject->writeCurrentToken(* (QXmlStreamReader  *) RING_API_GETCPOINTER(2,"QXmlStreamReader"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QXmlStreamReader"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QXmlStreamReader"));
 }
 
 
@@ -67999,7 +67999,7 @@ RING_FUNC(ring_QXmlStreamAttributes_hasAttribute_2)
 	pObject = (QXmlStreamAttributes *) RING_API_GETCPOINTER(1,"QXmlStreamAttributes");
 	RING_API_RETNUMBER(pObject->hasAttribute(* (QLatin1String  *) RING_API_GETCPOINTER(2,"QLatin1String")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLatin1String"));
 }
 
 
@@ -68080,7 +68080,7 @@ RING_FUNC(ring_QXmlStreamAttributes_value_2)
 		pValue = new QStringRef() ;
 		*pValue = pObject->value(RING_API_GETSTRING(2),* (QLatin1String  *) RING_API_GETCPOINTER(3,"QLatin1String"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QLatin1String"));
 		RING_API_RETCPOINTER(pValue,"QStringRef");
 	}
 }
@@ -68104,9 +68104,9 @@ RING_FUNC(ring_QXmlStreamAttributes_value_3)
 		pValue = new QStringRef() ;
 		*pValue = pObject->value(* (QLatin1String  *) RING_API_GETCPOINTER(2,"QLatin1String"),* (QLatin1String  *) RING_API_GETCPOINTER(3,"QLatin1String"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLatin1String"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QLatin1String"));
 		RING_API_RETCPOINTER(pValue,"QStringRef");
 	}
 }
@@ -68156,7 +68156,7 @@ RING_FUNC(ring_QXmlStreamAttributes_value_5)
 		pValue = new QStringRef() ;
 		*pValue = pObject->value(* (QLatin1String  *) RING_API_GETCPOINTER(2,"QLatin1String"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLatin1String"));
 		RING_API_RETCPOINTER(pValue,"QStringRef");
 	}
 }
@@ -68469,7 +68469,7 @@ RING_FUNC(ring_QThread_setStackSize)
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
 	pObject->setStackSize(* (uint  *) RING_API_GETCPOINTER(2,"uint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"uint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uint"));
 }
 
 
@@ -68488,7 +68488,7 @@ RING_FUNC(ring_QThread_stackSize)
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
 	{
 		uint *pValue ; 
-		pValue = (uint *) malloc(sizeof(uint)) ;
+		pValue = (uint *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uint)) ;
 		*pValue = pObject->stackSize();
 		RING_API_RETCPOINTER(pValue,"uint");
 	}
@@ -68510,7 +68510,7 @@ RING_FUNC(ring_QThread_wait)
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
 	RING_API_RETNUMBER(pObject->wait(* (unsigned long  *) RING_API_GETCPOINTER(2,"unsigned long")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"unsigned long"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"unsigned long"));
 }
 
 
@@ -68601,7 +68601,7 @@ RING_FUNC(ring_QThread_currentThreadId)
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
 	{
 		Qt::HANDLE *pValue ; 
-		pValue = (Qt::HANDLE *) malloc(sizeof(Qt::HANDLE)) ;
+		pValue = (Qt::HANDLE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::HANDLE)) ;
 		*pValue = pObject->currentThreadId();
 		RING_API_RETCPOINTER(pValue,"Qt::HANDLE");
 	}
@@ -68640,7 +68640,7 @@ RING_FUNC(ring_QThread_msleep)
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
 	pObject->msleep(* (unsigned long  *) RING_API_GETCPOINTER(2,"unsigned long"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"unsigned long"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"unsigned long"));
 }
 
 
@@ -68659,7 +68659,7 @@ RING_FUNC(ring_QThread_sleep)
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
 	pObject->sleep(* (unsigned long  *) RING_API_GETCPOINTER(2,"unsigned long"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"unsigned long"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"unsigned long"));
 }
 
 
@@ -68678,7 +68678,7 @@ RING_FUNC(ring_QThread_usleep)
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
 	pObject->usleep(* (unsigned long  *) RING_API_GETCPOINTER(2,"unsigned long"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"unsigned long"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"unsigned long"));
 }
 
 
@@ -69260,7 +69260,7 @@ RING_FUNC(ring_QRegularExpression_swap)
 	pObject = (QRegularExpression *) RING_API_GETCPOINTER(1,"QRegularExpression");
 	pObject->swap(* (QRegularExpression   *) RING_API_GETCPOINTER(2,"QRegularExpression"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRegularExpression"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRegularExpression"));
 }
 
 
@@ -69300,7 +69300,7 @@ RING_FUNC(ring_QRegularExpressionMatch_captured_2)
 	pObject = (QRegularExpressionMatch *) RING_API_GETCPOINTER(1,"QRegularExpressionMatch");
 	RING_API_RETSTRING(pObject->captured(* (const QString   *) RING_API_GETCPOINTER(2,"const QString")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QString"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QString"));
 }
 
 
@@ -69340,7 +69340,7 @@ RING_FUNC(ring_QRegularExpressionMatch_capturedEnd_2)
 	pObject = (QRegularExpressionMatch *) RING_API_GETCPOINTER(1,"QRegularExpressionMatch");
 	RING_API_RETNUMBER(pObject->capturedEnd(* (const QString   *) RING_API_GETCPOINTER(2,"const QString")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QString"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QString"));
 }
 
 
@@ -69380,7 +69380,7 @@ RING_FUNC(ring_QRegularExpressionMatch_capturedLength_2)
 	pObject = (QRegularExpressionMatch *) RING_API_GETCPOINTER(1,"QRegularExpressionMatch");
 	RING_API_RETNUMBER(pObject->capturedLength(* (const QString   *) RING_API_GETCPOINTER(2,"const QString")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QString"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QString"));
 }
 
 
@@ -69428,7 +69428,7 @@ RING_FUNC(ring_QRegularExpressionMatch_capturedRef_2)
 		pValue = new QStringRef() ;
 		*pValue = pObject->capturedRef(* (const QString   *) RING_API_GETCPOINTER(2,"const QString"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QString"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QString"));
 		RING_API_RETCPOINTER(pValue,"QStringRef");
 	}
 }
@@ -69470,7 +69470,7 @@ RING_FUNC(ring_QRegularExpressionMatch_capturedStart_2)
 	pObject = (QRegularExpressionMatch *) RING_API_GETCPOINTER(1,"QRegularExpressionMatch");
 	RING_API_RETNUMBER(pObject->capturedStart(* (const QString   *) RING_API_GETCPOINTER(2,"const QString")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QString"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QString"));
 }
 
 
@@ -69635,7 +69635,7 @@ RING_FUNC(ring_QRegularExpressionMatch_swap)
 	pObject = (QRegularExpressionMatch *) RING_API_GETCPOINTER(1,"QRegularExpressionMatch");
 	pObject->swap(* (QRegularExpressionMatch   *) RING_API_GETCPOINTER(2,"QRegularExpressionMatch"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRegularExpressionMatch"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRegularExpressionMatch"));
 }
 
 
@@ -69788,7 +69788,7 @@ RING_FUNC(ring_QRegularExpressionMatchIterator_swap)
 	pObject = (QRegularExpressionMatchIterator *) RING_API_GETCPOINTER(1,"QRegularExpressionMatchIterator");
 	pObject->swap(* (QRegularExpressionMatchIterator  *) RING_API_GETCPOINTER(2,"QRegularExpressionMatchIterator"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRegularExpressionMatchIterator"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRegularExpressionMatchIterator"));
 }
 
 
@@ -69807,7 +69807,7 @@ RING_FUNC(ring_QJsonArray_append)
 	pObject = (QJsonArray *) RING_API_GETCPOINTER(1,"QJsonArray");
 	pObject->append(* (QJsonValue   *) RING_API_GETCPOINTER(2,"QJsonValue"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QJsonValue"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QJsonValue"));
 }
 
 
@@ -69852,7 +69852,7 @@ RING_FUNC(ring_QJsonArray_contains)
 	pObject = (QJsonArray *) RING_API_GETCPOINTER(1,"QJsonArray");
 	RING_API_RETNUMBER(pObject->contains(* (QJsonValue   *) RING_API_GETCPOINTER(2,"QJsonValue")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QJsonValue"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QJsonValue"));
 }
 
 
@@ -69931,7 +69931,7 @@ RING_FUNC(ring_QJsonArray_insert)
 	}
 	pObject->insert( (int ) RING_API_GETNUMBER(2),* (QJsonValue   *) RING_API_GETCPOINTER(3,"QJsonValue"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QJsonValue"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QJsonValue"));
 }
 
 
@@ -70023,7 +70023,7 @@ RING_FUNC(ring_QJsonArray_prepend)
 	pObject = (QJsonArray *) RING_API_GETCPOINTER(1,"QJsonArray");
 	pObject->prepend(* (QJsonValue   *) RING_API_GETCPOINTER(2,"QJsonValue"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QJsonValue"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QJsonValue"));
 }
 
 
@@ -70042,7 +70042,7 @@ RING_FUNC(ring_QJsonArray_push_back)
 	pObject = (QJsonArray *) RING_API_GETCPOINTER(1,"QJsonArray");
 	pObject->push_back(* (QJsonValue   *) RING_API_GETCPOINTER(2,"QJsonValue"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QJsonValue"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QJsonValue"));
 }
 
 
@@ -70061,7 +70061,7 @@ RING_FUNC(ring_QJsonArray_push_front)
 	pObject = (QJsonArray *) RING_API_GETCPOINTER(1,"QJsonArray");
 	pObject->push_front(* (QJsonValue   *) RING_API_GETCPOINTER(2,"QJsonValue"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QJsonValue"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QJsonValue"));
 }
 
 
@@ -70139,7 +70139,7 @@ RING_FUNC(ring_QJsonArray_replace)
 	}
 	pObject->replace( (int ) RING_API_GETNUMBER(2),* (QJsonValue   *) RING_API_GETCPOINTER(3,"QJsonValue"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QJsonValue"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QJsonValue"));
 }
 
 
@@ -70201,7 +70201,7 @@ RING_FUNC(ring_QJsonArray_toVariantList)
 	pObject = (QJsonArray *) RING_API_GETCPOINTER(1,"QJsonArray");
 	{
 		QVariantList *pValue ; 
-		pValue = (QVariantList *) malloc(sizeof(QVariantList)) ;
+		pValue = (QVariantList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QVariantList)) ;
 		*pValue = pObject->toVariantList();
 		RING_API_RETCPOINTER(pValue,"QVariantList");
 	}
@@ -70226,7 +70226,7 @@ RING_FUNC(ring_QJsonArray_fromStringList)
 		pValue = new QJsonArray() ;
 		*pValue = pObject->fromStringList(* (QStringList   *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 		RING_API_RETCPOINTER(pValue,"QJsonArray");
 	}
 }
@@ -70250,7 +70250,7 @@ RING_FUNC(ring_QJsonArray_fromVariantList)
 		pValue = new QJsonArray() ;
 		*pValue = pObject->fromVariantList(* (QVariantList   *) RING_API_GETCPOINTER(2,"QVariantList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariantList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariantList"));
 		RING_API_RETCPOINTER(pValue,"QJsonArray");
 	}
 }
@@ -70405,7 +70405,7 @@ RING_FUNC(ring_QJsonDocument_setArray)
 	pObject = (QJsonDocument *) RING_API_GETCPOINTER(1,"QJsonDocument");
 	pObject->setArray(* (QJsonArray   *) RING_API_GETCPOINTER(2,"QJsonArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QJsonArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QJsonArray"));
 }
 
 
@@ -70424,7 +70424,7 @@ RING_FUNC(ring_QJsonDocument_setObject)
 	pObject = (QJsonDocument *) RING_API_GETCPOINTER(1,"QJsonDocument");
 	pObject->setObject(* (QJsonObject   *) RING_API_GETCPOINTER(2,"QJsonObject"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QJsonObject"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QJsonObject"));
 }
 
 
@@ -70520,7 +70520,7 @@ RING_FUNC(ring_QJsonDocument_fromBinaryData)
 		pValue = new QJsonDocument() ;
 		*pValue = pObject->fromBinaryData(* (QByteArray   *) RING_API_GETCPOINTER(2,"QByteArray"), (QJsonDocument::DataValidation )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 		RING_API_RETCPOINTER(pValue,"QJsonDocument");
 	}
 }
@@ -70548,7 +70548,7 @@ RING_FUNC(ring_QJsonDocument_fromJson)
 		pValue = new QJsonDocument() ;
 		*pValue = pObject->fromJson(* (QByteArray   *) RING_API_GETCPOINTER(2,"QByteArray"),(QJsonParseError *) RING_API_GETCPOINTER(3,"QJsonParseError"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 		RING_API_RETCPOINTER(pValue,"QJsonDocument");
 	}
 }
@@ -70606,7 +70606,7 @@ RING_FUNC(ring_QJsonDocument_fromVariant)
 		pValue = new QJsonDocument() ;
 		*pValue = pObject->fromVariant(* (QVariant   *) RING_API_GETCPOINTER(2,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariant"));
 		RING_API_RETCPOINTER(pValue,"QJsonDocument");
 	}
 }
@@ -70802,7 +70802,7 @@ RING_FUNC(ring_QJsonObject_toVariantMap)
 	pObject = (QJsonObject *) RING_API_GETCPOINTER(1,"QJsonObject");
 	{
 		QVariantMap *pValue ; 
-		pValue = (QVariantMap *) malloc(sizeof(QVariantMap)) ;
+		pValue = (QVariantMap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QVariantMap)) ;
 		*pValue = pObject->toVariantMap();
 		RING_API_RETCPOINTER(pValue,"QVariantMap");
 	}
@@ -70853,7 +70853,7 @@ RING_FUNC(ring_QJsonObject_fromVariantMap)
 		pValue = new QJsonObject() ;
 		*pValue = pObject->fromVariantMap(* (QVariantMap   *) RING_API_GETCPOINTER(2,"QVariantMap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariantMap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariantMap"));
 		RING_API_RETCPOINTER(pValue,"QJsonObject");
 	}
 }
@@ -71013,7 +71013,7 @@ RING_FUNC(ring_QJsonValue_toArray)
 		pValue = new QJsonArray() ;
 		*pValue = pObject->toArray(* (QJsonArray   *) RING_API_GETCPOINTER(2,"QJsonArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QJsonArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QJsonArray"));
 		RING_API_RETCPOINTER(pValue,"QJsonArray");
 	}
 }
@@ -71122,7 +71122,7 @@ RING_FUNC(ring_QJsonValue_toObject)
 		pValue = new QJsonObject() ;
 		*pValue = pObject->toObject(* (QJsonObject   *) RING_API_GETCPOINTER(2,"QJsonObject"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QJsonObject"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QJsonObject"));
 		RING_API_RETCPOINTER(pValue,"QJsonObject");
 	}
 }
@@ -71208,7 +71208,7 @@ RING_FUNC(ring_QJsonValue_type)
 	pObject = (QJsonValue *) RING_API_GETCPOINTER(1,"QJsonValue");
 	{
 		QJsonValue::Type *pValue ; 
-		pValue = (QJsonValue::Type *) malloc(sizeof(QJsonValue::Type)) ;
+		pValue = (QJsonValue::Type *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QJsonValue::Type)) ;
 		*pValue = pObject->type();
 		RING_API_RETCPOINTER(pValue,"QJsonValue::Type");
 	}
@@ -71233,7 +71233,7 @@ RING_FUNC(ring_QJsonValue_fromVariant)
 		pValue = new QJsonValue() ;
 		*pValue = pObject->fromVariant(* (QVariant   *) RING_API_GETCPOINTER(2,"QVariant"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVariant"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVariant"));
 		RING_API_RETCPOINTER(pValue,"QJsonValue");
 	}
 }
@@ -71254,7 +71254,7 @@ RING_FUNC(ring_QPlainTextEdit_anchorAt)
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	RING_API_RETSTRING(pObject->anchorAt(* (QPoint  *) RING_API_GETCPOINTER(2,"QPoint")).toStdString().c_str());
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -71383,7 +71383,7 @@ RING_FUNC(ring_QPlainTextEdit_cursorForPosition)
 		pValue = new QTextCursor() ;
 		*pValue = pObject->cursorForPosition(* (QPoint  *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 		RING_API_RETCPOINTER(pValue,"QTextCursor");
 	}
 }
@@ -71407,7 +71407,7 @@ RING_FUNC(ring_QPlainTextEdit_cursorRect)
 		pValue = new QRect() ;
 		*pValue = pObject->cursorRect(* (QTextCursor  *) RING_API_GETCPOINTER(2,"QTextCursor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCursor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCursor"));
 		RING_API_RETCPOINTER(pValue,"QRect");
 	}
 }
@@ -71518,7 +71518,7 @@ RING_FUNC(ring_QPlainTextEdit_extraSelections)
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		QList<QTextEdit::ExtraSelection> *pValue ; 
-		pValue = (QList<QTextEdit::ExtraSelection> *) malloc(sizeof(QList<QTextEdit::ExtraSelection>)) ;
+		pValue = (QList<QTextEdit::ExtraSelection> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QTextEdit::ExtraSelection>)) ;
 		*pValue = pObject->extraSelections();
 		RING_API_RETCPOINTER(pValue,"QList<QTextEdit::ExtraSelection>");
 	}
@@ -71544,7 +71544,7 @@ RING_FUNC(ring_QPlainTextEdit_find)
 	}
 	RING_API_RETNUMBER(pObject->find(RING_API_GETSTRING(2),* (QTextDocument::FindFlags  *) RING_API_GETCPOINTER(3,"QTextDocument::FindFlags")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QTextDocument::FindFlags"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QTextDocument::FindFlags"));
 }
 
 
@@ -71631,7 +71631,7 @@ RING_FUNC(ring_QPlainTextEdit_mergeCurrentCharFormat)
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->mergeCurrentCharFormat(* (QTextCharFormat  *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCharFormat"));
 }
 
 
@@ -71755,7 +71755,7 @@ RING_FUNC(ring_QPlainTextEdit_setCurrentCharFormat)
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->setCurrentCharFormat(* (QTextCharFormat  *) RING_API_GETCPOINTER(2,"QTextCharFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCharFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCharFormat"));
 }
 
 
@@ -71837,7 +71837,7 @@ RING_FUNC(ring_QPlainTextEdit_setExtraSelections)
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->setExtraSelections(* (QList<QTextEdit::ExtraSelection>  *) RING_API_GETCPOINTER(2,"QList<QTextEdit::ExtraSelection>"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QList<QTextEdit::ExtraSelection>"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QList<QTextEdit::ExtraSelection>"));
 }
 
 
@@ -71982,7 +71982,7 @@ RING_FUNC(ring_QPlainTextEdit_setTextCursor)
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->setTextCursor(* (QTextCursor  *) RING_API_GETCPOINTER(2,"QTextCursor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTextCursor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTextCursor"));
 }
 
 
@@ -72001,7 +72001,7 @@ RING_FUNC(ring_QPlainTextEdit_setTextInteractionFlags)
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	pObject->setTextInteractionFlags(* (Qt::TextInteractionFlags  *) RING_API_GETCPOINTER(2,"Qt::TextInteractionFlags"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"Qt::TextInteractionFlags"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::TextInteractionFlags"));
 }
 
 
@@ -72118,7 +72118,7 @@ RING_FUNC(ring_QPlainTextEdit_textInteractionFlags)
 	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
 	{
 		Qt::TextInteractionFlags *pValue ; 
-		pValue = (Qt::TextInteractionFlags *) malloc(sizeof(Qt::TextInteractionFlags)) ;
+		pValue = (Qt::TextInteractionFlags *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::TextInteractionFlags)) ;
 		*pValue = pObject->textInteractionFlags();
 		RING_API_RETCPOINTER(pValue,"Qt::TextInteractionFlags");
 	}
@@ -72860,7 +72860,7 @@ RING_FUNC(ring_CodeEditor_setLineNumbersAreaColor)
 	pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
 	pObject->setLineNumbersAreaColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -72879,7 +72879,7 @@ RING_FUNC(ring_CodeEditor_setLineNumbersAreaBackColor)
 	pObject = (CodeEditor *) RING_API_GETCPOINTER(1,"CodeEditor");
 	pObject->setLineNumbersAreaBackColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -73979,7 +73979,7 @@ RING_FUNC(ring_QTextCharFormat_setAnchorNames)
 	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
 	pObject->setAnchorNames(* (QStringList    *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -73998,7 +73998,7 @@ RING_FUNC(ring_QTextCharFormat_setFont_2)
 	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
 	pObject->setFont(* (QFont    *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QFont"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
 
 
@@ -74378,7 +74378,7 @@ RING_FUNC(ring_QTextCharFormat_setTextOutline)
 	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
 	pObject->setTextOutline(* (QPen    *) RING_API_GETCPOINTER(2,"QPen"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPen"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPen"));
 }
 
 
@@ -74418,7 +74418,7 @@ RING_FUNC(ring_QTextCharFormat_setUnderlineColor)
 	pObject = (QTextCharFormat *) RING_API_GETCPOINTER(1,"QTextCharFormat");
 	pObject->setUnderlineColor(* (QColor    *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
 
 
@@ -74591,7 +74591,7 @@ RING_FUNC(ring_QGraphicsVideoItem_nativeSize)
 	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
 	{
 		QSizeF *pValue ; 
-		pValue = (QSizeF *) malloc(sizeof(QSizeF)) ;
+		pValue = (QSizeF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QSizeF)) ;
 		*pValue = pObject->nativeSize();
 		RING_API_RETCPOINTER(pValue,"QSizeF");
 	}
@@ -74656,7 +74656,7 @@ RING_FUNC(ring_QGraphicsVideoItem_setOffset)
 	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
 	pObject->setOffset(* (QPointF  *) RING_API_GETCPOINTER(2,"QPointF"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPointF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPointF"));
 }
 
 
@@ -74675,7 +74675,7 @@ RING_FUNC(ring_QGraphicsVideoItem_setSize)
 	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
 	pObject->setSize(* (QSizeF  *) RING_API_GETCPOINTER(2,"QSizeF"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSizeF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSizeF"));
 }
 
 
@@ -74694,7 +74694,7 @@ RING_FUNC(ring_QGraphicsVideoItem_size)
 	pObject = (QGraphicsVideoItem *) RING_API_GETCPOINTER(1,"QGraphicsVideoItem");
 	{
 		QSizeF *pValue ; 
-		pValue = (QSizeF *) malloc(sizeof(QSizeF)) ;
+		pValue = (QSizeF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QSizeF)) ;
 		*pValue = pObject->size();
 		RING_API_RETCPOINTER(pValue,"QSizeF");
 	}
@@ -74839,7 +74839,7 @@ RING_FUNC(ring_QCamera_lockStatus)
 	pObject = (QCamera *) RING_API_GETCPOINTER(1,"QCamera");
 	{
 		QCamera::LockStatus *pValue ; 
-		pValue = (QCamera::LockStatus *) malloc(sizeof(QCamera::LockStatus)) ;
+		pValue = (QCamera::LockStatus *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QCamera::LockStatus)) ;
 		*pValue = pObject->lockStatus();
 		RING_API_RETCPOINTER(pValue,"QCamera::LockStatus");
 	}
@@ -74865,7 +74865,7 @@ RING_FUNC(ring_QCamera_lockStatus_2)
 	}
 	{
 		QCamera::LockStatus *pValue ; 
-		pValue = (QCamera::LockStatus *) malloc(sizeof(QCamera::LockStatus)) ;
+		pValue = (QCamera::LockStatus *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QCamera::LockStatus)) ;
 		*pValue = pObject->lockStatus( (QCamera::LockType )  (int) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QCamera::LockStatus");
 	}
@@ -75183,7 +75183,7 @@ RING_FUNC(ring_QCameraImageCapture_availability)
 	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
 	{
 		QMultimedia::AvailabilityStatus *pValue ; 
-		pValue = (QMultimedia::AvailabilityStatus *) malloc(sizeof(QMultimedia::AvailabilityStatus)) ;
+		pValue = (QMultimedia::AvailabilityStatus *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMultimedia::AvailabilityStatus)) ;
 		*pValue = pObject->availability();
 		RING_API_RETCPOINTER(pValue,"QMultimedia::AvailabilityStatus");
 	}
@@ -75205,7 +75205,7 @@ RING_FUNC(ring_QCameraImageCapture_bufferFormat)
 	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
 	{
 		QVideoFrame::PixelFormat *pValue ; 
-		pValue = (QVideoFrame::PixelFormat *) malloc(sizeof(QVideoFrame::PixelFormat)) ;
+		pValue = (QVideoFrame::PixelFormat *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QVideoFrame::PixelFormat)) ;
 		*pValue = pObject->bufferFormat();
 		RING_API_RETCPOINTER(pValue,"QVideoFrame::PixelFormat");
 	}
@@ -75244,7 +75244,7 @@ RING_FUNC(ring_QCameraImageCapture_encodingSettings)
 	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
 	{
 		QImageEncoderSettings *pValue ; 
-		pValue = (QImageEncoderSettings *) malloc(sizeof(QImageEncoderSettings)) ;
+		pValue = (QImageEncoderSettings *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QImageEncoderSettings)) ;
 		*pValue = pObject->encodingSettings();
 		RING_API_RETCPOINTER(pValue,"QImageEncoderSettings");
 	}
@@ -75376,7 +75376,7 @@ RING_FUNC(ring_QCameraImageCapture_setBufferFormat)
 	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
 	pObject->setBufferFormat(* (QVideoFrame::PixelFormat  *) RING_API_GETCPOINTER(2,"QVideoFrame::PixelFormat"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QVideoFrame::PixelFormat"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QVideoFrame::PixelFormat"));
 }
 
 
@@ -75416,7 +75416,7 @@ RING_FUNC(ring_QCameraImageCapture_setEncodingSettings)
 	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
 	pObject->setEncodingSettings(* (QImageEncoderSettings    *) RING_API_GETCPOINTER(2,"QImageEncoderSettings"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QImageEncoderSettings"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QImageEncoderSettings"));
 }
 
 
@@ -75435,7 +75435,7 @@ RING_FUNC(ring_QCameraImageCapture_supportedBufferFormats)
 	pObject = (QCameraImageCapture *) RING_API_GETCPOINTER(1,"QCameraImageCapture");
 	{
 		QList<QVideoFrame::PixelFormat> *pValue ; 
-		pValue = (QList<QVideoFrame::PixelFormat> *) malloc(sizeof(QList<QVideoFrame::PixelFormat>)) ;
+		pValue = (QList<QVideoFrame::PixelFormat> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QVideoFrame::PixelFormat>)) ;
 		*pValue = pObject->supportedBufferFormats();
 		RING_API_RETCPOINTER(pValue,"QList<QVideoFrame::PixelFormat>");
 	}
@@ -75483,10 +75483,10 @@ RING_FUNC(ring_QCameraImageCapture_supportedResolutions)
 	}
 	{
 		QList<QSize> *pValue ; 
-		pValue = (QList<QSize> *) malloc(sizeof(QList<QSize>)) ;
+		pValue = (QList<QSize> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QSize>)) ;
 		*pValue = pObject->supportedResolutions(* (QImageEncoderSettings    *) RING_API_GETCPOINTER(2,"QImageEncoderSettings"),(bool *) RING_API_GETCPOINTER(3,"bool"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QImageEncoderSettings"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QImageEncoderSettings"));
 		RING_API_RETCPOINTER(pValue,"QList<QSize>");
 	}
 }
@@ -75893,7 +75893,7 @@ RING_FUNC(ring_QHeaderView_logicalIndexAt_3)
 	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->logicalIndexAt(* (QPoint    *) RING_API_GETCPOINTER(2,"QPoint")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -76068,7 +76068,7 @@ RING_FUNC(ring_QHeaderView_restoreState)
 	pObject = (GHeaderView *) RING_API_GETCPOINTER(1,"QHeaderView");
 	RING_API_RETNUMBER(pObject->restoreState(* (QByteArray    *) RING_API_GETCPOINTER(2,"QByteArray")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -77287,7 +77287,7 @@ RING_FUNC(ring_QFontMetrics_boundingRect)
 		pValue = new QRect() ;
 		*pValue = pObject->boundingRect(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 		RING_API_RETCPOINTER(pValue,"QRect");
 	}
 }
@@ -77408,7 +77408,7 @@ RING_FUNC(ring_QFontMetrics_boundingRect_4)
 		pValue = new QRect() ;
 		*pValue = pObject->boundingRect(* (QRect    *) RING_API_GETCPOINTER(2,"QRect"), (int ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (int ) RING_API_GETNUMBER(5),RING_API_GETINTPOINTER(6));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRect"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
 		RING_API_RETCPOINTER(pValue,"QRect");
 	}
 	RING_API_ACCEPTINTVALUE(5) ;
@@ -77497,7 +77497,7 @@ RING_FUNC(ring_QFontMetrics_inFont)
 	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
 	RING_API_RETNUMBER(pObject->inFont(* (QChar  *) RING_API_GETCPOINTER(2,"QChar")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -77516,7 +77516,7 @@ RING_FUNC(ring_QFontMetrics_inFontUcs4)
 	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
 	RING_API_RETNUMBER(pObject->inFontUcs4(* (uint  *) RING_API_GETCPOINTER(2,"uint")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"uint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uint"));
 }
 
 
@@ -77552,7 +77552,7 @@ RING_FUNC(ring_QFontMetrics_leftBearing)
 	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
 	RING_API_RETNUMBER(pObject->leftBearing(* (QChar  *) RING_API_GETCPOINTER(2,"QChar")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -77673,7 +77673,7 @@ RING_FUNC(ring_QFontMetrics_rightBearing)
 	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
 	RING_API_RETNUMBER(pObject->rightBearing(* (QChar  *) RING_API_GETCPOINTER(2,"QChar")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -77816,7 +77816,7 @@ RING_FUNC(ring_QFontMetrics_width_2)
 	pObject = (QFontMetrics *) RING_API_GETCPOINTER(1,"QFontMetrics");
 	RING_API_RETNUMBER(pObject->width(* (QChar  *) RING_API_GETCPOINTER(2,"QChar")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -77912,7 +77912,7 @@ RING_FUNC(ring_QSplashScreen_setPixmap)
 	pObject = (QSplashScreen *) RING_API_GETCPOINTER(1,"QSplashScreen");
 	pObject->setPixmap(* (QPixmap  *) RING_API_GETCPOINTER(2,"QPixmap"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPixmap"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPixmap"));
 }
 
 
@@ -77956,7 +77956,7 @@ RING_FUNC(ring_QSplashScreen_showMessage)
 	}
 	pObject->showMessage(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3),* (QColor  *) RING_API_GETCPOINTER(4,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QColor"));
 }
 
 
@@ -78113,7 +78113,7 @@ RING_FUNC(ring_QBoxLayout_direction)
 	pObject = (QBoxLayout *) RING_API_GETCPOINTER(1,"QBoxLayout");
 	{
 		QBoxLayout::Direction  *pValue ; 
-		pValue = (QBoxLayout::Direction  *) malloc(sizeof(QBoxLayout::Direction )) ;
+		pValue = (QBoxLayout::Direction  *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QBoxLayout::Direction )) ;
 		*pValue = pObject->direction();
 		RING_API_RETCPOINTER(pValue,"QBoxLayout::Direction");
 	}
@@ -78272,7 +78272,7 @@ RING_FUNC(ring_QBoxLayout_setDirection)
 	pObject = (QBoxLayout *) RING_API_GETCPOINTER(1,"QBoxLayout");
 	pObject->setDirection(* (QBoxLayout::Direction  *) RING_API_GETCPOINTER(2,"QBoxLayout::Direction"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBoxLayout::Direction"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBoxLayout::Direction"));
 }
 
 
@@ -78463,7 +78463,7 @@ RING_FUNC(ring_QLayout_contentsMargins)
 	pObject = (QLayout *) RING_API_GETCPOINTER(1,"QLayout");
 	{
 		QMargins *pValue ; 
-		pValue = (QMargins *) malloc(sizeof(QMargins)) ;
+		pValue = (QMargins *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMargins)) ;
 		*pValue = pObject->contentsMargins();
 		RING_API_RETCPOINTER(pValue,"QMargins");
 	}
@@ -78741,7 +78741,7 @@ RING_FUNC(ring_QLayout_setContentsMargins_2)
 	pObject = (QLayout *) RING_API_GETCPOINTER(1,"QLayout");
 	pObject->setContentsMargins(* (QMargins  *) RING_API_GETCPOINTER(2,"QMargins"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QMargins"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMargins"));
 }
 
 
@@ -78899,10 +78899,10 @@ RING_FUNC(ring_QLayout_closestAcceptableSize)
 	}
 	{
 		QSize  *pValue ; 
-		pValue = (QSize  *) malloc(sizeof(QSize )) ;
+		pValue = (QSize  *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QSize )) ;
 		*pValue = pObject->closestAcceptableSize((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),* (QSize    *) RING_API_GETCPOINTER(3,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QSize"));
 		RING_API_RETCPOINTER(pValue,"QSize");
 	}
 }
@@ -78945,7 +78945,7 @@ RING_FUNC(ring_QLinearGradient_setFinalStop)
 	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
 	pObject->setFinalStop(* (QPointF  *) RING_API_GETCPOINTER(2,"QPointF"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPointF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPointF"));
 }
 
 
@@ -78989,7 +78989,7 @@ RING_FUNC(ring_QLinearGradient_setStart)
 	pObject = (QLinearGradient *) RING_API_GETCPOINTER(1,"QLinearGradient");
 	pObject->setStart(* (QPointF  *) RING_API_GETCPOINTER(2,"QPointF"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPointF"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPointF"));
 }
 
 
@@ -79076,7 +79076,7 @@ RING_FUNC(ring_QGradient_setColorAt)
 	}
 	pObject->setColorAt( (qreal ) RING_API_GETNUMBER(2),* (QColor    *) RING_API_GETCPOINTER(3,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QColor"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QColor"));
 }
 
 
@@ -79137,7 +79137,7 @@ RING_FUNC(ring_QGradient_setStops)
 	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
 	pObject->setStops(* (QGradientStops  *) RING_API_GETCPOINTER(2,"QGradientStops"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QGradientStops"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QGradientStops"));
 }
 
 
@@ -79173,7 +79173,7 @@ RING_FUNC(ring_QGradient_stops)
 	pObject = (QGradient *) RING_API_GETCPOINTER(1,"QGradient");
 	{
 		QGradientStops *pValue ; 
-		pValue = (QGradientStops *) malloc(sizeof(QGradientStops)) ;
+		pValue = (QGradientStops *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QGradientStops)) ;
 		*pValue = pObject->stops();
 		RING_API_RETCPOINTER(pValue,"QGradientStops");
 	}
@@ -79957,7 +79957,7 @@ RING_FUNC(ring_QSplitter_restoreState)
 	pObject = (QSplitter *) RING_API_GETCPOINTER(1,"QSplitter");
 	RING_API_RETNUMBER(pObject->restoreState(* (QByteArray   *) RING_API_GETCPOINTER(2,"QByteArray")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -80107,7 +80107,7 @@ RING_FUNC(ring_QSplitter_setSizes)
 	pObject = (QSplitter *) RING_API_GETCPOINTER(1,"QSplitter");
 	pObject->setSizes(* (QList<int>   *) RING_API_GETCPOINTER(2,"QList<int>"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QList<int>"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QList<int>"));
 }
 
 
@@ -80151,7 +80151,7 @@ RING_FUNC(ring_QSplitter_sizes)
 	pObject = (QSplitter *) RING_API_GETCPOINTER(1,"QSplitter");
 	{
 		QList<int> *pValue ; 
-		pValue = (QList<int> *) malloc(sizeof(QList<int>)) ;
+		pValue = (QList<int> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<int>)) ;
 		*pValue = pObject->sizes();
 		RING_API_RETCPOINTER(pValue,"QList<int>");
 	}
@@ -80330,7 +80330,7 @@ RING_FUNC(ring_QCompleter_currentIndex)
 	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
 	{
 		QModelIndex *pValue ; 
-		pValue = (QModelIndex *) malloc(sizeof(QModelIndex)) ;
+		pValue = (QModelIndex *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QModelIndex)) ;
 		*pValue = pObject->currentIndex();
 		RING_API_RETCPOINTER(pValue,"QModelIndex");
 	}
@@ -80719,7 +80719,7 @@ RING_FUNC(ring_QCompleter_complete)
 	pObject = (QCompleter *) RING_API_GETCPOINTER(1,"QCompleter");
 	pObject->complete(* (QRect   *) RING_API_GETCPOINTER(2,"QRect"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRect"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
 }
 
 
@@ -80846,7 +80846,7 @@ RING_FUNC(ring_QString2_split_2)
 		pValue = new QStringList() ;
 		*pValue = pObject->split(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (QString::SplitBehavior )  (int) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 		RING_API_RETCPOINTER(pValue,"QStringList");
 	}
 }
@@ -80874,7 +80874,7 @@ RING_FUNC(ring_QString2_split_3)
 		pValue = new QStringList() ;
 		*pValue = pObject->split(* (QRegExp   *) RING_API_GETCPOINTER(2,"QRegExp"), (QString::SplitBehavior )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRegExp"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRegExp"));
 		RING_API_RETCPOINTER(pValue,"QStringList");
 	}
 }
@@ -80902,7 +80902,7 @@ RING_FUNC(ring_QString2_split_4)
 		pValue = new QStringList() ;
 		*pValue = pObject->split(* (QRegularExpression   *) RING_API_GETCPOINTER(2,"QRegularExpression"), (QString::SplitBehavior )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QRegularExpression"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRegularExpression"));
 		RING_API_RETCPOINTER(pValue,"QStringList");
 	}
 }
@@ -81068,7 +81068,7 @@ RING_FUNC(ring_QProcess_processEnvironment)
 	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
 	{
 		QProcessEnvironment *pValue ; 
-		pValue = (QProcessEnvironment *) malloc(sizeof(QProcessEnvironment)) ;
+		pValue = (QProcessEnvironment *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QProcessEnvironment)) ;
 		*pValue = pObject->processEnvironment();
 		RING_API_RETCPOINTER(pValue,"QProcessEnvironment");
 	}
@@ -81168,7 +81168,7 @@ RING_FUNC(ring_QProcess_setArguments)
 	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
 	pObject->setArguments(* (QStringList   *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
 }
 
 
@@ -81229,7 +81229,7 @@ RING_FUNC(ring_QProcess_setProcessEnvironment)
 	pObject = (GProcess *) RING_API_GETCPOINTER(1,"QProcess");
 	pObject->setProcessEnvironment(* (QProcessEnvironment   *) RING_API_GETCPOINTER(2,"QProcessEnvironment"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QProcessEnvironment"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QProcessEnvironment"));
 }
 
 
@@ -81411,7 +81411,7 @@ RING_FUNC(ring_QProcess_start)
 	}
 	pObject->start(RING_API_GETSTRING(2),* (QStringList   *) RING_API_GETCPOINTER(3,"QStringList"), (QIODevice::OpenMode )  (int) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QStringList"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QStringList"));
 }
 
 
@@ -81819,7 +81819,7 @@ RING_FUNC(ring_QMdiArea_setBackground)
 	pObject = (QMdiArea *) RING_API_GETCPOINTER(1,"QMdiArea");
 	pObject->setBackground(* (QBrush    *) RING_API_GETCPOINTER(2,"QBrush"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBrush"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
 }
 
 
@@ -81993,7 +81993,7 @@ RING_FUNC(ring_QMdiArea_subWindowList)
 	}
 	{
 		QList<QMdiSubWindow *> *pValue ; 
-		pValue = (QList<QMdiSubWindow *> *) malloc(sizeof(QList<QMdiSubWindow *>)) ;
+		pValue = (QList<QMdiSubWindow *> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QMdiSubWindow *>)) ;
 		*pValue = pObject->subWindowList( (QMdiArea::WindowOrder )  (int) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QList<QMdiSubWindow *>");
 	}
@@ -82728,7 +82728,7 @@ RING_FUNC(ring_QCursor_setPos_3)
 	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
 	pObject->setPos(* (QPoint *) RING_API_GETCPOINTER(2,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
 }
 
 
@@ -82751,7 +82751,7 @@ RING_FUNC(ring_QCursor_setPos_4)
 	}
 	pObject->setPos((QScreen *) RING_API_GETCPOINTER(2,"QScreen"),* (QPoint *) RING_API_GETCPOINTER(3,"QPoint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QPoint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QPoint"));
 }
 
 
@@ -82821,7 +82821,7 @@ RING_FUNC(ring_QListView_gridSize)
 	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
 	{
 		QSize  *pValue ; 
-		pValue = (QSize  *) malloc(sizeof(QSize )) ;
+		pValue = (QSize  *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QSize )) ;
 		*pValue = pObject->gridSize();
 		RING_API_RETCPOINTER(pValue,"QSize");
 	}
@@ -83008,7 +83008,7 @@ RING_FUNC(ring_QListView_setGridSize)
 	pObject = (QListView *) RING_API_GETCPOINTER(1,"QListView");
 	pObject->setGridSize(* (QSize    *) RING_API_GETCPOINTER(2,"QSize"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSize"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
 }
 
 
@@ -83591,7 +83591,7 @@ RING_FUNC(ring_QToolButton_arrowType)
 	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
 	{
 		Qt::ArrowType *pValue ; 
-		pValue = (Qt::ArrowType *) malloc(sizeof(Qt::ArrowType)) ;
+		pValue = (Qt::ArrowType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::ArrowType)) ;
 		*pValue = pObject->arrowType();
 		RING_API_RETCPOINTER(pValue,"Qt::ArrowType");
 	}
@@ -83681,7 +83681,7 @@ RING_FUNC(ring_QToolButton_setArrowType)
 	pObject = (GToolButton *) RING_API_GETCPOINTER(1,"QToolButton");
 	pObject->setArrowType(* (Qt::ArrowType  *) RING_API_GETCPOINTER(2,"Qt::ArrowType"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"Qt::ArrowType"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::ArrowType"));
 }
 
 
@@ -83919,7 +83919,7 @@ RING_FUNC(ring_QSerialPort_baudRate)
 	}
 	{
 		qint32 *pValue ; 
-		pValue = (qint32 *) malloc(sizeof(qint32)) ;
+		pValue = (qint32 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(qint32)) ;
 		*pValue = pObject->baudRate( (QSerialPort::Directions )  (int) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"qint32");
 	}
@@ -84170,7 +84170,7 @@ RING_FUNC(ring_QSerialPort_setBaudRate)
 	}
 	RING_API_RETNUMBER(pObject->setBaudRate(* (qint32  *) RING_API_GETCPOINTER(2,"qint32"), (QSerialPort::Directions )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"qint32"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"qint32"));
 }
 
 
@@ -84294,7 +84294,7 @@ RING_FUNC(ring_QSerialPort_setPort)
 	pObject = (GSerialPort *) RING_API_GETCPOINTER(1,"QSerialPort");
 	pObject->setPort(* (QSerialPortInfo  *) RING_API_GETCPOINTER(2,"QSerialPortInfo"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSerialPortInfo"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSerialPortInfo"));
 }
 
 
@@ -84875,7 +84875,7 @@ RING_FUNC(ring_QSerialPortInfo_productIdentifier)
 	pObject = (QSerialPortInfo *) RING_API_GETCPOINTER(1,"QSerialPortInfo");
 	{
 		quint16 *pValue ; 
-		pValue = (quint16 *) malloc(sizeof(quint16)) ;
+		pValue = (quint16 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(quint16)) ;
 		*pValue = pObject->productIdentifier();
 		RING_API_RETCPOINTER(pValue,"quint16");
 	}
@@ -84897,7 +84897,7 @@ RING_FUNC(ring_QSerialPortInfo_swap)
 	pObject = (QSerialPortInfo *) RING_API_GETCPOINTER(1,"QSerialPortInfo");
 	pObject->swap(* (QSerialPortInfo  *) RING_API_GETCPOINTER(2,"QSerialPortInfo"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QSerialPortInfo"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSerialPortInfo"));
 }
 
 
@@ -84933,7 +84933,7 @@ RING_FUNC(ring_QSerialPortInfo_vendorIdentifier)
 	pObject = (QSerialPortInfo *) RING_API_GETCPOINTER(1,"QSerialPortInfo");
 	{
 		quint16 *pValue ; 
-		pValue = (quint16 *) malloc(sizeof(quint16)) ;
+		pValue = (quint16 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(quint16)) ;
 		*pValue = pObject->vendorIdentifier();
 		RING_API_RETCPOINTER(pValue,"quint16");
 	}
@@ -84985,7 +84985,7 @@ RING_FUNC(ring_QStringRef_at)
 	}
 	{
 		QChar *pValue ; 
-		pValue = (QChar *) malloc(sizeof(QChar)) ;
+		pValue = (QChar *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QChar)) ;
 		*pValue = pObject->at( (int ) RING_API_GETNUMBER(2));
 		RING_API_RETCPOINTER(pValue,"QChar");
 	}
@@ -85053,7 +85053,7 @@ RING_FUNC(ring_QStringRef_compare_2)
 	}
 	RING_API_RETNUMBER(pObject->compare(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -85076,7 +85076,7 @@ RING_FUNC(ring_QStringRef_compare_3)
 	}
 	RING_API_RETNUMBER(pObject->compare(* (QLatin1String  *) RING_API_GETCPOINTER(2,"QLatin1String"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLatin1String"));
 }
 
 
@@ -85141,7 +85141,7 @@ RING_FUNC(ring_QStringRef_contains_2)
 	}
 	RING_API_RETNUMBER(pObject->contains(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -85164,7 +85164,7 @@ RING_FUNC(ring_QStringRef_contains_3)
 	}
 	RING_API_RETNUMBER(pObject->contains(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -85187,7 +85187,7 @@ RING_FUNC(ring_QStringRef_contains_4)
 	}
 	RING_API_RETNUMBER(pObject->contains(* (QLatin1String  *) RING_API_GETCPOINTER(2,"QLatin1String"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLatin1String"));
 }
 
 
@@ -85252,7 +85252,7 @@ RING_FUNC(ring_QStringRef_count_3)
 	}
 	RING_API_RETNUMBER(pObject->count(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -85275,7 +85275,7 @@ RING_FUNC(ring_QStringRef_count_4)
 	}
 	RING_API_RETNUMBER(pObject->count(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -85340,7 +85340,7 @@ RING_FUNC(ring_QStringRef_endsWith_2)
 	}
 	RING_API_RETNUMBER(pObject->endsWith(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -85363,7 +85363,7 @@ RING_FUNC(ring_QStringRef_endsWith_3)
 	}
 	RING_API_RETNUMBER(pObject->endsWith(* (QLatin1String  *) RING_API_GETCPOINTER(2,"QLatin1String"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLatin1String"));
 }
 
 
@@ -85386,7 +85386,7 @@ RING_FUNC(ring_QStringRef_endsWith_4)
 	}
 	RING_API_RETNUMBER(pObject->endsWith(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -85442,7 +85442,7 @@ RING_FUNC(ring_QStringRef_indexOf_2)
 	}
 	RING_API_RETNUMBER(pObject->indexOf(* (QLatin1String  *) RING_API_GETCPOINTER(2,"QLatin1String"), (int ) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLatin1String"));
 }
 
 
@@ -85469,7 +85469,7 @@ RING_FUNC(ring_QStringRef_indexOf_3)
 	}
 	RING_API_RETNUMBER(pObject->indexOf(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (int ) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -85496,7 +85496,7 @@ RING_FUNC(ring_QStringRef_indexOf_4)
 	}
 	RING_API_RETNUMBER(pObject->indexOf(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"), (int ) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -85586,7 +85586,7 @@ RING_FUNC(ring_QStringRef_lastIndexOf_2)
 	}
 	RING_API_RETNUMBER(pObject->lastIndexOf(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (int ) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -85613,7 +85613,7 @@ RING_FUNC(ring_QStringRef_lastIndexOf_3)
 	}
 	RING_API_RETNUMBER(pObject->lastIndexOf(* (QLatin1String  *) RING_API_GETCPOINTER(2,"QLatin1String"), (int ) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLatin1String"));
 }
 
 
@@ -85640,7 +85640,7 @@ RING_FUNC(ring_QStringRef_lastIndexOf_4)
 	}
 	RING_API_RETNUMBER(pObject->lastIndexOf(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"), (int ) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -85697,7 +85697,7 @@ RING_FUNC(ring_QStringRef_localeAwareCompare_2)
 	pObject = (QStringRef *) RING_API_GETCPOINTER(1,"QStringRef");
 	RING_API_RETNUMBER(pObject->localeAwareCompare(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -85779,7 +85779,7 @@ RING_FUNC(ring_QStringRef_startsWith_2)
 	}
 	RING_API_RETNUMBER(pObject->startsWith(* (QLatin1String  *) RING_API_GETCPOINTER(2,"QLatin1String"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QLatin1String"));
 }
 
 
@@ -85802,7 +85802,7 @@ RING_FUNC(ring_QStringRef_startsWith_3)
 	}
 	RING_API_RETNUMBER(pObject->startsWith(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -85825,7 +85825,7 @@ RING_FUNC(ring_QStringRef_startsWith_4)
 	}
 	RING_API_RETNUMBER(pObject->startsWith(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QChar"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
 }
 
 
@@ -85922,7 +85922,7 @@ RING_FUNC(ring_QStringRef_toUcs4)
 	pObject = (QStringRef *) RING_API_GETCPOINTER(1,"QStringRef");
 	{
 		QVector<uint> *pValue ; 
-		pValue = (QVector<uint> *) malloc(sizeof(QVector<uint>)) ;
+		pValue = (QVector<uint> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QVector<uint>)) ;
 		*pValue = pObject->toUcs4();
 		RING_API_RETCPOINTER(pValue,"QVector<uint>");
 	}
@@ -85991,7 +85991,7 @@ RING_FUNC(ring_QStringRef_compare_4)
 	}
 	RING_API_RETNUMBER(pObject->compare(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"),RING_API_GETSTRING(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -86014,9 +86014,9 @@ RING_FUNC(ring_QStringRef_compare_5)
 	}
 	RING_API_RETNUMBER(pObject->compare(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"),* (QStringRef  *) RING_API_GETCPOINTER(3,"QStringRef"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QStringRef"));
 }
 
 
@@ -86039,9 +86039,9 @@ RING_FUNC(ring_QStringRef_compare_6)
 	}
 	RING_API_RETNUMBER(pObject->compare(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"),* (QLatin1String  *) RING_API_GETCPOINTER(3,"QLatin1String"), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QLatin1String"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QLatin1String"));
 }
 
 
@@ -86064,7 +86064,7 @@ RING_FUNC(ring_QStringRef_localeAwareCompare_3)
 	}
 	RING_API_RETNUMBER(pObject->localeAwareCompare(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"),RING_API_GETSTRING(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 }
 
 
@@ -86083,9 +86083,9 @@ RING_FUNC(ring_QStringRef_localeAwareCompare_4)
 	pObject = (QStringRef *) RING_API_GETCPOINTER(1,"QStringRef");
 	RING_API_RETNUMBER(pObject->localeAwareCompare(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"),* (QStringRef  *) RING_API_GETCPOINTER(3,"QStringRef")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringRef"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"QStringRef"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QStringRef"));
 }
 
 
@@ -86271,7 +86271,7 @@ RING_FUNC(ring_QBuffer_setData)
 	pObject = (QBuffer *) RING_API_GETCPOINTER(1,"QBuffer");
 	pObject->setData(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QByteArray"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
 }
 
 
@@ -86366,7 +86366,7 @@ RING_FUNC(ring_QBluetoothAddress_toUInt64)
 	pObject = (QBluetoothAddress *) RING_API_GETCPOINTER(1,"QBluetoothAddress");
 	{
 		quint64 *pValue ; 
-		pValue = (quint64 *) malloc(sizeof(quint64)) ;
+		pValue = (quint64 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(quint64)) ;
 		*pValue = pObject->toUInt64();
 		RING_API_RETCPOINTER(pValue,"quint64");
 	}
@@ -86388,7 +86388,7 @@ RING_FUNC(ring_QBluetoothDeviceDiscoveryAgent_discoveredDevices)
 	pObject = (GBluetoothDeviceDiscoveryAgent *) RING_API_GETCPOINTER(1,"QBluetoothDeviceDiscoveryAgent");
 	{
 		QList<QBluetoothDeviceInfo> *pValue ; 
-		pValue = (QList<QBluetoothDeviceInfo> *) malloc(sizeof(QList<QBluetoothDeviceInfo>)) ;
+		pValue = (QList<QBluetoothDeviceInfo> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QBluetoothDeviceInfo>)) ;
 		*pValue = pObject->discoveredDevices();
 		RING_API_RETCPOINTER(pValue,"QList<QBluetoothDeviceInfo>");
 	}
@@ -86758,7 +86758,7 @@ RING_FUNC(ring_QBluetoothDeviceInfo_minorDeviceClass)
 	pObject = (QBluetoothDeviceInfo *) RING_API_GETCPOINTER(1,"QBluetoothDeviceInfo");
 	{
 		quint8 *pValue ; 
-		pValue = (quint8 *) malloc(sizeof(quint8)) ;
+		pValue = (quint8 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(quint8)) ;
 		*pValue = pObject->minorDeviceClass();
 		RING_API_RETCPOINTER(pValue,"quint8");
 	}
@@ -86797,7 +86797,7 @@ RING_FUNC(ring_QBluetoothDeviceInfo_rssi)
 	pObject = (QBluetoothDeviceInfo *) RING_API_GETCPOINTER(1,"QBluetoothDeviceInfo");
 	{
 		qint16 *pValue ; 
-		pValue = (qint16 *) malloc(sizeof(qint16)) ;
+		pValue = (qint16 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(qint16)) ;
 		*pValue = pObject->rssi();
 		RING_API_RETCPOINTER(pValue,"qint16");
 	}
@@ -86840,7 +86840,7 @@ RING_FUNC(ring_QBluetoothDeviceInfo_serviceUuids)
 	}
 	{
 		QList<QBluetoothUuid> *pValue ; 
-		pValue = (QList<QBluetoothUuid> *) malloc(sizeof(QList<QBluetoothUuid>)) ;
+		pValue = (QList<QBluetoothUuid> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QBluetoothUuid>)) ;
 		*pValue = pObject->serviceUuids((QBluetoothDeviceInfo::DataCompleteness *) RING_API_GETCPOINTER(2,"QBluetoothDeviceInfo::DataCompleteness"));
 		RING_API_RETCPOINTER(pValue,"QList<QBluetoothUuid>");
 	}
@@ -86900,7 +86900,7 @@ RING_FUNC(ring_QBluetoothDeviceInfo_setRssi)
 	pObject = (QBluetoothDeviceInfo *) RING_API_GETCPOINTER(1,"QBluetoothDeviceInfo");
 	pObject->setRssi(* (qint16  *) RING_API_GETCPOINTER(2,"qint16"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"qint16"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"qint16"));
 }
 
 
@@ -86923,7 +86923,7 @@ RING_FUNC(ring_QBluetoothDeviceInfo_setServiceUuids)
 	}
 	pObject->setServiceUuids(* (QList<QBluetoothUuid>  *) RING_API_GETCPOINTER(2,"QList<QBluetoothUuid>"), (QBluetoothDeviceInfo::DataCompleteness )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QList<QBluetoothUuid>"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QList<QBluetoothUuid>"));
 }
 
 
@@ -86981,7 +86981,7 @@ RING_FUNC(ring_QBluetoothHostInfo_setAddress)
 	pObject = (QBluetoothHostInfo *) RING_API_GETCPOINTER(1,"QBluetoothHostInfo");
 	pObject->setAddress(* (QBluetoothAddress  *) RING_API_GETCPOINTER(2,"QBluetoothAddress"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QBluetoothAddress"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBluetoothAddress"));
 }
 
 
@@ -87195,7 +87195,7 @@ RING_FUNC(ring_QDateTime_daysTo)
 	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
 	RING_API_RETNUMBER(pObject->daysTo(* (QDateTime  *) RING_API_GETCPOINTER(2,"QDateTime")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDateTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
 }
 
 
@@ -87248,7 +87248,7 @@ RING_FUNC(ring_QDateTime_msecsTo)
 	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
 	RING_API_RETNUMBER(pObject->msecsTo(* (QDateTime  *) RING_API_GETCPOINTER(2,"QDateTime")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDateTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
 }
 
 
@@ -87267,7 +87267,7 @@ RING_FUNC(ring_QDateTime_secsTo)
 	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
 	RING_API_RETNUMBER(pObject->secsTo(* (QDateTime  *) RING_API_GETCPOINTER(2,"QDateTime")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDateTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDateTime"));
 }
 
 
@@ -87286,7 +87286,7 @@ RING_FUNC(ring_QDateTime_setDate)
 	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
 	pObject->setDate(* (QDate  *) RING_API_GETCPOINTER(2,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QDate"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDate"));
 }
 
 
@@ -87326,7 +87326,7 @@ RING_FUNC(ring_QDateTime_setTime)
 	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
 	pObject->setTime(* (QTime  *) RING_API_GETCPOINTER(2,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"QTime"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTime"));
 }
 
 
@@ -87366,7 +87366,7 @@ RING_FUNC(ring_QDateTime_setTime_t)
 	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
 	pObject->setTime_t(* (uint  *) RING_API_GETCPOINTER(2,"uint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"uint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uint"));
 }
 
 
@@ -87531,7 +87531,7 @@ RING_FUNC(ring_QDateTime_toTime_t)
 	pObject = (QDateTime *) RING_API_GETCPOINTER(1,"QDateTime");
 	{
 		uint *pValue ; 
-		pValue = (uint *) malloc(sizeof(uint)) ;
+		pValue = (uint *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uint)) ;
 		*pValue = pObject->toTime_t();
 		RING_API_RETCPOINTER(pValue,"uint");
 	}
@@ -87725,7 +87725,7 @@ RING_FUNC(ring_QDateTime_fromTime_t)
 		pValue = new QDateTime() ;
 		*pValue = pObject->fromTime_t(* (uint  *) RING_API_GETCPOINTER(2,"uint"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"uint"));
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uint"));
 		RING_API_RETCPOINTER(pValue,"QDateTime");
 	}
 }
