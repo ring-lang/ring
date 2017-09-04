@@ -18,22 +18,22 @@ void ring_vm_gc_deletetemplists ( VM *pVM ) ;
 void ring_vm_gc_newitemreference ( Item *pItem ) ;
 /* Memory Functions (General) */
 
-void * ring_malloc ( size_t size ) ;
+RING_API void * ring_malloc ( size_t size ) ;
 
-void ring_free ( void *ptr ) ;
+RING_API void ring_free ( void *ptr ) ;
 
-void * ring_calloc ( size_t nitems, size_t size ) ;
+RING_API void * ring_calloc ( size_t nitems, size_t size ) ;
 
-void * ring_realloc ( void *ptr, size_t size ) ;
+RING_API void * ring_realloc ( void *ptr, size_t size ) ;
 /* Memory Functions (Ring StateAware) */
 
-void * ring_state_malloc ( void *pState,size_t size ) ;
+RING_API void * ring_state_malloc ( void *pState,size_t size ) ;
 
-void ring_state_free ( void *pState,void *ptr ) ;
+RING_API void ring_state_free ( void *pState,void *ptr ) ;
 
-void * ring_state_calloc ( void *pState,size_t nitems, size_t size ) ;
+RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size ) ;
 
-void * ring_state_realloc ( void *pState,void *ptr, size_t size ) ;
+RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size ) ;
 
 void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
 /* Macro */
