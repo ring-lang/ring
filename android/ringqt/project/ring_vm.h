@@ -460,7 +460,7 @@ void ring_vm_savestate ( VM *pVM,List *pList ) ;
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag ) ;
 
-void ring_vm_backstate ( int x,List *pList ) ;
+void ring_vm_backstate ( VM *pVM,int x,List *pList ) ;
 
 void ring_vm_savestate2 ( VM *pVM,List *pList ) ;
 

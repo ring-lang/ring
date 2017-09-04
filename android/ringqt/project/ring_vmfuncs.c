@@ -460,9 +460,9 @@ void ring_vm_removeblockflag ( VM *pVM )
 	pVM->nPC = ring_list_getint(pList,1);
 	pVM->nBlockFlag-- ;
 	/* Restore State */
-	ring_vm_backstate(ring_list_getint(pList,2),pVM->pExitMark);
-	ring_vm_backstate(ring_list_getint(pList,3),pVM->pLoopMark);
-	ring_vm_backstate(ring_list_getint(pList,4),pVM->pTry);
+	ring_vm_backstate(pVM,ring_list_getint(pList,2),pVM->pExitMark);
+	ring_vm_backstate(pVM,ring_list_getint(pList,3),pVM->pLoopMark);
+	ring_vm_backstate(pVM,ring_list_getint(pList,4),pVM->pTry);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->aPCBlockFlag,ring_list_getsize(pVM->aPCBlockFlag));
 }
 
