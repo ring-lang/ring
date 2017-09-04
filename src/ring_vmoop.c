@@ -1168,7 +1168,7 @@ int ring_vm_oop_ismethod ( VM *pVM,List *pList,const char *cStr )
 	return 0 ;
 }
 
-void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer )
+void ring_vm_oop_updateselfpointer ( VM *pVM,List *pObj,int nType,void *pContainer )
 {
 	List *pList  ;
 	/* Get Object State */
@@ -1176,9 +1176,9 @@ void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer )
 	/* Get Self Attribute */
 	pList = ring_list_getlist(pList,1);
 	/* Set Object Pointer */
-	ring_list_setpointer(pList,3, pContainer);
+	ring_list_setpointer_gc(pVM->pRingState,pList,3, pContainer);
 	/* Set Object Type */
-	ring_list_setint(pList,4,nType);
+	ring_list_setint_gc(pVM->pRingState,pList,4,nType);
 }
 
 void ring_vm_oop_setthethisvariable ( VM *pVM )
@@ -1242,5 +1242,5 @@ void ring_vm_oop_updateselfpointer2 ( VM *pVM, List *pList )
 	/* Set the pointer */
 	pItem->data.pList = pList ;
 	/* Update The Self Pointer */
-	ring_vm_oop_updateselfpointer(pList,RING_OBJTYPE_LISTITEM,pItem);
+	ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
 }

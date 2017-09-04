@@ -343,7 +343,7 @@ void ring_vm_listassignment ( VM *pVM )
 		ring_vm_list_copy(pVM,pList,pVar);
 		/* Update self object Pointer */
 		if ( ring_vm_oop_isobject(pList) ) {
-			ring_vm_oop_updateselfpointer(pList,RING_OBJTYPE_LISTITEM,pItem);
+			ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
 		}
 	} else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
