@@ -22,6 +22,8 @@ cCurrentDir[200]
 ring_parser_paralist
 Type: int
 nStart
+Type: const char *
+cToken
 ring_parser_list
 ring_parser_epslion
 ring_parser_passepslion
@@ -33,3 +35,4 @@ ring_parser_csexpr
 Type: int
 nOutput
 ring_parser_csbraceend
+ring_parser_bracesandend

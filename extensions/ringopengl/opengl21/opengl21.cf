@@ -10,12 +10,18 @@
 #include <GLUT/glut.h>
 </filter>
 
-<filter> not ismacosx()
+<filter> islinux()
+#include <GL/freeglut.h>
+#include <GL/gl.h>
+</filter>
+
+<filter> iswindows()
 #include <GL/glew.h>
 #include <GL/glut.h>
 </filter>
 
 </code>
+
 
 <runcode>
 aNumberTypes + "GLint"
@@ -27,6 +33,13 @@ aNumberTypes + "GLfloat"
 aNumberTypes + "GLchar"
 aNumberTypes + "GLsizeiptr"
 aNumberTypes + "GLintptr"
+aNumberTypes + "GLbyte"
+aNumberTypes + "GLshort"
+aNumberTypes + "GLubyte"
+aNumberTypes + "GLushort"
+aNumberTypes + "GLulong"
+aNumberTypes + "GLclampd"
+
 aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
 aEnumTypes + "GLsizei"

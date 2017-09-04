@@ -6,7 +6,7 @@ lines_read
 Type: List *
 pList
 END:
-ring_vm_curl_loadfunctions
+ringlib_init
 ring_getcurldata
 ring_vm_curl_download
 Type: CURL *

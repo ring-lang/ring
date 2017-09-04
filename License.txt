@@ -1,6 +1,6 @@
 The Ring Programming Language
 http://ring-lang.net/
-Version 1.4.1
+Version 1.5.3
 
 The MIT License (MIT)
 

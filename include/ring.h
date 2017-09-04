@@ -11,6 +11,9 @@
 **  Support Windows XP 
 **  To avoid error message : procedure entry point InitializeConditionVariable could not be located in Kernel32.dll 
 */
+#ifdef _WIN32_WINNT
+#undef _WIN32_WINNT
+#endif
 #define _WIN32_WINNT 0x502
 #define RING_USEDLL 1
 #define RING_BUILDLIB 1
@@ -39,10 +42,14 @@
 #define RING_SHOWIC 0
 #define RING_RUNVM 1
 #define RING_VMSHOWOPCODE 1
-#define RING_OOM "\nError : Out of Memory\n"
 #ifndef NDEBUG
 #define NDEBUG
 #endif
+/* Environment Errors */
+#define RING_SEGFAULT "\nError (E1) : Caught SegFault!\n"
+#define RING_OOM "\nError (E2) : Out of Memory!\n"
+#define RING_NOSCOPE "\nError (E3) : Deleting scope while no scope! \n"
+#define RING_LONGINSTRUCTION "\nError (E4) : Long VM Instruction! \n"
 /*
 **  Include Files 
 **  Include C Headers 

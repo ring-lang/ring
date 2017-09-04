@@ -36,10 +36,10 @@ void ring_vm_dll_loadlib ( void *pPointer )
 			RING_API_ERROR("The dynamic library doesn't contain the ringlib_init() function!");
 			return ;
 		}
-		ring_list_deletearray(pRingState->pRingCFunctions);
+		ring_list_deletearray_gc(pRingState,pRingState->pRingCFunctions);
 		(*pFunc)(pRingState) ;
-		ring_list_genarray(pRingState->pRingCFunctions);
-		ring_list_genhashtable2(pRingState->pRingCFunctions);
+		ring_list_genarray_gc(pRingState,pRingState->pRingCFunctions);
+		ring_list_genhashtable2_gc(pRingState,pRingState->pRingCFunctions);
 		RING_API_RETCPOINTER(handle,"DLL");
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

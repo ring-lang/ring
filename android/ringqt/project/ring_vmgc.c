@@ -53,14 +53,14 @@ void ring_vm_gc_checkupdatereference ( List *pList )
 	}
 }
 
-void ring_vm_gc_deleteitem ( Item *pItem )
+void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 {
 	if ( pItem->gc.nReferenceCount == 0 ) {
 		#if GCLog
 		printf( "GC Delete Item - Free Memory %p \n",pItem ) ;
 		#endif
 		ring_item_content_delete(pItem);
-		free( pItem ) ;
+		ring_state_free(pState,pItem);
 	}
 	else {
 		pItem->gc.nReferenceCount-- ;
@@ -80,6 +80,10 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 {
 	int x  ;
 	List *pScope,*pList  ;
+	/* If we are in the class region (After class name) then return */
+	if ( pVM->nInClassRegion ) {
+		return ;
+	}
 	/*
 	**  This function is called from Ring code by callgc() 
 	**  Function Goal 
@@ -119,4 +123,63 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 void ring_vm_gc_newitemreference ( Item *pItem )
 {
 	pItem->gc.nReferenceCount++ ;
+}
+/* Memory Functions (General) */
+
+RING_API void * ring_malloc ( size_t size )
+{
+	void *pMem  ;
+	pMem = malloc(size);
+	return pMem ;
+}
+
+RING_API void ring_free ( void *ptr )
+{
+	free( ptr ) ;
+}
+
+RING_API void * ring_calloc ( size_t nitems, size_t size )
+{
+	void *pMem  ;
+	pMem = calloc(nitems,size);
+	return pMem ;
+}
+
+RING_API void * ring_realloc ( void *ptr, size_t size )
+{
+	void *pMem  ;
+	pMem = realloc(ptr,size);
+	return pMem ;
+}
+/* Memory Functions (RingState Aware) */
+
+RING_API void * ring_state_malloc ( void *pState,size_t size )
+{
+	void *pMem  ;
+	pMem = ring_malloc(size);
+	return pMem ;
+}
+
+RING_API void ring_state_free ( void *pState,void *ptr )
+{
+	ring_free(ptr);
+}
+
+RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
+{
+	void *pMem  ;
+	pMem = ring_calloc(nitems,size);
+	return pMem ;
+}
+
+RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size )
+{
+	void *pMem  ;
+	pMem = ring_realloc(ptr,size);
+	return pMem ;
+}
+
+void ring_vm_gc_deleteitem ( Item *pItem )
+{
+	ring_vm_gc_deleteitem_gc(NULL,pItem);
 }

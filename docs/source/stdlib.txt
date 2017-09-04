@@ -7,6 +7,12 @@ Stdlib Functions
 
 In this chapter we are going to learn about functions in the stdlib.ring
 
+Before using the functions in the library, We must load the library first
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+
 .. index:: 
 	pair: Stdlib Functions; puts()
 
@@ -43,17 +49,47 @@ Syntax:
 
 .. code-block:: ring
 
-	print(string)
+	print(string) ---> String
 
 Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
-
 	print("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
 	x=10 y=20
 	print("\nx value = #{x} , y value = #{y} \n")
+
+
+.. index:: 
+	pair: Stdlib Functions; Print2Str() Function
+
+Print2Str() Function
+====================
+
+Syntax:
+
+.. code-block:: ring
+
+	print2Str(string) ---> String
+
+
+Example:
+
+.. code-block:: ring
+
+	world = "World!"
+	mystring = print2str("Hello, #{world} \nIn Year \n#{2000+17} \n")
+
+	see mystring + nl
+
+Output:
+
+.. code-block:: ring
+
+	Hello, World!
+	In Year
+	2017
+
 
 .. index:: 
 	pair: Stdlib Functions; getstring()
@@ -1228,4 +1264,32 @@ Example:
 	cYou  = SystemCmd("whoami") 	   # User Name logged in is output a variable
 	cThem = SystemCmd("dir c:\Users")  # Directory List is output to a variable
 
+
+.. index:: 
+	pair: Stdlib Functions; ListAllFiles() Function
+
+ListAllFiles() Function
+=======================
+
+Using this function we can quickly do a process on a group of files in a folder and it's sub folders.
+
+Syntax:
+
+.. code-block:: ring
+
+	ListAllFiles(cFolder,cExtension) ---> List of Files
+
+Example:
+
+.. code-block:: ring
+
+	aList = ListAllFiles("c:/ring/ringlibs","ring") # *.ring only
+	aList = sort(aList)
+	see aList
+
+Example:
+
+.. code-block:: ring
+
+	see listallfiles("b:/ring/ringlibs/weblib","") # All Files
 

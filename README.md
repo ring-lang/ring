@@ -7,7 +7,7 @@
 | |*Resources*|*Operating System*|*Status*|
 |---|---|---|---|             																															 
 |Download |[![Download](http://ring-lang.sourceforge.net/binaryrelease.svg)](http://ring-lang.sourceforge.net/download.html)|**MacOS X (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Help |[![Help](http://ring-lang.sourceforge.net/documentation.svg)](http://ring-lang.sourceforge.net/doc1.4.1/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Help |[![Help](http://ring-lang.sourceforge.net/documentation.svg)](http://ring-lang.sourceforge.net/doc1.5.3/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 |Try |[![Try](http://ring-lang.sourceforge.net/interactive%20ring-use%20online-green.svg)](http://ring-lang.sourceforge.net/cgi-bin/ringlang.cgi)|**MacOS X (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
 |Support |[![Support](http://ring-lang.sourceforge.net/group-ask%20questions-yellowgreen.svg)](https://groups.google.com/forum/#!forum/ring-lang)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 
@@ -30,6 +30,16 @@ You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
 
 The next steps explains building using scripts.
 
+We provide instructions for building on the next platforms :-
+
+(1) Microsoft Windows 
+
+(2) Ubuntu Linux
+
+(3) Fedora Linux
+
+(4) MacOS X
+
 ## Building using Microsoft Windows 
 
 ### Get the source code
@@ -39,8 +49,8 @@ The next steps explains building using scripts.
 ### Build Ring (Compiler/VM)
 	
 	cd ring/src
-	buildvccomplete.bat
-	buildvccompletew.bat
+	buildvc.bat
+	buildvcw.bat
 
 ### Build RingODBC
 	
@@ -82,6 +92,21 @@ The next steps explains building using scripts.
 ### Generate RingZip Source Code and Build 
 	
 	cd ../extensions/ringzip
+	gencode.bat
+	buildvc.bat
+
+### Generate RingFreeGLUT Source Code and Build 
+	
+	cd ../extensions/ringfreeglut
+	gencode.bat
+	buildvc.bat
+
+### Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6
+	
+	cd ../extensions/ringopengl/opengl21
 	gencode.bat
 	buildvc.bat
 	
@@ -126,7 +151,7 @@ The next steps explains building using scripts.
 	
 ### Build Ring (Compiler/VM)
 	
-	sudo ./buildgcccomplete.sh
+	sudo ./buildgcc.sh
 
 ### Build RingODBC
 	
@@ -171,11 +196,115 @@ The next steps explains building using scripts.
 	./gencode.sh
 	./buildgcc.sh
 
+### Generate RingFreeGLUT Source Code and Build 
+	
+	cd ../extensions/ringfreeglut
+	./gencode.sh
+	./buildgcc.sh
+
+### Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6
+	
+	cd ../extensions/ringopengl/opengl21
+	./gencode.sh
+	./buildgcc.sh
+
 ### Generate RingQt Source Code and Build
 	
 	cd ../extensions/ringqt
 	./gencode.sh
 	./buildgcc.sh
+
+### To be able to call ring from any folder 
+	cd ../../bin
+	sudo ./install.sh
+	
+### Run Ring Notepad
+	
+	cd applications/rnote
+	sudo ring rnote.ring
+
+
+## Building using Fedora Linux 
+
+### Get the source code
+
+	git clone http://github.com/ring-lang/ring.git
+	
+### Install Libraries 
+	
+	cd ring/src
+	./installdepfedora.sh 
+	
+### Build Ring (Compiler/VM)
+	
+	sudo ./buildgcc.sh
+
+### Build RingODBC
+	
+	cd ../extensions/ringodbc
+	./buildgcc.sh
+
+### Build RingMySQL
+	
+	cd ../extensions/ringmysql
+	./buildgccfedora.sh
+
+### Build RingSQLite
+	
+	cd ../extensions/ringsqlite
+	./buildgcc.sh
+
+### Build RingOpenSSL
+	
+	cd ../extensions/ringopenssl
+	./buildgcc.sh
+
+### Build RingInternet
+	
+	cd ../extensions/ringinternet
+	./buildgcc.sh
+	
+### Generate RingAllegro Source Code and Build 
+	
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildgcc.sh
+
+### Generate RingLibCurl Source Code and Build 
+	
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildgcc.sh
+	
+### Generate RingZip Source Code and Build 
+	
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
+### Generate RingFreeGLUT Source Code and Build 
+	
+	cd ../extensions/ringfreeglut
+	./gencode.sh
+	./buildgcc.sh
+
+### Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6
+	
+	cd ../extensions/ringopengl/opengl21
+	./gencode.sh
+	./buildgcc.sh
+
+### Generate RingQt Source Code and Build
+	
+	cd ../extensions/ringqt
+	./gencode.sh
+	./buildgccfedora.sh
 
 ### To be able to call ring from any folder 
 	cd ../../bin
@@ -197,13 +326,12 @@ The next steps explains building using scripts.
 	
 ### Install Libraries 
 	
-	brew install unixodbc mysql-connector-c allegro openssl homebrew/versions/qt55
-	brew link --force qt55
+	cd ring/src
+	./installdepmac.sh 
 	
 ### Build Ring (Compiler/VM)
 	
-	cd ring/src
-	./buildclangcomplete.sh
+	./buildclang.sh
 	
 ### Build RingODBC
 	
@@ -245,6 +373,21 @@ The next steps explains building using scripts.
 ### Generate RingZip Source Code and Build 
 	
 	cd ../extensions/ringzip
+	./gencode.sh
+	./buildclang.sh
+
+### Generate RingFreeGLUT Source Code and Build 
+	
+	cd ../extensions/ringfreeglut
+	./gencode.sh
+	./buildclang.sh
+
+### Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6
+	
+	cd ../extensions/ringopengl/opengl21
 	./gencode.sh
 	./buildclang.sh
 	

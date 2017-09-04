@@ -6,6 +6,8 @@
 **  Stack Size 
 */
 #define RING_VM_STACK_SIZE 256
+#define RING_VM_STACK_CHECKOVERFLOW 253
+#define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
 #define RING_VM_BC_ITEMS_COUNT 16
 typedef struct ByteCode {
 	Item *aData[RING_VM_BC_ITEMS_COUNT]  ;
@@ -51,7 +53,7 @@ typedef struct VM {
 	int nActiveScopeID  ;
 	int nActiveCatch  ;
 	char nInsideBraceFlag  ;
-	char nCheckNULLVar  ;
+	char nInClassRegion  ;
 	List *aActivePackage  ;
 	char nPrivateFlag  ;
 	char nGetSetProperty  ;
@@ -223,7 +225,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr ) ;
 
 void ring_vm_newvar ( VM *pVM,const char *cStr ) ;
 
-List * ring_vm_newvar2 ( const char *cStr,List *pParent ) ;
+List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent ) ;
 
 void ring_vm_addnewnumbervar ( VM *pVM,const char *cStr,double x ) ;
 
@@ -409,7 +411,7 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM ) ;
 
 int ring_vm_oop_ismethod ( VM *pVM,List *pList,const char *cStr ) ;
 
-void ring_vm_oop_updateselfpointer ( List *pObj,int nType,void *pContainer ) ;
+void ring_vm_oop_updateselfpointer ( VM *pVM,List *pObj,int nType,void *pContainer ) ;
 
 void ring_vm_oop_movetobeforeobjstate ( VM *pVM ) ;
 
@@ -458,7 +460,7 @@ void ring_vm_savestate ( VM *pVM,List *pList ) ;
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag ) ;
 
-void ring_vm_backstate ( int x,List *pList ) ;
+void ring_vm_backstate ( VM *pVM,int x,List *pList ) ;
 
 void ring_vm_savestate2 ( VM *pVM,List *pList ) ;
 
@@ -567,7 +569,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 #define RING_VM_IR_READDVALUE(x) pVM->pByteCodeIR->aData[x]->data.dNumber
 #define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nSize
 #define RING_VM_IR_OPCODE pVM->pByteCodeIR->aData[0]->data.iNumber
-#define RING_VM_IR_SETCVALUE(x,y) ring_string_set(pVM->pByteCodeIR->aData[x]->data.pString,y)
+#define RING_VM_IR_SETCVALUE(x,y) ring_string_set_gc(pVM->pRingState,pVM->pByteCodeIR->aData[x]->data.pString,y)
 #define RING_VM_IR_ITEM(x) pVM->pByteCodeIR->aData[x]
 #define RING_VM_IR_LIST pVM->pByteCodeIR->pList
 #define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
@@ -587,11 +589,12 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 #define RING_FUNCCL_TEMPMEM 5
 #define RING_FUNCCL_FILENAME 6
 #define RING_FUNCCL_METHODORFUNC 7
-#define RING_FUNCCL_CALLERPC 8
-#define RING_FUNCCL_FUNCEXE 9
-#define RING_FUNCCL_LISTSTART 10
-#define RING_FUNCCL_NESTEDLISTS 11
-#define RING_FUNCCL_STATE 12
+#define RING_FUNCCL_LINENUMBER 8
+#define RING_FUNCCL_CALLERPC 9
+#define RING_FUNCCL_FUNCEXE 10
+#define RING_FUNCCL_LISTSTART 11
+#define RING_FUNCCL_NESTEDLISTS 12
+#define RING_FUNCCL_STATE 13
 /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
 #define RING_FUNCMAP_NAME 1
 #define RING_FUNCMAP_PC 2

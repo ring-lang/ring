@@ -16,23 +16,52 @@ Func Puts vvalue
 
 /*
 	Function Name	: print
-	Usage		: print string - support \n \t \r \\
+	Usage		: print string - support \n \t \r \\ #{variable}
 	Parameters	: the string
 */
 Func Print vValue
+	if isstring(vValue)
+		see _Print2Str(vValue,3)
+	else
+		see vValue 
+	ok
+
+/*
+	Function Name	: print2str
+	Usage		: print to string - support \n \t \r \\ #{variable}
+	Parameters	: the string
+*/
+Func Print2Str vValue
+	# Pass Three Scopes 
+	if isnumber(vValue)
+		vValue = "" + vValue 
+	ok
+	if isstring(vValue)
+		return _Print2Str(vValue,3)
+	else 
+		raise("Type Error : Print2Str() Accept Strings/Numbers Only!")
+	ok
+
+/*
+	Function Name	: _print2str
+	Usage		: Internal function - print to string 
+	Parameters	: the string , Scopes to pass 
+*/
+Func _Print2Str vValue,nScope
+	cString = ""
 	for t = 1 to len(vValue)
 		switch vValue[t]
 		on "\"
 			t++
 			switch vValue[t]
 			on "\"
-				see "\"
+				cString +=  "\"
 			on "n"
-				see nl
+				cString +=  nl
 			on "t"
-				see char(9)
+				cString +=  char(9)
 			on "r" 
-				see char(13)
+				cString +=  char(13)
 			off
 		on "#"
 			if vValue[t+1] = "{"
@@ -50,22 +79,23 @@ Func Print vValue
 					if len(aMem) > 1
 						# -2 to avoid two scopes 
 						# scope used by ringvm_memorylist() 
-						# scope used by print() 
-						aList = aMem[len(aMem)-2]
+						# scope used by _print2str() 
+						aList = aMem[len(aMem)-nScope]
 						nPos = find(aList,lower(cVar),1)
 						if nPos 
 							cVar = "aList[nPos][3]"
 						ok
 					ok
 				ok
-				cCode = "See " + cVar				
+				cCode = "cString += " + cVar				
 				eval(cCode)
 				t = r
 			ok
 		other
-			see vValue[t]
+			cString +=  vValue[t]
 		off
 	next
+	return cString
 
 
 /*
@@ -319,7 +349,7 @@ Func LineCount text
 	output		: factorial of a number.
 */
 
-Func Factorial n if n = 1 return 1 else return n * factorial(n-1) ok
+Func Factorial n if n = 0 return 1 else return n * factorial(n-1) ok
 
 /*
 	Function Name	: fibonacci

@@ -27,7 +27,7 @@ pItem
 ring_vm_gc_checkupdatereference
 Type: Item *
 pItem
-ring_vm_gc_deleteitem
+ring_vm_gc_deleteitem_gc
 ring_vm_gc_killreference
 Type: List *
 pList
@@ -37,3 +37,24 @@ x
 Type: List *
 pScope,*pList
 ring_vm_gc_newitemreference
+ring_malloc
+Type: void *
+pMem
+ring_free
+ring_calloc
+Type: void *
+pMem
+ring_realloc
+Type: void *
+pMem
+ring_state_malloc
+Type: void *
+pMem
+ring_state_free
+ring_state_calloc
+Type: void *
+pMem
+ring_state_realloc
+Type: void *
+pMem
+ring_vm_gc_deleteitem

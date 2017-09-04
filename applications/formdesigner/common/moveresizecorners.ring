@@ -44,6 +44,17 @@ Class MoveResizeCorners
 		nX = oFilter.getglobalx()
 		ny = oFilter.getglobaly()
 		setCursor(oDesigner.oGeneral.oCursorA())
+		# To be responsive to quick clicks/movement		
+			MouseMove(oDesigner)
+			# Draw Corners
+				aObjects = oDesigner.oModel.getselectedObjects()
+				for item in aObjects {
+					oObject = item[2]
+					oObject.oCorners.refresh(oObject)
+				}
+			# Set focus to be the current object (after drawing corners)
+				setfocus(0)
+
 
 	func MouseRelease oDesigner
 		lPress = False

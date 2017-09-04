@@ -55,12 +55,47 @@ class FormDesignerFileSystem
 			SaveFormToFile(oDesigner)
 		# Properties
 			oDesigner.ObjectProperties()
+		# Open controller class in Ring Notepad 
+			OpenControllerClassInParent(oDesigner)
+
+	func OpenControllerClassInParent oDesigner
+		if oDesigner.IsParent() {
+			if isMethod(oDesigner.Parent(),"openfile") {
+				cDir = oDesigner.Parent().openfile(substr(cFileName,".rform","Controller.ring"))
+			}
+		}
+
 
 	func AddExtensionToName cInputFileName
 		if not right(lower(cInputFileName),5) = "rform" {
 			cInputFileName += ".rform"
 		}
 		return cInputFileName
+
+	func CloseAction oDesigner
+		# Delete objects
+			DeleteAllObjects(oDesigner)	
+		# No File Name
+			cFileName = "noname.rform"
+		# Default Properties
+			oDesigner.oView.oSub {
+				blocksignals(True)
+				move(100,100)
+				resize(400,400)
+				setWindowTitle("Form 1")
+				show()
+				blocksignals(False)
+			}
+			oDesigner.oModel.FormObject() {
+				setWindowTitle("Form 1")
+			}
+		# Tell the Parent (Ring Notepad for example)
+			if oDesigner.isParent() {
+				if isMethod(oDesigner.Parent(),"clearactiveformfile") {
+					oDesigner.Parent().ClearActiveFormFile()
+				}
+			}
+
 
 	func OpenAction oDesigner
 		# Get the file Name
@@ -71,6 +106,8 @@ class FormDesignerFileSystem
 			if cInputFileName = NULL { return }
 			cFileName = cInputFileName
 			LoadFormFromFile(oDesigner)
+		# Open controller class in Ring Notepad 
+			OpenControllerClassInParent(oDesigner)
 
 	func SaveAction oDesigner
 		# Check file not saved before
@@ -79,6 +116,13 @@ class FormDesignerFileSystem
 				return
 			}
 		SaveFormToFile(oDesigner)
+
+	func SaveIfOnlyFileIsOpened oDesigner 
+		# Used by Ring Notepad to Save before Run
+			if cFileName != "noname.rform" {
+				SaveFormToFile(oDesigner)
+			}
+		
 
 	func SaveAsAction oDesigner
 		SaveFile(oDesigner)
@@ -93,6 +137,8 @@ class FormDesignerFileSystem
 			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
 			SaveFormToFile(oDesigner)
+		# Open controller class in Ring Notepad 
+			OpenControllerClassInParent(oDesigner)
 
 	func SaveFormToFile oDesigner
 		cHeader = "# Start Form Designer File" + nl

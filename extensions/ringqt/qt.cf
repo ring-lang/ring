@@ -219,12 +219,37 @@ extern "C" {
 #include <QDesktopServices>
 #include <QToolButton>
 #include "gtoolbutton.h"
+<filter> (sysget("RINGQT_ANDROID") = "")
 #include <QSerialPort>
 #include "gserialport.h"
 #include <QSerialPortInfo>
+</filter>
 #include <QStringRef>
 #include <QMutex>
 #include <QMutexLocker>
+#include <QBuffer>
+#include <QBluetoothAddress>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include "gbluetoothdevicediscoveryagent.h"
+#include <QBluetoothDeviceInfo>
+#include <QBluetoothUuid>
+#include <QBluetoothHostInfo>
+#include <QBluetoothLocalDevice>
+#include "gbluetoothlocaldevice.h"
+#include <QBluetoothServer>
+#include "gbluetoothserver.h"
+#include <QBluetoothServiceDiscoveryAgent>
+#include "gbluetoothservicediscoveryagent.h"
+#include <QBluetoothServiceInfo>
+#include <QBluetoothSocket>
+#include "gbluetoothsocket.h"
+#include <QBluetoothTransferManager>
+#include "gbluetoothtransfermanager.h"
+#include <QBluetoothTransferReply>
+#include "gbluetoothtransferreply.h"
+#include <QBluetoothTransferRequest>
+#include <QBluetoothUuid>
+#include <QDateTime>
 
 extern "C" {
 
@@ -261,6 +286,7 @@ aNewMethodName + ["QThread","exit","exitfromthread"]
 aNewMethodName + ["QRegularExpressionMatchIterator","next","nextitem"]
 aNewMethodName + ["QCamera","load","loadcamera"]
 aNewMethodName + ["QPixmap","load","loadpixmap"]
+aNewMethodName + ["QBluetoothTransferManager","put","putdata"]
 
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
@@ -492,6 +518,43 @@ aEnumTypes + "QToolButton::ToolButtonPopupMode"
 $aMallocClassesList + "QModelIndex"
 aEnumTypes + "QMutex::RecursionMode"
 
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethod"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::DiscoveryMethods"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::Error"
+aEnumTypes + "QBluetoothDeviceDiscoveryAgent::InquiryType"
+aEnumTypes + "QBluetoothDeviceInfo::CoreConfiguration"
+aEnumTypes + "QBluetoothDeviceInfo::CoreConfigurations"
+aEnumTypes + "QBluetoothDeviceInfo::DataCompleteness"
+aEnumTypes + "QBluetoothDeviceInfo::MajorDeviceClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorAudioVideoClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorComputerClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorHealthClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorImagingClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorMiscellaneousClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorNetworkClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorPeripheralClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorPhoneClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorToyClass"
+aEnumTypes + "QBluetoothDeviceInfo::MinorWearableClass"
+aEnumTypes + "QBluetoothDeviceInfo::ServiceClass"
+aEnumTypes + "QBluetoothDeviceInfo::ServiceClasses"
+aEnumTypes + "QBluetoothLocalDevice::Error"
+aEnumTypes + "QBluetoothLocalDevice::HostMode"
+aEnumTypes + "QBluetoothLocalDevice::Pairing"
+aEnumTypes + "QBluetoothServer::Error"
+aEnumTypes + "QBluetoothServiceDiscoveryAgent::DiscoveryMode"
+aEnumTypes + "QBluetoothServiceDiscoveryAgent::Error"
+aEnumTypes + "QBluetoothServiceInfo::AttributeId"
+aEnumTypes + "QBluetoothServiceInfo::Protocol"
+aEnumTypes + "QBluetoothSocket::SocketError"
+aEnumTypes + "QBluetoothSocket::SocketState"
+aEnumTypes + "QBluetoothTransferReply::TransferError"
+aEnumTypes + "QBluetoothTransferRequest::Attribute"
+aEnumTypes + "QBluetoothUuid::CharacteristicType"
+aEnumTypes + "QBluetoothUuid::DescriptorType"
+aEnumTypes + "QBluetoothUuid::ProtocolUuid"
+aEnumTypes + "QBluetoothUuid::ServiceClassUuid"
+
 </runcode>
 
 
@@ -568,6 +631,10 @@ RING_FUNC(ring_QApp_styleFusionBlack)
 
 	palette.setColor(QPalette::Highlight, QColor(142,45,197).lighter());
 	palette.setColor(QPalette::HighlightedText, Qt::black);
+
+	palette.setColor(QPalette::Disabled, QPalette::Text, Qt::darkGray);
+	palette.setColor(QPalette::Disabled, QPalette::ButtonText, Qt::darkGray);
+
 	qApp->setPalette(palette);
 }
 
@@ -1788,7 +1855,9 @@ QMenu *addMenu(QString)
 QAction *addSeparator(void)
 void clear(void)
 QAction *defaultAction(void)
-QAction *exec(void)
+QAction *exec(const QPoint &)
+QAction *exec@2(void)
+QAction *exec@3(const QPoint &,QAction *)
 void hideTearOffMenu(void)
 QIcon icon(void)
 QAction *insertMenu(QAction *before, QMenu *menu)
@@ -3651,6 +3720,15 @@ void setTextModeEnabled(bool enabled)
 void ungetChar(char c)
 int write(const char *data, int maxSize)
 
+
+bool atEnd(void)
+bool canReadLine(void)
+void close(void)
+bool open(QIODevice::OpenMode flags)
+qint64 pos(void)
+bool seek(qint64 pos)
+qint64 size(void)
+
 void setaboutToCloseEvent(const char *)
 void setbytesWrittenEvent(const char *)
 void setreadChannelFinishedEvent(const char *)
@@ -4319,6 +4397,65 @@ const char *getPaintEvent(void)
 void setEventOutput(bool x)
 QObject *getParentObject(void)
 QWidget *getParentWidget(void)
+
+void setKeyPressFunc(const char *cStr)
+void setMouseButtonPressFunc(const char *cStr)
+void setMouseButtonReleaseFunc(const char *cStr)
+void setMouseButtonDblClickFunc(const char *cStr)
+void setMouseMoveFunc(const char *cStr)
+void setCloseFunc(const char *cStr)
+void setContextMenuFunc(const char *cStr)
+void setDragEnterFunc(const char *cStr)
+void setDragLeaveFunc(const char *cStr)
+void setDragMoveFunc(const char *cStr)
+void setDropFunc(const char *cStr)
+void setEnterFunc(const char *cStr)
+void setFocusInFunc(const char *cStr)
+void setFocusOutFunc(const char *cStr)
+void setKeyReleaseFunc(const char *cStr)
+void setLeaveFunc(const char *cStr)
+void setNonClientAreaMouseButtonDblClickFunc(const char *cStr)
+void setNonClientAreaMouseButtonPressFunc(const char *cStr)
+void setNonClientAreaMouseButtonReleaseFunc(const char *cStr)
+void setNonClientAreaMouseMoveFunc(const char *cStr)
+void setMoveFunc(const char *cStr)
+void setResizeFunc(const char *cStr)
+void setWindowActivateFunc(const char *cStr)
+void setWindowBlockedFunc(const char *cStr)
+void setWindowDeactivateFunc(const char *cStr)
+void setWindowStateChangeFunc(const char *cStr)
+void setWindowUnblockedFunc(const char *cStr)
+void setPaintFunc(const char *cStr)
+
+const char *getKeyPressFunc(void)
+const char *getMouseButtonPressFunc(void)
+const char *getMouseButtonReleaseFunc(void)
+const char *getMouseButtonDblClickFunc(void)
+const char *getMouseMoveFunc(void)
+const char *getCloseFunc(void)
+const char *getContextMenuFunc(void)
+const char *getDragEnterFunc(void)
+const char *getDragLeaveFunc(void)
+const char *getDragMoveFunc(void)
+const char *getDropFunc(void)
+const char *getEnterFunc(void)
+const char *getFocusInFunc(void)
+const char *getFocusOutFunc(void)
+const char *getKeyReleaseFunc(void)
+const char *getLeaveFunc(void)
+const char *getNonClientAreaMouseButtonDblClickFunc(void)
+const char *getNonClientAreaMouseButtonPressFunc(void)
+const char *getNonClientAreaMouseButtonReleaseFunc(void)
+const char *getNonClientAreaMouseMoveFunc(void)
+const char *getMoveFunc(void)
+const char *getResizeFunc(void)
+const char *getWindowActivateFunc(void)
+const char *getWindowBlockedFunc(void)
+const char *getWindowDeactivateFunc(void)
+const char *getWindowStateChangeFunc(void)
+const char *getWindowUnblockedFunc(void)
+const char *getPaintFunc(void)
+
 
 <class>
 name: QDesktopWidget
@@ -6662,6 +6799,13 @@ QBitmap *mask(void)
 QPixmap pixmap(void)
 void setShape(Qt::CursorShape shape)
 Qt::CursorShape shape(void)
+QPoint pos(void)
+QPoint pos@2(QScreen *)
+void setPos(int x, int y)
+void setPos@2(QScreen *screen, int x, int y)
+void setPos@3(QPoint)
+void setPos@4(QScreen *screen, QPoint)
+
 
 <class>
 name: QListView
@@ -6920,7 +7064,6 @@ int compare@6(QStringRef s1, QLatin1String s2, Qt::CaseSensitivity cs)
 int localeAwareCompare@3(QStringRef s1, QString s2)
 int localeAwareCompare@4(QStringRef s1, QStringRef s2)
 
-
 <class>
 name: QMutex
 para: QMutex::RecursionMode
@@ -6935,7 +7078,359 @@ name: QMutexLocker
 para: QMutex *
 </class>
 
-
 QMutex * mutex(void)
 void relock(void)
 void unlock(void)
+
+<class>
+name: QBuffer
+para: QObject *
+parent: QIODevice
+</class>
+
+QByteArray buffer(void)
+QByteArray data(void)
+void setBuffer(QByteArray *byteArray)
+void setData(QByteArray data)
+void setData@2(char *data, int size)
+
+<class>
+name: QBluetoothAddress
+para: void
+</class>
+
+void clear(void)
+bool isNull(void)
+QString toString(void)
+quint64 toUInt64(void)
+
+<class>
+name: QBluetoothDeviceDiscoveryAgent
+para: QObject *
+codename: GBluetoothDeviceDiscoveryAgent
+passvmpointer
+</class>
+
+QList<QBluetoothDeviceInfo> discoveredDevices(void)
+QBluetoothDeviceDiscoveryAgent::Error error(void)
+QString errorString(void)
+QBluetoothDeviceDiscoveryAgent::InquiryType inquiryType(void)
+bool isActive(void)
+void setInquiryType(QBluetoothDeviceDiscoveryAgent::InquiryType type)
+void start(void)
+void stop(void)
+
+void setcanceledEvent(const char *)
+void setdeviceDiscoveredEvent(const char *)
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+
+const char *getcanceledEvent(void)
+const char *getdeviceDiscoveredEvent(void)
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+
+<class>
+name: QBluetoothDeviceInfo
+para: void
+</class>
+
+QBluetoothAddress address(void)
+<comment>
+QBluetoothDeviceInfo::CoreConfigurations coreConfigurations(void)
+QBluetoothUuid deviceUuid(void)
+</comment>
+bool isCached(void)
+bool isValid(void)
+QBluetoothDeviceInfo::MajorDeviceClass majorDeviceClass(void)
+quint8 minorDeviceClass(void)
+QString name(void)
+qint16 rssi(void)
+QBluetoothDeviceInfo::ServiceClasses serviceClasses(void)
+QList<QBluetoothUuid> serviceUuids(QBluetoothDeviceInfo::DataCompleteness *completeness)
+QBluetoothDeviceInfo::DataCompleteness serviceUuidsCompleteness(void)
+void setCached(bool cached)
+<comment>
+void setCoreConfigurations(QBluetoothDeviceInfo::CoreConfigurations coreConfigs)
+void setDeviceUuid(QBluetoothUuid uuid)
+</comment>
+void setRssi(qint16 signal)
+void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)
+
+<class>
+name: QBluetoothHostInfo
+para: void
+</class>
+
+QBluetoothAddress address(void)
+QString name(void)
+void setAddress(QBluetoothAddress address)
+void setName(QString name)
+
+<class>
+name: QBluetoothLocalDevice
+para: QObject *
+codename: GBluetoothLocalDevice
+passvmpointer
+</class>
+
+QBluetoothAddress address(void)
+<comment>
+QList<QBluetoothAddress> connectedDevices(void)
+<comment>
+QBluetoothLocalDevice::HostMode hostMode(void)
+bool isValid(void)
+QString name(void)
+QBluetoothLocalDevice::Pairing pairingStatus(QBluetoothAddress address)
+void powerOn(void)
+void requestPairing(QBluetoothAddress address, QBluetoothLocalDevice::Pairing pairing)
+void setHostMode(QBluetoothLocalDevice::HostMode mode)
+void pairingConfirmation(bool accept)
+QList<QBluetoothHostInfo> allDevices(void)
+
+void setdeviceConnectedEvent(const char *)
+void setdeviceDisconnectedEvent(const char *)
+void seterrorEvent(const char *)
+void sethostModeStateChangedEvent(const char *)
+void setpairingDisplayConfirmationEvent(const char *)
+void setpairingDisplayPinCodeEvent(const char *)
+void setpairingFinishedEvent(const char *)
+
+const char *getdeviceConnectedEvent(void)
+const char *getdeviceDisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *gethostModeStateChangedEvent(void)
+const char *getpairingDisplayConfirmationEvent(void)
+const char *getpairingDisplayPinCodeEvent(void)
+const char *getpairingFinishedEvent(void)
+
+<class>
+name: QBluetoothServer
+para: QBluetoothServiceInfo::Protocol,QObject *
+parent: QObject
+codename: GBluetoothServer
+passvmpointer
+</class>
+
+
+void close(void)
+QBluetoothServer::Error error(void)
+bool hasPendingConnections(void)
+bool isListening(void)
+bool listen(QBluetoothAddress address, quint16 port)
+QBluetoothServiceInfo listen@2(QBluetoothUuid uuid, QString serviceName))
+int maxPendingConnections(void)
+QBluetoothSocket * nextPendingConnection(void)
+QBluetooth::SecurityFlags securityFlags(void)
+QBluetoothAddress serverAddress(void)
+quint16 serverPort(void)
+QBluetoothServiceInfo::Protocol serverType(void)
+void setMaxPendingConnections(int numConnections)
+void setSecurityFlags(QBluetooth::SecurityFlags security)
+
+void seterrorEvent(const char *)
+void setnewConnectionEvent(const char *)
+
+const char *geterrorEvent(void)
+const char *getnewConnectionEvent(void)
+
+<class>
+name: QBluetoothServiceDiscoveryAgent
+para: QObject *
+parent: QObject
+codename: GBluetoothServiceDiscoveryAgent
+passvmpointer
+</class>
+
+QList<QBluetoothServiceInfo> discoveredServices(void)
+QBluetoothServiceDiscoveryAgent::Error error(void)
+QString errorString(void)
+bool isActive(void)
+QBluetoothAddress remoteAddress(void)
+bool setRemoteAddress(QBluetoothAddress address)
+void setUuidFilter(QList<QBluetoothUuid> uuids)
+void setUuidFilter@2(QBluetoothUuid uuid)
+QList<QBluetoothUuid> uuidFilter(void)
+void clear(void)
+void start(QBluetoothServiceDiscoveryAgent::DiscoveryMode mode)
+void stop(void)
+
+void setcanceledEvent(const char *)
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+void setserviceDiscoveredEvent(const char *)
+
+const char *getcanceledEvent(void)
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+const char *getserviceDiscoveredEvent(void)
+
+<class>
+name: QBluetoothServiceInfo
+para: void
+</class>
+
+
+
+QVariant attribute(quint16 attributeId)
+QList<quint16> attributes(void)
+bool contains(quint16 attributeId)
+QBluetoothDeviceInfo device(void)
+bool isComplete(void)
+bool isRegistered(void)
+bool isValid(void)
+QBluetoothServiceInfo::Sequence protocolDescriptor(QBluetoothUuid::ProtocolUuid protocol)
+int protocolServiceMultiplexer(void)
+bool registerService(QBluetoothAddress localAdapter))
+void removeAttribute(quint16 attributeId)
+int serverChannel(void)
+quint8 serviceAvailability(void)
+QList<QBluetoothUuid> serviceClassUuids(void)
+QString serviceDescription(void)
+QString serviceName(void)
+QString serviceProvider(void)
+QBluetoothUuid serviceUuid(void)
+void setAttribute(quint16 attributeId, QVariant value)
+void setAttribute@2(quint16 attributeId, QBluetoothUuid value)
+void setAttribute@3(quint16 attributeId, QBluetoothServiceInfo::Sequence value)
+void setDevice(QBluetoothDeviceInfo device)
+void setServiceAvailability(quint8 availability)
+void setServiceDescription(QString description)
+void setServiceName(QString name)
+void setServiceProvider(QString provider)
+void setServiceUuid(QBluetoothUuid uuid)
+bool unregisterService(void)
+
+<class>
+name: QBluetoothSocket
+para: QBluetoothServiceInfo::Protocol,QObject *
+parent: QIODevice
+codename: GBluetoothSocket
+passvmpointer
+</class>
+
+void abort(void)
+void connectToService(QBluetoothServiceInfo service, QIODevice::OpenMode openMode)
+void connectToService@2(QBluetoothAddress address, QBluetoothUuid uuid, QIODevice::OpenMode openMode)
+void connectToService@3(QBluetoothAddress address, quint16 port, QIODevice::OpenMode openMode)
+void disconnectFromService(void)
+QBluetoothSocket::SocketError error(void)
+QString errorString(void)
+QBluetoothAddress localAddress(void)
+QString localName(void)
+quint16 localPort(void)
+QBluetoothAddress peerAddress(void)
+QString peerName(void)
+quint16 peerPort(void)
+bool setSocketDescriptor(int socketDescriptor, QBluetoothServiceInfo::Protocol socketType, QBluetoothSocket::SocketState socketState, QIODevice::OpenMode openMode)
+int socketDescriptor(void)
+QBluetoothServiceInfo::Protocol socketType(void)
+QBluetoothSocket::SocketState state(void)
+
+void setconnectedEvent(const char *)
+void setdisconnectedEvent(const char *)
+void seterrorEvent(const char *)
+void setstateChangedEvent(const char *)
+
+const char *getconnectedEvent(void)
+const char *getdisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *getstateChangedEvent(void)
+
+<class>
+name: QBluetoothTransferManager
+para: QObject *
+parent: QObject
+codename: GBluetoothTransferManager
+passvmpointer
+</class>
+
+
+QBluetoothTransferReply * put(QBluetoothTransferRequest request, QIODevice *data)
+void setfinishedEvent(const char *)
+const char *getfinishedEvent(void)
+
+<class>
+name: QBluetoothTransferReply
+para: QObject *
+parent: QObject
+codename: GBluetoothTransferReply
+passvmpointer
+abstract
+</class>
+
+QBluetoothTransferManager * manager(void)
+QBluetoothTransferRequest request(void)
+void abort(void)
+
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+void settransferProgressEvent(const char *)
+
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+const char *gettransferProgressEvent(void)
+
+<class>
+name: QBluetoothTransferRequest
+para: QBluetoothAddress
+</class>
+
+QBluetoothAddress address(void)
+QVariant attribute(QBluetoothTransferRequest::Attribute code, QVariant defaultValue))
+void setAttribute(QBluetoothTransferRequest::Attribute code, QVariant value)
+
+<class>
+name: QBluetoothUuid
+para: void
+parent: QUuid
+</class>
+
+int minimumSize(void)
+quint16 toUInt16(bool *ok)
+quint32 toUInt32(bool *ok)
+quint128 toUInt128(void)
+<comment>
+QString characteristicToString(QBluetoothUuid::CharacteristicType uuid)
+QString descriptorToString(QBluetoothUuid::DescriptorType uuid)
+QString protocolToString(QBluetoothUuid::ProtocolUuid uuid)
+QString serviceClassToString(QBluetoothUuid::ServiceClassUuid uuid)
+</comment>
+
+<class>
+name: QDateTime
+para: void
+</class>
+
+QDateTime addDays(int ndays)
+QDateTime addMSecs(qint64 msecs)
+QDateTime addMonths(int nmonths)
+QDateTime addSecs(int s)
+QDateTime addYears(int nyears)
+QDate date(void)
+int daysTo(QDateTime other)
+bool isNull(void)
+bool isValid(void)
+qint64 msecsTo(QDateTime other)
+int secsTo(QDateTime other)
+void setDate(QDate date)
+void setMSecsSinceEpoch(qint64 msecs)
+void setTime(QTime time)
+void setTimeSpec(Qt::TimeSpec spec)
+void setTime_t(uint seconds)
+QTime time(void)
+Qt::TimeSpec timeSpec(void)
+QDateTime toLocalTime(void)
+qint64 toMSecsSinceEpoch(void)
+QString toString(QString format)
+QString toString@2(Qt::DateFormat format)
+QDateTime toTimeSpec(Qt::TimeSpec specification)
+uint toTime_t(void)
+QDateTime toUTC(void)
+QDateTime currentDateTime(void)
+QDateTime currentDateTimeUtc(void)
+qint64 currentMSecsSinceEpoch(void)
+QDateTime fromMSecsSinceEpoch(qint64 msecs)
+QDateTime fromString(QString string, Qt::DateFormat format)
+QDateTime fromString@2(QString string, QString format)
+QDateTime fromTime_t(uint seconds)

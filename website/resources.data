@@ -296,6 +296,15 @@
 				],
 				[
 					'<a href="https://ringprogramming4arab.wordpress.com/2017/08/09/2object-oriented-programming-oop/" target="_blank">Tutorial: Object-oriented programming-OOP (2)</a>'
+				],
+				[
+					'<a href="https://ringprogramming4arab.wordpress.com/2017/08/16/declarative-programming/" target="_blank">Tutorial: Declarative Programming</a>'
+				],
+				[
+					'<a href="https://ringprogramming4arab.wordpress.com/2017/08/22/reflection-and-meta-programming/" target="_blank">Tutorial: Reflection and Meta-Programming</a>'
+				],
+				[
+					'<a href="https://ringprogramming4arab.wordpress.com/2017/08/29/scope-rules-for-variables-and-attributes/" target="_blank">Tutorial: Scope Rules for Variables and Attributes</a>'
 				]
 			]
 	     ],
@@ -927,11 +936,143 @@
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=NQOMFasiGqE&index=26&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Nested Loops #26</a>',
+					'<a href="https://www.youtube.com/watch?v=NQOMFasiGqE&index=26&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Nested Loops in ring programming language#26</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=vTskzVew7aI&index=27&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">While Loop #27</a>',
+					'<a href="https://www.youtube.com/watch?v=vTskzVew7aI&index=27&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">While Loop in ring programming language #27</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=OXoIdq75hwM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=28" target="_blank">Do again in ring programming language #28</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=WZiKi_waL9o&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=29" target="_blank">Exit in ring programming language #29</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=USY0s6n4Mpw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=30" target="_blank">Loop in ring programming language #30</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="" target="_blank">print date time #31</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=-OLP4QUJ9KQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=32" target="_blank">TimeList #32</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=y7ngyXt3sBY&index=33&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#33 Date Details</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=4-jO3sFFq34&index=34&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#34 Calculate Birth Date</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=zqZZae2uIgA&index=35&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#35 Calculate Performance</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=WU349fkNbbg&index=36&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#36 Wait Time</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=dUu1no_Dq1Q&index=37&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#37 Day Name</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=_48gXq3K3EQ&index=38&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#38 Upper & Lower</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=WZwWj75XaUk&index=39&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#39 Length Of String</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=4yQBrwi7uCM&index=40&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#40 Normal Substring</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=bSwL38pg2dQ&index=41&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#41 Start & End In Substring</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=8cB2Zu31smw&index=42&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#42 Replace String</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=7qtlUe56CbE&index=43&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#43 Split String</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=5uOEyK-Zw3Q&index=44&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#44 Reverse String</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=d393r6xOFec&index=45&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#45 get and put</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=1PSmbDkw8d4&index=46&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#46 Right And Left With String</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=82bpoDgdj6g&index=47&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#47 Trim And Check String If Empty Space</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=MOlgwvxeOCg&index=48&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#48 Copy</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Htn1jMYXKeY&index=49&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#49 StrCMP For Compare Strings</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=O3jqq_4XJps&index=50&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#50 Line Numbers Or Lines Count</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=UneJvlJnDl0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=52" target="_blank">#51 Type Of Any Var</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=eHRLTjesnQ0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=53" target="_blank">#52 Convert String To List & List To String</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=YXKS-bTco-c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=54" target="_blank">#53 Check Type Using Functions</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=69hRSl6i2Cg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=55" target="_blank">#54 Check Char</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=vJ2tRyx1g3s&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=56" target="_blank">#55 Converting</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=oo3l9StITAY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=57" target="_blank">#56 Random Numbers</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=2dpOk7ppJsI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=58" target="_blank">#57 Create New Text File</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=1uuk_JMZA-c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=59" target="_blank">#58 Read From Text File</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=skP1AYrAXto&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=60" target="_blank">#59 Get All Files And Folders</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=PvCRjFSfxiE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=61" target="_blank">#60 Rename Files And Folders</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				]
 			]

@@ -11,5 +11,7 @@ copy *.cpp ..\..\android\ringqt\project\
 copy *.h ..\..\android\ringqt\project\
 copy ring_qt.ring ..\..\android\ringqt\project\
 copy qt.rh ..\..\android\ringqt\project\
+copy objectslib\objects.ring ..\..\android\ringqt\project\
+copy objectslib\subwindows.ring ..\..\android\ringqt\project\
 call gencode.bat
 cd ..\..\android\ringqt\update_ring

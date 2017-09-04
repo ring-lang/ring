@@ -1,0 +1,2550 @@
+.. index:: 
+	single: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Introduction
+
+===================================================
+Using RingOpenGL and RingFreeGLUT for 3D  Graphics
+===================================================
+
+
+In this chapter we will learn about using RingOpenGL
+
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Samples Source (Authors)
+
+Samples Source (Authors)
+========================
+
+The samples in this chapter are based on C Tutorials 
+
+from 
+
+(1) http://www.lighthouse3d.com/tutorials/glut-tutorial/
+
+(2) http://www.wikihow.com/Make-a-Cube-in-OpenGL
+
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; What is RingOpenGL?
+
+What is RingOpenGL?
+===================
+
+RingOpenGL contains the Ring binding to the OpenGL library
+
+You can learn about OpenGL from : https://www.opengl.org/
+
+RingOpenGL comes with support for the next versions 
+
+* OpenGL 1.1
+* OpenGL 1.2
+* OpenGL 1.3
+* OpenGL 1.4
+* OpenGL 1.5
+* OpenGL 2.0
+* OpenGL 2.1
+* OpenGL 3.0
+* OpenGL 3.2
+* OpenGL 3.3
+* OpenGL 4.0
+* OpenGL 4.1
+* OpenGL 4.2
+* OpenGL 4.3
+* OpenGL 4.4
+* OpenGL 4.5
+* OpenGL 4.6
+
+For example, if you want to use OpenGL 2.1 then load RingOpenGL 2.1 library
+
+.. code-block:: ring
+
+	load "opengl21lib.ring"
+
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; What is RingFreeGLUT?
+
+What is RingFreeGLUT?
+=====================
+
+RingFreeGLUT contains the Ring binding to the FreeGLUT library
+
+You can learn about FreeGLUT from : http://freeglut.sourceforge.net/
+
+To use the RingFreeGLUT library, Just load the library
+
+.. code-block:: ring
+
+	load "freeglut.ring"
+
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; The First Window using RingFreeGLUT
+
+The First Window using RingFreeGLUT
+===================================
+
+Example:
+
+.. code-block:: ring 
+
+	load "freeglut.ring"
+
+	func main
+		glutInit()
+		glutInitDisplayMode(GLUT_SINGLE)
+		glutInitWindowSize(800, 600)
+		glutInitWindowPosition(100, 10)
+		glutCreateWindow("RingFreeGLUT - Test 1")
+		glutDisplayFunc(:displayCode)
+		glutMainLoop()
+
+	func displaycode
+
+Screen Shot
+
+.. image:: freeglutshot1.png
+	:alt: RingFreeGLUT
+
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Drawing using RingOpenGL
+
+
+Drawing using RingOpenGL
+========================
+
+Example:
+
+.. code-block:: ring
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+
+	func main
+		glutInit()
+		glutInitDisplayMode(GLUT_SINGLE)
+		glutInitWindowSize(800, 600)
+		glutInitWindowPosition(100, 10)
+		glutCreateWindow("RingFreeGLUT - Test 2")
+		glutDisplayFunc(:displayCode)
+		glutMainLoop()
+
+	func displaycode
+		glClear(GL_COLOR_BUFFER_BIT)
+		glColor3f(0,255,0)
+		glBegin(GL_POLYGON)
+        		glVertex3f(0.0, 0.0, 0.0)
+		        glVertex3f(0.5, 0.0, 0.0)
+		        glVertex3f(0.5, 0.5, 0.0)
+	        	glVertex3f(0.0, 0.5, 0.0)
+		glEnd()
+		glColor3f(255,0,0)
+		glBegin(GL_POLYGON)
+			glVertex3f(0.0, 0.0, 0.0)
+        		glVertex3f(0.5, 0.0, 0.0)
+	      		glVertex3f(-0.5,- 1, 0.0)
+        		glVertex3f(0.0, -1, 0.0)
+		glEnd()
+		glColor3f(0,0,255)
+		glBegin(GL_POLYGON)
+	 	       glVertex3f(0.0, 0.0, 0.0)
+        		glVertex3f(-0.5, 0.0, 0.0)
+		        glVertex3f(-0.5,- 0.5, 0.0)
+        		glVertex3f(0.0, -0.5, 0.0)
+		glEnd()
+
+		glFlush()
+
+Screen Shot
+
+.. image:: freeglutshot2.png
+	:alt: RingFreeGLUT
+
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; The First Triangle
+
+
+The First Triangle
+==================
+
+Example:
+
+.. code-block:: ring
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	func main
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowSize(320,320)
+		glutInitWindowPosition(100, 10)
+		glutCreateWindow("RingFreeGLUT - Test 3")
+		glutDisplayFunc(:renderScene)
+		glutMainLoop()
+
+	func renderScene
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+	
+		glBegin(GL_TRIANGLES)
+			glVertex3f(-0.5,-0.5,0.0)
+			glVertex3f(0.5,0.0,0.0)
+			glVertex3f(0.0,0.5,0.0)
+		glEnd()
+	
+        	glutSwapBuffers()
+
+
+Screen Shot
+
+.. image:: freeglutshot3.png
+	:alt: RingFreeGLUT
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Window Resize Event
+
+Window Resize Event
+===================
+
+Example:
+
+.. code-block:: ring
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	func main
+
+		// init GLUT and create window
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowPosition(100,100)
+		glutInitWindowSize(320,320)
+		glutCreateWindow("RingFreeGLUT - Test 4")
+
+		glutDisplayFunc(:renderScene)
+		glutReshapeFunc(:changeSize)
+
+		glutMainLoop()
+
+	func renderScene
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+		glBegin(GL_TRIANGLES)
+			glVertex3f(-2,-2,-5.0)
+			glVertex3f(2,0.0,-5.0)
+			glVertex3f(0.0,2,-5.0)
+		glEnd()
+
+		glutSwapBuffers()
+
+	func changesize
+
+		h = glutEventHeight()
+		w = glutEventWidth()
+
+			// Prevent a divide by zero, when window is too short
+		// (you cant make a window of zero width).
+		if (h = 0)
+			h = 1
+		ok
+
+		ratio =  w * 1.0 / h
+
+		// Use the Projection Matrix
+		glMatrixMode(GL_PROJECTION)
+
+		// Reset Matrix
+		glLoadIdentity()
+
+		// Set the viewport to be the entire window
+		glViewport(0, 0, w, h)
+
+		// Set the correct perspective.
+		gluPerspective(45,ratio,1,100)
+
+		// Get Back to the Modelview
+		glMatrixMode(GL_MODELVIEW)
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Triangle Rotation
+
+Triangle Rotation
+=================
+
+Example:
+
+.. code-block:: ring
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	angle = 0
+
+	func main
+
+		// init GLUT and create window
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowPosition(100,100)
+		glutInitWindowSize(320,320)
+		glutCreateWindow("RingFreeGLUT - Test 5")
+
+		glutDisplayFunc(:renderScene)
+		glutReshapeFunc(:changeSize)
+		glutIdleFunc(:renderScene)
+
+		glutMainLoop()
+
+	func renderScene
+
+		// Clear Color and Depth Buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+		// Reset transformations
+		glLoadIdentity()
+		// Set the camera
+		gluLookAt(	0.0, 0.0, 10.0,
+					0.0, 0.0,  0.0,
+					0.0, 1.0,  0.0)
+
+		glRotatef(angle, 0.0, 1.0, 0.0)
+
+		glBegin(GL_TRIANGLES)
+			glVertex3f(-2.0,-2.0, 0.0)
+			glVertex3f( 2.0, 0.0, 0.0)
+			glVertex3f( 0.0, 2.0, 0.0)
+		glEnd()
+
+		angle+=0.1
+
+		glutSwapBuffers();
+
+	func changesize
+
+		h = glutEventHeight()
+		w = glutEventWidth()
+
+			// Prevent a divide by zero, when window is too short
+		// (you cant make a window of zero width).
+		if (h = 0)
+			h = 1
+		ok
+
+		ratio =  w * 1.0 / h
+
+		// Use the Projection Matrix
+		glMatrixMode(GL_PROJECTION)
+
+		// Reset Matrix
+		glLoadIdentity()
+
+		// Set the viewport to be the entire window
+		glViewport(0, 0, w, h)
+
+		// Set the correct perspective.
+		gluPerspective(45,ratio,1,100)
+
+		// Get Back to the Modelview
+		glMatrixMode(GL_MODELVIEW)
+
+
+Screen Shot
+
+.. image:: freeglutshot4.png
+	:alt: RingFreeGLUT
+		
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Keyboard Events and Colors
+
+Keyboard Events and Colors
+==========================
+
+Example:
+
+.. code-block:: ring
+		
+		
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	angle = 0
+
+	red=1.0  
+	blue=1.0 
+	green=1.0
+
+	func main
+
+		// init GLUT and create window
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowPosition(100,100)
+		glutInitWindowSize(320,320)
+		glutCreateWindow("RingFreeGLUT - Test 6")
+
+		glutDisplayFunc(:renderScene)
+		glutReshapeFunc(:changeSize)
+		glutIdleFunc(:renderScene)
+
+		// here are the new entries
+		glutKeyboardFunc(:processNormalKeys)
+		glutSpecialFunc(:processSpecialKeys)
+
+		glutMainLoop()
+
+	func renderScene
+
+		// Clear Color and Depth Buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+		// Reset transformations
+		glLoadIdentity()
+		// Set the camera
+		gluLookAt(	0.0, 0.0, 10.0,
+					0.0, 0.0,  0.0,
+					0.0, 1.0,  0.0)
+
+		glRotatef(angle, 0.0, 1.0, 0.0)
+
+
+		glColor3f(red,green,blue);
+
+		glBegin(GL_TRIANGLES)
+			glVertex3f(-2.0,-2.0, 0.0)
+			glVertex3f( 2.0, 0.0, 0.0)
+			glVertex3f( 0.0, 2.0, 0.0)
+		glEnd()
+
+		angle+=0.1
+
+		glutSwapBuffers();
+
+	func changesize
+
+		h = glutEventHeight()
+		w = glutEventWidth()
+
+			// Prevent a divide by zero, when window is too short
+		// (you cant make a window of zero width).
+		if (h = 0)
+			h = 1
+		ok
+
+		ratio =  w * 1.0 / h
+
+		// Use the Projection Matrix
+		glMatrixMode(GL_PROJECTION)
+
+		// Reset Matrix
+		glLoadIdentity()
+
+		// Set the viewport to be the entire window
+		glViewport(0, 0, w, h)
+
+		// Set the correct perspective.
+		gluPerspective(45,ratio,1,100)
+
+		// Get Back to the Modelview
+		glMatrixMode(GL_MODELVIEW)
+
+	func processNormalKeys
+		key = GLUTEventKey()
+		if key = 27
+			shutdown()
+		ok
+
+	func processSpecialKeys
+
+		key = GLUTEventKey()
+
+		switch key  
+			on GLUT_KEY_F1
+					red = 1.0
+					green = 0.0
+					blue = 0.0
+			on GLUT_KEY_F2 
+					red = 0.0
+					green = 1.0
+					blue = 0.0
+			on GLUT_KEY_F3
+					red = 0.0
+					green = 0.0
+					blue = 1.0
+		off
+
+Screen Shot
+
+.. image:: freeglutshot5.png
+	:alt: RingFreeGLUT
+		
+
+		
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; The Camera
+
+The Camera
+==========
+
+Example:
+
+.. code-block:: ring
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	// angle of rotation for the camera direction
+	angle=0.0
+	// actual vector representing the camera's direction
+	lx=0.0
+	lz=-1.0
+	// XZ position of the camera
+	x=0.0
+	z=5.0
+
+	func drawSnowMan
+
+		glColor3f(1.0, 1.0, 1.0)
+
+	// Draw Body
+		glTranslatef(0.0 ,0.75, 0.0)
+		glutSolidSphere(0.75,20,20)
+
+	// Draw Head
+		glTranslatef(0.0, 1.0, 0.0)
+		glutSolidSphere(0.25,20,20)
+
+	// Draw Eyes
+		glPushMatrix()
+		glColor3f(0.0,0.0,0.0)
+		glTranslatef(0.05, 0.10, 0.18)
+		glutSolidSphere(0.05,10,10)
+		glTranslatef(-0.1, 0.0, 0.0)
+		glutSolidSphere(0.05,10,10)
+
+		glPopMatrix()
+
+	// Draw Nose
+		glColor3f(1.0, 0.5 , 0.5)
+		glutSolidCone(0.08,0.5,10,2)
+
+
+	func changeSize
+		w = glutEventWidth()
+		h = glutEventHeight()
+
+		// Prevent a divide by zero, when window is too short
+		// (you cant make a window of zero width).
+		if h = 0
+			h = 1
+		ok
+
+		ratio =  w * 1.0  / h 
+
+			// Use the Projection Matrix
+		glMatrixMode(GL_PROJECTION)
+
+			// Reset Matrix
+		glLoadIdentity()
+
+
+		// Set the viewport to be the entire window
+		glViewport(0, 0, w, h)
+
+		// Set the correct perspective.
+		gluPerspective(45.0, ratio, 0.1, 100.0);
+
+		// Get Back to the Modelview
+		glMatrixMode(GL_MODELVIEW)
+
+
+	func processNormalKeys
+		key = glutEventKey()
+
+		if key = 27
+			shutdown()
+		ok
+
+
+
+	func renderScene
+
+		// Clear Color and Depth Buffers
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+		// Reset transformations
+		glLoadIdentity()
+		// Set the camera
+		gluLookAt(	x, 1.0, z,
+				x+lx, 1.0,  z+lz,
+				0.0, 1.0,  0.0)
+
+			// Draw ground
+
+		glColor3f(0.9, 0.9, 0.9)
+		glBegin(GL_QUADS)
+			glVertex3f(-100.0, 0.0, -100.0)
+			glVertex3f(-100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0, -100.0)
+		glEnd()
+
+			// Draw 36 SnowMen
+		for i = -3 to 2
+			for  j=-3 to 2
+				glPushMatrix()
+				glTranslatef(i*10.0,0,j * 10.0)			
+				drawSnowMan()
+				glPopMatrix()
+			next
+		next
+		glutSwapBuffers()
+
+
+
+
+	func processSpecialKeys 
+
+		key = glutEventKey()
+
+		fraction = 0.1
+
+		switch key 
+			on GLUT_KEY_LEFT 
+				angle -= 0.01
+				lx = sin(angle)
+				lz = -cos(angle)
+			on GLUT_KEY_RIGHT 
+				angle += 0.01
+				lx = sin(angle)
+				lz = -cos(angle)
+			on GLUT_KEY_UP 
+				x += lx * fraction
+				z += lz * fraction
+			on GLUT_KEY_DOWN 
+				x -= lx * fraction
+				z -= lz * fraction
+		off
+
+
+	func main
+
+		// init GLUT and create window
+
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+
+		glutInitWindowPosition(100,100)
+		glutInitWindowSize(320,320)
+		glutCreateWindow("RingFreeGLUT - Test 7")
+
+		// register callbacks
+		glutDisplayFunc(:renderScene)
+		glutReshapeFunc(:changeSize)
+		glutIdleFunc(:renderScene)
+		glutKeyboardFunc(:processNormalKeys)
+		glutSpecialFunc(:processSpecialKeys)
+
+		// OpenGL init
+		glEnable(GL_DEPTH_TEST)
+
+		// enter GLUT event processing cycle
+		glutMainLoop()
+
+Screen Shot
+
+.. image:: freeglutshot6.png
+	:alt: RingFreeGLUT
+
+Another Example:
+
+.. code-block:: ring 
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	// angle of rotation for the camera direction
+	angle = 0.0
+
+	// actual vector representing the camera's direction
+	lx=0.0 lz=-1.0
+
+	// XZ position of the camera
+	x=0.0 z=5.0
+	// the key states. These variables will be zero
+	//when no key is being presses
+	deltaAngle = 0.0
+	deltaMove = 0
+
+	func changeSize 
+		w = glutEventWidth()
+		h = glutEventHeight()
+
+		// Prevent a divide by zero, when window is too short
+		// (you cant make a window of zero width).
+		if h = 0
+			h = 1
+		ok
+
+		ratio =  w * 1.0 / h
+
+		// Use the Projection Matrix
+		glMatrixMode(GL_PROJECTION)
+
+		// Reset Matrix
+		glLoadIdentity()
+
+		// Set the viewport to be the entire window
+		glViewport(0, 0, w, h)
+
+		// Set the correct perspective.
+		gluPerspective(45.0, ratio, 0.1, 100.0)
+
+		// Get Back to the Modelview
+		glMatrixMode(GL_MODELVIEW)
+
+
+	func drawSnowMan
+
+		glColor3f(1.0, 1.0, 1.0)
+
+	// Draw Body
+
+		glTranslatef(0.0 ,0.75, 0.0)
+		glutSolidSphere(0.75,20,20)
+
+	// Draw Head
+		glTranslatef(0.0, 1.0, 0.0)
+		glutSolidSphere(0.25,20,20)
+
+	// Draw Eyes
+		glPushMatrix()
+		glColor3f(0.0,0.0,0.0)
+		glTranslatef(0.05, 0.10, 0.18)
+		glutSolidSphere(0.05,10,10)
+		glTranslatef(-0.1, 0.0, 0.0)
+		glutSolidSphere(0.05,10,10)
+		glPopMatrix()
+
+	// Draw Nose
+		glColor3f(1.0, 0.5 , 0.5)
+		glRotatef(0.0,1.0, 0.0, 0.0)
+		glutSolidCone(0.08,0.5,10,2)
+
+
+	func computePos deltaMove
+
+		x += deltaMove * lx * 0.1
+		z += deltaMove * lz * 0.1
+
+
+	func computeDir deltaAngle
+
+		angle += deltaAngle
+		lx = sin(angle)
+		lz = -cos(angle)
+
+	func renderScene
+
+		if deltaMove
+			computePos(deltaMove)
+		ok
+
+		if deltaAngle
+			computeDir(deltaAngle)
+		ok
+
+		// Clear Color and Depth Buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+		// Reset transformations
+		glLoadIdentity()
+		// Set the camera
+		gluLookAt(	x, 1.0, z,
+					x+lx, 1.0,  z+lz,
+					0.0, 1.0,  0.0)
+
+	// Draw ground
+
+		glColor3f(0.9, 0.9, 0.9)
+		glBegin(GL_QUADS)
+			glVertex3f(-100.0, 0.0, -100.0)
+			glVertex3f(-100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0, -100.0)
+		glEnd()
+
+	// Draw 36 SnowMen
+
+		for i = -3 to 2
+			for j=-3 to 2
+				glPushMatrix()
+				glTranslatef(i*10.0,0,j * 10.0)
+				drawSnowMan()
+				glPopMatrix()
+			next
+		next
+		glutSwapBuffers()
+
+
+	func pressKey 
+		key = glutEventKey()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		switch key
+			on GLUT_KEY_LEFT 
+				 deltaAngle = -0.01 
+			on GLUT_KEY_RIGHT 
+				 deltaAngle = 0.01 
+			on GLUT_KEY_UP 
+				 deltaMove = 0.5 
+			on GLUT_KEY_DOWN 
+				deltaMove = -0.5  
+		off
+
+	func releaseKey
+
+		key = glutEventKey()
+
+		switch key
+			on GLUT_KEY_LEFT  
+				deltaAngle = 0.0
+			on GLUT_KEY_RIGHT  
+				deltaAngle = 0.0
+			on GLUT_KEY_UP  
+				deltaMove = 0
+			on GLUT_KEY_DOWN  
+				deltaMove = 0
+		off
+
+	func main 
+
+		// init GLUT and create window
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowPosition(100,100)
+		glutInitWindowSize(320,320)
+		glutCreateWindow("RingFreeGLUT - Test 8")
+
+		// register callbacks
+		glutDisplayFunc(:renderScene)
+		glutReshapeFunc(:changeSize)
+		glutIdleFunc(:renderScene)
+
+		glutSpecialFunc(:pressKey)
+
+		// here are the new entries
+		glutIgnoreKeyRepeat(1)
+		glutSpecialUpFunc(:releaseKey)
+
+		// OpenGL init
+		glEnable(GL_DEPTH_TEST)
+
+		// enter GLUT event processing cycle
+		glutMainLoop()
+	 
+	 
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Mouse Events
+
+Mouse Events
+============
+
+Example:
+
+.. code-block:: ring 
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	// angle of rotation for the camera direction
+	angle = 0.0
+
+	// actual vector representing the camera's direction
+	lx=0.0 lz=-1.0
+
+	// XZ position of the camera
+	x=0.0  z=5.0
+
+	// the key states. These variables will be zero
+	//when no key is being presses
+	deltaAngle = 0.0
+	deltaMove = 0.0
+	xOrigin = -1
+
+	func changeSize
+		w = glutEventWidth()
+		h = glutEventHeight()
+
+		// Prevent a divide by zero, when window is too short
+		// (you cant make a window of zero width).
+		if h = 0
+			h = 1
+		ok
+
+		ratio =  w * 1.0 / h
+
+		// Use the Projection Matrix
+		glMatrixMode(GL_PROJECTION)
+
+		// Reset Matrix
+		glLoadIdentity()
+
+		// Set the viewport to be the entire window
+		glViewport(0, 0, w, h)
+
+		// Set the correct perspective.
+		gluPerspective(45.0, ratio, 0.1, 100.0)
+
+		// Get Back to the Modelview
+		glMatrixMode(GL_MODELVIEW)
+
+
+	func drawSnowMan
+
+		glColor3f(1.0, 1.0, 1.0)
+
+		// Draw Body
+		glTranslatef(0.0 ,0.75, 0.0)
+		glutSolidSphere(0.75,20,20)
+
+		// Draw Head
+		glTranslatef(0.0, 1.0, 0.0)
+		glutSolidSphere(0.25,20,20)
+
+		// Draw Eyes
+		glPushMatrix()
+		glColor3f(0.0,0.0,0.0)
+		glTranslatef(0.05, 0.10, 0.18)
+		glutSolidSphere(0.05,10,10)
+		glTranslatef(-0.1, 0.0, 0.0)
+		glutSolidSphere(0.05,10,10)
+		glPopMatrix()
+
+		// Draw Nose
+		glColor3f(1.0, 0.5 , 0.5)
+		glRotatef(0.0,1.0, 0.0, 0.0)
+		glutSolidCone(0.08,0.5,10,2)
+
+
+	func computePos deltaMove
+
+		x += deltaMove * lx * 0.1
+		z += deltaMove * lz * 0.1
+
+	func renderScene
+
+		if deltaMove
+			computePos(deltaMove)
+		ok
+
+		// Clear Color and Depth Buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+		// Reset transformations
+		glLoadIdentity()
+		// Set the camera
+		gluLookAt(	x, 1.0, z,
+				x+lx, 1.0,  z+lz,
+				0.0, 1.0,  0.0)
+
+		// Draw ground
+
+		glColor3f(0.9, 0.9, 0.9)
+		glBegin(GL_QUADS)
+			glVertex3f(-100.0, 0.0, -100.0)
+			glVertex3f(-100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0, -100.0)
+		glEnd()
+
+		// Draw 36 SnowMen
+
+		for i = -3 to 2
+			for  j=-3 to 2
+						 glPushMatrix()
+						 glTranslatef(i*10.0,0,j * 10.0)
+						 drawSnowMan()
+						 glPopMatrix()
+			 next
+		next
+		glutSwapBuffers()
+
+	func processNormalKeys
+
+		key  = glutEventKey()
+
+			if key = 27
+				 shutdown()
+			ok
+
+
+	func pressKey
+		key  = glutEventKey()
+
+		   switch key
+				 on GLUT_KEY_UP
+					deltaMove = 0.5 
+				 on GLUT_KEY_DOWN
+					 deltaMove = -0.5 
+		   off
+
+
+	func releaseKey 
+		key  = glutEventKey()
+			switch key
+				 on GLUT_KEY_UP 
+					deltaMove = 0
+				 on GLUT_KEY_DOWN 
+					deltaMove = 0
+			off
+
+
+	func mouseMove
+		xx = glutEventX()
+		yy = glutEventY()
+			// this will only be true when the left button is down
+			if xOrigin >= 0
+
+			// update deltaAngle
+			deltaAngle = (xx - xOrigin) * 0.001
+
+			// update camera's direction
+			lx = sin(angle + deltaAngle)
+			lz = -cos(angle + deltaAngle)
+		ok
+		
+		
+
+	func mouseButton
+
+		button  = glutEventButton()
+		state = glutEventState()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		// only start motion if the left button is pressed
+		if button = GLUT_LEFT_BUTTON
+			// when the button is released
+			if state = GLUT_UP
+				angle += deltaAngle
+				xOrigin = -1		
+			else  
+				// state = GLUT_DOWN
+				xOrigin = xx
+			ok
+			fflush(stdout)
+		ok
+
+
+	func main
+
+		// init GLUT and create window
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowPosition(100,100)
+		glutInitWindowSize(320,320)
+		glutCreateWindow("RingFreeGLUT - Test 9")
+
+		// register callbacks
+		glutDisplayFunc(:renderScene)
+		glutReshapeFunc(:changeSize)
+		glutIdleFunc(:renderScene)
+
+		glutIgnoreKeyRepeat(1)
+		glutKeyboardFunc(:processNormalKeys)
+		glutSpecialFunc(:pressKey)
+		glutSpecialUpFunc(:releaseKey)
+
+		// here are the two new functions
+		glutMouseFunc(:mouseButton)
+		glutMotionFunc(:mouseMove)
+
+		// OpenGL init
+		glEnable(GL_DEPTH_TEST)
+
+		// enter GLUT event processing cycle
+		glutMainLoop()
+
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Menu Events
+
+Menu Events
+===========
+
+Example:
+
+.. code-block:: ring 
+		
+		
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	// angle of rotation for the camera direction
+	angle = 0.0
+
+	// actual vector representing the camera's direction
+	lx=0.0 lz=-1.0
+
+	// XZ position of the camera
+	x=0.0  z=5.0
+
+	// the key states. These variables will be zero
+	//when no key is being presses
+	deltaAngle = 0.0
+	deltaMove = 0
+	xOrigin = -1
+
+	// Constant definitions for Menus
+
+
+	// for RingFreeGLUT - We must have different ID for each menu item
+	C_RED = 1
+	C_GREEN = 2
+	C_BLUE  = 3
+	C_ORANGE = 4
+
+	C_FILL = 5
+	C_LINE = 6
+
+	C_SHRINK = 7
+	C_NORMAL = 8
+
+	// Pop up menu identifiers
+	fillMenu= 0  
+	shrinkMenu= 0
+	mainMenu=0 
+	colorMenu=0
+
+	// color for the nose
+	red = 1.0  blue=0.5  green=0.5
+
+	// scale of snowman
+	scale = 1.0
+
+	// menu status
+	menuFlag = 0
+
+	func changeSize
+		w = glutEventWidth()
+		h = glutEventHeight()
+
+		// Prevent a divide by zero, when window is too short
+		// (you cant make a window of zero width).
+		if h = 0
+			h = 1
+		ok
+
+		ratio =  w * 1.0 / h
+
+		// Use the Projection Matrix
+		glMatrixMode(GL_PROJECTION)
+
+		// Reset Matrix
+		glLoadIdentity()
+
+		// Set the viewport to be the entire window
+		glViewport(0, 0, w, h)
+
+		// Set the correct perspective.
+		gluPerspective(45.0, ratio, 0.1, 100.0)
+
+		// Get Back to the Modelview
+		glMatrixMode(GL_MODELVIEW)
+
+	func drawSnowMan
+
+		glScalef(scale, scale, scale)
+		glColor3f(1.0, 1.0, 1.0)
+
+	// Draw Body
+		glTranslatef(0.0 ,0.75, 0.0)
+		glutSolidSphere(0.75,20,20)
+
+	// Draw Head
+		glTranslatef(0.0, 1.0, 0.0)
+		glutSolidSphere(0.25,20,20)
+
+	// Draw Eyes
+		glPushMatrix()
+		glColor3f(0.0,0.0,0.0)
+		glTranslatef(0.05, 0.10, 0.18)
+		glutSolidSphere(0.05,10,10)
+		glTranslatef(-0.1, 0.0, 0.0)
+		glutSolidSphere(0.05,10,10)
+		glPopMatrix()
+
+	// Draw Nose
+		glColor3f(red, green, blue)
+		glRotatef(0.0,1.0, 0.0, 0.0)
+		glutSolidCone(0.08,0.5,10,2)
+
+		glColor3f(1.0, 1.0, 1.0)
+
+
+	func computePos deltaMove
+
+		x += deltaMove * lx * 0.1
+		z += deltaMove * lz * 0.1
+
+
+	func renderScene
+
+		if deltaMove
+			computePos(deltaMove)
+		ok
+
+		// Clear Color and Depth Buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+		// Reset transformations
+		glLoadIdentity()
+		// Set the camera
+		gluLookAt(	x, 1.0, z,
+				x+lx, 1.0,  z+lz,
+				0.0, 1.0,  0.0)
+
+	// Draw ground
+
+		glColor3f(0.9, 0.9, 0.9)
+		glBegin(GL_QUADS)
+			glVertex3f(-100.0, 0.0, -100.0)
+			glVertex3f(-100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0, -100.0)
+		glEnd()
+
+	// Draw 36 SnowMen
+
+		for  i = -3 to 2
+			for  j = -3 to 2
+				glPushMatrix()
+				glTranslatef(i*10.0, 0.0, j * 10.0)
+				drawSnowMan()
+				glPopMatrix()
+			next
+		next
+		glutSwapBuffers()
+
+
+	// -----------------------------------
+	//             KEYBOARD
+	// -----------------------------------
+
+	func processNormalKeys
+		key = glutEventKey()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		glutSetMenu(mainMenu)
+		switch key
+			on 27
+				glutDestroyMenu(mainMenu)
+				glutDestroyMenu(fillMenu)
+				glutDestroyMenu(colorMenu)
+				glutDestroyMenu(shrinkMenu)
+				shutdown()
+
+			on 's'
+				if not menuFlag
+				  glutChangeToSubMenu(2,"Shrink",shrinkMenu)
+				ok
+			on 'c'
+				if not menuFlag
+					glutChangeToSubMenu(2,"Color",colorMenu)
+				ok
+		off
+		if key = 27
+			shutdown()
+		ok
+
+
+	func pressKey 
+
+		key = glutEventKey()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		switch key
+			on GLUT_KEY_UP 
+				 deltaMove = 0.5
+			on GLUT_KEY_DOWN 
+				deltaMove = -0.5
+		off
+
+
+	func releaseKey
+
+		key = glutEventKey()
+
+		switch key
+			on GLUT_KEY_UP 
+				deltaMove = 0 
+			on GLUT_KEY_DOWN
+				deltaMove = 0  
+		off
+
+
+	// -----------------------------------
+	//             MOUSE
+	// -----------------------------------
+
+	func mouseMove
+		xx = glutEventX()
+		yy = glutEventY()
+
+		// this will only be true when the left button is down
+		if xOrigin >= 0
+
+			// update deltaAngle
+			deltaAngle = (xx - xOrigin) * 0.001
+
+			// update camera's direction
+			lx = sin(angle + deltaAngle)
+			lz = -cos(angle + deltaAngle)
+		ok
+
+
+	func mouseButton
+
+		button = glutEventButton()
+		state = glutEventState()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		// only start motion if the left button is pressed
+		if button = GLUT_LEFT_BUTTON
+			// when the button is released
+			if state = GLUT_UP
+				angle += deltaAngle
+				xOrigin = -1
+			else  
+				// state = GLUT_DOWN
+				xOrigin = xx
+			ok
+		ok
+
+
+	// -----------------------------------
+	//             MENUS
+	// -----------------------------------
+
+	func processMenuStatus
+
+		status = glutEventStatus()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		if  status = GLUT_MENU_IN_USE
+			menuFlag = 1
+		else
+			menuFlag = 0
+		ok
+
+
+	func processMainMenu
+
+		// nothing to do in here
+		// all actions are for submenus
+
+
+	func processFillMenu
+
+		option = glutEventValue()
+
+		switch option
+
+			on C_FILL
+				 glPolygonMode(GL_FRONT, GL_FILL) 
+			on C_LINE
+				 glPolygonMode(GL_FRONT, GL_LINE) 
+		off
+
+
+	func processShrinkMenu
+
+		option = glutEventValue()
+
+		switch option
+
+			on C_SHRINK
+				scale = 0.5
+			on C_NORMAL
+				 scale = 1.0
+		off
+
+
+	func processColorMenu
+
+		option = glutEventValue()
+
+		switch option
+			on C_RED 
+				red = 1.0
+				green = 0.0
+				blue = 0.0
+			on C_GREEN 
+				red = 0.0
+				green = 1.0
+				blue = 0.0
+			on C_BLUE 
+				red = 0.0
+				green = 0.0
+				blue = 1.0
+			on C_ORANGE 
+				red = 1.0
+				green = 0.5
+				blue = 0.5
+		off
+
+
+	func createPopupMenus
+
+		shrinkMenu = glutCreateMenu(:processShrinkMenu)
+
+		glutAddMenuEntry("Shrink",C_SHRINK)
+		glutAddMenuEntry("NORMAL",C_NORMAL)
+
+		fillMenu = glutCreateMenu(:processFillMenu)
+
+		glutAddMenuEntry("Fill",C_FILL)
+		glutAddMenuEntry("Line",C_LINE)
+
+		colorMenu = glutCreateMenu(:processColorMenu)
+		glutAddMenuEntry("Red",C_RED)
+		glutAddMenuEntry("Blue",C_BLUE)
+		glutAddMenuEntry("Green",C_GREEN)
+		glutAddMenuEntry("Orange",C_ORANGE)
+
+		mainMenu = glutCreateMenu(:processMainMenu)
+
+		glutAddSubMenu("Polygon Mode", fillMenu)
+		glutAddSubMenu("Color", colorMenu)
+		// attach the menu to the right button
+		glutAttachMenu(GLUT_RIGHT_BUTTON)
+
+		// this will allow us to know if the menu is active
+		glutMenuStatusFunc(:processMenuStatus)
+
+
+	// -----------------------------------
+	//             MAIN
+	// -----------------------------------
+
+	func main
+
+		// init GLUT and create window
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowPosition(100,100)
+		glutInitWindowSize(320,320)
+		glutCreateWindow("RingFreeGLUT - Test 10")
+
+		// register callbacks
+		glutDisplayFunc(:renderScene)
+		glutReshapeFunc(:changeSize)
+		glutIdleFunc(:renderScene)
+
+		glutIgnoreKeyRepeat(1)
+		glutKeyboardFunc(:processNormalKeys)
+		glutSpecialFunc(:pressKey)
+		glutSpecialUpFunc(:releaseKey)
+
+		// here are the two new functions
+		glutMouseFunc(:mouseButton)
+		glutMotionFunc(:mouseMove)
+
+		// OpenGL init
+		glEnable(GL_DEPTH_TEST)
+		glEnable(GL_CULL_FACE)
+
+		// init Menus
+		createPopupMenus()
+
+		// enter GLUT event processing cycle
+		glutMainLoop()
+
+Screen Shot
+
+.. image:: freeglutshot7.png
+	:alt: RingFreeGLUT
+
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Using Fonts
+
+Using Fonts
+===========
+
+Example:
+
+.. code-block:: ring 
+		
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+
+	// angle of rotation for the camera direction
+	angle = 0.0
+
+	// actual vector representing the camera's direction
+	lx=0.0 lz=-1.0
+
+	// XZ position of the camera
+	x=0.0  z=5.0
+
+	// the key states. These variables will be zero
+	//when no key is being presses
+	deltaAngle = 0.0
+	deltaMove = 0
+	xOrigin = -1
+
+	// Constant definitions for Menus
+	C_RED  = 1
+	C_GREEN = 2
+	C_BLUE = 3
+	C_ORANGE = 4
+
+	C_FILL = 5
+	C_LINE = 6
+
+	// Pop up menu identifiers
+	fillMenu=NULL
+	fontMenu=NULL
+	mainMenu=NULL
+	colorMenu=NULL
+
+	// color for the nose
+	red = 1.0
+	blue=0.5
+	green=0.5
+
+	// scale of snowman
+	scale = 1.0
+
+	// menu status
+	menuFlag = 0
+
+	// default font
+	font = GLUT_BITMAP_TIMES_ROMAN_24
+
+	C_INT_GLUT_BITMAP_8_BY_13 = 7
+	C_INT_GLUT_BITMAP_9_BY_15 = 8
+	C_INT_GLUT_BITMAP_TIMES_ROMAN_10  = 9
+	C_INT_GLUT_BITMAP_TIMES_ROMAN_24  = 10
+	C_INT_GLUT_BITMAP_HELVETICA_10  = 11
+	C_INT_GLUT_BITMAP_HELVETICA_12  = 12
+	C_INT_GLUT_BITMAP_HELVETICA_18  = 13
+
+	func changeSize
+		w = glutEventWidth()
+		h = glutEventHeight()
+
+		// Prevent a divide by zero, when window is too short
+		// (you cant make a window of zero width).
+		if h = 0
+			h = 1
+		ok
+
+		ratio =  w * 1.0 / h
+
+		// Use the Projection Matrix
+		glMatrixMode(GL_PROJECTION)
+
+		// Reset Matrix
+		glLoadIdentity()
+
+		// Set the viewport to be the entire window
+		glViewport(0, 0, w, h)
+
+		// Set the correct perspective.
+		gluPerspective(45.0, ratio, 0.1, 100.0)
+
+		// Get Back to the Modelview
+		glMatrixMode(GL_MODELVIEW)
+
+	func drawSnowMan
+
+		glScalef(scale, scale, scale)
+		glColor3f(1.0, 1.0, 1.0)
+
+	// Draw Body
+		glTranslatef(0.0 ,0.75, 0.0)
+		glutSolidSphere(0.75,20,20)
+
+	// Draw Head
+		glTranslatef(0.0, 1.0, 0.0)
+		glutSolidSphere(0.25,20,20)
+
+	// Draw Eyes
+		glPushMatrix()
+		glColor3f(0.0,0.0,0.0)
+		glTranslatef(0.05, 0.10, 0.18)
+		glutSolidSphere(0.05,10,10)
+		glTranslatef(-0.1, 0.0, 0.0)
+		glutSolidSphere(0.05,10,10)
+		glPopMatrix()
+
+	// Draw Nose
+		glColor3f(red, green, blue)
+		glRotatef(0.0,1.0, 0.0, 0.0)
+		glutSolidCone(0.08,0.5,10,2)
+
+		glColor3f(1.0, 1.0, 1.0)
+
+	func renderBitmapString x,y,z,font,string
+		glRasterPos3f(x, y,z)
+		for c in string
+			glutBitmapCharacter(font,ascii(c))
+		next
+
+
+	func computePos deltaMove
+
+		x += deltaMove * lx * 0.1
+		z += deltaMove * lz * 0.1
+
+
+	func renderScene
+
+		if  deltaMove
+			computePos(deltaMove)
+		ok
+
+		// Clear Color and Depth Buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+		// Reset transformations
+		glLoadIdentity()
+
+		// Set the camera
+		gluLookAt(	x, 1.0, z,
+				x+lx, 1.0,  z+lz,
+				0.0, 1.0,  0.0)
+
+		// Draw ground
+
+		glColor3f(0.9, 0.9, 0.9)
+		glBegin(GL_QUADS)
+			glVertex3f(-100.0, 0.0, -100.0)
+			glVertex3f(-100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0, -100.0)
+		glEnd()
+
+	// Draw 36 SnowMen
+		for i = -3 to 2
+			for j = -3 to 2
+				glPushMatrix()
+				glTranslatef(i*10.0, 0.0, j * 10.0)
+				drawSnowMan()
+				number = (i+3)*6+(j+3)
+				renderBitmapString(0.0, 0.5, 0.0,font ,""+number)
+				glPopMatrix()
+			next
+		next
+
+		glutSwapBuffers()
+
+
+	// -----------------------------------
+	//             KEYBOARD
+	// -----------------------------------
+
+	func processNormalKeys
+		key = glutEventKey()
+		xx = glutEventX()
+		yy = glutEventY() 
+
+		switch key
+			on 27
+				glutDestroyMenu(mainMenu)
+				glutDestroyMenu(fillMenu)
+				glutDestroyMenu(colorMenu)
+				glutDestroyMenu(fontMenu)
+				Shutdown()
+		off
+
+
+	func pressKey 
+
+		key = glutEventKey()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		switch key
+			on GLUT_KEY_UP 
+				 deltaMove = 0.5
+			on GLUT_KEY_DOWN 
+				deltaMove = -0.5
+		off
+
+
+	func releaseKey
+
+		key = glutEventKey()
+
+		switch key
+			on GLUT_KEY_UP 
+				deltaMove = 0 
+			on GLUT_KEY_DOWN
+				deltaMove = 0  
+		off
+
+
+	// -----------------------------------
+	//             MOUSE
+	// -----------------------------------
+
+	func mouseMove
+		xx = glutEventX()
+		yy = glutEventY()
+
+		// this will only be true when the left button is down
+		if xOrigin >= 0
+
+			// update deltaAngle
+			deltaAngle = (xx - xOrigin) * 0.001
+
+			// update camera's direction
+			lx = sin(angle + deltaAngle)
+			lz = -cos(angle + deltaAngle)
+		ok
+
+
+	func mouseButton
+
+		button = glutEventButton()
+		state = glutEventState()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		// only start motion if the left button is pressed
+		if button = GLUT_LEFT_BUTTON
+			// when the button is released
+			if state = GLUT_UP
+				angle += deltaAngle
+				xOrigin = -1
+			else  
+				// state = GLUT_DOWN
+				xOrigin = xx
+			ok
+		ok
+
+
+	// -----------------------------------
+	//             MENUS
+	// -----------------------------------
+
+	func processMenuStatus
+
+		status = glutEventStatus()
+
+		if status = GLUT_MENU_IN_USE
+			menuFlag = 1
+		else
+			menuFlag = 0
+		ok
+
+
+	func processMainMenu 
+
+		// nothing to do in here
+		// all actions are for submenus
+
+
+	func processFillMenu
+
+		option = glutEventValue()
+
+		switch option
+
+			on C_FILL
+				glPolygonMode(GL_FRONT, GL_FILL)
+			on C_LINE
+				 glPolygonMode(GL_FRONT, GL_LINE)
+		off
+
+
+	func processFontMenu 
+
+		option = glutEventValue()
+
+		switch (option) {
+			on C_INT_GLUT_BITMAP_8_BY_13
+				font = GLUT_BITMAP_8_BY_13
+			on C_INT_GLUT_BITMAP_9_BY_15
+				font = GLUT_BITMAP_9_BY_15
+			on C_INT_GLUT_BITMAP_TIMES_ROMAN_10
+				font = GLUT_BITMAP_TIMES_ROMAN_10
+			on C_INT_GLUT_BITMAP_TIMES_ROMAN_24
+				font = GLUT_BITMAP_TIMES_ROMAN_24
+			on C_INT_GLUT_BITMAP_HELVETICA_10
+				font = GLUT_BITMAP_HELVETICA_10
+			on C_INT_GLUT_BITMAP_HELVETICA_12
+				font = GLUT_BITMAP_HELVETICA_12
+			on C_INT_GLUT_BITMAP_HELVETICA_18
+				font = GLUT_BITMAP_HELVETICA_18
+		off
+	 
+	func processColorMenu
+
+		option = glutEventValue()
+
+		switch option 
+			on C_RED 
+				red = 1.0
+				green = 0.0
+				blue = 0.0
+			on C_GREEN 
+				red = 0.0
+				green = 1.0
+				blue = 0.0
+			on C_BLUE 
+				red = 0.0
+				green = 0.0
+				blue = 1.0
+			on C_ORANGE 
+				red = 1.0
+				green = 0.5
+				blue = 0.5
+		off
+
+
+	func createPopupMenus
+
+		fontMenu = glutCreateMenu(:processFontMenu)
+
+		glutAddMenuEntry("BITMAP_8_BY_13 ",C_INT_GLUT_BITMAP_8_BY_13 )
+		glutAddMenuEntry("BITMAP_9_BY_15",C_INT_GLUT_BITMAP_9_BY_15 )
+		glutAddMenuEntry("BITMAP_TIMES_ROMAN_10 ",C_INT_GLUT_BITMAP_TIMES_ROMAN_10  )
+		glutAddMenuEntry("BITMAP_TIMES_ROMAN_24",C_INT_GLUT_BITMAP_TIMES_ROMAN_24  )
+		glutAddMenuEntry("BITMAP_HELVETICA_10 ",C_INT_GLUT_BITMAP_HELVETICA_10  )
+		glutAddMenuEntry("BITMAP_HELVETICA_12",C_INT_GLUT_BITMAP_HELVETICA_12  )
+		glutAddMenuEntry("BITMAP_HELVETICA_18",C_INT_GLUT_BITMAP_HELVETICA_18  )
+
+		fillMenu = glutCreateMenu(:processFillMenu)
+
+		glutAddMenuEntry("Fill",C_FILL)
+		glutAddMenuEntry("Line",C_LINE)
+
+		colorMenu = glutCreateMenu(:processColorMenu)
+		glutAddMenuEntry("Red",C_RED);
+		glutAddMenuEntry("Blue",C_BLUE);
+		glutAddMenuEntry("Green",C_GREEN);
+		glutAddMenuEntry("Orange",C_ORANGE);
+
+		mainMenu = glutCreateMenu(:processMainMenu)
+
+		glutAddSubMenu("Polygon Mode", fillMenu)
+		glutAddSubMenu("Color", colorMenu)
+		glutAddSubMenu("Font",fontMenu)
+		// attach the menu to the right button
+		glutAttachMenu(GLUT_RIGHT_BUTTON)
+
+		// this will allow us to know if the menu is active
+		glutMenuStatusFunc(:processMenuStatus)
+
+
+	// -----------------------------------
+	//             MAIN
+	// -----------------------------------
+
+	func main
+
+		// init GLUT and create window
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowPosition(100,100)
+		glutInitWindowSize(320,320)
+		glutCreateWindow("RingFreeGLUT - Test 11")
+
+		// register callbacks
+		glutDisplayFunc(:renderScene)
+		glutReshapeFunc(:changeSize)
+		glutIdleFunc(:renderScene)
+
+		glutIgnoreKeyRepeat(1)
+		glutKeyboardFunc(:processNormalKeys)
+		glutSpecialFunc(:pressKey)
+		glutSpecialUpFunc(:releaseKey)
+
+		// here are the two new functions
+		glutMouseFunc(:mouseButton)
+		glutMotionFunc(:mouseMove)
+
+		// OpenGL init
+		glEnable(GL_DEPTH_TEST)
+		glEnable(GL_CULL_FACE)
+
+		// init Menus
+		createPopupMenus()
+
+		// enter GLUT event processing cycle
+		glutMainLoop()
+
+Screen Shot
+
+.. image:: freeglutshot8.png
+	:alt: RingFreeGLUT
+
+	
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Frames Per Second 
+
+Frames Per Second
+=================
+
+Example 
+
+.. code-block:: ring
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	// angle of rotation for the camera direction
+	angle = 0.0
+
+	// actual vector representing the camera's direction
+	lx=0.0 lz=-1.0
+
+	// XZ position of the camera
+	x=0.0  z=5.0
+
+	// the key states. These variables will be zero
+	//when no key is being presses
+	deltaAngle = 0.0
+	deltaMove = 0
+	xOrigin = -1
+
+	// Constant definitions for Menus
+	C_RED  = 1
+	C_GREEN = 2
+	C_BLUE = 3
+	C_ORANGE = 4
+
+	C_FILL = 5
+	C_LINE = 6
+
+	// Pop up menu identifiers
+	fillMenu=NULL
+	fontMenu=NULL
+	mainMenu=NULL
+	colorMenu=NULL
+
+	// color for the nose
+	red = 1.0
+	blue=0.5
+	green=0.5
+
+	// scale of snowman
+	scale = 1.0
+
+	// menu status
+	menuFlag = 0
+
+	// default font
+	font = GLUT_BITMAP_TIMES_ROMAN_24
+
+	C_INT_GLUT_BITMAP_8_BY_13 = 7
+	C_INT_GLUT_BITMAP_9_BY_15 = 8
+	C_INT_GLUT_BITMAP_TIMES_ROMAN_10  = 9
+	C_INT_GLUT_BITMAP_TIMES_ROMAN_24  = 10
+	C_INT_GLUT_BITMAP_HELVETICA_10  = 11
+	C_INT_GLUT_BITMAP_HELVETICA_12  = 12
+	C_INT_GLUT_BITMAP_HELVETICA_18  = 13
+
+	// width and height of the window
+	h = 0
+	w = 0
+
+	// variables to compute frames per second
+	frame=0
+	time=0
+	timebase=0
+	s = ""
+
+	func changeSize
+		w = glutEventWidth()
+		h = glutEventHeight()
+
+		// Prevent a divide by zero, when window is too short
+		// (you cant make a window of zero width).
+		if h = 0
+			h = 1
+		ok
+
+		ratio =  w * 1.0 / h
+
+		// Use the Projection Matrix
+		glMatrixMode(GL_PROJECTION)
+
+		// Reset Matrix
+		glLoadIdentity()
+
+		// Set the viewport to be the entire window
+		glViewport(0, 0, w, h)
+
+		// Set the correct perspective.
+		gluPerspective(45.0, ratio, 0.1, 100.0)
+
+		// Get Back to the Modelview
+		glMatrixMode(GL_MODELVIEW)
+
+	func drawSnowMan
+
+		glScalef(scale, scale, scale)
+		glColor3f(1.0, 1.0, 1.0)
+
+	// Draw Body
+		glTranslatef(0.0 ,0.75, 0.0)
+		glutSolidSphere(0.75,20,20)
+
+	// Draw Head
+		glTranslatef(0.0, 1.0, 0.0)
+		glutSolidSphere(0.25,20,20)
+
+	// Draw Eyes
+		glPushMatrix()
+		glColor3f(0.0,0.0,0.0)
+		glTranslatef(0.05, 0.10, 0.18)
+		glutSolidSphere(0.05,10,10)
+		glTranslatef(-0.1, 0.0, 0.0)
+		glutSolidSphere(0.05,10,10)
+		glPopMatrix()
+
+	// Draw Nose
+		glColor3f(red, green, blue)
+		glRotatef(0.0,1.0, 0.0, 0.0)
+		glutSolidCone(0.08,0.5,10,2)
+
+		glColor3f(1.0, 1.0, 1.0)
+
+	func renderBitmapString x,y,z,font,string
+		glRasterPos3f(x, y,z)
+		for c in string
+			glutBitmapCharacter(font,ascii(c))
+		next
+
+	func renderStrokeFontString x,y,z,font,string
+		glPushMatrix()
+		glTranslatef(x, y,z)
+		glScalef(0.002, 0.002, 0.002)
+		for c in string
+			glutStrokeCharacter(font, Ascii(c));
+		next
+		glPopMatrix()
+
+
+	func restorePerspectiveProjection
+
+		glMatrixMode(GL_PROJECTION)
+		// restore previous projection matrix
+		glPopMatrix()
+
+		// get back to modelview mode
+		glMatrixMode(GL_MODELVIEW)
+
+
+	func setOrthographicProjection
+
+		// switch to projection mode
+		glMatrixMode(GL_PROJECTION)
+
+		// save previous matrix which contains the
+		//settings for the perspective projection
+		glPushMatrix()
+
+		// reset matrix
+		glLoadIdentity()
+
+		// set a 2D orthographic projection
+		gluOrtho2D(0, w, h, 0)
+
+		// switch back to modelview mode
+		glMatrixMode(GL_MODELVIEW)
+
+
+
+	func computePos deltaMove
+
+		x += deltaMove * lx * 0.1
+		z += deltaMove * lz * 0.1
+
+
+	func renderScene
+
+		if  deltaMove
+			computePos(deltaMove)
+		ok
+
+		// Clear Color and Depth Buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+		// Reset transformations
+		glLoadIdentity()
+
+		// Set the camera
+		gluLookAt(	x, 1.0, z,
+				x+lx, 1.0,  z+lz,
+				0.0, 1.0,  0.0)
+
+		// Draw ground
+
+		glColor3f(0.9, 0.9, 0.9)
+		glBegin(GL_QUADS)
+			glVertex3f(-100.0, 0.0, -100.0)
+			glVertex3f(-100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0,  100.0)
+			glVertex3f( 100.0, 0.0, -100.0)
+		glEnd()
+
+	// Draw 9 SnowMen
+		for i = -3 to -1
+			for j = -3 to -1
+				glPushMatrix()
+				glTranslatef(i*10.0, 0.0, j * 10.0)
+				drawSnowMan()
+				number = (i+3)*3+(j+3)
+				renderBitmapString(0.0, 0.5, 0.0,font ,""+number)
+				glPopMatrix()
+			next
+		next
+
+		// Code to compute frames per second
+		frame++
+
+		time=glutGet(GLUT_ELAPSED_TIME)
+		if time - timebase > 1000 
+			s = "RingFreeGLUT - FPS: " + (frame*1000.0/(time-timebase))
+			timebase = time
+			frame = 0
+		ok
+
+		// Code to display a string (fps) with bitmap fonts
+		setOrthographicProjection()
+
+		glPushMatrix()
+		glLoadIdentity()
+		renderBitmapString(5,30,0,GLUT_BITMAP_HELVETICA_18,s)
+		glPopMatrix()
+
+		restorePerspectiveProjection()
+
+		glutSwapBuffers()
+
+
+	// -----------------------------------
+	//             KEYBOARD
+	// -----------------------------------
+
+	func processNormalKeys
+		key = glutEventKey()
+		xx = glutEventX()
+		yy = glutEventY() 
+
+		switch key
+			on 27
+				glutDestroyMenu(mainMenu)
+				glutDestroyMenu(fillMenu)
+				glutDestroyMenu(colorMenu)
+				glutDestroyMenu(fontMenu)
+				Shutdown()
+		off
+
+
+	func pressKey 
+
+		key = glutEventKey()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		switch key
+			on GLUT_KEY_UP 
+				 deltaMove = 0.5
+			on GLUT_KEY_DOWN 
+				deltaMove = -0.5
+		off
+
+
+	func releaseKey
+
+		key = glutEventKey()
+
+		switch key
+			on GLUT_KEY_UP 
+				deltaMove = 0 
+			on GLUT_KEY_DOWN
+				deltaMove = 0  
+		off
+
+
+	// -----------------------------------
+	//             MOUSE
+	// -----------------------------------
+
+	func mouseMove
+		xx = glutEventX()
+		yy = glutEventY()
+
+		// this will only be true when the left button is down
+		if xOrigin >= 0
+
+			// update deltaAngle
+			deltaAngle = (xx - xOrigin) * 0.001
+
+			// update camera's direction
+			lx = sin(angle + deltaAngle)
+			lz = -cos(angle + deltaAngle)
+		ok
+
+
+	func mouseButton
+
+		button = glutEventButton()
+		state = glutEventState()
+		xx = glutEventX()
+		yy = glutEventY()
+
+		// only start motion if the left button is pressed
+		if button = GLUT_LEFT_BUTTON
+			// when the button is released
+			if state = GLUT_UP
+				angle += deltaAngle
+				xOrigin = -1
+			else  
+				// state = GLUT_DOWN
+				xOrigin = xx
+			ok
+		ok
+
+
+	// -----------------------------------
+	//             MENUS
+	// -----------------------------------
+
+	func processMenuStatus
+
+		status = glutEventStatus()
+
+		if status = GLUT_MENU_IN_USE
+			menuFlag = 1
+		else
+			menuFlag = 0
+		ok
+
+
+	func processMainMenu 
+
+		// nothing to do in here
+		// all actions are for submenus
+
+
+	func processFillMenu
+
+		option = glutEventValue()
+
+		switch option
+
+			on C_FILL
+				glPolygonMode(GL_FRONT, GL_FILL)
+			on C_LINE
+				 glPolygonMode(GL_FRONT, GL_LINE)
+		off
+
+
+	func processFontMenu 
+
+		option = glutEventValue()
+
+		switch (option) {
+			on C_INT_GLUT_BITMAP_8_BY_13
+				font = GLUT_BITMAP_8_BY_13
+			on C_INT_GLUT_BITMAP_9_BY_15
+				font = GLUT_BITMAP_9_BY_15
+			on C_INT_GLUT_BITMAP_TIMES_ROMAN_10
+				font = GLUT_BITMAP_TIMES_ROMAN_10
+			on C_INT_GLUT_BITMAP_TIMES_ROMAN_24
+				font = GLUT_BITMAP_TIMES_ROMAN_24
+			on C_INT_GLUT_BITMAP_HELVETICA_10
+				font = GLUT_BITMAP_HELVETICA_10
+			on C_INT_GLUT_BITMAP_HELVETICA_12
+				font = GLUT_BITMAP_HELVETICA_12
+			on C_INT_GLUT_BITMAP_HELVETICA_18
+				font = GLUT_BITMAP_HELVETICA_18
+		off
+	 
+	func processColorMenu
+
+		option = glutEventValue()
+
+		switch option 
+			on C_RED 
+				red = 1.0
+				green = 0.0
+				blue = 0.0
+			on C_GREEN 
+				red = 0.0
+				green = 1.0
+				blue = 0.0
+			on C_BLUE 
+				red = 0.0
+				green = 0.0
+				blue = 1.0
+			on C_ORANGE 
+				red = 1.0
+				green = 0.5
+				blue = 0.5
+		off
+
+
+	func createPopupMenus
+
+		fontMenu = glutCreateMenu(:processFontMenu)
+
+		glutAddMenuEntry("BITMAP_8_BY_13 ",C_INT_GLUT_BITMAP_8_BY_13 )
+		glutAddMenuEntry("BITMAP_9_BY_15",C_INT_GLUT_BITMAP_9_BY_15 )
+		glutAddMenuEntry("BITMAP_TIMES_ROMAN_10 ",C_INT_GLUT_BITMAP_TIMES_ROMAN_10  )
+		glutAddMenuEntry("BITMAP_TIMES_ROMAN_24",C_INT_GLUT_BITMAP_TIMES_ROMAN_24  )
+		glutAddMenuEntry("BITMAP_HELVETICA_10 ",C_INT_GLUT_BITMAP_HELVETICA_10  )
+		glutAddMenuEntry("BITMAP_HELVETICA_12",C_INT_GLUT_BITMAP_HELVETICA_12  )
+		glutAddMenuEntry("BITMAP_HELVETICA_18",C_INT_GLUT_BITMAP_HELVETICA_18  )
+
+		fillMenu = glutCreateMenu(:processFillMenu)
+
+		glutAddMenuEntry("Fill",C_FILL)
+		glutAddMenuEntry("Line",C_LINE)
+
+		colorMenu = glutCreateMenu(:processColorMenu)
+		glutAddMenuEntry("Red",C_RED);
+		glutAddMenuEntry("Blue",C_BLUE);
+		glutAddMenuEntry("Green",C_GREEN);
+		glutAddMenuEntry("Orange",C_ORANGE);
+
+		mainMenu = glutCreateMenu(:processMainMenu)
+
+		glutAddSubMenu("Polygon Mode", fillMenu)
+		glutAddSubMenu("Color", colorMenu)
+		glutAddSubMenu("Font",fontMenu)
+		// attach the menu to the right button
+		glutAttachMenu(GLUT_RIGHT_BUTTON)
+
+		// this will allow us to know if the menu is active
+		glutMenuStatusFunc(:processMenuStatus)
+
+
+	// -----------------------------------
+	//             MAIN
+	// -----------------------------------
+
+	func main
+
+		// init GLUT and create window
+		glutInit()
+		glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+		glutInitWindowPosition(100,100)
+		glutInitWindowSize(320,320)
+		glutCreateWindow("RingFreeGLUT - Test - 9 SnowMan")
+
+		// register callbacks
+		glutDisplayFunc(:renderScene)
+		glutReshapeFunc(:changeSize)
+		glutIdleFunc(:renderScene)
+
+		glutIgnoreKeyRepeat(1)
+		glutKeyboardFunc(:processNormalKeys)
+		glutSpecialFunc(:pressKey)
+		glutSpecialUpFunc(:releaseKey)
+
+		// here are the two new functions
+		glutMouseFunc(:mouseButton)
+		glutMotionFunc(:mouseMove)
+
+		// OpenGL init
+		glEnable(GL_DEPTH_TEST)
+		glEnable(GL_CULL_FACE)
+
+		// init Menus
+		createPopupMenus()
+
+		// enter GLUT event processing cycle
+		glutMainLoop()
+
+
+Screen Shots:
+
+The First screen shot
+
+.. image:: ring15freeglut.png
+	:alt: RingFreeGLUT
+
+
+The Second screen shot
+
+.. image:: ring15freeglut2.png
+	:alt: RingFreeGLUT
+
+.. index:: 
+	pair: Using RingOpenGL and RingFreeGLUT for 3D  Graphics; Make a Cube using RingOpenGL and RingFreeGLUT
+
+Make a Cube using RingOpenGL and RingFreeGLUT
+=============================================
+
+Example:
+
+.. code-block:: ring
+
+	load "freeglut.ring"
+	load "opengl21lib.ring"
+
+	// ----------------------------------------------------------
+	// Global Variables
+	// ----------------------------------------------------------
+	rotate_y=0 
+	rotate_x=0
+	 
+	// ----------------------------------------------------------
+	// display() Callback function
+	// ----------------------------------------------------------
+	func display
+	 
+	  //  Clear screen and Z-buffer
+	  glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
+	 
+	  // Reset transformations
+	  glLoadIdentity()
+	 
+	  // Rotate when user changes rotate_x and rotate_y
+	  glRotatef( rotate_x, 1.0, 0.0, 0.0 )
+	  glRotatef( rotate_y, 0.0, 1.0, 0.0 )
+	 
+	  //Multi-colored side - FRONT
+	  glBegin(GL_POLYGON)
+	 
+	  glColor3f( 1.0, 0.0, 0.0 )     glVertex3f(  0.5, -0.5, -0.5 )      # P1 is red
+	  glColor3f( 0.0, 1.0, 0.0 )     glVertex3f(  0.5,  0.5, -0.5 )      # P2 is green
+	  glColor3f( 0.0, 0.0, 1.0 )     glVertex3f( -0.5,  0.5, -0.5 )      # P3 is blue
+	  glColor3f( 1.0, 0.0, 1.0 )     glVertex3f( -0.5, -0.5, -0.5 )      # P4 is purple
+	 
+	  glEnd()
+	 
+	  // White side - BACK
+	  glBegin(GL_POLYGON)
+	  glColor3f(   1.0,  1.0, 1.0 )
+	  glVertex3f(  0.5, -0.5, 0.5 )
+	  glVertex3f(  0.5,  0.5, 0.5 )
+	  glVertex3f( -0.5,  0.5, 0.5 )
+	  glVertex3f( -0.5, -0.5, 0.5 )
+	  glEnd()
+	 
+	  // Purple side - RIGHT
+	  glBegin(GL_POLYGON)
+	  glColor3f(  1.0,  0.0,  1.0 )
+	  glVertex3f( 0.5, -0.5, -0.5 )
+	  glVertex3f( 0.5,  0.5, -0.5 )
+	  glVertex3f( 0.5,  0.5,  0.5 )
+	  glVertex3f( 0.5, -0.5,  0.5 )
+	  glEnd()
+	 
+	  // Green side - LEFT
+	  glBegin(GL_POLYGON)
+	  glColor3f(   0.0,  1.0,  0.0 )
+	  glVertex3f( -0.5, -0.5,  0.5 )
+	  glVertex3f( -0.5,  0.5,  0.5 )
+	  glVertex3f( -0.5,  0.5, -0.5 )
+	  glVertex3f( -0.5, -0.5, -0.5 )
+	  glEnd()
+	 
+	  // Blue side - TOP
+	  glBegin(GL_POLYGON)
+	  glColor3f(   0.0,  0.0,  1.0 )
+	  glVertex3f(  0.5,  0.5,  0.5 )
+	  glVertex3f(  0.5,  0.5, -0.5 )
+	  glVertex3f( -0.5,  0.5, -0.5 )
+	  glVertex3f( -0.5,  0.5,  0.5 )
+	  glEnd()
+	 
+	  // Red side - BOTTOM
+	  glBegin(GL_POLYGON)
+	  glColor3f(   1.0,  0.0,  0.0 )
+	  glVertex3f(  0.5, -0.5, -0.5 )
+	  glVertex3f(  0.5, -0.5,  0.5 )
+	  glVertex3f( -0.5, -0.5,  0.5 )
+	  glVertex3f( -0.5, -0.5, -0.5 )
+	  glEnd()
+	 
+	  glFlush()
+	  glutSwapBuffers()
+	 
+	 
+	// ----------------------------------------------------------
+	// specialKeys() Callback Function
+	// ----------------------------------------------------------
+	func specialKeys
+
+		key = glutEventKey()
+	 
+	  //  Right arrow - increase rotation by 5 degree
+		switch Key
+
+		on GLUT_KEY_RIGHT
+			rotate_y += 5
+	 
+		//  Left arrow - decrease rotation by 5 degree
+		on GLUT_KEY_LEFT
+			rotate_y -= 5
+	 
+		on GLUT_KEY_UP
+			rotate_x += 5
+	 
+		on GLUT_KEY_DOWN
+			rotate_x -= 5
+	 
+		off
+
+	  //  Request display update
+	  glutPostRedisplay()
+	 
+
+	 
+	// ----------------------------------------------------------
+	// main() function
+	// ----------------------------------------------------------
+	func main
+	 
+	  //  Initialize GLUT and process user parameters
+	  glutInit()
+	 
+	  //  Request double buffered true color window with Z-buffer
+	  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH)
+	 
+	  // Create window
+	  glutCreateWindow("Awesome Cube")
+	 
+	  //  Enable Z-buffer depth test
+	  glEnable(GL_DEPTH_TEST)
+	 
+	  // Callback functions
+	  glutDisplayFunc(:display)
+	  glutSpecialFunc(:specialKeys)
+	 
+	  //  Pass control to GLUT for events
+	  glutMainLoop()
+	 
+	  //  Return to OS
+
+
+Screen Shot:
+
+.. image:: ring15opengl.png
+	:alt: RingOpenGL
+

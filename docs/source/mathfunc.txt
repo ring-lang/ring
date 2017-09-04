@@ -289,3 +289,48 @@ Output:
 	1.123456789012
 	1.1234567890123
 	1.12345678901230
+
+
+.. index:: 
+	pair: Mathematical Functions; Using _ in numbers
+
+Using _ in numbers
+==================
+
+We can use _ between numbers digits.
+
+Example:
+
+.. code-block:: ring
+
+	x = 1_000_000
+	see type(x)+nl
+	see x+1+nl
+
+Output:
+
+.. code-block:: ring
+
+	NUMBER
+	100000001
+
+.. index:: 
+	pair: Mathematical Functions; Using f after numbers
+
+Using f after numbers
+=====================
+
+We can use the 'f' letter after numbers.
+
+Example:
+
+.. code-block:: ring
+
+	x = 19.99f
+	see type(x) + nl
+
+Output:
+
+.. code-block:: ring
+
+	NUMBER

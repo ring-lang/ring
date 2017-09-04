@@ -15,9 +15,10 @@ isXTurn=true
 
     app=new qApp
     {
-		
+	stylefusionBlack()
         frmMain=new qMainWindow()
 		{
+			
 			setWindowTitle("TicTacToe!")
 			resize(300,320)
 			move(200,200)
@@ -33,7 +34,7 @@ isXTurn=true
 							setGeometry(x*100,y*100,100,100)
 							setText("-")
 							setclickevent("Disp(" + pos +")")
-							setstylesheet("font-size:24pt ; font: bold ; color:yellow ; background-color: green")
+							setstylesheet("font-size:24pt ; font: bold ;")
 						})
 				next
             next

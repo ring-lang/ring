@@ -60,6 +60,37 @@ class GAllEvents : public QWidget
     char cWindowUnblockedEvent[100];
     char cPaintEvent[100];
 
+
+    char cKeyPressFunc[100];
+    char cMouseButtonPressFunc[100];
+    char cMouseButtonReleaseFunc[100];
+    char cMouseButtonDblClickFunc[100];
+    char cMouseMoveFunc[100];
+    char cCloseFunc[100];
+    char cContextMenuFunc[100];
+    char cDragEnterFunc[100];
+    char cDragLeaveFunc[100];
+    char cDragMoveFunc[100];
+    char cDropFunc[100];
+    char cEnterFunc[100];
+    char cFocusInFunc[100];
+    char cFocusOutFunc[100];
+    char cKeyReleaseFunc[100];
+    char cLeaveFunc[100];
+    char cNonClientAreaMouseButtonDblClickFunc[100];
+    char cNonClientAreaMouseButtonPressFunc[100];
+    char cNonClientAreaMouseButtonReleaseFunc[100];
+    char cNonClientAreaMouseMoveFunc[100];
+    char cMoveFunc[100];
+    char cResizeFunc[100];
+    char cWindowActivateFunc[100];
+    char cWindowBlockedFunc[100];
+    char cWindowDeactivateFunc[100];
+    char cWindowStateChangeFunc[100];
+    char cWindowUnblockedFunc[100];
+    char cPaintFunc[100];
+
+
     bool lEventOutput ;	
 
     QObject *pParentObject;
@@ -142,6 +173,68 @@ class GAllEvents : public QWidget
     const char *getWindowUnblockedEvent(void);
     const char *getPaintEvent(void);
 
+
+    void setKeyPressFunc(const char *cStr);
+    void setMouseButtonPressFunc(const char *cStr);
+    void setMouseButtonReleaseFunc(const char *cStr);
+    void setMouseButtonDblClickFunc(const char *cStr);
+    void setMouseMoveFunc(const char *cStr);
+    void setCloseFunc(const char *cStr);
+
+    void setContextMenuFunc(const char *cStr);
+    void setDragEnterFunc(const char *cStr);
+    void setDragLeaveFunc(const char *cStr);
+    void setDragMoveFunc(const char *cStr);
+    void setDropFunc(const char *cStr);
+    void setEnterFunc(const char *cStr);
+    void setFocusInFunc(const char *cStr);
+    void setFocusOutFunc(const char *cStr);
+    void setKeyReleaseFunc(const char *cStr);
+    void setLeaveFunc(const char *cStr);
+    void setNonClientAreaMouseButtonDblClickFunc(const char *cStr);
+    void setNonClientAreaMouseButtonPressFunc(const char *cStr);
+    void setNonClientAreaMouseButtonReleaseFunc(const char *cStr);
+    void setNonClientAreaMouseMoveFunc(const char *cStr);
+    void setMoveFunc(const char *cStr);
+    void setResizeFunc(const char *cStr);
+    void setWindowActivateFunc(const char *cStr);
+    void setWindowBlockedFunc(const char *cStr);
+    void setWindowDeactivateFunc(const char *cStr);
+    void setWindowStateChangeFunc(const char *cStr);
+    void setWindowUnblockedFunc(const char *cStr);
+    void setPaintFunc(const char *cStr);
+
+    const char *getKeyPressFunc(void);
+    const char *getMouseButtonPressFunc(void);
+    const char *getMouseButtonReleaseFunc(void);
+    const char *getMouseButtonDblClickFunc(void);
+    const char *getMouseMoveFunc(void);
+    const char *getCloseFunc(void);
+    const char *getContextMenuFunc(void);
+    const char *getDragEnterFunc(void);
+    const char *getDragLeaveFunc(void);
+    const char *getDragMoveFunc(void);
+    const char *getDropFunc(void);
+    const char *getEnterFunc(void);
+    const char *getFocusInFunc(void);
+    const char *getFocusOutFunc(void);
+    const char *getKeyReleaseFunc(void);
+    const char *getLeaveFunc(void);
+    const char *getNonClientAreaMouseButtonDblClickFunc(void);
+    const char *getNonClientAreaMouseButtonPressFunc(void);
+    const char *getNonClientAreaMouseButtonReleaseFunc(void);
+    const char *getNonClientAreaMouseMoveFunc(void);
+    const char *getMoveFunc(void);
+    const char *getResizeFunc(void);
+    const char *getWindowActivateFunc(void);
+    const char *getWindowBlockedFunc(void);
+    const char *getWindowDeactivateFunc(void);
+    const char *getWindowStateChangeFunc(void);
+    const char *getWindowUnblockedFunc(void);
+    const char *getPaintFunc(void);
+
+
+
     void setEventOutput(bool x);
 
     QObject *getParentObject(void);
@@ -149,8 +242,9 @@ class GAllEvents : public QWidget
   
   private:
 
-    void callKeyPressEvent(void);
     void storeMouseState(QEvent *event);
+
+    void callKeyPressEvent(void);
     void callMouseButtonPressEvent(void);
     void callMouseButtonReleaseEvent(void);
     void callMouseButtonDblClickEvent(void);
@@ -178,6 +272,35 @@ class GAllEvents : public QWidget
     void callWindowStateChangeEvent(void);
     void callWindowUnblockedEvent(void);
     void callPaintEvent(void);
+
+    void callKeyPressFunc(void);
+    void callMouseButtonPressFunc(void);
+    void callMouseButtonReleaseFunc(void);
+    void callMouseButtonDblClickFunc(void);
+    void callMouseMoveFunc(void);
+    void callCloseFunc(void);
+    void callContextMenuFunc(void);
+    void callDragEnterFunc(void);
+    void callDragLeaveFunc(void);
+    void callDragMoveFunc(void);
+    void callDropFunc(void);
+    void callEnterFunc(void);
+    void callFocusInFunc(void);
+    void callFocusOutFunc(void);
+    void callKeyReleaseFunc(void);
+    void callLeaveFunc(void);
+    void callNonClientAreaMouseButtonDblClickFunc(void);
+    void callNonClientAreaMouseButtonPressFunc(void);
+    void callNonClientAreaMouseButtonReleaseFunc(void);
+    void callNonClientAreaMouseMoveFunc(void);
+    void callMoveFunc(void);
+    void callResizeFunc(void);
+    void callWindowActivateFunc(void);
+    void callWindowBlockedFunc(void);
+    void callWindowDeactivateFunc(void);
+    void callWindowStateChangeFunc(void);
+    void callWindowUnblockedFunc(void);
+    void callPaintFunc(void);
 	
 };
 

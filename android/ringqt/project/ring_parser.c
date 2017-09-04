@@ -40,7 +40,7 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
 Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 {
 	Parser *pParser  ;
-	pParser = (Parser *) malloc(sizeof(Parser)) ;
+	pParser = (Parser *) ring_state_malloc(pRingState,sizeof(Parser));
 	if ( pParser == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -82,7 +82,7 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 Parser * ring_parser_delete ( Parser *pParser )
 {
 	assert(pParser != NULL);
-	free( pParser ) ;
+	ring_state_free(pParser->pRingState,pParser);
 	return NULL ;
 }
 /* Check Token */

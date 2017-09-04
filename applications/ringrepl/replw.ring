@@ -5,41 +5,41 @@ load "guilib.ring"
 
 oProcess = NULL
 
-new qApp  {
-			StyleFusionBlack()
-			oProcessWindow = new qWidget()  {
-				setwindowflags(Qt_WindowStaysOnTopHint)
-				setwindowtitle("RingREPL (Read - Eval - Print - Loop)")
-				resize(600,500)
-				setwinicon(self,"source.png")
-				oProcessLabel = new qLabel(oProcessWindow) {
-					setText("Ring :")
-				}
-				oProcessText = new qLineEdit(oProcessWindow) {
-					setreturnPressedEvent("pSendProcessData()")
-				}
-				oProcessbtnHistory = new qpushbutton(oProcessWindow) {
-					setText("History")
-					setClickEvent("pHistory()")
-				}
-				oProcessLayout1 = new qhboxlayout() {
-					AddWidget(oProcessLabel)
-					AddWidget(oProcessText)
-					Addwidget(oProcessbtnHistory)
-				}
-				oProcessEditbox = new qPlaintextedit(oProcessWindow) 
-				oCommandsEditbox = new qPlaintextedit(oProcessWindow) 
-				oProcessLayout2 = new qvboxlayout() {
-					addWidget(oProcesseditbox)
-					addlayout(oProcesslayout1)
-					addWidget(oCommandseditbox)
-				}
-				setlayout(oProcessLayout2)
-				oCommandsEditbox.hide()
-				oProcessText.setfocus(0)
-				show()
-			}
-			oProcess = pRunProcess(exefolder()+"ring","replwscript.ring","pGetProcessData()")
+oApp = new qApp  {
+	StyleFusionBlack()
+	oProcessWindow = new qWidget()  {
+		setwindowflags(Qt_WindowStaysOnTopHint)
+		setwindowtitle("RingREPL (Read - Eval - Print - Loop)")
+		resize(600,500)
+		setwinicon(self,"source.png")
+		oProcessLabel = new qLabel(oProcessWindow) {
+			setText("Ring :")
+		}
+		oProcessText = new qLineEdit(oProcessWindow) {
+			setreturnPressedEvent("pSendProcessData()")
+		}
+		oProcessbtnHistory = new qpushbutton(oProcessWindow) {
+			setText("History")
+			setClickEvent("pHistory()")
+		}
+		oProcessLayout1 = new qhboxlayout() {
+			AddWidget(oProcessLabel)
+			AddWidget(oProcessText)
+			Addwidget(oProcessbtnHistory)
+		}
+		oProcessEditbox = new qPlaintextedit(oProcessWindow) 
+		oCommandsEditbox = new qPlaintextedit(oProcessWindow) 
+		oProcessLayout2 = new qvboxlayout() {
+			addWidget(oProcesseditbox)
+			addlayout(oProcesslayout1)
+			addWidget(oCommandseditbox)
+		}
+		setlayout(oProcessLayout2)
+		oCommandsEditbox.hide()
+		oProcessText.setfocus(0)
+		show()
+	}
+	oProcess = pRunProcess(exefolder()+"ring","replwscript.ring","pGetProcessData()")
 	exec()
 }
 

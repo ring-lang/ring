@@ -60,7 +60,46 @@
 
 <br>
 
-<div class="col-xs-12">
+
+<a href="#innovative" class="btn btn-default" data-toggle="collapse" style="width:100%">Innovative</a>
+  <div id="innovative" class="panel-group collapse in">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Innovative</h4></div>
+      <div class="panel-body">
+
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+			<p>
+			The language comes with better support for Natural Language Programming and Declarative Programming. The innovation comes in supporting these paradigms with new practical techniques on the top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). You get the language constructs ready for use to create domain-specific languages in a fraction of time.
+			</p>
+			
+			<a id="ringarticle2" href="https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP" target="_blank" class="btn btn-default"  style="width:100%">Natural Language Programming Library</a> 
+			<a id="ringarticle3" href="https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi" target="_blank" class="btn btn-default"  style="width:100%">Natural Language Programming</a> 
+			<a id="ringarticle4" href="https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Programming-Languag" target="_blank" class="btn btn-default"  style="width:100%">Syntax Flexibility</a> 
+			<a id="ringarticle"  href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank" class="btn btn-default"  style="width:100%">Ring Article</a> 
+			</div>
+		</div>
+	  </div>
+	 </div>
+   </div>
+ 
+
+
+ <a href="#practical" class="btn btn-default" data-toggle="collapse" style="width:100%">Practical</a>
+  <div id="practical" class="panel-group collapse in">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Practical</h4></div>
+      <div class="panel-body">
+
+		<div class="row">
+			<div class="col-sm-12 col-md-12">
+		<p>
+		Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) and the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language itself.		
+		Ring is ready for use in production and increase the developers productivity.
+		</p>
+		<br>	
+
+		<div class="col-xs-12">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -191,11 +230,24 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <br> <br>
-  <br> <br>
 </div>
+		
+		
+		
+		
+			</div>
+		</div>
+	  </div>
+	 </div>
+   </div>
 
 
+
+
+ 
+ 
+ 
+ 
 
 <a  id="why" href="#whyring" class="btn btn-default" data-toggle="collapse" style="width:100%">Why Ring?</a>
 <div id="whyring" class="panel-group collapse in">
@@ -208,7 +260,7 @@
 		domain-specific languages in a fraction of time. It is very small, fast and comes with smart
 		garbage collector that puts the memory under the programmer control. It supports many programming paradigms, comes with useful and practical libraries. 
 		The language is designed for productivity and developing high quality solutions that can scale.
-		<a href="doc1.4.1/faq.html#why-do-we-need-yet-another-programming-language-yapl" target="_blank"> Why? </a>
+		<a href="doc1.5.3/faq.html#why-do-we-need-yet-another-programming-language-yapl" target="_blank"> Why? </a>
 		</p>
 		<br> <br>
 
@@ -218,11 +270,11 @@
 
 		<p>
 			<ul>
-			<li>Applications programming language. <a href="doc1.4.1/ringapps.html" target="_blank"> Examples? </a> </li>
+			<li>Applications programming language. <a href="doc1.5.3/ringapps.html" target="_blank"> Examples? </a> </li>
 			<li>Productivity and developing high quality solutions that can scale.</li>			
-			<li>Small and fast language that can be embedded in C/C++ projects. <a href="doc1.4.1/embedding.html" target="_blank"> How? </a></li>
+			<li>Small and fast language that can be embedded in C/C++ projects. <a href="doc1.5.3/embedding.html" target="_blank"> How? </a></li>
 			<li>Simple language that can be used in education and introducing Compiler/VM concepts. <a href="#education" target="_blank"> How? </a></li>
-			<li>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools. <a href="doc1.4.1/naturallibrary.html" target="_blank"> How? </a></li>
+			<li>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools. <a href="doc1.5.3/naturallibrary.html" target="_blank"> How? </a></li>
 			<li>Practical language designed for creating the next version of the Programming Without Coding Technology software. <a href="http://pwct.org" target="_blank"> What? </a></li>							
 			</ul>
 
@@ -240,7 +292,7 @@
 
 		Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code. 
 		To print something using the standard output, We can use the 'See' command. 
-		<a href="doc1.4.1/faq.html#why-ring-uses-see-give-but-and-ok-keywords" target="_blank"> Why? </a>
+		<a href="doc1.5.3/faq.html#why-ring-uses-see-give-but-and-ok-keywords" target="_blank"> Why? </a>
 		
 
 		<p>
@@ -250,7 +302,7 @@
 		</p>
 
 		The Main function is optional and will be executed after the statements, and is useful for using the local scope.
-		<a href="doc1.4.1/faq.html#what-is-the-goal-of-including-the-main-function-in-ring" target="_blank"> Why? </a>
+		<a href="doc1.5.3/faq.html#what-is-the-goal-of-including-the-main-function-in-ring" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">func</font> main
@@ -259,11 +311,11 @@
 		</p>
 
 		Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name, but we can use it!
-		<a href="doc1.4.1/syntaxflexibility.html#using-and-in-the-start-of-the-variable-name" target="_blank"> Why? </a>
+		<a href="doc1.5.3/syntaxflexibility.html#using-and-in-the-start-of-the-variable-name" target="_blank"> Why? </a>
 		<br>
 		You can use the '+' operator for string concatenation and the language is 
 		weakly typed and will do simple implicit conversion between numbers and strings only based on the context.
-				<a href="doc1.4.1/faq.html#why-ring-is-weakly-typed" target="_blank"> Why? </a>
+				<a href="doc1.5.3/faq.html#why-ring-is-weakly-typed" target="_blank"> Why? </a>
 		<p>
 			<pre>
 nCount = 10	<font color="green"># Global variable</font>
@@ -283,7 +335,7 @@ nCount = 10	<font color="green"># Global variable</font>
 	      <div class="panel-body">
 
 		Ring is not case-sensitive
-
+		<a href="doc1.5.3/faq.html#why-ring-is-not-case-sensitive" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">see</font> "Enter your name ? " 
@@ -293,7 +345,7 @@ nCount = 10	<font color="green"># Global variable</font>
 		</p>
 
 		The list index starts from 1
-		<a href="doc1.4.1/faq.html#why-the-list-index-start-from-1-in-ring" target="_blank"> Why? </a>
+		<a href="doc1.5.3/faq.html#why-the-list-index-start-from-1-in-ring" target="_blank"> Why? </a>
 		<p>
 			<pre>
 aList = ["one","two","three"]
@@ -317,6 +369,7 @@ three()
 		</p>
 
 		The assignment operator uses Deep copy (no references in this operation)
+		<a href="doc1.5.3/faq.html#why-the-assignment-operator-uses-deep-copy" target="_blank"> Why? </a>
 		<p>
 			<pre>
 aList = ["one","two","three"]
@@ -356,7 +409,7 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 			</pre>
 		</p>
 		Exit from more than one loop
-		<a href="doc1.4.1/faq.html#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of" target="_blank"> Why? </a>
+		<a href="doc1.5.3/faq.html#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of" target="_blank"> Why? </a>
 		<p>
 			<pre>
 <font color="purple">for</font> x = 1 <font color="purple">to</font> 10
@@ -512,7 +565,7 @@ oPerson = <font color="purple">new</font> Person
 	      <div class="panel-heading"><h4> Define Natural Statements based on Object-Oriented </h4></div>
 	      <div class="panel-body">
 
-		<a href="doc1.4.1/faq.html#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like" target="_blank"> Why? </a>
+		<a href="doc1.5.3/faq.html#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like" target="_blank"> Why? </a>
 
 		<p>
 		After the object access using { } if the class contains a method called BraceEnd() it will be executed!
@@ -887,7 +940,7 @@ aList = "nice"
 		<ul>
 		<li>Hybrid Implementation (Compiler+VM)</li>
 		<li>The compiler + The Virtual Machine are 15,000 lines of C code</li>
-		<li>The other 185,000 lines of code are related to libraries!</li>
+		<li>The other 500,000 lines of code are related to libraries!</li>
 		<li>Written in ANSI C (The code is generated)</li>
 		<li>Developed using Visual Programming (PWCT)</li>
 		<li>Portable (Windows, Linux &amp; Mac OS X, Android, etc.)</li>
@@ -1067,10 +1120,10 @@ aList = "nice"
   </div>
 
   
- <a id="ringarticle" href="http://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language" target="_blank" class="btn btn-default"  style="width:100%">Ring Article (CodeProject)</a> 
  <a id="ringbook" href="https://en.wikibooks.org/wiki/Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring in Wikibooks</a> 
  <a id="ringsamples" href="https://rosettacode.org/wiki/Category:Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring Samples (Rosettacode)</a> 
 
+ 
   
 </div>
 

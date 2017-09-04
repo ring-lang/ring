@@ -48,6 +48,7 @@ Class FormDesignerView from WindowsViewParent
 				setwidget(oModel.FormObject())
 				oModel.ActiveObject().setSubWindow(this.oSub)
 				setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint )
+				setStylesheet("background-color: rgba(239,235,231,255); color:black")
 			}
 
 		# Add the sub Window to the Mdi Area
@@ -127,6 +128,13 @@ Class FormDesignerView from WindowsViewParent
 					setbtnimage(self,"image/saveas.png")
 					settext("Save As")
 					setclickevent(Method(:SaveAsAction))
+				}
+				addaction(oAction)
+				addseparator()
+				oAction = new qaction(this.win) {
+					settext("Close")
+					setstatustip("Close File")
+					setclickevent(Method(:CloseAction))
 				}
 				addaction(oAction)
 				addseparator()

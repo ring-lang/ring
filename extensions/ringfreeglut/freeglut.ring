@@ -1,9 +1,9 @@
 if isWindows()
 	LoadLib("ring_freeglut.dll")
 but ismacosx()
-	LoadLib("ring_freeglut.dylib")
+	LoadLib("libring_freeglut.dylib")
 else
-	LoadLib("ring_freeglut.so")
+	LoadLib("libring_freeglut.so")
 ok
 
 load "ring_freeglut.rh"

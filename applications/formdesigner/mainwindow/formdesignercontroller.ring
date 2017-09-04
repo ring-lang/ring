@@ -692,9 +692,15 @@ class FormDesignerController from WindowsControllerParent
 				# Here we don't have many objects selected
 				# Support starting multiple selection operation using the keyboard
 				if oFDApp.keyboardmodifiers() {
+					# We save the current object first
+						nOldCurrentIndex = oModel.ActiveObjectIndex()
 					oModel.ClearSelectedObjects()
 					ChangeObjectByCode(nObjectIndex-1)
 					oModel.ActiveObject().oCorners.Show()
+					# Keep the old current object in selection 
+						oModel.AddSelectedObject(nOldCurrentIndex)
+						# Draw old current object corners 					
+							oModel.getobjectByIndex(nOldCurrentIndex).oCorners.show()
 					oModel.AddSelectedObject(nObjectIndex)
 					nWidth = oView.oPropertiesDock.width()
 					oView.oPropertiesDock.setWidget(oView.oProperties2)
@@ -1098,6 +1104,9 @@ class FormDesignerController from WindowsControllerParent
 	func SaveAsAction
 		oFile.SaveAsAction(self)
 
+	func CloseAction
+		oFile.CloseAction(self)
+
 	func ExitAction
 		if HasParent() {
 			# The form designer is embedded in Dockable widget
@@ -1196,11 +1205,15 @@ class FormDesignerController from WindowsControllerParent
 			oView.oPropertiesDock.Show()
 		}
 
-	func OpenCHMAction
-		System( "start " + exefolder()+"/../docs/ring.chm" )
+	Func OpenCHMAction
+		new QDesktopServices {
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.chm") )
+		}
 
-	func OpenPDFAction
-		System( "start " + exefolder()+"/../docs/ring.pdf" )
+	Func OpenPDFAction
+		new QDesktopServices {
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.pdf") )
+		}
 
 	Func MsgBox cTitle,cMessage
 		new qMessagebox(NULL) {
@@ -1219,6 +1232,8 @@ class FormDesignerController from WindowsControllerParent
 
 	func AboutAction
 		MsgBox("About",
+		"This application developed using the Ring programming language" + nl +
+		"Ring Version : " + version() + nl +
 		"2017, Mahmoud Fayed <msfclipper@yahoo.com>")
 
 	func HasParent 
@@ -1240,3 +1255,6 @@ class FormDesignerController from WindowsControllerParent
 			cString = SubStr(cString,'"', '"+char(34)+"')
 		}
 		return cString
+
+	func SaveIfOnlyFileIsOpened
+		oFile.SaveIfOnlyFileIsOpened(self)

@@ -1,9 +1,9 @@
 .. index:: 
-	single: Embedding Ring in Ring; Introduction
+	single: Embedding Ring in Ring; Embedding Ring in Ring
 
-============
-Introduction
-============
+======================
+Embedding Ring in Ring
+======================
 
 In this chapter we will learn about embedding Ring in Ring programs and applications.
 

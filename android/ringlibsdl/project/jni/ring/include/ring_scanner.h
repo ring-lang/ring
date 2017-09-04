@@ -68,6 +68,9 @@ typedef enum SCANNER_KEYWORD {
 	K_GET ,
 	K_CASE ,
 	K_DEF ,
+	K_ENDFUNC ,
+	K_ENDCLASS ,
+	K_ENDPACKAGE ,
 	K_CHANGERINGKEYWORD ,
 	K_CHANGERINGIOPERATOR ,
 	K_LOADSYNTAX 
@@ -103,9 +106,9 @@ Scanner * ring_scanner_new ( RingState *pRingState ) ;
 
 Scanner * ring_scanner_delete ( Scanner *pScanner ) ;
 
-int ring_scanner_readfile ( char *cFileName,RingState *pRingState ) ;
+int ring_scanner_readfile ( RingState *pRingState,char *cFileName ) ;
 
-void ring_scanner_readchar ( char c ,Scanner *pScanner ) ;
+void ring_scanner_readchar ( Scanner *pScanner,char c ) ;
 
 void ring_scanner_keywords ( Scanner *pScanner ) ;
 
@@ -113,7 +116,7 @@ void ring_scanner_addtoken ( Scanner *pScanner,int type ) ;
 
 void ring_scanner_checktoken ( Scanner *pScanner ) ;
 
-int ring_scanner_isnumber ( const char *cStr ) ;
+int ring_scanner_isnumber ( char *cStr ) ;
 
 int ring_scanner_checklasttoken ( Scanner *pScanner ) ;
 
@@ -141,7 +144,7 @@ RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,i
 
 const char * ring_scanner_getkeywordtext ( const char *cStr ) ;
 
-void ring_scanner_runobjfile ( const char *cFileName,RingState *pRingState ) ;
+void ring_scanner_runobjfile ( RingState *pRingState,const char *cFileName ) ;
 
 void ring_scanner_runprogram ( RingState *pRingState ) ;
 
@@ -175,7 +178,7 @@ void ring_scanner_loadsyntax ( Scanner *pScanner ) ;
 #define SCANNER_STATE_CHANGEOPERATOR 5
 #define SCANNER_STATE_LOADSYNTAX 6
 /* Change Ring Keyword/Operator */
-#define RING_SCANNER_CHANGERINGKEYWORD 44
-#define RING_SCANNER_CHANGERINGOPERATOR 45
-#define RING_SCANNER_LOADSYNTAX 46
+#define RING_SCANNER_CHANGERINGKEYWORD 47
+#define RING_SCANNER_CHANGERINGOPERATOR 48
+#define RING_SCANNER_LOADSYNTAX 49
 #endif

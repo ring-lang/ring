@@ -444,3 +444,58 @@ Screen Shot:
 
 .. image:: qtclassconvertor.png
 	:alt: Qt Class convertor to RingQt
+
+.. index:: 
+	pair: What is new in Ring 1.4?; What is new in Ring 1.4.1?
+
+
+What is new in Ring 1.4.1?
+==========================
+
+Ring 1.4.1  comes with the next changes
+
+* Better Scripts for Building from Source Code
+* Better Colors for the Modern Style in Ring Notepad
+* Better StdLib
+* Better RingQt
+* New Sample : Sixteen Puzzle
+
+The scripts are updated for building from source code.
+
+Tested using Windows, Ubuntu Linux, Linux Mint and MacOS X.
+
+Screen Shot:
+
+.. image:: linuxmint.png
+	:alt: Using Ring - Linux Mint
+
+In Ring Notepad - the (Modern) Style colors are updated
+
+Screen Shot:
+
+.. image:: rnotemodernstyle2.png
+	:alt: Using Ring Notepad - Modern Style
+
+The StdLib is updated to include the next functions
+
+* TrimLeft()
+* TrimRight()
+* TrimAll()
+* EpochTime()
+
+The next functions are updated to display the dialogs on the top of other windows.
+
+* SetDialogIcon(cIconFile)
+* MsgInfo(cTitle,cMessage)
+* ConfirmMsg(cTitle,cMessage)
+* InputBox(cTitle,cMessage)
+* InputBoxInt(cTitle,cMessage)
+* InputBoxNum(cTitle,cMessage)
+* InputBoxPass(cTitle,cMessage)
+
+The Sixteen Puzzle is added to the Applications folder.
+
+Screen Shot:
+
+.. image:: sixteenpuzzle.jpg
+	:alt: Sixteen Puzzle

@@ -1141,6 +1141,70 @@ Screen Shot:
 .. image:: ex21_2.jpg
 	:alt: Using Objects - part 2
 
+
+.. index:: 
+	pair: Web Development (CGI Library); HtmlPage Class
+
+HtmlPage Class
+==============
+
+Using this class we can create HTML documents without printing the output to the standard output
+
+So instead of using the WebLib in Web Applications only
+
+We can use it in Console/GUI/Mobile Applications too
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	load "weblib.ring"
+
+	import System.Web
+
+	func main
+
+		mypage = new HtmlPage {
+			h1 { text("Customers Report") }
+			Table
+		        {
+        		          style = stylewidth("100%") + stylegradient(4)
+                		  TR
+	                	  {
+        	                	TD { WIDTH="10%" text("Customers Count : " )  }
+	                	        TD { text (100) }
+		                  }
+        		}
+	
+			Table
+        		{
+	                	  style = stylewidth("100%") + stylegradient(26)
+		                  TR
+        		          {
+					style = stylewidth("100%") + stylegradient(24)
+        	                	TD { text("Name " )  }
+	        	                TD { text("Age" ) }
+					TD { text("Country" ) }
+					TD { text("Job" ) }	
+					TD { text("Company" ) }
+        		          }
+				  for x =  1 to 100
+	        	          	TR
+                		  	{
+                    			    	TD { text("Test" )  }
+                    				TD { text("30" ) }
+						TD { text("Egypt" ) }
+						TD { text("Sales" ) }	
+						TD { text("Future" ) }
+        	          		}
+				  next
+		        }
+
+		}
+
+		write("report.html",mypage.output())
+
 .. index:: 
 	pair: Web Development (CGI Library); Using Bootstrap Library using Functions
 
@@ -2025,6 +2089,7 @@ PageBuffer		Generate HTML Page in memory (don't print the output).
 HTML2PDF		Generate PDF File from HTML code.
 BootStrapPage		Using BootStrap Library.
 WebPage			Generate page using objects for each element.
+HtmlPage		Like WebPage but doesn't print the output to stdout.
 BootStrapWebPage	Generate page using objects, using BootStrap Library.
 ObjsBase		Parent Class for page objects.
 NewObjectsFunctions	Methods to create new objects in the page or element.
@@ -2279,3 +2344,64 @@ StyleTable		None			Set table properties
 StyleTableRows		id			Set different color to even and odd rows in the table
 StyleTableNoBorder	None			Return " border-style: none;"
 =====================	====================	=====================================================
+
+
+.. index:: 
+	pair: Web Development (CGI Library); WebPage Class
+
+WebPage Class
+=============
+
+We use braces to access the active WebPage object attributes 
+
+Each one of these attribute will return a new object to access again using braces.
+
+=====================	========================================================	
+	Attribute	Description
+=====================	========================================================	
+H1			Wraps HTML H1.
+H2			Wraps HTML H2.
+H3			Wraps HTML H3.
+H4			Wraps HTML H4.	
+H5			Wraps HTML H5.
+H6			Wraps HTML H6.	
+P			Wraps HTML P.
+Link			Wraps HTML link.
+NewLine			Wraps HTML NewLine.
+Div			Wraps HTML Div.
+Form			Wraps HTML Form.
+Input			Wraps HTML Input.	
+TextArea		Wraps HTML TextArea.
+Select			Wraps HTML Select.
+Option			Wraps HTML Option.
+Image			Wraps HTML Image.
+UL			Wraps HTML UL.
+LI			Wraps HTML LI.
+Table			Wraps HTML Table.
+TR			Wraps HTML TR.
+TD			Wraps HTML TD.
+TH			Wraps HTML TH.
+Audio			Wraps HTML Audio.
+Video			Wraps HTML Video.
+Nav			Wraps HTML Nav.
+Span			Wraps HTML Span.
+Button			Wraps HTML Button.
+=====================	========================================================
+
+.. index:: 
+	pair: Web Development (CGI Library); HtmlPage Class
+
+HtmlPage Class
+==============
+
+The same as the WebPage class with the next changes
+
+(1) No output to the stdout 
+(2) Provide the Output Method to get the output
+
+Syntax:
+
+.. code-block:: ring
+
+	output() ---> The output as string
+

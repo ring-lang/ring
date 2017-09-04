@@ -39,7 +39,7 @@ void ring_vm_curl_download ( void *pPointer )
 	}
 	curl = curl_easy_init();
 	if ( curl ) {
-		pString = ring_string_new("");
+		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
 		curl_easy_setopt(curl, CURLOPT_URL,RING_API_GETSTRING(1));
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION,1);
 		curl_easy_setopt(curl, CURLOPT_NOSIGNAL,1);
@@ -49,7 +49,7 @@ void ring_vm_curl_download ( void *pPointer )
 		res = curl_easy_perform(curl);
 		curl_easy_cleanup(curl);
 		RING_API_RETSTRING2(ring_string_get(pString),ring_string_size(pString));
-		ring_string_delete(pString);
+		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
 	}
 }
 
@@ -104,27 +104,27 @@ void ring_vm_curl_sendemail ( void *pPointer )
 		curl_easy_setopt(curl, CURLOPT_READDATA, &upload_ctx);
 		curl_easy_setopt(curl, CURLOPT_UPLOAD, 1L);
 		/* Payload Text */
-		upload_ctx.pList = ring_list_new(0);
-		ring_list_addstring(upload_ctx.pList,"Date: Mon, 29 Nov 2010 21:54:29 +1100\r\n");
-		ring_list_addstring(upload_ctx.pList,"To: ");
+		upload_ctx.pList = ring_list_new_gc(((VM *) pPointer)->pRingState,0);
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,upload_ctx.pList,"Date: Mon, 29 Nov 2010 21:54:29 +1100\r\n");
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,upload_ctx.pList,"To: ");
 		pString = ring_list_getstringobject(upload_ctx.pList,2);
-		ring_string_add(pString,RING_API_GETSTRING(5));
-		ring_string_add(pString,"\r\n");
-		ring_list_addstring(upload_ctx.pList,"From: ");
+		ring_string_add_gc(((VM *) pPointer)->pRingState,pString,RING_API_GETSTRING(5));
+		ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\r\n");
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,upload_ctx.pList,"From: ");
 		pString = ring_list_getstringobject(upload_ctx.pList,3);
-		ring_string_add(pString,RING_API_GETSTRING(4));
-		ring_string_add(pString,"\r\n");
-		ring_list_addstring(upload_ctx.pList,"Cc: ");
+		ring_string_add_gc(((VM *) pPointer)->pRingState,pString,RING_API_GETSTRING(4));
+		ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\r\n");
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,upload_ctx.pList,"Cc: ");
 		pString = ring_list_getstringobject(upload_ctx.pList,4);
-		ring_string_add(pString,RING_API_GETSTRING(6));
-		ring_string_add(pString,"\r\n");
-		ring_list_addstring(upload_ctx.pList,"Message-ID: <dcd7cb36-11db-487a-9f3a-e652a9458efd@rfcpedant.example.org>\r\n");
-		ring_list_addstring(upload_ctx.pList,"Subject: ");
+		ring_string_add_gc(((VM *) pPointer)->pRingState,pString,RING_API_GETSTRING(6));
+		ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\r\n");
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,upload_ctx.pList,"Message-ID: <dcd7cb36-11db-487a-9f3a-e652a9458efd@rfcpedant.example.org>\r\n");
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,upload_ctx.pList,"Subject: ");
 		pString = ring_list_getstringobject(upload_ctx.pList,6);
-		ring_string_add(pString,RING_API_GETSTRING(7));
-		ring_string_add(pString,"\r\n");
-		ring_list_addstring(upload_ctx.pList,"\r\n");
-		ring_list_addstring(upload_ctx.pList,RING_API_GETSTRING(8));
+		ring_string_add_gc(((VM *) pPointer)->pRingState,pString,RING_API_GETSTRING(7));
+		ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\r\n");
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,upload_ctx.pList,"\r\n");
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,upload_ctx.pList,RING_API_GETSTRING(8));
 		res = curl_easy_perform(curl);
 		if ( res != CURLE_OK ) {
 			RING_API_ERROR(curl_easy_strerror(res));
@@ -132,6 +132,6 @@ void ring_vm_curl_sendemail ( void *pPointer )
 		}
 		curl_slist_free_all(recipients);
 		curl_easy_cleanup(curl);
-		ring_list_delete(upload_ctx.pList);
+		ring_list_delete_gc(((VM *) pPointer)->pRingState,upload_ctx.pList);
 	}
 }

@@ -15,9 +15,8 @@
 			<table class="table table-striped">
 				<thead>
 				  <tr>
-					<th width="40%">Description  </th>
-					<th width="40%">File  </th>
-					<th width="20%">Photo </th>
+					<th width="80%">Description  </th>
+					<th width="20%">File  </th>
 				  </tr>
 				</thead>
 				<tbody>

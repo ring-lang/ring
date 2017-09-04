@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets serialport
+QT       += sql core gui network webkitwidgets multimedia multimediawidgets testlib printsupport widgets serialport bluetooth
 
 TARGET = ringqt
 TEMPLATE = lib
@@ -46,6 +46,13 @@ SOURCES +=   \
     gprocess.cpp \
     gtoolbutton.cpp \
     gserialport.cpp \
+    gbluetoothdevicediscoveryagent.cpp \
+    gbluetoothlocaldevice.cpp \
+    gbluetoothserver.cpp \
+    gbluetoothservicediscoveryagent.cpp \
+    gbluetoothsocket.cpp \
+    gbluetoothtransfermanager.cpp \
+    gbluetoothtransferreply.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -82,7 +89,14 @@ HEADERS  += \
     gprocess.h  \
     gtoolbutton.h \
     gheaderview.h \
-    gserialport.h 
+    gserialport.h \
+    gbluetoothdevicediscoveryagent.h \
+    gbluetoothlocaldevice.h \
+    gbluetoothservicediscoveryagent.h \
+    gbluetoothsocket.h \
+    gbluetoothtransfermanager.h \
+    gbluetoothtransferreply.h \
+    gbluetoothserver.h
 
 INCLUDEPATH += ../../include
 

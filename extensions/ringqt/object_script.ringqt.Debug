@@ -33,6 +33,13 @@ INPUT(
 ./debug\gprocess.o
 ./debug\gtoolbutton.o
 ./debug\gserialport.o
+./debug\gbluetoothdevicediscoveryagent.o
+./debug\gbluetoothlocaldevice.o
+./debug\gbluetoothserver.o
+./debug\gbluetoothservicediscoveryagent.o
+./debug\gbluetoothsocket.o
+./debug\gbluetoothtransfermanager.o
+./debug\gbluetoothtransferreply.o
 ./debug\ring_qt.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
@@ -68,4 +75,11 @@ INPUT(
 ./debug\moc_gtoolbutton.o
 ./debug\moc_gheaderview.o
 ./debug\moc_gserialport.o
+./debug\moc_gbluetoothdevicediscoveryagent.o
+./debug\moc_gbluetoothlocaldevice.o
+./debug\moc_gbluetoothservicediscoveryagent.o
+./debug\moc_gbluetoothsocket.o
+./debug\moc_gbluetoothtransfermanager.o
+./debug\moc_gbluetoothtransferreply.o
+./debug\moc_gbluetoothserver.o
 );

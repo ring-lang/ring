@@ -239,3 +239,17 @@ call ring scripts/trimerror.ring
 call ring scripts/anoninhash.ring
 call ring scripts/bracenewinheritance.ring
 call ring scripts/nestedfunccall.ring
+call ring scripts/classbraces.ring
+call ring scripts/funcbraces.ring
+call ring scripts/classbraces2.ring
+call ring scripts/classend.ring
+call ring scripts/packageend.ring
+call ring scripts/packagebraces.ring
+call ring scripts/endfunc.ring
+call ring scripts/types.ring
+call ring scripts/inclassregion1.ring 
+call ring scripts/inclassregion2.ring
+call ring scripts/inclassregion3.ring
+call ring scripts/underscoreinnumber.ring
+call ring scripts/underscoreinnumber2.ring
+call ring scripts/fafternumber.ring

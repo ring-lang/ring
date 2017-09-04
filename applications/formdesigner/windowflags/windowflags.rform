@@ -1,10 +1,10 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 64 , : y = 40  , 
+		 :x = 64 , : y = 90  , 
 		 :width =  395 , :height = 376 , 
 		 :title =  "Window Flags" , 
-		 :backcolor =  "" , 
+		 :backcolor =  "#efebe7" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
@@ -39,7 +39,7 @@ aObjectsList = [
 		 :x = 56 , : y = 13  , 
 		 :width =  321 , :height = 113 , 
 		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
 		 :font =  "" , 
 		 :parent =  "win"  ,
 		 :cItems =  "Window,Dialog,Sheet,Drawer,Popup,Tool,Tooltip,Splash Screen",
@@ -60,7 +60,7 @@ aObjectsList = [
 		 :x = 56 , : y = 143  , 
 		 :width =  321 , :height = 163 , 
 		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
 		 :font =  "" , 
 		 :parent =  "win"  ,
 		 :cItems =  "Window title,Window system menu,Window minimize button,Window maximize button,Window close button,Window context help button,Window shade button,Window stays on top,Window stays on bottom,Customize window",

@@ -858,6 +858,150 @@ aclasses = [
 						:event = "stopBitsChanged"
 					]
 			]
+		],
+		[	:name = "GBluetoothDeviceDiscoveryAgent" ,
+			:realname = "QBluetoothDeviceDiscoveryAgent" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "canceled()" ,
+						:slot = "canceledSlot()" ,
+						:event = "canceled"
+					],
+					[ 	:signal = "deviceDiscovered(const QBluetoothDeviceInfo)" ,
+						:slot = "deviceDiscoveredSlot()" ,
+						:event = "deviceDiscovered"
+					],
+					[ 	:signal = "error(QBluetoothDeviceDiscoveryAgent::Error)" ,
+						:slot = "errorSlot()" ,
+						:event = "error"
+					],
+					[ 	:signal = "finished()" ,
+						:slot = "finishedSlot()" ,
+						:event = "finished"
+					]
+				]
+		],
+		[	:name = "GBluetoothLocalDevice" ,
+			:realname = "QBluetoothLocalDevice" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "deviceConnected(const QBluetoothAddress)" ,
+						:slot = "deviceConnectedSlot()" ,
+						:event = "deviceConnected"
+					],
+					[ 	:signal = "deviceDisconnected(const QBluetoothAddress)" ,
+						:slot = "deviceDisconnectedSlot()" ,
+						:event = "deviceDisconnected"
+					],
+					[ 	:signal = "error(QBluetoothLocalDevice::Error)" ,
+						:slot = "errorSlot()" ,
+						:event = "error"
+					],
+					[ 	:signal = "hostModeStateChanged(QBluetoothLocalDevice::HostMode)" ,
+						:slot = "hostModeStateChangedSlot()" ,
+						:event = "hostModeStateChanged"
+					],
+					[ 	:signal = "pairingDisplayConfirmation(const QBluetoothAddress,QString)" ,
+						:slot = "pairingDisplayConfirmationSlot()" ,
+						:event = "pairingDisplayConfirmation"
+					],
+					[ 	:signal = "pairingDisplayPinCode(const QBluetoothAddress,QString)" ,
+						:slot = "pairingDisplayPinCodeSlot()" ,
+						:event = "pairingDisplayPinCode"
+					],
+					[ 	:signal = "pairingFinished(const QBluetoothAddress,QBluetoothLocalDevice::Pairing)" ,
+						:slot = "pairingFinishedSlot()" ,
+						:event = "pairingFinished"
+					]
+				]
+		],
+		[	:name = "GBluetoothServer" ,
+			:realname = "QBluetoothServer" ,
+			:initpara = "QBluetoothServiceInfo::Protocol x,QObject *",
+			:initparaparent = "x,",
+			:events = [
+					[ 	:signal = "error(QBluetoothServer::Error)" ,
+						:slot = "errorSlot()" ,
+						:event = "error"
+					],
+					[ 	:signal = "newConnection()" ,
+						:slot = "newConnectionSlot()" ,
+						:event = "newConnection"
+					]
+				]
+		],
+		[	:name = "GBluetoothServiceDiscoveryAgent" ,
+			:realname = "QBluetoothServiceDiscoveryAgent" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "canceled()" ,
+						:slot = "canceledSlot()" ,
+						:event = "canceled"
+					],
+					[ 	:signal = "error(QBluetoothServiceDiscoveryAgent::Error)" ,
+						:slot = "errorSlot()" ,
+						:event = "error"
+					],
+					[ 	:signal = "finished()" ,
+						:slot = "finishedSlot()" ,
+						:event = "finished"
+					],
+					[ 	:signal = "serviceDiscovered(const QBluetoothServiceInfo)" ,
+						:slot = "serviceDiscoveredSlot()" ,
+						:event = "serviceDiscovered"
+					]
+				]
+		],
+		[	:name = "GBluetoothSocket" ,
+			:realname = "QBluetoothSocket" ,
+			:initpara = "QBluetoothServiceInfo::Protocol x,QObject *",
+			:initparaparent = "x,",
+			:events = [
+					[ 	:signal = "connected()" ,
+						:slot = "connectedSlot()" ,
+						:event = "connected"
+					],
+					[ 	:signal = "disconnected()" ,
+						:slot = "disconnectedSlot()" ,
+						:event = "disconnected"
+					],
+					[ 	:signal = "error(QBluetoothSocket::SocketError)" ,
+						:slot = "errorSlot()" ,
+						:event = "error"
+					],
+					[ 	:signal = "stateChanged(QBluetoothSocket::SocketState)" ,
+						:slot = "stateChangedSlot()" ,
+						:event = "stateChanged"
+					]
+				]
+		],
+		[	:name = "GBluetoothTransferManager" ,
+			:realname = "QBluetoothTransferManager" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "finished(QBluetoothTransferReply *)" ,
+						:slot = "finishedSlot()" ,
+						:event = "finished"
+					]
+				]
+		],
+		[	:name = "GBluetoothTransferReply" ,
+			:realname = "QBluetoothTransferReply" ,
+			:initpara = "QObject *",
+			:events = [
+					[ 	:signal = "error(QBluetoothTransferReply::TransferError)" ,
+						:slot = "errorSlot()" ,
+						:event = "error"
+					],
+					[ 	:signal = "finished(QBluetoothTransferReply *)" ,
+						:slot = "finishedSlot()" ,
+						:event = "finished"
+					],
+					[ 	:signal = "transferProgress(qint64,qint64)" ,
+						:slot = "transferProgressSlot()" ,
+						:event = "transferProgress"
+					]
+				]
 		]
 
 	    ]

@@ -2029,7 +2029,9 @@ Class QFileSystemModel
 		return QFileSystemModel_isReadOnly(pObject)
 
 	Func lastModified P1
-		return QFileSystemModel_lastModified(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QDateTime
+		pTempObj.pObject = QFileSystemModel_lastModified(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func mkdir P1,P2
 		return QFileSystemModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
@@ -2905,9 +2907,19 @@ Class QMenu from QWidget
 		pTempObj.pObject = QMenu_defaultAction(pObject)
 		return pTempObj
 
-	Func exec 
+	Func exec P1
 		pTempObj = new QAction
-		pTempObj.pObject = QMenu_exec(pObject)
+		pTempObj.pObject = QMenu_exec(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func exec_2 
+		pTempObj = new QAction
+		pTempObj.pObject = QMenu_exec_2(pObject)
+		return pTempObj
+
+	Func exec_3 P1,P2
+		pTempObj = new QAction
+		pTempObj.pObject = QMenu_exec_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
 	Func hideTearOffMenu 
@@ -4676,7 +4688,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return pTempObj
 
 	Func dateTime 
-		return QDateTimeEdit_dateTime(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTimeEdit_dateTime(pObject)
+		return pTempObj
 
 	Func displayFormat 
 		return QDateTimeEdit_displayFormat(pObject)
@@ -4690,7 +4704,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return pTempObj
 
 	Func maximumDateTime 
-		return QDateTimeEdit_maximumDateTime(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTimeEdit_maximumDateTime(pObject)
+		return pTempObj
 
 	Func maximumTime 
 		pTempObj = new QTime
@@ -4703,7 +4719,9 @@ Class QDateTimeEdit from QAbstractSpinBox
 		return pTempObj
 
 	Func minimumDateTime 
-		return QDateTimeEdit_minimumDateTime(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTimeEdit_minimumDateTime(pObject)
+		return pTempObj
 
 	Func minimumTime 
 		pTempObj = new QTime
@@ -7657,6 +7675,27 @@ Class QIODevice
 	Func write P1,P2
 		return QIODevice_write(pObject,P1,P2)
 
+	Func atEnd 
+		return QIODevice_atEnd(pObject)
+
+	Func canReadLine 
+		return QIODevice_canReadLine(pObject)
+
+	Func close 
+		return QIODevice_close(pObject)
+
+	Func open P1
+		return QIODevice_open(pObject,P1)
+
+	Func pos 
+		return QIODevice_pos(pObject)
+
+	Func seek P1
+		return QIODevice_seek(pObject,P1)
+
+	Func size 
+		return QIODevice_size(pObject)
+
 	Func setaboutToCloseEvent P1
 		return QIODevice_setaboutToCloseEvent(pObject,P1)
 
@@ -8212,7 +8251,9 @@ Class QFileInfo
 		return QFileInfo_completeSuffix(pObject)
 
 	Func created 
-		return QFileInfo_created(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QFileInfo_created(pObject)
+		return pTempObj
 
 	Func dir 
 		pTempObj = new QDir
@@ -8271,10 +8312,14 @@ Class QFileInfo
 		return QFileInfo_isWritable(pObject)
 
 	Func lastModified 
-		return QFileInfo_lastModified(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QFileInfo_lastModified(pObject)
+		return pTempObj
 
 	Func lastRead 
-		return QFileInfo_lastRead(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QFileInfo_lastRead(pObject)
+		return pTempObj
 
 	Func makeAbsolute 
 		return QFileInfo_makeAbsolute(pObject)
@@ -9287,6 +9332,174 @@ Class QAllEvents from QWidget
 		pTempObj = new QWidget
 		pTempObj.pObject = QAllEvents_getParentWidget(pObject)
 		return pTempObj
+
+	Func setKeyPressFunc P1
+		return QAllEvents_setKeyPressFunc(pObject,P1)
+
+	Func setMouseButtonPressFunc P1
+		return QAllEvents_setMouseButtonPressFunc(pObject,P1)
+
+	Func setMouseButtonReleaseFunc P1
+		return QAllEvents_setMouseButtonReleaseFunc(pObject,P1)
+
+	Func setMouseButtonDblClickFunc P1
+		return QAllEvents_setMouseButtonDblClickFunc(pObject,P1)
+
+	Func setMouseMoveFunc P1
+		return QAllEvents_setMouseMoveFunc(pObject,P1)
+
+	Func setCloseFunc P1
+		return QAllEvents_setCloseFunc(pObject,P1)
+
+	Func setContextMenuFunc P1
+		return QAllEvents_setContextMenuFunc(pObject,P1)
+
+	Func setDragEnterFunc P1
+		return QAllEvents_setDragEnterFunc(pObject,P1)
+
+	Func setDragLeaveFunc P1
+		return QAllEvents_setDragLeaveFunc(pObject,P1)
+
+	Func setDragMoveFunc P1
+		return QAllEvents_setDragMoveFunc(pObject,P1)
+
+	Func setDropFunc P1
+		return QAllEvents_setDropFunc(pObject,P1)
+
+	Func setEnterFunc P1
+		return QAllEvents_setEnterFunc(pObject,P1)
+
+	Func setFocusInFunc P1
+		return QAllEvents_setFocusInFunc(pObject,P1)
+
+	Func setFocusOutFunc P1
+		return QAllEvents_setFocusOutFunc(pObject,P1)
+
+	Func setKeyReleaseFunc P1
+		return QAllEvents_setKeyReleaseFunc(pObject,P1)
+
+	Func setLeaveFunc P1
+		return QAllEvents_setLeaveFunc(pObject,P1)
+
+	Func setNonClientAreaMouseButtonDblClickFunc P1
+		return QAllEvents_setNonClientAreaMouseButtonDblClickFunc(pObject,P1)
+
+	Func setNonClientAreaMouseButtonPressFunc P1
+		return QAllEvents_setNonClientAreaMouseButtonPressFunc(pObject,P1)
+
+	Func setNonClientAreaMouseButtonReleaseFunc P1
+		return QAllEvents_setNonClientAreaMouseButtonReleaseFunc(pObject,P1)
+
+	Func setNonClientAreaMouseMoveFunc P1
+		return QAllEvents_setNonClientAreaMouseMoveFunc(pObject,P1)
+
+	Func setMoveFunc P1
+		return QAllEvents_setMoveFunc(pObject,P1)
+
+	Func setResizeFunc P1
+		return QAllEvents_setResizeFunc(pObject,P1)
+
+	Func setWindowActivateFunc P1
+		return QAllEvents_setWindowActivateFunc(pObject,P1)
+
+	Func setWindowBlockedFunc P1
+		return QAllEvents_setWindowBlockedFunc(pObject,P1)
+
+	Func setWindowDeactivateFunc P1
+		return QAllEvents_setWindowDeactivateFunc(pObject,P1)
+
+	Func setWindowStateChangeFunc P1
+		return QAllEvents_setWindowStateChangeFunc(pObject,P1)
+
+	Func setWindowUnblockedFunc P1
+		return QAllEvents_setWindowUnblockedFunc(pObject,P1)
+
+	Func setPaintFunc P1
+		return QAllEvents_setPaintFunc(pObject,P1)
+
+	Func getKeyPressFunc 
+		return QAllEvents_getKeyPressFunc(pObject)
+
+	Func getMouseButtonPressFunc 
+		return QAllEvents_getMouseButtonPressFunc(pObject)
+
+	Func getMouseButtonReleaseFunc 
+		return QAllEvents_getMouseButtonReleaseFunc(pObject)
+
+	Func getMouseButtonDblClickFunc 
+		return QAllEvents_getMouseButtonDblClickFunc(pObject)
+
+	Func getMouseMoveFunc 
+		return QAllEvents_getMouseMoveFunc(pObject)
+
+	Func getCloseFunc 
+		return QAllEvents_getCloseFunc(pObject)
+
+	Func getContextMenuFunc 
+		return QAllEvents_getContextMenuFunc(pObject)
+
+	Func getDragEnterFunc 
+		return QAllEvents_getDragEnterFunc(pObject)
+
+	Func getDragLeaveFunc 
+		return QAllEvents_getDragLeaveFunc(pObject)
+
+	Func getDragMoveFunc 
+		return QAllEvents_getDragMoveFunc(pObject)
+
+	Func getDropFunc 
+		return QAllEvents_getDropFunc(pObject)
+
+	Func getEnterFunc 
+		return QAllEvents_getEnterFunc(pObject)
+
+	Func getFocusInFunc 
+		return QAllEvents_getFocusInFunc(pObject)
+
+	Func getFocusOutFunc 
+		return QAllEvents_getFocusOutFunc(pObject)
+
+	Func getKeyReleaseFunc 
+		return QAllEvents_getKeyReleaseFunc(pObject)
+
+	Func getLeaveFunc 
+		return QAllEvents_getLeaveFunc(pObject)
+
+	Func getNonClientAreaMouseButtonDblClickFunc 
+		return QAllEvents_getNonClientAreaMouseButtonDblClickFunc(pObject)
+
+	Func getNonClientAreaMouseButtonPressFunc 
+		return QAllEvents_getNonClientAreaMouseButtonPressFunc(pObject)
+
+	Func getNonClientAreaMouseButtonReleaseFunc 
+		return QAllEvents_getNonClientAreaMouseButtonReleaseFunc(pObject)
+
+	Func getNonClientAreaMouseMoveFunc 
+		return QAllEvents_getNonClientAreaMouseMoveFunc(pObject)
+
+	Func getMoveFunc 
+		return QAllEvents_getMoveFunc(pObject)
+
+	Func getResizeFunc 
+		return QAllEvents_getResizeFunc(pObject)
+
+	Func getWindowActivateFunc 
+		return QAllEvents_getWindowActivateFunc(pObject)
+
+	Func getWindowBlockedFunc 
+		return QAllEvents_getWindowBlockedFunc(pObject)
+
+	Func getWindowDeactivateFunc 
+		return QAllEvents_getWindowDeactivateFunc(pObject)
+
+	Func getWindowStateChangeFunc 
+		return QAllEvents_getWindowStateChangeFunc(pObject)
+
+	Func getWindowUnblockedFunc 
+		return QAllEvents_getWindowUnblockedFunc(pObject)
+
+	Func getPaintFunc 
+		return QAllEvents_getPaintFunc(pObject)
 
 Class QDesktopWidget from QWidget
 
@@ -10790,7 +11003,9 @@ Class QVariant
 		return pTempObj
 
 	Func toDateTime 
-		return QVariant_toDateTime(pObject)
+		pTempObj = new QDateTime
+		pTempObj.pObject = QVariant_toDateTime(pObject)
+		return pTempObj
 
 	Func toDouble P1
 		return QVariant_toDouble(pObject,GetObjectPointerFromRingObject(P1))
@@ -14685,6 +14900,28 @@ Class QCursor
 	Func shape 
 		return QCursor_shape(pObject)
 
+	Func pos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QCursor_pos(pObject)
+		return pTempObj
+
+	Func pos_2 P1
+		pTempObj = new QPoint
+		pTempObj.pObject = QCursor_pos_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setPos P1,P2
+		return QCursor_setPos(pObject,P1,P2)
+
+	Func setPos_2 P1,P2,P3
+		return QCursor_setPos_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func setPos_3 P1
+		return QCursor_setPos_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPos_4 P1,P2
+		return QCursor_setPos_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
 Class QListView from QAbstractItemView
 
 	pObject
@@ -15322,6 +15559,350 @@ Class QMutexLocker
 
 	Func unlock 
 		return QMutexLocker_unlock(pObject)
+
+Class QBuffer from QIODevice
+
+	pObject
+
+	Func init P1
+		pObject = QBuffer_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBuffer_delete(pObject)
+
+	Func buffer 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QBuffer_buffer(pObject)
+		return pTempObj
+
+	Func data 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QBuffer_data(pObject)
+		return pTempObj
+
+	Func setBuffer P1
+		return QBuffer_setBuffer(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setData P1
+		return QBuffer_setData(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setData_2 P1,P2
+		return QBuffer_setData_2(pObject,P1,P2)
+
+Class QBluetoothAddress
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothAddress_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothAddress_delete(pObject)
+
+	Func clear 
+		return QBluetoothAddress_clear(pObject)
+
+	Func isNull 
+		return QBluetoothAddress_isNull(pObject)
+
+	Func toString 
+		return QBluetoothAddress_toString(pObject)
+
+	Func toUInt64 
+		return QBluetoothAddress_toUInt64(pObject)
+
+Class QBluetoothDeviceDiscoveryAgent
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothDeviceDiscoveryAgent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothDeviceDiscoveryAgent_delete(pObject)
+
+	Func discoveredDevices 
+		return QBluetoothDeviceDiscoveryAgent_discoveredDevices(pObject)
+
+	Func error 
+		return QBluetoothDeviceDiscoveryAgent_error(pObject)
+
+	Func errorString 
+		return QBluetoothDeviceDiscoveryAgent_errorString(pObject)
+
+	Func inquiryType 
+		return QBluetoothDeviceDiscoveryAgent_inquiryType(pObject)
+
+	Func isActive 
+		return QBluetoothDeviceDiscoveryAgent_isActive(pObject)
+
+	Func setInquiryType P1
+		return QBluetoothDeviceDiscoveryAgent_setInquiryType(pObject,P1)
+
+	Func start 
+		return QBluetoothDeviceDiscoveryAgent_start(pObject)
+
+	Func stop 
+		return QBluetoothDeviceDiscoveryAgent_stop(pObject)
+
+	Func setcanceledEvent P1
+		return QBluetoothDeviceDiscoveryAgent_setcanceledEvent(pObject,P1)
+
+	Func setdeviceDiscoveredEvent P1
+		return QBluetoothDeviceDiscoveryAgent_setdeviceDiscoveredEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QBluetoothDeviceDiscoveryAgent_seterrorEvent(pObject,P1)
+
+	Func setfinishedEvent P1
+		return QBluetoothDeviceDiscoveryAgent_setfinishedEvent(pObject,P1)
+
+	Func getcanceledEvent 
+		return QBluetoothDeviceDiscoveryAgent_getcanceledEvent(pObject)
+
+	Func getdeviceDiscoveredEvent 
+		return QBluetoothDeviceDiscoveryAgent_getdeviceDiscoveredEvent(pObject)
+
+	Func geterrorEvent 
+		return QBluetoothDeviceDiscoveryAgent_geterrorEvent(pObject)
+
+	Func getfinishedEvent 
+		return QBluetoothDeviceDiscoveryAgent_getfinishedEvent(pObject)
+
+Class QBluetoothDeviceInfo
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothDeviceInfo_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothDeviceInfo_delete(pObject)
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothDeviceInfo_address(pObject)
+		return pTempObj
+
+	Func isCached 
+		return QBluetoothDeviceInfo_isCached(pObject)
+
+	Func isValid 
+		return QBluetoothDeviceInfo_isValid(pObject)
+
+	Func majorDeviceClass 
+		return QBluetoothDeviceInfo_majorDeviceClass(pObject)
+
+	Func minorDeviceClass 
+		return QBluetoothDeviceInfo_minorDeviceClass(pObject)
+
+	Func name 
+		return QBluetoothDeviceInfo_name(pObject)
+
+	Func rssi 
+		return QBluetoothDeviceInfo_rssi(pObject)
+
+	Func serviceClasses 
+		return QBluetoothDeviceInfo_serviceClasses(pObject)
+
+	Func serviceUuids P1
+		return QBluetoothDeviceInfo_serviceUuids(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func serviceUuidsCompleteness 
+		return QBluetoothDeviceInfo_serviceUuidsCompleteness(pObject)
+
+	Func setCached P1
+		return QBluetoothDeviceInfo_setCached(pObject,P1)
+
+	Func setRssi P1
+		return QBluetoothDeviceInfo_setRssi(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setServiceUuids P1,P2
+		return QBluetoothDeviceInfo_setServiceUuids(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+Class QBluetoothHostInfo
+
+	pObject
+
+	Func init 
+		pObject = QBluetoothHostInfo_new()
+		return self
+
+	Func delete
+		pObject = QBluetoothHostInfo_delete(pObject)
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothHostInfo_address(pObject)
+		return pTempObj
+
+	Func name 
+		return QBluetoothHostInfo_name(pObject)
+
+	Func setAddress P1
+		return QBluetoothHostInfo_setAddress(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setName P1
+		return QBluetoothHostInfo_setName(pObject,P1)
+
+Class QBluetoothLocalDevice
+
+	pObject
+
+	Func init P1
+		pObject = QBluetoothLocalDevice_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QBluetoothLocalDevice_delete(pObject)
+
+	Func address 
+		pTempObj = new QBluetoothAddress
+		pTempObj.pObject = QBluetoothLocalDevice_address(pObject)
+		return pTempObj
+
+Class QDateTime
+
+	pObject
+
+	Func init 
+		pObject = QDateTime_new()
+		return self
+
+	Func delete
+		pObject = QDateTime_delete(pObject)
+
+	Func addDays P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addDays(pObject,P1)
+		return pTempObj
+
+	Func addMSecs P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addMSecs(pObject,P1)
+		return pTempObj
+
+	Func addMonths P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addMonths(pObject,P1)
+		return pTempObj
+
+	Func addSecs P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addSecs(pObject,P1)
+		return pTempObj
+
+	Func addYears P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_addYears(pObject,P1)
+		return pTempObj
+
+	Func date 
+		pTempObj = new QDate
+		pTempObj.pObject = QDateTime_date(pObject)
+		return pTempObj
+
+	Func daysTo P1
+		return QDateTime_daysTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isNull 
+		return QDateTime_isNull(pObject)
+
+	Func isValid 
+		return QDateTime_isValid(pObject)
+
+	Func msecsTo P1
+		return QDateTime_msecsTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func secsTo P1
+		return QDateTime_secsTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDate P1
+		return QDateTime_setDate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMSecsSinceEpoch P1
+		return QDateTime_setMSecsSinceEpoch(pObject,P1)
+
+	Func setTime P1
+		return QDateTime_setTime(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTimeSpec P1
+		return QDateTime_setTimeSpec(pObject,P1)
+
+	Func setTime_t P1
+		return QDateTime_setTime_t(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func time 
+		pTempObj = new QTime
+		pTempObj.pObject = QDateTime_time(pObject)
+		return pTempObj
+
+	Func timeSpec 
+		return QDateTime_timeSpec(pObject)
+
+	Func toLocalTime 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_toLocalTime(pObject)
+		return pTempObj
+
+	Func toMSecsSinceEpoch 
+		return QDateTime_toMSecsSinceEpoch(pObject)
+
+	Func toString P1
+		return QDateTime_toString(pObject,P1)
+
+	Func toString_2 P1
+		return QDateTime_toString_2(pObject,P1)
+
+	Func toTimeSpec P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_toTimeSpec(pObject,P1)
+		return pTempObj
+
+	Func toTime_t 
+		return QDateTime_toTime_t(pObject)
+
+	Func toUTC 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_toUTC(pObject)
+		return pTempObj
+
+	Func currentDateTime 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_currentDateTime(pObject)
+		return pTempObj
+
+	Func currentDateTimeUtc 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_currentDateTimeUtc(pObject)
+		return pTempObj
+
+	Func currentMSecsSinceEpoch 
+		return QDateTime_currentMSecsSinceEpoch(pObject)
+
+	Func fromMSecsSinceEpoch P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_fromMSecsSinceEpoch(pObject,P1)
+		return pTempObj
+
+	Func fromString P1,P2
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_fromString(pObject,P1,P2)
+		return pTempObj
+
+	Func fromString_2 P1,P2
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_fromString_2(pObject,P1,P2)
+		return pTempObj
+
+	Func fromTime_t P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_fromTime_t(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 Class QPixmap2 from QPixmap
 

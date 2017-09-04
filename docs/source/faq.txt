@@ -97,9 +97,6 @@ we have a plan to present a new paradigm for Network Programming and Concurrency
 new paradigm through simple prototypes during the last years and we will integrate it with Ring 
 in Future releases.
 
-* It's a new language. A serious ecosystem comes along the way.
-
-
 .. index:: 
 	pair: Frequently Asked Questions; Why Ring is weakly typed?
 
@@ -218,7 +215,7 @@ Some simple changes that matters for my goal are
 
 Critical changes are
 
-(1) Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 85K lines are related to libraries and are optional when we go for using the language in C/C++ programs.
+(1) Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 500K lines are related to libraries and are optional when we go for using the language in C/C++ programs.
 
 (2) The Garbage collector : Uses Escape Analysis/Reference counting and give the programmer the ability to determine when to delete memory using the assignment operator
 
@@ -591,6 +588,88 @@ or remember the for loop in other languages
 
 You will use the < operator !
 
+
+.. index:: 
+	pair: Frequently Asked Questions; Why Ring is not case-sensitive
+
+Why Ring is not case-sensitive?
+===============================
+
+(1) To be more human-friendly
+
+(2) Like Ada, SQL, Pascal, Delphi, Visual Basic, Visual FoxPro, etc. 
+
+(3) To help in supporting Natural Language Programming.
+
+(4) To be able to select your favorite style when writing the language keywords
+
+.. code-block:: ring
+
+	see "lower case!"
+
+.. code-block:: ring
+
+	SEE "UPPER case!"
+
+.. code-block:: ring
+
+	See "First Letter is UPPER case!"
+
+(5) To avoid getting error message when writing quick tests then type "variable" instead of "Variable".
+
+(6) To avoid getting error message when you type "Dosomething()" instead of "doSomething()"
+
+(7) In Ring, No conflict between Variables, Method Names & Classes Names
+
+We can write person as variable name and Person as class name.
+
+.. code-block:: ring
+	
+	person = new Person	
+	class Person 
+		name address phone
+	
+
+.. index:: 
+	pair: Frequently Asked Questions; Why the Assignment operator uses Deep copy?
+
+Why the Assignment operator uses Deep Copy?
+===========================================
+
+"Because it's a poor tradeoff to add complexity for dubious performance gains, a good
+approach to deep vs. shallow copies is to prefer deep copies until proven otherwise."
+	, Steve McConnell, Code Complete 
+
+(1) It's more natural, When you use the assignment operator, You expect a deep copy.
+
+(2) If you don't need a deep copy, Just don't use it! 
+
+(3) The Ring language is designed to reduce references usage as much as possible.
+
+(4) The Ring language is designed to make using references simple and possible in special cases where this make sense.
+
+(5) We have references when this is natural, like passing lists and objects to functions,
+	creating objects (Like GUI Objects) from a C/C++ library, returning an object stored 
+	inside a list.
+
+(6) It is a feature, We can use it to create pure functions. The Value() function in the
+	stdlib uses this feature to pass lists & objects by value when we need this.
+
+(7) When we need references, It's recommended to create a class that manage sharing lists and objects.
+	
+(8) It's more safe at the application level to avoid many logical errors.
+
+(9) In Ring, we start without thinking about the little details and concentrate on the application, You
+	don't have to write the type (Dynamic Typing), You don't have to write explicit
+	conversions between numbers and strings (Weakly Typed) and you don't have to select
+	between using values or references, You don't have to write the scope (Lexical Scoping).
+
+(10) In Ring, we have smart garbage collector (Simple & Fast), We can delete the memory directly
+	at any time using the Assignment operator too. Reducing references usage or using them through
+	managers helps a lot to achieve this goal. by doing this we have full control.
+
+(11) If you want to create references and avoid creating a manager, You can use Object2Pointer() and Pointer2Object() functions
+	But It's not the Ring way "Sprite" to do things.
 
 .. index:: 
 	pair: Frequently Asked Questions; Constructor methods in Ring

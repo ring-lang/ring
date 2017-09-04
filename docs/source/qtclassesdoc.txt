@@ -1165,7 +1165,9 @@ Parent Class : QWidget
 * QAction *addSeparator(void)
 * void clear(void)
 * QAction *defaultAction(void)
-* QAction *exec(void)
+* QAction *exec(const QPoint &)
+* QAction *exec_2(void)
+* QAction *exec_3(const QPoint &,QAction *)
 * void hideTearOffMenu(void)
 * QIcon icon(void)
 * QAction *insertMenu(QAction *before, QMenu *menu)
@@ -3115,6 +3117,13 @@ Parameters : void
 * int readLine(char *data, int maxSize)
 * void ungetChar(char c)
 * int write(const char *data, int maxSize)
+* bool atEnd(void)
+* bool canReadLine(void)
+* void close(void)
+* bool open(QIODevice::OpenMode flags)
+* qint64 pos(void)
+* bool seek(qint64 pos)
+* qint64 size(void)
 * void setaboutToCloseEvent(const char *)
 * void setbytesWrittenEvent(const char *)
 * void setreadChannelFinishedEvent(const char *)
@@ -3822,6 +3831,62 @@ Parent Class : QWidget
 * void setEventOutput(bool x)
 * QObject *getParentObject(void)
 * QWidget *getParentWidget(void)
+* void setKeyPressFunc(const char *cStr)
+* void setMouseButtonPressFunc(const char *cStr)
+* void setMouseButtonReleaseFunc(const char *cStr)
+* void setMouseButtonDblClickFunc(const char *cStr)
+* void setMouseMoveFunc(const char *cStr)
+* void setCloseFunc(const char *cStr)
+* void setContextMenuFunc(const char *cStr)
+* void setDragEnterFunc(const char *cStr)
+* void setDragLeaveFunc(const char *cStr)
+* void setDragMoveFunc(const char *cStr)
+* void setDropFunc(const char *cStr)
+* void setEnterFunc(const char *cStr)
+* void setFocusInFunc(const char *cStr)
+* void setFocusOutFunc(const char *cStr)
+* void setKeyReleaseFunc(const char *cStr)
+* void setLeaveFunc(const char *cStr)
+* void setNonClientAreaMouseButtonDblClickFunc(const char *cStr)
+* void setNonClientAreaMouseButtonPressFunc(const char *cStr)
+* void setNonClientAreaMouseButtonReleaseFunc(const char *cStr)
+* void setNonClientAreaMouseMoveFunc(const char *cStr)
+* void setMoveFunc(const char *cStr)
+* void setResizeFunc(const char *cStr)
+* void setWindowActivateFunc(const char *cStr)
+* void setWindowBlockedFunc(const char *cStr)
+* void setWindowDeactivateFunc(const char *cStr)
+* void setWindowStateChangeFunc(const char *cStr)
+* void setWindowUnblockedFunc(const char *cStr)
+* void setPaintFunc(const char *cStr)
+* const char *getKeyPressFunc(void)
+* const char *getMouseButtonPressFunc(void)
+* const char *getMouseButtonReleaseFunc(void)
+* const char *getMouseButtonDblClickFunc(void)
+* const char *getMouseMoveFunc(void)
+* const char *getCloseFunc(void)
+* const char *getContextMenuFunc(void)
+* const char *getDragEnterFunc(void)
+* const char *getDragLeaveFunc(void)
+* const char *getDragMoveFunc(void)
+* const char *getDropFunc(void)
+* const char *getEnterFunc(void)
+* const char *getFocusInFunc(void)
+* const char *getFocusOutFunc(void)
+* const char *getKeyReleaseFunc(void)
+* const char *getLeaveFunc(void)
+* const char *getNonClientAreaMouseButtonDblClickFunc(void)
+* const char *getNonClientAreaMouseButtonPressFunc(void)
+* const char *getNonClientAreaMouseButtonReleaseFunc(void)
+* const char *getNonClientAreaMouseMoveFunc(void)
+* const char *getMoveFunc(void)
+* const char *getResizeFunc(void)
+* const char *getWindowActivateFunc(void)
+* const char *getWindowBlockedFunc(void)
+* const char *getWindowDeactivateFunc(void)
+* const char *getWindowStateChangeFunc(void)
+* const char *getWindowUnblockedFunc(void)
+* const char *getPaintFunc(void)
 
 .. index::
 	pair: RingQt Classes Reference; QDesktopWidget Class
@@ -6198,6 +6263,12 @@ Parameters : void
 * QPixmap pixmap(void)
 * void setShape(Qt::CursorShape shape)
 * Qt::CursorShape shape(void)
+* QPoint pos(void)
+* QPoint pos_2(QScreen *)
+* void setPos(int x, int y)
+* void setPos_2(QScreen *screen, int x, int y)
+* void setPos_3(QPoint)
+* void setPos_4(QScreen *screen, QPoint)
 
 .. index::
 	pair: RingQt Classes Reference; QListView Class
@@ -6514,3 +6585,170 @@ Parameters : QMutex *
 * QMutex * mutex(void)
 * void relock(void)
 * void unlock(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBuffer Class
+
+QBuffer Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBuffer.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QIODevice
+
+* QByteArray buffer(void)
+* QByteArray data(void)
+* void setBuffer(QByteArray *byteArray)
+* void setData(QByteArray data)
+* void setData_2(char *data, int size)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothAddress Class
+
+QBluetoothAddress Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothAddress.html
+
+
+Parameters : void
+
+* void clear(void)
+* bool isNull(void)
+* QString toString(void)
+* quint64 toUInt64(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothDeviceDiscoveryAgent Class
+
+QBluetoothDeviceDiscoveryAgent Class
+====================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothDeviceDiscoveryAgent.html
+
+
+Parameters : QObject *
+
+* QList<QBluetoothDeviceInfo> discoveredDevices(void)
+* QBluetoothDeviceDiscoveryAgent::Error error(void)
+* QString errorString(void)
+* QBluetoothDeviceDiscoveryAgent::InquiryType inquiryType(void)
+* bool isActive(void)
+* void setInquiryType(QBluetoothDeviceDiscoveryAgent::InquiryType type)
+* void start(void)
+* void stop(void)
+* void setcanceledEvent(const char *)
+* void setdeviceDiscoveredEvent(const char *)
+* void seterrorEvent(const char *)
+* void setfinishedEvent(const char *)
+* const char *getcanceledEvent(void)
+* const char *getdeviceDiscoveredEvent(void)
+* const char *geterrorEvent(void)
+* const char *getfinishedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothDeviceInfo Class
+
+QBluetoothDeviceInfo Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothDeviceInfo.html
+
+
+Parameters : void
+
+* QBluetoothAddress address(void)
+* bool isValid(void)
+* QBluetoothDeviceInfo::MajorDeviceClass majorDeviceClass(void)
+* quint8 minorDeviceClass(void)
+* QString name(void)
+* qint16 rssi(void)
+* QBluetoothDeviceInfo::ServiceClasses serviceClasses(void)
+* QList<QBluetoothUuid> serviceUuids(QBluetoothDeviceInfo::DataCompleteness *completeness)
+* QBluetoothDeviceInfo::DataCompleteness serviceUuidsCompleteness(void)
+* void setCached(bool cached)
+* void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothHostInfo Class
+
+QBluetoothHostInfo Class
+========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothHostInfo.html
+
+
+Parameters : void
+
+* QBluetoothAddress address(void)
+* QString name(void)
+* void setAddress(QBluetoothAddress address)
+* void setName(QString name)
+
+.. index::
+	pair: RingQt Classes Reference; QBluetoothLocalDevice Class
+
+QBluetoothLocalDevice Class
+===========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QBluetoothLocalDevice.html
+
+
+Parameters : QObject *
+
+* QBluetoothAddress address(void)
+
+.. index::
+	pair: RingQt Classes Reference; QDateTime Class
+
+QDateTime Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QDateTime.html
+
+
+Parameters : void
+
+* QDateTime addDays(int ndays)
+* QDateTime addMSecs(qint64 msecs)
+* QDateTime addMonths(int nmonths)
+* QDateTime addSecs(int s)
+* QDateTime addYears(int nyears)
+* QDate date(void)
+* int daysTo(QDateTime other)
+* bool isNull(void)
+* bool isValid(void)
+* qint64 msecsTo(QDateTime other)
+* int secsTo(QDateTime other)
+* void setDate(QDate date)
+* void setMSecsSinceEpoch(qint64 msecs)
+* void setTime(QTime time)
+* void setTimeSpec(Qt::TimeSpec spec)
+* void setTime_t(uint seconds)
+* QTime time(void)
+* Qt::TimeSpec timeSpec(void)
+* QDateTime toLocalTime(void)
+* qint64 toMSecsSinceEpoch(void)
+* QString toString(QString format)
+* QString toString_2(Qt::DateFormat format)
+* QDateTime toTimeSpec(Qt::TimeSpec specification)
+* uint toTime_t(void)
+* QDateTime toUTC(void)
+* QDateTime currentDateTime(void)
+* QDateTime currentDateTimeUtc(void)
+* qint64 currentMSecsSinceEpoch(void)
+* QDateTime fromMSecsSinceEpoch(qint64 msecs)
+* QDateTime fromString(QString string, Qt::DateFormat format)
+* QDateTime fromString_2(QString string, QString format)
+* QDateTime fromTime_t(uint seconds)

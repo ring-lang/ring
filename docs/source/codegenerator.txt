@@ -212,13 +212,13 @@ Example:
 
 .. code-block:: none
 
-	SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked,void *lock_data}
+	SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels}
 
 .. index:: 
 	pair: Code Generator; Defining Constants
 
-Defining Contants
-=================
+Defining Constants
+==================
 
 You can define constants using <constant> and </constant>
 
@@ -356,8 +356,8 @@ based on a condition, for example
 .. index:: 
 	pair: Code Generator; Constants Type
 
-Contants Type
-=============
+Constants Type
+==============
 
 The default type for constant is Number 
 But Some constants may be another type, for example (pointer : void *)

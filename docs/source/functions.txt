@@ -1,9 +1,9 @@
 .. index:: 
-	single: Functions; Introduction
+	single: Functions - First Style; Introduction
 
-=========
-Functions
-=========
+=======================
+Functions - First Style 
+=======================
 
 In this chapter we are going to learn about the next topics :-
 
@@ -24,7 +24,7 @@ In this chapter we are going to learn about the next topics :-
 * Recursion
 
 .. index:: 
-	pair: Functions; Define Functions
+	pair: Functions - First Style; Define Functions
 
 
 Define Functions
@@ -51,7 +51,7 @@ Example:
 
 
 .. index:: 
-	pair: Functions; Call Functions
+	pair: Functions - First Style; Call Functions
 
 Call Functions
 ==============
@@ -81,7 +81,7 @@ Example:
 	func second  see "message from the second function" + nl
 
 .. index:: 
-	pair: Functions; Declare parameters
+	pair: Functions - First Style; Declare parameters
 
 Declare parameters
 ==================
@@ -97,7 +97,7 @@ Example:
 		see x+y+nl
 
 .. index:: 
-	pair: Functions; Send Parameters
+	pair: Functions - First Style; Send Parameters
 
 Send Parameters
 ===============
@@ -124,7 +124,7 @@ Example:
 	func sum x,y see x+y+nl
 
 .. index:: 
-	pair: Functions; Main Function
+	pair: Functions - First Style; Main Function
 
 Main Function
 =============
@@ -146,7 +146,7 @@ Example:
 		see "Message from the main function" + nl
 
 .. index:: 
-	pair: Functions; Variables Scope
+	pair: Functions - First Style; Variables Scope
 
 Variables Scope
 ===============
@@ -184,7 +184,7 @@ Example:
 	  of the new variables to local.
 
 .. index:: 
-	pair: Functions; Return Value
+	pair: Functions - First Style; Return Value
 
 Return Value
 ============
@@ -213,7 +213,7 @@ Example:
 	func novalue
 
 .. index:: 
-	pair: Functions; Recursion
+	pair: Functions - First Style; Recursion
 
 Recursion
 =========
@@ -227,4 +227,4 @@ Example:
 
 	see fact(5)  	# output = 120
 
-	func fact x if x = 1 return 1 else return x * fact(x-1) ok
+	func fact x if x = 0 return 1 else return x * fact(x-1) ok

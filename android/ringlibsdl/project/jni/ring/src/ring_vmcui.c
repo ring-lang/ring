@@ -69,14 +69,14 @@ void ring_vm_give ( VM *pVM )
 		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 			pVar = (List *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
-			ring_list_setint(pVar, RING_VAR_TYPE ,RING_VM_STRING);
-			ring_list_setstring(pVar, RING_VAR_VALUE, cLine);
+			ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_STRING);
+			ring_list_setstring_gc(pVM->pRingState,pVar, RING_VAR_VALUE, cLine);
 		}
 		else if ( RING_VM_STACK_OBJTYPE ==RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
-			ring_item_settype(pItem,ITEMTYPE_STRING);
-			ring_string_set(ring_item_getstring(pItem),cLine);
+			ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_STRING);
+			ring_string_set_gc(pVM->pRingState,ring_item_getstring(pItem),cLine);
 		}
 	}
 }

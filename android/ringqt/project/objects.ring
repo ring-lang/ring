@@ -43,6 +43,33 @@ func Open_Window cClass
 	}
 
 /*
+	The next function is the same as Open_Window()
+	But takes an extra list that determine the packages 
+	To import before opening the window.
+*/
+
+func Open_WindowInPackages cClass,aPackages
+	cRingQt_ObjName = $RingQt_ObjName	# Save the current Object
+	$RingQt_ObjectID++
+	$RingQt_ObjectsList + [$RingQt_ObjectID,""]	
+	$RingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+$RingQt_ObjectID+")]" +
+			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
+	cCode = ""
+	if packagename() != NULL {
+		cCode += "import " + packagename()  + nl
+	}
+	for cPackage in aPackages {
+		cCode += "import " + cPackage  + nl
+	}
+	cCode += $RingQt_ObjName + " = new " + cClass + nl + 
+		  $RingQt_ObjName + ".start()"
+	eval(cCode)	
+	if cRingQt_ObjName != NULL {
+		$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
+	}
+
+
+/*
 	The next function create new object, add the object to the $RingQt_ObjectsList
 	Then set $RingQt_ObjName to the object in the $RingQt_ObjectsList
 */

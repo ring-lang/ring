@@ -15,7 +15,6 @@ Contents:
    Introduction <introduction>
    Language Design <languagedesign>
    What is new in Ring 1.5? <whatisnew5>
-   What is new in Ring 1.4.1? <whatisnew4_1>
    What is new in Ring 1.4? <whatisnew4>
    What is new in Ring 1.3? <whatisnew3>
    What is new in Ring 1.2? <whatisnew2>
@@ -33,7 +32,9 @@ Contents:
    Control Structures - Second Style <controlstructures2>
    Control Structures - Third Style <controlstructures3>
    Getting Input <getinput>
-   Functions <functions>
+   Functions - First Style <functions>
+   Functions - Second Style <functions2>
+   Functions - Third Style <functions3>
    Program Structure <programstructure>
    Lists <lists>
    Strings <strings>
@@ -63,6 +64,8 @@ Contents:
    Using RingLibSDL <libsdl>
    Demo Project - Game Engine for 2D Games <gameengine>	
    Building Games For Android <gameengineandorid>
+   Using RingOpenGL and RingFreeGLUT for 3D Graphics <usingopengl>
+   Using RingOpenGL and RingAllegro for 3D Graphics <usingopengl2>
    Desktop and Mobile development using RingQt <qt>
    Building RingQt Applications for Mobile <qtmobile>
    Objects Library for RingQt Application <ringqtobjects>
@@ -70,9 +73,11 @@ Contents:
    Scope Rules for Variables and Attributes <scope>
    Scope Rules for Functions and Methods <scope2>
    Syntax Flexibility <syntaxflexibility>
+   The Type Hints Library <typehints>
    Distributing Ring Applications <distribute>
    Command Line Options	<compiler>
    Low Level Functions <lowlevel>
+   The Trace Library and the Interactive Debugger <debug>
    Embedding Ring Language in Ring Programs <ringemb>
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>

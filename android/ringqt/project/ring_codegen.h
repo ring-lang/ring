@@ -145,11 +145,11 @@ void ring_parser_icg_newoperandpointer ( Parser *pParser , void *pValue ) ;
 
 List * ring_parser_icg_getactiveoperation ( Parser *pParser ) ;
 
-void ring_parser_icg_addoperand ( List *pList , const char *cStr ) ;
+void ring_parser_icg_addoperand ( Parser *pParser ,List *pList , const char *cStr ) ;
 
-void ring_parser_icg_addoperandint ( List *pList , int nValue ) ;
+void ring_parser_icg_addoperandint ( Parser *pParser ,List *pList , int nValue ) ;
 
-void ring_parser_icg_addoperandpointer ( List *pList , void *pValue ) ;
+void ring_parser_icg_addoperandpointer ( Parser *pParser ,List *pList , void *pValue ) ;
 
 void ring_parser_icg_showoutput ( List *pListGenCode,int nStatus ) ;
 
@@ -165,7 +165,7 @@ void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATION
 /* Macro */
 #define ring_parser_icg_newlabel(x) ( ring_list_getsize(x->GenCode) + 1 )
 #define ring_parser_icg_getlastoperation(pParser) ring_list_getint(pParser->ActiveGenCodeList,1)
-#define ring_parser_icg_setlastoperation(pParser,x) ring_list_setint(pParser->ActiveGenCodeList,1,x)
+#define ring_parser_icg_setlastoperation(pParser,x) ring_list_setint_gc(pParser->pRingState,pParser->ActiveGenCodeList,1,x)
 #define ring_parser_icg_instructionscount(pParser) ring_list_getsize(pParser->GenCode)
 #define ring_parser_icg_getoperationlist(pParser,x) ring_list_getlist(pParser->GenCode,x)
 #define RING_PARSER_ICG_GOTOLASTOP pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_list_getsize(pParser->GenCode))

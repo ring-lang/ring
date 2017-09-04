@@ -1,6 +1,5 @@
 # Description : Build Ring using CMake
 # Author      : Mahmoud Fayed <msfclipper@yahoo.com>
-# Date        : 2016.08.21
 
 cmake_minimum_required (VERSION 2.6)
 project (ring)

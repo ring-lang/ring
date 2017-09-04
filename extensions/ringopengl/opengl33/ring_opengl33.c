@@ -7,6 +7,7 @@
 */
 
 
+
 #include <GL/glew.h>
 #include <GL/glut.h>
 
@@ -5145,11 +5146,6 @@ RING_FUNC(ring_get_gl_context_profile_mask)
 	RING_API_RETNUMBER(GL_CONTEXT_PROFILE_MASK);
 }
 
-RING_FUNC(ring_get_gl_vertex_attrib_array_divisor)
-{
-	RING_API_RETNUMBER(GL_VERTEX_ATTRIB_ARRAY_DIVISOR);
-}
-
 RING_FUNC(ring_get_gl_rgb10_a2ui)
 {
 	RING_API_RETNUMBER(GL_RGB10_A2UI);
@@ -5650,9 +5646,11 @@ RING_FUNC(ring_glClearDepth)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	glClearDepth(* (GLclampd  *) RING_API_GETCPOINTER(1,"GLclampd"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLclampd"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glClearDepth( (GLclampd ) RING_API_GETNUMBER(1));
 }
 
 
@@ -5722,13 +5720,19 @@ RING_FUNC(ring_glColor3b)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glColor3b(* (GLbyte  *) RING_API_GETCPOINTER(1,"GLbyte"),* (GLbyte  *) RING_API_GETCPOINTER(2,"GLbyte"),* (GLbyte  *) RING_API_GETCPOINTER(3,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLbyte"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor3b( (GLbyte ) RING_API_GETNUMBER(1), (GLbyte ) RING_API_GETNUMBER(2), (GLbyte ) RING_API_GETNUMBER(3));
 }
 
 
@@ -5738,13 +5742,19 @@ RING_FUNC(ring_glColor3s)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glColor3s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor3s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -5820,13 +5830,19 @@ RING_FUNC(ring_glColor3ub)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glColor3ub(* (GLubyte  *) RING_API_GETCPOINTER(1,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(2,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(3,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLubyte"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor3ub( (GLubyte ) RING_API_GETNUMBER(1), (GLubyte ) RING_API_GETNUMBER(2), (GLubyte ) RING_API_GETNUMBER(3));
 }
 
 
@@ -5836,13 +5852,19 @@ RING_FUNC(ring_glColor3us)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glColor3us(* (GLushort  *) RING_API_GETCPOINTER(1,"GLushort"),* (GLushort  *) RING_API_GETCPOINTER(2,"GLushort"),* (GLushort  *) RING_API_GETCPOINTER(3,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLushort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor3us( (GLushort ) RING_API_GETNUMBER(1), (GLushort ) RING_API_GETNUMBER(2), (GLushort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -5874,15 +5896,23 @@ RING_FUNC(ring_glColor4b)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glColor4b(* (GLbyte  *) RING_API_GETCPOINTER(1,"GLbyte"),* (GLbyte  *) RING_API_GETCPOINTER(2,"GLbyte"),* (GLbyte  *) RING_API_GETCPOINTER(3,"GLbyte"),* (GLbyte  *) RING_API_GETCPOINTER(4,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLbyte"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor4b( (GLbyte ) RING_API_GETNUMBER(1), (GLbyte ) RING_API_GETNUMBER(2), (GLbyte ) RING_API_GETNUMBER(3), (GLbyte ) RING_API_GETNUMBER(4));
 }
 
 
@@ -5892,15 +5922,23 @@ RING_FUNC(ring_glColor4s)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glColor4s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(4,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor4s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3), (GLshort ) RING_API_GETNUMBER(4));
 }
 
 
@@ -5988,15 +6026,23 @@ RING_FUNC(ring_glColor4ub)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glColor4ub(* (GLubyte  *) RING_API_GETCPOINTER(1,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(2,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(3,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(4,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLubyte"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor4ub( (GLubyte ) RING_API_GETNUMBER(1), (GLubyte ) RING_API_GETNUMBER(2), (GLubyte ) RING_API_GETNUMBER(3), (GLubyte ) RING_API_GETNUMBER(4));
 }
 
 
@@ -6006,15 +6052,23 @@ RING_FUNC(ring_glColor4us)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glColor4us(* (GLushort  *) RING_API_GETCPOINTER(1,"GLushort"),* (GLushort  *) RING_API_GETCPOINTER(2,"GLushort"),* (GLushort  *) RING_API_GETCPOINTER(3,"GLushort"),* (GLushort  *) RING_API_GETCPOINTER(4,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLushort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glColor4us( (GLushort ) RING_API_GETNUMBER(1), (GLushort ) RING_API_GETNUMBER(2), (GLushort ) RING_API_GETNUMBER(3), (GLushort ) RING_API_GETNUMBER(4));
 }
 
 
@@ -7416,11 +7470,15 @@ RING_FUNC(ring_glDepthRange)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	glDepthRange(* (GLclampd  *) RING_API_GETCPOINTER(1,"GLclampd"),* (GLclampd  *) RING_API_GETCPOINTER(2,"GLclampd"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLclampd"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLclampd"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glDepthRange( (GLclampd ) RING_API_GETNUMBER(1), (GLclampd ) RING_API_GETNUMBER(2));
 }
 
 
@@ -9646,9 +9704,11 @@ RING_FUNC(ring_glIndexs)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	glIndexs(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glIndexs( (GLshort ) RING_API_GETNUMBER(1));
 }
 
 
@@ -9700,9 +9760,11 @@ RING_FUNC(ring_glIndexub)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	glIndexub(* (GLubyte  *) RING_API_GETCPOINTER(1,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLubyte"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glIndexub( (GLubyte ) RING_API_GETNUMBER(1));
 }
 
 
@@ -10112,9 +10174,11 @@ RING_FUNC(ring_glLineStipple)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glLineStipple( (GLint ) RING_API_GETNUMBER(1),* (GLushort  *) RING_API_GETCPOINTER(2,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLushort"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glLineStipple( (GLint ) RING_API_GETNUMBER(1), (GLushort ) RING_API_GETNUMBER(2));
 }
 
 
@@ -10754,9 +10818,11 @@ RING_FUNC(ring_glMultiTexCoord1s)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glMultiTexCoord1s( (GLenum )  (int) RING_API_GETNUMBER(1),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glMultiTexCoord1s( (GLenum )  (int) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2));
 }
 
 
@@ -10824,11 +10890,15 @@ RING_FUNC(ring_glMultiTexCoord2s)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glMultiTexCoord2s( (GLenum )  (int) RING_API_GETNUMBER(1),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glMultiTexCoord2s( (GLenum )  (int) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -10908,13 +10978,19 @@ RING_FUNC(ring_glMultiTexCoord3s)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glMultiTexCoord3s( (GLenum )  (int) RING_API_GETNUMBER(1),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(4,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLshort"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glMultiTexCoord3s( (GLenum )  (int) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3), (GLshort ) RING_API_GETNUMBER(4));
 }
 
 
@@ -11006,15 +11082,23 @@ RING_FUNC(ring_glMultiTexCoord4s)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glMultiTexCoord4s( (GLenum )  (int) RING_API_GETNUMBER(1),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(4,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(5,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"GLshort"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glMultiTexCoord4s( (GLenum )  (int) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3), (GLshort ) RING_API_GETNUMBER(4), (GLshort ) RING_API_GETNUMBER(5));
 }
 
 
@@ -11420,13 +11504,19 @@ RING_FUNC(ring_glNormal3b)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glNormal3b(* (GLbyte  *) RING_API_GETCPOINTER(1,"GLbyte"),* (GLbyte  *) RING_API_GETCPOINTER(2,"GLbyte"),* (GLbyte  *) RING_API_GETCPOINTER(3,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLbyte"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glNormal3b( (GLbyte ) RING_API_GETNUMBER(1), (GLbyte ) RING_API_GETNUMBER(2), (GLbyte ) RING_API_GETNUMBER(3));
 }
 
 
@@ -11502,13 +11592,19 @@ RING_FUNC(ring_glNormal3s)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glNormal3s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glNormal3s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -11998,11 +12094,15 @@ RING_FUNC(ring_glRasterPos2s)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	glRasterPos2s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glRasterPos2s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2));
 }
 
 
@@ -12066,13 +12166,19 @@ RING_FUNC(ring_glRasterPos3s)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glRasterPos3s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glRasterPos3s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -12148,15 +12254,23 @@ RING_FUNC(ring_glRasterPos4s)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glRasterPos4s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(4,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glRasterPos4s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3), (GLshort ) RING_API_GETNUMBER(4));
 }
 
 
@@ -12374,15 +12488,23 @@ RING_FUNC(ring_glRects)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glRects(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(4,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glRects( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3), (GLshort ) RING_API_GETNUMBER(4));
 }
 
 
@@ -12632,13 +12754,19 @@ RING_FUNC(ring_glSecondaryColor3b)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glSecondaryColor3b(* (GLbyte  *) RING_API_GETCPOINTER(1,"GLbyte"),* (GLbyte  *) RING_API_GETCPOINTER(2,"GLbyte"),* (GLbyte  *) RING_API_GETCPOINTER(3,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLbyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLbyte"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glSecondaryColor3b( (GLbyte ) RING_API_GETNUMBER(1), (GLbyte ) RING_API_GETNUMBER(2), (GLbyte ) RING_API_GETNUMBER(3));
 }
 
 
@@ -12648,13 +12776,19 @@ RING_FUNC(ring_glSecondaryColor3s)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glSecondaryColor3s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glSecondaryColor3s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -12730,13 +12864,19 @@ RING_FUNC(ring_glSecondaryColor3ub)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glSecondaryColor3ub(* (GLubyte  *) RING_API_GETCPOINTER(1,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(2,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(3,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLubyte"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glSecondaryColor3ub( (GLubyte ) RING_API_GETNUMBER(1), (GLubyte ) RING_API_GETNUMBER(2), (GLubyte ) RING_API_GETNUMBER(3));
 }
 
 
@@ -12746,13 +12886,19 @@ RING_FUNC(ring_glSecondaryColor3us)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glSecondaryColor3us(* (GLushort  *) RING_API_GETCPOINTER(1,"GLushort"),* (GLushort  *) RING_API_GETCPOINTER(2,"GLushort"),* (GLushort  *) RING_API_GETCPOINTER(3,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLushort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLushort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glSecondaryColor3us( (GLushort ) RING_API_GETNUMBER(1), (GLushort ) RING_API_GETNUMBER(2), (GLushort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -13150,9 +13296,11 @@ RING_FUNC(ring_glTexCoord1s)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	glTexCoord1s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glTexCoord1s( (GLshort ) RING_API_GETNUMBER(1));
 }
 
 
@@ -13204,11 +13352,15 @@ RING_FUNC(ring_glTexCoord2s)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	glTexCoord2s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glTexCoord2s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2));
 }
 
 
@@ -13272,13 +13424,19 @@ RING_FUNC(ring_glTexCoord3s)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glTexCoord3s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glTexCoord3s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -13354,15 +13512,23 @@ RING_FUNC(ring_glTexCoord4s)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glTexCoord4s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(4,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glTexCoord4s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3), (GLshort ) RING_API_GETNUMBER(4));
 }
 
 
@@ -14914,11 +15080,15 @@ RING_FUNC(ring_glVertex2s)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	glVertex2s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertex2s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2));
 }
 
 
@@ -14982,13 +15152,19 @@ RING_FUNC(ring_glVertex3s)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glVertex3s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertex3s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -15064,15 +15240,23 @@ RING_FUNC(ring_glVertex4s)
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
 	}
-	glVertex4s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(4,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertex4s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3), (GLshort ) RING_API_GETNUMBER(4));
 }
 
 
@@ -15350,9 +15534,11 @@ RING_FUNC(ring_glVertexAttrib1s)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glVertexAttrib1s( (GLuint ) RING_API_GETNUMBER(1),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertexAttrib1s( (GLuint ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2));
 }
 
 
@@ -15406,11 +15592,15 @@ RING_FUNC(ring_glVertexAttrib2s)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glVertexAttrib2s( (GLuint ) RING_API_GETNUMBER(1),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertexAttrib2s( (GLuint ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -15472,13 +15662,19 @@ RING_FUNC(ring_glVertexAttrib3s)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glVertexAttrib3s( (GLuint ) RING_API_GETNUMBER(1),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(4,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLshort"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertexAttrib3s( (GLuint ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3), (GLshort ) RING_API_GETNUMBER(4));
 }
 
 
@@ -15548,15 +15744,23 @@ RING_FUNC(ring_glVertexAttrib4s)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glVertexAttrib4s( (GLuint ) RING_API_GETNUMBER(1),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(4,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(5,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"GLshort"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertexAttrib4s( (GLuint ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3), (GLshort ) RING_API_GETNUMBER(4), (GLshort ) RING_API_GETNUMBER(5));
 }
 
 
@@ -15600,15 +15804,23 @@ RING_FUNC(ring_glVertexAttrib4Nub)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glVertexAttrib4Nub( (GLuint ) RING_API_GETNUMBER(1),* (GLubyte  *) RING_API_GETCPOINTER(2,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(3,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(4,"GLubyte"),* (GLubyte  *) RING_API_GETCPOINTER(5,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		free(RING_API_GETCPOINTER(4,"GLubyte"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		free(RING_API_GETCPOINTER(5,"GLubyte"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glVertexAttrib4Nub( (GLuint ) RING_API_GETNUMBER(1), (GLubyte ) RING_API_GETNUMBER(2), (GLubyte ) RING_API_GETNUMBER(3), (GLubyte ) RING_API_GETNUMBER(4), (GLubyte ) RING_API_GETNUMBER(5));
 }
 
 
@@ -16010,11 +16222,15 @@ RING_FUNC(ring_glWindowPos2s)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	glWindowPos2s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glWindowPos2s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2));
 }
 
 
@@ -16078,13 +16294,19 @@ RING_FUNC(ring_glWindowPos3s)
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	glWindowPos3s(* (GLshort  *) RING_API_GETCPOINTER(1,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(2,"GLshort"),* (GLshort  *) RING_API_GETCPOINTER(3,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		free(RING_API_GETCPOINTER(1,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		free(RING_API_GETCPOINTER(2,"GLshort"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		free(RING_API_GETCPOINTER(3,"GLshort"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glWindowPos3s( (GLshort ) RING_API_GETNUMBER(1), (GLshort ) RING_API_GETNUMBER(2), (GLshort ) RING_API_GETNUMBER(3));
 }
 
 
@@ -18941,6 +19163,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_gl_max_geometry_output_components",ring_get_gl_max_geometry_output_components);
 	ring_vm_funcregister("get_gl_max_fragment_input_components",ring_get_gl_max_fragment_input_components);
 	ring_vm_funcregister("get_gl_context_profile_mask",ring_get_gl_context_profile_mask);
-	ring_vm_funcregister("get_gl_vertex_attrib_array_divisor",ring_get_gl_vertex_attrib_array_divisor);
 	ring_vm_funcregister("get_gl_rgb10_a2ui",ring_get_gl_rgb10_a2ui);
 }

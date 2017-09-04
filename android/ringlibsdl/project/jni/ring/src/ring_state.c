@@ -15,6 +15,9 @@
 #include <mach-o/dyld.h>
 #endif
 #endif
+/* General Options (Only for ring_state_main()) */
+static int nRingStateDEBUGSEGFAULT  ;
+static int nRingStateCGI  ;
 /* Define Functions */
 #if RING_TESTUNITS
 
@@ -31,7 +34,7 @@ void segfaultaction ( int sig ) ;
 RING_API RingState * ring_state_new ( void )
 {
 	RingState *pRingState  ;
-	pRingState = (RingState *) malloc(sizeof(RingState)) ;
+	pRingState = (RingState *) ring_malloc(sizeof(RingState));
 	if ( pRingState == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -62,23 +65,23 @@ RING_API RingState * ring_state_new ( void )
 RING_API RingState * ring_state_delete ( RingState *pRingState )
 {
 	if ( pRingState->pRingFilesList != NULL ) {
-		pRingState->pRingFilesList = ring_list_delete(pRingState->pRingFilesList);
-		pRingState->pRingFilesStack = ring_list_delete(pRingState->pRingFilesStack);
+		pRingState->pRingFilesList = ring_list_delete_gc(pRingState,pRingState->pRingFilesList);
+		pRingState->pRingFilesStack = ring_list_delete_gc(pRingState,pRingState->pRingFilesStack);
 	}
 	if ( pRingState->pRingGenCode   != NULL ) {
-		pRingState->pRingGenCode = ring_list_delete(pRingState->pRingGenCode);
-		pRingState->pRingFunctionsMap = ring_list_delete(pRingState->pRingFunctionsMap);
-		pRingState->pRingClassesMap = ring_list_delete(pRingState->pRingClassesMap);
-		pRingState->pRingPackagesMap = ring_list_delete(pRingState->pRingPackagesMap);
+		pRingState->pRingGenCode = ring_list_delete_gc(pRingState,pRingState->pRingGenCode);
+		pRingState->pRingFunctionsMap = ring_list_delete_gc(pRingState,pRingState->pRingFunctionsMap);
+		pRingState->pRingClassesMap = ring_list_delete_gc(pRingState,pRingState->pRingClassesMap);
+		pRingState->pRingPackagesMap = ring_list_delete_gc(pRingState,pRingState->pRingPackagesMap);
 		if ( pRingState->pRingCFunctions != NULL ) {
 			/* We check because the execution may end by the compiler error */
-			pRingState->pRingCFunctions = ring_list_delete(pRingState->pRingCFunctions);
+			pRingState->pRingCFunctions = ring_list_delete_gc(pRingState,pRingState->pRingCFunctions);
 		}
 	}
 	if ( pRingState->pVM != NULL ) {
 		ring_vm_delete(pRingState->pVM);
 	}
-	free( pRingState ) ;
+	ring_free(pRingState);
 	return NULL ;
 }
 
@@ -150,6 +153,8 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	nSRC = 0 ;
 	nGenObj = 0 ;
 	nWarn = 0 ;
+	nRingStateDEBUGSEGFAULT = 0 ;
+	nRingStateCGI = 0 ;
 	signal(SIGSEGV,segfaultaction);
 	#if RING_TESTUNITS
 	ring_testallunits();
@@ -158,6 +163,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		for ( x = 1 ; x < argc ; x++ ) {
 			if ( strcmp(argv[x],"-cgi") == 0 ) {
 				nCGI = 1 ;
+				nRingStateCGI = 1 ;
 			}
 			else if ( strcmp(argv[x],"-tokens") == 0 ) {
 				nTokens = 1 ;
@@ -185,6 +191,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 			}
 			else if ( strcmp(argv[x],"-w") == 0 ) {
 				nWarn = 1 ;
+				nRingStateDEBUGSEGFAULT = 1 ;
 			}
 			else if ( ( ring_issourcefile(argv[x]) || ring_isobjectfile(argv[x])) && nSRC == 0 ) {
 				cStr = argv[x] ;
@@ -237,18 +244,20 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 
 RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName )
 {
-	ring_scanner_readfile(cFileName,pRingState);
+	ring_scanner_readfile(pRingState,cFileName);
 }
 
 RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName )
 {
-	ring_scanner_runobjfile(cFileName,pRingState);
+	ring_scanner_runobjfile(pRingState,cFileName);
 }
 #if RING_TESTUNITS
 
 static void ring_testallunits ( void )
 {
 	/* Test */
+	ring_string_test();
+	ring_list_test();
 	ring_hashtable_test();
 	printf( "end of test \n  " ) ;
 	getchar();
@@ -276,8 +285,13 @@ static void ring_showtime ( void )
 
 void segfaultaction ( int sig )
 {
-	printf( "Content-Type: text/plain\n\n" ) ;
-	printf( "Ring Unexpected Error - Caught segfault : %d ",sig ) ;
+	if ( nRingStateDEBUGSEGFAULT == 1 ) {
+		if ( nRingStateCGI == 1 ) {
+			printf( "Content-Type: text/plain\n\n" ) ;
+		}
+		printf( RING_SEGFAULT ) ;
+		printf( " : %d ",sig ) ;
+	}
 	exit(0);
 }
 
