@@ -528,18 +528,18 @@ void ring_vm_file_dir ( void *pPointer )
 		pList = RING_API_NEWLIST ;
 		#ifdef _WIN32
 		/* Windows Only */
-		pString = ring_string_new(cStr);
-		ring_string_add(pString,"\\*.*");
+		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,cStr);
+		ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\\*.*");
 		cStr = ring_string_get(pString);
 		if ( ! ((hFind = FindFirstFile(cStr, &fdFile)) == INVALID_HANDLE_VALUE) ) {
 			do {
 				if ( strcmp(fdFile.cFileName, ".") != 0 && strcmp(fdFile.cFileName, "..") != 0 ) {
-					pList2 = ring_list_newlist(pList);
-					ring_list_addstring(pList2,fdFile.cFileName);
+					pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
+					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,fdFile.cFileName);
 					if ( fdFile.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) {
-						ring_list_adddouble(pList2,1);
+						ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1);
 					} else {
-						ring_list_adddouble(pList2,0);
+						ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,0);
 					}
 				}
 			} while (FindNextFile(hFind, &fdFile))  ;
@@ -547,18 +547,18 @@ void ring_vm_file_dir ( void *pPointer )
 		} else {
 			RING_API_ERROR(RING_API_BADDIRECTORY);
 		}
-		ring_string_delete(pString);
+		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
 		#else
 		pDir = opendir(cStr);
 		if ( pDir != NULL ) {
 			while ( (pDirent = readdir(pDir)) ) {
-				pList2 = ring_list_newlist(pList);
-				ring_list_addstring(pList2,pDirent->d_name);
+				pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
+				ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,pDirent->d_name);
 				stat(pDirent->d_name,&st);
 				if ( S_ISDIR(st.st_mode) ) {
-					ring_list_adddouble(pList2,1);
+					ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1);
 				} else {
-					ring_list_adddouble(pList2,0);
+					ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,0);
 				}
 			}
 			closedir(pDir);
