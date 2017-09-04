@@ -12,7 +12,7 @@ struct ring_sqlite *
 Type: ring_sqlite
 Mark: ->
 ring_sqlite *
-ring_vm_sqlite_loadfunctions
+ringlib_init
 ring_vm_sqlite_init
 Type: ring_sqlite *
 psqlite

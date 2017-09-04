@@ -100,11 +100,11 @@ int ring_vm_sqlite_callback ( void *data, int argc, char **argv, char **ColName 
 	List *pList, *pList2  ;
 	int x  ;
 	pList = (List *) data ;
-	pList = ring_list_newlist(pList);
+	pList = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
 	for ( x = 0 ; x < argc ; x++ ) {
-		pList2 = ring_list_newlist(pList);
-		ring_list_addstring(pList2,ColName[x]);
-		ring_list_addstring(pList2,argv[x] ? argv[x] : "NULL");
+		pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,ColName[x]);
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,argv[x] ? argv[x] : "NULL");
 	}
 	return 0 ;
 }
