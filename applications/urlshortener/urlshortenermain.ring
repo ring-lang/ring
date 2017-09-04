@@ -6,6 +6,7 @@ load "urlshortenersqlbuilderclass.ring"
 load "urlshortenerdeclarations.ring"
 load "urlshortenereventfunctions.ring"
 load "urlshortenerfunctions.ring"
+load "urlshortenerxmlhandlers.ring"
 
 /*
  * Author: John Storm 
@@ -68,6 +69,13 @@ mywin = new qapp{
 			}
 		}
 		/*
+		 * Create and set the status bar status bar
+		 */
+		statusbar = new qstatusbar(mymainwindow){
+			setsizegripenabled(false)
+		}
+		setstatusbar(statusbar)
+		/*
 		 * Create a tab page with contents for URL Shortening facilities
 		 */
 		urlshortenpage = new qwidget() {
@@ -88,10 +96,19 @@ mywin = new qapp{
 			 */
 			shorturllabel = new qlabel(urlshortenpage){settext(qlabels[:shorturl])}
 			/*
-			 * Response field set to Read-only
+			 * Response field set with default options
 			 */
 			qtextedit1 = new qtextedit(urlshortenpage){}
 			qtextedit1.setreadonly(true)
+			qtextedit1.settextinteractionflags(4|8)
+			/*
+			 * Load the history to the edit field, if set
+			 */
+			value = xmlopenread(filenames[:settingsfilename], xmlcontent[:settingselement])
+			if value = "on"
+				fgethistoryui()
+				statusbar.showmessage(statusbarmessages[:stateready], 0)
+			ok
 			/*
 			 * Setup and set a Layout for urlshortenpage
 			 */
@@ -166,6 +183,17 @@ mywin = new qapp{
 				ok
 			}
 			/*
+			 * Option to allow the histyory to load on open into shortened list
+			 */
+			loadhistorycheckbox = new qcheckbox(settingspage){
+				value = xmlopenread(filenames[:settingsfilename], xmlcontent[:settingselement])
+				if value = "on"
+					setcheckstate(2)
+				ok
+				settext(checkboxes[:loadhistoption])
+				setclickedevent(events[:setloaduicontent])
+            }
+			/*
 			 * Submit button
 			 */
 			apikeysubmit = new qpushbutton(settingspage){settext(bactions[:storekey]) setclickevent(events[:fsetapikey])}
@@ -174,6 +202,7 @@ mywin = new qapp{
 			 */
 			layout1 = new qvboxlayout() {
 				addwidget(apikeyinfolabel)
+				addwidget(loadhistorycheckbox)
 				addwidget(apikeylabel)
 				addwidget(apikeyedit)
 				addwidget(apikeysubmit)
@@ -186,13 +215,6 @@ mywin = new qapp{
 		 */
 		mywidget = new qwidget() {
 		}
-		/*
-		 * Create and set the status bar status bar
-		 */
-		statusbar = new qstatusbar(mymainwindow){
-			setSizeGripEnabled(false)
-		}
-		setstatusbar(statusbar)
 		/*
 		 * Create a TAB widget to hold our functionality
 		 */

@@ -27,16 +27,16 @@
 	 * Inserts a new item into the database
 	 */
 	func insertshortened(id, shorturl, longurl)
-		cont = getcontdef()
-		values = "(" + id + ",'" + shorturl + "','" + longurl + "')"
-		sql = minsertinto + mspace + table + cont + mspace + mvalues + values + mend
+		mycontent = getcontentdefinition()
+		myvalues = "(" + id + ",'" + shorturl + "','" + longurl + "')"
+		sql = minsertinto + mspace + table + mycontent + mspace + mvalues + myvalues + mend
 		return trim(sql)
 	/*
 	 * Creates a table from Content
 	 */
 	func createdbtable()
-		cont = getcontroot()
-		sql = mcreate + mspace + mtable + mspace + mifnotexists + mspace + table + cont + mend
+		mycontent = getheaderdefinition()
+		sql = mcreate + mspace + mtable + mspace + mifnotexists + mspace + table + mycontent + mend
 		return trim(sql)
 	/*
 	 * Private builder strings
@@ -60,7 +60,7 @@
 		 * Root definitions 
 		 * TODO: sizes, type
 		 */
-		func getcontroot()
+		func getheaderdefinition()
 			cont = "("
 			size = len(content)
 			for x in content
@@ -81,7 +81,7 @@
 		/*
 		 * Definitions or Table headers
 		 */
-		func getcontdef()
+		func getcontentdefinition()
 			cont = "("
 			size = len(content)
 			for x in content

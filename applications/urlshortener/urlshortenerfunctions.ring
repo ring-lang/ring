@@ -21,6 +21,7 @@ func createdbtable()
 		 */
 		close()
 	}
+// ================================================================================
 /*
  * Helper function to build the json REQUEST
  */
@@ -77,40 +78,8 @@ func fsavehistoryitem(shorturl, longurl)
  * Get API Key from XML File
  */
 func fgetapikey()
-	/*
-	 * Load the Settings file if it exists
-	 */
-	if fexists(filenames[:apikeyxmlfilename])
-		settings = read(filenames[:apikeyxmlfilename])
-		/*
-		 * Setup the XML Reader and data holders
-		 */
-		reader = new qxmlstreamreader() 
-		qbyte = new qbytearray()
-		qbyte.append(settings)
-		reader.adddata(qbyte)
-		/*
-		 * Read the settings file XML 
-		 */
-		while not reader.atend()
-			if reader.error()
-				see xml.errorstring() see nl
-			ok
-			/*
-			 * Extract the key
-			 */ 
-			if reader.qualifiedname().tostring() = apixmlcontent[:keyelement]
-				key = reader.readelementtext(1)
-			ok
-			reader.readnext()
-		end
-		/*
-		 * Return the key, else empty str
-		 */
-		return key
-	else
-		return ""
-	ok
+	key = xmlopenread(filenames[:apikeyxmlfilename],  xmlcontent[:keyelement])
+	return key
 // ================================================================================
 /*
  * Get URL Shortener History from Database - Called on start
@@ -151,6 +120,43 @@ func fgethistory()
 			item2 = new qtablewidgetitem(i[dbcontent[:longurlelement]])
 			table.setitem(row, column, item2)
 			column = 0
+		next
+	}
+// ================================================================================
+/*
+ * Get URL Shortener History from Database - Called on start
+ */
+func fgethistoryui()
+	/*
+	 * Ensures Table exists
+	 */
+	createdbtable()
+	/*
+	 * Initialize SQLite class
+	 */
+	mysql = new mysqlite
+	{
+		/*
+		* Open the History File 
+		*/
+		file = filenames[:historydbfilename]
+		/*
+		* Get All items in History
+		*/
+		ret = execute(sqlbuilder.getallhistory())
+		/*
+		* Close sqlite
+		*/
+		close()
+	}
+	/*
+	 * Parse the Results from the Database 
+	 * TODO: url builder
+	 */
+	mymainwindow{
+		for i in ret
+			link = " | <a href='" + i[dbcontent[:shorturlelement]] + "' title='" + i[dbcontent[:longurlelement]] + "' style='font-family: arial;'>" + i[dbcontent[:shorturlelement]] + "</a> "
+			qtextedit1.inserthtml(link)
 		next
 	}
 // ================================================================================
