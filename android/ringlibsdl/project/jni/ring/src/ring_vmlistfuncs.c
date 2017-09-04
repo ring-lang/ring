@@ -468,7 +468,7 @@ void ring_vmlib_reverse ( void *pPointer )
 				ring_list_adddouble(pList,ring_list_getdouble(pList2,x));
 			}
 			else if ( ring_list_islist(pList2,x) ) {
-				pList3 = ring_list_newlist(pList);
+				pList3 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
 				ring_list_copy(pList3,ring_list_getlist(pList2,x));
 			}
 		}
