@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -365 , : y = 15  , 
+		 :x = -365 , : y = -76  , 
 		 :width =  740 , :height = 575 , 
 		 :title =  "Menubar Designer" , 
 		 :backcolor =  "" , 
@@ -174,7 +174,7 @@ aObjectsList = [
 		 :x = 86 , : y = 485  , 
 		 :width =  503 , :height = 30 , 
 		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
 		 :font =  "" , 
 		 :parent =  "win"  ,
 		 :text =  "",
