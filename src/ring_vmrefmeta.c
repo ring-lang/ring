@@ -69,7 +69,7 @@ void ring_vm_refmeta_locals ( void *pPointer )
 	pList2 = RING_API_NEWLIST ;
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList3 = ring_list_getlist(pList,x);
-		ring_list_addstring(pList2,ring_list_getstring(pList3,RING_VAR_NAME));
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,ring_list_getstring(pList3,RING_VAR_NAME));
 	}
 	RING_API_RETLIST(pList2);
 }
@@ -85,7 +85,7 @@ void ring_vm_refmeta_globals ( void *pPointer )
 	/* We avoid internal global variables like true, false */
 	for ( x = RING_VM_INTERNALGLOBALSCOUNT + 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList3 = ring_list_getlist(pList,x);
-		ring_list_addstring(pList2,ring_list_getstring(pList3,RING_VAR_NAME));
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,ring_list_getstring(pList3,RING_VAR_NAME));
 	}
 	RING_API_RETLIST(pList2);
 }
@@ -99,7 +99,7 @@ void ring_vm_refmeta_functions ( void *pPointer )
 	pList = RING_API_NEWLIST ;
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pFunctionsMap) ; x++ ) {
 		pList2 = ring_list_getlist(pVM->pFunctionsMap,x);
-		ring_list_addstring(pList,ring_list_getstring(pList2,RING_FUNCMAP_NAME));
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,ring_list_getstring(pList2,RING_FUNCMAP_NAME));
 	}
 	RING_API_RETLIST(pList);
 }
@@ -113,7 +113,7 @@ void ring_vm_refmeta_cfunctions ( void *pPointer )
 	pList = RING_API_NEWLIST ;
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pCFunctionsList) ; x++ ) {
 		pList2 = ring_list_getlist(pVM->pCFunctionsList,x);
-		ring_list_addstring(pList,ring_list_getstring(pList2,RING_FUNCMAP_NAME));
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,ring_list_getstring(pList2,RING_FUNCMAP_NAME));
 	}
 	RING_API_RETLIST(pList);
 }
@@ -237,7 +237,7 @@ void ring_vm_refmeta_packages ( void *pPointer )
 	pList = RING_API_NEWLIST ;
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pPackagesMap) ; x++ ) {
 		pList2 = ring_list_getlist(pVM->pPackagesMap,x);
-		ring_list_addstring(pList,ring_list_getstring(pList2,RING_PACKAGENAME));
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,ring_list_getstring(pList2,RING_PACKAGENAME));
 	}
 	RING_API_RETLIST(pList);
 }
@@ -279,7 +279,7 @@ void ring_vm_refmeta_classes ( void *pPointer )
 	pList = RING_API_NEWLIST ;
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pClassesMap) ; x++ ) {
 		pList2 = ring_list_getlist(pVM->pClassesMap,x);
-		ring_list_addstring(pList,ring_list_getstring(pList2,RING_CLASSMAP_CLASSNAME));
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,ring_list_getstring(pList2,RING_CLASSMAP_CLASSNAME));
 	}
 	RING_API_RETLIST(pList);
 }
@@ -334,7 +334,7 @@ void ring_vm_refmeta_packageclasses ( void *pPointer )
 				pList2 = ring_list_getlist(pList2,RING_CLASSESLIST) ;
 				/* We can use the variable x for the loop again because we have return */
 				for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
-					ring_list_addstring(pList3,ring_list_getstring(ring_list_getlist(pList2,x),RING_CLASSMAP_CLASSNAME));
+					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList3,ring_list_getstring(ring_list_getlist(pList2,x),RING_CLASSMAP_CLASSNAME));
 				}
 				RING_API_RETLIST(pList3);
 				return ;
@@ -440,7 +440,7 @@ void ring_vm_refmeta_attributes ( void *pPointer )
 			pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
 			pList2 = RING_API_NEWLIST ;
 			for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
-				ring_list_addstring(pList2,ring_list_getstring(ring_list_getlist(pList,x),RING_VAR_NAME));
+				ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,ring_list_getstring(ring_list_getlist(pList,x),RING_VAR_NAME));
 			}
 			RING_API_RETLIST(pList2);
 		} else {
@@ -466,7 +466,7 @@ void ring_vm_refmeta_methods ( void *pPointer )
 			pList = ring_list_getlist(pList,RING_CLASSMAP_METHODSLIST);
 			pList2 = RING_API_NEWLIST ;
 			for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-				ring_list_addstring(pList2,ring_list_getstring(ring_list_getlist(pList,x),RING_FUNCMAP_NAME));
+				ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,ring_list_getstring(ring_list_getlist(pList,x),RING_FUNCMAP_NAME));
 			}
 			RING_API_RETLIST(pList2);
 		} else {
@@ -660,11 +660,11 @@ void ring_vm_refmeta_addmethod ( void *pPointer )
 				pList2 = ring_list_getlist(pVM->pFunctionsMap,x);
 				if ( strcmp(ring_list_getstring(pList2,RING_FUNCMAP_NAME),cStr) == 0 ) {
 					/* Add new list to the class methods list */
-					pList3 = ring_list_newlist(pList);
+					pList3 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
 					/* Copy function to class methods */
 					ring_list_copy(pList3,pList2);
 					/* Set the Function Name */
-					ring_list_setstring(pList3,RING_FUNCMAP_NAME,ring_string_lower(RING_API_GETSTRING(2)));
+					ring_list_setstring_gc(((VM *) pPointer)->pRingState,pList3,RING_FUNCMAP_NAME,ring_string_lower(RING_API_GETSTRING(2)));
 					/* Refresh the HashTable */
 					ring_list_genhashtable2(pList);
 					RING_API_RETNUMBER(1);
@@ -738,15 +738,15 @@ void ring_vm_refmeta_setattribute ( void *pPointer )
 				if ( strcmp(ring_list_getstring(ring_list_getlist(pList,x),RING_VAR_NAME),cStr) == 0 ) {
 					pList = ring_list_getlist(pList,x) ;
 					if ( RING_API_ISNUMBER(3) ) {
-						ring_list_setdouble(pList,RING_VAR_VALUE,RING_API_GETNUMBER(3));
+						ring_list_setdouble_gc(((VM *) pPointer)->pRingState,pList,RING_VAR_VALUE,RING_API_GETNUMBER(3));
 					}
 					else if ( RING_API_ISSTRING(3) ) {
-						ring_list_setstring2(pList,RING_VAR_VALUE,RING_API_GETSTRING(3),RING_API_GETSTRINGSIZE(3));
+						ring_list_setstring2_gc(((VM *) pPointer)->pRingState,pList,RING_VAR_VALUE,RING_API_GETSTRING(3),RING_API_GETSTRINGSIZE(3));
 					}
 					else if ( RING_API_ISLIST(3) ) {
-						ring_list_setlist(pList,RING_VAR_VALUE);
+						ring_list_setlist_gc(((VM *) pPointer)->pRingState,pList,RING_VAR_VALUE);
 						pList = ring_list_getlist(pList,RING_VAR_VALUE);
-						ring_list_deleteallitems(pList);
+						ring_list_deleteallitems_gc(((VM *) pPointer)->pRingState,pList);
 						ring_list_copy(pList,RING_API_GETLIST(3));
 					}
 					return ;
@@ -854,11 +854,11 @@ void ring_vm_refmeta_ringvmmemorylist ( void *pPointer )
 	VM *pVM  ;
 	List *pList, *pList2  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new(0) ;
+	pList = ring_list_new_gc(((VM *) pPointer)->pRingState,0) ;
 	ring_list_copy(pList,pVM->pMem);
 	pList2 = RING_API_NEWLIST ;
 	ring_list_copy(pList2,pList);
-	ring_list_delete(pList);
+	ring_list_delete_gc(((VM *) pPointer)->pRingState,pList);
 	RING_API_RETLIST(pList2);
 }
 
@@ -903,11 +903,11 @@ void ring_vm_refmeta_ringvmsettrace ( void *pPointer )
 		cStr = RING_API_GETSTRING(1) ;
 		if ( strcmp(cStr,"") == 0 ) {
 			pVM->lTrace = 0 ;
-			ring_string_set(pVM->pTrace,"");
+			ring_string_set_gc(((VM *) pPointer)->pRingState,pVM->pTrace,"");
 		}
 		else {
 			pVM->lTrace = 1 ;
-			ring_string_set(pVM->pTrace,cStr);
+			ring_string_set_gc(((VM *) pPointer)->pRingState,pVM->pTrace,cStr);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -965,12 +965,12 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		pVM->pMem->nSize = nScope ;
 		pVM->nEvalInScope++ ;
 		/* Save State */
-		pState = ring_list_new(0);
+		pState = ring_list_new_gc(((VM *) pPointer)->pRingState,0);
 		ring_vm_savestate2(pVM,pState);
 		ring_vm_runcode(pVM,cStr);
 		/* Restore State */
 		ring_vm_restorestate2(pVM,pState,1);
-		ring_list_delete(pState);
+		ring_list_delete_gc(((VM *) pPointer)->pRingState,pState);
 		pVM->nEvalInScope-- ;
 		pVM->pMem->nSize = nSize ;
 		pVM->pActiveMem = pActiveMem ;
@@ -1012,9 +1012,9 @@ void ring_vm_refmeta_ringvmcallfunc ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		/* We create a string, because the current scope will be deleted by ring_vm_callfunc() */
-		pString = ring_string_new(RING_API_GETSTRING(1));
+		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,RING_API_GETSTRING(1));
 		ring_vm_callfunction(pVM,ring_string_get(pString));
-		ring_string_delete(pString);
+		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
