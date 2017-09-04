@@ -614,7 +614,7 @@ void ring_vm_refmeta_addattribute ( void *pPointer )
 				cStr = RING_API_GETSTRING(2) ;
 				ring_string_lower(cStr);
 				/* Create Variable List */
-				ring_vm_newvar2(cStr,pList);
+				ring_vm_newvar2((VM *)pPointer,cStr,pList);
 			}
 			else if ( RING_API_ISLIST(2) ) {
 				pList2 = RING_API_GETLIST(2) ;
@@ -623,7 +623,7 @@ void ring_vm_refmeta_addattribute ( void *pPointer )
 						cStr = ring_list_getstring(pList2,x);
 						ring_string_lower(cStr);
 						/* Create Variable List */
-						ring_vm_newvar2(cStr,pList);
+						ring_vm_newvar2((VM *)pPointer,cStr,pList);
 					}
 				}
 			} else {

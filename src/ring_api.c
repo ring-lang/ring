@@ -140,7 +140,7 @@ RING_API void ring_vm_api_retlist ( void *pPointer,List *pList )
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	pList2 = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
-	pList3 = ring_vm_newvar2(RING_TEMP_VARIABLE,pList2);
+	pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pList2);
 	ring_list_setint_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_TYPE,RING_VM_LIST);
 	ring_list_setlist_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
