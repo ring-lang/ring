@@ -489,10 +489,10 @@ void ring_vmlib_add ( void *pPointer )
 			ring_list_copy(pList2,pList3);
 			if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject == pList3) ) {
 				pVM->pBraceObject = pList2 ;
-				ring_vm_oop_updateselfpointer(pList2,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList,ring_list_getsize(pList)));
+				ring_vm_oop_updateselfpointer((VM *) pPointer,pList2,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList,ring_list_getsize(pList)));
 			}
 			else if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject != pList3) ) {
-				ring_vm_oop_updateselfpointer(pList2,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList,ring_list_getsize(pList)));
+				ring_vm_oop_updateselfpointer((VM *) pPointer,pList2,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList,ring_list_getsize(pList)));
 			}
 		}
 	} else {

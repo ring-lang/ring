@@ -501,7 +501,7 @@ void ring_vm_movetoprevscope ( VM *pVM )
 	ring_list_copy_gc(pVM->pRingState,pList2,pList);
 	/* Update self object pointer */
 	if ( ring_vm_oop_isobject(pList2) ) {
-		ring_vm_oop_updateselfpointer(pList2,RING_OBJTYPE_VARIABLE,pList3);
+		ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_VARIABLE,pList3);
 	}
 	RING_VM_STACK_SETPVALUE(pList3);
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;

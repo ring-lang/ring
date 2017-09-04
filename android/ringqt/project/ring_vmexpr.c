@@ -1022,14 +1022,14 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 					**  The array maybe global or related to the object state and may stay longer than the Temp. Memory 
 					**  Without this modification using self may lead to crash or using corrupted memory 
 					*/
-					ring_vm_oop_updateselfpointer(pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
+					ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
 				}
 				else if ( (ring_vm_oop_isobject(pList3) == 1)  && (pVM->pBraceObject != pList) ) {
 					/*
 					**  in ring code if we used mylist + new obj() the init method will be called 
 					**  the pVM->pBraceObject will not == pList but we have to update the self pointer! 
 					*/
-					ring_vm_oop_updateselfpointer(pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
+					ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
 				}
 				return ;
 			}
