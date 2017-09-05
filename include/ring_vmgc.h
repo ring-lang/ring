@@ -39,4 +39,11 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
 /* Macro */
 #define ring_vm_gc_cleardata(pItem) (pItem->gc.nReferenceCount = 0)
 #define GCLog 0
+/* Pool Manager Functions */
+
+void ring_poolmanager_newblock ( RingState *pRingState ) ;
+
+void * ring_poolmanager_allocate ( RingState *pRingState ) ;
+
+void ring_poolmanager_free ( RingState *pRingState,void *pMemory ) ;
 #endif

@@ -43,6 +43,10 @@ PoolData *
 Parent: PoolManager
 Type: PoolData *
 pCurrentItem
+Type: void *
+pBlockStart
+Type: void *
+pBlockEnd
 END:
 Type: PoolManager
 struct PoolManager
@@ -99,3 +103,6 @@ ring_state_realloc
 Type: void *
 pMem
 ring_vm_gc_deleteitem
+ring_poolmanager_newblock
+ring_poolmanager_allocate
+ring_poolmanager_free
