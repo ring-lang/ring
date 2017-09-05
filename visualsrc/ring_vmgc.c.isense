@@ -24,7 +24,7 @@ Type: List
 vList
 Type: HashTable
 vHashTable
-Type: struct HashItem
+Type: HashItem
 vHashItem
 Type: char
 vChar[64]
@@ -40,6 +40,18 @@ struct PoolData *
 Type: PoolData
 Mark: ->
 PoolData *
+Parent: PoolManager
+Type: PoolData *
+pCurrentItem
+END:
+Type: PoolManager
+struct PoolManager
+Type: PoolManager
+Mark: ->
+struct PoolManager *
+Type: PoolManager
+Mark: ->
+PoolManager *
 ring_gc_h
 ring_vm_gc_cleardata(pItem)
 GCLog
