@@ -11,6 +11,47 @@ struct GCData *
 Type: GCData
 Mark: ->
 GCData *
+ring_vmgcdata
+Parent: GCData
+Type: int
+nReferenceCount
+END:
+Type: GCData
+struct GCData
+Type: GCData
+Mark: ->
+struct GCData *
+Type: GCData
+Mark: ->
+GCData *
+Parent: PoolData
+Parent: PoolDataTypes
+Type: struct String
+vString
+Type: struct Item
+vItem
+Type: struct Items
+vItems
+Type: struct List
+vList
+Type: struct HashTable
+vHashTable
+Type: struct HashItem
+vHashItem
+Type: char
+vChar[64]
+END:
+Type: struct PoolData *
+pNext
+END:
+Type: PoolData
+struct PoolData
+Type: PoolData
+Mark: ->
+struct PoolData *
+Type: PoolData
+Mark: ->
+PoolData *
 ring_gc_h
 ring_vm_gc_cleardata(pItem)
 GCLog
