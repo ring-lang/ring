@@ -22,4 +22,5 @@ typedef struct PoolManager {
 /* Macro */
 #define RING_POOLMANAGER_ITEMSINBLOCK 10000
 #define RING_POOLMANAGER_ITEMSIZE 64
+#define RING_USEPOOLMANAGER 0
 #endif

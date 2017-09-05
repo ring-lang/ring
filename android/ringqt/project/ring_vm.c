@@ -17,6 +17,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	}
 	/* Ring State */
 	pVM->pRingState = pRingState ;
+	pRingState->pVM = pVM ;
 	pVM->nPC = 1 ;
 	pVM->pCode = NULL ;
 	pVM->pFunctionsMap = NULL ;
@@ -261,6 +262,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pPackageName = ring_string_delete_gc(pVM->pRingState,pVM->pPackageName);
 	pVM->pTrace = ring_string_delete_gc(pVM->pRingState,pVM->pTrace);
 	pVM->pTraceData = ring_list_delete_gc(pVM->pRingState,pVM->pTraceData);
+	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;
 	return pVM ;
