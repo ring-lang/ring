@@ -1,6 +1,7 @@
 /* Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_pooldata
 #define ring_pooldata
+/* Data */
 typedef struct PoolData {
 	union PoolDataTypes {
 		String vString  ;
@@ -18,4 +19,6 @@ typedef struct PoolManager {
 	void *pBlockStart  ;
 	void *pBlockEnd  ;
 } PoolManager ;
+/* Macro */
+#define RING_POOLMANAGER_ITEMSINBLOCK 10000
 #endif
