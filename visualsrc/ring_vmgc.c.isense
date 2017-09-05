@@ -58,6 +58,7 @@ Mark: ->
 PoolManager *
 RING_POOLMANAGER_ITEMSINBLOCK
 RING_POOLMANAGER_ITEMSIZE
+RING_USEPOOLMANAGER
 ring_gc_h
 ring_vm_gc_cleardata(pItem)
 GCLog
