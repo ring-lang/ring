@@ -46,4 +46,6 @@ void ring_poolmanager_newblock ( RingState *pRingState ) ;
 void * ring_poolmanager_allocate ( RingState *pRingState,size_t size ) ;
 
 void ring_poolmanager_free ( RingState *pRingState,void *pMemory ) ;
+
+void ring_poolmanager_delete ( RingState *pRingState ) ;
 #endif
