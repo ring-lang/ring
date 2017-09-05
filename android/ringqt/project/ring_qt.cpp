@@ -5839,6 +5839,800 @@ RING_FUNC(ring_QPixmap_load)
 }
 
 
+RING_FUNC(ring_QPixmap_cacheKey)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	RING_API_RETNUMBER(pObject->cacheKey());
+}
+
+
+RING_FUNC(ring_QPixmap_convertFromImage)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->convertFromImage(* (QImage  *) RING_API_GETCPOINTER(2,"QImage"), (Qt::ImageConversionFlags )  (int) RING_API_GETNUMBER(3)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QImage"));
+}
+
+
+RING_FUNC(ring_QPixmap_copy_2)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->copy(* (QRect  *) RING_API_GETCPOINTER(2,"QRect"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_createHeuristicMask)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QBitmap *pValue ; 
+		pValue = new QBitmap() ;
+		*pValue = pObject->createHeuristicMask( (bool ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QBitmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_depth)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	RING_API_RETNUMBER(pObject->depth());
+}
+
+
+RING_FUNC(ring_QPixmap_detach)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	pObject->detach();
+}
+
+
+RING_FUNC(ring_QPixmap_devicePixelRatio)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	RING_API_RETNUMBER(pObject->devicePixelRatio());
+}
+
+
+RING_FUNC(ring_QPixmap_hasAlpha)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	RING_API_RETNUMBER(pObject->hasAlpha());
+}
+
+
+RING_FUNC(ring_QPixmap_hasAlphaChannel)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	RING_API_RETNUMBER(pObject->hasAlphaChannel());
+}
+
+
+RING_FUNC(ring_QPixmap_isNull)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QPixmap_isQBitmap)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	RING_API_RETNUMBER(pObject->isQBitmap());
+}
+
+
+RING_FUNC(ring_QPixmap_loadFromData)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->loadFromData((uchar *) RING_API_GETCPOINTER(2,"uchar"),* (uint  *) RING_API_GETCPOINTER(3,"uint"),RING_API_GETSTRING(4), (Qt::ImageConversionFlags )  (int) RING_API_GETNUMBER(5)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uint"));
+}
+
+
+RING_FUNC(ring_QPixmap_loadFromData_2)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->loadFromData(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray"),RING_API_GETSTRING(3), (Qt::ImageConversionFlags )  (int) RING_API_GETNUMBER(4)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QPixmap_rect)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->rect();
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_save)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->save(RING_API_GETSTRING(2),RING_API_GETSTRING(3), (int ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_QPixmap_save_2)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->save((QIODevice *) RING_API_GETCPOINTER(2,"QIODevice"),RING_API_GETSTRING(3), (int ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_QPixmap_scaled_2)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->scaled(* (QSize  *) RING_API_GETCPOINTER(2,"QSize"), (Qt::AspectRatioMode )  (int) RING_API_GETNUMBER(3), (Qt::TransformationMode )  (int) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QSize"));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_scaledToHeight)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->scaledToHeight( (int ) RING_API_GETNUMBER(2), (Qt::TransformationMode )  (int) RING_API_GETNUMBER(3));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_scaledToWidth)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->scaledToWidth( (int ) RING_API_GETNUMBER(2), (Qt::TransformationMode )  (int) RING_API_GETNUMBER(3));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_scroll)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->scroll( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7),(QRegion *) RING_API_GETCPOINTER(8,"QRegion"));
+}
+
+
+RING_FUNC(ring_QPixmap_scroll_2)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->scroll( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (QRect  *) RING_API_GETCPOINTER(4,"QRect"),(QRegion *) RING_API_GETCPOINTER(5,"QRegion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QRect"));
+}
+
+
+RING_FUNC(ring_QPixmap_setDevicePixelRatio)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDevicePixelRatio( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QPixmap_size)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	{
+		QSize *pValue ; 
+		pValue = new QSize() ;
+		*pValue = pObject->size();
+		RING_API_RETCPOINTER(pValue,"QSize");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_swap)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	pObject->swap(* (QPixmap  *) RING_API_GETCPOINTER(2,"QPixmap"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPixmap"));
+}
+
+
+RING_FUNC(ring_QPixmap_toImage)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	{
+		QImage *pValue ; 
+		pValue = new QImage() ;
+		*pValue = pObject->toImage();
+		RING_API_RETCPOINTER(pValue,"QImage");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_transformed)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->transformed(* (QTransform  *) RING_API_GETCPOINTER(2,"QTransform"), (Qt::TransformationMode )  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTransform"));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_transformed_2)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->transformed(* (QMatrix  *) RING_API_GETCPOINTER(2,"QMatrix"), (Qt::TransformationMode )  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix"));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_defaultDepth)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	RING_API_RETNUMBER(pObject->defaultDepth());
+}
+
+
+RING_FUNC(ring_QPixmap_fromImage_2)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->fromImage(* (QImage  *) RING_API_GETCPOINTER(2,"QImage"), (Qt::ImageConversionFlags )  (int) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QImage"));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_fromImageReader)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->fromImageReader((QImageReader *) RING_API_GETCPOINTER(2,"QImageReader"), (Qt::ImageConversionFlags )  (int) RING_API_GETNUMBER(3));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_trueMatrix)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QTransform *pValue ; 
+		pValue = (QTransform *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTransform)) ;
+		*pValue = pObject->trueMatrix(* (QTransform  *) RING_API_GETCPOINTER(2,"QTransform"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QTransform"));
+		RING_API_RETCPOINTER(pValue,"QTransform");
+	}
+}
+
+
+RING_FUNC(ring_QPixmap_trueMatrix_2)
+{
+	QPixmap *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPixmap *) RING_API_GETCPOINTER(1,"QPixmap");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QMatrix *pValue ; 
+		pValue = (QMatrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QMatrix)) ;
+		*pValue = pObject->trueMatrix(* (QMatrix  *) RING_API_GETCPOINTER(2,"QMatrix"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix"));
+		RING_API_RETCPOINTER(pValue,"QMatrix");
+	}
+}
+
+
 RING_FUNC(ring_QLineEdit_alignment)
 {
 	GLineEdit *pObject ;
@@ -90509,6 +91303,38 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpixmap_fill",ring_QPixmap_fill);
 	ring_vm_funcregister("qpixmap_fromimage",ring_QPixmap_fromImage);
 	ring_vm_funcregister("qpixmap_load",ring_QPixmap_load);
+	ring_vm_funcregister("qpixmap_cachekey",ring_QPixmap_cacheKey);
+	ring_vm_funcregister("qpixmap_convertfromimage",ring_QPixmap_convertFromImage);
+	ring_vm_funcregister("qpixmap_copy_2",ring_QPixmap_copy_2);
+	ring_vm_funcregister("qpixmap_createheuristicmask",ring_QPixmap_createHeuristicMask);
+	ring_vm_funcregister("qpixmap_depth",ring_QPixmap_depth);
+	ring_vm_funcregister("qpixmap_detach",ring_QPixmap_detach);
+	ring_vm_funcregister("qpixmap_devicepixelratio",ring_QPixmap_devicePixelRatio);
+	ring_vm_funcregister("qpixmap_hasalpha",ring_QPixmap_hasAlpha);
+	ring_vm_funcregister("qpixmap_hasalphachannel",ring_QPixmap_hasAlphaChannel);
+	ring_vm_funcregister("qpixmap_isnull",ring_QPixmap_isNull);
+	ring_vm_funcregister("qpixmap_isqbitmap",ring_QPixmap_isQBitmap);
+	ring_vm_funcregister("qpixmap_loadfromdata",ring_QPixmap_loadFromData);
+	ring_vm_funcregister("qpixmap_loadfromdata_2",ring_QPixmap_loadFromData_2);
+	ring_vm_funcregister("qpixmap_rect",ring_QPixmap_rect);
+	ring_vm_funcregister("qpixmap_save",ring_QPixmap_save);
+	ring_vm_funcregister("qpixmap_save_2",ring_QPixmap_save_2);
+	ring_vm_funcregister("qpixmap_scaled_2",ring_QPixmap_scaled_2);
+	ring_vm_funcregister("qpixmap_scaledtoheight",ring_QPixmap_scaledToHeight);
+	ring_vm_funcregister("qpixmap_scaledtowidth",ring_QPixmap_scaledToWidth);
+	ring_vm_funcregister("qpixmap_scroll",ring_QPixmap_scroll);
+	ring_vm_funcregister("qpixmap_scroll_2",ring_QPixmap_scroll_2);
+	ring_vm_funcregister("qpixmap_setdevicepixelratio",ring_QPixmap_setDevicePixelRatio);
+	ring_vm_funcregister("qpixmap_size",ring_QPixmap_size);
+	ring_vm_funcregister("qpixmap_swap",ring_QPixmap_swap);
+	ring_vm_funcregister("qpixmap_toimage",ring_QPixmap_toImage);
+	ring_vm_funcregister("qpixmap_transformed",ring_QPixmap_transformed);
+	ring_vm_funcregister("qpixmap_transformed_2",ring_QPixmap_transformed_2);
+	ring_vm_funcregister("qpixmap_defaultdepth",ring_QPixmap_defaultDepth);
+	ring_vm_funcregister("qpixmap_fromimage_2",ring_QPixmap_fromImage_2);
+	ring_vm_funcregister("qpixmap_fromimagereader",ring_QPixmap_fromImageReader);
+	ring_vm_funcregister("qpixmap_truematrix",ring_QPixmap_trueMatrix);
+	ring_vm_funcregister("qpixmap_truematrix_2",ring_QPixmap_trueMatrix_2);
 	ring_vm_funcregister("qlineedit_alignment",ring_QLineEdit_alignment);
 	ring_vm_funcregister("qlineedit_backspace",ring_QLineEdit_backspace);
 	ring_vm_funcregister("qlineedit_completer",ring_QLineEdit_completer);
