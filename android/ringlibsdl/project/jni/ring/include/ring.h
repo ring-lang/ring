@@ -89,6 +89,11 @@
 #include "ring_vm.h"
 #include "ring_vmgc.h"
 #include "ring_api.h"
+#include "ring_hashlib.h"
+#include "ring_hashtable.h"
+#include "ring_objfile.h"
+#include "ring_pooldata.h"
+/* Extensions Headers */
 #ifdef RING_VM_MATH
 #include "ring_vmmath.h"
 #endif
@@ -107,7 +112,4 @@
 #ifdef RING_VM_DLL
 #include "ring_vmdll.h"
 #endif
-#include "ring_hashlib.h"
-#include "ring_hashtable.h"
-#include "ring_objfile.h"
 #endif
