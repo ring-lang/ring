@@ -128,9 +128,7 @@ void ring_vm_gc_newitemreference ( Item *pItem )
 
 RING_API void * ring_malloc ( size_t size )
 {
-	void *pMem  ;
-	pMem = malloc(size);
-	return pMem ;
+	return malloc(size) ;
 }
 
 RING_API void ring_free ( void *ptr )
@@ -140,43 +138,40 @@ RING_API void ring_free ( void *ptr )
 
 RING_API void * ring_calloc ( size_t nitems, size_t size )
 {
-	void *pMem  ;
-	pMem = calloc(nitems,size);
-	return pMem ;
+	return calloc(nitems,size) ;
 }
 
 RING_API void * ring_realloc ( void *ptr, size_t size )
 {
-	void *pMem  ;
-	pMem = realloc(ptr,size);
-	return pMem ;
+	return realloc(ptr,size) ;
 }
 /* Memory Functions (RingState Aware) */
 
 RING_API void * ring_state_malloc ( void *pState,size_t size )
 {
-	void *pMem  ;
-	pMem = ring_malloc(size);
-	return pMem ;
+	if ( pState != NULL ) {
+		if ( ((RingState *) pState )->pVM  != NULL ) {
+			if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
+				return ring_poolmanager_allocate(pState,size) ;
+			}
+		}
+	}
+	return ring_malloc(size) ;
 }
 
-RING_API void ring_state_free ( void *pState,void *ptr )
+RING_API void ring_state_free ( void *pState,void *pMemory )
 {
-	ring_free(ptr);
+	ring_poolmanager_free(pState,pMemory);
 }
 
 RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 {
-	void *pMem  ;
-	pMem = ring_calloc(nitems,size);
-	return pMem ;
+	return ring_calloc(nitems,size) ;
 }
 
 RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size )
 {
-	void *pMem  ;
-	pMem = ring_realloc(ptr,size);
-	return pMem ;
+	return ring_realloc(ptr,size) ;
 }
 
 void ring_vm_gc_deleteitem ( Item *pItem )
@@ -197,7 +192,7 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 		exit(0);
 	}
 	/* Set Linked Lists (pNext values) */
-	for ( x = 0 ; x < RING_POOLMANAGER_ITEMSINBLOCK - 1 ; x++ ) {
+	for ( x = 0 ; x < RING_POOLMANAGER_ITEMSINBLOCK - 2 ; x++ ) {
 		pMemory[x].pNext = pMemory+x+1 ;
 	}
 	pMemory[RING_POOLMANAGER_ITEMSINBLOCK-1].pNext = NULL ;
@@ -205,18 +200,18 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	**  Set Values in Ring State 
 	**  Set First Item in Ring State 
 	*/
-	pRingState->vPoolManager.pCurrentItem = pMemory ;
+	pRingState->vPoolManager.pCurrentItem = pMemory+1 ;
 	/* Set Block Start and End */
 	pRingState->vPoolManager.pBlockStart = (void *) pMemory ;
 	pRingState->vPoolManager.pBlockEnd = (void *) (pMemory + RING_POOLMANAGER_ITEMSINBLOCK - 1) ;
 }
 
-void * ring_poolmanager_allocate ( RingState *pRingState )
+void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
 {
 	void *pMemory  ;
 	pMemory = NULL ;
 	/* If No memory - Create new block */
-	if ( pRingState->vPoolManager.pCurrentItem == NULL ) {
+	if ( (pRingState->vPoolManager.pCurrentItem == NULL) && (pRingState->vPoolManager.pBlockStart == NULL) ) {
 		ring_poolmanager_newblock(pRingState);
 	}
 	/* Get Item from the Pool Manager */
@@ -224,15 +219,30 @@ void * ring_poolmanager_allocate ( RingState *pRingState )
 		pMemory = pRingState->vPoolManager.pCurrentItem ;
 		pRingState->vPoolManager.pCurrentItem = pRingState->vPoolManager.pCurrentItem->pNext ;
 	}
+	/* If no free items, Allocate new item */
+	else {
+		pMemory = ring_malloc(size);
+		/* Check Memory */
+		if ( pMemory == NULL ) {
+			printf( RING_OOM ) ;
+			exit(0);
+		}
+	}
 	return pMemory ;
 }
 
 void ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 {
 	PoolData *pPoolData  ;
-	if ( (pMemory >= pRingState->vPoolManager.pBlockStart) && (pMemory <= pRingState->vPoolManager.pBlockEnd ) ) {
-		pPoolData = (PoolData *) pMemory ;
-		pPoolData->pNext = pRingState->vPoolManager.pCurrentItem ;
-		pRingState->vPoolManager.pCurrentItem = pPoolData ;
+	if ( pRingState != NULL ) {
+		if ( pRingState->vPoolManager.pBlockStart != NULL ) {
+			if ( (pMemory > pRingState->vPoolManager.pBlockStart) && (pMemory <= pRingState->vPoolManager.pBlockEnd ) ) {
+				pPoolData = (PoolData *) pMemory ;
+				pPoolData->pNext = pRingState->vPoolManager.pCurrentItem ;
+				pRingState->vPoolManager.pCurrentItem = pPoolData ;
+				return ;
+			}
+		}
 	}
+	ring_free(pMemory);
 }

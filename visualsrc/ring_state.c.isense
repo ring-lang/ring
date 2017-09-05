@@ -40,8 +40,8 @@ Type: struct VM *
 pVM
 Type: char
 lStartup
-Type: PoolManager *
-pPoolManager
+Type: PoolManager
+vPoolManager
 END:
 Type: RingState
 struct RingState
