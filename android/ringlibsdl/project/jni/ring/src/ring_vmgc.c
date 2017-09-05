@@ -183,3 +183,17 @@ void ring_vm_gc_deleteitem ( Item *pItem )
 {
 	ring_vm_gc_deleteitem_gc(NULL,pItem);
 }
+/* Pool Manager Functions */
+
+void ring_poolmanager_newblock ( RingState *pRingState )
+{
+}
+
+void * ring_poolmanager_allocate ( RingState *pRingState )
+{
+	return NULL ;
+}
+
+void ring_poolmanager_free ( RingState *pRingState,void *pMemory )
+{
+}
