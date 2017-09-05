@@ -59,6 +59,9 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->argv = NULL ;
 	pRingState->pVM = NULL ;
 	pRingState->lStartup = 0 ;
+	pRingState->vPoolManager.pCurrentItem = NULL ;
+	pRingState->vPoolManager.pBlockStart = NULL ;
+	pRingState->vPoolManager.pBlockEnd = NULL ;
 	return pRingState ;
 }
 

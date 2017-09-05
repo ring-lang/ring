@@ -29,7 +29,7 @@ RING_API void * ring_realloc ( void *ptr, size_t size ) ;
 
 RING_API void * ring_state_malloc ( void *pState,size_t size ) ;
 
-RING_API void ring_state_free ( void *pState,void *ptr ) ;
+RING_API void ring_state_free ( void *pState,void *pMemory ) ;
 
 RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size ) ;
 
@@ -43,7 +43,7 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
 
 void ring_poolmanager_newblock ( RingState *pRingState ) ;
 
-void * ring_poolmanager_allocate ( RingState *pRingState ) ;
+void * ring_poolmanager_allocate ( RingState *pRingState,size_t size ) ;
 
 void ring_poolmanager_free ( RingState *pRingState,void *pMemory ) ;
 #endif
