@@ -84,6 +84,7 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 	if ( pRingState->pVM != NULL ) {
 		ring_vm_delete(pRingState->pVM);
 	}
+	ring_poolmanager_delete(pRingState);
 	ring_free(pRingState);
 	return NULL ;
 }

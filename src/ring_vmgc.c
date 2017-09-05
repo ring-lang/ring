@@ -246,3 +246,12 @@ void ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 	}
 	ring_free(pMemory);
 }
+
+void ring_poolmanager_delete ( RingState *pRingState )
+{
+	if ( pRingState != NULL ) {
+		if ( pRingState->vPoolManager.pBlockStart != NULL ) {
+			free( pRingState->vPoolManager.pBlockStart ) ;
+		}
+	}
+}

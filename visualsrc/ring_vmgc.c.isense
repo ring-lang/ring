@@ -104,3 +104,4 @@ pMemory
 ring_poolmanager_free
 Type: PoolData *
 pPoolData
+ring_poolmanager_delete
