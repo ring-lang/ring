@@ -128,6 +128,7 @@ Parent Class : QObject
 * QSize frameSize(void)
 * QRect geometry(void)
 * void getContentsMargins(int *left, int *top, int *right, int *bottom)
+* QPixmap grab(QRect)
 * void grabGesture(Qt::GestureType gesture, Qt::GestureFlag flags)
 * void grabKeyboard(void)
 * void grabMouse(void)
