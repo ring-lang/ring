@@ -191,7 +191,18 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 
 void * ring_poolmanager_allocate ( RingState *pRingState )
 {
-	return NULL ;
+	void *pMemory  ;
+	pMemory = NULL ;
+	/* If No memory - Create new block */
+	if ( pRingState->vPoolManager.pCurrentItem == NULL ) {
+		ring_poolmanager_newblock(pRingState);
+	}
+	/* Get Item from the Pool Manager */
+	if ( pRingState->vPoolManager.pCurrentItem != NULL ) {
+		pMemory = pRingState->vPoolManager.pCurrentItem ;
+		pRingState->vPoolManager.pCurrentItem = pRingState->vPoolManager.pCurrentItem->pNext ;
+	}
+	return pMemory ;
 }
 
 void ring_poolmanager_free ( RingState *pRingState,void *pMemory )

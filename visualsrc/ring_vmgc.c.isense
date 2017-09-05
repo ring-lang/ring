@@ -105,4 +105,6 @@ pMem
 ring_vm_gc_deleteitem
 ring_poolmanager_newblock
 ring_poolmanager_allocate
+Type: void *
+pMemory
 ring_poolmanager_free
