@@ -11,30 +11,18 @@ struct GCData *
 Type: GCData
 Mark: ->
 GCData *
-ring_vmgcdata
-Parent: GCData
-Type: int
-nReferenceCount
-END:
-Type: GCData
-struct GCData
-Type: GCData
-Mark: ->
-struct GCData *
-Type: GCData
-Mark: ->
-GCData *
+ring_pooldata
 Parent: PoolData
 Parent: PoolDataTypes
-Type: struct String
+Type: String
 vString
-Type: struct Item
+Type: Item
 vItem
-Type: struct Items
+Type: Items
 vItems
-Type: struct List
+Type: List
 vList
-Type: struct HashTable
+Type: HashTable
 vHashTable
 Type: struct HashItem
 vHashItem
