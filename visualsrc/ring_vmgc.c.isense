@@ -56,6 +56,7 @@ struct PoolManager *
 Type: PoolManager
 Mark: ->
 PoolManager *
+RING_POOLMANAGER_ITEMSINBLOCK
 ring_gc_h
 ring_vm_gc_cleardata(pItem)
 GCLog
@@ -104,6 +105,10 @@ Type: void *
 pMem
 ring_vm_gc_deleteitem
 ring_poolmanager_newblock
+Type: PoolData *
+pMemory
+Type: int
+x
 ring_poolmanager_allocate
 Type: void *
 pMemory

@@ -187,6 +187,28 @@ void ring_vm_gc_deleteitem ( Item *pItem )
 
 void ring_poolmanager_newblock ( RingState *pRingState )
 {
+	PoolData *pMemory  ;
+	int x  ;
+	/* Get Block Memory */
+	pMemory = (PoolData *) ring_malloc(sizeof(PoolData)*RING_POOLMANAGER_ITEMSINBLOCK);
+	/* Check Memory */
+	if ( pMemory == NULL ) {
+		printf( RING_OOM ) ;
+		exit(0);
+	}
+	/* Set Linked Lists (pNext values) */
+	for ( x = 0 ; x < RING_POOLMANAGER_ITEMSINBLOCK - 1 ; x++ ) {
+		pMemory[x].pNext = pMemory+x+1 ;
+	}
+	pMemory[RING_POOLMANAGER_ITEMSINBLOCK-1].pNext = NULL ;
+	/*
+	**  Set Values in Ring State 
+	**  Set First Item in Ring State 
+	*/
+	pRingState->vPoolManager.pCurrentItem = pMemory ;
+	/* Set Block Start and End */
+	pRingState->vPoolManager.pBlockStart = (void *) pMemory ;
+	pRingState->vPoolManager.pBlockEnd = (void *) (pMemory + RING_POOLMANAGER_ITEMSINBLOCK - 1) ;
 }
 
 void * ring_poolmanager_allocate ( RingState *pRingState )
