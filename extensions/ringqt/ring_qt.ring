@@ -260,6 +260,11 @@ Class QWidget from QObject
 	Func getContentsMargins P1,P2,P3,P4
 		return QWidget_getContentsMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
 
+	Func grab P1
+		pTempObj = new QPixmap
+		pTempObj.pObject = QWidget_grab(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
 	Func grabGesture P1,P2
 		return QWidget_grabGesture(pObject,P1,P2)
 
