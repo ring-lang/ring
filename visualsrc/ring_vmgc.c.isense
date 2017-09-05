@@ -113,3 +113,5 @@ ring_poolmanager_allocate
 Type: void *
 pMemory
 ring_poolmanager_free
+Type: PoolData *
+pPoolData
