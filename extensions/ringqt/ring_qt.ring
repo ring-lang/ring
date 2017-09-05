@@ -1035,6 +1035,126 @@ Class QPixmap
 	Func loadpixmap P1,P2,P3
 		return QPixmap_load(pObject,P1,P2,P3)
 
+	Func cacheKey 
+		return QPixmap_cacheKey(pObject)
+
+	Func convertFromImage P1,P2
+		return QPixmap_convertFromImage(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func copy_2 P1
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_copy_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func createHeuristicMask P1
+		pTempObj = new QBitmap
+		pTempObj.pObject = QPixmap_createHeuristicMask(pObject,P1)
+		return pTempObj
+
+	Func depth 
+		return QPixmap_depth(pObject)
+
+	Func detach 
+		return QPixmap_detach(pObject)
+
+	Func devicePixelRatio 
+		return QPixmap_devicePixelRatio(pObject)
+
+	Func hasAlpha 
+		return QPixmap_hasAlpha(pObject)
+
+	Func hasAlphaChannel 
+		return QPixmap_hasAlphaChannel(pObject)
+
+	Func isNull 
+		return QPixmap_isNull(pObject)
+
+	Func isQBitmap 
+		return QPixmap_isQBitmap(pObject)
+
+	Func loadFromData P1,P2,P3,P4
+		return QPixmap_loadFromData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,P4)
+
+	Func loadFromData_2 P1,P2,P3
+		return QPixmap_loadFromData_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func rect 
+		pTempObj = new QRect
+		pTempObj.pObject = QPixmap_rect(pObject)
+		return pTempObj
+
+	Func save P1,P2,P3
+		return QPixmap_save(pObject,P1,P2,P3)
+
+	Func save_2 P1,P2,P3
+		return QPixmap_save_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func scaled_2 P1,P2,P3
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_scaled_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+		return pTempObj
+
+	Func scaledToHeight P1,P2
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_scaledToHeight(pObject,P1,P2)
+		return pTempObj
+
+	Func scaledToWidth P1,P2
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_scaledToWidth(pObject,P1,P2)
+		return pTempObj
+
+	Func scroll P1,P2,P3,P4,P5,P6,P7
+		return QPixmap_scroll(pObject,P1,P2,P3,P4,P5,P6,GetObjectPointerFromRingObject(P7))
+
+	Func scroll_2 P1,P2,P3,P4
+		return QPixmap_scroll_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func setDevicePixelRatio P1
+		return QPixmap_setDevicePixelRatio(pObject,P1)
+
+	Func size 
+		pTempObj = new QSize
+		pTempObj.pObject = QPixmap_size(pObject)
+		return pTempObj
+
+	Func swap P1
+		return QPixmap_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toImage 
+		pTempObj = new QImage
+		pTempObj.pObject = QPixmap_toImage(pObject)
+		return pTempObj
+
+	Func transformed P1,P2
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_transformed(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func transformed_2 P1,P2
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_transformed_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func defaultDepth 
+		return QPixmap_defaultDepth(pObject)
+
+	Func fromImage_2 P1,P2
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_fromImage_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func fromImageReader P1,P2
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_fromImageReader(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func trueMatrix P1,P2,P3
+		return QPixmap_trueMatrix(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func trueMatrix_2 P1,P2,P3
+		return QPixmap_trueMatrix_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
 Class QLineEdit from QWidget
 
 	pObject
