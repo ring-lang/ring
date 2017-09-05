@@ -139,82 +139,82 @@ Class RNoteController from WindowsControllerParent
 			setwindowtitle("Ring Notepad")
 			setGeometry(100,100,400,400)
 			aBtns = [
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/new.png")
 						setclickEvent(Method(:pNew))
 						settooltip("New File (Ctrl+N)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/open.png")
 						setclickEvent(Method(:pOpen))
 						settooltip("Open File (Ctrl+O)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/save.png")
 						setclickEvent(Method(:pSave))
 						settooltip("Save (Ctrl+S)")
 					 } ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/saveas.png")
 						setclickEvent(Method(:pSaveAs))
 						settooltip("Save As (Ctrl+E)")
 					 } ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/undo.png")
 						setclickEvent(Method(:pUndo))
 						settooltip("Undo (Ctrl+Z)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/cut.png")
 						setclickEvent(Method(:pCut))
 						settooltip("Cut (Ctrl+X)")
 					 } ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/copy.png")
 						setclickEvent(Method(:pCopy))
 						settooltip("Copy (Ctrl+C)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/paste.png")
 						setclickEvent(Method(:pPaste))
 						settooltip("Paste (Ctrl+V)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/font.png")
 						setclickEvent(Method(:pFont))
 						settooltip("Font (Ctrl+I)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/colors.png")
 						setclickEvent(Method(:pColor))
 						settooltip("Text Color (Ctrl+T)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/search.png")
 						setclickEvent(Method(:pFind))
 						settooltip("Find and Replace (Ctrl+F)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/print.png")
 						setclickEvent(Method(:pPrint))
 						settooltip("Print (Ctrl+P)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
 						setclickevent(Method(:pDebug)) 
 						settooltip("Debug - Run then wait! (Ctrl+D)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/run.png")
 						setclickEvent(Method(:pRun))
 						settooltip("Run the program (Ctrl+R) ")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/rungui.png")
 						setclickEvent(Method(:pRunNoConsole))
 						settooltip("Run GUI Application - No Console (Ctrl+F5)")
 					} ,
-					new qpushbutton(this.win1) {
+					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/close.png")
 						setclickEvent(Method(:pQuit))
 						settooltip("Quit (Ctrl+Q)")
@@ -234,22 +234,22 @@ Class RNoteController from WindowsControllerParent
 					setStylesheet("border: 0px;  background-color: rgba(0, 0, 0, 0);")
 					setReadOnly(True)
 				}
-				oBtnSetFile = new qPushbutton(this.win1) {
+				oBtnSetFile = new qtoolbutton(this.win1) {
 					setbtnimage(self,"image/open.png")
 					setclickEvent(Method(:pSetMainFile))
 					settooltip("Set the Main File to be the current source file (Ctrl+Shift+M)")
 				}
-				oBtnDebugMainFile = 	new qpushbutton(this.win1) {
+				oBtnDebugMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
 						setclickevent(Method(:pDebugMainFile)) 
 						settooltip("Main File : Debug  - Run then wait! (Ctrl+Shift+D)")
 				} 
-				oBtnRunMainFile = new qpushbutton(this.win1) {
+				oBtnRunMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/run.png")
 						setclickEvent(Method(:pRunMainFile))
 						settooltip("Main File : Run the program (Ctrl+Shift+R)")
 				} 
-				oBtnRunGUIMainFile = new qpushbutton(this.win1) {
+				oBtnRunGUIMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/rungui.png")
 						setclickEvent(Method(:pRunGUIMainFile))
 						settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
