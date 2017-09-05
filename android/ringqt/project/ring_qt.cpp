@@ -1384,6 +1384,30 @@ RING_FUNC(ring_QWidget_getContentsMargins)
 }
 
 
+RING_FUNC(ring_QWidget_grab)
+{
+	QWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->grab(* (QRect *) RING_API_GETCPOINTER(2,"QRect"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRect"));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
 RING_FUNC(ring_QWidget_grabGesture)
 {
 	QWidget *pObject ;
@@ -90266,6 +90290,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwidget_framesize",ring_QWidget_frameSize);
 	ring_vm_funcregister("qwidget_geometry",ring_QWidget_geometry);
 	ring_vm_funcregister("qwidget_getcontentsmargins",ring_QWidget_getContentsMargins);
+	ring_vm_funcregister("qwidget_grab",ring_QWidget_grab);
 	ring_vm_funcregister("qwidget_grabgesture",ring_QWidget_grabGesture);
 	ring_vm_funcregister("qwidget_grabkeyboard",ring_QWidget_grabKeyboard);
 	ring_vm_funcregister("qwidget_grabmouse",ring_QWidget_grabMouse);
