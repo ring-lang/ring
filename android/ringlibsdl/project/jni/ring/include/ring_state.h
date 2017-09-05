@@ -38,6 +38,8 @@ typedef struct RingState {
 	struct VM *pVM  ;
 	/* Startup File */
 	char lStartup  ;
+	/* Pool Manager */
+	PoolManager vPoolManager  ;
 } RingState ;
 /* Functions */
 
