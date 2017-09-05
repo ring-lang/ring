@@ -2100,8 +2100,10 @@ Screen Shot:
 What is new in Ring 1.5.4?
 ==========================
 
+* CalmoSoft Fifteen Puzzle Game 3D
 * Ring Notepad - New Styles 
 * Ring Notepad - Better Toolbar Style
-* CalmoSoft Fifteen Puzzle Game 3D
+* Form Designer - Better Toolbar Style
+* Form Designer - Nice backcolor for Window Flags and Menubar Designer
 * RingQt - Added grab() method to QWidget class.
 * RingQt - Added new methods to QPixmap Class
