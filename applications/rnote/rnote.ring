@@ -185,11 +185,6 @@ Class RNoteController from WindowsControllerParent
 						settooltip("Font (Ctrl+I)")
 					} ,
 					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/colors.png")
-						setclickEvent(Method(:pColor))
-						settooltip("Text Color (Ctrl+T)")
-					} ,
-					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/search.png")
 						setclickEvent(Method(:pFind))
 						settooltip("Find and Replace (Ctrl+F)")
