@@ -234,27 +234,27 @@ Class FormDesignerView from WindowsViewParent
 
 	func CreateToolBar
 		aBtns = [
-				new qpushbutton(win) {
+				new qtoolbutton(win) {
 					setbtnimage(self,"image/new.png")
 					setclickevent(Method(:NewAction))
 					settooltip("New File")
 				} ,
-				new qpushbutton(win) {
+				new qtoolbutton(win) {
 					setbtnimage(self,"image/open.png")
 					setclickevent(Method(:OpenAction))
 					settooltip("Open File")
 				} ,
-				new qpushbutton(win) {
+				new qtoolbutton(win) {
 					setbtnimage(self,"image/save.png")
 					setclickevent(Method(:SaveAction))
 					settooltip("Save")
 				 } ,
-				new qpushbutton(win) {
+				new qtoolbutton(win) {
 					setbtnimage(self,"image/saveas.png")
 					setclickevent(Method(:SaveAsAction))
 					settooltip("Save As")
 				 } ,
-				new qpushbutton(win) {
+				new qtoolbutton(win) {
 					setbtnimage(self,"image/close.png")
 					setclickevent(Method(:ExitAction))
 					settooltip("Exit")
