@@ -13,4 +13,9 @@ typedef struct PoolData {
 	} PoolDataTypes ;
 	struct PoolData *pNext  ;
 } PoolData ;
+typedef struct PoolManager {
+	PoolData *pCurrentItem  ;
+	void *pBlockStart  ;
+	void *pBlockEnd  ;
+} PoolManager ;
 #endif
