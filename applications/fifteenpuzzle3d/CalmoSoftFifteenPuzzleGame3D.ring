@@ -2,13 +2,13 @@
 **
 **	Game  	: CalmoSoft Fifteen Puzzle Game 3D 
 **	Date   	: 2017/09/01
-**  Author 	: CalmoSoft <calmosoft@gmail.com>, Mahmoud Fayed
+**  	Author 	: CalmoSoft <calmosoft@gmail.com>, Mahmoud Fayed
 **
 */
 
 # Load Libraries
 load "gamelib.ring"		# RingAllegro Library
-load "opengl21lib.ring"	# RingOpenGL  Library
+load "opengl21lib.ring"		# RingOpenGL  Library
 
 butSize = 3
 texture = list(9)
