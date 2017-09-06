@@ -410,8 +410,7 @@ void ring_vm_execute ( VM *pVM )
 			ring_vm_freestack(pVM);
 			break ;
 		case ICO_FILENAME :
-			pVM->cPrevFileName = pVM->cFileName ;
-			pVM->cFileName = RING_VM_IR_READC ;
+			ring_vm_setfilename(pVM);
 			break ;
 		case ICO_FREELOADASCOPE :
 			ring_vm_freeloadaddressscope(pVM);
@@ -531,9 +530,7 @@ void ring_vm_execute ( VM *pVM )
 			pVM->nFuncExecute++ ;
 			break ;
 		case ICO_ENDFUNCEXE :
-			if ( pVM->nFuncExecute > 0 ) {
-				pVM->nFuncExecute-- ;
-			}
+			ring_vm_endfuncexec(pVM);
 			break ;
 		case ICO_ANONYMOUS :
 			ring_vm_anonymous(pVM);
@@ -695,9 +692,7 @@ void ring_vm_execute ( VM *pVM )
 			ring_vm_popstep(pVM);
 			break ;
 		case ICO_LOADAFIRST :
-			pVM->nFirstAddress = 1 ;
-			ring_vm_loadaddress(pVM);
-			pVM->nFirstAddress = 0 ;
+			ring_vm_loadaddressfirst(pVM);
 			break ;
 	}
 }
@@ -1126,6 +1121,26 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		}
 	}
 	printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
+}
+
+void ring_vm_setfilename ( VM *pVM )
+{
+	pVM->cPrevFileName = pVM->cFileName ;
+	pVM->cFileName = RING_VM_IR_READC ;
+}
+
+void ring_vm_loadaddressfirst ( VM *pVM )
+{
+	pVM->nFirstAddress = 1 ;
+	ring_vm_loadaddress(pVM);
+	pVM->nFirstAddress = 0 ;
+}
+
+void ring_vm_endfuncexec ( VM *pVM )
+{
+	if ( pVM->nFuncExecute > 0 ) {
+		pVM->nFuncExecute-- ;
+	}
 }
 /* Threads */
 
