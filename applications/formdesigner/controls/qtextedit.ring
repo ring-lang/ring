@@ -23,6 +23,8 @@ class FormDesigner_QTextEdit from QLineEdit
 	ctextChangedEvent = ""
 	cundoAvailableEvent = ""
 
+	cBackColor = "white"
+
 	func TextValue
 		return cText
 

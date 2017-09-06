@@ -35,6 +35,8 @@ class FormDesigner_QTreeWidget from QLineEdit
 	citemPressedEvent = ""
 	citemSelectionChangedEvent = ""
 
+	cBackColor = "white"
+
 	func SetColumnCountValue cValue
 		cColumnCount = cValue
 

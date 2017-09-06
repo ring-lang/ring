@@ -27,6 +27,8 @@ class FormDesigner_QListWidget from QLineEdit
 	citemPressedEvent = ""
 	citemSelectionChangedEvent = ""
 
+	cBackColor = "white"
+
 	func SetcItems cValue
 		cItems = cValue
 

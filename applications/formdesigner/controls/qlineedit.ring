@@ -21,6 +21,8 @@ class FormDesigner_QLineEdit from QLineEdit
 	cselectionChangedEvent = ""
 	ctextEditedEvent = ""
 
+	cBackColor = "white"
+
 	func TextValue
 		return cText
 

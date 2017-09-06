@@ -186,6 +186,7 @@ class FormDesignerController from WindowsControllerParent
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("LineEdit",oModel.LineEditsCount())
+			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn5.ischecked()   # Create QTextEdit
 			HideCorners()
@@ -200,6 +201,7 @@ class FormDesignerController from WindowsControllerParent
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("TextEdit",oModel.TextEditsCount())
+			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn6.ischecked()   # Create QListWidget
 			HideCorners()
@@ -214,6 +216,7 @@ class FormDesignerController from WindowsControllerParent
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("ListWidget",oModel.ListWidgetsCount())
+			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn7.ischecked()   # Create QCheckBox
 			HideCorners()
@@ -284,6 +287,7 @@ class FormDesignerController from WindowsControllerParent
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("SpinBox",oModel.SpinBoxesCount())
+			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn12.ischecked()   # Create QComboBox
 			HideCorners()
@@ -312,6 +316,7 @@ class FormDesignerController from WindowsControllerParent
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("DateTimeEdit",oModel.DateTimeEditsCount())
+			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn14.ischecked()   # Create QTableWidget
 			HideCorners()
@@ -340,6 +345,7 @@ class FormDesignerController from WindowsControllerParent
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
 			NewControlEvents("TreeWidget",oModel.TreeWidgetsCount())
+			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn16.ischecked()   # Create QRadioButton
 			HideCorners()
