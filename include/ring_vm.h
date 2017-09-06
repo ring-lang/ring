@@ -168,6 +168,12 @@ void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 ) ;
 void ring_vm_assignmentpointer ( VM *pVM ) ;
 
 void ring_vm_freeloadaddressscope ( VM *pVM ) ;
+
+void ring_vm_setfilename ( VM *pVM ) ;
+
+void ring_vm_loadaddressfirst ( VM *pVM ) ;
+
+void ring_vm_endfuncexec ( VM *pVM ) ;
 /* Compare */
 
 void ring_vm_equal ( VM *pVM ) ;
