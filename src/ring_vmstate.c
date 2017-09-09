@@ -37,6 +37,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pGetSetObject);
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nGetSetObjType);
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pAssignment);
+	ring_list_addint_gc(pVM->pRingState,pList,pVM->nBeforeEqual);
 }
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
@@ -108,6 +109,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->pGetSetObject = (void *) ring_list_getpointer(pList,30) ;
 	pVM->nGetSetObjType = ring_list_getint(pList,31) ;
 	pVM->pAssignment = (void *) ring_list_getpointer(pList,32) ;
+	pVM->nBeforeEqual = ring_list_getint(pList,33) ;
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
