@@ -35,6 +35,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nPrivateFlag);
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nGetSetProperty);
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pGetSetObject);
+	ring_list_addint_gc(pVM->pRingState,pList,pVM->nGetSetObjType);
 }
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
@@ -104,6 +105,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->nPrivateFlag = ring_list_getint(pList,28) ;
 	pVM->nGetSetProperty = ring_list_getint(pList,29) ;
 	pVM->pGetSetObject = (void *) ring_list_getpointer(pList,30) ;
+	pVM->nGetSetObjType = ring_list_getint(pList,31) ;
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
