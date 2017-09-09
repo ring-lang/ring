@@ -30,6 +30,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->aForStep));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->aBeforeObjState));
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->aPCBlockFlag);
+	ring_list_addint_gc(pVM->pRingState,pList,pVM->nLineNumber);
 }
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
@@ -94,6 +95,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
 		ring_vm_oop_updateselfpointer2(pVM,(List *) ring_list_getpointer(ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)),1));
 	}
+	pVM->nLineNumber = ring_list_getint(pList,26) ;
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
