@@ -41,6 +41,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nNOAssignment);
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nFuncExecute2);
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nCallClassInit);
+	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->aLoadAddressScope);
 }
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
@@ -116,6 +117,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->nNOAssignment = ring_list_getint(pList,34) ;
 	pVM->nFuncExecute2 = ring_list_getint(pList,35) ;
 	pVM->nCallClassInit = ring_list_getint(pList,36) ;
+	pVM->aLoadAddressScope = (List *) ring_list_getpointer(pList,37) ;
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
