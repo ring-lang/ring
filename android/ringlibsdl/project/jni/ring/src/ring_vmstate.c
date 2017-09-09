@@ -4,6 +4,7 @@
 
 void ring_vm_savestate ( VM *pVM,List *pList )
 {
+	List *pThis  ;
 	pList = ring_list_newlist_gc(pVM->pRingState,pList);
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pMem));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pFuncCallList));
@@ -43,10 +44,15 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nCallClassInit);
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->aLoadAddressScope);
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pLoadAddressScope));
+	/* Save This variable */
+	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getpointer(pThis,RING_VAR_VALUE));
+	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getint(pThis,RING_VAR_PVALUETYPE));
 }
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 {
+	List *pThis  ;
 	pList = ring_list_getlist(pList,nPos);
 	/* Set Scope */
 	pVM->pActiveMem = (List *) ring_list_getpointer(pList,19) ;
@@ -120,6 +126,10 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->nCallClassInit = ring_list_getint(pList,36) ;
 	pVM->aLoadAddressScope = (List *) ring_list_getpointer(pList,37) ;
 	ring_vm_backstate(pVM,ring_list_getint(pList,38),pVM->pLoadAddressScope);
+	/* Restore This variable */
+	pThis = ring_list_getlist(ring_list_getlist(pVM->pMem,1),RING_VM_STATICVAR_THIS) ;
+	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,39));
+	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,40));
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
