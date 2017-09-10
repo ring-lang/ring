@@ -2260,6 +2260,7 @@ Class RNoteController from WindowsControllerParent
 				oDockFunctionsList.hide()
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
+				pBrowserLink(1)
 			on 3	# Coding (Project Files + Editor)
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
@@ -2307,4 +2308,5 @@ Class RNoteController from WindowsControllerParent
 				oDockFunctionsList.hide()
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
+				pBrowserLink(2)
 		off
