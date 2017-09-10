@@ -798,6 +798,7 @@ Class RNoteController from WindowsControllerParent
                         }
 
 			this.oWebBrowser = new qWidget() {
+				setstylesheet("color: black ; background-color: white;")
 				setWindowFlags(Qt_SubWindow)
 				oWBLabel = new qLabel(this.win1) {
 					setText("Website: ")
@@ -2246,12 +2247,23 @@ Class RNoteController from WindowsControllerParent
 				oDockFunctionsList.show()
 				oDockOutputWindow.show()
 				oDockFormDesigner.show()
-				this.win1.tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
-				this.win1.tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
-				this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
-				this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+				win1 {
+					adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockFunctionsList,1)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockClassesList,1)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
+					adddockwidget(Qt_BottomDockWidgetArea,this.oDockOutputWindow,1)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
+					tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
+					tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
+					tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
+					tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+				}
 				oDockSourceCode.raise()
 				oDockFunctionsList.raise()
+				win1.showmaximized()
+				
 			on 2	# Learning Ring
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
@@ -2260,6 +2272,11 @@ Class RNoteController from WindowsControllerParent
 				oDockFunctionsList.hide()
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
+				win1 {
+					adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
+				}
 				pBrowserLink(1)
 			on 3	# Coding (Project Files + Editor)
 				oDockProjectFiles.Show()
@@ -2277,11 +2294,13 @@ Class RNoteController from WindowsControllerParent
 				oDockFunctionsList.show()
 				oDockOutputWindow.show()
 				oDockFormDesigner.show()
-				this.win1.tabifydockwidget(this.oDockProjectFiles,this.oDockFunctionsList)
-				this.win1.tabifydockwidget(this.oDockProjectFiles,this.oDockClassesList)
-				this.win1.tabifydockwidget(this.oDockProjectFiles,this.oDockOutputWindow)
-				this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
-				this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+				win1 {
+					tabifydockwidget(this.oDockProjectFiles,this.oDockFunctionsList)
+					tabifydockwidget(this.oDockProjectFiles,this.oDockClassesList)
+					tabifydockwidget(this.oDockProjectFiles,this.oDockOutputWindow)
+					tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
+					tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+				}
 				oDockSourceCode.raise()
 				oDockProjectFiles.raise()
 			on 5	# Coding (Code Editor)
@@ -2300,6 +2319,10 @@ Class RNoteController from WindowsControllerParent
 				oDockFunctionsList.hide()
 				oDockOutputWindow.hide()
 				oDockFormDesigner.show()
+				win1 {
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
+				}
 			on 7	# Web Development (Code Editor + Web Browser)
 				oDockProjectFiles.hide()
 				oDockSourceCode.show()
@@ -2309,4 +2332,8 @@ Class RNoteController from WindowsControllerParent
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
 				pBrowserLink(2)
+				win1 {
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
+				}
 		off
