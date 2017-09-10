@@ -2103,8 +2103,12 @@ What is new in Ring 1.5.4?
 * CalmoSoft Fifteen Puzzle Game 3D
 * Ring Notepad - New Styles 
 * Ring Notepad - Better Toolbar Style
+* Ring Notepad - View Modes 
 * Form Designer - Better Toolbar Style
 * Form Designer - Nice backcolor for Window Flags and Menubar Designer
 * Form Designer - Default back color for controls
 * RingQt - Added grab() method to QWidget class
 * RingQt - Added new methods to QPixmap Class
+* Ring VM - Internal implemenation doesn't use global variables
+* Ring VM - Garbage Collector - Memory Pool for Small Objects
+* Ring VM - Better code for saving/restoring the state
