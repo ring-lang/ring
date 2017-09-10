@@ -565,6 +565,24 @@ Class RNoteController from WindowsControllerParent
 							settext("Coding (All Windows)")
 						}
 						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetMode(5)"))
+							settext("Coding (Code Editor)")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetMode(6)"))
+							settext("GUI Development (Code Editor + Form Designer)")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetMode(7)"))
+							settext("Web Development (Code Editor + Web Browser)")
+						}
+						addaction(oAction)
 					}
 				} 
 				subProgram {
@@ -2265,4 +2283,28 @@ Class RNoteController from WindowsControllerParent
 				this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
 				oDockSourceCode.raise()
 				oDockProjectFiles.raise()
+			on 5	# Coding (Code Editor)
+				oDockProjectFiles.hide()
+				oDockSourceCode.show()
+				oDockWebBrowser.hide()
+				oDockClassesList.hide()
+				oDockFunctionsList.hide()
+				oDockOutputWindow.hide()
+				oDockFormDesigner.hide()
+			on 6	# GUI Development (Code Editor + Form Designer)
+				oDockProjectFiles.hide()
+				oDockSourceCode.show()
+				oDockWebBrowser.hide()
+				oDockClassesList.hide()
+				oDockFunctionsList.hide()
+				oDockOutputWindow.hide()
+				oDockFormDesigner.show()
+			on 7	# Web Development (Code Editor + Web Browser)
+				oDockProjectFiles.hide()
+				oDockSourceCode.show()
+				oDockWebBrowser.show()
+				oDockClassesList.hide()
+				oDockFunctionsList.hide()
+				oDockOutputWindow.hide()
+				oDockFormDesigner.hide()
 		off
