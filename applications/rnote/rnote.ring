@@ -539,6 +539,33 @@ Class RNoteController from WindowsControllerParent
 						}
 						addaction(oAction)
 					}
+					addseparator()
+					subStyle = addmenu("Mode")
+					subStyle {
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetMode(1)"))
+							settext("Default")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetMode(2)"))
+							settext("Learning Ring (Editor + Documentation)")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetMode(3)"))
+							settext("Coding (Project File + Editor)")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetMode(4)"))
+							settext("Coding (All Windows)")
+						}
+						addaction(oAction)
+					}
 				} 
 				subProgram {
 					oAction = new qAction(this.win1) {
@@ -2190,3 +2217,52 @@ Class RNoteController from WindowsControllerParent
 		if not fexists(cMainFileName) return ok
 		oDockOutputWindow { show() raise() }		
 		pRunGUIOperation(cMainFileName)
+
+	func pSetMode nMode
+		switch nMode
+			on 1	# Default
+				oDockProjectFiles.Show()
+				oDockSourceCode.show()
+				oDockWebBrowser.show()
+				oDockClassesList.show()
+				oDockFunctionsList.show()
+				oDockOutputWindow.show()
+				oDockFormDesigner.show()
+				this.win1.tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
+				this.win1.tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
+				this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
+				this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+				oDockSourceCode.raise()
+				oDockFunctionsList.raise()
+			on 2	# Learning Ring
+				oDockProjectFiles.Show()
+				oDockSourceCode.show()
+				oDockWebBrowser.show()
+				oDockClassesList.hide()
+				oDockFunctionsList.hide()
+				oDockOutputWindow.hide()
+				oDockFormDesigner.hide()
+			on 3	# Coding (Project Files + Editor)
+				oDockProjectFiles.Show()
+				oDockSourceCode.show()
+				oDockWebBrowser.hide()
+				oDockClassesList.hide()
+				oDockFunctionsList.hide()
+				oDockOutputWindow.hide()
+				oDockFormDesigner.hide()
+			on 4	# Coding (All Windows)
+				oDockProjectFiles.Show()
+				oDockSourceCode.show()
+				oDockWebBrowser.show()
+				oDockClassesList.show()
+				oDockFunctionsList.show()
+				oDockOutputWindow.show()
+				oDockFormDesigner.show()
+				this.win1.tabifydockwidget(this.oDockProjectFiles,this.oDockFunctionsList)
+				this.win1.tabifydockwidget(this.oDockProjectFiles,this.oDockClassesList)
+				this.win1.tabifydockwidget(this.oDockProjectFiles,this.oDockOutputWindow)
+				this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
+				this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+				oDockSourceCode.raise()
+				oDockProjectFiles.raise()
+		off
