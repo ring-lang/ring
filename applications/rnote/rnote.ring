@@ -146,7 +146,6 @@ Class RNoteController from WindowsControllerParent
 			oFilter.setCloseEvent(Method(:pSaveSettingsToFile))
 			installEventFilter(oFilter)
 			setwindowtitle("Ring Notepad")
-			setGeometry(100,100,400,400)
 			aBtns = [
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/new.png")
@@ -923,11 +922,11 @@ Class RNoteController from WindowsControllerParent
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 			this.oDockSourceCode.raise()
 			this.oDockFunctionsList.raise()
-			showmaximized()
 		}
 		this {  
 			pSetMode(nDefaultMode) 
 			RestoreSettings()
+			win1.showmaximized()
 		}
 		exec()
 	}
