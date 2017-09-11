@@ -237,6 +237,29 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
 		e->accept();
 		return ;
 	}
+	else if ( e->key() == Qt::Key_Backtab) {
+ 		cur = textCursor();
+    		a = cur.anchor();
+    		p = cur.position();
+    		cur.setPosition(a);
+    		cur.movePosition(QTextCursor::StartOfBlock,QTextCursor::MoveAnchor);
+    		a = cur.position();    	
+    		cur.setPosition(a);
+    		cur.setPosition(p, QTextCursor::KeepAnchor);
+    		str = cur.selection().toPlainText();
+    		list = str.split("\n");
+    		for (int i = 0; i < list.count(); i++)
+			if (list[i][0] == '\t')
+	    			list[i] = list[i].right(list[i].count()-1);
+    		str=list.join("\n");
+    		cur.removeSelectedText();
+    		cur.insertText(str);
+    		cur.setPosition(a);
+    		cur.setPosition(p-list.count(), QTextCursor::KeepAnchor);
+    		setTextCursor(cur);
+		e->accept();
+		return ;
+	}
 
     if (c && c->popup()->isVisible()) {
         // The following keys are forwarded by the completer to the widget
