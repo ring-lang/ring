@@ -1973,7 +1973,7 @@ Class RNoteController from WindowsControllerParent
 				:ActiveLineBackColor 		= colorCyan,
 				:SyntaxKeywordsColor		= colordarkBlue,
 				:SyntaxClassNamesColor 		= ColordarkMagenta,
-				:SyntaxCommentsColor 		= ColorRed,
+				:SyntaxCommentsColor 		= ColorSilver,
 				:SyntaxLiteralsColor 		= ColorDarkGreen,
 				:SyntaxFunctionCallsColor 	= ColorBlue
 			]
