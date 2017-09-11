@@ -208,6 +208,36 @@ void CodeEditor::focusInEvent(QFocusEvent *e)
 
 void CodeEditor::keyPressEvent(QKeyEvent *e)
 {
+
+	QTextCursor cur ;
+	int a ;
+	int p ;
+	QString str ;
+	QStringList list ;
+
+	if ( e->key() == Qt::Key_Tab) {
+ 		cur = textCursor();
+    		a = cur.anchor();
+    		p = cur.position();
+    		cur.setPosition(a);
+    		cur.movePosition(QTextCursor::StartOfBlock,QTextCursor::MoveAnchor);
+    		a = cur.position();    	
+    		cur.setPosition(a);
+    		cur.setPosition(p, QTextCursor::KeepAnchor);
+    		str = cur.selection().toPlainText();
+    		list = str.split("\n");
+    		for (int i = 0; i < list.count(); i++)
+    			list[i].insert(0,"\t");
+    		str=list.join("\n");
+    		cur.removeSelectedText();
+    		cur.insertText(str);
+    		cur.setPosition(a);
+    		cur.setPosition(p+list.count(), QTextCursor::KeepAnchor);
+    		setTextCursor(cur);
+		e->accept();
+		return ;
+	}
+
     if (c && c->popup()->isVisible()) {
         // The following keys are forwarded by the completer to the widget
        switch (e->key()) {
@@ -216,7 +246,7 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
 		e->ignore();
 		return; // let the completer do default behavior
        case Qt::Key_Escape:
-       case Qt::Key_Tab:
+       case Qt::Key_Tab:       
        case Qt::Key_Backtab:
 		c->popup()->hide();
 		return; // let the completer do default behavior
@@ -229,7 +259,7 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
     if (!c || !isShortcut) // do not process the shortcut when we have a completer
         GPlainTextEdit::keyPressEvent(e);
 
-const bool ctrlOrShift = e->modifiers() & (Qt::ControlModifier | Qt::ShiftModifier);
+    const bool ctrlOrShift = e->modifiers() & (Qt::ControlModifier | Qt::ShiftModifier);
     if (!c || (ctrlOrShift && e->text().isEmpty()))
         return;
 
