@@ -92,6 +92,7 @@ Class RNoteController from WindowsControllerParent
 		VIEWMODE_CODING3	= 5
 		VIEWMODE_GUIDEV		= 6
 		VIEWMODE_WEBDEV		= 7
+		VIEWMODE_TESTING	= 8
 		nDefaultMode		= VIEWMODE_GENERAL
 
 
@@ -589,6 +590,12 @@ Class RNoteController from WindowsControllerParent
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetMode(7)"))
 							settext("Web Development (Code Editor + Web Browser)")
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method("pSetMode(8)"))
+							settext("Testing (Project Files + Code Editor + Output Window)")
 						}
 						addaction(oAction)
 					}
@@ -2347,5 +2354,18 @@ Class RNoteController from WindowsControllerParent
 				win1 {
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
+				}
+			on VIEWMODE_TESTING	
+				oDockProjectFiles.Show()
+				oDockSourceCode.show()
+				oDockWebBrowser.hide()
+				oDockClassesList.hide()
+				oDockFunctionsList.hide()
+				oDockOutputWindow.show()
+				oDockFormDesigner.hide()
+				win1 {
+					adddockwidget(Qt_LeftDockWidgetArea,this.oDockProjectFiles,1)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
+					adddockwidget(Qt_RightDockWidgetArea,this.oDockOutputWindow,1)
 				}
 		off
