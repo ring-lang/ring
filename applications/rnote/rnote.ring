@@ -83,8 +83,16 @@ Class RNoteController from WindowsControllerParent
 		STYLECOLOR_ART3		 		= 13
 		STYLECOLOR_IMAGE	 		= 14
 		nDefaultStyle  				= STYLECOLOR_WHITE
-		nDefaultMode				= 1
 		lKeywordsBold 				= True
+	# Default Mode
+		VIEWMODE_GENERAL 	= 1
+		VIEWMODE_LEARNINGRING	= 2
+		VIEWMODE_CODING		= 3
+		VIEWMODE_CODING2	= 4
+		VIEWMODE_CODING3	= 5
+		VIEWMODE_GUIDEV		= 6
+		VIEWMODE_WEBDEV		= 7
+		nDefaultMode		= VIEWMODE_GENERAL
 
 
 	cSettingsFile = cCurrentDir + "ringnotepad.ini"
@@ -545,7 +553,7 @@ Class RNoteController from WindowsControllerParent
 					subStyle {
 						oAction = new qAction(this.win1) {
 							setclickEvent(Method("pSetMode(1)"))
-							settext("Default")
+							settext("General")
 						}
 						addaction(oAction)
 						addseparator()
@@ -2246,7 +2254,7 @@ Class RNoteController from WindowsControllerParent
 	func pSetMode nMode
 		nDefaultMode = nMode
 		switch nMode
-			on 1	# Default
+			on VIEWMODE_GENERAL	
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
 				oDockWebBrowser.show()
@@ -2269,9 +2277,8 @@ Class RNoteController from WindowsControllerParent
 				}
 				oDockSourceCode.raise()
 				oDockFunctionsList.raise()
-				win1.showmaximized()
-				
-			on 2	# Learning Ring
+				win1.showmaximized()				
+			on VIEWMODE_LEARNINGRING
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
 				oDockWebBrowser.show()
@@ -2285,7 +2292,7 @@ Class RNoteController from WindowsControllerParent
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
 				}
 				pBrowserLink(1)
-			on 3	# Coding (Project Files + Editor)
+			on VIEWMODE_CODING	# Coding (Project Files + Editor)
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
 				oDockWebBrowser.hide()
@@ -2293,7 +2300,7 @@ Class RNoteController from WindowsControllerParent
 				oDockFunctionsList.hide()
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
-			on 4	# Coding (All Windows)
+			on VIEWMODE_CODING2	# Coding (All Windows)
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
 				oDockWebBrowser.show()
@@ -2310,7 +2317,7 @@ Class RNoteController from WindowsControllerParent
 				}
 				oDockSourceCode.raise()
 				oDockProjectFiles.raise()
-			on 5	# Coding (Code Editor)
+			on VIEWMODE_CODING3	# Coding (Code Editor)
 				oDockProjectFiles.hide()
 				oDockSourceCode.show()
 				oDockWebBrowser.hide()
@@ -2318,7 +2325,7 @@ Class RNoteController from WindowsControllerParent
 				oDockFunctionsList.hide()
 				oDockOutputWindow.hide()
 				oDockFormDesigner.hide()
-			on 6	# GUI Development (Code Editor + Form Designer)
+			on VIEWMODE_GUIDEV	# GUI Development (Code Editor + Form Designer)
 				oDockProjectFiles.hide()
 				oDockSourceCode.show()
 				oDockWebBrowser.hide()
@@ -2330,7 +2337,7 @@ Class RNoteController from WindowsControllerParent
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockSourceCode,2)
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
 				}
-			on 7	# Web Development (Code Editor + Web Browser)
+			on VIEWMODE_WEBDEV	# Web Development (Code Editor + Web Browser)
 				oDockProjectFiles.hide()
 				oDockSourceCode.show()
 				oDockWebBrowser.show()
