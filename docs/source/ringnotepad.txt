@@ -251,8 +251,14 @@ Also we can change the Style of the Ring Notepad
 
 Common Styles are (Fusion White and Modern Black)
 
-.. image:: rnotemenu_View.png
+.. image:: rnotemenu_view.png
 	:alt: Ring Notepad - View Menu
+
+Also we can quickly show/hide group of dockable windows based on the context
+
+.. image:: rnotemenu_mode.png
+	:alt: Ring Notepad - View Menu - Set Mode
+
 
 .. index:: 
 	pair: Ring Notepad; The Program Menu
