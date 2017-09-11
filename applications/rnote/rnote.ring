@@ -2275,8 +2275,7 @@ Class RNoteController from WindowsControllerParent
 					tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
 				}
 				oDockSourceCode.raise()
-				oDockFunctionsList.raise()
-				win1.showmaximized()				
+				oDockFunctionsList.raise()				
 			on VIEWMODE_LEARNINGRING
 				oDockProjectFiles.Show()
 				oDockSourceCode.show()
