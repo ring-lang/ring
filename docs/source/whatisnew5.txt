@@ -2104,11 +2104,13 @@ What is new in Ring 1.5.4?
 * Ring Notepad - New Styles 
 * Ring Notepad - Better Toolbar Style
 * Ring Notepad - View Modes 
+* Ring Notepad - QPlainTextEdit - don't set back color for the scroll bars
+* Ring Notepad - Style Fusion (White) - use Silver color for comments 
 * Form Designer - Better Toolbar Style
 * Form Designer - Nice backcolor for Window Flags and Menubar Designer
 * Form Designer - Default back color for controls
 * RingQt - Added grab() method to QWidget class
 * RingQt - Added new methods to QPixmap Class
-* Ring VM - Internal implemenation doesn't use global variables
+* Ring VM - Internal Implemenation - Pass state to Strings and Lists objects
 * Ring VM - Garbage Collector - Memory Pool for Small Objects
-* Ring VM - Better code for saving/restoring the state
+* Ring VM - Better code for Saving/Restoring the State
