@@ -82,7 +82,8 @@ Class RNoteController from WindowsControllerParent
 		STYLECOLOR_ART2		 		= 12
 		STYLECOLOR_ART3		 		= 13
 		STYLECOLOR_IMAGE	 		= 14
-		nDefaultStyle  				= STYLECOLOR_MODERNBLACK
+		nDefaultStyle  				= STYLECOLOR_WHITE
+		nDefaultMode				= 1
 		lKeywordsBold 				= True
 
 
@@ -905,17 +906,21 @@ Class RNoteController from WindowsControllerParent
 			adddockwidget(Qt_RightDockWidgetArea,this.oDockWebBrowser,1)
 			adddockwidget(Qt_BottomDockWidgetArea,this.oDockOutputWindow,1)
 			adddockwidget(Qt_RightDockWidgetArea,this.oDockFormDesigner,1)
-			this.win1.tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
-			this.win1.tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
-			this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
-			this.win1.tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+			this.win1 {
+				tabifydockwidget(this.oDockFunctionsList,this.oDockClassesList)
+				tabifydockwidget(this.oDockFunctionsList,this.oDockOutputWindow)
+				tabifydockwidget(this.oDockSourceCode,this.oDockFormDesigner)
+				tabifydockwidget(this.oDockSourceCode,this.oDockWebBrowser)
+			}
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 			this.oDockSourceCode.raise()
 			this.oDockFunctionsList.raise()
 			showmaximized()
 		}
-
-		this.RestoreSettings()
+		this {  
+			pSetMode(nDefaultMode) 
+			RestoreSettings()
+		}
 		exec()
 	}
 
@@ -1510,7 +1515,8 @@ Class RNoteController from WindowsControllerParent
 				"lShowOutputWindow = " + oDockOutputWindow.isvisible() + nl +
 				"lShowFormDesigner = " + oDockFormDesigner.isvisible() + nl +
 				"nTabSpaces = " + nTabSpaces + nl +
-				"nDefaultStyle = " + nDefaultStyle + nl
+				"nDefaultStyle = " + nDefaultStyle + nl +
+				"nDefaultMode  = " + nDefaultMode + nl
 		cSettings = substr(cSettings,nl,char(13)+char(10))
 		write(cSettingsFile,cSettings)
 
@@ -2238,6 +2244,7 @@ Class RNoteController from WindowsControllerParent
 		pRunGUIOperation(cMainFileName)
 
 	func pSetMode nMode
+		nDefaultMode = nMode
 		switch nMode
 			on 1	# Default
 				oDockProjectFiles.Show()
