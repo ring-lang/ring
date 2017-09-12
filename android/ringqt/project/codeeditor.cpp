@@ -217,8 +217,9 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
 	int m ;
 	QString str ;
 	QStringList list ;
-
+	
 	if ( e->key() == Qt::Key_Tab) {
+		blockSignals(true);
  		cur = textCursor();
     		a = cur.anchor();
     		p = cur.position();
@@ -238,9 +239,11 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
     		cur.setPosition(std::max(a,p)+list.count(), QTextCursor::KeepAnchor);
     		setTextCursor(cur);
 		e->accept();
+		blockSignals(false);
 		return ;
 	}
 	else if ( e->key() == Qt::Key_Backtab) {
+		blockSignals(true);
  		cur = textCursor();
     		a = cur.anchor();
     		p = cur.position();
@@ -265,6 +268,7 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
   		cur.setPosition(std::max(a,p)-m, QTextCursor::KeepAnchor);
     		setTextCursor(cur);
 		e->accept();
+		blockSignals(false);
 		return ;
 	}
 
