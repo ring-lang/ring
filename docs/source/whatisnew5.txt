@@ -2106,6 +2106,7 @@ What is new in Ring 1.5.4?
 * Ring Notepad - View Modes 
 * Ring Notepad - QPlainTextEdit - don't set back color for the scroll bars
 * Ring Notepad - Style Fusion (White) - use Silver color for comments 
+* Ring Notepad - Tab and Shift-Tab - Indent multiple lines
 * Form Designer - Better Toolbar Style
 * Form Designer - Nice backcolor for Window Flags and Menubar Designer
 * Form Designer - Default back color for controls
