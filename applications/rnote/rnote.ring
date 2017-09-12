@@ -1427,7 +1427,7 @@ Class RNoteController from WindowsControllerParent
 		pSetColors()
 
 	func pSetColors
-		this.textedit1.setstylesheet("QTextEdit { color: rgb(" + aTextColor[1] + "," + aTextColor[2] +
+		this.textedit1.setstylesheet("QPlainTextEdit { color: rgb(" + aTextColor[1] + "," + aTextColor[2] +
 					"," + aTextColor[3] + ");" + "background-color: rgb(" +
 					aBackColor[1] + "," + aBackColor[2] + "," +
 					aBackColor[3] + ") }")
