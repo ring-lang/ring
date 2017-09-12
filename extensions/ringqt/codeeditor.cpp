@@ -59,6 +59,8 @@
 #include "codeeditor.h"
 #include "ring.h"
 
+#include <algorithm> 
+
 CodeEditor::CodeEditor(QWidget *parent, VM *pVM) : GPlainTextEdit(parent,pVM) , c(0)
 {
     lineNumberArea = new LineNumberArea(this);
@@ -212,6 +214,7 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
 	QTextCursor cur ;
 	int a ;
 	int p ;
+	int m ;
 	QString str ;
 	QStringList list ;
 
@@ -231,8 +234,8 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
     		str=list.join("\n");
     		cur.removeSelectedText();
     		cur.insertText(str);
-    		cur.setPosition(a);
-    		cur.setPosition(p+list.count(), QTextCursor::KeepAnchor);
+    		cur.setPosition(std::min(a,p));
+    		cur.setPosition(std::max(a,p)+list.count(), QTextCursor::KeepAnchor);
     		setTextCursor(cur);
 		e->accept();
 		return ;
@@ -248,14 +251,18 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
     		cur.setPosition(p, QTextCursor::KeepAnchor);
     		str = cur.selection().toPlainText();
     		list = str.split("\n");
-    		for (int i = 0; i < list.count(); i++)
-			if (list[i][0] == '\t')
+		m = 0;
+    		for (int i = 0; i < list.count(); i++) {
+			if (list[i][0] == '\t') {
 	    			list[i] = list[i].right(list[i].count()-1);
+				m++;
+			}
+		}
     		str=list.join("\n");
     		cur.removeSelectedText();
     		cur.insertText(str);
-    		cur.setPosition(a);
-    		cur.setPosition(p-list.count(), QTextCursor::KeepAnchor);
+    		cur.setPosition(std::min(a,p));
+  		cur.setPosition(std::max(a,p)-m, QTextCursor::KeepAnchor);
     		setTextCursor(cur);
 		e->accept();
 		return ;
