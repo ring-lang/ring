@@ -18,7 +18,7 @@ while i <= len(a)
          i = i + 17
       else
          if ascii(substr(a,i,1)) > 20 
-            see substr(a,i,1)
+            see a[i] 
          ok
       ok
       i = i + 1
