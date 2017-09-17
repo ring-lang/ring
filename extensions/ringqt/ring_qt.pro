@@ -96,7 +96,7 @@ HEADERS  += \
     gbluetoothsocket.h \
     gbluetoothtransfermanager.h \
     gbluetoothtransferreply.h \
-    gbluetoothserver.h
+    gbluetoothserver.h 
 
 INCLUDEPATH += ../../include
 
