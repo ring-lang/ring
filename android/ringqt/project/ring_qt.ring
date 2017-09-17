@@ -15671,6 +15671,120 @@ Class QDateTime
 		pTempObj.pObject = QDateTime_fromTime_t(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
+Class QScreen
+
+	pObject
+
+	Func init P1
+		pObject = QScreen_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QScreen_delete(pObject)
+
+	Func angleBetween P1,P2
+		return QScreen_angleBetween(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func availableGeometry 
+		pTempObj = new QRect
+		pTempObj.pObject = QScreen_availableGeometry(pObject)
+		return pTempObj
+
+	Func availableSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QScreen_availableSize(pObject)
+		return pTempObj
+
+	Func availableVirtualGeometry 
+		pTempObj = new QRect
+		pTempObj.pObject = QScreen_availableVirtualGeometry(pObject)
+		return pTempObj
+
+	Func availableVirtualSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QScreen_availableVirtualSize(pObject)
+		return pTempObj
+
+	Func depth 
+		return QScreen_depth(pObject)
+
+	Func devicePixelRatio 
+		return QScreen_devicePixelRatio(pObject)
+
+	Func geometry 
+		pTempObj = new QRect
+		pTempObj.pObject = QScreen_geometry(pObject)
+		return pTempObj
+
+	Func grabWindow P1,P2,P3,P4,P5
+		pTempObj = new QPixmap
+		pTempObj.pObject = QScreen_grabWindow(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+		return pTempObj
+
+	Func handle 
+		return QScreen_handle(pObject)
+
+	Func isLandscape P1
+		return QScreen_isLandscape(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isPortrait P1
+		return QScreen_isPortrait(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func logicalDotsPerInch 
+		return QScreen_logicalDotsPerInch(pObject)
+
+	Func logicalDotsPerInchX 
+		return QScreen_logicalDotsPerInchX(pObject)
+
+	Func logicalDotsPerInchY 
+		return QScreen_logicalDotsPerInchY(pObject)
+
+	Func mapBetween P1,P2,P3
+		pTempObj = new QRect
+		pTempObj.pObject = QScreen_mapBetween(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func name 
+		return QScreen_name(pObject)
+
+	Func nativeOrientation 
+		return QScreen_nativeOrientation(pObject)
+
+	Func orientation 
+		return QScreen_orientation(pObject)
+
+	Func orientationUpdateMask 
+		return QScreen_orientationUpdateMask(pObject)
+
+	Func physicalDotsPerInch 
+		return QScreen_physicalDotsPerInch(pObject)
+
+	Func physicalDotsPerInchX 
+		return QScreen_physicalDotsPerInchX(pObject)
+
+	Func physicalDotsPerInchY 
+		return QScreen_physicalDotsPerInchY(pObject)
+
+	Func physicalSize 
+		return QScreen_physicalSize(pObject)
+
+	Func primaryOrientation 
+		return QScreen_primaryOrientation(pObject)
+
+	Func refreshRate 
+		return QScreen_refreshRate(pObject)
+
+	Func setOrientationUpdateMask P1
+		return QScreen_setOrientationUpdateMask(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func size 
+		pTempObj = new QSize
+		pTempObj.pObject = QScreen_size(pObject)
+		return pTempObj
+
+	Func transformBetween P1,P2,P3
+		return QScreen_transformBetween(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
 Class QPixmap2 from QPixmap
 
 	pObject

@@ -225,6 +225,7 @@ extern "C" {
 #include <QBluetoothTransferRequest>
 #include <QBluetoothUuid>
 #include <QDateTime>
+#include <QScreen>
 
 extern "C" {
 
@@ -86624,6 +86625,609 @@ RING_FUNC(ring_QDateTime_fromTime_t)
 	}
 }
 
+
+RING_FUNC(ring_QScreen_angleBetween)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->angleBetween(* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(2,"Qt::ScreenOrientation"),* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(3,"Qt::ScreenOrientation")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::ScreenOrientation"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Qt::ScreenOrientation"));
+}
+
+
+RING_FUNC(ring_QScreen_availableGeometry)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->availableGeometry();
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_availableSize)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		QSize *pValue ; 
+		pValue = new QSize() ;
+		*pValue = pObject->availableSize();
+		RING_API_RETCPOINTER(pValue,"QSize");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_availableVirtualGeometry)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->availableVirtualGeometry();
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_availableVirtualSize)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		QSize *pValue ; 
+		pValue = new QSize() ;
+		*pValue = pObject->availableVirtualSize();
+		RING_API_RETCPOINTER(pValue,"QSize");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_depth)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->depth());
+}
+
+
+RING_FUNC(ring_QScreen_devicePixelRatio)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->devicePixelRatio());
+}
+
+
+RING_FUNC(ring_QScreen_geometry)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->geometry();
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_grabWindow)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->grabWindow(* (WId  *) RING_API_GETCPOINTER(2,"WId"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"WId"));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_handle)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETCPOINTER(pObject->handle(),"QPlatformScreen");
+}
+
+
+RING_FUNC(ring_QScreen_isLandscape)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->isLandscape(* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(2,"Qt::ScreenOrientation")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::ScreenOrientation"));
+}
+
+
+RING_FUNC(ring_QScreen_isPortrait)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->isPortrait(* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(2,"Qt::ScreenOrientation")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::ScreenOrientation"));
+}
+
+
+RING_FUNC(ring_QScreen_logicalDotsPerInch)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->logicalDotsPerInch());
+}
+
+
+RING_FUNC(ring_QScreen_logicalDotsPerInchX)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->logicalDotsPerInchX());
+}
+
+
+RING_FUNC(ring_QScreen_logicalDotsPerInchY)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->logicalDotsPerInchY());
+}
+
+
+RING_FUNC(ring_QScreen_mapBetween)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		QRect *pValue ; 
+		pValue = new QRect() ;
+		*pValue = pObject->mapBetween(* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(2,"Qt::ScreenOrientation"),* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(3,"Qt::ScreenOrientation"),* (QRect  *) RING_API_GETCPOINTER(4,"QRect"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::ScreenOrientation"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Qt::ScreenOrientation"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QRect"));
+		RING_API_RETCPOINTER(pValue,"QRect");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_name)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETSTRING(pObject->name().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QScreen_nativeOrientation)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		Qt::ScreenOrientation *pValue ; 
+		pValue = (Qt::ScreenOrientation *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::ScreenOrientation)) ;
+		*pValue = pObject->nativeOrientation();
+		RING_API_RETCPOINTER(pValue,"Qt::ScreenOrientation");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_orientation)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		Qt::ScreenOrientation *pValue ; 
+		pValue = (Qt::ScreenOrientation *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::ScreenOrientation)) ;
+		*pValue = pObject->orientation();
+		RING_API_RETCPOINTER(pValue,"Qt::ScreenOrientation");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_orientationUpdateMask)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		Qt::ScreenOrientations *pValue ; 
+		pValue = (Qt::ScreenOrientations *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::ScreenOrientations)) ;
+		*pValue = pObject->orientationUpdateMask();
+		RING_API_RETCPOINTER(pValue,"Qt::ScreenOrientations");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_physicalDotsPerInch)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->physicalDotsPerInch());
+}
+
+
+RING_FUNC(ring_QScreen_physicalDotsPerInchX)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->physicalDotsPerInchX());
+}
+
+
+RING_FUNC(ring_QScreen_physicalDotsPerInchY)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->physicalDotsPerInchY());
+}
+
+
+RING_FUNC(ring_QScreen_physicalSize)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		QSizeF *pValue ; 
+		pValue = (QSizeF *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QSizeF)) ;
+		*pValue = pObject->physicalSize();
+		RING_API_RETCPOINTER(pValue,"QSizeF");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_primaryOrientation)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		Qt::ScreenOrientation *pValue ; 
+		pValue = (Qt::ScreenOrientation *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::ScreenOrientation)) ;
+		*pValue = pObject->primaryOrientation();
+		RING_API_RETCPOINTER(pValue,"Qt::ScreenOrientation");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_refreshRate)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	RING_API_RETNUMBER(pObject->refreshRate());
+}
+
+
+RING_FUNC(ring_QScreen_setOrientationUpdateMask)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	pObject->setOrientationUpdateMask(* (Qt::ScreenOrientations  *) RING_API_GETCPOINTER(2,"Qt::ScreenOrientations"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::ScreenOrientations"));
+}
+
+
+RING_FUNC(ring_QScreen_size)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		QSize *pValue ; 
+		pValue = new QSize() ;
+		*pValue = pObject->size();
+		RING_API_RETCPOINTER(pValue,"QSize");
+	}
+}
+
+
+RING_FUNC(ring_QScreen_transformBetween)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	{
+		QTransform *pValue ; 
+		pValue = (QTransform *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QTransform)) ;
+		*pValue = pObject->transformBetween(* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(2,"Qt::ScreenOrientation"),* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(3,"Qt::ScreenOrientation"),* (QRect  *) RING_API_GETCPOINTER(4,"QRect"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Qt::ScreenOrientation"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Qt::ScreenOrientation"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QRect"));
+		RING_API_RETCPOINTER(pValue,"QTransform");
+	}
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -95260,6 +95864,35 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdatetime_fromstring",ring_QDateTime_fromString);
 	ring_vm_funcregister("qdatetime_fromstring_2",ring_QDateTime_fromString_2);
 	ring_vm_funcregister("qdatetime_fromtime_t",ring_QDateTime_fromTime_t);
+	ring_vm_funcregister("qscreen_anglebetween",ring_QScreen_angleBetween);
+	ring_vm_funcregister("qscreen_availablegeometry",ring_QScreen_availableGeometry);
+	ring_vm_funcregister("qscreen_availablesize",ring_QScreen_availableSize);
+	ring_vm_funcregister("qscreen_availablevirtualgeometry",ring_QScreen_availableVirtualGeometry);
+	ring_vm_funcregister("qscreen_availablevirtualsize",ring_QScreen_availableVirtualSize);
+	ring_vm_funcregister("qscreen_depth",ring_QScreen_depth);
+	ring_vm_funcregister("qscreen_devicepixelratio",ring_QScreen_devicePixelRatio);
+	ring_vm_funcregister("qscreen_geometry",ring_QScreen_geometry);
+	ring_vm_funcregister("qscreen_grabwindow",ring_QScreen_grabWindow);
+	ring_vm_funcregister("qscreen_handle",ring_QScreen_handle);
+	ring_vm_funcregister("qscreen_islandscape",ring_QScreen_isLandscape);
+	ring_vm_funcregister("qscreen_isportrait",ring_QScreen_isPortrait);
+	ring_vm_funcregister("qscreen_logicaldotsperinch",ring_QScreen_logicalDotsPerInch);
+	ring_vm_funcregister("qscreen_logicaldotsperinchx",ring_QScreen_logicalDotsPerInchX);
+	ring_vm_funcregister("qscreen_logicaldotsperinchy",ring_QScreen_logicalDotsPerInchY);
+	ring_vm_funcregister("qscreen_mapbetween",ring_QScreen_mapBetween);
+	ring_vm_funcregister("qscreen_name",ring_QScreen_name);
+	ring_vm_funcregister("qscreen_nativeorientation",ring_QScreen_nativeOrientation);
+	ring_vm_funcregister("qscreen_orientation",ring_QScreen_orientation);
+	ring_vm_funcregister("qscreen_orientationupdatemask",ring_QScreen_orientationUpdateMask);
+	ring_vm_funcregister("qscreen_physicaldotsperinch",ring_QScreen_physicalDotsPerInch);
+	ring_vm_funcregister("qscreen_physicaldotsperinchx",ring_QScreen_physicalDotsPerInchX);
+	ring_vm_funcregister("qscreen_physicaldotsperinchy",ring_QScreen_physicalDotsPerInchY);
+	ring_vm_funcregister("qscreen_physicalsize",ring_QScreen_physicalSize);
+	ring_vm_funcregister("qscreen_primaryorientation",ring_QScreen_primaryOrientation);
+	ring_vm_funcregister("qscreen_refreshrate",ring_QScreen_refreshRate);
+	ring_vm_funcregister("qscreen_setorientationupdatemask",ring_QScreen_setOrientationUpdateMask);
+	ring_vm_funcregister("qscreen_size",ring_QScreen_size);
+	ring_vm_funcregister("qscreen_transformbetween",ring_QScreen_transformBetween);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
