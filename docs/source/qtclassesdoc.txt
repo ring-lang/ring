@@ -6785,3 +6785,42 @@ Parameters : void
 * QDateTime fromString(QString string, Qt::DateFormat format)
 * QDateTime fromString_2(QString string, QString format)
 * QDateTime fromTime_t(uint seconds)
+
+.. index::
+	pair: RingQt Classes Reference; QScreen Class
+
+QScreen Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QScreen.html
+
+* int angleBetween(Qt::ScreenOrientation a, Qt::ScreenOrientation b)
+* QRect availableGeometry(void)
+* QSize availableSize(void)
+* QRect availableVirtualGeometry(void)
+* QSize availableVirtualSize(void)
+* int depth(void)
+* qreal devicePixelRatio(void)
+* QRect geometry(void)
+* QPixmap grabWindow(WId window, int x, int y, int width, int height)
+* QPlatformScreen * handle(void)
+* bool isLandscape(Qt::ScreenOrientation o)
+* bool isPortrait(Qt::ScreenOrientation o)
+* qreal logicalDotsPerInch(void)
+* qreal logicalDotsPerInchX(void)
+* qreal logicalDotsPerInchY(void)
+* QRect mapBetween(Qt::ScreenOrientation a, Qt::ScreenOrientation b, QRect rect)
+* QString name(void)
+* Qt::ScreenOrientation nativeOrientation(void)
+* Qt::ScreenOrientation orientation(void)
+* Qt::ScreenOrientations orientationUpdateMask(void)
+* qreal physicalDotsPerInch(void)
+* qreal physicalDotsPerInchX(void)
+* qreal physicalDotsPerInchY(void)
+* QSizeF physicalSize(void)
+* Qt::ScreenOrientation primaryOrientation(void)
+* qreal refreshRate(void)
+* void setOrientationUpdateMask(Qt::ScreenOrientations mask)
+* QSize size(void)
+* QTransform transformBetween(Qt::ScreenOrientation a, Qt::ScreenOrientation b, QRect target)
