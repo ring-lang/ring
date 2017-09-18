@@ -266,6 +266,7 @@ Parent Class : QObject
 * QWidget *window(void)
 * QString windowFilePath(void)
 * int windowFlags(void)
+* QWindow *windowHandle(void)
 * QIcon windowIcon(void)
 * QString windowIconText(void)
 * int windowModality(void)
