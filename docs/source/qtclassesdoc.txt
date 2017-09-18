@@ -6920,7 +6920,6 @@ Parent Class : QObject
 * void lower(void)
 * void raise(void)
 * void requestActivate(void)
-* void requestUpdate(void)
 * void setHeight(int arg)
 * void setMaximumHeight(int h)
 * void setMaximumWidth(int w)
