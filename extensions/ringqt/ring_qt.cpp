@@ -4238,6 +4238,23 @@ RING_FUNC(ring_QWidget_windowFlags)
 }
 
 
+RING_FUNC(ring_QWidget_windowHandle)
+{
+	QWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QWidget *) RING_API_GETCPOINTER(1,"QWidget");
+	RING_API_RETCPOINTER(pObject->windowHandle(),"QWindow");
+}
+
+
 RING_FUNC(ring_QWidget_windowIcon)
 {
 	QWidget *pObject ;
@@ -93866,6 +93883,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwidget_window",ring_QWidget_window);
 	ring_vm_funcregister("qwidget_windowfilepath",ring_QWidget_windowFilePath);
 	ring_vm_funcregister("qwidget_windowflags",ring_QWidget_windowFlags);
+	ring_vm_funcregister("qwidget_windowhandle",ring_QWidget_windowHandle);
 	ring_vm_funcregister("qwidget_windowicon",ring_QWidget_windowIcon);
 	ring_vm_funcregister("qwidget_windowicontext",ring_QWidget_windowIconText);
 	ring_vm_funcregister("qwidget_windowmodality",ring_QWidget_windowModality);

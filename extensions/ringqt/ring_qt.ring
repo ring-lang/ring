@@ -718,6 +718,9 @@ Class QWidget from QObject
 	Func windowFlags 
 		return QWidget_windowFlags(pObject)
 
+	Func windowHandle 
+		return QWidget_windowHandle(pObject)
+
 	Func windowIcon 
 		pTempObj = new QIcon
 		pTempObj.pObject = QWidget_windowIcon(pObject)
