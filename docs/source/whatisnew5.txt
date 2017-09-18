@@ -2112,7 +2112,9 @@ What is new in Ring 1.5.4?
 * Form Designer - Default back color for controls
 * RingQt - Added grab() and windowHandle() methods to QWidget class
 * RingQt - Added new methods to QPixmap Class
-* RingQt - Add Class (QScreen)
+* RingQt - Add Classes :-
+	* QScreen
+	* QWindow
 * Ring VM - Internal Implemenation - Pass state to Strings and Lists objects
 * Ring VM - Garbage Collector - Memory Pool for Small Objects
 * Ring VM - Better code for Saving/Restoring the State
