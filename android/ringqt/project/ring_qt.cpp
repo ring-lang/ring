@@ -228,6 +228,8 @@ extern "C" {
 #include <QScreen>
 #include <QWindow>
 #include "gwindow.h"
+#include <QGuiApplication>
+#include "gguiapplication.h"
 
 extern "C" {
 
@@ -89808,6 +89810,1350 @@ RING_FUNC(ring_QWindow_getyChangedEvent)
 	RING_API_RETSTRING(pObject->getyChangedEvent());
 }
 
+
+RING_FUNC(ring_QGuiApplication_devicePixelRatio)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETNUMBER(pObject->devicePixelRatio());
+}
+
+
+RING_FUNC(ring_QGuiApplication_isSavingSession)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETNUMBER(pObject->isSavingSession());
+}
+
+
+RING_FUNC(ring_QGuiApplication_isSessionRestored)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETNUMBER(pObject->isSessionRestored());
+}
+
+
+RING_FUNC(ring_QGuiApplication_sessionId)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->sessionId().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGuiApplication_sessionKey)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->sessionKey().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGuiApplication_allWindows)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		QWindowList *pValue ; 
+		pValue = (QWindowList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QWindowList)) ;
+		*pValue = pObject->allWindows();
+		RING_API_RETCPOINTER(pValue,"QWindowList");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_applicationDisplayName)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->applicationDisplayName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGuiApplication_applicationState)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		Qt::ApplicationState *pValue ; 
+		pValue = (Qt::ApplicationState *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::ApplicationState)) ;
+		*pValue = pObject->applicationState();
+		RING_API_RETCPOINTER(pValue,"Qt::ApplicationState");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_changeOverrideCursor)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	pObject->changeOverrideCursor(* (QCursor  *) RING_API_GETCPOINTER(2,"QCursor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QCursor"));
+}
+
+
+RING_FUNC(ring_QGuiApplication_clipboard)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->clipboard(),"QClipboard");
+}
+
+
+RING_FUNC(ring_QGuiApplication_desktopSettingsAware)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETNUMBER(pObject->desktopSettingsAware());
+}
+
+
+RING_FUNC(ring_QGuiApplication_exec)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETNUMBER(pObject->exec());
+}
+
+
+RING_FUNC(ring_QGuiApplication_focusObject)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->focusObject(),"QObject");
+}
+
+
+RING_FUNC(ring_QGuiApplication_focusWindow)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->focusWindow(),"QWindow");
+}
+
+
+RING_FUNC(ring_QGuiApplication_font)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		QFont *pValue ; 
+		pValue = new QFont() ;
+		*pValue = pObject->font();
+		RING_API_RETCPOINTER(pValue,"QFont");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_inputMethod)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->inputMethod(),"QInputMethod");
+}
+
+
+RING_FUNC(ring_QGuiApplication_isLeftToRight)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETNUMBER(pObject->isLeftToRight());
+}
+
+
+RING_FUNC(ring_QGuiApplication_isRightToLeft)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETNUMBER(pObject->isRightToLeft());
+}
+
+
+RING_FUNC(ring_QGuiApplication_keyboardModifiers)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		Qt::KeyboardModifiers *pValue ; 
+		pValue = (Qt::KeyboardModifiers *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::KeyboardModifiers)) ;
+		*pValue = pObject->keyboardModifiers();
+		RING_API_RETCPOINTER(pValue,"Qt::KeyboardModifiers");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_layoutDirection)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETNUMBER(pObject->layoutDirection());
+}
+
+
+RING_FUNC(ring_QGuiApplication_modalWindow)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->modalWindow(),"QWindow");
+}
+
+
+RING_FUNC(ring_QGuiApplication_mouseButtons)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		Qt::MouseButtons *pValue ; 
+		pValue = (Qt::MouseButtons *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::MouseButtons)) ;
+		*pValue = pObject->mouseButtons();
+		RING_API_RETCPOINTER(pValue,"Qt::MouseButtons");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_overrideCursor)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->overrideCursor(),"QCursor");
+}
+
+
+RING_FUNC(ring_QGuiApplication_palette)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		QPalette *pValue ; 
+		pValue = (QPalette *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QPalette)) ;
+		*pValue = pObject->palette();
+		RING_API_RETCPOINTER(pValue,"QPalette");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_platformFunction)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		QFunctionPointer *pValue ; 
+		pValue = (QFunctionPointer *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QFunctionPointer)) ;
+		*pValue = pObject->platformFunction(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
+		RING_API_RETCPOINTER(pValue,"QFunctionPointer");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_platformName)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->platformName().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGuiApplication_platformNativeInterface)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->platformNativeInterface(),"QPlatformNativeInterface");
+}
+
+
+RING_FUNC(ring_QGuiApplication_primaryScreen)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->primaryScreen(),"QScreen");
+}
+
+
+RING_FUNC(ring_QGuiApplication_queryKeyboardModifiers)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		Qt::KeyboardModifiers *pValue ; 
+		pValue = (Qt::KeyboardModifiers *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Qt::KeyboardModifiers)) ;
+		*pValue = pObject->queryKeyboardModifiers();
+		RING_API_RETCPOINTER(pValue,"Qt::KeyboardModifiers");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_quitOnLastWindowClosed)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETNUMBER(pObject->quitOnLastWindowClosed());
+}
+
+
+RING_FUNC(ring_QGuiApplication_restoreOverrideCursor)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	pObject->restoreOverrideCursor();
+}
+
+
+RING_FUNC(ring_QGuiApplication_screens)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		QList<QScreen *> *pValue ; 
+		pValue = (QList<QScreen *> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QScreen *>)) ;
+		*pValue = pObject->screens();
+		RING_API_RETCPOINTER(pValue,"QList<QScreen *>");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_setApplicationDisplayName)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setApplicationDisplayName(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setDesktopSettingsAware)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDesktopSettingsAware( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setFont)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	pObject->setFont(* (QFont  *) RING_API_GETCPOINTER(2,"QFont"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setLayoutDirection)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLayoutDirection( (Qt::LayoutDirection )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setOverrideCursor)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	pObject->setOverrideCursor(* (QCursor  *) RING_API_GETCPOINTER(2,"QCursor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QCursor"));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setPalette)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	pObject->setPalette(* (QPalette  *) RING_API_GETCPOINTER(2,"QPalette"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPalette"));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setQuitOnLastWindowClosed)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setQuitOnLastWindowClosed( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setWindowIcon)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	pObject->setWindowIcon(* (QIcon  *) RING_API_GETCPOINTER(2,"QIcon"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
+}
+
+
+RING_FUNC(ring_QGuiApplication_styleHints)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->styleHints(),"QStyleHints");
+}
+
+
+RING_FUNC(ring_QGuiApplication_sync)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	pObject->sync();
+}
+
+
+RING_FUNC(ring_QGuiApplication_topLevelAt)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETCPOINTER(pObject->topLevelAt(* (QPoint  *) RING_API_GETCPOINTER(2,"QPoint")),"QWindow");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPoint"));
+}
+
+
+RING_FUNC(ring_QGuiApplication_topLevelWindows)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		QWindowList *pValue ; 
+		pValue = (QWindowList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QWindowList)) ;
+		*pValue = pObject->topLevelWindows();
+		RING_API_RETCPOINTER(pValue,"QWindowList");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_windowIcon)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	{
+		QIcon *pValue ; 
+		pValue = new QIcon() ;
+		*pValue = pObject->windowIcon();
+		RING_API_RETCPOINTER(pValue,"QIcon");
+	}
+}
+
+
+RING_FUNC(ring_QGuiApplication_setapplicationDisplayNameChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setapplicationDisplayNameChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setapplicationStateChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setapplicationStateChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setcommitDataRequestEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcommitDataRequestEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setfocusObjectChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfocusObjectChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setfocusWindowChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfocusWindowChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setfontDatabaseChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfontDatabaseChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setlastWindowClosedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setlastWindowClosedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setlayoutDirectionChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setlayoutDirectionChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setpaletteChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpaletteChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setprimaryScreenChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setprimaryScreenChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setsaveStateRequestEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsaveStateRequestEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setscreenAddedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setscreenAddedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_setscreenRemovedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setscreenRemovedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGuiApplication_getapplicationDisplayNameChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getapplicationDisplayNameChangedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getapplicationStateChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getapplicationStateChangedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getcommitDataRequestEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getcommitDataRequestEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getfocusObjectChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getfocusObjectChangedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getfocusWindowChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getfocusWindowChangedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getfontDatabaseChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getfontDatabaseChangedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getlastWindowClosedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getlastWindowClosedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getlayoutDirectionChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getlayoutDirectionChangedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getpaletteChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getpaletteChangedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getprimaryScreenChangedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getprimaryScreenChangedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getsaveStateRequestEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getsaveStateRequestEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getscreenAddedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getscreenAddedEvent());
+}
+
+
+RING_FUNC(ring_QGuiApplication_getscreenRemovedEvent)
+{
+	GGuiApplication *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
+	RING_API_RETSTRING(pObject->getscreenRemovedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -91890,6 +93236,25 @@ RING_FUNC(ring_QWindow_new)
 	}
 	GWindow *pObject = new GWindow((QScreen *) RING_API_GETCPOINTER(1,"QScreen"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QWindow");
+}
+
+RING_FUNC(ring_QGuiApplication_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GGuiApplication *pObject = new GGuiApplication( (int) RING_API_GETNUMBER(1),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QGuiApplication");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -94228,6 +95593,21 @@ RING_FUNC(ring_QWindow_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GWindow *) RING_API_GETCPOINTER(1,"GWindow");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QGuiApplication_delete)
+{
+	GGuiApplication *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"GGuiApplication");
 		delete pObject ;
 	}
 }
@@ -98636,6 +100016,77 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwindow_getwindowtitlechangedevent",ring_QWindow_getwindowTitleChangedEvent);
 	ring_vm_funcregister("qwindow_getxchangedevent",ring_QWindow_getxChangedEvent);
 	ring_vm_funcregister("qwindow_getychangedevent",ring_QWindow_getyChangedEvent);
+	ring_vm_funcregister("qguiapplication_devicepixelratio",ring_QGuiApplication_devicePixelRatio);
+	ring_vm_funcregister("qguiapplication_issavingsession",ring_QGuiApplication_isSavingSession);
+	ring_vm_funcregister("qguiapplication_issessionrestored",ring_QGuiApplication_isSessionRestored);
+	ring_vm_funcregister("qguiapplication_sessionid",ring_QGuiApplication_sessionId);
+	ring_vm_funcregister("qguiapplication_sessionkey",ring_QGuiApplication_sessionKey);
+	ring_vm_funcregister("qguiapplication_allwindows",ring_QGuiApplication_allWindows);
+	ring_vm_funcregister("qguiapplication_applicationdisplayname",ring_QGuiApplication_applicationDisplayName);
+	ring_vm_funcregister("qguiapplication_applicationstate",ring_QGuiApplication_applicationState);
+	ring_vm_funcregister("qguiapplication_changeoverridecursor",ring_QGuiApplication_changeOverrideCursor);
+	ring_vm_funcregister("qguiapplication_clipboard",ring_QGuiApplication_clipboard);
+	ring_vm_funcregister("qguiapplication_desktopsettingsaware",ring_QGuiApplication_desktopSettingsAware);
+	ring_vm_funcregister("qguiapplication_exec",ring_QGuiApplication_exec);
+	ring_vm_funcregister("qguiapplication_focusobject",ring_QGuiApplication_focusObject);
+	ring_vm_funcregister("qguiapplication_focuswindow",ring_QGuiApplication_focusWindow);
+	ring_vm_funcregister("qguiapplication_font",ring_QGuiApplication_font);
+	ring_vm_funcregister("qguiapplication_inputmethod",ring_QGuiApplication_inputMethod);
+	ring_vm_funcregister("qguiapplication_islefttoright",ring_QGuiApplication_isLeftToRight);
+	ring_vm_funcregister("qguiapplication_isrighttoleft",ring_QGuiApplication_isRightToLeft);
+	ring_vm_funcregister("qguiapplication_keyboardmodifiers",ring_QGuiApplication_keyboardModifiers);
+	ring_vm_funcregister("qguiapplication_layoutdirection",ring_QGuiApplication_layoutDirection);
+	ring_vm_funcregister("qguiapplication_modalwindow",ring_QGuiApplication_modalWindow);
+	ring_vm_funcregister("qguiapplication_mousebuttons",ring_QGuiApplication_mouseButtons);
+	ring_vm_funcregister("qguiapplication_overridecursor",ring_QGuiApplication_overrideCursor);
+	ring_vm_funcregister("qguiapplication_palette",ring_QGuiApplication_palette);
+	ring_vm_funcregister("qguiapplication_platformfunction",ring_QGuiApplication_platformFunction);
+	ring_vm_funcregister("qguiapplication_platformname",ring_QGuiApplication_platformName);
+	ring_vm_funcregister("qguiapplication_platformnativeinterface",ring_QGuiApplication_platformNativeInterface);
+	ring_vm_funcregister("qguiapplication_primaryscreen",ring_QGuiApplication_primaryScreen);
+	ring_vm_funcregister("qguiapplication_querykeyboardmodifiers",ring_QGuiApplication_queryKeyboardModifiers);
+	ring_vm_funcregister("qguiapplication_quitonlastwindowclosed",ring_QGuiApplication_quitOnLastWindowClosed);
+	ring_vm_funcregister("qguiapplication_restoreoverridecursor",ring_QGuiApplication_restoreOverrideCursor);
+	ring_vm_funcregister("qguiapplication_screens",ring_QGuiApplication_screens);
+	ring_vm_funcregister("qguiapplication_setapplicationdisplayname",ring_QGuiApplication_setApplicationDisplayName);
+	ring_vm_funcregister("qguiapplication_setdesktopsettingsaware",ring_QGuiApplication_setDesktopSettingsAware);
+	ring_vm_funcregister("qguiapplication_setfont",ring_QGuiApplication_setFont);
+	ring_vm_funcregister("qguiapplication_setlayoutdirection",ring_QGuiApplication_setLayoutDirection);
+	ring_vm_funcregister("qguiapplication_setoverridecursor",ring_QGuiApplication_setOverrideCursor);
+	ring_vm_funcregister("qguiapplication_setpalette",ring_QGuiApplication_setPalette);
+	ring_vm_funcregister("qguiapplication_setquitonlastwindowclosed",ring_QGuiApplication_setQuitOnLastWindowClosed);
+	ring_vm_funcregister("qguiapplication_setwindowicon",ring_QGuiApplication_setWindowIcon);
+	ring_vm_funcregister("qguiapplication_stylehints",ring_QGuiApplication_styleHints);
+	ring_vm_funcregister("qguiapplication_sync",ring_QGuiApplication_sync);
+	ring_vm_funcregister("qguiapplication_toplevelat",ring_QGuiApplication_topLevelAt);
+	ring_vm_funcregister("qguiapplication_toplevelwindows",ring_QGuiApplication_topLevelWindows);
+	ring_vm_funcregister("qguiapplication_windowicon",ring_QGuiApplication_windowIcon);
+	ring_vm_funcregister("qguiapplication_setapplicationdisplaynamechangedevent",ring_QGuiApplication_setapplicationDisplayNameChangedEvent);
+	ring_vm_funcregister("qguiapplication_setapplicationstatechangedevent",ring_QGuiApplication_setapplicationStateChangedEvent);
+	ring_vm_funcregister("qguiapplication_setcommitdatarequestevent",ring_QGuiApplication_setcommitDataRequestEvent);
+	ring_vm_funcregister("qguiapplication_setfocusobjectchangedevent",ring_QGuiApplication_setfocusObjectChangedEvent);
+	ring_vm_funcregister("qguiapplication_setfocuswindowchangedevent",ring_QGuiApplication_setfocusWindowChangedEvent);
+	ring_vm_funcregister("qguiapplication_setfontdatabasechangedevent",ring_QGuiApplication_setfontDatabaseChangedEvent);
+	ring_vm_funcregister("qguiapplication_setlastwindowclosedevent",ring_QGuiApplication_setlastWindowClosedEvent);
+	ring_vm_funcregister("qguiapplication_setlayoutdirectionchangedevent",ring_QGuiApplication_setlayoutDirectionChangedEvent);
+	ring_vm_funcregister("qguiapplication_setpalettechangedevent",ring_QGuiApplication_setpaletteChangedEvent);
+	ring_vm_funcregister("qguiapplication_setprimaryscreenchangedevent",ring_QGuiApplication_setprimaryScreenChangedEvent);
+	ring_vm_funcregister("qguiapplication_setsavestaterequestevent",ring_QGuiApplication_setsaveStateRequestEvent);
+	ring_vm_funcregister("qguiapplication_setscreenaddedevent",ring_QGuiApplication_setscreenAddedEvent);
+	ring_vm_funcregister("qguiapplication_setscreenremovedevent",ring_QGuiApplication_setscreenRemovedEvent);
+	ring_vm_funcregister("qguiapplication_getapplicationdisplaynamechangedevent",ring_QGuiApplication_getapplicationDisplayNameChangedEvent);
+	ring_vm_funcregister("qguiapplication_getapplicationstatechangedevent",ring_QGuiApplication_getapplicationStateChangedEvent);
+	ring_vm_funcregister("qguiapplication_getcommitdatarequestevent",ring_QGuiApplication_getcommitDataRequestEvent);
+	ring_vm_funcregister("qguiapplication_getfocusobjectchangedevent",ring_QGuiApplication_getfocusObjectChangedEvent);
+	ring_vm_funcregister("qguiapplication_getfocuswindowchangedevent",ring_QGuiApplication_getfocusWindowChangedEvent);
+	ring_vm_funcregister("qguiapplication_getfontdatabasechangedevent",ring_QGuiApplication_getfontDatabaseChangedEvent);
+	ring_vm_funcregister("qguiapplication_getlastwindowclosedevent",ring_QGuiApplication_getlastWindowClosedEvent);
+	ring_vm_funcregister("qguiapplication_getlayoutdirectionchangedevent",ring_QGuiApplication_getlayoutDirectionChangedEvent);
+	ring_vm_funcregister("qguiapplication_getpalettechangedevent",ring_QGuiApplication_getpaletteChangedEvent);
+	ring_vm_funcregister("qguiapplication_getprimaryscreenchangedevent",ring_QGuiApplication_getprimaryScreenChangedEvent);
+	ring_vm_funcregister("qguiapplication_getsavestaterequestevent",ring_QGuiApplication_getsaveStateRequestEvent);
+	ring_vm_funcregister("qguiapplication_getscreenaddedevent",ring_QGuiApplication_getscreenAddedEvent);
+	ring_vm_funcregister("qguiapplication_getscreenremovedevent",ring_QGuiApplication_getscreenRemovedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -98792,6 +100243,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbluetoothlocaldevice_new",ring_QBluetoothLocalDevice_new);
 	ring_vm_funcregister("qdatetime_new",ring_QDateTime_new);
 	ring_vm_funcregister("qwindow_new",ring_QWindow_new);
+	ring_vm_funcregister("qguiapplication_new",ring_QGuiApplication_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -98948,4 +100400,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qbluetoothlocaldevice_delete",ring_QBluetoothLocalDevice_delete);
 	ring_vm_funcregister("qdatetime_delete",ring_QDateTime_delete);
 	ring_vm_funcregister("qwindow_delete",ring_QWindow_delete);
+	ring_vm_funcregister("qguiapplication_delete",ring_QGuiApplication_delete);
 }

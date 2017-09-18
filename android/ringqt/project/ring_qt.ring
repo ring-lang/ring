@@ -16229,6 +16229,246 @@ Class QWindow from QObject
 	Func getyChangedEvent 
 		return QWindow_getyChangedEvent(pObject)
 
+Class QGuiApplication
+
+	pObject
+
+	Func init P1,P2
+		pObject = QGuiApplication_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QGuiApplication_delete(pObject)
+
+	Func devicePixelRatio 
+		return QGuiApplication_devicePixelRatio(pObject)
+
+	Func isSavingSession 
+		return QGuiApplication_isSavingSession(pObject)
+
+	Func isSessionRestored 
+		return QGuiApplication_isSessionRestored(pObject)
+
+	Func sessionId 
+		return QGuiApplication_sessionId(pObject)
+
+	Func sessionKey 
+		return QGuiApplication_sessionKey(pObject)
+
+	Func allWindows 
+		return QGuiApplication_allWindows(pObject)
+
+	Func applicationDisplayName 
+		return QGuiApplication_applicationDisplayName(pObject)
+
+	Func applicationState 
+		return QGuiApplication_applicationState(pObject)
+
+	Func changeOverrideCursor P1
+		return QGuiApplication_changeOverrideCursor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func clipboard 
+		return QGuiApplication_clipboard(pObject)
+
+	Func desktopSettingsAware 
+		return QGuiApplication_desktopSettingsAware(pObject)
+
+	Func exec 
+		return QGuiApplication_exec(pObject)
+
+	Func focusObject 
+		pTempObj = new QObject
+		pTempObj.pObject = QGuiApplication_focusObject(pObject)
+		return pTempObj
+
+	Func focusWindow 
+		pTempObj = new QWindow
+		pTempObj.pObject = QGuiApplication_focusWindow(pObject)
+		return pTempObj
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QGuiApplication_font(pObject)
+		return pTempObj
+
+	Func inputMethod 
+		return QGuiApplication_inputMethod(pObject)
+
+	Func isLeftToRight 
+		return QGuiApplication_isLeftToRight(pObject)
+
+	Func isRightToLeft 
+		return QGuiApplication_isRightToLeft(pObject)
+
+	Func keyboardModifiers 
+		return QGuiApplication_keyboardModifiers(pObject)
+
+	Func layoutDirection 
+		return QGuiApplication_layoutDirection(pObject)
+
+	Func modalWindow 
+		pTempObj = new QWindow
+		pTempObj.pObject = QGuiApplication_modalWindow(pObject)
+		return pTempObj
+
+	Func mouseButtons 
+		return QGuiApplication_mouseButtons(pObject)
+
+	Func overrideCursor 
+		pTempObj = new QCursor
+		pTempObj.pObject = QGuiApplication_overrideCursor(pObject)
+		return pTempObj
+
+	Func palette 
+		return QGuiApplication_palette(pObject)
+
+	Func platformFunction P1
+		return QGuiApplication_platformFunction(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func platformName 
+		return QGuiApplication_platformName(pObject)
+
+	Func platformNativeInterface 
+		return QGuiApplication_platformNativeInterface(pObject)
+
+	Func primaryScreen 
+		pTempObj = new QScreen
+		pTempObj.pObject = QGuiApplication_primaryScreen(pObject)
+		return pTempObj
+
+	Func queryKeyboardModifiers 
+		return QGuiApplication_queryKeyboardModifiers(pObject)
+
+	Func quitOnLastWindowClosed 
+		return QGuiApplication_quitOnLastWindowClosed(pObject)
+
+	Func restoreOverrideCursor 
+		return QGuiApplication_restoreOverrideCursor(pObject)
+
+	Func screens 
+		return QGuiApplication_screens(pObject)
+
+	Func setApplicationDisplayName P1
+		return QGuiApplication_setApplicationDisplayName(pObject,P1)
+
+	Func setDesktopSettingsAware P1
+		return QGuiApplication_setDesktopSettingsAware(pObject,P1)
+
+	Func setFont P1
+		return QGuiApplication_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLayoutDirection P1
+		return QGuiApplication_setLayoutDirection(pObject,P1)
+
+	Func setOverrideCursor P1
+		return QGuiApplication_setOverrideCursor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPalette P1
+		return QGuiApplication_setPalette(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setQuitOnLastWindowClosed P1
+		return QGuiApplication_setQuitOnLastWindowClosed(pObject,P1)
+
+	Func setWindowIcon P1
+		return QGuiApplication_setWindowIcon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func styleHints 
+		return QGuiApplication_styleHints(pObject)
+
+	Func sync 
+		return QGuiApplication_sync(pObject)
+
+	Func topLevelAt P1
+		pTempObj = new QWindow
+		pTempObj.pObject = QGuiApplication_topLevelAt(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func topLevelWindows 
+		return QGuiApplication_topLevelWindows(pObject)
+
+	Func windowIcon 
+		pTempObj = new QIcon
+		pTempObj.pObject = QGuiApplication_windowIcon(pObject)
+		return pTempObj
+
+	Func setapplicationDisplayNameChangedEvent P1
+		return QGuiApplication_setapplicationDisplayNameChangedEvent(pObject,P1)
+
+	Func setapplicationStateChangedEvent P1
+		return QGuiApplication_setapplicationStateChangedEvent(pObject,P1)
+
+	Func setcommitDataRequestEvent P1
+		return QGuiApplication_setcommitDataRequestEvent(pObject,P1)
+
+	Func setfocusObjectChangedEvent P1
+		return QGuiApplication_setfocusObjectChangedEvent(pObject,P1)
+
+	Func setfocusWindowChangedEvent P1
+		return QGuiApplication_setfocusWindowChangedEvent(pObject,P1)
+
+	Func setfontDatabaseChangedEvent P1
+		return QGuiApplication_setfontDatabaseChangedEvent(pObject,P1)
+
+	Func setlastWindowClosedEvent P1
+		return QGuiApplication_setlastWindowClosedEvent(pObject,P1)
+
+	Func setlayoutDirectionChangedEvent P1
+		return QGuiApplication_setlayoutDirectionChangedEvent(pObject,P1)
+
+	Func setpaletteChangedEvent P1
+		return QGuiApplication_setpaletteChangedEvent(pObject,P1)
+
+	Func setprimaryScreenChangedEvent P1
+		return QGuiApplication_setprimaryScreenChangedEvent(pObject,P1)
+
+	Func setsaveStateRequestEvent P1
+		return QGuiApplication_setsaveStateRequestEvent(pObject,P1)
+
+	Func setscreenAddedEvent P1
+		return QGuiApplication_setscreenAddedEvent(pObject,P1)
+
+	Func setscreenRemovedEvent P1
+		return QGuiApplication_setscreenRemovedEvent(pObject,P1)
+
+	Func getapplicationDisplayNameChangedEvent 
+		return QGuiApplication_getapplicationDisplayNameChangedEvent(pObject)
+
+	Func getapplicationStateChangedEvent 
+		return QGuiApplication_getapplicationStateChangedEvent(pObject)
+
+	Func getcommitDataRequestEvent 
+		return QGuiApplication_getcommitDataRequestEvent(pObject)
+
+	Func getfocusObjectChangedEvent 
+		return QGuiApplication_getfocusObjectChangedEvent(pObject)
+
+	Func getfocusWindowChangedEvent 
+		return QGuiApplication_getfocusWindowChangedEvent(pObject)
+
+	Func getfontDatabaseChangedEvent 
+		return QGuiApplication_getfontDatabaseChangedEvent(pObject)
+
+	Func getlastWindowClosedEvent 
+		return QGuiApplication_getlastWindowClosedEvent(pObject)
+
+	Func getlayoutDirectionChangedEvent 
+		return QGuiApplication_getlayoutDirectionChangedEvent(pObject)
+
+	Func getpaletteChangedEvent 
+		return QGuiApplication_getpaletteChangedEvent(pObject)
+
+	Func getprimaryScreenChangedEvent 
+		return QGuiApplication_getprimaryScreenChangedEvent(pObject)
+
+	Func getsaveStateRequestEvent 
+		return QGuiApplication_getsaveStateRequestEvent(pObject)
+
+	Func getscreenAddedEvent 
+		return QGuiApplication_getscreenAddedEvent(pObject)
+
+	Func getscreenRemovedEvent 
+		return QGuiApplication_getscreenRemovedEvent(pObject)
+
 Class QPixmap2 from QPixmap
 
 	pObject
