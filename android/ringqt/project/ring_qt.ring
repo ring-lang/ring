@@ -719,7 +719,9 @@ Class QWidget from QObject
 		return QWidget_windowFlags(pObject)
 
 	Func windowHandle 
-		return QWidget_windowHandle(pObject)
+		pTempObj = new QWindow
+		pTempObj.pObject = QWidget_windowHandle(pObject)
+		return pTempObj
 
 	Func windowIcon 
 		pTempObj = new QIcon
@@ -15787,6 +15789,445 @@ Class QScreen
 
 	Func transformBetween P1,P2,P3
 		return QScreen_transformBetween(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+Class QWindow from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QWindow_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QWindow_delete(pObject)
+
+	Func baseSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QWindow_baseSize(pObject)
+		return pTempObj
+
+	Func contentOrientation 
+		return QWindow_contentOrientation(pObject)
+
+	Func create 
+		return QWindow_create(pObject)
+
+	Func cursor 
+		pTempObj = new QCursor
+		pTempObj.pObject = QWindow_cursor(pObject)
+		return pTempObj
+
+	Func destroy 
+		return QWindow_destroy(pObject)
+
+	Func devicePixelRatio 
+		return QWindow_devicePixelRatio(pObject)
+
+	Func filePath 
+		return QWindow_filePath(pObject)
+
+	Func flags 
+		return QWindow_flags(pObject)
+
+	Func focusObject 
+		pTempObj = new QObject
+		pTempObj.pObject = QWindow_focusObject(pObject)
+		return pTempObj
+
+	Func frameGeometry 
+		pTempObj = new QRect
+		pTempObj.pObject = QWindow_frameGeometry(pObject)
+		return pTempObj
+
+	Func frameMargins 
+		return QWindow_frameMargins(pObject)
+
+	Func framePosition 
+		pTempObj = new QPoint
+		pTempObj.pObject = QWindow_framePosition(pObject)
+		return pTempObj
+
+	Func geometry 
+		pTempObj = new QRect
+		pTempObj.pObject = QWindow_geometry(pObject)
+		return pTempObj
+
+	Func height 
+		return QWindow_height(pObject)
+
+	Func icon 
+		pTempObj = new QIcon
+		pTempObj.pObject = QWindow_icon(pObject)
+		return pTempObj
+
+	Func isActive 
+		return QWindow_isActive(pObject)
+
+	Func isAncestorOf P1,P2
+		return QWindow_isAncestorOf(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func isExposed 
+		return QWindow_isExposed(pObject)
+
+	Func isModal 
+		return QWindow_isModal(pObject)
+
+	Func isTopLevel 
+		return QWindow_isTopLevel(pObject)
+
+	Func isVisible 
+		return QWindow_isVisible(pObject)
+
+	Func mapFromGlobal P1
+		pTempObj = new QPoint
+		pTempObj.pObject = QWindow_mapFromGlobal(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToGlobal P1
+		pTempObj = new QPoint
+		pTempObj.pObject = QWindow_mapToGlobal(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mask 
+		return QWindow_mask(pObject)
+
+	Func maximumHeight 
+		return QWindow_maximumHeight(pObject)
+
+	Func maximumSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QWindow_maximumSize(pObject)
+		return pTempObj
+
+	Func maximumWidth 
+		return QWindow_maximumWidth(pObject)
+
+	Func minimumHeight 
+		return QWindow_minimumHeight(pObject)
+
+	Func minimumSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QWindow_minimumSize(pObject)
+		return pTempObj
+
+	Func minimumWidth 
+		return QWindow_minimumWidth(pObject)
+
+	Func modality 
+		return QWindow_modality(pObject)
+
+	Func opacity 
+		return QWindow_opacity(pObject)
+
+	Func position 
+		pTempObj = new QPoint
+		pTempObj.pObject = QWindow_position(pObject)
+		return pTempObj
+
+	Func reportContentOrientationChange P1
+		return QWindow_reportContentOrientationChange(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func requestedFormat 
+		return QWindow_requestedFormat(pObject)
+
+	Func resize P1
+		return QWindow_resize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func resize_2 P1,P2
+		return QWindow_resize_2(pObject,P1,P2)
+
+	Func screen 
+		pTempObj = new QScreen
+		pTempObj.pObject = QWindow_screen(pObject)
+		return pTempObj
+
+	Func setBaseSize P1
+		return QWindow_setBaseSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCursor P1
+		return QWindow_setCursor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFilePath P1
+		return QWindow_setFilePath(pObject,P1)
+
+	Func setFlags P1
+		return QWindow_setFlags(pObject,P1)
+
+	Func setFormat P1
+		return QWindow_setFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFramePosition P1
+		return QWindow_setFramePosition(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGeometry P1,P2,P3,P4
+		return QWindow_setGeometry(pObject,P1,P2,P3,P4)
+
+	Func setGeometry_2 P1
+		return QWindow_setGeometry_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setIcon P1
+		return QWindow_setIcon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setKeyboardGrabEnabled P1
+		return QWindow_setKeyboardGrabEnabled(pObject,P1)
+
+	Func setMask P1
+		return QWindow_setMask(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMaximumSize P1
+		return QWindow_setMaximumSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMinimumSize P1
+		return QWindow_setMinimumSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setModality P1
+		return QWindow_setModality(pObject,P1)
+
+	Func setMouseGrabEnabled P1
+		return QWindow_setMouseGrabEnabled(pObject,P1)
+
+	Func setOpacity P1
+		return QWindow_setOpacity(pObject,P1)
+
+	Func setParent P1
+		return QWindow_setParent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPosition P1
+		return QWindow_setPosition(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPosition_2 P1,P2
+		return QWindow_setPosition_2(pObject,P1,P2)
+
+	Func setScreen P1
+		return QWindow_setScreen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSizeIncrement P1
+		return QWindow_setSizeIncrement(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTransientParent P1
+		return QWindow_setTransientParent(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setVisibility P1
+		return QWindow_setVisibility(pObject,P1)
+
+	Func setWindowState P1
+		return QWindow_setWindowState(pObject,P1)
+
+	Func sizeIncrement 
+		pTempObj = new QSize
+		pTempObj.pObject = QWindow_sizeIncrement(pObject)
+		return pTempObj
+
+	Func title 
+		return QWindow_title(pObject)
+
+	Func transientParent 
+		pTempObj = new QWindow
+		pTempObj.pObject = QWindow_transientParent(pObject)
+		return pTempObj
+
+	Func type 
+		return QWindow_type(pObject)
+
+	Func unsetCursor 
+		return QWindow_unsetCursor(pObject)
+
+	Func visibility 
+		return QWindow_visibility(pObject)
+
+	Func width 
+		return QWindow_width(pObject)
+
+	Func winId 
+		return QWindow_winId(pObject)
+
+	Func windowState 
+		return QWindow_windowState(pObject)
+
+	Func x 
+		return QWindow_x(pObject)
+
+	Func y 
+		return QWindow_y(pObject)
+
+	Func alert P1
+		return QWindow_alert(pObject,P1)
+
+	Func close 
+		return QWindow_close(pObject)
+
+	Func hide 
+		return QWindow_hide(pObject)
+
+	Func lower 
+		return QWindow_lower(pObject)
+
+	Func raise 
+		return QWindow_raise(pObject)
+
+	Func requestActivate 
+		return QWindow_requestActivate(pObject)
+
+	Func requestUpdate 
+		return QWindow_requestUpdate(pObject)
+
+	Func setHeight P1
+		return QWindow_setHeight(pObject,P1)
+
+	Func setMaximumHeight P1
+		return QWindow_setMaximumHeight(pObject,P1)
+
+	Func setMaximumWidth P1
+		return QWindow_setMaximumWidth(pObject,P1)
+
+	Func setMinimumHeight P1
+		return QWindow_setMinimumHeight(pObject,P1)
+
+	Func setMinimumWidth P1
+		return QWindow_setMinimumWidth(pObject,P1)
+
+	Func setTitle P1
+		return QWindow_setTitle(pObject,P1)
+
+	Func setVisible P1
+		return QWindow_setVisible(pObject,P1)
+
+	Func setWidth P1
+		return QWindow_setWidth(pObject,P1)
+
+	Func setX P1
+		return QWindow_setX(pObject,P1)
+
+	Func setY P1
+		return QWindow_setY(pObject,P1)
+
+	Func show 
+		return QWindow_show(pObject)
+
+	Func showFullScreen 
+		return QWindow_showFullScreen(pObject)
+
+	Func showMaximized 
+		return QWindow_showMaximized(pObject)
+
+	Func showMinimized 
+		return QWindow_showMinimized(pObject)
+
+	Func showNormal 
+		return QWindow_showNormal(pObject)
+
+	Func fromWinId P1
+		pTempObj = new QWindow
+		pTempObj.pObject = QWindow_fromWinId(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setactiveChangedEvent P1
+		return QWindow_setactiveChangedEvent(pObject,P1)
+
+	Func setcontentOrientationChangedEvent P1
+		return QWindow_setcontentOrientationChangedEvent(pObject,P1)
+
+	Func setfocusObjectChangedEvent P1
+		return QWindow_setfocusObjectChangedEvent(pObject,P1)
+
+	Func setheightChangedEvent P1
+		return QWindow_setheightChangedEvent(pObject,P1)
+
+	Func setmaximumHeightChangedEvent P1
+		return QWindow_setmaximumHeightChangedEvent(pObject,P1)
+
+	Func setmaximumWidthChangedEvent P1
+		return QWindow_setmaximumWidthChangedEvent(pObject,P1)
+
+	Func setminimumHeightChangedEvent P1
+		return QWindow_setminimumHeightChangedEvent(pObject,P1)
+
+	Func setminimumWidthChangedEvent P1
+		return QWindow_setminimumWidthChangedEvent(pObject,P1)
+
+	Func setmodalityChangedEvent P1
+		return QWindow_setmodalityChangedEvent(pObject,P1)
+
+	Func setopacityChangedEvent P1
+		return QWindow_setopacityChangedEvent(pObject,P1)
+
+	Func setscreenChangedEvent P1
+		return QWindow_setscreenChangedEvent(pObject,P1)
+
+	Func setvisibilityChangedEvent P1
+		return QWindow_setvisibilityChangedEvent(pObject,P1)
+
+	Func setvisibleChangedEvent P1
+		return QWindow_setvisibleChangedEvent(pObject,P1)
+
+	Func setwidthChangedEvent P1
+		return QWindow_setwidthChangedEvent(pObject,P1)
+
+	Func setwindowStateChangedEvent P1
+		return QWindow_setwindowStateChangedEvent(pObject,P1)
+
+	Func setwindowTitleChangedEvent P1
+		return QWindow_setwindowTitleChangedEvent(pObject,P1)
+
+	Func setxChangedEvent P1
+		return QWindow_setxChangedEvent(pObject,P1)
+
+	Func setyChangedEvent P1
+		return QWindow_setyChangedEvent(pObject,P1)
+
+	Func getactiveChangedEvent 
+		return QWindow_getactiveChangedEvent(pObject)
+
+	Func getcontentOrientationChangedEvent 
+		return QWindow_getcontentOrientationChangedEvent(pObject)
+
+	Func getfocusObjectChangedEvent 
+		return QWindow_getfocusObjectChangedEvent(pObject)
+
+	Func getheightChangedEvent 
+		return QWindow_getheightChangedEvent(pObject)
+
+	Func getmaximumHeightChangedEvent 
+		return QWindow_getmaximumHeightChangedEvent(pObject)
+
+	Func getmaximumWidthChangedEvent 
+		return QWindow_getmaximumWidthChangedEvent(pObject)
+
+	Func getminimumHeightChangedEvent 
+		return QWindow_getminimumHeightChangedEvent(pObject)
+
+	Func getminimumWidthChangedEvent 
+		return QWindow_getminimumWidthChangedEvent(pObject)
+
+	Func getmodalityChangedEvent 
+		return QWindow_getmodalityChangedEvent(pObject)
+
+	Func getopacityChangedEvent 
+		return QWindow_getopacityChangedEvent(pObject)
+
+	Func getscreenChangedEvent 
+		return QWindow_getscreenChangedEvent(pObject)
+
+	Func getvisibilityChangedEvent 
+		return QWindow_getvisibilityChangedEvent(pObject)
+
+	Func getvisibleChangedEvent 
+		return QWindow_getvisibleChangedEvent(pObject)
+
+	Func getwidthChangedEvent 
+		return QWindow_getwidthChangedEvent(pObject)
+
+	Func getwindowStateChangedEvent 
+		return QWindow_getwindowStateChangedEvent(pObject)
+
+	Func getwindowTitleChangedEvent 
+		return QWindow_getwindowTitleChangedEvent(pObject)
+
+	Func getxChangedEvent 
+		return QWindow_getxChangedEvent(pObject)
+
+	Func getyChangedEvent 
+		return QWindow_getyChangedEvent(pObject)
 
 Class QPixmap2 from QPixmap
 
