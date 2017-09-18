@@ -54,6 +54,7 @@ SOURCES +=   \
     gbluetoothtransfermanager.cpp \
     gbluetoothtransferreply.cpp \
     gwindow.cpp \
+    gguiapplication.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -98,6 +99,7 @@ HEADERS  += \
     gbluetoothtransfermanager.h \
     gbluetoothtransferreply.h \
     gbluetoothserver.h \
+    gguiapplication.h \
     gwindow.h
 
 INCLUDEPATH += ../../include

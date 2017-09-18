@@ -253,6 +253,8 @@ extern "C" {
 #include <QScreen>
 #include <QWindow>
 #include "gwindow.h"
+#include <QGuiApplication>
+#include "gguiapplication.h"
 
 extern "C" {
 
@@ -7656,3 +7658,86 @@ const char *getwindowStateChangedEvent(void)
 const char *getwindowTitleChangedEvent(void)
 const char *getxChangedEvent(void)
 const char *getyChangedEvent(void)
+
+<class>
+name: QGuiApplication
+para: int,char **
+codename: GGuiApplication
+passvmpointer
+</class>
+
+
+qreal devicePixelRatio(void)
+bool isSavingSession(void)
+bool isSessionRestored(void)
+QString sessionId(void)
+QString sessionKey(void)
+QWindowList allWindows(void)
+QString applicationDisplayName(void)
+Qt::ApplicationState applicationState(void)
+void changeOverrideCursor(QCursor cursor)
+QClipboard * clipboard(void)
+bool desktopSettingsAware(void)
+int exec(void)
+QObject * focusObject(void)
+QWindow * focusWindow(void)
+QFont font(void)
+QInputMethod * inputMethod(void)
+bool isLeftToRight(void)
+bool isRightToLeft(void)
+Qt::KeyboardModifiers keyboardModifiers(void)
+Qt::LayoutDirection layoutDirection(void)
+QWindow * modalWindow(void)
+Qt::MouseButtons mouseButtons(void)
+QCursor * overrideCursor(void)
+QPalette palette(void)
+QFunctionPointer platformFunction(QByteArray function)
+QString platformName(void)
+QPlatformNativeInterface * platformNativeInterface(void)
+QScreen * primaryScreen(void)
+Qt::KeyboardModifiers queryKeyboardModifiers(void)
+bool quitOnLastWindowClosed(void)
+void restoreOverrideCursor(void)
+QList<QScreen *> screens(void)
+void setApplicationDisplayName(QString name)
+void setDesktopSettingsAware(bool on)
+void setFont(QFont font)
+void setLayoutDirection(Qt::LayoutDirection direction)
+void setOverrideCursor(QCursor cursor)
+void setPalette(QPalette pal)
+void setQuitOnLastWindowClosed(bool quit)
+void setWindowIcon(QIcon icon)
+QStyleHints * styleHints(void)
+void sync(void)
+QWindow * topLevelAt(QPoint pos)
+QWindowList topLevelWindows(void)
+QIcon windowIcon(void)
+
+void setapplicationDisplayNameChangedEvent(const char *)
+void setapplicationStateChangedEvent(const char *)
+void setcommitDataRequestEvent(const char *)
+void setfocusObjectChangedEvent(const char *)
+void setfocusWindowChangedEvent(const char *)
+void setfontDatabaseChangedEvent(const char *)
+void setlastWindowClosedEvent(const char *)
+void setlayoutDirectionChangedEvent(const char *)
+void setpaletteChangedEvent(const char *)
+void setprimaryScreenChangedEvent(const char *)
+void setsaveStateRequestEvent(const char *)
+void setscreenAddedEvent(const char *)
+void setscreenRemovedEvent(const char *)
+
+const char *getapplicationDisplayNameChangedEvent(void)
+const char *getapplicationStateChangedEvent(void)
+const char *getcommitDataRequestEvent(void)
+const char *getfocusObjectChangedEvent(void)
+const char *getfocusWindowChangedEvent(void)
+const char *getfontDatabaseChangedEvent(void)
+const char *getlastWindowClosedEvent(void)
+const char *getlayoutDirectionChangedEvent(void)
+const char *getpaletteChangedEvent(void)
+const char *getprimaryScreenChangedEvent(void)
+const char *getsaveStateRequestEvent(void)
+const char *getscreenAddedEvent(void)
+const char *getscreenRemovedEvent(void)
+
