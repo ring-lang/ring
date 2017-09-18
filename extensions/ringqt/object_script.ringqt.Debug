@@ -40,6 +40,7 @@ INPUT(
 ./debug\gbluetoothsocket.o
 ./debug\gbluetoothtransfermanager.o
 ./debug\gbluetoothtransferreply.o
+./debug\gwindow.o
 ./debug\ring_qt.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
@@ -82,4 +83,5 @@ INPUT(
 ./debug\moc_gbluetoothtransfermanager.o
 ./debug\moc_gbluetoothtransferreply.o
 ./debug\moc_gbluetoothserver.o
+./debug\moc_gwindow.o
 );
