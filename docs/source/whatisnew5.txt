@@ -2110,7 +2110,7 @@ What is new in Ring 1.5.4?
 * Form Designer - Better Toolbar Style
 * Form Designer - Nice backcolor for Window Flags and Menubar Designer
 * Form Designer - Default back color for controls
-* RingQt - Added grab() method to QWidget class
+* RingQt - Added grab() and windowHandle() methods to QWidget class
 * RingQt - Added new methods to QPixmap Class
 * RingQt - Add Class (QScreen)
 * Ring VM - Internal Implemenation - Pass state to Strings and Lists objects
