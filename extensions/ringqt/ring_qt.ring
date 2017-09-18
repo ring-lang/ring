@@ -16426,9 +16426,6 @@ Class QWindow from QObject
 	Func requestActivate 
 		return QWindow_requestActivate(pObject)
 
-	Func requestUpdate 
-		return QWindow_requestUpdate(pObject)
-
 	Func setHeight P1
 		return QWindow_setHeight(pObject,P1)
 

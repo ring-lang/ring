@@ -90720,23 +90720,6 @@ RING_FUNC(ring_QWindow_requestActivate)
 }
 
 
-RING_FUNC(ring_QWindow_requestUpdate)
-{
-	GWindow *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GWindow *) RING_API_GETCPOINTER(1,"QWindow");
-	pObject->requestUpdate();
-}
-
-
 RING_FUNC(ring_QWindow_setHeight)
 {
 	GWindow *pObject ;
@@ -102103,7 +102086,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qwindow_lower",ring_QWindow_lower);
 	ring_vm_funcregister("qwindow_raise",ring_QWindow_raise);
 	ring_vm_funcregister("qwindow_requestactivate",ring_QWindow_requestActivate);
-	ring_vm_funcregister("qwindow_requestupdate",ring_QWindow_requestUpdate);
 	ring_vm_funcregister("qwindow_setheight",ring_QWindow_setHeight);
 	ring_vm_funcregister("qwindow_setmaximumheight",ring_QWindow_setMaximumHeight);
 	ring_vm_funcregister("qwindow_setmaximumwidth",ring_QWindow_setMaximumWidth);
