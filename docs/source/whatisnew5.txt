@@ -2112,7 +2112,7 @@ What is new in Ring 1.5.4?
 * Form Designer - Default back color for controls
 * RingQt - Added grab() and windowHandle() methods to QWidget class
 * RingQt - Added new methods to QPixmap Class
-* RingQt - Add Classes :-
+* RingQt - Added Classes :-
 	* QScreen
 	* QWindow
 	* QGuiApplication
