@@ -1034,7 +1034,7 @@ Func GenMethodCodeGetParaValues aList
 Func GenNewFuncForClasses aList
 	cCode = ""
 	for aSub in $aClassesList
-		if aSub[C_CLASSESLIST_ABSTRACT] = true
+		if aSub[C_CLASSESLIST_ABSTRACT] = true or aSub[C_CLASSESLIST_NONEW] = true
 			loop
 		ok
 		cName = aSub[1]	cPara = aSub[2]
@@ -1068,7 +1068,7 @@ Func GenDeleteFuncForClasses aList
 	cCode = ""
 	for aSub in $aClassesList
 		cName = aSub[1]	cPara = "void"
-		if aSub[C_CLASSESLIST_ABSTRACT] = true
+		if aSub[C_CLASSESLIST_ABSTRACT] = true or aSub[C_CLASSESLIST_NONEW] = true
 			loop
 		ok
 		if aSub[C_CLASSESLIST_CODENAME] != NULL
