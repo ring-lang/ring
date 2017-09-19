@@ -66,7 +66,7 @@ RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
 RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName ) ;
 /* MACRO */
 #define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
-#define RING_VERSION "1.5.3"
+#define RING_VERSION "1.5.4"
 /* General Functions */
 
 int ring_fexists ( const char *cFileName ) ;
