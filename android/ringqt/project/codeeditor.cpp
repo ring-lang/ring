@@ -219,8 +219,14 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
 	QStringList list ;
 	
 	if ( e->key() == Qt::Key_Tab) {
-		blockSignals(true);
  		cur = textCursor();
+		if (strcmp(cur.selectedText().toStdString().c_str(),"") == 0 ) 
+		{
+			cur.insertText("\t");
+			e->accept();
+			return;
+		}
+		blockSignals(true);
     		a = cur.anchor();
     		p = cur.position();
     		cur.setPosition(a);
@@ -229,22 +235,22 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
     		cur.setPosition(a);
     		cur.setPosition(p, QTextCursor::KeepAnchor);
     		str = cur.selection().toPlainText();
-    		list = str.split("\n");
-    		for (int i = 0; i < list.count(); i++)
-    			list[i].insert(0,"\t");
-    		str=list.join("\n");
-    		cur.removeSelectedText();
-    		cur.insertText(str);
-    		cur.setPosition(std::min(a,p));
-    		cur.setPosition(std::max(a,p)+list.count(), QTextCursor::KeepAnchor);
-    		setTextCursor(cur);
-		e->accept();
-		blockSignals(false);
-		return ;
+	    		list = str.split("\n");
+	    		for (int i = 0; i < list.count(); i++)
+	    			list[i].insert(0,"\t");
+  	  		str=list.join("\n");
+ 	   		cur.removeSelectedText();
+   	 		cur.insertText(str);
+   	 		cur.setPosition(std::min(a,p));
+    			cur.setPosition(std::max(a,p)+list.count(), QTextCursor::KeepAnchor);
+    			setTextCursor(cur);
+			e->accept();
+			blockSignals(false);
+			return ;		
 	}
 	else if ( e->key() == Qt::Key_Backtab) {
-		blockSignals(true);
  		cur = textCursor();
+		blockSignals(true);
     		a = cur.anchor();
     		p = cur.position();
     		cur.setPosition(a);
@@ -253,23 +259,23 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
     		cur.setPosition(a);
     		cur.setPosition(p, QTextCursor::KeepAnchor);
     		str = cur.selection().toPlainText();
-    		list = str.split("\n");
-		m = 0;
-    		for (int i = 0; i < list.count(); i++) {
-			if (list[i][0] == '\t') {
-	    			list[i] = list[i].right(list[i].count()-1);
-				m++;
+    			list = str.split("\n");
+			m = 0;
+    			for (int i = 0; i < list.count(); i++) {
+				if (list[i][0] == '\t') {
+	   	 			list[i] = list[i].right(list[i].count()-1);
+					m++;
+				}
 			}
-		}
-    		str=list.join("\n");
-    		cur.removeSelectedText();
-    		cur.insertText(str);
-    		cur.setPosition(std::min(a,p));
-  		cur.setPosition(std::max(a,p)-m, QTextCursor::KeepAnchor);
-    		setTextCursor(cur);
-		e->accept();
-		blockSignals(false);
-		return ;
+    			str=list.join("\n");
+    			cur.removeSelectedText();
+    			cur.insertText(str);
+    			cur.setPosition(std::min(a,p));
+  			cur.setPosition(std::max(a,p)-m, QTextCursor::KeepAnchor);
+    			setTextCursor(cur);
+			e->accept();
+			blockSignals(false);
+			return ;
 	}
 
     if (c && c->popup()->isVisible()) {
