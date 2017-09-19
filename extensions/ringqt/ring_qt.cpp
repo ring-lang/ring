@@ -92158,30 +92158,6 @@ RING_FUNC(ring_QGuiApplication_palette)
 }
 
 
-RING_FUNC(ring_QGuiApplication_platformFunction)
-{
-	GGuiApplication *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
-	{
-		QFunctionPointer *pValue ; 
-		pValue = (QFunctionPointer *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QFunctionPointer)) ;
-		*pValue = pObject->platformFunction(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
-		RING_API_RETCPOINTER(pValue,"QFunctionPointer");
-	}
-}
-
-
 RING_FUNC(ring_QGuiApplication_platformName)
 {
 	GGuiApplication *pObject ;
@@ -92452,25 +92428,6 @@ RING_FUNC(ring_QGuiApplication_setQuitOnLastWindowClosed)
 }
 
 
-RING_FUNC(ring_QGuiApplication_setWindowIcon)
-{
-	GGuiApplication *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
-	pObject->setWindowIcon(* (QIcon  *) RING_API_GETCPOINTER(2,"QIcon"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QIcon"));
-}
-
-
 RING_FUNC(ring_QGuiApplication_styleHints)
 {
 	GGuiApplication *pObject ;
@@ -92542,28 +92499,6 @@ RING_FUNC(ring_QGuiApplication_topLevelWindows)
 		pValue = (QWindowList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QWindowList)) ;
 		*pValue = pObject->topLevelWindows();
 		RING_API_RETCPOINTER(pValue,"QWindowList");
-	}
-}
-
-
-RING_FUNC(ring_QGuiApplication_windowIcon)
-{
-	GGuiApplication *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"QGuiApplication");
-	{
-		QIcon *pValue ; 
-		pValue = new QIcon() ;
-		*pValue = pObject->windowIcon();
-		RING_API_RETCPOINTER(pValue,"QIcon");
 	}
 }
 
@@ -102162,7 +102097,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qguiapplication_mousebuttons",ring_QGuiApplication_mouseButtons);
 	ring_vm_funcregister("qguiapplication_overridecursor",ring_QGuiApplication_overrideCursor);
 	ring_vm_funcregister("qguiapplication_palette",ring_QGuiApplication_palette);
-	ring_vm_funcregister("qguiapplication_platformfunction",ring_QGuiApplication_platformFunction);
 	ring_vm_funcregister("qguiapplication_platformname",ring_QGuiApplication_platformName);
 	ring_vm_funcregister("qguiapplication_platformnativeinterface",ring_QGuiApplication_platformNativeInterface);
 	ring_vm_funcregister("qguiapplication_primaryscreen",ring_QGuiApplication_primaryScreen);
@@ -102177,12 +102111,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qguiapplication_setoverridecursor",ring_QGuiApplication_setOverrideCursor);
 	ring_vm_funcregister("qguiapplication_setpalette",ring_QGuiApplication_setPalette);
 	ring_vm_funcregister("qguiapplication_setquitonlastwindowclosed",ring_QGuiApplication_setQuitOnLastWindowClosed);
-	ring_vm_funcregister("qguiapplication_setwindowicon",ring_QGuiApplication_setWindowIcon);
 	ring_vm_funcregister("qguiapplication_stylehints",ring_QGuiApplication_styleHints);
 	ring_vm_funcregister("qguiapplication_sync",ring_QGuiApplication_sync);
 	ring_vm_funcregister("qguiapplication_toplevelat",ring_QGuiApplication_topLevelAt);
 	ring_vm_funcregister("qguiapplication_toplevelwindows",ring_QGuiApplication_topLevelWindows);
-	ring_vm_funcregister("qguiapplication_windowicon",ring_QGuiApplication_windowIcon);
 	ring_vm_funcregister("qguiapplication_setapplicationdisplaynamechangedevent",ring_QGuiApplication_setapplicationDisplayNameChangedEvent);
 	ring_vm_funcregister("qguiapplication_setapplicationstatechangedevent",ring_QGuiApplication_setapplicationStateChangedEvent);
 	ring_vm_funcregister("qguiapplication_setcommitdatarequestevent",ring_QGuiApplication_setcommitDataRequestEvent);

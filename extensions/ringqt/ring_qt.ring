@@ -16677,9 +16677,6 @@ Class QGuiApplication
 	Func palette 
 		return QGuiApplication_palette(pObject)
 
-	Func platformFunction P1
-		return QGuiApplication_platformFunction(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func platformName 
 		return QGuiApplication_platformName(pObject)
 
@@ -16724,9 +16721,6 @@ Class QGuiApplication
 	Func setQuitOnLastWindowClosed P1
 		return QGuiApplication_setQuitOnLastWindowClosed(pObject,P1)
 
-	Func setWindowIcon P1
-		return QGuiApplication_setWindowIcon(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func styleHints 
 		return QGuiApplication_styleHints(pObject)
 
@@ -16740,11 +16734,6 @@ Class QGuiApplication
 
 	Func topLevelWindows 
 		return QGuiApplication_topLevelWindows(pObject)
-
-	Func windowIcon 
-		pTempObj = new QIcon
-		pTempObj.pObject = QGuiApplication_windowIcon(pObject)
-		return pTempObj
 
 	Func setapplicationDisplayNameChangedEvent P1
 		return QGuiApplication_setapplicationDisplayNameChangedEvent(pObject,P1)
