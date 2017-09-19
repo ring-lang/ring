@@ -89,12 +89,13 @@ $cNewPara = ""
 $cClassParent = ""
 
 $aClassesList = []
-C_CLASSESLIST_NAME = 1
-C_CLASSESLIST_PARA = 2
-C_CLASSESLIST_PARENT = 3
-C_CLASSESLIST_CODENAME = 4
-C_CLASSESLIST_PASSVMPOINTER = 5
-C_CLASSESLIST_ABSTRACT = 6
+C_CLASSESLIST_NAME 		= 1
+C_CLASSESLIST_PARA 		= 2
+C_CLASSESLIST_PARENT 		= 3
+C_CLASSESLIST_CODENAME 		= 4
+C_CLASSESLIST_PASSVMPOINTER 	= 5
+C_CLASSESLIST_ABSTRACT 		= 6
+C_CLASSESLIST_NONEW 		= 7
 
 $lNodllstartup = false	# when used, ring.h will not be included automatically
 $cLibInitFunc = "ringlib_init"
@@ -323,7 +324,7 @@ Func GenCode aList
 			if left(lower(cValue),5) = "name:"
 				cClassName = trim(substr(cValue,6))
 				See "Class Name : " + cClassName + nl
-				$aClassesList + [cClassName,"","","",false,false]
+				$aClassesList + [cClassName,"","","",false,false,false]
 			ok
 		ok
 	next
@@ -375,10 +376,11 @@ Func GenCode aList
 			but lower(cValue) = "abstract"
 				nIndex = find($aClassesList,$cClassName,1)
 				$aClassesList[nIndex][C_CLASSESLIST_ABSTRACT] = true
-				SEE "Class : Abstract" + nl		
+				See "Class : Abstract" + nl		
 			but lower(cValue) = "nonew"
 				nIndex = find($aClassesList,$cClassName,1)
-				del($aClassesList,nIndex)		
+				$aClassesList[nIndex][C_CLASSESLIST_NONEW] = true
+				#del($aClassesList,nIndex)		
 			ok
 		ok
 	next
@@ -1122,9 +1124,10 @@ Func GenRingCode aList
 					cCode += nl+"Class " + cClassName 
 					nIndex = find($aClassesList,cClassName,1) 
 					if nIndex > 0
-						  if $aClassesList[nIndex][C_CLASSESLIST_PARENT] != ""
-						 	cCode += " from " + $aClassesList[nIndex][C_CLASSESLIST_PARENT]
-						  ok
+						if $aClassesList[nIndex][C_CLASSESLIST_PARENT] != ""
+							cCode += " from " + $aClassesList[nIndex][C_CLASSESLIST_PARENT]
+						ok
+						if $aClassesList[nIndex][C_CLASSESLIST_NONEW] = false
 						  cCode += nl+nl+
 						  GenTabs(1) + "pObject" + nl + nl +
 						  GenTabs(1) + "Func init " + 
@@ -1134,6 +1137,9 @@ Func GenRingCode aList
 						  GenTabs(2) + "return self" + nl + nl +
 						  GenTabs(1) + "Func delete" + nl + 
 						  GenTabs(2) + "pObject = " + cClassName+"_delete(pObject)" + nl  					
+						else
+							del($aClassesList,nIndex)
+						ok
 					else
 						cCode += nl + nl
 					ok
