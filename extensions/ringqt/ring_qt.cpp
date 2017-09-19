@@ -92996,6 +92996,39 @@ RING_FUNC(ring_QGuiApplication_getscreenRemovedEvent)
 	RING_API_RETSTRING(pObject->getscreenRemovedEvent());
 }
 
+RING_FUNC(ring_QApp_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	QApp *pObject = new QApp(* ( *) RING_API_GETCPOINTER(1,""));
+	RING_API_RETCPOINTER(pObject,"QApp");
+}
+
+RING_FUNC(ring_QDesktopServices_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	QDesktopServices *pObject = new QDesktopServices(* ( *) RING_API_GETCPOINTER(1,""));
+	RING_API_RETCPOINTER(pObject,"QDesktopServices");
+}
+
+RING_FUNC(ring_QTest_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	QTest *pObject = new QTest(* ( *) RING_API_GETCPOINTER(1,""));
+	RING_API_RETCPOINTER(pObject,"QTest");
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -94200,6 +94233,17 @@ RING_FUNC(ring_QDate_new)
 	RING_API_RETCPOINTER(pObject,"QDate");
 }
 
+RING_FUNC(ring_QTextCodec_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	QTextCodec *pObject = new QTextCodec(* ( *) RING_API_GETCPOINTER(1,""));
+	RING_API_RETCPOINTER(pObject,"QTextCodec");
+}
+
 RING_FUNC(ring_QSqlDatabase_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -94292,6 +94336,17 @@ RING_FUNC(ring_QSqlField_new)
 	}
 	QSqlField *pObject = new QSqlField(RING_API_GETSTRING(1), (QVariant::Type)  (int) RING_API_GETNUMBER(2));
 	RING_API_RETCPOINTER(pObject,"QSqlField");
+}
+
+RING_FUNC(ring_QSqlDriverCreatorBase_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QSqlDriverCreatorBase *pObject = new QSqlDriverCreatorBase();
+	RING_API_RETCPOINTER(pObject,"QSqlDriverCreatorBase");
 }
 
 RING_FUNC(ring_QVariant_new)
@@ -95153,6 +95208,51 @@ RING_FUNC(ring_QGuiApplication_new)
 	}
 	GGuiApplication *pObject = new GGuiApplication( (int) RING_API_GETNUMBER(1),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QGuiApplication");
+}
+
+RING_FUNC(ring_QApp_delete)
+{
+	QApp *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QApp *) RING_API_GETCPOINTER(1,"QApp");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QDesktopServices_delete)
+{
+	QDesktopServices *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QDesktopServices *) RING_API_GETCPOINTER(1,"QDesktopServices");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QTest_delete)
+{
+	QTest *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QTest *) RING_API_GETCPOINTER(1,"QTest");
+		delete pObject ;
+	}
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -96475,6 +96575,21 @@ RING_FUNC(ring_QDate_delete)
 	}
 }
 
+RING_FUNC(ring_QTextCodec_delete)
+{
+	QTextCodec *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QTextCodec *) RING_API_GETCPOINTER(1,"QTextCodec");
+		delete pObject ;
+	}
+}
+
 RING_FUNC(ring_QSqlDatabase_delete)
 {
 	QSqlDatabase *pObject ; 
@@ -96561,6 +96676,21 @@ RING_FUNC(ring_QSqlField_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (QSqlField *) RING_API_GETCPOINTER(1,"QSqlField");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QSqlDriverCreatorBase_delete)
+{
+	QSqlDriverCreatorBase *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QSqlDriverCreatorBase *) RING_API_GETCPOINTER(1,"QSqlDriverCreatorBase");
 		delete pObject ;
 	}
 }
@@ -102141,6 +102271,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qguiapplication_getsavestaterequestevent",ring_QGuiApplication_getsaveStateRequestEvent);
 	ring_vm_funcregister("qguiapplication_getscreenaddedevent",ring_QGuiApplication_getscreenAddedEvent);
 	ring_vm_funcregister("qguiapplication_getscreenremovedevent",ring_QGuiApplication_getscreenRemovedEvent);
+	ring_vm_funcregister("qapp_new",ring_QApp_new);
+	ring_vm_funcregister("qdesktopservices_new",ring_QDesktopServices_new);
+	ring_vm_funcregister("qtest_new",ring_QTest_new);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -102229,12 +102362,14 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistwidgetitem_new",ring_QListWidgetItem_new);
 	ring_vm_funcregister("qsystemtrayicon_new",ring_QSystemTrayIcon_new);
 	ring_vm_funcregister("qdate_new",ring_QDate_new);
+	ring_vm_funcregister("qtextcodec_new",ring_QTextCodec_new);
 	ring_vm_funcregister("qsqldatabase_new",ring_QSqlDatabase_new);
 	ring_vm_funcregister("qsqlquery_new",ring_QSqlQuery_new);
 	ring_vm_funcregister("qsqlerror_new",ring_QSqlError_new);
 	ring_vm_funcregister("qsqlindex_new",ring_QSqlIndex_new);
 	ring_vm_funcregister("qsqlrecord_new",ring_QSqlRecord_new);
 	ring_vm_funcregister("qsqlfield_new",ring_QSqlField_new);
+	ring_vm_funcregister("qsqldrivercreatorbase_new",ring_QSqlDriverCreatorBase_new);
 	ring_vm_funcregister("qvariant_new",ring_QVariant_new);
 	ring_vm_funcregister("qnetworkrequest_new",ring_QNetworkRequest_new);
 	ring_vm_funcregister("qnetworkaccessmanager_new",ring_QNetworkAccessManager_new);
@@ -102302,6 +102437,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdatetime_new",ring_QDateTime_new);
 	ring_vm_funcregister("qwindow_new",ring_QWindow_new);
 	ring_vm_funcregister("qguiapplication_new",ring_QGuiApplication_new);
+	ring_vm_funcregister("qapp_delete",ring_QApp_delete);
+	ring_vm_funcregister("qdesktopservices_delete",ring_QDesktopServices_delete);
+	ring_vm_funcregister("qtest_delete",ring_QTest_delete);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -102390,12 +102528,14 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlistwidgetitem_delete",ring_QListWidgetItem_delete);
 	ring_vm_funcregister("qsystemtrayicon_delete",ring_QSystemTrayIcon_delete);
 	ring_vm_funcregister("qdate_delete",ring_QDate_delete);
+	ring_vm_funcregister("qtextcodec_delete",ring_QTextCodec_delete);
 	ring_vm_funcregister("qsqldatabase_delete",ring_QSqlDatabase_delete);
 	ring_vm_funcregister("qsqlquery_delete",ring_QSqlQuery_delete);
 	ring_vm_funcregister("qsqlerror_delete",ring_QSqlError_delete);
 	ring_vm_funcregister("qsqlindex_delete",ring_QSqlIndex_delete);
 	ring_vm_funcregister("qsqlrecord_delete",ring_QSqlRecord_delete);
 	ring_vm_funcregister("qsqlfield_delete",ring_QSqlField_delete);
+	ring_vm_funcregister("qsqldrivercreatorbase_delete",ring_QSqlDriverCreatorBase_delete);
 	ring_vm_funcregister("qvariant_delete",ring_QVariant_delete);
 	ring_vm_funcregister("qnetworkrequest_delete",ring_QNetworkRequest_delete);
 	ring_vm_funcregister("qnetworkaccessmanager_delete",ring_QNetworkAccessManager_delete);

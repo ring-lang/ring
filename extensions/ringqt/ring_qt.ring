@@ -9,9 +9,7 @@ Func GetObjectPointerFromRingObject pObj
      ok	
      return pObj		
 
-Class QApp
-
-
+Class QApp from QGuiApplication
 	Func exec 
 		return QApp_exec()
 
@@ -43,8 +41,6 @@ Class QApp
 		return QApp_keyboardModifiers()
 
 Class QDesktopServices
-
-
 	Func openUrl P1
 		return QDesktopServices_openUrl(GetObjectPointerFromRingObject(P1))
 
@@ -55,8 +51,6 @@ Class QDesktopServices
 		return QDesktopServices_unsetUrlHandler(P1)
 
 Class QTest
-
-
 	Func qsleep P1
 		return QTest_qsleep(P1)
 
@@ -10550,8 +10544,6 @@ Class QDate
 		return QDate_shortMonthName(pObject,P1)
 
 Class QTextCodec
-
-
 	Func codecForName P1
 		return QTextCodec_codecForName(P1)
 
@@ -16901,6 +16893,7 @@ Class QKeySequence
 	Func delete
 		pObject = QKeySequence_delete(pObject)
 
+Class QSqlDriverCreatorBase
 Class QXmlStreamEntityResolver
 
 	pObject
