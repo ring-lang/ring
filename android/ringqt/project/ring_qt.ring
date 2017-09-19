@@ -15718,6 +15718,11 @@ Class QScreen
 		pTempObj.pObject = QScreen_grabWindow(pObject,P1,P2,P3,P4,P5)
 		return pTempObj
 
+	Func grabWindow_2 P1
+		pTempObj = new QPixmap
+		pTempObj.pObject = QScreen_grabWindow_2(pObject,P1)
+		return pTempObj
+
 	Func handle 
 		return QScreen_handle(pObject)
 
