@@ -16073,7 +16073,7 @@ Class QScreen
 
 	Func grabWindow P1,P2,P3,P4,P5
 		pTempObj = new QPixmap
-		pTempObj.pObject = QScreen_grabWindow(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+		pTempObj.pObject = QScreen_grabWindow(pObject,P1,P2,P3,P4,P5)
 		return pTempObj
 
 	Func handle 
@@ -16893,7 +16893,6 @@ Class QKeySequence
 	Func delete
 		pObject = QKeySequence_delete(pObject)
 
-Class QSqlDriverCreatorBase
 Class QXmlStreamEntityResolver
 
 	pObject
