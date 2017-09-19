@@ -591,6 +591,7 @@ RING_FUNC(ring_QApp_quit)
 		return ;
 	}
 	qApp->quit();
+	exit(0);
 }
 
 RING_FUNC(ring_QApp_exec)
@@ -7491,6 +7492,7 @@ int depth(void)
 qreal devicePixelRatio(void)
 QRect geometry(void)
 QPixmap grabWindow(int window, int x, int y, int width, int height)
+QPixmap grabWindow@2(int window)
 QPlatformScreen * handle(void)
 bool isLandscape(Qt::ScreenOrientation o)
 bool isPortrait(Qt::ScreenOrientation o)

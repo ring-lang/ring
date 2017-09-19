@@ -259,6 +259,7 @@ RING_FUNC(ring_QApp_quit)
 		return ;
 	}
 	qApp->quit();
+	exit(0);
 }
 
 RING_FUNC(ring_QApp_exec)
@@ -88778,6 +88779,32 @@ RING_FUNC(ring_QScreen_grabWindow)
 }
 
 
+RING_FUNC(ring_QScreen_grabWindow_2)
+{
+	QScreen *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QPixmap *pValue ; 
+		pValue = new QPixmap() ;
+		*pValue = pObject->grabWindow( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QPixmap");
+	}
+}
+
+
 RING_FUNC(ring_QScreen_handle)
 {
 	QScreen *pObject ;
@@ -101924,6 +101951,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qscreen_devicepixelratio",ring_QScreen_devicePixelRatio);
 	ring_vm_funcregister("qscreen_geometry",ring_QScreen_geometry);
 	ring_vm_funcregister("qscreen_grabwindow",ring_QScreen_grabWindow);
+	ring_vm_funcregister("qscreen_grabwindow_2",ring_QScreen_grabWindow_2);
 	ring_vm_funcregister("qscreen_handle",ring_QScreen_handle);
 	ring_vm_funcregister("qscreen_islandscape",ring_QScreen_isLandscape);
 	ring_vm_funcregister("qscreen_isportrait",ring_QScreen_isPortrait);
