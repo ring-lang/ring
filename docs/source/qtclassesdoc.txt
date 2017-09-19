@@ -15,6 +15,9 @@ QApp Class
 
 C++ Reference : http://doc.qt.io/qt-5/QApplication.html
 
+
+Parent Class : QGuiApplication
+
 * void exec(void)
 * void quit(void)
 * void processEvents(void)
