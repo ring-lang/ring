@@ -565,6 +565,7 @@ aEnumTypes + "QBluetoothUuid::ServiceClassUuid"
 
 <class>
 name: QApp
+parent: QGuiApplication
 nonew
 </class>
 
