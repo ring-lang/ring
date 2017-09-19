@@ -5263,7 +5263,6 @@ QImage transformed(QMatrix, Qt::TransformationMode mode)
 bool valid(int x, int y)
 int width(void)
 
-
 <class>
 name: RingCodeHighlighter
 para: QTextDocument *parent
