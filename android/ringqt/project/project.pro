@@ -105,7 +105,7 @@ HEADERS  += \
 	gwindow.h
 
 CONFIG += mobility c++11
-QMAKE_CXXFLAGS = -Wno-write-strings -Wno-unused-parameter
+QMAKE_CXXFLAGS = -Wno-write-strings -Wno-unused-parameter -std=c++11
 
 RESOURCES = project.qrc
 
