@@ -259,7 +259,6 @@ Class Game
                                   delay(nDelayNewGame)
 
                                   win1.delete()
-                                  app1.quit()
                 ok
 
         Func isnewgame
