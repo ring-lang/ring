@@ -2116,6 +2116,7 @@ What is new in Ring 1.5.4?
 	* QScreen
 	* QWindow
 	* QGuiApplication
+	* QTextBrowser
 * Code Generator for Extensions - Nonew Option - Support Parent Class
 * Ring VM - Internal Implementation - Pass state to Strings and Lists objects
 * Ring VM - Garbage Collector - Memory Pool for Small Objects
