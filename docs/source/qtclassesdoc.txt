@@ -3575,6 +3575,7 @@ Parameters : void
 * QTextList *insertList(QTextListFormat)
 * QTextTable * insertTable(int rows, int columns, QTextTableFormat)
 * void insertText(QString)
+* void insertText_2(QString,QTextCharFormat)
 * bool isCopyOf(QTextCursor)
 * bool isNull(void)
 * void joinPreviousEditBlock(void)
@@ -7057,3 +7058,45 @@ Parameters : int,char **
 * const char *getsaveStateRequestEvent(void)
 * const char *getscreenAddedEvent(void)
 * const char *getscreenRemovedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QTextBrowser Class
+
+QTextBrowser Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QTextBrowser.html
+
+
+Parameters : QWidget *
+
+
+Parent Class : QTextEdit
+
+* int backwardHistoryCount(void)
+* void clearHistory(void)
+* int forwardHistoryCount(void)
+* QString historyTitle(int i)
+* QUrl historyUrl(int i)
+* bool isBackwardAvailable(void)
+* bool isForwardAvailable(void)
+* bool openExternalLinks(void)
+* bool openLinks(void)
+* QStringList searchPaths(void)
+* void setOpenExternalLinks(bool open)
+* void setOpenLinks(bool open)
+* void setSearchPaths(QStringList paths)
+* QUrl source(void)
+* void setanchorClickedEvent(const char *)
+* void setbackwardAvailableEvent(const char *)
+* void setforwardAvailableEvent(const char *)
+* void sethighlightedEvent(const char *)
+* void sethistoryChangedEvent(const char *)
+* void setsourceChangedEvent(const char *)
+* const char *getanchorClickedEvent(void)
+* const char *getbackwardAvailableEvent(void)
+* const char *getforwardAvailableEvent(void)
+* const char *gethighlightedEvent(void)
+* const char *gethistoryChangedEvent(void)
+* const char *getsourceChangedEvent(void)
