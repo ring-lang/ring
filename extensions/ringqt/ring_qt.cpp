@@ -238,6 +238,8 @@ extern "C" {
 #include "gwindow.h"
 #include <QGuiApplication>
 #include "gguiapplication.h"
+#include <QTextBrowser>
+#include "gtextbrowser.h"
 
 extern "C" {
 
@@ -49765,6 +49767,29 @@ RING_FUNC(ring_QTextCursor_insertText)
 }
 
 
+RING_FUNC(ring_QTextCursor_insertText_2)
+{
+	QTextCursor *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QTextCursor *) RING_API_GETCPOINTER(1,"QTextCursor");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->insertText(RING_API_GETSTRING(2),* (QTextCharFormat *) RING_API_GETCPOINTER(3,"QTextCharFormat"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QTextCharFormat"));
+}
+
+
 RING_FUNC(ring_QTextCursor_isCopyOf)
 {
 	QTextCursor *pObject ;
@@ -93025,6 +93050,505 @@ RING_FUNC(ring_QGuiApplication_getscreenRemovedEvent)
 	RING_API_RETSTRING(pObject->getscreenRemovedEvent());
 }
 
+
+RING_FUNC(ring_QTextBrowser_backwardHistoryCount)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETNUMBER(pObject->backwardHistoryCount());
+}
+
+
+RING_FUNC(ring_QTextBrowser_clearHistory)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	pObject->clearHistory();
+}
+
+
+RING_FUNC(ring_QTextBrowser_forwardHistoryCount)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETNUMBER(pObject->forwardHistoryCount());
+}
+
+
+RING_FUNC(ring_QTextBrowser_historyTitle)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->historyTitle( (int ) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QTextBrowser_historyUrl)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QUrl *pValue ; 
+		pValue = new QUrl() ;
+		*pValue = pObject->historyUrl( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETCPOINTER(pValue,"QUrl");
+	}
+}
+
+
+RING_FUNC(ring_QTextBrowser_isBackwardAvailable)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETNUMBER(pObject->isBackwardAvailable());
+}
+
+
+RING_FUNC(ring_QTextBrowser_isForwardAvailable)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETNUMBER(pObject->isForwardAvailable());
+}
+
+
+RING_FUNC(ring_QTextBrowser_openExternalLinks)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETNUMBER(pObject->openExternalLinks());
+}
+
+
+RING_FUNC(ring_QTextBrowser_openLinks)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETNUMBER(pObject->openLinks());
+}
+
+
+RING_FUNC(ring_QTextBrowser_searchPaths)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->searchPaths();
+		RING_API_RETCPOINTER(pValue,"QStringList");
+	}
+}
+
+
+RING_FUNC(ring_QTextBrowser_setOpenExternalLinks)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setOpenExternalLinks( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextBrowser_setOpenLinks)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setOpenLinks( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QTextBrowser_setSearchPaths)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	pObject->setSearchPaths(* (QStringList  *) RING_API_GETCPOINTER(2,"QStringList"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
+}
+
+
+RING_FUNC(ring_QTextBrowser_source)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	{
+		QUrl *pValue ; 
+		pValue = new QUrl() ;
+		*pValue = pObject->source();
+		RING_API_RETCPOINTER(pValue,"QUrl");
+	}
+}
+
+
+RING_FUNC(ring_QTextBrowser_setanchorClickedEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setanchorClickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextBrowser_setbackwardAvailableEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setbackwardAvailableEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextBrowser_setforwardAvailableEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setforwardAvailableEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextBrowser_sethighlightedEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->sethighlightedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextBrowser_sethistoryChangedEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->sethistoryChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextBrowser_setsourceChangedEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setsourceChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QTextBrowser_getanchorClickedEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETSTRING(pObject->getanchorClickedEvent());
+}
+
+
+RING_FUNC(ring_QTextBrowser_getbackwardAvailableEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETSTRING(pObject->getbackwardAvailableEvent());
+}
+
+
+RING_FUNC(ring_QTextBrowser_getforwardAvailableEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETSTRING(pObject->getforwardAvailableEvent());
+}
+
+
+RING_FUNC(ring_QTextBrowser_gethighlightedEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETSTRING(pObject->gethighlightedEvent());
+}
+
+
+RING_FUNC(ring_QTextBrowser_gethistoryChangedEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETSTRING(pObject->gethistoryChangedEvent());
+}
+
+
+RING_FUNC(ring_QTextBrowser_getsourceChangedEvent)
+{
+	GTextBrowser *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"QTextBrowser");
+	RING_API_RETSTRING(pObject->getsourceChangedEvent());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -95182,6 +95706,21 @@ RING_FUNC(ring_QGuiApplication_new)
 	}
 	GGuiApplication *pObject = new GGuiApplication( (int) RING_API_GETNUMBER(1),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QGuiApplication");
+}
+
+RING_FUNC(ring_QTextBrowser_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GTextBrowser *pObject = new GTextBrowser((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QTextBrowser");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -97595,6 +98134,21 @@ RING_FUNC(ring_QGuiApplication_delete)
 	if ( RING_API_ISPOINTER(1) )
 	{
 		pObject = (GGuiApplication *) RING_API_GETCPOINTER(1,"GGuiApplication");
+		delete pObject ;
+	}
+}
+
+RING_FUNC(ring_QTextBrowser_delete)
+{
+	GTextBrowser *pObject ; 
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GTextBrowser *) RING_API_GETCPOINTER(1,"GTextBrowser");
 		delete pObject ;
 	}
 }
@@ -100036,6 +100590,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtextcursor_insertlist",ring_QTextCursor_insertList);
 	ring_vm_funcregister("qtextcursor_inserttable",ring_QTextCursor_insertTable);
 	ring_vm_funcregister("qtextcursor_inserttext",ring_QTextCursor_insertText);
+	ring_vm_funcregister("qtextcursor_inserttext_2",ring_QTextCursor_insertText_2);
 	ring_vm_funcregister("qtextcursor_iscopyof",ring_QTextCursor_isCopyOf);
 	ring_vm_funcregister("qtextcursor_isnull",ring_QTextCursor_isNull);
 	ring_vm_funcregister("qtextcursor_joinpreviouseditblock",ring_QTextCursor_joinPreviousEditBlock);
@@ -102171,6 +102726,32 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qguiapplication_getsavestaterequestevent",ring_QGuiApplication_getsaveStateRequestEvent);
 	ring_vm_funcregister("qguiapplication_getscreenaddedevent",ring_QGuiApplication_getscreenAddedEvent);
 	ring_vm_funcregister("qguiapplication_getscreenremovedevent",ring_QGuiApplication_getscreenRemovedEvent);
+	ring_vm_funcregister("qtextbrowser_backwardhistorycount",ring_QTextBrowser_backwardHistoryCount);
+	ring_vm_funcregister("qtextbrowser_clearhistory",ring_QTextBrowser_clearHistory);
+	ring_vm_funcregister("qtextbrowser_forwardhistorycount",ring_QTextBrowser_forwardHistoryCount);
+	ring_vm_funcregister("qtextbrowser_historytitle",ring_QTextBrowser_historyTitle);
+	ring_vm_funcregister("qtextbrowser_historyurl",ring_QTextBrowser_historyUrl);
+	ring_vm_funcregister("qtextbrowser_isbackwardavailable",ring_QTextBrowser_isBackwardAvailable);
+	ring_vm_funcregister("qtextbrowser_isforwardavailable",ring_QTextBrowser_isForwardAvailable);
+	ring_vm_funcregister("qtextbrowser_openexternallinks",ring_QTextBrowser_openExternalLinks);
+	ring_vm_funcregister("qtextbrowser_openlinks",ring_QTextBrowser_openLinks);
+	ring_vm_funcregister("qtextbrowser_searchpaths",ring_QTextBrowser_searchPaths);
+	ring_vm_funcregister("qtextbrowser_setopenexternallinks",ring_QTextBrowser_setOpenExternalLinks);
+	ring_vm_funcregister("qtextbrowser_setopenlinks",ring_QTextBrowser_setOpenLinks);
+	ring_vm_funcregister("qtextbrowser_setsearchpaths",ring_QTextBrowser_setSearchPaths);
+	ring_vm_funcregister("qtextbrowser_source",ring_QTextBrowser_source);
+	ring_vm_funcregister("qtextbrowser_setanchorclickedevent",ring_QTextBrowser_setanchorClickedEvent);
+	ring_vm_funcregister("qtextbrowser_setbackwardavailableevent",ring_QTextBrowser_setbackwardAvailableEvent);
+	ring_vm_funcregister("qtextbrowser_setforwardavailableevent",ring_QTextBrowser_setforwardAvailableEvent);
+	ring_vm_funcregister("qtextbrowser_sethighlightedevent",ring_QTextBrowser_sethighlightedEvent);
+	ring_vm_funcregister("qtextbrowser_sethistorychangedevent",ring_QTextBrowser_sethistoryChangedEvent);
+	ring_vm_funcregister("qtextbrowser_setsourcechangedevent",ring_QTextBrowser_setsourceChangedEvent);
+	ring_vm_funcregister("qtextbrowser_getanchorclickedevent",ring_QTextBrowser_getanchorClickedEvent);
+	ring_vm_funcregister("qtextbrowser_getbackwardavailableevent",ring_QTextBrowser_getbackwardAvailableEvent);
+	ring_vm_funcregister("qtextbrowser_getforwardavailableevent",ring_QTextBrowser_getforwardAvailableEvent);
+	ring_vm_funcregister("qtextbrowser_gethighlightedevent",ring_QTextBrowser_gethighlightedEvent);
+	ring_vm_funcregister("qtextbrowser_gethistorychangedevent",ring_QTextBrowser_gethistoryChangedEvent);
+	ring_vm_funcregister("qtextbrowser_getsourcechangedevent",ring_QTextBrowser_getsourceChangedEvent);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qwidget_new",ring_QWidget_new);
 	ring_vm_funcregister("qlabel_new",ring_QLabel_new);
@@ -102332,6 +102913,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdatetime_new",ring_QDateTime_new);
 	ring_vm_funcregister("qwindow_new",ring_QWindow_new);
 	ring_vm_funcregister("qguiapplication_new",ring_QGuiApplication_new);
+	ring_vm_funcregister("qtextbrowser_new",ring_QTextBrowser_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qwidget_delete",ring_QWidget_delete);
 	ring_vm_funcregister("qlabel_delete",ring_QLabel_delete);
@@ -102493,4 +103075,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdatetime_delete",ring_QDateTime_delete);
 	ring_vm_funcregister("qwindow_delete",ring_QWindow_delete);
 	ring_vm_funcregister("qguiapplication_delete",ring_QGuiApplication_delete);
+	ring_vm_funcregister("qtextbrowser_delete",ring_QTextBrowser_delete);
 }

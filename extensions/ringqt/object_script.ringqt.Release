@@ -42,6 +42,7 @@ INPUT(
 ./release\gbluetoothtransferreply.o
 ./release\gwindow.o
 ./release\gguiapplication.o
+./release\gtextbrowser.o
 ./release\ring_qt.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
@@ -85,5 +86,6 @@ INPUT(
 ./release\moc_gbluetoothtransferreply.o
 ./release\moc_gbluetoothserver.o
 ./release\moc_gguiapplication.o
+./release\moc_gtextbrowser.o
 ./release\moc_gwindow.o
 );

@@ -255,6 +255,8 @@ extern "C" {
 #include "gwindow.h"
 #include <QGuiApplication>
 #include "gguiapplication.h"
+#include <QTextBrowser>
+#include "gtextbrowser.h"
 
 extern "C" {
 
@@ -4156,6 +4158,7 @@ void insertImage(QTextImageFormat)
 QTextList *insertList(QTextListFormat)
 QTextTable * insertTable(int rows, int columns, QTextTableFormat)
 void insertText(QString)
+void insertText@2(QString,QTextCharFormat)
 bool isCopyOf(QTextCursor)
 bool isNull(void)
 void joinPreviousEditBlock(void)
@@ -7738,3 +7741,41 @@ const char *getsaveStateRequestEvent(void)
 const char *getscreenAddedEvent(void)
 const char *getscreenRemovedEvent(void)
 
+
+<class>
+name: QTextBrowser
+para: QWidget *
+parent: QTextEdit
+codename: GTextBrowser
+passvmpointer
+</class>
+
+
+int backwardHistoryCount(void)
+void clearHistory(void)
+int forwardHistoryCount(void)
+QString historyTitle(int i)
+QUrl historyUrl(int i)
+bool isBackwardAvailable(void)
+bool isForwardAvailable(void)
+bool openExternalLinks(void)
+bool openLinks(void)
+QStringList searchPaths(void)
+void setOpenExternalLinks(bool open)
+void setOpenLinks(bool open)
+void setSearchPaths(QStringList paths)
+QUrl source(void)
+
+void setanchorClickedEvent(const char *)
+void setbackwardAvailableEvent(const char *)
+void setforwardAvailableEvent(const char *)
+void sethighlightedEvent(const char *)
+void sethistoryChangedEvent(const char *)
+void setsourceChangedEvent(const char *)
+
+const char *getanchorClickedEvent(void)
+const char *getbackwardAvailableEvent(void)
+const char *getforwardAvailableEvent(void)
+const char *gethighlightedEvent(void)
+const char *gethistoryChangedEvent(void)
+const char *getsourceChangedEvent(void)
