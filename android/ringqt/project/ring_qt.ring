@@ -8654,6 +8654,9 @@ Class QTextCursor
 	Func insertText P1
 		return QTextCursor_insertText(pObject,P1)
 
+	Func insertText_2 P1,P2
+		return QTextCursor_insertText_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
 	Func isCopyOf P1
 		return QTextCursor_isCopyOf(pObject,GetObjectPointerFromRingObject(P1))
 
@@ -16451,6 +16454,101 @@ Class QGuiApplication
 
 	Func getscreenRemovedEvent 
 		return QGuiApplication_getscreenRemovedEvent(pObject)
+
+Class QTextBrowser from QTextEdit
+
+	pObject
+
+	Func init P1
+		pObject = QTextBrowser_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTextBrowser_delete(pObject)
+
+	Func backwardHistoryCount 
+		return QTextBrowser_backwardHistoryCount(pObject)
+
+	Func clearHistory 
+		return QTextBrowser_clearHistory(pObject)
+
+	Func forwardHistoryCount 
+		return QTextBrowser_forwardHistoryCount(pObject)
+
+	Func historyTitle P1
+		return QTextBrowser_historyTitle(pObject,P1)
+
+	Func historyUrl P1
+		pTempObj = new QUrl
+		pTempObj.pObject = QTextBrowser_historyUrl(pObject,P1)
+		return pTempObj
+
+	Func isBackwardAvailable 
+		return QTextBrowser_isBackwardAvailable(pObject)
+
+	Func isForwardAvailable 
+		return QTextBrowser_isForwardAvailable(pObject)
+
+	Func openExternalLinks 
+		return QTextBrowser_openExternalLinks(pObject)
+
+	Func openLinks 
+		return QTextBrowser_openLinks(pObject)
+
+	Func searchPaths 
+		pTempObj = new QStringList
+		pTempObj.pObject = QTextBrowser_searchPaths(pObject)
+		return pTempObj
+
+	Func setOpenExternalLinks P1
+		return QTextBrowser_setOpenExternalLinks(pObject,P1)
+
+	Func setOpenLinks P1
+		return QTextBrowser_setOpenLinks(pObject,P1)
+
+	Func setSearchPaths P1
+		return QTextBrowser_setSearchPaths(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func source 
+		pTempObj = new QUrl
+		pTempObj.pObject = QTextBrowser_source(pObject)
+		return pTempObj
+
+	Func setanchorClickedEvent P1
+		return QTextBrowser_setanchorClickedEvent(pObject,P1)
+
+	Func setbackwardAvailableEvent P1
+		return QTextBrowser_setbackwardAvailableEvent(pObject,P1)
+
+	Func setforwardAvailableEvent P1
+		return QTextBrowser_setforwardAvailableEvent(pObject,P1)
+
+	Func sethighlightedEvent P1
+		return QTextBrowser_sethighlightedEvent(pObject,P1)
+
+	Func sethistoryChangedEvent P1
+		return QTextBrowser_sethistoryChangedEvent(pObject,P1)
+
+	Func setsourceChangedEvent P1
+		return QTextBrowser_setsourceChangedEvent(pObject,P1)
+
+	Func getanchorClickedEvent 
+		return QTextBrowser_getanchorClickedEvent(pObject)
+
+	Func getbackwardAvailableEvent 
+		return QTextBrowser_getbackwardAvailableEvent(pObject)
+
+	Func getforwardAvailableEvent 
+		return QTextBrowser_getforwardAvailableEvent(pObject)
+
+	Func gethighlightedEvent 
+		return QTextBrowser_gethighlightedEvent(pObject)
+
+	Func gethistoryChangedEvent 
+		return QTextBrowser_gethistoryChangedEvent(pObject)
+
+	Func getsourceChangedEvent 
+		return QTextBrowser_getsourceChangedEvent(pObject)
 
 Class QPixmap2 from QPixmap
 
