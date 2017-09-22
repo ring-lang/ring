@@ -10,7 +10,7 @@ for n=1 to limit
        loop
     ok
     see "" + n + " -> "
-    for m=1 to limit - 1
+    for m=1 to n - 1
         if n%m = 0
            see " " + m 
         ok
