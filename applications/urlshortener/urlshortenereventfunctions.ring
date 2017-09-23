@@ -4,10 +4,6 @@
  */
 func fshortenurl()
 	/*
-	 * Clear the contents of Short URL 
-	 */
-	qtextedit1.clear()
-	/*
 	 * Clear the status bar
 	 */
 	statusbar.clearmessage()
@@ -23,6 +19,10 @@ func fshortenurl()
 	ok
 	/*
 	 * Validate URL
+	 * Google API performs verification of this query string
+	 * ANY error is handled at the response point.   Please see the 
+	 * function handling the response for any errors in the URL 
+	 * ultimately sent to Google for shortening.
 	 */
 	 regex = new qregularexpression()
 	 {
@@ -99,9 +99,11 @@ func fresponse()
 	/*
  	 * Set the SHORT URL into our ui qtext edit field
 	 */
-	link = "<a href='" + json_objectvalueshort.tostring("") + "'>" + json_objectvalueshort.tostring("") + "</a>"
-	qtextedit1.settextinteractionflags(4|8)
-	qtextedit1.sethtml(link)
+	link = " | <a href='" + json_objectvalueshort.tostring("") + "' title='" + json_objectvaluelong.tostring("") + "' style='font-family: arial;'>" + json_objectvalueshort.tostring("") + "</a> "
+	/*
+	 * Append links to the textedit 
+	 */
+	qtextedit1.inserthtml(link)
 	/*
 	 * Save to our History
 	 */
@@ -149,41 +151,9 @@ func fsetapikey()
 		return 
 	ok
 	/*
-	 * Setup our StreamBuffer to write the XML
+	 * Write the key to XML
 	 */
-	qbyte = new qbytearray()
-	dobj = new qbuffer(NULL)
-	dobj.setbuffer(qbyte)
-	/*
-	 *  Setup the stream for Write only
-	 */
-	dobj.open(qiodevice_writeonly)
-	/*
-	 *  Create the StreamWriter object and write the XML File for the key
-	 */
-	xmlwriter = new qxmlstreamwriter(){
-		/*
-		 * Set auto format
-		 */
-		setautoformatting(true)
-		/*
-		 * We pass a IO buffer to set the XMLwriter device
-		 * We will use this buffer to write an xml file
-		 */
-		setdevice(dobj)
-		/*
-		 * Build the file
-		 */
-		writestartdocument(apixmlcontent[:version])
-		writestartelement(apixmlcontent[:namespace], apixmlcontent[:start])
-		writetextelement_2(apixmlcontent[:keyelement], key)
-		writeendelement()
-		writeenddocument()
-	}
-	/*
-	 * Write the XMLStreamBuffer to file
-	 */
-	write(filenames[:apikeyxmlfilename], qbyte.data())
+	xmlwrite(filenames[:apikeyxmlfilename], xmlcontent[:start], xmlcontent[:keyelement], key)
 	/*
 	 * Update UI
 	 */
@@ -222,9 +192,29 @@ func fclearhistory()
 	}
 	/*
 	 * Update UI - set all to 0
+	 * Clear the shortened url list field as well
 	 */
 	mymainwindow{
+		qtextedit1.clear()
 		table.setrowcount(0)
 		statusbar.showmessage(statusbarmessages[:done], 0)
 	}
 // ================================================================================
+/*
+ *  Writes the application settings file values
+ */
+func fsetloaduicontent()
+	/*
+	 * Handle the option change and update all UI
+	 */
+	if loadhistorycheckbox.ischecked() = 1
+		xmlwrite(filenames[:settingsfilename], xmlcontent[:settingsstart], xmlcontent[:settingselement], "on")
+		mymainwindow{
+			fgethistoryui()
+		}
+    else
+        xmlwrite(filenames[:settingsfilename], xmlcontent[:settingsstart], xmlcontent[:settingselement], "off")
+        mymainwindow{
+        	qtextedit1.clear()
+        }
+    ok

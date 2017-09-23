@@ -9,7 +9,7 @@
 qlabels = 
 [
 	:url2short = "URL to shorten:",
-	:shorturl = "Shortened URL:",
+	:shorturl = "Shortened URL(s):",
 	:apikey = "Google URL Shortener API Key:"
 ]
 /*
@@ -31,7 +31,7 @@ menuaction =
  */
 app = 
 [ 
-	:version = "0.1r",
+	:version = "0.2r",
 	:windowtitle = "Google URL Shortener",
 	:windowicon = "link.png",
 	:author = "John Storm",
@@ -66,7 +66,8 @@ events =
 	:fabout = "fabout()",
 	:fsetapikey = "fsetapikey()",
 	:fclearhistory = "fclearhistory()",
-	:fentry = "fresponse()"
+	:fentry = "fresponse()",
+	:setloaduicontent = "fsetloaduicontent()"
 ]
 /*
  * Holds table headers
@@ -105,17 +106,30 @@ apirequestparams =
 filenames =
 [
 	:apikeyxmlfilename = "GoogleAPIKey.xml",
-	:historydbfilename = "GoogleAPIHistory.db"
+	:historydbfilename = "GoogleAPIHistory.db",
+	:settingsfilename = "AppSettings.xml"
 ]
 /*
  *  A list of XML content strings used for the XML write and read
  */
-apixmlcontent = 
+xmlcontent = 
 [
 	:namespace = app[:windowtitle],
+	/*
+	 * For API KEY
+	 */
 	:start = "APIKey",
 	:keyelement = "key",
-	:version = "1.0"
+	
+	/*
+	 * For Globals
+	 */
+	:version = "1.0",
+	/*
+	 * For Settings
+	 */
+	 :settingsstart = "Settings",
+	 :settingselement = "loaduihistory"
 ]
 /*
  * Holds our database table names
@@ -134,7 +148,7 @@ dbcontent =
 	:longurlelement = "longurl"
 ]
 /*
- * API call header for json
+ * API call header options
  */
  apiheaders = 
  [
@@ -174,5 +188,13 @@ dbcontent =
 	:providekey = "Please specify a Google URL Shortener API key.",
 	:done = "Task completed successfully.",
 	:urlwarning = "LongURL does not seem to match regex rules! continuing...",
-	:urlerror = "LongURL bad request."
+	:urlerror = "LongURL bad request; there seems to be unwanted characters in the request string.",
+	:stateready = "Ready since " + time() + "."
  ]
+ /*
+  * Holds Checkboxes
+  */
+  checkboxes =
+  [
+  	:loadhistoption = "Load History to Shortened List"
+  ]
