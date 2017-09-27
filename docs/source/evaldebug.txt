@@ -95,6 +95,21 @@ Output:
 	10
 	message from test!
 
+
+We can use the Return command to return a value
+
+Example:
+
+.. code-block:: ring
+
+	see Eval("return 5*5")
+
+Output:
+
+.. code-block:: ring
+
+	25
+
 .. index:: 
 	pair: Eval() and Debugging; Raise()
 
