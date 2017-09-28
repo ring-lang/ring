@@ -48,7 +48,7 @@ Syntax:
 
 .. code-block:: ring
 
-	sqlite_exexute(SQLite Object,cSQLStatement)
+	sqlite_execute(SQLite Object,cSQLStatement)
 
 .. index:: 
 	pair: SQLite; sqlite_close()
