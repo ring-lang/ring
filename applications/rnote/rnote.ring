@@ -2240,18 +2240,30 @@ Class RNoteController from WindowsControllerParent
 
 	func pDebugMainFile
 		cMainFileName = trim(oTxtMainFile.text())
+		if cMainFileName = NULL 
+			pSetMainFile() 
+			cMainFileName = trim(oTxtMainFile.text())
+		ok
 		if cMainFileName = Null return pNofileopened() ok
 		if not fexists(cMainFileName) return ok
 		pDebugOperation(cMainFileName)
 
 	func pRunMainFile
 		cMainFileName = trim(oTxtMainFile.text())
+		if cMainFileName = NULL 
+			pSetMainFile() 
+			cMainFileName = trim(oTxtMainFile.text())
+		ok
 		if cMainFileName = Null return pNofileopened() ok
 		if not fexists(cMainFileName) return ok
 		pRunOperation(cMainFileName)
 
 	func pRunGUIMainFile
 		cMainFileName = trim(oTxtMainFile.text())
+		if cMainFileName = NULL 
+			pSetMainFile() 
+			cMainFileName = trim(oTxtMainFile.text())
+		ok
 		if cMainFileName = Null return pNofileopened() ok
 		if not fexists(cMainFileName) return ok
 		oDockOutputWindow { show() raise() }		
