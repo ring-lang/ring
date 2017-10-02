@@ -2250,12 +2250,14 @@ Class RNoteController from WindowsControllerParent
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return pNofileopened() ok
 		if not fexists(cMainFileName) return ok
+		pSave()
 		pDebugOperation(cMainFileName)
 
 	func pRunMainFile
 		cMainFileName = GetMainFile()
 		if cMainFileName = Null return pNofileopened() ok
 		if not fexists(cMainFileName) return ok
+		pSave()
 		pRunOperation(cMainFileName)
 
 	func pRunGUIMainFile
@@ -2263,6 +2265,7 @@ Class RNoteController from WindowsControllerParent
 		if cMainFileName = Null return pNofileopened() ok
 		if not fexists(cMainFileName) return ok
 		oDockOutputWindow { show() raise() }		
+		pSave()
 		pRunGUIOperation(cMainFileName)
 
 	func pSetMode nMode
