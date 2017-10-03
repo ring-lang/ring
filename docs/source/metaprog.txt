@@ -10,6 +10,36 @@ the program code and we can modify our code during the runtime.
 
 In this chapter we will learn about this and the available functions to use.
 
+* locals()
+* globals()
+* functions()
+* cfunctions()
+* islocal()
+* isglobal()
+* isfunction()
+* iscfunction()
+* packages()
+* ispackage()
+* classes()
+* isclass()
+* packageclasses()
+* ispackageclass()
+* classname()
+* objectid()
+* isobject() 
+* attributes()
+* methods()
+* isattribute()
+* isprivateattribute()
+* ismethod()
+* isprivatemethod()
+* addattribute()
+* addmethod()
+* getattribute()
+* setattribute()
+* mergemethods()
+* packagename()
+
 .. index:: 
 	pair: Reflection and Meta-programming; locals()
 
