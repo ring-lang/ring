@@ -43,6 +43,7 @@ INPUT(
 ./debug\gwindow.o
 ./debug\gguiapplication.o
 ./debug\gtextbrowser.o
+./debug\gdockwidget.o
 ./debug\ring_qt.o
 ./debug\moc_gpushbutton.o
 ./debug\moc_gaction.o
@@ -88,4 +89,5 @@ INPUT(
 ./debug\moc_gguiapplication.o
 ./debug\moc_gtextbrowser.o
 ./debug\moc_gwindow.o
+./debug\moc_gdockwidget.o
 );

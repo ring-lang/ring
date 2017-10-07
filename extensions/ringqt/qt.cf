@@ -257,6 +257,7 @@ extern "C" {
 #include "gguiapplication.h"
 #include <QTextBrowser>
 #include "gtextbrowser.h"
+#include "gdockwidget.h"
 
 extern "C" {
 
@@ -561,7 +562,8 @@ aEnumTypes + "QBluetoothUuid::CharacteristicType"
 aEnumTypes + "QBluetoothUuid::DescriptorType"
 aEnumTypes + "QBluetoothUuid::ProtocolUuid"
 aEnumTypes + "QBluetoothUuid::ServiceClassUuid"
-
+aEnumTypes + "QDockWidget::DockWidgetFeature"
+aEnumTypes + "QDockWidget::DockWidgetFeatures"
 </runcode>
 
 
@@ -2023,6 +2025,8 @@ void showMessage(QString , int timeout)
 name: QDockWidget
 para: QWidget *parent,Qt::WindowType flag
 parent: QWidget
+codename: GDockWidget
+passvmpointer
 </class>
 
 int allowedAreas(void)
@@ -2042,6 +2046,18 @@ void dockLocationChanged(Qt::DockWidgetArea area)
 void featuresChanged(QDockWidget::DockWidgetFeature features)
 void topLevelChanged(bool topLevel)
 void visibilityChanged(bool visible)
+
+void setallowedAreasChangedEvent(const char *)
+void setdockLocationChangedEvent(const char *)
+void setfeaturesChangedEvent(const char *)
+void settopLevelChangedEvent(const char *)
+void setvisibilityChangedEvent(const char *)
+
+const char *getallowedAreasChangedEvent(void)
+const char *getdockLocationChangedEvent(void)
+const char *getfeaturesChangedEvent(void)
+const char *gettopLevelChangedEvent(void)
+const char *getvisibilityChangedEvent(void)
 
 <class>
 name: QTabWidget

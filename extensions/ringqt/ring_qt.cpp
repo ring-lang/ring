@@ -240,6 +240,7 @@ extern "C" {
 #include "gguiapplication.h"
 #include <QTextBrowser>
 #include "gtextbrowser.h"
+#include "gdockwidget.h"
 
 extern "C" {
 
@@ -19415,7 +19416,7 @@ RING_FUNC(ring_QStatusBar_showMessage)
 
 RING_FUNC(ring_QDockWidget_allowedAreas)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -19425,14 +19426,14 @@ RING_FUNC(ring_QDockWidget_allowedAreas)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	RING_API_RETNUMBER(pObject->allowedAreas());
 }
 
 
 RING_FUNC(ring_QDockWidget_features)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -19442,14 +19443,14 @@ RING_FUNC(ring_QDockWidget_features)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	RING_API_RETNUMBER(pObject->features());
 }
 
 
 RING_FUNC(ring_QDockWidget_isAreaAllowed)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19459,7 +19460,7 @@ RING_FUNC(ring_QDockWidget_isAreaAllowed)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19470,7 +19471,7 @@ RING_FUNC(ring_QDockWidget_isAreaAllowed)
 
 RING_FUNC(ring_QDockWidget_isFloating)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -19480,14 +19481,14 @@ RING_FUNC(ring_QDockWidget_isFloating)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	RING_API_RETNUMBER(pObject->isFloating());
 }
 
 
 RING_FUNC(ring_QDockWidget_setAllowedAreas)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19497,7 +19498,7 @@ RING_FUNC(ring_QDockWidget_setAllowedAreas)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19508,7 +19509,7 @@ RING_FUNC(ring_QDockWidget_setAllowedAreas)
 
 RING_FUNC(ring_QDockWidget_setFeatures)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19518,7 +19519,7 @@ RING_FUNC(ring_QDockWidget_setFeatures)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19529,7 +19530,7 @@ RING_FUNC(ring_QDockWidget_setFeatures)
 
 RING_FUNC(ring_QDockWidget_setFloating)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19539,7 +19540,7 @@ RING_FUNC(ring_QDockWidget_setFloating)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19550,7 +19551,7 @@ RING_FUNC(ring_QDockWidget_setFloating)
 
 RING_FUNC(ring_QDockWidget_setTitleBarWidget)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19560,7 +19561,7 @@ RING_FUNC(ring_QDockWidget_setTitleBarWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19571,7 +19572,7 @@ RING_FUNC(ring_QDockWidget_setTitleBarWidget)
 
 RING_FUNC(ring_QDockWidget_setWidget)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19581,7 +19582,7 @@ RING_FUNC(ring_QDockWidget_setWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19592,7 +19593,7 @@ RING_FUNC(ring_QDockWidget_setWidget)
 
 RING_FUNC(ring_QDockWidget_titleBarWidget)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -19602,14 +19603,14 @@ RING_FUNC(ring_QDockWidget_titleBarWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	RING_API_RETCPOINTER(pObject->titleBarWidget(),"QWidget");
 }
 
 
 RING_FUNC(ring_QDockWidget_toggleViewAction)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -19619,14 +19620,14 @@ RING_FUNC(ring_QDockWidget_toggleViewAction)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	RING_API_RETCPOINTER(pObject->toggleViewAction(),"QAction");
 }
 
 
 RING_FUNC(ring_QDockWidget_widget)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -19636,14 +19637,14 @@ RING_FUNC(ring_QDockWidget_widget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	RING_API_RETCPOINTER(pObject->widget(),"QWidget");
 }
 
 
 RING_FUNC(ring_QDockWidget_allowedAreasChanged)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19653,7 +19654,7 @@ RING_FUNC(ring_QDockWidget_allowedAreasChanged)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19664,7 +19665,7 @@ RING_FUNC(ring_QDockWidget_allowedAreasChanged)
 
 RING_FUNC(ring_QDockWidget_dockLocationChanged)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19674,7 +19675,7 @@ RING_FUNC(ring_QDockWidget_dockLocationChanged)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19685,7 +19686,7 @@ RING_FUNC(ring_QDockWidget_dockLocationChanged)
 
 RING_FUNC(ring_QDockWidget_featuresChanged)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19695,7 +19696,7 @@ RING_FUNC(ring_QDockWidget_featuresChanged)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19706,7 +19707,7 @@ RING_FUNC(ring_QDockWidget_featuresChanged)
 
 RING_FUNC(ring_QDockWidget_topLevelChanged)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19716,7 +19717,7 @@ RING_FUNC(ring_QDockWidget_topLevelChanged)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -19727,7 +19728,7 @@ RING_FUNC(ring_QDockWidget_topLevelChanged)
 
 RING_FUNC(ring_QDockWidget_visibilityChanged)
 {
-	QDockWidget *pObject ;
+	GDockWidget *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -19737,12 +19738,202 @@ RING_FUNC(ring_QDockWidget_visibilityChanged)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	pObject->visibilityChanged( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QDockWidget_setallowedAreasChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setallowedAreasChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDockWidget_setdockLocationChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdockLocationChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDockWidget_setfeaturesChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfeaturesChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDockWidget_settopLevelChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->settopLevelChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDockWidget_setvisibilityChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setvisibilityChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDockWidget_getallowedAreasChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	RING_API_RETSTRING(pObject->getallowedAreasChangedEvent());
+}
+
+
+RING_FUNC(ring_QDockWidget_getdockLocationChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	RING_API_RETSTRING(pObject->getdockLocationChangedEvent());
+}
+
+
+RING_FUNC(ring_QDockWidget_getfeaturesChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	RING_API_RETSTRING(pObject->getfeaturesChangedEvent());
+}
+
+
+RING_FUNC(ring_QDockWidget_gettopLevelChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	RING_API_RETSTRING(pObject->gettopLevelChangedEvent());
+}
+
+
+RING_FUNC(ring_QDockWidget_getvisibilityChangedEvent)
+{
+	GDockWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+	RING_API_RETSTRING(pObject->getvisibilityChangedEvent());
 }
 
 
@@ -93907,7 +94098,7 @@ RING_FUNC(ring_QDockWidget_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QDockWidget *pObject = new QDockWidget((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (Qt::WindowType )  (int) RING_API_GETNUMBER(2));
+	GDockWidget *pObject = new GDockWidget((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (Qt::WindowType )  (int) RING_API_GETNUMBER(2), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QDockWidget");
 }
 
@@ -96100,7 +96291,7 @@ RING_FUNC(ring_QStatusBar_delete)
 
 RING_FUNC(ring_QDockWidget_delete)
 {
-	QDockWidget *pObject ; 
+	GDockWidget *pObject ; 
 	if ( RING_API_PARACOUNT != 1 )
 	{
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -96108,7 +96299,7 @@ RING_FUNC(ring_QDockWidget_delete)
 	}
 	if ( RING_API_ISPOINTER(1) )
 	{
-		pObject = (QDockWidget *) RING_API_GETCPOINTER(1,"QDockWidget");
+		pObject = (GDockWidget *) RING_API_GETCPOINTER(1,"GDockWidget");
 		delete pObject ;
 	}
 }
@@ -99117,6 +99308,16 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qdockwidget_featureschanged",ring_QDockWidget_featuresChanged);
 	ring_vm_funcregister("qdockwidget_toplevelchanged",ring_QDockWidget_topLevelChanged);
 	ring_vm_funcregister("qdockwidget_visibilitychanged",ring_QDockWidget_visibilityChanged);
+	ring_vm_funcregister("qdockwidget_setallowedareaschangedevent",ring_QDockWidget_setallowedAreasChangedEvent);
+	ring_vm_funcregister("qdockwidget_setdocklocationchangedevent",ring_QDockWidget_setdockLocationChangedEvent);
+	ring_vm_funcregister("qdockwidget_setfeatureschangedevent",ring_QDockWidget_setfeaturesChangedEvent);
+	ring_vm_funcregister("qdockwidget_settoplevelchangedevent",ring_QDockWidget_settopLevelChangedEvent);
+	ring_vm_funcregister("qdockwidget_setvisibilitychangedevent",ring_QDockWidget_setvisibilityChangedEvent);
+	ring_vm_funcregister("qdockwidget_getallowedareaschangedevent",ring_QDockWidget_getallowedAreasChangedEvent);
+	ring_vm_funcregister("qdockwidget_getdocklocationchangedevent",ring_QDockWidget_getdockLocationChangedEvent);
+	ring_vm_funcregister("qdockwidget_getfeatureschangedevent",ring_QDockWidget_getfeaturesChangedEvent);
+	ring_vm_funcregister("qdockwidget_gettoplevelchangedevent",ring_QDockWidget_gettopLevelChangedEvent);
+	ring_vm_funcregister("qdockwidget_getvisibilitychangedevent",ring_QDockWidget_getvisibilityChangedEvent);
 	ring_vm_funcregister("qtabwidget_addtab",ring_QTabWidget_addTab);
 	ring_vm_funcregister("qtabwidget_clear",ring_QTabWidget_clear);
 	ring_vm_funcregister("qtabwidget_cornerwidget",ring_QTabWidget_cornerWidget);

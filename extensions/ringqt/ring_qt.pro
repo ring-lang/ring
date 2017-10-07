@@ -56,6 +56,7 @@ SOURCES +=   \
     gwindow.cpp \
     gguiapplication.cpp \
     gtextbrowser.cpp \
+    gdockwidget.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -102,7 +103,8 @@ HEADERS  += \
     gbluetoothserver.h \
     gguiapplication.h \
     gtextbrowser.h \
-    gwindow.h
+    gwindow.h \
+    gdockwidget.h
 
 INCLUDEPATH += ../../include
 

@@ -43,6 +43,7 @@ INPUT(
 ./release\gwindow.o
 ./release\gguiapplication.o
 ./release\gtextbrowser.o
+./release\gdockwidget.o
 ./release\ring_qt.o
 ./release\moc_gpushbutton.o
 ./release\moc_gaction.o
@@ -88,4 +89,5 @@ INPUT(
 ./release\moc_gguiapplication.o
 ./release\moc_gtextbrowser.o
 ./release\moc_gwindow.o
+./release\moc_gdockwidget.o
 );
