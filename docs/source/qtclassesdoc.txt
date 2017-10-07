@@ -7110,3 +7110,37 @@ Parent Class : QTextEdit
 * const char *gethighlightedEvent(void)
 * const char *gethistoryChangedEvent(void)
 * const char *getsourceChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QRegion Class
+
+QRegion Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/QRegion.html
+
+
+Parameters : void
+
+* QRect boundingRect(void)
+* bool contains(QPoint p)
+* bool contains_2(QRect r)
+* QRegion intersected(QRegion r)
+* QRegion intersected_2(QRect rect)
+* bool intersects(QRegion region)
+* bool intersects_2(QRect rect)
+* bool isEmpty(void)
+* bool isNull(void)
+* int rectCount(void)
+* QVector<QRect> rects(void)
+* void setRects(QRect *rects, int number)
+* QRegion subtracted(QRegion r)
+* void swap(QRegion other)
+* void translate(int dx, int dy)
+* void translate_2(QPoint point)
+* QRegion translated(int dx, int dy)
+* QRegion translated_2(QPoint p)
+* QRegion united(QRegion r)
+* QRegion united_2(QRect rect)
+* QRegion xored(QRegion r)
