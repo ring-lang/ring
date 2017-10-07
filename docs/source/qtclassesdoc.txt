@@ -1380,6 +1380,16 @@ Parent Class : QWidget
 * void featuresChanged(QDockWidget::DockWidgetFeature features)
 * void topLevelChanged(bool topLevel)
 * void visibilityChanged(bool visible)
+* void setallowedAreasChangedEvent(const char *)
+* void setdockLocationChangedEvent(const char *)
+* void setfeaturesChangedEvent(const char *)
+* void settopLevelChangedEvent(const char *)
+* void setvisibilityChangedEvent(const char *)
+* const char *getallowedAreasChangedEvent(void)
+* const char *getdockLocationChangedEvent(void)
+* const char *getfeaturesChangedEvent(void)
+* const char *gettopLevelChangedEvent(void)
+* const char *getvisibilityChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QTabWidget Class
