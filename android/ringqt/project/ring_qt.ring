@@ -3471,6 +3471,36 @@ Class QDockWidget from QWidget
 	Func visibilityChanged P1
 		return QDockWidget_visibilityChanged(pObject,P1)
 
+	Func setallowedAreasChangedEvent P1
+		return QDockWidget_setallowedAreasChangedEvent(pObject,P1)
+
+	Func setdockLocationChangedEvent P1
+		return QDockWidget_setdockLocationChangedEvent(pObject,P1)
+
+	Func setfeaturesChangedEvent P1
+		return QDockWidget_setfeaturesChangedEvent(pObject,P1)
+
+	Func settopLevelChangedEvent P1
+		return QDockWidget_settopLevelChangedEvent(pObject,P1)
+
+	Func setvisibilityChangedEvent P1
+		return QDockWidget_setvisibilityChangedEvent(pObject,P1)
+
+	Func getallowedAreasChangedEvent 
+		return QDockWidget_getallowedAreasChangedEvent(pObject)
+
+	Func getdockLocationChangedEvent 
+		return QDockWidget_getdockLocationChangedEvent(pObject)
+
+	Func getfeaturesChangedEvent 
+		return QDockWidget_getfeaturesChangedEvent(pObject)
+
+	Func gettopLevelChangedEvent 
+		return QDockWidget_gettopLevelChangedEvent(pObject)
+
+	Func getvisibilityChangedEvent 
+		return QDockWidget_getvisibilityChangedEvent(pObject)
+
 Class QTabWidget from QWidget
 
 	pObject
