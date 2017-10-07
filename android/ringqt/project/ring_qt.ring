@@ -182,7 +182,9 @@ Class QWidget from QObject
 		return pTempObj
 
 	Func childrenRegion 
-		return QWidget_childrenRegion(pObject)
+		pTempObj = new QRegion
+		pTempObj.pObject = QWidget_childrenRegion(pObject)
+		return pTempObj
 
 	Func clearFocus 
 		return QWidget_clearFocus(pObject)
@@ -381,7 +383,9 @@ Class QWidget from QObject
 		return pTempObj
 
 	Func mask 
-		return QWidget_mask(pObject)
+		pTempObj = new QRegion
+		pTempObj.pObject = QWidget_mask(pObject)
+		return pTempObj
 
 	Func maximumHeight 
 		return QWidget_maximumHeight(pObject)
@@ -690,7 +694,9 @@ Class QWidget from QObject
 		return QWidget_updatesEnabled(pObject)
 
 	Func visibleRegion 
-		return QWidget_visibleRegion(pObject)
+		pTempObj = new QRegion
+		pTempObj.pObject = QWidget_visibleRegion(pObject)
+		return pTempObj
 
 	Func whatsThis 
 		return QWidget_whatsThis(pObject)
@@ -6354,7 +6360,9 @@ Class QPainter
 		return pTempObj
 
 	Func clipRegion 
-		return QPainter_clipRegion(pObject)
+		pTempObj = new QRegion
+		pTempObj.pObject = QPainter_clipRegion(pObject)
+		return pTempObj
 
 	Func combinedTransform 
 		return QPainter_combinedTransform(pObject)
@@ -15919,7 +15927,9 @@ Class QWindow from QObject
 		return pTempObj
 
 	Func mask 
-		return QWindow_mask(pObject)
+		pTempObj = new QRegion
+		pTempObj.pObject = QWindow_mask(pObject)
+		return pTempObj
 
 	Func maximumHeight 
 		return QWindow_maximumHeight(pObject)
@@ -16579,6 +16589,98 @@ Class QTextBrowser from QTextEdit
 
 	Func getsourceChangedEvent 
 		return QTextBrowser_getsourceChangedEvent(pObject)
+
+Class QRegion
+
+	pObject
+
+	Func init 
+		pObject = QRegion_new()
+		return self
+
+	Func delete
+		pObject = QRegion_delete(pObject)
+
+	Func boundingRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QRegion_boundingRect(pObject)
+		return pTempObj
+
+	Func contains P1
+		return QRegion_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func contains_2 P1
+		return QRegion_contains_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func intersected P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QRegion_intersected(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func intersected_2 P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QRegion_intersected_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func intersects P1
+		return QRegion_intersects(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func intersects_2 P1
+		return QRegion_intersects_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isEmpty 
+		return QRegion_isEmpty(pObject)
+
+	Func isNull 
+		return QRegion_isNull(pObject)
+
+	Func rectCount 
+		return QRegion_rectCount(pObject)
+
+	Func rects 
+		return QRegion_rects(pObject)
+
+	Func setRects P1,P2
+		return QRegion_setRects(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func subtracted P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QRegion_subtracted(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func swap P1
+		return QRegion_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func translate P1,P2
+		return QRegion_translate(pObject,P1,P2)
+
+	Func translate_2 P1
+		return QRegion_translate_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func translated P1,P2
+		pTempObj = new QRegion
+		pTempObj.pObject = QRegion_translated(pObject,P1,P2)
+		return pTempObj
+
+	Func translated_2 P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QRegion_translated_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func united P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QRegion_united(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func united_2 P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QRegion_united_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func xored P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QRegion_xored(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 Class QPixmap2 from QPixmap
 
