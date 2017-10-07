@@ -258,6 +258,7 @@ extern "C" {
 #include <QTextBrowser>
 #include "gtextbrowser.h"
 #include "gdockwidget.h"
+#include <QRegion>
 
 extern "C" {
 
@@ -564,6 +565,7 @@ aEnumTypes + "QBluetoothUuid::ProtocolUuid"
 aEnumTypes + "QBluetoothUuid::ServiceClassUuid"
 aEnumTypes + "QDockWidget::DockWidgetFeature"
 aEnumTypes + "QDockWidget::DockWidgetFeatures"
+aEnumTypes + "QRegion::RegionType"
 </runcode>
 
 
@@ -7795,3 +7797,30 @@ const char *getforwardAvailableEvent(void)
 const char *gethighlightedEvent(void)
 const char *gethistoryChangedEvent(void)
 const char *getsourceChangedEvent(void)
+
+<class>
+name: QRegion
+para: void
+</class>
+
+QRect boundingRect(void)
+bool contains(QPoint p)
+bool contains@2(QRect r)
+QRegion intersected(QRegion r)
+QRegion intersected@2(QRect rect)
+bool intersects(QRegion region)
+bool intersects@2(QRect rect)
+bool isEmpty(void)
+bool isNull(void)
+int rectCount(void)
+QVector<QRect> rects(void)
+void setRects(QRect *rects, int number)
+QRegion subtracted(QRegion r)
+void swap(QRegion other)
+void translate(int dx, int dy)
+void translate@2(QPoint point)
+QRegion translated(int dx, int dy)
+QRegion translated@2(QPoint p)
+QRegion united(QRegion r)
+QRegion united@2(QRect rect)
+QRegion xored(QRegion r)
