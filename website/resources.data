@@ -1092,6 +1092,106 @@
 				[
 					'<a href="https://www.youtube.com/watch?v=PvCRjFSfxiE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=61" target="_blank">#60 Rename Files And Folders</a>',
 					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=zwMeq5qE-w4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=63" target="_blank">#62 Read Files</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=KpfgNeQFSSo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=64" target="_blank">#63 Write Files</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Iq5bMVYT5xE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=65" target="_blank">#64 Write Files With Append</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=8mqcKAiHt_A&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=66" target="_blank">#65 Update Files</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=rvo7pt3Ebso&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=67" target="_blank">#66 F Seek Function</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=FtFc94fhle4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=68" target="_blank">#67 Create Folder</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=VHSKaZBsft4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=69" target="_blank">#68 Run exe File</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=3hT-00Ub-ug&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=70" target="_blank">#69 Run HTML</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=7vRpC68Bwco&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=71" target="_blank">#70 Try And Catch</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Rhtg_CSzyqg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=72" target="_blank">#71 Create Function First Style</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=dW1IhSeHZbg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=73" target="_blank">#72 Create Function Second Style</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=w_hR6PuOek4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=74" target="_blank">#73 Create Main Function</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=dnOQq0YRSYM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=75" target="_blank">#74 Send Parameters</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=E9p8k5TcIKs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=76" target="_blank">#75 Generate Calculator</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=CyZAhqMGOM8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=77" target="_blank">#76 Send Array As A Parameter</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=UYgQEf7PJG0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=78" target="_blank">#77 Return Value</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=oegLea_JILU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=79" target="_blank">#78 Create Function To Make Folder</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=el3zmTg_y08&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=80" target="_blank">#79 Create Function To Delete Folders</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=7wqFrGAObSw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=81" target="_blank">#80 Create Function To Generate Random</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=xxa0eIXh9uU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=82" target="_blank">#81 Create Function To Delete All Files</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ymDVpNvzxpY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=83" target="_blank">#82 Create Function To Delete All Folders</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=QZDBvxjZm7s&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=84" target="_blank">#83 Create Function To Calculate Avg And Sum</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=A_VvCSZCfD0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=85" target="_blank">#84 Create Function To Check Numbers And String</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=xIYFfvsng68&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=86" target="_blank">#85 Generate Library In Ring</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=C97ZhvC0v6c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=87" target="_blank">#86 OOP Concepts</a>',
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
 				]
 			]
 			],
