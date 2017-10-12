@@ -1,0 +1,61 @@
+<ignorecpointertype>
+
+<code>
+/*
+**  Copyright (c) 2017 Mahmoud Fayed <msfclipper@yahoo.com> 
+*/
+
+#include "console-colors.h"
+
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "console-colors.c"
+
+void cc_print(int color,const char *string)
+{
+	cc_fprintf(color,stdout,string);
+}
+
+</code>
+
+<constant>
+CC_FG_NONE         
+CC_FG_BLACK        
+CC_FG_DARK_RED    
+CC_FG_DARK_GREEN   
+CC_FG_DARK_YELLOW 
+CC_FG_DARK_BLUE    
+CC_FG_DARK_MAGENTA  
+CC_FG_DARK_CYAN 
+CC_FG_GRAY        
+CC_FG_DARK_GRAY  
+CC_FG_RED        
+CC_FG_GREEN      
+CC_FG_YELLOW   
+CC_FG_BLUE       
+CC_FG_MAGENTA   
+CC_FG_CYAN       
+CC_FG_WHITE      
+CC_BG_NONE        
+CC_BG_BLACK       
+CC_BG_DARK_RED    
+CC_BG_DARK_GREEN  
+CC_BG_DARK_YELLOW 
+CC_BG_DARK_BLUE   
+CC_BG_DARK_MAGENTA
+CC_BG_DARK_CYAN   
+CC_BG_GRAY        
+CC_BG_DARK_GRAY   
+CC_BG_RED         
+CC_BG_GREEN       
+CC_BG_YELLOW      
+CC_BG_BLUE        
+CC_BG_MAGENTA     
+CC_BG_CYAN        
+CC_BG_WHITE       
+</constant>
+
+void cc_print(int color,const char *string)
