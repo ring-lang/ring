@@ -84,6 +84,7 @@ Contents:
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
+   RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>
