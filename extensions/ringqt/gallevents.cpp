@@ -78,6 +78,7 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
 	if ((event->type() == QEvent::KeyPress) && (strcmp(this->cKeyPressEvent,"")!=0) ) {
 	        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 		this->nKeyCode = keyEvent->key();
+		this->cKeyText = keyEvent->text();
 		this->nModifiers = keyEvent->modifiers();
 		this->callKeyPressEvent();
  		return this->lEventOutput;
@@ -198,6 +199,7 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
 	else if ((event->type() == QEvent::KeyPress) && (strcmp(this->cKeyPressFunc,"")!=0) ) {
 	        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
 		this->nKeyCode = keyEvent->key();
+		this->cKeyText = keyEvent->text();
 		this->nModifiers = keyEvent->modifiers();
 		this->callKeyPressFunc();
  		return this->lEventOutput;
@@ -345,6 +347,11 @@ void GAllEvents::storeMouseState(QEvent *event)
 int GAllEvents::getKeyCode(void)
 {
 	return this->nKeyCode ;
+}
+
+QString GAllEvents::getKeyText(void)
+{
+	return this->cKeyText ;
 }
 
 int GAllEvents::getModifiers(void)
