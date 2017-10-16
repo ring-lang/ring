@@ -854,9 +854,9 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 
 void ring_vm_oop_setget ( VM *pVM,List *pVar )
 {
-	List *pList  ;
-	Item *pItem  ;
-	String *pString  ;
+	List *pList, *pList2  ;
+	Item *pItem, *pItem2  ;
+	String *pString, *pString2  ;
 	/* Create String */
 	pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'get");
 	ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,1));
@@ -871,7 +871,24 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	RING_VM_IR_LOAD ;
 	if ( RING_VM_IR_OPCODE != ICO_ASSIGNMENTPOINTER ) {
 		RING_VM_IR_UNLOAD ;
-		/* Get Property */
+		/*
+		**  Get Property 
+		**  Check to do a Stack POP for the Attribute List 
+		*/
+		pString2 = ring_string_new_gc(pVM->pRingState,"get");
+		ring_string_add_gc(pVM->pRingState,pString2,ring_list_getstring(pVar,1));
+		/* Check Type */
+		if ( pVM->nGetSetObjType == RING_OBJTYPE_VARIABLE ) {
+			pList2 = ring_list_getlist((List *) (pVM->pGetSetObject),RING_VAR_VALUE ) ;
+		}
+		else if ( pVM->nGetSetObjType == RING_OBJTYPE_LISTITEM ) {
+			pItem2 = (Item *) pVM->pGetSetObject ;
+			pList2 = ring_item_getlist(pItem2) ;
+		}
+		if ( ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
+			RING_VM_STACK_POP ;
+		}
+		ring_string_delete_gc(pVM->pRingState,pString2);
 		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
 			pItem = RING_VM_IR_ITEM(2) ;
 			pVM->nEvalCalledFromRingCode = 0 ;
