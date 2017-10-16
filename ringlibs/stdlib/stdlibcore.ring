@@ -508,7 +508,7 @@ Func Evenorodd n
 	output		: Result of compute.
 */  
 
-Func Factors nArray    
+Func Factors n   
      nArray = []
      j = 0
      for i = 1 to n
