@@ -10,7 +10,7 @@ nPC,nType,lPrivateError
 Type: Item *
 pItem
 Type: List *
-pList
+pList, *pThis
 ring_vm_newvar
 Type: List *
 pList
