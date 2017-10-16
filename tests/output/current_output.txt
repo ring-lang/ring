@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-0
-109
-109
+84
+200
+116
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-00564E10
+00D8A710
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 09/09/2017
-time: 23:12:01
+date: 16/10/2017
+time: 15:32:02
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
