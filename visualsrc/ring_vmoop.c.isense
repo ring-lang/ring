@@ -113,11 +113,11 @@ Type: int
 x
 ring_vm_oop_setget
 Type: List *
-pList
+pList, *pList2
 Type: Item *
-pItem
+pItem, *pItem2
 Type: String *
-pString
+pString, *pString2
 ring_vm_oop_setproperty
 Type: List *
 pList, *pList2
