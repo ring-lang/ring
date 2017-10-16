@@ -528,7 +528,6 @@ Func Palindrome aString
      for i=len(aString) to 1 step -1
          bString = bString + aString[i]
      next
-     see aString
      if aString = bString return 1 ok
      return false
      
