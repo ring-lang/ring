@@ -790,7 +790,7 @@ Syntax:
 
 .. code-block:: ring
 
-	factors(list) ---> list
+	factors(number) ---> list
 
 Example:
 
