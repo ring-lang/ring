@@ -46,11 +46,15 @@ Update the Android SDK to get the API and tools packages required for developmen
 
 * In Windows - Define the next Environment Variables based on your system.
 
-	JAVA_HOME
+(1) JAVA_HOME
+
+.. code-block:: ring
 	
 	For Example : C:\Program Files (x86)\Java\jdk1.8.0_05 
 
-	ANDROID_HOME	
+(2) ANDROID_HOME	
+
+.. code-block:: ring
 
 	For Example : B:\mahmoud\Tools\Java-Android\adt-bundle-windows-x86-20140702\sdk
 
