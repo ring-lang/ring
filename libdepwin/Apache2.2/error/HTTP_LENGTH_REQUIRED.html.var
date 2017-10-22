@@ -1,0 +1,235 @@
+Content-language: cs
+Content-type: text/html; charset=ISO-8859-2
+Body:----------cs--
+<!--#set var="CONTENT_LANGUAGE" value="cs"
+--><!--#set var="CHARACTER_ENCODING" value="ISO-8859-2"
+--><!--#set var="TITLE" value="Chybn· hlaviËka Content-Length!"
+--><!--#include virtual="include/top.html" -->
+
+    Poæadavek metodou <!--#echo var="REDIRECT_REQUEST_METHOD" -->
+    vyæaduje korektnÌ hlaviËku <code>Content-Length</code>.
+
+<!--#include virtual="include/bottom.html" -->
+----------cs--
+
+Content-language: de
+Content-type: text/html; charset=ISO-8859-1
+Body:----------de--
+<!--#set var="CONTENT_LANGUAGE" value="de"
+--><!--#set var="TITLE" value="Content-Length-Angabe fehlerhaft!"
+--><!--#include virtual="include/top.html" -->
+
+    Die Anfrage kann nicht beantwortet werden.
+    Bei Verwendung der <!--#echo var="REDIRECT_REQUEST_METHOD" -->-Methode
+    mu&szlig; ein korrekter <code>Content-Length</code>-Header
+    angegeben werden. 
+
+<!--#include virtual="include/bottom.html" -->
+----------de--
+
+Content-language: en
+Content-type: text/html; charset=ISO-8859-1
+Body:----------en--
+<!--#set var="TITLE" value="Bad Content-Length!"
+--><!--#include virtual="include/top.html" -->
+
+    A request with the <!--#echo var="REDIRECT_REQUEST_METHOD" -->
+    method requires a valid <code>Content-Length</code> header.
+
+<!--#include virtual="include/bottom.html" -->
+----------en--
+
+Content-language: es
+Content-type: text/html
+Body:----------es--
+<!--#set var="TITLE" value="Error en la longitud del contenido!" -->
+<!--#include virtual="include/top.html" -->
+
+    Una solicitud con el m&eacute;todo <!--#echo encoding="none"
+var="REDIRECT_REQUEST_METHOD"-->
+    requiere que el contenido de la variable de los encabezados
+    <code>Content-Length</code> sea v&aacute;lida.
+
+<!--#include virtual="include/bottom.html" -->
+----------es--
+
+Content-language: fr
+Content-type: text/html; charset=ISO-8859-1
+Body:----------fr--
+<!--#set var="CONTENT_LANGUAGE" value="fr"
+--><!--#set var="TITLE" value="Longueur du contenu ill&eacute;gal!"
+--><!--#include virtual="include/top.html" -->
+
+    Une requ&ecirc;te utilisant la m&eacute;thode <!--#echo
+    var="REDIRECT_REQUEST_METHOD" --> n&eacute;cessite un en-t&ecirc;te
+    <code>Content-Length</code> (indiquant la longueur) valable.
+
+<!--#include virtual="include/bottom.html" -->
+----------fr--
+
+Content-language: ga
+Content-type: text/html; charset=ISO-8859-1
+Body:----------ga--
+<!--#set var="TITLE" value="Content-Length m&iacute;cheart!"
+--><!--#include virtual="include/top.html" -->
+
+    Is g&aacute; go mbh&eacute;adh ceannt&aacute;isc 
+    <code>Content-Length</code>
+    bhail&iacute; do iarratais faoin modh 
+    <!--#echo var="REDIRECT_REQUEST_METHOD" -->.
+
+<!--#include virtual="include/bottom.html" -->
+----------ga--
+
+
+Content-language: it
+Content-type: text/html; charset=ISO-8859-1
+Body:----------it--
+<!--#set var="CONTENT_LANGUAGE" value="it"
+--><!--#set var="TITLE" value="Campo Content-Length non valido!"
+--><!--#include virtual="include/top.html" -->
+
+    Una richiesta con il metodo
+    <!--#echo var="REDIRECT_REQUEST_METHOD" -->
+    richiede che venga specificato un header <code>Content-Length</code>
+    valido.
+
+<!--#include virtual="include/bottom.html" -->
+----------it--
+
+Content-language: ja
+Content-type: text/html; charset=ISO-2022-JP
+Body:----------ja--
+<!--#set var="CONTENT_LANGUAGE" value="ja"
+--><!--#set var="CHARACTER_ENCODING" value="iso-2022-jp"
+--><!--#set var="TITLE" value="Bad Content-Length!"
+--><!--#include virtual="include/top.html" -->
+
+    <!--#echo var="REDIRECT_REQUEST_METHOD"-->
+    $B%a%=%C%I$N%j%/%(%9%H$G$O!"(B
+    $B@5$7$$(B <code>Content-Length</code> $B%X%C%@$,I,MW$K$J$j$^$9!#(B
+
+<!--#include virtual="include/bottom.html" -->
+----------ja--
+
+Content-language: ko
+Content-type: text/html; charset=EUC-KR
+Body:----------ko--
+<!--#set var="CONTENT_LANGUAGE" value="ko"
+--><!--#set var="TITLE" value="¿ﬂ∏¯µ» Content-Length!"
+--><!--#set var="CHARACTER_ENCODING" value="EUC-KR"
+--><!--#include virtual="include/top.html" -->
+
+    <!--#echo encoding="none" var="REDIRECT_REQUEST_METHOD"--> πÊΩƒ¿ª æ≤¥¬
+    ø‰√ª¿∫ ø√πŸ∏• <code>Content-Length</code> «Ï¥ıµµ «‘≤≤ ∫∏≥ªæﬂ∏∏ «’¥œ¥Ÿ.
+
+<!--#include virtual="include/bottom.html" -->
+----------ko--
+
+Content-language: nl
+Content-type: text/html; charset=ISO-8859-1
+Body:----------nl--
+<!--#set var="CONTENT_LANGUAGE" value="nl"
+--><!--#set var="TITLE" value="Ongeldige lengte inhoud!"
+--><!--#include virtual="include/top.html" -->
+
+    Een vraag met het <!--#echo var="REDIRECT_REQUEST_METHOD" -->
+    type methode heeft een correcte <code>Content-Length</code> lijn nodig.
+
+<!--#include virtual="include/bottom.html" -->
+----------nl--
+
+Content-language: pl
+Content-type: text/html; charset=ISO-8859-2
+Body:----------pl--
+<!--#set var="CONTENT_LANGUAGE" value="pl"
+--><!--#set var="TITLE" value="B≥Ídne Content-Length!"
+--><!--#set var="CHARACTER_ENCODING" value="ISO-8859-2"
+--><!--#include virtual="include/top.html" -->
+
+    Ø±danie <!--#echo var="REDIRECT_REQUEST_METHOD" -->
+    wymaga poprawnego nag≥Ûwka <code>Content-Length</code>.
+
+<!--#include virtual="include/bottom.html" -->
+----------pl--
+
+Content-language: pt-br
+Content-type: text/html; charset=ISO-8859-1
+Body:-------pt-br--
+<!--#set var="CONTENT_LANGUAGE" value="pt-br"
+--><!--#set var="TITLE" value="Content-Length Inv&aacute;lido!"
+--><!--#include virtual="include/top.html" -->
+
+    Uma requisi&ccedil;&atilde;o 
+    do m&eacute;todo <!--#echo var="REDIRECT_REQUEST_METHOD"-->
+    requer um cabe&ccedil;alho <code>Content-Length</code> v&aacute;lido.
+
+<!--#include virtual="include/bottom.html" -->
+-------pt-br--
+
+Content-language: pt
+Content-type: text/html; charset=ISO-8859-1
+Body:----------pt--
+<!--#set var="TITLE" value="Content-Length incorrecto!"
+--><!--#include virtual="include/top.html" -->
+
+	Um pedido com o m&eacute;todo <!--#echo var="REDIRECT_REQUEST_METHOD" -->
+	necessita de um cabe&ccedil;alho <code>Content-Length</code> v&aacute;lido.
+
+<!--#include virtual="include/bottom.html" -->
+----------pt--
+
+Content-language: ro
+Content-type: text/html; charset=ISO-8859-1
+Body:----------ro--
+<!--#set var="CONTENT_LANGUAGE" value="ro"
+--><!--#set var="TITLE" value="Content-Length invalid!"
+--><!--#include virtual="include/top.html" -->
+
+    O cerere cu metoda <!--#echo var="REDIRECT_REQUEST_METHOD" -->
+    necesita un header <code>Content-Length</code> valid.
+
+<!--#include virtual="include/bottom.html" -->
+----------ro--
+
+Content-language: sr
+Content-type: text/html; charset=ISO-8859-5
+Body:----------sr--
+<!--#set var="CONTENT_LANGUAGE" value="sr"
+--><!--#set var="CHARACTER_ENCODING" value="ISO-8859-5"
+--><!--#set var="TITLE" value="ªﬁË’ Content-Length ◊–”€–“˘’!"
+--><!--#include virtual="include/top.html" -->
+
+    ∑–Â‚’“ ·– <!--#echo var="REDIRECT_REQUEST_METHOD" -->
+    ‹’‚ﬁ‘ﬁ‹ ‹ﬁ‡– ÿ‹–‚ÿ ÿ·ﬂ‡–“›ﬁ <code>Content-Length</code>
+    (‘„÷ÿ›– ·–‘‡÷–¯–) ◊–”€–“˘’.
+
+<!--#include virtual="include/bottom.html" -->
+----------sr--
+
+Content-language: sv
+Content-type: text/html; charset=ISO-8859-1
+Body:----------sv--
+<!--#set var="CONTENT_LANGUAGE" value="sv"
+--><!--#set var="TITLE" value="Felaktig Content-Length!"
+--><!--#include virtual="include/top.html" -->
+
+    En f&ouml;rfr&aring;gan med <!--#echo var="REDIRECT_REQUEST_METHOD" -->
+    metoden kr&auml;ver ett korrekt <code>Content-Length</code> huvud.
+
+<!--#include virtual="include/bottom.html" -->
+----------sv--
+
+Content-language: tr
+Content-type: text/html; charset=ISO-8859-9
+Body:----------tr--
+<!--#set var="CONTENT_LANGUAGE" value="tr"
+--><!--#set var="CHARACTER_ENCODING" value="ISO-8859-9"
+--><!--#set var="TITLE" value="Bad Content-Length!"
+--><!--#include virtual="include/top.html" -->
+
+    <!--#echo var="REDIRECT_REQUEST_METHOD" --> metodunu kullanan bir talep
+    geÁerli bir <code>Content-Length</code> (iÁerik uzunlu&#287;u) ba&#351;l&#305;&#287;&#305; gerektirir.
+
+<!--#include virtual="include/bottom.html" -->
+----------tr--
