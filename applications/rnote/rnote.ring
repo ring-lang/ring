@@ -1855,6 +1855,11 @@ Class RNoteController from WindowsControllerParent
 
 	func pREPLGUI
 		cAppFileName = cCurrentDir + "../ringrepl/replw.ring"
+		if nDefaultStyle <= 3 
+			cAppFileName += ",1"	# Style Fusion White
+		else
+			cAppFileName += ",2"	# Style Fusin Black
+		ok
 		RunTool(cAppFileName)
 
 	func pFormDesignerDock
