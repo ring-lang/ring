@@ -1801,8 +1801,11 @@ Class RNoteController from WindowsControllerParent
 		status1.showmessage(cMsg,0)
 
 	func pRunProcess cProgram,cArg,cGetDataFunc
+		aPara = split(cArg,",")
 		oStringList = new qStringlist() {
-			append(cArg)
+			for cPara in aPara 
+				append(cPara)
+			next
 		}
 		oProcess = new qprocess(NULL) {
 			setprogram( cProgram)
