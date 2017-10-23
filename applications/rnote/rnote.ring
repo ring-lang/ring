@@ -1855,10 +1855,11 @@ Class RNoteController from WindowsControllerParent
 
 	func pREPLGUI
 		cAppFileName = cCurrentDir + "../ringrepl/replw.ring"
+		# RunTool will split parameters using "," as separator 
 		if nDefaultStyle <= 3 
 			cAppFileName += ",1"	# Style Fusion White
 		else
-			cAppFileName += ",2"	# Style Fusin Black
+			cAppFileName += ",2"	# Style Fusion Black
 		ok
 		RunTool(cAppFileName)
 
