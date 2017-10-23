@@ -3,10 +3,23 @@
 
 load "guilib.ring"
 
+# Get Command Line Parameters
+	nStyle = 0
+	if len(sysargv) >= 3 {
+		nStyle = sysargv[3]
+	}
+
+
 oProcess = NULL
 
 oApp = new qApp  {
-	StyleFusionBlack()
+	switch nStyle {
+		
+		case 1
+			StyleFusion()
+		case 2 
+			StyleFusionBlack()
+	}
 	oProcessWindow = new qWidget()  {
 		setwindowflags(Qt_WindowStaysOnTopHint)
 		setwindowtitle("RingREPL (Read - Eval - Print - Loop)")
