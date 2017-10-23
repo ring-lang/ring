@@ -1,6 +1,5 @@
 echo off
-rem call vc.bat
-call "C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
+call locatevc.bat
 
 cls
 
