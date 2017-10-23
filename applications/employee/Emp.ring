@@ -1,13 +1,17 @@
 load "guilib.ring"
 load "stdlib.ring"
+
 import System.GUI
 
 empNum = 0
 btnCursor = new qCursor() { setShape(Qt_PointingHandCursor) }
 
-myApp = new qApp{
-	win1 = new qWidget(){
-		myFont = new qFont("Tahoma",14,100,0)
+myApp = new App {
+
+	win1 = new Window() {
+
+		myFont = new Font("Tahoma",14,100,0)
+
 		setWindowTitle("Employee Data With Images ☺")
 		setGeometry(260,125, 900, 500)
 		setFont(myFont)
@@ -26,67 +30,67 @@ myApp = new qApp{
 			setStyleSheet("text-decoration:underline")
 		}
 
-		lblEmpNO = new qLabel(win1){
+		lblEmpNO = new Label(win1){
 			setText("Employee NO:")
 			setGeometry(20,100,200,30)
 			setStyleSheet(cssLabel)
 		}
 
-		txtEmpNO = new qLineEdit(win1) {
+		txtEmpNO = new LineEdit(win1) {
 			setGeometry(210,101,450,30)
 			setAlignment(Qt_AlignHCenter)
 			setStyleSheet(cssText)
 		}
 
-		lblEmpName = new qLabel(win1){
+		lblEmpName = new Label(win1){
 			setText("Name:")
 			setGeometry(20,150,200,30)
 			setStyleSheet(cssLabel)
 		}
 
-		txtEmpName = new qLineEdit(win1) {
+		txtEmpName = new LineEdit(win1) {
 			setGeometry(210,151,450,30)
 			setAlignment(Qt_AlignHCenter)
 			setStyleSheet(cssText)
 		}
 
-		lblAddress = new qLabel(win1){
+		lblAddress = new Label(win1){
 			setText("Address:")
 			setGeometry(20,200,200,30)
 			setStyleSheet(cssLabel)
 		}
 
-		txtAddress = new qLineEdit(win1) {
+		txtAddress = new LineEdit(win1) {
 			setGeometry(210,201,450,30)
 			setAlignment(Qt_AlignHCenter)
 			setStyleSheet(cssText)
 		}
 
-		lblSalary = new qLabel(win1) {
+		lblSalary = new Label(win1) {
 			setText("Salary:")
 			setGeometry(20,250,200,30)
 			setStyleSheet(cssLabel)
 		}
 
-		txtSalary = new qLineEdit(win1) {
+		txtSalary = new LineEdit(win1) {
 			setGeometry(210,251,450,30)
 			setAlignment(Qt_AlignHCenter)
 			setStyleSheet(cssText)
 		}
 
-		lblEmpImage = new qLabel(win1) {
+		lblEmpImage = new Label(win1) {
 			setText("Image:")
 			setGeometry(20,300,200,30)
 			setStyleSheet(cssLabel)
 		}
 
-		txtImagePath = new qLineEdit(win1) {
+		txtImagePath = new LineEdit(win1) {
 			setGeometry(210,301,450,30)
 			setReadOnly(true)
 			setStyleSheet(cssText)
 		}
 
-		btnSelectImage = new qPushButton(win1) {
+		btnSelectImage = new PushButton(win1) {
 			setGeometry(680,301,190,30)
 			setText("Select Image")
 			setStyleSheet(cssButton)
@@ -101,7 +105,7 @@ myApp = new qApp{
 			setScaledContents(true);
 		}
 
-		btnSave = new qPushButton(win1){
+		btnSave = new PushButton(win1){
 			setGeometry(20+38,390,150,40)
 			setText("Add New")
 			setClickEvent("addEmp()")
@@ -109,7 +113,7 @@ myApp = new qApp{
 			setCursor( btnCursor )
 		}
 
-		btnFind = new qPushButton(win1){
+		btnFind = new PushButton(win1){
 			setGeometry(180+38,390,150,40)
 			setText("Find")
 			setClickEvent("findEmp()")
@@ -117,7 +121,7 @@ myApp = new qApp{
 			setCursor( btnCursor )
 		}
 
-		btnClear = new qPushButton(win1){
+		btnClear = new PushButton(win1){
 			setGeometry(340+38,390,150,40)
 			setText("Clear")
 			setClickEvent("clearData()")
@@ -125,7 +129,7 @@ myApp = new qApp{
 			setCursor( btnCursor )
 		}
 
-		btnDelete = new qPushButton(win1){
+		btnDelete = new PushButton(win1){
 			setGeometry(500+38,390,150,40)
 			setText("Delete")
 			setClickEvent("delEmp()")
@@ -133,7 +137,7 @@ myApp = new qApp{
 			setCursor( btnCursor )
 		}
 
-		btnExit = new qPushButton(win1){
+		btnExit = new PushButton(win1){
 			setGeometry(660+38,390,150,40)
 			setText("Exit")
 			setClickEvent("myApp.quit()")
@@ -142,12 +146,14 @@ myApp = new qApp{
 		}
 
 		show()
+
 	}
+
 	exec()
 
 }
 
-func msgBox(text){
+func msgBox(text) {
 	m = new qMessageBox(win1) {
 		setWindowTitle("H Academy")
 		setText(text)
@@ -155,7 +161,7 @@ func msgBox(text){
 	}
 }
 
-func inBox(text){
+func inBox(text) {
 	oInput = New QInputDialog(win1)
 	{
 		setwindowtitle(text)
@@ -166,7 +172,7 @@ func inBox(text){
 	}
 }
 
-func openImage{
+func openImage {
 	new qfiledialog(win1) {
 		cName = getopenfilename(win1,"open file","","Images Files(*.jpg;*.png)")
 		imgEmp.setPixMap(New qPixMap(cName))
@@ -174,7 +180,7 @@ func openImage{
 	}
 }
 
-func clearData(){
+func clearData() {
 	txtEmpNO.setText("")
 	txtEmpName.setText("")
 	txtAddress.setText("")
@@ -184,75 +190,74 @@ func clearData(){
 	txtEmpNO.setFocus(0)
 }
 
-func addEmp(){
-try
-	if dirExists("data") = 0 System('mkdir data') ok
-	if dirExists("data/img") = 0 System('mkdir data\img') ok
-
-	filePath = 'data/' + txtEmpNO.Text() +  '.txt'
-
-	if fExists(filePath) = 0
-		f = fOpen( filePath , 'w')
-		data = '' + txtEmpNO.Text() + nl + txtEmpName.Text() + nl + txtAddress.Text() + nl + txtSalary.Text() + nl
-		fPuts( f , data )
-		fClose(f)
-		distPath = txtImagePath.Text()
-		toPath    = currentDir() + "/data/img/" + txtEmpNO.Text() + ".jpg"
-		if isWindows()
-			distPath = subStr(distPath , "/" , "\")
-			toPath = subStr(toPath , "/" , "\")
+func addEmp() {
+	try
+		if dirExists("data") = 0 System('mkdir data') ok
+		if dirExists("data/img") = 0 System('mkdir data\img') ok
+	
+		filePath = 'data/' + txtEmpNO.Text() +  '.txt'
+	
+		if fExists(filePath) = 0
+			f = fOpen( filePath , 'w')
+			data = '' + txtEmpNO.Text() + nl + txtEmpName.Text() + nl + txtAddress.Text() + nl + txtSalary.Text() + nl
+			fPuts( f , data )
+			fClose(f)
+			distPath = txtImagePath.Text()
+			toPath    = currentDir() + "/data/img/" + txtEmpNO.Text() + ".jpg"
+			if isWindows()
+				distPath = subStr(distPath , "/" , "\")
+				toPath = subStr(toPath , "/" , "\")
+			ok
+			system("copy " + distPath + " " + toPath )
+			msgBox("Employee is Added...")
+			clearData()
+		else
+			msgBox("This Employee Already Exists !")
 		ok
-		system("copy " + distPath + " " + toPath )
-		msgBox("Employee is Added...")
-		clearData()
-	else
-		msgBox("This Employee Already Exists !")
-	ok
-catch	
-	msgBox(cCatchError)
-end
-
+	catch	
+		msgBox(cCatchError)
+	end
 }
 
-func findEmp(){
-try
-	inBox("Enter Employee NO")
-	empPath = 'data/' + empNum + '.txt'
-	if fExists(empPath) = 0
-		msgBox("This Employee Not Exists !")
-		clearData()
-	else
-		f = fOpen(empPath , "r")
-		txtEmpNO.setText(readLine(f))
-		txtEmpName.setText(readLine(f))
-		txtAddress.setText(readLine(f))
-		txtSalary.setText(readLine(f))
+func findEmp() {
+	try
+		inBox("Enter Employee NO")
+		empPath = 'data/' + empNum + '.txt'
+		if fExists(empPath) = 0
+			msgBox("This Employee Not Exists !")
+			clearData()
+		else
+			f = fOpen(empPath , "r")
+			txtEmpNO.setText(readLine(f))
+			txtEmpName.setText(readLine(f))
+			txtAddress.setText(readLine(f))
+			txtSalary.setText(readLine(f))
+			imgPath = "data/img/" + subStr(txtEmpNO.Text() , 1 , len(txtEmpNO.Text())-1   ) + '.jpg'
+			if fExists(imgPath)
+				imgEmp.setPixMap(New qPixMap( imgPath ))
+			ok
+		ok
+	catch
+		msgBox(cCatchError)
+	end
+}
+
+func delEmp() {
+	try
+		inBox("Enter Employee NO")
+		empPath = 'data/' + empNum + '.txt'
+		if fExists(empPath)
+			remove(empPath)
+			msgBox("Employee Is Deleted...")
+			clearData()
+		else
+			msgBox("This Employee Not Exists !")
+		ok
 		imgPath = "data/img/" + subStr(txtEmpNO.Text() , 1 , len(txtEmpNO.Text())-1   ) + '.jpg'
 		if fExists(imgPath)
-			imgEmp.setPixMap(New qPixMap( imgPath ))
+			remove(imgPath)
 		ok
-	ok
-catch
-	msgBox(cCatchError)
-end
-}
-
-func delEmp(){
-try
-	inBox("Enter Employee NO")
-	empPath = 'data/' + empNum + '.txt'
-	if fExists(empPath)
-		remove(empPath)
-		msgBox("Employee Is Deleted...")
-		clearData()
-	else
-		msgBox("This Employee Not Exists !")
-	ok
-	imgPath = "data/img/" + subStr(txtEmpNO.Text() , 1 , len(txtEmpNO.Text())-1   ) + '.jpg'
-	if fExists(imgPath)
-		remove(imgPath)
-	ok
-catch
-	msgBox(cCatchError)
-end
+	catch
+		msgBox(cCatchError)
+	end
 }
