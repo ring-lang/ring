@@ -21,7 +21,7 @@ myApp = new qApp{
 		lblHeader = new qLabel(win1) {
 			setText("Employee Data Form")
 			setFont(new qFont("Tahoma",24,100,0))
-			setGeometry(0,20,900,40)
+			setGeometry(0,20,900,60)
 			setAlignment(Qt_AlignHCenter)
 			setStyleSheet("text-decoration:underline")
 		}
@@ -39,7 +39,7 @@ myApp = new qApp{
 		}
 
 		lblEmpName = new qLabel(win1){
-			setText("Employee Name:")
+			setText("Name:")
 			setGeometry(20,150,200,30)
 			setStyleSheet(cssLabel)
 		}
