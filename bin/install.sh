@@ -20,6 +20,7 @@ sudo chmod +x /usr/bin/ring
 
 cd ..
 sudo cp lib/libring.so /usr/lib
+sudo cp lib/libring.so /usr/lib64
 fi
 	
 # Make the RingODBC library ready for use directly
@@ -32,6 +33,7 @@ fi
 if [ -f lib/libring_odbc.so ];
 then
 sudo cp lib/libring_odbc.so /usr/lib
+sudo cp lib/libring_odbc.so /usr/lib64
 fi
 
 # Make the RingMySQL library ready for use directly
@@ -57,6 +59,7 @@ fi
 if [ -f lib/libring_sqlite.so ];
 then
 sudo cp lib/libring_sqlite.so /usr/lib
+sudo cp lib/libring_sqlite.so /usr/lib64
 fi
 
 # Make the RingInternet library ready for use directly
@@ -69,6 +72,7 @@ fi
 if [ -f lib/libring_internet.so ];
 then
 sudo cp lib/libring_internet.so /usr/lib
+sudo cp lib/libring_internet.so /usr/lib64
 fi
 
 # Make the RingOpenSSL library ready for use directly
@@ -81,6 +85,7 @@ fi
 if [ -f lib/libring_openssl.so ];
 then
 sudo cp lib/libring_openssl.so /usr/lib
+sudo cp lib/libring_openssl.so /usr/lib64
 fi
 
 # Make the RingAllegro library ready for use directly
@@ -93,6 +98,7 @@ fi
 if [ -f lib/libringallegro.so ];
 then
 sudo cp lib/libringallegro.so /usr/lib
+sudo cp lib/libringallegro.so /usr/lib64
 fi
 
 # Make the RingQt library ready for use directly
@@ -118,6 +124,7 @@ fi
 if [ -f lib/libring_libcurl.so ];
 then
 sudo cp lib/libring_libcurl.so /usr/lib
+sudo cp lib/libring_libcurl.so /usr/lib64
 fi
 
 # Make the RingZipLib library ready for use directly
@@ -130,6 +137,7 @@ fi
 if [ -f lib/libring_libzip.so ];
 then
 sudo cp lib/libring_libzip.so /usr/lib
+sudo cp lib/libring_libzip.so /usr/lib64
 fi
 
 # Make the RingFreeGLUT library ready for use directly
@@ -142,6 +150,7 @@ fi
 if [ -f lib/libring_freeglut.so ];
 then
 sudo cp lib/libring_freeglut.so /usr/lib
+sudo cp lib/libring_freeglut.so /usr/lib64
 fi
 
 # Make the RingOpenGL library ready for use directly
@@ -154,6 +163,7 @@ fi
 if [ -f lib/libring_opengl11.so ];
 then
 sudo cp lib/libring_opengl11.so /usr/lib
+sudo cp lib/libring_opengl11.so /usr/lib64
 fi
 
 
@@ -165,6 +175,7 @@ fi
 if [ -f lib/libring_opengl12.so ];
 then
 sudo cp lib/libring_opengl12.so /usr/lib
+sudo cp lib/libring_opengl12.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl13.dylib ];
@@ -175,6 +186,7 @@ fi
 if [ -f lib/libring_opengl13.so ];
 then
 sudo cp lib/libring_opengl13.so /usr/lib
+sudo cp lib/libring_opengl13.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl14.dylib ];
@@ -185,6 +197,7 @@ fi
 if [ -f lib/libring_opengl14.so ];
 then
 sudo cp lib/libring_opengl14.so /usr/lib
+sudo cp lib/libring_opengl14.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl15.dylib ];
@@ -195,6 +208,7 @@ fi
 if [ -f lib/libring_opengl15.so ];
 then
 sudo cp lib/libring_opengl15.so /usr/lib
+sudo cp lib/libring_opengl15.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl20.dylib ];
@@ -205,6 +219,7 @@ fi
 if [ -f lib/libring_opengl20.so ];
 then
 sudo cp lib/libring_opengl20.so /usr/lib
+sudo cp lib/libring_opengl20.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl21.dylib ];
@@ -215,6 +230,7 @@ fi
 if [ -f lib/libring_opengl21.so ];
 then
 sudo cp lib/libring_opengl21.so /usr/lib
+sudo cp lib/libring_opengl21.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl30.dylib ];
@@ -225,6 +241,7 @@ fi
 if [ -f lib/libring_opengl30.so ];
 then
 sudo cp lib/libring_opengl30.so /usr/lib
+sudo cp lib/libring_opengl30.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl31.dylib ];
@@ -235,6 +252,7 @@ fi
 if [ -f lib/libring_opengl31.so ];
 then
 sudo cp lib/libring_opengl31.so /usr/lib
+sudo cp lib/libring_opengl31.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl32.dylib ];
@@ -245,6 +263,7 @@ fi
 if [ -f lib/libring_opengl32.so ];
 then
 sudo cp lib/libring_opengl32.so /usr/lib
+sudo cp lib/libring_opengl32.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl33.dylib ];
@@ -255,6 +274,7 @@ fi
 if [ -f lib/libring_opengl33.so ];
 then
 sudo cp lib/libring_opengl33.so /usr/lib
+sudo cp lib/libring_opengl33.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl40.dylib ];
@@ -265,6 +285,7 @@ fi
 if [ -f lib/libring_opengl40.so ];
 then
 sudo cp lib/libring_opengl40.so /usr/lib
+sudo cp lib/libring_opengl40.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl41.dylib ];
@@ -275,6 +296,7 @@ fi
 if [ -f lib/libring_opengl41.so ];
 then
 sudo cp lib/libring_opengl41.so /usr/lib
+sudo cp lib/libring_opengl41.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl42.dylib ];
@@ -285,6 +307,7 @@ fi
 if [ -f lib/libring_opengl42.so ];
 then
 sudo cp lib/libring_opengl42.so /usr/lib
+sudo cp lib/libring_opengl42.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl43.dylib ];
@@ -295,6 +318,7 @@ fi
 if [ -f lib/libring_opengl43.so ];
 then
 sudo cp lib/libring_opengl43.so /usr/lib
+sudo cp lib/libring_opengl43.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl44.dylib ];
@@ -305,6 +329,7 @@ fi
 if [ -f lib/libring_opengl44.so ];
 then
 sudo cp lib/libring_opengl44.so /usr/lib
+sudo cp lib/libring_opengl44.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl45.dylib ];
@@ -315,6 +340,7 @@ fi
 if [ -f lib/libring_opengl45.so ];
 then
 sudo cp lib/libring_opengl45.so /usr/lib
+sudo cp lib/libring_opengl45.so /usr/lib64
 fi
 
 if [ -f lib/libring_opengl46.dylib ];
@@ -325,5 +351,6 @@ fi
 if [ -f lib/libring_opengl46.so ];
 then
 sudo cp lib/libring_opengl46.so /usr/lib
+sudo cp lib/libring_opengl46.so /usr/lib64
 fi
 
