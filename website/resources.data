@@ -858,346 +858,522 @@
                               ] 
 			]
 		],		
-			["Arabic Tutorials by Mr. Ahmed Hassouna (YouTube)",[
+			["Arabic Tutorials by Mr. Ahmed Hassouna - Hassouna Academy On (YouTube) * Basis, OOP, Forms ♥",[
 				[
 					'<a href="https://www.youtube.com/watch?v=3YsdVicFv3Q" target="_blank">01 Introduction In Ring Programming Language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=ThPcTPyTkXc" target="_blank">02 Download And Install Ring Programming Language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=nvgzIfuOnFo&index" target="_blank">03 Download And Install Ring On Ubuntu Linux</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=ibdTtHm_61I&index" target="_blank">04 Download And Install Ring On Mac OS X</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=q09Or4KTzQs&index" target="_blank">05 Features of ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=k2vx3elMq2k&index" target="_blank">06 Output in ring programming language using see</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=xw3rX33obGM&index" target="_blank">07 Input in ring programming language using give</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=Tezj0Rqi3Hk&index" target="_blank">08 Download And Install Notepad Plus Plus With Add ring language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=EDvde6hTG8s&index" target="_blank">09 Variable in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=v0rkrg1hBOY&index" target="_blank">10 Comments in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=s2bQK3dTPsc&index" target="_blank">11 Arithmetic operators in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=fcduGjbJSL8&index" target="_blank">12 Logical operators in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=jWoSCijesaY&index" target="_blank">13 Comparison Or Relational operators in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=LASgs4ppOsA&index" target="_blank">14 Assignment operators in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=WJe8rLBU7tQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=15" target="_blank">15 List instead of array in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=eJi5_OkOaeg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=16" target="_blank">16 Range list array in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=h5LUDUgYClA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=17" target="_blank">17 List part 1 in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=FPVx45VoWYw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=18" target="_blank">18 List part 2 in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=Ru_J4lFE76c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=19" target="_blank">19 Nested List in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=JZxwsWP7GeE" target="_blank">20 Convert String To Number in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=lxLL53jS3nE&index=21&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">21 IF Statement with OK in ring programming language</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=fwlqsiLmbK8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=22" target="_blank">IF OK STATEMENT WITH ELSE & BUT in ring programming language #22</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=AqpBs8bTDIc&index=23&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">SWITCH ON OFF STATEMENT WITH OTHER in ring programming language #23</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=_SiDLi5H1mM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=24" target="_blank">FOR LOOP STATEMENT in ring programming language #24</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=NvFxaED2-vo&index=25&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Ring 1.3 #25</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=NQOMFasiGqE&index=26&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Nested Loops in ring programming language#26</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=vTskzVew7aI&index=27&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">While Loop in ring programming language #27</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=OXoIdq75hwM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=28" target="_blank">Do again in ring programming language #28</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=WZiKi_waL9o&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=29" target="_blank">Exit in ring programming language #29</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=USY0s6n4Mpw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=30" target="_blank">Loop in ring programming language #30</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="" target="_blank">print date time #31</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=-OLP4QUJ9KQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=32" target="_blank">TimeList #32</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=y7ngyXt3sBY&index=33&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#33 Date Details</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=4-jO3sFFq34&index=34&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#34 Calculate Birth Date</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=zqZZae2uIgA&index=35&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#35 Calculate Performance</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=WU349fkNbbg&index=36&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#36 Wait Time</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=dUu1no_Dq1Q&index=37&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#37 Day Name</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=_48gXq3K3EQ&index=38&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#38 Upper & Lower</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=WZwWj75XaUk&index=39&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#39 Length Of String</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=4yQBrwi7uCM&index=40&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#40 Normal Substring</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=bSwL38pg2dQ&index=41&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#41 Start & End In Substring</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=8cB2Zu31smw&index=42&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#42 Replace String</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=7qtlUe56CbE&index=43&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#43 Split String</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=5uOEyK-Zw3Q&index=44&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#44 Reverse String</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=d393r6xOFec&index=45&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#45 get and put</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=1PSmbDkw8d4&index=46&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#46 Right And Left With String</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=82bpoDgdj6g&index=47&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#47 Trim And Check String If Empty Space</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=MOlgwvxeOCg&index=48&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#48 Copy</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=Htn1jMYXKeY&index=49&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#49 StrCMP For Compare Strings</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=O3jqq_4XJps&index=50&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#50 Line Numbers Or Lines Count</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=UneJvlJnDl0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=52" target="_blank">#51 Type Of Any Var</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=eHRLTjesnQ0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=53" target="_blank">#52 Convert String To List & List To String</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=YXKS-bTco-c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=54" target="_blank">#53 Check Type Using Functions</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=69hRSl6i2Cg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=55" target="_blank">#54 Check Char</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=vJ2tRyx1g3s&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=56" target="_blank">#55 Converting</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=oo3l9StITAY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=57" target="_blank">#56 Random Numbers</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=2dpOk7ppJsI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=58" target="_blank">#57 Create New Text File</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=1uuk_JMZA-c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=59" target="_blank">#58 Read From Text File</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=skP1AYrAXto&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=60" target="_blank">#59 Get All Files And Folders</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=PvCRjFSfxiE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=61" target="_blank">#60 Rename Files And Folders</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=zwMeq5qE-w4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=63" target="_blank">#62 Read Files</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=KpfgNeQFSSo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=64" target="_blank">#63 Write Files</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=Iq5bMVYT5xE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=65" target="_blank">#64 Write Files With Append</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=8mqcKAiHt_A&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=66" target="_blank">#65 Update Files</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=rvo7pt3Ebso&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=67" target="_blank">#66 F Seek Function</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=FtFc94fhle4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=68" target="_blank">#67 Create Folder</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=VHSKaZBsft4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=69" target="_blank">#68 Run exe File</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=3hT-00Ub-ug&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=70" target="_blank">#69 Run HTML</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=7vRpC68Bwco&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=71" target="_blank">#70 Try And Catch</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=Rhtg_CSzyqg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=72" target="_blank">#71 Create Function First Style</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=dW1IhSeHZbg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=73" target="_blank">#72 Create Function Second Style</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=w_hR6PuOek4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=74" target="_blank">#73 Create Main Function</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=dnOQq0YRSYM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=75" target="_blank">#74 Send Parameters</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=E9p8k5TcIKs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=76" target="_blank">#75 Generate Calculator</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=CyZAhqMGOM8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=77" target="_blank">#76 Send Array As A Parameter</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=UYgQEf7PJG0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=78" target="_blank">#77 Return Value</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=oegLea_JILU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=79" target="_blank">#78 Create Function To Make Folder</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=el3zmTg_y08&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=80" target="_blank">#79 Create Function To Delete Folders</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=7wqFrGAObSw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=81" target="_blank">#80 Create Function To Generate Random</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=xxa0eIXh9uU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=82" target="_blank">#81 Create Function To Delete All Files</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=ymDVpNvzxpY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=83" target="_blank">#82 Create Function To Delete All Folders</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=QZDBvxjZm7s&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=84" target="_blank">#83 Create Function To Calculate Avg And Sum</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=A_VvCSZCfD0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=85" target="_blank">#84 Create Function To Check Numbers And String</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=xIYFfvsng68&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=86" target="_blank">#85 Generate Library In Ring</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="60%">'
 				],
 				[
 					'<a href="https://www.youtube.com/watch?v=C97ZhvC0v6c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=87" target="_blank">#86 OOP Concepts</a>',
-					'<img src="https://i.ytimg.com/vi/3YsdVicFv3Q/hqdefault.jpg" width="40%">'
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=nOBxSYbBkX0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=88" target="_blank">#87 Create Class</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=K1leIc-Focc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=89" target="_blank">#88 Create Object</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=lpy2Xlr1Mdo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=90" target="_blank">#89 Package Concept</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=H6uu9beqomc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=91" target="_blank">#90 Package And Classes</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=zVAGtE9_vH8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=92" target="_blank">#91 Nested Package</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=1suIuRk_NhE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=93" target="_blank">#92 Import In Ring</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=KmWRZywUmdY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=94" target="_blank">#93 Basics Syntax Statements & Functions & Classes & Packages</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=1waX_VMoigU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=95" target="_blank">#94 Set Values To Attributes</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=ba-ULJJRcNM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=96" target="_blank">#95 Call Functions In Class</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=6y1FE_W6wrM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=97" target="_blank">#96 Constructor In Ring (init Function)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=AWzFO3dfkF8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=98" target="_blank">#97 Send Parameters To Constructor</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=z9XITOKleeU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=99" target="_blank">#98 Use This In Class Contains Same Variable Names</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=NOFAdfdh2Ig&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=100" target="_blank">#99 Change Parameters Value</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=90hNLr8jKb4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=101" target="_blank">#100 Composition (Class & Object)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=2V3mO7QpUDE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=102" target="_blank">#101 Private Access Modifiers</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=T3I0UqoOPQE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=103" target="_blank">#102 Encapsulation Concept</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=JGSiA9ifU0g&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=104" target="_blank">#103 Encapsulation In Ring</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=u1LCo6UQv6o&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=105" target="_blank">#104 Inheritance Concept</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=3xJgL1T_Pes&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=106" target="_blank">#105 Inheritance Example</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=rFSPHERWmtg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=107" target="_blank">#106 Overloading Concept</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=CMr5gX6U_a0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=108" target="_blank">#107 Instead Of Overloading(0)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=a6TjSU18XVI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=109" target="_blank">#108 Instead Of Overloading(1)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=1_5uFnVKTXY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=110" target="_blank">#109 Instead Of Overloading(2)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=KodV2Fq33dM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=111" target="_blank">#110 Instead Of Overloading(3)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=9lr81MQjZ2Q&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=112" target="_blank">#111 Instead Of Overloading(4)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Fy8X0MELS4I&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=113" target="_blank">#112 Instead Of Overloading(5)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=Q2hgfGT-g1k&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=114" target="_blank">#113 Example Of Overloading(1)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=YLcRSLY6F-A&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=115" target="_blank">#114 Overriding</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=6aC-8-ANRR4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=116" target="_blank">#115 Overriding Example</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=cx-0Av2G4Tc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=117" target="_blank">#116 Inheritance With Constructor</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=tLuS2UYOqSY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=118" target="_blank">#117 Polymorphism Concept</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=a8bL3HYQHcY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=119" target="_blank">#118 Polymorphism Example</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=9geg-48jqTQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=120" target="_blank">#119 OOP Example (My Note)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=cyj2GpwK3mo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=121" target="_blank">#120 OOP Example (Employee Data)</a>',
+					'<img src="https://i.ytimg.com/vi/cyj2GpwK3mo/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=gY6ybUam7Yc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=122" target="_blank">#121 Get Started With Desktop Application</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=aw5eft0RJIY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=123" target="_blank">#122 Create New Form</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=eFQtWPn_XqY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=124" target="_blank">#123 Set Location And Size Of Form</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=lekIyMdFqa8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=125" target="_blank">#124 Insert Text Box And Align Center</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=6Mpa8_YRRkE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=126" target="_blank">#125 Create New Font To Controls</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=eTsN9fRk2dU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=127" target="_blank">#126 Insert Label Or Header Form</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=gLrznRwWNbc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=128" target="_blank">#127 Insert Button On Form</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=mwpnplAWzHk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=129" target="_blank">#128 Add Click Event To Button (Add Programming To Pressed)</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=3M5UDPoHHDY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=130" target="_blank">#129 Add Icon To Form</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
+				],
+				[
+					'<a href="https://www.youtube.com/watch?v=UV0y57ohVyw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=131" target="_blank">#130 Set CSS Style To Controls</a>',
+					'<img src="https://i.ytimg.com/vi/gY6ybUam7Yc/hqdefault.jpg" width="60%">'
 				]
 			]
 			],
