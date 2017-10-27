@@ -2,8 +2,6 @@
 	Purpose 	: Find 3 Numbers [? ? ?] according to 5 Rules.  
 	Author		: Mahmoud Fayed 
 	Date		: 2017.10.27
-
-
 */
 
 func Main
