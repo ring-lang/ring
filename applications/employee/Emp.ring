@@ -187,7 +187,7 @@ func openImage {
 	}
 }
 
-func clearData() {
+func clearData {
 	txtEmpNO.setText("")
 	txtEmpName.setText("")
 	txtAddress.setText("")
@@ -197,13 +197,11 @@ func clearData() {
 	txtEmpNO.setFocus(0)
 }
 
-func addEmp() {
+func addEmp {
 	try
 		if dirExists("data") = 0 System('mkdir data') ok
-		if dirExists("data/img") = 0 System('mkdir data/img') ok
-	
-		filePath = 'data/' + txtEmpNO.Text() +  '.txt'
-	
+		if dirExists("data/img") = 0 System('mkdir data\img') ok	
+		filePath = 'data/' + txtEmpNO.Text() +  '.txt'	
 		if fExists(filePath) = 0
 			f = fOpen( filePath , 'w')
 			data = '' + txtEmpNO.Text() + nl + txtEmpName.Text() + nl + txtAddress.Text() + nl + txtSalary.Text() + nl
@@ -211,6 +209,10 @@ func addEmp() {
 			fClose(f)
 			distPath = txtImagePath.Text()
 			toPath    = currentDir() + "/data/img/" + txtEmpNO.Text() + ".jpg"
+			if isWindows()
+				distPath = subStr(distPath , "/" , "\")
+				toPath = subStr(toPath , "/" , "\")
+			ok
 			system("copy " + distPath + " " + toPath )
 			msgBox("Employee is Added...")
 			clearData()
@@ -222,7 +224,7 @@ func addEmp() {
 	end
 }
 
-func findEmp() {
+func findEmp {
 	try
 		inBox("Enter Employee NO")
 		empPath = 'data/' + empNum + '.txt'
@@ -245,7 +247,7 @@ func findEmp() {
 	end
 }
 
-func delEmp() {
+func delEmp {
 	try
 		inBox("Enter Employee NO")
 		empPath = 'data/' + empNum + '.txt'
