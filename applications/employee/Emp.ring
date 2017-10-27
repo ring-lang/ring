@@ -22,7 +22,7 @@ myApp = new App {
 		setWindowTitle("Employee Data With Images ☺")
 		setGeometry(260,125, 900, 500)
 		setFont(myFont)
-		setwinicon(win1, CurrentDir() + "/image/emp.png")
+		setwinicon(win1, CurrentDir() + "/Image/emp.png")
 		setStyleSheet("background-color:#fff;")
 
 		cssText    = "border:1px solid black;border-radius:7px;color:blue;"
@@ -200,7 +200,7 @@ func clearData() {
 func addEmp() {
 	try
 		if dirExists("data") = 0 System('mkdir data') ok
-		if dirExists("data/img") = 0 System('mkdir data\img') ok
+		if dirExists("data/img") = 0 System('mkdir data/img') ok
 	
 		filePath = 'data/' + txtEmpNO.Text() +  '.txt'
 	
@@ -211,10 +211,6 @@ func addEmp() {
 			fClose(f)
 			distPath = txtImagePath.Text()
 			toPath    = currentDir() + "/data/img/" + txtEmpNO.Text() + ".jpg"
-			if isWindows()
-				distPath = subStr(distPath , "/" , "\")
-				toPath = subStr(toPath , "/" , "\")
-			ok
 			system("copy " + distPath + " " + toPath )
 			msgBox("Employee is Added...")
 			clearData()
