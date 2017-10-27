@@ -126,7 +126,8 @@ void ring_vm_file_tempfile ( void *pPointer )
 
 void ring_vm_file_tempname ( void *pPointer )
 {
-	RING_API_RETSTRING(tmpnam(NULL));
+	char _tmpfile[20] = "/tmp/ringtempXXXXXX";
+	RING_API_RETSTRING(mkdtemp(_tmpfile));
 }
 
 void ring_vm_file_fseek ( void *pPointer )
