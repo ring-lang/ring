@@ -201,6 +201,7 @@ Runtime Errors
 * Error (R36) : The column number is not correct! It's greater than the number of columns in the list
 * Error (R37) : Sorry, The command is not supported in this context
 * Error (R38) : Runtime Error in loading the dynamic library!
+* Error (R39) : Error occurred creating unique filename.
 
 .. index:: 
 	pair: Reference; Environment Errors
