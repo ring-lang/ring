@@ -137,6 +137,9 @@ void ring_vm_file_tempname ( void *pPointer )
 	else {
 		RING_API_RETSTRING(_tmpfile);
 	}
+	/* Mac OS X */
+	#elif __MACH__
+	RING_API_RETSTRING(tmpnam(NULL));
 	/* Linux */
 	#else
 	char _tmpfile[20] = "/tmp/ringtempXXXXXX" ;
