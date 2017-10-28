@@ -126,8 +126,14 @@ void ring_vm_file_tempfile ( void *pPointer )
 
 void ring_vm_file_tempname ( void *pPointer )
 {
-	char _tmpfile[20] = "/tmp/ringtempXXXXXX";
+	#ifdef _WIN32
+	/* Windows */
+	RING_API_RETSTRING(tmpnam(NULL));
+	/* Linux */
+	#else
+	char _tmpfile[20] = "/tmp/ringtempXXXXXX" ;
 	RING_API_RETSTRING(mkdtemp(_tmpfile));
+	#endif
 }
 
 void ring_vm_file_fseek ( void *pPointer )

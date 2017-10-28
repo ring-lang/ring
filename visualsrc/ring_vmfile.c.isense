@@ -34,6 +34,7 @@ ring_vm_file_tempfile
 Type: FILE *
 fp
 ring_vm_file_tempname
+_tmpfile
 ring_vm_file_fseek
 Type: int
 nResult
