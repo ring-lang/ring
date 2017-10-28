@@ -22,6 +22,11 @@ Class RNoteController from WindowsControllerParent
 	cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
 	cCurrentDir = CurrentDir() + "/"	# The Ring Notepad Folder
 	cStartUpFolder = exefolder() + "/../applications/"
+	if isWindows()
+		cRingEXE = exefilename()
+	else 
+		cRingEXE = "ring"
+	ok
 	lShowProject = True
 	lShowSourceCode = True
 	lShowBrowser = True
@@ -1321,7 +1326,7 @@ Class RNoteController from WindowsControllerParent
 		oProcessEditbox.setplaintext("")
 		oProcessText.setFocus(0)
 		chdir(JustFilePath(cActiveFileName))
-		oProcess = pRunProcess(exefilename(),cActiveFileName,cpGetProcessData)
+		oProcess = pRunProcess(cRingEXE,cActiveFileName,cpGetProcessData)
 		chdir(exefolder())
 
 	func pSave
@@ -1838,7 +1843,7 @@ Class RNoteController from WindowsControllerParent
 		oProcessEditbox.setplaintext("")
 		oProcessText.setFocus(0)
 		chdir(JustFilePath(cFileName))
-		oProcess = pRunProcess(exefilename(),cFileName,cpGetProcessData)
+		oProcess = pRunProcess(cRingEXE,cFileName,cpGetProcessData)
 		chdir(exefolder())
 
 	func RunToolConsole cFileName
