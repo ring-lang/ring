@@ -35,6 +35,9 @@ Type: FILE *
 fp
 ring_vm_file_tempname
 _tmpfile
+Type: errno_t
+error
+_tmpfile
 ring_vm_file_fseek
 Type: int
 nResult

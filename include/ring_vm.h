@@ -717,6 +717,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 #define RING_VM_ERROR_BADCOLUMNNUMBER "Error (R36) : The column number is not correct! It's greater than the number of columns in the list"
 #define RING_VM_ERROR_BADCOMMAND "Error (R37) : Sorry, The command is not supported in this context"
 #define RING_VM_ERROR_LIBLOADERROR "Error (R38) : Runtime Error in loading the dynamic library!"
+#define RING_VM_ERROR_TEMPFILENAME "Error (R39) : Error occurred creating unique filename."
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 2
 /* Variables Location */

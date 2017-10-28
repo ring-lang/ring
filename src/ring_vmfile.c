@@ -128,7 +128,15 @@ void ring_vm_file_tempname ( void *pPointer )
 {
 	#ifdef _WIN32
 	/* Windows */
-	RING_API_RETSTRING(tmpnam(NULL));
+	char _tmpfile[L_tmpnam_s]  ;
+	errno_t error  ;
+	error = tmpnam_s(_tmpfile,L_tmpnam_s);
+	if ( error ) {
+		RING_API_ERROR(RING_VM_ERROR_TEMPFILENAME);
+	}
+	else {
+		RING_API_RETSTRING(_tmpfile);
+	}
 	/* Linux */
 	#else
 	char _tmpfile[20] = "/tmp/ringtempXXXXXX" ;
