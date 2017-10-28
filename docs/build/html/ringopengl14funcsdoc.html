@@ -1,0 +1,1160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RingOpenGL (OpenGL 1.4) Functions Reference &mdash; Ring 1.5.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="next" title="RingOpenGL (OpenGL 1.5) Functions Reference" href="ringopengl15funcsdoc.html" />
+    <link rel="prev" title="RingOpenGL (OpenGL 1.3) Functions Reference" href="ringopengl13funcsdoc.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ringopengl15funcsdoc.html" title="RingOpenGL (OpenGL 1.5) Functions Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ringopengl13funcsdoc.html" title="RingOpenGL (OpenGL 1.3) Functions Reference"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ringopengl-opengl-1-4-functions-reference">
+<span id="index-0"></span><h1>RingOpenGL (OpenGL 1.4) Functions Reference<a class="headerlink" href="#ringopengl-opengl-1-4-functions-reference" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>GL_ZERO</li>
+<li>GL_FALSE</li>
+<li>GL_LOGIC_OP</li>
+<li>GL_NONE</li>
+<li>GL_TEXTURE_COMPONENTS</li>
+<li>GL_NO_ERROR</li>
+<li>GL_POINTS</li>
+<li>GL_CURRENT_BIT</li>
+<li>GL_TRUE</li>
+<li>GL_ONE</li>
+<li>GL_CLIENT_PIXEL_STORE_BIT</li>
+<li>GL_LINES</li>
+<li>GL_LINE_LOOP</li>
+<li>GL_POINT_BIT</li>
+<li>GL_CLIENT_VERTEX_ARRAY_BIT</li>
+<li>GL_LINE_STRIP</li>
+<li>GL_LINE_BIT</li>
+<li>GL_TRIANGLES</li>
+<li>GL_TRIANGLE_STRIP</li>
+<li>GL_TRIANGLE_FAN</li>
+<li>GL_QUADS</li>
+<li>GL_QUAD_STRIP</li>
+<li>GL_POLYGON_BIT</li>
+<li>GL_POLYGON</li>
+<li>GL_POLYGON_STIPPLE_BIT</li>
+<li>GL_PIXEL_MODE_BIT</li>
+<li>GL_LIGHTING_BIT</li>
+<li>GL_FOG_BIT</li>
+<li>GL_DEPTH_BUFFER_BIT</li>
+<li>GL_ACCUM</li>
+<li>GL_LOAD</li>
+<li>GL_RETURN</li>
+<li>GL_MULT</li>
+<li>GL_ADD</li>
+<li>GL_NEVER</li>
+<li>GL_ACCUM_BUFFER_BIT</li>
+<li>GL_LESS</li>
+<li>GL_EQUAL</li>
+<li>GL_LEQUAL</li>
+<li>GL_GREATER</li>
+<li>GL_NOTEQUAL</li>
+<li>GL_GEQUAL</li>
+<li>GL_ALWAYS</li>
+<li>GL_SRC_COLOR</li>
+<li>GL_ONE_MINUS_SRC_COLOR</li>
+<li>GL_SRC_ALPHA</li>
+<li>GL_ONE_MINUS_SRC_ALPHA</li>
+<li>GL_DST_ALPHA</li>
+<li>GL_ONE_MINUS_DST_ALPHA</li>
+<li>GL_DST_COLOR</li>
+<li>GL_ONE_MINUS_DST_COLOR</li>
+<li>GL_SRC_ALPHA_SATURATE</li>
+<li>GL_STENCIL_BUFFER_BIT</li>
+<li>GL_FRONT_LEFT</li>
+<li>GL_FRONT_RIGHT</li>
+<li>GL_BACK_LEFT</li>
+<li>GL_BACK_RIGHT</li>
+<li>GL_FRONT</li>
+<li>GL_BACK</li>
+<li>GL_LEFT</li>
+<li>GL_RIGHT</li>
+<li>GL_FRONT_AND_BACK</li>
+<li>GL_AUX0</li>
+<li>GL_AUX1</li>
+<li>GL_AUX2</li>
+<li>GL_AUX3</li>
+<li>GL_INVALID_ENUM</li>
+<li>GL_INVALID_VALUE</li>
+<li>GL_INVALID_OPERATION</li>
+<li>GL_STACK_OVERFLOW</li>
+<li>GL_STACK_UNDERFLOW</li>
+<li>GL_OUT_OF_MEMORY</li>
+<li>GL_2D</li>
+<li>GL_3D</li>
+<li>GL_3D_COLOR</li>
+<li>GL_3D_COLOR_TEXTURE</li>
+<li>GL_4D_COLOR_TEXTURE</li>
+<li>GL_PASS_THROUGH_TOKEN</li>
+<li>GL_POINT_TOKEN</li>
+<li>GL_LINE_TOKEN</li>
+<li>GL_POLYGON_TOKEN</li>
+<li>GL_BITMAP_TOKEN</li>
+<li>GL_DRAW_PIXEL_TOKEN</li>
+<li>GL_COPY_PIXEL_TOKEN</li>
+<li>GL_LINE_RESET_TOKEN</li>
+<li>GL_EXP</li>
+<li>GL_VIEWPORT_BIT</li>
+<li>GL_EXP2</li>
+<li>GL_CW</li>
+<li>GL_CCW</li>
+<li>GL_COEFF</li>
+<li>GL_ORDER</li>
+<li>GL_DOMAIN</li>
+<li>GL_CURRENT_COLOR</li>
+<li>GL_CURRENT_INDEX</li>
+<li>GL_CURRENT_NORMAL</li>
+<li>GL_CURRENT_TEXTURE_COORDS</li>
+<li>GL_CURRENT_RASTER_COLOR</li>
+<li>GL_CURRENT_RASTER_INDEX</li>
+<li>GL_CURRENT_RASTER_TEXTURE_COORDS</li>
+<li>GL_CURRENT_RASTER_POSITION</li>
+<li>GL_CURRENT_RASTER_POSITION_VALID</li>
+<li>GL_CURRENT_RASTER_DISTANCE</li>
+<li>GL_POINT_SMOOTH</li>
+<li>GL_POINT_SIZE</li>
+<li>GL_POINT_SIZE_RANGE</li>
+<li>GL_POINT_SIZE_GRANULARITY</li>
+<li>GL_LINE_SMOOTH</li>
+<li>GL_LINE_WIDTH</li>
+<li>GL_LINE_WIDTH_RANGE</li>
+<li>GL_LINE_WIDTH_GRANULARITY</li>
+<li>GL_LINE_STIPPLE</li>
+<li>GL_LINE_STIPPLE_PATTERN</li>
+<li>GL_LINE_STIPPLE_REPEAT</li>
+<li>GL_LIST_MODE</li>
+<li>GL_MAX_LIST_NESTING</li>
+<li>GL_LIST_BASE</li>
+<li>GL_LIST_INDEX</li>
+<li>GL_POLYGON_MODE</li>
+<li>GL_POLYGON_SMOOTH</li>
+<li>GL_POLYGON_STIPPLE</li>
+<li>GL_EDGE_FLAG</li>
+<li>GL_CULL_FACE</li>
+<li>GL_CULL_FACE_MODE</li>
+<li>GL_FRONT_FACE</li>
+<li>GL_LIGHTING</li>
+<li>GL_LIGHT_MODEL_LOCAL_VIEWER</li>
+<li>GL_LIGHT_MODEL_TWO_SIDE</li>
+<li>GL_LIGHT_MODEL_AMBIENT</li>
+<li>GL_SHADE_MODEL</li>
+<li>GL_COLOR_MATERIAL_FACE</li>
+<li>GL_COLOR_MATERIAL_PARAMETER</li>
+<li>GL_COLOR_MATERIAL</li>
+<li>GL_FOG</li>
+<li>GL_FOG_INDEX</li>
+<li>GL_FOG_DENSITY</li>
+<li>GL_FOG_START</li>
+<li>GL_FOG_END</li>
+<li>GL_FOG_MODE</li>
+<li>GL_FOG_COLOR</li>
+<li>GL_DEPTH_RANGE</li>
+<li>GL_DEPTH_TEST</li>
+<li>GL_DEPTH_WRITEMASK</li>
+<li>GL_DEPTH_CLEAR_VALUE</li>
+<li>GL_DEPTH_FUNC</li>
+<li>GL_ACCUM_CLEAR_VALUE</li>
+<li>GL_STENCIL_TEST</li>
+<li>GL_STENCIL_CLEAR_VALUE</li>
+<li>GL_STENCIL_FUNC</li>
+<li>GL_STENCIL_VALUE_MASK</li>
+<li>GL_STENCIL_FAIL</li>
+<li>GL_STENCIL_PASS_DEPTH_FAIL</li>
+<li>GL_STENCIL_PASS_DEPTH_PASS</li>
+<li>GL_STENCIL_REF</li>
+<li>GL_STENCIL_WRITEMASK</li>
+<li>GL_MATRIX_MODE</li>
+<li>GL_NORMALIZE</li>
+<li>GL_VIEWPORT</li>
+<li>GL_MODELVIEW_STACK_DEPTH</li>
+<li>GL_PROJECTION_STACK_DEPTH</li>
+<li>GL_TEXTURE_STACK_DEPTH</li>
+<li>GL_MODELVIEW_MATRIX</li>
+<li>GL_PROJECTION_MATRIX</li>
+<li>GL_TEXTURE_MATRIX</li>
+<li>GL_ATTRIB_STACK_DEPTH</li>
+<li>GL_CLIENT_ATTRIB_STACK_DEPTH</li>
+<li>GL_ALPHA_TEST</li>
+<li>GL_ALPHA_TEST_FUNC</li>
+<li>GL_ALPHA_TEST_REF</li>
+<li>GL_DITHER</li>
+<li>GL_BLEND_DST</li>
+<li>GL_BLEND_SRC</li>
+<li>GL_BLEND</li>
+<li>GL_LOGIC_OP_MODE</li>
+<li>GL_INDEX_LOGIC_OP</li>
+<li>GL_COLOR_LOGIC_OP</li>
+<li>GL_AUX_BUFFERS</li>
+<li>GL_DRAW_BUFFER</li>
+<li>GL_READ_BUFFER</li>
+<li>GL_SCISSOR_BOX</li>
+<li>GL_SCISSOR_TEST</li>
+<li>GL_INDEX_CLEAR_VALUE</li>
+<li>GL_INDEX_WRITEMASK</li>
+<li>GL_COLOR_CLEAR_VALUE</li>
+<li>GL_COLOR_WRITEMASK</li>
+<li>GL_INDEX_MODE</li>
+<li>GL_RGBA_MODE</li>
+<li>GL_DOUBLEBUFFER</li>
+<li>GL_STEREO</li>
+<li>GL_RENDER_MODE</li>
+<li>GL_PERSPECTIVE_CORRECTION_HINT</li>
+<li>GL_POINT_SMOOTH_HINT</li>
+<li>GL_LINE_SMOOTH_HINT</li>
+<li>GL_POLYGON_SMOOTH_HINT</li>
+<li>GL_FOG_HINT</li>
+<li>GL_TEXTURE_GEN_S</li>
+<li>GL_TEXTURE_GEN_T</li>
+<li>GL_TEXTURE_GEN_R</li>
+<li>GL_TEXTURE_GEN_Q</li>
+<li>GL_PIXEL_MAP_I_TO_I</li>
+<li>GL_PIXEL_MAP_S_TO_S</li>
+<li>GL_PIXEL_MAP_I_TO_R</li>
+<li>GL_PIXEL_MAP_I_TO_G</li>
+<li>GL_PIXEL_MAP_I_TO_B</li>
+<li>GL_PIXEL_MAP_I_TO_A</li>
+<li>GL_PIXEL_MAP_R_TO_R</li>
+<li>GL_PIXEL_MAP_G_TO_G</li>
+<li>GL_PIXEL_MAP_B_TO_B</li>
+<li>GL_PIXEL_MAP_A_TO_A</li>
+<li>GL_PIXEL_MAP_I_TO_I_SIZE</li>
+<li>GL_PIXEL_MAP_S_TO_S_SIZE</li>
+<li>GL_PIXEL_MAP_I_TO_R_SIZE</li>
+<li>GL_PIXEL_MAP_I_TO_G_SIZE</li>
+<li>GL_PIXEL_MAP_I_TO_B_SIZE</li>
+<li>GL_PIXEL_MAP_I_TO_A_SIZE</li>
+<li>GL_PIXEL_MAP_R_TO_R_SIZE</li>
+<li>GL_PIXEL_MAP_G_TO_G_SIZE</li>
+<li>GL_PIXEL_MAP_B_TO_B_SIZE</li>
+<li>GL_PIXEL_MAP_A_TO_A_SIZE</li>
+<li>GL_UNPACK_SWAP_BYTES</li>
+<li>GL_UNPACK_LSB_FIRST</li>
+<li>GL_UNPACK_ROW_LENGTH</li>
+<li>GL_UNPACK_SKIP_ROWS</li>
+<li>GL_UNPACK_SKIP_PIXELS</li>
+<li>GL_UNPACK_ALIGNMENT</li>
+<li>GL_PACK_SWAP_BYTES</li>
+<li>GL_PACK_LSB_FIRST</li>
+<li>GL_PACK_ROW_LENGTH</li>
+<li>GL_PACK_SKIP_ROWS</li>
+<li>GL_PACK_SKIP_PIXELS</li>
+<li>GL_PACK_ALIGNMENT</li>
+<li>GL_MAP_COLOR</li>
+<li>GL_MAP_STENCIL</li>
+<li>GL_INDEX_SHIFT</li>
+<li>GL_INDEX_OFFSET</li>
+<li>GL_RED_SCALE</li>
+<li>GL_RED_BIAS</li>
+<li>GL_ZOOM_X</li>
+<li>GL_ZOOM_Y</li>
+<li>GL_GREEN_SCALE</li>
+<li>GL_GREEN_BIAS</li>
+<li>GL_BLUE_SCALE</li>
+<li>GL_BLUE_BIAS</li>
+<li>GL_ALPHA_SCALE</li>
+<li>GL_ALPHA_BIAS</li>
+<li>GL_DEPTH_SCALE</li>
+<li>GL_DEPTH_BIAS</li>
+<li>GL_MAX_EVAL_ORDER</li>
+<li>GL_MAX_LIGHTS</li>
+<li>GL_MAX_CLIP_PLANES</li>
+<li>GL_MAX_TEXTURE_SIZE</li>
+<li>GL_MAX_PIXEL_MAP_TABLE</li>
+<li>GL_MAX_ATTRIB_STACK_DEPTH</li>
+<li>GL_MAX_MODELVIEW_STACK_DEPTH</li>
+<li>GL_MAX_NAME_STACK_DEPTH</li>
+<li>GL_MAX_PROJECTION_STACK_DEPTH</li>
+<li>GL_MAX_TEXTURE_STACK_DEPTH</li>
+<li>GL_MAX_VIEWPORT_DIMS</li>
+<li>GL_MAX_CLIENT_ATTRIB_STACK_DEPTH</li>
+<li>GL_SUBPIXEL_BITS</li>
+<li>GL_INDEX_BITS</li>
+<li>GL_RED_BITS</li>
+<li>GL_GREEN_BITS</li>
+<li>GL_BLUE_BITS</li>
+<li>GL_ALPHA_BITS</li>
+<li>GL_DEPTH_BITS</li>
+<li>GL_STENCIL_BITS</li>
+<li>GL_ACCUM_RED_BITS</li>
+<li>GL_ACCUM_GREEN_BITS</li>
+<li>GL_ACCUM_BLUE_BITS</li>
+<li>GL_ACCUM_ALPHA_BITS</li>
+<li>GL_NAME_STACK_DEPTH</li>
+<li>GL_AUTO_NORMAL</li>
+<li>GL_MAP1_COLOR_4</li>
+<li>GL_MAP1_INDEX</li>
+<li>GL_MAP1_NORMAL</li>
+<li>GL_MAP1_TEXTURE_COORD_1</li>
+<li>GL_MAP1_TEXTURE_COORD_2</li>
+<li>GL_MAP1_TEXTURE_COORD_3</li>
+<li>GL_MAP1_TEXTURE_COORD_4</li>
+<li>GL_MAP1_VERTEX_3</li>
+<li>GL_MAP1_VERTEX_4</li>
+<li>GL_MAP2_COLOR_4</li>
+<li>GL_MAP2_INDEX</li>
+<li>GL_MAP2_NORMAL</li>
+<li>GL_MAP2_TEXTURE_COORD_1</li>
+<li>GL_MAP2_TEXTURE_COORD_2</li>
+<li>GL_MAP2_TEXTURE_COORD_3</li>
+<li>GL_MAP2_TEXTURE_COORD_4</li>
+<li>GL_MAP2_VERTEX_3</li>
+<li>GL_MAP2_VERTEX_4</li>
+<li>GL_MAP1_GRID_DOMAIN</li>
+<li>GL_MAP1_GRID_SEGMENTS</li>
+<li>GL_MAP2_GRID_DOMAIN</li>
+<li>GL_MAP2_GRID_SEGMENTS</li>
+<li>GL_TEXTURE_1D</li>
+<li>GL_TEXTURE_2D</li>
+<li>GL_FEEDBACK_BUFFER_POINTER</li>
+<li>GL_FEEDBACK_BUFFER_SIZE</li>
+<li>GL_FEEDBACK_BUFFER_TYPE</li>
+<li>GL_SELECTION_BUFFER_POINTER</li>
+<li>GL_SELECTION_BUFFER_SIZE</li>
+<li>GL_TEXTURE_WIDTH</li>
+<li>GL_TRANSFORM_BIT</li>
+<li>GL_TEXTURE_HEIGHT</li>
+<li>GL_TEXTURE_INTERNAL_FORMAT</li>
+<li>GL_TEXTURE_BORDER_COLOR</li>
+<li>GL_TEXTURE_BORDER</li>
+<li>GL_DONT_CARE</li>
+<li>GL_FASTEST</li>
+<li>GL_NICEST</li>
+<li>GL_AMBIENT</li>
+<li>GL_DIFFUSE</li>
+<li>GL_SPECULAR</li>
+<li>GL_POSITION</li>
+<li>GL_SPOT_DIRECTION</li>
+<li>GL_SPOT_EXPONENT</li>
+<li>GL_SPOT_CUTOFF</li>
+<li>GL_CONSTANT_ATTENUATION</li>
+<li>GL_LINEAR_ATTENUATION</li>
+<li>GL_QUADRATIC_ATTENUATION</li>
+<li>GL_COMPILE</li>
+<li>GL_COMPILE_AND_EXECUTE</li>
+<li>GL_BYTE</li>
+<li>GL_UNSIGNED_BYTE</li>
+<li>GL_SHORT</li>
+<li>GL_UNSIGNED_SHORT</li>
+<li>GL_INT</li>
+<li>GL_UNSIGNED_INT</li>
+<li>GL_FLOAT</li>
+<li>GL_2_BYTES</li>
+<li>GL_3_BYTES</li>
+<li>GL_4_BYTES</li>
+<li>GL_DOUBLE</li>
+<li>GL_CLEAR</li>
+<li>GL_AND</li>
+<li>GL_AND_REVERSE</li>
+<li>GL_COPY</li>
+<li>GL_AND_INVERTED</li>
+<li>GL_NOOP</li>
+<li>GL_XOR</li>
+<li>GL_OR</li>
+<li>GL_NOR</li>
+<li>GL_EQUIV</li>
+<li>GL_INVERT</li>
+<li>GL_OR_REVERSE</li>
+<li>GL_COPY_INVERTED</li>
+<li>GL_OR_INVERTED</li>
+<li>GL_NAND</li>
+<li>GL_SET</li>
+<li>GL_EMISSION</li>
+<li>GL_SHININESS</li>
+<li>GL_AMBIENT_AND_DIFFUSE</li>
+<li>GL_COLOR_INDEXES</li>
+<li>GL_MODELVIEW</li>
+<li>GL_PROJECTION</li>
+<li>GL_TEXTURE</li>
+<li>GL_COLOR</li>
+<li>GL_DEPTH</li>
+<li>GL_STENCIL</li>
+<li>GL_COLOR_INDEX</li>
+<li>GL_STENCIL_INDEX</li>
+<li>GL_DEPTH_COMPONENT</li>
+<li>GL_RED</li>
+<li>GL_GREEN</li>
+<li>GL_BLUE</li>
+<li>GL_ALPHA</li>
+<li>GL_RGB</li>
+<li>GL_RGBA</li>
+<li>GL_LUMINANCE</li>
+<li>GL_LUMINANCE_ALPHA</li>
+<li>GL_BITMAP</li>
+<li>GL_POINT</li>
+<li>GL_LINE</li>
+<li>GL_FILL</li>
+<li>GL_RENDER</li>
+<li>GL_FEEDBACK</li>
+<li>GL_SELECT</li>
+<li>GL_FLAT</li>
+<li>GL_SMOOTH</li>
+<li>GL_KEEP</li>
+<li>GL_REPLACE</li>
+<li>GL_INCR</li>
+<li>GL_DECR</li>
+<li>GL_VENDOR</li>
+<li>GL_RENDERER</li>
+<li>GL_VERSION</li>
+<li>GL_EXTENSIONS</li>
+<li>GL_S</li>
+<li>GL_ENABLE_BIT</li>
+<li>GL_T</li>
+<li>GL_R</li>
+<li>GL_Q</li>
+<li>GL_MODULATE</li>
+<li>GL_DECAL</li>
+<li>GL_TEXTURE_ENV_MODE</li>
+<li>GL_TEXTURE_ENV_COLOR</li>
+<li>GL_TEXTURE_ENV</li>
+<li>GL_EYE_LINEAR</li>
+<li>GL_OBJECT_LINEAR</li>
+<li>GL_SPHERE_MAP</li>
+<li>GL_TEXTURE_GEN_MODE</li>
+<li>GL_OBJECT_PLANE</li>
+<li>GL_EYE_PLANE</li>
+<li>GL_NEAREST</li>
+<li>GL_LINEAR</li>
+<li>GL_NEAREST_MIPMAP_NEAREST</li>
+<li>GL_LINEAR_MIPMAP_NEAREST</li>
+<li>GL_NEAREST_MIPMAP_LINEAR</li>
+<li>GL_LINEAR_MIPMAP_LINEAR</li>
+<li>GL_TEXTURE_MAG_FILTER</li>
+<li>GL_TEXTURE_MIN_FILTER</li>
+<li>GL_TEXTURE_WRAP_S</li>
+<li>GL_TEXTURE_WRAP_T</li>
+<li>GL_CLAMP</li>
+<li>GL_REPEAT</li>
+<li>GL_POLYGON_OFFSET_UNITS</li>
+<li>GL_POLYGON_OFFSET_POINT</li>
+<li>GL_POLYGON_OFFSET_LINE</li>
+<li>GL_R3_G3_B2</li>
+<li>GL_V2F</li>
+<li>GL_V3F</li>
+<li>GL_C4UB_V2F</li>
+<li>GL_C4UB_V3F</li>
+<li>GL_C3F_V3F</li>
+<li>GL_N3F_V3F</li>
+<li>GL_C4F_N3F_V3F</li>
+<li>GL_T2F_V3F</li>
+<li>GL_T4F_V4F</li>
+<li>GL_T2F_C4UB_V3F</li>
+<li>GL_T2F_C3F_V3F</li>
+<li>GL_T2F_N3F_V3F</li>
+<li>GL_T2F_C4F_N3F_V3F</li>
+<li>GL_T4F_C4F_N3F_V4F</li>
+<li>GL_CLIP_PLANE0</li>
+<li>GL_CLIP_PLANE1</li>
+<li>GL_CLIP_PLANE2</li>
+<li>GL_CLIP_PLANE3</li>
+<li>GL_CLIP_PLANE4</li>
+<li>GL_CLIP_PLANE5</li>
+<li>GL_LIGHT0</li>
+<li>GL_COLOR_BUFFER_BIT</li>
+<li>GL_LIGHT1</li>
+<li>GL_LIGHT2</li>
+<li>GL_LIGHT3</li>
+<li>GL_LIGHT4</li>
+<li>GL_LIGHT5</li>
+<li>GL_LIGHT6</li>
+<li>GL_LIGHT7</li>
+<li>GL_HINT_BIT</li>
+<li>GL_POLYGON_OFFSET_FILL</li>
+<li>GL_POLYGON_OFFSET_FACTOR</li>
+<li>GL_ALPHA4</li>
+<li>GL_ALPHA8</li>
+<li>GL_ALPHA12</li>
+<li>GL_ALPHA16</li>
+<li>GL_LUMINANCE4</li>
+<li>GL_LUMINANCE8</li>
+<li>GL_LUMINANCE12</li>
+<li>GL_LUMINANCE16</li>
+<li>GL_LUMINANCE4_ALPHA4</li>
+<li>GL_LUMINANCE6_ALPHA2</li>
+<li>GL_LUMINANCE8_ALPHA8</li>
+<li>GL_LUMINANCE12_ALPHA4</li>
+<li>GL_LUMINANCE12_ALPHA12</li>
+<li>GL_LUMINANCE16_ALPHA16</li>
+<li>GL_INTENSITY</li>
+<li>GL_INTENSITY4</li>
+<li>GL_INTENSITY8</li>
+<li>GL_INTENSITY12</li>
+<li>GL_INTENSITY16</li>
+<li>GL_RGB4</li>
+<li>GL_RGB5</li>
+<li>GL_RGB8</li>
+<li>GL_RGB10</li>
+<li>GL_RGB12</li>
+<li>GL_RGB16</li>
+<li>GL_RGBA2</li>
+<li>GL_RGBA4</li>
+<li>GL_RGB5_A1</li>
+<li>GL_RGBA8</li>
+<li>GL_RGB10_A2</li>
+<li>GL_RGBA12</li>
+<li>GL_RGBA16</li>
+<li>GL_TEXTURE_RED_SIZE</li>
+<li>GL_TEXTURE_GREEN_SIZE</li>
+<li>GL_TEXTURE_BLUE_SIZE</li>
+<li>GL_TEXTURE_ALPHA_SIZE</li>
+<li>GL_TEXTURE_LUMINANCE_SIZE</li>
+<li>GL_TEXTURE_INTENSITY_SIZE</li>
+<li>GL_PROXY_TEXTURE_1D</li>
+<li>GL_PROXY_TEXTURE_2D</li>
+<li>GL_TEXTURE_PRIORITY</li>
+<li>GL_TEXTURE_RESIDENT</li>
+<li>GL_TEXTURE_BINDING_1D</li>
+<li>GL_TEXTURE_BINDING_2D</li>
+<li>GL_VERTEX_ARRAY</li>
+<li>GL_NORMAL_ARRAY</li>
+<li>GL_COLOR_ARRAY</li>
+<li>GL_INDEX_ARRAY</li>
+<li>GL_TEXTURE_COORD_ARRAY</li>
+<li>GL_EDGE_FLAG_ARRAY</li>
+<li>GL_VERTEX_ARRAY_SIZE</li>
+<li>GL_VERTEX_ARRAY_TYPE</li>
+<li>GL_VERTEX_ARRAY_STRIDE</li>
+<li>GL_NORMAL_ARRAY_TYPE</li>
+<li>GL_NORMAL_ARRAY_STRIDE</li>
+<li>GL_COLOR_ARRAY_SIZE</li>
+<li>GL_COLOR_ARRAY_TYPE</li>
+<li>GL_COLOR_ARRAY_STRIDE</li>
+<li>GL_INDEX_ARRAY_TYPE</li>
+<li>GL_INDEX_ARRAY_STRIDE</li>
+<li>GL_TEXTURE_COORD_ARRAY_SIZE</li>
+<li>GL_TEXTURE_COORD_ARRAY_TYPE</li>
+<li>GL_TEXTURE_COORD_ARRAY_STRIDE</li>
+<li>GL_EDGE_FLAG_ARRAY_STRIDE</li>
+<li>GL_VERTEX_ARRAY_POINTER</li>
+<li>GL_NORMAL_ARRAY_POINTER</li>
+<li>GL_COLOR_ARRAY_POINTER</li>
+<li>GL_INDEX_ARRAY_POINTER</li>
+<li>GL_TEXTURE_COORD_ARRAY_POINTER</li>
+<li>GL_EDGE_FLAG_ARRAY_POINTER</li>
+<li>GL_COLOR_INDEX1_EXT</li>
+<li>GL_COLOR_INDEX2_EXT</li>
+<li>GL_COLOR_INDEX4_EXT</li>
+<li>GL_COLOR_INDEX8_EXT</li>
+<li>GL_COLOR_INDEX12_EXT</li>
+<li>GL_COLOR_INDEX16_EXT</li>
+<li>GL_EVAL_BIT</li>
+<li>GL_LIST_BIT</li>
+<li>GL_TEXTURE_BIT</li>
+<li>GL_SCISSOR_BIT</li>
+<li>GL_ALL_ATTRIB_BITS</li>
+<li>GL_CLIENT_ALL_ATTRIB_BITS</li>
+<li>GL_SMOOTH_POINT_SIZE_RANGE</li>
+<li>GL_SMOOTH_POINT_SIZE_GRANULARITY</li>
+<li>GL_SMOOTH_LINE_WIDTH_RANGE</li>
+<li>GL_SMOOTH_LINE_WIDTH_GRANULARITY</li>
+<li>GL_UNSIGNED_BYTE_3_3_2</li>
+<li>GL_UNSIGNED_SHORT_4_4_4_4</li>
+<li>GL_UNSIGNED_SHORT_5_5_5_1</li>
+<li>GL_UNSIGNED_INT_8_8_8_8</li>
+<li>GL_UNSIGNED_INT_10_10_10_2</li>
+<li>GL_RESCALE_NORMAL</li>
+<li>GL_TEXTURE_BINDING_3D</li>
+<li>GL_PACK_SKIP_IMAGES</li>
+<li>GL_PACK_IMAGE_HEIGHT</li>
+<li>GL_UNPACK_SKIP_IMAGES</li>
+<li>GL_UNPACK_IMAGE_HEIGHT</li>
+<li>GL_TEXTURE_3D</li>
+<li>GL_PROXY_TEXTURE_3D</li>
+<li>GL_TEXTURE_DEPTH</li>
+<li>GL_TEXTURE_WRAP_R</li>
+<li>GL_MAX_3D_TEXTURE_SIZE</li>
+<li>GL_BGR</li>
+<li>GL_BGRA</li>
+<li>GL_MAX_ELEMENTS_VERTICES</li>
+<li>GL_MAX_ELEMENTS_INDICES</li>
+<li>GL_CLAMP_TO_EDGE</li>
+<li>GL_TEXTURE_MIN_LOD</li>
+<li>GL_TEXTURE_MAX_LOD</li>
+<li>GL_TEXTURE_BASE_LEVEL</li>
+<li>GL_TEXTURE_MAX_LEVEL</li>
+<li>GL_LIGHT_MODEL_COLOR_CONTROL</li>
+<li>GL_SINGLE_COLOR</li>
+<li>GL_SEPARATE_SPECULAR_COLOR</li>
+<li>GL_UNSIGNED_BYTE_2_3_3_REV</li>
+<li>GL_UNSIGNED_SHORT_5_6_5</li>
+<li>GL_UNSIGNED_SHORT_5_6_5_REV</li>
+<li>GL_UNSIGNED_SHORT_4_4_4_4_REV</li>
+<li>GL_UNSIGNED_SHORT_1_5_5_5_REV</li>
+<li>GL_UNSIGNED_INT_8_8_8_8_REV</li>
+<li>GL_ALIASED_POINT_SIZE_RANGE</li>
+<li>GL_ALIASED_LINE_WIDTH_RANGE</li>
+<li>GL_MULTISAMPLE</li>
+<li>GL_SAMPLE_ALPHA_TO_COVERAGE</li>
+<li>GL_SAMPLE_ALPHA_TO_ONE</li>
+<li>GL_SAMPLE_COVERAGE</li>
+<li>GL_SAMPLE_BUFFERS</li>
+<li>GL_SAMPLES</li>
+<li>GL_SAMPLE_COVERAGE_VALUE</li>
+<li>GL_SAMPLE_COVERAGE_INVERT</li>
+<li>GL_CLAMP_TO_BORDER</li>
+<li>GL_TEXTURE0</li>
+<li>GL_TEXTURE1</li>
+<li>GL_TEXTURE2</li>
+<li>GL_TEXTURE3</li>
+<li>GL_TEXTURE4</li>
+<li>GL_TEXTURE5</li>
+<li>GL_TEXTURE6</li>
+<li>GL_TEXTURE7</li>
+<li>GL_TEXTURE8</li>
+<li>GL_TEXTURE9</li>
+<li>GL_TEXTURE10</li>
+<li>GL_TEXTURE11</li>
+<li>GL_TEXTURE12</li>
+<li>GL_TEXTURE13</li>
+<li>GL_TEXTURE14</li>
+<li>GL_TEXTURE15</li>
+<li>GL_TEXTURE16</li>
+<li>GL_TEXTURE17</li>
+<li>GL_TEXTURE18</li>
+<li>GL_TEXTURE19</li>
+<li>GL_TEXTURE20</li>
+<li>GL_TEXTURE21</li>
+<li>GL_TEXTURE22</li>
+<li>GL_TEXTURE23</li>
+<li>GL_TEXTURE24</li>
+<li>GL_TEXTURE25</li>
+<li>GL_TEXTURE26</li>
+<li>GL_TEXTURE27</li>
+<li>GL_TEXTURE28</li>
+<li>GL_TEXTURE29</li>
+<li>GL_TEXTURE30</li>
+<li>GL_TEXTURE31</li>
+<li>GL_ACTIVE_TEXTURE</li>
+<li>GL_CLIENT_ACTIVE_TEXTURE</li>
+<li>GL_MAX_TEXTURE_UNITS</li>
+<li>GL_TRANSPOSE_MODELVIEW_MATRIX</li>
+<li>GL_TRANSPOSE_PROJECTION_MATRIX</li>
+<li>GL_TRANSPOSE_TEXTURE_MATRIX</li>
+<li>GL_TRANSPOSE_COLOR_MATRIX</li>
+<li>GL_SUBTRACT</li>
+<li>GL_COMPRESSED_ALPHA</li>
+<li>GL_COMPRESSED_LUMINANCE</li>
+<li>GL_COMPRESSED_LUMINANCE_ALPHA</li>
+<li>GL_COMPRESSED_INTENSITY</li>
+<li>GL_COMPRESSED_RGB</li>
+<li>GL_COMPRESSED_RGBA</li>
+<li>GL_TEXTURE_COMPRESSION_HINT</li>
+<li>GL_NORMAL_MAP</li>
+<li>GL_REFLECTION_MAP</li>
+<li>GL_TEXTURE_CUBE_MAP</li>
+<li>GL_TEXTURE_BINDING_CUBE_MAP</li>
+<li>GL_TEXTURE_CUBE_MAP_POSITIVE_X</li>
+<li>GL_TEXTURE_CUBE_MAP_NEGATIVE_X</li>
+<li>GL_TEXTURE_CUBE_MAP_POSITIVE_Y</li>
+<li>GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</li>
+<li>GL_TEXTURE_CUBE_MAP_POSITIVE_Z</li>
+<li>GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</li>
+<li>GL_PROXY_TEXTURE_CUBE_MAP</li>
+<li>GL_MAX_CUBE_MAP_TEXTURE_SIZE</li>
+<li>GL_COMBINE</li>
+<li>GL_COMBINE_RGB</li>
+<li>GL_COMBINE_ALPHA</li>
+<li>GL_RGB_SCALE</li>
+<li>GL_ADD_SIGNED</li>
+<li>GL_INTERPOLATE</li>
+<li>GL_CONSTANT</li>
+<li>GL_PRIMARY_COLOR</li>
+<li>GL_PREVIOUS</li>
+<li>GL_SOURCE0_RGB</li>
+<li>GL_SOURCE1_RGB</li>
+<li>GL_SOURCE2_RGB</li>
+<li>GL_SOURCE0_ALPHA</li>
+<li>GL_SOURCE1_ALPHA</li>
+<li>GL_SOURCE2_ALPHA</li>
+<li>GL_OPERAND0_RGB</li>
+<li>GL_OPERAND1_RGB</li>
+<li>GL_OPERAND2_RGB</li>
+<li>GL_OPERAND0_ALPHA</li>
+<li>GL_OPERAND1_ALPHA</li>
+<li>GL_OPERAND2_ALPHA</li>
+<li>GL_TEXTURE_COMPRESSED_IMAGE_SIZE</li>
+<li>GL_TEXTURE_COMPRESSED</li>
+<li>GL_NUM_COMPRESSED_TEXTURE_FORMATS</li>
+<li>GL_COMPRESSED_TEXTURE_FORMATS</li>
+<li>GL_DOT3_RGB</li>
+<li>GL_DOT3_RGBA</li>
+<li>GL_MULTISAMPLE_BIT</li>
+<li>GL_BLEND_DST_RGB</li>
+<li>GL_BLEND_SRC_RGB</li>
+<li>GL_BLEND_DST_ALPHA</li>
+<li>GL_BLEND_SRC_ALPHA</li>
+<li>GL_POINT_SIZE_MIN</li>
+<li>GL_POINT_SIZE_MAX</li>
+<li>GL_POINT_FADE_THRESHOLD_SIZE</li>
+<li>GL_POINT_DISTANCE_ATTENUATION</li>
+<li>GL_GENERATE_MIPMAP</li>
+<li>GL_GENERATE_MIPMAP_HINT</li>
+<li>GL_DEPTH_COMPONENT16</li>
+<li>GL_DEPTH_COMPONENT24</li>
+<li>GL_DEPTH_COMPONENT32</li>
+<li>GL_MIRRORED_REPEAT</li>
+<li>GL_FOG_COORDINATE_SOURCE</li>
+<li>GL_FOG_COORDINATE</li>
+<li>GL_FRAGMENT_DEPTH</li>
+<li>GL_CURRENT_FOG_COORDINATE</li>
+<li>GL_FOG_COORDINATE_ARRAY_TYPE</li>
+<li>GL_FOG_COORDINATE_ARRAY_STRIDE</li>
+<li>GL_FOG_COORDINATE_ARRAY_POINTER</li>
+<li>GL_FOG_COORDINATE_ARRAY</li>
+<li>GL_COLOR_SUM</li>
+<li>GL_CURRENT_SECONDARY_COLOR</li>
+<li>GL_SECONDARY_COLOR_ARRAY_SIZE</li>
+<li>GL_SECONDARY_COLOR_ARRAY_TYPE</li>
+<li>GL_SECONDARY_COLOR_ARRAY_STRIDE</li>
+<li>GL_SECONDARY_COLOR_ARRAY_POINTER</li>
+<li>GL_SECONDARY_COLOR_ARRAY</li>
+<li>GL_MAX_TEXTURE_LOD_BIAS</li>
+<li>GL_TEXTURE_FILTER_CONTROL</li>
+<li>GL_TEXTURE_LOD_BIAS</li>
+<li>GL_INCR_WRAP</li>
+<li>GL_DECR_WRAP</li>
+<li>GL_TEXTURE_DEPTH_SIZE</li>
+<li>GL_DEPTH_TEXTURE_MODE</li>
+<li>GL_TEXTURE_COMPARE_MODE</li>
+<li>GL_TEXTURE_COMPARE_FUNC</li>
+<li>GL_COMPARE_R_TO_TEXTURE</li>
+<li>void glAccum(GLenum op, GLfloat value)</li>
+<li>void glAlphaFunc(GLenum func, GLclampf ref)</li>
+<li>GLboolean glAreTexturesResident(GLsizei n, const GLuint <a href="#id1"><span class="problematic" id="id2">*</span></a>textures, GLboolean <a href="#id3"><span class="problematic" id="id4">*</span></a>residences)</li>
+<li>void glArrayElement(GLint i)</li>
+<li>void glBegin(GLenum mode)</li>
+<li>void glBindTexture(GLenum target, GLuint texture)</li>
+<li>void glBitmap(GLsizei width, GLsizei height, GLfloat xorig, GLfloat yorig, GLfloat xmove, GLfloat ymove, const GLubyte <a href="#id5"><span class="problematic" id="id6">*</span></a>bitmap)</li>
+<li>void glBlendFunc(GLenum sfactor, GLenum dfactor)</li>
+<li>void glCallList(GLuint list)</li>
+<li>void glCallLists(GLsizei n, GLenum type, const void <a href="#id7"><span class="problematic" id="id8">*</span></a>lists)</li>
+<li>void glClear(GLbitfield mask)</li>
+<li>void glClearAccum(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)</li>
+<li>void glClearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha)</li>
+<li>void glClearDepth(GLclampd depth)</li>
+<li>void glClearIndex(GLfloat c)</li>
+<li>void glClearStencil(GLint s)</li>
+<li>void glClipPlane(GLenum plane, const GLdouble <a href="#id9"><span class="problematic" id="id10">*</span></a>equation)</li>
+<li>void glColor3b(GLbyte red, GLbyte green, GLbyte blue)</li>
+<li>void glColor3bv(const GLbyte <a href="#id11"><span class="problematic" id="id12">*</span></a>v)</li>
+<li>void glColor3d(GLdouble red, GLdouble green, GLdouble blue)</li>
+<li>void glColor3dv(const GLdouble <a href="#id13"><span class="problematic" id="id14">*</span></a>v)</li>
+<li>void glColor3f(GLfloat red, GLfloat green, GLfloat blue)</li>
+<li>void glColor3fv(const GLfloat <a href="#id15"><span class="problematic" id="id16">*</span></a>v)</li>
+<li>void glColor3i(GLint red, GLint green, GLint blue)</li>
+<li>void glColor3iv(const GLint <a href="#id17"><span class="problematic" id="id18">*</span></a>v)</li>
+<li>void glColor3s(GLshort red, GLshort green, GLshort blue)</li>
+<li>void glColor3sv(const GLshort <a href="#id19"><span class="problematic" id="id20">*</span></a>v)</li>
+<li>void glColor3ub(GLubyte red, GLubyte green, GLubyte blue)</li>
+<li>void glColor3ubv(const GLubyte <a href="#id21"><span class="problematic" id="id22">*</span></a>v)</li>
+<li>void glColor3ui(GLuint red, GLuint green, GLuint blue)</li>
+<li>void glColor3uiv(const GLuint <a href="#id23"><span class="problematic" id="id24">*</span></a>v)</li>
+<li>void glColor3us(GLushort red, GLushort green, GLushort blue)</li>
+<li>void glColor3usv(const GLushort <a href="#id25"><span class="problematic" id="id26">*</span></a>v)</li>
+<li>void glColor4b(GLbyte red, GLbyte green, GLbyte blue, GLbyte alpha)</li>
+<li>void glColor4bv(const GLbyte <a href="#id27"><span class="problematic" id="id28">*</span></a>v)</li>
+<li>void glColor4d(GLdouble red, GLdouble green, GLdouble blue, GLdouble alpha)</li>
+<li>void glColor4dv(const GLdouble <a href="#id29"><span class="problematic" id="id30">*</span></a>v)</li>
+<li>void glColor4f(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)</li>
+<li>void glColor4fv(const GLfloat <a href="#id31"><span class="problematic" id="id32">*</span></a>v)</li>
+<li>void glColor4i(GLint red, GLint green, GLint blue, GLint alpha)</li>
+<li>void glColor4iv(const GLint <a href="#id33"><span class="problematic" id="id34">*</span></a>v)</li>
+<li>void glColor4s(GLshort red, GLshort green, GLshort blue, GLshort alpha)</li>
+<li>void glColor4sv(const GLshort <a href="#id35"><span class="problematic" id="id36">*</span></a>v)</li>
+<li>void glColor4ub(GLubyte red, GLubyte green, GLubyte blue, GLubyte alpha)</li>
+<li>void glColor4ubv(const GLubyte <a href="#id37"><span class="problematic" id="id38">*</span></a>v)</li>
+<li>void glColor4ui(GLuint red, GLuint green, GLuint blue, GLuint alpha)</li>
+<li>void glColor4uiv(const GLuint <a href="#id39"><span class="problematic" id="id40">*</span></a>v)</li>
+<li>void glColor4us(GLushort red, GLushort green, GLushort blue, GLushort alpha)</li>
+<li>void glColor4usv(const GLushort <a href="#id41"><span class="problematic" id="id42">*</span></a>v)</li>
+<li>void glColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha)</li>
+<li>void glColorMaterial(GLenum face, GLenum mode)</li>
+<li>void glColorPointer(GLint size, GLenum type, GLsizei stride, const void <a href="#id43"><span class="problematic" id="id44">*</span></a>pointer)</li>
+<li>void glCopyPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum type)</li>
+<li>void glCopyTexImage1D(GLenum target, GLint level, GLenum internalFormat, GLint x, GLint y, GLsizei width, GLint border)</li>
+<li>void glCopyTexImage2D(GLenum target, GLint level, GLenum internalFormat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border)</li>
+<li>void glCopyTexSubImage1D(GLenum target, GLint level, GLint xoffset, GLint x, GLint y, GLsizei width)</li>
+<li>void glCopyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height)</li>
+<li>void glCullFace(GLenum mode)</li>
+<li>void glDeleteLists(GLuint list, GLsizei range)</li>
+<li>void glDeleteTextures(GLsizei n, const GLuint <a href="#id45"><span class="problematic" id="id46">*</span></a>textures)</li>
+<li>void glDepthFunc(GLenum func)</li>
+<li>void glDepthMask(GLboolean flag)</li>
+<li>void glDepthRange(GLclampd zNear, GLclampd zFar)</li>
+<li>void glDisable(GLenum cap)</li>
+<li>void glDisableClientState(GLenum array)</li>
+<li>void glDrawArrays(GLenum mode, GLint first, GLsizei count)</li>
+<li>void glDrawBuffer(GLenum mode)</li>
+<li>void glDrawElements(GLenum mode, GLsizei count, GLenum type, const void <a href="#id47"><span class="problematic" id="id48">*</span></a>indices)</li>
+<li>void glDrawPixels(GLsizei width, GLsizei height, GLenum format, GLenum type, const void <a href="#id49"><span class="problematic" id="id50">*</span></a>pixels)</li>
+<li>void glEdgeFlag(GLboolean flag)</li>
+<li>void glEdgeFlagPointer(GLsizei stride, const void <a href="#id51"><span class="problematic" id="id52">*</span></a>pointer)</li>
+<li>void glEdgeFlagv(const GLboolean <a href="#id53"><span class="problematic" id="id54">*</span></a>flag)</li>
+<li>void glEnable(GLenum cap)</li>
+<li>void glEnableClientState(GLenum array)</li>
+<li>void glEnd(void)</li>
+<li>void glEndList(void)</li>
+<li>void glEvalCoord1d(GLdouble u)</li>
+<li>void glEvalCoord1dv(const GLdouble <a href="#id55"><span class="problematic" id="id56">*</span></a>u)</li>
+<li>void glEvalCoord1f(GLfloat u)</li>
+<li>void glEvalCoord1fv(const GLfloat <a href="#id57"><span class="problematic" id="id58">*</span></a>u)</li>
+<li>void glEvalCoord2d(GLdouble u, GLdouble v)</li>
+<li>void glEvalCoord2dv(const GLdouble <a href="#id59"><span class="problematic" id="id60">*</span></a>u)</li>
+<li>void glEvalCoord2f(GLfloat u, GLfloat v)</li>
+<li>void glEvalCoord2fv(const GLfloat <a href="#id61"><span class="problematic" id="id62">*</span></a>u)</li>
+<li>void glEvalMesh1(GLenum mode, GLint i1, GLint i2)</li>
+<li>void glEvalMesh2(GLenum mode, GLint i1, GLint i2, GLint j1, GLint j2)</li>
+<li>void glEvalPoint1(GLint i)</li>
+<li>void glEvalPoint2(GLint i, GLint j)</li>
+<li>void glFeedbackBuffer(GLsizei size, GLenum type, GLfloat <a href="#id63"><span class="problematic" id="id64">*</span></a>buffer)</li>
+<li>void glFinish(void)</li>
+<li>void glFlush(void)</li>
+<li>void glFogf(GLenum pname, GLfloat param)</li>
+<li>void glFogfv(GLenum pname, const GLfloat <a href="#id65"><span class="problematic" id="id66">*</span></a>params)</li>
+<li>void glFogi(GLenum pname, GLint param)</li>
+<li>void glFogiv(GLenum pname, const GLint <a href="#id67"><span class="problematic" id="id68">*</span></a>params)</li>
+<li>void glFrontFace(GLenum mode)</li>
+<li>void glFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar)</li>
+<li>GLuint glGenLists(GLsizei range)</li>
+<li>void glGenTextures(GLsizei n, GLuint <a href="#id69"><span class="problematic" id="id70">*</span></a>textures)</li>
+<li>void glGetBooleanv(GLenum pname, GLboolean <a href="#id71"><span class="problematic" id="id72">*</span></a>params)</li>
+<li>void glGetClipPlane(GLenum plane, GLdouble <a href="#id73"><span class="problematic" id="id74">*</span></a>equation)</li>
+<li>void glGetDoublev(GLenum pname, GLdouble <a href="#id75"><span class="problematic" id="id76">*</span></a>params)</li>
+<li>GLenum glGetError(void)</li>
+<li>void glGetFloatv(GLenum pname, GLfloat <a href="#id77"><span class="problematic" id="id78">*</span></a>params)</li>
+<li>void glGetIntegerv(GLenum pname, GLint <a href="#id79"><span class="problematic" id="id80">*</span></a>params)</li>
+<li>void glGetLightfv(GLenum light, GLenum pname, GLfloat <a href="#id81"><span class="problematic" id="id82">*</span></a>params)</li>
+<li>void glGetLightiv(GLenum light, GLenum pname, GLint <a href="#id83"><span class="problematic" id="id84">*</span></a>params)</li>
+<li>void glGetMapdv(GLenum target, GLenum query, GLdouble <a href="#id85"><span class="problematic" id="id86">*</span></a>v)</li>
+<li>void glGetMapfv(GLenum target, GLenum query, GLfloat <a href="#id87"><span class="problematic" id="id88">*</span></a>v)</li>
+<li>void glGetMapiv(GLenum target, GLenum query, GLint <a href="#id89"><span class="problematic" id="id90">*</span></a>v)</li>
+<li>void glGetMaterialfv(GLenum face, GLenum pname, GLfloat <a href="#id91"><span class="problematic" id="id92">*</span></a>params)</li>
+<li>void glGetMaterialiv(GLenum face, GLenum pname, GLint <a href="#id93"><span class="problematic" id="id94">*</span></a>params)</li>
+<li>void glGetPixelMapfv(GLenum map, GLfloat <a href="#id95"><span class="problematic" id="id96">*</span></a>values)</li>
+<li>void glGetPixelMapuiv(GLenum map, GLuint <a href="#id97"><span class="problematic" id="id98">*</span></a>values)</li>
+<li>void glGetPixelMapusv(GLenum map, GLushort <a href="#id99"><span class="problematic" id="id100">*</span></a>values)</li>
+<li>void glGetPointerv(GLenum pname, void* <a href="#id101"><span class="problematic" id="id102">*</span></a>params)</li>
+<li>void glGetPolygonStipple(GLubyte <a href="#id103"><span class="problematic" id="id104">*</span></a>mask)</li>
+<li>GLubyte * glGetString(GLenum name)</li>
+<li>void glGetTexEnvfv(GLenum target, GLenum pname, GLfloat <a href="#id105"><span class="problematic" id="id106">*</span></a>params)</li>
+<li>void glGetTexEnviv(GLenum target, GLenum pname, GLint <a href="#id107"><span class="problematic" id="id108">*</span></a>params)</li>
+<li>void glGetTexGendv(GLenum coord, GLenum pname, GLdouble <a href="#id109"><span class="problematic" id="id110">*</span></a>params)</li>
+<li>void glGetTexGenfv(GLenum coord, GLenum pname, GLfloat <a href="#id111"><span class="problematic" id="id112">*</span></a>params)</li>
+<li>void glGetTexGeniv(GLenum coord, GLenum pname, GLint <a href="#id113"><span class="problematic" id="id114">*</span></a>params)</li>
+<li>void glGetTexImage(GLenum target, GLint level, GLenum format, GLenum type, void <a href="#id115"><span class="problematic" id="id116">*</span></a>pixels)</li>
+<li>void glGetTexLevelParameterfv(GLenum target, GLint level, GLenum pname, GLfloat <a href="#id117"><span class="problematic" id="id118">*</span></a>params)</li>
+<li>void glGetTexLevelParameteriv(GLenum target, GLint level, GLenum pname, GLint <a href="#id119"><span class="problematic" id="id120">*</span></a>params)</li>
+<li>void glGetTexParameterfv(GLenum target, GLenum pname, GLfloat <a href="#id121"><span class="problematic" id="id122">*</span></a>params)</li>
+<li>void glGetTexParameteriv(GLenum target, GLenum pname, GLint <a href="#id123"><span class="problematic" id="id124">*</span></a>params)</li>
+<li>void glHint(GLenum target, GLenum mode)</li>
+<li>void glIndexMask(GLuint mask)</li>
+<li>void glIndexPointer(GLenum type, GLsizei stride, const void <a href="#id125"><span class="problematic" id="id126">*</span></a>pointer)</li>
+<li>void glIndexd(GLdouble c)</li>
+<li>void glIndexdv(const GLdouble <a href="#id127"><span class="problematic" id="id128">*</span></a>c)</li>
+<li>void glIndexf(GLfloat c)</li>
+<li>void glIndexfv(const GLfloat <a href="#id129"><span class="problematic" id="id130">*</span></a>c)</li>
+<li>void glIndexi(GLint c)</li>
+<li>void glIndexiv(const GLint <a href="#id131"><span class="problematic" id="id132">*</span></a>c)</li>
+<li>void glIndexs(GLshort c)</li>
+<li>void glIndexsv(const GLshort <a href="#id133"><span class="problematic" id="id134">*</span></a>c)</li>
+<li>void glIndexub(GLubyte c)</li>
+<li>void glIndexubv(const GLubyte <a href="#id135"><span class="problematic" id="id136">*</span></a>c)</li>
+<li>void glInitNames(void)</li>
+<li>void glInterleavedArrays(GLenum format, GLsizei stride, const void <a href="#id137"><span class="problematic" id="id138">*</span></a>pointer)</li>
+<li>GLboolean glIsEnabled(GLenum cap)</li>
+<li>GLboolean glIsList(GLuint list)</li>
+<li>GLboolean glIsTexture(GLuint texture)</li>
+<li>void glLightModelf(GLenum pname, GLfloat param)</li>
+<li>void glLightModelfv(GLenum pname, const GLfloat <a href="#id139"><span class="problematic" id="id140">*</span></a>params)</li>
+<li>void glLightModeli(GLenum pname, GLint param)</li>
+<li>void glLightModeliv(GLenum pname, const GLint <a href="#id141"><span class="problematic" id="id142">*</span></a>params)</li>
+<li>void glLightf(GLenum light, GLenum pname, GLfloat param)</li>
+<li>void glLightfv(GLenum light, GLenum pname, const GLfloat <a href="#id143"><span class="problematic" id="id144">*</span></a>params)</li>
+<li>void glLighti(GLenum light, GLenum pname, GLint param)</li>
+<li>void glLightiv(GLenum light, GLenum pname, const GLint <a href="#id145"><span class="problematic" id="id146">*</span></a>params)</li>
+<li>void glLineStipple(GLint factor, GLushort pattern)</li>
+<li>void glLineWidth(GLfloat width)</li>
+<li>void glListBase(GLuint base)</li>
+<li>void glLoadIdentity(void)</li>
+<li>void glLoadMatrixd(const GLdouble <a href="#id147"><span class="problematic" id="id148">*</span></a>m)</li>
+<li>void glLoadMatrixf(const GLfloat <a href="#id149"><span class="problematic" id="id150">*</span></a>m)</li>
+<li>void glLoadName(GLuint name)</li>
+<li>void glLogicOp(GLenum opcode)</li>
+<li>void glMap1d(GLenum target, GLdouble u1, GLdouble u2, GLint stride, GLint order, const GLdouble <a href="#id151"><span class="problematic" id="id152">*</span></a>points)</li>
+<li>void glMap1f(GLenum target, GLfloat u1, GLfloat u2, GLint stride, GLint order, const GLfloat <a href="#id153"><span class="problematic" id="id154">*</span></a>points)</li>
+<li>void glMap2d(GLenum target, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, const GLdouble <a href="#id155"><span class="problematic" id="id156">*</span></a>points)</li>
+<li>void glMap2f(GLenum target, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, const GLfloat <a href="#id157"><span class="problematic" id="id158">*</span></a>points)</li>
+<li>void glMapGrid1d(GLint un, GLdouble u1, GLdouble u2)</li>
+<li>void glMapGrid1f(GLint un, GLfloat u1, GLfloat u2)</li>
+<li>void glMapGrid2d(GLint un, GLdouble u1, GLdouble u2, GLint vn, GLdouble v1, GLdouble v2)</li>
+<li>void glMapGrid2f(GLint un, GLfloat u1, GLfloat u2, GLint vn, GLfloat v1, GLfloat v2)</li>
+<li>void glMaterialf(GLenum face, GLenum pname, GLfloat param)</li>
+<li>void glMaterialfv(GLenum face, GLenum pname, const GLfloat <a href="#id159"><span class="problematic" id="id160">*</span></a>params)</li>
+<li>void glMateriali(GLenum face, GLenum pname, GLint param)</li>
+<li>void glMaterialiv(GLenum face, GLenum pname, const GLint <a href="#id161"><span class="problematic" id="id162">*</span></a>params)</li>
+<li>void glMatrixMode(GLenum mode)</li>
+<li>void glMultMatrixd(const GLdouble <a href="#id163"><span class="problematic" id="id164">*</span></a>m)</li>
+<li>void glMultMatrixf(const GLfloat <a href="#id165"><span class="problematic" id="id166">*</span></a>m)</li>
+<li>void glNewList(GLuint list, GLenum mode)</li>
+<li>void glNormal3b(GLbyte nx, GLbyte ny, GLbyte nz)</li>
+<li>void glNormal3bv(const GLbyte <a href="#id167"><span class="problematic" id="id168">*</span></a>v)</li>
+<li>void glNormal3d(GLdouble nx, GLdouble ny, GLdouble nz)</li>
+<li>void glNormal3dv(const GLdouble <a href="#id169"><span class="problematic" id="id170">*</span></a>v)</li>
+<li>void glNormal3f(GLfloat nx, GLfloat ny, GLfloat nz)</li>
+<li>void glNormal3fv(const GLfloat <a href="#id171"><span class="problematic" id="id172">*</span></a>v)</li>
+<li>void glNormal3i(GLint nx, GLint ny, GLint nz)</li>
+<li>void glNormal3iv(const GLint <a href="#id173"><span class="problematic" id="id174">*</span></a>v)</li>
+<li>void glNormal3s(GLshort nx, GLshort ny, GLshort nz)</li>
+<li>void glNormal3sv(const GLshort <a href="#id175"><span class="problematic" id="id176">*</span></a>v)</li>
+<li>void glNormalPointer(GLenum type, GLsizei stride, const void <a href="#id177"><span class="problematic" id="id178">*</span></a>pointer)</li>
+<li>void glOrtho(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar)</li>
+<li>void glPassThrough(GLfloat token)</li>
+<li>void glPixelMapfv(GLenum map, GLsizei mapsize, const GLfloat <a href="#id179"><span class="problematic" id="id180">*</span></a>values)</li>
+<li>void glPixelMapuiv(GLenum map, GLsizei mapsize, const GLuint <a href="#id181"><span class="problematic" id="id182">*</span></a>values)</li>
+<li>void glPixelMapusv(GLenum map, GLsizei mapsize, const GLushort <a href="#id183"><span class="problematic" id="id184">*</span></a>values)</li>
+<li>void glPixelStoref(GLenum pname, GLfloat param)</li>
+<li>void glPixelStorei(GLenum pname, GLint param)</li>
+<li>void glPixelTransferf(GLenum pname, GLfloat param)</li>
+<li>void glPixelTransferi(GLenum pname, GLint param)</li>
+<li>void glPixelZoom(GLfloat xfactor, GLfloat yfactor)</li>
+<li>void glPointSize(GLfloat size)</li>
+<li>void glPolygonMode(GLenum face, GLenum mode)</li>
+<li>void glPolygonOffset(GLfloat factor, GLfloat units)</li>
+<li>void glPolygonStipple(const GLubyte <a href="#id185"><span class="problematic" id="id186">*</span></a>mask)</li>
+<li>void glPopAttrib(void)</li>
+<li>void glPopClientAttrib(void)</li>
+<li>void glPopMatrix(void)</li>
+<li>void glPopName(void)</li>
+<li>void glPrioritizeTextures(GLsizei n, const GLuint <a href="#id187"><span class="problematic" id="id188">*</span></a>textures, const GLclampf <a href="#id189"><span class="problematic" id="id190">*</span></a>priorities)</li>
+<li>void glPushAttrib(GLbitfield mask)</li>
+<li>void glPushClientAttrib(GLbitfield mask)</li>
+<li>void glPushMatrix(void)</li>
+<li>void glPushName(GLuint name)</li>
+<li>void glRasterPos2d(GLdouble x, GLdouble y)</li>
+<li>void glRasterPos2dv(const GLdouble <a href="#id191"><span class="problematic" id="id192">*</span></a>v)</li>
+<li>void glRasterPos2f(GLfloat x, GLfloat y)</li>
+<li>void glRasterPos2fv(const GLfloat <a href="#id193"><span class="problematic" id="id194">*</span></a>v)</li>
+<li>void glRasterPos2i(GLint x, GLint y)</li>
+<li>void glRasterPos2iv(const GLint <a href="#id195"><span class="problematic" id="id196">*</span></a>v)</li>
+<li>void glRasterPos2s(GLshort x, GLshort y)</li>
+<li>void glRasterPos2sv(const GLshort <a href="#id197"><span class="problematic" id="id198">*</span></a>v)</li>
+<li>void glRasterPos3d(GLdouble x, GLdouble y, GLdouble z)</li>
+<li>void glRasterPos3dv(const GLdouble <a href="#id199"><span class="problematic" id="id200">*</span></a>v)</li>
+<li>void glRasterPos3f(GLfloat x, GLfloat y, GLfloat z)</li>
+<li>void glRasterPos3fv(const GLfloat <a href="#id201"><span class="problematic" id="id202">*</span></a>v)</li>
+<li>void glRasterPos3i(GLint x, GLint y, GLint z)</li>
+<li>void glRasterPos3iv(const GLint <a href="#id203"><span class="problematic" id="id204">*</span></a>v)</li>
+<li>void glRasterPos3s(GLshort x, GLshort y, GLshort z)</li>
+<li>void glRasterPos3sv(const GLshort <a href="#id205"><span class="problematic" id="id206">*</span></a>v)</li>
+<li>void glRasterPos4d(GLdouble x, GLdouble y, GLdouble z, GLdouble w)</li>
+<li>void glRasterPos4dv(const GLdouble <a href="#id207"><span class="problematic" id="id208">*</span></a>v)</li>
+<li>void glRasterPos4f(GLfloat x, GLfloat y, GLfloat z, GLfloat w)</li>
+<li>void glRasterPos4fv(const GLfloat <a href="#id209"><span class="problematic" id="id210">*</span></a>v)</li>
+<li>void glRasterPos4i(GLint x, GLint y, GLint z, GLint w)</li>
+<li>void glRasterPos4iv(const GLint <a href="#id211"><span class="problematic" id="id212">*</span></a>v)</li>
+<li>void glRasterPos4s(GLshort x, GLshort y, GLshort z, GLshort w)</li>
+<li>void glRasterPos4sv(const GLshort <a href="#id213"><span class="problematic" id="id214">*</span></a>v)</li>
+<li>void glReadBuffer(GLenum mode)</li>
+<li>void glReadPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, void <a href="#id215"><span class="problematic" id="id216">*</span></a>pixels)</li>
+<li>void glRectd(GLdouble x1, GLdouble y1, GLdouble x2, GLdouble y2)</li>
+<li>void glRectdv(const GLdouble <a href="#id217"><span class="problematic" id="id218">*</span></a>v1, const GLdouble <a href="#id219"><span class="problematic" id="id220">*</span></a>v2)</li>
+<li>void glRectf(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2)</li>
+<li>void glRectfv(const GLfloat <a href="#id221"><span class="problematic" id="id222">*</span></a>v1, const GLfloat <a href="#id223"><span class="problematic" id="id224">*</span></a>v2)</li>
+<li>void glRecti(GLint x1, GLint y1, GLint x2, GLint y2)</li>
+<li>void glRectiv(const GLint <a href="#id225"><span class="problematic" id="id226">*</span></a>v1, const GLint <a href="#id227"><span class="problematic" id="id228">*</span></a>v2)</li>
+<li>void glRects(GLshort x1, GLshort y1, GLshort x2, GLshort y2)</li>
+<li>void glRectsv(const GLshort <a href="#id229"><span class="problematic" id="id230">*</span></a>v1, const GLshort <a href="#id231"><span class="problematic" id="id232">*</span></a>v2)</li>
+<li>GLint glRenderMode(GLenum mode)</li>
+<li>void glRotated(GLdouble angle, GLdouble x, GLdouble y, GLdouble z)</li>
+<li>void glRotatef(GLfloat angle, GLfloat x, GLfloat y, GLfloat z)</li>
+<li>void glScaled(GLdouble x, GLdouble y, GLdouble z)</li>
+<li>void glScalef(GLfloat x, GLfloat y, GLfloat z)</li>
+<li>void glScissor(GLint x, GLint y, GLsizei width, GLsizei height)</li>
+<li>void glSelectBuffer(GLsizei size, GLuint <a href="#id233"><span class="problematic" id="id234">*</span></a>buffer)</li>
+<li>void glShadeModel(GLenum mode)</li>
+<li>void glStencilFunc(GLenum func, GLint ref, GLuint mask)</li>
+<li>void glStencilMask(GLuint mask)</li>
+<li>void glStencilOp(GLenum fail, GLenum zfail, GLenum zpass)</li>
+<li>void glTexCoord1d(GLdouble s)</li>
+<li>void glTexCoord1dv(const GLdouble <a href="#id235"><span class="problematic" id="id236">*</span></a>v)</li>
+<li>void glTexCoord1f(GLfloat s)</li>
+<li>void glTexCoord1fv(const GLfloat <a href="#id237"><span class="problematic" id="id238">*</span></a>v)</li>
+<li>void glTexCoord1i(GLint s)</li>
+<li>void glTexCoord1iv(const GLint <a href="#id239"><span class="problematic" id="id240">*</span></a>v)</li>
+<li>void glTexCoord1s(GLshort s)</li>
+<li>void glTexCoord1sv(const GLshort <a href="#id241"><span class="problematic" id="id242">*</span></a>v)</li>
+<li>void glTexCoord2d(GLdouble s, GLdouble t)</li>
+<li>void glTexCoord2dv(const GLdouble <a href="#id243"><span class="problematic" id="id244">*</span></a>v)</li>
+<li>void glTexCoord2f(GLfloat s, GLfloat t)</li>
+<li>void glTexCoord2fv(const GLfloat <a href="#id245"><span class="problematic" id="id246">*</span></a>v)</li>
+<li>void glTexCoord2i(GLint s, GLint t)</li>
+<li>void glTexCoord2iv(const GLint <a href="#id247"><span class="problematic" id="id248">*</span></a>v)</li>
+<li>void glTexCoord2s(GLshort s, GLshort t)</li>
+<li>void glTexCoord2sv(const GLshort <a href="#id249"><span class="problematic" id="id250">*</span></a>v)</li>
+<li>void glTexCoord3d(GLdouble s, GLdouble t, GLdouble r)</li>
+<li>void glTexCoord3dv(const GLdouble <a href="#id251"><span class="problematic" id="id252">*</span></a>v)</li>
+<li>void glTexCoord3f(GLfloat s, GLfloat t, GLfloat r)</li>
+<li>void glTexCoord3fv(const GLfloat <a href="#id253"><span class="problematic" id="id254">*</span></a>v)</li>
+<li>void glTexCoord3i(GLint s, GLint t, GLint r)</li>
+<li>void glTexCoord3iv(const GLint <a href="#id255"><span class="problematic" id="id256">*</span></a>v)</li>
+<li>void glTexCoord3s(GLshort s, GLshort t, GLshort r)</li>
+<li>void glTexCoord3sv(const GLshort <a href="#id257"><span class="problematic" id="id258">*</span></a>v)</li>
+<li>void glTexCoord4d(GLdouble s, GLdouble t, GLdouble r, GLdouble q)</li>
+<li>void glTexCoord4dv(const GLdouble <a href="#id259"><span class="problematic" id="id260">*</span></a>v)</li>
+<li>void glTexCoord4f(GLfloat s, GLfloat t, GLfloat r, GLfloat q)</li>
+<li>void glTexCoord4fv(const GLfloat <a href="#id261"><span class="problematic" id="id262">*</span></a>v)</li>
+<li>void glTexCoord4i(GLint s, GLint t, GLint r, GLint q)</li>
+<li>void glTexCoord4iv(const GLint <a href="#id263"><span class="problematic" id="id264">*</span></a>v)</li>
+<li>void glTexCoord4s(GLshort s, GLshort t, GLshort r, GLshort q)</li>
+<li>void glTexCoord4sv(const GLshort <a href="#id265"><span class="problematic" id="id266">*</span></a>v)</li>
+<li>void glTexCoordPointer(GLint size, GLenum type, GLsizei stride, const void <a href="#id267"><span class="problematic" id="id268">*</span></a>pointer)</li>
+<li>void glTexEnvf(GLenum target, GLenum pname, GLfloat param)</li>
+<li>void glTexEnvfv(GLenum target, GLenum pname, const GLfloat <a href="#id269"><span class="problematic" id="id270">*</span></a>params)</li>
+<li>void glTexEnvi(GLenum target, GLenum pname, GLint param)</li>
+<li>void glTexEnviv(GLenum target, GLenum pname, const GLint <a href="#id271"><span class="problematic" id="id272">*</span></a>params)</li>
+<li>void glTexGend(GLenum coord, GLenum pname, GLdouble param)</li>
+<li>void glTexGendv(GLenum coord, GLenum pname, const GLdouble <a href="#id273"><span class="problematic" id="id274">*</span></a>params)</li>
+<li>void glTexGenf(GLenum coord, GLenum pname, GLfloat param)</li>
+<li>void glTexGenfv(GLenum coord, GLenum pname, const GLfloat <a href="#id275"><span class="problematic" id="id276">*</span></a>params)</li>
+<li>void glTexGeni(GLenum coord, GLenum pname, GLint param)</li>
+<li>void glTexGeniv(GLenum coord, GLenum pname, const GLint <a href="#id277"><span class="problematic" id="id278">*</span></a>params)</li>
+<li>void glTexImage1D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum type, const void <a href="#id279"><span class="problematic" id="id280">*</span></a>pixels)</li>
+<li>void glTexImage2D(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const void <a href="#id281"><span class="problematic" id="id282">*</span></a>pixels)</li>
+<li>void glTexParameterf(GLenum target, GLenum pname, GLfloat param)</li>
+<li>void glTexParameterfv(GLenum target, GLenum pname, const GLfloat <a href="#id283"><span class="problematic" id="id284">*</span></a>params)</li>
+<li>void glTexParameteri(GLenum target, GLenum pname, GLint param)</li>
+<li>void glTexParameteriv(GLenum target, GLenum pname, const GLint <a href="#id285"><span class="problematic" id="id286">*</span></a>params)</li>
+<li>void glTexSubImage1D(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum type, const void <a href="#id287"><span class="problematic" id="id288">*</span></a>pixels)</li>
+<li>void glTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, const void <a href="#id289"><span class="problematic" id="id290">*</span></a>pixels)</li>
+<li>void glTranslated(GLdouble x, GLdouble y, GLdouble z)</li>
+<li>void glTranslatef(GLfloat x, GLfloat y, GLfloat z)</li>
+<li>void glVertex2d(GLdouble x, GLdouble y)</li>
+<li>void glVertex2dv(const GLdouble <a href="#id291"><span class="problematic" id="id292">*</span></a>v)</li>
+<li>void glVertex2f(GLfloat x, GLfloat y)</li>
+<li>void glVertex2fv(const GLfloat <a href="#id293"><span class="problematic" id="id294">*</span></a>v)</li>
+<li>void glVertex2i(GLint x, GLint y)</li>
+<li>void glVertex2iv(const GLint <a href="#id295"><span class="problematic" id="id296">*</span></a>v)</li>
+<li>void glVertex2s(GLshort x, GLshort y)</li>
+<li>void glVertex2sv(const GLshort <a href="#id297"><span class="problematic" id="id298">*</span></a>v)</li>
+<li>void glVertex3d(GLdouble x, GLdouble y, GLdouble z)</li>
+<li>void glVertex3dv(const GLdouble <a href="#id299"><span class="problematic" id="id300">*</span></a>v)</li>
+<li>void glVertex3f(GLfloat x, GLfloat y, GLfloat z)</li>
+<li>void glVertex3fv(const GLfloat <a href="#id301"><span class="problematic" id="id302">*</span></a>v)</li>
+<li>void glVertex3i(GLint x, GLint y, GLint z)</li>
+<li>void glVertex3iv(const GLint <a href="#id303"><span class="problematic" id="id304">*</span></a>v)</li>
+<li>void glVertex3s(GLshort x, GLshort y, GLshort z)</li>
+<li>void glVertex3sv(const GLshort <a href="#id305"><span class="problematic" id="id306">*</span></a>v)</li>
+<li>void glVertex4d(GLdouble x, GLdouble y, GLdouble z, GLdouble w)</li>
+<li>void glVertex4dv(const GLdouble <a href="#id307"><span class="problematic" id="id308">*</span></a>v)</li>
+<li>void glVertex4f(GLfloat x, GLfloat y, GLfloat z, GLfloat w)</li>
+<li>void glVertex4fv(const GLfloat <a href="#id309"><span class="problematic" id="id310">*</span></a>v)</li>
+<li>void glVertex4i(GLint x, GLint y, GLint z, GLint w)</li>
+<li>void glVertex4iv(const GLint <a href="#id311"><span class="problematic" id="id312">*</span></a>v)</li>
+<li>void glVertex4s(GLshort x, GLshort y, GLshort z, GLshort w)</li>
+<li>void glVertex4sv(const GLshort <a href="#id313"><span class="problematic" id="id314">*</span></a>v)</li>
+<li>void glVertexPointer(GLint size, GLenum type, GLsizei stride, const void <a href="#id315"><span class="problematic" id="id316">*</span></a>pointer)</li>
+<li>void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ringopengl13funcsdoc.html"
+                        title="previous chapter">RingOpenGL (OpenGL 1.3) Functions Reference</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ringopengl15funcsdoc.html"
+                        title="next chapter">RingOpenGL (OpenGL 1.5) Functions Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ringopengl14funcsdoc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ringopengl15funcsdoc.html" title="RingOpenGL (OpenGL 1.5) Functions Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ringopengl13funcsdoc.html" title="RingOpenGL (OpenGL 1.3) Functions Reference"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,894 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Scope Rules for Variables and Attributes &mdash; Ring 1.5.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="next" title="Scope Rules for Functions and Methods" href="scope2.html" />
+    <link rel="prev" title="Using the Form Designer" href="formdesigner.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="scope2.html" title="Scope Rules for Functions and Methods"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="formdesigner.html" title="Using the Form Designer"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="scope-rules-for-variables-and-attributes">
+<span id="index-0"></span><h1>Scope Rules for Variables and Attributes<a class="headerlink" href="#scope-rules-for-variables-and-attributes" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about scope rules and how Ring find variables.</p>
+<p>Also we will learn about conflicts and how to solve/avoid them.</p>
+<p>The next information are important once you start developing large applications using Ring</p>
+<p>These application may uses</p>
+<ul class="simple">
+<li>Global variables (Try to avoid them)</li>
+<li>Classes (Object-Oriented)</li>
+<li>braces { } to access objects</li>
+<li>Declarative Programming</li>
+<li>Natural Programming</li>
+</ul>
+<div class="section" id="three-scopes">
+<span id="index-1"></span><h2>Three Scopes<a class="headerlink" href="#three-scopes" title="Permalink to this headline">¶</a></h2>
+<p>In Ring we have three scopes :-</p>
+<ol class="arabic simple">
+<li>Public/Global Scope - Each variable you define in the statements part (before functions and classes)</li>
+<li>Object Scope - When you are inside an object (Inside class method or using { } to access the object )</li>
+<li>Local Scope - Related to functions and methods</li>
+</ol>
+</div>
+<div class="section" id="defining-variables-and-variables-access">
+<span id="index-2"></span><h2>Defining Variables and Variables Access<a class="headerlink" href="#defining-variables-and-variables-access" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Ring uses lexical scoping, i.e. the scope of the variable is based on where we defined the variable.</li>
+<li>Inside braces {  } when you access an object, You will change the current active object scope to this object scope but you still can access the global scope and the local scope.</li>
+<li>After the &#8216;Class&#8217; keyword and the class name, when you write variable names to be defined as attributes, You still can access the global scope.</li>
+</ol>
+<p>In this region (class region - after the class name and before methods) we have</p>
+<blockquote>
+<div><ul class="simple">
+<li>Global Scope &#8212;-&gt; The Global Scope</li>
+<li>Object Scope &#8212;-&gt; The Object Scope</li>
+<li>Local Scope  &#8212;-&gt; The Object Scope</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Since the local scope in the class region point also to the object scope in this region, we can use nested braces and still have access to the object scope of the class through the local scope.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">You can create windows and controls as attibutes by defining them in this region.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">In the class region if you created objects and used braces {} to access them then using self.attribute inside braces will use the class (not the object that you access) because you have access to the class through the local scope.</p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Function Parameters are automatically defined in the local scope.</li>
+</ol>
+</div>
+<div class="section" id="how-ring-find-the-variable">
+<span id="index-3"></span><h2>How Ring find the variable?<a class="headerlink" href="#how-ring-find-the-variable" title="Permalink to this headline">¶</a></h2>
+<p>1 - Search First in the Local Scope</p>
+<p>if not found !</p>
+<p>2 - Search in the Object Scope</p>
+<p>if not found !</p>
+<p>3 - Search in the public scope</p>
+<p>if not found &#8212;-&gt; Runtime Error</p>
+<p>if found  &#8212;-&gt; Check if we can do optimization to avoid
+searching next time (Cache / Pointers for performance).</p>
+</div>
+<div class="section" id="using-object-attribute">
+<span id="index-4"></span><h2>Using Object.Attribute<a class="headerlink" href="#using-object-attribute" title="Permalink to this headline">¶</a></h2>
+<p>When we use object.attribute the search will be in the object attributes only.</p>
+<p>I.e. no search will be done in the local scope or in the global scope for the object attribute.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using self.attribute will search for the first self before searching for attributes.</p>
+</div>
+</div>
+<div class="section" id="the-self-object">
+<span id="index-5"></span><h2>The Self Object<a class="headerlink" href="#the-self-object" title="Permalink to this headline">¶</a></h2>
+<p>The self object is a reference to the current object that we can use from the class methods.</p>
+<p>When we are inside class method and use Self we mean the object that will be created from this class.</p>
+<p>Inside the class methods if we used Braces { } this will change the current object scope and self will
+be changed also inside braces to reference the object that we access using Braces.</p>
+<p>Inside the Class Region (after the class name and before any method) we have access to the object through
+the object scope and the local scope also. In this region using Self will always be a reference to the class object.
+if we used Braces to change the object scope then used Self inside Braces, Also self will be a reference to the class object (not the object that
+we already access using braces) because in the class region we have :-</p>
+<ul class="simple">
+<li>Global Scope &#8212;&gt; Global Scope</li>
+<li>Object Scope &#8212;&gt; Object Scope</li>
+<li>Local Scope  &#8212;&gt; Object Scope</li>
+</ul>
+<p>And using Braces changes the object scope only (not the local scope) and when Ring search for variables
+it will search in the Local Scope first so it will find self in the class that we are inside.</p>
+</div>
+<div class="section" id="how-ring-define-variables-and-attributes">
+<span id="index-6"></span><h2>How Ring Define Variables and Attributes<a class="headerlink" href="#how-ring-define-variables-and-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Ring will use the variable name in the Assignment operation</p>
+<p>1 - Search using the variable name</p>
+<p>2 - If not found &#8212;&gt; Avoid the runtime error and define the variable in the current scope</p>
+<p>3 - If found &#8212;&gt; Use the variable and don&#8217;t define anything in the current scope</p>
+<ul class="simple">
+<li>In the global region (before any function or class) the current scope is the global scope.</li>
+<li>In the class region (after the class name and before any method) the current scope is the object attributes.</li>
+<li>In Functions and methods the current scope is the local scope.</li>
+</ul>
+</div>
+<div class="section" id="conflict-between-global-variables-and-class-attributes">
+<h2>Conflict between Global Variables and Class Attributes<a class="headerlink" href="#conflict-between-global-variables-and-class-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Look at this example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<span class="k">see</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+</pre></div>
+</div>
+<p>In the previous example we have a global variable called &#8216;name&#8217;
+inside the class person.</p>
+<p>when we use the variable &#8216;name&#8217;, Ring will start the search operation and
+will try to find it.</p>
+<p>if found &#8212;&gt; Use it</p>
+<p>if not found &#8212;&gt; Define new attribute</p>
+<p>But the variable name is a global variable, so it will be found and used!</p>
+<p>We will not have the attribute name! added to the object.</p>
+<p>Solution (1) - Use the Main Function</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+        <span class="k">see</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+</pre></div>
+</div>
+<p>Solution (2) - Use special mark for global variable names like $</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">$</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<span class="k">see</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+</pre></div>
+</div>
+<p>Solution (3) - Use the AddAttribute() Method</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<span class="k">see</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">AddAttribute</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+</pre></div>
+</div>
+<p>Solution (4) - Use self before the attribute name</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<span class="k">see</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+</pre></div>
+</div>
+<p>So what is the best solution to this conflict?</p>
+<p>1 - Use the $ Mark for global variables</p>
+<p>2 - Optional : Try to avoid global variables and use the Main function</p>
+<p>In practice i do both of them.</p>
+<p>The other solution</p>
+<ul class="simple">
+<li>Use self before the attribute name or use AddAttribute()</li>
+</ul>
+</div>
+<div class="section" id="conflict-between-class-attributes-and-local-variables">
+<span id="index-7"></span><h2>Conflict between Class Attributes and Local Variables<a class="headerlink" href="#conflict-between-class-attributes-and-local-variables" title="Permalink to this headline">¶</a></h2>
+<p>This conflict may happen when we access the object using braces</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;nice&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;mahmoud&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s">&quot;Egypt&quot;</span>  <span class="n">phone</span> <span class="o">=</span> <span class="mi">000</span> <span class="p">}</span>
+        <span class="k">see</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+</pre></div>
+</div>
+<p>In the previous example we have the local variable name.</p>
+<p>The value of this variable will be set to &#8220;mahmoud&#8221; instead of the object attribute.</p>
+<p>Solution (1) : Just use Self</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;nice&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span> <span class="p">{</span><span class="n">self</span><span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;mahmoud&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s">&quot;Egypt&quot;</span>  <span class="n">phone</span> <span class="o">=</span> <span class="mi">000</span> <span class="p">}</span>
+        <span class="k">see</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+</pre></div>
+</div>
+<p>Solution (2) : Change the Local variable name</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">cName</span> <span class="o">=</span> <span class="s">&quot;nice&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;mahmoud&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s">&quot;Egypt&quot;</span>  <span class="n">phone</span> <span class="o">=</span> <span class="mi">000</span> <span class="p">}</span>
+        <span class="k">see</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+</pre></div>
+</div>
+<p>Solution (3) : Change Braces and use the Dot operator</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;nice&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+        <span class="n">o1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span><span class="s">&quot;mahmoud&quot;</span>
+        <span class="n">o1</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span><span class="s">&quot;Egypt&quot;</span>
+        <span class="n">o1</span><span class="p">.</span><span class="n">phone</span> <span class="o">=</span> <span class="mi">000</span>
+        <span class="k">see</span> <span class="n">o1</span>
+
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-braces-to-access-objects-inside-class-methods">
+<span id="index-8"></span><h2>Using Braces to access objects inside Class Methods<a class="headerlink" href="#using-braces-to-access-objects-inside-class-methods" title="Permalink to this headline">¶</a></h2>
+<p>Remember that we have Three scopes (Local Scope, Object Scope and Global Scope) and when we
+are inside a class method, we expect that we have access to the object attributes and methods and
+this is true until we use braces to access another object attributes and methods because in this case
+our object scope will be switched to another object.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># works fine</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># error !</span>
+                <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>10
+20
+test
+
+Line 8 Error (R24) : Using uninitialized variable : x
+In method test() in file methodbraceerror.ring
+called from line 5  in file methodbraceerror.ring
+</pre></div>
+</div>
+<p>Now what we will do to solve the previous problem?</p>
+<p>Solution (1) : Write the code that access the class attributes outside braces.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># works fine</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="p">}</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># Outside braces - works fine</span>
+
+
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>10
+20
+test
+10
+20
+</pre></div>
+</div>
+<p>Solution (2) : Don&#8217;t Use Braces</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span>
+                <span class="k">see</span> <span class="n">myobj</span><span class="p">.</span><span class="n">name</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+</pre></div>
+</div>
+<p>Solution (3) : Copy the self object</p>
+<p>We may use this solution if we want to use braces and get access to the class attributes (Just Reading).</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="n">oSelf</span> <span class="o">=</span> <span class="n">self</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">see</span> <span class="n">oself</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">oself</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>10
+20
+test
+10
+20
+</pre></div>
+</div>
+<p>Now look at this line</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">oself</span> <span class="o">=</span> <span class="n">self</span>
+</pre></div>
+</div>
+<p>The problem with the previous line is that we will have a new copy from the object
+Because in Ring the assignment operator copy lists and objects by value (not by reference).</p>
+<p>When we access the new object attributes (reading) we don&#8217;t have problems</p>
+<p>But if we modified the object attributes (Then we will modify the copy!).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We can use braces again with the copy</p>
+</div>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="n">oSelf</span> <span class="o">=</span> <span class="n">self</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="n">oSelf</span> <span class="p">{</span>
+                                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+</pre></div>
+</div>
+<p>In a GUI application, we may create a class contains the window objects as attributes to be able
+to access the controls from different methods. Remember the previous information when you try to access
+objects using braces inside methods because in this case you can&#8217;t access the object attributes directly
+and if you copied the self object you will work on a copy and the new controls that you create will be
+related to the copy and you can&#8217;t access them.</p>
+</div>
+<div class="section" id="accessing-the-class-attributes-from-braces-inside-class-methods">
+<span id="index-9"></span><h2>Accessing the class attributes from braces inside class methods<a class="headerlink" href="#accessing-the-class-attributes-from-braces-inside-class-methods" title="Permalink to this headline">¶</a></h2>
+<p>We access the class attributes directly from the class methods, also we have the choice to use the Self
+reference before the attribute/method name. Using Braces {} inside class method change the active object
+scope and prevent us from getting direct access to the class attributes. Also using Self will not help because
+the Self reference will be changed to the object that we access using Braces.</p>
+<p>In this case if you want to read an attribute you have to copy the Self object before using Braces and
+if you want to modify an attribute you have to the copy from local variable to the object attribute after using
+Braces.</p>
+<p>This case happens when you want to read/modify attribute insead braces.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">MyApp</span>
+
+        <span class="n">oCon</span>   <span class="c"># Attribute</span>
+
+        <span class="c"># some code here</span>
+
+        <span class="k">Func</span> <span class="n">OpenDatabase</span>
+                <span class="c"># some code here</span>
+                <span class="k">new</span> <span class="n">QSqlDatabase</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">oCon</span> <span class="o">=</span> <span class="n">addDatabase</span><span class="p">(</span><span class="s">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">setDatabaseName</span><span class="p">(</span><span class="s">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+                                <span class="n">open</span><span class="p">()</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">oCon</span> <span class="o">=</span> <span class="n">oCon</span>
+                <span class="c"># some code here</span>
+</pre></div>
+</div>
+<p>In the previous example we want to create the connection object and save it inside the oCon attribute.</p>
+<p>The object is an output from the addDatabase() method that we use after accessing the QSQLDatabase() object.</p>
+<p>Inside braces we can&#8217;t use the Self reference to use the object created from the MyApp class, Because
+the Self reference here will be to the object that we access using Braces.</p>
+<p>We solved the problem in the previous example by creating a local variable called oCon then after Braces
+we copied that variable to the oCon attribute.</p>
+<p>The next code is another solution.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">MyApp</span>
+
+        <span class="n">oCon</span>   <span class="c"># Attribute</span>
+
+        <span class="c"># some code here</span>
+
+        <span class="k">Func</span> <span class="n">OpenDatabase</span>
+                <span class="c"># some code here</span>
+                <span class="n">oCon</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QSqlDatabase</span><span class="p">()</span>
+                <span class="n">oCon</span> <span class="o">=</span> <span class="n">oCon</span><span class="p">.</span><span class="n">addDatabase</span><span class="p">(</span><span class="s">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setDatabaseName</span><span class="p">(</span><span class="s">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+                        <span class="n">Open</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="c"># some code here</span>
+</pre></div>
+</div>
+<p>The next code is a better solution.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">MyApp</span>
+
+        <span class="n">oCon</span>   <span class="c"># Attribute</span>
+
+        <span class="c"># some code here</span>
+
+        <span class="k">Func</span> <span class="n">OpenDatabase</span>
+                <span class="c"># some code here</span>
+                <span class="k">new</span> <span class="n">QSqlDatabase</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">this</span><span class="p">.</span><span class="n">oCon</span> <span class="o">=</span> <span class="n">addDatabase</span><span class="p">(</span><span class="s">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">setDatabaseName</span><span class="p">(</span><span class="s">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+                                <span class="n">Open</span><span class="p">()</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="c"># some code here</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We used this.attribute to access the class attribute (oCon) while we are inside Braces.</p>
+</div>
+</div>
+<div class="section" id="creating-a-class-for-each-window-in-gui-applications">
+<span id="index-10"></span><h2>Creating a Class for each Window in GUI applications<a class="headerlink" href="#creating-a-class-for-each-window-in-gui-applications" title="Permalink to this headline">¶</a></h2>
+<p>A good way for creating classes for windows is to define the window directly after the class name</p>
+<p>In this area you can use nested braces without problems to define the window and the controls, and
+they will be attributes that you can access from methods.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">qApp</span>
+<span class="p">{</span>
+        <span class="o">$</span><span class="n">ObjectName</span> <span class="o">=</span> <span class="s">&quot;oFirstWindow&quot;</span>
+        <span class="n">oFirstWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirstWindow</span>
+
+        <span class="o">$</span><span class="n">ObjectName</span> <span class="o">=</span> <span class="s">&quot;oSecondWindow&quot;</span>
+        <span class="n">oSecondWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SecondWindow</span>
+
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">FirstWindow</span>
+
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;First Window&quot;</span><span class="p">)</span>
+                <span class="n">label1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qLabel</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">btn1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Increment&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="o">$</span><span class="n">ObjectName</span><span class="o">+</span><span class="s">&quot;.increment()&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="k">Func</span> <span class="n">Increment</span>
+                <span class="n">label1</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">text</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+
+
+<span class="k">Class</span> <span class="n">SecondWindow</span>
+
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Second Window&quot;</span><span class="p">)</span>
+                <span class="n">label1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qLabel</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">btn1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Decrement&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="o">$</span><span class="n">ObjectName</span><span class="o">+</span><span class="s">&quot;.decrement()&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="k">Func</span> <span class="n">Decrement</span>
+                <span class="n">label1</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">text</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conflict-between-self-inside-braces-and-self-in-the-class-region">
+<span id="index-11"></span><h2>Conflict between self inside braces and self in the class region<a class="headerlink" href="#conflict-between-self-inside-braces-and-self-in-the-class-region" title="Permalink to this headline">¶</a></h2>
+<p>In the class region (after the class name and before any methods) we define the attributes.</p>
+<p>In this region we have access to the global scope and the local scope will point to the object scope.</p>
+<p>Three Scopes</p>
+<ul class="simple">
+<li>Global Scope &#8212;&gt; Gloabl Scope</li>
+<li>Object Scope &#8212;&gt; Object Scope</li>
+<li>Local Scope  &#8212;&gt; Object Scope</li>
+</ul>
+<p>Look at this example</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Gal&quot;</span>
+        <span class="p">}</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Bert&quot;</span>
+        <span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>name: NULL
+name: NULL
+</pre></div>
+</div>
+<p>The problem in the previous example is that the Class account contains an attribute called &#8220;name&#8221;
+and the Friend class contains an attribue called &#8220;name&#8221; also.</p>
+<p>If you tried using self.name inside braces you will get the same result!</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Gal&quot;</span>
+        <span class="p">}</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Bert&quot;</span>
+        <span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
+</pre></div>
+</div>
+<p>So why using self.name inside braces doesn&#8217;t solve this conflict?</p>
+<p>Because after the class region we have</p>
+<ul class="simple">
+<li>global scope &#8212;&gt; global scope</li>
+<li>object scope &#8212;&gt; object scope (Account Class)</li>
+<li>local  scope &#8212;&gt; local scope (Account Class)</li>
+</ul>
+<p>When we use braces we change the object scope, so we have</p>
+<ul class="simple">
+<li>global scope &#8212;&gt; global scope</li>
+<li>object scope &#8212;&gt; object scope (Friend Class)</li>
+<li>local  scope &#8212;&gt; local scope (Account Class)</li>
+</ul>
+<p>Ring search in the local scope first, so using self.name will use the Account class.</p>
+<p>There are many solution</p>
+<p>Solution (1) : Access the object through the list</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span>
+        <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span> <span class="p">{</span>
+                <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Gal&quot;</span>
+        <span class="p">}</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span>
+        <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span> <span class="p">{</span>
+                <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Bert&quot;</span>
+        <span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
+</pre></div>
+</div>
+<p>Solution (2) : Create Method in the friend class to set the name attribute.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">setname</span><span class="p">(</span><span class="s">&quot;Gal&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">setname</span><span class="p">(</span><span class="s">&quot;Bert&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
+        <span class="k">func</span> <span class="n">setname</span> <span class="n">cName</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">cName</span>
+</pre></div>
+</div>
+<p>Solution (3) : Create a method in the account class to set the attribute</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">friend</span><span class="p">(</span><span class="s">&quot;Gal&quot;</span><span class="p">)</span>
+        <span class="n">friend</span><span class="p">(</span><span class="s">&quot;Bert&quot;</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">friend</span> <span class="n">cName</span>
+                <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">cName</span>
+                <span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
+</pre></div>
+</div>
+<p>Solution (4) : Declarative Programming</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;mahmoud&quot;</span>
+        <span class="n">friend</span> <span class="p">{</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Gal&quot;</span>
+        <span class="p">}</span>
+        <span class="n">friend</span> <span class="p">{</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Bert&quot;</span>
+        <span class="p">}</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">friend</span>
+        <span class="k">func</span> <span class="n">getfriend</span>
+                <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span>
+                <span class="k">return</span> <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span>
+
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>name: Gal
+name: Bert
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-braces-to-escape-from-the-current-object-scope">
+<span id="index-12"></span><h2>Using braces to escape from the current object scope<a class="headerlink" href="#using-braces-to-escape-from-the-current-object-scope" title="Permalink to this headline">¶</a></h2>
+<p>Since braces change the current object scope to another object. we can use it to do some work without
+modifying the class attributes and using the same variable names.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="n">start</span><span class="p">()</span> <span class="p">}</span>
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">start</span>
+                <span class="k">see</span> <span class="n">self</span> <span class="c"># print the x y z values (10,20,30)</span>
+                <span class="k">new</span> <span class="n">Local</span> <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+                        <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
+                        <span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
+                <span class="p">}</span>
+                <span class="k">see</span> <span class="n">self</span> <span class="c"># print the x y z values (10,20,30)</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 100</span>
+                <span class="k">see</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 200</span>
+                <span class="k">see</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 300</span>
+                <span class="n">Self</span> <span class="p">{</span>  <span class="c"># NO Advantage - Search is done in local scope first</span>
+                        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 100</span>
+                        <span class="k">see</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 200</span>
+                        <span class="k">see</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 300</span>
+                <span class="p">}</span>
+                <span class="k">see</span> <span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 10</span>
+                <span class="k">see</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 20</span>
+                <span class="k">see</span> <span class="n">self</span><span class="p">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 30</span>
+
+<span class="k">class</span> <span class="n">Local</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>x: 10.000000
+y: 20.000000
+z: 30.000000
+x: 10.000000
+y: 20.000000
+z: 30.000000
+100
+200
+300
+100
+200
+300
+10
+20
+30
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary-of-scope-rules">
+<span id="index-13"></span><h2>Summary of Scope Rules<a class="headerlink" href="#summary-of-scope-rules" title="Permalink to this headline">¶</a></h2>
+<p>At first remember that</p>
+<p>1 - Each programming language comes with it&#8217;s scope rules based on the language goals</p>
+<p>2 - Programming in the small is different than Programming in the Large</p>
+<p>3 - Some programming language are designed for developing small programs while others are designed for large programs</p>
+<p>4 - In programming, If we have access to more than one scope - Then problems may come if we don&#8217;t manage things correctly</p>
+<p>5 - It&#8217;s always more secure to reduce the number of visible scopes</p>
+<p>6 - Some programming languages force you to manage the scope in some way, while others not!</p>
+<p>In Ring</p>
+<p>1 - Special and <em>very simple</em> scope rules that are designed for Flexibility first then Security</p>
+<p>2 - Ring is designed to support programming in the small and programming in the large.</p>
+<p>3 - The language provide the different programming paradigms that you may select from based on the project size. Errors comes only if you selected a bad paradigm for the target project or you are using the paradigm in a way that is not correct or at least not common.</p>
+<p>4 - In Ring you have the choice, you can use global variables or avoid them. you can give them a special $ mark or leave them. you can use object-oriented or stay with procedures. you can use the class region (after the class name and before any method) just for attributes or use it for code too.</p>
+<p>5 - Just read the next scope rules and think about them then use them in your favorite way.</p>
+<p>Scope Rules:</p>
+<p>1 - At any place in our program code we have only at maximum Three Scopes (Local Scope, Object Scope and Global Scope).</p>
+<p>2 - When Ring find a variable it will search in the local scope first then in the object scope then in the global scope.</p>
+<p>3 - At any time inside procedures or methods you can use braces { } to access an object and change the current object scope.</p>
+<p>4 - In the class region (After the class name and before any method) this is a special region where both of the object scope and the local scope point to the object scope. I.e. No local variables where each variable you define in this region will become an attribute.</p>
+<p>5 - Before defining any variable (in any scope and in the class region too) a search process will be done to use the variable if it&#8217;s found.</p>
+<p>6 - Functions and Methods parameters are defined automatically as local variables to these functions or methods.</p>
+<p>7 - Using Object.Attribute will search in the object attributes only.</p>
+<p>8 - Using Self.Attribute will lead to a search for Self first then search in Self Attributes.</p>
+<p>9 - The Self reference inside class region (after the class name and before any method) always point to the object scope created from the class.</p>
+<p>10- The Self reference inside methods will be changed when we uses Braces to be a reference to the object that we access.</p>
+<p>11- Writing variable names directly in the class region (after the class name and before any method) means using them or define then (in order).</p>
+<p>12- Using self.attribute in the class region reduce search to the object scope (avoid conflict with global scope).</p>
+<p>From these rules you can understand all types of conflicts and why you may have them and how to avoid them</p>
+<p>Simple advices to avoid any conflict and use the scope rules in a better way</p>
+<p>1 - Try to avoid global variables</p>
+<p>2 - Use the Main Function - This will help you to avoid global variables</p>
+<p>3 - If you are going to use many global variables use the $ mark before the variable name</p>
+<p>4 - In the class region if you don&#8217;t respect the advice number three ($) then use self.attribute when you define your attributes</p>
+<p>5 - You can use object.attribute and object.method() instead of object { attribute } and object { method() } if you don&#8217;t like changing the object scope.</p>
+<p>6 - If you will use nested braces in a class - think about using the class region if possible because in this region you will have access to the object that you access using { } + access to the class attributes</p>
+<p>7 - If you are inside a class method and used nested braces you will change the object scope with each brace and you will loss the access to the class attributes directly but you have access to the local scope before and after using brace { } , if you will read/modify the class attribute from braces then use This.Attribute because using &#8216;This&#8217; means (The object created from this class) while using &#8216;Self&#8217; means (The object in the current object scope).</p>
+<p>After understanding all of the previous points, You will master this topic.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Scope Rules for Variables and Attributes</a><ul>
+<li><a class="reference internal" href="#three-scopes">Three Scopes</a></li>
+<li><a class="reference internal" href="#defining-variables-and-variables-access">Defining Variables and Variables Access</a></li>
+<li><a class="reference internal" href="#how-ring-find-the-variable">How Ring find the variable?</a></li>
+<li><a class="reference internal" href="#using-object-attribute">Using Object.Attribute</a></li>
+<li><a class="reference internal" href="#the-self-object">The Self Object</a></li>
+<li><a class="reference internal" href="#how-ring-define-variables-and-attributes">How Ring Define Variables and Attributes</a></li>
+<li><a class="reference internal" href="#conflict-between-global-variables-and-class-attributes">Conflict between Global Variables and Class Attributes</a></li>
+<li><a class="reference internal" href="#conflict-between-class-attributes-and-local-variables">Conflict between Class Attributes and Local Variables</a></li>
+<li><a class="reference internal" href="#using-braces-to-access-objects-inside-class-methods">Using Braces to access objects inside Class Methods</a></li>
+<li><a class="reference internal" href="#accessing-the-class-attributes-from-braces-inside-class-methods">Accessing the class attributes from braces inside class methods</a></li>
+<li><a class="reference internal" href="#creating-a-class-for-each-window-in-gui-applications">Creating a Class for each Window in GUI applications</a></li>
+<li><a class="reference internal" href="#conflict-between-self-inside-braces-and-self-in-the-class-region">Conflict between self inside braces and self in the class region</a></li>
+<li><a class="reference internal" href="#using-braces-to-escape-from-the-current-object-scope">Using braces to escape from the current object scope</a></li>
+<li><a class="reference internal" href="#summary-of-scope-rules">Summary of Scope Rules</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="formdesigner.html"
+                        title="previous chapter">Using the Form Designer</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scope2.html"
+                        title="next chapter">Scope Rules for Functions and Methods</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/scope.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="scope2.html" title="Scope Rules for Functions and Methods"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="formdesigner.html" title="Using the Form Designer"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

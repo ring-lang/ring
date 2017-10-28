@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Variables &mdash; Ring 1.5.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="next" title="Operators" href="operators.html" />
+    <link rel="prev" title="Using Other Code Editors" href="codeeditors.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="operators.html" title="Operators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="codeeditors.html" title="Using Other Code Editors"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="variables">
+<span id="index-0"></span><h1>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h1>
+<p>To create a new variable, you just need to determine the variable name &amp; value.
+The value will determine the variable type and you can change the value to
+switch between the types using the same variable name.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Variable</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">Value</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The operator &#8216;=&#8217; is used here as an Assignment operator and the same
+operator can be used in conditions, but for testing equality of expressions.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Variable will contains the real value (not a reference).
+This means that once you change the variable value, the old value will
+be removed from memory (even if the variable contains a list or object).</p>
+</div>
+<div class="section" id="dynamic-typing">
+<span id="index-1"></span><h2>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Permalink to this headline">¶</a></h2>
+<p>Ring is a dynamic programming language that uses <a class="reference external" href="http://en.wikipedia.org/wiki/Type_system">Dynamic Typing</a>.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span>             <span class="c"># x is a string</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>                   <span class="c"># x is a number (int)</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.2</span>                 <span class="c"># x is a number (double)</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span>           <span class="c"># x is a list</span>
+<span class="k">see</span> <span class="n">x</span>                   <span class="c"># print list items</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">date</span><span class="p">()</span>              <span class="c"># x is a string contains date</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>              <span class="c"># x is a string contains time</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="kp">true</span>                <span class="c"># x is a number (logical value = 1)</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="kp">false</span>               <span class="c"># x is a number (logical value = 0)</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="deep-copy">
+<span id="index-2"></span><h2>Deep Copy<a class="headerlink" href="#deep-copy" title="Permalink to this headline">¶</a></h2>
+<p>We can use the assignment operator &#8216;=&#8217; to copy variables.
+We can do that to copy values like strings &amp; numbers.
+Also, we can copy complete lists &amp; objects.
+The assignment operator will do a complete duplication for us.
+This operation called <a class="reference external" href="http://en.wikipedia.org/wiki/Object_copy#Deep_copy">Deep Copy</a></p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="kt">list</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="s">&quot;five&quot;</span><span class="o">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="kt">list</span>
+<span class="kt">list</span> <span class="o">=</span> <span class="o">[]</span>
+<span class="k">See</span> <span class="kt">list</span>        <span class="c"># print the first list - no items to print</span>
+<span class="k">See</span> <span class="s">&quot;********&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="n">list2</span>       <span class="c"># print the second list - contains 5 items</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="weakly-typed">
+<span id="index-3"></span><h2>Weakly Typed<a class="headerlink" href="#weakly-typed" title="Permalink to this headline">¶</a></h2>
+<p>Ring is a <a class="reference external" href="http://en.wikipedia.org/wiki/Strong_and_weak_typing">weakly typed language</a>, this means that the language can automatically
+convert between data types (like string &amp; numbers) when that conversion make sense.</p>
+<p>Rules:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">NUMBER</span><span class="o">&gt;</span> <span class="o">+</span> <span class="o">&lt;</span><span class="kt">STRING</span><span class="o">&gt;</span> <span class="o">--&gt;</span> <span class="o">&lt;</span><span class="n">NUMBER</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="kt">STRING</span><span class="o">&gt;</span> <span class="o">+</span> <span class="o">&lt;</span><span class="n">NUMBER</span><span class="o">&gt;</span> <span class="o">--&gt;</span> <span class="o">&lt;</span><span class="kt">STRING</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The same operator &#8216;+&#8217; can be used as an arithmetic operator
+or for string concatenation.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>                  <span class="c"># x is a number</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s">&quot;20&quot;</span>                <span class="c"># y is a string</span>
+<span class="n">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>             <span class="c"># sum is a number (y will be converted to a number)</span>
+<span class="n">Msg</span> <span class="o">=</span> <span class="s">&quot;Sum = &quot;</span> <span class="o">+</span> <span class="n">sum</span>    <span class="c"># Msg is a string (sum will be converted to a string)</span>
+<span class="k">see</span> <span class="n">Msg</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Variables</a><ul>
+<li><a class="reference internal" href="#dynamic-typing">Dynamic Typing</a></li>
+<li><a class="reference internal" href="#deep-copy">Deep Copy</a></li>
+<li><a class="reference internal" href="#weakly-typed">Weakly Typed</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="codeeditors.html"
+                        title="previous chapter">Using Other Code Editors</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="operators.html"
+                        title="next chapter">Operators</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/variables.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="operators.html" title="Operators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="codeeditors.html" title="Using Other Code Editors"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

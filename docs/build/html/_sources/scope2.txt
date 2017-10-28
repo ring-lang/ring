@@ -1,0 +1,204 @@
+.. index::
+	single: Scope Rules for Functions and Methods; Introduction
+
+=====================================
+Scope Rules for Functions and Methods
+=====================================
+
+In this chapter we will learn about the scope rules for functions and methods.
+
+You need to know the next information once you started using Ring for large applications.
+
+These applications may contains and use 
+
+* Many Packages and Classes written in Ring
+* Many Functions written in Ring
+* Standard Ring Functions (Written in C language)
+* Functions and Classes written in C/C++ languages
+
+.. index::
+	pair: Scope Rules for Functions and Methods; How Ring find a functions and methods?
+
+How Ring find the Functions and Methods?
+========================================
+
+When you call a method or function, Ring will start a search process to find this function
+
+If found --> Call the function and store the function pointer in the cache so Ring can use it again with doing another search.
+
+If not found ---> Runtime error message (That you can avoid using Try/Catch)
+
+How the search process is done?
+
+Search for functions/methods follow the next order
+
+1 - Search in methods (if we are inside class method or object using braces {})
+
+2 - Search in functions written by the programmer using Ring Code 
+
+3 - Search in functions written in C/C++ like standard Ring functions 
+
+This enable us to write clean code inside classes methods and avoid any conflict with functions.
+
+If we want to call a function with the same name as a method in the class we will need a wrapper function or we will access a temp. object using { } then call that function there.
+
+We can replace C/C++ Functions with Ring Functions. 
+
+We can replace Ring Functions with Ring Methods.
+
+
+.. note:: Using self.method() is not necessary in any use case.
+
+.. tip:: We can use this.method() to escape from the current active scope that we access using braces {} and call a method in the class that we are inside.
+
+.. index::
+	pair: Scope Rules for Functions and Methods; Example about Sharing Names between Functions and Methods
+
+Example about Sharing Names between Functions and Methods
+=========================================================
+
+Look at the next example
+
+.. code-block:: ring
+
+	func main
+		o1 = new myclass { test() test2() }
+		test2()
+
+	func f1
+		see "f1 function" + nl
+
+	func f2 
+		see "f2 function" + nl
+
+	func f3 
+		see "f3 function" + nl
+
+	func test2
+		myline()
+		see "test2 function" + nl
+		new myclass {
+			f1()
+			f2()
+			f3()
+			self.f3()
+		}	
+		myobj = new myclass
+		myobj.f3()
+		myline()
+
+	func myline
+		see copy("=",40) + nl
+
+	Class myclass
+
+		func test
+			myline()
+			see "test method" + nl
+			f1()
+			f2()
+			f3()
+			myline()
+
+		func f3
+			see "f3 method" + nl
+
+		func test2
+			myline()
+			see "test2 method" + nl
+			self {
+				f1()
+				f2()
+				f3()
+			}
+			myline()
+
+
+
+Output:
+
+.. code-block:: none
+
+	========================================
+	test method
+	f1 function
+	f2 function
+	f3 method
+	========================================
+	========================================
+	test2 method
+	f1 function
+	f2 function
+	f3 method
+	========================================
+	========================================
+	test2 function
+	f1 function
+	f2 function
+	f3 method
+	f3 method
+	f3 method
+	========================================
+
+.. index::
+	pair: Scope Rules for Functions and Methods; Calling a function sharing the name with a method in the current class
+
+Calling a function sharing the name with a method in the current class
+======================================================================
+
+In the previous example we have a function called f3() and we have a method called f3() 
+
+How we can call the f3() function from the test() method ?
+
+Solution (1) : Change the current object scope to another object scope
+
+In this solution we will have an empty class called local that we will use to change the current object scope.
+
+.. code-block:: ring
+
+	func main
+		o1 = new myclass { test()}
+
+	func f1
+		see "f1 function" + nl
+
+	func f2 
+		see "f2 function" + nl
+
+	func f3 
+		see "f3 function" + nl
+
+	func myline
+		see copy("=",40) + nl
+
+	Class myclass
+
+		func test
+			myline()
+			see "test method" + nl
+			f1()
+			f2()
+			f3()		   # call f3() method	
+			new local { f3() } # call f3() function 
+			myline()
+
+		func f3
+			see "f3 method" + nl
+
+	class local
+
+Output:
+
+.. code-block:: none
+
+	========================================
+	test method
+	f1 function
+	f2 function
+	f3 method
+	f3 function
+	========================================
+
+
+
+

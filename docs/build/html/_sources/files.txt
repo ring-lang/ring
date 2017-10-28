@@ -1,0 +1,712 @@
+.. index:: 
+	single: Files; Introduction
+
+=====
+Files
+=====
+
+In this chapter we are going to learn about files functions.
+
+* Read()
+* Write()
+* Dir()
+* Rename()
+* Remove()
+* fopen()
+* fclose()
+* fflush()
+* freopen()
+* tempfile()
+* tempname()
+* fseek()
+* ftell()
+* rewind()
+* fgetpos()
+* fsetpos()
+* clearerr()
+* feof()
+* ferror()
+* perror()
+* fgetc()
+* fgets()
+* fputc()
+* fputs()
+* ungetc()
+* fread()
+* fwrite()
+* fexists()
+* Numbers and Bytes
+
+.. index:: 
+	pair: Files; Read File using Read()
+
+Read() Function
+===============
+
+We can read the file content using the Read() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Read(cFileName) ---> String contains the file content
+
+Example:
+
+.. code-block:: ring
+
+	see read("myfile.txt")
+
+The read function can read binary files too
+
+Example:
+
+.. code-block:: ring
+
+	see read("myapp.exe")
+
+
+.. index:: 
+	pair: Files; Write file using Write()
+
+Write() Function
+================
+
+We can write string to file using the Write() function
+
+The write function can write binary data to binary files.
+
+Syntax:
+
+.. code-block:: ring
+
+	Write(cFileName,cString)	# write string cString to file cFileName
+
+Example:
+
+.. code-block:: ring
+
+	# copy file
+	cFile = read("ring.exe")
+	write("ring2.exe",cFile)
+
+.. index:: 
+	pair: Files; Dir()
+
+Dir() Function
+==============
+
+We can get the folder contents (files & sub folders) using the Dir() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	Dir(cFolderPath) ---> List contains files & sub folders.
+
+This function returns a list and each list item is a list of two items
+
+* File/sub folder name
+
+* Type (0 = File , 1 = Folder/Directory)
+
+Example:
+
+.. code-block:: ring
+
+	see "Testing DIR() " + nl
+	mylist = dir("C:\myfolder")
+	for x in mylist
+		if x[2] 
+			see "Directory : " + x[1] + nl
+		else
+			see "File : " + x[1] + nl
+		ok
+	next
+	see "Files count : " + len(mylist)
+
+.. index:: 
+	pair: Files; Rename()
+
+Rename() Function
+=================
+
+We can rename files using the Rename() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Rename(cOldFileName,cNewFileName)
+
+Example:
+
+.. code-block:: ring
+
+	rename("file.txt","help.txt")
+
+.. index:: 
+	pair: Files; Remove()
+
+Remove() Function
+=================
+
+We can delete a file using the Remove() function
+
+
+Syntax:
+
+.. code-block:: ring
+
+	Remove(cFileName)
+
+Example:
+
+.. code-block:: ring
+
+	remove("test.txt")
+
+.. index:: 
+	pair: Files; Fopen()
+
+Fopen() Function
+================
+
+We can open a file using the Fopen() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fopen(cFileName,cMode) ---> File Handle
+
+=====	==========================================
+Mode	Description
+=====	==========================================
+"r"	Reading (The file must exist)
+"w"	Writing (create empty file / overwrite)
+"a"	Appends (create file if it doesn't exist)
+"r+"	update (reading/writing)
+"w+"	Create empty file (reading/writing)
+"a+"	reading & appending
+=====	==========================================
+
+.. index:: 
+	pair: Files; Fclose()
+
+Fclose() Function
+=================
+
+When we open a file using fopen() function, we can close it
+using the Fclose() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fclose(file handle)
+
+.. index:: 
+	pair: Files; Fflush()
+
+Fflush() Function
+=================
+
+We can flushes the output buffer of a stream using the Fflush() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fflush(file handle)
+
+.. index:: 
+	pair: Files; Freopen()
+
+Freopen() Function
+==================
+
+We can open another file using the same file handle and at the same time close
+the old file 
+
+Syntax:
+
+.. code-block:: ring
+
+	Freopen(cFileName,cMode,file handle) ---> file handle
+
+Example:
+
+.. code-block:: ring
+
+	freopen("myprogoutput.txt","w+",stdout)
+	see "welcome" + nl
+	for x = 1 to 10
+		see x + nl
+	next
+
+	/*
+	** Read : https://en.wikipedia.org/wiki/Device_file#Device_files
+	** The next code is not portable, we can use iswindows() before 
+	** using it and we can write special code for each operating system.
+	*/
+
+	freopen("CON","w",stdout)	# For Microsoft Windows
+	see "Done" + nl			# print to stdout again
+
+Output:
+
+.. code-block:: ring
+
+	# Output to stdout
+	Done
+
+	# Output to file : myprogoutput.txt
+	welcome
+	1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+	10
+
+.. index:: 
+	pair: Files; Tempfile()
+
+Tempfile() Function
+===================
+
+The function Tempfile() creates a temp. file (binary).
+
+The file will be deleted automatically when the stream is closed
+
+Syntax:
+
+.. code-block:: ring
+
+	TempFile() ---> file handle
+
+.. index:: 
+	pair: Files; Tempname()
+
+Tempname() Function
+===================
+
+We can generate temp. file name using the Tempname() function
+
+The generated name will be different from the name of any existing file
+
+Syntax:
+
+.. code-block:: ring
+
+	Tempname() ---> generated file name as string
+
+.. index:: 
+	pair: Files; Fseek()
+
+Fseek() Function
+================
+
+We can set the file position of the stream using the Fseek() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fseek(file handle, nOffset, nWhence) ---> zero if successful
+
+The next table presents the nWhence values
+
+=====	===============================
+Value	Description
+=====	===============================
+0	Beginning of file
+1	Current position
+2	End of file
+=====	===============================
+
+.. index:: 
+	pair: Files; Ftell()
+
+Ftell() Function
+================
+
+We can know the current file position of a stream using the Ftell() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Ftell(file handle) ---> file position as number
+
+.. index:: 
+	pair: Files; Rewind()
+
+Rewind() Function
+=================
+
+We can set the file position to the beginning of the file using the Rewind() function
+
+Syntax:
+
+.. code-block:: ring
+	
+	Rewind(file handle)
+
+.. index:: 
+	pair: Files; Fgetpos()
+
+Fgetpos() Function
+==================
+
+We can get handle to the current file position using the Fgetpos() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fgetpos(file handle) ---> position handle
+
+.. index:: 
+	pair: Files; Fsetpos()
+
+Fsetpos() Function
+==================
+
+We can set the current file position using the Fgetpos() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fsetpos(file handle,position handle)
+
+.. index:: 
+	pair: Files; Clearerr()
+
+Clearerr() Function
+===================
+
+We can clear the EOF error and the error indicators of a stream using the clearerr()
+function
+
+Syntax:
+
+.. code-block:: ring
+
+	Clearerr(file handle)
+
+.. index:: 
+	pair: Files; Feof()
+
+Feof() Function
+===============
+
+We can test the end-of-file indicator using the Feof() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Feof(file handle) ---> returns 1 if EOF and 0 if not
+
+.. index:: 
+	pair: Files; Ferror()
+
+Ferror() Function
+=================
+
+We can test the error indicator of a given stream using the Ferror() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Ferror(file handle) ---> returns 1 if error and 0 if not
+
+.. index:: 
+	pair: Files; Perror()
+
+Perror() Function
+=================
+
+We can print error message to the stderr using the Perror() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Perror(cErrorMessage)
+
+.. index:: 
+	pair: Files; Fgetc()
+
+Fgetc() Function
+================
+
+We can get the next character from the stream using the Fgetc() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fgetc(file handle) ---> returns character or EOF
+
+
+.. index:: 
+	pair: Files; Fgets()
+
+Fgets() Function
+================
+
+We can read new line from the stream using the Fgets() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fgets(file handle,nSize) ---> string
+
+The function stop when nSize characters are read, new line character is read or EOF.
+
+.. index:: 
+	pair: Files; Fputc()
+
+Fputc() Function
+================
+
+We can write a character to the stream using the Fputc() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fputc(file handle,cChar)
+
+.. index:: 
+	pair: Files; Fputs()
+
+Fputs() Function
+================
+
+We can write a string to the stream using the Fputs() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fputs(file handle,cString)
+
+
+.. index:: 
+	pair: Files; Ungetc()
+
+Ungetc() Function
+=================
+
+We can push a character to the stream using the Ungetc() function
+
+The character will be available for the next read
+
+Syntax:
+
+.. code-block:: ring
+
+	Ungetc(file handle,character)
+
+
+.. index:: 
+	pair: Files; Fread()
+
+Fread() Function
+================
+
+We can read data from a stream using the Fread() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fread(file handle,nSize)
+
+.. index:: 
+	pair: Files; Fwrite()
+
+Fwrite() Function
+=================
+
+We can write data to a stream using the Fwrite() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fwrite(file handle,cString)
+
+
+.. index:: 
+	pair: Files; Fexists()
+
+Fexists() Function
+==================
+
+We can check if a file exists using the Fexists() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Fexists(cFileName) ---> returns 1 if the file exists
+
+Example:
+
+.. code-block:: ring
+
+	see fexists("b:\mahmoud\apps\ring\ring.exe") + nl +
+	    fexists("b:\mahmoud\apps\ring\ring2.exe") + nl 
+
+Output:
+
+.. code-block:: ring
+
+	1
+	0
+
+.. index:: 
+	pair: Files; Example
+
+Example
+=======
+
+The next program test some of the file functions
+
+.. code-block:: ring
+
+	See "testing file functions" + nl
+
+	See "open file" + nl
+	fp = fopen(exefolder() + "../tests/scripts/s65.ring","r")
+
+	See "reopen" + nl
+	fp = freopen(exefolder() + "../tests/scripts/s78.ring","r",fp)
+	See "close file" + nl
+	fclose(fp)
+
+	see "temp file" + nl
+	fp = tempfile()
+	fclose(fp)
+
+	see "temp name" + nl
+	see tempname() + nl
+
+	remove(exefolder() + "../tests/scripts/mytest2.txt")
+	write(exefolder() + "../tests/scripts/tests1.txt","hello")
+	rename(exefolder() + "../tests/scripts/test1.txt",exefolder() +
+						"../tests/scripts/mytests2.txt")
+
+	see "print file" + nl
+	fp = fopen(exefolder() + "../samples/fromdoc/filefuncs.ring","r")
+	r = fgetc(fp)
+	while isstring(r)
+			see r
+			r = fgetc(fp)
+	end
+	fclose(fp)
+
+	see nl+"print line from the file" + nl
+	fp = fopen(exefolder() + "../samples/fromdoc/filefuncs.ring","r")
+	r = fgets(fp,33)
+	see r + nl
+	fclose(fp)
+	fp = fopen(exefolder() + "../tests/scripts/test78.txt","w+")
+	fseek(fp,0,2) # goto end of file
+	fputc(fp,"t")
+	fputc(fp,"e")
+	fputc(fp,"s")
+	fputc(fp,"t")
+	fputs(fp,"tests2")
+	fclose(fp)
+
+	see "print file" + nl
+	see read(exefolder() + "../tests/scripts/test78.txt")
+
+	fp = fopen(exefolder() + "../tests/scripts/test78.txt","r")
+	see "testing ungetc() " + nl
+	for x = 1 to 3
+			r = fgetc(fp)
+			see r + nl
+			ungetc(fp,r)
+	next
+	fclose(fp)
+
+	see "testing fread() " + nl
+	fp = fopen(exefilename(),"rb")
+	r = fread(fp,100)
+	see r + nl
+	fclose(fp)
+
+	see "testing fwrite() " + nl
+	fp = fopen(exefolder() + "../tests/scripts/test1.txt","wb")
+	fwrite(fp,r)
+	fclose(fp)
+
+The next example print part of the content of a binary file
+
+.. code-block:: ring
+
+	see "Testing: fread()" +" FileName: "+ exefilename() +nl +nl
+	fp = fopen(exefilename(),"rb")
+	r = fread(fp,800)
+	for n =1 to len(r)
+		if isprint(substr(r, n, 1)) 
+			see substr(r, n, 1) 
+		else
+			see "." 
+		ok
+		### 80 char per line
+		if n % 80 = 0  
+			see nl
+		ok
+	next
+	fclose(fp)
+
+.. index:: 
+	pair: Files; Numbers and Bytes
+
+Numbers and Bytes
+=================
+
+The next functions to convert between Numbers and Bytes.
+
+* Int2Bytes()
+* Float2Bytes()
+* Double2Bytes()
+* Bytes2Int()
+* Bytes2Float()
+* Bytes2Double()
+
+Example:
+
+.. code-block:: ring
+
+	see "Test Int2Bytes() and Bytes2Int() - Value : 77" + nl
+	r = Int2Bytes(77)
+	see "Int Size : " + len(r) + nl
+	see r + nl
+	see Bytes2Int(r) + nl
+	see "Test Float2Bytes() and Bytes2Float() - Value 77.12" + nl
+	r = Float2Bytes(77.12)
+	see "Float Size : " + len(r) + nl
+	see r + nl
+	see Bytes2Float(r) + nl
+	see "Test Double2Bytes() and Bytes2Double() - Value 9999977.12345" + nl
+	r = Double2Bytes(9999977.12345)
+	see "Double Size : " + len(r) + nl
+	see r + nl
+	decimals(5)
+	see Bytes2Double(r) + nl

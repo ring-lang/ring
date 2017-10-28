@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting Input &mdash; Ring 1.5.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="next" title="Functions - First Style" href="functions.html" />
+    <link rel="prev" title="Control Structures - Third Style" href="controlstructures3.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="Functions - First Style"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="controlstructures3.html" title="Control Structures - Third Style"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-input">
+<span id="index-0"></span><h1>Getting Input<a class="headerlink" href="#getting-input" title="Permalink to this headline">¶</a></h1>
+<p>We can get input from the keyboard using</p>
+<ul class="simple">
+<li>The Give Command</li>
+<li>The GetChar() Function</li>
+<li>The Input() Function</li>
+</ul>
+<div class="section" id="give-command">
+<span id="index-1"></span><h2>Give Command<a class="headerlink" href="#give-command" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Give</span> <span class="n">VariableName</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter the first number : &quot;</span> <span class="k">Give</span> <span class="n">nNum1</span>
+<span class="k">See</span> <span class="s">&quot;Enter the second number : &quot;</span> <span class="k">Give</span> <span class="n">nNum2</span>
+<span class="k">See</span> <span class="s">&quot;Sum : &quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">nNum1</span> <span class="o">+</span> <span class="n">nNum2</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">the</span> <span class="n">first</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">the</span> <span class="n">second</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="n">Sum</span> <span class="p">:</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getchar-function">
+<span id="index-2"></span><h2>GetChar() Function<a class="headerlink" href="#getchar-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get one character from the standard input using the GetChar() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">GetChar</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Character</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="kp">True</span>
+        <span class="k">See</span> <span class="s">&quot;</span>
+                <span class="n">Main</span> <span class="n">Menu</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">Exit</span>
+            <span class="s">&quot;</span>
+        <span class="n">Option</span> <span class="o">=</span> <span class="n">GetChar</span><span class="p">()</span>
+        <span class="n">GetChar</span><span class="p">()</span> <span class="n">GetChar</span><span class="p">()</span>  <span class="c"># End of line</span>
+
+        <span class="c"># the previous two lines can be replaced with the next line</span>
+        <span class="c"># Give Option</span>
+
+        <span class="k">if</span> <span class="n">Option</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">see</span> <span class="s">&quot;Enter your name : &quot;</span> <span class="k">give</span> <span class="n">cName</span>
+                <span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
+        <span class="k">else</span>
+                <span class="k">bye</span>
+        <span class="k">ok</span>
+<span class="k">End</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="input-function">
+<span id="index-3"></span><h2>Input() Function<a class="headerlink" href="#input-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get input from the keyboard using the Input() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">(</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>The function will wait until nCount characters (at least) are read</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter message (30 characters) : &quot;</span> <span class="n">cMsg</span> <span class="o">=</span> <span class="n">input</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Message : &quot;</span> <span class="o">+</span> <span class="n">cMsg</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Input</a><ul>
+<li><a class="reference internal" href="#give-command">Give Command</a></li>
+<li><a class="reference internal" href="#getchar-function">GetChar() Function</a></li>
+<li><a class="reference internal" href="#input-function">Input() Function</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="controlstructures3.html"
+                        title="previous chapter">Control Structures - Third Style</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="next chapter">Functions - First Style</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/getinput.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="functions.html" title="Functions - First Style"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="controlstructures3.html" title="Control Structures - Third Style"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

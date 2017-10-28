@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Control Structures - Third Style &mdash; Ring 1.5.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="next" title="Getting Input" href="getinput.html" />
+    <link rel="prev" title="Control Structures - Second Style" href="controlstructures2.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="getinput.html" title="Getting Input"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="controlstructures2.html" title="Control Structures - Second Style"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="control-structures-third-style">
+<span id="index-0"></span><h1>Control Structures - Third Style<a class="headerlink" href="#control-structures-third-style" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the third style of control structures
+provided by the Ring programming language.</p>
+<div class="section" id="branching">
+<span id="index-1"></span><h2>Branching<a class="headerlink" href="#branching" title="Permalink to this headline">¶</a></h2>
+<ul class="simple" id="index-2">
+<li>If Statement</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Expression</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="k">elseif</span> <span class="n">Expression</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="k">else</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">---------</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
+    <span class="s">&quot;)</span>
+
+<span class="n">nOption</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">1</span>  <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">getstring</span><span class="p">()</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{name}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sample : using if statement</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">bye</span>
+<span class="k">else</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;bad option...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple" id="index-3">
+<li>Switch Statement</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="n">Expression</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">Expression</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="k">else</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">---------</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
+
+      <span class="s">&quot;)</span>
+
+<span class="n">nOption</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">()</span>
+
+<span class="k">switch</span> <span class="n">nOption</span> <span class="p">{</span>
+<span class="k">case</span> <span class="mi">1</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">getstring</span><span class="p">()</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{name}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="mi">2</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sample : using switch statement</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="mi">3</span>
+        <span class="k">Bye</span>
+<span class="k">else</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;bad option...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="looping">
+<span id="index-4"></span><h2>Looping<a class="headerlink" href="#looping" title="Permalink to this headline">¶</a></h2>
+<ul class="simple" id="index-5">
+<li>While Loop</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">Expression</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="k">While</span> <span class="kp">True</span> <span class="p">{</span>
+
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+                <span class="n">Main</span> <span class="n">Menu</span>
+                <span class="o">---------</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+                <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
+
+                  <span class="s">&quot;)</span>
+
+        <span class="n">nOption</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">()</span>
+
+        <span class="k">switch</span> <span class="n">nOption</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">getstring</span><span class="p">()</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{name}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">2</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sample : using switch statement</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">3</span>
+                <span class="k">Bye</span>
+        <span class="k">else</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;bad option...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple" id="index-6">
+<li>For Loop</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">identifier</span><span class="o">=</span><span class="n">expression</span> <span class="k">to</span> <span class="n">expression</span> <span class="o">[</span><span class="k">step</span> <span class="n">expression</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># print numbers from 1 to 10</span>
+<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>  <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Dynamic loop</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Start : &quot;</span><span class="p">)</span> <span class="n">nStart</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;End   : &quot;</span><span class="p">)</span> <span class="n">nEnd</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Step  : &quot;</span><span class="p">)</span> <span class="n">nStep</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">nStart</span> <span class="k">to</span> <span class="n">nEnd</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># print even numbers from 0 to 10</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">step</span> <span class="mi">2</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># print even numbers from 10 to 0</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">to</span> <span class="mi">0</span> <span class="k">step</span> <span class="o">-</span><span class="mi">2</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple" id="index-7">
+<li>For in Loop</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">identifier</span> <span class="k">in</span> <span class="kt">List</span><span class="o">/</span><span class="kt">String</span>  <span class="o">[</span><span class="k">step</span> <span class="n">expression</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span> <span class="p">}</span>  <span class="c"># print numbers from 1 to 10</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
+<span class="c"># print odd items inside the list</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="k">step</span> <span class="mi">2</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When we use (For in) we get items by reference.</p>
+<p>This means that we can read/edit items inside the loop.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>     <span class="c"># create list contains numbers from 1 to 5</span>
+<span class="c"># replace list numbers with strings</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;one&quot;</span>
+        <span class="k">case</span> <span class="mi">2</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;two&quot;</span>
+        <span class="k">case</span> <span class="mi">3</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;three&quot;</span>
+        <span class="k">case</span> <span class="mi">4</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;four&quot;</span>
+        <span class="k">case</span> <span class="mi">5</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;five&quot;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">print</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>    <span class="c"># print the list items</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exceptions">
+<span id="index-8"></span><h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="k">catch</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Control Structures - Third Style</a><ul>
+<li><a class="reference internal" href="#branching">Branching</a></li>
+<li><a class="reference internal" href="#looping">Looping</a></li>
+<li><a class="reference internal" href="#exceptions">Exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="controlstructures2.html"
+                        title="previous chapter">Control Structures - Second Style</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="getinput.html"
+                        title="next chapter">Getting Input</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/controlstructures3.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="getinput.html" title="Getting Input"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="controlstructures2.html" title="Control Structures - Second Style"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

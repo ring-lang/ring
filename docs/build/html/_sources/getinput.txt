@@ -1,0 +1,101 @@
+.. index:: 
+	single: Getting Input; Introduction
+
+=============
+Getting Input
+=============
+
+We can get input from the keyboard using 
+
+* The Give Command
+* The GetChar() Function
+* The Input() Function
+
+.. index:: 
+	pair: Getting Input; Give Command
+
+Give Command
+============
+
+Syntax:
+
+.. code-block:: ring
+
+	Give VariableName
+
+Example:
+
+.. code-block:: ring
+
+	See "Enter the first number : " Give nNum1
+	See "Enter the second number : " Give nNum2
+	See "Sum : " + ( 0 + nNum1 + nNum2 )
+ 
+Output:
+
+.. code-block:: ring
+
+	Enter the first number : 3
+	Enter the second number : 4
+	Sum : 7
+
+.. index:: 
+	pair: Getting Input; GetChar()
+
+GetChar() Function
+==================
+
+We can get one character from the standard input using the GetChar() function
+
+Syntax:
+
+.. code-block:: ring
+
+	GetChar() ---> Character
+
+Example:
+
+.. code-block:: ring
+
+	While True
+		See "
+			Main Menu
+			(1) Say Hello
+			(2) Exit
+		    " 
+		Option = GetChar()
+		GetChar() GetChar()  # End of line
+
+		# the previous two lines can be replaced with the next line
+		# Give Option
+
+		if Option = 1
+			see "Enter your name : " give cName 
+			see "Hello " + cName
+		else
+			bye
+		ok
+	End
+
+.. index:: 
+	pair: Getting Input; Input()
+
+Input() Function
+================
+
+We can get input from the keyboard using the Input() function
+
+Syntax:
+
+.. code-block:: ring
+
+	Input(nCount) ---> string
+
+The function will wait until nCount characters (at least) are read
+
+Example:
+
+.. code-block:: ring
+
+	See "Enter message (30 characters) : " cMsg = input(30)
+	See "Message : " + cMsg

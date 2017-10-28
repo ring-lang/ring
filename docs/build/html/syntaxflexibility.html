@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Syntax Flexibility &mdash; Ring 1.5.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="next" title="Introduction to the Type Hints Library" href="typehints.html" />
+    <link rel="prev" title="Scope Rules for Functions and Methods" href="scope2.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="typehints.html" title="Introduction to the Type Hints Library"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scope2.html" title="Scope Rules for Functions and Methods"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="syntax-flexibility">
+<span id="index-0"></span><h1>Syntax Flexibility<a class="headerlink" href="#syntax-flexibility" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about some options that are provided automatically by the Ring
+compiler for syntax flexibility.</p>
+<div class="section" id="change-language-keywords">
+<span id="index-1"></span><h2>Change Language Keywords<a class="headerlink" href="#change-language-keywords" title="Permalink to this headline">¶</a></h2>
+<p>We can change any keyword using the ChangeRingKeyword command.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Remember to restore the keyword again if the team will mix between styles in the same project.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The ChangeRingKeyword command is executed in the scanner stage by the compiler (before parsing).</p>
+</div>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>  <span class="o">&lt;</span><span class="n">oldkeyword</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">newkeyword</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span> <span class="k">see</span> <span class="n">print</span>
+
+<span class="n">print</span> <span class="s">&quot;welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">ChangeRingKeyword</span> <span class="n">print</span> <span class="k">see</span>
+
+<span class="k">see</span> <span class="s">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>  <span class="k">func</span> <span class="n">function</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">see</span>  <span class="n">print</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">ok</span>   <span class="n">endif</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">next</span> <span class="n">endfor</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">end</span>  <span class="n">endwhile</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">print</span> <span class="s">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="k">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span>
+                        <span class="n">print</span> <span class="s">&quot;number three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">endif</span>
+        <span class="n">endfor</span>
+
+<span class="n">x</span><span class="o">--</span>
+<span class="n">endwhile</span>
+
+<span class="n">test</span><span class="p">()</span>
+
+<span class="n">function</span> <span class="n">test</span>
+        <span class="n">print</span> <span class="s">&quot;message from test&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">ChangeRingKeyword</span>  <span class="n">function</span> <span class="k">func</span>
+<span class="k">ChangeRingKeyword</span>  <span class="n">print</span> <span class="k">see</span>
+<span class="k">ChangeRingKeyword</span>  <span class="n">endif</span> <span class="k">ok</span>
+<span class="k">ChangeRingKeyword</span>  <span class="n">endfor</span> <span class="k">next</span>
+<span class="k">ChangeRingKeyword</span>  <span class="n">endwhile</span> <span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-language-operators">
+<span id="index-2"></span><h2>Change Language Operators<a class="headerlink" href="#change-language-operators" title="Permalink to this headline">¶</a></h2>
+<p>We can change any operator using the ChangeRingOperator command.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Remember to restore the operator again if the team will mix between styles in the same project.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The ChangeRingOperartor command is executed in the scanner stage by the compiler (before parsing).</p>
+</div>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">ChangeRingOperator</span>  <span class="o">&lt;</span><span class="n">oldkeyword</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">newkeyword</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>The next program hide the + operator by changing it to _+</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span>changeringoperator + _+
+changeringkeyword SEE PRINT
+
+try
+        print 5 + 10
+catch
+        print nl print &quot;error&quot; print nl
+done
+
+changeringoperator _+ +
+</pre></div>
+</div>
+<p>The next program change the + operator to &#8220;plus&#8221;.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">changeringoperator</span> <span class="o">+</span> <span class="n">plus</span>
+<span class="k">changeringkeyword</span> <span class="k">SEE</span> <span class="n">PRINT</span>
+
+<span class="n">Print</span> <span class="mi">5</span> <span class="n">plus</span> <span class="mi">5</span>
+
+<span class="k">changeringoperator</span> <span class="n">plus</span> <span class="o">+</span>
+<span class="k">changeringkeyword</span> <span class="n">PRINT</span> <span class="k">SEE</span>
+</pre></div>
+</div>
+<span class="target" id="index-3"></span></div>
+<div class="section" id="load-syntax-files">
+<span id="index-4"></span><h2>Load Syntax Files<a class="headerlink" href="#load-syntax-files" title="Permalink to this headline">¶</a></h2>
+<p>You may store a group of ChangeRingKeyword and ChangeRingOperator commands in a file to use later
+in many source files. You can&#8217;t use the Load command to call these files because</p>
+<ul class="simple">
+<li>ChangeRingKeyword and ChangeRingOperator commands are executed in the scanner phase by the compiler (before parsing).</li>
+<li>The load command is executed in the parsing phase (after the scanner phase).</li>
+</ul>
+<p>Solution: Use the LoadSyntax Command which is executed in the scanner phase.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">LoadSyntax</span>      <span class="s">&quot;syntaxfile.ring&quot;</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>File : StyleBasicOn.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>       <span class="k">see</span>     <span class="n">print</span>
+<span class="k">ChangeRingKeyword</span>       <span class="k">ok</span>      <span class="n">endif</span>
+<span class="k">ChangeRingKeyword</span>       <span class="k">next</span>    <span class="n">endfor</span>
+<span class="k">ChangeRingKeyword</span>       <span class="k">end</span>     <span class="n">endwhile</span>
+</pre></div>
+</div>
+<p>File : StyleBasicOff.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>  <span class="n">print</span>        <span class="k">see</span>
+<span class="k">ChangeRingKeyword</span>  <span class="n">endif</span>        <span class="k">ok</span>
+<span class="k">ChangeRingKeyword</span>  <span class="n">endfor</span>       <span class="k">next</span>
+<span class="k">ChangeRingKeyword</span>  <span class="n">endwhile</span>     <span class="k">end</span>
+</pre></div>
+</div>
+<p>File : UseStyleBasic.ring</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">LoadSyntax</span> <span class="s">&quot;stylebasicon.ring&quot;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">print</span> <span class="s">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="k">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span>
+                        <span class="n">print</span> <span class="s">&quot;number three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">endif</span>
+        <span class="n">endfor</span>
+        <span class="n">x</span><span class="o">--</span>
+<span class="n">endwhile</span>
+
+<span class="k">LoadSyntax</span> <span class="s">&quot;stylebasicoff.ring&quot;</span>
+
+<span class="k">see</span> <span class="s">&quot;done&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">files called by the LoadSyntax command must contains ChangeRingKeyword and ChangeRingOperator commands only.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">files called by the LoadSyntax command doesn&#8217;t support functions, packages and classes. just imperative commands only.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using this feature you can create many styles that you can use in the same project and you can support Ring translation to other languages like Arabic, French and so on.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The effect of LoadSyntax command is related to the current source code file only.</p>
+</div>
+</div>
+<div class="section" id="using-around-the-function-parameters">
+<h2>Using &#8220;()&#8221; around the function parameters<a class="headerlink" href="#using-around-the-function-parameters" title="Permalink to this headline">¶</a></h2>
+<p>We can use () around the function parameters (optional).</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
+<span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">hello</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Hello</span>
+<span class="mi">7</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">myfunc</span> <span class="o">=</span> <span class="k">func</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span>
+
+<span class="k">call</span> <span class="n">myfunc</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">myfunc2</span> <span class="o">=</span> <span class="k">func</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">nl</span> <span class="p">}</span>
+
+<span class="k">call</span> <span class="n">myfunc</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">7</span>
+<span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-semi-colon-after-and-between-statements">
+<span id="index-5"></span><h2>Using Semi-colon after and between statements<a class="headerlink" href="#using-semi-colon-after-and-between-statements" title="Permalink to this headline">¶</a></h2>
+<p>In Ring we can use semi-colon after and between statements (optional).</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># Using semi-colon is optional</span>
+
+<span class="k">see</span> <span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">;</span> <span class="k">see</span> <span class="s">&quot;How are you?&quot;</span> <span class="o">+</span> <span class="n">nl</span>  <span class="p">;</span> <span class="k">see</span> <span class="s">&quot;Welcome to Ring&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">;</span>
+<span class="n">one</span><span class="p">()</span> <span class="p">;</span> <span class="n">two</span><span class="p">()</span> <span class="p">;</span> <span class="n">three</span><span class="p">()</span> <span class="p">;</span>
+<span class="k">func</span> <span class="n">one</span> <span class="p">;</span> <span class="k">see</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">;</span>
+<span class="k">func</span> <span class="n">two</span> <span class="p">;</span> <span class="k">see</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">;</span>
+<span class="k">func</span> <span class="n">three</span> <span class="p">;</span> <span class="k">see</span> <span class="s">&quot;three&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Hello</span>
+<span class="n">How</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
+<span class="n">Welcome</span> <span class="k">to</span> <span class="n">Ring</span>
+<span class="n">one</span>
+<span class="n">two</span>
+<span class="n">three</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-and-in-the-start-of-the-variable-name">
+<span id="index-6"></span><h2>Using $ and &#64; in the start of the variable name<a class="headerlink" href="#using-and-in-the-start-of-the-variable-name" title="Permalink to this headline">¶</a></h2>
+<p>You can use any unicode character in the variable name also we can use $ and &#64; in the name.</p>
+<p>This feature may help, for example we can start global variables with $ and the object attributes
+with &#64;.</p>
+<p>In other languages like Ruby this is the rule, In the Ring language this is just an option without
+any force from the Compiler.</p>
+<p>example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">$</span><span class="n">global_variable</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">new</span> <span class="n">test</span> <span class="p">{</span> <span class="n">hello</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">test</span>
+
+        <span class="o">@</span><span class="n">instance_variable</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="k">func</span> <span class="n">hello</span>
+
+                <span class="n">local_variable</span> <span class="o">=</span> <span class="mi">15</span>
+
+                <span class="k">see</span> <span class="s">&quot;Global   : &quot;</span> <span class="o">+</span> <span class="o">$</span><span class="n">global_variable</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                    <span class="s">&quot;Instance : &quot;</span> <span class="o">+</span> <span class="o">@</span><span class="n">instance_variable</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                    <span class="s">&quot;Local    : &quot;</span> <span class="o">+</span> <span class="n">local_variable</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Global</span>   <span class="p">:</span> <span class="mi">5</span>
+<span class="n">Instance</span> <span class="p">:</span> <span class="mi">10</span>
+<span class="n">Local</span>    <span class="p">:</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-elseif-keyword-as-but-in-if-statement">
+<span id="index-7"></span><h2>Using the &#8216;elseif&#8217; keyword as &#8216;but&#8217; in if statement<a class="headerlink" href="#using-the-elseif-keyword-as-but-in-if-statement" title="Permalink to this headline">¶</a></h2>
+<p>if you don&#8217;t like the &#8216;but&#8217; keyword in if statement
+Then you can use the &#8216;elseif&#8217; keyword.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">give</span> <span class="n">x</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">see</span> <span class="s">&quot;one&quot;</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span> <span class="k">see</span> <span class="s">&quot;two&quot;</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span> <span class="k">see</span> <span class="s">&quot;three&quot;</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">4</span> <span class="k">see</span> <span class="s">&quot;four&quot;</span>
+<span class="k">else</span> <span class="k">see</span> <span class="s">&quot;other&quot;</span>
+<span class="k">ok</span>
+<span class="k">see</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-else-keyword-as-other-in-switch-statement">
+<span id="index-8"></span><h2>Using the &#8216;else&#8217; keyword as &#8216;other&#8217; in switch statement<a class="headerlink" href="#using-the-else-keyword-as-other-in-switch-statement" title="Permalink to this headline">¶</a></h2>
+<p>if you don&#8217;t like the &#8216;other&#8217; keyword in switch statement
+Then you can use the &#8216;else&#8217; keyword.</p>
+<p>Also you can replace &#8216;else&#8217; with &#8216;other&#8217; in if statement.</p>
+<p>i.e. &#8216;other&#8217; keyword is the same as &#8216;else&#8217; keyword.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">switch</span> <span class="n">x</span>
+        <span class="k">on</span> <span class="mi">10</span>
+                <span class="k">see</span> <span class="s">&quot;10&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span>
+                <span class="k">see</span> <span class="s">&quot;not 10&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-end-keyword-in-different-control-structures">
+<span id="index-9"></span><h2>Using the &#8216;end&#8217; keyword in different control structures<a class="headerlink" href="#using-the-end-keyword-in-different-control-structures" title="Permalink to this headline">¶</a></h2>
+<p>We can use the &#8216;end&#8217; keyword to close different control structures</p>
+<ul class="simple">
+<li>If statement</li>
+<li>For loop</li>
+<li>Switch</li>
+<li>While</li>
+<li>Try-Catch</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;if statement..&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">see</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span>
+        <span class="k">see</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span>
+        <span class="k">see</span> <span class="s">&quot;three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">end</span>
+<span class="k">see</span> <span class="s">&quot;for loop..&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="k">see</span> <span class="n">t</span>
+<span class="k">end</span>
+<span class="k">see</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;switch...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">switch</span> <span class="n">x</span>
+        <span class="k">on</span> <span class="mi">1</span> <span class="k">see</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">on</span> <span class="mi">2</span> <span class="k">see</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">end</span>
+
+<span class="k">see</span> <span class="s">&quot;try catch...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">try</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">catch</span>
+        <span class="k">see</span> <span class="s">&quot;catching error&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">statement</span><span class="p">..</span>
+<span class="n">one</span>
+<span class="k">for</span> <span class="k">loop</span><span class="p">..</span>
+<span class="mi">12345678910</span>
+<span class="k">switch</span><span class="p">...</span>
+<span class="n">one</span>
+<span class="k">try</span> <span class="k">catch</span><span class="p">...</span>
+<span class="n">catching</span> <span class="n">error</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-braces-to-start-and-end-different-control-structures">
+<span id="index-10"></span><h2>Using braces to start and end different control structures<a class="headerlink" href="#using-braces-to-start-and-end-different-control-structures" title="Permalink to this headline">¶</a></h2>
+<p>We can use braces { } to start and end different control structures</p>
+<ul class="simple">
+<li>If statement</li>
+<li>For loop</li>
+<li>Switch</li>
+<li>While</li>
+<li>Try-Catch</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;if statement..&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span>
+        <span class="k">see</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span>
+        <span class="k">see</span> <span class="s">&quot;three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="p">}</span>
+<span class="k">see</span> <span class="s">&quot;for loop..&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">t</span>
+<span class="p">}</span>
+<span class="k">see</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;switch...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
+        <span class="k">on</span> <span class="mi">1</span> <span class="k">see</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">on</span> <span class="mi">2</span> <span class="k">see</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="p">}</span>
+
+<span class="k">see</span> <span class="s">&quot;try catch...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">try</span> <span class="p">{</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">catch</span>
+        <span class="k">see</span> <span class="s">&quot;catching error&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">statement</span><span class="p">..</span>
+<span class="n">one</span>
+<span class="k">for</span> <span class="k">loop</span><span class="p">..</span>
+<span class="mi">12345678910</span>
+<span class="k">switch</span><span class="p">...</span>
+<span class="n">one</span>
+<span class="k">try</span> <span class="k">catch</span><span class="p">...</span>
+<span class="n">catching</span> <span class="n">error</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-put-and-get-as-see-and-give">
+<span id="index-11"></span><h2>Using &#8216;put&#8217; and &#8216;get&#8217; as &#8216;see&#8217; and &#8216;give&#8217;<a class="headerlink" href="#using-put-and-get-as-see-and-give" title="Permalink to this headline">¶</a></h2>
+<p>We can replace the &#8216;see&#8217; keyword with the &#8216;put&#8217; keyword.</p>
+<p>Also we can replacew the &#8216;give&#8217; keyword with the &#8216;get&#8217; keyword.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">put</span> <span class="s">&quot;Hello World&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">put</span> <span class="s">&quot;Enter Your Name ? &quot;</span> <span class="k">Get</span> <span class="n">Name</span>
+<span class="k">Put</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">Name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-case-as-on-in-switch-statements">
+<span id="index-12"></span><h2>Using &#8216;case&#8217; as &#8216;on&#8217; in switch statements<a class="headerlink" href="#using-case-as-on-in-switch-statements" title="Permalink to this headline">¶</a></h2>
+<p>We can replace the &#8216;on&#8217; keyword with &#8216;case&#8217; keyword in the switch statement.</p>
+<p>Example (1) :</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="k">switch</span> <span class="n">x</span>
+        <span class="k">case</span> <span class="mi">1</span> <span class="k">put</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">case</span> <span class="mi">2</span> <span class="k">put</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">case</span> <span class="mi">3</span> <span class="k">put</span> <span class="s">&quot;thre&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span> <span class="k">put</span> <span class="s">&quot;else&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Example (2) :</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span> <span class="k">put</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">case</span> <span class="mi">2</span> <span class="k">put</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">case</span> <span class="mi">3</span> <span class="k">put</span> <span class="s">&quot;thre&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span> <span class="k">put</span> <span class="s">&quot;else&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-def-as-func-in-functions-methods-definition">
+<span id="index-13"></span><h2>Using &#8216;def&#8217; as &#8216;func&#8217; in functions/methods definition<a class="headerlink" href="#using-def-as-func-in-functions-methods-definition" title="Permalink to this headline">¶</a></h2>
+<p>We can use the &#8216;def&#8217; keyword as the &#8216;func&#8217; keyword to define functions and methods.</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="n">one</span> <span class="k">put</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">def</span> <span class="n">two</span> <span class="k">put</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-braces-in-packages-classes-functions">
+<span id="index-14"></span><h2>Using braces { } in Packages/Classes/Functions<a class="headerlink" href="#using-braces-in-packages-classes-functions" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="k">import</span> <span class="n">mypackage</span>
+
+<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span>
+        <span class="n">myfunc</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">package</span> <span class="n">mypackage</span>
+<span class="p">{</span>
+        <span class="k">class</span> <span class="n">myclass</span>
+        <span class="p">{</span>
+                <span class="k">func</span> <span class="n">myfunc</span>
+                <span class="p">{</span>
+                        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-end-keyword-after-packages-classes-functions">
+<span id="index-15"></span><h2>Using &#8216;end&#8217; keyword after Packages/Classes/Functions<a class="headerlink" href="#using-end-keyword-after-packages-classes-functions" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">mypackage</span>
+
+<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span>
+        <span class="n">myfunc</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">package</span> <span class="n">mypackage</span>
+        <span class="k">class</span> <span class="n">myclass</span>
+                <span class="k">def</span> <span class="n">myfunc</span>
+                        <span class="k">put</span> <span class="s">&quot;Hello, World!&quot;</span>
+                <span class="k">end</span>
+        <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions">
+<span id="index-16"></span><h2>Using &#8216;endpackage&#8217;/&#8217;endclass&#8217;/&#8217;endfunc&#8217; keywords after Packages/Classes/Functions<a class="headerlink" href="#using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">mypackage</span>
+
+<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">myfunc</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="n">package</span> <span class="n">mypackage</span>
+        <span class="k">class</span> <span class="n">myclass</span>
+                <span class="k">func</span> <span class="n">myfunc</span>
+                        <span class="k">see</span> <span class="s">&quot;welcome&quot;</span>  <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">endfunc</span>
+        <span class="k">endclass</span>
+<span class="k">endpackage</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Syntax Flexibility</a><ul>
+<li><a class="reference internal" href="#change-language-keywords">Change Language Keywords</a></li>
+<li><a class="reference internal" href="#change-language-operators">Change Language Operators</a></li>
+<li><a class="reference internal" href="#load-syntax-files">Load Syntax Files</a></li>
+<li><a class="reference internal" href="#using-around-the-function-parameters">Using &#8220;()&#8221; around the function parameters</a></li>
+<li><a class="reference internal" href="#using-semi-colon-after-and-between-statements">Using Semi-colon after and between statements</a></li>
+<li><a class="reference internal" href="#using-and-in-the-start-of-the-variable-name">Using $ and &#64; in the start of the variable name</a></li>
+<li><a class="reference internal" href="#using-the-elseif-keyword-as-but-in-if-statement">Using the &#8216;elseif&#8217; keyword as &#8216;but&#8217; in if statement</a></li>
+<li><a class="reference internal" href="#using-the-else-keyword-as-other-in-switch-statement">Using the &#8216;else&#8217; keyword as &#8216;other&#8217; in switch statement</a></li>
+<li><a class="reference internal" href="#using-the-end-keyword-in-different-control-structures">Using the &#8216;end&#8217; keyword in different control structures</a></li>
+<li><a class="reference internal" href="#using-braces-to-start-and-end-different-control-structures">Using braces to start and end different control structures</a></li>
+<li><a class="reference internal" href="#using-put-and-get-as-see-and-give">Using &#8216;put&#8217; and &#8216;get&#8217; as &#8216;see&#8217; and &#8216;give&#8217;</a></li>
+<li><a class="reference internal" href="#using-case-as-on-in-switch-statements">Using &#8216;case&#8217; as &#8216;on&#8217; in switch statements</a></li>
+<li><a class="reference internal" href="#using-def-as-func-in-functions-methods-definition">Using &#8216;def&#8217; as &#8216;func&#8217; in functions/methods definition</a></li>
+<li><a class="reference internal" href="#using-braces-in-packages-classes-functions">Using braces { } in Packages/Classes/Functions</a></li>
+<li><a class="reference internal" href="#using-end-keyword-after-packages-classes-functions">Using &#8216;end&#8217; keyword after Packages/Classes/Functions</a></li>
+<li><a class="reference internal" href="#using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions">Using &#8216;endpackage&#8217;/&#8217;endclass&#8217;/&#8217;endfunc&#8217; keywords after Packages/Classes/Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="scope2.html"
+                        title="previous chapter">Scope Rules for Functions and Methods</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="typehints.html"
+                        title="next chapter">Introduction to the Type Hints Library</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/syntaxflexibility.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="typehints.html" title="Introduction to the Type Hints Library"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scope2.html" title="Scope Rules for Functions and Methods"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

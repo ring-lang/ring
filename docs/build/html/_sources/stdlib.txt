@@ -1,0 +1,1295 @@
+.. index:: 
+	single: Stdlib Functions; Introduction
+
+================
+Stdlib Functions
+================
+
+In this chapter we are going to learn about functions in the stdlib.ring
+
+Before using the functions in the library, We must load the library first
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+
+.. index:: 
+	pair: Stdlib Functions; puts()
+
+puts() function
+===============
+
+print the value then print new line (nl)
+
+Syntax:
+
+.. code-block:: ring
+
+	puts(expr)
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Hello, World!")
+
+.. index:: 
+	pair: Stdlib Functions; print()
+
+print() function
+=================
+
+print string - support \\n,\\t and \\r
+
+Also we can use #{variable_name} to insert variables values.
+
+Syntax:
+
+.. code-block:: ring
+
+	print(string) ---> String
+
+Example:
+
+.. code-block:: ring
+
+	print("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
+	x=10 y=20
+	print("\nx value = #{x} , y value = #{y} \n")
+
+
+.. index:: 
+	pair: Stdlib Functions; Print2Str() Function
+
+Print2Str() Function
+====================
+
+Syntax:
+
+.. code-block:: ring
+
+	print2Str(string) ---> String
+
+
+Example:
+
+.. code-block:: ring
+
+	world = "World!"
+	mystring = print2str("Hello, #{world} \nIn Year \n#{2000+17} \n")
+
+	see mystring + nl
+
+Output:
+
+.. code-block:: ring
+
+	Hello, World!
+	In Year
+	2017
+
+
+.. index:: 
+	pair: Stdlib Functions; getstring()
+
+getstring() function
+====================
+
+Get input from the keyboard - return value as string
+
+.. code-block:: ring
+
+	getstring() ---> string
+
+
+.. index:: 
+	pair: Stdlib Functions; getnumber()
+
+getnumber() function
+====================
+
+Get input from the keyboard - return value as number
+
+.. code-block:: ring
+
+	getnumber() ---> number
+
+.. index:: 
+	pair: Stdlib Functions; apppath()
+
+apppath() function
+==================
+
+Get the path of the application folder
+
+Syntax:
+
+.. code-block:: ring
+
+	AppPath() ---> The path as String
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Application Path
+	Puts("Test AppPath()")
+	See AppPath() + nl
+
+.. index:: 
+	pair: Stdlib Functions; JustFilePath()
+
+justfilepath() function
+=======================
+
+Get the path of the file, remove the file name.
+
+Syntax:
+
+.. code-block:: ring
+
+	JustFilePath(cFile) ---> The path as String
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+ 
+	see  justfilePath("b:\ring\applications\rnote\rnote.ring")
+
+Output:
+
+.. code-block:: ring
+
+	b:\ring\applications\rnote\
+
+
+.. index:: 
+	pair: Stdlib Functions; JustFileName()
+
+justfilename() function
+=======================
+
+Get the file, remove the file path.
+
+Syntax:
+
+.. code-block:: ring
+
+	JustFileName(cFile) ---> The file name as String
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+ 
+	see justfileName("b:\ring\applications\rnote\rnote.ring") 
+
+Output:
+
+.. code-block:: ring
+
+	rnote.ring
+
+
+.. index:: 
+	pair: Stdlib Functions; value()
+
+value() function
+================
+
+create a copy from a list or object
+
+Syntax:
+
+.. code-block:: ring
+
+	value(List) ---> new list 
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	aList = 1:10
+	del(value(aList),1) # delete first item
+	see aList 	    # print numbers from 1 to 10
+
+.. index:: 
+	pair: Stdlib Functions; times()
+
+times() function
+================
+
+Execute a Function nCount times
+
+Syntax:
+
+.. code-block:: ring
+
+	Times(nCount,function)
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Times()")
+	Times ( 3 , func { see "Hello, World!" + nl } )
+
+.. index:: 
+	pair: Stdlib Functions; map()
+
+map() function
+==============
+
+Execute a Function on each list item
+
+Syntax:
+
+.. code-block:: ring
+
+	 Map(alist,function) ---> List
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Map()")
+	See Map( 1:10, func x { return x*x } )
+
+.. index:: 
+	pair: Stdlib Functions; filter()
+
+filter() function
+=================
+
+Execute a Function on each list item to filter items
+
+Syntax:
+
+.. code-block:: ring
+
+	Filter(alist,function) ---> List
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Filter()")
+	See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
+
+.. index:: 
+	pair: Stdlib Functions; split()
+
+split() function
+================
+
+Convert string words to list items
+
+Syntax:
+
+.. code-block:: ring
+
+	Split(cstring,delimiter) ---> List
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Split()")
+	See Split("one two three four five"," ")
+
+
+.. index:: 
+	pair: Stdlib Functions; splitmany()
+
+splitmany() function
+====================
+
+Convert string words to list items. Allow many delimiters.
+
+Syntax:
+
+.. code-block:: ring
+
+	SplitMany(cstring,delimiters as string or list) --> List
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test SplitMany()")
+	See SplitMany("one,two,three,four and five"," ,")
+
+
+.. index:: 
+	pair: Stdlib Functions; newlist()
+
+newlist() function
+==================
+
+Create a two dimensional list
+
+
+Syntax:
+
+.. code-block:: ring
+
+	NewList(nRows,nColumns) ---> new list 
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Newlist()")
+	a1 = 3
+	a2 = 5
+	chrArray = newlist(a1,a2)
+	numArray = newlist(a1,a2)
+	chrArray[1][1] = "Hello"
+	numArray[1][1]  = 987.2
+	See chrArray[1][1] + nl
+	See numArray[1][1] + nl
+
+.. index:: 
+	pair: Stdlib Functions; capitalized()
+
+capitalized() function
+======================
+
+Return a copy of a string with the first letter capitalized
+
+Syntax:
+
+.. code-block:: ring
+
+	Capitalized(string) ---> string
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Capitalized()")
+	See capitalized("welcome to the Ring Programming Language")
+
+.. index:: 
+	pair: Stdlib Functions; isspecial()
+
+isspecial() function
+====================
+
+Check whether a character is special or not
+
+
+Syntax:
+
+.. code-block:: ring
+
+	IsSpecial(char) ---> True/False
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Isspecial()")
+	See "Isspecial  = " + isSpecial("%") + nl
+
+.. index:: 
+	pair: Stdlib Functions; isvowel()
+
+isvowel() function
+==================
+
+Check whether a character is vowel or not
+
+Syntax:
+
+.. code-block:: ring
+
+	IsVowel(char) ---> True/False
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Isvowel()")
+	See "Isvowel = " + isVowel("c") + nl
+
+
+.. index:: 
+	pair: Stdlib Functions; linecount()
+
+linecount() function
+====================
+
+Return the lines count in a text file.
+
+Syntax:
+
+.. code-block:: ring
+
+	LineCount(cFileName) ---> Lines Count as number
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Linecount()")
+	See "the number of lines = " + lineCount("test.ring")
+
+.. index:: 
+	pair: Stdlib Functions; factorial()
+
+factorial() function
+====================
+
+Return the factorial of a number
+
+Syntax:
+
+.. code-block:: ring
+
+	Factorial(number) ---> number
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Factorial()")
+	see "6 factorial is : " + Factorial(6)
+
+.. index:: 
+	pair: Stdlib Functions; fibonacci()
+
+fibonacci() function
+====================
+
+Return the fibonacci number
+
+Syntax:
+
+.. code-block:: ring
+
+	Fibonacci(number) ---> number
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Fibonacci()")
+	see "6 Fibonacci is : " + Fibonacci(6)
+
+.. index:: 
+	pair: Stdlib Functions; isprime()
+
+isprime() function
+==================
+
+Check whether a number is prime or not
+
+Syntax:
+
+.. code-block:: ring
+
+	isprime(number) ---> Number
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Isprime()")
+	if isPrime(16) see "16 is a prime number"
+	else see "16 is not a prime number" ok
+
+.. index:: 
+	pair: Stdlib Functions; sign()
+
+sign() function
+===============
+
+Returns an integer value indicating the sign of a number.
+
+Syntax:
+
+.. code-block:: ring
+
+	Sign(number) ---> number ( -1 = negative , 0 , 1 (positive) )
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Sign()")
+	see "sign of 12 is = " + sign(12) + nl
+
+.. index:: 
+	pair: Stdlib Functions; list2file()
+
+list2file() function
+====================
+
+Write list items to text file (each item in new line).
+
+Syntax:
+
+.. code-block:: ring
+
+	List2File(aList,cFileName)
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Test List2File
+	Puts("Test List2File()")
+	list2file(1:100,"myfile.txt")
+
+
+.. index:: 
+	pair: Stdlib Functions; file2list()
+
+file2list() function
+====================
+
+Read text file and convert lines to list items
+
+Syntax:
+
+.. code-block:: ring
+
+	File2List(cFileName) ---> List
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Test File2List
+	Puts("Test File2List()")
+	see len(file2list("myfile.txt"))
+
+.. index:: 
+	pair: Stdlib Functions; startswith()
+
+startswith() function
+=====================
+
+Returns true if the given string starts with the specified substring.
+
+Leading white spaces are ignored.
+
+Syntax:
+
+.. code-block:: ring
+
+	StartsWith(string, substring) ---> True/False
+
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Startswith()")
+	see Startswith("CalmoSoft", "Calmo") + nl
+
+.. index:: 
+	pair: Stdlib Functions; endswith()
+
+endswith() function
+===================
+
+Returns true if the given string ends with the specified substring.
+
+Trailing white spaces are ignored.
+
+Syntax:
+
+.. code-block:: ring
+
+	Endswith(string, substring) ---> True/False
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Endswith()")
+	see endsWith("CalmoSoft", "Soft") + nl
+
+.. index:: 
+	pair: Stdlib Functions; gcd()
+
+gcd() function
+==============
+
+Finding of the greatest common divisor of two integers.
+
+Syntax:
+
+.. code-block:: ring
+
+	Gcd(number,number) ---> number
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Gcd()")
+	see gcd (24, 32) + nl
+
+
+.. index:: 
+	pair: Stdlib Functions; lcm()
+
+lcm() function
+==============
+
+Compute the least common multiple of two integers.
+
+Syntax:
+
+.. code-block:: ring
+
+	lcm(number,number) ---> number
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Lcm()")
+	see Lcm(24,36) + nl
+
+.. index:: 
+	pair: Stdlib Functions; sumlist()
+
+sumlist() function
+==================
+
+Compute the sum of a list of integers.
+
+Syntax:
+
+.. code-block:: ring
+
+	sumlist(list) ---> number
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Sumlist()")
+	aList = [1,2,3,4,5]
+	see Sumlist(aList) + nl
+
+.. index:: 
+	pair: Stdlib Functions; prodlist()
+
+prodlist() function
+===================
+
+Compute the product of a list of integers.
+
+Syntax:
+
+.. code-block:: ring
+
+	prodlist(list) ---> number
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Prodlist()")
+	aList = [1,2,3,4,5]
+	see Prodlist(aList) + nl
+
+.. index:: 
+	pair: Stdlib Functions; evenorodd()
+
+evenorodd() function
+====================
+
+Test whether an integer is even or odd.
+
+Result of test (1=odd 2=even).
+
+Syntax:
+
+.. code-block:: ring
+
+	evenorodd(number) ---> 1 (odd) or 2 (even)
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Evenorodd()")
+	nr = 17
+	see Evenorodd(nr) + nl
+
+.. index:: 
+	pair: Stdlib Functions; factors()
+
+factors() function
+==================
+
+Compute the factors of a positive integer.
+
+Syntax:
+
+.. code-block:: ring
+
+	factors(number) ---> list
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Factors()")
+	n = 45
+	aList = factors(n)
+	see "Factors of " + n + " = "
+	for i = 1 to len(aList)
+	    see "" + aList[i] + " "
+	next
+
+
+.. index:: 
+	pair: Stdlib Functions; palindrome()
+
+palindrome() function
+=====================
+
+Check if a sequence of characters is a palindrome or not. 
+
+Syntax:
+
+.. code-block:: ring
+
+	Palindrome(String) ---> True/False
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Palindrome()")
+	cString = "radar"
+	see Palindrome(cString)
+
+
+.. index:: 
+	pair: Stdlib Functions; isleapyear()
+
+isleapyear() function
+=====================
+
+Check whether a given year is a leap year in the Gregorian calendar. 
+
+Syntax:
+
+.. code-block:: ring
+
+	Isleapyear(number) ---> True/False
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Isleapyear()")
+	year = 2016
+	if Isleapyear(year) see "" + year + " is a leap year."
+	else see "" + year + " is not a leap year." ok
+
+
+.. index:: 
+	pair: Stdlib Functions; binarydigits()
+
+binarydigits() function
+=======================
+
+Compute the sequence of binary digits for a given non-negative integer. 
+
+Syntax:
+
+.. code-block:: ring
+
+	binarydigits(number) ---> string
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Binarydigits()")
+	b = 35
+	see "Binary digits of " + b + " = " + Binarydigits(b)
+
+.. index:: 
+	pair: Stdlib Functions; matrixmulti()
+
+matrixmulti() function
+======================
+
+Multiply two matrices together. 
+
+Syntax:
+
+.. code-block:: ring
+
+	Matrixmulti(List,List) ---> List
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Multiply two matrices together.
+	Puts("Test Matrixmulti()")
+	A = [[1,2,3], [4,5,6], [7,8,9]]
+	B = [[1,0,0], [0,1,0], [0,0,1]]
+	see Matrixmulti(A, B)
+
+
+.. index:: 
+	pair: Stdlib Functions; matrixtrans()
+
+matrixtrans() function
+======================
+
+Transpose an arbitrarily sized rectangular Matrix. 
+
+Syntax:
+
+.. code-block:: ring
+
+	Matrixtrans(List) ---> List
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Transpose an arbitrarily sized rectangular Matrix.
+	Puts("Test Matrixtrans()")
+	matrix = [[78,19,30,12,36], [49,10,65,42,50], [30,93,24,78,10], [39,68,27,64,29]]
+	see Matrixtrans(matrix)
+
+.. index:: 
+	pair: Stdlib Functions; dayofweek()
+
+dayofweek() function
+====================
+
+Return the day of the week of given date. (yyyy-mm-dd)
+
+Syntax:
+
+.. code-block:: ring
+
+	dayofweek(string) ---> string
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Return the day of the week of given date.
+	Puts("Test Dayofweek()")
+	date = "2016-04-24"
+	see "Data : " + date + " - Day : " + Dayofweek(date) + nl
+
+.. index:: 
+	pair: Stdlib Functions; permutation()
+
+permutation() function
+======================
+
+Generates all permutations of n different numerals.
+
+Syntax:
+
+.. code-block:: ring
+
+	permutation(list)
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Generates all permutations of n different numerals
+	Puts("Test Permutation()")
+	list = [1, 2, 3, 4]
+	for perm = 1 to 24
+		for i = 1 to len(list)
+	        	see list[i] + " "
+		next
+     		see nl
+		Permutation(list)
+	next
+
+.. index:: 
+	pair: Stdlib Functions; readline()
+
+readline() function
+===================
+
+Read line from file
+
+Syntax:
+
+.. code-block:: ring
+
+	readline(fp) ---> string
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Read a file line by line.
+	Puts("Test Readline()")
+	fp = fopen("test.ring","r")
+	while not feof(fp)
+	See Readline(fp) end
+	fclose(fp)
+
+.. index:: 
+	pair: Stdlib Functions; substring()
+
+substring() function
+====================
+
+Return a position of a substring starting from a given position in a string.
+
+Syntax:
+
+.. code-block:: ring
+
+	Substring(str,substr,npos) ---> string
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Return a position of a substring starting from a given position in a string.
+	Puts("Test Substring()")
+	a = "abcxyzqweabc"
+	b = "abc"
+	i = 4
+	see substring(a,b,i)
+
+.. index:: 
+	pair: Stdlib Functions; changestring()
+
+changestring() function
+=======================
+
+Change substring from given position to a given position with another substring.
+
+Syntax:
+
+.. code-block:: ring
+
+	Changestring(cString, nPos1, nPos2, cSubstr) ---> cString
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Change substring from given position for given position with a substring.
+	Puts("Test Changestring()")
+	see Changestring("Rmasdg",2,5,"in")	# Ring
+
+.. index:: 
+	pair: Stdlib Functions; sleep()
+
+sleep() function
+================
+
+Sleep for the given amount of time.
+
+Syntax:
+
+.. code-block:: ring
+
+	sleep(nSeconds) 
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	Puts("Test Sleep()")
+	see "Wait 3 Seconds!"
+	Sleep(3)
+	see nl
+
+.. index:: 
+	pair: Stdlib Functions; ismainsourcefile()
+
+ismainsourcefile() function
+===========================
+
+Check if the current file is the main source file
+
+Syntax:
+
+.. code-block:: ring
+
+	IsMainSourceFile() ---> True/False
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	if ismainsourcefile()
+		# code 
+	ok
+
+.. index:: 
+	pair: Stdlib Functions; direxists()
+
+direxists() function
+====================
+
+Check if directory exists
+
+Syntax:
+
+.. code-block:: ring
+
+	DirExists(String) ---> True/False
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	see "Check dir : b:\ring " 
+	puts( DirExists("b:\ring") )
+	see "Check dir : C:\ring " 
+	Puts( DirExists("C:\ring") )
+
+.. index:: 
+	pair: Stdlib Functions; makedir()
+
+makedir() function
+==================
+
+Make Directory
+
+Syntax:
+
+.. code-block:: ring
+
+	MakeDir(String)
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Create Directory
+	puts("create Directory : myfolder")
+	makedir("myfolder")
+
+
+.. index:: 
+	pair: Stdlib Functions; FSize()
+
+fsize() function
+================
+
+The function return the file size in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	FSize(File Handle) ---> Number (File Size in Bytes)
+
+.. index:: 
+	pair: Stdlib Functions; TrimAll()
+
+trimall() function
+==================
+
+Remove all spaces and tabs characters from a string
+
+Syntax:
+
+.. code-block:: ring
+
+	TrimAll(cString) ---> cString # Without Spaces and Tabs
+
+.. index:: 
+	pair: Stdlib Functions; TrimLeft()
+
+trimleft() function
+===================
+
+Remove all spaces and tabs characters from the left side of a string
+
+Syntax:
+
+.. code-block:: ring
+
+	TrimLeft(cString) ---> cString # Without Spaces and Tabs from the left side
+
+.. index:: 
+	pair: Stdlib Functions; TrimRight()
+
+trimright() function
+====================
+
+Remove all spaces and tabs characters from the right side of a string
+
+Syntax:
+
+.. code-block:: ring
+
+	TrimRight(cString) ---> cString # Without Spaces and Tabs from the right side
+
+.. index:: 
+	pair: Stdlib Functions; EpochTime()
+
+epochtime() function
+====================
+
+Return the Epoch Time
+
+Syntax:
+
+.. code-block:: ring
+
+	EpochTime(cDate,cTime) ---> nEpochTime
+
+Example:
+
+.. code-block:: ring
+
+	see EpochTime( Date(), Time() )
+
+.. index:: 
+	pair: Stdlib Functions; SystemCmd() Function
+
+SystemCmd() Function
+====================
+
+We can execute system commands using the SystemCmd() function that outputs to a variable
+
+Syntax:
+
+.. code-block:: ring
+
+	SystemCmd(cCommand)
+
+Example:
+
+.. code-block:: ring
+
+	cYou  = SystemCmd("whoami") 	   # User Name logged in is output a variable
+	cThem = SystemCmd("dir c:\Users")  # Directory List is output to a variable
+
+
+.. index:: 
+	pair: Stdlib Functions; ListAllFiles() Function
+
+ListAllFiles() Function
+=======================
+
+Using this function we can quickly do a process on a group of files in a folder and it's sub folders.
+
+Syntax:
+
+.. code-block:: ring
+
+	ListAllFiles(cFolder,cExtension) ---> List of Files
+
+Example:
+
+.. code-block:: ring
+
+	aList = ListAllFiles("c:/ring/ringlibs","ring") # *.ring only
+	aList = sort(aList)
+	see aList
+
+Example:
+
+.. code-block:: ring
+
+	see listallfiles("b:/ring/ringlibs/weblib","") # All Files
+

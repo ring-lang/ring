@@ -1,0 +1,76 @@
+.. index:: 
+	single: Embedding Ring in Ring; Embedding Ring in Ring
+
+======================
+Embedding Ring in Ring
+======================
+
+In this chapter we will learn about embedding Ring in Ring programs and applications.
+
+.. index:: 
+	pair: Embedding Ring in Ring; Embedding Ring in Ring without sharing the State
+
+Embedding Ring in Ring without sharing the State
+================================================
+
+From Ring 1.0 we already have functions for embedding Ring in the C language. Also we
+can execute Ring code inside Ring programs using the eval() function. In this release
+we provide functions for embedding Ring in Ring programs without sharing the state.
+
+Advantages:
+
+(1) Quick integration for Ring programs and applications together without conflicts.
+
+(2) Execute and run Ring code in safe environments that we can trace.
+
+Example:
+
+.. code-block:: ring
+
+	pState = ring_state_init()
+	ring_state_runcode(pState,"See 'Hello, World!'+nl")
+	ring_state_runcode(pState,"x = 10")
+
+	pState2 = ring_state_init()
+	ring_state_runcode(pState2,"See 'Hello, World!'+nl")
+	ring_state_runcode(pState2,"x = 20")
+
+	ring_state_runcode(pState,"see x +nl")
+	ring_state_runcode(pState2,"see x +nl")
+
+	v1 = ring_state_findvar(pState,"x")
+	v2 = ring_state_findvar(pState2,"x")
+
+	see v1[3] + nl
+	see V2[3] + nl
+
+	ring_state_delete(pState)
+	ring_state_delete(pState2)
+
+Output:
+
+.. code-block:: ring
+
+	Hello, World!
+	Hello, World!
+	10
+	20
+	10
+	20
+
+.. index:: 
+	pair: Embedding Ring in Ring; Serial Execution of Programs
+
+Serial Execution of Programs
+============================
+
+We can execute application after another application using ring_state_main()
+
+Example:
+
+.. code-block:: ring
+
+	chdir(exefolder()+"/../applications/formdesigner")
+	ring_state_main('formdesigner.ring')
+	chdir(exefolder()+"/../applications/cards")
+	ring_state_main('cards.ring')

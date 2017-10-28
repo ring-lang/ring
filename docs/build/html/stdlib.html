@@ -1,0 +1,1010 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Stdlib Functions &mdash; Ring 1.5.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="next" title="Stdlib Classes" href="stdlibclasses.html" />
+    <link rel="prev" title="Reflection and Meta-programming" href="metaprog.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="stdlibclasses.html" title="Stdlib Classes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="metaprog.html" title="Reflection and Meta-programming"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="stdlib-functions">
+<span id="index-0"></span><h1>Stdlib Functions<a class="headerlink" href="#stdlib-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about functions in the stdlib.ring</p>
+<p>Before using the functions in the library, We must load the library first</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="puts-function">
+<span id="index-1"></span><h2>puts() function<a class="headerlink" href="#puts-function" title="Permalink to this headline">¶</a></h2>
+<p>print the value then print new line (nl)</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">puts</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="print-function">
+<span id="index-2"></span><h2>print() function<a class="headerlink" href="#print-function" title="Permalink to this headline">¶</a></h2>
+<p>print string - support \n,\t and \r</p>
+<p>Also we can use #{variable_name} to insert variables values.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">print</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Hello, World</span><span class="se">\n\n</span><span class="s">How are you? </span><span class="se">\t\t</span><span class="s"> I&#39;m fine!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">x value = #{x} , y value = #{y} </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="print2str-function">
+<span id="index-3"></span><h2>Print2Str() Function<a class="headerlink" href="#print2str-function" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">print2Str</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="o">=</span> <span class="s">&quot;World!&quot;</span>
+<span class="n">mystring</span> <span class="o">=</span> <span class="n">print2str</span><span class="p">(</span><span class="s">&quot;Hello, #{world} </span><span class="se">\n</span><span class="s">In Year </span><span class="se">\n</span><span class="s">#{2000+17} </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="k">see</span> <span class="n">mystring</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="k">In</span> <span class="n">Year</span>
+<span class="mi">2017</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getstring-function">
+<span id="index-4"></span><h2>getstring() function<a class="headerlink" href="#getstring-function" title="Permalink to this headline">¶</a></h2>
+<p>Get input from the keyboard - return value as string</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">getstring</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">string</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getnumber-function">
+<span id="index-5"></span><h2>getnumber() function<a class="headerlink" href="#getnumber-function" title="Permalink to this headline">¶</a></h2>
+<p>Get input from the keyboard - return value as number</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">getnumber</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">number</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="apppath-function">
+<span id="index-6"></span><h2>apppath() function<a class="headerlink" href="#apppath-function" title="Permalink to this headline">¶</a></h2>
+<p>Get the path of the application folder</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">AppPath</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">path</span> <span class="n">as</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Application Path</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test AppPath()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">AppPath</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="justfilepath-function">
+<span id="index-7"></span><h2>justfilepath() function<a class="headerlink" href="#justfilepath-function" title="Permalink to this headline">¶</a></h2>
+<p>Get the path of the file, remove the file name.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">JustFilePath</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">path</span> <span class="n">as</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="k">see</span>  <span class="n">justfilePath</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing</span><span class="se">\a</span><span class="s">pplications</span><span class="se">\r</span><span class="s">note</span><span class="se">\r</span><span class="s">note.ring&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">:</span><span class="o">\</span><span class="n">ring</span><span class="o">\</span><span class="n">applications</span><span class="o">\</span><span class="n">rnote</span><span class="o">\</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="justfilename-function">
+<span id="index-8"></span><h2>justfilename() function<a class="headerlink" href="#justfilename-function" title="Permalink to this headline">¶</a></h2>
+<p>Get the file, remove the file path.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">JustFileName</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">file</span> <span class="n">name</span> <span class="n">as</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="k">see</span> <span class="n">justfileName</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing</span><span class="se">\a</span><span class="s">pplications</span><span class="se">\r</span><span class="s">note</span><span class="se">\r</span><span class="s">note.ring&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">rnote</span><span class="p">.</span><span class="n">ring</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="value-function">
+<span id="index-9"></span><h2>value() function<a class="headerlink" href="#value-function" title="Permalink to this headline">¶</a></h2>
+<p>create a copy from a list or object</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">value</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">new</span> <span class="kt">list</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+<span class="n">del</span><span class="p">(</span><span class="n">value</span><span class="p">(</span><span class="n">aList</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c"># delete first item</span>
+<span class="k">see</span> <span class="n">aList</span>           <span class="c"># print numbers from 1 to 10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="times-function">
+<span id="index-10"></span><h2>times() function<a class="headerlink" href="#times-function" title="Permalink to this headline">¶</a></h2>
+<p>Execute a Function nCount times</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Times</span><span class="p">(</span><span class="n">nCount</span><span class="p">,</span><span class="n">function</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Times()&quot;</span><span class="p">)</span>
+<span class="n">Times</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">,</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="map-function">
+<span id="index-11"></span><h2>map() function<a class="headerlink" href="#map-function" title="Permalink to this headline">¶</a></h2>
+<p>Execute a Function on each list item</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="n">function</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Map()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">Map</span><span class="p">(</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="k">func</span> <span class="n">x</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filter-function">
+<span id="index-12"></span><h2>filter() function<a class="headerlink" href="#filter-function" title="Permalink to this headline">¶</a></h2>
+<p>Execute a Function on each list item to filter items</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Filter</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="n">function</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Filter()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span> <span class="p">,</span> <span class="k">func</span> <span class="n">x</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">return</span> <span class="kp">true</span> <span class="k">else</span> <span class="k">return</span> <span class="kp">false</span> <span class="k">ok</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="split-function">
+<span id="index-13"></span><h2>split() function<a class="headerlink" href="#split-function" title="Permalink to this headline">¶</a></h2>
+<p>Convert string words to list items</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Split</span><span class="p">(</span><span class="n">cstring</span><span class="p">,</span><span class="n">delimiter</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Split()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">Split</span><span class="p">(</span><span class="s">&quot;one two three four five&quot;</span><span class="p">,</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="splitmany-function">
+<span id="index-14"></span><h2>splitmany() function<a class="headerlink" href="#splitmany-function" title="Permalink to this headline">¶</a></h2>
+<p>Convert string words to list items. Allow many delimiters.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SplitMany</span><span class="p">(</span><span class="n">cstring</span><span class="p">,</span><span class="n">delimiters</span> <span class="n">as</span> <span class="kt">string</span> <span class="ow">or</span> <span class="kt">list</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="kt">List</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test SplitMany()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">SplitMany</span><span class="p">(</span><span class="s">&quot;one,two,three,four and five&quot;</span><span class="p">,</span><span class="s">&quot; ,&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="newlist-function">
+<span id="index-15"></span><h2>newlist() function<a class="headerlink" href="#newlist-function" title="Permalink to this headline">¶</a></h2>
+<p>Create a two dimensional list</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">NewList</span><span class="p">(</span><span class="n">nRows</span><span class="p">,</span><span class="n">nColumns</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">new</span> <span class="kt">list</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Newlist()&quot;</span><span class="p">)</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">chrArray</span> <span class="o">=</span> <span class="n">newlist</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">)</span>
+<span class="n">numArray</span> <span class="o">=</span> <span class="n">newlist</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">)</span>
+<span class="n">chrArray</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span>
+<span class="n">numArray</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span>  <span class="o">=</span> <span class="mf">987.2</span>
+<span class="k">See</span> <span class="n">chrArray</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="n">numArray</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capitalized-function">
+<span id="index-16"></span><h2>capitalized() function<a class="headerlink" href="#capitalized-function" title="Permalink to this headline">¶</a></h2>
+<p>Return a copy of a string with the first letter capitalized</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Capitalized</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Capitalized()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">capitalized</span><span class="p">(</span><span class="s">&quot;welcome to the Ring Programming Language&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isspecial-function">
+<span id="index-17"></span><h2>isspecial() function<a class="headerlink" href="#isspecial-function" title="Permalink to this headline">¶</a></h2>
+<p>Check whether a character is special or not</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsSpecial</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Isspecial()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Isspecial  = &quot;</span> <span class="o">+</span> <span class="n">isSpecial</span><span class="p">(</span><span class="s">&quot;%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isvowel-function">
+<span id="index-18"></span><h2>isvowel() function<a class="headerlink" href="#isvowel-function" title="Permalink to this headline">¶</a></h2>
+<p>Check whether a character is vowel or not</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsVowel</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Isvowel()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Isvowel = &quot;</span> <span class="o">+</span> <span class="n">isVowel</span><span class="p">(</span><span class="s">&quot;c&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="linecount-function">
+<span id="index-19"></span><h2>linecount() function<a class="headerlink" href="#linecount-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the lines count in a text file.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">LineCount</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Lines</span> <span class="n">Count</span> <span class="n">as</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Linecount()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;the number of lines = &quot;</span> <span class="o">+</span> <span class="n">lineCount</span><span class="p">(</span><span class="s">&quot;test.ring&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="factorial-function">
+<span id="index-20"></span><h2>factorial() function<a class="headerlink" href="#factorial-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the factorial of a number</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Factorial</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Factorial()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;6 factorial is : &quot;</span> <span class="o">+</span> <span class="n">Factorial</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fibonacci-function">
+<span id="index-21"></span><h2>fibonacci() function<a class="headerlink" href="#fibonacci-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the fibonacci number</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Fibonacci()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;6 Fibonacci is : &quot;</span> <span class="o">+</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isprime-function">
+<span id="index-22"></span><h2>isprime() function<a class="headerlink" href="#isprime-function" title="Permalink to this headline">¶</a></h2>
+<p>Check whether a number is prime or not</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">isprime</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Isprime()&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">see</span> <span class="s">&quot;16 is a prime number&quot;</span>
+<span class="k">else</span> <span class="k">see</span> <span class="s">&quot;16 is not a prime number&quot;</span> <span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sign-function">
+<span id="index-23"></span><h2>sign() function<a class="headerlink" href="#sign-function" title="Permalink to this headline">¶</a></h2>
+<p>Returns an integer value indicating the sign of a number.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Sign</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="o">=</span> <span class="n">negative</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">(</span><span class="n">positive</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Sign()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;sign of 12 is = &quot;</span> <span class="o">+</span> <span class="n">sign</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list2file-function">
+<span id="index-24"></span><h2>list2file() function<a class="headerlink" href="#list2file-function" title="Permalink to this headline">¶</a></h2>
+<p>Write list items to text file (each item in new line).</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">List2File</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">cFileName</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Test List2File</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test List2File()&quot;</span><span class="p">)</span>
+<span class="n">list2file</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s">&quot;myfile.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="file2list-function">
+<span id="index-25"></span><h2>file2list() function<a class="headerlink" href="#file2list-function" title="Permalink to this headline">¶</a></h2>
+<p>Read text file and convert lines to list items</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">File2List</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Test File2List</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test File2List()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">len</span><span class="p">(</span><span class="n">file2list</span><span class="p">(</span><span class="s">&quot;myfile.txt&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="startswith-function">
+<span id="index-26"></span><h2>startswith() function<a class="headerlink" href="#startswith-function" title="Permalink to this headline">¶</a></h2>
+<p>Returns true if the given string starts with the specified substring.</p>
+<p>Leading white spaces are ignored.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">StartsWith</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="n">substring</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Startswith()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">Startswith</span><span class="p">(</span><span class="s">&quot;CalmoSoft&quot;</span><span class="p">,</span> <span class="s">&quot;Calmo&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="endswith-function">
+<span id="index-27"></span><h2>endswith() function<a class="headerlink" href="#endswith-function" title="Permalink to this headline">¶</a></h2>
+<p>Returns true if the given string ends with the specified substring.</p>
+<p>Trailing white spaces are ignored.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Endswith</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="n">substring</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Endswith()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">endsWith</span><span class="p">(</span><span class="s">&quot;CalmoSoft&quot;</span><span class="p">,</span> <span class="s">&quot;Soft&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gcd-function">
+<span id="index-28"></span><h2>gcd() function<a class="headerlink" href="#gcd-function" title="Permalink to this headline">¶</a></h2>
+<p>Finding of the greatest common divisor of two integers.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Gcd</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Gcd()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">gcd</span> <span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lcm-function">
+<span id="index-29"></span><h2>lcm() function<a class="headerlink" href="#lcm-function" title="Permalink to this headline">¶</a></h2>
+<p>Compute the least common multiple of two integers.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">lcm</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Lcm()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">Lcm</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">36</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sumlist-function">
+<span id="index-30"></span><h2>sumlist() function<a class="headerlink" href="#sumlist-function" title="Permalink to this headline">¶</a></h2>
+<p>Compute the sum of a list of integers.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">sumlist</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Sumlist()&quot;</span><span class="p">)</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span>
+<span class="k">see</span> <span class="n">Sumlist</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prodlist-function">
+<span id="index-31"></span><h2>prodlist() function<a class="headerlink" href="#prodlist-function" title="Permalink to this headline">¶</a></h2>
+<p>Compute the product of a list of integers.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">prodlist</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Prodlist()&quot;</span><span class="p">)</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span>
+<span class="k">see</span> <span class="n">Prodlist</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="evenorodd-function">
+<span id="index-32"></span><h2>evenorodd() function<a class="headerlink" href="#evenorodd-function" title="Permalink to this headline">¶</a></h2>
+<p>Test whether an integer is even or odd.</p>
+<p>Result of test (1=odd 2=even).</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">evenorodd</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="p">(</span><span class="n">odd</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">2</span> <span class="p">(</span><span class="n">even</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Evenorodd()&quot;</span><span class="p">)</span>
+<span class="n">nr</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="k">see</span> <span class="n">Evenorodd</span><span class="p">(</span><span class="n">nr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="factors-function">
+<span id="index-33"></span><h2>factors() function<a class="headerlink" href="#factors-function" title="Permalink to this headline">¶</a></h2>
+<p>Compute the factors of a positive integer.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">factors</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">list</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Factors()&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">factors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Factors of &quot;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+    <span class="k">see</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">aList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="palindrome-function">
+<span id="index-34"></span><h2>palindrome() function<a class="headerlink" href="#palindrome-function" title="Permalink to this headline">¶</a></h2>
+<p>Check if a sequence of characters is a palindrome or not.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Palindrome</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Palindrome()&quot;</span><span class="p">)</span>
+<span class="n">cString</span> <span class="o">=</span> <span class="s">&quot;radar&quot;</span>
+<span class="k">see</span> <span class="n">Palindrome</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isleapyear-function">
+<span id="index-35"></span><h2>isleapyear() function<a class="headerlink" href="#isleapyear-function" title="Permalink to this headline">¶</a></h2>
+<p>Check whether a given year is a leap year in the Gregorian calendar.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Isleapyear</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Isleapyear()&quot;</span><span class="p">)</span>
+<span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span>
+<span class="k">if</span> <span class="n">Isleapyear</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">see</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="s">&quot; is a leap year.&quot;</span>
+<span class="k">else</span> <span class="k">see</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="s">&quot; is not a leap year.&quot;</span> <span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="binarydigits-function">
+<span id="index-36"></span><h2>binarydigits() function<a class="headerlink" href="#binarydigits-function" title="Permalink to this headline">¶</a></h2>
+<p>Compute the sequence of binary digits for a given non-negative integer.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">binarydigits</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Binarydigits()&quot;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="k">see</span> <span class="s">&quot;Binary digits of &quot;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="n">Binarydigits</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="matrixmulti-function">
+<span id="index-37"></span><h2>matrixmulti() function<a class="headerlink" href="#matrixmulti-function" title="Permalink to this headline">¶</a></h2>
+<p>Multiply two matrices together.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Matrixmulti</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Multiply two matrices together.</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Matrixmulti()&quot;</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="o">]]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">]]</span>
+<span class="k">see</span> <span class="n">Matrixmulti</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="matrixtrans-function">
+<span id="index-38"></span><h2>matrixtrans() function<a class="headerlink" href="#matrixtrans-function" title="Permalink to this headline">¶</a></h2>
+<p>Transpose an arbitrarily sized rectangular Matrix.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Matrixtrans</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Transpose an arbitrarily sized rectangular Matrix.</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Matrixtrans()&quot;</span><span class="p">)</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="o">[[</span><span class="mi">78</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">36</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">49</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">50</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">10</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="mi">39</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">29</span><span class="o">]]</span>
+<span class="k">see</span> <span class="n">Matrixtrans</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dayofweek-function">
+<span id="index-39"></span><h2>dayofweek() function<a class="headerlink" href="#dayofweek-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the day of the week of given date. (yyyy-mm-dd)</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">dayofweek</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Return the day of the week of given date.</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Dayofweek()&quot;</span><span class="p">)</span>
+<span class="n">date</span> <span class="o">=</span> <span class="s">&quot;2016-04-24&quot;</span>
+<span class="k">see</span> <span class="s">&quot;Data : &quot;</span> <span class="o">+</span> <span class="n">date</span> <span class="o">+</span> <span class="s">&quot; - Day : &quot;</span> <span class="o">+</span> <span class="n">Dayofweek</span><span class="p">(</span><span class="n">date</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="permutation-function">
+<span id="index-40"></span><h2>permutation() function<a class="headerlink" href="#permutation-function" title="Permalink to this headline">¶</a></h2>
+<p>Generates all permutations of n different numerals.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">permutation</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Generates all permutations of n different numerals</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Permutation()&quot;</span><span class="p">)</span>
+<span class="kt">list</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<span class="k">for</span> <span class="n">perm</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">24</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span>
+                <span class="k">see</span> <span class="kt">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
+        <span class="k">next</span>
+        <span class="k">see</span> <span class="n">nl</span>
+        <span class="n">Permutation</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="readline-function">
+<span id="index-41"></span><h2>readline() function<a class="headerlink" href="#readline-function" title="Permalink to this headline">¶</a></h2>
+<p>Read line from file</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">readline</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Read a file line by line.</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Readline()&quot;</span><span class="p">)</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;test.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">feof</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">Readline</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k">end</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="substring-function">
+<span id="index-42"></span><h2>substring() function<a class="headerlink" href="#substring-function" title="Permalink to this headline">¶</a></h2>
+<p>Return a position of a substring starting from a given position in a string.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Substring</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="n">substr</span><span class="p">,</span><span class="n">npos</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Return a position of a substring starting from a given position in a string.</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Substring()&quot;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s">&quot;abcxyzqweabc&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s">&quot;abc&quot;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">see</span> <span class="n">substring</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="changestring-function">
+<span id="index-43"></span><h2>changestring() function<a class="headerlink" href="#changestring-function" title="Permalink to this headline">¶</a></h2>
+<p>Change substring from given position to a given position with another substring.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Changestring</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">nPos1</span><span class="p">,</span> <span class="n">nPos2</span><span class="p">,</span> <span class="n">cSubstr</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Change substring from given position for given position with a substring.</span>
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Changestring()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">Changestring</span><span class="p">(</span><span class="s">&quot;Rmasdg&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s">&quot;in&quot;</span><span class="p">)</span>     <span class="c"># Ring</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sleep-function">
+<span id="index-44"></span><h2>sleep() function<a class="headerlink" href="#sleep-function" title="Permalink to this headline">¶</a></h2>
+<p>Sleep for the given amount of time.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">sleep</span><span class="p">(</span><span class="n">nSeconds</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Sleep()&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Wait 3 Seconds!&quot;</span>
+<span class="n">Sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ismainsourcefile-function">
+<span id="index-45"></span><h2>ismainsourcefile() function<a class="headerlink" href="#ismainsourcefile-function" title="Permalink to this headline">¶</a></h2>
+<p>Check if the current file is the main source file</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">IsMainSourceFile</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="k">if</span> <span class="n">ismainsourcefile</span><span class="p">()</span>
+        <span class="c"># code</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="direxists-function">
+<span id="index-46"></span><h2>direxists() function<a class="headerlink" href="#direxists-function" title="Permalink to this headline">¶</a></h2>
+<p>Check if directory exists</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">DirExists</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="k">see</span> <span class="s">&quot;Check dir : b:</span><span class="se">\r</span><span class="s">ing &quot;</span>
+<span class="n">puts</span><span class="p">(</span> <span class="n">DirExists</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing&quot;</span><span class="p">)</span> <span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Check dir : C:</span><span class="se">\r</span><span class="s">ing &quot;</span>
+<span class="n">Puts</span><span class="p">(</span> <span class="n">DirExists</span><span class="p">(</span><span class="s">&quot;C:</span><span class="se">\r</span><span class="s">ing&quot;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="makedir-function">
+<span id="index-47"></span><h2>makedir() function<a class="headerlink" href="#makedir-function" title="Permalink to this headline">¶</a></h2>
+<p>Make Directory</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">MakeDir</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="c"># Create Directory</span>
+<span class="n">puts</span><span class="p">(</span><span class="s">&quot;create Directory : myfolder&quot;</span><span class="p">)</span>
+<span class="n">makedir</span><span class="p">(</span><span class="s">&quot;myfolder&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fsize-function">
+<span id="index-48"></span><h2>fsize() function<a class="headerlink" href="#fsize-function" title="Permalink to this headline">¶</a></h2>
+<p>The function return the file size in bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">FSize</span><span class="p">(</span><span class="n">File</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="p">(</span><span class="n">File</span> <span class="n">Size</span> <span class="k">in</span> <span class="n">Bytes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="trimall-function">
+<span id="index-49"></span><h2>trimall() function<a class="headerlink" href="#trimall-function" title="Permalink to this headline">¶</a></h2>
+<p>Remove all spaces and tabs characters from a string</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">TrimAll</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c"># Without Spaces and Tabs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="trimleft-function">
+<span id="index-50"></span><h2>trimleft() function<a class="headerlink" href="#trimleft-function" title="Permalink to this headline">¶</a></h2>
+<p>Remove all spaces and tabs characters from the left side of a string</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">TrimLeft</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c"># Without Spaces and Tabs from the left side</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="trimright-function">
+<span id="index-51"></span><h2>trimright() function<a class="headerlink" href="#trimright-function" title="Permalink to this headline">¶</a></h2>
+<p>Remove all spaces and tabs characters from the right side of a string</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">TrimRight</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c"># Without Spaces and Tabs from the right side</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="epochtime-function">
+<span id="index-52"></span><h2>epochtime() function<a class="headerlink" href="#epochtime-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the Epoch Time</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">EpochTime</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="n">cTime</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nEpochTime</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">EpochTime</span><span class="p">(</span> <span class="n">Date</span><span class="p">(),</span> <span class="n">Time</span><span class="p">()</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="systemcmd-function">
+<span id="index-53"></span><h2>SystemCmd() Function<a class="headerlink" href="#systemcmd-function" title="Permalink to this headline">¶</a></h2>
+<p>We can execute system commands using the SystemCmd() function that outputs to a variable</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SystemCmd</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cYou</span>  <span class="o">=</span> <span class="n">SystemCmd</span><span class="p">(</span><span class="s">&quot;whoami&quot;</span><span class="p">)</span>        <span class="c"># User Name logged in is output a variable</span>
+<span class="n">cThem</span> <span class="o">=</span> <span class="n">SystemCmd</span><span class="p">(</span><span class="s">&quot;dir c:\Users&quot;</span><span class="p">)</span>  <span class="c"># Directory List is output to a variable</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="listallfiles-function">
+<span id="index-54"></span><h2>ListAllFiles() Function<a class="headerlink" href="#listallfiles-function" title="Permalink to this headline">¶</a></h2>
+<p>Using this function we can quickly do a process on a group of files in a folder and it&#8217;s sub folders.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ListAllFiles</span><span class="p">(</span><span class="n">cFolder</span><span class="p">,</span><span class="n">cExtension</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">Files</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">ListAllFiles</span><span class="p">(</span><span class="s">&quot;c:/ring/ringlibs&quot;</span><span class="p">,</span><span class="s">&quot;ring&quot;</span><span class="p">)</span> <span class="c"># *.ring only</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">listallfiles</span><span class="p">(</span><span class="s">&quot;b:/ring/ringlibs/weblib&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">)</span> <span class="c"># All Files</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Stdlib Functions</a><ul>
+<li><a class="reference internal" href="#puts-function">puts() function</a></li>
+<li><a class="reference internal" href="#print-function">print() function</a></li>
+<li><a class="reference internal" href="#print2str-function">Print2Str() Function</a></li>
+<li><a class="reference internal" href="#getstring-function">getstring() function</a></li>
+<li><a class="reference internal" href="#getnumber-function">getnumber() function</a></li>
+<li><a class="reference internal" href="#apppath-function">apppath() function</a></li>
+<li><a class="reference internal" href="#justfilepath-function">justfilepath() function</a></li>
+<li><a class="reference internal" href="#justfilename-function">justfilename() function</a></li>
+<li><a class="reference internal" href="#value-function">value() function</a></li>
+<li><a class="reference internal" href="#times-function">times() function</a></li>
+<li><a class="reference internal" href="#map-function">map() function</a></li>
+<li><a class="reference internal" href="#filter-function">filter() function</a></li>
+<li><a class="reference internal" href="#split-function">split() function</a></li>
+<li><a class="reference internal" href="#splitmany-function">splitmany() function</a></li>
+<li><a class="reference internal" href="#newlist-function">newlist() function</a></li>
+<li><a class="reference internal" href="#capitalized-function">capitalized() function</a></li>
+<li><a class="reference internal" href="#isspecial-function">isspecial() function</a></li>
+<li><a class="reference internal" href="#isvowel-function">isvowel() function</a></li>
+<li><a class="reference internal" href="#linecount-function">linecount() function</a></li>
+<li><a class="reference internal" href="#factorial-function">factorial() function</a></li>
+<li><a class="reference internal" href="#fibonacci-function">fibonacci() function</a></li>
+<li><a class="reference internal" href="#isprime-function">isprime() function</a></li>
+<li><a class="reference internal" href="#sign-function">sign() function</a></li>
+<li><a class="reference internal" href="#list2file-function">list2file() function</a></li>
+<li><a class="reference internal" href="#file2list-function">file2list() function</a></li>
+<li><a class="reference internal" href="#startswith-function">startswith() function</a></li>
+<li><a class="reference internal" href="#endswith-function">endswith() function</a></li>
+<li><a class="reference internal" href="#gcd-function">gcd() function</a></li>
+<li><a class="reference internal" href="#lcm-function">lcm() function</a></li>
+<li><a class="reference internal" href="#sumlist-function">sumlist() function</a></li>
+<li><a class="reference internal" href="#prodlist-function">prodlist() function</a></li>
+<li><a class="reference internal" href="#evenorodd-function">evenorodd() function</a></li>
+<li><a class="reference internal" href="#factors-function">factors() function</a></li>
+<li><a class="reference internal" href="#palindrome-function">palindrome() function</a></li>
+<li><a class="reference internal" href="#isleapyear-function">isleapyear() function</a></li>
+<li><a class="reference internal" href="#binarydigits-function">binarydigits() function</a></li>
+<li><a class="reference internal" href="#matrixmulti-function">matrixmulti() function</a></li>
+<li><a class="reference internal" href="#matrixtrans-function">matrixtrans() function</a></li>
+<li><a class="reference internal" href="#dayofweek-function">dayofweek() function</a></li>
+<li><a class="reference internal" href="#permutation-function">permutation() function</a></li>
+<li><a class="reference internal" href="#readline-function">readline() function</a></li>
+<li><a class="reference internal" href="#substring-function">substring() function</a></li>
+<li><a class="reference internal" href="#changestring-function">changestring() function</a></li>
+<li><a class="reference internal" href="#sleep-function">sleep() function</a></li>
+<li><a class="reference internal" href="#ismainsourcefile-function">ismainsourcefile() function</a></li>
+<li><a class="reference internal" href="#direxists-function">direxists() function</a></li>
+<li><a class="reference internal" href="#makedir-function">makedir() function</a></li>
+<li><a class="reference internal" href="#fsize-function">fsize() function</a></li>
+<li><a class="reference internal" href="#trimall-function">trimall() function</a></li>
+<li><a class="reference internal" href="#trimleft-function">trimleft() function</a></li>
+<li><a class="reference internal" href="#trimright-function">trimright() function</a></li>
+<li><a class="reference internal" href="#epochtime-function">epochtime() function</a></li>
+<li><a class="reference internal" href="#systemcmd-function">SystemCmd() Function</a></li>
+<li><a class="reference internal" href="#listallfiles-function">ListAllFiles() Function</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="metaprog.html"
+                        title="previous chapter">Reflection and Meta-programming</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stdlibclasses.html"
+                        title="next chapter">Stdlib Classes</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/stdlib.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="stdlibclasses.html" title="Stdlib Classes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="metaprog.html" title="Reflection and Meta-programming"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

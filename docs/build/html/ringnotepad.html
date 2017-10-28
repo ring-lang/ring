@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Using Ring Notepad &mdash; Ring 1.5.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="next" title="Using Other Code Editors" href="codeeditors.html" />
+    <link rel="prev" title="Getting Started - Third Style" href="getting_started3.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="codeeditors.html" title="Using Other Code Editors"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="getting_started3.html" title="Getting Started - Third Style"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="using-ring-notepad">
+<span id="index-0"></span><h1>Using Ring Notepad<a class="headerlink" href="#using-ring-notepad" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using Ring Notepad to write and execute Ring programs quickly</p>
+<p>Ring Notepad is just a simple application developed using the Ring language.</p>
+<div class="section" id="ring-notepad-main-window">
+<span id="index-1"></span><h2>Ring Notepad - Main Window<a class="headerlink" href="#ring-notepad-main-window" title="Permalink to this headline">¶</a></h2>
+<p>When we run the Ring Notepad we get the next dockable windows</p>
+<ul class="simple">
+<li>Project Files Window : where we can select and open any ring file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring) quickly.</li>
+<li>Source Code Window : Where we write the source code.</li>
+<li>Form Designer Window : The Form Designer to create GUI application forms.</li>
+<li>Web Browser Window : Where we read the documentation or quickly open any website.</li>
+<li>Output Window : Output when we run programs that print to the standard output</li>
+<li>Function Window : List of functions in the current source file</li>
+<li>Classes Window : List of classes in the current source file</li>
+</ul>
+<img alt="Using Ring Notepad" src="_images/urn_shot1.png" />
+</div>
+<div class="section" id="creating-and-running-your-first-console-application">
+<span id="index-2"></span><h2>Creating and running your first Console Application<a class="headerlink" href="#creating-and-running-your-first-console-application" title="Permalink to this headline">¶</a></h2>
+<p>At first we will type the source code</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+<p>As in the next image</p>
+<img alt="Using Ring Notepad" src="_images/urn_shot2.png" />
+<p>Then we will click on the &#8220;Save&#8221; button from the toolbar (or press CTRL+S)</p>
+<img alt="Using Ring Notepad" src="_images/urn_shot3.png" />
+<p>Determine the source code file name and location.</p>
+<p>For example type : hello</p>
+<p>This will create a new source code file called : hello.ring</p>
+<img alt="Using Ring Notepad" src="_images/urn_shot4.png" />
+<p>To run the program click on &#8220;Debug (Run then wait!)&#8221; button from the toolbar</p>
+<img alt="Using Ring Notepad" src="_images/urn_shot5.png" />
+<p>The next screen shot present the application during the runtime</p>
+<p>Press Enter to continue and return to the Ring Notepad.</p>
+<img alt="Using Ring Notepad" src="_images/urn_shot6.png" />
+</div>
+<div class="section" id="creating-and-running-your-first-gui-mobile-application">
+<span id="index-3"></span><h2>Creating and running your first GUI/Mobile Application<a class="headerlink" href="#creating-and-running-your-first-gui-mobile-application" title="Permalink to this headline">¶</a></h2>
+<p>To learn how to create GUI applications using Ring check the &#8220;Desktop and Mobile development using RingQt&#8221; chapter.</p>
+<p>Source Code:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">New</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Ring notepad we have a special button to run GUI applications without displaying the console window.</p>
+<img alt="Using Ring Notepad" src="_images/urn_shot7.png" />
+<p>The next screen shot present the application during the runtime</p>
+<img alt="Using Ring Notepad" src="_images/urn_shot8.png" />
+</div>
+<div class="section" id="creating-and-running-your-first-web-application">
+<span id="index-4"></span><h2>Creating and running your first Web Application<a class="headerlink" href="#creating-and-running-your-first-web-application" title="Permalink to this headline">¶</a></h2>
+<p>To learn how support Ring in your web server and how to create web applications using Ring check
+the &#8220;Web Development (CGI Library)&#8221; chapter.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You need to support the Ring language in your web server to be able to run the next example.</p>
+</div>
+<p>Source Code:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c">#!b:\ring\bin\ring.exe -cgi</span>
+
+<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
+
+<span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+
+<span class="k">new</span> <span class="n">page</span> <span class="p">{</span>
+
+        <span class="n">text</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can run the application in any web browser or in the browser that are embedded in Ring Notepad.</p>
+<img alt="Using Ring Notepad" src="_images/urn_shot9.png" />
+</div>
+<div class="section" id="creating-and-running-your-first-desktop-mobile-game">
+<span id="index-5"></span><h2>Creating and running your first Desktop/Mobile Game<a class="headerlink" href="#creating-and-running-your-first-desktop-mobile-game" title="Permalink to this headline">¶</a></h2>
+<p>To learn about creating 2D Games using Ring check the &#8220;Demo Project - Game Engine for 2D Games&#8221; chapter.</p>
+<p>Source Code:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">oGame</span> <span class="o">=</span> <span class="k">New</span> <span class="n">Game</span>
+        <span class="p">{</span>
+                <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;My First Game&quot;</span>
+                <span class="n">sprite</span>
+                <span class="p">{</span>
+                        <span class="n">type</span> <span class="o">=</span> <span class="n">GE_TYPE_PLAYER</span>
+                        <span class="n">x</span><span class="o">=</span><span class="mi">400</span> <span class="n">y</span><span class="o">=</span><span class="mi">400</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span> <span class="n">height</span><span class="o">=</span><span class="mi">100</span>
+                        <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;images/player.png&quot;</span>
+                        <span class="n">transparent</span> <span class="o">=</span> <span class="kp">true</span>
+                        <span class="n">Animate</span><span class="o">=</span><span class="kp">false</span>
+                        <span class="n">Move</span><span class="o">=</span><span class="kp">true</span>
+                        <span class="n">Scaled</span><span class="o">=</span><span class="kp">true</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>We can run the application as any GUI application.</p>
+<img alt="Using Ring Notepad" src="_images/urn_shot10.png" />
+</div>
+<div class="section" id="the-main-file-in-the-project">
+<span id="index-6"></span><h2>The Main File in the Project<a class="headerlink" href="#the-main-file-in-the-project" title="Permalink to this headline">¶</a></h2>
+<p>The idea of the Main File ToolBar is to determine the main file in the project When the project contains many source code files</p>
+<p>Using this feature we can run the project (Main File) at any time while opening other files in the project without the need to switch to the Main File to run the project.</p>
+<p>To quickly use this feature</p>
+<p>(Open the project main file)</p>
+<p>Press Ctrl+Shift+M to set the current source code file as the main file</p>
+<p>Open and modify other source code files in the project</p>
+<p>To run the project (Main File) at any time press Ctrl+Shift+F5 (GUI) or Ctrl+Shift+D (Console)</p>
+<p>Screen Shots:</p>
+<img alt="Ring Notepad" src="_images/rnote15shot2.png" />
+<img alt="Ring Notepad" src="_images/rnote15shot3.png" />
+</div>
+<div class="section" id="the-file-menu">
+<span id="index-7"></span><h2>The File Menu<a class="headerlink" href="#the-file-menu" title="Permalink to this headline">¶</a></h2>
+<p>From this menu we can create, open and save the source code files.</p>
+<p>Another feature in this menu is &#8220;Print to PDF&#8221;</p>
+<img alt="Ring Notepad - File Menu" src="_images/rnotemenu_file.png" />
+</div>
+<div class="section" id="the-edit-menu">
+<span id="index-8"></span><h2>The Edit Menu<a class="headerlink" href="#the-edit-menu" title="Permalink to this headline">¶</a></h2>
+<p>From the Edit menu we can Cut, Copy and Paste text.</p>
+<p>Also we can change the font and the colors.</p>
+<p>We can Go to a specific line or use the Find and Replace window
+to find and replace text.</p>
+<p>Also We can set the Tab Width (Number of Spaces)</p>
+<img alt="Ring Notepad - Edit Menu" src="_images/rnotemenu_edit.png" />
+</div>
+<div class="section" id="the-view-menu">
+<span id="index-9"></span><h2>The View Menu<a class="headerlink" href="#the-view-menu" title="Permalink to this headline">¶</a></h2>
+<p>From this menu we can show/hide the dockable windows</p>
+<p>Also we can change the Style of the Ring Notepad</p>
+<p>Common Styles are (Fusion White and Modern Black)</p>
+<img alt="Ring Notepad - View Menu" src="_images/rnotemenu_view.png" />
+<p>Also we can quickly show/hide group of dockable windows based on the context</p>
+<img alt="Ring Notepad - View Menu - Set Mode" src="_images/rnotemenu_mode.png" />
+</div>
+<div class="section" id="the-program-menu">
+<span id="index-10"></span><h2>The Program Menu<a class="headerlink" href="#the-program-menu" title="Permalink to this headline">¶</a></h2>
+<p>From this menu we can run the programs</p>
+<p>Also we can set the Main file in the project</p>
+<img alt="Ring Notepad - Program Menu" src="_images/rnotemenu_program.png" />
+</div>
+<div class="section" id="the-browser-menu">
+<span id="index-11"></span><h2>The Browser Menu<a class="headerlink" href="#the-browser-menu" title="Permalink to this headline">¶</a></h2>
+<p>From this menu we can quickly open common links in the browser</p>
+<img alt="Ring Notepad - Browser Menu" src="_images/rnotemenu_browser.png" />
+</div>
+<div class="section" id="the-tools-menu">
+<span id="index-12"></span><h2>The Tools Menu<a class="headerlink" href="#the-tools-menu" title="Permalink to this headline">¶</a></h2>
+<p>From this window we can run the Form Designer in separate window</p>
+<p>Also we can run the REPL (Read-Eval-Print-Loop) application</p>
+<img alt="Ring Notepad - Tools Menu" src="_images/rnotemenu_tools.png" />
+</div>
+<div class="section" id="the-help-menu">
+<span id="index-13"></span><h2>The Help Menu<a class="headerlink" href="#the-help-menu" title="Permalink to this headline">¶</a></h2>
+<p>From this menu we can get the help files (CHM &amp; PDF)</p>
+<img alt="Ring Notepad - Help Menu" src="_images/rnotemenu_help.png" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Using Ring Notepad</a><ul>
+<li><a class="reference internal" href="#ring-notepad-main-window">Ring Notepad - Main Window</a></li>
+<li><a class="reference internal" href="#creating-and-running-your-first-console-application">Creating and running your first Console Application</a></li>
+<li><a class="reference internal" href="#creating-and-running-your-first-gui-mobile-application">Creating and running your first GUI/Mobile Application</a></li>
+<li><a class="reference internal" href="#creating-and-running-your-first-web-application">Creating and running your first Web Application</a></li>
+<li><a class="reference internal" href="#creating-and-running-your-first-desktop-mobile-game">Creating and running your first Desktop/Mobile Game</a></li>
+<li><a class="reference internal" href="#the-main-file-in-the-project">The Main File in the Project</a></li>
+<li><a class="reference internal" href="#the-file-menu">The File Menu</a></li>
+<li><a class="reference internal" href="#the-edit-menu">The Edit Menu</a></li>
+<li><a class="reference internal" href="#the-view-menu">The View Menu</a></li>
+<li><a class="reference internal" href="#the-program-menu">The Program Menu</a></li>
+<li><a class="reference internal" href="#the-browser-menu">The Browser Menu</a></li>
+<li><a class="reference internal" href="#the-tools-menu">The Tools Menu</a></li>
+<li><a class="reference internal" href="#the-help-menu">The Help Menu</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting_started3.html"
+                        title="previous chapter">Getting Started - Third Style</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="codeeditors.html"
+                        title="next chapter">Using Other Code Editors</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ringnotepad.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="codeeditors.html" title="Using Other Code Editors"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="getting_started3.html" title="Getting Started - Third Style"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

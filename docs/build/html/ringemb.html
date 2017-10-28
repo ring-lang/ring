@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Embedding Ring in Ring &mdash; Ring 1.5.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.5.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.5.4 documentation" href="index.html" />
+    <link rel="next" title="Extension using the C/C++ languages" href="extension.html" />
+    <link rel="prev" title="The Trace Library and the Interactive Debugger" href="debug.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Extension using the C/C++ languages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="debug.html" title="The Trace Library and the Interactive Debugger"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="embedding-ring-in-ring">
+<span id="index-0"></span><h1>Embedding Ring in Ring<a class="headerlink" href="#embedding-ring-in-ring" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about embedding Ring in Ring programs and applications.</p>
+<div class="section" id="embedding-ring-in-ring-without-sharing-the-state">
+<span id="index-1"></span><h2>Embedding Ring in Ring without sharing the State<a class="headerlink" href="#embedding-ring-in-ring-without-sharing-the-state" title="Permalink to this headline">¶</a></h2>
+<p>From Ring 1.0 we already have functions for embedding Ring in the C language. Also we
+can execute Ring code inside Ring programs using the eval() function. In this release
+we provide functions for embedding Ring in Ring programs without sharing the state.</p>
+<p>Advantages:</p>
+<ol class="arabic simple">
+<li>Quick integration for Ring programs and applications together without conflicts.</li>
+<li>Execute and run Ring code in safe environments that we can trace.</li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;See &#39;Hello, World!&#39;+nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x = 10&quot;</span><span class="p">)</span>
+
+<span class="n">pState2</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;See &#39;Hello, World!&#39;+nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;x = 20&quot;</span><span class="p">)</span>
+
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;see x +nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;see x +nl&quot;</span><span class="p">)</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+
+<span class="k">see</span> <span class="n">v1</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">V2</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serial-execution-of-programs">
+<span id="index-2"></span><h2>Serial Execution of Programs<a class="headerlink" href="#serial-execution-of-programs" title="Permalink to this headline">¶</a></h2>
+<p>We can execute application after another application using ring_state_main()</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">chdir</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/../applications/formdesigner&quot;</span><span class="p">)</span>
+<span class="n">ring_state_main</span><span class="p">(</span><span class="sc">&#39;formdesigner.ring&#39;</span><span class="p">)</span>
+<span class="n">chdir</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/../applications/cards&quot;</span><span class="p">)</span>
+<span class="n">ring_state_main</span><span class="p">(</span><span class="sc">&#39;cards.ring&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Embedding Ring in Ring</a><ul>
+<li><a class="reference internal" href="#embedding-ring-in-ring-without-sharing-the-state">Embedding Ring in Ring without sharing the State</a></li>
+<li><a class="reference internal" href="#serial-execution-of-programs">Serial Execution of Programs</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="debug.html"
+                        title="previous chapter">The Trace Library and the Interactive Debugger</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extension.html"
+                        title="next chapter">Extension using the C/C++ languages</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ringemb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Extension using the C/C++ languages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="debug.html" title="The Trace Library and the Interactive Debugger"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.5.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

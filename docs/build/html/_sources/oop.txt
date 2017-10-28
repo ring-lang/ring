@@ -1,0 +1,835 @@
+.. index:: 
+	single: Object Oriented Programming; Introduction
+
+=================================
+Object Oriented Programming (OOP)
+=================================
+
+In this chapter we are going to learn how to use the Object-Oriented programming paradigm
+inside the Ring programming language.
+
+We will learn about
+
+* Classes and Objects
+* Access Objects Using Braces
+* Composition
+* Setter and Getter
+* Private Attributes and Methods
+* Operator Overloading
+* Inheritance
+* Dynamic Attributes
+* Packages
+* Printing Objects
+* Find() and List of Objects
+* Sort() and List of Objects
+* Using Self.Attribute and Self.Method()
+* Using This.Attribute and This.Method()
+
+
+.. index:: 
+	pair: Object Oriented Programming; Classes and Objects
+
+
+Classes and Objects
+===================
+
+We can define new classes using the next syntax
+
+Syntax:
+
+.. code-block:: ring
+
+	Class <Class Name> [From|<|: <Parent Class Name>]
+		[Attributes]
+		[Methods]
+		[Private
+ 		  [Attributes]
+		  [Methods]
+                ]
+
+And we can create objects using the next syntax
+
+Syntax:
+
+.. code-block:: ring
+
+	New <Object Name> [ (init method parameters) ] |
+			  [ { access object data and methods } ]   ---> Object
+
+Example:
+
+.. code-block:: ring
+
+	New point { x=10  y=20  z=30  print() }
+	Class Point x y z func print see x + nl + y + nl + z + nl 
+
+.. note:: We can use { } to access object data and methods.
+
+.. tip:: we can declare the class attributes directly after the class name.
+
+Output:
+
+.. code-block:: ring
+
+	10
+	20
+	30
+
+We can rewrite the same program in another style
+
+.. code-block:: ring
+
+	New point 			# create new object using the point class
+	{ 				# access the new object attributes and methods
+		x = 10 			# set the x attribute to 10
+		y = 20 			# set the y attribute to 20
+		z = 30 			# set the z attribute to 30
+		print() 		# call the print method
+	}				# end of object access 
+
+
+	Class Point 			# define the Point class
+		x y z 			# the class contains three attributes x, y & z
+		func print 		# define the print method
+			see x + nl +    # print the x attribute
+			    y + nl +    # print the y attribute
+			    z + nl 	# print the z attribute
+
+
+
+Also we can write the same program in another way
+
+.. code-block:: ring
+
+	P1 = New Point
+	P1.x = 10
+	P1.y = 20
+	P1.z = 30
+	P1.Print()
+	Class Point x y z func print see x + nl + y + nl + z + nl 	
+
+.. note:: we can use the dot operator after the object name to access object members.
+
+Also we can write the same program in another way
+
+.. code-block:: ring
+
+	new point { print() } 	
+	Class Point
+		x = 10  y = 20  z = 30
+		func print see x + nl + y + nl + z + nl
+
+.. note:: we can set the default values for the class attributes when we declare them.
+
+Also we can write the same program in another way
+
+.. code-block:: ring
+
+	new point(10,20,30)
+	Class Point
+		x y z 
+		func init p1,p2,p3 x=p1 y=p2 z=p3 print()
+		func print see x + nl + y + nl + z + nl
+
+.. note:: we can call the init method directly using () when we create new objects 
+
+Also we can write the same program in another way
+
+.. code-block:: ring
+
+	new point( [ :x = 10 , :y = 20 , :z = 30 ] )
+	Class Point x y z
+	      func init aPara x = aPara[:x] y = aPara[:y] z = aPara[:z] print()
+     	      func print see x + nl + y + nl + z + nl
+
+.. tip:: using Hash for passing method parameters enable us to create optional 
+         parameters and change the order of parameters when adding them to the Hash.
+
+.. index:: 
+	pair: Object Oriented Programming; Access Objects Using Braces
+
+Access Objects Using Braces
+===========================
+
+We can access the object at any time using braces { } 
+
+Inside the braces we can use the object attributes and methods directly
+
+This can be done when we create the object using the New keyword or at any time using the next syntax
+
+.. code-block:: ring
+
+	ObjectName { access object data and methods }
+
+Example:
+
+.. code-block:: ring
+
+	See "Creating the Object" + nl
+	o1 = new Point
+	See "Using the Object" + nl
+	o1 {
+		x=5 	
+		y=15
+		z=25	
+		print()
+	}
+	Class Point x y z func print see x + nl + y + nl + z 
+
+We can use braces to access objects when we call functions or methods
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new Point
+
+	print( o1 { x=10 y=20 z=30 } )
+	
+	func print object
+		see object.x + nl + 
+		    object.y + nl + 
+		    object.z 
+
+	Class Point x y z
+
+We can mix between using braces and the dot operator to access the object in the same expression.
+
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new Point
+
+	O1 { x=10 y=20 z=30 }.print()
+	
+	Class Point x y z
+		func print see x + nl + y + nl + z
+
+.. index:: 
+	pair: Object Oriented Programming; Composition
+
+Composition
+===========
+
+The object may contains other objects as attributes.
+
+Using braces to access objects can be nested.
+
+Example:
+
+.. code-block:: ring
+
+	R1 = New Rectangle 
+	{
+
+		Name = "Rectangle 1"
+
+		P1 
+		{
+			X = 10
+			Y = 20
+		}
+
+		P2 
+		{
+			X = 200
+			Y = 300
+		}	
+
+	        Color = "Blue"
+
+	}
+	
+	see "Name : " + R1.Name + nl +
+	    "Color: " + R1.Color + nl +
+	    "P1   : (" + R1.P1.X + "," + R1.P1.Y + ")" + nl + 
+	    "P2   : (" + R1.P2.X + "," + R1.P2.Y + ")"  
+
+	Class Rectangle
+		name  color
+		p1 = new Point
+		p2 = new Point
+
+	Class Point x y 
+
+Output:
+
+.. code-block:: ring
+
+	Name : Rectangle 1
+	Color: Blue
+	P1   : (10,20)
+	P2   : (200,300)
+
+.. index:: 
+	pair: Object Oriented Programming; Setter and Getter
+
+Setter and Getter
+=================
+
+We can define methods to be used when we set and get object attributes.
+
+Syntax:
+
+.. code-block:: ring
+
+	Class ClassName
+
+		AttributeName
+		...
+
+		Func SetAttributeName
+			...
+
+		Func GetAttributeName
+			...
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new person
+
+	o1.name = "Mahmoud"  see o1.name + nl
+
+	o1 { name = "Ahmed"  see name }
+
+	Class Person
+
+		name family = "Fayed"
+
+		func setname value
+			see "Message from SetName() Function!" + nl
+			name = value + " " + family
+
+		func getname
+			see "Message from GetName() Function!" + nl
+			return "Mr. " + name
+
+Output:
+
+.. code-block:: ring
+
+	Message from SetName() Function!
+	Message from GetName() Function!
+	Mr. Mahmoud Fayed
+	Message from SetName() Function!
+	Message from GetName() Function!
+	Mr. Ahmed Fayed
+
+.. index:: 
+	pair: Object Oriented Programming; Private Attributes and Methods
+
+Private Attributes and Methods
+==============================		
+
+We can define private attributes and methods after the keyword private inside the class body
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new person {
+		name = "Test"
+		age = 20
+		print()
+		o1.printsalary()
+	}
+
+	try
+		see o1.salary
+	catch
+		see cCatchError + nl
+	done
+
+	try
+		o1.increasesalary(1000)
+	catch
+		see cCatchError + nl
+	done
+
+	Class Person
+
+		name age 
+
+		func print
+			see "Name   : " + name + nl + 
+			    "Age    : " + age + nl 
+
+		func printsalary
+		  	see "Salary : " + salary + nl 
+
+		private
+
+		salary = 15000
+
+		func increasesalary x
+			salary += x
+
+Output:
+
+.. code-block:: ring
+
+	Name   : Test
+	Age    : 20
+	Salary : 15000
+	Error (R27) : Using private attribute from outside the class : salary
+	Error (R26) : Calling private method from outside the class : increasesalary
+
+.. index:: 
+	pair: Object Oriented Programming; Operator Overloading
+
+Operator Overloading
+====================
+
+We can add the operator method to our class to enable using operators with the class objects.
+
+Syntax:
+
+.. code-block:: ring
+
+	Class ClassName
+
+		...
+
+		Func operator cOperator,Para
+
+			...
+
+The function operator takes two paramters, the first represent the operator
+and the second represent the second parameter after the operator.
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new point { x = 10 y = 10 print("P1    : ") }
+	o2 = new point { x = 20 y = 40 print("P2    : ") }
+
+	o3 = o1 + o2
+	o3.print("P1+P2 : ")
+
+	class point x y
+
+		func operator cOperator,Para
+			result = new point	
+			switch cOperator
+			on "+"
+				result.x = x + Para.x
+				result.y = y + Para.y
+			on "-"
+				result.x = x - Para.x
+				result.y = y - Para.y
+			off
+			return result
+
+		func print cPoint
+			see cPoint + "X : " + x + " Y : " + y + nl
+
+Output:
+
+.. code-block:: ring
+
+	P1    : X : 10 Y : 10
+	P2    : X : 20 Y : 40
+	P1+P2 : X : 30 Y : 50
+
+.. index:: 
+	pair: Object Oriented Programming; Inheritance
+
+Inheritance
+===========
+
+We can create class from another class in the class definition using the keyword from.
+
+Syntax:
+
+.. code-block:: ring
+
+	Class <Class Name> [From <Parent Class Name>]
+
+We can call a method in the parent class from the child class using the super object.
+
+Syntax:
+
+.. code-block:: ring
+
+	func methodname
+		...
+		super.methodname()
+		...
+
+Example:
+
+.. code-block:: ring
+
+	Func main
+		e1 = new Employee {
+			Name = "test"
+			age = 20
+			job = "programmer"
+			salary = 20000000
+			print()
+		}
+	
+
+	Class Human 
+		Name Age
+		func print
+			see "Name : " + name + nl + "Age  : " + age + nl
+
+	Class Employee from Human
+		Job Salary
+		func print
+			super.print()
+			see "Job  : " + job + nl + "Salary : " + salary + nl
+
+Output:
+
+.. code-block:: ring
+
+	Name : test
+	Age  : 20
+	Job  : programmer
+	Salary : 20000000
+
+.. index:: 
+	pair: Object Oriented Programming; Dynamic Attributes
+
+Dynamic Attributes
+==================
+
+We can write instructions after the class name to be executed when we create new objects
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new dynamicClass
+	see o1.var5 + nl	# output 5
+
+	Class DynamicClass
+		for x = 1 to 10
+			cStr = "var" + x + " = " + x
+			eval(cStr)
+		next
+
+.. tip:: in the previous example var1, var2, ..., var10 will be defined as attributes.
+
+.. tip:: The problem with the previous example is that x and cStr will be defined as attributes too!
+
+.. note:: we can write class definitions inside a string then 
+          using eval() we can execute the string to define the classes
+
+.. index:: 
+	pair: Object Oriented Programming; Packages
+
+Packages
+========
+
+We can create a package (a group of classes under a common name) using the next syntax
+
+.. code-block:: ring
+
+	package PackageName
+		Class Class1
+			...
+		Class Class2
+			...
+		Class Class3
+			...
+		...
+
+Example
+
+.. code-block:: ring
+
+	o1 = new System.output.console
+	o1.print("Hello World")
+	
+	Package System.Output
+		Class Console
+			Func Print cText
+				see cText + nl
+
+.. note:: we can use the dot operator as part of the package name
+
+Instead of typing the long name PackageName.ClassName we can use the import command
+
+When we import a package, we can use any class inside this package directly.
+
+Example
+
+.. code-block:: ring
+
+	import system.output
+	o1 = new console {
+		print("Hello World")
+	}
+	Package System.Output
+		Class Console
+			Func Print cText
+				see cText + nl
+
+.. index:: 
+	pair: Object Oriented Programming; Printing Objects
+
+Printing Objects
+================
+
+We can print the object state (attributes and values) using the see command.
+
+Example:
+
+.. code-block:: ring
+
+	see new point { x=10 y=20 z=30 }
+	class point x y z
+
+Output:
+
+.. code-block:: ring
+
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
+
+.. index:: 
+	pair: Object Oriented Programming; Find() and List of Objects
+
+Find() and List of Objects
+==========================
+
+We can use the find() function to search inside a list of objects.
+
+Syntax:
+
+.. code-block:: ring
+
+	Find(List,ItemValue,nColumn,cAttribute) ---> Item Index
+
+Example:
+
+.. code-block:: ring
+
+	myList1 = [new Company {position=3 name="Mahmoud" symbol="MHD"},
+  		   new Company {position=2 name="Bert" symbol="BRT"},
+		   new Company {position=1 name="Ring" symbol="RNG"}
+		  ]
+
+	see find(mylist1,"Bert",1,"name") + nl
+	see find(mylist1,"Ring",1,"name") + nl
+	see find(mylist1,"Mahmoud",1,"name") + nl
+	see find(mylist1,"RNG",1,"symbol") + nl
+	see find(mylist1,"MHD",1,"symbol") + nl
+	see find(mylist1,"BRT",1,"symbol") + nl
+	see find(mylist1,3,1,"position") + nl
+	see find(mylist1,1,1,"position") + nl
+	see "Other" + nl
+	see find(mylist1,"test",1,"name") + nl
+	see find(mylist1,"test",0,"name") + nl
+	see find(mylist1,"test",5,"name") + nl
+
+	class company position name symbol
+
+Output:
+
+.. code-block:: ring
+
+	2
+	3
+	1
+	3
+	1
+	2
+	1
+	3
+	Other
+	0
+	0
+	0
+
+.. index:: 
+	pair: Object Oriented Programming; Sort() and List of Objects
+
+Sort() and list of objects
+==========================
+
+We can sort a list of objects based on an object attribute using the Sort() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	Sort(List,nColumn,cAttribute) ---> Sorted List based on Object Attribute
+
+Example:
+
+.. code-block:: ring
+
+	myList1 = [
+			new Company {position=3 name="Mahmoud" symbol="MHD"},
+			new Company {position=2 name="Bert" symbol="BRT"},
+			new Company {position=8 name="Charlie" symbol="CHR"},
+			new Company {position=6 name="Easy" symbol="FEAS"},
+			new Company {position=7 name="Fox" symbol="EFOX"},
+			new Company {position=5 name="Dog" symbol="GDOG"},
+			new Company {position=4 name="George" symbol="DGRG"},
+			new Company {position=1 name="Ring" symbol="RNG"}
+		  ]
+
+	see sort(mylist1,1,"name")
+	see copy("*",70) + nl
+	see sort(mylist1,1,"symbol")
+	see copy("*",70) + nl
+	see sort(mylist1,1,"position")
+
+	class company position name symbol
+
+Output:
+
+.. code-block:: ring
+
+
+	position: 2.000000
+	name: Bert
+	symbol: BRT
+	position: 8.000000
+	name: Charlie
+	symbol: CHR
+	position: 5.000000
+	name: Dog
+	symbol: GDOG
+	position: 6.000000
+	name: Easy
+	symbol: FEAS
+	position: 7.000000
+	name: Fox
+	symbol: EFOX
+	position: 4.000000
+	name: George
+	symbol: DGRG
+	position: 3.000000
+	name: Mahmoud
+	symbol: MHD
+	position: 1.000000
+	name: Ring
+	symbol: RNG
+	**********************************************************************
+	position: 2.000000
+	name: Bert
+	symbol: BRT
+	position: 8.000000
+	name: Charlie
+	symbol: CHR
+	position: 4.000000
+	name: George
+	symbol: DGRG
+	position: 7.000000
+	name: Fox
+	symbol: EFOX
+	position: 6.000000
+	name: Easy
+	symbol: FEAS
+	position: 5.000000
+	name: Dog
+	symbol: GDOG
+	position: 3.000000
+	name: Mahmoud
+	symbol: MHD
+	position: 1.000000
+	name: Ring
+	symbol: RNG
+	**********************************************************************
+	position: 1.000000
+	name: Ring
+	symbol: RNG
+	position: 2.000000
+	name: Bert
+	symbol: BRT
+	position: 3.000000
+	name: Mahmoud
+	symbol: MHD
+	position: 4.000000
+	name: George
+	symbol: DGRG
+	position: 5.000000
+	name: Dog
+	symbol: GDOG
+	position: 6.000000
+	name: Easy
+	symbol: FEAS
+	position: 7.000000
+	name: Fox
+	symbol: EFOX
+	position: 8.000000
+	name: Charlie
+	symbol: CHR
+
+.. index:: 
+	pair: Object Oriented Programming; Using Self.Attribute
+
+Using Self.Attribute and Self.Method()
+======================================
+
+Inside the class region (After the class name and before any method) and the class methods we can
+use self.attribute and self.method()
+
+.. code-block:: ring
+
+	Class Point
+		self.x = 10
+		self.y = 20
+		self.z = 30
+		func print
+			see self.x + nl + self.y + nl + self.z + nl
+
+.. note:: using self.attribute in the class region to define the class attribute protect the class attributes from conflict with global variables.
+
+.. tip:: if you typed the class attributes with self.attribute and there are a global variable with the same name it will be used and the attribute will not be defined.
+
+Check the "Scope Rules" chapter to know about the conflict between the global variable name and the attribute name
+
+Whay this may happens?
+
+Because 
+
+* Because in the class region we can access global variables.
+* Before defining any variable, Ring try to find the variable and use it if it's found.
+
+.. note:: Try to avoid the global variables, use the main function and start their names with $ 
+
+.. tip:: In large programs protect your classes and define their members using self.attribute
+
+Using This.Attribute and This.Method()
+======================================
+
+Inside class methods we have access to the object scope directly. we don't need to use Self.attribute
+or Self.method to read/write attribute and call methods.
+
+But we can use braces {} while we are inside methods to access another object, In this case the current
+object scope will be changed while we are inside the brace.
+
+How we can get access to our class attributes and methods while we are inside braces?
+
+This can be done using This.Attribute and This.Method()
+
+Example:
+
+.. code-block:: ring
+
+	new point  
+
+	class point 
+		x=10 y=20 z=30
+		print()
+		func print
+			new UI {
+				display(this.x,this.y,this.z)
+			}
+
+	Class UI
+		func display x,y,z
+			see x + nl + y + nl + z + nl

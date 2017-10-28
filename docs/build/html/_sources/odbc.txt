@@ -1,0 +1,564 @@
+.. index:: 
+	single: ODBC Functions; Introduction
+
+==============
+ODBC Functions
+==============
+
+This chapter contains the ODBC functions provided by the Ring programming language.
+
+* odbc_init()
+* odbc_drivers()
+* odbc_datasources()
+* odbc_close()
+* odbc_connect()
+* odbc_disconnect()
+* odbc_execute()
+* odbc_colcount()
+* odbc_fetch()
+* odbc_getdata()
+* odbc_tables()
+* odbc_columns()
+* odbc_autocommit()
+* odbc_commit()
+* odbc_rollback()
+
+Before using the next function load the odbclib.ring library
+
+.. code-block:: ring
+
+	load "odbclib.ring"
+	# Use ODBC functions
+
+.. index:: 
+	pair: ODBC Functions; odbc_init()
+
+odbc_init() Function
+====================
+
+We can create ODBC Handle using the odbc_init() function
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_init() ---> ODBC Handle
+
+.. index:: 
+	pair: ODBC Functions; odbc_drivers()
+
+odbc_drivers() Function
+=======================
+
+We can get a list of ODBC drivers using the odbc_drivers() function
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_drivers(ODBC Handle) ---> List of Drivers
+
+.. index:: 
+	pair: ODBC Functions; odbc_datasources()
+
+odbc_datasources() Function
+===========================
+
+We can get a list of ODBC data sources using the odbc_datasources() function
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_datasources(ODBC Handle) ---> List of Data sources
+
+.. index:: 
+	pair: ODBC Functions; odbc_close()
+
+odbc_close() Function
+=====================
+
+After the end of using ODBC functions we can free resources using ODBC_Close() function
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_close(ODBC Handle)
+
+.. index:: 
+	pair: ODBC Functions; Print List of ODBC Drivers
+
+Print List of ODBC Drivers
+==========================
+
+The next example print a list of ODBC drivers.
+
+.. code-block:: ring
+
+	See "ODBC test 1" + nl
+	oODBC = odbc_init()
+	See "Drivers " + nl
+	see odbc_drivers(oODBC)
+	odbc_close(oODBC)
+
+Output:
+
+.. code-block:: ring
+
+	ODBC test 1
+	Drivers
+	Microsoft Access-Treiber (*.mdb) - SQLLevel=0
+	Driver do Microsoft Paradox (*.db ) - SQLLevel=0
+	Driver do Microsoft Excel(*.xls) - SQLLevel=0
+	Microsoft Text Driver (*.txt; *.csv) - SQLLevel=0
+	Driver da Microsoft para arquivos texto (*.txt; *.csv) - SQLLevel=0
+	Microsoft dBase-Treiber (*.dbf) - SQLLevel=0
+	SQL Server - CPTimeout=60
+	Microsoft Excel Driver (*.xls) - SQLLevel=0
+	Driver do Microsoft dBase (*.dbf) - SQLLevel=0
+	Microsoft Paradox-Treiber (*.db ) - SQLLevel=0
+	Microsoft ODBC for Oracle - CPTimeout=120
+	Microsoft Text-Treiber (*.txt; *.csv) - SQLLevel=0
+	Microsoft Excel-Treiber (*.xls) - SQLLevel=0
+	Microsoft Access Driver (*.mdb) - SQLLevel=0
+	Driver do Microsoft Access (*.mdb) - SQLLevel=0
+	Microsoft Paradox Driver (*.db ) - SQLLevel=0
+	Microsoft dBase Driver (*.dbf) - SQLLevel=0
+	Microsoft Access Driver (*.mdb, *.accdb) - UsageCount=3
+	Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb) - UsageCount=3
+	Microsoft Access Text Driver (*.txt, *.csv) - UsageCount=3
+	SQL Server Native Client 10.0 - UsageCount=1
+	SQL Server Native Client 11.0 - UsageCount=1
+	Microsoft Access dBASE Driver (*.dbf, *.ndx, *.mdx) - UsageCount=3
+	Microsoft Access Paradox Driver (*.db) - UsageCount=3
+	MySQL ODBC 5.3 ANSI Driver - UsageCount=1
+	MySQL ODBC 5.3 Unicode Driver - UsageCount=1
+	ODBC Driver 11 for SQL Server - UsageCount=1
+	Lianja ODBC Driver - CPTimeout=60
+	Microsoft Visual FoxPro Driver - UsageCount=1
+	Microsoft Visual FoxPro-Treiber - UsageCount=1
+	Driver para o Microsoft Visual FoxPro - UsageCount=1
+	Microsoft FoxPro VFP Driver (*.dbf) - UsageCount=1
+
+.. index:: 
+	pair: ODBC Functions; Print List of ODBC Data Sources
+
+Print List of ODBC Data Sources
+===============================
+
+The next example print a list of ODBC data sources.
+
+.. code-block:: ring
+
+	See "ODBC test 2" + nl
+	pODBC = odbc_init()
+	See "Data Sources " + nl
+	see odbc_datasources(pODBC)
+	odbc_close(pODBC)
+
+Output:
+
+.. code-block:: ring
+
+	ODBC test 2
+	Data Sources
+	Excel Files - Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)
+	MS Access Database - Microsoft Access Driver (*.mdb, *.accdb)
+	Customer - Microsoft Access Driver (*.mdb)
+	IdCardData - Microsoft Access Driver (*.mdb)
+	MyProjectData2 - Microsoft Access Driver (*.mdb)
+	MyData - Microsoft Access Driver (*.mdb)
+	MonprojetData - Microsoft Access Driver (*.mdb)
+	dBASE Files - Microsoft Access dBASE Driver (*.dbf, *.ndx, *.mdx)
+	myvfpdata - Microsoft Visual FoxPro Driver
+	FACTORYDATA - Microsoft Access Driver (*.mdb)
+	TRAININGSYSDATA - Microsoft Access Driver (*.mdb)
+	RVCSYSDATASQLDB - SQL Server Native Client 11.0
+	PWCTRVCDATA - Microsoft Access Driver (*.mdb)
+	MyCompany - Microsoft Access Driver (*.mdb)
+	HCS - Microsoft Access Driver (*.mdb)
+	HCS2 - Microsoft Access Driver (*.mdb, *.accdb)
+	MyProjectData - Microsoft Access Driver (*.mdb)
+	Xtreme Sample Database 2008 - Microsoft Access Driver (*.mdb)
+	Lianja_Southwind - Lianja ODBC Driver
+	Visual FoxPro Database - Microsoft Visual FoxPro Driver
+	Visual FoxPro Tables - Microsoft Visual FoxPro Driver
+
+.. index:: 
+	pair: ODBC Functions; odbc_connect()
+
+odbc_connect() Function
+=======================
+
+We can connect to the database using the odbc_connect() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_connect(ODBC Handle, cConnectionString)
+
+.. index:: 
+	pair: ODBC Functions; odbc_disconnect()
+
+odbc_disconnect() Function
+==========================
+
+We can close the connection to the database using the odbc_disconnect() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_disconnect(ODBC Handle)
+
+.. index:: 
+	pair: ODBC Functions; Open and Close Connection
+
+Open and Close Connection 
+=========================
+
+The next example connect to the database then close the connection
+
+.. code-block:: ring
+
+	See "ODBC test 3" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	see odbc_connect(pODBC,"DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+	See "disconnect" + nl
+	odbc_disconnect(pODBC)
+	See "Close database..." + nl
+	odbc_close(pODBC)
+
+Output:
+
+.. code-block:: ring
+
+	ODBC test 3
+	Connect to database
+	1
+	disconnect
+	Close database...
+
+.. index:: 
+	pair: ODBC Functions; odbc_execute()
+
+odbc_execute() Function
+=======================
+
+We can execute SQL Statements on the database using the odbc_execute() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_execute(ODBC Handle, cSQLStatement)
+
+.. index:: 
+	pair: ODBC Functions; odbc_colcount()
+
+odbc_colcount() Function
+========================
+
+We can get columns count in the query result using the odbc_colcount() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_colcount(ODBC Handle) ---> Columns Count as Number
+
+.. index:: 
+	pair: ODBC Functions; odbc_fetch()
+
+odbc_fetch() Function
+=====================
+
+We can fetch a row from the query result using the odbc_fetch() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_fetch(ODBC Handle)
+
+.. index:: 
+	pair: ODBC Functions; odbc_getdata()
+
+odbc_getdata() Function
+=======================
+
+We can get column value from the fetched row using the odbc_getdata() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_getdata(ODBC Handle, nColumnNumber) ---> Column Value
+
+.. index:: 
+	pair: ODBC Functions; Execute Query and Print Result
+
+Execute Query and Print Result
+==============================
+
+The next example execute query then print the query result.
+
+.. code-block:: ring
+
+	See "ODBC test 4" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	see odbc_connect(pODBC,"DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+	See "Select data" + nl
+	see odbc_execute(pODBC,"select * from person") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		See "Row data:" + nl
+		for x = 1 to nMax
+			see odbc_getdata(pODBC,x) + " - "
+		next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+.. index:: 
+	pair: ODBC Functions; odbc_tables()
+
+odbc_tables() Function
+======================
+
+We can get a list of tables inside the database using the odbc_tables() function.
+
+We can access the result of this function as we get any query result.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_tables(ODBC Handle)
+
+Example:
+
+.. code-block:: ring
+
+	See "ODBC test - Get Database Tables" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+	See "Select data" + nl
+	odbc_tables(pODBC) + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		for x = 1 to nMax
+			see odbc_getdata(pODBC,x) 
+			if x != nMax see " - " ok
+		next
+		See nl
+	end
+	See "Close database..." 
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output:
+
+.. code-block:: ring
+
+	ODBC test - Get Database Tables
+	Connect to database
+	Select data
+	Columns Count : 5
+	.\test - NULL - Customer - TABLE - NULL
+	.\test - NULL - employee - TABLE - NULL
+	.\test - NULL - person - TABLE - NULL
+	.\test - NULL - tel - TABLE - NULL
+	Close database...
+
+.. index:: 
+	pair: ODBC Functions; odbc_columns()
+
+odbc_columns() Function
+=======================
+
+We can get a list of columns inside the table using the odbc_columns() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_columns(ODBC Handle, cTableName)
+
+Example:
+
+.. code-block:: ring
+
+	See "ODBC test - Get Table Columns" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+	See "Get Columns inside the Person Table" + nl
+	odbc_columns(pODBC,"person") + nl
+	while odbc_fetch(pODBC)
+		see odbc_getdata(pODBC,4) + nl
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output:
+
+.. code-block:: ring
+
+	ODBC test - Get Table Columns
+	Connect to database
+	Get Columns inside the Person Table
+	FIRST
+	LAST
+	STREET
+	CITY
+	STATE
+	ZIP
+	HIREDATE
+	MARRIED
+	AGE
+	SALARY
+	NOTES
+	Close database...
+
+.. index:: 
+	pair: ODBC Functions; odbc_autocommit()
+
+odbc_autocommit() Function
+==========================
+
+We can enable or disable the auto commit feature using the odbc_autocommit() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_autocommit(ODBC Handle, lStatus)   # lStatus can be True or False
+
+
+.. index:: 
+	pair: ODBC Functions; odbc_commit()
+
+odbc_commit() Function
+======================
+
+We can commit updates to the database using the odbc_commit() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_commit(ODBC Handle)
+
+.. index:: 
+	pair: ODBC Functions; odbc_rollback()
+
+odbc_rollback() Function
+========================
+
+We can rollback updates to the database using the odbc_rollback() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	odbc_rollback(ODBC Handle)
+
+.. index:: 
+	pair: ODBC Functions; Transactions and Using Commit and Rollback
+
+Transactions and Using Commit and Rollback
+==========================================
+
+Example:
+
+.. code-block:: ring
+
+	See "ODBC Test - Transactions and using Commit and Rollback" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	see odbc_connect(pODBC,"DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+	see "insert data..." + nl
+	odbc_autocommit(pODBC,0)
+	for x = 1 to 10000
+		odbc_execute(pODBC,"insert into tel values (" + x + ",'mahmoud')")
+	next
+	for x = 10001 to 15000
+		odbc_execute(pODBC,"insert into tel values (" + x + ",'samir')")
+	next
+	odbc_commit(pODBC)
+
+	for x = 15001 to 20000
+		odbc_execute(pODBC,"insert into tel values (" + x + ",'fayed')")
+	next
+
+	ODBC_ROLLBACK(pODBC)
+	odbc_execute(pODBC,"insert into tel values (" + x + ",'fayed')")
+	odbc_commit(pODBC)
+
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output:
+
+.. code-block:: ring
+
+	ODBC Test - Transactions and using Commit and Rollback
+	Connect to database
+	1
+	insert data...
+	Close database...
+
+.. index:: 
+	pair: ODBC Functions; Save and Restore Images
+
+Save and Restore images
+=======================
+
+The next example save an image inside the database
+
+.. code-block:: ring
+
+	See "ODBC test - Save image in the database" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	see odbc_connect(pODBC,"DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+	see "Read Image File..." + nl
+	cFile = str2hex(read("tests\mahmoud.jpg"))
+	see "size " + len(CFile)+nl
+	see "Save image in the database..." + nl
+	stmt = "insert into tel values (20000,'mahmoud','" + cFile + "');"
+	odbc_execute(pODBC,stmt)
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+The next example restore the image from the database
+
+.. code-block:: ring
+
+	See "ODBC Test - Restore image from the database" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	see odbc_connect(pODBC,"DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}") + nl
+	See "Select data" + nl
+	see odbc_execute(pODBC,"select * from tel where id = 20000") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	if odbc_fetch(pODBC)
+		See "Write image file" + nl
+		write("tests\great.jpg",hex2str( odbc_getdata(pODBC,3) ) )
+	ok
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)

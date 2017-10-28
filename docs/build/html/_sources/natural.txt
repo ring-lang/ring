@@ -1,0 +1,629 @@
+.. index:: 
+	single: Natural Language Programming; Introduction
+
+============================
+Natural Language Programming
+============================
+
+Using the Ring programming language, we can create Natural programming languages based
+on classes and objects.
+
+.. index:: 
+	pair: Natural Language Programming; History
+
+History
+=======
+
+In 2010, I developed a new programming language called Supernova (developed using PWCT).
+This language uses a code that looks similar to Natural Language statements to create simple GUI applications.
+Now after five years, In the Ring programming language, we can get similar results, but now we have the ability 
+to create/use code similar to Natural language statements in any domain that we like or need.
+
+The Ring programming language comes with the Supernova sprite, but with more generalization and with mix of other languages
+sprites.
+
+.. index:: 
+	pair: Natural Language Programming; Example
+
+Example
+=======
+
+The next example presents how to create a class that define two instructions 
+
+The first instruction is : I want window
+
+The second instruction is : Window title = <expr>
+
+Also keywords that can be ignored like the 'the' keyword
+
+.. code-block:: ring
+
+	New App 
+	{
+		I want window 	
+		The window title = "hello world"
+	}
+
+	Class App
+
+		# Attributes for the instruction I want window
+			i want window 
+			nIwantwindow = 0
+		# Attributes for the instruction Window title
+		# Here we don't define the window attribute again
+			title 
+			nWindowTitle = 0
+		# Keywords to ignore, just give them any value
+			the=0	
+
+		func geti
+			if nIwantwindow = 0
+				nIwantwindow++
+			ok
+
+		func getwant
+			if nIwantwindow = 1
+				nIwantwindow++
+			ok
+
+		func getwindow
+			if nIwantwindow = 2
+				nIwantwindow= 0
+				see "Instruction : I want window" + nl
+			ok
+			if nWindowTitle = 0
+				nWindowTitle++
+			ok
+	
+		func settitle cValue
+			if nWindowTitle = 1
+				nWindowTitle=0
+				see "Instruction : Window Title = " + cValue + nl
+			ok
+		
+
+Output:
+
+.. code-block:: ring
+
+	Instruction : I want window
+	Instruction : Window Title = hello world
+
+
+.. index:: 
+	pair: Natural Language Programming; Change the Ring Keyword 'And'
+
+Change the Ring Keyword 'And'
+=============================
+
+What if we want to connect between the two instructions using 'and'
+
+We have a problem because in Ring 'and' is a keyword
+
+We can change that using the ChangeRingKeyword command.
+
+Syntax:
+
+.. code-block:: ring
+	
+	ChangeRingKeyword  <oldkeyword>  <newkeyword>
+
+.. note:: remember to restore the keyword again 
+
+.. tip:: The ChangeRingKeyword command is executed in the scanner stage by the compiler (before parsing).
+	
+Example:
+
+.. code-block:: ring
+
+	ChangeRingKeyword	and  _and
+
+	New App
+	{
+			I want window and the window title = "hello world"
+	}
+
+	Class App
+
+			# Attributes for the instruction I want window
+					i want window
+					nIwantwindow = 0
+			# Attributes for the instruction Window title
+			# Here we don't define the window attribute again
+					title
+					nWindowTitle = 0
+			# Keywords to ignore, just give them any value
+					the=0  and=0
+
+	ChangeRingKeyword	_and  and
+
+			func geti
+				if nIwantwindow = 0
+					nIwantwindow++
+				ok
+
+			func getwant
+				if nIwantwindow = 1
+					nIwantwindow++
+				ok
+
+			func getwindow
+				if nIwantwindow = 2
+					nIwantwindow= 0
+					see "Instruction : I want window" + nl
+				ok
+				if nWindowTitle = 0
+					nWindowTitle++
+				ok
+
+			func settitle cValue
+				if nWindowTitle = 1
+					nWindowTitle=0
+					see "Instruction : Window Title = " + cValue + nl
+				ok
+
+			func getand
+				see "Using : and" + nl
+
+
+
+Output:
+
+.. code-block:: ring
+
+	Instruction : I want window
+	Using : and
+	Instruction : Window Title = hello world
+			
+
+.. index:: 
+	pair: Natural Language Programming; Change the Ring Operator '+'
+
+Change the Ring Operator '+'
+============================
+
+What if we want to define a new behavior for any operator like the "+" operator.
+
+We can do this change using the ChangeRingOperator command to hide operator (change it's name)
+
+Then we can use the operator as identifier that we can handle it's behaviour
+
+Syntax:
+
+.. code-block:: ring
+	
+	ChangeRingOperator  <oldoperator>  <newoperator>
+
+.. note:: remember to restore the operator again 
+
+.. tip:: The ChangeRingOperator command is executed in the scanner stage by the compiler (before parsing).
+	
+Example:
+
+.. code-block:: ring
+
+	ChangeRingOperator + _+
+
+	New App {
+		+
+	}
+
+	Class App
+		+ 
+	        func get+
+			see "Plus operator" 
+
+	ChangeRingOperator _+ +
+
+Output:
+
+.. code-block:: ring
+
+	Plus operator
+
+.. index:: 
+	pair: Natural Language Programming; Change the '=' operator to 'is'
+
+Change the '=' operator to 'is'
+===============================
+	
+Example:
+
+.. code-block:: ring
+
+	ChangeRingKeyword	and  _and
+	ChangeRingOperator	=    is
+
+	New App
+	{
+			I want window and the window title is "hello world"
+	}
+
+	ChangeRingOperator	is    =
+
+	Class App
+
+			# Attributes for the instruction I want window
+					i want window
+					nIwantwindow = 0
+			# Attributes for the instruction Window title
+			# Here we don't define the window attribute again
+					title
+					nWindowTitle = 0
+			# Keywords to ignore, just give them any value
+					the=0  and=0
+
+	ChangeRingKeyword	_and  and
+
+			func geti
+				if nIwantwindow = 0
+					nIwantwindow++
+				ok
+
+			func getwant
+				if nIwantwindow = 1
+					nIwantwindow++
+				ok
+
+			func getwindow
+				if nIwantwindow = 2
+					nIwantwindow= 0
+					see "Instruction : I want window" + nl
+				ok
+				if nWindowTitle = 0
+					nWindowTitle++
+				ok
+
+			func settitle cValue
+				if nWindowTitle = 1
+					nWindowTitle=0
+					see "Instruction : Window Title = " + cValue + nl
+				ok
+
+
+.. index:: 
+	pair: Natural Language Programming; Using Eval() with our Natural Code
+
+Using Eval() with our Natural Code
+==================================
+
+Example:
+
+.. code-block:: ring
+
+	func Main
+
+	  cProgram = ' I want window and the window title is "hello world" '
+
+	  MyLanguage(cProgram)
+
+	Func MyLanguage cCode
+
+	  # We add to the code the instructions that change keywords and operators 
+	  # Because Eval() uses a new Compiler Object (the original keywords and operatos).
+	  
+	  cCode = '
+		ChangeRingKeyword  and  _and
+		ChangeRingOperator  =    is
+	  ' + cCode
+
+	  New App
+	  {
+		  eval(cCode)
+	  }
+
+
+	  Class App
+
+		  # Attributes for the instruction I want window
+			  i want window
+			  nIwantwindow = 0
+		  # Attributes for the instruction Window title
+		  # Here we don't define the window attribute again
+			  title
+			  nWindowTitle = 0
+		  # Keywords to ignore, just give them any value
+			  the=0  
+
+		  ChangeRingKeyword  and  _and
+			  and=0
+		  ChangeRingKeyword  _and  and
+
+		  func geti
+			if nIwantwindow = 0
+			  nIwantwindow++
+			ok
+
+		  func getwant
+			if nIwantwindow = 1
+			  nIwantwindow++
+			ok
+
+		  func getwindow
+			if nIwantwindow = 2
+			  nIwantwindow= 0
+			  see "Instruction : I want window" + nl
+			ok
+			if nWindowTitle = 0
+			  nWindowTitle++
+			ok
+
+		  func settitle cValue
+			if nWindowTitle = 1
+			  nWindowTitle=0
+			  see "Instruction : Window Title = " + cValue + nl
+			ok
+
+		
+.. index:: 
+	pair: Natural Language Programming; BraceStart and BraceEnd Methods
+
+BraceStart and BraceEnd Methods
+===============================
+
+We can write code that will be executed before/after using { }
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new test {
+		see "Hello" + nl
+	}
+
+	o1 {}
+
+	class test
+
+		func bracestart
+			see "start" + nl
+
+		func braceend
+			see "end" + nl
+
+Output:
+
+.. code-block:: ring
+
+	start
+	Hello
+	end
+	start
+	end
+
+
+.. index:: 
+	pair: Natural Language Programming; BraceExprEval Method
+
+BraceExprEval Method
+====================
+
+The next example demonstrates how to use the "BraceExprEval" method to get expressions in
+Natural code.
+
+Example:
+
+.. code-block:: ring
+
+	new natural {
+		create 5
+	}
+
+	class natural
+		create=0
+		lkeyword = false
+		func braceexpreval r		
+			if lkeyword lkeyword=false return ok
+			see "expr eval" + nl
+			see "type: " + type(r) see nl
+			see "value : " see r see nl
+		func getcreate
+			lkeyword = true
+			see "create" + nl
+
+Output:
+
+.. code-block:: ring
+
+	create
+	expr eval
+	type: NUMBER
+	value : 5
+
+.. index:: 
+	pair: Natural Language Programming; Real Natual Code
+
+Real Natural Code
+=================
+
+The next example is a more advanced example 
+
+.. code-block:: ring
+
+	# Natural Code
+	new program {
+		Accept 2 numbers then print the sum
+	}
+
+	# Natural Code Implementation
+	class program
+		# Keywords
+			Accept=0 numbers=0 then=0 print=0 the=0 sum=0
+
+		# Execution
+		func braceexpreval x
+			value = x
+		func getnumbers
+			for x=1 to value
+				see "Enter Number ("+x+") :" give nNumber
+				aNumbers + nNumber
+			next
+		func getsum
+			nSUm = 0
+			for x in aNumbers nSum+= x next
+			see "The Sum : " + nSum
+		private
+			value=0	aNumbers=[]
+		
+Output: 
+
+.. code-block:: ring
+
+	Enter Number (1) :3
+	Enter Number (2) :4
+	The Sum : 7
+
+.. index:: 
+	pair: Natural Language Programming; BraceError() Method
+
+BraceError() Method
+===================
+
+The next examples demonstrates how to use the "BraceError" method to handle errors when accessing
+the object using braces {}.
+
+Example:
+
+.. code-block:: ring
+
+	func main
+		o1 = new point {
+			x=10 y=20 z=30
+			TEST
+			SEE test
+		}
+
+	class point x y z
+		func braceerror
+			see "Handle Error!" + nl
+			SEE "Message :" + cCatchError + nl
+			if ( left(cCatchError,11) = "Error (R24)" ) and not isattribute(self,"test")
+				see "add attribute" + nl
+				addattribute(self,"test")
+				test = 10
+			ok
+			see "done" + nl
+			return 
+			
+Output:
+
+.. code-block:: ring
+
+	Handle Error!
+	Message :Error (R24) : Using uninitialized variable : test
+	add attribute
+	done
+	10
+	
+Example:
+
+.. code-block:: ring
+
+	new point {
+		x=10 y=20 z=30
+		test()
+		see "mmm..." + NL
+	}
+
+	class point x y z
+		func braceerror
+			see "Handle Error!" + nl
+			see "Message :" + cCatchError + nl
+			see self
+			see "Done" + NL
+			
+Output:
+
+.. code-block:: ring
+
+	Handle Error!
+	Message :Error (R3) : Calling Function without definition !: test
+	x: 10.000000
+	y: 20.000000
+	z: 30.000000
+	Done
+	mmm...
+	
+.. index:: 
+	pair: Natural Language Programming; Clean Natural Code
+
+Clean Natural Code
+==================
+
+Instead of typing the literal as "literal" we can accept the words directly.
+
+Example:
+
+The next example accept hello world instead of "hello world"
+
+But this example uses braceend() to check the end of the instruction
+
+This means that this class process only one natural statement that end with literal.
+
+.. code-block:: ring
+
+	ChangeRingKeyword	and  _and
+
+	New App
+	{
+			I want window and the window title is hello world
+	}
+
+	Class App
+
+			# Attributes for the instruction I want window
+					i want window
+					nIwantwindow = 0
+			# Attributes for the instruction Window title
+			# Here we don't define the window attribute again
+					title is 
+					nWindowTitle = 0
+			# Keywords to ignore, just give them any value
+					the=0  and=0
+			# Data
+					literal = ""
+
+	ChangeRingKeyword	_and  and
+
+			func geti
+				if nIwantwindow = 0
+					nIwantwindow++
+				ok
+
+			func getwant
+				if nIwantwindow = 1
+					nIwantwindow++
+				ok
+
+			func getwindow
+				if nIwantwindow = 2
+					nIwantwindow= 0
+					see "Instruction : I want window" + nl
+				ok
+				if nWindowTitle = 0
+					nWindowTitle++
+				ok
+
+			func gettitle
+				if nWindowTitle = 1
+					nWindowTitle=2
+				ok
+			
+			func getis
+				if nWindowTitle = 2
+					nWindowTitle=3
+				ok			
+
+			func braceend
+				if nWindowTitle = 3
+					see "Instruction : Window Title = " + literal + nl
+					nWindowTitle = 0
+				ok
+
+			func braceerror
+				c= substr(cCatchError,":")
+				while c > 0 
+					c= substr(cCatchError,":") 
+					cCatchError=substr(cCatchError,c+1)  
+				end
+				literal += substr(cCatchError,1)

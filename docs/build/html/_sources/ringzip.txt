@@ -1,0 +1,181 @@
+.. index:: 
+	single: RingZip; Introduction
+
+=============
+Using RingZip
+=============
+
+In this chapter we will learn about using RingZip
+
+.. index:: 
+	pair: RingZip; Create Zip File
+
+Create Zip File
+===============
+
+Example : Create myfile.zip contains 4 files 
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+	oZip = zip_openfile("myfile.zip",'w')
+	zip_addfile(oZip,"test.c")
+	zip_addfile(oZip,"zip.c")
+	zip_addfile(oZip,"zip.h")
+	zip_addfile(oZip,"miniz.h")
+	zip_close(oZip)
+
+.. index:: 
+	pair: RingZip; Extract Zip File
+
+Extract Zip File
+================
+
+Example : Extract myfile.zip to myfolder folder.
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+	zip_extract_allfiles("myfile.zip","myfolder")
+
+.. index:: 
+	pair: RingZip; Print files in Zip file
+
+Print Files in Zip file
+=======================
+
+Example : Print file names in the myfile.zip
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+	oZip = zip_openfile("myfile.zip",'r')
+	for x=1 to zip_filescount(oZip)
+	       see zip_getfilenamebyindex(oZip,x) + nl
+	next
+	zip_close(oZip)
+
+.. index:: 
+	pair: RingZip; Using RingZip Classes
+
+Using RingZip Classes
+=====================
+
+The RingZip library comes with two classes. The Zip class and the ZipEntry class.
+
+Example (1):
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+
+	new Zip {
+		setFileName("myfile.zip")
+		open("w")
+		newEntry() {
+			open("test.c")
+			writefile("test.c")
+			close()
+		}
+		close()
+	}
+
+Example (2):
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+
+	new Zip {
+		SetFileName("myfile.zip")
+		Open("w")
+		AddFile("test.c")
+		AddFile("zip.c")
+		AddFile("zip.h")
+		AddFile("miniz.h")
+		Close()
+	}
+
+
+Example (3):
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+
+	new zip {
+		SetFileName("myfile.zip")
+		ExtractAllFiles("myfolder")
+	}
+
+
+Example (4):
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+
+	new Zip {
+		SetFileName("myfile.zip")
+		Open("r")
+		see FilesCount()
+		Close()
+	}
+
+
+Example (5):
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+
+	new Zip {
+		SetFileName("myfile.zip")
+		Open("r")
+		for x = 1 to filescount() 
+			See GetFileNameByIndex(x) + nl
+		next
+		Close()
+	}
+
+.. index:: 
+	pair: RingZip; Zip Class Reference
+
+Zip Class Reference
+===================
+
+Methods:
+
+===========================	======================================================================
+Method				Description/Output
+===========================	======================================================================
+SetFileName(cName)		Set the Zip file name
+GetFileName()			Return the Zip file name
+Open(cMode)			Open File, cMode = "a", "w" or "r"
+Close() 			Close the Zip File
+AddFile(cFileName)		Add file to the Zip file
+ExtractAllFiles(cFolder)	Extract all files from the Zip file
+FilesCount()			Return files count in the Zip file
+GetFileNameByIndex(nIndex)	Return file name in the Zip file by file index
+NewEntry()			Create new ZipEntry object
+===========================	======================================================================
+
+
+.. index:: 
+	pair: RingZip; ZipEntry Class Reference
+
+ZipEntry Class Reference
+========================
+
+Methods:
+
+===========================	======================================================================
+Method				Description/Output
+===========================	======================================================================
+Open(cFileName) 		Open new Entry
+WriteFile(cFileName) 		Write File to the Entry
+WriteString(cString)		Write String to the Entry
+Close()				Close the Entry
+===========================	======================================================================
+
+

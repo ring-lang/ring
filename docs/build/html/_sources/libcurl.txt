@@ -1,0 +1,207 @@
+.. index:: 
+	single: RingLibCurl; Introduction
+
+=================
+Using RingLibCurl
+=================
+
+In this chapter we will learn about using RingLibCurl
+
+.. index:: 
+	pair: RingLibCurl; Get Request
+
+Get Request
+===========
+
+Example:
+
+.. code-block:: ring
+
+	load "libcurl.ring"	
+
+	curl = curl_easy_init()
+
+	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
+	curl_easy_setopt(curl, CURLOPT_URL, "http://ring-lang.sf.net")
+
+	curl_easy_perform(curl)
+
+	curl_easy_cleanup(curl)
+
+
+.. index:: 
+	pair: RingLibCurl; Post Request
+
+Post Request
+============
+
+Example:
+
+.. code-block:: ring
+
+	load "libcurl.ring"
+
+	curl = curl_easy_init()
+
+	cPostThis = "page=4&Number1=4&Number2=5"
+	curl_easy_setopt(curl, CURLOPT_URL, "http://localhost/ringapp/index.ring?page=3")
+	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, cPostThis)
+
+	curl_easy_perform(curl)
+
+	curl_easy_cleanup(curl)
+
+.. index:: 
+	pair: RingLibCurl; Facebook Login
+
+Facebook Login 
+==============
+
+Example:
+
+.. code-block:: ring
+
+	load "libcurl.ring"
+
+	see "Enter Email : " give $login_email 
+	See "Enter Password : " give $login_pass
+
+	curl = curl_easy_init()
+
+	curl_easy_setopt(curl, CURLOPT_URL, 'https://www.facebook.com/login.php')
+	curl_easy_setopt(curl, CURLOPT_POSTFIELDS,'charset_test=j u s t a t e s t'+
+	' &email='+urlencode($login_email)+'&pass='+
+	urlencode($login_pass)+'&login=Login')
+	curl_easy_setopt(curl, CURLOPT_POST, 1)
+	curl_easy_setopt(curl, CURLOPT_HEADER, 0)
+	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
+	curl_easy_setopt(curl, CURLOPT_COOKIEJAR, "cookies.txt")
+	curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "cookies.txt")
+	curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U;"+
+	" Windows NT 5.1; en-US; rv:1.8.1.3) Gecko/20070309 Firefox/2.0.0.3")
+	curl_easy_setopt(curl, CURLOPT_REFERER, "http://www.facebook.com")
+	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, FALSE)
+	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2)
+
+	mylist = curl_slist_append(NULL,'Accept-Charset: utf-8')
+	curl_slist_append(mylist,'Accept-Language: en-us,en;q=0.7,bn-bd;q=0.3')
+	curl_slist_append(mylist,'Accept: text/xml,application/xml,'+
+	'application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5')
+	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, mylist)
+
+	curl_easy_setopt(curl, CURLOPT_COOKIESESSION, false)
+
+	curl_easy_perform(curl)
+
+	curl_easy_cleanup(curl)
+
+	Func URLEncode cStr
+		cOut = ""
+		for x in cStr
+			if isalnum(x)
+				cOut += x
+			but x = " "
+				cOut += "+"
+			else
+				cOut += "%"+str2hex(x)
+			ok
+		next
+		return cOut	
+
+.. index:: 
+	pair: RingLibCurl; Save output to string
+
+Save Output to String
+=====================
+
+Example:
+
+.. code-block:: ring
+
+	load "libcurl.ring"
+
+	curl = curl_easy_init()
+
+	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
+	curl_easy_setopt(curl, CURLOPT_URL, "http://ring-lang.sf.net")
+
+	cOutput = curl_easy_perform_silent(curl)
+
+	See "Output:" + nl
+	see cOutput
+
+	curl_easy_cleanup(curl)
+
+.. index:: 
+	pair: RingLibCurl; Get Stock Data From Yahoo
+
+Get Stock Data From Yahoo
+=========================
+
+Example:
+
+.. code-block:: ring
+
+	Load "libcurl.ring"
+
+	### Part 1 --- Get Crumb and Cookie -----------------------------------------
+
+	See "Start curl_easy_init(): "+ nl
+	curl = curl_easy_init()                     ### >>> HANDLE >>> 01006BD0  CURL  0
+
+		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
+		curl_easy_setopt(curl, CURLOPT_COOKIEJAR,  "cookies.txt")
+		curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "cookies.txt")
+		curl_easy_setopt(curl, CURLOPT_URL, "https://finance.yahoo.com/quote/AMZN/history")
+
+		###  HTML Data >>> STDOUT Window,  Use curl_easy_perform_silent >>> String
+
+	cOutput = curl_easy_perform_silent(curl)    ### GO Get Data >>> String
+
+
+	###   Extract Crumb from data
+	###  "CrumbStore":{"crumb":"abcdefghijk"},
+
+	if cOutput != NULL
+
+		newStr1     = substr(cOutput, substr(cOutput, '"CrumbStore":{"crumb":"' ), 48 )
+			nPosS   = substr(newStr1, ':"' ) ;  ### Start of crumb -2
+			nPosE   = substr(newStr1, '"}' ) ;  ### End   of crumb
+			nCount  = nPosE - nPosS -2          ### size  of crumb
+		myCrumb     = substr(newStr1, nPosS +2, nCount)
+
+		See "myCrumb.: |"+ myCrumb +"|" +nl
+		
+		### UniCode "\u002F" replace it with "/"
+			if substr( myCrumb, "\u002F")
+			   myCrumb = substr( myCrumb, "\u002F", "/")
+			   See "myCrumb2: |"+ myCrumb +"|"+ nl
+			ok
+
+	else
+		See "No Connectivity to Yahoo. Looking for Cookie and Crumb." +nl +nl
+	ok
+
+					
+	### Part 2 --- Send URL with Crumb, and Cookie -----------------------------------------
+
+		### Send URL+Crumb to Yahoo to fetch 1st stock history data,
+
+		$url = "https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1277856000&period2=1498777545&interval=1wk&events=history&crumb=" + myCrumb
+
+		curl_easy_setopt(curl, CURLOPT_URL, $url);
+		cStr = curl_easy_perform_silent(curl)
+		See cStr 
+
+	curl_easy_cleanup(curl)  ### REMEMBER to CLOSE  CURL   
+
+
+Output:
+
+.. code-block:: ring
+
+	myCrumb.: |sEEeW97mxvN|
+	Date,Open,High,Low,Close,Adj Close,Volume
+	2010-07-05,110.650002,117.480003,109.000000,117.260002,117.260002,21000400
+	2010-07-12,117.809998,124.879997,117.320000,118.489998,118.489998,29407300
+	2010-07-19,118.379997,121.250000,105.800003,118.870003,118.870003,74252100

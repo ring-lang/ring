@@ -1,0 +1,540 @@
+.. index:: 
+	single: Building From Source Code; Introduction
+
+=========================
+Building From Source Code
+=========================
+
+The Ring programming language is a free open source product (MIT License).
+
+You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
+
+The next steps explains building using scripts.
+
+.. index:: 
+	pair: Building From Source Code; Building using Microsoft Windows
+
+Building using Microsoft Windows
+================================
+
+Get the source code
+
+.. code-block:: ring
+
+	git clone http://github.com/ring-lang/ring.git
+
+Build Ring (Compiler/VM)
+
+.. code-block:: ring
+
+	cd ring/src
+	buildvc.bat
+	buildvcw.bat
+
+Build RingODBC
+
+.. code-block:: ring
+	
+	cd ../extensions/ringodbc
+	buildvc.bat
+
+Build RingMySQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmysql
+	buildvc.bat
+
+Build RingSQLite
+
+.. code-block:: ring
+	
+	cd ../extensions/ringsqlite
+	buildvc.bat
+
+Build RingOpenSSL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopenssl
+	buildvc.bat
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	buildvc.bat
+
+Generate RingAllegro Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringallegro
+	gencode.bat
+	buildvc.bat
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	gencode.bat
+	buildvc.bat
+
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	gencode.bat
+	buildvc.bat
+
+Generate RingFreeGLUT Source Code and Build 
+
+.. code-block:: ring
+	
+	cd ../extensions/ringfreeglut
+	gencode.bat
+	buildvc.bat
+
+Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+
+Starting from OpenGL 1.1 to OpenGL 4.6
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopengl/opengl21
+	gencode.bat
+	buildvc.bat
+
+Install Qt 5.5 : https://download.qt.io/archive/qt/5.5/5.5.1/
+
+Generate RingQt Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringqt
+	gencode.bat
+	buildmingw32.bat
+
+To be able to call ring from any folder
+
+.. code-block:: ring
+
+	cd ../../bin
+	install.bat
+
+Add Ring/bin to System path
+
+.. code-block:: ring
+
+	Hit "windows key".
+	Type "Edit the System environment variables"
+	Select "Advanced" tab.
+	Click on "Enviroment Variables..."
+	Double click on "Path"
+	Add at the end the new path separated by semicolon. 
+	    ;C:\Ring\Bin
+
+Run Ring Notepad
+
+.. code-block:: ring
+
+	cd applications/rnote
+	ring rnote.ring
+
+.. index:: 
+	pair: Building From Source Code; Building using Ubuntu Linux
+
+Building using Ubuntu Linux
+===========================
+
+Get the source code
+
+.. code-block:: ring
+
+	git clone http://github.com/ring-lang/ring.git
+
+Install Libraries
+
+.. code-block:: ring
+
+	cd ring/src
+	./installdep.sh 
+
+Build Ring (Compiler/VM)
+
+.. code-block:: ring
+
+	sudo ./buildgcc.sh
+
+Build RingODBC
+
+.. code-block:: ring
+	
+	cd ../extensions/ringodbc
+	./buildgcc.sh
+
+Build RingMySQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmysql
+	./buildgcc.sh
+
+Build RingSQLite
+
+.. code-block:: ring
+	
+	cd ../extensions/ringsqlite
+	./buildgcc.sh
+
+Build RingOpenSSL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopenssl
+	./buildgcc.sh
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	./buildgcc.sh
+	
+Generate RingAllegro Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingFreeGLUT Source Code and Build 
+
+.. code-block:: ring
+	
+	cd ../extensions/ringfreeglut
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+
+Starting from OpenGL 1.1 to OpenGL 4.6
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopengl/opengl21
+	gencode.sh
+	buildgcc.sh
+
+Generate RingQt Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringqt
+	./gencode.sh
+	./buildgcc.sh
+
+To be able to call ring from any folder
+
+.. code-block:: ring
+
+	cd ../../bin
+	sudo ./install.sh
+
+Run Ring Notepad
+
+.. code-block:: ring
+
+	cd applications/rnote
+	ring rnote.ring
+
+.. index:: 
+	pair: Building From Source Code; Building using Fedora Linux
+
+Building using Fedora Linux
+===========================
+
+Get the source code
+
+.. code-block:: ring
+
+	git clone http://github.com/ring-lang/ring.git
+
+Install Libraries
+
+.. code-block:: ring
+
+	cd ring/src
+	./installdepfedora.sh 
+
+Build Ring (Compiler/VM)
+
+.. code-block:: ring
+
+	sudo ./buildgcc.sh
+
+Build RingODBC
+
+.. code-block:: ring
+	
+	cd ../extensions/ringodbc
+	./buildgcc.sh
+
+Build RingMySQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmysql
+	./buildgccfedora.sh
+
+Build RingSQLite
+
+.. code-block:: ring
+	
+	cd ../extensions/ringsqlite
+	./buildgcc.sh
+
+Build RingOpenSSL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopenssl
+	./buildgcc.sh
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	./buildgcc.sh
+	
+Generate RingAllegro Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingFreeGLUT Source Code and Build 
+
+.. code-block:: ring
+	
+	cd ../extensions/ringfreeglut
+	./gencode.sh
+	./buildgcc.sh
+
+Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+
+Starting from OpenGL 1.1 to OpenGL 4.6
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopengl/opengl21
+	gencode.sh
+	buildgcc.sh
+
+Generate RingQt Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringqt
+	./gencode.sh
+	./buildgccfedora.sh
+
+To be able to call ring from any folder
+
+.. code-block:: ring
+
+	cd ../../bin
+	sudo ./install.sh
+
+Run Ring Notepad
+
+.. code-block:: ring
+
+	cd applications/rnote
+	ring rnote.ring
+
+
+
+.. index:: 
+	pair: Building From Source Code; Building using MacOS X
+
+Building using MacOS X
+======================
+
+Get the source code
+
+.. code-block:: ring
+
+	git clone http://github.com/ring-lang/ring.git
+
+Install homebrew (follow the directions on homebrew's homepage).
+Install Libraries
+
+.. code-block:: ring
+
+	cd ring/src
+	./installdepmac.sh 
+
+Build Ring (Compiler/VM)
+
+.. code-block:: ring
+
+	./buildclang.sh
+
+Build RingODBC
+
+.. code-block:: ring
+	
+	cd ../extensions/ringodbc
+	./buildclang.sh
+
+Build RingMySQL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringmysql
+	./buildclang.sh
+
+Build RingSQLite
+
+.. code-block:: ring
+	
+	cd ../extensions/ringsqlite
+	./buildclang.sh
+
+Build RingOpenSSL
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopenssl
+	./buildclang.sh
+
+Build RingInternet
+
+.. code-block:: ring
+	
+	cd ../extensions/ringinternet
+	./buildclang.sh
+	
+Generate RingAllegro Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringallegro
+	./gencode.sh
+	./buildclang.sh
+
+Generate RingLibCurl Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringcurl
+	./gencode.sh
+	./buildclang.sh
+
+Generate RingZip Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringzip
+	./gencode.sh
+	./buildclang.sh
+
+Generate RingFreeGLUT Source Code and Build 
+
+.. code-block:: ring
+	
+	cd ../extensions/ringfreeglut
+	./gencode.sh
+	./buildclang.sh
+
+Generate RingOpenGL Source Code and Build 
+
+The ringopengl folder contains many sub folders for different OpenGL versions
+Starting from OpenGL 1.1 to OpenGL 4.6
+
+.. code-block:: ring
+	
+	cd ../extensions/ringopengl/opengl21
+	./gencode.sh
+	./buildclang.sh
+
+Generate RingQt Source Code and Build
+
+.. code-block:: ring
+
+	cd ../extensions/ringqt
+	./gencode.sh
+	./buildclang.sh
+
+To be able to call ring from any folder
+
+.. code-block:: ring
+
+	cd ../../bin
+	sudo ./install.sh
+
+Run Ring Notepad
+
+.. code-block:: ring
+
+	cd applications/rnote
+	sudo ring rnote.ring
+
+.. index:: 
+	pair: Building From Source Code; Building using CMake
+
+Building using CMake
+====================
+
+Install libraries (MySQL Client, OpenSSL, LibCurl, Allegro 5 and Qt 5.5)
+
+.. code-block:: ring
+
+	cmake .
+	make

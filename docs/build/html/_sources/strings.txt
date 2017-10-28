@@ -1,0 +1,409 @@
+.. index:: 
+	single: Strings; Introduction
+
+=======
+Strings
+=======
+
+In this chapter we are going to learn about strings creation and manipulation.
+
+.. index:: 
+	pair: Strings; String Literals
+
+String Literals
+===============
+
+Syntax:
+
+.. code-block:: ring
+
+	cStr = "This is a string"
+	cStr2 = 'Another string'
+	cStr3 = :JustAnotherString
+	cStr4 = `Yet "another" 'string' ! `
+
+.. index:: 
+	pair: Strings; Get String Length
+
+Get String Length
+=================
+
+We can get the string length (letters count inside a string) using the len() function
+
+Syntax:
+
+.. code-block:: ring
+
+	len(string) ---> string length
+
+Example:
+
+.. code-block:: ring
+
+	cStr = "How are you?"
+	see cStr + nl
+	see "String size : " + len(cStr) + nl
+
+.. index:: 
+	pair: Strings; Convert Letters Case
+
+Convert Letters Case
+====================
+
+Syntax:
+
+.. code-block:: ring
+
+	lower(string) ---> convert string letters to lower case
+	upper(string) ---> convert string letters to UPPER case
+
+Example:
+
+.. code-block:: ring
+
+	cStr = "Welcome To The Ring Programming Language"
+	see cStr + nl + upper(cStr) + nl + lower(cStr) 		
+
+.. index:: 
+	pair: Strings; Access String Letters
+
+Access String Letters
+=====================
+
+We can access a letter inside a string by the letter index
+
+Syntax:	
+
+.. code-block:: ring
+
+	string[index] ---> get string letter
+	string[index] = letter  # set string letter
+
+Example:
+
+.. code-block:: ring
+
+	# print user name letter by letter (each letter in new line)
+
+	See "Hello, Enter your name : " give cName
+	for x = 1 to len(cName)
+		see nl + cName[x]
+	next
+
+We can use for in to get string letters.
+
+
+Example:
+
+.. code-block:: ring
+
+	# print user name letter by letter (each letter in new line)
+
+	See "Hello, Enter your name : " give cName
+	for x in cName
+		see nl + x
+	next
+
+We can modify the string letters
+
+Example:
+
+.. code-block:: ring
+
+	# convert the first letter to UPPER case
+
+	See "Enter your name : " give cName
+	cName[1] = upper(cName[1])
+	see "Hello " + cName
+
+.. index:: 
+	pair: Strings; Left()
+
+Left() Function
+===============
+
+We can get a specified number of characters from a string using the Left() function.
+
+The starting position is 1.
+
+Syntax:
+
+.. code-block:: ring
+
+	Left(string,count)
+
+Example:
+
+.. code-block:: ring
+
+	see left("Hello World!",5) # print Hello
+
+.. index:: 
+	pair: Strings; Right()
+
+Right() Function
+================
+
+We can get a specified number of characters from a string using the Right() function.
+
+The starting position is the last character on the right.
+
+Syntax:
+
+.. code-block:: ring
+
+	Right(string,count)
+
+Example:
+
+.. code-block:: ring
+
+	see Right("Hello World!",6) # print World!
+
+.. index:: 
+	pair: Strings; Trim()
+
+Trim() Function
+===============
+
+We can remove all leading and trailing spaces from a string using the Trim() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	trim(string)
+
+Example:
+
+.. code-block:: ring
+
+	cMsg = "     Welcome      "
+	see trim(cMsg)			# print Welcome
+
+.. index:: 
+	pair: Strings; Copy()
+
+Copy() Function
+===============
+
+We can duplicate a string more than one time using the copy() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	copy(string,nCount) ---> string replicated nCount times
+
+Example
+
+.. code-block:: ring
+
+	see copy("***hello***",3) # print ***hello******hello******hello***
+
+.. index:: 
+	pair: Strings; Lines()
+
+Lines() Function
+================
+
+We can count the number of lines inside a string using the Lines() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	lines(string) ---> Number of lines inside the string
+
+Example:
+
+.. code-block:: ring
+
+	cStr = "Hello
+	How are you?
+	are you fine?"
+	see lines(cStr)		# print 3
+
+.. index:: 
+	pair: Strings; Substr()
+
+Substr() Function
+=================
+
+We can work on sub strings inside a string using the substr() function.
+Using Substr() we can 
+
+* Find substring
+
+* Get substring from position to end
+
+* Get Number of characters from position
+
+* Transform Substring To Another Substring 
+
+.. index:: 
+	pair: Strings; Find SubString
+
+Find substring
+==============
+
+Syntax:
+
+.. code-block:: ring
+
+	substr(string,substring)  ---> the starting position of substring in string
+
+Example:
+
+.. code-block:: ring
+
+	cStr = "Welcome to the Ring programming language"
+	see substr(cStr,"Ring")		# print 16
+
+.. index:: 
+	pair: Strings; Get Substring from position to end
+
+Get substring from position to end
+==================================
+
+Syntax:
+
+.. code-block:: ring
+
+	substr(string,position)  ---> Get substring starting from position to end
+
+Example:
+
+.. code-block:: ring
+
+	cStr = "Welcome to the Ring programming language"
+	nPos = substr(cStr,"Ring")	# nPos = 16
+	see substr(cStr,nPos)		# print Ring programming language
+
+.. index:: 
+	pair: Strings; Get Number of Characters from position
+
+Get Number of Characters From Position
+======================================
+
+Syntax:
+
+.. code-block:: ring
+
+	substr(string,position,count)  ---> Get characters starting from position
+
+Example:
+
+.. code-block:: ring
+
+	cStr = "Welcome to the Ring programming language"
+	nPos = substr(cStr,"Ring")	# nPos = 16
+	see substr(cStr,nPos,4)		# print Ring 
+
+.. index:: 
+	pair: Strings; Transform Substring To Another Substring
+
+Transform Substring To Another Substring
+========================================
+
+Syntax:
+
+.. code-block:: ring
+
+	substr(string,substring,newsubstring)  ---> Transformed string (Match case)
+	substr(string,substring,newsubstring,1)  ---> Transformed string (Ignore case)
+
+Example:
+
+.. code-block:: ring
+
+	cStr = "Welcome to the New programming language"
+	see substr(cStr,"New","Ring") + nl  # print Welcome to the Ring programming language 
+	see substr(cStr,"new","Ring",1)+ nl # print Welcome to the Ring programming language 
+
+.. index:: 
+	pair: Strings; strcmp()
+
+strcmp() Function
+=================
+
+We can compare between two strings using the strcmp() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	strcmp(cString1,cString2) ---> value = 0 if cString1 = cString2
+				       value < 0 if cString1 < cString2
+				       value > 0 if cString1 > cString2
+
+Example:
+
+.. code-block:: ring
+
+	see strcmp("hello","hello") + nl +
+  	    strcmp("abc","bcd") + nl + 
+  	    strcmp("bcd","abc") + nl
+
+Output:
+
+.. code-block:: ring
+
+	0
+	-1
+	1
+
+.. index:: 
+	pair: Strings; str2list() and list2str()
+
+str2list() and list2str() Functions
+===================================
+
+We can convert string lines to list items using the str2list() function.
+Also we can convert the list to a string using list2str() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	str2list(string) ---> list contains the string lines 
+	list2str(list)   ---> string contains the list items
+
+Example:
+
+.. code-block:: ring
+
+	/* output:
+	** Items : 4
+	** Item : Hello
+	** Item : How are you ?
+	** Item : are you fine ?
+	** Item : ok
+	** list2Str result = Hello
+	** How are you ?
+	** are you fine ?
+	** ok
+	** Done
+	*/
+
+	mystr = "Hello
+	How are you ?
+	are you fine ?
+	ok"
+
+	mylist = str2list(mystr)
+	see "Items : " + len(mylist) + nl
+
+	for x in mylist
+		see "Item : " + x + nl
+	next
+
+	newstr = list2str(mylist)
+	see "list2Str result = " + newstr
+
+	if mystr = newstr
+		see nl + "Done"
+	else
+		see nl + "Error!"
+	ok
+		
