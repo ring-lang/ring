@@ -115,14 +115,14 @@ nSize
 ring_chdir
 ring_exefolder
 Type: char
-cDir[200]
+cDir[256]
 Type: char
-cDir2[200]
+cDir2[256]
 Type: int
 x,x2,nSize
 ring_switchtofilefolder
 Type: char
-cFileName2[200]
+cFileName2[256]
 ring_justfilepath
 Type: int
 x,nSize

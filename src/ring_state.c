@@ -357,6 +357,8 @@ int ring_exefilename ( char *cDirPath )
 	/* Mac OS X */
 	_NSGetExecutablePath(cDirPath,&nSize);
 	#elif __linux__
+	/* readlink() doesn't null terminate */
+	memset(cDirPath,0,nSize);
 	readlink("/proc/self/exe",cDirPath,nSize);
 	#endif
 	return 0 ;
