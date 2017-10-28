@@ -22,11 +22,7 @@ Class RNoteController from WindowsControllerParent
 	cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
 	cCurrentDir = CurrentDir() + "/"	# The Ring Notepad Folder
 	cStartUpFolder = exefolder() + "/../applications/"
-	if isWindows()
-		cRingEXE = exefilename()
-	else 
-		cRingEXE = "ring"
-	ok
+	cRingEXE = exefilename()
 	lShowProject = True
 	lShowSourceCode = True
 	lShowBrowser = True
