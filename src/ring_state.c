@@ -338,7 +338,7 @@ int ring_fexists ( const char *cFileName )
 int ring_currentdir ( char *cDirPath )
 {
 	int nSize  ;
-	nSize = 255 ;
+	nSize = 256 ;
 	if ( !GetCurrentDir(cDirPath, nSize) ) {
 		return errno ;
 	}
@@ -349,7 +349,7 @@ int ring_currentdir ( char *cDirPath )
 int ring_exefilename ( char *cDirPath )
 {
 	unsigned int nSize  ;
-	nSize = 255 ;
+	nSize = 256 ;
 	#ifdef _WIN32
 	/* Windows only */
 	GetModuleFileName(NULL,cDirPath,nSize);
