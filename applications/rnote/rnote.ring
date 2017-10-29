@@ -1320,7 +1320,6 @@ Class RNoteController from WindowsControllerParent
 
 	func pRunGUIOperation cActiveFileName
 		oProcessEditbox.setplaintext("")
-		oProcessText.setFocus(0)
 		chdir(JustFilePath(cActiveFileName))
 		oProcess = pRunProcess(cRingEXE,cActiveFileName,cpGetProcessData)
 		chdir(exefolder())
