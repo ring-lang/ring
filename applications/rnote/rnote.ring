@@ -2406,11 +2406,20 @@ Class RNoteController from WindowsControllerParent
 	func RunInBrowser
 		if cActiveFileName = Null return pNofileopened() ok
 		pSave()	
-		new ServerPrepare { 
-			setApplicationPath(JustFilePath(this.cActiveFileName))
-			PrepareConfigurationFile() 
-			runServer()
-		}
-		new QDesktopServices {
-			OpenURL(new qURL("http://localhost/"+JustFileName(this.cActiveFileName)))
-		}
+		if isWindows() 
+			new ServerPrepare { 
+				setApplicationPath(JustFilePath(this.cActiveFileName))
+				PrepareConfigurationFile() 
+				runServer()
+			}
+			new QDesktopServices {
+				OpenURL(new qURL("http://localhost/"+JustFileName(this.cActiveFileName)))
+			}
+		else 
+			cWebURL = this.cActiveFileName
+			nPos = substr(cWebURL,"htdocs")
+			cWebURL = substr(cWebURL,nPOS+7)
+			new QDesktopServices {
+				OpenURL(new qURL("http://localhost/"+cWebURL))
+			}
+		ok
