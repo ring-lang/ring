@@ -8,6 +8,7 @@ load "stdlib.ring"
 	if isMainSourceFile() 
 		new ServerPrepare { 
 			UseFolderHtdocs(False)
+			setPortNumber(80)
 			PrepareConfigurationFile() 
 			RunServer()
 		}
@@ -19,12 +20,14 @@ class ServerPrepare
 	cRingFolder 	 = substr(cExeFolder,"/bin","")
 	cServerPath 	 = cRingFolder+"libdepwin/Apache2.2"
 	cApplicationPath = cRingFolder+"ringlibs/weblib"
+	cPortNumber	 = "8080"
 
 	func PrepareConfigurationFile
 
 		cFile = read(cServerPath+"/ring/httpd.conf.template")
 		cFile = substr(cFile,"#{SERVERPATH}",cServerPath)
 		cFile = substr(cFile,"#{APPLICATIONPATH}",cApplicationPath)
+		cFile = substr(cFile,"#{PORTNUMBER}",cPortNumber)
 		write(cServerPath+"/conf/httpd.conf",cFile)
 
 	func GetRingFolder
@@ -55,3 +58,6 @@ class ServerPrepare
 		if lFlag
 			setApplicationPath(cRingFolder+"libdepwin/Apache2.2/htdocs")
 		ok
+
+	func setPortNumber nPort
+		cPortNumber = "" + nPort

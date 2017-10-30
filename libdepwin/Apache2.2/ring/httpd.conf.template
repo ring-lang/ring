@@ -44,7 +44,7 @@ ServerRoot "#{SERVERPATH}"
 # prevent Apache from glomming onto all bound IP addresses.
 #
 #Listen 12.34.56.78:80
-Listen 8080
+Listen #{PORTNUMBER}
 
 #
 # Dynamic Shared Object (DSO) Support
