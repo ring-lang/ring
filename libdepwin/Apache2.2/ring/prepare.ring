@@ -4,11 +4,12 @@
 
 load "stdlib.ring"
 
-if isMainSourceFile() 
-	new ServerPrepare { 
-		run() 
-	}
-ok
+# Use the Default Settings
+	if isMainSourceFile() 
+		new ServerPrepare { 
+			run() 
+		}
+	ok
 
 class ServerPrepare 
 
@@ -24,7 +25,24 @@ class ServerPrepare
 		cFile = substr(cFile,"#{APPLICATIONPATH}",cApplicationPath)
 		write("../conf/httpd.conf",cFile)
 
-	func SetApplicationPath cPath
-		cApplicationPath = cPath
-	
+	func GetRingFolder
 
+		return cRingFolder
+
+	func SetApplicationPath cPath
+
+		cApplicationPath = cPath
+
+	func GetApplicationPath cPath
+
+		return cApplicationPath
+
+	func SetServerPath cPath
+
+		cServerPath = cPath
+
+	func GetServerPath
+
+		return cServerPath
+	
+	
