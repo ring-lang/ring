@@ -8,6 +8,7 @@ load "stdlib.ring"
 	if isMainSourceFile() 
 		new ServerPrepare { 
 			PrepareConfigurationFile() 
+			RunServer()
 		}
 	ok
 
@@ -44,5 +45,8 @@ class ServerPrepare
 	func GetServerPath
 
 		return cServerPath
-	
+
+	func RunServer
+
+		system("start " + cServerPath + "/bin/httpd.exe")
 	
