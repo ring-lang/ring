@@ -7,7 +7,7 @@ load "stdlib.ring"
 # Use the Default Settings
 	if isMainSourceFile() 
 		new ServerPrepare { 
-			run() 
+			PrepareConfigurationFile() 
 		}
 	ok
 
@@ -18,7 +18,7 @@ class ServerPrepare
 	cServerPath 	 = cRingFolder+"libdepwin/Apache2.2"
 	cApplicationPath = cRingFolder+"ringlibs/weblib"
 
-	func Run
+	func PrepareConfigurationFile
 
 		cFile = read("httpd.conf.template")
 		cFile = substr(cFile,"#{SERVERPATH}",cServerPath)
