@@ -2389,3 +2389,6 @@ Class RNoteController from WindowsControllerParent
 					adddockwidget(Qt_RightDockWidgetArea,this.oDockOutputWindow,1)
 				}
 		off
+
+	func ClearActiveFormFile
+		cFormFile = ""
