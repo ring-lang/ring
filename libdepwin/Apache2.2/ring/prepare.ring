@@ -5,16 +5,23 @@
 load "stdlib.ring"
 
 if isMainSourceFile() 
-	new ServerPrepare { start() }
+	new ServerPrepare { 
+		run() 
+	}
 ok
 
 class ServerPrepare 
-	func Start
-		cExeFolder = substr(exefolder(),"\","/")
-		cRingFolder = substr(cExeFolder,"/bin","")
+
+	cExeFolder  	 = substr(exefolder(),"\","/")
+	cRingFolder 	 = substr(cExeFolder,"/bin","")
+	cServerPath 	 = cRingFolder+"libdepwin/Apache2.2"
+	cApplicationPath = cRingFolder+"ringlibs/weblib"
+
+	func Run
+
 		cFile = read("httpd.conf.template")
-		cFile = substr(cFile,"#{SERVERPATH}",cRingFolder+"libdepwin/Apache2.2")
-		cFile = substr(cFile,"#{APPLICATIONPATH}",cRingFolder+"ringlibs/weblib")
+		cFile = substr(cFile,"#{SERVERPATH}",cServerPath)
+		cFile = substr(cFile,"#{APPLICATIONPATH}",cApplicationPath)
 		write("../conf/httpd.conf",cFile)
 
 	
