@@ -9,6 +9,9 @@
 	Load "../formdesigner/formdesigner.ring"
 	import formdesigner 
 
+# Load the Web Server - ServerPrepare Class
+	load "../libdepwin/apache2.2/ring/prepare.ring"
+
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
 
@@ -621,6 +624,13 @@ Class RNoteController from WindowsControllerParent
 						setbtnimage(self,"image/rungui.png")
 						settext("Run GUI Application (No Console)")
 						setclickEvent(Method(:pRunNoConsole))
+					}
+					addaction(oAction)
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Ctrl+F6"))
+						setbtnimage(self,"image/richtext.png")
+						settext("Run Web Application (Open In Browser)")
+						setclickEvent(Method(:RunInBrowser))
 					}
 					addaction(oAction)
 					addseparator()
@@ -2392,3 +2402,15 @@ Class RNoteController from WindowsControllerParent
 
 	func ClearActiveFormFile
 		cFormFile = ""
+
+	func RunInBrowser
+		if cActiveFileName = Null return pNofileopened() ok
+		pSave()	
+		new ServerPrepare { 
+			setApplicationPath(JustFilePath(this.cActiveFileName))
+			PrepareConfigurationFile() 
+			runServer()
+		}
+		new QDesktopServices {
+			OpenURL(new qURL("http://localhost/"+JustFileName(this.cActiveFileName)))
+		}
