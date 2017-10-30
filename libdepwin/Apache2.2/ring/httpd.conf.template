@@ -33,7 +33,7 @@
 # at a local disk.  If you wish to share the same ServerRoot for multiple
 # httpd daemons, you will need to change at least LockFile and PidFile.
 #
-ServerRoot "b:/ring/libdepwin/Apache2.2"
+ServerRoot "#{SERVERPATH}"
 
 #
 # Listen: Allows you to bind Apache to specific IP addresses and/or
@@ -178,7 +178,7 @@ ServerAdmin msfclipper@yahoo.com
 # symbolic links and aliases may be used to point to other locations.
 #
 
-DocumentRoot "b:/ring/ringlibs/weblib"
+DocumentRoot "#{APPLICATIONPATH}"
 
 #
 # Each directory to which Apache has access can be configured with respect
@@ -206,7 +206,7 @@ DocumentRoot "b:/ring/ringlibs/weblib"
 # This should be changed to whatever you set DocumentRoot to.
 #
 
-<Directory "b:/ring/ringlibs/weblib">
+<Directory "#{APPLICATIONPATH}">
     #
     # Possible values for the Options directive are "None", "All",
     # or any combination of:
@@ -329,7 +329,7 @@ LogLevel warn
     # client.  The same rules about trailing "/" apply to ScriptAlias
     # directives as to Alias.
     #
-    ScriptAlias /cgi-bin/ "b:/ring/libdepwin/Apache2.2/cgi-bin/"
+    ScriptAlias /cgi-bin/ "#{SERVERPATH}/cgi-bin/"
 
 </IfModule>
 
@@ -345,7 +345,7 @@ LogLevel warn
 # CGI directory exists, if you have that configured.
 #
 
-<Directory "b:/ring/libdepwin/Apache2.2/cgi-bin">
+<Directory "#{SERVERPATH}/cgi-bin">
     AllowOverride None
     Options None
     Order allow,deny
