@@ -5,6 +5,25 @@
 **	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+
+/*
+	API : Using the Form Designer in Another Application 
+	      Like Ring Notepad
+
+	The Form Designer check for the next methods 
+	In the Parent Application (Optional Methods) 
+	See : formdesigner/filesystem/filesystem.ring 
+		GetActiveFolder() 		
+		OpenFile(cControllerFile)	
+		ClearActiveFormFile() 	
+	
+	The Parent Application can use the next methods in the Form Designer 
+		OpenFile(cFormFileName)
+		SaveIfOnlyFileIsOpened()
+
+*/
+
+
 # Load Standard Libraries
 	load "guilib.ring"
 	load "stdlib.ring"
