@@ -662,7 +662,13 @@ Class RNoteController from WindowsControllerParent
 						setclickEvent(Method(:pRunGUIMainFile))
 					}
 					addaction(oAction)
-
+					oAction = new qAction(this.win1) {
+						setShortcut(new QKeySequence("Ctrl+Shift+F6"))
+						setbtnimage(self,"image/richtext.png")
+						settext("Main File : Run Web Application (Open In Browser)")
+						setclickEvent(Method(:RunInBrowserMainFile))
+					}
+					addaction(oAction)
 				}  
 				subBrowser {
 
@@ -2406,20 +2412,30 @@ Class RNoteController from WindowsControllerParent
 	func RunInBrowser
 		if cActiveFileName = Null return pNofileopened() ok
 		pSave()	
+		RunWebApplication(this.cActiveFileName)
+
+	func RunWebApplication cFile
 		if isWindows() 
 			new ServerPrepare { 
-				setApplicationPath(JustFilePath(this.cActiveFileName))
+				setApplicationPath(JustFilePath(cFile))
 				PrepareConfigurationFile() 
 				runServer()
 			}
 			new QDesktopServices {
-				OpenURL(new qURL("http://localhost:8080/"+JustFileName(this.cActiveFileName)))
+				OpenURL(new qURL("http://localhost:8080/"+JustFileName(cFile)))
 			}
 		else 
-			cWebURL = this.cActiveFileName
+			cWebURL = cFile
 			nPos = substr(cWebURL,"htdocs")
 			cWebURL = substr(cWebURL,nPOS+7)
 			new QDesktopServices {
 				OpenURL(new qURL("http://localhost/"+cWebURL))
 			}
 		ok
+
+	func RunInBrowserMainFile
+		cMainFileName = GetMainFile()
+		if cMainFileName = Null return pNofileopened() ok
+		if not fexists(cMainFileName) return ok
+		pSave()
+		RunWebApplication(cMainFileName)
