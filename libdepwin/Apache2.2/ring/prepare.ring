@@ -7,6 +7,7 @@ load "stdlib.ring"
 # Use the Default Settings
 	if isMainSourceFile() 
 		new ServerPrepare { 
+			UseFolderHtdocs(False)
 			PrepareConfigurationFile() 
 			RunServer()
 		}
@@ -50,3 +51,7 @@ class ServerPrepare
 
 		system("start " + cServerPath + "/bin/httpd.exe")
 	
+	func UseFolderHtdocs lFlag
+		if lFlag
+			setApplicationPath(cRingFolder+"libdepwin/Apache2.2/htdocs")
+		ok
