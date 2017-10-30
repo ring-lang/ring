@@ -2413,7 +2413,7 @@ Class RNoteController from WindowsControllerParent
 				runServer()
 			}
 			new QDesktopServices {
-				OpenURL(new qURL("http://localhost/"+JustFileName(this.cActiveFileName)))
+				OpenURL(new qURL("http://localhost:8080/"+JustFileName(this.cActiveFileName)))
 			}
 		else 
 			cWebURL = this.cActiveFileName
