@@ -618,7 +618,7 @@ Class RNoteController from WindowsControllerParent
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+F5"))
-						setbtnimage(self,"image/run.png")
+						setbtnimage(self,"image/rungui.png")
 						settext("Run GUI Application (No Console)")
 						setclickEvent(Method(:pRunNoConsole))
 					}
@@ -647,7 +647,7 @@ Class RNoteController from WindowsControllerParent
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+Shift+F5"))
-						setbtnimage(self,"image/run.png")
+						setbtnimage(self,"image/rungui.png")
 						settext("Main File : Run GUI Application (No Console)")
 						setclickEvent(Method(:pRunGUIMainFile))
 					}
