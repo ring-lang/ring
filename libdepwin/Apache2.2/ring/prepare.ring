@@ -21,10 +21,10 @@ class ServerPrepare
 
 	func PrepareConfigurationFile
 
-		cFile = read("httpd.conf.template")
+		cFile = read(cServerPath+"/ring/httpd.conf.template")
 		cFile = substr(cFile,"#{SERVERPATH}",cServerPath)
 		cFile = substr(cFile,"#{APPLICATIONPATH}",cApplicationPath)
-		write("../conf/httpd.conf",cFile)
+		write(cServerPath+"/conf/httpd.conf",cFile)
 
 	func GetRingFolder
 
