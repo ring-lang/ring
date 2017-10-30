@@ -24,5 +24,7 @@ class ServerPrepare
 		cFile = substr(cFile,"#{APPLICATIONPATH}",cApplicationPath)
 		write("../conf/httpd.conf",cFile)
 
+	func SetApplicationPath cPath
+		cApplicationPath = cPath
 	
 
