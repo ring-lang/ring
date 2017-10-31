@@ -52,9 +52,9 @@ class ServerPrepare
 
 	func RunServer
 
-		system("start " + GetServerExePath() )
+		system("start " + GetServerExeFile() )
 	
-	func GetServerExePath
+	func GetServerExeFile
 
 		return cServerPath + "/bin/httpd.exe"
 
