@@ -512,7 +512,7 @@ Class FormDesignerView from WindowsViewParent
 		}
 		oScroll = new qScrollArea(null) {
 			setWidget(oToolBox)
-			setMiniMumWidth(185)
+			setMiniMumWidth(195)
 		}
 		oToolBoxDock = new qdockwidget(NULL,0) {
 			setWindowTitle("ToolBox")
