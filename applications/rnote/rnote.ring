@@ -208,7 +208,7 @@ Class RNoteController from WindowsControllerParent
 						settooltip("Print (Ctrl+P)")
 					} ,
 					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/richtext.png")
+						setbtnimage(self,"image/web.png")
 						setclickEvent(Method(:RunInBrowser))
 						settooltip("Run Web Application - Open In Browser (Ctrl+F6)")
 					} ,
@@ -268,7 +268,7 @@ Class RNoteController from WindowsControllerParent
 						settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
 				} 
 				oBtnRunWebMainFile = new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/richtext.png")
+						setbtnimage(self,"image/web.png")
 						setclickEvent(Method(:RunInBrowserMainFile))
 						settooltip("Main File : Run Web Application - Open In Browser (Ctrl+Shift+F6)")
 				} 
@@ -639,7 +639,7 @@ Class RNoteController from WindowsControllerParent
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+F6"))
-						setbtnimage(self,"image/richtext.png")
+						setbtnimage(self,"image/web.png")
 						settext("Run Web Application (Open In Browser)")
 						setclickEvent(Method(:RunInBrowser))
 					}
@@ -675,7 +675,7 @@ Class RNoteController from WindowsControllerParent
 					addaction(oAction)
 					oAction = new qAction(this.win1) {
 						setShortcut(new QKeySequence("Ctrl+Shift+F6"))
-						setbtnimage(self,"image/richtext.png")
+						setbtnimage(self,"image/web.png")
 						settext("Main File : Run Web Application (Open In Browser)")
 						setclickEvent(Method(:RunInBrowserMainFile))
 					}
