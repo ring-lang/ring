@@ -52,8 +52,12 @@ class ServerPrepare
 
 	func RunServer
 
-		system("start " + cServerPath + "/bin/httpd.exe")
+		system("start " + GetServerExePath() )
 	
+	func GetServerExePath
+
+		return cServerPath + "/bin/httpd.exe"
+
 	func UseFolderHtdocs lFlag
 		if lFlag
 			setApplicationPath(cRingFolder+"libdepwin/Apache2.2/htdocs")
