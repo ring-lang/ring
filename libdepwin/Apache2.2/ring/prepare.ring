@@ -56,7 +56,7 @@ class ServerPrepare
 	
 	func GetServerExeFile
 
-		return cServerPath + "/bin/httpd.exe"
+		return cServerPath + "/bin/httpd_ring.exe"
 
 	func UseFolderHtdocs lFlag
 		if lFlag
