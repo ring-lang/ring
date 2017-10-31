@@ -1,11 +1,8 @@
 #! /bin/sh
 
-## rights
-
 
 VERSION=1.4.5
-BASE_DIR="/usr/lib/ring"
-# BASE_DIR="/var/hassan/ir"
+BASE_DIR="/usr/local/lib/ring"
 MOD_DIR="$BASE_DIR/modules/"
 
 if [ ! -d $BASE_DIR ]; then
