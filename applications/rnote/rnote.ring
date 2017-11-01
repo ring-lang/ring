@@ -2433,8 +2433,9 @@ Class RNoteController from WindowsControllerParent
 				cServerExe = getserverExeFile()
 			}	
 			oProcess = pRunProcess(cCurrentDir + "killwebserver.bat","",cpGetProcessData)			
-			oProcess.waitForFinished(5000)
+			oProcess.waitForFinished(3000)
 			oWebServerProcess = pRunProcess(cServerEXE,"",cpGetProcessData)			
+			sleep(3)
 			new QDesktopServices {
 				OpenURL(new qURL("http://localhost:8080/"+JustFileName(cFile)))
 			}
