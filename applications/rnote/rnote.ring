@@ -138,6 +138,8 @@ Class RNoteController from WindowsControllerParent
 	# Methods 
 	   cpGetProcessData = Method(:pGetProcessData)
 
+	cWebApplicationFolder = ""
+
 	CreateMainWindow()
 
 	func CreateMainWindow 
@@ -2427,15 +2429,19 @@ Class RNoteController from WindowsControllerParent
 
 	func RunWebApplication cFile
 		if isWindows() 
-			new ServerPrepare { 
-				setApplicationPath(JustFilePath(cFile))
-				PrepareConfigurationFile() 
-				cServerExe = getserverExeFile()
-			}	
-			oProcess = pRunProcess(cCurrentDir + "killwebserver.bat","",cpGetProcessData)			
-			oProcess.waitForFinished(3000)
-			oWebServerProcess = pRunProcess(cServerEXE,"",cpGetProcessData)			
-			sleep(3)
+			if cWebApplicationFolder != JustFilePath(cFile)
+				cWebApplicationFolder = JustFilePath(cFile)
+				new ServerPrepare { 
+					setApplicationPath(this.cWebApplicationFolder)
+					PrepareConfigurationFile() 
+					cServerExe = getserverExeFile()
+				}	
+				oProcess = pRunProcess(cCurrentDir + "killwebserver.bat","",cpGetProcessData)			
+				oProcess.waitForFinished(3000)
+				oWebServerProcess = pRunProcess(cServerEXE,"",cpGetProcessData)			
+				sleep(3)
+				oProcessEditbox.setplaintext("")
+			ok
 			new QDesktopServices {
 				OpenURL(new qURL("http://localhost:8080/"+JustFileName(cFile)))
 			}
