@@ -11,6 +11,12 @@ AM_PROG_AR
 dnl init LT to be able to compile specific files as shared libraries
 LT_INIT
 
+dnl temporary way to set libdir to specific directory
+dnl WARNING, setting this "standard" variable will make
+dnl the user can not change the library directory, this
+dnl should be fixed.
+libdir=/usr/local/lib/ring/modules
+
 dnl path the main options to Makefile.am
 AM_INIT_AUTOMAKE([-Wall foreign subdir-objects])
 
