@@ -176,6 +176,12 @@ It seems that the language is quite extensive as well. I would find it useful to
 I appreciate your web library."
 	, Domenico D'Oria (Italy)	
 
+"Congratulations for the great work with this new programming language."
+	, Kenny Silva (Venezuela)
+
+"Ring is an amazingly full-featured language and so well documented (the bane of most newer languages out there!)"
+	, Alex McCullie
+
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
