@@ -2217,3 +2217,26 @@ Check the next sample
 				}
 			next
 		next
+
+.. index:: 
+	pair: Frequently Asked Questions; Which of 3 coding styles are commonly used or recommended by the community?
+
+Which of 3 coding styles are commonly used or recommended by the community?
+===========================================================================
+
+(1) Just select any style of them but don't mix between the different styles in the same project
+     or at least in the same context (Implementation, Tests, Scripts, etc)
+
+.. Note:: State the rules in the start of each project and follow it.
+
+(2) You can create your style (by changing keywords) - The idea is about customization and freedom.
+
+.. Note:: It's better to change keywords and create new style only for a clear reason like using another natural  language (Arabic, French, etc.)
+
+(3) The First style is better (IMHO) for questions, tutorials and small applications/programs (Less than 5,000 LOC)
+      Example : Ring Book, Most of Ring Samples and Applications.
+
+(4) The Third style is better(IMHO) for large applications and mainstream programmers
+
+	Example (Form Designer) : https://github.com/ring-lang/ring/tree/master/applications/formdesigner
+
