@@ -976,7 +976,13 @@
 				  [
                     'John Storm (SienSystem)',
                     'siensystem@gmail.com',
-                    'Tester',
+                    'Tester/Samples',
                     'Active'
-                  ]				  
+                  ],
+				  [
+                    'Hassan Ahmed',
+                    'hsn@outlook.hu',
+                    'Tester/Extensions',
+                    'Active'
+                  ]					  
 ]
