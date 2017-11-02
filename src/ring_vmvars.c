@@ -122,19 +122,22 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 	} else {
 		/* Check Private Attributes */
 		if ( ring_list_getint(pList2,RING_VAR_PRIVATEFLAG) == 1 ) {
-			if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
-				lPrivateError = 1 ;
-				/* Pass Braces for Class Init() to be sure we are inside a method or not */
-				if ( (ring_list_getsize(pVM->pObjState) > pVM->nCallClassInit) && (pVM->nCallClassInit) ) {
-					pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState) - pVM->nCallClassInit) ;
-					if ( (ring_list_getsize(pList) == 4) && (pVM->nCallMethod == 0) ) {
-						/* Here we have a method, So we avoid the private attribute error! */
-						lPrivateError = 0 ;
+			/* We check that we are not in the class region too (defining the private attribute then reusing it) */
+			if ( ! ( (pVM->nVarScope == RING_VARSCOPE_NEWOBJSTATE) &&  (pVM->nInClassRegion == 1) ) ) {
+				if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
+					lPrivateError = 1 ;
+					/* Pass Braces for Class Init() to be sure we are inside a method or not */
+					if ( (ring_list_getsize(pVM->pObjState) > pVM->nCallClassInit) && (pVM->nCallClassInit) ) {
+						pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState) - pVM->nCallClassInit) ;
+						if ( (ring_list_getsize(pList) == 4) && (pVM->nCallMethod == 0) ) {
+							/* Here we have a method, So we avoid the private attribute error! */
+							lPrivateError = 0 ;
+						}
 					}
-				}
-				if ( lPrivateError ) {
-					ring_vm_error2(pVM,RING_VM_ERROR_USINGPRIVATEATTRIBUTE,cStr);
-					return 0 ;
+					if ( lPrivateError ) {
+						ring_vm_error2(pVM,RING_VM_ERROR_USINGPRIVATEATTRIBUTE,cStr);
+						return 0 ;
+					}
 				}
 			}
 		}
