@@ -1,8 +1,8 @@
 
 B:\ring\tests>call ring scripts/s28.ring 
-0
-100
-100
+1
+79
+78
 
 B:\ring\tests>call ring scripts/s60.ring 
 hello
@@ -693,7 +693,7 @@ country: egypt
 phone: 1234567879
 
 B:\ring\tests>call ring scripts/oop12.ring 
-Time 4775
+Time 3438
 
 B:\ring\tests>call ring scripts/oop13.ring 
 Welcome
@@ -2347,7 +2347,7 @@ Can't open file scripts/bracexpreval.ring
 B:\ring\tests>call ring scripts/english.ring   0<scripts/testenglish.txt 
 Enter Number (1) :Enter Number (2) :The Sum : 7
 B:\ring\tests>call ring scripts/objectpointer.ring 
-011748E0
+00472168
 OBJECTPOINTER
 0
 1
@@ -2589,8 +2589,8 @@ nindex: 1.000000
 nindex: 2.000000
 
 B:\ring\tests>call ring scripts/dynamicattr2.ring 
-date: 16/10/2017
-time: 17:32:52
+date: 02/11/2017
+time: 19:27:48
 
 B:\ring\tests>call ring scripts/sortobjscase.ring 
  SPY SP500 0
@@ -3380,3 +3380,10 @@ MahmoudMahmoud
 B:\ring\tests>call ring scripts/nosettergetterinclassmethods.ring 
 amr
 wow
+
+B:\ring\tests>call ring scripts/privateattributereuse.ring 
+120
+Before the runtime error!
+
+Line 3 Error (R27) : Using private attribute from outside the class : salary 
+in file scripts/privateattributereuse.ring 
