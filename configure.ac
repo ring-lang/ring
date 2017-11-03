@@ -6,6 +6,9 @@ AC_INIT([ring], [1.5.4])
 dnl Set the main m4 macros directory
 AC_CONFIG_MACRO_DIRS([build/m4])
 
+dnl Set the auxility directory
+AC_CONFIG_AUX_DIR([build/aux])
+
 dnl make sure that this main file is exists before compiling
 AC_CONFIG_SRCDIR([src/ring.c])
 
