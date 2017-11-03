@@ -75,16 +75,15 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 
 int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
 {
-	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack  ;
+	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack  ;
 	/* Create Lists */
 	pListFunctions = ring_list_new_gc(pRingState,0);
 	pListClasses = ring_list_new_gc(pRingState,0);
 	pListPackages = ring_list_new_gc(pRingState,0);
 	pListCode = ring_list_new_gc(pRingState,0);
 	pListStack = ring_list_new_gc(pRingState,0);
-	pList = NULL ;
 	/* Process File */
-	if ( ! ring_objfile_processfile(pRingState,cFileName,pListFunctions, pListClasses, pListPackages, pListCode, pList, pListStack) ) {
+	if ( ! ring_objfile_processfile(pRingState,cFileName,pListFunctions, pListClasses, pListPackages, pListCode, pListStack) ) {
 		return 0 ;
 	}
 	ring_list_delete(pListStack);
@@ -108,7 +107,7 @@ int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
 	return 1 ;
 }
 
-int ring_objfile_processfile ( RingState *pRingState,const char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pList,List  *pListStack )
+int ring_objfile_processfile ( RingState *pRingState,const char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack )
 {
 	FILE *fObj;
 	signed char c  ;
@@ -118,9 +117,11 @@ int ring_objfile_processfile ( RingState *pRingState,const char *cFileName,List 
 	char cKey[11]  ;
 	char cFileType[100]  ;
 	strcpy(cKey,"ringstring");
+	List *pList  ;
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
 	nActiveList = 0 ;
 	nBraceEnd = 0 ;
+	pList = NULL ;
 	/* Open File */
 	fObj = fopen(cFileName , "rb" );
 	if ( fObj==NULL ) {

@@ -12,7 +12,7 @@ void ring_objfile_writelist ( List *pList,FILE *fObj ) ;
 
 int ring_objfile_readfile ( RingState *pRingState,const char *cFileName ) ;
 
-int ring_objfile_processfile ( RingState *pRingState,const char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pList,List  *pListStack ) ;
+int ring_objfile_processfile ( RingState *pRingState,const char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack ) ;
 
 void ring_objfile_updateclassespointers ( RingState *pRingState ) ;
 

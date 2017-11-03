@@ -15,7 +15,7 @@ Type: char
 cKey[11]
 ring_objfile_readfile
 Type: List *
-pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack
+pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack
 ring_objfile_processfile
 fObj
 Type: signed char
@@ -30,6 +30,8 @@ Type: char
 cKey[11]
 Type: char
 cFileType[100]
+Type: List *
+pList
 ring_objfile_updateclassespointers
 Type: int
 x,x2,x3,x4,lFound
