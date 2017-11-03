@@ -75,10 +75,10 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 
 int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
 {
-	return ring_objfile_readfilefromsource(pRingState,cFileName,RING_OBJFILE_READFROMFILE) ;
+	return ring_objfile_readfromsource(pRingState,cFileName,RING_OBJFILE_READFROMFILE) ;
 }
 
-int ring_objfile_readfilefromsource ( RingState *pRingState,const char *cSource,int nSource )
+int ring_objfile_readfromsource ( RingState *pRingState,const char *cSource,int nSource )
 {
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack  ;
 	/* Create Lists */

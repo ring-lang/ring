@@ -16,7 +16,7 @@ cString
 Type: char
 cKey[11]
 ring_objfile_readfile
-ring_objfile_readfilefromsource
+ring_objfile_readfromsource
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack
 ring_objfile_processfile
