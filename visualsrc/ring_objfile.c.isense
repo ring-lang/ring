@@ -16,6 +16,7 @@ cString
 Type: char
 cKey[11]
 ring_objfile_readfile
+ring_objfile_readstring
 ring_objfile_readfromsource
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack
@@ -29,6 +30,21 @@ Type: double
 dValue
 Type: char *
 cString
+Type: char
+cKey[11]
+Type: char
+cFileType[100]
+Type: List *
+pList
+ring_objfile_processstring
+Type: signed char
+c
+Type: int
+nActiveList,nValue,nBraceEnd
+Type: double
+dValue
+Type: char *
+cString, *cData
 Type: char
 cKey[11]
 Type: char
@@ -49,3 +65,9 @@ cClassName[400]
 ring_objfile_xorstring
 Type: int
 x
+ring_objfile_readc
+Type: int
+x
+ring_objfile_getc
+Type: char
+c

@@ -86,6 +86,7 @@ Type: char *
 cStr
 ring_state_runfile
 ring_state_runobjectfile
+ring_state_runobjectstring
 ring_testallunits
 ring_showtime
 Type: time_t

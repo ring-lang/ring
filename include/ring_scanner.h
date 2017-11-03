@@ -144,7 +144,7 @@ RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,i
 
 const char * ring_scanner_getkeywordtext ( const char *cStr ) ;
 
-void ring_scanner_runobjfile ( RingState *pRingState,const char *cFileName ) ;
+void ring_scanner_runobjfile ( RingState *pRingState,char *cFileName ) ;
 
 void ring_scanner_runprogram ( RingState *pRingState ) ;
 
@@ -153,6 +153,8 @@ void ring_scanner_changekeyword ( Scanner *pScanner ) ;
 void ring_scanner_changeoperator ( Scanner *pScanner ) ;
 
 void ring_scanner_loadsyntax ( Scanner *pScanner ) ;
+
+void ring_scanner_runobjstring ( RingState *pRingState,char *cString ) ;
 /* MACRO */
 #define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem(pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
 /*

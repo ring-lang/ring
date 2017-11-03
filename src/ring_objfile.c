@@ -73,12 +73,17 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 	fprintf( fObj , "}\n"  ) ;
 }
 
-int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
+int ring_objfile_readfile ( RingState *pRingState,char *cFileName )
 {
 	return ring_objfile_readfromsource(pRingState,cFileName,RING_OBJFILE_READFROMFILE) ;
 }
 
-int ring_objfile_readfromsource ( RingState *pRingState,const char *cSource,int nSource )
+int ring_objfile_readstring ( RingState *pRingState,char *cString )
+{
+	return ring_objfile_readfromsource(pRingState,cString,RING_OBJFILE_READFROMSTRING) ;
+}
+
+int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSource )
 {
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack  ;
 	/* Create Lists */
@@ -87,12 +92,14 @@ int ring_objfile_readfromsource ( RingState *pRingState,const char *cSource,int 
 	pListPackages = ring_list_new_gc(pRingState,0);
 	pListCode = ring_list_new_gc(pRingState,0);
 	pListStack = ring_list_new_gc(pRingState,0);
-	/*
-	**  Process Content Source (File or String) 
-	**  Process File 
-	*/
+	/* Process Content (File or String) */
 	if ( nSource == RING_OBJFILE_READFROMFILE ) {
 		if ( ! ring_objfile_processfile(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListStack) ) {
+			return 0 ;
+		}
+	}
+	else if ( nSource ==RING_OBJFILE_READFROMSTRING ) {
+		if ( ! ring_objfile_processstring(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListStack) ) {
 			return 0 ;
 		}
 	}
@@ -117,7 +124,7 @@ int ring_objfile_readfromsource ( RingState *pRingState,const char *cSource,int 
 	return 1 ;
 }
 
-int ring_objfile_processfile ( RingState *pRingState,const char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack )
+int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack )
 {
 	FILE *fObj;
 	signed char c  ;
@@ -282,6 +289,164 @@ int ring_objfile_processfile ( RingState *pRingState,const char *cFileName,List 
 	return 1 ;
 }
 
+int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pListStack )
+{
+	signed char c  ;
+	int nActiveList,nValue,nBraceEnd  ;
+	double dValue  ;
+	char *cString, *cData  ;
+	char cKey[11]  ;
+	char cFileType[100]  ;
+	strcpy(cKey,"ringstring");
+	List *pList  ;
+	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
+	nActiveList = 0 ;
+	nBraceEnd = 0 ;
+	pList = NULL ;
+	cData = cContent ;
+	/* Check Type and Version */
+	ring_objfile_readc(pRingState,cData,cFileType,18);
+	cFileType[18] = '\0' ;
+	if ( strcmp(cFileType,"# Ring Object File") != 0 ) {
+		printf( "The file type is not correct - the VM expect a ring object file\n" ) ;
+		return 0 ;
+	}
+	c = ring_objfile_getc(pRingState,cData);
+	ring_objfile_readc(pRingState,cData,cFileType,13);
+	cFileType[13] = '\0' ;
+	if ( strcmp(cFileType,"# Version 1.1") != 0 ) {
+		printf( "The file version is not correct - the VM expect a ring object file version 1.1\n" ) ;
+		return 0 ;
+	}
+	/* Process Content */
+	c = ring_objfile_getc(pRingState,cData);
+	while ( c != EOF ) {
+		/* Check Char */
+		switch ( c ) {
+			case '#' :
+				/* Read Line */
+				while ( c != '\n' ) {
+					c = ring_objfile_getc(pRingState,cData);
+					#ifdef DEBUG_OBJFILE
+					printf( "%c  ",c ) ;
+					#endif
+				}
+				#ifdef DEBUG_OBJFILE
+				puts("Read Comment ! ");
+				#endif
+				break ;
+			case '{' :
+				nActiveList++ ;
+				switch ( nActiveList ) {
+					case 1 :
+						pList = pListFunctions ;
+						break ;
+					case 2 :
+						pList = pListClasses ;
+						break ;
+					case 3 :
+						pList = pListPackages ;
+						break ;
+					case 4 :
+						pList = pListCode ;
+						break ;
+				}
+				break ;
+			case '[' :
+				c = ring_objfile_getc(pRingState,cData);
+				switch ( c ) {
+					case 'S' :
+						c = ring_objfile_getc(pRingState,cData);
+						sscanf(cData,"[%d]",&nValue);
+						cString = (char *) ring_state_malloc(pRingState,nValue+1);
+						ring_objfile_readc(pRingState,cData,cString,nValue);
+						cString[nValue] = '\0' ;
+						/* Decrypt String */
+						ring_objfile_xorstring(cString,nValue,cKey,10);
+						ring_list_addstring2_gc(pRingState,pList,cString,nValue);
+						ring_state_free(pRingState,cString);
+						#ifdef DEBUG_OBJFILE
+						printf( "Read String %s Size %d \n",cString,nValue ) ;
+						#endif
+						break ;
+					case 'I' :
+						c = ring_objfile_getc(pRingState,cData);
+						sscanf(cData,"%d",&nValue);
+						ring_list_addint_gc(pRingState,pList,nValue);
+						#ifdef DEBUG_OBJFILE
+						printf( "Read Number %d \n  ",nValue ) ;
+						#endif
+						break ;
+					case 'D' :
+						c = ring_objfile_getc(pRingState,cData);
+						sscanf(cData,"%lf",&dValue);
+						ring_list_adddouble_gc(pRingState,pList,dValue);
+						#ifdef DEBUG_OBJFILE
+						printf( "Read Double %d  \n",dValue ) ;
+						#endif
+						break ;
+					case 'P' :
+						ring_list_addpointer_gc(pRingState,pList,NULL);
+						/* Read Line */
+						while ( c != '\n' ) {
+							c = ring_objfile_getc(pRingState,cData);
+						}
+						#ifdef DEBUG_OBJFILE
+						puts("Read Pointer ");
+						#endif
+						break ;
+					case 'T' :
+						ring_list_addpointer_gc(pRingState,pListStack,pList);
+						pList = ring_list_newlist_gc(pRingState,pList);
+						/* Read Line */
+						while ( c != '\n' ) {
+							c = ring_objfile_getc(pRingState,cData);
+						}
+						#ifdef DEBUG_OBJFILE
+						puts("Read T ");
+						#endif
+						break ;
+					case 'E' :
+						pList = (List *) ring_list_getpointer(pListStack,ring_list_getsize(pListStack)) ;
+						ring_list_deletelastitem(pListStack);
+						/* Read Line */
+						while ( c != '\n' ) {
+							c = ring_objfile_getc(pRingState,cData);
+						}
+						#ifdef DEBUG_OBJFILE
+						puts("Read E ");
+						#endif
+						break ;
+					case 'L' :
+						/* Read Until { */
+						while ( c != '{' ) {
+							c = ring_objfile_getc(pRingState,cData);
+						}
+						ring_list_addpointer_gc(pRingState,pListStack,pList);
+						pList = ring_list_newlist_gc(pRingState,pList);
+						nBraceEnd = 1 ;
+						#ifdef DEBUG_OBJFILE
+						puts("Read L ");
+						#endif
+						break ;
+				}
+				break ;
+			case '}' :
+				if ( nBraceEnd ) {
+					pList = (List *) ring_list_getpointer(pListStack,ring_list_getsize(pListStack)) ;
+					ring_list_deletelastitem(pListStack);
+					nBraceEnd = 0 ;
+					#ifdef DEBUG_OBJFILE
+					puts("Read } ");
+					#endif
+				}
+				break ;
+		}
+		c = ring_objfile_getc(pRingState,cData);
+	}
+	return 1 ;
+}
+
 void ring_objfile_updateclassespointers ( RingState *pRingState )
 {
 	int x,x2,x3,x4,lFound  ;
@@ -372,4 +537,20 @@ void ring_objfile_xorstring ( char *cString,int nStringSize,char *cKey,int nKeyS
 	for ( x = 1 ; x <= nStringSize ; x++ ) {
 		cString[x-1] = cString[x-1] ^ cKey[(x-1)%nKeySize] ;
 	}
+}
+
+void ring_objfile_readc ( RingState *pRingState,char *cSource,char *cDest,int nCount )
+{
+	int x  ;
+	for ( x = 0 ; x < nCount ; x++ ) {
+		cDest[x] = cSource[x] ;
+	}
+}
+
+char ring_objfile_getc ( RingState *pRingState,char *cSource )
+{
+	char c  ;
+	c = cSource[0] ;
+	cSource++ ;
+	return c ;
 }

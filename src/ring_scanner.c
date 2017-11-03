@@ -830,7 +830,7 @@ const char * ring_scanner_getkeywordtext ( const char *cStr )
 	return RING_KEYWORDS[atoi(cStr)-1] ;
 }
 
-void ring_scanner_runobjfile ( RingState *pRingState,const char *cFileName )
+void ring_scanner_runobjfile ( RingState *pRingState,char *cFileName )
 {
 	/* Files List */
 	pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
@@ -838,6 +838,18 @@ void ring_scanner_runobjfile ( RingState *pRingState,const char *cFileName )
 	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 	ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 	if ( ring_objfile_readfile(pRingState,cFileName) ) {
+		ring_scanner_runprogram(pRingState);
+	}
+}
+
+void ring_scanner_runobjstring ( RingState *pRingState,char *cString )
+{
+	/* Files List */
+	pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
+	pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
+	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,"objectcode");
+	ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,"objectcode");
+	if ( ring_objfile_readstring(pRingState,cString) ) {
 		ring_scanner_runprogram(pRingState);
 	}
 }
