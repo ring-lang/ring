@@ -14,11 +14,12 @@ cString
 Type: char
 cKey[11]
 ring_objfile_readfile
+Type: List *
+pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack
+ring_objfile_processfile
 fObj
 Type: signed char
 c
-Type: List *
-pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack
 Type: int
 nActiveList,nValue,nBraceEnd
 Type: double

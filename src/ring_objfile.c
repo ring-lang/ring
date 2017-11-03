@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -75,15 +75,7 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 
 int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
 {
-	FILE *fObj;
-	signed char c  ;
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pList, *pListStack  ;
-	int nActiveList,nValue,nBraceEnd  ;
-	double dValue  ;
-	char *cString  ;
-	char cKey[11]  ;
-	char cFileType[100]  ;
-	strcpy(cKey,"ringstring");
 	/* Create Lists */
 	pListFunctions = ring_list_new_gc(pRingState,0);
 	pListClasses = ring_list_new_gc(pRingState,0);
@@ -91,6 +83,41 @@ int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
 	pListCode = ring_list_new_gc(pRingState,0);
 	pListStack = ring_list_new_gc(pRingState,0);
 	pList = NULL ;
+	/* Process File */
+	if ( ! ring_objfile_processfile(pRingState,cFileName,pListFunctions, pListClasses, pListPackages, pListCode, pList, pListStack) ) {
+		return 0 ;
+	}
+	ring_list_delete(pListStack);
+	/* Update Ring State */
+	#ifdef DEBUG_OBJFILE
+	puts("Old Code List ");
+	ring_list_print(pRingState->pRingGenCode);
+	#endif
+	/* Update Lists */
+	pRingState->pRingFunctionsMap = pListFunctions ;
+	pRingState->pRingClassesMap = pListClasses ;
+	pRingState->pRingPackagesMap = pListPackages ;
+	pRingState->pRingGenCode = pListCode ;
+	#ifdef DEBUG_OBJFILE
+	puts("Update Done! ");
+	puts("New Code List ");
+	ring_list_print(pRingState->pRingGenCode);
+	#endif
+	/* Update Classes Pointers */
+	ring_objfile_updateclassespointers(pRingState);
+	return 1 ;
+}
+
+int ring_objfile_processfile ( RingState *pRingState,const char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode,List  *pList,List  *pListStack )
+{
+	FILE *fObj;
+	signed char c  ;
+	int nActiveList,nValue,nBraceEnd  ;
+	double dValue  ;
+	char *cString  ;
+	char cKey[11]  ;
+	char cFileType[100]  ;
+	strcpy(cKey,"ringstring");
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
 	nActiveList = 0 ;
 	nBraceEnd = 0 ;
@@ -241,24 +268,6 @@ int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
 	}
 	/* Close File */
 	fclose( fObj ) ;
-	ring_list_delete(pListStack);
-	/* Update Ring State */
-	#ifdef DEBUG_OBJFILE
-	puts("Old Code List ");
-	ring_list_print(pRingState->pRingGenCode);
-	#endif
-	/* Update Lists */
-	pRingState->pRingFunctionsMap = pListFunctions ;
-	pRingState->pRingClassesMap = pListClasses ;
-	pRingState->pRingPackagesMap = pListPackages ;
-	pRingState->pRingGenCode = pListCode ;
-	#ifdef DEBUG_OBJFILE
-	puts("Update Done! ");
-	puts("New Code List ");
-	ring_list_print(pRingState->pRingGenCode);
-	#endif
-	/* Update Classes Pointers */
-	ring_objfile_updateclassespointers(pRingState);
 	return 1 ;
 }
 
