@@ -3,6 +3,12 @@ dnl Ring 1.5.4
 dnl initializing the autoconf tool
 AC_INIT([ring], [1.5.4])
 
+dnl Set the main m4 macros directory
+AC_CONFIG_MACRO_DIRS([build/m4])
+
+dnl Set the auxility directory
+AC_CONFIG_AUX_DIR([build/aux])
+
 dnl make sure that this main file is exists before compiling
 AC_CONFIG_SRCDIR([src/ring.c])
 
@@ -15,7 +21,7 @@ dnl temporary way to set libdir to specific directory
 dnl WARNING, setting this "standard" variable will make
 dnl the user can not change the library directory, this
 dnl should be fixed.
-libdir=/usr/local/lib/ring/modules
+libdir=/usr/local/lib/ring
 
 dnl path the main options to Makefile.am
 AM_INIT_AUTOMAKE([-Wall foreign subdir-objects])
