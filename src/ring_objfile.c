@@ -75,6 +75,11 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 
 int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
 {
+	return ring_objfile_readfilefromsource(pRingState,cFileName,RING_OBJFILE_READFROMFILE) ;
+}
+
+int ring_objfile_readfilefromsource ( RingState *pRingState,const char *cSource,int nSource )
+{
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack  ;
 	/* Create Lists */
 	pListFunctions = ring_list_new_gc(pRingState,0);
@@ -82,9 +87,14 @@ int ring_objfile_readfile ( RingState *pRingState,const char *cFileName )
 	pListPackages = ring_list_new_gc(pRingState,0);
 	pListCode = ring_list_new_gc(pRingState,0);
 	pListStack = ring_list_new_gc(pRingState,0);
-	/* Process File */
-	if ( ! ring_objfile_processfile(pRingState,cFileName,pListFunctions, pListClasses, pListPackages, pListCode, pListStack) ) {
-		return 0 ;
+	/*
+	**  Process Content Source (File or String) 
+	**  Process File 
+	*/
+	if ( nSource == RING_OBJFILE_READFROMFILE ) {
+		if ( ! ring_objfile_processfile(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListStack) ) {
+			return 0 ;
+		}
 	}
 	ring_list_delete(pListStack);
 	/* Update Ring State */

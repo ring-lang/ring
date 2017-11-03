@@ -1,5 +1,7 @@
 ring_objfile_h
 DEBUG_OBJFILE
+RING_OBJFILE_READFROMFILE
+RING_OBJFILE_READFROMSTRING
 ring_objfile_writefile
 fObj
 Type: char
@@ -14,6 +16,7 @@ cString
 Type: char
 cKey[11]
 ring_objfile_readfile
+ring_objfile_readfilefromsource
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListStack
 ring_objfile_processfile
