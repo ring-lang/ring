@@ -31,7 +31,13 @@
 
 
 func Main 
-	BuildApp(sysargv[len(sysargv)])
+	nParaCount = len(sysargv)
+	if nParaCount >= 2
+		BuildApp(sysargv[nParaCount])
+	else 
+		see "Application : Ring2EXE (Ring script to Executable file)" + nl
+		see "Usage       : ring2exe filename.ring" + nl
+	ok
 
 func BuildApp cFileName 
 	# Generate the Object File 
