@@ -68,6 +68,10 @@ x
 ring_objfile_readc
 Type: int
 x
+Type: char *
+cData
 ring_objfile_getc
 Type: char
 c
+Type: char *
+cData

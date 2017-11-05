@@ -24,9 +24,9 @@ void ring_objfile_updateclassespointers ( RingState *pRingState ) ;
 
 void ring_objfile_xorstring ( char *cString,int nStringSize,char *cKey,int nKeySize ) ;
 
-void ring_objfile_readc ( RingState *pRingState,char *cSource,char *cDest,int nCount ) ;
+void ring_objfile_readc ( RingState *pRingState,char **cSource,char *cDest,int nCount ) ;
 
-char ring_objfile_getc ( RingState *pRingState,char *cSource ) ;
+char ring_objfile_getc ( RingState *pRingState,char **cSource ) ;
 /* MACRO */
 /* Object File Source */
 #define RING_OBJFILE_READFROMFILE 1
