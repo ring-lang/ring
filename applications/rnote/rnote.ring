@@ -2496,5 +2496,5 @@ Class RNoteController from WindowsControllerParent
 
 	func OSFilesManager 
 		new QDesktopServices {
-			OpenURL(new qURL(this.cStartupFolder))
+			OpenURL(new qURL("file:///"+this.cStartupFolder))
 		}
