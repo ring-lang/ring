@@ -2485,8 +2485,10 @@ Class RNoteController from WindowsControllerParent
 	func OSTerminal
 		if isWindows()
 			cCommand = 'start cmd /K "cd ' + cStartupFolder + '"'
+		elseif isLinux()
+			cCommand = "gnome-terminal"
 		else 
-			cCommand = "xterm"
+			return
 		ok
 		system(cCommand)
 
