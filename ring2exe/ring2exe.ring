@@ -33,7 +33,9 @@
 func Main 
 	nParaCount = len(sysargv)
 	if nParaCount >= 2
-		BuildApp(sysargv[nParaCount])
+		cFile = sysargv[nParaCount]
+		See "Ring2EXE - Process File : " + cFile + nl
+		BuildApp(cFile)
 	else 
 		drawline()
 		see "Application : Ring2EXE (Ring script to Executable file)" + nl
