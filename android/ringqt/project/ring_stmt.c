@@ -224,8 +224,8 @@ int ring_parser_stmt ( Parser *pParser )
 	List *pMark,*pMark2,*pMark3,*pList2  ;
 	double nNum1  ;
 	char cStr[50]  ;
-	char cFileName[200]  ;
-	char cCurrentDir[200]  ;
+	char cFileName[256]  ;
+	char cCurrentDir[256]  ;
 	nPerformanceLocations = 0 ;
 	assert(pParser != NULL);
 	/* Statement --> Load Literal */

@@ -126,7 +126,25 @@ void ring_vm_file_tempfile ( void *pPointer )
 
 void ring_vm_file_tempname ( void *pPointer )
 {
+	#ifdef _WIN32
+	/* Windows */
+	char _tmpfile[L_tmpnam_s]  ;
+	errno_t error  ;
+	error = tmpnam_s(_tmpfile,L_tmpnam_s);
+	if ( error ) {
+		RING_API_ERROR(RING_VM_ERROR_TEMPFILENAME);
+	}
+	else {
+		RING_API_RETSTRING(_tmpfile);
+	}
+	/* Mac OS X */
+	#elif __MACH__
 	RING_API_RETSTRING(tmpnam(NULL));
+	/* Linux */
+	#else
+	char _tmpfile[20] = "/tmp/ringtempXXXXXX" ;
+	RING_API_RETSTRING(mkdtemp(_tmpfile));
+	#endif
 }
 
 void ring_vm_file_fseek ( void *pPointer )

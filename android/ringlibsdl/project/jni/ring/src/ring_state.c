@@ -251,9 +251,14 @@ RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName )
 	ring_scanner_readfile(pRingState,cFileName);
 }
 
-RING_API void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName )
+RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 {
 	ring_scanner_runobjfile(pRingState,cFileName);
+}
+
+RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString )
+{
+	ring_scanner_runobjstring(pRingState,cString);
 }
 #if RING_TESTUNITS
 
@@ -338,7 +343,7 @@ int ring_fexists ( const char *cFileName )
 int ring_currentdir ( char *cDirPath )
 {
 	int nSize  ;
-	nSize = 200 ;
+	nSize = 256 ;
 	if ( !GetCurrentDir(cDirPath, nSize) ) {
 		return errno ;
 	}
@@ -349,7 +354,7 @@ int ring_currentdir ( char *cDirPath )
 int ring_exefilename ( char *cDirPath )
 {
 	unsigned int nSize  ;
-	nSize = 200 ;
+	nSize = 256 ;
 	#ifdef _WIN32
 	/* Windows only */
 	GetModuleFileName(NULL,cDirPath,nSize);
@@ -357,6 +362,8 @@ int ring_exefilename ( char *cDirPath )
 	/* Mac OS X */
 	_NSGetExecutablePath(cDirPath,&nSize);
 	#elif __linux__
+	/* readlink() doesn't null terminate */
+	memset(cDirPath,0,nSize);
 	readlink("/proc/self/exe",cDirPath,nSize);
 	#endif
 	return 0 ;
@@ -369,8 +376,8 @@ void ring_chdir ( const char *cDir )
 
 void ring_exefolder ( char *cDirPath )
 {
-	char cDir[200]  ;
-	char cDir2[200]  ;
+	char cDir[256]  ;
+	char cDir2[256]  ;
 	int x,x2,nSize  ;
 	ring_exefilename(cDir);
 	nSize = strlen( cDir ) ;
@@ -388,7 +395,7 @@ void ring_exefolder ( char *cDirPath )
 
 void ring_switchtofilefolder ( char *cFileName )
 {
-	char cFileName2[200]  ;
+	char cFileName2[256]  ;
 	strcpy(cFileName2,cFileName);
 	if ( ring_justfilepath(cFileName2) ) {
 		ring_chdir(cFileName2);
