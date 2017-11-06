@@ -2482,7 +2482,7 @@ Class RNoteController from WindowsControllerParent
 
 	func OSTerminal
 		if isWindows()
-			cCommand = 'cmd /K "cd ' + cStartupFolder + '"'
+			cCommand = 'start cmd /K "cd ' + cStartupFolder + '"'
 		else 
 			cCommand = "xterm"
 		ok
