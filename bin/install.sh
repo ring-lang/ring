@@ -15,7 +15,7 @@ fi
 
 if [ -f ../lib/libring.so ];
 then
-sudo echo "`pwd`/ring \${1:-foo} \${2:-foo} \${3:-foo} \${4:-foo} \${5:-foo} \${6:-foo} \${7:-foo}" > /usr/bin/ring 
+sudo echo "`pwd`/ring \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ring 
 sudo chmod +x /usr/bin/ring
 
 cd ..
