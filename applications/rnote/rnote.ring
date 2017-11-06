@@ -10,7 +10,7 @@
 	import formdesigner 
 
 # Load the Web Server - ServerPrepare Class
-	load "../../libdepwin/apache2.2/ring/prepare.ring"
+	load "../libdepwin/Apache2.2/ring/prepare.ring"
 
 # Create the Ring Notepad Object
 	Open_WindowNoShow(:RNoteController)
