@@ -2488,7 +2488,7 @@ Class RNoteController from WindowsControllerParent
 		elseif isLinux()
 			cCommand = "gnome-terminal"
 		elseif isMacosx()
-			cCommand = "open /Applications/Utilities/Terminal.app/Contents/MacOS/Terminal"
+			cCommand = "open /Applications/Utilities/Terminal.app"
 		else 
 			return
 		ok
