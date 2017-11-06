@@ -21,7 +21,7 @@ ring_ext.obj ring_vmdll.obj ring_objfile.obj
 
 copy ..\lib\ring.dll ..\bin\
 
-cl ring.c ..\lib\ring.lib -I"..\include"  /link /SUBSYSTEM:WINDOWS,"5.01" /ENTRY:mainCRTStartup /OUT:..\bin\ringw.exe
+cl ringw.c ..\lib\ring.lib -I"..\include"  advapi32.lib shell32.lib /link /SUBSYSTEM:WINDOWS,"5.01" /OUT:..\bin\ringw.exe
 
 del *.obj
 
