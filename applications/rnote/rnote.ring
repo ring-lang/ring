@@ -2481,7 +2481,6 @@ Class RNoteController from WindowsControllerParent
 		RunWebApplication(cMainFileName)
 
 	func OSTerminal
-		cCommand = ""
 		if isWindows()
 			cCommand = 'cmd /K "cd ' + cStartupFolder + '"'
 		else 
