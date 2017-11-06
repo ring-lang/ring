@@ -2,4 +2,6 @@ del *.c
 del *.ringo
 del *.exe
 del *.obj
-del *build.bat
+del *buildvc.bat
+del *buildgcc.sh
+del *buildclang.sh

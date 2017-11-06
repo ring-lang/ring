@@ -99,9 +99,35 @@ func GenerateCFile cFileName
 	write(cFileName+".c",cCode)
 
 func GenerateBatch cFileName 
+
 	cFile = substr(cFileName," ","_")
-	cCode = 'cl #{f1}.c ..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe '
-	cCode = substr(cCode,"#{f1}",cFile)
-	cBatch = cFile+"build.bat"
-	write(cBatch,cCode)
-	return cBatch
+	
+	# Generate Windows Batch (Visual C/C++)
+		cCode = 'cl #{f1}.c ..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe '
+		cCode = substr(cCode,"#{f1}",cFile)
+		cWindowsBatch = cFile+"_buildvc.bat"
+		write(cWindowsBatch,cCode)
+	
+	# Generate Linux Script (GNU C/C++)
+		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} -L $PWD/../lib -lring  -I $PWD/../include  '
+		cCode = substr(cCode,"#{f1}",cFile)
+		cLinuxBatch = cFile+"_buildgcc.sh"
+		write(cLinuxBatch,cCode)
+	
+	# Generate MacOS X Script (CLang C/C++)
+		cCode = 'clang #{f1}.c $PWD/../lib/libring.dylib -o #{f1} -L $PWD/../lib  -I $PWD/../include  '
+		cCode = substr(cCode,"#{f1}",cFile)
+		cMacOSXBatch = cFile+"_buildclang.sh"
+		write(cMacOSXBatch,cCode)
+			
+	# Return the script/batch file name
+		if isWindows()	
+			return cWindowsBatch
+		elseif isLinux()
+			system("chmod +x " + cLinuxBatch)
+			return "./"+cLinuxBatch
+		elseif isMacosx()
+			system("chmod +x " + cMacOSXBatch)
+			return "./"+cMacOSXBatch	
+		ok
+
