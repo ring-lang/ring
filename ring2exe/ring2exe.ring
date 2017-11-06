@@ -105,7 +105,8 @@ func GenerateBatch cFileName
 	cFile = substr(cFileName," ","_")
 	
 	# Generate Windows Batch (Visual C/C++)
-		cCode = 'cl #{f1}.c ..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe '
+		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
+			'cl #{f1}.c ..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
