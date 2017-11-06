@@ -804,6 +804,8 @@ Class RNoteController from WindowsControllerParent
 					myfiles.append("*.js")
 					myfiles.append("*.xml")
 					myfiles.append("*.data")
+					myfiles.append("*.sh")
+					myfiles.append("*.bat")
 					setnamefilters(myfiles)
 					setNameFilterDisables(false)
 				}
