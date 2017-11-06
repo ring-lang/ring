@@ -128,9 +128,9 @@ void ring_vm_file_tempname ( void *pPointer )
 {
 	#ifdef _WIN32
 	/* Windows */
-	char _tmpfile[L_tmpnam_s]  ;
+	char _tmpfile[20]  ;
 	errno_t error  ;
-	error = tmpnam_s(_tmpfile,L_tmpnam_s);
+	error = tmpnam_s(_tmpfile,20);
 	if ( error ) {
 		RING_API_ERROR(RING_VM_ERROR_TEMPFILENAME);
 	}
