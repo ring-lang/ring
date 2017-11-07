@@ -14,7 +14,7 @@ RING_API void ringlib_init ( RingState *pRingState )
 
 void ring_pcre_match(void *pPointer)
 {
-    List *retval, *tmp_retval;
+    List *retval, *tmp_list;
 
     RING_PI pi;
     int pi_error;
@@ -85,18 +85,30 @@ void ring_pcre_match(void *pPointer)
 
     ovectorp = pcre2_get_ovector_pointer(pcre_md);
 
-    PCRE2_SPTR tmp_ptr;
+    retval = RING_API_NEWLIST;
+    tmp_list = ring_list_newlist_gc(((VM *)pPointer)->pRingState, retval);
 
-    ring_init_pattern_info(code, &pi, &pi_error);
-
-    tmp_ptr = pi.tpl_name;
-    name_count = pi.name_count;
-
-    for (int i = 0; i < name_count; i++) {
-        int n = (tmp_ptr[0] << 8) | tmp_ptr[1];
-        
-        tmp_ptr += pi.ne_size;
+    for (int i = 0; i < match; i++) {
+        PCRE2_SPTR substr = subject + ovectorp[i * 2];
+        int substr_len = ovectorp[(i * 2) + 1] - ovectorp[i * 2];
+        ring_list_addstring2(tmp_list, (char* )sub_str, substr_len);
     }
+
+    RING_API_RETLIST(retval);
+
+    // PCRE2_SPTR tmp_ptr;
+    //
+    // ring_init_pattern_info(code, &pi, &pi_error);
+    //
+    // tmp_ptr = pi.tpl_name;
+    // name_count = pi.name_count;
+    //
+    // for (int i = 0; i < name_count; i++) {
+    //     int n = (tmp_ptr[0] << 8) | tmp_ptr[1];
+    //     printf("(%d) %*s: %.*s\n", n, pi.ne_size - 3, tmp_ptr + 2,
+    //       (int)(ovectorp[2*n+1] - ovectorp[2*n]), subject + ovectorp[2*n]);
+    //     tmp_ptr += pi.ne_size;
+    // }
 
 }
 
