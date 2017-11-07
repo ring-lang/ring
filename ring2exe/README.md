@@ -29,6 +29,7 @@ We can use
 		ring ring2exe.ring ring2exe.ring 
 
 This will build ring2exe.exe
+
 We can use ring2exe.exe 
 
 		ring2exe filename.ring 
