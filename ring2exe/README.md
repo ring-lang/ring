@@ -1,5 +1,5 @@
-Ring To Executable (*.exe file)
-===============================
+Ring To Executable (Windows, Linux & MacOS X)
+=============================================
 
 Usage
 =====
