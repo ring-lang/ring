@@ -5,9 +5,11 @@ Usage
 =====
 
 		ring ring2exe.ring filename.ring
-		This will set filename.ring as input to the program 	
 
-		The next files will be generated 
+This will set filename.ring as input to the program 	
+
+The next files will be generated 
+
 		filename.ringo	  (The Ring Object File - by Ring Compiler)
 		filename.c	  (The C Source code file
 				   Contains the ringo file content
@@ -21,14 +23,17 @@ Usage
 
 Note
 ====
-		We can use 
-			ring ring2exe.ring ring2exe.ring 
-		This will build ring2exe.exe
-		We can use ring2exe.exe 
+
+We can use 
+
+		ring ring2exe.ring ring2exe.ring 
+
+This will build ring2exe.exe
+We can use ring2exe.exe 
 
 		ring2exe filename.ring 
 
-		Or (Linux & MacOS X)
+Or (Linux & MacOS X)
 
 		./ring2exe filename.ring
 
@@ -38,7 +43,7 @@ Testing
 		ring2exe test.ring 
 		test 
 
-		Or (Linux & MacOS X)
+Or (Linux & MacOS X)
 
 		./ring2exe test.ring 
 		./test
