@@ -46,7 +46,9 @@
 
 	Options
 
+		-keep     : Don't delete Temp. Files
 		-static   : Build Standalone Executable (Don't use ring.dll/ring.so/ring.dylib)
+		
 */
 
 
@@ -86,7 +88,10 @@ func BuildApp cFileName,aOptions
 		cBatch = GenerateBatch(cFile,aOptions)
 	# Build the Executable File 
 		system(cBatch)
-		
+	# Clear Temp Files 	
+		if not find(aOptions,"-keep")
+			cleartempfiles()
+		ok
 
 func GenerateCFile cFileName
 
@@ -214,3 +219,10 @@ func GenerateBatchStatic cFileName
 			system("chmod +x " + cMacOSXBatch)
 			return "./"+cMacOSXBatch	
 		ok
+
+func ClearTempFiles
+	if isWindows()
+		system("cleartemp.bat")
+	else
+		system("./cleartemp.sh")
+	ok
