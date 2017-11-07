@@ -47,11 +47,20 @@
 
 
 func Main 
-	nParaCount = len(sysargv)
+	aPara = sysargv
+	aOptions = []
+	# Get Options 
+		for x = len(aPara) to 1 step -1
+			if left(trim(aPara[x]),1) = "-"
+				aOptions + lower(trim(aPara[x]))
+				del(aPara,x)
+			ok
+		next
+	nParaCount = len(aPara)
 	if nParaCount >= 2
-		cFile = sysargv[nParaCount]
+		cFile = aPara[nParaCount]
 		See "Ring2EXE - Process File : " + cFile + nl
-		BuildApp(cFile)
+		BuildApp(cFile,aOptions)
 	else 
 		drawline()
 		see "Application : Ring2EXE (Ring script to Executable file)" + nl
@@ -63,7 +72,7 @@ func Main
 func DrawLine 
 	see copy("=",70) + nl
 
-func BuildApp cFileName 
+func BuildApp cFileName,aOptions
 	# Generate the Object File 
 		system(exefolder()+"../bin/ring " + cFileName + " -go -norun")
 	# Generate the C Source Code File 
