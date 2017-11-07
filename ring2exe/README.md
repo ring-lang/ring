@@ -1,5 +1,5 @@
-Ring To Executable (Windows, Linux & MacOS X)
-=============================================
+Convert Ring project source code to executable file (Windows, Linux & MacOS X)
+==============================================================================
 
 Usage
 =====
@@ -34,7 +34,7 @@ We can use ring2exe.exe
 
 		ring2exe filename.ring 
 
-Or (Linux & MacOS X)
+For Linux & MacOS X
 
 		./ring2exe filename.ring
 
@@ -44,7 +44,7 @@ Testing
 		ring2exe test.ring 
 		test 
 
-Or (Linux & MacOS X)
+For Linux & MacOS X
 
 		./ring2exe test.ring 
 		./test
