@@ -142,10 +142,10 @@ func GenerateBatch cFileName
 	# Return the script/batch file name
 		if isWindows()	
 			return cWindowsBatch
-		elseif isLinux()
+		but isLinux()
 			system("chmod +x " + cLinuxBatch)
 			return "./"+cLinuxBatch
-		elseif isMacosx()
+		but isMacosx()
 			system("chmod +x " + cMacOSXBatch)
 			return "./"+cMacOSXBatch	
 		ok
