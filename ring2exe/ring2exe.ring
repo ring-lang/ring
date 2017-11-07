@@ -79,7 +79,7 @@ func BuildApp cFileName,aOptions
 		cFile = substr(cFileName,".ring","")
 		GenerateCFile(cFile)
 	# Generate the Batch File 
-		cBatch = GenerateBatch(cFile)
+		cBatch = GenerateBatch(cFile,aOptions)
 	# Build the Executable File 
 		system(cBatch)
 		
@@ -125,7 +125,13 @@ func GenerateCFile cFileName
 	cCode = substr(cCode,nl,windowsnl())
 	write(cFileName+".c",cCode)
 
-func GenerateBatch cFileName 
+func GenerateBatch cFileName,aOptions
+	if find(aOptions,"-static")
+	else 
+		return GenerateBatchDynamic(cFileName)
+	ok
+
+func GenerateBatchDynamic cFileName 
 
 	cFile = substr(cFileName," ","_")
 	
