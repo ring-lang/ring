@@ -6,3 +6,4 @@ del *buildgcc.sh
 del *buildclang.sh
 del *.exp
 del *.lib
+del *.txt

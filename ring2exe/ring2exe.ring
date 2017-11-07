@@ -80,14 +80,14 @@ func DrawLine
 
 func BuildApp cFileName,aOptions
 	# Generate the Object File 
-		system(exefolder()+"../bin/ring " + cFileName + " -go -norun")
+		systemSilent(exefolder()+"../bin/ring " + cFileName + " -go -norun")
 	# Generate the C Source Code File 
 		cFile = substr(cFileName,".ring","")
 		GenerateCFile(cFile)
 	# Generate the Batch File 
 		cBatch = GenerateBatch(cFile,aOptions)
 	# Build the Executable File 
-		system(cBatch)
+		systemSilent(cBatch)
 	# Clear Temp Files 	
 		if not find(aOptions,"-keep")
 			cleartempfiles()
@@ -168,10 +168,10 @@ func GenerateBatchDynamic cFileName
 		if isWindows()	
 			return cWindowsBatch
 		but isLinux()
-			system("chmod +x " + cLinuxBatch)
+			systemSilent("chmod +x " + cLinuxBatch)
 			return "./"+cLinuxBatch
 		but isMacosx()
-			system("chmod +x " + cMacOSXBatch)
+			systemSilent("chmod +x " + cMacOSXBatch)
 			return "./"+cMacOSXBatch	
 		ok
 
@@ -213,16 +213,19 @@ func GenerateBatchStatic cFileName
 		if isWindows()	
 			return cWindowsBatch
 		but isLinux()
-			system("chmod +x " + cLinuxBatch)
+			systemSilent("chmod +x " + cLinuxBatch)
 			return "./"+cLinuxBatch
 		but isMacosx()
-			system("chmod +x " + cMacOSXBatch)
+			systemSilent("chmod +x " + cMacOSXBatch)
 			return "./"+cMacOSXBatch	
 		ok
 
 func ClearTempFiles
 	if isWindows()
-		system("cleartemp.bat")
+		systemSilent("cleartemp.bat")
 	else
-		system("./cleartemp.sh")
+		systemSilent("./cleartemp.sh")
 	ok
+
+func SystemSilent cCmd
+	system(cCmd + " > out.txt")
