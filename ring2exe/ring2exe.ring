@@ -7,7 +7,7 @@
 /*
 	Usage
 
-		ring ring2exe.ring filename.ring
+		ring ring2exe.ring filename.ring  [Options]
 		This will set filename.ring as input to the program 	
 
 		The next files will be generated 
@@ -43,6 +43,10 @@
 
 		./ring2exe test.ring 
 		./test
+
+	Options
+
+		-static   : Build Standalone Executable (Don't use ring.dll/ring.so/ring.dylib)
 */
 
 

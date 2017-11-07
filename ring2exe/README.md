@@ -4,7 +4,7 @@ Convert Ring project source code to executable file (Windows, Linux & MacOS X)
 Usage
 =====
 
-		ring ring2exe.ring filename.ring
+		ring ring2exe.ring filename.ring [Options]
 
 This will set filename.ring as input to the program 	
 
@@ -48,3 +48,8 @@ For Linux & MacOS X
 
 		./ring2exe test.ring 
 		./test
+
+Options
+=======
+
+		-static   : Build Standalone Executable (Don't use ring.dll/ring.so/ring.dylib)
