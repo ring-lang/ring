@@ -53,4 +53,4 @@ Options
 =======
 
 		-keep     : Don't delete Temp. Files
-		-static   : Build Standalone Executable (Don't use ring.dll/ring.so/ring.dylib)
+		-static   : Build Standalone Executable File (Don't use ring.dll/ring.so/ring.dylib)
