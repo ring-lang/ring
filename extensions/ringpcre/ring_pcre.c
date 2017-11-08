@@ -16,8 +16,8 @@ void ring_pcre_match(void *pPointer)
 {
     List *retval, *tmp_list;
 
-    RING_PI pi;
-    int pi_error;
+    // RING_PI pi;
+    // int pi_error;
 
     pcre2_code *code;
     PCRE2_SPTR pattern;
@@ -28,14 +28,14 @@ void ring_pcre_match(void *pPointer)
     int match;
     PCRE2_SPTR subject;
     PCRE2_SIZE sublen;
-    PCRE2_SIZE start_offset;
+    // PCRE2_SIZE start_offset;
     PCRE2_SIZE *ovectorp;
 
-    PCRE2_SPTR tpl_name;
-    int name_count;
-    int name_size;
+    // PCRE2_SPTR tpl_name;
+    // int name_count;
+    // int name_size;
 
-    if (RING_API_PARACOUNT != 2) {
+    if (RING_API_PARACOUNT != 3) {
         RING_API_ERROR(RING_API_MISS2PARA);
         return;
     }
@@ -51,10 +51,11 @@ void ring_pcre_match(void *pPointer)
     }
 
     pattern = (PCRE2_SPTR) RING_API_GETSTRING(1);
-    options = ring_pcre2_parse_options(RING_API_GETLIST(2));
+    options = 0;//ring_pcre2_parse_options(RING_API_GETLIST(2));
     subject = (PCRE2_SPTR) RING_API_GETSTRING(3);
+    sublen = strlen(RING_API_GETSTRING(3));
 
-    code = pcre2_compile(pattern, PCRE2_ZERO_TERMINATED, 0, &err_code, &err_offset, NULL);
+    code = pcre2_compile(pattern, PCRE2_ZERO_TERMINATED, options, &err_code, &err_offset, NULL);
 
     if (code == NULL) {
         RING_API_ERROR("Compilation failed!");
@@ -68,7 +69,7 @@ void ring_pcre_match(void *pPointer)
         subject,
         sublen,
         0,
-        0,
+        options,
         pcre_md,
         NULL
     );
@@ -91,7 +92,7 @@ void ring_pcre_match(void *pPointer)
     for (int i = 0; i < match; i++) {
         PCRE2_SPTR substr = subject + ovectorp[i * 2];
         int substr_len = ovectorp[(i * 2) + 1] - ovectorp[i * 2];
-        ring_list_addstring2(tmp_list, (char* )sub_str, substr_len);
+        ring_list_addstring2(tmp_list, (char* )substr, substr_len);
     }
 
     RING_API_RETLIST(retval);
@@ -112,21 +113,21 @@ void ring_pcre_match(void *pPointer)
 
 }
 
-void ring_init_pattern_info(pcre2_code code, RING_PI *in, int *error)
-{
-    int name_count;
-    if (pcre2_pattern_info(code, PCRE2_INFO_NAMECOUNT, &name_count) != PCRE2_ERROR_NULL) {
-        if (name_count > 0) {
-            in->name_count = name_count;
-
-            (void)pcre2_pattern_info(code, PCRE2_INFO_NAMETABLE, &(in->tpl_name));
-
-            (void)pcre2_pattern_info(code, PCRE2_INFO_NAMEENTRYSIZE, &(in->ne_size));
-        }
-    }
-}
-
-int ring_pcre2_parse_options(List *opt_list)
-{
-
-}
+// void ring_init_pattern_info(pcre2_code code, RING_PI *in, int *error)
+// {
+//     int name_count;
+//     if (pcre2_pattern_info(code, PCRE2_INFO_NAMECOUNT, &name_count) != PCRE2_ERROR_NULL) {
+//         if (name_count > 0) {
+//             in->name_count = name_count;
+//
+//             (void)pcre2_pattern_info(code, PCRE2_INFO_NAMETABLE, &(in->tpl_name));
+//
+//             (void)pcre2_pattern_info(code, PCRE2_INFO_NAMEENTRYSIZE, &(in->ne_size));
+//         }
+//     }
+// }
+//
+// int ring_pcre2_parse_options(List *opt_list)
+// {
+//
+// }

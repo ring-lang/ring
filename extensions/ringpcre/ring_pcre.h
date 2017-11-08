@@ -4,11 +4,9 @@ Mahmoud Fayed <msfclipper@yahoo.com>
 Hassan Ahmed <hsn@outlook.hu>
 */
 
-
-#define PCRE2_CODE_UNIT_WIDTH 8;
+#define PCRE2_CODE_UNIT_WIDTH 8
 
 #include "pcre2lib/pcre2.h"
-#include "pcre2lib/pcre2_internal.h"
 
 typedef struct _ring_pcre2_pattern_info {
     PCRE2_SPTR tpl_name;
