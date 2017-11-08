@@ -51,8 +51,8 @@
 		
 */
 
-cNoOutputNoErrorWindows = " >nul 2>nul"
-cNoOutputNoErrorLinux = " &> /dev/null"
+C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
+C_LINUX_NOOUTPUTNOERROR   = " &> /dev/null"
 
 func Main 
 	aPara = sysargv
@@ -243,9 +243,9 @@ func ClearTempFiles
 
 func SystemSilent cCmd
 	if isWindows()
-		system(cCmd + cNoOutputNoErrorWindows)
+		system(cCmd + C_WINDOWS_NOOUTPUTNOERROR)
 	else 
-		system(cCmd + cNoOutputNoErrorLinux)
+		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
 	ok
 
 func msg cMsg
