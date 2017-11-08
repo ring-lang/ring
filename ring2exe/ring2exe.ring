@@ -79,6 +79,7 @@ func DrawLine
 	see copy("=",70) + nl
 
 func BuildApp cFileName,aOptions
+	msg("Start building the application...")
 	# Generate the Object File 
 		systemSilent(exefolder()+"../bin/ring " + cFileName + " -go -norun")
 	# Generate the C Source Code File 
@@ -87,13 +88,19 @@ func BuildApp cFileName,aOptions
 	# Generate the Batch File 
 		cBatch = GenerateBatch(cFile,aOptions)
 	# Build the Executable File 
+		msg("Build the Executable File...")
 		systemSilent(cBatch)
+		msg("End of building script...")
 	# Clear Temp Files 	
 		if not find(aOptions,"-keep")
 			cleartempfiles()
+			remove("out.txt")
 		ok
+		msg("End of building process...")
 
 func GenerateCFile cFileName
+
+	msg("Generate C source code file...")
 
 	cFile = read(cFileName+".ringo")
 	cHex = str2hex(cFile)
@@ -135,6 +142,7 @@ func GenerateCFile cFileName
 	write(cFileName+".c",cCode)
 
 func GenerateBatch cFileName,aOptions
+	msg("Generate batch|script file...")
 	if find(aOptions,"-static")
 		return GenerateBatchStatic(cFileName)
 	else 
@@ -142,6 +150,8 @@ func GenerateBatch cFileName,aOptions
 	ok
 
 func GenerateBatchDynamic cFileName 
+
+	msg("Generate batch|script file for dynamic building...")
 
 	cFile = substr(cFileName," ","_")
 	
@@ -176,7 +186,7 @@ func GenerateBatchDynamic cFileName
 		ok
 
 func GenerateBatchStatic cFileName 
-
+	msg("Generate batch|script file for static building...")
 	cFile = substr(cFileName," ","_")
 
 	cRingSourceFiles = 
@@ -221,6 +231,7 @@ func GenerateBatchStatic cFileName
 		ok
 
 func ClearTempFiles
+	msg("Clear Temp. Files...")
 	if isWindows()
 		systemSilent("cleartemp.bat")
 	else
@@ -229,3 +240,6 @@ func ClearTempFiles
 
 func SystemSilent cCmd
 	system(cCmd + " > out.txt")
+
+func msg cMsg
+	see "Ring2EXE: " + cMsg + nl
