@@ -157,8 +157,8 @@ func GenerateBatchDynamic cFileName
 	cFile = substr(cFileName," ","_")
 
 	# Generate Windows Batch (Visual C/C++)
-		cCode = "call "+exefolder()+"../src/locatevc.bat" + cNoOutputNoErrorWindows + nl +
-			'cl #{f1}.c ..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe ' + cNoOutputNoErrorWindows
+		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
+			'cl #{f1}.c ..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe ' 
 		cCode = substr(cCode,"#{f1}",cFile)
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
@@ -201,8 +201,8 @@ func GenerateBatchStatic cFileName
 	../src/ring_ext.c ../src/ring_vmdll.c ../src/ring_objfile.c"
 
 	# Generate Windows Batch (Visual C/C++)
-		cCode = "call "+exefolder()+"../src/locatevc.bat" + cNoOutputNoErrorWindows + nl +
-			'cl #{f1}.c #{f2} -I"..\include" -I"../src/" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe' + cNoOutputNoErrorWindows
+		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
+			'cl #{f1}.c #{f2} -I"..\include" -I"../src/" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe' 
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}","..\lib\ringstatic.lib")
 		cWindowsBatch = cFile+"_buildvc.bat"
