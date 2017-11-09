@@ -164,7 +164,8 @@ func GenerateBatchDynamic cFileName
 		write(cWindowsBatch,cCode)
 	
 	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} -L $PWD/../lib -lring  -I $PWD/../include  '
+		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} -L $PWD/../lib -lring  -I $PWD/../include  ' + nl +
+			'echo "done..."'
 		cCode = substr(cCode,"#{f1}",cFile)
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
@@ -180,7 +181,7 @@ func GenerateBatchDynamic cFileName
 			return cWindowsBatch
 		but isLinux()
 			systemSilent("chmod +x " + cLinuxBatch)
-			return "bash "+cLinuxBatch
+			return "./"+cLinuxBatch
 		but isMacosx()
 			systemSilent("chmod +x " + cMacOSXBatch)
 			return "./"+cMacOSXBatch	
@@ -201,7 +202,8 @@ func GenerateBatchStatic cFileName
 		write(cWindowsBatch,cCode)
 	
 	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I $PWD/../include  '
+		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I $PWD/../include  ' + nl +
+			'echo "done..."'
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}","-l../lib/ringstatic")
 		cLinuxBatch = cFile+"_buildgcc.sh"
@@ -219,7 +221,7 @@ func GenerateBatchStatic cFileName
 			return cWindowsBatch
 		but isLinux()
 			systemSilent("chmod +x " + cLinuxBatch)
-			return "bash "+cLinuxBatch
+			return "./"+cLinuxBatch
 		but isMacosx()
 			systemSilent("chmod +x " + cMacOSXBatch)
 			return "./"+cMacOSXBatch	
