@@ -1,5 +1,7 @@
 /*
-**	Application : Ring To Executable (*.exe file)
+**	Application : Ring To Executable 
+**	Purpose	    : Convert Ring project source code to executable file 
+**		      (Windows, Linux & MacOS X)
 **	Author	    : Mahmoud Fayed <msfclipper@yahoo.com>
 **	Date	    : 2017.11.06
 */
@@ -158,20 +160,23 @@ func GenerateBatchDynamic cFileName
 
 	# Generate Windows Batch (Visual C/C++)
 		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
-			'cl #{f1}.c ..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe ' 
+			'cl #{f1}.c #{f2} -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe ' 
 		cCode = substr(cCode,"#{f1}",cFile)
+		cCode = substr(cCode,"#{f2},"..\lib\ring.lib")
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
 	
 	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} -L $PWD/../lib -lring  -I $PWD/../include  '
+		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2}  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
+		cCode = substr(cCode,"#{f2}","-L $PWD/../lib -lring")
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
 	
 	# Generate MacOS X Script (CLang C/C++)
-		cCode = 'clang #{f1}.c $PWD/../lib/libring.dylib -o #{f1} -L $PWD/../lib  -I $PWD/../include  '
+		cCode = 'clang #{f1}.c #{f2} -o #{f1} -L $PWD/../lib  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
+		cCode = substr(cCode,"#{f2}","$PWD/../lib/libring.dylib")
 		cMacOSXBatch = cFile+"_buildclang.sh"
 		write(cMacOSXBatch,cCode)
 			
