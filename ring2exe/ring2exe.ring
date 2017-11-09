@@ -180,7 +180,7 @@ func GenerateBatchDynamic cFileName
 			return cWindowsBatch
 		but isLinux()
 			systemSilent("chmod +x " + cLinuxBatch)
-			return "./"+cLinuxBatch
+			return "bash "+cLinuxBatch
 		but isMacosx()
 			systemSilent("chmod +x " + cMacOSXBatch)
 			return "./"+cMacOSXBatch	
@@ -219,7 +219,7 @@ func GenerateBatchStatic cFileName
 			return cWindowsBatch
 		but isLinux()
 			systemSilent("chmod +x " + cLinuxBatch)
-			return "./"+cLinuxBatch
+			return "bash "+cLinuxBatch
 		but isMacosx()
 			systemSilent("chmod +x " + cMacOSXBatch)
 			return "./"+cMacOSXBatch	
