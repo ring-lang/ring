@@ -91,7 +91,7 @@ func BuildApp cFileName,aOptions
 		systemSilent(exefolder()+"../bin/ring " + cFileName + " -go -norun")
 	# Generate the C Source Code File 
 		cFile = substr(cFileName,".ring","")
-		GenerateCFile(cFile)
+		GenerateCFile(cFile,aOptions)
 	# Generate the Batch File 
 		cBatch = GenerateBatch(cFile,aOptions)
 	# Build the Executable File 
@@ -104,17 +104,30 @@ func BuildApp cFileName,aOptions
 		ok
 		msg("End of building process...")
 
-func GenerateCFile cFileName
+func GenerateCFile cFileName,aOptions
 	# Display Message
 		msg("Generate C source code file...")
 	# Convert the Ring Object File to Hex.
 		cFile = read(cFileName+".ringo")
 		cHex = str2hex(cFile)
 	# Start writing the C source code - Main Function 
+	if isWindows() and find(aOptions,"-gui")
+		cCode = '#include "windows.h"' + nl +
+			'#include "stdio.h"' + nl +
+			'#include "stdlib.h"' + nl +
+			'#include "conio.h"' + nl +  
+			'#include "ring.h"' + nl +  nl +
+		'int WINAPI WinMain ( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd )' + nl +  "{" + nl + nl +
+		char(9) + 'int argc;' + nl + char(9) + 'char **argv ;' + nl + 
+		char(9) + 'argc = __argc ; ' + nl + char(9) + 'argv = __argv ;' + nl + nl +
+		char(9) + 'unsigned char bytecode[] = { 
+			  '
+	else
 		cCode = '#include "ring.h"' + nl + nl +
 		'int main( int argc, char *argv[])' + nl +  "{" + nl + nl +
 		char(9) + 'unsigned char bytecode[] = { 
 			  '
+	ok
 	# Add the Object File Content
 		nCol = 0
 		for x = 1 to len(cHex) step 2
@@ -184,7 +197,7 @@ func GenerateBatchGeneral aPara,aOptions
 	# Generate Windows Batch (Visual C/C++)
 		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
 			"#{f3}" + nl +
-			'cl #{f1}.c #{f2} #{f4} -I"..\include" -I"../src/" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe' 
+			'cl #{f1}.c #{f2} #{f4} -I"..\include" -I"../src/" /link #{f5} /OUT:#{f1}.exe' 
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:windows])
 		# Resource File 
@@ -195,6 +208,12 @@ func GenerateBatchGeneral aPara,aOptions
 			else 
 				cCode = substr(cCode,"#{f3}","")
 				cCode = substr(cCode,"#{f4}","")
+			ok
+		# GUI Application 
+			if find(aOptions,"-gui")
+				cCode = substr(cCode,"#{f5}",'advapi32.lib shell32.lib /SUBSYSTEM:WINDOWS,"5.01" ')
+			else 
+				cCode = substr(cCode,"#{f5}",' /SUBSYSTEM:CONSOLE,"5.01" ')
 			ok
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
