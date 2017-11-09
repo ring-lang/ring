@@ -50,6 +50,7 @@
 
 		-keep     : Don't delete Temp. Files
 		-static   : Build Standalone Executable File (Don't use ring.dll/ring.so/ring.dylib)
+		-gui      : Build GUI Application (Hide the Console Window)
 		
 */
 
