@@ -23,6 +23,17 @@ dnl the user can not change the library directory, this
 dnl should be fixed.
 libdir=/usr/local/lib/ring
 
+
+AC_ARG_ENABLE([mysql],
+    AS_HELP_STRING([--enable-mysql], [Enable Mysql extension])
+)
+
+AS_IF([test "ring_$enable_mysql" == "ring_yes"], [
+    dnl compile mysql extension!
+    RING_INCLUDE_EXTENSION([mysql])
+])
+
+
 dnl path the main options to Makefile.am
 AM_INIT_AUTOMAKE([-Wall foreign subdir-objects])
 

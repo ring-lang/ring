@@ -14,9 +14,9 @@ libring_la_SOURCES = include/ring.h src/ring_state.c src/ring_ext.c \
     src/ring_vmstackvars.c src/ring_vmstate.c src/ring_vmmath.c \
     src/ring_vmfile.c src/ring_vmdll.c src/ring_objfile.c
 libring_la_CFLAGS = -I$(top_srcdir)/include -lm -ldl
-libring_la_LDFLAGS = -R /usr/local/lib/ring/
+libring_la_LDFLAGS = -R /usr/local/lib/ring/ -R /usr/local/lib/ring/extensions/
 
 bin_PROGRAMS = ring
 ring_SOURCES = src/ring.c
 ring_CFLAGS = -L$(top_srcdir)/lib -lring  -I$(top_srcdir)/include
-ring_LDFLAGS = -R /usr/local/lib/ring/
+ring_LDFLAGS = -R /usr/local/lib/ring/ -R /usr/local/lib/ring/extensions/
