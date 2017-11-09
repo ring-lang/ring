@@ -195,27 +195,40 @@ func GenerateBatchStatic cFileName
 
 	msg("Generate batch|script file for static building...")
 
+	return GenerateBatchGeneral([
+		:file = cFileName ,
+		:ringlib = [
+			:windows = "..\lib\ringstatic.lib" ,
+			:linux   = "-L $PWD/../lib -lringstatic",
+			:macosx	 = "-L $PWD/../lib -lringstatic"
+		]
+	])
+
+
+func GenerateBatchGeneral aPara 
+	cFileName = aPara[:file]
+
 	cFile = substr(cFileName," ","_")
 
 	# Generate Windows Batch (Visual C/C++)
 		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
 			'cl #{f1}.c #{f2} -I"..\include" -I"../src/" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe' 
 		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}","..\lib\ringstatic.lib")
+		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:windows])
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
 	
 	# Generate Linux Script (GNU C/C++)
 		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}","-L $PWD/../lib -lringstatic")
+		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:linux])
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
 	
 	# Generate MacOS X Script (CLang C/C++)
 		cCode = 'clang #{f1}.c #{f2} -o #{f1} -lm -ldl  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}","-L $PWD/../lib -lringstatic")
+		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:macosx])
 		cMacOSXBatch = cFile+"_buildclang.sh"
 		write(cMacOSXBatch,cCode)
 			
