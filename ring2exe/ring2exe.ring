@@ -111,6 +111,7 @@ func GenerateCFile cFileName,aOptions
 	# Convert the Ring Object File to Hex.
 		cFile = read(cFileName+".ringo")
 		cHex  = str2hex(cFile)
+	fp = fopen(cFileName+".c","w+")
 	# Start writing the C source code - Main Function 
 	if isWindows() and find(aOptions,"-gui")
 		cCode = '#include "windows.h"' 	+ nl +
@@ -121,29 +122,27 @@ func GenerateCFile cFileName,aOptions
 		'int WINAPI WinMain ( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd )' + nl +  "{" + nl + nl +
 		char(9) + 'int argc;' + nl + char(9) + 'char **argv ;' + nl + 
 		char(9) + 'argc = __argc ; ' + nl + char(9) + 'argv = __argv ;' + nl + nl +
-		char(9) + 'unsigned char bytecode[] = { 
+		char(9) + 'static const unsigned char bytecode[] = { 
 			  '
 	else
 		cCode = '#include "ring.h"' + nl + nl +
 		'int main( int argc, char *argv[])' + nl +  "{" + nl + nl +
-		char(9) + 'unsigned char bytecode[] = { 
+		char(9) + 'static const unsigned char bytecode[] = { 
 			  '
 	ok
+	fputs(fp,cCode)
 	# Add the Object File Content
-		nCol = 0
-		for x = 1 to len(cHex) step 2
-			if x != 1
-				cCode += ", "
-			ok
-			cCode += "0x" + cHex[x] + cHex[x+1] 
-			nCol++	
-			if nCol = 10
-				nCol = 0
-				cCode += nl + copy(char(9),3)
-			ok
+		nTime = clock()
+		fputs(fp,"0x" + cHex[1] + cHex[2])
+		nMax = len(cHex)
+		for x = 3 to nMax step 2
+			fputs(fp,",0x")
+			fputs(fp,cHex[x])
+			fputs(fp,cHex[x+1])
 		next
-	cCode += ", EOF" + char(9) + "};"	
-	cCode += "
+		msg("Generation Time : " + ((clock()-nTime)/clockspersecond()) + " seconds...")
+	fputs(fp, ", EOF" + char(9) + "};"+
+	"
 
 	RingState *pRingState ;
 	pRingState = ring_state_new();	
@@ -153,10 +152,8 @@ func GenerateCFile cFileName,aOptions
 	ring_state_delete(pRingState);
 
 	return 0;" + nl + 
-	"}"
-	
-	cCode = substr(cCode,nl,windowsnl())
-	write(cFileName+".c",cCode)
+	"}")
+	fclose(fp)	
 
 func GenerateBatch cFileName,aOptions
 	msg("Generate batch|script file...")
