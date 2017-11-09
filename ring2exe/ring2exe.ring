@@ -110,14 +110,14 @@ func GenerateCFile cFileName,aOptions
 		msg("Generate C source code file...")
 	# Convert the Ring Object File to Hex.
 		cFile = read(cFileName+".ringo")
-		cHex = str2hex(cFile)
+		cHex  = str2hex(cFile)
 	# Start writing the C source code - Main Function 
 	if isWindows() and find(aOptions,"-gui")
-		cCode = '#include "windows.h"' + nl +
-			'#include "stdio.h"' + nl +
-			'#include "stdlib.h"' + nl +
-			'#include "conio.h"' + nl +  
-			'#include "ring.h"' + nl +  nl +
+		cCode = '#include "windows.h"' 	+ nl +
+			'#include "stdio.h"' 	+ nl +
+			'#include "stdlib.h"' 	+ nl +
+			'#include "conio.h"' 	+ nl +  
+			'#include "ring.h"' 	+ nl +  nl +
 		'int WINAPI WinMain ( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd )' + nl +  "{" + nl + nl +
 		char(9) + 'int argc;' + nl + char(9) + 'char **argv ;' + nl + 
 		char(9) + 'argc = __argc ; ' + nl + char(9) + 'argv = __argv ;' + nl + nl +
@@ -139,13 +139,10 @@ func GenerateCFile cFileName,aOptions
 			nCol++	
 			if nCol = 10
 				nCol = 0
-			cCode += "
-			"
+				cCode += nl + copy(char(9),3)
 			ok
 		next
-	cCode += ", EOF
-	};"
-	
+	cCode += ", EOF" + char(9) + "};"	
 	cCode += "
 
 	RingState *pRingState ;
