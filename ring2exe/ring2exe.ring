@@ -52,7 +52,7 @@
 */
 
 C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
-C_LINUX_NOOUTPUTNOERROR   = " &> /dev/null"
+C_LINUX_NOOUTPUTNOERROR   = " > /dev/null"
 
 func Main 
 	aPara = sysargv
@@ -164,8 +164,7 @@ func GenerateBatchDynamic cFileName
 		write(cWindowsBatch,cCode)
 	
 	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} -L $PWD/../lib -lring  -I $PWD/../include  ' + nl +
-			'echo "done..."'
+		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} -L $PWD/../lib -lring  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
@@ -202,8 +201,7 @@ func GenerateBatchStatic cFileName
 		write(cWindowsBatch,cCode)
 	
 	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I $PWD/../include  ' + nl +
-			'echo "done..."'
+		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}","-l../lib/ringstatic")
 		cLinuxBatch = cFile+"_buildgcc.sh"
