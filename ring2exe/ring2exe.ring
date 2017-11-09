@@ -192,14 +192,6 @@ func GenerateBatchStatic cFileName
 
 	cFile = substr(cFileName," ","_")
 
-	cRingSourceFiles = 
-	"../src/ring_string.c ../src/ring_list.c ../src/ring_item.c ../src/ring_items.c ../src/ring_hashtable.c ../src/ring_state.c ../src/ring_scanner.c ../src/ring_parser.c ../src/ring_hashlib.c ../src/ring_vmgc.c ^
-	../src/ring_stmt.c ../src/ring_expr.c ../src/ring_codegen.c ../src/ring_vm.c ../src/ring_vmexpr.c ../src/ring_vmvars.c ^
-	../src/ring_vmlists.c ../src/ring_vmfuncs.c ../src/ring_api.c ../src/ring_vmoop.c ../src/ring_vmcui.c ^
-	../src/ring_vmtrycatch.c ../src/ring_vmstrindex.c ../src/ring_vmjump.c ../src/ring_vmduprange.c ^
-	../src/ring_vmperformance.c ../src/ring_vmexit.c ../src/ring_vmstackvars.c ../src/ring_vmstate.c ../src/ring_vmmath.c ../src/ring_vmfile.c ../src/ring_vmos.c ../src/ring_vmlistfuncs.c ../src/ring_vmrefmeta.c ^
-	../src/ring_ext.c ../src/ring_vmdll.c ../src/ring_objfile.c"
-
 	# Generate Windows Batch (Visual C/C++)
 		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
 			'cl #{f1}.c #{f2} -I"..\include" -I"../src/" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe' 
@@ -209,16 +201,16 @@ func GenerateBatchStatic cFileName
 		write(cWindowsBatch,cCode)
 	
 	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c #{f2} -o #{f1}  -lm -ldl  -I $PWD/../include  '
+		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}",cRingSourceFiles)
+		cCode = substr(cCode,"#{f2}","-l../lib/ringstatic")
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
 	
 	# Generate MacOS X Script (CLang C/C++)
 		cCode = 'clang #{f1}.c #{f2} -o #{f1} -lm -ldl  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}",cRingSourceFiles)
+		cCode = substr(cCode,"#{f2}","-l../lib/ringstatic")
 		cMacOSXBatch = cFile+"_buildclang.sh"
 		write(cMacOSXBatch,cCode)
 			
