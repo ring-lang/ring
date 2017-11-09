@@ -203,14 +203,14 @@ func GenerateBatchStatic cFileName
 	# Generate Linux Script (GNU C/C++)
 		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}","-l$PWD/../lib/libringstatic.a")
+		cCode = substr(cCode,"#{f2}","-L $PWD/../lib -lringstatic")
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
 	
 	# Generate MacOS X Script (CLang C/C++)
 		cCode = 'clang #{f1}.c #{f2} -o #{f1} -lm -ldl  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}","-l$PWD/../lib/libringstatic.a")
+		cCode = substr(cCode,"#{f2}","-L $PWD/../lib -lringstatic")
 		cMacOSXBatch = cFile+"_buildclang.sh"
 		write(cMacOSXBatch,cCode)
 			
