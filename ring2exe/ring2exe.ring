@@ -150,12 +150,12 @@ func GenerateCFile cFileName
 func GenerateBatch cFileName,aOptions
 	msg("Generate batch|script file...")
 	if find(aOptions,"-static")
-		return GenerateBatchStatic(cFileName)
+		return GenerateBatchStatic(cFileName,aOptions)
 	else 
-		return GenerateBatchDynamic(cFileName)
+		return GenerateBatchDynamic(cFileName,aOptions)
 	ok
 
-func GenerateBatchDynamic cFileName 
+func GenerateBatchDynamic cFileName,aOptions
 	msg("Generate batch|script file for dynamic building...")
 	return GenerateBatchGeneral([
 		:file = cFileName ,
@@ -164,9 +164,9 @@ func GenerateBatchDynamic cFileName
 			:linux   = "-L $PWD/../lib -lring",
 			:macosx	 = "$PWD/../lib/libring.dylib"
 		]
-	])	
+	],aOptions)	
 
-func GenerateBatchStatic cFileName 
+func GenerateBatchStatic cFileName,aOptions
 	msg("Generate batch|script file for static building...")
 	return GenerateBatchGeneral([
 		:file = cFileName ,
@@ -175,10 +175,10 @@ func GenerateBatchStatic cFileName
 			:linux   = "-L $PWD/../lib -lringstatic",
 			:macosx	 = "-L $PWD/../lib -lringstatic"
 		]
-	])
+	],aOptions)
 
 
-func GenerateBatchGeneral aPara 
+func GenerateBatchGeneral aPara,aOptions
 	cFileName = aPara[:file]
 	cFile = substr(cFileName," ","_")
 	# Generate Windows Batch (Visual C/C++)
