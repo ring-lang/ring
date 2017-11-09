@@ -156,40 +156,14 @@ func GenerateBatchDynamic cFileName
 
 	msg("Generate batch|script file for dynamic building...")
 
-	cFile = substr(cFileName," ","_")
-
-	# Generate Windows Batch (Visual C/C++)
-		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
-			'cl #{f1}.c #{f2} -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe ' 
-		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}","..\lib\ring.lib")
-		cWindowsBatch = cFile+"_buildvc.bat"
-		write(cWindowsBatch,cCode)
-	
-	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2}  -I $PWD/../include  '
-		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}","-L $PWD/../lib -lring")
-		cLinuxBatch = cFile+"_buildgcc.sh"
-		write(cLinuxBatch,cCode)
-	
-	# Generate MacOS X Script (CLang C/C++)
-		cCode = 'clang #{f1}.c #{f2} -o #{f1} -L $PWD/../lib  -I $PWD/../include  '
-		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2}","$PWD/../lib/libring.dylib")
-		cMacOSXBatch = cFile+"_buildclang.sh"
-		write(cMacOSXBatch,cCode)
-			
-	# Return the script/batch file name
-		if isWindows()	
-			return cWindowsBatch
-		but isLinux()
-			systemSilent("chmod +x " + cLinuxBatch)
-			return "./"+cLinuxBatch
-		but isMacosx()
-			systemSilent("chmod +x " + cMacOSXBatch)
-			return "./"+cMacOSXBatch	
-		ok
+	return GenerateBatchGeneral([
+		:file = cFileName ,
+		:ringlib = [
+			:windows = "..\lib\ring.lib" ,
+			:linux   = "-L $PWD/../lib -lring",
+			:macosx	 = "$PWD/../lib/libring.dylib"
+		]
+	])	
 
 func GenerateBatchStatic cFileName 
 
