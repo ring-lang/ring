@@ -162,7 +162,7 @@ func GenerateBatchDynamic cFileName
 		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
 			'cl #{f1}.c #{f2} -I"..\include" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe ' 
 		cCode = substr(cCode,"#{f1}",cFile)
-		cCode = substr(cCode,"#{f2},"..\lib\ring.lib")
+		cCode = substr(cCode,"#{f2}","..\lib\ring.lib")
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
 	
