@@ -183,9 +183,19 @@ func GenerateBatchGeneral aPara,aOptions
 	cFile = substr(cFileName," ","_")
 	# Generate Windows Batch (Visual C/C++)
 		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
-			'cl #{f1}.c #{f2} -I"..\include" -I"../src/" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe' 
+			"#{f3}" + nl +
+			'cl #{f1}.c #{f2} #{f4} -I"..\include" -I"../src/" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe' 
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:windows])
+		# Resource File 
+			cResourceFile = cFile + ".rc"
+			if fexists(cResourceFile)
+				cCode = substr(cCode,"#{f3}","rc " + cResourceFile)
+				cCode = substr(cCode,"#{f4}",cFile + ".res")
+			else 
+				cCode = substr(cCode,"#{f3}","")
+				cCode = substr(cCode,"#{f4}","")
+			ok
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
 	# Generate Linux Script (GNU C/C++)
