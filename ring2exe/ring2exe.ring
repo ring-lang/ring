@@ -102,30 +102,30 @@ func BuildApp cFileName,aOptions
 		msg("End of building process...")
 
 func GenerateCFile cFileName
-
-	msg("Generate C source code file...")
-
-	cFile = read(cFileName+".ringo")
-	cHex = str2hex(cFile)
-	cCode = '#include "ring.h"' + nl + nl +
-	'int main( int argc, char *argv[])' + nl +  "{" + nl + nl +
-	char(9) + 'unsigned char bytecode[] = { 
-		  '
-	
-	nCol = 0
-	for x = 1 to len(cHex) step 2
-		if x != 1
-			cCode += ", "
-		ok
-		cCode += "0x" + cHex[x] + cHex[x+1] 
-		nCol++	
-		if nCol = 10
-			nCol = 0
-		cCode += "
-		"
-		ok
-	next
-	
+	# Display Message
+		msg("Generate C source code file...")
+	# Convert the Ring Object File to Hex.
+		cFile = read(cFileName+".ringo")
+		cHex = str2hex(cFile)
+	# Start writing the C source code - Main Function 
+		cCode = '#include "ring.h"' + nl + nl +
+		'int main( int argc, char *argv[])' + nl +  "{" + nl + nl +
+		char(9) + 'unsigned char bytecode[] = { 
+			  '
+	# Add the Object File Content
+		nCol = 0
+		for x = 1 to len(cHex) step 2
+			if x != 1
+				cCode += ", "
+			ok
+			cCode += "0x" + cHex[x] + cHex[x+1] 
+			nCol++	
+			if nCol = 10
+				nCol = 0
+			cCode += "
+			"
+			ok
+		next
 	cCode += ", EOF
 	};"
 	
@@ -153,9 +153,7 @@ func GenerateBatch cFileName,aOptions
 	ok
 
 func GenerateBatchDynamic cFileName 
-
 	msg("Generate batch|script file for dynamic building...")
-
 	return GenerateBatchGeneral([
 		:file = cFileName ,
 		:ringlib = [
@@ -166,9 +164,7 @@ func GenerateBatchDynamic cFileName
 	])	
 
 func GenerateBatchStatic cFileName 
-
 	msg("Generate batch|script file for static building...")
-
 	return GenerateBatchGeneral([
 		:file = cFileName ,
 		:ringlib = [
@@ -181,9 +177,7 @@ func GenerateBatchStatic cFileName
 
 func GenerateBatchGeneral aPara 
 	cFileName = aPara[:file]
-
 	cFile = substr(cFileName," ","_")
-
 	# Generate Windows Batch (Visual C/C++)
 		cCode = "call "+exefolder()+"../src/locatevc.bat" + nl +
 			'cl #{f1}.c #{f2} -I"..\include" -I"../src/" /link /SUBSYSTEM:CONSOLE,"5.01" /OUT:#{f1}.exe' 
@@ -191,21 +185,18 @@ func GenerateBatchGeneral aPara
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:windows])
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
-	
 	# Generate Linux Script (GNU C/C++)
 		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:linux])
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
-	
 	# Generate MacOS X Script (CLang C/C++)
 		cCode = 'clang #{f1}.c #{f2} -o #{f1} -lm -ldl  -I $PWD/../include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:macosx])
 		cMacOSXBatch = cFile+"_buildclang.sh"
 		write(cMacOSXBatch,cCode)
-			
 	# Return the script/batch file name
 		if isWindows()	
 			return cWindowsBatch
