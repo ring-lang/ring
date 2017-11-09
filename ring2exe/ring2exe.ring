@@ -69,7 +69,7 @@ func Main
 	nParaCount = len(aPara)
 	if nParaCount >= 2
 		cFile = aPara[nParaCount]
-		See "Ring2EXE - Process File : " + cFile + nl
+		msg("Process File : " + cFile)
 		BuildApp(cFile,aOptions)
 	else 
 		drawline()
@@ -81,6 +81,9 @@ func Main
 
 func DrawLine 
 	see copy("=",70) + nl
+
+func msg cMsg
+	see "Ring2EXE: " + cMsg + nl
 
 func BuildApp cFileName,aOptions
 	msg("Start building the application...")
@@ -223,5 +226,3 @@ func SystemSilent cCmd
 		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
 	ok
 
-func msg cMsg
-	see "Ring2EXE: " + cMsg + nl
