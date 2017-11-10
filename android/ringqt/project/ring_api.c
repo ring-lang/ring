@@ -56,7 +56,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("hex2str",ring_vmlib_hex2str);
 	ring_vm_funcregister("str2list",ring_vmlib_str2list);
 	ring_vm_funcregister("list2str",ring_vmlib_list2str);
-	ring_vm_funcregister("str2hex2",ring_vmlib_str2hex2);
+	ring_vm_funcregister("str2hexcstyle",ring_vmlib_str2hexcstyle);
 	/* String */
 	ring_vm_funcregister("left",ring_vmlib_left);
 	ring_vm_funcregister("right",ring_vmlib_right);
@@ -1305,7 +1305,7 @@ void ring_vmlib_list2str ( void *pPointer )
 	}
 }
 
-void ring_vmlib_str2hex2 ( void *pPointer )
+void ring_vmlib_str2hexcstyle ( void *pPointer )
 {
 	char cStr[3]  ;
 	unsigned char *cString  ;
@@ -1336,7 +1336,11 @@ void ring_vmlib_str2hex2 ( void *pPointer )
 				cString2[((x-1)*5)+4] = ' ' ;
 			}
 		}
-		RING_API_RETSTRING2(++cString2,nMax*5-1);
+		/* Pass the first letter to avoid the first comma */
+		cString2++ ;
+		RING_API_RETSTRING2(cString2,nMax*5-1);
+		/* When we call free() we use the original pointer */
+		cString2-- ;
 		ring_state_free(((VM *) pPointer)->pRingState,cString2);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
