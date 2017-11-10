@@ -111,7 +111,7 @@ func GenerateCFile cFileName,aOptions
 	nTime = clock()
 	# Convert the Ring Object File to Hex.
 		cFile = read(cFileName+".ringo")
-		cHex  = str2hex2(cFile)
+		cHex  = str2hexCStyle(cFile)
 	fp = fopen(cFileName+".c","w+")
 	# Start writing the C source code - Main Function 
 	if isWindows() and find(aOptions,"-gui")
