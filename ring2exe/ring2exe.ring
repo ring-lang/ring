@@ -135,6 +135,7 @@ func GenerateCFile cFileName,aOptions
 		nTime = clock()
 		fputs(fp,"0x" + cHex[1] + cHex[2])
 		nMax = len(cHex)
+		cCode = ""
 		for x = 3 to nMax step 2
 			cCode += ",0x"+cHex[x]+cHex[x+1]
 			if len(cCode) > 100
