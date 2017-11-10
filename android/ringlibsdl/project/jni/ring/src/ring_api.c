@@ -56,6 +56,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("hex2str",ring_vmlib_hex2str);
 	ring_vm_funcregister("str2list",ring_vmlib_str2list);
 	ring_vm_funcregister("list2str",ring_vmlib_list2str);
+	ring_vm_funcregister("str2hex2",ring_vmlib_str2hex2);
 	/* String */
 	ring_vm_funcregister("left",ring_vmlib_left);
 	ring_vm_funcregister("right",ring_vmlib_right);
@@ -1299,6 +1300,44 @@ void ring_vmlib_list2str ( void *pPointer )
 		}
 		RING_API_RETSTRING(ring_string_get(pString));
 		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vmlib_str2hex2 ( void *pPointer )
+{
+	char cStr[3]  ;
+	unsigned char *cString  ;
+	int x,nMax  ;
+	char *cString2  ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		cString = (unsigned char *) RING_API_GETSTRING(1) ;
+		nMax = RING_API_GETSTRINGSIZE(1) ;
+		cString2 = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nMax*5);
+		if ( cString2 == NULL ) {
+			RING_API_ERROR(RING_OOM);
+			return ;
+		}
+		for ( x = 1 ; x <= nMax ; x++ ) {
+			sprintf( cStr , "%x" , (unsigned int) cString[x-1] ) ;
+			/* Separator */
+			cString2[(x-1)*5] = ',' ;
+			cString2[(x-1)*5+1] = '0' ;
+			cString2[(x-1)*5+2] = 'x' ;
+			cString2[(x-1)*5+3] = cStr[0] ;
+			if ( cStr[1] != '\0' ) {
+				cString2[((x-1)*5)+4] = cStr[1] ;
+			} else {
+				cString2[((x-1)*5)+4] = ' ' ;
+			}
+		}
+		RING_API_RETSTRING2(++cString2,nMax*5-1);
+		ring_state_free(((VM *) pPointer)->pRingState,cString2);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
