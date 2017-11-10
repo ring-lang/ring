@@ -268,7 +268,7 @@ Type: String *
 pString
 Type: int
 x
-ring_vmlib_str2hex2
+ring_vmlib_str2hexcstyle
 cStr
 Type: unsigned char *
 cString
