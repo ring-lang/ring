@@ -3,6 +3,20 @@ dnl Ring 1.5.4
 dnl initializing the autoconf tool
 AC_INIT([ring], [1.5.4])
 
+RING_VERSION="1.5.4"
+RING_SRC_DIR="src/"
+RING_INCLUDE_DIR="include/"
+RING_EXT_DIR="extension/"
+
+RING_SUB_DIRS="$RING_SRC_DIR"
+
+AC_SUBST(RING_VERSION)
+AC_SUBST(RING_SRC_DIR)
+AC_SUBST(RING_INCLUDE_DIR)
+AC_SUBST(RING_EXT_DIR)
+
+m4_include(build/RING.m4)
+
 dnl Set the main m4 macros directory
 AC_CONFIG_MACRO_DIRS([build/m4])
 
