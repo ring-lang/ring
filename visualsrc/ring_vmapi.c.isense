@@ -268,6 +268,14 @@ Type: String *
 pString
 Type: int
 x
+ring_vmlib_str2hex2
+cStr
+Type: unsigned char *
+cString
+Type: int
+x,nMax
+Type: char *
+cString2
 ring_vmlib_left
 Type: double
 nNum1

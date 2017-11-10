@@ -129,6 +129,8 @@ void ring_vmlib_hex2str ( void *pPointer ) ;
 void ring_vmlib_str2list ( void *pPointer ) ;
 
 void ring_vmlib_list2str ( void *pPointer ) ;
+
+void ring_vmlib_str2hex2 ( void *pPointer ) ;
 /* String */
 
 void ring_vmlib_left ( void *pPointer ) ;
