@@ -136,9 +136,7 @@ func GenerateCFile cFileName,aOptions
 		fputs(fp,"0x" + cHex[1] + cHex[2])
 		nMax = len(cHex)
 		for x = 3 to nMax step 2
-			fputs(fp,",0x")
-			fputs(fp,cHex[x])
-			fputs(fp,cHex[x+1])
+			fputs(fp,",0x"+cHex[x]+cHex[x+1])
 		next
 		msg("Generation Time : " + ((clock()-nTime)/clockspersecond()) + " seconds...")
 	fputs(fp, ", EOF" + char(9) + "};"+
