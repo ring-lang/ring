@@ -108,9 +108,10 @@ func BuildApp cFileName,aOptions
 func GenerateCFile cFileName,aOptions
 	# Display Message
 		msg("Generate C source code file...")
+	nTime = clock()
 	# Convert the Ring Object File to Hex.
 		cFile = read(cFileName+".ringo")
-		cHex  = str2hex(cFile)
+		cHex  = str2hex2(cFile)
 	fp = fopen(cFileName+".c","w+")
 	# Start writing the C source code - Main Function 
 	if isWindows() and find(aOptions,"-gui")
@@ -131,20 +132,8 @@ func GenerateCFile cFileName,aOptions
 			  '
 	ok
 	fputs(fp,cCode)
-	# Add the Object File Content
-		nTime = clock()
-		fputs(fp,"0x" + cHex[1] + cHex[2])
-		nMax = len(cHex)
-		cCode = ""
-		for x = 3 to nMax step 2
-			cCode += ",0x"+cHex[x]+cHex[x+1]
-			if len(cCode) > 100
-				fputs(fp,cCode)
-				cCode = ""
-			ok
-		next
-		fputs(fp,cCode)
-		msg("Generation Time : " + ((clock()-nTime)/clockspersecond()) + " seconds...")
+	# Add the Object File Content		
+		fputs(fp,cHex)
 	fputs(fp, ", EOF" + char(9) + "};"+
 	"
 
@@ -158,6 +147,7 @@ func GenerateCFile cFileName,aOptions
 	return 0;" + nl + 
 	"}")
 	fclose(fp)	
+	msg("Generation Time : " + ((clock()-nTime)/clockspersecond()) + " seconds...")
 
 func GenerateBatch cFileName,aOptions
 	msg("Generate batch|script file...")
