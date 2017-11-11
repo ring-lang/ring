@@ -16,9 +16,9 @@ Type: double
 nNum1
 cStr
 Type: char
-cFileName[200]
+cFileName[256]
 Type: char
-cCurrentDir[200]
+cCurrentDir[256]
 ring_parser_paralist
 Type: int
 nStart
