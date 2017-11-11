@@ -16898,7 +16898,7 @@ Class QCoreApplication from QObject
 	Func exec 
 		return QCoreApplication_exec()
 
-	Func exit P1
+	Func exitfromapplication P1
 		return QCoreApplication_exit(P1)
 
 	Func installTranslator P1

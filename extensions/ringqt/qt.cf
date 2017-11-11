@@ -296,6 +296,7 @@ aNewMethodName + ["QRegularExpressionMatchIterator","next","nextitem"]
 aNewMethodName + ["QCamera","load","loadcamera"]
 aNewMethodName + ["QPixmap","load","loadpixmap"]
 aNewMethodName + ["QBluetoothTransferManager","put","putdata"]
+aNewMethodName + ["QCoreApplication","exit","exitfromapplication"]
 
 aNumberTypes + "qreal"
 aNumberTypes + "qint64"
