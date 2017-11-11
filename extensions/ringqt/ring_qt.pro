@@ -126,4 +126,4 @@ CONFIG += release
 
 QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
 
-DEPLOYMENT_PLUGIN += qsqlite
+DEPLOYMENT_PLUGIN += qsqlite qsqlmysql qsqlodbc qsqppsql
