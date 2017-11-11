@@ -1,6 +1,6 @@
 /*
-**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Include Files 
+**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com>
+**  Include Files
 */
 #include "ring.h"
 #ifdef _WIN32
@@ -364,14 +364,21 @@ int ring_exefilename ( char *cDirPath )
 	#elif __linux__
 	/* readlink() doesn't null terminate */
 	memset(cDirPath,0,nSize);
-	readlink("/proc/self/exe",cDirPath,nSize);
+	if (!readlink("/proc/self/exe",cDirPath,nSize)) {
+		return 1;
+	}
 	#endif
 	return 0 ;
 }
 
-void ring_chdir ( const char *cDir )
+int ring_chdir ( const char *cDir )
 {
-	chdir(cDir);
+	int ch;
+	if (ch = chdir(cDir)) {
+		return ch;
+	} else {
+		return 0;
+	}
 }
 
 void ring_exefolder ( char *cDirPath )
@@ -398,7 +405,7 @@ void ring_switchtofilefolder ( char *cFileName )
 	char cFileName2[256]  ;
 	strcpy(cFileName2,cFileName);
 	if ( ring_justfilepath(cFileName2) ) {
-		ring_chdir(cFileName2);
+		(void) ring_chdir(cFileName2);
 		/* Remove The Path from the file Name - Keep the File Name Only */
 		ring_justfilename(cFileName);
 		return ;
