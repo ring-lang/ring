@@ -16910,9 +16910,6 @@ Class QCoreApplication from QObject
 	Func isQuitLockEnabled 
 		return QCoreApplication_isQuitLockEnabled()
 
-	Func isSetuidAllowed 
-		return QCoreApplication_isSetuidAllowed()
-
 	Func libraryPaths 
 		pTempObj = new QStringList
 		pTempObj.pObject = QCoreApplication_libraryPaths()
@@ -16971,9 +16968,6 @@ Class QCoreApplication from QObject
 
 	Func setQuitLockEnabled P1
 		return QCoreApplication_setQuitLockEnabled(P1)
-
-	Func setSetuidAllowed P1
-		return QCoreApplication_setSetuidAllowed(P1)
 
 	Func startingUp 
 		return QCoreApplication_startingUp()
