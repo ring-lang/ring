@@ -1,6 +1,6 @@
 /*
-**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Include Files 
+**  Copyright (c) 2013-2017 Mahmoud Fayed <msfclipper@yahoo.com>
+**  Include Files
 */
 #include "ring.h"
 #ifdef _WIN32
@@ -364,7 +364,9 @@ int ring_exefilename ( char *cDirPath )
 	#elif __linux__
 	/* readlink() doesn't null terminate */
 	memset(cDirPath,0,nSize);
-	readlink("/proc/self/exe",cDirPath,nSize);
+	if (!readlink("/proc/self/exe",cDirPath,nSize)) {
+        return 1;
+    }
 	#endif
 	return 0 ;
 }

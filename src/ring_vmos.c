@@ -1,6 +1,6 @@
 /*
-**  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Include Files 
+**  Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com>
+**  Include Files
 */
 #ifdef _WIN32
 #include "windows.h"
@@ -119,8 +119,12 @@ void ring_vm_os_currentdir ( void *pPointer )
 void ring_vm_os_exefilename ( void *pPointer )
 {
 	char cDirPath[256]  ;
-	ring_exefilename(cDirPath);
-	RING_API_RETSTRING(cDirPath);
+	if (!ring_exefilename(cDirPath)) {
+        RING_API_RETSTRING(cDirPath);
+    } else {
+        RING_API_ERROR("Error: please provide a valid executable file name.");
+        return;
+    }
 }
 
 void ring_vm_os_chdir ( void *pPointer )
