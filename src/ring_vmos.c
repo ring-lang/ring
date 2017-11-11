@@ -120,16 +120,23 @@ void ring_vm_os_exefilename ( void *pPointer )
 {
 	char cDirPath[256]  ;
 	if (!ring_exefilename(cDirPath)) {
-        RING_API_RETSTRING(cDirPath);
-    } else {
-        RING_API_ERROR("Error: please provide a valid executable file name.");
-        return;
-    }
+		RING_API_RETSTRING(cDirPath);
+	} else {
+		RING_API_ERROR("Error: please provide a valid executable file name.");
+		return;
+	}
 }
 
 void ring_vm_os_chdir ( void *pPointer )
 {
-	ring_chdir(RING_API_GETSTRING(1));
+	int ch_dir;
+
+	ch_dir = ring_chdir(RING_API_GETSTRING(1));
+
+	if (!ch_dir) {
+		RING_API_ERROR("Error: Invalid directory path");
+		return;
+	}
 }
 
 void ring_vm_os_exefolder ( void *pPointer )

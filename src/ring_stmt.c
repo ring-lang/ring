@@ -12,8 +12,8 @@ int ring_parser_class ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		if ( ring_parser_isidentifier(pParser) ) {
 			/*
-			**  Generate Code 
-			**  Return NULL 
+			**  Generate Code
+			**  Return NULL
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 			ring_parser_icg_newoperation(pParser,ICO_NEWCLASS);
@@ -49,8 +49,8 @@ int ring_parser_class ( Parser *pParser )
 					/* Set Parent Class Name in Classes Map */
 					ring_list_addstring_gc(pParser->pRingState,pList,ring_list_getstring(pList3,4));
 					#if RING_PARSERTRACE
-					RING_STATE_CHECKPRINTRULES 
-					
+					RING_STATE_CHECKPRINTRULES
+
 					puts("Rule : Statement  --> 'Class' Identifier 'From' [PackageName'.']Identifier");
 					#endif
 				} else {
@@ -61,8 +61,8 @@ int ring_parser_class ( Parser *pParser )
 				/* Set Parent Class Name In Classes Map */
 				ring_list_addstring_gc(pParser->pRingState,pList,"");
 				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
+				RING_STATE_CHECKPRINTRULES
+
 				puts("Rule : Statement  --> 'Class' Identifier ");
 				#endif
 			}
@@ -110,8 +110,8 @@ int ring_parser_class ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		if ( ring_parser_isidentifier(pParser) ) {
 			/*
-			**  Generate Code 
-			**  Return NULL 
+			**  Generate Code
+			**  Return NULL
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 			ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
@@ -148,8 +148,8 @@ int ring_parser_class ( Parser *pParser )
 			}
 			#if RING_PARSERTRACE
 			if ( x == 1 ) {
-				RING_STATE_CHECKPRINTRULES 
-				
+				RING_STATE_CHECKPRINTRULES
+
 				puts("Rule : Statement  --> 'Func' Identifier [ParaList]");
 			}
 			#endif
@@ -165,8 +165,8 @@ int ring_parser_class ( Parser *pParser )
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PACKAGE);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : Statement  --> 'Package' Identifier{'.'identifier}");
 		#endif
 		if ( ring_parser_namedotname(pParser) ) {
@@ -203,8 +203,8 @@ int ring_parser_class ( Parser *pParser )
 			ring_list_addint_gc(pParser->pRingState,pList,ring_parser_icg_newlabel(pParser));
 			ring_parser_icg_newoperation(pParser,ICO_PRIVATE);
 			#if RING_PARSERTRACE
-			RING_STATE_CHECKPRINTRULES 
-			
+			RING_STATE_CHECKPRINTRULES
+
 			puts("Rule : Statement  --> 'Private'");
 			#endif
 			pParser->nPrivateFlag = 1 ;
@@ -247,8 +247,8 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_BLOCKFLAG);
 			pMark = ring_parser_icg_getactiveoperation(pParser);
 			#if RING_PARSERTRACE
-			RING_STATE_CHECKPRINTRULES 
-			
+			RING_STATE_CHECKPRINTRULES
+
 			puts("Rule : Statement  --> 'Load' Literal");
 			#endif
 			/* No package at the start of the file */
@@ -258,10 +258,13 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Read The File */
 			x = ring_scanner_readfile(pParser->pRingState,cFileName);
 			/* Restore the Current Directory */
-			ring_chdir(cCurrentDir);
+			if (ring_chdir(cCurrentDir)) {
+				ring_parser_error(pParser,RING_PARSER_ERROR_DIRNAME);
+				return 0;
+			}
 			/*
-			**  Generate Code 
-			**  Return NULL 
+			**  Generate Code
+			**  Return NULL
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 			nMark1 = ring_parser_icg_newlabel(pParser);
@@ -286,8 +289,8 @@ int ring_parser_stmt ( Parser *pParser )
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PRINT);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : Statement  --> 'See' Expr");
 		#endif
 		return x ;
@@ -307,8 +310,8 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_GIVE);
 			#if RING_PARSERTRACE
-			RING_STATE_CHECKPRINTRULES 
-			
+			RING_STATE_CHECKPRINTRULES
+
 			puts("Rule : Statement  --> 'Give' Identifier|ListItem|Object.Attribute");
 			#endif
 			return 1 ;
@@ -325,8 +328,8 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_nexttoken(pParser);
 			if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 				/*
-				**  Generate Code 
-				**  Mark for Exit command to go to outside the loop 
+				**  Generate Code
+				**  Mark for Exit command to go to outside the loop
 				*/
 				ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 				pMark3 = ring_parser_icg_getactiveoperation(pParser);
@@ -336,8 +339,8 @@ int ring_parser_stmt ( Parser *pParser )
 				pParser->nAssignmentFlag = 0 ;
 				if ( ring_parser_expr(pParser) ) {
 					/*
-					**  Generate Code 
-					**  Before Equal ( = ) not += , -= ,... etc 
+					**  Generate Code
+					**  Before Equal ( = ) not += , -= ,... etc
 					*/
 					ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 					ring_parser_icg_newoperandint(pParser,0);
@@ -353,8 +356,8 @@ int ring_parser_stmt ( Parser *pParser )
 							/* Generate Code */
 							if ( (ring_parser_icg_getlastoperation(pParser) == ICO_PUSHN) && (ring_parser_icg_newlabel(pParser) == (nMark1+2)) ) {
 								/*
-								**  We check nMark2+2 to avoid executing next instructions when we have expr 
-								**  for example for x = 1 to 10+5 
+								**  We check nMark2+2 to avoid executing next instructions when we have expr
+								**  for example for x = 1 to 10+5
 								*/
 								nNum1 = ring_list_getdouble(pParser->ActiveGenCodeList,2) ;
 								ring_parser_icg_deletelastoperation(pParser);
@@ -373,8 +376,8 @@ int ring_parser_stmt ( Parser *pParser )
 								return 0 ;
 							}
 							#if RING_PARSERTRACE
-							RING_STATE_CHECKPRINTRULES 
-							
+							RING_STATE_CHECKPRINTRULES
+
 							puts("Rule : Statement  --> 'For' Identifier '=' Expr to Expr ['step' Expr]");
 							#endif
 							while ( ring_parser_stmt(pParser) ) {
@@ -410,8 +413,8 @@ int ring_parser_stmt ( Parser *pParser )
 								ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
 								ring_parser_nexttoken(pParser);
 								#if RING_PARSERTRACE
-								RING_STATE_CHECKPRINTRULES 
-								
+								RING_STATE_CHECKPRINTRULES
+
 								puts("Rule : Next --> 'Next'");
 								#endif
 								ring_string_delete_gc(pParser->pRingState,pString);
@@ -476,8 +479,8 @@ int ring_parser_stmt ( Parser *pParser )
 						return 0 ;
 					}
 					#if RING_PARSERTRACE
-					RING_STATE_CHECKPRINTRULES 
-					
+					RING_STATE_CHECKPRINTRULES
+
 					puts("Rule : Statement  --> 'For' Identifier 'in' Expr  ['step' Expr]");
 					#endif
 					while ( ring_parser_stmt(pParser) ) {
@@ -517,8 +520,8 @@ int ring_parser_stmt ( Parser *pParser )
 						ring_parser_icg_newoperandint(pParser,0);
 						ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
 						#if RING_PARSERTRACE
-						RING_STATE_CHECKPRINTRULES 
-						
+						RING_STATE_CHECKPRINTRULES
+
 						puts("Rule : Next --> 'Next'");
 						#endif
 						ring_string_delete_gc(pParser->pRingState,pString);
@@ -539,14 +542,14 @@ int ring_parser_stmt ( Parser *pParser )
 		if ( ring_parser_csexpr(pParser) ) {
 			pParser->nAssignmentFlag = 1 ;
 			/*
-			**  First Condition 
-			**  Generate Code 
+			**  First Condition
+			**  Generate Code
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
 			pMark = ring_parser_icg_getactiveoperation(pParser);
 			#if RING_PARSERTRACE
-			RING_STATE_CHECKPRINTRULES 
-			
+			RING_STATE_CHECKPRINTRULES
+
 			puts("Rule : Statement  --> 'If' Expr {Statement} { But } [Else] Ok");
 			#endif
 			while ( ring_parser_stmt(pParser) ) {
@@ -571,8 +574,8 @@ int ring_parser_stmt ( Parser *pParser )
 					ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
 					pMark = ring_parser_icg_getactiveoperation(pParser);
 					#if RING_PARSERTRACE
-					RING_STATE_CHECKPRINTRULES 
-					
+					RING_STATE_CHECKPRINTRULES
+
 					puts("Rule : But  --> 'But' Expr {Statement}");
 					#endif
 					while ( ring_parser_stmt(pParser) ) {
@@ -592,8 +595,8 @@ int ring_parser_stmt ( Parser *pParser )
 				pMark = NULL ;
 				ring_parser_nexttoken(pParser);
 				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
+				RING_STATE_CHECKPRINTRULES
+
 				puts("Rule : Else  --> 'Else' {Statement} ");
 				#endif
 				while ( ring_parser_stmt(pParser) ) {
@@ -616,8 +619,8 @@ int ring_parser_stmt ( Parser *pParser )
 				ring_list_delete_gc(pParser->pRingState,pList2);
 				ring_parser_nexttoken(pParser);
 				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
+				RING_STATE_CHECKPRINTRULES
+
 				puts("Rule : Ok  --> 'OK'");
 				#endif
 				return 1 ;
@@ -631,8 +634,8 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> WHILE Expr Statements END */
 	if ( ring_parser_iskeyword(pParser,K_WHILE) ) {
 		/*
-		**  Generate Code 
-		**  Mark for Exit command to go to outsize the loop 
+		**  Generate Code
+		**  Mark for Exit command to go to outsize the loop
 		*/
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
@@ -645,8 +648,8 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
 			pMark = ring_parser_icg_getactiveoperation(pParser);
 			#if RING_PARSERTRACE
-			RING_STATE_CHECKPRINTRULES 
-			
+			RING_STATE_CHECKPRINTRULES
+
 			puts("Rule : Statement  --> 'While' Expr {Statement} End");
 			#endif
 			while ( ring_parser_stmt(pParser) ) {
@@ -669,8 +672,8 @@ int ring_parser_stmt ( Parser *pParser )
 				ring_parser_icg_newoperation(pParser,ICO_POPEXITMARK);
 				ring_parser_nexttoken(pParser);
 				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
+				RING_STATE_CHECKPRINTRULES
+
 				puts("Rule : End --> 'End'");
 				#endif
 				return 1 ;
@@ -683,16 +686,16 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> DO Statements AGAIN Expr */
 	if ( ring_parser_iskeyword(pParser,K_DO) ) {
 		/*
-		**  Generate Code 
-		**  Mark for Exit command to go to outsize the loop 
+		**  Generate Code
+		**  Mark for Exit command to go to outsize the loop
 		*/
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : Statement  --> 'Do' {Statement} Again");
 		#endif
 		while ( ring_parser_stmt(pParser) ) {
@@ -722,8 +725,8 @@ int ring_parser_stmt ( Parser *pParser )
 				ring_parser_icg_newoperation(pParser,ICO_POPEXITMARK);
 				pParser->nAssignmentFlag = 1 ;
 				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
+				RING_STATE_CHECKPRINTRULES
+
 				puts("Rule : Again  --> 'Again' Expr");
 				#endif
 				return 1 ;
@@ -754,15 +757,15 @@ int ring_parser_stmt ( Parser *pParser )
 			}
 		} else {
 			/*
-			**  Generate Code 
-			**  Return NULL 
+			**  Generate Code
+			**  Return NULL
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 		}
 		#if RING_PARSERTRACE
 		if ( x == 1 ) {
-			RING_STATE_CHECKPRINTRULES 
-			
+			RING_STATE_CHECKPRINTRULES
+
 			puts("Rule : Statement  --> 'Return'");
 		}
 		#endif
@@ -780,8 +783,8 @@ int ring_parser_stmt ( Parser *pParser )
 		ring_parser_icg_newoperation(pParser,ICO_TRY);
 		pMark = ring_parser_icg_getactiveoperation(pParser);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : Statement  --> 'Try' {Statement} Catch Done");
 		#endif
 		while ( ring_parser_stmt(pParser) ) {
@@ -792,16 +795,16 @@ int ring_parser_stmt ( Parser *pParser )
 		if ( ring_parser_iskeyword(pParser,K_CATCH) ) {
 			ring_parser_nexttoken(pParser);
 			/*
-			**  Generate Code 
-			**  Jump from end of try block to label after done 
+			**  Generate Code
+			**  Jump from end of try block to label after done
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_JUMP);
 			pMark2 = ring_parser_icg_getactiveoperation(pParser);
 			nMark1 = ring_parser_icg_newlabel(pParser);
 			ring_parser_icg_addoperandint(pParser,pMark,nMark1);
 			#if RING_PARSERTRACE
-			RING_STATE_CHECKPRINTRULES 
-			
+			RING_STATE_CHECKPRINTRULES
+
 			puts("Rule : Catch --> 'Catch' {Statement}");
 			#endif
 			while ( ring_parser_stmt(pParser) ) {
@@ -811,8 +814,8 @@ int ring_parser_stmt ( Parser *pParser )
 			}
 			if ( ring_parser_iskeyword(pParser,K_DONE) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
+				RING_STATE_CHECKPRINTRULES
+
 				puts("Rule : Done --> 'Done'");
 				#endif
 				ring_parser_nexttoken(pParser);
@@ -836,8 +839,8 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_BYE) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : Statement  --> 'Bye' ");
 		#endif
 		/* Generate Code */
@@ -848,8 +851,8 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_EXIT) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : Statement  --> 'Exit' ");
 		#endif
 		/* Check Number  (Exit from more than one loop) */
@@ -870,8 +873,8 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_LOOP) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : Statement  --> 'Loop'");
 		#endif
 		/* Check Number  (Continue from more than one loop) */
@@ -895,8 +898,8 @@ int ring_parser_stmt ( Parser *pParser )
 		if ( ring_parser_csexpr(pParser) ) {
 			pParser->nAssignmentFlag = 1 ;
 			#if RING_PARSERTRACE
-			RING_STATE_CHECKPRINTRULES 
-			
+			RING_STATE_CHECKPRINTRULES
+
 			puts("Rule : Statement  --> 'Switch' Expr {ON} [Other] OFF");
 			#endif
 			RING_PARSER_IGNORENEWLINE ;
@@ -920,8 +923,8 @@ int ring_parser_stmt ( Parser *pParser )
 					pMark = ring_parser_icg_getactiveoperation(pParser);
 					ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 					#if RING_PARSERTRACE
-					RING_STATE_CHECKPRINTRULES 
-					
+					RING_STATE_CHECKPRINTRULES
+
 					puts("Rule : ON --> 'on' Expr {Statement}");
 					#endif
 					while ( ring_parser_stmt(pParser) ) {
@@ -945,8 +948,8 @@ int ring_parser_stmt ( Parser *pParser )
 				}
 				ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
+				RING_STATE_CHECKPRINTRULES
+
 				puts("Rule : Other --> 'Other' {Statement}");
 				#endif
 				while ( ring_parser_stmt(pParser) ) {
@@ -971,8 +974,8 @@ int ring_parser_stmt ( Parser *pParser )
 				ring_list_delete_gc(pParser->pRingState,pList2);
 				ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 				#if RING_PARSERTRACE
-				RING_STATE_CHECKPRINTRULES 
-				
+				RING_STATE_CHECKPRINTRULES
+
 				puts("Rule : OFF --> 'Off'");
 				#endif
 				return 1 ;
@@ -989,8 +992,8 @@ int ring_parser_stmt ( Parser *pParser )
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_IMPORT);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : Statement  --> 'Import' Identifier{'.'identifier}");
 		#endif
 		return ring_parser_namedotname(pParser) ;
@@ -1002,13 +1005,13 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> Expr */
 	if ( ring_parser_expr(pParser) ) {
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : Statement  --> Expr ");
 		#endif
 		/*
-		**  Generate Code 
-		**  Call expreval() if we are inside { } 
+		**  Generate Code
+		**  Call expreval() if we are inside { }
 		*/
 		if ( pParser->nBraceFlag ) {
 			/* if ismethod(self,"braceexpreval") braceexpreval() ok */
@@ -1057,8 +1060,8 @@ int ring_parser_paralist ( Parser *pParser )
 	if ( ring_parser_isendline(pParser) || (nStart && ring_parser_isoperator2(pParser,OP_FCLOSE) ) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : ParaList --> Epslion ");
 		#endif
 		return 1 ;
@@ -1075,8 +1078,8 @@ int ring_parser_paralist ( Parser *pParser )
 		/* Generate Code */
 		ring_parser_icg_newoperand(pParser,cToken);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : ParaList --> Identifier {',' Identifier}");
 		#endif
 		while ( ring_parser_isoperator2(pParser,OP_COMMA) ) {
@@ -1120,8 +1123,8 @@ int ring_parser_list ( Parser *pParser )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_LISTEND);
 			#if RING_PARSERTRACE
-			RING_STATE_CHECKPRINTRULES 
-			
+			RING_STATE_CHECKPRINTRULES
+
 			puts("Rule : List --> '[' Expr { ',' Expr } ']' ");
 			#endif
 			return 1 ;
@@ -1141,8 +1144,8 @@ int ring_parser_list ( Parser *pParser )
 				else if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
 					ring_parser_nexttoken(pParser);
 					#if RING_PARSERTRACE
-					RING_STATE_CHECKPRINTRULES 
-					
+					RING_STATE_CHECKPRINTRULES
+
 					puts("Rule : List --> '[' Expr { ',' Expr } ']' ");
 					#endif
 					/* Generate Code */
@@ -1170,8 +1173,8 @@ int ring_parser_epslion ( Parser *pParser )
 		ring_parser_icg_newoperandint(pParser,atoi(pParser->TokenText));
 		pParser->nLineNumber = atoi(pParser->TokenText) ;
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		printf( "\nLine %d \n",pParser->nLineNumber ) ;
 		#endif
 		if ( ring_parser_nexttoken(pParser) ) {
@@ -1278,12 +1281,12 @@ int ring_parser_csbraceend ( Parser *pParser )
 int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeyword )
 {
 	/*
-	**  This function is used to support braces { } around packages/classes/functions 
-	**  Also support using 'end' after packages/classes/functions 
-	**  IF The Parameter : lClass = True we call ring_parser_class() instead of ring_parser_stmt() 
-	**  When we support braces { } 
-	**  But the support for 'end' always uses ring_parser_class() 
-	**  Support using { } 
+	**  This function is used to support braces { } around packages/classes/functions
+	**  Also support using 'end' after packages/classes/functions
+	**  IF The Parameter : lClass = True we call ring_parser_class() instead of ring_parser_stmt()
+	**  When we support braces { }
+	**  But the support for 'end' always uses ring_parser_class()
+	**  Support using { }
 	*/
 	RING_PARSER_IGNORENEWLINE ;
 	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
@@ -1317,8 +1320,8 @@ int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeywo
 	if ( ring_parser_iskeyword(pParser,K_END) || ring_parser_iskeyword(pParser,nKeyword) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
-		RING_STATE_CHECKPRINTRULES 
-		
+		RING_STATE_CHECKPRINTRULES
+
 		puts("Rule : End --> 'End'");
 		#endif
 	}
