@@ -16540,7 +16540,7 @@ Class QCoreApplication from QObject
 	Func exec 
 		return QCoreApplication_exec()
 
-	Func exit P1
+	Func exitfromapplication P1
 		return QCoreApplication_exit(P1)
 
 	Func installTranslator P1
@@ -16551,9 +16551,6 @@ Class QCoreApplication from QObject
 
 	Func isQuitLockEnabled 
 		return QCoreApplication_isQuitLockEnabled()
-
-	Func isSetuidAllowed 
-		return QCoreApplication_isSetuidAllowed()
 
 	Func libraryPaths 
 		pTempObj = new QStringList
@@ -16613,9 +16610,6 @@ Class QCoreApplication from QObject
 
 	Func setQuitLockEnabled P1
 		return QCoreApplication_setQuitLockEnabled(P1)
-
-	Func setSetuidAllowed P1
-		return QCoreApplication_setSetuidAllowed(P1)
 
 	Func startingUp 
 		return QCoreApplication_startingUp()

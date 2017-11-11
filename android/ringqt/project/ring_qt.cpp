@@ -91650,23 +91650,6 @@ RING_FUNC(ring_QCoreApplication_isQuitLockEnabled)
 }
 
 
-RING_FUNC(ring_QCoreApplication_isSetuidAllowed)
-{
-	QCoreApplication *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCoreApplication *) RING_API_GETCPOINTER(1,"QCoreApplication");
-	RING_API_RETNUMBER(pObject->isSetuidAllowed());
-}
-
-
 RING_FUNC(ring_QCoreApplication_libraryPaths)
 {
 	QCoreApplication *pObject ;
@@ -92082,27 +92065,6 @@ RING_FUNC(ring_QCoreApplication_setQuitLockEnabled)
 		return ;
 	}
 	pObject->setQuitLockEnabled( (bool ) RING_API_GETNUMBER(2));
-}
-
-
-RING_FUNC(ring_QCoreApplication_setSetuidAllowed)
-{
-	QCoreApplication *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCoreApplication *) RING_API_GETCPOINTER(1,"QCoreApplication");
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setSetuidAllowed( (bool ) RING_API_GETNUMBER(2));
 }
 
 
@@ -102147,7 +102109,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcoreapplication_installtranslator",ring_QCoreApplication_installTranslator);
 	ring_vm_funcregister("qcoreapplication_instance",ring_QCoreApplication_instance);
 	ring_vm_funcregister("qcoreapplication_isquitlockenabled",ring_QCoreApplication_isQuitLockEnabled);
-	ring_vm_funcregister("qcoreapplication_issetuidallowed",ring_QCoreApplication_isSetuidAllowed);
 	ring_vm_funcregister("qcoreapplication_librarypaths",ring_QCoreApplication_libraryPaths);
 	ring_vm_funcregister("qcoreapplication_organizationdomain",ring_QCoreApplication_organizationDomain);
 	ring_vm_funcregister("qcoreapplication_organizationname",ring_QCoreApplication_organizationName);
@@ -102167,7 +102128,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcoreapplication_setorganizationdomain",ring_QCoreApplication_setOrganizationDomain);
 	ring_vm_funcregister("qcoreapplication_setorganizationname",ring_QCoreApplication_setOrganizationName);
 	ring_vm_funcregister("qcoreapplication_setquitlockenabled",ring_QCoreApplication_setQuitLockEnabled);
-	ring_vm_funcregister("qcoreapplication_setsetuidallowed",ring_QCoreApplication_setSetuidAllowed);
 	ring_vm_funcregister("qcoreapplication_startingup",ring_QCoreApplication_startingUp);
 	ring_vm_funcregister("qcoreapplication_testattribute",ring_QCoreApplication_testAttribute);
 	ring_vm_funcregister("qcoreapplication_translate",ring_QCoreApplication_translate);
