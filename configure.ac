@@ -3,6 +3,20 @@ dnl Ring 1.5.4
 dnl initializing the autoconf tool
 AC_INIT([ring], [1.5.4])
 
+RING_VERSION="1.5.4"
+RING_SRC_DIR="src/"
+RING_INCLUDE_DIR="include/"
+RING_EXT_DIR="extension/"
+
+RING_SUB_DIRS="$RING_SRC_DIR"
+
+AC_SUBST(RING_VERSION)
+AC_SUBST(RING_SRC_DIR)
+AC_SUBST(RING_INCLUDE_DIR)
+AC_SUBST(RING_EXT_DIR)
+
+m4_include(build/RING.m4)
+
 dnl Set the main m4 macros directory
 AC_CONFIG_MACRO_DIRS([build/m4])
 
@@ -22,6 +36,17 @@ dnl WARNING, setting this "standard" variable will make
 dnl the user can not change the library directory, this
 dnl should be fixed.
 libdir=/usr/local/lib/ring
+
+
+AC_ARG_ENABLE([mysql],
+    AS_HELP_STRING([--enable-mysql], [Enable Mysql extension])
+)
+
+AS_IF([test "ring_$enable_mysql" == "ring_yes"], [
+    dnl compile mysql extension!
+    RING_INCLUDE_EXTENSION([mysql])
+])
+
 
 dnl path the main options to Makefile.am
 AM_INIT_AUTOMAKE([-Wall foreign subdir-objects])
