@@ -16269,7 +16269,7 @@ Class QWindow from QObject
 	Func getyChangedEvent 
 		return QWindow_getyChangedEvent(pObject)
 
-Class QGuiApplication
+Class QGuiApplication from QCoreApplication
 
 	pObject
 
@@ -16497,6 +16497,134 @@ Class QGuiApplication
 
 	Func getscreenRemovedEvent 
 		return QGuiApplication_getscreenRemovedEvent(pObject)
+
+Class QCoreApplication from QObject
+	Func installNativeEventFilter P1
+		return QCoreApplication_installNativeEventFilter(GetObjectPointerFromRingObject(P1))
+
+	Func removeNativeEventFilter P1
+		return QCoreApplication_removeNativeEventFilter(GetObjectPointerFromRingObject(P1))
+
+	Func quit 
+		return QCoreApplication_quit()
+
+	Func addLibraryPath P1
+		return QCoreApplication_addLibraryPath(P1)
+
+	Func applicationDirPath 
+		return QCoreApplication_applicationDirPath()
+
+	Func applicationFilePath 
+		return QCoreApplication_applicationFilePath()
+
+	Func applicationName 
+		return QCoreApplication_applicationName()
+
+	Func applicationPid 
+		return QCoreApplication_applicationPid()
+
+	Func applicationVersion 
+		return QCoreApplication_applicationVersion()
+
+	Func arguments 
+		pTempObj = new QStringList
+		pTempObj.pObject = QCoreApplication_arguments()
+		return pTempObj
+
+	Func closingDown 
+		return QCoreApplication_closingDown()
+
+	Func eventDispatcher 
+		return QCoreApplication_eventDispatcher()
+
+	Func exec 
+		return QCoreApplication_exec()
+
+	Func exit P1
+		return QCoreApplication_exit(P1)
+
+	Func installTranslator P1
+		return QCoreApplication_installTranslator(GetObjectPointerFromRingObject(P1))
+
+	Func instance 
+		return QCoreApplication_instance()
+
+	Func isQuitLockEnabled 
+		return QCoreApplication_isQuitLockEnabled()
+
+	Func isSetuidAllowed 
+		return QCoreApplication_isSetuidAllowed()
+
+	Func libraryPaths 
+		pTempObj = new QStringList
+		pTempObj.pObject = QCoreApplication_libraryPaths()
+		return pTempObj
+
+	Func organizationDomain 
+		return QCoreApplication_organizationDomain()
+
+	Func organizationName 
+		return QCoreApplication_organizationName()
+
+	Func postEvent P1,P2,P3
+		return QCoreApplication_postEvent(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func processEvents P1
+		return QCoreApplication_processEvents(P1)
+
+	Func processEvents_2 P1,P2
+		return QCoreApplication_processEvents_2(P1,P2)
+
+	Func removeLibraryPath P1
+		return QCoreApplication_removeLibraryPath(P1)
+
+	Func removePostedEvents P1,P2
+		return QCoreApplication_removePostedEvents(GetObjectPointerFromRingObject(P1),P2)
+
+	Func removeTranslator P1
+		return QCoreApplication_removeTranslator(GetObjectPointerFromRingObject(P1))
+
+	Func sendEvent P1,P2
+		return QCoreApplication_sendEvent(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func sendPostedEvents P1,P2
+		return QCoreApplication_sendPostedEvents(GetObjectPointerFromRingObject(P1),P2)
+
+	Func setApplicationName P1
+		return QCoreApplication_setApplicationName(P1)
+
+	Func setApplicationVersion P1
+		return QCoreApplication_setApplicationVersion(P1)
+
+	Func setAttribute P1,P2
+		return QCoreApplication_setAttribute(P1,P2)
+
+	Func setEventDispatcher P1
+		return QCoreApplication_setEventDispatcher(GetObjectPointerFromRingObject(P1))
+
+	Func setLibraryPaths P1
+		return QCoreApplication_setLibraryPaths(GetObjectPointerFromRingObject(P1))
+
+	Func setOrganizationDomain P1
+		return QCoreApplication_setOrganizationDomain(P1)
+
+	Func setOrganizationName P1
+		return QCoreApplication_setOrganizationName(P1)
+
+	Func setQuitLockEnabled P1
+		return QCoreApplication_setQuitLockEnabled(P1)
+
+	Func setSetuidAllowed P1
+		return QCoreApplication_setSetuidAllowed(P1)
+
+	Func startingUp 
+		return QCoreApplication_startingUp()
+
+	Func testAttribute P1
+		return QCoreApplication_testAttribute(P1)
+
+	Func translate P1,P2,P3,P4
+		return QCoreApplication_translate(P1,P2,P3,P4)
 
 Class QTextBrowser from QTextEdit
 
