@@ -6999,6 +6999,9 @@ QGuiApplication Class
 C++ Reference : http://doc.qt.io/qt-5/QGuiApplication.html
 
 
+Parent Class : QCoreApplication
+
+
 Parameters : int,char **
 
 * qreal devicePixelRatio(void)
@@ -7069,6 +7072,60 @@ Parameters : int,char **
 * const char *getsaveStateRequestEvent(void)
 * const char *getscreenAddedEvent(void)
 * const char *getscreenRemovedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QCoreApplication Class
+
+QCoreApplication Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/QCoreApplication.html
+
+
+Parent Class : QObject
+
+* void installNativeEventFilter(QAbstractNativeEventFilter *filterObj)
+* void removeNativeEventFilter(QAbstractNativeEventFilter *filterObject)
+* void quit(void)
+* void addLibraryPath(QString path)
+* QString applicationDirPath(void)
+* QString applicationFilePath(void)
+* QString applicationName(void)
+* qint64 applicationPid(void)
+* QString applicationVersion(void)
+* QStringList arguments(void)
+* bool closingDown(void)
+* QAbstractEventDispatcher * eventDispatcher(void)
+* int exec(void)
+* void exit(int returnCode)
+* bool installTranslator(QTranslator *translationFile)
+* QCoreApplication * instance(void)
+* bool isQuitLockEnabled(void)
+* bool isSetuidAllowed(void)
+* QStringList libraryPaths(void)
+* QString organizationDomain(void)
+* QString organizationName(void)
+* void postEvent(QObject *receiver, QEvent *event, int priority)
+* void processEvents(QEventLoop::ProcessEventsFlags flags)
+* void processEvents_2(QEventLoop::ProcessEventsFlags flags, int maxtime)
+* void removeLibraryPath(QString path)
+* void removePostedEvents(QObject *receiver, int eventType)
+* bool removeTranslator(QTranslator *translationFile)
+* bool sendEvent(QObject *receiver, QEvent *event)
+* void sendPostedEvents(QObject *receiver, int event_type)
+* void setApplicationName(QString application)
+* void setApplicationVersion(QString version)
+* void setAttribute(Qt::ApplicationAttribute attribute, bool on)
+* void setEventDispatcher(QAbstractEventDispatcher *eventDispatcher)
+* void setLibraryPaths(QStringList paths)
+* void setOrganizationDomain(QString orgDomain)
+* void setOrganizationName(QString orgName)
+* void setQuitLockEnabled(bool enabled)
+* void setSetuidAllowed(bool allow)
+* bool startingUp(void)
+* bool testAttribute(Qt::ApplicationAttribute attribute)
+* QString translate(char *context, char *sourceText, char *disambiguation, int n)
 
 .. index::
 	pair: RingQt Classes Reference; QTextBrowser Class
