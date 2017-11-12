@@ -57,3 +57,4 @@ Options
 		-gui        : Build GUI Application (Hide the Console Window)
 		-dist	    : Prepare application for distribution 
 		-allruntime : Include all libraries in distribution
+		-noqt	    : Remove RingQt from distribution

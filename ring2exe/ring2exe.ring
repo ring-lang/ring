@@ -53,6 +53,7 @@
 		-gui        : Build GUI Application (Hide the Console Window)
 		-dist	    : Prepare application for distribution 
 		-allruntime : Include all libraries in distribution
+		-noqt	    : Remove RingQt from distribution
 		
 */
 
@@ -275,32 +276,43 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 	# Prepare Files 
 		aFiles = []
 		# copy the executable file 
+			msg("Prepare to copy the executable file to target/windows")
 			aFiles + (cBaseFolder+"\"+cFileName+".exe")
 		# Check ring.dll
-			if not find(aOptions,"-static")		
+			if not find(aOptions,"-static")	
+				msg("Prepare to copy ring.dll to target/windows")	
 				aFiles + (exefolder()+"\ring.dll")
 			ok
-		# Checll All Runtime 
-			if find(aOptions,"-allruntime")		
+		# Check All Runtime 
+			if find(aOptions,"-allruntime")	
+				msg("Prepare to copy all libraries to target/windows")	
 				aFiles + (exefolder()+"\*.dll")
-				WindowsCopyFolder(:audio)
-				WindowsCopyFolder(:bearer)
-				WindowsCopyFolder(:iconengines)
-				WindowsCopyFolder(:imageformats)
-				WindowsCopyFolder(:mediaservice)
-				WindowsCopyFolder(:platforms)
-				WindowsCopyFolder(:playlistformats)
-				WindowsCopyFolder(:position)
-				WindowsCopyFolder(:printsupport)
-				WindowsCopyFolder(:sensorgestures)
-				WindowsCopyFolder(:sqldrivers)
-				WindowsCopyFolder(:translations)
+				if not find(aOptions,"-noqt")
+					WindowsCopyFolder(:audio)
+					WindowsCopyFolder(:bearer)
+					WindowsCopyFolder(:iconengines)
+					WindowsCopyFolder(:imageformats)
+					WindowsCopyFolder(:mediaservice)
+					WindowsCopyFolder(:platforms)
+					WindowsCopyFolder(:playlistformats)
+					WindowsCopyFolder(:position)
+					WindowsCopyFolder(:printsupport)
+					WindowsCopyFolder(:sensorgestures)
+					WindowsCopyFolder(:sqldrivers)
+					WindowsCopyFolder(:translations)
+				ok
 			ok
-
 	# Copy Files
+		msg("Copy files...")
 		for cFile in aFiles 
 			systemSilent("copy " + cFile)
 		next
+	# Check No Qt 
+		if find(aOptions,"-noqt")
+			msg("Remove RingQt from target/windows")
+			WindowsDeleteFile("Qt5*.dll")
+			WindowsDeleteFile("ringqt.dll")			
+		ok
 
 func WindowsDeleteFolder cFolder
 	systemSilent("rd /s /q " + cFolder)
@@ -310,6 +322,9 @@ func WindowsCopyFolder cFolder
 	CreateOpenFolder(cFolder)
 	systemsilent("copy " + exefolder()+cFolder)
 	chdir(cParentFolder)
+
+func WindowsDeleteFile cFile 
+	systemSilent("del " + cFile)
 
 func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 	CreateOpenFolder(:linux)
