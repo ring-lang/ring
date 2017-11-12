@@ -1974,7 +1974,7 @@ Class RNoteController from WindowsControllerParent
 		next
 		if nStyle = STYLECOLOR_ART or nStyle = STYLECOLOR_ART2
 			pStyleArt_AfterControls()
-		elseif nStyle = STYLECOLOR_IMAGE  
+		but nStyle = STYLECOLOR_IMAGE  
 			pStyleImage_AfterControls()
 		ok
 
@@ -2486,9 +2486,9 @@ Class RNoteController from WindowsControllerParent
 	func OSTerminal
 		if isWindows()
 			cCommand = 'start cmd /K "cd ' + cStartupFolder + '"'
-		elseif isLinux()
+		but isLinux()
 			cCommand = "gnome-terminal"
-		elseif isMacosx()
+		but isMacosx()
 			cCommand = "open /Applications/Utilities/Terminal.app"
 		else 
 			return
