@@ -58,7 +58,10 @@
 		-noopenssl  : Remove RingOpenSSL from distribution
 		-nolibcurl  : Remove RingLibCurl from distribution
 		-nomysql    : Remove RingMySQL from distribution
+		-nosqlite   : Remove RingSQLite from distribution
+		-noopengl   : Remove RingOpenGL from distribution
 		-nofreeglut : Remove RingFreeGLUT from distribution
+
 
 */
 
@@ -367,6 +370,16 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			WindowsDeleteFile("ring_freeglut.dll")
 			WindowsDeleteFile("freeglut.dll")
 			WindowsDeleteFile("glew32.dll")
+		ok
+	# Check No SQLite 
+		if find(aOptions,"-nosqlite")
+			msg("Remove RingSQLite from target/windows")
+			WindowsDeleteFile("ring_sqlite.dll")
+		ok
+	# Check No OpenGL 
+		if find(aOptions,"-noopengl")
+			msg("Remove RingOpenGL from target/windows")
+			WindowsDeleteFile("ring_opengl*.dll")
 		ok
 
 func WindowsDeleteFolder cFolder
