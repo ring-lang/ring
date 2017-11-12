@@ -252,13 +252,13 @@ func SystemSilent cCmd
 func Make_Folder cFolder
 	SystemSilent("mkdir " + cFolder)
 
-func Create_and_open_folder cFolder
+func CreateOpenFolder cFolder
 	Make_Folder(cFolder)
 	chdir(cFolder)
 
 func Distribute cFileName,aOptions
 	cBaseFolder = currentdir()
-	Create_and_open_folder(:target)
+	CreateOpenFolder(:target)
 	if isWindows()
 		Distribute_For_Windows(cBaseFolder,cFileName,aOptions)
 	but isLinux()
@@ -269,8 +269,8 @@ func Distribute cFileName,aOptions
 
 func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 	# Delete Files 
-		windows_delete_folder("windows")
-	Create_and_open_folder(:windows)
+		WindowsDeleteFolder("windows")
+	CreateOpenFolder(:windows)
 	# Prepare Files 
 		aFiles = []
 		# copy the executable file 
@@ -282,18 +282,18 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 		# Checll All Runtime 
 			if find(aOptions,"-allruntime")		
 				aFiles + (exefolder()+"\*.dll")
-				windows_copy_folder("audio")
-				windows_copy_folder("bearer")
-				windows_copy_folder("iconengines")
-				windows_copy_folder("imageformats")
-				windows_copy_folder("mediaservice")
-				windows_copy_folder("platforms")
-				windows_copy_folder("playlistformats")
-				windows_copy_folder("position")
-				windows_copy_folder("printsupport")
-				windows_copy_folder("sensorgestures")
-				windows_copy_folder("sqldrivers")
-				windows_copy_folder("translations")
+				WindowsCopyFolder(:audio)
+				WindowsCopyFolder(:bearer)
+				WindowsCopyFolder(:iconengines)
+				WindowsCopyFolder(:imageformats)
+				WindowsCopyFolder(:mediaservice)
+				WindowsCopyFolder(:platforms)
+				WindowsCopyFolder(:playlistformats)
+				WindowsCopyFolder(:position)
+				WindowsCopyFolder(:printsupport)
+				WindowsCopyFolder(:sensorgestures)
+				WindowsCopyFolder(:sqldrivers)
+				WindowsCopyFolder(:translations)
 			ok
 
 	# Copy Files
@@ -301,18 +301,18 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			systemSilent("copy " + cFile)
 		next
 
-func windows_delete_folder cFolder
+func WindowsDeleteFolder cFolder
 	systemSilent("rd /s /q " + cFolder)
 
-func windows_copy_folder cFolder
+func WindowsCopyFolder cFolder
 	cParentFolder = currentdir()
-	Create_and_open_folder(cFolder)
+	CreateOpenFolder(cFolder)
 	systemsilent("copy " + exefolder()+cFolder)
 	chdir(cParentFolder)
 
 func Distribute_For_Linux cBaseFolder,cFileName,aOptions
-	Create_and_open_folder(:linux)
+	CreateOpenFolder(:linux)
 
 
 func Distribute_For_MaxOSX cBaseFolder,cFileName,aOptions
-	Create_and_open_folder(:macosx)
+	CreateOpenFolder(:macosx)
