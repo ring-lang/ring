@@ -321,7 +321,17 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 		if find(aOptions,"-noallegro")
 			msg("Remove RingAllegro from target/windows")
 			WindowsDeleteFile("allegro*.dll")
-			WindowsDeleteFile("ring_allegro.dll")			
+			WindowsDeleteFile("ring_allegro.dll")
+			WindowsDeleteFile("FLAC.dll")	
+			WindowsDeleteFile("freetype.dll")	
+			WindowsDeleteFile("jpeg62.dll")	
+			WindowsDeleteFile("libpng16.dll")	
+			WindowsDeleteFile("ogg.dll")	
+			WindowsDeleteFile("physfs.dll")	
+			WindowsDeleteFile("theoradec.dll")	
+			WindowsDeleteFile("vorbis.dll")	
+			WindowsDeleteFile("vorbisfile.dll")	
+			WindowsDeleteFile("zlib.dll")	
 		ok
 
 func WindowsDeleteFolder cFolder
