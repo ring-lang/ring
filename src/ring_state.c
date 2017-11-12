@@ -400,7 +400,7 @@ void ring_switchtofilefolder ( char *cFileName )
 	char cFileName2[256]  ;
 	strcpy(cFileName2,cFileName);
 	if ( ring_justfilepath(cFileName2) ) {
-		chdir(cFileName2);
+		ring_chdir(cFileName2);
 		/* Remove The Path from the file Name - Keep the File Name Only */
 		ring_justfilename(cFileName);
 		return ;
