@@ -115,6 +115,18 @@ aWindowsLibs = [
 	[:name = :allegro ,
 	 :title = "RingAllegro",
 	 :files = [
+			"allegro*.dll",
+			"ring_allegro.dll",
+			"FLAC.dll",
+			"freetype.dll",
+			"jpeg62.dll",
+			"libpng16.dll",
+			"ogg.dll",
+			"physfs.dll",
+			"theoradec.dll",
+			"vorbis.dll",
+			"vorbisfile.dll",	
+			"zlib.dll"
 	 ] 
 	],
 	[:name = :openssl ,
