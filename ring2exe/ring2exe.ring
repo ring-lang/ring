@@ -249,8 +249,11 @@ func SystemSilent cCmd
 		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
 	ok
 
-func Create_and_open_folder cFolder
+func Make_Folder cFolder
 	SystemSilent("mkdir " + cFolder)
+
+func Create_and_open_folder cFolder
+	Make_Folder(cFolder)
 	chdir(cFolder)
 
 func Distribute cFileName,aOptions
@@ -266,6 +269,8 @@ func Distribute cFileName,aOptions
 
 func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 	Create_and_open_folder(:windows)
+	# Delete Files 
+		systemSilent("del *.* /y")
 	# Prepare Files 
 		aFiles = []
 		# copy the executable file 
@@ -274,6 +279,11 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			if not find(aOptions,"-static")		
 				aFiles + (exefolder()+"\ring.dll")
 			ok
+		# Checll All Runtime 
+			if find(aOptions,"-allruntime")		
+				aFiles + (exefolder()+"\*.dll")
+			ok
+
 	# Copy Files
 		for cFile in aFiles 
 			systemSilent("copy " + cFile)
