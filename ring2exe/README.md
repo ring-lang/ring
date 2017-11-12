@@ -61,3 +61,4 @@ Options
 		-noallegro  : Remove RingAllegro from distribution
 		-noopenssl  : Remove RingOpenSSL from distribution
 		-nolibcurl  : Remove RingLibCurl from distribution
+		-nomysql    : Remove RingMySQL from distribution

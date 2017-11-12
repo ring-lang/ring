@@ -57,6 +57,7 @@
 		-noallegro  : Remove RingAllegro from distribution
 		-noopenssl  : Remove RingOpenSSL from distribution
 		-nolibcurl  : Remove RingLibCurl from distribution
+		-nomysql    : Remove RingMySQL from distribution
 		
 */
 
@@ -353,6 +354,12 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			WindowsDeleteFile("ring_internet.dll")
 			WindowsDeleteFile("libcurl.dll")
 		ok	
+	# Check No MySQL
+		if find(aOptions,"-nomysql")
+			msg("Remove RingMySQL from target/windows")
+			WindowsDeleteFile("ring_mysql.dll")
+			WindowsDeleteFile("libmysql.dll")
+		ok
 
 func WindowsDeleteFolder cFolder
 	systemSilent("rd /s /q " + cFolder)
