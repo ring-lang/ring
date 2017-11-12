@@ -333,7 +333,8 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			WindowsDeleteFile("libEGL.dll")
 			WindowsDeleteFile("libstdc++-6.dll")
 			WindowsDeleteFile("libwinpthread-1.dll")
-			WindowsDeleteFile("libGLESv2.dll")			
+			WindowsDeleteFile("libGLESv2.dll")
+			WindowsDeleteFile("D3Dcompiler_47.dll")			
 		ok
 	# Check No Allegro
 		if find(aOptions,"-noallegro")
@@ -408,7 +409,6 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			msg("Remove C Runtime from target/windows")
 			WindowsDeleteFile("msvc*.dll")
 			WindowsDeleteFile("libgcc_s_dw2-1.dll")
-			WindowsDeleteFile("D3Dcompiler_47.dll")
 		ok
 
 func WindowsDeleteFolder cFolder
