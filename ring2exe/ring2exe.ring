@@ -317,6 +317,11 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 		for cFile in aFiles 
 			systemSilent("copy " + cFile)
 		next
+	# Check no ring.dll	
+		if find(aOptions,"-static")
+			msg("Remove ring.dll")
+			WindowsDeleteFile("ring.dll")
+		ok
 	# Check No Qt 
 		if find(aOptions,"-noqt")
 			msg("Remove RingQt from target/windows")
