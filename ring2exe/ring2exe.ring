@@ -86,8 +86,30 @@ aWindowsLibs = [
 	[:name = :qt ,
 	 :title = "RingQt",
 	 :files = [
+			"Qt5*.dll",
+			"ringqt.dll",
+			"icudt54.dll",
+			"icuin54.dll",
+			"icuuc54.dll",
+			"libEGL.dll",
+			"libstdc++-6.dll",
+			"libwinpthread-1.dll",
+			"libGLESv2.dll",
+			"D3Dcompiler_47.dll"
 	 ] ,
 	 :folders = [
+			:audio,
+			:bearer,
+			:iconengines,
+			:imageformats,
+			:mediaservice,
+			:platforms,
+			:playlistformats,
+			:position,
+			:printsupport,
+			:sensorgestures,
+			:sqldrivers,
+			:translations
 	 ]
 	],
 	[:name = :allegro ,
