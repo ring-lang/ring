@@ -249,9 +249,12 @@ func SystemSilent cCmd
 		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
 	ok
 
+func Create_and_open_folder cFolder
+	SystemSilent("mkdir " + cFolder)
+	chdir(cFolder)
+
 func Distribute cFileName,aOptions
-	SystemSilent("mkdir target")
-	chdir("target")
+	Create_and_open_folder(:target)
 	if isWindows()
 		Distribute_For_Windows(cFileName,aOptions)
 	but isLinux()
@@ -261,10 +264,11 @@ func Distribute cFileName,aOptions
 	ok
 
 func Distribute_For_Windows cFileName,aOptions
-	SystemSilent("mkdir windows")
-	
+	Create_and_open_folder(:windows)
+		
 func Distribute_For_Linux cFileName,aOptions
-	SystemSilent("mkdir linux")
+	Create_and_open_folder(:linux)
+
 
 func Distribute_For_MaxOSX cFileName,aOptions
-	SystemSilent("mkdir macosx")
+	Create_and_open_folder(:macosx)
