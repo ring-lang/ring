@@ -316,6 +316,10 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			WindowsDeleteFile("icudt54.dll")		
 			WindowsDeleteFile("icuin54.dll")
 			WindowsDeleteFile("icuuc54.dll")
+			WindowsDeleteFile("libEGL.dll")
+			WindowsDeleteFile("libstdc++-6.dll")
+			WindowsDeleteFile("libwinpthread-1.dll")
+			WindowsDeleteFile("libGLESv2.dll")			
 		ok
 	# Check No Allegro
 		if find(aOptions,"-noallegro")
