@@ -68,3 +68,4 @@ Options
 		-nofreeglut 	 : Remove RingFreeGLUT from distribution
 		-nolibzip   	 : Remove RingLibZip from distribution
 		-noconsolecolors : Remove RingConsoleColors from distribution
+		-nocruntime	 : Remove C Runtime from distribution

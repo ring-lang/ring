@@ -64,7 +64,7 @@
 		-nofreeglut 	 : Remove RingFreeGLUT from distribution
 		-nolibzip   	 : Remove RingLibZip from distribution
 		-noconsolecolors : Remove RingConsoleColors from distribution
-
+		-nocruntime	 : Remove C Runtime from distribution
 */
 
 C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
@@ -397,6 +397,13 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 		if find(aOptions,"-noconsolecolors")
 			msg("Remove RingConsoleColors from target/windows")
 			WindowsDeleteFile("ring_consolecolors.dll")
+		ok
+	# Check No C Runtime
+		if find(aOptions,"-nocruntime")
+			msg("Remove C Runtime from target/windows")
+			WindowsDeleteFile("msvc*.dll")
+			WindowsDeleteFile("libgcc_s_dw2-1.dll")
+			WindowsDeleteFile("D3Dcompiler_47.dll")
 		ok
 
 func WindowsDeleteFolder cFolder
