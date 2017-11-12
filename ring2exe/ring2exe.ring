@@ -84,52 +84,64 @@ C_LINUX_NOOUTPUTNOERROR   = " > /dev/null"
 
 aWindowsLibs = [
 	[:name = :qt ,
+	 :title = "RingQt",
 	 :files = [
 	 ] ,
 	 :folders = [
 	 ]
 	],
 	[:name = :allegro ,
+	 :title = "RingAllegro",
 	 :files = [
 	 ] 
 	],
 	[:name = :openssl ,
+	 :title = "RingOpenSSL",
 	 :files = [
 	 ] 
 	],
 	[:name = :libcurl ,
+	 :title = "RingLibCurl",
 	 :files = [
 	 ] 
 	],
 	[:name = :mysql ,
+	 :title = "RingMySQL",
 	 :files = [
 	 ] 
 	],
 	[:name = :odbc ,
+	 :title = "RingODBC",
 	 :files = [
 	 ] 
 	],
 	[:name = :sqlite ,
+	 :title = "RingSQLite",
 	 :files = [
 	 ] 
 	],
 	[:name = :opengl ,
+	 :title = "RingOpenGL",
 	 :files = [
 	 ] 
 	],
 	[:name = :freeglut ,
+	 :title = "RingFreeGLUT",
 	 :files = [
 	 ] 
 	],
 	[:name = :libzip ,
+	 :title = "RingLibZip",
 	 :files = [
 	 ] 
 	],
 	[:name = :consolecolors ,
+	 :title = "RingConsoleColors",
 	 :files = [
 	 ] 
 	],
 	[:name = :cruntime ,
+	 :title = "C Runtime",
 	 :files = [
 	 ] 
 	]
