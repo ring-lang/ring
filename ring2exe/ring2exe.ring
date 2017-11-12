@@ -193,7 +193,7 @@ aWindowsLibs = [
 	[:name = :cruntime ,
 	 :title = "C Runtime",
 	 :files = [
-			"msvc*.dll"
+			"msvc*.dll",
 			"libgcc_s_dw2-1.dll"
 	 ] 
 	]
@@ -539,106 +539,21 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 					WindowsDeleteFile("libgcc_s_dw2-1.dll")
 				ok
 		else	# No -allruntime
-			# Check Qt 
-				if find(aOptions,"-qt")
-					msg("Add RingQt to target/windows")
-					WindowsCopyFolder(:audio)
-					WindowsCopyFolder(:bearer)
-					WindowsCopyFolder(:iconengines)
-					WindowsCopyFolder(:imageformats)
-					WindowsCopyFolder(:mediaservice)
-					WindowsCopyFolder(:platforms)
-					WindowsCopyFolder(:playlistformats)
-					WindowsCopyFolder(:position)
-					WindowsCopyFolder(:printsupport)
-					WindowsCopyFolder(:sensorgestures)
-					WindowsCopyFolder(:sqldrivers)
-					WindowsCopyFolder(:translations)
-					WindowsCopyFile(exefolder()+"\Qt5*.dll")
-					WindowsCopyFile(exefolder()+"\ringqt.dll")	
-					WindowsCopyFile(exefolder()+"\icudt54.dll")		
-					WindowsCopyFile(exefolder()+"\icuin54.dll")
-					WindowsCopyFile(exefolder()+"\icuuc54.dll")
-					WindowsCopyFile(exefolder()+"\libEGL.dll")
-					WindowsCopyFile(exefolder()+"\libstdc++-6.dll")
-					WindowsCopyFile(exefolder()+"\libwinpthread-1.dll")
-					WindowsCopyFile(exefolder()+"\libGLESv2.dll")
-					WindowsCopyFile(exefolder()+"\D3Dcompiler_47.dll")			
+			for aLibrary in aWindowsLibs 
+				if find(aOptions,"-"+aLibrary[:name])
+					msg("Add "+aLibrary[:title]+" to target/windows")
+					if islist(aLibrary[:folders])
+						for cLibFolder in aLibrary[:folders]
+							WindowsCopyFolder(cLibFolder)
+						next
+					ok
+					if islist(aLibrary[:files])
+						for cLibFile in aLibrary[:files]
+							WindowsCopyFile(exefolder()+"\"+cLibFile)
+						next
+					ok
 				ok
-			# Check Allegro
-				if find(aOptions,"-allegro")
-					msg("Add RingAllegro to target/windows")
-					WindowsCopyFile(exefolder()+"\allegro*.dll")
-					WindowsCopyFile(exefolder()+"\ring_allegro.dll")
-					WindowsCopyFile(exefolder()+"\FLAC.dll")	
-					WindowsCopyFile(exefolder()+"\freetype.dll")	
-					WindowsCopyFile(exefolder()+"\jpeg62.dll")	
-					WindowsCopyFile(exefolder()+"\libpng16.dll")	
-					WindowsCopyFile(exefolder()+"\ogg.dll")	
-					WindowsCopyFile(exefolder()+"\physfs.dll")	
-					WindowsCopyFile(exefolder()+"\theoradec.dll")	
-					WindowsCopyFile(exefolder()+"\vorbis.dll")	
-					WindowsCopyFile(exefolder()+"\vorbisfile.dll")	
-					WindowsCopyFile(exefolder()+"\zlib.dll")	
-				ok
-			# Check OpenSSL
-				if find(aOptions,"-openssl")
-					msg("Add RingOpenSSL to target/windows")
-					WindowsCopyFile(exefolder()+"\ring_openssl.dll")
-					WindowsCopyFile(exefolder()+"\ssleay32.dll")
-					WindowsCopyFile(exefolder()+"\libeay32.dll")
-				ok
-			# Check LibCurl
-				if find(aOptions,"-libcurl")
-					msg("Add RingLibCurl to target/windows")
-					WindowsCopyFile(exefolder()+"\ring_libcurl.dll")
-					WindowsCopyFile(exefolder()+"\ring_internet.dll")
-					WindowsCopyFile(exefolder()+"\libcurl.dll")
-				ok	
-			# Check No MySQL
-				if find(aOptions,"-mysql")
-					msg("Add RingMySQL to target/windows")
-					WindowsCopyFile(exefolder()+"\ring_mysql.dll")
-					WindowsCopyFile(exefolder()+"\libmysql.dll")
-				ok
-			# Check SQLite 
-				if find(aOptions,"-sqlite")
-					msg("Add RingSQLite to target/windows")
-					WindowsCopyFile(exefolder()+"\ring_sqlite.dll")
-				ok
-			# Check ODBC
-				if find(aOptions,"-odbc")
-					msg("Add RingODBC to target/windows")
-					WindowsCopyFile(exefolder()+"\ring_odbc.dll")
-				ok
-			# Check FreeGLUT
-				if find(aOptions,"-freeglut")
-					msg("Add RingFreeGLUT to target/windows")
-					WindowsCopyFile(exefolder()+"\ring_freeglut.dll")
-					WindowsCopyFile(exefolder()+"\freeglut.dll")
-					WindowsCopyFile(exefolder()+"\glew32.dll")
-				ok
-			# Check OpenGL 
-				if find(aOptions,"-opengl")
-					msg("Add RingOpenGL to target/windows")
-					WindowsCopyFile(exefolder()+"\ring_opengl*.dll")
-				ok
-			# Check RingLibZip
-				if find(aOptions,"-libzip")
-					msg("Add RingLibZip to target/windows")
-					WindowsCopyFile(exefolder()+"\ring_libzip.dll")
-				ok
-			# Check RingConsoleColors
-				if find(aOptions,"-consolecolors")
-					msg("Add RingConsoleColors to target/windows")
-					WindowsCopyFile(exefolder()+"\ring_consolecolors.dll")
-				ok
-			# Check C Runtime
-				if find(aOptions,"-cruntime")
-					msg("Add C Runtime to target/windows")
-					WindowsCopyFile(exefolder()+"\msvc*.dll")
-					WindowsCopyFile(exefolder()+"\libgcc_s_dw2-1.dll")
-				ok			
+			next 				
 		ok
 
 
