@@ -81,7 +81,7 @@ func Main
 			ok
 		next
 	nParaCount = len(aPara)
-	if nParaCount >= 2
+	if (nParaCount > 2) or ( nParaCount = 2 and aPara[1] != "ring" )
 		cFile = aPara[nParaCount]
 		msg("Process File : " + cFile)
 		BuildApp(cFile,aOptions)
