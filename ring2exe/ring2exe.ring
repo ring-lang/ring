@@ -51,6 +51,7 @@
 		-keep     : Don't delete Temp. Files
 		-static   : Build Standalone Executable File (Don't use ring.dll/ring.so/ring.dylib)
 		-gui      : Build GUI Application (Hide the Console Window)
+		-dist	  : Prepare application for distribution 
 		
 */
 
@@ -102,6 +103,10 @@ func BuildApp cFileName,aOptions
 	# Clear Temp Files 	
 		if not find(aOptions,"-keep")
 			cleartempfiles()
+		ok
+	# Prepare Application for distribution
+		if find(aOptions,"-dist"
+			Distribute(cFile,aOptions)
 		ok
 		msg("End of building process...")
 
@@ -244,3 +249,17 @@ func SystemSilent cCmd
 		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
 	ok
 
+func Distribute cFileName,aOptions
+	if isWindows()
+		Distribute_For_Windows(cFileName,aOptions)
+	but isLinux()
+		Distribute_For_Linux(cFileName,aOptions)
+	but isMacOSX()
+		Distribute_For_MacOSX(cFileName,aOptions)
+	ok
+
+func Distribute_For_Windows cFileName,aOptions
+
+func Distribute_For_Linux cFileName,aOptions
+
+func Distribute_For_MaxOSX cFileName,aOptions
