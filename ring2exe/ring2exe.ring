@@ -58,7 +58,8 @@
 		-noopenssl  : Remove RingOpenSSL from distribution
 		-nolibcurl  : Remove RingLibCurl from distribution
 		-nomysql    : Remove RingMySQL from distribution
-		
+		-nofreeglut : Remove RingFreeGLUT from distribution
+
 */
 
 C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
@@ -359,6 +360,13 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			msg("Remove RingMySQL from target/windows")
 			WindowsDeleteFile("ring_mysql.dll")
 			WindowsDeleteFile("libmysql.dll")
+		ok
+	# Check No FreeGLUT
+		if find(aOptions,"-nofreeglut")
+			msg("Remove RingFreeGLUT from target/windows")
+			WindowsDeleteFile("ring_freeglut.dll")
+			WindowsDeleteFile("freeglut.dll")
+			WindowsDeleteFile("glew32.dll")
 		ok
 
 func WindowsDeleteFolder cFolder
