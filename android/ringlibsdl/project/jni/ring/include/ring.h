@@ -50,6 +50,8 @@
 #define RING_OOM "\nError (E2) : Out of Memory!\n"
 #define RING_NOSCOPE "\nError (E3) : Deleting scope while no scope! \n"
 #define RING_LONGINSTRUCTION "\nError (E4) : Long VM Instruction! \n"
+/* General */
+#define RING_PATHSIZE 256
 /*
 **  Include Files 
 **  Include C Headers 

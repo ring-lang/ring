@@ -343,7 +343,7 @@ int ring_fexists ( const char *cFileName )
 int ring_currentdir ( char *cDirPath )
 {
 	int nSize  ;
-	nSize = 256 ;
+	nSize = RING_PATHSIZE ;
 	if ( !GetCurrentDir(cDirPath, nSize) ) {
 		return errno ;
 	}
@@ -354,7 +354,7 @@ int ring_currentdir ( char *cDirPath )
 int ring_exefilename ( char *cDirPath )
 {
 	unsigned int nSize  ;
-	nSize = 256 ;
+	nSize = RING_PATHSIZE ;
 	#ifdef _WIN32
 	/* Windows only */
 	GetModuleFileName(NULL,cDirPath,nSize);
@@ -378,8 +378,8 @@ int ring_chdir ( const char *cDir )
 
 void ring_exefolder ( char *cDirPath )
 {
-	char cDir[256]  ;
-	char cDir2[256]  ;
+	char cDir[RING_PATHSIZE]  ;
+	char cDir2[RING_PATHSIZE]  ;
 	int x,x2,nSize  ;
 	ring_exefilename(cDir);
 	nSize = strlen( cDir ) ;
@@ -397,7 +397,7 @@ void ring_exefolder ( char *cDirPath )
 
 void ring_switchtofilefolder ( char *cFileName )
 {
-	char cFileName2[256]  ;
+	char cFileName2[RING_PATHSIZE]  ;
 	strcpy(cFileName2,cFileName);
 	if ( ring_justfilepath(cFileName2) ) {
 		ring_chdir(cFileName2);
