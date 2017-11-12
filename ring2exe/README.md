@@ -52,18 +52,19 @@ For Linux & MacOS X
 Options
 =======
 
-		-keep       : Don't delete Temp. Files
-		-static     : Build Standalone Executable File (Don't use ring.dll/ring.so/ring.dylib)
-		-gui        : Build GUI Application (Hide the Console Window)
-		-dist	    : Prepare application for distribution 
-		-allruntime : Include all libraries in distribution
-		-noqt	    : Remove RingQt from distribution
-		-noallegro  : Remove RingAllegro from distribution
-		-noopenssl  : Remove RingOpenSSL from distribution
-		-nolibcurl  : Remove RingLibCurl from distribution
-		-nomysql    : Remove RingMySQL from distribution
-		-noodbc     : Remove RingODBC from distribution
-		-nosqlite   : Remove RingSQLite from distribution
-		-noopengl   : Remove RingOpenGL from distribution
-		-nofreeglut : Remove RingFreeGLUT from distribution
-		-nolibzip   : Remove RingLibZip from distribution
+		-keep       	 : Don't delete Temp. Files
+		-static     	 : Build Standalone Executable File (Don't use ring.dll/ring.so/ring.dylib)
+		-gui        	 : Build GUI Application (Hide the Console Window)
+		-dist	    	 : Prepare application for distribution 
+		-allruntime 	 : Include all libraries in distribution
+		-noqt	    	 : Remove RingQt from distribution
+		-noallegro 	 : Remove RingAllegro from distribution
+		-noopenssl  	 : Remove RingOpenSSL from distribution
+		-nolibcurl  	 : Remove RingLibCurl from distribution
+		-nomysql    	 : Remove RingMySQL from distribution
+		-noodbc     	 : Remove RingODBC from distribution
+		-nosqlite   	 : Remove RingSQLite from distribution
+		-noopengl   	 : Remove RingOpenGL from distribution
+		-nofreeglut 	 : Remove RingFreeGLUT from distribution
+		-nolibzip   	 : Remove RingLibZip from distribution
+		-noconsolecolors : Remove RingConsoleColors from distribution
