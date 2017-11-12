@@ -250,8 +250,8 @@ func SystemSilent cCmd
 	ok
 
 func Distribute cFileName,aOptions
-	SystemSilent("mkdir build")
-	chdir("build")
+	SystemSilent("mkdir target")
+	chdir("target")
 	if isWindows()
 		Distribute_For_Windows(cFileName,aOptions)
 	but isLinux()
