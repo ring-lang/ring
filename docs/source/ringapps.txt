@@ -182,6 +182,8 @@ I appreciate your web library."
 "Ring is an amazingly full-featured language and so well documented (the bane of most newer languages out there!)"
 	, Alex McCullie
 
+" I found the language yesterday, and liked the Qt bindings, as they give a declarative way to create a QtWidgets GUI."
+	, Cochise Cesar
 
 .. index:: 
 	pair: Applications developed in little hours; FetchStockData Application
