@@ -82,6 +82,59 @@
 C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
 C_LINUX_NOOUTPUTNOERROR   = " > /dev/null"
 
+aWindowsLibs = [
+	[:name = :qt ,
+	 :files = [
+	 ] ,
+	 :folders = [
+	 ]
+	],
+	[:name = :allegro ,
+	 :files = [
+	 ] 
+	],
+	[:name = :openssl ,
+	 :files = [
+	 ] 
+	],
+	[:name = :libcurl ,
+	 :files = [
+	 ] 
+	],
+	[:name = :mysql ,
+	 :files = [
+	 ] 
+	],
+	[:name = :odbc ,
+	 :files = [
+	 ] 
+	],
+	[:name = :sqlite ,
+	 :files = [
+	 ] 
+	],
+	[:name = :opengl ,
+	 :files = [
+	 ] 
+	],
+	[:name = :freeglut ,
+	 :files = [
+	 ] 
+	],
+	[:name = :libzip ,
+	 :files = [
+	 ] 
+	],
+	[:name = :consolecolors ,
+	 :files = [
+	 ] 
+	],
+	[:name = :cruntime ,
+	 :files = [
+	 ] 
+	]
+]
+
 func Main 
 	aPara = sysargv
 	aOptions = []
