@@ -55,6 +55,7 @@
 		-allruntime : Include all libraries in distribution
 		-noqt	    : Remove RingQt from distribution
 		-noallegro  : Remove RingAllegro from distribution
+		-noopenssl  : Remove RingOpenSSL from distribution
 		
 */
 
@@ -337,6 +338,14 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			WindowsDeleteFile("vorbisfile.dll")	
 			WindowsDeleteFile("zlib.dll")	
 		ok
+	# Check No OpenSSL
+		if find(aOptions,"-noopenssl")
+			msg("Remove RingOpenSSL from target/windows")
+			WindowsDeleteFile("ring_openssl.dll")
+			WindowsDeleteFile("ssleay32.dll")
+			WindowsDeleteFile("libeay32.dll")
+		ok
+	
 
 func WindowsDeleteFolder cFolder
 	systemSilent("rd /s /q " + cFolder)

@@ -59,3 +59,4 @@ Options
 		-allruntime : Include all libraries in distribution
 		-noqt	    : Remove RingQt from distribution
 		-noallegro  : Remove RingAllegro from distribution
+		-noopenssl  : Remove RingOpenSSL from distribution
