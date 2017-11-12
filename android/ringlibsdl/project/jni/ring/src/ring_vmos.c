@@ -119,13 +119,14 @@ void ring_vm_os_currentdir ( void *pPointer )
 void ring_vm_os_exefilename ( void *pPointer )
 {
 	char cDirPath[256]  ;
-	ring_exefilename(cDirPath);
-	RING_API_RETSTRING(cDirPath);
+	if ( ring_exefilename(cDirPath) ) {
+		RING_API_RETSTRING(cDirPath);
+	}
 }
 
 void ring_vm_os_chdir ( void *pPointer )
 {
-	ring_chdir(RING_API_GETSTRING(1));
+	RING_API_RETNUMBER(ring_chdir(RING_API_GETSTRING(1)));
 }
 
 void ring_vm_os_exefolder ( void *pPointer )

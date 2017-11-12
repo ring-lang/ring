@@ -364,14 +364,16 @@ int ring_exefilename ( char *cDirPath )
 	#elif __linux__
 	/* readlink() doesn't null terminate */
 	memset(cDirPath,0,nSize);
-	readlink("/proc/self/exe",cDirPath,nSize);
+	if ( ! readlink("/proc/self/exe",cDirPath,nSize) ) {
+		return 0 ;
+	}
 	#endif
-	return 0 ;
+	return 1 ;
 }
 
-void ring_chdir ( const char *cDir )
+int ring_chdir ( const char *cDir )
 {
-	chdir(cDir);
+	return chdir(cDir) ;
 }
 
 void ring_exefolder ( char *cDirPath )
