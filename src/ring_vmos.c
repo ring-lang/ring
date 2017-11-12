@@ -126,7 +126,7 @@ void ring_vm_os_exefilename ( void *pPointer )
 
 void ring_vm_os_chdir ( void *pPointer )
 {
-	ring_chdir(RING_API_GETSTRING(1));
+	RING_API_RETNUMBER(ring_chdir(RING_API_GETSTRING(1)));
 }
 
 void ring_vm_os_exefolder ( void *pPointer )

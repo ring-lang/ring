@@ -371,9 +371,9 @@ int ring_exefilename ( char *cDirPath )
 	return 1 ;
 }
 
-void ring_chdir ( const char *cDir )
+int ring_chdir ( const char *cDir )
 {
-	chdir(cDir);
+	return chdir(cDir) ;
 }
 
 void ring_exefolder ( char *cDirPath )
@@ -400,7 +400,7 @@ void ring_switchtofilefolder ( char *cFileName )
 	char cFileName2[256]  ;
 	strcpy(cFileName2,cFileName);
 	if ( ring_justfilepath(cFileName2) ) {
-		ring_chdir(cFileName2);
+		chdir(cFileName2);
 		/* Remove The Path from the file Name - Keep the File Name Only */
 		ring_justfilename(cFileName);
 		return ;
