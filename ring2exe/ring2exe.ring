@@ -254,19 +254,22 @@ func Create_and_open_folder cFolder
 	chdir(cFolder)
 
 func Distribute cFileName,aOptions
+	cBaseFolder = currentdir()
 	Create_and_open_folder(:target)
 	if isWindows()
-		Distribute_For_Windows(cFileName,aOptions)
+		Distribute_For_Windows(cBaseFolder,cFileName,aOptions)
 	but isLinux()
-		Distribute_For_Linux(cFileName,aOptions)
+		Distribute_For_Linux(cBaseFolder,cFileName,aOptions)
 	but isMacOSX()
-		Distribute_For_MacOSX(cFileName,aOptions)
+		Distribute_For_MacOSX(cBaseFolder,cFileName,aOptions)
 	ok
 
-func Distribute_For_Windows cFileName,aOptions
+func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 	Create_and_open_folder(:windows)
 	# Prepare Files 
 		aFiles = []
+		# copy the executable file 
+			aFiles + (cBaseFolder+"\"+cFileName+".exe")
 		# Check ring.dll
 			if not find(aOptions,"-static")		
 				aFiles + (exefolder()+"\ring.dll")
@@ -276,9 +279,9 @@ func Distribute_For_Windows cFileName,aOptions
 			systemSilent("copy " + cFile)
 		next
 
-func Distribute_For_Linux cFileName,aOptions
+func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 	Create_and_open_folder(:linux)
 
 
-func Distribute_For_MaxOSX cFileName,aOptions
+func Distribute_For_MaxOSX cBaseFolder,cFileName,aOptions
 	Create_and_open_folder(:macosx)
