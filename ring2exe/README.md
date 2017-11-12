@@ -60,3 +60,4 @@ Options
 		-noqt	    : Remove RingQt from distribution
 		-noallegro  : Remove RingAllegro from distribution
 		-noopenssl  : Remove RingOpenSSL from distribution
+		-nolibcurl  : Remove RingLibCurl from distribution

@@ -56,6 +56,7 @@
 		-noqt	    : Remove RingQt from distribution
 		-noallegro  : Remove RingAllegro from distribution
 		-noopenssl  : Remove RingOpenSSL from distribution
+		-nolibcurl  : Remove RingLibCurl from distribution
 		
 */
 
@@ -345,7 +346,13 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 			WindowsDeleteFile("ssleay32.dll")
 			WindowsDeleteFile("libeay32.dll")
 		ok
-	
+	# Check No LibCurl
+		if find(aOptions,"-nolibcurl")
+			msg("Remove RingLibCurl from target/windows")
+			WindowsDeleteFile("ring_libcurl.dll")
+			WindowsDeleteFile("ring_internet.dll")
+			WindowsDeleteFile("libcurl.dll")
+		ok	
 
 func WindowsDeleteFolder cFolder
 	systemSilent("rd /s /q " + cFolder)
