@@ -17,24 +17,24 @@
 
 Class RNoteController from WindowsControllerParent 
 
-	cActiveFileName = ""
-	aTextColor = [0,0,0]
-	aBackColor = [255,255,255]
-	cFont = 'Consolas,16,-1,5,50,0,0,0,0,0'
-	oTempFont = new qfont("",0,0,0)
-	cWebsite = "http://www.ring-lang.sf.net/doc/index.html"
-	cCurrentDir = CurrentDir() + "/"	# The Ring Notepad Folder
-	cStartUpFolder = exefolder() + "/../applications/"
-	cRingEXE = exefilename()
-	lShowProject = True
-	lShowSourceCode = True
-	lShowBrowser = True
-	lShowFunctionsList = True
-	lShowOutputWindow = True
-	lShowClassesList = True
-	lShowFormDesigner = True
-	nTabSpaces = 8
-	aBrowserLinks = [
+	cActiveFileName 	= ""
+	aTextColor 		= [0,0,0]
+	aBackColor 		= [255,255,255]
+	cFont 			= 'Consolas,16,-1,5,50,0,0,0,0,0'
+	oTempFont 		= new qfont("",0,0,0)
+	cWebsite 		= "http://www.ring-lang.sf.net/doc/index.html"
+	cCurrentDir 		= CurrentDir() + "/"	# The Ring Notepad Folder
+	cStartUpFolder 		= exefolder() + "/../applications/"
+	cRingEXE 		= exefilename()
+	lShowProject 		= True
+	lShowSourceCode 	= True
+	lShowBrowser 		= True
+	lShowFunctionsList 	= True
+	lShowOutputWindow 	= True
+	lShowClassesList 	= True
+	lShowFormDesigner 	= True
+	nTabSpaces 		= 8
+	aBrowserLinks 		= [
 		["Local Help", "file:///"+exefolder() + "../docs/build/html/index.html"],
 		["Localhost","http://localhost"],
 		["Ring Website","http://ring-lang.sf.net"],
@@ -100,27 +100,27 @@ Class RNoteController from WindowsControllerParent
 		nDefaultMode		= VIEWMODE_GENERAL
 
 
-	cSettingsFile = cCurrentDir + "ringnotepad.ini"
+	cSettingsFile 	= cCurrentDir + "ringnotepad.ini"
 	LoadSettings()
 
-	oSearch = NULL
-	oSearchValue = NULL
-	oSearchCase = NULL
-	oSearchFilter = NULL
-	oReplaceValue = NULL
+	oSearch 	= NULL
+	oSearchValue 	= NULL
+	oSearchCase 	= NULL
+	oSearchFilter 	= NULL
+	oReplaceValue 	= NULL
 
-	cSearchText = ""
-	cReplaceText = ""
+	cSearchText 	= ""
+	cReplaceText 	= ""
 
-	lAskToSave = false
+	lAskToSave 	= false
 
 	# Hash Table contains the File Name and the Line Number
 
-	aFilesLines = []	# Used to remember the current line when we switch between many files
+	aFilesLines 	= []	# Used to remember the current line when we switch between many files
 
 	# For Auto-Complete
-	oAutoCompleteList = NULL
-	nAutoCompleteListSize = 0
+	oAutoCompleteList 	= NULL
+	nAutoCompleteListSize 	= 0
 
 	MyApp win1 oFilter aBtns tool1 menu1 status1
 	tool2 oTxtMainFile
