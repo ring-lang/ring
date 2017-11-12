@@ -124,7 +124,8 @@ Class RNoteController from WindowsControllerParent
 
 	MyApp win1 oFilter aBtns tool1 menu1 status1
 	tool2 oTxtMainFile
-	Tree1 TextEdit1 oDockProjectFiles oDockSourceCode oDockWebBrowser oDockFunctionsList oDockOutputWindow oDockClassesList oDockFormDesigner
+	Tree1 TextEdit1 oDockProjectFiles oDockSourceCode oDockWebBrowser 
+	oDockFunctionsList oDockOutputWindow oDockClassesList oDockFormDesigner
 	oWebBrowser oWebView  oWBText 
 	oFile oFunctionsList oClassesList
 	oOutputWindow oProcessEditbox oProcessText oProcess
@@ -684,7 +685,6 @@ Class RNoteController from WindowsControllerParent
 					addaction(oAction)
 				}  
 				subBrowser {
-
 					for x=1 to len(this.aBrowserLinks)
 						item = this.aBrowserLinks[x]
 						oAction = new qAction(this.win1) {
@@ -733,12 +733,8 @@ Class RNoteController from WindowsControllerParent
 						}
 						addaction(oAction)
 					}
-
-
 				}
-
 				subHelp {
-
 					subHelpLF = addmenu("Language Reference")
 					subHelpLF {
 						oAction = new qAction(this.win1) {
@@ -775,15 +771,11 @@ Class RNoteController from WindowsControllerParent
 					addaction(oAction)
 				}
 			}
-
 			setmenubar(menu1)
-
 			this.status1 = new qstatusbar(this.win1) {
 				showmessage("Ready!",0)
 			}
-
 			setstatusbar(this.status1)
-
 			this.tree1 = new qtreeview(this.win1) {
 				setclickedEvent(Method(:pChangeFile))
 				setActivatedEvent(Method(:pChangeFile))
@@ -824,13 +816,11 @@ Class RNoteController from WindowsControllerParent
 					this.cWebsite = "file:///"+oDir.CurrentPath() + "/../docs/build/html/index.html"
 				ok
 			}
-
 			this.oDockProjectFiles = new qdockwidget(this.win1,0) {
 				setGeometry(00,00,200,200)
 				setwindowtitle("Project Files")
 				setwidget(this.tree1)
 			}
-
 			this.textedit1 = new codeeditor(this.win1) {
 				setCursorPositionChangedEvent(Method(:pCursorPositionChanged))
 				setLineWrapMode(QTextEdit_NoWrap)
@@ -839,13 +829,11 @@ Class RNoteController from WindowsControllerParent
 				setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
 			}
 			this.AutoComplete()
-
 			this.oACTimer = new qtimer(this.win1) {
 				setinterval(5000)
 				settimeoutevent(Method(:AutoCompleteTimer))
 				start()
 			}
-
 			new RingCodeHighLighter(this.textedit1.document() ) {
 				if ismethod(self,:setkeywordsbold) 
 					setKeywordsbold(this.lKeywordsBold)
@@ -858,13 +846,11 @@ Class RNoteController from WindowsControllerParent
 					this.aStyleColors[:SyntaxFunctionCallsColor]
 				)
 			}
-
 			this.oDockSourceCode = new qdockwidget(this.win1,0) {
 				setwidget(this.textedit1)
 				setwindowtitle("Source Code")
 				setminimumwidth(340)                                                     
                         }
-
 			this.oWebBrowser = new qWidget() {
 				setstylesheet("color: black ; background-color: rgba(239,235,231,255);")
 				setWindowFlags(Qt_SubWindow)
@@ -898,36 +884,30 @@ Class RNoteController from WindowsControllerParent
 				}
 				setLayout(oWBLayout2)
 			}
-
 			this.oDockWebBrowser = new qdockwidget(this.win1,0) {
 				setwidget(this.oWebBrowser)
 				setwindowtitle("Web Browser")
 			}
-
 			# Functions List
 			this.aFunctionsPos = []	# Lines Numbers for each function
 			this.oFunctionsList = new qListwidget(this.win1) {
 				setitemdoubleclickedEvent(Method(:pSelectFunction))
 				setitemactivatedEvent(Method(:pSelectFunction))
 			}
-
 			this.oDockFunctionsList = new qDockwidget(this.win1,0) {
 				setWidget(this.oFunctionsList)
 				setwindowtitle("Functions")
 			}
-
 			# Classes List
 			this.aClassesPos = []	# Lines Numbers for each class
 			this.oClassesList = new qListwidget(this.win1) {
 				setitemdoubleclickedEvent(Method(:pSelectClass))
 				setitemactivatedEvent(Method(:pSelectClass))
 			}
-
 			this.oDockClassesList = new qDockwidget(this.win1,0) {
 				setWidget(this.oClassesList)
 				setwindowtitle("Classes")
 			}
-
 			# Output Window
 			this.oProcess = NULL
 			this.oOutputWindow = new qWidget()
@@ -952,7 +932,6 @@ Class RNoteController from WindowsControllerParent
                 		Addwidget(oClearbtn)
 			}
 			this.oProcessEditbox = new qPlaintextedit(this.oOutputWindow) 
-
 			oProcessLayout2 = new qvboxlayout() {
 				addWidget(this.oProcesseditbox)
 				addlayout(oProcesslayout1)
