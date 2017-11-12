@@ -62,7 +62,7 @@
 		-nosqlite   : Remove RingSQLite from distribution
 		-noopengl   : Remove RingOpenGL from distribution
 		-nofreeglut : Remove RingFreeGLUT from distribution
-
+		-nolibzip   : Remove RingLibZip from distribution
 
 */
 
@@ -386,6 +386,11 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 		if find(aOptions,"-noopengl")
 			msg("Remove RingOpenGL from target/windows")
 			WindowsDeleteFile("ring_opengl*.dll")
+		ok
+	# Check No RingLibZip
+		if find(aOptions,"-nolibzip")
+			msg("Remove RingLibZip from target/windows")
+			WindowsDeleteFile("ring_libzip.dll")
 		ok
 
 func WindowsDeleteFolder cFolder

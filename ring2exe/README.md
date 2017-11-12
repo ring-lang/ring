@@ -66,3 +66,4 @@ Options
 		-nosqlite   : Remove RingSQLite from distribution
 		-noopengl   : Remove RingOpenGL from distribution
 		-nofreeglut : Remove RingFreeGLUT from distribution
+		-nolibzip   : Remove RingLibZip from distribution
