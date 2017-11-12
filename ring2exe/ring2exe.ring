@@ -54,6 +54,7 @@
 		-dist	    : Prepare application for distribution 
 		-allruntime : Include all libraries in distribution
 		-noqt	    : Remove RingQt from distribution
+		-noallegro  : Remove RingAllegro from distribution
 		
 */
 
@@ -311,7 +312,16 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 		if find(aOptions,"-noqt")
 			msg("Remove RingQt from target/windows")
 			WindowsDeleteFile("Qt5*.dll")
-			WindowsDeleteFile("ringqt.dll")			
+			WindowsDeleteFile("ringqt.dll")	
+			WindowsDeleteFile("icudt54.dll")		
+			WindowsDeleteFile("icuin54.dll")
+			WindowsDeleteFile("icuuc54.dll")
+		ok
+	# Check No Allegro
+		if find(aOptions,"-noallegro")
+			msg("Remove RingAllegro from target/windows")
+			WindowsDeleteFile("allegro*.dll")
+			WindowsDeleteFile("ring_allegro.dll")			
 		ok
 
 func WindowsDeleteFolder cFolder
@@ -328,7 +338,6 @@ func WindowsDeleteFile cFile
 
 func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 	CreateOpenFolder(:linux)
-
 
 func Distribute_For_MaxOSX cBaseFolder,cFileName,aOptions
 	CreateOpenFolder(:macosx)
