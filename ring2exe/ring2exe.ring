@@ -105,7 +105,7 @@ func BuildApp cFileName,aOptions
 			cleartempfiles()
 		ok
 	# Prepare Application for distribution
-		if find(aOptions,"-dist"
+		if find(aOptions,"-dist")
 			Distribute(cFile,aOptions)
 		ok
 		msg("End of building process...")
@@ -250,6 +250,8 @@ func SystemSilent cCmd
 	ok
 
 func Distribute cFileName,aOptions
+	SystemSilent("mkdir build")
+	chdir("build")
 	if isWindows()
 		Distribute_For_Windows(cFileName,aOptions)
 	but isLinux()
@@ -259,7 +261,10 @@ func Distribute cFileName,aOptions
 	ok
 
 func Distribute_For_Windows cFileName,aOptions
-
+	SystemSilent("mkdir windows")
+	
 func Distribute_For_Linux cFileName,aOptions
+	SystemSilent("mkdir linux")
 
 func Distribute_For_MaxOSX cFileName,aOptions
+	SystemSilent("mkdir macosx")
