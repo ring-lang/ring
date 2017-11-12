@@ -986,55 +986,51 @@ Class RNoteController from WindowsControllerParent
 		oWebView.Back()
 
 	func pProject
-		if oDockProjectFiles.isvisible()
-			oDockProjectFiles.hide()
-		else
-			oDockProjectFiles.Show()
-		ok
+		oDockProjectFiles { if isvisible() hide() else Show() ok }
 
 	func pSourceCode
-		if oDockSourceCode.isvisible()
-			oDockSourceCode.hide()
-		else
-			oDockSourceCode.Show()
-		ok
+		oDockSourceCode   { if isvisible() hide() else Show() ok }
 
 	func pWebBrowser
-		if oDockWebBrowser.isvisible()
-			oDockWebBrowser.hide()
-		else
-			oDockWebBrowser.Show()
-		ok
+		oDockWebBrowser	  { if isvisible() hide() else Show() ok }
 
 	func pFunctionsList
-		if oDockFunctionsList.isvisible()
-			oDockFunctionsList.hide()
-		else
-			oDockFunctionsList.Show()
-			DisplayFunctionsList()
-		ok
+		oDockFunctionsList {
+			if isvisible()
+				hide()
+			else
+				Show()
+				this.DisplayFunctionsList()
+			ok
+		}
 
 	func pClassesList
-		if oDockClassesList.isvisible()
-			oDockClassesList.hide()
-		else
-			oDockClassesList.Show()
-			DisplayClassesList()
-		ok
+		oDockClassesList {
+			if isvisible()
+				hide()
+			else
+				Show()
+				this.DisplayClassesList()
+			ok
+		}
 
 	func pOutputWindow
-		if oDockOutputWindow.isvisible()
-			oDockOutputWindow.hide()
-		else
-			oDockOutputWindow.Show()
-		ok
+		oDockOutputWindow {
+			if isvisible()
+				hide()
+			else
+				Show()
+			ok	
+		}
 
 	func pFormDesignerWindow
-		if oDockFormDesigner.isvisible()
-			oDockFormDesigner.hide()
-		else
-			oDockFormDesigner.Show()
-		ok
+		oDockFormDesigner {
+			if isvisible()
+				hide()
+			else
+				Show()
+			ok
+		}
 
 	func pCheckSaveBeforeChange
 		if cActiveFileName = NULL return ok
