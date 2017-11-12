@@ -69,3 +69,15 @@ Options
 		-nolibzip   	 : Remove RingLibZip from distribution
 		-noconsolecolors : Remove RingConsoleColors from distribution
 		-nocruntime	 : Remove C Runtime from distribution
+		-qt	    	 : Add RingQt to distribution
+		-allegro 	 : Add RingAllegro to distribution
+		-openssl  	 : Add RingOpenSSL to distribution
+		-libcurl  	 : Add RingLibCurl to distribution
+		-mysql    	 : Add RingMySQL to distribution
+		-odbc     	 : Add RingODBC to distribution
+		-sqlite   	 : Add RingSQLite to distribution
+		-opengl   	 : Add RingOpenGL to distribution
+		-freeglut 	 : Add RingFreeGLUT to distribution
+		-libzip   	 : Add RingLibZip to distribution
+		-consolecolors   : Add RingConsoleColors to distribution
+		-cruntime	 : Add C Runtime to distribution

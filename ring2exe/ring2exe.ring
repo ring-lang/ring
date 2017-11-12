@@ -65,6 +65,18 @@
 		-nolibzip   	 : Remove RingLibZip from distribution
 		-noconsolecolors : Remove RingConsoleColors from distribution
 		-nocruntime	 : Remove C Runtime from distribution
+		-qt	    	 : Add RingQt to distribution
+		-allegro 	 : Add RingAllegro to distribution
+		-openssl  	 : Add RingOpenSSL to distribution
+		-libcurl  	 : Add RingLibCurl to distribution
+		-mysql    	 : Add RingMySQL to distribution
+		-odbc     	 : Add RingODBC to distribution
+		-sqlite   	 : Add RingSQLite to distribution
+		-opengl   	 : Add RingOpenGL to distribution
+		-freeglut 	 : Add RingFreeGLUT to distribution
+		-libzip   	 : Add RingLibZip to distribution
+		-consolecolors   : Add RingConsoleColors to distribution
+		-cruntime	 : Add C Runtime to distribution
 */
 
 C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
@@ -284,20 +296,135 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 		WindowsDeleteFolder("windows")
 	CreateOpenFolder(:windows)
 	# Prepare Files 
-		aFiles = []
-		# copy the executable file 
-			msg("Prepare to copy the executable file to target/windows")
-			aFiles + (cBaseFolder+"\"+cFileName+".exe")
-		# Check ring.dll
-			if not find(aOptions,"-static")	
-				msg("Prepare to copy ring.dll to target/windows")	
-				aFiles + (exefolder()+"\ring.dll")
+	aFiles = []
+	# copy the executable file 
+		msg("Copy the executable file to target/windows")
+		WindowsCopyFile(cBaseFolder+"\"+cFileName+".exe")
+	# Check ring.dll
+		if not find(aOptions,"-static")	
+			msg("Copy ring.dll to target/windows")	
+			WindowsCopyFile(exefolder()+"\ring.dll")
+		ok
+	# Check All Runtime 
+		if find(aOptions,"-allruntime")	
+			msg("Prepare to copy all libraries to target/windows")	
+			aFiles + (exefolder()+"\*.dll")
+			if not find(aOptions,"-noqt")
+				WindowsCopyFolder(:audio)
+				WindowsCopyFolder(:bearer)
+				WindowsCopyFolder(:iconengines)
+				WindowsCopyFolder(:imageformats)
+				WindowsCopyFolder(:mediaservice)
+				WindowsCopyFolder(:platforms)
+				WindowsCopyFolder(:playlistformats)
+				WindowsCopyFolder(:position)
+				WindowsCopyFolder(:printsupport)
+				WindowsCopyFolder(:sensorgestures)
+				WindowsCopyFolder(:sqldrivers)
+				WindowsCopyFolder(:translations)
 			ok
-		# Check All Runtime 
-			if find(aOptions,"-allruntime")	
-				msg("Prepare to copy all libraries to target/windows")	
-				aFiles + (exefolder()+"\*.dll")
-				if not find(aOptions,"-noqt")
+			# Copy Files
+				msg("Copy files...")
+				for cFile in aFiles 
+					systemSilent("copy " + cFile)
+				next
+			# Check no ring.dll	
+				if find(aOptions,"-static")
+					msg("Remove ring.dll")
+					WindowsDeleteFile("ring.dll")
+				ok
+			# Check No Qt 
+				if find(aOptions,"-noqt")
+					msg("Remove RingQt from target/windows")
+					WindowsDeleteFile("Qt5*.dll")
+					WindowsDeleteFile("ringqt.dll")	
+					WindowsDeleteFile("icudt54.dll")		
+					WindowsDeleteFile("icuin54.dll")
+					WindowsDeleteFile("icuuc54.dll")
+					WindowsDeleteFile("libEGL.dll")
+					WindowsDeleteFile("libstdc++-6.dll")
+					WindowsDeleteFile("libwinpthread-1.dll")
+					WindowsDeleteFile("libGLESv2.dll")
+					WindowsDeleteFile("D3Dcompiler_47.dll")			
+				ok
+			# Check No Allegro
+				if find(aOptions,"-noallegro")
+					msg("Remove RingAllegro from target/windows")
+					WindowsDeleteFile("allegro*.dll")
+					WindowsDeleteFile("ring_allegro.dll")
+					WindowsDeleteFile("FLAC.dll")	
+					WindowsDeleteFile("freetype.dll")	
+					WindowsDeleteFile("jpeg62.dll")	
+					WindowsDeleteFile("libpng16.dll")	
+					WindowsDeleteFile("ogg.dll")	
+					WindowsDeleteFile("physfs.dll")	
+					WindowsDeleteFile("theoradec.dll")	
+					WindowsDeleteFile("vorbis.dll")	
+					WindowsDeleteFile("vorbisfile.dll")	
+					WindowsDeleteFile("zlib.dll")	
+				ok
+			# Check No OpenSSL
+				if find(aOptions,"-noopenssl")
+					msg("Remove RingOpenSSL from target/windows")
+					WindowsDeleteFile("ring_openssl.dll")
+					WindowsDeleteFile("ssleay32.dll")
+					WindowsDeleteFile("libeay32.dll")
+				ok
+			# Check No LibCurl
+				if find(aOptions,"-nolibcurl")
+					msg("Remove RingLibCurl from target/windows")
+					WindowsDeleteFile("ring_libcurl.dll")
+					WindowsDeleteFile("ring_internet.dll")
+					WindowsDeleteFile("libcurl.dll")
+				ok	
+			# Check No MySQL
+				if find(aOptions,"-nomysql")
+					msg("Remove RingMySQL from target/windows")
+					WindowsDeleteFile("ring_mysql.dll")
+					WindowsDeleteFile("libmysql.dll")
+				ok
+			# Check No SQLite 
+				if find(aOptions,"-nosqlite")
+					msg("Remove RingSQLite from target/windows")
+					WindowsDeleteFile("ring_sqlite.dll")
+				ok
+			# Check No ODBC
+				if find(aOptions,"-noodbc")
+					msg("Remove RingODBC from target/windows")
+					WindowsDeleteFile("ring_odbc.dll")
+				ok
+			# Check No FreeGLUT
+				if find(aOptions,"-nofreeglut")
+					msg("Remove RingFreeGLUT from target/windows")
+					WindowsDeleteFile("ring_freeglut.dll")
+					WindowsDeleteFile("freeglut.dll")
+					WindowsDeleteFile("glew32.dll")
+				ok
+			# Check No OpenGL 
+				if find(aOptions,"-noopengl")
+					msg("Remove RingOpenGL from target/windows")
+					WindowsDeleteFile("ring_opengl*.dll")
+				ok
+			# Check No RingLibZip
+				if find(aOptions,"-nolibzip")
+					msg("Remove RingLibZip from target/windows")
+					WindowsDeleteFile("ring_libzip.dll")
+				ok
+			# Check No RingConsoleColors
+				if find(aOptions,"-noconsolecolors")
+					msg("Remove RingConsoleColors from target/windows")
+					WindowsDeleteFile("ring_consolecolors.dll")
+				ok
+			# Check No C Runtime
+				if find(aOptions,"-nocruntime")
+					msg("Remove C Runtime from target/windows")
+					WindowsDeleteFile("msvc*.dll")
+					WindowsDeleteFile("libgcc_s_dw2-1.dll")
+				ok
+		else	# No -allruntime
+			# Check Qt 
+				if find(aOptions,"-qt")
+					msg("Add RingQt to target/windows")
 					WindowsCopyFolder(:audio)
 					WindowsCopyFolder(:bearer)
 					WindowsCopyFolder(:iconengines)
@@ -310,106 +437,93 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 					WindowsCopyFolder(:sensorgestures)
 					WindowsCopyFolder(:sqldrivers)
 					WindowsCopyFolder(:translations)
+					WindowsCopyFile(exefolder()+"\Qt5*.dll")
+					WindowsCopyFile(exefolder()+"\ringqt.dll")	
+					WindowsCopyFile(exefolder()+"\icudt54.dll")		
+					WindowsCopyFile(exefolder()+"\icuin54.dll")
+					WindowsCopyFile(exefolder()+"\icuuc54.dll")
+					WindowsCopyFile(exefolder()+"\libEGL.dll")
+					WindowsCopyFile(exefolder()+"\libstdc++-6.dll")
+					WindowsCopyFile(exefolder()+"\libwinpthread-1.dll")
+					WindowsCopyFile(exefolder()+"\libGLESv2.dll")
+					WindowsCopyFile(exefolder()+"\D3Dcompiler_47.dll")			
 				ok
-			ok
-	# Copy Files
-		msg("Copy files...")
-		for cFile in aFiles 
-			systemSilent("copy " + cFile)
-		next
-	# Check no ring.dll	
-		if find(aOptions,"-static")
-			msg("Remove ring.dll")
-			WindowsDeleteFile("ring.dll")
+			# Check Allegro
+				if find(aOptions,"-allegro")
+					msg("Add RingAllegro to target/windows")
+					WindowsCopyFile(exefolder()+"\allegro*.dll")
+					WindowsCopyFile(exefolder()+"\ring_allegro.dll")
+					WindowsCopyFile(exefolder()+"\FLAC.dll")	
+					WindowsCopyFile(exefolder()+"\freetype.dll")	
+					WindowsCopyFile(exefolder()+"\jpeg62.dll")	
+					WindowsCopyFile(exefolder()+"\libpng16.dll")	
+					WindowsCopyFile(exefolder()+"\ogg.dll")	
+					WindowsCopyFile(exefolder()+"\physfs.dll")	
+					WindowsCopyFile(exefolder()+"\theoradec.dll")	
+					WindowsCopyFile(exefolder()+"\vorbis.dll")	
+					WindowsCopyFile(exefolder()+"\vorbisfile.dll")	
+					WindowsCopyFile(exefolder()+"\zlib.dll")	
+				ok
+			# Check OpenSSL
+				if find(aOptions,"-openssl")
+					msg("Add RingOpenSSL to target/windows")
+					WindowsCopyFile(exefolder()+"\ring_openssl.dll")
+					WindowsCopyFile(exefolder()+"\ssleay32.dll")
+					WindowsCopyFile(exefolder()+"\libeay32.dll")
+				ok
+			# Check LibCurl
+				if find(aOptions,"-libcurl")
+					msg("Add RingLibCurl to target/windows")
+					WindowsCopyFile(exefolder()+"\ring_libcurl.dll")
+					WindowsCopyFile(exefolder()+"\ring_internet.dll")
+					WindowsCopyFile(exefolder()+"\libcurl.dll")
+				ok	
+			# Check No MySQL
+				if find(aOptions,"-mysql")
+					msg("Add RingMySQL to target/windows")
+					WindowsCopyFile(exefolder()+"\ring_mysql.dll")
+					WindowsCopyFile(exefolder()+"\libmysql.dll")
+				ok
+			# Check SQLite 
+				if find(aOptions,"-sqlite")
+					msg("Add RingSQLite to target/windows")
+					WindowsCopyFile(exefolder()+"\ring_sqlite.dll")
+				ok
+			# Check ODBC
+				if find(aOptions,"-odbc")
+					msg("Add RingODBC to target/windows")
+					WindowsCopyFile(exefolder()+"\ring_odbc.dll")
+				ok
+			# Check FreeGLUT
+				if find(aOptions,"-freeglut")
+					msg("Add RingFreeGLUT to target/windows")
+					WindowsCopyFile(exefolder()+"\ring_freeglut.dll")
+					WindowsCopyFile(exefolder()+"\freeglut.dll")
+					WindowsCopyFile(exefolder()+"\glew32.dll")
+				ok
+			# Check OpenGL 
+				if find(aOptions,"-opengl")
+					msg("Add RingOpenGL to target/windows")
+					WindowsCopyFile(exefolder()+"\ring_opengl*.dll")
+				ok
+			# Check RingLibZip
+				if find(aOptions,"-libzip")
+					msg("Add RingLibZip to target/windows")
+					WindowsCopyFile(exefolder()+"\ring_libzip.dll")
+				ok
+			# Check RingConsoleColors
+				if find(aOptions,"-consolecolors")
+					msg("Add RingConsoleColors to target/windows")
+					WindowsCopyFile(exefolder()+"\ring_consolecolors.dll")
+				ok
+			# Check C Runtime
+				if find(aOptions,"-cruntime")
+					msg("Add C Runtime to target/windows")
+					WindowsCopyFile(exefolder()+"\msvc*.dll")
+					WindowsCopyFile(exefolder()+"\libgcc_s_dw2-1.dll")
+				ok			
 		ok
-	# Check No Qt 
-		if find(aOptions,"-noqt")
-			msg("Remove RingQt from target/windows")
-			WindowsDeleteFile("Qt5*.dll")
-			WindowsDeleteFile("ringqt.dll")	
-			WindowsDeleteFile("icudt54.dll")		
-			WindowsDeleteFile("icuin54.dll")
-			WindowsDeleteFile("icuuc54.dll")
-			WindowsDeleteFile("libEGL.dll")
-			WindowsDeleteFile("libstdc++-6.dll")
-			WindowsDeleteFile("libwinpthread-1.dll")
-			WindowsDeleteFile("libGLESv2.dll")
-			WindowsDeleteFile("D3Dcompiler_47.dll")			
-		ok
-	# Check No Allegro
-		if find(aOptions,"-noallegro")
-			msg("Remove RingAllegro from target/windows")
-			WindowsDeleteFile("allegro*.dll")
-			WindowsDeleteFile("ring_allegro.dll")
-			WindowsDeleteFile("FLAC.dll")	
-			WindowsDeleteFile("freetype.dll")	
-			WindowsDeleteFile("jpeg62.dll")	
-			WindowsDeleteFile("libpng16.dll")	
-			WindowsDeleteFile("ogg.dll")	
-			WindowsDeleteFile("physfs.dll")	
-			WindowsDeleteFile("theoradec.dll")	
-			WindowsDeleteFile("vorbis.dll")	
-			WindowsDeleteFile("vorbisfile.dll")	
-			WindowsDeleteFile("zlib.dll")	
-		ok
-	# Check No OpenSSL
-		if find(aOptions,"-noopenssl")
-			msg("Remove RingOpenSSL from target/windows")
-			WindowsDeleteFile("ring_openssl.dll")
-			WindowsDeleteFile("ssleay32.dll")
-			WindowsDeleteFile("libeay32.dll")
-		ok
-	# Check No LibCurl
-		if find(aOptions,"-nolibcurl")
-			msg("Remove RingLibCurl from target/windows")
-			WindowsDeleteFile("ring_libcurl.dll")
-			WindowsDeleteFile("ring_internet.dll")
-			WindowsDeleteFile("libcurl.dll")
-		ok	
-	# Check No MySQL
-		if find(aOptions,"-nomysql")
-			msg("Remove RingMySQL from target/windows")
-			WindowsDeleteFile("ring_mysql.dll")
-			WindowsDeleteFile("libmysql.dll")
-		ok
-	# Check No SQLite 
-		if find(aOptions,"-nosqlite")
-			msg("Remove RingSQLite from target/windows")
-			WindowsDeleteFile("ring_sqlite.dll")
-		ok
-	# Check No ODBC
-		if find(aOptions,"-noodbc")
-			msg("Remove RingODBC from target/windows")
-			WindowsDeleteFile("ring_odbc.dll")
-		ok
-	# Check No FreeGLUT
-		if find(aOptions,"-nofreeglut")
-			msg("Remove RingFreeGLUT from target/windows")
-			WindowsDeleteFile("ring_freeglut.dll")
-			WindowsDeleteFile("freeglut.dll")
-			WindowsDeleteFile("glew32.dll")
-		ok
-	# Check No OpenGL 
-		if find(aOptions,"-noopengl")
-			msg("Remove RingOpenGL from target/windows")
-			WindowsDeleteFile("ring_opengl*.dll")
-		ok
-	# Check No RingLibZip
-		if find(aOptions,"-nolibzip")
-			msg("Remove RingLibZip from target/windows")
-			WindowsDeleteFile("ring_libzip.dll")
-		ok
-	# Check No RingConsoleColors
-		if find(aOptions,"-noconsolecolors")
-			msg("Remove RingConsoleColors from target/windows")
-			WindowsDeleteFile("ring_consolecolors.dll")
-		ok
-	# Check No C Runtime
-		if find(aOptions,"-nocruntime")
-			msg("Remove C Runtime from target/windows")
-			WindowsDeleteFile("msvc*.dll")
-			WindowsDeleteFile("libgcc_s_dw2-1.dll")
-		ok
+
 
 func WindowsDeleteFolder cFolder
 	systemSilent("rd /s /q " + cFolder)
@@ -422,6 +536,9 @@ func WindowsCopyFolder cFolder
 
 func WindowsDeleteFile cFile 
 	systemSilent("del " + cFile)
+
+func WindowsCopyFile cFile 
+	systemSilent("copy " + cFile)
 
 func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 	CreateOpenFolder(:linux)
