@@ -1,6 +1,11 @@
-rem The First Method
-call "C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
+echo off
+cls
 
-rem The Second Method
-set VSCMD_START_DIR=%cd%
-call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"
+if exist "C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" (
+	call "C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
+)
+
+if exist "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" (
+	set VSCMD_START_DIR=%cd%
+	call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat"
+)
