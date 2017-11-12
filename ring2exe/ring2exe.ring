@@ -268,9 +268,9 @@ func Distribute cFileName,aOptions
 	ok
 
 func Distribute_For_Windows cBaseFolder,cFileName,aOptions
-	Create_and_open_folder(:windows)
 	# Delete Files 
-		systemSilent("del *.* /y")
+		windows_delete_folder("windows")
+	Create_and_open_folder(:windows)
 	# Prepare Files 
 		aFiles = []
 		# copy the executable file 
@@ -282,12 +282,33 @@ func Distribute_For_Windows cBaseFolder,cFileName,aOptions
 		# Checll All Runtime 
 			if find(aOptions,"-allruntime")		
 				aFiles + (exefolder()+"\*.dll")
+				windows_copy_folder("audio")
+				windows_copy_folder("bearer")
+				windows_copy_folder("iconengines")
+				windows_copy_folder("imageformats")
+				windows_copy_folder("mediaservice")
+				windows_copy_folder("platforms")
+				windows_copy_folder("playlistformats")
+				windows_copy_folder("position")
+				windows_copy_folder("printsupport")
+				windows_copy_folder("sensorgestures")
+				windows_copy_folder("sqldrivers")
+				windows_copy_folder("translations")
 			ok
 
 	# Copy Files
 		for cFile in aFiles 
 			systemSilent("copy " + cFile)
 		next
+
+func windows_delete_folder cFolder
+	systemSilent("rd /s /q " + cFolder)
+
+func windows_copy_folder cFolder
+	cParentFolder = currentdir()
+	Create_and_open_folder(cFolder)
+	systemsilent("copy " + exefolder()+cFolder)
+	chdir(cParentFolder)
 
 func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 	Create_and_open_folder(:linux)
