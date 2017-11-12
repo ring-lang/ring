@@ -140,46 +140,61 @@ aWindowsLibs = [
 	[:name = :libcurl ,
 	 :title = "RingLibCurl",
 	 :files = [
+			"ring_libcurl.dll",
+			"ring_internet.dll",
+			"libcurl.dll"
 	 ] 
 	],
 	[:name = :mysql ,
 	 :title = "RingMySQL",
 	 :files = [
+			"ring_mysql.dll",
+			"libmysql.dll"
 	 ] 
 	],
 	[:name = :odbc ,
 	 :title = "RingODBC",
 	 :files = [
+			"ring_odbc.dll"
 	 ] 
 	],
 	[:name = :sqlite ,
 	 :title = "RingSQLite",
 	 :files = [
+			"ring_sqlite.dll"
 	 ] 
 	],
 	[:name = :opengl ,
 	 :title = "RingOpenGL",
 	 :files = [
+			"ring_opengl*.dll"
 	 ] 
 	],
 	[:name = :freeglut ,
 	 :title = "RingFreeGLUT",
 	 :files = [
+			"ring_freeglut.dll",
+			"freeglut.dll",
+			"glew32.dll"
 	 ] 
 	],
 	[:name = :libzip ,
 	 :title = "RingLibZip",
 	 :files = [
+			"ring_libzip.dll"
 	 ] 
 	],
 	[:name = :consolecolors ,
 	 :title = "RingConsoleColors",
 	 :files = [
+			"ring_consolecolors.dll"
 	 ] 
 	],
 	[:name = :cruntime ,
 	 :title = "C Runtime",
 	 :files = [
+			"msvc*.dll"
+			"libgcc_s_dw2-1.dll"
 	 ] 
 	]
 ]
