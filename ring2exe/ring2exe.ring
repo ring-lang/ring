@@ -265,7 +265,17 @@ func Distribute cFileName,aOptions
 
 func Distribute_For_Windows cFileName,aOptions
 	Create_and_open_folder(:windows)
-		
+	# Prepare Files 
+		aFiles = []
+		# Check ring.dll
+			if not find(aOptions,"-static")		
+				aFiles + (exefolder()+"\ring.dll")
+			ok
+	# Copy Files
+		for cFile in aFiles 
+			systemSilent("copy " + cFile)
+		next
+
 func Distribute_For_Linux cFileName,aOptions
 	Create_and_open_folder(:linux)
 
