@@ -132,6 +132,9 @@ aWindowsLibs = [
 	[:name = :openssl ,
 	 :title = "RingOpenSSL",
 	 :files = [
+			"ring_openssl.dll",
+			"ssleay32.dll",
+			"libeay32.dll"
 	 ] 
 	],
 	[:name = :libcurl ,
