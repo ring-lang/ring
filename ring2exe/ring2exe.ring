@@ -520,7 +520,7 @@ func Distribute_For_Linux cBaseFolder,cFileName,aOptions
 	# Check ring.so
 		if not find(aOptions,"-static")	
 			msg("Copy ring.so to target/linux/lib")	
-			LinuxCopyFile(exefolder()+"/../lib/ring.so")
+			LinuxCopyFile(exefolder()+"/../lib/libring.so")
 		ok
 
 
@@ -532,7 +532,7 @@ func LinuxDeleteFile cFile
 	systemSilent("rm " + cFile)
 
 func LinuxCopyFile cFile 
-	systemSilent("cp " + cFile + " %cd%")
+	systemSilent("cp " + cFile + " .")
 
 func Distribute_For_MaxOSX cBaseFolder,cFileName,aOptions
 	CreateOpenFolder(:macosx)
