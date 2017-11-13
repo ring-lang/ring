@@ -456,25 +456,25 @@ func SystemSilent cCmd
 		system(cCmd + C_LINUX_NOOUTPUTNOERROR)
 	ok
 
-func Make_Folder cFolder
+func MakeFolder cFolder
 	SystemSilent("mkdir -p " + cFolder)
 
 func CreateOpenFolder cFolder
-	Make_Folder(cFolder)
+	MakeFolder(cFolder)
 	chdir(cFolder)
 
 func Distribute cFileName,aOptions
 	cBaseFolder = currentdir()
 	CreateOpenFolder(:target)
 	if isWindows()
-		Distribute_For_Windows(cBaseFolder,cFileName,aOptions)
+		DistributeForWindows(cBaseFolder,cFileName,aOptions)
 	but isLinux()
-		Distribute_For_Linux(cBaseFolder,cFileName,aOptions)
+		DistributeForLinux(cBaseFolder,cFileName,aOptions)
 	but isMacOSX()
-		Distribute_For_MacOSX(cBaseFolder,cFileName,aOptions)
+		DistributeForMacOSX(cBaseFolder,cFileName,aOptions)
 	ok
 
-func Distribute_For_Windows cBaseFolder,cFileName,aOptions
+func DistributeForWindows cBaseFolder,cFileName,aOptions
 	# Delete Files 
 		WindowsDeleteFolder("windows")
 	CreateOpenFolder(:windows)
@@ -539,7 +539,7 @@ func WindowsDeleteFile cFile
 func WindowsCopyFile cFile 
 	systemSilent("copy " + cFile)
 
-func Distribute_For_Linux cBaseFolder,cFileName,aOptions
+func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# Delete Files 
 		LinuxDeleteFolder(:linux)
 	CreateOpenFolder(:linux)
@@ -601,7 +601,7 @@ func MacOSXDeleteFile cFile
 func MacOSXCopyFile cFile 
 	LinuxCopyFile(cFile)
 
-func Distribute_For_MaxOSX cBaseFolder,cFileName,aOptions
+func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# Delete Files 
 		MacOSXDeleteFolder(:macosx)
 	CreateOpenFolder(:macosx)
